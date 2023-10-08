@@ -1,0 +1,2534 @@
+WEBVTT
+
+00:00.000 --> 00:02.700
+ The following is a conversation with Sean Carroll.
+
+00:02.700 --> 00:04.900
+ He's a theoretical physicist at Caltech
+
+00:04.900 --> 00:08.780
+ specializing in quantum mechanics, gravity, and cosmology.
+
+00:08.780 --> 00:11.620
+ He's the author of several popular books,
+
+00:11.620 --> 00:15.340
+ one on the arrow of time called From Eternity to Here,
+
+00:15.340 --> 00:17.820
+ one on the Higgs boson called Particle
+
+00:17.820 --> 00:19.140
+ at the End of the Universe,
+
+00:19.140 --> 00:22.540
+ and one on science and philosophy called The Big Picture
+
+00:22.540 --> 00:26.340
+ on the Origins of Life, Meaning, and the Universe Itself.
+
+00:26.340 --> 00:28.700
+ He has an upcoming book on quantum mechanics
+
+00:28.700 --> 00:32.660
+ that you can preorder now called Something Deeply Hidden.
+
+00:32.660 --> 00:36.060
+ He writes one of my favorite blogs on his website,
+
+00:36.060 --> 00:37.980
+ preposterousuniverse.com.
+
+00:37.980 --> 00:40.460
+ I recommend clicking on the Greatest Hits link
+
+00:40.460 --> 00:43.340
+ that lists accessible, interesting posts
+
+00:43.340 --> 00:45.660
+ on the arrow of time, dark matter, dark energy,
+
+00:45.660 --> 00:47.620
+ the Big Bang, general relativity,
+
+00:47.620 --> 00:49.580
+ string theory, quantum mechanics,
+
+00:49.580 --> 00:53.180
+ and the big meta questions about the philosophy of science,
+
+00:53.180 --> 00:57.620
+ God, ethics, politics, academia, and much, much more.
+
+00:57.620 --> 01:00.300
+ Finally, and perhaps most famously,
+
+01:00.300 --> 01:03.660
+ he's the host of a podcast called Mindscape
+
+01:03.660 --> 01:06.940
+ that you should subscribe to and support on Patreon.
+
+01:06.940 --> 01:08.820
+ Along with the Joe Rogan experience,
+
+01:08.820 --> 01:10.500
+ Sam Harris's Making Sense,
+
+01:10.500 --> 01:13.100
+ and Dan Carlin's Hardcore History,
+
+01:13.100 --> 01:15.860
+ Sean's Mindscape podcast is one of my favorite ways
+
+01:15.860 --> 01:18.820
+ to learn new ideas or explore different perspectives
+
+01:18.820 --> 01:22.140
+ and ideas that I thought I understood.
+
+01:22.140 --> 01:24.660
+ It was truly an honor to meet
+
+01:24.660 --> 01:27.240
+ and spend a couple hours with Sean.
+
+01:27.240 --> 01:28.980
+ It's a bit heartbreaking to say
+
+01:28.980 --> 01:30.540
+ that for the first time ever,
+
+01:30.540 --> 01:32.500
+ the audio recorder for this podcast
+
+01:32.500 --> 01:34.940
+ died in the middle of our conversation.
+
+01:34.940 --> 01:36.320
+ There's technical reasons for this,
+
+01:36.320 --> 01:38.380
+ having to do with phantom power
+
+01:38.380 --> 01:41.060
+ that I now understand and will avoid.
+
+01:41.060 --> 01:44.220
+ It took me one hour to notice and fix the problem.
+
+01:44.220 --> 01:48.340
+ So, much like the universe is 68% dark energy,
+
+01:48.340 --> 01:51.340
+ roughly the same amount from this conversation was lost,
+
+01:51.340 --> 01:54.220
+ except in the memories of the two people involved
+
+01:54.220 --> 01:56.320
+ and in my notes.
+
+01:56.320 --> 01:59.940
+ I'm sure we'll talk again and continue this conversation
+
+01:59.940 --> 02:02.420
+ on this podcast or on Sean's.
+
+02:02.420 --> 02:05.300
+ And of course, I look forward to it.
+
+02:05.300 --> 02:07.820
+ This is the Artificial Intelligence podcast.
+
+02:07.820 --> 02:11.060
+ If you enjoy it, subscribe on YouTube, iTunes,
+
+02:11.060 --> 02:12.520
+ support it on Patreon,
+
+02:12.520 --> 02:16.660
+ or simply connect with me on Twitter at Lex Friedman.
+
+02:16.660 --> 02:21.380
+ And now, here's my conversation with Sean Carroll.
+
+02:21.380 --> 02:23.540
+ What do you think is more interesting and impactful,
+
+02:23.540 --> 02:26.860
+ understanding how the universe works at a fundamental level
+
+02:26.860 --> 02:29.180
+ or understanding how the human mind works?
+
+02:29.180 --> 02:31.960
+ You know, of course this is a crazy,
+
+02:31.960 --> 02:33.940
+ meaningless, unanswerable question in some sense,
+
+02:33.940 --> 02:35.140
+ because they're both very interesting
+
+02:35.140 --> 02:37.500
+ and there's no absolute scale of interestingness
+
+02:37.500 --> 02:39.180
+ that we can rate them on.
+
+02:39.180 --> 02:41.140
+ There's a glib answer that says the human brain
+
+02:41.140 --> 02:43.060
+ is part of the universe, right?
+
+02:43.060 --> 02:44.420
+ And therefore, understanding the universe
+
+02:44.420 --> 02:47.020
+ is more fundamental than understanding the human brain.
+
+02:47.020 --> 02:49.580
+ But do you really believe that once we understand
+
+02:49.580 --> 02:51.500
+ the fundamental way the universe works
+
+02:51.500 --> 02:53.740
+ at the particle level, the forces,
+
+02:53.740 --> 02:55.820
+ we would be able to understand how the mind works?
+
+02:55.820 --> 02:56.660
+ No, certainly not.
+
+02:56.660 --> 02:58.740
+ We cannot understand how ice cream works
+
+02:58.740 --> 03:01.060
+ just from understanding how particles work, right?
+
+03:01.060 --> 03:02.740
+ So I'm a big believer in emergence.
+
+03:02.740 --> 03:05.300
+ I'm a big believer that there are different ways
+
+03:05.300 --> 03:06.660
+ of talking about the world
+
+03:07.900 --> 03:11.180
+ beyond just the most fundamental microscopic one.
+
+03:11.180 --> 03:13.860
+ You know, when we talk about tables and chairs
+
+03:13.860 --> 03:15.120
+ and planets and people,
+
+03:15.120 --> 03:17.300
+ we're not talking the language of particle physics
+
+03:17.300 --> 03:18.380
+ and cosmology.
+
+03:18.380 --> 03:20.860
+ So, but understanding the universe,
+
+03:20.860 --> 03:24.060
+ you didn't say just at the most fundamental level, right?
+
+03:24.060 --> 03:26.740
+ So understanding the universe at all levels
+
+03:26.740 --> 03:28.200
+ is part of that.
+
+03:28.200 --> 03:29.940
+ I do think, you know, to be a little bit more fair
+
+03:29.940 --> 03:33.980
+ to the question, there probably are general principles
+
+03:33.980 --> 03:38.500
+ of complexity, biology, information processing,
+
+03:38.500 --> 03:41.820
+ memory, knowledge, creativity
+
+03:41.820 --> 03:45.620
+ that go beyond just the human brain, right?
+
+03:45.620 --> 03:47.800
+ And maybe one could count understanding those
+
+03:47.800 --> 03:49.140
+ as part of understanding the universe.
+
+03:49.140 --> 03:50.480
+ The human brain, as far as we know,
+
+03:50.480 --> 03:54.300
+ is the most complex thing in the universe.
+
+03:54.300 --> 03:57.420
+ So there's, it's certainly absurd to think
+
+03:57.420 --> 03:58.860
+ that by understanding the fundamental laws
+
+03:58.860 --> 04:00.340
+ of particle physics,
+
+04:00.340 --> 04:02.860
+ you get any direct insight on how the brain works.
+
+04:02.860 --> 04:05.940
+ But then there's this step from the fundamentals
+
+04:05.940 --> 04:08.700
+ of particle physics to information processing,
+
+04:08.700 --> 04:10.820
+ which a lot of physicists and philosophers
+
+04:10.820 --> 04:12.460
+ may be a little bit carelessly take
+
+04:12.460 --> 04:14.620
+ when they talk about artificial intelligence.
+
+04:14.620 --> 04:18.020
+ Do you think of the universe
+
+04:18.020 --> 04:21.300
+ as a kind of a computational device?
+
+04:21.300 --> 04:24.140
+ No, to be like, the honest answer there is no.
+
+04:24.140 --> 04:26.300
+ There's a sense in which the universe
+
+04:26.300 --> 04:29.140
+ processes information, clearly.
+
+04:29.140 --> 04:30.700
+ There's a sense in which the universe
+
+04:30.700 --> 04:33.880
+ is like a computer, clearly.
+
+04:33.880 --> 04:36.500
+ But in some sense, I think,
+
+04:36.500 --> 04:38.540
+ I tried to say this once on my blog
+
+04:38.540 --> 04:39.360
+ and no one agreed with me,
+
+04:39.360 --> 04:42.360
+ but the universe is more like a computation
+
+04:42.360 --> 04:45.060
+ than a computer because the universe happens once.
+
+04:45.060 --> 04:46.900
+ A computer is a general purpose machine, right?
+
+04:46.900 --> 04:48.700
+ That you can ask it different questions,
+
+04:48.700 --> 04:50.140
+ even a pocket calculator, right?
+
+04:50.140 --> 04:52.980
+ And it's set up to answer certain kinds of questions.
+
+04:52.980 --> 04:54.340
+ The universe isn't that.
+
+04:54.340 --> 04:57.360
+ So information processing happens in the universe,
+
+04:57.360 --> 04:59.220
+ but it's not what the universe is.
+
+04:59.220 --> 05:01.580
+ And I know your MIT colleague, Seth Lloyd,
+
+05:01.580 --> 05:03.820
+ feels very differently about this, right?
+
+05:03.820 --> 05:07.220
+ Well, you're thinking of the universe as a closed system.
+
+05:07.220 --> 05:08.060
+ I am.
+
+05:08.060 --> 05:11.780
+ So what makes a computer more like a PC,
+
+05:12.980 --> 05:15.500
+ like a computing machine is that there's a human
+
+05:15.500 --> 05:19.100
+ that every once comes up to it and moves the mouse around.
+
+05:19.100 --> 05:19.940
+ So input.
+
+05:19.940 --> 05:20.760
+ Gives it input.
+
+05:20.760 --> 05:21.600
+ Gives it input.
+
+05:23.500 --> 05:26.300
+ And that's why you're saying it's just a computation,
+
+05:26.300 --> 05:29.260
+ a deterministic thing that's just unrolling.
+
+05:29.260 --> 05:32.220
+ But the immense complexity of it
+
+05:32.220 --> 05:34.420
+ is nevertheless like processing.
+
+05:34.420 --> 05:39.420
+ There's a state and then it changes with good rules.
+
+05:40.140 --> 05:41.660
+ And there's a sense for a lot of people
+
+05:41.660 --> 05:44.420
+ that if the brain operates,
+
+05:44.420 --> 05:46.460
+ the human brain operates within that world,
+
+05:46.460 --> 05:49.340
+ then it's simply just a small subset of that.
+
+05:49.340 --> 05:52.500
+ And so there's no reason we can't build
+
+05:52.500 --> 05:55.560
+ arbitrarily great intelligences.
+
+05:55.560 --> 05:56.400
+ Yeah.
+
+05:56.400 --> 05:58.660
+ Do you think of intelligence in this way?
+
+05:58.660 --> 05:59.580
+ Intelligence is tricky.
+
+05:59.580 --> 06:01.660
+ I don't have a definition of it offhand.
+
+06:01.660 --> 06:05.460
+ So I remember this panel discussion that I saw on YouTube.
+
+06:05.460 --> 06:07.620
+ I wasn't there, but Seth Lloyd was on the panel.
+
+06:07.620 --> 06:10.540
+ And so was Martin Rees, the famous astrophysicist.
+
+06:10.540 --> 06:13.780
+ And Seth gave his shtick for why the universe is a computer
+
+06:13.780 --> 06:14.820
+ and explained this.
+
+06:14.820 --> 06:19.140
+ And Martin Rees said, so what is not a computer?
+
+06:19.140 --> 06:22.000
+ And Seth was like, oh, that's a good question.
+
+06:22.000 --> 06:22.840
+ I'm not sure.
+
+06:22.840 --> 06:24.960
+ Because if you have a sufficiently broad definition
+
+06:24.960 --> 06:28.360
+ of what a computer is, then everything is, right?
+
+06:28.360 --> 06:32.140
+ And the simile or the analogy gains force
+
+06:32.140 --> 06:34.380
+ when it excludes some things.
+
+06:34.380 --> 06:36.260
+ You know, is the moon going around the earth
+
+06:36.260 --> 06:38.620
+ performing a computation?
+
+06:38.620 --> 06:41.320
+ I can come up with definitions in which the answer is yes,
+
+06:41.320 --> 06:43.820
+ but it's not a very useful computation.
+
+06:43.820 --> 06:46.140
+ I think that it's absolutely helpful
+
+06:46.140 --> 06:49.620
+ to think about the universe in certain situations,
+
+06:49.620 --> 06:53.020
+ certain contexts, as an information processing device.
+
+06:53.020 --> 06:54.860
+ I'm even guilty of writing a paper
+
+06:54.860 --> 06:56.820
+ called Quantum Circuit Cosmology,
+
+06:56.820 --> 06:59.260
+ where we modeled the whole universe as a quantum circuit.
+
+06:59.260 --> 07:00.100
+ As a circuit.
+
+07:00.100 --> 07:01.340
+ As a circuit, yeah.
+
+07:01.340 --> 07:02.860
+ With qubits kind of thing?
+
+07:02.860 --> 07:05.040
+ With qubits basically, right, yeah.
+
+07:05.040 --> 07:07.440
+ So, and qubits becoming more and more entangled.
+
+07:07.440 --> 07:09.660
+ So do we wanna digress a little bit?
+
+07:09.660 --> 07:10.500
+ Let's do it.
+
+07:10.500 --> 07:11.340
+ It's kind of fun.
+
+07:11.340 --> 07:13.700
+ So here's a mystery about the universe
+
+07:13.700 --> 07:16.880
+ that is so deep and profound that nobody talks about it.
+
+07:16.880 --> 07:19.080
+ Space expands, right?
+
+07:19.080 --> 07:21.940
+ And we talk about, in a certain region of space,
+
+07:21.940 --> 07:23.620
+ a certain number of degrees of freedom,
+
+07:23.620 --> 07:25.540
+ a certain number of ways that the quantum fields
+
+07:25.540 --> 07:28.800
+ and the particles in that region can arrange themselves.
+
+07:28.800 --> 07:32.220
+ That number of degrees of freedom in a region of space
+
+07:32.220 --> 07:33.820
+ is arguably finite.
+
+07:33.820 --> 07:36.660
+ We actually don't know how many there are,
+
+07:36.660 --> 07:37.820
+ but there's a very good argument
+
+07:37.820 --> 07:39.420
+ that says it's a finite number.
+
+07:39.420 --> 07:43.540
+ So as the universe expands and space gets bigger,
+
+07:44.900 --> 07:46.780
+ are there more degrees of freedom?
+
+07:46.780 --> 07:48.540
+ If it's an infinite number, it doesn't really matter.
+
+07:48.540 --> 07:49.980
+ Infinity times two is still infinity.
+
+07:49.980 --> 07:53.480
+ But if it's a finite number, then there's more space,
+
+07:53.480 --> 07:54.420
+ so there's more degrees of freedom.
+
+07:54.420 --> 07:55.740
+ So where did they come from?
+
+07:55.740 --> 07:58.020
+ That would mean the universe is not a closed system.
+
+07:58.020 --> 08:01.500
+ There's more degrees of freedom popping into existence.
+
+08:01.500 --> 08:03.460
+ So what we suggested was
+
+08:03.460 --> 08:05.340
+ that there are more degrees of freedom,
+
+08:05.340 --> 08:07.980
+ and it's not that they're not there to start,
+
+08:07.980 --> 08:10.860
+ but they're not entangled to start.
+
+08:10.860 --> 08:12.820
+ So the universe that you and I know of,
+
+08:12.820 --> 08:15.440
+ the three dimensions around us that we see,
+
+08:15.440 --> 08:18.100
+ we said those are the entangled degrees of freedom
+
+08:18.100 --> 08:19.620
+ making up space time.
+
+08:19.620 --> 08:20.920
+ And as the universe expands,
+
+08:20.920 --> 08:25.180
+ there are a whole bunch of qubits in their zero state
+
+08:25.180 --> 08:28.140
+ that become entangled with the rest of space time
+
+08:28.140 --> 08:31.180
+ through the action of these quantum circuits.
+
+08:31.180 --> 08:35.580
+ So what does it mean that there's now more
+
+08:35.580 --> 08:39.300
+ degrees of freedom as they become more entangled?
+
+08:39.300 --> 08:40.300
+ Yeah, so.
+
+08:40.300 --> 08:41.660
+ As the universe expands.
+
+08:41.660 --> 08:43.300
+ That's right, so there's more and more degrees of freedom
+
+08:43.300 --> 08:46.420
+ that are entangled, that are playing part,
+
+08:46.420 --> 08:47.360
+ playing the role of part
+
+08:47.360 --> 08:49.600
+ of the entangled space time structure.
+
+08:49.600 --> 08:51.980
+ So the basic, the underlying philosophy is
+
+08:51.980 --> 08:54.620
+ that space time itself arises from the entanglement
+
+08:54.620 --> 08:57.560
+ of some fundamental quantum degrees of freedom.
+
+08:57.560 --> 09:00.820
+ Wow, okay, so at which point
+
+09:00.820 --> 09:05.260
+ is most of the entanglement happening?
+
+09:05.260 --> 09:07.460
+ Are we talking about close to the Big Bang?
+
+09:07.460 --> 09:11.820
+ Are we talking about throughout the time of the life?
+
+09:11.820 --> 09:12.660
+ Throughout history, yeah.
+
+09:12.660 --> 09:15.140
+ So the idea is that at the Big Bang,
+
+09:15.140 --> 09:16.780
+ almost all the degrees of freedom
+
+09:16.780 --> 09:19.700
+ that the universe could have were there,
+
+09:19.700 --> 09:22.420
+ but they were unentangled with anything else.
+
+09:22.420 --> 09:23.900
+ And that's a reflection of the fact
+
+09:23.900 --> 09:25.620
+ that the Big Bang had a low entropy.
+
+09:25.620 --> 09:28.020
+ It was a very simple, very small place.
+
+09:28.020 --> 09:31.420
+ And as space expands, more and more degrees of freedom
+
+09:31.420 --> 09:34.300
+ become entangled with the rest of the world.
+
+09:34.300 --> 09:35.940
+ Well, I have to ask John Carroll,
+
+09:35.940 --> 09:37.880
+ what do you think of the thought experiment
+
+09:37.880 --> 09:41.580
+ from Nick Bostrom that we're living in a simulation?
+
+09:41.580 --> 09:44.980
+ So I think, let me contextualize that a little bit more.
+
+09:44.980 --> 09:48.340
+ I think people don't actually take this thought experiments.
+
+09:48.340 --> 09:50.460
+ I think it's quite interesting.
+
+09:50.460 --> 09:52.900
+ It's not very useful, but it's quite interesting.
+
+09:52.900 --> 09:54.500
+ From the perspective of AI,
+
+09:54.500 --> 09:58.020
+ a lot of the learning that can be done usually happens
+
+09:58.020 --> 10:00.580
+ in simulation from artificial examples.
+
+10:00.580 --> 10:03.840
+ And so it's a constructive question to ask,
+
+10:04.900 --> 10:08.240
+ how difficult is our real world to simulate?
+
+10:08.240 --> 10:09.360
+ Right.
+
+10:09.360 --> 10:12.180
+ Which is kind of a dual part of,
+
+10:12.180 --> 10:14.100
+ if we're living in a simulation
+
+10:14.100 --> 10:16.420
+ and somebody built that simulation,
+
+10:16.420 --> 10:18.860
+ if you were to try to do it yourself, how hard would it be?
+
+10:18.860 --> 10:21.100
+ So obviously we could be living in a simulation.
+
+10:21.100 --> 10:23.000
+ If you just want the physical possibility,
+
+10:23.000 --> 10:25.420
+ then I completely agree that it's physically possible.
+
+10:25.420 --> 10:27.380
+ I don't think that we actually are.
+
+10:27.380 --> 10:30.300
+ So take this one piece of data into consideration.
+
+10:30.300 --> 10:33.960
+ You know, we live in a big universe, okay?
+
+10:35.140 --> 10:38.500
+ There's two trillion galaxies in our observable universe
+
+10:38.500 --> 10:41.660
+ with 200 billion stars in each galaxy, et cetera.
+
+10:41.660 --> 10:44.940
+ It would seem to be a waste of resources
+
+10:44.940 --> 10:46.540
+ to have a universe that big going on
+
+10:46.540 --> 10:47.540
+ just to do a simulation.
+
+10:47.540 --> 10:50.140
+ So in other words, I want to be a good Bayesian.
+
+10:50.140 --> 10:52.940
+ I want to ask under this hypothesis,
+
+10:52.940 --> 10:54.960
+ what do I expect to see?
+
+10:54.960 --> 10:56.780
+ So the first thing I would say is I wouldn't expect
+
+10:56.780 --> 11:00.340
+ to see a universe that was that big, okay?
+
+11:00.340 --> 11:02.540
+ The second thing is I wouldn't expect the resolution
+
+11:02.540 --> 11:05.020
+ of the universe to be as good as it is.
+
+11:05.020 --> 11:08.740
+ So it's always possible that if our superhuman simulators
+
+11:08.740 --> 11:09.900
+ only have finite resources,
+
+11:09.900 --> 11:12.420
+ that they don't render the entire universe, right?
+
+11:12.420 --> 11:14.340
+ That the part that is out there,
+
+11:14.340 --> 11:16.300
+ the two trillion galaxies,
+
+11:16.300 --> 11:19.640
+ isn't actually being simulated fully, okay?
+
+11:19.640 --> 11:22.740
+ But then the obvious extrapolation of that
+
+11:22.740 --> 11:25.500
+ is that only I am being simulated fully.
+
+11:25.500 --> 11:29.220
+ Like the rest of you are just non player characters, right?
+
+11:29.220 --> 11:30.520
+ I'm the only thing that is real.
+
+11:30.520 --> 11:32.780
+ The rest of you are just chat bots.
+
+11:32.780 --> 11:34.320
+ Beyond this wall, I see the wall,
+
+11:34.320 --> 11:36.020
+ but there is literally nothing
+
+11:36.020 --> 11:37.360
+ on the other side of the wall.
+
+11:37.360 --> 11:39.300
+ That is sort of the Bayesian prediction.
+
+11:39.300 --> 11:40.180
+ That's what it would be like
+
+11:40.180 --> 11:42.240
+ to do an efficient simulation of me.
+
+11:42.240 --> 11:45.700
+ So like none of that seems quite realistic.
+
+11:45.700 --> 11:50.700
+ I don't see, I hear the argument that it's just possible
+
+11:50.900 --> 11:53.300
+ and easy to simulate lots of things.
+
+11:53.300 --> 11:55.780
+ I don't see any evidence from what we know
+
+11:55.780 --> 11:59.340
+ about our universe that we look like a simulated universe.
+
+11:59.340 --> 12:00.180
+ Now, maybe you can say,
+
+12:00.180 --> 12:01.980
+ well, we don't know what it would look like,
+
+12:01.980 --> 12:04.520
+ but that's just abandoning your Bayesian responsibilities.
+
+12:04.520 --> 12:07.660
+ Like your job is to say under this theory,
+
+12:07.660 --> 12:09.500
+ here's what you would expect to see.
+
+12:09.500 --> 12:11.660
+ Yeah, so certainly if you think about simulation
+
+12:11.660 --> 12:14.340
+ as a thing that's like a video game
+
+12:14.340 --> 12:17.740
+ where only a small subset is being rendered.
+
+12:17.740 --> 12:22.740
+ But say the entire, all the laws of physics,
+
+12:22.740 --> 12:26.540
+ the entire closed system of the quote unquote universe,
+
+12:26.540 --> 12:27.780
+ it had a creator.
+
+12:27.780 --> 12:29.320
+ Yeah, it's always possible.
+
+12:29.320 --> 12:32.280
+ Right, so that's not useful to think about
+
+12:32.280 --> 12:34.020
+ when you're thinking about physics.
+
+12:34.020 --> 12:36.220
+ The way Nick Bostrom phrases it,
+
+12:36.220 --> 12:39.100
+ if it's possible to simulate a universe,
+
+12:39.100 --> 12:40.500
+ eventually we'll do it.
+
+12:40.500 --> 12:41.340
+ Right.
+
+12:42.700 --> 12:44.860
+ You can use that by the way for a lot of things.
+
+12:44.860 --> 12:45.700
+ Well, yeah.
+
+12:45.700 --> 12:48.540
+ But I guess the question is,
+
+12:48.540 --> 12:52.340
+ how hard is it to create a universe?
+
+12:52.340 --> 12:53.820
+ I wrote a little blog post about this
+
+12:53.820 --> 12:55.460
+ and maybe I'm missing something,
+
+12:55.460 --> 12:57.680
+ but there's an argument that says not only
+
+12:57.680 --> 13:00.500
+ that it might be possible to simulate a universe,
+
+13:00.500 --> 13:05.500
+ but probably if you imagine that you actually attribute
+
+13:05.980 --> 13:08.860
+ consciousness and agency to the little things
+
+13:08.860 --> 13:12.020
+ that we're simulating, to our little artificial beings,
+
+13:12.020 --> 13:13.420
+ there's probably a lot more of them
+
+13:13.420 --> 13:15.500
+ than there are ordinary organic beings in the universe
+
+13:15.500 --> 13:17.420
+ or there will be in the future, right?
+
+13:17.420 --> 13:18.500
+ So there's an argument that not only
+
+13:18.500 --> 13:20.760
+ is being a simulation possible,
+
+13:20.760 --> 13:23.560
+ it's probable because in the space
+
+13:23.560 --> 13:24.960
+ of all living consciousnesses,
+
+13:24.960 --> 13:26.620
+ most of them are being simulated, right?
+
+13:26.620 --> 13:28.860
+ Most of them are not at the top level.
+
+13:28.860 --> 13:30.540
+ I think that argument must be wrong
+
+13:30.540 --> 13:33.100
+ because it follows from that argument that,
+
+13:33.100 --> 13:36.920
+ if we're simulated, but we can also simulate other things,
+
+13:36.920 --> 13:38.840
+ well, but if we can simulate other things,
+
+13:38.840 --> 13:41.840
+ they can simulate other things, right?
+
+13:41.840 --> 13:44.320
+ If we give them enough power and resolution
+
+13:44.320 --> 13:45.980
+ and ultimately we'll reach a bottom
+
+13:45.980 --> 13:49.140
+ because the laws of physics in our universe have a bottom,
+
+13:49.140 --> 13:51.000
+ we're made of atoms and so forth,
+
+13:51.000 --> 13:55.100
+ so there will be the cheapest possible simulations.
+
+13:55.100 --> 13:57.700
+ And if you believe the original argument,
+
+13:57.700 --> 13:59.340
+ you should conclude that we should be
+
+13:59.340 --> 14:00.940
+ in the cheapest possible simulation
+
+14:00.940 --> 14:02.660
+ because that's where most people are.
+
+14:02.660 --> 14:03.620
+ But we don't look like that.
+
+14:03.620 --> 14:06.860
+ It doesn't look at all like we're at the edge of resolution,
+
+14:06.860 --> 14:09.540
+ that we're 16 bit things.
+
+14:09.540 --> 14:13.020
+ It seems much easier to make much lower level things
+
+14:13.020 --> 14:13.860
+ than we are.
+
+14:14.980 --> 14:18.220
+ And also, I questioned the whole approach
+
+14:18.220 --> 14:19.460
+ to the anthropic principle
+
+14:19.460 --> 14:22.340
+ that says we are typical observers in the universe.
+
+14:22.340 --> 14:23.660
+ I think that that's not actually,
+
+14:23.660 --> 14:27.340
+ I think that there's a lot of selection that we can do
+
+14:27.340 --> 14:30.180
+ that we're typical within things we already know,
+
+14:30.180 --> 14:32.280
+ but not typical within all of the universe.
+
+14:32.280 --> 14:35.800
+ So do you think there's intelligent life,
+
+14:35.800 --> 14:37.860
+ however you would like to define intelligent life,
+
+14:37.860 --> 14:39.940
+ out there in the universe?
+
+14:39.940 --> 14:44.660
+ My guess is that there is not intelligent life
+
+14:44.660 --> 14:48.820
+ in the observable universe other than us, simply
+
+14:48.820 --> 14:52.540
+ on the basis of the fact that the likely number
+
+14:52.540 --> 14:56.340
+ of other intelligent species in the observable universe,
+
+14:56.340 --> 15:00.320
+ there's two likely numbers, zero or billions.
+
+15:01.500 --> 15:02.580
+ And if there had been billions,
+
+15:02.580 --> 15:04.140
+ you would have noticed already.
+
+15:05.300 --> 15:07.340
+ For there to be literally like a small number,
+
+15:07.340 --> 15:09.380
+ like, you know, Star Trek,
+
+15:09.380 --> 15:13.300
+ there's a dozen intelligent civilizations in our galaxy,
+
+15:13.300 --> 15:17.340
+ but not a billion, that's weird.
+
+15:17.340 --> 15:18.500
+ That's sort of bizarre to me.
+
+15:18.500 --> 15:21.020
+ It's easy for me to imagine that there are zero others
+
+15:21.020 --> 15:22.620
+ because there's just a big bottleneck
+
+15:22.620 --> 15:24.980
+ to making multicellular life
+
+15:24.980 --> 15:27.020
+ or technological life or whatever.
+
+15:27.020 --> 15:28.580
+ It's very hard for me to imagine
+
+15:28.580 --> 15:30.140
+ that there's a whole bunch out there
+
+15:30.140 --> 15:32.300
+ that have somehow remained hidden from us.
+
+15:32.300 --> 15:34.700
+ The question I'd like to ask
+
+15:34.700 --> 15:36.820
+ is what would intelligent life look like?
+
+15:38.140 --> 15:40.500
+ What I mean by that question and where it's going
+
+15:40.500 --> 15:45.500
+ is what if intelligent life is just in some very big ways
+
+15:47.260 --> 15:51.500
+ different than the one that has on Earth?
+
+15:51.500 --> 15:53.900
+ That there's all kinds of intelligent life
+
+15:53.900 --> 15:55.420
+ that operates at different scales
+
+15:55.420 --> 15:57.300
+ of both size and temporal.
+
+15:57.300 --> 15:59.300
+ Right, that's a great possibility
+
+15:59.300 --> 16:00.800
+ because I think we should be humble
+
+16:00.800 --> 16:02.640
+ about what intelligence is, what life is.
+
+16:02.640 --> 16:04.020
+ We don't even agree on what life is,
+
+16:04.020 --> 16:07.020
+ much less what intelligent life is, right?
+
+16:07.020 --> 16:08.980
+ So that's an argument for humility,
+
+16:08.980 --> 16:10.860
+ saying there could be intelligent life
+
+16:10.860 --> 16:13.620
+ of a very different character, right?
+
+16:13.620 --> 16:18.060
+ Like you could imagine the dolphins are intelligent
+
+16:18.060 --> 16:20.500
+ but never invent space travel
+
+16:20.500 --> 16:21.460
+ because they live in the ocean
+
+16:21.460 --> 16:23.220
+ and they don't have thumbs, right?
+
+16:24.180 --> 16:27.860
+ So they never invent technology, they never invent smelting.
+
+16:27.860 --> 16:32.020
+ Maybe the universe is full of intelligent species
+
+16:32.020 --> 16:34.060
+ that just don't make technology, right?
+
+16:34.060 --> 16:36.320
+ That's compatible with the data, I think.
+
+16:36.320 --> 16:39.840
+ And I think maybe what you're pointing at
+
+16:39.840 --> 16:44.440
+ is even more out there versions of intelligence,
+
+16:44.440 --> 16:47.560
+ intelligence in intermolecular clouds
+
+16:47.560 --> 16:49.440
+ or on the surface of a neutron star
+
+16:49.440 --> 16:51.760
+ or in between the galaxies in giant things
+
+16:51.760 --> 16:54.560
+ where the equivalent of a heartbeat is 100 million years.
+
+16:56.440 --> 16:58.080
+ On the one hand, yes,
+
+16:58.080 --> 16:59.860
+ we should be very open minded about those things.
+
+16:59.860 --> 17:04.860
+ On the other hand, all of us share the same laws of physics.
+
+17:04.860 --> 17:08.240
+ There might be something about the laws of physics,
+
+17:08.240 --> 17:09.400
+ even though we don't currently know
+
+17:09.400 --> 17:10.920
+ exactly what that thing would be,
+
+17:10.920 --> 17:15.920
+ that makes meters and years
+
+17:16.160 --> 17:18.920
+ the right length and timescales for intelligent life.
+
+17:19.880 --> 17:22.240
+ Maybe not, but we're made of atoms,
+
+17:22.240 --> 17:23.780
+ atoms have a certain size,
+
+17:23.780 --> 17:27.280
+ we orbit stars or stars have a certain lifetime.
+
+17:27.280 --> 17:30.300
+ It's not impossible to me that there's a sweet spot
+
+17:30.300 --> 17:32.200
+ for intelligent life that we find ourselves in.
+
+17:32.200 --> 17:33.800
+ So I'm open minded either way,
+
+17:33.800 --> 17:35.280
+ I'm open minded either being humble
+
+17:35.280 --> 17:37.080
+ and there's all sorts of different kinds of life
+
+17:37.080 --> 17:39.280
+ or no, there's a reason we just don't know it yet
+
+17:39.280 --> 17:42.080
+ why life like ours is the kind of life that's out there.
+
+17:42.080 --> 17:43.320
+ Yeah, I'm of two minds too,
+
+17:43.320 --> 17:47.200
+ but I often wonder if our brains is just designed
+
+17:47.200 --> 17:52.200
+ to quite obviously to operate and see the world
+
+17:52.720 --> 17:56.360
+ in these timescales and we're almost blind
+
+17:56.360 --> 18:01.200
+ and the tools we've created for detecting things are blind
+
+18:01.200 --> 18:02.760
+ to the kind of observation needed
+
+18:02.760 --> 18:04.920
+ to see intelligent life at other scales.
+
+18:04.920 --> 18:07.040
+ Well, I'm totally open to that,
+
+18:07.040 --> 18:09.240
+ but so here's another argument I would make,
+
+18:09.240 --> 18:11.520
+ we have looked for intelligent life,
+
+18:11.520 --> 18:14.120
+ but we've looked at for it in the dumbest way we can,
+
+18:14.120 --> 18:16.600
+ by turning radio telescopes to the sky.
+
+18:16.600 --> 18:21.040
+ And why in the world would a super advanced civilization
+
+18:21.040 --> 18:24.040
+ randomly beam out radio signals wastefully
+
+18:24.040 --> 18:25.440
+ in all directions into the universe?
+
+18:25.440 --> 18:27.280
+ That just doesn't make any sense,
+
+18:27.280 --> 18:29.100
+ especially because in order to think
+
+18:29.100 --> 18:32.020
+ that you would actually contact another civilization,
+
+18:32.020 --> 18:33.840
+ you would have to do it forever,
+
+18:33.840 --> 18:35.840
+ you have to keep doing it for millions of years,
+
+18:35.840 --> 18:38.280
+ that sounds like a waste of resources.
+
+18:38.280 --> 18:43.120
+ If you thought that there were other solar systems
+
+18:43.120 --> 18:44.520
+ with planets around them,
+
+18:44.520 --> 18:47.000
+ where maybe intelligent life didn't yet exist,
+
+18:47.000 --> 18:48.600
+ but might someday,
+
+18:48.600 --> 18:51.380
+ you wouldn't try to talk to it with radio waves,
+
+18:51.380 --> 18:53.600
+ you would send a spacecraft out there
+
+18:53.600 --> 18:55.560
+ and you would park it around there
+
+18:55.560 --> 18:57.360
+ and it would be like, from our point of view,
+
+18:57.360 --> 19:00.700
+ it'd be like 2001, where there was a monolith.
+
+19:00.700 --> 19:01.540
+ Monolith.
+
+19:01.540 --> 19:02.380
+ There could be an artifact,
+
+19:02.380 --> 19:04.520
+ in fact, the other way works also, right?
+
+19:04.520 --> 19:07.360
+ There could be artifacts in our solar system
+
+19:08.440 --> 19:10.480
+ that have been put there
+
+19:10.480 --> 19:12.280
+ by other technologically advanced civilizations
+
+19:12.280 --> 19:14.640
+ and that's how we will eventually contact them.
+
+19:14.640 --> 19:16.840
+ We just haven't explored the solar system well enough yet
+
+19:16.840 --> 19:17.680
+ to find them.
+
+19:18.580 --> 19:20.000
+ The reason why we don't think about that
+
+19:20.000 --> 19:21.520
+ is because we're young and impatient, right?
+
+19:21.520 --> 19:24.000
+ Like, it would take more than my lifetime
+
+19:24.000 --> 19:26.080
+ to actually send something to another star system
+
+19:26.080 --> 19:27.800
+ and wait for it and then come back.
+
+19:27.800 --> 19:30.800
+ So, but if we start thinking on hundreds of thousands
+
+19:30.800 --> 19:32.720
+ of years or million year time scales,
+
+19:32.720 --> 19:34.600
+ that's clearly the right thing to do.
+
+19:34.600 --> 19:36.800
+ Are you excited by the thing
+
+19:36.800 --> 19:39.360
+ that Elon Musk is doing with SpaceX in general?
+
+19:39.360 --> 19:41.620
+ Space, but the idea of space exploration,
+
+19:41.620 --> 19:45.360
+ even though your, or your species is young and impatient?
+
+19:45.360 --> 19:46.200
+ Yeah.
+
+19:46.200 --> 19:49.200
+ No, I do think that space travel is crucially important,
+
+19:49.200 --> 19:50.800
+ long term.
+
+19:50.800 --> 19:52.500
+ Even to other star systems.
+
+19:52.500 --> 19:57.500
+ And I think that many people overestimate the difficulty
+
+19:57.500 --> 20:00.940
+ because they say, look, if you travel 1% the speed of light
+
+20:00.940 --> 20:02.020
+ to another star system,
+
+20:02.020 --> 20:04.060
+ we'll be dead before we get there, right?
+
+20:04.060 --> 20:06.180
+ And I think that it's much easier.
+
+20:06.180 --> 20:08.120
+ And therefore, when they write their science fiction stories,
+
+20:08.120 --> 20:09.580
+ they imagine we'd go faster than the speed of light
+
+20:09.580 --> 20:11.700
+ because otherwise they're too impatient, right?
+
+20:11.700 --> 20:13.600
+ We're not gonna go faster than the speed of light,
+
+20:13.600 --> 20:16.020
+ but we could easily imagine that the human lifespan
+
+20:16.020 --> 20:18.100
+ gets extended to thousands of years.
+
+20:18.100 --> 20:19.140
+ And once you do that,
+
+20:19.140 --> 20:21.180
+ then the stars are much closer effectively, right?
+
+20:21.180 --> 20:23.260
+ And then what's a hundred year trip, right?
+
+20:23.260 --> 20:25.820
+ So I think that that's gonna be the future,
+
+20:25.820 --> 20:28.700
+ the far future, not my lifetime once again,
+
+20:28.700 --> 20:30.380
+ but baby steps.
+
+20:30.380 --> 20:32.420
+ Unless your lifetime gets extended.
+
+20:32.420 --> 20:34.740
+ Well, it's in a race against time, right?
+
+20:34.740 --> 20:37.340
+ A friend of mine who actually thinks about these things
+
+20:37.340 --> 20:40.460
+ said, you know, you and I are gonna die,
+
+20:40.460 --> 20:43.060
+ but I don't know about our grandchildren.
+
+20:43.060 --> 20:45.940
+ That's, I don't know, predicting the future is hard,
+
+20:45.940 --> 20:47.900
+ but that's at least a plausible scenario.
+
+20:47.900 --> 20:51.820
+ And so, yeah, no, I think that as we discussed earlier,
+
+20:51.820 --> 20:56.780
+ there are threats to the earth, known and unknown, right?
+
+20:56.780 --> 21:01.780
+ Having spread humanity and biology elsewhere
+
+21:02.580 --> 21:04.940
+ is a really important longterm goal.
+
+21:04.940 --> 21:08.900
+ What kind of questions can science not currently answer,
+
+21:08.900 --> 21:09.920
+ but might soon?
+
+21:11.480 --> 21:13.860
+ When you think about the problems and the mysteries
+
+21:13.860 --> 21:17.840
+ before us that may be within reach of science.
+
+21:17.840 --> 21:20.300
+ I think an obvious one is the origin of life.
+
+21:20.300 --> 21:22.780
+ We don't know how that happened.
+
+21:22.780 --> 21:25.300
+ There's a difficulty in knowing how it happened historically
+
+21:25.300 --> 21:27.240
+ actually, you know, literally on earth,
+
+21:27.240 --> 21:30.500
+ but starting life from non life is something
+
+21:30.500 --> 21:32.420
+ I kind of think we're close to, right?
+
+21:32.420 --> 21:33.240
+ We're really.
+
+21:33.240 --> 21:34.080
+ You really think so?
+
+21:34.080 --> 21:36.740
+ Like how difficult is it to start life?
+
+21:36.740 --> 21:39.260
+ Well, I've talked to people,
+
+21:39.260 --> 21:41.780
+ including on the podcast about this.
+
+21:41.780 --> 21:43.340
+ You know, life requires three things.
+
+21:43.340 --> 21:44.220
+ Life as we know it.
+
+21:44.220 --> 21:45.500
+ So there's a difference with life,
+
+21:45.500 --> 21:47.060
+ which who knows what it is,
+
+21:47.060 --> 21:48.140
+ and life as we know it,
+
+21:48.140 --> 21:50.780
+ which we can talk about with some intelligence.
+
+21:50.780 --> 21:53.840
+ So life as we know it requires compartmentalization.
+
+21:53.840 --> 21:56.660
+ You need like a little membrane around your cell.
+
+21:56.660 --> 21:58.980
+ Metabolism, you need to take in food and eat it
+
+21:58.980 --> 22:01.020
+ and let that make you do things.
+
+22:01.020 --> 22:02.620
+ And then replication, okay?
+
+22:02.620 --> 22:04.620
+ So you need to have some information about who you are
+
+22:04.620 --> 22:07.880
+ that you pass down to future generations.
+
+22:07.880 --> 22:11.780
+ In the lab, compartmentalization seems pretty easy.
+
+22:11.780 --> 22:13.780
+ Not hard to make lipid bilayers
+
+22:13.780 --> 22:16.760
+ that come into little cellular walls pretty easily.
+
+22:16.760 --> 22:19.260
+ Metabolism and replication are hard,
+
+22:20.160 --> 22:21.900
+ but replication we're close to.
+
+22:21.900 --> 22:24.960
+ People have made RNA like molecules in the lab
+
+22:24.960 --> 22:28.840
+ that I think the state of the art is,
+
+22:28.840 --> 22:30.660
+ they're not able to make one molecule
+
+22:30.660 --> 22:32.060
+ that reproduces itself,
+
+22:32.060 --> 22:33.600
+ but they're able to make two molecules
+
+22:33.600 --> 22:35.260
+ that reproduce each other.
+
+22:35.260 --> 22:36.100
+ So that's okay.
+
+22:36.100 --> 22:37.100
+ That's pretty close.
+
+22:38.060 --> 22:41.060
+ Metabolism is harder, believe it or not,
+
+22:41.060 --> 22:42.900
+ even though it's sort of the most obvious thing,
+
+22:42.900 --> 22:44.940
+ but you want some sort of controlled metabolism
+
+22:44.940 --> 22:47.500
+ and the actual cellular machinery in our bodies
+
+22:47.500 --> 22:48.660
+ is quite complicated.
+
+22:48.660 --> 22:50.940
+ It's hard to see it just popping into existence
+
+22:50.940 --> 22:51.780
+ all by itself.
+
+22:51.780 --> 22:52.860
+ It probably took a while,
+
+22:53.740 --> 22:56.100
+ but we're making progress.
+
+22:56.100 --> 22:57.240
+ And in fact, I don't think we're spending
+
+22:57.240 --> 22:58.580
+ nearly enough money on it.
+
+22:58.580 --> 23:01.780
+ If I were the NSF, I would flood this area with money
+
+23:01.780 --> 23:05.220
+ because it would change our view of the world
+
+23:05.220 --> 23:06.780
+ if we could actually make life in the lab
+
+23:06.780 --> 23:09.420
+ and understand how it was made originally here on earth.
+
+23:09.420 --> 23:11.160
+ And I'm sure it'd have some ripple effects
+
+23:11.160 --> 23:12.940
+ that help cure disease and so on.
+
+23:12.940 --> 23:14.380
+ I mean, just that understanding.
+
+23:14.380 --> 23:16.700
+ So synthetic biology is a wonderful big frontier
+
+23:16.700 --> 23:17.980
+ where we're making cells.
+
+23:18.940 --> 23:21.100
+ Right now, the best way to do that
+
+23:21.100 --> 23:23.620
+ is to borrow heavily from existing biology, right?
+
+23:23.620 --> 23:25.380
+ Well, Craig Venter several years ago
+
+23:25.380 --> 23:28.220
+ created an artificial cell, but all he did was,
+
+23:28.220 --> 23:29.860
+ not all he did, it was a tremendous accomplishment,
+
+23:29.860 --> 23:33.180
+ but all he did was take out the DNA from a cell
+
+23:33.180 --> 23:37.200
+ and put in entirely new DNA and let it boot up and go.
+
+23:37.200 --> 23:42.200
+ What about the leap to creating intelligent life on earth?
+
+23:43.420 --> 23:44.260
+ Yeah.
+
+23:44.260 --> 23:45.860
+ Again, we define intelligence, of course,
+
+23:45.860 --> 23:49.860
+ but let's just even say Homo sapiens,
+
+23:49.860 --> 23:54.480
+ the modern intelligence in our human brain.
+
+23:55.340 --> 23:58.660
+ Do you have a sense of what's involved in that leap
+
+23:58.660 --> 24:00.420
+ and how big of a leap that is?
+
+24:00.420 --> 24:03.300
+ So AI would count in this, or do you really want life?
+
+24:03.300 --> 24:06.420
+ Do you want really an organism in some sense?
+
+24:06.420 --> 24:07.540
+ AI would count, I think.
+
+24:07.540 --> 24:08.980
+ Okay.
+
+24:08.980 --> 24:11.020
+ Yeah, of course, of course AI would count.
+
+24:11.020 --> 24:13.460
+ Well, let's say artificial consciousness, right?
+
+24:13.460 --> 24:15.500
+ So I do not think we are on the threshold
+
+24:15.500 --> 24:16.760
+ of creating artificial consciousness.
+
+24:16.760 --> 24:18.180
+ I think it's possible.
+
+24:18.180 --> 24:20.300
+ I'm not, again, very educated about how close we are,
+
+24:20.300 --> 24:22.100
+ but my impression is not that we're really close
+
+24:22.100 --> 24:24.820
+ because we understand how little we understand
+
+24:24.820 --> 24:26.460
+ of consciousness and what it is.
+
+24:26.460 --> 24:28.440
+ So if we don't have any idea what it is,
+
+24:28.440 --> 24:29.780
+ it's hard to imagine we're on the threshold
+
+24:29.780 --> 24:31.620
+ of making it ourselves.
+
+24:32.500 --> 24:34.500
+ But it's doable, it's possible.
+
+24:34.500 --> 24:35.960
+ I don't see any obstacles in principle.
+
+24:35.960 --> 24:38.160
+ So yeah, I would hold out some interest
+
+24:38.160 --> 24:40.220
+ in that happening eventually.
+
+24:40.220 --> 24:42.700
+ I think in general, consciousness,
+
+24:42.700 --> 24:44.420
+ I think we would be just surprised
+
+24:44.420 --> 24:49.060
+ how easy consciousness is once we create intelligence.
+
+24:49.060 --> 24:50.540
+ I think consciousness is a thing
+
+24:50.540 --> 24:54.000
+ that's just something we all fake.
+
+24:55.540 --> 24:56.380
+ Well, good.
+
+24:56.380 --> 24:57.680
+ No, actually, I like this idea that in fact,
+
+24:57.680 --> 25:00.500
+ consciousness is way less mysterious than we think
+
+25:00.500 --> 25:02.620
+ because we're all at every time, at every moment,
+
+25:02.620 --> 25:04.500
+ less conscious than we think we are, right?
+
+25:04.500 --> 25:05.460
+ We can fool things.
+
+25:05.460 --> 25:07.780
+ And I think that plus the idea
+
+25:07.780 --> 25:11.180
+ that you not only have artificial intelligent systems,
+
+25:11.180 --> 25:12.980
+ but you put them in a body, right,
+
+25:12.980 --> 25:14.280
+ give them a robot body,
+
+25:15.620 --> 25:18.460
+ that will help the faking a lot.
+
+25:18.460 --> 25:20.980
+ Yeah, I think creating consciousness
+
+25:20.980 --> 25:25.140
+ in artificial consciousness is as simple
+
+25:25.140 --> 25:30.020
+ as asking a Roomba to say, I'm conscious,
+
+25:30.020 --> 25:32.780
+ and refusing to be talked out of it.
+
+25:32.780 --> 25:33.820
+ Could be, it could be.
+
+25:33.820 --> 25:36.740
+ And I mean, I'm almost being silly,
+
+25:36.740 --> 25:38.280
+ but that's what we do.
+
+25:39.660 --> 25:40.940
+ That's what we do with each other.
+
+25:40.940 --> 25:42.020
+ This is the kind of,
+
+25:42.020 --> 25:44.500
+ that consciousness is also a social construct.
+
+25:44.500 --> 25:47.860
+ And a lot of our ideas of intelligence is a social construct.
+
+25:47.860 --> 25:52.820
+ And so reaching that bar involves something that's beyond,
+
+25:52.820 --> 25:54.940
+ that doesn't necessarily involve
+
+25:54.940 --> 25:57.720
+ the fundamental understanding of how you go
+
+25:57.720 --> 26:02.500
+ from electrons to neurons to cognition.
+
+26:02.500 --> 26:05.060
+ No, actually, I think that is an extremely good point.
+
+26:05.060 --> 26:08.660
+ And in fact, what it suggests is,
+
+26:08.660 --> 26:10.540
+ so yeah, you referred to Kate Darling,
+
+26:10.540 --> 26:11.940
+ who I had on the podcast,
+
+26:11.940 --> 26:16.440
+ and who does these experiments with very simple robots,
+
+26:16.440 --> 26:18.060
+ but they look like animals,
+
+26:18.060 --> 26:20.740
+ and they can look like they're experiencing pain,
+
+26:20.740 --> 26:23.380
+ and we human beings react very negatively
+
+26:23.380 --> 26:24.400
+ to these little robots
+
+26:24.400 --> 26:26.300
+ looking like they're experiencing pain.
+
+26:26.300 --> 26:29.980
+ And what you wanna say is, yeah, but they're just robots.
+
+26:29.980 --> 26:31.700
+ It's not really pain, right?
+
+26:31.700 --> 26:33.080
+ It's just some electrons going around.
+
+26:33.080 --> 26:36.300
+ But then you realize, you and I are just electrons
+
+26:36.300 --> 26:38.380
+ going around, and that's what pain is also.
+
+26:38.380 --> 26:43.060
+ And so what I would have an easy time imagining
+
+26:43.060 --> 26:44.740
+ is that there is a spectrum
+
+26:44.740 --> 26:47.420
+ between these simple little robots that Kate works with
+
+26:47.420 --> 26:49.420
+ and a human being,
+
+26:49.420 --> 26:50.940
+ where there are things that sort of
+
+26:50.940 --> 26:52.840
+ by some strict definition,
+
+26:52.840 --> 26:55.460
+ Turing test level thing are not conscious,
+
+26:55.460 --> 26:58.580
+ but nevertheless walk and talk like they're conscious.
+
+26:58.580 --> 27:00.220
+ And it could be that the future is,
+
+27:00.220 --> 27:02.460
+ I mean, Siri is close, right?
+
+27:02.460 --> 27:04.540
+ And so it might be the future
+
+27:04.540 --> 27:07.100
+ has a lot more agents like that.
+
+27:07.100 --> 27:08.860
+ And in fact, rather than someday going,
+
+27:08.860 --> 27:10.700
+ aha, we have consciousness,
+
+27:10.700 --> 27:13.180
+ we'll just creep up on it with more and more
+
+27:13.180 --> 27:15.220
+ accurate reflections of what we expect.
+
+27:15.220 --> 27:18.320
+ And in the future, maybe the present,
+
+27:18.320 --> 27:20.800
+ for example, we haven't met before,
+
+27:20.800 --> 27:25.300
+ and you're basically assuming that I'm human as it's a high
+
+27:25.300 --> 27:28.560
+ probability at this time because the yeah,
+
+27:28.560 --> 27:30.200
+ but in the future,
+
+27:30.200 --> 27:32.000
+ there might be question marks around that, right?
+
+27:32.000 --> 27:33.340
+ Yeah, no, absolutely.
+
+27:33.340 --> 27:35.740
+ Certainly videos are almost to the point
+
+27:35.740 --> 27:36.740
+ where you shouldn't trust them already.
+
+27:36.740 --> 27:39.060
+ Photos you can't trust, right?
+
+27:39.060 --> 27:41.700
+ Videos is easier to trust,
+
+27:41.700 --> 27:44.020
+ but we're getting worse that,
+
+27:44.020 --> 27:46.540
+ we're getting better at faking them, right?
+
+27:46.540 --> 27:48.780
+ Yeah, so physical embodied people,
+
+27:48.780 --> 27:51.020
+ what's so hard about faking that?
+
+27:51.020 --> 27:51.980
+ So this is very depressing,
+
+27:51.980 --> 27:53.420
+ this conversation we're having right now.
+
+27:53.420 --> 27:54.340
+ So I mean,
+
+27:54.340 --> 27:55.180
+ To me, it's exciting.
+
+27:55.180 --> 27:56.300
+ To me, you're doing it.
+
+27:56.300 --> 27:57.780
+ So it's exciting to you,
+
+27:57.780 --> 27:59.060
+ but it's a sobering thought.
+
+27:59.060 --> 28:00.420
+ We're very bad, right?
+
+28:00.420 --> 28:02.820
+ At imagining what the next 50 years are gonna be like
+
+28:02.820 --> 28:04.220
+ when we're in the middle of a phase transition
+
+28:04.220 --> 28:05.260
+ as we are right now.
+
+28:05.260 --> 28:06.740
+ Yeah, and I, in general,
+
+28:06.740 --> 28:09.220
+ I'm not blind to all the threats.
+
+28:09.220 --> 28:14.220
+ I am excited by the power of technology to solve,
+
+28:14.540 --> 28:18.060
+ to protect us against the threats as they evolve.
+
+28:18.060 --> 28:22.340
+ I'm not as much as Steven Pinker optimistic about the world,
+
+28:22.340 --> 28:23.740
+ but in everything I've seen,
+
+28:23.740 --> 28:27.300
+ all of the brilliant people in the world that I've met
+
+28:27.300 --> 28:29.160
+ are good people.
+
+28:29.160 --> 28:30.800
+ So the army of the good
+
+28:30.800 --> 28:33.400
+ in terms of the development of technology is large.
+
+28:33.400 --> 28:36.860
+ Okay, you're way more optimistic than I am.
+
+28:37.820 --> 28:39.060
+ I think that goodness and badness
+
+28:39.060 --> 28:40.900
+ are equally distributed among intelligent
+
+28:40.900 --> 28:42.700
+ and unintelligent people.
+
+28:42.700 --> 28:44.660
+ I don't see much of a correlation there.
+
+28:44.660 --> 28:46.060
+ Interesting.
+
+28:46.060 --> 28:47.300
+ Neither of us have proof.
+
+28:47.300 --> 28:48.420
+ Yeah, exactly.
+
+28:48.420 --> 28:50.660
+ Again, opinions are free, right?
+
+28:50.660 --> 28:52.540
+ Nor definitions of good and evil.
+
+28:52.540 --> 28:57.460
+ We come without definitions or without data opinions.
+
+28:57.460 --> 29:01.980
+ So what kind of questions can science not currently answer
+
+29:01.980 --> 29:04.380
+ and may never be able to answer in your view?
+
+29:04.380 --> 29:06.940
+ Well, the obvious one is what is good and bad?
+
+29:06.940 --> 29:07.860
+ What is right and wrong?
+
+29:07.860 --> 29:09.460
+ I think that there are questions that,
+
+29:09.460 --> 29:11.300
+ science tells us what happens,
+
+29:11.300 --> 29:13.260
+ what the world is and what it does.
+
+29:13.260 --> 29:14.740
+ It doesn't say what the world should do
+
+29:14.740 --> 29:15.580
+ or what we should do,
+
+29:15.580 --> 29:17.800
+ because we're part of the world.
+
+29:17.800 --> 29:19.200
+ But we are part of the world
+
+29:19.200 --> 29:21.460
+ and we have the ability to feel like something's right,
+
+29:21.460 --> 29:22.740
+ something's wrong.
+
+29:22.740 --> 29:25.660
+ And to make a very long story very short,
+
+29:25.660 --> 29:28.000
+ I think that the idea of moral philosophy
+
+29:28.000 --> 29:30.100
+ is systematizing our intuitions
+
+29:30.100 --> 29:31.700
+ of what is right and what is wrong.
+
+29:31.700 --> 29:34.580
+ And science might be able to predict ahead of time
+
+29:34.580 --> 29:36.180
+ what we will do,
+
+29:36.180 --> 29:38.000
+ but it won't ever be able to judge
+
+29:38.000 --> 29:39.600
+ whether we should have done it or not.
+
+29:39.600 --> 29:43.620
+ So, you're kind of unique in terms of scientists.
+
+29:43.620 --> 29:45.520
+ Listen, it doesn't have to do with podcasts,
+
+29:45.520 --> 29:47.660
+ but even just reaching out,
+
+29:47.660 --> 29:49.080
+ I think you referred to as sort of
+
+29:49.080 --> 29:51.300
+ doing interdisciplinary science.
+
+29:51.300 --> 29:54.100
+ So you reach out and talk to people
+
+29:54.100 --> 29:55.980
+ that are outside of your discipline,
+
+29:55.980 --> 30:00.140
+ which I always hope that's what science was for.
+
+30:00.140 --> 30:02.300
+ In fact, I was a little disillusioned
+
+30:02.300 --> 30:06.420
+ when I realized that academia is very siloed.
+
+30:06.420 --> 30:07.260
+ Yeah.
+
+30:07.260 --> 30:09.560
+ And so the question is,
+
+30:10.700 --> 30:13.020
+ how, at your own level,
+
+30:13.020 --> 30:15.380
+ how do you prepare for these conversations?
+
+30:15.380 --> 30:16.900
+ How do you think about these conversations?
+
+30:16.900 --> 30:18.300
+ How do you open your mind enough
+
+30:18.300 --> 30:20.220
+ to have these conversations?
+
+30:20.220 --> 30:21.940
+ And it may be a little bit broader,
+
+30:21.940 --> 30:24.380
+ how can you advise other scientists
+
+30:24.380 --> 30:26.260
+ to have these kinds of conversations?
+
+30:26.260 --> 30:28.180
+ Not at the podcast,
+
+30:28.180 --> 30:29.860
+ the fact that you're doing a podcast is awesome,
+
+30:29.860 --> 30:31.380
+ other people get to hear them,
+
+30:31.380 --> 30:34.700
+ but it's also good to have it without mics in general.
+
+30:34.700 --> 30:37.460
+ It's a good question, but a tough one to answer.
+
+30:37.460 --> 30:40.980
+ I think about a guy I know who's a personal trainer,
+
+30:40.980 --> 30:43.240
+ and he was asked on a podcast,
+
+30:43.240 --> 30:45.700
+ how do we psych ourselves up to do a workout?
+
+30:45.700 --> 30:48.340
+ How do we make that discipline to go and work out?
+
+30:48.340 --> 30:50.300
+ And he's like, why are you asking me?
+
+30:50.300 --> 30:52.340
+ I can't stop working out.
+
+30:52.340 --> 30:54.380
+ I don't need to psych myself up.
+
+30:54.380 --> 30:57.340
+ So, and likewise, he asked me,
+
+30:57.340 --> 30:59.740
+ how do you get to have interdisciplinary conversations
+
+30:59.740 --> 31:00.700
+ on all sorts of different things,
+
+31:00.700 --> 31:01.660
+ all sorts of different people?
+
+31:01.660 --> 31:04.860
+ I'm like, that's what makes me go, right?
+
+31:04.860 --> 31:07.380
+ Like that's, I couldn't stop doing that.
+
+31:07.380 --> 31:09.660
+ I did that long before any of them were recorded.
+
+31:09.660 --> 31:12.380
+ In fact, a lot of the motivation for starting recording it
+
+31:12.380 --> 31:14.420
+ was making sure I would read all these books
+
+31:14.420 --> 31:15.460
+ that I had purchased, right?
+
+31:15.460 --> 31:17.700
+ Like all these books I wanted to read,
+
+31:17.700 --> 31:18.900
+ not enough time to read them.
+
+31:18.900 --> 31:20.700
+ And now if I have the motivation,
+
+31:20.700 --> 31:23.220
+ cause I'm gonna interview Pat Churchland,
+
+31:23.220 --> 31:25.180
+ I'm gonna finally read her book.
+
+31:25.180 --> 31:29.460
+ You know, and it's absolutely true
+
+31:29.460 --> 31:31.700
+ that academia is extraordinarily siloed, right?
+
+31:31.700 --> 31:32.780
+ We don't talk to people.
+
+31:32.780 --> 31:34.260
+ We rarely do.
+
+31:34.260 --> 31:36.460
+ And in fact, when we do, it's punished.
+
+31:36.460 --> 31:38.820
+ You know, like the people who do it successfully
+
+31:38.820 --> 31:41.420
+ generally first became very successful
+
+31:41.420 --> 31:43.100
+ within their little siloed discipline.
+
+31:43.100 --> 31:46.380
+ And only then did they start expanding out.
+
+31:46.380 --> 31:47.660
+ If you're a young person, you know,
+
+31:47.660 --> 31:48.940
+ I have graduate students.
+
+31:48.940 --> 31:52.980
+ I try to be very, very candid with them about this,
+
+31:52.980 --> 31:55.580
+ that it's, you know, most graduate students
+
+31:55.580 --> 31:57.420
+ are to not become faculty members, right?
+
+31:57.420 --> 31:59.020
+ It's a tough road.
+
+31:59.020 --> 32:03.140
+ And so live the life you wanna live,
+
+32:03.140 --> 32:04.620
+ but do it with your eyes open
+
+32:04.620 --> 32:06.900
+ about what it does to your job chances.
+
+32:06.900 --> 32:09.580
+ And the more broad you are
+
+32:09.580 --> 32:12.900
+ and the less time you spend hyper specializing
+
+32:12.900 --> 32:15.780
+ in your field, the lower your job chances are.
+
+32:15.780 --> 32:17.060
+ That's just an academic reality.
+
+32:17.060 --> 32:20.060
+ It's terrible, I don't like it, but it's a reality.
+
+32:20.060 --> 32:22.540
+ And for some people, that's fine.
+
+32:22.540 --> 32:24.660
+ Like there's plenty of people who are wonderful scientists
+
+32:24.660 --> 32:27.140
+ who have zero interest in branching out
+
+32:27.140 --> 32:30.740
+ and talking to things, to anyone outside their field.
+
+32:30.740 --> 32:33.740
+ But it is disillusioning to me.
+
+32:33.740 --> 32:36.180
+ Some of the, you know, romantic notion I had
+
+32:36.180 --> 32:38.220
+ of the intellectual academic life
+
+32:38.220 --> 32:39.940
+ is belied by the reality of it.
+
+32:39.940 --> 32:43.500
+ The idea that we should reach out beyond our discipline
+
+32:43.500 --> 32:48.500
+ and that is a positive good is just so rare
+
+32:48.500 --> 32:53.500
+ in universities that it may as well not exist at all.
+
+32:53.900 --> 32:57.660
+ But that said, even though you're saying you're doing it
+
+32:57.660 --> 33:00.300
+ like the personal trainer, because you just can't help it,
+
+33:00.300 --> 33:02.940
+ you're also an inspiration to others.
+
+33:02.940 --> 33:04.980
+ Like I could speak for myself.
+
+33:05.780 --> 33:09.540
+ You know, I also have a career I'm thinking about, right?
+
+33:09.540 --> 33:12.060
+ And without your podcast,
+
+33:12.060 --> 33:15.060
+ I may have not have been doing this at all, right?
+
+33:15.060 --> 33:19.540
+ So it makes me realize that these kinds of conversations
+
+33:19.540 --> 33:23.340
+ is kind of what science is about in many ways.
+
+33:23.340 --> 33:26.500
+ The reason we write papers, this exchange of ideas,
+
+33:27.460 --> 33:30.540
+ is it's much harder to do interdisciplinary papers,
+
+33:30.540 --> 33:31.380
+ I would say.
+
+33:31.380 --> 33:35.140
+ And conversations are easier.
+
+33:35.140 --> 33:36.820
+ So conversations is the beginning.
+
+33:36.820 --> 33:41.180
+ And in the field of AI, it's obvious
+
+33:41.180 --> 33:45.580
+ that we should think outside of pure computer vision
+
+33:45.580 --> 33:47.540
+ competitions on a particular data sets.
+
+33:47.540 --> 33:49.660
+ We should think about the broader impact
+
+33:49.660 --> 33:53.740
+ of how this can be, you know, reaching out to physics,
+
+33:53.740 --> 33:57.220
+ to psychology, to neuroscience and having these
+
+33:57.220 --> 34:00.580
+ conversations so that you're an inspiration.
+
+34:00.580 --> 34:05.220
+ And so never know how the world changes.
+
+34:05.220 --> 34:08.540
+ I mean, the fact that this stuff is out there
+
+34:08.540 --> 34:12.300
+ and I've a huge number of people come up to me,
+
+34:12.300 --> 34:16.100
+ grad students, really loving the podcast, inspired by it.
+
+34:16.100 --> 34:18.660
+ And they will probably have that,
+
+34:18.660 --> 34:20.740
+ they'll be ripple effects when they become faculty
+
+34:20.740 --> 34:21.580
+ and so on and so on.
+
+34:21.580 --> 34:25.300
+ We can end on a balance between pessimism and optimism.
+
+34:25.300 --> 34:27.780
+ And Sean, thank you so much for talking to me, it was awesome.
+
+34:27.780 --> 34:29.460
+ No, Lex, thank you very much for this conversation.
+
+34:29.460 --> 34:49.460
+ It was great.
+

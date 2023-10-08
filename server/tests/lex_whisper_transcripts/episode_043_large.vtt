@@ -1,0 +1,6386 @@
+WEBVTT
+
+00:00.000 --> 00:02.740
+ The following is a conversation with Gary Marcus.
+
+00:02.740 --> 00:04.980
+ He's a professor emeritus at NYU,
+
+00:04.980 --> 00:08.200
+ founder of Robust AI and Geometric Intelligence.
+
+00:08.200 --> 00:10.300
+ The latter is a machine learning company
+
+00:10.300 --> 00:13.500
+ that was acquired by Uber in 2016.
+
+00:13.500 --> 00:15.740
+ He's the author of several books,
+
+00:15.740 --> 00:18.180
+ Unnatural and Artificial Intelligence,
+
+00:18.180 --> 00:20.840
+ including his new book, Rebooting AI,
+
+00:20.840 --> 00:23.340
+ Building Machines We Can Trust.
+
+00:23.340 --> 00:25.480
+ Gary has been a critical voice,
+
+00:25.480 --> 00:28.780
+ highlighting the limits of deep learning and AI in general
+
+00:28.780 --> 00:33.700
+ and discussing the challenges before our AI community
+
+00:33.700 --> 00:35.740
+ that must be solved in order to achieve
+
+00:35.740 --> 00:38.300
+ artificial general intelligence.
+
+00:38.300 --> 00:40.100
+ As I'm having these conversations,
+
+00:40.100 --> 00:43.600
+ I try to find paths toward insight, towards new ideas.
+
+00:43.600 --> 00:45.940
+ I try to have no ego in the process.
+
+00:45.940 --> 00:47.640
+ It gets in the way.
+
+00:47.640 --> 00:52.300
+ I'll often continuously try on several hats, several roles.
+
+00:52.300 --> 00:54.740
+ One, for example, is the role of a three year old
+
+00:54.740 --> 00:57.140
+ who understands very little about anything
+
+00:57.140 --> 01:00.340
+ and asks big what and why questions.
+
+01:00.340 --> 01:02.940
+ The other might be a role of a devil's advocate
+
+01:02.940 --> 01:05.600
+ who presents counter ideas with the goal of arriving
+
+01:05.600 --> 01:08.240
+ at greater understanding through debate.
+
+01:08.240 --> 01:11.240
+ Hopefully, both are useful, interesting,
+
+01:11.240 --> 01:13.400
+ and even entertaining at times.
+
+01:13.400 --> 01:15.400
+ I ask for your patience as I learn
+
+01:15.400 --> 01:17.760
+ to have better conversations.
+
+01:17.760 --> 01:20.800
+ This is the Artificial Intelligence Podcast.
+
+01:20.800 --> 01:23.140
+ If you enjoy it, subscribe on YouTube,
+
+01:23.140 --> 01:26.340
+ give it five stars on iTunes, support it on Patreon,
+
+01:26.340 --> 01:28.560
+ or simply connect with me on Twitter
+
+01:28.560 --> 01:32.540
+ at Lex Friedman, spelled F R I D M A N.
+
+01:32.540 --> 01:36.340
+ And now, here's my conversation with Gary Marcus.
+
+01:37.220 --> 01:40.400
+ Do you think human civilization will one day have
+
+01:40.400 --> 01:42.960
+ to face an AI driven technological singularity
+
+01:42.960 --> 01:45.620
+ that will, in a societal way,
+
+01:45.620 --> 01:47.260
+ modify our place in the food chain
+
+01:47.260 --> 01:50.140
+ of intelligent living beings on this planet?
+
+01:50.140 --> 01:54.860
+ I think our place in the food chain has already changed.
+
+01:54.860 --> 01:57.340
+ So there are lots of things people used to do by hand
+
+01:57.340 --> 01:59.180
+ that they do with machine.
+
+01:59.180 --> 02:01.800
+ If you think of a singularity as like one single moment,
+
+02:01.800 --> 02:03.220
+ which is, I guess, what it suggests,
+
+02:03.220 --> 02:04.580
+ I don't know if it'll be like that,
+
+02:04.580 --> 02:07.340
+ but I think that there's a lot of gradual change
+
+02:07.340 --> 02:09.220
+ and AI is getting better and better.
+
+02:09.220 --> 02:11.420
+ I mean, I'm here to tell you why I think it's not nearly
+
+02:11.420 --> 02:14.380
+ as good as people think, but the overall trend is clear.
+
+02:14.380 --> 02:17.380
+ Maybe Rick Hertzweil thinks it's an exponential
+
+02:17.380 --> 02:18.440
+ and I think it's linear.
+
+02:18.440 --> 02:20.800
+ In some cases, it's close to zero right now,
+
+02:20.800 --> 02:21.820
+ but it's all gonna happen.
+
+02:21.820 --> 02:24.780
+ I mean, we are gonna get to human level intelligence
+
+02:24.780 --> 02:28.660
+ or whatever you want, artificial general intelligence
+
+02:28.660 --> 02:31.380
+ at some point, and that's certainly gonna change
+
+02:31.380 --> 02:32.500
+ our place in the food chain,
+
+02:32.500 --> 02:35.200
+ because a lot of the tedious things that we do now,
+
+02:35.200 --> 02:36.040
+ we're gonna have machines do,
+
+02:36.040 --> 02:38.540
+ and a lot of the dangerous things that we do now,
+
+02:38.540 --> 02:39.900
+ we're gonna have machines do.
+
+02:39.900 --> 02:41.660
+ I think our whole lives are gonna change
+
+02:41.660 --> 02:45.020
+ from people finding their meaning through their work
+
+02:45.020 --> 02:46.700
+ through people finding their meaning
+
+02:46.700 --> 02:48.660
+ through creative expression.
+
+02:48.660 --> 02:53.660
+ So the singularity will be a very gradual,
+
+02:53.660 --> 02:56.620
+ in fact, removing the meaning of the word singularity.
+
+02:56.620 --> 03:00.540
+ It'll be a very gradual transformation in your view.
+
+03:00.540 --> 03:03.460
+ I think that it'll be somewhere in between,
+
+03:03.460 --> 03:05.700
+ and I guess it depends what you mean by gradual and sudden.
+
+03:05.700 --> 03:07.340
+ I don't think it's gonna be one day.
+
+03:07.340 --> 03:08.860
+ I think it's important to realize
+
+03:08.860 --> 03:11.820
+ that intelligence is a multidimensional variable.
+
+03:11.820 --> 03:14.420
+ So people sort of write this stuff
+
+03:14.420 --> 03:19.420
+ as if IQ was one number, and the day that you hit 262
+
+03:20.620 --> 03:22.700
+ or whatever, you displace the human beings.
+
+03:22.700 --> 03:25.300
+ And really, there's lots of facets to intelligence.
+
+03:25.300 --> 03:26.740
+ So there's verbal intelligence,
+
+03:26.740 --> 03:28.580
+ and there's motor intelligence,
+
+03:28.580 --> 03:32.060
+ and there's mathematical intelligence and so forth.
+
+03:32.060 --> 03:34.620
+ Machines, in their mathematical intelligence,
+
+03:34.620 --> 03:36.900
+ far exceed most people already.
+
+03:36.900 --> 03:38.140
+ In their ability to play games,
+
+03:38.140 --> 03:40.080
+ they far exceed most people already.
+
+03:40.080 --> 03:41.760
+ In their ability to understand language,
+
+03:41.760 --> 03:43.140
+ they lag behind my five year old,
+
+03:43.140 --> 03:44.740
+ far behind my five year old.
+
+03:44.740 --> 03:46.860
+ So there are some facets of intelligence
+
+03:46.860 --> 03:49.460
+ that machines have grasped, and some that they haven't,
+
+03:49.460 --> 03:51.780
+ and we have a lot of work left to do
+
+03:51.780 --> 03:54.300
+ to get them to, say, understand natural language,
+
+03:54.300 --> 03:57.780
+ or to understand how to flexibly approach
+
+03:57.780 --> 04:01.340
+ some kind of novel MacGyver problem solving
+
+04:01.340 --> 04:03.020
+ kind of situation.
+
+04:03.020 --> 04:05.620
+ And I don't know that all of these things will come at once.
+
+04:05.620 --> 04:07.940
+ I think there are certain vital prerequisites
+
+04:07.940 --> 04:09.320
+ that we're missing now.
+
+04:09.320 --> 04:12.500
+ So for example, machines don't really have common sense now.
+
+04:12.500 --> 04:15.540
+ So they don't understand that bottles contain water,
+
+04:15.540 --> 04:18.160
+ and that people drink water to quench their thirst,
+
+04:18.160 --> 04:19.500
+ and that they don't wanna dehydrate.
+
+04:19.500 --> 04:22.100
+ They don't know these basic facts about human beings,
+
+04:22.100 --> 04:24.440
+ and I think that that's a rate limiting step
+
+04:24.440 --> 04:25.300
+ for many things.
+
+04:25.300 --> 04:27.680
+ It's a great limiting step for reading, for example,
+
+04:27.680 --> 04:29.740
+ because stories depend on things like,
+
+04:29.740 --> 04:31.540
+ oh my God, that person's running out of water.
+
+04:31.540 --> 04:33.040
+ That's why they did this thing.
+
+04:33.040 --> 04:37.100
+ Or if they only had water, they could put out the fire.
+
+04:37.100 --> 04:39.380
+ So you watch a movie, and your knowledge
+
+04:39.380 --> 04:41.220
+ about how things work matter.
+
+04:41.220 --> 04:44.320
+ And so a computer can't understand that movie
+
+04:44.320 --> 04:45.780
+ if it doesn't have that background knowledge.
+
+04:45.780 --> 04:47.900
+ Same thing if you read a book.
+
+04:47.900 --> 04:49.660
+ And so there are lots of places where,
+
+04:49.660 --> 04:53.740
+ if we had a good machine interpretable set of common sense,
+
+04:53.740 --> 04:56.580
+ many things would accelerate relatively quickly,
+
+04:56.580 --> 04:59.940
+ but I don't think even that is a single point.
+
+04:59.940 --> 05:02.540
+ There's many different aspects of knowledge.
+
+05:02.540 --> 05:05.260
+ And we might, for example, find that we make a lot
+
+05:05.260 --> 05:06.660
+ of progress on physical reasoning,
+
+05:06.660 --> 05:09.140
+ getting machines to understand, for example,
+
+05:09.140 --> 05:11.980
+ how keys fit into locks, or that kind of stuff,
+
+05:11.980 --> 05:16.980
+ or how this gadget here works, and so forth and so on.
+
+05:16.980 --> 05:19.500
+ And so machines might do that long before they do
+
+05:19.500 --> 05:21.780
+ really good psychological reasoning,
+
+05:21.780 --> 05:24.380
+ because it's easier to get kind of labeled data
+
+05:24.380 --> 05:28.680
+ or to do direct experimentation on a microphone stand
+
+05:28.680 --> 05:31.780
+ than it is to do direct experimentation on human beings
+
+05:31.780 --> 05:34.860
+ to understand the levers that guide them.
+
+05:34.860 --> 05:36.860
+ That's a really interesting point, actually,
+
+05:36.860 --> 05:39.740
+ whether it's easier to gain common sense knowledge
+
+05:39.740 --> 05:41.740
+ or psychological knowledge.
+
+05:41.740 --> 05:43.300
+ I would say the common sense knowledge
+
+05:43.300 --> 05:46.860
+ includes both physical knowledge and psychological knowledge.
+
+05:46.860 --> 05:47.700
+ And the argument I was making.
+
+05:47.700 --> 05:49.660
+ Well, you said physical versus psychological.
+
+05:49.660 --> 05:51.100
+ Yeah, physical versus psychological.
+
+05:51.100 --> 05:53.260
+ And the argument I was making is physical knowledge
+
+05:53.260 --> 05:55.300
+ might be more accessible, because you could have a robot,
+
+05:55.300 --> 05:58.420
+ for example, lift a bottle, try putting a bottle cap on it,
+
+05:58.420 --> 06:00.420
+ see that it falls off if it does this,
+
+06:00.420 --> 06:02.020
+ and see that it could turn it upside down,
+
+06:02.020 --> 06:04.700
+ and so the robot could do some experimentation.
+
+06:04.700 --> 06:07.220
+ We do some of our psychological reasoning
+
+06:07.220 --> 06:09.240
+ by looking at our own minds.
+
+06:09.240 --> 06:11.940
+ So I can sort of guess how you might react to something
+
+06:11.940 --> 06:13.660
+ based on how I think I would react to it.
+
+06:13.660 --> 06:15.980
+ And robots don't have that intuition,
+
+06:15.980 --> 06:18.460
+ and they also can't do experiments on people
+
+06:18.460 --> 06:20.500
+ in the same way or we'll probably shut them down.
+
+06:20.500 --> 06:24.260
+ So if we wanted to have robots figure out
+
+06:24.260 --> 06:27.800
+ how I respond to pain by pinching me in different ways,
+
+06:27.800 --> 06:29.660
+ like that's probably, it's not gonna make it
+
+06:29.660 --> 06:31.020
+ past the human subjects board
+
+06:31.020 --> 06:32.900
+ and companies are gonna get sued or whatever.
+
+06:32.900 --> 06:35.860
+ So there's certain kinds of practical experience
+
+06:35.860 --> 06:39.660
+ that are limited or off limits to robots.
+
+06:39.660 --> 06:41.060
+ That's a really interesting point.
+
+06:41.060 --> 06:46.060
+ What is more difficult to gain a grounding in?
+
+06:47.540 --> 06:49.940
+ Because to play devil's advocate,
+
+06:49.940 --> 06:54.940
+ I would say that human behavior is easier expressed
+
+06:54.980 --> 06:56.940
+ in data and digital form.
+
+06:56.940 --> 06:59.100
+ And so when you look at Facebook algorithms,
+
+06:59.100 --> 07:01.100
+ they get to observe human behavior.
+
+07:01.100 --> 07:04.620
+ So you get to study and manipulate even a human behavior
+
+07:04.620 --> 07:07.740
+ in a way that you perhaps cannot study
+
+07:07.740 --> 07:09.540
+ or manipulate the physical world.
+
+07:09.540 --> 07:14.400
+ So it's true why you said pain is like physical pain,
+
+07:14.400 --> 07:16.020
+ but that's again, the physical world.
+
+07:16.020 --> 07:20.080
+ Emotional pain might be much easier to experiment with,
+
+07:20.080 --> 07:22.740
+ perhaps unethical, but nevertheless,
+
+07:22.740 --> 07:25.380
+ some would argue it's already going on.
+
+07:25.380 --> 07:27.340
+ I think that you're right, for example,
+
+07:27.340 --> 07:30.980
+ that Facebook does a lot of experimentation
+
+07:30.980 --> 07:32.900
+ in psychological reasoning.
+
+07:32.900 --> 07:36.040
+ In fact, Zuckerberg talked about AI
+
+07:36.040 --> 07:38.400
+ at a talk that he gave in NIPS.
+
+07:38.400 --> 07:40.300
+ I wasn't there, but the conference
+
+07:40.300 --> 07:41.300
+ has been renamed NeurIPS,
+
+07:41.300 --> 07:43.740
+ but he used to be called NIPS when he gave the talk.
+
+07:43.740 --> 07:45.300
+ And he talked about Facebook basically
+
+07:45.300 --> 07:47.100
+ having a gigantic theory of mind.
+
+07:47.100 --> 07:49.540
+ So I think it is certainly possible.
+
+07:49.540 --> 07:51.220
+ I mean, Facebook does some of that.
+
+07:51.220 --> 07:52.620
+ I think they have a really good idea
+
+07:52.620 --> 07:53.900
+ of how to addict people to things.
+
+07:53.900 --> 07:56.420
+ They understand what draws people back to things.
+
+07:56.420 --> 07:57.580
+ I think they exploit it in ways
+
+07:57.580 --> 07:59.220
+ that I'm not very comfortable with.
+
+07:59.220 --> 08:03.300
+ But even so, I think that there are only some slices
+
+08:03.300 --> 08:05.620
+ of human experience that they can access
+
+08:05.620 --> 08:07.220
+ through the kind of interface they have.
+
+08:07.220 --> 08:08.980
+ And of course, they're doing all kinds of VR stuff,
+
+08:08.980 --> 08:11.940
+ and maybe that'll change and they'll expand their data.
+
+08:11.940 --> 08:14.940
+ And I'm sure that that's part of their goal.
+
+08:14.940 --> 08:16.860
+ So it is an interesting question.
+
+08:16.860 --> 08:21.700
+ I think love, fear, insecurity,
+
+08:21.700 --> 08:24.300
+ all of the things that,
+
+08:24.300 --> 08:26.620
+ I would say some of the deepest things
+
+08:26.620 --> 08:28.620
+ about human nature and the human mind
+
+08:28.620 --> 08:30.500
+ could be explored through digital form.
+
+08:30.500 --> 08:32.220
+ It's that you're actually the first person
+
+08:32.220 --> 08:33.680
+ just now that brought up,
+
+08:33.680 --> 08:35.860
+ I wonder what is more difficult.
+
+08:35.860 --> 08:40.220
+ Because I think folks who are the slow,
+
+08:40.220 --> 08:41.820
+ and we'll talk a lot about deep learning,
+
+08:41.820 --> 08:44.860
+ but the people who are thinking beyond deep learning
+
+08:44.860 --> 08:46.420
+ are thinking about the physical world.
+
+08:46.420 --> 08:48.060
+ You're starting to think about robotics
+
+08:48.060 --> 08:49.180
+ in the home robotics.
+
+08:49.180 --> 08:52.300
+ How do we make robots manipulate objects,
+
+08:52.300 --> 08:55.020
+ which requires an understanding of the physical world
+
+08:55.020 --> 08:57.300
+ and then requires common sense reasoning.
+
+08:57.300 --> 08:59.440
+ And that has felt to be like the next step
+
+08:59.440 --> 09:00.420
+ for common sense reasoning,
+
+09:00.420 --> 09:02.100
+ but you've now brought up the idea
+
+09:02.100 --> 09:03.620
+ that there's also the emotional part.
+
+09:03.620 --> 09:06.840
+ And it's interesting whether that's hard or easy.
+
+09:06.840 --> 09:08.540
+ I think some parts of it are and some aren't.
+
+09:08.540 --> 09:12.660
+ So my company that I recently founded with Rod Brooks,
+
+09:12.660 --> 09:15.000
+ from MIT for many years and so forth,
+
+09:15.940 --> 09:17.240
+ we're interested in both.
+
+09:17.240 --> 09:18.580
+ We're interested in physical reasoning
+
+09:18.580 --> 09:21.500
+ and psychological reasoning, among many other things.
+
+09:21.500 --> 09:26.140
+ And there are pieces of each of these that are accessible.
+
+09:26.140 --> 09:28.020
+ So if you want a robot to figure out
+
+09:28.020 --> 09:29.720
+ whether it can fit under a table,
+
+09:29.720 --> 09:33.660
+ that's a relatively accessible piece of physical reasoning.
+
+09:33.660 --> 09:34.760
+ If you know the height of the table
+
+09:34.760 --> 09:36.980
+ and you know the height of the robot, it's not that hard.
+
+09:36.980 --> 09:39.900
+ If you wanted to do physical reasoning about Jenga,
+
+09:39.900 --> 09:41.500
+ it gets a little bit more complicated
+
+09:41.500 --> 09:43.820
+ and you have to have higher resolution data
+
+09:43.820 --> 09:45.260
+ in order to do it.
+
+09:45.260 --> 09:46.900
+ With psychological reasoning,
+
+09:46.900 --> 09:49.320
+ it's not that hard to know, for example,
+
+09:49.320 --> 09:51.700
+ that people have goals and they like to act on those goals,
+
+09:51.700 --> 09:54.900
+ but it's really hard to know exactly what those goals are.
+
+09:54.900 --> 09:56.780
+ But ideas of frustration.
+
+09:56.780 --> 09:58.780
+ I mean, you could argue it's extremely difficult
+
+09:58.780 --> 10:01.460
+ to understand the sources of human frustration
+
+10:01.460 --> 10:05.740
+ as they're playing Jenga with you, or not.
+
+10:05.740 --> 10:08.020
+ You could argue that it's very accessible.
+
+10:08.020 --> 10:09.740
+ There's some things that are gonna be obvious
+
+10:09.740 --> 10:10.580
+ and some not.
+
+10:10.580 --> 10:14.220
+ So I don't think anybody really can do this well yet,
+
+10:14.220 --> 10:16.620
+ but I think it's not inconceivable
+
+10:16.620 --> 10:20.120
+ to imagine machines in the not so distant future
+
+10:20.120 --> 10:24.220
+ being able to understand that if people lose in a game,
+
+10:24.220 --> 10:26.260
+ that they don't like that.
+
+10:26.260 --> 10:27.940
+ That's not such a hard thing to program
+
+10:27.940 --> 10:29.980
+ and it's pretty consistent across people.
+
+10:29.980 --> 10:31.540
+ Most people don't enjoy losing
+
+10:31.540 --> 10:34.620
+ and so that makes it relatively easy to code.
+
+10:34.620 --> 10:36.860
+ On the other hand, if you wanted to capture everything
+
+10:36.860 --> 10:39.180
+ about frustration, well, people can get frustrated
+
+10:39.180 --> 10:40.320
+ for a lot of different reasons.
+
+10:40.320 --> 10:42.340
+ They might get sexually frustrated,
+
+10:42.340 --> 10:43.180
+ they might get frustrated,
+
+10:43.180 --> 10:45.140
+ they can get their promotion at work,
+
+10:45.140 --> 10:46.900
+ all kinds of different things.
+
+10:46.900 --> 10:48.580
+ And the more you expand the scope,
+
+10:48.580 --> 10:51.540
+ the harder it is for anything like the existing techniques
+
+10:51.540 --> 10:53.000
+ to really do that.
+
+10:53.000 --> 10:55.660
+ So I'm talking to Garret Kasparov next week
+
+10:55.660 --> 10:57.220
+ and he seemed pretty frustrated
+
+10:57.220 --> 10:58.940
+ with his game against Deep Blue, so.
+
+10:58.940 --> 11:00.300
+ Yeah, well, I'm frustrated with my game
+
+11:00.300 --> 11:01.340
+ against him last year,
+
+11:01.340 --> 11:03.620
+ because I played him, I had two excuses,
+
+11:03.620 --> 11:04.900
+ I'll give you my excuses up front,
+
+11:04.900 --> 11:07.060
+ but it won't mitigate the outcome.
+
+11:07.060 --> 11:11.100
+ I was jet lagged and I hadn't played in 25 or 30 years,
+
+11:11.100 --> 11:13.020
+ but the outcome is he completely destroyed me
+
+11:13.020 --> 11:14.420
+ and it wasn't even close.
+
+11:14.420 --> 11:19.420
+ Have you ever been beaten in any board game by a machine?
+
+11:19.740 --> 11:24.740
+ I have, I actually played the predecessor to Deep Blue.
+
+11:24.740 --> 11:27.940
+ Deep Thought, I believe it was called,
+
+11:27.940 --> 11:30.000
+ and that too crushed me.
+
+11:30.000 --> 11:35.000
+ And that was, and after that you realize it's over for us.
+
+11:35.340 --> 11:36.820
+ Well, there's no point in my playing Deep Blue.
+
+11:36.820 --> 11:40.260
+ I mean, it's a waste of Deep Blue's computation.
+
+11:40.260 --> 11:41.540
+ I mean, I played Kasparov
+
+11:41.540 --> 11:44.820
+ because we both gave lectures this same event
+
+11:44.820 --> 11:46.020
+ and he was playing 30 people.
+
+11:46.020 --> 11:46.900
+ I forgot to mention that.
+
+11:46.900 --> 11:47.980
+ Not only did he crush me,
+
+11:47.980 --> 11:50.660
+ but he crushed 29 other people at the same time.
+
+11:50.660 --> 11:55.460
+ I mean, but the actual philosophical and emotional experience
+
+11:55.460 --> 11:59.100
+ of being beaten by a machine, I imagine is a,
+
+11:59.100 --> 12:01.380
+ I mean, to you who thinks about these things
+
+12:01.380 --> 12:03.580
+ may be a profound experience.
+
+12:03.580 --> 12:07.780
+ Or no, it was a simple mathematical experience.
+
+12:07.780 --> 12:10.300
+ Yeah, I think a game like chess particularly
+
+12:10.300 --> 12:12.740
+ where you have perfect information,
+
+12:12.740 --> 12:14.780
+ it's two player closed end
+
+12:14.780 --> 12:16.940
+ and there's more computation for the computer,
+
+12:16.940 --> 12:18.860
+ it's no surprise the machine wins.
+
+12:18.860 --> 12:22.020
+ I mean, I'm not sad when a computer,
+
+12:22.020 --> 12:23.940
+ I'm not sad when a computer calculates
+
+12:23.940 --> 12:25.220
+ a cube root faster than me.
+
+12:25.220 --> 12:27.860
+ Like, I know I can't win that game.
+
+12:27.860 --> 12:28.900
+ I'm not gonna try.
+
+12:28.900 --> 12:32.080
+ Well, with a system like AlphaGo or AlphaZero,
+
+12:32.080 --> 12:35.060
+ do you see a little bit more magic in a system like that
+
+12:35.060 --> 12:37.260
+ even though it's simply playing a board game?
+
+12:37.260 --> 12:39.940
+ But because there's a strong learning component?
+
+12:39.940 --> 12:41.300
+ You know, I find you should mention that
+
+12:41.300 --> 12:42.580
+ in the context of this conversation
+
+12:42.580 --> 12:45.300
+ because Kasparov and I are working on an article
+
+12:45.300 --> 12:47.300
+ that's gonna be called AI is not magic.
+
+12:47.300 --> 12:50.500
+ And, you know, neither one of us thinks that it's magic.
+
+12:50.500 --> 12:51.980
+ And part of the point of this article
+
+12:51.980 --> 12:55.140
+ is that AI is actually a grab bag of different techniques
+
+12:55.140 --> 12:56.060
+ and some of them have,
+
+12:56.060 --> 12:59.140
+ or they each have their own unique strengths and weaknesses.
+
+13:00.060 --> 13:02.820
+ So, you know, you read media accounts
+
+13:02.820 --> 13:05.200
+ and it's like, ooh, AI, it must be magical
+
+13:05.200 --> 13:06.580
+ or it can solve any problem.
+
+13:06.580 --> 13:09.500
+ Well, no, some problems are really accessible
+
+13:09.500 --> 13:11.980
+ like chess and go and other problems like reading
+
+13:11.980 --> 13:14.940
+ are completely outside the current technology.
+
+13:14.940 --> 13:17.100
+ And it's not like you can take the technology,
+
+13:17.100 --> 13:20.100
+ that drives AlphaGo and apply it to reading
+
+13:20.100 --> 13:21.340
+ and get anywhere.
+
+13:21.340 --> 13:23.180
+ You know, DeepMind has tried that a bit.
+
+13:23.180 --> 13:24.500
+ They have all kinds of resources.
+
+13:24.500 --> 13:26.180
+ You know, they built AlphaGo and they have,
+
+13:26.180 --> 13:29.460
+ you know, I wrote a piece recently that they lost
+
+13:29.460 --> 13:30.540
+ and you can argue about the word lost,
+
+13:30.540 --> 13:34.900
+ but they spent $530 million more than they made last year.
+
+13:34.900 --> 13:36.620
+ So, you know, they're making huge investments.
+
+13:36.620 --> 13:37.860
+ They have a large budget
+
+13:37.860 --> 13:40.900
+ and they have applied the same kinds of techniques
+
+13:40.900 --> 13:43.220
+ to reading or to language.
+
+13:43.220 --> 13:45.540
+ It's just much less productive there
+
+13:45.540 --> 13:47.900
+ because it's a fundamentally different kind of problem.
+
+13:47.900 --> 13:50.660
+ Chess and go and so forth are closed end problems.
+
+13:50.660 --> 13:52.980
+ The rules haven't changed in 2,500 years.
+
+13:52.980 --> 13:54.700
+ There's only so many moves you can make.
+
+13:54.700 --> 13:56.460
+ You can talk about the exponential
+
+13:56.460 --> 13:58.180
+ as you look at the combinations of moves,
+
+13:58.180 --> 14:01.240
+ but fundamentally, you know, the go board has 361 squares.
+
+14:01.240 --> 14:02.080
+ That's it.
+
+14:02.080 --> 14:04.100
+ That's the only, you know, those intersections
+
+14:04.100 --> 14:07.300
+ are the only places that you can place your stone.
+
+14:07.300 --> 14:09.140
+ Whereas when you're reading,
+
+14:09.140 --> 14:11.460
+ the next sentence could be anything.
+
+14:11.460 --> 14:13.300
+ You know, it's completely up to the writer
+
+14:13.300 --> 14:14.460
+ what they're gonna do next.
+
+14:14.460 --> 14:16.260
+ That's fascinating that you think this way.
+
+14:16.260 --> 14:17.980
+ You're clearly a brilliant mind
+
+14:17.980 --> 14:19.700
+ who points out the emperor has no clothes,
+
+14:19.700 --> 14:22.300
+ but so I'll play the role of a person who says.
+
+14:22.300 --> 14:23.300
+ You're gonna put clothes on the emperor?
+
+14:23.300 --> 14:24.140
+ Good luck with it.
+
+14:24.140 --> 14:27.980
+ It romanticizes the notion of the emperor, period,
+
+14:27.980 --> 14:30.140
+ suggesting that clothes don't even matter.
+
+14:30.140 --> 14:33.580
+ Okay, so that's really interesting
+
+14:33.580 --> 14:35.380
+ that you're talking about language.
+
+14:36.260 --> 14:37.780
+ So there's the physical world
+
+14:37.780 --> 14:39.680
+ of being able to move about the world,
+
+14:39.680 --> 14:41.940
+ making an omelet and coffee and so on.
+
+14:41.940 --> 14:46.020
+ There's language where you first understand
+
+14:46.020 --> 14:48.860
+ what's being written and then maybe even more complicated
+
+14:48.860 --> 14:51.260
+ than that, having a natural dialogue.
+
+14:51.260 --> 14:53.620
+ And then there's the game of go and chess.
+
+14:53.620 --> 14:57.540
+ I would argue that language is much closer to go
+
+14:57.540 --> 14:59.700
+ than it is to the physical world.
+
+14:59.700 --> 15:01.460
+ Like it is still very constrained.
+
+15:01.460 --> 15:04.740
+ When you say the possibility of the number of sentences
+
+15:04.740 --> 15:06.500
+ that could come, it is huge,
+
+15:06.500 --> 15:09.260
+ but it nevertheless is much more constrained.
+
+15:09.260 --> 15:12.740
+ It feels maybe I'm wrong than the possibilities
+
+15:12.740 --> 15:14.540
+ that the physical world brings us.
+
+15:14.540 --> 15:15.860
+ There's something to what you say
+
+15:15.860 --> 15:17.700
+ in some ways in which I disagree.
+
+15:17.700 --> 15:20.620
+ So one interesting thing about language
+
+15:20.620 --> 15:23.340
+ is that it abstracts away.
+
+15:23.340 --> 15:26.140
+ This bottle, I don't know if it would be in the field of view
+
+15:26.140 --> 15:28.900
+ is on this table and I use the word on here
+
+15:28.900 --> 15:32.980
+ and I can use the word on here, maybe not here,
+
+15:32.980 --> 15:36.980
+ but that one word encompasses in analog space
+
+15:36.980 --> 15:39.340
+ sort of infinite number of possibilities.
+
+15:39.340 --> 15:43.060
+ So there is a way in which language filters down
+
+15:43.060 --> 15:46.660
+ the variation of the world and there's other ways.
+
+15:46.660 --> 15:49.900
+ So we have a grammar and more or less
+
+15:49.900 --> 15:51.700
+ you have to follow the rules of that grammar.
+
+15:51.700 --> 15:52.700
+ You can break them a little bit,
+
+15:52.700 --> 15:55.420
+ but by and large we follow the rules of grammar
+
+15:55.420 --> 15:57.020
+ and so that's a constraint on language.
+
+15:57.020 --> 15:59.460
+ So there are ways in which language is a constrained system.
+
+15:59.460 --> 16:02.300
+ On the other hand, there are many arguments
+
+16:02.300 --> 16:04.740
+ that say there's an infinite number of possible sentences
+
+16:04.740 --> 16:07.660
+ and you can establish that by just stacking them up.
+
+16:07.660 --> 16:09.500
+ So I think there's water on the table,
+
+16:09.500 --> 16:11.740
+ you think that I think there's water on the table,
+
+16:11.740 --> 16:13.340
+ your mother thinks that you think that I think
+
+16:13.340 --> 16:15.620
+ that water's on the table, your brother thinks
+
+16:15.620 --> 16:17.300
+ that maybe your mom is wrong to think
+
+16:17.300 --> 16:18.660
+ that you think that I think, right?
+
+16:18.660 --> 16:21.980
+ So we can make sentences of infinite length
+
+16:21.980 --> 16:23.580
+ or we can stack up adjectives.
+
+16:23.580 --> 16:26.420
+ This is a very silly example, a very, very silly example,
+
+16:26.420 --> 16:28.780
+ a very, very, very, very, very, very silly example
+
+16:28.780 --> 16:29.620
+ and so forth.
+
+16:29.620 --> 16:30.980
+ So there are good arguments
+
+16:30.980 --> 16:32.420
+ that there's an infinite range of sentences.
+
+16:32.420 --> 16:35.780
+ In any case, it's vast by any reasonable measure
+
+16:35.780 --> 16:37.980
+ and for example, almost anything in the physical world
+
+16:37.980 --> 16:40.460
+ we can talk about in the language world
+
+16:40.460 --> 16:43.820
+ and interestingly, many of the sentences that we understand,
+
+16:43.820 --> 16:46.820
+ we can only understand if we have a very rich model
+
+16:46.820 --> 16:47.820
+ of the physical world.
+
+16:47.820 --> 16:50.620
+ So I don't ultimately want to adjudicate the debate
+
+16:50.620 --> 16:53.380
+ that I think you just set up, but I find it interesting.
+
+16:54.420 --> 16:57.180
+ Maybe the physical world is even more complicated
+
+16:57.180 --> 16:59.580
+ than language, I think that's fair, but.
+
+16:59.580 --> 17:03.100
+ Language is really, really complicated.
+
+17:03.100 --> 17:04.100
+ It's really, really hard.
+
+17:04.100 --> 17:06.100
+ Well, it's really, really hard for machines,
+
+17:06.100 --> 17:08.500
+ for linguists, people trying to understand it.
+
+17:08.500 --> 17:09.660
+ It's not that hard for children
+
+17:09.660 --> 17:12.100
+ and that's part of what's driven my whole career.
+
+17:12.100 --> 17:14.340
+ I was a student of Steven Pinker's
+
+17:14.340 --> 17:15.340
+ and we were trying to figure out
+
+17:15.340 --> 17:18.700
+ why kids could learn language when machines couldn't.
+
+17:18.700 --> 17:20.540
+ I think we're gonna get into language,
+
+17:20.540 --> 17:22.460
+ we're gonna get into communication intelligence
+
+17:22.460 --> 17:24.220
+ and neural networks and so on,
+
+17:24.220 --> 17:28.860
+ but let me return to the high level,
+
+17:28.860 --> 17:32.540
+ the futuristic for a brief moment.
+
+17:32.540 --> 17:37.300
+ So you've written in your book, in your new book,
+
+17:37.300 --> 17:39.940
+ it would be arrogant to suppose that we could forecast
+
+17:39.940 --> 17:42.500
+ where AI will be or the impact it will have
+
+17:42.500 --> 17:45.180
+ in a thousand years or even 500 years.
+
+17:45.180 --> 17:47.080
+ So let me ask you to be arrogant.
+
+17:48.340 --> 17:51.500
+ What do AI systems with or without physical bodies
+
+17:51.500 --> 17:53.500
+ look like 100 years from now?
+
+17:53.500 --> 17:56.820
+ If you would just, you can't predict,
+
+17:56.820 --> 18:00.540
+ but if you were to philosophize and imagine, do.
+
+18:00.540 --> 18:02.020
+ Can I first justify the arrogance
+
+18:02.020 --> 18:04.100
+ before you try to push me beyond it?
+
+18:04.100 --> 18:04.940
+ Sure.
+
+18:05.940 --> 18:07.700
+ I mean, there are examples like,
+
+18:07.700 --> 18:09.720
+ people figured out how electricity worked,
+
+18:09.720 --> 18:13.060
+ they had no idea that that was gonna lead to cell phones.
+
+18:13.060 --> 18:15.600
+ I mean, things can move awfully fast
+
+18:15.600 --> 18:17.940
+ once new technologies are perfected.
+
+18:17.940 --> 18:19.460
+ Even when they made transistors,
+
+18:19.460 --> 18:21.100
+ they weren't really thinking that cell phones
+
+18:21.100 --> 18:23.340
+ would lead to social networking.
+
+18:23.340 --> 18:25.740
+ There are nevertheless predictions of the future,
+
+18:25.740 --> 18:28.820
+ which are statistically unlikely to come to be,
+
+18:28.820 --> 18:29.660
+ but nevertheless is the best.
+
+18:29.660 --> 18:31.380
+ You're asking me to be wrong.
+
+18:31.380 --> 18:32.220
+ Asking you to be statistically.
+
+18:32.220 --> 18:34.020
+ In which way would I like to be wrong?
+
+18:34.020 --> 18:37.500
+ Pick the least unlikely to be wrong thing,
+
+18:37.500 --> 18:39.760
+ even though it's most very likely to be wrong.
+
+18:39.760 --> 18:40.600
+ I mean, here's some things
+
+18:40.600 --> 18:42.740
+ that we can safely predict, I suppose.
+
+18:42.740 --> 18:46.260
+ We can predict that AI will be faster than it is now.
+
+18:47.300 --> 18:49.520
+ It will be cheaper than it is now.
+
+18:49.520 --> 18:52.880
+ It will be better in the sense of being more general
+
+18:52.880 --> 18:55.760
+ and applicable in more places.
+
+18:56.980 --> 18:58.340
+ It will be pervasive.
+
+18:59.300 --> 19:01.620
+ I mean, these are easy predictions.
+
+19:01.620 --> 19:03.320
+ I'm sort of modeling them in my head
+
+19:03.320 --> 19:05.820
+ on Jeff Bezos's famous predictions.
+
+19:05.820 --> 19:07.340
+ He says, I can't predict the future,
+
+19:07.340 --> 19:09.820
+ not in every way, I'm paraphrasing.
+
+19:09.820 --> 19:11.060
+ But I can predict that people
+
+19:11.060 --> 19:13.220
+ will never wanna pay more money for their stuff.
+
+19:13.220 --> 19:15.580
+ They're never gonna want it to take longer to get there.
+
+19:15.580 --> 19:17.800
+ So you can't predict everything,
+
+19:17.800 --> 19:18.880
+ but you can predict something.
+
+19:18.880 --> 19:21.220
+ Sure, of course it's gonna be faster and better.
+
+19:21.220 --> 19:24.500
+ But what we can't really predict
+
+19:24.500 --> 19:28.700
+ is the full scope of where AI will be in a certain period.
+
+19:28.700 --> 19:31.900
+ I mean, I think it's safe to say that,
+
+19:31.900 --> 19:34.780
+ although I'm very skeptical about current AI,
+
+19:35.660 --> 19:37.700
+ that it's possible to do much better.
+
+19:37.700 --> 19:39.700
+ You know, there's no in principled argument
+
+19:39.700 --> 19:42.100
+ that says AI is an insolvable problem,
+
+19:42.100 --> 19:43.620
+ that there's magic inside our brains
+
+19:43.620 --> 19:44.980
+ that will never be captured.
+
+19:44.980 --> 19:46.780
+ I mean, I've heard people make those kind of arguments.
+
+19:46.780 --> 19:48.980
+ I don't think they're very good.
+
+19:48.980 --> 19:53.980
+ So AI's gonna come, and probably 500 years
+
+19:54.100 --> 19:55.540
+ is plenty to get there.
+
+19:55.540 --> 19:58.340
+ And then once it's here, it really will change everything.
+
+19:59.260 --> 20:01.060
+ So when you say AI's gonna come,
+
+20:01.060 --> 20:03.660
+ are you talking about human level intelligence?
+
+20:03.660 --> 20:04.980
+ So maybe I...
+
+20:04.980 --> 20:06.660
+ I like the term general intelligence.
+
+20:06.660 --> 20:09.500
+ So I don't think that the ultimate AI,
+
+20:09.500 --> 20:11.980
+ if there is such a thing, is gonna look just like humans.
+
+20:11.980 --> 20:13.600
+ I think it's gonna do some things
+
+20:13.600 --> 20:16.580
+ that humans do better than current machines,
+
+20:16.580 --> 20:18.580
+ like reason flexibly.
+
+20:18.580 --> 20:21.180
+ And understand language and so forth.
+
+20:21.180 --> 20:23.460
+ But it doesn't mean they have to be identical to humans.
+
+20:23.460 --> 20:25.980
+ So for example, humans have terrible memory,
+
+20:25.980 --> 20:28.780
+ and they suffer from what some people
+
+20:28.780 --> 20:29.920
+ call motivated reasoning.
+
+20:29.920 --> 20:32.460
+ So they like arguments that seem to support them,
+
+20:32.460 --> 20:35.460
+ and they dismiss arguments that they don't like.
+
+20:35.460 --> 20:38.660
+ There's no reason that a machine should ever do that.
+
+20:38.660 --> 20:42.280
+ So you see that those limitations of memory
+
+20:42.280 --> 20:43.940
+ as a bug, not a feature.
+
+20:43.940 --> 20:44.820
+ Absolutely.
+
+20:44.820 --> 20:46.620
+ I'll say two things about that.
+
+20:46.620 --> 20:48.660
+ One is I was on a panel with Danny Kahneman,
+
+20:48.660 --> 20:50.300
+ the Nobel Prize winner, last night,
+
+20:50.300 --> 20:51.760
+ and we were talking about this stuff.
+
+20:51.760 --> 20:53.480
+ And I think what we converged on
+
+20:53.480 --> 20:56.120
+ is that humans are a low bar to exceed.
+
+20:56.120 --> 20:58.940
+ They may be outside of our skill right now,
+
+20:58.940 --> 21:03.940
+ but as AI programmers, but eventually AI will exceed it.
+
+21:04.300 --> 21:06.060
+ So we're not talking about human level AI.
+
+21:06.060 --> 21:07.900
+ We're talking about general intelligence
+
+21:07.900 --> 21:09.420
+ that can do all kinds of different things
+
+21:09.420 --> 21:12.220
+ and do it without some of the flaws that human beings have.
+
+21:12.220 --> 21:13.700
+ The other thing I'll say is I wrote a whole book,
+
+21:13.700 --> 21:15.280
+ actually, about the flaws of humans.
+
+21:15.280 --> 21:17.980
+ It's actually a nice bookend to the,
+
+21:17.980 --> 21:19.180
+ or counterpoint to the current book.
+
+21:19.180 --> 21:21.380
+ So I wrote a book called Cluj,
+
+21:21.380 --> 21:24.020
+ which was about the limits of the human mind.
+
+21:24.020 --> 21:26.380
+ The current book is kind of about those few things
+
+21:26.380 --> 21:28.760
+ that humans do a lot better than machines.
+
+21:28.760 --> 21:30.820
+ Do you think it's possible that the flaws
+
+21:30.820 --> 21:33.260
+ of the human mind, the limits of memory,
+
+21:33.260 --> 21:37.300
+ our mortality, our bias,
+
+21:38.460 --> 21:40.300
+ is a strength, not a weakness,
+
+21:40.300 --> 21:43.500
+ that that is the thing that enables,
+
+21:43.500 --> 21:47.940
+ from which motivation springs and meaning springs or not?
+
+21:47.940 --> 21:49.460
+ I've heard a lot of arguments like this.
+
+21:49.460 --> 21:50.860
+ I've never found them that convincing.
+
+21:50.860 --> 21:55.120
+ I think that there's a lot of making lemonade out of lemons.
+
+21:55.120 --> 21:58.260
+ So we, for example, do a lot of free association
+
+21:58.260 --> 22:00.780
+ where one idea just leads to the next
+
+22:00.780 --> 22:02.540
+ and they're not really that well connected.
+
+22:02.540 --> 22:04.500
+ And we enjoy that and we make poetry out of it
+
+22:04.500 --> 22:07.100
+ and we make kind of movies with free associations
+
+22:07.100 --> 22:08.140
+ and it's fun and whatever.
+
+22:08.140 --> 22:12.300
+ I don't think that's really a virtue of the system.
+
+22:12.300 --> 22:15.340
+ I think that the limitations in human reasoning
+
+22:15.340 --> 22:16.580
+ actually get us in a lot of trouble.
+
+22:16.580 --> 22:19.300
+ Like, for example, politically we can't see eye to eye
+
+22:19.300 --> 22:21.780
+ because we have the motivational reasoning I was talking
+
+22:21.780 --> 22:25.080
+ about and something related called confirmation bias.
+
+22:25.080 --> 22:27.460
+ So we have all of these problems that actually make
+
+22:27.460 --> 22:29.920
+ for a rougher society because we can't get along
+
+22:29.920 --> 22:32.720
+ because we can't interpret the data in shared ways.
+
+22:34.320 --> 22:36.460
+ And then we do some nice stuff with that.
+
+22:36.460 --> 22:38.900
+ So my free associations are different from yours
+
+22:38.900 --> 22:41.600
+ and you're kind of amused by them and that's great.
+
+22:41.600 --> 22:42.620
+ And hence poetry.
+
+22:42.620 --> 22:45.060
+ So there are lots of ways in which we take
+
+22:45.060 --> 22:47.540
+ a lousy situation and make it good.
+
+22:47.540 --> 22:50.580
+ Another example would be our memories are terrible.
+
+22:50.580 --> 22:53.300
+ So we play games like Concentration where you flip over
+
+22:53.300 --> 22:54.980
+ two cards, try to find a pair.
+
+22:54.980 --> 22:56.480
+ Can you imagine a computer playing that?
+
+22:56.480 --> 22:58.300
+ Computer's like, this is the dullest game in the world.
+
+22:58.300 --> 22:59.940
+ I know where all the cards are, I see it once,
+
+22:59.940 --> 23:02.580
+ I know where it is, what are you even talking about?
+
+23:02.580 --> 23:07.040
+ So we make a fun game out of having this terrible memory.
+
+23:07.040 --> 23:12.040
+ So we are imperfect in discovering and optimizing
+
+23:12.220 --> 23:13.540
+ some kind of utility function.
+
+23:13.540 --> 23:16.300
+ But you think in general, there is a utility function.
+
+23:16.300 --> 23:18.860
+ There's an objective function that's better than others.
+
+23:18.860 --> 23:20.340
+ I didn't say that.
+
+23:20.340 --> 23:24.420
+ But see, the presumption, when you say...
+
+23:24.420 --> 23:27.220
+ I think you could design a better memory system.
+
+23:27.220 --> 23:29.900
+ You could argue about utility functions
+
+23:29.900 --> 23:32.100
+ and how you wanna think about that.
+
+23:32.100 --> 23:34.180
+ But objectively, it would be really nice
+
+23:34.180 --> 23:36.500
+ to do some of the following things.
+
+23:36.500 --> 23:39.980
+ To get rid of memories that are no longer useful.
+
+23:41.140 --> 23:42.700
+ Objectively, that would just be good.
+
+23:42.700 --> 23:43.580
+ And we're not that good at it.
+
+23:43.580 --> 23:46.540
+ So when you park in the same lot every day,
+
+23:46.540 --> 23:47.900
+ you confuse where you parked today
+
+23:47.900 --> 23:48.860
+ with where you parked yesterday
+
+23:48.860 --> 23:50.700
+ with where you parked the day before and so forth.
+
+23:50.700 --> 23:52.620
+ So you blur together a series of memories.
+
+23:52.620 --> 23:55.380
+ There's just no way that that's optimal.
+
+23:55.380 --> 23:56.940
+ I mean, I've heard all kinds of wacky arguments
+
+23:56.940 --> 23:58.140
+ of people trying to defend that.
+
+23:58.140 --> 23:58.980
+ But in the end of the day,
+
+23:58.980 --> 24:00.420
+ I don't think any of them hold water.
+
+24:00.420 --> 24:01.260
+ It's just above.
+
+24:01.260 --> 24:04.420
+ Or memories of traumatic events would be possibly
+
+24:04.420 --> 24:06.780
+ a very nice feature to have to get rid of those.
+
+24:06.780 --> 24:08.300
+ It'd be great if you could just be like,
+
+24:08.300 --> 24:10.580
+ I'm gonna wipe this sector.
+
+24:10.580 --> 24:12.020
+ I'm done with that.
+
+24:12.020 --> 24:13.260
+ I didn't have fun last night.
+
+24:13.260 --> 24:14.780
+ I don't wanna think about it anymore.
+
+24:14.780 --> 24:15.820
+ Whoop, bye bye.
+
+24:15.820 --> 24:16.660
+ I'm gone.
+
+24:16.660 --> 24:17.740
+ But we can't.
+
+24:17.740 --> 24:20.380
+ Do you think it's possible to build a system...
+
+24:20.380 --> 24:23.780
+ So you said human level intelligence is a weird concept, but...
+
+24:23.780 --> 24:25.420
+ Well, I'm saying I prefer general intelligence.
+
+24:25.420 --> 24:26.260
+ General intelligence.
+
+24:26.260 --> 24:28.140
+ I mean, human level intelligence is a real thing.
+
+24:28.140 --> 24:29.820
+ And you could try to make a machine
+
+24:29.820 --> 24:31.940
+ that matches people or something like that.
+
+24:31.940 --> 24:34.220
+ I'm saying that per se shouldn't be the objective,
+
+24:34.220 --> 24:37.220
+ but rather that we should learn from humans
+
+24:37.220 --> 24:39.660
+ the things they do well and incorporate that into our AI,
+
+24:39.660 --> 24:42.100
+ just as we incorporate the things that machines do well
+
+24:42.100 --> 24:43.260
+ that people do terribly.
+
+24:43.260 --> 24:45.780
+ So, I mean, it's great that AI systems
+
+24:45.780 --> 24:48.340
+ can do all this brute force computation that people can't.
+
+24:48.340 --> 24:50.820
+ And one of the reasons I work on this stuff
+
+24:50.820 --> 24:53.300
+ is because I would like to see machines solve problems
+
+24:53.300 --> 24:56.020
+ that people can't, that combine the strength,
+
+24:56.020 --> 24:59.460
+ or that in order to be solved would combine
+
+24:59.460 --> 25:02.220
+ the strengths of machines to do all this computation
+
+25:02.220 --> 25:04.220
+ with the ability, let's say, of people to read.
+
+25:04.220 --> 25:06.180
+ So I'd like machines that can read
+
+25:06.180 --> 25:08.660
+ the entire medical literature in a day.
+
+25:08.660 --> 25:10.780
+ 7,000 new papers or whatever the numbers,
+
+25:10.780 --> 25:11.740
+ comes out every day.
+
+25:11.740 --> 25:15.740
+ There's no way for any doctor or whatever to read them all.
+
+25:15.740 --> 25:17.980
+ A machine that could read would be a brilliant thing.
+
+25:17.980 --> 25:21.060
+ And that would be strengths of brute force computation
+
+25:21.060 --> 25:24.300
+ combined with kind of subtlety and understanding medicine
+
+25:24.300 --> 25:26.900
+ that a good doctor or scientist has.
+
+25:26.900 --> 25:28.020
+ So if we can linger a little bit
+
+25:28.020 --> 25:29.660
+ on the idea of general intelligence.
+
+25:29.660 --> 25:32.860
+ So Yann LeCun believes that human intelligence
+
+25:32.860 --> 25:35.580
+ isn't general at all, it's very narrow.
+
+25:35.580 --> 25:36.700
+ How do you think?
+
+25:36.700 --> 25:38.140
+ I don't think that makes sense.
+
+25:38.140 --> 25:42.140
+ We have lots of narrow intelligences for specific problems.
+
+25:42.140 --> 25:45.940
+ But the fact is, like, anybody can walk into,
+
+25:45.940 --> 25:47.620
+ let's say, a Hollywood movie,
+
+25:47.620 --> 25:49.140
+ and reason about the content
+
+25:49.140 --> 25:51.700
+ of almost anything that goes on there.
+
+25:51.700 --> 25:55.180
+ So you can reason about what happens in a bank robbery,
+
+25:55.180 --> 25:58.620
+ or what happens when someone is infertile
+
+25:58.620 --> 26:02.780
+ and wants to go to IVF to try to have a child,
+
+26:02.780 --> 26:05.940
+ or you can, the list is essentially endless.
+
+26:05.940 --> 26:09.580
+ And not everybody understands every scene in the movie,
+
+26:09.580 --> 26:11.740
+ but there's a huge range of things
+
+26:11.740 --> 26:15.060
+ that pretty much any ordinary adult can understand.
+
+26:15.060 --> 26:18.220
+ His argument is, is that actually,
+
+26:18.220 --> 26:20.700
+ the set of things seems large for us humans
+
+26:20.700 --> 26:24.380
+ because we're very limited in considering
+
+26:24.380 --> 26:27.340
+ the kind of possibilities of experiences that are possible.
+
+26:27.340 --> 26:30.180
+ But in fact, the amount of experience that are possible
+
+26:30.180 --> 26:32.500
+ is infinitely larger.
+
+26:32.500 --> 26:35.140
+ Well, I mean, if you wanna make an argument
+
+26:35.140 --> 26:38.780
+ that humans are constrained in what they can understand,
+
+26:38.780 --> 26:40.940
+ I have no issue with that.
+
+26:40.940 --> 26:41.780
+ I think that's right.
+
+26:41.780 --> 26:44.460
+ But it's still not the same thing at all
+
+26:44.460 --> 26:47.460
+ as saying, here's a system that can play Go.
+
+26:47.460 --> 26:49.700
+ It's been trained on five million games.
+
+26:49.700 --> 26:52.580
+ And then I say, can it play on a rectangular board
+
+26:52.580 --> 26:53.700
+ rather than a square board?
+
+26:53.700 --> 26:56.580
+ And you say, well, if I retrain it from scratch
+
+26:56.580 --> 26:58.340
+ on another five million games, it can.
+
+26:58.340 --> 27:01.140
+ That's really, really narrow, and that's where we are.
+
+27:01.140 --> 27:05.140
+ We don't have even a system that could play Go
+
+27:05.140 --> 27:07.100
+ and then without further retraining,
+
+27:07.100 --> 27:08.700
+ play on a rectangular board,
+
+27:08.700 --> 27:12.600
+ which any human could do with very little problem.
+
+27:12.600 --> 27:14.860
+ So that's what I mean by narrow.
+
+27:14.860 --> 27:16.900
+ And so it's just wordplay to say.
+
+27:16.900 --> 27:18.060
+ That is semantics, yeah.
+
+27:18.060 --> 27:19.300
+ Then it's just words.
+
+27:19.300 --> 27:21.180
+ Then yeah, you mean general in a sense
+
+27:21.180 --> 27:25.780
+ that you can do all kinds of Go board shapes flexibly.
+
+27:25.780 --> 27:28.100
+ Well, that would be like a first step
+
+27:28.100 --> 27:29.020
+ in the right direction,
+
+27:29.020 --> 27:30.540
+ but obviously that's not what it really meaning.
+
+27:30.540 --> 27:31.380
+ You're kidding.
+
+27:32.380 --> 27:36.140
+ What I mean by general is that you could transfer
+
+27:36.140 --> 27:38.940
+ the knowledge you learn in one domain to another.
+
+27:38.940 --> 27:43.320
+ So if you learn about bank robberies in movies
+
+27:43.320 --> 27:44.780
+ and there's chase scenes,
+
+27:44.780 --> 27:47.740
+ then you can understand that amazing scene in Breaking Bad
+
+27:47.740 --> 27:50.580
+ when Walter White has a car chase scene
+
+27:50.580 --> 27:51.500
+ with only one person.
+
+27:51.500 --> 27:52.620
+ He's the only one in it.
+
+27:52.620 --> 27:55.540
+ And you can reflect on how that car chase scene
+
+27:55.540 --> 27:58.060
+ is like all the other car chase scenes you've ever seen
+
+27:58.060 --> 28:01.140
+ and totally different and why that's cool.
+
+28:01.140 --> 28:03.100
+ And the fact that the number of domains
+
+28:03.100 --> 28:04.540
+ you can do that with is finite
+
+28:04.540 --> 28:05.760
+ doesn't make it less general.
+
+28:05.760 --> 28:07.340
+ So the idea of general is you could just do it
+
+28:07.340 --> 28:09.380
+ on a lot of, don't transfer it across a lot of domains.
+
+28:09.380 --> 28:11.740
+ Yeah, I mean, I'm not saying humans are infinitely general
+
+28:11.740 --> 28:12.960
+ or that humans are perfect.
+
+28:12.960 --> 28:15.340
+ I just said a minute ago, it's a low bar,
+
+28:15.340 --> 28:17.420
+ but it's just, it's a low bar.
+
+28:17.420 --> 28:20.460
+ But right now, like the bar is here and we're there
+
+28:20.460 --> 28:22.660
+ and eventually we'll get way past it.
+
+28:22.660 --> 28:25.600
+ So speaking of low bars,
+
+28:25.600 --> 28:27.420
+ you've highlighted in your new book as well,
+
+28:27.420 --> 28:29.340
+ but a couple of years ago wrote a paper
+
+28:29.340 --> 28:31.300
+ titled Deep Learning, A Critical Appraisal
+
+28:31.300 --> 28:33.340
+ that lists 10 challenges faced
+
+28:33.340 --> 28:36.020
+ by current deep learning systems.
+
+28:36.020 --> 28:40.140
+ So let me summarize them as data efficiency,
+
+28:40.140 --> 28:42.900
+ transfer learning, hierarchical knowledge,
+
+28:42.900 --> 28:46.300
+ open ended inference, explainability,
+
+28:46.300 --> 28:49.660
+ integrating prior knowledge, cause of reasoning,
+
+28:49.660 --> 28:53.220
+ modeling on a stable world, robustness, adversarial examples
+
+28:53.220 --> 28:54.140
+ and so on.
+
+28:54.140 --> 28:56.900
+ And then my favorite probably is reliability
+
+28:56.900 --> 28:59.140
+ in the engineering of real world systems.
+
+28:59.140 --> 29:01.600
+ So whatever people can read the paper,
+
+29:01.600 --> 29:02.940
+ they should definitely read the paper,
+
+29:02.940 --> 29:04.320
+ should definitely read your book.
+
+29:04.320 --> 29:08.140
+ But which of these challenges is solved in your view
+
+29:08.140 --> 29:11.060
+ has the biggest impact on the AI community?
+
+29:11.060 --> 29:12.620
+ It's a very good question.
+
+29:13.940 --> 29:16.300
+ And I'm gonna be evasive because I think that
+
+29:16.300 --> 29:17.980
+ they go together a lot.
+
+29:17.980 --> 29:21.420
+ So some of them might be solved independently of others,
+
+29:21.420 --> 29:23.700
+ but I think a good solution to AI
+
+29:23.700 --> 29:25.460
+ starts by having real,
+
+29:25.460 --> 29:28.420
+ what I would call cognitive models of what's going on.
+
+29:28.420 --> 29:31.340
+ So right now we have a approach that's dominant
+
+29:31.340 --> 29:33.920
+ where you take statistical approximations of things,
+
+29:33.920 --> 29:35.740
+ but you don't really understand them.
+
+29:35.740 --> 29:39.100
+ So you know that bottles are correlated in your data
+
+29:39.100 --> 29:40.300
+ with bottle caps,
+
+29:40.300 --> 29:42.220
+ but you don't understand that there's a thread
+
+29:42.220 --> 29:45.300
+ on the bottle cap that fits with the thread on the bottle
+
+29:45.300 --> 29:46.620
+ and then that's what tightens it.
+
+29:46.620 --> 29:48.540
+ If I tighten enough that there's a seal
+
+29:48.540 --> 29:49.660
+ and the water won't come out.
+
+29:49.660 --> 29:51.980
+ Like there's no machine that understands that.
+
+29:51.980 --> 29:53.820
+ And having a good cognitive model
+
+29:53.820 --> 29:55.480
+ of that kind of everyday phenomena
+
+29:55.480 --> 29:56.620
+ is what we call common sense.
+
+29:56.620 --> 29:57.820
+ And if you had that,
+
+29:57.820 --> 30:00.700
+ then a lot of these other things start to fall
+
+30:00.700 --> 30:02.860
+ into at least a little bit better place.
+
+30:02.860 --> 30:05.640
+ Right now you're like learning correlations between pixels
+
+30:05.640 --> 30:07.660
+ when you play a video game or something like that.
+
+30:07.660 --> 30:08.940
+ And it doesn't work very well.
+
+30:08.940 --> 30:10.720
+ It works when the video game is just the way
+
+30:10.720 --> 30:12.940
+ that you studied it and then you alter the video game
+
+30:12.940 --> 30:13.760
+ in small ways,
+
+30:13.760 --> 30:15.780
+ like you move the paddle and break out a few pixels
+
+30:15.780 --> 30:17.460
+ and the system falls apart.
+
+30:17.460 --> 30:19.020
+ Because it doesn't understand,
+
+30:19.020 --> 30:20.900
+ it doesn't have a representation of a paddle,
+
+30:20.900 --> 30:23.340
+ a ball, a wall, a set of bricks and so forth.
+
+30:23.340 --> 30:26.440
+ And so it's reasoning at the wrong level.
+
+30:26.440 --> 30:29.220
+ So the idea of common sense,
+
+30:29.220 --> 30:30.220
+ it's full of mystery,
+
+30:30.220 --> 30:31.060
+ you've worked on it,
+
+30:31.060 --> 30:33.560
+ but it's nevertheless full of mystery,
+
+30:33.560 --> 30:34.720
+ full of promise.
+
+30:34.720 --> 30:36.540
+ What does common sense mean?
+
+30:36.540 --> 30:38.020
+ What does knowledge mean?
+
+30:38.020 --> 30:40.020
+ So the way you've been discussing it now
+
+30:40.020 --> 30:40.940
+ is very intuitive.
+
+30:40.940 --> 30:42.580
+ It makes a lot of sense that that is something
+
+30:42.580 --> 30:43.700
+ we should have and that's something
+
+30:43.700 --> 30:45.600
+ deep learning systems don't have.
+
+30:45.600 --> 30:49.740
+ But the argument could be that we're oversimplifying it
+
+30:49.740 --> 30:53.180
+ because we're oversimplifying the notion of common sense
+
+30:53.180 --> 30:57.140
+ because that's how it feels like we as humans
+
+30:57.140 --> 30:59.320
+ at the cognitive level approach problems.
+
+30:59.320 --> 31:00.160
+ So maybe.
+
+31:00.160 --> 31:03.320
+ A lot of people aren't actually gonna read my book.
+
+31:03.320 --> 31:05.220
+ But if they did read the book,
+
+31:05.220 --> 31:07.140
+ one of the things that might come as a surprise to them
+
+31:07.140 --> 31:10.660
+ is that we actually say common sense is really hard
+
+31:10.660 --> 31:11.640
+ and really complicated.
+
+31:11.640 --> 31:13.020
+ So they would probably,
+
+31:13.020 --> 31:15.140
+ my critics know that I like common sense,
+
+31:15.140 --> 31:18.600
+ but that chapter actually starts by us beating up
+
+31:18.600 --> 31:19.900
+ not on deep learning,
+
+31:19.900 --> 31:21.960
+ but kind of on our own home team as it will.
+
+31:21.960 --> 31:25.180
+ So Ernie and I are first and foremost
+
+31:25.180 --> 31:26.780
+ people that believe in at least some
+
+31:26.780 --> 31:28.700
+ of what good old fashioned AI tried to do.
+
+31:28.700 --> 31:31.580
+ So we believe in symbols and logic and programming.
+
+31:32.500 --> 31:33.740
+ Things like that are important.
+
+31:33.740 --> 31:37.020
+ And we go through why even those tools
+
+31:37.020 --> 31:39.560
+ that we hold fairly dear aren't really enough.
+
+31:39.560 --> 31:42.660
+ So we talk about why common sense is actually many things.
+
+31:42.660 --> 31:45.300
+ And some of them fit really well with those
+
+31:45.300 --> 31:46.540
+ classical sets of tools.
+
+31:46.540 --> 31:48.240
+ So things like taxonomy.
+
+31:48.240 --> 31:51.460
+ So I know that a bottle is an object
+
+31:51.460 --> 31:52.860
+ or it's a vessel, let's say.
+
+31:52.860 --> 31:54.480
+ And I know a vessel is an object
+
+31:54.480 --> 31:57.580
+ and objects are material things in the physical world.
+
+31:57.580 --> 32:00.500
+ So I can make some inferences.
+
+32:00.500 --> 32:05.500
+ If I know that vessels need to not have holes in them,
+
+32:07.020 --> 32:09.540
+ then I can infer that in order to carry their contents,
+
+32:09.540 --> 32:10.920
+ then I can infer that a bottle
+
+32:10.920 --> 32:12.860
+ shouldn't have a hole in it in order to carry its contents.
+
+32:12.860 --> 32:15.620
+ So you can do hierarchical inference and so forth.
+
+32:15.620 --> 32:17.260
+ And we say that's great,
+
+32:17.260 --> 32:21.100
+ but it's only a tiny piece of what you need for common sense.
+
+32:21.100 --> 32:23.460
+ We give lots of examples that don't fit into that.
+
+32:23.460 --> 32:26.500
+ So another one that we talk about is a cheese grater.
+
+32:26.500 --> 32:28.040
+ You've got holes in a cheese grater.
+
+32:28.040 --> 32:29.500
+ You've got a handle on top.
+
+32:29.500 --> 32:33.380
+ You can build a model in the game engine sense of a model
+
+32:33.380 --> 32:35.820
+ so that you could have a little cartoon character
+
+32:35.820 --> 32:37.980
+ flying around through the holes of the grater.
+
+32:37.980 --> 32:39.980
+ But we don't have a system yet.
+
+32:39.980 --> 32:41.620
+ Taxonomy doesn't help us that much
+
+32:41.620 --> 32:43.780
+ that really understands why the handle is on top
+
+32:43.780 --> 32:45.240
+ and what you do with the handle,
+
+32:45.240 --> 32:47.620
+ or why all of those circles are sharp,
+
+32:47.620 --> 32:50.500
+ or how you'd hold the cheese with respect to the grater
+
+32:50.500 --> 32:52.120
+ in order to make it actually work.
+
+32:52.120 --> 32:55.020
+ Do you think these ideas are just abstractions
+
+32:55.020 --> 32:57.140
+ that could emerge on a system
+
+32:57.140 --> 32:59.920
+ like a very large deep neural network?
+
+32:59.920 --> 33:03.140
+ I'm a skeptic that that kind of emergence per se can work.
+
+33:03.140 --> 33:05.840
+ So I think that deep learning might play a role
+
+33:05.840 --> 33:08.760
+ in the systems that do what I want systems to do,
+
+33:08.760 --> 33:09.900
+ but it won't do it by itself.
+
+33:09.900 --> 33:13.140
+ I've never seen a deep learning system
+
+33:13.140 --> 33:15.900
+ really extract an abstract concept.
+
+33:15.900 --> 33:18.820
+ What they do, principled reasons for that
+
+33:18.820 --> 33:20.540
+ stemming from how back propagation works,
+
+33:20.540 --> 33:22.920
+ how the architectures are set up.
+
+33:22.920 --> 33:25.120
+ One example is deep learning people
+
+33:25.120 --> 33:29.620
+ actually all build in something called convolution,
+
+33:29.620 --> 33:33.180
+ which Jan Lacune is famous for, which is an abstraction.
+
+33:33.180 --> 33:34.960
+ They don't have their systems learn this.
+
+33:34.960 --> 33:37.740
+ So the abstraction is an object that looks the same
+
+33:37.740 --> 33:39.220
+ if it appears in different places.
+
+33:39.220 --> 33:41.940
+ And what Lacune figured out and why,
+
+33:41.940 --> 33:44.300
+ essentially why he was a co winner of the Turing Award
+
+33:44.300 --> 33:47.620
+ was that if you programmed this in innately,
+
+33:47.620 --> 33:50.680
+ then your system would be a whole lot more efficient.
+
+33:50.680 --> 33:53.220
+ In principle, this should be learnable,
+
+33:53.220 --> 33:56.220
+ but people don't have systems that kind of reify things
+
+33:56.220 --> 33:58.000
+ and make them more abstract.
+
+33:58.000 --> 34:00.420
+ And so what you'd really wind up with
+
+34:00.420 --> 34:02.700
+ if you don't program that in advance is a system
+
+34:02.700 --> 34:05.460
+ that kind of realizes that this is the same thing as this,
+
+34:05.460 --> 34:06.980
+ but then I take your little clock there
+
+34:06.980 --> 34:08.380
+ and I move it over and it doesn't realize
+
+34:08.380 --> 34:10.460
+ that the same thing applies to the clock.
+
+34:10.460 --> 34:12.680
+ So the really nice thing, you're right,
+
+34:12.680 --> 34:14.760
+ that convolution is just one of the things
+
+34:14.760 --> 34:17.160
+ that's like, it's an innate feature
+
+34:17.160 --> 34:19.460
+ that's programmed by the human expert.
+
+34:19.460 --> 34:21.260
+ We need more of those, not less.
+
+34:21.260 --> 34:24.420
+ Yes, but the nice feature is it feels like
+
+34:24.420 --> 34:28.200
+ that requires coming up with that brilliant idea,
+
+34:28.200 --> 34:29.780
+ can get you a Turing Award,
+
+34:29.780 --> 34:34.780
+ but it requires less effort than encoding
+
+34:34.780 --> 34:36.620
+ and something we'll talk about, the expert system.
+
+34:36.620 --> 34:40.020
+ So encoding a lot of knowledge by hand.
+
+34:40.020 --> 34:43.500
+ So it feels like there's a huge amount of limitations
+
+34:43.500 --> 34:46.500
+ which you clearly outline with deep learning,
+
+34:46.500 --> 34:47.820
+ but the nice feature of deep learning,
+
+34:47.820 --> 34:49.600
+ whatever it is able to accomplish,
+
+34:49.600 --> 34:53.500
+ it does a lot of stuff automatically
+
+34:53.500 --> 34:54.900
+ without human intervention.
+
+34:54.900 --> 34:57.100
+ Well, and that's part of why people love it, right?
+
+34:57.100 --> 34:59.820
+ But I always think of this quote from Bertrand Russell,
+
+34:59.820 --> 35:02.740
+ which is it has all the advantages
+
+35:02.740 --> 35:04.420
+ of theft over honest toil.
+
+35:04.420 --> 35:08.140
+ It's really hard to program into a machine
+
+35:08.140 --> 35:11.300
+ a notion of causality or even how a bottle works
+
+35:11.300 --> 35:12.640
+ or what containers are.
+
+35:12.640 --> 35:14.260
+ Ernie Davis and I wrote a, I don't know,
+
+35:14.260 --> 35:17.980
+ 45 page academic paper trying just to understand
+
+35:17.980 --> 35:18.980
+ what a container is,
+
+35:18.980 --> 35:21.100
+ which I don't think anybody ever read the paper,
+
+35:21.100 --> 35:25.260
+ but it's a very detailed analysis of all the things,
+
+35:25.260 --> 35:26.100
+ well, not even all of it,
+
+35:26.100 --> 35:27.140
+ some of the things you need to do
+
+35:27.140 --> 35:28.580
+ in order to understand a container.
+
+35:28.580 --> 35:30.060
+ It would be a whole lot nice,
+
+35:30.060 --> 35:32.200
+ and I'm a coauthor on the paper,
+
+35:32.200 --> 35:33.180
+ I made it a little bit better,
+
+35:33.180 --> 35:36.620
+ but Ernie did the hard work for that particular paper.
+
+35:36.620 --> 35:38.060
+ And it took him like three months
+
+35:38.060 --> 35:40.660
+ to get the logical statements correct.
+
+35:40.660 --> 35:42.860
+ And maybe that's not the right way to do it,
+
+35:42.860 --> 35:44.100
+ it's a way to do it.
+
+35:44.100 --> 35:46.140
+ But on that way of doing it,
+
+35:46.140 --> 35:48.440
+ it's really hard work to do something
+
+35:48.440 --> 35:50.220
+ as simple as understanding containers.
+
+35:50.220 --> 35:52.820
+ And nobody wants to do that hard work,
+
+35:52.820 --> 35:55.600
+ even Ernie didn't want to do that hard work.
+
+35:55.600 --> 35:58.380
+ Everybody would rather just like feed their system in
+
+35:58.380 --> 36:00.340
+ with a bunch of videos with a bunch of containers
+
+36:00.340 --> 36:03.820
+ and have the systems infer how containers work.
+
+36:03.820 --> 36:05.420
+ It would be like so much less effort,
+
+36:05.420 --> 36:06.820
+ let the machine do the work.
+
+36:06.820 --> 36:08.220
+ And so I understand the impulse,
+
+36:08.220 --> 36:10.220
+ I understand why people want to do that.
+
+36:10.220 --> 36:11.860
+ I just don't think that it works.
+
+36:11.860 --> 36:14.580
+ I've never seen anybody build a system
+
+36:14.580 --> 36:18.700
+ that in a robust way can actually watch videos
+
+36:18.700 --> 36:21.300
+ and predict exactly which containers would leak
+
+36:21.300 --> 36:23.540
+ and which ones wouldn't or something like,
+
+36:23.540 --> 36:25.060
+ and I know someone's gonna go out and do that
+
+36:25.060 --> 36:28.100
+ since I said it, and I look forward to seeing it.
+
+36:28.100 --> 36:30.540
+ But getting these things to work robustly
+
+36:30.540 --> 36:32.900
+ is really, really hard.
+
+36:32.900 --> 36:37.740
+ So Yann LeCun, who was my colleague at NYU for many years,
+
+36:37.740 --> 36:40.760
+ thinks that the hard work should go into defining
+
+36:40.760 --> 36:43.180
+ an unsupervised learning algorithm
+
+36:43.180 --> 36:46.680
+ that will watch videos, use the next frame basically
+
+36:46.680 --> 36:48.540
+ in order to tell it what's going on.
+
+36:48.540 --> 36:49.940
+ And he thinks that's the Royal road
+
+36:49.940 --> 36:51.260
+ and he's willing to put in the work
+
+36:51.260 --> 36:53.300
+ in devising that algorithm.
+
+36:53.300 --> 36:55.580
+ Then he wants the machine to do the rest.
+
+36:55.580 --> 36:57.820
+ And again, I understand the impulse.
+
+36:57.820 --> 37:01.700
+ My intuition, based on years of watching this stuff
+
+37:01.700 --> 37:03.940
+ and making predictions 20 years ago that still hold
+
+37:03.940 --> 37:06.500
+ even though there's a lot more computation and so forth,
+
+37:06.500 --> 37:07.460
+ is that we actually have to do
+
+37:07.460 --> 37:08.520
+ a different kind of hard work,
+
+37:08.520 --> 37:11.320
+ which is more like building a design specification
+
+37:11.320 --> 37:13.100
+ for what we want the system to do,
+
+37:13.100 --> 37:15.060
+ doing hard engineering work to figure out
+
+37:15.060 --> 37:18.420
+ how we do things like what Yann did for convolution
+
+37:18.420 --> 37:21.660
+ in order to figure out how to encode complex knowledge
+
+37:21.660 --> 37:22.620
+ into the systems.
+
+37:22.620 --> 37:25.340
+ The current systems don't have that much knowledge
+
+37:25.340 --> 37:27.580
+ other than convolution, which is again,
+
+37:27.580 --> 37:30.500
+ this objects being in different places
+
+37:30.500 --> 37:33.240
+ and having the same perception, I guess I'll say.
+
+37:34.460 --> 37:35.300
+ Same appearance.
+
+37:36.740 --> 37:38.260
+ People don't want to do that work.
+
+37:38.260 --> 37:41.580
+ They don't see how to naturally fit one with the other.
+
+37:41.580 --> 37:43.300
+ I think that's, yes, absolutely.
+
+37:43.300 --> 37:45.540
+ But also on the expert system side,
+
+37:45.540 --> 37:47.620
+ there's a temptation to go too far the other way.
+
+37:47.620 --> 37:49.860
+ So we're just having an expert sort of sit down
+
+37:49.860 --> 37:51.940
+ and encode the description,
+
+37:51.940 --> 37:54.060
+ the framework for what a container is,
+
+37:54.060 --> 37:56.540
+ and then having the system reason the rest.
+
+37:56.540 --> 37:59.260
+ From my view, one really exciting possibility
+
+37:59.260 --> 38:02.180
+ is of active learning where it's continuous interaction
+
+38:02.180 --> 38:04.080
+ between a human and machine.
+
+38:04.080 --> 38:07.060
+ As the machine, there's kind of deep learning type
+
+38:07.060 --> 38:10.120
+ extraction of information from data patterns and so on,
+
+38:10.120 --> 38:14.660
+ but humans also guiding the learning procedures,
+
+38:14.660 --> 38:19.660
+ guiding both the process and the framework
+
+38:19.940 --> 38:22.100
+ of how the machine learns, whatever the task is.
+
+38:22.100 --> 38:24.100
+ I was with you with almost everything you said
+
+38:24.100 --> 38:26.460
+ except the phrase deep learning.
+
+38:26.460 --> 38:28.180
+ What I think you really want there
+
+38:28.180 --> 38:30.500
+ is a new form of machine learning.
+
+38:30.500 --> 38:32.980
+ So let's remember, deep learning is a particular way
+
+38:32.980 --> 38:33.980
+ of doing machine learning.
+
+38:33.980 --> 38:36.980
+ Most often it's done with supervised data
+
+38:36.980 --> 38:38.820
+ for perceptual categories.
+
+38:38.820 --> 38:41.780
+ There are other things you can do with deep learning,
+
+38:41.780 --> 38:42.740
+ some of them quite technical,
+
+38:42.740 --> 38:44.600
+ but the standard use of deep learning
+
+38:44.600 --> 38:47.600
+ is I have a lot of examples and I have labels for them.
+
+38:47.600 --> 38:48.820
+ So here are pictures.
+
+38:48.820 --> 38:50.380
+ This one's the Eiffel Tower.
+
+38:50.380 --> 38:51.660
+ This one's the Sears Tower.
+
+38:51.660 --> 38:53.320
+ This one's the Empire State Building.
+
+38:53.320 --> 38:54.160
+ This one's a cat.
+
+38:54.160 --> 38:55.180
+ This one's a pig and so forth.
+
+38:55.180 --> 38:58.900
+ You just get millions of examples, millions of labels,
+
+38:58.900 --> 39:01.220
+ and deep learning is extremely good at that.
+
+39:01.220 --> 39:04.460
+ It's better than any other solution that anybody has devised,
+
+39:04.460 --> 39:07.380
+ but it is not good at representing abstract knowledge.
+
+39:07.380 --> 39:09.380
+ It's not good at representing things
+
+39:09.380 --> 39:13.980
+ like bottles contain liquid and have tops to them
+
+39:13.980 --> 39:14.820
+ and so forth.
+
+39:14.820 --> 39:15.860
+ It's not very good at learning
+
+39:15.860 --> 39:17.860
+ or representing that kind of knowledge.
+
+39:17.860 --> 39:21.300
+ It is an example of having a machine learn something,
+
+39:21.300 --> 39:23.900
+ but it's a machine that learns a particular kind of thing,
+
+39:23.900 --> 39:25.540
+ which is object classification.
+
+39:25.540 --> 39:28.580
+ It's not a particularly good algorithm for learning
+
+39:28.580 --> 39:30.780
+ about the abstractions that govern our world.
+
+39:30.780 --> 39:33.080
+ There may be such a thing.
+
+39:33.080 --> 39:34.300
+ Part of what we counsel in the book
+
+39:34.300 --> 39:36.980
+ is maybe people should be working on devising such things.
+
+39:36.980 --> 39:40.580
+ So one possibility, just I wonder what you think about it,
+
+39:40.580 --> 39:45.180
+ is that deep neural networks do form abstractions,
+
+39:45.180 --> 39:48.500
+ but they're not accessible to us humans
+
+39:48.500 --> 39:49.340
+ in terms of we can't.
+
+39:49.340 --> 39:50.780
+ There's some truth in that.
+
+39:50.780 --> 39:54.180
+ So is it possible that either current or future
+
+39:54.180 --> 39:56.520
+ neural networks form very high level abstractions,
+
+39:56.520 --> 40:01.520
+ which are as powerful as our human abstractions
+
+40:01.820 --> 40:02.660
+ of common sense.
+
+40:02.660 --> 40:04.900
+ We just can't get a hold of them.
+
+40:04.900 --> 40:06.620
+ And so the problem is essentially
+
+40:06.620 --> 40:09.220
+ we need to make them explainable.
+
+40:09.220 --> 40:10.640
+ This is an astute question,
+
+40:10.640 --> 40:13.080
+ but I think the answer is at least partly no.
+
+40:13.080 --> 40:16.060
+ One of the kinds of classical neural network architecture
+
+40:16.060 --> 40:17.620
+ is what we call an auto associator.
+
+40:17.620 --> 40:20.140
+ It just tries to take an input,
+
+40:20.140 --> 40:21.500
+ goes through a set of hidden layers,
+
+40:21.500 --> 40:23.040
+ and comes out with an output.
+
+40:23.040 --> 40:24.420
+ And it's supposed to learn essentially
+
+40:24.420 --> 40:25.460
+ the identity function,
+
+40:25.460 --> 40:27.260
+ that your input is the same as your output.
+
+40:27.260 --> 40:28.460
+ So you think of it as binary numbers.
+
+40:28.460 --> 40:30.660
+ You've got the one, the two, the four, the eight,
+
+40:30.660 --> 40:32.180
+ the 16, and so forth.
+
+40:32.180 --> 40:33.940
+ And so if you want to input 24,
+
+40:33.940 --> 40:35.860
+ you turn on the 16, you turn on the eight.
+
+40:35.860 --> 40:38.940
+ It's like binary one, one, and a bunch of zeros.
+
+40:38.940 --> 40:41.620
+ So I did some experiments in 1998
+
+40:41.620 --> 40:46.620
+ with the precursors of contemporary deep learning.
+
+40:46.620 --> 40:50.460
+ And what I showed was you could train these networks
+
+40:50.460 --> 40:52.060
+ on all the even numbers,
+
+40:52.060 --> 40:54.620
+ and they would never generalize to the odd number.
+
+40:54.620 --> 40:56.700
+ A lot of people thought that I was, I don't know,
+
+40:56.700 --> 40:58.460
+ an idiot or faking the experiment,
+
+40:58.460 --> 41:00.100
+ or it wasn't true or whatever.
+
+41:00.100 --> 41:03.260
+ But it is true that with this class of networks
+
+41:03.260 --> 41:04.860
+ that we had in that day,
+
+41:04.860 --> 41:07.140
+ that they would never ever make this generalization.
+
+41:07.140 --> 41:09.660
+ And it's not that the networks were stupid,
+
+41:09.660 --> 41:13.380
+ it's that they see the world in a different way than we do.
+
+41:13.380 --> 41:14.720
+ They were basically concerned,
+
+41:14.720 --> 41:18.580
+ what is the probability that the rightmost output node
+
+41:18.580 --> 41:19.980
+ is going to be one?
+
+41:19.980 --> 41:21.220
+ And as far as they were concerned,
+
+41:21.220 --> 41:24.420
+ in everything they'd ever been trained on, it was a zero.
+
+41:24.420 --> 41:27.020
+ That node had never been turned on,
+
+41:27.020 --> 41:28.960
+ and so they figured, why turn it on now?
+
+41:28.960 --> 41:30.940
+ Whereas a person would look at the same problem and say,
+
+41:30.940 --> 41:31.780
+ well, it's obvious,
+
+41:31.780 --> 41:33.780
+ we're just doing the thing that corresponds.
+
+41:33.780 --> 41:35.500
+ The Latin for it is mutatis mutandis,
+
+41:35.500 --> 41:38.220
+ we'll change what needs to be changed.
+
+41:38.220 --> 41:40.500
+ And we do this, this is what algebra is.
+
+41:40.500 --> 41:43.840
+ So I can do f of x equals y plus two,
+
+41:43.840 --> 41:45.380
+ and I can do it for a couple of values,
+
+41:45.380 --> 41:46.500
+ I can tell you if y is three,
+
+41:46.500 --> 41:49.140
+ then x is five, and if y is four, x is six.
+
+41:49.140 --> 41:50.980
+ And now I can do it with some totally different number,
+
+41:50.980 --> 41:51.980
+ like a million, then you can say,
+
+41:51.980 --> 41:53.140
+ well, obviously it's a million and two,
+
+41:53.140 --> 41:55.620
+ because you have an algebraic operation
+
+41:55.620 --> 41:57.460
+ that you're applying to a variable.
+
+41:57.460 --> 42:00.620
+ And deep learning systems kind of emulate that,
+
+42:00.620 --> 42:02.500
+ but they don't actually do it.
+
+42:02.500 --> 42:04.140
+ The particular example,
+
+42:04.140 --> 42:08.140
+ you could fudge a solution to that particular problem.
+
+42:08.140 --> 42:10.500
+ The general form of that problem remains,
+
+42:10.500 --> 42:12.400
+ that what they learn is really correlations
+
+42:12.400 --> 42:14.180
+ between different input and output nodes.
+
+42:14.180 --> 42:16.140
+ And they're complex correlations
+
+42:16.140 --> 42:18.780
+ with multiple nodes involved and so forth.
+
+42:18.780 --> 42:20.260
+ Ultimately, they're correlative,
+
+42:20.260 --> 42:23.060
+ they're not structured over these operations over variables.
+
+42:23.060 --> 42:25.960
+ Now, someday, people may do a new form of deep learning
+
+42:25.960 --> 42:27.300
+ that incorporates that stuff,
+
+42:27.300 --> 42:28.460
+ and I think it will help a lot.
+
+42:28.460 --> 42:30.260
+ And there's some tentative work on things
+
+42:30.260 --> 42:32.180
+ like differentiable programming right now
+
+42:32.180 --> 42:34.240
+ that fall into that category.
+
+42:34.240 --> 42:35.500
+ But the sort of classic stuff
+
+42:35.500 --> 42:38.780
+ like people use for ImageNet doesn't have it.
+
+42:38.780 --> 42:41.060
+ And you have people like Hinton going around saying,
+
+42:41.060 --> 42:42.860
+ symbol manipulation, like what Marcus,
+
+42:42.860 --> 42:45.680
+ what I advocate is like the gasoline engine.
+
+42:45.680 --> 42:46.520
+ It's obsolete.
+
+42:46.520 --> 42:48.820
+ We should just use this cool electric power
+
+42:48.820 --> 42:50.320
+ that we've got with the deep learning.
+
+42:50.320 --> 42:51.980
+ And that's really destructive,
+
+42:51.980 --> 42:55.900
+ because we really do need to have the gasoline engine stuff
+
+42:55.900 --> 42:59.580
+ that represents, I mean, I don't think it's a good analogy,
+
+42:59.580 --> 43:02.180
+ but we really do need to have the stuff
+
+43:02.180 --> 43:03.660
+ that represents symbols.
+
+43:03.660 --> 43:06.200
+ Yeah, and Hinton as well would say
+
+43:06.200 --> 43:08.960
+ that we do need to throw out everything and start over.
+
+43:08.960 --> 43:12.820
+ Hinton said that to Axios,
+
+43:12.820 --> 43:15.540
+ and I had a friend who interviewed him
+
+43:15.540 --> 43:16.460
+ and tried to pin him down
+
+43:16.460 --> 43:17.820
+ on what exactly we need to throw out,
+
+43:17.820 --> 43:19.900
+ and he was very evasive.
+
+43:19.900 --> 43:22.700
+ Well, of course, because we can't, if he knew.
+
+43:22.700 --> 43:23.940
+ Then he'd throw it out himself.
+
+43:23.940 --> 43:25.400
+ But I mean, you can't have it both ways.
+
+43:25.400 --> 43:27.520
+ You can't be like, I don't know what to throw out,
+
+43:27.520 --> 43:29.980
+ but I am gonna throw out the symbols.
+
+43:29.980 --> 43:32.140
+ I mean, and not just the symbols,
+
+43:32.140 --> 43:34.100
+ but the variables and the operations over variables.
+
+43:34.100 --> 43:36.140
+ Don't forget, the operations over variables,
+
+43:36.140 --> 43:37.740
+ the stuff that I'm endorsing
+
+43:37.740 --> 43:41.500
+ and which John McCarthy did when he founded AI,
+
+43:41.500 --> 43:42.660
+ that stuff is the stuff
+
+43:42.660 --> 43:44.180
+ that we build most computers out of.
+
+43:44.180 --> 43:45.460
+ There are people now who say,
+
+43:45.460 --> 43:48.780
+ we don't need computer programmers anymore.
+
+43:48.780 --> 43:50.240
+ Not quite looking at the statistics
+
+43:50.240 --> 43:51.180
+ of how much computer programmers
+
+43:51.180 --> 43:52.980
+ actually get paid right now.
+
+43:52.980 --> 43:54.380
+ We need lots of computer programmers,
+
+43:54.380 --> 43:57.780
+ and most of them, they do a little bit of machine learning,
+
+43:57.780 --> 43:59.900
+ but they still do a lot of code, right?
+
+43:59.900 --> 44:02.220
+ Code where it's like, if the value of X
+
+44:02.220 --> 44:03.580
+ is greater than the value of Y,
+
+44:03.580 --> 44:04.500
+ then do this kind of thing,
+
+44:04.500 --> 44:08.100
+ like conditionals and comparing operations over variables.
+
+44:08.100 --> 44:10.220
+ Like, there's this fantasy you can machine learn anything.
+
+44:10.220 --> 44:12.580
+ There's some things you would never wanna machine learn.
+
+44:12.580 --> 44:14.980
+ I would not use a phone operating system
+
+44:14.980 --> 44:16.100
+ that was machine learned.
+
+44:16.100 --> 44:17.820
+ Like, you made a bunch of phone calls
+
+44:17.820 --> 44:19.740
+ and you recorded which packets were transmitted
+
+44:19.740 --> 44:22.500
+ and you just machine learned it, it'd be insane.
+
+44:22.500 --> 44:27.500
+ Or to build a web browser by taking logs of keystrokes
+
+44:27.500 --> 44:29.420
+ and images, screenshots,
+
+44:29.420 --> 44:31.500
+ and then trying to learn the relation between them.
+
+44:31.500 --> 44:32.860
+ Nobody would ever,
+
+44:32.860 --> 44:35.100
+ no rational person would ever try to build a browser
+
+44:35.100 --> 44:37.460
+ that made, they would use symbol manipulation,
+
+44:37.460 --> 44:40.140
+ the stuff that I think AI needs to avail itself of
+
+44:40.140 --> 44:42.140
+ in addition to deep learning.
+
+44:42.140 --> 44:46.540
+ Can you describe your view of symbol manipulation
+
+44:46.540 --> 44:47.920
+ in its early days?
+
+44:47.920 --> 44:49.540
+ Can you describe expert systems
+
+44:49.540 --> 44:52.540
+ and where do you think they hit a wall
+
+44:52.540 --> 44:53.940
+ or a set of challenges?
+
+44:53.940 --> 44:56.580
+ Sure, so I mean, first I just wanna clarify,
+
+44:56.580 --> 44:58.940
+ I'm not endorsing expert systems per se.
+
+44:58.940 --> 45:00.760
+ You've been kind of contrasting them.
+
+45:00.760 --> 45:01.600
+ There is a contrast,
+
+45:01.600 --> 45:04.220
+ but that's not the thing that I'm endorsing.
+
+45:04.220 --> 45:06.500
+ So expert systems tried to capture things
+
+45:06.500 --> 45:09.460
+ like medical knowledge with a large set of rules.
+
+45:09.460 --> 45:12.860
+ So if the patient has this symptom and this other symptom,
+
+45:12.860 --> 45:15.700
+ then it is likely that they have this disease.
+
+45:15.700 --> 45:16.860
+ So there are logical rules
+
+45:16.860 --> 45:18.340
+ and they were symbol manipulating rules
+
+45:18.340 --> 45:20.980
+ of just the sort that I'm talking about.
+
+45:20.980 --> 45:21.820
+ And the problem.
+
+45:21.820 --> 45:24.980
+ They encode a set of knowledge that the experts then put in.
+
+45:24.980 --> 45:26.260
+ And very explicitly so.
+
+45:26.260 --> 45:28.780
+ So you'd have somebody interview an expert
+
+45:28.780 --> 45:31.940
+ and then try to turn that stuff into rules.
+
+45:31.940 --> 45:33.980
+ And at some level I'm arguing for rules.
+
+45:33.980 --> 45:37.700
+ But the difference is those guys did in the 80s
+
+45:37.700 --> 45:40.040
+ was almost entirely rules,
+
+45:40.040 --> 45:42.980
+ almost entirely handwritten with no machine learning.
+
+45:42.980 --> 45:44.340
+ What a lot of people are doing now
+
+45:44.340 --> 45:47.340
+ is almost entirely one species of machine learning
+
+45:47.340 --> 45:48.260
+ with no rules.
+
+45:48.260 --> 45:50.380
+ And what I'm counseling is actually a hybrid.
+
+45:50.380 --> 45:52.900
+ I'm saying that both of these things have their advantage.
+
+45:52.900 --> 45:55.300
+ So if you're talking about perceptual classification,
+
+45:55.300 --> 45:57.140
+ how do I recognize a bottle?
+
+45:57.140 --> 45:59.540
+ Deep learning is the best tool we've got right now.
+
+45:59.540 --> 46:00.940
+ If you're talking about making inferences
+
+46:00.940 --> 46:02.420
+ about what a bottle does,
+
+46:02.420 --> 46:04.140
+ something closer to the expert systems
+
+46:04.140 --> 46:07.340
+ is probably still the best available alternative.
+
+46:07.340 --> 46:09.860
+ And probably we want something that is better able
+
+46:09.860 --> 46:12.620
+ to handle quantitative and statistical information
+
+46:12.620 --> 46:14.940
+ than those classical systems typically were.
+
+46:14.940 --> 46:16.980
+ So we need new technologies
+
+46:16.980 --> 46:18.620
+ that are gonna draw some of the strengths
+
+46:18.620 --> 46:21.060
+ of both the expert systems and the deep learning,
+
+46:21.060 --> 46:23.260
+ but are gonna find new ways to synthesize them.
+
+46:23.260 --> 46:27.740
+ How hard do you think it is to add knowledge at the low level?
+
+46:27.740 --> 46:32.140
+ So mine human intellects to add extra information
+
+46:32.140 --> 46:36.540
+ to symbol manipulating systems?
+
+46:36.540 --> 46:37.840
+ In some domains it's not that hard,
+
+46:37.840 --> 46:40.100
+ but it's often really hard.
+
+46:40.100 --> 46:44.120
+ Partly because a lot of the things that are important,
+
+46:44.120 --> 46:46.060
+ people wouldn't bother to tell you.
+
+46:46.060 --> 46:49.680
+ So if you pay someone on Amazon Mechanical Turk
+
+46:49.680 --> 46:52.060
+ to tell you stuff about bottles,
+
+46:52.060 --> 46:55.060
+ they probably won't even bother to tell you
+
+46:55.060 --> 46:57.020
+ some of the basic level stuff
+
+46:57.020 --> 46:59.180
+ that's just so obvious to a human being
+
+46:59.180 --> 47:02.140
+ and yet so hard to capture in machines.
+
+47:04.580 --> 47:06.540
+ They're gonna tell you more exotic things,
+
+47:06.540 --> 47:08.940
+ and they're all well and good,
+
+47:08.940 --> 47:12.460
+ but they're not getting to the root of the problem.
+
+47:12.460 --> 47:16.540
+ So untutored humans aren't very good at knowing,
+
+47:16.540 --> 47:18.340
+ and why should they be,
+
+47:18.340 --> 47:22.260
+ what kind of knowledge the computer system developers
+
+47:22.260 --> 47:23.460
+ actually need?
+
+47:23.460 --> 47:26.620
+ I don't think that that's an irremediable problem.
+
+47:26.620 --> 47:28.620
+ I think it's historically been a problem.
+
+47:28.620 --> 47:31.080
+ People have had crowdsourcing efforts,
+
+47:31.080 --> 47:32.060
+ and they don't work that well.
+
+47:32.060 --> 47:35.300
+ There's one at MIT, we're recording this at MIT,
+
+47:35.300 --> 47:37.500
+ called Virtual Home, where,
+
+47:37.500 --> 47:39.540
+ and we talk about this in the book,
+
+47:39.540 --> 47:40.740
+ find the exact example there,
+
+47:40.740 --> 47:42.800
+ but people were asked to do things
+
+47:42.800 --> 47:44.880
+ like describe an exercise routine.
+
+47:44.880 --> 47:47.460
+ And the things that the people describe
+
+47:47.460 --> 47:48.580
+ are at a very low level
+
+47:48.580 --> 47:50.100
+ and don't really capture what's going on.
+
+47:50.100 --> 47:52.340
+ So they're like, go to the room
+
+47:52.340 --> 47:54.700
+ with the television and the weights,
+
+47:54.700 --> 47:56.100
+ turn on the television,
+
+47:56.100 --> 47:59.020
+ press the remote to turn on the television,
+
+47:59.020 --> 48:01.440
+ lift weight, put weight down, whatever.
+
+48:01.440 --> 48:03.620
+ It's like very micro level,
+
+48:03.620 --> 48:04.900
+ and it's not telling you
+
+48:04.900 --> 48:06.860
+ what an exercise routine is really about,
+
+48:06.860 --> 48:09.860
+ which is like, I wanna fit a certain number of exercises
+
+48:09.860 --> 48:10.940
+ in a certain time period,
+
+48:10.940 --> 48:12.700
+ I wanna emphasize these muscles.
+
+48:12.700 --> 48:15.060
+ You want some kind of abstract description.
+
+48:15.060 --> 48:17.260
+ The fact that you happen to press the remote control
+
+48:17.260 --> 48:20.020
+ in this room when you watch this television
+
+48:20.020 --> 48:23.060
+ isn't really the essence of the exercise routine.
+
+48:23.060 --> 48:24.780
+ But if you just ask people like, what did they do?
+
+48:24.780 --> 48:26.980
+ Then they give you this fine grain.
+
+48:26.980 --> 48:29.780
+ And so it takes a level of expertise
+
+48:29.780 --> 48:31.900
+ about how the AI works
+
+48:31.900 --> 48:34.540
+ in order to craft the right kind of knowledge.
+
+48:34.540 --> 48:37.580
+ So there's this ocean of knowledge that we all operate on.
+
+48:37.580 --> 48:39.340
+ Some of them may not even be conscious,
+
+48:39.340 --> 48:43.300
+ or at least we're not able to communicate it effectively.
+
+48:43.300 --> 48:45.700
+ Yeah, most of it we would recognize if somebody said it,
+
+48:45.700 --> 48:47.420
+ if it was true or not,
+
+48:47.420 --> 48:49.660
+ but we wouldn't think to say that it's true or not.
+
+48:49.660 --> 48:53.060
+ That's a really interesting mathematical property.
+
+48:53.060 --> 48:54.720
+ This ocean has the property
+
+48:54.720 --> 48:56.720
+ that every piece of knowledge in it,
+
+48:56.720 --> 48:59.940
+ we will recognize it as true if we're told,
+
+48:59.940 --> 49:04.140
+ but we're unlikely to retrieve it in the reverse.
+
+49:04.140 --> 49:07.180
+ So that interesting property,
+
+49:07.180 --> 49:10.580
+ I would say there's a huge ocean of that knowledge.
+
+49:10.580 --> 49:11.580
+ What's your intuition?
+
+49:11.580 --> 49:14.700
+ Is it accessible to AI systems somehow?
+
+49:14.700 --> 49:15.940
+ Can we?
+
+49:15.940 --> 49:16.780
+ So you said this.
+
+49:16.780 --> 49:18.780
+ I mean, most of it is not,
+
+49:18.780 --> 49:20.540
+ well, I'll give you an asterisk on this in a second,
+
+49:20.540 --> 49:23.260
+ but most of it has not ever been encoded
+
+49:23.260 --> 49:25.660
+ in machine interpretable form.
+
+49:25.660 --> 49:27.300
+ And so, I mean, if you say accessible,
+
+49:27.300 --> 49:28.640
+ there's two meanings of that.
+
+49:28.640 --> 49:31.540
+ One is like, could you build it into a machine?
+
+49:31.540 --> 49:32.380
+ Yes.
+
+49:32.380 --> 49:34.460
+ The other is like, is there some database
+
+49:34.460 --> 49:38.380
+ that we could go download and stick into our machine?
+
+49:38.380 --> 49:40.660
+ But the first thing, could we?
+
+49:40.660 --> 49:42.020
+ What's your intuition? I think we could.
+
+49:42.020 --> 49:45.020
+ I think it hasn't been done right.
+
+49:45.020 --> 49:47.300
+ You know, the closest, and this is the asterisk,
+
+49:47.300 --> 49:51.140
+ is the CYC psych system tried to do this.
+
+49:51.140 --> 49:53.020
+ A lot of logicians worked for Doug Lennon
+
+49:53.020 --> 49:55.460
+ for 30 years on this project.
+
+49:55.460 --> 49:57.900
+ I think they stuck too closely to logic,
+
+49:57.900 --> 50:00.220
+ didn't represent enough about probabilities,
+
+50:00.220 --> 50:01.180
+ tried to hand code it.
+
+50:01.180 --> 50:02.180
+ There are various issues,
+
+50:02.180 --> 50:04.480
+ and it hasn't been that successful.
+
+50:04.480 --> 50:08.500
+ That is the closest existing system
+
+50:08.500 --> 50:10.620
+ to trying to encode this.
+
+50:10.620 --> 50:13.460
+ Why do you think there's not more excitement
+
+50:13.460 --> 50:16.420
+ slash money behind this idea currently?
+
+50:16.420 --> 50:17.260
+ There was.
+
+50:17.260 --> 50:19.180
+ People view that project as a failure.
+
+50:19.180 --> 50:22.060
+ I think that they confuse the failure
+
+50:22.060 --> 50:25.100
+ of a specific instance that was conceived 30 years ago
+
+50:25.100 --> 50:26.180
+ for the failure of an approach,
+
+50:26.180 --> 50:28.160
+ which they don't do for deep learning.
+
+50:28.160 --> 50:31.940
+ So in 2010, people had the same attitude
+
+50:31.940 --> 50:32.780
+ towards deep learning.
+
+50:32.780 --> 50:35.500
+ They're like, this stuff doesn't really work.
+
+50:35.500 --> 50:39.140
+ And all these other algorithms work better and so forth.
+
+50:39.140 --> 50:41.900
+ And then certain key technical advances were made,
+
+50:41.900 --> 50:43.780
+ but mostly it was the advent
+
+50:43.780 --> 50:46.400
+ of graphics processing units that changed that.
+
+50:46.400 --> 50:50.060
+ It wasn't even anything foundational in the techniques.
+
+50:50.060 --> 50:51.220
+ And there was some new tricks,
+
+50:51.220 --> 50:55.300
+ but mostly it was just more compute and more data,
+
+50:55.300 --> 50:57.900
+ things like ImageNet that didn't exist before
+
+50:57.900 --> 50:59.020
+ that allowed deep learning.
+
+50:59.020 --> 51:00.860
+ And it could be, to work,
+
+51:00.860 --> 51:03.780
+ it could be that CYC just needs a few more things
+
+51:03.780 --> 51:05.500
+ or something like CYC,
+
+51:05.500 --> 51:08.820
+ but the widespread view is that that just doesn't work.
+
+51:08.820 --> 51:11.820
+ And people are reasoning from a single example.
+
+51:11.820 --> 51:13.260
+ They don't do that with deep learning.
+
+51:13.260 --> 51:16.580
+ They don't say nothing that existed in 2010,
+
+51:16.580 --> 51:18.860
+ and there were many, many efforts in deep learning
+
+51:18.860 --> 51:20.580
+ was really worth anything.
+
+51:20.580 --> 51:23.820
+ I mean, really, there's no model from 2010
+
+51:23.820 --> 51:26.620
+ in deep learning or the predecessors of deep learning
+
+51:26.620 --> 51:29.660
+ that has any commercial value whatsoever at this point.
+
+51:29.660 --> 51:31.540
+ They're all failures.
+
+51:31.540 --> 51:33.500
+ But that doesn't mean that there wasn't anything there.
+
+51:33.500 --> 51:35.940
+ I have a friend, I was getting to know him,
+
+51:35.940 --> 51:38.820
+ and he said, I had a company too,
+
+51:38.820 --> 51:40.580
+ I was talking about I had a new company.
+
+51:40.580 --> 51:42.900
+ He said, I had a company too, and it failed.
+
+51:42.900 --> 51:44.260
+ And I said, well, what did you do?
+
+51:44.260 --> 51:45.660
+ And he said, deep learning.
+
+51:45.660 --> 51:47.940
+ And the problem was he did it in 1986
+
+51:47.940 --> 51:48.780
+ or something like that.
+
+51:48.780 --> 51:51.060
+ And we didn't have the tools then, or 1990,
+
+51:51.060 --> 51:53.980
+ we didn't have the tools then, not the algorithms.
+
+51:53.980 --> 51:56.540
+ His algorithms weren't that different from model algorithms,
+
+51:56.540 --> 51:58.420
+ but he didn't have the GPUs to run it fast enough.
+
+51:58.420 --> 51:59.620
+ He didn't have the data.
+
+51:59.620 --> 52:01.340
+ And so it failed.
+
+52:01.340 --> 52:06.340
+ It could be that symbol manipulation per se
+
+52:06.820 --> 52:09.580
+ with modern amounts of data and compute
+
+52:09.580 --> 52:11.940
+ and maybe some advance in compute
+
+52:11.940 --> 52:14.900
+ for that kind of compute might be great.
+
+52:14.900 --> 52:19.340
+ My perspective on it is not that we want to resuscitate
+
+52:19.340 --> 52:21.540
+ that stuff per se, but we want to borrow lessons from it,
+
+52:21.540 --> 52:23.380
+ bring together with other things that we've learned.
+
+52:23.380 --> 52:25.900
+ And it might have an ImageNet moment
+
+52:25.900 --> 52:28.220
+ where it would spark the world's imagination
+
+52:28.220 --> 52:31.460
+ and there'll be an explosion of symbol manipulation efforts.
+
+52:31.460 --> 52:33.660
+ Yeah, I think that people at AI2,
+
+52:33.660 --> 52:38.660
+ Paul Allen's AI Institute, are trying to build data sets.
+
+52:39.060 --> 52:39.900
+ Well, they're not doing it
+
+52:39.900 --> 52:41.100
+ for quite the reason that you say,
+
+52:41.100 --> 52:43.220
+ but they're trying to build data sets
+
+52:43.220 --> 52:45.380
+ that at least spark interest in common sense reasoning.
+
+52:45.380 --> 52:46.780
+ To create benchmarks.
+
+52:46.780 --> 52:48.220
+ Benchmarks for common sense.
+
+52:48.220 --> 52:50.860
+ That's a large part of what the AI2.org
+
+52:50.860 --> 52:51.980
+ is working on right now.
+
+52:51.980 --> 52:53.260
+ So speaking of compute,
+
+52:53.260 --> 52:56.380
+ Rich Sutton wrote a blog post titled Bitter Lesson.
+
+52:56.380 --> 52:57.220
+ I don't know if you've read it,
+
+52:57.220 --> 52:59.900
+ but he said that the biggest lesson that can be read
+
+52:59.900 --> 53:01.580
+ from so many years of AI research
+
+53:01.580 --> 53:04.180
+ is that general methods that leverage computation
+
+53:04.180 --> 53:06.300
+ are ultimately the most effective.
+
+53:06.300 --> 53:07.140
+ Do you think that?
+
+53:07.140 --> 53:08.620
+ The most effective at what?
+
+53:08.620 --> 53:11.820
+ Right, so they have been most effective
+
+53:11.820 --> 53:14.500
+ for perceptual classification problems
+
+53:14.500 --> 53:18.060
+ and for some reinforcement learning problems.
+
+53:18.060 --> 53:19.380
+ And he works on reinforcement learning.
+
+53:19.380 --> 53:20.700
+ Well, no, let me push back on that.
+
+53:20.700 --> 53:22.820
+ You're actually absolutely right.
+
+53:22.820 --> 53:27.820
+ But I would also say they have been most effective generally
+
+53:28.060 --> 53:31.500
+ because everything we've done up to...
+
+53:31.500 --> 53:32.900
+ Would you argue against that?
+
+53:32.900 --> 53:36.220
+ Is, to me, deep learning is the first thing
+
+53:36.220 --> 53:41.220
+ that has been successful at anything in AI.
+
+53:41.860 --> 53:45.300
+ And you're pointing out that this success
+
+53:45.300 --> 53:47.100
+ is very limited, folks,
+
+53:47.100 --> 53:50.260
+ but has there been something truly successful
+
+53:50.260 --> 53:51.660
+ before deep learning?
+
+53:51.660 --> 53:54.860
+ Sure, I mean, I want to make a larger point,
+
+53:54.860 --> 53:59.860
+ but on the narrower point, classical AI is used,
+
+54:00.020 --> 54:03.660
+ for example, in doing navigation instructions.
+
+54:03.660 --> 54:06.020
+ It's very successful.
+
+54:06.020 --> 54:07.780
+ Everybody on the planet uses it now,
+
+54:07.780 --> 54:09.420
+ like multiple times a day.
+
+54:09.420 --> 54:11.260
+ That's a measure of success, right?
+
+54:12.220 --> 54:16.060
+ So I don't think classical AI was wildly successful,
+
+54:16.060 --> 54:17.580
+ but there are cases like that.
+
+54:17.580 --> 54:19.140
+ They're just used all the time.
+
+54:19.140 --> 54:21.820
+ Nobody even notices them because they're so pervasive.
+
+54:23.740 --> 54:26.580
+ So there are some successes for classical AI.
+
+54:26.580 --> 54:28.700
+ I think deep learning has been more successful,
+
+54:28.700 --> 54:32.020
+ but my usual line about this, and I didn't invent it,
+
+54:32.020 --> 54:33.060
+ but I like it a lot,
+
+54:33.060 --> 54:34.780
+ is just because you can build a better ladder
+
+54:34.780 --> 54:37.140
+ doesn't mean you can build a ladder to the moon.
+
+54:37.140 --> 54:39.660
+ So the bitter lesson is if you have
+
+54:39.660 --> 54:42.220
+ a perceptual classification problem,
+
+54:42.220 --> 54:45.740
+ throwing a lot of data at it is better than anything else.
+
+54:45.740 --> 54:49.980
+ But that has not given us any material progress
+
+54:49.980 --> 54:51.860
+ in natural language understanding,
+
+54:51.860 --> 54:53.060
+ common sense reasoning,
+
+54:53.060 --> 54:56.220
+ like a robot would need to navigate a home.
+
+54:56.220 --> 54:59.420
+ Problems like that, there's no actual progress there.
+
+54:59.420 --> 55:02.220
+ So flip side of that, if we remove data from the picture,
+
+55:02.220 --> 55:05.780
+ another bitter lesson is that you just have
+
+55:05.780 --> 55:10.100
+ a very simple algorithm,
+
+55:10.100 --> 55:12.500
+ and you wait for compute to scale.
+
+55:12.500 --> 55:13.540
+ It doesn't have to be learning.
+
+55:13.540 --> 55:14.580
+ It doesn't have to be deep learning.
+
+55:14.580 --> 55:16.420
+ It doesn't have to be data driven,
+
+55:16.420 --> 55:18.220
+ but just wait for the compute.
+
+55:18.220 --> 55:19.060
+ So my question for you,
+
+55:19.060 --> 55:21.660
+ do you think compute can unlock some of the things
+
+55:21.660 --> 55:25.460
+ with either deep learning or symbol manipulation that?
+
+55:25.460 --> 55:29.780
+ Sure, but I'll put a proviso on that.
+
+55:29.780 --> 55:31.940
+ I think more compute's always better.
+
+55:31.940 --> 55:33.660
+ Nobody's gonna argue with more compute.
+
+55:33.660 --> 55:34.700
+ It's like having more money.
+
+55:34.700 --> 55:36.020
+ I mean, there's the data.
+
+55:36.020 --> 55:37.460
+ There's diminishing returns on more money.
+
+55:37.460 --> 55:39.740
+ Exactly, there's diminishing returns on more money,
+
+55:39.740 --> 55:40.980
+ but nobody's gonna argue
+
+55:40.980 --> 55:42.620
+ if you wanna give them more money, right?
+
+55:42.620 --> 55:44.620
+ Except maybe the people who signed the giving pledge,
+
+55:44.620 --> 55:46.300
+ and some of them have a problem.
+
+55:46.300 --> 55:47.980
+ They've promised to give away more money
+
+55:47.980 --> 55:49.660
+ than they're able to.
+
+55:49.660 --> 55:52.500
+ But the rest of us, if you wanna give me more money, fine.
+
+55:52.500 --> 55:54.580
+ I'm saying more money, more problems, but okay.
+
+55:54.580 --> 55:55.500
+ That's true too.
+
+55:55.500 --> 56:00.100
+ What I would say to you is your brain uses like 20 watts,
+
+56:00.100 --> 56:02.660
+ and it does a lot of things that deep learning doesn't do,
+
+56:02.660 --> 56:05.140
+ or that symbol manipulation doesn't do,
+
+56:05.140 --> 56:07.020
+ that AI just hasn't figured out how to do.
+
+56:07.020 --> 56:09.100
+ So it's an existence proof
+
+56:09.100 --> 56:12.140
+ that you don't need server resources
+
+56:12.140 --> 56:16.460
+ that are Google scale in order to have an intelligence.
+
+56:16.460 --> 56:18.900
+ I built, with a lot of help from my wife,
+
+56:18.900 --> 56:21.660
+ two intelligences that are 20 watts each,
+
+56:21.660 --> 56:24.060
+ and far exceed anything that anybody else
+
+56:25.060 --> 56:26.780
+ has built at a silicon.
+
+56:26.780 --> 56:30.020
+ Speaking of those two robots,
+
+56:30.020 --> 56:32.380
+ what have you learned about AI from having?
+
+56:33.260 --> 56:35.300
+ Well, they're not robots, but.
+
+56:35.300 --> 56:36.740
+ Sorry, intelligent agents.
+
+56:36.740 --> 56:38.140
+ Those two intelligent agents.
+
+56:38.140 --> 56:42.780
+ I've learned a lot by watching my two intelligent agents.
+
+56:42.780 --> 56:45.820
+ I think that what's fundamentally interesting,
+
+56:45.820 --> 56:46.980
+ well, one of the many things
+
+56:46.980 --> 56:48.660
+ that's fundamentally interesting about them
+
+56:48.660 --> 56:51.940
+ is the way that they set their own problems to solve.
+
+56:51.940 --> 56:54.540
+ So my two kids are a year and a half apart.
+
+56:54.540 --> 56:56.420
+ They're both five and six and a half.
+
+56:56.420 --> 56:58.180
+ They play together all the time,
+
+56:58.180 --> 57:00.940
+ and they're constantly creating new challenges.
+
+57:00.940 --> 57:03.780
+ That's what they do, is they make up games,
+
+57:03.780 --> 57:05.940
+ and they're like, well, what if this, or what if that,
+
+57:05.940 --> 57:07.860
+ or what if I had this superpower,
+
+57:07.860 --> 57:10.340
+ or what if you could walk through this wall?
+
+57:10.340 --> 57:14.020
+ So they're doing these what if scenarios all the time,
+
+57:14.020 --> 57:17.540
+ and that's how they learn something about the world
+
+57:17.540 --> 57:22.540
+ and grow their minds, and machines don't really do that.
+
+57:22.580 --> 57:24.460
+ So that's interesting, and you've talked about this,
+
+57:24.460 --> 57:26.100
+ you've written about it, you've thought about it,
+
+57:26.100 --> 57:27.540
+ nature versus nurture.
+
+57:29.260 --> 57:33.580
+ So what innate knowledge do you think we're born with,
+
+57:33.580 --> 57:35.540
+ and what do we learn along the way
+
+57:35.540 --> 57:38.260
+ in those early months and years?
+
+57:38.260 --> 57:40.460
+ Can I just say how much I like that question?
+
+57:41.540 --> 57:45.780
+ You phrased it just right, and almost nobody ever does,
+
+57:45.780 --> 57:47.220
+ which is what is the innate knowledge
+
+57:47.220 --> 57:49.180
+ and what's learned along the way?
+
+57:49.180 --> 57:51.180
+ So many people dichotomize it,
+
+57:51.180 --> 57:53.380
+ and they think it's nature versus nurture,
+
+57:53.380 --> 57:56.740
+ when it is obviously has to be nature and nurture.
+
+57:56.740 --> 57:58.540
+ They have to work together.
+
+57:58.540 --> 58:00.500
+ You can't learn this stuff along the way
+
+58:00.500 --> 58:02.340
+ unless you have some innate stuff,
+
+58:02.340 --> 58:03.860
+ but just because you have the innate stuff
+
+58:03.860 --> 58:05.820
+ doesn't mean you don't learn anything.
+
+58:05.820 --> 58:09.340
+ And so many people get that wrong, including in the field.
+
+58:09.340 --> 58:12.220
+ People think if I work in machine learning,
+
+58:12.220 --> 58:15.260
+ the learning side, I must not be allowed to work
+
+58:15.260 --> 58:17.300
+ on the innate side, or that will be cheating.
+
+58:17.300 --> 58:19.620
+ Exactly, people have said that to me,
+
+58:19.620 --> 58:22.380
+ and it's just absurd, so thank you.
+
+58:23.380 --> 58:25.140
+ But you could break that apart more.
+
+58:25.140 --> 58:26.540
+ I've talked to folks who studied
+
+58:26.540 --> 58:28.260
+ the development of the brain,
+
+58:28.260 --> 58:32.940
+ and the growth of the brain in the first few days
+
+58:32.940 --> 58:35.660
+ in the first few months in the womb,
+
+58:35.660 --> 58:39.500
+ all of that, is that innate?
+
+58:39.500 --> 58:42.300
+ So that process of development from a stem cell
+
+58:42.300 --> 58:45.140
+ to the growth of the central nervous system and so on,
+
+58:46.020 --> 58:49.300
+ to the information that's encoded
+
+58:49.300 --> 58:52.300
+ through the long arc of evolution.
+
+58:52.300 --> 58:55.300
+ So all of that comes into play, and it's unclear.
+
+58:55.300 --> 58:57.340
+ It's not just whether it's a dichotomy or not.
+
+58:57.340 --> 59:02.060
+ It's where most, or where the knowledge is encoded.
+
+59:02.060 --> 59:07.060
+ So what's your intuition about the innate knowledge,
+
+59:07.780 --> 59:09.700
+ the power of it, what's contained in it,
+
+59:09.700 --> 59:11.340
+ what can we learn from it?
+
+59:11.340 --> 59:12.740
+ One of my earlier books was actually trying
+
+59:12.740 --> 59:14.020
+ to understand the biology of this.
+
+59:14.020 --> 59:15.860
+ The book was called The Birth of the Mind.
+
+59:15.860 --> 59:18.900
+ Like how is it the genes even build innate knowledge?
+
+59:18.900 --> 59:21.460
+ And from the perspective of the conversation
+
+59:21.460 --> 59:23.580
+ we're having today, there's actually two questions.
+
+59:23.580 --> 59:26.460
+ One is what innate knowledge or mechanisms,
+
+59:26.460 --> 59:29.660
+ or what have you, people or other animals
+
+59:29.660 --> 59:30.900
+ might be endowed with.
+
+59:30.900 --> 59:32.260
+ I always like showing this video
+
+59:32.260 --> 59:34.620
+ of a baby ibex climbing down a mountain.
+
+59:34.620 --> 59:37.380
+ That baby ibex, a few hours after its birth,
+
+59:37.380 --> 59:38.420
+ knows how to climb down a mountain.
+
+59:38.420 --> 59:40.940
+ That means that it knows, not consciously,
+
+59:40.940 --> 59:43.020
+ something about its own body and physics
+
+59:43.020 --> 59:46.420
+ and 3D geometry and all of this kind of stuff.
+
+59:47.500 --> 59:49.660
+ So there's one question about what does biology
+
+59:49.660 --> 59:53.220
+ give its creatures and what has evolved in our brains?
+
+59:53.220 --> 59:54.940
+ How is that represented in our brains?
+
+59:54.940 --> 59:56.180
+ The question I thought about in the book
+
+59:56.180 --> 59:57.340
+ The Birth of the Mind.
+
+59:57.340 --> 59:59.300
+ And then there's a question of what AI should have.
+
+59:59.300 --> 1:00:01.540
+ And they don't have to be the same.
+
+1:00:01.540 --> 1:00:06.540
+ But I would say that it's a pretty interesting
+
+1:00:06.940 --> 1:00:08.660
+ set of things that we are equipped with
+
+1:00:08.660 --> 1:00:10.500
+ that allows us to do a lot of interesting things.
+
+1:00:10.500 --> 1:00:13.740
+ So I would argue or guess, based on my reading
+
+1:00:13.740 --> 1:00:15.220
+ of the developmental psychology literature,
+
+1:00:15.220 --> 1:00:16.820
+ which I've also participated in,
+
+1:00:17.980 --> 1:00:21.740
+ that children are born with a notion of space,
+
+1:00:21.740 --> 1:00:24.420
+ time, other agents, places,
+
+1:00:25.740 --> 1:00:27.620
+ and also this kind of mental algebra
+
+1:00:27.620 --> 1:00:30.220
+ that I was describing before.
+
+1:00:30.220 --> 1:00:33.060
+ No certain causation if I didn't just say that.
+
+1:00:33.060 --> 1:00:35.220
+ So at least those kinds of things.
+
+1:00:35.220 --> 1:00:38.940
+ They're like frameworks for learning the other things.
+
+1:00:38.940 --> 1:00:40.340
+ Are they disjoint in your view
+
+1:00:40.340 --> 1:00:42.860
+ or is it just somehow all connected?
+
+1:00:42.860 --> 1:00:44.340
+ You've talked a lot about language.
+
+1:00:44.340 --> 1:00:47.940
+ Is it all kind of connected in some mesh
+
+1:00:47.940 --> 1:00:50.260
+ that's language like?
+
+1:00:50.260 --> 1:00:52.740
+ If understanding concepts all together or?
+
+1:00:52.740 --> 1:00:55.740
+ I don't think we know for people how they're represented
+
+1:00:55.740 --> 1:00:58.180
+ and machines just don't really do this yet.
+
+1:00:58.180 --> 1:01:00.540
+ So I think it's an interesting open question
+
+1:01:00.540 --> 1:01:02.620
+ both for science and for engineering.
+
+1:01:03.540 --> 1:01:06.340
+ Some of it has to be at least interrelated
+
+1:01:06.340 --> 1:01:10.180
+ in the way that the interfaces of a software package
+
+1:01:10.180 --> 1:01:12.140
+ have to be able to talk to one another.
+
+1:01:12.140 --> 1:01:16.620
+ So the systems that represent space and time
+
+1:01:16.620 --> 1:01:19.820
+ can't be totally disjoint because a lot of the things
+
+1:01:19.820 --> 1:01:21.500
+ that we reason about are the relations
+
+1:01:21.500 --> 1:01:22.980
+ between space and time and cause.
+
+1:01:22.980 --> 1:01:26.460
+ So I put this on and I have expectations
+
+1:01:26.460 --> 1:01:28.180
+ about what's gonna happen with the bottle cap
+
+1:01:28.180 --> 1:01:32.540
+ on top of the bottle and those span space and time.
+
+1:01:32.540 --> 1:01:35.740
+ If the cap is over here, I get a different outcome.
+
+1:01:35.740 --> 1:01:38.540
+ If the timing is different, if I put this here,
+
+1:01:38.540 --> 1:01:41.900
+ after I move that, then I get a different outcome.
+
+1:01:41.900 --> 1:01:43.060
+ That relates to causality.
+
+1:01:43.060 --> 1:01:47.840
+ So obviously these mechanisms, whatever they are,
+
+1:01:47.840 --> 1:01:50.100
+ can certainly communicate with each other.
+
+1:01:50.100 --> 1:01:53.180
+ So I think evolution had a significant role
+
+1:01:53.180 --> 1:01:57.100
+ to play in the development of this whole kluge, right?
+
+1:01:57.100 --> 1:01:59.220
+ How efficient do you think is evolution?
+
+1:01:59.220 --> 1:02:01.620
+ Oh, it's terribly inefficient except that.
+
+1:02:01.620 --> 1:02:03.060
+ Okay, well, can we do better?
+
+1:02:03.980 --> 1:02:05.740
+ Well, I'll come to that in a sec.
+
+1:02:05.740 --> 1:02:08.100
+ It's inefficient except that.
+
+1:02:08.100 --> 1:02:10.900
+ Once it gets a good idea, it runs with it.
+
+1:02:10.900 --> 1:02:15.660
+ So it took, I guess, a billion years,
+
+1:02:15.660 --> 1:02:20.420
+ if I went roughly a billion years, to evolve
+
+1:02:20.420 --> 1:02:24.040
+ to a vertebrate brain plan.
+
+1:02:24.040 --> 1:02:26.920
+ And once that vertebrate brain plan evolved,
+
+1:02:26.920 --> 1:02:28.480
+ it spread everywhere.
+
+1:02:28.480 --> 1:02:31.700
+ So fish have it and dogs have it and we have it.
+
+1:02:31.700 --> 1:02:34.140
+ We have adaptations of it and specializations of it,
+
+1:02:34.140 --> 1:02:37.160
+ but, and the same thing with a primate brain plan.
+
+1:02:37.160 --> 1:02:41.100
+ So monkeys have it and apes have it and we have it.
+
+1:02:41.100 --> 1:02:43.780
+ So there are additional innovations like color vision
+
+1:02:43.780 --> 1:02:45.860
+ and those spread really rapidly.
+
+1:02:45.860 --> 1:02:48.820
+ So it takes evolution a long time to get a good idea,
+
+1:02:48.820 --> 1:02:53.300
+ but, and I'm being anthropomorphic and not literal here,
+
+1:02:53.300 --> 1:02:55.580
+ but once it has that idea, so to speak,
+
+1:02:55.580 --> 1:02:58.540
+ which cashes out into one set of genes or in the genome,
+
+1:02:58.540 --> 1:03:00.420
+ those genes spread very rapidly
+
+1:03:00.420 --> 1:03:02.660
+ and they're like subroutines or libraries,
+
+1:03:02.660 --> 1:03:04.540
+ I guess the word people might use nowadays
+
+1:03:04.540 --> 1:03:05.620
+ or be more familiar with.
+
+1:03:05.620 --> 1:03:08.780
+ They're libraries that get used over and over again.
+
+1:03:08.780 --> 1:03:11.740
+ So once you have the library for building something
+
+1:03:11.740 --> 1:03:13.840
+ with multiple digits, you can use it for a hand,
+
+1:03:13.840 --> 1:03:15.540
+ but you can also use it for a foot.
+
+1:03:15.540 --> 1:03:17.420
+ You just kind of reuse the library
+
+1:03:17.420 --> 1:03:19.080
+ with slightly different parameters.
+
+1:03:19.080 --> 1:03:20.660
+ Evolution does a lot of that,
+
+1:03:20.660 --> 1:03:23.500
+ which means that the speed over time picks up.
+
+1:03:23.500 --> 1:03:25.560
+ So evolution can happen faster
+
+1:03:25.560 --> 1:03:28.380
+ because you have bigger and bigger libraries.
+
+1:03:28.380 --> 1:03:32.220
+ And what I think has happened in attempts
+
+1:03:32.220 --> 1:03:35.740
+ at evolutionary computation is that people start
+
+1:03:35.740 --> 1:03:40.340
+ with libraries that are very, very minimal,
+
+1:03:40.340 --> 1:03:44.260
+ like almost nothing, and then progress is slow
+
+1:03:44.260 --> 1:03:46.620
+ and it's hard for someone to get a good PhD thesis
+
+1:03:46.620 --> 1:03:48.260
+ out of it and they give up.
+
+1:03:48.260 --> 1:03:50.260
+ If we had richer libraries to begin with,
+
+1:03:50.260 --> 1:03:52.580
+ if you were evolving from systems
+
+1:03:52.580 --> 1:03:55.320
+ that had an rich innate structure to begin with,
+
+1:03:55.320 --> 1:03:56.780
+ then things might speed up.
+
+1:03:56.780 --> 1:03:59.900
+ Or more PhD students, if the evolutionary process
+
+1:03:59.900 --> 1:04:04.260
+ is indeed in a meta way runs away with good ideas,
+
+1:04:04.260 --> 1:04:06.740
+ you need to have a lot of ideas,
+
+1:04:06.740 --> 1:04:08.820
+ pool of ideas in order for it to discover one
+
+1:04:08.820 --> 1:04:10.260
+ that you can run away with.
+
+1:04:10.260 --> 1:04:13.220
+ And PhD students representing individual ideas as well.
+
+1:04:13.220 --> 1:04:14.340
+ Yeah, I mean, you could throw
+
+1:04:14.340 --> 1:04:16.220
+ a billion PhD students at it.
+
+1:04:16.220 --> 1:04:18.980
+ Yeah, the monkeys are typewriters with Shakespeare, yep.
+
+1:04:20.180 --> 1:04:22.060
+ Well, I mean, those aren't cumulative, right?
+
+1:04:22.060 --> 1:04:23.420
+ That's just random.
+
+1:04:23.420 --> 1:04:24.940
+ And part of the point that I'm making
+
+1:04:24.940 --> 1:04:26.780
+ is that evolution is cumulative.
+
+1:04:26.780 --> 1:04:31.140
+ So if you have a billion monkeys independently,
+
+1:04:31.140 --> 1:04:32.420
+ you don't really get anywhere.
+
+1:04:32.420 --> 1:04:33.820
+ But if you have a billion monkeys,
+
+1:04:33.820 --> 1:04:35.700
+ and I think Dawkins made this point originally,
+
+1:04:35.700 --> 1:04:37.580
+ or probably other people, Dawkins made it very nice
+
+1:04:37.580 --> 1:04:40.420
+ and either a selfish gene or blind watchmaker.
+
+1:04:40.420 --> 1:04:44.060
+ If there is some sort of fitness function
+
+1:04:44.060 --> 1:04:45.860
+ that can drive you towards something,
+
+1:04:45.860 --> 1:04:47.060
+ I guess that's Dawkins point.
+
+1:04:47.060 --> 1:04:49.420
+ And my point, which is a variation on that,
+
+1:04:49.420 --> 1:04:51.940
+ is that if the evolution is cumulative,
+
+1:04:51.940 --> 1:04:53.820
+ I mean, the related points,
+
+1:04:53.820 --> 1:04:55.600
+ then you can start going faster.
+
+1:04:55.600 --> 1:04:57.760
+ Do you think something like the process of evolution
+
+1:04:57.760 --> 1:05:00.180
+ is required to build intelligent systems?
+
+1:05:00.180 --> 1:05:01.560
+ So if we... Not logically.
+
+1:05:01.560 --> 1:05:04.040
+ So all the stuff that evolution did,
+
+1:05:04.040 --> 1:05:07.040
+ a good engineer might be able to do.
+
+1:05:07.040 --> 1:05:10.540
+ So for example, evolution made quadrupeds,
+
+1:05:10.540 --> 1:05:14.180
+ which distribute the load across a horizontal surface.
+
+1:05:14.180 --> 1:05:16.980
+ A good engineer could come up with that idea.
+
+1:05:16.980 --> 1:05:18.740
+ I mean, sometimes good engineers come up with ideas
+
+1:05:18.740 --> 1:05:19.760
+ by looking at biology.
+
+1:05:19.760 --> 1:05:22.500
+ There's lots of ways to get your ideas.
+
+1:05:22.500 --> 1:05:23.660
+ Part of what I'm suggesting
+
+1:05:23.660 --> 1:05:25.980
+ is we should look at biology a lot more.
+
+1:05:25.980 --> 1:05:30.180
+ We should look at the biology of thought and understanding
+
+1:05:30.180 --> 1:05:33.480
+ and the biology by which creatures intuitively reason
+
+1:05:33.480 --> 1:05:35.960
+ about physics or other agents,
+
+1:05:35.960 --> 1:05:37.900
+ or like how do dogs reason about people?
+
+1:05:37.900 --> 1:05:39.620
+ Like they're actually pretty good at it.
+
+1:05:39.620 --> 1:05:44.000
+ If we could understand, at my college we joked dognition,
+
+1:05:44.000 --> 1:05:46.280
+ if we could understand dognition well,
+
+1:05:46.280 --> 1:05:49.780
+ and how it was implemented, that might help us with our AI.
+
+1:05:49.780 --> 1:05:53.780
+ So do you think it's possible
+
+1:05:53.780 --> 1:05:57.180
+ that the kind of timescale that evolution took
+
+1:05:57.180 --> 1:05:58.940
+ is the kind of timescale that will be needed
+
+1:05:58.940 --> 1:06:00.500
+ to build intelligent systems?
+
+1:06:00.500 --> 1:06:02.980
+ Or can we significantly accelerate that process
+
+1:06:02.980 --> 1:06:04.020
+ inside a computer?
+
+1:06:04.020 --> 1:06:07.580
+ I mean, I think the way that we accelerate that process
+
+1:06:07.580 --> 1:06:12.100
+ is we borrow from biology, not slavishly,
+
+1:06:12.100 --> 1:06:15.260
+ but I think we look at how biology has solved problems
+
+1:06:15.260 --> 1:06:16.780
+ and we say, does that inspire
+
+1:06:16.780 --> 1:06:18.940
+ any engineering solutions here?
+
+1:06:18.940 --> 1:06:20.700
+ Try to mimic biological systems
+
+1:06:20.700 --> 1:06:22.380
+ and then therefore have a shortcut.
+
+1:06:22.380 --> 1:06:25.020
+ Yeah, I mean, there's a field called biomimicry
+
+1:06:25.020 --> 1:06:28.980
+ and people do that for like material science all the time.
+
+1:06:28.980 --> 1:06:32.940
+ We should be doing the analog of that for AI
+
+1:06:32.940 --> 1:06:34.460
+ and the analog for that for AI
+
+1:06:34.460 --> 1:06:37.020
+ is to look at cognitive science or the cognitive sciences,
+
+1:06:37.020 --> 1:06:40.380
+ which is psychology, maybe neuroscience, linguistics,
+
+1:06:40.380 --> 1:06:43.460
+ and so forth, look to those for insight.
+
+1:06:43.460 --> 1:06:45.340
+ What do you think is a good test of intelligence
+
+1:06:45.340 --> 1:06:46.180
+ in your view?
+
+1:06:46.180 --> 1:06:48.500
+ So I don't think there's one good test.
+
+1:06:48.500 --> 1:06:51.780
+ In fact, I tried to organize a movement
+
+1:06:51.780 --> 1:06:53.380
+ towards something called a Turing Olympics
+
+1:06:53.380 --> 1:06:56.140
+ and my hope is that Francois is actually gonna take,
+
+1:06:56.140 --> 1:06:58.260
+ Francois Chollet is gonna take over this.
+
+1:06:58.260 --> 1:06:59.940
+ I think he's interested and I don't,
+
+1:06:59.940 --> 1:07:03.500
+ I just don't have place in my busy life at this moment,
+
+1:07:03.500 --> 1:07:06.460
+ but the notion is that there'd be many tests
+
+1:07:06.460 --> 1:07:09.500
+ and not just one because intelligence is multifaceted.
+
+1:07:09.500 --> 1:07:12.900
+ There can't really be a single measure of it
+
+1:07:12.900 --> 1:07:14.660
+ because it isn't a single thing.
+
+1:07:15.620 --> 1:07:17.340
+ Like just the crudest level,
+
+1:07:17.340 --> 1:07:19.860
+ the SAT has a verbal component and a math component
+
+1:07:19.860 --> 1:07:21.340
+ because they're not identical.
+
+1:07:21.340 --> 1:07:23.660
+ And Howard Gardner has talked about multiple intelligences
+
+1:07:23.660 --> 1:07:25.420
+ like kinesthetic intelligence
+
+1:07:25.420 --> 1:07:27.740
+ and verbal intelligence and so forth.
+
+1:07:27.740 --> 1:07:29.940
+ There are a lot of things that go into intelligence
+
+1:07:29.940 --> 1:07:32.580
+ and people can get good at one or the other.
+
+1:07:32.580 --> 1:07:35.260
+ I mean, in some sense, like every expert has developed
+
+1:07:35.260 --> 1:07:37.260
+ a very specific kind of intelligence
+
+1:07:37.260 --> 1:07:39.300
+ and then there are people that are generalists
+
+1:07:39.300 --> 1:07:41.740
+ and I think of myself as a generalist
+
+1:07:41.740 --> 1:07:43.380
+ with respect to cognitive science,
+
+1:07:43.380 --> 1:07:45.620
+ which doesn't mean I know anything about quantum mechanics,
+
+1:07:45.620 --> 1:07:49.260
+ but I know a lot about the different facets of the mind.
+
+1:07:49.260 --> 1:07:51.380
+ And there's a kind of intelligence
+
+1:07:51.380 --> 1:07:52.660
+ to thinking about intelligence.
+
+1:07:52.660 --> 1:07:54.740
+ I like to think that I have some of that,
+
+1:07:54.740 --> 1:07:57.500
+ but social intelligence, I'm just okay.
+
+1:07:57.500 --> 1:08:00.140
+ There are people that are much better at that than I am.
+
+1:08:00.140 --> 1:08:03.020
+ Sure, but what would be really impressive to you?
+
+1:08:04.140 --> 1:08:07.060
+ I think the idea of a touring Olympics is really interesting
+
+1:08:07.060 --> 1:08:09.660
+ especially if somebody like Francois is running it,
+
+1:08:09.660 --> 1:08:14.380
+ but to you in general, not as a benchmark,
+
+1:08:14.380 --> 1:08:17.300
+ but if you saw an AI system being able to accomplish
+
+1:08:17.300 --> 1:08:21.740
+ something that would impress the heck out of you,
+
+1:08:21.740 --> 1:08:22.740
+ what would that thing be?
+
+1:08:22.740 --> 1:08:24.700
+ Would it be natural language conversation?
+
+1:08:24.700 --> 1:08:28.580
+ For me personally, I would like to see
+
+1:08:28.580 --> 1:08:30.660
+ a kind of comprehension that relates to what you just said.
+
+1:08:30.660 --> 1:08:34.980
+ So I wrote a piece in the New Yorker in I think 2015
+
+1:08:34.980 --> 1:08:39.940
+ right after Eugene Guestman, which was a software package,
+
+1:08:39.940 --> 1:08:42.940
+ won a version of the Turing test.
+
+1:08:42.940 --> 1:08:45.060
+ And the way that it did this is it be,
+
+1:08:45.060 --> 1:08:46.900
+ well, the way you win the Turing test,
+
+1:08:46.900 --> 1:08:50.700
+ so called win it, is the Turing test is you fool a person
+
+1:08:50.700 --> 1:08:54.420
+ into thinking that a machine is a person,
+
+1:08:54.420 --> 1:08:57.940
+ is you're evasive, you pretend to have limitations
+
+1:08:57.940 --> 1:09:00.540
+ so you don't have to answer certain questions and so forth.
+
+1:09:00.540 --> 1:09:04.300
+ So this particular system pretended to be a 13 year old boy
+
+1:09:04.300 --> 1:09:06.980
+ from Odessa who didn't understand English
+
+1:09:06.980 --> 1:09:08.060
+ and was kind of sarcastic
+
+1:09:08.060 --> 1:09:09.660
+ and wouldn't answer your questions and so forth.
+
+1:09:09.660 --> 1:09:12.460
+ And so judges got fooled into thinking briefly
+
+1:09:12.460 --> 1:09:14.660
+ with a very little exposure, it was a 13 year old boy,
+
+1:09:14.660 --> 1:09:16.340
+ and it docked all the questions
+
+1:09:16.340 --> 1:09:17.540
+ Turing was actually interested in,
+
+1:09:17.540 --> 1:09:18.780
+ which is like how do you make the machine
+
+1:09:18.780 --> 1:09:20.420
+ actually intelligent?
+
+1:09:20.420 --> 1:09:22.100
+ So that test itself is not that good.
+
+1:09:22.100 --> 1:09:26.100
+ And so in New Yorker, I proposed an alternative, I guess,
+
+1:09:26.100 --> 1:09:27.260
+ and the one that I proposed there
+
+1:09:27.260 --> 1:09:29.020
+ was a comprehension test.
+
+1:09:30.020 --> 1:09:31.060
+ And I must like Breaking Bad
+
+1:09:31.060 --> 1:09:32.900
+ because I've already given you one Breaking Bad example
+
+1:09:32.900 --> 1:09:35.660
+ and in that article, I have one as well,
+
+1:09:35.660 --> 1:09:37.660
+ which was something like if Walter,
+
+1:09:37.660 --> 1:09:40.340
+ you should be able to watch an episode of Breaking Bad
+
+1:09:40.340 --> 1:09:41.700
+ or maybe you have to watch the whole series
+
+1:09:41.700 --> 1:09:43.500
+ to be able to answer the question and say,
+
+1:09:43.500 --> 1:09:45.580
+ if Walter White took a hit out on Jesse,
+
+1:09:45.580 --> 1:09:47.180
+ why did he do that?
+
+1:09:47.180 --> 1:09:49.380
+ So if you could answer kind of arbitrary questions
+
+1:09:49.380 --> 1:09:52.700
+ about characters motivations, I would be really impressed
+
+1:09:52.700 --> 1:09:55.380
+ with that and he built software to do that.
+
+1:09:55.380 --> 1:09:58.500
+ They could watch a film or there are different versions.
+
+1:09:58.500 --> 1:10:01.940
+ And so ultimately, I wrote this up with Praveen Paritosh
+
+1:10:01.940 --> 1:10:04.060
+ in a special issue of AI Magazine
+
+1:10:04.060 --> 1:10:05.780
+ that basically was about the Turing Olympics.
+
+1:10:05.780 --> 1:10:07.700
+ There were like 14 tests proposed.
+
+1:10:07.700 --> 1:10:10.100
+ The one that I was pushing was a comprehension challenge
+
+1:10:10.100 --> 1:10:12.380
+ and Praveen who's at Google was trying to figure out
+
+1:10:12.380 --> 1:10:13.460
+ like how we would actually run it
+
+1:10:13.460 --> 1:10:15.340
+ and so we wrote a paper together.
+
+1:10:15.340 --> 1:10:17.300
+ And you could have a text version too
+
+1:10:17.300 --> 1:10:19.780
+ or you could have an auditory podcast version,
+
+1:10:19.780 --> 1:10:20.620
+ you could have a written version.
+
+1:10:20.620 --> 1:10:23.820
+ But the point is that you win at this test
+
+1:10:23.820 --> 1:10:27.060
+ if you can do, let's say human level or better than humans
+
+1:10:27.060 --> 1:10:29.780
+ at answering kind of arbitrary questions.
+
+1:10:29.780 --> 1:10:31.660
+ Why did this person pick up the stone?
+
+1:10:31.660 --> 1:10:34.180
+ What were they thinking when they picked up the stone?
+
+1:10:34.180 --> 1:10:36.260
+ Were they trying to knock down glass?
+
+1:10:36.260 --> 1:10:38.700
+ And I mean, ideally these wouldn't be multiple choice either
+
+1:10:38.700 --> 1:10:41.140
+ because multiple choice is pretty easily gamed.
+
+1:10:41.140 --> 1:10:44.180
+ So if you could have relatively open ended questions
+
+1:10:44.180 --> 1:10:47.380
+ and you can answer why people are doing this stuff,
+
+1:10:47.380 --> 1:10:48.220
+ I would be very impressed.
+
+1:10:48.220 --> 1:10:50.060
+ And of course, humans can do this, right?
+
+1:10:50.060 --> 1:10:52.820
+ If you watch a well constructed movie
+
+1:10:52.820 --> 1:10:55.540
+ and somebody picks up a rock,
+
+1:10:55.540 --> 1:10:56.940
+ everybody watching the movie
+
+1:10:56.940 --> 1:10:59.420
+ knows why they picked up the rock, right?
+
+1:10:59.420 --> 1:11:01.140
+ They all know, oh my gosh,
+
+1:11:01.140 --> 1:11:03.620
+ he's gonna hit this character or whatever.
+
+1:11:03.620 --> 1:11:06.220
+ We have an example in the book about
+
+1:11:06.220 --> 1:11:08.700
+ when a whole bunch of people say, I am Spartacus,
+
+1:11:08.700 --> 1:11:10.060
+ you know, this famous scene.
+
+1:11:11.780 --> 1:11:13.540
+ The viewers understand,
+
+1:11:13.540 --> 1:11:18.220
+ first of all, that everybody or everybody minus one
+
+1:11:18.220 --> 1:11:19.060
+ has to be lying.
+
+1:11:19.060 --> 1:11:20.340
+ They can't all be Spartacus.
+
+1:11:20.340 --> 1:11:21.780
+ We have enough common sense knowledge
+
+1:11:21.780 --> 1:11:24.100
+ to know they couldn't all have the same name.
+
+1:11:24.100 --> 1:11:25.340
+ We know that they're lying
+
+1:11:25.340 --> 1:11:27.100
+ and we can infer why they're lying, right?
+
+1:11:27.100 --> 1:11:28.460
+ They're lying to protect someone
+
+1:11:28.460 --> 1:11:30.340
+ and to protect things they believe in.
+
+1:11:30.340 --> 1:11:32.340
+ You get a machine that can do that.
+
+1:11:32.340 --> 1:11:35.100
+ They can say, this is why these guys all got up
+
+1:11:35.100 --> 1:11:36.940
+ and said, I am Spartacus.
+
+1:11:36.940 --> 1:11:40.540
+ I will sit down and say, AI has really achieved a lot.
+
+1:11:40.540 --> 1:11:41.380
+ Thank you.
+
+1:11:41.380 --> 1:11:43.860
+ Without cheating any part of the system.
+
+1:11:43.860 --> 1:11:45.620
+ Yeah, I mean, if you do it,
+
+1:11:45.620 --> 1:11:46.700
+ there are lots of ways you could cheat.
+
+1:11:46.700 --> 1:11:48.820
+ You could build a Spartacus machine
+
+1:11:48.820 --> 1:11:50.260
+ that works on that film.
+
+1:11:50.260 --> 1:11:51.100
+ That's not what I'm talking about.
+
+1:11:51.100 --> 1:11:52.860
+ I'm talking about, you can do this
+
+1:11:52.860 --> 1:11:54.860
+ with essentially arbitrary films
+
+1:11:54.860 --> 1:11:56.580
+ or from a large set. Even beyond films
+
+1:11:56.580 --> 1:11:58.980
+ because it's possible such a system would discover
+
+1:11:58.980 --> 1:12:02.580
+ that the number of narrative arcs in film
+
+1:12:02.580 --> 1:12:04.740
+ is limited to 1930. Well, there's a famous thing
+
+1:12:04.740 --> 1:12:07.060
+ about the classic seven plots or whatever.
+
+1:12:07.060 --> 1:12:07.900
+ I don't care.
+
+1:12:07.900 --> 1:12:09.140
+ If you wanna build in the system,
+
+1:12:09.140 --> 1:12:11.660
+ boy meets girl, boy loses girl, boy finds girl.
+
+1:12:11.660 --> 1:12:12.500
+ That's fine.
+
+1:12:12.500 --> 1:12:13.980
+ I don't mind having some head stories on it.
+
+1:12:13.980 --> 1:12:14.820
+ And they acknowledge.
+
+1:12:14.820 --> 1:12:16.340
+ Okay, good.
+
+1:12:16.340 --> 1:12:17.980
+ I mean, you could build it in innately
+
+1:12:17.980 --> 1:12:20.460
+ or you could have your system watch a lot of films again.
+
+1:12:20.460 --> 1:12:22.380
+ If you can do this at all,
+
+1:12:22.380 --> 1:12:23.740
+ but with a wide range of films,
+
+1:12:23.740 --> 1:12:26.220
+ not just one film in one genre.
+
+1:12:27.340 --> 1:12:28.860
+ But even if you could do it for all Westerns,
+
+1:12:28.860 --> 1:12:30.300
+ I'd be reasonably impressed.
+
+1:12:30.300 --> 1:12:31.940
+ Yeah.
+
+1:12:31.940 --> 1:12:34.100
+ So in terms of being impressed,
+
+1:12:34.100 --> 1:12:35.820
+ just for the fun of it,
+
+1:12:35.820 --> 1:12:38.420
+ because you've put so many interesting ideas out there
+
+1:12:38.420 --> 1:12:40.420
+ in your book,
+
+1:12:40.420 --> 1:12:43.700
+ challenging the community for further steps.
+
+1:12:43.700 --> 1:12:46.740
+ Is it possible on the deep learning front
+
+1:12:46.740 --> 1:12:50.260
+ that you're wrong about its limitations?
+
+1:12:50.260 --> 1:12:52.260
+ That deep learning will unlock,
+
+1:12:52.260 --> 1:12:54.500
+ Yann LeCun next year will publish a paper
+
+1:12:54.500 --> 1:12:56.940
+ that achieves this comprehension.
+
+1:12:56.940 --> 1:13:00.300
+ So do you think that way often as a scientist?
+
+1:13:00.300 --> 1:13:03.060
+ Do you consider that your intuition
+
+1:13:03.060 --> 1:13:06.740
+ that deep learning could actually run away with it?
+
+1:13:06.740 --> 1:13:09.780
+ I'm more worried about rebranding
+
+1:13:09.780 --> 1:13:11.380
+ as a kind of political thing.
+
+1:13:11.380 --> 1:13:14.100
+ So, I mean, what's gonna happen, I think,
+
+1:13:14.100 --> 1:13:15.660
+ is the deep learning is gonna start
+
+1:13:15.660 --> 1:13:17.380
+ to encompass symbol manipulation.
+
+1:13:17.380 --> 1:13:19.260
+ So I think Hinton's just wrong.
+
+1:13:19.260 --> 1:13:20.860
+ Hinton says we don't want hybrids.
+
+1:13:20.860 --> 1:13:22.380
+ I think people will work towards hybrids
+
+1:13:22.380 --> 1:13:24.740
+ and they will relabel their hybrids as deep learning.
+
+1:13:24.740 --> 1:13:25.860
+ We've already seen some of that.
+
+1:13:25.860 --> 1:13:29.620
+ So AlphaGo is often described as a deep learning system,
+
+1:13:29.620 --> 1:13:31.740
+ but it's more correctly described as a system
+
+1:13:31.740 --> 1:13:33.940
+ that has deep learning, but also Monte Carlo tree search,
+
+1:13:33.940 --> 1:13:35.580
+ which is a classical AI technique.
+
+1:13:35.580 --> 1:13:37.540
+ And people will start to blur the lines
+
+1:13:37.540 --> 1:13:39.820
+ in the way that IBM blurred Watson.
+
+1:13:39.820 --> 1:13:41.580
+ First, Watson meant this particular system,
+
+1:13:41.580 --> 1:13:43.140
+ and then it was just anything that IBM built
+
+1:13:43.140 --> 1:13:44.140
+ in their cognitive division.
+
+1:13:44.140 --> 1:13:45.740
+ But purely, let me ask, for sure,
+
+1:13:45.740 --> 1:13:49.500
+ that's a branding question and that's like a giant mess.
+
+1:13:49.500 --> 1:13:51.940
+ I mean, purely, a single neural network
+
+1:13:51.940 --> 1:13:54.060
+ being able to accomplish reasonable comprehension.
+
+1:13:54.060 --> 1:13:55.780
+ I don't stay up at night worrying
+
+1:13:55.780 --> 1:13:57.780
+ that that's gonna happen.
+
+1:13:57.780 --> 1:13:59.220
+ And I'll just give you two examples.
+
+1:13:59.220 --> 1:14:03.540
+ One is a guy at DeepMind thought he had finally outfoxed me.
+
+1:14:03.540 --> 1:14:06.980
+ At Zergilord, I think is his Twitter handle.
+
+1:14:06.980 --> 1:14:10.580
+ And he said, he specifically made an example.
+
+1:14:10.580 --> 1:14:12.620
+ Marcus said that such and such.
+
+1:14:12.620 --> 1:14:16.420
+ He fed it into GP2, which is the AI system
+
+1:14:16.420 --> 1:14:19.060
+ that is so smart that OpenAI couldn't release it
+
+1:14:19.060 --> 1:14:21.180
+ because it would destroy the world, right?
+
+1:14:21.180 --> 1:14:22.940
+ You remember that a few months ago.
+
+1:14:22.940 --> 1:14:27.220
+ So he feeds it into GPT2, and my example
+
+1:14:27.220 --> 1:14:28.740
+ was something like a rose is a rose,
+
+1:14:28.740 --> 1:14:31.340
+ a tulip is a tulip, a lily is a blank.
+
+1:14:31.340 --> 1:14:32.860
+ And he got it to actually do that,
+
+1:14:32.860 --> 1:14:34.020
+ which was a little bit impressive.
+
+1:14:34.020 --> 1:14:35.340
+ And I wrote back and I said, that's impressive,
+
+1:14:35.340 --> 1:14:37.740
+ but can I ask you a few questions?
+
+1:14:37.740 --> 1:14:40.060
+ I said, was that just one example?
+
+1:14:40.060 --> 1:14:41.620
+ Can it do it generally?
+
+1:14:41.620 --> 1:14:43.220
+ And can it do it with novel words,
+
+1:14:43.220 --> 1:14:45.300
+ which was part of what I was talking about in 1998
+
+1:14:45.300 --> 1:14:46.740
+ when I first raised the example.
+
+1:14:46.740 --> 1:14:49.380
+ So a dax is a dax, right?
+
+1:14:50.340 --> 1:14:53.020
+ And he sheepishly wrote back about 20 minutes later.
+
+1:14:53.020 --> 1:14:55.340
+ And the answer was, well, it had some problems with those.
+
+1:14:55.340 --> 1:15:00.340
+ So I made some predictions 21 years ago that still hold.
+
+1:15:00.500 --> 1:15:02.660
+ In the world of computer science, that's amazing, right?
+
+1:15:02.660 --> 1:15:06.500
+ Because there's a thousand or a million times more memory
+
+1:15:06.500 --> 1:15:10.020
+ and computations a million times,
+
+1:15:10.020 --> 1:15:13.140
+ do million times more operations per second
+
+1:15:13.140 --> 1:15:15.340
+ spread across a cluster.
+
+1:15:15.340 --> 1:15:19.260
+ And there's been advances in replacing sigmoids
+
+1:15:20.780 --> 1:15:23.380
+ with other functions and so forth.
+
+1:15:23.380 --> 1:15:25.380
+ There's all kinds of advances,
+
+1:15:25.380 --> 1:15:27.100
+ but the fundamental architecture hasn't changed
+
+1:15:27.100 --> 1:15:28.580
+ and the fundamental limit hasn't changed.
+
+1:15:28.580 --> 1:15:30.860
+ And what I said then is kind of still true.
+
+1:15:30.860 --> 1:15:32.220
+ Then here's a second example.
+
+1:15:32.220 --> 1:15:34.020
+ I recently had a piece in Wired
+
+1:15:34.020 --> 1:15:35.260
+ that's adapted from the book.
+
+1:15:35.260 --> 1:15:40.140
+ And the book went to press before GP2 came out,
+
+1:15:40.140 --> 1:15:42.300
+ but we described this children's story
+
+1:15:42.300 --> 1:15:45.580
+ and all the inferences that you make in this story
+
+1:15:45.580 --> 1:15:48.260
+ about a boy finding a lost wallet.
+
+1:15:48.260 --> 1:15:52.860
+ And for fun, in the Wired piece, we ran it through GP2.
+
+1:15:52.860 --> 1:15:55.460
+ GPT2, something called talktotransformer.com,
+
+1:15:55.460 --> 1:15:58.180
+ and your viewers can try this experiment themselves.
+
+1:15:58.180 --> 1:15:59.700
+ Go to the Wired piece that has the link
+
+1:15:59.700 --> 1:16:01.100
+ and it has the story.
+
+1:16:01.100 --> 1:16:04.300
+ And the system made perfectly fluent text
+
+1:16:04.300 --> 1:16:06.420
+ that was totally inconsistent
+
+1:16:06.420 --> 1:16:10.260
+ with the conceptual underpinnings of the story, right?
+
+1:16:10.260 --> 1:16:13.220
+ This is what, again, I predicted in 1998.
+
+1:16:13.220 --> 1:16:14.700
+ And for that matter, Chomsky and Miller
+
+1:16:14.700 --> 1:16:16.660
+ made the same prediction in 1963.
+
+1:16:16.660 --> 1:16:19.420
+ I was just updating their claim for a slightly new text.
+
+1:16:19.420 --> 1:16:22.580
+ So those particular architectures
+
+1:16:22.580 --> 1:16:24.820
+ that don't have any built in knowledge,
+
+1:16:24.820 --> 1:16:27.020
+ they're basically just a bunch of layers
+
+1:16:27.020 --> 1:16:28.940
+ doing correlational stuff.
+
+1:16:28.940 --> 1:16:31.220
+ They're not gonna solve these problems.
+
+1:16:31.220 --> 1:16:34.500
+ So 20 years ago, you said the emperor has no clothes.
+
+1:16:34.500 --> 1:16:36.860
+ Today, the emperor still has no clothes.
+
+1:16:36.860 --> 1:16:38.020
+ The lighting's better though.
+
+1:16:38.020 --> 1:16:39.020
+ The lighting is better.
+
+1:16:39.020 --> 1:16:42.260
+ And I think you yourself are also, I mean.
+
+1:16:42.260 --> 1:16:44.340
+ And we found out some things to do with naked emperors.
+
+1:16:44.340 --> 1:16:46.420
+ I mean, it's not like stuff is worthless.
+
+1:16:46.420 --> 1:16:48.260
+ I mean, they're not really naked.
+
+1:16:48.260 --> 1:16:49.580
+ It's more like they're in their briefs
+
+1:16:49.580 --> 1:16:50.820
+ than everybody thinks they are.
+
+1:16:50.820 --> 1:16:54.340
+ And so like, I mean, they are great at speech recognition,
+
+1:16:54.340 --> 1:16:56.460
+ but the problems that I said were hard.
+
+1:16:56.460 --> 1:16:58.220
+ I didn't literally say the emperor has no clothes.
+
+1:16:58.220 --> 1:17:00.140
+ I said, this is a set of problems
+
+1:17:00.140 --> 1:17:01.780
+ that humans are really good at.
+
+1:17:01.780 --> 1:17:03.140
+ And it wasn't couched as AI.
+
+1:17:03.140 --> 1:17:04.300
+ It was couched as cognitive science.
+
+1:17:04.300 --> 1:17:07.700
+ But I said, if you wanna build a neural model
+
+1:17:07.700 --> 1:17:10.340
+ of how humans do certain class of things,
+
+1:17:10.340 --> 1:17:11.940
+ you're gonna have to change the architecture.
+
+1:17:11.940 --> 1:17:13.620
+ And I stand by those claims.
+
+1:17:13.620 --> 1:17:16.740
+ So, and I think people should understand
+
+1:17:16.740 --> 1:17:19.020
+ you're quite entertaining in your cynicism,
+
+1:17:19.020 --> 1:17:22.220
+ but you're also very optimistic and a dreamer
+
+1:17:22.220 --> 1:17:23.900
+ about the future of AI too.
+
+1:17:23.900 --> 1:17:25.340
+ So you're both, it's just.
+
+1:17:25.340 --> 1:17:27.820
+ There's a famous saying about being,
+
+1:17:27.820 --> 1:17:30.700
+ people overselling technology in the short run
+
+1:17:30.700 --> 1:17:34.100
+ and underselling it in the long run.
+
+1:17:34.100 --> 1:17:37.180
+ And so I actually end the book,
+
+1:17:37.180 --> 1:17:40.500
+ Ernie Davis and I end our book with an optimistic chapter,
+
+1:17:40.500 --> 1:17:41.700
+ which kind of killed Ernie
+
+1:17:41.700 --> 1:17:44.380
+ because he's even more pessimistic than I am.
+
+1:17:44.380 --> 1:17:47.580
+ He describes me as a contrarian and him as a pessimist.
+
+1:17:47.580 --> 1:17:49.820
+ But I persuaded him that we should end the book
+
+1:17:49.820 --> 1:17:52.620
+ with a look at what would happen
+
+1:17:52.620 --> 1:17:55.340
+ if AI really did incorporate, for example,
+
+1:17:55.340 --> 1:17:57.300
+ the common sense reasoning and the nativism
+
+1:17:57.300 --> 1:17:59.660
+ and so forth, the things that we counseled for.
+
+1:17:59.660 --> 1:18:02.140
+ And we wrote it and it's an optimistic chapter
+
+1:18:02.140 --> 1:18:05.900
+ that AI suitably reconstructed so that we could trust it,
+
+1:18:05.900 --> 1:18:09.500
+ which we can't now, could really be world changing.
+
+1:18:09.500 --> 1:18:13.100
+ So on that point, if you look at the future trajectories
+
+1:18:13.100 --> 1:18:17.140
+ of AI, people have worries about negative effects of AI,
+
+1:18:17.140 --> 1:18:21.020
+ whether it's at the large existential scale
+
+1:18:21.020 --> 1:18:25.220
+ or smaller short term scale of negative impact on society.
+
+1:18:25.220 --> 1:18:27.140
+ So you write about trustworthy AI,
+
+1:18:27.140 --> 1:18:31.500
+ how can we build AI systems that align with our values,
+
+1:18:31.500 --> 1:18:32.780
+ that make for a better world,
+
+1:18:32.780 --> 1:18:34.980
+ that we can interact with, that we can trust?
+
+1:18:34.980 --> 1:18:35.820
+ The first thing we have to do
+
+1:18:35.820 --> 1:18:38.260
+ is to replace deep learning with deep understanding.
+
+1:18:38.260 --> 1:18:42.460
+ So you can't have alignment with a system
+
+1:18:42.460 --> 1:18:44.620
+ that traffics only in correlations
+
+1:18:44.620 --> 1:18:47.900
+ and doesn't understand concepts like bottles or harm.
+
+1:18:47.900 --> 1:18:51.340
+ So Asimov talked about these famous laws
+
+1:18:51.340 --> 1:18:54.060
+ and the first one was first do no harm.
+
+1:18:54.060 --> 1:18:56.860
+ And you can quibble about the details of Asimov's laws,
+
+1:18:56.860 --> 1:18:58.780
+ but we have to, if we're gonna build real robots
+
+1:18:58.780 --> 1:19:00.540
+ in the real world, have something like that.
+
+1:19:00.540 --> 1:19:02.500
+ That means we have to program in a notion
+
+1:19:02.500 --> 1:19:04.240
+ that's at least something like harm.
+
+1:19:04.240 --> 1:19:06.620
+ That means we have to have these more abstract ideas
+
+1:19:06.620 --> 1:19:08.460
+ that deep learning is not particularly good at.
+
+1:19:08.460 --> 1:19:10.620
+ They have to be in the mix somewhere.
+
+1:19:10.620 --> 1:19:12.380
+ And you could do statistical analysis
+
+1:19:12.380 --> 1:19:14.380
+ about probabilities of given harms or whatever,
+
+1:19:14.380 --> 1:19:15.820
+ but you have to know what a harm is
+
+1:19:15.820 --> 1:19:17.420
+ in the same way that you have to understand
+
+1:19:17.420 --> 1:19:19.780
+ that a bottle isn't just a collection of pixels.
+
+1:19:20.660 --> 1:19:24.020
+ And also be able to, you're implying
+
+1:19:24.020 --> 1:19:25.940
+ that you need to also be able to communicate
+
+1:19:25.940 --> 1:19:29.700
+ that to humans so the AI systems would be able
+
+1:19:29.700 --> 1:19:33.780
+ to prove to humans that they understand
+
+1:19:33.780 --> 1:19:35.460
+ that they know what harm means.
+
+1:19:35.460 --> 1:19:37.380
+ I might run it in the reverse direction,
+
+1:19:37.380 --> 1:19:38.620
+ but roughly speaking, I agree with you.
+
+1:19:38.620 --> 1:19:42.500
+ So we probably need to have committees
+
+1:19:42.500 --> 1:19:45.660
+ of wise people, ethicists and so forth.
+
+1:19:45.660 --> 1:19:47.500
+ Think about what these rules ought to be
+
+1:19:47.500 --> 1:19:49.780
+ and we shouldn't just leave it to software engineers.
+
+1:19:49.780 --> 1:19:51.620
+ It shouldn't just be software engineers
+
+1:19:51.620 --> 1:19:53.900
+ and it shouldn't just be people
+
+1:19:53.900 --> 1:19:56.580
+ who own large mega corporations
+
+1:19:56.580 --> 1:19:58.860
+ that are good at technology, ethicists
+
+1:19:58.860 --> 1:20:00.260
+ and so forth should be involved.
+
+1:20:00.260 --> 1:20:04.660
+ But there should be some assembly of wise people
+
+1:20:04.660 --> 1:20:07.220
+ as I was putting it that tries to figure out
+
+1:20:07.220 --> 1:20:08.700
+ what the rules ought to be.
+
+1:20:08.700 --> 1:20:11.580
+ And those have to get translated into code.
+
+1:20:12.460 --> 1:20:15.460
+ You can argue or code or neural networks or something.
+
+1:20:15.460 --> 1:20:18.660
+ They have to be translated into something
+
+1:20:18.660 --> 1:20:19.980
+ that machines can work with.
+
+1:20:19.980 --> 1:20:21.940
+ And that means there has to be a way
+
+1:20:21.940 --> 1:20:23.380
+ of working the translation.
+
+1:20:23.380 --> 1:20:24.460
+ And right now we don't.
+
+1:20:24.460 --> 1:20:25.340
+ We don't have a way.
+
+1:20:25.340 --> 1:20:27.060
+ So let's say you and I were the committee
+
+1:20:27.060 --> 1:20:29.820
+ and we decide that Asimov's first law is actually right.
+
+1:20:29.820 --> 1:20:31.580
+ And let's say it's not just two white guys,
+
+1:20:31.580 --> 1:20:34.020
+ which would be kind of unfortunate that we have abroad.
+
+1:20:34.020 --> 1:20:36.260
+ And so we've representative sample of the world
+
+1:20:36.260 --> 1:20:37.500
+ or however we wanna do this.
+
+1:20:37.500 --> 1:20:40.460
+ And the committee decides eventually,
+
+1:20:40.460 --> 1:20:42.820
+ okay, Asimov's first law is actually pretty good.
+
+1:20:42.820 --> 1:20:44.060
+ There are these exceptions to it.
+
+1:20:44.060 --> 1:20:46.060
+ We wanna program in these exceptions.
+
+1:20:46.060 --> 1:20:47.460
+ But let's start with just the first one
+
+1:20:47.460 --> 1:20:48.860
+ and then we'll get to the exceptions.
+
+1:20:48.860 --> 1:20:50.620
+ First one is first do no harm.
+
+1:20:50.620 --> 1:20:53.620
+ Well, somebody has to now actually turn that into
+
+1:20:53.620 --> 1:20:56.220
+ a computer program or a neural network or something.
+
+1:20:56.220 --> 1:20:58.740
+ And one way of taking the whole book,
+
+1:20:58.740 --> 1:21:00.260
+ the whole argument that I'm making
+
+1:21:00.260 --> 1:21:02.500
+ is that we just don't have to do that yet.
+
+1:21:02.500 --> 1:21:03.540
+ And we're fooling ourselves
+
+1:21:03.540 --> 1:21:05.860
+ if we think that we can build trustworthy AI
+
+1:21:05.860 --> 1:21:09.500
+ if we can't even specify in any kind of,
+
+1:21:09.500 --> 1:21:13.140
+ we can't do it in Python and we can't do it in TensorFlow.
+
+1:21:13.140 --> 1:21:14.380
+ We're fooling ourselves in thinking
+
+1:21:14.380 --> 1:21:15.820
+ that we can make trustworthy AI
+
+1:21:15.820 --> 1:21:18.780
+ if we can't translate harm into something
+
+1:21:18.780 --> 1:21:19.940
+ that we can execute.
+
+1:21:19.940 --> 1:21:22.820
+ And if we can't, then we should be thinking really hard
+
+1:21:22.820 --> 1:21:24.620
+ how could we ever do such a thing?
+
+1:21:24.620 --> 1:21:26.500
+ Because if we're gonna use AI
+
+1:21:26.500 --> 1:21:27.940
+ in the ways that we wanna use it,
+
+1:21:27.940 --> 1:21:31.060
+ to make job interviews or to do surveillance,
+
+1:21:31.060 --> 1:21:32.460
+ not that I personally wanna do that or whatever.
+
+1:21:32.460 --> 1:21:33.780
+ I mean, if we're gonna use AI
+
+1:21:33.780 --> 1:21:36.180
+ in ways that have practical impact on people's lives
+
+1:21:36.180 --> 1:21:38.980
+ or medicine, it's gotta be able
+
+1:21:38.980 --> 1:21:41.180
+ to understand stuff like that.
+
+1:21:41.180 --> 1:21:42.820
+ So one of the things your book highlights
+
+1:21:42.820 --> 1:21:47.380
+ is that a lot of people in the deep learning community,
+
+1:21:47.380 --> 1:21:50.220
+ but also the general public, politicians,
+
+1:21:50.220 --> 1:21:53.220
+ just people in all general groups and walks of life
+
+1:21:53.220 --> 1:21:57.340
+ have different levels of misunderstanding of AI.
+
+1:21:57.340 --> 1:21:59.460
+ So when you talk about committees,
+
+1:22:00.940 --> 1:22:05.620
+ what's your advice to our society?
+
+1:22:05.620 --> 1:22:08.140
+ How do we grow, how do we learn about AI
+
+1:22:08.140 --> 1:22:10.820
+ such that such committees could emerge
+
+1:22:10.820 --> 1:22:13.500
+ where large groups of people could have
+
+1:22:13.500 --> 1:22:15.180
+ a productive discourse about
+
+1:22:15.180 --> 1:22:17.820
+ how to build successful AI systems?
+
+1:22:17.820 --> 1:22:19.660
+ Part of the reason we wrote the book
+
+1:22:19.660 --> 1:22:22.060
+ was to try to inform those committees.
+
+1:22:22.060 --> 1:22:23.540
+ So part of the reason we wrote the book
+
+1:22:23.540 --> 1:22:25.660
+ was to inspire a future generation of students
+
+1:22:25.660 --> 1:22:27.860
+ to solve what we think are the important problems.
+
+1:22:27.860 --> 1:22:29.860
+ So a lot of the book is trying to pinpoint
+
+1:22:29.860 --> 1:22:31.220
+ what we think are the hard problems
+
+1:22:31.220 --> 1:22:34.020
+ where we think effort would most be rewarded.
+
+1:22:34.020 --> 1:22:36.740
+ And part of it is to try to train people
+
+1:22:37.780 --> 1:22:41.020
+ who talk about AI, but aren't experts in the field
+
+1:22:41.020 --> 1:22:43.500
+ to understand what's realistic and what's not.
+
+1:22:43.500 --> 1:22:44.660
+ One of my favorite parts in the book
+
+1:22:44.660 --> 1:22:46.940
+ is the six questions you should ask
+
+1:22:46.940 --> 1:22:48.380
+ anytime you read a media account.
+
+1:22:48.380 --> 1:22:51.060
+ So like number one is if somebody talks about something,
+
+1:22:51.060 --> 1:22:51.900
+ look for the demo.
+
+1:22:51.900 --> 1:22:54.100
+ If there's no demo, don't believe it.
+
+1:22:54.100 --> 1:22:55.300
+ Like the demo that you can try.
+
+1:22:55.300 --> 1:22:56.460
+ If you can't try it at home,
+
+1:22:56.460 --> 1:22:58.380
+ maybe it doesn't really work that well yet.
+
+1:22:58.380 --> 1:23:00.620
+ So if, we don't have this example in the book,
+
+1:23:00.620 --> 1:23:04.140
+ but if Sundar Pinchai says we have this thing
+
+1:23:04.140 --> 1:23:08.380
+ that allows it to sound like human beings in conversation,
+
+1:23:08.380 --> 1:23:10.380
+ you should ask, can I try it?
+
+1:23:10.380 --> 1:23:11.860
+ And you should ask how general it is.
+
+1:23:11.860 --> 1:23:13.060
+ And it turns out at that time,
+
+1:23:13.060 --> 1:23:15.460
+ I'm alluding to Google Duplex when it was announced,
+
+1:23:15.460 --> 1:23:18.220
+ it only worked on calling hairdressers,
+
+1:23:18.220 --> 1:23:20.020
+ restaurants and finding opening hours.
+
+1:23:20.020 --> 1:23:22.260
+ That's not very general, that's narrow AI.
+
+1:23:22.260 --> 1:23:24.580
+ And I'm not gonna ask your thoughts about Sophia,
+
+1:23:24.580 --> 1:23:27.740
+ but yeah, I understand that's a really good question
+
+1:23:27.740 --> 1:23:30.220
+ to ask of any kind of hype top idea.
+
+1:23:30.220 --> 1:23:32.580
+ Sophia has very good material written for her,
+
+1:23:32.580 --> 1:23:35.380
+ but she doesn't understand the things that she's saying.
+
+1:23:35.380 --> 1:23:38.220
+ So a while ago you've written a book
+
+1:23:38.220 --> 1:23:40.540
+ on the science of learning, which I think is fascinating,
+
+1:23:40.540 --> 1:23:43.500
+ but the learning case studies of playing guitar.
+
+1:23:43.500 --> 1:23:45.100
+ That's called Guitar Zero.
+
+1:23:45.100 --> 1:23:47.340
+ I love guitar myself, I've been playing my whole life.
+
+1:23:47.340 --> 1:23:50.260
+ So let me ask a very important question.
+
+1:23:50.260 --> 1:23:53.500
+ What is your favorite song, rock song,
+
+1:23:53.500 --> 1:23:56.300
+ to listen to or try to play?
+
+1:23:56.300 --> 1:23:57.140
+ Well, those would be different,
+
+1:23:57.140 --> 1:23:59.660
+ but I'll say that my favorite rock song to listen to
+
+1:23:59.660 --> 1:24:01.060
+ is probably All Along the Watchtower,
+
+1:24:01.060 --> 1:24:01.980
+ the Jimi Hendrix version.
+
+1:24:01.980 --> 1:24:02.980
+ The Jimi Hendrix version.
+
+1:24:02.980 --> 1:24:04.860
+ It feels magic to me.
+
+1:24:04.860 --> 1:24:07.040
+ I've actually recently learned it, I love that song.
+
+1:24:07.040 --> 1:24:09.380
+ I've been trying to put it on YouTube, myself singing.
+
+1:24:09.380 --> 1:24:11.300
+ Singing is the scary part.
+
+1:24:11.300 --> 1:24:13.380
+ If you could party with a rock star for a weekend,
+
+1:24:13.380 --> 1:24:15.180
+ living or dead, who would you choose?
+
+1:24:17.780 --> 1:24:21.140
+ And pick their mind, it's not necessarily about the partying.
+
+1:24:21.140 --> 1:24:22.700
+ Thanks for the clarification.
+
+1:24:24.700 --> 1:24:26.980
+ I guess John Lennon's such an intriguing person,
+
+1:24:26.980 --> 1:24:31.660
+ and I think a troubled person, but an intriguing one.
+
+1:24:31.660 --> 1:24:32.500
+ Beautiful.
+
+1:24:32.500 --> 1:24:35.460
+ Well, Imagine is one of my favorite songs.
+
+1:24:35.460 --> 1:24:37.100
+ Also one of my favorite songs.
+
+1:24:37.100 --> 1:24:38.300
+ That's a beautiful way to end it.
+
+1:24:38.300 --> 1:24:39.780
+ Gary, thank you so much for talking to me.
+
+1:24:39.780 --> 1:25:08.780
+ Thanks so much for having me.
+

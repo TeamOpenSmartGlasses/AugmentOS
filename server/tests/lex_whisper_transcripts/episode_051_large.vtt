@@ -1,0 +1,3134 @@
+WEBVTT
+
+00:00.000 --> 00:03.380
+ The following is a conversation with David Newman.
+
+00:03.380 --> 00:06.120
+ She's the Apollo Program Professor at MIT
+
+00:06.120 --> 00:08.960
+ and the former Deputy Administrator of NASA
+
+00:08.960 --> 00:10.720
+ and has been a principal investigator
+
+00:10.720 --> 00:13.160
+ on four space flight missions.
+
+00:13.160 --> 00:15.060
+ Her research interests are in aerospace
+
+00:15.060 --> 00:18.240
+ biomedical engineering, investigating human performance
+
+00:18.240 --> 00:20.400
+ in varying gravity environments.
+
+00:20.400 --> 00:23.360
+ She has designed and engineered and built
+
+00:23.360 --> 00:25.680
+ some incredible space suit technology,
+
+00:25.680 --> 00:29.600
+ namely the BioSuit that we talk about in this conversation.
+
+00:29.600 --> 00:32.640
+ Due to some scheduling challenges on both our parts,
+
+00:32.640 --> 00:34.920
+ we only had about 40 minutes together.
+
+00:34.920 --> 00:37.120
+ And in true engineering style, she said,
+
+00:37.120 --> 00:41.280
+ I talk fast, you pick the best questions, let's get it done.
+
+00:41.280 --> 00:42.320
+ And we did.
+
+00:42.320 --> 00:43.880
+ It was a fascinating conversation
+
+00:43.880 --> 00:47.360
+ about space exploration and the future of spacesuits.
+
+00:47.360 --> 00:50.520
+ This is the Artificial Intelligence Podcast.
+
+00:50.520 --> 00:52.800
+ If you enjoy it, subscribe on YouTube,
+
+00:52.800 --> 00:56.160
+ give it five stars on Apple Podcast, support it on Patreon,
+
+00:56.160 --> 00:58.200
+ or simply connect with me on Twitter
+
+00:58.200 --> 01:02.240
+ at Lex Friedman, spelled F R I D M A N.
+
+01:02.240 --> 01:05.560
+ For the first time, this show is presented by Cash App,
+
+01:05.560 --> 01:08.060
+ the number one finance app in the App Store.
+
+01:08.060 --> 01:11.080
+ Cash App is the easiest way to send money to your friends.
+
+01:11.080 --> 01:12.840
+ And it is also the easiest way
+
+01:12.840 --> 01:15.160
+ to buy, sell, and deposit Bitcoin.
+
+01:15.160 --> 01:17.120
+ Most Bitcoin exchanges take days
+
+01:17.120 --> 01:19.520
+ for a bank transfer to become investable.
+
+01:19.520 --> 01:21.760
+ Through Cash App, it takes seconds.
+
+01:21.760 --> 01:25.360
+ Invest as little as $1, and now you own Bitcoin.
+
+01:25.360 --> 01:27.280
+ I have several conversations about Bitcoin
+
+01:27.280 --> 01:29.060
+ coming up on this podcast.
+
+01:29.060 --> 01:30.640
+ Decentralized digital currency
+
+01:30.640 --> 01:33.440
+ is a fascinating technology in general to explore,
+
+01:33.440 --> 01:37.680
+ both at the technical and the philosophical level.
+
+01:37.680 --> 01:39.560
+ Cash App is also the easiest way
+
+01:39.560 --> 01:43.120
+ to try and grow your money with our new investing feature.
+
+01:43.120 --> 01:44.760
+ Unlike investing tools that force you
+
+01:44.760 --> 01:46.620
+ to buy entire shares of stock,
+
+01:46.620 --> 01:50.000
+ Cash App, amazingly, lets you instantly invest
+
+01:50.000 --> 01:52.240
+ as little or as much as you want.
+
+01:52.240 --> 01:54.320
+ Some stocks in the market are hundreds,
+
+01:54.320 --> 01:56.320
+ if not thousands of dollars per share,
+
+01:56.320 --> 02:01.120
+ and now you can still own a piece with as little as $1.
+
+02:01.120 --> 02:04.280
+ Broker services are provided by Cash App Investing,
+
+02:04.280 --> 02:08.160
+ a subsidiary of Square and member SIPC.
+
+02:08.160 --> 02:10.960
+ I'm also excited to be working with Cash App
+
+02:10.960 --> 02:14.120
+ to support one of my favorite organizations called First,
+
+02:14.120 --> 02:16.280
+ which is best known for their first robotics
+
+02:16.280 --> 02:19.760
+ and Lego competitions that seeks to inspire young students
+
+02:19.760 --> 02:23.560
+ in engineering and technology fields all over the world.
+
+02:23.560 --> 02:27.800
+ That's over 110 countries, 660,000 students,
+
+02:27.800 --> 02:30.320
+ 300,000 mentors and volunteers,
+
+02:30.320 --> 02:33.360
+ and a perfect rating on Charity Navigator,
+
+02:33.360 --> 02:35.080
+ which means the donated money
+
+02:35.080 --> 02:37.920
+ is used to maximum effectiveness.
+
+02:37.920 --> 02:39.440
+ When you sign up for Cash App
+
+02:39.440 --> 02:42.540
+ and use the promo code LexPodcast,
+
+02:42.540 --> 02:44.720
+ you'll instantly receive $10,
+
+02:44.720 --> 02:48.480
+ and Cash App will also donate $10 to First,
+
+02:48.480 --> 02:51.000
+ an amazing organization that I've personally seen
+
+02:51.000 --> 02:55.120
+ inspire girls and boys to learn, to explore,
+
+02:55.120 --> 02:57.960
+ and to dream of engineering a better world.
+
+02:57.960 --> 03:02.000
+ Don't forget to use the code LexPodcast
+
+03:02.000 --> 03:03.480
+ when you download Cash App
+
+03:03.480 --> 03:06.960
+ from the App Store or Google Play Store today.
+
+03:06.960 --> 03:10.800
+ And now, here's my conversation with Deva Newman.
+
+03:11.800 --> 03:16.040
+ You circumnavigated the globe on boat,
+
+03:16.040 --> 03:17.720
+ so let's look back in history.
+
+03:17.720 --> 03:21.280
+ 500 years ago, Ferdinand Magellan's crew
+
+03:21.280 --> 03:23.460
+ was first to circumnavigate the globe,
+
+03:24.480 --> 03:27.760
+ but he died, which I think people don't know,
+
+03:27.760 --> 03:32.760
+ like halfway through, and so did 242 of the 260 sailors
+
+03:32.880 --> 03:35.320
+ that took that three year journey.
+
+03:35.320 --> 03:38.400
+ What do you think it was like for that crew at that time
+
+03:38.400 --> 03:43.160
+ heading out into the unknown to face probably likely death?
+
+03:43.160 --> 03:46.960
+ Do you think they were filled with fear, with excitement?
+
+03:46.960 --> 03:50.040
+ Probably not fear, I think in all of exploration,
+
+03:50.040 --> 03:53.560
+ the challenge and the unknown, so probably wonderment.
+
+03:53.560 --> 03:57.160
+ And then just when you really are sailing the world's oceans,
+
+03:59.160 --> 04:01.580
+ you have extreme weather of all kinds.
+
+04:01.580 --> 04:03.800
+ When we were circumnavigating, it was challenging,
+
+04:03.800 --> 04:07.340
+ a new dynamic, you really appreciate Mother Earth,
+
+04:07.340 --> 04:08.680
+ you appreciate the winds and the waves,
+
+04:08.680 --> 04:10.960
+ so back to Magellan and his crew,
+
+04:10.960 --> 04:15.240
+ since they really didn't have a three dimensional map
+
+04:15.240 --> 04:18.720
+ of the globe, of the Earth when they went out,
+
+04:18.720 --> 04:20.380
+ just probably looking over the horizon thinking,
+
+04:20.380 --> 04:21.400
+ what's there, what's there?
+
+04:21.400 --> 04:24.760
+ So I would say the challenge that had to be really important
+
+04:24.760 --> 04:26.800
+ in terms of the team dynamics and that leadership
+
+04:26.800 --> 04:29.840
+ had to be incredibly important, team dynamics,
+
+04:29.840 --> 04:32.520
+ how do you keep people focused on the mission?
+
+04:32.520 --> 04:34.080
+ So you think the psychology, that's interesting,
+
+04:34.080 --> 04:36.360
+ there's probably echoes of that in the space exploration
+
+04:36.360 --> 04:37.660
+ stuff we'll talk about.
+
+04:37.660 --> 04:41.760
+ So the psychology of the dynamics between the human beings
+
+04:41.760 --> 04:43.400
+ on the mission is important?
+
+04:43.400 --> 04:46.880
+ Absolutely, for a Mars mission, it's lots of challenges,
+
+04:46.880 --> 04:48.840
+ technology, but since I specialize
+
+04:48.840 --> 04:52.600
+ in keeping my astronauts alive, the psychosocial issues,
+
+04:52.600 --> 04:55.800
+ the psychology of psychosocial team dynamics, leadership,
+
+04:55.800 --> 04:58.160
+ that's, you know, we're all people, so that's gonna be,
+
+04:58.160 --> 05:01.500
+ that's always a huge impact, one of the top three,
+
+05:01.500 --> 05:04.600
+ I think, of any isolated, confined environment,
+
+05:04.600 --> 05:07.920
+ any mission that is really pretty extreme.
+
+05:07.920 --> 05:11.160
+ So your Twitter handle is devaexplorer,
+
+05:11.160 --> 05:13.840
+ so when did you first fall in love with the idea
+
+05:13.840 --> 05:14.800
+ of exploration?
+
+05:14.800 --> 05:17.440
+ Ah, that's a great question, you know, maybe as long
+
+05:17.440 --> 05:19.680
+ as I can remember, as I grew up in Montana
+
+05:19.680 --> 05:22.120
+ in the Rocky Mountains and Helena in the capital,
+
+05:22.120 --> 05:25.460
+ and so literally, you know, Mount Helena was my backyard,
+
+05:25.460 --> 05:28.800
+ was right up there, so exploring, being in the mountains,
+
+05:28.800 --> 05:31.440
+ looking at caves, just running around,
+
+05:31.440 --> 05:36.440
+ but always being in nature, so since my earliest memories,
+
+05:36.520 --> 05:40.100
+ I, you know, think of myself as kind of exploring
+
+05:40.100 --> 05:44.000
+ the natural beauty of the Rocky Mountains where I grew up.
+
+05:44.000 --> 05:46.200
+ So exploration is not limited to any domain,
+
+05:46.200 --> 05:49.160
+ it's just anything, so the natural domain of any kind,
+
+05:49.160 --> 05:51.720
+ so going out to the woods into a place you haven't been,
+
+05:51.720 --> 05:52.960
+ it's all exploration.
+
+05:52.960 --> 05:55.380
+ I think so, yeah, I have a pretty all encompassing
+
+05:55.380 --> 05:56.800
+ definition of exploration.
+
+05:56.800 --> 05:58.200
+ So what about space exploration?
+
+05:58.200 --> 06:00.900
+ When were you first captivated by the idea
+
+06:00.900 --> 06:05.160
+ that we little humans could venture out into the space,
+
+06:05.160 --> 06:06.720
+ into the great unknown of space?
+
+06:06.720 --> 06:08.440
+ So it's a great year to talk about that,
+
+06:08.440 --> 06:10.680
+ the 50th anniversary of Apollo 11,
+
+06:10.680 --> 06:12.720
+ as I was alive during Apollo,
+
+06:12.720 --> 06:14.840
+ and specifically Apollo 11, I was five years old,
+
+06:14.840 --> 06:19.280
+ and I distinctly remember that, I remember that humanity,
+
+06:19.280 --> 06:21.400
+ I'm sure I probably didn't know their names at the time,
+
+06:21.400 --> 06:23.560
+ you know, there's Neil Armstrong, Buzz Aldrin,
+
+06:23.560 --> 06:26.560
+ and never forget Michael Collins in orbit,
+
+06:26.560 --> 06:30.560
+ you know, those three men, you know,
+
+06:30.560 --> 06:32.800
+ doing something that just seemed impossible,
+
+06:32.800 --> 06:36.920
+ seemed impossible a decade earlier, even a year earlier,
+
+06:36.920 --> 06:39.580
+ but so the Apollo program really inspired me,
+
+06:39.580 --> 06:42.640
+ and then I think it actually just taught me to dream,
+
+06:42.640 --> 06:46.480
+ to any impossible mission could be possible
+
+06:46.480 --> 06:49.180
+ with enough focus, and I'm sure you need some luck,
+
+06:49.180 --> 06:50.760
+ but you definitely need the leadership,
+
+06:50.760 --> 06:53.160
+ you need the focus of the mission,
+
+06:53.160 --> 06:55.320
+ so since an early age, I thought,
+
+06:55.320 --> 06:57.200
+ of course, people, it should be interplanetary,
+
+06:57.200 --> 06:58.520
+ of course, people, we need people on Earth,
+
+06:58.520 --> 07:00.960
+ and we're gonna have people exploring space as well.
+
+07:00.960 --> 07:04.280
+ So that seemed obvious, even at that age, of course.
+
+07:04.280 --> 07:07.080
+ It opened it up, before we saw men on the moon,
+
+07:07.080 --> 07:10.120
+ it wasn't obvious to me at all, but once we understood
+
+07:10.120 --> 07:12.720
+ that yes, absolutely, astronauts, that's what they do,
+
+07:12.720 --> 07:14.080
+ they explore, they go into space,
+
+07:14.080 --> 07:16.500
+ and they land on other planets or moons.
+
+07:17.360 --> 07:20.680
+ So again, maybe a romanticized philosophical question,
+
+07:20.680 --> 07:22.680
+ but when you look up at the stars,
+
+07:23.840 --> 07:28.520
+ knowing that, you know, there's at least 100 billion
+
+07:28.520 --> 07:30.420
+ of them in the Milky Way galaxy, right,
+
+07:30.420 --> 07:34.760
+ so we're really a small speck in this giant thing
+
+07:34.760 --> 07:36.600
+ that's the visible universe,
+
+07:36.600 --> 07:40.280
+ how does that make you feel about our efforts here?
+
+07:40.280 --> 07:42.800
+ I love the perspective, I love that perspective,
+
+07:42.800 --> 07:44.660
+ I always open my public talks
+
+07:44.660 --> 07:46.760
+ with a big Hubble Space Telescope image,
+
+07:46.760 --> 07:48.280
+ looking out into, you mentioned just now,
+
+07:48.280 --> 07:49.840
+ the solar system, the Milky Way,
+
+07:49.840 --> 07:52.040
+ because I think it's really important to know
+
+07:52.040 --> 07:53.880
+ that we're just a small, pale, blue dot,
+
+07:53.880 --> 07:56.700
+ we're really fortunate, we're on the best planet by far,
+
+07:56.700 --> 07:58.560
+ life is fantastic here.
+
+07:58.560 --> 08:00.000
+ That we know of, you're confident
+
+08:00.000 --> 08:01.040
+ this is the best planet.
+
+08:01.040 --> 08:02.440
+ I'm pretty sure it's the best planet,
+
+08:02.440 --> 08:03.800
+ the best planet that we know of.
+
+08:03.800 --> 08:05.640
+ I mean, I searched my researches, you know,
+
+08:05.640 --> 08:08.040
+ in mission worlds, and when will we find life?
+
+08:08.040 --> 08:10.220
+ I think actually probably the next decade,
+
+08:10.220 --> 08:11.780
+ we find probably past life,
+
+08:11.780 --> 08:14.560
+ probably the evidence of past life on Mars, let's say.
+
+08:14.560 --> 08:17.320
+ You think there was once life on Mars,
+
+08:17.320 --> 08:19.660
+ or do you think there's currently?
+
+08:19.660 --> 08:23.180
+ I'm more comfortable saying probably 3.5 billion years ago,
+
+08:23.180 --> 08:24.880
+ feel pretty confident there was life on Mars,
+
+08:24.880 --> 08:27.540
+ just because then it had an electromagnetic shield,
+
+08:27.540 --> 08:30.800
+ it had an atmosphere, has wonderful gravity level,
+
+08:30.800 --> 08:34.360
+ three HGs, fantastic, you know, you're all super human,
+
+08:34.360 --> 08:35.800
+ we can all slam dunk a basketball,
+
+08:35.800 --> 08:38.580
+ I mean, it's gonna be fun to play sports on Mars.
+
+08:38.580 --> 08:40.800
+ So I think we'll find past, no, fossilized,
+
+08:40.800 --> 08:43.400
+ probably the evidence of past life on Mars.
+
+08:43.400 --> 08:45.480
+ Currently, that's okay, we need the next decade,
+
+08:45.480 --> 08:47.600
+ but the evidence is mounting for sure.
+
+08:47.600 --> 08:49.880
+ We do have the organics, we're finding organics,
+
+08:49.880 --> 08:52.400
+ we have water, seasonal water on Mars.
+
+08:52.400 --> 08:54.680
+ We used to just know about the ice caps,
+
+08:54.680 --> 08:55.600
+ you know, North and South Pole,
+
+08:55.600 --> 08:57.200
+ now we have seasonal water.
+
+08:57.200 --> 09:00.320
+ We do have the building blocks for life on Mars.
+
+09:00.320 --> 09:02.560
+ We really need to dig down into the soil,
+
+09:02.560 --> 09:04.520
+ because everything on the top surface is radiated,
+
+09:04.520 --> 09:08.040
+ but once we find down, will we see any life forms?
+
+09:08.040 --> 09:08.880
+ Will we see any bugs?
+
+09:08.880 --> 09:11.180
+ I leave it open as a possibility,
+
+09:11.180 --> 09:13.360
+ but I feel pretty certain that past life,
+
+09:13.360 --> 09:15.960
+ or fossilized life forms, we'll find.
+
+09:15.960 --> 09:18.360
+ And then we have to get to all these ocean worlds,
+
+09:18.360 --> 09:21.380
+ these beautiful moons of other planets,
+
+09:21.380 --> 09:22.620
+ since we know they have water,
+
+09:22.620 --> 09:26.920
+ and we're looking for some simple search for life,
+
+09:26.920 --> 09:28.640
+ follow the water, carbon based life,
+
+09:28.640 --> 09:29.960
+ that's the only life we know.
+
+09:29.960 --> 09:31.680
+ There could be other life forms that we don't know about,
+
+09:31.680 --> 09:33.680
+ but it's hard to search for them, because we don't know.
+
+09:33.680 --> 09:36.160
+ So in our search for life in the solar system,
+
+09:36.160 --> 09:39.120
+ it's definitely search, follow the water,
+
+09:39.120 --> 09:41.200
+ and look for the building blocks of life.
+
+09:41.200 --> 09:42.460
+ So you think in the next decade,
+
+09:42.460 --> 09:45.360
+ we might see hints of past life, or even current life?
+
+09:45.360 --> 09:46.720
+ I think so, that's it.
+
+09:46.720 --> 09:47.560
+ Pretty optimistic.
+
+09:47.560 --> 09:48.380
+ I love the optimism.
+
+09:48.380 --> 09:49.220
+ I'm pretty optimistic.
+
+09:49.220 --> 09:50.040
+ Do humans have to be involved,
+
+09:50.040 --> 09:52.640
+ or can this be robots and rovers and?
+
+09:52.640 --> 09:54.120
+ Probably teams, I mean, we've been at it,
+
+09:54.120 --> 09:55.840
+ on Mars in particular, 50 years.
+
+09:55.840 --> 09:58.720
+ We've been exploring Mars for 50 years, great data, right?
+
+09:58.720 --> 10:01.000
+ Our images of Mars today are phenomenal.
+
+10:01.000 --> 10:03.400
+ Now we know how Mars lost its atmosphere.
+
+10:03.400 --> 10:04.320
+ We're starting to know,
+
+10:04.320 --> 10:07.120
+ because of the lack of the electromagnetic shield.
+
+10:07.120 --> 10:08.120
+ We know about the water on Mars.
+
+10:08.120 --> 10:10.680
+ So we've been studying 50 years with our robots,
+
+10:10.680 --> 10:11.640
+ we still haven't found it.
+
+10:11.640 --> 10:13.880
+ So I think once we have a human mission there,
+
+10:13.880 --> 10:15.000
+ we just accelerate things.
+
+10:15.000 --> 10:18.520
+ But it's always humans and our rovers and robots together.
+
+10:18.520 --> 10:19.920
+ But we just have to think that 50 years,
+
+10:19.920 --> 10:23.000
+ we've been looking at Mars, and taking images,
+
+10:23.000 --> 10:25.080
+ and doing the best science that we can.
+
+10:25.080 --> 10:27.480
+ People need to realize Mars is really far away.
+
+10:27.480 --> 10:28.720
+ It's really hard to get to.
+
+10:28.720 --> 10:31.120
+ You know, this is extreme, extreme exploration.
+
+10:31.120 --> 10:32.440
+ We mentioned Magellan first,
+
+10:32.440 --> 10:35.480
+ or all of the wonderful explorers and sailors of the past,
+
+10:35.480 --> 10:39.140
+ which kind of are lots of my inspiration for exploration.
+
+10:39.140 --> 10:40.600
+ Mars is a different ball game.
+
+10:40.600 --> 10:42.680
+ I mean, it's eight months to get there,
+
+10:42.680 --> 10:44.240
+ year and a half to get home.
+
+10:44.240 --> 10:45.680
+ I mean, it's really extreme.
+
+10:45.680 --> 10:47.800
+ The harsh environment in all kinds of ways.
+
+10:47.800 --> 10:50.880
+ But the kind of organisms we might be able to see
+
+10:50.880 --> 10:54.840
+ hints of on Mars are kind of microorganisms perhaps.
+
+10:54.840 --> 10:55.680
+ Do you think?
+
+10:55.680 --> 10:56.500
+ Yeah, and remember that humans,
+
+10:56.500 --> 10:57.900
+ we're kind of, you know, we're hosts, right?
+
+10:57.900 --> 11:00.840
+ We're hosts to all of our bacteria and viruses, right?
+
+11:00.840 --> 11:02.080
+ Do you think it's a big leap
+
+11:02.080 --> 11:06.200
+ from the viruses and the bacteria to us humans?
+
+11:07.040 --> 11:10.460
+ Put another way, do you think on all those moons,
+
+11:10.460 --> 11:13.240
+ beautiful, wet moons that you mentioned,
+
+11:13.240 --> 11:15.840
+ you think there's intelligent life out there?
+
+11:15.840 --> 11:16.680
+ I hope so.
+
+11:16.680 --> 11:18.600
+ I mean, that's the hope, but you know,
+
+11:18.600 --> 11:21.000
+ we don't have the scientific evidence for that now.
+
+11:21.000 --> 11:24.440
+ I think all the evidence we have in terms of life existing
+
+11:24.440 --> 11:26.000
+ is much more compelling again,
+
+11:26.000 --> 11:28.360
+ because we have the building blocks of life now.
+
+11:28.360 --> 11:32.920
+ When that life turns into intelligence, that's a big unknown.
+
+11:32.920 --> 11:33.880
+ If we ever meet,
+
+11:33.880 --> 11:37.180
+ do you think we would be able to find a common language?
+
+11:37.180 --> 11:38.080
+ I hope so.
+
+11:38.080 --> 11:39.080
+ We haven't met yet.
+
+11:39.080 --> 11:42.000
+ It's just so far, I mean, do physics just play a role here?
+
+11:42.000 --> 11:44.440
+ Look at all these exoplanets, 6,000 exoplanets.
+
+11:44.440 --> 11:46.840
+ I mean, even the couple dozen Earth like planets
+
+11:46.840 --> 11:50.480
+ that are exoplanets that really look like habitable planets.
+
+11:50.480 --> 11:51.480
+ These are very Earth like.
+
+11:51.480 --> 11:53.940
+ They look like they have all the building blocks.
+
+11:53.940 --> 11:54.800
+ I can't wait to get there.
+
+11:54.800 --> 11:57.800
+ The only thing is they're 10 to 100 light years away.
+
+11:57.800 --> 12:00.200
+ So scientifically, we know they're there.
+
+12:00.200 --> 12:01.540
+ We know that they're habitable.
+
+12:01.540 --> 12:04.000
+ They have, you know, everything going from, right?
+
+12:04.000 --> 12:05.840
+ Like, you know, we call them in the Goldilocks zone,
+
+12:05.840 --> 12:06.940
+ not too hot, not too cold,
+
+12:06.940 --> 12:10.600
+ just perfect for habitability for life.
+
+12:10.600 --> 12:13.240
+ But now the reality is if they're 10 at the best
+
+12:13.240 --> 12:15.700
+ to 100 to thousands of light years away,
+
+12:17.020 --> 12:18.600
+ so what's out there?
+
+12:18.600 --> 12:20.960
+ But I just can't think that we're not the only ones.
+
+12:20.960 --> 12:23.280
+ So absolutely life, life in the universe,
+
+12:23.280 --> 12:25.840
+ probably intelligent life as well.
+
+12:25.840 --> 12:28.000
+ Do you think there needs to be fundamental revolutions
+
+12:28.000 --> 12:32.000
+ in how we, the tools we use to travel through space
+
+12:32.000 --> 12:35.040
+ in order for us to venture outside of our solar system?
+
+12:35.040 --> 12:38.800
+ Or do you think the ways, the rockets,
+
+12:38.800 --> 12:41.680
+ the ideas we have now, the engineering ideas we have now
+
+12:41.680 --> 12:43.120
+ will be enough to venture out?
+
+12:43.120 --> 12:44.000
+ Well, that's a good question.
+
+12:44.000 --> 12:47.120
+ Right now, you know, cause again, speed of light is a limit.
+
+12:47.120 --> 12:49.000
+ We don't have a warp speed warp drive
+
+12:49.000 --> 12:51.880
+ to explore our solar system, to get to Mars,
+
+12:51.880 --> 12:53.560
+ to explore all the planets.
+
+12:53.560 --> 12:55.720
+ Then we need a technology push,
+
+12:55.720 --> 12:57.680
+ but technology push here is just advanced propulsion.
+
+12:57.680 --> 13:00.160
+ It'd be great if I could get humans to Mars
+
+13:00.160 --> 13:02.460
+ and say, you know, three to four months, not eight months.
+
+13:02.460 --> 13:04.560
+ I mean, half the time, 50% reduction.
+
+13:04.560 --> 13:08.120
+ That's great in terms of safety and wellness of the crew.
+
+13:08.120 --> 13:09.600
+ Orbital mechanic, but physics rules,
+
+13:09.600 --> 13:11.320
+ you know, orbital mechanics is still there.
+
+13:11.320 --> 13:14.260
+ Physics rules, we can't defy physics.
+
+13:14.260 --> 13:15.100
+ I love that.
+
+13:15.100 --> 13:16.180
+ So invent a new physics.
+
+13:16.180 --> 13:17.280
+ I mean, look at quantum, you know,
+
+13:17.280 --> 13:18.240
+ look at quantum theory.
+
+13:18.240 --> 13:19.080
+ So you never know.
+
+13:19.080 --> 13:21.280
+ Exactly, I mean, we are always learning.
+
+13:21.280 --> 13:23.920
+ So we definitely don't know all the physics that exist too,
+
+13:23.920 --> 13:27.000
+ but we're, we still have to, it's not science fiction.
+
+13:27.000 --> 13:29.200
+ You know, we still have to pay attention to physics
+
+13:29.200 --> 13:32.400
+ in terms of our speed of travel for space flight.
+
+13:32.400 --> 13:34.880
+ So you were the deputy administrator of NASA
+
+13:34.880 --> 13:37.220
+ and during the Obama administration,
+
+13:37.220 --> 13:39.560
+ there's a current Artemis program
+
+13:39.560 --> 13:41.320
+ that's working on a crewed mission to the moon
+
+13:41.320 --> 13:43.440
+ and then perhaps to Mars.
+
+13:44.500 --> 13:46.520
+ What are you excited about there?
+
+13:46.520 --> 13:48.120
+ What are your thoughts on this program?
+
+13:48.120 --> 13:49.920
+ What are the biggest challenges do you think
+
+13:49.920 --> 13:53.640
+ of getting to the moon, of landing to the moon once again,
+
+13:53.640 --> 13:57.400
+ and then the big step to Mars?
+
+13:57.400 --> 14:00.400
+ Well, I love, you know, the moon program now, Artemis.
+
+14:00.400 --> 14:02.520
+ It is definitely, we've been in low earth orbit.
+
+14:02.520 --> 14:03.600
+ I love low earth orbit too,
+
+14:03.600 --> 14:05.880
+ but I just always look at it as three phases.
+
+14:05.880 --> 14:07.980
+ So low earth orbit where we've been 40 years,
+
+14:07.980 --> 14:10.080
+ so definitely time to get back to deep space,
+
+14:10.080 --> 14:11.000
+ time to get to the moon.
+
+14:11.000 --> 14:13.720
+ There's so much to do on the moon.
+
+14:13.720 --> 14:16.100
+ I hope we don't get stuck on the moon for 50 years.
+
+14:16.100 --> 14:19.000
+ I really want to get to the moon, spend the next decade,
+
+14:19.000 --> 14:20.720
+ first with the lander, then humans.
+
+14:20.720 --> 14:21.960
+ There's just a lot to explore,
+
+14:21.960 --> 14:24.440
+ but to me it's a big technology push.
+
+14:24.440 --> 14:25.340
+ It's only three days away.
+
+14:25.340 --> 14:27.680
+ So the moon is definitely the right place.
+
+14:27.680 --> 14:29.600
+ So we kind of buy down our technology.
+
+14:29.600 --> 14:33.840
+ We invest in specifically habitats, life support systems.
+
+14:33.840 --> 14:34.720
+ So we need suits.
+
+14:34.720 --> 14:37.780
+ We really need to understand really how to live off planet.
+
+14:37.780 --> 14:39.480
+ We've been off planet and low earth orbit,
+
+14:39.480 --> 14:42.780
+ but still that's only 400 kilometers up, 250 miles, right?
+
+14:42.780 --> 14:43.840
+ So we get to the moon.
+
+14:43.840 --> 14:47.320
+ It really is a great proving ground for the technologies.
+
+14:47.320 --> 14:50.840
+ And now we're in deep space, radiation becomes a huge issue
+
+14:50.840 --> 14:52.440
+ and to keep our astronauts well and alive.
+
+14:52.440 --> 14:57.440
+ And I look at all of that investment for moon exploration
+
+14:57.480 --> 15:00.680
+ to the ultimate goal, the horizon goals we call it,
+
+15:00.680 --> 15:01.860
+ to get people to Mars.
+
+15:01.860 --> 15:03.720
+ But we just don't go to Mars tomorrow, right?
+
+15:03.720 --> 15:05.740
+ We really need a decade on the moon, I think,
+
+15:05.740 --> 15:07.680
+ investing in the technologies, learning,
+
+15:07.680 --> 15:09.960
+ making sure the astronauts are, their health,
+
+15:09.960 --> 15:11.600
+ they're safe and well,
+
+15:11.600 --> 15:15.920
+ and also learning so much about in situ research utilization,
+
+15:15.920 --> 15:19.080
+ ISRU, in situ resource utilization is huge
+
+15:19.080 --> 15:21.160
+ when it comes to exploration for the moon and Mars.
+
+15:21.160 --> 15:23.160
+ So we need a test bed.
+
+15:23.160 --> 15:26.860
+ And to me, it really is a lunar test bed.
+
+15:26.860 --> 15:29.300
+ And then we use those same investments
+
+15:29.300 --> 15:32.520
+ to think about getting people to Mars in the 2030s.
+
+15:32.520 --> 15:34.040
+ So developing sort of a platform
+
+15:34.040 --> 15:36.200
+ of all the kind of research tools of all the,
+
+15:36.200 --> 15:39.040
+ what's the resource utilization, can you speak to that?
+
+15:39.040 --> 15:42.000
+ Yeah, so ISRU for the moon, it's,
+
+15:42.000 --> 15:45.200
+ we'll go to the South Pole and it's fascinating.
+
+15:45.200 --> 15:46.720
+ We have images of it.
+
+15:46.720 --> 15:49.040
+ Of course, we know there's permanently shaded areas
+
+15:49.040 --> 15:50.880
+ and like by Shackleton crater,
+
+15:50.880 --> 15:53.320
+ and there's areas that are permanently in the sun.
+
+15:53.320 --> 15:56.480
+ Well, it seems that there's a lot of water ice,
+
+15:56.480 --> 16:00.000
+ water that's entrapped in ice and the lunar craters.
+
+16:00.000 --> 16:01.260
+ That's the first place you go.
+
+16:01.260 --> 16:02.100
+ Why?
+
+16:02.100 --> 16:03.880
+ Because it's water and when you wanna try to,
+
+16:03.880 --> 16:06.160
+ it could be fuel, life support systems.
+
+16:06.160 --> 16:08.800
+ So you kind of, again, you go where the water is.
+
+16:08.800 --> 16:12.680
+ And so when the moon is kind of for resources utilization,
+
+16:12.680 --> 16:13.560
+ but to learn how to,
+
+16:13.560 --> 16:16.000
+ can we make the fuels out of the resources
+
+16:16.000 --> 16:16.900
+ that are on the moon?
+
+16:16.900 --> 16:18.240
+ We have to think about 3D printing, right?
+
+16:18.240 --> 16:20.120
+ You don't get to bring all this mass with you.
+
+16:20.120 --> 16:22.800
+ You have to learn how to literally live off the land.
+
+16:22.800 --> 16:24.240
+ We need a pressure shell.
+
+16:24.240 --> 16:28.320
+ We need to have an atmosphere for people to live in.
+
+16:28.320 --> 16:31.040
+ So all of that is kind of buying down the technology,
+
+16:31.040 --> 16:32.960
+ doing the investigation, doing the science.
+
+16:32.960 --> 16:35.520
+ What are the basically called lunar volatiles?
+
+16:35.520 --> 16:38.140
+ What is that ice on the moon?
+
+16:38.140 --> 16:40.200
+ How much of it is there?
+
+16:40.200 --> 16:42.120
+ What are the resources look like?
+
+16:42.120 --> 16:44.320
+ To me, that helps us, that's just the next step
+
+16:44.320 --> 16:46.480
+ in getting humans to Mars.
+
+16:46.480 --> 16:47.800
+ You know, it's cheaper and more effective
+
+16:47.800 --> 16:50.160
+ to sort of develop some of these difficult challenges,
+
+16:50.160 --> 16:51.640
+ like solve some of these challenges,
+
+16:51.640 --> 16:53.960
+ practice, develop, test, and so on on the moon.
+
+16:53.960 --> 16:55.000
+ Absolutely. That is on Mars.
+
+16:55.000 --> 16:55.820
+ Absolutely.
+
+16:55.820 --> 16:56.660
+ And people are gonna love to, you know,
+
+16:56.660 --> 16:57.500
+ you get to the moon, you get to,
+
+16:57.500 --> 16:58.880
+ you have a beautiful Earthrise.
+
+16:58.880 --> 17:01.160
+ I mean, you have the most magnificent view of Earth
+
+17:01.160 --> 17:02.520
+ being off planet.
+
+17:02.520 --> 17:03.500
+ So it just makes sense.
+
+17:03.500 --> 17:05.320
+ I think we're gonna have thousands, lots of people,
+
+17:05.320 --> 17:06.840
+ hopefully tens of thousands in low Earth orbit,
+
+17:06.840 --> 17:08.960
+ because low Earth orbit is a beautiful place to go
+
+17:08.960 --> 17:09.780
+ and look down on the Earth,
+
+17:09.780 --> 17:11.080
+ but people wanna return home.
+
+17:11.080 --> 17:12.720
+ I think the lunar explorers
+
+17:12.720 --> 17:15.400
+ will also wanna do round trips
+
+17:15.400 --> 17:17.800
+ and, you know, be on the moon, three day trip,
+
+17:17.800 --> 17:20.560
+ explore, do science, also because the lunar day
+
+17:20.560 --> 17:23.600
+ is 14 days and lunar nights, also 14 days.
+
+17:23.600 --> 17:26.080
+ So in that 28 day cycle, you know,
+
+17:26.080 --> 17:28.460
+ half of it is in light, half of it's in dark.
+
+17:29.280 --> 17:31.840
+ So people would probably wanna do, you know,
+
+17:31.840 --> 17:33.760
+ couple of week trips, month long trips,
+
+17:33.760 --> 17:34.720
+ not longer than that.
+
+17:34.720 --> 17:36.400
+ What do you mean by people?
+
+17:36.400 --> 17:37.400
+ People, explorers.
+
+17:37.400 --> 17:41.000
+ I mean, yeah, astronauts are gonna be civilians
+
+17:41.000 --> 17:41.840
+ in the future too.
+
+17:41.840 --> 17:44.320
+ Not all astronauts are gonna be government astronauts.
+
+17:44.320 --> 17:45.640
+ Actually, when I was at NASA, we changed,
+
+17:45.640 --> 17:48.720
+ we actually got the law changed to recognize astronauts
+
+17:48.720 --> 17:50.360
+ that are not only government employees,
+
+17:50.360 --> 17:51.360
+ you know, NASA astronauts
+
+17:51.360 --> 17:52.840
+ or European Space Agency astronauts
+
+17:52.840 --> 17:54.960
+ or Russian Space Agency that astronauts,
+
+17:54.960 --> 17:58.320
+ because of the big push we put on the private sector,
+
+17:58.320 --> 17:59.920
+ that astronauts essentially are gonna be astronauts.
+
+17:59.920 --> 18:02.820
+ You get over 100 kilometers up
+
+18:02.820 --> 18:06.520
+ and think once you've done orbital flight,
+
+18:06.520 --> 18:07.600
+ then you're an astronaut.
+
+18:07.600 --> 18:10.400
+ So a lot of private citizens are gonna become astronauts.
+
+18:10.400 --> 18:13.360
+ Do you think one day you might step foot on the moon?
+
+18:13.360 --> 18:14.560
+ I think it'd be good to go to the moon.
+
+18:14.560 --> 18:16.200
+ I'd give that a shot.
+
+18:16.200 --> 18:18.120
+ Mars, I'm gonna, it's my life's work
+
+18:18.120 --> 18:20.320
+ to get the next generation to Mars.
+
+18:20.320 --> 18:22.960
+ That's you or even younger than you,
+
+18:22.960 --> 18:24.920
+ you know, my students generation
+
+18:24.920 --> 18:26.680
+ will be the Martian explorers.
+
+18:26.680 --> 18:28.920
+ I'm just working to facilitate that,
+
+18:28.920 --> 18:30.240
+ but that's not gonna be me.
+
+18:30.240 --> 18:31.200
+ Hey, the moon's pretty good.
+
+18:31.200 --> 18:32.880
+ And it's a lot tough.
+
+18:32.880 --> 18:35.840
+ I mean, it's still a really tough mission.
+
+18:35.840 --> 18:37.280
+ It's an extreme mission, exactly.
+
+18:37.280 --> 18:39.960
+ It's great for exploration, but doable,
+
+18:39.960 --> 18:41.160
+ but again, before Apollo,
+
+18:41.160 --> 18:44.000
+ we didn't think getting humans to the moon was even possible.
+
+18:44.000 --> 18:46.500
+ So we kind of made that possible, but we need to go back.
+
+18:46.500 --> 18:47.960
+ We absolutely need to go back.
+
+18:47.960 --> 18:50.400
+ We're investing in the heavy lift launch capabilities
+
+18:50.400 --> 18:51.240
+ that we need to get there.
+
+18:51.240 --> 18:52.080
+ We haven't had that, you know,
+
+18:52.080 --> 18:53.960
+ since the Apollo days, since Saturn five.
+
+18:53.960 --> 18:56.480
+ So now we have three options on the board.
+
+18:56.480 --> 18:57.480
+ That's what's so fantastic.
+
+18:57.480 --> 18:59.760
+ NASA has its space launch system.
+
+18:59.760 --> 19:02.720
+ SpaceX is gonna have its heavy capability
+
+19:02.720 --> 19:05.320
+ and Blue Origin is coming along too with heavy lifts.
+
+19:05.320 --> 19:07.840
+ So that's pretty fantastic from where I sit.
+
+19:07.840 --> 19:09.880
+ I'm the Apollo program professor.
+
+19:09.880 --> 19:12.040
+ Today I have zero heavy lift launch capability.
+
+19:12.040 --> 19:13.680
+ I can't wait, just in a few years,
+
+19:13.680 --> 19:16.020
+ we'll have three different heavy lift launch capabilities.
+
+19:16.020 --> 19:18.120
+ So that's pretty exciting.
+
+19:18.120 --> 19:20.600
+ You know, your heart is perhaps with NASA,
+
+19:20.600 --> 19:23.480
+ but you mentioned SpaceX and Blue Origin.
+
+19:23.480 --> 19:26.900
+ What are your thoughts of SpaceX
+
+19:26.900 --> 19:28.720
+ and the innovative efforts there
+
+19:28.720 --> 19:31.360
+ from the sort of private company aspect?
+
+19:31.360 --> 19:32.200
+ Oh, they're great.
+
+19:32.200 --> 19:35.320
+ They're, remember that the investments in SpaceX
+
+19:35.320 --> 19:36.420
+ is government funding.
+
+19:36.420 --> 19:39.240
+ It's NASA funding, it's US Air Force funding,
+
+19:39.240 --> 19:40.480
+ just as it should be,
+
+19:40.480 --> 19:44.160
+ because they're betting on a company who is moving fast,
+
+19:44.160 --> 19:46.380
+ has some new technology development.
+
+19:46.380 --> 19:47.220
+ So I love it.
+
+19:47.220 --> 19:48.060
+ So when I was at NASA,
+
+19:48.060 --> 19:50.320
+ it really was under our public private partnerships.
+
+19:50.320 --> 19:53.440
+ So necessarily the government needs to fund
+
+19:53.440 --> 19:54.520
+ these startups.
+
+19:54.520 --> 19:56.240
+ Now, SpaceX is no longer a startup,
+
+19:56.240 --> 19:58.240
+ but you know, it's been at it for 10 years.
+
+19:58.240 --> 20:00.640
+ It's had some accidents, learned a lot of lessons,
+
+20:00.640 --> 20:03.800
+ but it's great because it's the way you move faster.
+
+20:03.800 --> 20:06.240
+ And also some private industry folks,
+
+20:06.240 --> 20:08.740
+ some private businesses will take a lot more risk.
+
+20:08.740 --> 20:11.400
+ That's also really important for the government.
+
+20:11.400 --> 20:13.000
+ What do you think about that culture of risk?
+
+20:13.000 --> 20:15.360
+ I mean, sort of NASA and the government
+
+20:15.360 --> 20:18.160
+ are exceptionally good at delivering sort of safe,
+
+20:18.160 --> 20:21.640
+ like there's a bit more of a culture of caution and safety
+
+20:21.640 --> 20:23.440
+ and sort of this kind of solid engineering.
+
+20:23.440 --> 20:26.080
+ And I think SpaceX as well has the same kind of stuff.
+
+20:26.080 --> 20:28.160
+ It has a little bit more of that startup feel
+
+20:28.160 --> 20:29.840
+ where they take the bigger risks.
+
+20:29.840 --> 20:31.720
+ Is that exciting for you to see,
+
+20:31.720 --> 20:33.840
+ seeing bigger risks in this kind of space?
+
+20:33.840 --> 20:34.960
+ Absolutely.
+
+20:34.960 --> 20:38.520
+ And the best scenario is both of them working together
+
+20:38.520 --> 20:40.120
+ because there's really important lessons learned,
+
+20:40.120 --> 20:41.880
+ especially when you talk about human space flight,
+
+20:41.880 --> 20:43.760
+ safety, quality assurance.
+
+20:43.760 --> 20:46.000
+ These things are the utmost importance,
+
+20:46.000 --> 20:47.840
+ both aviation and space, you know,
+
+20:47.840 --> 20:49.280
+ when human lives are at stake.
+
+20:49.280 --> 20:51.760
+ On the other hand, government agencies,
+
+20:51.760 --> 20:53.840
+ NASA can be European Space Agency, you name it,
+
+20:53.840 --> 20:56.780
+ they become very bureaucratic, pretty risk averse,
+
+20:56.780 --> 20:58.100
+ move pretty slowly.
+
+20:58.100 --> 21:01.380
+ So I think the best is when you combine the partnerships
+
+21:01.380 --> 21:02.220
+ from both sides.
+
+21:03.360 --> 21:05.360
+ Industry necessarily has to push the government,
+
+21:05.360 --> 21:06.200
+ take some more risks.
+
+21:06.200 --> 21:07.160
+ You know, they're smart risk
+
+21:07.160 --> 21:09.960
+ or actually gave an award at NASA for failing smart.
+
+21:09.960 --> 21:12.560
+ Failing smart, I love that.
+
+21:12.560 --> 21:13.920
+ You know, so you can kind of break open the culture,
+
+21:13.920 --> 21:16.340
+ say, no, look at Apollo, that was a huge risk.
+
+21:16.340 --> 21:17.600
+ It was done well.
+
+21:17.600 --> 21:20.520
+ So there's always a culture of safety, quality assurance,
+
+21:20.520 --> 21:23.320
+ you know, engineering, you know, at its best.
+
+21:23.320 --> 21:26.100
+ But on the other hand, you want to get things done
+
+21:26.100 --> 21:27.520
+ and you have to also get them,
+
+21:27.520 --> 21:28.980
+ you have to bring the cost down.
+
+21:28.980 --> 21:29.940
+ You know, for when it comes to launch,
+
+21:29.940 --> 21:31.040
+ we really have to bring the cost down
+
+21:31.040 --> 21:32.320
+ and get the frequency up.
+
+21:32.320 --> 21:34.120
+ And so that's what the newcomers are doing.
+
+21:34.120 --> 21:35.520
+ They're really pushing that.
+
+21:35.520 --> 21:37.840
+ So it's about the most exciting time
+
+21:37.840 --> 21:39.680
+ that I can imagine for space flight.
+
+21:39.680 --> 21:41.800
+ Again, a little bit, it really is the democratization
+
+21:41.800 --> 21:43.320
+ of space flight, opening it up,
+
+21:43.320 --> 21:45.200
+ not just because of the launch capability,
+
+21:45.200 --> 21:47.560
+ but the science we can do on a CubeSat.
+
+21:47.560 --> 21:49.560
+ What you can do now for very,
+
+21:49.560 --> 21:51.920
+ those used to be, you know, student projects
+
+21:51.920 --> 21:54.080
+ that we would go through, conceive, design, implement,
+
+21:54.080 --> 21:56.360
+ and think about what a small satellite would be.
+
+21:56.360 --> 21:58.080
+ Now they're the most, you know,
+
+21:58.080 --> 21:59.800
+ these are really advanced instruments,
+
+21:59.800 --> 22:02.520
+ science instruments that are flying on little teeny CubeSats
+
+22:02.520 --> 22:04.600
+ that pretty much anyone can afford.
+
+22:04.600 --> 22:06.960
+ So there's not a, there's every nation,
+
+22:06.960 --> 22:10.320
+ you know, every place in the world can fly a CubeSat.
+
+22:10.320 --> 22:11.160
+ And so that's...
+
+22:11.160 --> 22:12.000
+ What's a CubeSat?
+
+22:12.000 --> 22:15.160
+ Oh, CubeSat is a, this is called 1U.
+
+22:15.160 --> 22:17.000
+ CubeSats we measure in terms of units.
+
+22:17.000 --> 22:19.360
+ So, you know, just in terms of, I put my,
+
+22:19.360 --> 22:21.560
+ both my hands together, that's one unit, two units.
+
+22:21.560 --> 22:22.720
+ So little small satellites.
+
+22:22.720 --> 22:25.480
+ So CubeSats are for small satellites.
+
+22:25.480 --> 22:26.940
+ And we actually go by mass as well.
+
+22:26.940 --> 22:29.340
+ You know, a small satellite might be a hundred kilos,
+
+22:29.340 --> 22:32.400
+ 200 kilos, all well under a thousand kilos.
+
+22:32.400 --> 22:35.020
+ CubeSats then are the next thing down from small sats.
+
+22:35.020 --> 22:37.320
+ You know, basically, you know,
+
+22:37.320 --> 22:39.480
+ kilos, tens of kilos, things like that.
+
+22:39.480 --> 22:41.200
+ But kind of the building blocks,
+
+22:41.200 --> 22:42.560
+ CubeSats are fantastic design,
+
+22:42.560 --> 22:44.080
+ it's kind of modular design.
+
+22:44.080 --> 22:47.760
+ So I can take a 1U, one unit of CubeSat and, you know,
+
+22:47.760 --> 22:50.300
+ but what if I have a little bit more money and payload,
+
+22:50.300 --> 22:51.520
+ I can fly three of them
+
+22:51.520 --> 22:54.080
+ and just basically put a lot more instruments on it.
+
+22:54.080 --> 22:55.560
+ But essentially think about something
+
+22:55.560 --> 22:57.740
+ the size of a shoe box, if you will.
+
+22:57.740 --> 22:59.560
+ You know, that would be a CubeSat.
+
+22:59.560 --> 23:02.840
+ And how do those help empower you in terms of doing size,
+
+23:02.840 --> 23:04.000
+ in terms of doing experiments?
+
+23:04.000 --> 23:05.680
+ Oh, right now there's, again,
+
+23:05.680 --> 23:07.600
+ back to private industry, Planet, the company,
+
+23:07.600 --> 23:08.880
+ is, you know, flying CubeSats
+
+23:08.880 --> 23:10.880
+ and literally looking down on Earth
+
+23:10.880 --> 23:13.600
+ and orbiting Earth, taking a picture, if you will,
+
+23:13.600 --> 23:15.560
+ of Earth every day, every 24 hours,
+
+23:15.560 --> 23:16.560
+ covering the entire Earth.
+
+23:16.560 --> 23:19.160
+ So in terms of Earth observations,
+
+23:19.160 --> 23:20.240
+ in terms of climate change,
+
+23:20.240 --> 23:22.140
+ in terms of our changing Earth,
+
+23:22.140 --> 23:24.940
+ it's revolutionizing because they're affordable.
+
+23:24.940 --> 23:26.480
+ We can put a whole bunch of them up.
+
+23:26.480 --> 23:28.600
+ Telecoms, we're all, you know, on our cell phones
+
+23:28.600 --> 23:30.760
+ and we have GPS, we have our telecoms,
+
+23:30.760 --> 23:33.820
+ but those used to be very expensive satellites
+
+23:33.820 --> 23:34.960
+ providing that service.
+
+23:34.960 --> 23:38.580
+ Now we can fly a whole bunch of modular CubeSats.
+
+23:38.580 --> 23:42.460
+ So it really is breakthrough in terms of modularity,
+
+23:42.460 --> 23:44.280
+ as well as cost reduction.
+
+23:44.280 --> 23:47.380
+ So that's one exciting set of developments.
+
+23:47.380 --> 23:51.080
+ Is there something else that you've been excited about,
+
+23:51.080 --> 23:52.600
+ like reusable rockets, perhaps,
+
+23:52.600 --> 23:54.100
+ that you've seen in the last few years?
+
+23:54.100 --> 23:55.440
+ Yeah, well, the reusability you had,
+
+23:55.440 --> 23:57.520
+ and the reusability is awesome.
+
+23:57.520 --> 23:59.200
+ I mean, it's just the best.
+
+23:59.200 --> 24:01.600
+ Now we have to remember, the shuttle was a reusable vehicle.
+
+24:01.600 --> 24:02.440
+ Yes.
+
+24:02.440 --> 24:04.440
+ Which, and the shuttle is an amazing,
+
+24:04.440 --> 24:05.520
+ it's narrow space engineer.
+
+24:05.520 --> 24:06.460
+ You know, I mean, the shuttle is still,
+
+24:06.460 --> 24:09.160
+ this is the most gorgeous, elegant,
+
+24:09.160 --> 24:12.400
+ extraordinary design of a space vehicle.
+
+24:12.400 --> 24:15.320
+ It was reusable, it just wasn't affordable.
+
+24:15.320 --> 24:18.080
+ But the reusability of it was really critical
+
+24:18.080 --> 24:19.660
+ because we flew it up, it did come back.
+
+24:19.660 --> 24:23.640
+ So the notion of reusability, I think absolutely.
+
+24:23.640 --> 24:26.480
+ Now what we're doing with we, you know,
+
+24:26.480 --> 24:29.160
+ the Global We, but with SpaceX and Lord Jim,
+
+24:29.160 --> 24:31.440
+ setting the rockets up, recovering the first stages,
+
+24:31.440 --> 24:35.360
+ where if they can regain 70% cost savings, that's huge.
+
+24:35.360 --> 24:37.800
+ And just seeing the control,
+
+24:37.800 --> 24:39.940
+ you know, being in control and dynamic as a person,
+
+24:39.940 --> 24:41.680
+ just seeing that rocket come back and land.
+
+24:41.680 --> 24:42.600
+ Oh yeah, that's.
+
+24:42.600 --> 24:45.040
+ It never gets old, it's exciting every single time
+
+24:45.040 --> 24:46.720
+ you look at it and say, that's magic.
+
+24:46.720 --> 24:48.080
+ So it's so cool.
+
+24:48.080 --> 24:49.480
+ To me, the landing is where I stand up,
+
+24:49.480 --> 24:51.320
+ start clapping, just the control.
+
+24:51.320 --> 24:53.820
+ Yeah, just the algorithm, just the control algorithms,
+
+24:53.820 --> 24:55.620
+ and hitting that landing, it's, you know,
+
+24:55.620 --> 24:58.320
+ it's gymnastics for rocket ships,
+
+24:58.320 --> 25:01.080
+ but to see these guys stick a landing,
+
+25:01.080 --> 25:01.920
+ it's just wonderful.
+
+25:01.920 --> 25:04.320
+ So every time, like I say, every time I see,
+
+25:05.200 --> 25:07.440
+ you know, the reusability and the rockets coming back
+
+25:07.440 --> 25:09.800
+ and landing so precisely, it's really exciting.
+
+25:09.800 --> 25:12.320
+ So it is actually, that's a game changer.
+
+25:12.320 --> 25:15.120
+ We are in a new era of lower costs
+
+25:15.120 --> 25:17.520
+ and the higher frequency.
+
+25:17.520 --> 25:19.600
+ And it's the world, not just NASA,
+
+25:19.600 --> 25:23.840
+ many nations are really upping their frequency of launches.
+
+25:23.840 --> 25:25.720
+ So you've done a lot of exciting research,
+
+25:25.720 --> 25:28.960
+ design, engineering on spacesuits.
+
+25:28.960 --> 25:33.120
+ What does the spacesuit of the future look like?
+
+25:33.120 --> 25:34.520
+ Well, if I have anything to say about it,
+
+25:34.520 --> 25:37.280
+ it'll be a very, it'll be a very tight fitting suit.
+
+25:37.280 --> 25:38.880
+ We use mechanical counter pressure
+
+25:38.880 --> 25:41.080
+ to pressurize right directly on the skin.
+
+25:41.080 --> 25:42.880
+ Seems that it's technically feasible.
+
+25:42.880 --> 25:44.400
+ We're still at the research and development stage.
+
+25:44.400 --> 25:47.000
+ We don't have a flight system, but technically it's feasible.
+
+25:47.000 --> 25:48.720
+ So we do a lot of work in the materials.
+
+25:48.720 --> 25:51.400
+ You know, what materials do we need to pressurize someone?
+
+25:51.400 --> 25:52.720
+ What's the patterning we need?
+
+25:52.720 --> 25:54.760
+ That's what our patents are in, the patterning,
+
+25:54.760 --> 25:55.640
+ kind of how we apply.
+
+25:55.640 --> 25:57.440
+ This is a third of an atmosphere.
+
+25:57.440 --> 25:59.220
+ Just to sort of take a little step back,
+
+25:59.220 --> 26:02.240
+ you have this incredible biosuit where it's tight fitting,
+
+26:02.240 --> 26:04.400
+ so it allows more mobility and so on.
+
+26:04.400 --> 26:06.240
+ So maybe even to take a bigger step back,
+
+26:06.240 --> 26:09.480
+ like what are the functions that a spacesuit should perform?
+
+26:09.480 --> 26:11.600
+ Sure, so start from the beginning.
+
+26:11.600 --> 26:14.280
+ A spacesuit is the world's smallest spacecraft.
+
+26:14.280 --> 26:16.460
+ So I really, that's the best definition I can give you.
+
+26:16.460 --> 26:18.220
+ Right now we fly gas pressurized suits,
+
+26:18.220 --> 26:22.220
+ but think of developing and designing an entire spacecraft.
+
+26:22.220 --> 26:23.760
+ So then you take all those systems
+
+26:23.760 --> 26:25.580
+ and you shrink them around a person,
+
+26:25.580 --> 26:27.040
+ provide them with oxygen to breathe,
+
+26:27.040 --> 26:29.080
+ scrub out their carbon dioxide,
+
+26:29.080 --> 26:30.100
+ you know, make sure they have pressure.
+
+26:30.100 --> 26:31.680
+ They need a pressure environment to live in.
+
+26:31.680 --> 26:34.980
+ So really the spacesuit is a shrunken,
+
+26:34.980 --> 26:37.000
+ you know, spacecraft in its entirety,
+
+26:37.000 --> 26:37.840
+ has all the same systems.
+
+26:37.840 --> 26:39.080
+ Communication as well, probably.
+
+26:39.080 --> 26:41.400
+ Yeah, communications, exactly.
+
+26:41.400 --> 26:44.040
+ So you really, thermal control,
+
+26:44.040 --> 26:45.920
+ little bit of radiation, not so much radiation protection,
+
+26:45.920 --> 26:47.960
+ but thermal control, humidity, you know, oxygen debris.
+
+26:47.960 --> 26:49.700
+ So all those life support systems,
+
+26:49.700 --> 26:51.600
+ as well as the pressure protection.
+
+26:51.600 --> 26:53.480
+ So it's an engineering marvel, you know,
+
+26:53.480 --> 26:54.520
+ the spacesuits that have flown
+
+26:54.520 --> 26:56.400
+ because they really are entire spacecraft,
+
+26:56.400 --> 26:59.040
+ they're the small spacecraft that we have around a person,
+
+26:59.040 --> 27:00.720
+ but they're very massive,
+
+27:00.720 --> 27:02.960
+ but 140 kilos is the current suit,
+
+27:02.960 --> 27:04.360
+ and they're not mobility suits.
+
+27:04.360 --> 27:06.020
+ So since we're going back to the moon and Mars,
+
+27:06.020 --> 27:08.480
+ we need a planetary suit, we need a mobility suit.
+
+27:08.480 --> 27:11.640
+ So that's where we've kind of flipped the design paradigm.
+
+27:11.640 --> 27:14.600
+ I study astronauts, I study humans in motion,
+
+27:14.600 --> 27:16.240
+ and if we can map that motion,
+
+27:16.240 --> 27:17.600
+ I want to give you full flexibility,
+
+27:17.600 --> 27:19.120
+ you know, move your arms and legs.
+
+27:19.120 --> 27:21.640
+ I really want you to be like a Olympic athlete,
+
+27:21.640 --> 27:23.460
+ an extreme explorer.
+
+27:23.460 --> 27:25.220
+ I don't want to waste any of your energy,
+
+27:25.220 --> 27:27.100
+ so we take it from the human design.
+
+27:27.100 --> 27:30.000
+ So I take a look at humans, we measure them, we model them,
+
+27:30.000 --> 27:33.000
+ and then I say, okay, can I put a spacesuit on them
+
+27:33.000 --> 27:34.160
+ that goes from the skin out?
+
+27:34.160 --> 27:36.420
+ So rather than a gas pressurized shrinking
+
+27:36.420 --> 27:38.760
+ that spacecraft around the person,
+
+27:38.760 --> 27:40.400
+ say, here's how humans perform,
+
+27:40.400 --> 27:42.960
+ can I design a spacesuit literally from the skin out?
+
+27:42.960 --> 27:44.480
+ And that's what we've come up with,
+
+27:44.480 --> 27:46.400
+ a mechanical counter pressure, some patterning,
+
+27:46.400 --> 27:49.320
+ and that way it could be order of magnitude less
+
+27:49.320 --> 27:51.020
+ in terms of the mass,
+
+27:51.020 --> 27:54.560
+ and it should provide maximum mobility for moon or Mars.
+
+27:54.560 --> 27:56.120
+ What's mechanical counter pressure?
+
+27:56.120 --> 27:58.920
+ Like how the heck can you even begin
+
+27:58.920 --> 28:01.480
+ to create something that's tight fitting
+
+28:02.480 --> 28:05.040
+ and still doesn't protect you from the elements and so on
+
+28:05.040 --> 28:06.880
+ and the whole, the pressure thing?
+
+28:06.880 --> 28:08.640
+ That's the challenge, it's a big design challenge
+
+28:08.640 --> 28:09.780
+ we've been working on it for.
+
+28:09.780 --> 28:11.360
+ So you can either put someone in a balloon,
+
+28:11.360 --> 28:12.840
+ that's one way to do it, that's conventional,
+
+28:12.840 --> 28:13.680
+ that's the only thing we've ever formed.
+
+28:13.680 --> 28:14.520
+ What's that mean?
+
+28:14.520 --> 28:15.340
+ That means the balloon that you fill with gas?
+
+28:15.340 --> 28:16.180
+ That's a gas pressurized suit.
+
+28:16.180 --> 28:17.020
+ If you put someone in a balloon,
+
+28:17.020 --> 28:18.960
+ it's only a third of an atmosphere
+
+28:18.960 --> 28:19.800
+ to keep someone alive.
+
+28:19.800 --> 28:20.760
+ So that's what the current system is.
+
+28:20.760 --> 28:22.360
+ So depending on what units you think,
+
+28:22.360 --> 28:25.240
+ in 30 kilopascals, 4.3 pounds per square inch.
+
+28:25.240 --> 28:28.160
+ So much less than the pressure that's on Earth.
+
+28:28.160 --> 28:31.720
+ You can still keep a human alive with 0.3
+
+28:31.720 --> 28:33.520
+ and it's alive and happy.
+
+28:33.520 --> 28:34.360
+ Alive and happy.
+
+28:34.360 --> 28:35.760
+ And you mix the gases.
+
+28:35.760 --> 28:37.720
+ June, we're having this chat
+
+28:37.720 --> 28:41.520
+ and we're at one sea level in Boston, one atmosphere.
+
+28:41.520 --> 28:43.400
+ But a suit. Oxygen and nitrogen.
+
+28:43.400 --> 28:44.240
+ Oxygen and nitrogen.
+
+28:44.240 --> 28:46.720
+ And you put a suit, if we put someone to a third
+
+28:46.720 --> 28:49.480
+ of an atmosphere, so for mechanical counter pressure now,
+
+28:49.480 --> 28:51.400
+ so one way is to do it with a balloon.
+
+28:51.400 --> 28:52.840
+ And that's what we currently have.
+
+28:52.840 --> 28:55.080
+ Or you can apply the pressure directly to the skin.
+
+28:55.080 --> 28:58.640
+ I only have to give you a third of an atmosphere.
+
+28:58.640 --> 29:00.520
+ Right now, you and I are very happy in one atmosphere.
+
+29:00.520 --> 29:04.480
+ So if I put that pressure, a third of an atmosphere on you,
+
+29:04.480 --> 29:06.520
+ I just have to do it consistently,
+
+29:06.520 --> 29:08.560
+ across all of your body and your limbs.
+
+29:08.560 --> 29:10.760
+ And it'll be a gas pressurized helmet.
+
+29:10.760 --> 29:13.200
+ Doesn't make sense to shrink wrap the head.
+
+29:13.200 --> 29:15.800
+ See the blue mangrove, that's a great, it's a great act.
+
+29:15.800 --> 29:17.640
+ But we don't need to, there's no benefits
+
+29:17.640 --> 29:19.040
+ of like shrink wrapping the head.
+
+29:19.040 --> 29:21.120
+ You put, you know, a gas pressurized helmet
+
+29:21.120 --> 29:23.360
+ because the helmet then, the future of suits,
+
+29:23.360 --> 29:25.040
+ you asked me about, the helmet just becomes
+
+29:25.040 --> 29:26.660
+ your information portal.
+
+29:26.660 --> 29:28.440
+ So it will have augmented reality.
+
+29:28.440 --> 29:30.380
+ It'll have all the information you need.
+
+29:30.380 --> 29:32.080
+ Should have, you know, the maps that I need.
+
+29:32.080 --> 29:33.000
+ I'm on the moon.
+
+29:33.000 --> 29:34.760
+ Okay, well, hey, smart helmet.
+
+29:34.760 --> 29:36.920
+ Then show me the map, show me the topography.
+
+29:36.920 --> 29:38.600
+ Hopefully it has the lab embedded too.
+
+29:38.600 --> 29:40.200
+ If it has really great cameras,
+
+29:40.200 --> 29:41.600
+ maybe I can see with that regolith.
+
+29:41.600 --> 29:43.080
+ That's just lunar dust and dirt.
+
+29:43.080 --> 29:44.160
+ What's that made out of?
+
+29:44.160 --> 29:45.480
+ We talked about the water.
+
+29:45.480 --> 29:48.520
+ So the helmet then really becomes this information portal
+
+29:48.520 --> 29:51.780
+ is how I see kind of the IT architecture of the helmet
+
+29:51.780 --> 29:54.700
+ is really allowing me to, you know,
+
+29:54.700 --> 29:58.520
+ use all of my modalities of an explorer that I'd like to.
+
+29:58.520 --> 30:01.820
+ So cameras, voiceover, images, if it were really good,
+
+30:01.820 --> 30:05.240
+ it would kind of be, would have lab capabilities as well.
+
+30:05.240 --> 30:07.200
+ Okay, so the pressure comes from the body,
+
+30:07.200 --> 30:09.240
+ comes from the mechanical pressure.
+
+30:09.240 --> 30:10.480
+ It's fascinating.
+
+30:10.480 --> 30:12.880
+ Now, what aspect, when I look at Biosuit,
+
+30:12.880 --> 30:14.480
+ just the suits you're working on,
+
+30:14.480 --> 30:17.660
+ sort of from a fashion perspective, they look awesome.
+
+30:17.660 --> 30:20.720
+ Is that a small part of it too?
+
+30:20.720 --> 30:23.440
+ Oh, absolutely, because the teams that we work with,
+
+30:23.440 --> 30:25.480
+ of course, I'm an engineer, there's engineering students,
+
+30:25.480 --> 30:27.260
+ there's design students, there's architects.
+
+30:27.260 --> 30:29.800
+ So it really is a very much a multidisciplinary team.
+
+30:29.800 --> 30:33.440
+ So sure, colors, aesthetics, materials,
+
+30:33.440 --> 30:34.920
+ all those things we pay attention to.
+
+30:34.920 --> 30:36.920
+ So it's not just an engineering solution.
+
+30:36.920 --> 30:39.920
+ It really is a much more holistic, it's a suit.
+
+30:39.920 --> 30:41.360
+ It's a suit, you're, you know,
+
+30:41.360 --> 30:42.200
+ you're dressed in a suit now.
+
+30:42.200 --> 30:43.720
+ It's a warm fitting.
+
+30:43.720 --> 30:46.280
+ So we really have to pay attention to all those things.
+
+30:46.280 --> 30:49.480
+ And so that's the design team that we work with.
+
+30:49.480 --> 30:50.760
+ And my partner, Geetraati, you know,
+
+30:50.760 --> 30:52.680
+ we're partners in this in terms of,
+
+30:52.680 --> 30:56.080
+ he comes from an architecture, industrial design background.
+
+30:56.080 --> 30:58.120
+ So bringing those skills to bear as well.
+
+30:58.120 --> 31:01.120
+ We team up with industry folks who are in, you know,
+
+31:01.120 --> 31:03.000
+ athletic performance and designers.
+
+31:03.000 --> 31:04.480
+ So it really is a team
+
+31:04.480 --> 31:06.280
+ that brings all those skills together.
+
+31:06.280 --> 31:08.960
+ So what role does this space suit play
+
+31:08.960 --> 31:11.320
+ in our longterm staying in Mars,
+
+31:11.320 --> 31:13.240
+ sort of exploring the,
+
+31:13.240 --> 31:14.640
+ doing all the work that astronauts do,
+
+31:14.640 --> 31:17.440
+ but also perhaps civilians one day,
+
+31:17.440 --> 31:20.120
+ almost like taking steps towards colonization of Mars?
+
+31:20.120 --> 31:21.760
+ What role does a space suit play there?
+
+31:21.760 --> 31:25.440
+ So you always need life support system, pressurized habitat.
+
+31:25.440 --> 31:28.440
+ And I like to say, we're not going to Mars to sit around.
+
+31:28.440 --> 31:29.960
+ So you need a suit.
+
+31:29.960 --> 31:32.160
+ You know, even if you land and have the lander,
+
+31:32.160 --> 31:33.720
+ you're not going there to stay inside.
+
+31:33.720 --> 31:34.560
+ That's for darn sure.
+
+31:34.560 --> 31:36.200
+ We're going there to search for the evidence of life.
+
+31:36.200 --> 31:37.400
+ That's why we're going to Mars.
+
+31:37.400 --> 31:39.080
+ So you need a lot of mobility.
+
+31:39.080 --> 31:41.400
+ So for me, the suit is the best way
+
+31:41.400 --> 31:42.920
+ to give the human mobility.
+
+31:42.920 --> 31:44.560
+ We're always still going to need rovers.
+
+31:44.560 --> 31:45.720
+ We're going to need robots.
+
+31:45.720 --> 31:49.440
+ So for me, exploration is always a suite of explorers.
+
+31:49.440 --> 31:50.280
+ Some people are going to,
+
+31:50.280 --> 31:51.840
+ some of the suite of explorers are humans,
+
+31:51.840 --> 31:55.040
+ but many are going to be robots, smart systems,
+
+31:55.040 --> 31:55.880
+ things like that.
+
+31:55.880 --> 31:58.480
+ But I look at it as kind of all those capabilities together
+
+31:58.480 --> 32:00.160
+ make the best exploration team.
+
+32:01.080 --> 32:03.800
+ So let me ask, I love artificial intelligence
+
+32:03.800 --> 32:07.640
+ and I've also saw that you've enjoyed the movie
+
+32:07.640 --> 32:10.120
+ Space Odyssey, 2001 Space Odyssey.
+
+32:10.120 --> 32:12.520
+ Let me ask the question about HAL 9000.
+
+32:12.520 --> 32:14.080
+ That makes a few decisions there
+
+32:14.080 --> 32:17.440
+ that prioritizes the mission over the astronauts.
+
+32:17.440 --> 32:20.360
+ Do you think, from a high philosophical question,
+
+32:20.360 --> 32:22.760
+ do you think HAL did the right thing
+
+32:22.760 --> 32:24.720
+ of prioritizing the mission?
+
+32:24.720 --> 32:26.840
+ I think our artificial intelligence
+
+32:26.840 --> 32:28.760
+ will be smarter in the future.
+
+32:28.760 --> 32:30.240
+ For a Mars mission, it's a great question
+
+32:30.240 --> 32:32.680
+ that the reality is for a Mars mission,
+
+32:32.680 --> 32:34.400
+ we need fully autonomous systems.
+
+32:34.400 --> 32:37.720
+ We will get humans, but they have to be fully autonomous.
+
+32:37.720 --> 32:38.760
+ And that's a really important,
+
+32:38.760 --> 32:41.040
+ that's the most important concept
+
+32:41.040 --> 32:45.040
+ because there's not going to be a mission control on Earth.
+
+32:45.040 --> 32:47.680
+ 20 minute time lag,
+
+32:47.680 --> 32:48.920
+ there's just no way you're going to control it.
+
+32:48.920 --> 32:49.960
+ So fully autonomous,
+
+32:49.960 --> 32:51.720
+ so people have to be fully autonomous as well,
+
+32:51.720 --> 32:53.280
+ but all of our systems as well.
+
+32:53.280 --> 32:55.440
+ And so that's the big design challenge.
+
+32:55.440 --> 32:57.360
+ So that's why we test them out on the moon as well.
+
+32:57.360 --> 32:59.000
+ When we have a, okay, a few second,
+
+32:59.000 --> 33:00.840
+ three second time lag, you can test them out.
+
+33:00.840 --> 33:05.360
+ We have to really get autonomous exploration down.
+
+33:05.360 --> 33:06.920
+ You asked me earlier about Magellan.
+
+33:06.920 --> 33:09.120
+ Magellan and his crew, they left, right?
+
+33:09.120 --> 33:11.200
+ They were autonomous.
+
+33:11.200 --> 33:12.200
+ You know, they were autonomous.
+
+33:12.200 --> 33:14.000
+ They left and they were on their own
+
+33:14.000 --> 33:15.080
+ to figure out that mission.
+
+33:15.080 --> 33:16.920
+ Then when they hit land, they have resources,
+
+33:16.920 --> 33:19.000
+ that's in situ resource utilization
+
+33:19.000 --> 33:21.040
+ and everything else they brought with them.
+
+33:21.040 --> 33:23.280
+ So we have to, I think, have that mindset for exploration.
+
+33:23.280 --> 33:25.280
+ Again, back to the moon, it's more the testing ground,
+
+33:25.280 --> 33:27.240
+ the proving ground with technologies.
+
+33:27.240 --> 33:29.600
+ But when we get to Mars, it's so far away
+
+33:29.600 --> 33:31.600
+ that we need fully autonomous systems.
+
+33:31.600 --> 33:35.360
+ So I think that's where, again, AI and autonomy come in,
+
+33:35.360 --> 33:36.680
+ a really robust autonomy,
+
+33:36.680 --> 33:38.480
+ things that we don't have today yet.
+
+33:38.480 --> 33:39.880
+ So they're on the drawing boards,
+
+33:39.880 --> 33:41.320
+ but we really need to test them out
+
+33:41.320 --> 33:43.280
+ because that's what we're up against.
+
+33:43.280 --> 33:45.760
+ So fully autonomous meaning like self sufficient.
+
+33:45.760 --> 33:48.320
+ There's still a role for the human in that picture.
+
+33:48.320 --> 33:52.440
+ Do you think there'll be a time when AI systems,
+
+33:52.440 --> 33:55.360
+ beyond doing fully autonomous flight control
+
+33:55.360 --> 33:58.840
+ will also help or even take mission decisions
+
+33:58.840 --> 33:59.800
+ like Hal did?
+
+33:59.800 --> 34:00.640
+ That's interesting.
+
+34:00.640 --> 34:01.480
+ It depends.
+
+34:01.480 --> 34:02.680
+ I mean, they're gonna be designed by humans.
+
+34:02.680 --> 34:04.560
+ I think as you mentioned, humans are always in the loop.
+
+34:04.560 --> 34:05.560
+ I mean, we might be on Earth,
+
+34:05.560 --> 34:06.880
+ we might be in orbit on Mars,
+
+34:06.880 --> 34:10.040
+ maybe the systems of landers down on the surface of Mars.
+
+34:10.040 --> 34:12.320
+ But I think we're gonna get,
+
+34:12.320 --> 34:14.920
+ we are right now just on Earth based systems,
+
+34:14.920 --> 34:18.520
+ AI systems that are incredibly capable
+
+34:18.520 --> 34:22.680
+ and training them with all the data that we have now,
+
+34:22.680 --> 34:24.720
+ petabytes of data from Earth.
+
+34:24.720 --> 34:27.240
+ What I care about for the autonomy and AI right now,
+
+34:27.240 --> 34:29.000
+ how we're applying it in research
+
+34:29.000 --> 34:31.120
+ is to look at Earth and look at climate systems.
+
+34:31.120 --> 34:33.440
+ I mean, that's the, it's not for Mars to me today.
+
+34:33.440 --> 34:35.480
+ Right now AI is to eyes on Earth,
+
+34:35.480 --> 34:39.600
+ all of our space data, compiling that using supercomputers
+
+34:39.600 --> 34:41.880
+ because we have so much information and knowledge
+
+34:41.880 --> 34:43.600
+ and we need to get that into people's hands.
+
+34:43.600 --> 34:46.080
+ First, there's the educational issue with climate
+
+34:46.080 --> 34:47.480
+ and our changing climate.
+
+34:47.480 --> 34:49.840
+ Then we need to change human behavior.
+
+34:49.840 --> 34:50.680
+ That's the biggie.
+
+34:50.680 --> 34:52.960
+ So this next decade, it's urgent
+
+34:52.960 --> 34:55.600
+ we take care of our own spaceship, which is spaceship Earth.
+
+34:55.600 --> 35:00.320
+ So that's to me where my focus has been for AI systems,
+
+35:00.320 --> 35:02.120
+ using whatever's out there,
+
+35:02.120 --> 35:05.360
+ kind of imagining also what the future situation is,
+
+35:05.360 --> 35:07.760
+ what's the satellite imagery of Earth of the future.
+
+35:07.760 --> 35:09.480
+ If you can hold that in your hands,
+
+35:09.480 --> 35:10.680
+ that's gonna be really powerful.
+
+35:10.680 --> 35:14.160
+ Will that help people accelerate positive change for Earth
+
+35:14.160 --> 35:15.600
+ and for us to live in balance with Earth?
+
+35:15.600 --> 35:16.440
+ I hope so.
+
+35:16.440 --> 35:17.920
+ And kind of start with the ocean systems.
+
+35:17.920 --> 35:20.440
+ So oceans to land to air and kind of using
+
+35:20.440 --> 35:21.320
+ all the space data.
+
+35:21.320 --> 35:24.080
+ So it's a huge role for artificial intelligence
+
+35:24.080 --> 35:27.160
+ to help us analyze, I call it curating the data,
+
+35:27.160 --> 35:28.400
+ using the data.
+
+35:28.400 --> 35:31.000
+ It has a lot to do with visualizations as well.
+
+35:31.000 --> 35:34.200
+ Do you think in a weird, dark question,
+
+35:34.200 --> 35:36.880
+ do you think human species can survive
+
+35:36.880 --> 35:39.160
+ if we don't become interplanetary
+
+35:39.160 --> 35:43.440
+ in the next century or a couple of centuries?
+
+35:44.400 --> 35:45.880
+ Absolutely we can survive.
+
+35:45.880 --> 35:48.400
+ I don't think Mars is option B actually.
+
+35:48.400 --> 35:51.160
+ So I think it's all about saving spaceship Earth
+
+35:51.160 --> 35:52.280
+ and humanity.
+
+35:52.280 --> 35:55.200
+ I simply put, Earth doesn't need us,
+
+35:55.200 --> 35:57.000
+ but we really need Earth.
+
+35:57.000 --> 36:00.000
+ All of humanity needs to live in balance with Earth
+
+36:00.000 --> 36:01.240
+ because Earth has been here a long time
+
+36:01.240 --> 36:02.120
+ before we ever showed up
+
+36:02.120 --> 36:03.920
+ and it'll be here a long time after.
+
+36:03.920 --> 36:06.040
+ It's just a matter of how do we wanna live
+
+36:06.040 --> 36:09.240
+ with all living beings, much more in balance
+
+36:09.240 --> 36:11.240
+ because we need to take care of the Earth
+
+36:11.240 --> 36:12.760
+ and right now we're not.
+
+36:12.760 --> 36:14.000
+ So that's the urgency.
+
+36:14.000 --> 36:15.760
+ And I think it is the next decade
+
+36:15.760 --> 36:18.640
+ to try to live much more sustainably,
+
+36:18.640 --> 36:19.960
+ live more in balance with Earth.
+
+36:19.960 --> 36:23.280
+ I think the human species has a great long optimistic future,
+
+36:23.280 --> 36:24.760
+ but we have to act.
+
+36:24.760 --> 36:25.600
+ It's urgent.
+
+36:25.600 --> 36:27.280
+ We have to change behavior.
+
+36:27.280 --> 36:30.280
+ We have to realize that we're all in this together.
+
+36:30.280 --> 36:31.840
+ It's just one blue bubble.
+
+36:31.840 --> 36:33.200
+ It's for humanity.
+
+36:33.200 --> 36:35.960
+ So when I think people realize that we're all astronauts,
+
+36:35.960 --> 36:38.600
+ that's the great news is everyone's gonna be an astronaut.
+
+36:38.600 --> 36:41.200
+ We're all astronauts of spaceship Earth.
+
+36:41.200 --> 36:42.520
+ And again, this is our mission.
+
+36:42.520 --> 36:45.120
+ This is our mission to take care of the planet.
+
+36:45.120 --> 36:50.120
+ And yet as we explore out from our spaceship Earth here
+
+36:50.160 --> 36:52.320
+ out into the space,
+
+36:52.320 --> 36:55.240
+ what do you think the next 50, 100, 200 years
+
+36:55.240 --> 36:56.920
+ look like for space exploration?
+
+36:56.920 --> 36:58.680
+ I'm optimistic.
+
+36:58.680 --> 37:01.880
+ So I think that we'll have lots of people,
+
+37:01.880 --> 37:03.480
+ thousands of people, tens of thousands of people,
+
+37:03.480 --> 37:05.200
+ who knows, maybe millions in low Earth orbit.
+
+37:05.200 --> 37:06.960
+ That's just a place that we're gonna have people
+
+37:06.960 --> 37:11.280
+ and actually some industry, manufacturing, things like that.
+
+37:11.280 --> 37:13.560
+ That dream I hope we realize, getting people to the moon.
+
+37:13.560 --> 37:15.920
+ So I can envision a lot of people on the moon.
+
+37:15.920 --> 37:17.160
+ Again, it's a great place to go.
+
+37:17.160 --> 37:18.960
+ Living or visiting?
+
+37:18.960 --> 37:21.160
+ Probably visiting and living.
+
+37:21.160 --> 37:22.960
+ If you want to, most people are gonna wanna come back
+
+37:22.960 --> 37:23.880
+ to Earth, I think.
+
+37:23.880 --> 37:26.200
+ But there'll be some people and it's not such a long,
+
+37:26.200 --> 37:28.040
+ it's a good view, it's a beautiful view.
+
+37:28.040 --> 37:30.720
+ So I think that we will have many people
+
+37:30.720 --> 37:31.560
+ on the moon as well.
+
+37:31.560 --> 37:33.880
+ I think there'll be some people, you told me, wow,
+
+37:33.880 --> 37:34.880
+ hundreds of years out.
+
+37:34.880 --> 37:37.360
+ So we'll have people, we'll be interplanetary for sure
+
+37:37.360 --> 37:38.640
+ as a species.
+
+37:38.640 --> 37:39.840
+ So I think we'll be on the moon.
+
+37:39.840 --> 37:41.640
+ I think we'll be on Mars.
+
+37:41.640 --> 37:43.760
+ Venus, no, it's already a runaway greenhouse gas.
+
+37:43.760 --> 37:46.120
+ So not a great place for science.
+
+37:46.120 --> 37:47.880
+ Jupiter, all within the solar system,
+
+37:47.880 --> 37:50.080
+ great place for all of our scientific probes.
+
+37:50.080 --> 37:53.280
+ I don't see so much in terms of human physical presence.
+
+37:53.280 --> 37:54.200
+ We'll be exploring them.
+
+37:54.200 --> 37:57.560
+ So we live in our minds there because we're exploring them
+
+37:57.560 --> 37:59.240
+ and going on those journeys.
+
+37:59.240 --> 38:03.960
+ But it's really our choice in terms of our decisions
+
+38:03.960 --> 38:07.280
+ of how in balance we're gonna be living here on the Earth.
+
+38:07.280 --> 38:11.760
+ When do you think the first woman, first person will step on Mars?
+
+38:11.760 --> 38:12.600
+ Ah, step on Mars?
+
+38:12.600 --> 38:14.520
+ Well, I'm gonna do everything I can
+
+38:14.520 --> 38:16.360
+ to make sure it happens in the 2030s.
+
+38:16.360 --> 38:17.200
+ 2030s.
+
+38:17.200 --> 38:22.200
+ Say mid, 20, mid 20, 2025, 2035, we'll be on the moon.
+
+38:22.880 --> 38:24.280
+ And hopefully with more people than us.
+
+38:24.280 --> 38:25.760
+ But first with a few astronauts,
+
+38:25.760 --> 38:27.640
+ it'll be global, international folks.
+
+38:27.640 --> 38:29.920
+ But we really need those 10 years, I think, on the moon.
+
+38:29.920 --> 38:33.520
+ And then so by later in the decade, in the 2030s,
+
+38:33.520 --> 38:35.400
+ we'll have all the technology and know how,
+
+38:35.400 --> 38:38.400
+ and we need to get that human mission to Mars done.
+
+38:38.400 --> 38:39.760
+ We live in exciting times.
+
+38:39.760 --> 38:41.800
+ And, Dava, thank you so much for leading the way
+
+38:41.800 --> 38:42.800
+ and thank you for talking today.
+
+38:42.800 --> 38:45.200
+ I really appreciate it. Thank you, my pleasure.
+
+38:45.200 --> 38:47.000
+ Thanks for listening to this conversation
+
+38:47.000 --> 38:50.400
+ and thank you to our presenting sponsor, Cash App.
+
+38:50.400 --> 38:53.240
+ Remember to use code LexPodcast
+
+38:53.240 --> 38:54.320
+ when you download Cash App
+
+38:54.320 --> 38:56.400
+ from the App Store or Google Play Store.
+
+38:56.400 --> 39:00.600
+ You'll get 10 bucks, $10, and $10 will go to FIRST,
+
+39:00.600 --> 39:03.720
+ a STEM education nonprofit that inspires hundreds
+
+39:03.720 --> 39:06.880
+ of thousands of young minds to learn
+
+39:06.880 --> 39:09.960
+ and to dream of engineering our future.
+
+39:09.960 --> 39:34.160
+ Thank you and hope to see you next time.
+

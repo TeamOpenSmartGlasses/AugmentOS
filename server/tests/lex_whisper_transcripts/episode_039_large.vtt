@@ -1,0 +1,1910 @@
+WEBVTT
+
+00:00.000 --> 00:02.800
+ The following is a conversation with Colin Angle.
+
+00:02.800 --> 00:05.840
+ He's the CEO and co founder of iRobot,
+
+00:05.840 --> 00:08.180
+ a robotics company that for 29 years
+
+00:08.180 --> 00:11.180
+ has been creating robots that operate successfully
+
+00:11.180 --> 00:12.560
+ in the real world.
+
+00:12.560 --> 00:15.600
+ Not as a demo or on a scale of dozens,
+
+00:15.600 --> 00:18.860
+ but on a scale of thousands and millions.
+
+00:18.860 --> 00:21.900
+ As of this year, iRobot has sold more than
+
+00:21.900 --> 00:25.700
+ 25 million robots to consumers,
+
+00:25.700 --> 00:28.160
+ including the Roomba vacuum cleaning robot,
+
+00:28.160 --> 00:29.960
+ the Bravo floor mopping robot,
+
+00:29.960 --> 00:33.960
+ and soon the Terra lawn mowing robot.
+
+00:33.960 --> 00:37.640
+ 29 million robots successfully operating autonomously
+
+00:37.640 --> 00:39.640
+ in real people's homes,
+
+00:39.640 --> 00:42.060
+ to me is an incredible accomplishment
+
+00:42.060 --> 00:45.060
+ of science, engineering, logistics,
+
+00:45.060 --> 00:48.760
+ and all kinds of general entrepreneurial innovation.
+
+00:48.760 --> 00:51.320
+ Most robotics companies fail.
+
+00:51.320 --> 00:56.320
+ iRobot has survived and succeeded for 29 years.
+
+00:56.320 --> 00:58.860
+ I spent all day at iRobot,
+
+00:58.860 --> 01:01.440
+ including a long tour and conversation with Colin
+
+01:01.440 --> 01:03.480
+ about the history of iRobot,
+
+01:03.480 --> 01:06.740
+ and then sat down for this podcast conversation
+
+01:06.740 --> 01:08.560
+ that would have been much longer
+
+01:08.560 --> 01:10.780
+ if I didn't spend all day learning about
+
+01:10.780 --> 01:12.340
+ and playing with the various robots
+
+01:12.340 --> 01:13.980
+ and the company's history.
+
+01:13.980 --> 01:17.520
+ I'll release the video of the tour separately.
+
+01:17.520 --> 01:21.900
+ Colin, iRobot, its founding team, its current team,
+
+01:21.900 --> 01:24.660
+ and its mission has been and continues to be
+
+01:24.660 --> 01:27.620
+ an inspiration to me and thousands of engineers
+
+01:27.620 --> 01:30.260
+ who are working hard to create AI systems
+
+01:30.260 --> 01:33.020
+ that help real people.
+
+01:33.020 --> 01:35.660
+ This is the Artificial Intelligence Podcast.
+
+01:35.660 --> 01:38.020
+ If you enjoy it, subscribe on YouTube,
+
+01:38.020 --> 01:39.820
+ give it five stars on iTunes,
+
+01:39.820 --> 01:41.300
+ support it on Patreon,
+
+01:41.300 --> 01:43.300
+ or simply connect with me on Twitter
+
+01:43.300 --> 01:47.140
+ at Lex Friedman, spelled F R I D M A N.
+
+01:47.140 --> 01:51.120
+ And now, here's my conversation with Colin Angle.
+
+01:51.120 --> 01:55.200
+ In his 1942 short story, Runaround,
+
+01:55.200 --> 02:00.000
+ from his iRobot collection, Asimov proposed
+
+02:00.000 --> 02:02.880
+ the three laws of robotics in order,
+
+02:02.880 --> 02:06.840
+ don't harm humans, obey orders, protect yourself.
+
+02:06.840 --> 02:07.720
+ So two questions.
+
+02:07.720 --> 02:11.680
+ First, does the Roomba follow these three laws?
+
+02:11.680 --> 02:14.800
+ And also, more seriously,
+
+02:14.800 --> 02:17.160
+ what role do you hope to see robots take
+
+02:17.160 --> 02:21.320
+ in modern society and in the future world?
+
+02:21.320 --> 02:25.760
+ So the three laws are very thought provoking
+
+02:25.760 --> 02:30.760
+ and require such a profound understanding
+
+02:31.400 --> 02:36.280
+ of the world a robot lives in,
+
+02:36.280 --> 02:40.040
+ the ramifications of its action and its own sense of self
+
+02:40.040 --> 02:45.040
+ that it's not a relevant bar,
+
+02:45.040 --> 02:50.040
+ at least it won't be a relevant bar for decades to come.
+
+02:50.120 --> 02:54.560
+ And so if Roomba follows the three laws,
+
+02:54.560 --> 02:56.900
+ and I believe it does,
+
+02:58.000 --> 03:00.920
+ it is designed to help humans, not hurt them,
+
+03:00.920 --> 03:03.120
+ it's designed to be inherently safe,
+
+03:03.120 --> 03:05.980
+ and we designed it to last a long time.
+
+03:07.200 --> 03:11.600
+ It's not through any AI or intent on the robot's part.
+
+03:11.600 --> 03:14.960
+ It's because following the three laws
+
+03:14.960 --> 03:18.220
+ is aligned with being a good robot product.
+
+03:19.620 --> 03:23.120
+ So I guess it does,
+
+03:23.120 --> 03:27.240
+ but not by explicit design.
+
+03:27.240 --> 03:28.800
+ So then the bigger picture,
+
+03:28.800 --> 03:33.040
+ what role do you hope to see robotics, robots take
+
+03:33.040 --> 03:37.360
+ in what's currently mostly a world of humans?
+
+03:37.360 --> 03:42.360
+ We need robots to help us continue
+
+03:42.360 --> 03:44.960
+ to improve our standard of living.
+
+03:46.120 --> 03:51.120
+ We need robots because the average age
+
+03:51.320 --> 03:55.040
+ of humanity is increasing very quickly,
+
+03:55.040 --> 03:59.760
+ and simply the number of people young enough
+
+03:59.760 --> 04:01.600
+ and spry enough to care
+
+04:01.600 --> 04:06.600
+ for the elder growing demographic is inadequate.
+
+04:08.800 --> 04:11.400
+ And so what is the role of robots?
+
+04:11.400 --> 04:14.880
+ Today, the role is to make our lives a little easier,
+
+04:14.880 --> 04:17.320
+ a little cleaner, maybe a little healthier.
+
+04:18.480 --> 04:22.120
+ But in time, robots are going to be the difference
+
+04:22.120 --> 04:25.680
+ between real gut wrenching declines
+
+04:25.680 --> 04:28.080
+ in our ability to live independently
+
+04:28.080 --> 04:30.240
+ and maintain our standard of living,
+
+04:30.240 --> 04:34.880
+ and a future that is the bright one
+
+04:34.880 --> 04:37.480
+ where we have more control over our lives,
+
+04:37.480 --> 04:40.560
+ can spend more of our time focused
+
+04:40.560 --> 04:43.160
+ on activities we choose.
+
+04:44.560 --> 04:47.920
+ And I'm so honored and excited
+
+04:47.920 --> 04:50.400
+ to be playing a role in that journey.
+
+04:50.400 --> 04:51.720
+ So you've given me a tour.
+
+04:51.720 --> 04:53.960
+ It showed me some of the long histories,
+
+04:53.960 --> 04:57.120
+ now 29 years that iRobot has been at it,
+
+04:57.120 --> 04:59.200
+ creating some incredible robots.
+
+04:59.200 --> 05:01.160
+ You showed me Pacbot.
+
+05:01.160 --> 05:04.480
+ You showed me a bunch of other stuff that led up to Roomba,
+
+05:04.480 --> 05:08.640
+ that led to Braava and Terra.
+
+05:08.640 --> 05:13.640
+ So let's skip that incredible history
+
+05:14.080 --> 05:15.040
+ in the interest of time,
+
+05:15.040 --> 05:16.120
+ cause we already talked about it.
+
+05:16.120 --> 05:18.040
+ I'll show this incredible footage.
+
+05:18.040 --> 05:22.640
+ You mentioned elderly and robotics in society.
+
+05:22.640 --> 05:26.280
+ I think the home is a fascinating place for robots to be.
+
+05:26.280 --> 05:29.800
+ So where do you see robots in the home?
+
+05:29.800 --> 05:31.640
+ Currently, I would say, once again,
+
+05:31.640 --> 05:34.520
+ probably most homes in the world don't have a robot.
+
+05:34.520 --> 05:36.160
+ So how do you see that changing?
+
+05:36.160 --> 05:39.840
+ What do you think is the big initial value add
+
+05:39.840 --> 05:41.920
+ that robots can do?
+
+05:41.920 --> 05:44.960
+ So iRobot has sort of, over the years,
+
+05:44.960 --> 05:49.360
+ narrowed in on the home, the consumer's home,
+
+05:49.360 --> 05:53.120
+ as the place where we want to innovate
+
+05:53.120 --> 05:58.120
+ and deliver tools that will help a home
+
+05:59.360 --> 06:04.240
+ be a more automatically maintained place,
+
+06:04.240 --> 06:06.800
+ a healthier place, a safer place,
+
+06:06.800 --> 06:11.480
+ and perhaps even a more efficient place to be.
+
+06:11.480 --> 06:15.040
+ And today, we vacuum, we mop,
+
+06:15.040 --> 06:16.960
+ soon we'll be mowing your lawn.
+
+06:16.960 --> 06:21.480
+ But where things are going is,
+
+06:22.720 --> 06:27.080
+ when do we get to the point where the home,
+
+06:27.080 --> 06:29.120
+ not just the robots that live in your home,
+
+06:29.120 --> 06:32.160
+ but the home itself becomes part of a system
+
+06:32.160 --> 06:35.960
+ that maintains itself and plays an active role
+
+06:35.960 --> 06:40.760
+ in caring for and helping the people live in that home.
+
+06:40.760 --> 06:43.200
+ And I see everything that we're doing
+
+06:43.200 --> 06:46.160
+ as steps along the path toward that future.
+
+06:46.160 --> 06:47.720
+ So what are the steps?
+
+06:47.720 --> 06:51.720
+ So if we can summarize some of the history of Roomba,
+
+06:53.280 --> 06:55.520
+ you've mentioned, and maybe you can elaborate on it,
+
+06:55.520 --> 06:57.240
+ but you mentioned that the early days
+
+06:57.240 --> 07:02.240
+ were really taking a robot from something that works
+
+07:02.320 --> 07:04.880
+ either in the lab or something that works in the field
+
+07:04.880 --> 07:09.880
+ that helps soldiers do the difficult work they do
+
+07:10.200 --> 07:12.640
+ to actually be in the hands of consumers
+
+07:12.640 --> 07:15.640
+ and tens of thousands, hundreds of thousands of robots
+
+07:15.640 --> 07:18.480
+ that don't break down over how much people love them
+
+07:18.480 --> 07:21.440
+ over months of very extensive use.
+
+07:21.440 --> 07:22.840
+ So that was the big first step.
+
+07:22.840 --> 07:26.000
+ And then the second big step was the ability
+
+07:26.000 --> 07:29.920
+ to sense the environment, to build a map, to localize,
+
+07:29.920 --> 07:32.560
+ to be able to build a picture of the home
+
+07:32.560 --> 07:34.600
+ that the human can then attach labels to
+
+07:34.600 --> 07:38.400
+ in terms of giving some semantic knowledge
+
+07:38.400 --> 07:40.880
+ to the robot about its environment.
+
+07:40.880 --> 07:44.840
+ Okay, so that's like a huge, two big, huge steps.
+
+07:46.320 --> 07:47.520
+ Maybe you can comment on them,
+
+07:47.520 --> 07:51.040
+ but also what is the next step
+
+07:51.040 --> 07:54.720
+ of making a robot part of the home?
+
+07:54.720 --> 07:57.840
+ Sure, so the goal is to make a home
+
+07:57.840 --> 08:01.280
+ that takes care of itself,
+
+08:01.280 --> 08:03.680
+ takes care of the people in the home,
+
+08:03.680 --> 08:07.840
+ and gives the user an experience of just living their life
+
+08:07.840 --> 08:10.840
+ and the home is somehow doing the right thing,
+
+08:10.840 --> 08:14.120
+ turning on and off lights when you leave,
+
+08:14.120 --> 08:17.240
+ cleaning up the environment.
+
+08:17.240 --> 08:24.920
+ And we went from robots that were great in the lab,
+
+08:24.920 --> 08:27.200
+ but were both too expensive
+
+08:27.200 --> 08:32.880
+ and not sufficiently capable to ever do an acceptable job
+
+08:32.880 --> 08:37.280
+ of anything other than being a toy or a curio in your home
+
+08:37.280 --> 08:42.080
+ to something that was both affordable
+
+08:42.080 --> 08:45.720
+ and sufficiently effective to drive,
+
+08:45.720 --> 08:50.600
+ be above threshold and drive purchase intent.
+
+08:50.600 --> 08:55.440
+ Now we've disrupted the entire vacuuming industry.
+
+08:55.440 --> 08:59.760
+ The number one selling vacuums, for example, in the US
+
+08:59.760 --> 09:02.840
+ are Roombas, so not robot vacuums, but vacuums,
+
+09:02.840 --> 09:05.480
+ and that's really crazy and weird.
+
+09:05.480 --> 09:08.000
+ We need to pause that. I mean, that's incredible.
+
+09:08.000 --> 09:10.440
+ That's incredible that a robot
+
+09:10.440 --> 09:15.480
+ is the number one selling thing that does something.
+
+09:15.480 --> 09:17.880
+ Yep. Something as essential as vacuuming.
+
+09:17.880 --> 09:20.000
+ Yep. Congratulations.
+
+09:20.000 --> 09:22.360
+ Thank you. It's still kind of fun to say,
+
+09:22.360 --> 09:26.520
+ but just because this was a crazy idea
+
+09:26.520 --> 09:30.880
+ that just started, you know, in a room here,
+
+09:30.880 --> 09:33.600
+ we're like, do you think we can do this?
+
+09:33.600 --> 09:35.960
+ So, hey, let's give it a try.
+
+09:35.960 --> 09:42.760
+ But now the robots are starting to understand their environment.
+
+09:42.760 --> 09:46.240
+ And if you think about the next step,
+
+09:46.240 --> 09:48.640
+ there's two dimensions.
+
+09:48.640 --> 09:52.960
+ I've been working so hard since the beginning of iRobot
+
+09:52.960 --> 09:55.000
+ to make robots are autonomous,
+
+09:55.000 --> 09:57.560
+ that, you know, they're smart enough
+
+09:57.560 --> 09:59.400
+ and understand their task enough,
+
+09:59.400 --> 10:04.080
+ they can just go do it without human involvement.
+
+10:04.080 --> 10:07.360
+ Now what I'm really excited and working on
+
+10:07.360 --> 10:10.560
+ is how do I make them less autonomous?
+
+10:10.560 --> 10:15.680
+ Meaning that the robot is supposed to be your partner,
+
+10:15.680 --> 10:20.120
+ not this automaton that just goes and does what a robot does.
+
+10:20.120 --> 10:23.440
+ And so that if you tell it,
+
+10:23.440 --> 10:27.080
+ hey, I just dropped some flour by the fridge in the kitchen,
+
+10:27.080 --> 10:28.920
+ can you deal with it?
+
+10:28.920 --> 10:32.720
+ Wouldn't it be awesome if the right thing just happened
+
+10:32.720 --> 10:35.200
+ based on that utterance?
+
+10:35.200 --> 10:37.840
+ And to some extent, that's less autonomous
+
+10:37.840 --> 10:40.080
+ because it's actually listening to you,
+
+10:40.080 --> 10:44.360
+ understanding the context and intent of the sentence,
+
+10:44.360 --> 10:47.360
+ mapping it against its understanding
+
+10:47.360 --> 10:52.640
+ of the home it lives in and knowing what to do.
+
+10:52.640 --> 10:56.320
+ And so that's an area of research.
+
+10:56.320 --> 10:59.360
+ It's an area where we're starting to roll out features.
+
+10:59.360 --> 11:02.840
+ You can now tell your robot to clean up the kitchen
+
+11:02.840 --> 11:05.840
+ and it knows what the kitchen is and can do that.
+
+11:05.840 --> 11:10.400
+ And that's sort of 1.0 of where we're going.
+
+11:10.400 --> 11:13.000
+ The other cool thing is that we're starting
+
+11:13.000 --> 11:14.600
+ to know where stuff is.
+
+11:14.600 --> 11:15.960
+ And why is that important?
+
+11:15.960 --> 11:21.480
+ Well, robots are supposed to have arms, right?
+
+11:21.480 --> 11:25.200
+ Data had an arm, Rosie had an arm, Robbie the robot had an arm.
+
+11:25.200 --> 11:27.680
+ I mean, robots are, you know, they are physical things
+
+11:27.680 --> 11:29.480
+ that move around in an environment
+
+11:29.480 --> 11:31.200
+ and they're supposed to like do work.
+
+11:31.200 --> 11:34.080
+ And if you think about it,
+
+11:34.080 --> 11:37.200
+ if a robot doesn't know where anything is,
+
+11:37.200 --> 11:38.720
+ why should it have an arm?
+
+11:38.720 --> 11:44.320
+ But with this new dawn of home understanding
+
+11:44.320 --> 11:47.680
+ that we're starting to go enjoy,
+
+11:47.680 --> 11:49.320
+ I know where the kitchen is.
+
+11:49.320 --> 11:52.000
+ I might in the future know where the refrigerator is.
+
+11:52.000 --> 11:55.240
+ I might, if I had an arm, be able to find the handle,
+
+11:55.240 --> 11:58.440
+ open it and even get myself a beer.
+
+11:58.440 --> 12:01.880
+ Obviously, that's one of the true dreams of robotics
+
+12:01.880 --> 12:03.480
+ is to have robots bringing us a beer
+
+12:03.480 --> 12:05.240
+ while we watch television.
+
+12:05.240 --> 12:10.960
+ But, you know, I think that that new category of tasks
+
+12:10.960 --> 12:14.200
+ where physical manipulation, robot arms,
+
+12:14.200 --> 12:20.160
+ is just a potpourri of new opportunity and excitement.
+
+12:20.160 --> 12:23.760
+ And you see humans as a crucial part of that.
+
+12:23.760 --> 12:26.240
+ So you kind of mentioned that.
+
+12:26.240 --> 12:28.880
+ And I personally find that a really compelling idea.
+
+12:28.880 --> 12:33.920
+ I think full autonomy can only take us so far,
+
+12:33.920 --> 12:35.320
+ especially in the home.
+
+12:35.320 --> 12:38.880
+ So you see humans as helping the robot understand
+
+12:38.880 --> 12:43.560
+ or give deeper meaning to the spatial information.
+
+12:43.560 --> 12:46.760
+ Right. It's a partnership.
+
+12:46.760 --> 12:52.760
+ The robot is supposed to operate according to descriptors
+
+12:52.760 --> 12:57.040
+ that you would use to describe your own home.
+
+12:57.040 --> 13:02.200
+ The robot is supposed to, in lieu of better direction,
+
+13:02.200 --> 13:03.920
+ kind of go about its routine,
+
+13:03.920 --> 13:07.640
+ which ought to be basically right,
+
+13:07.640 --> 13:12.800
+ and lead to a home maintained in a way
+
+13:12.800 --> 13:14.960
+ that it's learned you like,
+
+13:14.960 --> 13:21.560
+ but also be perpetually ready to take direction
+
+13:21.560 --> 13:26.360
+ that would activate a different set of behaviors
+
+13:26.360 --> 13:28.960
+ or actions to meet a current need
+
+13:28.960 --> 13:32.360
+ to the extent it could actually perform that task.
+
+13:32.360 --> 13:35.400
+ So I got to ask you, I think this is a fundamental
+
+13:35.400 --> 13:37.000
+ and a fascinating question,
+
+13:37.000 --> 13:39.800
+ because iRobot has been a successful company
+
+13:39.800 --> 13:42.360
+ and a rare successful robotics company.
+
+13:42.360 --> 13:46.760
+ So Anki, Jibo, Mayfield Robotics with their robot curry,
+
+13:46.760 --> 13:50.560
+ SciFi Works, Rethink Robotics, these are robotics companies
+
+13:50.560 --> 13:54.040
+ that were founded and run by brilliant people.
+
+13:54.040 --> 13:59.680
+ But all, very unfortunately, at least for us roboticists,
+
+13:59.680 --> 14:02.120
+ all went out of business recently.
+
+14:02.120 --> 14:05.120
+ So why do you think they didn't last longer?
+
+14:05.120 --> 14:10.640
+ Why do you think it is so hard to keep a robotics company alive?
+
+14:10.640 --> 14:14.120
+ You know, I say this only partially in jest
+
+14:14.120 --> 14:17.800
+ that back in the day before Roomba,
+
+14:17.800 --> 14:23.920
+ you know, I was a high tech entrepreneur building robots.
+
+14:23.920 --> 14:26.400
+ But it wasn't until I became a vacuum cleaner salesman
+
+14:26.400 --> 14:29.400
+ that we had any success.
+
+14:29.400 --> 14:34.200
+ So, I mean, the point is technology alone
+
+14:34.200 --> 14:37.680
+ doesn't equal a successful business.
+
+14:37.680 --> 14:43.560
+ We need to go and find the compelling need
+
+14:43.560 --> 14:47.600
+ where the robot that we're creating
+
+14:47.600 --> 14:53.600
+ can deliver clearly more value to the end user
+
+14:53.600 --> 14:55.400
+ than it costs.
+
+14:55.400 --> 14:59.000
+ And this is not a marginal thing
+
+14:59.000 --> 15:00.400
+ where you're looking at the scale and you're like,
+
+15:00.400 --> 15:01.800
+ yeah, it's close.
+
+15:01.800 --> 15:04.360
+ Maybe we can hold our breath and make it work.
+
+15:04.360 --> 15:11.560
+ It's clearly more value than the cost of the robot
+
+15:11.560 --> 15:13.840
+ to bring, you know, in the store.
+
+15:13.840 --> 15:17.440
+ And I think that the challenge has been finding
+
+15:17.440 --> 15:24.760
+ those businesses where that's true
+
+15:24.760 --> 15:28.240
+ in a sustainable fashion.
+
+15:28.240 --> 15:34.600
+ You know, when you get into entertainment style things,
+
+15:34.600 --> 15:38.240
+ you could be the cat's meow one year,
+
+15:38.240 --> 15:43.360
+ but 85% of toys, regardless of their merit,
+
+15:43.360 --> 15:45.600
+ fail to make it to their second season.
+
+15:45.600 --> 15:48.720
+ It's just super hard to do so.
+
+15:48.720 --> 15:53.840
+ And so that's just a tough business.
+
+15:53.840 --> 15:57.760
+ And there has been a lot of experimentation
+
+15:57.760 --> 16:02.680
+ around what is the right type of social companion,
+
+16:02.680 --> 16:05.840
+ what is the right robot in the home
+
+16:05.840 --> 16:14.600
+ that is doing something other than tasks people do every week
+
+16:14.600 --> 16:17.520
+ that they'd rather not do.
+
+16:17.520 --> 16:20.920
+ And I'm not sure we've got it all figured out right.
+
+16:20.920 --> 16:23.000
+ And so that you get brilliant roboticists
+
+16:23.000 --> 16:25.720
+ with super interesting robots
+
+16:25.720 --> 16:32.880
+ that ultimately don't quite have that magical user experience
+
+16:32.880 --> 16:40.600
+ and thus that value benefit equation remains ambiguous.
+
+16:40.600 --> 16:45.760
+ So you as somebody who dreams of robots changing the world,
+
+16:45.760 --> 16:48.800
+ what's your estimate?
+
+16:48.800 --> 16:53.280
+ How big is the space of applications
+
+16:53.280 --> 16:55.760
+ that fit the criteria that you just described
+
+16:55.760 --> 17:00.560
+ where you can really demonstrate an obvious significant value
+
+17:00.560 --> 17:05.720
+ over the alternative non robotic solution?
+
+17:05.720 --> 17:10.040
+ Well, I think that we're just about none of the way
+
+17:10.040 --> 17:13.400
+ to achieving the potential of robotics at home.
+
+17:13.400 --> 17:20.440
+ But we have to do it in a really eyes wide open,
+
+17:20.440 --> 17:21.920
+ honest fashion.
+
+17:21.920 --> 17:25.440
+ And so another way to put that is the potential is infinite
+
+17:25.440 --> 17:27.080
+ because we did take a few steps,
+
+17:27.080 --> 17:29.680
+ but you're saying those steps are just very initial steps.
+
+17:29.680 --> 17:32.600
+ So the Roomba is a hugely successful product,
+
+17:32.600 --> 17:34.280
+ but you're saying that's just the very, very beginning.
+
+17:34.280 --> 17:36.560
+ That's just the very, very beginning.
+
+17:36.560 --> 17:38.040
+ It's the foot in the door.
+
+17:38.040 --> 17:45.120
+ And I think I was lucky that in the early days of robotics,
+
+17:45.120 --> 17:48.440
+ people would ask me, when are you going to clean my floor?
+
+17:48.440 --> 17:53.600
+ It was something that I grew up saying,
+
+17:53.600 --> 17:54.800
+ I got all these really good ideas,
+
+17:54.800 --> 17:58.120
+ but everyone seems to want their floor clean.
+
+17:58.120 --> 18:02.400
+ And so maybe we should do that.
+
+18:02.400 --> 18:03.400
+ Yeah, your good ideas.
+
+18:03.400 --> 18:05.840
+ Earn the right to do the next thing after that.
+
+18:05.840 --> 18:10.120
+ So the good ideas have to match with the desire of the people
+
+18:10.120 --> 18:13.240
+ and then the actual cost has to like the business,
+
+18:13.240 --> 18:16.640
+ the financial aspect has to all match together.
+
+18:16.640 --> 18:21.240
+ Yeah, during our partnership back a number of years ago
+
+18:21.240 --> 18:24.080
+ with Johnson Wax, they would explain to me
+
+18:24.080 --> 18:32.520
+ that they would go into homes and just watch how people lived
+
+18:32.520 --> 18:35.560
+ and try to figure out what were they doing
+
+18:35.560 --> 18:39.960
+ that they really didn't really like to do,
+
+18:39.960 --> 18:42.440
+ but they had to do it frequently enough
+
+18:42.440 --> 18:51.720
+ that it was top of mind and understood as a burden.
+
+18:51.720 --> 18:55.840
+ Hey, let's make a product or come up with a solution
+
+18:55.840 --> 19:02.040
+ to make that pain point less challenging.
+
+19:02.040 --> 19:07.400
+ And sometimes we do certain burdens so often as a society
+
+19:07.400 --> 19:09.400
+ that we actually don't even realize,
+
+19:09.400 --> 19:11.480
+ like it's actually hard to see that that burden
+
+19:11.480 --> 19:13.200
+ is something that could be removed.
+
+19:13.200 --> 19:17.120
+ So it does require just going into the home and staring at,
+
+19:17.120 --> 19:19.560
+ wait, how do I actually live life?
+
+19:19.560 --> 19:21.080
+ What are the pain points?
+
+19:21.080 --> 19:26.400
+ Yeah, and getting those insights is a lot harder
+
+19:26.400 --> 19:29.360
+ than it would seem it should be in retrospect.
+
+19:29.360 --> 19:33.120
+ So how hard on that point?
+
+19:33.120 --> 19:37.440
+ I mean, one of the big challenges of robotics
+
+19:37.440 --> 19:42.200
+ is driving the cost down to something
+
+19:42.200 --> 19:45.680
+ that consumers, people would afford.
+
+19:45.680 --> 19:48.840
+ So people would be less likely to buy a Roomba
+
+19:48.840 --> 19:53.320
+ if it cost $500,000, which is probably
+
+19:53.320 --> 19:58.040
+ sort of what a Roomba would cost several decades ago.
+
+19:58.040 --> 20:02.200
+ So how do you drive, which I mentioned is very difficult,
+
+20:02.200 --> 20:05.320
+ how do you drive the cost of a Roomba or a robot down
+
+20:05.320 --> 20:07.920
+ such that people would want to buy it?
+
+20:07.920 --> 20:11.600
+ When I started building robots, the cost of the robot
+
+20:11.600 --> 20:15.480
+ had a lot to do with the amount of time it took to build it.
+
+20:15.480 --> 20:18.400
+ And so that we build our robots out of aluminum,
+
+20:18.400 --> 20:21.400
+ I would go spend my time in the machine shop
+
+20:21.400 --> 20:28.000
+ on the milling machine, cutting out the parts and so forth.
+
+20:28.000 --> 20:29.680
+ And then when we got into the toy industry,
+
+20:29.680 --> 20:34.280
+ I realized that if we were building at scale,
+
+20:34.280 --> 20:35.920
+ I could determine the cost of the Roomba
+
+20:35.920 --> 20:38.880
+ instead of adding up all the hours to mill out the parts,
+
+20:38.880 --> 20:42.080
+ but by weighing it.
+
+20:42.080 --> 20:44.200
+ And that's liberating.
+
+20:44.200 --> 20:48.600
+ You can say, wow, the world has just
+
+20:48.600 --> 20:51.560
+ changed as I think about construction
+
+20:51.560 --> 20:53.160
+ in a different way.
+
+20:53.160 --> 20:56.920
+ The 3D CAD tools that are available to us today,
+
+20:56.920 --> 21:02.920
+ the operating at scale where I can do tooling and injection
+
+21:02.920 --> 21:07.120
+ mold, an arbitrarily complicated part,
+
+21:07.120 --> 21:09.840
+ and the cost is going to be basically
+
+21:09.840 --> 21:13.960
+ the weight of the plastic in that part,
+
+21:13.960 --> 21:16.360
+ is incredibly exciting and liberating
+
+21:16.360 --> 21:18.560
+ and opens up all sorts of opportunities.
+
+21:18.560 --> 21:26.760
+ And for the sensing part of it, where we are today is instead
+
+21:26.760 --> 21:30.640
+ of trying to build skin, which is really hard.
+
+21:30.640 --> 21:38.240
+ For a long time, I spent creating strategies and ideas
+
+21:38.240 --> 21:42.720
+ around how could we duplicate the skin on the human body
+
+21:42.720 --> 21:45.000
+ because it's such an amazing sensor.
+
+21:47.880 --> 21:53.920
+ Instead of going down that path, why don't we focus on vision?
+
+21:53.920 --> 21:57.280
+ And how many of the problems that
+
+21:57.280 --> 22:02.880
+ face a robot trying to do real work
+
+22:02.880 --> 22:09.680
+ could be solved with a cheap camera and a big ass computer?
+
+22:09.680 --> 22:12.360
+ Moore's law continues to work.
+
+22:12.360 --> 22:16.440
+ The cell phone industry, the mobile industry
+
+22:16.440 --> 22:19.360
+ is giving us better and better tools that can run
+
+22:19.360 --> 22:21.000
+ on these embedded computers.
+
+22:21.000 --> 22:27.880
+ And I think we passed an important moment maybe
+
+22:27.880 --> 22:33.640
+ two years ago where you could put machine vision
+
+22:33.640 --> 22:39.520
+ capable processors on robots at consumer price points.
+
+22:39.520 --> 22:42.960
+ And I was waiting for it to happen.
+
+22:42.960 --> 22:49.480
+ We avoided putting lasers on our robots to do navigation
+
+22:49.480 --> 22:51.800
+ and instead spent years researching
+
+22:51.800 --> 22:54.600
+ how to do vision based navigation
+
+22:54.600 --> 23:00.400
+ because you could just see where these technology
+
+23:00.400 --> 23:01.520
+ trends were going.
+
+23:01.520 --> 23:06.680
+ And between injection molded plastic and a camera
+
+23:06.680 --> 23:10.800
+ with a computer capable of running machine learning
+
+23:10.800 --> 23:12.920
+ and visual object recognition, I could
+
+23:12.920 --> 23:18.640
+ build an incredibly affordable, incredibly capable robot.
+
+23:18.640 --> 23:21.160
+ And that's going to be the future.
+
+23:21.160 --> 23:23.400
+ So on that point with a small tangent,
+
+23:23.400 --> 23:27.000
+ but I think an important one, another industry in which I
+
+23:27.000 --> 23:30.760
+ would say the only other industry in which there
+
+23:30.760 --> 23:34.760
+ is automation actually touching people's lives today
+
+23:34.760 --> 23:37.560
+ is autonomous vehicles.
+
+23:37.560 --> 23:40.160
+ What the vision you just described
+
+23:40.160 --> 23:44.400
+ of using computer vision and using cheap camera sensors,
+
+23:44.400 --> 23:48.160
+ there's a debate on that of LIDAR versus computer vision.
+
+23:48.160 --> 23:54.360
+ And the Elon Musk famously said that LIDAR
+
+23:54.360 --> 23:58.360
+ is a crutch that really in the long term,
+
+23:58.360 --> 24:02.000
+ camera only is the right solution, which echoes some
+
+24:02.000 --> 24:03.480
+ of the ideas you're expressing.
+
+24:03.480 --> 24:06.760
+ Of course, the domain in terms of its safety criticality
+
+24:06.760 --> 24:07.600
+ is different.
+
+24:07.600 --> 24:10.640
+ But what do you think about that approach
+
+24:10.640 --> 24:13.360
+ in the autonomous vehicle space?
+
+24:13.360 --> 24:15.160
+ And in general, do you see a connection
+
+24:15.160 --> 24:18.480
+ between the incredible real world challenges
+
+24:18.480 --> 24:20.680
+ you have to solve in the home with Roomba?
+
+24:20.680 --> 24:24.000
+ And I saw a demonstration of some of them, corner cases
+
+24:24.000 --> 24:27.800
+ literally, and autonomous vehicles.
+
+24:27.800 --> 24:31.600
+ So there's absolutely a tremendous overlap
+
+24:31.600 --> 24:36.560
+ between both the problems a robot vacuum
+
+24:36.560 --> 24:38.560
+ and an autonomous vehicle are trying to solve
+
+24:38.560 --> 24:41.840
+ and the tools and the types of sensors
+
+24:41.840 --> 24:47.960
+ that are being applied in the pursuit of the solutions.
+
+24:47.960 --> 24:53.880
+ In my world, my environment is actually
+
+24:53.880 --> 24:57.320
+ much harder than the environment an automobile travels.
+
+24:57.320 --> 24:58.800
+ We don't have roads.
+
+24:58.800 --> 25:01.280
+ We have t shirts.
+
+25:01.280 --> 25:02.680
+ We have steps.
+
+25:02.680 --> 25:07.120
+ We have a near infinite number of patterns and colors
+
+25:07.120 --> 25:10.160
+ and surface textures on the floor.
+
+25:10.160 --> 25:11.960
+ Especially from a visual perspective.
+
+25:11.960 --> 25:18.840
+ So the way the world looks is an infinitely variable.
+
+25:18.840 --> 25:22.520
+ On the other hand, safety is way easier on the inside.
+
+25:22.520 --> 25:26.480
+ My robots, they're not very heavy.
+
+25:26.480 --> 25:28.280
+ They're not very fast.
+
+25:28.280 --> 25:32.680
+ If they bump into your foot, you think it's funny.
+
+25:32.680 --> 25:39.400
+ And autonomous vehicles kind of have the inverse problem.
+
+25:39.400 --> 25:45.920
+ And so that for me saying vision is the future,
+
+25:45.920 --> 25:49.440
+ I can say that without reservation.
+
+25:49.440 --> 25:51.720
+ For autonomous vehicles, I think I
+
+25:51.720 --> 25:56.840
+ believe what Elon's saying about the future
+
+25:56.840 --> 25:59.040
+ is ultimately going to be vision.
+
+25:59.040 --> 26:02.000
+ Maybe if we put a cheap lighter on there as a backup sensor,
+
+26:02.000 --> 26:03.800
+ it might not be the worst idea in the world.
+
+26:03.800 --> 26:05.000
+ So the stakes are much higher.
+
+26:05.000 --> 26:05.840
+ The stakes are much higher.
+
+26:05.840 --> 26:09.080
+ You have to be much more careful thinking through how far away
+
+26:09.080 --> 26:10.720
+ that future is.
+
+26:10.720 --> 26:11.520
+ Right.
+
+26:11.520 --> 26:17.880
+ But I think that the primary environmental understanding
+
+26:17.880 --> 26:21.800
+ sensor is going to be a visual system.
+
+26:21.800 --> 26:23.000
+ Visual system.
+
+26:23.000 --> 26:25.560
+ So on that point, well, let me ask,
+
+26:25.560 --> 26:29.440
+ do you hope there's an iRobot robot in every home
+
+26:29.440 --> 26:31.880
+ in the world one day?
+
+26:31.880 --> 26:38.120
+ I expect there to be at least one iRobot robot in every home.
+
+26:38.120 --> 26:41.160
+ We've sold 25 million robots.
+
+26:41.160 --> 26:47.080
+ So we're in about 10% of US homes, which is a great start.
+
+26:47.080 --> 26:52.240
+ But I think that when we think about the numbers of things
+
+26:52.240 --> 26:57.520
+ that robots can do, today I can vacuum your floor,
+
+26:57.520 --> 27:00.040
+ mop your floor, cut your lawn, or soon
+
+27:00.040 --> 27:02.880
+ we'll be able to cut your lawn.
+
+27:02.880 --> 27:06.640
+ But there are more things that we could do in the home.
+
+27:06.640 --> 27:12.240
+ And I hope that we continue using the techniques I described
+
+27:12.240 --> 27:16.240
+ around exploiting computer vision and low cost
+
+27:16.240 --> 27:20.960
+ manufacturing that we'll be able to create these solutions
+
+27:20.960 --> 27:22.640
+ at affordable price points.
+
+27:22.640 --> 27:25.600
+ So let me ask on that point of a robot in every home,
+
+27:25.600 --> 27:26.880
+ that's my dream as well.
+
+27:26.880 --> 27:29.960
+ I'd love to see that.
+
+27:29.960 --> 27:31.880
+ I think the possibilities there are indeed
+
+27:31.880 --> 27:34.520
+ infinite positive possibilities.
+
+27:34.520 --> 27:39.760
+ But in our current culture, no thanks to science fiction
+
+27:39.760 --> 27:45.320
+ and so on, there's a serious kind of hesitation, anxiety,
+
+27:45.320 --> 27:51.480
+ concern about robots, and also a concern about privacy.
+
+27:51.480 --> 27:55.040
+ And it's a fascinating question to me
+
+27:55.040 --> 27:59.560
+ why that concern is amongst a certain group of people
+
+27:59.560 --> 28:02.840
+ is as intense as it is.
+
+28:02.840 --> 28:05.480
+ So you have to think about it because it's a serious concern.
+
+28:05.480 --> 28:08.000
+ But I wonder how you address it best.
+
+28:08.000 --> 28:09.840
+ So from a perspective of vision sensors,
+
+28:09.840 --> 28:14.320
+ so robots that move about the home and sense the world,
+
+28:14.320 --> 28:19.720
+ how do you alleviate people's privacy concerns?
+
+28:19.720 --> 28:21.080
+ How do you make sure that they can
+
+28:21.080 --> 28:26.680
+ trust iRobot and the robots that they share their home with?
+
+28:26.680 --> 28:28.200
+ I think that's a great question.
+
+28:28.200 --> 28:33.760
+ And we've really leaned way forward on this
+
+28:33.760 --> 28:39.440
+ because given our vision as to the role the company intends
+
+28:39.440 --> 28:43.720
+ to play in the home, really for us,
+
+28:43.720 --> 28:48.160
+ make or break is can our approach
+
+28:48.160 --> 28:50.920
+ be trusted to protecting the data
+
+28:50.920 --> 28:53.520
+ and the privacy of the people who have our robots?
+
+28:53.520 --> 28:57.600
+ And so we've gone out publicly with a privacy
+
+28:57.600 --> 29:00.360
+ manifesto stating we'll never sell your data.
+
+29:00.360 --> 29:05.480
+ We've adopted GDPR not just where GDPR is required,
+
+29:05.480 --> 29:09.120
+ but globally.
+
+29:09.120 --> 29:18.000
+ We have ensured that images don't leave the robot.
+
+29:18.000 --> 29:22.080
+ So processing data from the visual sensors
+
+29:22.080 --> 29:23.680
+ happens locally on the robot.
+
+29:23.680 --> 29:30.720
+ And only semantic knowledge of the home with the consumer's
+
+29:30.720 --> 29:32.720
+ consent is sent up.
+
+29:32.720 --> 29:35.400
+ We show you what we know and are trying
+
+29:35.400 --> 29:45.000
+ to go use data as an enabler for the performance of the robots
+
+29:45.000 --> 29:50.720
+ with the informed consent and understanding of the people who
+
+29:50.720 --> 29:55.720
+ own those robots.
+
+29:55.720 --> 29:56.840
+ We take it very seriously.
+
+29:56.840 --> 30:03.840
+ And ultimately, we think that by showing a customer that
+
+30:03.840 --> 30:07.320
+ if you let us build a semantic map of your home
+
+30:07.320 --> 30:09.240
+ and know where the rooms are, well, then
+
+30:09.240 --> 30:11.720
+ you can say clean the kitchen.
+
+30:11.720 --> 30:14.480
+ If you don't want the robot to do that, don't make the map.
+
+30:14.480 --> 30:16.960
+ It'll do its best job cleaning your home.
+
+30:16.960 --> 30:18.720
+ But it won't be able to do that.
+
+30:18.720 --> 30:21.120
+ And if you ever want us to forget that we know that it's
+
+30:21.120 --> 30:24.400
+ your kitchen, you can have confidence
+
+30:24.400 --> 30:26.800
+ that we will do that for you.
+
+30:26.800 --> 30:35.800
+ So we're trying to go and be a data 2.0 perspective company
+
+30:35.800 --> 30:39.200
+ where we treat the data that the robots have
+
+30:39.200 --> 30:43.200
+ of the consumer's home as if it were the consumer's data
+
+30:43.200 --> 30:47.360
+ and that they have rights to it.
+
+30:47.360 --> 30:50.880
+ So we think by being the good guys on this front,
+
+30:50.880 --> 30:55.080
+ we can build the trust and thus be entrusted
+
+30:55.080 --> 31:00.160
+ to enable robots to do more things that are thoughtful.
+
+31:00.160 --> 31:04.760
+ You think people's worries will diminish over time?
+
+31:04.760 --> 31:07.040
+ As a society, broadly speaking, do you
+
+31:07.040 --> 31:10.600
+ think you can win over trust not just for the company,
+
+31:10.600 --> 31:14.920
+ but just the comfort that people have with AI in their home
+
+31:14.920 --> 31:17.040
+ enriching their lives in some way?
+
+31:17.040 --> 31:19.560
+ I think we're in an interesting place today
+
+31:19.560 --> 31:22.360
+ where it's less about winning them over
+
+31:22.360 --> 31:26.720
+ and more about finding a way to talk about privacy in a way
+
+31:26.720 --> 31:28.880
+ that more people can understand.
+
+31:28.880 --> 31:33.320
+ I would tell you that today, when there's a privacy breach,
+
+31:33.320 --> 31:37.000
+ people get very upset and then go to the store
+
+31:37.000 --> 31:39.320
+ and buy the cheapest thing, paying no attention
+
+31:39.320 --> 31:42.080
+ to whether or not the products that they're buying
+
+31:42.080 --> 31:44.600
+ honor privacy standards or not.
+
+31:44.600 --> 31:50.040
+ In fact, if I put on the package of my Roomba,
+
+31:50.040 --> 31:53.560
+ the privacy commitments that we have,
+
+31:53.560 --> 31:58.680
+ I would sell less than I would if I did nothing at all.
+
+31:58.680 --> 32:00.360
+ And that needs to change.
+
+32:00.360 --> 32:02.880
+ So it's not a question about earning trust.
+
+32:02.880 --> 32:04.920
+ I think that's necessary but not sufficient.
+
+32:04.920 --> 32:06.520
+ We need to figure out how to have
+
+32:06.520 --> 32:10.800
+ a comfortable set of what is the grade A meat
+
+32:10.800 --> 32:17.640
+ standard applied to privacy that customers can trust
+
+32:17.640 --> 32:20.280
+ and understand and then use in their buying decisions.
+
+32:23.040 --> 32:25.520
+ That will reward companies for good behavior
+
+32:25.520 --> 32:29.880
+ and that will ultimately be how this moves forward.
+
+32:29.880 --> 32:32.640
+ And maybe be part of the conversation
+
+32:32.640 --> 32:34.800
+ between regular people about what it means,
+
+32:34.800 --> 32:36.280
+ what privacy means.
+
+32:36.280 --> 32:38.440
+ If you have some standards, you can say,
+
+32:38.440 --> 32:41.080
+ you can start talking about who's following them,
+
+32:41.080 --> 32:42.640
+ who does not have more.
+
+32:42.640 --> 32:45.440
+ Because most people are actually quite clueless
+
+32:45.440 --> 32:47.320
+ about all aspects of artificial intelligence,
+
+32:47.320 --> 32:48.440
+ the data collection, and so on.
+
+32:48.440 --> 32:50.560
+ It would be nice to change that for people
+
+32:50.560 --> 32:52.800
+ to understand the good that AI can do.
+
+32:52.800 --> 32:56.560
+ And it's not some system that's trying to steal
+
+32:56.560 --> 32:58.760
+ all the most sensitive data.
+
+32:58.760 --> 33:02.640
+ Do you think, do you dream of a Roomba
+
+33:02.640 --> 33:05.280
+ with human level intelligence one day?
+
+33:05.280 --> 33:10.520
+ So you've mentioned a very successful localization
+
+33:10.520 --> 33:12.160
+ and mapping of the environment, being
+
+33:12.160 --> 33:14.680
+ able to do some basic communication to say,
+
+33:14.680 --> 33:16.600
+ go clean the kitchen.
+
+33:16.600 --> 33:22.880
+ Do you see in your maybe more bored moments,
+
+33:22.880 --> 33:27.080
+ once you get the beer, to sit back with that beer
+
+33:27.080 --> 33:30.840
+ and have a chat on a Friday night with a Roomba
+
+33:30.840 --> 33:34.160
+ about how your day went?
+
+33:34.160 --> 33:38.640
+ So to your latter question, absolutely.
+
+33:38.640 --> 33:40.760
+ To your former question as to whether a Roomba
+
+33:40.760 --> 33:45.280
+ can have human level intelligence, not in my lifetime.
+
+33:45.280 --> 33:46.440
+ You can have you.
+
+33:46.440 --> 33:49.720
+ I think you can have a great conversation,
+
+33:49.720 --> 33:54.000
+ a meaningful conversation with a Roomba
+
+33:54.000 --> 33:56.320
+ without it having anything that resembles
+
+33:56.320 --> 33:59.200
+ human level intelligence.
+
+33:59.200 --> 34:04.000
+ And I think that as long as you realize that conversation
+
+34:04.000 --> 34:08.600
+ is not about the robot and making the robot feel good.
+
+34:08.600 --> 34:14.880
+ That conversation is about you learning interesting things
+
+34:14.880 --> 34:18.720
+ that make you feel like the conversation that you
+
+34:18.720 --> 34:24.840
+ had with the robot is a pretty awesome way
+
+34:24.840 --> 34:27.400
+ of learning something.
+
+34:27.400 --> 34:30.920
+ And it could be about what kind of day your pet had.
+
+34:30.920 --> 34:36.240
+ It could be about how can I make my home more energy efficient.
+
+34:36.240 --> 34:40.000
+ It could be about if I'm thinking about climbing
+
+34:40.000 --> 34:41.640
+ Mount Everest, what should I know?
+
+34:44.440 --> 34:48.640
+ And that's a very doable thing.
+
+34:48.640 --> 34:51.480
+ But if I think that that conversation
+
+34:51.480 --> 34:53.760
+ I'm going to have with the robot is
+
+34:53.760 --> 34:56.840
+ I'm going to be rewarded by making the robot happy,
+
+34:56.840 --> 34:58.720
+ well, I could just put a button on the robot
+
+34:58.720 --> 35:00.600
+ that you could push and the robot would smile.
+
+35:00.600 --> 35:02.200
+ And that sort of thing.
+
+35:02.200 --> 35:04.200
+ So I think you need to think about the question
+
+35:04.200 --> 35:06.720
+ in the right way.
+
+35:06.720 --> 35:12.680
+ And robots can be awesomely effective at helping people
+
+35:12.680 --> 35:16.320
+ feel less isolated, learn more about the home
+
+35:16.320 --> 35:21.960
+ that they live in, and fill some of those lonely gaps
+
+35:21.960 --> 35:24.320
+ that we wish we were engaged learning
+
+35:24.320 --> 35:26.640
+ cool stuff about our world.
+
+35:26.640 --> 35:28.800
+ Last question.
+
+35:28.800 --> 35:32.280
+ If you could hang out for a day with a robot
+
+35:32.280 --> 35:35.760
+ from science fiction, movies, books,
+
+35:35.760 --> 35:42.080
+ and safely pick its brain for that day, who would you pick?
+
+35:42.080 --> 35:43.320
+ Data.
+
+35:43.320 --> 35:43.880
+ Data.
+
+35:43.880 --> 35:45.280
+ From Star Trek.
+
+35:45.280 --> 35:49.600
+ I think that A, data is really smart.
+
+35:49.600 --> 35:51.440
+ Data has been through a lot trying
+
+35:51.440 --> 35:53.520
+ to go and save the galaxy.
+
+35:53.520 --> 35:59.600
+ And I'm really interested actually in emotion
+
+35:59.600 --> 36:01.200
+ and robotics.
+
+36:01.200 --> 36:03.120
+ And I think you'd have a lot to say about that.
+
+36:03.120 --> 36:08.120
+ Because I believe actually that emotion
+
+36:08.120 --> 36:14.280
+ plays an incredibly useful role in doing reasonable things
+
+36:14.280 --> 36:16.920
+ in situations where we have imperfect understanding of
+
+36:16.920 --> 36:18.000
+ what's going on.
+
+36:18.000 --> 36:20.760
+ In social situations when there's imperfect information.
+
+36:20.760 --> 36:26.320
+ In social situations, also in competitive or dangerous
+
+36:26.320 --> 36:32.880
+ situations that we have emotion for a reason.
+
+36:32.880 --> 36:36.320
+ And so that ultimately, my theory
+
+36:36.320 --> 36:38.520
+ is that as robots get smarter and smarter,
+
+36:38.520 --> 36:41.400
+ they're actually going to get more emotional.
+
+36:41.400 --> 36:49.120
+ Because you can't actually survive on pure logic.
+
+36:49.120 --> 36:53.800
+ Because only a very tiny fraction of the situations
+
+36:53.800 --> 36:57.320
+ we find ourselves in can be resolved reasonably with logic.
+
+36:57.320 --> 36:59.600
+ And so I think Data would have a lot to say about that.
+
+36:59.600 --> 37:02.360
+ And so I could find out whether he agrees.
+
+37:02.360 --> 37:04.840
+ If you could ask Data one question,
+
+37:04.840 --> 37:08.560
+ you would get a deep, honest answer to what would you ask.
+
+37:08.560 --> 37:12.520
+ What's Captain Picard really like?
+
+37:12.520 --> 37:14.320
+ OK, I think that's the perfect way to end it.
+
+37:14.320 --> 37:16.040
+ Colin, thank you so much for talking today.
+
+37:16.040 --> 37:16.960
+ I really appreciate it.
+
+37:16.960 --> 37:19.120
+ My pleasure.
+

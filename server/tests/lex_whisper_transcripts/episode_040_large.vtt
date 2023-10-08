@@ -1,0 +1,4865 @@
+WEBVTT
+
+00:00.000 --> 00:03.220
+ The following is a conversation with Regina Barzilay.
+
+00:03.220 --> 00:06.700
+ She's a professor at MIT and a world class researcher
+
+00:06.700 --> 00:08.340
+ in natural language processing
+
+00:08.340 --> 00:12.460
+ and applications of deep learning to chemistry and oncology
+
+00:12.460 --> 00:15.340
+ or the use of deep learning for early diagnosis,
+
+00:15.340 --> 00:18.300
+ prevention and treatment of cancer.
+
+00:18.300 --> 00:21.020
+ She has also been recognized for teaching
+
+00:21.020 --> 00:24.700
+ of several successful AI related courses at MIT,
+
+00:24.700 --> 00:26.840
+ including the popular Introduction
+
+00:26.840 --> 00:28.920
+ to Machine Learning course.
+
+00:28.920 --> 00:32.160
+ This is the Artificial Intelligence podcast.
+
+00:32.160 --> 00:34.560
+ If you enjoy it, subscribe on YouTube,
+
+00:34.560 --> 00:37.840
+ give it five stars on iTunes, support it on Patreon
+
+00:37.840 --> 00:39.840
+ or simply connect with me on Twitter
+
+00:39.840 --> 00:43.760
+ at Lex Friedman spelled F R I D M A N.
+
+00:43.760 --> 00:47.760
+ And now here's my conversation with Regina Barzilay.
+
+00:48.840 --> 00:50.320
+ In an interview you've mentioned
+
+00:50.320 --> 00:51.960
+ that if there's one course you would take,
+
+00:51.960 --> 00:54.600
+ it would be a literature course with a friend of yours
+
+00:54.600 --> 00:56.360
+ that a friend of yours teaches.
+
+00:56.360 --> 00:59.160
+ Just out of curiosity, because I couldn't find anything
+
+00:59.160 --> 01:04.160
+ on it, are there books or ideas that had profound impact
+
+01:04.400 --> 01:07.200
+ on your life journey, books and ideas perhaps
+
+01:07.200 --> 01:10.800
+ outside of computer science and the technical fields?
+
+01:11.780 --> 01:14.680
+ I think because I'm spending a lot of my time at MIT
+
+01:14.680 --> 01:18.280
+ and previously in other institutions where I was a student,
+
+01:18.280 --> 01:21.040
+ I have limited ability to interact with people.
+
+01:21.040 --> 01:22.640
+ So a lot of what I know about the world
+
+01:22.640 --> 01:24.220
+ actually comes from books.
+
+01:24.220 --> 01:27.240
+ And there were quite a number of books
+
+01:27.240 --> 01:31.380
+ that had profound impact on me and how I view the world.
+
+01:31.380 --> 01:35.820
+ Let me just give you one example of such a book.
+
+01:35.820 --> 01:39.660
+ I've maybe a year ago read a book
+
+01:39.660 --> 01:42.500
+ called The Emperor of All Melodies.
+
+01:42.500 --> 01:45.740
+ It's a book about, it's kind of a history of science book
+
+01:45.740 --> 01:50.740
+ on how the treatments and drugs for cancer were developed.
+
+01:50.740 --> 01:54.580
+ And that book, despite the fact that I am in the business
+
+01:54.580 --> 01:59.580
+ of science, really opened my eyes on how imprecise
+
+01:59.780 --> 02:03.060
+ and imperfect the discovery process is
+
+02:03.060 --> 02:05.820
+ and how imperfect our current solutions
+
+02:06.980 --> 02:11.060
+ and what makes science succeed and be implemented.
+
+02:11.060 --> 02:14.100
+ And sometimes it's actually not the strengths of the idea,
+
+02:14.100 --> 02:17.420
+ but devotion of the person who wants to see it implemented.
+
+02:17.420 --> 02:19.780
+ So this is one of the books that, you know,
+
+02:19.780 --> 02:22.300
+ at least for the last year, quite changed the way
+
+02:22.300 --> 02:24.940
+ I'm thinking about scientific process
+
+02:24.940 --> 02:26.700
+ just from the historical perspective
+
+02:26.700 --> 02:31.700
+ and what do I need to do to make my ideas really implemented.
+
+02:33.460 --> 02:36.060
+ Let me give you an example of a book
+
+02:36.060 --> 02:39.580
+ which is not kind of, which is a fiction book.
+
+02:40.620 --> 02:43.100
+ It's a book called Americana.
+
+02:44.420 --> 02:48.780
+ And this is a book about a young female student
+
+02:48.780 --> 02:53.260
+ who comes from Africa to study in the United States.
+
+02:53.260 --> 02:57.740
+ And it describes her past, you know, within her studies
+
+02:57.740 --> 03:02.020
+ and her life transformation that, you know,
+
+03:02.020 --> 03:06.540
+ in a new country and kind of adaptation to a new culture.
+
+03:06.540 --> 03:11.220
+ And when I read this book, I saw myself
+
+03:11.220 --> 03:13.540
+ in many different points of it,
+
+03:13.540 --> 03:18.540
+ but it also kind of gave me the lens on different events.
+
+03:20.140 --> 03:22.060
+ And some of it that I never actually paid attention.
+
+03:22.060 --> 03:24.700
+ One of the funny stories in this book
+
+03:24.700 --> 03:29.700
+ is how she arrives to her new college
+
+03:30.420 --> 03:32.900
+ and she starts speaking in English
+
+03:32.900 --> 03:35.700
+ and she had this beautiful British accent
+
+03:35.700 --> 03:39.860
+ because that's how she was educated in her country.
+
+03:39.860 --> 03:40.980
+ This is not my case.
+
+03:40.980 --> 03:45.460
+ And then she notices that the person who talks to her,
+
+03:45.460 --> 03:47.220
+ you know, talks to her in a very funny way,
+
+03:47.220 --> 03:48.340
+ in a very slow way.
+
+03:48.340 --> 03:51.460
+ And she's thinking that this woman is disabled
+
+03:51.460 --> 03:54.500
+ and she's also trying to kind of to accommodate her.
+
+03:54.500 --> 03:56.700
+ And then after a while, when she finishes her discussion
+
+03:56.700 --> 03:58.580
+ with this officer from her college,
+
+03:59.860 --> 04:02.100
+ she sees how she interacts with the other students,
+
+04:02.100 --> 04:03.020
+ with American students.
+
+04:03.020 --> 04:08.020
+ And she discovers that actually she talked to her this way
+
+04:08.020 --> 04:11.020
+ because she saw that she doesn't understand English.
+
+04:11.020 --> 04:14.180
+ And I thought, wow, this is a funny experience.
+
+04:14.180 --> 04:16.940
+ And literally within few weeks,
+
+04:16.940 --> 04:20.820
+ I went to LA to a conference
+
+04:20.820 --> 04:23.180
+ and I asked somebody in the airport,
+
+04:23.180 --> 04:25.580
+ you know, how to find like a cab or something.
+
+04:25.580 --> 04:28.380
+ And then I noticed that this person is talking
+
+04:28.380 --> 04:29.220
+ in a very strange way.
+
+04:29.220 --> 04:31.100
+ And my first thought was that this person
+
+04:31.100 --> 04:34.500
+ have some, you know, pronunciation issues or something.
+
+04:34.500 --> 04:36.060
+ And I'm trying to talk very slowly to him
+
+04:36.060 --> 04:38.580
+ and I was with another professor, Ernst Frankel.
+
+04:38.580 --> 04:42.180
+ And he's like laughing because it's funny
+
+04:42.180 --> 04:44.860
+ that I don't get that the guy is talking in this way
+
+04:44.860 --> 04:46.060
+ because he thinks that I cannot speak.
+
+04:46.060 --> 04:49.100
+ So it was really kind of mirroring experience.
+
+04:49.100 --> 04:53.300
+ And it led me think a lot about my own experiences
+
+04:53.300 --> 04:56.060
+ moving, you know, from different countries.
+
+04:56.060 --> 04:59.300
+ So I think that books play a big role
+
+04:59.300 --> 05:01.780
+ in my understanding of the world.
+
+05:01.780 --> 05:06.420
+ On the science question, you mentioned that
+
+05:06.420 --> 05:09.780
+ it made you discover that personalities of human beings
+
+05:09.780 --> 05:12.420
+ are more important than perhaps ideas.
+
+05:12.420 --> 05:13.660
+ Is that what I heard?
+
+05:13.660 --> 05:15.740
+ It's not necessarily that they are more important
+
+05:15.740 --> 05:19.180
+ than ideas, but I think that ideas on their own
+
+05:19.180 --> 05:20.460
+ are not sufficient.
+
+05:20.460 --> 05:24.660
+ And many times, at least at the local horizon,
+
+05:24.660 --> 05:29.140
+ it's the personalities and their devotion to their ideas
+
+05:29.140 --> 05:32.980
+ is really that locally changes the landscape.
+
+05:32.980 --> 05:37.500
+ Now, if you're looking at AI, like let's say 30 years ago,
+
+05:37.500 --> 05:39.180
+ you know, dark ages of AI or whatever,
+
+05:39.180 --> 05:42.420
+ what is symbolic times, you can use any word.
+
+05:42.420 --> 05:44.660
+ You know, there were some people,
+
+05:44.660 --> 05:46.620
+ now we're looking at a lot of that work
+
+05:46.620 --> 05:48.780
+ and we're kind of thinking this was not really
+
+05:48.780 --> 05:52.220
+ maybe a relevant work, but you can see that some people
+
+05:52.220 --> 05:54.900
+ managed to take it and to make it so shiny
+
+05:54.900 --> 05:59.260
+ and dominate the academic world
+
+05:59.260 --> 06:02.380
+ and make it to be the standard.
+
+06:02.380 --> 06:05.180
+ If you look at the area of natural language processing,
+
+06:06.420 --> 06:09.140
+ it is well known fact that the reason that statistics
+
+06:09.140 --> 06:13.980
+ in NLP took such a long time to become mainstream
+
+06:13.980 --> 06:16.860
+ because there were quite a number of personalities
+
+06:16.860 --> 06:18.460
+ which didn't believe in this idea
+
+06:18.460 --> 06:22.060
+ and didn't stop research progress in this area.
+
+06:22.060 --> 06:25.900
+ So I do not think that, you know,
+
+06:25.900 --> 06:28.940
+ kind of asymptotically maybe personalities matters,
+
+06:28.940 --> 06:33.940
+ but I think locally it does make quite a bit of impact
+
+06:33.940 --> 06:36.900
+ and it's generally, you know,
+
+06:36.900 --> 06:41.340
+ speeds up the rate of adoption of the new ideas.
+
+06:41.340 --> 06:43.500
+ Yeah, and the other interesting question
+
+06:43.500 --> 06:46.540
+ is in the early days of particular discipline,
+
+06:46.540 --> 06:50.460
+ I think you mentioned in that book
+
+06:50.460 --> 06:52.340
+ is ultimately a book of cancer.
+
+06:52.340 --> 06:55.100
+ It's called The Emperor of All Melodies.
+
+06:55.100 --> 06:58.580
+ Yeah, and those melodies included the trying to,
+
+06:58.580 --> 07:00.740
+ the medicine, was it centered around?
+
+07:00.740 --> 07:04.900
+ So it was actually centered on, you know,
+
+07:04.900 --> 07:07.180
+ how people thought of curing cancer.
+
+07:07.180 --> 07:10.660
+ Like for me, it was really a discovery how people,
+
+07:10.660 --> 07:14.140
+ what was the science of chemistry behind drug development
+
+07:14.140 --> 07:17.220
+ that it actually grew up out of dying,
+
+07:17.220 --> 07:19.780
+ like coloring industry that people
+
+07:19.780 --> 07:23.780
+ who developed chemistry in 19th century in Germany
+
+07:23.780 --> 07:28.140
+ and Britain to do, you know, the really new dyes.
+
+07:28.140 --> 07:30.180
+ They looked at the molecules and identified
+
+07:30.180 --> 07:32.140
+ that they do certain things to cells.
+
+07:32.140 --> 07:34.500
+ And from there, the process started.
+
+07:34.500 --> 07:35.740
+ And, you know, like historically saying,
+
+07:35.740 --> 07:36.900
+ yeah, this is fascinating
+
+07:36.900 --> 07:38.700
+ that they managed to make the connection
+
+07:38.700 --> 07:42.300
+ and look under the microscope and do all this discovery.
+
+07:42.300 --> 07:44.340
+ But as you continue reading about it
+
+07:44.340 --> 07:48.780
+ and you read about how chemotherapy drugs
+
+07:48.780 --> 07:50.500
+ which were developed in Boston,
+
+07:50.500 --> 07:52.500
+ and some of them were developed.
+
+07:52.500 --> 07:57.500
+ And Farber, Dr. Farber from Dana Farber,
+
+07:57.500 --> 08:00.460
+ you know, how the experiments were done
+
+08:00.460 --> 08:03.340
+ that, you know, there was some miscalculation,
+
+08:03.340 --> 08:04.540
+ let's put it this way.
+
+08:04.540 --> 08:06.740
+ And they tried it on the patients and they just,
+
+08:06.740 --> 08:09.980
+ and those were children with leukemia and they died.
+
+08:09.980 --> 08:11.660
+ And then they tried another modification.
+
+08:11.660 --> 08:15.020
+ You look at the process, how imperfect is this process?
+
+08:15.020 --> 08:17.500
+ And, you know, like, if we're again looking back
+
+08:17.500 --> 08:19.180
+ like 60 years ago, 70 years ago,
+
+08:19.180 --> 08:20.780
+ you can kind of understand it.
+
+08:20.780 --> 08:23.020
+ But some of the stories in this book
+
+08:23.020 --> 08:24.620
+ which were really shocking to me
+
+08:24.620 --> 08:27.980
+ were really happening, you know, maybe decades ago.
+
+08:27.980 --> 08:30.660
+ And we still don't have a vehicle
+
+08:30.660 --> 08:35.100
+ to do it much more fast and effective and, you know,
+
+08:35.100 --> 08:38.220
+ scientific the way I'm thinking computer science scientific.
+
+08:38.220 --> 08:40.420
+ So from the perspective of computer science,
+
+08:40.420 --> 08:43.780
+ you've gotten a chance to work the application to cancer
+
+08:43.780 --> 08:44.860
+ and to medicine in general.
+
+08:44.860 --> 08:48.420
+ From a perspective of an engineer and a computer scientist,
+
+08:48.420 --> 08:51.780
+ how far along are we from understanding the human body,
+
+08:51.780 --> 08:55.140
+ biology of being able to manipulate it
+
+08:55.140 --> 08:57.940
+ in a way we can cure some of the maladies,
+
+08:57.940 --> 08:59.740
+ some of the diseases?
+
+08:59.740 --> 09:02.220
+ So this is very interesting question.
+
+09:03.460 --> 09:06.020
+ And if you're thinking as a computer scientist
+
+09:06.020 --> 09:09.820
+ about this problem, I think one of the reasons
+
+09:09.820 --> 09:11.900
+ that we succeeded in the areas
+
+09:11.900 --> 09:13.980
+ we as a computer scientist succeeded
+
+09:13.980 --> 09:16.260
+ is because we don't have,
+
+09:16.260 --> 09:18.980
+ we are not trying to understand in some ways.
+
+09:18.980 --> 09:22.260
+ Like if you're thinking about like eCommerce, Amazon,
+
+09:22.260 --> 09:24.220
+ Amazon doesn't really understand you.
+
+09:24.220 --> 09:27.700
+ And that's why it recommends you certain books
+
+09:27.700 --> 09:29.580
+ or certain products, correct?
+
+09:30.660 --> 09:34.660
+ And, you know, traditionally when people
+
+09:34.660 --> 09:36.380
+ were thinking about marketing, you know,
+
+09:36.380 --> 09:39.780
+ they divided the population to different kind of subgroups,
+
+09:39.780 --> 09:41.740
+ identify the features of this subgroup
+
+09:41.740 --> 09:43.140
+ and come up with a strategy
+
+09:43.140 --> 09:45.580
+ which is specific to that subgroup.
+
+09:45.580 --> 09:47.340
+ If you're looking about recommendation system,
+
+09:47.340 --> 09:50.580
+ they're not claiming that they're understanding somebody,
+
+09:50.580 --> 09:52.700
+ they're just managing to,
+
+09:52.700 --> 09:54.780
+ from the patterns of your behavior
+
+09:54.780 --> 09:57.540
+ to recommend you a product.
+
+09:57.540 --> 09:59.580
+ Now, if you look at the traditional biology,
+
+09:59.580 --> 10:03.180
+ and obviously I wouldn't say that I
+
+10:03.180 --> 10:06.180
+ at any way, you know, educated in this field,
+
+10:06.180 --> 10:09.300
+ but you know what I see, there's really a lot of emphasis
+
+10:09.300 --> 10:10.660
+ on mechanistic understanding.
+
+10:10.660 --> 10:12.540
+ And it was very surprising to me
+
+10:12.540 --> 10:13.820
+ coming from computer science,
+
+10:13.820 --> 10:17.580
+ how much emphasis is on this understanding.
+
+10:17.580 --> 10:20.740
+ And given the complexity of the system,
+
+10:20.740 --> 10:23.220
+ maybe the deterministic full understanding
+
+10:23.220 --> 10:27.380
+ of this process is, you know, beyond our capacity.
+
+10:27.380 --> 10:29.460
+ And the same ways in computer science
+
+10:29.460 --> 10:31.540
+ when we're doing recognition, when you do recommendation
+
+10:31.540 --> 10:32.780
+ and many other areas,
+
+10:32.780 --> 10:35.940
+ it's just probabilistic matching process.
+
+10:35.940 --> 10:40.100
+ And in some way, maybe in certain cases,
+
+10:40.100 --> 10:42.940
+ we shouldn't even attempt to understand
+
+10:42.940 --> 10:45.780
+ or we can attempt to understand, but in parallel,
+
+10:45.780 --> 10:48.060
+ we can actually do this kind of matchings
+
+10:48.060 --> 10:51.060
+ that would help us to find key role
+
+10:51.060 --> 10:54.100
+ to do early diagnostics and so on.
+
+10:54.100 --> 10:55.860
+ And I know that in these communities,
+
+10:55.860 --> 10:59.060
+ it's really important to understand,
+
+10:59.060 --> 11:00.700
+ but I'm sometimes wondering, you know,
+
+11:00.700 --> 11:02.940
+ what exactly does it mean to understand here?
+
+11:02.940 --> 11:05.500
+ Well, there's stuff that works and,
+
+11:05.500 --> 11:07.620
+ but that can be, like you said,
+
+11:07.620 --> 11:10.340
+ separate from this deep human desire
+
+11:10.340 --> 11:12.700
+ to uncover the mysteries of the universe,
+
+11:12.700 --> 11:16.140
+ of science, of the way the body works,
+
+11:16.140 --> 11:17.620
+ the way the mind works.
+
+11:17.620 --> 11:19.540
+ It's the dream of symbolic AI,
+
+11:19.540 --> 11:24.540
+ of being able to reduce human knowledge into logic
+
+11:25.220 --> 11:26.900
+ and be able to play with that logic
+
+11:26.900 --> 11:28.700
+ in a way that's very explainable
+
+11:28.700 --> 11:30.300
+ and understandable for us humans.
+
+11:30.300 --> 11:31.780
+ I mean, that's a beautiful dream.
+
+11:31.780 --> 11:34.860
+ So I understand it, but it seems that
+
+11:34.860 --> 11:37.900
+ what seems to work today and we'll talk about it more
+
+11:37.900 --> 11:40.780
+ is as much as possible, reduce stuff into data,
+
+11:40.780 --> 11:43.900
+ reduce whatever problem you're interested in to data
+
+11:43.900 --> 11:47.060
+ and try to apply statistical methods,
+
+11:47.060 --> 11:49.100
+ apply machine learning to that.
+
+11:49.100 --> 11:51.140
+ On a personal note,
+
+11:51.140 --> 11:54.140
+ you were diagnosed with breast cancer in 2014.
+
+11:55.380 --> 11:58.420
+ What did facing your mortality make you think about?
+
+11:58.420 --> 12:00.260
+ How did it change you?
+
+12:00.260 --> 12:01.860
+ You know, this is a great question
+
+12:01.860 --> 12:03.820
+ and I think that I was interviewed many times
+
+12:03.820 --> 12:05.740
+ and nobody actually asked me this question.
+
+12:05.740 --> 12:09.700
+ I think I was 43 at a time.
+
+12:09.700 --> 12:12.860
+ And the first time I realized in my life that I may die
+
+12:12.860 --> 12:14.460
+ and I never thought about it before.
+
+12:14.460 --> 12:17.260
+ And there was a long time since you're diagnosed
+
+12:17.260 --> 12:18.580
+ until you actually know what you have
+
+12:18.580 --> 12:20.180
+ and how severe is your disease.
+
+12:20.180 --> 12:23.500
+ For me, it was like maybe two and a half months.
+
+12:23.500 --> 12:28.340
+ And I didn't know where I am during this time
+
+12:28.340 --> 12:30.660
+ because I was getting different tests
+
+12:30.660 --> 12:33.380
+ and one would say it's bad and I would say, no, it is not.
+
+12:33.380 --> 12:34.900
+ So until I knew where I am,
+
+12:34.900 --> 12:36.300
+ I really was thinking about
+
+12:36.300 --> 12:38.220
+ all these different possible outcomes.
+
+12:38.220 --> 12:39.700
+ Were you imagining the worst
+
+12:39.700 --> 12:41.940
+ or were you trying to be optimistic or?
+
+12:41.940 --> 12:43.540
+ It would be really,
+
+12:43.540 --> 12:47.340
+ I don't remember what was my thinking.
+
+12:47.340 --> 12:51.100
+ It was really a mixture with many components at the time
+
+12:51.100 --> 12:54.100
+ speaking in our terms.
+
+12:54.100 --> 12:59.100
+ And one thing that I remember,
+
+12:59.340 --> 13:01.500
+ and every test comes and then you're saying,
+
+13:01.500 --> 13:03.300
+ oh, it could be this or it may not be this.
+
+13:03.300 --> 13:04.700
+ And you're hopeful and then you're desperate.
+
+13:04.700 --> 13:07.660
+ So it's like, there is a whole slew of emotions
+
+13:07.660 --> 13:08.700
+ that goes through you.
+
+13:09.820 --> 13:14.820
+ But what I remember is that when I came back to MIT,
+
+13:15.100 --> 13:17.780
+ I was kind of going the whole time through the treatment
+
+13:17.780 --> 13:19.780
+ to MIT, but my brain was not really there.
+
+13:19.780 --> 13:21.820
+ But when I came back, really finished my treatment
+
+13:21.820 --> 13:23.860
+ and I was here teaching and everything,
+
+13:24.900 --> 13:27.060
+ I look back at what my group was doing,
+
+13:27.060 --> 13:28.820
+ what other groups was doing.
+
+13:28.820 --> 13:30.820
+ And I saw these trivialities.
+
+13:30.820 --> 13:33.260
+ It's like people are building their careers
+
+13:33.260 --> 13:36.900
+ on improving some parts around two or 3% or whatever.
+
+13:36.900 --> 13:38.380
+ I was, it's like, seriously,
+
+13:38.380 --> 13:40.740
+ I did a work on how to decipher ugaritic,
+
+13:40.740 --> 13:42.860
+ like a language that nobody speak and whatever,
+
+13:42.860 --> 13:46.140
+ like what is significance?
+
+13:46.140 --> 13:49.020
+ When all of a sudden, I walked out of MIT,
+
+13:49.020 --> 13:51.860
+ which is when people really do care
+
+13:51.860 --> 13:54.500
+ what happened to your ICLR paper,
+
+13:54.500 --> 13:57.900
+ what is your next publication to ACL,
+
+13:57.900 --> 14:01.860
+ to the world where people, you see a lot of suffering
+
+14:01.860 --> 14:04.900
+ that I'm kind of totally shielded on it on daily basis.
+
+14:04.900 --> 14:07.460
+ And it's like the first time I've seen like real life
+
+14:07.460 --> 14:08.660
+ and real suffering.
+
+14:09.700 --> 14:13.260
+ And I was thinking, why are we trying to improve the parser
+
+14:13.260 --> 14:18.260
+ or deal with trivialities when we have capacity
+
+14:18.340 --> 14:20.700
+ to really make a change?
+
+14:20.700 --> 14:24.620
+ And it was really challenging to me because on one hand,
+
+14:24.620 --> 14:27.420
+ I have my graduate students really want to do their papers
+
+14:27.420 --> 14:29.860
+ and their work, and they want to continue to do
+
+14:29.860 --> 14:31.900
+ what they were doing, which was great.
+
+14:31.900 --> 14:36.300
+ And then it was me who really kind of reevaluated
+
+14:36.300 --> 14:37.460
+ what is the importance.
+
+14:37.460 --> 14:40.260
+ And also at that point, because I had to take some break,
+
+14:42.500 --> 14:47.500
+ I look back into like my years in science
+
+14:47.740 --> 14:50.460
+ and I was thinking, like 10 years ago,
+
+14:50.460 --> 14:52.940
+ this was the biggest thing, I don't know, topic models.
+
+14:52.940 --> 14:55.340
+ We have like millions of papers on topic models
+
+14:55.340 --> 14:56.500
+ and variation of topics models.
+
+14:56.500 --> 14:58.580
+ Now it's totally like irrelevant.
+
+14:58.580 --> 15:02.460
+ And you start looking at this, what do you perceive
+
+15:02.460 --> 15:04.500
+ as important at different point of time
+
+15:04.500 --> 15:08.900
+ and how it fades over time.
+
+15:08.900 --> 15:12.980
+ And since we have a limited time,
+
+15:12.980 --> 15:14.900
+ all of us have limited time on us,
+
+15:14.900 --> 15:18.380
+ it's really important to prioritize things
+
+15:18.380 --> 15:20.540
+ that really matter to you, maybe matter to you
+
+15:20.540 --> 15:22.020
+ at that particular point.
+
+15:22.020 --> 15:24.380
+ But it's important to take some time
+
+15:24.380 --> 15:26.940
+ and understand what matters to you,
+
+15:26.940 --> 15:28.860
+ which may not necessarily be the same
+
+15:28.860 --> 15:31.700
+ as what matters to the rest of your scientific community
+
+15:31.700 --> 15:34.580
+ and pursue that vision.
+
+15:34.580 --> 15:38.460
+ So that moment, did it make you cognizant?
+
+15:38.460 --> 15:42.500
+ You mentioned suffering of just the general amount
+
+15:42.500 --> 15:44.340
+ of suffering in the world.
+
+15:44.340 --> 15:45.620
+ Is that what you're referring to?
+
+15:45.620 --> 15:47.420
+ So as opposed to topic models
+
+15:47.420 --> 15:50.780
+ and specific detailed problems in NLP,
+
+15:50.780 --> 15:54.460
+ did you start to think about other people
+
+15:54.460 --> 15:56.940
+ who have been diagnosed with cancer?
+
+15:56.940 --> 16:00.020
+ Is that the way you started to see the world perhaps?
+
+16:00.020 --> 16:00.860
+ Oh, absolutely.
+
+16:00.860 --> 16:04.980
+ And it actually creates, because like, for instance,
+
+16:04.980 --> 16:05.820
+ there is parts of the treatment
+
+16:05.820 --> 16:08.500
+ where you need to go to the hospital every day
+
+16:08.500 --> 16:11.620
+ and you see the community of people that you see
+
+16:11.620 --> 16:16.100
+ and many of them are much worse than I was at a time.
+
+16:16.100 --> 16:20.460
+ And you all of a sudden see it all.
+
+16:20.460 --> 16:23.940
+ And people who are happier someday
+
+16:23.940 --> 16:25.300
+ just because they feel better.
+
+16:25.300 --> 16:28.500
+ And for people who are in our normal realm,
+
+16:28.500 --> 16:30.820
+ you take it totally for granted that you feel well,
+
+16:30.820 --> 16:32.940
+ that if you decide to go running, you can go running
+
+16:32.940 --> 16:35.900
+ and you're pretty much free
+
+16:35.900 --> 16:37.620
+ to do whatever you want with your body.
+
+16:37.620 --> 16:40.180
+ Like I saw like a community,
+
+16:40.180 --> 16:42.820
+ my community became those people.
+
+16:42.820 --> 16:47.460
+ And I remember one of my friends, Dina Katabi,
+
+16:47.460 --> 16:50.420
+ took me to Prudential to buy me a gift for my birthday.
+
+16:50.420 --> 16:52.340
+ And it was like the first time in months
+
+16:52.340 --> 16:54.980
+ that I went to kind of to see other people.
+
+16:54.980 --> 16:58.180
+ And I was like, wow, first of all, these people,
+
+16:58.180 --> 16:59.820
+ they are happy and they're laughing
+
+16:59.820 --> 17:02.620
+ and they're very different from these other my people.
+
+17:02.620 --> 17:04.620
+ And second of thing, I think it's totally crazy.
+
+17:04.620 --> 17:06.620
+ They're like laughing and wasting their money
+
+17:06.620 --> 17:08.420
+ on some stupid gifts.
+
+17:08.420 --> 17:12.540
+ And they may die.
+
+17:12.540 --> 17:15.940
+ They already may have cancer and they don't understand it.
+
+17:15.940 --> 17:20.060
+ So you can really see how the mind changes
+
+17:20.060 --> 17:22.340
+ that you can see that,
+
+17:22.340 --> 17:23.180
+ before that you can ask,
+
+17:23.180 --> 17:24.380
+ didn't you know that you're gonna die?
+
+17:24.380 --> 17:28.340
+ Of course I knew, but it was a kind of a theoretical notion.
+
+17:28.340 --> 17:31.060
+ It wasn't something which was concrete.
+
+17:31.060 --> 17:33.900
+ And at that point, when you really see it
+
+17:33.900 --> 17:38.060
+ and see how little means sometimes the system has
+
+17:38.060 --> 17:41.740
+ to have them, you really feel that we need to take a lot
+
+17:41.740 --> 17:45.420
+ of our brilliance that we have here at MIT
+
+17:45.420 --> 17:48.020
+ and translate it into something useful.
+
+17:48.020 --> 17:50.540
+ Yeah, and you still couldn't have a lot of definitions,
+
+17:50.540 --> 17:53.620
+ but of course, alleviating, suffering, alleviating,
+
+17:53.620 --> 17:57.460
+ trying to cure cancer is a beautiful mission.
+
+17:57.460 --> 18:01.940
+ So I of course know theoretically the notion of cancer,
+
+18:01.940 --> 18:06.940
+ but just reading more and more about it's 1.7 million
+
+18:07.100 --> 18:09.860
+ new cancer cases in the United States every year,
+
+18:09.860 --> 18:13.460
+ 600,000 cancer related deaths every year.
+
+18:13.460 --> 18:18.460
+ So this has a huge impact, United States globally.
+
+18:19.340 --> 18:24.340
+ When broadly, before we talk about how machine learning,
+
+18:24.340 --> 18:27.180
+ how MIT can help,
+
+18:27.180 --> 18:32.100
+ when do you think we as a civilization will cure cancer?
+
+18:32.100 --> 18:34.980
+ How hard of a problem is it from everything you've learned
+
+18:34.980 --> 18:35.940
+ from it recently?
+
+18:37.260 --> 18:39.300
+ I cannot really assess it.
+
+18:39.300 --> 18:42.100
+ What I do believe will happen with the advancement
+
+18:42.100 --> 18:45.940
+ in machine learning is that a lot of types of cancer
+
+18:45.940 --> 18:48.500
+ we will be able to predict way early
+
+18:48.500 --> 18:53.420
+ and more effectively utilize existing treatments.
+
+18:53.420 --> 18:57.540
+ I think, I hope at least that with all the advancements
+
+18:57.540 --> 19:01.180
+ in AI and drug discovery, we would be able
+
+19:01.180 --> 19:04.700
+ to much faster find relevant molecules.
+
+19:04.700 --> 19:08.220
+ What I'm not sure about is how long it will take
+
+19:08.220 --> 19:11.940
+ the medical establishment and regulatory bodies
+
+19:11.940 --> 19:14.780
+ to kind of catch up and to implement it.
+
+19:14.780 --> 19:17.420
+ And I think this is a very big piece of puzzle
+
+19:17.420 --> 19:20.420
+ that is currently not addressed.
+
+19:20.420 --> 19:21.780
+ That's the really interesting question.
+
+19:21.780 --> 19:25.460
+ So first a small detail that I think the answer is yes,
+
+19:25.460 --> 19:30.460
+ but is cancer one of the diseases that when detected earlier
+
+19:33.700 --> 19:37.820
+ that's a significantly improves the outcomes?
+
+19:37.820 --> 19:41.020
+ So like, cause we will talk about there's the cure
+
+19:41.020 --> 19:43.020
+ and then there is detection.
+
+19:43.020 --> 19:45.180
+ And I think where machine learning can really help
+
+19:45.180 --> 19:46.660
+ is earlier detection.
+
+19:46.660 --> 19:48.580
+ So does detection help?
+
+19:48.580 --> 19:49.660
+ Detection is crucial.
+
+19:49.660 --> 19:53.940
+ For instance, the vast majority of pancreatic cancer patients
+
+19:53.940 --> 19:57.300
+ are detected at the stage that they are incurable.
+
+19:57.300 --> 20:02.300
+ That's why they have such a terrible survival rate.
+
+20:03.740 --> 20:07.300
+ It's like just few percent over five years.
+
+20:07.300 --> 20:09.820
+ It's pretty much today the sentence.
+
+20:09.820 --> 20:13.620
+ But if you can discover this disease early,
+
+20:14.500 --> 20:16.740
+ there are mechanisms to treat it.
+
+20:16.740 --> 20:20.740
+ And in fact, I know a number of people who were diagnosed
+
+20:20.740 --> 20:23.580
+ and saved just because they had food poisoning.
+
+20:23.580 --> 20:25.020
+ They had terrible food poisoning.
+
+20:25.020 --> 20:28.540
+ They went to ER, they got scan.
+
+20:28.540 --> 20:30.660
+ There were early signs on the scan
+
+20:30.660 --> 20:33.540
+ and that would save their lives.
+
+20:33.540 --> 20:35.820
+ But this wasn't really an accidental case.
+
+20:35.820 --> 20:40.820
+ So as we become better, we would be able to help
+
+20:41.260 --> 20:46.260
+ to many more people that are likely to develop diseases.
+
+20:46.540 --> 20:51.020
+ And I just want to say that as I got more into this field,
+
+20:51.020 --> 20:53.620
+ I realized that cancer is of course terrible disease,
+
+20:53.620 --> 20:56.700
+ but there are really the whole slew of terrible diseases
+
+20:56.700 --> 21:00.820
+ out there like neurodegenerative diseases and others.
+
+21:01.660 --> 21:04.580
+ So we, of course, a lot of us are fixated on cancer
+
+21:04.580 --> 21:06.420
+ because it's so prevalent in our society.
+
+21:06.420 --> 21:08.540
+ And you see these people where there are a lot of patients
+
+21:08.540 --> 21:10.340
+ with neurodegenerative diseases
+
+21:10.340 --> 21:12.540
+ and the kind of aging diseases
+
+21:12.540 --> 21:17.100
+ that we still don't have a good solution for.
+
+21:17.100 --> 21:22.100
+ And I felt as a computer scientist,
+
+21:22.860 --> 21:25.460
+ we kind of decided that it's other people's job
+
+21:25.460 --> 21:29.340
+ to treat these diseases because it's like traditionally
+
+21:29.340 --> 21:32.420
+ people in biology or in chemistry or MDs
+
+21:32.420 --> 21:35.340
+ are the ones who are thinking about it.
+
+21:35.340 --> 21:37.420
+ And after kind of start paying attention,
+
+21:37.420 --> 21:40.340
+ I think that it's really a wrong assumption
+
+21:40.340 --> 21:42.940
+ and we all need to join the battle.
+
+21:42.940 --> 21:46.460
+ So how it seems like in cancer specifically
+
+21:46.460 --> 21:49.140
+ that there's a lot of ways that machine learning can help.
+
+21:49.140 --> 21:51.860
+ So what's the role of machine learning
+
+21:51.860 --> 21:54.100
+ in the diagnosis of cancer?
+
+21:55.260 --> 21:58.700
+ So for many cancers today, we really don't know
+
+21:58.700 --> 22:03.460
+ what is your likelihood to get cancer.
+
+22:03.460 --> 22:06.300
+ And for the vast majority of patients,
+
+22:06.300 --> 22:07.940
+ especially on the younger patients,
+
+22:07.940 --> 22:09.580
+ it really comes as a surprise.
+
+22:09.580 --> 22:11.140
+ Like for instance, for breast cancer,
+
+22:11.140 --> 22:13.860
+ 80% of the patients are first in their families,
+
+22:13.860 --> 22:15.380
+ it's like me.
+
+22:15.380 --> 22:18.460
+ And I never saw that I had any increased risk
+
+22:18.460 --> 22:20.820
+ because nobody had it in my family.
+
+22:20.820 --> 22:22.300
+ And for some reason in my head,
+
+22:22.300 --> 22:24.820
+ it was kind of inherited disease.
+
+22:26.580 --> 22:28.380
+ But even if I would pay attention,
+
+22:28.380 --> 22:32.420
+ the very simplistic statistical models
+
+22:32.420 --> 22:34.540
+ that are currently used in clinical practice,
+
+22:34.540 --> 22:37.460
+ they really don't give you an answer, so you don't know.
+
+22:37.460 --> 22:40.380
+ And the same true for pancreatic cancer,
+
+22:40.380 --> 22:45.380
+ the same true for non smoking lung cancer and many others.
+
+22:45.380 --> 22:47.340
+ So what machine learning can do here
+
+22:47.340 --> 22:51.620
+ is utilize all this data to tell us early
+
+22:51.620 --> 22:53.140
+ who is likely to be susceptible
+
+22:53.140 --> 22:55.980
+ and using all the information that is already there,
+
+22:55.980 --> 22:59.980
+ be it imaging, be it your other tests,
+
+22:59.980 --> 23:04.860
+ and eventually liquid biopsies and others,
+
+23:04.860 --> 23:08.180
+ where the signal itself is not sufficiently strong
+
+23:08.180 --> 23:11.300
+ for human eye to do good discrimination
+
+23:11.300 --> 23:12.940
+ because the signal may be weak,
+
+23:12.940 --> 23:15.620
+ but by combining many sources,
+
+23:15.620 --> 23:18.100
+ machine which is trained on large volumes of data
+
+23:18.100 --> 23:20.700
+ can really detect it early.
+
+23:20.700 --> 23:22.500
+ And that's what we've seen with breast cancer
+
+23:22.500 --> 23:25.900
+ and people are reporting it in other diseases as well.
+
+23:25.900 --> 23:28.260
+ That really boils down to data, right?
+
+23:28.260 --> 23:30.980
+ And in the different kinds of sources of data.
+
+23:30.980 --> 23:33.740
+ And you mentioned regulatory challenges.
+
+23:33.740 --> 23:35.180
+ So what are the challenges
+
+23:35.180 --> 23:39.260
+ in gathering large data sets in this space?
+
+23:40.860 --> 23:42.660
+ Again, another great question.
+
+23:42.660 --> 23:45.500
+ So it took me after I decided that I want to work on it
+
+23:45.500 --> 23:48.740
+ two years to get access to data.
+
+23:48.740 --> 23:50.580
+ Any data, like any significant data set?
+
+23:50.580 --> 23:53.580
+ Any significant amount, like right now in this country,
+
+23:53.580 --> 23:57.060
+ there is no publicly available data set
+
+23:57.060 --> 23:58.820
+ of modern mammograms that you can just go
+
+23:58.820 --> 24:01.860
+ on your computer, sign a document and get it.
+
+24:01.860 --> 24:03.180
+ It just doesn't exist.
+
+24:03.180 --> 24:06.860
+ I mean, obviously every hospital has its own collection
+
+24:06.860 --> 24:07.700
+ of mammograms.
+
+24:07.700 --> 24:11.300
+ There are data that came out of clinical trials.
+
+24:11.300 --> 24:13.220
+ What we're talking about here is a computer scientist
+
+24:13.220 --> 24:17.140
+ who just wants to run his or her model
+
+24:17.140 --> 24:19.060
+ and see how it works.
+
+24:19.060 --> 24:22.900
+ This data, like ImageNet, doesn't exist.
+
+24:22.900 --> 24:27.900
+ And there is a set which is called like Florida data set
+
+24:28.620 --> 24:30.860
+ which is a film mammogram from 90s
+
+24:30.860 --> 24:32.420
+ which is totally not representative
+
+24:32.420 --> 24:33.860
+ of the current developments.
+
+24:33.860 --> 24:35.780
+ Whatever you're learning on them doesn't scale up.
+
+24:35.780 --> 24:39.300
+ This is the only resource that is available.
+
+24:39.300 --> 24:42.780
+ And today there are many agencies
+
+24:42.780 --> 24:44.460
+ that govern access to data.
+
+24:44.460 --> 24:46.300
+ Like the hospital holds your data
+
+24:46.300 --> 24:49.260
+ and the hospital decides whether they would give it
+
+24:49.260 --> 24:52.340
+ to the researcher to work with this data or not.
+
+24:52.340 --> 24:54.180
+ Individual hospital?
+
+24:54.180 --> 24:55.020
+ Yeah.
+
+24:55.020 --> 24:57.220
+ I mean, the hospital may, you know,
+
+24:57.220 --> 24:59.220
+ assuming that you're doing research collaboration,
+
+24:59.220 --> 25:01.980
+ you can submit, you know,
+
+25:01.980 --> 25:05.060
+ there is a proper approval process guided by RB
+
+25:05.060 --> 25:07.820
+ and if you go through all the processes,
+
+25:07.820 --> 25:10.140
+ you can eventually get access to the data.
+
+25:10.140 --> 25:13.540
+ But if you yourself know our OEI community,
+
+25:13.540 --> 25:16.100
+ there are not that many people who actually ever got access
+
+25:16.100 --> 25:20.260
+ to data because it's very challenging process.
+
+25:20.260 --> 25:22.780
+ And sorry, just in a quick comment,
+
+25:22.780 --> 25:25.780
+ MGH or any kind of hospital,
+
+25:25.780 --> 25:28.100
+ are they scanning the data?
+
+25:28.100 --> 25:29.740
+ Are they digitally storing it?
+
+25:29.740 --> 25:31.580
+ Oh, it is already digitally stored.
+
+25:31.580 --> 25:34.180
+ You don't need to do any extra processing steps.
+
+25:34.180 --> 25:38.340
+ It's already there in the right format is that right now
+
+25:38.340 --> 25:41.180
+ there are a lot of issues that govern access to the data
+
+25:41.180 --> 25:46.180
+ because the hospital is legally responsible for the data.
+
+25:46.180 --> 25:51.020
+ And, you know, they have a lot to lose
+
+25:51.020 --> 25:53.140
+ if they give the data to the wrong person,
+
+25:53.140 --> 25:56.460
+ but they may not have a lot to gain if they give it
+
+25:56.460 --> 26:00.580
+ as a hospital, as a legal entity has given it to you.
+
+26:00.580 --> 26:02.740
+ And the way, you know, what I would imagine
+
+26:02.740 --> 26:05.220
+ happening in the future is the same thing that happens
+
+26:05.220 --> 26:06.780
+ when you're getting your driving license,
+
+26:06.780 --> 26:09.820
+ you can decide whether you want to donate your organs.
+
+26:09.820 --> 26:13.100
+ You can imagine that whenever a person goes to the hospital,
+
+26:13.100 --> 26:17.540
+ they, it should be easy for them to donate their data
+
+26:17.540 --> 26:19.420
+ for research and it can be different kind of,
+
+26:19.420 --> 26:22.420
+ do they only give you a test results or only mammogram
+
+26:22.420 --> 26:25.900
+ or only imaging data or the whole medical record?
+
+26:27.060 --> 26:28.980
+ Because at the end,
+
+26:30.540 --> 26:33.860
+ we all will benefit from all this insights.
+
+26:33.860 --> 26:36.060
+ And it's not like you say, I want to keep my data private,
+
+26:36.060 --> 26:38.780
+ but I would really love to get it from other people
+
+26:38.780 --> 26:40.740
+ because other people are thinking the same way.
+
+26:40.740 --> 26:45.740
+ So if there is a mechanism to do this donation
+
+26:45.740 --> 26:48.020
+ and the patient has an ability to say
+
+26:48.020 --> 26:50.820
+ how they want to use their data for research,
+
+26:50.820 --> 26:54.100
+ it would be really a game changer.
+
+26:54.100 --> 26:56.460
+ People, when they think about this problem,
+
+26:56.460 --> 26:58.460
+ there's a, it depends on the population,
+
+26:58.460 --> 27:00.140
+ depends on the demographics,
+
+27:00.140 --> 27:03.420
+ but there's some privacy concerns generally,
+
+27:03.420 --> 27:05.860
+ not just medical data, just any kind of data.
+
+27:05.860 --> 27:09.620
+ It's what you said, my data, it should belong kind of to me.
+
+27:09.620 --> 27:11.660
+ I'm worried how it's going to be misused.
+
+27:12.540 --> 27:15.620
+ How do we alleviate those concerns?
+
+27:17.100 --> 27:19.460
+ Because that seems like a problem that needs to be,
+
+27:19.460 --> 27:22.980
+ that problem of trust, of transparency needs to be solved
+
+27:22.980 --> 27:27.260
+ before we build large data sets that help detect cancer,
+
+27:27.260 --> 27:30.180
+ help save those very people in the future.
+
+27:30.180 --> 27:31.940
+ So I think there are two things that could be done.
+
+27:31.940 --> 27:34.460
+ There is a technical solutions
+
+27:34.460 --> 27:38.220
+ and there are societal solutions.
+
+27:38.220 --> 27:40.180
+ So on the technical end,
+
+27:41.460 --> 27:46.460
+ we today have ability to improve disambiguation.
+
+27:48.140 --> 27:49.740
+ Like, for instance, for imaging,
+
+27:49.740 --> 27:54.740
+ it's, you know, for imaging, you can do it pretty well.
+
+27:55.620 --> 27:56.780
+ What's disambiguation?
+
+27:56.780 --> 27:58.540
+ And disambiguation, sorry, disambiguation,
+
+27:58.540 --> 27:59.860
+ removing the identification,
+
+27:59.860 --> 28:02.220
+ removing the names of the people.
+
+28:02.220 --> 28:04.820
+ There are other data, like if it is a raw tax,
+
+28:04.820 --> 28:08.180
+ you cannot really achieve 99.9%,
+
+28:08.180 --> 28:10.060
+ but there are all these techniques
+
+28:10.060 --> 28:12.460
+ that actually some of them are developed at MIT,
+
+28:12.460 --> 28:15.460
+ how you can do learning on the encoded data
+
+28:15.460 --> 28:17.420
+ where you locally encode the image,
+
+28:17.420 --> 28:22.420
+ you train a network which only works on the encoded images
+
+28:22.420 --> 28:24.940
+ and then you send the outcome back to the hospital
+
+28:24.940 --> 28:26.580
+ and you can open it up.
+
+28:26.580 --> 28:28.020
+ So those are the technical solutions.
+
+28:28.020 --> 28:30.660
+ There are a lot of people who are working in this space
+
+28:30.660 --> 28:33.780
+ where the learning happens in the encoded form.
+
+28:33.780 --> 28:36.180
+ We are still early,
+
+28:36.180 --> 28:39.260
+ but this is an interesting research area
+
+28:39.260 --> 28:41.900
+ where I think we'll make more progress.
+
+28:43.340 --> 28:45.620
+ There is a lot of work in natural language processing
+
+28:45.620 --> 28:48.620
+ community how to do the identification better.
+
+28:50.380 --> 28:54.020
+ But even today, there are already a lot of data
+
+28:54.020 --> 28:55.900
+ which can be deidentified perfectly,
+
+28:55.900 --> 28:58.780
+ like your test data, for instance, correct,
+
+28:58.780 --> 29:00.980
+ where you can just, you know the name of the patient,
+
+29:00.980 --> 29:04.300
+ you just want to extract the part with the numbers.
+
+29:04.300 --> 29:07.460
+ The big problem here is again,
+
+29:08.420 --> 29:10.420
+ hospitals don't see much incentive
+
+29:10.420 --> 29:12.660
+ to give this data away on one hand
+
+29:12.660 --> 29:14.220
+ and then there is general concern.
+
+29:14.220 --> 29:17.700
+ Now, when I'm talking about societal benefits
+
+29:17.700 --> 29:19.660
+ and about the education,
+
+29:19.660 --> 29:24.340
+ the public needs to understand that I think
+
+29:25.700 --> 29:29.420
+ that there are situation and I still remember myself
+
+29:29.420 --> 29:33.380
+ when I really needed an answer, I had to make a choice.
+
+29:33.380 --> 29:35.220
+ There was no information to make a choice,
+
+29:35.220 --> 29:36.660
+ you're just guessing.
+
+29:36.660 --> 29:41.060
+ And at that moment you feel that your life is at the stake,
+
+29:41.060 --> 29:44.820
+ but you just don't have information to make the choice.
+
+29:44.820 --> 29:48.740
+ And many times when I give talks,
+
+29:48.740 --> 29:51.300
+ I get emails from women who say,
+
+29:51.300 --> 29:52.820
+ you know, I'm in this situation,
+
+29:52.820 --> 29:55.940
+ can you please run statistic and see what are the outcomes?
+
+29:57.100 --> 30:01.300
+ We get almost every week a mammogram that comes by mail
+
+30:01.300 --> 30:03.460
+ to my office at MIT, I'm serious.
+
+30:04.380 --> 30:07.860
+ That people ask to run because they need to make
+
+30:07.860 --> 30:10.020
+ life changing decisions.
+
+30:10.020 --> 30:12.980
+ And of course, I'm not planning to open a clinic here,
+
+30:12.980 --> 30:16.660
+ but we do run and give them the results for their doctors.
+
+30:16.660 --> 30:20.100
+ But the point that I'm trying to make,
+
+30:20.100 --> 30:23.780
+ that we all at some point or our loved ones
+
+30:23.780 --> 30:26.620
+ will be in the situation where you need information
+
+30:26.620 --> 30:28.860
+ to make the best choice.
+
+30:28.860 --> 30:31.860
+ And if this information is not available,
+
+30:31.860 --> 30:35.100
+ you would feel vulnerable and unprotected.
+
+30:35.100 --> 30:37.860
+ And then the question is, you know, what do I care more?
+
+30:37.860 --> 30:40.380
+ Because at the end, everything is a trade off, correct?
+
+30:40.380 --> 30:41.700
+ Yeah, exactly.
+
+30:41.700 --> 30:45.580
+ Just out of curiosity, it seems like one possible solution,
+
+30:45.580 --> 30:47.420
+ I'd like to see what you think of it,
+
+30:49.340 --> 30:50.660
+ based on what you just said,
+
+30:50.660 --> 30:52.500
+ based on wanting to know answers
+
+30:52.500 --> 30:55.060
+ for when you're yourself in that situation.
+
+30:55.060 --> 30:58.420
+ Is it possible for patients to own their data
+
+30:58.420 --> 31:01.020
+ as opposed to hospitals owning their data?
+
+31:01.020 --> 31:04.100
+ Of course, theoretically, I guess patients own their data,
+
+31:04.100 --> 31:06.620
+ but can you walk out there with a USB stick
+
+31:07.580 --> 31:10.620
+ containing everything or upload it to the cloud?
+
+31:10.620 --> 31:14.500
+ Where a company, you know, I remember Microsoft
+
+31:14.500 --> 31:17.820
+ had a service, like I try, I was really excited about
+
+31:17.820 --> 31:19.260
+ and Google Health was there.
+
+31:19.260 --> 31:21.900
+ I tried to give, I was excited about it.
+
+31:21.900 --> 31:24.780
+ Basically companies helping you upload your data
+
+31:24.780 --> 31:27.940
+ to the cloud so that you can move from hospital to hospital
+
+31:27.940 --> 31:29.260
+ from doctor to doctor.
+
+31:29.260 --> 31:32.700
+ Do you see a promise of that kind of possibility?
+
+31:32.700 --> 31:34.660
+ I absolutely think this is, you know,
+
+31:34.660 --> 31:38.180
+ the right way to exchange the data.
+
+31:38.180 --> 31:41.700
+ I don't know now who's the biggest player in this field,
+
+31:41.700 --> 31:45.940
+ but I can clearly see that even for totally selfish
+
+31:45.940 --> 31:49.300
+ health reasons, when you are going to a new facility
+
+31:49.300 --> 31:52.620
+ and many of us are sent to some specialized treatment,
+
+31:52.620 --> 31:55.740
+ they don't easily have access to your data.
+
+31:55.740 --> 31:59.420
+ And today, you know, we might want to send this mammogram,
+
+31:59.420 --> 32:01.780
+ need to go to the hospital, find some small office
+
+32:01.780 --> 32:04.820
+ which gives them the CD and they ship as a CD.
+
+32:04.820 --> 32:08.340
+ So you can imagine we're looking at kind of decades old
+
+32:08.340 --> 32:10.100
+ mechanism of data exchange.
+
+32:11.340 --> 32:15.620
+ So I definitely think this is an area where hopefully
+
+32:15.620 --> 32:20.380
+ all the right regulatory and technical forces will align
+
+32:20.380 --> 32:23.220
+ and we will see it actually implemented.
+
+32:23.220 --> 32:27.500
+ It's sad because unfortunately, and I need to research
+
+32:27.500 --> 32:30.620
+ why that happened, but I'm pretty sure Google Health
+
+32:30.620 --> 32:32.940
+ and Microsoft Health Vault or whatever it's called
+
+32:32.940 --> 32:36.100
+ both closed down, which means that there was
+
+32:36.100 --> 32:39.100
+ either regulatory pressure or there's not a business case
+
+32:39.100 --> 32:41.820
+ or there's challenges from hospitals,
+
+32:41.820 --> 32:43.260
+ which is very disappointing.
+
+32:43.260 --> 32:46.500
+ So when you say you don't know what the biggest players are,
+
+32:46.500 --> 32:50.540
+ the two biggest that I was aware of closed their doors.
+
+32:50.540 --> 32:53.140
+ So I'm hoping, I'd love to see why
+
+32:53.140 --> 32:54.780
+ and I'd love to see who else can come up.
+
+32:54.780 --> 32:59.620
+ It seems like one of those Elon Musk style problems
+
+32:59.620 --> 33:01.300
+ that are obvious needs to be solved
+
+33:01.300 --> 33:02.980
+ and somebody needs to step up and actually do
+
+33:02.980 --> 33:07.540
+ this large scale data collection.
+
+33:07.540 --> 33:09.620
+ So I know there is an initiative in Massachusetts,
+
+33:09.620 --> 33:11.740
+ I think, which you led by the governor
+
+33:11.740 --> 33:15.460
+ to try to create this kind of health exchange system
+
+33:15.460 --> 33:17.860
+ where at least to help people who kind of when you show up
+
+33:17.860 --> 33:20.220
+ in emergency room and there is no information
+
+33:20.220 --> 33:23.540
+ about what are your allergies and other things.
+
+33:23.540 --> 33:26.140
+ So I don't know how far it will go.
+
+33:26.140 --> 33:28.180
+ But another thing that you said
+
+33:28.180 --> 33:30.780
+ and I find it very interesting is actually
+
+33:30.780 --> 33:33.780
+ who are the successful players in this space
+
+33:33.780 --> 33:37.260
+ and the whole implementation, how does it go?
+
+33:37.260 --> 33:40.300
+ To me, it is from the anthropological perspective,
+
+33:40.300 --> 33:44.660
+ it's more fascinating that AI that today goes in healthcare,
+
+33:44.660 --> 33:50.380
+ we've seen so many attempts and so very little successes.
+
+33:50.380 --> 33:54.220
+ And it's interesting to understand that I've by no means
+
+33:54.220 --> 33:56.700
+ have knowledge to assess it,
+
+33:56.700 --> 33:59.620
+ why we are in the position where we are.
+
+33:59.620 --> 34:02.940
+ Yeah, it's interesting because data is really fuel
+
+34:02.940 --> 34:04.980
+ for a lot of successful applications.
+
+34:04.980 --> 34:08.500
+ And when that data acquires regulatory approval,
+
+34:08.500 --> 34:12.940
+ like the FDA or any kind of approval,
+
+34:12.940 --> 34:15.740
+ it seems that the computer scientists
+
+34:15.740 --> 34:17.460
+ are not quite there yet in being able
+
+34:17.460 --> 34:18.900
+ to play the regulatory game,
+
+34:18.900 --> 34:21.220
+ understanding the fundamentals of it.
+
+34:21.220 --> 34:26.500
+ I think that in many cases when even people do have data,
+
+34:26.500 --> 34:31.300
+ we still don't know what exactly do you need to demonstrate
+
+34:31.300 --> 34:33.860
+ to change the standard of care.
+
+34:35.500 --> 34:37.180
+ Like let me give you an example
+
+34:37.180 --> 34:41.100
+ related to my breast cancer research.
+
+34:41.100 --> 34:45.500
+ So in traditional breast cancer risk assessment,
+
+34:45.500 --> 34:47.140
+ there is something called density,
+
+34:47.140 --> 34:50.500
+ which determines the likelihood of a woman to get cancer.
+
+34:50.500 --> 34:51.700
+ And this pretty much says,
+
+34:51.700 --> 34:54.220
+ how much white do you see on the mammogram?
+
+34:54.220 --> 34:58.980
+ The whiter it is, the more likely the tissue is dense.
+
+34:58.980 --> 35:03.660
+ And the idea behind density, it's not a bad idea.
+
+35:03.660 --> 35:08.100
+ In 1967, a radiologist called Wolf decided to look back
+
+35:08.100 --> 35:09.780
+ at women who were diagnosed
+
+35:09.780 --> 35:12.420
+ and see what is special in their images.
+
+35:12.420 --> 35:14.700
+ Can we look back and say that they're likely to develop?
+
+35:14.700 --> 35:16.180
+ So he come up with some patterns.
+
+35:16.180 --> 35:20.660
+ And it was the best that his human eye can identify.
+
+35:20.660 --> 35:22.060
+ Then it was kind of formalized
+
+35:22.060 --> 35:24.220
+ and coded into four categories.
+
+35:24.220 --> 35:26.940
+ And that's what we are using today.
+
+35:26.940 --> 35:31.020
+ And today this density assessment
+
+35:31.020 --> 35:34.620
+ is actually a federal law from 2019,
+
+35:34.620 --> 35:36.180
+ approved by President Trump
+
+35:36.180 --> 35:40.100
+ and for the previous FDA commissioner,
+
+35:40.100 --> 35:43.620
+ where women are supposed to be advised by their providers
+
+35:43.620 --> 35:45.100
+ if they have high density,
+
+35:45.100 --> 35:47.260
+ putting them into higher risk category.
+
+35:47.260 --> 35:49.460
+ And in some states,
+
+35:49.460 --> 35:51.260
+ you can actually get supplementary screening
+
+35:51.260 --> 35:53.700
+ paid by your insurance because you're in this category.
+
+35:53.700 --> 35:56.780
+ Now you can say, how much science do we have behind it?
+
+35:56.780 --> 36:00.820
+ Whatever, biological science or epidemiological evidence.
+
+36:00.820 --> 36:05.140
+ So it turns out that between 40 and 50% of women
+
+36:05.140 --> 36:06.660
+ have dense breasts.
+
+36:06.660 --> 36:11.140
+ So about 40% of patients are coming out of their screening
+
+36:11.140 --> 36:15.020
+ and somebody tells them, you are in high risk.
+
+36:15.020 --> 36:16.860
+ Now, what exactly does it mean
+
+36:16.860 --> 36:19.620
+ if you as half of the population in high risk?
+
+36:19.620 --> 36:22.060
+ It's from saying, maybe I'm not,
+
+36:22.060 --> 36:23.700
+ or what do I really need to do with it?
+
+36:23.700 --> 36:27.220
+ Because the system doesn't provide me
+
+36:27.220 --> 36:28.340
+ a lot of the solutions
+
+36:28.340 --> 36:30.140
+ because there are so many people like me,
+
+36:30.140 --> 36:34.620
+ we cannot really provide very expensive solutions for them.
+
+36:34.620 --> 36:38.740
+ And the reason this whole density became this big deal,
+
+36:38.740 --> 36:40.820
+ it's actually advocated by the patients
+
+36:40.820 --> 36:42.500
+ who felt very unprotected
+
+36:42.500 --> 36:44.900
+ because many women went and did the mammograms
+
+36:44.900 --> 36:46.260
+ which were normal.
+
+36:46.260 --> 36:49.460
+ And then it turns out that they already had cancer,
+
+36:49.460 --> 36:50.580
+ quite developed cancer.
+
+36:50.580 --> 36:54.420
+ So they didn't have a way to know who is really at risk
+
+36:54.420 --> 36:56.300
+ and what is the likelihood that when the doctor tells you,
+
+36:56.300 --> 36:58.060
+ you're okay, you are not okay.
+
+36:58.060 --> 37:02.140
+ So at the time, and it was 15 years ago,
+
+37:02.140 --> 37:06.820
+ this maybe was the best piece of science that we had.
+
+37:06.820 --> 37:11.820
+ And it took quite 15, 16 years to make it federal law.
+
+37:12.180 --> 37:15.660
+ But now this is a standard.
+
+37:15.660 --> 37:17.620
+ Now with a deep learning model,
+
+37:17.620 --> 37:19.660
+ we can so much more accurately predict
+
+37:19.660 --> 37:21.580
+ who is gonna develop breast cancer
+
+37:21.580 --> 37:23.700
+ just because you're trained on a logical thing.
+
+37:23.700 --> 37:26.060
+ And instead of describing how much white
+
+37:26.060 --> 37:27.380
+ and what kind of white machine
+
+37:27.380 --> 37:30.140
+ can systematically identify the patterns,
+
+37:30.140 --> 37:32.780
+ which was the original idea behind the thought
+
+37:32.780 --> 37:33.700
+ of the cardiologist,
+
+37:33.700 --> 37:35.740
+ machines can do it much more systematically
+
+37:35.740 --> 37:38.260
+ and predict the risk when you're training the machine
+
+37:38.260 --> 37:42.140
+ to look at the image and to say the risk in one to five years.
+
+37:42.140 --> 37:45.060
+ Now you can ask me how long it will take
+
+37:45.060 --> 37:46.460
+ to substitute this density,
+
+37:46.460 --> 37:48.620
+ which is broadly used across the country
+
+37:48.620 --> 37:53.620
+ and really is not helping to bring this new models.
+
+37:54.380 --> 37:56.700
+ And I would say it's not a matter of the algorithm.
+
+37:56.700 --> 37:58.780
+ Algorithms use already orders of magnitude better
+
+37:58.780 --> 38:00.460
+ than what is currently in practice.
+
+38:00.460 --> 38:02.500
+ I think it's really the question,
+
+38:02.500 --> 38:04.380
+ who do you need to convince?
+
+38:04.380 --> 38:07.460
+ How many hospitals do you need to run the experiment?
+
+38:07.460 --> 38:11.500
+ What, you know, all this mechanism of adoption
+
+38:11.500 --> 38:15.180
+ and how do you explain to patients
+
+38:15.180 --> 38:17.580
+ and to women across the country
+
+38:17.580 --> 38:20.460
+ that this is really a better measure?
+
+38:20.460 --> 38:22.740
+ And again, I don't think it's an AI question.
+
+38:22.740 --> 38:25.940
+ We can work more and make the algorithm even better,
+
+38:25.940 --> 38:29.300
+ but I don't think that this is the current, you know,
+
+38:29.300 --> 38:32.060
+ the barrier, the barrier is really this other piece
+
+38:32.060 --> 38:35.260
+ that for some reason is not really explored.
+
+38:35.260 --> 38:36.860
+ It's like anthropological piece.
+
+38:36.860 --> 38:39.860
+ And coming back to your question about books,
+
+38:39.860 --> 38:42.980
+ there is a book that I'm reading.
+
+38:42.980 --> 38:47.980
+ It's called American Sickness by Elizabeth Rosenthal.
+
+38:48.260 --> 38:51.580
+ And I got this book from my clinical collaborator,
+
+38:51.580 --> 38:53.100
+ Dr. Connie Lehman.
+
+38:53.100 --> 38:54.820
+ And I said, I know everything that I need to know
+
+38:54.820 --> 38:56.020
+ about American health system,
+
+38:56.020 --> 38:59.220
+ but you know, every page doesn't fail to surprise me.
+
+38:59.220 --> 39:03.140
+ And I think there is a lot of interesting
+
+39:03.140 --> 39:06.860
+ and really deep lessons for people like us
+
+39:06.860 --> 39:09.660
+ from computer science who are coming into this field
+
+39:09.660 --> 39:13.660
+ to really understand how complex is the system of incentives
+
+39:13.660 --> 39:17.660
+ in the system to understand how you really need to play
+
+39:17.660 --> 39:18.780
+ to drive adoption.
+
+39:19.740 --> 39:21.180
+ You just said it's complex,
+
+39:21.180 --> 39:23.980
+ but if we're trying to simplify it,
+
+39:23.980 --> 39:27.380
+ who do you think most likely would be successful
+
+39:27.380 --> 39:29.540
+ if we push on this group of people?
+
+39:29.540 --> 39:30.780
+ Is it the doctors?
+
+39:30.780 --> 39:31.820
+ Is it the hospitals?
+
+39:31.820 --> 39:34.300
+ Is it the governments or policymakers?
+
+39:34.300 --> 39:37.380
+ Is it the individual patients, consumers?
+
+39:38.860 --> 39:43.860
+ Who needs to be inspired to most likely lead to adoption?
+
+39:45.180 --> 39:47.100
+ Or is there no simple answer?
+
+39:47.100 --> 39:48.260
+ There's no simple answer,
+
+39:48.260 --> 39:51.980
+ but I think there is a lot of good people in medical system
+
+39:51.980 --> 39:55.180
+ who do want to make a change.
+
+39:56.460 --> 40:01.460
+ And I think a lot of power will come from us as consumers
+
+40:01.540 --> 40:04.260
+ because we all are consumers or future consumers
+
+40:04.260 --> 40:06.500
+ of healthcare services.
+
+40:06.500 --> 40:11.500
+ And I think we can do so much more
+
+40:12.060 --> 40:15.500
+ in explaining the potential and not in the hype terms
+
+40:15.500 --> 40:17.900
+ and not saying that we now killed all Alzheimer
+
+40:17.900 --> 40:20.500
+ and I'm really sick of reading this kind of articles
+
+40:20.500 --> 40:22.100
+ which make these claims,
+
+40:22.100 --> 40:24.780
+ but really to show with some examples
+
+40:24.780 --> 40:29.060
+ what this implementation does and how it changes the care.
+
+40:29.060 --> 40:30.020
+ Because I can't imagine,
+
+40:30.020 --> 40:33.220
+ it doesn't matter what kind of politician it is,
+
+40:33.220 --> 40:35.220
+ we all are susceptible to these diseases.
+
+40:35.220 --> 40:37.740
+ There is no one who is free.
+
+40:37.740 --> 40:41.060
+ And eventually, we all are humans
+
+40:41.060 --> 40:44.860
+ and we're looking for a way to alleviate the suffering.
+
+40:44.860 --> 40:47.260
+ And this is one possible way
+
+40:47.260 --> 40:49.300
+ where we currently are under utilizing,
+
+40:49.300 --> 40:50.940
+ which I think can help.
+
+40:51.860 --> 40:55.100
+ So it sounds like the biggest problems are outside of AI
+
+40:55.100 --> 40:57.980
+ in terms of the biggest impact at this point.
+
+40:57.980 --> 41:00.420
+ But are there any open problems
+
+41:00.420 --> 41:03.780
+ in the application of ML to oncology in general?
+
+41:03.780 --> 41:07.540
+ So improving the detection or any other creative methods,
+
+41:07.540 --> 41:09.620
+ whether it's on the detection segmentations
+
+41:09.620 --> 41:11.780
+ or the vision perception side
+
+41:11.780 --> 41:16.260
+ or some other clever of inference?
+
+41:16.260 --> 41:19.620
+ Yeah, what in general in your view are the open problems
+
+41:19.620 --> 41:20.460
+ in this space?
+
+41:20.460 --> 41:22.460
+ Yeah, I just want to mention that beside detection,
+
+41:22.460 --> 41:24.820
+ not the area where I am kind of quite active
+
+41:24.820 --> 41:28.580
+ and I think it's really an increasingly important area
+
+41:28.580 --> 41:30.940
+ in healthcare is drug design.
+
+41:32.260 --> 41:33.100
+ Absolutely.
+
+41:33.100 --> 41:36.900
+ Because it's fine if you detect something early,
+
+41:36.900 --> 41:41.100
+ but you still need to get drugs
+
+41:41.100 --> 41:43.860
+ and new drugs for these conditions.
+
+41:43.860 --> 41:46.740
+ And today, all of the drug design,
+
+41:46.740 --> 41:48.300
+ ML is non existent there.
+
+41:48.300 --> 41:52.980
+ We don't have any drug that was developed by the ML model
+
+41:52.980 --> 41:54.900
+ or even not developed,
+
+41:54.900 --> 41:57.060
+ but at least even knew that ML model
+
+41:57.060 --> 41:59.260
+ plays some significant role.
+
+41:59.260 --> 42:03.300
+ I think this area with all the new ability
+
+42:03.300 --> 42:05.780
+ to generate molecules with desired properties
+
+42:05.780 --> 42:10.780
+ to do in silica screening is really a big open area.
+
+42:11.460 --> 42:12.740
+ To be totally honest with you,
+
+42:12.740 --> 42:14.900
+ when we are doing diagnostics and imaging,
+
+42:14.900 --> 42:17.260
+ primarily taking the ideas that were developed
+
+42:17.260 --> 42:20.460
+ for other areas and you applying them with some adaptation,
+
+42:20.460 --> 42:25.460
+ the area of drug design is really technically interesting
+
+42:26.820 --> 42:27.980
+ and exciting area.
+
+42:27.980 --> 42:30.380
+ You need to work a lot with graphs
+
+42:30.380 --> 42:34.580
+ and capture various 3D properties.
+
+42:34.580 --> 42:37.420
+ There are lots and lots of opportunities
+
+42:37.420 --> 42:39.820
+ to be technically creative.
+
+42:39.820 --> 42:44.820
+ And I think there are a lot of open questions in this area.
+
+42:46.820 --> 42:48.820
+ We're already getting a lot of successes
+
+42:48.820 --> 42:52.700
+ even with kind of the first generation of these models,
+
+42:52.700 --> 42:56.500
+ but there is much more new creative things that you can do.
+
+42:56.500 --> 42:59.260
+ And what's very nice to see is that actually
+
+42:59.260 --> 43:04.180
+ the more powerful, the more interesting models
+
+43:04.180 --> 43:05.460
+ actually do do better.
+
+43:05.460 --> 43:10.460
+ So there is a place to innovate in machine learning
+
+43:11.300 --> 43:12.540
+ in this area.
+
+43:13.900 --> 43:16.820
+ And some of these techniques are really unique to,
+
+43:16.820 --> 43:19.620
+ let's say, to graph generation and other things.
+
+43:19.620 --> 43:20.820
+ So...
+
+43:20.820 --> 43:23.980
+ What, just to interrupt really quick, I'm sorry,
+
+43:23.980 --> 43:28.980
+ graph generation or graphs, drug discovery in general,
+
+43:30.620 --> 43:31.940
+ how do you discover a drug?
+
+43:31.940 --> 43:33.340
+ Is this chemistry?
+
+43:33.340 --> 43:37.500
+ Is this trying to predict different chemical reactions?
+
+43:37.500 --> 43:39.660
+ Or is it some kind of...
+
+43:39.660 --> 43:42.100
+ What do graphs even represent in this space?
+
+43:42.100 --> 43:43.980
+ Oh, sorry, sorry.
+
+43:43.980 --> 43:45.340
+ And what's a drug?
+
+43:45.340 --> 43:47.140
+ Okay, so let's say you're thinking
+
+43:47.140 --> 43:48.540
+ there are many different types of drugs,
+
+43:48.540 --> 43:50.580
+ but let's say you're gonna talk about small molecules
+
+43:50.580 --> 43:52.860
+ because I think today the majority of drugs
+
+43:52.860 --> 43:53.700
+ are small molecules.
+
+43:53.700 --> 43:55.020
+ So small molecule is a graph.
+
+43:55.020 --> 43:59.180
+ The molecule is just where the node in the graph
+
+43:59.180 --> 44:01.500
+ is an atom and then you have the bonds.
+
+44:01.500 --> 44:03.220
+ So it's really a graph representation.
+
+44:03.220 --> 44:05.540
+ If you look at it in 2D, correct,
+
+44:05.540 --> 44:07.460
+ you can do it 3D, but let's say,
+
+44:07.460 --> 44:09.540
+ let's keep it simple and stick in 2D.
+
+44:11.500 --> 44:14.740
+ So pretty much my understanding today,
+
+44:14.740 --> 44:18.620
+ how it is done at scale in the companies,
+
+44:18.620 --> 44:20.220
+ without machine learning,
+
+44:20.220 --> 44:22.100
+ you have high throughput screening.
+
+44:22.100 --> 44:23.740
+ So you know that you are interested
+
+44:23.740 --> 44:26.540
+ to get certain biological activity of the compound.
+
+44:26.540 --> 44:28.860
+ So you scan a lot of compounds,
+
+44:28.860 --> 44:30.700
+ like maybe hundreds of thousands,
+
+44:30.700 --> 44:32.980
+ some really big number of compounds.
+
+44:32.980 --> 44:36.060
+ You identify some compounds which have the right activity
+
+44:36.060 --> 44:39.220
+ and then at this point, the chemists come
+
+44:39.220 --> 44:43.220
+ and they're trying to now to optimize
+
+44:43.220 --> 44:45.340
+ this original heat to different properties
+
+44:45.340 --> 44:47.180
+ that you want it to be maybe soluble,
+
+44:47.180 --> 44:49.060
+ you want it to decrease toxicity,
+
+44:49.060 --> 44:51.620
+ you want it to decrease the side effects.
+
+44:51.620 --> 44:54.020
+ Are those, sorry again to interrupt,
+
+44:54.020 --> 44:55.500
+ can that be done in simulation
+
+44:55.500 --> 44:57.700
+ or just by looking at the molecules
+
+44:57.700 --> 44:59.820
+ or do you need to actually run reactions
+
+44:59.820 --> 45:02.460
+ in real labs with lab coats and stuff?
+
+45:02.460 --> 45:04.020
+ So when you do high throughput screening,
+
+45:04.020 --> 45:06.100
+ you really do screening.
+
+45:06.100 --> 45:07.020
+ It's in the lab.
+
+45:07.020 --> 45:09.140
+ It's really the lab screening.
+
+45:09.140 --> 45:10.980
+ You screen the molecules, correct?
+
+45:10.980 --> 45:12.580
+ I don't know what screening is.
+
+45:12.580 --> 45:15.060
+ The screening is just check them for certain property.
+
+45:15.060 --> 45:17.260
+ Like in the physical space, in the physical world,
+
+45:17.260 --> 45:18.740
+ like actually there's a machine probably
+
+45:18.740 --> 45:21.420
+ that's actually running the reaction.
+
+45:21.420 --> 45:22.900
+ Actually running the reactions, yeah.
+
+45:22.900 --> 45:25.420
+ So there is a process where you can run
+
+45:25.420 --> 45:26.660
+ and that's why it's called high throughput
+
+45:26.660 --> 45:29.580
+ that it become cheaper and faster
+
+45:29.580 --> 45:33.820
+ to do it on very big number of molecules.
+
+45:33.820 --> 45:35.820
+ You run the screening,
+
+45:35.820 --> 45:40.300
+ you identify potential good starts
+
+45:40.300 --> 45:42.340
+ and then when the chemists come in
+
+45:42.340 --> 45:44.060
+ who have done it many times
+
+45:44.060 --> 45:46.180
+ and then they can try to look at it and say,
+
+45:46.180 --> 45:48.260
+ how can you change the molecule
+
+45:48.260 --> 45:51.780
+ to get the desired profile
+
+45:51.780 --> 45:53.460
+ in terms of all other properties?
+
+45:53.460 --> 45:56.500
+ So maybe how do I make it more bioactive and so on?
+
+45:56.500 --> 45:59.460
+ And there the creativity of the chemists
+
+45:59.460 --> 46:03.980
+ really is the one that determines the success
+
+46:03.980 --> 46:07.460
+ of this design because again,
+
+46:07.460 --> 46:09.300
+ they have a lot of domain knowledge
+
+46:09.300 --> 46:12.900
+ of what works, how do you decrease the CCD and so on
+
+46:12.900 --> 46:15.020
+ and that's what they do.
+
+46:15.020 --> 46:17.860
+ So all the drugs that are currently
+
+46:17.860 --> 46:20.220
+ in the FDA approved drugs
+
+46:20.220 --> 46:22.140
+ or even drugs that are in clinical trials,
+
+46:22.140 --> 46:27.100
+ they are designed using these domain experts
+
+46:27.100 --> 46:30.060
+ which goes through this combinatorial space
+
+46:30.060 --> 46:31.940
+ of molecules or graphs or whatever
+
+46:31.940 --> 46:35.140
+ and find the right one or adjust it to be the right ones.
+
+46:35.140 --> 46:38.060
+ It sounds like the breast density heuristic
+
+46:38.060 --> 46:40.460
+ from 67 to the same echoes.
+
+46:40.460 --> 46:41.820
+ It's not necessarily that.
+
+46:41.820 --> 46:45.380
+ It's really driven by deep understanding.
+
+46:45.380 --> 46:46.820
+ It's not like they just observe it.
+
+46:46.820 --> 46:48.540
+ I mean, they do deeply understand chemistry
+
+46:48.540 --> 46:50.460
+ and they do understand how different groups
+
+46:50.460 --> 46:53.140
+ and how does it changes the properties.
+
+46:53.140 --> 46:56.660
+ So there is a lot of science that gets into it
+
+46:56.660 --> 46:58.740
+ and a lot of kind of simulation,
+
+46:58.740 --> 47:00.940
+ how do you want it to behave?
+
+47:01.900 --> 47:03.900
+ It's very, very complex.
+
+47:03.900 --> 47:06.140
+ So they're quite effective at this design, obviously.
+
+47:06.140 --> 47:08.420
+ Now effective, yeah, we have drugs.
+
+47:08.420 --> 47:10.780
+ Like depending on how do you measure effective,
+
+47:10.780 --> 47:13.940
+ if you measure it in terms of cost, it's prohibitive.
+
+47:13.940 --> 47:15.820
+ If you measure it in terms of times,
+
+47:15.820 --> 47:18.420
+ we have lots of diseases for which we don't have any drugs
+
+47:18.420 --> 47:20.060
+ and we don't even know how to approach
+
+47:20.060 --> 47:23.460
+ and don't need to mention few drugs
+
+47:23.460 --> 47:27.140
+ or neurodegenerative disease drugs that fail.
+
+47:27.140 --> 47:32.140
+ So there are lots of trials that fail in later stages,
+
+47:32.180 --> 47:35.180
+ which is really catastrophic from the financial perspective.
+
+47:35.180 --> 47:39.540
+ So is it the effective, the most effective mechanism?
+
+47:39.540 --> 47:42.700
+ Absolutely no, but this is the only one that currently works.
+
+47:44.300 --> 47:47.900
+ And I was closely interacting
+
+47:47.900 --> 47:49.260
+ with people in pharmaceutical industry.
+
+47:49.260 --> 47:51.340
+ I was really fascinated on how sharp
+
+47:51.340 --> 47:55.260
+ and what a deep understanding of the domain do they have.
+
+47:55.260 --> 47:57.020
+ It's not observation driven.
+
+47:57.020 --> 48:00.220
+ There is really a lot of science behind what they do.
+
+48:00.220 --> 48:02.300
+ But if you ask me, can machine learning change it,
+
+48:02.300 --> 48:05.300
+ I firmly believe yes,
+
+48:05.300 --> 48:07.860
+ because even the most experienced chemists
+
+48:07.860 --> 48:11.100
+ cannot hold in their memory and understanding
+
+48:11.100 --> 48:12.500
+ everything that you can learn
+
+48:12.500 --> 48:15.420
+ from millions of molecules and reactions.
+
+48:17.220 --> 48:19.900
+ And the space of graphs is a totally new space.
+
+48:19.900 --> 48:22.060
+ I mean, it's a really interesting space
+
+48:22.060 --> 48:23.980
+ for machine learning to explore, graph generation.
+
+48:23.980 --> 48:26.260
+ Yeah, so there are a lot of things that you can do here.
+
+48:26.260 --> 48:28.740
+ So we do a lot of work.
+
+48:28.740 --> 48:31.620
+ So the first tool that we started with
+
+48:31.620 --> 48:36.300
+ was the tool that can predict properties of the molecules.
+
+48:36.300 --> 48:39.420
+ So you can just give the molecule and the property.
+
+48:39.420 --> 48:41.340
+ It can be by activity property,
+
+48:41.340 --> 48:44.300
+ or it can be some other property.
+
+48:44.300 --> 48:46.460
+ And you train the molecules
+
+48:46.460 --> 48:50.020
+ and you can now take a new molecule
+
+48:50.020 --> 48:52.180
+ and predict this property.
+
+48:52.180 --> 48:54.860
+ Now, when people started working in this area,
+
+48:54.860 --> 48:55.980
+ it is something very simple.
+
+48:55.980 --> 48:58.580
+ They do kind of existing fingerprints,
+
+48:58.580 --> 49:00.740
+ which is kind of handcrafted features of the molecule.
+
+49:00.740 --> 49:02.980
+ When you break the graph to substructures
+
+49:02.980 --> 49:05.980
+ and then you run it in a feed forward neural network.
+
+49:05.980 --> 49:08.500
+ And what was interesting to see that clearly,
+
+49:08.500 --> 49:11.020
+ this was not the most effective way to proceed.
+
+49:11.020 --> 49:14.060
+ And you need to have much more complex models
+
+49:14.060 --> 49:16.300
+ that can induce a representation,
+
+49:16.300 --> 49:19.220
+ which can translate this graph into the embeddings
+
+49:19.220 --> 49:21.300
+ and do these predictions.
+
+49:21.300 --> 49:23.220
+ So this is one direction.
+
+49:23.220 --> 49:25.260
+ Then another direction, which is kind of related
+
+49:25.260 --> 49:29.180
+ is not only to stop by looking at the embedding itself,
+
+49:29.180 --> 49:32.780
+ but actually modify it to produce better molecules.
+
+49:32.780 --> 49:36.020
+ So you can think about it as machine translation
+
+49:36.020 --> 49:38.140
+ that you can start with a molecule
+
+49:38.140 --> 49:40.580
+ and then there is an improved version of molecule.
+
+49:40.580 --> 49:42.860
+ And you can again, with encoder translate it
+
+49:42.860 --> 49:45.380
+ into the hidden space and then learn how to modify it
+
+49:45.380 --> 49:49.340
+ to improve the in some ways version of the molecules.
+
+49:49.340 --> 49:52.620
+ So that's, it's kind of really exciting.
+
+49:52.620 --> 49:54.740
+ We already have seen that the property prediction
+
+49:54.740 --> 49:56.140
+ works pretty well.
+
+49:56.140 --> 49:59.780
+ And now we are generating molecules
+
+49:59.780 --> 50:01.820
+ and there is actually labs
+
+50:01.820 --> 50:04.180
+ which are manufacturing this molecule.
+
+50:04.180 --> 50:06.340
+ So we'll see where it will get us.
+
+50:06.340 --> 50:07.780
+ Okay, that's really exciting.
+
+50:07.780 --> 50:08.860
+ There's a lot of promise.
+
+50:08.860 --> 50:11.820
+ Speaking of machine translation and embeddings,
+
+50:11.820 --> 50:15.580
+ I think you have done a lot of really great research
+
+50:15.580 --> 50:17.540
+ in NLP, natural language processing.
+
+50:19.260 --> 50:21.540
+ Can you tell me your journey through NLP?
+
+50:21.540 --> 50:25.100
+ What ideas, problems, approaches were you working on?
+
+50:25.100 --> 50:28.180
+ Were you fascinated with, did you explore
+
+50:28.180 --> 50:33.180
+ before this magic of deep learning reemerged and after?
+
+50:34.020 --> 50:37.180
+ So when I started my work in NLP, it was in 97.
+
+50:38.180 --> 50:39.460
+ This was very interesting time.
+
+50:39.460 --> 50:42.620
+ It was exactly the time that I came to ACL.
+
+50:43.500 --> 50:46.140
+ And at the time I could barely understand English,
+
+50:46.140 --> 50:48.500
+ but it was exactly like the transition point
+
+50:48.500 --> 50:53.500
+ because half of the papers were really rule based approaches
+
+50:53.500 --> 50:56.180
+ where people took more kind of heavy linguistic approaches
+
+50:56.180 --> 51:00.060
+ for small domains and try to build up from there.
+
+51:00.060 --> 51:02.220
+ And then there were the first generation of papers
+
+51:02.220 --> 51:04.500
+ which were corpus based papers.
+
+51:04.500 --> 51:06.420
+ And they were very simple in our terms
+
+51:06.420 --> 51:07.900
+ when you collect some statistics
+
+51:07.900 --> 51:10.020
+ and do prediction based on them.
+
+51:10.020 --> 51:13.100
+ And I found it really fascinating that one community
+
+51:13.100 --> 51:18.100
+ can think so very differently about the problem.
+
+51:19.220 --> 51:22.820
+ And I remember my first paper that I wrote,
+
+51:22.820 --> 51:24.460
+ it didn't have a single formula.
+
+51:24.460 --> 51:25.740
+ It didn't have evaluation.
+
+51:25.740 --> 51:28.340
+ It just had examples of outputs.
+
+51:28.340 --> 51:32.020
+ And this was a standard of the field at the time.
+
+51:32.020 --> 51:35.860
+ In some ways, I mean, people maybe just started emphasizing
+
+51:35.860 --> 51:38.940
+ the empirical evaluation, but for many applications
+
+51:38.940 --> 51:42.780
+ like summarization, you just show some examples of outputs.
+
+51:42.780 --> 51:45.460
+ And then increasingly you can see that how
+
+51:45.460 --> 51:48.300
+ the statistical approaches dominated the field
+
+51:48.300 --> 51:52.100
+ and we've seen increased performance
+
+51:52.100 --> 51:56.020
+ across many basic tasks.
+
+51:56.020 --> 52:00.420
+ The sad part of the story maybe that if you look again
+
+52:00.420 --> 52:05.100
+ through this journey, we see that the role of linguistics
+
+52:05.100 --> 52:07.460
+ in some ways greatly diminishes.
+
+52:07.460 --> 52:11.580
+ And I think that you really need to look
+
+52:11.580 --> 52:14.540
+ through the whole proceeding to find one or two papers
+
+52:14.540 --> 52:17.260
+ which make some interesting linguistic references.
+
+52:17.260 --> 52:18.100
+ It's really big.
+
+52:18.100 --> 52:18.920
+ Today, yeah.
+
+52:18.920 --> 52:19.760
+ Today, today.
+
+52:19.760 --> 52:20.600
+ This was definitely one of the.
+
+52:20.600 --> 52:23.140
+ Things like syntactic trees, just even basically
+
+52:23.140 --> 52:26.180
+ against our conversation about human understanding
+
+52:26.180 --> 52:30.300
+ of language, which I guess what linguistics would be
+
+52:30.300 --> 52:34.300
+ structured, hierarchical representing language
+
+52:34.300 --> 52:37.140
+ in a way that's human explainable, understandable
+
+52:37.140 --> 52:39.500
+ is missing today.
+
+52:39.500 --> 52:42.380
+ I don't know if it is, what is explainable
+
+52:42.380 --> 52:43.620
+ and understandable.
+
+52:43.620 --> 52:47.360
+ In the end, we perform functions and it's okay
+
+52:47.360 --> 52:50.140
+ to have machine which performs a function.
+
+52:50.140 --> 52:53.200
+ Like when you're thinking about your calculator, correct?
+
+52:53.200 --> 52:56.100
+ Your calculator can do calculation very different
+
+52:56.100 --> 52:57.620
+ from you would do the calculation,
+
+52:57.620 --> 52:58.860
+ but it's very effective in it.
+
+52:58.860 --> 53:02.560
+ And this is fine if we can achieve certain tasks
+
+53:02.560 --> 53:05.760
+ with high accuracy, doesn't necessarily mean
+
+53:05.760 --> 53:09.300
+ that it has to understand it the same way as we understand.
+
+53:09.300 --> 53:11.260
+ In some ways, it's even naive to request
+
+53:11.260 --> 53:14.940
+ because you have so many other sources of information
+
+53:14.940 --> 53:17.900
+ that are absent when you are training your system.
+
+53:17.900 --> 53:19.220
+ So it's okay.
+
+53:19.220 --> 53:20.060
+ Is it delivered?
+
+53:20.060 --> 53:21.500
+ And I would tell you one application
+
+53:21.500 --> 53:22.780
+ that is really fascinating.
+
+53:22.780 --> 53:25.060
+ In 97, when it came to ACL, there were some papers
+
+53:25.060 --> 53:25.900
+ on machine translation.
+
+53:25.900 --> 53:27.440
+ They were like primitive.
+
+53:27.440 --> 53:31.060
+ Like people were trying really, really simple.
+
+53:31.060 --> 53:34.260
+ And the feeling, my feeling was that, you know,
+
+53:34.260 --> 53:36.260
+ to make real machine translation system,
+
+53:36.260 --> 53:39.580
+ it's like to fly at the moon and build a house there
+
+53:39.580 --> 53:41.580
+ and the garden and live happily ever after.
+
+53:41.580 --> 53:42.600
+ I mean, it's like impossible.
+
+53:42.600 --> 53:46.740
+ I never could imagine that within, you know, 10 years,
+
+53:46.740 --> 53:48.540
+ we would already see the system working.
+
+53:48.540 --> 53:51.420
+ And now, you know, nobody is even surprised
+
+53:51.420 --> 53:54.420
+ to utilize the system on daily basis.
+
+53:54.420 --> 53:56.220
+ So this was like a huge, huge progress,
+
+53:56.220 --> 53:57.860
+ saying that people for very long time
+
+53:57.860 --> 54:00.820
+ tried to solve using other mechanisms.
+
+54:00.820 --> 54:03.220
+ And they were unable to solve it.
+
+54:03.220 --> 54:06.140
+ That's why coming back to your question about biology,
+
+54:06.140 --> 54:10.800
+ that, you know, in linguistics, people try to go this way
+
+54:10.800 --> 54:13.500
+ and try to write the syntactic trees
+
+54:13.500 --> 54:17.500
+ and try to abstract it and to find the right representation.
+
+54:17.500 --> 54:22.240
+ And, you know, they couldn't get very far
+
+54:22.240 --> 54:26.580
+ with this understanding while these models using,
+
+54:26.580 --> 54:29.640
+ you know, other sources actually capable
+
+54:29.640 --> 54:31.680
+ to make a lot of progress.
+
+54:31.680 --> 54:33.960
+ Now, I'm not naive to think
+
+54:33.960 --> 54:36.780
+ that we are in this paradise space in NLP.
+
+54:36.780 --> 54:38.580
+ And sure as you know,
+
+54:38.580 --> 54:40.860
+ that when we slightly change the domain
+
+54:40.860 --> 54:42.620
+ and when we decrease the amount of training,
+
+54:42.620 --> 54:44.740
+ it can do like really bizarre and funny thing.
+
+54:44.740 --> 54:46.500
+ But I think it's just a matter
+
+54:46.500 --> 54:48.540
+ of improving generalization capacity,
+
+54:48.540 --> 54:51.500
+ which is just a technical question.
+
+54:51.500 --> 54:54.340
+ Wow, so that's the question.
+
+54:54.340 --> 54:57.720
+ How much of language understanding can be solved
+
+54:57.720 --> 54:59.180
+ with deep neural networks?
+
+54:59.180 --> 55:03.740
+ In your intuition, I mean, it's unknown, I suppose.
+
+55:03.740 --> 55:07.660
+ But as we start to creep towards romantic notions
+
+55:07.660 --> 55:10.620
+ of the spirit of the Turing test
+
+55:10.620 --> 55:14.220
+ and conversation and dialogue
+
+55:14.220 --> 55:18.340
+ and something that maybe to me or to us,
+
+55:18.340 --> 55:21.620
+ so the humans feels like it needs real understanding.
+
+55:21.620 --> 55:23.500
+ How much can that be achieved
+
+55:23.500 --> 55:27.180
+ with these neural networks or statistical methods?
+
+55:27.180 --> 55:32.180
+ So I guess I am very much driven by the outcomes.
+
+55:33.340 --> 55:35.420
+ Can we achieve the performance
+
+55:35.420 --> 55:40.420
+ which would be satisfactory for us for different tasks?
+
+55:40.700 --> 55:43.020
+ Now, if you again look at machine translation system,
+
+55:43.020 --> 55:46.020
+ which are trained on large amounts of data,
+
+55:46.020 --> 55:48.780
+ they really can do a remarkable job
+
+55:48.780 --> 55:51.300
+ relatively to where they've been a few years ago.
+
+55:51.300 --> 55:54.620
+ And if you project into the future,
+
+55:54.620 --> 55:59.380
+ if it will be the same speed of improvement, you know,
+
+55:59.380 --> 56:00.220
+ this is great.
+
+56:00.220 --> 56:01.060
+ Now, does it bother me
+
+56:01.060 --> 56:04.860
+ that it's not doing the same translation as we are doing?
+
+56:04.860 --> 56:06.620
+ Now, if you go to cognitive science,
+
+56:06.620 --> 56:09.460
+ we still don't really understand what we are doing.
+
+56:10.460 --> 56:11.860
+ I mean, there are a lot of theories
+
+56:11.860 --> 56:13.840
+ and there's obviously a lot of progress and studying,
+
+56:13.840 --> 56:17.540
+ but our understanding what exactly goes on in our brains
+
+56:17.540 --> 56:21.020
+ when we process language is still not crystal clear
+
+56:21.020 --> 56:25.460
+ and precise that we can translate it into machines.
+
+56:25.460 --> 56:29.220
+ What does bother me is that, you know,
+
+56:29.220 --> 56:31.700
+ again, that machines can be extremely brittle
+
+56:31.700 --> 56:33.980
+ when you go out of your comfort zone
+
+56:33.980 --> 56:36.060
+ of when there is a distributional shift
+
+56:36.060 --> 56:37.300
+ between training and testing.
+
+56:37.300 --> 56:39.020
+ And it have been years and years,
+
+56:39.020 --> 56:41.320
+ every year when I teach an LP class,
+
+56:41.320 --> 56:43.560
+ now show them some examples of translation
+
+56:43.560 --> 56:47.300
+ from some newspaper in Hebrew or whatever, it was perfect.
+
+56:47.300 --> 56:51.300
+ And then I have a recipe that Tomi Yakel's system
+
+56:51.300 --> 56:53.900
+ sent me a while ago and it was written in Finnish
+
+56:53.900 --> 56:55.720
+ of Karelian pies.
+
+56:55.720 --> 56:59.280
+ And it's just a terrible translation.
+
+56:59.280 --> 57:01.460
+ You cannot understand anything what it does.
+
+57:01.460 --> 57:04.180
+ It's not like some syntactic mistakes, it's just terrible.
+
+57:04.180 --> 57:07.020
+ And year after year, I tried and will translate
+
+57:07.020 --> 57:08.980
+ and year after year, it does this terrible work
+
+57:08.980 --> 57:10.980
+ because I guess, you know, the recipes
+
+57:10.980 --> 57:14.580
+ are not a big part of their training repertoire.
+
+57:14.580 --> 57:19.020
+ So, but in terms of outcomes, that's a really clean,
+
+57:19.020 --> 57:20.240
+ good way to look at it.
+
+57:21.100 --> 57:23.140
+ I guess the question I was asking is,
+
+57:24.060 --> 57:27.700
+ do you think, imagine a future,
+
+57:27.700 --> 57:30.540
+ do you think the current approaches can pass
+
+57:30.540 --> 57:32.460
+ the Turing test in the way,
+
+57:34.700 --> 57:37.060
+ in the best possible formulation of the Turing test?
+
+57:37.060 --> 57:39.460
+ Which is, would you wanna have a conversation
+
+57:39.460 --> 57:42.340
+ with a neural network for an hour?
+
+57:42.340 --> 57:45.820
+ Oh God, no, no, there are not that many people
+
+57:45.820 --> 57:48.380
+ that I would want to talk for an hour, but.
+
+57:48.380 --> 57:51.500
+ There are some people in this world, alive or not,
+
+57:51.500 --> 57:53.260
+ that you would like to talk to for an hour.
+
+57:53.260 --> 57:56.700
+ Could a neural network achieve that outcome?
+
+57:56.700 --> 57:58.860
+ So I think it would be really hard to create
+
+57:58.860 --> 58:02.300
+ a successful training set, which would enable it
+
+58:02.300 --> 58:04.980
+ to have a conversation, a contextual conversation
+
+58:04.980 --> 58:05.820
+ for an hour.
+
+58:05.820 --> 58:08.140
+ Do you think it's a problem of data, perhaps?
+
+58:08.140 --> 58:09.940
+ I think in some ways it's not a problem of data,
+
+58:09.940 --> 58:13.620
+ it's a problem both of data and the problem of
+
+58:13.620 --> 58:15.780
+ the way we're training our systems,
+
+58:15.780 --> 58:18.060
+ their ability to truly, to generalize,
+
+58:18.060 --> 58:19.300
+ to be very compositional.
+
+58:19.300 --> 58:23.220
+ In some ways it's limited in the current capacity,
+
+58:23.220 --> 58:27.980
+ at least we can translate well,
+
+58:27.980 --> 58:32.540
+ we can find information well, we can extract information.
+
+58:32.540 --> 58:35.180
+ So there are many capacities in which it's doing very well.
+
+58:35.180 --> 58:38.000
+ And you can ask me, would you trust the machine
+
+58:38.000 --> 58:39.820
+ to translate for you and use it as a source?
+
+58:39.820 --> 58:42.580
+ I would say absolutely, especially if we're talking about
+
+58:42.580 --> 58:45.660
+ newspaper data or other data which is in the realm
+
+58:45.660 --> 58:47.900
+ of its own training set, I would say yes.
+
+58:48.900 --> 58:52.900
+ But having conversations with the machine,
+
+58:52.900 --> 58:56.460
+ it's not something that I would choose to do.
+
+58:56.460 --> 58:59.420
+ But I would tell you something, talking about Turing tests
+
+58:59.420 --> 59:02.940
+ and about all this kind of ELISA conversations,
+
+59:02.940 --> 59:05.540
+ I remember visiting Tencent in China
+
+59:05.540 --> 59:07.620
+ and they have this chat board and they claim
+
+59:07.620 --> 59:10.780
+ there is really humongous amount of the local population
+
+59:10.780 --> 59:12.940
+ which for hours talks to the chat board.
+
+59:12.940 --> 59:15.340
+ To me it was, I cannot believe it,
+
+59:15.340 --> 59:18.000
+ but apparently it's documented that there are some people
+
+59:18.000 --> 59:20.760
+ who enjoy this conversation.
+
+59:20.760 --> 59:24.540
+ And it brought to me another MIT story
+
+59:24.540 --> 59:26.980
+ about ELISA and Weisenbaum.
+
+59:26.980 --> 59:29.340
+ I don't know if you're familiar with the story.
+
+59:29.340 --> 59:31.020
+ So Weisenbaum was a professor at MIT
+
+59:31.020 --> 59:32.580
+ and when he developed this ELISA,
+
+59:32.580 --> 59:34.620
+ which was just doing string matching,
+
+59:34.620 --> 59:38.540
+ very trivial, like restating of what you said
+
+59:38.540 --> 59:41.260
+ with very few rules, no syntax.
+
+59:41.260 --> 59:43.740
+ Apparently there were secretaries at MIT
+
+59:43.740 --> 59:48.180
+ that would sit for hours and converse with this trivial thing
+
+59:48.180 --> 59:50.180
+ and at the time there was no beautiful interfaces
+
+59:50.180 --> 59:51.820
+ so you actually need to go through the pain
+
+59:51.820 --> 59:53.540
+ of communicating.
+
+59:53.540 --> 59:56.940
+ And Weisenbaum himself was so horrified by this phenomenon
+
+59:56.940 --> 59:59.300
+ that people can believe enough to the machine
+
+59:59.300 --> 1:00:00.820
+ that you just need to give them the hint
+
+1:00:00.820 --> 1:00:03.940
+ that machine understands you and you can complete the rest
+
+1:00:03.940 --> 1:00:05.420
+ that he kind of stopped this research
+
+1:00:05.420 --> 1:00:08.660
+ and went into kind of trying to understand
+
+1:00:08.660 --> 1:00:11.480
+ what this artificial intelligence can do to our brains.
+
+1:00:12.740 --> 1:00:14.380
+ So my point is, you know,
+
+1:00:14.380 --> 1:00:19.300
+ how much, it's not how good is the technology,
+
+1:00:19.300 --> 1:00:22.620
+ it's how ready we are to believe
+
+1:00:22.620 --> 1:00:25.580
+ that it delivers the goods that we are trying to get.
+
+1:00:25.580 --> 1:00:27.200
+ That's a really beautiful way to put it.
+
+1:00:27.200 --> 1:00:29.800
+ I, by the way, I'm not horrified by that possibility,
+
+1:00:29.800 --> 1:00:33.140
+ but inspired by it because,
+
+1:00:33.140 --> 1:00:35.920
+ I mean, human connection,
+
+1:00:35.920 --> 1:00:38.220
+ whether it's through language or through love,
+
+1:00:39.860 --> 1:00:44.860
+ it seems like it's very amenable to machine learning
+
+1:00:44.900 --> 1:00:49.340
+ and the rest is just challenges of psychology.
+
+1:00:49.340 --> 1:00:52.460
+ Like you said, the secretaries who enjoy spending hours.
+
+1:00:52.460 --> 1:00:55.020
+ I would say I would describe most of our lives
+
+1:00:55.020 --> 1:00:58.020
+ as enjoying spending hours with those we love
+
+1:00:58.020 --> 1:01:00.820
+ for very silly reasons.
+
+1:01:00.820 --> 1:01:02.780
+ All we're doing is keyword matching as well.
+
+1:01:02.780 --> 1:01:05.100
+ So I'm not sure how much intelligence
+
+1:01:05.100 --> 1:01:08.140
+ we exhibit to each other with the people we love
+
+1:01:08.140 --> 1:01:09.820
+ that we're close with.
+
+1:01:09.820 --> 1:01:12.660
+ So it's a very interesting point
+
+1:01:12.660 --> 1:01:16.020
+ of what it means to pass the Turing test with language.
+
+1:01:16.020 --> 1:01:16.860
+ I think you're right.
+
+1:01:16.860 --> 1:01:18.220
+ In terms of conversation,
+
+1:01:18.220 --> 1:01:20.180
+ I think machine translation
+
+1:01:21.420 --> 1:01:24.420
+ has very clear performance and improvement, right?
+
+1:01:24.420 --> 1:01:28.020
+ What it means to have a fulfilling conversation
+
+1:01:28.020 --> 1:01:32.660
+ is very person dependent and context dependent
+
+1:01:32.660 --> 1:01:33.580
+ and so on.
+
+1:01:33.580 --> 1:01:36.340
+ That's, yeah, it's very well put.
+
+1:01:36.340 --> 1:01:40.740
+ But in your view, what's a benchmark in natural language,
+
+1:01:40.740 --> 1:01:43.640
+ a test that's just out of reach right now,
+
+1:01:43.640 --> 1:01:46.020
+ but we might be able to, that's exciting.
+
+1:01:46.020 --> 1:01:49.100
+ Is it in perfecting machine translation
+
+1:01:49.100 --> 1:01:51.900
+ or is there other, is it summarization?
+
+1:01:51.900 --> 1:01:52.740
+ What's out there just out of reach?
+
+1:01:52.740 --> 1:01:55.820
+ I think it goes across specific application.
+
+1:01:55.820 --> 1:01:59.500
+ It's more about the ability to learn from few examples
+
+1:01:59.500 --> 1:02:03.300
+ for real, what we call few short learning and all these cases
+
+1:02:03.300 --> 1:02:05.940
+ because the way we publish these papers today,
+
+1:02:05.940 --> 1:02:09.900
+ we say, if we have like naively, we get 55,
+
+1:02:09.900 --> 1:02:12.500
+ but now we had a few example and we can move to 65.
+
+1:02:12.500 --> 1:02:13.540
+ None of these methods
+
+1:02:13.540 --> 1:02:15.980
+ actually are realistically doing anything useful.
+
+1:02:15.980 --> 1:02:18.540
+ You cannot use them today.
+
+1:02:18.540 --> 1:02:23.540
+ And the ability to be able to generalize and to move
+
+1:02:25.460 --> 1:02:28.940
+ or to be autonomous in finding the data
+
+1:02:28.940 --> 1:02:30.300
+ that you need to learn,
+
+1:02:31.340 --> 1:02:34.280
+ to be able to perfect new tasks or new language,
+
+1:02:35.300 --> 1:02:38.100
+ this is an area where I think we really need
+
+1:02:39.200 --> 1:02:43.020
+ to move forward to and we are not yet there.
+
+1:02:43.020 --> 1:02:45.060
+ Are you at all excited,
+
+1:02:45.060 --> 1:02:46.540
+ curious by the possibility
+
+1:02:46.540 --> 1:02:48.520
+ of creating human level intelligence?
+
+1:02:49.900 --> 1:02:52.540
+ Is this, cause you've been very in your discussion.
+
+1:02:52.540 --> 1:02:54.340
+ So if we look at oncology,
+
+1:02:54.340 --> 1:02:58.100
+ you're trying to use machine learning to help the world
+
+1:02:58.100 --> 1:02:59.700
+ in terms of alleviating suffering.
+
+1:02:59.700 --> 1:03:02.340
+ If you look at natural language processing,
+
+1:03:02.340 --> 1:03:05.300
+ you're focused on the outcomes of improving practical things
+
+1:03:05.300 --> 1:03:06.820
+ like machine translation.
+
+1:03:06.820 --> 1:03:09.880
+ But human level intelligence is a thing
+
+1:03:09.880 --> 1:03:13.800
+ that our civilization has dreamed about creating,
+
+1:03:13.800 --> 1:03:15.740
+ super human level intelligence.
+
+1:03:15.740 --> 1:03:16.940
+ Do you think about this?
+
+1:03:16.940 --> 1:03:19.040
+ Do you think it's at all within our reach?
+
+1:03:20.380 --> 1:03:22.660
+ So as you said yourself, Elie,
+
+1:03:22.660 --> 1:03:26.140
+ talking about how do you perceive
+
+1:03:26.140 --> 1:03:28.980
+ our communications with each other,
+
+1:03:28.980 --> 1:03:31.940
+ that we're matching keywords and certain behaviors
+
+1:03:31.940 --> 1:03:33.020
+ and so on.
+
+1:03:33.020 --> 1:03:36.860
+ So at the end, whenever one assesses,
+
+1:03:36.860 --> 1:03:38.680
+ let's say relations with another person,
+
+1:03:38.680 --> 1:03:41.460
+ you have separate kind of measurements and outcomes
+
+1:03:41.460 --> 1:03:43.620
+ inside your head that determine
+
+1:03:43.620 --> 1:03:45.860
+ what is the status of the relation.
+
+1:03:45.860 --> 1:03:48.580
+ So one way, this is this classical level,
+
+1:03:48.580 --> 1:03:49.600
+ what is the intelligence?
+
+1:03:49.600 --> 1:03:51.860
+ Is it the fact that now we are gonna do the same way
+
+1:03:51.860 --> 1:03:52.940
+ as human is doing,
+
+1:03:52.940 --> 1:03:55.500
+ when we don't even understand what the human is doing?
+
+1:03:55.500 --> 1:03:59.100
+ Or we now have an ability to deliver these outcomes,
+
+1:03:59.100 --> 1:04:01.300
+ but not in one area, not in NLP,
+
+1:04:01.300 --> 1:04:03.940
+ not just to translate or just to answer questions,
+
+1:04:03.940 --> 1:04:05.380
+ but across many, many areas
+
+1:04:05.380 --> 1:04:08.100
+ that we can achieve the functionalities
+
+1:04:08.100 --> 1:04:11.060
+ that humans can achieve with their ability to learn
+
+1:04:11.060 --> 1:04:12.380
+ and do other things.
+
+1:04:12.380 --> 1:04:15.500
+ I think this is, and this we can actually measure
+
+1:04:15.500 --> 1:04:17.560
+ how far we are.
+
+1:04:17.560 --> 1:04:21.580
+ And that's what makes me excited that we,
+
+1:04:21.580 --> 1:04:23.780
+ in my lifetime, at least so far what we've seen,
+
+1:04:23.780 --> 1:04:25.840
+ it's like tremendous progress
+
+1:04:25.840 --> 1:04:28.700
+ across these different functionalities.
+
+1:04:28.700 --> 1:04:32.260
+ And I think it will be really exciting
+
+1:04:32.260 --> 1:04:35.540
+ to see where we will be.
+
+1:04:35.540 --> 1:04:39.300
+ And again, one way to think about it,
+
+1:04:39.300 --> 1:04:41.820
+ there are machines which are improving their functionality.
+
+1:04:41.820 --> 1:04:44.940
+ Another one is to think about us with our brains,
+
+1:04:44.940 --> 1:04:46.420
+ which are imperfect,
+
+1:04:46.420 --> 1:04:51.420
+ how they can be accelerated by this technology
+
+1:04:51.420 --> 1:04:55.900
+ as it becomes stronger and stronger.
+
+1:04:55.900 --> 1:04:57.260
+ Coming back to another book
+
+1:04:57.260 --> 1:05:01.060
+ that I love, Flowers for Algernon.
+
+1:05:01.060 --> 1:05:02.100
+ Have you read this book?
+
+1:05:02.100 --> 1:05:02.940
+ Yes.
+
+1:05:02.940 --> 1:05:05.700
+ So there is this point that the patient gets
+
+1:05:05.700 --> 1:05:07.980
+ this miracle cure, which changes his brain.
+
+1:05:07.980 --> 1:05:11.020
+ And all of a sudden they see life in a different way
+
+1:05:11.020 --> 1:05:13.300
+ and can do certain things better,
+
+1:05:13.300 --> 1:05:14.860
+ but certain things much worse.
+
+1:05:14.860 --> 1:05:19.860
+ So you can imagine this kind of computer augmented cognition
+
+1:05:22.400 --> 1:05:24.800
+ where it can bring you that now in the same way
+
+1:05:24.800 --> 1:05:28.120
+ as the cars enable us to get to places
+
+1:05:28.120 --> 1:05:30.080
+ where we've never been before,
+
+1:05:30.080 --> 1:05:31.640
+ can we think differently?
+
+1:05:31.640 --> 1:05:33.600
+ Can we think faster?
+
+1:05:33.600 --> 1:05:36.680
+ And we already see a lot of it happening
+
+1:05:36.680 --> 1:05:38.260
+ in how it impacts us,
+
+1:05:38.260 --> 1:05:42.200
+ but I think we have a long way to go there.
+
+1:05:42.200 --> 1:05:45.040
+ So that's sort of artificial intelligence
+
+1:05:45.040 --> 1:05:47.280
+ and technology affecting our,
+
+1:05:47.280 --> 1:05:50.440
+ augmenting our intelligence as humans.
+
+1:05:50.440 --> 1:05:55.440
+ Yesterday, a company called Neuralink announced,
+
+1:05:55.520 --> 1:05:56.800
+ they did this whole demonstration.
+
+1:05:56.800 --> 1:05:57.980
+ I don't know if you saw it.
+
+1:05:57.980 --> 1:06:01.000
+ It's, they demonstrated brain computer,
+
+1:06:01.000 --> 1:06:02.680
+ brain machine interface,
+
+1:06:02.680 --> 1:06:06.360
+ where there's like a sewing machine for the brain.
+
+1:06:06.360 --> 1:06:11.120
+ Do you, you know, a lot of that is quite out there
+
+1:06:11.120 --> 1:06:14.040
+ in terms of things that some people would say
+
+1:06:14.040 --> 1:06:16.340
+ are impossible, but they're dreamers
+
+1:06:16.340 --> 1:06:18.080
+ and want to engineer systems like that.
+
+1:06:18.080 --> 1:06:20.360
+ Do you see, based on what you just said,
+
+1:06:20.360 --> 1:06:23.820
+ a hope for that more direct interaction with the brain?
+
+1:06:25.120 --> 1:06:27.040
+ I think there are different ways.
+
+1:06:27.040 --> 1:06:29.000
+ One is a direct interaction with the brain.
+
+1:06:29.000 --> 1:06:30.900
+ And again, there are lots of companies
+
+1:06:30.900 --> 1:06:32.280
+ that work in this space
+
+1:06:32.280 --> 1:06:35.080
+ and I think there will be a lot of developments.
+
+1:06:35.080 --> 1:06:36.600
+ But I'm just thinking that many times
+
+1:06:36.600 --> 1:06:39.080
+ we are not aware of our feelings,
+
+1:06:39.080 --> 1:06:41.400
+ of motivation, what drives us.
+
+1:06:41.400 --> 1:06:44.200
+ Like, let me give you a trivial example, our attention.
+
+1:06:45.520 --> 1:06:47.260
+ There are a lot of studies that demonstrate
+
+1:06:47.260 --> 1:06:49.200
+ that it takes a while to a person to understand
+
+1:06:49.200 --> 1:06:51.080
+ that they are not attentive anymore.
+
+1:06:51.080 --> 1:06:52.160
+ And we know that there are people
+
+1:06:52.160 --> 1:06:54.520
+ who really have strong capacity to hold attention.
+
+1:06:54.520 --> 1:06:57.080
+ There are other end of the spectrum people with ADD
+
+1:06:57.080 --> 1:06:58.800
+ and other issues that they have problem
+
+1:06:58.800 --> 1:07:00.760
+ to regulate their attention.
+
+1:07:00.760 --> 1:07:03.520
+ Imagine to yourself that you have like a cognitive aid
+
+1:07:03.520 --> 1:07:06.280
+ that just alerts you based on your gaze,
+
+1:07:06.280 --> 1:07:09.280
+ that your attention is now not on what you are doing.
+
+1:07:09.280 --> 1:07:10.560
+ And instead of writing a paper,
+
+1:07:10.560 --> 1:07:12.760
+ you're now dreaming of what you're gonna do in the evening.
+
+1:07:12.760 --> 1:07:16.360
+ So even this kind of simple measurement things,
+
+1:07:16.360 --> 1:07:17.840
+ how they can change us.
+
+1:07:17.840 --> 1:07:22.400
+ And I see it even in simple ways with myself.
+
+1:07:22.400 --> 1:07:26.480
+ I have my zone app that I got in MIT gym.
+
+1:07:26.480 --> 1:07:28.800
+ It kind of records, you know, how much did you run
+
+1:07:28.800 --> 1:07:29.800
+ and you have some points
+
+1:07:29.800 --> 1:07:32.880
+ and you can get some status, whatever.
+
+1:07:32.880 --> 1:07:35.840
+ Like, I said, what is this ridiculous thing?
+
+1:07:35.840 --> 1:07:38.800
+ Who would ever care about some status in some app?
+
+1:07:38.800 --> 1:07:39.640
+ Guess what?
+
+1:07:39.640 --> 1:07:41.560
+ So to maintain the status,
+
+1:07:41.560 --> 1:07:44.640
+ you have to do set a number of points every month.
+
+1:07:44.640 --> 1:07:48.040
+ And not only is that I do it every single month
+
+1:07:48.040 --> 1:07:50.560
+ for the last 18 months,
+
+1:07:50.560 --> 1:07:54.160
+ it went to the point that I was injured.
+
+1:07:54.160 --> 1:07:56.160
+ And when I could run again,
+
+1:07:58.120 --> 1:08:02.560
+ in two days, I did like some humongous amount of running
+
+1:08:02.560 --> 1:08:04.080
+ just to complete the points.
+
+1:08:04.080 --> 1:08:05.920
+ It was like really not safe.
+
+1:08:05.920 --> 1:08:08.440
+ It was like, I'm not gonna lose my status
+
+1:08:08.440 --> 1:08:10.240
+ because I want to get there.
+
+1:08:10.240 --> 1:08:13.320
+ So you can already see that this direct measurement
+
+1:08:13.320 --> 1:08:15.160
+ and the feedback is, you know,
+
+1:08:15.160 --> 1:08:16.320
+ we're looking at video games
+
+1:08:16.320 --> 1:08:18.720
+ and see why, you know, the addiction aspect of it,
+
+1:08:18.720 --> 1:08:21.200
+ but you can imagine that the same idea can be expanded
+
+1:08:21.200 --> 1:08:23.640
+ to many other areas of our life.
+
+1:08:23.640 --> 1:08:25.960
+ When we really can get feedback
+
+1:08:25.960 --> 1:08:28.480
+ and imagine in your case in relations,
+
+1:08:29.880 --> 1:08:31.240
+ when we are doing keyword matching,
+
+1:08:31.240 --> 1:08:36.120
+ imagine that the person who is generating the keywords,
+
+1:08:36.120 --> 1:08:37.720
+ that person gets direct feedback
+
+1:08:37.720 --> 1:08:39.560
+ before the whole thing explodes.
+
+1:08:39.560 --> 1:08:42.000
+ Is it maybe at this happy point,
+
+1:08:42.000 --> 1:08:44.000
+ we are going in the wrong direction.
+
+1:08:44.000 --> 1:08:48.040
+ Maybe it will be really a behavior modifying moment.
+
+1:08:48.040 --> 1:08:51.360
+ So yeah, it's a relationship management too.
+
+1:08:51.360 --> 1:08:54.200
+ So yeah, that's a fascinating whole area
+
+1:08:54.200 --> 1:08:56.120
+ of psychology actually as well,
+
+1:08:56.120 --> 1:08:58.240
+ of seeing how our behavior has changed
+
+1:08:58.240 --> 1:09:01.840
+ with basically all human relations now have
+
+1:09:01.840 --> 1:09:06.200
+ other nonhuman entities helping us out.
+
+1:09:06.200 --> 1:09:09.440
+ So you teach a large,
+
+1:09:09.440 --> 1:09:12.600
+ a huge machine learning course here at MIT.
+
+1:09:14.000 --> 1:09:15.360
+ I can ask you a million questions,
+
+1:09:15.360 --> 1:09:17.560
+ but you've seen a lot of students.
+
+1:09:17.560 --> 1:09:20.920
+ What ideas do students struggle with the most
+
+1:09:20.920 --> 1:09:23.920
+ as they first enter this world of machine learning?
+
+1:09:23.920 --> 1:09:26.520
+ Actually, this year was the first time
+
+1:09:26.520 --> 1:09:28.480
+ I started teaching a small machine learning class.
+
+1:09:28.480 --> 1:09:31.160
+ And it came as a result of what I saw
+
+1:09:31.160 --> 1:09:34.640
+ in my big machine learning class that Tomi Yakel and I built
+
+1:09:34.640 --> 1:09:36.640
+ maybe six years ago.
+
+1:09:38.040 --> 1:09:40.360
+ What we've seen that as this area become more
+
+1:09:40.360 --> 1:09:43.440
+ and more popular, more and more people at MIT
+
+1:09:43.440 --> 1:09:45.360
+ want to take this class.
+
+1:09:45.360 --> 1:09:48.320
+ And while we designed it for computer science majors,
+
+1:09:48.320 --> 1:09:50.760
+ there were a lot of people who really are interested
+
+1:09:50.760 --> 1:09:52.600
+ to learn it, but unfortunately,
+
+1:09:52.600 --> 1:09:55.720
+ their background was not enabling them
+
+1:09:55.720 --> 1:09:57.200
+ to do well in the class.
+
+1:09:57.200 --> 1:09:59.360
+ And many of them associated machine learning
+
+1:09:59.360 --> 1:10:01.360
+ with the word struggle and failure,
+
+1:10:02.480 --> 1:10:04.640
+ primarily for non majors.
+
+1:10:04.640 --> 1:10:06.840
+ And that's why we actually started a new class
+
+1:10:06.840 --> 1:10:10.800
+ which we call machine learning from algorithms to modeling,
+
+1:10:10.800 --> 1:10:15.000
+ which emphasizes more the modeling aspects of it
+
+1:10:15.000 --> 1:10:20.000
+ and focuses on, it has majors and non majors.
+
+1:10:20.000 --> 1:10:23.480
+ So we kind of try to extract the relevant parts
+
+1:10:23.480 --> 1:10:25.560
+ and make it more accessible,
+
+1:10:25.560 --> 1:10:27.800
+ because the fact that we're teaching 20 classifiers
+
+1:10:27.800 --> 1:10:29.240
+ in standard machine learning class,
+
+1:10:29.240 --> 1:10:32.200
+ it's really a big question to really need it.
+
+1:10:32.200 --> 1:10:34.520
+ But it was interesting to see this
+
+1:10:34.520 --> 1:10:36.480
+ from first generation of students,
+
+1:10:36.480 --> 1:10:39.080
+ when they came back from their internships
+
+1:10:39.080 --> 1:10:42.320
+ and from their jobs,
+
+1:10:42.320 --> 1:10:45.560
+ what different and exciting things they can do.
+
+1:10:45.560 --> 1:10:47.600
+ I would never think that you can even apply
+
+1:10:47.600 --> 1:10:50.800
+ machine learning to, some of them are like matching,
+
+1:10:50.800 --> 1:10:53.480
+ the relations and other things like variety.
+
+1:10:53.480 --> 1:10:56.080
+ Everything is amenable as the machine learning.
+
+1:10:56.080 --> 1:10:58.320
+ That actually brings up an interesting point
+
+1:10:58.320 --> 1:11:00.680
+ of computer science in general.
+
+1:11:00.680 --> 1:11:03.520
+ It almost seems, maybe I'm crazy,
+
+1:11:03.520 --> 1:11:06.520
+ but it almost seems like everybody needs to learn
+
+1:11:06.520 --> 1:11:08.160
+ how to program these days.
+
+1:11:08.160 --> 1:11:11.400
+ If you're 20 years old, or if you're starting school,
+
+1:11:11.400 --> 1:11:14.200
+ even if you're an English major,
+
+1:11:14.200 --> 1:11:19.200
+ it seems like programming unlocks so much possibility
+
+1:11:20.480 --> 1:11:21.880
+ in this world.
+
+1:11:21.880 --> 1:11:25.000
+ So when you interacted with those non majors,
+
+1:11:25.000 --> 1:11:30.000
+ is there skills that they were simply lacking at the time
+
+1:11:30.280 --> 1:11:33.000
+ that you wish they had and that they learned
+
+1:11:33.000 --> 1:11:34.680
+ in high school and so on?
+
+1:11:34.680 --> 1:11:37.520
+ Like how should education change
+
+1:11:37.520 --> 1:11:41.320
+ in this computerized world that we live in?
+
+1:11:41.320 --> 1:11:44.320
+ I think because I knew that there is a Python component
+
+1:11:44.320 --> 1:11:47.000
+ in the class, their Python skills were okay
+
+1:11:47.000 --> 1:11:49.160
+ and the class isn't really heavy on programming.
+
+1:11:49.160 --> 1:11:52.400
+ They primarily kind of add parts to the programs.
+
+1:11:52.400 --> 1:11:55.440
+ I think it was more of the mathematical barriers
+
+1:11:55.440 --> 1:11:58.200
+ and the class, again, with the design on the majors
+
+1:11:58.200 --> 1:12:01.200
+ was using the notation, like big O for complexity
+
+1:12:01.200 --> 1:12:04.520
+ and others, people who come from different backgrounds
+
+1:12:04.520 --> 1:12:05.800
+ just don't have it in the lexical,
+
+1:12:05.800 --> 1:12:09.120
+ so necessarily very challenging notion,
+
+1:12:09.120 --> 1:12:11.480
+ but they were just not aware.
+
+1:12:12.360 --> 1:12:16.240
+ So I think that kind of linear algebra and probability,
+
+1:12:16.240 --> 1:12:19.120
+ the basics, the calculus, multivariate calculus,
+
+1:12:19.120 --> 1:12:20.840
+ things that can help.
+
+1:12:20.840 --> 1:12:23.520
+ What advice would you give to students
+
+1:12:23.520 --> 1:12:25.280
+ interested in machine learning,
+
+1:12:25.280 --> 1:12:29.240
+ interested, you've talked about detecting,
+
+1:12:29.240 --> 1:12:31.360
+ curing cancer, drug design,
+
+1:12:31.360 --> 1:12:34.520
+ if they want to get into that field, what should they do?
+
+1:12:36.320 --> 1:12:39.040
+ Get into it and succeed as researchers
+
+1:12:39.040 --> 1:12:42.080
+ and entrepreneurs.
+
+1:12:43.320 --> 1:12:45.240
+ The first good piece of news is that right now
+
+1:12:45.240 --> 1:12:47.400
+ there are lots of resources
+
+1:12:47.400 --> 1:12:50.160
+ that are created at different levels
+
+1:12:50.160 --> 1:12:54.800
+ and you can find online in your school classes
+
+1:12:54.800 --> 1:12:57.560
+ which are more mathematical, more applied and so on.
+
+1:12:57.560 --> 1:13:01.320
+ So you can find a kind of a preacher
+
+1:13:01.320 --> 1:13:02.760
+ which preaches in your own language
+
+1:13:02.760 --> 1:13:04.520
+ where you can enter the field
+
+1:13:04.520 --> 1:13:06.720
+ and you can make many different types of contribution
+
+1:13:06.720 --> 1:13:09.640
+ depending of what is your strengths.
+
+1:13:10.760 --> 1:13:13.720
+ And the second point, I think it's really important
+
+1:13:13.720 --> 1:13:18.160
+ to find some area which you really care about
+
+1:13:18.160 --> 1:13:20.240
+ and it can motivate your learning
+
+1:13:20.240 --> 1:13:22.640
+ and it can be for somebody curing cancer
+
+1:13:22.640 --> 1:13:25.360
+ or doing self driving cars or whatever,
+
+1:13:25.360 --> 1:13:29.680
+ but to find an area where there is data
+
+1:13:29.680 --> 1:13:31.320
+ where you believe there are strong patterns
+
+1:13:31.320 --> 1:13:33.600
+ and we should be doing it and we're still not doing it
+
+1:13:33.600 --> 1:13:35.280
+ or you can do it better
+
+1:13:35.280 --> 1:13:39.680
+ and just start there and see where it can bring you.
+
+1:13:40.800 --> 1:13:45.600
+ So you've been very successful in many directions in life,
+
+1:13:46.480 --> 1:13:48.840
+ but you also mentioned Flowers of Argonon.
+
+1:13:51.200 --> 1:13:53.840
+ And I think I've read or listened to you mention somewhere
+
+1:13:53.840 --> 1:13:55.360
+ that researchers often get lost
+
+1:13:55.360 --> 1:13:56.720
+ in the details of their work.
+
+1:13:56.720 --> 1:14:00.240
+ This is per our original discussion with cancer and so on
+
+1:14:00.240 --> 1:14:02.200
+ and don't look at the bigger picture,
+
+1:14:02.200 --> 1:14:05.320
+ bigger questions of meaning and so on.
+
+1:14:05.320 --> 1:14:07.440
+ So let me ask you the impossible question
+
+1:14:08.640 --> 1:14:11.560
+ of what's the meaning of this thing,
+
+1:14:11.560 --> 1:14:16.560
+ of life, of your life, of research.
+
+1:14:16.720 --> 1:14:21.440
+ Why do you think we descendant of great apes
+
+1:14:21.440 --> 1:14:24.480
+ are here on this spinning ball?
+
+1:14:26.800 --> 1:14:30.320
+ You know, I don't think that I have really a global answer.
+
+1:14:30.320 --> 1:14:32.800
+ You know, maybe that's why I didn't go to humanities
+
+1:14:33.760 --> 1:14:36.480
+ and I didn't take humanities classes in my undergrad.
+
+1:14:39.480 --> 1:14:43.560
+ But the way I'm thinking about it,
+
+1:14:43.560 --> 1:14:48.200
+ each one of us inside of them have their own set of,
+
+1:14:48.200 --> 1:14:51.120
+ you know, things that we believe are important.
+
+1:14:51.120 --> 1:14:53.360
+ And it just happens that we are busy
+
+1:14:53.360 --> 1:14:56.240
+ with achieving various goals, busy listening to others
+
+1:14:56.240 --> 1:15:00.960
+ and to kind of try to conform and to be part of the crowd,
+
+1:15:00.960 --> 1:15:03.680
+ that we don't listen to that part.
+
+1:15:04.600 --> 1:15:09.600
+ And, you know, we all should find some time to understand
+
+1:15:09.600 --> 1:15:11.840
+ what is our own individual missions.
+
+1:15:11.840 --> 1:15:14.080
+ And we may have very different missions
+
+1:15:14.080 --> 1:15:18.200
+ and to make sure that while we are running 10,000 things,
+
+1:15:18.200 --> 1:15:21.920
+ we are not, you know, missing out
+
+1:15:21.920 --> 1:15:26.800
+ and we're putting all the resources to satisfy
+
+1:15:26.800 --> 1:15:28.440
+ our own mission.
+
+1:15:28.440 --> 1:15:32.400
+ And if I look over my time, when I was younger,
+
+1:15:32.400 --> 1:15:35.000
+ most of these missions, you know,
+
+1:15:35.000 --> 1:15:38.600
+ I was primarily driven by the external stimulus,
+
+1:15:38.600 --> 1:15:41.520
+ you know, to achieve this or to be that.
+
+1:15:41.520 --> 1:15:46.520
+ And now a lot of what I do is driven by really thinking
+
+1:15:47.640 --> 1:15:51.360
+ what is important for me to achieve independently
+
+1:15:51.360 --> 1:15:55.160
+ of the external recognition.
+
+1:15:55.160 --> 1:16:00.080
+ And, you know, I don't mind to be viewed in certain ways.
+
+1:16:01.400 --> 1:16:05.760
+ The most important thing for me is to be true to myself,
+
+1:16:05.760 --> 1:16:07.520
+ to what I think is right.
+
+1:16:07.520 --> 1:16:08.680
+ How long did it take?
+
+1:16:08.680 --> 1:16:13.240
+ How hard was it to find the you that you have to be true to?
+
+1:16:14.160 --> 1:16:15.520
+ So it takes time.
+
+1:16:15.520 --> 1:16:17.760
+ And even now, sometimes, you know,
+
+1:16:17.760 --> 1:16:20.880
+ the vanity and the triviality can take, you know.
+
+1:16:20.880 --> 1:16:22.560
+ At MIT.
+
+1:16:22.560 --> 1:16:25.080
+ Yeah, it can everywhere, you know,
+
+1:16:25.080 --> 1:16:26.960
+ it's just the vanity at MIT is different,
+
+1:16:26.960 --> 1:16:28.160
+ the vanity in different places,
+
+1:16:28.160 --> 1:16:30.920
+ but we all have our piece of vanity.
+
+1:16:30.920 --> 1:16:35.920
+ But I think actually for me, many times the place
+
+1:16:38.720 --> 1:16:43.720
+ to get back to it is, you know, when I'm alone
+
+1:16:43.800 --> 1:16:45.800
+ and also when I read.
+
+1:16:45.800 --> 1:16:47.760
+ And I think by selecting the right books,
+
+1:16:47.760 --> 1:16:52.760
+ you can get the right questions and learn from what you read.
+
+1:16:54.880 --> 1:16:58.080
+ So, but again, it's not perfect.
+
+1:16:58.080 --> 1:17:02.040
+ Like vanity sometimes dominates.
+
+1:17:02.040 --> 1:17:04.800
+ Well, that's a beautiful way to end.
+
+1:17:04.800 --> 1:17:06.400
+ Thank you so much for talking today.
+
+1:17:06.400 --> 1:17:07.240
+ Thank you.
+
+1:17:07.240 --> 1:17:08.080
+ That was fun.
+
+1:17:08.080 --> 1:17:28.080
+ That was fun.
+

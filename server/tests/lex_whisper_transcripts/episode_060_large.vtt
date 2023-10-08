@@ -1,0 +1,6089 @@
+WEBVTT
+
+00:00.000 --> 00:03.800
+ The following is a conversation with S. James Gates, Jr.
+
+00:03.800 --> 00:07.300
+ He's a theoretical physicist and professor at Brown University,
+
+00:07.300 --> 00:11.460
+ working on supersymmetry, supergravity, and superstring theory.
+
+00:11.460 --> 00:16.500
+ He served on former President Obama's Council of Advisors on Science and Technology,
+
+00:16.500 --> 00:21.600
+ and he's now the coauthor of a new book titled Proving Einstein Right,
+
+00:21.600 --> 00:26.500
+ about the scientists who set out to prove Einstein's theory of relativity.
+
+00:26.500 --> 00:30.200
+ You may have noticed that I've been speaking with not just computer scientists,
+
+00:30.200 --> 00:35.200
+ but philosophers, mathematicians, physicists, economists, and soon, much more.
+
+00:35.200 --> 00:39.300
+ To me, AI is much bigger than deep learning, bigger than computing.
+
+00:39.300 --> 00:43.000
+ It is our civilization's journey into understanding the human mind
+
+00:43.000 --> 00:45.700
+ and creating echoes of it in the machine.
+
+00:45.700 --> 00:50.300
+ That journey includes, of course, the world of theoretical physics
+
+00:50.300 --> 00:53.300
+ and its practice of first principles mathematical thinking
+
+00:53.300 --> 00:57.500
+ and exploring the fundamental nature of our reality.
+
+00:57.500 --> 01:00.500
+ This is the Artificial Intelligence Podcast.
+
+01:00.500 --> 01:04.600
+ If you enjoy it, subscribe on YouTube, give it five stars on Apple Podcast,
+
+01:04.600 --> 01:07.300
+ follow on Spotify, support on Patreon,
+
+01:07.300 --> 01:13.400
+ or simply connect with me on Twitter at Lex Friedman, spelled F.R.I.D.M.A.N.
+
+01:13.400 --> 01:17.100
+ If you leave a review on Apple Podcasts or YouTube or Twitter,
+
+01:17.100 --> 01:20.500
+ consider mentioning ideas, people, topics you find interesting.
+
+01:20.500 --> 01:23.100
+ It helps guide the future of this podcast.
+
+01:23.100 --> 01:28.600
+ But in general, I just love comments that are full of kindness and thoughtfulness in them.
+
+01:28.600 --> 01:32.800
+ This podcast is a side project for me, but I still put a lot of effort into it.
+
+01:32.800 --> 01:39.600
+ So the positive words of support from an amazing community, from you, really help.
+
+01:39.600 --> 01:42.500
+ I recently started doing ads at the end of the introduction.
+
+01:42.500 --> 01:45.100
+ I'll do one or two minutes after introducing the episode
+
+01:45.100 --> 01:48.900
+ and never any ads in the middle that can break the flow of the conversation.
+
+01:48.900 --> 01:52.600
+ I hope that works for you and doesn't hurt the listening experience.
+
+01:52.600 --> 01:56.400
+ I provide timestamps for the start of the conversations you may have noticed
+
+01:56.400 --> 02:00.100
+ that you can skip to, but it helps if you listen to the ad
+
+02:00.100 --> 02:05.300
+ and support this podcast by trying out the product or service being advertised.
+
+02:05.300 --> 02:10.100
+ This show is presented by Cash App, the number one finance app in the App Store.
+
+02:10.100 --> 02:12.500
+ I personally use Cash App to send money to friends,
+
+02:12.500 --> 02:16.800
+ but you can also use it to buy, sell, and deposit Bitcoin in just seconds.
+
+02:16.800 --> 02:19.700
+ Cash App also has a new investing feature.
+
+02:19.700 --> 02:25.200
+ You can buy fractions of a stock, say $1 worth, no matter what the stock price is.
+
+02:25.200 --> 02:28.100
+ Broker services are provided by Cash App Investing,
+
+02:28.100 --> 02:31.100
+ a subsidiary of Square and member SIPC.
+
+02:31.100 --> 02:33.100
+ I'm excited to be working with Cash App
+
+02:33.100 --> 02:36.200
+ to support one of my favorite organizations called First,
+
+02:36.200 --> 02:39.600
+ best known for their first robotics and Lego competitions.
+
+02:39.600 --> 02:43.100
+ They educate and inspire hundreds of thousands of students
+
+02:43.100 --> 02:47.300
+ in over 110 countries and have a perfect rating on Charity Navigator,
+
+02:47.300 --> 02:51.200
+ which means the donated money is used to maximum effectiveness.
+
+02:51.200 --> 02:54.000
+ When you get Cash App from the App Store or Google Play
+
+02:54.000 --> 02:57.700
+ and use code LEXPODCAST, you'll get $10,
+
+02:57.700 --> 03:00.600
+ and Cash App will also donate $10 to First,
+
+03:00.600 --> 03:05.400
+ which again is an organization that I've personally seen inspire girls and boys
+
+03:05.400 --> 03:08.400
+ to dream of engineering a better world.
+
+03:08.400 --> 03:13.600
+ And now, here's my conversation with S. James Gates Jr.
+
+03:13.600 --> 03:15.500
+ You tell a story when you were eight.
+
+03:15.500 --> 03:18.200
+ You had a profound realization that the stars in the sky
+
+03:18.200 --> 03:22.500
+ are actually places that we could travel to one day.
+
+03:22.500 --> 03:27.200
+ Do you think human beings will ever venture outside our solar system?
+
+03:27.200 --> 03:30.500
+ Wow, the question of whether humanity gets outside of the solar system.
+
+03:30.500 --> 03:31.800
+ It's going to be a challenge,
+
+03:31.800 --> 03:38.300
+ and as long as the laws of physics that we have today are accurate and valid,
+
+03:38.300 --> 03:40.800
+ it's going to be extraordinarily difficult.
+
+03:40.800 --> 03:43.400
+ I'm a science fiction fan, as you probably know,
+
+03:43.400 --> 03:48.100
+ so I love to dream of starships and traveling to other solar systems,
+
+03:48.100 --> 03:52.500
+ but the barriers are just formidable.
+
+03:52.500 --> 03:55.300
+ If we just kind of venture a little bit into science fiction,
+
+03:55.300 --> 03:58.100
+ do you think the spaceships, if we are successful,
+
+03:58.100 --> 04:00.400
+ that take us outside the solar system,
+
+04:00.400 --> 04:03.000
+ will look like the ones we have today,
+
+04:03.000 --> 04:07.500
+ or are fundamental breakthroughs necessary?
+
+04:07.500 --> 04:10.100
+ In order to have genuine starships,
+
+04:10.100 --> 04:14.900
+ probably some really radical views about the way the universe works
+
+04:14.900 --> 04:17.900
+ are going to have to take place in our science.
+
+04:17.900 --> 04:22.200
+ We could, with our current technology,
+
+04:22.200 --> 04:25.500
+ think about constructing multigenerational starships
+
+04:25.500 --> 04:31.200
+ where the people who get on them are not the people who get off at the other end.
+
+04:31.200 --> 04:36.500
+ But even if we do that, the formidable problem is actually our bodies,
+
+04:36.500 --> 04:41.100
+ which doesn't seem to be conscious for a lot of people.
+
+04:41.100 --> 04:44.000
+ Even getting to Mars is going to present this challenge,
+
+04:44.000 --> 04:47.300
+ because we live in this wonderful home,
+
+04:47.300 --> 04:50.700
+ has a protective magnetic magnetosphere around it,
+
+04:50.700 --> 04:54.100
+ and so we're shielded from cosmic radiation.
+
+04:54.100 --> 04:58.800
+ Once you leave this shield, there are some estimates that,
+
+04:58.800 --> 05:02.100
+ for example, if you sent someone to Mars,
+
+05:02.100 --> 05:05.700
+ with our technology, probably about two years out there without the shield,
+
+05:05.700 --> 05:07.000
+ they're going to be bombarded.
+
+05:07.000 --> 05:10.200
+ That means radiation, probably means cancer.
+
+05:10.200 --> 05:12.900
+ So that's one of the most formidable challenges,
+
+05:12.900 --> 05:16.300
+ even if we could get over the technology.
+
+05:16.300 --> 05:19.300
+ Do you think, so Mars is a harsh place.
+
+05:19.300 --> 05:22.800
+ Elon Musk, SpaceX and other folks,
+
+05:22.800 --> 05:25.900
+ NASA are really pushing to put a human being on Mars.
+
+05:25.900 --> 05:28.500
+ Do you think, again, let's forgive me
+
+05:28.500 --> 05:31.300
+ for lingering in science fiction land for a little bit.
+
+05:31.300 --> 05:34.400
+ Do you think one day we may be able to colonize Mars?
+
+05:34.400 --> 05:37.800
+ First, do you think we'll put a human on Mars,
+
+05:37.800 --> 05:40.700
+ and then do you think we'll put many humans on Mars?
+
+05:40.700 --> 05:45.500
+ So first of all, I am extraordinarily convinced
+
+05:45.500 --> 05:48.100
+ we will not put a human on Mars by 2030,
+
+05:48.100 --> 05:52.100
+ which is a date that you often hear in the public debate.
+
+05:52.100 --> 05:53.500
+ What's the challenge there?
+
+05:53.500 --> 05:54.300
+ What do you think?
+
+05:54.300 --> 05:56.600
+ So there are a couple of ways that I could slice this,
+
+05:56.600 --> 06:01.000
+ but the one that I think is simplest for people to understand involves money.
+
+06:01.000 --> 06:05.500
+ So you look at how we got to the moon in the 1960s.
+
+06:05.500 --> 06:07.100
+ It was about 10 year duration
+
+06:07.100 --> 06:10.300
+ between the challenge that President Kennedy laid out
+
+06:10.300 --> 06:12.700
+ and our successfully landing a moon.
+
+06:12.700 --> 06:14.400
+ I was actually here at MIT
+
+06:14.400 --> 06:16.600
+ when that first moon landing occurred,
+
+06:16.600 --> 06:18.300
+ so I remember watching it on TV.
+
+06:18.300 --> 06:19.200
+ But how did we get there?
+
+06:19.200 --> 06:24.700
+ Well, we had this extraordinarily technical agency
+
+06:24.700 --> 06:26.900
+ of the United States government, NASA.
+
+06:26.900 --> 06:32.700
+ It consumed about 5% of the country's economic output.
+
+06:32.700 --> 06:35.800
+ And so you say 5% of the economic output
+
+06:35.800 --> 06:40.400
+ over about a 10 year period gets us 250,000 miles in space.
+
+06:40.400 --> 06:43.500
+ Mars is about a hundred times farther.
+
+06:43.500 --> 06:45.500
+ So you have at least a hundred times the challenge
+
+06:45.500 --> 06:48.600
+ and we're spending about one tenth of the funds
+
+06:48.600 --> 06:50.800
+ that we spent then as a government.
+
+06:50.800 --> 06:54.400
+ So my claim is that it's at least a thousand times harder
+
+06:54.400 --> 06:58.000
+ for me to imagine us getting to Mars by 2030.
+
+06:58.000 --> 07:00.400
+ And he had that part that you mentioned in the speech
+
+07:00.400 --> 07:03.900
+ that I just have to throw in there of JFK,
+
+07:03.900 --> 07:06.100
+ of we do these things not because they're easy,
+
+07:06.100 --> 07:07.800
+ but because they're hard.
+
+07:07.800 --> 07:09.100
+ That's such a beautiful line
+
+07:09.100 --> 07:11.900
+ that I would love to hear a modern president say
+
+07:11.900 --> 07:13.700
+ about a scientific endeavor.
+
+07:13.700 --> 07:16.300
+ Well, one day we live and hope
+
+07:16.300 --> 07:19.700
+ that such a president will arise for our nation.
+
+07:19.700 --> 07:21.100
+ But even if, like I said,
+
+07:21.100 --> 07:24.900
+ even if you fix the technical problems,
+
+07:24.900 --> 07:28.900
+ the biological engineering that I worry most about,
+
+07:28.900 --> 07:31.900
+ however, I'm gonna go out on a limb here.
+
+07:31.900 --> 07:35.800
+ I think that by 2090 or so,
+
+07:35.800 --> 07:40.800
+ or 2100, should I say 120,
+
+07:41.300 --> 07:44.000
+ I suspect we're gonna have a human on Mars.
+
+07:44.000 --> 07:46.400
+ Wow, so you think that many years out,
+
+07:46.400 --> 07:48.000
+ first a few tangents.
+
+07:48.000 --> 07:50.500
+ You said bioengineering is a challenge.
+
+07:50.500 --> 07:52.400
+ What's the challenge there?
+
+07:52.400 --> 07:57.400
+ So as I said, the real problem with interstellar travel,
+
+07:57.800 --> 08:00.800
+ aside from the technology challenges,
+
+08:00.800 --> 08:03.200
+ the real problem is radiation.
+
+08:03.200 --> 08:08.200
+ And how do you engineer either an environment or a body,
+
+08:08.700 --> 08:12.900
+ because we see rapid advances going on in bioengineering,
+
+08:12.900 --> 08:16.400
+ how do you engineer either a ship or a body
+
+08:16.400 --> 08:18.900
+ so that something, some person
+
+08:18.900 --> 08:22.200
+ that's recognizably human will survive
+
+08:22.200 --> 08:24.600
+ the rigors of interplanetary space travel?
+
+08:24.600 --> 08:26.500
+ It's much more difficult than most people
+
+08:26.500 --> 08:28.200
+ seem to take into account.
+
+08:29.500 --> 08:34.500
+ So if we could linger on the 2090, 2100, 2120,
+
+08:36.200 --> 08:38.900
+ sort of thinking of that kind of,
+
+08:40.100 --> 08:42.900
+ you know, and let's linger on money.
+
+08:42.900 --> 08:43.740
+ Okay.
+
+08:43.740 --> 08:48.900
+ So Elon Musk and Jeff Bezos are pushing the cost,
+
+08:48.900 --> 08:50.600
+ trying to push the cost down.
+
+08:50.600 --> 08:52.900
+ I mean, this is, so do you have hope
+
+08:52.900 --> 08:56.600
+ as this actually sort of a brilliant big picture scientist,
+
+08:56.600 --> 09:01.600
+ do you think a business entrepreneur can take science
+
+09:02.040 --> 09:04.900
+ and make it cheaper and get it out there faster?
+
+09:04.900 --> 09:06.800
+ So bending the cost curve is,
+
+09:06.800 --> 09:08.500
+ you'll notice that has been an anchor.
+
+09:08.500 --> 09:10.600
+ This is the simplest way for me to discuss this with people
+
+09:10.600 --> 09:12.100
+ about what the challenge is.
+
+09:12.100 --> 09:16.200
+ So yes, bending the cost curve is certainly critical
+
+09:16.200 --> 09:18.200
+ if we're going to be successful.
+
+09:18.200 --> 09:22.900
+ Now, you asked about the endeavors that are out there now
+
+09:22.900 --> 09:25.300
+ sponsored by two very prominent American citizens,
+
+09:25.300 --> 09:28.000
+ Jeff Bezos and Elon Musk.
+
+09:28.000 --> 09:31.600
+ I'm disappointed actually in what I see
+
+09:31.600 --> 09:35.200
+ in terms of the routes that are being pursued.
+
+09:35.200 --> 09:36.700
+ So let me give you one example there.
+
+09:36.700 --> 09:39.600
+ And this one is going to be a little bit more technical.
+
+09:39.600 --> 09:41.400
+ So if you look at the kinds of rockets
+
+09:41.400 --> 09:45.100
+ that both these organizations are creating,
+
+09:45.100 --> 09:47.300
+ yes, it's wonderful, reusable technology
+
+09:47.300 --> 09:50.000
+ to see a rocket go up and land on its fins
+
+09:50.000 --> 09:51.800
+ just like it did in science fiction movies
+
+09:51.800 --> 09:54.500
+ when I was a kid, that's astounding.
+
+09:54.500 --> 09:58.900
+ But the real problem is those rockets,
+
+09:58.900 --> 10:00.300
+ the technology that we're doing now
+
+10:00.300 --> 10:02.100
+ is not really that different
+
+10:02.100 --> 10:04.400
+ than what was used to go to the moon.
+
+10:04.400 --> 10:06.600
+ And there are alternatives it turns out.
+
+10:06.600 --> 10:09.000
+ There's an engine called a flare engine,
+
+10:09.000 --> 10:11.000
+ which so a traditional rocket,
+
+10:11.000 --> 10:13.200
+ if you look at the engine, it looks like a bell, right?
+
+10:13.200 --> 10:14.900
+ And then the flame comes out the bottom.
+
+10:14.900 --> 10:17.300
+ But there is a kind of engine called a flare engine,
+
+10:17.300 --> 10:20.200
+ which is essentially, when you look at it,
+
+10:20.200 --> 10:23.800
+ it looks like an exhaust pipe
+
+10:23.800 --> 10:27.600
+ on like a fancy car that's long and elongated.
+
+10:27.600 --> 10:29.000
+ And it's a type of rocket engine
+
+10:29.000 --> 10:32.800
+ that we know there've been preliminary testing,
+
+10:32.800 --> 10:34.100
+ we know it works.
+
+10:34.100 --> 10:36.700
+ And it also is actually much more economical
+
+10:36.700 --> 10:38.700
+ because what it does is allow you
+
+10:38.700 --> 10:40.900
+ to vary the amount of thrust as you go up.
+
+10:40.900 --> 10:42.200
+ In a way that you cannot do
+
+10:42.200 --> 10:44.300
+ with one of these bell shaped engines.
+
+10:44.300 --> 10:48.800
+ So you would think that an entrepreneur
+
+10:48.800 --> 10:53.500
+ might try to have the breakthrough to use flare nozzles,
+
+10:53.500 --> 10:56.600
+ as they're called, as a way to bend the cost curve.
+
+10:56.600 --> 10:57.600
+ Because as we keep coming back,
+
+10:57.600 --> 10:59.200
+ that's gonna be a big factor.
+
+10:59.200 --> 11:00.600
+ But that's not happening.
+
+11:00.600 --> 11:04.600
+ In fact, what we see is what I think of as incremental change
+
+11:04.600 --> 11:06.200
+ in terms of our technology.
+
+11:06.200 --> 11:10.200
+ So I'm not really very encouraged by what I personally see.
+
+11:10.200 --> 11:12.500
+ So incremental change won't bend the cost curve.
+
+11:12.500 --> 11:14.200
+ I don't see it.
+
+11:14.200 --> 11:17.400
+ Just linger on the sci fi for one more question.
+
+11:17.400 --> 11:18.900
+ Sure.
+
+11:18.900 --> 11:20.900
+ Do you think we're alone in the universe?
+
+11:20.900 --> 11:23.800
+ Are we the only intelligent form of life?
+
+11:23.800 --> 11:27.000
+ So there is a quote by Carl Sagan,
+
+11:27.000 --> 11:30.300
+ which I really love when I hear this question.
+
+11:30.300 --> 11:32.400
+ And I recall the quote,
+
+11:32.400 --> 11:34.000
+ and it goes something like,
+
+11:34.000 --> 11:38.500
+ if we're the only conscious life in the universe,
+
+11:38.500 --> 11:40.800
+ it's in a terrible waste of space
+
+11:40.800 --> 11:45.000
+ because the universe is an incredibly big place.
+
+11:45.000 --> 11:47.200
+ And when Carl made that statement,
+
+11:47.200 --> 11:50.400
+ we didn't know about the profusion of planets
+
+11:50.400 --> 11:51.600
+ that are out there.
+
+11:51.600 --> 11:53.200
+ In the last decade,
+
+11:53.200 --> 11:56.100
+ we've discovered over a thousand planets
+
+11:56.100 --> 11:59.600
+ and a substantial number of those planets are Earth like
+
+11:59.600 --> 12:04.100
+ in terms of being in the Goldilocks zone as it's called.
+
+12:04.100 --> 12:09.100
+ So in my mind, it's practically inconceivable
+
+12:09.100 --> 12:13.400
+ that we're the only conscious form of life in the universe.
+
+12:13.400 --> 12:15.800
+ But that doesn't mean they've come to visit us.
+
+12:15.800 --> 12:17.000
+ Do you think they would look,
+
+12:17.000 --> 12:21.200
+ do you think we'll recognize alien life if we saw it?
+
+12:21.200 --> 12:24.100
+ Do you think it'd look anything like the carbon base,
+
+12:24.100 --> 12:27.100
+ the biological system we have on Earth today?
+
+12:27.100 --> 12:31.100
+ It would depend on that life's native environment
+
+12:31.100 --> 12:32.600
+ in which it arose.
+
+12:32.600 --> 12:36.300
+ If that environment was sufficiently like our environment,
+
+12:36.300 --> 12:39.200
+ there's a principle in biology and nature called convergence,
+
+12:39.200 --> 12:42.300
+ which is that even if you have two biological systems
+
+12:42.300 --> 12:44.600
+ that are totally separated from each other,
+
+12:44.600 --> 12:46.900
+ if they face similar conditions,
+
+12:46.900 --> 12:49.400
+ nature tends to converge on solutions.
+
+12:49.400 --> 12:52.000
+ And so there might be similarities
+
+12:52.000 --> 12:55.600
+ if this alien life form was born in a place
+
+12:55.600 --> 12:57.800
+ that's kind of like this place.
+
+12:57.800 --> 13:00.600
+ Physics appears to be quite similar,
+
+13:00.600 --> 13:03.900
+ the laws of physics across the entirety of the universe.
+
+13:03.900 --> 13:06.900
+ Do you think weirder things than we see on Earth
+
+13:06.900 --> 13:10.300
+ can spring up out of the same kinds of laws of physics?
+
+13:10.300 --> 13:12.800
+ From the laws of physics, I would say yes.
+
+13:12.800 --> 13:14.500
+ First of all, if you look at carbon based life,
+
+13:14.500 --> 13:15.600
+ why are we carbon based?
+
+13:15.600 --> 13:18.200
+ Well, it turns out it's because of the way
+
+13:18.200 --> 13:20.100
+ that carbon interacts with elements,
+
+13:20.100 --> 13:22.200
+ which in fact is also a reflection
+
+13:22.200 --> 13:26.600
+ on the electronic structure of the carbon nucleus.
+
+13:26.600 --> 13:28.200
+ So you can look down the table of elements and say,
+
+13:28.200 --> 13:30.400
+ well, gee, do we see similar elements?
+
+13:30.400 --> 13:31.400
+ The answer is yes.
+
+13:31.400 --> 13:34.100
+ And one that one often hears about
+
+13:34.100 --> 13:36.200
+ in science fiction is silicon.
+
+13:36.200 --> 13:38.500
+ So maybe there's a silicon based life form out there
+
+13:38.500 --> 13:40.200
+ if the conditions are right.
+
+13:40.200 --> 13:41.700
+ But I think it's presumptuous of us
+
+13:41.700 --> 13:44.300
+ to think that we are the template
+
+13:44.300 --> 13:47.500
+ by which all life has to appear.
+
+13:50.000 --> 13:52.900
+ Before we dive into beautiful details,
+
+13:52.900 --> 13:55.200
+ let me ask a big question.
+
+13:55.200 --> 13:58.200
+ What to you is the most beautiful idea,
+
+13:58.200 --> 14:02.000
+ maybe the most surprising, mysterious idea in physics?
+
+14:02.000 --> 14:03.400
+ The most surprising idea to me
+
+14:03.400 --> 14:05.700
+ is that we can actually do physics.
+
+14:05.700 --> 14:08.800
+ The universe did not have to be constructed
+
+14:08.800 --> 14:13.600
+ in such a way with our limited intellectual capacity
+
+14:13.600 --> 14:17.600
+ that is actually put together in such a way
+
+14:17.600 --> 14:20.200
+ and that we are put together in such a way
+
+14:20.200 --> 14:24.200
+ that we can, with our mind's eye,
+
+14:24.200 --> 14:27.500
+ delve incredibly deeply into the structure of the universe.
+
+14:27.500 --> 14:30.800
+ That to me is pretty close to a miracle.
+
+14:30.800 --> 14:34.400
+ So there are simple equations, relatively simple,
+
+14:34.400 --> 14:40.000
+ that can describe things, the fundamental functions.
+
+14:40.000 --> 14:42.600
+ They can describe everything about our reality.
+
+14:42.600 --> 14:46.000
+ That's not, can you imagine universes
+
+14:46.000 --> 14:50.500
+ where everything is a lot more complicated?
+
+14:50.500 --> 14:54.800
+ Do you think there's something inherent about universes
+
+14:54.800 --> 14:57.600
+ that simple laws are...
+
+14:57.600 --> 14:58.900
+ Well, first of all, let me,
+
+14:58.900 --> 15:02.200
+ this is a question that I encounter in a number of guides.
+
+15:02.200 --> 15:04.200
+ A lot of people will raise the question
+
+15:04.200 --> 15:08.000
+ about whether mathematics is the language of the universe.
+
+15:08.000 --> 15:11.200
+ And my response is mathematics is the language
+
+15:11.200 --> 15:14.700
+ that we humans are capable of using in describing the universe.
+
+15:14.700 --> 15:17.300
+ It may have little to do with the universe,
+
+15:17.300 --> 15:20.700
+ but in terms of our capacity, it's the microscope,
+
+15:20.700 --> 15:22.800
+ it's the telescope through which we,
+
+15:22.800 --> 15:26.400
+ it's the lens through which we are able to view the universe
+
+15:26.400 --> 15:31.400
+ with the precision that no other human language allows.
+
+15:31.400 --> 15:32.900
+ So could there be other universes?
+
+15:32.900 --> 15:36.800
+ Well, I don't even know if this one looks like I think it does.
+
+15:36.800 --> 15:43.000
+ But the beautiful surprising thing is that physics,
+
+15:43.000 --> 15:46.800
+ there are laws of physics, very few laws of physics
+
+15:46.800 --> 15:48.900
+ that can effectively compress down
+
+15:48.900 --> 15:50.200
+ the functioning of the universe.
+
+15:50.200 --> 15:52.700
+ Yes, that's extraordinarily surprising.
+
+15:52.700 --> 15:54.000
+ I like to use the analogy
+
+15:54.000 --> 15:56.800
+ with computers and information technology.
+
+15:56.800 --> 16:01.000
+ If you worry about transmitting large bundles of data,
+
+16:01.000 --> 16:03.200
+ one of the things that computer scientists do for us
+
+16:03.200 --> 16:06.400
+ is they allow for processes that are called compression,
+
+16:06.400 --> 16:07.900
+ where you take big packets of data
+
+16:07.900 --> 16:10.300
+ and you press them down into much smaller packets,
+
+16:10.300 --> 16:11.400
+ and then you transmit those
+
+16:11.400 --> 16:13.400
+ and then unpack them at the other end.
+
+16:13.400 --> 16:16.000
+ And so it looks a little bit to me
+
+16:16.000 --> 16:18.500
+ like the universe has kind of done us a favor.
+
+16:18.500 --> 16:20.600
+ It's constructed our minds in such a way
+
+16:20.600 --> 16:23.100
+ that we have this thing called mathematics,
+
+16:23.100 --> 16:24.700
+ which then as we look at the universe,
+
+16:24.700 --> 16:29.600
+ teaches us how to carry out the compression process.
+
+16:29.600 --> 16:31.600
+ A quick question about compression.
+
+16:31.600 --> 16:35.100
+ Do you think the human mind can be compressed?
+
+16:35.100 --> 16:38.000
+ The biology can be compressed?
+
+16:38.000 --> 16:40.000
+ We talked about space travel.
+
+16:40.000 --> 16:42.400
+ To be able to compress the information
+
+16:42.400 --> 16:46.000
+ that captures some large percent of what it means
+
+16:46.000 --> 16:48.700
+ to be me or you,
+
+16:48.700 --> 16:52.600
+ and then be able to send that at the speed of light.
+
+16:52.600 --> 16:54.300
+ Wow, that's a big question.
+
+16:54.300 --> 16:56.900
+ And let me try to take it apart,
+
+16:56.900 --> 16:58.900
+ unpack it into several pieces.
+
+16:58.900 --> 17:02.700
+ I don't believe that wetware biology such as we are
+
+17:02.700 --> 17:08.000
+ has an exclusive patent on intellectual consciousness.
+
+17:08.000 --> 17:11.500
+ I suspect that other structures in the universe
+
+17:11.500 --> 17:14.700
+ are perfectly capable of producing the data streams
+
+17:14.700 --> 17:17.300
+ that we use to process, first of all,
+
+17:17.300 --> 17:18.700
+ our observations of the universe
+
+17:18.700 --> 17:20.700
+ and an awareness of ourself.
+
+17:20.700 --> 17:23.300
+ I can imagine other structures can do that also.
+
+17:23.300 --> 17:26.600
+ So that's part of what you were talking about,
+
+17:26.600 --> 17:30.500
+ which I would have some disagreement with.
+
+17:30.500 --> 17:31.600
+ Consciousness.
+
+17:31.600 --> 17:36.200
+ What's the most interesting part of us humans?
+
+17:36.200 --> 17:38.000
+ Is consciousness the thing?
+
+17:38.000 --> 17:39.900
+ I think that's the most interesting thing about humans.
+
+17:39.900 --> 17:43.700
+ And then you're saying that there's other entities
+
+17:43.700 --> 17:45.100
+ throughout the universe.
+
+17:45.100 --> 17:48.200
+ I can well imagine that the architecture
+
+17:48.200 --> 17:50.800
+ that supports our consciousness, again,
+
+17:50.800 --> 17:53.800
+ has no patent on consciousness.
+
+17:53.800 --> 17:57.700
+ Just in case you have an interesting thought here,
+
+17:57.700 --> 18:01.500
+ there's folks perhaps in philosophy called panpsychists
+
+18:01.500 --> 18:04.100
+ that believe consciousness underlies everything.
+
+18:04.100 --> 18:07.000
+ It is one of the fundamental laws of the universe.
+
+18:07.000 --> 18:09.700
+ Do you have a sense that that could possibly fit into...
+
+18:09.700 --> 18:12.100
+ I don't know the answer to that question.
+
+18:12.100 --> 18:15.800
+ One part of that belief system is giya,
+
+18:15.800 --> 18:18.500
+ which is that there's a kind of conscious life force
+
+18:18.500 --> 18:20.300
+ about our planet.
+
+18:20.300 --> 18:22.800
+ And I've encountered these things before.
+
+18:22.800 --> 18:25.200
+ I don't quite know what to make of them.
+
+18:25.200 --> 18:30.300
+ My own life experience, and I'll be 69 in about two months,
+
+18:30.300 --> 18:33.000
+ and I have spent all my adulthood thinking about
+
+18:33.000 --> 18:37.400
+ the way that mathematics interacts with nature
+
+18:37.400 --> 18:39.800
+ and with us to try to understand nature.
+
+18:39.800 --> 18:43.800
+ And all I can tell you from all of my integrated experience
+
+18:43.800 --> 18:47.300
+ is that there is something extraordinarily mysterious
+
+18:47.300 --> 18:48.500
+ to me about our universe.
+
+18:48.500 --> 18:51.100
+ This is something that Einstein said
+
+18:51.100 --> 18:53.300
+ from his life experience as a scientist.
+
+18:53.300 --> 18:58.300
+ And this mysteriousness almost feels
+
+18:59.800 --> 19:03.300
+ like the universe is our parent.
+
+19:03.300 --> 19:07.300
+ It's a very strange thing perhaps to hear scientists say,
+
+19:07.300 --> 19:10.100
+ but there are just so many strange coincidences
+
+19:10.100 --> 19:13.500
+ that you just get a sense that something is going on.
+
+19:14.900 --> 19:16.300
+ Well, I interrupted you.
+
+19:16.300 --> 19:19.900
+ In terms of compressing what we're down to,
+
+19:19.900 --> 19:21.800
+ we can send it at the speed of light.
+
+19:21.800 --> 19:23.300
+ Yes.
+
+19:23.300 --> 19:26.800
+ So the first thing is I would argue that it's probably
+
+19:26.800 --> 19:30.100
+ very likely that artificial intelligence
+
+19:30.100 --> 19:32.600
+ ultimately will develop something like consciousness,
+
+19:32.600 --> 19:35.200
+ something that for us will probably be indistinguishable
+
+19:35.200 --> 19:36.500
+ from consciousness.
+
+19:36.500 --> 19:41.500
+ So that's what I meant by our biological processing equipment
+
+19:41.600 --> 19:44.100
+ that we carry up here probably does not hold a patent
+
+19:44.100 --> 19:46.200
+ on consciousness, because it's really
+
+19:46.200 --> 19:48.100
+ about the data streams.
+
+19:48.100 --> 19:49.500
+ As far as I can tell, that's what we are.
+
+19:49.500 --> 19:53.700
+ We are self actuating, self learning data streams.
+
+19:53.700 --> 19:56.300
+ That to me is most accurate way I can tell you
+
+19:56.300 --> 19:59.700
+ what I've seen in my lifetime about what humans are
+
+19:59.700 --> 20:01.200
+ at the level of consciousness.
+
+20:01.200 --> 20:03.600
+ So if that's the case, then you just need to have
+
+20:03.600 --> 20:06.600
+ an architecture that supports that information processing.
+
+20:06.600 --> 20:09.000
+ So let's assume that that's true,
+
+20:09.000 --> 20:13.800
+ that in fact what we call consciousness is really about
+
+20:13.800 --> 20:17.200
+ a very peculiar kind of data stream.
+
+20:17.200 --> 20:21.400
+ If that's the case, then if you can export that
+
+20:21.400 --> 20:25.500
+ to a piece of hardware, something metal,
+
+20:25.500 --> 20:29.500
+ electronic, what have you, then you certainly will,
+
+20:29.500 --> 20:32.400
+ ultimately that kind of consciousness could get to Mars
+
+20:32.400 --> 20:35.000
+ very quickly, it doesn't have our problems.
+
+20:35.000 --> 20:36.800
+ You can engineer the body, as I said,
+
+20:36.800 --> 20:39.200
+ it's a ship or a body, you engineer one or both.
+
+20:41.300 --> 20:44.100
+ Send it at a speed of light, well,
+
+20:44.100 --> 20:47.400
+ that one is a more difficult one because that now
+
+20:47.400 --> 20:49.700
+ goes beyond just a matter of having a data stream.
+
+20:49.700 --> 20:51.800
+ It's now the preservation of the information
+
+20:51.800 --> 20:53.100
+ in the data stream.
+
+20:53.100 --> 20:56.200
+ And so unless you can build something that's like
+
+20:56.200 --> 20:59.800
+ a super, super, super version of the way the internet works
+
+20:59.800 --> 21:02.100
+ because most people aren't aware that the internet itself
+
+21:02.100 --> 21:04.700
+ is actually a miracle, it's based on a technology
+
+21:04.700 --> 21:06.300
+ called message packaging.
+
+21:06.300 --> 21:10.300
+ So if you could exponentiate message packaging
+
+21:10.300 --> 21:11.900
+ in some way to preserve the information
+
+21:11.900 --> 21:13.500
+ that's in the data stream, then maybe
+
+21:13.500 --> 21:14.700
+ your dream becomes true.
+
+21:16.200 --> 21:18.900
+ You mentioned with artificial intelligence,
+
+21:18.900 --> 21:21.900
+ sort of us human beings not having
+
+21:21.900 --> 21:24.400
+ a monopoly on consciousness.
+
+21:24.400 --> 21:29.400
+ Does the idea of artificial intelligence systems,
+
+21:29.400 --> 21:33.300
+ computational systems, being able to basically
+
+21:33.300 --> 21:37.800
+ replacing us humans scare you, excite you?
+
+21:37.800 --> 21:38.800
+ What do you think about that?
+
+21:38.800 --> 21:40.100
+ So I'm gonna tell you about a conversation
+
+21:40.100 --> 21:41.900
+ I once had with Eric Schmidt.
+
+21:41.900 --> 21:43.300
+ I was sitting at a meeting with him
+
+21:43.300 --> 21:46.700
+ and he was a few feet away and he turned to me
+
+21:46.700 --> 21:49.300
+ and he said something like, you know, Jim,
+
+21:49.300 --> 21:51.600
+ in maybe a decade or so, we're gonna have computers
+
+21:51.600 --> 21:53.200
+ that do what you do.
+
+21:53.200 --> 21:55.800
+ And my response was not unless they can dream
+
+21:55.800 --> 21:57.700
+ because there's something about,
+
+21:57.700 --> 22:01.200
+ the way that we humans actually generate creativity.
+
+22:01.200 --> 22:04.700
+ It's somehow, I get this sense of my lived experience
+
+22:04.700 --> 22:07.100
+ in watching creative people that it's somehow
+
+22:07.100 --> 22:09.700
+ connected to the irrational parts of what goes on
+
+22:09.700 --> 22:12.500
+ in our head and dreaming is part of that irrational.
+
+22:12.500 --> 22:15.200
+ So unless you can build a piece of artificial intelligence
+
+22:15.200 --> 22:17.200
+ that dreams, I have a strong suspicion
+
+22:17.200 --> 22:21.100
+ that you will not get something that will fully be conscious
+
+22:21.100 --> 22:24.300
+ by a definition that I would accept, for example.
+
+22:24.300 --> 22:25.900
+ So you mentioned dreaming.
+
+22:25.900 --> 22:30.900
+ You've played around with some out there fascinating ideas.
+
+22:31.700 --> 22:35.300
+ How do you think, and we'll start diving into
+
+22:35.300 --> 22:38.200
+ the world of the very small ideas of super symmetry
+
+22:38.200 --> 22:41.700
+ and all that in terms of visualization,
+
+22:41.700 --> 22:43.900
+ in terms of how do you think about it?
+
+22:43.900 --> 22:44.900
+ How do you dream of it?
+
+22:44.900 --> 22:46.700
+ How do you come up with ideas
+
+22:46.700 --> 22:49.300
+ in that fascinating, mysterious space?
+
+22:49.300 --> 22:52.900
+ So in my workspace, which is basically
+
+22:52.900 --> 22:57.900
+ where I am charged with coming up on a mathematical palette
+
+22:59.900 --> 23:02.100
+ with new ideas that will help me understand
+
+23:02.100 --> 23:04.500
+ the structure of nature and hopefully help all of us
+
+23:04.500 --> 23:06.300
+ understand the structure of nature.
+
+23:06.300 --> 23:08.100
+ I've observed several different ways
+
+23:08.100 --> 23:10.500
+ in which my creativity expresses itself.
+
+23:10.500 --> 23:12.900
+ There's one mode which looks pretty normal,
+
+23:12.900 --> 23:16.700
+ which I sort of think of as the Chinese water torture method.
+
+23:16.700 --> 23:19.500
+ Drop, drop, drop, you get more and more information
+
+23:19.500 --> 23:23.100
+ and suddenly it all congeals and you get a clear picture.
+
+23:23.100 --> 23:25.100
+ And so that's kind of a standard way of working.
+
+23:25.100 --> 23:27.700
+ And I think that's how most people think about
+
+23:28.700 --> 23:30.700
+ the way technical people solve problems.
+
+23:30.700 --> 23:34.700
+ That is kind of you accumulate this body of information
+
+23:34.700 --> 23:37.300
+ and at a certain point you synthesize it
+
+23:37.300 --> 23:39.100
+ and then boom, there's something new.
+
+23:39.100 --> 23:41.900
+ But I've also observed in myself and other scientists
+
+23:41.900 --> 23:44.500
+ that there are other ways that we are creative.
+
+23:44.500 --> 23:48.900
+ And these other ways to me are actually far more powerful.
+
+23:48.900 --> 23:50.500
+ I first personally experienced this
+
+23:50.500 --> 23:53.500
+ when I was a freshman at MIT over in Baker House
+
+23:53.500 --> 23:55.500
+ right across the campus.
+
+23:55.500 --> 24:00.500
+ And I was in a calculus course, 1801 is called at MIT.
+
+24:00.500 --> 24:03.700
+ And calculus comes in two different flavors.
+
+24:03.700 --> 24:05.900
+ One of them is called differential calculus.
+
+24:05.900 --> 24:07.500
+ The other is called integral calculus.
+
+24:07.500 --> 24:09.700
+ Differential calculus is the calculus
+
+24:09.700 --> 24:13.300
+ that Newton invented to describe motion.
+
+24:13.300 --> 24:15.300
+ It turns out integral calculus was probably invented
+
+24:15.300 --> 24:18.100
+ about 1700 years earlier by Archimedes.
+
+24:18.100 --> 24:20.900
+ But we didn't know that when I was a freshman.
+
+24:20.900 --> 24:24.100
+ But so that's what you study as a student.
+
+24:24.100 --> 24:26.900
+ And the differential calculus part of the course was,
+
+24:26.900 --> 24:30.300
+ to me, I wouldn't, how do I say this?
+
+24:30.300 --> 24:32.900
+ It was something that by the drip, drip, drip method
+
+24:32.900 --> 24:34.500
+ you could sort of figure it out.
+
+24:35.300 --> 24:37.500
+ Now, the integral part of calculus,
+
+24:37.500 --> 24:38.900
+ I could memorize the formula.
+
+24:38.900 --> 24:42.100
+ That was not the formulae, that was not the problem.
+
+24:42.100 --> 24:44.700
+ The problem was why, in my own mind,
+
+24:44.700 --> 24:47.300
+ why do these formulae work?
+
+24:47.300 --> 24:52.300
+ And because of that, when I was in the part
+
+24:52.300 --> 24:53.900
+ of the calculus course where we had to do
+
+24:53.900 --> 24:56.500
+ multiple substitutions to solve integrals,
+
+24:56.500 --> 24:57.900
+ I had a lot of difficulty.
+
+24:59.300 --> 25:01.300
+ I was emotionally involved in my education
+
+25:01.300 --> 25:05.500
+ because this is where I think the passion of motion comes to.
+
+25:05.500 --> 25:07.700
+ And it caused an emotional crisis
+
+25:07.700 --> 25:09.100
+ that I was having these difficulties
+
+25:09.100 --> 25:10.700
+ understanding the integral part of calculus.
+
+25:10.700 --> 25:11.700
+ The why.
+
+25:11.700 --> 25:12.900
+ The why, that's right, the why of it.
+
+25:12.900 --> 25:15.100
+ Not the rote memorization of fact,
+
+25:15.100 --> 25:16.300
+ but the why of it.
+
+25:16.300 --> 25:18.300
+ Why does this work?
+
+25:18.300 --> 25:21.700
+ And so one night I was over in my dormitory room
+
+25:21.700 --> 25:23.100
+ in Baker House.
+
+25:23.100 --> 25:25.900
+ I was trying to do a calculus problem set.
+
+25:25.900 --> 25:27.500
+ I was getting nowhere.
+
+25:28.500 --> 25:30.900
+ I got a terrific headache.
+
+25:30.900 --> 25:33.700
+ I went to sleep and had this very strange dream.
+
+25:33.700 --> 25:35.700
+ And when I woke, awakened,
+
+25:36.700 --> 25:38.500
+ I could do three and four substitutions
+
+25:38.500 --> 25:41.300
+ and integrals with relative ease.
+
+25:41.300 --> 25:44.300
+ Now, this to me was an astounding experience
+
+25:44.300 --> 25:48.700
+ because I had never before in my life understood
+
+25:48.700 --> 25:51.100
+ that one subconscious is actually capable
+
+25:51.100 --> 25:53.100
+ of being harnessed to do mathematics.
+
+25:54.100 --> 25:55.100
+ I experienced it, this.
+
+25:55.100 --> 25:56.700
+ And I've experienced this more than once.
+
+25:56.700 --> 25:59.900
+ So this was just the first time why I remember it so.
+
+25:59.900 --> 26:02.100
+ So that's why when it comes to like
+
+26:02.100 --> 26:04.300
+ really wickedly tough problems,
+
+26:04.300 --> 26:06.100
+ I think that the kind of creativity
+
+26:06.100 --> 26:08.700
+ that you need to solve them
+
+26:08.700 --> 26:10.900
+ is probably this second variety
+
+26:10.900 --> 26:14.300
+ which comes somehow from dreaming.
+
+26:15.900 --> 26:18.700
+ Do you think, again, I told you I'm Russian.
+
+26:18.700 --> 26:20.500
+ So we romanticize suffering.
+
+26:20.500 --> 26:22.300
+ But do you think part of that equation
+
+26:22.300 --> 26:25.900
+ is the suffering leading up to that dreaming?
+
+26:25.900 --> 26:28.500
+ So the suffering is,
+
+26:28.500 --> 26:31.900
+ I am convinced that this kind of creative,
+
+26:31.900 --> 26:34.700
+ this second mode of creativity as I like to call it,
+
+26:34.700 --> 26:37.700
+ I'm convinced that this second mode of creativity
+
+26:37.700 --> 26:42.700
+ is in fact that suffering is a kind of crucible
+
+26:43.300 --> 26:44.700
+ that triggers it.
+
+26:44.700 --> 26:47.700
+ Because the mind I think is struggling to get out of this.
+
+26:47.700 --> 26:51.300
+ And the only way to actually solve the problem.
+
+26:51.300 --> 26:54.100
+ And even though you're not consciously solving problems,
+
+26:54.100 --> 26:55.500
+ something is going on.
+
+26:55.500 --> 26:57.300
+ And I've talked about to a few other people
+
+26:57.300 --> 27:00.100
+ and I've heard other similar stories.
+
+27:00.100 --> 27:03.300
+ And so I guess what I think about it is
+
+27:03.300 --> 27:04.900
+ it's a little bit by like the way
+
+27:04.900 --> 27:07.900
+ that thermonuclear weapons work.
+
+27:07.900 --> 27:09.300
+ I don't know if you know how they work.
+
+27:09.300 --> 27:11.700
+ But a thermonuclear weapon is actually two bombs.
+
+27:11.700 --> 27:14.300
+ It's an atomic bomb which sort of does a compression.
+
+27:14.300 --> 27:16.100
+ And then you have a fusion bomb that goes off.
+
+27:16.100 --> 27:18.900
+ And somehow that emotional pressure
+
+27:18.900 --> 27:22.100
+ I think acts like the first stage of a thermonuclear weapon.
+
+27:22.100 --> 27:24.100
+ That's when we get really big thoughts.
+
+27:25.100 --> 27:27.500
+ The analogy between thermonuclear weapons
+
+27:27.500 --> 27:30.900
+ and the subconscious, the connection there is,
+
+27:30.900 --> 27:34.700
+ at least visually, is kind of interesting.
+
+27:34.700 --> 27:39.700
+ There may be, Freud would have a few things to say.
+
+27:39.700 --> 27:41.300
+ Well, part of it is probably based
+
+27:41.300 --> 27:43.100
+ on my own trajectory through life.
+
+27:43.100 --> 27:46.700
+ My father was in the US Army for 27 years.
+
+27:46.700 --> 27:50.300
+ And so I started my life out on a military basis.
+
+27:50.300 --> 27:53.700
+ And so a lot of probably the things that wander around
+
+27:53.700 --> 27:56.300
+ in my subconscious are connected to that experience.
+
+27:56.300 --> 27:58.700
+ I apologize for all the tangents, but.
+
+27:58.700 --> 27:59.900
+ Well, you're doing it.
+
+27:59.900 --> 28:01.100
+ You're doing it.
+
+28:01.100 --> 28:07.100
+ But you're encouraging by answering the stupid questions.
+
+28:07.100 --> 28:08.100
+ No, they're not stupid.
+
+28:08.100 --> 28:12.100
+ You know, your father was in the Army.
+
+28:14.100 --> 28:20.100
+ What do you think about, Neil deGrasse Tyson recently wrote
+
+28:20.100 --> 28:25.500
+ a book on interlinking the progress of science
+
+28:25.500 --> 28:31.700
+ to sort of the aspirations of our military endeavors
+
+28:31.700 --> 28:33.900
+ and DARPA funding and so on.
+
+28:33.900 --> 28:35.900
+ What do you think about war in general?
+
+28:35.900 --> 28:37.900
+ Do you think we'll always have war?
+
+28:37.900 --> 28:42.100
+ Do you think we'll always have conflict in the world?
+
+28:42.100 --> 28:43.700
+ I'm not sure that we're going to be able
+
+28:43.700 --> 28:47.500
+ to afford to have war always, because if.
+
+28:47.500 --> 28:49.100
+ Strictly financially speaking?
+
+28:49.100 --> 28:53.300
+ No, not in terms of finance, but in terms of consequences.
+
+28:53.300 --> 28:56.900
+ So if you look at technology today,
+
+28:56.900 --> 29:00.500
+ you can have non state actors acquire technology,
+
+29:00.500 --> 29:05.100
+ for example, bioterrorism, whose impact is roughly speaking
+
+29:05.100 --> 29:07.700
+ equivalent to what it used to take nations
+
+29:07.700 --> 29:10.700
+ to impart on a population.
+
+29:10.700 --> 29:13.300
+ I think the cost of war is ultimately,
+
+29:13.300 --> 29:14.500
+ it's going to be a little, I think
+
+29:14.500 --> 29:16.700
+ it's going to work a little bit like the Cold War.
+
+29:16.700 --> 29:21.700
+ You know, we survived 50, 60 years as a species
+
+29:21.700 --> 29:25.500
+ with these weapons that are so terrible that they could have
+
+29:25.500 --> 29:29.000
+ actually ended our form of life on this planet, but it didn't.
+
+29:29.000 --> 29:30.100
+ Why didn't it?
+
+29:30.100 --> 29:32.100
+ Well, it's a very bizarre and interesting thing,
+
+29:32.100 --> 29:34.500
+ but it was called mutually assured destruction.
+
+29:34.500 --> 29:37.500
+ And so the cost was so great that people eventually
+
+29:37.500 --> 29:39.100
+ figured out that you can't really
+
+29:39.100 --> 29:41.100
+ use these things, which is kind of interesting,
+
+29:41.100 --> 29:43.300
+ because if you read the history about the development
+
+29:43.300 --> 29:45.300
+ of nuclear weapons, physicists actually
+
+29:45.300 --> 29:46.900
+ realized this pretty quickly.
+
+29:46.900 --> 29:49.000
+ I think it was maybe Schrodinger who
+
+29:49.000 --> 29:51.300
+ said that these things are not really weapons.
+
+29:51.300 --> 29:52.900
+ They're political implements.
+
+29:52.900 --> 29:55.900
+ They're not weapons, because the cost is so high.
+
+29:55.900 --> 30:00.200
+ And if you take that example and spread it out
+
+30:00.200 --> 30:01.900
+ to the kind of technological development
+
+30:01.900 --> 30:04.200
+ we're seeing now outside of nuclear physics,
+
+30:04.200 --> 30:06.900
+ but I picked the example of biology,
+
+30:06.900 --> 30:10.500
+ I could well imagine that there would be material science
+
+30:10.500 --> 30:14.500
+ sorts of equivalents across a broad front of technology.
+
+30:14.500 --> 30:17.300
+ You take that experience from nuclear weapons,
+
+30:17.300 --> 30:20.800
+ and the picture that I see is that it would be possible
+
+30:20.800 --> 30:24.300
+ to develop technologies that are so terrible that you couldn't
+
+30:24.300 --> 30:27.600
+ use them, because the costs are too high.
+
+30:27.600 --> 30:29.100
+ And that might cure us.
+
+30:29.100 --> 30:33.100
+ And many people have argued that actually it prevented,
+
+30:33.100 --> 30:36.700
+ nuclear weapons have prevented more military conflict than.
+
+30:36.700 --> 30:41.100
+ It certainly froze the conflict domain.
+
+30:41.100 --> 30:44.000
+ It's interesting that nowadays it
+
+30:44.000 --> 30:46.900
+ was with the removal of the threat of mutually assured
+
+30:46.900 --> 30:52.300
+ destruction that other forces took over in our geopolitics.
+
+30:52.300 --> 30:57.700
+ Do you have worries of existential threats
+
+30:57.700 --> 31:00.200
+ of nuclear weapons or other technologies
+
+31:00.200 --> 31:01.700
+ like artificial intelligence?
+
+31:01.700 --> 31:05.100
+ Do you think we humans will tend to figure out
+
+31:05.100 --> 31:06.900
+ how to not blow ourselves up?
+
+31:06.900 --> 31:10.000
+ I don't know, quite frankly.
+
+31:10.000 --> 31:11.700
+ This is something I've thought about.
+
+31:11.700 --> 31:16.900
+ And I'm not, I mean, so I'm a spectator in the sense
+
+31:16.900 --> 31:21.700
+ that as a scientist, I collect and collate data.
+
+31:21.700 --> 31:23.300
+ So I've been doing that all my life
+
+31:23.300 --> 31:25.300
+ and looking at my species.
+
+31:25.300 --> 31:27.500
+ And it's not clear to me that we are
+
+31:27.500 --> 31:31.500
+ going to avoid a catastrophic, self induced ending.
+
+31:34.500 --> 31:37.300
+ Are you optimistic?
+
+31:37.300 --> 31:40.700
+ Not as a scientist, but as a single element speaker?
+
+31:40.700 --> 31:45.400
+ I would say I wouldn't bet against us.
+
+31:45.400 --> 31:47.100
+ Beautifully put.
+
+31:47.100 --> 31:50.700
+ Let's dive into the world of the very small,
+
+31:50.700 --> 31:52.900
+ if we could for a bit.
+
+31:52.900 --> 31:56.900
+ What are the basic particles, either experimentally observed
+
+31:56.900 --> 31:59.300
+ or hypothesized by physicists?
+
+31:59.300 --> 32:02.500
+ So as we physicists look at the universe,
+
+32:02.500 --> 32:05.300
+ you can, first of all, there are two big buckets of particles.
+
+32:05.300 --> 32:07.200
+ That is the smallest objects that we
+
+32:07.200 --> 32:11.300
+ are able to currently mathematically conceive
+
+32:11.300 --> 32:15.700
+ and then experimentally verify that these ideas have
+
+32:15.700 --> 32:17.700
+ a sense of accuracy to them.
+
+32:17.700 --> 32:20.900
+ So one of those buckets we call matter.
+
+32:20.900 --> 32:23.300
+ These are things like electrons, things
+
+32:23.300 --> 32:25.900
+ that are like quarks, which are particles that
+
+32:25.900 --> 32:27.900
+ exist inside of protons.
+
+32:27.900 --> 32:30.700
+ And there's a whole family of these things.
+
+32:30.700 --> 32:34.300
+ There are, in fact, 18 quarks and apparently six
+
+32:34.300 --> 32:37.500
+ electron like objects that we call leptons.
+
+32:37.500 --> 32:39.100
+ So that's one bucket.
+
+32:39.100 --> 32:41.700
+ The other bucket that we see both in our mathematics
+
+32:41.700 --> 32:43.700
+ as well as in our experimental equipment
+
+32:43.700 --> 32:47.900
+ are a set of particles that you can call force carriers.
+
+32:47.900 --> 32:50.700
+ The most familiar force carrier is the photon, the particle
+
+32:50.700 --> 32:52.200
+ of light that allows you to see me.
+
+32:52.200 --> 32:54.300
+ In fact, it's the same object that
+
+32:54.300 --> 32:58.300
+ carries electric repulsion between like charges.
+
+32:58.300 --> 33:00.900
+ From science fiction, we have the object
+
+33:00.900 --> 33:03.600
+ called the graviton, which is talked about a lot in science
+
+33:03.600 --> 33:05.300
+ fiction and Star Trek.
+
+33:05.300 --> 33:07.500
+ But the graviton is also a mathematical object
+
+33:07.500 --> 33:09.400
+ that we physicists have known about essentially
+
+33:09.400 --> 33:13.400
+ since Einstein wrote his theory of general relativity.
+
+33:13.400 --> 33:17.700
+ There are four forces in nature, the fundamental forces.
+
+33:17.700 --> 33:19.600
+ There is the gravitational force.
+
+33:19.600 --> 33:21.400
+ Its carrier is the graviton.
+
+33:21.400 --> 33:23.100
+ There are three other forces in nature,
+
+33:23.100 --> 33:25.800
+ the electromagnetic force, the strong nuclear force,
+
+33:25.800 --> 33:27.000
+ and the weak nuclear force.
+
+33:27.000 --> 33:30.200
+ And each one of these forces has one or more carriers.
+
+33:30.200 --> 33:33.200
+ The photon is the carrier of the electromagnetic force.
+
+33:33.200 --> 33:35.900
+ The strong nuclear force actually has eight carriers.
+
+33:35.900 --> 33:37.300
+ They're called gluons.
+
+33:37.300 --> 33:39.500
+ And then the weak nuclear force has three carriers.
+
+33:39.500 --> 33:44.000
+ They're called the W plus, W minus, and Z bosons.
+
+33:44.000 --> 33:46.500
+ So those are the things that both in mathematics
+
+33:46.500 --> 33:49.900
+ and in experiments, by the way, the most precise experiments
+
+33:49.900 --> 33:53.100
+ we're ever as a species able to conduct
+
+33:53.100 --> 33:55.500
+ is about measuring the accuracy of these ideas.
+
+33:55.500 --> 33:57.600
+ And we know that at least to one part in a billion,
+
+33:57.600 --> 33:59.600
+ these ideas are right.
+
+33:59.600 --> 34:05.400
+ So first of all, you've made it sound both elegant and simple.
+
+34:05.400 --> 34:11.300
+ But is it crazy to you that there is force carriers?
+
+34:11.300 --> 34:14.500
+ Like, is that supposed to be a trivial idea to think about?
+
+34:14.500 --> 34:17.300
+ If we think about photons, gluons,
+
+34:17.300 --> 34:21.300
+ that there's four fundamental forces of physics,
+
+34:21.300 --> 34:24.200
+ and then those forces are expressed.
+
+34:24.200 --> 34:26.600
+ There's carriers of those forces.
+
+34:26.600 --> 34:29.600
+ Like, is that a kind of trivial thing?
+
+34:29.600 --> 34:31.000
+ It's not a trivial thing at all.
+
+34:31.000 --> 34:33.100
+ In fact, it was a puzzle for Sir Isaac Newton,
+
+34:33.100 --> 34:37.200
+ because he's the first person to give us basically physics.
+
+34:37.200 --> 34:39.800
+ Before Isaac Newton, physics didn't exist.
+
+34:39.800 --> 34:41.700
+ What did exist was called natural philosophy,
+
+34:41.700 --> 34:45.100
+ so discussions about using the methods of classical philosophy
+
+34:45.100 --> 34:48.400
+ to understand nature, natural philosophy.
+
+34:48.400 --> 34:50.700
+ So the Greeks, we call them scientists,
+
+34:50.700 --> 34:52.800
+ but they were natural philosophers.
+
+34:52.800 --> 34:56.600
+ Physics doesn't get born until Newton writes the Principia.
+
+34:56.600 --> 35:00.500
+ One of the things that puzzled him was how gravity works,
+
+35:00.500 --> 35:04.800
+ because if you read very carefully what he writes,
+
+35:04.800 --> 35:07.300
+ he basically says, and I'm paraphrasing badly,
+
+35:07.300 --> 35:10.000
+ but he basically says that someone who thinks deeply
+
+35:10.000 --> 35:13.200
+ about this subject would find it inconceivable
+
+35:13.200 --> 35:17.000
+ that an object in one place or location
+
+35:17.000 --> 35:19.500
+ can magically reach out and affect another object
+
+35:19.500 --> 35:21.600
+ with nothing intervening.
+
+35:21.600 --> 35:23.100
+ And so it puzzled him.
+
+35:23.100 --> 35:25.700
+ There's a puzzle of you, action at a distance.
+
+35:25.700 --> 35:27.000
+ I mean, not as a physicist.
+
+35:27.000 --> 35:29.900
+ It would, it would, except that I am a physicist,
+
+35:29.900 --> 35:32.400
+ and we have long ago resolved this issue,
+
+35:32.400 --> 35:33.500
+ and the resolution came about
+
+35:33.500 --> 35:36.800
+ through a second great physicist.
+
+35:36.800 --> 35:38.400
+ Most people have heard of Newton.
+
+35:38.400 --> 35:40.100
+ Most people have heard of Einstein.
+
+35:40.100 --> 35:41.100
+ But between the two of them,
+
+35:41.100 --> 35:43.600
+ there was another extraordinarily great physicist,
+
+35:43.600 --> 35:45.900
+ a man named James Clark Maxwell.
+
+35:45.900 --> 35:49.500
+ And Maxwell, between these two other giants,
+
+35:49.500 --> 35:52.900
+ taught us about electric and magnetic forces,
+
+35:52.900 --> 35:55.900
+ and it's from his equations that one can figure out
+
+35:55.900 --> 35:58.200
+ that there's a carrier called the photon.
+
+35:58.200 --> 36:02.800
+ So this was resolved for physicists around 1860 or so.
+
+36:04.000 --> 36:08.400
+ So what are bosons and fermions and hadrons,
+
+36:08.400 --> 36:09.700
+ elementary and composites?
+
+36:09.700 --> 36:12.900
+ Sure, so earlier I said.
+
+36:12.900 --> 36:13.740
+ Two buckets.
+
+36:13.740 --> 36:14.600
+ You have got two buckets
+
+36:14.600 --> 36:15.800
+ if you wanna try to build the universe.
+
+36:15.800 --> 36:18.700
+ You gotta start off with things on these two buckets.
+
+36:18.700 --> 36:21.300
+ So you gotta have things, that's a matter,
+
+36:21.300 --> 36:23.800
+ and then you have to have other objects that act on them
+
+36:23.800 --> 36:28.400
+ to cause those things to cohere to fixed finite patterns,
+
+36:28.400 --> 36:30.000
+ because you need those fixed finite patterns
+
+36:30.000 --> 36:31.100
+ as building blocks.
+
+36:31.100 --> 36:34.000
+ So that's the way our universe looks to people like me.
+
+36:34.000 --> 36:37.100
+ Now, the building blocks do different things.
+
+36:37.100 --> 36:39.800
+ So let's go back to these two buckets again.
+
+36:39.800 --> 36:42.800
+ Let me start with a bucket containing the particle of light.
+
+36:42.800 --> 36:46.400
+ Let me imagine I'm in a dusty room with two flashlights,
+
+36:46.400 --> 36:49.300
+ and I have one flashlight, which I direct directly
+
+36:49.300 --> 36:52.800
+ in front of me, and then I have you stand over to say my left
+
+36:52.800 --> 36:54.800
+ and then we both take our flashlights and turn them on
+
+36:54.800 --> 36:56.800
+ and make sure the beams go right through each other.
+
+36:56.800 --> 36:57.900
+ And the beams do just that.
+
+36:57.900 --> 36:58.800
+ They go right through each other.
+
+36:58.800 --> 37:00.300
+ They don't bounce off of each other.
+
+37:00.300 --> 37:01.500
+ The reason the room has to be dusty
+
+37:01.500 --> 37:03.500
+ is because we wanna see the light.
+
+37:03.500 --> 37:04.500
+ The room dust wasn't there.
+
+37:04.500 --> 37:05.500
+ We wouldn't actually see the light
+
+37:05.500 --> 37:07.000
+ until it got to the other wall, right?
+
+37:07.000 --> 37:09.900
+ So you see the beam because it's the dust in the air.
+
+37:09.900 --> 37:12.600
+ But the two beams actually pass right through each other.
+
+37:12.600 --> 37:13.900
+ They literally pass right through.
+
+37:13.900 --> 37:15.900
+ They don't affect each other at all.
+
+37:15.900 --> 37:17.800
+ One acts like the other's not there.
+
+37:20.200 --> 37:23.000
+ The particle of light is the simplest example
+
+37:23.000 --> 37:24.600
+ that shows that behavior.
+
+37:24.600 --> 37:26.200
+ That's a boson.
+
+37:26.200 --> 37:30.100
+ Now let's imagine that we're in the same dusty room
+
+37:30.100 --> 37:31.900
+ and this time you have a bucket of balls
+
+37:31.900 --> 37:33.100
+ and I have a bucket of balls.
+
+37:33.100 --> 37:36.200
+ And we try to throw them so that we get something
+
+37:36.200 --> 37:38.300
+ like a beam, throwing them fast, right?
+
+37:39.200 --> 37:41.500
+ If they collide, they don't just pass through each other.
+
+37:41.500 --> 37:43.400
+ They bounce off of each other.
+
+37:43.400 --> 37:45.900
+ Now that's mostly because they have electric charge
+
+37:45.900 --> 37:48.500
+ and electric charges, light charges repel.
+
+37:48.500 --> 37:50.300
+ But mathematically, I know how to turn off
+
+37:50.300 --> 37:51.500
+ the electric charge.
+
+37:51.500 --> 37:53.800
+ And if you do that, you'll find these still repel.
+
+37:53.800 --> 37:57.100
+ And it's because they are these things we call fermions.
+
+37:57.100 --> 37:59.000
+ So this is how you distinguish the things
+
+37:59.000 --> 38:00.200
+ that are in the two buckets.
+
+38:00.200 --> 38:02.200
+ They are either bosons or fermions.
+
+38:04.000 --> 38:06.900
+ Which of them, and maybe you can mention
+
+38:06.900 --> 38:09.900
+ the most popular of the bosons.
+
+38:09.900 --> 38:12.000
+ The most recently discovered.
+
+38:12.000 --> 38:15.200
+ It's like when I was in high school
+
+38:15.200 --> 38:18.300
+ and there was a really popular majorette.
+
+38:18.300 --> 38:21.500
+ Her name is the Higgs particle these days.
+
+38:21.500 --> 38:26.500
+ Can you describe which of the bosons
+
+38:26.700 --> 38:28.500
+ and the fermions have been discovered,
+
+38:28.500 --> 38:31.300
+ hypothesized, which have been experimentally validated,
+
+38:31.300 --> 38:32.200
+ what's still out there?
+
+38:32.200 --> 38:37.100
+ Right, so the two buckets that I've actually described
+
+38:37.100 --> 38:40.200
+ to you have all been first hypothesized
+
+38:40.200 --> 38:43.100
+ and then verified by observation.
+
+38:43.100 --> 38:45.200
+ With the Higgs boson being the most recent
+
+38:45.200 --> 38:47.200
+ one of these things.
+
+38:47.200 --> 38:49.800
+ We haven't actually verified the graviton
+
+38:49.800 --> 38:51.200
+ interestingly enough.
+
+38:51.200 --> 38:54.100
+ Mathematically, we have an expectation
+
+38:54.100 --> 38:55.400
+ that gravitons exist.
+
+38:55.400 --> 38:56.900
+ But we've not performed an experiment
+
+38:56.900 --> 38:59.900
+ to show that this is an accurate idea that nature uses.
+
+38:59.900 --> 39:02.200
+ So something has to be a carrier.
+
+39:02.200 --> 39:04.500
+ For the force of gravity, exactly.
+
+39:04.500 --> 39:08.000
+ Can it be something way more mysterious than we,
+
+39:08.000 --> 39:11.500
+ so when you say the graviton, is it,
+
+39:11.500 --> 39:15.000
+ would it be like the other particles, force carriers,
+
+39:15.000 --> 39:16.300
+ or can it be something much more mysterious?
+
+39:16.300 --> 39:18.700
+ In some ways, yes, but in other ways, no.
+
+39:18.700 --> 39:21.900
+ It turns out that the graviton is also,
+
+39:21.900 --> 39:24.200
+ if you look at Einstein's theory,
+
+39:24.200 --> 39:26.600
+ he taught us about this thing he calls space time,
+
+39:26.600 --> 39:29.300
+ which is, if you try to imagine it,
+
+39:29.300 --> 39:32.400
+ you can sort of think of it as kind of a rubber surface.
+
+39:32.400 --> 39:34.900
+ That's one popular depiction of space time.
+
+39:34.900 --> 39:36.200
+ It's not an accurate depiction
+
+39:36.200 --> 39:38.600
+ because the only accuracy is actually in the calculus
+
+39:38.600 --> 39:41.100
+ that he uses, but that's close enough.
+
+39:41.100 --> 39:43.700
+ So if you have a sheet of rubber, you can wave it.
+
+39:43.700 --> 39:46.000
+ You can actually form a wave on it.
+
+39:46.000 --> 39:47.800
+ Space time is enough like that
+
+39:47.800 --> 39:51.000
+ so that when space time oscillates, you create these waves.
+
+39:51.000 --> 39:53.100
+ These waves carry energy.
+
+39:53.100 --> 39:55.000
+ We expect them to carry energy in quanta.
+
+39:55.000 --> 39:56.100
+ That's what a graviton is.
+
+39:56.100 --> 39:57.700
+ It's a wave in space time.
+
+39:57.700 --> 40:00.700
+ And so the fact that we have seen the waves
+
+40:00.700 --> 40:03.700
+ with LIGO over the course of the last three years,
+
+40:03.700 --> 40:07.200
+ and we've recently used gravitational wave observatories
+
+40:07.200 --> 40:09.800
+ to watch colliding black holes and neutron stars
+
+40:09.800 --> 40:12.500
+ and all sorts of really cool stuff out there.
+
+40:12.500 --> 40:14.600
+ So we know the waves exist,
+
+40:14.600 --> 40:16.700
+ but in order to know that gravitons exist,
+
+40:16.700 --> 40:18.800
+ you have to prove that these waves carry energy
+
+40:18.800 --> 40:20.400
+ in energy packets.
+
+40:20.400 --> 40:23.400
+ And that's what we don't have the technology to do yet.
+
+40:25.100 --> 40:28.300
+ And perhaps briefly jumping to a philosophical question,
+
+40:28.300 --> 40:30.600
+ does it make sense to you that gravity
+
+40:30.600 --> 40:32.900
+ is so much weaker than the other forces?
+
+40:32.900 --> 40:34.300
+ No.
+
+40:34.300 --> 40:39.300
+ You see, now you've touched on a very deep mystery
+
+40:40.500 --> 40:41.700
+ about physics.
+
+40:42.600 --> 40:44.300
+ There are a lot of such questions in physics
+
+40:44.300 --> 40:47.200
+ about why things are as they are.
+
+40:47.200 --> 40:50.900
+ And as someone who believes that there are some things
+
+40:50.900 --> 40:53.400
+ that certainly are coincidences,
+
+40:53.400 --> 40:54.800
+ like you could ask the same question about,
+
+40:54.800 --> 40:57.100
+ well, why are the planets at the orbits
+
+40:57.100 --> 40:58.900
+ that they are around the sun?
+
+40:58.900 --> 41:00.300
+ The answer turns out there is no good reason.
+
+41:00.300 --> 41:01.400
+ It's just an accident.
+
+41:01.400 --> 41:03.500
+ So there are things in nature that have that character.
+
+41:03.500 --> 41:08.500
+ And perhaps the strength of the various forces is like that.
+
+41:08.600 --> 41:10.900
+ On the other hand, we don't know that that's the case.
+
+41:10.900 --> 41:12.500
+ And there may be some deep reasons
+
+41:12.500 --> 41:15.900
+ about why the forces are ordered as they are,
+
+41:15.900 --> 41:17.600
+ where the weakest force is gravity,
+
+41:17.600 --> 41:19.700
+ the next weakest force is the weak interaction,
+
+41:19.700 --> 41:22.000
+ the weak nuclear force, then there's electromagnetism,
+
+41:22.000 --> 41:23.100
+ there's a strong force.
+
+41:23.100 --> 41:24.700
+ We don't really have a good understanding
+
+41:24.700 --> 41:27.000
+ of why this is the ordering of the forces.
+
+41:27.000 --> 41:30.900
+ So some of the fascinating work you've done
+
+41:30.900 --> 41:35.900
+ is in the space of supersymmetry, symmetry in general.
+
+41:36.300 --> 41:39.500
+ Can you describe, first of all, what is supersymmetry?
+
+41:39.500 --> 41:41.400
+ Yes, so you remember the two buckets
+
+41:41.400 --> 41:43.500
+ I told you about perhaps earlier?
+
+41:43.500 --> 41:46.100
+ So there are two buckets in our universe.
+
+41:46.100 --> 41:51.100
+ So now I want you to think about drawing a pie
+
+41:51.800 --> 41:53.000
+ that has four quadrants.
+
+41:53.000 --> 41:56.200
+ So I want you to cut the piece of pie in fourths.
+
+41:56.200 --> 41:58.300
+ So in one quadrant, I'm gonna put all the buckets
+
+41:58.300 --> 42:01.400
+ that we talked about that are like the electron and quarks.
+
+42:01.400 --> 42:02.400
+ In a different quadrant,
+
+42:02.400 --> 42:04.500
+ I'm going to put all the force carriers.
+
+42:04.500 --> 42:06.600
+ The other two quadrants are empty.
+
+42:06.600 --> 42:08.500
+ Now, I showed you a picture of that.
+
+42:08.500 --> 42:10.100
+ You'd see a circle.
+
+42:10.100 --> 42:12.600
+ There would be a bunch of stuff in one upper quadrant
+
+42:12.600 --> 42:13.900
+ and stuff in others.
+
+42:13.900 --> 42:15.900
+ And then I would ask you a question.
+
+42:15.900 --> 42:17.600
+ Does that look symmetrical to you?
+
+42:19.100 --> 42:20.700
+ No. No.
+
+42:20.700 --> 42:22.100
+ And that's exactly right
+
+42:22.100 --> 42:26.700
+ because we humans actually have a very deeply programmed
+
+42:26.700 --> 42:28.000
+ sense of symmetry.
+
+42:28.000 --> 42:32.900
+ It's something that is part of that mystery of the universe.
+
+42:32.900 --> 42:34.300
+ So how would you make it symmetrical?
+
+42:34.300 --> 42:35.800
+ Or one way you could is by saying
+
+42:35.800 --> 42:38.900
+ those two empty quadrants had things in them also.
+
+42:38.900 --> 42:42.500
+ And if you do that, that's supersymmetry.
+
+42:42.500 --> 42:43.500
+ So that's what I understood
+
+42:43.500 --> 42:47.900
+ when I was a graduate student here at MIT in 1975
+
+42:47.900 --> 42:52.300
+ when the mathematics of this was first being born.
+
+42:52.300 --> 42:55.000
+ Supersymmetry was actually born in the Ukraine
+
+42:55.000 --> 42:56.700
+ in the late 60s, but we had this thing
+
+42:56.700 --> 42:57.600
+ called the Iron Curtain.
+
+42:57.600 --> 43:00.500
+ So we Westerners didn't know about it.
+
+43:00.500 --> 43:02.900
+ But by the early 70s, independently,
+
+43:02.900 --> 43:04.300
+ there were scientists in the West
+
+43:04.300 --> 43:07.500
+ who had rediscovered supersymmetry.
+
+43:07.500 --> 43:10.400
+ Bruno Zemeno and Julius Wess were their names.
+
+43:10.400 --> 43:14.100
+ So this was around 71 or 72 when this happened.
+
+43:14.100 --> 43:16.200
+ I started graduate school in 73.
+
+43:16.200 --> 43:19.200
+ So around 74, 75, I was trying to figure out
+
+43:19.200 --> 43:21.500
+ how to write a thesis so that I could become a physicist
+
+43:21.500 --> 43:22.600
+ the rest of my life.
+
+43:23.600 --> 43:27.700
+ I did a, I had a great advisor, Professor James Young
+
+43:27.700 --> 43:31.100
+ who had taught me a number of things about electrons
+
+43:31.100 --> 43:33.900
+ and weak forces and those sorts of things.
+
+43:33.900 --> 43:38.900
+ But I decided that if I was going to have a really
+
+43:40.900 --> 43:45.500
+ an opportunity to maximize my chances of being successful,
+
+43:45.500 --> 43:46.900
+ I should strike it out in a direction
+
+43:46.900 --> 43:48.800
+ that other people were not studying.
+
+43:48.800 --> 43:52.200
+ And so as a consequence, I surveyed ideas
+
+43:52.200 --> 43:54.300
+ that were going, that were being developed.
+
+43:54.300 --> 43:57.100
+ And I came across the idea of supersymmetry.
+
+43:57.100 --> 44:00.700
+ And it was so, the mathematics was so remarkable
+
+44:00.700 --> 44:03.100
+ that I just, it bowled me over.
+
+44:03.100 --> 44:05.500
+ I actually have two undergraduate degrees.
+
+44:05.500 --> 44:07.600
+ My first undergraduate degree is actually mathematics.
+
+44:07.600 --> 44:09.400
+ And my second is physics,
+
+44:09.400 --> 44:12.000
+ even though I always wanted to be a physicist.
+
+44:12.000 --> 44:17.000
+ Plan A, which involved getting good grades was mathematics.
+
+44:17.500 --> 44:20.500
+ I was a mathematics major thinking about graduate school,
+
+44:20.500 --> 44:22.000
+ but my heart was in physics.
+
+44:22.800 --> 44:26.200
+ If we could take a small digression,
+
+44:26.200 --> 44:29.100
+ what's to you the most beautiful idea in mathematics
+
+44:29.100 --> 44:31.600
+ that you've encountered in this interplay
+
+44:31.600 --> 44:33.400
+ between math and physics?
+
+44:33.400 --> 44:35.500
+ It's the idea of symmetry.
+
+44:35.500 --> 44:39.900
+ The fact that our innate sense of symmetry
+
+44:39.900 --> 44:44.500
+ winds up aligning with just incredible mathematics,
+
+44:44.500 --> 44:47.400
+ to me is the most beautiful thing.
+
+44:47.400 --> 44:50.100
+ It's very strange, but true
+
+44:50.100 --> 44:53.100
+ that if symmetries were perfect, we would not exist.
+
+44:53.100 --> 44:55.200
+ And so even though we have these very powerful ideas
+
+44:55.200 --> 44:57.700
+ about balance in the universe in some sense,
+
+44:57.700 --> 44:59.200
+ it's only when you break those balances
+
+44:59.200 --> 45:01.000
+ that you get creatures like humans
+
+45:01.000 --> 45:03.600
+ and objects like planets and stars.
+
+45:03.600 --> 45:07.100
+ So although they are a scaffold for reality,
+
+45:07.100 --> 45:09.500
+ they cannot be the entirety of reality.
+
+45:09.500 --> 45:14.500
+ So I'm kind of naturally attracted
+
+45:15.500 --> 45:18.900
+ to parts of science and technology
+
+45:18.900 --> 45:21.400
+ where symmetry plays a dominant role.
+
+45:21.400 --> 45:23.500
+ And not just, I guess, symmetry as you said,
+
+45:23.500 --> 45:26.800
+ but the magic happens when you break the symmetry.
+
+45:26.800 --> 45:29.600
+ The magic happens when you break the symmetry.
+
+45:29.600 --> 45:31.300
+ Okay, so diving right back in,
+
+45:31.300 --> 45:33.100
+ you mentioned four quadrants.
+
+45:33.100 --> 45:34.100
+ Yes.
+
+45:34.100 --> 45:37.100
+ Two are filled with stuff we can, two buckets.
+
+45:37.100 --> 45:39.500
+ And then there's crazy mathematical thing,
+
+45:39.500 --> 45:41.600
+ ideas fulfilling the other two.
+
+45:41.600 --> 45:43.300
+ What are those things?
+
+45:43.300 --> 45:46.200
+ So earlier, the way I described these two buckets
+
+45:46.200 --> 45:48.900
+ is I gave you a story that started out
+
+45:48.900 --> 45:52.700
+ by putting us in a dusty room with two flashlights.
+
+45:52.700 --> 45:55.300
+ And I said, turn on your flashlight, I'll turn on mine,
+
+45:55.300 --> 45:56.700
+ the beams will go through each other.
+
+45:56.700 --> 46:00.900
+ And the beams are composed of force carriers called photons.
+
+46:00.900 --> 46:03.200
+ They carry the electromagnetic force
+
+46:03.200 --> 46:04.300
+ and they pass right through each other.
+
+46:04.300 --> 46:07.600
+ So imagine looking at the mathematics of such an object,
+
+46:07.600 --> 46:10.400
+ which you don't have to imagine people like me do that.
+
+46:11.400 --> 46:12.800
+ So you take that mathematics
+
+46:12.800 --> 46:15.200
+ and then you ask yourself a question.
+
+46:15.200 --> 46:16.700
+ You see, mathematics is a palette.
+
+46:16.700 --> 46:20.700
+ It's just like a musical composer
+
+46:20.700 --> 46:24.400
+ is able to construct variations on a theme.
+
+46:24.400 --> 46:26.800
+ Well, a piece of mathematics in the hand of a physicist
+
+46:26.800 --> 46:29.000
+ is something that we can construct variations on.
+
+46:29.000 --> 46:33.300
+ So even though the mathematics that Maxwell gave us
+
+46:33.300 --> 46:38.200
+ about light, we know how to construct variations on that.
+
+46:38.200 --> 46:41.100
+ And one of the variations you can construct is to say,
+
+46:41.100 --> 46:45.400
+ suppose you have a force carrier for electromagnetism
+
+46:45.400 --> 46:47.200
+ that behaves like an electron
+
+46:47.200 --> 46:49.500
+ in that it would bounce off of another one.
+
+46:49.500 --> 46:53.200
+ That's changing a mathematical term in an equation.
+
+46:53.200 --> 46:56.600
+ So if you did that, you would have a force carrier.
+
+46:56.600 --> 46:58.200
+ So you would say first it belongs
+
+46:58.200 --> 46:59.600
+ in this force carrying bucket,
+
+46:59.600 --> 47:01.700
+ but it's got this property of bouncing off like electrons.
+
+47:01.700 --> 47:03.400
+ So you say, well, gee, wait, no,
+
+47:03.400 --> 47:04.600
+ that's not the right bucket.
+
+47:04.600 --> 47:05.800
+ So you're forced to actually put it
+
+47:05.800 --> 47:07.800
+ in one of these empty quadrants.
+
+47:07.800 --> 47:12.100
+ So those sorts of things, basically we give them...
+
+47:12.100 --> 47:14.400
+ So the photon mathematically
+
+47:14.400 --> 47:15.900
+ can be accompanied by a photino.
+
+47:15.900 --> 47:18.200
+ It's the thing that carries a force
+
+47:18.200 --> 47:19.800
+ but has the rule of bouncing off.
+
+47:20.700 --> 47:23.300
+ In a similar manner, you could start with an electron
+
+47:24.200 --> 47:27.000
+ and you say, okay, so write down the mathematical electron.
+
+47:27.000 --> 47:28.200
+ I know how to do that.
+
+47:28.200 --> 47:30.200
+ A physicist named Dirac first told us how to do that
+
+47:30.200 --> 47:33.500
+ back in the late 20s, early 30s.
+
+47:33.500 --> 47:34.600
+ So take that mathematics.
+
+47:34.600 --> 47:37.700
+ And then you say, let me look at that mathematics
+
+47:37.700 --> 47:39.600
+ and find out what in the mathematics
+
+47:39.600 --> 47:42.300
+ causes two electrons to bounce off of each other,
+
+47:42.300 --> 47:44.500
+ even if I turn off the electrical charge.
+
+47:44.500 --> 47:45.600
+ So I could do that.
+
+47:45.600 --> 47:48.200
+ And now let me change that mathematical term.
+
+47:48.200 --> 47:50.700
+ So now I have something that carries electrical charge,
+
+47:50.700 --> 47:52.300
+ but if you take two of them,
+
+47:52.300 --> 47:53.700
+ I'm sorry, if you turn their charges off,
+
+47:53.700 --> 47:55.300
+ they'll pass through each other.
+
+47:55.300 --> 47:57.600
+ So that puts things in the other quadrant.
+
+47:57.600 --> 48:00.600
+ And those things we tend to call,
+
+48:00.600 --> 48:02.500
+ we put the S in front of their name.
+
+48:02.500 --> 48:04.800
+ So in the lower quadrant here, we have electrons
+
+48:04.800 --> 48:08.100
+ and this now newly filled quadrant, we have selectors.
+
+48:08.100 --> 48:12.300
+ And the quadrant over here, we had quarks.
+
+48:12.300 --> 48:13.700
+ Over here, we have squarks.
+
+48:13.700 --> 48:15.600
+ So now we've got this balanced pie.
+
+48:15.600 --> 48:17.600
+ And that's basically what I understood
+
+48:17.600 --> 48:20.500
+ as a graduate student in 1975
+
+48:20.500 --> 48:22.400
+ about this idea of supersymmetry,
+
+48:22.400 --> 48:24.300
+ that it was going to fill up these two quadrants
+
+48:24.300 --> 48:25.900
+ of the pie in a way that no one
+
+48:25.900 --> 48:27.700
+ had ever thought about before.
+
+48:27.700 --> 48:30.200
+ So I was amazed that no one else at MIT
+
+48:30.200 --> 48:32.300
+ found this an interesting idea.
+
+48:32.300 --> 48:37.300
+ So it led to my becoming the first person in MIT
+
+48:37.300 --> 48:39.500
+ to really study supersymmetry.
+
+48:39.500 --> 48:42.600
+ This is 1975, 76, 77.
+
+48:42.600 --> 48:44.900
+ And in 77, I wrote the first PhD thesis
+
+48:44.900 --> 48:47.100
+ in the physics department on this idea
+
+48:47.100 --> 48:49.600
+ because I was drawn to the balance.
+
+48:50.500 --> 48:51.700
+ Drawn to the symmetry.
+
+48:51.700 --> 48:56.800
+ So what does that, first of all,
+
+48:56.800 --> 49:01.200
+ is this fundamentally a mathematical idea?
+
+49:01.200 --> 49:04.400
+ So how much experimental, and we'll have this theme.
+
+49:04.400 --> 49:05.600
+ It's a really interesting one.
+
+49:05.600 --> 49:08.200
+ When you explore the world of the small
+
+49:08.200 --> 49:11.200
+ and in your new book talking about
+
+49:11.200 --> 49:14.100
+ Approving Einstein, right, that we'll also talk about,
+
+49:14.100 --> 49:16.700
+ there's this theme of kind of starting it,
+
+49:16.700 --> 49:19.600
+ exploring crazy ideas first in the mathematics
+
+49:19.600 --> 49:23.000
+ and then seeking for ways to experimentally validate them.
+
+49:23.000 --> 49:25.600
+ Where do you put supersymmetry in that?
+
+49:25.600 --> 49:28.200
+ It's closer than string theory.
+
+49:28.200 --> 49:30.700
+ It has not yet been validated.
+
+49:30.700 --> 49:33.200
+ In some sense, you mentioned Einstein,
+
+49:33.200 --> 49:35.400
+ so let's go there for a moment.
+
+49:35.400 --> 49:37.000
+ In our book, Approving Einstein Right,
+
+49:37.000 --> 49:38.800
+ we actually do talk about the fact
+
+49:38.800 --> 49:42.900
+ that Albert Einstein in 1915 wrote a set of equations
+
+49:42.900 --> 49:45.100
+ which were very different from Newton's equations
+
+49:45.100 --> 49:46.800
+ in describing gravity.
+
+49:46.800 --> 49:48.900
+ These equations made some predictions
+
+49:48.900 --> 49:51.200
+ that were different from Newton's predictions.
+
+49:51.200 --> 49:53.100
+ It actually made three different predictions.
+
+49:53.100 --> 49:55.000
+ One of them was not actually a prediction,
+
+49:55.000 --> 49:57.000
+ but a postdiction, because it was known
+
+49:57.000 --> 49:59.500
+ that Mercury was not orbiting the sun
+
+49:59.500 --> 50:01.600
+ in the way that Newton would have told you.
+
+50:01.600 --> 50:05.400
+ And so Einstein's theory actually describes Mercury
+
+50:05.400 --> 50:08.200
+ orbiting in a way that was observed
+
+50:08.200 --> 50:09.800
+ as opposed to what Newton would have told you.
+
+50:09.800 --> 50:11.600
+ So that was one prediction.
+
+50:11.600 --> 50:13.400
+ The second prediction that came out of
+
+50:13.400 --> 50:14.700
+ the theory of general relativity,
+
+50:14.700 --> 50:17.400
+ which Einstein wrote in 1915,
+
+50:17.400 --> 50:19.000
+ was that if you,
+
+50:21.000 --> 50:23.400
+ so let me describe an experiment and come back to it.
+
+50:23.400 --> 50:25.400
+ Suppose I had a glass of water,
+
+50:25.400 --> 50:28.800
+ and I filled the glass up,
+
+50:28.800 --> 50:31.000
+ and then I moved the glass slowly back and forth
+
+50:31.000 --> 50:32.800
+ between our two faces.
+
+50:33.800 --> 50:36.600
+ It would appear to me like your face was moving,
+
+50:36.600 --> 50:38.000
+ even though you weren't moving.
+
+50:38.000 --> 50:40.000
+ I mean, it's actually, and what's causing it
+
+50:40.000 --> 50:42.200
+ is because the light gets bent through the glass
+
+50:42.200 --> 50:45.000
+ as it passes from your face to my eye.
+
+50:45.000 --> 50:50.000
+ So Einstein in his 1915 theory of general relativity
+
+50:50.800 --> 50:54.400
+ found out that gravity has the same effect on light
+
+50:54.400 --> 50:55.400
+ as that glass of water.
+
+50:55.400 --> 50:58.200
+ It would cause beams of light to bend.
+
+50:58.200 --> 51:01.000
+ Now, Newton also knew this,
+
+51:01.000 --> 51:02.600
+ but Einstein's prediction was that light
+
+51:02.600 --> 51:04.800
+ would bend twice as much.
+
+51:04.800 --> 51:07.200
+ And so here's a mathematical idea.
+
+51:07.200 --> 51:09.000
+ Now, how do you actually prove it?
+
+51:09.000 --> 51:11.400
+ Well, you've got to watch.
+
+51:11.400 --> 51:15.800
+ Just a quick pause on that, just the language you're using.
+
+51:15.800 --> 51:17.800
+ He found out.
+
+51:17.800 --> 51:19.600
+ I can say he did a calculation.
+
+51:19.600 --> 51:21.200
+ It's a really interesting notion
+
+51:21.200 --> 51:25.200
+ that one of the beautiful things about this universe
+
+51:25.200 --> 51:28.000
+ is you can do a calculation
+
+51:28.000 --> 51:30.900
+ and combine with some of that magical intuition
+
+51:30.900 --> 51:35.200
+ that physicists have, actually predict what would be,
+
+51:35.200 --> 51:37.600
+ what's possible to experimentally validate.
+
+51:37.600 --> 51:38.440
+ That's correct.
+
+51:38.440 --> 51:40.000
+ So he found out in the sense
+
+51:40.000 --> 51:43.300
+ that there seems to be something here
+
+51:43.300 --> 51:46.000
+ and mathematically it should bend,
+
+51:46.000 --> 51:48.500
+ gravity should bend light this amount.
+
+51:48.500 --> 51:51.400
+ And so therefore that's something that could be potentially,
+
+51:51.400 --> 51:53.300
+ and then come up with an experiment that could be validated.
+
+51:53.300 --> 51:54.400
+ Right.
+
+51:54.400 --> 51:57.300
+ And that's the way that actually modern physics,
+
+51:57.300 --> 52:00.900
+ deeply fundamental modern physics, this is how it works.
+
+52:02.400 --> 52:04.400
+ Earlier we spoke about the Higgs boson.
+
+52:04.400 --> 52:06.000
+ So why did we go looking for it?
+
+52:06.000 --> 52:10.900
+ The answer is that back in the late 60s and early 70s,
+
+52:10.900 --> 52:12.700
+ some people wrote some equations
+
+52:12.700 --> 52:15.500
+ and the equations predicted this.
+
+52:15.500 --> 52:17.100
+ So then we went looking for it.
+
+52:18.500 --> 52:21.300
+ So on supersymmetry for a second,
+
+52:21.300 --> 52:25.100
+ there's these things called idynchrous symbols,
+
+52:25.100 --> 52:26.700
+ these strange little graphs.
+
+52:26.700 --> 52:27.700
+ Yes.
+
+52:27.700 --> 52:29.500
+ You refer to them as revealing something
+
+52:29.500 --> 52:32.700
+ like binary code underlying reality.
+
+52:32.700 --> 52:34.900
+ First of all, can you describe these graphs?
+
+52:34.900 --> 52:36.700
+ Describe these graphs, what are they?
+
+52:38.100 --> 52:40.700
+ What are these beautiful little strange graphs?
+
+52:40.700 --> 52:44.800
+ Well, first of all, idynchrous are an invention of mine,
+
+52:44.800 --> 52:46.900
+ together with a colleague named Michael Fox.
+
+52:46.900 --> 52:50.000
+ In 2005, we were looking at equations.
+
+52:50.000 --> 52:51.800
+ Well, the story's a little bit more complicated
+
+52:51.800 --> 52:54.000
+ and it'll take too long to explain all the details,
+
+52:54.000 --> 52:55.600
+ but the Reader's Digest version
+
+52:55.600 --> 52:58.000
+ is that we were looking at these equations
+
+52:58.000 --> 53:01.100
+ and we figured out that all the data
+
+53:01.100 --> 53:04.600
+ in a certain class of equations could be put in pictures.
+
+53:04.600 --> 53:06.400
+ And the pictures, what do they look like?
+
+53:06.400 --> 53:09.400
+ Well, they're just little balls.
+
+53:09.400 --> 53:12.100
+ You have black balls and white balls.
+
+53:12.100 --> 53:14.100
+ Those stand for those two buckets, by the way,
+
+53:14.100 --> 53:15.700
+ that we talked about in reality.
+
+53:15.700 --> 53:18.600
+ The white balls are things that are like particles of light.
+
+53:18.600 --> 53:20.800
+ The black balls are like electrons.
+
+53:20.800 --> 53:24.400
+ And then you can draw lines connecting these balls.
+
+53:24.400 --> 53:27.400
+ And these lines are deeply mathematical objects
+
+53:27.400 --> 53:29.100
+ and there's no way for me to,
+
+53:29.100 --> 53:33.900
+ I have no physical model for telling you what the lines are.
+
+53:33.900 --> 53:36.200
+ But if you were a mathematician,
+
+53:36.200 --> 53:37.900
+ I would do a technical phrase saying,
+
+53:37.900 --> 53:39.600
+ this is the orbit of the representation
+
+53:39.600 --> 53:41.900
+ and the action of the symmetry generators.
+
+53:41.900 --> 53:43.600
+ Mathematicians wouldn't understand that.
+
+53:43.600 --> 53:45.100
+ Nobody else in their right mind would,
+
+53:45.100 --> 53:47.000
+ so let's not go there.
+
+53:47.000 --> 53:49.700
+ So, but we figured out that the data
+
+53:49.700 --> 53:52.000
+ that was in the equations was in these funny pictures
+
+53:52.000 --> 53:53.800
+ that we could draw.
+
+53:53.800 --> 53:55.500
+ And so that was stunning,
+
+53:56.900 --> 53:59.700
+ but it also was encouraging
+
+53:59.700 --> 54:02.400
+ because there are problems with the equations,
+
+54:02.400 --> 54:06.700
+ which I had first learned about in 1979
+
+54:06.700 --> 54:07.900
+ when I was down at Harvard
+
+54:07.900 --> 54:09.900
+ and I went out to Caltech for the first time
+
+54:09.900 --> 54:11.700
+ and working with a great scientist
+
+54:11.700 --> 54:12.700
+ by the name of John Schwartz.
+
+54:12.700 --> 54:16.000
+ There are problems in the equations we don't know how to solve.
+
+54:16.000 --> 54:18.300
+ And so one of the things about solving problems
+
+54:18.300 --> 54:20.100
+ that you don't know how to solve
+
+54:20.100 --> 54:22.800
+ is that beating your head against a brick wall
+
+54:22.800 --> 54:25.900
+ is probably not a good philosophy about how to solve it.
+
+54:25.900 --> 54:26.800
+ So what do you need to do?
+
+54:26.800 --> 54:29.300
+ You need to change your sense of reference,
+
+54:29.300 --> 54:31.300
+ your frame of reference, your perspective.
+
+54:31.300 --> 54:35.100
+ So when I saw these funny pictures,
+
+54:35.100 --> 54:37.500
+ I thought, gee, that might be a way
+
+54:37.500 --> 54:39.000
+ to solve these problems with equations
+
+54:39.000 --> 54:41.800
+ that we don't know how to do.
+
+54:41.800 --> 54:44.400
+ So that was for me one of the first attractions
+
+54:44.400 --> 54:46.900
+ is that I now had an alternative language
+
+54:46.900 --> 54:49.800
+ to try to attack a set of mathematical problems.
+
+54:50.700 --> 54:54.600
+ But I quickly realized that A,
+
+54:54.600 --> 54:58.100
+ this mathematical language was not known by mathematicians,
+
+54:58.100 --> 54:59.900
+ which makes it pretty interesting
+
+54:59.900 --> 55:02.700
+ because now you have to actually teach mathematicians
+
+55:02.700 --> 55:04.100
+ about a piece of mathematics
+
+55:04.100 --> 55:05.900
+ because that's how they make their living.
+
+55:05.900 --> 55:08.000
+ And the great thing about working with mathematicians,
+
+55:08.000 --> 55:11.100
+ of course, is the rigor with which they examine ideas.
+
+55:11.100 --> 55:14.400
+ So they make your ideas better than they start out.
+
+55:14.400 --> 55:16.600
+ So I start working with a group of mathematicians
+
+55:16.600 --> 55:18.500
+ and it was in that collaboration that we figured out
+
+55:18.500 --> 55:20.740
+ that these funny pictures had error correcting codes
+
+55:20.740 --> 55:21.580
+ buried in them.
+
+55:23.500 --> 55:25.700
+ Can you talk about what are error correcting codes?
+
+55:25.700 --> 55:26.700
+ Ah, sure.
+
+55:26.700 --> 55:30.900
+ So the simplest way to talk about error correcting codes
+
+55:32.100 --> 55:36.800
+ is first of all, to talk about digital information.
+
+55:36.800 --> 55:39.600
+ Digital information is basically strings of ones and zeros.
+
+55:39.600 --> 55:41.100
+ They're called bits.
+
+55:41.100 --> 55:45.700
+ So now let's imagine that I want to send you some bits.
+
+55:46.700 --> 55:50.300
+ Well, maybe I could show you pictures,
+
+55:50.300 --> 55:52.200
+ but maybe it's a rainy day
+
+55:52.200 --> 55:56.300
+ or maybe the windows in your house are foggy.
+
+55:56.300 --> 55:59.300
+ So sometimes when I show you a zero,
+
+55:59.300 --> 56:01.600
+ you might interpret it as a one.
+
+56:01.600 --> 56:03.300
+ Or other times when I show you a one,
+
+56:03.300 --> 56:05.800
+ you might interpret it as a zero.
+
+56:05.800 --> 56:07.100
+ So if that's the case,
+
+56:07.100 --> 56:08.800
+ that means when I try to send you this data,
+
+56:08.800 --> 56:11.000
+ it comes to you in corrupted form.
+
+56:11.000 --> 56:14.300
+ And so the challenge is how do you get it to be uncorrupted?
+
+56:15.500 --> 56:20.500
+ In the 1940s, a computer scientist named Hamming
+
+56:21.700 --> 56:24.700
+ addressed the problem of how do you reliably transmit
+
+56:24.700 --> 56:26.200
+ digital information?
+
+56:26.200 --> 56:29.400
+ And what he came up with was a brilliant idea.
+
+56:29.400 --> 56:31.300
+ Now, the way that you solve it
+
+56:31.300 --> 56:33.200
+ is that you take the data that you want to send,
+
+56:33.200 --> 56:34.900
+ the ones in your strings of ones and zeros,
+
+56:34.900 --> 56:36.100
+ your favorite string,
+
+56:36.100 --> 56:38.000
+ and then you dump more ones and zeros in,
+
+56:38.000 --> 56:41.200
+ but you dump them in in a particular pattern.
+
+56:41.200 --> 56:42.900
+ And this particular pattern
+
+56:42.900 --> 56:45.300
+ is what a Hamming code is all about.
+
+56:45.300 --> 56:46.600
+ So it's an error correcting code
+
+56:46.600 --> 56:48.400
+ because if the person at the other end
+
+56:48.400 --> 56:49.800
+ knows what the pattern's supposed to be,
+
+56:49.800 --> 56:52.200
+ they can figure out when one's got changed to zeros,
+
+56:52.200 --> 56:53.700
+ zero's got changed to one.
+
+56:53.700 --> 56:57.500
+ So it turned out that our strange little objects
+
+56:57.500 --> 56:59.300
+ that came from looking at the equations
+
+56:59.300 --> 57:00.800
+ that we couldn't solve,
+
+57:00.800 --> 57:02.700
+ it turns out that when you look at them deeply enough,
+
+57:02.700 --> 57:06.200
+ you find out that they have ones and zeros
+
+57:06.200 --> 57:07.500
+ buried in them.
+
+57:07.500 --> 57:08.800
+ But even more astoundingly,
+
+57:08.800 --> 57:10.800
+ the ones and zeros are not there randomly.
+
+57:10.800 --> 57:14.200
+ They are in the pattern of error correcting codes.
+
+57:14.200 --> 57:16.000
+ So this was an astounding thing
+
+57:16.000 --> 57:19.000
+ that when we first got this result
+
+57:19.000 --> 57:20.000
+ and tried to publish it,
+
+57:20.000 --> 57:22.000
+ it took us three years to convince other physicists
+
+57:22.000 --> 57:23.800
+ that we weren't crazy.
+
+57:23.800 --> 57:25.200
+ Eventually we were able to publish it,
+
+57:25.200 --> 57:27.400
+ I and this collaboration of mathematicians
+
+57:27.400 --> 57:29.300
+ and other physicists.
+
+57:29.300 --> 57:31.400
+ And so ever since then,
+
+57:31.400 --> 57:34.400
+ I have actually been looking at the mathematics
+
+57:34.400 --> 57:35.900
+ of these objects,
+
+57:35.900 --> 57:39.200
+ trying to still understand properties of the equations.
+
+57:39.200 --> 57:40.800
+ And I want to understand the properties of equations
+
+57:40.800 --> 57:43.300
+ because I want to be able to try things like electrons.
+
+57:43.300 --> 57:44.300
+ So as you can see,
+
+57:44.300 --> 57:46.200
+ it's just like a two step removed process
+
+57:46.200 --> 57:48.400
+ of trying to get back to reality.
+
+57:48.400 --> 57:50.900
+ So what would you say is the most beautiful property
+
+57:50.900 --> 57:55.900
+ of these Adinkra graphs, objects?
+
+57:56.000 --> 57:58.100
+ What do you think, by the way, the word symbols,
+
+57:58.100 --> 58:01.600
+ what do you think of them, these simple graphs?
+
+58:01.600 --> 58:04.200
+ Are they objects or?
+
+58:04.200 --> 58:06.000
+ How should we think about that?
+
+58:06.000 --> 58:08.300
+ For people who work with mathematics like me,
+
+58:08.300 --> 58:11.500
+ our mathematical concepts are,
+
+58:11.500 --> 58:13.000
+ we often refer to them as objects
+
+58:13.000 --> 58:15.200
+ because they feel like real things.
+
+58:15.200 --> 58:17.800
+ Even though you can't see them or touch them,
+
+58:17.800 --> 58:21.000
+ they're so much part of your interior life
+
+58:21.000 --> 58:23.700
+ that it is as if you could.
+
+58:23.700 --> 58:26.000
+ So we often refer to these things as objects,
+
+58:26.000 --> 58:28.400
+ even though there's nothing objective about them.
+
+58:28.400 --> 58:31.600
+ And what does a single graph represent in space?
+
+58:31.600 --> 58:34.000
+ Okay, so the simplest of these graphs
+
+58:34.000 --> 58:36.600
+ has to have one white ball and one black ball.
+
+58:36.600 --> 58:38.400
+ That's that balance that we talked about earlier.
+
+58:38.400 --> 58:40.200
+ Remember, we want to balance out the quadrants?
+
+58:40.200 --> 58:42.200
+ Well, you can't do it unless you have
+
+58:42.200 --> 58:43.800
+ a black ball and white ball.
+
+58:43.800 --> 58:46.800
+ So the simplest of these objects looks like two little balls,
+
+58:46.800 --> 58:49.400
+ one black, one white, connected by a single line.
+
+58:49.400 --> 58:51.800
+ And what it's talking about is, as I said,
+
+58:51.800 --> 58:54.700
+ a deep mathematical property related to symmetry.
+
+58:54.700 --> 58:56.300
+ You've mentioned the error correcting codes,
+
+58:56.300 --> 58:58.500
+ but is there a particular beautiful property
+
+58:58.500 --> 59:00.400
+ that stands out to you about these objects
+
+59:00.400 --> 59:01.500
+ that you just find?
+
+59:01.500 --> 59:03.100
+ Yes, yes, there is.
+
+59:03.100 --> 59:04.400
+ Early on in the development of it.
+
+59:04.400 --> 59:05.500
+ Yes, there is.
+
+59:05.500 --> 59:08.800
+ The craziest thing about these to me
+
+59:10.600 --> 59:14.200
+ is that when you look at physics
+
+59:14.200 --> 59:17.000
+ and try to write equations where information
+
+59:17.000 --> 59:18.600
+ gets transmitted reliably,
+
+59:20.000 --> 59:22.200
+ if you're in one of these super symmetrical systems
+
+59:22.200 --> 59:23.800
+ with this extra symmetry,
+
+59:23.800 --> 59:24.900
+ that doesn't happen unless there's
+
+59:24.900 --> 59:26.800
+ an error correcting code present.
+
+59:26.800 --> 59:29.100
+ So it's as if the universe says,
+
+59:29.100 --> 59:31.000
+ you don't retransmit information
+
+59:31.000 --> 59:33.200
+ unless there's something about an error correcting code.
+
+59:33.200 --> 59:35.200
+ This to me is the craziest thing
+
+59:35.200 --> 59:38.300
+ that I've ever personally encountered in my research.
+
+59:38.300 --> 59:41.000
+ And it's actually got me to wondering
+
+59:41.000 --> 59:42.400
+ how this could come about,
+
+59:42.400 --> 59:44.500
+ because the only place in nature
+
+59:44.500 --> 59:47.500
+ that we know about error correcting codes is genetics.
+
+59:47.500 --> 59:50.100
+ And in genetics, we think it was evolution
+
+59:50.100 --> 59:53.100
+ that causes error correcting codes to be in genomes.
+
+59:53.100 --> 59:54.200
+ And so does that mean that there was
+
+59:54.200 --> 59:55.600
+ some kind of form of evolution
+
+59:55.600 --> 59:58.100
+ acting on the mathematical laws of the physics
+
+59:58.100 --> 59:59.400
+ of our universe?
+
+59:59.400 --> 1:00:01.500
+ This is a very bizarre and strange idea.
+
+1:00:01.500 --> 1:00:02.500
+ And it's something I've wondered about
+
+1:00:02.500 --> 1:00:05.300
+ from time to time since making these discoveries.
+
+1:00:05.300 --> 1:00:08.100
+ Do you think such an idea could be fundamental,
+
+1:00:08.100 --> 1:00:09.700
+ or is it emergent throughout
+
+1:00:09.700 --> 1:00:12.200
+ all the different kinds of systems?
+
+1:00:12.200 --> 1:00:15.900
+ I don't know whether it's fundamental.
+
+1:00:15.900 --> 1:00:18.100
+ I probably will not live to find out.
+
+1:00:18.100 --> 1:00:20.700
+ This is gonna be the work of probably some future
+
+1:00:20.700 --> 1:00:22.100
+ either mathematician or physicist
+
+1:00:22.100 --> 1:00:24.700
+ to figure out what these things actually mean.
+
+1:00:24.700 --> 1:00:27.900
+ We have to talk a bit about the magical,
+
+1:00:27.900 --> 1:00:31.300
+ the mysterious string theory, super string theory.
+
+1:00:31.300 --> 1:00:32.100
+ Sure.
+
+1:00:32.100 --> 1:00:35.300
+ There's still maybe this aspect of it,
+
+1:00:35.300 --> 1:00:37.900
+ which is there's still for me
+
+1:00:37.900 --> 1:00:39.500
+ from an outsider's perspective,
+
+1:00:39.500 --> 1:00:42.000
+ this fascinating heated debate.
+
+1:00:42.000 --> 1:00:44.600
+ On the status of string theory.
+
+1:00:44.600 --> 1:00:46.600
+ Can you clarify this debate,
+
+1:00:46.600 --> 1:00:48.700
+ perhaps articulating the various views
+
+1:00:48.700 --> 1:00:50.700
+ and say where you land on it?
+
+1:00:50.700 --> 1:00:53.200
+ So first of all, I doubt that I will be able
+
+1:00:53.200 --> 1:00:55.700
+ to say anything to clarify the debate
+
+1:00:55.700 --> 1:01:00.700
+ around string theory for a general audience.
+
+1:01:01.400 --> 1:01:03.700
+ Part of the reason is because string theory
+
+1:01:05.100 --> 1:01:08.600
+ has done something I've never seen the erectal physics do.
+
+1:01:08.600 --> 1:01:10.800
+ It has broken out into consciousness
+
+1:01:10.800 --> 1:01:13.400
+ of the general public before we're finished.
+
+1:01:13.400 --> 1:01:15.800
+ You see, string theory doesn't actually exist
+
+1:01:15.800 --> 1:01:17.100
+ because when we use the word theory,
+
+1:01:17.100 --> 1:01:20.100
+ we mean a particular set of attributes.
+
+1:01:20.100 --> 1:01:21.500
+ In particular, it means that you have
+
+1:01:21.500 --> 1:01:23.900
+ an overarching paradigm that explains
+
+1:01:23.900 --> 1:01:25.900
+ what it is that you're doing.
+
+1:01:25.900 --> 1:01:29.900
+ No such overarching paradigm exists for string theory.
+
+1:01:29.900 --> 1:01:31.800
+ What string theory is currently
+
+1:01:31.800 --> 1:01:35.200
+ is an enormously large mutually reinforcing collection
+
+1:01:35.200 --> 1:01:39.500
+ of mathematical facts in which we can find no contradictions.
+
+1:01:39.500 --> 1:01:41.600
+ We don't know why it's there,
+
+1:01:41.600 --> 1:01:44.700
+ but we can certainly say that without challenge.
+
+1:01:44.700 --> 1:01:46.500
+ Now, just because you find a piece of mathematics
+
+1:01:46.500 --> 1:01:49.200
+ doesn't mean that this applies to nature.
+
+1:01:49.200 --> 1:01:53.200
+ And in fact, there has been a very heated debate
+
+1:01:53.200 --> 1:01:57.200
+ about whether string theory is some sort of hysteria
+
+1:01:57.200 --> 1:02:00.000
+ among the community of theoretical physicists,
+
+1:02:00.000 --> 1:02:01.400
+ or whether it has something fundamental
+
+1:02:01.400 --> 1:02:04.400
+ to say about our universe.
+
+1:02:04.400 --> 1:02:07.900
+ We don't yet know the answer to that question.
+
+1:02:07.900 --> 1:02:09.800
+ What those of us who study string theory
+
+1:02:09.800 --> 1:02:12.300
+ will tell you are things like,
+
+1:02:12.300 --> 1:02:14.700
+ string theory has been extraordinarily productive
+
+1:02:14.700 --> 1:02:16.600
+ in getting us to think more deeply,
+
+1:02:16.600 --> 1:02:19.500
+ even about mathematics that's not string theory,
+
+1:02:19.500 --> 1:02:20.900
+ but the kind of mathematics
+
+1:02:20.900 --> 1:02:23.800
+ that we've used to describe elementary particles.
+
+1:02:23.800 --> 1:02:25.600
+ There have been spin offs from string theory,
+
+1:02:25.600 --> 1:02:28.500
+ and this has been going on now for two decades almost,
+
+1:02:28.500 --> 1:02:31.000
+ that have allowed us, for example,
+
+1:02:31.000 --> 1:02:34.300
+ to more accurately calculate the force between electrons
+
+1:02:34.300 --> 1:02:36.600
+ with the presence of quantum mechanics.
+
+1:02:36.600 --> 1:02:39.100
+ This is not something you hear about in the public.
+
+1:02:39.100 --> 1:02:40.800
+ There are other similar things.
+
+1:02:42.600 --> 1:02:44.700
+ That kind of property I just told you about
+
+1:02:44.700 --> 1:02:46.700
+ is what's called weak strong duality,
+
+1:02:46.700 --> 1:02:48.900
+ and it comes directly from string theory.
+
+1:02:48.900 --> 1:02:51.800
+ There are other things such as
+
+1:02:53.600 --> 1:02:55.500
+ a property called holography,
+
+1:02:55.500 --> 1:02:59.600
+ which allows one to take equations
+
+1:02:59.600 --> 1:03:01.800
+ and look at them on the boundary of a space,
+
+1:03:01.800 --> 1:03:04.000
+ and then to know information about inside a space
+
+1:03:04.000 --> 1:03:06.400
+ without actually doing calculations there.
+
+1:03:06.400 --> 1:03:08.000
+ This has come directly from string theory.
+
+1:03:08.000 --> 1:03:12.500
+ So there are a number of direct mathematical effects
+
+1:03:12.500 --> 1:03:14.100
+ that we learn as string theory,
+
+1:03:14.100 --> 1:03:16.500
+ but we take these ideas and look at math
+
+1:03:16.500 --> 1:03:18.100
+ that we already know and we find suddenly
+
+1:03:18.100 --> 1:03:19.400
+ we're more powerful.
+
+1:03:19.400 --> 1:03:20.700
+ This is a pretty good indication
+
+1:03:20.700 --> 1:03:22.100
+ there's something interesting going on
+
+1:03:22.100 --> 1:03:23.100
+ with string theory itself.
+
+1:03:23.100 --> 1:03:24.300
+ So it's the early days
+
+1:03:24.300 --> 1:03:25.900
+ of a powerful mathematical framework.
+
+1:03:25.900 --> 1:03:27.200
+ That's what we have right now.
+
+1:03:27.200 --> 1:03:30.300
+ What are the big, first of all,
+
+1:03:30.300 --> 1:03:33.400
+ most people will probably, which as you said,
+
+1:03:33.400 --> 1:03:35.300
+ most general public would know actually
+
+1:03:35.300 --> 1:03:38.800
+ what string theory is, which is at the highest level,
+
+1:03:38.800 --> 1:03:41.400
+ which is a fascinating fact.
+
+1:03:41.400 --> 1:03:43.000
+ Well, string theory is what they do
+
+1:03:43.000 --> 1:03:44.600
+ on the Big Bang Theory, right?
+
+1:03:44.600 --> 1:03:49.600
+ One, can you maybe describe what is string theory,
+
+1:03:51.100 --> 1:03:55.000
+ and two, what are the open challenges?
+
+1:03:55.000 --> 1:03:57.300
+ So what is string theory?
+
+1:03:57.300 --> 1:04:01.800
+ Well, the simplest explanation I can provide
+
+1:04:01.800 --> 1:04:05.900
+ is to go back and ask what are particles,
+
+1:04:05.900 --> 1:04:08.400
+ which is the question you first asked me.
+
+1:04:10.200 --> 1:04:11.500
+ What's the smallest thing?
+
+1:04:11.500 --> 1:04:13.800
+ Yeah, what's the smallest thing?
+
+1:04:13.800 --> 1:04:18.800
+ So particles, one way I try to describe particles
+
+1:04:20.400 --> 1:04:21.500
+ to people is start,
+
+1:04:21.500 --> 1:04:23.600
+ I want you to imagine a little ball
+
+1:04:24.800 --> 1:04:26.700
+ and I want you to let the size of that ball shrink
+
+1:04:26.700 --> 1:04:28.800
+ until it has no extent whatsoever,
+
+1:04:28.800 --> 1:04:30.900
+ but it still has the mass of the ball.
+
+1:04:32.300 --> 1:04:34.900
+ That's actually what Newton was working with
+
+1:04:34.900 --> 1:04:36.300
+ when he first invented physics.
+
+1:04:36.300 --> 1:04:39.100
+ He's the real inventor of the massive particle,
+
+1:04:39.100 --> 1:04:42.500
+ which is this idea that underlies all of physics.
+
+1:04:43.600 --> 1:04:44.500
+ So that's where we start.
+
+1:04:44.500 --> 1:04:46.700
+ It's a mathematical construct
+
+1:04:46.700 --> 1:04:49.300
+ that you get by taking a limit of things that you know.
+
+1:04:51.000 --> 1:04:51.900
+ So what's a string?
+
+1:04:51.900 --> 1:04:54.300
+ Well, in the same analogy, I would say,
+
+1:04:54.300 --> 1:04:57.300
+ now I want you to start with a piece of spaghetti.
+
+1:04:57.300 --> 1:04:59.300
+ So we all know what that looks like.
+
+1:04:59.300 --> 1:05:03.100
+ And now I want you to let the thickness of the spaghetti
+
+1:05:03.100 --> 1:05:05.700
+ shrink until it has no thickness.
+
+1:05:05.700 --> 1:05:08.300
+ Mathematically, I mean, in words, this makes no sense,
+
+1:05:08.300 --> 1:05:11.300
+ but mathematically, this actually works
+
+1:05:11.300 --> 1:05:13.700
+ and you get this mathematical object out.
+
+1:05:13.700 --> 1:05:15.700
+ It has properties that are like spaghetti.
+
+1:05:15.700 --> 1:05:17.400
+ It can wiggle and jiggle,
+
+1:05:17.400 --> 1:05:19.900
+ but it can also move collectively
+
+1:05:19.900 --> 1:05:21.500
+ like a piece of spaghetti.
+
+1:05:21.500 --> 1:05:24.300
+ It's the mathematics of those sorts of objects
+
+1:05:24.300 --> 1:05:25.900
+ that constitute string theory.
+
+1:05:25.900 --> 1:05:30.900
+ And does the multidimensional, 11 dimensional,
+
+1:05:30.900 --> 1:05:34.900
+ however many dimensional, more than four dimension,
+
+1:05:34.900 --> 1:05:36.900
+ is that a crazy idea to you?
+
+1:05:36.900 --> 1:05:40.900
+ Is that the stranger aspect of string theory to you?
+
+1:05:40.900 --> 1:05:45.900
+ Not really, and also partly because of my own research.
+
+1:05:45.900 --> 1:05:49.500
+ So earlier we talked about these strange symbols
+
+1:05:49.500 --> 1:05:51.900
+ that we've discovered inside the equations.
+
+1:05:51.900 --> 1:05:54.100
+ It turns out that to a very large extent,
+
+1:05:54.100 --> 1:05:56.500
+ a Dinkers don't really care about the number of dimensions.
+
+1:05:56.500 --> 1:05:59.300
+ They kind of have an internal mathematical consistency
+
+1:05:59.300 --> 1:06:00.900
+ that allows them to be manifested
+
+1:06:00.900 --> 1:06:02.900
+ in many different dimensions.
+
+1:06:02.900 --> 1:06:05.300
+ Since supersymmetry is a part of string theory,
+
+1:06:05.300 --> 1:06:07.300
+ then the same property you would expect
+
+1:06:07.300 --> 1:06:09.300
+ to be inherited by string theory.
+
+1:06:09.300 --> 1:06:12.300
+ However, another little known fact,
+
+1:06:12.300 --> 1:06:14.100
+ which is not in the public debate,
+
+1:06:14.100 --> 1:06:15.700
+ is that there are actually strings
+
+1:06:15.700 --> 1:06:17.700
+ that are only four dimensional.
+
+1:06:17.700 --> 1:06:19.300
+ This is something that was discovered
+
+1:06:19.300 --> 1:06:23.300
+ at the end of the 80s by a scientist,
+
+1:06:23.300 --> 1:06:25.300
+ by three different groups of physicists
+
+1:06:25.300 --> 1:06:27.300
+ working independently.
+
+1:06:27.300 --> 1:06:29.100
+ I and my friend Warren Siegel,
+
+1:06:29.100 --> 1:06:31.100
+ who were at the University of Maryland at the time,
+
+1:06:31.100 --> 1:06:33.300
+ were able to prove that there's mathematics
+
+1:06:33.300 --> 1:06:34.500
+ that looks totally four dimensional,
+
+1:06:34.500 --> 1:06:36.100
+ and yet it's a string.
+
+1:06:36.100 --> 1:06:37.700
+ There was a group in Germany
+
+1:06:37.700 --> 1:06:40.300
+ that used slightly different mathematics,
+
+1:06:40.300 --> 1:06:42.100
+ but they found the same result.
+
+1:06:42.100 --> 1:06:43.900
+ And then there was a group at Cornell
+
+1:06:43.900 --> 1:06:46.100
+ who using yet a third piece of mathematics
+
+1:06:46.100 --> 1:06:46.900
+ found the same result.
+
+1:06:46.900 --> 1:06:49.900
+ So the fact that extra dimensions
+
+1:06:49.900 --> 1:06:53.700
+ is so widely talked about in the public
+
+1:06:53.700 --> 1:06:55.700
+ is partly a function of how the public
+
+1:06:55.700 --> 1:06:57.300
+ has come to understand string theory
+
+1:06:57.300 --> 1:06:59.500
+ and how the story has been told to them.
+
+1:06:59.500 --> 1:07:02.500
+ But there are alternatives you don't know about.
+
+1:07:02.500 --> 1:07:06.300
+ If we could talk about maybe experimental validation,
+
+1:07:06.300 --> 1:07:11.300
+ and you're the coauthor of a recently published book,
+
+1:07:11.300 --> 1:07:14.500
+ Proving Einstein Right,
+
+1:07:14.500 --> 1:07:16.300
+ the human story of it too,
+
+1:07:16.300 --> 1:07:18.100
+ the daring expeditions that change
+
+1:07:18.100 --> 1:07:19.900
+ how we look at the universe.
+
+1:07:19.900 --> 1:07:22.100
+ Do you see echoes of the early days
+
+1:07:22.100 --> 1:07:25.700
+ of general relativity in the 1910s
+
+1:07:25.700 --> 1:07:29.900
+ to the more stretched out to string theory?
+
+1:07:29.900 --> 1:07:31.100
+ I do, I do.
+
+1:07:31.100 --> 1:07:33.500
+ And that's one reason why I was happy to focus
+
+1:07:33.500 --> 1:07:38.500
+ on the story of how Einstein became a global superstar.
+
+1:07:43.700 --> 1:07:45.500
+ Earlier in our discussion,
+
+1:07:45.500 --> 1:07:50.500
+ we went over his history where in 1915,
+
+1:07:51.100 --> 1:07:53.900
+ he came up with this piece of mathematics,
+
+1:07:53.900 --> 1:07:55.700
+ used it to do some calculations
+
+1:07:55.700 --> 1:07:57.060
+ and then made a prediction.
+
+1:07:57.060 --> 1:07:58.020
+ Yes.
+
+1:07:58.020 --> 1:08:00.180
+ But making a prediction is not enough.
+
+1:08:00.180 --> 1:08:02.060
+ Someone's got to go out and measure.
+
+1:08:02.940 --> 1:08:07.020
+ And so string theory is in that in between zone.
+
+1:08:07.020 --> 1:08:09.940
+ Now for Einstein, it was from 1915 to 1919.
+
+1:08:09.940 --> 1:08:14.380
+ 1915 he makes the correct prediction.
+
+1:08:14.380 --> 1:08:16.420
+ By the way, he made an incorrect prediction
+
+1:08:16.420 --> 1:08:17.780
+ about the same thing in 1911,
+
+1:08:17.780 --> 1:08:20.340
+ but he corrected himself in 1915.
+
+1:08:20.340 --> 1:08:22.420
+ And by 1919, the first pieces
+
+1:08:22.420 --> 1:08:27.420
+ of experimental observational data became available
+
+1:08:27.620 --> 1:08:31.020
+ to say, yes, he's not wrong.
+
+1:08:31.020 --> 1:08:35.940
+ And by 1922, the argument that based on observation
+
+1:08:35.940 --> 1:08:38.500
+ was overwhelming that he was not wrong.
+
+1:08:38.500 --> 1:08:41.860
+ Can you describe what special general relativity are
+
+1:08:41.860 --> 1:08:42.700
+ just briefly?
+
+1:08:42.700 --> 1:08:43.540
+ Sure.
+
+1:08:43.540 --> 1:08:45.580
+ And what prediction Einstein made
+
+1:08:45.580 --> 1:08:50.580
+ and maybe some or a memorable moment
+
+1:08:52.580 --> 1:08:56.980
+ from the human journey of trying to prove this thing right,
+
+1:08:56.980 --> 1:08:58.060
+ which is incredible.
+
+1:08:58.060 --> 1:08:58.900
+ Right.
+
+1:08:58.900 --> 1:09:02.580
+ So I'm very fortunate to have worked
+
+1:09:02.580 --> 1:09:07.580
+ with a talented novelist who wanted to write a book
+
+1:09:07.820 --> 1:09:09.740
+ that coincided with a book I wanted to write
+
+1:09:09.740 --> 1:09:14.740
+ about how science kind of feels if you're a person,
+
+1:09:14.900 --> 1:09:17.140
+ because it's actually people who do science,
+
+1:09:17.140 --> 1:09:19.740
+ even though that may not be obvious to everyone.
+
+1:09:20.780 --> 1:09:22.660
+ So for me, I wanted to write this book
+
+1:09:22.660 --> 1:09:23.660
+ for a couple of reasons.
+
+1:09:23.660 --> 1:09:26.460
+ I wanted young people to understand
+
+1:09:26.460 --> 1:09:31.460
+ that the seeming alien giants that live before them
+
+1:09:32.180 --> 1:09:34.060
+ were just as human as they are.
+
+1:09:34.060 --> 1:09:35.780
+ They get married, they get divorced.
+
+1:09:35.780 --> 1:09:37.100
+ They get married, they get divorced.
+
+1:09:37.100 --> 1:09:38.500
+ They do terrible things.
+
+1:09:38.500 --> 1:09:39.580
+ They do great things.
+
+1:09:39.580 --> 1:09:40.420
+ They're people.
+
+1:09:40.420 --> 1:09:42.180
+ They're just people like you.
+
+1:09:42.180 --> 1:09:44.420
+ And so that part of telling the story allowed me
+
+1:09:44.420 --> 1:09:47.020
+ to get that out there for both young people interested
+
+1:09:47.020 --> 1:09:49.540
+ in the sciences as well as the public.
+
+1:09:49.540 --> 1:09:54.180
+ But the other part of the story is I wanted to open up
+
+1:09:54.180 --> 1:09:58.580
+ sort of what it was like.
+
+1:09:58.580 --> 1:10:00.460
+ Now I'm a scientist.
+
+1:10:00.460 --> 1:10:02.660
+ And so I will not pretend to be a great writer.
+
+1:10:02.660 --> 1:10:04.700
+ I understand a lot about mathematics
+
+1:10:04.700 --> 1:10:07.100
+ and I've even created my own mathematics
+
+1:10:07.100 --> 1:10:11.980
+ that is kind of a weird thing to be able to do.
+
+1:10:11.980 --> 1:10:13.980
+ But in order to tell the story,
+
+1:10:13.980 --> 1:10:18.100
+ you really have to have an incredible master
+
+1:10:18.100 --> 1:10:19.900
+ of the narrative.
+
+1:10:19.900 --> 1:10:22.540
+ And that was my coauthor, Kathy Pelletier,
+
+1:10:22.540 --> 1:10:24.060
+ who is a novelist.
+
+1:10:24.060 --> 1:10:27.620
+ So we formed this conjoined brain, I used to call us.
+
+1:10:27.620 --> 1:10:30.100
+ She used to call us Professor Higgins and Eliza Doolittle.
+
+1:10:30.100 --> 1:10:33.220
+ My expression for us is that we were a conjoined brain
+
+1:10:33.220 --> 1:10:34.980
+ to tell this story.
+
+1:10:34.980 --> 1:10:39.740
+ And it allowed, so what are some magical moments?
+
+1:10:39.740 --> 1:10:43.900
+ To me, the first magical moment in telling the story
+
+1:10:43.900 --> 1:10:48.460
+ was looking at Albert Einstein and his struggle
+
+1:10:48.460 --> 1:10:51.700
+ because although we regard him as a genius,
+
+1:10:51.700 --> 1:10:54.460
+ as I said, in 1911, he actually made an incorrect prediction
+
+1:10:54.460 --> 1:10:55.660
+ about bending starlight.
+
+1:10:55.660 --> 1:10:58.060
+ And that's actually what set the astronomers off.
+
+1:10:59.780 --> 1:11:02.220
+ In 1914, there was an eclipse.
+
+1:11:02.220 --> 1:11:06.220
+ And by various accidents of war and weather
+
+1:11:06.220 --> 1:11:08.860
+ and all sorts of things that we talk about in the book,
+
+1:11:08.860 --> 1:11:11.100
+ no one was able to make the measurement.
+
+1:11:11.100 --> 1:11:13.580
+ If they had made the measurement,
+
+1:11:13.580 --> 1:11:18.580
+ it would have disagreed with his 1911 prediction
+
+1:11:19.460 --> 1:11:22.020
+ because nature only has one answer.
+
+1:11:22.020 --> 1:11:26.020
+ And so then you see how fortunate he was
+
+1:11:26.020 --> 1:11:32.740
+ that wars and bad weather and accidents and transporting
+
+1:11:32.740 --> 1:11:35.860
+ equipment stopped any measurements from being made.
+
+1:11:35.860 --> 1:11:38.780
+ So he corrects himself in 1915,
+
+1:11:38.780 --> 1:11:40.180
+ but the astronomers are already out there
+
+1:11:40.180 --> 1:11:41.700
+ trying to make the measurement.
+
+1:11:41.700 --> 1:11:43.460
+ So now he gives them a different number.
+
+1:11:43.460 --> 1:11:46.620
+ And it turns out that's the number that nature agrees with.
+
+1:11:46.620 --> 1:11:50.540
+ So it gives you a sense of this is a person struggling
+
+1:11:50.540 --> 1:11:52.180
+ with something deeply.
+
+1:11:52.180 --> 1:11:56.860
+ And although his deep insight led him to this,
+
+1:11:56.860 --> 1:12:01.260
+ it is the circumstance of time, place and accident
+
+1:12:01.260 --> 1:12:03.740
+ but through which we view him.
+
+1:12:03.740 --> 1:12:06.980
+ And the story could have turned out very differently
+
+1:12:06.980 --> 1:12:09.620
+ where first he makes a prediction,
+
+1:12:09.620 --> 1:12:11.900
+ the measurements are made in 1914,
+
+1:12:11.900 --> 1:12:13.580
+ they disagree with his prediction.
+
+1:12:13.580 --> 1:12:15.620
+ And so what would the world view him as?
+
+1:12:15.620 --> 1:12:17.540
+ Well, he's this professor who made this prediction
+
+1:12:17.540 --> 1:12:20.540
+ that didn't get it right, yes?
+
+1:12:20.540 --> 1:12:26.220
+ So the fragility of human history
+
+1:12:26.220 --> 1:12:27.620
+ is illustrated by that story.
+
+1:12:27.620 --> 1:12:29.540
+ And it's one of my favorite things.
+
+1:12:29.540 --> 1:12:32.460
+ You also learn things like in our book,
+
+1:12:32.460 --> 1:12:36.180
+ how eclipses and watching eclipses was a driver
+
+1:12:36.180 --> 1:12:37.940
+ of the development of science in our nation
+
+1:12:37.940 --> 1:12:38.780
+ when it was very young.
+
+1:12:38.780 --> 1:12:40.620
+ In fact, even before we were a nation,
+
+1:12:40.620 --> 1:12:47.180
+ it turns out there were citizens of this would be country
+
+1:12:47.180 --> 1:12:50.580
+ that were going out trying to measure eclipses.
+
+1:12:50.580 --> 1:12:54.820
+ So some fortune, some misfortune affects
+
+1:12:54.820 --> 1:12:56.740
+ the progress of science.
+
+1:12:56.740 --> 1:12:57.660
+ Absolutely.
+
+1:12:57.660 --> 1:13:01.740
+ Especially with ideas as, to me at least,
+
+1:13:01.740 --> 1:13:03.620
+ if I put myself back in those days,
+
+1:13:03.620 --> 1:13:08.380
+ as radical as general relativity is.
+
+1:13:08.380 --> 1:13:12.100
+ First, can you describe, if it's OK briefly,
+
+1:13:12.100 --> 1:13:14.180
+ what general relativity is?
+
+1:13:14.180 --> 1:13:18.500
+ And yeah, could you just take a moment of, yeah,
+
+1:13:18.500 --> 1:13:22.460
+ put yourself in those shoes in the academic researchers,
+
+1:13:22.460 --> 1:13:25.180
+ scientists of that time, and what is this theory?
+
+1:13:25.180 --> 1:13:28.660
+ What is it trying to describe about our world?
+
+1:13:28.660 --> 1:13:34.740
+ It's trying to answer the thing that left Isaac Newton puzzled.
+
+1:13:37.620 --> 1:13:39.740
+ Isaac Newton says gravity magically
+
+1:13:39.740 --> 1:13:41.700
+ goes from one place to another.
+
+1:13:41.700 --> 1:13:43.300
+ He doesn't believe it, by the way.
+
+1:13:43.300 --> 1:13:45.340
+ He knows that's not right.
+
+1:13:45.340 --> 1:13:48.220
+ But the mathematics is so good that you have to say,
+
+1:13:48.220 --> 1:13:52.020
+ well, I'll throw my qualms away because I'll use it.
+
+1:13:52.020 --> 1:13:55.020
+ That's all we used to get a man from the Earth to the moon
+
+1:13:55.020 --> 1:13:58.420
+ was that mathematics.
+
+1:13:58.420 --> 1:14:03.460
+ So I'm one of those scientists, and I've seen this.
+
+1:14:03.460 --> 1:14:04.860
+ And if I thought deeply about it,
+
+1:14:04.860 --> 1:14:08.700
+ maybe I know that Newton himself wasn't comfortable.
+
+1:14:08.700 --> 1:14:11.100
+ And so the first thing I would hope that I would feel
+
+1:14:11.100 --> 1:14:13.300
+ is, gee, there's this young kid out there who
+
+1:14:13.300 --> 1:14:17.820
+ has an idea to fill in this hole that was left with us
+
+1:14:17.820 --> 1:14:19.780
+ by Sir Isaac Newton.
+
+1:14:19.780 --> 1:14:23.100
+ That, I hope, would be my reaction.
+
+1:14:23.100 --> 1:14:24.820
+ I have a suspicion.
+
+1:14:24.820 --> 1:14:29.020
+ I'm kind of a mathematical creature.
+
+1:14:29.020 --> 1:14:30.300
+ I was four years old when I first
+
+1:14:30.300 --> 1:14:33.700
+ decided that science was what I wanted to do with my life.
+
+1:14:33.700 --> 1:14:38.820
+ And so if my personality back then was like it is now,
+
+1:14:38.820 --> 1:14:41.180
+ I think it's probably likely I would
+
+1:14:41.180 --> 1:14:43.620
+ want to have studied his mathematics.
+
+1:14:43.620 --> 1:14:45.380
+ What was a piece of mathematics that he was
+
+1:14:45.380 --> 1:14:47.660
+ using to make this prediction?
+
+1:14:47.660 --> 1:14:50.060
+ Because he didn't actually create that mathematics.
+
+1:14:50.060 --> 1:14:52.180
+ That mathematics was created roughly 50 years
+
+1:14:52.180 --> 1:14:53.300
+ before he lived.
+
+1:14:53.300 --> 1:14:56.420
+ He's the person who harnessed it in order
+
+1:14:56.420 --> 1:14:57.260
+ to make a prediction.
+
+1:14:57.260 --> 1:15:00.780
+ In fact, he had to be taught this mathematics by a friend.
+
+1:15:00.780 --> 1:15:03.700
+ So this is in our book.
+
+1:15:03.700 --> 1:15:08.140
+ So putting myself in that time, I would want to, like I said,
+
+1:15:08.140 --> 1:15:09.340
+ I think I would feel excitement.
+
+1:15:09.340 --> 1:15:10.900
+ I would want to know what the mathematics is.
+
+1:15:10.900 --> 1:15:13.580
+ And then I would want to do the calculations myself.
+
+1:15:13.580 --> 1:15:16.660
+ Because one thing that physics is all about
+
+1:15:16.660 --> 1:15:19.420
+ is that you don't have to take anybody's word for anything.
+
+1:15:19.420 --> 1:15:20.980
+ You can do it yourself.
+
+1:15:20.980 --> 1:15:23.060
+ It does seem that mathematics is a little bit more
+
+1:15:23.060 --> 1:15:25.540
+ tolerant of radical ideas, or mathematicians,
+
+1:15:25.540 --> 1:15:28.580
+ or people who find beauty in mathematics.
+
+1:15:31.780 --> 1:15:33.620
+ All the white questions have no good answer.
+
+1:15:33.620 --> 1:15:35.860
+ But let me ask, why do you think Einstein never
+
+1:15:35.860 --> 1:15:38.540
+ got the Nobel Prize for general relativity?
+
+1:15:38.540 --> 1:15:40.260
+ He got it for the photoelectric effect.
+
+1:15:40.260 --> 1:15:41.020
+ That is correct.
+
+1:15:41.020 --> 1:15:42.860
+ Well, first of all, that's something
+
+1:15:42.860 --> 1:15:46.060
+ that is misunderstood about the Nobel Prize in physics.
+
+1:15:46.060 --> 1:15:48.620
+ The Nobel Prize in physics is never
+
+1:15:48.620 --> 1:15:54.060
+ given for purely proposing an idea.
+
+1:15:54.060 --> 1:15:57.420
+ It is always given for proposing an idea that
+
+1:15:57.420 --> 1:15:59.700
+ has observational support.
+
+1:15:59.700 --> 1:16:02.340
+ So he could not get the Nobel Prize
+
+1:16:02.340 --> 1:16:05.300
+ for either special relativity nor general relativity,
+
+1:16:05.300 --> 1:16:08.700
+ because the provisions that Alfred Nobel left for the award
+
+1:16:08.700 --> 1:16:11.060
+ prevent that.
+
+1:16:11.060 --> 1:16:16.100
+ But after it's been validated, can he not get it then, or no?
+
+1:16:16.100 --> 1:16:19.540
+ Yes, but remember the validation doesn't really
+
+1:16:19.540 --> 1:16:21.820
+ come until the 1920s.
+
+1:16:21.820 --> 1:16:24.500
+ But that's why they invented the second Nobel Prize.
+
+1:16:24.500 --> 1:16:28.140
+ I mean, Marie Curie, you can get a second Nobel Prize
+
+1:16:28.140 --> 1:16:31.540
+ for one of the greatest theories in physics.
+
+1:16:31.540 --> 1:16:33.740
+ So let's be clear on this.
+
+1:16:33.740 --> 1:16:39.780
+ The theory of general relativity had its critics
+
+1:16:39.780 --> 1:16:43.020
+ even up until the 50s.
+
+1:16:43.020 --> 1:16:47.820
+ So if the committee had wanted to give
+
+1:16:47.820 --> 1:16:50.300
+ the prize for general relativity,
+
+1:16:50.300 --> 1:16:54.180
+ there were vociferous critics of general relativity
+
+1:16:54.180 --> 1:16:56.740
+ up until the 50s.
+
+1:16:56.740 --> 1:16:59.740
+ Einstein died in 1955.
+
+1:16:59.740 --> 1:17:04.300
+ What lessons do you draw from the story you tell in the book,
+
+1:17:04.300 --> 1:17:07.060
+ from general relativity, from the radical nature
+
+1:17:07.060 --> 1:17:12.900
+ of the theory, to looking at the future of string theory?
+
+1:17:12.900 --> 1:17:14.980
+ Well, I think that the string theorists are probably
+
+1:17:14.980 --> 1:17:17.900
+ going to retrace this path.
+
+1:17:17.900 --> 1:17:20.020
+ But it's going to be far longer and more torturous,
+
+1:17:20.020 --> 1:17:22.140
+ in my opinion.
+
+1:17:22.140 --> 1:17:29.140
+ String theory is such a broad and deep development
+
+1:17:29.140 --> 1:17:34.180
+ that, in my opinion, when it becomes acceptable,
+
+1:17:34.180 --> 1:17:38.060
+ it's going to be because of a confluence of observations.
+
+1:17:38.060 --> 1:17:40.620
+ It's not going to be a single observation.
+
+1:17:40.620 --> 1:17:44.620
+ And I have to tell you that, so I gave a seminar here
+
+1:17:44.620 --> 1:17:46.500
+ yesterday at MIT.
+
+1:17:46.500 --> 1:17:50.860
+ And it's on an idea I have about how string theory can
+
+1:17:50.860 --> 1:17:53.980
+ leave signatures in the cosmic microwave background, which
+
+1:17:53.980 --> 1:17:56.860
+ is an astrophysical structure.
+
+1:17:56.860 --> 1:18:01.580
+ And so if those kinds of observations are borne out,
+
+1:18:01.580 --> 1:18:05.580
+ if perhaps other things related to the idea of supersymmetry
+
+1:18:05.580 --> 1:18:08.900
+ are borne out, those are going to be the first powerful
+
+1:18:08.900 --> 1:18:12.340
+ observationally based pieces of evidence that
+
+1:18:12.340 --> 1:18:18.060
+ will begin to do what the Eddington expedition did
+
+1:18:18.060 --> 1:18:19.620
+ in 1919.
+
+1:18:19.620 --> 1:18:22.900
+ But that may take several decades.
+
+1:18:22.900 --> 1:18:25.060
+ Do you think there will be Nobel prizes given
+
+1:18:25.060 --> 1:18:26.220
+ for string theory?
+
+1:18:26.220 --> 1:18:34.980
+ No, because I think it will exceed normal human lifetimes.
+
+1:18:34.980 --> 1:18:38.140
+ But there are other prizes that are given.
+
+1:18:38.140 --> 1:18:42.220
+ I mean, there is something called the Breakthrough Prize.
+
+1:18:42.220 --> 1:18:45.020
+ There's a Russian immigrant, a Russian American immigrant
+
+1:18:45.020 --> 1:18:48.420
+ named Yuri Milner, I believe his name,
+
+1:18:48.420 --> 1:18:53.020
+ started this wonderful prize called the Breakthrough Prize.
+
+1:18:53.020 --> 1:18:56.100
+ It's three times as much money as the Nobel Prize.
+
+1:18:56.100 --> 1:18:58.100
+ And it gets awarded every year.
+
+1:18:58.100 --> 1:19:00.300
+ And so something like one of those prizes
+
+1:19:00.300 --> 1:19:04.020
+ is likely to be garnered at some point far earlier
+
+1:19:04.020 --> 1:19:07.660
+ than a Nobel award.
+
+1:19:07.660 --> 1:19:09.780
+ Jumping around a few topics.
+
+1:19:09.780 --> 1:19:11.900
+ While you were at Caltech, you've
+
+1:19:11.900 --> 1:19:15.340
+ gotten to interact, I believe, with Richard Feynman,
+
+1:19:15.340 --> 1:19:16.300
+ I have to ask.
+
+1:19:16.300 --> 1:19:19.100
+ Yes, Richard Feynman, indeed.
+
+1:19:19.100 --> 1:19:20.540
+ Do you have any stories that stand out
+
+1:19:20.540 --> 1:19:21.660
+ in your memory of that time?
+
+1:19:21.660 --> 1:19:23.660
+ I have a fair number of stories, but I'm not
+
+1:19:23.660 --> 1:19:24.980
+ prepared to tell them.
+
+1:19:24.980 --> 1:19:26.820
+ They're not all politically correct.
+
+1:19:26.820 --> 1:19:28.620
+ Let me see.
+
+1:19:28.620 --> 1:19:31.060
+ Let me just say, I'll say the following.
+
+1:19:31.060 --> 1:19:33.980
+ Richard Feynman, if you've ever read
+
+1:19:33.980 --> 1:19:36.420
+ some of the books about him, in particular,
+
+1:19:36.420 --> 1:19:38.980
+ there's a book called Surely You're Joking, Mr. Feynman.
+
+1:19:38.980 --> 1:19:42.140
+ There's a series of books that starts with Surely You're
+
+1:19:42.140 --> 1:19:43.180
+ Joking, Mr. Feynman.
+
+1:19:43.180 --> 1:19:45.760
+ And I think the second one may be something like What Do You
+
+1:19:45.760 --> 1:19:47.260
+ Care What They Say or something.
+
+1:19:47.260 --> 1:19:49.620
+ I mean, the titles are all, there are three of them.
+
+1:19:49.620 --> 1:19:53.820
+ When I read those books, I was amazed at how accurately
+
+1:19:53.820 --> 1:19:57.180
+ those books portrayed the man that I interacted with.
+
+1:19:57.180 --> 1:20:01.620
+ He was irreverent, he was fun, he was deeply intelligent,
+
+1:20:01.620 --> 1:20:03.620
+ he was deeply human.
+
+1:20:03.620 --> 1:20:07.300
+ And those books tell that story very effectively.
+
+1:20:07.300 --> 1:20:09.540
+ Even just those moments, how did they
+
+1:20:09.540 --> 1:20:12.100
+ affect you as a physicist?
+
+1:20:12.100 --> 1:20:15.380
+ Well, one of the, well, it's funny because one
+
+1:20:15.380 --> 1:20:20.460
+ of the things that, I didn't hear Feynman say this,
+
+1:20:20.460 --> 1:20:25.580
+ but one of the things that is reported that he said
+
+1:20:25.580 --> 1:20:29.600
+ is if you're in a bar stool as a physicist,
+
+1:20:29.600 --> 1:20:31.740
+ and you can't explain to the guy on the bar stool
+
+1:20:31.740 --> 1:20:33.060
+ next to you what you're doing, you
+
+1:20:33.060 --> 1:20:35.660
+ don't understand what you're doing.
+
+1:20:35.660 --> 1:20:40.580
+ And there's a lot of that that I think is correct,
+
+1:20:40.580 --> 1:20:47.580
+ that when you truly understand something as complicated
+
+1:20:47.580 --> 1:20:53.700
+ as string theory, when it's in its fully formed final
+
+1:20:53.700 --> 1:20:55.620
+ development, it should be something
+
+1:20:55.620 --> 1:20:58.980
+ you could tell to the person on the bar stool next to you.
+
+1:20:58.980 --> 1:21:03.300
+ And that's something that affects the way I do science,
+
+1:21:03.300 --> 1:21:04.900
+ quite frankly.
+
+1:21:04.900 --> 1:21:08.180
+ It also affects the way I talk to the public about science.
+
+1:21:08.180 --> 1:21:11.460
+ It's one of my mantras that I keep deeply,
+
+1:21:11.460 --> 1:21:15.980
+ and try to keep deeply before me when I appear in public fora
+
+1:21:15.980 --> 1:21:20.020
+ speaking about physics in particular and science
+
+1:21:20.020 --> 1:21:21.060
+ in general.
+
+1:21:21.060 --> 1:21:22.460
+ It's also something that Einstein
+
+1:21:22.460 --> 1:21:23.580
+ said in a different way.
+
+1:21:23.580 --> 1:21:27.200
+ He said he had these two different formulations.
+
+1:21:27.200 --> 1:21:31.820
+ One of them is when the answer is simple, it's God speaking.
+
+1:21:31.820 --> 1:21:33.700
+ And the other thing that he said was
+
+1:21:33.700 --> 1:21:37.580
+ that what he did in his work was simply
+
+1:21:37.580 --> 1:21:40.620
+ the distillation of common sense,
+
+1:21:40.620 --> 1:21:43.620
+ that you distill down to something.
+
+1:21:43.620 --> 1:21:45.940
+ And he also said you make things as simple as possible
+
+1:21:45.940 --> 1:21:47.860
+ but no simpler.
+
+1:21:47.860 --> 1:21:50.820
+ So all of those things, and certainly this attitude for me
+
+1:21:50.820 --> 1:21:53.380
+ first seeing this was exemplified
+
+1:21:53.380 --> 1:21:55.260
+ by being around Richard Feynman.
+
+1:21:55.260 --> 1:21:56.900
+ So in all your work, you're always
+
+1:21:56.900 --> 1:21:59.220
+ searching for the simplicity, for the simple, clear.
+
+1:21:59.220 --> 1:22:00.140
+ I am, ultimately.
+
+1:22:00.140 --> 1:22:01.980
+ Ultimately, I am.
+
+1:22:01.980 --> 1:22:05.660
+ You served President Barack Obama's Council of Advisors
+
+1:22:05.660 --> 1:22:07.660
+ in Science and Technology.
+
+1:22:07.660 --> 1:22:08.700
+ For seven years, yes.
+
+1:22:08.700 --> 1:22:11.260
+ For seven years with Eric Schmidt
+
+1:22:11.260 --> 1:22:13.380
+ and several other brilliant people?
+
+1:22:13.380 --> 1:22:17.580
+ Met Eric for the first time in 2009
+
+1:22:17.580 --> 1:22:19.820
+ when the council was called together.
+
+1:22:19.820 --> 1:22:21.420
+ Yeah, I've seen pictures of you in that room.
+
+1:22:21.420 --> 1:22:23.020
+ I mean, there's a bunch of brilliant people.
+
+1:22:23.020 --> 1:22:24.420
+ It kind of looks amazing.
+
+1:22:24.420 --> 1:22:27.340
+ What was that experience like, being called
+
+1:22:27.340 --> 1:22:29.300
+ upon that kind of service?
+
+1:22:29.300 --> 1:22:31.580
+ So let me go back to my father, first of all.
+
+1:22:31.580 --> 1:22:34.020
+ I earlier mentioned that my father served 27 years
+
+1:22:34.020 --> 1:22:37.020
+ in the US Army, starting in World War II.
+
+1:22:37.020 --> 1:22:42.820
+ He went off in 1942, 43 to fight against the fascists.
+
+1:22:42.820 --> 1:22:45.380
+ He was part of the supply corps that
+
+1:22:45.380 --> 1:22:47.580
+ supplied General Patton as the tanks rolled
+
+1:22:47.580 --> 1:22:51.860
+ across Western Europe, pushing back the forces of Nazism
+
+1:22:51.860 --> 1:22:54.980
+ to meet up with our Russian comrades
+
+1:22:54.980 --> 1:22:59.620
+ who were pushing the Nazis starting in Stalingrad.
+
+1:22:59.620 --> 1:23:02.420
+ And the Second World War is actually
+
+1:23:02.420 --> 1:23:06.060
+ a very interesting piece of history
+
+1:23:06.060 --> 1:23:08.460
+ to know from both sides.
+
+1:23:08.460 --> 1:23:09.980
+ Here in America, we typically don't.
+
+1:23:09.980 --> 1:23:12.500
+ But I've actually studied history as an adult.
+
+1:23:12.500 --> 1:23:14.500
+ So I actually know sort of the whole story.
+
+1:23:14.500 --> 1:23:16.860
+ And on the Russian side, we don't know the Americans.
+
+1:23:16.860 --> 1:23:19.260
+ We weren't taught the American side of the story.
+
+1:23:19.260 --> 1:23:20.020
+ I know.
+
+1:23:20.020 --> 1:23:22.820
+ I have many Russian friends, and we've
+
+1:23:22.820 --> 1:23:24.420
+ had this conversation on many occasions.
+
+1:23:24.420 --> 1:23:25.140
+ It's fascinating.
+
+1:23:25.140 --> 1:23:27.260
+ But you know, like General Zhukov, for example,
+
+1:23:27.260 --> 1:23:28.620
+ was something that you wouldn't know about,
+
+1:23:28.620 --> 1:23:30.100
+ but you might not know about a Patton.
+
+1:23:30.100 --> 1:23:30.860
+ But you're right.
+
+1:23:30.860 --> 1:23:34.980
+ So Georgy Zhukov or Rokossovsky, I mean,
+
+1:23:34.980 --> 1:23:36.820
+ there's a whole list of names that I've
+
+1:23:36.820 --> 1:23:39.180
+ learned in the last 15 or 20 years looking
+
+1:23:39.180 --> 1:23:41.020
+ at the Second World War.
+
+1:23:41.020 --> 1:23:44.340
+ So your father was in the midst of that,
+
+1:23:44.340 --> 1:23:46.500
+ probably one of the greatest wars in history.
+
+1:23:46.500 --> 1:23:49.860
+ In the history of our species.
+
+1:23:49.860 --> 1:23:54.540
+ And so the idea of service comes to me essentially
+
+1:23:54.540 --> 1:23:57.660
+ from that example.
+
+1:23:57.660 --> 1:24:06.020
+ So in 2009, when I first got a call from a Nobel laureate
+
+1:24:06.020 --> 1:24:09.940
+ actually in biology, Harold Varmus,
+
+1:24:09.940 --> 1:24:13.660
+ I was on my way to India, and I got this email message,
+
+1:24:13.660 --> 1:24:15.580
+ and he said he needed to talk to me.
+
+1:24:15.580 --> 1:24:18.140
+ And I said, OK, fine, we can talk.
+
+1:24:18.140 --> 1:24:20.180
+ Got back to States I didn't hear from him.
+
+1:24:20.180 --> 1:24:22.300
+ We went through several cycles of this, sending me a message,
+
+1:24:22.300 --> 1:24:24.860
+ I want to talk to you, and then him never contacting us.
+
+1:24:24.860 --> 1:24:28.180
+ Finally, I was on my way to give a physics presentation
+
+1:24:28.180 --> 1:24:29.860
+ at the University of Florida in Gainesville,
+
+1:24:29.860 --> 1:24:34.700
+ and Jess had stepped off a plane,
+
+1:24:34.700 --> 1:24:37.180
+ and my mobile phone went off, and it was Harold.
+
+1:24:37.180 --> 1:24:40.460
+ And so I said, Harold, why do you keep sending me messages
+
+1:24:40.460 --> 1:24:43.180
+ that you want to talk but you never call?
+
+1:24:43.180 --> 1:24:45.380
+ And he said, well, I'm sorry, things have been hectic
+
+1:24:45.380 --> 1:24:47.340
+ and da, da, da, da, da.
+
+1:24:47.340 --> 1:24:51.020
+ And then he said, if you were offered the opportunity
+
+1:24:51.020 --> 1:24:55.180
+ to serve on the US President's Council of Advisors
+
+1:24:55.180 --> 1:24:59.420
+ on Science and Technology, what would be your answer?
+
+1:24:59.420 --> 1:25:02.500
+ I was amused at the formulation of the question,
+
+1:25:02.500 --> 1:25:06.060
+ because it's clear there's a purpose of why the question is
+
+1:25:06.060 --> 1:25:07.540
+ asked that way.
+
+1:25:07.540 --> 1:25:12.500
+ But then he made it clear to me he wasn't joking.
+
+1:25:12.500 --> 1:25:15.220
+ And literally, one of the few times in my life,
+
+1:25:15.220 --> 1:25:19.020
+ my knees went weak and I had to hold myself up
+
+1:25:19.020 --> 1:25:21.340
+ against a wall so that I didn't fall over.
+
+1:25:23.100 --> 1:25:28.100
+ I doubt if most of us who have been the beneficiaries
+
+1:25:28.300 --> 1:25:29.940
+ of the benefits of this country,
+
+1:25:31.220 --> 1:25:34.900
+ when given that kind of opportunity, could say no.
+
+1:25:34.900 --> 1:25:37.820
+ And I know I certainly couldn't say no.
+
+1:25:37.820 --> 1:25:42.660
+ I was frightened out of my wits because I had never,
+
+1:25:43.700 --> 1:25:48.700
+ although I have, my career in terms of policy recommendations
+
+1:25:50.820 --> 1:25:52.620
+ is actually quite long, it goes back to the 80s,
+
+1:25:52.620 --> 1:25:57.620
+ but I had never been called upon to serve as an advisor
+
+1:25:57.620 --> 1:26:00.780
+ to a president of the United States.
+
+1:26:00.780 --> 1:26:05.780
+ And it was very scary, but I did not feel that I could say no
+
+1:26:06.780 --> 1:26:10.420
+ because I wouldn't be able to sleep with myself at night
+
+1:26:10.420 --> 1:26:13.740
+ saying that I chickened out or whatever.
+
+1:26:14.740 --> 1:26:19.180
+ And so I took the plunge and we had a pretty good run.
+
+1:26:19.180 --> 1:26:23.180
+ There are things that I did in those seven years
+
+1:26:23.180 --> 1:26:28.380
+ of which I'm extraordinarily proud.
+
+1:26:28.380 --> 1:26:30.660
+ One of the ways I tell people is if you've ever seen
+
+1:26:30.660 --> 1:26:34.100
+ that television cartoon called Schoolhouse Rock,
+
+1:26:34.100 --> 1:26:37.140
+ there's this one story about how a bill becomes a law.
+
+1:26:37.140 --> 1:26:38.540
+ And I've kind of lived that.
+
+1:26:38.540 --> 1:26:41.060
+ There are things that I did
+
+1:26:41.060 --> 1:26:43.620
+ that have now been codified in US law.
+
+1:26:44.620 --> 1:26:47.820
+ Not everybody gets a chance to do things like that in life.
+
+1:26:47.820 --> 1:26:50.660
+ What do you think is the, science and technology,
+
+1:26:50.660 --> 1:26:53.780
+ especially in American politics,
+
+1:26:53.780 --> 1:26:58.300
+ we haven't had a president who's an engineer or a scientist.
+
+1:26:58.300 --> 1:27:01.660
+ What do you think is the role of a president like President Obama
+
+1:27:01.660 --> 1:27:05.500
+ in understanding the latest ideas in science and tech?
+
+1:27:05.500 --> 1:27:06.820
+ What was that experience like?
+
+1:27:06.820 --> 1:27:09.660
+ Well, first of all, I've met other presidents
+
+1:27:09.660 --> 1:27:10.820
+ beside President Obama.
+
+1:27:10.820 --> 1:27:12.740
+ He is the most extraordinary president
+
+1:27:12.740 --> 1:27:15.220
+ that I've ever encountered.
+
+1:27:15.220 --> 1:27:18.180
+ Despite the fact that he went to Harvard.
+
+1:27:18.180 --> 1:27:21.300
+ When I think about President Obama,
+
+1:27:21.300 --> 1:27:23.540
+ he is a deep mystery to me.
+
+1:27:23.540 --> 1:27:27.180
+ In the same way perhaps that the universe is a mystery.
+
+1:27:27.180 --> 1:27:29.780
+ I don't really understand how that constellation
+
+1:27:29.780 --> 1:27:34.020
+ of personality traits could come to fit
+
+1:27:34.020 --> 1:27:35.700
+ within a single individual.
+
+1:27:35.700 --> 1:27:38.060
+ But I saw them for seven years.
+
+1:27:38.060 --> 1:27:41.140
+ So I'm convinced that I wasn't seeing fake news.
+
+1:27:41.140 --> 1:27:42.620
+ I was seeing real data.
+
+1:27:42.620 --> 1:27:44.780
+ He was just an extraordinary man.
+
+1:27:44.780 --> 1:27:48.620
+ And one of the things that was completely clear
+
+1:27:48.620 --> 1:27:55.620
+ was that he was not afraid and not intimidated
+
+1:27:55.620 --> 1:27:58.260
+ to be in a room of really smart people.
+
+1:27:58.260 --> 1:28:00.900
+ I mean, really smart people.
+
+1:28:00.900 --> 1:28:06.380
+ That he was completely comfortable in asking
+
+1:28:06.380 --> 1:28:07.940
+ some of the world's greatest experts,
+
+1:28:07.940 --> 1:28:09.860
+ what do I do about this problem?
+
+1:28:09.860 --> 1:28:12.500
+ And it wasn't that he was going to just take the problem
+
+1:28:12.500 --> 1:28:15.460
+ and it wasn't that he was going to just take their answer,
+
+1:28:15.460 --> 1:28:18.340
+ but he would listen to the advice.
+
+1:28:18.340 --> 1:28:21.060
+ And that to me was extraordinary.
+
+1:28:21.060 --> 1:28:23.020
+ As I said, I've been around other executives
+
+1:28:23.020 --> 1:28:27.020
+ and I've never seen one quite like him.
+
+1:28:27.020 --> 1:28:30.260
+ He's an extraordinary learner, is what I observed.
+
+1:28:30.260 --> 1:28:32.940
+ And not just about science.
+
+1:28:32.940 --> 1:28:36.700
+ He has a way of internalizing information in real time
+
+1:28:36.700 --> 1:28:39.100
+ that I've never seen in a politician before.
+
+1:28:39.100 --> 1:28:42.460
+ Even in extraordinarily complicated situations.
+
+1:28:42.460 --> 1:28:43.700
+ Even scientific ideas.
+
+1:28:43.700 --> 1:28:45.060
+ Scientific or non scientific.
+
+1:28:45.060 --> 1:28:47.900
+ Complicated ideas don't have to be scientific ideas.
+
+1:28:47.900 --> 1:28:50.100
+ But I have, like I said, seen him in real time
+
+1:28:50.100 --> 1:28:54.060
+ process complicated ideas with a speed that was stunning.
+
+1:28:54.060 --> 1:28:56.340
+ In fact, he shocked the entire council.
+
+1:28:56.340 --> 1:29:01.260
+ I mean, we were all stunned at his capacity
+
+1:29:01.260 --> 1:29:06.180
+ to be presented with complicated ideas
+
+1:29:06.180 --> 1:29:08.580
+ and then to wrestle with them and internalize them.
+
+1:29:08.580 --> 1:29:11.380
+ And then come back, more interestingly enough,
+
+1:29:11.380 --> 1:29:14.020
+ come back with really good questions to ask.
+
+1:29:14.020 --> 1:29:17.140
+ I've noticed this in an area that I understand more
+
+1:29:17.140 --> 1:29:19.220
+ of artificial intelligence.
+
+1:29:19.220 --> 1:29:21.740
+ I've seen him integrate information
+
+1:29:21.740 --> 1:29:24.100
+ about artificial intelligence and then come out
+
+1:29:24.100 --> 1:29:27.340
+ with these kind of Richard Feynman like insights.
+
+1:29:27.340 --> 1:29:28.260
+ That's exactly right.
+
+1:29:28.260 --> 1:29:32.380
+ And as I said, those of us who have been in that position,
+
+1:29:32.380 --> 1:29:35.940
+ it is stunning to see it happen because you don't expect it.
+
+1:29:35.940 --> 1:29:40.180
+ Yeah, he takes what, for a lot of sort of graduate students,
+
+1:29:40.180 --> 1:29:42.220
+ takes like four years in a particular topic
+
+1:29:42.220 --> 1:29:43.900
+ and he just does it in a few minutes.
+
+1:29:43.900 --> 1:29:46.380
+ He sees it very naturally.
+
+1:29:46.380 --> 1:29:47.780
+ You've mentioned that you would love
+
+1:29:47.780 --> 1:29:51.820
+ to see experimental validation of super strength theory
+
+1:29:51.820 --> 1:29:53.060
+ before you shove.
+
+1:29:53.060 --> 1:29:56.260
+ Before I shuffle off this mortal coil.
+
+1:29:56.260 --> 1:29:58.180
+ Which the poetry of that reference
+
+1:29:58.180 --> 1:30:00.380
+ made me smile when I saw it.
+
+1:30:00.380 --> 1:30:02.180
+ You know, people actually misunderstand it
+
+1:30:02.180 --> 1:30:03.940
+ because it's not what, it doesn't mean
+
+1:30:03.940 --> 1:30:06.620
+ what we generally take it to mean colloquially.
+
+1:30:06.620 --> 1:30:08.300
+ But it's such a beautiful expression.
+
+1:30:08.300 --> 1:30:09.140
+ Yeah, it is.
+
+1:30:09.140 --> 1:30:13.780
+ It's from the Hamlet, to be or not to be speech.
+
+1:30:13.780 --> 1:30:15.460
+ Which I still don't understand what that's about.
+
+1:30:15.460 --> 1:30:18.620
+ But so many interpretations.
+
+1:30:18.620 --> 1:30:22.700
+ Anyway, what are the most exciting problems in physics
+
+1:30:22.700 --> 1:30:25.260
+ that are just within our reach of understanding
+
+1:30:25.260 --> 1:30:27.340
+ and maybe solve the next few decades
+
+1:30:27.340 --> 1:30:29.140
+ that you may be able to see?
+
+1:30:29.140 --> 1:30:32.780
+ So in physics, you limited it to physics.
+
+1:30:32.780 --> 1:30:36.380
+ Physics, mathematics, this kind of space of problems
+
+1:30:36.380 --> 1:30:37.500
+ that fascinate you.
+
+1:30:39.140 --> 1:30:41.660
+ Well, the one that looks on the immediate horizon
+
+1:30:41.660 --> 1:30:43.980
+ like we're gonna get to is quantum computing.
+
+1:30:45.340 --> 1:30:47.540
+ And that's gonna, if we actually get there,
+
+1:30:47.540 --> 1:30:50.540
+ that's gonna be extraordinarily interesting.
+
+1:30:50.540 --> 1:30:53.980
+ Do you think that's a fundamentally problem of theory
+
+1:30:53.980 --> 1:30:55.860
+ or is it now in the space of engineering?
+
+1:30:55.860 --> 1:30:57.020
+ It's in the space of engineering.
+
+1:30:57.020 --> 1:31:01.340
+ I was out at a Q station, as you may know,
+
+1:31:01.340 --> 1:31:06.340
+ Microsoft has this research facility in Santa Barbara.
+
+1:31:06.780 --> 1:31:09.740
+ I was out there a couple of months in my capacity
+
+1:31:09.740 --> 1:31:12.500
+ as a vice president of American Physical Society.
+
+1:31:12.500 --> 1:31:15.660
+ And I had some things that were like lectures
+
+1:31:15.660 --> 1:31:18.260
+ and they were telling me what they were doing.
+
+1:31:18.260 --> 1:31:20.380
+ And it sure sounded like they knew what they were doing
+
+1:31:20.380 --> 1:31:22.620
+ and that they were close to major breakthroughs.
+
+1:31:24.140 --> 1:31:26.420
+ Yeah, that's a really exciting possibility there.
+
+1:31:26.420 --> 1:31:31.420
+ But back to Hamlet, do you ponder mortality,
+
+1:31:31.460 --> 1:31:32.660
+ your own mortality?
+
+1:31:32.660 --> 1:31:35.940
+ Nope, my mother died when I was 11 years old.
+
+1:31:35.940 --> 1:31:40.940
+ And so I immediately knew what the end of the story was
+
+1:31:41.220 --> 1:31:42.580
+ for all of us.
+
+1:31:42.580 --> 1:31:45.660
+ As a consequence, I've never spent a lot of time
+
+1:31:45.660 --> 1:31:47.700
+ thinking about death.
+
+1:31:47.700 --> 1:31:49.940
+ It'll come in its own good time.
+
+1:31:49.940 --> 1:31:54.220
+ And sort of to me, the job of every human
+
+1:31:54.220 --> 1:31:56.460
+ is to make the best and the most of the time
+
+1:31:56.460 --> 1:32:01.460
+ that's given to us in order not for our own selfish gain,
+
+1:32:02.340 --> 1:32:04.780
+ but to try to make this place a better place
+
+1:32:04.780 --> 1:32:05.980
+ for someone else.
+
+1:32:08.740 --> 1:32:13.460
+ And on the why of life, why do you think we are?
+
+1:32:13.460 --> 1:32:16.380
+ I have no idea and I never even worried about it.
+
+1:32:17.460 --> 1:32:20.900
+ For me, I have an answer, a local answer.
+
+1:32:20.900 --> 1:32:22.460
+ The apparent why for me was
+
+1:32:22.460 --> 1:32:25.020
+ because I'm supposed to do physics.
+
+1:32:25.020 --> 1:32:28.140
+ But it's funny because there's so many other
+
+1:32:29.460 --> 1:32:32.300
+ quantum mechanically speaking possibilities in your life,
+
+1:32:33.220 --> 1:32:35.500
+ such as being an astronaut, for example.
+
+1:32:35.500 --> 1:32:36.980
+ So you know about that, I see.
+
+1:32:36.980 --> 1:32:41.980
+ Well, like Einstein and the vicissitudes
+
+1:32:45.740 --> 1:32:50.740
+ that prevented the 1914 measurement of starlight vending,
+
+1:32:50.740 --> 1:32:53.740
+ the universe is constructed in such a way
+
+1:32:53.740 --> 1:32:56.020
+ that I didn't become an astronaut, which would have,
+
+1:32:56.020 --> 1:33:00.020
+ for me, I would have faced the worst choice in my life,
+
+1:33:00.020 --> 1:33:04.540
+ whether I would try to become an astronaut
+
+1:33:04.540 --> 1:33:07.420
+ or whether I would try to do theoretical physics.
+
+1:33:07.420 --> 1:33:09.140
+ Both of these dreams were born
+
+1:33:09.140 --> 1:33:11.660
+ when I was four years old simultaneously.
+
+1:33:11.660 --> 1:33:14.700
+ And so I can't imagine how difficult
+
+1:33:14.700 --> 1:33:16.980
+ that decision would have been.
+
+1:33:16.980 --> 1:33:19.540
+ The universe helped you out on that one.
+
+1:33:19.540 --> 1:33:21.780
+ Not only in that one, but in many ones.
+
+1:33:21.780 --> 1:33:25.380
+ It helped me out by allowing me to pick the right dad.
+
+1:33:25.380 --> 1:33:27.900
+ Is there a day in your life you could relive
+
+1:33:27.900 --> 1:33:29.740
+ because it made you truly happy?
+
+1:33:29.740 --> 1:33:32.700
+ What day would that be if you could just look back?
+
+1:33:32.700 --> 1:33:35.460
+ Being a theoretical physicist
+
+1:33:35.460 --> 1:33:37.460
+ is like having Christmas every day.
+
+1:33:39.020 --> 1:33:40.780
+ I have lots of joy in my life.
+
+1:33:43.180 --> 1:33:46.940
+ The moments of invention, the moments of ideas, revelation.
+
+1:33:46.940 --> 1:33:49.900
+ Yes, the only thing that exceed them are
+
+1:33:49.900 --> 1:33:53.060
+ some family experiences like when my kids were born
+
+1:33:53.060 --> 1:33:56.860
+ and that kind of stuff, but they're pretty high up there.
+
+1:33:57.900 --> 1:34:00.540
+ Well, I don't see a better way to end it, Jim.
+
+1:34:00.540 --> 1:34:01.380
+ Thank you so much.
+
+1:34:01.380 --> 1:34:03.300
+ It was a huge honor talking to you today.
+
+1:34:03.300 --> 1:34:05.340
+ This worked out better than I thought.
+
+1:34:05.340 --> 1:34:35.100
+ I'm glad to hear it.
+
+1:34:35.540 --> 1:34:38.300
+ And now, let me leave you with some words of wisdom
+
+1:34:38.300 --> 1:34:42.780
+ from the great Albert Einstein for the rebels among us.
+
+1:34:42.780 --> 1:34:45.020
+ Unthinking respect for authority
+
+1:34:45.020 --> 1:34:48.140
+ is the greatest enemy of truth.
+
+1:34:48.140 --> 1:35:07.140
+ Thank you for listening and hope to see you next time.
+

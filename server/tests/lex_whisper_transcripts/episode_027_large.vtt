@@ -1,0 +1,4853 @@
+WEBVTT
+
+00:00.000 --> 00:02.920
+ The following is a conversation with Kai Fu Lee.
+
+00:02.920 --> 00:06.560
+ He's the chairman and CEO of Cinovation Ventures
+
+00:06.560 --> 00:10.600
+ that manages a $2 billion dual currency investment fund
+
+00:10.600 --> 00:13.160
+ with a focus on developing the next generation
+
+00:13.160 --> 00:15.440
+ of Chinese high tech companies.
+
+00:15.440 --> 00:17.880
+ He's the former president of Google China
+
+00:17.880 --> 00:19.800
+ and the founder of what is now called
+
+00:19.800 --> 00:21.680
+ Microsoft Research Asia,
+
+00:21.680 --> 00:24.920
+ an institute that trained many of the artificial
+
+00:24.920 --> 00:26.520
+ intelligence leaders in China,
+
+00:26.520 --> 00:30.280
+ including CTOs or AI execs at Baidu,
+
+00:30.280 --> 00:33.920
+ Tencent, Alibaba, Lenovo, and Huawei.
+
+00:34.840 --> 00:38.520
+ He was named one of the 100 most influential people
+
+00:38.520 --> 00:40.480
+ in the world by Time Magazine.
+
+00:40.480 --> 00:43.840
+ He's the author of seven bestselling books in Chinese
+
+00:43.840 --> 00:46.680
+ and most recently, the New York Times bestseller
+
+00:46.680 --> 00:50.600
+ called AI Superpowers, China, Silicon Valley,
+
+00:50.600 --> 00:52.600
+ and the New World Order.
+
+00:52.600 --> 00:55.760
+ He has unparalleled experience
+
+00:55.760 --> 00:57.640
+ in working across major tech companies
+
+00:57.640 --> 01:00.040
+ and governments and applications of AI,
+
+01:00.040 --> 01:03.440
+ and so he has a unique perspective on global innovation
+
+01:03.440 --> 01:06.200
+ and the future of AI that I think is important
+
+01:06.200 --> 01:08.880
+ to listen to and think about.
+
+01:08.880 --> 01:11.880
+ This is the Artificial Intelligence Podcast.
+
+01:11.880 --> 01:15.160
+ If you enjoy it, subscribe on YouTube and iTunes,
+
+01:15.160 --> 01:17.920
+ support it on Patreon, or simply connect with me
+
+01:17.920 --> 01:20.960
+ on Twitter at Lex Friedman.
+
+01:20.960 --> 01:25.960
+ And now, here's my conversation with Kaifu Li.
+
+01:26.040 --> 01:29.360
+ I immigrated from Russia to US when I was 13.
+
+01:29.360 --> 01:32.400
+ You immigrated to US at about the same age.
+
+01:32.400 --> 01:34.720
+ The Russian people, the American people,
+
+01:34.720 --> 01:38.240
+ the Chinese people each have a certain soul,
+
+01:38.240 --> 01:42.000
+ a spirit that permeates throughout the generations.
+
+01:42.000 --> 01:45.080
+ So maybe it's a little bit of a poetic question,
+
+01:45.080 --> 01:48.840
+ but could you describe your sense
+
+01:48.840 --> 01:52.000
+ of what defines the Chinese soul?
+
+01:52.000 --> 01:56.080
+ I think the Chinese soul of people today, right,
+
+01:56.080 --> 02:01.080
+ we're talking about people who have had centuries of burden
+
+02:01.920 --> 02:05.120
+ because of the poverty that the country has gone through,
+
+02:05.120 --> 02:10.120
+ and suddenly shined with hope of prosperity
+
+02:10.480 --> 02:13.360
+ in the past 40 years as China opened up
+
+02:13.360 --> 02:15.400
+ and embraced market economy.
+
+02:15.400 --> 02:20.160
+ And undoubtedly, there are two sets of pressures
+
+02:20.160 --> 02:24.120
+ on the people, that of the tradition,
+
+02:24.120 --> 02:28.000
+ that of facing difficult situations,
+
+02:28.000 --> 02:31.120
+ and that of hope of wanting to be the first
+
+02:31.120 --> 02:33.840
+ to become successful and wealthy.
+
+02:33.840 --> 02:38.320
+ So that's a very strong hunger and a strong desire
+
+02:38.320 --> 02:41.120
+ and strong work ethic that drives China forward.
+
+02:41.120 --> 02:43.920
+ And is there roots to not just this generation,
+
+02:43.920 --> 02:47.280
+ but before that's deeper
+
+02:47.280 --> 02:50.080
+ than just the new economic developments?
+
+02:50.080 --> 02:52.520
+ Is there something that's unique to China
+
+02:52.520 --> 02:54.960
+ that you could speak to that's in the people?
+
+02:54.960 --> 02:58.560
+ Yeah, well, the Chinese tradition
+
+02:58.560 --> 03:02.640
+ is about excellence, dedication, and results.
+
+03:02.640 --> 03:07.200
+ And the Chinese exams and study subjects in schools
+
+03:07.200 --> 03:09.120
+ have traditionally started
+
+03:09.120 --> 03:11.080
+ from memorizing 10,000 characters,
+
+03:11.080 --> 03:13.560
+ not an easy task to start with.
+
+03:13.560 --> 03:15.120
+ And further by memorizing
+
+03:15.120 --> 03:18.960
+ his historic philosopher's literature poetry.
+
+03:18.960 --> 03:21.080
+ So it really is probably
+
+03:21.080 --> 03:25.040
+ the strongest rote learning mechanism created
+
+03:25.040 --> 03:26.920
+ to make sure people had good memory
+
+03:26.920 --> 03:29.120
+ and remember things extremely well.
+
+03:30.080 --> 03:32.680
+ That's, I think at the same time,
+
+03:32.680 --> 03:36.120
+ suppresses the breakthrough innovation
+
+03:37.360 --> 03:42.360
+ and also enhances the speed execution get results.
+
+03:42.360 --> 03:44.400
+ And that I think characterizes
+
+03:44.400 --> 03:47.280
+ the historic basis of China.
+
+03:47.280 --> 03:48.120
+ That's interesting,
+
+03:48.120 --> 03:50.200
+ because there's echoes of that in Russian education
+
+03:50.200 --> 03:51.960
+ as well as rote memorization.
+
+03:51.960 --> 03:53.680
+ So you have to memorize a lot of poetry.
+
+03:53.680 --> 03:58.680
+ I mean, there's just an emphasis on perfection in all forms
+
+03:59.120 --> 04:02.120
+ that's not conducive to perhaps what you're speaking to,
+
+04:02.120 --> 04:03.560
+ which is creativity.
+
+04:03.560 --> 04:06.880
+ But you think that kind of education holds back
+
+04:06.880 --> 04:09.400
+ the innovative spirit that you might see
+
+04:09.400 --> 04:10.840
+ in the United States?
+
+04:10.840 --> 04:14.720
+ Well, it holds back the breakthrough innovative spirits
+
+04:14.720 --> 04:16.360
+ that we see in the United States,
+
+04:16.360 --> 04:21.360
+ but it does not hold back the valuable execution oriented,
+
+04:21.760 --> 04:25.120
+ result oriented value creating engines,
+
+04:25.120 --> 04:27.840
+ which we see China being very successful.
+
+04:27.840 --> 04:32.760
+ So is there a difference between a Chinese AI engineer today
+
+04:32.760 --> 04:34.680
+ and an American AI engineer,
+
+04:34.680 --> 04:36.920
+ perhaps rooted in the culture that we just talked about
+
+04:36.920 --> 04:41.040
+ or the education or the very soul of the people or no?
+
+04:41.040 --> 04:43.600
+ And what would your advice be to each
+
+04:43.600 --> 04:45.400
+ if there's a difference?
+
+04:45.400 --> 04:47.000
+ Well, there's a lot that's similar
+
+04:47.000 --> 04:51.120
+ because AI is about mastering sciences,
+
+04:51.120 --> 04:54.760
+ about using known technologies and trying new things,
+
+04:54.760 --> 04:58.120
+ but it's also about picking from many parts
+
+04:58.120 --> 05:00.160
+ of possible networks to use
+
+05:00.160 --> 05:02.800
+ and different types of parameters to tune.
+
+05:02.800 --> 05:05.200
+ And that part is somewhat rote.
+
+05:05.200 --> 05:08.880
+ And it is also, as anyone who's built AI products
+
+05:08.880 --> 05:12.560
+ can tell you a lot about cleansing the data
+
+05:12.560 --> 05:15.080
+ because AI runs better with more data
+
+05:15.080 --> 05:18.480
+ and data is generally unstructured,
+
+05:18.480 --> 05:22.280
+ errorful and unclean.
+
+05:22.280 --> 05:26.160
+ And the effort to clean the data is immense.
+
+05:26.160 --> 05:31.160
+ So I think the better part of American engineering,
+
+05:31.160 --> 05:35.520
+ AI engineering process is to try new things,
+
+05:35.520 --> 05:37.960
+ to do things people haven't done before
+
+05:37.960 --> 05:42.960
+ and to use technology to solve most if not all problems.
+
+05:43.360 --> 05:47.120
+ So to make the algorithm work despite not so great data,
+
+05:47.120 --> 05:50.640
+ find error tolerant ways to deal with the data.
+
+05:50.640 --> 05:55.640
+ The Chinese way would be to basically enumerate
+
+05:55.920 --> 05:58.560
+ to the fullest extent all the possible ways
+
+05:58.560 --> 06:01.000
+ by a lot of machines, try lots of different ways
+
+06:01.000 --> 06:04.560
+ to get it to work and spend a lot of resources
+
+06:04.560 --> 06:07.680
+ and money and time cleaning up data.
+
+06:07.680 --> 06:10.960
+ That means the AI engineer may be writing
+
+06:10.960 --> 06:15.560
+ data cleansing algorithms, working with thousands of people
+
+06:15.560 --> 06:19.120
+ who label or correct or do things with the data.
+
+06:19.120 --> 06:21.680
+ That is the incredible hard work
+
+06:21.680 --> 06:23.960
+ that might lead to better results.
+
+06:23.960 --> 06:26.360
+ So the Chinese engineer would rely on
+
+06:26.360 --> 06:29.040
+ and ask for more and more and more data
+
+06:29.040 --> 06:31.440
+ and find ways to cleanse them and make them work
+
+06:31.440 --> 06:34.480
+ in the system and probably less time thinking
+
+06:34.480 --> 06:38.520
+ about new algorithms that can overcome data
+
+06:38.520 --> 06:39.640
+ or other issues.
+
+06:39.640 --> 06:40.840
+ So where's your intuition?
+
+06:40.840 --> 06:42.320
+ Where do you think the biggest impact
+
+06:42.320 --> 06:44.160
+ in the next 10 years lies?
+
+06:44.160 --> 06:46.480
+ Is it in some breakthrough algorithms
+
+06:47.360 --> 06:52.360
+ or is it in just this at scale rigor,
+
+06:53.160 --> 06:55.920
+ a rigorous approach to data, cleaning data,
+
+06:55.920 --> 06:58.440
+ organizing data onto the same algorithms?
+
+06:58.440 --> 07:02.600
+ What do you think the big impact in the applied world is?
+
+07:02.600 --> 07:04.560
+ Well, if you're really in the company
+
+07:04.560 --> 07:06.880
+ and you have to deliver results,
+
+07:06.880 --> 07:09.720
+ using known techniques and enhancing data
+
+07:09.720 --> 07:12.240
+ seems like the more expedient approach
+
+07:12.240 --> 07:15.680
+ that's very low risk and likely to generate
+
+07:15.680 --> 07:17.200
+ better and better results.
+
+07:17.200 --> 07:20.520
+ And that's why the Chinese approach has done quite well.
+
+07:20.520 --> 07:24.280
+ Now, there are a lot of more challenging startups
+
+07:24.280 --> 07:28.480
+ and problems such as autonomous vehicles,
+
+07:28.480 --> 07:32.080
+ medical diagnosis that existing algorithms
+
+07:32.080 --> 07:34.280
+ probably won't solve.
+
+07:34.280 --> 07:38.720
+ And that would put the Chinese approach more challenged
+
+07:38.720 --> 07:42.400
+ and give them more breakthrough innovation approach,
+
+07:42.400 --> 07:45.440
+ more of an edge on those kinds of problems.
+
+07:45.440 --> 07:47.080
+ So let me talk to that a little more.
+
+07:47.080 --> 07:51.000
+ So my intuition personally is that data
+
+07:51.000 --> 07:53.680
+ can take us extremely far.
+
+07:53.680 --> 07:56.480
+ So you brought up autonomous vehicles and medical diagnosis.
+
+07:56.480 --> 08:00.080
+ So your intuition is that huge amounts of data
+
+08:00.080 --> 08:04.000
+ might not be able to completely help us solve that problem.
+
+08:04.000 --> 08:08.080
+ Right, so breaking that down further in autonomous vehicle,
+
+08:08.080 --> 08:11.280
+ I think huge amounts of data probably will solve
+
+08:11.280 --> 08:13.000
+ trucks driving on highways,
+
+08:13.000 --> 08:15.600
+ which will deliver a significant value
+
+08:15.600 --> 08:18.120
+ and China will probably lead in that.
+
+08:18.120 --> 08:23.120
+ And full L5 autonomous is likely to require
+
+08:23.960 --> 08:26.320
+ new technologies we don't yet know.
+
+08:26.320 --> 08:28.640
+ And that might require academia
+
+08:28.640 --> 08:30.360
+ and great industrial research,
+
+08:30.360 --> 08:32.480
+ both innovating and working together.
+
+08:32.480 --> 08:35.360
+ And in that case, US has an advantage.
+
+08:35.360 --> 08:37.200
+ So the interesting question there is,
+
+08:37.200 --> 08:38.240
+ I don't know if you're familiar
+
+08:38.240 --> 08:39.720
+ on the autonomous vehicle space
+
+08:39.720 --> 08:42.640
+ and the developments with Tesla and Elon Musk.
+
+08:42.640 --> 08:43.480
+ I am.
+
+08:43.480 --> 08:48.080
+ Where they are in fact full steam ahead
+
+08:49.400 --> 08:53.480
+ into this mysterious complex world of full autonomy, L5,
+
+08:53.480 --> 08:58.480
+ L4, L5, and they're trying to solve that purely with data.
+
+08:58.800 --> 09:00.800
+ So the same kind of thing that you're saying
+
+09:00.800 --> 09:02.080
+ is just for highway,
+
+09:02.080 --> 09:05.320
+ which is what a lot of people share your intuition.
+
+09:05.320 --> 09:07.200
+ They're trying to solve with data.
+
+09:07.200 --> 09:09.320
+ So just to linger on that moment further,
+
+09:09.320 --> 09:13.560
+ do you think possible for them to achieve success
+
+09:13.560 --> 09:17.040
+ with simply just a huge amount of this training
+
+09:17.040 --> 09:20.400
+ on edge cases and difficult cases in urban environments,
+
+09:20.400 --> 09:21.760
+ not just highway and so on?
+
+09:22.760 --> 09:24.520
+ I think it would be very hard.
+
+09:24.520 --> 09:27.040
+ One could characterize Tesla's approach
+
+09:27.040 --> 09:29.840
+ as kind of a Chinese strength approach, right?
+
+09:29.840 --> 09:31.560
+ Gather all the data you can
+
+09:31.560 --> 09:34.000
+ and hope that will overcome the problems.
+
+09:34.000 --> 09:36.080
+ But in autonomous driving,
+
+09:36.080 --> 09:40.400
+ clearly a lot of the decisions aren't merely solved
+
+09:40.400 --> 09:43.480
+ by aggregating data and having feedback loop.
+
+09:43.480 --> 09:48.000
+ There are things that are more akin to human thinking.
+
+09:48.000 --> 09:51.640
+ And how would those be integrated and built?
+
+09:51.640 --> 09:53.960
+ There has not yet been a lot of success
+
+09:53.960 --> 09:56.400
+ integrating human intelligence
+
+09:56.400 --> 09:58.760
+ or call it expert systems if you will,
+
+09:58.760 --> 10:02.920
+ even though that's a taboo word with the machine learning.
+
+10:02.920 --> 10:05.560
+ And the integration of the two types of thinking
+
+10:05.560 --> 10:07.800
+ hasn't yet been demonstrated.
+
+10:07.800 --> 10:09.920
+ And the question is how much can you push
+
+10:09.920 --> 10:12.360
+ a purely machine learning approach?
+
+10:12.360 --> 10:15.480
+ And of course, Tesla also has an additional constraint
+
+10:15.480 --> 10:18.480
+ that they don't have all the sensors.
+
+10:18.480 --> 10:21.120
+ I know that they think it's foolish to use LIDARs,
+
+10:21.120 --> 10:25.080
+ but that's clearly a one less very valuable
+
+10:25.080 --> 10:28.880
+ and reliable source of input that they're foregoing,
+
+10:28.880 --> 10:31.120
+ which may also have consequences.
+
+10:32.400 --> 10:34.960
+ I think the advantage of course is capturing data
+
+10:34.960 --> 10:37.080
+ that no one has ever seen before.
+
+10:37.080 --> 10:40.680
+ And in some cases such as computer vision
+
+10:40.680 --> 10:42.240
+ and speech recognition,
+
+10:42.240 --> 10:44.880
+ I have seen Chinese companies accumulate data
+
+10:44.880 --> 10:47.360
+ that's not seen anywhere in the Western world
+
+10:47.360 --> 10:50.280
+ and they have delivered superior results.
+
+10:50.280 --> 10:53.760
+ But then speech recognition and object recognition
+
+10:53.760 --> 10:57.120
+ are relatively suitable problems for deep learning
+
+10:57.120 --> 11:00.800
+ and don't have the potentially need
+
+11:00.800 --> 11:04.480
+ for the human intelligence analytical planning elements.
+
+11:04.480 --> 11:06.440
+ And the same on the speech recognition side,
+
+11:06.440 --> 11:08.960
+ your intuition that speech recognition
+
+11:08.960 --> 11:11.480
+ and the machine learning approaches to speech recognition
+
+11:11.480 --> 11:14.520
+ won't take us to a conversational system
+
+11:14.520 --> 11:15.960
+ that can pass the Turing test,
+
+11:15.960 --> 11:20.080
+ which is sort of maybe akin to what driving is.
+
+11:20.080 --> 11:22.760
+ So it needs to have something more than just simply
+
+11:24.480 --> 11:27.520
+ simple language understanding, simple language generation.
+
+11:27.520 --> 11:28.720
+ Roughly right.
+
+11:28.720 --> 11:33.120
+ I would say that based on purely machine learning approaches,
+
+11:33.120 --> 11:35.960
+ it's hard to imagine it could lead
+
+11:35.960 --> 11:40.520
+ to a full conversational experience
+
+11:40.520 --> 11:44.600
+ across arbitrary domains, which is akin to L5.
+
+11:44.600 --> 11:46.920
+ I'm a little hesitant to use the word Turing test
+
+11:46.920 --> 11:50.280
+ because the original definition was probably too easy.
+
+11:50.280 --> 11:52.320
+ We probably do that, yeah.
+
+11:52.320 --> 11:54.400
+ The spirit of the Turing test
+
+11:54.400 --> 11:56.520
+ is what I was referring to. Of course.
+
+11:56.520 --> 11:59.440
+ So you've had major leadership research positions
+
+11:59.440 --> 12:01.640
+ at Apple, Microsoft, Google.
+
+12:01.640 --> 12:05.120
+ So continuing on the discussion of America, Russia,
+
+12:05.120 --> 12:07.640
+ Chinese, Seoul and culture and so on.
+
+12:09.200 --> 12:11.360
+ What is the culture of Silicon Valley
+
+12:12.440 --> 12:16.320
+ in contrast to China and maybe US broadly?
+
+12:16.320 --> 12:18.760
+ And what is the unique culture
+
+12:18.760 --> 12:22.080
+ of each of these three major companies in your view?
+
+12:22.080 --> 12:25.120
+ I think in aggregate, Silicon Valley companies,
+
+12:25.120 --> 12:27.200
+ and we could probably include Microsoft in that,
+
+12:27.200 --> 12:29.120
+ even though they're not in the Valley,
+
+12:29.120 --> 12:33.960
+ is really dream big and have visionary goals
+
+12:33.960 --> 12:37.960
+ and believe that technology will conquer all.
+
+12:37.960 --> 12:42.280
+ And also the self confidence and the self entitlement
+
+12:42.280 --> 12:43.560
+ that whatever they produce,
+
+12:43.560 --> 12:47.240
+ the whole world should use and must use.
+
+12:47.240 --> 12:52.240
+ And those are historically important, I think.
+
+12:54.080 --> 12:59.080
+ Steve Jobs famous quote that he doesn't do focus groups,
+
+12:59.080 --> 13:02.360
+ he looks in the mirror and asks the person in the mirror,
+
+13:02.360 --> 13:03.520
+ what do you want?
+
+13:03.520 --> 13:07.880
+ And that really is an inspirational comment that says,
+
+13:07.880 --> 13:11.240
+ the great company shouldn't just ask users what they want,
+
+13:11.240 --> 13:15.160
+ but develop something that users will know they want
+
+13:15.160 --> 13:16.200
+ when they see it,
+
+13:16.200 --> 13:18.920
+ but they could never come up with themselves.
+
+13:18.920 --> 13:23.840
+ I think that is probably the most exhilarating description
+
+13:23.840 --> 13:26.520
+ of what the essence of Silicon Valley is,
+
+13:26.520 --> 13:31.520
+ that this brilliant idea could cause you to build something
+
+13:31.800 --> 13:35.480
+ that couldn't come out of the focus groups or AB tests.
+
+13:35.480 --> 13:38.000
+ And iPhone would be an example of that.
+
+13:38.000 --> 13:40.520
+ No one in the age of Blackberry would write down
+
+13:40.520 --> 13:42.760
+ they want an iPhone or multi touch.
+
+13:42.760 --> 13:44.760
+ A browser might be another example.
+
+13:44.760 --> 13:47.480
+ No one would say they want that in the days of FTP,
+
+13:47.480 --> 13:49.400
+ but once they see it, they want it.
+
+13:49.400 --> 13:53.560
+ So I think that is what Silicon Valley is best at.
+
+13:53.560 --> 13:58.560
+ But it also comes with, it came with a lot of success.
+
+13:58.920 --> 14:01.960
+ These products became global platforms
+
+14:01.960 --> 14:05.120
+ and there were basically no competitors anywhere.
+
+14:05.120 --> 14:08.440
+ And that has also led to a belief
+
+14:08.440 --> 14:13.240
+ that these are the only things that one should do,
+
+14:13.240 --> 14:17.960
+ that companies should not tread on other companies territory
+
+14:17.960 --> 14:22.960
+ so that a Groupon and a Yelp and then OpenTable
+
+14:24.080 --> 14:26.280
+ and the Grubhub would each feel,
+
+14:26.280 --> 14:28.560
+ okay, I'm not gonna do the other company's business
+
+14:28.560 --> 14:32.360
+ because that would not be the pride of innovating
+
+14:33.280 --> 14:35.880
+ what each of these four companies have innovated.
+
+14:36.920 --> 14:40.320
+ But I think the Chinese approach
+
+14:40.320 --> 14:42.720
+ is do whatever it takes to win.
+
+14:42.720 --> 14:45.000
+ And it's a winner take all market.
+
+14:45.000 --> 14:47.200
+ And in fact, in the internet space,
+
+14:47.200 --> 14:50.880
+ the market leader will get predominantly all the value
+
+14:50.880 --> 14:53.320
+ extracted out of the system.
+
+14:53.320 --> 14:57.840
+ So, and the system isn't just defined
+
+14:57.840 --> 15:01.360
+ as one narrow category, but gets broader and broader.
+
+15:01.360 --> 15:06.360
+ So it's amazing ambition for success and domination
+
+15:07.960 --> 15:11.760
+ of increasingly larger product categories
+
+15:11.760 --> 15:15.080
+ leading to clear market winner status
+
+15:15.080 --> 15:19.080
+ and the opportunity to extract tremendous value.
+
+15:19.080 --> 15:24.080
+ And that develops a practical, result oriented,
+
+15:25.840 --> 15:30.840
+ ultra ambitious winner take all gladiatorial mentality.
+
+15:31.480 --> 15:36.480
+ And if what it takes is to build what the competitors built,
+
+15:37.400 --> 15:40.000
+ essentially a copycat that can be done
+
+15:40.000 --> 15:41.920
+ without infringing laws.
+
+15:41.920 --> 15:46.280
+ If what it takes is to satisfy a foreign country's need
+
+15:46.280 --> 15:48.480
+ by forking the code base and building something
+
+15:48.480 --> 15:51.400
+ that looks really ugly and different, they'll do it.
+
+15:51.400 --> 15:54.360
+ So it's contrasted very sharply
+
+15:54.360 --> 15:56.240
+ with the Silicon Valley approach.
+
+15:56.240 --> 16:00.040
+ And I think the flexibility and the speed and execution
+
+16:00.040 --> 16:01.960
+ has helped the Chinese approach.
+
+16:01.960 --> 16:04.080
+ And I think the Silicon Valley approach
+
+16:05.040 --> 16:10.040
+ is potentially challenged if every Chinese entrepreneur
+
+16:10.040 --> 16:13.240
+ is learning from the whole world, US and China,
+
+16:13.240 --> 16:16.320
+ and the American entrepreneurs only look internally
+
+16:16.320 --> 16:19.640
+ and write off China as a copycat.
+
+16:19.640 --> 16:21.360
+ And the second part of your question
+
+16:21.360 --> 16:23.560
+ about the three companies.
+
+16:23.560 --> 16:26.080
+ The unique elements of the three companies perhaps.
+
+16:26.080 --> 16:30.440
+ Yeah, I think Apple represents
+
+16:30.440 --> 16:33.160
+ while the user please the user
+
+16:33.160 --> 16:38.160
+ and the essence of design and brand
+
+16:38.160 --> 16:43.160
+ and it's the one company and perhaps the only tech company
+
+16:43.640 --> 16:48.640
+ that draws people with a strong, serious desire
+
+16:49.440 --> 16:53.080
+ for the product and the willingness to pay a premium
+
+16:53.080 --> 16:56.440
+ because of the halo effect of the brand
+
+16:56.440 --> 16:59.640
+ which came from the attention to detail
+
+16:59.640 --> 17:01.760
+ and great respect for user needs.
+
+17:01.760 --> 17:06.760
+ Microsoft represents a platform approach
+
+17:07.680 --> 17:12.680
+ that builds giant products that become very strong modes
+
+17:12.760 --> 17:17.280
+ that others can't do because it's well architected
+
+17:17.280 --> 17:22.280
+ at the bottom level and the work is efficiently delegated
+
+17:23.640 --> 17:28.640
+ to individuals and then the whole product is built
+
+17:28.640 --> 17:32.000
+ by adding small parts that sum together.
+
+17:32.000 --> 17:36.520
+ So it's probably the most effective high tech assembly line
+
+17:36.520 --> 17:38.760
+ that builds a very difficult product
+
+17:38.760 --> 17:43.040
+ that and the whole process of doing that
+
+17:43.040 --> 17:48.040
+ is kind of a differentiation and something competitors
+
+17:49.040 --> 17:50.800
+ can't easily repeat.
+
+17:50.800 --> 17:53.080
+ Are there elements of the Chinese approach
+
+17:53.080 --> 17:56.640
+ in the way Microsoft went about assembling
+
+17:56.640 --> 17:59.000
+ those little pieces and dominating,
+
+17:59.000 --> 18:02.320
+ essentially dominating the market for a long time
+
+18:02.320 --> 18:04.040
+ or do you see those as distinct?
+
+18:04.040 --> 18:06.680
+ I think there are elements that are the same.
+
+18:06.680 --> 18:09.520
+ I think the three American companies that had
+
+18:09.520 --> 18:12.960
+ or have Chinese characteristics and obviously
+
+18:12.960 --> 18:16.280
+ as well as American characteristics are Microsoft,
+
+18:16.280 --> 18:18.720
+ Facebook and Amazon.
+
+18:18.720 --> 18:20.160
+ Yes, that's right, Amazon.
+
+18:20.160 --> 18:23.920
+ Because these are companies that will tenaciously
+
+18:23.920 --> 18:27.640
+ go after adjacent markets,
+
+18:27.640 --> 18:32.640
+ build up strong product offering and find ways
+
+18:34.360 --> 18:37.960
+ to extract greater value from a sphere
+
+18:37.960 --> 18:41.480
+ that's ever increasing and they understand
+
+18:41.480 --> 18:43.520
+ the value of the platforms.
+
+18:43.520 --> 18:47.280
+ So that's the similarity and then with Google,
+
+18:47.280 --> 18:52.280
+ I think it's a genuinely value oriented company
+
+18:54.800 --> 18:57.000
+ that does have a heart and soul
+
+18:57.000 --> 18:59.800
+ and that wants to do great things for the world
+
+18:59.800 --> 19:01.920
+ by connecting information
+
+19:01.920 --> 19:06.920
+ and that has also very strong technology genes
+
+19:08.840 --> 19:13.280
+ and wants to use technology
+
+19:13.280 --> 19:18.280
+ and has found out of the box ways to use technology
+
+19:19.120 --> 19:23.720
+ to deliver incredible value to the end user.
+
+19:23.720 --> 19:25.240
+ If you can look at Google, for example,
+
+19:25.240 --> 19:26.760
+ you mentioned heart and soul.
+
+19:28.040 --> 19:31.840
+ There seems to be an element where Google
+
+19:31.840 --> 19:34.840
+ is after making the world better.
+
+19:34.840 --> 19:36.920
+ There's a more positive view.
+
+19:36.920 --> 19:39.280
+ They used to have the slogan, don't be evil.
+
+19:39.280 --> 19:43.120
+ And Facebook a little bit more has a negative tend to it.
+
+19:43.120 --> 19:45.760
+ At least in the perception of privacy and so on.
+
+19:45.760 --> 19:50.760
+ Do you have a sense of how these different companies
+
+19:51.080 --> 19:53.040
+ can achieve, because you've talked about
+
+19:53.040 --> 19:54.520
+ how much we can make the world better
+
+19:54.520 --> 19:56.760
+ in all these kinds of ways with AI.
+
+19:56.760 --> 19:59.360
+ What is it about a company that can make,
+
+19:59.360 --> 20:03.200
+ give it a heart and soul, gain the trust of the public
+
+20:03.200 --> 20:06.120
+ and just actually just not be evil
+
+20:06.120 --> 20:08.000
+ and do good for the world?
+
+20:08.000 --> 20:10.240
+ It's really hard and I think Google
+
+20:10.240 --> 20:13.120
+ has struggled with that.
+
+20:13.120 --> 20:16.720
+ First, the don't do evil mantra is very dangerous
+
+20:16.720 --> 20:20.800
+ because every employee's definition of evil is different.
+
+20:20.800 --> 20:22.600
+ And that has led to some difficult
+
+20:22.600 --> 20:25.120
+ employee situations for them.
+
+20:25.120 --> 20:29.560
+ So I don't necessarily think that's a good value statement,
+
+20:29.560 --> 20:32.320
+ but just watching the kinds of things Google
+
+20:32.320 --> 20:35.320
+ or its parent company Alphabet does
+
+20:35.320 --> 20:40.320
+ in new areas like healthcare, like eradicating mosquitoes,
+
+20:40.480 --> 20:42.360
+ things that are really not in the business
+
+20:42.360 --> 20:44.520
+ of a internet tech company.
+
+20:44.520 --> 20:47.200
+ I think that shows that there's a heart and soul
+
+20:47.200 --> 20:50.360
+ and desire to do good and willingness
+
+20:50.360 --> 20:54.800
+ to put in the resources to do something
+
+20:54.800 --> 20:57.240
+ when they see it's good, they will pursue it.
+
+20:58.280 --> 21:00.160
+ That doesn't necessarily mean
+
+21:00.160 --> 21:02.480
+ it has all the trust of the users.
+
+21:02.480 --> 21:06.360
+ I realize while most people would view Facebook
+
+21:06.360 --> 21:09.760
+ as the primary target of their recent unhappiness
+
+21:09.760 --> 21:11.560
+ about Silicon Valley companies,
+
+21:11.560 --> 21:14.040
+ many would put Google in that category.
+
+21:14.040 --> 21:16.760
+ And some have named Google's business practices
+
+21:16.760 --> 21:19.720
+ as predatory also.
+
+21:19.720 --> 21:24.240
+ So it's kind of difficult to have the two parts of a body.
+
+21:24.240 --> 21:27.440
+ The brain wants to do what it's supposed to do
+
+21:27.440 --> 21:29.280
+ for a shareholder, maximize profit.
+
+21:29.280 --> 21:32.000
+ And then the heart and soul wants to do good things
+
+21:32.000 --> 21:36.120
+ that may run against what the brain wants to do.
+
+21:36.120 --> 21:39.000
+ So in this complex balancing
+
+21:39.000 --> 21:40.320
+ that these companies have to do,
+
+21:40.320 --> 21:42.480
+ you've mentioned that you're concerned
+
+21:42.480 --> 21:45.480
+ about a future where too few companies
+
+21:45.480 --> 21:49.640
+ like Google, Facebook, Amazon are controlling our data
+
+21:49.640 --> 21:53.360
+ or controlling too much of our digital lives.
+
+21:53.360 --> 21:54.840
+ Can you elaborate on this concern
+
+21:54.840 --> 21:57.560
+ and perhaps do you have a better way forward?
+
+21:57.560 --> 22:02.560
+ I think I'm hardly the most vocal complainer of this.
+
+22:02.760 --> 22:03.760
+ Sure, of course.
+
+22:03.760 --> 22:06.240
+ There are a lot louder complainers out there.
+
+22:06.240 --> 22:10.760
+ I do observe that having a lot of data
+
+22:10.760 --> 22:13.600
+ does perpetuate their strength
+
+22:13.600 --> 22:18.600
+ and limits competition in many spaces.
+
+22:18.600 --> 22:21.560
+ But I also believe AI is much broader
+
+22:21.560 --> 22:23.160
+ than the internet space.
+
+22:23.160 --> 22:26.520
+ So the entrepreneurial opportunities still exists
+
+22:26.520 --> 22:30.600
+ in using AI to empower financial,
+
+22:30.600 --> 22:34.600
+ retail, manufacturing, education applications.
+
+22:34.600 --> 22:36.440
+ So I don't think it's quite a case
+
+22:36.440 --> 22:38.920
+ of full monopolistic dominance
+
+22:38.920 --> 22:43.160
+ that totally stifles innovation.
+
+22:43.160 --> 22:45.600
+ But I do believe in their areas of strength
+
+22:45.600 --> 22:47.960
+ it's hard to dislodge them.
+
+22:48.960 --> 22:52.480
+ I don't know if I have a good solution.
+
+22:52.480 --> 22:54.960
+ Probably the best solution is let
+
+22:54.960 --> 22:58.320
+ the entrepreneurial VC ecosystem work well
+
+22:58.320 --> 23:02.160
+ and find all the places that can create the next Google,
+
+23:02.160 --> 23:03.520
+ the next Facebook.
+
+23:03.520 --> 23:07.880
+ So there will always be increasing number of challengers.
+
+23:07.880 --> 23:10.680
+ In some sense that has happened a little bit.
+
+23:10.680 --> 23:14.000
+ You see Uber, Airbnb having emerged
+
+23:14.000 --> 23:16.960
+ despite the strength of the big three.
+
+23:19.440 --> 23:21.760
+ And I think China as an environment
+
+23:21.760 --> 23:24.520
+ may be more interesting for the emergence
+
+23:24.520 --> 23:26.120
+ because if you look at companies
+
+23:26.120 --> 23:31.120
+ between let's say 50 to $300 billion,
+
+23:32.920 --> 23:35.720
+ China has emerged more of such companies
+
+23:35.720 --> 23:39.320
+ than the US in the last three to four years
+
+23:39.320 --> 23:41.560
+ because of the larger marketplace,
+
+23:41.560 --> 23:45.160
+ because of the more fearless nature of the entrepreneurs.
+
+23:46.440 --> 23:48.960
+ And the Chinese giants are just as powerful
+
+23:48.960 --> 23:50.240
+ as American ones.
+
+23:50.240 --> 23:52.360
+ Tencent, Alibaba are very strong,
+
+23:52.360 --> 23:56.480
+ but ByteDance has emerged worth 75 billion
+
+23:56.480 --> 23:59.600
+ and financial while it's Alibaba affiliated,
+
+23:59.600 --> 24:03.400
+ it's nevertheless independent and worth 150 billion.
+
+24:03.400 --> 24:07.800
+ And so I do think if we start to extend
+
+24:07.800 --> 24:09.440
+ to traditional businesses,
+
+24:09.440 --> 24:12.160
+ we will see very valuable companies.
+
+24:12.160 --> 24:17.160
+ So it's probably not the case that in five or 10 years
+
+24:17.600 --> 24:19.160
+ we'll still see the whole world
+
+24:19.160 --> 24:22.720
+ with these five companies having such dominance.
+
+24:22.720 --> 24:24.760
+ So you've mentioned a couple of times
+
+24:26.080 --> 24:29.240
+ this fascinating world of entrepreneurship in China
+
+24:29.240 --> 24:31.080
+ of the fearless nature of the entrepreneur.
+
+24:31.080 --> 24:33.240
+ So can you maybe talk a little bit about
+
+24:33.240 --> 24:35.520
+ what it takes to be an entrepreneur in China?
+
+24:35.520 --> 24:38.240
+ What are the strategies that are undertaken?
+
+24:38.240 --> 24:41.120
+ What are the ways to achieve success?
+
+24:41.120 --> 24:43.920
+ What is the dynamic of VCF funding
+
+24:43.920 --> 24:46.480
+ of the way the government helps companies and so on?
+
+24:46.480 --> 24:47.880
+ What are the interesting aspects here
+
+24:47.880 --> 24:50.200
+ that are distinct from, that are different
+
+24:50.200 --> 24:54.200
+ from the Silicon Valley world of entrepreneurship?
+
+24:55.240 --> 24:59.400
+ Well, many of the listeners probably still
+
+24:59.400 --> 25:03.000
+ would brand Chinese entrepreneur as copycats.
+
+25:03.000 --> 25:05.360
+ And no doubt 10 years ago,
+
+25:05.360 --> 25:09.080
+ that would not be an inaccurate description.
+
+25:09.080 --> 25:10.760
+ Back 10 years ago,
+
+25:10.760 --> 25:13.640
+ an entrepreneur probably could not get funding
+
+25:13.640 --> 25:16.000
+ if he or she could not describe
+
+25:16.000 --> 25:20.440
+ what product he or she is copying from the US.
+
+25:20.440 --> 25:23.360
+ The first question is who has proven this business model
+
+25:23.360 --> 25:27.200
+ which is a nice way of asking who are you copying?
+
+25:27.200 --> 25:29.560
+ And that reason is understandable
+
+25:29.560 --> 25:34.560
+ because China had a much lower internet penetration
+
+25:34.880 --> 25:39.880
+ and didn't have enough indigenous experience
+
+25:40.960 --> 25:43.240
+ to build innovative products.
+
+25:43.240 --> 25:47.640
+ And secondly, internet was emerging.
+
+25:47.640 --> 25:49.840
+ Link startup was the way to do things,
+
+25:49.840 --> 25:52.960
+ building a first minimally viable product
+
+25:52.960 --> 25:55.360
+ and then expanding was the right way to go.
+
+25:55.360 --> 25:59.520
+ And the American successes have given a shortcut
+
+25:59.520 --> 26:02.560
+ that if you built your minimally viable product
+
+26:02.560 --> 26:04.240
+ based on an American product,
+
+26:04.240 --> 26:06.720
+ it's guaranteed to be a decent starting point.
+
+26:06.720 --> 26:08.400
+ Then you tweak it afterwards.
+
+26:08.400 --> 26:11.280
+ So as long as there are no IP infringement,
+
+26:11.280 --> 26:14.000
+ which as far as I know there hasn't been in the mobile
+
+26:14.000 --> 26:19.000
+ and AI spaces, that's a much better shortcut.
+
+26:19.360 --> 26:21.880
+ And I think Silicon Valley would view that
+
+26:21.880 --> 26:25.120
+ as still not very honorable
+
+26:25.120 --> 26:29.160
+ because that's not your own idea to start with,
+
+26:29.160 --> 26:32.560
+ but you can't really at the same time
+
+26:32.560 --> 26:35.120
+ believe every idea must be your own
+
+26:35.120 --> 26:38.080
+ and believe in the link startup methodology
+
+26:38.080 --> 26:41.840
+ because link startup is intended to try many, many things
+
+26:41.840 --> 26:44.160
+ and then converge when that works.
+
+26:44.160 --> 26:46.640
+ And it's meant to be iterated and changed.
+
+26:46.640 --> 26:48.640
+ So finding a decent starting point
+
+26:48.640 --> 26:51.160
+ without legal violations,
+
+26:51.160 --> 26:55.240
+ there should be nothing morally dishonorable about that.
+
+26:55.240 --> 26:56.920
+ Yeah, so just a quick pause on that.
+
+26:56.920 --> 26:58.600
+ It's fascinating that that's,
+
+26:59.760 --> 27:01.840
+ why is that not honorable, right?
+
+27:01.840 --> 27:04.600
+ It's exactly as you formulated.
+
+27:04.600 --> 27:07.600
+ It seems like a perfect start for business.
+
+27:07.600 --> 27:12.080
+ Is to take, look at Amazon and say,
+
+27:12.080 --> 27:14.480
+ okay, we'll do exactly what Amazon is doing.
+
+27:14.480 --> 27:16.760
+ Let's start there in this particular market
+
+27:16.760 --> 27:20.720
+ and then let's out innovate them from that starting point.
+
+27:20.720 --> 27:22.200
+ Come up with new ways.
+
+27:22.200 --> 27:23.760
+ I mean, is it wrong to be,
+
+27:25.200 --> 27:27.080
+ except the word copycat just sounds bad,
+
+27:27.080 --> 27:28.760
+ but is it wrong to be a copycat?
+
+27:28.760 --> 27:31.600
+ It just seems like a smart strategy,
+
+27:31.600 --> 27:35.760
+ but yes, it doesn't have a heroic nature to it
+
+27:35.760 --> 27:40.720
+ that like Steve Jobs, Elon Musk,
+
+27:40.720 --> 27:42.200
+ sort of in something completely,
+
+27:42.200 --> 27:43.880
+ coming up with something completely new.
+
+27:43.880 --> 27:45.280
+ Yeah, I like the way you describe it.
+
+27:45.280 --> 27:50.440
+ It's a nonheroic, acceptable way to start the company
+
+27:50.440 --> 27:52.800
+ and maybe more expedient.
+
+27:52.800 --> 27:57.800
+ So that's, I think, a baggage for Silicon Valley
+
+27:58.920 --> 28:00.760
+ that if it doesn't let go,
+
+28:00.760 --> 28:05.120
+ then it may limit the ultimate ceiling of the company.
+
+28:05.120 --> 28:07.200
+ Take Snapchat as an example.
+
+28:07.200 --> 28:09.840
+ I think, you know, Evan's brilliant.
+
+28:09.840 --> 28:11.520
+ He built a great product,
+
+28:11.520 --> 28:15.440
+ but he's very proud that he wants to build his own features,
+
+28:15.440 --> 28:16.800
+ not copy others.
+
+28:16.800 --> 28:20.960
+ While Facebook was more willing to copy his features
+
+28:20.960 --> 28:23.440
+ and you see what happens in the competition.
+
+28:23.440 --> 28:27.440
+ So I think putting that handcuff on the company
+
+28:27.440 --> 28:31.560
+ would limit its ability to reach the maximum potential.
+
+28:31.560 --> 28:33.840
+ So back to the Chinese environment,
+
+28:33.840 --> 28:38.400
+ copying was merely a way to learn from the American masters.
+
+28:38.400 --> 28:43.400
+ Just like we, if we learned to play piano or painting,
+
+28:43.440 --> 28:44.520
+ you start by copying.
+
+28:44.520 --> 28:45.960
+ You don't start by innovating
+
+28:45.960 --> 28:48.160
+ when you don't have the basic skill sets.
+
+28:48.160 --> 28:51.000
+ So very amazingly, the Chinese entrepreneurs
+
+28:51.000 --> 28:56.000
+ about six years ago started to branch off
+
+28:56.120 --> 28:59.480
+ with these lean startups built on American ideas
+
+28:59.480 --> 29:02.120
+ to build better products than American products.
+
+29:02.120 --> 29:04.960
+ But they did start from the American idea.
+
+29:04.960 --> 29:08.560
+ And today WeChat is better than WhatsApp,
+
+29:08.560 --> 29:10.520
+ Weibo is better than Twitter,
+
+29:10.520 --> 29:12.920
+ Zhihu is better than Quora and so on.
+
+29:12.920 --> 29:17.920
+ So that I think is Chinese entrepreneurs going to step two.
+
+29:18.520 --> 29:21.560
+ And then step three is once these entrepreneurs
+
+29:21.560 --> 29:23.720
+ have done one or two of these companies,
+
+29:23.720 --> 29:27.400
+ they now look at the Chinese market and the opportunities
+
+29:27.400 --> 29:30.600
+ and come up with ideas that didn't exist elsewhere.
+
+29:30.600 --> 29:34.200
+ So products like Ant Financial,
+
+29:34.200 --> 29:38.280
+ under which includes Alipay, which is mobile payments,
+
+29:38.280 --> 29:43.280
+ and also the financial products for loans built on that.
+
+29:44.320 --> 29:47.560
+ And also in education, VIPKID,
+
+29:48.560 --> 29:53.560
+ and in social video, social network, TikTok,
+
+29:54.880 --> 29:58.640
+ and in social eCommerce, Pinduoduo,
+
+29:58.640 --> 30:01.680
+ and then in ride sharing, Mobike,
+
+30:01.680 --> 30:05.600
+ these are all Chinese innovated products
+
+30:05.600 --> 30:08.680
+ that now are being copied elsewhere.
+
+30:08.680 --> 30:13.000
+ So an additional interesting observation
+
+30:13.000 --> 30:14.240
+ is some of these products
+
+30:14.240 --> 30:17.240
+ are built on unique Chinese demographics,
+
+30:17.240 --> 30:19.360
+ which may not work in the US,
+
+30:19.360 --> 30:23.120
+ but may work very well in Southeast Asia, Africa,
+
+30:23.120 --> 30:25.160
+ and other developing worlds
+
+30:25.160 --> 30:27.800
+ that are a few years behind China.
+
+30:27.800 --> 30:31.000
+ And a few of these products maybe are universal
+
+30:31.000 --> 30:33.720
+ and are getting traction even in the United States,
+
+30:33.720 --> 30:35.320
+ such as TikTok.
+
+30:35.320 --> 30:40.320
+ So this whole ecosystem is supported by VCs
+
+30:42.040 --> 30:43.480
+ as a virtuous cycle,
+
+30:43.480 --> 30:47.640
+ because a large market with innovative entrepreneurs
+
+30:47.640 --> 30:49.360
+ will draw a lot of money
+
+30:49.360 --> 30:51.520
+ and then invest in these companies.
+
+30:51.520 --> 30:54.480
+ As the market gets larger and larger,
+
+30:54.480 --> 30:58.440
+ the China market is easily three, four times larger than the US,
+
+30:58.440 --> 31:01.120
+ they will create greater value and greater returns
+
+31:01.120 --> 31:05.400
+ for the VCs, thereby raising even more money.
+
+31:05.400 --> 31:09.960
+ So at Sinovation Ventures, our first fund was 15 million,
+
+31:09.960 --> 31:12.000
+ our last fund was 500 million.
+
+31:12.000 --> 31:16.520
+ So it reflects the valuation of the companies
+
+31:16.520 --> 31:19.840
+ and our us going multi stage and things like that.
+
+31:19.840 --> 31:22.000
+ It also has government support,
+
+31:22.000 --> 31:25.360
+ but not in the way most Americans would think of it.
+
+31:25.360 --> 31:28.720
+ The government actually leaves the entrepreneurial space
+
+31:28.720 --> 31:32.400
+ as a private enterprise, sort of self regulating,
+
+31:32.400 --> 31:35.400
+ and the government would build infrastructures
+
+31:35.400 --> 31:38.520
+ that would around it to make it work better.
+
+31:38.520 --> 31:42.160
+ For example, the Mass Entrepreneur Mass Innovation Plan
+
+31:42.160 --> 31:44.120
+ builds 8,000 incubators,
+
+31:44.120 --> 31:47.560
+ so the pipeline is very strong to the VCs.
+
+31:47.560 --> 31:48.920
+ For autonomous vehicles,
+
+31:48.920 --> 31:52.600
+ the Chinese government is building smart highways
+
+31:52.600 --> 31:54.640
+ with sensors, smart cities
+
+31:54.640 --> 31:57.240
+ that separate pedestrians from cars
+
+31:57.240 --> 32:00.440
+ that may allow initially an inferior
+
+32:00.440 --> 32:03.640
+ autonomous vehicle company to launch a car
+
+32:03.640 --> 32:07.000
+ without increasing with lower casualty
+
+32:07.000 --> 32:10.880
+ because the roads or the city is smart.
+
+32:10.880 --> 32:13.160
+ And the Chinese government at local levels
+
+32:13.160 --> 32:16.720
+ would have these guiding funds acting as LPs,
+
+32:16.720 --> 32:18.800
+ passive LPs to funds.
+
+32:18.800 --> 32:21.400
+ And when the fund makes money,
+
+32:21.400 --> 32:23.880
+ part of the money made is given back
+
+32:23.880 --> 32:26.720
+ to the GPs and potentially other LPs
+
+32:26.720 --> 32:30.480
+ to increase everybody's return
+
+32:30.480 --> 32:33.080
+ at the expense of the government's return.
+
+32:33.080 --> 32:35.800
+ So that's an interesting incentive
+
+32:35.800 --> 32:40.800
+ that entrusts the task of choosing entrepreneurs to VCs
+
+32:41.080 --> 32:43.240
+ who are better at it than the government
+
+32:43.240 --> 32:46.080
+ by letting some of the profits move that way.
+
+32:46.080 --> 32:48.720
+ So this is really fascinating, right?
+
+32:48.720 --> 32:51.800
+ So I look at the Russian government as a case study
+
+32:51.800 --> 32:54.240
+ where, let me put it this way,
+
+32:54.240 --> 32:57.840
+ there's no such government driven
+
+32:57.840 --> 33:00.840
+ large scale support of entrepreneurship.
+
+33:00.840 --> 33:04.000
+ And probably the same is true in the United States,
+
+33:04.000 --> 33:07.640
+ but the entrepreneurs themselves kind of find a way.
+
+33:07.640 --> 33:11.640
+ So maybe in a form of advice or explanation,
+
+33:11.640 --> 33:15.560
+ how did the Chinese government arrive to be this way
+
+33:15.560 --> 33:17.720
+ so supportive on entrepreneurship
+
+33:17.720 --> 33:21.520
+ to be in this particular way so forward thinking
+
+33:21.520 --> 33:23.120
+ at such a large scale?
+
+33:23.120 --> 33:27.080
+ And also perhaps, how can we copy it in other countries?
+
+33:28.280 --> 33:29.800
+ How can we encourage other governments,
+
+33:29.800 --> 33:31.600
+ like even the United States government,
+
+33:31.600 --> 33:33.800
+ to support infrastructure for autonomous vehicles
+
+33:33.800 --> 33:36.040
+ in that same kind of way, perhaps?
+
+33:36.040 --> 33:41.040
+ Yes, so these techniques are
+
+33:41.040 --> 33:44.440
+ the result of several key things,
+
+33:44.440 --> 33:46.040
+ some of which may be learnable,
+
+33:46.040 --> 33:48.040
+ some of which may be very hard.
+
+33:48.040 --> 33:50.520
+ One is just trial and error
+
+33:50.520 --> 33:52.920
+ and watching what everyone else is doing.
+
+33:52.920 --> 33:54.680
+ I think it's important to be humble
+
+33:54.680 --> 33:56.920
+ and not feel like you know all the answers.
+
+33:56.920 --> 33:59.480
+ The guiding funds idea came from Singapore,
+
+33:59.480 --> 34:01.440
+ which came from Israel.
+
+34:01.440 --> 34:06.120
+ And China made a few tweaks and turned it into a,
+
+34:06.120 --> 34:09.320
+ because the Chinese cities and government officials
+
+34:09.320 --> 34:11.360
+ kind of compete with each other
+
+34:11.360 --> 34:14.680
+ because they all want to make their city more successful
+
+34:14.680 --> 34:19.680
+ so they can get the next level in their political career.
+
+34:20.280 --> 34:22.280
+ And it's somewhat competitive.
+
+34:22.280 --> 34:25.160
+ So the central government made it a bit of a competition.
+
+34:25.160 --> 34:26.800
+ Everybody has a budget.
+
+34:26.800 --> 34:29.840
+ They can put it on AI or they can put it on bio
+
+34:29.840 --> 34:32.160
+ or they can put it on energy.
+
+34:32.160 --> 34:34.120
+ And then whoever gets the results,
+
+34:34.120 --> 34:36.160
+ the city shines, the people are better off,
+
+34:36.160 --> 34:37.960
+ the mayor gets a promotion.
+
+34:37.960 --> 34:41.680
+ So the tools is kind of almost like an entrepreneurial
+
+34:41.680 --> 34:44.840
+ environment for local governments
+
+34:44.840 --> 34:47.480
+ to see who can do a better job.
+
+34:47.480 --> 34:52.480
+ And also many of them try different experiments.
+
+34:52.480 --> 34:57.480
+ Some have given award to very smart researchers.
+
+34:58.480 --> 35:00.840
+ Just give them money and hope they'll start a company.
+
+35:00.840 --> 35:05.840
+ Some have given money to academic research labs,
+
+35:05.840 --> 35:08.080
+ maybe government research labs
+
+35:08.080 --> 35:10.760
+ to see if they can spin off some companies
+
+35:10.760 --> 35:14.080
+ from the science lab or something like that.
+
+35:14.080 --> 35:17.120
+ Some have tried to recruit overseas Chinese
+
+35:17.120 --> 35:19.000
+ to come back and start companies.
+
+35:19.000 --> 35:21.000
+ And they've had mixed results.
+
+35:21.000 --> 35:23.400
+ The one that worked the best was the guiding funds.
+
+35:23.400 --> 35:25.880
+ So it's almost like a lean startup idea
+
+35:25.880 --> 35:27.560
+ where people try different things
+
+35:27.560 --> 35:30.600
+ and what works sticks and everybody copies.
+
+35:30.600 --> 35:32.880
+ So now every city has a guiding fund.
+
+35:32.880 --> 35:34.600
+ So that's how that came about.
+
+35:34.600 --> 35:39.600
+ The autonomous vehicle and the massive spending
+
+35:40.400 --> 35:45.400
+ in highways and smart cities, that's a Chinese way.
+
+35:46.080 --> 35:49.520
+ It's about building infrastructure to facilitate.
+
+35:49.520 --> 35:52.880
+ It's a clear division of the government's responsibility
+
+35:52.880 --> 35:55.400
+ from the market.
+
+35:55.400 --> 36:00.400
+ The market should do everything in a private freeway,
+
+36:00.560 --> 36:02.920
+ but there are things the market can't afford to do
+
+36:02.920 --> 36:04.480
+ like infrastructure.
+
+36:04.480 --> 36:08.680
+ So the government always appropriates large amounts
+
+36:08.680 --> 36:11.960
+ of money for infrastructure building.
+
+36:11.960 --> 36:16.840
+ This happens with not only autonomous vehicle and AI,
+
+36:16.840 --> 36:20.800
+ but happened with the 3G and 4G.
+
+36:20.800 --> 36:25.320
+ You'll find that the Chinese wireless reception
+
+36:25.320 --> 36:28.560
+ is better than the US because massive spending
+
+36:28.560 --> 36:30.600
+ that tries to cover the whole country,
+
+36:30.600 --> 36:33.040
+ whereas in the US it may be a little spotty.
+
+36:33.040 --> 36:36.880
+ It's a government driven because I think they view
+
+36:36.880 --> 36:41.880
+ the coverage of cell access and 3G, 4G access
+
+36:44.120 --> 36:47.080
+ to be a governmental infrastructure spending
+
+36:47.080 --> 36:49.880
+ as opposed to capitalistic.
+
+36:49.880 --> 36:52.240
+ So that's, of course, the state owned enterprises
+
+36:52.240 --> 36:54.280
+ are also publicly traded,
+
+36:54.280 --> 36:57.760
+ but they also carry a government responsibility
+
+36:57.760 --> 37:00.240
+ to deliver infrastructure to all.
+
+37:00.240 --> 37:01.920
+ So it's a different way of thinking
+
+37:01.920 --> 37:05.440
+ that may be very hard to inject into Western countries
+
+37:05.440 --> 37:09.320
+ to say starting tomorrow, bandwidth infrastructure
+
+37:09.320 --> 37:13.880
+ and highways are gonna be governmental spending
+
+37:13.880 --> 37:16.120
+ with some characteristics.
+
+37:16.120 --> 37:18.280
+ What's your sense, and sorry to interrupt,
+
+37:18.280 --> 37:20.480
+ but because it's such a fascinating point,
+
+37:21.680 --> 37:24.120
+ do you think on the autonomous vehicle space
+
+37:25.600 --> 37:30.160
+ it's possible to solve the problem of full autonomy
+
+37:30.160 --> 37:33.080
+ without significant investment in infrastructure?
+
+37:34.120 --> 37:36.440
+ Well, that's really hard to speculate.
+
+37:36.440 --> 37:39.000
+ I think it's not a yes, no question,
+
+37:39.000 --> 37:40.680
+ but how long does it take question?
+
+37:42.000 --> 37:45.200
+ 15 years, 30 years, 45 years.
+
+37:45.200 --> 37:49.040
+ Clearly with infrastructure augmentation,
+
+37:49.040 --> 37:52.360
+ whether it's road, the city or whole city planning,
+
+37:52.360 --> 37:56.480
+ building a new city, I'm sure that will accelerate
+
+37:56.480 --> 37:58.320
+ the day of the L5.
+
+37:58.320 --> 38:01.280
+ I'm not knowledgeable enough,
+
+38:01.280 --> 38:03.920
+ and it's hard to predict even when we're knowledgeable
+
+38:03.920 --> 38:06.080
+ because a lot of it is speculative.
+
+38:07.160 --> 38:10.440
+ But in the US, I don't think people would consider
+
+38:10.440 --> 38:13.280
+ building a new city the size of Chicago
+
+38:13.280 --> 38:15.960
+ to make it the AI slash autonomous city.
+
+38:15.960 --> 38:18.880
+ There are smaller ones being built, I'm aware of that.
+
+38:18.880 --> 38:22.040
+ But is infrastructure spend really impossible
+
+38:22.040 --> 38:23.720
+ for US or Western countries?
+
+38:23.720 --> 38:25.760
+ I don't think so.
+
+38:25.760 --> 38:28.920
+ The US highway system was built,
+
+38:28.920 --> 38:31.960
+ was that during President Eisenhower or Kennedy?
+
+38:31.960 --> 38:33.160
+ Eisenhower, yeah.
+
+38:33.160 --> 38:37.240
+ So maybe historians can study
+
+38:37.240 --> 38:40.280
+ how the President Eisenhower get the resources
+
+38:40.280 --> 38:42.800
+ to build this massive infrastructure
+
+38:42.800 --> 38:47.560
+ that surely gave US a tremendous amount of prosperity
+
+38:47.560 --> 38:50.800
+ over the next decade, if not century.
+
+38:50.800 --> 38:53.080
+ If I may comment on that then,
+
+38:53.080 --> 38:55.440
+ it takes us to artificial intelligence a little bit
+
+38:55.440 --> 38:58.080
+ because in order to build infrastructure,
+
+38:58.080 --> 39:00.520
+ it creates a lot of jobs.
+
+39:00.520 --> 39:03.400
+ So I'll be actually interested if you would say
+
+39:03.400 --> 39:06.560
+ that you talk in your book about all kinds of jobs
+
+39:06.560 --> 39:08.920
+ that could and could not be automated.
+
+39:08.920 --> 39:13.080
+ I wonder if building infrastructure is one of the jobs
+
+39:13.080 --> 39:15.760
+ that would not be easily automated.
+
+39:15.760 --> 39:17.040
+ Something you could think about
+
+39:17.040 --> 39:19.920
+ because I think you've mentioned somewhere in the talk
+
+39:19.920 --> 39:24.280
+ or that there might be, as jobs are being automated,
+
+39:24.280 --> 39:26.200
+ a role for government to create jobs
+
+39:26.200 --> 39:28.160
+ that can't be automated.
+
+39:28.160 --> 39:31.040
+ Yes, I think that's a possibility.
+
+39:31.040 --> 39:34.280
+ Back in the last financial crisis,
+
+39:34.280 --> 39:37.840
+ China put a lot of money
+
+39:37.840 --> 39:41.200
+ to basically give this economy a boost
+
+39:41.200 --> 39:44.600
+ and a lot of it went into infrastructure building.
+
+39:45.480 --> 39:49.920
+ And I think that's a legitimate way at the government level
+
+39:49.920 --> 39:54.360
+ to deal with the employment issues
+
+39:54.360 --> 39:57.040
+ as well as build out the infrastructure
+
+39:57.040 --> 39:59.840
+ as long as the infrastructures are truly needed
+
+39:59.840 --> 40:02.160
+ and as long as there is an employment problem,
+
+40:02.160 --> 40:04.000
+ which no, we don't know.
+
+40:04.920 --> 40:07.840
+ So maybe taking a little step back,
+
+40:07.840 --> 40:12.840
+ if you've been a leader and a researcher in AI
+
+40:12.840 --> 40:16.200
+ for several decades, at least 30 years,
+
+40:16.200 --> 40:21.000
+ so how has AI changed in the West and the East
+
+40:21.000 --> 40:23.080
+ as you've observed, as you've been deep in it
+
+40:23.080 --> 40:25.080
+ over the past 30 years?
+
+40:25.080 --> 40:27.840
+ Well, AI began as the pursuit
+
+40:27.840 --> 40:30.280
+ of understanding human intelligence
+
+40:30.280 --> 40:34.160
+ and the term itself represents that,
+
+40:34.160 --> 40:37.520
+ but it kind of drifted into the one sub area
+
+40:37.520 --> 40:40.840
+ that worked extremely well, which is machine intelligence.
+
+40:40.840 --> 40:45.080
+ And that's actually more using pattern recognition techniques
+
+40:45.080 --> 40:50.080
+ to basically do incredibly well on a limited domain,
+
+40:51.280 --> 40:52.760
+ large amount of data,
+
+40:52.760 --> 40:57.120
+ but relatively simple kinds of planning tasks
+
+40:57.120 --> 40:58.680
+ and not very creative.
+
+40:58.680 --> 41:02.440
+ So we didn't end up building human intelligence.
+
+41:02.440 --> 41:04.560
+ We built a different machine
+
+41:04.560 --> 41:08.080
+ that was a lot better than us, some problems,
+
+41:08.080 --> 41:11.720
+ but nowhere close to us on other problems.
+
+41:11.720 --> 41:15.240
+ So today, I think a lot of people still misunderstand
+
+41:16.320 --> 41:18.040
+ when we say artificial intelligence
+
+41:18.040 --> 41:20.720
+ and what various products can do,
+
+41:20.720 --> 41:22.960
+ people still think it's about replicating
+
+41:22.960 --> 41:24.200
+ human intelligence,
+
+41:24.200 --> 41:27.600
+ but the products out there really are closer
+
+41:27.600 --> 41:31.680
+ to having invented the internet or the spreadsheet
+
+41:31.680 --> 41:34.440
+ or the database and getting broader adoption.
+
+41:35.360 --> 41:37.640
+ And speaking further to the fears,
+
+41:37.640 --> 41:40.360
+ near term fears that people have about AI,
+
+41:40.360 --> 41:45.080
+ so you're commenting on the sort of general intelligence
+
+41:45.080 --> 41:48.080
+ that people in the popular culture from sci fi movies
+
+41:48.080 --> 41:49.600
+ have a sense about AI,
+
+41:49.600 --> 41:52.000
+ but there's practical fears about AI,
+
+41:52.000 --> 41:54.840
+ the narrow AI that you're talking about
+
+41:54.840 --> 41:57.280
+ of automating particular kinds of jobs
+
+41:57.280 --> 41:59.440
+ and you talk about them in the book.
+
+41:59.440 --> 42:01.560
+ So what are the kinds of jobs in your view
+
+42:01.560 --> 42:04.480
+ that you see in the next five, 10 years
+
+42:04.480 --> 42:09.280
+ beginning to be automated by AI systems algorithms?
+
+42:09.280 --> 42:13.040
+ Yes, this is also maybe a little bit counterintuitive
+
+42:13.040 --> 42:15.280
+ because it's the routine jobs
+
+42:15.280 --> 42:18.360
+ that will be displaced the soonest
+
+42:18.360 --> 42:20.880
+ and they may not be displaced entirely,
+
+42:20.880 --> 42:24.080
+ maybe 50%, 80% of a job,
+
+42:24.080 --> 42:26.320
+ but when the workload drops by that much,
+
+42:26.320 --> 42:28.760
+ employment will come down.
+
+42:28.760 --> 42:31.520
+ And also another part of misunderstanding
+
+42:31.520 --> 42:35.720
+ is most people think of AI replacing routine jobs
+
+42:35.720 --> 42:38.760
+ than they think of the assembly line, the workers.
+
+42:38.760 --> 42:41.000
+ Well, that will have some effect,
+
+42:41.000 --> 42:44.240
+ but it's actually the routine white collar workers
+
+42:44.240 --> 42:46.200
+ that's easiest to replace
+
+42:46.200 --> 42:49.280
+ because to replace a white collar worker,
+
+42:49.280 --> 42:50.720
+ you just need software.
+
+42:50.720 --> 42:53.120
+ To replace a blue collar worker,
+
+42:53.120 --> 42:57.200
+ you need robotics, mechanical excellence,
+
+42:57.200 --> 43:01.880
+ and the ability to deal with dexterity
+
+43:01.880 --> 43:05.640
+ and maybe even unknown environments, very, very difficult.
+
+43:05.640 --> 43:10.600
+ So if we were to categorize the most dangerous
+
+43:10.600 --> 43:12.400
+ white collar jobs,
+
+43:12.400 --> 43:15.640
+ they would be things like back office,
+
+43:15.640 --> 43:17.920
+ people who copy and paste
+
+43:17.920 --> 43:22.200
+ and deal with simple computer programs and data
+
+43:22.200 --> 43:25.600
+ and maybe paper and OCR,
+
+43:25.600 --> 43:29.040
+ and they don't make strategic decisions.
+
+43:29.040 --> 43:32.040
+ They basically facilitate the process.
+
+43:32.040 --> 43:34.600
+ These softwares and paper systems don't work.
+
+43:34.600 --> 43:39.400
+ So you have people dealing with new employee orientation,
+
+43:40.520 --> 43:44.320
+ searching for past lawsuits and financial documents,
+
+43:45.200 --> 43:47.920
+ and doing reference check.
+
+43:47.920 --> 43:50.960
+ So basic searching and management of data.
+
+43:50.960 --> 43:52.800
+ That's the most endangered being lost.
+
+43:52.800 --> 43:56.440
+ In addition to the white collar repetitive work,
+
+43:56.440 --> 44:00.240
+ a lot of simple interaction work can also be taken care of
+
+44:00.240 --> 44:04.840
+ such as telesales, telemarketing, customer service,
+
+44:04.840 --> 44:07.280
+ as well as many physical jobs
+
+44:07.280 --> 44:09.520
+ that are in the same location
+
+44:09.520 --> 44:12.200
+ and don't require a high degree of dexterity.
+
+44:12.200 --> 44:17.200
+ So fruit picking, dishwashing, assembly line inspection
+
+44:17.840 --> 44:20.320
+ are jobs in that category.
+
+44:20.320 --> 44:24.440
+ So altogether, back office is a big part.
+
+44:25.400 --> 44:29.840
+ And the blue collar may be smaller initially,
+
+44:29.840 --> 44:32.520
+ but over time, AI will get better.
+
+44:32.520 --> 44:36.880
+ And when we start to get to over the next 15, 20 years,
+
+44:36.880 --> 44:39.120
+ the ability to actually have the dexterity
+
+44:39.120 --> 44:42.600
+ of doing assembly line, that's a huge chunk of jobs.
+
+44:42.600 --> 44:45.600
+ And when autonomous vehicles start to work,
+
+44:45.600 --> 44:47.440
+ initially starting with truck drivers,
+
+44:47.440 --> 44:49.360
+ but eventually to all drivers,
+
+44:49.360 --> 44:52.000
+ that's another huge group of workers.
+
+44:52.000 --> 44:55.600
+ So I see modest numbers in the next five years,
+
+44:55.600 --> 44:58.080
+ but increasing rapidly after that.
+
+44:58.080 --> 45:01.240
+ On the worry of the jobs that are in danger
+
+45:01.240 --> 45:03.080
+ and the gradual loss of jobs,
+
+45:04.080 --> 45:06.680
+ I'm not sure if you're familiar with Andrew Yang.
+
+45:06.680 --> 45:07.840
+ Yes, I am.
+
+45:07.840 --> 45:10.600
+ So there's a candidate for president of the United States
+
+45:10.600 --> 45:14.400
+ whose platform Andrew Yang is based around,
+
+45:14.400 --> 45:17.720
+ in part around job loss due to automation.
+
+45:17.720 --> 45:19.600
+ And also in addition,
+
+45:19.600 --> 45:22.600
+ the need perhaps of universal basic income
+
+45:22.600 --> 45:25.280
+ to support jobs that are,
+
+45:25.280 --> 45:28.600
+ folks who lose their job due to automation and so on.
+
+45:28.600 --> 45:30.400
+ And in general, support people
+
+45:30.400 --> 45:34.360
+ under complex, unstable job market.
+
+45:34.360 --> 45:36.760
+ So what are your thoughts about his concerns,
+
+45:36.760 --> 45:39.160
+ him as a candidate, his ideas in general?
+
+45:40.080 --> 45:43.440
+ I think his thinking is generally in the right direction,
+
+45:44.680 --> 45:48.480
+ but his approach as a presidential candidate
+
+45:48.480 --> 45:51.040
+ may be a little bit ahead of the time.
+
+45:51.040 --> 45:55.200
+ And I think the displacements will happen,
+
+45:56.120 --> 45:57.800
+ but will they happen soon enough
+
+45:57.800 --> 46:00.480
+ for people to agree to vote for him?
+
+46:00.480 --> 46:03.800
+ The unemployment numbers are not very high yet.
+
+46:03.800 --> 46:07.600
+ And I think he and I have the same challenge.
+
+46:07.600 --> 46:11.560
+ If I want to theoretically convince people this is an issue
+
+46:11.560 --> 46:13.920
+ and he wants to become the president,
+
+46:13.920 --> 46:17.520
+ people have to see how can this be the case
+
+46:17.520 --> 46:19.720
+ when unemployment numbers are low.
+
+46:19.720 --> 46:21.400
+ So that is the challenge.
+
+46:21.400 --> 46:26.400
+ And I think I do agree with him on the displacement issue,
+
+46:27.080 --> 46:29.080
+ on universal basic income.
+
+46:30.280 --> 46:33.920
+ At a very vanilla level, I don't agree with it
+
+46:33.920 --> 46:38.360
+ because I think the main issue is retraining.
+
+46:38.360 --> 46:41.520
+ So people need to be incented
+
+46:41.520 --> 46:45.480
+ not by just giving a monthly $2,000 check or $1,000 check
+
+46:45.480 --> 46:47.160
+ and do whatever they want
+
+46:47.160 --> 46:50.960
+ because they don't have the know how
+
+46:50.960 --> 46:55.960
+ to know what to retrain to go into what type of a job.
+
+46:56.840 --> 46:58.640
+ And guidance is needed.
+
+46:58.640 --> 47:00.440
+ And retraining is needed
+
+47:00.440 --> 47:03.160
+ because historically when technology revolutions,
+
+47:03.160 --> 47:06.880
+ when routine jobs were displaced, new routine jobs came up.
+
+47:06.880 --> 47:09.400
+ So there was always room for that.
+
+47:09.400 --> 47:11.840
+ But with AI and automation,
+
+47:11.840 --> 47:15.320
+ the whole point is replacing all routine jobs eventually.
+
+47:15.320 --> 47:17.840
+ So there will be fewer and fewer routine jobs.
+
+47:17.840 --> 47:22.640
+ And AI will create jobs, but it won't create routine jobs
+
+47:22.640 --> 47:24.840
+ because if it creates routine jobs,
+
+47:24.840 --> 47:26.880
+ why wouldn't AI just do it?
+
+47:26.880 --> 47:30.360
+ So therefore the people who are losing the jobs
+
+47:30.360 --> 47:32.280
+ are losing routine jobs.
+
+47:32.280 --> 47:35.680
+ The jobs that are becoming available are non routine jobs.
+
+47:35.680 --> 47:39.280
+ So the social stipend needs to be put in place
+
+47:39.280 --> 47:42.040
+ is for the routine workers who lost their jobs
+
+47:42.040 --> 47:46.120
+ to be retrained maybe in six months, maybe in three years,
+
+47:46.120 --> 47:48.560
+ takes a while to retrain on the non routine job
+
+47:48.560 --> 47:51.360
+ and then take on a job that will last
+
+47:51.360 --> 47:53.360
+ for that person's lifetime.
+
+47:53.360 --> 47:55.280
+ Now, having said that,
+
+47:55.280 --> 47:57.120
+ if you look deeply into Andrew's document,
+
+47:57.120 --> 47:58.200
+ he does cater for that.
+
+47:58.200 --> 48:03.200
+ So I'm not disagreeing with what he's trying to do.
+
+48:03.280 --> 48:06.320
+ But for simplification, sometimes he just says UBI,
+
+48:06.320 --> 48:08.720
+ but simple UBI wouldn't work.
+
+48:08.720 --> 48:10.560
+ And I think you've mentioned elsewhere
+
+48:10.560 --> 48:15.560
+ that the goal isn't necessarily to give people enough money
+
+48:15.720 --> 48:19.080
+ to survive or live, or even to prosper.
+
+48:19.080 --> 48:22.760
+ The point is to give them a job that gives them meaning.
+
+48:22.760 --> 48:24.560
+ That meaning is extremely important.
+
+48:25.560 --> 48:28.560
+ That our employment, at least in the United States
+
+48:28.560 --> 48:31.120
+ and perhaps it carries across the world,
+
+48:31.120 --> 48:34.520
+ provides something that's, forgive me for saying,
+
+48:34.520 --> 48:35.600
+ greater than money.
+
+48:35.600 --> 48:36.880
+ It provides meaning.
+
+48:36.880 --> 48:41.880
+ So now, what kind of jobs do you think can't be automated?
+
+48:43.280 --> 48:45.080
+ Can you talk a little bit about creativity
+
+48:45.080 --> 48:46.640
+ and compassion in your book?
+
+48:46.640 --> 48:49.640
+ What aspects do you think it's difficult to automate
+
+48:49.640 --> 48:50.800
+ for an AI system?
+
+48:51.920 --> 48:56.440
+ Because an AI system is currently merely optimizing.
+
+48:56.440 --> 48:59.240
+ It's not able to reason, plan,
+
+48:59.240 --> 49:02.040
+ or think creatively or strategically.
+
+49:02.040 --> 49:04.400
+ It's not able to deal with complex problems.
+
+49:04.400 --> 49:08.800
+ It can't come up with a new problem and solve it.
+
+49:08.800 --> 49:11.480
+ A human needs to find the problem
+
+49:11.480 --> 49:14.760
+ and pose it as an optimization problem,
+
+49:14.760 --> 49:16.640
+ then have the AI work at it.
+
+49:16.640 --> 49:21.640
+ So an AI would have a very hard time discovering a new drug
+
+49:22.360 --> 49:25.400
+ or discovering a new style of painting
+
+49:26.440 --> 49:31.440
+ or dealing with complex tasks such as managing a company
+
+49:31.440 --> 49:34.440
+ that isn't just about optimizing the bottom line,
+
+49:34.440 --> 49:38.000
+ but also about employee satisfaction, corporate brand,
+
+49:38.000 --> 49:39.840
+ and many, many other things.
+
+49:39.840 --> 49:43.400
+ So that is one category of things.
+
+49:43.400 --> 49:47.360
+ And because these things are challenging, creative, complex,
+
+49:47.360 --> 49:51.160
+ doing them creates a high degree of satisfaction
+
+49:51.160 --> 49:54.480
+ and therefore appealing to our desire for working,
+
+49:54.480 --> 49:57.360
+ which isn't just to make the money, make the ends meet,
+
+49:57.360 --> 49:59.560
+ but also that we've accomplished something
+
+49:59.560 --> 50:02.320
+ that others maybe can't do or can't do as well.
+
+50:03.320 --> 50:06.320
+ Another type of job that is much numerous
+
+50:06.320 --> 50:10.240
+ would be compassionate jobs, jobs that require compassion,
+
+50:10.240 --> 50:13.600
+ empathy, human touch, human trust.
+
+50:13.600 --> 50:17.760
+ AI can't do that because AI is cold, calculating,
+
+50:17.760 --> 50:21.920
+ and even if it can fake that to some extent,
+
+50:21.920 --> 50:25.120
+ it will make errors and that will make it look very silly.
+
+50:25.120 --> 50:28.320
+ And also, I think even if AI did okay,
+
+50:28.320 --> 50:32.000
+ people would want to interact with another person,
+
+50:32.000 --> 50:35.920
+ whether it's for some kind of a service or a teacher
+
+50:35.920 --> 50:40.920
+ or a doctor or a concierge or a masseuse or a bartender.
+
+50:40.920 --> 50:44.440
+ There are so many jobs where people just don't want
+
+50:44.440 --> 50:48.000
+ to interact with a cold robot or software.
+
+50:49.400 --> 50:52.480
+ I've had an entrepreneur who built an elderly care robot
+
+50:52.480 --> 50:55.240
+ and they found that the elderly really only use it
+
+50:55.240 --> 50:56.880
+ for customer service.
+
+50:56.880 --> 50:59.480
+ And not, but not to service the product,
+
+50:59.480 --> 51:01.840
+ but they click on customer service
+
+51:01.840 --> 51:04.120
+ and the video of a person comes up
+
+51:04.120 --> 51:05.960
+ and then the person says,
+
+51:05.960 --> 51:08.080
+ how come my daughter didn't call me?
+
+51:08.080 --> 51:10.240
+ Let me show you a picture of her grandkids.
+
+51:10.240 --> 51:14.000
+ So people yearn for that people, people interaction.
+
+51:14.000 --> 51:17.840
+ So even if robots improved, people just don't want it.
+
+51:17.840 --> 51:20.120
+ And those jobs are going to be increasing
+
+51:20.120 --> 51:22.840
+ because AI will create a lot of value,
+
+51:22.840 --> 51:26.640
+ $16 trillion to the world in the next 10 years.
+
+51:26.640 --> 51:29.520
+ Next 11 years, according to PWC.
+
+51:29.520 --> 51:34.520
+ And that will give people money to enjoy services,
+
+51:34.640 --> 51:39.640
+ whether it's eating a gourmet meal or tourism and traveling
+
+51:39.680 --> 51:41.480
+ or having concierge services,
+
+51:41.480 --> 51:45.600
+ the services revolving around every dollar
+
+51:45.600 --> 51:48.080
+ of that $16 trillion will be tremendous.
+
+51:48.080 --> 51:50.080
+ It will create more opportunities
+
+51:50.080 --> 51:52.800
+ that are to service the people who did well
+
+51:52.800 --> 51:56.240
+ through AI with things.
+
+51:56.240 --> 51:58.280
+ But even at the same time,
+
+51:58.280 --> 52:01.720
+ the entire society is very much short
+
+52:01.720 --> 52:04.240
+ in need of many service oriented,
+
+52:04.240 --> 52:06.200
+ compassionate oriented jobs.
+
+52:06.200 --> 52:10.360
+ The best example is probably in healthcare services.
+
+52:10.360 --> 52:14.320
+ There's going to be 2 million new jobs,
+
+52:14.320 --> 52:15.400
+ not counting replacement,
+
+52:15.400 --> 52:17.520
+ just brand new incremental jobs
+
+52:17.520 --> 52:20.560
+ in the next six years in healthcare services.
+
+52:20.560 --> 52:25.000
+ That includes nurses, orderly in the hospital,
+
+52:25.000 --> 52:30.000
+ elderly care and also at home care is particularly lacking.
+
+52:31.480 --> 52:34.840
+ And those jobs are not likely to be filled.
+
+52:34.840 --> 52:36.840
+ So there's likely to be a shortage.
+
+52:36.840 --> 52:38.600
+ And the reason they're not filled
+
+52:38.600 --> 52:41.600
+ is simply because they don't pay very well
+
+52:41.600 --> 52:46.600
+ and that the social status of these jobs are not very good.
+
+52:47.520 --> 52:49.720
+ So they pay about half as much
+
+52:49.720 --> 52:52.160
+ as a heavy equipment operator,
+
+52:52.160 --> 52:55.600
+ which will be replaced a lot sooner.
+
+52:55.600 --> 52:57.560
+ And they pay probably comparably
+
+52:57.560 --> 52:59.880
+ to someone on the assembly line.
+
+52:59.880 --> 53:03.480
+ And so if we ignoring all the other issues
+
+53:03.480 --> 53:07.160
+ and just think about satisfaction from one's job,
+
+53:07.160 --> 53:10.520
+ someone repetitively doing the same manual action
+
+53:10.520 --> 53:11.640
+ at an assembly line,
+
+53:11.640 --> 53:14.640
+ that can't create a lot of job satisfaction,
+
+53:14.640 --> 53:17.680
+ but someone taking care of a sick person
+
+53:17.680 --> 53:19.600
+ and getting a hug and thank you
+
+53:19.600 --> 53:22.000
+ from that person and the family,
+
+53:22.000 --> 53:24.680
+ I think is quite satisfying.
+
+53:24.680 --> 53:28.720
+ So if only we could fix the pay for service jobs,
+
+53:28.720 --> 53:31.880
+ there are plenty of jobs that require some training
+
+53:31.880 --> 53:33.400
+ or a lot of training
+
+53:33.400 --> 53:36.960
+ for the people coming off the routine jobs to take.
+
+53:36.960 --> 53:40.320
+ We can easily imagine someone
+
+53:40.320 --> 53:43.480
+ who was maybe a cashier at the grocery store
+
+53:43.480 --> 53:45.640
+ as stores become automated,
+
+53:45.640 --> 53:49.160
+ learns to become a nurse or an at home care.
+
+53:49.160 --> 53:52.760
+ I also do want to point out the blue collar jobs
+
+53:52.760 --> 53:54.720
+ are going to stay around a bit longer.
+
+53:54.720 --> 53:56.440
+ Some of them quite a bit longer.
+
+53:58.120 --> 54:02.200
+ AI cannot be told go clean an arbitrary home.
+
+54:02.200 --> 54:03.920
+ That's incredibly hard.
+
+54:03.920 --> 54:07.560
+ Arguably it's an L5 level of difficulty, right?
+
+54:07.560 --> 54:10.080
+ And then AI cannot be a good plumber
+
+54:10.080 --> 54:12.840
+ because plumber is almost like a mini detective
+
+54:12.840 --> 54:15.640
+ that has to figure out where the leak came from.
+
+54:15.640 --> 54:20.200
+ So yet AI probably can be an assembly line
+
+54:20.200 --> 54:22.800
+ and auto mechanic and so on.
+
+54:22.800 --> 54:26.760
+ So one has to study which blue collar jobs are going away
+
+54:26.760 --> 54:29.240
+ and facilitate retraining for the people
+
+54:29.240 --> 54:31.120
+ to go into the ones that won't go away
+
+54:31.120 --> 54:32.960
+ or maybe even will increase.
+
+54:32.960 --> 54:35.000
+ I mean, it is fascinating that it's easier
+
+54:35.000 --> 54:39.480
+ to build a world champion chess player
+
+54:39.480 --> 54:42.040
+ than it is to build a mediocre plumber.
+
+54:42.040 --> 54:43.160
+ Yes, right.
+
+54:43.160 --> 54:44.000
+ Very true.
+
+54:44.000 --> 54:46.160
+ And to AI and that goes counterintuitive
+
+54:46.160 --> 54:48.000
+ to a lot of people's understanding
+
+54:48.000 --> 54:50.120
+ of what artificial intelligence is.
+
+54:50.120 --> 54:52.480
+ So it sounds, I mean, you're painting
+
+54:52.480 --> 54:55.400
+ a pretty optimistic picture about retraining
+
+54:55.400 --> 54:57.000
+ about the number of jobs
+
+54:57.000 --> 54:59.560
+ and actually the meaningful nature of those jobs
+
+54:59.560 --> 55:02.080
+ once we automate the repetitive tasks.
+
+55:02.080 --> 55:07.080
+ So overall, are you optimistic about the future
+
+55:08.160 --> 55:11.640
+ where much of the repetitive tasks are automated?
+
+55:11.640 --> 55:13.840
+ That there is a lot of room for humans
+
+55:13.840 --> 55:17.360
+ for the compassionate, for the creative input
+
+55:17.360 --> 55:20.080
+ that only humans can provide?
+
+55:20.080 --> 55:23.400
+ I am optimistic if we start to take action.
+
+55:23.400 --> 55:27.640
+ If we have no action in the next five years,
+
+55:27.640 --> 55:30.760
+ I think it's going to be hard to deal
+
+55:30.760 --> 55:34.200
+ with the devastating losses that will emerge.
+
+55:34.200 --> 55:37.120
+ So if we start thinking about retraining,
+
+55:37.120 --> 55:39.360
+ maybe with the low hanging fruits,
+
+55:39.360 --> 55:41.800
+ explaining to vocational schools
+
+55:41.800 --> 55:45.760
+ why they should train more plumbers than auto mechanics,
+
+55:46.640 --> 55:49.680
+ maybe starting with some government subsidy
+
+55:49.680 --> 55:53.600
+ for corporations to have more training positions.
+
+55:53.600 --> 55:58.160
+ We start to explain to people why retraining is important.
+
+55:58.160 --> 56:00.760
+ We start to think about what the future of education,
+
+56:00.760 --> 56:04.560
+ how that needs to be tweaked for the era of AI.
+
+56:04.560 --> 56:06.760
+ If we start to make incremental progress
+
+56:06.760 --> 56:08.960
+ and the greater number of people understand,
+
+56:08.960 --> 56:12.360
+ then there's no reason to think we can't deal with this
+
+56:12.360 --> 56:14.360
+ because this technological revolution
+
+56:14.360 --> 56:17.280
+ is arguably similar to what electricity,
+
+56:17.280 --> 56:20.440
+ industrial revolutions, and internet brought about.
+
+56:20.440 --> 56:22.680
+ Do you think there's a role for policy,
+
+56:22.680 --> 56:24.640
+ for governments to step in,
+
+56:24.640 --> 56:28.000
+ to help with policy to create a better world?
+
+56:28.000 --> 56:32.280
+ Absolutely, and the governments don't have to believe
+
+56:32.280 --> 56:34.040
+ an employment will go up,
+
+56:34.040 --> 56:37.560
+ and they don't have to believe automation will be this fast
+
+56:37.560 --> 56:39.440
+ to do something.
+
+56:39.440 --> 56:42.520
+ Revamping vocational school would be one example.
+
+56:42.520 --> 56:44.760
+ Another is if there's a big gap
+
+56:44.760 --> 56:47.480
+ in healthcare service employment,
+
+56:47.480 --> 56:51.840
+ and we know that a country's population is growing older,
+
+56:51.840 --> 56:54.280
+ more longevity, living older,
+
+56:54.280 --> 56:57.560
+ because people over 80 require five times as much care
+
+56:57.560 --> 56:59.680
+ as those under 80,
+
+56:59.680 --> 57:03.480
+ then it is a good time to incent training programs
+
+57:03.480 --> 57:07.600
+ for elderly care to find ways to improve the pay.
+
+57:07.600 --> 57:11.720
+ Maybe one way would be to offer as part of Medicare
+
+57:11.720 --> 57:14.600
+ or the equivalent program for people over 80
+
+57:14.600 --> 57:18.760
+ to be entitled to a few hours of elderly care at home,
+
+57:18.760 --> 57:22.160
+ and then that might be reimbursable,
+
+57:22.160 --> 57:26.720
+ and that will stimulate the service industry
+
+57:26.720 --> 57:28.920
+ around the policy.
+
+57:28.920 --> 57:33.400
+ Do you have concerns about large entities,
+
+57:33.400 --> 57:35.480
+ whether it's governments or companies,
+
+57:35.480 --> 57:39.240
+ controlling the future of AI development in general?
+
+57:39.240 --> 57:41.000
+ So we talked about companies.
+
+57:41.000 --> 57:44.360
+ Do you have a better sense that governments
+
+57:44.360 --> 57:49.360
+ can better represent the interests of the people
+
+57:49.480 --> 57:52.320
+ than companies, or do you believe companies
+
+57:52.320 --> 57:54.960
+ are better at representing the interests of the people?
+
+57:54.960 --> 57:56.840
+ Or is there no easy answer?
+
+57:56.840 --> 57:58.120
+ I don't think there's an easy answer
+
+57:58.120 --> 58:00.200
+ because it's a double edged sword.
+
+58:00.200 --> 58:03.760
+ The companies and governments can provide better services
+
+58:03.760 --> 58:06.760
+ with more access to data and more access to AI,
+
+58:06.760 --> 58:09.440
+ but that also leads to greater power,
+
+58:09.440 --> 58:13.600
+ which can lead to uncontrollable problems,
+
+58:13.600 --> 58:17.760
+ whether it's monopoly or corruption in the government.
+
+58:17.760 --> 58:21.400
+ So I think one has to be careful
+
+58:21.400 --> 58:25.040
+ to look at how much data that companies and governments have
+
+58:25.040 --> 58:30.040
+ and some kind of checks and balances would be helpful.
+
+58:30.400 --> 58:34.040
+ So again, I come from Russia.
+
+58:34.040 --> 58:35.960
+ There's something called the Cold War.
+
+58:36.840 --> 58:39.240
+ So let me ask a difficult question here
+
+58:39.240 --> 58:40.720
+ looking at conflict.
+
+58:40.720 --> 58:42.160
+ Steven Pinker written a great book
+
+58:42.160 --> 58:45.440
+ that conflict all over the world is decreasing in general.
+
+58:45.440 --> 58:49.680
+ But do you have a sense that having written
+
+58:49.680 --> 58:51.800
+ the book AI Superpowers,
+
+58:51.800 --> 58:54.440
+ do you see a major international conflict
+
+58:54.440 --> 58:57.840
+ potentially arising between major nations,
+
+58:57.840 --> 59:00.400
+ whatever they are, whether it's Russia, China,
+
+59:00.400 --> 59:04.120
+ European nations, United States or others
+
+59:04.120 --> 59:07.720
+ in the next 10, 20, 50 years around AI,
+
+59:07.720 --> 59:10.200
+ around the digital space, cyberspace?
+
+59:10.200 --> 59:12.120
+ Do you worry about that?
+
+59:12.120 --> 59:15.520
+ Is that something we need to think about
+
+59:15.520 --> 59:18.640
+ and try to alleviate or prevent?
+
+59:19.600 --> 59:22.680
+ I believe in greater engagement.
+
+59:22.680 --> 59:26.720
+ A lot of the worries about more powerful AI
+
+59:26.720 --> 59:31.720
+ are based on a arms race metaphor.
+
+59:33.280 --> 59:38.280
+ And when you extrapolate into military kinds of scenarios,
+
+59:41.560 --> 59:46.560
+ AI can automate and autonomous weapons
+
+59:46.560 --> 59:48.800
+ that needs to be controlled somehow
+
+59:48.800 --> 59:51.640
+ and autonomous decision making
+
+59:51.640 --> 59:56.640
+ can lead to not enough time to fix international crises.
+
+59:57.560 --> 1:00:00.880
+ So I actually believe a Cold War mentality
+
+1:00:00.880 --> 1:00:02.480
+ would be very dangerous
+
+1:00:02.480 --> 1:00:05.560
+ because should two countries rely on AI
+
+1:00:05.560 --> 1:00:07.400
+ to make certain decisions
+
+1:00:07.400 --> 1:00:10.040
+ and they don't even talk to each other,
+
+1:00:10.040 --> 1:00:12.120
+ they do their own scenario planning,
+
+1:00:12.120 --> 1:00:15.120
+ then something could easily go wrong.
+
+1:00:15.120 --> 1:00:18.960
+ I think engagement, interaction, some protocols
+
+1:00:18.960 --> 1:00:23.960
+ to avoid inadvertent disasters is actually needed.
+
+1:00:25.120 --> 1:00:29.120
+ So it's natural for each country to want to be the best,
+
+1:00:29.120 --> 1:00:34.120
+ whether it's in nuclear technologies or AI or bio.
+
+1:00:34.800 --> 1:00:37.720
+ But I think it's important to realize
+
+1:00:37.720 --> 1:00:41.360
+ if each country has a black box AI
+
+1:00:41.360 --> 1:00:43.280
+ and don't talk to each other,
+
+1:00:43.280 --> 1:00:49.280
+ that probably presents greater challenges to humanity
+
+1:00:49.280 --> 1:00:51.480
+ than if they interacted.
+
+1:00:51.480 --> 1:00:53.760
+ I think there can still be competition,
+
+1:00:53.760 --> 1:00:57.080
+ but with some degree of protocol for interaction,
+
+1:00:57.080 --> 1:01:02.080
+ just like when there was a nuclear competition,
+
+1:01:02.160 --> 1:01:04.880
+ there were some protocol for deterrence
+
+1:01:04.880 --> 1:01:08.000
+ among US, Russia, and China.
+
+1:01:08.000 --> 1:01:10.880
+ And I think that engagement is needed.
+
+1:01:10.880 --> 1:01:13.520
+ So of course, we're still far from AI
+
+1:01:13.520 --> 1:01:16.000
+ presenting that kind of danger.
+
+1:01:16.000 --> 1:01:18.400
+ But what I worry the most about
+
+1:01:18.400 --> 1:01:23.000
+ is the level of engagement seems to be coming down.
+
+1:01:23.000 --> 1:01:26.360
+ The level of distrust seems to be going up,
+
+1:01:26.360 --> 1:01:30.240
+ especially from the US towards other large countries
+
+1:01:30.240 --> 1:01:33.400
+ such as China and of course, and Russia, yes.
+
+1:01:33.400 --> 1:01:34.680
+ Is there a way to make that better?
+
+1:01:34.680 --> 1:01:37.240
+ So let's beautifully put level of engagement
+
+1:01:37.240 --> 1:01:40.680
+ and even just basic trust and communication
+
+1:01:40.680 --> 1:01:45.680
+ as opposed to sort of making artificial enemies
+
+1:01:48.880 --> 1:01:52.520
+ out of particular countries.
+
+1:01:53.360 --> 1:01:57.160
+ Do you have a sense how we can make it better?
+
+1:01:57.160 --> 1:02:01.720
+ Actionable items that as a society we can take on?
+
+1:02:01.720 --> 1:02:05.000
+ I'm not an expert at geopolitics,
+
+1:02:05.000 --> 1:02:10.800
+ but I would say that we look pretty foolish as humankind
+
+1:02:10.800 --> 1:02:13.200
+ when we are faced with the opportunity
+
+1:02:13.200 --> 1:02:19.520
+ to create $16 trillion for humanity,
+
+1:02:19.520 --> 1:02:26.040
+ and yet we're not solving fundamental problems
+
+1:02:26.040 --> 1:02:29.520
+ with parts of the world still in poverty.
+
+1:02:29.520 --> 1:02:31.320
+ And for the first time,
+
+1:02:31.320 --> 1:02:34.600
+ we have the resources to overcome poverty and hunger.
+
+1:02:34.600 --> 1:02:35.960
+ We're not using it on that,
+
+1:02:35.960 --> 1:02:38.800
+ but we're fueling competition among superpowers.
+
+1:02:38.800 --> 1:02:41.880
+ And that's a very unfortunate thing.
+
+1:02:41.880 --> 1:02:44.760
+ If we become utopian for a moment,
+
+1:02:44.760 --> 1:02:52.240
+ imagine a benevolent world government
+
+1:02:52.240 --> 1:02:56.120
+ that has this $16 trillion and maybe some AI
+
+1:02:56.120 --> 1:02:59.280
+ to figure out how to use it to deal with diseases
+
+1:02:59.280 --> 1:03:02.640
+ and problems and hate and things like that.
+
+1:03:02.640 --> 1:03:04.840
+ World would be a lot better off.
+
+1:03:04.840 --> 1:03:07.600
+ So what is wrong with the current world?
+
+1:03:07.600 --> 1:03:11.040
+ I think the people with more skill than I
+
+1:03:11.040 --> 1:03:13.920
+ should think about this.
+
+1:03:13.920 --> 1:03:16.920
+ And then the geopolitics issue with superpower competition
+
+1:03:16.920 --> 1:03:19.360
+ is one side of the issue.
+
+1:03:19.360 --> 1:03:24.040
+ There's another side which I worry maybe even more,
+
+1:03:24.040 --> 1:03:29.360
+ which is as the $16 trillion all gets made by US and China
+
+1:03:29.360 --> 1:03:32.040
+ and a few of the other developed countries,
+
+1:03:32.040 --> 1:03:34.280
+ the poorer country will get nothing
+
+1:03:34.280 --> 1:03:36.880
+ because they don't have technology
+
+1:03:36.880 --> 1:03:42.440
+ and the wealth disparity and inequality will increase.
+
+1:03:42.440 --> 1:03:45.880
+ So a poorer country with a large population
+
+1:03:45.880 --> 1:03:48.520
+ will not only benefit from the AI boom
+
+1:03:48.520 --> 1:03:50.360
+ or other technology booms,
+
+1:03:50.360 --> 1:03:52.360
+ but they will have their workers
+
+1:03:52.360 --> 1:03:56.040
+ who previously had hoped they could do the China model
+
+1:03:56.040 --> 1:03:58.840
+ and do outsource manufacturing or the India model
+
+1:03:58.840 --> 1:04:02.640
+ so they could do the outsource process or call center.
+
+1:04:02.640 --> 1:04:05.800
+ Well, all those jobs are gonna be gone in 10 or 15 years.
+
+1:04:05.800 --> 1:04:10.800
+ So the individual citizen may be a net liability,
+
+1:04:12.080 --> 1:04:15.040
+ I mean, financially speaking to a poorer country
+
+1:04:15.040 --> 1:04:19.800
+ and not an asset to claw itself out of poverty.
+
+1:04:19.800 --> 1:04:22.640
+ So in that kind of situation,
+
+1:04:22.640 --> 1:04:26.400
+ these large countries with not much tech
+
+1:04:26.400 --> 1:04:30.080
+ are going to be facing a downward spiral
+
+1:04:30.080 --> 1:04:33.120
+ and it's unclear what could be done.
+
+1:04:33.120 --> 1:04:34.720
+ And then when we look back
+
+1:04:34.720 --> 1:04:37.600
+ and say there's $16 trillion being created
+
+1:04:37.600 --> 1:04:39.720
+ and it's all being kept by US, China
+
+1:04:39.720 --> 1:04:43.360
+ and other developed countries, it just doesn't feel right.
+
+1:04:43.360 --> 1:04:46.920
+ So I hope people who know about geopolitics
+
+1:04:46.920 --> 1:04:49.960
+ can find solutions that's beyond my expertise.
+
+1:04:50.880 --> 1:04:53.160
+ So different countries that we've talked about
+
+1:04:53.160 --> 1:04:55.200
+ have different value systems.
+
+1:04:55.200 --> 1:04:56.920
+ If you look at the United States,
+
+1:04:56.920 --> 1:04:58.960
+ to an almost extreme degree,
+
+1:04:58.960 --> 1:05:03.400
+ there is an absolute desire for freedom of speech.
+
+1:05:03.400 --> 1:05:05.160
+ If you look at a country where I was raised,
+
+1:05:05.160 --> 1:05:06.960
+ that desire just amongst the people
+
+1:05:06.960 --> 1:05:11.960
+ is not as elevated as it is to basically fundamental level
+
+1:05:15.040 --> 1:05:17.560
+ to the essence of what it means to be America, right?
+
+1:05:17.560 --> 1:05:19.160
+ And the same is true with China,
+
+1:05:19.160 --> 1:05:21.480
+ there's different value systems.
+
+1:05:21.480 --> 1:05:26.480
+ There's some censorship of internet content
+
+1:05:26.840 --> 1:05:31.280
+ that China and Russia and many other countries undertake.
+
+1:05:31.280 --> 1:05:36.280
+ Do you see that having effects on innovation,
+
+1:05:36.760 --> 1:05:38.880
+ other aspects of some of the tech stuff,
+
+1:05:38.880 --> 1:05:40.920
+ AI development we talked about,
+
+1:05:40.920 --> 1:05:42.520
+ and maybe from another angle,
+
+1:05:42.520 --> 1:05:46.200
+ do you see that changing in different ways
+
+1:05:46.200 --> 1:05:49.560
+ over the next 10 years, 20 years, 50 years
+
+1:05:49.560 --> 1:05:53.000
+ as China continues to grow as it does now
+
+1:05:53.000 --> 1:05:54.840
+ in its tech innovation?
+
+1:05:55.720 --> 1:05:57.200
+ There's a common belief
+
+1:05:57.200 --> 1:06:01.040
+ that full freedom of speech and expression
+
+1:06:01.040 --> 1:06:03.040
+ is correlated with creativity,
+
+1:06:03.040 --> 1:06:08.040
+ which is correlated with entrepreneurial success.
+
+1:06:08.520 --> 1:06:13.200
+ I think empirically we have seen that is not true
+
+1:06:13.200 --> 1:06:15.600
+ and China has been successful.
+
+1:06:15.600 --> 1:06:19.600
+ That's not to say the fundamental values are not right
+
+1:06:19.600 --> 1:06:20.840
+ or not the best,
+
+1:06:20.840 --> 1:06:25.040
+ but it's just that perfect correlation isn't there.
+
+1:06:25.880 --> 1:06:30.560
+ It's hard to read the tea leaves on opening up or not
+
+1:06:30.560 --> 1:06:31.720
+ in any country,
+
+1:06:31.720 --> 1:06:35.880
+ and I've not been very good at that in my past predictions,
+
+1:06:37.000 --> 1:06:40.840
+ but I do believe every country
+
+1:06:40.840 --> 1:06:45.840
+ shares a lot of fundamental values for the longterm.
+
+1:06:47.440 --> 1:06:52.440
+ So China is drafting its privacy policy
+
+1:06:54.480 --> 1:06:57.240
+ for individual citizens,
+
+1:06:57.240 --> 1:07:00.000
+ and they don't look that different
+
+1:07:00.000 --> 1:07:03.240
+ from the American or European ones.
+
+1:07:03.240 --> 1:07:07.600
+ So people do want to protect their privacy
+
+1:07:07.600 --> 1:07:10.680
+ and have the opportunity to express
+
+1:07:10.680 --> 1:07:14.200
+ and I think the fundamental values are there.
+
+1:07:14.200 --> 1:07:17.920
+ The question is in the execution and timing,
+
+1:07:17.920 --> 1:07:21.760
+ how soon or when will that start to open up?
+
+1:07:21.760 --> 1:07:25.520
+ So as long as each government knows
+
+1:07:25.520 --> 1:07:28.320
+ ultimately people want that kind of protection,
+
+1:07:29.200 --> 1:07:32.240
+ there should be a plan to move towards that
+
+1:07:32.240 --> 1:07:35.360
+ as to when or how and I'm not an expert.
+
+1:07:36.280 --> 1:07:39.040
+ On the point of privacy to me, it's really interesting.
+
+1:07:39.040 --> 1:07:42.520
+ So AI needs data to create
+
+1:07:42.520 --> 1:07:45.520
+ a personalized awesome experience, right?
+
+1:07:45.520 --> 1:07:48.560
+ I'm just speaking generally in terms of products.
+
+1:07:48.560 --> 1:07:51.360
+ And then we have currently, depending on the age
+
+1:07:51.360 --> 1:07:54.000
+ and depending on the demographics of who we're talking about,
+
+1:07:54.000 --> 1:07:55.840
+ some people are more or less concerned
+
+1:07:55.840 --> 1:07:59.040
+ about the amount of data they hand over.
+
+1:07:59.040 --> 1:08:04.040
+ So in your view, how do we get this balance right
+
+1:08:04.280 --> 1:08:07.120
+ that we provide an amazing experience
+
+1:08:07.120 --> 1:08:09.920
+ to people that use products?
+
+1:08:09.920 --> 1:08:13.440
+ You look at Facebook, the more Facebook knows about you,
+
+1:08:13.440 --> 1:08:18.440
+ yes, it's scary to say, the better it can probably,
+
+1:08:19.360 --> 1:08:21.200
+ better experience it can probably create.
+
+1:08:21.200 --> 1:08:23.760
+ So in your view, how do we get that balance right?
+
+1:08:25.160 --> 1:08:30.160
+ Yes, I think a lot of people have a misunderstanding
+
+1:08:30.400 --> 1:08:35.080
+ that it's okay and possible to just rip all the data out
+
+1:08:35.080 --> 1:08:38.240
+ from a provider and give it back to you.
+
+1:08:38.240 --> 1:08:41.160
+ So you can deny them access to further data
+
+1:08:41.160 --> 1:08:44.080
+ and still enjoy the services we have.
+
+1:08:44.080 --> 1:08:46.240
+ If we take back all the data,
+
+1:08:46.240 --> 1:08:48.360
+ all the services will give us nonsense.
+
+1:08:48.360 --> 1:08:52.360
+ We'll no longer be able to use products that function well
+
+1:08:52.360 --> 1:08:56.160
+ in terms of right ranking, right products,
+
+1:08:56.160 --> 1:08:57.880
+ right user experience.
+
+1:08:57.880 --> 1:09:02.880
+ So yet I do understand we don't want to permit misuse
+
+1:09:02.880 --> 1:09:07.520
+ of the data from legal policy standpoint.
+
+1:09:07.520 --> 1:09:11.160
+ I think there can be severe punishment
+
+1:09:11.160 --> 1:09:16.200
+ for those who have egregious misuse of the data.
+
+1:09:16.200 --> 1:09:19.600
+ That's I think a good first step.
+
+1:09:19.600 --> 1:09:22.680
+ Actually China in this side on this aspect
+
+1:09:22.680 --> 1:09:25.480
+ has very strong laws about people who sell
+
+1:09:25.480 --> 1:09:27.960
+ or give data to other companies.
+
+1:09:27.960 --> 1:09:30.080
+ And that over the past few years,
+
+1:09:30.080 --> 1:09:33.560
+ since that law came into effect,
+
+1:09:33.560 --> 1:09:38.560
+ pretty much eradicated the illegal distribution,
+
+1:09:38.760 --> 1:09:40.560
+ sharing of data.
+
+1:09:40.560 --> 1:09:44.120
+ Additionally, I think giving,
+
+1:09:45.440 --> 1:09:50.120
+ I think technology is often a very good way
+
+1:09:50.120 --> 1:09:52.760
+ to solve technology misuse.
+
+1:09:52.760 --> 1:09:56.200
+ So can we come up with new technologies
+
+1:09:56.200 --> 1:09:58.880
+ that will let us have our cake and eat it too?
+
+1:09:58.880 --> 1:10:01.960
+ People are looking into homomorphic encryption,
+
+1:10:01.960 --> 1:10:04.360
+ which is letting you keep the data,
+
+1:10:04.360 --> 1:10:07.360
+ have it encrypted and train on encrypted data.
+
+1:10:07.360 --> 1:10:09.080
+ Of course, we haven't solved that one yet,
+
+1:10:09.080 --> 1:10:12.480
+ but that kind of direction may be worth pursuing.
+
+1:10:13.400 --> 1:10:15.160
+ Also federated learning,
+
+1:10:15.160 --> 1:10:17.240
+ which would allow one hospital
+
+1:10:17.240 --> 1:10:20.000
+ to train on its hospital's patient data fully
+
+1:10:20.000 --> 1:10:22.400
+ because they have a license for that.
+
+1:10:22.400 --> 1:10:24.800
+ And then hospitals would then share their models,
+
+1:10:24.800 --> 1:10:28.040
+ not data, but models to create a super AI.
+
+1:10:28.040 --> 1:10:30.560
+ And that also maybe has some promise.
+
+1:10:30.560 --> 1:10:34.160
+ So I would want to encourage us to be open minded
+
+1:10:34.160 --> 1:10:39.160
+ and think of this as not just the policy binary, yes, no,
+
+1:10:39.640 --> 1:10:42.800
+ but letting the technologists try to find solutions
+
+1:10:42.800 --> 1:10:44.840
+ to let us have our cake and eat it too,
+
+1:10:44.840 --> 1:10:47.440
+ or have most of our cake and eat most of it too.
+
+1:10:48.400 --> 1:10:52.920
+ Finally, I think giving each end user a choice is important
+
+1:10:52.920 --> 1:10:55.400
+ and having transparency is important.
+
+1:10:55.400 --> 1:10:57.400
+ Also, I think that's universal,
+
+1:10:57.400 --> 1:11:00.560
+ but the choice you give to the user
+
+1:11:00.560 --> 1:11:02.320
+ should not be at a granular level
+
+1:11:02.320 --> 1:11:04.720
+ that the user cannot understand.
+
+1:11:04.720 --> 1:11:09.120
+ GDPR today causes all these popups of yes, no,
+
+1:11:09.120 --> 1:11:10.560
+ will you give this site this right
+
+1:11:10.560 --> 1:11:12.360
+ to use this part of your data?
+
+1:11:12.360 --> 1:11:15.000
+ I don't think any user understands
+
+1:11:15.000 --> 1:11:17.000
+ what they're saying yes or no to.
+
+1:11:17.000 --> 1:11:18.960
+ And I suspect most are just saying yes
+
+1:11:18.960 --> 1:11:20.760
+ because they don't understand it.
+
+1:11:20.760 --> 1:11:25.600
+ So while GDPR in its current implementation
+
+1:11:25.600 --> 1:11:30.360
+ has lived up to its promise of transparency and user choice,
+
+1:11:30.360 --> 1:11:33.000
+ it implemented it in such a way
+
+1:11:33.000 --> 1:11:38.000
+ that really didn't deliver the spirit of GDPR.
+
+1:11:39.080 --> 1:11:41.560
+ It fit the letter, but not the spirit.
+
+1:11:41.560 --> 1:11:43.760
+ So again, I think we need to think about
+
+1:11:43.760 --> 1:11:48.000
+ is there a way to fit the spirit of GDPR
+
+1:11:48.000 --> 1:11:50.600
+ by using some kind of technology?
+
+1:11:50.600 --> 1:11:54.640
+ Can we have a slider that's an AI trying to figure out
+
+1:11:54.640 --> 1:11:57.520
+ how much you want to slide between
+
+1:11:57.520 --> 1:12:01.520
+ perfect protection security of your personal data
+
+1:12:01.520 --> 1:12:04.080
+ versus a high degree of convenience
+
+1:12:04.080 --> 1:12:06.960
+ with some risks of not having full privacy?
+
+1:12:08.120 --> 1:12:10.080
+ Each user should have some preference
+
+1:12:10.080 --> 1:12:12.000
+ and that gives you the user choice.
+
+1:12:12.000 --> 1:12:14.840
+ But maybe we should turn the problem on its head
+
+1:12:14.840 --> 1:12:18.840
+ and ask can there be an AI algorithm that can customize this?
+
+1:12:18.840 --> 1:12:21.120
+ Because we can understand the slider,
+
+1:12:21.120 --> 1:12:25.080
+ but we sure cannot understand every popup question.
+
+1:12:25.080 --> 1:12:27.200
+ And I think getting that right
+
+1:12:27.200 --> 1:12:29.720
+ requires getting the balance between
+
+1:12:29.720 --> 1:12:30.760
+ what we talked about earlier,
+
+1:12:30.760 --> 1:12:32.720
+ which is heart and soul
+
+1:12:32.720 --> 1:12:37.120
+ versus profit driven decisions and strategy.
+
+1:12:37.120 --> 1:12:40.200
+ I think from my perspective,
+
+1:12:40.200 --> 1:12:43.080
+ the best way to make a lot of money in the long term
+
+1:12:43.080 --> 1:12:45.360
+ is to keep your heart and soul intact.
+
+1:12:46.760 --> 1:12:50.640
+ I think getting that slider right in the short term
+
+1:12:50.640 --> 1:12:54.080
+ may feel like you'll be sacrificing profit,
+
+1:12:54.080 --> 1:12:55.760
+ but in the long term,
+
+1:12:55.760 --> 1:12:57.600
+ you'll be gaining user trust
+
+1:12:57.600 --> 1:12:59.520
+ and providing a great experience.
+
+1:12:59.520 --> 1:13:02.000
+ Do you share that kind of view in general?
+
+1:13:02.000 --> 1:13:03.240
+ Yes, absolutely.
+
+1:13:03.240 --> 1:13:07.200
+ I sure would hope there is a way
+
+1:13:07.200 --> 1:13:09.600
+ we can do long term projects
+
+1:13:09.600 --> 1:13:12.000
+ that really do the right thing.
+
+1:13:12.000 --> 1:13:15.240
+ I think a lot of people who embrace GDPR,
+
+1:13:15.240 --> 1:13:16.960
+ their heart's in the right place.
+
+1:13:16.960 --> 1:13:20.680
+ I think they just need to figure out how to build a solution.
+
+1:13:20.680 --> 1:13:23.360
+ I've heard utopians talk about solutions
+
+1:13:23.360 --> 1:13:24.480
+ that get me excited,
+
+1:13:24.480 --> 1:13:27.880
+ but I'm not sure how in the current funding environment
+
+1:13:27.880 --> 1:13:29.320
+ they can get started.
+
+1:13:29.320 --> 1:13:30.600
+ People talk about,
+
+1:13:30.600 --> 1:13:35.600
+ imagine this crowdsourced data collection
+
+1:13:36.440 --> 1:13:37.880
+ that we all trust.
+
+1:13:37.880 --> 1:13:40.720
+ And then we have these agents
+
+1:13:40.720 --> 1:13:45.720
+ that we ask the trusted agent to...
+
+1:13:45.720 --> 1:13:48.880
+ That agent only, that platform,
+
+1:13:48.880 --> 1:13:51.280
+ so a trusted joint platform
+
+1:13:51.280 --> 1:13:55.120
+ that we all believe is trustworthy,
+
+1:13:55.120 --> 1:14:00.120
+ that can give us all the closed loop personal suggestions
+
+1:14:03.080 --> 1:14:06.200
+ by the new social network, new search engine,
+
+1:14:06.200 --> 1:14:08.600
+ new eCommerce engine that has access
+
+1:14:08.600 --> 1:14:10.360
+ to even more of our data,
+
+1:14:10.360 --> 1:14:12.400
+ but not directly, but indirectly.
+
+1:14:12.400 --> 1:14:14.640
+ So I think that general concept
+
+1:14:14.640 --> 1:14:18.520
+ of licensing to some trusted engine
+
+1:14:18.520 --> 1:14:20.640
+ and finding a way to trust that engine
+
+1:14:20.640 --> 1:14:22.360
+ seems like a great idea.
+
+1:14:22.360 --> 1:14:24.240
+ But if you think how long it's gonna take
+
+1:14:24.240 --> 1:14:27.760
+ to implement and tweak and develop it right,
+
+1:14:27.760 --> 1:14:29.920
+ as well as to collect all the trusts
+
+1:14:29.920 --> 1:14:31.360
+ and the data from the people,
+
+1:14:31.360 --> 1:14:34.960
+ it's beyond the current cycle of venture capital.
+
+1:14:34.960 --> 1:14:38.120
+ So how do you do that is a big question.
+
+1:14:38.120 --> 1:14:41.840
+ You've recently had a fight with cancer,
+
+1:14:41.840 --> 1:14:46.840
+ stage four lymphoma and in a sort of deep personal level,
+
+1:14:48.240 --> 1:14:51.080
+ what did it feel like in the darker moments
+
+1:14:51.080 --> 1:14:52.880
+ to face your own mortality?
+
+1:14:54.840 --> 1:14:57.880
+ Well, I've been the workaholic my whole life
+
+1:14:57.880 --> 1:15:01.400
+ and I've basically worked nine, nine, six,
+
+1:15:01.400 --> 1:15:04.640
+ nine a.m. to nine p.m. six days a week, roughly.
+
+1:15:04.640 --> 1:15:07.920
+ And I didn't really pay a lot of attention
+
+1:15:07.920 --> 1:15:10.680
+ to my family, friends, and people who loved me.
+
+1:15:10.680 --> 1:15:14.480
+ And my life revolved around optimizing for work.
+
+1:15:14.480 --> 1:15:16.920
+ While my work was not routine,
+
+1:15:16.920 --> 1:15:21.800
+ my optimization really what made my life
+
+1:15:23.240 --> 1:15:25.640
+ basically very mechanical process.
+
+1:15:25.640 --> 1:15:28.360
+ But I got a lot of highs out of it
+
+1:15:28.360 --> 1:15:30.960
+ because of accomplishments
+
+1:15:30.960 --> 1:15:34.400
+ that I thought were really important and dear
+
+1:15:34.400 --> 1:15:36.720
+ and the highest priority to me.
+
+1:15:36.720 --> 1:15:38.560
+ But when I faced mortality
+
+1:15:38.560 --> 1:15:41.960
+ and the possible death in matter of months,
+
+1:15:41.960 --> 1:15:45.600
+ I suddenly realized that this really meant nothing to me,
+
+1:15:45.600 --> 1:15:48.560
+ that I didn't feel like working for another minute,
+
+1:15:48.560 --> 1:15:51.000
+ that if I had six months left in my life,
+
+1:15:51.000 --> 1:15:54.280
+ I would spend it all with my loved ones
+
+1:15:54.280 --> 1:15:57.480
+ and thanking them, giving them love back
+
+1:15:57.480 --> 1:16:01.960
+ and apologizing to them that I lived my life the wrong way.
+
+1:16:01.960 --> 1:16:05.960
+ So that moment of reckoning
+
+1:16:05.960 --> 1:16:10.960
+ caused me to really rethink that why we exist in this world
+
+1:16:11.520 --> 1:16:16.520
+ is something that we might be too much shaped by the society
+
+1:16:17.960 --> 1:16:22.040
+ to think that success and accomplishments is why we live.
+
+1:16:22.040 --> 1:16:26.320
+ But while that can get you
+
+1:16:26.320 --> 1:16:29.680
+ periodic successes and satisfaction,
+
+1:16:29.680 --> 1:16:33.200
+ it's really in the facing death
+
+1:16:33.200 --> 1:16:35.840
+ you see what's truly important to you.
+
+1:16:35.840 --> 1:16:40.840
+ So as a result of going through the challenges with cancer,
+
+1:16:41.960 --> 1:16:45.720
+ I've resolved to live a more balanced lifestyle.
+
+1:16:45.720 --> 1:16:48.920
+ I'm now in remission, knock on wood,
+
+1:16:48.920 --> 1:16:52.440
+ and I'm spending more time with my family.
+
+1:16:52.440 --> 1:16:54.800
+ My wife travels with me.
+
+1:16:54.800 --> 1:16:58.000
+ When my kids need me, I spend more time with them.
+
+1:16:58.000 --> 1:17:02.680
+ And before I used to prioritize everything around work.
+
+1:17:02.680 --> 1:17:03.960
+ When I had a little bit of time,
+
+1:17:03.960 --> 1:17:06.240
+ I would dole it out to my family.
+
+1:17:06.240 --> 1:17:09.880
+ Now, when my family needs something, really needs something,
+
+1:17:09.880 --> 1:17:12.640
+ I drop everything at work and go to them.
+
+1:17:12.640 --> 1:17:15.880
+ And then in the time remaining, I allocate to work.
+
+1:17:15.880 --> 1:17:19.000
+ But one's family is very understanding.
+
+1:17:19.000 --> 1:17:23.160
+ It's not like they will take 50 hours a week from me.
+
+1:17:23.160 --> 1:17:27.120
+ So I'm actually able to still work pretty hard,
+
+1:17:27.120 --> 1:17:29.280
+ maybe 10 hours less per week.
+
+1:17:29.280 --> 1:17:32.720
+ So I realized the most important thing in my life
+
+1:17:32.720 --> 1:17:36.280
+ is really love and the people I love.
+
+1:17:36.280 --> 1:17:38.680
+ And I give that the highest priority.
+
+1:17:38.680 --> 1:17:40.680
+ It isn't the only thing I do,
+
+1:17:40.680 --> 1:17:45.680
+ but when that is needed, I put that at the top priority
+
+1:17:45.880 --> 1:17:50.080
+ and I feel much better and I feel much more balanced.
+
+1:17:50.080 --> 1:17:53.080
+ And I think this also gives a hint
+
+1:17:53.080 --> 1:17:58.080
+ as to a life of routine work, a life of pursuit of numbers.
+
+1:17:58.080 --> 1:18:02.920
+ While my job was not routine, it was in pursuit of numbers,
+
+1:18:02.920 --> 1:18:04.960
+ pursuit of can I make more money?
+
+1:18:04.960 --> 1:18:07.360
+ Can I fund more great companies?
+
+1:18:07.360 --> 1:18:08.920
+ Can I raise more money?
+
+1:18:08.920 --> 1:18:12.080
+ Can I make sure our VC is ranked higher and higher
+
+1:18:12.080 --> 1:18:13.360
+ every year?
+
+1:18:13.360 --> 1:18:18.360
+ This competitive nature of driving for bigger numbers
+
+1:18:18.800 --> 1:18:23.800
+ and better numbers became a endless pursuit
+
+1:18:25.200 --> 1:18:26.640
+ that's mechanical.
+
+1:18:26.640 --> 1:18:31.640
+ And bigger numbers really didn't make me happier.
+
+1:18:31.880 --> 1:18:34.680
+ And faced with death, I realized bigger numbers
+
+1:18:34.680 --> 1:18:36.360
+ really meant nothing.
+
+1:18:36.360 --> 1:18:41.040
+ And what was important is that people who have given
+
+1:18:41.040 --> 1:18:42.840
+ their heart and their love to me
+
+1:18:42.840 --> 1:18:45.640
+ deserve for me to do the same.
+
+1:18:45.640 --> 1:18:48.400
+ So there's deep, profound truth in that,
+
+1:18:48.400 --> 1:18:52.000
+ that everyone should hear and internalize.
+
+1:18:52.000 --> 1:18:55.420
+ I mean, that's really powerful for you to say that.
+
+1:18:55.420 --> 1:19:00.420
+ I have to ask sort of a difficult question here.
+
+1:19:03.060 --> 1:19:06.020
+ So I've competed in sports my whole life,
+
+1:19:06.020 --> 1:19:11.020
+ looking historically, I'd like to challenge some aspect
+
+1:19:11.780 --> 1:19:15.220
+ of that a little bit on the point of hard work.
+
+1:19:15.220 --> 1:19:18.900
+ That it feels that there are certain aspects
+
+1:19:18.900 --> 1:19:22.020
+ that is the greatest, the most beautiful aspects
+
+1:19:22.020 --> 1:19:26.440
+ of human nature is the ability to become obsessed,
+
+1:19:27.740 --> 1:19:31.460
+ of becoming extremely passionate to the point where yes,
+
+1:19:31.460 --> 1:19:36.460
+ flaws are revealed and just giving yourself fully to a task.
+
+1:19:37.460 --> 1:19:40.800
+ That is, in another sense, you mentioned love
+
+1:19:40.800 --> 1:19:42.380
+ being important, but in another sense,
+
+1:19:42.380 --> 1:19:46.660
+ this kind of obsession, this pure exhibition of passion
+
+1:19:46.660 --> 1:19:50.380
+ and hard work is truly what it means to be human.
+
+1:19:50.380 --> 1:19:53.140
+ What lessons should we take that's deeper?
+
+1:19:53.140 --> 1:19:54.820
+ Because you've accomplished incredible things.
+
+1:19:54.820 --> 1:19:57.300
+ You say it chasing numbers,
+
+1:19:57.300 --> 1:20:00.980
+ but really there's some incredible work there.
+
+1:20:00.980 --> 1:20:04.980
+ So how do you think about that when you look back
+
+1:20:04.980 --> 1:20:09.980
+ in your 20s, your 30s, what would you do differently?
+
+1:20:10.020 --> 1:20:14.860
+ Would you really take back some of the incredible hard work?
+
+1:20:14.860 --> 1:20:19.860
+ I would, but it's in percentages, right?
+
+1:20:19.980 --> 1:20:22.380
+ We're both computer scientists.
+
+1:20:22.380 --> 1:20:25.620
+ So I think when one balances one's life,
+
+1:20:25.620 --> 1:20:30.260
+ when one is younger, you might give a smaller percentage
+
+1:20:30.260 --> 1:20:33.720
+ to family, but you would still give them high priority.
+
+1:20:33.720 --> 1:20:36.340
+ And when you get older, you would give a larger percentage
+
+1:20:36.340 --> 1:20:38.500
+ to them and still the high priority.
+
+1:20:38.500 --> 1:20:42.460
+ And when you're near retirement, you give most of it to them
+
+1:20:42.460 --> 1:20:43.820
+ and the highest priority.
+
+1:20:43.820 --> 1:20:48.820
+ So I think the key point is not that we would work 20 hours
+
+1:20:49.140 --> 1:20:52.700
+ less for the whole life and just spend it aimlessly
+
+1:20:52.700 --> 1:20:56.740
+ with the family, but that's when the family has a need,
+
+1:20:56.740 --> 1:21:00.260
+ when your wife is having a baby,
+
+1:21:00.260 --> 1:21:05.180
+ when your daughter has a birthday or when they're depressed
+
+1:21:05.180 --> 1:21:07.540
+ or when they're celebrating something
+
+1:21:07.540 --> 1:21:11.400
+ or when they have a get together or when we have family time
+
+1:21:11.400 --> 1:21:14.860
+ that it's important for us to put down our phone and PC
+
+1:21:14.860 --> 1:21:18.340
+ and be a hundred percent with them.
+
+1:21:18.340 --> 1:21:23.340
+ And that priority on the things that really matter
+
+1:21:23.740 --> 1:21:28.060
+ isn't going to be so taxing that it would eliminate
+
+1:21:29.140 --> 1:21:32.020
+ or even dramatically reduce our accomplishments.
+
+1:21:32.020 --> 1:21:35.180
+ It might have some impact, but it might also have
+
+1:21:35.180 --> 1:21:37.940
+ other impact because if you have a happier family,
+
+1:21:37.940 --> 1:21:39.380
+ maybe you fight less.
+
+1:21:39.380 --> 1:21:43.100
+ If you fight less, you don't spend time taking care
+
+1:21:43.100 --> 1:21:45.620
+ of all the aftermath of a fight.
+
+1:21:45.620 --> 1:21:48.220
+ So it's unclear that it would take more time.
+
+1:21:48.220 --> 1:21:53.220
+ And if it did, I'd be willing to take that reduction.
+
+1:21:53.260 --> 1:21:56.340
+ And it's not a dramatic number, but it's a number
+
+1:21:56.340 --> 1:22:00.140
+ that I think would give me a greater degree of happiness
+
+1:22:00.140 --> 1:22:03.260
+ and knowing that I've done the right thing
+
+1:22:03.260 --> 1:22:08.260
+ and still have plenty of hours to get the success
+
+1:22:08.260 --> 1:22:09.900
+ that I want to get.
+
+1:22:09.900 --> 1:22:14.460
+ So given the many successful companies that you've launched
+
+1:22:14.460 --> 1:22:17.340
+ and much success throughout your career,
+
+1:22:17.340 --> 1:22:22.340
+ what advice would you give to young people today looking,
+
+1:22:25.440 --> 1:22:26.780
+ or it doesn't have to be young,
+
+1:22:26.780 --> 1:22:28.500
+ but people today looking to launch
+
+1:22:28.500 --> 1:22:32.360
+ and to create the next $1 billion tech startup
+
+1:22:32.360 --> 1:22:34.280
+ or even AI based startup?
+
+1:22:34.280 --> 1:22:39.280
+ I would suggest that people understand
+
+1:22:39.800 --> 1:22:42.720
+ technology waves move quickly.
+
+1:22:42.720 --> 1:22:45.920
+ What worked two years ago may not work today.
+
+1:22:45.920 --> 1:22:49.700
+ And that is very much case in point for AI.
+
+1:22:49.700 --> 1:22:53.200
+ I think two years ago, or maybe three years ago,
+
+1:22:53.200 --> 1:22:55.320
+ you certainly could say I have a couple
+
+1:22:55.320 --> 1:22:58.880
+ of super smart PhDs and we're not sure
+
+1:22:58.880 --> 1:23:01.920
+ what we're gonna do, but here's how we're gonna start
+
+1:23:01.920 --> 1:23:05.200
+ and get funding for a very high valuation.
+
+1:23:05.200 --> 1:23:08.480
+ Those days are over because AI is going
+
+1:23:08.480 --> 1:23:11.520
+ from rocket science towards mainstream,
+
+1:23:11.520 --> 1:23:14.400
+ not yet commodity, but more mainstream.
+
+1:23:14.400 --> 1:23:19.400
+ So first the creation of any company
+
+1:23:19.400 --> 1:23:22.720
+ to a venture capitalists has to be creation
+
+1:23:22.720 --> 1:23:26.200
+ of business value and monetary value.
+
+1:23:26.200 --> 1:23:29.800
+ And when you have a very scarce commodity,
+
+1:23:29.800 --> 1:23:34.800
+ VCs may be willing to accept greater uncertainty.
+
+1:23:35.040 --> 1:23:38.560
+ But now the number of people who have the equivalent
+
+1:23:38.560 --> 1:23:42.840
+ of PhD three years ago, because that can be learned
+
+1:23:42.840 --> 1:23:46.080
+ more quickly, platforms are emerging,
+
+1:23:46.080 --> 1:23:49.580
+ the cost to become a AI engineer is much lower
+
+1:23:49.580 --> 1:23:51.700
+ and there are many more AI engineers.
+
+1:23:51.700 --> 1:23:53.960
+ So the market is different.
+
+1:23:53.960 --> 1:23:57.440
+ So I would suggest someone who wants to build an AI company
+
+1:23:57.440 --> 1:24:01.480
+ be thinking about the normal business questions.
+
+1:24:01.480 --> 1:24:06.120
+ What customer cases are you trying to address?
+
+1:24:06.120 --> 1:24:08.600
+ What kind of pain are you trying to address?
+
+1:24:08.600 --> 1:24:10.680
+ How does that translate to value?
+
+1:24:10.680 --> 1:24:14.680
+ How will you extract value and get paid
+
+1:24:14.680 --> 1:24:18.120
+ through what channel and how much business value
+
+1:24:18.120 --> 1:24:19.920
+ will get created?
+
+1:24:19.920 --> 1:24:24.520
+ That today needs to be thought about much earlier upfront
+
+1:24:24.520 --> 1:24:26.720
+ than it did three years ago.
+
+1:24:26.720 --> 1:24:30.500
+ The scarcity question of AI talent has changed.
+
+1:24:30.500 --> 1:24:32.800
+ The number of AI talent has changed.
+
+1:24:32.800 --> 1:24:37.640
+ So now you need not just AI, but also understanding
+
+1:24:37.640 --> 1:24:41.000
+ of business customer and the marketplace.
+
+1:24:41.840 --> 1:24:46.840
+ So I also think you should have a more reasonable
+
+1:24:48.000 --> 1:24:52.360
+ valuation expectation and growth expectation.
+
+1:24:52.360 --> 1:24:54.080
+ There's gonna be more competition.
+
+1:24:54.080 --> 1:24:57.840
+ But the good news though, is that AI technologies
+
+1:24:57.840 --> 1:25:00.740
+ are now more available in open source.
+
+1:25:00.740 --> 1:25:05.740
+ TensorFlow, PyTorch and such tools are much easier to use.
+
+1:25:06.640 --> 1:25:11.640
+ So you should be able to experiment and get results
+
+1:25:11.760 --> 1:25:14.240
+ iteratively faster than before.
+
+1:25:14.240 --> 1:25:18.540
+ So take more of a business mindset to this,
+
+1:25:18.540 --> 1:25:23.540
+ think less of this as a laboratory taken into a company,
+
+1:25:23.540 --> 1:25:26.140
+ because we've gone beyond that stage.
+
+1:25:26.140 --> 1:25:29.740
+ The only exception is if you truly have a breakthrough
+
+1:25:29.740 --> 1:25:32.340
+ in some technology that really no one has,
+
+1:25:32.340 --> 1:25:34.660
+ then the old way still works.
+
+1:25:34.660 --> 1:25:37.140
+ But I think that's harder and harder now.
+
+1:25:37.140 --> 1:25:41.140
+ So I know you believe as many do that we're far
+
+1:25:41.140 --> 1:25:44.020
+ from creating an artificial general intelligence system.
+
+1:25:45.420 --> 1:25:50.420
+ But say once we do, and you get to ask her one question,
+
+1:25:50.420 --> 1:25:53.020
+ what would that question be?
+
+1:25:57.640 --> 1:26:00.260
+ What is it that differentiates you and me?
+
+1:26:02.180 --> 1:26:04.260
+ Beautifully put, Kaifu, thank you so much
+
+1:26:04.260 --> 1:26:05.760
+ for your time today.
+
+1:26:05.760 --> 1:26:25.760
+ Thank you.
+

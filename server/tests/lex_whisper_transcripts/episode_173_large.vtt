@@ -1,0 +1,4943 @@
+WEBVTT
+
+00:00.000 --> 00:04.420
+ The following is a conversation with Nick Carter, who is a partner at Castle
+
+00:04.420 --> 00:09.940
+ Island Ventures, cofounder of CoinMetrics.io, and previously a crypto
+
+00:09.940 --> 00:12.780
+ asset research analyst at Fidelity Investments.
+
+00:13.220 --> 00:18.820
+ He's a prominent writer, speaker, and podcaster on topics around decentralized
+
+00:18.820 --> 00:21.300
+ finance and especially Bitcoin.
+
+00:22.100 --> 00:26.500
+ Quick mention of our sponsors, The Information, Athletic Greens,
+
+00:26.500 --> 00:31.000
+ Four Sigmatic, and Blinkist. Check them out in the description to support this
+
+00:31.000 --> 00:35.800
+ podcast. This conversation with Nick Carter is part of a series of episodes on
+
+00:35.800 --> 00:40.400
+ cryptocurrency that is a small journey of exploration I'm on because I find
+
+00:40.400 --> 00:45.200
+ decentralized finance and especially Bitcoin fascinating, technically and
+
+00:45.200 --> 00:50.200
+ philosophically, especially because it may be the very mechanism that achieves a
+
+00:50.200 --> 00:55.200
+ global decentralization of power, giving more sovereignty to the individual and
+
+00:55.200 --> 01:00.400
+ making our systems more resilient to corruption, manipulation, and in general
+
+01:00.600 --> 01:02.600
+ to the darker side of human nature.
+
+01:03.200 --> 01:07.600
+ Please let me also address something for a few minutes that happened recently
+
+01:08.000 --> 01:09.400
+ that's been weighing heavy on me.
+
+01:10.100 --> 01:13.600
+ If you find me annoying to listen to, please skip to the actual conversation
+
+01:13.600 --> 01:14.100
+ with Nick.
+
+01:14.700 --> 01:19.600
+ I had a recent podcast episode with Anthony Pompliano where we spoke about
+
+01:19.600 --> 01:23.300
+ Bitcoin and life in general for three hours.
+
+01:23.300 --> 01:28.800
+ I was curious, inspired, positive, or at least I tried to be as I usually do.
+
+01:29.400 --> 01:34.400
+ Someone clipped out, out of context, a short segment of me mumbling something
+
+01:34.600 --> 01:39.700
+ about having a PhD and I started getting mocked online because that made it
+
+01:39.700 --> 01:44.800
+ convenient for people to mock me for being yet another quote unquote expert
+
+01:45.000 --> 01:47.800
+ who learns about Bitcoin and thinks he knows everything.
+
+01:47.800 --> 01:52.600
+ I almost never mentioned that I have a PhD, except to make fun of myself as
+
+01:52.600 --> 01:57.100
+ I was doing, or at least trying to do in the full context of the conversation.
+
+01:58.000 --> 02:01.900
+ I brought up grad school as a random example of one of the many journeys
+
+02:01.900 --> 02:07.900
+ I've taken that was hard, but where the destination was in itself, not very useful.
+
+02:08.400 --> 02:12.200
+ I was saying I enjoy exploring with a curious mind and I'm willing to be
+
+02:12.200 --> 02:17.100
+ patient, to learn, to listen, to humble myself with knowledge, and to
+
+02:17.100 --> 02:20.000
+ help with knowledge for the sake of knowledge itself.
+
+02:20.500 --> 02:22.500
+ Grad school was an example of that.
+
+02:22.900 --> 02:25.700
+ The PhD means nothing, at least to me.
+
+02:26.300 --> 02:30.300
+ I never call myself an expert or at least try not to because that would
+
+02:30.300 --> 02:33.800
+ be dumb because I know how little I know.
+
+02:34.400 --> 02:40.000
+ I'm not a influencer or a thought leader or whatever else silly self
+
+02:40.000 --> 02:42.800
+ aggrandizing label people put on their LinkedIn.
+
+02:43.300 --> 02:46.200
+ I try to be the opposite of what I was mocked for.
+
+02:46.200 --> 02:49.700
+ I try to think deeply about the world, to look for the beautiful ideas
+
+02:49.700 --> 02:52.300
+ and the minds of others, and to be inspired by them.
+
+02:53.200 --> 02:57.600
+ I wanted to say all this because psychologically, it struck a bit of a blow.
+
+02:58.400 --> 03:02.500
+ It made me realize that even when I approach things with love, I may be
+
+03:02.500 --> 03:07.800
+ mocked, I may be derided, I may be taken out of context or even lied about.
+
+03:08.500 --> 03:11.100
+ But the growing platform, this is sadly only increasing.
+
+03:11.100 --> 03:15.700
+ I now have learned that there's people who are waiting for my missteps
+
+03:15.800 --> 03:20.300
+ so they can point the finger, laugh, and say, see, I told you so.
+
+03:20.500 --> 03:21.500
+ That guy's a joke.
+
+03:21.800 --> 03:22.700
+ He's a fraud.
+
+03:23.600 --> 03:26.900
+ As a fellow human being, the knowledge of this is painful.
+
+03:27.500 --> 03:32.500
+ Yes, I know people tell me to toughen up, and my life has been about
+
+03:32.500 --> 03:36.500
+ strengthening my mind in the face of my limits, but I refuse to not be
+
+03:36.500 --> 03:38.900
+ fragile and wear my heart on my sleeve.
+
+03:39.200 --> 03:40.000
+ It's who I am.
+
+03:40.000 --> 03:44.100
+ In some sense, this is the immune system of the internet, but let us
+
+03:44.100 --> 03:47.500
+ be careful not to destroy the good ones in the process.
+
+03:48.300 --> 03:52.000
+ The Bitcoin community had to endure many years of attacks from
+
+03:52.000 --> 03:55.600
+ quote unquote experts and also fraudulent cryptocurrency efforts
+
+03:55.800 --> 03:57.500
+ that scam people out of their money.
+
+03:58.000 --> 04:02.000
+ This created a powerful immune system that fought the attackers
+
+04:02.000 --> 04:02.800
+ and the scammers.
+
+04:03.400 --> 04:06.900
+ I understand this, and I also understand that one of the beautiful
+
+04:06.900 --> 04:12.300
+ aspects of Bitcoin is its community of humans is decentralized, but
+
+04:12.300 --> 04:15.900
+ some small part of this community has come to enjoy the us versus
+
+04:15.900 --> 04:20.000
+ them battles, sometimes for the sake of the battle in itself.
+
+04:20.700 --> 04:22.900
+ This happens in political discourse as well.
+
+04:23.400 --> 04:27.900
+ I understand this, but to my limited mind, it sounds like group
+
+04:27.900 --> 04:32.500
+ think, which has powerful defense mechanisms against bad ideas, but
+
+04:32.800 --> 04:35.500
+ has dangerous consequences if taken too far.
+
+04:35.500 --> 04:39.500
+ As in many periods of human history that I often talk about, where
+
+04:39.500 --> 04:43.700
+ the us versus them thinking has led to the suffering of many.
+
+04:44.500 --> 04:47.900
+ Again, I understand the value of this as many Bitcoin has explained
+
+04:47.900 --> 04:52.400
+ to me, but it's not the way I, as a sovereign individual, choose to
+
+04:52.400 --> 04:53.500
+ walk in this life.
+
+04:54.200 --> 04:57.000
+ By the way, none of this podcast should be treated as financial
+
+04:57.000 --> 05:01.300
+ advice. Before Nick kindly gifted me with a hundred dollars worth
+
+05:01.300 --> 05:05.600
+ of Bitcoin in hardware form, I didn't own any.
+
+05:06.000 --> 05:10.100
+ I'll probably buy some Bitcoin on Cash App, Coinbase, and other
+
+05:10.100 --> 05:13.600
+ platforms, and also transfer to a hardware wallet just to learn
+
+05:13.600 --> 05:14.200
+ how to do it.
+
+05:14.600 --> 05:18.100
+ But other than that, I don't necessarily make wise investment
+
+05:18.100 --> 05:21.100
+ decisions. Money is not a motivation for me personally.
+
+05:21.500 --> 05:22.800
+ I try to avoid it actually.
+
+05:23.200 --> 05:26.500
+ I'm grateful for every day I'm alive, no matter how much money is
+
+05:26.500 --> 05:29.700
+ in my bank account. For long stretches of my life, that number
+
+05:29.700 --> 05:34.100
+ was very close to zero, and I was always fortunate to be free and
+
+05:34.100 --> 05:38.100
+ happy. So I encourage you to listen to people much smarter than
+
+05:38.100 --> 05:42.800
+ me for actual good financial advice. Here, I'm just exploring
+
+05:42.800 --> 05:47.500
+ ideas. And as if this has not already gone on too long, let me
+
+05:47.500 --> 05:50.900
+ please make another comment on the style of discourse among some
+
+05:50.900 --> 05:55.800
+ Bitcoin maximalists on platforms like Twitter, that in my humble
+
+05:55.800 --> 06:00.100
+ view, I may be wrong, but I believe is not conducive to the
+
+06:00.100 --> 06:04.100
+ nuanced empathetic exchange of ideas I very much look for and
+
+06:04.100 --> 06:07.300
+ enjoy. Again, I appreciate their style of discourse.
+
+06:07.500 --> 06:10.600
+ I think I understand the value of it, but it's not my thing.
+
+06:10.800 --> 06:12.300
+ So I don't want to engage in it.
+
+06:12.800 --> 06:14.800
+ I want to hear the quiet voices in the room.
+
+06:15.100 --> 06:18.600
+ I look for people to inspire each other, and when we disagree,
+
+06:18.600 --> 06:22.500
+ I look for disagreement that is grounded in respect and empathy.
+
+06:22.500 --> 06:26.200
+ I think that mockery and derision destroys the possibility of
+
+06:26.200 --> 06:27.600
+ those nuanced conversations.
+
+06:28.000 --> 06:32.000
+ It drives away the quiet, thoughtful, empathetic voices, and
+
+06:32.000 --> 06:35.900
+ I try to give those voices space to be heard, to shine, to
+
+06:35.900 --> 06:39.000
+ exchange ideas, whether we agree or disagree.
+
+06:39.800 --> 06:44.600
+ So, if I happen to block you on Twitter, I block you with love.
+
+06:45.200 --> 06:49.200
+ Honestly, I will never speak poorly of you or even think poorly
+
+06:49.200 --> 06:52.600
+ of you. I would love to hang out in person, give you a big old
+
+06:52.600 --> 06:57.000
+ hug, and talk about life over some beers. If you see or hear
+
+06:57.000 --> 07:01.500
+ me say something stupid, which I'm sure I do often, or something
+
+07:01.500 --> 07:04.600
+ you disagree with, and you still respect me as a human being,
+
+07:04.600 --> 07:08.100
+ please show your love, as I always do to you, but also send
+
+07:08.100 --> 07:12.700
+ me some links to blogs, books, videos, podcasts, where people
+
+07:12.700 --> 07:16.200
+ describe why my stated idea may be totally wrong.
+
+07:16.200 --> 07:19.600
+ I love this kind of long form disagreement. I humble myself
+
+07:19.600 --> 07:23.300
+ every day by reading books and blogs by people much smarter
+
+07:23.300 --> 07:27.200
+ than me. Sometimes it strengthens my ideas, sometimes it
+
+07:27.200 --> 07:32.000
+ totally changes them, but I always learn. This is a too long
+
+07:32.000 --> 07:36.100
+ way of saying that I'm here trying to walk with grace and
+
+07:36.100 --> 07:41.200
+ with an open mind, a bit of patience, and always love. If I
+
+07:41.200 --> 07:45.500
+ make mistakes, cut me some slack. Like you, I'm here trying
+
+07:45.500 --> 07:51.700
+ to love. Like you, I'm only human. Allegedly. This is the
+
+07:51.700 --> 07:56.000
+ Lex Friedman podcast, and here is my conversation with Nick
+
+07:56.000 --> 08:00.900
+ Carter. What philosopher or philosophical idea had a big
+
+08:00.900 --> 08:04.100
+ impact on your life, not just in the space of cryptocurrency,
+
+08:04.100 --> 08:04.800
+ but in general?
+
+08:05.400 --> 08:08.200
+ Oh, so we're going now. We're rolling. We're going right in.
+
+08:08.200 --> 08:11.000
+ We're rolling. Because you majored philosophy. I did. I majored
+
+08:11.000 --> 08:14.500
+ in philosophy. I didn't know what to do with my life, and my
+
+08:14.500 --> 08:16.900
+ parents said, do whatever you find interesting. It's like,
+
+08:16.900 --> 08:21.300
+ okay, philosophy, great. I find that interesting. And it had
+
+08:21.300 --> 08:25.500
+ way more of an impact on my career, actually, than I thought
+
+08:25.500 --> 08:28.700
+ it might. Typically, I guess, if you do philosophy, you go into
+
+08:28.700 --> 08:33.800
+ law or finance, so it sort of makes sense. But there are a number
+
+08:33.800 --> 08:38.000
+ of philosophers I really admire. One of my favorites would
+
+08:38.000 --> 08:42.200
+ be Descartes, probably the notion of skepticism. It's sort of
+
+08:42.200 --> 08:44.900
+ a rabbit hole. It's kind of hard to pull yourself out of it.
+
+08:45.700 --> 08:48.000
+ Basically, the brain in the vat theory, pulling yourself out
+
+08:48.000 --> 08:52.100
+ of that. But yeah, I really like epistemology, you know,
+
+08:52.100 --> 08:56.800
+ questioning what it is to have knowledge. So Descartes was
+
+08:56.800 --> 08:58.300
+ one of my gateways to that.
+
+08:59.000 --> 09:02.100
+ Do you think everything is knowable? Like, we humans can
+
+09:03.000 --> 09:05.800
+ can know fully the objective reality?
+
+09:05.900 --> 09:10.600
+ Oh, definitely not. No, I mean, reality is very much processed
+
+09:10.600 --> 09:13.000
+ through your own, you know, subjective lens.
+
+09:13.900 --> 09:18.100
+ So how much do you think do we understand about this world?
+
+09:18.800 --> 09:21.300
+ Because a lot of your ideas, a lot of things we might talk
+
+09:21.300 --> 09:25.300
+ about today are kind of trying to figure out human civilization,
+
+09:25.300 --> 09:29.400
+ how humans, how human behavior works at scale, all those
+
+09:29.400 --> 09:33.200
+ kinds of things. That kind of assumes that we have it or
+
+09:33.200 --> 09:38.800
+ we're able to somehow figure most of it out, right? So in your
+
+09:38.800 --> 09:42.300
+ sort of when you step way back, how much of it have we really
+
+09:42.300 --> 09:43.100
+ figured out?
+
+09:43.700 --> 09:47.000
+ Well, I think that's the conceit of economics is thinking
+
+09:47.000 --> 09:50.400
+ that you can model human behavior in these unbelievably
+
+09:50.400 --> 09:54.600
+ complex systems. And then I think that's the modern critique
+
+09:54.600 --> 09:58.200
+ of economics, like the sort of Taliban critique is that you
+
+09:58.200 --> 10:01.700
+ can't have true knowledge, and they're much less predictable
+
+10:01.700 --> 10:06.000
+ than we think they are. And, you know, we behave according
+
+10:06.000 --> 10:09.000
+ to our accumulated assumptions, and we're using tiny sort
+
+10:09.000 --> 10:13.200
+ of data sets trained on the last 50, 100 years, and they turn
+
+10:13.200 --> 10:16.700
+ out to be horribly askew. And that's when we have our gray
+
+10:16.700 --> 10:21.900
+ swans and our black swans. So I'm much more on the sort
+
+10:21.900 --> 10:25.500
+ of, you know, reality is much less noble than we think side
+
+10:25.500 --> 10:28.800
+ of things. But it is nice to have very concrete things like
+
+10:28.800 --> 10:29.900
+ Bitcoin, that's for sure.
+
+10:30.200 --> 10:33.500
+ Oh, so you think so most of it is shaky ground, but there
+
+10:33.500 --> 10:36.200
+ are some things there's like islands of stoniness.
+
+10:36.900 --> 10:38.400
+ Yeah, Bitcoin is one of them.
+
+10:38.400 --> 10:40.000
+ That's a good way to put it.
+
+10:40.000 --> 10:42.700
+ Yeah, I mean, like look at the dollar system, not to pivot
+
+10:42.700 --> 10:46.400
+ this into the dollar right away, but the dollar is like
+
+10:46.400 --> 10:47.200
+ shaky ground.
+
+10:47.200 --> 10:50.600
+ It's the most who truly understands the dollar system.
+
+10:50.600 --> 10:55.000
+ I mean, the totality of it, the Euro dollar system, the
+
+10:55.000 --> 10:58.700
+ way that monetary policy interacts with the economy is
+
+10:58.800 --> 11:01.100
+ monetary issuance inflationary.
+
+11:01.100 --> 11:04.100
+ What's the relationship between unemployment and inflation?
+
+11:04.100 --> 11:06.600
+ Even policymakers don't understand these things.
+
+11:06.600 --> 11:08.600
+ Economists don't seem to understand them.
+
+11:08.600 --> 11:10.100
+ What is inflation?
+
+11:10.100 --> 11:11.100
+ How do you define inflation?
+
+11:11.100 --> 11:13.700
+ None of these things are really known or knowable.
+
+11:13.700 --> 11:17.100
+ So a lot of people kind of make a claim that there's a
+
+11:17.100 --> 11:20.300
+ lot of manipulation possible with the dollar with those
+
+11:20.300 --> 11:24.200
+ currencies. If you couple that with the fact that people
+
+11:24.200 --> 11:27.800
+ don't understand it, and yet there's claims that being
+
+11:27.800 --> 11:32.200
+ manipulated by centralized power, how do you bring those
+
+11:32.300 --> 11:33.700
+ two ideas together?
+
+11:33.900 --> 11:36.300
+ If no one understands that, how can you manipulate it?
+
+11:36.600 --> 11:39.700
+ I think what we don't understand are the long term consequences
+
+11:39.700 --> 11:41.600
+ of our structures.
+
+11:41.600 --> 11:46.400
+ So like the Fed's mandate to target unemployment and
+
+11:46.800 --> 11:51.700
+ steady, you know, exchange rates or low inflation, you
+
+11:51.700 --> 11:54.900
+ know, what we don't understand is okay, what is the result
+
+11:54.900 --> 11:57.000
+ of doing that continuously for 40 years?
+
+11:57.000 --> 11:59.200
+ What is the net effect of that?
+
+11:59.200 --> 12:02.700
+ What is the consequence of the long term accumulation of
+
+12:02.700 --> 12:06.200
+ debt and, you know, basement interest rates?
+
+12:06.200 --> 12:08.000
+ What is the net effect of that on society?
+
+12:08.000 --> 12:12.900
+ We might understand there's much short term features of
+
+12:12.900 --> 12:15.800
+ the system, but I think it's the longer term features
+
+12:15.800 --> 12:16.500
+ we don't understand.
+
+12:16.500 --> 12:20.600
+ Do you think there's like malevolent people with people
+
+12:20.600 --> 12:24.400
+ that don't have good intent in central banks like in the
+
+12:24.400 --> 12:29.800
+ system, you know, when you have centralized power in any
+
+12:29.800 --> 12:35.700
+ forms, it's susceptible to somebody hacking the system,
+
+12:35.900 --> 12:39.600
+ taking the power, and in the shadows, this is where conspiracy
+
+12:39.600 --> 12:40.900
+ theories come in, right?
+
+12:40.900 --> 12:48.900
+ In the shadows, be able to, you know, act out things that
+
+12:48.900 --> 12:51.200
+ have a lot of negative impacts on a large percent of the
+
+12:51.200 --> 12:54.600
+ population in greedy self interest.
+
+12:54.600 --> 12:55.900
+ Do you think there's people like that?
+
+12:55.900 --> 12:59.000
+ Or do you think fundamentally most people are good, even
+
+12:59.300 --> 13:03.200
+ those associated with the sort of central banking?
+
+13:03.800 --> 13:06.100
+ I mean, I don't villainize those people.
+
+13:06.200 --> 13:09.000
+ I think everyone is the hero of their own story, right?
+
+13:09.000 --> 13:12.300
+ So they all believe that their force are good in the world.
+
+13:12.300 --> 13:13.100
+ You have to.
+
+13:13.900 --> 13:15.100
+ Are there any true villains?
+
+13:15.100 --> 13:15.800
+ I don't think so.
+
+13:15.800 --> 13:20.000
+ I think they get socialized into a world where they believe
+
+13:20.000 --> 13:24.400
+ there's particular skills and their mandate is, you know,
+
+13:24.400 --> 13:25.600
+ what they should be doing.
+
+13:27.100 --> 13:31.400
+ I think they might be presumptuous or arrogant in some cases.
+
+13:33.400 --> 13:36.300
+ And, you know, I think it's more of a systemic issue where
+
+13:36.300 --> 13:41.700
+ you have a small handful of very homogenous types of people
+
+13:41.700 --> 13:45.500
+ with PhDs from the same institutions that are brought up
+
+13:45.500 --> 13:50.100
+ in the same cultural context that, you know, set policy and
+
+13:50.100 --> 13:52.700
+ wield a tremendous amount of control over society.
+
+13:53.500 --> 13:57.400
+ And I think they have this notion that you can tinker society.
+
+13:57.500 --> 14:00.500
+ You can play with a few key variables and tinker society
+
+14:00.500 --> 14:03.800
+ into a state that is desirable or good.
+
+14:04.200 --> 14:05.600
+ And that's what they're trying to do.
+
+14:06.500 --> 14:09.100
+ And I think the consequences of that can be pretty bad.
+
+14:09.500 --> 14:12.300
+ But no, I don't think it's born out of malevolence.
+
+14:12.900 --> 14:14.500
+ There's an interesting idea.
+
+14:14.500 --> 14:17.500
+ I think Michael Malas brought it up as a test whether you're
+
+14:17.500 --> 14:18.700
+ on the left or the right.
+
+14:21.200 --> 14:24.400
+ The question he asks, which is, do you think some people
+
+14:24.400 --> 14:25.600
+ are better than others?
+
+14:27.700 --> 14:30.400
+ If you say yes, he claims you're on the right.
+
+14:31.000 --> 14:34.700
+ If you start answering, if you start like saying a lot of
+
+14:34.700 --> 14:39.800
+ things, like you're on the left.
+
+14:39.900 --> 14:44.000
+ So if you start explaining yourself, well, it's a good term for it.
+
+14:44.000 --> 14:51.000
+ I was really, so in this test, I suppose I would be on the left
+
+14:51.000 --> 14:54.500
+ because I'm uncomfortable with the idea that some people are
+
+14:54.500 --> 14:59.200
+ better than others as a basic feeling, as a starting point in
+
+14:59.200 --> 15:00.500
+ the way you think about the world.
+
+15:00.500 --> 15:04.500
+ Because as we're talking about, everybody's a hero of their own
+
+15:04.500 --> 15:08.200
+ story. When you start to think some people are better than
+
+15:08.200 --> 15:15.000
+ others, as a starting axiom, it's like a slippery slope to
+
+15:15.000 --> 15:20.200
+ where you think you're way better than others.
+
+15:20.900 --> 15:25.700
+ And then you start to like, basically, it's okay to take
+
+15:25.700 --> 15:29.200
+ advantage of a large percent of the population for the greater
+
+15:29.200 --> 15:33.800
+ good. And then you go into Stalin mode and Hitler mode where
+
+15:33.800 --> 15:37.600
+ it's okay to murder a larger part of the population for the
+
+15:37.600 --> 15:41.100
+ greater good. So it's like, it's this very dangerous slippery
+
+15:41.100 --> 15:42.100
+ slope in my mind.
+
+15:42.100 --> 15:46.000
+ So I try to not, yeah, I was always uncomfortable with that
+
+15:46.000 --> 15:48.700
+ kind of test or even that kind of thought. And yes, the same
+
+15:48.700 --> 15:54.300
+ applies and suppose in government, in central banking is if
+
+15:54.300 --> 15:58.000
+ you think some people are better than others, applying your
+
+15:58.000 --> 16:03.100
+ idea of what is good can have large scale detrimental effects.
+
+16:03.700 --> 16:04.400
+ Of course.
+
+16:04.400 --> 16:04.900
+ Yeah.
+
+16:04.900 --> 16:09.900
+ I'm glad you didn't pose me the question. I mean, I think it
+
+16:09.900 --> 16:14.700
+ maybe not the left right axiom isn't the disjunction isn't the
+
+16:14.700 --> 16:20.200
+ way I would sort of put it. But you know, to me, it's just if
+
+16:20.200 --> 16:23.700
+ you reason in a consequentialist way, you know, that lends
+
+16:23.700 --> 16:27.300
+ itself to authoritarianism. Yeah, where whereby you think
+
+16:27.300 --> 16:30.500
+ you can shape society and only you can shape society in a
+
+16:30.500 --> 16:35.600
+ positive direction according to your, you know, specific objectives.
+
+16:35.600 --> 16:39.900
+ So let's step onto the land of sturdiness that is Bitcoin.
+
+16:39.900 --> 16:45.700
+ What is Bitcoin and in your view, what are, you know, the
+
+16:45.700 --> 16:48.600
+ principles, the philosophical foundations of Bitcoin?
+
+16:48.600 --> 16:54.100
+ Well, Bitcoin the term I think refers to two things specifically.
+
+16:54.100 --> 16:59.300
+ So one is the protocol for conveying value through a communications
+
+16:59.300 --> 17:03.100
+ channel. So just a set of rules that we collectively opt into
+
+17:03.100 --> 17:08.000
+ in order to transact online or just at a distance.
+
+17:08.000 --> 17:13.400
+ And then the other thing is the name of the asset, the sort of
+
+17:13.400 --> 17:17.900
+ monetary unit which circulates within the system and that always
+
+17:17.900 --> 17:20.700
+ confuse people a lot because it's like, well, you got uppercase
+
+17:20.700 --> 17:24.400
+ Bitcoin, lowercase Bitcoin, why didn't Satoshi just give them
+
+17:24.400 --> 17:28.600
+ different names? Like in Ethereum, you've got Ethereum, the system
+
+17:28.600 --> 17:31.900
+ and then Ether. Although people don't really talk about Ether very
+
+17:31.900 --> 17:37.100
+ much, but they, you know, chose to distinguish them. In Bitcoin,
+
+17:37.100 --> 17:41.600
+ for whatever reason, they're not distinct. So the two Bitcoins
+
+17:41.600 --> 17:45.800
+ get commingled all the time in the explanations. Did you find
+
+17:45.800 --> 17:48.600
+ that's a problem that confuses things? I mean, what's what's
+
+17:48.600 --> 17:51.100
+ really a distinction between the protocol and the currency?
+
+17:51.100 --> 17:55.700
+ Well, they are sometimes distinguished practically, like you can
+
+17:55.700 --> 17:59.600
+ transact with Bitcoin outside of the Bitcoin protocol, for instance.
+
+17:59.600 --> 18:06.100
+ So, you know, you can transact with Bitcoin on Ethereum or I have
+
+18:06.100 --> 18:10.300
+ Bitcoin on Opendime here. This would be a Bitcoin transaction.
+
+18:10.300 --> 18:13.000
+ It wouldn't settle on the Bitcoin network. Do you mind explaining
+
+18:13.000 --> 18:16.400
+ what you have on the table before us? Yeah, so I brought you some
+
+18:16.400 --> 18:20.700
+ presents. This is awesome. This isn't a bribe. This is just a proof
+
+18:20.700 --> 18:27.100
+ of concept. So this is basically a Bitcoin bearer instrument.
+
+18:27.100 --> 18:32.100
+ So I put a hundred bucks of Bitcoin on here. And to spend it,
+
+18:32.100 --> 18:35.100
+ you have to basically physically destroy part of the device.
+
+18:35.100 --> 18:38.600
+ You have to poke a hole and, you know, poke off one of the little
+
+18:38.600 --> 18:44.800
+ transistors on this. So it can only be spent once. And you can't
+
+18:44.800 --> 18:48.100
+ extract the private key from this device. So the private key was
+
+18:48.100 --> 18:52.600
+ generated on device, always stays on the device. So what it means
+
+18:52.600 --> 18:59.900
+ without breaking off, like a small part. So this basically is a way
+
+18:59.900 --> 19:06.100
+ to physically instantiate Bitcoin. So it's basically gold.
+
+19:06.100 --> 19:10.300
+ Yeah, effectively. So here. Thank you so much. This one's limited
+
+19:10.300 --> 19:15.100
+ edition. It's orange. So what is it called again? Opendime.
+
+19:15.100 --> 19:18.700
+ The point is, if you wanted to settle a Bitcoin transaction
+
+19:18.700 --> 19:22.800
+ instantly, the kind of same way that a cash transaction is instant
+
+19:22.800 --> 19:27.100
+ final settlement, right? You would do it with a device like this.
+
+19:27.100 --> 19:32.300
+ So if I was buying a house from you, you know, you might prefer
+
+19:32.300 --> 19:36.500
+ to do it with a physical bearer instrument as opposed to waiting
+
+19:36.500 --> 19:40.900
+ for confirmation on the Bitcoin blockchain. So the moment I hand
+
+19:40.900 --> 19:43.600
+ that over to you, goes in your possession, you're the owner.
+
+19:43.600 --> 19:47.700
+ There's no way for me to have retained the private key. Like I
+
+19:47.700 --> 19:50.400
+ could have created a Bitcoin paper wallet and given that to you,
+
+19:50.400 --> 19:54.100
+ but you have no assurance that I didn't copy down that, you know,
+
+19:54.100 --> 19:57.100
+ the key elsewhere. So this solves that problem.
+
+19:57.100 --> 20:03.100
+ So this is a physical instantiation of the Bitcoin transaction
+
+20:03.100 --> 20:04.800
+ outside the Bitcoin protocol.
+
+20:04.800 --> 20:05.400
+ That's right.
+
+20:05.400 --> 20:08.200
+ So this is, you're transacting the currency outside of the protocol.
+
+20:08.200 --> 20:13.000
+ So it's analog Bitcoin. We're running it analog, which I was like,
+
+20:13.000 --> 20:16.300
+ because Bitcoin is this immaterial thing. And so it's nice to have
+
+20:16.300 --> 20:17.500
+ physical totems.
+
+20:17.500 --> 20:20.600
+ How much does it cost to manufacture this, do you know?
+
+20:20.600 --> 20:22.300
+ Like 15 bucks or something.
+
+20:22.300 --> 20:27.100
+ So this is just kind of almost like a philosophical statement
+
+20:27.100 --> 20:33.900
+ versus something that's scalable for use. Like, you know, the point
+
+20:33.900 --> 20:35.900
+ of Bitcoin is to be in the digital space, right?
+
+20:35.900 --> 20:38.900
+ But this shows like Bitcoin can be anywhere.
+
+20:38.900 --> 20:40.200
+ It's useful for gifts.
+
+20:40.200 --> 20:44.600
+ But yeah, I mean, I don't know if it would be a suitable foundation
+
+20:44.600 --> 20:48.100
+ for a physical Bitcoin economy. In theory, these would be like
+
+20:48.100 --> 20:50.400
+ cash like instruments that you could use to transact.
+
+20:50.400 --> 20:52.400
+ Well, I just mean post apocalypse.
+
+20:52.400 --> 20:57.100
+ Yeah, yeah. But you still need to plug it into your laptop to
+
+20:57.100 --> 20:59.800
+ actually verify that there's coins on there.
+
+20:59.800 --> 21:01.800
+ So you still need the internet.
+
+21:01.800 --> 21:06.300
+ So I have to take your word for how much money is on here.
+
+21:06.300 --> 21:10.100
+ No, I mean, you can plug it into your laptop and check.
+
+21:10.100 --> 21:15.000
+ Yeah, but to transact, to extract Bitcoin from this, I need to break.
+
+21:15.000 --> 21:18.900
+ Yeah, you have to poke a hole through the little hole and that
+
+21:18.900 --> 21:21.400
+ renders it spendable, basically.
+
+21:21.400 --> 21:25.800
+ So, you know, that's protection against you spending it and then
+
+21:25.800 --> 21:27.500
+ representing that it's still loaded.
+
+21:27.500 --> 21:29.100
+ That's fascinating. Cool.
+
+21:29.100 --> 21:32.300
+ Yeah, so that the other thing I brought here, basically dice,
+
+21:32.300 --> 21:37.400
+ 12 sided, they don't have any Bitcoin on them.
+
+21:37.400 --> 21:41.200
+ So they just have a bunch of different critiques of Bitcoin on
+
+21:41.200 --> 21:44.900
+ each side. We'll go through them then.
+
+21:44.900 --> 21:45.700
+ This is awesome.
+
+21:45.700 --> 21:48.900
+ I don't know if we have time to do all 11 because there's one
+
+21:48.900 --> 21:50.700
+ with my funds logo on it.
+
+21:50.700 --> 21:55.600
+ But it's just basically a tongue in cheek joke that the critiques
+
+21:55.600 --> 21:58.300
+ of Bitcoin are so formulaic at this point that you can just
+
+21:58.300 --> 21:59.200
+ put them on dice.
+
+21:59.200 --> 22:01.800
+ Yeah, it's silly.
+
+22:01.800 --> 22:06.900
+ Well, some of them might be topics for interesting conversations.
+
+22:06.900 --> 22:10.100
+ Oh, yeah. We could even arrange the conversation that way.
+
+22:10.100 --> 22:11.700
+ You can roll the dice and see what you got.
+
+22:11.700 --> 22:12.600
+ All right.
+
+22:12.600 --> 22:17.400
+ But first, the philosophical foundations of Bitcoin.
+
+22:17.400 --> 22:21.500
+ Like, how do you see Bitcoin outside of just a basic protocol
+
+22:21.500 --> 22:22.700
+ and a basic currency?
+
+22:22.700 --> 22:27.400
+ It seems to be, like you said, it seems like sturdy ground.
+
+22:27.400 --> 22:28.400
+ So what do you mean by this?
+
+22:28.400 --> 22:28.600
+ Yeah.
+
+22:28.600 --> 22:29.200
+ Yeah.
+
+22:29.200 --> 22:32.000
+ So it's not just any protocol for moving value around.
+
+22:32.000 --> 22:33.100
+ It's not just any currency.
+
+22:33.100 --> 22:37.700
+ It's got specific rules and values that are embedded in it.
+
+22:37.700 --> 22:41.400
+ And this is an important point is that Bitcoin is the encoding
+
+22:41.400 --> 22:47.800
+ of certain values, which are often misunderstood or not acknowledged
+
+22:47.800 --> 22:48.500
+ necessarily.
+
+22:48.500 --> 22:52.600
+ And so it's sort of impregnated with values.
+
+22:52.600 --> 22:55.300
+ And what they are specifically is a topic of debate.
+
+22:55.300 --> 22:59.900
+ And there have been civil wars fought over the values inherent
+
+22:59.900 --> 23:00.500
+ in Bitcoin.
+
+23:00.500 --> 23:05.700
+ One of them was, should Bitcoin be this cheap, scalable, the base
+
+23:05.700 --> 23:10.400
+ layer, low fee payments system with an emphasis on P2P payments?
+
+23:10.400 --> 23:16.300
+ Or should it be more of this gold like digital commodity that
+
+23:16.300 --> 23:21.200
+ would eventually settle infrequently and mainly between institutions?
+
+23:21.200 --> 23:21.500
+ Right?
+
+23:21.500 --> 23:24.100
+ So that's fundamentally a conflict of visions.
+
+23:24.100 --> 23:25.000
+ Right?
+
+23:25.000 --> 23:30.500
+ So keep in mind that this is just one man's opinion.
+
+23:30.500 --> 23:31.600
+ I don't speak for Bitcoin.
+
+23:31.600 --> 23:32.500
+ Right?
+
+23:32.500 --> 23:38.000
+ So I would say the key number one value that's embedded in
+
+23:38.000 --> 23:41.300
+ Bitcoin is the notion of nondiscretionary monetary policy.
+
+23:41.300 --> 23:45.800
+ So algorithmic monetary policy as opposed to human based
+
+23:45.800 --> 23:46.700
+ monetary policy.
+
+23:46.700 --> 23:48.800
+ Satoshi was very clear about that.
+
+23:48.800 --> 23:52.900
+ Bitcoin is an alternative to modern central banking where you
+
+23:52.900 --> 23:57.700
+ have constant tweaking, constant intervention, which Satoshi felt
+
+23:57.700 --> 23:59.800
+ leads to credit bubbles and so on.
+
+23:59.800 --> 24:04.700
+ So Bitcoin proposes a completely nondiscretionary monetary
+
+24:04.700 --> 24:08.600
+ policy, sort of decays over time.
+
+24:08.600 --> 24:11.800
+ 50% of the coins were issued in the first four years and then
+
+24:11.800 --> 24:16.100
+ the next 25% in the next four years, then 12.5% in the next
+
+24:16.100 --> 24:18.800
+ four years until you get to 21 million units.
+
+24:18.800 --> 24:21.000
+ And none of those numbers really matter.
+
+24:21.000 --> 24:24.300
+ Like it could have been 25 million units and it could have
+
+24:24.300 --> 24:26.700
+ been a more aggressive slope or more gradual slope.
+
+24:26.700 --> 24:31.500
+ What matters is that this schedule was proposed even before
+
+24:31.500 --> 24:33.500
+ the code was public.
+
+24:33.500 --> 24:37.600
+ The schedule was proposed and then we all collectively agreed
+
+24:37.600 --> 24:38.300
+ to stick to it.
+
+24:38.300 --> 24:41.800
+ And that is kind of a first for monetary system.
+
+24:41.800 --> 24:45.600
+ I mean, gold kind of has that property, right?
+
+24:45.600 --> 24:49.300
+ Because the supply of gold above ground only really increases
+
+24:49.300 --> 24:53.700
+ at 1% to 2% a year. So it's sort of inhuman, which is a good
+
+24:53.700 --> 24:54.300
+ feature, right?
+
+24:54.300 --> 24:56.600
+ You don't want to give humans that much control over it.
+
+24:56.600 --> 25:02.500
+ Bitcoin is a much more, you know, fastidious approach to that.
+
+25:02.500 --> 25:06.600
+ It really is super concrete about what the supply schedule
+
+25:06.600 --> 25:09.600
+ is and the fact, crucially, that it can't change.
+
+25:09.600 --> 25:13.400
+ So we can't have a bailout of debtors.
+
+25:13.400 --> 25:17.900
+ Let's say a lot of people had debts denominated in Bitcoin
+
+25:17.900 --> 25:21.200
+ and we needed loose, accommodative monetary policy to bail them
+
+25:21.200 --> 25:22.700
+ out. That's not possible.
+
+25:22.700 --> 25:26.900
+ We couldn't have a jubilee denominated in Bitcoin because the
+
+25:26.900 --> 25:32.500
+ social contract we've all bought into and committed to is that
+
+25:32.500 --> 25:36.400
+ it's nondiscretionary. So that's sort of one of the first things.
+
+25:36.400 --> 25:41.700
+ And I think ultimately that comes back to basically a strong
+
+25:41.700 --> 25:46.600
+ respect for property rights because if we were to have unanticipated
+
+25:46.600 --> 25:51.000
+ inflation, let's say a really charismatic leader somehow commandeered
+
+25:51.000 --> 25:53.900
+ Bitcoin and convinced everyone that we should have 30 million units
+
+25:53.900 --> 25:58.800
+ and not 21 million, that would basically be dilutive on everybody
+
+25:58.800 --> 26:05.100
+ that held Bitcoin and had opted into the 21 million set of coins.
+
+26:05.100 --> 26:09.100
+ An additional 9 million unanticipated would have a dilutive effect
+
+26:09.100 --> 26:09.800
+ on everyone else.
+
+26:09.800 --> 26:13.000
+ And that would be a covert way of effectively stealing their
+
+26:13.000 --> 26:14.800
+ purchasing power through inflation.
+
+26:14.800 --> 26:16.200
+ Is that possible, that kind of thing?
+
+26:16.200 --> 26:20.700
+ I mean, what's the mechanism of Bitcoin that resists that kind of
+
+26:20.700 --> 26:21.500
+ charismatic leader?
+
+26:21.500 --> 26:26.700
+ Well, we've had people that have had a lot of influence in Bitcoin
+
+26:26.700 --> 26:30.200
+ in the past and they've tried to make changes to the protocol, not
+
+26:30.200 --> 26:36.100
+ as dramatic as that, but Bitcoiners have generally resisted those
+
+26:36.100 --> 26:41.100
+ individuals, institutions, and Bitcoiners have a good track record
+
+26:41.100 --> 26:44.200
+ of sort of staying true to those core values.
+
+26:44.200 --> 26:51.000
+ So you mentioned values and sticking to the monetary thing, but
+
+26:51.000 --> 26:52.000
+ there's bigger values.
+
+26:52.000 --> 26:56.600
+ There's almost like psychological values that are instilled in
+
+26:56.600 --> 27:01.100
+ Bitcoin. You make a point that Bitcoin for many is a vessel, quote,
+
+27:01.100 --> 27:04.300
+ for their expectations, hopes, and dreams.
+
+27:04.300 --> 27:11.000
+ Can the Bitcoin protocol support this kind of complexity of the
+
+27:11.000 --> 27:11.800
+ human condition?
+
+27:11.800 --> 27:17.200
+ So, like, there's ideas of freedom that seem to be spoken about.
+
+27:17.200 --> 27:23.300
+ There's a sort of ideas of, I mean, even love.
+
+27:23.300 --> 27:24.300
+ Yeah.
+
+27:24.300 --> 27:28.500
+ I mean, some people kind of use it as a meme, like, you know, Bitcoin
+
+27:28.500 --> 27:32.600
+ is love or something like that, you know, mostly to troll me because
+
+27:32.600 --> 27:33.800
+ I talk about love all the time.
+
+27:33.800 --> 27:39.900
+ But, you know, these bigger ideas than just the exchange of
+
+27:39.900 --> 27:40.500
+ currencies.
+
+27:40.500 --> 27:45.300
+ Yeah, I mean, Bitcoin itself is very simple, I would say.
+
+27:45.300 --> 27:50.400
+ Like, ultimately, it doesn't, you know, pretend to do very much.
+
+27:50.400 --> 27:52.200
+ It really just settles transactions.
+
+27:52.200 --> 27:57.900
+ But people do superimpose their own views on it, for sure.
+
+27:57.900 --> 28:05.100
+ And Bitcoin's qualities give rise to these perceptions of it having
+
+28:05.100 --> 28:09.900
+ censorship resistance or giving you transactional freedom or a measure
+
+28:09.900 --> 28:11.200
+ of transactional privacy.
+
+28:11.200 --> 28:18.400
+ So because anyone can operate a node and join the consensus process
+
+28:18.400 --> 28:22.900
+ and because mining is a competitive free market process, that means
+
+28:22.900 --> 28:28.100
+ that it's likely that you can't be censored by the miners.
+
+28:28.100 --> 28:30.000
+ So that means you have transactional freedom.
+
+28:30.000 --> 28:34.000
+ So you have these computer science technical features of the system
+
+28:34.000 --> 28:38.200
+ that cause it to have these political qualities, which is it's very
+
+28:38.200 --> 28:41.500
+ hard or impossible to censor a specific individual.
+
+28:41.500 --> 28:45.900
+ So it's interesting to see that flow.
+
+28:45.900 --> 28:50.400
+ So that's one of the core values, for sure, is the censorship resistance.
+
+28:50.400 --> 28:56.000
+ Then you have the fact that it's a cryptographic based system and you
+
+28:56.000 --> 28:59.500
+ can hold value in your brain by memorizing 12 words, for instance.
+
+28:59.500 --> 29:04.600
+ That gives it seizure resistance, which is, again, a political concept.
+
+29:04.600 --> 29:09.800
+ If you wanted to desert your jurisdiction with your wealth intact in your
+
+29:09.800 --> 29:15.400
+ brain, that cryptographic feature of the system, the fact that it's
+
+29:15.400 --> 29:20.100
+ built on public key cryptography and that you can encode a Bitcoin private
+
+29:20.100 --> 29:27.400
+ key in 12 words, that gives it this political salience that you're now
+
+29:27.400 --> 29:30.200
+ empowered relative to a despot, basically.
+
+29:30.200 --> 29:35.300
+ Yeah, I mean, there's so many beautiful concepts behind cryptocurrency,
+
+29:35.300 --> 29:40.800
+ behind Bitcoin, that stand for sort of freedom, some of the basic
+
+29:40.800 --> 29:42.300
+ things at the founding of this country.
+
+29:42.300 --> 29:48.500
+ The one thing I don't like personally behind Bitcoin and cryptocurrencies
+
+29:48.500 --> 29:52.700
+ that money is involved and it's like people's life savings sometimes are
+
+29:52.700 --> 30:01.100
+ involved, so there is naturally a kind of fear, a self preservation, like
+
+30:01.100 --> 30:07.400
+ instinctual kind of dogmatic thing that comes in where you're not the best
+
+30:07.400 --> 30:08.100
+ of human nature.
+
+30:08.100 --> 30:14.000
+ You stop being a George Washington and you lose touch of the foundational
+
+30:14.000 --> 30:17.100
+ principles, which I think are beautiful, just like the founding principles
+
+30:17.100 --> 30:17.800
+ of this country.
+
+30:17.800 --> 30:23.000
+ So that's just like, so I like staying on the level of like the
+
+30:23.000 --> 30:29.300
+ philosophy versus the level of like all my money is invested in Bitcoin
+
+30:29.300 --> 30:35.600
+ and that becomes very tricky territory to have principle discussions
+
+30:35.600 --> 30:37.300
+ about ideas.
+
+30:37.300 --> 30:39.500
+ Well, it's an interesting tension.
+
+30:39.500 --> 30:43.100
+ I try to stay balanced despite being very exposed to Bitcoin.
+
+30:43.100 --> 30:48.300
+ So let me ask the ridiculous question, just in case, who is Satoshi
+
+30:48.300 --> 30:50.300
+ Nakamoto and is it you?
+
+30:50.300 --> 30:51.100
+ We don't know.
+
+30:51.100 --> 30:59.800
+ It's probably not me because I was like 17 when Satoshi mounted Bitcoin,
+
+30:59.800 --> 31:04.700
+ 16, so unlikely and also not really a programmer.
+
+31:04.700 --> 31:09.500
+ So there's a lot of theories, but honestly, it's one of the greatest
+
+31:09.500 --> 31:13.300
+ mysteries of all time because even Bitcoiners that have been around
+
+31:13.300 --> 31:19.000
+ since day one, really, you know, people that were around before Bitcoin
+
+31:19.000 --> 31:21.700
+ came out, they're on the mailing list, they're active in the cypherpunk
+
+31:21.700 --> 31:26.400
+ community, you ask them and they sincerely will not know and they may
+
+31:26.400 --> 31:29.000
+ not even have a good guess as to who Satoshi is.
+
+31:29.000 --> 31:32.500
+ Is it important to know or is it like actually important not to know?
+
+31:32.500 --> 31:35.500
+ Do you think that's a feature or bug that you, we don't know?
+
+31:35.500 --> 31:39.700
+ Some people don't like the uncertainty, especially, you know, folks on
+
+31:39.700 --> 31:41.400
+ Wall Street, they really want to know.
+
+31:41.400 --> 31:48.200
+ And if you read the Coinbase S1, their disclosure pre IPO, that's a risk
+
+31:48.200 --> 31:50.200
+ factor that Satoshi could come back.
+
+31:50.200 --> 31:56.000
+ So the risk management crowd wants to know because they want to know
+
+31:56.000 --> 32:00.400
+ if maybe Satoshi had, you know, undesirable political opinions or
+
+32:00.400 --> 32:02.700
+ something that would forever taint the project.
+
+32:02.700 --> 32:06.800
+ Do you think they were just trolling with that risk with Satoshi's
+
+32:06.800 --> 32:11.800
+ identity being a risk factor or is that like actual, like, was there
+
+32:11.800 --> 32:14.800
+ an actual meeting and a discussion of that being a risk factor?
+
+32:14.800 --> 32:18.300
+ I think in the risk factor sections of the prospectuses, it's really
+
+32:18.300 --> 32:21.500
+ just the lawyers doing a total brain dump to cover absolutely everything
+
+32:21.500 --> 32:22.200
+ they can think of.
+
+32:22.200 --> 32:23.200
+ So it's just lawyers.
+
+32:23.200 --> 32:29.000
+ It's not like, you know, it's like, I think Elon was somewhere in the
+
+32:29.000 --> 32:34.800
+ legal documents for SpaceX mentioned that like Earth governments have
+
+32:34.800 --> 32:36.300
+ no jurisdiction on Mars.
+
+32:36.300 --> 32:39.800
+ Like they threw that in there and it feels like, yeah, that could be
+
+32:39.800 --> 32:42.300
+ lawyers, but it could also just be Elon trolling.
+
+32:42.300 --> 32:42.700
+ Yeah.
+
+32:42.700 --> 32:48.900
+ So I wonder if it's like the Coinbase folks trolling or if it's lawyers.
+
+32:48.900 --> 32:51.000
+ I hope it's the trolling, not the lawyers.
+
+32:51.000 --> 32:56.800
+ The Coinbase leadership, they're not as big trolls as Elon is, but I
+
+32:56.800 --> 33:01.100
+ mean, it's a risk for sure from their perspective because let's say
+
+33:01.100 --> 33:04.300
+ Satoshi returned, doesn't seem likely, and let's say they decided to
+
+33:04.300 --> 33:07.300
+ spend all their coins, which also seems very unlikely.
+
+33:07.300 --> 33:14.100
+ That's, you know, rumored to be or estimates have it at 1 to 1.2
+
+33:14.100 --> 33:19.900
+ million Bitcoin, which is like 50, 60 billion dollars worth.
+
+33:19.900 --> 33:23.300
+ So some people consider that to be a risk.
+
+33:23.300 --> 33:27.600
+ You think it's, you know, this is almost like a topic of leadership.
+
+33:27.600 --> 33:32.400
+ It doesn't feel like anybody, any one person speaks for Bitcoin.
+
+33:32.400 --> 33:38.200
+ There's not even like prominent figures.
+
+33:38.200 --> 33:41.800
+ Like you have for like Ethereum, you have Vitalik Buterin.
+
+33:41.800 --> 33:48.800
+ There's a lot of like top minds talking about it like yourself, but
+
+33:48.800 --> 33:50.200
+ it's not like one or two.
+
+33:50.200 --> 33:53.100
+ Do you think again, is that a feature or a bug?
+
+33:53.100 --> 33:58.400
+ Like, do you think for effective, for Bitcoin to effectively have a
+
+33:58.400 --> 34:04.700
+ role in society that like is as large or larger than the dollar, there
+
+34:04.700 --> 34:10.100
+ needs to be like leadership that represents it, almost like democratic
+
+34:10.100 --> 34:10.600
+ kind of thing.
+
+34:10.600 --> 34:14.600
+ Well, that's a real counterintuitive point because most Bitcoiners,
+
+34:14.600 --> 34:18.300
+ including myself, would say, no, the lack of leadership is a great
+
+34:18.300 --> 34:22.700
+ quality to have because if you have a charismatic leader and a foundation
+
+34:22.700 --> 34:26.700
+ or corporation that controls it, maybe they can control the features
+
+34:26.700 --> 34:31.400
+ of the protocol and maybe they can expropriate holders of the coin
+
+34:31.400 --> 34:37.500
+ or, you know, build in an endowment that pays them off and gives them
+
+34:37.500 --> 34:40.700
+ privileged access to the units of the coin, for instance.
+
+34:40.700 --> 34:45.900
+ So, you know, we call people that have privileged access to the money
+
+34:45.900 --> 34:50.800
+ spigot Cantillon insiders, which is there is this economist that pointed
+
+34:50.800 --> 34:55.500
+ out that as you know, I think Richard Cantillon that as money enters
+
+34:55.500 --> 34:58.200
+ the economy has an uneven flow, right?
+
+34:58.200 --> 35:04.400
+ So you see this in last last decade or so before that to the consequence
+
+35:04.400 --> 35:07.900
+ of money printing in this country is people that own financial assets
+
+35:07.900 --> 35:10.300
+ made a lot of money and people that didn't didn't.
+
+35:10.300 --> 35:15.900
+ So you see that Cantillon insider Cantillon outsider effect and it's
+
+35:15.900 --> 35:20.300
+ the same with a cryptocurrency in many other alternative cryptocurrencies
+
+35:20.300 --> 35:24.900
+ that do have these corporate entities or these leaders and CEOs.
+
+35:24.900 --> 35:29.700
+ They're able to make specific decisions regarding the protocol and the
+
+35:29.700 --> 35:33.100
+ currency of the asset the benefit themselves the cronies, etc.
+
+35:33.100 --> 35:35.800
+ And that's not a good feature to have.
+
+35:35.800 --> 35:41.800
+ I mean, it does grant you, you know, the ability to orchestrate decisions
+
+35:41.800 --> 35:43.500
+ in a faster and more efficient way.
+
+35:43.500 --> 35:47.800
+ But long term what you're trying to optimize for if you're creating
+
+35:47.800 --> 35:52.000
+ a money is monetary credibility and soundness so you don't really
+
+35:52.000 --> 35:55.600
+ want it changing all that often and you don't want to have the
+
+35:55.600 --> 35:59.900
+ appearance of you know, these elites that are engaging in rent
+
+35:59.900 --> 36:01.000
+ seeking or anything like that.
+
+36:01.000 --> 36:04.500
+ So there's definitely people that are influential in Bitcoin this
+
+36:04.500 --> 36:07.600
+ core developers that people listen to because it's I would say
+
+36:07.600 --> 36:11.600
+ meritocracy largely and they're sort of self appointed high priest
+
+36:11.600 --> 36:12.300
+ of the protocol.
+
+36:12.300 --> 36:16.600
+ I write a lot about Bitcoin people listen to me but is a completely
+
+36:16.600 --> 36:18.800
+ free market of ideas, right?
+
+36:18.800 --> 36:21.800
+ I don't have any authority within Bitcoin whatsoever.
+
+36:21.800 --> 36:30.300
+ I'm just a scribbler, you know, so was Aristotle and Socrates and Nietzsche.
+
+36:30.300 --> 36:36.300
+ Okay, at the high level, technically, how does Bitcoin work?
+
+36:36.300 --> 36:38.800
+ Is there interesting things you could say?
+
+36:38.800 --> 36:39.900
+ Like what are miners?
+
+36:39.900 --> 36:41.900
+ What are nodes, full nodes?
+
+36:41.900 --> 36:42.800
+ What are blocks?
+
+36:42.800 --> 36:44.500
+ What's proof of work?
+
+36:44.500 --> 36:50.300
+ Is there a nice way to wrap up a clean explanation of the protocol?
+
+36:50.300 --> 36:54.300
+ Oh man, that could be a whole, that could be another five hours.
+
+36:54.300 --> 36:58.000
+ Is there interesting because I'd love to talk to you about block
+
+36:58.000 --> 37:02.700
+ size wars and sort of the politics psychology, the principles
+
+37:02.700 --> 37:04.600
+ around that, but sort of building up to that.
+
+37:04.600 --> 37:06.900
+ It'd be nice to talk about how the thing works.
+
+37:06.900 --> 37:07.800
+ That's fair.
+
+37:07.800 --> 37:12.000
+ I mean, and the block size wars are really fascinating discussion
+
+37:12.000 --> 37:16.000
+ of how governance debates intersect with technical features.
+
+37:16.000 --> 37:23.000
+ So I guess we can, yeah, so basically at the highest possible
+
+37:23.000 --> 37:26.400
+ level, Bitcoin is a globally shared.
+
+37:26.400 --> 37:32.500
+ It's really a replicated ledger that any participant that wants to
+
+37:32.500 --> 37:37.200
+ be an equal peer on that ledger, they want to maintain that ledger
+
+37:37.200 --> 37:40.700
+ and they want to stay up to date with the global state of the ledger.
+
+37:40.700 --> 37:46.700
+ And really any monetary system is just a ledger with physical
+
+37:46.700 --> 37:52.600
+ cash. We benefit from the physical instantiation of the money.
+
+37:52.600 --> 37:54.400
+ So the physics is the ledger.
+
+37:54.400 --> 37:55.800
+ The physics is a ledger, right?
+
+37:55.800 --> 37:57.200
+ Same with gold, right?
+
+37:57.200 --> 37:59.100
+ You can't just produce new units of gold.
+
+37:59.100 --> 38:05.600
+ So we trust that gold atoms are hard to create, although not
+
+38:05.600 --> 38:06.600
+ impossible, right?
+
+38:06.600 --> 38:12.300
+ You could find a bunch of protons and whatever is the adjacent
+
+38:12.300 --> 38:15.200
+ metal and create gold atoms would be expensive.
+
+38:15.200 --> 38:18.600
+ And the same with dollars, you know, we trust that it's hard to
+
+38:18.600 --> 38:19.400
+ counterfeit a dollar.
+
+38:19.400 --> 38:23.900
+ So we trust the physical analog world to help maintain the state
+
+38:23.900 --> 38:28.400
+ of that ledger with digital money, like, you know, the money in
+
+38:28.400 --> 38:30.500
+ your bank account, your checking account.
+
+38:30.500 --> 38:34.800
+ We basically trust our institutions or banking institutions to
+
+38:34.800 --> 38:36.600
+ keep a faithful record.
+
+38:36.600 --> 38:39.800
+ And then ultimately we trust the central bank to administer that
+
+38:39.800 --> 38:42.600
+ system. So there's kind of a handful of nodes.
+
+38:42.600 --> 38:46.600
+ In Bitcoin, we trust that the economic incentives of the system
+
+38:46.600 --> 38:49.200
+ are carefully poised, basically.
+
+38:49.200 --> 38:54.500
+ So we trust that the free market mining competition will lead to
+
+38:54.500 --> 38:58.800
+ the miners assembling transactions into blocks in a faithful and
+
+38:58.800 --> 39:03.000
+ correct way, and that we are going to converge on a global state
+
+39:03.000 --> 39:04.500
+ of the ledger continuously.
+
+39:04.500 --> 39:08.300
+ Which updates every 10 minutes or so with some variance.
+
+39:08.300 --> 39:12.700
+ And then the miners aren't the sole entities that control the
+
+39:12.700 --> 39:17.000
+ system. To really participate, if you are a merchant and you're
+
+39:17.000 --> 39:20.700
+ accepting Bitcoin, you really want to run your own full node and
+
+39:20.700 --> 39:22.500
+ check the whole history of transactions.
+
+39:22.500 --> 39:26.100
+ Sort of something like, I want to say, five to six hundred million
+
+39:26.100 --> 39:28.100
+ transactions that have ever occurred on Bitcoin.
+
+39:28.100 --> 39:33.100
+ So full node contains all the transactions ever transacted on
+
+39:33.100 --> 39:34.800
+ the Bitcoin blockchain.
+
+39:34.800 --> 39:39.300
+ And that's, I saw it's like 200 gigs or something like that.
+
+39:39.300 --> 39:41.400
+ Like 350, something like that.
+
+39:41.400 --> 39:45.600
+ It's doable on a regular consumer laptop and that is going to be
+
+39:45.600 --> 39:47.700
+ really key later on in the discussion.
+
+39:47.700 --> 39:53.000
+ But so, you know, that's really the ultimate trust models.
+
+39:53.000 --> 39:55.700
+ First of all, we trust that the miners that assemble transactions
+
+39:55.700 --> 39:59.900
+ into blocks and they are the archivists, you know, they inscribe
+
+39:59.900 --> 40:03.700
+ those transactions onto the ledger and they have an economic
+
+40:03.700 --> 40:06.100
+ incentive to sort of behave correctly because they're getting
+
+40:06.100 --> 40:07.700
+ paid in no units of Bitcoin.
+
+40:07.700 --> 40:09.600
+ That's part of it.
+
+40:09.600 --> 40:13.900
+ But then really you are also, you're not fully trusting them.
+
+40:13.900 --> 40:16.500
+ You're actually, if you want to run a node, you replay every
+
+40:16.500 --> 40:19.900
+ single transaction in the history of Bitcoin from the beginning
+
+40:19.900 --> 40:23.300
+ to the current day and you arrive at the present state that way.
+
+40:23.300 --> 40:27.400
+ So you don't really have to trust too many people or entities.
+
+40:27.400 --> 40:31.800
+ You can validate the correctness that all the rules have been
+
+40:31.800 --> 40:34.800
+ followed, that all the Bitcoins that were created were done so in
+
+40:34.800 --> 40:39.900
+ the valid way, that the inflation rate was adhered to and that
+
+40:39.900 --> 40:44.000
+ there's no covert inflation, you know, that if you're spending
+
+40:44.000 --> 40:49.000
+ 50 units of Bitcoin, you had that Bitcoin to spend in the first
+
+40:49.000 --> 40:54.100
+ place. So it's sort of delicately poised between node operators
+
+40:54.100 --> 40:58.500
+ who, you know, engage in this validity checking kind of anti
+
+40:58.500 --> 41:01.700
+ counterfeiting checking and then also the miners which are an
+
+41:01.700 --> 41:06.400
+ industrial entity and they basically produce block space and
+
+41:06.400 --> 41:08.500
+ assemble transactions in a box.
+
+41:08.500 --> 41:12.900
+ And everybody, so the miners are incentivized to not mess with
+
+41:12.900 --> 41:15.300
+ the system because they're getting value from the system.
+
+41:15.300 --> 41:20.200
+ So if they mess with it, it's going to decrease the value of
+
+41:20.200 --> 41:23.100
+ their physical work investment.
+
+41:23.100 --> 41:27.500
+ Yeah, so they have to incur a real physical cost to produce a
+
+41:27.500 --> 41:28.100
+ block, right?
+
+41:28.100 --> 41:34.200
+ So right now you get 6.25 Bitcoins in a block at a minimum
+
+41:34.200 --> 41:35.900
+ and then maybe some fees as well.
+
+41:35.900 --> 41:38.400
+ How hard is it to produce a block now?
+
+41:38.400 --> 41:39.600
+ Well, challenging.
+
+41:39.600 --> 41:44.800
+ I mean, you need, so 6.25 Bitcoins and a Bitcoin is worth
+
+41:44.800 --> 41:46.400
+ $55,000 or so.
+
+41:46.400 --> 41:50.700
+ So it's probably going to cost you about that amount to produce
+
+41:50.700 --> 41:54.400
+ it because it's a free market competition and miners have
+
+41:54.400 --> 41:56.100
+ very thin margins.
+
+41:56.100 --> 42:00.500
+ So it's like if I auction off a dollar, you would pay up to
+
+42:00.500 --> 42:02.700
+ $0.99 to buy that dollar from me.
+
+42:02.700 --> 42:05.000
+ Exactly what happens with miners.
+
+42:05.000 --> 42:10.700
+ They're, you know, basically competing for the right to obtain
+
+42:10.700 --> 42:11.600
+ new units of money.
+
+42:11.600 --> 42:15.200
+ So logically speaking, they would pay up to the value of that
+
+42:15.200 --> 42:16.500
+ money in order to earn it.
+
+42:16.500 --> 42:21.300
+ And for people who are not familiar, the process of mining is solving
+
+42:21.300 --> 42:25.000
+ a difficult cryptographic problem that's a computational problem.
+
+42:25.000 --> 42:28.600
+ I would say it's not like people sometimes represent it as like
+
+42:28.600 --> 42:30.000
+ a really challenging puzzle.
+
+42:30.000 --> 42:32.600
+ Like the individual puzzle is very simple.
+
+42:32.600 --> 42:35.400
+ Like you can do it with pen and paper if you wanted, you know,
+
+42:35.400 --> 42:36.600
+ like SHA256.
+
+42:36.600 --> 42:40.100
+ It's just that you're searching through the big mathematical
+
+42:40.100 --> 42:42.300
+ space to find the needle in the haystack.
+
+42:42.300 --> 42:45.900
+ You're just doing lots of iterations of a simple puzzle.
+
+42:45.900 --> 42:47.100
+ It's just brute force.
+
+42:47.100 --> 42:50.700
+ Hence, like the stability of the whole idea of the proof of work.
+
+42:50.700 --> 42:55.100
+ If there was a shortcut, it wouldn't work.
+
+42:55.100 --> 42:56.100
+ Exactly.
+
+42:56.100 --> 42:59.700
+ So let's hope nobody solves SHA256.
+
+42:59.700 --> 43:03.300
+ Yeah, there's a lot of discussions from the quantum computing
+
+43:03.300 --> 43:08.400
+ space, but everybody I talked to, all my colleagues that work in
+
+43:08.400 --> 43:13.800
+ quantum computers say that we're quite a long way away from that
+
+43:13.800 --> 43:18.700
+ being an issue in cryptography and certainly an issue in cryptocurrency.
+
+43:18.700 --> 43:22.200
+ That should have been one of the sides on these dice.
+
+43:22.200 --> 43:25.100
+ It should have been quantum because I don't think it is.
+
+43:25.100 --> 43:26.600
+ I forgot to put it on this edition.
+
+43:26.600 --> 43:28.900
+ People should check out Scott Aaronson.
+
+43:28.900 --> 43:36.000
+ There's a lot of people that are kind of selling quantum snake
+
+43:36.000 --> 43:38.700
+ oil, so you should be very careful.
+
+43:38.700 --> 43:43.100
+ I think it is a really exciting space that might change the
+
+43:43.100 --> 43:49.000
+ world in the next decade or hundred, couple hundred years, especially
+
+43:49.000 --> 43:53.400
+ for simulating quantum mechanical systems, but in quantum machine
+
+43:53.400 --> 43:56.300
+ learning, people should check out TensorFlow quantum.
+
+43:56.300 --> 43:59.900
+ It's a nice way to sort of educate yourself about the space.
+
+43:59.900 --> 44:05.100
+ And actually, if you're pragmatically minded to, you know, through
+
+44:05.100 --> 44:09.200
+ software engineering, explore how you simulate quantum circuits, how
+
+44:09.200 --> 44:11.000
+ you run machine learning on those quantum circuits.
+
+44:11.000 --> 44:15.600
+ The main point that Scott makes, Scott Aaronson, people should check
+
+44:15.600 --> 44:21.100
+ out his blog too, is that like, there's not yet a single machine
+
+44:21.100 --> 44:25.800
+ learning application that doesn't do almost as well in a classical
+
+44:25.800 --> 44:31.100
+ computer. So it doesn't like, yes, the dream is somehow quantum
+
+44:31.100 --> 44:35.600
+ computers will change the nature of artificial intelligence, but
+
+44:35.600 --> 44:42.900
+ there's yet to be an actual algorithm or problem set or data set
+
+44:42.900 --> 44:44.400
+ where that would be the case.
+
+44:44.400 --> 44:47.600
+ So skepticism is good in this space.
+
+44:47.600 --> 44:53.100
+ Anyway, that said, so you kind of explained how Bitcoin works.
+
+44:53.100 --> 44:58.400
+ You also wrote a blog post recently, giving a shout out to the
+
+44:58.400 --> 45:00.500
+ new book, The Block Size Wars.
+
+45:00.500 --> 45:03.500
+ What is a block size?
+
+45:03.500 --> 45:05.800
+ What are the block size wars?
+
+45:05.800 --> 45:10.900
+ It's history, it's importance, it's philosophical foundations.
+
+45:10.900 --> 45:15.300
+ Yeah, I mean, Bitcoin, at this point, we have our own civil wars,
+
+45:15.300 --> 45:19.000
+ if you're wondering about how politically intense it gets.
+
+45:19.000 --> 45:21.200
+ It's currently not hot, it's cold.
+
+45:21.200 --> 45:23.400
+ Oh yeah, we're in a detente right now.
+
+45:23.400 --> 45:28.600
+ There's no tanks or missiles, at least not yet, hopefully.
+
+45:28.600 --> 45:31.000
+ It can get a little violent, I guess.
+
+45:31.000 --> 45:35.000
+ I think one of the Bitcoin core developers or one of the participants
+
+45:35.000 --> 45:37.500
+ in the war got swatted at one point.
+
+45:37.500 --> 45:39.000
+ What swatted means?
+
+45:39.000 --> 45:43.000
+ When someone does a fake phone call saying that you're holding
+
+45:43.000 --> 45:46.000
+ someone hostage at your house and the SWAT team goes,
+
+45:46.000 --> 45:48.000
+ it's pretty scary.
+
+45:48.000 --> 45:51.000
+ Internet warfare tactic, yeah.
+
+45:51.000 --> 45:56.000
+ But the block size war, I would say, effectively ended, although
+
+45:56.000 --> 46:00.000
+ we're definitely going to have more civil wars in Bitcoin, for sure.
+
+46:00.000 --> 46:05.500
+ But basically, the core argument was a technical one on its surface,
+
+46:05.500 --> 46:09.000
+ but a very deep political one at its core.
+
+46:09.000 --> 46:13.000
+ The technical question is, how many megabytes should be
+
+46:13.000 --> 46:15.000
+ in each successive block?
+
+46:15.000 --> 46:20.000
+ So, Satoshi basically installed a limit of one megabyte per block.
+
+46:20.000 --> 46:22.000
+ So, we should backtrack.
+
+46:22.000 --> 46:26.500
+ There was no limit in the beginning, and it seems like Satoshi,
+
+46:26.500 --> 46:32.000
+ what is this, 2000, the war started in what, 2017 or something like that?
+
+46:32.000 --> 46:33.000
+ I don't know.
+
+46:33.000 --> 46:38.000
+ 2015 was when the battle cries began.
+
+46:38.000 --> 46:40.000
+ What was the first battle in the Civil War?
+
+46:40.000 --> 46:41.000
+ I don't remember.
+
+46:41.000 --> 46:45.000
+ But, Satoshi, I don't know if you can comment on it.
+
+46:45.000 --> 46:49.000
+ Why did Satoshi set the limit to one megabyte all of a sudden,
+
+46:49.000 --> 46:55.000
+ almost secretively, and in the beginning, there was no limit whatsoever?
+
+46:55.000 --> 46:58.000
+ Yeah, I mean, we can get into, and people have spent thousands of hours
+
+46:58.000 --> 47:03.000
+ poring over Satoshi's writings to find which side Satoshi was on,
+
+47:03.000 --> 47:08.000
+ and you can find, like any textual exegesis, you can find evidence
+
+47:08.000 --> 47:10.000
+ for either side, right?
+
+47:10.000 --> 47:13.000
+ But, yeah, I mean, effectively, when Bitcoin was launched,
+
+47:13.000 --> 47:17.000
+ there was a block size, because if you made a block over a certain size
+
+47:17.000 --> 47:22.000
+ with the first edition of the code, it would have crashed nodes.
+
+47:22.000 --> 47:25.000
+ But then, yeah, in 2010, Satoshi added the one megabyte limit
+
+47:25.000 --> 47:31.000
+ in a covert way with no comments or anything, and that stuck, basically.
+
+47:31.000 --> 47:37.000
+ And then Bitcoin blocks filled up, and people that had been socialized
+
+47:37.000 --> 47:41.000
+ into this vision of Bitcoin as an effectively free transactional network
+
+47:41.000 --> 47:45.000
+ were like, why pay a transaction fee if you're not at congestion?
+
+47:45.000 --> 47:50.000
+ If the block isn't full, the miner will mine your transaction for free, right?
+
+47:50.000 --> 47:56.000
+ And people that had been brought up in that status quo from 2009
+
+47:56.000 --> 48:00.000
+ to kind of 2015, they noticed the block started to fill up,
+
+48:00.000 --> 48:03.000
+ and they're like, okay, well, let's just remove this arbitrary limit, right?
+
+48:03.000 --> 48:05.000
+ What could possibly be the harm?
+
+48:05.000 --> 48:11.000
+ And then a whole other faction said, no, you need to cap the data
+
+48:11.000 --> 48:15.000
+ throughput of the system, because if you increase it,
+
+48:15.000 --> 48:19.000
+ it's going to be highly exclusionary, and ultimately, regular folks
+
+48:19.000 --> 48:21.000
+ are not going to be able to run a full node.
+
+48:21.000 --> 48:26.000
+ So there's a fixed number, there's a fixed frequency of blocks,
+
+48:26.000 --> 48:30.000
+ and so if you want to increase the number of transactions per second,
+
+48:30.000 --> 48:32.000
+ you want to increase the size of the block.
+
+48:32.000 --> 48:36.000
+ So huge blocks allow you to shove in a lot of transactions.
+
+48:36.000 --> 48:40.000
+ Small blocks don't, so that's what you mean like constraining the system.
+
+48:40.000 --> 48:46.000
+ So what's the benefit of a small block size where transactions,
+
+48:46.000 --> 48:50.000
+ you can squeeze in only a small number of transactions,
+
+48:50.000 --> 48:53.000
+ and what's the benefit of a huge block size where you can squeeze in
+
+48:53.000 --> 48:55.000
+ a lot of transactions?
+
+48:55.000 --> 48:58.000
+ Well, it really comes down to the way that you think about the system.
+
+48:58.000 --> 49:02.000
+ So a lot of people wanted Bitcoin to be Visa scale,
+
+49:02.000 --> 49:06.000
+ so to have blocks sufficiently large that you could accommodate
+
+49:06.000 --> 49:10.000
+ a Visa level scale of transactions.
+
+49:10.000 --> 49:13.000
+ Which is many orders of magnitude more transactions.
+
+49:13.000 --> 49:17.000
+ That's right, I mean, preposterously larger in terms of data throughput.
+
+49:17.000 --> 49:21.000
+ Then, you know, Bitcoin offers up, or at least it used to,
+
+49:21.000 --> 49:26.000
+ 144 megabytes of space per day, and your average transaction is 350 bytes.
+
+49:26.000 --> 49:31.000
+ So, you know, you could, at a push, do four or five hundred thousand
+
+49:31.000 --> 49:34.000
+ transactions a day, which is not many.
+
+49:34.000 --> 49:38.000
+ So if you wanted to get to Visa scale, you'd have to increase blocks
+
+49:38.000 --> 49:41.000
+ obnoxiously large.
+
+49:41.000 --> 49:45.000
+ The small blockers claimed that this would overwhelm the ability
+
+49:45.000 --> 49:49.000
+ of any regular person to ingest that data and stay current
+
+49:49.000 --> 49:54.000
+ at the state of the ledger, to replay all those transactions
+
+49:54.000 --> 49:57.000
+ to ensure that the protocol rules were valid.
+
+49:57.000 --> 50:01.000
+ So basically, the small blocker contention is that you eliminate
+
+50:01.000 --> 50:05.000
+ the trustlessness of the system by pushing a ton of data
+
+50:05.000 --> 50:09.000
+ through the system, because only one or two industrial heavy duty
+
+50:09.000 --> 50:14.000
+ nodes would ever be able to run the protocol at that point.
+
+50:14.000 --> 50:18.000
+ So, by the way, in the Civil War, the two sides, as you're calling them,
+
+50:18.000 --> 50:23.000
+ the small blocker and the big blocker sides.
+
+50:23.000 --> 50:27.000
+ And so that takes us back to the thing that you mentioned,
+
+50:27.000 --> 50:30.000
+ that a regular computer could be a node.
+
+50:30.000 --> 50:36.000
+ And with big blocks, that's no longer going to be the case.
+
+50:36.000 --> 50:41.000
+ So just the number of transactions is going to blow up the size
+
+50:41.000 --> 50:45.000
+ of the blockchain that every full node has to store.
+
+50:45.000 --> 50:50.000
+ And so then, as opposed to a regular mom and pop type of node,
+
+50:50.000 --> 50:53.000
+ you're going to have to have data centers.
+
+50:53.000 --> 50:56.000
+ So they're going to have to be owned by large organizations.
+
+50:56.000 --> 50:58.000
+ There's going to have to be very few of them.
+
+50:58.000 --> 51:03.000
+ And that's how you centralize the control over this whole operation.
+
+51:03.000 --> 51:08.000
+ So the big blocker, yes, it allows you to be Visa
+
+51:08.000 --> 51:12.000
+ and do a huge number of transactions, but it becomes centralized.
+
+51:12.000 --> 51:16.000
+ And then the small blocker is, you cannot actually do kind of
+
+51:16.000 --> 51:21.000
+ merchant style transactions, but you get the decentralized benefit.
+
+51:21.000 --> 51:24.000
+ Well, I don't even think the big blocker approach would allow you
+
+51:24.000 --> 51:28.000
+ to be Visa, frankly, because there's effectively one node
+
+51:28.000 --> 51:30.000
+ in the Visa network, right?
+
+51:30.000 --> 51:34.000
+ So you don't really need to maintain this peer to peer architecture at all.
+
+51:34.000 --> 51:38.000
+ And the amount of data you'd have to push through the network
+
+51:38.000 --> 51:41.000
+ to reach Visa scale is a really preposterous amount.
+
+51:41.000 --> 51:46.000
+ And we have now evidence for what happens when you try and scale up
+
+51:46.000 --> 51:49.000
+ as a blockchain and do 10 million transactions a day,
+
+51:49.000 --> 51:51.000
+ which is still not Visa scale, right?
+
+51:51.000 --> 51:58.000
+ I've seen what it's like to operate those nodes, and it's not pretty.
+
+51:58.000 --> 52:04.000
+ So there are totally genuine computer science physical limits,
+
+52:04.000 --> 52:07.000
+ because it's a broadcast network.
+
+52:07.000 --> 52:10.000
+ Everyone has to be aware of every transaction.
+
+52:10.000 --> 52:15.000
+ And that model, which gives you the trustlessness, the nice guarantees
+
+52:15.000 --> 52:18.000
+ where everyone's an equal peer on the network, everyone has audited
+
+52:18.000 --> 52:23.000
+ the full history of the transactions, that model falls apart under stress.
+
+52:23.000 --> 52:29.000
+ So the small blocker vision is that ultimately you would scale
+
+52:29.000 --> 52:32.000
+ in a layered approach, with the base layer transactions
+
+52:32.000 --> 52:36.000
+ being settlement style transactions, and payments happening
+
+52:36.000 --> 52:38.000
+ at the other layers, basically.
+
+52:38.000 --> 52:43.000
+ Is that universally agreed upon, or to a large degree agreed upon
+
+52:43.000 --> 52:47.000
+ that the small blockers have won in this debate?
+
+52:47.000 --> 52:51.000
+ Where would you put the current state of affairs?
+
+52:51.000 --> 52:54.000
+ There was a wave of competing Bitcoin implementations,
+
+52:54.000 --> 52:57.000
+ starting in 2015 with Bitcoin XT.
+
+52:57.000 --> 53:02.000
+ Actually Gavin Andresen, who was the guy that Satoshi handed the reins to
+
+53:02.000 --> 53:07.000
+ when Satoshi left, Gavin supported this large block proposal.
+
+53:07.000 --> 53:13.000
+ And so that didn't achieve consensus, and then there was Bitcoin Unlimited.
+
+53:13.000 --> 53:18.000
+ And then later on, there was a genuine hard fork,
+
+53:18.000 --> 53:23.000
+ where the large blockers couldn't push through their proposals
+
+53:23.000 --> 53:27.000
+ on Bitcoin itself, so they just created a competing version of Bitcoin.
+
+53:27.000 --> 53:30.000
+ So by the way, maybe you can comment on, but sort of hard fork
+
+53:30.000 --> 53:35.000
+ versus a soft fork, a hard fork is when it's no longer compatible.
+
+53:35.000 --> 53:37.000
+ What's the right way to put it?
+
+53:37.000 --> 53:41.000
+ They can't operate on the same blockchain, with the same protocol.
+
+53:41.000 --> 53:47.000
+ Yeah, so there's a few ways to define them, and it gets controversial as well.
+
+53:47.000 --> 53:54.000
+ One way to define it as a hard fork is an expansion of protocol rules,
+
+53:54.000 --> 53:57.000
+ and a soft fork is a shrinking of protocol rules.
+
+53:57.000 --> 53:59.000
+ That's an interesting way to find it.
+
+53:59.000 --> 54:02.000
+ It's not very intuitive, so I don't like that way.
+
+54:02.000 --> 54:06.000
+ Another way is that a hard fork is backwards incompatible,
+
+54:06.000 --> 54:09.000
+ whereas a soft fork is, in theory, backwards compatible.
+
+54:09.000 --> 54:15.000
+ So in August 2017, basically the large blockers had had enough,
+
+54:15.000 --> 54:18.000
+ and they said, we're going to hard fork Bitcoin,
+
+54:18.000 --> 54:22.000
+ we're going to create a clone, an alternative version of Bitcoin,
+
+54:22.000 --> 54:27.000
+ which has a shared history as Bitcoin itself,
+
+54:27.000 --> 54:31.000
+ but you completely fork it and you create a new future.
+
+54:31.000 --> 54:35.000
+ But everybody that had a balance on Bitcoin at the time
+
+54:35.000 --> 54:39.000
+ also had a balance on the alternative coin, Bitcoin Cash.
+
+54:39.000 --> 54:43.000
+ That's what it's called, Bitcoin Cash is the hard fork.
+
+54:43.000 --> 54:45.000
+ That was one of them, there were more actually.
+
+54:45.000 --> 54:50.000
+ What the heck is Bitcoin Satoshi's vision BSV, Bitcoin SV?
+
+54:50.000 --> 54:53.000
+ So this is all talking about increasing the max,
+
+54:53.000 --> 54:56.000
+ the limit of the block size more and more and more.
+
+54:56.000 --> 54:59.000
+ Yeah, that was one of the changes they wanted to push through.
+
+54:59.000 --> 55:02.000
+ But BSV was a fork of Bitcoin Cash.
+
+55:02.000 --> 55:04.000
+ Hard fork of Bitcoin Cash.
+
+55:04.000 --> 55:09.000
+ Yeah, so now there's multiple big blocker blockchains floating around.
+
+55:09.000 --> 55:11.000
+ What are your thoughts about them?
+
+55:11.000 --> 55:14.000
+ These are pretty popular, sorry to interrupt.
+
+55:14.000 --> 55:15.000
+ Are they popular?
+
+55:15.000 --> 55:17.000
+ I mean, if you look at the metrics, they're not.
+
+55:17.000 --> 55:19.000
+ And they don't trade,
+
+55:19.000 --> 55:23.000
+ I think each trade below 1% of the value of Bitcoin itself.
+
+55:23.000 --> 55:26.000
+ I see, so measuring popularity is like how much they actually,
+
+55:26.000 --> 55:29.000
+ oh, value of the frequency of trade.
+
+55:29.000 --> 55:32.000
+ Oh, no, no, I mean, they do like a fair number of transactions,
+
+55:32.000 --> 55:37.000
+ but there's no way to know that that is genuine or just contrived.
+
+55:37.000 --> 55:42.000
+ So ultimately, the true measure I think in my mind is just where the market
+
+55:42.000 --> 55:46.000
+ prices these protocols relative to Bitcoin,
+
+55:46.000 --> 55:48.000
+ because that's like a prediction market.
+
+55:48.000 --> 55:52.000
+ If Bitcoin Cash was being priced at 50% of Bitcoin,
+
+55:52.000 --> 55:58.000
+ you could say the market has given it a 50% chance of unseating Bitcoin, right?
+
+55:58.000 --> 56:01.000
+ But both Bitcoin Cash and Bitcoin SV,
+
+56:01.000 --> 56:04.000
+ which was a hard fork from Bitcoin Cash itself,
+
+56:04.000 --> 56:08.000
+ are well, I believe at this point, well below 1% of the value of Bitcoin.
+
+56:08.000 --> 56:12.000
+ And in like the ranking of different cryptocurrencies,
+
+56:12.000 --> 56:14.000
+ what is it, Bitcoin, Ethereum?
+
+56:14.000 --> 56:17.000
+ Is Ethereum in value second?
+
+56:17.000 --> 56:18.000
+ Yes, number two.
+
+56:18.000 --> 56:21.000
+ And then Bitcoin Cash is in the top five, right?
+
+56:21.000 --> 56:23.000
+ But it's just a fast drop off?
+
+56:23.000 --> 56:27.000
+ You know, I haven't checked lately, but I think it's reached kind of morbidity.
+
+56:27.000 --> 56:30.000
+ You know, it doesn't really have much traction.
+
+56:30.000 --> 56:32.000
+ The blocks aren't full.
+
+56:32.000 --> 56:34.000
+ So the whole value proposition was, you know,
+
+56:34.000 --> 56:38.000
+ we will get all this merchant adoption if we increase the block size.
+
+56:38.000 --> 56:40.000
+ That just didn't materialize.
+
+56:40.000 --> 56:44.000
+ In my view, they had a flawed vision of how adoption works
+
+56:44.000 --> 56:48.000
+ and what blockchain should optimize for.
+
+56:48.000 --> 56:51.000
+ Maybe you get a Bitcoin Cash supporter on the show,
+
+56:51.000 --> 56:53.000
+ they'll give you a different answer.
+
+56:53.000 --> 56:55.000
+ But yeah, full disclosure, you know, I have my sympathies.
+
+56:55.000 --> 56:59.000
+ And I think the small blockers won that skirmish for sure.
+
+56:59.000 --> 57:02.000
+ So at this time, there's no merchant adoption and so on.
+
+57:02.000 --> 57:06.000
+ So it's kind of its vision, the whole reason for existence,
+
+57:06.000 --> 57:08.000
+ at least for now, hasn't materialized.
+
+57:08.000 --> 57:13.000
+ And so that's an indication as possible that, well,
+
+57:13.000 --> 57:18.000
+ it's a sign that perhaps that's the wrong way to accomplish the scalability.
+
+57:18.000 --> 57:20.000
+ Well, you know, first of all,
+
+57:20.000 --> 57:24.000
+ I think the layered scaling model is definitely, definitely correct.
+
+57:24.000 --> 57:27.000
+ I mean, that's absolutely the way these things have to work,
+
+57:27.000 --> 57:29.000
+ given the constraints of blockchains.
+
+57:29.000 --> 57:32.000
+ What is the layered scaling model?
+
+57:32.000 --> 57:36.000
+ It's really how all payment systems scale, blockchain or otherwise.
+
+57:36.000 --> 57:38.000
+ And I think a lot of people don't understand this,
+
+57:38.000 --> 57:43.000
+ is that there is no equivalent to scaling of the base layer
+
+57:43.000 --> 57:45.000
+ in the regular payment space.
+
+57:45.000 --> 57:47.000
+ That totally doesn't happen.
+
+57:47.000 --> 57:48.000
+ All of them are built on layers.
+
+57:48.000 --> 57:52.000
+ So Visa is like the fifth layer in the payment stack
+
+57:52.000 --> 57:55.000
+ that ultimately depends on these utility scale settlement systems,
+
+57:55.000 --> 58:01.000
+ like Fedwire, CHIPS, ACH, basically interbank settlement systems.
+
+58:01.000 --> 58:07.000
+ So you've got these slow moving but high assurance settlement systems.
+
+58:07.000 --> 58:11.000
+ Fedwire is probably the number one, you know, like when you send a wire,
+
+58:11.000 --> 58:13.000
+ that's using the Fedwire system typically.
+
+58:13.000 --> 58:18.000
+ On top of that, you know, you have banks and then you have payment processors,
+
+58:18.000 --> 58:21.000
+ and then you build up these layers and layers and layers,
+
+58:21.000 --> 58:24.000
+ and then you have these fast payments, you know, Venmo PayPal,
+
+58:24.000 --> 58:27.000
+ credit, debit, Visa, you name it.
+
+58:27.000 --> 58:30.000
+ Those payments are not final when they occur.
+
+58:30.000 --> 58:36.000
+ You know, a credit card transaction will not be final for 90 to 120 days.
+
+58:36.000 --> 58:42.000
+ So you've decoupled the payment, the financial message, and the settlement.
+
+58:42.000 --> 58:43.000
+ Those are distinct concepts.
+
+58:43.000 --> 58:46.000
+ And the settlement happens on a deferred basis.
+
+58:46.000 --> 58:51.000
+ So that's how you get scalability, is you have lots and lots of messages,
+
+58:51.000 --> 58:54.000
+ but they don't settle for a long time.
+
+58:54.000 --> 58:58.000
+ They might settle on a net basis, on an end of day basis.
+
+58:58.000 --> 59:00.000
+ But so that's really how it works.
+
+59:00.000 --> 59:04.000
+ And then you have Fedwire where your average transaction is in the millions of dollars,
+
+59:04.000 --> 59:07.000
+ and there's only a few hundred thousand transactions a day.
+
+59:07.000 --> 59:09.000
+ It's sort of an interbank settlement network.
+
+59:09.000 --> 59:15.000
+ So that's my vision for how I think Bitcoin will develop too.
+
+59:15.000 --> 59:20.000
+ Bitcoin itself on the base layer is the slow moving high assurance final settlement network,
+
+59:20.000 --> 59:25.000
+ where if you're sending money to the other side of the globe to someone you don't trust,
+
+59:25.000 --> 59:29.000
+ where you want that payment to be final in a short period of time,
+
+59:29.000 --> 59:33.000
+ and both counterparties know it's final, then you would use that.
+
+59:33.000 --> 59:37.000
+ But if you wanted to buy coffee, you could do it on a second layer.
+
+59:37.000 --> 59:39.000
+ Lightning would be one way.
+
+59:39.000 --> 59:41.000
+ There's a bunch of side chains now.
+
+59:41.000 --> 59:46.000
+ Or you could use a more centralized solution if you wanted.
+
+59:46.000 --> 59:50.000
+ It's kind of a profound idea that in the space of transactions,
+
+59:50.000 --> 59:53.000
+ when you're buying coffee or buying anything really from a merchant
+
+59:53.000 --> 59:57.000
+ or exchanging goods and all those kinds of things,
+
+59:57.000 --> 1:00:04.000
+ that most of the time, like basic honest behavior, human behavior,
+
+1:00:04.000 --> 1:00:09.000
+ which it does appear that most of our societies is based on the fact that we're all,
+
+1:00:09.000 --> 1:00:15.000
+ most of us are honest, is like stuff is not going to go wrong when you do the transaction.
+
+1:00:15.000 --> 1:00:19.000
+ And you only need like the base layer, whether it's Bitcoin,
+
+1:00:19.000 --> 1:00:24.000
+ whether it's, I forget the terms you use for the credit card version,
+
+1:00:24.000 --> 1:00:33.000
+ but you need that just to verify, just to like resolve any disagreements or shady shit.
+
+1:00:33.000 --> 1:00:34.000
+ Yeah.
+
+1:00:34.000 --> 1:00:37.000
+ And that's a really rare occurrence.
+
+1:00:37.000 --> 1:00:43.000
+ So it's okay for that to be handled in a small block debate,
+
+1:00:43.000 --> 1:00:48.000
+ handled at a rate that's much, much lower than the rate of the transactions.
+
+1:00:48.000 --> 1:00:52.000
+ That's a really interesting idea that when we spend money,
+
+1:00:52.000 --> 1:00:57.000
+ we didn't actually exchange the money most of the time.
+
+1:00:57.000 --> 1:01:01.000
+ Yeah, most of the time you're not getting final settlement when you do a transaction.
+
+1:01:01.000 --> 1:01:08.000
+ And oftentimes that causes, there's pluses and minuses on the plus side of huge efficiency
+
+1:01:08.000 --> 1:01:12.000
+ if you use a credit network like Visa, but it's in the name credit, right?
+
+1:01:12.000 --> 1:01:15.000
+ Visa is extending you credit, right?
+
+1:01:15.000 --> 1:01:18.000
+ They're kind of guaranteeing your reputation to the merchant.
+
+1:01:18.000 --> 1:01:20.000
+ But fraud happens all the time, right?
+
+1:01:20.000 --> 1:01:25.000
+ There's always fraud because you have this reversibility, right?
+
+1:01:25.000 --> 1:01:30.000
+ And so you can engage in fraud against the merchant.
+
+1:01:30.000 --> 1:01:34.000
+ If you have a final settlement, there's no possibility for fraud.
+
+1:01:34.000 --> 1:01:37.000
+ So that's one reason merchants kind of like accepting Bitcoin
+
+1:01:37.000 --> 1:01:44.000
+ because once you receive an inbound Bitcoin payment and you deliver some good or service,
+
+1:01:44.000 --> 1:01:46.000
+ that payment can't be reversed.
+
+1:01:46.000 --> 1:01:52.000
+ But frankly, most of the transactions we undertake on a daily basis
+
+1:01:52.000 --> 1:01:56.000
+ do not require the strong assurances of final settlement.
+
+1:01:56.000 --> 1:01:58.000
+ There's one exception, which is physical cash.
+
+1:01:58.000 --> 1:02:02.000
+ With physical cash or the open dime, a cash like product,
+
+1:02:02.000 --> 1:02:05.000
+ you actually are getting final settlement.
+
+1:02:05.000 --> 1:02:14.000
+ But most online banking transactions, most P2P digital wallet transactions
+
+1:02:14.000 --> 1:02:18.000
+ in the dollar system, they're not really final at all.
+
+1:02:18.000 --> 1:02:21.000
+ You mentioned Lightning, Lightning Network.
+
+1:02:21.000 --> 1:02:24.000
+ What is it? What are your thoughts on it?
+
+1:02:24.000 --> 1:02:27.000
+ And what are your thoughts about any kind of alternatives?
+
+1:02:27.000 --> 1:02:34.000
+ So Lightning is one potential payment solution built on top of Bitcoin
+
+1:02:34.000 --> 1:02:38.000
+ where you have different assurances, different transactional assurances,
+
+1:02:38.000 --> 1:02:41.000
+ but ultimately it's very proximate to the base layer.
+
+1:02:41.000 --> 1:02:44.000
+ So if something goes wrong, you can always basically settle to the base layer.
+
+1:02:44.000 --> 1:02:45.000
+ Just layer two.
+
+1:02:45.000 --> 1:02:48.000
+ Yeah, layer two, you could say.
+
+1:02:48.000 --> 1:02:52.000
+ And basically the intuition is it's kind of like opening a bar tab.
+
+1:02:52.000 --> 1:02:57.000
+ So you go to the bar and you might drink a dozen beers over the course of the night,
+
+1:02:57.000 --> 1:03:00.000
+ maybe half a dozen.
+
+1:03:00.000 --> 1:03:02.000
+ And well, I guess nobody goes to the bar these days,
+
+1:03:02.000 --> 1:03:05.000
+ but let's say you did.
+
+1:03:05.000 --> 1:03:09.000
+ You open a tab and at the end of the night you settle up once.
+
+1:03:09.000 --> 1:03:14.000
+ You're not necessarily paying each time you get another beer.
+
+1:03:14.000 --> 1:03:15.000
+ So it's the same idea.
+
+1:03:15.000 --> 1:03:19.000
+ You're opening a channel, an ongoing relationship with your counterparty.
+
+1:03:19.000 --> 1:03:22.000
+ And so Lightning has you open a channel with the counterparty
+
+1:03:22.000 --> 1:03:26.000
+ and you're sort of sending back and forth these cryptographic commitments saying,
+
+1:03:26.000 --> 1:03:29.000
+ you know, I agree to send you some Bitcoin,
+
+1:03:29.000 --> 1:03:31.000
+ but you don't necessarily settle each time you make a transaction.
+
+1:03:31.000 --> 1:03:35.000
+ So you can do hundreds of thousands of transactions in a channel.
+
+1:03:35.000 --> 1:03:38.000
+ The other thing Lightning proposes is saying, okay, well,
+
+1:03:38.000 --> 1:03:41.000
+ now that we have channels established,
+
+1:03:41.000 --> 1:03:44.000
+ what if we interlocked a number of channels together?
+
+1:03:44.000 --> 1:03:48.000
+ So if you and I have a channel and, you know, me and my buddy have a channel,
+
+1:03:48.000 --> 1:03:53.000
+ my buddy can now pay you because you have a relationship through me basically.
+
+1:03:53.000 --> 1:03:58.000
+ And so Lightning is this network, this overlay network that sits on top of Bitcoin
+
+1:03:58.000 --> 1:04:03.000
+ and allows people to transact in a much faster and less frictional way
+
+1:04:03.000 --> 1:04:08.000
+ without the need for Bitcoin's kind of slow periodic settlement,
+
+1:04:08.000 --> 1:04:12.000
+ assuming that everything sort of goes well.
+
+1:04:12.000 --> 1:04:14.000
+ Do you see any downsides to this?
+
+1:04:14.000 --> 1:04:17.000
+ Like, have you seen flaws in the whole system from a security perspective,
+
+1:04:17.000 --> 1:04:20.000
+ from a scaling perspective, any of that?
+
+1:04:20.000 --> 1:04:23.000
+ Or is Lightning working well?
+
+1:04:23.000 --> 1:04:24.000
+ It works.
+
+1:04:24.000 --> 1:04:25.000
+ I use it.
+
+1:04:25.000 --> 1:04:29.000
+ When I initially sold those dice, I sold them on Lightning.
+
+1:04:29.000 --> 1:04:33.000
+ I was one of the first merchants to use Lightning back in the day,
+
+1:04:33.000 --> 1:04:35.000
+ the first edition of the dice.
+
+1:04:35.000 --> 1:04:37.000
+ So people could buy these dice somewhere?
+
+1:04:37.000 --> 1:04:39.000
+ Well, they used to be able to.
+
+1:04:39.000 --> 1:04:41.000
+ I haven't made a new edition recently.
+
+1:04:41.000 --> 1:04:43.000
+ They're very scarce and very special.
+
+1:04:43.000 --> 1:04:45.000
+ They're like physical NFTs.
+
+1:04:45.000 --> 1:04:47.000
+ Physical NFTs.
+
+1:04:47.000 --> 1:04:48.000
+ Yeah.
+
+1:04:48.000 --> 1:04:51.000
+ I mean, the flaw with Lightning is really that you, you know,
+
+1:04:51.000 --> 1:04:53.000
+ and this can be remedied in a number of ways,
+
+1:04:53.000 --> 1:04:55.000
+ but you have to kind of prefund these channels.
+
+1:04:55.000 --> 1:04:59.000
+ So it's a weird concept to have to inject liquidity into a channel
+
+1:04:59.000 --> 1:05:02.000
+ in order to accept a payment, you know.
+
+1:05:02.000 --> 1:05:06.000
+ So I'm sure those user experience problems can be solved,
+
+1:05:06.000 --> 1:05:10.000
+ but it's still in a state of relative immaturity.
+
+1:05:10.000 --> 1:05:12.000
+ So we'll see.
+
+1:05:12.000 --> 1:05:18.000
+ In terms of other ideas that are sidechains or soft forks of Bitcoin,
+
+1:05:18.000 --> 1:05:22.000
+ you've mentioned something about Schnorr and Taproot.
+
+1:05:22.000 --> 1:05:25.000
+ What are your thoughts about this update to Bitcoin
+
+1:05:25.000 --> 1:05:30.000
+ in terms of its promise to improve privacy and scaling and so on?
+
+1:05:30.000 --> 1:05:33.000
+ And what other things are you interested, excited about
+
+1:05:33.000 --> 1:05:36.000
+ in terms of the development of Bitcoin?
+
+1:05:36.000 --> 1:05:38.000
+ Well, Schnorr and Taproot,
+
+1:05:38.000 --> 1:05:43.000
+ that's the first new protocol upgrade since SegWit in 2017,
+
+1:05:43.000 --> 1:05:49.000
+ which was what laid the groundwork for Lightning to be developed, basically.
+
+1:05:49.000 --> 1:05:52.000
+ Schnorr and Taproot is really the first protocol change
+
+1:05:52.000 --> 1:05:55.000
+ in three, almost four years now.
+
+1:05:55.000 --> 1:06:00.000
+ So we're very excited about it.
+
+1:06:00.000 --> 1:06:03.000
+ I mean, is there something interesting to say technically
+
+1:06:03.000 --> 1:06:06.000
+ about what are the things it's actually going to improve?
+
+1:06:06.000 --> 1:06:10.000
+ And maybe on the politics side,
+
+1:06:10.000 --> 1:06:15.000
+ bringing a protocol change on Bitcoin,
+
+1:06:15.000 --> 1:06:17.000
+ what does that actually involve?
+
+1:06:17.000 --> 1:06:19.000
+ Yeah, I mean, it's a huge deal because the last time
+
+1:06:19.000 --> 1:06:21.000
+ we tried to make a change to the protocol,
+
+1:06:21.000 --> 1:06:23.000
+ we had a whole civil war over it,
+
+1:06:23.000 --> 1:06:28.000
+ and it was incredibly difficult to get SegWit activated in 2017.
+
+1:06:28.000 --> 1:06:31.000
+ And it took all this brinksmanship and threats
+
+1:06:31.000 --> 1:06:35.000
+ and all these campaigns, and it was this whole thing.
+
+1:06:35.000 --> 1:06:37.000
+ Luckily, I think things have quieted down
+
+1:06:37.000 --> 1:06:39.000
+ and there's much more consensus that Schnorr and Taproot
+
+1:06:39.000 --> 1:06:43.000
+ is a good change to Bitcoin, and everyone generally supports it.
+
+1:06:43.000 --> 1:06:46.000
+ But everyone kind of has PTSD over the last time.
+
+1:06:46.000 --> 1:06:48.000
+ When we tried to change Bitcoin.
+
+1:06:48.000 --> 1:06:50.000
+ And so we're sort of really dithering
+
+1:06:50.000 --> 1:06:52.000
+ over how we actually want to implement it.
+
+1:06:52.000 --> 1:06:56.000
+ So it's taking forever because we're trying to set the protocol
+
+1:06:56.000 --> 1:06:58.000
+ for how do you change Bitcoin itself.
+
+1:06:58.000 --> 1:07:01.000
+ And all of our assumptions went out the window last time.
+
+1:07:01.000 --> 1:07:05.000
+ So we're trying to reset and decide what is a legitimate way
+
+1:07:05.000 --> 1:07:07.000
+ to institute a change to Bitcoin.
+
+1:07:07.000 --> 1:07:09.000
+ So that's actually the big question right now.
+
+1:07:09.000 --> 1:07:11.000
+ It's not, should we implement these changes?
+
+1:07:11.000 --> 1:07:13.000
+ We basically all agree that we should.
+
+1:07:13.000 --> 1:07:16.000
+ It's a meta question is, what's the valid way
+
+1:07:16.000 --> 1:07:18.000
+ to implement new changes to Bitcoin?
+
+1:07:18.000 --> 1:07:21.000
+ What's a way that is scalable in the long term
+
+1:07:21.000 --> 1:07:24.000
+ and will last and people will consider credible?
+
+1:07:24.000 --> 1:07:26.000
+ Even if this one isn't controversial at all.
+
+1:07:26.000 --> 1:07:28.000
+ So that's where we're at.
+
+1:07:28.000 --> 1:07:31.000
+ We're basically debating over how do we implement this change
+
+1:07:31.000 --> 1:07:33.000
+ that we all want.
+
+1:07:33.000 --> 1:07:36.000
+ To get a feeling of how slow Bitcoin governance is
+
+1:07:36.000 --> 1:07:38.000
+ and how deliberate it is,
+
+1:07:38.000 --> 1:07:40.000
+ everybody collectively wants the change.
+
+1:07:40.000 --> 1:07:44.000
+ But we haven't fully agreed on how we're going to put it into Bitcoin.
+
+1:07:44.000 --> 1:07:47.000
+ So it's a classic sort of Bitcoin situation.
+
+1:07:47.000 --> 1:07:51.000
+ But what it is, I mean, Schnorr is an alternative signature scheme.
+
+1:07:51.000 --> 1:07:53.000
+ I think it was encumbered by a patent.
+
+1:07:53.000 --> 1:07:57.000
+ And it had only just been unencumbered
+
+1:07:57.000 --> 1:07:59.000
+ when Satoshi created Bitcoin, I believe.
+
+1:07:59.000 --> 1:08:02.000
+ It's a better signature scheme than Elliptic Curves,
+
+1:08:02.000 --> 1:08:06.000
+ which is what, than ECDSA, which is what Bitcoin uses.
+
+1:08:06.000 --> 1:08:11.000
+ And so it's been long enough that we now trust it.
+
+1:08:11.000 --> 1:08:14.000
+ Kind of in cryptography, it's meant to be Lindy.
+
+1:08:14.000 --> 1:08:17.000
+ You want to test it over time,
+
+1:08:17.000 --> 1:08:19.000
+ and then it's considered safe to use.
+
+1:08:19.000 --> 1:08:21.000
+ So Schnorr has been around for long enough
+
+1:08:21.000 --> 1:08:25.000
+ that we've decided to rip out ECDSA and insert Schnorr,
+
+1:08:25.000 --> 1:08:27.000
+ which is just a different signature scheme,
+
+1:08:27.000 --> 1:08:29.000
+ which is more efficient.
+
+1:08:29.000 --> 1:08:31.000
+ And it has better properties.
+
+1:08:31.000 --> 1:08:33.000
+ Like if you want to do a multi signature transaction
+
+1:08:33.000 --> 1:08:36.000
+ where many people collectively sign
+
+1:08:36.000 --> 1:08:38.000
+ in order to permission a spend,
+
+1:08:38.000 --> 1:08:42.000
+ that would be more efficient in a bytes sense
+
+1:08:42.000 --> 1:08:44.000
+ than ECDSA, for instance.
+
+1:08:44.000 --> 1:08:46.000
+ So it's pretty incremental.
+
+1:08:46.000 --> 1:08:53.000
+ And then Taproot is all about having transactional conditions
+
+1:08:53.000 --> 1:08:58.000
+ that are sort of withheld from final entry onto the blockchain.
+
+1:08:58.000 --> 1:09:07.000
+ So it's kind of a way to have more private conditional transactions on Bitcoin.
+
+1:09:07.000 --> 1:09:11.000
+ So both of them, I would say, are incremental changes.
+
+1:09:11.000 --> 1:09:15.000
+ Is this an over exaggeration that Schnorr and Taproot
+
+1:09:15.000 --> 1:09:17.000
+ might improve privacy and scaling,
+
+1:09:17.000 --> 1:09:20.000
+ which is like at the high level things that people mention?
+
+1:09:20.000 --> 1:09:24.000
+ Is that just like a dramatic way of trying to frame
+
+1:09:24.000 --> 1:09:27.000
+ what's fundamentally an incremental improvement?
+
+1:09:27.000 --> 1:09:29.000
+ Yes, but incremental is the word, right?
+
+1:09:29.000 --> 1:09:32.000
+ We're not going to get an order of magnitude enhancement
+
+1:09:32.000 --> 1:09:34.000
+ to either privacy or scaling,
+
+1:09:34.000 --> 1:09:37.000
+ but we will get a considerable enhancement.
+
+1:09:37.000 --> 1:09:40.000
+ But privacy and scaling are actually two sides of the same coin
+
+1:09:40.000 --> 1:09:42.000
+ because you get more transactional privacy
+
+1:09:42.000 --> 1:09:45.000
+ by removing data from the ledger
+
+1:09:45.000 --> 1:09:49.000
+ so that there's less metadata for people to surveil and analyze.
+
+1:09:49.000 --> 1:09:51.000
+ And that's also how you scale
+
+1:09:51.000 --> 1:09:56.000
+ by compressing and being really space efficient with transactions.
+
+1:09:56.000 --> 1:09:58.000
+ And the more parsimonious you are,
+
+1:09:58.000 --> 1:10:04.000
+ the more economically dense each byte that everyone has to retain on the ledger is.
+
+1:10:04.000 --> 1:10:09.000
+ And so those are very closely allied concepts.
+
+1:10:09.000 --> 1:10:16.000
+ So do you mind if we go through some potential criticisms of Bitcoin?
+
+1:10:16.000 --> 1:10:22.000
+ Totally. I spent the last five years tackling these every day.
+
+1:10:22.000 --> 1:10:24.000
+ Are the dice the same?
+
+1:10:24.000 --> 1:10:26.000
+ Those two are the same, yeah. There are three editions.
+
+1:10:26.000 --> 1:10:31.000
+ So let's go with the dice.
+
+1:10:31.000 --> 1:10:33.000
+ Silk Road. What does that mean?
+
+1:10:33.000 --> 1:10:36.000
+ Silk Road. Classic. Classic situation.
+
+1:10:36.000 --> 1:10:40.000
+ So that was the darknet marketplace set up by Ross Albrecht
+
+1:10:40.000 --> 1:10:42.000
+ in the early days of Bitcoin.
+
+1:10:42.000 --> 1:10:45.000
+ That's one of the first killer apps for Bitcoin
+
+1:10:45.000 --> 1:10:50.000
+ was being the payments network behind this darknet marketplace
+
+1:10:50.000 --> 1:10:53.000
+ where you'd go to buy drugs and things.
+
+1:10:53.000 --> 1:10:55.000
+ And so that became associated with Bitcoin,
+
+1:10:55.000 --> 1:10:58.000
+ if you remember the press coverage from back then.
+
+1:10:58.000 --> 1:11:02.000
+ But over time that faded and it became less of a critique.
+
+1:11:02.000 --> 1:11:06.000
+ So like the critique is that Bitcoin is something you would use
+
+1:11:06.000 --> 1:11:10.000
+ for illegal activity, for drugs, for crimes, all those kinds of things,
+
+1:11:10.000 --> 1:11:15.000
+ as opposed to for any kind of legitimate transactions and merchant transactions.
+
+1:11:15.000 --> 1:11:18.000
+ And today Bitcoin settles $10 billion a day
+
+1:11:18.000 --> 1:11:22.000
+ and the vast, vast majority of it is completely legitimate.
+
+1:11:22.000 --> 1:11:25.000
+ It's just a useful alternative system.
+
+1:11:25.000 --> 1:11:28.000
+ But back then a huge fraction of all Bitcoin transactions
+
+1:11:28.000 --> 1:11:32.000
+ were related to the basically illicit marketplaces.
+
+1:11:32.000 --> 1:11:36.000
+ And if you're just tuning in, this incredible tall sighted guy
+
+1:11:36.000 --> 1:11:41.000
+ has 11 common criticisms of Bitcoin that Nick,
+
+1:11:41.000 --> 1:11:44.000
+ in a genius way, has put together.
+
+1:11:44.000 --> 1:11:47.000
+ Maybe you could do a couple more.
+
+1:11:47.000 --> 1:11:52.000
+ It was Satoshi something, Satoshi Coins.
+
+1:11:52.000 --> 1:11:56.000
+ Satoshi Coins, we touched on that earlier in the episode.
+
+1:11:56.000 --> 1:12:01.000
+ What if Satoshi returns and sells all of their coins?
+
+1:12:01.000 --> 1:12:05.000
+ So we don't know for sure how many coins Satoshi actually mined or produced
+
+1:12:05.000 --> 1:12:10.000
+ because there's a degree of probabilistic analysis that you would do.
+
+1:12:10.000 --> 1:12:17.000
+ There's a few thousand blocks that were mined by what we think is a single entity
+
+1:12:17.000 --> 1:12:19.000
+ in sort of 2009.
+
+1:12:19.000 --> 1:12:21.000
+ And so if you add them all up, you get to about a million.
+
+1:12:21.000 --> 1:12:24.000
+ So people think that Satoshi mined a million coins
+
+1:12:24.000 --> 1:12:27.000
+ and then they're worried that Satoshi would return
+
+1:12:27.000 --> 1:12:33.000
+ and market sell all the coins, thus crushing the price of Bitcoin.
+
+1:12:33.000 --> 1:12:39.000
+ So looking at some of these, no CEO, I think we touched on that.
+
+1:12:39.000 --> 1:12:42.000
+ We did, we see, we've already hit on the dice.
+
+1:12:42.000 --> 1:12:46.000
+ No merchants, that's no longer true.
+
+1:12:49.000 --> 1:12:53.000
+ There's a scalability one, and I think that one has addressed
+
+1:12:53.000 --> 1:12:56.000
+ the idea that you're mentioning with the block size debates
+
+1:12:56.000 --> 1:13:00.000
+ and the lightning network that by adding extra layers on top,
+
+1:13:00.000 --> 1:13:02.000
+ you can achieve scalability.
+
+1:13:02.000 --> 1:13:06.000
+ That's my vision, that's my theory.
+
+1:13:06.000 --> 1:13:09.000
+ And you can do it in a permissionless and a permissioned way.
+
+1:13:09.000 --> 1:13:12.000
+ Like Coinbase is a big Bitcoin exchange.
+
+1:13:12.000 --> 1:13:14.000
+ They provide scalability.
+
+1:13:14.000 --> 1:13:16.000
+ They're a financial institution.
+
+1:13:16.000 --> 1:13:19.000
+ You can settle up internally on their own database
+
+1:13:19.000 --> 1:13:22.000
+ and then periodically settle to Bitcoin.
+
+1:13:22.000 --> 1:13:26.000
+ So they do something like the lightning network internally,
+
+1:13:26.000 --> 1:13:28.000
+ something like this similar kind of mechanism.
+
+1:13:28.000 --> 1:13:30.000
+ Well, honestly, I'm not sure exactly how it works.
+
+1:13:30.000 --> 1:13:34.000
+ They might have that built in, but just generally speaking,
+
+1:13:34.000 --> 1:13:38.000
+ institutional scaling is a model for scaling, right?
+
+1:13:38.000 --> 1:13:40.000
+ Where you could have banks holding Bitcoin
+
+1:13:40.000 --> 1:13:42.000
+ and they issue notes against Bitcoin,
+
+1:13:42.000 --> 1:13:44.000
+ and those are your payments,
+
+1:13:44.000 --> 1:13:48.000
+ and then the base layer is the settlement layer.
+
+1:13:48.000 --> 1:13:52.000
+ I think that's what you're getting with the boiling oceans,
+
+1:13:52.000 --> 1:13:56.000
+ is this is like the impact on weather,
+
+1:13:56.000 --> 1:13:58.000
+ I suppose, on the environment.
+
+1:13:58.000 --> 1:14:02.000
+ So, you know, that is a concern that people have
+
+1:14:02.000 --> 1:14:04.000
+ in terms of like the proof of work requires
+
+1:14:04.000 --> 1:14:07.000
+ that there's a lot of computational resources being used
+
+1:14:07.000 --> 1:14:09.000
+ and that requires a lot of energy
+
+1:14:09.000 --> 1:14:13.000
+ and like some large percentage of the world's energy
+
+1:14:13.000 --> 1:14:15.000
+ is used to mine Bitcoin.
+
+1:14:15.000 --> 1:14:18.000
+ How would you respond to that criticism?
+
+1:14:18.000 --> 1:14:21.000
+ Yeah, I mean, that's been the loudest critique of Bitcoin
+
+1:14:21.000 --> 1:14:22.000
+ this year in the press.
+
+1:14:22.000 --> 1:14:23.000
+ This year, really?
+
+1:14:23.000 --> 1:14:26.000
+ Yeah, so, I mean, it's not like a new criticism,
+
+1:14:26.000 --> 1:14:29.000
+ but Bitcoin is consuming more energy than ever.
+
+1:14:29.000 --> 1:14:34.000
+ So, as the price rises, the electricity consumption rises,
+
+1:14:34.000 --> 1:14:40.000
+ and so we've heard renewed, you know, bellyaching over this,
+
+1:14:40.000 --> 1:14:41.000
+ for sure.
+
+1:14:41.000 --> 1:14:44.000
+ I mean, if you don't believe that Bitcoin is useful,
+
+1:14:44.000 --> 1:14:47.000
+ then you're inclined to think that all the energy consumption
+
+1:14:47.000 --> 1:14:48.000
+ is a waste.
+
+1:14:48.000 --> 1:14:53.000
+ So that's, you know, it's something that's sort of unrebuttable
+
+1:14:53.000 --> 1:14:58.000
+ if you fundamentally contest the validity of the Bitcoin system.
+
+1:14:58.000 --> 1:15:04.000
+ So if Bitcoin is like a thing that will take over,
+
+1:15:04.000 --> 1:15:09.000
+ it will become like the main mechanism of financial transactions
+
+1:15:09.000 --> 1:15:12.000
+ or transactions period in the world, then you say,
+
+1:15:12.000 --> 1:15:15.000
+ well, the cost of energy use is actually quite low
+
+1:15:15.000 --> 1:15:17.000
+ relative to the benefit it provides.
+
+1:15:17.000 --> 1:15:19.000
+ If you think it's not going to be,
+
+1:15:19.000 --> 1:15:25.000
+ if it's just a volatile way to make a little money in the short term,
+
+1:15:25.000 --> 1:15:28.000
+ then you see the energy use as really wasteful.
+
+1:15:28.000 --> 1:15:30.000
+ That's totally spurious, yeah.
+
+1:15:30.000 --> 1:15:34.000
+ So then there's no really response, I suppose.
+
+1:15:34.000 --> 1:15:38.000
+ That's, so I can totally, you know, get into the details
+
+1:15:38.000 --> 1:15:40.000
+ of Bitcoin's energy mix and things like that,
+
+1:15:40.000 --> 1:15:43.000
+ but that's like at a high level what the debate is.
+
+1:15:43.000 --> 1:15:46.000
+ It's this normative question, like, does Bitcoin have an entitlement
+
+1:15:46.000 --> 1:15:48.000
+ to consume any of the world's resources?
+
+1:15:48.000 --> 1:15:52.000
+ And that's actually where the debate should end much of the time
+
+1:15:52.000 --> 1:15:57.000
+ because a lot of people fundamentally dispute the validity
+
+1:15:57.000 --> 1:16:00.000
+ or usefulness of Bitcoin as a system.
+
+1:16:00.000 --> 1:16:04.000
+ And so, of course, they're going to consider the energy usage illegitimate.
+
+1:16:04.000 --> 1:16:08.000
+ Now, there's a lot of mitigating factors if you, you know,
+
+1:16:08.000 --> 1:16:11.000
+ think the Bitcoin is potentially a useful system,
+
+1:16:11.000 --> 1:16:15.000
+ which is Bitcoin consumes energy in a very peculiar way,
+
+1:16:15.000 --> 1:16:18.000
+ which virtually no other industry does,
+
+1:16:18.000 --> 1:16:25.000
+ which is that Bitcoin is a geography independent buyer of energy,
+
+1:16:25.000 --> 1:16:29.000
+ which is not how we humans typically consume energy.
+
+1:16:29.000 --> 1:16:33.000
+ Like, we need energy to be produced near to population centers,
+
+1:16:33.000 --> 1:16:36.000
+ and we need it to be produced at the, you know,
+
+1:16:36.000 --> 1:16:40.000
+ corresponding to the peaks and troughs of our consumption, right?
+
+1:16:40.000 --> 1:16:44.000
+ Because we have to 100% match the demand and the supply at all times, right?
+
+1:16:44.000 --> 1:16:46.000
+ Otherwise, we'd blackouts.
+
+1:16:46.000 --> 1:16:50.000
+ So, Bitcoin doesn't care about any of that.
+
+1:16:50.000 --> 1:16:54.000
+ It just buys energy on a constant basis.
+
+1:16:54.000 --> 1:16:57.000
+ And so, it's, you know, indifferent to where it's being produced.
+
+1:16:57.000 --> 1:17:02.000
+ And so, the consequence of all that is that Bitcoin will buy energy
+
+1:17:02.000 --> 1:17:05.000
+ that's otherwise being wasted, basically.
+
+1:17:05.000 --> 1:17:09.000
+ So, it will buy so called stranded energy assets
+
+1:17:09.000 --> 1:17:11.000
+ that would not make it to a population center.
+
+1:17:11.000 --> 1:17:16.000
+ And in fact, most energy produced is, ultimately,
+
+1:17:16.000 --> 1:17:21.000
+ does not sort of make it to, you know, your socket in your wall.
+
+1:17:21.000 --> 1:17:26.000
+ And so, this is why so much Bitcoin is mined in China, for instance.
+
+1:17:26.000 --> 1:17:31.000
+ It's not because, you know, Chinese industrialists had a special affinity for Bitcoin.
+
+1:17:31.000 --> 1:17:36.000
+ It's because the Chinese grid had a massive overabundance of energy,
+
+1:17:36.000 --> 1:17:40.000
+ and particularly in four provinces, Sichuan, Yunnan, Inner Mongolia,
+
+1:17:40.000 --> 1:17:41.000
+ and Xinjiang.
+
+1:17:41.000 --> 1:17:45.000
+ So, in those four provinces, those are all pretty distant
+
+1:17:45.000 --> 1:17:47.000
+ from major population centers.
+
+1:17:47.000 --> 1:17:51.000
+ So, because of that, you can't really transport the energy that easily.
+
+1:17:51.000 --> 1:17:54.000
+ And so, huge amounts of energy are curtailed
+
+1:17:54.000 --> 1:17:57.000
+ or basically wasted in all those provinces.
+
+1:17:57.000 --> 1:17:59.000
+ And so, miners set up shop there
+
+1:17:59.000 --> 1:18:02.000
+ because they could mine Bitcoin with the excess energy.
+
+1:18:02.000 --> 1:18:05.000
+ They could monetize this thing that otherwise was going to go to waste.
+
+1:18:05.000 --> 1:18:11.000
+ So, you know, there's things like that which, you know, I think mitigate the reality.
+
+1:18:11.000 --> 1:18:16.000
+ Bitcoin is not really rival with our consumption of electricity.
+
+1:18:16.000 --> 1:18:18.000
+ It's not depriving anyone of electricity.
+
+1:18:18.000 --> 1:18:24.000
+ It's mostly these stranded assets that are going into supporting the Bitcoin network.
+
+1:18:24.000 --> 1:18:28.000
+ So, maybe let's do a last one since you mentioned China.
+
+1:18:28.000 --> 1:18:29.000
+ This is China control.
+
+1:18:29.000 --> 1:18:32.000
+ So, if so much mining is happening in China,
+
+1:18:32.000 --> 1:18:39.000
+ how do we prevent nation states from controlling much of Bitcoin?
+
+1:18:39.000 --> 1:18:44.000
+ Yeah, that's the flip side of a large portion of the blocks being mined in China
+
+1:18:44.000 --> 1:18:46.000
+ due to this energy feature which I discussed,
+
+1:18:46.000 --> 1:18:50.000
+ which is that there's a lot of Chinese miners for sure.
+
+1:18:50.000 --> 1:18:53.000
+ Now, the question ultimately is,
+
+1:18:53.000 --> 1:18:57.000
+ what degree of control do miners have over the Bitcoin system?
+
+1:18:57.000 --> 1:19:01.000
+ And that was part of the block size debate.
+
+1:19:01.000 --> 1:19:06.000
+ I mean, the miners, when we implemented subgraded witness in 2017,
+
+1:19:06.000 --> 1:19:09.000
+ the miners just didn't want to do it.
+
+1:19:09.000 --> 1:19:15.000
+ Eventually, the users, the regular folks running nodes rebelled and basically said,
+
+1:19:15.000 --> 1:19:18.000
+ look, we're going to implement this whether or not you do it.
+
+1:19:18.000 --> 1:19:22.000
+ And it was a threat to the value of Bitcoin because if this threat had gone through,
+
+1:19:22.000 --> 1:19:25.000
+ it could have split Bitcoin and it would have been really messy.
+
+1:19:25.000 --> 1:19:27.000
+ So, the miners sort of capitulated.
+
+1:19:27.000 --> 1:19:34.000
+ So, I think the current consensus is that miners do not have unilateral control over Bitcoin
+
+1:19:34.000 --> 1:19:39.000
+ and that governance is more poised between people that run nodes, developers and miners.
+
+1:19:39.000 --> 1:19:44.000
+ It's sort of a triumvirate where neither of them has, you know, total control.
+
+1:19:44.000 --> 1:19:48.000
+ So, that's my current model for controlling Bitcoin.
+
+1:19:48.000 --> 1:19:52.000
+ I think if you asked a miner, they would tell you they didn't feel
+
+1:19:52.000 --> 1:19:56.000
+ that they had sort of unilateral control over Bitcoin either.
+
+1:19:56.000 --> 1:20:03.000
+ Almost as a thought experiment, can I ask you to think about if some of your predictions,
+
+1:20:03.000 --> 1:20:09.000
+ some of your analysis, some of your understanding of Bitcoin is wrong in the following sense
+
+1:20:09.000 --> 1:20:16.000
+ where it will not have the impact that you have a vision for it,
+
+1:20:16.000 --> 1:20:21.000
+ that you will not have the scale of impact and perhaps in terms of value will go to zero
+
+1:20:21.000 --> 1:20:25.000
+ to something very low and other cryptocurrency or other financial systems will overtake it.
+
+1:20:25.000 --> 1:20:29.000
+ What would be the reason for that in your mind?
+
+1:20:29.000 --> 1:20:32.000
+ Like, why might you be wrong?
+
+1:20:32.000 --> 1:20:41.000
+ If you look back at it in the future, what did you not understand about Bitcoin that will result in that?
+
+1:20:41.000 --> 1:20:43.000
+ Yeah, that's a great question.
+
+1:20:43.000 --> 1:20:48.000
+ I think for that to happen, one of two things would have to obtain,
+
+1:20:48.000 --> 1:20:53.000
+ one of two things would have to happen for Bitcoin to just be irrelevant basically.
+
+1:20:53.000 --> 1:21:01.000
+ Either central banks totally clean up their act and stop engaging in rampant money printing,
+
+1:21:01.000 --> 1:21:04.000
+ which I don't expect that to happen anytime soon.
+
+1:21:04.000 --> 1:21:09.000
+ I mean, it looks like we're normalizing this new regime of inflation, pro inflation,
+
+1:21:09.000 --> 1:21:12.000
+ just to remediate the debt issues we have.
+
+1:21:12.000 --> 1:21:18.000
+ So that would be one thing that would make Bitcoin cryptocurrency much less relevant
+
+1:21:18.000 --> 1:21:25.000
+ as if everyone becomes totally assured of the soundness of sovereign currencies basically,
+
+1:21:25.000 --> 1:21:29.000
+ namely the dollar, like the dollar being the main one.
+
+1:21:29.000 --> 1:21:33.000
+ It seems like we're going in completely opposite direction.
+
+1:21:33.000 --> 1:21:37.000
+ Most people seem to be noticing the stirrings of inflation in society.
+
+1:21:37.000 --> 1:21:39.000
+ You might have noticed that too.
+
+1:21:39.000 --> 1:21:45.000
+ It's showing up in commodity prices, lumber prices, in food, obviously in financial assets.
+
+1:21:45.000 --> 1:21:49.000
+ It'll show up in consumer prices generally soon.
+
+1:21:49.000 --> 1:21:53.000
+ So that would be one way for Bitcoin to basically become irrelevant
+
+1:21:53.000 --> 1:21:56.000
+ because it's a dialectical thing.
+
+1:21:56.000 --> 1:22:02.000
+ Bitcoin is held in opposition to the established monetary regime.
+
+1:22:02.000 --> 1:22:09.000
+ So if they completely reform themselves and the dollar becomes super sound once again
+
+1:22:09.000 --> 1:22:18.000
+ and the Fed stops tinkering the way they constantly do, then we wouldn't need cryptocurrency as much.
+
+1:22:18.000 --> 1:22:28.000
+ The other thing would be if a completely superior design for a new sort of state independent monetary system emerged.
+
+1:22:28.000 --> 1:22:32.000
+ But it's really hard to even imagine how that would come to emerge.
+
+1:22:32.000 --> 1:22:42.000
+ And there's good reasons to think that Bitcoin, the conditions of its launch were extremely favorable and hard to replicate.
+
+1:22:42.000 --> 1:22:50.000
+ Can you speak to some of those conditions, why it's a unique timing wise moment for Bitcoin to emerge?
+
+1:22:50.000 --> 1:22:58.000
+ Yeah. So obviously Bitcoin was born in the depths of the financial crisis, which gives it a nice historical element.
+
+1:22:58.000 --> 1:23:00.000
+ But that was kind of a coincidence.
+
+1:23:00.000 --> 1:23:07.000
+ Honestly, we know that Satoshi had been working on it earlier in 2017.
+
+1:23:07.000 --> 1:23:12.000
+ The really special thing about Bitcoin was that it was launched anonymously
+
+1:23:12.000 --> 1:23:19.000
+ by an entity that did not seek any glory or credit for what they did and apparently never monetized it at all.
+
+1:23:19.000 --> 1:23:23.000
+ So they never really moved any of their coins.
+
+1:23:23.000 --> 1:23:29.000
+ Satoshi sent one test transaction to Hal Finney, who is one of the earliest Bitcoiners.
+
+1:23:29.000 --> 1:23:33.000
+ Aside from that, as far as we know, Satoshi never spent any of their coins.
+
+1:23:33.000 --> 1:23:39.000
+ So you have this wonderful Promethean quality whereby it's almost self sacrificial.
+
+1:23:39.000 --> 1:23:48.000
+ I mean, it's like this borderline godlike figure in terms of their restraint finds this monetary technology
+
+1:23:48.000 --> 1:23:50.000
+ and releases it to the world and pays the price.
+
+1:23:50.000 --> 1:23:53.000
+ They never took advantage of their filthy lucre.
+
+1:23:53.000 --> 1:24:00.000
+ They never recognized any of the $50 billion that they made from Bitcoin.
+
+1:24:00.000 --> 1:24:06.000
+ And Satoshi also didn't assign themselves any privileged access to the coins.
+
+1:24:06.000 --> 1:24:11.000
+ Satoshi could have just written in the code, I own 10% of the coins.
+
+1:24:11.000 --> 1:24:15.000
+ But they didn't. They just mined in the open free market competition like everyone else.
+
+1:24:15.000 --> 1:24:21.000
+ It's just that Satoshi is an early miner to support the network, accumulate a lot of coins for sure.
+
+1:24:21.000 --> 1:24:24.000
+ But they didn't have any privileged special access.
+
+1:24:24.000 --> 1:24:29.000
+ So that's one thing that's extremely special about the launch is that we had a founder
+
+1:24:29.000 --> 1:24:36.000
+ that was truly committed to the monetary protocol and didn't seek either recognition or financial spoils.
+
+1:24:36.000 --> 1:24:42.000
+ And then also left. Satoshi left in 2010, 2011 and hasn't really been heard from since.
+
+1:24:42.000 --> 1:24:49.000
+ It's a very George Washington gangster move where he didn't want power and once he got power, he let go of it.
+
+1:24:49.000 --> 1:24:50.000
+ Precisely.
+
+1:24:50.000 --> 1:24:58.000
+ That was a key actually move. That was probably one of the most important moves at the founding of this country.
+
+1:24:58.000 --> 1:25:02.000
+ That's right. George Washington could have been a king, probably if he'd wanted.
+
+1:25:02.000 --> 1:25:06.000
+ And Satoshi could have been Jerome Powell if he'd wanted.
+
+1:25:06.000 --> 1:25:11.000
+ And Satoshi could have held on to power indefinitely but chose to leave.
+
+1:25:11.000 --> 1:25:23.000
+ The other thing is that Bitcoin circulated for a long period of time from January 2009 to about July 2010 without really having a financial value.
+
+1:25:23.000 --> 1:25:27.000
+ So there weren't really any marketplaces. It didn't have a value.
+
+1:25:27.000 --> 1:25:33.000
+ And so that gave it this really great distribution among a broad set of stakeholders.
+
+1:25:33.000 --> 1:25:40.000
+ And there were no venture funds or hedge funds trying to aggressively buy up all the supply back then.
+
+1:25:40.000 --> 1:25:50.000
+ Now when you have new cryptocurrencies launched, they're aggressively pre mined and some gigantic Silicon Valley venture fund is going to own 30% of it.
+
+1:25:50.000 --> 1:26:02.000
+ And so it's impossible to conceive of how that could become a global money because how could a Silicon Valley investment firm own 30% of the money supply?
+
+1:26:02.000 --> 1:26:07.000
+ That doesn't make sense. That's just so oligarchical. It's unbelievable.
+
+1:26:07.000 --> 1:26:19.000
+ So Bitcoin by contract is a very bottom up thing. It was the early enthusiasts, people that were really excited about the technology.
+
+1:26:19.000 --> 1:26:22.000
+ They're the ones that obtained those early coins.
+
+1:26:22.000 --> 1:26:30.000
+ And so there was a real element of fairness and just an organic nature to its launch, which would be incredibly hard to recapture today.
+
+1:26:30.000 --> 1:26:37.000
+ Let's say Satoshi came back and they said, OK, I made Bitcoin 2.0. I'm going to release it.
+
+1:26:37.000 --> 1:26:48.000
+ There would be the most aggressive land grab ever by gigantic pools of capital to sort of get favorable allocations of the new system.
+
+1:26:48.000 --> 1:26:58.000
+ Can Satoshi with Bitcoin 2.0 build in a resistance mechanism or a prevention mechanism for the land grab?
+
+1:26:58.000 --> 1:27:07.000
+ It would be hard to because if you have capital and resources, I mean, if it was a proof of work chain, you just have people that would invest a ton of money in mining, for instance.
+
+1:27:07.000 --> 1:27:16.000
+ But most new blockchains, cryptocurrencies are just sold, basically. They're issued in token offerings kind of thing.
+
+1:27:16.000 --> 1:27:22.000
+ So it's hard to enforce through the protocol the decentralization of control power.
+
+1:27:22.000 --> 1:27:29.000
+ It'd be challenging to and people have tried to do airdrops where they distribute coins to a large number of people.
+
+1:27:29.000 --> 1:27:36.000
+ Basically doesn't work. Most people don't care about the airdrop. So it's hard to have an equitable distribution.
+
+1:27:36.000 --> 1:27:43.000
+ I think the conditions of Bitcoin's launch were so lucky and favorable that they're very unlikely to be replicated.
+
+1:27:43.000 --> 1:27:55.000
+ So I do think it's going to be a real challenge to ever have a new competitor that's as decentralized, as leaderless, as dispersed, sort of distributed as Bitcoin is, has its credibility.
+
+1:27:55.000 --> 1:27:59.000
+ I don't know how you could overrule it on those important features.
+
+1:27:59.000 --> 1:28:06.000
+ What about Bitcoin's comparison to other current cryptocurrencies? So Bitcoin versus Ethereum, for example.
+
+1:28:06.000 --> 1:28:12.000
+ Why is it possible that Ethereum overtakes Bitcoin?
+
+1:28:12.000 --> 1:28:15.000
+ It's certainly possible. Yeah, I'm not ruling it out.
+
+1:28:15.000 --> 1:28:26.000
+ Ethereum leadership is sort of wise enough to understand that they shouldn't compete with Bitcoin on those most profound qualities.
+
+1:28:26.000 --> 1:28:33.000
+ Ethereum doesn't really aspire to be more sound from a monetary perspective than Bitcoin.
+
+1:28:33.000 --> 1:28:37.000
+ In fact, the Ethereum leadership are sort of constantly tweaking the monetary policy.
+
+1:28:37.000 --> 1:28:41.000
+ So they went for a completely different trade off.
+
+1:28:41.000 --> 1:28:47.000
+ They also don't compete to be as decentralized from a governance perspective, right?
+
+1:28:47.000 --> 1:28:52.000
+ Because there's leadership. There's an ETH foundation. There's a charismatic leader, Vitalik.
+
+1:28:52.000 --> 1:28:59.000
+ And Ethereum has this policy of hard forks. So in Bitcoin, hard forks are extremely rare.
+
+1:28:59.000 --> 1:29:02.000
+ In Ethereum, it's the default way to change things.
+
+1:29:02.000 --> 1:29:06.000
+ So it's a much more adaptive system and it changes more frequently.
+
+1:29:06.000 --> 1:29:11.000
+ But that also means that it's sort of they're incurring more risk when they introduce those changes.
+
+1:29:11.000 --> 1:29:23.000
+ There's much more complexity. So Ethereum is smart because they sort of understood Bitcoin as the top dog when it comes to a sound money, a digital gold type thing.
+
+1:29:23.000 --> 1:29:29.000
+ And they went for all of the different trade offs. They wanted to be more of a platform.
+
+1:29:29.000 --> 1:29:32.000
+ They wanted to have more complexity of the transactional layer.
+
+1:29:32.000 --> 1:29:38.000
+ They wanted to take on more risk in terms of changing the protocol. They wanted to change more quickly.
+
+1:29:38.000 --> 1:29:46.000
+ They wanted to make the monetary policy more mutable. So Ethereum takes that completely different tack.
+
+1:29:46.000 --> 1:29:51.000
+ Of course, you know, I'm not ruling out that it could take over Bitcoin from a market cap perspective.
+
+1:29:51.000 --> 1:29:53.000
+ It's just a very different system.
+
+1:29:53.000 --> 1:30:03.000
+ And I tend to think that Bitcoin is the most disruptive one because it's the most equipped to challenge sovereign currencies in the grand scheme.
+
+1:30:03.000 --> 1:30:18.000
+ Do you think they can coexist? So like in the future, do you see a world where, you know, Ethereum captures some large percent of the market but nevertheless the minority?
+
+1:30:18.000 --> 1:30:20.000
+ A hundred percent.
+
+1:30:20.000 --> 1:30:28.000
+ Bitcoin has already been tokenized and put onto Ethereum. Many units of Bitcoin, I think over a billion dollars worth.
+
+1:30:28.000 --> 1:30:43.000
+ So not only do they coexist, they are actually mutualistic. So they're like two creatures that have this, you know, it's like the rhino and like the bird that packs the parasites off the rhino's back or whatever.
+
+1:30:43.000 --> 1:30:46.000
+ Yeah. Right. So I don't know which is which in the analogy.
+
+1:30:46.000 --> 1:30:51.000
+ But yeah, I don't know who the parasites are.
+
+1:30:51.000 --> 1:31:02.000
+ Or, you know, the alligator and the teeth cleaning fish or whatever. Right. So, you know, I always wonder why the alligator doesn't just eat the fish, but I guess they're brushing its teeth basically.
+
+1:31:02.000 --> 1:31:14.000
+ So Ethereum is it gives you more transactional flexibility. There's much more experimentation happening there. It has this whole decentralized finance element.
+
+1:31:14.000 --> 1:31:22.000
+ There's a huge number of Bitcoins that circulate on the Ethereum protocol, right? Because Ethereum is open to other asset types, basically.
+
+1:31:22.000 --> 1:31:34.000
+ So I think that's actually accretive to both systems because Ethereum gets to have this good form of collateral Bitcoin on the system, which is good volatility characteristics.
+
+1:31:34.000 --> 1:31:48.000
+ And then it's a supply sink for Bitcoins, which are sort of now they're injected into this third party protocol. And that, I think, reduces the velocity of Bitcoin overall, and it's probably good for the valuation.
+
+1:31:48.000 --> 1:31:53.000
+ So you see it quite possibly could be a symbiotic relationship. That's really interesting.
+
+1:31:53.000 --> 1:31:55.000
+ I think so. I think so.
+
+1:31:55.000 --> 1:32:07.000
+ What are your thoughts about Vitalik, Buterin? What are your thoughts about some of the other figures in the space outside of Bitcoin?
+
+1:32:07.000 --> 1:32:15.000
+ I think Vitalik made some mistakes with Ethereum ultimately. Like, I disagree with some of the decisions that were made along the way.
+
+1:32:15.000 --> 1:32:29.000
+ Like, there's this infamous case of this bailout where 14% of Ether was lost in the smart contract, or really this smart contract that a lot of Ethereum leadership were sort of backing and supporting was hacked.
+
+1:32:29.000 --> 1:32:39.000
+ And then the foundation with Vitalik's support chose to make a change to the underlying protocol to undo the hack, right?
+
+1:32:39.000 --> 1:32:56.000
+ So to me, that was not the most prudent approach, because you're basically violating the core protocol rules in order to undo, you know, to bail out a specific contract, which has failed.
+
+1:32:56.000 --> 1:33:05.000
+ Granted, there was a lot of Ether in there. But I think that shook the credibility of the Ethereum system that happened back in 2016, I think.
+
+1:33:05.000 --> 1:33:09.000
+ That was one reason why I became disenchanted with Ethereum.
+
+1:33:09.000 --> 1:33:22.000
+ So basically, even if in that case that might fix an important problem that opens the door to centralized, like, manipulation of the protocol in the future.
+
+1:33:22.000 --> 1:33:42.000
+ Yeah, it basically demonstrates that there's certain elites at the protocol level that can exercise specific control over the system. And, you know, a lot of people have lost money in hacks on Ethereum, a lot of contracts have gone south, huge amount of value, but they didn't get a bailout.
+
+1:33:42.000 --> 1:33:53.000
+ And it was just when, you know, this specific contract called the DAO was hacked, that, you know, the leadership intervened.
+
+1:33:53.000 --> 1:34:04.000
+ And, you know, to their credit, they haven't had a significant intervention or bailout since then. But it did normalize the practice. And I think it weakened the social contract.
+
+1:34:04.000 --> 1:34:12.000
+ So I would prefer that you sort of bite the bullet in that situation, and you accept the failure of that contract.
+
+1:34:12.000 --> 1:34:15.000
+ There'll be a ballsy move to bite that bullet.
+
+1:34:15.000 --> 1:34:21.000
+ Yeah, I mean, and then you would have had like, what they thought was a malicious entity in control of a lot of coins.
+
+1:34:21.000 --> 1:34:34.000
+ I think the real reason they sort of felt that they had to undo it was because they'd always planned to move to this proof of stake world, where your political control over the system is a function of your wealth in the system.
+
+1:34:34.000 --> 1:34:46.000
+ And they didn't want this attacker, which would have inherited all this significant wealth, to have influence over that future proof of stake version. That's sort of my theory.
+
+1:34:46.000 --> 1:35:01.000
+ Yeah, I mean, that makes sense. It kind of reminds me of the bailout of car companies. You know, this is difficult. There's a lot of people that criticize the bailout of these large companies, you know.
+
+1:35:01.000 --> 1:35:19.000
+ Yeah, creative destruction. I mean, I was critical of the bailouts that happened during COVID. I mean, I generally think that it's healthier for society for bad firms that aren't making money to fail or be reorganized under the various forms of bankruptcy.
+
+1:35:19.000 --> 1:35:32.000
+ And you saw what happens. You see the, you know, the corporate sector in Japan in the 90s, there was this like slow motion insolvency where basically firms weren't allowed to fail.
+
+1:35:32.000 --> 1:35:44.000
+ And the Japanese corporate sector lost competitiveness because bad firms did not fail. And so, you know, the process of actual capitalism for the market clearing didn't occur.
+
+1:35:44.000 --> 1:35:53.000
+ So I'm always in support of, you know, of the free market being allowed to clear for non profitable firms to fail.
+
+1:35:53.000 --> 1:36:10.000
+ It's complicated, man, because creative destruction seems to be in the long term a positive. But human civilization is such that short term pain has real impact on people, you know.
+
+1:36:10.000 --> 1:36:19.000
+ Yeah, policymakers don't ever want to incur that short term pain because they have a short term outlook and term limits often.
+
+1:36:19.000 --> 1:36:29.000
+ And also just it's short term pain. Forget policymakers, forget politicians. It sucks to lose a job for an individual.
+
+1:36:29.000 --> 1:36:41.000
+ You know, you could say the company, you know, creative destruction of a company means the company was inefficient and that's going to have a ripple effect of teaching everybody else what an efficient operation looks like.
+
+1:36:41.000 --> 1:36:46.000
+ But like there's jobs that are being lost. There's families that have to suffer because of that.
+
+1:36:46.000 --> 1:37:01.000
+ I mean, that's the tension we live in society is having a basic safety net for our world because there's a level beyond which, like if through creative destruction,
+
+1:37:01.000 --> 1:37:08.000
+ you have some percent of the population that dips below a certain level that you would call like suffering.
+
+1:37:08.000 --> 1:37:21.000
+ We don't want that. And that's a difficult thing to live with. Like, yes, in the long term, you want inefficiency to be destroyed and efficiency to be rewarded.
+
+1:37:21.000 --> 1:37:29.000
+ But there does seem to be a base level of like quality of life that we want to uphold. That's a difficult thing to think about.
+
+1:37:29.000 --> 1:37:41.000
+ I think about that a lot. There's a doctor called Paul Farmer that, you know, there's like in Haiti or in Africa, there's a child who's dying.
+
+1:37:41.000 --> 1:37:52.000
+ And as a doctor, you want to give everything you have, all the money you have to save that one child. And you do, actually.
+
+1:37:52.000 --> 1:38:07.000
+ But that's a very human action. It's not a rational action from a game theoretic perspective because there's no way you can take that action for every child who is suffering.
+
+1:38:07.000 --> 1:38:16.000
+ But there's something deeply human about doing that for that one particular child. In that same sense, creative destruction is an economic principle.
+
+1:38:16.000 --> 1:38:23.000
+ But it's not necessarily that same kind of human principle. And there's a tension there.
+
+1:38:23.000 --> 1:38:34.000
+ I see it. I mean, I think that's the issue with modern central banking, really, is that the central bank always has an incentive to lower interest rates.
+
+1:38:34.000 --> 1:38:52.000
+ And they've been doing that from the 70s towards today on this, you know, well, 80s, really, on this slow march down. Because whenever there was a hint of a crisis in the economy or financial asset prices started to fall, their reaction is, okay, we'll inject more capital into the economy, we'll save it.
+
+1:38:52.000 --> 1:39:11.000
+ But my view is that these palliative short term measures cause the buildup of a huge amount of fragility in the long term. And then the ultimate collapse is much worse than the counterfactual situation where you raised interest rates, you took your medicine, and the economy was healthier.
+
+1:39:11.000 --> 1:39:34.000
+ So and that's sort of, that's why, you know, people like Ray Dalio point out that you have these long term debt cycles. And we're sort of at the end of one now, is because we couldn't take our medicine, we couldn't, you know, let interest rates clear, we constantly wanted to ward off any difficulty, and we didn't ever want to de leverage truly.
+
+1:39:34.000 --> 1:39:41.000
+ And then when the when the debt crisis happens, and it hits, it's, you know, horrendously bad.
+
+1:39:41.000 --> 1:40:03.000
+ So do you think Bitcoin might reach a million dollars in value? It's, it's having a current resurgence, a crazy one in 2021, in the recent months of over 60,000, I guess it is now. Do you think it's possible it goes over 100,000? Do you think it's possible it goes to a million?
+
+1:40:03.000 --> 1:40:15.000
+ You can't rule anything out with Bitcoin. So I mean, I'm not, you know, wanting to put price targets on it. But one way it could reach a million dollars is Bitcoin's value stays unchanged in real terms.
+
+1:40:15.000 --> 1:40:44.000
+ And the dollar depreciates. Not that I expect hyperinflation. But yeah, I mean, like Bitcoin is worth about one 10th, slightly under one 10th the value of all the gold in the world. And, you know, gold is worth 10 trillion, 11 trillion dollars in the aggregate. Do I think Bitcoin can be more culturally and economically salient than gold in two decades time? 100%. Bitcoin was unknown.
+
+1:40:44.000 --> 1:41:07.000
+ 12 years ago, and today 100 million people worldwide own Bitcoin. So just extrapolate that what is the level of penetration you think we'll get 500 million a billion? You know, you can easily tune these adoption curves, however you like. I don't think it's done, you know, monetizing and being adopted globally.
+
+1:41:07.000 --> 1:41:29.000
+ You think it can become like the base layer for a lot of our financial operation, like become the main base layer for all our transactions. So like, even banks will use Bitcoin, essentially, and like Visa would use Bitcoin as the base layer, like it would actually operate very similarly at the surface layer, but at the base layer would all be Bitcoin.
+
+1:41:29.000 --> 1:41:58.000
+ That's precisely what I expect. And banks and Visa are already using Bitcoin. So Visa has embraced Bitcoin in a really big way, actually. And it's always funny to the people saying Bitcoin has to change in a certain way so it can compete with Visa. No, Visa adopted Bitcoin, right? PayPal adopted Bitcoin, Square adopted Bitcoin. Obviously, they're not tearing out all of their existing infrastructure, but they're totally engaging with this thing.
+
+1:41:58.000 --> 1:42:23.000
+ Banks have now begun, they got the green light to provide custody for Bitcoin for their depositors. That's the first step. Eventually, you know, it'll happen one of two ways, either Bitcoin native financial institutions will become banks, that's already happening. There's Bitcoin exchanges that have gotten banking licenses, or banks themselves will start to engage with Bitcoin as a reserve asset.
+
+1:42:23.000 --> 1:42:45.000
+ It'll converge either way. That's totally happening. And yes, I mean, I don't think Bitcoin is going to power every financial transaction, I think it'll coexist alongside sovereign currencies. But I think it's a great reserve asset. It's a very powerful asset to build a financial system on top of because it's highly, highly auditable.
+
+1:42:45.000 --> 1:43:07.000
+ It's something that you can take physical delivery of very cheaply. And those are great qualities. If you're a depositor in a bank, they can prove to you how much Bitcoin they have. They can't really easily prove, you know, in the old system, how much gold they held on deposit. And you can easily conduct a run on the bank, you can hold them accountable, because you can withdraw it.
+
+1:43:07.000 --> 1:43:30.000
+ Because, you know, making Bitcoin transaction is pretty easy at the end of the day. Unlike fiat currency, it's like kind of, you can't really withdraw your dollars from the bank. I mean, you sort of can, but you're not going to want to take delivery of pounds of cash or anything like that. So it's a good modern asset upon which to build a financial system, basically.
+
+1:43:30.000 --> 1:43:54.000
+ You mentioned Square and Visa sort of investing in Bitcoin. What do you make of probably one of the higher profile big investments in Bitcoin, which is Tesla and Elon Musk? But there's also a few billionaires like Chamath and all of them investing. What do you make of this whole movement? Why do you think they're doing it? I mean, Tesla is an interesting case. Why do you think Tesla is buying so much Bitcoin?
+
+1:43:54.000 --> 1:44:11.000
+ I honestly don't know. And I would love to truly know Elon's genuine thoughts on Bitcoin. Because he's kind of sending us mixed messages, honestly, with his embrace of Dogecoin, which is sort of playful, not exactly sure what point he's trying to make there.
+
+1:44:11.000 --> 1:44:36.000
+ So you were involved with Dogecoin, you mentioned offline a little bit in the early days, or at least played around with it. What do you make of Dogecoin? What do you make of Elon and Doge? What do you make of this particular meme coin? Is it one, like a legitimate cryptocurrency? Or is it two, like a funny internet way of saying F you to the man?
+
+1:44:36.000 --> 1:44:58.000
+ Yeah, it's a good question. I mean, so I wasn't like a figurehead in Dogecoin or anything. But that was totally my introduction to crypto was mining Dogecoin in my dorm room. And then tipping people online in Dogecoin, which I just thought was the funniest thing. So I guess that was really easy to entertain back in 2013.
+
+1:44:58.000 --> 1:45:15.000
+ But it was very playful at the time, there was a culture around Dogecoin. And the people liked it, because it was in opposition to the Bitcoin culture, which was really serious and involved lots of Austrian economics, and Rothbard and Hayek and stuff like that.
+
+1:45:15.000 --> 1:45:35.000
+ So that was my introduction to cryptocurrency was because I thought the Bitcoin people were pretty lame. Yeah. And they were like, way too serious about all this stuff. And I was like, okay, I'll just be a part of the Dogecoin community. And they did all these funny publicity stunts, like, they paid to send the Jamaican bobsled team to the Olympics.
+
+1:45:35.000 --> 1:45:55.000
+ You know, like, great stuff. Like they put the Dogecoin logo on top of a NASCAR car. Yeah. And I just that tickled me so much because it's like this made up internet coin. This was back when crypto is pretty novel and still like kind of funny and stuff. And that was really entertaining. Fast forward seven, eight years.
+
+1:45:55.000 --> 1:46:10.000
+ Dogecoin is way less entertaining now, frankly, because it's the leadership left the community spirit evaporated. The meme didn't persist. I mean, Doge itself is not really a contemporary meme, right? I mean, it's an old meme.
+
+1:46:10.000 --> 1:46:30.000
+ Although that new refresh of the meme, like Doge, I haven't heard that name in a long time. Like, or Doge is like in a hat smoking a cigarette. I mean, there's some sense where Elon is reinvigorating the meme. And it's funny, because like one influential figure could do just that, which just speaks to the tension that you're talking about.
+
+1:46:30.000 --> 1:46:47.000
+ Like Tesla is investing Bitcoin. And yet, Elon, he also tweets about Bitcoin. But yeah, he's, I mean, who am I to question the meme, right? Like, yeah, I can't, you know, dissect internet culture and penantically sit here and tell you it's an invalid meme.
+
+1:46:47.000 --> 1:47:16.000
+ You know, if people believe in it, then it's real. Is there a space for meme coins at this time? Like Doge or somebody else to almost like, you know, it does serve a lot of purposes, which is, like you said, it pulls in people into this whole space of digital currency, into cryptocurrency, allow them to explore, allow them to have fun as opposed to taking everything very seriously.
+
+1:47:16.000 --> 1:47:18.000
+ Is there still space for that?
+
+1:47:18.000 --> 1:47:46.000
+ Yeah, yeah. And I mean, the crypto landscape is very broad today. So whatever, you know, cultural element you seek to find within crypto, you will find. It was a bit different in 2013, because Bitcoin was kind of the only game in town, there were a couple altcoins. And so Dogecoin made a lot of sense as a counterpart to Bitcoin as a less serious counterpart. Today, crypto is just like gigantic cultural and economic trend.
+
+1:47:46.000 --> 1:48:04.000
+ So it's, you know, very multifaceted. Dogecoin is one of the many, you know, ways that people have to engage with it. I think a lot of people that buy Dogecoin based on Elon's implied guidance are going to lose money, because fundamentally, there's nothing enduring about Dogecoin.
+
+1:48:04.000 --> 1:48:31.000
+ It's an ancient fork of Bitcoin. It's unmaintained. There, you know, it's probably at risk, actually, from a protocol perspective. It's merge mined with Litecoin, I think. If there was an inflation bug on Dogecoin, it's unclear who would sort of be able to remediate that, you know, so it's not technologically very sound. So I wouldn't recommend that anyone stores wealth in it, you know.
+
+1:48:31.000 --> 1:48:56.000
+ Yes, it's funny because cryptocurrency, like my interest in cryptocurrency is in the exploration of technical ideas. But cryptocurrency is also, like in the case of Dogecoin, like for LOLs, at least originally, like a meme coin, but it's also a mechanism for investment.
+
+1:48:56.000 --> 1:49:20.000
+ And so those are sometimes a tension. And it's unclear, sort of like, yeah, you know, there's the meme with Doge has almost become to take it to, I guess, to a dollar, trying to drive the price of the value up to a dollar. But, you know, implied in that is like this overlap of the meme coin and like legitimate investment.
+
+1:49:20.000 --> 1:49:42.000
+ And so you have a lot of young people, I think, who almost start getting greedy and want to make money, like as opposed to having fun. And that becomes a different beast then because you're essentially making financial decisions that can have a long lasting, like, you know, money is freedom.
+
+1:49:42.000 --> 1:50:03.000
+ And if you make stupid financial decisions, you can remove freedom from your life. And that's, it can be detrimental in that sense. So I don't, it's difficult. I don't know what to do with that set of ideas because a lot of cryptocurrency, including Bitcoin, is very volatile because it's new.
+
+1:50:03.000 --> 1:50:30.000
+ So you're trying to figure out the space of like, what's actually going to be a large part of, like you speak of network effects, like what's going to take over the world. And through that process, there's going to be a lot of volatility. And if you're talking about cryptocurrency as an investment mechanism, then it can have a real detrimental effects on people's lives.
+
+1:50:30.000 --> 1:50:53.000
+ Yeah. And that's really the challenge with operating in the crypto space, talking about it, overlaid on top of everything that's interesting politically or culturally about it is the financial incentive. And so, you know, it's not all fun and games because there are literally billions over a trillion dollars at stake now.
+
+1:50:53.000 --> 1:51:22.000
+ So if you buy Dogecoin, because some influencer on TikTok said so, you've now made a financial decision, right? So I'm not going to scold any Dogecoin buyers or any crypto asset buyer for that matter. But be aware that there are like billions of dollars of really elite hedge funds that are trying to front run all of your decisions and evaluate social sentiment, things like that. So it's a waterfall of sharks, basically.
+
+1:51:22.000 --> 1:51:36.000
+ And by the way, if you're listening to this, don't take this podcast or anything I ever say as financial advice. That's definitely not my interest or expertise level. The interest here is to explore different ideas.
+
+1:51:36.000 --> 1:52:02.000
+ Speaking of which, you've written a little bit about NFTs. I'd be interested to hear your opinions on this space of ideas, these non fungible tokens. They seem to have a cultural impact currently, but do they have a long lasting technical, financial or cultural impact or is this just a fad? What do you think of NFTs?
+
+1:52:02.000 --> 1:52:30.000
+ Yeah, I think the current enthusiasm for NFTs and the financial metrics, you see the growth there in that sector is partially a function of where we are in the actual credit cycle. So oftentimes, when inflationary events occur, you have correspondence speculative manias that occur at the same time, because people intuitively feel that the fiat currency that they hold is being debased.
+
+1:52:30.000 --> 1:52:53.000
+ And so they frantically look around for other places to put it. So stocks, property, commodities, and then other asset classes, NFTs are an asset class. And this is a case with any inflation you look at in history, you saw these correspondence speculative manias, basically, speculative episodes.
+
+1:52:53.000 --> 1:53:22.000
+ So a lot of us feel that inflation is occurring, whether it's in CPI or not, that basically lots of dollars are being injected into the economy. We've all seen stocks massively appreciate even as GDP contracted. And so a lot of people sort of got caught on to this notion that, wow, is the Fed, you know, lowers interest rates, and Congress spends a huge amount of stimulus dollars into the economy, financial assets going to go up, so I better have exposure to all that stuff.
+
+1:53:22.000 --> 1:53:46.000
+ And so you see, virtually every asset class is awash with cash right now, people are investing like their lives depend on it, investing, trading, whatever, whether it's options, volumes, on Robin Hood, you know, like kind of retail brokerages, things like that, whether it's stocks, whether it's crypto, and then other collectibles, baseball cards, their valuations have been skyrocketing.
+
+1:53:46.000 --> 1:54:07.000
+ And so I think NFTs are part of that. It's a new asset class. It's basically an opportunity to invest in sort of art or collectibles, in game items, things like that. I think that explains a large degree of the enthusiasm, the excitement is that it's a novel asset class that people can trade.
+
+1:54:07.000 --> 1:54:29.000
+ And right as you know, these inflationary tailwinds pick up. Now as for the sort of virtues of the actual technical phenomenon, NFTs are actually not a new idea at all. So you've had NFTs, I didn't call them NFTs, but in 2016, built on Bitcoin, for instance, so it's been around for a while.
+
+1:54:29.000 --> 1:54:45.000
+ What it is, is a serial code, basically a string of data that is inserted onto a public blockchain, and then circulates as a unique token. And then the question is, okay, well, what does that data refer to? What's the external reference?
+
+1:54:45.000 --> 1:55:00.000
+ And that has to be defined, there has to be some entity which says, oh, yeah, this unique string refers to like this piece of art or digital content, or, you know, trading card or whatever. So NFT, the concept itself is like an incredibly broad idea.
+
+1:55:00.000 --> 1:55:12.000
+ It's just, well, what if we took, you know, barcodes, and put them on chain so that they could be traded. And so they could circulate freely on a peer to peer basis and plugged into exchanges and things like that.
+
+1:55:12.000 --> 1:55:25.000
+ So that concept is super valid, clearly has protocol market fit, right? People are using it for a really wide array of purposes, it's completely going to exist.
+
+1:55:25.000 --> 1:55:48.000
+ May the valuations contract of NFTs in the aggregate? Definitely possible, probably likely. But I think the notion of creating enduring collectibles or artworks that have accompanying signatures, basically autographed art on the blockchain, that has totally been validated.
+
+1:55:48.000 --> 1:55:50.000
+ I think that won't go away.
+
+1:55:50.000 --> 1:56:07.000
+ I wonder if there's ideas, like BitCloud, for example, I don't know if you saw that, if there's ideas built on top of this concept, it doesn't have to be like Ethereum NFTs, it could be just the concept of non fungible tokens, whether those kinds of things can take hold.
+
+1:56:07.000 --> 1:56:33.000
+ And they, it's less about financial transactions, and more about almost like, I don't know how to put it, but like staking identity in some way, whether it's BitCloud or identity of objects, like there might be some way of connecting physical reality and digital reality in some interesting ways.
+
+1:56:33.000 --> 1:56:56.000
+ So just the financial aspect is a way to put some validity behind the identity. I wonder if there's ideas there that are yet to be discovered, or ideas that are yet to take hold. Like BitCloud seems interesting, seems shady as hell, seems a little scammy.
+
+1:56:56.000 --> 1:57:01.000
+ I don't know if I like the idea that you can bet on people, essentially.
+
+1:57:01.000 --> 1:57:09.000
+ Yeah, I think my market cap on BitCloud is like $90,000, and I haven't done anything there, so.
+
+1:57:09.000 --> 1:57:13.000
+ Did you take, did you like take, like verify yourself or whatever?
+
+1:57:13.000 --> 1:57:17.000
+ I have not. I think people would yell at me on Twitter if I did, so.
+
+1:57:17.000 --> 1:57:22.000
+ And it's unclear whether it's a scam yet or not, right? It's unclear where it's coming from.
+
+1:57:22.000 --> 1:57:36.000
+ Well, there is some details about the, you know, investors. It's backed by some pretty big name investors, so I probably wouldn't use the word scam to describe it, but it's got Ponzi like dynamics, like everything in crypto.
+
+1:57:36.000 --> 1:57:58.000
+ So there's very questionable, and then also is it using people's likeness without their permission, which is, I think, a legal question, you know, so there's open questions around it. But, you know, is our public blockchains and, you know, that sort of architecture, is that going to be useful for decentralized or alternative forms of social media?
+
+1:57:58.000 --> 1:58:19.000
+ 100% yes. You know, I'm super, super bullish on that idea. Basically, creating open protocols, open namespaces, ways to organize without the dependence on a single node effectively in Silicon Valley, you know, the Twitter node or the Facebook node.
+
+1:58:19.000 --> 1:58:32.000
+ I think it's a matter of urgency that we create, you know, digital gathering spaces where you have strong property rights, you know, you have a claim on your identity, you have a claim on your data. And open architecture is our way to do that.
+
+1:58:32.000 --> 1:58:46.000
+ I don't know if it'll be a blockchain, but certainly I think the general, you know, concept introduced by blockchains is a good template for how to, you know, organize these systems.
+
+1:58:46.000 --> 1:59:09.000
+ Yeah, value freedom, value decentralization of power, whatever the mechanism. Let me ask you about love. So there is a Bitcoin maximalist community that sometimes, so those folks in general have a strong belief that Bitcoin is good for the world.
+
+1:59:09.000 --> 1:59:25.000
+ And it's almost an ethical imperative to sort of help Bitcoin succeed, which I think as a member of any community, I think is beautiful to believe in the vision of the community.
+
+1:59:25.000 --> 1:59:26.000
+ Right.
+
+1:59:26.000 --> 1:59:50.000
+ There does seem to be some properties of what some may call like toxicity or derision and mockery and those kinds of things. You know, some folks have criticized this, right, that Bitcoin maximalism is not necessarily good for the world, even if Bitcoin is good for the world.
+
+1:59:50.000 --> 2:00:05.000
+ What are your thoughts about this kind of approach philosophically or practically to the spread of Bitcoin? And is there a way that we can add more love to the world while we add more Bitcoin to the world?
+
+2:00:05.000 --> 2:00:30.000
+ That's a great question. I mean, you know, Bitcoin is sort of what you make of it. So you can define your own path as you advocate for Bitcoin or don't for that matter. So my chosen approach is the approach you see here, which I try to minimize the amount of sort of harshness or mockery, although I've been known to be mean on Twitter too, you know.
+
+2:00:30.000 --> 2:00:57.000
+ Well, Twitter is a specific, sorry to interrupt, is a specific medium where this takes its worst form. So I'm learning, listen, I'm actually because of this podcast, but in general, I'm part of different communities. And some are full of like unabashed love. And some are like, what I experienced on Twitter, the Bitcoin community at first, I was off put in terms of the intensity, the mockery.
+
+2:00:57.000 --> 2:00:58.000
+ I bet.
+
+2:00:58.000 --> 2:01:19.000
+ The layers of lol, like the layers of not taking anything seriously. And I think there's power to that. There's freedom to that. I appreciate it. I have respect for it. But it's not my thing on Twitter. It's just not the way I enjoy communicating on Twitter.
+
+2:01:19.000 --> 2:01:46.000
+ I retired from Twitter. I hit 100,000 followers and then I retired. So I'm free now. I don't have to tweet anymore. It's great. But I totally can see the point. I wish that Bitcoiners were gentler in their approach. Not all Bitcoiners are like that. Of course, there's, you know, 50 to 100 million of them worldwide, and a few 10s of 1000s on Twitter. So I'm not going to claim that they're necessarily representative.
+
+2:01:46.000 --> 2:02:04.000
+ The toxicity, though, is kind of a learned habit, because Bitcoin has had so many episodes where strong willed institutions, billionaires, the dice are pretty toxic, you could say, right? I'm basically mocking critics of Bitcoin.
+
+2:02:04.000 --> 2:02:12.000
+ But at the same time, you're saying that the criticism has been predictable and repeatable, and it's been the same throughout.
+
+2:02:12.000 --> 2:02:41.000
+ Yeah, and that's a pretty dismissive thing to say, right? That I can reduce you to an algorithm with 11 permutations. But the thing to remember, I guess, is that some of the best funded companies in the Bitcoin space, the most powerful miners, billionaires have tried to change and coopt and alter Bitcoin to shape it to their liking.
+
+2:02:41.000 --> 2:03:00.000
+ And without these incredibly hardcore sort of high priests of the Bitcoin protocol, it would have been hopeless, hopelessly malleated in all number of ways. And so there is a reason why someone would be incredibly protective of Bitcoin.
+
+2:03:00.000 --> 2:03:19.000
+ Does that justify immense toxicity on social media? Probably not. But it's a leaderless protocol. So the whole point is that it's money for enemies. And, you know, some of the Bitcoin maximalists came for me too, when I made suggestions that they didn't like.
+
+2:03:19.000 --> 2:03:33.000
+ But, you know, I'm happy to use it, the protocol, because I know that that transaction will be final, regardless of how odious my counterparty is, or how, you know, politically disfavored their opinions are.
+
+2:03:33.000 --> 2:03:58.000
+ See, I mean, and this is where there could be disagreements, but I think you have to think about what's effective as a defense mechanism of strong ideas. And I personally think that, like, kindness and thoughtfulness is much more effective because it lets the idea shine.
+
+2:03:58.000 --> 2:04:07.000
+ As opposed to the personality of the individual humans overriding it. But there's debates on this, you know.
+
+2:04:07.000 --> 2:04:18.000
+ I mean, I take your side on that. I think a patient and careful approach is the way to go. Now, do all critics deserve good faith engagement? No, I would say.
+
+2:04:18.000 --> 2:04:30.000
+ A lot of critics of Bitcoin operate in extreme bad faith. And the reason why is because we're not just talking about technical questions. In fact, most of this conversation has not been technical, it's been political.
+
+2:04:30.000 --> 2:04:49.000
+ Because Bitcoin is an intensely political idea. And so a lot of people are predisposed to totally hate it, and to wish, you know, death on Bitcoiners. I mean, there's a professor at GW, I saw earlier this week, that was musing about getting all the Bitcoiners on a boat and sinking it.
+
+2:04:49.000 --> 2:05:04.000
+ Like, in what other context would a, you know, upstanding professor muse about mass murder? But in the context of Bitcoin, it's sort of okay, you know, within his peers, because you're talking about something that most people don't like.
+
+2:05:04.000 --> 2:05:21.000
+ You know, it's a concept that's alien to them, that doesn't jive with the way they see the world. And so because it's so, you know, pitched from a political perspective, there's a lot of critics, as well as defenders that operate in bad faith, I would say.
+
+2:05:21.000 --> 2:05:29.000
+ But that's the nature of the beast. It's because we're proposing a very disruptive thing. And there are people that would be disrupted by it.
+
+2:05:29.000 --> 2:05:48.000
+ You wrote a blog post titled On Writing. You're, I think, an excellent writer. So let me ask, what does it take to be a good writer? What does it take to write some of the blog posts you've written?
+
+2:05:48.000 --> 2:06:00.000
+ Sort of condense set of ideas in your head, the mess that's probably in your head and putting down on paper in a way that communicates the idea clearly and powerfully.
+
+2:06:00.000 --> 2:06:25.000
+ So that was basically the point of the blog post is that being an impressive writer is different from being an effective writer. You know, so I think the answer to your question is humility, basically. So I think if you let pride and vanity seep into your writing, then you risk creating a very noisy signal.
+
+2:06:25.000 --> 2:06:44.000
+ You know, creating a very inefficient channel for communicating literal neural arrangements from your brain to someone else's brain. And that's what I think about when I write is like, wow, I have the power to, at scale, change the literal physical composition of people's brains, right, to rewire them.
+
+2:06:44.000 --> 2:07:07.000
+ If I make an idea that's so persuasive, that's so sticky, if I coin a phrase that is so pithy, then I can alter their brain. That's crazy. I mean, you're letting someone reach into your head and like, mess with it a little bit. That's unbelievable. And that's like a superpower. And if you could do that to 100,000 people at once, how powerful is that, right?
+
+2:07:07.000 --> 2:07:14.000
+ You mentioned Descartes, I think, therefore I am. That's like literally rewired millions of brains throughout history.
+
+2:07:14.000 --> 2:07:38.000
+ I mean, that's one of the most powerful, like, cogito urgo sum, one of the most powerful phrases ever written. And that sent a zillion philosophy undergraduates down a rabbit hole of skepticism that some of them didn't make it out of, you know? And they're convinced that, you know, the brain in the vat theory is true, and there's no way to know, you know, what our tangible experiences.
+
+2:07:38.000 --> 2:08:07.000
+ But yeah, so that's the beauty of writing. And the thing that interferes with that is our pride, our desire to, you know, impress people and, you know, look good to them and show off our vocab and stuff. And that was the point of that piece is that I went on this journey where I eventually realized that I don't know if I'm any better of a writer for having realized it, but I think that is a necessary condition.
+
+2:08:07.000 --> 2:08:19.000
+ So does that mean there's a value to striving for simplicity in the words, as opposed to, I mean, complexity?
+
+2:08:19.000 --> 2:08:30.000
+ I think so, for sure. And we deal with complex topics all the time in crypto. And that's always a huge red flag for me. I mean, if you can't explain something simply, do you understand it, you know?
+
+2:08:30.000 --> 2:08:31.000
+ Yeah.
+
+2:08:31.000 --> 2:08:53.000
+ So if you're talking about something that complex, if you can't find simple ways to discuss it, my presumption is that you're actually obfuscating the truth. And this is what Orwell railed against with political language. You know, he really hated political language, because he felt that its authors were using deliberate obfuscation.
+
+2:08:53.000 --> 2:09:08.000
+ And, you know, he hated euphemisms. And I hate euphemisms, too. You know, I much prefer, you know, forthrightness and clarity of thought. But most people when they write, don't really endeavor to be particularly clear.
+
+2:09:08.000 --> 2:09:29.000
+ They might be writing to show off their startup, or, you know, to demonstrate to people how cool they are, or how well read they are, you know, they're displaying, it's like a peacock style display. What fraction of people write to actually communicate meaning? Small fraction.
+
+2:09:29.000 --> 2:09:42.000
+ It's especially difficult because what I've detected is something in us humans as readers assign more credibility to people that obfuscate.
+
+2:09:42.000 --> 2:09:59.000
+ So, like, simple, clear communication of an idea is not, like, the immediate reaction is not one where we assign credibility to the person. Like, that was brilliant.
+
+2:09:59.000 --> 2:10:13.000
+ There's a lot of people that I kind of listened to without really understanding what the heck they're talking about, but it sounds musical and smart. And then I see a lot of folks assigning credibility to that person.
+
+2:10:13.000 --> 2:10:37.000
+ And it's unfortunate. It's unfortunate that there's that tension as a reader, that we appreciate the beauty and power of, like, complex weaving of words without assigning as much value to, like, actual clear communication of an idea.
+
+2:10:37.000 --> 2:10:54.000
+ And I'm always skeptical in speech as well. When someone will describe someone as articulate, I'm always immediately skeptical of the value of what that person is saying. Because if you articulate, you can make bad ideas sound very acceptable and great.
+
+2:10:54.000 --> 2:11:08.000
+ And Noam Chomsky has said this before, as a way to defend the way he speaks. He said that, like, he's suspicious of charismatic people because they can basically sell any kind of idea.
+
+2:11:08.000 --> 2:11:17.000
+ He speaks in a very monotone and boring way so that whatever the value his ideas have, they'll shine through. There's something to that.
+
+2:11:17.000 --> 2:11:28.000
+ I love that. But it's a difficult journey. It's a difficult path because then, I think it's the right path because ultimately you focus on the quality of your ideas and in the long term that wins.
+
+2:11:28.000 --> 2:11:30.000
+ I agree.
+
+2:11:30.000 --> 2:11:47.000
+ Just by way of advice, is there, if people are interested in Bitcoin or cryptocurrency, in your work, what are good books or resources on Bitcoin from you and from others that you can recommend that in your own journey helped you or you've seen help others?
+
+2:11:47.000 --> 2:12:05.000
+ Well, it's very easy. It's much easier today to make the Bitcoin journey because the quality of content is so much better than it was when I started. I mean, when I learned about Bitcoin, there was the Bitcoin Wiki and the Bitcoin Stack Exchange and the subreddit and that was kind of it.
+
+2:12:05.000 --> 2:12:13.000
+ And you had to just pick up everything. The economic theory hadn't really been worked out very much. So you had to pick everything up from scratch.
+
+2:12:13.000 --> 2:12:22.000
+ The good news is that there's a huge abundance of content. And that's actually one of Bitcoin's greatest strengths is that people are totally inspired to write about it.
+
+2:12:22.000 --> 2:12:33.000
+ And it's almost a rite of passage at this point if you're like a Bitcoin thinker to have your book. I don't have a book yet. I would love to recommend my book. I haven't written one.
+
+2:12:33.000 --> 2:12:34.000
+ Do you think about writing a book?
+
+2:12:34.000 --> 2:12:45.000
+ Yeah, I think it's my duty. 100%. Everyone that has created a lot of Bitcoin content probably should condense it into a book to give it an enduring status.
+
+2:12:45.000 --> 2:13:08.000
+ It's interesting because you mentioned block size wars and you've written on a lot of different topics. So you could both write like a big like sapient style book about Bitcoin or cryptocurrency, right? But you can also write a book on each like a specific thing.
+
+2:13:08.000 --> 2:13:23.000
+ And now that you put pressure on yourself and talk about simplicity, right? Where do you lean on those different book journeys that you might take on? Do you have in you eventually like a Bitcoin book?
+
+2:13:23.000 --> 2:13:44.000
+ I mean, I tallied up the words that I wrote in the last couple years on Bitcoin. It's like over 100,000 words a year. So that's two novels there. But yeah, I think I do. I think there's so much underexplored space in Bitcoin. I mean, a systematic interpretation of Satoshi's writings, for instance.
+
+2:13:44.000 --> 2:14:00.000
+ And a lot of people don't want anyone to do that because they don't want it to have these religious overtones where you're engaging in interpretation. But that's something that should be done. There's a lot of Bitcoin histories that haven't been written.
+
+2:14:00.000 --> 2:14:20.000
+ There was a great Bitcoin history recently published that's this is one of my recommendations is on the block size war by Jonathan beer, who runs probably the best research desk in the industry. So there's huge amounts of history that has transpired that hasn't been chronicled.
+
+2:14:20.000 --> 2:14:37.000
+ And some of the accounts are indifferent. You know, they're often written by outsiders, you know, journalists that maybe don't fully engage with the Bitcoin system. But if you think the humans are interesting in the story to, of course, they're the most interesting thing.
+
+2:14:37.000 --> 2:14:52.000
+ You know, I mean, Bitcoin itself doesn't really change that much. It's kind of this cold, you know, protocol that just sort of takes along with the characters are just fascinating. I mean, and there's so many unbelievable characters in the Bitcoin story. Unbelievable.
+
+2:14:52.000 --> 2:15:09.000
+ Yeah, that's the cool thing about Bitcoin and cryptocurrency and just internet is like the weirdos, the brilliant weirdos, like, all the people in in the stuff that's already established are boring. Like economics professors are all boring, right?
+
+2:15:09.000 --> 2:15:22.000
+ But the interesting people, the wild ones are, are the ones that are innovating on in the crypto space, which is, you know, that's where the dangerous weirdos are, and the exciting, brilliant weirdos.
+
+2:15:22.000 --> 2:15:42.000
+ Well, you had to be kind of crazy to adopt Bitcoin in the first sort of five years of its life. So there's an adverse selection element there. I don't know if that's an uncharitable way to put it, but like, some of Bitcoin's earliest evangelists are not the evangelists I would have chosen, but they're the ones that we got.
+
+2:15:42.000 --> 2:15:52.000
+ It's the one we got. But is there is there resources? You're basically saying, just throw a dart. And most books are going to be good? Or is there something that stands out to you?
+
+2:15:52.000 --> 2:16:17.000
+ I mean, your average book is, you know, terrible, for sure. But not on Bitcoin, specifically, but just in general. It depends whether you like the computer science, the economics, or the history. But my recommendations would be, you know, obviously, the Bitcoin white paper, that's, and Satoshi's complimentary writings, that's very important is to try and understand the intentions behind the system.
+
+2:16:17.000 --> 2:16:35.000
+ And also to understand the system without having your view colored by some third party's description of it. Most descriptions of Bitcoin are really bad. So just go to the originals, go to the Hal Finney's post, Satoshi's post on Bitcoin talk, there's a huge amount of lucidity there.
+
+2:16:35.000 --> 2:16:44.000
+ And actually, most of our questions about Bitcoin today that we have a decade later were really answered in those earliest days. People just don't know it.
+
+2:16:44.000 --> 2:16:54.000
+ The canonical economic work relating to Bitcoin, a lot of people don't like it. I think it's fine, would be the Bitcoin standard.
+
+2:16:54.000 --> 2:16:57.000
+ A lot of people don't like it. I just read it. It's good. I like it.
+
+2:16:57.000 --> 2:17:15.000
+ I think it's a good description of sort of the Austrian perspective, and then how it relates to Bitcoin. There isn't that much about Bitcoin in there. But I think the point is, once you've understood, you know, Saifedean's view of monetary policy, Bitcoin makes a ton of sense, you don't actually need to argue for it that much.
+
+2:17:15.000 --> 2:17:35.000
+ So the Bitcoin standard is a good introduction to sort of the orthodox thought in Bitcoin. There's a more recent book called Layered Money, which I liked by Nick Bhatia, which goes into more depth about what I was talking about early in the conversation, the layered approach to scaling.
+
+2:17:35.000 --> 2:17:46.000
+ And that's a really critical thing to understand. Then technical books about Bitcoin. I like Grokking Bitcoin, which is a very computer science heavy one.
+
+2:17:46.000 --> 2:18:02.000
+ There's a good textbook called Bitcoin and Cryptocurrency Technologies by Arvind Narayan. I think he's a Princeton computer science professor, which is really good at building intuition.
+
+2:18:02.000 --> 2:18:14.000
+ Antonopoulos's books, Mastering Bitcoin are good. Then there's like simpler intuition building books that aren't hardcore on the economics or the protocol design.
+
+2:18:14.000 --> 2:18:25.000
+ So you have like Inventing Bitcoin by Jan Pritzker, which is good. You have Bitcoin Clarity by Kiara Bakkers. As you can tell, I have like a, my bookshelf is like mostly Bitcoin books.
+
+2:18:25.000 --> 2:18:33.000
+ Well, that's a good selection. And of course, like you said, your writing and your book that comes out this year or next year?
+
+2:18:33.000 --> 2:18:49.000
+ I think I'm going to need 18 months. But most of the good Bitcoin content is just online, on Medium, on Twitter. So it's a decentralized consensus kind of thing.
+
+2:18:49.000 --> 2:19:05.000
+ What about book recommendations that you could give people who love these outside of the world of crypto that maybe had an impact on your life? Fiction, like sci fi, maybe technical, philosophical. Is there something you would recommend that people might read?
+
+2:19:05.000 --> 2:19:19.000
+ I really liked the three body problem. But that's a really hackneyed recommendation. But it really made me think and I like the hard sci fi, you know, the commitment to science and science fiction. So I thought it was very clever.
+
+2:19:19.000 --> 2:19:30.000
+ Is there one? Is there something that really annoys you? In terms of the opposite of hard sci fi, like that doesn't get stuff right movies?
+
+2:19:30.000 --> 2:19:48.000
+ I mean, I have issues when I watch like, ostensibly sci fi or fantasy films that are not consistent about this, the rules for the universe that they've laid out, or where there's impossible to comprehend, like Christopher Nolan's latest film.
+
+2:19:48.000 --> 2:19:58.000
+ Oh, yeah. You needed like a spreadsheet to understand that. Yeah. I trust that maybe he was consistent about the rules of his universe. I just did not understand it at all.
+
+2:19:58.000 --> 2:20:22.000
+ In that sense, I really probably one of my favorites is 2001 Space Odyssey. It's so obviously it's many, many decades ago, but it's quite brilliant in both its consistency and the depth of thought put into like, what the technology would actually be.
+
+2:20:22.000 --> 2:20:48.000
+ Not in like visually, not in kind of silly graphical ways, but in terms of function and its impact on humanity. So, but that takes care. That takes a lot of work and that takes genius actually, which is why Kubrick is regarded for what he is.
+
+2:20:48.000 --> 2:21:08.000
+ What advice? You've taken an interesting journey through your life. You were at Fidelity, a philosophy major. You're now one of the seminal minds in the world of Bitcoin and cryptocurrency. Who the hell knows what the next 5, 10 years looks for you.
+
+2:21:08.000 --> 2:21:19.000
+ If you were to give advice to somebody young today, making their way through life, making a career, what kind of advice would you give?
+
+2:21:19.000 --> 2:21:41.000
+ See, the problem with advice is that in a world where so much of success is defined by luck and serendipity is that the advice givers often don't know why they've been successful, right? And so they might say, you know, I was wearing a green tie on the day of my job interview and so you should go out and wear green ties.
+
+2:21:41.000 --> 2:21:59.000
+ And so they might just get the causality completely wrong, right? I mean, I'm not going to claim that I'm super successful yet, but see, that's the problem is that I don't think my journey is replicable necessarily. So, you know, who am I to give advice?
+
+2:21:59.000 --> 2:22:22.000
+ Although the one thing I will say is that the thing I did right was to become completely obsessed with a domain I found really interesting and held promise. Like if I had been really interested in like Magic the Gathering, I wouldn't have been able to like do much with that aside from build like a killer, you know, card pack or whatever.
+
+2:22:22.000 --> 2:22:48.000
+ And I wasn't afraid to, you know, really put myself out there and, you know, float my thoughts online and see how people reacted to them. Even if I said stuff that was completely erroneous or wrong all the time, the rewards to writing and just publishing content are immense, as you know, obviously, it's the most high leverage activity I think most young people have available to them.
+
+2:22:48.000 --> 2:23:03.000
+ And I was very lucky and I benefited from a lot of favorable coincidences, a lot of people that took a chance on me. And if I had more time, I would sit here and name them.
+
+2:23:03.000 --> 2:23:23.000
+ Is there something in your actions that made you more open to the benefits of luck? Sort of, you know, luck can bring you a lot of positive and negative things. So saying you're lucky means you were able to ride the wave of whatever positive stuff luck brought you.
+
+2:23:23.000 --> 2:23:43.000
+ Well, that's right, you have to put yourself in a position to be lucky. And most people don't. So you just have to get as many shots on goal as possible. And, of course, luck plays an undeniable role in any career path, for sure. But you do have to make yourself available to it.
+
+2:23:43.000 --> 2:23:58.000
+ And you have to take a ton of chances. But yeah, that's the problem with advice. It's just so hard to replicate it. So I find it illegitimate most of the time.
+
+2:23:58.000 --> 2:24:01.000
+ You heard it here, kids, don't listen to anything Nick just said.
+
+2:24:01.000 --> 2:24:02.000
+ Exactly.
+
+2:24:02.000 --> 2:24:12.000
+ Wear a green tie to your interviews, it'll work out well. Do you think there's a meaning or reason to any of this, this existence, this life?
+
+2:24:12.000 --> 2:24:34.000
+ Well, we make our own meaning, for sure. I find a huge amount of meaning in what I do. I find it beautiful, I feel very lucky and blessed to be in the line of work that I'm in, you know, to have your hobby and your passion and your job just be a completely integrated thing. So that's where I find meaning.
+
+2:24:34.000 --> 2:24:50.000
+ But you're just a bag of like cells and bacteria that eventually dissipates, dies, and it goes into the ground and disappears back into the universe. I mean, that doesn't make any sense.
+
+2:24:50.000 --> 2:25:08.000
+ Well, that may be true. But I find the sublime in things like Bitcoin. I find it incredibly inspiring to work on it. I believe it's 100 year plus project. And, you know, it stirs those aesthetic emotions in you, as I'm sure your work does.
+
+2:25:08.000 --> 2:25:09.000
+ So you find it beautiful?
+
+2:25:09.000 --> 2:25:14.000
+ Absolutely. Absolutely. And inspiring more than just beautiful.
+
+2:25:14.000 --> 2:25:18.000
+ So you have hope for human civilization and Bitcoin as part of that hope?
+
+2:25:18.000 --> 2:25:42.000
+ Yeah, it's a very optimistic view. And people accuse us of being pessimists and saying that we are, you know, rooting for the collapse of civilization. Completely false. Bitcoiners are wildly optimistic, because they believe that you can monetize a completely new system from scratch and compete with the strongest superpower in the military and the dollar and everything that goes with that.
+
+2:25:42.000 --> 2:25:52.000
+ That's the craziest, most ludicrously optimistic proposition imaginable. So I think Bitcoiners are the most optimistic people out there.
+
+2:25:52.000 --> 2:26:18.000
+ I don't think there's a better way to end it on that hopeful vision of human civilization. Nick, I've heard a lot of amazing things about you. I was binge watching your interviews, binge reading your blogs, fell in love with your work. You're a good dude. Inspiring, brilliant. Thank you so much for wasting all your valuable time with me today.
+
+2:26:18.000 --> 2:26:20.000
+ My absolute pleasure.
+
+2:26:20.000 --> 2:26:32.000
+ Thanks for listening to this conversation with Nick Carter, and thank you to The Information, Athletic Greens, Four Sigmatic, and Blinkist. Check them out in the description to support this podcast.
+
+2:26:32.000 --> 2:26:38.000
+ And now, let me leave you with some words about freedom and beauty from Stephen King.
+
+2:26:38.000 --> 2:26:52.000
+ Some birds are not meant to be caged, that's all. Their feathers are too bright, their songs too sweet and wild. So you let them go, or when you open the cage to feed them, they somehow fly out past you.
+
+2:26:52.000 --> 2:27:03.000
+ And the part of you that knows it was wrong to imprison them in the first place rejoices. But still, the place where you live is that much more drab and empty for their departure.
+
+2:27:03.000 --> 2:27:14.000
+ Thank you for listening, and hope to see you next time.
+

@@ -1,0 +1,6404 @@
+WEBVTT
+
+00:00.000 --> 00:03.380
+ The following is a conversation with Ayana Howard.
+
+00:03.380 --> 00:06.180
+ She's a roboticist, professor Georgia Tech,
+
+00:06.180 --> 00:09.820
+ and director of the Human Automation Systems Lab,
+
+00:09.820 --> 00:12.780
+ with research interests in human robot interaction,
+
+00:12.780 --> 00:15.980
+ assisted robots in the home, therapy gaming apps,
+
+00:15.980 --> 00:20.260
+ and remote robotic exploration of extreme environments.
+
+00:20.260 --> 00:23.420
+ Like me, in her work, she cares a lot
+
+00:23.420 --> 00:26.340
+ about both robots and human beings,
+
+00:26.340 --> 00:29.540
+ and so I really enjoyed this conversation.
+
+00:29.540 --> 00:32.580
+ This is the Artificial Intelligence Podcast.
+
+00:32.580 --> 00:34.940
+ If you enjoy it, subscribe on YouTube,
+
+00:34.940 --> 00:36.940
+ give it five stars on Apple Podcast,
+
+00:36.940 --> 00:39.580
+ follow on Spotify, support it on Patreon,
+
+00:39.580 --> 00:41.700
+ or simply connect with me on Twitter
+
+00:41.700 --> 00:45.640
+ at Lex Friedman, spelled F R I D M A N.
+
+00:45.640 --> 00:47.140
+ I recently started doing ads
+
+00:47.140 --> 00:48.700
+ at the end of the introduction.
+
+00:48.700 --> 00:51.660
+ I'll do one or two minutes after introducing the episode,
+
+00:51.660 --> 00:53.180
+ and never any ads in the middle
+
+00:53.180 --> 00:55.500
+ that can break the flow of the conversation.
+
+00:55.500 --> 00:56.860
+ I hope that works for you
+
+00:56.860 --> 01:00.140
+ and doesn't hurt the listening experience.
+
+01:00.140 --> 01:02.260
+ This show is presented by Cash App,
+
+01:02.260 --> 01:04.740
+ the number one finance app in the App Store.
+
+01:04.740 --> 01:07.540
+ I personally use Cash App to send money to friends,
+
+01:07.540 --> 01:09.300
+ but you can also use it to buy, sell,
+
+01:09.300 --> 01:11.700
+ and deposit Bitcoin in just seconds.
+
+01:11.700 --> 01:14.580
+ Cash App also has a new investing feature.
+
+01:14.580 --> 01:17.520
+ You can buy fractions of a stock, say $1 worth,
+
+01:17.520 --> 01:19.640
+ no matter what the stock price is.
+
+01:19.640 --> 01:22.560
+ Broker services are provided by Cash App Investing,
+
+01:22.560 --> 01:25.840
+ a subsidiary of Square and Member SIPC.
+
+01:25.840 --> 01:28.140
+ I'm excited to be working with Cash App
+
+01:28.140 --> 01:31.540
+ to support one of my favorite organizations called First,
+
+01:31.540 --> 01:35.060
+ best known for their FIRST Robotics and Lego competitions.
+
+01:35.060 --> 01:38.340
+ They educate and inspire hundreds of thousands of students
+
+01:38.340 --> 01:40.060
+ in over 110 countries,
+
+01:40.060 --> 01:42.820
+ and have a perfect rating at Charity Navigator,
+
+01:42.820 --> 01:44.100
+ which means that donated money
+
+01:44.100 --> 01:46.860
+ is used to maximum effectiveness.
+
+01:46.860 --> 01:49.580
+ When you get Cash App from the App Store or Google Play
+
+01:49.580 --> 01:53.500
+ and use code LEXPODCAST, you'll get $10,
+
+01:53.500 --> 01:56.420
+ and Cash App will also donate $10 to FIRST,
+
+01:56.420 --> 01:58.260
+ which again, is an organization
+
+01:58.260 --> 02:01.060
+ that I've personally seen inspire girls and boys
+
+02:01.060 --> 02:04.260
+ to dream of engineering a better world.
+
+02:04.260 --> 02:08.300
+ And now, here's my conversation with Ayanna Howard.
+
+02:09.420 --> 02:13.620
+ What or who is the most amazing robot you've ever met,
+
+02:13.620 --> 02:16.700
+ or perhaps had the biggest impact on your career?
+
+02:16.700 --> 02:21.060
+ I haven't met her, but I grew up with her,
+
+02:21.060 --> 02:22.740
+ but of course, Rosie.
+
+02:22.740 --> 02:25.220
+ So, and I think it's because also.
+
+02:25.220 --> 02:26.120
+ Who's Rosie?
+
+02:26.120 --> 02:27.780
+ Rosie from the Jetsons.
+
+02:27.780 --> 02:30.940
+ She is all things to all people, right?
+
+02:30.940 --> 02:31.780
+ Think about it.
+
+02:31.780 --> 02:35.060
+ Like anything you wanted, it was like magic, it happened.
+
+02:35.060 --> 02:37.860
+ So people not only anthropomorphize,
+
+02:37.860 --> 02:41.940
+ but project whatever they wish for the robot to be onto.
+
+02:41.940 --> 02:42.920
+ Onto Rosie.
+
+02:42.920 --> 02:44.580
+ But also, I mean, think about it.
+
+02:44.580 --> 02:46.780
+ She was socially engaging.
+
+02:46.780 --> 02:50.020
+ She every so often had an attitude, right?
+
+02:50.020 --> 02:51.940
+ She kept us honest.
+
+02:51.940 --> 02:53.740
+ She would push back sometimes
+
+02:53.740 --> 02:56.980
+ when George was doing some weird stuff.
+
+02:56.980 --> 02:59.800
+ But she cared about people, especially the kids.
+
+03:01.180 --> 03:03.980
+ She was like the perfect robot.
+
+03:03.980 --> 03:06.460
+ And you've said that people don't want
+
+03:06.460 --> 03:08.320
+ their robots to be perfect.
+
+03:09.740 --> 03:11.140
+ Can you elaborate that?
+
+03:11.140 --> 03:11.980
+ What do you think that is?
+
+03:11.980 --> 03:14.780
+ Just like you said, Rosie pushed back a little bit
+
+03:14.780 --> 03:15.720
+ every once in a while.
+
+03:15.720 --> 03:18.260
+ Yeah, so I think it's that.
+
+03:18.260 --> 03:19.860
+ So if you think about robotics in general,
+
+03:19.860 --> 03:23.900
+ we want them because they enhance our quality of life.
+
+03:23.900 --> 03:27.000
+ And usually that's linked to something that's functional.
+
+03:27.000 --> 03:28.640
+ Even if you think of self driving cars,
+
+03:28.640 --> 03:29.980
+ why is there a fascination?
+
+03:29.980 --> 03:31.500
+ Because people really do hate to drive.
+
+03:31.500 --> 03:34.140
+ Like there's the like Saturday driving
+
+03:34.140 --> 03:35.300
+ where I can just speed,
+
+03:35.300 --> 03:37.500
+ but then there's the I have to go to work every day
+
+03:37.500 --> 03:38.980
+ and I'm in traffic for an hour.
+
+03:38.980 --> 03:40.380
+ I mean, people really hate that.
+
+03:40.380 --> 03:45.380
+ And so robots are designed to basically enhance
+
+03:45.380 --> 03:49.740
+ our ability to increase our quality of life.
+
+03:49.740 --> 03:54.300
+ And so the perfection comes from this aspect of interaction.
+
+03:55.460 --> 04:00.020
+ If I think about how we drive, if we drove perfectly,
+
+04:00.020 --> 04:02.140
+ we would never get anywhere, right?
+
+04:02.140 --> 04:07.140
+ So think about how many times you had to run past the light
+
+04:07.140 --> 04:09.020
+ because you see the car behind you
+
+04:09.020 --> 04:10.380
+ is about to crash into you.
+
+04:10.380 --> 04:15.320
+ Or that little kid kind of runs into the street
+
+04:15.320 --> 04:17.300
+ and so you have to cross on the other side
+
+04:17.300 --> 04:18.460
+ because there's no cars, right?
+
+04:18.460 --> 04:21.220
+ Like if you think about it, we are not perfect drivers.
+
+04:21.220 --> 04:23.580
+ Some of it is because it's our world.
+
+04:23.580 --> 04:26.780
+ And so if you have a robot that is perfect
+
+04:26.780 --> 04:28.740
+ in that sense of the word,
+
+04:28.740 --> 04:31.180
+ they wouldn't really be able to function with us.
+
+04:31.180 --> 04:34.520
+ Can you linger a little bit on the word perfection?
+
+04:34.520 --> 04:37.380
+ So from the robotics perspective,
+
+04:37.380 --> 04:39.460
+ what does that word mean
+
+04:39.460 --> 04:42.900
+ and how is sort of the optimal behavior
+
+04:42.900 --> 04:44.460
+ as you're describing different
+
+04:44.460 --> 04:46.620
+ than what we think is perfection?
+
+04:46.620 --> 04:49.460
+ Yeah, so perfection, if you think about it
+
+04:49.460 --> 04:51.980
+ in the more theoretical point of view,
+
+04:51.980 --> 04:54.060
+ it's really tied to accuracy, right?
+
+04:54.060 --> 04:55.620
+ So if I have a function,
+
+04:55.620 --> 04:59.480
+ can I complete it at 100% accuracy with zero errors?
+
+05:00.660 --> 05:04.180
+ And so that's kind of, if you think about perfection
+
+05:04.180 --> 05:05.220
+ in the sense of the word.
+
+05:05.220 --> 05:07.500
+ And in the self driving car realm,
+
+05:07.500 --> 05:10.460
+ do you think from a robotics perspective,
+
+05:10.460 --> 05:13.940
+ we kind of think that perfection means
+
+05:13.940 --> 05:15.580
+ following the rules perfectly,
+
+05:15.580 --> 05:19.580
+ sort of defining, staying in the lane, changing lanes.
+
+05:19.580 --> 05:20.900
+ When there's a green light, you go.
+
+05:20.900 --> 05:22.300
+ When there's a red light, you stop.
+
+05:22.300 --> 05:26.660
+ And that's the, and be able to perfectly see
+
+05:26.660 --> 05:29.140
+ all the entities in the scene.
+
+05:29.140 --> 05:31.980
+ That's the limit of what we think of as perfection.
+
+05:31.980 --> 05:33.740
+ And I think that's where the problem comes
+
+05:33.740 --> 05:38.340
+ is that when people think about perfection for robotics,
+
+05:38.340 --> 05:40.820
+ the ones that are the most successful
+
+05:40.820 --> 05:43.260
+ are the ones that are quote unquote perfect.
+
+05:43.260 --> 05:44.660
+ Like I said, Rosie is perfect,
+
+05:44.660 --> 05:47.380
+ but she actually wasn't perfect in terms of accuracy,
+
+05:47.380 --> 05:50.380
+ but she was perfect in terms of how she interacted
+
+05:50.380 --> 05:51.540
+ and how she adapted.
+
+05:51.540 --> 05:53.300
+ And I think that's some of the disconnect
+
+05:53.300 --> 05:56.460
+ is that we really want perfection
+
+05:56.460 --> 05:59.980
+ with respect to its ability to adapt to us.
+
+05:59.980 --> 06:03.500
+ We don't really want perfection with respect to 100% accuracy
+
+06:03.500 --> 06:06.780
+ with respect to the rules that we just made up anyway, right?
+
+06:06.780 --> 06:09.500
+ And so I think there's this disconnect sometimes
+
+06:09.500 --> 06:13.260
+ between what we really want and what happens.
+
+06:13.260 --> 06:15.940
+ And we see this all the time, like in my research, right?
+
+06:15.940 --> 06:20.340
+ Like the optimal, quote unquote optimal interactions
+
+06:20.340 --> 06:24.300
+ are when the robot is adapting based on the person,
+
+06:24.300 --> 06:29.300
+ not 100% following what's optimal based on the rules.
+
+06:29.540 --> 06:32.580
+ Just to link on autonomous vehicles for a second,
+
+06:32.580 --> 06:35.020
+ just your thoughts, maybe off the top of the head,
+
+06:36.180 --> 06:37.940
+ how hard is that problem do you think
+
+06:37.940 --> 06:40.100
+ based on what we just talked about?
+
+06:40.100 --> 06:42.900
+ There's a lot of folks in the automotive industry,
+
+06:42.900 --> 06:45.900
+ they're very confident from Elon Musk to Waymo
+
+06:45.900 --> 06:47.620
+ to all these companies.
+
+06:47.620 --> 06:50.420
+ How hard is it to solve that last piece?
+
+06:50.420 --> 06:51.340
+ The last mile.
+
+06:51.340 --> 06:56.340
+ The gap between the perfection and the human definition
+
+06:57.500 --> 06:59.460
+ of how you actually function in this world.
+
+06:59.460 --> 07:00.580
+ Yeah, so this is a moving target.
+
+07:00.580 --> 07:04.460
+ So I remember when all the big companies
+
+07:04.460 --> 07:06.780
+ started to heavily invest in this
+
+07:06.780 --> 07:09.860
+ and there was a number of even roboticists
+
+07:09.860 --> 07:13.180
+ as well as folks who were putting in the VCs
+
+07:13.180 --> 07:16.660
+ and corporations, Elon Musk being one of them that said,
+
+07:16.660 --> 07:19.460
+ self driving cars on the road with people
+
+07:19.460 --> 07:24.180
+ within five years, that was a little while ago.
+
+07:24.180 --> 07:29.180
+ And now people are saying five years, 10 years, 20 years,
+
+07:29.780 --> 07:31.500
+ some are saying never, right?
+
+07:31.500 --> 07:33.700
+ I think if you look at some of the things
+
+07:33.700 --> 07:37.620
+ that are being successful is these
+
+07:39.420 --> 07:41.140
+ basically fixed environments
+
+07:41.140 --> 07:43.980
+ where you still have some anomalies, right?
+
+07:43.980 --> 07:46.460
+ You still have people walking, you still have stores,
+
+07:46.460 --> 07:50.060
+ but you don't have other drivers, right?
+
+07:50.060 --> 07:51.700
+ Like other human drivers are,
+
+07:51.700 --> 07:55.580
+ it's a dedicated space for the cars.
+
+07:55.580 --> 07:57.140
+ Because if you think about robotics in general,
+
+07:57.140 --> 07:59.020
+ where has always been successful?
+
+07:59.020 --> 08:00.580
+ I mean, you can say manufacturing,
+
+08:00.580 --> 08:02.260
+ like way back in the day, right?
+
+08:02.260 --> 08:04.340
+ It was a fixed environment, humans were not part
+
+08:04.340 --> 08:07.180
+ of the equation, we're a lot better than that.
+
+08:07.180 --> 08:10.940
+ But like when we can carve out scenarios
+
+08:10.940 --> 08:13.780
+ that are closer to that space,
+
+08:13.780 --> 08:16.660
+ then I think that it's where we are.
+
+08:16.660 --> 08:20.540
+ So a closed campus where you don't have self driving cars
+
+08:20.540 --> 08:23.780
+ and maybe some protection so that the students
+
+08:23.780 --> 08:27.220
+ don't jet in front just because they wanna see what happens.
+
+08:27.220 --> 08:29.940
+ Like having a little bit, I think that's where
+
+08:29.940 --> 08:32.300
+ we're gonna see the most success in the near future.
+
+08:32.300 --> 08:33.660
+ And be slow moving.
+
+08:33.660 --> 08:37.900
+ Right, not 55, 60, 70 miles an hour,
+
+08:37.900 --> 08:42.100
+ but the speed of a golf cart, right?
+
+08:42.100 --> 08:45.220
+ So that said, the most successful
+
+08:45.220 --> 08:47.900
+ in the automotive industry robots operating today
+
+08:47.900 --> 08:51.600
+ in the hands of real people are ones that are traveling
+
+08:51.600 --> 08:55.540
+ over 55 miles an hour and in unconstrained environments,
+
+08:55.540 --> 08:58.880
+ which is Tesla vehicles, so Tesla autopilot.
+
+08:58.880 --> 09:01.720
+ So I would love to hear sort of your,
+
+09:01.720 --> 09:04.300
+ just thoughts of two things.
+
+09:04.300 --> 09:07.020
+ So one, I don't know if you've gotten to see,
+
+09:07.020 --> 09:10.020
+ you've heard about something called smart summon
+
+09:10.020 --> 09:13.520
+ where Tesla system, autopilot system,
+
+09:13.520 --> 09:17.140
+ where the car drives zero occupancy, no driver
+
+09:17.140 --> 09:19.980
+ in the parking lot slowly sort of tries to navigate
+
+09:19.980 --> 09:22.720
+ the parking lot to find itself to you.
+
+09:22.720 --> 09:25.900
+ And there's some incredible amounts of videos
+
+09:25.900 --> 09:28.860
+ and just hilarity that happens as it awkwardly tries
+
+09:28.860 --> 09:32.340
+ to navigate this environment, but it's a beautiful
+
+09:32.340 --> 09:35.180
+ nonverbal communication between machine and human
+
+09:35.180 --> 09:38.780
+ that I think is a, it's like, it's some of the work
+
+09:38.780 --> 09:40.660
+ that you do in this kind of interesting
+
+09:40.660 --> 09:42.060
+ human robot interaction space.
+
+09:42.060 --> 09:43.780
+ So what are your thoughts in general about it?
+
+09:43.780 --> 09:46.120
+ So I do have that feature.
+
+09:46.980 --> 09:47.820
+ Do you drive a Tesla?
+
+09:47.820 --> 09:52.100
+ I do, mainly because I'm a gadget freak, right?
+
+09:52.100 --> 09:55.620
+ So I say it's a gadget that happens to have some wheels.
+
+09:55.620 --> 09:58.220
+ And yeah, I've seen some of the videos.
+
+09:58.220 --> 09:59.420
+ But what's your experience like?
+
+09:59.420 --> 10:02.700
+ I mean, you're a human robot interaction roboticist,
+
+10:02.700 --> 10:05.580
+ you're a legit sort of expert in the field.
+
+10:05.580 --> 10:08.260
+ So what does it feel for a machine to come to you?
+
+10:08.260 --> 10:11.900
+ It's one of these very fascinating things,
+
+10:11.900 --> 10:16.100
+ but also I am hyper, hyper alert, right?
+
+10:16.100 --> 10:20.540
+ Like I'm hyper alert, like my butt, my thumb is like,
+
+10:20.540 --> 10:23.220
+ oh, okay, I'm ready to take over.
+
+10:23.220 --> 10:27.080
+ Even when I'm in my car or I'm doing things like automated
+
+10:27.080 --> 10:30.420
+ backing into, so there's like a feature where you can do
+
+10:30.420 --> 10:33.140
+ this automating backing into a parking space,
+
+10:33.140 --> 10:35.660
+ or bring the car out of your garage,
+
+10:35.660 --> 10:40.260
+ or even, you know, pseudo autopilot on the freeway, right?
+
+10:40.260 --> 10:42.220
+ I am hypersensitive.
+
+10:42.220 --> 10:44.720
+ I can feel like as I'm navigating,
+
+10:44.720 --> 10:46.900
+ like, yeah, that's an error right there.
+
+10:46.900 --> 10:51.900
+ Like I am very aware of it, but I'm also fascinated by it.
+
+10:52.260 --> 10:54.300
+ And it does get better.
+
+10:54.300 --> 10:58.980
+ Like I look and see it's learning from all of these people
+
+10:58.980 --> 11:02.700
+ who are cutting it on, like every time I cut it on,
+
+11:02.700 --> 11:04.120
+ it's getting better, right?
+
+11:04.120 --> 11:07.100
+ And so I think that's what's amazing about it is that.
+
+11:07.100 --> 11:10.340
+ This nice dance of you're still hyper vigilant.
+
+11:10.340 --> 11:12.780
+ So you're still not trusting it at all.
+
+11:12.780 --> 11:13.600
+ Yeah.
+
+11:13.600 --> 11:14.580
+ And yet you're using it.
+
+11:14.580 --> 11:17.580
+ On the highway, if I were to, like what,
+
+11:17.580 --> 11:20.260
+ as a roboticist, we'll talk about trust a little bit.
+
+11:22.640 --> 11:23.640
+ How do you explain that?
+
+11:23.640 --> 11:25.020
+ You still use it.
+
+11:25.020 --> 11:26.460
+ Is it the gadget freak part?
+
+11:26.460 --> 11:30.700
+ Like where you just enjoy exploring technology?
+
+11:30.700 --> 11:33.680
+ Or is that the right actually balance
+
+11:33.680 --> 11:36.860
+ between robotics and humans is where you use it,
+
+11:36.860 --> 11:38.340
+ but don't trust it.
+
+11:38.340 --> 11:40.100
+ And somehow there's this dance
+
+11:40.100 --> 11:42.100
+ that ultimately is a positive.
+
+11:42.100 --> 11:44.620
+ Yeah, so I think I'm,
+
+11:44.620 --> 11:48.080
+ I just don't necessarily trust technology,
+
+11:48.080 --> 11:50.140
+ but I'm an early adopter, right?
+
+11:50.140 --> 11:51.960
+ So when it first comes out,
+
+11:51.960 --> 11:54.260
+ I will use everything,
+
+11:54.260 --> 11:57.420
+ but I will be very, very cautious of how I use it.
+
+11:57.420 --> 12:01.020
+ Do you read about it or do you explore it by just try it?
+
+12:01.020 --> 12:04.980
+ Do you like crudely, to put it crudely,
+
+12:04.980 --> 12:07.960
+ do you read the manual or do you learn through exploration?
+
+12:07.960 --> 12:08.800
+ I'm an explorer.
+
+12:08.800 --> 12:12.320
+ If I have to read the manual, then I do design.
+
+12:12.320 --> 12:14.180
+ Then it's a bad user interface.
+
+12:14.180 --> 12:15.060
+ It's a failure.
+
+12:16.460 --> 12:19.540
+ Elon Musk is very confident that you kind of take it
+
+12:19.540 --> 12:21.780
+ from where it is now to full autonomy.
+
+12:21.780 --> 12:24.500
+ So from this human robot interaction,
+
+12:24.500 --> 12:26.700
+ where you don't really trust and then you try
+
+12:26.700 --> 12:29.180
+ and then you catch it when it fails to,
+
+12:29.180 --> 12:32.300
+ it's going to incrementally improve itself
+
+12:32.300 --> 12:36.500
+ into full where you don't need to participate.
+
+12:36.500 --> 12:39.860
+ What's your sense of that trajectory?
+
+12:39.860 --> 12:41.040
+ Is it feasible?
+
+12:41.040 --> 12:44.580
+ So the promise there is by the end of next year,
+
+12:44.580 --> 12:47.180
+ by the end of 2020 is the current promise.
+
+12:47.180 --> 12:52.180
+ What's your sense about that journey that Tesla's on?
+
+12:53.620 --> 12:56.580
+ So there's kind of three things going on though.
+
+12:56.580 --> 13:01.580
+ I think in terms of will people go like as a user,
+
+13:03.260 --> 13:08.260
+ as a adopter, will you trust going to that point?
+
+13:08.460 --> 13:10.080
+ I think so, right?
+
+13:10.080 --> 13:13.020
+ Like there are some users and it's because what happens is
+
+13:13.020 --> 13:16.700
+ when you're hypersensitive at the beginning
+
+13:16.700 --> 13:19.300
+ and then the technology tends to work,
+
+13:19.300 --> 13:23.820
+ your apprehension slowly goes away.
+
+13:23.820 --> 13:28.260
+ And as people, we tend to swing to the other extreme, right?
+
+13:28.260 --> 13:30.900
+ Because it's like, oh, I was like hyper, hyper fearful
+
+13:30.900 --> 13:33.940
+ or hypersensitive and it was awesome.
+
+13:33.940 --> 13:35.600
+ And we just tend to swing.
+
+13:35.600 --> 13:37.380
+ That's just human nature.
+
+13:37.380 --> 13:38.860
+ And so you will have, I mean, and I...
+
+13:38.860 --> 13:41.520
+ That's a scary notion because most people
+
+13:41.520 --> 13:44.980
+ are now extremely untrusting of autopilot.
+
+13:44.980 --> 13:46.460
+ They use it, but they don't trust it.
+
+13:46.460 --> 13:48.900
+ And it's a scary notion that there's a certain point
+
+13:48.900 --> 13:51.340
+ where you allow yourself to look at the smartphone
+
+13:51.340 --> 13:53.100
+ for like 20 seconds.
+
+13:53.100 --> 13:55.300
+ And then there'll be this phase shift
+
+13:55.300 --> 13:57.580
+ where it'll be like 20 seconds, 30 seconds,
+
+13:57.580 --> 13:58.940
+ one minute, two minutes.
+
+13:59.980 --> 14:02.020
+ It's a scary proposition.
+
+14:02.020 --> 14:03.460
+ But that's people, right?
+
+14:03.460 --> 14:05.560
+ That's just, that's humans.
+
+14:05.560 --> 14:09.980
+ I mean, I think of even our use of,
+
+14:09.980 --> 14:12.380
+ I mean, just everything on the internet, right?
+
+14:12.380 --> 14:16.860
+ Like think about how reliant we are on certain apps
+
+14:16.860 --> 14:19.380
+ and certain engines, right?
+
+14:20.260 --> 14:22.680
+ 20 years ago, people have been like, oh yeah, that's stupid.
+
+14:22.680 --> 14:23.940
+ Like that makes no sense.
+
+14:23.940 --> 14:25.900
+ Like, of course that's false.
+
+14:25.900 --> 14:29.100
+ Like now it's just like, oh, of course I've been using it.
+
+14:29.100 --> 14:30.740
+ It's been correct all this time.
+
+14:30.740 --> 14:34.340
+ Of course aliens, I didn't think they existed,
+
+14:34.340 --> 14:37.620
+ but now it says they do, obviously.
+
+14:37.620 --> 14:39.500
+ 100%, earth is flat.
+
+14:39.500 --> 14:43.860
+ So, okay, but you said three things.
+
+14:43.860 --> 14:44.700
+ So one is the human.
+
+14:44.700 --> 14:45.820
+ Okay, so one is the human.
+
+14:45.820 --> 14:47.820
+ And I think there will be a group of individuals
+
+14:47.820 --> 14:49.580
+ that will swing, right?
+
+14:49.580 --> 14:50.420
+ I just.
+
+14:50.420 --> 14:51.260
+ Teenagers.
+
+14:51.260 --> 14:54.380
+ Teenage, I mean, it'll be, it'll be adults.
+
+14:54.380 --> 14:56.400
+ There's actually an age demographic
+
+14:56.400 --> 15:00.140
+ that's optimal for technology adoption.
+
+15:00.140 --> 15:02.260
+ And you can actually find them.
+
+15:02.260 --> 15:03.940
+ And they're actually pretty easy to find.
+
+15:03.940 --> 15:06.100
+ Just based on their habits, based on,
+
+15:06.100 --> 15:10.420
+ so if someone like me who wasn't a roboticist
+
+15:10.420 --> 15:13.580
+ would probably be the optimal kind of person, right?
+
+15:13.580 --> 15:15.660
+ Early adopter, okay with technology,
+
+15:15.660 --> 15:20.020
+ very comfortable and not hypersensitive, right?
+
+15:20.020 --> 15:22.700
+ I'm just hypersensitive cause I designed this stuff.
+
+15:23.580 --> 15:25.940
+ So there is a target demographic that will swing.
+
+15:25.940 --> 15:26.820
+ The other one though,
+
+15:26.820 --> 15:31.380
+ is you still have these humans that are on the road.
+
+15:31.380 --> 15:35.100
+ That one is a harder, harder thing to do.
+
+15:35.100 --> 15:40.100
+ And as long as we have people that are on the same streets,
+
+15:40.660 --> 15:42.480
+ that's gonna be the big issue.
+
+15:42.480 --> 15:45.260
+ And it's just because you can't possibly,
+
+15:45.260 --> 15:48.020
+ I wanna say you can't possibly map the,
+
+15:48.020 --> 15:51.380
+ some of the silliness of human drivers, right?
+
+15:51.380 --> 15:56.240
+ Like as an example, when you're next to that car
+
+15:56.240 --> 15:59.780
+ that has that big sticker called student driver, right?
+
+15:59.780 --> 16:04.580
+ Like you are like, oh, either I'm going to like go around.
+
+16:04.580 --> 16:06.740
+ Like we are, we know that that person
+
+16:06.740 --> 16:09.260
+ is just gonna make mistakes that make no sense, right?
+
+16:09.260 --> 16:10.960
+ How do you map that information?
+
+16:11.860 --> 16:14.300
+ Or if I am in a car and I look over
+
+16:14.300 --> 16:19.220
+ and I see two fairly young looking individuals
+
+16:19.220 --> 16:21.100
+ and there's no student driver bumper
+
+16:21.100 --> 16:22.820
+ and I see them chit chatting to each other,
+
+16:22.820 --> 16:26.140
+ I'm like, oh, that's an issue, right?
+
+16:26.140 --> 16:28.420
+ So how do you get that kind of information
+
+16:28.420 --> 16:33.420
+ and that experience into basically an autopilot?
+
+16:35.660 --> 16:37.260
+ And there's millions of cases like that
+
+16:37.260 --> 16:41.220
+ where we take little hints to establish context.
+
+16:41.220 --> 16:44.360
+ I mean, you said kind of beautifully poetic human things,
+
+16:44.360 --> 16:47.120
+ but there's probably subtle things about the environment
+
+16:47.120 --> 16:52.120
+ about it being maybe time for commuters
+
+16:52.900 --> 16:55.220
+ to start going home from work
+
+16:55.220 --> 16:57.140
+ and therefore you can make some kind of judgment
+
+16:57.140 --> 17:00.060
+ about the group behavior of pedestrians, blah, blah, blah,
+
+17:00.060 --> 17:01.180
+ and so on and so on.
+
+17:01.180 --> 17:02.660
+ Or even cities, right?
+
+17:02.660 --> 17:07.100
+ Like if you're in Boston, how people cross the street,
+
+17:07.100 --> 17:10.660
+ like lights are not an issue versus other places
+
+17:10.660 --> 17:15.580
+ where people will actually wait for the crosswalk.
+
+17:15.580 --> 17:18.940
+ Seattle or somewhere peaceful.
+
+17:18.940 --> 17:22.540
+ But what I've also seen sort of just even in Boston
+
+17:22.540 --> 17:25.500
+ that intersection to intersection is different.
+
+17:25.500 --> 17:28.940
+ So every intersection has a personality of its own.
+
+17:28.940 --> 17:30.860
+ So certain neighborhoods of Boston are different.
+
+17:30.860 --> 17:35.220
+ So we kind of, and based on different timing of day,
+
+17:35.220 --> 17:40.220
+ at night, it's all, there's a dynamic to human behavior
+
+17:40.320 --> 17:42.420
+ that we kind of figure out ourselves.
+
+17:42.420 --> 17:46.100
+ We're not able to introspect and figure it out,
+
+17:46.100 --> 17:49.340
+ but somehow our brain learns it.
+
+17:49.340 --> 17:50.340
+ We do.
+
+17:50.340 --> 17:54.860
+ And so you're saying, is there a shortcut?
+
+17:54.860 --> 17:56.420
+ Is there a shortcut, though, for a robot?
+
+17:56.420 --> 17:59.060
+ Is there something that could be done, you think,
+
+17:59.060 --> 18:02.660
+ that, you know, that's what we humans do.
+
+18:02.660 --> 18:04.660
+ It's just like bird flight, right?
+
+18:04.660 --> 18:06.500
+ That's the example they give for flight.
+
+18:06.500 --> 18:09.260
+ Do you necessarily need to build a bird that flies
+
+18:09.260 --> 18:10.700
+ or can you do an airplane?
+
+18:11.860 --> 18:13.020
+ Is there a shortcut to it?
+
+18:13.020 --> 18:16.700
+ So I think the shortcut is, and I kind of,
+
+18:16.700 --> 18:19.340
+ I talk about it as a fixed space,
+
+18:19.340 --> 18:23.280
+ where, so imagine that there's a neighborhood
+
+18:23.280 --> 18:26.500
+ that's a new smart city or a new neighborhood
+
+18:26.500 --> 18:27.540
+ that says, you know what?
+
+18:27.540 --> 18:31.460
+ We are going to design this new city
+
+18:31.460 --> 18:33.660
+ based on supporting self driving cars.
+
+18:33.660 --> 18:37.660
+ And then doing things, knowing that there's anomalies,
+
+18:37.660 --> 18:39.620
+ knowing that people are like this, right?
+
+18:39.620 --> 18:42.080
+ And designing it based on that assumption
+
+18:42.080 --> 18:43.940
+ that like, we're gonna have this.
+
+18:43.940 --> 18:45.540
+ That would be an example of a shortcut.
+
+18:45.540 --> 18:47.140
+ So you still have people,
+
+18:47.140 --> 18:49.260
+ but you do very specific things
+
+18:49.260 --> 18:51.740
+ to try to minimize the noise a little bit
+
+18:51.740 --> 18:53.820
+ as an example.
+
+18:53.820 --> 18:56.180
+ And the people themselves become accepting of the notion
+
+18:56.180 --> 18:57.740
+ that there's autonomous cars, right?
+
+18:57.740 --> 18:59.700
+ Right, like they move into,
+
+18:59.700 --> 19:01.420
+ so right now you have like a,
+
+19:01.420 --> 19:03.580
+ you will have a self selection bias, right?
+
+19:03.580 --> 19:06.180
+ Like individuals will move into this neighborhood
+
+19:06.180 --> 19:09.420
+ knowing like this is part of like the real estate pitch,
+
+19:09.420 --> 19:10.620
+ right?
+
+19:10.620 --> 19:14.140
+ And so I think that's a way to do a shortcut.
+
+19:14.140 --> 19:17.540
+ One, it allows you to deploy.
+
+19:17.540 --> 19:21.900
+ It allows you to collect then data with these variances
+
+19:21.900 --> 19:24.020
+ and anomalies, cause people are still people,
+
+19:24.020 --> 19:28.820
+ but it's a safer space and it's more of an accepting space.
+
+19:28.820 --> 19:31.900
+ I.e. when something in that space might happen
+
+19:31.900 --> 19:34.100
+ because things do,
+
+19:34.100 --> 19:36.060
+ because you already have the self selection,
+
+19:36.060 --> 19:39.220
+ like people would be, I think a little more forgiving
+
+19:39.220 --> 19:40.700
+ than other places.
+
+19:40.700 --> 19:43.100
+ And you said three things, did we cover all of them?
+
+19:43.100 --> 19:46.340
+ The third is legal law, liability,
+
+19:46.340 --> 19:47.820
+ which I don't really want to touch,
+
+19:47.820 --> 19:50.900
+ but it's still of concern.
+
+19:50.900 --> 19:53.260
+ And the mishmash with like with policy as well,
+
+19:53.260 --> 19:55.740
+ sort of government, all that whole.
+
+19:55.740 --> 19:57.740
+ That big ball of stuff.
+
+19:57.740 --> 19:59.100
+ Yeah, gotcha.
+
+19:59.100 --> 20:01.740
+ So that's, so we're out of time now.
+
+20:03.540 --> 20:06.020
+ Do you think from a robotics perspective,
+
+20:07.180 --> 20:09.820
+ you know, if you're kind of honest of what cars do,
+
+20:09.820 --> 20:14.860
+ they kind of threaten each other's life all the time.
+
+20:14.860 --> 20:17.340
+ So cars are various.
+
+20:17.340 --> 20:19.300
+ I mean, in order to navigate intersections,
+
+20:19.300 --> 20:22.300
+ there's an assertiveness, there's a risk taking.
+
+20:22.300 --> 20:25.300
+ And if you were to reduce it to an objective function,
+
+20:25.300 --> 20:28.740
+ there's a probability of murder in that function,
+
+20:28.740 --> 20:31.900
+ meaning you killing another human being
+
+20:31.900 --> 20:33.580
+ and you're using that.
+
+20:33.580 --> 20:35.700
+ First of all, it has to be low enough
+
+20:36.940 --> 20:39.700
+ to be acceptable to you on an ethical level
+
+20:39.700 --> 20:41.300
+ as an individual human being,
+
+20:41.300 --> 20:45.300
+ but it has to be high enough for people to respect you
+
+20:45.300 --> 20:47.540
+ to not sort of take advantage of you completely
+
+20:47.540 --> 20:49.620
+ and jaywalk in front of you and so on.
+
+20:49.620 --> 20:53.100
+ So, I mean, I don't think there's a right answer here,
+
+20:53.100 --> 20:56.100
+ but what's, how do we solve that?
+
+20:56.100 --> 20:57.940
+ How do we solve that from a robotics perspective
+
+20:57.940 --> 21:00.140
+ when danger and human life is at stake?
+
+21:00.140 --> 21:01.980
+ Yeah, as they say, cars don't kill people,
+
+21:01.980 --> 21:02.940
+ people kill people.
+
+21:02.940 --> 21:05.100
+ People kill people.
+
+21:05.100 --> 21:05.940
+ Right.
+
+21:07.100 --> 21:08.620
+ So I think.
+
+21:08.620 --> 21:10.780
+ And now robotic algorithms would be killing people.
+
+21:10.780 --> 21:14.380
+ Right, so it will be robotics algorithms that are pro,
+
+21:14.380 --> 21:16.980
+ no, it will be robotic algorithms don't kill people.
+
+21:16.980 --> 21:19.740
+ Developers of robotic algorithms kill people, right?
+
+21:19.740 --> 21:22.940
+ I mean, one of the things is people are still in the loop
+
+21:22.940 --> 21:26.540
+ and at least in the near and midterm,
+
+21:26.540 --> 21:29.420
+ I think people will still be in the loop at some point,
+
+21:29.420 --> 21:30.300
+ even if it's a developer.
+
+21:30.300 --> 21:31.860
+ Like we're not necessarily at the stage
+
+21:31.860 --> 21:36.740
+ where robots are programming autonomous robots
+
+21:36.740 --> 21:39.980
+ with different behaviors quite yet.
+
+21:39.980 --> 21:42.260
+ It's a scary notion, sorry to interrupt,
+
+21:42.260 --> 21:47.260
+ that a developer has some responsibility
+
+21:47.420 --> 21:49.700
+ in the death of a human being.
+
+21:49.700 --> 21:50.620
+ That's a heavy burden.
+
+21:50.620 --> 21:55.460
+ I mean, I think that's why the whole aspect of ethics
+
+21:55.460 --> 21:58.500
+ in our community is so, so important, right?
+
+21:58.500 --> 22:00.060
+ Like, because it's true.
+
+22:00.060 --> 22:04.820
+ If you think about it, you can basically say,
+
+22:04.820 --> 22:07.460
+ I'm not going to work on weaponized AI, right?
+
+22:07.460 --> 22:09.860
+ Like people can say, that's not what I'm gonna do.
+
+22:09.860 --> 22:12.740
+ But yet you are programming algorithms
+
+22:12.740 --> 22:15.620
+ that might be used in healthcare algorithms
+
+22:15.620 --> 22:17.260
+ that might decide whether this person
+
+22:17.260 --> 22:18.980
+ should get this medication or not.
+
+22:18.980 --> 22:21.420
+ And they don't and they die.
+
+22:21.420 --> 22:25.100
+ Okay, so that is your responsibility, right?
+
+22:25.100 --> 22:27.340
+ And if you're not conscious and aware
+
+22:27.340 --> 22:30.020
+ that you do have that power when you're coding
+
+22:30.020 --> 22:35.020
+ and things like that, I think that's just not a good thing.
+
+22:35.020 --> 22:38.020
+ Like we need to think about this responsibility
+
+22:38.020 --> 22:41.820
+ as we program robots and computing devices
+
+22:41.820 --> 22:43.500
+ much more than we are.
+
+22:44.340 --> 22:46.980
+ Yeah, so it's not an option to not think about ethics.
+
+22:46.980 --> 22:51.340
+ I think it's a majority, I would say, of computer science.
+
+22:51.340 --> 22:53.860
+ Sort of, it's kind of a hot topic now,
+
+22:53.860 --> 22:56.620
+ I think about bias and so on, but it's,
+
+22:56.620 --> 22:59.140
+ and we'll talk about it, but usually it's kind of,
+
+23:00.380 --> 23:02.700
+ it's like a very particular group of people
+
+23:02.700 --> 23:04.260
+ that work on that.
+
+23:04.260 --> 23:06.940
+ And then people who do like robotics are like,
+
+23:06.940 --> 23:09.380
+ well, I don't have to think about that.
+
+23:09.380 --> 23:11.180
+ There's other smart people thinking about it.
+
+23:11.180 --> 23:14.580
+ It seems that everybody has to think about it.
+
+23:14.580 --> 23:17.060
+ It's not, you can't escape the ethics,
+
+23:17.060 --> 23:21.140
+ whether it's bias or just every aspect of ethics
+
+23:21.140 --> 23:22.700
+ that has to do with human beings.
+
+23:22.700 --> 23:23.540
+ Everyone.
+
+23:23.540 --> 23:25.700
+ So think about, I'm gonna age myself,
+
+23:25.700 --> 23:30.140
+ but I remember when we didn't have like testers, right?
+
+23:30.140 --> 23:31.100
+ And so what did you do?
+
+23:31.100 --> 23:33.580
+ As a developer, you had to test your own code, right?
+
+23:33.580 --> 23:36.140
+ Like you had to go through all the cases and figure it out
+
+23:36.140 --> 23:37.820
+ and then they realized that,
+
+23:39.140 --> 23:40.620
+ we probably need to have testing
+
+23:40.620 --> 23:42.460
+ because we're not getting all the things.
+
+23:42.460 --> 23:45.540
+ And so from there, what happens is like most developers,
+
+23:45.540 --> 23:48.100
+ they do a little bit of testing, but it's usually like,
+
+23:48.100 --> 23:49.780
+ okay, did my compiler bug out?
+
+23:49.780 --> 23:51.140
+ Let me look at the warnings.
+
+23:51.140 --> 23:53.260
+ Okay, is that acceptable or not, right?
+
+23:53.260 --> 23:55.820
+ Like that's how you typically think about as a developer
+
+23:55.820 --> 23:58.220
+ and you'll just assume that it's going to go
+
+23:58.220 --> 24:01.100
+ to another process and they're gonna test it out.
+
+24:01.100 --> 24:04.340
+ But I think we need to go back to those early days
+
+24:04.340 --> 24:07.540
+ when you're a developer, you're developing,
+
+24:07.540 --> 24:09.500
+ there should be like the say,
+
+24:09.500 --> 24:12.180
+ okay, let me look at the ethical outcomes of this
+
+24:12.180 --> 24:16.020
+ because there isn't a second like testing ethical testers,
+
+24:16.020 --> 24:17.100
+ right, it's you.
+
+24:18.060 --> 24:21.180
+ We did it back in the early coding days.
+
+24:21.180 --> 24:23.300
+ I think that's where we are with respect to ethics.
+
+24:23.300 --> 24:26.300
+ Like let's go back to what was good practices
+
+24:26.300 --> 24:30.060
+ and only because we were just developing the field.
+
+24:30.060 --> 24:33.980
+ Yeah, and it's a really heavy burden.
+
+24:33.980 --> 24:37.500
+ I've had to feel it recently in the last few months,
+
+24:37.500 --> 24:39.420
+ but I think it's a good one to feel like
+
+24:39.420 --> 24:43.380
+ I've gotten a message, more than one from people.
+
+24:43.380 --> 24:47.420
+ You know, I've unfortunately gotten some attention recently
+
+24:47.420 --> 24:50.380
+ and I've gotten messages that say that
+
+24:50.380 --> 24:52.300
+ I have blood on my hands
+
+24:52.300 --> 24:56.260
+ because of working on semi autonomous vehicles.
+
+24:56.260 --> 24:59.220
+ So the idea that you have semi autonomy means
+
+24:59.220 --> 25:02.020
+ people will become, will lose vigilance and so on.
+
+25:02.020 --> 25:05.140
+ That's actually be humans, as we described.
+
+25:05.140 --> 25:08.100
+ And because of that, because of this idea
+
+25:08.100 --> 25:10.060
+ that we're creating automation,
+
+25:10.060 --> 25:12.780
+ there'll be people be hurt because of it.
+
+25:12.780 --> 25:14.540
+ And I think that's a beautiful thing.
+
+25:14.540 --> 25:16.220
+ I mean, it's, you know, there's many nights
+
+25:16.220 --> 25:18.820
+ where I wasn't able to sleep because of this notion.
+
+25:18.820 --> 25:22.380
+ You know, you really do think about people that might die
+
+25:22.380 --> 25:23.860
+ because of this technology.
+
+25:23.860 --> 25:26.580
+ Of course, you can then start rationalizing saying,
+
+25:26.580 --> 25:29.100
+ well, you know what, 40,000 people die in the United States
+
+25:29.100 --> 25:32.380
+ every year and we're trying to ultimately try to save lives.
+
+25:32.380 --> 25:35.780
+ But the reality is your code you've written
+
+25:35.780 --> 25:36.700
+ might kill somebody.
+
+25:36.700 --> 25:38.900
+ And that's an important burden to carry with you
+
+25:38.900 --> 25:40.180
+ as you design the code.
+
+25:41.180 --> 25:43.820
+ I don't even think of it as a burden
+
+25:43.820 --> 25:47.540
+ if we train this concept correctly from the beginning.
+
+25:47.540 --> 25:50.300
+ And I use, and not to say that coding is like
+
+25:50.300 --> 25:52.420
+ being a medical doctor, but think about it.
+
+25:52.420 --> 25:56.100
+ Medical doctors, if they've been in situations
+
+25:56.100 --> 25:58.300
+ where their patient didn't survive, right?
+
+25:58.300 --> 26:00.820
+ Do they give up and go away?
+
+26:00.820 --> 26:02.540
+ No, every time they come in,
+
+26:02.540 --> 26:05.460
+ they know that there might be a possibility
+
+26:05.460 --> 26:07.260
+ that this patient might not survive.
+
+26:07.260 --> 26:10.140
+ And so when they approach every decision,
+
+26:10.140 --> 26:11.980
+ like that's in the back of their head.
+
+26:11.980 --> 26:15.860
+ And so why isn't that we aren't teaching,
+
+26:15.860 --> 26:17.220
+ and those are tools though, right?
+
+26:17.220 --> 26:19.740
+ They are given some of the tools to address that
+
+26:19.740 --> 26:21.500
+ so that they don't go crazy.
+
+26:21.500 --> 26:24.220
+ But we don't give those tools
+
+26:24.220 --> 26:26.180
+ so that it does feel like a burden
+
+26:26.180 --> 26:28.700
+ versus something of I have a great gift
+
+26:28.700 --> 26:31.100
+ and I can do great, awesome good,
+
+26:31.100 --> 26:33.340
+ but with it comes great responsibility.
+
+26:33.340 --> 26:35.820
+ I mean, that's what we teach in terms of
+
+26:35.820 --> 26:37.420
+ if you think about the medical schools, right?
+
+26:37.420 --> 26:39.540
+ Great gift, great responsibility.
+
+26:39.540 --> 26:42.140
+ I think if we just change the messaging a little,
+
+26:42.140 --> 26:45.580
+ great gift, being a developer, great responsibility.
+
+26:45.580 --> 26:48.340
+ And this is how you combine those.
+
+26:48.340 --> 26:51.100
+ But do you think, I mean, this is really interesting.
+
+26:52.180 --> 26:54.300
+ It's outside, I actually have no friends
+
+26:54.300 --> 26:57.300
+ who are sort of surgeons or doctors.
+
+26:58.260 --> 27:00.020
+ I mean, what does it feel like
+
+27:00.020 --> 27:03.780
+ to make a mistake in a surgery and somebody to die
+
+27:03.780 --> 27:04.780
+ because of that?
+
+27:04.780 --> 27:07.020
+ Like, is that something you could be taught
+
+27:07.020 --> 27:10.580
+ in medical school, sort of how to be accepting of that risk?
+
+27:10.580 --> 27:14.940
+ So, because I do a lot of work with healthcare robotics,
+
+27:14.940 --> 27:18.460
+ I have not lost a patient, for example.
+
+27:18.460 --> 27:20.900
+ The first one's always the hardest, right?
+
+27:20.900 --> 27:25.900
+ But they really teach the value, right?
+
+27:27.300 --> 27:28.740
+ So, they teach responsibility,
+
+27:28.740 --> 27:30.780
+ but they also teach the value.
+
+27:30.780 --> 27:34.700
+ Like, you're saving 40,000,
+
+27:34.700 --> 27:38.260
+ but in order to really feel good about that,
+
+27:38.260 --> 27:40.100
+ when you come to a decision,
+
+27:40.100 --> 27:42.220
+ you have to be able to say at the end,
+
+27:42.220 --> 27:45.300
+ I did all that I could possibly do, right?
+
+27:45.300 --> 27:49.100
+ Versus a, well, I just picked the first widget, right?
+
+27:49.100 --> 27:52.220
+ Like, so every decision is actually thought through.
+
+27:52.220 --> 27:53.780
+ It's not a habit, it's not a,
+
+27:53.780 --> 27:55.340
+ let me just take the best algorithm
+
+27:55.340 --> 27:57.060
+ that my friend gave me, right?
+
+27:57.060 --> 27:59.540
+ It's a, is this it, is this the best?
+
+27:59.540 --> 28:03.100
+ Have I done my best to do good, right?
+
+28:03.100 --> 28:03.940
+ And so...
+
+28:03.940 --> 28:06.500
+ You're right, and I think burden is the wrong word.
+
+28:06.500 --> 28:10.740
+ It's a gift, but you have to treat it extremely seriously.
+
+28:10.740 --> 28:11.580
+ Correct.
+
+28:13.260 --> 28:15.500
+ So, on a slightly related note,
+
+28:15.500 --> 28:16.420
+ in a recent paper,
+
+28:16.420 --> 28:20.140
+ The Ugly Truth About Ourselves and Our Robot Creations,
+
+28:20.140 --> 28:24.300
+ you discuss, you highlight some biases
+
+28:24.300 --> 28:27.100
+ that may affect the function of various robotic systems.
+
+28:27.100 --> 28:30.100
+ Can you talk through, if you remember, examples of some?
+
+28:30.100 --> 28:31.300
+ There's a lot of examples.
+
+28:31.300 --> 28:33.060
+ I usually... What is bias, first of all?
+
+28:33.060 --> 28:37.060
+ Yeah, so bias is this,
+
+28:37.060 --> 28:38.820
+ and so bias, which is different than prejudice.
+
+28:38.820 --> 28:41.860
+ So, bias is that we all have these preconceived notions
+
+28:41.860 --> 28:45.940
+ about particular, everything from particular groups
+
+28:45.940 --> 28:49.700
+ to habits to identity, right?
+
+28:49.700 --> 28:51.420
+ So, we have these predispositions,
+
+28:51.420 --> 28:54.100
+ and so when we address a problem,
+
+28:54.100 --> 28:56.020
+ we look at a problem and make a decision,
+
+28:56.020 --> 29:01.020
+ those preconceived notions might affect our outputs,
+
+29:01.340 --> 29:02.220
+ our outcomes.
+
+29:02.220 --> 29:04.700
+ So, there the bias can be positive and negative,
+
+29:04.700 --> 29:07.980
+ and then is prejudice the negative kind of bias?
+
+29:07.980 --> 29:09.180
+ Prejudice is the negative, right?
+
+29:09.180 --> 29:13.540
+ So, prejudice is that not only are you aware of your bias,
+
+29:13.540 --> 29:18.540
+ but you are then take it and have a negative outcome,
+
+29:18.820 --> 29:20.660
+ even though you're aware, like...
+
+29:20.660 --> 29:22.980
+ And there could be gray areas too.
+
+29:22.980 --> 29:24.620
+ There's always gray areas.
+
+29:24.620 --> 29:27.580
+ That's the challenging aspect of all ethical questions.
+
+29:27.580 --> 29:28.620
+ So, I always like...
+
+29:28.620 --> 29:30.020
+ So, there's a funny one,
+
+29:30.020 --> 29:31.740
+ and in fact, I think it might be in the paper,
+
+29:31.740 --> 29:34.180
+ because I think I talk about self driving cars,
+
+29:34.180 --> 29:35.460
+ but think about this.
+
+29:35.460 --> 29:39.500
+ We, for teenagers, right?
+
+29:39.500 --> 29:44.500
+ Typically, insurance companies charge quite a bit of money
+
+29:44.540 --> 29:46.740
+ if you have a teenage driver.
+
+29:46.740 --> 29:50.860
+ So, you could say that's an age bias, right?
+
+29:50.860 --> 29:52.380
+ But no one will claim...
+
+29:52.380 --> 29:54.060
+ I mean, parents will be grumpy,
+
+29:54.060 --> 29:58.660
+ but no one really says that that's not fair.
+
+29:58.660 --> 29:59.500
+ That's interesting.
+
+29:59.500 --> 30:00.340
+ We don't...
+
+30:00.340 --> 30:01.580
+ That's right, that's right.
+
+30:01.580 --> 30:06.580
+ It's everybody in human factors and safety research almost...
+
+30:06.580 --> 30:11.580
+ I mean, it's quite ruthlessly critical of teenagers.
+
+30:12.780 --> 30:15.020
+ And we don't question, is that okay?
+
+30:15.020 --> 30:17.140
+ Is that okay to be ageist in this kind of way?
+
+30:17.140 --> 30:18.580
+ It is, and it is ageist, right?
+
+30:18.580 --> 30:20.780
+ It's definitely ageist, there's no question about it.
+
+30:20.780 --> 30:24.940
+ And so, this is the gray area, right?
+
+30:24.940 --> 30:29.820
+ Because you know that teenagers are more likely
+
+30:29.820 --> 30:30.860
+ to be in accidents,
+
+30:30.860 --> 30:33.060
+ and so, there's actually some data to it.
+
+30:33.060 --> 30:34.980
+ But then, if you take that same example,
+
+30:34.980 --> 30:39.380
+ and you say, well, I'm going to make the insurance higher
+
+30:39.380 --> 30:43.380
+ for an area of Boston,
+
+30:43.380 --> 30:45.020
+ because there's a lot of accidents.
+
+30:45.020 --> 30:48.260
+ And then, they find out that that's correlated
+
+30:48.260 --> 30:50.220
+ with socioeconomics.
+
+30:50.220 --> 30:52.420
+ Well, then it becomes a problem, right?
+
+30:52.420 --> 30:55.180
+ Like, that is not acceptable,
+
+30:55.180 --> 30:58.940
+ but yet, the teenager, which is age...
+
+30:58.940 --> 31:01.820
+ It's against age, is, right?
+
+31:01.820 --> 31:05.260
+ We figure that out as a society by having conversations,
+
+31:05.260 --> 31:06.180
+ by having discourse.
+
+31:06.180 --> 31:07.540
+ I mean, throughout history,
+
+31:07.540 --> 31:11.340
+ the definition of what is ethical or not has changed,
+
+31:11.340 --> 31:14.300
+ and hopefully, always for the better.
+
+31:14.300 --> 31:15.420
+ Correct, correct.
+
+31:15.420 --> 31:20.420
+ So, in terms of bias or prejudice in algorithms,
+
+31:22.300 --> 31:25.540
+ what examples do you sometimes think about?
+
+31:25.540 --> 31:28.940
+ So, I think about quite a bit the medical domain,
+
+31:28.940 --> 31:31.260
+ just because historically, right?
+
+31:31.260 --> 31:34.500
+ The healthcare domain has had these biases,
+
+31:34.500 --> 31:39.500
+ typically based on gender and ethnicity, primarily.
+
+31:40.220 --> 31:42.300
+ A little in age, but not so much.
+
+31:43.660 --> 31:48.660
+ Historically, if you think about FDA and drug trials,
+
+31:49.260 --> 31:54.260
+ it's harder to find a woman that aren't childbearing,
+
+31:54.540 --> 31:56.900
+ and so you may not test on drugs at the same level.
+
+31:56.900 --> 31:58.940
+ Right, so there's these things.
+
+31:58.940 --> 32:02.900
+ And so, if you think about robotics, right?
+
+32:02.900 --> 32:04.860
+ Something as simple as,
+
+32:04.860 --> 32:07.740
+ I'd like to design an exoskeleton, right?
+
+32:07.740 --> 32:09.180
+ What should the material be?
+
+32:09.180 --> 32:10.140
+ What should the weight be?
+
+32:10.140 --> 32:12.500
+ What should the form factor be?
+
+32:14.260 --> 32:16.940
+ Who are you gonna design it around?
+
+32:16.940 --> 32:19.620
+ I will say that in the US,
+
+32:19.620 --> 32:21.620
+ women average height and weight
+
+32:21.620 --> 32:23.380
+ is slightly different than guys.
+
+32:23.380 --> 32:25.820
+ So, who are you gonna choose?
+
+32:25.820 --> 32:28.900
+ Like, if you're not thinking about it from the beginning,
+
+32:28.900 --> 32:33.420
+ as, okay, when I design this and I look at the algorithms
+
+32:33.420 --> 32:35.540
+ and I design the control system and the forces
+
+32:35.540 --> 32:38.060
+ and the torques, if you're not thinking about,
+
+32:38.060 --> 32:41.500
+ well, you have different types of body structure,
+
+32:41.500 --> 32:44.380
+ you're gonna design to what you're used to.
+
+32:44.380 --> 32:48.060
+ Oh, this fits all the folks in my lab, right?
+
+32:48.060 --> 32:51.300
+ So, think about it from the very beginning is important.
+
+32:51.300 --> 32:54.500
+ What about sort of algorithms that train on data
+
+32:54.500 --> 32:55.940
+ kind of thing?
+
+32:55.940 --> 33:00.940
+ Sadly, our society already has a lot of negative bias.
+
+33:01.140 --> 33:03.100
+ And so, if we collect a lot of data,
+
+33:04.540 --> 33:06.100
+ even if it's a balanced way,
+
+33:06.100 --> 33:07.620
+ that's going to contain the same bias
+
+33:07.620 --> 33:08.820
+ that our society contains.
+
+33:08.820 --> 33:13.540
+ And so, yeah, is there things there that bother you?
+
+33:13.540 --> 33:15.420
+ Yeah, so you actually said something.
+
+33:15.420 --> 33:19.740
+ You had said how we have biases,
+
+33:19.740 --> 33:22.940
+ but hopefully we learn from them and we become better, right?
+
+33:22.940 --> 33:24.940
+ And so, that's where we are now, right?
+
+33:24.940 --> 33:28.420
+ So, the data that we're collecting is historic.
+
+33:28.420 --> 33:29.940
+ So, it's based on these things
+
+33:29.940 --> 33:32.420
+ when we knew it was bad to discriminate,
+
+33:32.420 --> 33:35.900
+ but that's the data we have and we're trying to fix it now,
+
+33:35.900 --> 33:37.660
+ but we're fixing it based on the data
+
+33:37.660 --> 33:39.260
+ that was used in the first place.
+
+33:39.260 --> 33:40.460
+ Fix it in post.
+
+33:40.460 --> 33:43.580
+ Right, and so the decisions,
+
+33:43.580 --> 33:46.700
+ and you can look at everything from the whole aspect
+
+33:46.700 --> 33:51.220
+ of predictive policing, criminal recidivism.
+
+33:51.220 --> 33:54.100
+ There was a recent paper that had the healthcare algorithms,
+
+33:54.100 --> 33:58.020
+ which had a kind of a sensational titles.
+
+33:58.020 --> 34:00.980
+ I'm not pro sensationalism in titles,
+
+34:00.980 --> 34:03.540
+ but again, you read it, right?
+
+34:03.540 --> 34:05.540
+ So, it makes you read it,
+
+34:05.540 --> 34:06.780
+ but I'm like, really?
+
+34:06.780 --> 34:08.740
+ Like, ugh, you could have.
+
+34:08.740 --> 34:10.580
+ What's the topic of the sensationalism?
+
+34:10.580 --> 34:13.100
+ I mean, what's underneath it?
+
+34:13.100 --> 34:16.100
+ What's, if you could sort of educate me
+
+34:16.100 --> 34:18.940
+ on what kind of bias creeps into the healthcare space.
+
+34:18.940 --> 34:19.780
+ Yeah, so.
+
+34:19.780 --> 34:21.260
+ I mean, you already kind of mentioned.
+
+34:21.260 --> 34:24.820
+ Yeah, so this one was the headline was
+
+34:24.820 --> 34:27.300
+ racist AI algorithms.
+
+34:27.300 --> 34:30.700
+ Okay, like, okay, that's totally a clickbait title.
+
+34:30.700 --> 34:34.060
+ And so you looked at it and so there was data
+
+34:34.060 --> 34:36.460
+ that these researchers had collected.
+
+34:36.460 --> 34:39.220
+ I believe, I wanna say it was either Science or Nature.
+
+34:39.220 --> 34:40.460
+ It just was just published,
+
+34:40.460 --> 34:42.420
+ but they didn't have a sensational title.
+
+34:42.420 --> 34:44.700
+ It was like the media.
+
+34:44.700 --> 34:47.300
+ And so they had looked at demographics,
+
+34:47.300 --> 34:51.940
+ I believe, between black and white women, right?
+
+34:51.940 --> 34:56.660
+ And they showed that there was a discrepancy
+
+34:56.660 --> 34:58.980
+ in the outcomes, right?
+
+34:58.980 --> 35:02.220
+ And so, and it was tied to ethnicity, tied to race.
+
+35:02.220 --> 35:04.620
+ The piece that the researchers did
+
+35:04.620 --> 35:08.620
+ actually went through the whole analysis, but of course.
+
+35:08.620 --> 35:11.900
+ I mean, the journalists with AI are problematic
+
+35:11.900 --> 35:14.140
+ across the board, let's say.
+
+35:14.140 --> 35:15.980
+ And so this is a problem, right?
+
+35:15.980 --> 35:18.100
+ And so there's this thing about,
+
+35:18.100 --> 35:20.420
+ oh, AI, it has all these problems.
+
+35:20.420 --> 35:22.740
+ We're doing it on historical data
+
+35:22.740 --> 35:25.900
+ and the outcomes are uneven based on gender
+
+35:25.900 --> 35:27.940
+ or ethnicity or age.
+
+35:27.940 --> 35:30.660
+ But I am always saying is like, yes,
+
+35:30.660 --> 35:32.340
+ we need to do better, right?
+
+35:32.340 --> 35:33.460
+ We need to do better.
+
+35:33.460 --> 35:35.220
+ It is our duty to do better.
+
+35:36.620 --> 35:39.700
+ But the worst AI is still better than us.
+
+35:39.700 --> 35:41.820
+ Like, you take the best of us
+
+35:41.820 --> 35:44.020
+ and we're still worse than the worst AI,
+
+35:44.020 --> 35:45.500
+ at least in terms of these things.
+
+35:45.500 --> 35:47.820
+ And that's actually not discussed, right?
+
+35:47.820 --> 35:51.780
+ And so I think, and that's why the sensational title, right?
+
+35:51.780 --> 35:54.180
+ And so it's like, so then you can have individuals go like,
+
+35:54.180 --> 35:55.340
+ oh, we don't need to use this AI.
+
+35:55.340 --> 35:56.620
+ I'm like, oh, no, no, no, no.
+
+35:56.620 --> 36:00.780
+ I want the AI instead of the doctors
+
+36:00.780 --> 36:01.860
+ that provided that data,
+
+36:01.860 --> 36:04.060
+ because it's still better than that, right?
+
+36:04.060 --> 36:06.660
+ I think that's really important to linger on,
+
+36:06.660 --> 36:09.420
+ is the idea that this AI is racist.
+
+36:10.300 --> 36:14.020
+ It's like, well, compared to what?
+
+36:14.020 --> 36:19.020
+ Sort of, I think we set, unfortunately,
+
+36:20.100 --> 36:23.220
+ way too high of a bar for AI algorithms.
+
+36:23.220 --> 36:25.940
+ And in the ethical space where perfect is,
+
+36:25.940 --> 36:28.060
+ I would argue, probably impossible.
+
+36:28.940 --> 36:33.020
+ Then if we set the bar of perfection, essentially,
+
+36:33.020 --> 36:36.140
+ of it has to be perfectly fair, whatever that means,
+
+36:37.500 --> 36:39.580
+ it means we're setting it up for failure.
+
+36:39.580 --> 36:41.940
+ But that's really important to say what you just said,
+
+36:41.940 --> 36:44.900
+ which is, well, it's still better than it is.
+
+36:44.900 --> 36:46.860
+ And one of the things I think
+
+36:46.860 --> 36:49.380
+ that we don't get enough credit for,
+
+36:50.260 --> 36:52.140
+ just in terms of as developers,
+
+36:52.140 --> 36:55.820
+ is that you can now poke at it, right?
+
+36:55.820 --> 36:58.820
+ So it's harder to say, is this hospital,
+
+36:58.820 --> 37:01.020
+ is this city doing something, right?
+
+37:01.020 --> 37:04.380
+ Until someone brings in a civil case, right?
+
+37:04.380 --> 37:07.100
+ Well, with AI, it can process through all this data
+
+37:07.100 --> 37:12.100
+ and say, hey, yes, there was an issue here,
+
+37:12.500 --> 37:14.460
+ but here it is, we've identified it,
+
+37:14.460 --> 37:16.140
+ and then the next step is to fix it.
+
+37:16.140 --> 37:18.060
+ I mean, that's a nice feedback loop
+
+37:18.060 --> 37:21.300
+ versus waiting for someone to sue someone else
+
+37:21.300 --> 37:22.740
+ before it's fixed, right?
+
+37:22.740 --> 37:25.060
+ And so I think that power,
+
+37:25.060 --> 37:27.580
+ we need to capitalize on a little bit more, right?
+
+37:27.580 --> 37:29.660
+ Instead of having the sensational titles,
+
+37:29.660 --> 37:33.300
+ have the, okay, this is a problem,
+
+37:33.300 --> 37:34.540
+ and this is how we're fixing it,
+
+37:34.540 --> 37:36.500
+ and people are putting money to fix it
+
+37:36.500 --> 37:38.580
+ because we can make it better.
+
+37:38.580 --> 37:40.340
+ I look at like facial recognition,
+
+37:40.340 --> 37:45.340
+ how Joy, she basically called out a couple of companies
+
+37:45.460 --> 37:48.220
+ and said, hey, and most of them were like,
+
+37:48.220 --> 37:53.020
+ oh, embarrassment, and the next time it had been fixed,
+
+37:53.020 --> 37:54.860
+ right, it had been fixed better, right?
+
+37:54.860 --> 37:56.740
+ And then it was like, oh, here's some more issues.
+
+37:56.740 --> 38:01.740
+ And I think that conversation then moves that needle
+
+38:01.740 --> 38:06.740
+ to having much more fair and unbiased and ethical aspects,
+
+38:07.540 --> 38:10.580
+ as long as both sides, the developers are willing to say,
+
+38:10.580 --> 38:14.020
+ okay, I hear you, yes, we are going to improve,
+
+38:14.020 --> 38:16.100
+ and you have other developers who are like,
+
+38:16.100 --> 38:19.620
+ hey, AI, it's wrong, but I love it, right?
+
+38:19.620 --> 38:23.020
+ Yes, so speaking of this really nice notion
+
+38:23.020 --> 38:26.980
+ that AI is maybe flawed but better than humans,
+
+38:26.980 --> 38:29.140
+ so just made me think of it,
+
+38:29.140 --> 38:34.100
+ one example of flawed humans is our political system.
+
+38:34.100 --> 38:38.700
+ Do you think, or you said judicial as well,
+
+38:38.700 --> 38:43.700
+ do you have a hope for AI sort of being elected
+
+38:46.140 --> 38:49.780
+ for president or running our Congress
+
+38:49.780 --> 38:53.940
+ or being able to be a powerful representative of the people?
+
+38:53.940 --> 38:58.940
+ So I mentioned, and I truly believe that this whole world
+
+38:58.940 --> 39:01.340
+ of AI is in partnerships with people.
+
+39:01.340 --> 39:02.420
+ And so what does that mean?
+
+39:02.420 --> 39:07.420
+ I don't believe, or maybe I just don't,
+
+39:07.620 --> 39:11.420
+ I don't believe that we should have an AI for president,
+
+39:11.420 --> 39:13.540
+ but I do believe that a president
+
+39:13.540 --> 39:15.900
+ should use AI as an advisor, right?
+
+39:15.900 --> 39:17.420
+ Like, if you think about it,
+
+39:17.420 --> 39:21.900
+ every president has a cabinet of individuals
+
+39:21.900 --> 39:23.660
+ that have different expertise
+
+39:23.660 --> 39:26.060
+ that they should listen to, right?
+
+39:26.060 --> 39:27.980
+ Like, that's kind of what we do.
+
+39:27.980 --> 39:31.100
+ And you put smart people with smart expertise
+
+39:31.100 --> 39:33.420
+ around certain issues, and you listen.
+
+39:33.420 --> 39:35.700
+ I don't see why AI can't function
+
+39:35.700 --> 39:39.260
+ as one of those smart individuals giving input.
+
+39:39.260 --> 39:41.020
+ So maybe there's an AI on healthcare,
+
+39:41.020 --> 39:43.820
+ maybe there's an AI on education and right,
+
+39:43.820 --> 39:48.780
+ like all of these things that a human is processing, right?
+
+39:48.780 --> 39:50.420
+ Because at the end of the day,
+
+39:51.380 --> 39:53.540
+ there's people that are human
+
+39:53.540 --> 39:55.500
+ that are going to be at the end of the decision.
+
+39:55.500 --> 39:59.260
+ And I don't think as a world, as a culture, as a society,
+
+39:59.260 --> 40:02.980
+ that we would totally, and this is us,
+
+40:02.980 --> 40:05.260
+ like this is some fallacy about us,
+
+40:05.260 --> 40:10.260
+ but we need to see that leader, that person as human.
+
+40:11.780 --> 40:13.180
+ And most people don't realize
+
+40:13.180 --> 40:16.940
+ that like leaders have a whole lot of advice, right?
+
+40:16.940 --> 40:19.500
+ Like when they say something, it's not that they woke up,
+
+40:19.500 --> 40:21.780
+ well, usually they don't wake up in the morning
+
+40:21.780 --> 40:24.340
+ and be like, I have a brilliant idea, right?
+
+40:24.340 --> 40:26.620
+ It's usually a, okay, let me listen.
+
+40:26.620 --> 40:27.460
+ I have a brilliant idea,
+
+40:27.460 --> 40:29.780
+ but let me get a little bit of feedback on this.
+
+40:29.780 --> 40:30.900
+ Like, okay.
+
+40:30.900 --> 40:33.020
+ And then it's a, yeah, that was an awesome idea
+
+40:33.020 --> 40:35.780
+ or it's like, yeah, let me go back.
+
+40:35.780 --> 40:37.300
+ We already talked through a bunch of them,
+
+40:37.300 --> 40:41.380
+ but are there some possible solutions
+
+40:41.380 --> 40:45.100
+ to the bias that's present in our algorithms
+
+40:45.100 --> 40:46.540
+ beyond what we just talked about?
+
+40:46.540 --> 40:49.180
+ So I think there's two paths.
+
+40:49.180 --> 40:53.620
+ One is to figure out how to systematically
+
+40:53.620 --> 40:56.380
+ do the feedback and corrections.
+
+40:56.380 --> 40:57.980
+ So right now it's ad hoc, right?
+
+40:57.980 --> 41:02.300
+ It's a researcher identify some outcomes
+
+41:02.300 --> 41:05.260
+ that are not, don't seem to be fair, right?
+
+41:05.260 --> 41:07.780
+ They publish it, they write about it.
+
+41:07.780 --> 41:11.260
+ And the, either the developer or the companies
+
+41:11.260 --> 41:14.100
+ that have adopted the algorithms may try to fix it, right?
+
+41:14.100 --> 41:18.700
+ And so it's really ad hoc and it's not systematic.
+
+41:18.700 --> 41:21.260
+ There's, it's just, it's kind of like,
+
+41:21.260 --> 41:24.460
+ I'm a researcher, that seems like an interesting problem,
+
+41:24.460 --> 41:26.340
+ which means that there's a whole lot out there
+
+41:26.340 --> 41:28.900
+ that's not being looked at, right?
+
+41:28.900 --> 41:30.820
+ Cause it's kind of researcher driven.
+
+41:32.740 --> 41:35.460
+ And I don't necessarily have a solution,
+
+41:35.460 --> 41:40.460
+ but that process I think could be done a little bit better.
+
+41:41.020 --> 41:44.820
+ One way is I'm going to poke a little bit
+
+41:44.820 --> 41:48.060
+ at some of the corporations, right?
+
+41:48.060 --> 41:50.660
+ Like maybe the corporations when they think
+
+41:50.660 --> 41:53.660
+ about a product, they should, instead of,
+
+41:53.660 --> 41:57.780
+ in addition to hiring these, you know, bug,
+
+41:57.780 --> 41:58.820
+ they give these.
+
+41:59.660 --> 42:01.420
+ Oh yeah, yeah, yeah.
+
+42:01.420 --> 42:02.780
+ Like awards when you find a bug.
+
+42:02.780 --> 42:06.620
+ Yeah, security bug, you know, let's put it
+
+42:06.620 --> 42:09.580
+ like we will give the, whatever the award is
+
+42:09.580 --> 42:12.460
+ that we give for the people who find these security holes,
+
+42:12.460 --> 42:13.820
+ find an ethics hole, right?
+
+42:13.820 --> 42:15.220
+ Like find an unfairness hole
+
+42:15.220 --> 42:17.660
+ and we will pay you X for each one you find.
+
+42:17.660 --> 42:19.620
+ I mean, why can't they do that?
+
+42:19.620 --> 42:20.900
+ One is a win win.
+
+42:20.900 --> 42:22.940
+ They show that they're concerned about it,
+
+42:22.940 --> 42:24.980
+ that this is important and they don't have
+
+42:24.980 --> 42:28.660
+ to necessarily dedicate it their own like internal resources.
+
+42:28.660 --> 42:30.780
+ And it also means that everyone who has
+
+42:30.780 --> 42:34.460
+ like their own bias lens, like I'm interested in age.
+
+42:34.460 --> 42:36.420
+ And so I'll find the ones based on age
+
+42:36.420 --> 42:38.260
+ and I'm interested in gender and right,
+
+42:38.260 --> 42:39.860
+ which means that you get like all
+
+42:39.860 --> 42:41.420
+ of these different perspectives.
+
+42:41.420 --> 42:43.220
+ But you think of it in a data driven way.
+
+42:43.220 --> 42:48.220
+ So like sort of, if we look at a company like Twitter,
+
+42:48.220 --> 42:51.660
+ it gets, it's under a lot of fire
+
+42:51.660 --> 42:54.820
+ for discriminating against certain political beliefs.
+
+42:54.820 --> 42:55.880
+ Correct.
+
+42:55.880 --> 42:58.060
+ And sort of, there's a lot of people,
+
+42:58.060 --> 42:59.260
+ this is the sad thing,
+
+42:59.260 --> 43:00.700
+ cause I know how hard the problem is
+
+43:00.700 --> 43:03.060
+ and I know the Twitter folks are working really hard at it.
+
+43:03.060 --> 43:04.980
+ Even Facebook that everyone seems to hate
+
+43:04.980 --> 43:06.860
+ are working really hard at this.
+
+43:06.860 --> 43:09.320
+ You know, the kind of evidence that people bring
+
+43:09.320 --> 43:11.240
+ is basically anecdotal evidence.
+
+43:11.240 --> 43:15.020
+ Well, me or my friend, all we said is X
+
+43:15.020 --> 43:17.100
+ and for that we got banned.
+
+43:17.100 --> 43:20.980
+ And that's kind of a discussion of saying,
+
+43:20.980 --> 43:23.260
+ well, look, that's usually, first of all,
+
+43:23.260 --> 43:25.500
+ the whole thing is taken out of context.
+
+43:25.500 --> 43:28.660
+ So they present sort of anecdotal evidence.
+
+43:28.660 --> 43:31.140
+ And how are you supposed to, as a company,
+
+43:31.140 --> 43:33.080
+ in a healthy way, have a discourse
+
+43:33.080 --> 43:35.980
+ about what is and isn't ethical?
+
+43:35.980 --> 43:38.060
+ How do we make algorithms ethical
+
+43:38.060 --> 43:40.780
+ when people are just blowing everything?
+
+43:40.780 --> 43:45.140
+ Like they're outraged about a particular
+
+43:45.140 --> 43:48.220
+ anecdotal piece of evidence that's very difficult
+
+43:48.220 --> 43:51.660
+ to sort of contextualize in the big data driven way.
+
+43:52.660 --> 43:55.900
+ Do you have a hope for companies like Twitter and Facebook?
+
+43:55.900 --> 43:59.820
+ Yeah, so I think there's a couple of things going on, right?
+
+43:59.820 --> 44:04.820
+ First off, remember this whole aspect
+
+44:04.860 --> 44:09.420
+ of we are becoming reliant on technology.
+
+44:09.420 --> 44:14.380
+ We're also becoming reliant on a lot of these,
+
+44:14.380 --> 44:17.980
+ the apps and the resources that are provided, right?
+
+44:17.980 --> 44:21.660
+ So some of it is kind of anger, like I need you, right?
+
+44:21.660 --> 44:23.220
+ And you're not working for me, right?
+
+44:23.220 --> 44:24.660
+ Not working for me, all right.
+
+44:24.660 --> 44:27.300
+ But I think, and so some of it,
+
+44:27.300 --> 44:31.380
+ and I wish that there was a little bit
+
+44:31.380 --> 44:32.860
+ of change of rethinking.
+
+44:32.860 --> 44:35.560
+ So some of it is like, oh, we'll fix it in house.
+
+44:35.560 --> 44:38.980
+ No, that's like, okay, I'm a fox
+
+44:38.980 --> 44:40.940
+ and I'm going to watch these hens
+
+44:40.940 --> 44:44.060
+ because I think it's a problem that foxes eat hens.
+
+44:44.060 --> 44:45.180
+ No, right?
+
+44:45.180 --> 44:49.880
+ Like be good citizens and say, look, we have a problem.
+
+44:50.860 --> 44:54.820
+ And we are willing to open ourselves up
+
+44:54.820 --> 44:57.060
+ for others to come in and look at it
+
+44:57.060 --> 44:58.740
+ and not try to fix it in house.
+
+44:58.740 --> 45:00.460
+ Because if you fix it in house,
+
+45:00.460 --> 45:01.940
+ there's conflict of interest.
+
+45:01.940 --> 45:04.440
+ If I find something, I'm probably going to want to fix it
+
+45:04.440 --> 45:07.300
+ and hopefully the media won't pick it up, right?
+
+45:07.300 --> 45:09.320
+ And that then causes distrust
+
+45:09.320 --> 45:11.880
+ because someone inside is going to be mad at you
+
+45:11.880 --> 45:13.580
+ and go out and talk about how,
+
+45:13.580 --> 45:17.780
+ yeah, they canned the resume survey because it, right?
+
+45:17.780 --> 45:19.320
+ Like be nice people.
+
+45:19.320 --> 45:22.760
+ Like just say, look, we have this issue.
+
+45:22.760 --> 45:24.420
+ Community, help us fix it.
+
+45:24.420 --> 45:25.780
+ And we will give you like, you know,
+
+45:25.780 --> 45:28.100
+ the bug finder fee if you do.
+
+45:28.100 --> 45:31.260
+ Did you ever hope that the community,
+
+45:31.260 --> 45:35.340
+ us as a human civilization on the whole is good
+
+45:35.340 --> 45:39.500
+ and can be trusted to guide the future of our civilization
+
+45:39.500 --> 45:40.940
+ into a positive direction?
+
+45:40.940 --> 45:41.880
+ I think so.
+
+45:41.880 --> 45:44.100
+ So I'm an optimist, right?
+
+45:44.100 --> 45:49.100
+ And, you know, there were some dark times in history always.
+
+45:49.980 --> 45:52.900
+ I think now we're in one of those dark times.
+
+45:52.900 --> 45:53.740
+ I truly do.
+
+45:53.740 --> 45:54.620
+ In which aspect?
+
+45:54.620 --> 45:56.260
+ The polarization.
+
+45:56.260 --> 45:57.560
+ And it's not just US, right?
+
+45:57.560 --> 46:00.020
+ So if it was just US, I'd be like, yeah, it's a US thing,
+
+46:00.020 --> 46:03.480
+ but we're seeing it like worldwide, this polarization.
+
+46:04.380 --> 46:06.540
+ And so I worry about that.
+
+46:06.540 --> 46:11.540
+ But I do fundamentally believe that at the end of the day,
+
+46:11.980 --> 46:13.420
+ people are good, right?
+
+46:13.420 --> 46:14.780
+ And why do I say that?
+
+46:14.780 --> 46:17.700
+ Because anytime there's a scenario
+
+46:17.700 --> 46:20.820
+ where people are in danger and I will use,
+
+46:20.820 --> 46:24.260
+ so Atlanta, we had a snowmageddon
+
+46:24.260 --> 46:26.620
+ and people can laugh about that.
+
+46:26.620 --> 46:30.460
+ People at the time, so the city closed for, you know,
+
+46:30.460 --> 46:33.420
+ little snow, but it was ice and the city closed down.
+
+46:33.420 --> 46:35.720
+ But you had people opening up their homes and saying,
+
+46:35.720 --> 46:39.060
+ hey, you have nowhere to go, come to my house, right?
+
+46:39.060 --> 46:41.820
+ Hotels were just saying like, sleep on the floor.
+
+46:41.820 --> 46:44.420
+ Like places like, you know, the grocery stores were like,
+
+46:44.420 --> 46:45.940
+ hey, here's food.
+
+46:45.940 --> 46:47.940
+ There was no like, oh, how much are you gonna pay me?
+
+46:47.940 --> 46:50.500
+ It was like this, such a community.
+
+46:50.500 --> 46:52.140
+ And like people who didn't know each other,
+
+46:52.140 --> 46:55.540
+ strangers were just like, can I give you a ride home?
+
+46:55.540 --> 46:58.420
+ And that was a point I was like, you know what, like.
+
+46:59.420 --> 47:03.100
+ That reveals that the deeper thing is,
+
+47:03.100 --> 47:06.940
+ there's a compassionate love that we all have within us.
+
+47:06.940 --> 47:09.500
+ It's just that when all of that is taken care of
+
+47:09.500 --> 47:11.300
+ and get bored, we love drama.
+
+47:11.300 --> 47:14.820
+ And that's, I think almost like the division
+
+47:14.820 --> 47:17.100
+ is a sign of the times being good,
+
+47:17.100 --> 47:19.060
+ is that it's just entertaining
+
+47:19.060 --> 47:24.060
+ on some unpleasant mammalian level to watch,
+
+47:24.220 --> 47:26.140
+ to disagree with others.
+
+47:26.140 --> 47:30.260
+ And Twitter and Facebook are actually taking advantage
+
+47:30.260 --> 47:33.220
+ of that in a sense because it brings you back
+
+47:33.220 --> 47:36.180
+ to the platform and they're advertiser driven,
+
+47:36.180 --> 47:37.620
+ so they make a lot of money.
+
+47:37.620 --> 47:39.300
+ So you go back and you click.
+
+47:39.300 --> 47:42.700
+ Love doesn't sell quite as well in terms of advertisement.
+
+47:43.700 --> 47:44.940
+ It doesn't.
+
+47:44.940 --> 47:46.980
+ So you've started your career
+
+47:46.980 --> 47:49.100
+ at NASA Jet Propulsion Laboratory,
+
+47:49.100 --> 47:51.980
+ but before I ask a few questions there,
+
+47:51.980 --> 47:54.460
+ have you happened to have ever seen Space Odyssey,
+
+47:54.460 --> 47:55.900
+ 2001 Space Odyssey?
+
+47:57.220 --> 47:58.060
+ Yes.
+
+47:58.060 --> 48:01.420
+ Okay, do you think HAL 9000,
+
+48:01.420 --> 48:03.420
+ so we're talking about ethics.
+
+48:03.420 --> 48:06.700
+ Do you think HAL did the right thing
+
+48:06.700 --> 48:08.580
+ by taking the priority of the mission
+
+48:08.580 --> 48:10.260
+ over the lives of the astronauts?
+
+48:10.260 --> 48:12.400
+ Do you think HAL is good or evil?
+
+48:15.900 --> 48:16.900
+ Easy questions.
+
+48:16.900 --> 48:17.740
+ Yeah.
+
+48:19.420 --> 48:21.380
+ HAL was misguided.
+
+48:21.380 --> 48:24.060
+ You're one of the people that would be in charge
+
+48:24.060 --> 48:26.140
+ of an algorithm like HAL.
+
+48:26.140 --> 48:26.980
+ Yeah.
+
+48:26.980 --> 48:28.340
+ What would you do better?
+
+48:28.340 --> 48:31.180
+ If you think about what happened
+
+48:31.180 --> 48:35.380
+ was there was no fail safe, right?
+
+48:35.380 --> 48:37.780
+ So perfection, right?
+
+48:37.780 --> 48:38.620
+ Like what is that?
+
+48:38.620 --> 48:40.840
+ I'm gonna make something that I think is perfect,
+
+48:40.840 --> 48:44.620
+ but if my assumptions are wrong,
+
+48:44.620 --> 48:47.560
+ it'll be perfect based on the wrong assumptions, right?
+
+48:47.560 --> 48:51.700
+ That's something that you don't know until you deploy
+
+48:51.700 --> 48:53.820
+ and then you're like, oh yeah, messed up.
+
+48:53.820 --> 48:58.340
+ But what that means is that when we design software,
+
+48:58.340 --> 49:00.300
+ such as in Space Odyssey,
+
+49:00.300 --> 49:02.100
+ when we put things out,
+
+49:02.100 --> 49:04.000
+ that there has to be a fail safe.
+
+49:04.000 --> 49:07.700
+ There has to be the ability that once it's out there,
+
+49:07.700 --> 49:11.360
+ we can grade it as an F and it fails
+
+49:11.360 --> 49:13.060
+ and it doesn't continue, right?
+
+49:13.060 --> 49:16.020
+ There's some way that it can be brought in
+
+49:16.020 --> 49:19.620
+ and removed in that aspect.
+
+49:19.620 --> 49:21.060
+ Because that's what happened with HAL.
+
+49:21.060 --> 49:23.740
+ It was like assumptions were wrong.
+
+49:23.740 --> 49:27.820
+ It was perfectly correct based on those assumptions
+
+49:27.820 --> 49:31.020
+ and there was no way to change it,
+
+49:31.020 --> 49:34.020
+ change the assumptions at all.
+
+49:34.020 --> 49:37.020
+ And the change to fall back would be to a human.
+
+49:37.020 --> 49:40.040
+ So you ultimately think like human should be,
+
+49:42.340 --> 49:45.580
+ it's not turtles or AI all the way down.
+
+49:45.580 --> 49:47.820
+ It's at some point, there's a human that actually.
+
+49:47.820 --> 49:48.860
+ I still think that,
+
+49:48.860 --> 49:51.420
+ and again, because I do human robot interaction,
+
+49:51.420 --> 49:54.980
+ I still think the human needs to be part of the equation
+
+49:54.980 --> 49:56.440
+ at some point.
+
+49:56.440 --> 49:58.460
+ So what, just looking back,
+
+49:58.460 --> 50:01.900
+ what are some fascinating things in robotic space
+
+50:01.900 --> 50:03.460
+ that NASA was working at the time?
+
+50:03.460 --> 50:07.700
+ Or just in general, what have you gotten to play with
+
+50:07.700 --> 50:10.060
+ and what are your memories from working at NASA?
+
+50:10.060 --> 50:12.540
+ Yeah, so one of my first memories
+
+50:13.580 --> 50:18.580
+ was they were working on a surgical robot system
+
+50:18.580 --> 50:21.880
+ that could do eye surgery, right?
+
+50:21.880 --> 50:25.700
+ And this was back in, oh my gosh, it must've been,
+
+50:25.700 --> 50:30.580
+ oh, maybe 92, 93, 94.
+
+50:30.580 --> 50:32.880
+ So it's like almost like a remote operation.
+
+50:32.880 --> 50:34.720
+ Yeah, it was remote operation.
+
+50:34.720 --> 50:38.400
+ In fact, you can even find some old tech reports on it.
+
+50:38.400 --> 50:41.620
+ So think of it, like now we have DaVinci, right?
+
+50:41.620 --> 50:45.880
+ Like think of it, but these were like the late 90s, right?
+
+50:45.880 --> 50:48.240
+ And I remember going into the lab one day
+
+50:48.240 --> 50:51.000
+ and I was like, what's that, right?
+
+50:51.000 --> 50:53.960
+ And of course it wasn't pretty, right?
+
+50:53.960 --> 50:56.640
+ Because the technology, but it was like functional
+
+50:56.640 --> 50:59.240
+ and you had this individual that could use
+
+50:59.240 --> 51:01.960
+ a version of haptics to actually do the surgery
+
+51:01.960 --> 51:04.360
+ and they had this mockup of a human face
+
+51:04.360 --> 51:08.480
+ and like the eyeballs and you can see this little drill.
+
+51:08.480 --> 51:11.680
+ And I was like, oh, that is so cool.
+
+51:11.680 --> 51:13.720
+ That one I vividly remember
+
+51:13.720 --> 51:18.640
+ because it was so outside of my like possible thoughts
+
+51:18.640 --> 51:20.040
+ of what could be done.
+
+51:20.040 --> 51:21.360
+ It's the kind of precision
+
+51:21.360 --> 51:26.120
+ and I mean, what's the most amazing of a thing like that?
+
+51:26.120 --> 51:28.240
+ I think it was the precision.
+
+51:28.240 --> 51:31.960
+ It was the kind of first time
+
+51:31.960 --> 51:34.880
+ that I had physically seen
+
+51:34.880 --> 51:39.640
+ this robot machine human interface, right?
+
+51:39.640 --> 51:42.400
+ Versus, cause manufacturing had been,
+
+51:42.400 --> 51:44.520
+ you saw those kind of big robots, right?
+
+51:44.520 --> 51:48.040
+ But this was like, oh, this is in a person.
+
+51:48.040 --> 51:51.400
+ There's a person and a robot like in the same space.
+
+51:51.400 --> 51:53.000
+ I'm meeting them in person.
+
+51:53.000 --> 51:55.440
+ Like for me, it was a magical moment
+
+51:55.440 --> 51:57.900
+ that I can't, it was life transforming
+
+51:57.900 --> 52:00.560
+ that I recently met Spot Mini from Boston Dynamics.
+
+52:00.560 --> 52:01.400
+ Oh, see.
+
+52:01.400 --> 52:04.680
+ I don't know why, but on the human robot interaction
+
+52:04.680 --> 52:09.680
+ for some reason I realized how easy it is to anthropomorphize
+
+52:09.680 --> 52:12.580
+ and it was, I don't know, it was almost
+
+52:12.580 --> 52:14.700
+ like falling in love, this feeling of meeting.
+
+52:14.700 --> 52:17.300
+ And I've obviously seen these robots a lot
+
+52:17.300 --> 52:19.180
+ on video and so on, but meeting in person,
+
+52:19.180 --> 52:22.340
+ just having that one on one time is different.
+
+52:22.340 --> 52:25.020
+ So have you had a robot like that in your life
+
+52:25.020 --> 52:28.300
+ that made you maybe fall in love with robotics?
+
+52:28.300 --> 52:30.480
+ Sort of like meeting in person.
+
+52:32.140 --> 52:35.860
+ I mean, I loved robotics since, yeah.
+
+52:35.860 --> 52:37.900
+ So I was a 12 year old.
+
+52:37.900 --> 52:40.020
+ Like I'm gonna be a roboticist, actually was,
+
+52:40.020 --> 52:41.180
+ I called it cybernetics.
+
+52:41.180 --> 52:44.700
+ But so my motivation was Bionic Woman.
+
+52:44.700 --> 52:46.260
+ I don't know if you know that.
+
+52:46.260 --> 52:49.500
+ And so, I mean, that was like a seminal moment,
+
+52:49.500 --> 52:52.340
+ but I didn't meet, like that was TV, right?
+
+52:52.340 --> 52:54.500
+ Like it wasn't like I was in the same space and I met
+
+52:54.500 --> 52:56.540
+ and I was like, oh my gosh, you're like real.
+
+52:56.540 --> 52:58.820
+ Just linking on Bionic Woman, which by the way,
+
+52:58.820 --> 53:01.100
+ because I read that about you.
+
+53:01.100 --> 53:04.340
+ I watched bits of it and it's just so,
+
+53:04.340 --> 53:05.520
+ no offense, terrible.
+
+53:05.520 --> 53:08.500
+ It's cheesy if you look at it now.
+
+53:08.500 --> 53:09.340
+ It's cheesy, no.
+
+53:09.340 --> 53:10.900
+ I've seen a couple of reruns lately.
+
+53:10.900 --> 53:15.100
+ But it's, but of course at the time it's probably
+
+53:15.100 --> 53:16.740
+ captured the imagination.
+
+53:16.740 --> 53:18.100
+ But the sound effects.
+
+53:18.100 --> 53:23.100
+ Especially when you're younger, it just catch you.
+
+53:23.100 --> 53:24.720
+ But which aspect, did you think of it,
+
+53:24.720 --> 53:27.700
+ you mentioned cybernetics, did you think of it as robotics
+
+53:27.700 --> 53:30.140
+ or did you think of it as almost constructing
+
+53:30.140 --> 53:31.620
+ artificial beings?
+
+53:31.620 --> 53:36.200
+ Like, is it the intelligent part that captured
+
+53:36.200 --> 53:38.060
+ your fascination or was it the whole thing?
+
+53:38.060 --> 53:39.820
+ Like even just the limbs and just the.
+
+53:39.820 --> 53:42.900
+ So for me, it would have, in another world,
+
+53:42.900 --> 53:46.820
+ I probably would have been more of a biomedical engineer
+
+53:46.820 --> 53:50.040
+ because what fascinated me was the parts,
+
+53:50.040 --> 53:55.040
+ like the bionic parts, the limbs, those aspects of it.
+
+53:55.060 --> 53:59.620
+ Are you especially drawn to humanoid or humanlike robots?
+
+53:59.620 --> 54:03.060
+ I would say humanlike, not humanoid, right?
+
+54:03.060 --> 54:05.900
+ And when I say humanlike, I think it's this aspect
+
+54:05.900 --> 54:09.140
+ of that interaction, whether it's social
+
+54:09.140 --> 54:10.660
+ and it's like a dog, right?
+
+54:10.660 --> 54:14.100
+ Like that's humanlike because it understand us,
+
+54:14.100 --> 54:17.620
+ it interacts with us at that very social level
+
+54:18.500 --> 54:21.860
+ to, you know, humanoids are part of that,
+
+54:21.860 --> 54:26.860
+ but only if they interact with us as if we are human.
+
+54:26.860 --> 54:30.080
+ Okay, but just to linger on NASA for a little bit,
+
+54:30.980 --> 54:34.100
+ what do you think, maybe if you have other memories,
+
+54:34.100 --> 54:38.580
+ but also what do you think is the future of robots in space?
+
+54:38.580 --> 54:41.900
+ We'll mention how, but there's incredible robots
+
+54:41.900 --> 54:44.100
+ that NASA's working on in general thinking about
+
+54:44.100 --> 54:49.100
+ in our, as we venture out, human civilization ventures out
+
+54:49.820 --> 54:52.260
+ into space, what do you think the future of robots is there?
+
+54:52.260 --> 54:53.700
+ Yeah, so I mean, there's the near term.
+
+54:53.700 --> 54:57.300
+ For example, they just announced the rover
+
+54:57.300 --> 55:00.780
+ that's going to the moon, which, you know,
+
+55:00.780 --> 55:05.780
+ that's kind of exciting, but that's like near term.
+
+55:06.100 --> 55:11.100
+ You know, my favorite, favorite, favorite series
+
+55:11.180 --> 55:13.340
+ is Star Trek, right?
+
+55:13.340 --> 55:17.200
+ You know, I really hope, and even Star Trek,
+
+55:17.200 --> 55:20.100
+ like if I calculate the years, I wouldn't be alive,
+
+55:20.100 --> 55:25.100
+ but I would really, really love to be in that world.
+
+55:26.700 --> 55:28.460
+ Like, even if it's just at the beginning,
+
+55:28.460 --> 55:33.180
+ like, you know, like voyage, like adventure one.
+
+55:33.180 --> 55:35.740
+ So basically living in space.
+
+55:35.740 --> 55:36.580
+ Yeah.
+
+55:36.580 --> 55:39.740
+ With, what robots, what are robots?
+
+55:39.740 --> 55:40.580
+ With data.
+
+55:40.580 --> 55:41.400
+ What role?
+
+55:41.400 --> 55:42.820
+ The data would have to be, even though that wasn't,
+
+55:42.820 --> 55:44.740
+ you know, that was like later, but.
+
+55:44.740 --> 55:49.160
+ So data is a robot that has human like qualities.
+
+55:49.160 --> 55:50.500
+ Right, without the emotion chip.
+
+55:50.500 --> 55:51.340
+ Yeah.
+
+55:51.340 --> 55:52.220
+ You don't like emotion.
+
+55:52.220 --> 55:54.220
+ Well, so data with the emotion chip
+
+55:54.220 --> 55:58.580
+ was kind of a mess, right?
+
+55:58.580 --> 56:03.580
+ It took a while for that thing to adapt,
+
+56:04.660 --> 56:08.580
+ but, and so why was that an issue?
+
+56:08.580 --> 56:13.580
+ The issue is that emotions make us irrational agents.
+
+56:14.240 --> 56:15.240
+ That's the problem.
+
+56:15.240 --> 56:20.040
+ And yet he could think through things,
+
+56:20.040 --> 56:23.440
+ even if it was based on an emotional scenario, right?
+
+56:23.440 --> 56:25.080
+ Based on pros and cons.
+
+56:25.080 --> 56:28.520
+ But as soon as you made him emotional,
+
+56:28.520 --> 56:31.160
+ one of the metrics he used for evaluation
+
+56:31.160 --> 56:35.480
+ was his own emotions, not people around him, right?
+
+56:35.480 --> 56:37.280
+ Like, and so.
+
+56:37.280 --> 56:39.000
+ We do that as children, right?
+
+56:39.000 --> 56:40.920
+ So we're very egocentric when we're young.
+
+56:40.920 --> 56:42.320
+ We are very egocentric.
+
+56:42.320 --> 56:45.800
+ And so isn't that just an early version of the emotion chip
+
+56:45.800 --> 56:48.280
+ then, I haven't watched much Star Trek.
+
+56:48.280 --> 56:52.460
+ Except I have also met adults, right?
+
+56:52.460 --> 56:54.600
+ And so that is a developmental process.
+
+56:54.600 --> 56:57.600
+ And I'm sure there's a bunch of psychologists
+
+56:57.600 --> 57:00.640
+ that can go through, like you can have a 60 year old adult
+
+57:00.640 --> 57:04.640
+ who has the emotional maturity of a 10 year old, right?
+
+57:04.640 --> 57:08.880
+ And so there's various phases that people should go through
+
+57:08.880 --> 57:11.480
+ in order to evolve and sometimes you don't.
+
+57:11.480 --> 57:14.840
+ So how much psychology do you think,
+
+57:14.840 --> 57:17.600
+ a topic that's rarely mentioned in robotics,
+
+57:17.600 --> 57:19.700
+ but how much does psychology come to play
+
+57:19.700 --> 57:23.600
+ when you're talking about HRI, human robot interaction?
+
+57:23.600 --> 57:25.000
+ When you have to have robots
+
+57:25.000 --> 57:26.120
+ that actually interact with humans.
+
+57:26.120 --> 57:26.960
+ Tons.
+
+57:26.960 --> 57:31.360
+ So we, like my group, as well as I read a lot
+
+57:31.360 --> 57:33.280
+ in the cognitive science literature,
+
+57:33.280 --> 57:36.160
+ as well as the psychology literature.
+
+57:36.160 --> 57:41.160
+ Because they understand a lot about human, human relations
+
+57:42.720 --> 57:45.920
+ and developmental milestones and things like that.
+
+57:45.920 --> 57:50.920
+ And so we tend to look to see what's been done out there.
+
+57:53.120 --> 57:56.500
+ Sometimes what we'll do is we'll try to match that to see,
+
+57:56.500 --> 58:00.980
+ is that human, human relationship the same as human robot?
+
+58:00.980 --> 58:03.080
+ Sometimes it is, and sometimes it's different.
+
+58:03.080 --> 58:04.740
+ And then when it's different, we have to,
+
+58:04.740 --> 58:06.440
+ we try to figure out, okay,
+
+58:06.440 --> 58:09.040
+ why is it different in this scenario?
+
+58:09.040 --> 58:11.900
+ But it's the same in the other scenario, right?
+
+58:11.900 --> 58:15.320
+ And so we try to do that quite a bit.
+
+58:15.320 --> 58:17.800
+ Would you say that's, if we're looking at the future
+
+58:17.800 --> 58:19.140
+ of human robot interaction,
+
+58:19.140 --> 58:22.040
+ would you say the psychology piece is the hardest?
+
+58:22.040 --> 58:25.640
+ Like if, I mean, it's a funny notion for you as,
+
+58:25.640 --> 58:27.360
+ I don't know if you consider, yeah.
+
+58:27.360 --> 58:28.400
+ I mean, one way to ask it,
+
+58:28.400 --> 58:32.000
+ do you consider yourself a roboticist or a psychologist?
+
+58:32.000 --> 58:33.600
+ Oh, I consider myself a roboticist
+
+58:33.600 --> 58:36.240
+ that plays the act of a psychologist.
+
+58:36.240 --> 58:38.980
+ But if you were to look at yourself sort of,
+
+58:40.120 --> 58:42.360
+ 20, 30 years from now,
+
+58:42.360 --> 58:43.880
+ do you see yourself more and more
+
+58:43.880 --> 58:45.300
+ wearing the psychology hat?
+
+58:47.560 --> 58:49.000
+ Another way to put it is,
+
+58:49.000 --> 58:51.600
+ are the hard problems in human robot interactions
+
+58:51.600 --> 58:55.800
+ fundamentally psychology, or is it still robotics,
+
+58:55.800 --> 58:57.720
+ the perception manipulation, planning,
+
+58:57.720 --> 58:59.460
+ all that kind of stuff?
+
+58:59.460 --> 59:01.680
+ It's actually neither.
+
+59:01.680 --> 59:05.160
+ The hardest part is the adaptation and the interaction.
+
+59:06.120 --> 59:08.840
+ So it's the interface, it's the learning.
+
+59:08.840 --> 59:11.600
+ And so if I think of,
+
+59:11.600 --> 59:16.600
+ like I've become much more of a roboticist slash AI person
+
+59:17.180 --> 59:19.040
+ than when I, like originally, again,
+
+59:19.040 --> 59:20.160
+ I was about the bionics.
+
+59:20.160 --> 59:24.040
+ I was electrical engineer, I was control theory, right?
+
+59:24.040 --> 59:28.780
+ And then I started realizing that my algorithms
+
+59:28.780 --> 59:30.600
+ needed like human data, right?
+
+59:30.600 --> 59:32.760
+ And so then I was like, okay, what is this human thing?
+
+59:32.760 --> 59:34.360
+ How do I incorporate human data?
+
+59:34.360 --> 59:38.440
+ And then I realized that human perception had,
+
+59:38.440 --> 59:41.040
+ like there was a lot in terms of how we perceive the world.
+
+59:41.040 --> 59:41.940
+ And so trying to figure out
+
+59:41.940 --> 59:44.400
+ how do I model human perception for my,
+
+59:44.400 --> 59:47.600
+ and so I became a HRI person,
+
+59:47.600 --> 59:49.320
+ human robot interaction person,
+
+59:49.320 --> 59:51.760
+ from being a control theory and realizing
+
+59:51.760 --> 59:54.320
+ that humans actually offered quite a bit.
+
+59:55.220 --> 59:56.060
+ And then when you do that,
+
+59:56.060 --> 59:59.280
+ you become more of an artificial intelligence, AI.
+
+59:59.280 --> 1:00:04.280
+ And so I see myself evolving more in this AI world
+
+1:00:05.680 --> 1:00:09.560
+ under the lens of robotics,
+
+1:00:09.560 --> 1:00:12.100
+ having hardware, interacting with people.
+
+1:00:12.100 --> 1:00:17.100
+ So you're a world class expert researcher in robotics,
+
+1:00:17.840 --> 1:00:21.120
+ and yet others, you know, there's a few,
+
+1:00:21.120 --> 1:00:24.160
+ it's a small but fierce community of people,
+
+1:00:24.160 --> 1:00:26.600
+ but most of them don't take the journey
+
+1:00:26.600 --> 1:00:29.440
+ into the H of HRI, into the human.
+
+1:00:29.440 --> 1:00:34.440
+ So why did you brave into the interaction with humans?
+
+1:00:34.440 --> 1:00:36.880
+ It seems like a really hard problem.
+
+1:00:36.880 --> 1:00:39.880
+ It's a hard problem, and it's very risky as an academic.
+
+1:00:41.080 --> 1:00:45.320
+ And I knew that when I started down that journey,
+
+1:00:46.200 --> 1:00:49.880
+ that it was very risky as an academic
+
+1:00:49.880 --> 1:00:53.440
+ in this world that was nuance, it was just developing.
+
+1:00:53.440 --> 1:00:56.720
+ We didn't even have a conference, right, at the time.
+
+1:00:56.720 --> 1:01:00.120
+ Because it was the interesting problems.
+
+1:01:00.120 --> 1:01:01.560
+ That was what drove me.
+
+1:01:01.560 --> 1:01:06.560
+ It was the fact that I looked at what interests me
+
+1:01:06.920 --> 1:01:10.400
+ in terms of the application space and the problems.
+
+1:01:10.400 --> 1:01:14.900
+ And that pushed me into trying to figure out
+
+1:01:14.900 --> 1:01:16.840
+ what people were and what humans were
+
+1:01:16.840 --> 1:01:18.160
+ and how to adapt to them.
+
+1:01:19.040 --> 1:01:21.280
+ If those problems weren't so interesting,
+
+1:01:21.280 --> 1:01:26.280
+ I'd probably still be sending rovers to glaciers, right?
+
+1:01:26.280 --> 1:01:28.080
+ But the problems were interesting.
+
+1:01:28.080 --> 1:01:30.600
+ And the other thing was that they were hard, right?
+
+1:01:30.600 --> 1:01:34.560
+ So it's, I like having to go into a room
+
+1:01:34.560 --> 1:01:37.000
+ and being like, I don't know what to do.
+
+1:01:37.000 --> 1:01:38.280
+ And then going back and saying, okay,
+
+1:01:38.280 --> 1:01:39.800
+ I'm gonna figure this out.
+
+1:01:39.800 --> 1:01:42.320
+ I do not, I'm not driven when I go in like,
+
+1:01:42.320 --> 1:01:44.040
+ oh, there are no surprises.
+
+1:01:44.040 --> 1:01:47.320
+ Like, I don't find that satisfying.
+
+1:01:47.320 --> 1:01:48.160
+ If that was the case,
+
+1:01:48.160 --> 1:01:51.020
+ I'd go someplace and make a lot more money, right?
+
+1:01:51.020 --> 1:01:55.000
+ I think I stay in academic because and choose to do this
+
+1:01:55.000 --> 1:01:58.280
+ because I can go into a room and like, that's hard.
+
+1:01:58.280 --> 1:02:01.720
+ Yeah, I think just from my perspective,
+
+1:02:01.720 --> 1:02:03.200
+ maybe you can correct me on it,
+
+1:02:03.200 --> 1:02:06.720
+ but if I just look at the field of AI broadly,
+
+1:02:06.720 --> 1:02:11.720
+ it seems that human robot interaction has the most,
+
+1:02:12.020 --> 1:02:16.540
+ one of the most number of open problems.
+
+1:02:16.540 --> 1:02:20.280
+ Like people, especially relative to how many people
+
+1:02:20.280 --> 1:02:23.920
+ are willing to acknowledge that there are this,
+
+1:02:23.920 --> 1:02:26.160
+ because most people are just afraid of the humans
+
+1:02:26.160 --> 1:02:27.240
+ so they don't even acknowledge
+
+1:02:27.240 --> 1:02:28.200
+ how many open problems there are.
+
+1:02:28.200 --> 1:02:30.440
+ But it's in terms of difficult problems
+
+1:02:30.440 --> 1:02:32.400
+ to solve exciting spaces,
+
+1:02:32.400 --> 1:02:35.840
+ it seems to be incredible for that.
+
+1:02:35.840 --> 1:02:38.680
+ It is, and it's exciting.
+
+1:02:38.680 --> 1:02:40.040
+ You've mentioned trust before.
+
+1:02:40.040 --> 1:02:45.040
+ What role does trust from interacting with autopilot
+
+1:02:46.860 --> 1:02:48.480
+ to in the medical context,
+
+1:02:48.480 --> 1:02:51.320
+ what role does trust play in the human robot interactions?
+
+1:02:51.320 --> 1:02:53.920
+ So some of the things I study in this domain
+
+1:02:53.920 --> 1:02:56.920
+ is not just trust, but it really is over trust.
+
+1:02:56.920 --> 1:02:58.160
+ How do you think about over trust?
+
+1:02:58.160 --> 1:03:02.280
+ Like what is, first of all, what is trust
+
+1:03:02.280 --> 1:03:03.360
+ and what is over trust?
+
+1:03:03.360 --> 1:03:05.780
+ Basically, the way I look at it is,
+
+1:03:05.780 --> 1:03:08.040
+ trust is not what you click on a survey,
+
+1:03:08.040 --> 1:03:09.560
+ trust is about your behavior.
+
+1:03:09.560 --> 1:03:11.880
+ So if you interact with the technology
+
+1:03:13.460 --> 1:03:17.280
+ based on the decision or the actions of the technology
+
+1:03:17.280 --> 1:03:20.700
+ as if you trust that decision, then you're trusting.
+
+1:03:22.360 --> 1:03:25.560
+ And even in my group, we've done surveys
+
+1:03:25.560 --> 1:03:28.240
+ that on the thing, do you trust robots?
+
+1:03:28.240 --> 1:03:29.080
+ Of course not.
+
+1:03:29.080 --> 1:03:31.640
+ Would you follow this robot in a burdening building?
+
+1:03:31.640 --> 1:03:32.920
+ Of course not.
+
+1:03:32.920 --> 1:03:35.480
+ And then you look at their actions and you're like,
+
+1:03:35.480 --> 1:03:39.640
+ clearly your behavior does not match what you think
+
+1:03:39.640 --> 1:03:42.000
+ or what you think you would like to think.
+
+1:03:42.000 --> 1:03:44.040
+ And so I'm really concerned about the behavior
+
+1:03:44.040 --> 1:03:45.800
+ because that's really at the end of the day,
+
+1:03:45.800 --> 1:03:47.340
+ when you're in the world,
+
+1:03:47.340 --> 1:03:50.500
+ that's what will impact others around you.
+
+1:03:50.500 --> 1:03:52.920
+ It's not whether before you went onto the street,
+
+1:03:52.920 --> 1:03:55.640
+ you clicked on like, I don't trust self driving cars.
+
+1:03:55.640 --> 1:03:58.680
+ Yeah, that from an outsider perspective,
+
+1:03:58.680 --> 1:04:00.600
+ it's always frustrating to me.
+
+1:04:00.600 --> 1:04:02.480
+ Well, I read a lot, so I'm insider
+
+1:04:02.480 --> 1:04:04.180
+ in a certain philosophical sense.
+
+1:04:06.040 --> 1:04:10.680
+ It's frustrating to me how often trust is used in surveys
+
+1:04:10.680 --> 1:04:15.680
+ and how people say, make claims out of any kind of finding
+
+1:04:15.680 --> 1:04:18.680
+ they make while somebody clicking on answer.
+
+1:04:18.680 --> 1:04:23.680
+ You just trust is a, yeah, behavior just,
+
+1:04:23.700 --> 1:04:24.580
+ you said it beautifully.
+
+1:04:24.580 --> 1:04:28.080
+ I mean, the action, your own behavior is what trust is.
+
+1:04:28.080 --> 1:04:30.740
+ I mean, that everything else is not even close.
+
+1:04:30.740 --> 1:04:34.740
+ It's almost like absurd comedic poetry
+
+1:04:36.040 --> 1:04:38.500
+ that you weave around your actual behavior.
+
+1:04:38.500 --> 1:04:41.780
+ So some people can say their trust,
+
+1:04:41.780 --> 1:04:45.620
+ you know, I trust my wife, husband or not,
+
+1:04:45.620 --> 1:04:48.260
+ whatever, but the actions is what speaks volumes.
+
+1:04:48.260 --> 1:04:52.260
+ You bug their car, you probably don't trust them.
+
+1:04:52.260 --> 1:04:53.820
+ I trust them, I'm just making sure.
+
+1:04:53.820 --> 1:04:55.620
+ No, no, that's, yeah.
+
+1:04:55.620 --> 1:04:57.260
+ Like even if you think about cars,
+
+1:04:57.260 --> 1:04:58.580
+ I think it's a beautiful case.
+
+1:04:58.580 --> 1:05:01.260
+ I came here at some point, I'm sure,
+
+1:05:01.260 --> 1:05:03.580
+ on either Uber or Lyft, right?
+
+1:05:03.580 --> 1:05:06.020
+ I remember when it first came out, right?
+
+1:05:06.020 --> 1:05:08.020
+ I bet if they had had a survey,
+
+1:05:08.020 --> 1:05:11.420
+ would you get in the car with a stranger and pay them?
+
+1:05:11.420 --> 1:05:12.660
+ Yes.
+
+1:05:12.660 --> 1:05:15.300
+ How many people do you think would have said,
+
+1:05:15.300 --> 1:05:16.620
+ like, really?
+
+1:05:16.620 --> 1:05:18.660
+ Wait, even worse, would you get in the car
+
+1:05:18.660 --> 1:05:21.900
+ with a stranger at 1 a.m. in the morning
+
+1:05:21.900 --> 1:05:24.780
+ to have them drop you home as a single female?
+
+1:05:24.780 --> 1:05:25.620
+ Yeah.
+
+1:05:25.620 --> 1:05:29.280
+ Like how many people would say, that's stupid.
+
+1:05:29.280 --> 1:05:30.120
+ Yeah.
+
+1:05:30.120 --> 1:05:31.540
+ And now look at where we are.
+
+1:05:31.540 --> 1:05:33.940
+ I mean, people put kids, right?
+
+1:05:33.940 --> 1:05:37.660
+ Like, oh yeah, my child has to go to school
+
+1:05:37.660 --> 1:05:42.300
+ and yeah, I'm gonna put my kid in this car with a stranger.
+
+1:05:42.300 --> 1:05:45.580
+ I mean, it's just fascinating how, like,
+
+1:05:45.580 --> 1:05:48.260
+ what we think we think is not necessarily
+
+1:05:48.260 --> 1:05:49.620
+ matching our behavior.
+
+1:05:49.620 --> 1:05:52.260
+ Yeah, and certainly with robots, with autonomous vehicles
+
+1:05:52.260 --> 1:05:54.620
+ and all the kinds of robots you work with,
+
+1:05:54.620 --> 1:05:59.620
+ that's, it's, yeah, it's, the way you answer it,
+
+1:06:00.340 --> 1:06:03.340
+ especially if you've never interacted with that robot before,
+
+1:06:04.300 --> 1:06:05.620
+ if you haven't had the experience,
+
+1:06:05.620 --> 1:06:09.540
+ you being able to respond correctly on a survey is impossible.
+
+1:06:09.540 --> 1:06:12.460
+ But what do you, what role does trust play
+
+1:06:12.460 --> 1:06:14.220
+ in the interaction, do you think?
+
+1:06:14.220 --> 1:06:19.220
+ Like, is it good to, is it good to trust a robot?
+
+1:06:19.380 --> 1:06:21.620
+ What does over trust mean?
+
+1:06:21.620 --> 1:06:23.980
+ Or is it, is it good to kind of how you feel
+
+1:06:23.980 --> 1:06:26.460
+ about autopilot currently, which is like,
+
+1:06:26.460 --> 1:06:29.380
+ from a roboticist's perspective, is like,
+
+1:06:29.380 --> 1:06:31.460
+ oh, still very cautious?
+
+1:06:31.460 --> 1:06:34.860
+ Yeah, so this is still an open area of research,
+
+1:06:34.860 --> 1:06:39.860
+ but basically what I would like in a perfect world
+
+1:06:40.700 --> 1:06:44.900
+ is that people trust the technology when it's working 100%,
+
+1:06:44.900 --> 1:06:47.260
+ and people will be hypersensitive
+
+1:06:47.260 --> 1:06:49.060
+ and identify when it's not.
+
+1:06:49.060 --> 1:06:50.940
+ But of course we're not there.
+
+1:06:50.940 --> 1:06:52.700
+ That's the ideal world.
+
+1:06:53.620 --> 1:06:56.460
+ And, but we find is that people swing, right?
+
+1:06:56.460 --> 1:07:01.300
+ They tend to swing, which means that if my first,
+
+1:07:01.300 --> 1:07:02.900
+ and like, we have some papers,
+
+1:07:02.900 --> 1:07:05.260
+ like first impressions is everything, right?
+
+1:07:05.260 --> 1:07:07.620
+ If my first instance with technology,
+
+1:07:07.620 --> 1:07:12.620
+ with robotics is positive, it mitigates any risk,
+
+1:07:12.700 --> 1:07:16.860
+ it correlates with like best outcomes,
+
+1:07:16.860 --> 1:07:21.460
+ it means that I'm more likely to either not see it
+
+1:07:21.460 --> 1:07:24.180
+ when it makes some mistakes or faults,
+
+1:07:24.180 --> 1:07:27.300
+ or I'm more likely to forgive it.
+
+1:07:28.660 --> 1:07:30.340
+ And so this is a problem
+
+1:07:30.340 --> 1:07:32.620
+ because technology is not 100% accurate, right?
+
+1:07:32.620 --> 1:07:35.100
+ It's not 100% accurate, although it may be perfect.
+
+1:07:35.100 --> 1:07:37.700
+ How do you get that first moment right, do you think?
+
+1:07:37.700 --> 1:07:40.740
+ There's also an education about the capabilities
+
+1:07:40.740 --> 1:07:42.500
+ and limitations of the system.
+
+1:07:42.500 --> 1:07:45.740
+ Do you have a sense of how do you educate people correctly
+
+1:07:45.740 --> 1:07:47.140
+ in that first interaction?
+
+1:07:47.140 --> 1:07:50.260
+ Again, this is an open ended problem.
+
+1:07:50.260 --> 1:07:55.020
+ So one of the study that actually has given me some hope
+
+1:07:55.020 --> 1:07:57.660
+ that I were trying to figure out how to put in robotics.
+
+1:07:57.660 --> 1:08:01.300
+ So there was a research study
+
+1:08:01.300 --> 1:08:03.460
+ that it showed for medical AI systems,
+
+1:08:03.460 --> 1:08:07.820
+ giving information to radiologists about,
+
+1:08:07.820 --> 1:08:12.820
+ here you need to look at these areas on the X ray.
+
+1:08:13.980 --> 1:08:18.900
+ What they found was that when the system provided
+
+1:08:18.900 --> 1:08:23.900
+ one choice, there was this aspect of either no trust
+
+1:08:25.340 --> 1:08:26.860
+ or over trust, right?
+
+1:08:26.860 --> 1:08:29.820
+ Like I don't believe it at all,
+
+1:08:29.820 --> 1:08:33.580
+ or a yes, yes, yes, yes.
+
+1:08:33.580 --> 1:08:36.380
+ And they would miss things, right?
+
+1:08:36.380 --> 1:08:40.580
+ Instead, when the system gave them multiple choices,
+
+1:08:40.580 --> 1:08:43.260
+ like here are the three, even if it knew like,
+
+1:08:43.260 --> 1:08:45.940
+ it had estimated that the top area you need to look at
+
+1:08:45.940 --> 1:08:49.780
+ was some place on the X ray.
+
+1:08:49.780 --> 1:08:54.060
+ If it gave like one plus others,
+
+1:08:54.060 --> 1:08:59.060
+ the trust was maintained and the accuracy of the entire
+
+1:09:00.420 --> 1:09:03.580
+ population increased, right?
+
+1:09:03.580 --> 1:09:07.500
+ So basically it was a, you're still trusting the system,
+
+1:09:07.500 --> 1:09:09.580
+ but you're also putting in a little bit of like,
+
+1:09:09.580 --> 1:09:13.660
+ your human expertise, like your human decision processing
+
+1:09:13.660 --> 1:09:15.540
+ into the equation.
+
+1:09:15.540 --> 1:09:18.540
+ So it helps to mitigate that over trust risk.
+
+1:09:18.540 --> 1:09:21.580
+ Yeah, so there's a fascinating balance that the strike.
+
+1:09:21.580 --> 1:09:24.420
+ Haven't figured out again, robotics is still an open research.
+
+1:09:24.420 --> 1:09:26.740
+ This is exciting open area research, exactly.
+
+1:09:26.740 --> 1:09:28.940
+ So what are some exciting applications
+
+1:09:28.940 --> 1:09:30.180
+ of human robot interaction?
+
+1:09:30.180 --> 1:09:33.060
+ You started a company, maybe you can talk about
+
+1:09:33.060 --> 1:09:36.740
+ the exciting efforts there, but in general also
+
+1:09:36.740 --> 1:09:41.020
+ what other space can robots interact with humans and help?
+
+1:09:41.020 --> 1:09:42.340
+ Yeah, so besides healthcare,
+
+1:09:42.340 --> 1:09:44.540
+ cause you know, that's my bias lens.
+
+1:09:44.540 --> 1:09:47.100
+ My other bias lens is education.
+
+1:09:47.100 --> 1:09:51.260
+ I think that, well, one, we definitely,
+
+1:09:51.260 --> 1:09:54.780
+ we in the US, you know, we're doing okay with teachers,
+
+1:09:54.780 --> 1:09:56.860
+ but there's a lot of school districts
+
+1:09:56.860 --> 1:09:58.300
+ that don't have enough teachers.
+
+1:09:58.300 --> 1:10:01.940
+ If you think about the teacher student ratio
+
+1:10:01.940 --> 1:10:06.700
+ for at least public education in some districts, it's crazy.
+
+1:10:06.700 --> 1:10:10.020
+ It's like, how can you have learning in that classroom,
+
+1:10:10.020 --> 1:10:10.860
+ right?
+
+1:10:10.860 --> 1:10:12.980
+ Because you just don't have the human capital.
+
+1:10:12.980 --> 1:10:15.500
+ And so if you think about robotics,
+
+1:10:15.500 --> 1:10:18.460
+ bringing that in to classrooms,
+
+1:10:18.460 --> 1:10:20.340
+ as well as the afterschool space,
+
+1:10:20.340 --> 1:10:25.100
+ where they offset some of this lack of resources
+
+1:10:25.100 --> 1:10:28.460
+ in certain communities, I think that's a good place.
+
+1:10:28.460 --> 1:10:30.900
+ And then turning on the other end
+
+1:10:30.900 --> 1:10:35.260
+ is using these systems then for workforce retraining
+
+1:10:35.260 --> 1:10:38.940
+ and dealing with some of the things
+
+1:10:38.940 --> 1:10:43.020
+ that are going to come out later on of job loss,
+
+1:10:43.020 --> 1:10:45.900
+ like thinking about robots and in AI systems
+
+1:10:45.900 --> 1:10:48.340
+ for retraining and workforce development.
+
+1:10:48.340 --> 1:10:53.220
+ I think that's exciting areas that can be pushed even more,
+
+1:10:53.220 --> 1:10:56.780
+ and it would have a huge, huge impact.
+
+1:10:56.780 --> 1:10:59.620
+ What would you say are some of the open problems
+
+1:10:59.620 --> 1:11:03.220
+ in education, sort of, it's exciting.
+
+1:11:03.220 --> 1:11:08.220
+ So young kids and the older folks
+
+1:11:08.740 --> 1:11:12.580
+ or just folks of all ages who need to be retrained,
+
+1:11:12.580 --> 1:11:14.260
+ who need to sort of open themselves up
+
+1:11:14.260 --> 1:11:17.700
+ to a whole nother area of work.
+
+1:11:17.700 --> 1:11:20.060
+ What are the problems to be solved there?
+
+1:11:20.060 --> 1:11:22.460
+ How do you think robots can help?
+
+1:11:22.460 --> 1:11:24.820
+ We have the engagement aspect, right?
+
+1:11:24.820 --> 1:11:26.460
+ So we can figure out the engagement.
+
+1:11:26.460 --> 1:11:27.300
+ That's not a...
+
+1:11:27.300 --> 1:11:28.900
+ What do you mean by engagement?
+
+1:11:28.900 --> 1:11:33.900
+ So identifying whether a person is focused,
+
+1:11:34.940 --> 1:11:38.740
+ is like that we can figure out.
+
+1:11:38.740 --> 1:11:43.740
+ What we can figure out and there's some positive results
+
+1:11:43.900 --> 1:11:47.180
+ in this is that personalized adaptation
+
+1:11:47.180 --> 1:11:49.660
+ based on any concepts, right?
+
+1:11:49.660 --> 1:11:54.580
+ So imagine I think about, I have an agent
+
+1:11:54.580 --> 1:11:59.580
+ and I'm working with a kid learning, I don't know,
+
+1:11:59.620 --> 1:12:03.820
+ algebra two, can that same agent then switch
+
+1:12:03.820 --> 1:12:07.980
+ and teach some type of new coding skill
+
+1:12:07.980 --> 1:12:11.420
+ to a displaced mechanic?
+
+1:12:11.420 --> 1:12:14.500
+ Like, what does that actually look like, right?
+
+1:12:14.500 --> 1:12:19.500
+ Like hardware might be the same, content is different,
+
+1:12:19.540 --> 1:12:22.700
+ two different target demographics of engagement.
+
+1:12:22.700 --> 1:12:24.580
+ Like how do you do that?
+
+1:12:24.580 --> 1:12:26.820
+ How important do you think personalization
+
+1:12:26.820 --> 1:12:28.580
+ is in human robot interaction?
+
+1:12:28.580 --> 1:12:31.980
+ And not just a mechanic or student,
+
+1:12:31.980 --> 1:12:35.340
+ but like literally to the individual human being.
+
+1:12:35.340 --> 1:12:37.540
+ I think personalization is really important,
+
+1:12:37.540 --> 1:12:42.140
+ but a caveat is that I think we'd be okay
+
+1:12:42.140 --> 1:12:44.700
+ if we can personalize to the group, right?
+
+1:12:44.700 --> 1:12:49.700
+ And so if I can label you
+
+1:12:49.700 --> 1:12:52.780
+ as along some certain dimensions,
+
+1:12:52.780 --> 1:12:56.500
+ then even though it may not be you specifically,
+
+1:12:56.500 --> 1:12:58.220
+ I can put you in this group.
+
+1:12:58.220 --> 1:13:00.500
+ So the sample size, this is how they best learn,
+
+1:13:00.500 --> 1:13:02.020
+ this is how they best engage.
+
+1:13:03.220 --> 1:13:06.780
+ Even at that level, it's really important.
+
+1:13:06.780 --> 1:13:09.620
+ And it's because, I mean, it's one of the reasons
+
+1:13:09.620 --> 1:13:13.340
+ why educating in large classrooms is so hard, right?
+
+1:13:13.340 --> 1:13:15.980
+ You teach to the median,
+
+1:13:15.980 --> 1:13:19.780
+ but there's these individuals that are struggling
+
+1:13:19.780 --> 1:13:22.340
+ and then you have highly intelligent individuals
+
+1:13:22.340 --> 1:13:26.340
+ and those are the ones that are usually kind of left out.
+
+1:13:26.340 --> 1:13:28.900
+ So highly intelligent individuals may be disruptive
+
+1:13:28.900 --> 1:13:30.860
+ and those who are struggling might be disruptive
+
+1:13:30.860 --> 1:13:32.980
+ because they're both bored.
+
+1:13:32.980 --> 1:13:35.580
+ Yeah, and if you narrow the definition of the group
+
+1:13:35.580 --> 1:13:37.900
+ or in the size of the group enough,
+
+1:13:37.900 --> 1:13:40.380
+ you'll be able to address their individual,
+
+1:13:40.380 --> 1:13:44.580
+ it's not individual needs, but really the most important
+
+1:13:44.580 --> 1:13:45.980
+ group needs, right?
+
+1:13:45.980 --> 1:13:47.780
+ And that's kind of what a lot of successful
+
+1:13:47.780 --> 1:13:50.980
+ recommender systems do with Spotify and so on.
+
+1:13:50.980 --> 1:13:53.820
+ So it's sad to believe, but as a music listener,
+
+1:13:53.820 --> 1:13:55.940
+ probably in some sort of large group,
+
+1:13:55.940 --> 1:13:58.300
+ it's very sadly predictable.
+
+1:13:58.300 --> 1:13:59.260
+ You have been labeled.
+
+1:13:59.260 --> 1:14:02.100
+ Yeah, I've been labeled and successfully so
+
+1:14:02.100 --> 1:14:04.820
+ because they're able to recommend stuff that I like.
+
+1:14:04.820 --> 1:14:07.740
+ Yeah, but applying that to education, right?
+
+1:14:07.740 --> 1:14:09.780
+ There's no reason why it can't be done.
+
+1:14:09.780 --> 1:14:13.060
+ Do you have a hope for our education system?
+
+1:14:13.060 --> 1:14:16.180
+ I have more hope for workforce development.
+
+1:14:16.180 --> 1:14:19.660
+ And that's because I'm seeing investments.
+
+1:14:19.660 --> 1:14:23.300
+ Even if you look at VC investments in education,
+
+1:14:23.300 --> 1:14:26.140
+ the majority of it has lately been going
+
+1:14:26.140 --> 1:14:28.540
+ to workforce retraining, right?
+
+1:14:28.540 --> 1:14:32.860
+ And so I think that government investments is increasing.
+
+1:14:32.860 --> 1:14:36.060
+ There's like a claim and some of it's based on fear, right?
+
+1:14:36.060 --> 1:14:37.980
+ Like AI is gonna come and take over all these jobs.
+
+1:14:37.980 --> 1:14:41.500
+ What are we gonna do with all these nonpaying taxes
+
+1:14:41.500 --> 1:14:44.340
+ that aren't coming to us by our citizens?
+
+1:14:44.340 --> 1:14:47.140
+ And so I think I'm more hopeful for that.
+
+1:14:48.060 --> 1:14:51.780
+ Not so hopeful for early education
+
+1:14:51.780 --> 1:14:56.380
+ because it's still a who's gonna pay for it.
+
+1:14:56.380 --> 1:15:01.380
+ And you won't see the results for like 16 to 18 years.
+
+1:15:01.380 --> 1:15:05.940
+ It's hard for people to wrap their heads around that.
+
+1:15:07.180 --> 1:15:10.580
+ But on the retraining part, what are your thoughts?
+
+1:15:10.580 --> 1:15:13.860
+ There's a candidate, Andrew Yang running for president
+
+1:15:13.860 --> 1:15:18.860
+ and saying that sort of AI, automation, robots.
+
+1:15:18.940 --> 1:15:20.940
+ Universal basic income.
+
+1:15:20.940 --> 1:15:23.900
+ Universal basic income in order to support us
+
+1:15:23.900 --> 1:15:26.740
+ as we kind of automation takes people's jobs
+
+1:15:26.740 --> 1:15:30.180
+ and allows you to explore and find other means.
+
+1:15:30.180 --> 1:15:35.180
+ Like do you have a concern of society
+
+1:15:35.660 --> 1:15:40.500
+ transforming effects of automation and robots and so on?
+
+1:15:40.500 --> 1:15:41.340
+ I do.
+
+1:15:41.340 --> 1:15:46.180
+ I do know that AI robotics will displace workers.
+
+1:15:46.180 --> 1:15:47.980
+ Like we do know that.
+
+1:15:47.980 --> 1:15:49.500
+ But there'll be other workers
+
+1:15:49.500 --> 1:15:54.500
+ that will be defined new jobs.
+
+1:15:54.980 --> 1:15:57.460
+ What I worry about is, that's not what I worry about.
+
+1:15:57.460 --> 1:15:59.500
+ Like will all the jobs go away?
+
+1:15:59.500 --> 1:16:02.460
+ What I worry about is the type of jobs that will come out.
+
+1:16:02.460 --> 1:16:06.340
+ Like people who graduate from Georgia Tech will be okay.
+
+1:16:06.340 --> 1:16:07.660
+ We give them the skills,
+
+1:16:07.660 --> 1:16:10.660
+ they will adapt even if their current job goes away.
+
+1:16:10.660 --> 1:16:12.620
+ I do worry about those
+
+1:16:12.620 --> 1:16:15.460
+ that don't have that quality of an education.
+
+1:16:15.460 --> 1:16:18.300
+ Will they have the ability,
+
+1:16:18.300 --> 1:16:21.700
+ the background to adapt to those new jobs?
+
+1:16:21.700 --> 1:16:22.980
+ That I don't know.
+
+1:16:22.980 --> 1:16:24.220
+ That I worry about,
+
+1:16:24.220 --> 1:16:27.220
+ which will create even more polarization
+
+1:16:27.220 --> 1:16:31.220
+ in our society, internationally and everywhere.
+
+1:16:31.220 --> 1:16:32.940
+ I worry about that.
+
+1:16:32.940 --> 1:16:36.820
+ I also worry about not having equal access
+
+1:16:36.820 --> 1:16:39.540
+ to all these wonderful things that AI can do
+
+1:16:39.540 --> 1:16:41.100
+ and robotics can do.
+
+1:16:41.100 --> 1:16:42.540
+ I worry about that.
+
+1:16:43.620 --> 1:16:48.620
+ People like me from Georgia Tech from say MIT
+
+1:16:48.860 --> 1:16:50.340
+ will be okay, right?
+
+1:16:50.340 --> 1:16:53.340
+ But that's such a small part of the population
+
+1:16:53.340 --> 1:16:55.940
+ that we need to think much more globally
+
+1:16:55.940 --> 1:16:58.500
+ of having access to the beautiful things,
+
+1:16:58.500 --> 1:17:01.580
+ whether it's AI in healthcare, AI in education,
+
+1:17:01.580 --> 1:17:05.140
+ AI in politics, right?
+
+1:17:05.140 --> 1:17:05.980
+ I worry about that.
+
+1:17:05.980 --> 1:17:08.140
+ And that's part of the thing that you were talking about
+
+1:17:08.140 --> 1:17:09.660
+ is people that build the technology
+
+1:17:09.660 --> 1:17:12.420
+ have to be thinking about ethics,
+
+1:17:12.420 --> 1:17:15.220
+ have to be thinking about access and all those things.
+
+1:17:15.220 --> 1:17:17.900
+ And not just a small subset.
+
+1:17:17.900 --> 1:17:20.300
+ Let me ask some philosophical,
+
+1:17:20.300 --> 1:17:22.460
+ slightly romantic questions.
+
+1:17:22.460 --> 1:17:24.900
+ People that listen to this will be like,
+
+1:17:24.900 --> 1:17:26.180
+ here he goes again.
+
+1:17:26.180 --> 1:17:31.180
+ Okay, do you think one day we'll build an AI system
+
+1:17:31.940 --> 1:17:35.500
+ that a person can fall in love with
+
+1:17:35.500 --> 1:17:37.900
+ and it would love them back?
+
+1:17:37.900 --> 1:17:39.780
+ Like in the movie, Her, for example.
+
+1:17:39.780 --> 1:17:43.260
+ Yeah, although she kind of didn't fall in love with him
+
+1:17:43.260 --> 1:17:45.500
+ or she fell in love with like a million other people,
+
+1:17:45.500 --> 1:17:47.060
+ something like that.
+
+1:17:47.060 --> 1:17:48.460
+ You're the jealous type, I see.
+
+1:17:48.460 --> 1:17:50.820
+ We humans are the jealous type.
+
+1:17:50.820 --> 1:17:55.060
+ Yes, so I do believe that we can design systems
+
+1:17:55.060 --> 1:17:59.420
+ where people would fall in love with their robot,
+
+1:17:59.420 --> 1:18:03.220
+ with their AI partner.
+
+1:18:03.220 --> 1:18:05.100
+ That I do believe.
+
+1:18:05.100 --> 1:18:06.300
+ Because it's actually,
+
+1:18:06.300 --> 1:18:08.900
+ and I don't like to use the word manipulate,
+
+1:18:08.900 --> 1:18:12.300
+ but as we see, there are certain individuals
+
+1:18:12.300 --> 1:18:13.340
+ that can be manipulated
+
+1:18:13.340 --> 1:18:16.260
+ if you understand the cognitive science about it, right?
+
+1:18:16.260 --> 1:18:19.620
+ Right, so I mean, if you could think of all close
+
+1:18:19.620 --> 1:18:21.380
+ relationship and love in general
+
+1:18:21.380 --> 1:18:24.700
+ as a kind of mutual manipulation,
+
+1:18:24.700 --> 1:18:27.100
+ that dance, the human dance.
+
+1:18:27.100 --> 1:18:30.180
+ I mean, manipulation is a negative connotation.
+
+1:18:30.180 --> 1:18:32.820
+ And that's why I don't like to use that word particularly.
+
+1:18:32.820 --> 1:18:34.220
+ I guess another way to phrase it is,
+
+1:18:34.220 --> 1:18:36.900
+ you're getting at is it could be algorithmatized
+
+1:18:36.900 --> 1:18:38.380
+ or something, it could be a.
+
+1:18:38.380 --> 1:18:40.620
+ The relationship building part can be.
+
+1:18:40.620 --> 1:18:41.820
+ I mean, just think about it.
+
+1:18:41.820 --> 1:18:44.780
+ We have, and I don't use dating sites,
+
+1:18:44.780 --> 1:18:48.940
+ but from what I heard, there are some individuals
+
+1:18:48.940 --> 1:18:52.780
+ that have been dating that have never saw each other, right?
+
+1:18:52.780 --> 1:18:54.100
+ In fact, there's a show I think
+
+1:18:54.100 --> 1:18:57.540
+ that tries to like weed out fake people.
+
+1:18:57.540 --> 1:18:59.460
+ Like there's a show that comes out, right?
+
+1:18:59.460 --> 1:19:01.940
+ Because like people start faking.
+
+1:19:01.940 --> 1:19:05.140
+ Like, what's the difference of that person
+
+1:19:05.140 --> 1:19:08.020
+ on the other end being an AI agent, right?
+
+1:19:08.020 --> 1:19:09.340
+ And having a communication
+
+1:19:09.340 --> 1:19:12.180
+ and you building a relationship remotely,
+
+1:19:12.180 --> 1:19:15.660
+ like there's no reason why that can't happen.
+
+1:19:15.660 --> 1:19:17.620
+ In terms of human robot interaction,
+
+1:19:17.620 --> 1:19:19.660
+ so what role, you've kind of mentioned
+
+1:19:19.660 --> 1:19:23.940
+ with data emotion being, can be problematic
+
+1:19:23.940 --> 1:19:26.220
+ if not implemented well, I suppose.
+
+1:19:26.220 --> 1:19:30.500
+ What role does emotion and some other human like things,
+
+1:19:30.500 --> 1:19:32.820
+ the imperfect things come into play here
+
+1:19:32.820 --> 1:19:37.300
+ for good human robot interaction and something like love?
+
+1:19:37.300 --> 1:19:39.780
+ Yeah, so in this case, and you had asked,
+
+1:19:39.780 --> 1:19:43.700
+ can an AI agent love a human back?
+
+1:19:43.700 --> 1:19:47.340
+ I think they can emulate love back, right?
+
+1:19:47.340 --> 1:19:48.980
+ And so what does that actually mean?
+
+1:19:48.980 --> 1:19:52.260
+ It just means that if you think about their programming,
+
+1:19:52.260 --> 1:19:55.220
+ they might put the other person's needs
+
+1:19:55.220 --> 1:19:57.980
+ in front of theirs in certain situations, right?
+
+1:19:57.980 --> 1:20:00.380
+ You look at, think about it as a return on investment.
+
+1:20:00.380 --> 1:20:01.740
+ Like, what's my return on investment?
+
+1:20:01.740 --> 1:20:04.540
+ As part of that equation, that person's happiness,
+
+1:20:04.540 --> 1:20:07.940
+ has some type of algorithm waiting to it.
+
+1:20:07.940 --> 1:20:11.380
+ And the reason why is because I care about them, right?
+
+1:20:11.380 --> 1:20:13.700
+ That's the only reason, right?
+
+1:20:13.700 --> 1:20:15.540
+ But if I care about them and I show that,
+
+1:20:15.540 --> 1:20:18.300
+ then my final objective function
+
+1:20:18.300 --> 1:20:20.580
+ is length of time of the engagement, right?
+
+1:20:20.580 --> 1:20:24.020
+ So you can think of how to do this actually quite easily.
+
+1:20:24.020 --> 1:20:24.860
+ And so.
+
+1:20:24.860 --> 1:20:26.500
+ But that's not love?
+
+1:20:27.420 --> 1:20:28.820
+ Well, so that's the thing.
+
+1:20:29.940 --> 1:20:32.580
+ I think it emulates love
+
+1:20:32.580 --> 1:20:37.580
+ because we don't have a classical definition of love.
+
+1:20:38.540 --> 1:20:41.660
+ Right, but, and we don't have the ability
+
+1:20:41.660 --> 1:20:45.500
+ to look into each other's minds to see the algorithm.
+
+1:20:45.500 --> 1:20:48.740
+ And I mean, I guess what I'm getting at is,
+
+1:20:48.740 --> 1:20:51.020
+ is it possible that, especially if that's learned,
+
+1:20:51.020 --> 1:20:52.580
+ especially if there's some mystery
+
+1:20:52.580 --> 1:20:55.220
+ and black box nature to the system,
+
+1:20:55.220 --> 1:20:57.660
+ how is that, you know?
+
+1:20:57.660 --> 1:20:58.580
+ How is it any different?
+
+1:20:58.580 --> 1:21:00.660
+ How is it any different in terms of sort of
+
+1:21:00.660 --> 1:21:04.060
+ if the system says, I'm conscious, I'm afraid of death,
+
+1:21:05.180 --> 1:21:10.180
+ and it does indicate that it loves you.
+
+1:21:10.860 --> 1:21:12.780
+ Another way to sort of phrase it,
+
+1:21:12.780 --> 1:21:14.180
+ be curious to see what you think.
+
+1:21:14.180 --> 1:21:15.700
+ Do you think there'll be a time
+
+1:21:16.700 --> 1:21:20.140
+ when robots should have rights?
+
+1:21:20.140 --> 1:21:23.420
+ You've kind of phrased the robot in a very roboticist way
+
+1:21:23.420 --> 1:21:25.940
+ and just a really good way, but saying, okay,
+
+1:21:25.940 --> 1:21:27.940
+ well, there's an objective function
+
+1:21:27.940 --> 1:21:30.620
+ and I could see how you can create
+
+1:21:30.620 --> 1:21:33.380
+ a compelling human robot interaction experience
+
+1:21:33.380 --> 1:21:36.300
+ that makes you believe that the robot cares for your needs
+
+1:21:36.300 --> 1:21:38.940
+ and even something like loves you.
+
+1:21:38.940 --> 1:21:43.740
+ But what if the robot says, please don't turn me off?
+
+1:21:43.740 --> 1:21:46.460
+ What if the robot starts making you feel
+
+1:21:46.460 --> 1:21:50.060
+ like there's an entity, a being, a soul there, right?
+
+1:21:50.060 --> 1:21:52.100
+ Do you think there'll be a future,
+
+1:21:53.420 --> 1:21:55.700
+ hopefully you won't laugh too much at this,
+
+1:21:55.700 --> 1:22:00.020
+ but where they do ask for rights?
+
+1:22:00.020 --> 1:22:03.980
+ So I can see a future
+
+1:22:03.980 --> 1:22:08.500
+ if we don't address it in the near term
+
+1:22:08.500 --> 1:22:11.820
+ where these agents, as they adapt and learn,
+
+1:22:11.820 --> 1:22:15.820
+ could say, hey, this should be something that's fundamental.
+
+1:22:15.820 --> 1:22:18.860
+ I hopefully think that we would address it
+
+1:22:18.860 --> 1:22:20.580
+ before it gets to that point.
+
+1:22:20.580 --> 1:22:22.140
+ So you think that's a bad future?
+
+1:22:22.140 --> 1:22:25.340
+ Is that a negative thing where they ask
+
+1:22:25.340 --> 1:22:27.740
+ we're being discriminated against?
+
+1:22:27.740 --> 1:22:31.100
+ I guess it depends on what role
+
+1:22:31.100 --> 1:22:34.340
+ have they attained at that point, right?
+
+1:22:34.340 --> 1:22:35.820
+ And so if I think about now.
+
+1:22:35.820 --> 1:22:39.220
+ Careful what you say because the robots 50 years from now
+
+1:22:39.220 --> 1:22:42.180
+ I'll be listening to this and you'll be on TV saying,
+
+1:22:42.180 --> 1:22:44.420
+ this is what roboticists used to believe.
+
+1:22:44.420 --> 1:22:45.260
+ Well, right?
+
+1:22:45.260 --> 1:22:48.700
+ And so this is my, and as I said, I have a bias lens
+
+1:22:48.700 --> 1:22:50.780
+ and my robot friends will understand that.
+
+1:22:52.780 --> 1:22:55.180
+ So if you think about it, and I actually put this
+
+1:22:55.180 --> 1:22:59.660
+ in kind of the, as a roboticist,
+
+1:22:59.660 --> 1:23:02.500
+ you don't necessarily think of robots as human
+
+1:23:02.500 --> 1:23:05.020
+ with human rights, but you could think of them
+
+1:23:05.020 --> 1:23:09.180
+ either in the category of property,
+
+1:23:09.180 --> 1:23:14.180
+ or you can think of them in the category of animals, right?
+
+1:23:14.340 --> 1:23:18.340
+ And so both of those have different types of rights.
+
+1:23:18.340 --> 1:23:22.740
+ So animals have their own rights as a living being,
+
+1:23:22.740 --> 1:23:25.060
+ but they can't vote, they can't write,
+
+1:23:25.060 --> 1:23:29.700
+ they can be euthanized, but as humans,
+
+1:23:29.700 --> 1:23:32.980
+ if we abuse them, we go to jail, right?
+
+1:23:32.980 --> 1:23:35.980
+ So they do have some rights that protect them,
+
+1:23:35.980 --> 1:23:39.180
+ but don't give them the rights of like citizenship.
+
+1:23:40.140 --> 1:23:42.260
+ And then if you think about property,
+
+1:23:42.260 --> 1:23:45.700
+ property, the rights are associated with the person, right?
+
+1:23:45.700 --> 1:23:49.500
+ So if someone vandalizes your property
+
+1:23:49.500 --> 1:23:53.820
+ or steals your property, like there are some rights,
+
+1:23:53.820 --> 1:23:57.700
+ but it's associated with the person who owns that.
+
+1:23:58.660 --> 1:24:01.500
+ If you think about it back in the day,
+
+1:24:01.500 --> 1:24:03.380
+ and if you remember, we talked about
+
+1:24:03.380 --> 1:24:08.180
+ how society has changed, women were property, right?
+
+1:24:08.180 --> 1:24:11.860
+ They were not thought of as having rights.
+
+1:24:11.860 --> 1:24:15.740
+ They were thought of as property of, like their...
+
+1:24:15.740 --> 1:24:17.620
+ Yeah, assaulting a woman meant
+
+1:24:17.620 --> 1:24:20.060
+ assaulting the property of somebody else.
+
+1:24:20.060 --> 1:24:22.900
+ Exactly, and so what I envision is,
+
+1:24:22.900 --> 1:24:27.820
+ is that we will establish some type of norm at some point,
+
+1:24:27.820 --> 1:24:29.580
+ but that it might evolve, right?
+
+1:24:29.580 --> 1:24:31.460
+ Like if you look at women's rights now,
+
+1:24:31.460 --> 1:24:35.380
+ like there are still some countries that don't have,
+
+1:24:35.380 --> 1:24:36.700
+ and the rest of the world is like,
+
+1:24:36.700 --> 1:24:39.260
+ why that makes no sense, right?
+
+1:24:39.260 --> 1:24:42.100
+ And so I do see a world where we do establish
+
+1:24:42.100 --> 1:24:44.140
+ some type of grounding.
+
+1:24:44.140 --> 1:24:45.700
+ It might be based on property rights,
+
+1:24:45.700 --> 1:24:47.620
+ it might be based on animal rights.
+
+1:24:47.620 --> 1:24:50.700
+ And if it evolves that way,
+
+1:24:50.700 --> 1:24:54.460
+ I think we will have this conversation at that time,
+
+1:24:54.460 --> 1:24:58.500
+ because that's the way our society traditionally has evolved.
+
+1:24:58.500 --> 1:25:01.860
+ Beautifully put, just out of curiosity,
+
+1:25:01.860 --> 1:25:05.460
+ Anki, Jibo, Mayflower Robotics,
+
+1:25:05.460 --> 1:25:08.380
+ with their robot Curie, SciFiWorks, WeThink Robotics,
+
+1:25:08.380 --> 1:25:10.580
+ were all these amazing robotics companies
+
+1:25:10.580 --> 1:25:14.300
+ led, created by incredible roboticists,
+
+1:25:14.300 --> 1:25:19.300
+ and they've all went out of business recently.
+
+1:25:19.580 --> 1:25:21.660
+ Why do you think they didn't last long?
+
+1:25:21.660 --> 1:25:25.140
+ Why is it so hard to run a robotics company,
+
+1:25:25.140 --> 1:25:29.300
+ especially one like these, which are fundamentally
+
+1:25:29.300 --> 1:25:34.300
+ HRI human robot interaction robots?
+
+1:25:34.380 --> 1:25:35.700
+ Or personal robots?
+
+1:25:35.700 --> 1:25:37.100
+ Each one has a story,
+
+1:25:37.100 --> 1:25:41.180
+ only one of them I don't understand, and that was Anki.
+
+1:25:41.180 --> 1:25:43.340
+ That's actually the only one I don't understand.
+
+1:25:43.340 --> 1:25:44.660
+ I don't understand it either.
+
+1:25:44.660 --> 1:25:47.020
+ No, no, I mean, I look like from the outside,
+
+1:25:47.020 --> 1:25:50.500
+ I've looked at their sheets, I've looked at the data that's.
+
+1:25:50.500 --> 1:25:51.740
+ Oh, you mean like business wise,
+
+1:25:51.740 --> 1:25:52.900
+ you don't understand, I got you.
+
+1:25:52.900 --> 1:25:53.740
+ Yeah.
+
+1:25:53.740 --> 1:25:58.740
+ Yeah, and like I look at all, I look at that data,
+
+1:25:59.180 --> 1:26:02.660
+ and I'm like, they seem to have like product market fit.
+
+1:26:02.660 --> 1:26:05.660
+ Like, so that's the only one I don't understand.
+
+1:26:05.660 --> 1:26:08.260
+ The rest of it was product market fit.
+
+1:26:08.260 --> 1:26:09.860
+ What's product market fit?
+
+1:26:09.860 --> 1:26:11.940
+ Just that of, like how do you think about it?
+
+1:26:11.940 --> 1:26:15.620
+ Yeah, so although WeThink Robotics was getting there, right?
+
+1:26:15.620 --> 1:26:17.420
+ But I think it's just the timing,
+
+1:26:17.420 --> 1:26:20.340
+ it just, their clock just timed out.
+
+1:26:20.340 --> 1:26:23.100
+ I think if they'd been given a couple more years,
+
+1:26:23.100 --> 1:26:25.060
+ they would have been okay.
+
+1:26:25.060 --> 1:26:28.620
+ But the other ones were still fairly early
+
+1:26:28.620 --> 1:26:30.100
+ by the time they got into the market.
+
+1:26:30.100 --> 1:26:32.740
+ And so product market fit is,
+
+1:26:32.740 --> 1:26:37.140
+ I have a product that I wanna sell at a certain price.
+
+1:26:37.140 --> 1:26:40.060
+ Are there enough people out there, the market,
+
+1:26:40.060 --> 1:26:42.780
+ that are willing to buy the product at that market price
+
+1:26:42.780 --> 1:26:47.780
+ for me to be a functional viable profit bearing company?
+
+1:26:47.820 --> 1:26:48.940
+ Right?
+
+1:26:48.940 --> 1:26:50.420
+ So product market fit.
+
+1:26:50.420 --> 1:26:53.300
+ If it costs you a thousand dollars
+
+1:26:53.300 --> 1:26:57.340
+ and everyone wants it and only is willing to pay a dollar,
+
+1:26:57.340 --> 1:26:59.260
+ you have no product market fit.
+
+1:26:59.260 --> 1:27:01.940
+ Even if you could sell it for, you know,
+
+1:27:01.940 --> 1:27:03.660
+ it's enough for a dollar, cause you can't.
+
+1:27:03.660 --> 1:27:05.380
+ So how hard is it for robots?
+
+1:27:05.380 --> 1:27:07.580
+ Sort of maybe if you look at iRobot,
+
+1:27:07.580 --> 1:27:10.740
+ the company that makes Roombas, vacuum cleaners,
+
+1:27:10.740 --> 1:27:14.100
+ can you comment on, did they find the right product,
+
+1:27:14.100 --> 1:27:15.100
+ market product fit?
+
+1:27:15.940 --> 1:27:18.540
+ Like, are people willing to pay for robots
+
+1:27:18.540 --> 1:27:20.540
+ is also another kind of question underlying all this.
+
+1:27:20.540 --> 1:27:23.700
+ So if you think about iRobot and their story, right?
+
+1:27:23.700 --> 1:27:28.660
+ Like when they first, they had enough of a runway, right?
+
+1:27:28.660 --> 1:27:29.780
+ When they first started,
+
+1:27:29.780 --> 1:27:31.340
+ they weren't doing vacuum cleaners, right?
+
+1:27:31.340 --> 1:27:36.340
+ They were contracts primarily, government contracts,
+
+1:27:36.540 --> 1:27:37.380
+ designing robots.
+
+1:27:37.380 --> 1:27:38.220
+ Or military robots.
+
+1:27:38.220 --> 1:27:39.380
+ Yeah, I mean, that's what they were.
+
+1:27:39.380 --> 1:27:40.820
+ That's how they started, right?
+
+1:27:40.820 --> 1:27:41.660
+ And then.
+
+1:27:41.660 --> 1:27:42.740
+ They still do a lot of incredible work there.
+
+1:27:42.740 --> 1:27:44.660
+ But yeah, that was the initial thing
+
+1:27:44.660 --> 1:27:46.620
+ that gave them enough funding to.
+
+1:27:46.620 --> 1:27:50.740
+ To then try to, the vacuum cleaner is what I've been told
+
+1:27:50.740 --> 1:27:53.900
+ was not like their first rendezvous
+
+1:27:53.900 --> 1:27:56.500
+ in terms of designing a product, right?
+
+1:27:56.500 --> 1:27:59.300
+ And so they were able to survive
+
+1:27:59.300 --> 1:28:00.620
+ until they got to the point
+
+1:28:00.620 --> 1:28:05.540
+ that they found a product price market, right?
+
+1:28:05.540 --> 1:28:09.100
+ And even with, if you look at the Roomba,
+
+1:28:09.100 --> 1:28:10.540
+ the price point now is different
+
+1:28:10.540 --> 1:28:12.260
+ than when it was first released, right?
+
+1:28:12.260 --> 1:28:13.460
+ It was an early adopter price,
+
+1:28:13.460 --> 1:28:14.540
+ but they found enough people
+
+1:28:14.540 --> 1:28:16.700
+ who were willing to fund it.
+
+1:28:16.700 --> 1:28:20.340
+ And I mean, I forgot what their loss profile was
+
+1:28:20.340 --> 1:28:22.180
+ for the first couple of years,
+
+1:28:22.180 --> 1:28:25.860
+ but they became profitable in sufficient time
+
+1:28:25.860 --> 1:28:28.140
+ that they didn't have to close their doors.
+
+1:28:28.140 --> 1:28:29.140
+ So they found the right,
+
+1:28:29.140 --> 1:28:31.860
+ there's still people willing to pay
+
+1:28:31.860 --> 1:28:32.700
+ a large amount of money,
+
+1:28:32.700 --> 1:28:35.940
+ so over $1,000 for a vacuum cleaner.
+
+1:28:35.940 --> 1:28:37.780
+ Unfortunately for them,
+
+1:28:37.780 --> 1:28:39.180
+ now that they've proved everything out,
+
+1:28:39.180 --> 1:28:40.020
+ figured it all out,
+
+1:28:40.020 --> 1:28:40.860
+ now there's competitors.
+
+1:28:40.860 --> 1:28:43.500
+ Yeah, and so that's the next thing, right?
+
+1:28:43.500 --> 1:28:44.660
+ The competition,
+
+1:28:44.660 --> 1:28:47.500
+ and they have quite a number, even internationally.
+
+1:28:47.500 --> 1:28:50.180
+ Like there's some products out there,
+
+1:28:50.180 --> 1:28:52.420
+ you can go to Europe and be like,
+
+1:28:52.420 --> 1:28:55.020
+ oh, I didn't even know this one existed.
+
+1:28:55.020 --> 1:28:56.780
+ So this is the thing though,
+
+1:28:56.780 --> 1:28:58.340
+ like with any market,
+
+1:28:59.300 --> 1:29:03.580
+ I would, this is not a bad time,
+
+1:29:03.580 --> 1:29:06.500
+ although as a roboticist, it's kind of depressing,
+
+1:29:06.500 --> 1:29:11.340
+ but I actually think about things like with,
+
+1:29:11.340 --> 1:29:13.060
+ I would say that all of the companies
+
+1:29:13.060 --> 1:29:15.780
+ that are now in the top five or six,
+
+1:29:15.780 --> 1:29:19.620
+ they weren't the first to the stage, right?
+
+1:29:19.620 --> 1:29:22.780
+ Like Google was not the first search engine,
+
+1:29:22.780 --> 1:29:24.780
+ sorry, Altavista, right?
+
+1:29:24.780 --> 1:29:28.340
+ Facebook was not the first, sorry, MySpace, right?
+
+1:29:28.340 --> 1:29:29.180
+ Like think about it,
+
+1:29:29.180 --> 1:29:31.100
+ they were not the first players.
+
+1:29:31.100 --> 1:29:32.980
+ Those first players,
+
+1:29:32.980 --> 1:29:37.980
+ like they're not in the top five, 10 of Fortune 500 companies,
+
+1:29:38.580 --> 1:29:39.420
+ right?
+
+1:29:39.420 --> 1:29:43.940
+ They proved, they started to prove out the market,
+
+1:29:43.940 --> 1:29:46.340
+ they started to get people interested,
+
+1:29:46.340 --> 1:29:48.300
+ they started the buzz,
+
+1:29:48.300 --> 1:29:50.060
+ but they didn't make it to that next level.
+
+1:29:50.060 --> 1:29:52.300
+ But the second batch, right?
+
+1:29:52.300 --> 1:29:57.300
+ The second batch, I think might make it to the next level.
+
+1:29:57.540 --> 1:30:02.380
+ When do you think the Facebook of robotics?
+
+1:30:02.380 --> 1:30:03.660
+ The Facebook of robotics.
+
+1:30:04.740 --> 1:30:08.500
+ Sorry, I take that phrase back because people deeply,
+
+1:30:08.500 --> 1:30:10.340
+ for some reason, well, I know why,
+
+1:30:10.340 --> 1:30:13.700
+ but it's, I think, exaggerated distrust Facebook
+
+1:30:13.700 --> 1:30:15.500
+ because of the privacy concerns and so on.
+
+1:30:15.500 --> 1:30:18.420
+ And with robotics, one of the things you have to make sure
+
+1:30:18.420 --> 1:30:21.340
+ is all the things we talked about is to be transparent
+
+1:30:21.340 --> 1:30:22.980
+ and have people deeply trust you
+
+1:30:22.980 --> 1:30:25.780
+ to let a robot into their lives, into their home.
+
+1:30:25.780 --> 1:30:28.620
+ When do you think the second batch of robots will come?
+
+1:30:28.620 --> 1:30:32.140
+ Is it five, 10 years, 20 years
+
+1:30:32.140 --> 1:30:34.700
+ that we'll have robots in our homes
+
+1:30:34.700 --> 1:30:36.540
+ and robots in our hearts?
+
+1:30:36.540 --> 1:30:38.900
+ So if I think about, and because I try to follow
+
+1:30:38.900 --> 1:30:43.180
+ the VC kind of space in terms of robotic investments,
+
+1:30:43.180 --> 1:30:44.900
+ and right now, and I don't know
+
+1:30:44.900 --> 1:30:45.900
+ if they're gonna be successful,
+
+1:30:45.900 --> 1:30:47.900
+ I don't know if this is the second batch,
+
+1:30:49.220 --> 1:30:50.980
+ but there's only one batch that's focused
+
+1:30:50.980 --> 1:30:52.900
+ on like the first batch, right?
+
+1:30:52.900 --> 1:30:56.260
+ And then there's all these self driving Xs, right?
+
+1:30:56.260 --> 1:30:59.540
+ And so I don't know if they're a first batch of something
+
+1:30:59.540 --> 1:31:03.060
+ or if like, I don't know quite where they fit in,
+
+1:31:03.060 --> 1:31:05.540
+ but there's a number of companies,
+
+1:31:05.540 --> 1:31:08.500
+ the co robot, I call them co robots
+
+1:31:08.500 --> 1:31:11.340
+ that are still getting VC investments.
+
+1:31:13.060 --> 1:31:14.500
+ Some of them have some of the flavor
+
+1:31:14.500 --> 1:31:15.740
+ of like Rethink Robotics.
+
+1:31:15.740 --> 1:31:18.980
+ Some of them have some of the flavor of like Curie.
+
+1:31:18.980 --> 1:31:20.740
+ What's a co robot?
+
+1:31:20.740 --> 1:31:25.740
+ So basically a robot and human working in the same space.
+
+1:31:26.060 --> 1:31:30.500
+ So some of the companies are focused on manufacturing.
+
+1:31:30.500 --> 1:31:34.220
+ So having a robot and human working together
+
+1:31:34.220 --> 1:31:37.580
+ in a factory, some of these co robots
+
+1:31:37.580 --> 1:31:41.220
+ are robots and humans working in the home,
+
+1:31:41.220 --> 1:31:43.180
+ working in clinics, like there's different versions
+
+1:31:43.180 --> 1:31:45.380
+ of these companies in terms of their products,
+
+1:31:45.380 --> 1:31:48.660
+ but they're all, so we think robotics would be
+
+1:31:48.660 --> 1:31:52.660
+ like one of the first, at least well known companies
+
+1:31:52.660 --> 1:31:54.580
+ focused on this space.
+
+1:31:54.580 --> 1:31:56.700
+ So I don't know if this is a second batch
+
+1:31:56.700 --> 1:32:00.940
+ or if this is still part of the first batch,
+
+1:32:00.940 --> 1:32:01.980
+ that I don't know.
+
+1:32:01.980 --> 1:32:03.740
+ And then you have all these other companies
+
+1:32:03.740 --> 1:32:06.860
+ in this self driving space.
+
+1:32:06.860 --> 1:32:09.380
+ And I don't know if that's a first batch
+
+1:32:09.380 --> 1:32:11.140
+ or again, a second batch.
+
+1:32:11.140 --> 1:32:11.980
+ Yeah.
+
+1:32:11.980 --> 1:32:13.860
+ So there's a lot of mystery about this now.
+
+1:32:13.860 --> 1:32:16.380
+ Of course, it's hard to say that this is the second batch
+
+1:32:16.380 --> 1:32:18.460
+ until it proves out, right?
+
+1:32:18.460 --> 1:32:19.300
+ Correct.
+
+1:32:19.300 --> 1:32:20.540
+ Yeah, we need a unicorn.
+
+1:32:20.540 --> 1:32:21.660
+ Yeah, exactly.
+
+1:32:23.460 --> 1:32:26.740
+ Why do you think people are so afraid,
+
+1:32:27.700 --> 1:32:30.460
+ at least in popular culture of legged robots
+
+1:32:30.460 --> 1:32:32.340
+ like those worked in Boston Dynamics
+
+1:32:32.340 --> 1:32:34.140
+ or just robotics in general,
+
+1:32:34.140 --> 1:32:36.300
+ if you were to psychoanalyze that fear,
+
+1:32:36.300 --> 1:32:37.980
+ what do you make of it?
+
+1:32:37.980 --> 1:32:39.780
+ And should they be afraid, sorry?
+
+1:32:39.780 --> 1:32:41.420
+ So should people be afraid?
+
+1:32:41.420 --> 1:32:43.860
+ I don't think people should be afraid.
+
+1:32:43.860 --> 1:32:47.060
+ But with a caveat, I don't think people should be afraid
+
+1:32:47.060 --> 1:32:51.460
+ given that most of us in this world
+
+1:32:51.460 --> 1:32:55.660
+ understand that we need to change something, right?
+
+1:32:55.660 --> 1:32:58.100
+ So given that.
+
+1:32:58.100 --> 1:33:01.500
+ Now, if things don't change, be very afraid.
+
+1:33:01.500 --> 1:33:04.380
+ Which is the dimension of change that's needed?
+
+1:33:04.380 --> 1:33:07.740
+ So changing, thinking about the ramifications,
+
+1:33:07.740 --> 1:33:09.420
+ thinking about like the ethics,
+
+1:33:09.420 --> 1:33:12.740
+ thinking about like the conversation is going on, right?
+
+1:33:12.740 --> 1:33:15.860
+ It's no longer a we're gonna deploy it
+
+1:33:15.860 --> 1:33:20.300
+ and forget that this is a car that can kill pedestrians
+
+1:33:20.300 --> 1:33:22.500
+ that are walking across the street, right?
+
+1:33:22.500 --> 1:33:23.340
+ We're not in that stage.
+
+1:33:23.340 --> 1:33:25.820
+ We're putting these roads out.
+
+1:33:25.820 --> 1:33:27.500
+ There are people out there.
+
+1:33:27.500 --> 1:33:28.700
+ A car could be a weapon.
+
+1:33:28.700 --> 1:33:33.140
+ Like people are now, solutions aren't there yet,
+
+1:33:33.140 --> 1:33:35.300
+ but people are thinking about this
+
+1:33:35.300 --> 1:33:38.460
+ as we need to be ethically responsible
+
+1:33:38.460 --> 1:33:40.820
+ as we send these systems out,
+
+1:33:40.820 --> 1:33:43.060
+ robotics, medical, self driving.
+
+1:33:43.060 --> 1:33:43.940
+ And military too.
+
+1:33:43.940 --> 1:33:45.260
+ And military.
+
+1:33:45.260 --> 1:33:46.980
+ Which is not as often talked about,
+
+1:33:46.980 --> 1:33:50.260
+ but it's really where probably these robots
+
+1:33:50.260 --> 1:33:51.900
+ will have a significant impact as well.
+
+1:33:51.900 --> 1:33:52.820
+ Correct, correct.
+
+1:33:52.820 --> 1:33:57.340
+ Right, making sure that they can think rationally,
+
+1:33:57.340 --> 1:33:58.700
+ even having the conversations,
+
+1:33:58.700 --> 1:34:01.260
+ who should pull the trigger, right?
+
+1:34:01.260 --> 1:34:03.380
+ But overall you're saying if we start to think
+
+1:34:03.380 --> 1:34:05.740
+ more and more as a community about these ethical issues,
+
+1:34:05.740 --> 1:34:06.980
+ people should not be afraid.
+
+1:34:06.980 --> 1:34:08.660
+ Yeah, I don't think people should be afraid.
+
+1:34:08.660 --> 1:34:10.540
+ I think that the return on investment,
+
+1:34:10.540 --> 1:34:14.060
+ the impact, positive impact will outweigh
+
+1:34:14.060 --> 1:34:17.500
+ any of the potentially negative impacts.
+
+1:34:17.500 --> 1:34:20.540
+ Do you have worries of existential threats
+
+1:34:20.540 --> 1:34:25.540
+ of robots or AI that some people kind of talk about
+
+1:34:25.540 --> 1:34:28.620
+ and romanticize about in the next decade,
+
+1:34:28.620 --> 1:34:29.980
+ the next few decades?
+
+1:34:29.980 --> 1:34:31.340
+ No, I don't.
+
+1:34:31.340 --> 1:34:33.700
+ Singularity would be an example.
+
+1:34:33.700 --> 1:34:36.380
+ So my concept is that, so remember,
+
+1:34:36.380 --> 1:34:39.580
+ robots, AI, is designed by people.
+
+1:34:39.580 --> 1:34:41.260
+ It has our values.
+
+1:34:41.260 --> 1:34:45.060
+ And I always correlate this with a parent and a child.
+
+1:34:45.060 --> 1:34:47.100
+ So think about it, as a parent, what do we want?
+
+1:34:47.100 --> 1:34:49.860
+ We want our kids to have a better life than us.
+
+1:34:49.860 --> 1:34:52.300
+ We want them to expand.
+
+1:34:52.300 --> 1:34:55.780
+ We want them to experience the world.
+
+1:34:55.780 --> 1:34:59.740
+ And then as we grow older, our kids think and know
+
+1:34:59.740 --> 1:35:03.020
+ they're smarter and better and more intelligent
+
+1:35:03.020 --> 1:35:04.780
+ and have better opportunities.
+
+1:35:04.780 --> 1:35:08.220
+ And they may even stop listening to us.
+
+1:35:08.220 --> 1:35:10.500
+ They don't go out and then kill us, right?
+
+1:35:10.500 --> 1:35:11.340
+ Like, think about it.
+
+1:35:11.340 --> 1:35:14.180
+ It's because we, it's instilled in them values.
+
+1:35:14.180 --> 1:35:17.420
+ We instilled in them this whole aspect of community.
+
+1:35:17.420 --> 1:35:19.780
+ And yes, even though you're maybe smarter
+
+1:35:19.780 --> 1:35:22.460
+ and have more money and dah, dah, dah,
+
+1:35:22.460 --> 1:35:26.780
+ it's still about this love, caring relationship.
+
+1:35:26.780 --> 1:35:27.740
+ And so that's what I believe.
+
+1:35:27.740 --> 1:35:29.020
+ So even if like, you know,
+
+1:35:29.020 --> 1:35:32.140
+ we've created the singularity in some archaic system
+
+1:35:32.140 --> 1:35:35.340
+ back in like 1980 that suddenly evolves,
+
+1:35:35.340 --> 1:35:40.180
+ the fact is it might say, I am smarter, I am sentient.
+
+1:35:40.180 --> 1:35:43.220
+ These humans are really stupid,
+
+1:35:43.220 --> 1:35:46.060
+ but I think it'll be like, yeah,
+
+1:35:46.060 --> 1:35:47.620
+ but I just can't destroy them.
+
+1:35:47.620 --> 1:35:49.660
+ Yeah, for sentimental value.
+
+1:35:49.660 --> 1:35:53.140
+ It's still just to come back for Thanksgiving dinner
+
+1:35:53.140 --> 1:35:53.980
+ every once in a while.
+
+1:35:53.980 --> 1:35:54.820
+ Exactly.
+
+1:35:54.820 --> 1:35:57.460
+ That's such, that's so beautifully put.
+
+1:35:57.460 --> 1:36:00.580
+ You've also said that The Matrix may be
+
+1:36:00.580 --> 1:36:03.660
+ one of your more favorite AI related movies.
+
+1:36:03.660 --> 1:36:05.580
+ Can you elaborate why?
+
+1:36:05.580 --> 1:36:07.860
+ Yeah, it is one of my favorite movies.
+
+1:36:07.860 --> 1:36:11.180
+ And it's because it represents
+
+1:36:11.180 --> 1:36:14.060
+ kind of all the things I think about.
+
+1:36:14.060 --> 1:36:16.100
+ So there's a symbiotic relationship
+
+1:36:16.100 --> 1:36:20.140
+ between robots and humans, right?
+
+1:36:20.140 --> 1:36:22.500
+ That symbiotic relationship is that they don't destroy us,
+
+1:36:22.500 --> 1:36:24.620
+ they enslave us, right?
+
+1:36:24.620 --> 1:36:25.580
+ But think about it,
+
+1:36:28.060 --> 1:36:30.260
+ even though they enslaved us,
+
+1:36:30.260 --> 1:36:32.820
+ they needed us to be happy, right?
+
+1:36:32.820 --> 1:36:33.860
+ And in order to be happy,
+
+1:36:33.860 --> 1:36:35.420
+ they had to create this cruddy world
+
+1:36:35.420 --> 1:36:36.980
+ that they then had to live in, right?
+
+1:36:36.980 --> 1:36:39.460
+ That's the whole premise.
+
+1:36:39.460 --> 1:36:44.380
+ But then there were humans that had a choice, right?
+
+1:36:44.380 --> 1:36:47.660
+ Like you had a choice to stay in this horrific,
+
+1:36:47.660 --> 1:36:51.220
+ horrific world where it was your fantasy life
+
+1:36:51.220 --> 1:36:54.740
+ with all of the anomalies, perfection, but not accurate.
+
+1:36:54.740 --> 1:36:57.940
+ Or you can choose to be on your own
+
+1:36:57.940 --> 1:37:02.500
+ and like have maybe no food for a couple of days,
+
+1:37:02.500 --> 1:37:05.180
+ but you were totally autonomous.
+
+1:37:05.180 --> 1:37:07.980
+ And so I think of that as, and that's why.
+
+1:37:07.980 --> 1:37:09.700
+ So it's not necessarily us being enslaved,
+
+1:37:09.700 --> 1:37:13.060
+ but I think about us having the symbiotic relationship.
+
+1:37:13.060 --> 1:37:15.780
+ Robots and AI, even if they become sentient,
+
+1:37:15.780 --> 1:37:17.100
+ they're still part of our society
+
+1:37:17.100 --> 1:37:20.700
+ and they will suffer just as much as we.
+
+1:37:20.700 --> 1:37:23.820
+ And there will be some kind of equilibrium
+
+1:37:23.820 --> 1:37:26.700
+ that we'll have to find some symbiotic relationship.
+
+1:37:26.700 --> 1:37:28.220
+ Right, and then you have the ethicists,
+
+1:37:28.220 --> 1:37:30.180
+ the robotics folks that are like,
+
+1:37:30.180 --> 1:37:34.500
+ no, this has got to stop, I will take the other pill
+
+1:37:34.500 --> 1:37:36.300
+ in order to make a difference.
+
+1:37:36.300 --> 1:37:40.380
+ So if you could hang out for a day with a robot,
+
+1:37:40.380 --> 1:37:44.740
+ real or from science fiction, movies, books, safely,
+
+1:37:44.740 --> 1:37:48.780
+ and get to pick his or her, their brain,
+
+1:37:48.780 --> 1:37:49.740
+ who would you pick?
+
+1:37:55.980 --> 1:37:57.620
+ Gotta say it's Data.
+
+1:37:57.620 --> 1:37:58.740
+ Data.
+
+1:37:58.740 --> 1:38:00.460
+ I was gonna say Rosie,
+
+1:38:00.460 --> 1:38:03.660
+ but I'm not really interested in her brain.
+
+1:38:03.660 --> 1:38:05.820
+ I'm interested in Data's brain.
+
+1:38:05.820 --> 1:38:08.460
+ Data pre or post emotion chip?
+
+1:38:08.460 --> 1:38:10.460
+ Pre.
+
+1:38:10.460 --> 1:38:15.100
+ But don't you think it'd be a more interesting conversation
+
+1:38:15.100 --> 1:38:16.180
+ post emotion chip?
+
+1:38:16.180 --> 1:38:17.740
+ Yeah, it would be drama.
+
+1:38:17.740 --> 1:38:22.740
+ And I'm human, I deal with drama all the time.
+
+1:38:22.860 --> 1:38:24.860
+ But the reason why I wanna pick Data's brain
+
+1:38:24.860 --> 1:38:29.540
+ is because I could have a conversation with him
+
+1:38:29.540 --> 1:38:34.540
+ and ask, for example, how can we fix this ethics problem?
+
+1:38:34.540 --> 1:38:38.300
+ And he could go through like the rational thinking
+
+1:38:38.300 --> 1:38:40.780
+ and through that, he could also help me
+
+1:38:40.780 --> 1:38:42.220
+ think through it as well.
+
+1:38:42.220 --> 1:38:44.860
+ And so there's like these fundamental questions
+
+1:38:44.860 --> 1:38:46.420
+ I think I could ask him
+
+1:38:46.420 --> 1:38:49.980
+ that he would help me also learn from.
+
+1:38:49.980 --> 1:38:51.660
+ And that fascinates me.
+
+1:38:52.860 --> 1:38:55.140
+ I don't think there's a better place to end it.
+
+1:38:55.140 --> 1:38:57.300
+ Ayana, thank you so much for talking to us, it was an honor.
+
+1:38:57.300 --> 1:38:58.140
+ Thank you, thank you.
+
+1:38:58.140 --> 1:38:58.980
+ This was fun.
+
+1:39:00.300 --> 1:39:02.420
+ Thanks for listening to this conversation
+
+1:39:02.420 --> 1:39:05.900
+ and thank you to our presenting sponsor, Cash App.
+
+1:39:05.900 --> 1:39:08.540
+ Download it, use code LexPodcast,
+
+1:39:08.540 --> 1:39:11.340
+ you'll get $10 and $10 will go to FIRST,
+
+1:39:11.340 --> 1:39:13.620
+ a STEM education nonprofit that inspires
+
+1:39:13.620 --> 1:39:15.820
+ hundreds of thousands of young minds
+
+1:39:15.820 --> 1:39:18.740
+ to become future leaders and innovators.
+
+1:39:18.740 --> 1:39:21.540
+ If you enjoy this podcast, subscribe on YouTube,
+
+1:39:21.540 --> 1:39:23.540
+ give it five stars on Apple Podcast,
+
+1:39:23.540 --> 1:39:26.220
+ follow on Spotify, support on Patreon
+
+1:39:26.220 --> 1:39:28.260
+ or simply connect with me on Twitter.
+
+1:39:29.300 --> 1:39:31.860
+ And now let me leave you with some words of wisdom
+
+1:39:31.860 --> 1:39:33.980
+ from Arthur C. Clarke.
+
+1:39:35.180 --> 1:39:38.580
+ Whether we are based on carbon or on silicon
+
+1:39:38.580 --> 1:39:40.620
+ makes no fundamental difference.
+
+1:39:40.620 --> 1:39:43.660
+ We should each be treated with appropriate respect.
+
+1:39:43.660 --> 1:40:02.660
+ Thank you for listening and hope to see you next time.
+

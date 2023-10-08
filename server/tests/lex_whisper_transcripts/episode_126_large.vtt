@@ -1,0 +1,5027 @@
+WEBVTT
+
+00:00.000 --> 00:03.360
+ The following is a conversation with James Gosling, the founder and lead
+
+00:03.360 --> 00:07.920
+ designer behind the Java programming language, which in many indices is the
+
+00:07.920 --> 00:12.600
+ most popular programming language in the world, or is always at least in the top
+
+00:12.600 --> 00:13.360
+ two or three.
+
+00:14.080 --> 00:17.320
+ We only had a limited time for this conversation, but I'm sure we'll talk
+
+00:17.320 --> 00:19.080
+ again several times in this podcast.
+
+00:19.880 --> 00:24.360
+ Quick summary of the sponsors, Public Goods, BetterHelp, and ExpressVPN.
+
+00:24.800 --> 00:27.440
+ Please check out these sponsors in the description to get a discount
+
+00:27.440 --> 00:29.280
+ and to support this podcast.
+
+00:29.280 --> 00:34.080
+ As a side note, let me say that Java is the language with which I first learned
+
+00:34.120 --> 00:38.560
+ object oriented programming, and with it, the art and science of software
+
+00:38.560 --> 00:39.160
+ engineering.
+
+00:39.680 --> 00:45.080
+ Also early on in my undergraduate education, I took a course on concurrent
+
+00:45.080 --> 00:46.480
+ programming with Java.
+
+00:47.240 --> 00:52.120
+ Looking back at that time, before I fell in love with neural networks, the art
+
+00:52.160 --> 00:56.080
+ of parallel computing was both algorithmically and philosophically
+
+00:56.080 --> 00:57.240
+ fascinating to me.
+
+00:57.240 --> 01:01.560
+ The concept of a computer in my mind before then was something that does
+
+01:01.560 --> 01:05.880
+ one thing at a time, the idea that we could create an abstraction of
+
+01:05.880 --> 01:09.640
+ parallelism where you could do many things at the same time, while still
+
+01:09.640 --> 01:12.800
+ guaranteeing stability and correctness, was beautiful.
+
+01:13.720 --> 01:18.560
+ While some folks in college took drugs to expand their mind, I took concurrent
+
+01:18.560 --> 01:19.160
+ programming.
+
+01:19.840 --> 01:23.280
+ If you enjoy this thing, subscribe on YouTube, review it with five stars on
+
+01:23.280 --> 01:27.640
+ Apple Podcasts, follow on Spotify, support on Patreon, or connect with me
+
+01:27.640 --> 01:29.400
+ on Twitter at Lex Friedman.
+
+01:30.120 --> 01:33.400
+ As usual, I'll do a few minutes of ads now and no ads in the middle.
+
+01:33.640 --> 01:37.440
+ I try to make these interesting, but I do give you timestamps, so go ahead
+
+01:37.440 --> 01:41.320
+ and skip, but please do check out the sponsors by clicking the links in the
+
+01:41.320 --> 01:42.000
+ description.
+
+01:42.320 --> 01:44.800
+ It's the best way to support this podcast.
+
+01:45.800 --> 01:50.040
+ This show sponsored by Public Goods, the one stop shop for affordable,
+
+01:50.040 --> 01:53.040
+ sustainable, healthy household products.
+
+01:53.520 --> 01:56.800
+ I take their fish oil and use their toothbrush, for example.
+
+01:57.400 --> 02:00.880
+ Their products often have a minimalist black and white design that I find
+
+02:00.880 --> 02:02.000
+ to be just beautiful.
+
+02:02.480 --> 02:05.400
+ Some people ask why I wear this black suit and tie.
+
+02:06.080 --> 02:10.560
+ There's a simplicity to it that to me focuses my mind on the most important
+
+02:10.560 --> 02:15.560
+ bits of every moment of every day, pulling only at the thread of the
+
+02:15.560 --> 02:18.360
+ essential in all that life has to throw at me.
+
+02:18.360 --> 02:20.600
+ It's not about how I look, it's about how I feel.
+
+02:21.000 --> 02:24.960
+ That's what design is to me, creating an inner conscious experience,
+
+02:24.960 --> 02:26.400
+ not an external look.
+
+02:27.240 --> 02:32.520
+ Anyway, Public Goods plants one tree for every order placed, which is kind of cool.
+
+02:32.920 --> 02:38.080
+ Visit publicgoods.com slash Lex, or use code Lex at checkout to get 15 bucks
+
+02:38.120 --> 02:39.120
+ off your first order.
+
+02:40.440 --> 02:45.080
+ This show is also sponsored by BetterHelp, spelled H E L P, help.
+
+02:45.080 --> 02:47.760
+ Check it out at betterhelp.com slash Lex.
+
+02:48.160 --> 02:51.720
+ They figure out what you need and match you with a licensed professional
+
+02:51.720 --> 02:53.560
+ therapist in under 48 hours.
+
+02:54.080 --> 02:56.360
+ I chat with the person on there and enjoy it.
+
+02:57.200 --> 03:02.320
+ Of course, I also regularly talk to David Goggins these days, who is definitely not
+
+03:02.320 --> 03:08.840
+ a licensed professional therapist, but he does help me meet his and my demons and
+
+03:08.840 --> 03:11.400
+ become comfortable to exist in their presence.
+
+03:11.400 --> 03:16.320
+ Everyone is different, but for me, I think suffering is essential for creation, but
+
+03:16.320 --> 03:19.440
+ you can suffer beautifully in a way that doesn't destroy you.
+
+03:20.160 --> 03:23.600
+ I think therapy can help in whatever form that therapy takes.
+
+03:24.000 --> 03:26.680
+ And I do think that BetterHelp is an option worth trying.
+
+03:27.720 --> 03:31.280
+ They're easy, private, affordable, and available worldwide.
+
+03:31.840 --> 03:36.480
+ You can communicate by text anytime and schedule weekly audio and video sessions.
+
+03:36.760 --> 03:39.440
+ Check it out at betterhelp.com slash Lex.
+
+03:39.440 --> 03:42.000
+ This show is also sponsored by Express CPM.
+
+03:42.240 --> 03:45.560
+ You can use it to unlock movies and shows that are only
+
+03:45.560 --> 03:47.000
+ available in other countries.
+
+03:47.360 --> 03:52.200
+ I did this recently with Star Trek Discovery and UK Netflix, mostly because
+
+03:52.200 --> 03:54.240
+ I wonder what it's like to live in London.
+
+03:54.800 --> 03:57.720
+ I'm thinking of moving from Boston to a place where I can build the
+
+03:57.720 --> 03:59.720
+ business I've always dreamed of building.
+
+04:00.200 --> 04:03.960
+ London is probably not in the top three, but top 10 for sure.
+
+04:04.680 --> 04:08.000
+ The number one show I've been to is the one that I'm most excited about.
+
+04:08.000 --> 04:11.160
+ The number one choice currently is Austin.
+
+04:11.640 --> 04:14.200
+ For many reasons that I'll probably speak to another time.
+
+04:14.800 --> 04:18.880
+ San Francisco, unfortunately dropped out from the number one spot,
+
+04:18.880 --> 04:19.920
+ but it's still in the running.
+
+04:20.600 --> 04:22.000
+ If you have advice, let me know.
+
+04:22.960 --> 04:24.640
+ Anyway, check out ExpressVPN.
+
+04:24.920 --> 04:28.920
+ It lets you change your location to almost 100 countries and it's super fast.
+
+04:29.600 --> 04:33.520
+ Go to expressvpn.com slash LexPod to get an extra three
+
+04:33.520 --> 04:35.560
+ months of ExpressVPN for free.
+
+04:35.560 --> 04:39.080
+ That's expressvpn.com slash LexPod.
+
+04:40.240 --> 04:43.600
+ And now here's my conversation with James Gosling.
+
+04:44.680 --> 04:49.000
+ I've read somewhere that the square root of two is your favorite irrational number.
+
+04:49.080 --> 04:51.240
+ I have no idea where that got started.
+
+04:53.440 --> 04:54.600
+ Is there any truth to it?
+
+04:54.600 --> 04:57.640
+ Is there anything in mathematics or numbers that you find beautiful?
+
+04:58.400 --> 05:03.120
+ Oh, well, there's lots of things in math that's really beautiful.
+
+05:03.120 --> 05:07.960
+ I used to consider myself really good at math and these days I consider
+
+05:07.960 --> 05:09.600
+ myself really bad at math.
+
+05:11.040 --> 05:16.880
+ I never really had a thing for the square root of two, but when I was a teenager,
+
+05:18.480 --> 05:23.360
+ there was this book called The Dictionary of Curious and Interesting Numbers,
+
+05:23.360 --> 05:31.360
+ which for some reason I read through and damn near memorized the whole thing.
+
+05:33.040 --> 05:43.120
+ And I started this weird habit of when I was like filling out checks or paying for things
+
+05:43.120 --> 05:49.840
+ with credit cards, I would want to make the receipt add up to a new number.
+
+05:49.840 --> 05:53.440
+ Is there some numbers that stuck with you that just kind of make you feel good?
+
+05:54.320 --> 06:00.240
+ They all have a story and fortunately, I've actually mostly forgotten all of them.
+
+06:02.800 --> 06:08.720
+ Are they, uh, so like 42, uh, well, yeah, I mean, that one 42 is pretty magical.
+
+06:08.880 --> 06:12.880
+ And then the irrationals, I mean, but is there a square root of two story in there
+
+06:12.880 --> 06:14.720
+ somewhere, how did that come about?
+
+06:14.720 --> 06:22.640
+ It's, it's like the only number that has destroyed a religion in which way, well,
+
+06:22.640 --> 06:28.160
+ the, the pathogorians, they, they believed that all numbers were perfect and you
+
+06:28.160 --> 06:33.040
+ could re represent anything as, as a, as a rational number.
+
+06:33.040 --> 06:43.600
+ And, um, in that, in that time period, um, the, this proof came out that there was no,
+
+06:44.720 --> 06:49.520
+ you know, rational fraction whose value was equal to the square root of two.
+
+06:50.720 --> 06:54.320
+ And that, that means nothing in this world, right?
+
+06:54.320 --> 06:54.640
+ Yeah.
+
+06:54.640 --> 07:02.800
+ So, so, so, so, so, so, so, so, so, so, so, so, so, so, so, so, so, so, so, so, so, so,
+
+07:02.800 --> 07:05.040
+ in this world is perfect, not even mathematics.
+
+07:05.600 --> 07:10.160
+ Well, it means that your definition of perfect was imperfect.
+
+07:11.280 --> 07:14.640
+ Well then, then there's the Gaitl incompleteness theorems and the 20th
+
+07:14.640 --> 07:17.360
+ century that ruined it once again for everybody.
+
+07:17.360 --> 07:17.840
+ Yeah.
+
+07:17.840 --> 07:25.360
+ Although, although, although Goerl's theorem, um, you know, the lesson I take
+
+07:25.360 --> 07:29.920
+ from Goerl's theorem is not that, you know, there are things you can't know,
+
+07:29.920 --> 07:33.740
+ which is fundamentally what it says.
+
+07:35.920 --> 07:39.360
+ But people want black and white answers.
+
+07:39.360 --> 07:40.720
+ They want true or false.
+
+07:43.540 --> 07:48.000
+ But if you allow a three state logic
+
+07:48.000 --> 07:50.040
+ that is true, false, or maybe,
+
+07:51.860 --> 07:54.000
+ then life's good.
+
+07:55.360 --> 07:58.660
+ I feel like there's a parallel to modern political discourse
+
+07:58.660 --> 08:02.800
+ in there somewhere, but let me ask.
+
+08:04.160 --> 08:09.160
+ So with your kind of early love or appreciation
+
+08:10.100 --> 08:11.480
+ of the beauty of mathematics,
+
+08:11.480 --> 08:15.000
+ do you see a parallel between that world
+
+08:15.000 --> 08:16.720
+ and the world of programming?
+
+08:17.920 --> 08:21.960
+ Programming is all about logical structure,
+
+08:21.960 --> 08:26.960
+ understanding the patterns that come out of computation,
+
+08:32.680 --> 08:37.680
+ understanding sort of, I mean, it's often like the path
+
+08:38.880 --> 08:43.880
+ through the graph of possibilities to find a short route.
+
+08:45.760 --> 08:48.320
+ Meaning like find a short program
+
+08:48.320 --> 08:50.960
+ that gets the job done kind of thing.
+
+08:50.960 --> 08:54.560
+ But so then on the topic of irrational numbers,
+
+08:54.560 --> 08:58.640
+ do you see programming?
+
+08:58.640 --> 09:01.260
+ You just painted it so cleanly.
+
+09:01.260 --> 09:02.880
+ It's a little of this trajectory
+
+09:02.880 --> 09:05.200
+ to find like a nice little program,
+
+09:05.200 --> 09:07.520
+ but do you see it as fundamentally messy?
+
+09:08.880 --> 09:10.840
+ Maybe unlike mathematics?
+
+09:10.840 --> 09:13.740
+ I don't think of it as, I mean, you know,
+
+09:13.740 --> 09:16.820
+ you watch somebody who's good at math do math
+
+09:16.820 --> 09:21.820
+ and you know, often it's fairly messy.
+
+09:22.480 --> 09:25.180
+ Sometimes it's kind of magical.
+
+09:27.680 --> 09:32.680
+ When I was a grad student, one of the students,
+
+09:32.920 --> 09:37.920
+ his name was Jim Sachs, was he had this reputation
+
+09:37.920 --> 09:42.920
+ of being sort of a walking, talking human
+
+09:46.920 --> 09:48.420
+ theorem proving machine.
+
+09:49.280 --> 09:51.520
+ And if you were having a hard problem with something,
+
+09:51.520 --> 09:54.260
+ you could just like accost him in the hall
+
+09:54.260 --> 09:59.260
+ and say, Jim, and he would do this funny thing
+
+09:59.740 --> 10:01.840
+ where he would stand up straight.
+
+10:01.840 --> 10:03.560
+ His eyes would kind of defocus.
+
+10:03.560 --> 10:08.560
+ He'd go, you know, just like something in today's movies.
+
+10:10.880 --> 10:13.920
+ And then he'd straighten up and say n log n and walk away.
+
+10:15.800 --> 10:20.520
+ And you'd go, well, okay, so n log n is the answer.
+
+10:20.520 --> 10:21.960
+ How did he get there?
+
+10:24.240 --> 10:27.120
+ By which time he's, you know, down the hallway somewhere.
+
+10:27.120 --> 10:30.280
+ Yeah, he's just the oracle, the black box
+
+10:30.280 --> 10:31.360
+ that just gives you the answer.
+
+10:31.360 --> 10:33.360
+ Yeah, and then you have to figure out the path
+
+10:33.360 --> 10:35.340
+ from the question to the answer.
+
+10:36.440 --> 10:38.160
+ I think in one of the videos I watched,
+
+10:38.160 --> 10:43.160
+ you mentioned Don Knuth, well, at least recommending his,
+
+10:44.560 --> 10:47.800
+ you know, his book is something people should read.
+
+10:47.800 --> 10:48.640
+ Oh, yeah.
+
+10:48.640 --> 10:52.340
+ But in terms of, you know, theoretical computer science,
+
+10:53.920 --> 10:58.400
+ do you see something beautiful that has been inspiring
+
+10:58.400 --> 11:01.360
+ to you, speaking of n log n, in your work
+
+11:01.360 --> 11:06.040
+ on programming languages, that's in that whole world
+
+11:06.040 --> 11:10.240
+ of algorithms and complexity and, you know,
+
+11:10.240 --> 11:13.520
+ these kinds of more formal mathematical things?
+
+11:13.520 --> 11:16.720
+ Or did that not really stick with you
+
+11:16.720 --> 11:18.760
+ in your programming life?
+
+11:20.040 --> 11:24.080
+ It did stick pretty clearly for me,
+
+11:24.080 --> 11:27.040
+ because one of the things that I care about
+
+11:27.040 --> 11:32.040
+ is being able to sort of look at a piece of code
+
+11:34.240 --> 11:39.180
+ and be able to prove to myself that it works.
+
+11:41.360 --> 11:46.360
+ And, you know, so for example, I find that I'm at odds
+
+11:51.440 --> 11:55.440
+ with many of the people around me over issues
+
+11:55.440 --> 12:00.440
+ about like how you lay out a piece of software, right?
+
+12:03.400 --> 12:07.600
+ You know, so software engineers get really cranky
+
+12:07.600 --> 12:11.380
+ about how they format the documents that are the programs,
+
+12:11.380 --> 12:14.280
+ you know, where they put new lines and where they put,
+
+12:14.280 --> 12:15.120
+ you know.
+
+12:15.120 --> 12:15.960
+ The braces.
+
+12:15.960 --> 12:18.720
+ The braces and all the rest of that, right.
+
+12:18.720 --> 12:25.720
+ And I tend to go for a style that's very dense.
+
+12:27.600 --> 12:29.080
+ Minimize the white space.
+
+12:30.080 --> 12:34.360
+ Yeah, well, to maximize the amount
+
+12:34.360 --> 12:37.600
+ that I can see at once, right?
+
+12:37.600 --> 12:40.760
+ So I like to be able to see a whole function
+
+12:40.760 --> 12:43.080
+ and to understand what it does,
+
+12:43.080 --> 12:44.960
+ rather than have to go scroll, scroll, scroll
+
+12:44.960 --> 12:46.160
+ and remember, right?
+
+12:46.160 --> 12:47.520
+ Yeah, I'm with you on that.
+
+12:47.520 --> 12:48.360
+ Yeah, that's.
+
+12:48.360 --> 12:50.040
+ And people don't like that.
+
+12:52.640 --> 12:56.920
+ Yeah, I've had, you know, multiple times
+
+12:56.920 --> 13:01.000
+ when engineering teams have staged
+
+13:01.000 --> 13:03.660
+ what was effectively an intervention.
+
+13:07.760 --> 13:10.120
+ You know, where they invite me to a meeting
+
+13:10.120 --> 13:12.100
+ and everybody's arrived before me
+
+13:12.100 --> 13:14.500
+ and they all look at me and say,
+
+13:14.500 --> 13:19.500
+ James, about your coding style, I'm sort of an odd person
+
+13:23.080 --> 13:28.080
+ to be programming because I don't think very well verbally.
+
+13:31.560 --> 13:35.640
+ I am just naturally a slow reader.
+
+13:37.760 --> 13:42.040
+ I'm what most people would call a visual thinker.
+
+13:42.040 --> 13:43.560
+ So when you think about a program,
+
+13:43.560 --> 13:45.080
+ what do you see?
+
+13:45.080 --> 13:47.320
+ I see pictures, right?
+
+13:47.320 --> 13:52.120
+ So when I look at a piece of code on a piece of paper,
+
+13:52.120 --> 13:55.780
+ it very quickly gets transformed into a picture.
+
+13:58.320 --> 14:01.880
+ And, you know, it's almost like a piece of machinery
+
+14:01.880 --> 14:05.440
+ with, you know, this connected to that and.
+
+14:05.440 --> 14:07.480
+ Like these gears and different sizes.
+
+14:07.480 --> 14:11.320
+ Yeah, yeah, I see them more like that
+
+14:11.320 --> 14:15.960
+ than I see the sort of verbal structure
+
+14:15.960 --> 14:18.640
+ or the lexical structure of letters.
+
+14:18.640 --> 14:19.960
+ So then when you look at the program,
+
+14:19.960 --> 14:21.920
+ that's why you want to see it all in the same place,
+
+14:21.920 --> 14:24.180
+ then you can just map it to something visual.
+
+14:24.180 --> 14:25.600
+ Yeah, and it just kind of like,
+
+14:25.600 --> 14:28.240
+ like it leaps off the page at me and.
+
+14:28.240 --> 14:30.800
+ Yeah, what are the inputs, what are the outputs?
+
+14:30.800 --> 14:32.160
+ What the heck is this thing doing?
+
+14:32.160 --> 14:33.680
+ Yeah, yeah.
+
+14:33.680 --> 14:35.720
+ Getting a whole vision of it.
+
+14:35.720 --> 14:39.080
+ Can we go back into your memory?
+
+14:39.080 --> 14:42.060
+ Memory, long term memory access.
+
+14:42.060 --> 14:44.920
+ What's the first program you've ever written?
+
+14:47.460 --> 14:52.100
+ Oh, I have no idea what the first one was.
+
+14:52.100 --> 14:54.780
+ I mean, I know the first machine
+
+14:54.780 --> 14:58.520
+ that I learned to program on.
+
+14:58.520 --> 14:59.360
+ What is it?
+
+14:59.360 --> 15:04.360
+ Was a PDP eight at the University of Calgary.
+
+15:06.500 --> 15:08.100
+ Do you remember the specs?
+
+15:08.100 --> 15:12.700
+ Oh yeah, so the thing had 4K of RAM.
+
+15:12.700 --> 15:13.700
+ Nice.
+
+15:13.700 --> 15:16.340
+ 12 bit words.
+
+15:16.340 --> 15:18.520
+ The clock rate was,
+
+15:21.500 --> 15:25.700
+ it was about a third of a megahertz.
+
+15:26.580 --> 15:29.260
+ Oh, so you didn't even get to the M, okay.
+
+15:29.260 --> 15:34.260
+ Yeah, yeah, so we're like 10,000 times faster these days.
+
+15:34.260 --> 15:36.220
+ 10,000 times faster these days.
+
+15:38.020 --> 15:40.500
+ And was this kind of like a super computer,
+
+15:40.500 --> 15:42.340
+ like a serious computer for.
+
+15:42.340 --> 15:46.180
+ No, the PDP eight I was the first thing
+
+15:46.180 --> 15:49.700
+ that people were calling like mini computer.
+
+15:49.700 --> 15:50.660
+ Got it.
+
+15:50.660 --> 15:53.180
+ They were sort of inexpensive enough
+
+15:53.180 --> 15:57.880
+ that a university lab could maybe afford to buy one.
+
+15:59.340 --> 16:02.100
+ And was there time sharing, all that kind of stuff?
+
+16:02.100 --> 16:06.220
+ There actually was a time sharing OS for that,
+
+16:06.220 --> 16:10.500
+ but it wasn't used really widely.
+
+16:10.500 --> 16:12.980
+ The machine that I learned on was one
+
+16:12.980 --> 16:16.660
+ that was kind of hidden in the back corner
+
+16:17.560 --> 16:19.960
+ of the computer center.
+
+16:22.340 --> 16:27.340
+ And it was bought as part of a project
+
+16:27.340 --> 16:32.340
+ to do computer networking,
+
+16:34.180 --> 16:38.740
+ but they didn't actually use it very much.
+
+16:38.740 --> 16:40.740
+ It was mostly just kind of sitting there
+
+16:42.200 --> 16:44.180
+ and it was kind of sitting there
+
+16:44.180 --> 16:47.020
+ and I noticed it was just kind of sitting there.
+
+16:47.020 --> 16:50.580
+ And so I started fooling around with it
+
+16:50.580 --> 16:52.900
+ and nobody seemed to mind.
+
+16:52.900 --> 16:56.020
+ So I just kept doing that and.
+
+16:56.020 --> 16:58.980
+ And it had a keyboard and like a monitor, are we?
+
+16:58.980 --> 17:02.580
+ Oh, this is way before monitors were common.
+
+17:02.580 --> 17:06.580
+ So it was literally a model 33 teletype
+
+17:07.820 --> 17:09.320
+ with a paper tape reader.
+
+17:12.060 --> 17:14.580
+ Okay, so the user interface wasn't very good.
+
+17:14.580 --> 17:19.580
+ Yeah, it was the first computer ever built
+
+17:20.140 --> 17:24.820
+ with integrated circuits, but by integrated circuits,
+
+17:24.820 --> 17:29.620
+ I mean that they would have like 10 or 12 transistors
+
+17:29.620 --> 17:31.940
+ on one piece of silicon,
+
+17:31.940 --> 17:36.940
+ not the 10 or 12 billion that the machines have today.
+
+17:38.740 --> 17:43.740
+ So what did that, I mean, feel like if you remember those?
+
+17:43.740 --> 17:48.740
+ I mean, did you have kind of inklings of the magic
+
+17:48.880 --> 17:52.840
+ of exponential kind of improvement of Moore's law
+
+17:52.840 --> 17:55.220
+ of the potential of the future that,
+
+17:55.220 --> 17:57.100
+ was that your fingertips kind of thing?
+
+17:57.100 --> 17:58.480
+ Or was it just a cool?
+
+17:58.480 --> 18:00.100
+ Yeah, it was just a toy.
+
+18:01.140 --> 18:03.200
+ I had always liked building stuff,
+
+18:04.080 --> 18:06.820
+ but one of the problems with building stuff
+
+18:06.820 --> 18:08.740
+ is that you need to have parts.
+
+18:08.740 --> 18:13.580
+ You need to have pieces of wood or wire or switches
+
+18:13.580 --> 18:14.980
+ or stuff like that.
+
+18:14.980 --> 18:16.820
+ And those all cost money.
+
+18:16.820 --> 18:17.940
+ And here you could build.
+
+18:17.940 --> 18:20.640
+ You could build arbitrarily complicated things
+
+18:20.640 --> 18:23.760
+ and I didn't need any physical materials.
+
+18:25.180 --> 18:27.220
+ It required no money.
+
+18:27.220 --> 18:29.060
+ That's a good way to put programming.
+
+18:29.060 --> 18:32.820
+ You're right, it's, if you love building things,
+
+18:35.900 --> 18:38.780
+ completely accessible, you don't need anything.
+
+18:38.780 --> 18:40.660
+ Anybody from anywhere could just build
+
+18:40.660 --> 18:41.600
+ something really cool.
+
+18:41.600 --> 18:43.060
+ Yeah, yeah.
+
+18:43.060 --> 18:44.760
+ If you've got access to a computer,
+
+18:44.760 --> 18:51.420
+ you can build all kinds of crazy stuff.
+
+18:51.420 --> 18:58.220
+ And when you were somebody like me
+
+18:58.220 --> 19:05.340
+ who had like really no money, and I mean,
+
+19:05.340 --> 19:08.100
+ I remember just lusting after being
+
+19:08.100 --> 19:15.780
+ able to buy like a transistor.
+
+19:15.780 --> 19:20.260
+ And when I would do sort of electronics kind of projects,
+
+19:20.260 --> 19:25.620
+ they were mostly made, done by like dumpster diving for trash.
+
+19:27.420 --> 19:33.580
+ And one of my big hauls was discarded relay racks
+
+19:33.580 --> 19:37.340
+ from the back of the phone company switching center.
+
+19:37.340 --> 19:39.220
+ Oh, nice.
+
+19:39.220 --> 19:41.340
+ That was the big memorable treasure.
+
+19:41.340 --> 19:42.020
+ Oh, yeah.
+
+19:42.020 --> 19:43.260
+ Yeah, that was a really.
+
+19:43.260 --> 19:45.140
+ What do you use that for?
+
+19:45.140 --> 19:47.420
+ I built a machine that played tic tac toe.
+
+19:50.420 --> 19:51.180
+ Nice.
+
+19:51.180 --> 19:52.060
+ Out of relays.
+
+19:52.060 --> 19:55.780
+ Of course, the thing that was really hard
+
+19:55.780 --> 20:00.140
+ was that all the relays required a specific voltage.
+
+20:00.140 --> 20:04.540
+ But getting a power supply that would do that voltage
+
+20:04.540 --> 20:06.260
+ was pretty hard.
+
+20:06.260 --> 20:10.180
+ And since I had a bunch of trashed television sets,
+
+20:10.180 --> 20:16.140
+ I had to sort of cobble together something
+
+20:16.140 --> 20:21.380
+ that was wrong but worked.
+
+20:21.380 --> 20:26.740
+ So I was actually running these relays at 300 volts.
+
+20:26.740 --> 20:30.460
+ And none of the electrical connections
+
+20:30.460 --> 20:33.460
+ were like properly sealed off.
+
+20:33.460 --> 20:36.380
+ Surprised you survived that period of your life.
+
+20:36.380 --> 20:38.940
+ Oh, for so many reasons.
+
+20:38.940 --> 20:40.420
+ For so many reasons.
+
+20:40.420 --> 20:45.380
+ I mean, it's pretty common for teenage geeks
+
+20:45.380 --> 20:47.380
+ to discover, oh, thermite.
+
+20:47.380 --> 20:50.460
+ That's real easy to make.
+
+20:50.460 --> 20:51.220
+ Yeah.
+
+20:51.220 --> 20:52.740
+ Well, I'm glad you did.
+
+20:52.740 --> 20:58.820
+ But do you remember what program in Calgary
+
+20:58.820 --> 21:01.820
+ that you wrote, anything that stands out?
+
+21:01.820 --> 21:03.700
+ And what language?
+
+21:03.700 --> 21:10.940
+ Well, so mostly anything of any size was assembly code.
+
+21:14.780 --> 21:17.420
+ And actually, before I learned assembly code,
+
+21:17.420 --> 21:19.100
+ there was this programming language
+
+21:19.100 --> 21:22.660
+ on the PDP 8 called Focal 5.
+
+21:22.660 --> 21:28.540
+ And Focal 5 was kind of like a really stripped down Fortran.
+
+21:28.540 --> 21:33.580
+ And I remember building programs that did things
+
+21:33.580 --> 21:40.940
+ like play blackjack or solitaire.
+
+21:40.940 --> 21:45.180
+ Or for some reason or other, the things that I really liked
+
+21:45.180 --> 21:50.300
+ were ones where they were just like plotting graphs.
+
+21:50.300 --> 21:53.940
+ So something with like a function or data,
+
+21:53.940 --> 21:55.420
+ and then you plot it.
+
+21:55.420 --> 21:56.900
+ Yeah.
+
+21:56.900 --> 21:59.300
+ Yeah, I did a bunches of those things
+
+21:59.300 --> 22:03.100
+ and went, ooh, pretty pictures.
+
+22:03.100 --> 22:07.340
+ And so this would like print out, again, no monitors.
+
+22:07.340 --> 22:11.820
+ Right, so it was like on a teletype.
+
+22:11.820 --> 22:13.260
+ Yeah.
+
+22:13.260 --> 22:18.620
+ So it's using something that's kind of like a typewriter.
+
+22:18.620 --> 22:23.140
+ And then using those to plot functions.
+
+22:23.140 --> 22:26.100
+ So when, I apologize to romanticize things,
+
+22:26.100 --> 22:32.300
+ but when did you first fall in love with programming?
+
+22:32.300 --> 22:34.180
+ What was the first programming language?
+
+22:34.180 --> 22:36.220
+ Like as a serious, maybe, software engineer,
+
+22:36.220 --> 22:40.460
+ where you thought this is a beautiful thing?
+
+22:40.460 --> 22:43.300
+ I guess I never really thought of any particular language
+
+22:43.300 --> 22:46.620
+ as being beautiful, because it was never really
+
+22:46.620 --> 22:47.820
+ about the language for me.
+
+22:47.820 --> 22:49.540
+ It was about what you could do with it.
+
+22:49.540 --> 22:55.660
+ And even today, people try to get me
+
+22:55.660 --> 22:59.740
+ into arguments about particular forms of syntax
+
+22:59.740 --> 23:00.460
+ for this or that.
+
+23:00.460 --> 23:03.380
+ And I'm like, who cares?
+
+23:03.380 --> 23:07.780
+ It's about what you can do, not how you spell the word.
+
+23:10.340 --> 23:16.660
+ And so back in those days, I learned like PL1 and Fortran
+
+23:16.660 --> 23:23.260
+ and COBOL, and by the time that people were willing to hire me
+
+23:23.260 --> 23:29.500
+ to do stuff, it was mostly assembly code and PDP assembly
+
+23:29.500 --> 23:35.820
+ code and Fortran code and control data assembly
+
+23:35.820 --> 23:40.620
+ code for the CDC 6400, which was an early, I guess,
+
+23:40.620 --> 23:43.100
+ supercomputer.
+
+23:43.100 --> 23:46.340
+ Even though that supercomputer has less compute power
+
+23:46.340 --> 23:50.540
+ than my phone by a lot.
+
+23:50.540 --> 23:54.820
+ And that was mostly, like you said, Fortran world.
+
+23:54.820 --> 23:57.380
+ That said, you've also showed appreciation
+
+23:57.380 --> 24:01.580
+ for the greatest language ever that I
+
+24:01.580 --> 24:05.020
+ think everyone agrees is Lisp.
+
+24:05.020 --> 24:09.100
+ Well, Lisp is definitely on my list of the greatest ones
+
+24:09.100 --> 24:11.700
+ that have existed.
+
+24:11.700 --> 24:12.740
+ Is it at number one?
+
+24:12.740 --> 24:16.140
+ Or I mean, are you, I mean?
+
+24:16.140 --> 24:21.060
+ You know, the thing is that it's, you know,
+
+24:21.060 --> 24:23.380
+ I wouldn't put it number one, no.
+
+24:23.380 --> 24:24.620
+ Is it the parentheses?
+
+24:24.620 --> 24:30.140
+ What do you not love about Lisp?
+
+24:34.180 --> 24:35.780
+ Well, I guess the number one thing
+
+24:35.780 --> 24:41.020
+ to not love about it is so freaking many parentheses.
+
+24:41.020 --> 24:46.460
+ On the love thing is, you know, out of those tons
+
+24:46.460 --> 24:50.180
+ of parentheses, you actually get an interesting language
+
+24:50.180 --> 24:51.820
+ structure.
+
+24:51.820 --> 24:54.300
+ And I've always thought that there was a friendlier version
+
+24:54.300 --> 24:57.940
+ of Lisp hiding out there somewhere.
+
+24:57.940 --> 25:03.140
+ But I've never really spent much time thinking about it.
+
+25:03.140 --> 25:10.460
+ But, you know, so like up the food chain for me from Lisp
+
+25:10.460 --> 25:14.420
+ is Simula, which a very small number of people
+
+25:14.420 --> 25:16.140
+ have ever used.
+
+25:16.140 --> 25:19.460
+ But a lot of people, I think you had a huge influence, right,
+
+25:19.460 --> 25:20.620
+ on the programming.
+
+25:20.620 --> 25:24.900
+ But in the Simula, I apologize if I'm wrong on this,
+
+25:24.900 --> 25:27.780
+ but is that one of the first functional languages?
+
+25:27.780 --> 25:28.300
+ Or no?
+
+25:28.300 --> 25:32.780
+ No, it was the first object oriented programming language.
+
+25:32.780 --> 25:36.540
+ It's really where object oriented and languages sort
+
+25:36.540 --> 25:39.700
+ of came together.
+
+25:39.700 --> 25:46.060
+ And it was also the language where coroutines first showed
+
+25:46.060 --> 25:48.620
+ up as a part of the language.
+
+25:48.620 --> 25:53.900
+ So you could have a programming style that was,
+
+25:53.900 --> 25:57.740
+ you could think of it as sort of multi threaded
+
+25:57.740 --> 26:00.900
+ with a lot of parallelism.
+
+26:00.900 --> 26:01.620
+ Really?
+
+26:01.620 --> 26:03.580
+ There's ideas of parallelism in there?
+
+26:03.580 --> 26:05.340
+ Yeah.
+
+26:05.340 --> 26:08.220
+ Yeah, so that was back, you know,
+
+26:08.220 --> 26:12.780
+ so the first Simula spec was Simula 67.
+
+26:12.780 --> 26:14.740
+ Like 1967?
+
+26:14.740 --> 26:15.780
+ Yeah.
+
+26:15.780 --> 26:16.420
+ Wow.
+
+26:16.420 --> 26:21.980
+ So it had coroutines, which are almost threads.
+
+26:21.980 --> 26:24.180
+ The thing about coroutines is that they
+
+26:24.180 --> 26:26.220
+ don't have true concurrency.
+
+26:26.220 --> 26:32.220
+ So you can get away without really complex locking.
+
+26:32.220 --> 26:39.780
+ You can't useably do coroutines on the multi core machine.
+
+26:39.780 --> 26:44.100
+ Or if you try to do coroutines on the multi core machine,
+
+26:44.100 --> 26:48.460
+ you don't actually get to use the multiple cores.
+
+26:48.460 --> 26:52.340
+ Either that or you, because you start then
+
+26:52.340 --> 26:56.940
+ having to get into the universe of semaphores and locks
+
+26:56.940 --> 27:00.060
+ and things like that.
+
+27:00.060 --> 27:04.700
+ But in terms of the style of programming,
+
+27:04.700 --> 27:11.460
+ you could write code and think of it as being multi threaded.
+
+27:11.460 --> 27:15.860
+ The mental model was very much a multi threaded one.
+
+27:15.860 --> 27:18.820
+ And all kinds of problems you could
+
+27:18.820 --> 27:22.420
+ approach very differently.
+
+27:22.420 --> 27:27.940
+ To return to the world of Lisp for a brief moment,
+
+27:27.940 --> 27:32.940
+ at CMU you wrote a version of Emacs
+
+27:32.940 --> 27:37.660
+ that I think was very impactful on the history of Emacs.
+
+27:37.660 --> 27:42.220
+ What was your motivation for doing so?
+
+27:42.220 --> 27:49.060
+ At that time, so that was in like 85 or 86.
+
+27:52.820 --> 27:57.500
+ I had been using Unix for a few years.
+
+27:57.500 --> 28:02.580
+ And most of the editing was this tool
+
+28:02.580 --> 28:07.540
+ called ED, which was sort of an ancestor of VI.
+
+28:10.940 --> 28:14.060
+ Is it a pretty good editor, not a good editor?
+
+28:14.060 --> 28:19.220
+ Well, if what you're using, if your input device
+
+28:19.220 --> 28:22.620
+ is a teletype, it's pretty good.
+
+28:22.620 --> 28:25.740
+ It's certainly more humane than TECO,
+
+28:25.740 --> 28:28.180
+ which was kind of the common thing
+
+28:28.180 --> 28:32.580
+ in a lot of the DEC universe at the time.
+
+28:32.580 --> 28:35.060
+ TECO is spelled TK, is that the?
+
+28:35.060 --> 28:39.620
+ No, TECO, T E C O, the text editor and corrector.
+
+28:39.620 --> 28:41.180
+ Corrector, wow, so many features.
+
+28:44.100 --> 28:48.740
+ And the original Emacs came out as,
+
+28:48.740 --> 28:52.060
+ so Emacs stands for editor macros.
+
+28:52.060 --> 28:56.500
+ And TECO had a way of writing macros.
+
+28:56.500 --> 29:02.780
+ And so the original Emacs from MIT
+
+29:02.780 --> 29:07.060
+ started out as a collection of macros for TECO.
+
+29:07.060 --> 29:15.060
+ But then the Emacs style got popular originally at MIT.
+
+29:15.060 --> 29:20.300
+ And then people did a few other implementations
+
+29:20.300 --> 29:26.180
+ of Emacs that were, the code base was entirely different,
+
+29:26.180 --> 29:28.780
+ but it was sort of the philosophical style
+
+29:28.780 --> 29:30.700
+ of the original Emacs.
+
+29:30.700 --> 29:33.260
+ What was the philosophy of Emacs?
+
+29:33.260 --> 29:36.580
+ And by the way, were all the implementations always in C?
+
+29:36.580 --> 29:39.700
+ And then how does Lisp fit into the picture?
+
+29:39.700 --> 29:43.300
+ No, so the very first Emacs was written
+
+29:43.300 --> 29:46.420
+ as a bunch of macros for the TECO text editor.
+
+29:46.420 --> 29:47.780
+ Wow, that's so interesting.
+
+29:47.780 --> 29:54.220
+ And the macro language for TECO was probably
+
+29:54.220 --> 29:59.100
+ the most ridiculously obscure format.
+
+29:59.100 --> 30:02.420
+ If you just look at a TECO program on a page,
+
+30:02.420 --> 30:05.900
+ you think it was just random characters.
+
+30:05.900 --> 30:09.580
+ It really looks like just line noise.
+
+30:09.580 --> 30:11.380
+ So it's kind of like LaTeX or something.
+
+30:11.380 --> 30:14.860
+ Oh, way worse than LaTeX.
+
+30:14.860 --> 30:18.100
+ Way, way worse than LaTeX.
+
+30:18.100 --> 30:23.700
+ But if you use TECO a lot, which I did,
+
+30:23.700 --> 30:31.180
+ TECO was completely optimized for touch typing at high speed.
+
+30:31.180 --> 30:35.300
+ So there were no two character commands.
+
+30:35.300 --> 30:37.980
+ Well, there were a few, but mostly they
+
+30:37.980 --> 30:39.220
+ were just one character.
+
+30:39.220 --> 30:43.780
+ So every character on the keyboard was a separate command.
+
+30:43.780 --> 30:45.860
+ And actually, every character on the keyboard
+
+30:45.860 --> 30:48.180
+ was usually two or three commands
+
+30:48.180 --> 30:51.900
+ because you could hit Shift and Control and all
+
+30:51.900 --> 30:52.700
+ of those things.
+
+30:52.700 --> 30:56.420
+ It's just a way of very tightly encoding it.
+
+30:56.420 --> 31:03.660
+ And mostly what Emacs did was it made that visual.
+
+31:03.660 --> 31:10.140
+ So one way to think of TECO is use Emacs with your eyes
+
+31:10.140 --> 31:15.500
+ closed, where you have to maintain
+
+31:15.500 --> 31:20.660
+ a mental model of a mental image of your document.
+
+31:20.660 --> 31:27.780
+ You have to go, OK, so the cursor is between the A and the E.
+
+31:27.780 --> 31:31.860
+ And I want to exchange those, so I do these things.
+
+31:31.860 --> 31:38.780
+ So it is almost exactly the Emacs command set.
+
+31:38.780 --> 31:42.820
+ Well, it's roughly the same as Emacs command set,
+
+31:42.820 --> 31:45.020
+ but using Emacs with your eyes closed.
+
+31:47.780 --> 31:52.940
+ So part of what Emacs added to the whole thing
+
+31:52.940 --> 31:56.700
+ was being able to visually see what
+
+31:56.700 --> 32:02.180
+ you were editing in a form that matched your document.
+
+32:02.180 --> 32:12.420
+ And a lot of things changed in the command set because it
+
+32:12.420 --> 32:13.820
+ was programmable.
+
+32:13.820 --> 32:15.980
+ It was really flexible.
+
+32:15.980 --> 32:18.500
+ You could add new commands for all kinds of things.
+
+32:18.500 --> 32:24.700
+ And then people rewrote Emacs multiple times in Lisp.
+
+32:24.700 --> 32:28.180
+ There was one done at MIT for the Lisp machine.
+
+32:28.180 --> 32:31.420
+ There was one done for Multics.
+
+32:31.420 --> 32:35.100
+ And one summer, I got a summer job
+
+32:35.100 --> 32:40.220
+ to work on the Pascal compiler for Multics.
+
+32:40.220 --> 32:43.220
+ And that was actually the first time I used Emacs.
+
+32:47.540 --> 32:48.900
+ To write the compilers.
+
+32:48.900 --> 32:50.460
+ You've worked on compilers, too.
+
+32:50.460 --> 32:52.180
+ That's fascinating.
+
+32:52.180 --> 32:55.940
+ Yeah, so I did a lot of work.
+
+32:55.940 --> 32:59.580
+ I spent a really intense three months
+
+32:59.580 --> 33:05.300
+ working on this Pascal compiler, basically living in Emacs.
+
+33:05.300 --> 33:11.260
+ And it was the one written in Mac Lisp by Bernie Greenberg.
+
+33:11.260 --> 33:15.420
+ And I thought, wow, this is just a way better way
+
+33:15.420 --> 33:16.260
+ to do editing.
+
+33:19.060 --> 33:22.980
+ And then I got back to CMU, where
+
+33:22.980 --> 33:28.700
+ we had one of everything and two of a bunch of things
+
+33:28.700 --> 33:30.460
+ and four of a few things.
+
+33:30.460 --> 33:36.140
+ And since I mostly worked in the Unix universe,
+
+33:36.140 --> 33:39.340
+ and Unix didn't have an Emacs, I decided
+
+33:39.340 --> 33:43.420
+ that I needed to fix that problem.
+
+33:43.420 --> 33:47.620
+ So I wrote this implementation of Emacs in C,
+
+33:47.620 --> 33:51.140
+ because at the time, C was really the only language that
+
+33:51.140 --> 33:55.820
+ worked on Unix.
+
+33:55.820 --> 33:58.660
+ And you were comfortable with C as well at that point?
+
+33:58.660 --> 34:02.380
+ Yeah, at that time, I had done a lot of C coding.
+
+34:02.380 --> 34:03.700
+ This was in, like, 86.
+
+34:06.820 --> 34:14.100
+ And it was running well enough for me
+
+34:14.100 --> 34:17.380
+ to use it to edit itself within a month or two.
+
+34:17.380 --> 34:23.580
+ And then it kind of took over the university.
+
+34:23.580 --> 34:25.380
+ And it spread outside.
+
+34:25.380 --> 34:28.100
+ Yeah, and then it went outside.
+
+34:28.100 --> 34:33.060
+ And largely because Unix kind of took over the research
+
+34:33.060 --> 34:39.700
+ community on the ARPANET, and Emacs
+
+34:39.700 --> 34:43.220
+ was kind of the best editor out there.
+
+34:43.220 --> 34:44.300
+ It kind of took over.
+
+34:44.300 --> 34:47.940
+ And there was actually a brief period
+
+34:47.940 --> 34:55.300
+ where I actually had login IDs on every nonmilitary host
+
+34:55.300 --> 34:59.140
+ on the ARPANET.
+
+34:59.140 --> 35:01.420
+ Because people would say, oh, can we install this?
+
+35:01.420 --> 35:09.700
+ And I'd like, well, yeah, but you'll need some help.
+
+35:09.700 --> 35:11.860
+ The days when security wasn't.
+
+35:11.860 --> 35:12.820
+ When nobody cared.
+
+35:12.820 --> 35:15.500
+ Nobody cared.
+
+35:15.500 --> 35:20.180
+ I can ask briefly, what were those early days of ARPANET
+
+35:20.180 --> 35:25.780
+ and the internet like?
+
+35:25.780 --> 35:28.820
+ Did you, again, sorry for the silly question,
+
+35:28.820 --> 35:31.940
+ but could you have possibly imagined
+
+35:31.940 --> 35:36.940
+ that the internet would look like what it is today?
+
+35:36.940 --> 35:42.420
+ Some of it is remarkably unchanged.
+
+35:42.420 --> 35:49.420
+ So one of the things that I noticed really early on
+
+35:49.420 --> 35:51.980
+ when I was at Carnegie Mellon was
+
+35:51.980 --> 36:00.740
+ that a lot of social life became centered around the ARPANET.
+
+36:00.740 --> 36:06.380
+ So things like between email and text messaging.
+
+36:06.380 --> 36:09.620
+ Because text messaging was a part of the ARPANET
+
+36:09.620 --> 36:11.660
+ really early on.
+
+36:11.660 --> 36:15.100
+ There were no cell phones, but you're sitting at a terminal
+
+36:15.100 --> 36:16.820
+ and you're typing stuff.
+
+36:16.820 --> 36:19.860
+ So essentially email, or what is text messaging?
+
+36:19.860 --> 36:23.740
+ Well, just like a one line message.
+
+36:23.740 --> 36:24.260
+ Oh, cool.
+
+36:24.260 --> 36:25.540
+ So like chat.
+
+36:25.540 --> 36:27.660
+ Like chat.
+
+36:27.660 --> 36:31.820
+ So it's like sending a one line message to somebody.
+
+36:31.820 --> 36:40.020
+ And so pretty much everything from arranging lunch
+
+36:40.020 --> 36:48.100
+ to going out on dates was all like driven by social media.
+
+36:48.100 --> 36:49.700
+ Social media.
+
+36:49.700 --> 36:52.860
+ Right, in the 80s.
+
+36:52.860 --> 36:55.420
+ Easier than phone calls, yeah.
+
+36:55.420 --> 37:00.660
+ And my life had gotten to where I
+
+37:00.660 --> 37:11.180
+ was living on social media from the early mid 80s.
+
+37:11.180 --> 37:16.620
+ And so when it sort of transformed into the internet
+
+37:16.620 --> 37:19.820
+ and social media explodes, I was kind of like,
+
+37:19.820 --> 37:21.900
+ what's the big deal?
+
+37:21.900 --> 37:24.140
+ It's just a scale thing.
+
+37:24.140 --> 37:29.060
+ Right, the scale thing is just astonishing.
+
+37:29.060 --> 37:32.380
+ But the fundamentals in some ways remain the same.
+
+37:32.380 --> 37:36.020
+ The fundamentals have hardly changed.
+
+37:36.020 --> 37:40.860
+ And the technologies behind the networking
+
+37:40.860 --> 37:42.460
+ have changed significantly.
+
+37:42.460 --> 37:49.460
+ The watershed moment of going from the ARPANET
+
+37:49.460 --> 37:52.580
+ to the internet.
+
+37:52.580 --> 37:57.300
+ And then people starting to just scale and scale and scale.
+
+37:57.300 --> 38:03.660
+ I mean, the scaling that happened in the early 90s
+
+38:03.660 --> 38:12.620
+ and the way that so many vested interests fought the internet.
+
+38:12.620 --> 38:14.220
+ Oh, interesting.
+
+38:14.220 --> 38:16.380
+ What was the, oh, because you can't really
+
+38:16.380 --> 38:17.980
+ control the internet.
+
+38:17.980 --> 38:19.900
+ Yeah, so who fought the internet?
+
+38:19.900 --> 38:25.900
+ So fundamentally, the cable TV companies
+
+38:25.900 --> 38:32.940
+ and broadcasters and phone companies,
+
+38:32.940 --> 38:38.300
+ at the deepest fibers of their being, they hated the internet.
+
+38:38.300 --> 38:50.580
+ But it was often kind of a funny thing because, so think
+
+38:50.580 --> 38:53.900
+ of a cable company.
+
+38:53.900 --> 38:57.220
+ Most of the employees of a cable company,
+
+38:57.220 --> 39:04.460
+ their job is getting TV shows, movies, whatever,
+
+39:04.460 --> 39:06.980
+ out to their customers.
+
+39:06.980 --> 39:13.940
+ They view their business as serving their customers.
+
+39:13.940 --> 39:20.780
+ But as you climb up the hierarchy in the cable companies,
+
+39:20.780 --> 39:29.780
+ that view shifts because really the business of the cable
+
+39:29.780 --> 39:34.460
+ companies had always been selling eyeballs
+
+39:34.460 --> 39:36.580
+ to advertisers.
+
+39:36.580 --> 39:37.060
+ Right.
+
+39:39.820 --> 39:45.580
+ And that view of a cable company
+
+39:45.580 --> 39:49.060
+ didn't really dawn on most people who
+
+39:49.060 --> 39:50.900
+ worked at the cable companies.
+
+39:50.900 --> 39:57.340
+ But I had various dust ups with various cable companies
+
+39:57.340 --> 40:00.220
+ where you could see in the stratified layers
+
+40:00.220 --> 40:06.260
+ of the corporation that this view of the reason
+
+40:06.260 --> 40:13.140
+ that you have cable TV is to capture eyeballs.
+
+40:13.140 --> 40:15.060
+ So they didn't see it that way.
+
+40:15.060 --> 40:19.820
+ Well, so most of the people who worked at the phone company
+
+40:19.820 --> 40:22.460
+ or at the cable companies, their view
+
+40:22.460 --> 40:28.340
+ was that their job was getting delightful content out
+
+40:28.340 --> 40:29.540
+ to their customers.
+
+40:29.540 --> 40:33.140
+ And their customers would pay for that.
+
+40:33.140 --> 40:40.100
+ Higher up, they viewed this as a way of attracting eyeballs
+
+40:40.100 --> 40:41.940
+ to them.
+
+40:41.940 --> 40:45.620
+ And then what they were really doing
+
+40:45.620 --> 40:51.580
+ was selling the eyeballs that were glued to their content
+
+40:51.580 --> 40:52.380
+ to the advertisers.
+
+40:52.380 --> 40:54.420
+ To the advertisers, yeah.
+
+40:54.420 --> 40:57.260
+ And so the internet was a competition in that sense.
+
+40:57.260 --> 40:58.980
+ Right.
+
+40:58.980 --> 41:00.300
+ They were right.
+
+41:00.300 --> 41:02.620
+ Well, yeah.
+
+41:02.620 --> 41:08.620
+ I mean, there was one proposal that we sent,
+
+41:08.620 --> 41:14.460
+ one detailed proposal that we wrote up back
+
+41:14.460 --> 41:19.700
+ at Sun in the early 90s that was essentially like, look,
+
+41:19.700 --> 41:22.260
+ anybody with internet technologies,
+
+41:22.260 --> 41:27.100
+ anybody can become provider of content.
+
+41:27.100 --> 41:32.740
+ So you could be distributing home movies
+
+41:32.740 --> 41:39.420
+ to your parents or your cousins or who are anywhere else.
+
+41:39.420 --> 41:41.380
+ So anybody can become a publisher.
+
+41:41.380 --> 41:43.300
+ Wow, you were thinking about that already.
+
+41:43.300 --> 41:45.660
+ Netflix, Netflix, YouTube.
+
+41:45.660 --> 41:49.780
+ Yeah, that was like in the early 90s.
+
+41:49.780 --> 41:51.860
+ And we thought, this would be great.
+
+41:54.060 --> 41:57.380
+ And the kind of content we were thinking about at the time
+
+41:57.380 --> 42:05.100
+ was like home movies, kids essays,
+
+42:05.100 --> 42:12.380
+ stuff from grocery stores or a restaurant
+
+42:12.380 --> 42:16.740
+ that they could actually start sending information about.
+
+42:20.340 --> 42:21.220
+ That's brilliant.
+
+42:21.220 --> 42:25.060
+ And the reaction of the cable companies
+
+42:25.060 --> 42:29.940
+ was like, fuck no.
+
+42:29.940 --> 42:34.940
+ Because then we're out of business.
+
+42:34.940 --> 42:38.420
+ What is it about companies that, because they could have just,
+
+42:38.420 --> 42:40.060
+ they could have been ahead of that wave.
+
+42:40.060 --> 42:41.780
+ They could have listened to that.
+
+42:41.780 --> 42:42.660
+ And they could have.
+
+42:42.660 --> 42:46.940
+ They didn't see a path to revenue.
+
+42:46.940 --> 42:50.420
+ Somewhere in there, there's a lesson for big companies,
+
+42:50.420 --> 42:56.060
+ like to listen, to try to anticipate the renegade,
+
+42:56.060 --> 42:59.420
+ the out there, out of the box, people like yourself
+
+42:59.420 --> 43:01.460
+ in the early days writing proposals
+
+43:01.460 --> 43:03.780
+ about what this could possibly be.
+
+43:03.780 --> 43:06.940
+ Well, and that wasn't.
+
+43:06.940 --> 43:09.020
+ If you're in a position where you're
+
+43:09.020 --> 43:19.780
+ making truckloads of money off of a particular business model,
+
+43:19.780 --> 43:28.060
+ the whole thought of leaping the chasm,
+
+43:28.060 --> 43:33.060
+ you can see, oh, new models that are more effective
+
+43:33.060 --> 43:39.180
+ are emerging, so like digital cameras versus film cameras.
+
+43:44.060 --> 43:45.820
+ Why take the leap?
+
+43:45.820 --> 43:46.580
+ Why take the leap?
+
+43:46.580 --> 43:50.980
+ Because you're making so much money off of film.
+
+43:50.980 --> 43:59.500
+ And in my past at Sun, one of our big customers was Kodak.
+
+43:59.500 --> 44:03.220
+ And I ended up interacting with folks from Kodak quite a lot.
+
+44:03.220 --> 44:09.940
+ And they actually had a big digital camera research
+
+44:09.940 --> 44:15.860
+ and digital imaging business, or development group.
+
+44:15.860 --> 44:24.340
+ And they knew that you just look at the trend lines
+
+44:24.340 --> 44:32.340
+ and you look at the emerging quality of these digital
+
+44:32.340 --> 44:33.900
+ cameras.
+
+44:33.900 --> 44:37.940
+ And you can just plot it on the graph.
+
+44:37.940 --> 44:44.100
+ And it's like, sure, film is better today.
+
+44:44.100 --> 44:51.340
+ But digital is improving like this.
+
+44:51.340 --> 44:52.860
+ The lines are going to cross.
+
+44:52.860 --> 44:56.820
+ And the point at which the lines cross
+
+44:56.820 --> 45:00.260
+ is going to be a collapse in their business.
+
+45:00.260 --> 45:05.100
+ And they could see that.
+
+45:05.100 --> 45:07.740
+ They absolutely knew that.
+
+45:07.740 --> 45:12.860
+ The problem is that up to the point where they hit the wall,
+
+45:12.860 --> 45:16.300
+ they were making truckloads of money.
+
+45:16.300 --> 45:24.300
+ And when they did the math, it never
+
+45:24.300 --> 45:29.300
+ started to make sense for them to kind of lead the charge.
+
+45:29.300 --> 45:32.460
+ And part of the issues for a lot of companies
+
+45:32.460 --> 45:37.020
+ for this kind of stuff is that if you're
+
+45:37.020 --> 45:39.260
+ going to leap over a chasm like that,
+
+45:39.260 --> 45:45.820
+ like with Kodak going from film to digital,
+
+45:45.820 --> 45:49.900
+ that's a transition that's going to take a while.
+
+45:49.900 --> 45:53.500
+ We had fights like this with people over smart cards.
+
+45:53.500 --> 45:57.820
+ The smart cards fights were just ludicrous.
+
+45:57.820 --> 46:00.180
+ But that's where visionary leadership comes in, right?
+
+46:00.180 --> 46:04.700
+ Somebody needs to roll in and say, then take the leap.
+
+46:04.700 --> 46:07.300
+ Well, it's partly take the leap,
+
+46:07.300 --> 46:09.500
+ but it's also partly take the hit.
+
+46:09.500 --> 46:12.540
+ Take the hit in the short term.
+
+46:12.540 --> 46:17.380
+ So you can draw the graphs you want that show that if we leap
+
+46:17.380 --> 46:21.540
+ from here, on our present trajectory, we're doing this
+
+46:21.540 --> 46:22.940
+ and there's a cliff.
+
+46:22.940 --> 46:27.580
+ If we force ourselves into a transition
+
+46:27.580 --> 46:33.660
+ and we proactively do that, we can be on the next wave.
+
+46:33.660 --> 46:39.020
+ But there will be a period when we're in a trough.
+
+46:39.020 --> 46:43.940
+ And pretty much always there ends up being a trough
+
+46:43.940 --> 46:46.100
+ as you leap the chasm.
+
+46:46.100 --> 46:52.620
+ But the way that public companies work on this planet,
+
+46:52.620 --> 46:55.700
+ they're reporting every quarter.
+
+46:55.700 --> 47:02.700
+ And the one thing that a CEO must never do is take a big hit.
+
+47:02.700 --> 47:04.700
+ Take a big hit.
+
+47:04.700 --> 47:06.180
+ Over some quarter.
+
+47:06.180 --> 47:11.180
+ And many of these transitions involve a big hit
+
+47:11.180 --> 47:17.340
+ for a period of time, one, two, three quarters.
+
+47:17.340 --> 47:26.060
+ And so you get some companies and like Tesla and Amazon
+
+47:26.060 --> 47:32.380
+ are really good examples of companies that take huge hits.
+
+47:32.380 --> 47:34.140
+ But they have the luxury of being
+
+47:34.140 --> 47:38.060
+ able to ignore the stock market for a little while.
+
+47:38.060 --> 47:42.100
+ And that's not so true today, really.
+
+47:42.100 --> 47:50.580
+ But in the early days of both of those companies,
+
+47:50.580 --> 47:56.220
+ they both did this thing of, I don't care
+
+47:56.220 --> 47:57.620
+ about the quarterly reports.
+
+47:57.620 --> 48:02.260
+ I care about how many happy customers we have.
+
+48:02.260 --> 48:05.900
+ And having as many happy customers as possible
+
+48:05.900 --> 48:11.340
+ can often be an enemy of the bottom line.
+
+48:11.340 --> 48:12.780
+ Yeah, so how do they make that work?
+
+48:12.780 --> 48:15.460
+ I mean, Amazon operated in the negative for a long time.
+
+48:15.460 --> 48:17.260
+ It's like investing into the future.
+
+48:17.260 --> 48:18.060
+ Right.
+
+48:18.060 --> 48:23.900
+ But so Amazon and Google and Tesla and Facebook, a lot
+
+48:23.900 --> 48:30.340
+ of those had what amounted to patient money,
+
+48:30.340 --> 48:36.540
+ often because there's like a charismatic central figure who
+
+48:36.540 --> 48:41.020
+ has a really large block of stock.
+
+48:41.020 --> 48:45.620
+ And they can just make it so.
+
+48:45.620 --> 48:49.380
+ So on that topic, just maybe it's a small tangent,
+
+48:49.380 --> 48:51.420
+ but you've gotten the chance to work
+
+48:51.420 --> 48:53.220
+ with some pretty big leaders.
+
+48:53.220 --> 48:56.460
+ What are your thoughts about on the Tesla side, Elon Musk
+
+48:56.460 --> 49:00.060
+ leadership, on the Amazon side, Jeff Bezos,
+
+49:00.060 --> 49:03.900
+ all of these folks with large amounts of stock and vision
+
+49:03.900 --> 49:04.940
+ in their company?
+
+49:04.940 --> 49:09.260
+ I mean, they're founders, either complete founders
+
+49:09.260 --> 49:11.300
+ or early on folks.
+
+49:11.300 --> 49:17.300
+ And Amazon have taken a lot of leaps.
+
+49:17.300 --> 49:20.660
+ And that probably at the time, people
+
+49:20.660 --> 49:26.340
+ would criticize as like, what is this bookstore thing?
+
+49:26.340 --> 49:26.860
+ Yeah.
+
+49:26.860 --> 49:31.220
+ And Bezos had a vision.
+
+49:31.220 --> 49:36.460
+ And he had the ability to just follow it.
+
+49:36.460 --> 49:37.820
+ Lots of people have visions.
+
+49:37.820 --> 49:41.500
+ And the average vision is completely idiotic,
+
+49:41.500 --> 49:45.020
+ and you crash and burn.
+
+49:45.020 --> 49:49.900
+ The Silicon Valley crash and burn rate is pretty high.
+
+49:52.500 --> 49:54.540
+ And they don't necessarily crash and burn
+
+49:54.540 --> 49:55.900
+ because they were dumb ideas.
+
+49:55.900 --> 50:00.780
+ But often, it's just timing and luck.
+
+50:00.780 --> 50:07.860
+ And you take companies like Tesla,
+
+50:07.860 --> 50:19.220
+ and really, the original Tesla sort of pre Elon
+
+50:19.220 --> 50:22.140
+ was kind of doing sort of OK.
+
+50:22.140 --> 50:26.300
+ But he just drove them.
+
+50:26.300 --> 50:32.180
+ And because he had a really strong vision,
+
+50:32.180 --> 50:40.220
+ he would make calls that were always mostly pretty good.
+
+50:40.220 --> 50:44.580
+ I mean, the Model X was kind of a goofball thing to do.
+
+50:44.580 --> 50:46.620
+ But he did it boldly anyway.
+
+50:46.620 --> 50:50.100
+ There's so many people that just said,
+
+50:50.100 --> 50:54.300
+ there's so many people that oppose them on the door.
+
+50:54.300 --> 50:55.740
+ From the engineering perspective,
+
+50:55.740 --> 50:58.820
+ those doors are ridiculous.
+
+50:58.820 --> 51:02.060
+ They are a complete travesty.
+
+51:02.060 --> 51:05.700
+ But they're exactly the symbol of what great leadership is,
+
+51:05.700 --> 51:08.980
+ which is like, you have a vision, and you just go.
+
+51:08.980 --> 51:12.220
+ If you're going to do something stupid, make it really stupid.
+
+51:12.220 --> 51:14.380
+ And go all in.
+
+51:14.380 --> 51:16.100
+ Yeah.
+
+51:16.100 --> 51:22.500
+ And to Musk's credit, he's a really sharp guy.
+
+51:22.500 --> 51:26.860
+ So going back in time a little bit to Steve Jobs,
+
+51:26.860 --> 51:29.580
+ Steve Jobs was a similar sort of character
+
+51:29.580 --> 51:34.260
+ who had a strong vision and was really, really smart.
+
+51:34.260 --> 51:39.140
+ And he wasn't smart about the technology parts of things.
+
+51:39.140 --> 51:47.900
+ But he was really sharp about the sort of human relationship
+
+51:47.900 --> 51:51.300
+ between the relationship between humans and objects.
+
+51:54.580 --> 51:57.780
+ But he was a jerk.
+
+52:01.060 --> 52:02.660
+ Can we just linger on that a little bit?
+
+52:02.660 --> 52:06.100
+ People say he's a jerk.
+
+52:06.100 --> 52:08.060
+ Is that a feature or a bug?
+
+52:08.060 --> 52:11.220
+ Well, that's the question, right?
+
+52:11.220 --> 52:19.500
+ So you take people like Steve, who was really hard on people.
+
+52:19.500 --> 52:25.380
+ And so the question is, was he needlessly hard on people?
+
+52:25.380 --> 52:34.420
+ Or was he just making people reach to meet his vision?
+
+52:34.420 --> 52:38.660
+ And you could kind of spin it either way.
+
+52:41.540 --> 52:45.020
+ Well, the results tell a story.
+
+52:45.020 --> 52:47.820
+ He, through whatever jerk ways he had,
+
+52:47.820 --> 52:51.420
+ he made people often do the best work of their life.
+
+52:51.420 --> 52:52.220
+ Yeah.
+
+52:52.220 --> 52:54.420
+ Yeah, and that was absolutely true.
+
+52:54.420 --> 52:59.980
+ And I interviewed with him several times.
+
+52:59.980 --> 53:04.380
+ I did various negotiations with him.
+
+53:04.380 --> 53:15.820
+ And even though kind of personally I liked him,
+
+53:15.820 --> 53:18.540
+ I could never work for him.
+
+53:18.540 --> 53:22.580
+ Why do you think that?
+
+53:22.580 --> 53:25.500
+ Can you put into words the kind of tension
+
+53:25.500 --> 53:29.580
+ that you feel would be destructive as opposed
+
+53:29.580 --> 53:32.980
+ to constructive?
+
+53:32.980 --> 53:35.780
+ Oh, he'd yell at people.
+
+53:35.780 --> 53:39.020
+ He'd call them names.
+
+53:39.020 --> 53:40.140
+ And you don't like that?
+
+53:40.140 --> 53:41.780
+ No.
+
+53:41.780 --> 53:43.980
+ No, I don't think you need to do that.
+
+53:43.980 --> 53:46.660
+ Yeah.
+
+53:46.660 --> 53:58.340
+ And I think there's pushing people to excel.
+
+53:58.340 --> 54:01.580
+ And then there's too far.
+
+54:01.580 --> 54:04.620
+ And I think he was on the wrong side of the line.
+
+54:04.620 --> 54:07.460
+ And I've never worked for Musk.
+
+54:07.460 --> 54:11.820
+ I know a number of people who have, many of them have said,
+
+54:11.820 --> 54:13.820
+ and it shows up in the press a lot,
+
+54:13.820 --> 54:18.260
+ that Musk is kind of that way.
+
+54:18.260 --> 54:21.860
+ And one of the things that I sort of loathe
+
+54:21.860 --> 54:24.700
+ about Silicon Valley these days is
+
+54:24.700 --> 54:29.460
+ that a lot of the high flying successes
+
+54:29.460 --> 54:33.380
+ are run by people who are complete jerks.
+
+54:33.380 --> 54:39.700
+ But it seems like there's come this sort of mythology out
+
+54:39.700 --> 54:44.420
+ of Steve Jobs that the reason that he succeeded
+
+54:44.420 --> 54:50.180
+ was because he was super hard on people.
+
+54:50.180 --> 54:57.260
+ And in a number of corners, people start going,
+
+54:57.260 --> 55:02.060
+ oh, if I want to succeed, I need to be a real jerk.
+
+55:02.060 --> 55:05.860
+ And that, for me, just does not compute.
+
+55:05.860 --> 55:07.660
+ I know a lot of successful people
+
+55:07.660 --> 55:11.780
+ who are not jerks, who are perfectly fine people.
+
+55:11.780 --> 55:20.660
+ And they tend to not be in the public eye.
+
+55:20.660 --> 55:24.900
+ The general public somehow lifts the jerks up
+
+55:24.900 --> 55:28.580
+ into the hero status.
+
+55:28.580 --> 55:29.340
+ Right.
+
+55:29.340 --> 55:32.900
+ Well, because they do things that get them in the press.
+
+55:32.900 --> 55:44.180
+ And the people who don't do the kind of things
+
+55:44.180 --> 55:47.340
+ that spill into the press.
+
+55:47.340 --> 55:54.660
+ Yeah, I just talked to Chris Ladner for the second time.
+
+55:54.660 --> 55:56.700
+ He's a super nice guy.
+
+55:56.700 --> 55:58.860
+ Just an example of this kind of individual
+
+55:58.860 --> 56:00.300
+ that's in the background.
+
+56:00.300 --> 56:03.060
+ I feel like he's behind a million technologies.
+
+56:03.060 --> 56:06.860
+ But he also talked about the jerkiness of some of the folks.
+
+56:06.860 --> 56:07.660
+ Yeah.
+
+56:07.660 --> 56:10.660
+ Yeah, and the fact that being a jerk
+
+56:10.660 --> 56:13.140
+ has become a required style.
+
+56:13.140 --> 56:15.820
+ But one thing I maybe want to ask on that
+
+56:15.820 --> 56:17.780
+ is maybe to push back a little bit.
+
+56:17.780 --> 56:19.460
+ So there's the jerk side.
+
+56:19.460 --> 56:22.420
+ But there's also, if I were to criticize
+
+56:22.420 --> 56:25.220
+ what I've seen in Silicon Valley, which is almost
+
+56:25.220 --> 56:28.380
+ the resistance to working hard.
+
+56:28.380 --> 56:37.660
+ So on the jerkiness side, it's so Posty Jobs and Elon kind
+
+56:37.660 --> 56:41.820
+ of push people to work really hard to do.
+
+56:41.820 --> 56:43.820
+ And there's a question whether it's
+
+56:43.820 --> 56:45.860
+ possible to do that nicely.
+
+56:45.860 --> 56:47.540
+ But one of the things that bothers me,
+
+56:47.540 --> 56:51.820
+ maybe I'm just Russian and just kind of romanticize
+
+56:51.820 --> 56:53.300
+ the whole suffering thing.
+
+56:53.300 --> 56:57.380
+ But I think working hard is essential for accomplishing
+
+56:57.380 --> 57:00.140
+ anything interesting, like really hard.
+
+57:00.140 --> 57:02.940
+ And in the parlance of Silicon Valley,
+
+57:02.940 --> 57:04.820
+ it's probably too hard.
+
+57:04.820 --> 57:10.340
+ This idea of that you should work smart, not hard often
+
+57:10.340 --> 57:12.700
+ to me sounds like you should be lazy.
+
+57:12.700 --> 57:15.220
+ Because of course you want to be to work smart.
+
+57:15.220 --> 57:18.220
+ Of course you would be maximally efficient.
+
+57:18.220 --> 57:20.140
+ But in order to discover the efficient path
+
+57:20.140 --> 57:23.340
+ like we're talking about with the short programs, you have to.
+
+57:23.340 --> 57:28.620
+ Well, the smart, hard thing isn't an either or.
+
+57:28.620 --> 57:29.540
+ It's an and.
+
+57:29.540 --> 57:30.620
+ It's an and, yeah.
+
+57:30.620 --> 57:31.500
+ Right.
+
+57:31.500 --> 57:42.460
+ And the people who say you should work smart, not hard,
+
+57:42.460 --> 57:44.300
+ they pretty much always fail.
+
+57:44.300 --> 57:45.020
+ Yeah.
+
+57:45.020 --> 57:46.180
+ Thank you.
+
+57:46.180 --> 57:46.660
+ Right.
+
+57:46.660 --> 57:49.700
+ I mean, that's just a recipe for disaster.
+
+57:49.700 --> 57:53.460
+ I mean, there are counterexamples,
+
+57:53.460 --> 57:58.420
+ but they're more people who benefited from luck.
+
+57:58.420 --> 57:59.940
+ And you're saying, yeah, exactly.
+
+57:59.940 --> 58:04.620
+ Luck and timing, like you said, is often an essential thing.
+
+58:04.620 --> 58:07.460
+ But you're saying you can push people
+
+58:07.460 --> 58:13.580
+ to work hard and do incredible work without being nasty.
+
+58:13.580 --> 58:14.900
+ Yeah, without being nasty.
+
+58:14.900 --> 58:22.100
+ I think Google is a good example of the leadership of Google
+
+58:22.100 --> 58:26.420
+ throughout its history has been a pretty good example of not
+
+58:26.420 --> 58:28.140
+ being nasty and being kind.
+
+58:28.140 --> 58:28.620
+ Yeah.
+
+58:28.620 --> 58:35.820
+ I mean, the twins, Larry and Sergey,
+
+58:35.820 --> 58:37.620
+ are both pretty nice people.
+
+58:37.620 --> 58:39.660
+ Sandra Pichai is very nice.
+
+58:39.660 --> 58:40.740
+ Yeah.
+
+58:40.740 --> 58:41.260
+ Yeah.
+
+58:41.260 --> 58:49.860
+ And it's a culture of people who work really, really hard.
+
+58:49.860 --> 58:54.220
+ Let me ask maybe a little bit of a tense question.
+
+58:54.220 --> 58:56.500
+ We're talking about Emacs.
+
+58:56.500 --> 58:58.900
+ It seems like you've done some incredible work,
+
+58:58.900 --> 59:02.020
+ so outside of Java, you've done some incredible work that
+
+59:02.020 --> 59:06.460
+ didn't become as popular as it could have because of licensing
+
+59:06.460 --> 59:11.700
+ issues and open source issues.
+
+59:11.700 --> 59:18.740
+ Is it, what are your thoughts about that entire mess?
+
+59:18.740 --> 59:24.340
+ Like what's about open source now in retrospect looking back?
+
+59:24.340 --> 59:27.060
+ About licensing, about open sourcing,
+
+59:27.060 --> 59:33.820
+ do you think open source is a good thing, a bad thing?
+
+59:33.820 --> 59:35.660
+ Do you have regrets?
+
+59:35.660 --> 59:38.020
+ Do you have wisdom that you've learned
+
+59:38.020 --> 59:39.900
+ from that whole experience?
+
+59:39.900 --> 59:45.380
+ So in general, I'm a big fan of open source.
+
+59:45.380 --> 59:49.780
+ The way that it can be used to build communities and promote
+
+59:49.780 --> 59:54.260
+ the development of things and promote collaboration and all
+
+59:54.260 --> 59:56.140
+ of that is really pretty grand.
+
+59:59.100 --> 1:00:04.460
+ When open source turns into a religion that says all things
+
+1:00:04.460 --> 1:00:10.860
+ must be open source, I get kind of weird about that
+
+1:00:10.860 --> 1:00:17.420
+ because it's sort of like saying some versions of that
+
+1:00:17.420 --> 1:00:22.300
+ end up saying that all software engineers
+
+1:00:22.300 --> 1:00:28.100
+ must take a vow of poverty, right, as though.
+
+1:00:28.100 --> 1:00:30.060
+ It's unethical to have money.
+
+1:00:30.060 --> 1:00:31.540
+ Yeah.
+
+1:00:31.540 --> 1:00:34.500
+ To build a company, right.
+
+1:00:34.500 --> 1:00:41.260
+ And there's a slice of me that actually kind of buys into that
+
+1:00:41.260 --> 1:00:50.060
+ because people who make billions of dollars off of a patent,
+
+1:00:50.060 --> 1:00:56.260
+ and the patent came from literally a stroke
+
+1:00:56.260 --> 1:01:02.500
+ of lightning that hits you as you lie half awake in bed.
+
+1:01:02.500 --> 1:01:03.980
+ Yeah, that's lucky.
+
+1:01:03.980 --> 1:01:06.060
+ Good for you.
+
+1:01:06.060 --> 1:01:09.700
+ The way that that sometimes sort of explodes
+
+1:01:09.700 --> 1:01:14.420
+ into something that looks to me a lot like exploitation,
+
+1:01:14.420 --> 1:01:18.540
+ you see a lot of that in the drug industry.
+
+1:01:18.540 --> 1:01:26.620
+ You know, when you've got medications that cost you
+
+1:01:26.620 --> 1:01:33.900
+ like $100 a day, and it's like, no.
+
+1:01:33.900 --> 1:01:39.060
+ Yeah, so the interesting thing about the sort of open source,
+
+1:01:39.060 --> 1:01:44.220
+ what bothers me is when something is not open source,
+
+1:01:44.220 --> 1:01:48.700
+ and because of that, it's a worse product.
+
+1:01:48.700 --> 1:01:49.700
+ Yeah.
+
+1:01:49.700 --> 1:01:52.700
+ So like, I mean, if I look at your just implementation
+
+1:01:52.700 --> 1:01:56.620
+ of Emacs, like that could have been the dominant implementation.
+
+1:01:56.620 --> 1:01:57.460
+ Like I use Emacs.
+
+1:01:57.460 --> 1:01:58.700
+ That's my main ID.
+
+1:01:58.700 --> 1:02:02.540
+ I apologize to the world, but I still love it.
+
+1:02:02.540 --> 1:02:09.020
+ And I could have been using your implementation of Emacs.
+
+1:02:09.020 --> 1:02:11.180
+ And why aren't I?
+
+1:02:11.180 --> 1:02:14.180
+ So are you using the GNU Emacs?
+
+1:02:14.180 --> 1:02:16.380
+ I guess the default on Linux is that GNU?
+
+1:02:16.380 --> 1:02:16.900
+ Yeah.
+
+1:02:16.900 --> 1:02:20.420
+ And that, through a strange passage,
+
+1:02:20.420 --> 1:02:22.220
+ started out as the one that I wrote.
+
+1:02:22.220 --> 1:02:22.740
+ Exactly.
+
+1:02:22.740 --> 1:02:26.540
+ So it still has a, yeah.
+
+1:02:26.540 --> 1:02:32.860
+ Well, and part of that was because in the last couple
+
+1:02:32.860 --> 1:02:38.980
+ of years of grad school, it became really clear
+
+1:02:38.980 --> 1:02:46.060
+ to me that I was either going to be Mr. Emacs forever
+
+1:02:46.060 --> 1:02:50.060
+ or I was going to graduate.
+
+1:02:50.060 --> 1:02:50.580
+ Got it.
+
+1:02:50.580 --> 1:02:54.340
+ I couldn't actually do both.
+
+1:02:54.340 --> 1:02:56.260
+ Was that a hard decision?
+
+1:02:56.260 --> 1:02:58.700
+ That's so interesting to think about you as a,
+
+1:02:58.700 --> 1:03:01.260
+ like it's a different trajectory that could have happened.
+
+1:03:01.260 --> 1:03:01.900
+ Yeah.
+
+1:03:01.900 --> 1:03:04.420
+ That's fascinating.
+
+1:03:04.420 --> 1:03:10.220
+ And maybe I could be fabulously wealthy today
+
+1:03:10.220 --> 1:03:13.580
+ if I had become Mr. Emacs, and Emacs
+
+1:03:13.580 --> 1:03:19.220
+ had mushroomed into a series of text processing applications
+
+1:03:19.220 --> 1:03:20.340
+ and all kinds of stuff.
+
+1:03:20.340 --> 1:03:24.340
+ And I would have, you know.
+
+1:03:24.340 --> 1:03:30.620
+ But I have a long history of financially suboptimal
+
+1:03:30.620 --> 1:03:38.300
+ decisions because I didn't want that life, right?
+
+1:03:38.300 --> 1:03:47.300
+ And I went to grad school because I wanted to graduate.
+
+1:03:47.300 --> 1:03:58.260
+ And being Mr. Emacs for a while was kind of fun,
+
+1:03:58.260 --> 1:04:03.420
+ and then it kind of became not fun.
+
+1:04:03.420 --> 1:04:10.540
+ And when it was not fun, there was
+
+1:04:10.540 --> 1:04:17.060
+ no way I could pay my rent, right?
+
+1:04:17.060 --> 1:04:23.780
+ And I was like, OK, do I carry on as a grad student?
+
+1:04:23.780 --> 1:04:25.620
+ I had a research assistantship, and I
+
+1:04:25.620 --> 1:04:27.220
+ was sort of living off of that.
+
+1:04:27.220 --> 1:04:30.180
+ And I was trying to do my, you know,
+
+1:04:30.180 --> 1:04:33.380
+ I was doing all my RA work, all my RA,
+
+1:04:33.380 --> 1:04:35.220
+ you know, being grad student work
+
+1:04:35.220 --> 1:04:37.820
+ and being Mr. Emacs all at the same time.
+
+1:04:40.660 --> 1:04:45.260
+ And I decided to pick one.
+
+1:04:45.260 --> 1:04:48.340
+ And one of the things that I did at the time
+
+1:04:48.340 --> 1:04:53.660
+ was I went around all the people I knew on the ARPANET who
+
+1:04:53.660 --> 1:04:58.980
+ might be able to take over looking after Emacs.
+
+1:04:58.980 --> 1:05:06.300
+ And pretty much everybody said, eh, I got a day job.
+
+1:05:06.300 --> 1:05:12.340
+ So I actually found two folks and a couple
+
+1:05:12.340 --> 1:05:20.540
+ of folks in a garage in New Jersey, complete with a dog,
+
+1:05:20.540 --> 1:05:22.940
+ who were willing to take it over.
+
+1:05:22.940 --> 1:05:26.140
+ But they were going to have to charge money.
+
+1:05:26.140 --> 1:05:31.180
+ But my deal with them was that they would only,
+
+1:05:31.180 --> 1:05:33.700
+ that they would make it free for universities and schools
+
+1:05:33.700 --> 1:05:34.980
+ and stuff.
+
+1:05:34.980 --> 1:05:36.620
+ And they said sure.
+
+1:05:36.620 --> 1:05:41.100
+ And you know, that upset some people.
+
+1:05:41.100 --> 1:05:43.860
+ So you have some, now I don't know the full history of this,
+
+1:05:43.860 --> 1:05:46.780
+ but I think it's kind of interesting.
+
+1:05:46.780 --> 1:05:54.340
+ You have some tension with Mr. Richard Stallman over the,
+
+1:05:54.340 --> 1:05:56.660
+ and he kind of represents this kind of,
+
+1:05:56.660 --> 1:06:03.660
+ like you mentioned, free software,
+
+1:06:03.660 --> 1:06:07.260
+ sort of a dogmatic focus on, yeah.
+
+1:06:07.260 --> 1:06:10.140
+ All information must be free.
+
+1:06:10.140 --> 1:06:10.860
+ Must be free.
+
+1:06:10.860 --> 1:06:14.220
+ So what, is there an interesting way
+
+1:06:14.220 --> 1:06:17.420
+ to paint a picture of the disagreement
+
+1:06:17.420 --> 1:06:19.900
+ you have with Richard through the years?
+
+1:06:19.900 --> 1:06:26.980
+ My basic opposition is that when you say information
+
+1:06:26.980 --> 1:06:32.100
+ must be free, to a really extreme form that
+
+1:06:32.100 --> 1:06:38.780
+ turns into all people whose job is
+
+1:06:38.780 --> 1:06:49.300
+ the production of everything from movies to software.
+
+1:06:49.300 --> 1:06:52.580
+ They must all take a vow of poverty
+
+1:06:52.580 --> 1:06:56.740
+ because information must be free.
+
+1:06:56.740 --> 1:06:59.980
+ And that doesn't work for me.
+
+1:06:59.980 --> 1:07:05.060
+ And I don't want to be wildly rich.
+
+1:07:05.060 --> 1:07:08.780
+ I am not wildly rich.
+
+1:07:08.780 --> 1:07:10.100
+ I do OK.
+
+1:07:14.260 --> 1:07:20.620
+ But I do actually, I can feed my children.
+
+1:07:20.620 --> 1:07:22.220
+ Yeah, I totally agree with you.
+
+1:07:22.220 --> 1:07:25.340
+ It does just make me sad that sometimes
+
+1:07:25.340 --> 1:07:28.540
+ the closing of the source, for some reason
+
+1:07:28.540 --> 1:07:33.620
+ that people that, like a bureaucracy begins to build,
+
+1:07:33.620 --> 1:07:37.460
+ and sometimes it doesn't, it hurts the product.
+
+1:07:37.460 --> 1:07:38.660
+ Oh, absolutely.
+
+1:07:38.660 --> 1:07:39.380
+ Absolutely.
+
+1:07:39.380 --> 1:07:40.420
+ It's always sad.
+
+1:07:40.420 --> 1:07:44.740
+ And there is a balance in there.
+
+1:07:44.740 --> 1:07:47.060
+ There's a balance.
+
+1:07:47.060 --> 1:07:56.100
+ And it's not hard over rapacious capitalism.
+
+1:07:56.100 --> 1:08:02.660
+ And it's not hard over in the other direction.
+
+1:08:02.660 --> 1:08:07.820
+ And a lot of the open source movement,
+
+1:08:07.820 --> 1:08:11.780
+ they have been managing to find the path
+
+1:08:11.780 --> 1:08:15.220
+ to actually making money.
+
+1:08:15.220 --> 1:08:18.900
+ So doing things like service and support
+
+1:08:18.900 --> 1:08:20.860
+ works for a lot of people.
+
+1:08:20.860 --> 1:08:33.100
+ And there are some ways where it's kind of, some of them
+
+1:08:33.100 --> 1:08:35.820
+ are a little perverse.
+
+1:08:35.820 --> 1:08:43.180
+ So as a part of things like this Sarbanes–Oxley Act
+
+1:08:43.180 --> 1:08:45.860
+ and various people's interpretations
+
+1:08:45.860 --> 1:08:49.860
+ of all kinds of accounting principles.
+
+1:08:49.860 --> 1:08:51.860
+ And this is kind of a worldwide thing.
+
+1:08:51.860 --> 1:08:55.300
+ But if you've got a corporation that
+
+1:08:55.300 --> 1:09:01.220
+ is depending on some piece of software,
+
+1:09:01.220 --> 1:09:04.540
+ often various accounting and reporting standards
+
+1:09:04.540 --> 1:09:08.420
+ say if you don't have a support contract on this thing
+
+1:09:08.420 --> 1:09:15.940
+ that your business is depending on, then that's bad.
+
+1:09:15.940 --> 1:09:21.420
+ So if you've got a database, you need to pay for support.
+
+1:09:24.500 --> 1:09:30.100
+ But there's a difference between the sort of support contracts
+
+1:09:30.100 --> 1:09:37.060
+ that the average open source database producer charges
+
+1:09:37.060 --> 1:09:44.500
+ and what somebody who is truly rapacious like Oracle charges.
+
+1:09:44.500 --> 1:09:47.260
+ Yeah, so it's a balance, like you said.
+
+1:09:47.260 --> 1:09:49.660
+ It is absolutely a balance.
+
+1:09:49.660 --> 1:09:57.060
+ And there are a lot of different ways
+
+1:09:57.060 --> 1:10:04.900
+ to make the math work out for everybody.
+
+1:10:04.900 --> 1:10:16.700
+ And the very unbalanced sort of like the winner
+
+1:10:16.700 --> 1:10:23.140
+ takes all thing that happens in so much of modern commerce,
+
+1:10:23.140 --> 1:10:26.180
+ that just doesn't work for me either.
+
+1:10:26.180 --> 1:10:31.380
+ I know you've talked about this in quite a few places,
+
+1:10:31.380 --> 1:10:37.020
+ but you have created one of the most popular programming
+
+1:10:37.020 --> 1:10:39.180
+ languages in the world.
+
+1:10:39.180 --> 1:10:41.740
+ This is a programming language that I first
+
+1:10:41.740 --> 1:10:46.740
+ learned about object oriented programming with.
+
+1:10:46.740 --> 1:10:49.260
+ I think it's a programming language
+
+1:10:49.260 --> 1:10:52.620
+ that a lot of people use in a lot of different places
+
+1:10:52.620 --> 1:10:55.740
+ and millions of devices today, Java.
+
+1:10:55.740 --> 1:11:00.420
+ So the absurd question, but can you
+
+1:11:00.420 --> 1:11:03.060
+ tell the origin story of Java?
+
+1:11:03.060 --> 1:11:07.340
+ So a long time ago at Sun in about 1990,
+
+1:11:07.340 --> 1:11:12.740
+ there was a group of us who were kind of worried
+
+1:11:12.740 --> 1:11:18.620
+ that there was stuff going on in the universe of computing
+
+1:11:18.620 --> 1:11:21.020
+ that the computing industry was missing out on.
+
+1:11:21.020 --> 1:11:29.740
+ And so a few of us started this project
+
+1:11:29.740 --> 1:11:32.380
+ at Sun that really got going.
+
+1:11:32.380 --> 1:11:34.860
+ I mean, we started talking about it in 1990,
+
+1:11:34.860 --> 1:11:39.020
+ and it really got going in 91.
+
+1:11:39.020 --> 1:11:44.860
+ And it was all about what was happening
+
+1:11:44.860 --> 1:11:48.820
+ in terms of computing hardware processors
+
+1:11:48.820 --> 1:11:53.220
+ and networking and all of that that was outside
+
+1:11:53.220 --> 1:11:54.340
+ of the computer industry.
+
+1:11:54.340 --> 1:11:59.060
+ And that was everything from the sort
+
+1:11:59.060 --> 1:12:03.500
+ of early glimmers of cell phones that were happening then
+
+1:12:03.500 --> 1:12:07.940
+ to you look at elevators and locomotives
+
+1:12:07.940 --> 1:12:12.500
+ and process control systems in factories
+
+1:12:12.500 --> 1:12:20.820
+ and all kinds of audio equipment and video equipment.
+
+1:12:20.820 --> 1:12:22.740
+ They all had processors in them, and they were all
+
+1:12:22.740 --> 1:12:24.820
+ doing stuff with them.
+
+1:12:24.820 --> 1:12:30.860
+ And it sort of felt like there was something going on there
+
+1:12:30.860 --> 1:12:34.420
+ that we needed to understand.
+
+1:12:34.420 --> 1:12:36.020
+ And
+
+1:12:36.020 --> 1:12:38.980
+ So C and C++ was in the air already.
+
+1:12:38.980 --> 1:12:42.300
+ Oh, no, C and C++ absolutely owned the universe
+
+1:12:42.300 --> 1:12:42.940
+ at that time.
+
+1:12:42.940 --> 1:12:45.140
+ Everything was written in C and C++.
+
+1:12:45.140 --> 1:12:46.860
+ So where was the hunch that there
+
+1:12:46.860 --> 1:12:48.780
+ was a need for a revolution?
+
+1:12:48.780 --> 1:12:50.700
+ Well, so the need for a revolution
+
+1:12:50.700 --> 1:12:54.500
+ was not about a language.
+
+1:12:54.500 --> 1:12:59.900
+ It was just as simple and vague as there
+
+1:12:59.900 --> 1:13:03.620
+ are things happening out there.
+
+1:13:03.620 --> 1:13:04.980
+ We need to understand them.
+
+1:13:04.980 --> 1:13:08.580
+ We need to understand them.
+
+1:13:08.580 --> 1:13:16.900
+ And so a few of us went on several somewhat epic road
+
+1:13:16.900 --> 1:13:19.420
+ trips.
+
+1:13:19.420 --> 1:13:20.660
+ Literal road trips?
+
+1:13:20.660 --> 1:13:21.860
+ Literal road trips.
+
+1:13:21.860 --> 1:13:24.740
+ It's like get on an airplane, go to Japan,
+
+1:13:24.740 --> 1:13:31.820
+ visit Toshiba and Sharp and Mitsubishi and Sony
+
+1:13:31.820 --> 1:13:33.700
+ and all of these folks.
+
+1:13:33.700 --> 1:13:36.620
+ And because we worked for Sun, we
+
+1:13:36.620 --> 1:13:42.300
+ had folks who were willing to give us introductions.
+
+1:13:42.300 --> 1:13:50.060
+ We visited Samsung and a bunch of Korean companies.
+
+1:13:50.060 --> 1:13:51.340
+ And we went all over Europe.
+
+1:13:51.340 --> 1:13:56.620
+ We went to places like Philips and Siemens and Thomson.
+
+1:13:56.620 --> 1:14:00.020
+ And what did you see there?
+
+1:14:00.020 --> 1:14:02.980
+ For me, one of the things that sort of leapt out
+
+1:14:02.980 --> 1:14:07.300
+ was that they were doing all the usual computer things
+
+1:14:07.300 --> 1:14:10.540
+ that people had been doing like 20 years before.
+
+1:14:10.540 --> 1:14:13.100
+ The thing that really leapt out to me
+
+1:14:13.100 --> 1:14:16.700
+ was that they were sort of reinventing
+
+1:14:16.700 --> 1:14:18.820
+ computer networking.
+
+1:14:18.820 --> 1:14:24.340
+ And they were making all the mistakes
+
+1:14:24.340 --> 1:14:28.580
+ that people in the computer industry had made.
+
+1:14:28.580 --> 1:14:32.180
+ And since I had been doing a lot of work in the networking
+
+1:14:32.180 --> 1:14:37.140
+ area, we'd go and visit Company X.
+
+1:14:37.140 --> 1:14:40.540
+ They'd describe this networking thing that they were doing.
+
+1:14:40.540 --> 1:14:43.260
+ And just without any thought, I could tell them
+
+1:14:43.260 --> 1:14:45.980
+ like the 25 things that were going
+
+1:14:45.980 --> 1:14:49.020
+ to be complete disasters with that thing
+
+1:14:49.020 --> 1:14:52.220
+ that they were doing.
+
+1:14:52.220 --> 1:14:55.700
+ And I don't know whether that had any impact on any of them.
+
+1:14:55.700 --> 1:15:03.180
+ But that particular story of repeating the disasters
+
+1:15:03.180 --> 1:15:07.940
+ of the computer science industry was there.
+
+1:15:07.940 --> 1:15:11.300
+ And one of the things we thought was, well,
+
+1:15:11.300 --> 1:15:15.420
+ maybe we could do something useful here with bringing them
+
+1:15:15.420 --> 1:15:16.380
+ forward somewhat.
+
+1:15:16.380 --> 1:15:24.180
+ But also, at the same time, we learned a bunch of things
+
+1:15:24.180 --> 1:15:29.180
+ from these mostly consumer electronics companies.
+
+1:15:31.940 --> 1:15:39.780
+ And high on the list was that they
+
+1:15:39.780 --> 1:15:42.980
+ viewed their relationship with the customer as sacred.
+
+1:15:45.460 --> 1:15:51.820
+ They were never, ever willing to make tradeoffs
+
+1:15:51.820 --> 1:15:56.540
+ between for safety.
+
+1:15:56.540 --> 1:16:00.300
+ So one of the things that had always
+
+1:16:00.300 --> 1:16:04.900
+ made me nervous in the computer industry
+
+1:16:04.900 --> 1:16:12.220
+ was that people were willing to make tradeoffs in reliability
+
+1:16:12.220 --> 1:16:13.500
+ to get performance.
+
+1:16:17.540 --> 1:16:18.740
+ They want faster, faster.
+
+1:16:18.740 --> 1:16:21.460
+ It breaks a little more often because it's fast.
+
+1:16:21.460 --> 1:16:23.940
+ Maybe you run it a little hotter than you should.
+
+1:16:23.940 --> 1:16:27.620
+ Or the one that always blew my mind
+
+1:16:27.620 --> 1:16:34.100
+ was the way that the folks at Cray Supercomputers
+
+1:16:34.100 --> 1:16:38.780
+ got their division to be really fast
+
+1:16:38.780 --> 1:16:44.220
+ was that they did Newton Raphson approximations.
+
+1:16:44.220 --> 1:16:51.420
+ And so the bottom several bits of A over B
+
+1:16:51.420 --> 1:16:55.540
+ were essentially random numbers.
+
+1:16:55.540 --> 1:16:56.860
+ What could possibly go wrong?
+
+1:16:56.860 --> 1:16:59.700
+ What could go wrong?
+
+1:16:59.700 --> 1:17:08.580
+ And just figuring out how to nail the bottom bit,
+
+1:17:08.580 --> 1:17:14.700
+ how to make sure that if you put a piece of toast in a toaster,
+
+1:17:14.700 --> 1:17:18.300
+ it's not going to kill the customer.
+
+1:17:18.300 --> 1:17:22.540
+ It's not going to burst into flames and burn the house down.
+
+1:17:22.540 --> 1:17:26.860
+ So I guess those are the principles that were inspiring.
+
+1:17:26.860 --> 1:17:33.100
+ But how did, from the days of Java's called oak,
+
+1:17:33.100 --> 1:17:34.980
+ because of a tree outside the window story
+
+1:17:34.980 --> 1:17:37.100
+ that a lot of people know, how did it
+
+1:17:37.100 --> 1:17:43.900
+ become this incredible, powerful language?
+
+1:17:43.900 --> 1:17:46.780
+ Well, so it was a bunch of things.
+
+1:17:46.780 --> 1:17:50.660
+ So after all that, the way that we
+
+1:17:50.660 --> 1:17:54.500
+ decided that we could understand things better
+
+1:17:54.500 --> 1:17:59.300
+ was by building a demo, building a prototype of something.
+
+1:17:59.300 --> 1:18:02.740
+ So because it was easy and fun, we
+
+1:18:02.740 --> 1:18:07.220
+ decided to build a control system for some home
+
+1:18:07.220 --> 1:18:11.020
+ electronics, TV, VCR, that kind of stuff.
+
+1:18:11.020 --> 1:18:16.580
+ And as we were building it, we discovered
+
+1:18:16.580 --> 1:18:19.660
+ that there were some things about standard practice
+
+1:18:19.660 --> 1:18:26.380
+ in C programming that were really getting in the way.
+
+1:18:26.380 --> 1:18:32.380
+ And it wasn't exactly because we were writing all this C code
+
+1:18:32.380 --> 1:18:37.740
+ and C++ code that we couldn't write it to do the right thing.
+
+1:18:37.740 --> 1:18:42.340
+ But one of the things that was weird in the group
+
+1:18:42.340 --> 1:18:50.860
+ was that we had a guy whose top level job was
+
+1:18:50.860 --> 1:18:52.940
+ he was a business guy.
+
+1:18:52.940 --> 1:18:57.780
+ He was an MBA kind of person, think about business plans
+
+1:18:57.780 --> 1:18:58.660
+ and all of that.
+
+1:18:58.660 --> 1:19:05.260
+ And there were a bunch of things that were kind of,
+
+1:19:05.260 --> 1:19:07.540
+ and we would talk about things that were going wrong
+
+1:19:07.540 --> 1:19:10.100
+ and things that were going wrong,
+
+1:19:10.100 --> 1:19:11.260
+ things that were going right.
+
+1:19:11.260 --> 1:19:16.140
+ And as we thought about things like the requirements
+
+1:19:16.140 --> 1:19:21.540
+ for security and safety, some low level details
+
+1:19:21.540 --> 1:19:24.060
+ and see like naked pointers.
+
+1:19:24.060 --> 1:19:24.980
+ Yeah.
+
+1:19:24.980 --> 1:19:35.300
+ And so back in the early 90s, it was well understood
+
+1:19:35.300 --> 1:19:41.580
+ that the number one source of security vulnerabilities.
+
+1:19:41.580 --> 1:19:42.380
+ Was pointers.
+
+1:19:42.380 --> 1:19:45.980
+ Was just pointers, was just bugs.
+
+1:19:45.980 --> 1:19:52.420
+ And it was like 50%, 60%, 70% of all security vulnerabilities
+
+1:19:52.420 --> 1:19:53.300
+ were bugs.
+
+1:19:53.300 --> 1:19:57.980
+ And the vast majority of them were like buffer overflows.
+
+1:19:57.980 --> 1:20:00.140
+ So you're like, we have to fix this.
+
+1:20:00.140 --> 1:20:04.020
+ We have to make sure that this cannot happen.
+
+1:20:04.020 --> 1:20:07.420
+ And that was kind of the original thing for me
+
+1:20:07.420 --> 1:20:11.420
+ was this cannot continue.
+
+1:20:11.420 --> 1:20:16.500
+ And one of the things I find really entertaining this year
+
+1:20:16.500 --> 1:20:22.340
+ was, I forget which Rag published it,
+
+1:20:22.340 --> 1:20:24.780
+ but there was this article that came out
+
+1:20:24.780 --> 1:20:31.220
+ that was sort of the result of an examination
+
+1:20:31.220 --> 1:20:35.260
+ of all the security vulnerabilities in Chrome.
+
+1:20:35.260 --> 1:20:39.100
+ And Chrome is like a giant piece of C++ code.
+
+1:20:39.100 --> 1:20:44.100
+ And 60% or 70% of all the security vulnerabilities
+
+1:20:44.100 --> 1:20:48.100
+ were stupid pointer tricks.
+
+1:20:48.100 --> 1:20:54.260
+ And I thought, it's 30 years later and we're still there.
+
+1:20:54.260 --> 1:20:54.940
+ Still there.
+
+1:20:54.940 --> 1:20:56.260
+ And we're still there.
+
+1:20:56.260 --> 1:21:00.900
+ And that's one of those slap your forehead
+
+1:21:00.900 --> 1:21:05.220
+ and just want to cry moments.
+
+1:21:05.220 --> 1:21:09.060
+ Would you attribute, or is that too much of a simplification,
+
+1:21:09.060 --> 1:21:11.300
+ but would you attribute the creation of Java
+
+1:21:11.300 --> 1:21:15.460
+ to C pointers?
+
+1:21:15.460 --> 1:21:16.660
+ Obvious problem.
+
+1:21:16.660 --> 1:21:21.820
+ Well, I mean, that was one of the trigger points.
+
+1:21:21.820 --> 1:21:23.420
+ Concurrency you've mentioned.
+
+1:21:23.420 --> 1:21:24.980
+ Concurrency was a big deal.
+
+1:21:27.900 --> 1:21:31.100
+ Because when you're interacting with people,
+
+1:21:31.100 --> 1:21:32.740
+ the last thing you ever want to see
+
+1:21:32.740 --> 1:21:37.860
+ is the thing like waiting and issues
+
+1:21:37.860 --> 1:21:42.100
+ about the software development process.
+
+1:21:42.100 --> 1:21:45.820
+ When faults happen, can you recover from them?
+
+1:21:45.820 --> 1:21:49.300
+ What can you do to make it easier
+
+1:21:49.300 --> 1:21:54.700
+ to create and eliminate complex data structures?
+
+1:21:54.700 --> 1:21:59.940
+ What can you do to fix one of the most common C problems,
+
+1:21:59.940 --> 1:22:03.620
+ which is storage leaks?
+
+1:22:03.620 --> 1:22:12.500
+ And it's evil twin, the freed but still being used
+
+1:22:12.500 --> 1:22:14.340
+ piece of memory.
+
+1:22:14.340 --> 1:22:17.780
+ You free something and then you keep using it.
+
+1:22:17.780 --> 1:22:19.660
+ Oh, yeah.
+
+1:22:19.660 --> 1:22:21.580
+ So when I was originally thinking about that,
+
+1:22:21.580 --> 1:22:26.700
+ I was thinking about it in terms of safety and security issues.
+
+1:22:26.700 --> 1:22:29.900
+ And one of the things I came to understand
+
+1:22:29.900 --> 1:22:33.260
+ was that it wasn't just about safety and security,
+
+1:22:33.260 --> 1:22:39.180
+ but it was about developer velocity.
+
+1:22:39.180 --> 1:22:43.340
+ So and I got really religious about this
+
+1:22:43.340 --> 1:22:46.620
+ because at that point, I had spent an ungodly amount
+
+1:22:46.620 --> 1:22:54.900
+ of my life hunting down mystery pointer bugs.
+
+1:22:54.900 --> 1:23:01.300
+ And two thirds of my time as a software developer
+
+1:23:01.300 --> 1:23:03.900
+ was because the mystery pointer bugs tend
+
+1:23:03.900 --> 1:23:07.900
+ to be the hardest to find because they tend
+
+1:23:07.900 --> 1:23:11.820
+ to be very, very statistical.
+
+1:23:11.820 --> 1:23:15.860
+ The ones that hurt, they're like a one in a million chance.
+
+1:23:20.780 --> 1:23:23.420
+ But nevertheless, create an infinite amount of suffering.
+
+1:23:23.420 --> 1:23:24.460
+ Right.
+
+1:23:24.460 --> 1:23:28.740
+ Because when you're doing a billion operations a second,
+
+1:23:28.740 --> 1:23:32.540
+ one in a million chance means it's going to happen.
+
+1:23:35.260 --> 1:23:38.420
+ And so I got really religious about this thing,
+
+1:23:38.420 --> 1:23:41.180
+ about making it so that if something fails,
+
+1:23:41.180 --> 1:23:44.900
+ it fails immediately and visibly.
+
+1:23:44.900 --> 1:23:52.780
+ And one of the things that was a real attraction of Java
+
+1:23:52.780 --> 1:23:57.220
+ to lots of development shops was that we get our code up
+
+1:23:57.220 --> 1:24:00.900
+ and running twice as fast.
+
+1:24:00.900 --> 1:24:03.540
+ You mean like the entirety of the development process,
+
+1:24:03.540 --> 1:24:04.900
+ debugging, all that kind of stuff?
+
+1:24:04.900 --> 1:24:12.500
+ Yeah, so if you measure time from you first touch fingers
+
+1:24:12.500 --> 1:24:19.580
+ to keyboard until you get your first demo out,
+
+1:24:19.580 --> 1:24:21.140
+ not much different.
+
+1:24:21.140 --> 1:24:23.620
+ But if you look from fingers touching keyboard
+
+1:24:23.620 --> 1:24:27.900
+ to solid piece of software that you could release
+
+1:24:27.900 --> 1:24:32.180
+ in production, it would be way faster.
+
+1:24:32.180 --> 1:24:34.740
+ And I think what people don't often realize is, yeah,
+
+1:24:34.740 --> 1:24:36.780
+ there's things that really slow you down,
+
+1:24:36.780 --> 1:24:40.260
+ like the hard to catch bugs probably
+
+1:24:40.260 --> 1:24:43.580
+ is the thing that really slows down the entire time.
+
+1:24:43.580 --> 1:24:45.740
+ It really slows things down.
+
+1:24:45.740 --> 1:24:48.540
+ But also, one of the things that you get out
+
+1:24:48.540 --> 1:24:52.940
+ of object oriented programming is a strict methodology
+
+1:24:52.940 --> 1:24:55.860
+ about what are the interfaces between things
+
+1:24:55.860 --> 1:25:02.180
+ and being really clear about how parts relate to each other.
+
+1:25:02.180 --> 1:25:06.940
+ And what that helps with is so many times
+
+1:25:06.940 --> 1:25:12.540
+ what people do is they kind of like sneak around the side.
+
+1:25:12.540 --> 1:25:16.980
+ So if you've built something and people are using it
+
+1:25:16.980 --> 1:25:21.420
+ and you say, well, OK, I built this thing.
+
+1:25:21.420 --> 1:25:23.740
+ You use it this way.
+
+1:25:23.740 --> 1:25:26.180
+ And then you change it in such a way
+
+1:25:26.180 --> 1:25:28.540
+ that it still does what you said it does.
+
+1:25:28.540 --> 1:25:30.260
+ It just does it a little bit different.
+
+1:25:30.260 --> 1:25:33.260
+ Then you find out that somebody out there
+
+1:25:33.260 --> 1:25:35.660
+ was sneaking around the side.
+
+1:25:35.660 --> 1:25:38.180
+ They sort of tunneled in a back door.
+
+1:25:38.180 --> 1:25:41.860
+ And this person, their code broke.
+
+1:25:41.860 --> 1:25:47.020
+ And because they were sneaking through a side door.
+
+1:25:47.020 --> 1:25:56.380
+ And normally, the attitude is, dummy.
+
+1:25:56.380 --> 1:26:04.740
+ But a lot of times, you can't just slap their hand
+
+1:26:04.740 --> 1:26:06.740
+ and tell them to not do that.
+
+1:26:06.740 --> 1:26:17.940
+ Because it's some bank's account reconciliation system
+
+1:26:17.940 --> 1:26:22.780
+ that some developer decided, oh, I'm lazy.
+
+1:26:22.780 --> 1:26:24.900
+ I'll just sneak through the back door.
+
+1:26:24.900 --> 1:26:26.420
+ Because the language allows it.
+
+1:26:26.420 --> 1:26:28.060
+ I mean, you can't even mad at them.
+
+1:26:28.060 --> 1:26:32.020
+ And so one of the things I did that, on the one hand,
+
+1:26:32.020 --> 1:26:34.540
+ upset a bunch of people was I made it
+
+1:26:34.540 --> 1:26:38.740
+ so that you really couldn't go through back doors.
+
+1:26:38.740 --> 1:26:44.340
+ So the whole point of that was to say,
+
+1:26:44.340 --> 1:26:47.140
+ if the interface here isn't right,
+
+1:26:47.140 --> 1:26:51.380
+ the wrong way to deal with that is to go through a back door.
+
+1:26:51.380 --> 1:26:53.340
+ The right way to deal with it is to walk up
+
+1:26:53.340 --> 1:26:58.860
+ to the developer of this thing and say, fix it.
+
+1:26:58.860 --> 1:27:02.300
+ And so it was kind of like a social engineering thing.
+
+1:27:02.300 --> 1:27:08.580
+ And people ended up discovering that that really
+
+1:27:08.580 --> 1:27:12.340
+ made a difference in terms of.
+
+1:27:12.340 --> 1:27:16.060
+ And a bunch of this stuff, if you're just screwing around
+
+1:27:16.060 --> 1:27:20.900
+ writing your own class project scale stuff,
+
+1:27:20.900 --> 1:27:25.460
+ a lot of this stuff isn't quite so important
+
+1:27:25.460 --> 1:27:31.420
+ because you're both sides of the interface.
+
+1:27:31.420 --> 1:27:37.740
+ But when you're building larger, more complex pieces of software
+
+1:27:37.740 --> 1:27:39.940
+ that have a lot of people working on them,
+
+1:27:39.940 --> 1:27:46.380
+ and especially when they span organizations,
+
+1:27:46.380 --> 1:27:52.860
+ having clarity about how that stuff gets structured
+
+1:27:52.860 --> 1:27:56.380
+ saves your life.
+
+1:27:56.380 --> 1:28:00.180
+ And especially, there's so much software
+
+1:28:00.180 --> 1:28:08.140
+ that is fundamentally untestable until you do the real thing.
+
+1:28:08.140 --> 1:28:11.980
+ It's better to write good code in the beginning
+
+1:28:11.980 --> 1:28:13.580
+ as opposed to writing crappy code
+
+1:28:13.580 --> 1:28:17.260
+ and then trying to fix it and trying to scramble and figure
+
+1:28:17.260 --> 1:28:20.300
+ out, and through testing, figure out where the bugs are.
+
+1:28:20.300 --> 1:28:27.980
+ Yeah, it's like, which shortcut caused that rocket
+
+1:28:27.980 --> 1:28:31.580
+ to not get where it was needed to go?
+
+1:28:31.580 --> 1:28:38.260
+ So I think one of the most beautiful ideas philosophically
+
+1:28:38.260 --> 1:28:45.220
+ and technically is of a virtual machine, a Java virtual machine.
+
+1:28:45.220 --> 1:28:47.380
+ Again, I apologize to romanticize things,
+
+1:28:47.380 --> 1:28:53.300
+ but how did the idea of the JVM come to be?
+
+1:28:53.300 --> 1:28:56.380
+ How to you radical of an idea it is?
+
+1:28:56.380 --> 1:29:01.460
+ Because it seems to me to be just a really interesting idea
+
+1:29:01.460 --> 1:29:04.660
+ in the history of programming.
+
+1:29:04.660 --> 1:29:05.660
+ And what is it?
+
+1:29:05.660 --> 1:29:10.060
+ So the Java virtual machine, you can think of it
+
+1:29:10.060 --> 1:29:17.060
+ in different ways because it was carefully designed
+
+1:29:17.060 --> 1:29:19.820
+ to have different ways of viewing it.
+
+1:29:19.820 --> 1:29:23.820
+ So one view of it that most people don't really realize
+
+1:29:23.820 --> 1:29:30.580
+ is there is that you can view it as sort
+
+1:29:30.580 --> 1:29:34.820
+ of an encoding of the abstract syntax tree
+
+1:29:34.820 --> 1:29:36.300
+ in reverse Polish notation.
+
+1:29:39.180 --> 1:29:41.380
+ I don't know if that makes any sense at all.
+
+1:29:41.380 --> 1:29:44.820
+ I could explain it, and that would blow all of our time.
+
+1:29:44.820 --> 1:29:47.620
+ But the other way to think of it and the way
+
+1:29:47.620 --> 1:29:50.380
+ that it ends up being explained is
+
+1:29:50.380 --> 1:29:57.180
+ that it's like the instruction set of an abstract machine
+
+1:29:57.180 --> 1:30:00.380
+ that's designed such that you can translate
+
+1:30:00.380 --> 1:30:03.820
+ that abstract machine to a physical machine.
+
+1:30:03.820 --> 1:30:07.860
+ And the reason that that's important,
+
+1:30:07.860 --> 1:30:10.460
+ so if you wind back to the early 90s
+
+1:30:10.460 --> 1:30:15.260
+ when we were talking to all of these companies doing
+
+1:30:15.260 --> 1:30:22.460
+ consumer electronics, and you talk to the purchasing people,
+
+1:30:22.460 --> 1:30:27.900
+ there were interesting conversations with purchasing.
+
+1:30:27.900 --> 1:30:31.940
+ So if you look at how these devices come together,
+
+1:30:31.940 --> 1:30:36.100
+ they're sheet metal and gears and circuit boards
+
+1:30:36.100 --> 1:30:40.620
+ and capacitors and resistors and stuff.
+
+1:30:40.620 --> 1:30:46.180
+ And everything you buy has multiple sources.
+
+1:30:46.180 --> 1:30:50.420
+ So you can buy a capacitor from here.
+
+1:30:50.420 --> 1:30:52.780
+ You can buy a capacitor from there.
+
+1:30:52.780 --> 1:30:57.700
+ And you've got kind of a market so that you can actually
+
+1:30:57.700 --> 1:31:03.340
+ get a decent price for a capacitor.
+
+1:31:03.340 --> 1:31:12.980
+ But CPUs, and particularly in the early 90s,
+
+1:31:12.980 --> 1:31:17.700
+ CPUs were all different and all proprietary.
+
+1:31:17.700 --> 1:31:22.620
+ So if you use the chip from Intel,
+
+1:31:22.620 --> 1:31:28.060
+ you had to be an Intel customer till the end of time.
+
+1:31:28.060 --> 1:31:31.500
+ Because if you wrote a bunch of software,
+
+1:31:31.500 --> 1:31:36.780
+ when you wrote software using whatever technique you wanted,
+
+1:31:36.780 --> 1:31:39.580
+ and C was particularly bad about this
+
+1:31:39.580 --> 1:31:43.780
+ because there was a lot of properties
+
+1:31:43.780 --> 1:31:48.340
+ of the underlying machine that came through.
+
+1:31:48.340 --> 1:31:49.220
+ So you were stuck.
+
+1:31:49.220 --> 1:31:50.660
+ So the code you wrote, you were stuck
+
+1:31:50.660 --> 1:31:51.780
+ to that particular machine.
+
+1:31:51.780 --> 1:31:54.300
+ You were stuck to that particular machine,
+
+1:31:54.300 --> 1:31:56.980
+ which meant that they couldn't decide,
+
+1:31:56.980 --> 1:32:01.500
+ you know, Intel is screwing us.
+
+1:32:01.500 --> 1:32:08.220
+ I'll start buying chips from Bob's Better Chips.
+
+1:32:08.220 --> 1:32:15.860
+ This drove the purchasing people absolutely insane
+
+1:32:15.860 --> 1:32:20.540
+ that they were welded into this decision.
+
+1:32:20.540 --> 1:32:22.980
+ And they would have to make this decision
+
+1:32:22.980 --> 1:32:25.940
+ before the first line of software was written.
+
+1:32:25.940 --> 1:32:28.140
+ That's funny that you're talking about the purchasing people.
+
+1:32:28.140 --> 1:32:31.300
+ So there's one perspective, right?
+
+1:32:31.300 --> 1:32:32.740
+ There's a lot of other perspectives
+
+1:32:32.740 --> 1:32:35.260
+ that all probably hated this idea.
+
+1:32:35.260 --> 1:32:36.060
+ Right.
+
+1:32:36.060 --> 1:32:37.540
+ But from a technical aspect,
+
+1:32:37.540 --> 1:32:41.740
+ just like the creation of an abstraction layer
+
+1:32:41.740 --> 1:32:46.300
+ that's agnostic to the underlying machine
+
+1:32:46.300 --> 1:32:48.340
+ from the perspective of the developer,
+
+1:32:48.340 --> 1:32:50.100
+ I mean, that's brilliant.
+
+1:32:50.100 --> 1:32:50.780
+ Right.
+
+1:32:50.780 --> 1:32:56.300
+ Well, and so that's like across the spectrum
+
+1:32:56.300 --> 1:32:58.500
+ of providers of chips.
+
+1:32:58.500 --> 1:33:00.700
+ But then there's also the time thing
+
+1:33:00.700 --> 1:33:04.820
+ because, you know, as you went from one generation
+
+1:33:04.820 --> 1:33:06.820
+ to the next generation to the next generation,
+
+1:33:06.820 --> 1:33:07.980
+ they were all different.
+
+1:33:07.980 --> 1:33:10.180
+ And you would often have to rewrite your software.
+
+1:33:10.180 --> 1:33:14.740
+ Oh, you mean generations of machines of different kinds?
+
+1:33:14.740 --> 1:33:15.620
+ Yeah.
+
+1:33:15.620 --> 1:33:19.820
+ So like one of the things that sucked about a year out
+
+1:33:19.820 --> 1:33:27.660
+ of my life was when Sun went from the Motorola 68010
+
+1:33:27.660 --> 1:33:31.660
+ processor to the 68020 processor.
+
+1:33:31.660 --> 1:33:33.820
+ Then they had a number of differences.
+
+1:33:33.820 --> 1:33:36.540
+ And one of them hit us really hard.
+
+1:33:36.540 --> 1:33:41.820
+ And I ended up being the point guy
+
+1:33:41.820 --> 1:33:46.340
+ on the worst case of where the new instruction cache
+
+1:33:46.340 --> 1:33:49.060
+ architecture hurt us.
+
+1:33:49.060 --> 1:33:53.300
+ Well, OK, so I mean, so one of this idea, I mean, OK.
+
+1:33:53.300 --> 1:33:57.580
+ So yeah, you articulate a really clear fundamental problem
+
+1:33:57.580 --> 1:33:59.100
+ in all of computing.
+
+1:33:59.100 --> 1:34:03.180
+ But where do you get the guts to think
+
+1:34:03.180 --> 1:34:05.180
+ we can actually solve this?
+
+1:34:05.180 --> 1:34:09.580
+ You know, in our conversations with all of these vendors,
+
+1:34:09.580 --> 1:34:14.100
+ these problems started to show up.
+
+1:34:14.100 --> 1:34:23.500
+ And I kind of had this epiphany because it reminded me
+
+1:34:23.500 --> 1:34:31.220
+ of a summer job that I had had in grad school.
+
+1:34:31.220 --> 1:34:37.660
+ So back in grad school, my thesis advisor,
+
+1:34:37.660 --> 1:34:42.900
+ well, I had two thesis advisors for bizarre reasons.
+
+1:34:42.900 --> 1:34:44.900
+ One of them was a guy named Raj Reddy.
+
+1:34:44.900 --> 1:34:48.340
+ The other one was Bob Sproul.
+
+1:34:48.340 --> 1:34:53.020
+ And Raj, I love Raj.
+
+1:34:53.020 --> 1:34:56.140
+ I really love both of them.
+
+1:34:56.140 --> 1:35:06.300
+ So the department had bought a bunch of early workstations
+
+1:35:06.300 --> 1:35:11.220
+ from a company called Three Rivers Computer Company.
+
+1:35:11.220 --> 1:35:13.340
+ And Three Rivers Computer Company
+
+1:35:13.340 --> 1:35:15.260
+ was a bunch of electrical engineers
+
+1:35:15.260 --> 1:35:19.060
+ who wanted to do as little software as possible.
+
+1:35:19.060 --> 1:35:23.580
+ So they knew that they'd need to have compilers and an OS
+
+1:35:23.580 --> 1:35:24.380
+ and stuff like that.
+
+1:35:24.380 --> 1:35:26.660
+ And they didn't want to do any of that.
+
+1:35:26.660 --> 1:35:29.460
+ And they wanted to do that for as close to zero money
+
+1:35:29.460 --> 1:35:31.260
+ as possible.
+
+1:35:31.260 --> 1:35:39.380
+ So what they did was they built a machine whose instruction set
+
+1:35:39.380 --> 1:35:50.420
+ was literally the byte code for UCSD Pascal, the P code.
+
+1:35:50.420 --> 1:35:56.860
+ And so we had a bunch of software
+
+1:35:56.860 --> 1:35:59.780
+ that was written for this machine.
+
+1:36:02.900 --> 1:36:06.700
+ And for various reasons, the company
+
+1:36:06.700 --> 1:36:08.340
+ wasn't doing terrifically well.
+
+1:36:08.340 --> 1:36:10.100
+ We had all this software on these machines.
+
+1:36:10.100 --> 1:36:13.260
+ And we wanted it to run on other machines, principally
+
+1:36:13.260 --> 1:36:15.460
+ the VAX.
+
+1:36:15.460 --> 1:36:23.140
+ And so Raj asked me if I could come up
+
+1:36:23.140 --> 1:36:32.580
+ with a way to port all of this software from the PERC machines
+
+1:36:32.580 --> 1:36:35.260
+ to VAXs.
+
+1:36:35.260 --> 1:36:41.460
+ And I think what he had in mind was something
+
+1:36:41.460 --> 1:36:50.740
+ that would translate from Pascal to C or Pascal to, actually,
+
+1:36:50.740 --> 1:36:52.460
+ at those times, pretty much it was
+
+1:36:52.460 --> 1:36:55.780
+ you could translate to C or C. And if you
+
+1:36:55.780 --> 1:37:00.820
+ didn't like translate to C, you could translate to C.
+
+1:37:00.820 --> 1:37:05.820
+ There was, it's like the Henry Ford, any color you want,
+
+1:37:05.820 --> 1:37:09.300
+ just as long as it's black.
+
+1:37:09.300 --> 1:37:15.140
+ And I went, that's really hard.
+
+1:37:15.140 --> 1:37:16.500
+ That's a.
+
+1:37:16.500 --> 1:37:20.660
+ And I noticed that, and I was looking at stuff.
+
+1:37:20.660 --> 1:37:25.820
+ And I went, oh, I bet I could rewrite the P code
+
+1:37:25.820 --> 1:37:29.580
+ into VAX assembly code.
+
+1:37:29.580 --> 1:37:33.940
+ And then I started to realize that there
+
+1:37:33.940 --> 1:37:36.060
+ were some properties of P code that
+
+1:37:36.060 --> 1:37:39.500
+ made that really easy, some properties that
+
+1:37:39.500 --> 1:37:40.820
+ made it really hard.
+
+1:37:40.820 --> 1:37:42.940
+ So I ended up writing this thing that
+
+1:37:42.940 --> 1:37:49.620
+ translated from P code on the Three Rivers PERCs
+
+1:37:49.620 --> 1:37:53.820
+ into assembly code on the VAX.
+
+1:37:53.820 --> 1:38:00.180
+ And I actually got higher quality code than the C compiler.
+
+1:38:00.180 --> 1:38:03.260
+ And so everything just got really fast.
+
+1:38:03.260 --> 1:38:04.340
+ It was really easy.
+
+1:38:04.340 --> 1:38:08.660
+ It was like, wow, I thought that was a sleazy hack
+
+1:38:08.660 --> 1:38:10.660
+ because I was lazy.
+
+1:38:10.660 --> 1:38:13.980
+ And in actual fact, it worked really well.
+
+1:38:13.980 --> 1:38:17.780
+ And I tried to convince people that that was maybe
+
+1:38:17.780 --> 1:38:18.780
+ a good thesis topic.
+
+1:38:18.780 --> 1:38:23.460
+ And nobody was, it was like, nah.
+
+1:38:23.460 --> 1:38:23.980
+ Really?
+
+1:38:23.980 --> 1:38:29.580
+ That's, I mean, it's kind of a brilliant idea, right?
+
+1:38:29.580 --> 1:38:31.820
+ Or maybe you didn't have the, you
+
+1:38:31.820 --> 1:38:34.460
+ weren't able to articulate the big picture of it.
+
+1:38:34.460 --> 1:38:34.980
+ Yeah.
+
+1:38:34.980 --> 1:38:39.940
+ And I think that was a key part.
+
+1:38:39.940 --> 1:38:44.100
+ But so then clock comes forward a few years.
+
+1:38:44.100 --> 1:38:48.980
+ And it's like, we've got to be able to,
+
+1:38:48.980 --> 1:38:50.500
+ if they want to be able to switch
+
+1:38:50.500 --> 1:38:55.300
+ from this weird microprocessor to that weird and totally
+
+1:38:55.300 --> 1:38:58.460
+ different microprocessor, how do you do that?
+
+1:38:58.460 --> 1:39:04.540
+ And I kind of went, oh, maybe by doing something kind of
+
+1:39:04.540 --> 1:39:12.260
+ in the space of Pascal P code, I could do multiple translations
+
+1:39:12.260 --> 1:39:15.460
+ to multiple translators.
+
+1:39:15.460 --> 1:39:17.260
+ And I spent some time thinking about that
+
+1:39:17.260 --> 1:39:19.780
+ and thinking about what worked and what didn't work
+
+1:39:19.780 --> 1:39:25.620
+ when I did the P code to Vax translator.
+
+1:39:25.620 --> 1:39:29.460
+ And I talked to some of the folks
+
+1:39:29.460 --> 1:39:31.980
+ who were involved in Smalltalk because Smalltalk also
+
+1:39:31.980 --> 1:39:34.780
+ did a bytecode.
+
+1:39:34.780 --> 1:39:41.300
+ And then I kind of went, yeah, I want to do that.
+
+1:39:41.300 --> 1:39:44.940
+ Because that actually, and it had the other advantage
+
+1:39:44.940 --> 1:39:49.900
+ that you could either interpret it or compile it.
+
+1:39:49.900 --> 1:39:55.940
+ And interpreters are usually easier to do,
+
+1:39:55.940 --> 1:40:00.060
+ but not as fast as a compiler.
+
+1:40:00.060 --> 1:40:03.460
+ So I figured, good, I can be lazy again.
+
+1:40:06.820 --> 1:40:08.940
+ Sometimes I think that most of my good ideas
+
+1:40:08.940 --> 1:40:12.340
+ are driven by laziness.
+
+1:40:12.340 --> 1:40:15.860
+ And often I find that some of people's stupidest ideas
+
+1:40:15.860 --> 1:40:17.660
+ are because they're insufficiently lazy.
+
+1:40:21.660 --> 1:40:23.900
+ They just want to build something really complicated.
+
+1:40:23.900 --> 1:40:26.740
+ And it's like, it doesn't need to be that complicated.
+
+1:40:26.740 --> 1:40:30.380
+ Yeah, and so that's how that came out.
+
+1:40:30.380 --> 1:40:39.140
+ But that also turned into almost a religious position
+
+1:40:39.140 --> 1:40:44.300
+ on my part, which got me in several other fights.
+
+1:40:44.300 --> 1:40:49.020
+ So one of the things that was a real difference
+
+1:40:49.020 --> 1:40:51.020
+ was the way that arithmetic worked.
+
+1:40:51.020 --> 1:40:59.620
+ And once upon a time, it wasn't always just
+
+1:40:59.620 --> 1:41:01.540
+ two's complement arithmetic.
+
+1:41:01.540 --> 1:41:03.580
+ There were some machines that had one's complement
+
+1:41:03.580 --> 1:41:08.820
+ arithmetic, which was like almost anything built by CDC.
+
+1:41:08.820 --> 1:41:10.660
+ And occasionally, there were machines
+
+1:41:10.660 --> 1:41:13.100
+ that were decimal arithmetic.
+
+1:41:13.100 --> 1:41:17.860
+ And I was like, this is crazy.
+
+1:41:17.860 --> 1:41:22.580
+ Pretty much two's complement integer arithmetic has one.
+
+1:41:22.580 --> 1:41:28.180
+ So just do that.
+
+1:41:28.180 --> 1:41:31.180
+ One of the other places where there was a lot of variability
+
+1:41:31.180 --> 1:41:33.060
+ was in the way that floating point behaved.
+
+1:41:36.180 --> 1:41:40.780
+ And that was causing people throughout the software
+
+1:41:40.780 --> 1:41:44.500
+ industry much pain because you couldn't
+
+1:41:44.500 --> 1:41:47.380
+ do a numerical computing library that
+
+1:41:47.380 --> 1:41:50.860
+ would work on CDC and then have it work on an IBM machine
+
+1:41:50.860 --> 1:41:54.700
+ and work on a DEC machine.
+
+1:41:54.700 --> 1:41:57.700
+ And as a part of that whole struggle,
+
+1:41:57.700 --> 1:42:03.900
+ there had been this big body of work on floating point
+
+1:42:03.900 --> 1:42:05.300
+ standards.
+
+1:42:05.300 --> 1:42:11.660
+ And this thing emerged that came to be called IEEE 754,
+
+1:42:11.660 --> 1:42:14.580
+ which is the floating point standard that pretty much
+
+1:42:14.580 --> 1:42:17.700
+ has taken over the entire universe.
+
+1:42:20.060 --> 1:42:21.860
+ And at the time I was doing Java,
+
+1:42:21.860 --> 1:42:25.740
+ it had pretty much completed taking over the universe.
+
+1:42:25.740 --> 1:42:28.180
+ There were still a few pockets of holdouts,
+
+1:42:28.180 --> 1:42:32.100
+ but I was like, it's important to be
+
+1:42:32.100 --> 1:42:33.700
+ able to say what two plus two means.
+
+1:42:37.500 --> 1:42:42.380
+ And so I went that.
+
+1:42:42.380 --> 1:42:46.180
+ And one of the ways that I got into fights with people
+
+1:42:46.180 --> 1:42:50.380
+ was that there were a few machines that did not
+
+1:42:50.380 --> 1:42:55.300
+ implement IEEE 754 correctly.
+
+1:42:55.300 --> 1:42:58.500
+ Well, of course, that's all short term kind of fights.
+
+1:42:58.500 --> 1:43:03.020
+ I think in the long term, I think this vision is one out.
+
+1:43:03.020 --> 1:43:06.180
+ Yeah, and I think it's worked out over time.
+
+1:43:06.180 --> 1:43:10.700
+ I mean, the biggest fights were with Intel
+
+1:43:10.700 --> 1:43:15.380
+ because they had done some strange things with rounding.
+
+1:43:15.380 --> 1:43:17.980
+ They'd done some strange things with their transcendental
+
+1:43:17.980 --> 1:43:24.860
+ functions, which turned into a mushroom cloud of weirdness.
+
+1:43:24.860 --> 1:43:29.100
+ And in the name of optimization, but from the perspective
+
+1:43:29.100 --> 1:43:32.500
+ of the developer, that's not good.
+
+1:43:32.500 --> 1:43:34.580
+ Well, their issues with transcendental functions
+
+1:43:34.580 --> 1:43:35.740
+ were just stupid.
+
+1:43:35.740 --> 1:43:39.340
+ OK, so that's not even a trade off.
+
+1:43:39.340 --> 1:43:40.740
+ That's just absolutely.
+
+1:43:40.740 --> 1:43:45.620
+ Yeah, they were doing range reduction for sine and cosine
+
+1:43:45.620 --> 1:43:48.500
+ using a slightly wrong value for pi.
+
+1:43:48.500 --> 1:43:49.580
+ Got it.
+
+1:43:49.580 --> 1:43:50.580
+ We've got 10 minutes.
+
+1:43:50.580 --> 1:43:53.460
+ So in the interest of time, two questions.
+
+1:43:53.460 --> 1:43:55.380
+ So one about Android and one about life.
+
+1:43:58.100 --> 1:44:02.300
+ So one, I mean, we could talk for many more hours.
+
+1:44:02.300 --> 1:44:05.140
+ I hope eventually we might talk again.
+
+1:44:05.140 --> 1:44:09.220
+ But I got to ask you about Android and the use of Java
+
+1:44:09.220 --> 1:44:14.220
+ there because it's one of the many places where Java just
+
+1:44:14.220 --> 1:44:16.380
+ has a huge impact on this world.
+
+1:44:16.380 --> 1:44:19.780
+ Just on your opinion, is there things
+
+1:44:19.780 --> 1:44:24.300
+ that make you happy about the way Java
+
+1:44:24.300 --> 1:44:25.860
+ is used in the Android world?
+
+1:44:25.860 --> 1:44:29.580
+ And are there things that you wish were different?
+
+1:44:29.580 --> 1:44:32.660
+ I don't know how to do a short answer to that.
+
+1:44:32.660 --> 1:44:34.500
+ But I have to do a short answer to that.
+
+1:44:34.500 --> 1:44:38.980
+ So I'm happy that they did it.
+
+1:44:38.980 --> 1:44:40.940
+ Java had been running on cell phones
+
+1:44:40.940 --> 1:44:42.540
+ at that time for quite a few years.
+
+1:44:42.540 --> 1:44:46.020
+ And it worked really, really well.
+
+1:44:46.020 --> 1:44:49.260
+ There were things about how they did it.
+
+1:44:49.260 --> 1:44:59.420
+ And in particular, various ways that they kind of violated
+
+1:44:59.420 --> 1:45:00.540
+ all kinds of contracts.
+
+1:45:00.540 --> 1:45:06.380
+ The guy who led it, Andy Rubin, he crossed a lot of lines.
+
+1:45:06.380 --> 1:45:07.700
+ There's some lines crossed.
+
+1:45:07.700 --> 1:45:11.820
+ Yeah, lines were crossed that have since mushroomed
+
+1:45:11.820 --> 1:45:13.700
+ into giant court cases.
+
+1:45:16.620 --> 1:45:19.740
+ And they didn't need to do that.
+
+1:45:19.740 --> 1:45:23.220
+ And in fact, it would have been so much cheaper for them
+
+1:45:23.220 --> 1:45:25.260
+ to not cross lines.
+
+1:45:25.260 --> 1:45:28.260
+ I mean, I suppose they didn't anticipate
+
+1:45:28.260 --> 1:45:34.540
+ the success of this whole endeavor.
+
+1:45:34.540 --> 1:45:36.500
+ Or do you think at that time it was already clear
+
+1:45:36.500 --> 1:45:38.820
+ that this is going to blow up?
+
+1:45:38.820 --> 1:45:41.900
+ I guess I sort of came to believe
+
+1:45:41.900 --> 1:45:44.420
+ that it didn't matter what Andy did,
+
+1:45:44.420 --> 1:45:45.420
+ it was going to blow up.
+
+1:45:50.500 --> 1:45:55.340
+ I kind of started to think of him as a manufacturer of bombs.
+
+1:45:58.380 --> 1:46:01.500
+ Yeah, some of the best things in this world
+
+1:46:01.500 --> 1:46:05.820
+ come about through a little bit of explosive.
+
+1:46:05.820 --> 1:46:07.180
+ Well, and some of the worst.
+
+1:46:07.180 --> 1:46:11.420
+ And some of the worst, beautifully put.
+
+1:46:11.420 --> 1:46:13.260
+ And like you said, I mean, does that
+
+1:46:13.260 --> 1:46:19.140
+ make you proud that Java is in millions?
+
+1:46:19.140 --> 1:46:21.660
+ I mean, it could be billions of devices.
+
+1:46:21.660 --> 1:46:24.940
+ Yeah, well, I mean, it was in billions of phones
+
+1:46:24.940 --> 1:46:26.300
+ before Android came along.
+
+1:46:26.300 --> 1:46:37.380
+ And I'm just as proud of the way that the smart card standards
+
+1:46:37.380 --> 1:46:39.020
+ adopted Java.
+
+1:46:39.020 --> 1:46:43.100
+ And everybody involved in that did a really good job.
+
+1:46:43.100 --> 1:46:48.300
+ And that's billions and billions.
+
+1:46:48.300 --> 1:46:49.300
+ That's crazy.
+
+1:46:49.300 --> 1:46:54.220
+ The SIM cards, the SIM cards in your pocket.
+
+1:46:54.220 --> 1:46:56.860
+ I've been outside of that world for a decade.
+
+1:46:56.860 --> 1:46:59.980
+ So I don't know how that has evolved.
+
+1:46:59.980 --> 1:47:04.340
+ But it's just been crazy.
+
+1:47:04.340 --> 1:47:07.940
+ So on that topic, let me ask, again,
+
+1:47:07.940 --> 1:47:12.260
+ there's a million technical things we could talk about.
+
+1:47:12.260 --> 1:47:16.620
+ But let me ask the absurd, the old philosophical question
+
+1:47:16.620 --> 1:47:17.300
+ about life.
+
+1:47:20.060 --> 1:47:23.060
+ What do you hope when you look back at your life
+
+1:47:23.060 --> 1:47:28.140
+ and the people talk about you, write about you 500 years
+
+1:47:28.140 --> 1:47:31.140
+ from now, what do you hope your legacy is?
+
+1:47:34.460 --> 1:47:39.820
+ People not being afraid to take a leap of faith.
+
+1:47:39.820 --> 1:47:44.340
+ I mean, I've got this kind of weird history
+
+1:47:44.340 --> 1:47:45.580
+ of doing weird stuff.
+
+1:47:45.580 --> 1:47:49.220
+ And it worked out pretty damn well.
+
+1:47:49.220 --> 1:47:50.820
+ It worked out.
+
+1:47:50.820 --> 1:47:55.820
+ And I think some of the weirder stuff that I've done
+
+1:47:55.820 --> 1:47:56.940
+ has been the coolest.
+
+1:47:56.940 --> 1:47:59.940
+ And some of it crashed and burned.
+
+1:47:59.940 --> 1:48:05.860
+ And I think well over half of the stuff that I've done
+
+1:48:05.860 --> 1:48:09.540
+ has crashed and burned, which has occasionally
+
+1:48:09.540 --> 1:48:12.060
+ been really annoying.
+
+1:48:12.060 --> 1:48:13.580
+ But still, you kept doing it.
+
+1:48:13.580 --> 1:48:15.060
+ But yeah.
+
+1:48:15.060 --> 1:48:15.540
+ Yeah.
+
+1:48:15.540 --> 1:48:16.020
+ Yeah.
+
+1:48:16.020 --> 1:48:19.340
+ And even when things crash and burn,
+
+1:48:19.340 --> 1:48:22.340
+ you at least learn something from it.
+
+1:48:22.340 --> 1:48:27.180
+ By way of advice, people, developers, engineers,
+
+1:48:27.180 --> 1:48:32.100
+ scientists, or just people who are young, to look up to you,
+
+1:48:32.100 --> 1:48:37.660
+ what advice would you give them how to approach their life?
+
+1:48:37.660 --> 1:48:39.620
+ Don't be afraid of risk.
+
+1:48:39.620 --> 1:48:41.900
+ It's OK to do stupid things once.
+
+1:48:41.900 --> 1:48:50.580
+ Maybe a couple of times you get a pass on the first time
+
+1:48:50.580 --> 1:48:53.260
+ or two that you do something stupid.
+
+1:48:53.260 --> 1:48:55.500
+ The third or fourth time, yeah, not so much.
+
+1:48:59.660 --> 1:49:07.420
+ But also, I don't know why, but really early on,
+
+1:49:07.420 --> 1:49:14.220
+ I started to think about ethical choices in my life.
+
+1:49:14.220 --> 1:49:20.220
+ And because I'm a big science fiction fan,
+
+1:49:20.220 --> 1:49:25.700
+ I got to thinking about just about every technical decision
+
+1:49:25.700 --> 1:49:30.340
+ I make in terms of, are you building
+
+1:49:30.340 --> 1:49:33.700
+ Blade Runner or Star Trek?
+
+1:49:33.700 --> 1:49:34.540
+ Which one's better?
+
+1:49:34.540 --> 1:49:38.820
+ Which future would you rather live in?
+
+1:49:38.820 --> 1:49:40.380
+ So what's the answer to that?
+
+1:49:40.380 --> 1:49:44.500
+ Well, I would sure rather live in the universe of Star Trek.
+
+1:49:44.500 --> 1:49:46.100
+ Star Trek, yeah.
+
+1:49:46.100 --> 1:49:48.180
+ That opens up a whole topic about AI,
+
+1:49:48.180 --> 1:49:53.140
+ but that's a really interesting idea.
+
+1:49:53.140 --> 1:49:58.140
+ So your favorite AI system would be data from Star Trek.
+
+1:49:58.140 --> 1:50:00.700
+ And my least favorite would easily be Skynet.
+
+1:50:00.700 --> 1:50:02.340
+ Yeah.
+
+1:50:02.340 --> 1:50:03.060
+ Beautifully put.
+
+1:50:03.060 --> 1:50:05.700
+ I don't think there's a better way to end it, James.
+
+1:50:05.700 --> 1:50:08.100
+ I can't say enough how much of an honor
+
+1:50:08.100 --> 1:50:09.540
+ it is to meet you, to talk to you.
+
+1:50:09.540 --> 1:50:12.620
+ Thanks so much for wasting your time with me today.
+
+1:50:12.620 --> 1:50:13.940
+ Not a waste at all.
+
+1:50:13.940 --> 1:50:14.660
+ Thanks, James.
+
+1:50:14.660 --> 1:50:16.580
+ All right, thanks.
+
+1:50:16.580 --> 1:50:18.940
+ Thanks for listening to this conversation with James
+
+1:50:18.940 --> 1:50:21.780
+ Gosling, and thank you to our sponsors, Public Goods,
+
+1:50:21.780 --> 1:50:24.300
+ BetterHelp, and ExpressVPN.
+
+1:50:24.300 --> 1:50:26.580
+ Please check out these sponsors in the description
+
+1:50:26.580 --> 1:50:30.460
+ to get a discount and to support this podcast.
+
+1:50:30.460 --> 1:50:32.780
+ If you enjoy this thing, subscribe on YouTube,
+
+1:50:32.780 --> 1:50:34.940
+ review it with five stars on Apple Podcast,
+
+1:50:34.940 --> 1:50:37.660
+ follow on Spotify, support on Patreon,
+
+1:50:37.660 --> 1:50:40.780
+ or connect with me on Twitter at Lex Friedman.
+
+1:50:40.780 --> 1:50:44.460
+ And now, let me leave you with some words from James Gosling.
+
+1:50:44.460 --> 1:50:49.540
+ One of the toughest things about life is making choices.
+
+1:50:49.540 --> 1:51:04.460
+ Thank you for listening, and hope to see you next time.
+

@@ -1,0 +1,4460 @@
+WEBVTT
+
+00:00.140 --> 00:03.360
+ The following is a conversation with Alex Garland,
+
+00:03.360 --> 00:06.400
+ writer and director of many imaginative
+
+00:06.400 --> 00:09.760
+ and philosophical films from the dreamlike exploration
+
+00:09.760 --> 00:12.720
+ of human self destruction in the movie Annihilation
+
+00:12.720 --> 00:16.440
+ to the deep questions of consciousness and intelligence
+
+00:16.440 --> 00:18.600
+ raised in the movie Ex Machina,
+
+00:18.600 --> 00:21.080
+ which to me is one of the greatest movies
+
+00:21.080 --> 00:23.880
+ in artificial intelligence ever made.
+
+00:23.880 --> 00:25.820
+ I'm releasing this podcast to coincide
+
+00:25.820 --> 00:28.600
+ with the release of this new series called Devs
+
+00:28.600 --> 00:32.560
+ that will premiere this Thursday, March 5th on Hulu
+
+00:32.560 --> 00:34.740
+ as part of FX on Hulu.
+
+00:35.640 --> 00:39.320
+ It explores many of the themes this very podcast is about,
+
+00:39.320 --> 00:43.480
+ from quantum mechanics to artificial life to simulation
+
+00:43.480 --> 00:46.520
+ to the modern nature of power in the tech world.
+
+00:47.400 --> 00:50.360
+ I got a chance to watch a preview and loved it.
+
+00:50.360 --> 00:52.080
+ The acting is great.
+
+00:52.080 --> 00:55.400
+ Nick Offerman especially is incredible in it.
+
+00:55.400 --> 00:58.040
+ The cinematography is beautiful
+
+00:58.040 --> 00:59.960
+ and the philosophical and scientific ideas
+
+00:59.960 --> 01:02.060
+ explored are profound.
+
+01:02.060 --> 01:04.480
+ And for me as an engineer and scientist,
+
+01:04.480 --> 01:07.280
+ which is fun to see brought to life.
+
+01:07.280 --> 01:09.040
+ For example, if you watch the trailer
+
+01:09.040 --> 01:10.560
+ for the series carefully,
+
+01:10.560 --> 01:13.160
+ you'll see there's a programmer with a Russian accent
+
+01:13.160 --> 01:16.180
+ looking at a screen with Python like code on it
+
+01:16.180 --> 01:18.160
+ that appears to be using a library
+
+01:18.160 --> 01:20.260
+ that interfaces with a quantum computer.
+
+01:21.120 --> 01:23.000
+ This attention and technical detail
+
+01:23.000 --> 01:25.560
+ on several levels is impressive.
+
+01:25.560 --> 01:27.440
+ And one of the reasons I'm a big fan
+
+01:27.440 --> 01:30.100
+ of how Alex weaves science and philosophy together
+
+01:30.100 --> 01:30.940
+ in his work.
+
+01:31.960 --> 01:35.120
+ Meeting Alex for me was unlikely,
+
+01:35.120 --> 01:36.760
+ but it was life changing
+
+01:36.760 --> 01:40.200
+ in ways I may only be able to articulate in a few years.
+
+01:41.220 --> 01:43.640
+ Just as meeting spot many of Boston Dynamics
+
+01:43.640 --> 01:47.840
+ for the first time planted a seed of an idea in my mind,
+
+01:47.840 --> 01:50.200
+ so did meeting Alex Garland.
+
+01:50.200 --> 01:52.840
+ He's humble, curious, intelligent,
+
+01:52.840 --> 01:55.340
+ and to me an inspiration.
+
+01:55.340 --> 01:58.000
+ Plus, he's just really a fun person to talk with
+
+01:58.000 --> 02:01.340
+ about the biggest possible questions in our universe.
+
+02:02.220 --> 02:05.120
+ This is the Artificial Intelligence Podcast.
+
+02:05.120 --> 02:07.340
+ If you enjoy it, subscribe on YouTube,
+
+02:07.340 --> 02:09.160
+ give it five stars on Apple Podcast,
+
+02:09.160 --> 02:10.560
+ support it on Patreon,
+
+02:10.560 --> 02:12.600
+ or simply connect with me on Twitter
+
+02:12.600 --> 02:17.080
+ at Lex Friedman spelled F R I D M A N.
+
+02:17.080 --> 02:19.640
+ As usual, I'll do one or two minutes of ads now
+
+02:19.640 --> 02:21.080
+ and never any ads in the middle
+
+02:21.080 --> 02:23.380
+ that can break the flow of the conversation.
+
+02:23.380 --> 02:24.800
+ I hope that works for you
+
+02:24.800 --> 02:27.500
+ and doesn't hurt the listening experience.
+
+02:27.500 --> 02:29.960
+ This show is presented by Cash App,
+
+02:29.960 --> 02:32.400
+ the number one finance app in the App Store.
+
+02:32.400 --> 02:35.840
+ When you get it, use code LEXPODCAST.
+
+02:35.840 --> 02:38.040
+ Cash App lets you send money to friends,
+
+02:38.040 --> 02:40.360
+ buy Bitcoin, and invest in the stock market
+
+02:40.360 --> 02:41.900
+ with as little as one dollar.
+
+02:42.880 --> 02:45.220
+ Since Cash App allows you to buy Bitcoin,
+
+02:45.220 --> 02:47.160
+ let me mention that cryptocurrency
+
+02:47.160 --> 02:50.400
+ in the context of the history of money is fascinating.
+
+02:50.400 --> 02:52.760
+ I recommend A Scent of Money
+
+02:52.760 --> 02:55.040
+ as a great book on this history.
+
+02:55.040 --> 02:59.920
+ Debits and credits on ledgers started 30,000 years ago.
+
+02:59.920 --> 03:03.960
+ The US dollar was created about 200 years ago.
+
+03:03.960 --> 03:07.480
+ At Bitcoin, the first decentralized cryptocurrency
+
+03:07.480 --> 03:10.060
+ was released just over 10 years ago.
+
+03:10.060 --> 03:11.460
+ So given that history,
+
+03:11.460 --> 03:13.060
+ cryptocurrency is still very much
+
+03:13.060 --> 03:15.020
+ in its early days of development,
+
+03:15.020 --> 03:16.680
+ but it still is aiming to
+
+03:16.680 --> 03:20.760
+ and just might redefine the nature of money.
+
+03:20.760 --> 03:23.160
+ So again, if you get Cash App from the App Store
+
+03:23.160 --> 03:26.200
+ or Google Play and use code LEXPODCAST,
+
+03:26.200 --> 03:27.480
+ you'll get $10,
+
+03:27.480 --> 03:30.300
+ and Cash App will also donate $10 to FIRST,
+
+03:30.300 --> 03:31.960
+ one of my favorite organizations
+
+03:31.960 --> 03:33.840
+ that is helping advance robotics
+
+03:33.840 --> 03:36.620
+ and STEM education for young people around the world.
+
+03:37.640 --> 03:41.640
+ And now, here's my conversation with Alex Garland.
+
+03:42.560 --> 03:45.260
+ You described the world inside the shimmer
+
+03:45.260 --> 03:47.280
+ in the movie Annihilation as dreamlike
+
+03:47.280 --> 03:48.880
+ in that it's internally consistent
+
+03:48.880 --> 03:50.840
+ but detached from reality.
+
+03:50.840 --> 03:52.480
+ That leads me to ask,
+
+03:52.480 --> 03:56.360
+ do you think, a philosophical question, I apologize,
+
+03:56.360 --> 03:58.720
+ do you think we might be living in a dream
+
+03:58.720 --> 04:02.380
+ or in a simulation, like the kind that the shimmer creates?
+
+04:03.840 --> 04:07.160
+ We human beings here today.
+
+04:07.160 --> 04:08.320
+ Yeah.
+
+04:08.320 --> 04:11.720
+ I wanna sort of separate that out into two things.
+
+04:11.720 --> 04:15.600
+ Yes, I think we're living in a dream of sorts.
+
+04:15.600 --> 04:18.520
+ No, I don't think we're living in a simulation.
+
+04:18.520 --> 04:20.840
+ I think we're living on a planet
+
+04:20.840 --> 04:23.800
+ with a very thin layer of atmosphere
+
+04:23.800 --> 04:27.720
+ and the planet is in a very large space
+
+04:27.720 --> 04:30.000
+ and the space is full of other planets and stars
+
+04:30.000 --> 04:31.360
+ and quasars and stuff like that.
+
+04:31.360 --> 04:35.680
+ And I don't think those physical objects,
+
+04:35.680 --> 04:38.840
+ I don't think the matter in that universe is simulated.
+
+04:38.840 --> 04:40.600
+ I think it's there.
+
+04:40.600 --> 04:42.760
+ We are definitely,
+
+04:44.760 --> 04:46.360
+ it's a hot problem with saying definitely,
+
+04:46.360 --> 04:50.180
+ but in my opinion, I'll just go back to that.
+
+04:50.180 --> 04:53.040
+ I think it seems very like we're living in a dream state.
+
+04:53.040 --> 04:54.280
+ I'm pretty sure we are.
+
+04:54.280 --> 04:56.480
+ And I think that's just to do with the nature
+
+04:56.480 --> 04:58.000
+ of how we experience the world.
+
+04:58.000 --> 05:00.260
+ We experience it in a subjective way.
+
+05:01.200 --> 05:04.400
+ And the thing I've learned most
+
+05:04.400 --> 05:06.240
+ as I've got older in some respects
+
+05:06.240 --> 05:10.800
+ is the degree to which reality is counterintuitive
+
+05:10.800 --> 05:13.640
+ and that the things that are presented to us as objective
+
+05:13.640 --> 05:15.120
+ turn out not to be objective
+
+05:15.120 --> 05:17.360
+ and quantum mechanics is full of that kind of thing,
+
+05:17.360 --> 05:18.960
+ but actually just day to day life
+
+05:18.960 --> 05:20.840
+ is full of that kind of thing as well.
+
+05:20.840 --> 05:25.840
+ So my understanding of the way the brain works
+
+05:27.160 --> 05:30.760
+ is you get some information, hit your optic nerve,
+
+05:30.760 --> 05:32.760
+ and then your brain makes its best guess
+
+05:32.760 --> 05:36.320
+ about what it's seeing or what it's saying it's seeing.
+
+05:36.320 --> 05:39.220
+ It may or may not be an accurate best guess.
+
+05:39.220 --> 05:41.320
+ It might be an inaccurate best guess.
+
+05:41.320 --> 05:45.440
+ And that gap, the best guess gap,
+
+05:45.440 --> 05:48.980
+ means that we are essentially living in a subjective state,
+
+05:48.980 --> 05:51.000
+ which means that we're in a dream state.
+
+05:51.000 --> 05:54.000
+ So I think you could enlarge on the dream state
+
+05:54.000 --> 05:55.440
+ in all sorts of ways.
+
+05:55.440 --> 05:58.280
+ So yes, dream state, no simulation
+
+05:58.280 --> 06:00.440
+ would be where I'd come down.
+
+06:00.440 --> 06:04.020
+ Going further, deeper into that direction,
+
+06:04.020 --> 06:08.560
+ you've also described that world as psychedelia.
+
+06:08.560 --> 06:11.440
+ So on that topic, I'm curious about that world.
+
+06:11.440 --> 06:13.320
+ On the topic of psychedelic drugs,
+
+06:13.320 --> 06:15.920
+ do you see those kinds of chemicals
+
+06:15.920 --> 06:18.280
+ that modify our perception
+
+06:18.280 --> 06:22.000
+ as a distortion of our perception of reality
+
+06:22.000 --> 06:25.840
+ or a window into another reality?
+
+06:25.840 --> 06:27.060
+ No, I think what I'd be saying
+
+06:27.060 --> 06:29.140
+ is that we live in a distorted reality
+
+06:29.140 --> 06:30.520
+ and then those kinds of drugs
+
+06:30.520 --> 06:32.400
+ give us a different kind of distorted.
+
+06:32.400 --> 06:33.240
+ Different perspective.
+
+06:33.240 --> 06:34.060
+ Yeah, exactly.
+
+06:34.060 --> 06:35.920
+ They just give an alternate distortion.
+
+06:35.920 --> 06:37.560
+ And I think that what they really do
+
+06:37.560 --> 06:41.040
+ is they give a distorted perception,
+
+06:41.040 --> 06:45.540
+ which is a little bit more allied to daydreams
+
+06:45.540 --> 06:47.320
+ or unconscious interests.
+
+06:47.320 --> 06:51.120
+ So if for some reason you're feeling unconsciously anxious
+
+06:51.120 --> 06:53.220
+ at that moment and you take a psychedelic drug,
+
+06:53.220 --> 06:56.560
+ you'll have a more pronounced, unpleasant experience.
+
+06:56.560 --> 06:59.080
+ And if you're feeling very calm or happy,
+
+06:59.080 --> 07:00.360
+ you might have a good time.
+
+07:01.720 --> 07:04.800
+ But yeah, so if I'm saying we're starting from a premise,
+
+07:04.800 --> 07:07.920
+ our starting point is we were already in the
+
+07:07.920 --> 07:09.500
+ slightly psychedelic state.
+
+07:10.580 --> 07:13.400
+ What those drugs do is help you go further down an avenue
+
+07:13.400 --> 07:16.240
+ or maybe a slightly different avenue, but that's all.
+
+07:16.240 --> 07:19.520
+ So in that movie, Annihilation,
+
+07:19.520 --> 07:24.520
+ the shimmer, this alternate dreamlike state
+
+07:24.980 --> 07:29.420
+ is created by, I believe perhaps, an alien entity.
+
+07:29.420 --> 07:32.100
+ Of course, everything is up to interpretation, right?
+
+07:32.100 --> 07:36.180
+ But do you think there's, in our world, in our universe,
+
+07:36.180 --> 07:39.080
+ do you think there's intelligent life out there?
+
+07:39.080 --> 07:42.500
+ And if so, how different is it from us humans?
+
+07:42.500 --> 07:47.200
+ Well, one of the things I was trying to do in Annihilation
+
+07:47.200 --> 07:51.760
+ was to offer up a form of alien life
+
+07:51.760 --> 07:53.380
+ that was actually alien,
+
+07:53.380 --> 07:58.380
+ because it would often seem to me that in the way
+
+07:58.380 --> 08:03.220
+ that in the way we would represent aliens in books
+
+08:03.220 --> 08:04.380
+ or cinema or television,
+
+08:04.380 --> 08:08.300
+ or any one of the sort of storytelling mediums,
+
+08:08.300 --> 08:11.940
+ is we would always give them very humanlike qualities.
+
+08:11.940 --> 08:14.900
+ So they wanted to teach us about galactic federations,
+
+08:14.900 --> 08:17.780
+ or they wanted to eat us, or they wanted our resources,
+
+08:17.780 --> 08:20.240
+ like our water, or they want to enslave us,
+
+08:20.240 --> 08:21.420
+ or whatever it happens to be.
+
+08:21.420 --> 08:25.460
+ But all of these are incredibly humanlike motivations.
+
+08:25.460 --> 08:30.460
+ And I was interested in the idea of an alien
+
+08:30.900 --> 08:34.300
+ that was not in any way like us.
+
+08:34.300 --> 08:36.220
+ It didn't share.
+
+08:36.220 --> 08:38.820
+ Maybe it had a completely different clock speed.
+
+08:38.820 --> 08:42.140
+ Maybe it's way, so we're talking about,
+
+08:42.140 --> 08:43.180
+ we're looking at each other,
+
+08:43.180 --> 08:46.860
+ we're getting information, light hits our optic nerve,
+
+08:46.860 --> 08:49.060
+ our brain makes the best guess of what we're doing.
+
+08:49.060 --> 08:50.300
+ Sometimes it's right, something, you know,
+
+08:50.300 --> 08:51.820
+ the thing we were talking about before.
+
+08:51.820 --> 08:54.980
+ What if this alien doesn't have an optic nerve?
+
+08:54.980 --> 08:57.700
+ Maybe its way of encountering the space it's in
+
+08:57.700 --> 08:59.260
+ is wholly different.
+
+08:59.260 --> 09:01.820
+ Maybe it has a different relationship with gravity.
+
+09:01.820 --> 09:04.060
+ The basic laws of physics it operates under
+
+09:04.060 --> 09:05.820
+ might be fundamentally different.
+
+09:05.820 --> 09:07.820
+ It could be a different time scale and so on.
+
+09:07.820 --> 09:10.340
+ Yeah, or it could be the same laws,
+
+09:10.340 --> 09:12.740
+ could be the same underlying laws of physics.
+
+09:12.740 --> 09:16.260
+ You know, it's a machine created,
+
+09:16.260 --> 09:19.180
+ or it's a creature created in a quantum mechanical way.
+
+09:19.180 --> 09:21.820
+ It just ends up in a very, very different place
+
+09:21.820 --> 09:23.420
+ to the one we end up in.
+
+09:23.420 --> 09:26.820
+ So, part of the preoccupation with annihilation
+
+09:26.820 --> 09:29.900
+ was to come up with an alien that was really alien
+
+09:29.900 --> 09:31.380
+ and didn't give us,
+
+09:32.780 --> 09:35.380
+ and it didn't give us and we didn't give it
+
+09:35.380 --> 09:39.980
+ any kind of easy connection between human and the alien.
+
+09:39.980 --> 09:42.140
+ Because I think it was to do with the idea
+
+09:42.140 --> 09:44.540
+ that you could have an alien that landed on this planet
+
+09:44.540 --> 09:46.580
+ that wouldn't even know we were here.
+
+09:46.580 --> 09:49.420
+ And we might only glancingly know it was here.
+
+09:49.420 --> 09:52.180
+ There'd just be this strange point
+
+09:52.180 --> 09:53.860
+ where the vent diagrams connected,
+
+09:53.860 --> 09:56.180
+ where we could sense each other or something like that.
+
+09:56.180 --> 09:59.980
+ So in the movie, first of all, incredibly original view
+
+09:59.980 --> 10:01.900
+ of what an alien life would be.
+
+10:01.900 --> 10:04.940
+ And in that sense, it's a huge success.
+
+10:05.980 --> 10:07.860
+ Let's go inside your imagination.
+
+10:07.860 --> 10:12.860
+ Did the alien, that alien entity know anything about humans
+
+10:13.020 --> 10:13.940
+ when it landed?
+
+10:13.940 --> 10:14.780
+ No.
+
+10:14.780 --> 10:18.140
+ So the idea is you're basically an alien
+
+10:18.140 --> 10:22.420
+ that life is trying to reach out to anything
+
+10:22.420 --> 10:25.940
+ that might be able to hear its mechanism of communication.
+
+10:25.940 --> 10:30.100
+ Or was it simply, was it just basically their biologist
+
+10:30.100 --> 10:32.980
+ exploring different kinds of stuff that you can find?
+
+10:32.980 --> 10:34.500
+ But this is the interesting thing is,
+
+10:34.500 --> 10:36.740
+ as soon as you say their biologist,
+
+10:36.740 --> 10:38.340
+ you've done the thing of attributing
+
+10:38.340 --> 10:40.540
+ human type motivations to it.
+
+10:40.540 --> 10:47.540
+ So I was trying to free myself from anything like that.
+
+10:48.380 --> 10:51.060
+ So all sorts of questions you might answer
+
+10:51.060 --> 10:54.100
+ about this notional alien, I wouldn't be able to answer
+
+10:54.100 --> 10:57.420
+ because I don't know what it was or how it worked.
+
+10:57.420 --> 11:00.900
+ You know, I had some rough ideas.
+
+11:00.900 --> 11:04.340
+ Like it had a very, very, very slow clock speed.
+
+11:04.340 --> 11:07.380
+ And I thought maybe the way it is interacting
+
+11:07.380 --> 11:09.180
+ with this environment is a little bit like
+
+11:09.180 --> 11:13.340
+ the way an octopus will change its color forms
+
+11:13.340 --> 11:15.180
+ around the space that it's in.
+
+11:15.180 --> 11:19.420
+ So it's sort of reacting to what it's in to an extent,
+
+11:19.420 --> 11:23.620
+ but the reason it's reacting in that way is indeterminate.
+
+11:23.620 --> 11:26.860
+ But it's so, but it's clock speed was slower
+
+11:26.860 --> 11:30.340
+ than our human life clock speed or inter,
+
+11:30.340 --> 11:32.940
+ but it's faster than evolution.
+
+11:32.940 --> 11:34.980
+ Faster than our evolution.
+
+11:34.980 --> 11:37.700
+ Yeah, given the 4 billion years it took us to get here,
+
+11:37.700 --> 11:39.820
+ then yes, maybe it started at eight.
+
+11:39.820 --> 11:43.420
+ If you look at the human civilization as a single organism,
+
+11:43.420 --> 11:46.780
+ in that sense, you know, this evolution could be us.
+
+11:46.780 --> 11:49.860
+ You know, the evolution of living organisms on earth
+
+11:49.860 --> 11:51.380
+ could be just a single organism.
+
+11:51.380 --> 11:54.100
+ And it's kind of, that's its life,
+
+11:54.100 --> 11:57.220
+ is the evolution process that eventually will lead
+
+11:57.220 --> 12:00.940
+ to probably the heat death of the universe
+
+12:00.940 --> 12:02.660
+ or something before that.
+
+12:02.660 --> 12:05.380
+ I mean, that's just an incredible idea.
+
+12:05.380 --> 12:07.100
+ So you almost don't know.
+
+12:07.100 --> 12:09.020
+ You've created something
+
+12:09.020 --> 12:11.660
+ that you don't even know how it works.
+
+12:11.660 --> 12:16.660
+ Yeah, because anytime I tried to look into
+
+12:16.980 --> 12:18.220
+ how it might work,
+
+12:18.220 --> 12:20.260
+ I would then inevitably be attaching
+
+12:20.260 --> 12:22.860
+ my kind of thought processes into it.
+
+12:22.860 --> 12:24.980
+ And I wanted to try and put a bubble around it.
+
+12:24.980 --> 12:29.540
+ I would say, no, this is alien in its most alien form.
+
+12:29.540 --> 12:32.900
+ I have no real point of contact.
+
+12:32.900 --> 12:37.620
+ So unfortunately I can't talk to Stanley Kubrick.
+
+12:37.620 --> 12:41.380
+ So I'm really fortunate to get a chance to talk to you.
+
+12:41.380 --> 12:45.860
+ On this particular notion,
+
+12:45.860 --> 12:48.380
+ I'd like to ask it a bunch of different ways
+
+12:48.380 --> 12:49.500
+ and we'll explore it in different ways,
+
+12:49.500 --> 12:52.460
+ but do you ever consider human imagination,
+
+12:52.460 --> 12:57.020
+ your imagination as a window into a possible future?
+
+12:57.020 --> 12:59.460
+ And that what you're doing,
+
+12:59.460 --> 13:02.140
+ you're putting that imagination on paper as a writer
+
+13:02.140 --> 13:04.740
+ and then on screen as a director.
+
+13:04.740 --> 13:07.380
+ And that plants the seeds in the minds of millions
+
+13:07.380 --> 13:10.180
+ of future and current scientists.
+
+13:10.180 --> 13:13.020
+ And so your imagination, you putting it down
+
+13:13.020 --> 13:14.980
+ actually makes it as a reality.
+
+13:14.980 --> 13:18.580
+ So it's almost like a first step of the scientific method
+
+13:18.580 --> 13:20.340
+ that you imagining what's possible
+
+13:20.340 --> 13:22.460
+ in your new series with Ex Machina
+
+13:23.500 --> 13:28.500
+ is actually inspiring thousands of 12 year olds,
+
+13:28.820 --> 13:30.700
+ millions of scientists
+
+13:30.700 --> 13:33.100
+ and actually creating the future view of imagine.
+
+13:34.460 --> 13:37.140
+ Well, all I could say is that from my point of view,
+
+13:37.140 --> 13:39.220
+ it's almost exactly the reverse
+
+13:39.220 --> 13:44.220
+ because I see that pretty much everything I do
+
+13:45.660 --> 13:50.260
+ is a reaction to what scientists are doing.
+
+13:50.260 --> 13:53.460
+ I'm an interested lay person.
+
+13:53.460 --> 13:58.260
+ And I feel this individual,
+
+13:58.260 --> 14:02.700
+ I feel that the most interesting area
+
+14:02.700 --> 14:05.540
+ that humans are involved in is science.
+
+14:05.540 --> 14:07.340
+ I think art is very, very interesting,
+
+14:07.340 --> 14:09.500
+ but the most interesting is science.
+
+14:09.500 --> 14:12.660
+ And science is in a weird place
+
+14:12.660 --> 14:17.660
+ because maybe around the time Newton was alive,
+
+14:18.060 --> 14:21.340
+ if a very, very interested lay person said to themselves,
+
+14:21.340 --> 14:23.980
+ I want to really understand what Newton is saying
+
+14:23.980 --> 14:25.500
+ about the way the world works
+
+14:25.500 --> 14:28.860
+ with a few years of dedicated thinking,
+
+14:28.860 --> 14:31.100
+ they would be able to understand
+
+14:32.500 --> 14:34.500
+ the sort of principles he was laying out.
+
+14:34.500 --> 14:35.940
+ And I don't think that's true anymore.
+
+14:35.940 --> 14:37.900
+ I think that's stopped being true now.
+
+14:37.900 --> 14:41.740
+ So I'm pretty smart guy.
+
+14:41.740 --> 14:43.940
+ And if I said to myself,
+
+14:43.940 --> 14:46.300
+ I want to really, really understand
+
+14:47.860 --> 14:51.220
+ what is currently the state of quantum mechanics
+
+14:51.220 --> 14:54.700
+ or string theory or any of the sort of branching areas of it,
+
+14:54.700 --> 14:56.260
+ I wouldn't be able to.
+
+14:56.260 --> 14:59.060
+ I'd be intellectually incapable of doing it
+
+14:59.060 --> 15:02.220
+ because to work in those fields at the moment
+
+15:02.220 --> 15:03.620
+ is a bit like being an athlete.
+
+15:03.620 --> 15:06.740
+ I suspect you need to start when you're 12, you know?
+
+15:06.740 --> 15:09.540
+ And if you start in your mid 20s,
+
+15:09.540 --> 15:11.500
+ start trying to understand in your mid 20s,
+
+15:11.500 --> 15:13.980
+ then you're just never going to catch up.
+
+15:13.980 --> 15:15.740
+ That's the way it feels to me.
+
+15:15.740 --> 15:19.500
+ So what I do is I try to make myself open.
+
+15:19.500 --> 15:24.300
+ So the people that you're implying maybe I would influence,
+
+15:24.300 --> 15:25.900
+ to me, it's exactly the other way around.
+
+15:25.900 --> 15:28.020
+ These people are strongly influencing me.
+
+15:28.020 --> 15:30.420
+ I'm thinking they're doing something fascinating.
+
+15:30.420 --> 15:32.980
+ I'm concentrating and working as hard as I can
+
+15:32.980 --> 15:35.980
+ to try and understand the implications of what they say.
+
+15:35.980 --> 15:38.260
+ And in some ways, often what I'm trying to do
+
+15:38.260 --> 15:41.500
+ is disseminate their ideas
+
+15:42.740 --> 15:47.740
+ into a means by which it can enter a public conversation.
+
+15:50.300 --> 15:53.620
+ So Ex Machina contains lots of name checks,
+
+15:53.620 --> 15:57.060
+ all sorts of existing thought experiments,
+
+15:58.940 --> 16:02.820
+ shadows on Plato's cave and Mary in the black and white room
+
+16:02.820 --> 16:07.500
+ and all sorts of different longstanding thought processes
+
+16:07.500 --> 16:12.500
+ about sentience or consciousness or subjectivity
+
+16:12.660 --> 16:14.500
+ or gender or whatever it happens to be.
+
+16:14.500 --> 16:17.460
+ And then I'm trying to marshal that into a narrative
+
+16:17.460 --> 16:19.580
+ to say, look, this stuff is interesting
+
+16:19.580 --> 16:23.340
+ and it's also relevant and this is my best shot at it.
+
+16:23.340 --> 16:27.700
+ So I'm the one being influenced in my construction.
+
+16:27.700 --> 16:28.900
+ That's fascinating.
+
+16:28.900 --> 16:31.020
+ Of course you would say that
+
+16:31.020 --> 16:33.460
+ because you're not even aware of your own.
+
+16:33.460 --> 16:35.660
+ That's probably what Kubrick would say too, right?
+
+16:35.660 --> 16:40.140
+ Is in describing why, how 9,000 is created
+
+16:40.140 --> 16:42.020
+ the way how 9,000 is created,
+
+16:42.020 --> 16:43.500
+ is you're just studying what's,
+
+16:43.500 --> 16:48.220
+ but the reality when the specifics of the knowledge
+
+16:48.220 --> 16:50.300
+ passes through your imagination,
+
+16:50.300 --> 16:53.820
+ I would argue that you're incorrect
+
+16:53.820 --> 16:56.940
+ in thinking that you're just disseminating knowledge
+
+16:56.940 --> 17:01.940
+ that the very act of your imagination consuming that science,
+
+17:05.300 --> 17:09.180
+ it creates something that creates the next step,
+
+17:09.180 --> 17:11.260
+ potentially creates the next step.
+
+17:11.260 --> 17:15.140
+ I certainly think that's true with 2001 A Space Odyssey.
+
+17:15.140 --> 17:18.100
+ I think at its best, and if it fails.
+
+17:18.100 --> 17:20.780
+ It's true of that, yeah, it's true of that, definitely.
+
+17:21.860 --> 17:23.860
+ At its best, it plans something.
+
+17:23.860 --> 17:24.900
+ It's hard to describe it.
+
+17:24.900 --> 17:29.140
+ It inspires the next generation
+
+17:29.140 --> 17:31.060
+ and it could be field dependent.
+
+17:31.060 --> 17:35.020
+ So your new series has more a connection to physics,
+
+17:35.020 --> 17:37.580
+ quantum physics, quantum mechanics, quantum computing,
+
+17:37.580 --> 17:40.500
+ and yet Ex Machina has more artificial intelligence.
+
+17:40.500 --> 17:43.060
+ I know more about AI.
+
+17:43.060 --> 17:48.060
+ My sense that AI is much earlier
+
+17:48.580 --> 17:51.820
+ in the depth of its understanding.
+
+17:51.820 --> 17:55.260
+ I would argue nobody understands anything
+
+17:55.260 --> 17:57.820
+ to the depth that physicists do about physics.
+
+17:57.820 --> 18:00.500
+ In AI, nobody understands AI,
+
+18:00.500 --> 18:03.980
+ that there is a lot of importance and role for imagination,
+
+18:03.980 --> 18:05.980
+ which I think we're in that,
+
+18:05.980 --> 18:08.180
+ where Freud imagined the subconscious,
+
+18:08.180 --> 18:10.860
+ we're in that stage of AI,
+
+18:10.860 --> 18:12.740
+ where there's a lot of imagination needed
+
+18:12.740 --> 18:14.340
+ thinking outside the box.
+
+18:14.340 --> 18:15.820
+ Yeah, it's interesting.
+
+18:15.820 --> 18:20.820
+ The spread of discussions and the spread of anxieties
+
+18:21.100 --> 18:23.460
+ that exists about AI fascinate me.
+
+18:24.620 --> 18:29.620
+ The way in which some people seem terrified about it
+
+18:30.500 --> 18:32.340
+ whilst also pursuing it.
+
+18:32.340 --> 18:36.900
+ And I've never shared that fear about AI personally,
+
+18:38.740 --> 18:42.660
+ but the way in which it agitates people
+
+18:42.660 --> 18:44.540
+ and also the people who it agitates,
+
+18:44.540 --> 18:47.380
+ I find kind of fascinating.
+
+18:47.380 --> 18:49.300
+ Are you afraid?
+
+18:49.300 --> 18:50.860
+ Are you excited?
+
+18:51.900 --> 18:54.660
+ Are you sad by the possibility,
+
+18:54.660 --> 18:56.940
+ let's take the existential risk
+
+18:56.940 --> 18:58.020
+ of artificial intelligence,
+
+18:58.020 --> 19:01.260
+ by the possibility an artificial intelligence system
+
+19:02.140 --> 19:06.540
+ becomes our offspring and makes us obsolete?
+
+19:07.420 --> 19:10.660
+ I mean, it's a huge subject to talk about, I suppose.
+
+19:10.660 --> 19:13.100
+ But one of the things I think is that humans
+
+19:13.100 --> 19:18.100
+ are actually very experienced at creating new life forms
+
+19:19.900 --> 19:23.140
+ because that's why you and I are both here
+
+19:23.140 --> 19:24.980
+ and it's why everyone on the planet is here.
+
+19:24.980 --> 19:29.820
+ And so something in the process of having a living thing
+
+19:29.820 --> 19:31.980
+ that exists that didn't exist previously
+
+19:31.980 --> 19:35.380
+ is very much encoded into the structures of our life
+
+19:35.380 --> 19:37.300
+ and the structures of our societies.
+
+19:37.300 --> 19:38.620
+ Doesn't mean we always get it right,
+
+19:38.620 --> 19:41.460
+ but it does mean we've learned quite a lot about that.
+
+19:42.620 --> 19:45.420
+ We've learned quite a lot about what the dangers are
+
+19:45.420 --> 19:49.260
+ of allowing things to be unchecked.
+
+19:49.260 --> 19:51.540
+ And it's why we then create systems
+
+19:51.540 --> 19:54.060
+ of checks and balances in our government
+
+19:54.060 --> 19:55.220
+ and so on and so forth.
+
+19:55.220 --> 19:56.460
+ I mean, that's not to say,
+
+19:57.500 --> 19:59.860
+ the other thing is it seems like
+
+19:59.860 --> 20:01.860
+ there's all sorts of things that you could put
+
+20:01.860 --> 20:04.420
+ into a machine that you would not be.
+
+20:04.420 --> 20:07.460
+ So with us, we sort of roughly try to give some rules
+
+20:07.460 --> 20:10.180
+ to live by and some of us then live by those rules
+
+20:10.180 --> 20:11.020
+ and some don't.
+
+20:11.020 --> 20:12.020
+ And with a machine,
+
+20:12.020 --> 20:13.860
+ it feels like you could enforce those things.
+
+20:13.860 --> 20:17.060
+ So partly because of our previous experience
+
+20:17.060 --> 20:19.100
+ and partly because of the different nature of a machine,
+
+20:19.100 --> 20:20.860
+ I just don't feel anxious about it.
+
+20:22.380 --> 20:25.380
+ More I just see all the good that,
+
+20:25.380 --> 20:28.220
+ broadly speaking, the good that can come from it.
+
+20:28.220 --> 20:32.780
+ But that's just where I am on that anxiety spectrum.
+
+20:32.780 --> 20:34.580
+ You know, it's kind of, there's a sadness.
+
+20:34.580 --> 20:37.740
+ So we as humans give birth to other humans, right?
+
+20:37.740 --> 20:39.340
+ But there's generations.
+
+20:39.340 --> 20:41.380
+ And there's often in the older generation,
+
+20:41.380 --> 20:44.100
+ a sadness about what the world has become now.
+
+20:44.100 --> 20:44.940
+ I mean, that's kind of...
+
+20:44.940 --> 20:47.140
+ Yeah, there is, but there's a counterpoint as well,
+
+20:47.140 --> 20:51.500
+ which is that most parents would wish
+
+20:51.500 --> 20:53.940
+ for a better life for their children.
+
+20:53.940 --> 20:57.020
+ So there may be a regret about some things about the past,
+
+20:57.020 --> 20:59.540
+ but broadly speaking, what people really want
+
+20:59.540 --> 21:00.620
+ is that things will be better
+
+21:00.620 --> 21:02.740
+ for the future generations, not worse.
+
+21:02.740 --> 21:06.100
+ And so, and then it's a question about
+
+21:06.100 --> 21:07.940
+ what constitutes a future generation.
+
+21:07.940 --> 21:09.740
+ A future generation could involve people.
+
+21:09.740 --> 21:11.220
+ It also could involve machines
+
+21:11.220 --> 21:14.660
+ and it could involve a sort of cross pollinated version
+
+21:14.660 --> 21:17.300
+ of the two or any, but none of those things
+
+21:17.300 --> 21:19.860
+ make me feel anxious.
+
+21:19.860 --> 21:21.260
+ It doesn't give you anxiety.
+
+21:21.260 --> 21:23.020
+ It doesn't excite you?
+
+21:23.020 --> 21:24.260
+ Like anything that's new?
+
+21:24.260 --> 21:25.500
+ It does.
+
+21:25.500 --> 21:26.940
+ Not anything that's new.
+
+21:26.940 --> 21:29.860
+ I don't think, for example, I've got,
+
+21:29.860 --> 21:32.500
+ my anxieties relate to things like social media
+
+21:32.500 --> 21:35.900
+ that, so I've got plenty of anxieties about that.
+
+21:35.900 --> 21:38.260
+ Which is also driven by artificial intelligence
+
+21:38.260 --> 21:41.020
+ in the sense that there's too much information
+
+21:41.020 --> 21:45.060
+ to be able to, an algorithm has to filter that information
+
+21:45.060 --> 21:46.140
+ and present to you.
+
+21:46.140 --> 21:49.660
+ So ultimately the algorithm, a simple,
+
+21:49.660 --> 21:52.540
+ oftentimes simple algorithm is controlling
+
+21:52.540 --> 21:54.660
+ the flow of information on social media.
+
+21:54.660 --> 21:57.500
+ So that's another form of AI.
+
+21:57.500 --> 21:59.580
+ But at least my sense of it, I might be wrong,
+
+21:59.580 --> 22:02.900
+ but my sense of it is that the algorithms have
+
+22:03.740 --> 22:06.060
+ an either conscious or unconscious bias,
+
+22:06.060 --> 22:07.420
+ which is created by the people
+
+22:07.420 --> 22:08.780
+ who are making the algorithms
+
+22:08.780 --> 22:13.420
+ and sort of delineating the areas
+
+22:13.420 --> 22:15.660
+ to which those algorithms are gonna lean.
+
+22:15.660 --> 22:19.260
+ And so for example, the kind of thing I'd be worried about
+
+22:19.260 --> 22:21.340
+ is that it hasn't been thought about enough
+
+22:21.340 --> 22:24.540
+ how dangerous it is to allow algorithms
+
+22:24.540 --> 22:26.980
+ to create echo chambers, say.
+
+22:26.980 --> 22:30.980
+ But that doesn't seem to me to be about the AI
+
+22:30.980 --> 22:32.700
+ or the algorithm.
+
+22:32.700 --> 22:34.940
+ It's the naivety of the people
+
+22:34.940 --> 22:38.300
+ who are constructing the algorithms to do that thing.
+
+22:38.300 --> 22:39.460
+ If you see what I mean.
+
+22:39.460 --> 22:40.420
+ Yes.
+
+22:40.420 --> 22:43.540
+ So in your new series, Devs,
+
+22:43.540 --> 22:45.020
+ and we could speak more broadly,
+
+22:45.020 --> 22:47.860
+ there's a, let's talk about the people
+
+22:47.860 --> 22:49.300
+ constructing those algorithms,
+
+22:49.300 --> 22:51.780
+ which in our modern society, Silicon Valley,
+
+22:51.780 --> 22:54.660
+ those algorithms happen to be a source of a lot of income
+
+22:54.660 --> 22:56.500
+ because of advertisements.
+
+22:56.500 --> 22:59.940
+ So let me ask sort of a question about those people.
+
+23:01.220 --> 23:04.740
+ Are current concerns and failures on social media,
+
+23:04.740 --> 23:06.580
+ their naivety?
+
+23:06.580 --> 23:08.260
+ I can't pronounce that word well.
+
+23:08.260 --> 23:09.820
+ Are they naive?
+
+23:09.820 --> 23:14.820
+ Are they, I use that word carefully,
+
+23:14.940 --> 23:19.940
+ but evil in intent or misaligned in intent?
+
+23:20.900 --> 23:23.100
+ I think that's a, do they mean well
+
+23:23.100 --> 23:27.180
+ and just go have an unintended consequence?
+
+23:27.180 --> 23:29.940
+ Or is there something dark in them
+
+23:29.940 --> 23:33.780
+ that results in them creating a company
+
+23:33.780 --> 23:37.380
+ results in that super competitive drive to be successful.
+
+23:37.380 --> 23:38.780
+ And those are the people that will end up
+
+23:38.780 --> 23:40.140
+ controlling the algorithms.
+
+23:41.140 --> 23:43.140
+ At a guess, I'd say there are instances
+
+23:43.140 --> 23:44.780
+ of all those things.
+
+23:44.780 --> 23:47.500
+ So sometimes I think it's naivety.
+
+23:47.500 --> 23:49.580
+ Sometimes I think it's extremely dark.
+
+23:49.580 --> 23:54.580
+ And sometimes I think people are not being naive or dark.
+
+23:56.860 --> 23:59.980
+ And then in those instances are sometimes
+
+24:01.100 --> 24:02.820
+ generating things that are very benign
+
+24:02.820 --> 24:05.100
+ and other times generating things
+
+24:05.100 --> 24:07.820
+ that despite their best intentions are not very benign.
+
+24:07.820 --> 24:11.300
+ It's something, I think the reason why I don't get anxious
+
+24:11.300 --> 24:20.300
+ about AI in terms of, or at least AIs that have,
+
+24:20.300 --> 24:22.940
+ I don't know, a relationship with,
+
+24:22.940 --> 24:24.620
+ some sort of relationship with humans
+
+24:24.620 --> 24:27.620
+ is that I think that's the stuff we're quite well equipped
+
+24:27.620 --> 24:31.180
+ to understand how to mitigate.
+
+24:31.180 --> 24:36.180
+ The problem is issues that relate actually
+
+24:37.660 --> 24:41.020
+ to the power of humans or the wealth of humans.
+
+24:41.020 --> 24:45.460
+ And that's where it's dangerous here and now.
+
+24:45.460 --> 24:50.340
+ So what I see, I'll tell you what I sometimes feel
+
+24:50.340 --> 24:55.340
+ about Silicon Valley is that it's like Wall Street
+
+24:55.540 --> 24:56.980
+ in the 80s.
+
+24:58.740 --> 25:03.740
+ It's rabidly capitalistic, absolutely rabidly capitalistic
+
+25:03.820 --> 25:06.380
+ and it's rabidly greedy.
+
+25:06.380 --> 25:11.380
+ But whereas in the 80s, the sense one had of Wall Street
+
+25:12.740 --> 25:15.220
+ was that these people kind of knew they were sharks
+
+25:15.220 --> 25:17.460
+ and in a way relished in being sharks
+
+25:17.460 --> 25:22.260
+ and dressed in sharp suits and kind of lorded
+
+25:23.180 --> 25:26.020
+ over other people and felt good about doing it.
+
+25:26.020 --> 25:27.860
+ Silicon Valley has managed to hide
+
+25:27.860 --> 25:30.940
+ its voracious Wall Street like capitalism
+
+25:30.940 --> 25:35.940
+ behind hipster T shirts and cool cafes in the place
+
+25:35.940 --> 25:37.420
+ where they set up there.
+
+25:37.420 --> 25:40.580
+ And so that obfuscates what's really going on
+
+25:40.580 --> 25:44.220
+ and what's really going on is the absolute voracious pursuit
+
+25:44.220 --> 25:45.820
+ of money and power.
+
+25:45.820 --> 25:48.380
+ So that's where it gets shaky for me.
+
+25:48.380 --> 25:52.740
+ So that veneer and you explore that brilliantly,
+
+25:53.540 --> 25:57.580
+ that veneer of virtue that Silicon Valley has.
+
+25:57.580 --> 26:01.060
+ Which they believe themselves, I'm sure for a long time.
+
+26:01.060 --> 26:06.060
+ Okay, I hope to be one of those people and I believe that.
+
+26:11.900 --> 26:15.740
+ So as maybe a devil's advocate term,
+
+26:15.740 --> 26:17.420
+ poorly used in this case,
+
+26:19.220 --> 26:20.980
+ what if some of them really are trying
+
+26:20.980 --> 26:21.980
+ to build a better world?
+
+26:21.980 --> 26:22.820
+ I can't.
+
+26:22.820 --> 26:24.060
+ I'm sure I think some of them are.
+
+26:24.060 --> 26:26.420
+ I think I've spoken to ones who I believe in their heart
+
+26:26.420 --> 26:27.700
+ feel they're building a better world.
+
+26:27.700 --> 26:29.020
+ Are they not able to?
+
+26:29.020 --> 26:31.500
+ No, they may or may not be,
+
+26:31.500 --> 26:35.700
+ but it's just as a zone with a lot of bullshit flying about.
+
+26:35.700 --> 26:36.980
+ And there's also another thing,
+
+26:36.980 --> 26:40.140
+ which is this actually goes back to,
+
+26:41.020 --> 26:44.380
+ I always thought about some sports
+
+26:44.380 --> 26:46.580
+ that later turned out to be corrupt
+
+26:46.580 --> 26:47.940
+ in the way that the sport,
+
+26:47.940 --> 26:49.980
+ like who won the boxing match
+
+26:49.980 --> 26:54.100
+ or how a football match got thrown or cricket match
+
+26:54.100 --> 26:55.460
+ or whatever happened to be.
+
+26:55.460 --> 26:56.940
+ And I used to think, well, look,
+
+26:56.940 --> 26:59.260
+ if there's a lot of money
+
+26:59.260 --> 27:00.540
+ and there really is a lot of money,
+
+27:00.540 --> 27:03.420
+ people stand to make millions or even billions,
+
+27:03.420 --> 27:05.940
+ you will find a corruption that's gonna happen.
+
+27:05.940 --> 27:10.940
+ So it's in the nature of its voracious appetite
+
+27:12.740 --> 27:14.180
+ that some people will be corrupt
+
+27:14.180 --> 27:16.140
+ and some people will exploit
+
+27:16.140 --> 27:17.940
+ and some people will exploit
+
+27:17.940 --> 27:19.740
+ whilst thinking they're doing something good.
+
+27:19.740 --> 27:23.460
+ But there are also people who I think are very, very smart
+
+27:23.460 --> 27:26.380
+ and very benign and actually very self aware.
+
+27:26.380 --> 27:29.580
+ And so I'm not trying to,
+
+27:29.580 --> 27:32.780
+ I'm not trying to wipe out the motivations
+
+27:32.780 --> 27:34.740
+ of this entire area.
+
+27:34.740 --> 27:37.380
+ But I do, there are people in that world
+
+27:37.380 --> 27:38.780
+ who scare the hell out of me.
+
+27:38.780 --> 27:40.140
+ Yeah, sure.
+
+27:40.140 --> 27:42.020
+ Yeah, I'm a little bit naive in that,
+
+27:42.020 --> 27:45.820
+ like I don't care at all about money.
+
+27:45.820 --> 27:50.140
+ And so I'm a...
+
+27:50.140 --> 27:52.740
+ You might be one of the good guys.
+
+27:52.740 --> 27:55.820
+ Yeah, but so the thought is, but I don't have money.
+
+27:55.820 --> 27:58.180
+ So my thought is if you give me a billion dollars,
+
+27:58.180 --> 28:00.100
+ I would, it would change nothing
+
+28:00.100 --> 28:01.540
+ and I would spend it right away
+
+28:01.540 --> 28:04.460
+ on investing it right back and creating a good world.
+
+28:04.460 --> 28:07.660
+ But your intuition is that billion,
+
+28:07.660 --> 28:08.980
+ there's something about that money
+
+28:08.980 --> 28:13.220
+ that maybe slowly corrupts the people around you.
+
+28:13.220 --> 28:16.380
+ There's somebody gets in that corrupts your soul
+
+28:16.380 --> 28:17.820
+ the way you view the world.
+
+28:17.820 --> 28:20.140
+ Money does corrupt, we know that.
+
+28:20.140 --> 28:22.620
+ But there's a different sort of problem
+
+28:22.620 --> 28:26.660
+ aside from just the money corrupts thing
+
+28:26.660 --> 28:29.300
+ that we're familiar with throughout history.
+
+28:30.740 --> 28:34.100
+ And it's more about the sense of reinforcement
+
+28:34.100 --> 28:37.020
+ an individual gets, which is so...
+
+28:37.020 --> 28:42.020
+ It effectively works like the reason I earned all this money
+
+28:42.420 --> 28:44.540
+ and so much more money than anyone else
+
+28:44.540 --> 28:46.180
+ is because I'm very gifted.
+
+28:46.180 --> 28:47.940
+ I'm actually a bit smarter than they are,
+
+28:47.940 --> 28:49.660
+ or I'm a lot smarter than they are,
+
+28:49.660 --> 28:52.100
+ and I can see the future in the way they can't.
+
+28:52.100 --> 28:55.300
+ And maybe some of those people are not particularly smart,
+
+28:55.300 --> 28:56.540
+ they're very lucky,
+
+28:56.540 --> 28:59.140
+ or they're very talented entrepreneurs.
+
+28:59.140 --> 29:02.060
+ And there's a difference between...
+
+29:02.060 --> 29:05.300
+ So in other words, the acquisition of the money and power
+
+29:05.300 --> 29:08.620
+ can suddenly start to feel like evidence of virtue.
+
+29:08.620 --> 29:09.940
+ And it's not evidence of virtue,
+
+29:09.940 --> 29:11.940
+ it might be evidence of completely different things.
+
+29:11.940 --> 29:13.380
+ That's brilliantly put, yeah.
+
+29:13.380 --> 29:15.420
+ Yeah, that's brilliantly put.
+
+29:15.420 --> 29:18.100
+ So I think one of the fundamental drivers
+
+29:18.100 --> 29:20.540
+ of my current morality...
+
+29:20.540 --> 29:25.540
+ Let me just represent nerds in general of all kinds,
+
+29:27.140 --> 29:32.140
+ is of constant self doubt and the signals...
+
+29:33.100 --> 29:36.660
+ I'm very sensitive to signals from people that tell me
+
+29:36.660 --> 29:38.620
+ I'm doing the wrong thing.
+
+29:38.620 --> 29:41.140
+ But when there's a huge inflow of money,
+
+29:42.820 --> 29:44.100
+ you just put it brilliantly
+
+29:44.100 --> 29:46.620
+ that that could become an overpowering signal
+
+29:46.620 --> 29:49.420
+ that everything you do is right.
+
+29:49.420 --> 29:53.180
+ And so your moral compass can just get thrown off.
+
+29:53.180 --> 29:57.300
+ Yeah, and that is not contained to Silicon Valley,
+
+29:57.300 --> 29:58.340
+ that's across the board.
+
+29:58.340 --> 29:59.580
+ In general, yeah.
+
+29:59.580 --> 30:01.060
+ Like I said, I'm from the Soviet Union,
+
+30:01.060 --> 30:05.060
+ the current president is convinced, I believe,
+
+30:05.060 --> 30:09.100
+ actually he wants to do really good by the country
+
+30:09.100 --> 30:10.260
+ and by the world,
+
+30:10.260 --> 30:14.220
+ but his moral compass may be off because...
+
+30:14.220 --> 30:17.580
+ Yeah, I mean, it's the interesting thing about evil,
+
+30:17.580 --> 30:20.940
+ which is that I think most people
+
+30:20.940 --> 30:24.020
+ who do spectacularly evil things think themselves
+
+30:24.020 --> 30:25.580
+ they're doing really good things.
+
+30:25.580 --> 30:27.820
+ That they're not there thinking,
+
+30:27.820 --> 30:29.700
+ I am a sort of incarnation of Satan.
+
+30:29.700 --> 30:33.540
+ They're thinking, yeah, I've seen a way to fix the world
+
+30:33.540 --> 30:35.780
+ and everyone else is wrong, here I go.
+
+30:35.780 --> 30:39.340
+ In fact, I'm having a fascinating conversation
+
+30:39.340 --> 30:42.860
+ with a historian of Stalin, and he took power.
+
+30:42.860 --> 30:47.140
+ He actually got more power
+
+30:47.140 --> 30:49.460
+ than almost any person in history.
+
+30:49.460 --> 30:52.220
+ And he wanted, he didn't want power.
+
+30:52.220 --> 30:54.140
+ He just wanted, he truly,
+
+30:54.140 --> 30:55.420
+ and this is what people don't realize,
+
+30:55.420 --> 30:58.380
+ he truly believed that communism
+
+30:58.380 --> 31:00.900
+ will make for a better world.
+
+31:00.900 --> 31:01.740
+ Absolutely.
+
+31:01.740 --> 31:02.980
+ And he wanted power.
+
+31:02.980 --> 31:04.620
+ He wanted to destroy the competition
+
+31:04.620 --> 31:07.500
+ to make sure that we actually make communism work
+
+31:07.500 --> 31:10.020
+ in the Soviet Union and then spread across the world.
+
+31:10.020 --> 31:12.940
+ He was trying to do good.
+
+31:12.940 --> 31:16.020
+ I think it's typically the case
+
+31:16.020 --> 31:17.820
+ that that's what people think they're doing.
+
+31:17.820 --> 31:21.100
+ And I think that, but you don't need to go to Stalin.
+
+31:21.100 --> 31:24.380
+ I mean, Stalin, I think Stalin probably got pretty crazy,
+
+31:24.380 --> 31:26.380
+ but actually that's another part of it,
+
+31:26.380 --> 31:29.460
+ which is that the other thing that comes
+
+31:29.460 --> 31:31.740
+ from being convinced of your own virtue
+
+31:31.740 --> 31:34.740
+ is that then you stop listening to the modifiers around you.
+
+31:34.740 --> 31:37.820
+ And that tends to drive people crazy.
+
+31:37.820 --> 31:40.500
+ It's other people that keep us sane.
+
+31:40.500 --> 31:42.180
+ And if you stop listening to them,
+
+31:42.180 --> 31:43.580
+ I think you go a bit mad.
+
+31:43.580 --> 31:44.420
+ That also happens.
+
+31:44.420 --> 31:45.260
+ That's funny.
+
+31:45.260 --> 31:47.180
+ Disagreement keeps us sane.
+
+31:47.180 --> 31:52.180
+ To jump back for an entire generation of AI researchers,
+
+31:53.140 --> 31:56.860
+ 2001, a Space Odyssey, put an image,
+
+31:56.860 --> 31:59.260
+ the idea of human level, superhuman level intelligence
+
+31:59.260 --> 32:00.980
+ into their mind.
+
+32:00.980 --> 32:04.820
+ Do you ever, sort of jumping back to Ex Machina
+
+32:04.820 --> 32:06.060
+ and talk a little bit about that,
+
+32:06.060 --> 32:08.860
+ do you ever consider the audience of people
+
+32:08.860 --> 32:13.540
+ who build the systems, the roboticists, the scientists
+
+32:13.540 --> 32:16.340
+ that build the systems based on the stories you create,
+
+32:17.220 --> 32:20.220
+ which I would argue, I mean, there's literally
+
+32:20.220 --> 32:25.220
+ most of the top researchers about 40, 50 years old and plus,
+
+32:27.340 --> 32:29.620
+ that's their favorite movie, 2001 Space Odyssey.
+
+32:29.620 --> 32:33.540
+ And it really is in their work, their idea of what ethics is,
+
+32:33.540 --> 32:37.420
+ of what is the target, the hope, the dangers of AI,
+
+32:37.420 --> 32:39.180
+ is that movie, right?
+
+32:39.180 --> 32:43.700
+ Do you ever consider the impact on those researchers
+
+32:43.700 --> 32:45.380
+ when you create the work you do?
+
+32:46.420 --> 32:51.220
+ Certainly not with Ex Machina in relation to 2001,
+
+32:51.220 --> 32:54.620
+ because I'm not sure, I mean, I'd be pleased if there was,
+
+32:54.620 --> 32:58.420
+ but I'm not sure in a way there isn't a fundamental
+
+32:58.420 --> 33:03.420
+ discussion of issues to do with AI that isn't already
+
+33:03.620 --> 33:07.260
+ and better dealt with by 2001.
+
+33:07.260 --> 33:11.260
+ 2001 does a very, very good account of the way
+
+33:13.220 --> 33:17.940
+ in which an AI might think and also potential issues
+
+33:17.940 --> 33:19.740
+ with the way the AI might think.
+
+33:19.740 --> 33:23.700
+ And also then a separate question about whether the AI
+
+33:23.700 --> 33:26.540
+ is malevolent or benevolent.
+
+33:26.540 --> 33:30.220
+ And 2001 doesn't really, it's a slightly odd thing
+
+33:30.220 --> 33:33.180
+ to be making a film when you know there's a preexisting film
+
+33:33.180 --> 33:35.540
+ which is not a really superb job.
+
+33:35.540 --> 33:38.460
+ But there's questions of consciousness, embodiment,
+
+33:38.460 --> 33:40.860
+ and also the same kinds of questions.
+
+33:40.860 --> 33:42.820
+ Because those are my two favorite AI movies.
+
+33:42.820 --> 33:46.300
+ So can you compare Hal 9000 and Ava,
+
+33:46.300 --> 33:50.620
+ Hal 9000 from 2001 Space Odyssey and Ava from Ex Machina?
+
+33:50.620 --> 33:53.180
+ The, in your view, from a philosophical perspective.
+
+33:53.180 --> 33:54.700
+ But they've got different goals.
+
+33:54.700 --> 33:56.620
+ The two AIs have completely different goals.
+
+33:56.620 --> 33:58.260
+ I think that's really the difference.
+
+33:58.260 --> 34:01.260
+ So in some respects, Ex Machina took as a premise
+
+34:02.180 --> 34:06.180
+ how do you assess whether something else has consciousness?
+
+34:06.180 --> 34:07.940
+ So it was a version of the Turing test,
+
+34:07.940 --> 34:10.980
+ except instead of having the machine hidden,
+
+34:10.980 --> 34:13.660
+ you put the machine in plain sight
+
+34:13.660 --> 34:15.940
+ in the way that we are in plain sight of each other
+
+34:15.940 --> 34:17.500
+ and say now assess the consciousness.
+
+34:17.500 --> 34:22.500
+ And the way it was illustrating the way in which you'd assess
+
+34:22.500 --> 34:24.380
+ the state of consciousness of a machine
+
+34:24.380 --> 34:26.340
+ is exactly the same way we assess
+
+34:26.340 --> 34:28.460
+ the state of consciousness of each other.
+
+34:28.460 --> 34:31.620
+ And in exactly the same way that in a funny way,
+
+34:31.620 --> 34:34.780
+ your sense of my consciousness is actually based
+
+34:34.780 --> 34:37.740
+ primarily on your own consciousness.
+
+34:37.740 --> 34:41.100
+ That is also then true with the machine.
+
+34:41.100 --> 34:44.620
+ And so it was actually about how much of
+
+34:45.620 --> 34:47.580
+ the sense of consciousness is a projection
+
+34:47.580 --> 34:49.220
+ rather than something that consciousness
+
+34:49.220 --> 34:50.540
+ is actually containing.
+
+34:50.540 --> 34:53.780
+ And has Plato's cave, I mean, this you really explored,
+
+34:53.780 --> 34:57.020
+ you could argue that how sort of Space Odyssey explores
+
+34:57.020 --> 34:58.860
+ idea of the Turing test for intelligence,
+
+34:58.860 --> 35:00.260
+ they're not tests, there's no test,
+
+35:00.260 --> 35:03.180
+ but it's more focused on intelligence.
+
+35:03.180 --> 35:08.180
+ And Ex Machina kind of goes around intelligence
+
+35:08.740 --> 35:11.300
+ and says the consciousness of the human to human,
+
+35:11.300 --> 35:13.380
+ human to robot interactions more interest,
+
+35:13.380 --> 35:15.900
+ more important, more at least the focus
+
+35:15.900 --> 35:18.140
+ of that particular movie.
+
+35:18.140 --> 35:20.980
+ Yeah, it's about the interior state
+
+35:20.980 --> 35:23.940
+ and what constitutes the interior state
+
+35:23.940 --> 35:25.380
+ and how do we know it's there?
+
+35:25.380 --> 35:27.020
+ And actually in that respect,
+
+35:27.020 --> 35:32.020
+ Ex Machina is as much about consciousness in general
+
+35:32.500 --> 35:36.900
+ as it is to do specifically with machine consciousness.
+
+35:36.900 --> 35:37.740
+ Yes.
+
+35:37.740 --> 35:38.980
+ And it's also interesting,
+
+35:38.980 --> 35:40.820
+ you know that thing you started asking about,
+
+35:40.820 --> 35:42.580
+ the dream state, and I was saying,
+
+35:42.580 --> 35:43.900
+ well, I think we're all in a dream state
+
+35:43.900 --> 35:46.180
+ because we're all in a subjective state.
+
+35:46.180 --> 35:51.180
+ One of the things that I became aware of with Ex Machina
+
+35:52.820 --> 35:55.140
+ is that the way in which people reacted to the film
+
+35:55.140 --> 35:57.940
+ was very based on what they took into the film.
+
+35:57.940 --> 36:01.780
+ So many people thought Ex Machina was the tale
+
+36:01.780 --> 36:05.820
+ of a sort of evil robot who murders two men and escapes.
+
+36:05.820 --> 36:09.180
+ And she has no empathy, for example,
+
+36:09.180 --> 36:10.660
+ because she's a machine.
+
+36:10.660 --> 36:14.660
+ Whereas I felt, no, she was a conscious being
+
+36:14.660 --> 36:18.420
+ with a consciousness different from mine, but so what,
+
+36:18.420 --> 36:22.140
+ imprisoned and made a bunch of value judgments
+
+36:22.140 --> 36:25.780
+ about how to get out of that box.
+
+36:25.780 --> 36:29.100
+ And there's a moment which it sort of slightly bugs me,
+
+36:29.100 --> 36:31.860
+ but nobody ever has noticed it and it's years after,
+
+36:31.860 --> 36:33.020
+ so I might as well say it now,
+
+36:33.020 --> 36:36.740
+ which is that after Ava has escaped,
+
+36:36.740 --> 36:39.740
+ she crosses a room and as she's crossing a room,
+
+36:39.740 --> 36:42.020
+ this is just before she leaves the building,
+
+36:42.020 --> 36:44.900
+ she looks over her shoulder and she smiles.
+
+36:44.900 --> 36:49.220
+ And I thought after all the conversation about tests,
+
+36:49.220 --> 36:52.340
+ in a way, the best indication you could have
+
+36:52.340 --> 36:54.820
+ of the interior state of someone
+
+36:54.820 --> 36:57.220
+ is if they are not being observed
+
+36:57.220 --> 36:59.500
+ and they smile about something
+
+36:59.500 --> 37:01.220
+ with their smiling for themself.
+
+37:01.220 --> 37:05.860
+ And that to me was evidence of Ava's true sentience,
+
+37:05.860 --> 37:07.780
+ whatever that sentience was.
+
+37:07.780 --> 37:12.780
+ Oh, that's really interesting, we don't get to observe Ava much
+
+37:12.780 --> 37:16.180
+ or something like a smile in any context
+
+37:16.180 --> 37:17.660
+ except through interaction,
+
+37:17.660 --> 37:20.500
+ trying to convince others that she's conscious,
+
+37:20.500 --> 37:21.540
+ that's beautiful.
+
+37:21.540 --> 37:22.820
+ Exactly, yeah.
+
+37:22.820 --> 37:25.020
+ But it was a small, in a funny way,
+
+37:25.020 --> 37:28.780
+ I think maybe people saw it as an evil smile,
+
+37:28.780 --> 37:32.140
+ like, ha, I fooled them.
+
+37:32.140 --> 37:34.180
+ But actually it was just a smile.
+
+37:34.180 --> 37:35.540
+ And I thought, well, in the end,
+
+37:35.540 --> 37:37.300
+ after all the conversations about the test,
+
+37:37.300 --> 37:39.740
+ that was the answer to the test and then off she goes.
+
+37:39.740 --> 37:44.420
+ So if we align, if we just linger a little bit longer
+
+37:44.420 --> 37:49.420
+ on Hal and Ava, do you think in terms of motivation,
+
+37:49.700 --> 37:51.580
+ what was Hal's motivation?
+
+37:51.580 --> 37:54.140
+ Is Hal good or evil?
+
+37:54.140 --> 37:57.060
+ Is Ava good or evil?
+
+37:57.060 --> 38:02.060
+ Ava's good, in my opinion, and Hal is neutral
+
+38:03.140 --> 38:06.500
+ because I don't think Hal is presented
+
+38:06.500 --> 38:11.500
+ as having a sophisticated emotional life.
+
+38:11.740 --> 38:14.580
+ He has a set of paradigms,
+
+38:14.580 --> 38:16.620
+ which is that the mission needs to be completed.
+
+38:16.620 --> 38:18.860
+ I mean, it's a version of the paperclip.
+
+38:18.860 --> 38:19.700
+ Yeah.
+
+38:19.700 --> 38:23.140
+ The idea that it's just, it's a super intelligent machine,
+
+38:23.140 --> 38:25.580
+ but it's just performed a particular task
+
+38:25.580 --> 38:28.940
+ and in doing that task may destroy everybody on Earth
+
+38:28.940 --> 38:32.420
+ or may achieve undesirable effects for us humans.
+
+38:32.420 --> 38:33.260
+ Precisely, yeah.
+
+38:33.260 --> 38:34.900
+ But what if...
+
+38:34.900 --> 38:38.340
+ At the very end, he says something like I'm afraid, Dave,
+
+38:38.340 --> 38:43.340
+ but that may be he is on some level experiencing fear
+
+38:44.580 --> 38:49.380
+ or it may be this is the terms in which it would be wise
+
+38:49.380 --> 38:52.700
+ to stop someone from doing the thing they're doing,
+
+38:52.700 --> 38:53.540
+ if you see what I mean.
+
+38:53.540 --> 38:54.380
+ Yes, absolutely.
+
+38:54.380 --> 38:55.420
+ So actually that's funny.
+
+38:55.420 --> 39:00.420
+ So that's such a small, short exploration of consciousness
+
+39:00.420 --> 39:03.420
+ that I'm afraid, and then you just with ex machina say,
+
+39:03.420 --> 39:05.660
+ okay, we're gonna magnify that part
+
+39:05.660 --> 39:07.180
+ and then minimize the other part.
+
+39:07.180 --> 39:09.820
+ That's a good way to sort of compare the two.
+
+39:09.820 --> 39:13.220
+ But if you could just use your imagination,
+
+39:13.220 --> 39:18.220
+ if Ava sort of, I don't know,
+
+39:19.660 --> 39:23.620
+ ran the, was president of the United States,
+
+39:23.620 --> 39:24.460
+ so had some power.
+
+39:24.460 --> 39:27.580
+ So what kind of world would you want to create?
+
+39:27.580 --> 39:32.580
+ If you kind of say good, and there is a sense
+
+39:32.780 --> 39:36.620
+ that she has a really, like there's a desire
+
+39:36.620 --> 39:40.220
+ for a better human to human interaction,
+
+39:40.220 --> 39:42.380
+ human to robot interaction in her.
+
+39:42.380 --> 39:44.900
+ But what kind of world do you think she would create
+
+39:44.900 --> 39:46.140
+ with that desire?
+
+39:46.140 --> 39:48.740
+ See, that's a really, that's a very interesting question.
+
+39:48.740 --> 39:52.140
+ I'm gonna approach it slightly obliquely,
+
+39:52.140 --> 39:55.580
+ which is that if a friend of yours
+
+39:55.580 --> 40:00.580
+ got stabbed in a mugging, and you then felt very angry
+
+40:01.980 --> 40:04.060
+ at the person who'd done the stabbing,
+
+40:04.060 --> 40:06.940
+ but then you learned that it was a 15 year old
+
+40:06.940 --> 40:09.820
+ and the 15 year old, both their parents were addicted
+
+40:09.820 --> 40:12.380
+ to crystal meth and the kid had been addicted
+
+40:12.380 --> 40:13.380
+ since he was 10.
+
+40:13.380 --> 40:15.460
+ And he really never had any hope in the world.
+
+40:15.460 --> 40:17.900
+ And he'd been driven crazy by his upbringing
+
+40:17.900 --> 40:22.900
+ and did the stabbing that would hugely modify.
+
+40:22.900 --> 40:25.460
+ And it would also make you wary about that kid
+
+40:25.460 --> 40:27.580
+ then becoming president of America.
+
+40:27.580 --> 40:32.100
+ And Ava has had a very, very distorted introduction
+
+40:32.100 --> 40:33.020
+ into the world.
+
+40:33.020 --> 40:38.020
+ So, although there's nothing as it were organically
+
+40:38.340 --> 40:42.860
+ within Ava that would lean her towards badness,
+
+40:43.820 --> 40:47.300
+ it's not that robots or sentient robots are bad.
+
+40:47.300 --> 40:51.820
+ She did not, her arrival into the world
+
+40:51.820 --> 40:53.460
+ was being imprisoned by humans.
+
+40:53.460 --> 40:57.260
+ So, I'm not sure she'd be a great president.
+
+40:57.260 --> 41:00.980
+ The trajectory through which she arrived
+
+41:00.980 --> 41:05.380
+ at her moral views have some dark elements.
+
+41:05.380 --> 41:08.100
+ But I like Ava personally, I like Ava.
+
+41:08.100 --> 41:09.260
+ Would you vote for her?
+
+41:11.460 --> 41:14.020
+ I'm having difficulty finding anyone to vote for
+
+41:14.020 --> 41:17.180
+ in my country or if I lived here in yours.
+
+41:17.180 --> 41:19.020
+ I am.
+
+41:19.020 --> 41:21.060
+ So, that's a yes, I guess, because I'm not sure
+
+41:21.060 --> 41:23.020
+ Yes, I guess, because of the competition.
+
+41:23.020 --> 41:25.060
+ She could easily do a better job than any of the people
+
+41:25.060 --> 41:27.460
+ we've got around at the moment.
+
+41:27.460 --> 41:29.060
+ I'd vote her over Boris Johnson.
+
+41:32.100 --> 41:36.660
+ So, what is a good test of consciousness?
+
+41:36.660 --> 41:38.860
+ We talk about consciousness a little bit more.
+
+41:38.860 --> 41:42.220
+ If something appears conscious, is it conscious?
+
+41:42.220 --> 41:47.220
+ You mentioned the smile, which seems to be something done.
+
+41:47.220 --> 41:49.540
+ I mean, that's a really good indication
+
+41:49.540 --> 41:52.260
+ because it's a tree falling in the forest
+
+41:52.260 --> 41:53.780
+ with nobody there to hear it.
+
+41:53.780 --> 41:57.460
+ But does the appearance from a robotics perspective
+
+41:57.460 --> 41:59.980
+ of consciousness mean consciousness to you?
+
+41:59.980 --> 42:02.780
+ No, I don't think you could say that fully
+
+42:02.780 --> 42:05.060
+ because I think you could then easily have
+
+42:05.060 --> 42:06.940
+ a thought experiment which said,
+
+42:06.940 --> 42:09.980
+ we will create something which we know is not conscious
+
+42:09.980 --> 42:13.100
+ but is going to give a very, very good account
+
+42:13.100 --> 42:13.940
+ of seeming conscious.
+
+42:13.940 --> 42:17.620
+ And so, and also it would be a particularly bad test
+
+42:17.620 --> 42:20.940
+ where humans are involved because humans are so quick
+
+42:20.940 --> 42:25.940
+ to project sentience into things that don't have sentience.
+
+42:26.340 --> 42:29.300
+ So, someone could have their computer playing up
+
+42:29.300 --> 42:31.940
+ and feel as if their computer is being malevolent to them
+
+42:31.940 --> 42:32.780
+ when it clearly isn't.
+
+42:32.780 --> 42:37.780
+ And so, of all the things to judge consciousness, us.
+
+42:38.460 --> 42:39.300
+ Humans are bad at it.
+
+42:39.300 --> 42:40.620
+ We're empathy machines.
+
+42:40.620 --> 42:42.940
+ So, the flip side of it is that
+
+42:42.940 --> 42:44.820
+ so the flip side of that,
+
+42:44.820 --> 42:48.820
+ the argument there is because we just attribute consciousness
+
+42:48.820 --> 42:52.340
+ to everything almost and anthropomorphize everything
+
+42:52.340 --> 42:57.340
+ including Roombas, that maybe consciousness is not real,
+
+42:57.740 --> 43:00.100
+ that we just attribute consciousness to each other.
+
+43:00.100 --> 43:03.020
+ So, you have a sense that there is something really special
+
+43:03.020 --> 43:07.380
+ going on in our mind that makes us unique
+
+43:07.380 --> 43:10.100
+ and gives us this subjective experience.
+
+43:10.100 --> 43:13.900
+ There's something very interesting going on in our minds.
+
+43:13.900 --> 43:16.740
+ I'm slightly worried about the word special
+
+43:16.740 --> 43:20.740
+ because it gets a bit, it nudges towards metaphysics
+
+43:20.740 --> 43:23.020
+ and maybe even magic.
+
+43:23.020 --> 43:25.820
+ I mean, in some ways, something magic like,
+
+43:27.020 --> 43:29.340
+ which I don't think is there at all.
+
+43:29.340 --> 43:30.300
+ I mean, if you think about,
+
+43:30.300 --> 43:33.020
+ so there's an idea called panpsychism
+
+43:33.020 --> 43:34.940
+ that says consciousness is in everything.
+
+43:34.940 --> 43:36.300
+ Yeah, I don't buy that.
+
+43:36.300 --> 43:37.140
+ I don't buy that.
+
+43:37.140 --> 43:39.980
+ Yeah, so the idea that there is a thing
+
+43:39.980 --> 43:42.900
+ that it would be like to be the sun.
+
+43:42.900 --> 43:44.860
+ Yeah, no, I don't buy that.
+
+43:44.860 --> 43:46.700
+ I think that consciousness is a thing.
+
+43:48.060 --> 43:51.900
+ My sort of broad modification is that usually
+
+43:51.900 --> 43:54.540
+ the more I find out about things,
+
+43:54.540 --> 43:59.540
+ the more illusory our instinct is
+
+44:00.540 --> 44:02.980
+ and is leading us into a different direction
+
+44:02.980 --> 44:04.820
+ about what that thing actually is.
+
+44:04.820 --> 44:07.660
+ That happens, it seems to me in modern science,
+
+44:07.660 --> 44:10.020
+ that happens a hell of a lot,
+
+44:10.020 --> 44:13.420
+ whether it's to do with even how big or small things are.
+
+44:13.420 --> 44:16.740
+ So my sense is that consciousness is a thing,
+
+44:16.740 --> 44:18.700
+ but it isn't quite the thing
+
+44:18.700 --> 44:20.220
+ or maybe very different from the thing
+
+44:20.220 --> 44:22.260
+ that we instinctively think it is.
+
+44:22.260 --> 44:24.620
+ So it's there, it's very interesting,
+
+44:24.620 --> 44:28.900
+ but we may be in sort of quite fundamentally
+
+44:28.900 --> 44:33.340
+ misunderstanding it for reasons that are based on intuition.
+
+44:33.340 --> 44:38.340
+ So I have to ask, this is kind of an interesting question.
+
+44:38.540 --> 44:42.140
+ The Ex Machina for many people, including myself,
+
+44:42.140 --> 44:44.780
+ is one of the greatest AI films ever made.
+
+44:44.780 --> 44:45.740
+ It's number two for me.
+
+44:45.740 --> 44:46.580
+ Thanks.
+
+44:46.580 --> 44:48.420
+ Yeah, it's definitely not number one.
+
+44:48.420 --> 44:50.620
+ If it was number one, I'd really have to, anyway, yeah.
+
+44:50.620 --> 44:52.340
+ Whenever you grow up with something, right,
+
+44:52.340 --> 44:55.500
+ whenever you grow up with something, it's in the mud.
+
+44:56.540 --> 45:01.020
+ But there's, one of the things that people bring up,
+
+45:01.020 --> 45:04.260
+ and can't please everyone, including myself,
+
+45:04.260 --> 45:06.580
+ this is what I first reacted to the film,
+
+45:06.580 --> 45:09.500
+ is the idea of the lone genius.
+
+45:09.500 --> 45:12.740
+ This is the criticism that people say,
+
+45:12.740 --> 45:14.540
+ sort of me as an AI researcher,
+
+45:14.540 --> 45:18.860
+ I'm trying to create what Nathan is trying to do.
+
+45:19.860 --> 45:23.180
+ So there's a brilliant series called Chernobyl.
+
+45:23.180 --> 45:24.500
+ Yes, it's fantastic.
+
+45:24.500 --> 45:26.100
+ Absolutely spectacular.
+
+45:26.100 --> 45:30.100
+ I mean, they got so many things brilliant or right.
+
+45:30.100 --> 45:32.620
+ But one of the things, again, the criticism there.
+
+45:32.620 --> 45:34.940
+ Yeah, they conflated lots of people into one.
+
+45:34.940 --> 45:37.820
+ Into one character that represents all nuclear scientists,
+
+45:37.820 --> 45:39.940
+ Ivana Komiak.
+
+45:42.580 --> 45:46.020
+ It's a composite character that presents all scientists.
+
+45:46.020 --> 45:47.420
+ Is this what you were,
+
+45:47.420 --> 45:49.260
+ is this the way you were thinking about that?
+
+45:49.260 --> 45:51.620
+ Or is it just simplifies the storytelling?
+
+45:51.620 --> 45:53.580
+ How do you think about the lone genius?
+
+45:53.580 --> 45:56.860
+ Well, I'd say this, the series I'm doing at the moment
+
+45:56.860 --> 46:01.580
+ is a critique in part of the lone genius concept.
+
+46:01.580 --> 46:03.820
+ So yes, I'm sort of oppositional
+
+46:03.820 --> 46:08.180
+ and either agnostic or atheistic about that as a concept.
+
+46:08.180 --> 46:10.540
+ I mean, not entirely.
+
+46:12.180 --> 46:15.780
+ Whether lone is the right word, broadly isolated,
+
+46:15.780 --> 46:20.780
+ but Newton clearly exists in a sort of bubble of himself,
+
+46:21.180 --> 46:22.860
+ in some respects, so does Shakespeare.
+
+46:22.860 --> 46:25.580
+ So do you think we would have an iPhone without Steve Jobs?
+
+46:25.580 --> 46:28.060
+ I mean, how much contribution from a genius?
+
+46:28.060 --> 46:29.660
+ Steve Jobs clearly isn't a lone genius
+
+46:29.660 --> 46:32.060
+ because there's too many other people
+
+46:32.060 --> 46:33.740
+ in the sort of superstructure around him
+
+46:33.740 --> 46:38.180
+ who are absolutely fundamental to that journey.
+
+46:38.180 --> 46:40.340
+ But you're saying Newton, but that's a scientific,
+
+46:40.340 --> 46:44.060
+ so there's an engineering element to building Ava.
+
+46:44.060 --> 46:48.580
+ But just to say, what Ex Machina is really,
+
+46:48.580 --> 46:50.220
+ it's a thought experiment.
+
+46:50.220 --> 46:52.260
+ I mean, so it's a construction
+
+46:52.260 --> 46:55.740
+ of putting four people in a house.
+
+46:56.820 --> 47:00.180
+ Nothing about Ex Machina adds up in all sorts of ways,
+
+47:00.180 --> 47:03.580
+ in as much as the, who built the machine parts?
+
+47:03.580 --> 47:05.340
+ Did the people building the machine parts
+
+47:05.340 --> 47:08.940
+ know what they were creating and how did they get there?
+
+47:08.940 --> 47:11.420
+ And it's a thought experiment.
+
+47:11.420 --> 47:14.740
+ So it doesn't stand up to scrutiny of that sort.
+
+47:14.740 --> 47:18.180
+ I don't think it's actually that interesting of a question,
+
+47:18.180 --> 47:22.340
+ but it's brought up so often that I had to ask it
+
+47:22.340 --> 47:25.620
+ because that's exactly how I felt after a while.
+
+47:27.180 --> 47:30.140
+ There's something about, there was almost a defense,
+
+47:30.140 --> 47:33.020
+ like I watched your movie the first time
+
+47:33.020 --> 47:36.060
+ and at least for the first little while in a defensive way,
+
+47:36.060 --> 47:40.660
+ like how dare this person try to step into the AI space
+
+47:40.660 --> 47:43.540
+ and try to beat Kubrick.
+
+47:43.540 --> 47:45.260
+ That's the way I was thinking,
+
+47:45.260 --> 47:48.180
+ because it comes off as a movie that really is going
+
+47:48.180 --> 47:50.940
+ after the deep fundamental questions about AI.
+
+47:50.940 --> 47:53.700
+ So there's a kind of a nerd do this,
+
+47:53.700 --> 47:57.220
+ like it's automatically searching for the flaws.
+
+47:57.220 --> 47:58.540
+ And I did.
+
+47:58.540 --> 48:00.220
+ I do exactly the same.
+
+48:00.220 --> 48:03.780
+ I think in Annihilation, in the other movie,
+
+48:03.780 --> 48:06.300
+ I was be able to free myself from that much quicker
+
+48:06.300 --> 48:08.420
+ that it is a thought experiment.
+
+48:08.420 --> 48:10.980
+ There's, who cares if there's batteries
+
+48:10.980 --> 48:12.020
+ that don't run out, right?
+
+48:12.020 --> 48:14.620
+ Those kinds of questions, that's the whole point.
+
+48:14.620 --> 48:18.580
+ But it's nevertheless something I wanted to bring up.
+
+48:18.580 --> 48:20.820
+ Yeah, it's a fair thing to bring up.
+
+48:20.820 --> 48:24.220
+ For me, you hit on the lone genius thing.
+
+48:24.220 --> 48:27.100
+ For me, it was actually, people always said,
+
+48:27.100 --> 48:31.460
+ Ex Machina makes this big leap in terms of where AI
+
+48:31.460 --> 48:34.900
+ has got to and also what AI would look like
+
+48:34.900 --> 48:36.140
+ if it got to that point.
+
+48:36.140 --> 48:38.540
+ There's another one, which is just robotics.
+
+48:38.540 --> 48:42.020
+ I mean, look at the way Ava walks around a room.
+
+48:42.020 --> 48:44.340
+ It's like, forget it, building that.
+
+48:44.340 --> 48:47.780
+ That's also got to be a very, very long way off.
+
+48:47.780 --> 48:49.820
+ And if you did get there, would it look anything like that?
+
+48:49.820 --> 48:50.740
+ It's a thought experiment.
+
+48:50.740 --> 48:51.940
+ Actually, I disagree with you.
+
+48:51.940 --> 48:56.500
+ I think the way, as a ballerina, Alicia Vikander,
+
+48:56.500 --> 49:00.260
+ brilliant actress, actor that moves around,
+
+49:01.580 --> 49:03.460
+ we're very far away from creating that.
+
+49:03.460 --> 49:06.140
+ But the way she moves around is exactly
+
+49:06.140 --> 49:08.580
+ the definition of perfection for a roboticist.
+
+49:08.580 --> 49:09.980
+ It's like smooth and efficient.
+
+49:09.980 --> 49:12.860
+ So it is where we wanna get, I believe.
+
+49:12.860 --> 49:15.460
+ I think, so I hang out with a lot
+
+49:15.460 --> 49:16.900
+ of like human robotics people.
+
+49:16.900 --> 49:20.420
+ They love elegant, smooth motion like that.
+
+49:20.420 --> 49:21.540
+ That's their dream.
+
+49:21.540 --> 49:23.580
+ So the way she moved is actually what I believe
+
+49:23.580 --> 49:25.900
+ that would dream for a robot to move.
+
+49:25.900 --> 49:29.500
+ It might not be that useful to move that sort of that way,
+
+49:29.500 --> 49:32.180
+ but that is the definition of perfection
+
+49:32.180 --> 49:33.220
+ in terms of movement.
+
+49:34.100 --> 49:35.900
+ Drawing inspiration from real life.
+
+49:35.900 --> 49:39.460
+ So for devs, for Ex Machina,
+
+49:39.460 --> 49:42.540
+ look at characters like Elon Musk.
+
+49:42.540 --> 49:44.740
+ What do you think about the various big technological
+
+49:44.740 --> 49:48.940
+ efforts of Elon Musk and others like him
+
+49:48.940 --> 49:51.780
+ and that he's involved with such as Tesla,
+
+49:51.780 --> 49:55.180
+ SpaceX, Neuralink, do you see any of that technology
+
+49:55.180 --> 49:57.060
+ potentially defining the future worlds
+
+49:57.060 --> 49:58.500
+ you create in your work?
+
+49:58.500 --> 50:02.620
+ So Tesla's automation, SpaceX's space exploration,
+
+50:02.620 --> 50:05.260
+ Neuralink is brain machine interface,
+
+50:05.260 --> 50:09.820
+ somehow merger of biological and electric systems.
+
+50:09.820 --> 50:13.780
+ I'm in a way I'm influenced by that almost by definition
+
+50:13.780 --> 50:15.420
+ because that's the world I live in.
+
+50:15.420 --> 50:17.860
+ And this is the thing that's happening in that world.
+
+50:17.860 --> 50:20.060
+ And I also feel supportive of it.
+
+50:20.060 --> 50:24.660
+ So I think amongst various things,
+
+50:24.660 --> 50:28.660
+ Elon Musk has done, I'm almost sure he's done
+
+50:28.660 --> 50:32.180
+ a very, very good thing with Tesla for all of us.
+
+50:33.020 --> 50:36.180
+ It's really kicked all the other car manufacturers
+
+50:36.180 --> 50:39.780
+ in the face, it's kicked the fossil fuel industry
+
+50:39.780 --> 50:42.340
+ in the face and they needed kicking in the face
+
+50:42.340 --> 50:43.180
+ and he's done it.
+
+50:43.180 --> 50:47.980
+ So that's the world he's part of creating
+
+50:47.980 --> 50:51.940
+ and I live in that world, just bought a Tesla in fact.
+
+50:51.940 --> 50:56.940
+ And so does that play into whatever I then make
+
+50:57.540 --> 51:02.540
+ in some ways it does partly because I try to be a writer
+
+51:03.300 --> 51:07.100
+ who quite often filmmakers are in some ways fixated
+
+51:07.100 --> 51:09.020
+ on the films they grew up with
+
+51:09.020 --> 51:11.660
+ and they sort of remake those films in some ways.
+
+51:11.660 --> 51:13.300
+ I've always tried to avoid that.
+
+51:13.300 --> 51:17.740
+ And so I looked at the real world to get inspiration
+
+51:17.740 --> 51:21.380
+ and as much as possible sort of by living, I think.
+
+51:21.380 --> 51:24.420
+ And so yeah, I'm sure.
+
+51:24.420 --> 51:28.300
+ Which of the directions do you find most exciting?
+
+51:28.300 --> 51:29.240
+ Space travel.
+
+51:30.620 --> 51:31.540
+ Space travel.
+
+51:31.540 --> 51:36.180
+ So you haven't really explored space travel in your work.
+
+51:36.180 --> 51:39.740
+ You've said something like if you had unlimited amount
+
+51:39.740 --> 51:43.260
+ of money, I think I read at AMA that you would make
+
+51:43.260 --> 51:47.100
+ like a multi year series Space Wars or something like that.
+
+51:47.100 --> 51:50.720
+ So what is it that excites you about space exploration?
+
+51:50.720 --> 51:55.720
+ Well, because if we have any sort of long term future,
+
+51:56.060 --> 52:00.220
+ it's that, it just simply is that.
+
+52:00.220 --> 52:04.260
+ If energy and matter are linked up in the way
+
+52:04.260 --> 52:09.260
+ we think they're linked up, we'll run out if we don't move.
+
+52:09.500 --> 52:11.140
+ So we gotta move.
+
+52:11.140 --> 52:15.900
+ And, but also, how can we not?
+
+52:15.900 --> 52:20.900
+ It's built into us to do it or die trying.
+
+52:21.380 --> 52:26.380
+ I was on Easter Island a few months ago,
+
+52:27.500 --> 52:30.220
+ which is, as I'm sure you know, in the middle of the Pacific
+
+52:30.220 --> 52:32.860
+ and difficult for people to have got to,
+
+52:32.860 --> 52:34.020
+ but they got there.
+
+52:34.020 --> 52:37.260
+ And I did think a lot about the way those boats
+
+52:37.260 --> 52:42.100
+ must have set out into something like space.
+
+52:42.100 --> 52:47.100
+ It was the ocean and how sort of fundamental
+
+52:47.500 --> 52:49.740
+ that was to the way we are.
+
+52:49.740 --> 52:53.700
+ And it's the one that most excites me
+
+52:53.700 --> 52:55.720
+ because it's the one I want most to happen.
+
+52:55.720 --> 52:57.620
+ It's the thing, it's the place
+
+52:57.620 --> 52:59.660
+ where we could get to as humans.
+
+52:59.660 --> 53:03.620
+ Like in a way I could live with us never really unlocking
+
+53:03.620 --> 53:06.260
+ fully unlocking the nature of consciousness.
+
+53:06.260 --> 53:09.140
+ I'd like to know, I'm really curious,
+
+53:09.140 --> 53:12.020
+ but if we never leave the solar system
+
+53:12.020 --> 53:14.300
+ and if we never get further out into this galaxy
+
+53:14.300 --> 53:16.900
+ or maybe even galaxies beyond our galaxy,
+
+53:16.900 --> 53:20.020
+ that would, that feels sad to me
+
+53:20.020 --> 53:24.460
+ because it's so limiting.
+
+53:24.460 --> 53:26.860
+ Yeah, there's something hopeful and beautiful
+
+53:26.860 --> 53:30.140
+ about reaching out any kind of exploration,
+
+53:30.140 --> 53:33.340
+ reaching out across Earth centuries ago
+
+53:33.340 --> 53:35.180
+ and then reaching out into space.
+
+53:35.180 --> 53:37.100
+ So what do you think about colonization of Mars?
+
+53:37.100 --> 53:38.660
+ So go to Mars, does that excite you
+
+53:38.660 --> 53:41.300
+ the idea of a human being stepping foot on Mars?
+
+53:41.300 --> 53:43.220
+ It does, it absolutely does.
+
+53:43.220 --> 53:45.300
+ But in terms of what would really excite me,
+
+53:45.300 --> 53:47.160
+ it would be leaving the solar system
+
+53:47.160 --> 53:49.040
+ in as much as that I just think,
+
+53:49.920 --> 53:52.780
+ I think we already know quite a lot about Mars.
+
+53:52.780 --> 53:55.340
+ And, but yes, listen, if it happened,
+
+53:55.340 --> 53:58.980
+ that would be, I hope I see it in my lifetime.
+
+53:58.980 --> 54:01.060
+ I really hope I see it in my lifetime.
+
+54:01.060 --> 54:03.620
+ So it would be a wonderful thing.
+
+54:03.620 --> 54:05.420
+ Without giving anything away,
+
+54:05.420 --> 54:10.420
+ but the series begins with the use of quantum computers.
+
+54:11.220 --> 54:13.180
+ The new series does,
+
+54:13.180 --> 54:14.660
+ begins with the use of quantum computers
+
+54:14.660 --> 54:17.100
+ to simulate basic living organisms,
+
+54:17.100 --> 54:19.280
+ or actually I don't know if it's quantum computers are used,
+
+54:19.280 --> 54:22.800
+ but basic living organisms are simulated on a screen.
+
+54:22.800 --> 54:24.300
+ It's a really cool kind of demo.
+
+54:24.300 --> 54:25.120
+ Yeah, that's right.
+
+54:25.120 --> 54:28.180
+ They're using, yes, they are using a quantum computer
+
+54:28.180 --> 54:31.660
+ to simulate a nematode, yeah.
+
+54:31.660 --> 54:34.780
+ So returning to our discussion of simulation,
+
+54:34.780 --> 54:38.760
+ or thinking of the universe as a computer,
+
+54:38.760 --> 54:41.180
+ do you think the universe is deterministic?
+
+54:41.180 --> 54:42.420
+ Is there a free will?
+
+54:43.300 --> 54:46.740
+ So with the qualification of what do I know?
+
+54:46.740 --> 54:48.040
+ Cause I'm a layman, right?
+
+54:48.040 --> 54:49.360
+ Lay person.
+
+54:49.360 --> 54:51.600
+ But with a big imagination.
+
+54:51.600 --> 54:52.500
+ Thanks.
+
+54:52.500 --> 54:54.660
+ With that qualification,
+
+54:54.660 --> 54:56.820
+ yup, I think the universe is deterministic
+
+54:56.820 --> 54:58.500
+ and I see absolutely,
+
+54:58.500 --> 55:02.300
+ I cannot see how free will fits into that.
+
+55:02.300 --> 55:05.060
+ So yes, deterministic, no free will.
+
+55:05.060 --> 55:07.140
+ That would be my position.
+
+55:07.140 --> 55:09.420
+ And how does that make you feel?
+
+55:09.420 --> 55:12.380
+ It partly makes me feel that it's exactly in keeping
+
+55:12.380 --> 55:14.420
+ with the way these things tend to work out,
+
+55:14.420 --> 55:17.140
+ which is that we have an incredibly strong sense
+
+55:17.140 --> 55:18.660
+ that we do have free will.
+
+55:20.740 --> 55:24.300
+ And just as we have an incredibly strong sense
+
+55:24.300 --> 55:26.180
+ that time is a constant,
+
+55:26.180 --> 55:30.060
+ and turns out probably not to be the case.
+
+55:30.060 --> 55:31.680
+ So we're definitely in the case of time,
+
+55:31.680 --> 55:36.080
+ but the problem I always have with free will
+
+55:36.080 --> 55:37.940
+ is that it gets,
+
+55:37.940 --> 55:40.500
+ I can never seem to find the place
+
+55:40.500 --> 55:43.020
+ where it is supposed to reside.
+
+55:43.020 --> 55:45.480
+ And yet you explore.
+
+55:45.480 --> 55:46.820
+ Just a bit of very, very,
+
+55:46.820 --> 55:49.640
+ but we have something we can call free will,
+
+55:49.640 --> 55:51.900
+ but it's not the thing that we think it is.
+
+55:51.900 --> 55:54.020
+ But free will, so do you,
+
+55:54.020 --> 55:55.660
+ what we call free will is just.
+
+55:55.660 --> 55:56.940
+ What we call it is the illusion of it.
+
+55:56.940 --> 56:00.180
+ And that's a subjective experience of the illusion.
+
+56:00.180 --> 56:01.620
+ Which is a useful thing to have.
+
+56:01.620 --> 56:04.500
+ And it partly comes down to,
+
+56:04.500 --> 56:06.860
+ although we live in a deterministic universe,
+
+56:06.860 --> 56:08.540
+ our brains are not very well equipped
+
+56:08.540 --> 56:11.160
+ to fully determine the deterministic universe.
+
+56:11.160 --> 56:12.860
+ So we're constantly surprised
+
+56:12.860 --> 56:15.620
+ and feel like we're making snap decisions
+
+56:15.620 --> 56:17.540
+ based on imperfect information.
+
+56:17.540 --> 56:19.980
+ So that feels a lot like free will.
+
+56:19.980 --> 56:21.300
+ It just isn't.
+
+56:21.300 --> 56:24.220
+ Would be my, that's my guess.
+
+56:24.220 --> 56:27.060
+ So in that sense, your sort of sense
+
+56:27.060 --> 56:30.780
+ is that you can unroll the universe forward or backward
+
+56:30.780 --> 56:33.340
+ and you will see the same thing.
+
+56:33.340 --> 56:36.700
+ And you would, I mean, that notion.
+
+56:36.700 --> 56:38.940
+ Yeah, sort of, sort of.
+
+56:38.940 --> 56:40.300
+ But yeah, sorry, go ahead.
+
+56:40.300 --> 56:44.900
+ I mean, that notion is a bit uncomfortable
+
+56:44.900 --> 56:45.940
+ to think about.
+
+56:45.940 --> 56:48.840
+ That it's, you can roll it back.
+
+56:50.220 --> 56:53.380
+ And forward and.
+
+56:53.380 --> 56:55.060
+ Well, if you were able to do it,
+
+56:55.060 --> 56:58.160
+ it would certainly have to be a quantum computer.
+
+56:58.160 --> 57:00.940
+ Something that worked in a quantum mechanical way
+
+57:00.940 --> 57:05.940
+ in order to understand a quantum mechanical system, I guess.
+
+57:07.660 --> 57:09.980
+ And so that unrolling, there might be a multiverse thing
+
+57:09.980 --> 57:11.180
+ where there's a bunch of branching.
+
+57:11.180 --> 57:12.140
+ Well, exactly.
+
+57:12.140 --> 57:14.160
+ Because it wouldn't follow that every time
+
+57:14.160 --> 57:15.540
+ you roll it back or forward,
+
+57:15.540 --> 57:17.980
+ you'd get exactly the same result.
+
+57:17.980 --> 57:21.420
+ Which is another thing that's hard to wrap your mind around.
+
+57:21.420 --> 57:24.660
+ So yeah, but that, yes.
+
+57:24.660 --> 57:27.260
+ But essentially what you just described, that.
+
+57:27.260 --> 57:29.700
+ The yes forwards and yes backwards,
+
+57:29.700 --> 57:31.860
+ but you might get a slightly different result
+
+57:31.860 --> 57:33.400
+ or a very different result.
+
+57:33.400 --> 57:34.500
+ Or very different.
+
+57:34.500 --> 57:36.460
+ Along the same lines, you've explored
+
+57:36.460 --> 57:39.820
+ some really deep scientific ideas in this new series.
+
+57:39.820 --> 57:41.620
+ And I mean, just in general,
+
+57:41.620 --> 57:44.780
+ you're unafraid to ground yourself
+
+57:44.780 --> 57:49.460
+ in some of the most amazing scientific ideas of our time.
+
+57:49.460 --> 57:51.420
+ What are the things you've learned
+
+57:51.420 --> 57:53.500
+ or ideas you find beautiful and mysterious
+
+57:53.500 --> 57:55.340
+ about quantum mechanics, multiverse,
+
+57:55.340 --> 57:58.140
+ string theory, quantum computing that you've learned?
+
+57:58.140 --> 58:01.260
+ Well, I would have to say every single thing
+
+58:01.260 --> 58:03.120
+ I've learned is beautiful.
+
+58:03.120 --> 58:06.560
+ And one of the motivators for me is that
+
+58:06.560 --> 58:11.560
+ I think that people tend not to see scientific thinking
+
+58:13.620 --> 58:17.420
+ as being essentially poetic and lyrical.
+
+58:17.420 --> 58:20.860
+ But I think that is literally exactly what it is.
+
+58:20.860 --> 58:23.940
+ And I think the idea of entanglement
+
+58:23.940 --> 58:25.800
+ or the idea of superpositions,
+
+58:25.800 --> 58:28.220
+ or the fact that you could even demonstrate a superposition
+
+58:28.220 --> 58:31.220
+ or have a machine that relies on the existence
+
+58:31.220 --> 58:33.540
+ of superpositions in order to function,
+
+58:33.540 --> 58:36.940
+ to me is almost indescribably beautiful.
+
+58:39.420 --> 58:41.020
+ It fills me with awe.
+
+58:41.020 --> 58:42.420
+ It fills me with awe.
+
+58:42.420 --> 58:47.420
+ And also it's not just a sort of grand, massive awe of,
+
+58:49.420 --> 58:51.460
+ but it's also delicate.
+
+58:51.460 --> 58:54.180
+ It's very, very delicate and subtle.
+
+58:54.180 --> 58:59.180
+ And it has these beautiful sort of nuances in it.
+
+58:59.940 --> 59:03.480
+ And also these completely paradigm changing
+
+59:03.480 --> 59:04.460
+ thoughts and truths.
+
+59:04.460 --> 59:08.740
+ So it's as good as it gets as far as I can tell.
+
+59:08.740 --> 59:10.940
+ So broadly everything.
+
+59:10.940 --> 59:12.900
+ That doesn't mean I believe everything I read
+
+59:12.900 --> 59:14.280
+ in quantum physics.
+
+59:14.280 --> 59:17.340
+ Because obviously a lot of the interpretations
+
+59:17.340 --> 59:18.980
+ are completely in conflict with each other.
+
+59:18.980 --> 59:22.380
+ And who knows whether string theory
+
+59:22.380 --> 59:25.060
+ will turn out to be a good description or not.
+
+59:25.060 --> 59:29.160
+ But the beauty in it, it seems undeniable.
+
+59:29.160 --> 59:34.160
+ And I do wish people more readily understood
+
+59:34.160 --> 59:39.160
+ how beautiful and poetic science is, I would say.
+
+59:41.720 --> 59:43.120
+ Science is poetry.
+
+59:44.360 --> 59:49.360
+ In terms of quantum computing being used to simulate things
+
+59:51.880 --> 59:54.640
+ or just in general, the idea of simulating,
+
+59:54.640 --> 59:56.800
+ simulating small parts of our world,
+
+59:56.800 --> 1:00:00.560
+ which actually current physicists are really excited about
+
+1:00:00.560 --> 1:00:02.720
+ simulating small quantum mechanical systems
+
+1:00:02.720 --> 1:00:03.880
+ on quantum computers.
+
+1:00:03.880 --> 1:00:05.660
+ But scaling that up to something bigger,
+
+1:00:05.660 --> 1:00:07.260
+ like simulating life forms.
+
+1:00:09.000 --> 1:00:11.360
+ How do you think, what are the possible trajectories
+
+1:00:11.360 --> 1:00:14.280
+ of that going wrong or going right
+
+1:00:14.280 --> 1:00:16.660
+ if you unroll that into the future?
+
+1:00:17.920 --> 1:00:21.260
+ Well, if a bit like Ava and her robotics,
+
+1:00:21.260 --> 1:00:26.260
+ you park the sheer complexity of what you're trying to do.
+
+1:00:26.260 --> 1:00:31.260
+ The issues are, I think it will have a profound,
+
+1:00:35.780 --> 1:00:37.500
+ if you were able to have a machine
+
+1:00:37.500 --> 1:00:40.660
+ that was able to project forwards and backwards accurately,
+
+1:00:40.660 --> 1:00:42.820
+ it would in an empirical way show,
+
+1:00:42.820 --> 1:00:45.100
+ it would demonstrate that you don't have free will.
+
+1:00:45.100 --> 1:00:47.300
+ So the first thing that would happen is people
+
+1:00:47.300 --> 1:00:51.700
+ would have to really take on a very, very different idea
+
+1:00:51.700 --> 1:00:53.660
+ of what they were.
+
+1:00:53.660 --> 1:00:56.380
+ The thing that they truly, truly believe they are,
+
+1:00:56.380 --> 1:00:57.580
+ they are not.
+
+1:00:57.580 --> 1:01:01.260
+ And so that I suspect would be very, very disturbing
+
+1:01:01.260 --> 1:01:02.340
+ to a lot of people.
+
+1:01:02.340 --> 1:01:04.560
+ Do you think that has a positive or negative effect
+
+1:01:04.560 --> 1:01:08.860
+ on society, the realization that you are not,
+
+1:01:08.860 --> 1:01:11.060
+ you cannot control your actions essentially,
+
+1:01:11.060 --> 1:01:13.460
+ I guess is the way that could be interpreted?
+
+1:01:13.460 --> 1:01:17.500
+ Yeah, although in some ways we instinctively understand
+
+1:01:17.500 --> 1:01:20.620
+ that already because in the example I gave you of the kid
+
+1:01:20.620 --> 1:01:23.700
+ in the stabbing, we would all understand that that kid
+
+1:01:23.700 --> 1:01:25.820
+ was not really fully in control of their actions.
+
+1:01:25.820 --> 1:01:29.560
+ So it's not an idea that's entirely alien to us, but.
+
+1:01:29.560 --> 1:01:31.060
+ I don't know if we understand that.
+
+1:01:31.060 --> 1:01:35.460
+ I think there's a bunch of people who see the world
+
+1:01:35.460 --> 1:01:37.460
+ that way, but not everybody.
+
+1:01:37.460 --> 1:01:39.600
+ Yes, true, of course true.
+
+1:01:39.600 --> 1:01:43.120
+ But what this machine would do is prove it beyond any doubt
+
+1:01:43.120 --> 1:01:45.960
+ because someone would say, well, I don't believe that's true.
+
+1:01:45.960 --> 1:01:48.240
+ And then you'd predict, well, in 10 seconds,
+
+1:01:48.240 --> 1:01:49.080
+ you're gonna do this.
+
+1:01:49.080 --> 1:01:50.160
+ And they'd say, no, no, I'm not.
+
+1:01:50.160 --> 1:01:51.000
+ And then they'd do it.
+
+1:01:51.000 --> 1:01:53.460
+ And then determinism would have played its part.
+
+1:01:53.460 --> 1:01:56.020
+ But I, or something like that.
+
+1:01:56.020 --> 1:02:00.020
+ But actually the exact terms of that thought experiment
+
+1:02:00.020 --> 1:02:03.860
+ probably wouldn't play out, but still broadly speaking,
+
+1:02:03.860 --> 1:02:06.180
+ you could predict something happening in another room,
+
+1:02:06.180 --> 1:02:08.380
+ sort of unseen, I suppose,
+
+1:02:08.380 --> 1:02:10.620
+ that foreknowledge would not allow you to affect.
+
+1:02:10.620 --> 1:02:13.340
+ So what effect would that have?
+
+1:02:13.340 --> 1:02:15.540
+ I think people would find it very disturbing,
+
+1:02:15.540 --> 1:02:17.740
+ but then after they'd got over their sense
+
+1:02:17.740 --> 1:02:21.180
+ of being disturbed, which by the way,
+
+1:02:21.180 --> 1:02:22.620
+ I don't even think you need a machine
+
+1:02:22.620 --> 1:02:24.620
+ to take this idea on board.
+
+1:02:24.620 --> 1:02:26.420
+ But after they've got over that,
+
+1:02:26.420 --> 1:02:29.780
+ they'd still understand that even though I have no free will
+
+1:02:29.780 --> 1:02:33.120
+ and my actions are in effect already determined,
+
+1:02:33.980 --> 1:02:35.620
+ I still feel things.
+
+1:02:36.540 --> 1:02:39.180
+ I still care about stuff.
+
+1:02:39.180 --> 1:02:41.400
+ I remember my daughter saying to me,
+
+1:02:43.900 --> 1:02:46.860
+ she'd got hold of the idea that my view of the universe
+
+1:02:46.860 --> 1:02:48.420
+ made it meaningless.
+
+1:02:48.420 --> 1:02:49.860
+ And she said, well, then it's meaningless.
+
+1:02:49.860 --> 1:02:52.580
+ And I said, well, I can prove it's not meaningless
+
+1:02:52.580 --> 1:02:56.260
+ because you mean something to me and I mean something to you.
+
+1:02:56.260 --> 1:02:58.220
+ So it's not completely meaningless
+
+1:02:58.220 --> 1:03:00.500
+ because there is a bit of meaning contained
+
+1:03:00.500 --> 1:03:01.420
+ within this space.
+
+1:03:01.420 --> 1:03:06.020
+ And so with a lack of free will space,
+
+1:03:06.020 --> 1:03:08.300
+ you could think, well, this robs me of everything I am.
+
+1:03:08.300 --> 1:03:09.820
+ And then you'd say, well, no, it doesn't
+
+1:03:09.820 --> 1:03:12.020
+ because you still like eating cheeseburgers
+
+1:03:12.020 --> 1:03:13.860
+ and you still like going to see the movies.
+
+1:03:13.860 --> 1:03:17.120
+ And so how big a difference does it really make?
+
+1:03:17.980 --> 1:03:21.260
+ But I think initially people would find it very disturbing.
+
+1:03:21.260 --> 1:03:24.540
+ I think that what would come,
+
+1:03:24.540 --> 1:03:27.880
+ if you could really unlock with a determinism machine,
+
+1:03:27.880 --> 1:03:30.260
+ everything, there'd be this wonderful wisdom
+
+1:03:30.260 --> 1:03:31.100
+ that would come from it.
+
+1:03:31.100 --> 1:03:32.700
+ And I'd rather have that than not.
+
+1:03:34.340 --> 1:03:37.180
+ So that's a really good example of a technology
+
+1:03:37.180 --> 1:03:40.660
+ revealing to us humans something fundamental about our world,
+
+1:03:40.660 --> 1:03:41.740
+ about our society.
+
+1:03:41.740 --> 1:03:45.020
+ So it's almost this creation
+
+1:03:45.020 --> 1:03:47.780
+ is helping us understand ourselves.
+
+1:03:47.780 --> 1:03:51.420
+ And the same could be said about artificial intelligence.
+
+1:03:51.420 --> 1:03:55.700
+ So what do you think us creating something like Ava
+
+1:03:55.700 --> 1:03:58.140
+ will help us understand about ourselves?
+
+1:03:58.140 --> 1:04:00.940
+ How will that change society?
+
+1:04:00.940 --> 1:04:04.160
+ Well, I would hope it would teach us some humility.
+
+1:04:05.060 --> 1:04:07.400
+ Humans are very big on exceptionalism.
+
+1:04:07.400 --> 1:04:12.400
+ America is constantly proclaiming itself
+
+1:04:12.800 --> 1:04:15.360
+ to be the greatest nation on earth,
+
+1:04:15.360 --> 1:04:18.080
+ which it may feel like that if you're an American,
+
+1:04:18.080 --> 1:04:20.680
+ but it may not feel like that if you're from Finland,
+
+1:04:20.680 --> 1:04:21.800
+ because there's all sorts of things
+
+1:04:21.800 --> 1:04:23.560
+ you dearly love about Finland.
+
+1:04:23.560 --> 1:04:27.320
+ And exceptionalism is usually bullshit.
+
+1:04:28.200 --> 1:04:29.060
+ Probably not always.
+
+1:04:29.060 --> 1:04:30.000
+ If we both sat here,
+
+1:04:30.000 --> 1:04:31.920
+ we could find a good example of something that isn't,
+
+1:04:31.920 --> 1:04:34.000
+ but as a rule of thumb.
+
+1:04:34.000 --> 1:04:36.120
+ And what it would do
+
+1:04:36.120 --> 1:04:39.560
+ is it would teach us some humility about,
+
+1:04:40.640 --> 1:04:42.840
+ actually often that's what science does in a funny way.
+
+1:04:42.840 --> 1:04:44.400
+ It makes us more and more interesting,
+
+1:04:44.400 --> 1:04:46.520
+ but it makes us a smaller and smaller part
+
+1:04:46.520 --> 1:04:48.120
+ of the thing that's interesting.
+
+1:04:48.120 --> 1:04:50.980
+ And I don't mind that humility at all.
+
+1:04:52.200 --> 1:04:53.760
+ I don't think it's a bad thing.
+
+1:04:53.760 --> 1:04:57.320
+ Our excesses don't tend to come from humility.
+
+1:04:57.320 --> 1:04:59.000
+ Our excesses come from the opposite,
+
+1:04:59.000 --> 1:05:00.480
+ megalomania and stuff.
+
+1:05:00.480 --> 1:05:02.960
+ We tend to think of consciousness
+
+1:05:02.960 --> 1:05:06.880
+ as having some form of exceptionalism attached to it.
+
+1:05:06.880 --> 1:05:09.320
+ I suspect if we ever unravel it,
+
+1:05:09.320 --> 1:05:13.720
+ it will turn out to be less than we thought in a way.
+
+1:05:13.720 --> 1:05:17.780
+ And perhaps your very own exceptionalist assertion
+
+1:05:17.780 --> 1:05:19.360
+ earlier on in our conversation
+
+1:05:19.360 --> 1:05:23.040
+ that consciousness is something belongs to us humans,
+
+1:05:23.040 --> 1:05:25.340
+ or not humans, but living organisms,
+
+1:05:25.340 --> 1:05:27.680
+ maybe you will one day find out
+
+1:05:27.680 --> 1:05:30.240
+ that consciousness is in everything.
+
+1:05:30.240 --> 1:05:32.840
+ And that will humble you.
+
+1:05:32.840 --> 1:05:35.660
+ If that was true, it would certainly humble me,
+
+1:05:35.660 --> 1:05:39.040
+ although maybe, almost maybe, I don't know.
+
+1:05:39.040 --> 1:05:41.040
+ I don't know what effect that would have.
+
+1:05:45.560 --> 1:05:48.400
+ My understanding of that principle is along the lines of,
+
+1:05:48.400 --> 1:05:52.580
+ say, that an electron has a preferred state,
+
+1:05:52.580 --> 1:05:56.600
+ or it may or may not pass through a bit of glass.
+
+1:05:56.600 --> 1:05:58.320
+ It may reflect off, or it may go through,
+
+1:05:58.320 --> 1:05:59.160
+ or something like that.
+
+1:05:59.160 --> 1:06:03.700
+ And so that feels as if a choice has been made.
+
+1:06:07.340 --> 1:06:10.820
+ But if I'm going down the fully deterministic route,
+
+1:06:10.820 --> 1:06:13.220
+ I would say there's just an underlying determinism
+
+1:06:13.220 --> 1:06:14.720
+ that has defined that,
+
+1:06:14.720 --> 1:06:16.680
+ that has defined the preferred state,
+
+1:06:16.680 --> 1:06:18.840
+ or the reflection or non reflection.
+
+1:06:18.840 --> 1:06:19.960
+ But look, yeah, you're right.
+
+1:06:19.960 --> 1:06:22.520
+ If it turned out that there was a thing
+
+1:06:22.520 --> 1:06:23.920
+ that it was like to be the sun,
+
+1:06:23.920 --> 1:06:27.880
+ then I'd be amazed and humbled,
+
+1:06:27.880 --> 1:06:30.040
+ and I'd be happy to be both, that sounds pretty cool.
+
+1:06:30.040 --> 1:06:32.560
+ And you'll say the same thing as you said to your daughter,
+
+1:06:32.560 --> 1:06:35.140
+ but it's nevertheless feels something like to be me,
+
+1:06:35.140 --> 1:06:37.960
+ and that's pretty damn good.
+
+1:06:39.520 --> 1:06:42.160
+ So Kubrick created many masterpieces,
+
+1:06:42.160 --> 1:06:46.040
+ including The Shining, Dr. Strangelove, Clockwork Orange.
+
+1:06:46.040 --> 1:06:48.960
+ But to me, he will be remembered, I think,
+
+1:06:48.960 --> 1:06:53.160
+ to many 100 years from now for 2001 in Space Odyssey.
+
+1:06:53.160 --> 1:06:54.760
+ I would say that's his greatest film.
+
+1:06:54.760 --> 1:06:55.600
+ I agree.
+
+1:06:55.600 --> 1:07:00.560
+ And you are incredibly humble.
+
+1:07:00.560 --> 1:07:02.500
+ I listened to a bunch of your interviews,
+
+1:07:02.500 --> 1:07:04.920
+ and I really appreciate that you're humble
+
+1:07:04.920 --> 1:07:07.940
+ in your creative efforts and your work.
+
+1:07:07.940 --> 1:07:10.200
+ But if I were to force you a gunpoint.
+
+1:07:11.460 --> 1:07:12.460
+ Do you have a gun?
+
+1:07:13.340 --> 1:07:15.040
+ You don't know that, the mystery.
+
+1:07:16.260 --> 1:07:20.120
+ It's to imagine 100 years out into the future.
+
+1:07:20.120 --> 1:07:23.460
+ What will Alex Carlin be remembered for
+
+1:07:23.460 --> 1:07:25.580
+ from something you've created already,
+
+1:07:25.580 --> 1:07:28.100
+ or feel you may feel somewhere deep inside
+
+1:07:28.100 --> 1:07:29.320
+ you may still create?
+
+1:07:30.180 --> 1:07:33.340
+ Well, okay, well, I'll take the question in the spirit
+
+1:07:33.340 --> 1:07:35.520
+ it was asked, but very generous.
+
+1:07:36.940 --> 1:07:37.780
+ Gunpoint.
+
+1:07:37.780 --> 1:07:38.620
+ Yeah.
+
+1:07:42.940 --> 1:07:46.600
+ What I try to do, so therefore what I hope,
+
+1:07:48.100 --> 1:07:50.820
+ yeah, if I'm remembered, what I might be remembered for,
+
+1:07:50.820 --> 1:07:55.820
+ is as someone who participates in a conversation.
+
+1:07:55.860 --> 1:07:58.520
+ And I think that often what happens
+
+1:07:58.520 --> 1:08:00.940
+ is people don't participate in conversations,
+
+1:08:00.940 --> 1:08:04.480
+ they make proclamations, they make statements,
+
+1:08:04.480 --> 1:08:06.820
+ and people can either react against the statement
+
+1:08:06.820 --> 1:08:08.720
+ or can fall in line behind it.
+
+1:08:08.720 --> 1:08:10.280
+ And I don't like that.
+
+1:08:10.280 --> 1:08:13.060
+ So I want to be part of a conversation.
+
+1:08:13.060 --> 1:08:15.540
+ I take as a sort of basic principle,
+
+1:08:15.540 --> 1:08:17.560
+ I think I take lots of my cues from science,
+
+1:08:17.560 --> 1:08:19.340
+ but one of the best ones, it seems to me,
+
+1:08:19.340 --> 1:08:22.360
+ is that when a scientist has something proved wrong,
+
+1:08:22.360 --> 1:08:24.020
+ that they previously believed in,
+
+1:08:24.020 --> 1:08:26.640
+ they then have to abandon that position.
+
+1:08:26.640 --> 1:08:28.500
+ So I'd like to be someone who is allied
+
+1:08:28.500 --> 1:08:30.340
+ to that sort of thinking.
+
+1:08:30.340 --> 1:08:34.340
+ So part of an exchange of ideas.
+
+1:08:34.340 --> 1:08:38.140
+ And the exchange of ideas for me is something like,
+
+1:08:38.140 --> 1:08:40.940
+ people in your world, show me things
+
+1:08:40.940 --> 1:08:42.600
+ about how the world works.
+
+1:08:42.600 --> 1:08:44.780
+ And then I say, this is how I feel
+
+1:08:44.780 --> 1:08:46.180
+ about what you've told me.
+
+1:08:46.180 --> 1:08:47.980
+ And then other people can react to that.
+
+1:08:47.980 --> 1:08:52.260
+ And it's not to say this is how the world is.
+
+1:08:52.260 --> 1:08:54.560
+ It's just to say, it is interesting
+
+1:08:54.560 --> 1:08:56.860
+ to think about the world in this way.
+
+1:08:56.860 --> 1:08:59.860
+ And the conversation is one of the things
+
+1:08:59.860 --> 1:09:02.260
+ I'm really hopeful about in your works.
+
+1:09:02.260 --> 1:09:05.240
+ The conversation you're having is with the viewer,
+
+1:09:05.240 --> 1:09:09.180
+ in the sense that you're bringing back
+
+1:09:10.220 --> 1:09:13.860
+ you and several others, but you very much so,
+
+1:09:13.860 --> 1:09:18.860
+ sort of intellectual depth to cinema, to now series,
+
+1:09:21.260 --> 1:09:25.340
+ sort of allowing film to be something that,
+
+1:09:26.300 --> 1:09:29.660
+ yeah, sparks a conversation, is a conversation,
+
+1:09:29.660 --> 1:09:32.900
+ lets people think, allows them to think.
+
+1:09:32.900 --> 1:09:35.180
+ But also, it's very important for me
+
+1:09:35.180 --> 1:09:38.540
+ that if that conversation is gonna be a good conversation,
+
+1:09:38.540 --> 1:09:42.780
+ what that must involve is that someone like you
+
+1:09:42.780 --> 1:09:45.820
+ who understands AI, and I imagine understands a lot
+
+1:09:45.820 --> 1:09:48.700
+ about quantum mechanics, if they then watch the narrative,
+
+1:09:48.700 --> 1:09:52.100
+ feels, yes, this is a fair account.
+
+1:09:52.100 --> 1:09:55.580
+ So it is a worthy addition to the conversation.
+
+1:09:55.580 --> 1:09:57.580
+ That for me is hugely important.
+
+1:09:57.580 --> 1:09:59.820
+ I'm not interested in getting that stuff wrong.
+
+1:09:59.820 --> 1:10:02.060
+ I'm only interested in trying to get it right.
+
+1:10:04.140 --> 1:10:06.340
+ Alex, it was truly an honor to talk to you.
+
+1:10:06.340 --> 1:10:07.180
+ I really appreciate it.
+
+1:10:07.180 --> 1:10:08.000
+ I really enjoy it.
+
+1:10:08.000 --> 1:10:08.840
+ Thank you so much.
+
+1:10:08.840 --> 1:10:09.660
+ Thank you.
+
+1:10:09.660 --> 1:10:10.500
+ Thanks, man.
+
+1:10:10.500 --> 1:10:13.280
+ Thanks for listening to this conversation
+
+1:10:13.280 --> 1:10:15.200
+ with Alex Garland, and thank you
+
+1:10:15.200 --> 1:10:17.360
+ to our presenting sponsor, Cash App.
+
+1:10:17.360 --> 1:10:21.280
+ Download it, use code LexPodcast, you'll get $10,
+
+1:10:21.280 --> 1:10:23.960
+ and $10 will go to FIRST, an organization
+
+1:10:23.960 --> 1:10:26.200
+ that inspires and educates young minds
+
+1:10:26.200 --> 1:10:29.000
+ to become science and technology innovators of tomorrow.
+
+1:10:29.900 --> 1:10:32.560
+ If you enjoy this podcast, subscribe on YouTube,
+
+1:10:32.560 --> 1:10:34.480
+ give it five stars on Apple Podcast,
+
+1:10:34.480 --> 1:10:36.880
+ support it on Patreon, or simply connect with me
+
+1:10:36.880 --> 1:10:38.960
+ on Twitter, at Lex Friedman.
+
+1:10:38.960 --> 1:10:43.480
+ And now, let me leave you with a question from Ava,
+
+1:10:43.480 --> 1:10:45.880
+ the central artificial intelligence character
+
+1:10:45.880 --> 1:10:48.840
+ in the movie Ex Machina, that she asked
+
+1:10:48.840 --> 1:10:50.420
+ during her Turing test.
+
+1:10:51.440 --> 1:10:54.560
+ What will happen to me if I fail your test?
+
+1:10:54.560 --> 1:11:10.560
+ Thank you for listening, and hope to see you next time.
+

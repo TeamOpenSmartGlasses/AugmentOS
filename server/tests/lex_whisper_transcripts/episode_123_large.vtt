@@ -1,0 +1,3800 @@
+WEBVTT
+
+00:00.000 --> 00:05.120
+ The following is a conversation with Manolis Kellis, his second time on the podcast.
+
+00:05.120 --> 00:09.920
+ He's a professor at MIT and head of the MIT Computational Biology Group.
+
+00:09.920 --> 00:14.720
+ He's one of the most brilliant, productive, and kind people I've had the fortune of talking to.
+
+00:15.360 --> 00:19.520
+ A lot of my colleagues at MIT and former MIT faculty and students
+
+00:19.520 --> 00:23.200
+ wrote to me after our first conversation with some version of,
+
+00:23.200 --> 00:30.080
+ Manolis is awesome, isn't he? I'm glad you guys are now friends. I am too. And I'm happy that
+
+00:30.080 --> 00:34.560
+ he makes time in his insanely busy schedule to sit down and have a chat with me.
+
+00:35.520 --> 00:40.960
+ Quick summary of the sponsors, Public Goods, Magic Spoon, and ExpressVPN.
+
+00:40.960 --> 00:46.320
+ Please check out these sponsors in the description to get a discount and to support this podcast.
+
+00:46.960 --> 00:51.760
+ As a side note, let me say that I just got back from talking to Joe Rogan on his podcast,
+
+00:51.760 --> 00:57.200
+ my fifth time on there. I also got a chance to record a separate conversation with Joe
+
+00:57.200 --> 01:03.520
+ on this podcast. We talked on both quite a bit about his journey and his advice for mine.
+
+01:04.160 --> 01:09.760
+ One of the things that I think made his show special is that he just had fun and made choices
+
+01:09.760 --> 01:15.360
+ that didn't get in the way of him having fun and loving life. I'm learning to do just that.
+
+01:15.360 --> 01:19.680
+ It's tough since I'm naturally full of self doubt and anxiety,
+
+01:19.680 --> 01:27.200
+ but I'm learning to let go and have fun, even if my monotone robotic voice sometimes sounds otherwise.
+
+01:28.000 --> 01:33.200
+ For Joe, that involved talking to his friends, comedians, especially ones that brought out the
+
+01:33.200 --> 01:39.200
+ best in him. Duncan Trussell and the five hour first episode on Spotify comes to mind as an
+
+01:39.200 --> 01:45.040
+ example of that. Duncan has been a guest probably close to if not more than 50 times on Joe's
+
+01:45.040 --> 01:52.320
+ podcast. My hope with amazing people like Manolis is to find my Duncan Trussell, my Joey Diaz,
+
+01:52.320 --> 01:58.880
+ and yes, even my Eddie Bravo. Obviously Joe and I are very different people but ultimately both
+
+01:58.880 --> 02:05.760
+ love life when we can interact often with people we love and who inspire us, make us smile,
+
+02:05.760 --> 02:10.240
+ make us think, and make us have fun when we get behind the mic of a podcast,
+
+02:10.240 --> 02:15.280
+ whether anyone is listening or not. If you enjoy this thing, subscribe on YouTube,
+
+02:15.280 --> 02:20.400
+ review it with five stars on Apple Podcasts, follow on Spotify, support on Patreon, or connect
+
+02:20.400 --> 02:26.240
+ with me on Twitter at Lex Friedman. I also this time put a link in the description to a survey
+
+02:26.240 --> 02:32.080
+ for this podcast on how I can improve and also an option if you like, I don't know why you would
+
+02:32.080 --> 02:37.200
+ like to, but if you like to join an inner circle of people that help guide the direction of this
+
+02:37.200 --> 02:43.360
+ podcast via email or occasional video chats. If you have a few minutes, please fill it out.
+
+02:44.320 --> 02:48.480
+ As usual, I'll do a few minutes of ads now and no ads in the middle. I try to make these
+
+02:48.480 --> 02:54.400
+ interesting, but I give you timestamps so you can skip, but still please do check out the sponsors
+
+02:54.400 --> 02:59.200
+ by clicking the links in the description. It's the best way honestly to support this podcast.
+
+03:00.240 --> 03:05.600
+ This show is sponsored by Public Goods, an online store for basic health and household stuff.
+
+03:05.600 --> 03:10.000
+ Their products have a minimalist black and white design that I find to be just clean,
+
+03:10.000 --> 03:16.000
+ elegant, and beautiful. It goes nicely, at least I think so, with the design of Crew Dragon and
+
+03:16.000 --> 03:22.560
+ the recent SpaceX NASA mission that sent two humans into space. To me, very few things are
+
+03:22.560 --> 03:28.000
+ as inspiring as us humans reaching out into the unknown, the harsh challenges of space.
+
+03:28.880 --> 03:33.440
+ Colonizing Mars may not have obvious near term benefits, but I believe it will challenge our
+
+03:33.440 --> 03:39.520
+ scientists and our engineers to create technologies whose impact will be immeasurable for us humans
+
+03:39.520 --> 03:46.720
+ here on Earth, or those of us who choose to stay here on Earth. Personally, I'm kind of a long time
+
+03:47.280 --> 03:56.160
+ big fan of this planet. Anyway, visit publicgoods.com slash Lex and use code Lex at checkout to get 15
+
+03:56.160 --> 04:03.920
+ bucks off your first order. This episode is also supported by Magic Spoon, low carb,
+
+04:03.920 --> 04:10.320
+ keto friendly cereal. You might have heard on other videos that I eat keto mostly these days,
+
+04:10.320 --> 04:16.480
+ so Magic Spoon is a delicious healthy treat on a hard workout day that fits into that crazy diet.
+
+04:17.360 --> 04:24.160
+ Also, they're a sponsor of episode 100 with my dad, and got my dad to buy this cereal and he now
+
+04:24.160 --> 04:30.080
+ loves it. Honestly, just loves it. It's kind of funny actually. The deep heartfelt nature of that
+
+04:30.080 --> 04:36.720
+ conversation and the silliness of the cereal captures my dad perfectly. Much of the hardship
+
+04:36.720 --> 04:43.520
+ in his life he dealt with using wit and humor. His favorite flavor happens to be cocoa. Mine is too.
+
+04:44.800 --> 04:50.160
+ He hasn't bought the eight sleep mattress yet, though my mom wants to, but he's all about this
+
+04:50.160 --> 04:55.680
+ Magic Spoon cereal. I think it's his actually favorite sponsor of this podcast. Probably
+
+04:55.680 --> 05:01.280
+ because they chose to sponsor the episode he's on. Anyway, click the magicspoon.com slash Lex
+
+05:01.280 --> 05:06.640
+ link in the description and use code Lex at checkout for free shipping to let them know
+
+05:06.640 --> 05:14.240
+ I sent you and also indirectly to make my dad happy. This show is also sponsored by ExpressVPN.
+
+05:14.240 --> 05:21.440
+ Get it at expressvpn.com slash Lex pod. They gave me a suggested opening line of using the internet
+
+05:21.440 --> 05:27.840
+ without ExpressVPN is like going to the bathroom and not closing the door. This is like GPT3
+
+05:27.840 --> 05:33.360
+ suggesting to me how to be more human like, and I'll honestly take all the help I can get.
+
+05:33.360 --> 05:39.760
+ By way of life advice, let me tell you that you need a VPN to protect you from Russians like me.
+
+05:39.760 --> 05:45.520
+ In fact, this podcast is a kind of hack of your biological network where I use my monotone,
+
+05:45.520 --> 05:51.120
+ low energy voice to convince you to buy kind of expensive cereal as a way to influence the
+
+05:51.120 --> 05:58.320
+ stability of the US economy. I use ExpressVPN on both Windows and Linux to protect myself
+
+05:58.320 --> 06:03.920
+ if I ever do shady things on the internet, which of course I never do and never will.
+
+06:03.920 --> 06:10.400
+ So secure your online activity by going to expressvpn.com slash Lex pod to get an extra
+
+06:10.400 --> 06:17.520
+ three months free and to support this podcast. And now here's my conversation with Manolis Kallis.
+
+06:18.960 --> 06:25.040
+ What is beautiful about the human epigenome? Don't get me started. So first of all,
+
+06:25.040 --> 06:32.640
+ as an engineering feat, the human epigenome manages the most compact, the most incredible
+
+06:32.640 --> 06:39.760
+ compaction you could imagine. So every single one of your cells contains two meters worth of DNA.
+
+06:40.400 --> 06:47.200
+ And this is compacted in a radius, which is one thousandth of a millimeter. That's six orders of
+
+06:47.200 --> 06:54.480
+ magnitude. To give you a sense of scale, it's as if a string as tall as the Burj Al Khalifa,
+
+06:55.840 --> 07:00.880
+ which is about a kilometer tall, was compacted into a tiny little ball the size of a millimeter.
+
+07:00.880 --> 07:10.400
+ And if you put it all together, if you stretch the trillions of cells that we have, we have about
+
+07:10.400 --> 07:15.200
+ 30 trillion cells in your body. If you stretch the DNA, the two meters worth of DNA in every one of
+
+07:15.200 --> 07:24.320
+ your trillion cells, you would basically reach all the way to Jupiter a hundred times.
+
+07:24.320 --> 07:30.800
+ A hundred times. Yeah, it's all curled up in there. It's 30 trillion cells.
+
+07:30.800 --> 07:37.200
+ 30 trillion cells, every one of them two meters worth of DNA. So all of that is compacted through
+
+07:37.200 --> 07:44.160
+ the epigenome. The epigenome basically has the ability to compact this massive amount of DNA
+
+07:44.160 --> 07:49.520
+ from here to Jupiter 10 times into one human body, into just the nuclei of one human body,
+
+07:49.520 --> 07:52.240
+ and the vast majority of the human body is not even these nuclei.
+
+07:52.240 --> 07:57.600
+ And that's sort of the structural part. So that's the boring part. That's the structural part.
+
+07:57.600 --> 08:03.120
+ The functional part is way more interesting. So functionally, what the human epigenome allows
+
+08:03.120 --> 08:12.160
+ you to do is basically control the activity patterns of thousands of genes. So 20,000 genes
+
+08:12.160 --> 08:16.720
+ in your human body, every one of your cells only needs a few thousand of those, but a different
+
+08:16.720 --> 08:23.120
+ few thousand of those. And the way that your cells remember what their identity is, is basically
+
+08:23.120 --> 08:28.880
+ driven by the epigenome. So the epigenome is both structural in sort of making this dramatic
+
+08:28.880 --> 08:35.200
+ compaction, and it's also functional in being able to actually control the activity patterns
+
+08:35.200 --> 08:42.960
+ of all your cells. Now, can we draw a definition distinction between the genome and the epigenome?
+
+08:42.960 --> 08:52.480
+ Again, being Greek, epi means on top of. So the genome is the DNA, and the epigenome is anything
+
+08:52.480 --> 08:58.560
+ on top of the DNA. And there's three types of things on top of the DNA. The first is chemical
+
+08:58.560 --> 09:04.800
+ modifications on the DNA itself. So we like to think of four bases of the DNA, A, C, G, T. C
+
+09:05.360 --> 09:11.440
+ has a methyl form, which is sometimes referred to as the fifth base. So methyl C takes a different
+
+09:11.440 --> 09:18.800
+ meaning. So in the same way that you have annotations in a orchestra score that basically
+
+09:18.800 --> 09:25.520
+ say whether you should play something softly or loudly or space it out or interpret basically
+
+09:25.520 --> 09:32.560
+ the score, the human epigenome allows you to modify that primary score. So a modified C
+
+09:32.560 --> 09:38.240
+ basically says, play this one softly. It's basically a sign of repression in a gene
+
+09:38.240 --> 09:46.720
+ regulatory region. I love how you're talking about the function that emerges from the epigenome as a
+
+09:46.720 --> 09:53.440
+ musical score. It is in many ways. And every single cell plays a different part of that score.
+
+09:53.440 --> 09:58.320
+ It's like having all of human knowledge in 23 volumes, like 23 giant books, which are your
+
+09:58.320 --> 10:04.800
+ chromosomes. And every single cell has a different profession, a different role. Some cells play the
+
+10:04.800 --> 10:09.840
+ piano and they're looking at chapter seven from chromosome 23 and chapter four from chromosome
+
+10:09.840 --> 10:17.280
+ two and so on and so forth. And each of those pieces are all encoded in the same DNA. But
+
+10:17.280 --> 10:24.480
+ what the epigenome allows you to do is effectively conduct the orchestra and sort of coordinate the
+
+10:24.480 --> 10:29.440
+ pieces so that every instrument plays only the things that it needs to play. One thing that kind
+
+10:29.440 --> 10:35.600
+ of blows my mind, maybe you can tell me your thoughts about it, is the way evolution works
+
+10:35.600 --> 10:44.320
+ with natural selection is based on the final sort of the entirety of the orchestra musical
+
+10:44.320 --> 10:53.040
+ performance, right? But there's these incredibly rich structural things, like each one of them
+
+10:53.040 --> 10:58.160
+ doing their own little job that somehow work together. The evolution selects based on the
+
+10:58.160 --> 11:05.760
+ final result and yet all the individual pieces are doing like infinitely minuscule specific things.
+
+11:05.760 --> 11:10.800
+ How the heck does that work? It's a very good insight. And you can even go beyond that and
+
+11:10.800 --> 11:15.520
+ basically say evolution doesn't select at the level of an organism. It actually selects at
+
+11:15.520 --> 11:22.080
+ the level of whole environments, whole ecosystems. So let me break this down. So you basically have
+
+11:22.080 --> 11:28.800
+ at the very bottom every single nucleotide being selected. But then that nucleotide function is
+
+11:28.800 --> 11:37.440
+ selected at the level of each gene and every, not even each gene, each gene regulatory control
+
+11:37.440 --> 11:42.800
+ element. And then those control elements are basically converging onto the function of the gene
+
+11:42.800 --> 11:47.280
+ and many genes are converging onto the function of one cell and many cells are converging into
+
+11:47.280 --> 11:54.160
+ the function of one tissue or organ. And all of these organs are converging onto the level of
+
+11:54.160 --> 12:00.320
+ an organism. But now that organism is not in isolation. So if you basically think about why
+
+12:00.320 --> 12:06.720
+ is altruism, for example, a thing, why are people being nice to each other? It was probably selected
+
+12:06.720 --> 12:13.440
+ and it was probably selected because those species that were just nasty to each other didn't survive
+
+12:13.440 --> 12:23.440
+ as a species. And now if you think about symbiosis of, you know, there's plants, for example, that
+
+12:23.440 --> 12:32.480
+ love CO2 and there's humans that love O2 and we're sort of, you know, trading different types of gases
+
+12:32.480 --> 12:42.160
+ to each other. If you look at ecosystems where one organism was just really nasty, that organism
+
+12:42.160 --> 12:47.360
+ actually died because everyone they were being nasty to was killed off. And then that kind of,
+
+12:48.000 --> 12:57.520
+ you know, universe of life is gone. So basically what emerges is selection at so many different
+
+12:57.520 --> 13:05.920
+ layers of benefit, including, you know, all of these nucleotides within a body interacting for
+
+13:05.920 --> 13:12.160
+ the emergent functions at the body level. Yeah. I wonder if it's possible to break it down into
+
+13:12.160 --> 13:18.080
+ levels that's selection even beyond humans. Like you said, environment, but there's environments
+
+13:18.080 --> 13:23.040
+ at all different levels too, right? At the minuscule, at the organ level, at the tissue level,
+
+13:23.040 --> 13:28.880
+ like you said, maybe at the microscopic level. It would be fascinating if like there's a kind of
+
+13:28.880 --> 13:36.400
+ selection going on, like both the quantum level and like the, the galaxy level. Yeah. Yeah. Yeah.
+
+13:36.400 --> 13:41.440
+ So, so yeah, let's again, sort of break down these different layers. So basically if you think about
+
+13:41.440 --> 13:47.120
+ the environment in which a gene operates, that gene, of course, the first definition of environment
+
+13:47.120 --> 13:53.760
+ that we think of is pollution or sunlight or heat or cold and so on and so forth. That's the external
+
+13:53.760 --> 13:58.320
+ environment. But every gene also operates at the level of the internal cellular environment that
+
+13:58.320 --> 14:04.160
+ it's in. If I take a gene from say an African individual and I put it in a European context,
+
+14:05.520 --> 14:12.320
+ will it perform the same way? Probably not because there's a cellular context of thousands of other
+
+14:12.320 --> 14:18.400
+ genes that that gene has co evolved with, you know, in the out of Africa event and, you know,
+
+14:18.400 --> 14:25.200
+ all of this sort of human history of evolution. So basically if you look at Neanderthal genes,
+
+14:25.200 --> 14:32.000
+ for example, which again happened long after that out of Africa event, there's incompatibilities
+
+14:32.000 --> 14:38.720
+ between Neanderthal genes and modern human genes that can lead to diseases. So in the context of
+
+14:38.720 --> 14:43.600
+ the Neanderthal genome, that gene version, that allele was fine, but in the context of the modern
+
+14:43.600 --> 14:49.040
+ human genome, that Neanderthal gene version is actually detrimental. So it's, it's, you know,
+
+14:49.040 --> 14:54.640
+ that cellular environment constitutes the genetics of that gene, but also of course,
+
+14:54.640 --> 15:00.560
+ all of the epigenomics of that gene. It's fascinating that the gene has a history.
+
+15:00.560 --> 15:05.600
+ I mean, we talked about this a little bit last time, but just, and then some of your research
+
+15:05.600 --> 15:13.440
+ goes into that, but the genes as they are today have, have a story from the beginning of time.
+
+15:14.000 --> 15:20.400
+ And then some, sometimes their story was like their path was useful for survival for the
+
+15:20.400 --> 15:27.040
+ particular organisms and sometimes not. That's fascinating. Let me ask as a tangent. We kind
+
+15:27.040 --> 15:32.560
+ of started talking offline about Neanderthals. Do you have something interesting genetically,
+
+15:32.560 --> 15:38.160
+ biologically in terms of difference between Neanderthal and like the different branches
+
+15:38.160 --> 15:46.080
+ of human evolution that you find fascinating? Neanderthals are only one of about five branches
+
+15:46.080 --> 15:53.040
+ that we are pretty confident about. Branches of? Of out of Africa events. So basically there's
+
+15:53.040 --> 16:00.320
+ Neanderthals, there's Denisovans. What is the evidence for Denisovans? One tiny little fragment
+
+16:00.320 --> 16:08.320
+ of one pinky from one cave in Siberia. Recent, relatively recently discovered, right? Less than
+
+16:08.320 --> 16:12.880
+ 10 years ago. Yeah. And those are like little folks, right? No, no, no, no, no. That's yet
+
+16:12.880 --> 16:18.800
+ another one though. Homo florensis. It had the little folks instead of Indonesia. But then the
+
+16:18.800 --> 16:24.240
+ Denisovans are basically another branch that we only know about genetically from that one bone.
+
+16:24.240 --> 16:28.640
+ And eventually we realized that it's one of the three major branches along with Neanderthal,
+
+16:28.640 --> 16:34.560
+ modern human and Denisovan. And then that one branch has now resurfaced in many different areas.
+
+16:34.560 --> 16:39.600
+ And we kind of know about the gene flow that happened in between them. So when I was reading
+
+16:39.600 --> 16:46.560
+ my Greek mythology, it was talking about the age of the heroes, these eras of human like,
+
+16:46.560 --> 16:51.440
+ you know, precursors that were wiped out by Zeus or by all kinds of wars and so on and so forth,
+
+16:51.440 --> 16:57.760
+ like the Titans and the, you know, it's ridiculous to sort of read these stories as a kid because
+
+16:57.760 --> 17:02.560
+ you're like, oh yeah, whatever. And then you're growing up and you're like, whoa, layers and
+
+17:02.560 --> 17:08.320
+ layers of human like ancestors. And who knows if those stories were inspired by bones that they
+
+17:08.320 --> 17:13.760
+ found that kind of looked human like, but were not quite human like. Who knows if stories of dragons
+
+17:13.760 --> 17:20.240
+ were inspired by bones of dinosaurs. And basically this archeological evidence has been there and has
+
+17:20.240 --> 17:27.200
+ probably entered the folk imagination, migrated into those stories, but it's not that far removed
+
+17:27.200 --> 17:34.000
+ from what actually happened of massive wars of wiping out Neanderthals as humans are, modern
+
+17:34.000 --> 17:39.680
+ humans are populating, you know, Europe. Do you think, do you think what killed the Neanderthals
+
+17:39.680 --> 17:48.000
+ and all those other branches is human conflict or is it genetic conflict? So is it us humans being
+
+17:48.000 --> 17:56.240
+ the opposite of altruistic towards each other? Or is it some other competition at some other level,
+
+17:56.240 --> 18:01.760
+ like as we're discussing? Yeah. So if you look at a lot of human traits today, they're probably not
+
+18:01.760 --> 18:07.200
+ that far removed from the human traits that got us where we are now. So, you know, this whole
+
+18:07.200 --> 18:14.720
+ tribalism, you know, you're my sports team or you're my, you know, political party or you're my,
+
+18:14.720 --> 18:19.520
+ you know, tiny little village. And therefore, you know, if you're from that other village,
+
+18:19.520 --> 18:25.440
+ I hate you. But as soon as we're both in the major city, I can't believe we're from the same region,
+
+18:25.440 --> 18:30.240
+ my friend, my family and like two neighboring countries fighting. And as soon as they're off
+
+18:30.240 --> 18:34.160
+ in another country, you're like, oh, I can't believe that. So it's, it's kind of funny,
+
+18:34.160 --> 18:40.160
+ like this tribalism is nonsensical in many ways. It's like cognitive incongruent that basically
+
+18:40.160 --> 18:49.040
+ we like kin and selection for, for sort of liking kin is hugely advantageous genetically.
+
+18:49.040 --> 18:54.400
+ Probably across all kinds of organisms, across all kinds of life. Yeah. So, so basically if you
+
+18:54.400 --> 19:01.840
+ now transport that to the sort of humans arriving in Europe and Neanderthals are everywhere,
+
+19:02.720 --> 19:07.600
+ what are you going to do? You're going to kill them off. You know, there's this battle for territory
+
+19:07.600 --> 19:12.480
+ and this battle for, they're not like us. We have to get rid of them. So basically there's a, you
+
+19:12.480 --> 19:18.240
+ know, very interesting mix there, but, and yet, and yet when you look at the genetics, there's
+
+19:18.240 --> 19:25.600
+ tons of gene flow between them. So basically, you know, love romance between, you know, tribes,
+
+19:25.600 --> 19:32.240
+ but love spans the gap between the different tribes. It's Romeo and Juliet across species
+
+19:32.240 --> 19:39.280
+ boundaries. Sneaks away from the village. Even before the out of Africa, there's, you know,
+
+19:39.280 --> 19:45.200
+ within Africa selection, which was probably massive battles of larger and larger tribes
+
+19:45.200 --> 19:53.920
+ selecting for our social networking and savviness and, you know, probably all our conspiracy theory
+
+19:53.920 --> 20:00.720
+ genes are, you know, dating back from then. And, you know, so there's a lot of this mischievousness
+
+20:00.720 --> 20:07.440
+ in the history of human evolution that unfortunately is still present in, you know, many ugly forms
+
+20:07.440 --> 20:14.000
+ today, but probably contributed to our success as a species in wiping out other species.
+
+20:14.000 --> 20:21.600
+ It just sucks that we don't have neighboring species that are, you know, intelligent like us
+
+20:23.120 --> 20:29.280
+ that, but yet very different than us. So we have like, you know, dogs or wolves, I guess,
+
+20:29.840 --> 20:37.840
+ co evolved. They, they figured out how to neighbor up with humans in a friendly way and collaborate
+
+20:37.840 --> 20:42.160
+ and develop in time. You're describing this as if the wolves made a choice.
+
+20:42.160 --> 20:47.360
+ It's possible that the wolves never had a say, that basically humans were just so overpowering
+
+20:47.360 --> 20:53.200
+ that they had captive wolves. And then at every generation killed off eight of the nine pups and
+
+20:53.200 --> 20:58.320
+ only kept the one that was milder. And it only takes a few generations to then sort of have pups
+
+20:58.320 --> 21:05.600
+ that are really mild. And so the Neanderthals weren't useful in the same way that wolves were.
+
+21:05.600 --> 21:11.520
+ I don't know if it's a question of useful. They were probably super useful. My thinking is that
+
+21:11.520 --> 21:18.880
+ they were scary, that basically something that almost resembles you is something that you try
+
+21:18.880 --> 21:25.680
+ to eliminate first. It's too close. Yeah. And speaking of, you know, species that are intelligent
+
+21:25.680 --> 21:32.160
+ and sort of what's left of evolution, it is a shame, exactly like you say, that so many different,
+
+21:32.160 --> 21:40.400
+ amazing life forms were extinct and the kind of boring ones remained. So if you look at the
+
+21:40.400 --> 21:46.880
+ dinosaurs, I mean, the diversity that they had, if you look at sub, you know, like there's just so
+
+21:46.880 --> 21:56.160
+ many different lineages of life that were just abruptly killed. And yet out of that death emerged,
+
+21:56.160 --> 22:01.280
+ you know, many new kinds of really awesome lineages. Do you think there was in the history of
+
+22:01.280 --> 22:07.360
+ life on earth species that may be still alive today that are more intelligent than humans?
+
+22:07.360 --> 22:11.440
+ And we just don't know. So there's a case to be made for dolphins. Like if you look at their brains,
+
+22:11.440 --> 22:16.880
+ if you look at the way that they play, if you look at the way that they learn, you know, I mean,
+
+22:16.880 --> 22:20.800
+ they don't have opposable thumbs and we do. So, you know, that probably made a big difference.
+
+22:20.800 --> 22:24.720
+ It's terrifying to think that like, not terrifying, I don't know how to feel about it,
+
+22:24.720 --> 22:28.400
+ that they're more intelligent than us. It's like the hitchhiker's guide.
+
+22:28.960 --> 22:33.120
+ I know. But how do you define intelligence? Basically, like I was saying last time,
+
+22:33.120 --> 22:39.360
+ you know, stupid is a stupid does and smart is a smart does. So if the dolphins are basically
+
+22:39.360 --> 22:43.760
+ super smart, figured out the meaning of life and just go around playing with water all day,
+
+22:43.760 --> 22:49.920
+ which is probably the meaning of life, then we wouldn't know because all they're doing is kicking
+
+22:49.920 --> 22:55.920
+ water just like sharks are and sharks are probably pretty stupid. So basically it's very difficult to
+
+22:55.920 --> 23:00.080
+ sort of judge a species intelligence unless they kind of go out of their way to demonstrate it.
+
+23:00.080 --> 23:05.200
+ Yeah, and that's instructive for our understanding of any kind of life form.
+
+23:06.480 --> 23:11.200
+ You know, I recently talked to Sara Seager looking for life out there on other planets.
+
+23:11.920 --> 23:19.120
+ It'd be fascinating to think if we discover a habitable planet outside of Earth in one day,
+
+23:19.120 --> 23:24.160
+ maybe many centuries away, or be able to travel with like a robot there, how would we actually
+
+23:24.160 --> 23:32.320
+ know that this species would probably be able to detect that it's a living being? But how would we
+
+23:32.320 --> 23:40.480
+ know if it's an intelligent being? I mean, it's both exciting and terrifying to sort of come face
+
+23:40.480 --> 23:48.480
+ to face with a life form that's of another world. Like something that clearly is moving in a,
+
+23:48.480 --> 23:55.680
+ how would you say, like a deliberate way, and to then like ask, well, how do I ask that thing,
+
+23:56.480 --> 23:58.080
+ whether it's intelligent?
+
+23:58.080 --> 24:03.840
+ No, but the question that you're asking is applicable to every species on the Earth now.
+
+24:03.840 --> 24:04.800
+ On Earth now, yeah.
+
+24:04.800 --> 24:08.800
+ Yeah. So basically, you know, dolphins are a great example. We know that they're,
+
+24:08.800 --> 24:14.240
+ you know, clearly capable hardware wise and behavior wise of intelligence.
+
+24:14.240 --> 24:18.080
+ You know, how do we communicate? So basically, if your question is about crossing species
+
+24:18.080 --> 24:26.080
+ boundaries of communication, the way that I want to put it is that humans have achieved
+
+24:26.080 --> 24:32.320
+ a level of sophistication in our behaviors, in our communication, in our language, in our ways
+
+24:32.320 --> 24:39.680
+ of expressing ourselves, that I have no doubt that if we encountered a human like form of
+
+24:39.680 --> 24:45.680
+ intelligence, we'd figure out their language in a few weeks. Like, it'd be just fine. As long as,
+
+24:45.680 --> 24:50.080
+ you know, of course, they're both trusting each other, not annihilating each other, and not sort
+
+24:50.080 --> 24:52.640
+ of fearing each other and attacking each other.
+
+24:52.640 --> 24:57.520
+ What about, let me ask, just out of curiosity into science fiction land a little bit.
+
+24:58.400 --> 25:05.200
+ So clearly, you're one of the top scientists in the world. So if we were to discover,
+
+25:05.200 --> 25:12.880
+ an alien life form, you would be brought in to study its genetics. Do you think the epigenome
+
+25:12.880 --> 25:18.720
+ that we talked about, the genome, the code, the digital code that underlies that alien life form
+
+25:18.720 --> 25:26.960
+ would be similar to ours? Like the, in fundamental ways, maybe not exactly, but in fundamental ways,
+
+25:26.960 --> 25:28.000
+ of how it's structured?
+
+25:28.000 --> 25:31.440
+ Yeah. So you're getting to the very definition of what we're talking about.
+
+25:31.440 --> 25:35.920
+ Of how it's structured. Yeah. So you're getting to the very definition of life. You're getting to
+
+25:35.920 --> 25:44.320
+ the very definition of what makes life, life, and how do we decode that life? And it's so easy to
+
+25:44.320 --> 25:50.400
+ think that every life form would basically have to, you know, like oxygen, have to like heat from
+
+25:50.400 --> 25:57.360
+ the sun and rely on sort of being in the habitable zone of, you know, its solar system and so on and
+
+25:57.360 --> 26:04.800
+ so forth. But I think we have to sort of go beyond this sort of, oh, life on another planet must be
+
+26:04.800 --> 26:10.480
+ exactly like life is on earth. Because of course, life on earth happens to rely on the proximity to
+
+26:10.480 --> 26:18.800
+ the sun and benefit from that amount of energy. But we're talking at timescales of human life,
+
+26:19.520 --> 26:24.640
+ where we kind of live, I don't know, between, and I'm going to be super wide here. We're going to
+
+26:24.640 --> 26:31.760
+ live between six earth months and, you know, 200 earth months or 200 earth years. So basically,
+
+26:32.640 --> 26:38.240
+ if you look at the timescale that we inhabit on earth, it is very much dictated by the amount of
+
+26:38.240 --> 26:44.320
+ energy that we receive from the sun. If you look at, I don't know, Europa, you know, the smallest,
+
+26:44.320 --> 26:50.160
+ the fourth smallest moon of Jupiter, the smallest of the Galilean moons, and also the smallest
+
+26:50.160 --> 27:02.000
+ in its distance from Jupiter. It has an iron core, it has a rock exterior, it has ice all around it,
+
+27:02.000 --> 27:10.080
+ and it has probably massive liquid oceans underneath. And the gravitational pull of
+
+27:10.080 --> 27:17.520
+ Jupiter is probably creating all kinds of movement under that ice. How did life evolve on earth?
+
+27:17.520 --> 27:27.440
+ Yes, sure. Life now, most of life that we above the surface look at, has to do with exploiting
+
+27:27.440 --> 27:33.120
+ the solar energy for, you know, our daily behavior. But that's not the case everywhere
+
+27:33.120 --> 27:38.960
+ on the planet. If you look at the bottom of the ocean, there are hydrothermal vents.
+
+27:38.960 --> 27:46.400
+ There's both black smokers and white smokers, and they are near these volcanic, you know, ducts
+
+27:46.400 --> 27:53.600
+ that basically emanate a massive amount of energy from the core of our planet. What does life need?
+
+27:53.600 --> 28:00.320
+ It needs energy. Does it need energy from the sun? It couldn't care less. Does it need energy from,
+
+28:00.320 --> 28:06.320
+ you know, the earth itself? Yeah, possibly. It could use that. And if you look at how did life
+
+28:06.320 --> 28:12.720
+ evolve on, you know, on earth, there are many theories. I mean, a kind of silly theory is that
+
+28:12.720 --> 28:16.880
+ it came from outer space, that basically there's a meteorite out there that sort of landed on earth
+
+28:16.880 --> 28:21.280
+ and brought with it DNA material. I think it's a little silly because it kind of pushes the buck
+
+28:21.280 --> 28:26.960
+ down the road. Basically the next question is how did it evolve over there? Whereas our planet has
+
+28:26.960 --> 28:30.240
+ basically all of the right ingredients, why wouldn't evolve here? So basically let's kind
+
+28:30.240 --> 28:34.480
+ of ignore that one. And now the two other competing hypotheses are from the outside in
+
+28:34.480 --> 28:38.880
+ or from the inside out. What's that mean? From the outside in means from the surface to the
+
+28:38.880 --> 28:43.760
+ bottom of the ocean. From the inside out means from the bottom of the ocean to the surface.
+
+28:46.080 --> 28:49.360
+ So life on the surface is pretty brutal.
+
+28:51.200 --> 28:56.960
+ Life obviously evolved in the water and then there was an out of water event.
+
+28:58.000 --> 29:04.320
+ But basically before it exited, it was clearly in the water, which is a much nicer and shielded
+
+29:04.320 --> 29:11.280
+ environment. So just to be clear, on the surface, are you referring to the surface of the sea or
+
+29:11.280 --> 29:17.600
+ the bottom of the sea? Versus the bottom of the sea. And you're saying life on the surface is
+
+29:18.800 --> 29:27.520
+ harsh. Life outside the water is horrible. It takes huge amounts of evolutionary innovations
+
+29:27.520 --> 29:34.640
+ to sustain living outside the water. That's so interesting. Why is that? So it's easier to,
+
+29:34.640 --> 29:38.160
+ life is easier in the water. Maybe, see, I'm telling dolphins are onto something.
+
+29:38.160 --> 29:41.440
+ We are 70% water. No, dolphins went back into the water.
+
+29:42.000 --> 29:43.840
+ Really? Oh, because dolphins are mammals.
+
+29:43.840 --> 29:45.040
+ Of course. Yeah.
+
+29:45.040 --> 29:49.200
+ Interesting. Well, again, they might be smarter. They went back. They're like, screw this.
+
+29:49.920 --> 29:55.200
+ So if you basically think about the fact that we are 70% water,
+
+29:55.200 --> 30:02.800
+ we're basically transporting the sea with us outside the sea. If we don't have water for about
+
+30:03.760 --> 30:09.680
+ 24 hours, we're dry. And if you look at life under the sea, I mean, I don't know if you're a diver,
+
+30:09.680 --> 30:16.320
+ but when you go diving, your brain explodes. Again, when I say the boring life forms is what
+
+30:16.320 --> 30:24.320
+ we see all the time, like tetrapods. I mean, what a stupid boring body plan. Seriously. Just go dive
+
+30:24.320 --> 30:29.440
+ and you'll see that a tiny little minority of the stuff under the sea, under the surface of the sea
+
+30:29.440 --> 30:37.360
+ is actually tetrapods. It's like snails with all kinds of crazy appendages and colors and round
+
+30:37.360 --> 30:43.120
+ things and five way symmetric things and eight way symmetric things, all kinds of crazy body plans.
+
+30:43.760 --> 30:49.680
+ And only the tetrapod fish managed to get out. And then they gave rise to all the boring plans we
+
+30:49.680 --> 30:56.480
+ kind of see today of basically, you know, humans with four limbs, birds with four limbs, lizards
+
+30:56.480 --> 31:02.880
+ with four limbs, and you know, right? It's kind of boring. If you look at, by comparison, life
+
+31:02.880 --> 31:09.200
+ underwater is teeming with diversity. So now let's roll back the clock and basically say,
+
+31:09.200 --> 31:13.520
+ where did life in the ocean come from, from the surface or from the bottom?
+
+31:13.520 --> 31:15.120
+ Exactly. Those two options that you were mentioning.
+
+31:15.120 --> 31:21.440
+ Yeah, exactly. So basically life on the surface is one option. And then the idea there is that
+
+31:21.440 --> 31:26.880
+ there's tides with the moon and the sun sort of causing all this movement. And this movement is
+
+31:26.880 --> 31:31.520
+ basically causing nutrients to sort of, you know, coalesce and, you know, bounce around,
+
+31:31.520 --> 31:39.280
+ et cetera. That's one option. The second option, massive amount of energy from the core of our
+
+31:39.280 --> 31:47.920
+ the core of our planet basically exploited, leading to these basic ingredients of life forms.
+
+31:47.920 --> 31:53.600
+ And what are these basic ingredients? Metabolism, being able to take energy from the environment
+
+31:53.600 --> 31:59.360
+ and put it as part of yourself. Metabolism, it basically means transformation. Again, in the
+
+31:59.360 --> 32:08.480
+ Greek, it basically means taking stuff from, you know, like nutrients or energy source or anything,
+
+32:08.480 --> 32:14.720
+ and then making it your own. The second one is compartmentalization. If there's no notion of self,
+
+32:14.720 --> 32:19.920
+ there can't be evolution. You have to know where your own boundaries end and where the non self
+
+32:19.920 --> 32:26.320
+ boundaries begin. And that's basically the lipid bilayer nowadays, which is extremely simple to
+
+32:26.320 --> 32:30.720
+ form. It's basically just a bunch of lipids and then they eventually just self organize into a
+
+32:30.720 --> 32:39.040
+ membrane. So that's a very natural way of forming a self. And then the third component is replication.
+
+32:40.560 --> 32:46.480
+ Replication doesn't need to be self replication. It could be A helps make more of B, B helps make
+
+32:46.480 --> 32:54.240
+ more of C and C helps make more of A. Any kind of self reinforcement is what you need to ignite
+
+32:54.240 --> 32:59.920
+ the process of evolution. After you've ignited that process, you know, I don't want to say all
+
+32:59.920 --> 33:06.240
+ hell breaks loose, but all paradise breaks loose. So basically you then boom, you know, have life
+
+33:06.240 --> 33:12.080
+ going. And the moment you have A, B, C, some kind of thing looping back onto A, you can make
+
+33:12.080 --> 33:18.400
+ modifications and you can improve. And then you let natural selection work. Is there some element
+
+33:18.400 --> 33:26.080
+ of that that's like some state representation that stores information? Like maybe I should say
+
+33:26.080 --> 33:34.720
+ information. Absolutely. We like to think of life as the information propagation, which is DNA,
+
+33:35.600 --> 33:42.560
+ the messenger, which is RNA, and then the action, which is protein. So basically DNA,
+
+33:43.120 --> 33:49.200
+ we think is an essential part of life. That's where the storage is. And therefore that early
+
+33:49.200 --> 33:55.200
+ life forms must have had some kind of storage medium DNA. If you look at how life actually
+
+33:55.200 --> 34:05.760
+ evolved, DNA was invented much later. Proteins were invented later. And RNA was fine by itself,
+
+34:05.760 --> 34:13.760
+ thank you very much, in an RNA world. So the early version of life as we know it today was in fact
+
+34:13.760 --> 34:22.240
+ RNA molecules performing all of the functions. The RNA molecule itself was the protein actuator
+
+34:22.240 --> 34:29.360
+ here by creating three dimensional folds through self hybridization. Self what? Self hybridization.
+
+34:29.360 --> 34:33.440
+ So basically the same way that DNA molecules can hybridize with themselves and basically
+
+34:33.440 --> 34:40.480
+ form this double helix. The single stranded RNA molecule can form partial double helices
+
+34:40.480 --> 34:46.400
+ in various places, creating structure as if you had a long string with complimentary parts,
+
+34:46.400 --> 34:51.120
+ and you could then sort of design kind of like origami like structures that will fold onto
+
+34:51.120 --> 34:59.600
+ themselves. And then you can make any shape from that. That early RNA world eventually got to
+
+34:59.600 --> 35:10.880
+ replication, where enzymes encoded in RNA would replicate RNA itself. And then that process
+
+35:10.880 --> 35:16.880
+ basically kicked off evolution. And that process of evolution then led to major innovations.
+
+35:16.880 --> 35:23.840
+ The first innovation was translation. So you start with an RNA molecule and you translate it
+
+35:23.840 --> 35:27.440
+ into another kind of form. And that's the first kind of encoding. You're like, well,
+
+35:27.440 --> 35:34.080
+ do you need some kind of code? Yeah, but the code was in fact one thing. It was conflated
+
+35:34.080 --> 35:40.800
+ with the actuators. The actuators were separated from the code only later on. So you first had
+
+35:40.800 --> 35:46.960
+ the self replicating code, which was also the actuator. And then you kind of have a functionalization,
+
+35:47.520 --> 35:52.640
+ partitioning of the functionalization, a sub functionalization of the proteins that are now
+
+35:52.640 --> 35:58.000
+ going to be the workhorse of life, but they're not self replicating. The code remains the RNA.
+
+35:58.880 --> 36:04.560
+ So the most beautiful and most complex RNA machine known to man is the ribosome.
+
+36:04.560 --> 36:10.560
+ The ribosome is this massive factory that is able to translate RNA into protein.
+
+36:12.080 --> 36:16.240
+ The ribosome, I mean, if you want, I don't know, divine intervention in the history of life,
+
+36:16.240 --> 36:20.320
+ the ribosome is it. That's one of the great invention in the history of life.
+
+36:20.320 --> 36:25.760
+ It's yeah. But again, you can't think of great inventions as one time steps. They're basically,
+
+36:25.760 --> 36:32.240
+ you know, the culmination of probably many competing software infrastructures for life
+
+36:32.240 --> 36:38.320
+ preservation that won out. And then when the ribosome was so efficient at making proteins,
+
+36:39.040 --> 36:44.480
+ all the other ones basically died out. And then the life forms that were using the modern ribosome
+
+36:45.520 --> 36:50.800
+ were basically the more successful ones because it could make proteins. And now those proteins
+
+36:50.800 --> 36:58.720
+ are much more versatile because RNA only has four bases. Proteins eventually have 20 amino acids,
+
+36:58.720 --> 37:04.480
+ not initially, but eventually. And then they can form in much more complex shapes and they can
+
+37:04.480 --> 37:11.520
+ create all kinds of additional machines. One of which is reverse transcriptase. So you basically
+
+37:11.520 --> 37:16.720
+ now have RNA. Again, we like to think of transcription as the normal, reverse transcription
+
+37:16.720 --> 37:23.360
+ as the oddball. Well, RNA preceded DNA. So reverse transcription actually was the first invention
+
+37:23.360 --> 37:29.920
+ before transcription itself. So basically RNA invents proteins, RNA and proteins together
+
+37:29.920 --> 37:40.000
+ invent DNA. So you now have a more stable medium and more stable backbone with two helices instead
+
+37:40.000 --> 37:46.960
+ of one, two strands instead of one, the double helix. And RNA basically says, listen, I'm tired.
+
+37:46.960 --> 37:54.160
+ I'm going to delegate all information storage to DNA and I'm going to delegate most actuation
+
+37:54.160 --> 38:01.920
+ to proteins. But that's to you is not like a, that's just an efficiency thing. It's not a
+
+38:01.920 --> 38:07.600
+ fundamentally new innovation. That's why when you're asking is a separate information storage
+
+38:07.600 --> 38:14.080
+ medium a definition of life? I'm like, no, any kind of self preservation, self reinforcement.
+
+38:14.080 --> 38:21.200
+ And it didn't need to be RNA based initially. It didn't need to be self replication initially.
+
+38:21.200 --> 38:26.640
+ You just need to have enough RNA molecules randomly arising that reinforce each other
+
+38:26.640 --> 38:33.760
+ that ultimately lead to the, you know, the closing of that loop and the ignition of the evolutionary
+
+38:33.760 --> 38:39.600
+ process. Can we just rewind a little bit? Like if you were to bet all your money on the two options
+
+38:39.600 --> 38:45.760
+ in terms of where life started at the bottom of the ocean. I don't know if this is answerable, but
+
+38:47.200 --> 38:53.360
+ how hard is the first step or if there's something interesting you can say about that first leap
+
+38:54.400 --> 39:02.640
+ about from not life to life. Yeah. I think it's inevitable on earth or just in the universe.
+
+39:02.640 --> 39:10.400
+ I think it's inevitable. If you look at Europa, you know, going back the moon of Jupiter. It's
+
+39:10.400 --> 39:17.920
+ also a really nice song by Santana. Europa basically has all the ingredients. It has,
+
+39:17.920 --> 39:24.400
+ you know, the core that can emit energy. It has the shielding through the ice sheet,
+
+39:25.200 --> 39:29.280
+ protecting it just like an atmosphere would. It even has a layer of oxygen,
+
+39:29.280 --> 39:35.920
+ probably sufficiently dense to sustain life. So my guess is that there's probably
+
+39:38.000 --> 39:44.320
+ independently a reason life form already teeming in Europa because as soon as it today.
+
+39:46.080 --> 39:47.920
+ Is that exciting or terrifying to you?
+
+39:50.400 --> 39:57.680
+ It's, I mean, as a scientist, I can't wait to see non DNA based life forms. I can't wait
+
+39:57.680 --> 40:07.920
+ because we are so born in, you know, sort of, as I would say in French, but basically we're sort of,
+
+40:08.880 --> 40:15.680
+ you know, we are so narrow minded in our thinking of what life should look like that I can't wait
+
+40:15.680 --> 40:20.080
+ for all that to just be blown away by the discovery of life elsewhere.
+
+40:20.080 --> 40:26.960
+ Let me bring you into another science fiction scenario. So on that point, if we discovered
+
+40:26.960 --> 40:37.520
+ life on Europa and you were brought in, you seem very excited, but how would you start looking at
+
+40:37.520 --> 40:45.440
+ that life in a way that's useful to you as a scientist, but also not going to kill all of us?
+
+40:46.480 --> 40:53.040
+ So like to me, it's a little bit scary because not, not because it's a malevolent life. Like
+
+40:53.040 --> 41:02.000
+ it's a dictator petting like a cat, it's evil, but just the way life is, it seems to be very good at
+
+41:02.000 --> 41:06.640
+ conquering other life. So there's a lot of science fiction movies based on that principle.
+
+41:06.640 --> 41:11.600
+ Yeah. And that's sort of what causes the public to be so scared. But if you think about sort of,
+
+41:12.800 --> 41:18.800
+ would Europa life be scared of humans coming over and taking over? Chances are no, not even like
+
+41:18.800 --> 41:23.680
+ earth bacteria because earth bacteria would be wiped out in an instant in this foreign world
+
+41:24.480 --> 41:30.000
+ because they don't know how to metabolize energy that doesn't come from the types of energy sources
+
+41:30.000 --> 41:37.280
+ that are here. The levels of acidity may just kill us all off. And at the same way, in the converse
+
+41:37.280 --> 41:43.440
+ way, if you bring life from Europa on earth, it'll die instantly because it's too hot or because it
+
+41:43.440 --> 41:49.280
+ doesn't need to know how to cope with, I don't know, the sun's radiation so close to these
+
+41:49.280 --> 41:55.680
+ completely inhabitable zone by their standards. So what we call the habitable zone might actually be
+
+41:55.680 --> 42:00.960
+ the inhabitable zone. Inhabitable for them. So the difference, if the environments are sufficiently
+
+42:00.960 --> 42:07.200
+ different, you think we'll just not be able to even attack each other and the basic. It'll take
+
+42:07.200 --> 42:16.000
+ massive amounts of engineering to create machines that will go there and sample the oceans,
+
+42:16.000 --> 42:22.960
+ basically drill through the layers of ice to basically sample and see what life is like
+
+42:22.960 --> 42:29.040
+ there and detecting it will probably be trivial. It definitely won't be DNA based. It's not like
+
+42:29.040 --> 42:34.960
+ we're going to send a sequencer, but it'll be some other kind of combination of chemicals
+
+42:34.960 --> 42:41.360
+ that will look nonrandom. So if you had to bet, if I took that life form we find in Europa and
+
+42:41.360 --> 42:46.720
+ like put it on a sandwich that you're eating and like eat that sandwich. It'll taste just fine.
+
+42:48.000 --> 42:53.760
+ Well, I know about that. Will it taste fine? That's interesting. So the other question is,
+
+42:53.760 --> 42:59.600
+ do we have taste receptors for this? So where does our taste come from? It's basically
+
+42:59.600 --> 43:04.720
+ adaptations to chemical molecules that we are used to seeing. We don't have taste buds for
+
+43:04.720 --> 43:09.360
+ things we don't even know about. So we won't be able to know that this chemical tastes funny.
+
+43:09.360 --> 43:15.120
+ But you think it won't be, it's likely not to be dangerous. Like it won't know how to even
+
+43:15.680 --> 43:20.640
+ interact. Do you think our immune system will even detect that something weird is going on?
+
+43:20.640 --> 43:24.960
+ Probably. And it'll be very easy to detect because it'll be very different from us.
+
+43:24.960 --> 43:25.520
+ Very weird.
+
+43:25.520 --> 43:28.960
+ But it won't be able to sort of attack. I mean, the scene from, I don't know,
+
+43:28.960 --> 43:32.320
+ Independence Day where like they're communicating with the alien computer and they're like,
+
+43:32.320 --> 43:37.520
+ ooh, I'm in. I mean, it's hilarious because like Macs and PCs have trouble communicating.
+
+43:39.840 --> 43:43.120
+ I mean, let alone an alien technology or even alien DNA.
+
+43:43.120 --> 43:49.040
+ So, okay. Now I was talking about you being a scientist on earth, but say you were a scientist
+
+43:49.040 --> 43:52.960
+ that was shipped over to Europa to investigate if there's life,
+
+43:52.960 --> 43:55.760
+ what would you look for in terms of signs of life?
+
+43:55.760 --> 44:02.400
+ Life is unmistakable, I would say. The way that life transforms a planet surrounding it
+
+44:02.960 --> 44:06.880
+ is not the kind of thing that you would expect from the physical laws alone.
+
+44:07.600 --> 44:16.240
+ So it's, I would say that as soon as life arises, it creates this compartmentalization.
+
+44:16.240 --> 44:21.120
+ It starts pushing things away. It starts sort of keeping things inside that are self.
+
+44:21.120 --> 44:27.680
+ And there's a whole signature that you can see from that. So when I was organizing my meaning
+
+44:27.680 --> 44:34.400
+ of life symposium, my friend who's an astrophysicist, basically we were deciding on what
+
+44:34.400 --> 44:39.280
+ would be the themes for the symposium. And then I said, well, we're going to have biology,
+
+44:39.280 --> 44:43.680
+ we're going to have physics. And she's like, oh, come on. Biology is just a small part of physics.
+
+44:46.240 --> 44:47.840
+ Everything's a small part of physics.
+
+44:47.840 --> 44:53.120
+ And I mean, in many ways it is, but my immediate answer was, no, no, no, no, wait.
+
+44:53.920 --> 45:00.000
+ Life challenges physics. It supersedes physics. It sort of fights against physics.
+
+45:00.720 --> 45:05.840
+ And that's what I would look for in Europe. I would basically look for this fight against physics
+
+45:05.840 --> 45:11.280
+ for anything that sort of signatures of not just entropy at work, not just things diffusing away,
+
+45:11.280 --> 45:18.160
+ not just gravitational pools, but clear signatures of, you remember when I was talking earlier about
+
+45:18.160 --> 45:23.680
+ this whole selection for environments, selection for biospheres, for ecosystems, for these multi
+
+45:23.680 --> 45:30.960
+ organism form of life. And I think that's sort of the first thing that you can look for, you know,
+
+45:30.960 --> 45:35.920
+ chemical signatures that are not simply predicted from the reactions you would get randomly.
+
+45:35.920 --> 45:42.400
+ Such a beautiful way to look at life. So you're basically leveraging some energy source to enable
+
+45:42.400 --> 45:45.120
+ you to resist the physics of the universe.
+
+45:45.120 --> 45:49.760
+ Fighting against physics. But that's the first transformation. If you look at humans,
+
+45:49.760 --> 45:51.040
+ we're way past that.
+
+45:51.040 --> 45:52.400
+ What do you mean by transformation?
+
+45:52.400 --> 46:01.200
+ So basically there's layers. I sort of see life, you know, when we talk about the meaning of life,
+
+46:01.200 --> 46:06.960
+ life can be construed at many levels. We talked about life in the simplest form of sort of the
+
+46:06.960 --> 46:11.840
+ ignition of evolution. And that's sort of the basic definition that you can check off. Yes,
+
+46:11.840 --> 46:22.400
+ it's alive. But when Alexander the Great was asked to whom do you owe your life to your teachers
+
+46:22.400 --> 46:31.360
+ or to your parents? And Alexander the Great answered, I owe to my parents the zin, the life
+
+46:31.360 --> 46:38.960
+ itself. And I owe to my teachers the f zin, like euphony. F means good, the opposite of cacophony,
+
+46:38.960 --> 46:49.520
+ which means, you know, bad. So f zin, in his words, was basically living a human life.
+
+46:49.520 --> 46:57.200
+ A proper life. So basically we can go from the zin to the f zin. And that transformation has taken
+
+46:57.200 --> 47:03.440
+ several additional leaps. So basically, you know, life on Europa, I'm pretty sure has gotten to the
+
+47:03.440 --> 47:13.920
+ stage of A makes B makes C makes A again. But getting to the f zin is a whole other level. And
+
+47:13.920 --> 47:23.280
+ that level requires cooperation. That level requires altruism. That level requires specialization.
+
+47:23.280 --> 47:28.960
+ Remember how we were talking about the RNA specializing into DNA for storage, proteins,
+
+47:28.960 --> 47:35.600
+ and then compartmentalizations. And if you look at prokaryotic life, there's no nucleus. It's all
+
+47:35.600 --> 47:43.760
+ one soup of things intermingling. If you look at eukaryotic life, there's no nucleus. There's no
+
+47:43.760 --> 47:51.040
+ eukaryotic life. Again, U for true, good, you know. So a eukaryote basically has a nucleus,
+
+47:51.040 --> 47:57.360
+ and that's where you compartmentalize further the organization of the information storage
+
+47:57.360 --> 48:02.560
+ from all of the daily activities. If you look at a human body plan or any animal,
+
+48:02.560 --> 48:07.760
+ you have a compartmentalization of the germline. You basically have one lineage that will basically
+
+48:07.760 --> 48:14.400
+ be saved for the future generations. And everything outside that lineage is almost superfluous. If you
+
+48:14.400 --> 48:20.240
+ think about it, the rest of your body, all it does is ensure that that lineage will make it
+
+48:20.240 --> 48:24.240
+ to the next generation, that these germlines will make it to the next generation. The rest is
+
+48:24.240 --> 48:30.880
+ packaging. I'm starting to be so blunt. And if you look at nutrition, you know, we're deuterostomes.
+
+48:30.880 --> 48:37.280
+ What does deuterostome mean? Deutero means second, where this is the second mouth. The first mouth
+
+48:37.280 --> 48:42.560
+ is actually down here, it's the oesophagus. So deuterostomes have evolved a second layer of
+
+48:42.560 --> 48:48.000
+ eating, kind of like alien with the two mouths. So you can think of us as alien where the first
+
+48:48.000 --> 48:53.840
+ mouth is up here and then the second mouth is down there. Is the first mouth just the
+
+48:53.840 --> 48:58.800
+ physical manipulation of the food to make it more consumable? Correct. And basically, again,
+
+48:58.800 --> 49:03.840
+ you know, if you look at a worm, it's an extremely simple life form. It basically has a mouth,
+
+49:03.840 --> 49:08.480
+ it has an anus and it has, you know, just some organs in between that consume the food and just
+
+49:08.480 --> 49:15.680
+ spit out poo. Humans are basically a fancy form of that. So you basically have the mouth,
+
+49:15.680 --> 49:19.760
+ you have the digestive tract, and then you have limbs to get better at getting food.
+
+49:20.480 --> 49:25.440
+ You have eyesight, hearing, et cetera, to get better at getting food. And then you have,
+
+49:25.440 --> 49:30.640
+ of course, the germline and all of this food part, it's just auxiliary to the germline.
+
+49:30.640 --> 49:35.600
+ So you basically have layers of addition, of compartmentalization, of specialization
+
+49:36.160 --> 49:39.680
+ on top of this zine to get all the way to the Earth zine.
+
+49:39.680 --> 49:45.120
+ Yeah. So like the worm is like Windows 95, very few features, very basic. And then
+
+49:45.120 --> 49:48.960
+ us humans are like Windows Vista, Windows 10, whatever it is.
+
+49:48.960 --> 49:51.680
+ Well, a few innovations beyond that.
+
+49:51.680 --> 49:53.840
+ Beyond that, all right. I don't know.
+
+49:53.840 --> 49:56.400
+ We're Windows 2000, at least we're that way.
+
+49:56.400 --> 50:01.360
+ So, okay. That's such a fascinating way to look at life as a set of transformations.
+
+50:01.360 --> 50:01.920
+ Exactly.
+
+50:01.920 --> 50:05.520
+ So like, is there some interesting transformations to our
+
+50:05.520 --> 50:08.400
+ history here on Earth that like appeal to you?
+
+50:08.400 --> 50:09.040
+ Of course.
+
+50:09.040 --> 50:12.160
+ And what are the most brilliant innovations and transformations?
+
+50:12.160 --> 50:16.160
+ Yeah, yeah, yeah. I mean, this is such a fascinating question. Of course, like,
+
+50:16.160 --> 50:19.840
+ you know, we're talking about basic, basic life forms and we're talking about eukaryotic life
+
+50:19.840 --> 50:26.240
+ forms. And then the next big transformation is multicellular life forms, where the specialization
+
+50:26.240 --> 50:31.840
+ separates the germ line from everything else that accompanies it and sort of carries it.
+
+50:31.840 --> 50:38.000
+ And then that specialization then sort of has this massive new innovation, like above the second
+
+50:38.000 --> 50:45.360
+ mouth, which is this massive brain. And this massive brain is basically something that arises
+
+50:45.360 --> 50:49.920
+ much, much later on. Basically, you know, notochords, like having the first spinal cord,
+
+50:49.920 --> 50:55.440
+ this whole concept that along with these very simple layers, you basically now have
+
+50:55.440 --> 51:00.160
+ a coordinating agent and this coordinating agent is starting to make decisions.
+
+51:00.720 --> 51:07.360
+ And remember when we were talking about free will, I mean, you know, as a worm is hunting for food,
+
+51:07.360 --> 51:12.080
+ oh, it has plenty of free will. It can choose to, you know, follow chemotaxis to the left or
+
+51:12.080 --> 51:17.520
+ chemotaxis to the right. And maybe that's free will because it's unpredictable beyond a certain level.
+
+51:17.520 --> 51:26.560
+ So you basically now have more and more decision making and coordination of all of these different
+
+51:26.560 --> 51:31.680
+ body parts and organs by a central operating system, a central machine that basically will
+
+51:31.680 --> 51:37.280
+ control the rest of the body. And the other thing that I love talking about is the different
+
+51:37.280 --> 51:40.960
+ timescales at which things happen. You know, we're talking about the human epigenome before.
+
+51:40.960 --> 51:47.760
+ The human epigenome is basically able to find what genes should be expressed in response to
+
+51:47.760 --> 51:54.400
+ environmental stimuli in the order of minutes and basically receive a stimulus, transfer all that
+
+51:54.400 --> 52:00.880
+ data through these humongously long string of searching and then sort of find what genes to
+
+52:00.880 --> 52:06.480
+ turn on and then create all that. All of that is happening in the timescale of minutes. Basically,
+
+52:06.480 --> 52:12.320
+ you know, three minutes to half an hour. That's the expression response. But our daily life
+
+52:12.320 --> 52:15.360
+ doesn't happen on the order of three minutes to half an hour. It happens on the order of
+
+52:15.360 --> 52:20.320
+ milliseconds. Like I throw a ball at you, you catch it right away. No gene expression changes
+
+52:20.320 --> 52:26.800
+ there. You just don't have time to do that. So you basically have a layer of control built on
+
+52:26.800 --> 52:34.000
+ a hardware that supports it, but that hardware itself lives in a different timescale than the
+
+52:34.000 --> 52:37.760
+ controlling machine on top of that. Is that an accident, by the way? Is that like a feature?
+
+52:37.760 --> 52:44.560
+ Is it, was it possible for life to have evolved where the hour, the daily life of the organism
+
+52:44.560 --> 52:51.760
+ as it interacts with its environment was on a timescale similar to the way our internals work?
+
+52:52.400 --> 52:57.520
+ If you look at trees, they look kind of boring and stupid. You're like looking at the tree like
+
+52:57.520 --> 53:03.760
+ stupid. If you speed up the movie of a tree from spring until October, you'll be like, oh my God,
+
+53:03.760 --> 53:09.920
+ it's intelligent. And the reason for that is that at that timescale, the tree is basically saying,
+
+53:09.920 --> 53:14.400
+ Oh, I'm looking for a, you know, a thing to catch onto. Ooh, I just caught onto that. I'm going to
+
+53:14.400 --> 53:18.800
+ grow more here. I'm going to spoil out there, et cetera. Like I can see the trees in my garden,
+
+53:18.800 --> 53:24.880
+ just growing and sort of, you know, looping around. And it's all a matter of timescale.
+
+53:24.880 --> 53:30.000
+ It's all a matter of timescale. And if you look at the human timescale, remember we were talking
+
+53:30.000 --> 53:36.720
+ about neoteny the last time around. The whole fact that our young are pretty useless until,
+
+53:36.720 --> 53:40.720
+ you know, maybe, you know, a few months of age, if not a few years of age, if not, I don't know,
+
+53:40.720 --> 53:48.880
+ getting out of college. And then we, we basically hold them enabling their brain to continue being
+
+53:48.880 --> 53:56.320
+ malleable and infusing it with knowledge and thoughts as, you know, that period of neoteny
+
+53:56.320 --> 54:01.440
+ increases and expands. If you fast forward, I don't know, another million years.
+
+54:02.640 --> 54:06.640
+ So humans have only been around, you know, different from apes for about that long.
+
+54:07.840 --> 54:13.360
+ Jump another unit of that, another human chimp divergence. What could happen
+
+54:13.360 --> 54:18.800
+ from an evolutionary timescale? A lot. One of the things that's happening already is expansion of
+
+54:18.800 --> 54:25.280
+ human lifespan. We have longer and longer periods before we mature. And we have longer and longer
+
+54:25.280 --> 54:31.360
+ periods before we have babies. So intergenerational distance is, you know, grown from, I don't know,
+
+54:31.360 --> 54:39.440
+ 16 years to 40 years. You're saying that's in the genetics. No, no, not necessarily. But it's,
+
+54:39.440 --> 54:46.720
+ it's sort of an environmental tendency that's happening. But as we medically expand human
+
+54:46.720 --> 54:55.040
+ lifespan, the generations might actually be pushed instead of 40 years to 60 years, to 100 years.
+
+54:55.040 --> 55:01.280
+ Like if we look at the long arc of the evolutionary history. Exactly. So as we start thinking about
+
+55:01.280 --> 55:10.240
+ intergalactic travel now, sorry, that's a heck of a transition. Yeah. So let's talk about it.
+
+55:10.240 --> 55:15.680
+ No, no, no, no, no. As we, as a species start thinking about, I'm talking about these transitions
+
+55:15.680 --> 55:19.280
+ that are happening, right? And that's, that's awesome. Continue along these transitions.
+
+55:19.280 --> 55:24.720
+ What does the future hold in the next million years? So the concept of us going to another planet
+
+55:24.720 --> 55:31.360
+ and that taking three human lifetimes might be a joke if the human lifetime starts being 400 years
+
+55:32.080 --> 55:38.320
+ or 800 years. So imagine, it's all time scale. It's all time scale. It's just different time scales.
+
+55:39.120 --> 55:45.200
+ You asked me offline whether I would like to live forever. I mean, my answer is absolutely.
+
+55:45.760 --> 55:53.760
+ And there's many different types of forevers. One forever is, do I want to live today forever?
+
+55:53.760 --> 56:00.160
+ Kind of like Groundhog Day. And the answer is absolutely. The stuff that I want to learn today
+
+56:00.160 --> 56:05.840
+ will probably take a lifetime just to learn, you know, basically to clear my to do list for the day.
+
+56:05.840 --> 56:10.640
+ You mean like relive the day and then, and then pick up different things from the richness of
+
+56:10.640 --> 56:15.040
+ the experiences that are all in today. There's just so much happening in the world every single
+
+56:15.040 --> 56:19.440
+ day. So much knowledge that has happened already that just to catch up on that will probably take
+
+56:19.440 --> 56:25.520
+ me around forever. On that, on that point, I just, I would just love to see you in the Groundhog movie
+
+56:25.520 --> 56:32.400
+ just because you're so naturally as a scientist, but just the way your mind works beautifully,
+
+56:32.400 --> 56:35.520
+ just all the richness of the experiences that you will pick up from that.
+
+56:36.880 --> 56:41.840
+ That's a beautiful visual. I try to live each day as if it was Groundhog. I'm basically every
+
+56:41.840 --> 56:45.760
+ single day waking up and saying, all right, how would Bill Murray get out of that one?
+
+56:45.760 --> 56:55.920
+ Well, you know what, on a funny tangent, I got a chance to go to a Neuralink demonstration event.
+
+56:55.920 --> 57:02.240
+ I'm not usually familiar with Neuralink. And I talked to Elon for a while. And one of the
+
+57:02.240 --> 57:10.000
+ funny things he said on his Groundhog Day thing is, you know, it's a beautiful dream to eventually
+
+57:10.000 --> 57:16.560
+ be able to replay our memories. So we're kind of these recording machines. Our brain is kind of,
+
+57:16.560 --> 57:23.600
+ maybe a noisy recording machine of memories. And it would be beautiful if we can someday in the
+
+57:23.600 --> 57:29.680
+ future, maybe far into the future, be able to, like in the Groundhog Day situation, replay that.
+
+57:29.680 --> 57:36.240
+ And the funny comment that stuck with me is he said that maybe this, our conversation now,
+
+57:36.240 --> 57:43.920
+ is a replay of a previous memory. And that stuck with me because it would probably be my replay.
+
+57:43.920 --> 57:50.640
+ You know, who the hell am I? I'm just an idiot guy. But like Elon Musk is, you know, probably
+
+57:50.640 --> 57:54.960
+ because of SpaceX and so on, is probably going to be remembered as a special person,
+
+57:54.960 --> 58:01.440
+ one of our special apes in history. So if I wanted to replay a memory, probably be that one. You know,
+
+58:01.440 --> 58:09.920
+ talking to Elon for a while. That's an interesting possibility from, if we think about time scales,
+
+58:09.920 --> 58:18.640
+ if we think about the richness of the experience through time that we humans take and be able to
+
+58:18.640 --> 58:24.640
+ replay some aspects of that, of that biology, that's super interesting. But anyway, sorry for
+
+58:24.640 --> 58:31.680
+ the tangents. Let's, yeah, you were talking about time scales and the expansion of the human lifetime
+
+58:32.320 --> 58:38.160
+ and the idea of intergalactic travel. Yeah. No, but you're laughing about this. I can't believe
+
+58:38.160 --> 58:42.160
+ you're laughing about this. You're talking about this. You're talking about exploring alien worlds
+
+58:42.160 --> 58:46.080
+ and going to other planets. I mean, you know, when Sarah was here, she was talking about sort of going
+
+58:46.080 --> 58:52.560
+ to other planets when we find these life. I mean, I'm just very naturally, given the topics that
+
+58:52.560 --> 58:57.440
+ we've approached, talking about the timescale at which this will happen. So you think eventually
+
+58:57.440 --> 59:04.960
+ we will human or life, life will expand out into the universe. The point that I'm trying to make
+
+59:04.960 --> 59:12.320
+ is that an intergalactic species will probably find ways to engineer its biology in order to
+
+59:13.360 --> 59:20.240
+ expand the way that we experience time, expand the timescale that we experience. And going back to
+
+59:20.240 --> 59:25.440
+ this whole concept of, you know, would I like to live forever? Yes, I'd like to live forever. Even
+
+59:25.440 --> 59:29.760
+ if it was, even if it was stuck on the same day, I'd love to live forever because I would finally
+
+59:29.760 --> 59:35.680
+ have time to do all these things that I want to do. But if living forever actually comes with a perk
+
+59:35.680 --> 59:42.160
+ of watching the whole world evolve forever, I mean, that's a huge perk. And I would, you know, just,
+
+59:42.160 --> 59:48.000
+ it'll never get boring, just a never changing world. And then the mind, you know, sort of
+
+59:48.000 --> 59:53.680
+ the experiment that I want you to do is to also ask, what if I wanted to live forever
+
+59:54.400 --> 1:00:00.640
+ one day at a time every year or one day at a time every decade, would you choose that?
+
+1:00:01.200 --> 1:00:05.760
+ Or you would wake up and the world would be 10 years later every single day you wake up.
+
+1:00:05.760 --> 1:00:11.120
+ It's the opposite of Groundhog Day where basically you always wake up and it's always 10 years later.
+
+1:00:11.120 --> 1:00:18.240
+ So you're saying that's such a powerful, interesting concept that life is more
+
+1:00:18.240 --> 1:00:24.000
+ interesting if you're, of all the life forms on earth, that you're the slowest one.
+
+1:00:24.000 --> 1:00:25.200
+ Exactly. Exactly.
+
+1:00:25.200 --> 1:00:26.640
+ Like trees have it right.
+
+1:00:26.640 --> 1:00:30.720
+ Like trees have it right. Olive trees. Like, you know, they've been there since the Minoan
+
+1:00:30.720 --> 1:00:35.200
+ civilization. And you know, that takes us back to the question you asked about sort of
+
+1:00:35.200 --> 1:00:39.440
+ the transformations that have happened in humanity. The Minoan civilization is one of them.
+
+1:00:39.440 --> 1:00:43.440
+ You know, there's this paper that was published just a couple of years ago by one of my friends
+
+1:00:43.440 --> 1:00:52.720
+ that basically looked at the genetic makeup of the Minoans and the Mycenaeans in ancient
+
+1:00:52.720 --> 1:00:58.160
+ Greece and how they relate to modern Greeks. And they found that indeed there was very little gene
+
+1:00:58.160 --> 1:01:06.800
+ flow from, you know, the outside. And, you know, it's fantastic to sort of think about these
+
+1:01:06.800 --> 1:01:13.520
+ amazing civilizations that transformed the way that human thought happens, that basically
+
+1:01:13.520 --> 1:01:20.800
+ looked for rules in nature, that looked for principles, that looked for the standard of beauty,
+
+1:01:21.360 --> 1:01:27.120
+ not human beauty, but beauty in the natural world. This whole concept that the world must
+
+1:01:27.120 --> 1:01:32.560
+ be elegant and there must be deeper ways of understanding that world. To me, that's a massive
+
+1:01:32.560 --> 1:01:38.720
+ transformation of our species, similar to, you know, the earlier transformation that we're talking
+
+1:01:38.720 --> 1:01:45.840
+ about of even involving a brain, of, you know, learning how to communicate language or the
+
+1:01:45.840 --> 1:01:51.440
+ evolution of eyesight. If you look at sort of, you know, we're talking about these worms crawling
+
+1:01:51.440 --> 1:01:57.040
+ around and then sensing which direction are the chemicals more abundant, you know, chemotaxis. So
+
+1:01:57.040 --> 1:02:02.480
+ eventually they grow a nose. Eventually they grow, I mean, when I say nose, I mean, ways of sensing
+
+1:02:02.480 --> 1:02:06.720
+ chemicals. That's probably one of the earliest senses. You know, we always talk about how deep
+
+1:02:06.720 --> 1:02:11.520
+ rooted it is in our brain. That's one of the early senses. If you look at hearing, that's a much later
+
+1:02:11.520 --> 1:02:15.920
+ sense. If you look at eyesight, that's an intermediate sense where you're basically sensing
+
+1:02:15.920 --> 1:02:19.760
+ where the light direction comes from. That's probably something that life didn't need until
+
+1:02:19.760 --> 1:02:27.280
+ it got, you know, into the surface and so on and so forth. So there's a lot of, you know, milestones.
+
+1:02:27.280 --> 1:02:31.680
+ And I was talking about the latest milestone, which is LIGO, last time of being able to detect
+
+1:02:31.680 --> 1:02:37.920
+ gravitational waves and sort of being able to sort of have a sense that humans haven't had before.
+
+1:02:37.920 --> 1:02:42.480
+ So you see that as a yet another transformation. It gives us an extra little sense.
+
+1:02:42.480 --> 1:02:47.600
+ Of course. And now if you go back to this history of ancient Greece, I mean, this transformation
+
+1:02:47.600 --> 1:02:53.120
+ that happened, I mean, of course, the Egyptians had this incredible, you know, civilization for
+
+1:02:53.120 --> 1:02:58.160
+ thousands of years. But what happened in Greece was this whole concept of let's break things down
+
+1:02:58.160 --> 1:03:02.640
+ and understand the natural world. Let's break things down and understand physics. Let's basically
+
+1:03:02.640 --> 1:03:10.800
+ build rules around architecture, about around elegance, around, you know, statues and tragedy.
+
+1:03:10.800 --> 1:03:16.240
+ I mean, another question that you asked me in passing was this whole concept of embracing the
+
+1:03:16.240 --> 1:03:22.480
+ good and the bad, embracing the full range of human emotions. And if you look at Greek tragedy,
+
+1:03:23.200 --> 1:03:28.640
+ it's the definition of that. It's, I mean, drama. I mean, again, it's a Greek word,
+
+1:03:29.680 --> 1:03:38.480
+ but the whole concept of some problems that are just so vast and large that dying is the easy way
+
+1:03:38.480 --> 1:03:45.840
+ out. That death, oh, that's the easy solution. You know, so I want to touch a little bit on that
+
+1:03:45.840 --> 1:03:59.200
+ point and sort of talk about this concept that life supersedes physics and that the brain supersedes
+
+1:03:59.200 --> 1:04:06.800
+ life. That basically we have a brain that can decide to not follow evolution's path. We can
+
+1:04:06.800 --> 1:04:14.400
+ decide to not have children. We can decide to not eat. We can decide to suicide. We can decide to
+
+1:04:14.400 --> 1:04:19.760
+ sort of abolish communication with the outside world. I mean, all the things that make us human,
+
+1:04:20.560 --> 1:04:28.640
+ we can basically decide not to do that. And that is basically when the brain itself is basically
+
+1:04:28.640 --> 1:04:38.720
+ is basically superseding what evolution program is for. Okay. So one of the, it's okay. My mind
+
+1:04:38.720 --> 1:04:48.160
+ was already blown at the beautiful formulation of the idea that life is a system that resists
+
+1:04:48.720 --> 1:04:56.560
+ physics and our brain, or perhaps the content of it, or however it may be functionally, our brain
+
+1:04:56.560 --> 1:05:05.920
+ is a thing that resists life. Yes. Yes. You're, you're so, you're so brilliant.
+
+1:05:06.960 --> 1:05:12.080
+ But, but, but, but, but I want you to see all of that as continuum. Basically, you're sort of
+
+1:05:12.080 --> 1:05:17.520
+ talking about the sort of individual transformations, but it's a path that, that humanity has been
+
+1:05:17.520 --> 1:05:22.240
+ taking. It's a transformation. It's a path of transformation. And then I want us to think about
+
+1:05:22.240 --> 1:05:28.640
+ what it truly means to become human, like the F zine. And you asked me about what motivated
+
+1:05:28.640 --> 1:05:34.640
+ my meaning of life symposium. What motivated it in part, I mean, of course it was an inside joke
+
+1:05:34.640 --> 1:05:42.480
+ of turning 42, but what motivated it in part was actually a midlife crisis. So the joke that I
+
+1:05:42.480 --> 1:05:47.680
+ always like to say is Christos Papadimitriou, a famous Greek professor who was previously at
+
+1:05:47.680 --> 1:05:52.320
+ MIT, at Harvard, at Stanford, at Berkeley, everywhere. A brilliant, brilliant person. That's
+
+1:05:52.320 --> 1:05:59.040
+ actually Costis's advisor. So Christos Papadimitriou likes to say that when you're an undergrad,
+
+1:05:59.040 --> 1:06:03.520
+ you work like a rat to get into grad school. And where you're a grad student, you work like a rat
+
+1:06:03.520 --> 1:06:08.160
+ to get your PhD. And where you're a postdoc, you work like a rat to get your assistant professor
+
+1:06:08.160 --> 1:06:12.000
+ position. And where you're an assistant professor, you work like a rat to become a full professor.
+
+1:06:12.000 --> 1:06:16.880
+ And then when you're a full professor, well, by then you're basically a rat.
+
+1:06:18.880 --> 1:06:19.920
+ Oh, that's brilliant.
+
+1:06:19.920 --> 1:06:24.080
+ So basically what happened to me is that I arrived at the end of the rat race.
+
+1:06:25.360 --> 1:06:29.520
+ You know, life is a rat race. You constantly have hurdles to jump over. You constantly have
+
+1:06:29.520 --> 1:06:35.200
+ tunnels and secret pathways. And I figured it all out. And eventually as I was turning 42,
+
+1:06:35.200 --> 1:06:42.240
+ I looked back and I was like, wow, that was an awesome rat race. But I'm not a rat.
+
+1:06:42.960 --> 1:06:46.800
+ I basically got out of the labyrinth and I was like, I'm not a rat, turns out.
+
+1:06:47.520 --> 1:06:52.320
+ Is that the first moment where you saw that you were in a rat race?
+
+1:06:53.520 --> 1:06:57.120
+ No, no, no. I've known that I'm in a rat race for a long time. It's so easy to be in a rat race.
+
+1:06:57.120 --> 1:07:01.680
+ It's so easy to be an undergrad. But you have problem sets. And you know, we're all smart
+
+1:07:01.680 --> 1:07:05.840
+ people. You know, problem set, it has a solution. Somebody made it for you. You can just solve it.
+
+1:07:06.400 --> 1:07:11.520
+ Everything was made as a test. And you keep passing those tests and tests and tests and tests.
+
+1:07:11.520 --> 1:07:16.800
+ And you have tasks that are well defined. The PhD is a little different because it's
+
+1:07:16.800 --> 1:07:21.440
+ more open ended, but yet you have an advisor who's guiding you. And then you become a professor
+
+1:07:22.320 --> 1:07:27.120
+ and tenure is a well set defined set of tasks. And you do all that.
+
+1:07:27.120 --> 1:07:35.840
+ And at 42, I basically had bought a house, three kids, beautiful wife, tenure, awesome students,
+
+1:07:36.640 --> 1:07:42.720
+ tons of grants. Life was basically laid out for me. And that's when I had my main life crisis.
+
+1:07:42.720 --> 1:07:48.720
+ That's when people usually buy a Harley Davidson. And they basically say, I need something new. I
+
+1:07:48.720 --> 1:07:52.560
+ need something different and to be young myself, et cetera. But basically that was my realization
+
+1:07:52.560 --> 1:08:00.400
+ that it's not a rat race, that there's no rat race. It's over. That I have to basically think,
+
+1:08:00.400 --> 1:08:06.000
+ how do I fully instantiate myself? How do I complete my transformation into an actual human
+
+1:08:06.000 --> 1:08:12.880
+ being? Because it's very easy to sort of forget all the intangibles of life. It's very hard to
+
+1:08:12.880 --> 1:08:16.320
+ just sort of think about the next task and the next task and it's all metrics. And you know,
+
+1:08:16.320 --> 1:08:19.680
+ what is the number of viewers I have? What is the number of publications I have? What is the number
+
+1:08:19.680 --> 1:08:23.280
+ of citations, the number of talks, the number of grants? It's very easy to quantify everything.
+
+1:08:24.000 --> 1:08:29.680
+ And then at some point you're like, this is real life. It's not a test anymore. And that's something
+
+1:08:29.680 --> 1:08:35.760
+ that I told my wife early on. I was like, no, no, no, our life is not going to be let's put the kids
+
+1:08:35.760 --> 1:08:40.320
+ through college. And that, you know, maybe that's when I escaped the rat race. Maybe it continued
+
+1:08:40.320 --> 1:08:44.000
+ being a rat race. Maybe the next step would have been, all right, how do I make sure that my kid is
+
+1:08:44.000 --> 1:08:48.080
+ first in class? How do I make sure that they're, you know, into the greatest college? And then,
+
+1:08:48.080 --> 1:08:52.320
+ you know, they're into college. And then you're like 60.
+
+1:08:54.320 --> 1:09:00.960
+ So how do you, how do you escape? What is the, is there a light at the end of the tunnel of a
+
+1:09:00.960 --> 1:09:08.720
+ midlife crisis? So, so you should watch that symposium because the videos were transformative
+
+1:09:08.720 --> 1:09:15.920
+ to me and to many others. So basically the advice that I received from all of my friends was so
+
+1:09:15.920 --> 1:09:22.240
+ meaningful. This, you know, there's some, some advice that basically says you have to constantly
+
+1:09:22.240 --> 1:09:30.240
+ maintain unachievable goals. Goals that you can make progress towards, but you can never be fully
+
+1:09:30.240 --> 1:09:34.960
+ done with. And I think that's almost playing into the sort of rat race thing. Like basically make
+
+1:09:34.960 --> 1:09:40.560
+ sure that there's more obstacles for your little rat persona to jump through. So that's one
+
+1:09:40.560 --> 1:09:46.560
+ possibility. So first of all, watch, is it available somewhere? It's on YouTube, just Google,
+
+1:09:46.560 --> 1:09:50.160
+ Google meaning of life symposium. I should have known this. I mean, you should have told me this.
+
+1:09:50.160 --> 1:09:58.960
+ This is awesome. Okay. This is great. But, and also like, you know, saying rat race is, you know,
+
+1:09:58.960 --> 1:10:06.560
+ if we look at ratatouille, it's not, I mean, that's a beautiful, that's a beautiful thing of,
+
+1:10:06.560 --> 1:10:13.600
+ of, of challenges and overcoming challenges. That could be fundamentally the meaning of life is,
+
+1:10:15.280 --> 1:10:23.280
+ to see life as a set of challenges and to fully engage in the overcoming of those challenges.
+
+1:10:23.920 --> 1:10:28.480
+ I would say that that's embracing the rat race view of life. So, so a joke that we like to have
+
+1:10:28.480 --> 1:10:33.600
+ with my wife all the time is, we basically say, we, we, we pretend that we're in this
+
+1:10:33.600 --> 1:10:39.520
+ all inclusive resort that we basically hired all these people to go on the Esplanade and play games
+
+1:10:39.520 --> 1:10:44.000
+ because we enjoy watching people playing on the Esplanade and we enjoy sort of laying and looking
+
+1:10:44.000 --> 1:10:48.640
+ at life and all the people biking and rollerblading and all of that. And then we've paid all these
+
+1:10:48.640 --> 1:10:53.840
+ people in this all inclusive resort that we live in. And then what are we going to do today? I'm
+
+1:10:53.840 --> 1:10:58.400
+ like, Oh, I've signed up for professor activities. It's going to be awesome. They, they, they lined
+
+1:10:58.400 --> 1:11:02.320
+ up a bunch of super smart MIT students for me to meet with. I'm going to have a grant writing
+
+1:11:02.320 --> 1:11:06.080
+ meeting afterwards. It's going to be awesome. And then she signed up for a bunch of consulting
+
+1:11:06.080 --> 1:11:09.280
+ activities. It's going to be great. And then in the evening we just get back together and say,
+
+1:11:09.280 --> 1:11:16.080
+ Hey, how was your consulting today? So in a way, that's another view of life of basically,
+
+1:11:16.080 --> 1:11:21.680
+ wait a minute. If I was a gazillionaire, what would I choose to do? I would probably pay an
+
+1:11:21.680 --> 1:11:27.040
+ awesome university to give me an office there and just pay a bunch of super smart people to work
+
+1:11:27.040 --> 1:11:32.480
+ with me, even though they don't really want to, et cetera, et cetera, et cetera. In fact, I would
+
+1:11:32.480 --> 1:11:40.080
+ have exactly the life that I have now working my butt off every single day because it's so freaking
+
+1:11:40.080 --> 1:11:46.960
+ fulfilling. So let's clarify. It's just a beautiful way. It's almost like a video game view of life
+
+1:11:46.960 --> 1:11:52.720
+ that it's a set of, I mean, again, game is not perhaps a positive term, but it's a, it's a,
+
+1:11:52.720 --> 1:11:59.760
+ it is a beautiful term. So do you, or do you not like the rat race view of life?
+
+1:12:00.880 --> 1:12:01.680
+ No.
+
+1:12:01.680 --> 1:12:03.760
+ Because it is fulfilling in some fundamental way.
+
+1:12:03.760 --> 1:12:10.240
+ The rat race is about the goal. My view of life is about the path. So again, quoting Greece.
+
+1:12:12.240 --> 1:12:14.240
+ Those folks have come up with some good stuff.
+
+1:12:14.240 --> 1:12:22.640
+ So this Odysseus Elites basically wrote this beautiful poem about sort of going through life
+
+1:12:22.640 --> 1:12:28.800
+ saying, as you go through your journey, impersonating Ulysses of his voyage,
+
+1:12:29.600 --> 1:12:37.280
+ he says, wish that the path is long and arduous because when you get to Ithaca,
+
+1:12:37.280 --> 1:12:43.040
+ Ithaca, you might realize that it was all about the path, not the destination.
+
+1:12:46.720 --> 1:12:50.240
+ So the rat race view of life makes it all about the destination. It's like,
+
+1:12:50.240 --> 1:12:56.720
+ how do I get through the maze to get there? But the all inclusive resort view of life
+
+1:12:57.520 --> 1:13:04.640
+ is about the path. It's about, wow, today I couldn't wish for a better set of activities
+
+1:13:04.640 --> 1:13:12.320
+ all programmed for me to enjoy having my brain, having my body, having my senses and, you know,
+
+1:13:12.880 --> 1:13:17.200
+ the life that I have. So it's a very different kind of view. It's focused on the journey,
+
+1:13:17.200 --> 1:13:18.320
+ not on the destination.
+
+1:13:18.320 --> 1:13:24.480
+ So you mentioned kind of the ups and downs of life and the midlife crisis.
+
+1:13:25.680 --> 1:13:28.560
+ And right now you said focusing kind of on the journey,
+
+1:13:28.560 --> 1:13:38.800
+ but what the journey involves is ups and downs. Is there advice or any kind of thoughts
+
+1:13:38.800 --> 1:13:46.640
+ that you can elucidate about the downs in your life, the hard parts of your life and
+
+1:13:46.640 --> 1:13:53.920
+ how you got out or maybe not, or is there, how do you see the dark parts of life?
+
+1:13:53.920 --> 1:13:59.760
+ So I'm so glad you're asking this question because it's something that our society does
+
+1:13:59.760 --> 1:14:05.600
+ a terrible job at preparing us for. Every Hollywood movie has to have a happy ending.
+
+1:14:06.400 --> 1:14:11.280
+ It is ridiculous. You can count on your 10 fingers the number of bad ending movies that
+
+1:14:11.280 --> 1:14:18.720
+ you've ever watched. And you probably wouldn't need all 10 fingers. We strive to tell everyone,
+
+1:14:18.720 --> 1:14:28.480
+ yes, you can succeed. Yes, you're a millionaire, just temporarily disabled. And yes, you know,
+
+1:14:29.280 --> 1:14:35.840
+ the prince will eventually figure out his princess and they will have a happily ever after ending.
+
+1:14:35.840 --> 1:14:40.480
+ And yes, the hero will be beaten and beaten and beaten, but you know that at the end of the movie,
+
+1:14:40.480 --> 1:14:44.880
+ the good guys will win. We need more movies where the bad guys win. We need more movies
+
+1:14:44.880 --> 1:14:50.480
+ where just everybody dies. Where just, you know, MacGyver doesn't figure out how to disable the
+
+1:14:50.480 --> 1:14:56.720
+ bomb and just explodes. You just need more movies that are more realistic about the fact that life
+
+1:14:56.720 --> 1:15:05.600
+ kind of sucks sometimes and it's okay. So again, growing up in Greece, I have been exposed to songs
+
+1:15:05.600 --> 1:15:18.240
+ that are not just sad, but they're miserable. So one of them comes to mind and it's basically
+
+1:15:18.240 --> 1:15:26.800
+ talking about this woman who's lamenting in the early morning about losing the joyful kid,
+
+1:15:26.800 --> 1:15:36.400
+ the joyful young man who basically died in the civil war in the arms of our own fellow citizens.
+
+1:15:37.200 --> 1:15:44.960
+ And she's like, if only he had died fighting the foreign forces, if only he had died at the,
+
+1:15:44.960 --> 1:15:52.800
+ you know, sides of the, you know, general, if only he had died with honor, I would be proud to have
+
+1:15:52.800 --> 1:16:01.440
+ lost the joyful kid. I mean, it's devastating, right? It's like, he didn't just die. He died
+
+1:16:01.440 --> 1:16:07.280
+ without honor. And my friend who was with me was listening to the song and she's like, this is
+
+1:16:07.280 --> 1:16:11.760
+ depressing. I'm like, whoa, you have to listen to another one. It's not as sad. And she's like, what,
+
+1:16:11.760 --> 1:16:20.080
+ this one died with honor? So that's one example. It's a kind of a celebration of misery. No, no,
+
+1:16:20.080 --> 1:16:25.120
+ no, no, no, no, no. So let me give you a couple more examples and then I'll answer that question.
+
+1:16:25.120 --> 1:16:30.640
+ So another example is I picked up this book that I had from my childhood and I started reading
+
+1:16:30.640 --> 1:16:36.480
+ stories to my kids. And the first story is about these two children. One is really poor living on
+
+1:16:36.480 --> 1:16:39.840
+ the street and the other one is really rich, really living in the house in the bright light
+
+1:16:39.840 --> 1:16:44.400
+ above. And the poor one is wishing, looking at that window and wishing that he could have that
+
+1:16:44.400 --> 1:16:49.360
+ house. And the other one is at the window wishing that he was free, that he wasn't sick all the time,
+
+1:16:49.360 --> 1:16:54.560
+ that he could escape outside. It's only four pages long. And at the end, both children die.
+
+1:16:55.760 --> 1:17:00.720
+ One of them dies from cold, the other one dies from illness. And you're like, how is that even
+
+1:17:00.720 --> 1:17:06.160
+ a children's story? The next story, I'm like, okay, that's fine. Let's skip this one. So I read
+
+1:17:06.160 --> 1:17:12.800
+ this to my kids and then I read the next one. And the next one is about this woman whose brother is
+
+1:17:12.800 --> 1:17:22.640
+ at war against the Turks and he is going to die. And she prays to the Virgin, please don't let him
+
+1:17:22.640 --> 1:17:30.000
+ die. And the Virgin appears and she's like, no problem. Tell me who to kill instead. And she's
+
+1:17:30.000 --> 1:17:36.480
+ like, anyone, anyone. No, no, no, no. Choose one. How about this Turk? This one has two kids,
+
+1:17:36.480 --> 1:17:40.560
+ a beautiful family waiting for him at home. She's like, no, not this one, choose another one.
+
+1:17:40.560 --> 1:17:44.800
+ And then she goes through all the life stories of the others. She's like, no, no, just don't take
+
+1:17:44.800 --> 1:17:50.320
+ anyone. She's like, I can't do that. You can choose to bring your brother back. And he will be
+
+1:17:50.320 --> 1:17:54.960
+ depressed for the rest of his life because he didn't fight at war, because he didn't go to that
+
+1:17:54.960 --> 1:18:00.880
+ battle. And he will live without honor. And in the end, the woman decides to have her brother killed
+
+1:18:00.880 --> 1:18:06.800
+ instead because he dies with her. I mean, this is insane. So why am I giving you these examples?
+
+1:18:06.800 --> 1:18:16.160
+ It's not a glorification of misery. It's expanding your emotional range. It's teaching you that,
+
+1:18:16.640 --> 1:18:23.760
+ and when I read these stories, I'm not a jerk. I'm crying out loud. I have tears. And my face
+
+1:18:23.760 --> 1:18:32.240
+ becomes red from the pain that I'm experiencing through these stories. It's just so deeply
+
+1:18:32.240 --> 1:18:44.640
+ touching to embrace the suffering, not because of an accident, but because of a choice, the sacrifice
+
+1:18:45.200 --> 1:18:51.520
+ to embrace the fact that not everything is cute and rosy and always ending well. And I think that
+
+1:18:51.520 --> 1:18:57.520
+ we don't do a good enough job of teaching our kids that just life sucks and life is unfair sometimes.
+
+1:18:57.520 --> 1:19:03.760
+ And that's okay. And sometimes I read a story to my kids. I read a story every night. And sometimes
+
+1:19:03.760 --> 1:19:10.800
+ the story is horrible. And sometimes the story is good and sort of friendly and happy. And my kids
+
+1:19:10.800 --> 1:19:15.280
+ always ask, what's the moral of the story? And sometimes there's a moral and it's like, oh,
+
+1:19:15.280 --> 1:19:18.720
+ you should be good or you should be nice. You should be helping each other, et cetera. And
+
+1:19:18.720 --> 1:19:24.720
+ sometimes there's just no moral. And I tell my kids, you know what? Sometimes just life doesn't
+
+1:19:24.720 --> 1:19:31.120
+ make sense and it's okay. And you can't comprehend everything. And I think this concept of how do you
+
+1:19:31.120 --> 1:19:35.760
+ deal with the bad days comes from the fact that we're taught, we're brainwashed into thinking that
+
+1:19:35.760 --> 1:19:42.960
+ every day should be a happy day. And we're not ready to cope with misery. And the other thing
+
+1:19:42.960 --> 1:19:50.640
+ that crying through these stories teaches you is that you don't have it nearly half as bad as you
+
+1:19:50.640 --> 1:19:59.440
+ think. Do you see what I mean? Basically, it tells you that, I mean, my mom would always tell me about
+
+1:19:59.440 --> 1:20:05.040
+ how she was transformed as a teenager when she volunteered in the hospital. And she saw all these
+
+1:20:05.040 --> 1:20:12.240
+ people at the brink of death, clinging for life and helping them out to best she could and crying
+
+1:20:12.240 --> 1:20:19.920
+ her heart out when they were dying. And sort of how that taught her the appreciation for what we
+
+1:20:19.920 --> 1:20:29.600
+ have every day. Waking up every morning and saying, my life doesn't suck. My life is not nearly half
+
+1:20:29.600 --> 1:20:39.520
+ as bad as it could be. And sort of embracing the joy that we have of living where we live in the
+
+1:20:39.520 --> 1:20:49.760
+ moment we live. And I'm going to go further. If you look at the arc of human life, human existence
+
+1:20:49.760 --> 1:20:54.720
+ through the centuries, there's no better way to be alive than now. I mean, we're complaining about
+
+1:20:54.720 --> 1:21:01.360
+ every single little thing. But life expectancy is at an all time high. Sickness, all time low.
+
+1:21:01.360 --> 1:21:08.640
+ Pornness, misery, all time low. There's no better time to be alive globally across all of human
+
+1:21:08.640 --> 1:21:14.320
+ existence. Number one. Number two, here in Boston, there's no better place to be alive.
+
+1:21:16.000 --> 1:21:22.560
+ If you think about the amalgamation of science, engineering, technology, the ridiculously awesome
+
+1:21:22.560 --> 1:21:28.080
+ people you're bringing every week to your podcast. I mean, this is the ancient Greece of modern
+
+1:21:28.080 --> 1:21:35.600
+ society. But the weather still sucks. No, let me put it this way. The weather gives us a range
+
+1:21:35.600 --> 1:21:41.840
+ of emotion. The full range. The full scenic range. That's such a fascinating thing about human
+
+1:21:41.840 --> 1:21:46.720
+ psychology. I often reread this book. I'm not sure if you're familiar with it. It's Man's Search
+
+1:21:46.720 --> 1:21:58.400
+ for Meaning by Viktor Frankl. And he talks about his living through the Holocaust and the
+
+1:21:58.400 --> 1:22:09.440
+ concentration camps. And even there where there's human misery is at its highest, even there he
+
+1:22:09.440 --> 1:22:19.360
+ discovers these moments by observing the suffering, by accepting the suffering. He observes moments
+
+1:22:19.360 --> 1:22:29.680
+ of true joy of how great his life is relative to others at the camp who have it worse.
+
+1:22:29.680 --> 1:22:35.520
+ Yeah. So it's a dangerous slippery slope to think that way because it's basically being better than
+
+1:22:35.520 --> 1:22:40.800
+ Jones's. And if, you know, if the house next door has a giant car, then you want to get a bigger
+
+1:22:40.800 --> 1:22:46.800
+ car or something like that. It's not comparative misery. I think the way that I see it is slightly
+
+1:22:46.800 --> 1:22:53.840
+ different. It's, and it's not even thinking about all the worst possible outcomes that could have
+
+1:22:53.840 --> 1:23:00.160
+ happened, but didn't. The example, as you were talking about the concentration camps, the most
+
+1:23:00.160 --> 1:23:04.960
+ horrible, I mean, one of the most horrible moments of human existence, is that the concentration
+
+1:23:04.960 --> 1:23:11.680
+ camps, I was thinking about pictures that I was seeing of kids in Syria in war torn zones. And
+
+1:23:11.680 --> 1:23:22.400
+ you're looking at these kids. And again, I cried out loud, imagining my own son in the van after a
+
+1:23:22.400 --> 1:23:30.480
+ bomb explosion, watching his father die or his siblings die or losing his friends. It's something
+
+1:23:30.480 --> 1:23:37.600
+ that we are not capable of fathoming. But if you actually put a seven year old in that situation,
+
+1:23:38.640 --> 1:23:46.480
+ the look that I saw in these kids eyes basically said, it is what it is. It was, and I've
+
+1:23:46.480 --> 1:23:53.440
+ experienced that with my own kid when he gets, like my three year old last, like two years ago,
+
+1:23:53.440 --> 1:23:59.840
+ who's now my five year old, she was burned really badly with like hot chocolate and coffee that just
+
+1:23:59.840 --> 1:24:04.160
+ peeled off her skin. So you could actually see just her fragile skin had just peeled off.
+
+1:24:04.880 --> 1:24:11.520
+ And she was the happiest little kid. She was just going along with the punches.
+
+1:24:11.520 --> 1:24:14.080
+ It is what it is. She accepted it.
+
+1:24:14.080 --> 1:24:24.320
+ So it's quite dramatic to sort of realize that children don't say, oh, I could have it better.
+
+1:24:24.320 --> 1:24:32.960
+ They sort of embrace the moment, not embrace, but sort of accept the moment. And then
+
+1:24:33.920 --> 1:24:42.480
+ they can have moments of pure joy in a horrendous war torn country. And like so many people from
+
+1:24:43.360 --> 1:24:48.800
+ these war torn countries basically say, oh, you think you Americans are going to just come and
+
+1:24:48.800 --> 1:24:55.840
+ just send us a bunch of aid and food, et cetera? Yeah, sure. That's helpful. But what do we dream
+
+1:24:55.840 --> 1:25:01.600
+ of? What do we struggle for? We struggle for love. We struggle for meaning. We struggle for,
+
+1:25:01.600 --> 1:25:06.480
+ you know, emotions and friendships. We struggle for the same things you guys struggle for.
+
+1:25:07.120 --> 1:25:10.400
+ We're not just like every day waking up and saying, oh, I wish I had more food.
+
+1:25:10.400 --> 1:25:14.240
+ No, that's just the given. I just don't have enough food. But what we struggle with
+
+1:25:14.240 --> 1:25:20.000
+ are basically everything else. And that sort of gives you some perspective on life. It basically
+
+1:25:20.000 --> 1:25:25.120
+ says, you know, and another story that my mom told me when I was a kid is this story about sort of
+
+1:25:25.120 --> 1:25:31.200
+ this man who's basically, you know, he sees the Christ appear in front of him and he says,
+
+1:25:31.680 --> 1:25:37.920
+ oh, Christ, I'm carrying all these problems. I'm carrying this big bag. Can you please take it from
+
+1:25:37.920 --> 1:25:47.360
+ me? And he's like, sure. Let me just give you any other bag. And of course the person in Vienna
+
+1:25:47.360 --> 1:25:53.680
+ accepts his own bag. So acceptance, ultimately the path you recommend is acceptance. Every single
+
+1:25:53.680 --> 1:25:59.120
+ other bag is probably worse. It's the evil you don't know versus the evil you know. Like we all
+
+1:25:59.120 --> 1:26:05.280
+ struggle with our own problems. But if you look at the bigger picture, it's just your path through
+
+1:26:05.280 --> 1:26:14.720
+ life. And if you embrace it, the good and the bad, every single day, it's just joy, elation,
+
+1:26:16.720 --> 1:26:24.320
+ sadness, misery. If you don't have both, you're not a complete human being. You know, you can't,
+
+1:26:24.320 --> 1:26:31.920
+ I mean, the last example I'm going to give is the movie Inside Out by Pixar. Beautiful movie.
+
+1:26:31.920 --> 1:26:32.800
+ Which one is that?
+
+1:26:32.800 --> 1:26:39.120
+ The one with the little characters controlling highly trained. So you basically have joy and
+
+1:26:39.120 --> 1:26:45.280
+ sadness and fear and disgust, et cetera. And the moral of the story, if you remember the movie,
+
+1:26:45.280 --> 1:26:50.080
+ the moral of the story is that in the end, joy is basically trying to fix everything,
+
+1:26:50.080 --> 1:26:54.720
+ to make everything happy. And she's failing miserably and everything else is like crumbling
+
+1:26:54.720 --> 1:26:59.440
+ and falling apart. And the little girl basically becomes emotionless because all she knows how to
+
+1:26:59.440 --> 1:27:05.520
+ do is fake happiness. And I think it's a very good analogy for our everyday society where we're always
+
+1:27:05.520 --> 1:27:09.680
+ saying, are you happy? Are you happy? My mom calls me and she's like, Manolis, are you happy? I'm
+
+1:27:09.680 --> 1:27:15.040
+ like, mom, stop asking this stupid question. No, I'm not happy. What you should be asking is if
+
+1:27:15.040 --> 1:27:19.120
+ I'm fulfilled. And that's a very different thing. I don't go around being happy.
+
+1:27:19.840 --> 1:27:26.000
+ I would love it if your mom called and said, Manolis, are you suffering beautifully or something
+
+1:27:26.000 --> 1:27:32.160
+ like that? That's exactly right. That's what she should be asking. Are you struggling to achieve
+
+1:27:32.160 --> 1:27:36.720
+ something great? That's the question that mom should be asking. Hear that mom call me about
+
+1:27:36.720 --> 1:27:42.480
+ the suffering, not about how good are you doing? So what I tell her is that life is not about
+
+1:27:42.480 --> 1:27:48.080
+ maximizing happiness. Life is about accomplishing something meaningful. And accomplishing that
+
+1:27:48.080 --> 1:27:54.320
+ meaningful thing cannot come from a series of joyful moments. It comes from a series of struggles,
+
+1:27:54.320 --> 1:28:01.840
+ of successes and failures, of people being nasty to you and people being nice to you and embracing
+
+1:28:01.840 --> 1:28:08.560
+ the full thing. And if you supersede that constant need for gratification, if you supersede that
+
+1:28:08.560 --> 1:28:16.880
+ constant need for kindness, you suddenly know who you are. And what I like to say to my kid,
+
+1:28:16.880 --> 1:28:20.320
+ my son the other day was telling me, oh, so and so called me such and such. And I'm like,
+
+1:28:20.320 --> 1:28:25.840
+ are you such and such? He's like, no. I'm like, ha ha, see, they were wrong. And what I tell him
+
+1:28:25.840 --> 1:28:32.320
+ is if you know who you are, what other people say about you only teaches you about them.
+
+1:28:34.480 --> 1:28:34.980
+ Yeah.
+
+1:28:35.440 --> 1:28:42.800
+ So it has no influence on your self esteem. If you know where you stand, you embrace the good,
+
+1:28:42.800 --> 1:28:48.800
+ but you also embrace the bad. I have plenty of bad and I'm embracing it. I'm a procrastinator.
+
+1:28:48.800 --> 1:28:56.080
+ I'm a procrastinator. How do I deal with that? I trick myself into procrastinating about mindless,
+
+1:28:56.080 --> 1:29:01.120
+ stupid little day to day things. And in that procrastination time doing important things
+
+1:29:01.120 --> 1:29:07.360
+ for the future. So accepting who you are, accepting your flaws, accepting the whole of it,
+
+1:29:07.360 --> 1:29:14.320
+ accepting the struggle, accepting the sleeplessness, accepting the fact that the journey
+
+1:29:14.320 --> 1:29:21.280
+ matters, hoping that your path to Ithaka is full of troubles because those troubles are the life
+
+1:29:21.280 --> 1:29:28.880
+ you will lead. Accepting that life will not start after the next milestone, that life has already
+
+1:29:28.880 --> 1:29:35.600
+ started a long time ago. And what you're experiencing now is the life. This is it.
+
+1:29:35.600 --> 1:29:40.000
+ It's not some kind of future thing that you work yourself hard to get to. And then after that,
+
+1:29:40.000 --> 1:29:45.440
+ you live happily ever after. To me, the happily ever after, that's the end of the story. Nothing
+
+1:29:45.440 --> 1:29:50.880
+ happens after that. The struggle and the struggle and the struggle is much more interesting story
+
+1:29:51.760 --> 1:29:58.480
+ than they lived happily ever after. So I think we have to embrace that as a society that it's
+
+1:29:58.480 --> 1:30:04.080
+ not just about the happy ending, that our kids are brainwashed into expecting that things will
+
+1:30:04.080 --> 1:30:09.120
+ be happy and rosy and it's okay if they're not. And they should keep struggling because the
+
+1:30:09.120 --> 1:30:15.520
+ struggle is the journey and the journey is the meaning of life. It's not the end, it's this
+
+1:30:15.520 --> 1:30:22.080
+ journey. What about accepting one of the harder things? We talked a little bit about immortality.
+
+1:30:22.800 --> 1:30:31.200
+ What about accepting that life ends? So do you, Manolis, think about your own mortality?
+
+1:30:32.400 --> 1:30:38.480
+ How, we talked about accepting that there's ups and downs to life. What about the ultimate down,
+
+1:30:38.480 --> 1:30:42.640
+ which is the finality of it? Do you think about that? Do you fear it?
+
+1:30:42.640 --> 1:30:47.440
+ You also asked me if I'm afraid of getting older.
+
+1:30:48.160 --> 1:30:48.640
+ Yes.
+
+1:30:48.640 --> 1:30:53.920
+ And that's on the path to mortality. So let me talk about that first step and then the last step.
+
+1:30:54.800 --> 1:30:55.200
+ The last step.
+
+1:30:55.200 --> 1:31:03.280
+ Literally the last step. So getting older, what does that mean? When I was 18, when I was 20,
+
+1:31:03.280 --> 1:31:10.640
+ my brain, I felt was at my maximum. I was like, nothing is impossible. I can solve anything.
+
+1:31:10.640 --> 1:31:15.280
+ I could take any math puzzle, any logic puzzle, any programming puzzle and just solve it in
+
+1:31:15.280 --> 1:31:19.920
+ milliseconds. I just saw the answer through problems. I was like feeling invincible.
+
+1:31:19.920 --> 1:31:24.880
+ I would show up at lecture with my newspaper, lift up my head every now and then, point to errors,
+
+1:31:25.840 --> 1:31:30.800
+ just brat, complete brat. I would raise my hand and correct my professor from the whole classroom.
+
+1:31:30.800 --> 1:31:34.160
+ Total brat. I have some of those in my class now and it's awesome. It's like very...
+
+1:31:34.720 --> 1:31:35.440
+ I used to be you.
+
+1:31:35.440 --> 1:31:36.720
+ It teaches you humility.
+
+1:31:40.160 --> 1:31:44.240
+ So I felt invincible and I was like, this is it. This is awesome. I'm living the life.
+
+1:31:45.360 --> 1:31:51.760
+ 10 years later, my brain didn't work the same way. I wasn't as good at the tiny little puzzles,
+
+1:31:53.040 --> 1:31:59.120
+ but it worked in different ways. And right now, 20 years later, it works in yet different ways.
+
+1:31:59.120 --> 1:32:02.080
+ And oh gosh, I love the journey.
+
+1:32:02.080 --> 1:32:09.760
+ Can you maybe give some hints of the interesting different ways that your brain works as it aged?
+
+1:32:09.760 --> 1:32:19.280
+ Yeah. I went from the phase of sheer speed and hardcore quantitative thinking to sort of stepping
+
+1:32:19.280 --> 1:32:24.480
+ back, being able to sort of make more connections, being able to sort of say, yeah, but let's use
+
+1:32:24.480 --> 1:32:30.160
+ that thing. Sort of a huge new creativity being unleashed. Basically, when you're young, you're
+
+1:32:30.160 --> 1:32:33.600
+ sort of thinking about that one problem. You can sort of reconfigure all the variables
+
+1:32:33.600 --> 1:32:39.200
+ combinatorially in your head and just wipe it all out. When you're just a little older,
+
+1:32:39.200 --> 1:32:43.600
+ you start getting more creative. You start bringing in things from different fields and different
+
+1:32:43.600 --> 1:32:48.240
+ contexts and sort of stepping outside the box. Basically, it's like being in the rat race and
+
+1:32:48.240 --> 1:32:53.600
+ saying, there's a ceiling. Why are we trying to get through that? So it's sort of thinking outside
+
+1:32:53.600 --> 1:33:00.480
+ the box. And then at 40, what I'm going through now is this whole sort of embracing the path of
+
+1:33:00.480 --> 1:33:07.600
+ life. And when I say life has started already, it's not a test anymore. This is basically
+
+1:33:07.600 --> 1:33:17.280
+ embracing the finality. Embracing that the journey is what it's at. So what I like to say is live
+
+1:33:17.280 --> 1:33:26.000
+ every day as if it's your last one and make plans as if you'll never die. I always have the long term
+
+1:33:26.800 --> 1:33:31.840
+ that I'm sort of planning out for that will eventually become the short term. And I always have
+
+1:33:31.840 --> 1:33:38.160
+ the sort of short term. And I think this ability to sort of look at life in the past and look at
+
+1:33:38.160 --> 1:33:45.600
+ life in the future jointly and sort of embrace the continuity both of life in the universe and
+
+1:33:45.600 --> 1:33:50.640
+ on our planet, as well as life as a human being from the beginning to the end, just as a path,
+
+1:33:50.640 --> 1:33:56.320
+ as a journey, and just embracing every aspect of that. I mean, I was talking about parenthood the
+
+1:33:56.320 --> 1:34:03.200
+ other day and how amazingly fulfilling it is to sort of relive childhood through the eyes of my
+
+1:34:03.200 --> 1:34:18.880
+ kid, but with the perspective of a parent. So the sheer arrogance of youth watching this in my kid,
+
+1:34:18.880 --> 1:34:24.480
+ I can see myself when I was 18 correcting my professor. I felt so proud. Little did I know that
+
+1:34:25.040 --> 1:34:28.400
+ my professor was working on so much more interesting things than the three little
+
+1:34:28.400 --> 1:34:33.600
+ things he was putting on the board that day. And I was like, I'm invincible. But in fact, no,
+
+1:34:33.600 --> 1:34:42.320
+ just a little brat. And basically right now, I sort of can see the sort of journey with a little
+
+1:34:42.320 --> 1:34:48.960
+ more humility. I can sort of look at my own students with their unbelievable abilities,
+
+1:34:49.600 --> 1:34:54.480
+ being able to do things that I'm no longer able to do better than I probably was ever able to do.
+
+1:34:54.480 --> 1:35:00.640
+ But yet being able to guide them and shape their thinking and blow their minds with new ideas and
+
+1:35:00.640 --> 1:35:08.480
+ new directions through my perspective. And I know when something is solvable because I've been there,
+
+1:35:08.480 --> 1:35:13.040
+ but I'm not going to even bother. It's not that I can't do it. I'm sure I could if I tried,
+
+1:35:13.040 --> 1:35:18.320
+ but just I'm not interested in that anymore. So what I'm embracing this journey of aging
+
+1:35:18.320 --> 1:35:24.800
+ is how my brain is changing and how I'm constantly trying to figure out the niches,
+
+1:35:24.800 --> 1:35:31.200
+ the evolutionary niches that I'm best adapted for, for the tasks that I'm best at,
+
+1:35:32.000 --> 1:35:39.680
+ while hiring and recruiting both assistants and research scientists and students and postdocs,
+
+1:35:39.680 --> 1:35:45.920
+ and that will be the best at those tasks. But someone still has to see the big picture.
+
+1:35:45.920 --> 1:35:52.320
+ And I love being in that role. So at the timescale of a human lifespan,
+
+1:35:52.320 --> 1:35:58.560
+ you're doing the same thing that the worm did at the evolutionary timescale of Growing Arms,
+
+1:35:58.560 --> 1:36:05.200
+ the specialization, the carp compartmentalization. I mean, it's fascinating to think of what
+
+1:36:05.920 --> 1:36:11.280
+ 80 year old Manolis would look back at the man that's sitting here today
+
+1:36:11.280 --> 1:36:15.200
+ and laugh at the silliness, at the arrogance.
+
+1:36:15.200 --> 1:36:16.400
+ He finally figured out something.
+
+1:36:17.840 --> 1:36:21.760
+ I was like, no little thing. You didn't figure out anything.
+
+1:36:21.760 --> 1:36:27.520
+ I mean, ultimately, it seems that if you're introspective about life, it leads to a kind
+
+1:36:27.520 --> 1:36:33.120
+ of acceptance, a deeper and deeper acceptance of the whole of it.
+
+1:36:34.320 --> 1:36:38.560
+ Again, I want to be cautious about acceptance because it almost says that you can't change it.
+
+1:36:38.560 --> 1:36:40.000
+ Ah, yeah.
+
+1:36:40.000 --> 1:36:45.040
+ It's sort of embracing the struggle and embracing the journey is the way that I would put it.
+
+1:36:45.040 --> 1:36:48.640
+ So you ultimately feel the journey isn't just something that happens to you.
+
+1:36:49.760 --> 1:36:53.840
+ You shape it. You shape it. Remember how I was saying that Boston is the best place and the
+
+1:36:53.840 --> 1:36:59.040
+ best time to live in right now, in the history of humanity? I'm exaggerating a little bit.
+
+1:36:59.040 --> 1:37:05.200
+ But the way that I think about this is that if you look at the whole of cosmos,
+
+1:37:05.200 --> 1:37:10.000
+ where would you rather be if you're just a bunch of molecules, roughly your biomass?
+
+1:37:10.000 --> 1:37:12.640
+ Where would you rather be? Would you rather be a rock on Mars?
+
+1:37:12.640 --> 1:37:16.240
+ Yeah, probably not. Would you rather be in a black hole? Probably not.
+
+1:37:16.240 --> 1:37:19.600
+ Would you rather be in an exploding supernova? Maybe that might be interesting.
+
+1:37:20.320 --> 1:37:26.800
+ But being on Earth is an awesome solar system, an awesome planetary system, an awesome,
+
+1:37:26.800 --> 1:37:30.320
+ you know, place to be in across all of space time.
+
+1:37:31.120 --> 1:37:33.040
+ It's a pretty good place to be in as a bunch of molecules.
+
+1:37:33.040 --> 1:37:39.760
+ If you are a bunch of molecules on Earth today, being an animal with, you know, some kind of
+
+1:37:39.760 --> 1:37:46.160
+ awareness of the stuff around you is wonderful. Being a human among all animals is amazing
+
+1:37:46.160 --> 1:37:52.720
+ because you have all this introspection. And being a human who's young, fit, athletic,
+
+1:37:52.720 --> 1:37:57.040
+ smart, et cetera, I mean, you know, you have so much to be happy for.
+
+1:37:57.040 --> 1:38:02.400
+ Beyond that, being surrounded by a bunch of awesome people that you interact with all the time.
+
+1:38:02.400 --> 1:38:06.000
+ I mean, I feel blessed to interact with the people I know, with the friends I have,
+
+1:38:06.000 --> 1:38:09.920
+ the dinners that I have, all of this. Students that I interact with, I'm so blessed.
+
+1:38:10.480 --> 1:38:17.360
+ And the last little blip in this awesomeness of local maximum, the last little blip comes from
+
+1:38:17.360 --> 1:38:23.360
+ being kind, being grateful, and being kind. I don't know if you remember that little prayer
+
+1:38:23.360 --> 1:38:29.600
+ that I described last time of, thank you for all the good you've given me and give me strength
+
+1:38:30.320 --> 1:38:37.120
+ to give unto others with the same love that you've given to me. And the whole point of that is being
+
+1:38:37.120 --> 1:38:44.480
+ grateful and being kind. What does that do? From a purely egoistic perspective, it makes the people
+
+1:38:44.480 --> 1:38:49.120
+ around you happier. And it takes that little maximum a little bit further.
+
+1:38:49.120 --> 1:38:54.240
+ Because you'll be surrounded by happy people, by being kind. That's the purely egoistic view.
+
+1:38:55.120 --> 1:39:01.120
+ And the purely altruistic view, or maybe it's egoistic as well, is that it's just good to give.
+
+1:39:01.120 --> 1:39:07.760
+ It feels good to give. Like basically watching somebody who's touched by what you said, watching
+
+1:39:07.760 --> 1:39:14.880
+ somebody who's like appreciating a rapid response or a generous offer or just random acts of kindness.
+
+1:39:14.880 --> 1:39:22.480
+ It is so fulfilling. So evolutionarily, we were selected for that. There's just such a good feeling
+
+1:39:22.480 --> 1:39:27.520
+ that comes from that. You know, it's fascinating to think you said Boston is the best place,
+
+1:39:28.240 --> 1:39:34.720
+ and talking about kindness, that the very thought that Boston is the best place in the universe
+
+1:39:34.720 --> 1:39:45.920
+ is almost, it's a kind of a gravitational field. Your thought and your very life in itself is a
+
+1:39:45.920 --> 1:39:52.720
+ kind of field that makes that real. Yeah, the self fulfilling prophecy. Yeah. By claiming it's the
+
+1:39:52.720 --> 1:39:59.040
+ best and thinking it's the best, it becomes the best. And you make others, it's not a force that
+
+1:39:59.040 --> 1:40:05.440
+ just applies to your own cognition. It applies to the others around you. And then suddenly you live
+
+1:40:05.440 --> 1:40:12.160
+ in an even better place. Yeah. And it creates the reality, the actual reality, the social reality,
+
+1:40:12.160 --> 1:40:23.440
+ then it molds the environment. Exactly. One of the coolest things about you, I think, is you represent
+
+1:40:23.440 --> 1:40:35.920
+ the best of MIT, the spirit of MIT. I'm so glad that I'm fortunate enough to be able to talk to
+
+1:40:35.920 --> 1:40:47.520
+ you, because there's a kind of cynicism about academia in parts that I think is undeserved,
+
+1:40:47.520 --> 1:40:57.040
+ and that there's this, MIT, of course, but academic institutions is a sacred place where
+
+1:40:57.040 --> 1:41:03.120
+ ideas can flourish. And just in the same very way that you're talking about is both kindness
+
+1:41:03.840 --> 1:41:12.160
+ and curiosity and that weird thing that happens when a bunch of curious descendants of apes get
+
+1:41:12.160 --> 1:41:19.360
+ together and just get excited in this ripple effect that happens. I mean, that's the most
+
+1:41:19.360 --> 1:41:28.480
+ beautiful aspect of MIT. People might think competition and grants and position, like you
+
+1:41:28.480 --> 1:41:35.520
+ said, the rat race, but underneath it all is these curious human beings inspiring younger human
+
+1:41:35.520 --> 1:41:44.160
+ beings. And there's this ripple effect that happens. And I'm so glad that, I mean, I'm glad that I get
+
+1:41:44.160 --> 1:41:50.560
+ a chance to record this because it inspires so many other students and so many other people to
+
+1:41:50.560 --> 1:41:55.840
+ do the same, to embrace the inner curious creature that it's not about the race. So let's talk about
+
+1:41:55.840 --> 1:42:00.160
+ the negatives. Let's talk about, no, no, no, I'm serious. I'm serious. You have to embrace the good
+
+1:42:00.160 --> 1:42:07.360
+ and the bad. So let's talk about the negative. Let's address it. So why do people want positions
+
+1:42:07.360 --> 1:42:13.920
+ of power? Why do people want more money, more power, more this, more that? Remember the part
+
+1:42:13.920 --> 1:42:19.200
+ where I was saying, if you know who you are, what other people think about you, it makes no
+
+1:42:19.200 --> 1:42:28.720
+ difference to you. It only teaches you about them. Many people feel defunct about what they're doing
+
+1:42:28.720 --> 1:42:37.360
+ and define themselves. They feel instantiated through the eyes of others. So being in a position
+
+1:42:37.360 --> 1:42:42.880
+ of power makes them feel better about themselves. Who knows what other kind of struggles they might
+
+1:42:42.880 --> 1:42:48.960
+ have that creates that need to feel better about themselves. But they have a bunch of struggles and
+
+1:42:48.960 --> 1:42:54.000
+ everybody has a bunch of struggles. And every time I see somebody behaving poorly, I'm basically
+
+1:42:54.000 --> 1:43:01.120
+ thinking, well, they're in a tough spot right now. And it's okay. I can kind of see how I would
+
+1:43:01.120 --> 1:43:10.640
+ behave badly in other circumstances as well. So I think if you take away that sort of having to
+
+1:43:10.640 --> 1:43:18.320
+ prove yourself in the eyes of others, life becomes so much easier. So when I first became a professor
+
+1:43:18.320 --> 1:43:26.960
+ at MIT, I started wearing adult clothes. It became a serious person, quote, unquote.
+
+1:43:26.960 --> 1:43:31.360
+ I basically had, I would always go around in my rollerblades and my shorts and a t shirt,
+
+1:43:31.360 --> 1:43:36.640
+ and eventually I was a professional. I bought all these khaki pants and these nice
+
+1:43:36.640 --> 1:43:44.400
+ shirts with, what do they call it, the patterns. And I was dressing with my nice belt every day,
+
+1:43:44.400 --> 1:43:51.120
+ showing up. And then a few months later, I was like, I can't stand it. And I just went back to
+
+1:43:51.120 --> 1:43:58.480
+ my rollerblades and my t shirts and my shorts. And it was this struggle of sort of not feeling that
+
+1:43:58.480 --> 1:44:04.080
+ I fit in. I was so intimidated by all of my colleagues, just watching their incredible
+
+1:44:04.080 --> 1:44:09.600
+ achievements. The person's next to me and the person on the floor below me, I was like, oh my
+
+1:44:09.600 --> 1:44:17.520
+ God, they clearly made a mistake. What the heck am I doing here? How will I ever live up to these
+
+1:44:17.520 --> 1:44:28.640
+ people's standards? And eventually you grow up to realize that the way that I grew up to realize
+
+1:44:28.640 --> 1:44:33.360
+ that the way that other people perceived my work was very similar to the way that I perceived
+
+1:44:33.360 --> 1:44:41.280
+ other people's work as flawless. I knew all of the flaws in my work. I knew the limitations. I knew
+
+1:44:41.840 --> 1:44:47.360
+ what I hadn't managed to achieve. And what I saw was maybe a third of the way of what I was trying
+
+1:44:47.360 --> 1:44:53.840
+ to achieve. And I saw everything as flawed. What they saw, what I had achieved, they didn't see
+
+1:44:53.840 --> 1:44:58.640
+ what I hadn't achieved. They only saw the one third down, which was pretty good in their eyes.
+
+1:44:58.640 --> 1:45:05.600
+ So they all respected me and I was feeling miserable about myself. I was like, I'm not worthy.
+
+1:45:06.640 --> 1:45:14.400
+ And I think that this is a cognitive problem that we have. We kind of, it's kind of like when we're
+
+1:45:14.400 --> 1:45:19.280
+ talking about artificial general intelligence, AGI, of sort of, we kind of have this definition
+
+1:45:19.280 --> 1:45:23.440
+ that anything that machines can do is not intelligent and anything that they can't do
+
+1:45:23.440 --> 1:45:27.440
+ is intelligent. Therefore, we narrow, narrow, narrow, narrow the field of what intelligence
+
+1:45:27.440 --> 1:45:30.800
+ truly means. And as soon as machines achieve self, I mean, it's not intelligent anymore.
+
+1:45:30.800 --> 1:45:34.640
+ I feel like I was doing the same thing with myself. As soon as I could solve something,
+
+1:45:34.640 --> 1:45:38.480
+ it was the kind of thing that a kid like me could solve. And therefore it was kind of easy.
+
+1:45:39.600 --> 1:45:45.600
+ But to the others, it seemed hard. But to me, it seemed easy. So it was this kind of thing that
+
+1:45:45.600 --> 1:45:50.560
+ everything that my colleagues were doing seemed impossible to me. But everything that I was doing
+
+1:45:50.560 --> 1:45:55.600
+ seemed impossible to them. So it was that realization that sort of made me mature into
+
+1:45:55.600 --> 1:45:59.760
+ sort of a, not more confident, but more comfortable human being.
+
+1:46:00.320 --> 1:46:05.040
+ Can you actually linger on that a little bit? I mean, you mentioned Minsky. I remember he said
+
+1:46:05.680 --> 1:46:13.360
+ something in an interview where he said the secret to his, like the way he approached life was
+
+1:46:14.240 --> 1:46:21.520
+ to never be happy with anything he did. So there's something powerful as a motivator
+
+1:46:21.520 --> 1:46:26.720
+ to doing exactly what you're saying, which is everything you've achieved to see that as easy
+
+1:46:26.720 --> 1:46:33.920
+ and unimpressive. What do you do with that? Because clearly that's a useful thing.
+
+1:46:33.920 --> 1:46:39.840
+ I think I've kind of matured past that. And I think the maturity past that is to sort of accept
+
+1:46:40.320 --> 1:46:49.360
+ what it is and accept that it has helped others build onto it and therefore advance human knowledge.
+
+1:46:49.360 --> 1:46:53.440
+ So it's very easy to sort of fall into the trap of, oh, everything I've done is crap.
+
+1:46:54.240 --> 1:46:59.040
+ What I told you last time is that I always tell my students that our best work is ahead of us.
+
+1:47:00.080 --> 1:47:04.320
+ And I think that's more of my mindset. That's a beautiful way to put it.
+
+1:47:04.320 --> 1:47:10.080
+ Exactly. What we've done is strong. It's great. It's great for the time. And it'll become obsolete
+
+1:47:10.080 --> 1:47:16.560
+ in 30 years. Not we can, we are doing even better. Exactly. So basically our next work
+
+1:47:16.560 --> 1:47:21.120
+ will just strive. And again, you can't let the perfect be the enemy of the good.
+
+1:47:21.840 --> 1:47:27.440
+ At some point you have to wrap. I was having a meeting with my student yesterday and it was like,
+
+1:47:27.440 --> 1:47:32.640
+ listen, we know this is not perfect, but it's way better than anything that's ever been done before.
+
+1:47:33.680 --> 1:47:38.640
+ You know how to improve it. But if you try to, your paper is never going to get published.
+
+1:47:38.640 --> 1:47:48.000
+ So there's this balance of we're already at the top of the field, get it out. And then you work
+
+1:47:48.000 --> 1:47:52.400
+ on the next improvement. And in my experience, this has never happened. We've never actually
+
+1:47:52.400 --> 1:47:57.200
+ worked on the next improvement. And that's okay. It didn't make a difference because you're
+
+1:47:57.200 --> 1:48:02.640
+ basically putting a new stepping stone that others will be able to step on and surpass you.
+
+1:48:02.640 --> 1:48:08.800
+ My advisor in grad school would basically tell me, Manolis, let others write the second paper
+
+1:48:08.800 --> 1:48:14.880
+ in that field. Just write the first one, move on, move on to the next field. You don't want to be
+
+1:48:14.880 --> 1:48:18.400
+ writing the second and the third and the fourth and the fifth paper in the same field. Just,
+
+1:48:20.080 --> 1:48:26.480
+ it's very shocking to a student to hear that. Cause I was like, I was at the top of my game.
+
+1:48:26.480 --> 1:48:31.920
+ I was owning that field. I was doing it. I was doing it. I was doing it. I was doing it.
+
+1:48:31.920 --> 1:48:35.600
+ Owning that field. And I published the first paper. I'm like, I'm ready for two and three
+
+1:48:35.600 --> 1:48:42.160
+ and four. He's like, move on. Just let it be. And I was like, Whoa. And it's so liberating
+
+1:48:42.160 --> 1:48:48.640
+ to sort of not have to surpass everyone, but just put your little stepping stone out there
+
+1:48:49.440 --> 1:48:53.200
+ and others will step on it and put their own stones further and eventually cross a bigger
+
+1:48:53.200 --> 1:48:58.960
+ river than if you try to sort of make a giant leap all at once. So you need both.
+
+1:48:58.960 --> 1:49:06.240
+ SL. Beautifully put. So the funny thing is I've, I believe I closed the previous episode
+
+1:49:06.240 --> 1:49:11.600
+ with a Darwin quote about the power of poetry and music and life.
+
+1:49:11.600 --> 1:49:16.720
+ SL. I think your quote, and again, I only heard it once, was Darwin basically saying,
+
+1:49:16.720 --> 1:49:23.680
+ if I were to live life again, next time I would read more poetry and something about art every
+
+1:49:23.680 --> 1:49:30.080
+ week or something like that. Yeah. Yeah. It's so interesting for somebody who studied life
+
+1:49:30.080 --> 1:49:37.680
+ at a very cold, I would say, genetic level to say that, yeah, the highest form of living
+
+1:49:37.680 --> 1:49:43.600
+ is the art. But like on that, which made me realize that you write poetry and I
+
+1:49:45.600 --> 1:49:52.560
+ forced you or maybe convinced you somehow to maybe share if it's possible, if it's okay,
+
+1:49:52.560 --> 1:49:56.960
+ some of the poetry you've written yourself in your life.
+
+1:49:56.960 --> 1:50:01.440
+ SL. So again, being Greek, a lot of my poems have been pretty miserable.
+
+1:50:03.360 --> 1:50:07.840
+ And I always like to say that it's very hard for me to write a poem when I'm happy.
+
+1:50:08.480 --> 1:50:15.520
+ And I just have to be in a state of deep despair in order to write poems. But the first poem I ever
+
+1:50:15.520 --> 1:50:21.840
+ wrote was in English class. I was, I'm Greek, I grew up in Greece, but I was in a French high
+
+1:50:21.840 --> 1:50:26.560
+ school and I was taking English as a foreign language. So the English teacher basically
+
+1:50:26.560 --> 1:50:33.280
+ asked us to write a poem in English. So this is basically what I'm going to embarrass myself and
+
+1:50:33.280 --> 1:50:36.640
+ read from my 16 year old self many, many years ago.
+
+1:50:36.640 --> 1:50:40.960
+ SL. Can you give a little bit more context about who you were in this moment? So like just...
+
+1:50:40.960 --> 1:50:46.080
+ SL. So here's what's really interesting. In terms of growing up, how do we grow up?
+
+1:50:46.080 --> 1:50:51.200
+ SL. It's very difficult to grow up if you're in the same school, going from one class to the other,
+
+1:50:51.200 --> 1:50:55.680
+ and all your friends know you inside out. It's very difficult to change. It's very difficult to
+
+1:50:55.680 --> 1:51:00.000
+ grow up because they have a certain set of expectations for who you are and for how you're
+
+1:51:00.000 --> 1:51:06.640
+ going to behave. So in many ways we kind of tend to get set in our ways and not change very much.
+
+1:51:07.520 --> 1:51:13.920
+ I think something that helped me grow up is that when I was 11 years old, I was a
+
+1:51:13.920 --> 1:51:20.640
+ kid in Greece in primary school. When I was 12 years old, I was a kid in Greece in a first year
+
+1:51:20.640 --> 1:51:30.080
+ of high school. When I was 13, I was in France, so basically moved countries and schools. The next
+
+1:51:30.080 --> 1:51:33.760
+ year, I moved schools again because it was a transition in the French educational system
+
+1:51:33.760 --> 1:51:38.560
+ from one school to the next. The next year after that, my family moved to New York in a French high
+
+1:51:38.560 --> 1:51:44.800
+ school there, and the next year after that, I'm moving to MIT. So basically between 11 and 19,
+
+1:51:44.800 --> 1:51:52.080
+ every single year, I actually had the opportunity to grow. I was not held by people who knew me,
+
+1:51:53.360 --> 1:52:00.800
+ and I could reinvent myself or reshape myself or reshape my personality, my emotions, as I was
+
+1:52:00.800 --> 1:52:07.760
+ growing up, especially in such a transformative time of a kid's life from 11 to 17. I was
+
+1:52:07.760 --> 1:52:11.680
+ 11 to 17. Okay, first of all, it's so powerful that you think of it that way. Did you think of
+
+1:52:11.680 --> 1:52:17.360
+ it that way at the moment? Because it's kind of a source. You said an opportunity to grow,
+
+1:52:17.360 --> 1:52:21.760
+ but it's kind of suffering. I mean, you're being torn away from the thing you know into a thing
+
+1:52:21.760 --> 1:52:30.320
+ you don't know. So when we moved from South France to New York, I was pissed. I was pissed. I was
+
+1:52:30.320 --> 1:52:36.400
+ taking these long bike rides in the countryside, jumping in French swimming pools, and I had all
+
+1:52:36.400 --> 1:52:42.880
+ these wonderful friendships, going downtown and just staying by the fountains in the dim lit
+
+1:52:42.880 --> 1:52:49.040
+ streets of Aix en Provence in the South of France. It was magical. And suddenly, I moved to New York
+
+1:52:49.040 --> 1:52:56.800
+ City, a city of cement, of ugliness, like trash in the streets at every corner. It's horrible.
+
+1:52:57.360 --> 1:53:03.520
+ Snow everywhere. Having never seen snow or like real snow in my life, I moved from Athens to South
+
+1:53:03.520 --> 1:53:09.840
+ France to suddenly New York. So I was pissed. But whether I saw it as an opportunity for growth,
+
+1:53:09.840 --> 1:53:14.480
+ I don't think so. I don't think that I was that self reflective. It was just how it happened.
+
+1:53:14.480 --> 1:53:15.920
+ Only now do you see it this way.
+
+1:53:15.920 --> 1:53:21.840
+ I saw it like that probably pretty early on, but not during those transitions. So basically,
+
+1:53:21.840 --> 1:53:29.680
+ during those transitions, I was just a kid being a kid. And maybe the time that I started seeing it
+
+1:53:29.680 --> 1:53:36.560
+ that way was maybe when I decided to stay at MIT as a professor after having been there as a student.
+
+1:53:37.120 --> 1:53:45.360
+ And I kind of saw the struggle of getting professors to not see you as a kid when they're
+
+1:53:45.360 --> 1:53:51.840
+ your peers. And I was very flattered when one of my friends basically told me, oh, I remember you
+
+1:53:51.840 --> 1:53:58.160
+ in recitation when you first asked me a question. I said, wow, this kid. I'll pay attention.
+
+1:53:58.160 --> 1:54:00.720
+ One day I'll be a peer.
+
+1:54:00.720 --> 1:54:05.920
+ So it's, you know, certainly my perception was that many of them could not see me as anything
+
+1:54:05.920 --> 1:54:10.720
+ but a kid. But it turns out that some of them saw me as something different than a kid even
+
+1:54:10.720 --> 1:54:15.680
+ before I was actually their colleague. So it's kind of an interesting place because
+
+1:54:15.680 --> 1:54:20.000
+ what I like to say about MIT is that people treat you as equal no matter what stage.
+
+1:54:20.720 --> 1:54:25.840
+ And they respect you for what you say, not for who you are when you're saying it.
+
+1:54:25.840 --> 1:54:32.000
+ And if I'm wrong, my students will tell me. They will have no reservation to just be bluntly,
+
+1:54:32.000 --> 1:54:34.800
+ you know, sorry. I don't agree with that.
+
+1:54:35.440 --> 1:54:43.680
+ Yeah. I mean, the beautiful thing about you, sorry to put it this way, is, you know,
+
+1:54:44.000 --> 1:54:49.680
+ maybe people who weren't familiar with your work beforehand might think, like,
+
+1:54:50.240 --> 1:54:54.640
+ might not realize that you're a world class scientist who leads a large group and so on.
+
+1:54:54.640 --> 1:55:00.720
+ Because there's a youthful nature to you that it's, I mean, you talk like a first,
+
+1:55:00.720 --> 1:55:06.240
+ like an undergrad, you know, with the excitement and the fresh eyes and the sort of excitement
+
+1:55:06.240 --> 1:55:11.120
+ about the world. And that's, first of all, super contagious and beautiful. You know,
+
+1:55:11.120 --> 1:55:19.840
+ it's easy to sort of fall into behaving seriously because then people kind of start putting
+
+1:55:19.840 --> 1:55:26.640
+ you on a pedestal more into a position of power. You want to sort of act like you're
+
+1:55:26.640 --> 1:55:31.840
+ in a position of power as opposed to allowing yourself to be lost in the just the curiosity,
+
+1:55:31.840 --> 1:55:38.400
+ the childish view of the world, which is just this open eyed love of knowledge.
+
+1:55:38.400 --> 1:55:41.920
+ And that was the transition that I was describing when I decided to go back to my rollerblades
+
+1:55:41.920 --> 1:55:48.320
+ and t shirt and baseball cap. Basically, you know, when I met my first postdoc,
+
+1:55:48.320 --> 1:55:53.200
+ it was basically, you know, he was interviewing for postdocs at MIT. He already had several
+
+1:55:53.200 --> 1:56:00.160
+ first author papers to his name in top journals. And my friend Yulia basically introduced me to
+
+1:56:00.160 --> 1:56:04.640
+ Alex Stark, who basically was interviewing at the time with Rick Young and with Eric Lander,
+
+1:56:04.640 --> 1:56:09.680
+ just like these massive names in the field. And I was just a first year faculty person with,
+
+1:56:09.680 --> 1:56:16.160
+ you know, zero credibility. And she basically says, Oh, there's this friend of mine, Alex,
+
+1:56:16.160 --> 1:56:19.520
+ who's visiting. He's also German. You know, he wanted to meet you. I'm like, Oh, sounds great.
+
+1:56:19.520 --> 1:56:25.440
+ I'd love to talk science. I show up. We sit at the amphitheater in Stata. You know, I basically
+
+1:56:26.000 --> 1:56:32.240
+ arrive in my rollerblades, you know, jump a few steps, sit down wearing my blades. We're having
+
+1:56:32.240 --> 1:56:36.800
+ this awesome conversation about science and about gene regulation and how the whole thing works and
+
+1:56:36.800 --> 1:56:40.640
+ sort of, you know, my perspective and his perspective. We're just bouncing ideas for 30
+
+1:56:40.640 --> 1:56:46.000
+ minutes. And then I just dash off to my next meeting. And he basically emails me afterwards.
+
+1:56:46.000 --> 1:56:50.000
+ And I was giving him advice about how to interview with Eric Lander, how to interview with Rick Young
+
+1:56:50.000 --> 1:56:55.280
+ and how to sort of get a position with them. And then after a while, he emails me saying,
+
+1:56:55.280 --> 1:56:59.520
+ I would love to become a postdoc in your group. I'm like, what are you kidding me?
+
+1:56:59.520 --> 1:57:11.680
+ Like, so, so he basically didn't care that I wear rollerblades and T shirt. All he cared
+
+1:57:11.680 --> 1:57:19.440
+ about was my ideas and sort of embracing the me with the childhood excitement about science
+
+1:57:19.440 --> 1:57:24.800
+ was basically what attracted him. It wasn't the, wow, this guy runs a big lab or this and that.
+
+1:57:24.800 --> 1:57:30.560
+ He was just like, I like his ideas. I want to work with him. That, by the way, folks is the best of
+
+1:57:30.560 --> 1:57:35.600
+ MIT. That's what MIT stands for. So that's a beautiful story. But take me back to the poem
+
+1:57:36.400 --> 1:57:42.960
+ and where did this poem come from? Where's your mindset? So who is the 17, 16 year old kid Manolis?
+
+1:57:43.520 --> 1:57:51.680
+ So again, I've just seen snow for the first time and I'm in New York. So I'm, you know,
+
+1:57:51.680 --> 1:57:56.400
+ maybe that's where the sadness in the poem comes from. But anyway, we're asked in class to write
+
+1:57:56.400 --> 1:58:01.920
+ an assignment. This is my third language. I'm not very good at it. So pardon me, but here's what I
+
+1:58:01.920 --> 1:58:10.080
+ wrote. Children dance now all in row, children laughing at the snow. But in time's endless flow,
+
+1:58:10.080 --> 1:58:18.160
+ children sooner or later grow. Men are mortal. We go by. If we know it, we may cry. But I thought
+
+1:58:18.160 --> 1:58:24.960
+ a love so sweet was immortal, was so deep. There I told you, darling sweet, that forever love would
+
+1:58:24.960 --> 1:58:33.200
+ keep. Blossomed spring and summer shined. Then blue autumn, winter died. One year passed, but the
+
+1:58:33.200 --> 1:58:41.200
+ clouds still remember all our vows. Never faked and never lied. All we did was stare and smile.
+
+1:58:41.200 --> 1:58:48.800
+ All alone, sitting down, to the snow we made our vow. But you told me you were right. Birds who
+
+1:58:48.800 --> 1:58:59.440
+ love are birds who cry. Now with laughter children play, yet the sky is so gray. Even if the snow
+
+1:58:59.440 --> 1:59:06.640
+ seems bright, without you have lost their light. Sun that sang and moon that smiled, all the stars
+
+1:59:06.640 --> 1:59:14.160
+ have ceased to shine. All of nature drew its grace, found its light within your face. Now you're gone
+
+1:59:14.160 --> 1:59:20.960
+ and won't return. Let the snow in my heart burn. There's a Greek in there. That's beautiful. That's
+
+1:59:20.960 --> 1:59:28.240
+ beautiful, by the way. And the rhyming, the musicality, there's both a simplicity and a
+
+1:59:28.240 --> 1:59:33.520
+ musicality to it. I'm 16. It's my third language. No, no, no. So I really enjoy like Robert Frost
+
+1:59:33.520 --> 1:59:38.320
+ poems. I don't mean simplicity in a bad way, in a negative way at all. Again, it's very weird to
+
+1:59:38.320 --> 1:59:43.360
+ analyze your own poem, but I think it captures the simplicity of youth and the way that it kind of
+
+1:59:43.360 --> 1:59:47.920
+ starts with Children Dance Like Only Low. It basically, and it kind of shows that snow can be
+
+1:59:47.920 --> 1:59:53.600
+ interpreted first in the first verse as a happy thing, ta da da da da snow. And then in the end,
+
+1:59:54.160 --> 2:00:00.800
+ you know, now with laughter children play, I'm like, now I've grown basically. It's this
+
+2:00:00.800 --> 2:00:03.760
+ transformation that we're actually talking about, this whole men are mortal, we go by.
+
+2:00:04.320 --> 2:00:07.680
+ I'm sort of, you know, you're saying, are you comfortable with growing old? I'm like,
+
+2:00:07.680 --> 2:00:12.880
+ duh. I was, I was since I was 16. And what's really interesting is that, you know, again,
+
+2:00:12.880 --> 2:00:18.320
+ when I was 12 years old in our summer house in Greece, I remember sort of telling my sister
+
+2:00:18.320 --> 2:00:24.160
+ my outlook that I would have as a father for how to bring up my own kids. So it's very weird that
+
+2:00:24.160 --> 2:00:31.120
+ I've always sort of seen the full path from, you know, a kid. From when you were young. Yeah. I
+
+2:00:31.120 --> 2:00:35.520
+ don't know if you like this Joni Mitchell song. I've looked at clouds from both sides now,
+
+2:00:35.520 --> 2:00:42.080
+ from up and down and still somehow it snows illusions I recall. It's clouds illusions I
+
+2:00:42.080 --> 2:00:46.960
+ recall. I really don't know clouds at all. So it's really beautiful. So I think the Joni Mitchell
+
+2:00:46.960 --> 2:00:51.360
+ song, which again, I heard for the first time much, much after this, and I wouldn't even compare
+
+2:00:51.360 --> 2:00:56.720
+ this to that. But what Joni Mitchell is saying that song is that you can see life from two
+
+2:00:56.720 --> 2:01:03.920
+ perspectives. You can see the good or the bad in both, you know, in everything you see. And I think
+
+2:01:03.920 --> 2:01:09.680
+ that's the allegory of snow right now. You can see snow as this bright, white, wonderful thing,
+
+2:01:09.680 --> 2:01:16.080
+ or you can see snow as this miserable, you know, gray thing. So that's sort of, and what I like
+
+2:01:16.080 --> 2:01:20.320
+ about the last verse now with laughter children play is that it's a recall to the first one
+
+2:01:20.320 --> 2:01:27.840
+ where I was the kid enjoying careless life, and eventually was making promises that something
+
+2:01:27.840 --> 2:01:32.400
+ would be forever. And I think part of that is also the loss of my friendships in France,
+
+2:01:32.400 --> 2:01:38.080
+ of being in New York now and sort of everything's gray. And, you know, even though the snow seems
+
+2:01:38.080 --> 2:01:42.800
+ bright, without you have lost their light, sun that sang and moon that smiled. So it's this
+
+2:01:42.800 --> 2:01:51.840
+ concept that if you lose your love, the same thing can be perceived in a very different way.
+
+2:01:52.720 --> 2:01:55.680
+ Let me ask you this, because somebody wrote me this long email,
+
+2:01:57.360 --> 2:02:03.840
+ and I think you're the perfect person to ask this. You mentioned love.
+
+2:02:03.840 --> 2:02:16.880
+ From a genetic perspective, what is it? What do you make of love? Why do we humans fall in love?
+
+2:02:17.600 --> 2:02:24.320
+ In your own life, why did you fall in love? You know, the email that was written to me was,
+
+2:02:24.320 --> 2:02:33.840
+ you always talk about mortality and fear of mortality, but you don't ask about love. So I
+
+2:02:33.840 --> 2:02:40.000
+ don't know if there's some thoughts you could give about the role of love in your own life,
+
+2:02:41.360 --> 2:02:50.560
+ or the role of love in human life in general. I think love in many ways defines my life.
+
+2:02:50.560 --> 2:02:58.640
+ It's basically, I like to say that I'm a human first and a professor second. And I think this
+
+2:02:58.640 --> 2:03:04.720
+ passion for life, this passion for, you know, everything around us. I mean, the only way to
+
+2:03:04.720 --> 2:03:12.560
+ describe that is love. It's basically, you know, embracing your, you know, emotional self,
+
+2:03:12.560 --> 2:03:27.040
+ embracing the, you know, the non brainiac in you, embracing the sort of intangible, the
+
+2:03:28.800 --> 2:03:34.320
+ not very well defined. And even in my own research, I'm just very passionate about
+
+2:03:34.320 --> 2:03:39.280
+ everything I do. You know, there's a certain passion that comes through. And what, I'm sorry,
+
+2:03:39.280 --> 2:03:44.560
+ again, being Greek, the etymology of the word passion. What was passion? Passion is suffering.
+
+2:03:46.400 --> 2:03:49.840
+ The etymology, when we talk about the passion of the Christ, it's a suffering.
+
+2:03:50.560 --> 2:03:59.680
+ And in the Greek version of that word, pathos, like pathology, pathos is deep suffering. It's
+
+2:03:59.680 --> 2:04:04.880
+ the concept of someone who's sympathetic. Sympathetic means suffering together,
+
+2:04:04.880 --> 2:04:09.680
+ experiencing emotions together. So it's funny that you ask me about love and I respond with passion,
+
+2:04:09.680 --> 2:04:14.720
+ passion for life, passion for research, passion for my family, for my children, for, you know.
+
+2:04:14.720 --> 2:04:25.360
+ So there's a certain passion that defines me and everything else follows rather than the other way
+
+2:04:25.360 --> 2:04:31.040
+ around. I'm not first thinking with my brain, what is the most impactful paper we could write? And
+
+2:04:31.040 --> 2:04:35.680
+ then going after that, I'm thinking with my heart, what am I passionate about? What drives me? What
+
+2:04:35.680 --> 2:04:41.440
+ just like, you know, makes me take. And that's a beautiful way to live, but I love it how the Greek
+
+2:04:41.440 --> 2:04:46.240
+ part of you just kind of connects it to the suffering. So if you could remove the suffering.
+
+2:04:46.240 --> 2:04:52.160
+ No, no, no, no, no, no. When I say suffering, I don't mean suffering as in being miserable. I mean
+
+2:04:52.160 --> 2:04:58.880
+ suffering as in being emotionally invested in something. Remember, I mean, again, if you look
+
+2:04:58.880 --> 2:05:08.240
+ at this poem, what is it saying? It's saying birds who love are birds who cry. Right? That's the very
+
+2:05:08.240 --> 2:05:15.200
+ definition of love. Exposing your fragility. If you're not afraid of suffering, you don't fall
+
+2:05:15.200 --> 2:05:24.320
+ in love. As soon as you hold back, you protect, you shield your heart, no love can enter. So there's
+
+2:05:24.320 --> 2:05:34.080
+ this Simon and Garfunkel song. I am a rock. I am an island. And a rock feels no pain. And an island
+
+2:05:34.080 --> 2:05:44.000
+ never cries. So again, there's some aspect of that into this poem. The fact that, you know,
+
+2:05:44.000 --> 2:05:47.360
+ but you told me, you know, there I told you, darling sweet, that forever love would keep,
+
+2:05:47.360 --> 2:05:51.040
+ is this intermediate thing. And then there's a recall, but you told me you were right. Birds
+
+2:05:51.040 --> 2:05:57.280
+ who love are birds who cry. So it basically says that love is the fragility that you're
+
+2:05:57.280 --> 2:06:05.680
+ willing to give to another person. It's opening up your vulnerable spots. It's sort of accepting
+
+2:06:06.240 --> 2:06:13.040
+ that there's no safety net. You're just giving yourself fully and you're ready to be hurt.
+
+2:06:14.240 --> 2:06:18.560
+ So you've already been way too kind with your time, but I'm going to force you to stay here
+
+2:06:18.560 --> 2:06:25.520
+ just a few minutes longer as we're talking about goodbyes. You have a really nice other poem here
+
+2:06:25.520 --> 2:06:33.760
+ about goodbyes. Can I force you to read it as well? Oh, twist my arm, twist my arm. So the next
+
+2:06:33.760 --> 2:06:40.960
+ poem was written specifically for our high school yearbook. So another poem written on demand,
+
+2:06:40.960 --> 2:06:46.720
+ the rest of them are just so miserable, written by pure, you know, sadness and melancholy.
+
+2:06:46.720 --> 2:06:53.120
+ But this one was also written on demand and it was basically saying goodbye, as is appropriate
+
+2:06:53.120 --> 2:06:58.640
+ right now, to my friends and sort of, again, reflecting this whole journey and transformation
+
+2:06:58.640 --> 2:07:04.720
+ through life. And also I think showing a little bit of introspection about how we kind of had it
+
+2:07:04.720 --> 2:07:10.080
+ easy in high school and we're about to go into rougher waters. So the title is actually The Tide
+
+2:07:10.080 --> 2:07:19.440
+ Waters and it's an analogy on that. So here it goes. All this was another lake, where some rest
+
+2:07:19.440 --> 2:07:26.400
+ we sailors take, waters calm and full of fish, we'll find there what we wish, some seek fruit
+
+2:07:26.400 --> 2:07:33.600
+ and others feast, some of us just look for peace, some find fresh ships, other love, some seek both
+
+2:07:33.600 --> 2:07:40.800
+ and neither have. We were different when we came, each his own story and fame, different people had
+
+2:07:40.800 --> 2:07:47.440
+ we been, different cultures had we seen, different nature, different face, each unlike all in this
+
+2:07:47.440 --> 2:07:55.840
+ place. We had faced success, defeat, then in one lake came to meet. There, the orders that we
+
+2:07:55.840 --> 2:08:03.520
+ followed and the pride that we swallowed, made us one but not the same, joined us strangers who
+
+2:08:03.520 --> 2:08:11.680
+ there came. Sooner later, groups were made, tribes where differences will fade, some attached more
+
+2:08:11.680 --> 2:08:19.280
+ or less, others fought and made a mess. But again we have to go, what for, where to, we don't know,
+
+2:08:19.280 --> 2:08:26.400
+ still we know it, we will try, there to rush, to flee, to fly. There'll be some who wish to stay
+
+2:08:26.400 --> 2:08:32.880
+ but they'll carry on away, we'll continue on our journey as we came here, strong yet lonely.
+
+2:08:33.680 --> 2:08:39.920
+ From the lake a river flows, from the river many goals, on that river we will race, each will try
+
+2:08:39.920 --> 2:08:47.680
+ to find his pace, in that scene the sailors face, their first fear, defeat, disgrace,
+
+2:08:47.680 --> 2:08:56.640
+ defeat, disgrace, here and there comes out a face that the waters soon embrace. Some get lucky,
+
+2:08:56.640 --> 2:09:04.480
+ find their way, others sink beneath the waves, in this race we will part, some will settle near the
+
+2:09:04.480 --> 2:09:11.760
+ start, some set goals beyond the stars because the river carries far. You should know in what we've
+
+2:09:11.760 --> 2:09:19.680
+ done, the hard part is still to come. So I'll have to say goodbye, don't you worry, I won't cry,
+
+2:09:20.640 --> 2:09:28.560
+ neither will they those who try, till the end, to keep their pride. But please know dearest friends
+
+2:09:28.560 --> 2:09:34.720
+ who are always there to mend, I will always need your hand, I will miss you till the end.
+
+2:09:35.760 --> 2:09:41.520
+ I don't think there's a better way to end it. Manolis, like I said last time, you're one of
+
+2:09:41.520 --> 2:09:48.640
+ the most special people at MIT, one of the most special people in Boston, and whatever mental
+
+2:09:48.640 --> 2:09:54.000
+ force field that you're applying in saying that Boston is the best city in the world,
+
+2:09:54.000 --> 2:09:58.240
+ MIT the best university in the world, you're actually making it happen. So thank you so much
+
+2:09:58.240 --> 2:10:03.120
+ for talking to us, huge honor. Thank you so much, it's been a pleasure. Thanks for listening to
+
+2:10:03.120 --> 2:10:08.800
+ this conversation with Manolis Kellis, and thank you to our sponsors, Public Goods, Magic Spoon,
+
+2:10:08.800 --> 2:10:14.320
+ and ExpressVPN. Please check out these sponsors in the description to get a discount and to
+
+2:10:14.320 --> 2:10:19.440
+ support this podcast. If you enjoy this thing, subscribe on YouTube, review it with 5 Stars
+
+2:10:19.440 --> 2:10:24.560
+ on Apple Podcast, follow on Spotify, support on Patreon, or connect with me on Twitter
+
+2:10:24.560 --> 2:10:31.040
+ at Lex Friedman. And now, let me leave you with some words from another well known Greek,
+
+2:10:31.040 --> 2:10:35.120
+ Alexander III of Macedonia, commonly known as Alexander the Great.
+
+2:10:35.120 --> 2:10:43.680
+ There is nothing impossible to him who will try. Thank you for listening, and hope to see you next time.
+

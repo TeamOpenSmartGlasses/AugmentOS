@@ -1,0 +1,4961 @@
+WEBVTT
+
+00:00.000 --> 00:03.120
+ The following is a conversation with Charles Isbell,
+
+00:03.120 --> 00:06.320
+ Dean of the College of Computing at Georgia Tech,
+
+00:06.320 --> 00:10.640
+ a researcher and educator in the field of artificial intelligence,
+
+00:10.640 --> 00:17.280
+ and someone who deeply thinks about what exactly is the field of computing and how do we teach it.
+
+00:18.000 --> 00:22.640
+ He also has a fascinatingly varied set of interests including music,
+
+00:22.640 --> 00:28.080
+ books, movies, sports, and history that make him especially fun to talk with.
+
+00:28.080 --> 00:32.800
+ When I first saw him speak, his charisma immediately took over the room,
+
+00:32.800 --> 00:35.600
+ and I had a stupid excited smile on my face,
+
+00:35.600 --> 00:39.280
+ and I knew I had to eventually talk to him on this podcast.
+
+00:39.280 --> 00:43.680
+ Quick mention of each sponsor, followed by some thoughts related to the episode.
+
+00:44.240 --> 00:48.000
+ First is Neuro, the maker of functional sugar free gum
+
+00:48.000 --> 00:51.600
+ and mints that I use to give my brain a quick caffeine boost.
+
+00:52.240 --> 00:56.880
+ Second is Decoding Digital, a podcast on tech and entrepreneurship
+
+00:56.880 --> 00:58.240
+ that I listen to and enjoy.
+
+00:59.120 --> 01:04.880
+ Third is Masterclass, online courses that I watch from some of the most amazing humans in history.
+
+01:04.880 --> 01:10.000
+ And finally, Cash App, the app I use to send money to friends for food and drinks.
+
+01:10.560 --> 01:16.160
+ Please check out these sponsors in the description to get a discount and to support this podcast.
+
+01:16.160 --> 01:21.200
+ As a side note, let me say that I'm trying to make it so that the conversations with Charles,
+
+01:21.200 --> 01:27.520
+ Eric Weinstein, and Dan Carlin will be published before Americans vote for president on November 3rd.
+
+01:28.080 --> 01:31.280
+ There's nothing explicitly political in these conversations,
+
+01:31.280 --> 01:37.760
+ but they do touch on something in human nature that I hope can bring context to our difficult time,
+
+01:37.760 --> 01:42.400
+ and maybe, for a moment, allow us to empathize with people we disagree with.
+
+01:43.120 --> 01:45.760
+ With Eric, we talk about the nature of evil.
+
+01:45.760 --> 01:51.360
+ With Charles, besides AI and music, we talk a bit about race in America,
+
+01:51.360 --> 01:56.880
+ and how we can bring more love and empathy to our online communication.
+
+01:56.880 --> 02:01.680
+ And with Dan Carlin, well, we talk about Alexander the Great,
+
+02:01.680 --> 02:07.840
+ Genghis Khan, Hitler, Stalin, and all the complicated parts of human history in between,
+
+02:07.840 --> 02:13.120
+ with a hopeful eye toward a brighter future for our humble, little civilization here on Earth.
+
+02:13.120 --> 02:18.400
+ The conversation with Dan will hopefully be posted tomorrow, on Monday, November 2nd.
+
+02:19.360 --> 02:24.000
+ If you enjoy this thing, subscribe on YouTube, review it with 5 Stars and Apple Podcasts,
+
+02:24.000 --> 02:30.080
+ follow on Spotify, support on Patreon, or connect with me on Twitter at Lex Friedman.
+
+02:30.080 --> 02:34.320
+ And now, here's my conversation with Charles Isbell.
+
+02:35.280 --> 02:39.040
+ You've mentioned that you love movies and TV shows.
+
+02:39.040 --> 02:44.640
+ Let's ask an easy question, but you have to be definitively, objectively, conclusive.
+
+02:44.640 --> 02:46.960
+ What's your top three movies of all time?
+
+02:47.680 --> 02:50.320
+ So, you're asking me to be definitive and to be conclusive.
+
+02:50.320 --> 02:51.920
+ That's a little hard. I'm going to tell you why.
+
+02:51.920 --> 02:56.160
+ It's very simple. It's because movies is too broad of a category.
+
+02:56.160 --> 02:59.920
+ I got to pick subgenres, but I will tell you that of those genres,
+
+02:59.920 --> 03:03.920
+ I'll pick one or two from each of the genres, and I'll get us to three, so I'm going to cheat.
+
+03:03.920 --> 03:10.000
+ So, my favorite comedy of all times, which is probably my favorite movie of all time,
+
+03:10.000 --> 03:14.320
+ is His Girl Friday, which is probably a movie that you've not ever heard of,
+
+03:14.320 --> 03:19.120
+ but it's based on a play called The Front Page from, I don't know, early 1900s.
+
+03:20.400 --> 03:23.280
+ And the movie is a fantastic film.
+
+03:23.840 --> 03:26.080
+ What's the story? What's the independent film?
+
+03:26.080 --> 03:27.120
+ No, no, no. What are we talking about?
+
+03:27.120 --> 03:31.120
+ This is one of the movies that would have been very popular. It's a screwball comedy.
+
+03:31.120 --> 03:33.920
+ You ever see Moonlighting, the TV show? You know what I'm talking about?
+
+03:33.920 --> 03:38.320
+ So, you've seen these shows where there's a man and a woman, and they clearly are in love with one another,
+
+03:38.320 --> 03:40.960
+ and they're constantly fighting and always talking over each other.
+
+03:40.960 --> 03:42.560
+ Banter, banter, banter, banter, banter.
+
+03:43.280 --> 03:46.880
+ This was the movie that started all that, as far as I'm concerned.
+
+03:46.880 --> 03:53.280
+ It's very much of its time. So, it's, I don't know, must have come out sometime between 1934 and 1939.
+
+03:53.280 --> 03:57.040
+ I'm not sure exactly when the movie itself came out. It's black and white.
+
+03:57.040 --> 04:01.840
+ It's just a fantastic film, and it's hilarious.
+
+04:01.840 --> 04:03.840
+ So, it's mostly conversation?
+
+04:03.840 --> 04:07.440
+ Not entirely, but mostly, mostly. Just a lot of back and forth.
+
+04:07.440 --> 04:14.480
+ There's a story there. Someone's on death row, and they're newspaper men, including her.
+
+04:14.480 --> 04:17.280
+ They're all newspaper men. They were divorced.
+
+04:17.280 --> 04:21.600
+ The editor, the publisher, I guess, and the reporter, they were divorced.
+
+04:22.400 --> 04:25.360
+ But, you know, they clearly, he's thinking, trying to get back together,
+
+04:25.360 --> 04:27.120
+ and there's this whole other thing that's going on.
+
+04:27.120 --> 04:28.720
+ But none of that matters. The plot doesn't matter.
+
+04:28.720 --> 04:31.440
+ Yeah, it's just a little play in conversation.
+
+04:31.440 --> 04:35.680
+ It's fantastic. And I just love everything about the conversation, because at the end of the day,
+
+04:35.680 --> 04:38.160
+ sort of narrative and conversation are the sort of things that drive me.
+
+04:38.160 --> 04:40.640
+ And so, I really like that movie for that reason.
+
+04:41.280 --> 04:44.640
+ Similarly, I'm now going to cheat, and I'm going to give you two movies as one.
+
+04:45.360 --> 04:48.640
+ And they're Crouching Tiger, Hidden Dragon, and John Wick.
+
+04:49.760 --> 04:51.440
+ Both relatively modern. John Wick, of course.
+
+04:51.440 --> 04:52.560
+ One, two, or three?
+
+04:52.560 --> 04:56.000
+ One. It gets increasingly, I love them all for different reasons,
+
+04:56.000 --> 04:59.440
+ and increasingly more ridiculous. Kind of like Loving Alien and Aliens,
+
+04:59.440 --> 05:01.520
+ despite the fact they're two completely different movies.
+
+05:01.520 --> 05:06.000
+ But the reason I put Crouching Tiger, Hidden Dragon, and John Wick together is because I
+
+05:06.000 --> 05:09.680
+ actually think they're the same movie, or what I like about them, the same movie.
+
+05:09.680 --> 05:15.440
+ Which is both of them create a world that you're coming in the middle of,
+
+05:15.440 --> 05:20.000
+ and they don't explain it to you. But the story is done so well that you pick it up.
+
+05:20.000 --> 05:23.760
+ So, anyone who's seen John Wick, you know, you have these little coins,
+
+05:23.760 --> 05:25.680
+ and they're headed out, and there are these rules,
+
+05:25.680 --> 05:28.240
+ and apparently every single person in New York City is an assassin.
+
+05:28.960 --> 05:31.360
+ There's like two people who come through who aren't, but otherwise they are.
+
+05:31.360 --> 05:34.080
+ But there's this complicated world, and everyone knows each other.
+
+05:34.080 --> 05:35.920
+ They don't sit down and explain it to you, but you figure it out.
+
+05:35.920 --> 05:38.000
+ Crouching Tiger, Hidden Dragon is a lot like that.
+
+05:38.000 --> 05:41.280
+ You get the feeling that this is chapter nine of a 10 part story,
+
+05:41.280 --> 05:44.400
+ and you've missed the first eight chapters, and they're not going to explain it to you,
+
+05:44.400 --> 05:45.920
+ but there's this sort of rich world behind you.
+
+05:45.920 --> 05:47.280
+ You get pulled in anyway, like immediately.
+
+05:47.280 --> 05:50.880
+ You get pulled in anyway. So, it's just excellent storytelling in both cases,
+
+05:50.880 --> 05:51.840
+ and very, very different.
+
+05:51.840 --> 05:54.480
+ And also you like the outfit, I assume? The John Wick outfit?
+
+05:54.480 --> 05:58.000
+ Oh yeah, of course. Well, of course. Yes. I think John Wick outfit is perfect.
+
+05:58.000 --> 05:59.760
+ And so that's number two, and then…
+
+05:59.760 --> 06:03.920
+ But sorry to pause on that. Martial arts? You have a long list of hobbies.
+
+06:03.920 --> 06:07.680
+ Like it scrolls off the page, but I didn't see martial arts as one of them.
+
+06:07.680 --> 06:10.240
+ I do not do martial arts, but I certainly watch martial arts.
+
+06:10.240 --> 06:14.000
+ Oh, I appreciate it very much. Oh, we could talk about every Jackie Chan movie ever made,
+
+06:14.000 --> 06:15.600
+ and I would be on board with that.
+
+06:15.600 --> 06:18.880
+ The Shower, too? Like that kind of comedy of a cop?
+
+06:18.880 --> 06:24.160
+ Yes, yes. By the way, my favorite Jackie Chan movie would be Drunken Master 2,
+
+06:25.120 --> 06:27.680
+ known in the States usually as Legend of the Drunken Master.
+
+06:29.200 --> 06:33.360
+ Actually, Drunken Master, the first one, is the first kung fu movie I ever saw,
+
+06:33.360 --> 06:34.880
+ but I did not know that.
+
+06:34.880 --> 06:36.000
+ First Jackie Chan movie?
+
+06:36.000 --> 06:40.640
+ No, first one ever that I saw and remember, but I had no idea that that's what it was,
+
+06:40.640 --> 06:43.200
+ and I didn't know that was Jackie Chan. That was like his first major movie.
+
+06:43.200 --> 06:46.320
+ Yeah. I was a kid. It was done in the 70s.
+
+06:46.320 --> 06:49.680
+ I only later rediscovered that that was actually.
+
+06:49.680 --> 06:57.360
+ And he creates his own martial art by drinking. Was he actually drinking or was he played drinking?
+
+06:58.000 --> 06:59.600
+ You mean as an actor or as a character?
+
+06:59.600 --> 07:04.240
+ No. I'm sure as an actor. He was in the 70s or whatever.
+
+07:04.240 --> 07:09.440
+ He was definitely drinking, and in the end, he drinks industrial grade alcohol.
+
+07:09.440 --> 07:10.480
+ Ah, yeah.
+
+07:10.480 --> 07:15.040
+ Yeah, and has one of the most fantastic fights ever in that subgenre.
+
+07:15.040 --> 07:18.080
+ Anyway, that's my favorite one of his movies, but I'll tell you the last movie.
+
+07:19.280 --> 07:22.880
+ It's actually a movie called Nothing But a Man, which is the 1960s,
+
+07:23.760 --> 07:31.840
+ starred Ivan Dixon, who you'll know from Hogan's Heroes, and Abby Lincoln.
+
+07:31.840 --> 07:35.040
+ It's just a really small little drama. It's a beautiful story.
+
+07:35.040 --> 07:41.440
+ But my favorite scenes, I'm cheating, one of my favorite movies just for the ending is The
+
+07:41.440 --> 07:47.360
+ Godfather. I think the last scene of that is just fantastic. It's the whole movie all summarized in
+
+07:47.360 --> 07:48.400
+ just eight, nine seconds.
+
+07:48.400 --> 07:49.440
+ Godfather Part One?
+
+07:49.440 --> 07:50.240
+ Part One.
+
+07:50.240 --> 07:54.880
+ How does it end? I don't think you need to worry about spoilers if you haven't seen The Godfather.
+
+07:54.880 --> 08:01.920
+ Spoiler alert. It ends with the wife coming to Michael, and he says,
+
+08:01.920 --> 08:06.400
+ just this once, I'll let you ask me my business. And she asks him if he did this terrible thing,
+
+08:06.400 --> 08:10.800
+ and he looks her in the eye and he lies, and he says, no. And she says, thank you. And she
+
+08:10.800 --> 08:19.920
+ walks out the door, and you see her going out of the door, and all these people are coming in,
+
+08:19.920 --> 08:24.720
+ and they're kissing Michael's hands, and Godfather. And then the camera switches
+
+08:24.720 --> 08:29.760
+ perspective. So instead of looking at him, you're looking at her, and the door
+
+08:29.760 --> 08:33.840
+ closes in her face, and that's the end of the movie. And that's the whole movie right there.
+
+08:33.840 --> 08:37.440
+ Do you see parallels between that and your position as Dean at Georgia Tech Chrome?
+
+08:37.440 --> 08:39.520
+ Just kidding. Trick question.
+
+08:39.520 --> 08:44.160
+ Sometimes, certainly. The door gets closed on me every once in a while.
+
+08:44.160 --> 08:51.120
+ Okay. That was a rhetorical question. You've also mentioned that you, I think, enjoy all kinds of
+
+08:51.120 --> 08:56.320
+ experiments, including on yourself. But I saw a video where you said you did an experiment where
+
+08:56.320 --> 09:03.440
+ you tracked all kinds of information about yourself and a few others sort of wiring up your
+
+09:03.440 --> 09:09.520
+ home. And this little idea that you mentioned in that video, which is kind of interesting, that
+
+09:10.240 --> 09:16.960
+ you thought that two days worth of data is enough to capture majority of the behavior of the human
+
+09:16.960 --> 09:23.440
+ being. First, can you describe what the heck you did to collect all the data? Because it's
+
+09:23.440 --> 09:28.320
+ fascinating, just like little details of how you collect that data and also what your intuition
+
+09:28.320 --> 09:32.960
+ behind the two days is. So first off, it has to be the right two days. But I was thinking of a
+
+09:32.960 --> 09:36.480
+ very specific experiment. There's actually a suite of them that I've been a part of, and other people
+
+09:36.480 --> 09:40.320
+ have done this, of course. I just sort of dabbled in that part of the world. But to be very clear,
+
+09:40.320 --> 09:45.600
+ the specific thing that I was talking about had to do with recording all the IR going on in my
+
+09:46.160 --> 09:50.480
+ infrared going on in my house. So this is a long time ago. So this is everything's being curled
+
+09:50.480 --> 09:56.960
+ by pressing buttons on remote controls, as opposed to speaking to Alexa or Siri or someone like that.
+
+09:56.960 --> 10:01.280
+ And I was just trying to figure out if you could get enough data on people to figure out what they
+
+10:01.280 --> 10:05.120
+ were going to do with their TVs or their lights. My house was completely wired up at the time.
+
+10:06.400 --> 10:10.240
+ But you know, what I'm about to look at a movie, I'm about to turn on the TV or whatever and just
+
+10:10.240 --> 10:16.720
+ see what I could predict from it. It was kind of surprising. It shouldn't have been. But that's all
+
+10:16.720 --> 10:19.520
+ very easy to do, by the way, just capturing all the little stuff. I mean, it's a bunch of computers
+
+10:19.520 --> 10:22.880
+ systems. It's really easy to capture today if you know what you're looking for. At Georgia Tech,
+
+10:22.880 --> 10:27.200
+ long before I got there, we had this thing called the Aware Home, where everything was wired up and
+
+10:27.200 --> 10:31.200
+ you captured everything that was going on. Nothing even difficult, not with video or anything like
+
+10:31.200 --> 10:36.960
+ that, just the way that the system was just capturing everything. So it turns out that,
+
+10:37.920 --> 10:42.000
+ and I did this with myself and then I had students and they worked with many other people. And it
+
+10:42.000 --> 10:47.360
+ turns out at the end of the day, people do the same things over and over and over again. So it
+
+10:47.360 --> 10:51.840
+ has to be the right two days, like a weekend. But it turns out not only can you predict what
+
+10:51.840 --> 10:55.040
+ someone's going to do next at the level of what button they're going to press next on a remote
+
+10:55.040 --> 11:01.360
+ control, but you can do it with something really, really simple. You don't even need a hidden mark
+
+11:01.360 --> 11:05.440
+ off model. It's like a mark, just simply, I press this, this is my prediction of the next thing.
+
+11:05.440 --> 11:11.120
+ It turns out you can get 93% accuracy just by doing something very simple and stupid and just
+
+11:11.120 --> 11:15.520
+ counting statistics. But what was actually more interesting is that you could use that information.
+
+11:15.520 --> 11:21.440
+ This comes up again and again in my work. If you try to represent people or objects by the things
+
+11:21.440 --> 11:26.560
+ they do, the things you can measure about them that have to do with action in the world. So
+
+11:26.560 --> 11:32.400
+ distribution over actions, and you try to represent them by the distribution of actions that are done
+
+11:32.400 --> 11:38.240
+ on them, then you do a pretty good job of sort of understanding how people are and they cluster
+
+11:38.960 --> 11:44.000
+ remarkably well, in fact, irritatingly so. And so by clustering people this way,
+
+11:44.000 --> 11:49.360
+ you can maybe, you know, I got the 93% accuracy of what's the next button you're going to press,
+
+11:49.360 --> 11:54.240
+ but I can get 99% accuracy or somewhere there's about on the collections of things you might
+
+11:54.240 --> 11:58.480
+ press. And it turns out the things that you might press are all related to number to each other and
+
+11:58.480 --> 12:04.480
+ exactly what you would expect. So for example, all the key, all the numbers on a keypad, it turns out
+
+12:04.480 --> 12:08.640
+ all have the same behavior with respect to you as a human being. And so you would naturally cluster
+
+12:08.640 --> 12:14.640
+ them together and you discover that numbers are all related to one another in some way and all
+
+12:14.640 --> 12:18.400
+ these other things. And then, and here's the part that I think is important. I mean, you can see
+
+12:18.400 --> 12:25.280
+ this in all kinds of things. Every individual is different, but any given individual is remarkably
+
+12:25.280 --> 12:29.680
+ predictable because you keep doing the same things over and over again. And the two things that I've
+
+12:29.680 --> 12:34.960
+ learned in the long time that I've been thinking about this is people are easily predictable and
+
+12:34.960 --> 12:39.280
+ people hate when you tell them that they're easily predictable, but they are. And there you go.
+
+12:39.280 --> 12:46.160
+ Yeah. What about, let me play devil's advocate and philosophically speaking, is it possible to
+
+12:46.160 --> 12:52.480
+ say that what defines humans is the outlier. So even though many, some large percentage of our
+
+12:52.480 --> 12:57.760
+ behaviors, whatever the signal we measure is the same and it would cluster nicely, but maybe it's
+
+12:57.760 --> 13:03.200
+ the special moments of when we break out of the routine is the definitive thing that we're
+
+13:03.200 --> 13:07.920
+ breaking out of the routine is the definitive things. And the way we break out of that routine
+
+13:07.920 --> 13:11.520
+ for each one of us might be different. It's possible. I would say that I would say it a
+
+13:11.520 --> 13:15.920
+ little differently. I think I would make two things. One is a, I'm going to disagree with
+
+13:15.920 --> 13:22.880
+ the premise, I think, but that's fine. I think the way I would put it is there are people who
+
+13:22.880 --> 13:28.240
+ are very different from lots of other people, but they're not 0%, they're closer to 10%, right? So
+
+13:28.240 --> 13:31.760
+ in fact, even if you do this kind of clustering of people, that'll turn out to be the small number
+
+13:31.760 --> 13:36.960
+ they all behave like each other, even if they individually behave very differently from everyone
+
+13:36.960 --> 13:40.720
+ else. So I think that's kind of important. But what you're really asking, I think, and I think
+
+13:40.720 --> 13:46.160
+ this is really a question is, what do you do when you're faced with the situation you've never seen
+
+13:46.160 --> 13:49.600
+ before? What do you do when you're faced with an extraordinary situation maybe you've seen others
+
+13:49.600 --> 13:53.040
+ do and you're actually forced to do something and you react to that very differently. And that is
+
+13:53.040 --> 13:56.880
+ the thing that makes you human. I would agree with that, at least at a philosophical level, that it's
+
+13:56.880 --> 14:03.120
+ the times when you are faced with something difficult, a decision that you have to make
+
+14:04.080 --> 14:08.560
+ where the answer isn't easy, even if you know what the right answer is, that's sort of what defines
+
+14:08.560 --> 14:12.800
+ you as the individual. And I think what defines people broadly, it's the hard problem. It's not
+
+14:12.800 --> 14:17.600
+ the easy problem. It's the thing that's going to hurt you. It's not even that it's difficult. It's
+
+14:17.600 --> 14:22.880
+ just that you know that the outcome is going to be highly suboptimal for you. And I do think that
+
+14:22.880 --> 14:29.360
+ that's a reasonable place to start for the question of what makes us human. So before we talk about
+
+14:29.360 --> 14:33.440
+ sort of explore the different ideas underlying interactive artificial intelligence, which we
+
+14:33.440 --> 14:39.520
+ are working on, let me just go along this thread to skip to kind of our world of social media,
+
+14:39.520 --> 14:44.080
+ which is something that at least on the artificial intelligence side you think about.
+
+14:44.080 --> 14:51.840
+ There's a popular narrative, I don't know if it's true, but that we have these silos in social
+
+14:51.840 --> 14:58.400
+ media and we have these clusterings, as you're kind of mentioning. And the idea is that, you know,
+
+14:58.400 --> 15:06.320
+ along that narrative is that, you know, we want to, we want to break each other out of those silos
+
+15:06.320 --> 15:12.480
+ so we can be empathetic to other people, to if you're a Democrat, you'd be empathetic to the
+
+15:12.480 --> 15:17.680
+ Republican. If you're Republican, you're empathetic Democrat. Those are just two silly bins that we
+
+15:17.680 --> 15:24.160
+ seem to be very excited about, but there's other binnings that we can think about. Is there, from
+
+15:24.160 --> 15:29.360
+ an artificial intelligence perspective, because you're just saying we cluster along the data,
+
+15:29.840 --> 15:35.520
+ but then interactive artificial intelligence is referring to throwing agents into that mix,
+
+15:35.520 --> 15:41.600
+ AI systems in that mix, helping us interacting with us humans and maybe getting us out of that
+
+15:41.600 --> 15:47.600
+ mix, maybe getting us out of those silos. Is that something that you think is possible? Do you see
+
+15:48.720 --> 15:56.160
+ a hopeful possibility for artificial intelligence systems in these large networks of people to get
+
+15:56.160 --> 16:04.800
+ us outside of our habits in at least the idea space to where we can sort of be empathetic to
+
+16:04.800 --> 16:11.280
+ other people's lived experiences, other people's points of view, you know, all that kind of stuff?
+
+16:11.280 --> 16:16.000
+ Yes, and I actually don't think it's that hard. Well, it's not hard in this sense. So imagine that
+
+16:16.000 --> 16:22.720
+ you can, let's just, let's make life simple for a minute. Let's assume that you can do a kind of
+
+16:22.720 --> 16:28.720
+ partial ordering over ideas or clusterings of behavior. It doesn't even matter what I mean here,
+
+16:28.720 --> 16:31.920
+ so long as there's some way that this is a cluster, this is a cluster, there's some edge
+
+16:31.920 --> 16:35.280
+ between them, right? And this is kind of, they don't quite touch even, or maybe they come very
+
+16:35.280 --> 16:40.480
+ close. If you can imagine that conceptually, then the way you get from here to here is not by going
+
+16:40.480 --> 16:43.680
+ from here to here. The way you get from here to here is you find the edge and you move slowly
+
+16:43.680 --> 16:47.360
+ together, right? And I think that machines are actually very good at that sort of thing once we
+
+16:47.360 --> 16:51.840
+ can kind of define the problem, either in terms of behavior or ideas or words or whatever. So it's
+
+16:51.840 --> 16:55.840
+ easy in the sense that if you already have the network and you know the relationships, you know,
+
+16:55.840 --> 17:00.480
+ the edges and sort of the strengths on them and you kind of have some semantic meaning for them,
+
+17:00.480 --> 17:04.960
+ the machine doesn't have to, you do as the designer, then yeah, I think you can kind of move
+
+17:04.960 --> 17:08.880
+ people along and sort of expand them. But it's harder than that. And the reason it's harder than
+
+17:08.880 --> 17:13.920
+ that, or sort of coming up with the network structure itself is hard, is because I'm gonna
+
+17:13.920 --> 17:18.800
+ tell you a story that someone else told me and I don't, I may get some of the details a little bit
+
+17:18.800 --> 17:24.320
+ wrong, but it's roughly, it roughly goes like this. You take two sets of people from the same
+
+17:24.320 --> 17:29.600
+ backgrounds and you want them to solve a problem. So you separate them up, which we do all the time,
+
+17:29.600 --> 17:32.400
+ right? Oh, you know, we're gonna break out in the, we're gonna break out groups. You're gonna go
+
+17:32.400 --> 17:34.080
+ over there and you're gonna talk about this. You're gonna go over there and you're gonna talk
+
+17:34.080 --> 17:38.560
+ about this. And then you have them sort of in this big room, but far apart from one another,
+
+17:38.560 --> 17:43.040
+ and you have them sort of interact with one another. When they come back to talk about what
+
+17:43.040 --> 17:47.440
+ they learn, you want to merge what they've done together. It can be extremely hard because they
+
+17:47.440 --> 17:51.360
+ don't, they basically don't speak the same language anymore. Like when you create these problems and
+
+17:51.360 --> 17:55.440
+ you dive into them, you create your own language. So the example this one person gave me, which I
+
+17:56.160 --> 17:58.720
+ found kind of interesting because we were in the middle of that at the time, was
+
+17:58.720 --> 18:03.520
+ they're sitting over there and they're talking about these rooms that you can see, but you're
+
+18:03.520 --> 18:05.920
+ seeing them from different vantage points, depending on what side of the room you're on.
+
+18:06.880 --> 18:11.760
+ They can see a clock very easily. And so they start referring to the room as the one with the clock.
+
+18:12.960 --> 18:16.720
+ This group over here, looking at the same room, they can see the clock, but it's, you know,
+
+18:16.720 --> 18:21.120
+ not in their line of sight or whatever. So they end up referring to it by some other way.
+
+18:22.000 --> 18:26.080
+ When they get back together and they're talking about things, they're referring to the same room
+
+18:26.080 --> 18:29.040
+ and they don't even realize they're referring to the same room. And in fact, this group doesn't
+
+18:29.040 --> 18:32.480
+ even see that there's a clock there and this group doesn't see whatever's the clock on the wall is
+
+18:32.480 --> 18:36.160
+ the thing that stuck with me. So if you create these different silos, the problem isn't that
+
+18:36.160 --> 18:41.680
+ the ideologies disagree. It's that you're using the same words and they mean radically different
+
+18:41.680 --> 18:47.680
+ things. The hard part is just getting them to agree on the, well, maybe we'd say the axioms in
+
+18:47.680 --> 18:52.640
+ our world, right? But you know, just get them to agree on some basic definitions because right now
+
+18:52.640 --> 18:56.480
+ they talk, they're talking past each other, just completely talking past each other. That's the
+
+18:56.480 --> 19:01.120
+ hard part, getting them to meet, getting them to interact. That may not be that difficult. Getting
+
+19:01.120 --> 19:06.400
+ them to see where their language is leading them to lead past one another. That's, that's the hard
+
+19:06.400 --> 19:10.240
+ part. It's a really interesting question to me. It could be on the layer of language, but it feels
+
+19:10.240 --> 19:14.640
+ like there's multiple layers to this. Like it could be worldview. It could be, I mean, all boils
+
+19:14.640 --> 19:20.400
+ down to empathy, being able to put yourself in the shoes of the other person to learn the language, to
+
+19:20.400 --> 19:28.400
+ learn like visually how they see the world, to learn like the, I mean, I experienced this now
+
+19:28.400 --> 19:33.840
+ with, with trolls, the, the degree of humor in that world. For example, I talk about love a lot.
+
+19:33.840 --> 19:39.840
+ I'm very like, I'm really lucky to have this amazing community of loving people. But whenever I
+
+19:39.840 --> 19:45.440
+ encounter trolls, they always roll their eyes at the idea of love because it's so quote unquote
+
+19:45.440 --> 19:56.080
+ cringe. So, so they, they show love by like derision, I would say. And I think about on the
+
+19:56.080 --> 20:00.240
+ human level, that's a whole nother discussion. That's psychology, that's sociology, so on. But
+
+20:00.240 --> 20:10.400
+ I wonder if AI systems can help somehow and to bridge the gap of what is this person's life like?
+
+20:10.400 --> 20:16.800
+ Encourage me to just ask that question, to put myself in their shoes, to experience the agitations,
+
+20:16.800 --> 20:23.920
+ the fears, the hopes they have, the, to experience, you know, the, to even just to think about what
+
+20:23.920 --> 20:32.000
+ was their upbringing like, like having a, a single parent home or a shitty education or all those
+
+20:32.000 --> 20:37.760
+ kinds of things, just to put myself in that mind space. It feels like that's really important.
+
+20:37.760 --> 20:43.600
+ For us to, to, to bring those clusters together, to find that similar language. But it's unclear
+
+20:43.600 --> 20:48.880
+ how AI can help that because it seems like AI systems need to understand both parties first.
+
+20:48.880 --> 20:51.760
+ So the, you know, the word understand, there's doing a lot of work, right?
+
+20:51.760 --> 20:52.240
+ Yes.
+
+20:52.240 --> 20:57.840
+ So do you have to understand it or do you just simply have to note that there is something
+
+20:57.840 --> 21:04.480
+ similar as a point to touch, right? So, you know, you use the word empathy and I like that word,
+
+21:04.480 --> 21:07.600
+ for a lot of reasons, I think you're right in the way that you're using in the ways you're describing,
+
+21:07.600 --> 21:13.600
+ but let's separate it from sympathy, right? So, you know, sympathy is feeling sort of for someone,
+
+21:13.600 --> 21:16.720
+ empathy is kind of understanding where they're coming from and how they, how they feel, right?
+
+21:16.720 --> 21:22.480
+ And for most people, those things go hand in hand. For some people, some are very good at empathy
+
+21:22.480 --> 21:28.160
+ and very, very bad at sympathy. Some people cannot experience, well, my observation would be,
+
+21:28.160 --> 21:32.480
+ I'm not a psychologist, my observation would be that some people seem to be very, very,
+
+21:32.480 --> 21:37.680
+ very bad at sympathy. My observation would be that some people seem incapable of feeling sympathy
+
+21:37.680 --> 21:42.160
+ unless they feel empathy first. You can understand someone, understand where they're coming from and
+
+21:42.160 --> 21:48.160
+ still think, no, I can't support that, right? It doesn't mean that the only way I, because if that,
+
+21:48.160 --> 21:54.480
+ if that isn't the case, then what it requires is that you, you must, the only way that you can,
+
+21:54.480 --> 21:59.760
+ to understand someone means you must agree with everything that they do, which isn't right, right?
+
+21:59.760 --> 22:06.240
+ I can feel for someone is to completely understand them and make them like me in some way. Well,
+
+22:06.240 --> 22:10.480
+ then we're lost, right? Because we're not all exactly like each other. I have to understand
+
+22:10.480 --> 22:14.240
+ everything that you've gone through. It helps clearly, but they're separable ideas, right?
+
+22:14.240 --> 22:18.480
+ Even though they get clearly, clearly tangled up in one another. So what I think AI could help you
+
+22:18.480 --> 22:23.920
+ do actually is if, and you know, I'm, I'm being quite fanciful as it were, but if you, if you
+
+22:23.920 --> 22:28.000
+ think of these as kind of, I understand how you interact, the words that you use, the, you know,
+
+22:28.000 --> 22:30.720
+ the actions you take, I have some way of doing this. Let's not worry about what that is.
+
+22:31.840 --> 22:36.720
+ But I can see you as a kind of distribution of experiences and actions taken upon you,
+
+22:36.720 --> 22:41.360
+ things you've done and so on. And I can do this with someone else and I can find the places where
+
+22:41.360 --> 22:46.720
+ there's some kind of commonality, a mapping as it were, even if it's not total, you know, the,
+
+22:46.720 --> 22:50.400
+ if I think of this as distribution, right, then, you know, I can take the cosine of the angle
+
+22:50.400 --> 22:54.240
+ between you and if it's, you know, if it's zero, you've got nothing in common. If it's one,
+
+22:54.240 --> 22:59.760
+ you're completely the same person. Well, you know, you're probably not one. You're almost certainly
+
+22:59.760 --> 23:03.840
+ not zero. I can find the place where there's the overlap, then I might be able to introduce you on
+
+23:03.840 --> 23:09.200
+ that basis or connect you in that, connect you in that way and make it easier for you to take that
+
+23:09.200 --> 23:17.760
+ step of that step of empathy. It's not, it's not impossible to do. Although I wonder if it requires
+
+23:17.760 --> 23:22.000
+ that everyone involved is at least interested in asking the question. So maybe the hard part
+
+23:22.000 --> 23:24.800
+ is just getting them interested in asking the question. In fact, maybe if you can get them to
+
+23:24.800 --> 23:28.480
+ ask the question, how are we more alike than we are different, they'll solve it themselves. Maybe
+
+23:28.480 --> 23:32.640
+ that's the problem that AI should be working on, not telling you how you're similar or different,
+
+23:32.640 --> 23:37.520
+ but just getting you to decide that it's worthwhile asking the question. It feels like an economist's
+
+23:37.520 --> 23:43.040
+ answer actually. Well, people, okay, first of all, people like would disagree. So let me disagree
+
+23:43.040 --> 23:49.360
+ slightly, which is, I think everything you said is brilliant, but I tend to believe philosophically
+
+23:49.360 --> 23:57.600
+ speaking that people are interested underneath it all. And I would say that AI, the, the possibility
+
+23:57.600 --> 24:02.560
+ that an AI system would show the commonality is incredible. That's a really good starting point.
+
+24:02.560 --> 24:10.400
+ I would say if you, if on social media, I could discover the common things deep or shallow between
+
+24:10.400 --> 24:17.920
+ me and a person who there's tension with, I think that my basic human nature would take over from
+
+24:17.920 --> 24:25.280
+ there. And I think enjoy that commonality. And like, there's something sticky about that, that
+
+24:25.280 --> 24:31.520
+ my mind will linger on and that person in my mind will become like warmer and warmer. And like, I'll
+
+24:31.520 --> 24:35.520
+ start to give a feel more and more compassion towards them. I think for majority of the
+
+24:35.520 --> 24:40.800
+ population, that's true, but that might be, that's a hypothesis. Yeah. I mean, it's an empirical
+
+24:40.800 --> 24:44.480
+ question, right? You'd have to figure it out. I mean, I want to believe you're right. And so I'm
+
+24:44.480 --> 24:50.800
+ going to say that I think you're right. Of course, some people come to those things for the purpose
+
+24:50.800 --> 24:55.520
+ of trolling, right? And it doesn't matter that they're playing a different game. Yeah. But I
+
+24:55.520 --> 25:00.320
+ don't know. I, you know, my experience is it requires two things. It requires, in fact, maybe
+
+25:00.320 --> 25:03.920
+ this is really at the end what you're saying. And I, and I do agree with this for sure. So
+
+25:06.000 --> 25:14.080
+ you, it's hard to hold onto that kind of anger or to hold onto just the desire to humiliate someone
+
+25:14.080 --> 25:18.880
+ for that long. It's just difficult to do. It takes, it takes a toll on you. But more importantly,
+
+25:18.880 --> 25:23.520
+ we know this both from people having done studies on it, but also from our own experiences,
+
+25:23.520 --> 25:27.920
+ that it is much easier to be dismissive of a person if they're not in front of you,
+
+25:27.920 --> 25:35.040
+ if they're not real, right? So much of the history of the world is about making people other, right?
+
+25:35.040 --> 25:38.880
+ So if you're social media, if you're on the web, if you're doing whatever in the internet,
+
+25:38.880 --> 25:45.040
+ but being forced to deal with someone as a person, some equivalent to being in the same room,
+
+25:45.920 --> 25:49.360
+ makes a huge difference. Cause then you're one, you're forced to deal with their humanity because
+
+25:49.360 --> 25:52.800
+ it's in front of you. The other is of course that, you know, they might punch you in the face
+
+25:52.800 --> 25:56.560
+ if you go too far. So, you know, both of those things kind of work together, I think to the,
+
+25:56.560 --> 26:03.360
+ to the right end. So I think bringing people together is really a kind of substitute for
+
+26:03.360 --> 26:07.920
+ forcing them to see the humanity in another person and to not be able to treat them as bits,
+
+26:07.920 --> 26:11.440
+ it's hard to troll someone when you're looking them in the eye. This is very difficult to do.
+
+26:12.720 --> 26:18.960
+ Agreed. Your broad set of research interests fall under interactive AI, as I mentioned,
+
+26:18.960 --> 26:23.760
+ which is a fascinating set of ideas and you have some concrete things that you're
+
+26:23.760 --> 26:30.000
+ particularly interested in, but maybe could you talk about how you think about the field of
+
+26:30.000 --> 26:34.880
+ interactive artificial intelligence? Sure. So let me say upfront that if you look at,
+
+26:34.880 --> 26:38.480
+ certainly my early work, but even if you look at most of it, I'm a machine learning guy,
+
+26:39.600 --> 26:43.760
+ right? I do machine learning. First paper ever published, it was in NIPS. Back then it was
+
+26:43.760 --> 26:48.160
+ NIPS. Now it's NeurIPS. It's a long story there. Anyway, that's another thing. But so,
+
+26:48.160 --> 26:51.280
+ so I'm a machine learning guy, right? I believe in data, I believe in statistics and all those
+
+26:51.280 --> 26:55.360
+ kinds of things. And the reason I'm bringing that up is even though I'm a newfangled statistical
+
+26:55.360 --> 26:59.440
+ machine learning guy and have been for a very long time, the problem I really care about is AI,
+
+27:00.080 --> 27:04.480
+ right? I care about artificial intelligence. I care about building some kind of
+
+27:04.480 --> 27:12.160
+ intelligent artifact. However that gets expressed, that would be at least as intelligent as humans
+
+27:12.160 --> 27:18.320
+ and as interesting as humans, perhaps in their own way. So that's the deep underlying love and
+
+27:18.320 --> 27:24.640
+ dream is the bigger AI. Whatever the heck that is. Yeah. The machine learning in some ways is
+
+27:24.640 --> 27:29.360
+ a means to the end. It is not the end. And I don't understand how one could be intelligent
+
+27:29.360 --> 27:32.720
+ without learning. So therefore I got to figure out how to do that, right? So that's important.
+
+27:32.720 --> 27:37.200
+ But machine learning, by the way, is also a tool. I said statistical, because that's what most
+
+27:37.200 --> 27:40.720
+ people think of themselves as machine learning people. That's how they think. I think Pat Langley
+
+27:40.720 --> 27:46.240
+ might disagree, or at least 1980s Pat Langley might disagree with what it takes to do machine
+
+27:46.240 --> 27:50.480
+ learning. But I care about the AI problem, which is why it's interactive AI, not just interactive
+
+27:50.480 --> 27:55.120
+ ML. I think it's important to understand that there's a longterm goal here, which I will
+
+27:55.120 --> 27:59.040
+ probably never live to see, but I would love to have been a part of, which is building something
+
+27:59.040 --> 28:04.800
+ truly intelligent outside of ourselves. Can we take a tiny tangent? Or am I interrupting,
+
+28:04.800 --> 28:12.160
+ which is, is there something you can say concrete about the mysterious gap between
+
+28:12.800 --> 28:19.040
+ the subset ML and the bigger AI? What's missing? What do you think? I mean, obviously it's
+
+28:19.600 --> 28:25.040
+ totally unknown, not totally, but in part unknown at this time, but is it something like with Pat
+
+28:25.040 --> 28:29.120
+ Langley, is it knowledge, like expert system reasoning type of kind of thing?
+
+28:29.680 --> 28:35.440
+ So AI is bigger than ML, but ML is bigger than AI. This is kind of the real problem here,
+
+28:35.440 --> 28:39.360
+ is that they're really overlapping things that are really interested in slightly different problems.
+
+28:39.360 --> 28:42.240
+ I tend to think of ML, and there are many people out there who are going to be very upset at me
+
+28:42.240 --> 28:45.600
+ about this, but I tend to think of ML being much more concerned with the engineering of solving a
+
+28:45.600 --> 28:50.800
+ problem, and AI about the sort of more philosophical goal of true intelligence. And that's the thing
+
+28:50.800 --> 28:56.000
+ that motivates me, even if I end up finding myself living in this kind of engineering ish space,
+
+28:56.000 --> 29:02.160
+ I've now made Michael Jordan upset. But to me, they just feel very different. You're just
+
+29:02.160 --> 29:07.280
+ measuring them differently, your goals of where you're trying to be are somewhat different.
+
+29:07.280 --> 29:13.760
+ But to me, AI is about trying to build that intelligent thing. And typically, but not always,
+
+29:13.760 --> 29:17.920
+ for the purpose of understanding ourselves a little bit better. Machine learning is, I think,
+
+29:17.920 --> 29:22.560
+ trying to solve the problem, whatever that problem is. Now, that's my take. Others, of course,
+
+29:22.560 --> 29:28.000
+ would disagree. So on that note, so with the interactive AI, do you tend to, in your mind,
+
+29:28.000 --> 29:33.760
+ visualize AI as a singular system, or is it as a collective huge amount of systems interacting
+
+29:33.760 --> 29:40.640
+ with each other? Like, is the social interaction of us humans and of AI systems the fundamental
+
+29:40.640 --> 29:44.800
+ to intelligence? I think, well, it's certainly fundamental to our kind of intelligence, right?
+
+29:44.800 --> 29:50.160
+ And I actually think it matters quite a bit. So the reason the interactive AI part matters to me
+
+29:50.960 --> 29:59.280
+ is because I don't, this is going to sound simple, but I don't care whether a tree makes a sound
+
+30:00.000 --> 30:04.080
+ when it falls and there's no one around, because I don't think it matters, right? If there's no
+
+30:04.080 --> 30:08.480
+ observer in some sense. And I think what's interesting about the way that we're intelligent
+
+30:08.480 --> 30:13.760
+ is we're intelligent with other people, right? Or other things anyway. And we go out of our way to
+
+30:13.760 --> 30:18.960
+ make other things intelligent. We're hardwired to find intention, even whether there is no intention,
+
+30:18.960 --> 30:25.360
+ why we anthropomorphize everything. I think the interactive AI part is being intelligent in and
+
+30:25.360 --> 30:31.760
+ of myself in isolation is a meaningless act in some sense. The correct answer is you have to
+
+30:31.760 --> 30:35.360
+ be intelligent in the way that you interact with others. It's also efficient because it allows you
+
+30:35.360 --> 30:41.120
+ to learn faster because you can import from past history. It also allows you to be efficient in
+
+30:41.120 --> 30:46.880
+ the transmission of that. So we ask ourselves about me. Am I intelligent? Clearly, I think so.
+
+30:47.520 --> 30:51.680
+ But I'm also intelligent as a part of a larger species and group of people, and we're trying to
+
+30:51.680 --> 30:56.960
+ move the species forward as well. And so I think that notion of being intelligent with others is
+
+30:56.960 --> 31:01.920
+ kind of the key thing because otherwise you come and you go, and then it doesn't matter. And so
+
+31:01.920 --> 31:08.720
+ that's why I care about that aspect of it. And it has lots of other implications. One is not just
+
+31:08.720 --> 31:12.240
+ building something intelligent with others, but understanding that you can't always communicate
+
+31:12.240 --> 31:16.240
+ with those others. They have been in a room where there's a clock on the wall that you haven't seen,
+
+31:16.240 --> 31:20.160
+ which means you have to spend an enormous amount of time communicating with one another constantly
+
+31:20.720 --> 31:26.400
+ in order to figure out what each other wants. So this is why people project, right? You project your
+
+31:26.400 --> 31:30.800
+ own intentions and your own reasons for doing things on the others as a way of understanding
+
+31:30.800 --> 31:35.840
+ them so that you know how to behave. But by the way, you, completely predictable person,
+
+31:35.840 --> 31:39.280
+ I don't know how you're predictable. I don't know you well enough, but you probably eat the same five
+
+31:39.280 --> 31:43.920
+ things over and over again or whatever it is that you do, right? I know I do. If I'm going to a new
+
+31:43.920 --> 31:47.600
+ Chinese restaurant, I will get general gals chicken because that's the thing that's easy.
+
+31:47.600 --> 31:52.560
+ I will get hot and sour soup. People do the things that they do, but other people get the chicken and
+
+31:52.560 --> 31:56.960
+ broccoli. I can push this analogy way too far. The chicken and broccoli. I don't know what's
+
+31:56.960 --> 32:02.320
+ wrong with those people. I don't know what's wrong with them either. We have all had our trauma.
+
+32:02.320 --> 32:06.880
+ So they get their chicken and broccoli and their egg drop soup or whatever. We got to communicate and
+
+32:06.880 --> 32:13.200
+ it's going to change, right? So interactive AI is not just about learning to solve a problem or a
+
+32:13.200 --> 32:18.080
+ task. It's about having to adapt that over time, over a very long period of time and interacting
+
+32:18.080 --> 32:22.400
+ with other people who will themselves change. This is what we mean about things like adaptable
+
+32:22.400 --> 32:25.600
+ models, right? That you have to have a model. That model is going to change. And by the way,
+
+32:25.600 --> 32:28.960
+ it's not just the case that you're different from that person, but you're different from the person
+
+32:28.960 --> 32:33.760
+ you were 15 minutes ago or certainly 15 years ago. And I have to assume that you're at least going
+
+32:33.760 --> 32:38.480
+ to drift, hopefully not too many discontinuities, but you're going to drift over time. And I have
+
+32:38.480 --> 32:45.120
+ to have some mechanism for adapting to that as you and an individual over time and across individuals
+
+32:45.120 --> 32:51.200
+ over time. On the topic of adaptive modeling and you talk about lifelong learning, which is
+
+32:51.200 --> 32:59.760
+ a, I think a topic that's understudied or maybe because nobody knows what to do with it. But like,
+
+32:59.760 --> 33:04.880
+ you know, if you look at Alexa or most of our artificial intelligence systems that are primarily
+
+33:04.880 --> 33:10.960
+ machine learning based systems or dialogue systems, all those kinds of things, they know very little
+
+33:10.960 --> 33:21.360
+ about you in the sense of the lifelong learning sense that we learn as humans, we learn a lot about
+
+33:21.360 --> 33:31.280
+ each other, not in the quantity effects, but like the temporally rich set of information that seems
+
+33:31.280 --> 33:36.880
+ to like pick up the crumbs along the way that somehow seems to capture a person pretty well.
+
+33:36.880 --> 33:44.000
+ Do you have any ideas how to do lifelong learning? Because it seems like most of the machine learning
+
+33:44.000 --> 33:48.320
+ community does not. No, well, by the way, not only does the machine learning community not spend a
+
+33:48.320 --> 33:52.720
+ lot of time on lifelong learning, I don't think they spend a lot of time on learning period in
+
+33:52.720 --> 33:57.520
+ the sense that they tend to be very task focused. Everybody is overfitting to whatever problem is
+
+33:57.520 --> 34:01.920
+ they happen to have. They're overengineering their solutions to the task. Even the people,
+
+34:01.920 --> 34:06.000
+ and I think these people too, are trying to solve a hard problem of transfer learning, right? I'm
+
+34:06.000 --> 34:10.000
+ going to learn on one task and learn another task. You still end up creating the task. It's like
+
+34:10.000 --> 34:13.280
+ looking for your keys where the light is because that's where the light is, right? It's not because
+
+34:13.280 --> 34:20.400
+ the keys have to be there. I mean, one could argue that we tend to do this in general. As a group,
+
+34:20.400 --> 34:26.160
+ we tend to hill climb and get stuck in local optima. I think we do this in the small as well.
+
+34:26.160 --> 34:32.960
+ I think it's very hard to do. Here's the hard thing about AI. The hard thing about AI is it
+
+34:32.960 --> 34:38.480
+ keeps changing on us, right? What is AI? AI is the art and science of making computers act the way
+
+34:38.480 --> 34:44.560
+ they do in the movies, right? That's what it is, right? But beyond that. They keep coming up with
+
+34:44.560 --> 34:52.080
+ new movies. Yes. Right, exactly. We are driven by this kind of need to the ineffable quality of who
+
+34:52.080 --> 34:57.360
+ we are, which means that the moment you understand something is no longer AI, right? Well, we
+
+34:57.360 --> 35:01.360
+ understand this. That's just you take the derivative and you divide by two and then you average it out
+
+35:01.360 --> 35:05.200
+ over time in the window. Therefore, that's no longer AI. The problem is unsolvable because
+
+35:05.200 --> 35:08.720
+ it keeps kind of going away. This creates a kind of illusion, which I don't think is an entire
+
+35:08.720 --> 35:12.560
+ illusion, of either there's very simple task based things you can do very well and over engineer,
+
+35:13.600 --> 35:18.640
+ there's all of AI, and there's nothing in the middle. It's very hard to get from here to here,
+
+35:18.640 --> 35:23.040
+ and it's very hard to see how to get from here to here. I don't think that we've done
+
+35:23.040 --> 35:27.360
+ a very good job of it because we get stuck trying to solve the small problems in front of it,
+
+35:27.360 --> 35:31.680
+ myself included. I'm not going to pretend that I'm better at this than anyone else. Of course,
+
+35:31.680 --> 35:37.840
+ all the incentives in academia and in industry are set to make that very hard because you have
+
+35:37.840 --> 35:41.680
+ to get the next paper out, you have to get the next product out, you have to solve this problem,
+
+35:41.680 --> 35:47.600
+ and it's very sort of naturally incremental. None of the incentives are set up to allow you to take
+
+35:47.600 --> 35:52.080
+ a huge risk unless you're already so well established you can take that big risk.
+
+35:53.600 --> 35:57.040
+ If you're that well established that you can take that big risk, then you've probably spent
+
+35:57.040 --> 36:01.680
+ much of your career taking these little risks, relatively speaking, and so you have got a
+
+36:01.680 --> 36:05.520
+ lifetime of experience telling you not to take that particular big risk. So the whole system's
+
+36:05.520 --> 36:10.080
+ set up to make progress very slow. That's fine. It's just the way it is, but it does make this
+
+36:10.080 --> 36:14.400
+ gap seem really big, which is my long way of saying I don't have a great answer to it except
+
+36:14.400 --> 36:21.120
+ that stop doing n equals one. At least try to get n equal two and maybe n equal seven so that you
+
+36:21.120 --> 36:25.120
+ can say I'm going to, or maybe t is a better variable here. I'm going to not just solve this
+
+36:25.120 --> 36:28.240
+ problem and solve this problem and another problem. I'm not going to learn just on you.
+
+36:28.240 --> 36:32.080
+ I'm going to keep living out there in the world and just seeing what happens and that we'll learn
+
+36:32.080 --> 36:36.800
+ something as designers and our machine learning algorithms and our AI algorithms can learn as
+
+36:36.800 --> 36:41.360
+ well. But unless you're willing to build a system which you're going to have live for months at a
+
+36:41.360 --> 36:47.120
+ time in an environment that is messy and chaotic, you cannot control, then you're never going to
+
+36:47.120 --> 36:51.440
+ make progress in that direction. So I guess my answer to you is yes. My idea is that you should,
+
+36:51.440 --> 36:57.760
+ it's not no, it's yes. You should be deploying these things and making them live for a month
+
+36:57.760 --> 37:02.000
+ at a time and be okay with the fact that it's going to take you five years to do this. Not
+
+37:02.000 --> 37:06.320
+ rerunning the same experiment over and over again and refining the machine so it's slightly better
+
+37:06.320 --> 37:12.320
+ at whatever, but actually having it out there and living in the chaos of the world and seeing what
+
+37:12.320 --> 37:16.800
+ its learning algorithm say can learn, what data structure it can build and how it can go from
+
+37:16.800 --> 37:22.000
+ there. Without that, you're going to be stuck all the time. What do you think about the possibility
+
+37:22.000 --> 37:28.720
+ of N equals one growing, it's probably crude approximation, but growing like if you look at
+
+37:28.720 --> 37:35.040
+ language models like GPT3, if you just make it big enough, it'll swallow the world. Meaning like
+
+37:35.040 --> 37:43.120
+ it'll solve all your T to infinity by just growing in size of this, taking the small overengineered
+
+37:43.120 --> 37:49.040
+ solution and just pumping it full of steroids in terms of compute, in terms of size of training
+
+37:49.040 --> 37:55.680
+ data and the Yann LeCun style self supervised or open AI self supervised. Just throw all of YouTube
+
+37:56.720 --> 38:04.640
+ at it and it will learn how to reason, how to paint, how to create music, how to love all that
+
+38:04.640 --> 38:08.960
+ by watching YouTube videos. I mean, I can't think of a more terrifying world to live in than a world
+
+38:08.960 --> 38:14.960
+ that is based on YouTube videos, but yeah, I think the answer that I just kind of don't think that'll
+
+38:14.960 --> 38:20.320
+ quite well, it won't work that easily. You will get somewhere and you will learn something, which
+
+38:20.320 --> 38:25.520
+ means it's probably worth it, but you won't get there. You won't solve the problem. Here's the
+
+38:25.520 --> 38:31.600
+ thing, we build these things and we say we want them to learn, but what actually happens, and
+
+38:31.600 --> 38:35.600
+ let's say they do learn, I mean, certainly every paper I've gotten published, the things learn,
+
+38:35.600 --> 38:40.960
+ I don't know about anyone else, but they actually change us, right? We react to it differently,
+
+38:40.960 --> 38:45.600
+ right? So we keep redefining what it means to be successful, both in the negative in the case,
+
+38:45.600 --> 38:51.840
+ but also in the positive in that, oh, well, this is an accomplishment. I'll give you an example,
+
+38:51.840 --> 38:55.040
+ which is like the one you just described with YouTube. Let's get completely out of machine
+
+38:55.040 --> 38:58.000
+ learning. Well, not completely, but mostly out of machine learning. Think about Google.
+
+38:59.360 --> 39:03.280
+ People were trying to solve information retrieval, the ad hoc information retrieval
+
+39:03.280 --> 39:09.280
+ problem forever. I mean, first major book I ever read about it was what, 71, I think it was when
+
+39:09.280 --> 39:14.640
+ it came out. Anyway, we'll treat everything as a vector and we'll do these vector space models
+
+39:14.640 --> 39:20.160
+ and whatever. And that was all great. And we made very little progress. I mean, we made some progress
+
+39:20.160 --> 39:24.960
+ and then Google comes and makes the ad hoc problem seem pretty easy. I mean, it's not,
+
+39:24.960 --> 39:29.920
+ there's lots of computers and databases involved, and there's some brilliant algorithmic stuff
+
+39:29.920 --> 39:35.520
+ behind it too, and some systems building. But the problem changed, right?
+
+39:37.520 --> 39:42.640
+ If you've got a world that's that connected so that you have, you know, there are 10 million
+
+39:42.640 --> 39:48.960
+ answers quite literally to the question that you're asking, then the problem wasn't give me
+
+39:48.960 --> 39:52.800
+ the things that are relevant. The problem is don't give me anything that's irrelevant, at least in
+
+39:52.800 --> 39:59.120
+ the first page, because nothing else matters. So Google is not solving the information retrieval
+
+39:59.120 --> 40:06.560
+ problem, at least not on this webpage. Google is minimizing false positives, which is not the same
+
+40:06.560 --> 40:11.120
+ thing as getting an answer. It turns out it's good enough for what it is we want to use Google for,
+
+40:11.120 --> 40:15.440
+ but it also changes what the problem was we thought we were trying to solve in the first place.
+
+40:15.440 --> 40:18.960
+ You thought you were trying to find an answer, but you're not, or you're trying to find the answer,
+
+40:18.960 --> 40:22.480
+ but it turns out you're just trying to find an answer. Now, yes, it is true. It's also very good
+
+40:22.480 --> 40:26.480
+ at finding you exactly that webpage. Of course, you trained yourself to figure out what the keywords
+
+40:26.480 --> 40:32.640
+ were to get you that webpage. But in the end, by having that much data, you've just changed the
+
+40:32.640 --> 40:35.840
+ problem into something else. You haven't actually learned what you set out to learn. Now, the
+
+40:35.840 --> 40:40.480
+ counter to that would be maybe we're not doing that either. We just think we are because, you know,
+
+40:40.480 --> 40:44.720
+ we're in our own heads. Maybe we're learning the wrong problem in the first place, but I don't
+
+40:44.720 --> 40:49.360
+ think that matters. I think the point is that Google has not solved information retrieval.
+
+40:49.360 --> 40:53.040
+ Google has done amazing service. I have nothing bad to say about what they've done. Lord knows
+
+40:53.040 --> 40:57.440
+ my entire life is better because Google exists. For Google Maps, I don't think I've ever found
+
+40:57.440 --> 41:07.360
+ this place. Where is this? I see 110 and I see where did 95 go? So I'm very grateful for Google,
+
+41:07.360 --> 41:10.000
+ but they just have to make certain the first five things are right.
+
+41:11.040 --> 41:15.600
+ And everything after that is wrong. Look, we're going off on a totally different topic here, but
+
+41:17.600 --> 41:21.200
+ think about the way we hire faculty. It's exactly the same thing.
+
+41:21.200 --> 41:27.520
+ I get in controversial, getting controversial. It's exactly the same problem, right? It's
+
+41:27.520 --> 41:34.880
+ minimizing false positives. We say things like we want to find the best person to be an assistant
+
+41:34.880 --> 41:42.160
+ professor at MIT in the new college of computing, which I will point out was founded 30 years after
+
+41:42.160 --> 41:49.120
+ the college of computing. I'm a part of both of my alma mater. I'm just saying I appreciate all
+
+41:49.120 --> 41:57.760
+ that they did and all that they're doing. Anyway, so we're going to try to hire the best professor.
+
+41:57.760 --> 42:01.600
+ That's what we say, the best person for this job, but that's not what we do at all, right?
+
+42:02.320 --> 42:07.360
+ Do you know which percentage of faculty in the top four earn their PhDs from the top four,
+
+42:08.720 --> 42:12.720
+ say in 2017, which is the most recent year for which I have data?
+
+42:12.720 --> 42:14.080
+ Maybe a large percentage.
+
+42:14.080 --> 42:15.040
+ About 60%.
+
+42:15.040 --> 42:15.600
+ 60.
+
+42:15.600 --> 42:19.200
+ 60% of the faculty in the top four earn their PhDs in the top four. This is computer science,
+
+42:19.920 --> 42:23.280
+ for which there is no top five. There's only a top four, right? Because they're all tied for one.
+
+42:23.280 --> 42:27.040
+ For people who don't know, by the way, that would be MIT Stanford, Berkeley, CMU.
+
+42:27.040 --> 42:27.280
+ Yep.
+
+42:29.520 --> 42:31.440
+ Georgia Tech is number eight.
+
+42:31.440 --> 42:33.280
+ Number eight. You're keeping track.
+
+42:34.080 --> 42:38.240
+ Oh yes. It's a large part of my job. Number five is Illinois. Number six is a tie with
+
+42:39.280 --> 42:43.760
+ UW and Cornell and Princeton and Georgia Tech are tied for eight and UT Austin is number 10.
+
+42:43.760 --> 42:50.320
+ Michigan is number 11, by the way. So if you look at the top 10, you know what percentage of
+
+42:50.320 --> 42:55.760
+ faculty in the top 10 earn their PhDs from the top 10? 65, roughly. 65%.
+
+42:56.960 --> 43:03.600
+ If you look at the top 55 ranked departments, 50% of the faculty earn their PhDs from the top 10.
+
+43:04.160 --> 43:11.360
+ There is no universe in which all the best faculty, even just for R1 universities,
+
+43:11.360 --> 43:16.160
+ the majority of them come from 10 places. There's no way that's true, especially when you consider
+
+43:16.160 --> 43:20.000
+ how small some of those universities are in terms of the number of PhDs they produce.
+
+43:20.000 --> 43:20.480
+ Yeah.
+
+43:20.480 --> 43:24.880
+ Now that's not a negative. I mean, it is a negative. It also has a habit of entrenching
+
+43:24.880 --> 43:32.400
+ certain historical inequities and accidents. But what it tells you is, well, ask yourself the
+
+43:32.400 --> 43:40.960
+ question, why is it like that? Well, because it's easier. If we go all the way back to the 1980s,
+
+43:40.960 --> 43:45.440
+ you know, there was a saying that nobody ever lost his job buying a computer from IBM,
+
+43:45.440 --> 43:52.480
+ and it was true. And nobody ever lost their job hiring a PhD from MIT, right? If the person turned
+
+43:52.480 --> 43:55.920
+ out to be terrible, well, you know, they came from MIT, what did you expect me to know?
+
+43:55.920 --> 44:01.840
+ However, that same person coming from pick whichever is your least favorite place that
+
+44:01.840 --> 44:07.280
+ produces PhDs in, say, computer science, well, you took a risk, right? So all the incentives,
+
+44:07.280 --> 44:10.320
+ particularly because you're only going to hire one this year, well, now we're hiring 10,
+
+44:10.320 --> 44:13.360
+ but you know, you're only going to have one or two or three this year. And by the way,
+
+44:13.360 --> 44:16.640
+ when they come in, you're stuck with them for at least seven years at most places,
+
+44:16.640 --> 44:19.360
+ because that's before you know whether they're getting tenure or not. And if they get tenure,
+
+44:19.360 --> 44:22.880
+ stuck with them for a good 30 years, unless they decide to leave. That means the pressure to get
+
+44:22.880 --> 44:27.680
+ this right is very high. So what are you going to do? You're going to minimize false positives.
+
+44:27.680 --> 44:33.120
+ You don't care about saying no inappropriately. You only care about saying yes inappropriately.
+
+44:33.120 --> 44:36.640
+ So all the pressure drives you into that particular direction. Google,
+
+44:36.640 --> 44:41.440
+ not to put too fine a point on it, was in exactly the same situation with their search. It turns out
+
+44:41.440 --> 44:46.400
+ you just don't want to give people the wrong page in the first three or four pages. And if there's
+
+44:46.400 --> 44:50.400
+ 10 million right answers and 100 bazillion wrong answers, just make certain the wrong answers
+
+44:50.400 --> 44:55.200
+ don't get up there. And who cares if you, the right answer was actually the 13th page. A right
+
+44:55.200 --> 44:59.200
+ answer, a satisficing answer is number one, two, three, or four. So who cares?
+
+44:59.200 --> 45:04.160
+ Or an answer that will make you discover something beautiful, profound to your question.
+
+45:04.160 --> 45:06.800
+ Well, that's a different problem, right?
+
+45:06.800 --> 45:13.920
+ But isn't that the problem? Can we linger on this topic without sort of walking with grace?
+
+45:15.040 --> 45:25.600
+ How do we get for hiring faculty, how do we get that 13th page with a truly special person? Like
+
+45:25.600 --> 45:29.200
+ there's, I mean, it depends on the department. Computer science probably has those department,
+
+45:29.200 --> 45:38.000
+ those kinds of people. Like you have the Russian guy, Grigory Perlman, like just these awkward,
+
+45:38.800 --> 45:46.640
+ strange minds that don't know how to play the little game of etiquette that faculty have all
+
+45:46.640 --> 45:51.920
+ agreed somehow like converged over the decades, how to play with each other. And also is not,
+
+45:51.920 --> 45:58.640
+ you know, on top of that is not from the top four, top whatever numbers, the schools. And maybe
+
+45:58.640 --> 46:05.520
+ actually just says a few every once in a while to the traditions of old within the computer science
+
+46:05.520 --> 46:11.520
+ community. Maybe talks trash about machine learning is a total waste of time. And that's
+
+46:11.520 --> 46:19.440
+ there on their resume. So like how do you allow the system to give those folks a chance?
+
+46:19.440 --> 46:22.080
+ Well, you have to be willing to take a certain kind of, without taking a particular position
+
+46:22.080 --> 46:26.800
+ on any particular person, you'd have to take, you have to be willing to take risk, right? A small
+
+46:26.800 --> 46:31.280
+ amount of it. I mean, if we were treating this as a, well, as a machine learning problem, right?
+
+46:31.280 --> 46:34.080
+ There's a search problem, which is what it is. It's a search problem. If we were treating it that
+
+46:34.080 --> 46:37.840
+ way, you would say, oh, well, the main thing is you want, you know, you've got a prior,
+
+46:37.840 --> 46:41.120
+ you want some data because I'm Bayesian. If you don't want to do it that way,
+
+46:41.120 --> 46:46.160
+ we'll just inject some randomness in and it'll be okay. The problem is that feels very,
+
+46:46.800 --> 46:53.600
+ very hard to do with people. All the incentives are wrong there. But it turns out, and let's say,
+
+46:53.600 --> 46:57.040
+ let's say that's the right answer. Let's just give for the sake of argument that, you know,
+
+46:57.040 --> 47:02.560
+ injecting randomness in the system at that level for who you hire is just not worth doing because
+
+47:02.560 --> 47:05.600
+ the price is too high or the cost is too high. If we had infinite resources, sure, but we don't.
+
+47:05.600 --> 47:09.120
+ And also you've got to teach people. So, you know, you're ruining other people's lives if you get it
+
+47:09.120 --> 47:17.120
+ too wrong. But we've taken that principle, even if I grant it and pushed it all the way back, right?
+
+47:17.120 --> 47:24.640
+ So, we could have a better pool than we have of people we look at and give an opportunity to.
+
+47:25.840 --> 47:29.120
+ If we do that, then we have a better chance of finding that. Of course, that just pushes the
+
+47:29.120 --> 47:34.320
+ problem back another level. But let me tell you something else. You know, I did a sort of study,
+
+47:34.320 --> 47:37.360
+ I call it a study. I called up eight of my friends and asked them for all of their data for
+
+47:37.360 --> 47:41.440
+ graduate admissions. But then someone else followed up and did an actual study. And it
+
+47:41.440 --> 47:47.920
+ turns out that I can tell you how everybody gets into grad school more or less, more or less.
+
+47:47.920 --> 47:51.520
+ You basically admit everyone from places higher ranked than you. You admit most people from
+
+47:51.520 --> 47:54.800
+ places ranked around you. And you meant almost no one from places ranked below you, with the
+
+47:54.800 --> 47:58.000
+ exception of the small liberal arts colleges that aren't ranked at all, like Harvey Mudd,
+
+47:58.000 --> 48:04.000
+ because they don't have a PhD, so they aren't ranked. This is all CS. Which means the decision
+
+48:04.000 --> 48:13.520
+ of whether you become a professor at Cornell was determined when you were 17, by what you knew to
+
+48:13.520 --> 48:18.400
+ go to undergrad to do whatever. So if we can push these things back a little bit and just make the
+
+48:18.400 --> 48:22.560
+ pool a little bit bigger, at least you raise the probability that you will be able to see someone
+
+48:22.560 --> 48:29.120
+ interesting and take the risk. The other answer to that question, by the way, which you could argue
+
+48:29.120 --> 48:34.080
+ is the same as you either adjust the pool so the probabilities go up, that's a way of injecting a
+
+48:34.080 --> 48:39.120
+ little bit of uniform noise in the system, as it were, is you change your loss function.
+
+48:40.080 --> 48:44.640
+ You just let yourself be measured by something other than whatever it is that we're measuring
+
+48:44.640 --> 48:50.400
+ ourselves by now. I mean, US News and World Report, every time they change their formula
+
+48:50.400 --> 48:55.760
+ for determining rankings, move entire universities to behave differently, because rankings matter.
+
+48:55.760 --> 49:01.200
+ TITO Can you talk trash about those rankings for a second? No, I'm joking about talking trash.
+
+49:01.200 --> 49:06.560
+ I actually, it's so funny how from my perspective, from a very shallow perspective,
+
+49:07.280 --> 49:13.200
+ how dogmatic, like how much I trust those rankings. They're almost ingrained in my head.
+
+49:13.920 --> 49:21.600
+ I mean, at MIT, everybody kind of, it's a propagated, mutually agreed upon
+
+49:21.600 --> 49:26.400
+ TITO idea that those rankings matter. And I don't think anyone knows what they're,
+
+49:26.960 --> 49:33.280
+ like, most people don't know what they're based on. And what are they exactly based on? And what
+
+49:33.280 --> 49:38.160
+ are the flaws in that? TITO Well, so it depends on which rankings you're talking about. Do you
+
+49:38.160 --> 49:41.680
+ want to talk about computer science or talk about universities? TITO Computer science, US News,
+
+49:42.320 --> 49:46.400
+ isn't that the main one? TITO Yeah, the only one that matters is US News. Nothing else matters.
+
+49:46.400 --> 49:52.960
+ Sorry, CSRankings.org, but nothing else matters but US News. So US News has formula that it uses
+
+49:52.960 --> 49:57.440
+ for many things, but not for computer science because computer science is considered a science,
+
+49:57.440 --> 50:05.680
+ which is absurd. So the rankings for computer science is 100% reputation. So two people
+
+50:06.640 --> 50:11.040
+ at each department, it's not really department, whatever, at each department,
+
+50:11.040 --> 50:16.880
+ basically rank everybody. Slightly more complicated than that, but whatever, they rank everyone. And
+
+50:16.880 --> 50:22.000
+ then those things are put together and somehow. TITO So that means how do you improve reputation?
+
+50:22.000 --> 50:26.960
+ How do you move up and down the space of reputation? TITO Yes, that's exactly the
+
+50:26.960 --> 50:31.760
+ question. TITO Twitter? TITO It can help. I can tell you how Georgia Tech did it,
+
+50:31.760 --> 50:35.520
+ or at least how I think Georgia Tech did it, because Georgia Tech is actually the case to
+
+50:35.520 --> 50:40.240
+ look at. Not just because I'm at Georgia Tech, but because Georgia Tech is the only computing unit
+
+50:40.240 --> 50:44.560
+ that was not in the top 20 that has made it into the top 10. It's also the only one in the last
+
+50:45.280 --> 50:53.040
+ two decades, I think, that moved up in the top 10, as opposed to having someone else moved down.
+
+50:53.040 --> 50:58.320
+ So we used to be number 10, and then we became number nine because UT Austin went down slightly,
+
+50:58.320 --> 51:02.960
+ and now we were tied for ninth because that's how rankings work. And we moved from nine to eight
+
+51:02.960 --> 51:10.320
+ because our raw score moved up a point. So something about Georgia Tech, computer science,
+
+51:10.320 --> 51:17.120
+ or computing anyway. I think it's because we have shown leadership at every crisis level, right? So
+
+51:17.120 --> 51:21.040
+ we created a college, first public university to do it, second college, second university to do it
+
+51:21.040 --> 51:26.400
+ after CMU is number one. I also think it's no accident that CMU is the largest and we're,
+
+51:26.400 --> 51:30.320
+ depending upon how you count and depending on exactly where MIT ends up with its final college
+
+51:30.320 --> 51:33.360
+ of computing, second or third largest. I don't think that's an accident. We've been doing this
+
+51:33.360 --> 51:38.320
+ for a long time. But in the 2000s when there was a crisis about undergraduate education,
+
+51:39.440 --> 51:44.080
+ Georgia Tech took a big risk and succeeded at rethinking undergrad education and computing.
+
+51:45.040 --> 51:49.920
+ I think we created these schools at a time when most public universities anyway were afraid to
+
+51:49.920 --> 51:56.000
+ do it. We did the online masters and that mattered because people were trying to figure out what to
+
+51:56.000 --> 52:02.400
+ do with MOOCs and so on. I think it's about being observed by your peers and having an impact. So,
+
+52:02.400 --> 52:07.520
+ I mean, that is what reputation is, right? So the way you move up in the reputation rankings is by
+
+52:07.520 --> 52:12.320
+ doing something that makes people turn and look at you and say, that's good. They're better than I
+
+52:12.320 --> 52:17.440
+ thought. Beyond that, it's just inertia and there's huge hysteresis in the system, right? I mean,
+
+52:17.440 --> 52:23.120
+ there was these, I can't remember this, this may be apocryphal, but there's a major or department
+
+52:23.120 --> 52:28.640
+ that MIT was ranked number one in and they didn't have it. It's just about what you... I don't know
+
+52:28.640 --> 52:33.360
+ if that's true, but someone said that to me anyway. But it's a thing, right? It's all about
+
+52:33.360 --> 52:37.280
+ reputation. Of course, MIT is great because MIT is great. It's always been great. By the way,
+
+52:37.280 --> 52:42.960
+ because MIT is great, the best students come, which keeps it being great. I mean,
+
+52:42.960 --> 52:46.560
+ it's just a positive feedback loop. It's not surprising. I don't think it's wrong.
+
+52:46.560 --> 52:53.360
+ Yeah. But it's almost like a narrative. It doesn't actually have to be backed by reality. Not to
+
+52:53.360 --> 53:01.040
+ say anything about MIT, but it does feel like we're playing in the space of narratives, not the
+
+53:01.040 --> 53:06.880
+ space of something grounded. One of the surprising things when I showed up at MIT and just all the
+
+53:06.880 --> 53:14.880
+ students I've worked with and all the research I've done is they're the same people as I've met
+
+53:14.880 --> 53:21.520
+ at other places. I mean, what MIT has going for it... Well, MIT has many things going for it. One
+
+53:21.520 --> 53:23.840
+ of the things MIT has going for it is... Nice logo?
+
+53:23.840 --> 53:29.520
+ Is nice logo. It's a lot better than it was when I was here. Nice colors too. Terrible,
+
+53:30.080 --> 53:35.760
+ terrible name for a mascot. But the thing that MIT has going for it is it really does get the
+
+53:35.760 --> 53:40.400
+ best students. It just doesn't get all of the best students. There are many more best students out
+
+53:40.400 --> 53:45.040
+ there. And the best students want to be here because it's the best place to be or one of the
+
+53:45.040 --> 53:48.880
+ best places to be. And it's a sort of positive feedback. But you said something earlier,
+
+53:50.240 --> 53:54.960
+ which I think is worth examining for a moment. I forget the word you used. You said,
+
+53:56.240 --> 54:00.000
+ we're living in the space of narrative as opposed to something objective.
+
+54:00.000 --> 54:04.320
+ Narrative is objective. I mean, one could argue that the only thing that we do as humans is
+
+54:04.320 --> 54:08.720
+ narrative. We just build stories to explain why we do what we do. Someone once asked me,
+
+54:08.720 --> 54:12.800
+ but wait, there's nothing objective. No, it's completely an objective measure.
+
+54:12.800 --> 54:19.600
+ It's an objective measure of the opinions of everybody else. Now, is that physics? I don't
+
+54:19.600 --> 54:25.280
+ know. Tell me something you think is actually objective and measurable in a way that makes
+
+54:25.280 --> 54:31.840
+ sense. Cameras, they don't... You're getting me off on something here, but do you know that
+
+54:31.840 --> 54:39.440
+ cameras, which are just reflecting light and putting them on film, did not work for dark
+
+54:39.440 --> 54:45.840
+ skin people until the 1970s? You know why? Because you were building cameras for the people who were
+
+54:45.840 --> 54:51.200
+ going to buy cameras, who all, at least in the United States and Western Europe, were relatively
+
+54:51.200 --> 54:56.560
+ light skin. Turns out it took terrible pictures of people who look like me. That got fixed with
+
+54:56.560 --> 55:03.440
+ better film and whole processes. Do you know why? Because furniture manufacturers wanted to be able
+
+55:03.440 --> 55:10.080
+ to take pictures of mahogany furniture, right? Because candy manufacturers wanted to be able
+
+55:10.080 --> 55:16.480
+ to take pictures of chocolate. Now, the reason I bring that up is because you might think that
+
+55:16.480 --> 55:23.200
+ cameras are objective. They're just capturing light. No, they're doing the things that they're
+
+55:23.200 --> 55:29.200
+ doing based upon decisions by real human beings to privilege, if I may use that word, some physics
+
+55:29.200 --> 55:33.280
+ over others, because it's an engineering problem. There are tradeoffs, right? So I can either worry
+
+55:33.280 --> 55:37.200
+ about this part of the spectrum or this part of the spectrum. This costs more. That costs less.
+
+55:37.200 --> 55:41.600
+ This costs the same, but I have more people paying money over here, right? And it turns out that
+
+55:41.600 --> 55:46.640
+ if a giant conglomerate demands that you do something different and it's going to involve
+
+55:46.640 --> 55:51.200
+ all kinds of money for you, suddenly the tradeoffs change, right? And so there you go. I actually
+
+55:51.200 --> 55:55.760
+ don't know how I ended up there. Oh, it's because of this notion of objectiveness, right? So even
+
+55:55.760 --> 55:58.800
+ the objective isn't objective because at the end you've got to tell a story. You've got to make
+
+55:58.800 --> 56:03.120
+ decisions. You've got to make tradeoff. What else is engineering other than that? So I think that
+
+56:03.120 --> 56:09.120
+ the rankings capture something. They just don't necessarily capture what people assume they
+
+56:09.120 --> 56:19.920
+ capture. You know, just to linger on this idea, why is there not more people who just like play
+
+56:19.920 --> 56:24.400
+ with whatever that narrative is, have fun with it, have like excite the world, whether it's in
+
+56:24.400 --> 56:31.600
+ the Carl Sagan style of like that calm, sexy voice of explaining the stars and all the romantic stuff
+
+56:31.600 --> 56:37.040
+ or the Elon Musk, dare I even say Donald Trump, where you're like trolling and shaking up the
+
+56:37.040 --> 56:43.920
+ system and just saying controversial things. I talked to Lisa Feldman Barrett, who's a
+
+56:43.920 --> 56:50.320
+ neuroscientist who just enjoys playing the controversy. Things like finds the counter
+
+56:50.320 --> 56:56.080
+ intuitive ideas in the particular science and throws them out there and sees how they play in
+
+56:56.080 --> 57:02.400
+ the public discourse. Like why don't we see more of that? And why doesn't academia attract an Elon
+
+57:02.400 --> 57:08.480
+ Musk type? Well, tenure is a powerful thing that allows you to do whatever you want, but getting
+
+57:08.480 --> 57:14.240
+ tenure typically requires you to be relatively narrow, right? Because people are judging you.
+
+57:14.240 --> 57:22.000
+ Well, I think the answer is we have told ourselves a story, a narrative that is vulgar,
+
+57:22.000 --> 57:30.880
+ what you just described is vulgar. It's certainly unscientific, right? And it is easy to convince
+
+57:30.880 --> 57:37.360
+ yourself that in some ways you're the mathematician, right? The fewer there are in your major,
+
+57:37.360 --> 57:45.040
+ the more that proves your purity, right? So once you tell yourself that story, then it is
+
+57:46.240 --> 57:51.840
+ beneath you to do that kind of thing, right? I think that's wrong. I think that, and by the way,
+
+57:51.840 --> 57:54.320
+ everyone doesn't have to do this. Everyone's not good at it. And everyone, even if they would be
+
+57:54.320 --> 58:00.080
+ good at it, would enjoy it. So it's fine. But I do think you need some diversity in the way that
+
+58:00.080 --> 58:09.440
+ people choose to relate to the world as academics, because I think the great universities are ones
+
+58:09.440 --> 58:15.760
+ that engage with the rest of the world. It is a home for public intellectuals. And in 2020,
+
+58:15.760 --> 58:21.520
+ being a public intellectual probably means being on Twitter. Whereas of course that wasn't true
+
+58:21.520 --> 58:25.280
+ 20 years ago, because Twitter wasn't around 20 years ago. And if it was, it wasn't around in a
+
+58:25.280 --> 58:28.960
+ meaningful way. I don't actually know how long Twitter has been around. As I get older, I find
+
+58:28.960 --> 58:33.840
+ that my notion of time has gotten worse and worse. Like Google really has been around that long?
+
+58:33.840 --> 58:43.360
+ Anyway, the point is that I think that we sometimes forget that a part of our job is to
+
+58:43.360 --> 58:47.040
+ impact the people who aren't in the world that we're in, and that that's the point of being at
+
+58:47.040 --> 58:51.520
+ a great place and being a great person, frankly. There's an interesting force in terms of public
+
+58:51.520 --> 58:57.120
+ intellectuals. Forget Twitter, we could look at just online courses that are public facing in
+
+58:57.120 --> 59:06.960
+ some part. There is a kind of force that pulls you back. Let me just call it out because I don't
+
+59:06.960 --> 59:12.000
+ give a damn at this point. There's a little bit of, all of us have this, but certainly faculty
+
+59:12.000 --> 59:20.480
+ have this, which is jealousy. Whoever's popular at being a good communicator, exciting the world
+
+59:20.480 --> 59:27.280
+ with their science. And of course, when you excite the world with the science, it's not
+
+59:27.280 --> 59:36.160
+ peer reviewed, clean. It all sounds like bullshit. It's like a Ted talk and people roll their eyes
+
+59:36.160 --> 59:41.360
+ and they hate that a Ted talk gets millions of views or something like that. And then everybody
+
+59:41.360 --> 59:46.400
+ pulls each other back. There's this force that just kind of, it's hard to stand out unless you
+
+59:46.400 --> 59:53.200
+ win a Nobel prize or whatever. It's only when you get senior enough where you just stop giving a
+
+59:53.200 --> 59:58.160
+ damn. But just like you said, even when you get tenure, that was always the surprising thing to
+
+59:58.160 --> 1:00:05.120
+ me. I have many colleagues and friends who have gotten tenure, but there's not a switch.
+
+1:00:08.000 --> 1:00:13.520
+ There's not an F you money switch where you're like, you know what? Now I'm going to be more
+
+1:00:13.520 --> 1:00:18.880
+ bold. It doesn't, I don't see it. Well, there's a reason for that. Tenure isn't a test. It's a
+
+1:00:18.880 --> 1:00:24.240
+ training process. It teaches you to behave in a certain way, to think in a certain way, to accept
+
+1:00:24.240 --> 1:00:28.880
+ certain values and to react accordingly. And the better you are at that, the more likely you are to
+
+1:00:28.880 --> 1:00:34.720
+ earn tenure. And by the way, this is not a bad thing. Most things are like that. And I think most
+
+1:00:34.720 --> 1:00:38.880
+ of my colleagues are interested in doing great work and they're just having impact in the way that
+
+1:00:38.880 --> 1:00:45.760
+ they want to have impact. I do think that as a field, not just as a field, as a profession,
+
+1:00:46.480 --> 1:00:56.000
+ we have a habit of belittling those who are popular as it were, as if the word itself is a
+
+1:00:56.000 --> 1:01:06.720
+ kind of Scarlet A, right? I think it's easy to convince yourself, and no one is immune to this,
+
+1:01:06.720 --> 1:01:10.880
+ no one is immune to this, that the people who are better known are better known for bad reasons.
+
+1:01:11.600 --> 1:01:18.720
+ The people who are out there dumbing it down are not being pure to whatever the values and ethos
+
+1:01:19.520 --> 1:01:25.600
+ is for your field. And it's just very easy to do. Now, having said that, I think that ultimately,
+
+1:01:26.480 --> 1:01:31.920
+ people who are able to be popular and out there and are touching the world and making a difference,
+
+1:01:31.920 --> 1:01:36.800
+ you know, our colleagues do, in fact, appreciate that in the long run. It's just, you know,
+
+1:01:36.800 --> 1:01:40.960
+ you have to be very good at it or you have to be very interested in pursuing it. And once you get
+
+1:01:40.960 --> 1:01:45.200
+ past a certain level, I think people accept that for who it is. I mean, I don't know. I'd be really
+
+1:01:45.200 --> 1:01:50.000
+ interested in how Rod Brooks felt about how people were interacting with him when he did Fast,
+
+1:01:50.000 --> 1:01:53.120
+ Cheap, and Out of Control way, way, way back when.
+
+1:01:53.120 --> 1:01:55.200
+ What's Fast, Cheap, and Out of Control?
+
+1:01:55.200 --> 1:02:00.480
+ It was a documentary that involved four people. I remember nothing about it other than Rod Brooks
+
+1:02:00.480 --> 1:02:05.200
+ was in it and something about naked mole rats. I can't remember what the other two things were.
+
+1:02:05.200 --> 1:02:07.440
+ It was robots, naked mole rats, and then two others.
+
+1:02:07.440 --> 1:02:11.920
+ By the way, Rod Brooks used to be the head of the artificial intelligence laboratory at MIT
+
+1:02:12.480 --> 1:02:18.160
+ and then launched, I think, iRobot and then Think Robotics, Rethink Robotics.
+
+1:02:18.160 --> 1:02:18.720
+ Yes.
+
+1:02:18.720 --> 1:02:27.200
+ Think is in the word. And also is a little bit of a rock star personality in the AI world,
+
+1:02:27.200 --> 1:02:32.480
+ a very opinionated, very intelligent. Anyway, sorry, mole rats and naked.
+
+1:02:32.480 --> 1:02:36.080
+ Naked mole rats. Also, he was one of my two advisors for my PhD.
+
+1:02:36.960 --> 1:02:37.840
+ This explains a lot.
+
+1:02:37.840 --> 1:02:43.840
+ I don't know how to explain it. I love Rod. But I also love my other advisor, Paul. Paul,
+
+1:02:43.840 --> 1:02:46.080
+ if you're listening, I love you too. Both very, very different people.
+
+1:02:46.080 --> 1:02:46.640
+ Paul Viola.
+
+1:02:46.640 --> 1:02:51.360
+ Paul Viola. Both very interesting people, very different in many ways. But I don't know what
+
+1:02:51.360 --> 1:02:56.800
+ Rod would say to you about what the reaction was. I know that for the students at the time,
+
+1:02:56.800 --> 1:03:03.680
+ because I was a student at the time, it was amazing. This guy was in a movie, being very
+
+1:03:03.680 --> 1:03:10.720
+ much himself. Actually, the movie version of him is a little bit more Rod than Rod. I think they
+
+1:03:10.720 --> 1:03:15.200
+ edited it appropriately for him. But it was very much Rod. And he did all this while doing great
+
+1:03:15.200 --> 1:03:18.720
+ work. Was he running the iLab at that point or not? I don't know. But anyway, he was running
+
+1:03:18.720 --> 1:03:23.280
+ the iLab, or would be soon. He was a giant in the field. He did amazing things, made a lot of his
+
+1:03:23.280 --> 1:03:28.960
+ bones by doing the kind of counterintuitive science. And saying, no, you're doing this all
+
+1:03:28.960 --> 1:03:32.720
+ wrong. Representation is crazy. The world is your own representation. You just react to it. I mean,
+
+1:03:32.720 --> 1:03:37.760
+ these are amazing things. And continues to do those sorts of things as he's moved on.
+
+1:03:37.760 --> 1:03:43.280
+ I think he might tell you, I don't know if he would tell you it was good or bad, but I know that
+
+1:03:43.280 --> 1:03:46.880
+ for everyone else out there in the world, it was a good thing. And certainly,
+
+1:03:46.880 --> 1:03:50.560
+ he continued to be respected. So it's not as if it destroyed his career by being popular.
+
+1:04:21.120 --> 1:04:24.960
+ P stands for probabilistic. And what does
+
+1:04:26.000 --> 1:04:31.440
+ FUNC stand for? So a lot of my life is about making acronyms. So if I have one quirk,
+
+1:04:31.440 --> 1:04:36.880
+ it's that people will say words and I see if they make acronyms. And if they do, then I'm happy. And
+
+1:04:36.880 --> 1:04:40.560
+ then if they don't, I try to change it so that they make acronyms. It's just a thing that I do.
+
+1:04:41.440 --> 1:04:46.960
+ So PFUNC is an acronym. It has three or four different meanings. But finally, I decided that
+
+1:04:46.960 --> 1:05:13.840
+ the P stands for probabilistic because at the end of the day, it's machine learning and it's randomness and
+
+1:05:13.840 --> 1:05:40.720
+ it's fun.
+
+1:05:40.720 --> 1:05:43.760
+ So there's a sense to it, which is not an acronym, like literally FUNC. You have a dark, mysterious past.
+
+1:05:43.760 --> 1:06:13.680
+ So there's a sense to it, which is not an acronym, like literally FUNC.
+
+1:06:13.680 --> 1:06:43.600
+ There's a sense to it, which is not an acronym, like literally FUNC.
+
+1:06:43.600 --> 1:06:48.480
+ It's a whole set of things of which rap is a part. So tagging is a part of hip hop. I don't know why
+
+1:06:48.480 --> 1:06:51.680
+ that's true, but people tell me it's true and I'm willing to go along with it because they get very
+
+1:06:51.680 --> 1:06:56.400
+ angry about it. But hip hop is like graffiti. Tagging is like graffiti. And there's all these,
+
+1:06:56.400 --> 1:06:59.600
+ including the popping and the locking and all the dancing and all those things. That's all a part of
+
+1:06:59.600 --> 1:07:04.320
+ hip hop. It's a way of life, which I think is true. And then there's rap, which is this particular.
+
+1:07:04.960 --> 1:07:05.840
+ It's the music part.
+
+1:07:05.840 --> 1:07:12.560
+ Yes. A music part. I mean, you wouldn't call the stuff that DJs do the scratching. That's not rap,
+
+1:07:12.560 --> 1:07:16.640
+ right? But it's a part of hip hop, right? So given that we understand that hip hop is this whole
+
+1:07:16.640 --> 1:07:21.840
+ thing, what are the rap albums that best touch that for me? Well, if I were going to educate you,
+
+1:07:21.840 --> 1:07:24.080
+ I would try to figure out what you liked and then I would work you there.
+
+1:07:26.400 --> 1:07:38.400
+ Oh my God. I would probably start with, there's a fascinating exercise one can do by watching old
+
+1:07:38.400 --> 1:07:43.680
+ episodes of I love the seventies. I love the eighties. I love the nineties with a bunch of
+
+1:07:43.680 --> 1:07:48.480
+ friends and just see where people come in and out of pop culture. So if you're talking about
+
+1:07:50.240 --> 1:07:54.960
+ those people, then I would actually start you with where I would hope to start you with anyway,
+
+1:07:54.960 --> 1:08:00.480
+ which is public enemy. Particularly it takes a nation of millions to hold us back, which is
+
+1:08:00.480 --> 1:08:05.440
+ clearly the best album ever produced. And certainly the best hip hop album ever produced
+
+1:08:05.440 --> 1:08:11.040
+ in part because it was so much of what was great about the time. Fantastic lyrics is me. It's all
+
+1:08:11.040 --> 1:08:16.160
+ about the lyrics. Amazing music that was coming from Rick Rubin was the producer of that. And he
+
+1:08:16.160 --> 1:08:21.680
+ did a lot, very kind of heavy mental ish, at least in the eighties sense at the time. And it was
+
+1:08:21.680 --> 1:08:28.160
+ focused on politics in the 1980s, which was what made hip hop so great. Then I would start you
+
+1:08:28.160 --> 1:08:33.040
+ there. Then I would move you up through things that are been happening more recently. I'd probably
+
+1:08:33.040 --> 1:08:37.280
+ get you to someone like a most deaf. I would give you a history lesson, basically. Most of them.
+
+1:08:37.280 --> 1:08:41.440
+ That's amazing. He hosted a poetry jam thing on HBO or something like that. Probably. I don't
+
+1:08:41.440 --> 1:08:46.000
+ think I've seen it, but I wouldn't be surprised. Yeah. Spoken poetry. That's amazing. He's amazing.
+
+1:08:46.720 --> 1:08:50.080
+ And then I would, I, after I got you there, I'd work you back to EPMD.
+
+1:08:51.520 --> 1:08:57.200
+ And eventually I would take you back to the last poets and particularly the first album,
+
+1:08:57.200 --> 1:09:02.720
+ the last poets, which was 1970 to give you a sense of history and that it actually has been building
+
+1:09:02.720 --> 1:09:08.480
+ up over a very, very long time. So we would start there because that's where your music aligns. And
+
+1:09:08.480 --> 1:09:12.480
+ then we would cycle out and I'd move you to the present. And then I'd take you back to the past.
+
+1:09:12.480 --> 1:09:15.920
+ Because I think a large part of people who are kind of confused about any kind of music,
+
+1:09:16.880 --> 1:09:19.680
+ you know, the truth is this is the same thing we've always been talking about, right? It's
+
+1:09:19.680 --> 1:09:23.520
+ about narrative and being a part of something and being immersed in something. So you understand it,
+
+1:09:23.520 --> 1:09:30.160
+ right? Jazz, which I also like is one of the things that's cool about jazz is that you come
+
+1:09:30.160 --> 1:09:32.960
+ and you meet someone who's talking to you about jazz and you have no idea what they're talking
+
+1:09:32.960 --> 1:09:37.200
+ about. And then one day it all clicks and you've been so immersed in it. You go, oh yeah, that's a
+
+1:09:37.200 --> 1:09:41.440
+ Charlie Parker. You start using words that nobody else understands, right? And it becomes part of
+
+1:09:41.440 --> 1:09:45.200
+ hip hop's the same way. Everything's the same way. They're all cultural artifacts, but I would help
+
+1:09:45.200 --> 1:09:49.120
+ you to see that there's a history of it and how it connects to other genres of music that you might
+
+1:09:49.120 --> 1:09:54.320
+ like to bring you in. So that you could kind of see how it connects to what you already like,
+
+1:09:54.320 --> 1:10:00.960
+ including some of the good work that's been done with fusions of hip hop and bluegrass.
+
+1:10:02.480 --> 1:10:03.200
+ Oh no.
+
+1:10:03.200 --> 1:10:09.520
+ Yes. Some of it's even good. Not all of it, but some of it is good,
+
+1:10:09.520 --> 1:10:12.320
+ but I'd start you with, it takes a nation of millions to hold this back.
+
+1:10:12.320 --> 1:10:18.800
+ There's an interesting tradition in like more modern hip hop of integrating almost like classic
+
+1:10:18.800 --> 1:10:25.440
+ crock songs or whatever, like integrating into their music, into the beat, into the whatever.
+
+1:10:25.440 --> 1:10:31.040
+ It's kind of interesting. It gives a whole new, not just classic crock, but what is it?
+
+1:10:32.000 --> 1:10:33.120
+ Kanye with Gold Digger.
+
+1:10:33.120 --> 1:10:35.680
+ Old R&B.
+
+1:10:35.680 --> 1:10:38.080
+ It's taking and pulling old R&B, right?
+
+1:10:38.080 --> 1:10:41.200
+ Well, that's been true since the beginning. I mean, in fact, that's in some ways,
+
+1:10:41.200 --> 1:10:47.600
+ that's why the DJ used to get top billing because it was the DJ that brought all the records together
+
+1:10:47.600 --> 1:10:52.800
+ and made it worth so that people could dance. You go back to those days, mostly in New York,
+
+1:10:52.800 --> 1:10:55.360
+ though not exclusively, but mostly in New York where it sort of came out of,
+
+1:10:56.400 --> 1:11:00.240
+ the DJ that brought all the music together and the beats and showed that basically music is
+
+1:11:00.240 --> 1:11:04.480
+ itself an instrument, very meta, and you can bring it together and then you sort of wrap over it and
+
+1:11:04.480 --> 1:11:10.000
+ so on. And it moved that way. So that's going way, way back. Now, in the period of time where I grew
+
+1:11:10.000 --> 1:11:17.200
+ up, when I became really into it, which was mostly the 80s, it was more funk was the back for a lot
+
+1:11:17.200 --> 1:11:22.800
+ of the stuff, Public Enemy at that time, notwithstanding. And so, which is very nice
+
+1:11:22.800 --> 1:11:26.720
+ because it tied into what my parents listened to and what I vaguely remember listening to when I
+
+1:11:26.720 --> 1:11:33.120
+ was very small. And by the way, complete revival of George Clinton and Parliament and Funkadelic
+
+1:11:33.120 --> 1:11:38.000
+ and all of those things to bring it sort of back into the 80s and into the 90s. And as we go on,
+
+1:11:38.000 --> 1:11:42.240
+ you're going to see the last decade and the decade before that being brought in.
+
+1:11:42.240 --> 1:11:45.600
+ And when you don't think that you're hearing something you've heard, it's probably because
+
+1:11:45.600 --> 1:11:53.920
+ it's being sampled by someone who, referring to something they remembered when they were young,
+
+1:11:53.920 --> 1:11:59.040
+ perhaps from somewhere else altogether. And you just didn't realize what it was because it wasn't
+
+1:11:59.040 --> 1:12:02.160
+ a popular song where you happened to grow up. So this stuff has been going on for a long time.
+
+1:12:02.160 --> 1:12:08.480
+ It's one of the things that I think is beautiful. Run DMC, Jam Master Jay used to play, he played
+
+1:12:08.480 --> 1:12:13.200
+ piano. He would record himself playing piano and then sample that to make it a part of what was
+
+1:12:13.200 --> 1:12:17.600
+ going on rather than play the piano. That's how his mind can think. Well, it's pieces. You're
+
+1:12:17.600 --> 1:12:20.480
+ putting pieces together, you're putting pieces of music together to create new music, right?
+
+1:12:20.480 --> 1:12:22.880
+ Now that doesn't mean that the root, I mean, the roots are doing their own thing.
+
+1:12:23.440 --> 1:12:30.240
+ Yeah. Right. Those, those are, that's a whole. Yeah. But still it's the right attitude that,
+
+1:12:30.240 --> 1:12:33.280
+ you know, and what else is jazz, right? Jazz is about putting pieces together and then putting
+
+1:12:33.280 --> 1:12:36.640
+ your own spin on it. It's all the same. It's all the same thing. It's all the same thing.
+
+1:12:36.640 --> 1:12:41.600
+ Yeah. Cause you mentioned lyrics. It does make me sad. Again, this is me talking trash about
+
+1:12:41.600 --> 1:12:46.880
+ modern hip hop. I haven't, you know, investigated. I'm sure people correct me that there's a lot of
+
+1:12:46.880 --> 1:12:50.640
+ great artists. That's part of the reason I'm saying it is they'll leave it in the comments that you
+
+1:12:50.640 --> 1:12:59.680
+ should listen to this person is the lyrics went away from talking about maybe not just politics,
+
+1:12:59.680 --> 1:13:04.720
+ but life and so on. Like, you know, the kind of like protest songs, even if you look at like a
+
+1:13:04.720 --> 1:13:09.040
+ Bob Marley or you said Public Enemy or Rage Against the Machine, More on the Rockside,
+
+1:13:09.040 --> 1:13:16.080
+ there's, that's the place where we go to those lyrics. Like classic rock is all about like,
+
+1:13:16.800 --> 1:13:23.360
+ my woman left me or, or I'm really happy that she's still with me or the flip side. It's like
+
+1:13:23.360 --> 1:13:27.920
+ love songs of different kinds. It's all love, but it's less political, like less interesting. I
+
+1:13:27.920 --> 1:13:34.320
+ would say in terms of like deep, profound knowledge. And it seems like rap is the place where you
+
+1:13:34.320 --> 1:13:40.160
+ would find that. And it's sad that for the most part, what I see, like you look like mumble rap
+
+1:13:40.160 --> 1:13:45.120
+ or whatever, they're moving away from lyrics and more towards the beat and the, and the musicality
+
+1:13:45.120 --> 1:13:49.120
+ of it. I've always been a fan of the lyrics. In fact, if you go back and you read my reviews,
+
+1:13:49.120 --> 1:13:57.120
+ which I recently was rereading, man, I wrote my last review the month I graduated. I got my PhD,
+
+1:13:57.120 --> 1:14:01.120
+ which says something about something. I'm not sure what though. I always would always,
+
+1:14:01.120 --> 1:14:04.560
+ but I often would start with, it's all about the lyrics. For me, it's all, it's about the lyrics.
+
+1:14:06.560 --> 1:14:10.000
+ Someone has already written in the comments before I've even finished having this conversation
+
+1:14:10.000 --> 1:14:13.600
+ that, you know, neither of us knows what we're talking about and it's all in the underground
+
+1:14:13.600 --> 1:14:19.040
+ hip hop and here's who you should go listen to. And that is true. Every time I despair for popular
+
+1:14:19.040 --> 1:14:25.360
+ rap, I get someone points me to, or I discover some underground hip hop song and I'm, I am made
+
+1:14:25.360 --> 1:14:30.720
+ happy and whole again. So I know it's out there. I don't listen to as much as I used to because
+
+1:14:30.720 --> 1:14:37.040
+ I'm listening to podcasts and old music from the 1980s. It's a kind of no beat at all, but you know,
+
+1:14:37.040 --> 1:14:42.480
+ there's a little bit of sampling here and there. I'm sure. By the way, James Brown is funk or no?
+
+1:14:42.480 --> 1:14:48.560
+ Yes. And so is junior Wells, by the way. Who's that? Oh, junior Wells, Chicago blues. He was
+
+1:14:48.560 --> 1:14:53.440
+ James Brown before James Brown was. It's hard to imagine somebody being James Brown. Go look up
+
+1:14:53.440 --> 1:15:01.920
+ hoodoo man blues, junior Wells, and just listen to, snatch it back and hold it and you'll see it.
+
+1:15:01.920 --> 1:15:06.080
+ And they were contemporaries. Where do you put like little Richard or all that kind of stuff?
+
+1:15:06.080 --> 1:15:12.160
+ Like Ray Charles, like when they get like, hit the road Jack and don't you come back. Isn't that
+
+1:15:12.160 --> 1:15:16.160
+ like, there's a funkiness in it. Oh, that's definitely a funkiness in it. I mean, it's all,
+
+1:15:16.160 --> 1:15:20.320
+ I mean, it's all, it's all a line. I mean, it's all, there's all a line that carries it all
+
+1:15:20.320 --> 1:15:24.240
+ together. You know, it's, I guess I would answer your question, depending on whether I'm thinking
+
+1:15:24.240 --> 1:15:28.800
+ about it in 2020 or I'm thinking about it in 1960. Um, I'd probably give a different answer.
+
+1:15:28.800 --> 1:15:32.800
+ I'm just thinking in terms of, you know, that was rock, but when you look back on it, it's,
+
+1:15:33.440 --> 1:15:38.240
+ it was funky, but we didn't use those words or maybe we did. I wasn't around. Uh, but you know,
+
+1:15:38.240 --> 1:15:42.320
+ I don't think we used the word 1960 funk, certainly not the way we used it in the seventies
+
+1:15:42.320 --> 1:15:47.120
+ and the eighties. Do you reject disco? I do not reject disco. I appreciate all the mistakes that
+
+1:15:47.120 --> 1:15:52.320
+ we have made. Actually, some of the disco is actually really, really good. John Travolta.
+
+1:15:52.320 --> 1:15:56.720
+ Oh boy. He regrets it probably. Maybe not. Well, like it's the mistakes thing.
+
+1:15:56.720 --> 1:15:58.880
+ Yeah. And it got him to where he's going, where he is.
+
+1:16:00.880 --> 1:16:05.920
+ Oh, well, thank you for taking that detour. You've, you've talked about computing. We've
+
+1:16:05.920 --> 1:16:11.600
+ already talked about computing a little bit, but can you try to describe how you think about the
+
+1:16:11.600 --> 1:16:16.880
+ world of computing or it fits into the sets of different disciplines? We mentioned College of
+
+1:16:16.880 --> 1:16:22.560
+ Computing. What, what should people, how should they think about computing, especially from an
+
+1:16:22.560 --> 1:16:30.800
+ educational perspective of like, what is the perfect curriculum that defines for a young mind,
+
+1:16:30.800 --> 1:16:34.960
+ uh, what computing is? So I don't know about a perfect curriculum, although that's an important
+
+1:16:34.960 --> 1:16:39.280
+ question because at the end of the day, without the curriculum, you don't get anywhere. Curriculum
+
+1:16:39.280 --> 1:16:44.080
+ to me is the fundamental data structure. It's not even the classroom. I mean, the world is,
+
+1:16:44.080 --> 1:16:49.200
+ right? I, I, I, so I think the curriculum is where I like to play. Uh, so I spend a lot of time
+
+1:16:49.200 --> 1:16:52.400
+ thinking about this, but I will tell you, I'll answer your question by answering a slightly
+
+1:16:52.400 --> 1:16:55.520
+ different question first and then getting back to this, which is, you know, you talked about
+
+1:16:55.520 --> 1:17:01.120
+ disciplines and what does it mean to be a discipline? The truth is what we really educate
+
+1:17:01.120 --> 1:17:05.520
+ people in from the beginning, but certainly through college, you sort of failed. If you
+
+1:17:05.520 --> 1:17:12.640
+ don't think about it this way, I think is the world. People often think about tools and tool
+
+1:17:12.640 --> 1:17:16.560
+ sets, and when you're really trying to be good, you think about skills and skill sets,
+
+1:17:16.560 --> 1:17:22.400
+ but disciplines are about mindsets, right? They're about fundamental ways of thinking, not just the,
+
+1:17:22.400 --> 1:17:27.280
+ the, the hammer that you pick up, whatever that is to hit the nail, um, not just the,
+
+1:17:27.280 --> 1:17:30.960
+ the skill of learning how to hammer well or whatever. It's the mindset of like,
+
+1:17:30.960 --> 1:17:37.200
+ what's the fundamental way to think about, to think about the world, right? And disciplines,
+
+1:17:37.200 --> 1:17:40.960
+ different disciplines give you different mindsets to give you different ways of sort of thinking
+
+1:17:40.960 --> 1:17:45.680
+ through. So with that in mind, I think that computing, even ask the question, whether
+
+1:17:45.680 --> 1:17:48.960
+ it's a discipline that you have to decide, does it have a mindset? Does it have a way of thinking
+
+1:17:48.960 --> 1:17:53.600
+ about the world that is different from, you know, the scientist who is doing a discovery and using
+
+1:17:53.600 --> 1:17:57.680
+ the scientific method as a way of doing it, or the mathematician who builds abstractions and tries
+
+1:17:57.680 --> 1:18:03.040
+ to find sort of steady state truth about the abstractions that may be artificial, but whatever,
+
+1:18:03.600 --> 1:18:08.560
+ or is it the engineer who's all about, you know, building demonstrably superior technology with
+
+1:18:08.560 --> 1:18:12.640
+ respect to some notion of trade offs, whatever that means, right? That's sort of the world that
+
+1:18:12.640 --> 1:18:16.880
+ you, the world that you live in. What is computing? You know, how is computing different? So I've
+
+1:18:16.880 --> 1:18:22.160
+ thought about this for a long time and I've come to a view about what computing actually is, what
+
+1:18:22.160 --> 1:18:26.320
+ the mindset is. And, and it's, you know, it's a little abstract, but that would be appropriate
+
+1:18:26.320 --> 1:18:34.320
+ for computing. I think that what distinguishes the computationalist from others is that he or
+
+1:18:34.320 --> 1:18:41.600
+ she understands that models, languages and machines are equivalent. They're the same thing. And
+
+1:18:41.600 --> 1:18:47.440
+ because it's not just a model, but it's a machine that is an executable thing that can be described
+
+1:18:47.440 --> 1:18:54.000
+ as a language. That means that it's dynamic. So it's not the, it is mathematical in some sense,
+
+1:18:54.000 --> 1:18:58.320
+ in the kind of sense of abstraction, but it is fundamentally dynamic and executable. The
+
+1:18:58.320 --> 1:19:03.280
+ mathematician is not necessarily worried about either the dynamic part. In fact, whenever I tried
+
+1:19:03.280 --> 1:19:08.160
+ to write something for mathematicians, they invariably demand that I make it static. And
+
+1:19:08.160 --> 1:19:12.560
+ that's not a bad thing. It's just, it's a way of viewing the world that truth is a thing, right?
+
+1:19:12.560 --> 1:19:19.440
+ It's not a process that continually runs, right? So that dynamic thing matters. That self reflection
+
+1:19:19.440 --> 1:19:23.280
+ of the system itself matters. And that is what computing, that is what computing brought us.
+
+1:19:23.280 --> 1:19:27.840
+ So it is a science because it, the models fundamentally represent truths in the world.
+
+1:19:27.840 --> 1:19:33.040
+ Information is a scientific thing to discover, right? Not just a mathematical conceit that
+
+1:19:33.040 --> 1:19:37.040
+ that gets created. But of course it's engineering because you're actually dealing with constraints
+
+1:19:37.040 --> 1:19:43.120
+ in the world and trying to execute machines that actually run. But it's also a math because
+
+1:19:43.120 --> 1:19:48.080
+ you're actually worrying about these languages that describe what's happening. But the fact that
+
+1:19:51.440 --> 1:19:56.400
+ regular expressions and finite state automata, one of which feels like a machine or at least
+
+1:19:56.400 --> 1:19:59.760
+ an abstraction machine and the other is a language that they're actually the equivalent thing. I mean,
+
+1:19:59.760 --> 1:20:03.840
+ that is not a small thing and it permeates everything that we do, even when we're just
+
+1:20:03.840 --> 1:20:09.120
+ trying to figure out how to, how to do debugging. So that idea I think is fundamental and we would
+
+1:20:09.120 --> 1:20:14.400
+ do better if we made that more explicit. How my life has changed and my thinking about this
+
+1:20:15.200 --> 1:20:20.880
+ in the 10 or 15 years it's been since I tried to put that to paper with some colleagues is
+
+1:20:21.680 --> 1:20:28.000
+ the realization, which comes to a question you actually asked me earlier, which has to do with
+
+1:20:28.000 --> 1:20:32.400
+ trees falling down and whether it matters, is this sort of triangle of equality.
+
+1:20:34.560 --> 1:20:40.720
+ It only matters because there's a person inside the triangle, right? That what's changed about
+
+1:20:40.720 --> 1:20:45.680
+ computing, computer science or whatever you want to call it, is we now have so much data
+
+1:20:46.560 --> 1:20:51.680
+ and so much computational power. We're able to do really, really interesting, promising things.
+
+1:20:53.040 --> 1:20:56.960
+ But the interesting and the promising kind of only matters with respect to human beings and
+
+1:20:56.960 --> 1:21:01.680
+ their relationship to it. So the triangle exists, that is fundamentally computing.
+
+1:21:01.680 --> 1:21:08.880
+ What makes it worthwhile and interesting and potentially world species changing is that there
+
+1:21:08.880 --> 1:21:12.640
+ are human beings inside of it and intelligence that has to interact with it to change the data,
+
+1:21:12.640 --> 1:21:19.120
+ the information that makes sense and gives meaning to the models, the languages and the machines.
+
+1:21:19.120 --> 1:21:25.120
+ So if the curriculum can convey that while conveying the tools and the skills that you need
+
+1:21:25.120 --> 1:21:29.680
+ in order to succeed, then it is a big win. That's what I think you have to do.
+
+1:21:30.880 --> 1:21:36.960
+ Do you pull psychology, like these human things into that, into the idea,
+
+1:21:36.960 --> 1:21:41.120
+ into this framework of computing? Do you pull in psychology and neuroscience,
+
+1:21:41.120 --> 1:21:44.560
+ like parts of psychology, parts of neuroscience, parts of sociology?
+
+1:21:44.560 --> 1:21:49.120
+ What about philosophy, like studies of human nature from different perspectives?
+
+1:21:49.120 --> 1:21:53.200
+ Absolutely. And by the way, it works both ways. So let's take biology for a moment.
+
+1:21:53.200 --> 1:21:57.040
+ It turns out a cell is basically a bunch of if, then statements, if you look at it the right way,
+
+1:21:57.680 --> 1:22:01.680
+ which is nice because I understand if, then statements. I never really enjoyed biology,
+
+1:22:01.680 --> 1:22:05.360
+ but I do understand if, then statements. And if you tell the biologists that and they begin to
+
+1:22:05.360 --> 1:22:09.520
+ understand that, it actually helps them to think about a bunch of really cool things.
+
+1:22:09.520 --> 1:22:15.040
+ There'll still be biology involved, but whatever. On the other hand, the fact of biology is,
+
+1:22:15.040 --> 1:22:19.520
+ in fact, the cell is a bunch of if, then statements or whatever, allows the computationalist to think
+
+1:22:19.520 --> 1:22:23.520
+ differently about the language and the way that we, well, certainly the way we would do AI machine
+
+1:22:23.520 --> 1:22:28.000
+ learning, but there's just even the way that we think about computation. So the important thing
+
+1:22:28.000 --> 1:22:33.680
+ to me is as my engineering colleagues who are not in computer science worry about computer science
+
+1:22:33.680 --> 1:22:40.560
+ eating up engineering to colleges where computer science is trapped. It's not a worry. You shouldn't
+
+1:22:40.560 --> 1:22:45.280
+ worry about that at all. Computer science computing, it's central, but it's not the
+
+1:22:45.280 --> 1:22:50.960
+ most important thing in the world. It's not more important. It is just key to helping others do
+
+1:22:50.960 --> 1:22:54.800
+ other cool things they're going to do. You're not going to be a historian in 2030. You're not going
+
+1:22:54.800 --> 1:22:58.480
+ to get your PhD in history without understanding some data science and computing, because the way
+
+1:22:58.480 --> 1:23:02.960
+ you're going to get history done in part, and I say done, the way you're going to get it done
+
+1:23:02.960 --> 1:23:06.160
+ is you're going to look at data and you're going to let, you're going to have the system that's
+
+1:23:06.160 --> 1:23:09.920
+ going to help you to analyze things to help you to think about a better way to describe history
+
+1:23:09.920 --> 1:23:13.600
+ and to understand what's going on and what it tells us about where we might be going. The same
+
+1:23:13.600 --> 1:23:17.040
+ is true for psychology. Same is true for all of these things. The reason I brought that up is
+
+1:23:17.040 --> 1:23:21.920
+ because the philosopher has a lot to say about computing. The psychologist has a lot to say
+
+1:23:21.920 --> 1:23:26.480
+ about the way humans interact with computing, right? And certainly a lot about intelligence, which
+
+1:23:27.440 --> 1:23:32.480
+ at least for me, ultimately is kind of the goal of building these computational devices is to build
+
+1:23:32.480 --> 1:23:37.680
+ something intelligent. Did you think computing will eat everything in some certain sense or almost
+
+1:23:37.680 --> 1:23:41.680
+ like disappear because it's part of everything? It's so funny you say this. I want to say it's
+
+1:23:41.680 --> 1:23:47.600
+ going to metastasize, but there's kind of two ways that fields destroy themselves. One is they become
+
+1:23:47.600 --> 1:23:55.120
+ super narrow. And I think we can think of fields that might be that way. They become pure. And we
+
+1:23:55.120 --> 1:23:59.600
+ have that instinct. We have that impulse. I'm sure you can think of several people who want computer
+
+1:23:59.600 --> 1:24:05.200
+ science to be this pure thing. The other way is you become everywhere and you become everything
+
+1:24:05.200 --> 1:24:10.240
+ and nothing. And so everyone says, you know, I'm going to teach Fortran for engineers or whatever.
+
+1:24:10.240 --> 1:24:14.880
+ I'm going to do this. And then you lose the thing that makes it worth studying in and of itself.
+
+1:24:15.440 --> 1:24:19.520
+ The thing about computing, and this is not unique to computing, though at this point in time,
+
+1:24:19.520 --> 1:24:25.520
+ it is distinctive about computing where we happen to be in 2020 is we are both a thriving major.
+
+1:24:26.480 --> 1:24:34.320
+ In fact, the thriving major, almost every place. And we're a service unit because people need to
+
+1:24:34.320 --> 1:24:39.520
+ know the things we need to know. And our job, much as the mathematician's job is to help,
+
+1:24:39.520 --> 1:24:43.440
+ you know, this person over here to think like a mathematician, much the way the point isn't the
+
+1:24:43.440 --> 1:24:47.600
+ point of view taking chemistry as a freshman is not to learn chemistry. It's to learn to think
+
+1:24:47.600 --> 1:24:52.080
+ like a scientist, right? Our job is to help them to think, think like a computationalist. And we
+
+1:24:52.080 --> 1:24:56.880
+ have to take both of those things very seriously. And I'm not sure that as a field, we have
+
+1:24:56.880 --> 1:25:01.840
+ historically certainly taken the second thing that our job is to help them to think a certain way.
+
+1:25:01.840 --> 1:25:04.960
+ People who aren't going to be our major, I don't think we've taken that that very seriously at all.
+
+1:25:04.960 --> 1:25:09.600
+ I don't know if you know who Dan Carlin is. He has this podcast called Hardcore History.
+
+1:25:09.600 --> 1:25:10.000
+ Yes.
+
+1:25:10.000 --> 1:25:18.160
+ I've just did an amazing four hour conversation with him, mostly about Hitler. But I bring him
+
+1:25:18.160 --> 1:25:24.160
+ up because he talks about this idea that it's possible that history as a field will become,
+
+1:25:24.160 --> 1:25:31.440
+ like currently, most people study history a little bit, kind of are aware of it. We have a
+
+1:25:31.440 --> 1:25:35.920
+ conversation about it, different parts of it. I mean, there's a lot of criticism to say that some
+
+1:25:35.920 --> 1:25:41.760
+ parts of history are being ignored, blah, blah, blah, so on. But most people are able to have a
+
+1:25:41.760 --> 1:25:49.200
+ curiosity and able to learn it. His thought is it's possible given the way social media works,
+
+1:25:49.200 --> 1:25:55.840
+ the current way we communicate, that history becomes a niche field where literally most people
+
+1:25:55.840 --> 1:26:01.680
+ just ignore because everything is happening so fast that the history starts losing its meaning.
+
+1:26:01.680 --> 1:26:07.840
+ And then it starts being a thing that only, you know, like the theoretical computer science,
+
+1:26:07.840 --> 1:26:13.120
+ part of computer science, it becomes a niche thing that only like the rare holders of the
+
+1:26:13.840 --> 1:26:19.920
+ world wars and the, you know, all the history, the founding of the United States, all those kinds of
+
+1:26:19.920 --> 1:26:26.560
+ things, the Civil Wars. And it's a kind of profound thing to think about how these,
+
+1:26:27.360 --> 1:26:33.360
+ how we can lose track, how we can lose these fields when they're best, like in the case of
+
+1:26:33.360 --> 1:26:40.480
+ history, is best for that to be a pervasive thing that everybody learns and thinks about and so on.
+
+1:26:40.480 --> 1:26:46.880
+ And I would say computing is quite obviously similar to history in the sense that it seems
+
+1:26:46.880 --> 1:26:53.520
+ like it should be a part of everybody's life to some degree, especially like as we move into the
+
+1:26:53.520 --> 1:26:59.840
+ later parts of the 21st century. And it's not obvious that that's the way it'll go. It might
+
+1:26:59.840 --> 1:27:06.640
+ be in the hands of the few still. Like depending if it's machine learning, you know, it's unclear
+
+1:27:06.640 --> 1:27:12.240
+ that computing will win out. It's currently very successful, but it's not, I would say that's
+
+1:27:12.240 --> 1:27:16.880
+ something, I mean, you're at the leadership level of this. You're defining the future. So it's in
+
+1:27:16.880 --> 1:27:23.760
+ your hands. No pressure. But like, it feels like there's multiple ways this can go. And there's
+
+1:27:23.760 --> 1:27:29.200
+ this kind of conversation of everybody should learn to code, right? The changing nature of jobs
+
+1:27:29.200 --> 1:27:41.200
+ and so on. Do you have a sense of what your role in education of computing is here? Like what's
+
+1:27:41.200 --> 1:27:46.000
+ the hopeful path forward? There's a lot there. I will say that, well, first off, it would be an
+
+1:27:46.000 --> 1:27:51.360
+ absolute shame if no one studied history. On the other hand, as t approaches infinity, the amount
+
+1:27:51.360 --> 1:27:59.440
+ of history is presumably also growing at least linearly. And so you have to forget more and more
+
+1:27:59.440 --> 1:28:02.960
+ of history, but history needs to always be there. I mean, I can imagine a world where,
+
+1:28:02.960 --> 1:28:07.360
+ you know, if you think of your brains as being outside of your head, that you can kind of learn
+
+1:28:07.360 --> 1:28:12.560
+ the history you need to know when you need to know it. That seems fanciful, but it's a kind of way of,
+
+1:28:12.560 --> 1:28:17.440
+ you know, is there a sufficient statistic of history? No. And there certainly, but there may
+
+1:28:17.440 --> 1:28:20.560
+ be for the particular thing you have to care about, but you know, those who do not remember.
+
+1:28:20.560 --> 1:28:23.040
+ It's for our objective camera discussion, right?
+
+1:28:23.040 --> 1:28:26.800
+ Yeah. Right. And, you know, we've already lost lots of history. And of course you have your
+
+1:28:26.800 --> 1:28:31.120
+ own history that some of which will be, it's even lost to you, right? You don't even remember
+
+1:28:31.120 --> 1:28:33.280
+ whatever it was you were doing 17 years ago.
+
+1:28:33.280 --> 1:28:34.320
+ All the ex girlfriends.
+
+1:28:34.320 --> 1:28:34.640
+ Yeah.
+
+1:28:34.640 --> 1:28:35.680
+ Gone.
+
+1:28:35.680 --> 1:28:41.280
+ Exactly. So, you know, history is being lost anyway, but the big lessons of history shouldn't
+
+1:28:41.280 --> 1:28:46.080
+ be. And I think, you know, to take it to the question of computing and sort of education,
+
+1:28:46.080 --> 1:28:49.680
+ the point is you have to get across those lessons. You have to get across the way of thinking.
+
+1:28:50.880 --> 1:28:54.480
+ And you have to be able to go back and, you know, you don't want to lose the data,
+
+1:28:54.480 --> 1:28:57.680
+ even if, you know, you don't necessarily have the information at your fingertips.
+
+1:28:57.680 --> 1:29:02.640
+ With computing, I think it's somewhat different. Everyone doesn't have to learn how to code,
+
+1:29:02.640 --> 1:29:07.680
+ but everyone needs to learn how to think in the way that you can be precise. And I mean,
+
+1:29:07.680 --> 1:29:13.840
+ precise in the sense of repeatable, not just, you know, in the sense of not resolution in the sense
+
+1:29:13.840 --> 1:29:19.680
+ of get the right number of bits, um, in saying what it is you want the machine to do and being
+
+1:29:19.680 --> 1:29:26.480
+ able to describe a problem in such a way that it is executable, which we are not human beings are
+
+1:29:26.480 --> 1:29:30.160
+ not very good at that. In fact, I think we spend much of our time talking back and forth just to
+
+1:29:30.160 --> 1:29:34.080
+ kind of vaguely understand what the other person means and hope we get it good enough that we can,
+
+1:29:34.080 --> 1:29:38.560
+ we can act accordingly. Um, you can't do that with machines, at least not yet. And so,
+
+1:29:39.440 --> 1:29:45.840
+ you know, having to think that precisely about things is quite important. And that's somewhat
+
+1:29:45.840 --> 1:29:53.040
+ different from coding. Coding is a crude means to an end. On the other hand, the idea of coding,
+
+1:29:53.600 --> 1:29:57.760
+ what that means that it's a programming language and it has these sort of things that you fiddle
+
+1:29:57.760 --> 1:30:01.920
+ with in these ways that you express. That is an incredibly important point. In fact, I would argue
+
+1:30:01.920 --> 1:30:07.120
+ that one of the big holes in machine learning right now in an AI is that we forget that we are
+
+1:30:07.120 --> 1:30:13.280
+ basically doing software engineering. We forget that we are doing, um, we're using programming,
+
+1:30:13.280 --> 1:30:16.720
+ like we're using languages to express what we're doing. We get just so all caught up in the deep
+
+1:30:16.720 --> 1:30:22.560
+ network or we get all caught up in whatever that we forget that, you know, we're making decisions
+
+1:30:22.560 --> 1:30:26.880
+ based upon a set of parameters that we made up. And if we did slightly different parameters,
+
+1:30:26.880 --> 1:30:30.400
+ we'd have completely different, different outcomes. And so the lesson of computing,
+
+1:30:30.400 --> 1:30:36.480
+ computer science education is to be able to think like that and to be aware of it when you're doing
+
+1:30:36.480 --> 1:30:40.560
+ it. Basically, it's, you know, at the end of the day, it's a way of, um, surfacing your assumptions.
+
+1:30:41.120 --> 1:30:45.760
+ I mean, we call them parameters or, you know, we, we, we call them if then statements or whatever,
+
+1:30:45.760 --> 1:30:50.080
+ but you're forced to surface those, those assumptions. That's the key, the key thing that
+
+1:30:50.080 --> 1:30:53.040
+ you should get out of a computing education that, and that the models and languages and
+
+1:30:53.040 --> 1:30:58.400
+ machines are equivalent, but it actually follows from that, that you have to be explicit about,
+
+1:30:58.400 --> 1:31:02.800
+ about what it is you're trying to do because the model you're building is something you will one
+
+1:31:02.800 --> 1:31:08.480
+ day run. So you better get it right, or at least understand it and be able to express roughly what,
+
+1:31:08.480 --> 1:31:17.200
+ what you want to express. So I think it is key that we figure out how to educate everyone to
+
+1:31:17.200 --> 1:31:23.440
+ think that way, because at the end, it would not only make them better at whatever it is that they
+
+1:31:23.440 --> 1:31:30.480
+ are doing. And I emphasize doing it'll also make them better citizens. It'll help them to understand
+
+1:31:30.480 --> 1:31:35.920
+ what others are doing to them so that they can react accordingly. Cause you're not going to
+
+1:31:35.920 --> 1:31:39.600
+ solve the problem of social media in so far as you think of social media as a problem
+
+1:31:40.720 --> 1:31:46.320
+ by just making slightly better code, right? It only works if people react to it
+
+1:31:46.320 --> 1:31:52.160
+ appropriately and know what's happening and therefore take control over what they're doing.
+
+1:31:52.160 --> 1:31:53.920
+ I mean, that's, that's my take on it.
+
+1:31:53.920 --> 1:32:00.000
+ Okay. Let me try to proceed awkwardly into the topic of race.
+
+1:32:00.000 --> 1:32:00.560
+ Okay.
+
+1:32:00.560 --> 1:32:05.440
+ One is because it's a fascinating part of your story and you're just eloquent and fun about it.
+
+1:32:05.440 --> 1:32:12.560
+ And then the second is because we're living through a pretty tense time in terms of race,
+
+1:32:12.560 --> 1:32:20.320
+ tensions and discussions and ideas in this time in America. You grew up in Atlanta,
+
+1:32:20.880 --> 1:32:24.960
+ not born in Atlanta. Is some Southern state, somewhere in Tennessee, something like that?
+
+1:32:24.960 --> 1:32:25.600
+ Tennessee.
+
+1:32:25.600 --> 1:32:34.480
+ Nice. Okay. But early on you moved, you're basically, you identify as an Atlanta native.
+
+1:32:34.480 --> 1:32:42.320
+ Mm hmm. Yeah. And you've mentioned that you grew up in a predominantly black neighborhood,
+
+1:32:42.320 --> 1:32:44.960
+ by the way, black African American person of color.
+
+1:32:44.960 --> 1:32:46.000
+ I prefer black.
+
+1:32:46.000 --> 1:32:46.400
+ Black.
+
+1:32:46.400 --> 1:32:47.520
+ With a capital B.
+
+1:32:47.520 --> 1:32:50.160
+ With a capital B. The other letters are...
+
+1:32:50.720 --> 1:32:51.440
+ The rest of them, no matter.
+
+1:32:54.640 --> 1:32:59.600
+ Okay. So the predominantly black neighborhood. And so you didn't almost see race. Maybe you
+
+1:32:59.600 --> 1:33:05.200
+ can correct me on that. And then just in the video you talked about when you showed up to
+
+1:33:05.200 --> 1:33:12.640
+ Georgia Tech for your undergrad, you're one of the only black folks there. And that was like,
+
+1:33:12.640 --> 1:33:19.280
+ oh, that was a new experience. So can you take me from just a human perspective,
+
+1:33:19.280 --> 1:33:23.120
+ but also from a race perspective, your journey growing up in Atlanta
+
+1:33:23.120 --> 1:33:24.800
+ and then showing up at Georgia Tech?
+
+1:33:24.800 --> 1:33:28.160
+ Okay. That's easy. And by the way, that story continues through MIT as well.
+
+1:33:28.160 --> 1:33:32.960
+ Yeah. In fact, it was quite a bit more stark at MIT and Boston.
+
+1:33:32.960 --> 1:33:37.920
+ So maybe just a quick pause, Georgia Tech was undergrad, MIT was graduate school.
+
+1:33:37.920 --> 1:33:41.440
+ Mm hmm. And I went directly to grad school from undergrad. So I had no
+
+1:33:42.240 --> 1:33:45.600
+ distractions in between my bachelor's and my master's and PhD.
+
+1:33:45.600 --> 1:33:47.760
+ You didn't go on a backpacking trip in Europe?
+
+1:33:47.760 --> 1:33:52.640
+ Didn't do any of that. In fact, I literally went to IBM for three months, got in a car,
+
+1:33:52.640 --> 1:33:55.600
+ and drove straight to Boston with my mother, or Cambridge.
+
+1:33:55.600 --> 1:33:55.840
+ Yeah.
+
+1:33:55.840 --> 1:34:02.080
+ I moved into an apartment I'd never seen over the Royal East. Anyway, that's another story.
+
+1:34:02.080 --> 1:34:03.440
+ So let me tell you a little bit about it.
+
+1:34:03.440 --> 1:34:04.240
+ You miss MIT?
+
+1:34:04.880 --> 1:34:09.040
+ Oh, I loved MIT. I don't miss Boston at all, but I loved MIT.
+
+1:34:09.040 --> 1:34:10.000
+ That was fighting words.
+
+1:34:11.120 --> 1:34:14.800
+ So let's back up to this. So as you said, I was born in Chattanooga, Tennessee.
+
+1:34:14.800 --> 1:34:18.080
+ My earliest memory is arriving in Atlanta in a moving truck at the age of three and a half.
+
+1:34:18.080 --> 1:34:22.400
+ So I think of myself as being from Atlanta, very distinct memory of that. So I grew up in Atlanta.
+
+1:34:22.400 --> 1:34:28.560
+ It's the only place I ever knew as a kid. I loved it. Like much of the country, and certainly
+
+1:34:28.560 --> 1:34:34.240
+ much of Atlanta in the 70s and 80s, it was deeply highly segregated, though not in a way that I
+
+1:34:34.240 --> 1:34:39.680
+ think was obvious to you unless you were looking at it or were old enough to have noticed it.
+
+1:34:39.680 --> 1:34:43.360
+ But you could divide up Atlanta, and Atlanta is hardly unique in this way, by highway,
+
+1:34:43.360 --> 1:34:47.920
+ and you could get racing class that way. So I grew up not only in a predominantly
+
+1:34:47.920 --> 1:34:55.920
+ black area, to say the very least, I grew up on the poor side of that. But I was very much aware
+
+1:34:55.920 --> 1:35:01.200
+ of race for a bunch of reasons, one that people made certain that I was, my family did, but also
+
+1:35:01.200 --> 1:35:08.320
+ that it would come up. So in first grade, I had a girlfriend. I say I had a girlfriend. I didn't
+
+1:35:08.320 --> 1:35:13.120
+ have a girlfriend. I wasn't even entirely sure what girls were in the first grade. But I do remember
+
+1:35:13.120 --> 1:35:17.680
+ she decided I was her girlfriend's little white girl named Heather. And we had a long discussion
+
+1:35:17.680 --> 1:35:21.440
+ about how it was okay for us to be boyfriend and girlfriend, despite the fact that she was white
+
+1:35:21.440 --> 1:35:25.680
+ and I was black. Between the two of you? Did your parents know about this?
+
+1:35:26.400 --> 1:35:31.120
+ Yes. But being a girlfriend and boyfriend in first grade just basically meant that you spent
+
+1:35:31.120 --> 1:35:38.160
+ slightly more time together during recess. I think we Eskimo kissed once. It didn't mean anything.
+
+1:35:38.160 --> 1:35:41.440
+ It was. At the time, it felt very scandalous because everyone was watching. I was like,
+
+1:35:41.440 --> 1:35:45.920
+ ah, my life is now my life has changed in first grade. No one told me elementary school would be
+
+1:35:45.920 --> 1:35:50.400
+ like this. Did you write poetry or not in first grade? That would come later. That would come
+
+1:35:50.400 --> 1:35:56.400
+ during puberty when I wrote lots and lots of poetry. Anyway, so I was aware of it. I didn't
+
+1:35:56.400 --> 1:36:01.280
+ think too much about it, but I was aware of it. But I was surrounded. It wasn't that I wasn't
+
+1:36:01.280 --> 1:36:07.920
+ aware of race. It's that I wasn't aware that I was a minority. It's different. And it's because I
+
+1:36:07.920 --> 1:36:12.080
+ wasn't as far as my world was concerned. I mean, I'm six years old, five years old in first grade.
+
+1:36:12.880 --> 1:36:16.560
+ The world is the seven people I see every day. So it didn't feel that way at all.
+
+1:36:17.840 --> 1:36:21.840
+ And by the way, this being Atlanta, home of the civil rights movement and all the rest,
+
+1:36:21.840 --> 1:36:25.520
+ it meant that when I looked at TV, which back then one did because there were only three,
+
+1:36:25.520 --> 1:36:32.800
+ four or five channels. And I saw the news, which my mother might make me watch. Monica Kaufman was
+
+1:36:33.520 --> 1:36:37.680
+ on TV telling me the news and they were all black and the mayor was black and always been
+
+1:36:37.680 --> 1:36:43.520
+ black. And so it just never occurred to me. When I went to Georgia Tech, I remember the first day
+
+1:36:43.520 --> 1:36:49.360
+ walking across campus from West campus to East campus and realizing along the way that of the
+
+1:36:49.360 --> 1:36:53.200
+ hundreds and hundreds and hundreds and hundreds of students that I was seeing, I was the only black
+
+1:36:53.200 --> 1:36:59.920
+ one. That was enlightening and very off putting because it occurred to me. And then of course,
+
+1:36:59.920 --> 1:37:05.440
+ it continued that way for, well, for the rest of my, for much of the rest of my career at Georgia
+
+1:37:05.440 --> 1:37:09.440
+ Tech. Of course, I found lots of other students and I met people cause in Atlanta, you're either
+
+1:37:09.440 --> 1:37:14.560
+ black or you're white. There was nothing else. So I began to meet students of Asian descent and I
+
+1:37:14.560 --> 1:37:18.320
+ met students who we would call Hispanic and so on and so forth. And you know, so my world,
+
+1:37:18.320 --> 1:37:22.320
+ this is what college is supposed to do, right? It's supposed to open you up to people. And it
+
+1:37:22.320 --> 1:37:31.200
+ did, but it was a very strange thing to be in the minority. When I came to Boston, I will tell you
+
+1:37:31.200 --> 1:37:38.320
+ a story. I applied to one place as an undergrad, Georgia Tech, because I was stupid. I didn't know
+
+1:37:38.320 --> 1:37:43.360
+ any better. I just didn't know any better, right? No one told me. When I went to grad school,
+
+1:37:43.360 --> 1:37:47.280
+ I applied to three places, Georgia Tech, because that's where I was, MIT and CMU.
+
+1:37:49.600 --> 1:37:58.480
+ When I got in to MIT, I got into CMU, but I had a friend who went to CMU. And so I asked him what
+
+1:37:58.480 --> 1:38:03.200
+ he thought about it. He spent his time explaining to me about Pittsburgh, much less about CMU,
+
+1:38:03.200 --> 1:38:07.760
+ but more about Pittsburgh, which I developed a strong opinion based upon his strong opinion,
+
+1:38:07.760 --> 1:38:12.240
+ something about the sun coming out two days out of the year. And I didn't get a chance to go there
+
+1:38:12.240 --> 1:38:17.920
+ because the timing was wrong. I think it was because the timing was wrong. At MIT, I asked
+
+1:38:19.120 --> 1:38:24.480
+ 20 people I knew, either when I visited or I had already known for a variety of reasons,
+
+1:38:24.480 --> 1:38:30.160
+ whether they liked Boston. And 10 of them loved it, and 10 of them hated it. The 10 who loved it
+
+1:38:30.160 --> 1:38:35.040
+ were all white. The 10 who hated it were all black. And they explained to me very much why
+
+1:38:35.040 --> 1:38:41.040
+ that was the case. Both stats told me why. And the stories were remarkably the same for the
+
+1:38:41.040 --> 1:38:46.560
+ two clusters. And I came up here, and I could see it immediately, why people would love it
+
+1:38:46.560 --> 1:38:50.720
+ and why people would not. And why people tell you about the nice coffee shops.
+
+1:38:50.720 --> 1:38:55.840
+ Well, it wasn't coffee shops. It was used CD places. But yeah, it was that kind of a thing.
+
+1:38:55.840 --> 1:39:00.000
+ Nice shops. Oh, there's all these students here. Harvard Square is beautiful. You can do all these
+
+1:39:00.000 --> 1:39:02.720
+ things, and you can walk. And something about the outdoors, which I wasn't the slightest bit
+
+1:39:02.720 --> 1:39:05.200
+ interested in. The outdoors is for the bugs. It's not for humans.
+
+1:39:08.400 --> 1:39:09.680
+ That should be a t shirt.
+
+1:39:09.680 --> 1:39:14.800
+ Yeah, that's the way I feel about it. And the black folk told me completely different stories
+
+1:39:14.800 --> 1:39:22.000
+ about which part of town you did not want to be caught in after dark. But that was nothing new.
+
+1:39:22.000 --> 1:39:27.600
+ So I decided that MIT was a great place to be as a university. And I believed it then,
+
+1:39:27.600 --> 1:39:32.160
+ I believe it now. And that whatever it is I wanted to do, I thought I knew what I wanted to do,
+
+1:39:32.160 --> 1:39:36.960
+ but what if I was wrong? Someone there would know how to do it. Of course, then I would pick the
+
+1:39:36.960 --> 1:39:42.320
+ one topic that nobody was working on at the time, but that's okay. It was great. And so I thought
+
+1:39:42.320 --> 1:39:46.480
+ that I would be fine. And I'd only be there for like four or five years. I told myself,
+
+1:39:46.480 --> 1:39:50.400
+ which turned out not to be true at all. But I enjoyed my time. I enjoyed my time there.
+
+1:39:50.400 --> 1:39:57.760
+ But I did see a lot of... I ran across a lot of things that were driven by what I look like
+
+1:39:58.400 --> 1:40:05.920
+ while I was here. I got asked a lot of questions. I ran into a lot of cops. I saw a lot about the
+
+1:40:05.920 --> 1:40:09.120
+ city. But at the time, I mean, I haven't been here a long time. These are the things that I
+
+1:40:09.120 --> 1:40:17.920
+ remember. So this is 1990. There was not a single black radio station. Now this is 1990. I don't
+
+1:40:17.920 --> 1:40:21.920
+ know if there are any radio stations anymore. I'm sure there are, but I don't listen to the radio
+
+1:40:21.920 --> 1:40:27.520
+ anymore and almost no one does, at least if you're under a certain age. But the idea is you could be
+
+1:40:27.520 --> 1:40:30.800
+ in a major metropolitan area and there wasn't a single black radio station, by which I mean,
+
+1:40:30.800 --> 1:40:37.840
+ a radio station to play what we would call black music then, was absurd, but somehow captured kind
+
+1:40:37.840 --> 1:40:43.200
+ of everything about the city. I grew up in Atlanta and you've heard me tell you about Atlanta.
+
+1:40:44.960 --> 1:40:50.240
+ Boston had no economically viable or socially cohesive black middle class.
+
+1:40:51.840 --> 1:40:56.480
+ Insofar as it existed, it was uniformly distributed throughout large parts, not all parts,
+
+1:40:56.480 --> 1:41:01.600
+ but large parts of the city. And where you had concentrations of black Bostonians,
+
+1:41:02.160 --> 1:41:07.040
+ they tended to be poor. It was very different from where I grew up. I grew up on the poor side of
+
+1:41:07.040 --> 1:41:13.040
+ town, sure. But then in high school, well, in ninth grade, we didn't have middle school. I went
+
+1:41:13.040 --> 1:41:17.200
+ to an eighth grade school where there was a lot of, let's just say, we had a riot the year that
+
+1:41:17.200 --> 1:41:24.800
+ I was there. There was at least one major fight every week. It was an amazing experience. But
+
+1:41:24.800 --> 1:41:30.640
+ when I went to ninth grade, I went to Academy. Math and Science Academy, Mays High. It was a
+
+1:41:30.640 --> 1:41:36.240
+ public school. It was a magnet school. That's why I was able to go there. It was the first high school,
+
+1:41:36.240 --> 1:41:41.040
+ I think, in the state of Georgia to sweep the state math and science fairs. It was great. It had
+
+1:41:44.080 --> 1:41:50.640
+ 385 students, all but four of whom were black. I went to school with the daughter of the
+
+1:41:51.200 --> 1:41:56.560
+ former mayor of Atlanta, Michael Jackson's cousin. I mean, it was an upper middle class.
+
+1:41:56.560 --> 1:41:57.120
+ Dr. Justin Marchegiani Dropping names.
+
+1:41:57.120 --> 1:41:59.520
+ Dr. Justin Marchegiani You know, I just drop names occasionally.
+
+1:41:59.520 --> 1:42:03.120
+ You know, drop the mic, drop some names. Just to let you know, I used to hang out with Michael
+
+1:42:03.120 --> 1:42:07.680
+ Jackson's cousin, 12th cousin, nine times removed. I don't know. The point is, they had money. We
+
+1:42:07.680 --> 1:42:12.160
+ had a parking problem because the kids had cars. I did not come from a place where you had cars.
+
+1:42:12.160 --> 1:42:21.280
+ I had my first car when I came to MIT, actually. So, it was just a very different experience for
+
+1:42:21.280 --> 1:42:26.000
+ me. But I'd been to places where whether you were rich or whether you were poor, you know,
+
+1:42:26.000 --> 1:42:29.200
+ you could be black and rich or black and poor. And it was there and there were places and they
+
+1:42:29.200 --> 1:42:35.520
+ were segregated by class as well as by race. But that existed. Here, at least when I was here,
+
+1:42:35.520 --> 1:42:39.920
+ didn't feel that way at all. And it felt like a bunch of a really interesting contradiction.
+
+1:42:41.280 --> 1:42:47.760
+ It felt like it was the interracial dating capital of the country. It really felt that way.
+
+1:42:49.360 --> 1:42:55.120
+ But it also felt like the most racist place I ever spent any time. You know, you couldn't go
+
+1:42:55.120 --> 1:42:59.360
+ up the Orange Line at that time. I mean, again, that was 30 years ago. I don't know what it's
+
+1:42:59.360 --> 1:43:05.520
+ like now. But there were places you couldn't go. And you knew it. Everybody knew it. And there were
+
+1:43:05.520 --> 1:43:12.720
+ places you couldn't live. And everybody knew that. And that was just the greater Boston area in 1992.
+
+1:43:12.720 --> 1:43:14.880
+ Subtle racism or explicit racism?
+
+1:43:14.880 --> 1:43:15.380
+ Both.
+
+1:43:16.720 --> 1:43:19.440
+ In terms of within the institutions, did you feel...
+
+1:43:19.440 --> 1:43:26.080
+ Was there levels in which you were empowered to be first or one of the first black people in a
+
+1:43:26.080 --> 1:43:31.360
+ particular discipline in some of these great institutions that you were a part of? You know,
+
+1:43:31.360 --> 1:43:36.720
+ Georgia Tech or MIT? And was there a part where it felt limiting?
+
+1:43:37.760 --> 1:43:45.120
+ I always felt empowered. Some of that was my own delusion, I think. But it worked out. So I never
+
+1:43:45.120 --> 1:43:52.240
+ felt... In fact, quite the opposite. Not only did I not feel as if no one was trying to stop me,
+
+1:43:52.240 --> 1:43:57.760
+ I had the distinct impression that people wanted me to succeed. By people, I meant the people in
+
+1:43:57.760 --> 1:44:04.960
+ power. Not my fellow students. Not that they didn't want me to succeed. But I felt supported,
+
+1:44:04.960 --> 1:44:10.480
+ or at least that people were happy to see me succeed at least as much as anyone else. But,
+
+1:44:10.480 --> 1:44:15.280
+ you know, 1990, you're dealing with a different set of problems. You're very early, at least in
+
+1:44:15.280 --> 1:44:20.720
+ computer science, you're very early in the Jackie Robinson period. There's this thing called the
+
+1:44:20.720 --> 1:44:27.120
+ Jackie Robinson syndrome, which is that the first one has to be perfect or has to be sure to
+
+1:44:27.120 --> 1:44:32.960
+ succeed because if that person fails, no one else comes after for a long time. So it was kind of in
+
+1:44:32.960 --> 1:44:37.040
+ everyone's best interest. But I think it came from a sincere place. I'm completely sure that people
+
+1:44:37.040 --> 1:44:43.200
+ went out of their way to try to make certain that the environment would be good. Not just for me,
+
+1:44:43.200 --> 1:44:47.200
+ but for the other people who, of course, were around. And I was the only person in the iLab,
+
+1:44:47.200 --> 1:44:52.400
+ but I wasn't the only person at MIT by a long shot. On the other hand, we're what?
+
+1:44:53.120 --> 1:44:57.760
+ At that point, we would have been, what, less than 20 years away from the first black PhD to
+
+1:44:57.760 --> 1:45:03.840
+ graduate from MIT, right? Shirley Jackson, right? 1971, something like that? Somewhere around then.
+
+1:45:03.840 --> 1:45:09.680
+ So we weren't that far away from the first first, and we were still another eight years away from
+
+1:45:09.680 --> 1:45:16.880
+ the first black PhD in computer science, right? So it was a sort of interesting time. But I did
+
+1:45:16.880 --> 1:45:25.280
+ not feel as if the institutions of the university were against any of that. And furthermore, I felt
+
+1:45:25.280 --> 1:45:30.960
+ as if there was enough of a critical mass across the institute from students and probably faculty
+
+1:45:30.960 --> 1:45:35.680
+ that I didn't know them, who wanted to make certain that the right thing happened. It was very
+
+1:45:35.680 --> 1:45:41.600
+ different from the institutions of the rest of the city, which I think were designed in such a way
+
+1:45:41.600 --> 1:45:44.000
+ that they felt no need to be supportive.
+
+1:45:44.000 --> 1:45:52.640
+ Let me ask a touchy question on that. So you kind of said that you didn't feel,
+
+1:45:52.640 --> 1:45:59.360
+ you felt empowered. Is there some lesson, advice, in the sense that no matter what,
+
+1:46:00.160 --> 1:46:05.120
+ you should feel empowered? You said, you used the word, I think, illusion or delusion.
+
+1:46:05.920 --> 1:46:14.480
+ Is there a sense from the individual perspective where you should always kind of ignore, you know,
+
+1:46:14.480 --> 1:46:27.120
+ the, ignore your own eyes, ignore the little forces that you are able to observe around you,
+
+1:46:27.120 --> 1:46:33.040
+ that are like trying to mess with you of whether it's jealousy, whether it's hatred in its pure
+
+1:46:33.040 --> 1:46:38.960
+ form, whether it's just hatred in its like deluded form, all that kind of stuff?
+
+1:46:38.960 --> 1:46:44.480
+ And just kind of see yourself as empowered and confident and all those kinds of things.
+
+1:46:44.480 --> 1:46:47.680
+ I mean, it certainly helps, but it's, there's a trade off, right? You have to be deluded enough
+
+1:46:47.680 --> 1:46:51.360
+ to think that you can succeed. I mean, you can't get a PhD unless you're crazy enough to think you
+
+1:46:51.360 --> 1:46:56.320
+ can invent something that no one else has come up with. I mean, that kind of massive delusion is that
+
+1:46:56.320 --> 1:46:59.840
+ you have to be deluded enough to believe that you can succeed despite whatever odds you see
+
+1:46:59.840 --> 1:47:03.280
+ in front of you, but you can't be so deluded that you don't think that you need to step out of
+
+1:47:03.280 --> 1:47:11.760
+ the way of the oncoming train, right? So it's all a trade off, right? You have to kind of believe in
+
+1:47:11.760 --> 1:47:16.800
+ yourself. It helps to have a support group around you in some way or another. I was able to find
+
+1:47:16.800 --> 1:47:21.440
+ that, I've been able to find that wherever I've gone, even if it wasn't necessarily on the floor
+
+1:47:21.440 --> 1:47:26.080
+ that I was in, I had lots of friends when I was here. Many of them still live here. And I've kept
+
+1:47:26.080 --> 1:47:30.800
+ up with many of them. So I felt supported. And certainly I had my mother and my family and those
+
+1:47:30.800 --> 1:47:37.200
+ people back home that I could always lean back on, even if it were a long distance call that cost
+
+1:47:37.200 --> 1:47:41.680
+ money, which is not something that any of the kids today even know what I'm talking about. But
+
+1:47:41.680 --> 1:47:45.920
+ back then it mattered, calling my mom was an expensive proposition. But you have that and
+
+1:47:45.920 --> 1:47:51.280
+ it's fine. I think it helps. But you cannot be so deluded that you miss the obvious because it makes
+
+1:47:51.280 --> 1:47:55.920
+ things slower and it makes you think you're doing better than you are and it will hurt you in the
+
+1:47:55.920 --> 1:48:04.400
+ long run. You mentioned cops. You tell a story of being pulled over. Perhaps it happened more than
+
+1:48:04.400 --> 1:48:11.040
+ once. More than once, for sure. One, could you tell that story? And in general, can you give me
+
+1:48:11.040 --> 1:48:22.640
+ a sense of what the world looks like when the law doesn't always look at you with a blank slate?
+
+1:48:22.640 --> 1:48:33.280
+ With a blank slate with objective eyes? I don't know how to say it more poetically.
+
+1:48:33.840 --> 1:48:39.040
+ Well, I guess the, I don't either. I guess the answer is it looks exactly the way it looks now
+
+1:48:39.760 --> 1:48:44.640
+ because this is the world that we happen to live in, right? It's people clustering and doing the
+
+1:48:44.640 --> 1:48:50.880
+ things that they do and making decisions based on one or two bits of information they find
+
+1:48:50.880 --> 1:48:56.080
+ relevant, which, by the way, are all positive feedback loops, which makes it easier for you
+
+1:48:56.080 --> 1:48:59.520
+ to believe what you believed before because you behave in a certain way that makes it true and
+
+1:48:59.520 --> 1:49:06.000
+ it goes on and circles and then cycles and cycles and then cycles. So it's just about being on edge.
+
+1:49:06.960 --> 1:49:09.840
+ I do not, despite having made it over 50 now.
+
+1:49:11.760 --> 1:49:13.520
+ Congratulations, brother.
+
+1:49:13.520 --> 1:49:16.080
+ God, I have a few gray hairs here and there.
+
+1:49:16.080 --> 1:49:16.800
+ You did pretty good.
+
+1:49:16.800 --> 1:49:24.960
+ I think, I don't imagine I will ever see a police officer and not get very, very tense.
+
+1:49:25.600 --> 1:49:30.560
+ Now, everyone gets a little tense because it probably means you're being pulled over for
+
+1:49:30.560 --> 1:49:34.400
+ speeding or something, or you're going to get a ticket or whatever, right? I mean,
+
+1:49:34.400 --> 1:49:39.280
+ the interesting thing about the law in general is that most human beings experience of it is
+
+1:49:39.280 --> 1:49:43.920
+ fundamentally negative, right? You're only dealing with a lawyer if you're in trouble,
+
+1:49:43.920 --> 1:49:49.680
+ except in a few very small circumstances, right? So that's an underlying reality.
+
+1:49:49.680 --> 1:49:55.120
+ Now, imagine that that's also at the hands of the police officer. I remember the time when I got
+
+1:49:55.120 --> 1:50:02.080
+ pulled over that time, halfway between Boston and Wellesley, actually. I remember thinking
+
+1:50:04.160 --> 1:50:11.360
+ when he pulled his gun on me that if he shot me right now, he'd get away with it. That was the
+
+1:50:11.360 --> 1:50:16.480
+ that was the worst thing that I felt about that particular moment, is that if he shoots me now,
+
+1:50:16.480 --> 1:50:22.640
+ he will get away with it. It would be years later when I realized actually much worse than that
+
+1:50:24.480 --> 1:50:30.880
+ is that he'd get away with it. And if it became a thing that other people knew about,
+
+1:50:30.880 --> 1:50:34.240
+ odds would be, of course, that it wouldn't. But if it became a thing that other people knew about,
+
+1:50:34.240 --> 1:50:39.680
+ if I was living in today's world as opposed to the world 30 years ago, that not only would
+
+1:50:39.680 --> 1:50:45.360
+ get away with it, but that I would be painted a villain. I was probably big and scary, and I
+
+1:50:45.360 --> 1:50:49.040
+ probably moved too fast, and if only I'd done what he said, and da, da, da, da, da, da, da,
+
+1:50:49.040 --> 1:50:55.120
+ which is somehow worse, right? You know, that hurts not just you, you're dead, but your family,
+
+1:50:55.760 --> 1:51:00.960
+ and the way people look at you, and look at your legacy or your history, that's terrible.
+
+1:51:00.960 --> 1:51:05.360
+ And it would work. I absolutely believe it would have worked had he done it. Now, he didn't. I
+
+1:51:05.360 --> 1:51:08.640
+ don't think he wanted to shoot me. I don't think he felt like killing anybody. He did not go out
+
+1:51:08.640 --> 1:51:12.880
+ that night expecting to do that or planning on doing it, and I wouldn't be surprised if he never,
+
+1:51:12.880 --> 1:51:16.800
+ ever did that or ever even pulled his gun again. I don't know the man's name. I don't remember
+
+1:51:16.800 --> 1:51:20.320
+ anything about him. I do remember the gun. Guns are very big when they're in your face. I can tell
+
+1:51:20.320 --> 1:51:24.480
+ you this much. They're much larger than they seem. But... And you're basically like speeding or
+
+1:51:24.480 --> 1:51:28.400
+ something like that? He said I ran a light, I think. You ran a light. I don't think I ran a
+
+1:51:28.400 --> 1:51:33.040
+ light, but you know, in fact, I may not have even gotten a ticket. I may have just gotten a warning.
+
+1:51:33.040 --> 1:51:37.920
+ I think he was a little... But he pulled a gun. Yeah. Apparently I moved too fast or something.
+
+1:51:37.920 --> 1:51:42.240
+ Rolled my window down before I should have. It's unclear. I think he thought I was going to do
+
+1:51:42.240 --> 1:51:48.640
+ something, or at least that's how he behaved. So how, if we can take a little walk around your
+
+1:51:48.640 --> 1:51:58.880
+ brain, how do you feel about that guy and how do you feel about cops after that experience?
+
+1:51:58.880 --> 1:52:03.680
+ Well, I don't remember that guy, but my view on police officers is the same view I have about
+
+1:52:03.680 --> 1:52:12.560
+ lots of things. Fire is an important and necessary thing in the world, but you must respect fire
+
+1:52:12.560 --> 1:52:19.360
+ because it will burn you. Fire is a necessary evil in the sense that it can burn you. Necessary
+
+1:52:19.360 --> 1:52:25.280
+ in the sense that, you know, heat and all the other things that we use fire for. So when I see
+
+1:52:25.280 --> 1:52:33.040
+ a cop, I see a giant ball of flame and I just try to avoid it. And then some people might see
+
+1:52:33.040 --> 1:52:36.880
+ a nice place, a nice thing to roast marshmallows with a family over.
+
+1:52:37.760 --> 1:52:39.360
+ Which is fine, but I don't roast marshmallows.
+
+1:52:40.880 --> 1:52:44.160
+ Okay. So let me go a little dark and I apologize. Just talked to Dan Carlin about
+
+1:52:44.160 --> 1:52:48.720
+ Hitler for four hours. So sorry if I go dark here a little bit, but
+
+1:52:50.800 --> 1:52:57.200
+ is it easy for this experience of just being careful with the fire and avoiding it to turn
+
+1:52:57.200 --> 1:53:05.840
+ to hatred? Yeah, of course. And one might even argue that it is a logical conclusion, right?
+
+1:53:05.840 --> 1:53:12.560
+ On the other hand, you've got to live in the world and I don't think it's helpful. Hate is something
+
+1:53:12.560 --> 1:53:20.000
+ one should, I mean, hate is something that takes a lot of energy. So one should reserve it for
+
+1:53:20.000 --> 1:53:25.360
+ when it is useful and not carried around with you all the time. Again, there's a big difference
+
+1:53:25.360 --> 1:53:30.400
+ between the happy delusion that convinces you that you can actually get out of bed and
+
+1:53:30.400 --> 1:53:36.720
+ make it to work today without getting hit by a car and the sad delusion that means you can
+
+1:53:36.720 --> 1:53:40.640
+ not worry about this car that is barreling towards you, right? So we all have to be a
+
+1:53:40.640 --> 1:53:45.680
+ little deluded because otherwise we're paralyzed, right? But one should not be ridiculous.
+
+1:53:46.240 --> 1:53:49.360
+ If we go all the way back to something you said earlier about empathy,
+
+1:53:49.360 --> 1:53:57.600
+ I think what I would ask other people to get out of this one of many, many, many stories
+
+1:53:57.600 --> 1:54:04.560
+ is to recognize that it is real. People would ask me to empathize with the police officer.
+
+1:54:04.560 --> 1:54:11.040
+ I would quote back statistics saying that being a police officer isn't even in the top 10 most
+
+1:54:11.040 --> 1:54:14.960
+ dangerous jobs in the United States, you're much more likely to get killed in a taxicab.
+
+1:54:14.960 --> 1:54:22.960
+ Half of police officers are actually killed by suicide, but that means their lives are something,
+
+1:54:22.960 --> 1:54:28.240
+ something's going on there with them and I would more than happy to be empathetic about what it is
+
+1:54:28.240 --> 1:54:34.720
+ they go through and how they see the world. I think though that if we step back from what I feel,
+
+1:54:34.720 --> 1:54:39.840
+ if we step back from what an individual police officer feels, you step up a level and all this,
+
+1:54:39.840 --> 1:54:44.560
+ because all things tie back into interactive AI. The real problem here is that we've built a
+
+1:54:44.560 --> 1:54:49.520
+ narrative. We built a big structure that has made it easy for people to put themselves into different
+
+1:54:50.240 --> 1:54:57.440
+ pots in the different clusters and to basically forget that the people in the other clusters are
+
+1:54:57.440 --> 1:55:03.840
+ ultimately like them. It is useful exercise to ask yourself sometimes, I think, that if I had grown
+
+1:55:03.840 --> 1:55:07.760
+ up in a completely different house and a completely different household as a completely different
+
+1:55:07.760 --> 1:55:12.320
+ person, if I had been a woman, would I see the world differently? Would I believe what that crazy
+
+1:55:12.320 --> 1:55:18.480
+ person over there believes? And the answer is probably yes, because after all, they believe it.
+
+1:55:19.440 --> 1:55:25.440
+ And fundamentally, they're the same as you. So then what can you possibly do to fix it? How do
+
+1:55:25.440 --> 1:55:29.760
+ you fix Twitter? If you think Twitter needs to be broken or Facebook, if you think Facebook is
+
+1:55:29.760 --> 1:55:35.280
+ broken, how do you fix racism? How do you fix any of these things? That's all structural.
+
+1:55:35.280 --> 1:55:42.320
+ I mean, individual conversations matter a lot, but you have to create structures that allow people
+
+1:55:42.320 --> 1:55:47.760
+ to have those individual conversations all the time in a way that is relatively safe and that
+
+1:55:47.760 --> 1:55:51.600
+ allows them to understand that other people have had different experiences, but that ultimately
+
+1:55:51.600 --> 1:55:57.200
+ we're the same, which sounds very, I don't even know what the right word is. I'm trying to avoid
+
+1:55:57.200 --> 1:56:01.760
+ a word like saccharine, but it feels very optimistic.
+
+1:56:01.760 --> 1:56:06.640
+ But I think that's okay. I think that's a part of the delusion, is you want to be a little
+
+1:56:06.640 --> 1:56:10.160
+ optimistic and then recognize that the hard problem is actually setting up the structures
+
+1:56:10.160 --> 1:56:14.800
+ in the first place, because it's in almost no one's interest to change the infrastructure.
+
+1:56:16.320 --> 1:56:22.000
+ Right. I tend to believe that leaders have a big role to that, of selling that optimistic
+
+1:56:22.560 --> 1:56:27.600
+ delusion to everybody, and that eventually leads to the building of the structures. But that
+
+1:56:27.600 --> 1:56:33.600
+ requires a leader that unites, sort of unites everybody on a vision as opposed to divides
+
+1:56:33.600 --> 1:56:43.600
+ on a vision, which is, this particular moment in history feels like there's a nonzero probability,
+
+1:56:43.600 --> 1:56:51.440
+ if we go to the P, of something akin to a violent or a nonviolent civil war. This is one of the
+
+1:56:51.440 --> 1:56:58.240
+ most divisive periods of American history in recent, you can speak to this from a perhaps
+
+1:56:58.800 --> 1:57:03.600
+ a more knowledgeable and deeper perspective than me, but from my naive perspective, this seems like
+
+1:57:03.600 --> 1:57:11.440
+ a very strange time. There's a lot of anger, and it has to do with people, I mean, for many reasons.
+
+1:57:11.440 --> 1:57:18.480
+ One, the thing that's not spoken about, I think, much is the conflict of opinion,
+
+1:57:18.480 --> 1:57:29.040
+ much is the quiet economic pain of millions that's like growing because of COVID, because of closed
+
+1:57:29.040 --> 1:57:35.440
+ businesses, because of like lost dreams. So that's building, whatever that tension is building.
+
+1:57:35.440 --> 1:57:41.680
+ The other is, there seems to be an elevated level of emotion. I'm not sure if you can psychoanalyze
+
+1:57:41.680 --> 1:57:47.440
+ where that's coming from, but this sort of, from which the protests and so on percolated. It's like,
+
+1:57:47.440 --> 1:57:52.080
+ why now? Why this particular moment in history? Oh, because time, enough time has passed, right?
+
+1:57:52.080 --> 1:57:56.800
+ I mean, you know, the very first race riots were in Boston, not to draw anything from that.
+
+1:57:56.800 --> 1:58:01.200
+ Really? When? Oh, this is before like... Going way, I mean, like the 1700s or whatever,
+
+1:58:01.200 --> 1:58:05.280
+ right? I mean, there was a massive one in New York. I mean, I'm talking way, way, way back when.
+
+1:58:05.280 --> 1:58:09.920
+ So Boston used to be the hotbed of riots. It's just what Boston was all about,
+
+1:58:09.920 --> 1:58:15.120
+ or so I'm told from history class. There's an interesting one in New York. I remember when
+
+1:58:15.120 --> 1:58:22.960
+ that was. Anyway, the point is, you know, basically you got to get another generation,
+
+1:58:22.960 --> 1:58:28.160
+ old enough to be angry, but not so old to remember what happened the last time, right?
+
+1:58:28.160 --> 1:58:33.120
+ And that's sort of what happens. But, you know, you said like two completely, you said two things
+
+1:58:33.120 --> 1:58:38.320
+ there that I think are worth unpacking. One has to do with this sort of moment in time.
+
+1:58:38.320 --> 1:58:43.760
+ And, you know, why? Why is this sort of up built? And the other has to do with a kind of, you know,
+
+1:58:43.760 --> 1:58:47.600
+ sort of the economic reality of COVID. So I'm actually, I want to separate those things because,
+
+1:58:47.600 --> 1:58:54.160
+ for example, you know, this happened before COVID happened, right? So let's separate these two
+
+1:58:54.160 --> 1:59:01.920
+ things for a moment. Now, let me preface all this by saying that although I am interested in history,
+
+1:59:01.920 --> 1:59:07.520
+ one of my three minors as an undergrad was history, specifically history, the 1960s. Interesting. The
+
+1:59:07.520 --> 1:59:14.160
+ other was Spanish. And, okay, that's a mistake. Oh, I loved that. And history of Spanish and Spanish
+
+1:59:14.160 --> 1:59:17.760
+ history, actually, but Spanish and the other was what we would now call cognitive science. But at
+
+1:59:17.760 --> 1:59:24.960
+ the time, that's fascinating. Interesting. I minored in Cogsci here for grad school. That was
+
+1:59:24.960 --> 1:59:29.440
+ really, that was really fascinating. It was a very different experience. I mean, it was a very
+
+1:59:29.440 --> 1:59:33.600
+ it was really fascinating. It was a very different experience from all the computer science classes
+
+1:59:33.600 --> 1:59:42.400
+ I've been taking, even the Cogsci classes I was taking at an undergrad. Anyway, I'm interested
+
+1:59:42.400 --> 1:59:48.720
+ in history, but I'm hardly a historian, right? So, you know, forgive my, I will ask the audience to
+
+1:59:48.720 --> 1:59:58.640
+ forgive my simplification. But I think the question that's always worth asking, as opposed, it's the
+
+1:59:58.640 --> 2:00:08.480
+ same question, but a little different. Not why now, but why not before? Right? So why the 1950s,
+
+2:00:08.480 --> 2:00:12.400
+ 60s civil rights movement as opposed to the 1930s, 1940s? Well, first off, there was a civil
+
+2:00:12.400 --> 2:00:17.440
+ rights movement in the 30s and 40s. It just wasn't of the same character or quite as well known. Post
+
+2:00:17.440 --> 2:00:22.560
+ World War II, lots of interesting things were happening. It's not as if a switch was turned on
+
+2:00:22.560 --> 2:00:27.840
+ and Brown versus the Board of Education or the Montgomery bus boycott. And that's when it
+
+2:00:27.840 --> 2:00:30.960
+ happened. These things been building up forever and go all the way back and all the way back and
+
+2:00:30.960 --> 2:00:35.120
+ all the way back. And, you know, Harriet Tubman was not born in 1950, right? So, you know, we can
+
+2:00:35.120 --> 2:00:40.320
+ take these things. It could have easily happened right after World War II. Yes. I think,
+
+2:00:42.640 --> 2:00:50.800
+ and again, I'm not a scholar. I think that the big difference was TV. These things are visible.
+
+2:00:50.800 --> 2:00:58.080
+ People can see them. It's hard to avoid, right? Why not James Farmer? Why Martin Luther King? Because
+
+2:00:59.200 --> 2:01:06.000
+ one was born 20 years after the other, whatever. I think it turns out that, you know what King's
+
+2:01:06.000 --> 2:01:13.120
+ biggest failure was in the early days? It was in Georgia. They were doing the usual thing,
+
+2:01:13.120 --> 2:01:21.680
+ trying to integrate. And I forget the guy's name, but you can look this up. But he, a cop,
+
+2:01:21.680 --> 2:01:26.080
+ he was a sheriff made a deal with the whole state of Georgia. We're going to take people and we are
+
+2:01:26.080 --> 2:01:30.800
+ going to nonviolently put them in trucks. And then we're going to take them and put them in jails
+
+2:01:30.800 --> 2:01:35.760
+ very far away from here. And we're going to do that. And we're not going to, there'll be no
+
+2:01:35.760 --> 2:01:41.440
+ reason for the press to hang around. And they did that and it worked. And the press left and
+
+2:01:41.440 --> 2:01:48.320
+ nothing changed. So next they went to Birmingham, Alabama and Bull O Connor. And you got to see on
+
+2:01:48.320 --> 2:01:53.920
+ TV, little boys and girls being hit with fire hoses and being knocked down. And there was
+
+2:01:53.920 --> 2:01:59.840
+ outrage and things changed, right? Part of the delusion is pretending that nothing bad is
+
+2:01:59.840 --> 2:02:03.360
+ happening that might force you to do something big you don't want to do. But sometimes it gets
+
+2:02:03.360 --> 2:02:08.640
+ put in your face and then you kind of can't ignore it. And a large part in my view of what happened
+
+2:02:08.640 --> 2:02:13.440
+ right was that it was too public to ignore. Now we created other ways of ignoring it.
+
+2:02:14.480 --> 2:02:17.680
+ Lots of change happened in the South, but part of that delusion was that it wasn't going to affect
+
+2:02:17.680 --> 2:02:21.760
+ the West or the Northeast. And of course it did. And that caused its own set of problems, which
+
+2:02:21.760 --> 2:02:25.200
+ went into the late sixties into the seventies. And, you know, in some ways we're living with
+
+2:02:25.200 --> 2:02:31.600
+ that legacy now and so on. So why not what's happening now? Why didn't happen 10 years ago?
+
+2:02:32.400 --> 2:02:38.000
+ I think it's people have more voices. There's not just more TV, there's social media. It's very easy
+
+2:02:38.000 --> 2:02:44.960
+ for these things to kind of build on themselves and things are just quite visible. And there's
+
+2:02:44.960 --> 2:02:48.400
+ demographic change. I mean, the world is changing rapidly, right? And so it's very difficult.
+
+2:02:49.040 --> 2:02:52.560
+ You're now seeing people you could have avoided seeing most of your life growing up in a particular
+
+2:02:52.560 --> 2:02:58.080
+ time. And it's happening, it's dispersing at a speed that is fast enough to cause
+
+2:02:58.720 --> 2:03:06.000
+ concern for some people, but not so fast to cause massive negative reaction. So that's that.
+
+2:03:06.000 --> 2:03:10.400
+ On the other hand, and again, that's a massive oversimplification, but I think there's something
+
+2:03:10.400 --> 2:03:13.920
+ there anyway, at least something worth exploring. I'm happy to be yelled at by a real historian.
+
+2:03:13.920 --> 2:03:18.720
+ Oh yeah. I mean, there's just the obvious thing. I mean, I guess you're implying, but not
+
+2:03:19.520 --> 2:03:24.480
+ saying this. I mean, it seemed to have percolated the most with just a single video, for example,
+
+2:03:24.480 --> 2:03:34.000
+ the George Floyd video. It's fascinating to think that whatever the mechanisms that put injustice
+
+2:03:34.000 --> 2:03:42.080
+ in front of our face, not like directly in front of our face, those mechanisms are the mechanisms
+
+2:03:42.080 --> 2:03:46.720
+ of change. Yeah. On the other hand, Rodney King. So no one remembers this. I seem to be the only
+
+2:03:46.720 --> 2:03:51.360
+ person who remembers this, but sometime before the Rodney King incident, there was a guy who
+
+2:03:51.360 --> 2:03:58.080
+ was a police officer who was saying that things were really bad in Southern California. And he
+
+2:03:58.080 --> 2:04:03.040
+ was going to prove it by having some news, some camera people follow him around. And he says,
+
+2:04:03.040 --> 2:04:06.160
+ I'm going to go into these towns and just follow me for a week. And you will see that I'll get
+
+2:04:06.160 --> 2:04:11.120
+ harassed. And like the first night he goes out there and he crosses into the city, some cops
+
+2:04:11.120 --> 2:04:15.840
+ pull him over and he's a police officer. Remember, they don't know that. Of course they like shove
+
+2:04:15.840 --> 2:04:20.640
+ his face through a glass window. This was on the new, like I distinctly remember watching this as
+
+2:04:20.640 --> 2:04:25.040
+ a kid. Actually, I guess I wasn't a kid. I was in college, I was in grad school at the time.
+
+2:04:25.040 --> 2:04:30.400
+ So that's not enough. Well, it disappeared like a day late. It didn't go viral.
+
+2:04:30.400 --> 2:04:33.920
+ Yeah. Whatever that is, whatever that magic thing is.
+
+2:04:33.920 --> 2:04:38.320
+ And whatever it was in 92, it was harder to go viral in 92, right? Or 91,
+
+2:04:38.320 --> 2:04:42.000
+ actually it must've been 90 or 91, but that happened. And like two days later,
+
+2:04:42.000 --> 2:04:45.280
+ it's like it never happened. Again, nobody remembers this, but I'm like the only person.
+
+2:04:45.280 --> 2:04:49.120
+ Sometimes I think I must've dreamed it. Anyway, Rodney King happens. It goes viral
+
+2:04:50.000 --> 2:04:57.520
+ or the moral equivalent thereof at the time. And eventually we get April 29th. And I don't know
+
+2:04:57.520 --> 2:05:00.640
+ what the difference was between the two things, other than one thing caught on and one thing
+
+2:05:00.640 --> 2:05:07.280
+ didn't. Maybe what's happening now is two things are feeding onto one another. One is more people
+
+2:05:07.280 --> 2:05:14.560
+ are willing to believe. And the other is there's easier and easier ways to give evidence. Cameras,
+
+2:05:14.560 --> 2:05:17.600
+ body cams or whatever, but we're still finding ourselves telling the same story. It's the same
+
+2:05:17.600 --> 2:05:22.640
+ thing over and over again. I would invite you to go back and read the op eds from what people were
+
+2:05:22.640 --> 2:05:28.400
+ saying about the violence is not the right answer after Rodney King. And then go back to 1980 and
+
+2:05:28.400 --> 2:05:33.680
+ the big riots that were happening around then and read the same op ed. It's the same words over and
+
+2:05:33.680 --> 2:05:37.760
+ over and over again. I mean, there's your remembering history right there. I mean,
+
+2:05:37.760 --> 2:05:40.960
+ it's like literally the same words. Like it could have just caught, but I'm surprised no one got
+
+2:05:40.960 --> 2:05:46.560
+ flagged for plagiarism. It's interesting if you have an opinion on the question of violence
+
+2:05:46.560 --> 2:05:53.120
+ and the popular perhaps caricature of Malcolm X versus Martin Luther King.
+
+2:05:53.120 --> 2:05:57.280
+ You know, Malcolm X was older than Martin Luther King. People kind of have it in their head that
+
+2:05:57.280 --> 2:06:05.040
+ he's younger. Well, he died sooner, but only by a few years. People think of MLK as the older
+
+2:06:05.040 --> 2:06:10.320
+ statesman and they think of Malcolm X as the young, angry, whatever, but that's more of a
+
+2:06:10.320 --> 2:06:18.960
+ narrative device. It's not true at all. I don't, I just, I reject the choice as I think it's a
+
+2:06:18.960 --> 2:06:23.360
+ false choice. I think they're just things that happen. You just do, as I said, hatred is not,
+
+2:06:23.360 --> 2:06:26.480
+ it takes a lot of energy, but you know, every once in a while you have to fight.
+
+2:06:28.720 --> 2:06:34.160
+ One thing I will say without taking a moral position, which I will not take on this matter,
+
+2:06:34.160 --> 2:06:38.640
+ violence has worked.
+
+2:06:38.640 --> 2:06:41.360
+ Yeah, that's the annoying thing.
+
+2:06:41.360 --> 2:06:43.600
+ That's the annoying thing.
+
+2:06:43.600 --> 2:06:53.600
+ It seems like over the top anger works. Outrage works. So you can say like being calm and rational
+
+2:06:53.600 --> 2:06:59.600
+ and just talking it out is going to lead to progress. But it seems like if you just look
+
+2:06:59.600 --> 2:07:06.000
+ through history being irrationally upset is the way you make progress.
+
+2:07:06.640 --> 2:07:09.680
+ Well, it's certainly the way that you get someone to notice you.
+
+2:07:09.680 --> 2:07:10.320
+ Yeah.
+
+2:07:10.320 --> 2:07:13.760
+ And if they don't notice you, I mean, what's the difference between that and what did you,
+
+2:07:13.760 --> 2:07:17.040
+ again, without taking a moral position on this, I'm just trying to observe history here.
+
+2:07:17.040 --> 2:07:22.240
+ If you, maybe if television didn't exist, the civil rights movement doesn't happen
+
+2:07:22.240 --> 2:07:27.120
+ or it takes longer or it takes a very different form. Maybe if social media doesn't exist,
+
+2:07:27.120 --> 2:07:33.440
+ a whole host of things, positive and negative don't happen. And what do any of those things
+
+2:07:33.440 --> 2:07:40.880
+ do other than expose things to people? Violence is a way of shouting. I mean,
+
+2:07:40.880 --> 2:07:45.680
+ many people far more talented and thoughtful than I have have said this in one form or another,
+
+2:07:45.680 --> 2:07:54.160
+ right? That violence is the voice of the unheard. It's a thing that people do when they feel as if
+
+2:07:54.160 --> 2:08:00.240
+ they have no other option. And sometimes we agree and sometimes we disagree. Sometimes we think
+
+2:08:00.240 --> 2:08:05.840
+ they're justified. Sometimes we think they are not, but regardless, it is a way of shouting.
+
+2:08:06.400 --> 2:08:10.240
+ And when you shout, people tend to hear you, even if they don't necessarily hear the words
+
+2:08:10.240 --> 2:08:15.200
+ that you're saying, they hear that you were shouting. I see no way. So another way of putting
+
+2:08:15.200 --> 2:08:26.400
+ it, which I think is less, let us just say provocative, but I think is true is that all
+
+2:08:26.400 --> 2:08:32.000
+ change, particularly change that impacts power requires struggle. The struggle doesn't have to
+
+2:08:32.000 --> 2:08:38.880
+ be violent, you know, but it's a struggle nonetheless. The powerful don't give up power
+
+2:08:38.880 --> 2:08:45.280
+ easily. I mean, why should they? But even so, it still has to be a struggle. And by the way,
+
+2:08:45.840 --> 2:08:49.360
+ this isn't just about, you know, violent political, whatever, nonviolent political
+
+2:08:49.360 --> 2:08:53.280
+ change, right? This is true for understanding calculus, right? I mean, everything requires
+
+2:08:53.280 --> 2:08:56.560
+ a struggle. We're back to talking about faculty hiring. At the end of the day,
+
+2:08:56.560 --> 2:09:01.600
+ in the end of the day, it all comes down to faculty hiring. All a metaphor. Faculty
+
+2:09:01.600 --> 2:09:10.400
+ hiring is a metaphor for all of life. Let me ask a strange question. Do you think everything is
+
+2:09:10.400 --> 2:09:16.640
+ going to be okay in the next year? Do you have a hope that we're going to be okay?
+
+2:09:16.640 --> 2:09:20.560
+ I tend to think that everything's going to be okay because I just tend to think that everything's
+
+2:09:20.560 --> 2:09:26.240
+ going to be okay. My mother says something to me a lot and always has, and I find it quite
+
+2:09:26.240 --> 2:09:32.080
+ comforting, which is this too shall pass and this too shall pass. Now, this too shall pass is not
+
+2:09:32.080 --> 2:09:38.480
+ just this bad thing is going away. Everything passes. I mean, I have a 16 year old daughter
+
+2:09:38.480 --> 2:09:43.920
+ who's going to go to college probably at about 15 minutes, given how fast she seems to be growing
+
+2:09:43.920 --> 2:09:48.720
+ up. And you know, I get to hang out with her now, but one day I won't. She'll ignore me just as much
+
+2:09:48.720 --> 2:09:52.160
+ as I ignored my parents when I was in college and went to grad school. This too shall pass.
+
+2:09:52.160 --> 2:09:57.600
+ But I think that one day, if we're all lucky, you live long enough to look back on something that
+
+2:09:57.600 --> 2:10:06.080
+ happened a while ago, even if it was painful and mostly it's a memory. So yes, I think it'll be okay.
+
+2:10:06.080 --> 2:10:11.360
+ What about humans? Do you think we'll live into the 21st century?
+
+2:10:11.360 --> 2:10:12.560
+ I certainly hope so.
+
+2:10:12.560 --> 2:10:19.920
+ Are you worried that we might destroy ourselves with nuclear weapons, with AGI, with engineering?
+
+2:10:19.920 --> 2:10:24.000
+ I'm not worried about AGI doing it, but I am worried. I mean, at any given moment, right? Also,
+
+2:10:24.000 --> 2:10:28.640
+ but you know, at any given moment, a comet could, I mean, you know, whatever. I tend to think that
+
+2:10:28.640 --> 2:10:36.240
+ outside of things completely beyond our control, we have a better chance than not of making it.
+
+2:10:36.800 --> 2:10:41.920
+ You know, I talked to Alex Filipenko from Berkeley. He was talking about comets and
+
+2:10:41.920 --> 2:10:49.040
+ that they can come out of nowhere. And that was a realization to me. Wow. We're just watching
+
+2:10:49.040 --> 2:10:52.480
+ this darkness and they can just enter. And then we have less than a month.
+
+2:10:53.680 --> 2:10:56.000
+ And yet you make it from day to day.
+
+2:10:57.760 --> 2:11:01.520
+ That one shall not pass. Well, maybe for Earth they'll pass, but not for humans.
+
+2:11:02.160 --> 2:11:08.720
+ But I'm just choosing to believe that it's going to be okay. And we're not going to get hit by
+
+2:11:08.720 --> 2:11:13.280
+ an asteroid, at least not while I'm around. And if we are, well, there's very little I can do about
+
+2:11:13.280 --> 2:11:17.680
+ it. So I might as well assume it's not going to happen. It makes food taste better.
+
+2:11:17.680 --> 2:11:18.960
+ It makes food taste better.
+
+2:11:19.680 --> 2:11:24.240
+ So you, out of the millions of things you've done in your life,
+
+2:11:24.240 --> 2:11:28.400
+ you've also began the This Week in Black History calendar of facts.
+
+2:11:30.640 --> 2:11:34.560
+ There's like a million questions that can ask here. You said you're not a historian,
+
+2:11:35.760 --> 2:11:44.240
+ but is there, let's start at the big history question of, is there somebody in history,
+
+2:11:44.240 --> 2:11:50.960
+ in black history that you draw a lot of philosophical or personal inspiration from,
+
+2:11:50.960 --> 2:11:54.480
+ or you just find interesting or a moment in history you find interesting?
+
+2:11:55.040 --> 2:12:01.360
+ Well, I find the entirety of the 40s to the 60s and the civil rights movement that didn't happen
+
+2:12:01.360 --> 2:12:07.440
+ and did happen at the same time during then quite inspirational. I mean, I've read quite a bit of the
+
+2:12:07.440 --> 2:12:12.000
+ time period, at least I did in my younger days when I had more time to read as many things as I
+
+2:12:12.000 --> 2:12:22.000
+ wanted to. What was quirky about This Week in Black History when I started in the 80s was how
+
+2:12:22.000 --> 2:12:25.280
+ focused it was. It was because of the sources I was stealing from. And I was very much stealing
+
+2:12:25.280 --> 2:12:29.040
+ from sort of like, I'd take calendars, anything I could find, Google didn't exist, right? And I
+
+2:12:29.040 --> 2:12:32.320
+ just pulled as much as I could and just put it together in one place for other people.
+
+2:12:32.320 --> 2:12:36.080
+ What ended up being quirky about it, and I started getting people sending me information on it,
+
+2:12:36.080 --> 2:12:43.120
+ was the inventors. People who, you know, Gerard Morgan to Benjamin Banneker, right? People who
+
+2:12:43.120 --> 2:12:54.080
+ were inventing things. At a time when, how in the world did they manage to invent anything?
+
+2:12:54.080 --> 2:12:57.600
+ Like, all these other things were happening, mother necessity, right? All these other things
+
+2:12:57.600 --> 2:13:00.960
+ were happening. And, you know, there were so many terrible things happening around them. And, you
+
+2:13:00.960 --> 2:13:04.160
+ know, they went to the wrong state at the wrong time. They may never, never come back, but they
+
+2:13:04.160 --> 2:13:10.080
+ were inventing things we use, right? And it was always inspiring to me that people would still
+
+2:13:10.080 --> 2:13:16.560
+ create even under those circumstances. I got a lot out of that. I also learned a few lessons. I
+
+2:13:16.560 --> 2:13:23.680
+ think, you know, the Charles Richard Drews of the world, you know, you create things that impact
+
+2:13:23.680 --> 2:13:29.280
+ people. You don't necessarily get credit for them. And that's not right, but it's also okay.
+
+2:13:29.280 --> 2:13:31.080
+ TK You okay with that?
+
+2:13:31.080 --> 2:13:35.920
+ CK Up to a point, yeah. I mean, look, in our world,
+
+2:13:36.880 --> 2:13:38.320
+ all we really have is credit.
+
+2:13:38.320 --> 2:13:43.520
+ TK I was always bothered by how much value credit is given.
+
+2:13:43.520 --> 2:13:46.960
+ CK That's the only thing you got. I mean, if you're an academic in some sense,
+
+2:13:46.960 --> 2:13:49.360
+ well, it isn't the only thing you've got, but it feels that way sometimes.
+
+2:13:49.360 --> 2:13:56.160
+ TK But you got the actual, we're all going to be dead soon. You got the joy of having created
+
+2:13:56.160 --> 2:14:05.200
+ the, you know, the credit with Jan. I've talked to Jorgen Schmidhuber, right? The Turing Award
+
+2:14:05.200 --> 2:14:10.880
+ given to three people for deep learning. And you could say that a lot of other people should be on
+
+2:14:10.880 --> 2:14:16.320
+ that list. It's the Nobel Prize question. Yeah, it's sad. It's sad. And people like talking about
+
+2:14:16.320 --> 2:14:22.560
+ it. But I feel like in the long arc of history, the only person who will be remembered is Einstein,
+
+2:14:22.560 --> 2:14:27.040
+ Hitler, maybe Elon Musk. And the rest of us are just like...
+
+2:14:27.040 --> 2:14:31.040
+ CK Well, you know, someone asked me about immortality once and I said,
+
+2:14:31.040 --> 2:14:33.520
+ and I stole this from somebody else. I don't remember who, but it was,
+
+2:14:34.400 --> 2:14:39.920
+ you know, I asked them, what's your great grandfather's name? Any of them? Of course,
+
+2:14:39.920 --> 2:14:44.960
+ they don't know. Most of us do not know. I mean, I'm not entirely sure. I know my grandparents,
+
+2:14:44.960 --> 2:14:48.560
+ all my grandparents names. I know what I called them, right? I don't know their middle names,
+
+2:14:48.560 --> 2:14:54.640
+ for example. It's within living memory, so I could find out. Actually, my grandfather
+
+2:14:54.640 --> 2:15:00.480
+ didn't know when he was born. I had no idea how old he was, right? But I definitely don't know
+
+2:15:00.480 --> 2:15:06.400
+ any of my great grandparents are. So in some sense, immortality is doing something preferably
+
+2:15:06.400 --> 2:15:11.600
+ positive so that your great grandchildren know who you are, right? And that's kind of what you
+
+2:15:11.600 --> 2:15:16.720
+ can hope for, which is very depressing in some ways. I could turn it into something uplifting
+
+2:15:16.720 --> 2:15:23.200
+ if you need me to, but it's simple, right? It doesn't matter. I don't have to know my great
+
+2:15:23.200 --> 2:15:28.400
+ grandfather was to know that I wouldn't be here without him. And I don't know who my great
+
+2:15:28.400 --> 2:15:32.240
+ grandchildren are. Certainly my great, great grandchildren are, and I'll probably never meet
+
+2:15:32.240 --> 2:15:38.080
+ them. Although I would very much like to, but hopefully I'll set the world in motion in such
+
+2:15:38.080 --> 2:15:41.440
+ a way that their lives will be better than they would have been if I hadn't done that. Well,
+
+2:15:41.440 --> 2:15:44.320
+ certainly they wouldn't have existed if I hadn't done the things that I did.
+
+2:15:44.320 --> 2:15:48.240
+ So I think that's a good positive thing you live on through other people.
+
+2:15:49.280 --> 2:15:50.240
+ Are you afraid of death?
+
+2:15:51.200 --> 2:15:52.960
+ I don't know if I'm afraid of death, but I don't like it.
+
+2:15:54.960 --> 2:16:01.280
+ That's another t shirt. I mean, do you ponder it? Do you think about the
+
+2:16:02.720 --> 2:16:07.760
+ inevitability of oblivion? I do occasionally. This feels like a very rushing conversation.
+
+2:16:07.760 --> 2:16:14.320
+ I will tell you a story, something that happened to me recently. If you look very carefully,
+
+2:16:14.320 --> 2:16:20.560
+ you will see I have a scar, which by the way, is an interesting story of its own about why people
+
+2:16:20.560 --> 2:16:26.720
+ have half of their thyroid taken out. Some people get scars and some don't. But anyway, I had half
+
+2:16:26.720 --> 2:16:30.320
+ my thyroid taken out. The way I got there, by the way, is its own interesting story, but I won't go
+
+2:16:30.320 --> 2:16:33.760
+ into it. Just suffice it to say, I did what I keep telling people you should never do, which is never
+
+2:16:33.760 --> 2:16:36.720
+ go to the doctor unless you have to, because there's nothing good that's ever going to come
+
+2:16:36.720 --> 2:16:41.440
+ out of a doctor's visit. So I went to the doctor to look at one thing. It's a little bump I had on
+
+2:16:41.440 --> 2:16:45.600
+ the side that I thought might be something bad because my mother made me. And I went there and
+
+2:16:45.600 --> 2:16:49.120
+ he's like, oh, it's nothing. But by the way, your thyroid is huge. Can you breathe? Yes,
+
+2:16:49.120 --> 2:16:51.760
+ I can breathe. Are you sure? Because it's pushing on your windpipe. You should be dead.
+
+2:16:52.560 --> 2:16:59.520
+ So I ended up going there. And to look at my thyroid, it was growing. I had what's called a
+
+2:16:59.520 --> 2:17:03.920
+ goiter. And he said, we're going to have to take it out at some point. When? Sometime before you're
+
+2:17:03.920 --> 2:17:09.280
+ 85, probably. But if you wait till you're 85, that'll be really bad because you don't want to
+
+2:17:09.280 --> 2:17:14.240
+ have surgery when you're 85 years old, if you can help it. Certainly not the kind of surgery it
+
+2:17:14.240 --> 2:17:21.040
+ takes to take out your thyroid. So I went there and I would decide I would put it off until
+
+2:17:21.680 --> 2:17:26.560
+ December 19th because my birthday is December 18th. And I wouldn't be able to say I made it to
+
+2:17:26.560 --> 2:17:32.640
+ 49 or whatever. So I said, I'll wait till after my birthday. In the first six months of that,
+
+2:17:32.640 --> 2:17:39.120
+ nothing changed. Apparently in the next three months, it had grown. I hadn't noticed this at
+
+2:17:39.120 --> 2:17:44.480
+ all. I went and had surgery. They took out half of it. The other half is still there and working
+
+2:17:44.480 --> 2:17:49.520
+ fine, by the way. I don't have to take a pill or anything like that. It's great. I'm in the
+
+2:17:49.520 --> 2:17:56.880
+ hospital room and the doctor comes in. I've got these things in my arm. They're going to do
+
+2:17:56.880 --> 2:18:00.880
+ whatever. They're talking to me. And the anesthesiologist says, huh, your blood
+
+2:18:00.880 --> 2:18:04.880
+ pressure is through the roof. Do you have high blood pressure? I said, no, but I'm terrified if
+
+2:18:04.880 --> 2:18:10.560
+ that helps you at all. And the anesthesist, who's the nurse who supports the anesthesiologist,
+
+2:18:11.440 --> 2:18:15.040
+ if I got that right, said, oh, don't worry about it. I've just put some stuff in your IV. You're
+
+2:18:15.040 --> 2:18:18.240
+ going to be feeling pretty good in a couple of minutes. And I remember turning and saying,
+
+2:18:19.280 --> 2:18:23.680
+ well, I'm going to feel pretty good in a couple of minutes. Next thing I know, there's this guy
+
+2:18:23.680 --> 2:18:29.280
+ and he's moving my bed. And he's talking to me and I have this distinct impression that I've met
+
+2:18:29.280 --> 2:18:35.920
+ this guy and I should know what he's talking about, but I kind of just don't remember what
+
+2:18:35.920 --> 2:18:41.040
+ just happened. And I look up and I see the tiles going by and I'm like, oh, it's just like in the
+
+2:18:41.040 --> 2:18:47.680
+ movies where you see the tiles go by. And then I have this brief thought that I'm in an infinitely
+
+2:18:47.680 --> 2:18:53.280
+ long warehouse and there's someone sitting next to me. And I remember thinking, oh, she's not
+
+2:18:53.280 --> 2:19:00.960
+ talking to me. And then I'm back in the hospital bed. And in between the time where the tiles were
+
+2:19:00.960 --> 2:19:05.520
+ going by and I got in the hospital bed, something like five hours had passed. Apparently it had
+
+2:19:05.520 --> 2:19:09.760
+ grown so much that it was a four and a half hour procedure instead of an hour long procedure. I
+
+2:19:09.760 --> 2:19:15.280
+ lost a neck size and a half. It was pretty big. Apparently it was as big as my heart.
+
+2:19:16.560 --> 2:19:19.120
+ Why am I telling you this? I'm telling you this because...
+
+2:19:19.120 --> 2:19:25.920
+ It's a hell of a story already. Between tiles going by and me waking up in
+
+2:19:25.920 --> 2:19:30.880
+ my hospital bed, no time passed. There was no sensation of time passing.
+
+2:19:31.840 --> 2:19:36.960
+ When I go to sleep and I wake up in the morning, I have this feeling that time has passed. This
+
+2:19:36.960 --> 2:19:42.320
+ feeling that something has physically changed about me. Nothing happened between the time they
+
+2:19:42.320 --> 2:19:47.440
+ put the magic juice in me and the time that I woke up. Nothing. By the way, my wife was there
+
+2:19:47.440 --> 2:19:53.120
+ with me talking. Apparently I was also talking. I don't remember any of this, but luckily I didn't
+
+2:19:53.120 --> 2:19:58.480
+ say anything I wouldn't normally say. My memory of it is I would talk to her and she would teleport
+
+2:19:58.480 --> 2:20:02.640
+ around the room. And then I accused her of witchcraft and that was the end of that.
+
+2:20:03.760 --> 2:20:07.760
+ Her point of view is I would start talking and then I would fall asleep and then I would wake
+
+2:20:07.760 --> 2:20:10.880
+ up and leave off where I was before. I had no notion of any time passing.
+
+2:20:10.880 --> 2:20:20.400
+ I kind of imagine that that's death, is the lack of sensation of time passing. And on the one hand,
+
+2:20:20.400 --> 2:20:28.720
+ I am, I don't know, soothed by the idea that I won't notice. On the other hand, I'm very unhappy
+
+2:20:28.720 --> 2:20:35.680
+ at the idea that I won't notice. So I don't know if I'm afraid of death, but I'm completely sure
+
+2:20:35.680 --> 2:20:41.520
+ that I don't like it and that I particularly would prefer to discover on my own whether immortality
+
+2:20:41.520 --> 2:20:47.040
+ sucks and be able to make a decision about it. That's what I would prefer. You like to have a
+
+2:20:47.040 --> 2:20:51.440
+ choice in the matter. I would like to have a choice in the matter. Well, again, on the Russian thing,
+
+2:20:51.440 --> 2:20:57.680
+ I think the finiteness of it is the thing that gives it a little flavor, a little spice. Well,
+
+2:20:57.680 --> 2:21:00.640
+ in reinforcement learning, we believe that. That's why we have discount factors. Otherwise,
+
+2:21:00.640 --> 2:21:08.080
+ it doesn't matter what you do. Amen. Well, let me, one last question sticking on the Russian theme.
+
+2:21:09.280 --> 2:21:16.400
+ You talked about your great grandparents not remembering their name. What do you think is the,
+
+2:21:18.000 --> 2:21:26.000
+ in this kind of Markov chain that is life, what do you think is the meaning of it all?
+
+2:21:26.000 --> 2:21:32.000
+ What's the meaning of life? Well, in a world where eventually you won't know who your great
+
+2:21:32.000 --> 2:21:42.000
+ grandchildren are, I'm reminded of something I heard once or I read once that I really like,
+
+2:21:42.000 --> 2:21:51.760
+ which is, it is well worth remembering that the entire universe, save for one trifling exception,
+
+2:21:51.760 --> 2:21:58.080
+ is composed entirely of others. And I think that's the meaning of life.
+
+2:22:01.040 --> 2:22:06.240
+ Charles, this is one of the best conversations I've ever had. And I get to see you tomorrow
+
+2:22:06.240 --> 2:22:15.600
+ again to hang out with who looks to be one of the most, how should I say, interesting personalities
+
+2:22:15.600 --> 2:22:20.640
+ that I'll ever get to meet with Michael Lippmann. So I can't wait. I'm excited to have had this
+
+2:22:20.640 --> 2:22:25.920
+ opportunity. Thank you for traveling all the way here. It was amazing. I'm excited. I always love
+
+2:22:25.920 --> 2:22:30.960
+ Georgia Tech. I'm excited to see with you being involved there what the future holds. So thank you
+
+2:22:30.960 --> 2:22:34.800
+ for talking to me. Thank you for having me. I enjoyed every minute of it. Thanks for listening
+
+2:22:34.800 --> 2:22:40.320
+ to this conversation with Charles Isbell and thank you to our sponsors, Neuro, the maker of
+
+2:22:40.320 --> 2:22:46.880
+ functional sugar free gum and mints that I used to give my brain a quick caffeine boost, Decoding
+
+2:22:46.880 --> 2:22:53.360
+ Digital, a podcast on tech and entrepreneurship that I listen to and enjoy, Masterclass, online
+
+2:22:53.360 --> 2:23:00.080
+ courses that I watch from some of the most amazing humans in history, and Cash App, the app I used to
+
+2:23:00.080 --> 2:23:06.080
+ send money to friends for food and drinks. Please check out these sponsors in the description to get
+
+2:23:06.080 --> 2:23:11.920
+ a discount and to support this podcast. If you enjoy this thing, subscribe on YouTube, review it
+
+2:23:11.920 --> 2:23:17.040
+ with Five Stars and Apple Podcast, follow on Spotify, support on Patreon, or connect with me
+
+2:23:17.040 --> 2:23:23.520
+ on Twitter at Lex Friedman. And now let me leave you with some poetic words from Martin Luther
+
+2:23:23.520 --> 2:23:30.720
+ King Jr. There comes a time when people get tired of being pushed out of the glittering sunlight
+
+2:23:30.720 --> 2:23:37.280
+ of life's July and left standing amid the piercing chill of an alpine November.
+
+2:23:37.280 --> 2:23:41.360
+ Thank you for listening and hope to see you next time.
+

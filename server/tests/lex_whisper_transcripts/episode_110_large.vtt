@@ -1,0 +1,3875 @@
+WEBVTT
+
+00:00.000 --> 00:05.280
+ The following is a conversation with Jitendra Malik, a professor at Berkeley and one of
+
+00:05.280 --> 00:10.080
+ the seminal figures in the field of computer vision, the kind before the deep learning
+
+00:10.080 --> 00:13.940
+ revolution and the kind after.
+
+00:13.940 --> 00:21.040
+ He has been cited over 180,000 times and has mentored many world class researchers in computer
+
+00:21.040 --> 00:22.880
+ science.
+
+00:22.880 --> 00:24.540
+ Quick summary of the ads.
+
+00:24.540 --> 00:31.520
+ Two sponsors, one new one which is BetterHelp and an old goodie ExpressVPN.
+
+00:31.520 --> 00:37.240
+ Please consider supporting this podcast by going to betterhelp.com slash lex and signing
+
+00:37.240 --> 00:40.960
+ up at expressvpn.com slash lexpod.
+
+00:40.960 --> 00:45.600
+ Click the links, buy the stuff, it really is the best way to support this podcast and
+
+00:45.600 --> 00:47.300
+ the journey I'm on.
+
+00:47.300 --> 00:52.400
+ If you enjoy this thing, subscribe on YouTube, review it with 5 stars on Apple Podcast, support
+
+00:52.400 --> 00:57.880
+ it on Patreon, or connect with me on Twitter at Lex Friedman, however the heck you spell
+
+00:57.880 --> 00:58.880
+ that.
+
+00:58.880 --> 01:02.920
+ As usual, I'll do a few minutes of ads now and never any ads in the middle that can break
+
+01:02.920 --> 01:05.240
+ the flow of the conversation.
+
+01:05.240 --> 01:11.640
+ This show is sponsored by BetterHelp, spelled H E L P help.
+
+01:11.640 --> 01:15.120
+ Check it out at betterhelp.com slash lex.
+
+01:15.120 --> 01:19.440
+ They figure out what you need and match you with a licensed professional therapist in
+
+01:19.440 --> 01:21.480
+ under 48 hours.
+
+01:21.480 --> 01:26.480
+ It's not a crisis line, it's not self help, it's professional counseling done securely
+
+01:26.480 --> 01:27.480
+ online.
+
+01:27.480 --> 01:33.360
+ I'm a bit from the David Goggins line of creatures, as you may know, and so have some
+
+01:33.360 --> 01:40.240
+ demons to contend with, usually on long runs or all nights working, forever and possibly
+
+01:40.240 --> 01:42.060
+ full of self doubt.
+
+01:42.060 --> 01:47.180
+ It may be because I'm Russian, but I think suffering is essential for creation.
+
+01:47.180 --> 01:52.040
+ But I also think you can suffer beautifully, in a way that doesn't destroy you.
+
+01:52.040 --> 01:56.440
+ For most people, I think a good therapist can help in this, so it's at least worth a
+
+01:56.440 --> 01:57.440
+ try.
+
+01:57.440 --> 02:03.340
+ Check out their reviews, they're good, it's easy, private, affordable, available worldwide.
+
+02:03.340 --> 02:09.780
+ You can communicate by text, any time, and schedule weekly audio and video sessions.
+
+02:09.780 --> 02:15.440
+ I highly recommend that you check them out at betterhelp.com slash lex.
+
+02:15.440 --> 02:19.520
+ This show is also sponsored by ExpressVPN.
+
+02:19.520 --> 02:26.080
+ Get it at expressvpn.com slash lexpod to support this podcast and to get an extra three months
+
+02:26.080 --> 02:28.520
+ free on a one year package.
+
+02:28.520 --> 02:32.640
+ I've been using ExpressVPN for many years, I love it.
+
+02:32.640 --> 02:36.080
+ I think ExpressVPN is the best VPN out there.
+
+02:36.080 --> 02:39.160
+ They told me to say it, but it happens to be true.
+
+02:39.160 --> 02:45.520
+ It doesn't log your data, it's crazy fast, and is easy to use, literally just one big,
+
+02:45.520 --> 02:47.360
+ sexy power on button.
+
+02:47.360 --> 02:51.480
+ Again, for obvious reasons, it's really important that they don't log your data.
+
+02:51.480 --> 02:57.120
+ It works on Linux and everywhere else too, but really, why use anything else?
+
+02:57.120 --> 03:02.280
+ Shout out to my favorite flavor of Linux, Ubuntu Mate 2004.
+
+03:02.280 --> 03:09.120
+ Once again, get it at expressvpn.com slash lexpod to support this podcast and to get
+
+03:09.120 --> 03:13.200
+ an extra three months free on a one year package.
+
+03:13.200 --> 03:18.140
+ And now, here's my conversation with Jitendra Malik.
+
+03:18.140 --> 03:25.640
+ In 1966, Seymour Papert at MIT wrote up a proposal called the Summer Vision Project
+
+03:25.640 --> 03:31.360
+ to be given, as far as we know, to 10 students to work on and solve that summer.
+
+03:31.360 --> 03:37.080
+ So that proposal outlined many of the computer vision tasks we still work on today.
+
+03:37.080 --> 03:43.040
+ Why do you think we underestimate, and perhaps we did underestimate and perhaps still underestimate
+
+03:43.040 --> 03:46.420
+ how hard computer vision is?
+
+03:46.420 --> 03:51.040
+ Because most of what we do in vision, we do unconsciously or subconsciously.
+
+03:51.040 --> 03:52.040
+ In human vision.
+
+03:52.040 --> 03:53.080
+ In human vision.
+
+03:53.080 --> 03:58.400
+ So that gives us this, that effortlessness gives us the sense that, oh, this must be
+
+03:58.400 --> 04:02.040
+ very easy to implement on a computer.
+
+04:02.040 --> 04:09.480
+ Now, this is why the early researchers in AI got it so wrong.
+
+04:09.480 --> 04:17.560
+ However, if you go into neuroscience or psychology of human vision, then the complexity becomes
+
+04:17.560 --> 04:19.100
+ very clear.
+
+04:19.100 --> 04:26.640
+ The fact is that a very large part of the cerebral cortex is devoted to visual processing.
+
+04:26.640 --> 04:29.520
+ And this is true in other primates as well.
+
+04:29.520 --> 04:35.960
+ So once we looked at it from a neuroscience or psychology perspective, it becomes quite
+
+04:35.960 --> 04:39.680
+ clear that the problem is very challenging and it will take some time.
+
+04:39.680 --> 04:43.800
+ You said the higher level parts are the harder parts?
+
+04:43.800 --> 04:52.940
+ I think vision appears to be easy because most of what visual processing is subconscious
+
+04:52.940 --> 04:55.680
+ or unconscious.
+
+04:55.680 --> 05:03.940
+ So we underestimate the difficulty, whereas when you are like proving a mathematical theorem
+
+05:03.940 --> 05:08.580
+ or playing chess, the difficulty is much more evident.
+
+05:08.580 --> 05:15.320
+ So because it is your conscious brain, which is processing various aspects of the problem
+
+05:15.320 --> 05:21.960
+ solving behavior, whereas in vision, all this is happening, but it's not in your awareness,
+
+05:21.960 --> 05:25.840
+ it's in your, it's operating below that.
+
+05:25.840 --> 05:27.880
+ But it's, it still seems strange.
+
+05:27.880 --> 05:35.320
+ Yes, that's true, but it seems strange that as computer vision researchers, for example,
+
+05:35.320 --> 05:41.020
+ the community broadly is time and time again makes the mistake of thinking the problem
+
+05:41.020 --> 05:43.880
+ is easier than it is, or maybe it's not a mistake.
+
+05:43.880 --> 05:48.160
+ We'll talk a little bit about autonomous driving, for example, how hard of a vision task that
+
+05:48.160 --> 05:56.120
+ is, it, do you think, I mean, what, is it just human nature or is there something fundamental
+
+05:56.120 --> 06:01.000
+ to the vision problem that we, we underestimate?
+
+06:01.000 --> 06:05.400
+ We're still not able to be cognizant of how hard the problem is.
+
+06:05.400 --> 06:11.800
+ Yeah, I think in the early days it could have been excused because in the early days, all
+
+06:11.800 --> 06:15.520
+ aspects of AI were regarded as too easy.
+
+06:15.520 --> 06:19.920
+ But I think today it is much less excusable.
+
+06:19.920 --> 06:27.800
+ And I think why people fall for this is because of what I call the fallacy of the successful
+
+06:27.800 --> 06:30.320
+ first step.
+
+06:30.320 --> 06:37.840
+ There are many problems in vision where getting 50% of the solution you can get in one minute,
+
+06:37.840 --> 06:47.720
+ getting to 90% can take you a day, getting to 99% may take you five years, and 99.99%
+
+06:47.720 --> 06:49.720
+ may be not in your lifetime.
+
+06:49.720 --> 06:52.640
+ I wonder if that's a unique division.
+
+06:52.640 --> 06:58.040
+ It seems that language, people are not so confident about, so natural language processing,
+
+06:58.040 --> 07:04.200
+ people are a little bit more cautious about our ability to, to solve that problem.
+
+07:04.200 --> 07:10.640
+ I think for language, people intuit that we have to be able to do natural language understanding.
+
+07:10.640 --> 07:18.400
+ For vision, it seems that we're not cognizant or we don't think about how much understanding
+
+07:18.400 --> 07:19.400
+ is required.
+
+07:19.400 --> 07:21.520
+ It's probably still an open problem.
+
+07:21.520 --> 07:27.440
+ But in your sense, how much understanding is required to solve vision?
+
+07:27.440 --> 07:34.720
+ Like this, put another way, how much something called common sense reasoning is required
+
+07:34.720 --> 07:39.080
+ to really be able to interpret even static scenes?
+
+07:39.080 --> 07:40.080
+ Yeah.
+
+07:40.080 --> 07:47.760
+ So vision operates at all levels and there are parts which can be solved with what we
+
+07:47.760 --> 07:50.800
+ could call maybe peripheral processing.
+
+07:50.800 --> 07:57.320
+ So in the human vision literature, there used to be these terms, sensation, perception and
+
+07:57.320 --> 08:04.320
+ cognition, which roughly speaking referred to like the front end of processing, middle
+
+08:04.320 --> 08:08.220
+ stages of processing and higher level of processing.
+
+08:08.220 --> 08:13.680
+ And I think they made a big deal out of, out of this and they wanted to study only perception
+
+08:13.680 --> 08:19.240
+ and then dismiss certain, certain problems as being quote cognitive.
+
+08:19.240 --> 08:23.200
+ But really I think these are artificial divides.
+
+08:23.200 --> 08:28.560
+ The problem is continuous at all levels and there are challenges at all levels.
+
+08:28.560 --> 08:34.120
+ The techniques that we have today, they work better at the lower and mid levels of the
+
+08:34.120 --> 08:35.120
+ problem.
+
+08:35.120 --> 08:39.960
+ I think the higher levels of the problem, quote the cognitive levels of the problem
+
+08:39.960 --> 08:46.480
+ are there and we, in many real applications, we have to confront them.
+
+08:46.480 --> 08:51.520
+ Now how much that is necessary will depend on the application.
+
+08:51.520 --> 08:55.280
+ For some problems it doesn't matter, for some problems it matters a lot.
+
+08:55.280 --> 09:04.960
+ So I am, for example, a pessimist on fully autonomous driving in the near future.
+
+09:04.960 --> 09:13.880
+ And the reason is because I think there will be that 0.01% of the cases where quite sophisticated
+
+09:13.880 --> 09:16.120
+ cognitive reasoning is called for.
+
+09:16.120 --> 09:23.720
+ However, there are tasks where you can, first of all, they are much more, they are robust.
+
+09:23.720 --> 09:28.440
+ So in the sense that error rates, error is not so much of a problem.
+
+09:28.440 --> 09:34.840
+ For example, let's say we are, you're doing image search, you're trying to get images
+
+09:34.840 --> 09:41.900
+ based on some, some, some description, some visual description.
+
+09:41.900 --> 09:43.840
+ We are very tolerant of errors there, right?
+
+09:43.840 --> 09:49.360
+ I mean, when Google image search gives you some images back and a few of them are wrong,
+
+09:49.360 --> 09:50.360
+ it's okay.
+
+09:50.360 --> 09:51.360
+ It doesn't hurt anybody.
+
+09:51.360 --> 09:54.720
+ There is no, there's not a matter of life and death.
+
+09:54.720 --> 10:02.600
+ But making mistakes when you are driving at 60 miles per hour and you could potentially
+
+10:02.600 --> 10:06.160
+ kill somebody is much more important.
+
+10:06.160 --> 10:11.220
+ So just for the, for the fun of it, since you mentioned, let's go there briefly about
+
+10:11.220 --> 10:12.880
+ autonomous vehicles.
+
+10:12.880 --> 10:19.200
+ So one of the companies in the space, Tesla, is with Andre Karpathy and Elon Musk are working
+
+10:19.200 --> 10:26.400
+ on a system called Autopilot, which is primarily a vision based system with eight cameras and
+
+10:26.400 --> 10:30.560
+ basically a single neural network, a multitask neural network.
+
+10:30.560 --> 10:35.680
+ They call it HydroNet, multiple heads, so it does multiple tasks, but is forming the
+
+10:35.680 --> 10:38.800
+ same representation at the core.
+
+10:38.800 --> 10:47.120
+ Do you think driving can be converted in this way to purely a vision problem and then solved
+
+10:47.120 --> 10:53.720
+ with learning or even more specifically in the current approach, what do you think about
+
+10:53.720 --> 10:57.120
+ what Tesla Autopilot team is doing?
+
+10:57.120 --> 11:02.800
+ So the way I think about it is that there are certainly subsets of the visual based
+
+11:02.800 --> 11:05.480
+ driving problem, which are quite solvable.
+
+11:05.480 --> 11:11.960
+ So for example, driving in freeway conditions is quite a solvable problem.
+
+11:11.960 --> 11:18.600
+ I think there were demonstrations of that going back to the 1980s by someone called
+
+11:18.600 --> 11:22.080
+ Ernst Tickmans in Munich.
+
+11:22.080 --> 11:27.200
+ In the 90s, there were approaches from Carnegie Mellon, there were approaches from our team
+
+11:27.200 --> 11:28.780
+ at Berkeley.
+
+11:28.780 --> 11:33.200
+ In the 2000s, there were approaches from Stanford and so on.
+
+11:33.200 --> 11:38.560
+ So autonomous driving in certain settings is very doable.
+
+11:38.560 --> 11:45.440
+ The challenge is to have an autopilot work under all kinds of driving conditions.
+
+11:45.440 --> 11:51.280
+ At that point, it's not just a question of vision or perception, but really also of control
+
+11:51.280 --> 11:54.200
+ and dealing with all the edge cases.
+
+11:54.200 --> 11:59.160
+ So where do you think most of the difficult cases, to me, even the highway driving is
+
+11:59.160 --> 12:08.000
+ an open problem because it applies the same 50, 90, 95, 99 rule where the first step,
+
+12:08.000 --> 12:12.080
+ the fallacy of the first step, I forget how you put it, we fall victim to.
+
+12:12.080 --> 12:17.120
+ I think even highway driving has a lot of elements because to solve autonomous driving,
+
+12:17.120 --> 12:22.920
+ you have to completely relinquish the help of a human being.
+
+12:22.920 --> 12:26.640
+ You're always in control so that you're really going to feel the edge cases.
+
+12:26.640 --> 12:29.480
+ So I think even highway driving is really difficult.
+
+12:29.480 --> 12:35.440
+ But in terms of the general driving task, do you think vision is the fundamental problem
+
+12:35.440 --> 12:44.800
+ or is it also your action, the interaction with the environment, the ability to...
+
+12:44.800 --> 12:48.720
+ And then the middle ground, I don't know if you put that under vision, which is trying
+
+12:48.720 --> 12:54.720
+ to predict the behavior of others, which is a little bit in the world of understanding
+
+12:54.720 --> 13:00.640
+ the scene, but it's also trying to form a model of the actors in the scene and predict
+
+13:00.640 --> 13:01.640
+ their behavior.
+
+13:01.640 --> 13:02.640
+ Yeah.
+
+13:02.640 --> 13:08.320
+ I include that in vision because to me, perception blends into cognition and building predictive
+
+13:08.320 --> 13:13.520
+ models of other agents in the world, which could be other agents, could be people, other
+
+13:13.520 --> 13:15.520
+ agents could be other cars.
+
+13:15.520 --> 13:22.720
+ That is part of the task of perception because perception always has to not tell us what
+
+13:22.720 --> 13:26.480
+ is now, but what will happen because what's now is boring.
+
+13:26.480 --> 13:27.480
+ It's done.
+
+13:27.480 --> 13:28.480
+ It's over with.
+
+13:28.480 --> 13:29.480
+ Okay?
+
+13:29.480 --> 13:30.480
+ Yeah.
+
+13:30.480 --> 13:33.520
+ We care about the future because we act in the future.
+
+13:33.520 --> 13:39.020
+ And we care about the past in as much as it informs what's going to happen in the future.
+
+13:39.020 --> 13:45.920
+ So I think we have to build predictive models of behaviors of people and those can get quite
+
+13:45.920 --> 13:48.020
+ complicated.
+
+13:48.020 --> 13:59.760
+ So I mean, I've seen examples of this in actually, I mean, I own a Tesla and it has various safety
+
+13:59.760 --> 14:01.720
+ features built in.
+
+14:01.720 --> 14:09.920
+ And what I see are these examples where let's say there is some a skateboarder, I mean,
+
+14:09.920 --> 14:16.160
+ and I don't want to be too critical because obviously these systems are always being improved
+
+14:16.160 --> 14:23.680
+ and any specific criticism I have, maybe the system six months from now will not have that
+
+14:23.680 --> 14:25.800
+ particular failure mode.
+
+14:25.800 --> 14:36.680
+ So it had the wrong response and it's because it couldn't predict what this skateboarder
+
+14:36.680 --> 14:38.360
+ was going to do.
+
+14:38.360 --> 14:39.360
+ Okay?
+
+14:39.360 --> 14:45.120
+ And because it really required that higher level cognitive understanding of what skateboarders
+
+14:45.120 --> 14:48.760
+ typically do as opposed to a normal pedestrian.
+
+14:48.760 --> 14:53.640
+ So what might have been the correct behavior for a pedestrian, a typical behavior for pedestrian
+
+14:53.640 --> 14:59.040
+ was not the typical behavior for a skateboarder, right?
+
+14:59.040 --> 15:00.040
+ Yeah.
+
+15:00.040 --> 15:07.600
+ And so therefore to do a good job there, you need to have enough data where you have pedestrians,
+
+15:07.600 --> 15:14.720
+ you also have skateboarders, you've seen enough skateboarders to see what kinds of patterns
+
+15:14.720 --> 15:16.560
+ of behavior they have.
+
+15:16.560 --> 15:21.660
+ So it is in principle with enough data, that problem could be solved.
+
+15:21.660 --> 15:29.960
+ But I think our current systems, computer vision systems, they need far, far more data
+
+15:29.960 --> 15:33.760
+ than humans do for learning those same capabilities.
+
+15:33.760 --> 15:38.100
+ So say that there is going to be a system that solves autonomous driving.
+
+15:38.100 --> 15:43.480
+ Do you think it will look similar to what we have today, but have a lot more data, perhaps
+
+15:43.480 --> 15:48.800
+ more compute, but the fundamental architecture is involved, like neural, well, in the case
+
+15:48.800 --> 15:52.280
+ of Tesla autopilot is neural networks.
+
+15:52.280 --> 15:57.160
+ Do you think it will look similar in that regard and we'll just have more data?
+
+15:57.160 --> 16:01.880
+ That's a scientific hypothesis as to which way is it going to go.
+
+16:01.880 --> 16:05.420
+ I will tell you what I would bet on.
+
+16:05.420 --> 16:14.200
+ So and this is my general philosophical position on how these learning systems have been.
+
+16:14.200 --> 16:20.860
+ What we have found currently very effective in computer vision in the deep learning paradigm
+
+16:20.860 --> 16:27.800
+ is sort of tabula rasa learning and tabula rasa learning in a supervised way with lots
+
+16:27.800 --> 16:28.800
+ and lots of...
+
+16:28.800 --> 16:29.800
+ What's tabula rasa learning?
+
+16:29.800 --> 16:35.340
+ Tabula rasa in the sense that blank slate, we just have the system, which is given a
+
+16:35.340 --> 16:39.960
+ series of experiences in this setting and then it learns there.
+
+16:39.960 --> 16:44.700
+ Now if let's think about human driving, it is not tabula rasa learning.
+
+16:44.700 --> 16:55.240
+ So at the age of 16 in high school, a teenager goes into driver ed class, right?
+
+16:55.240 --> 17:02.040
+ And now at that point they learn, but at the age of 16, they are already visual geniuses
+
+17:02.040 --> 17:07.720
+ because from zero to 16, they have built a certain repertoire of vision.
+
+17:07.720 --> 17:13.520
+ In fact, most of it has probably been achieved by age two, right?
+
+17:13.520 --> 17:18.160
+ In this period of age up to age two, they know that the world is three dimensional.
+
+17:18.160 --> 17:22.360
+ They know how objects look like from different perspectives.
+
+17:22.360 --> 17:24.720
+ They know about occlusion.
+
+17:24.720 --> 17:29.760
+ They know about common dynamics of humans and other bodies.
+
+17:29.760 --> 17:32.200
+ They have some notion of intuitive physics.
+
+17:32.200 --> 17:38.820
+ So they built that up from their observations and interactions in early childhood and of
+
+17:38.820 --> 17:44.020
+ course reinforced through their growing up to age 16.
+
+17:44.020 --> 17:49.400
+ So then at age 16, when they go into driver ed, what are they learning?
+
+17:49.400 --> 17:52.360
+ They're not learning afresh the visual world.
+
+17:52.360 --> 17:54.800
+ They have a mastery of the visual world.
+
+17:54.800 --> 17:58.520
+ What they are learning is control, okay?
+
+17:58.520 --> 18:04.000
+ They're learning how to be smooth about control, about steering and brakes and so forth.
+
+18:04.000 --> 18:08.000
+ They're learning a sense of typical traffic situations.
+
+18:08.000 --> 18:17.840
+ Now that education process can be quite short because they are coming in as visual geniuses.
+
+18:17.840 --> 18:23.440
+ And of course in their future, they're going to encounter situations which are very novel,
+
+18:23.440 --> 18:24.440
+ right?
+
+18:24.440 --> 18:29.720
+ So during my driver ed class, I may not have had to deal with a skateboarder.
+
+18:29.720 --> 18:37.640
+ I may not have had to deal with a truck driving in front of me where the back opens up and
+
+18:37.640 --> 18:42.260
+ some junk gets dropped from the truck and I have to deal with it, right?
+
+18:42.260 --> 18:47.480
+ But I can deal with this as a driver even though I did not encounter this in my driver
+
+18:47.480 --> 18:48.840
+ ed class.
+
+18:48.840 --> 18:52.880
+ And the reason I can deal with it is because I have all this general visual knowledge and
+
+18:52.880 --> 18:55.120
+ expertise.
+
+18:55.120 --> 19:02.440
+ And do you think the learning mechanisms we have today can do that kind of long term accumulation
+
+19:02.440 --> 19:03.800
+ of knowledge?
+
+19:03.800 --> 19:11.400
+ Or do we have to do some kind of, you know, the work that led up to expert systems with
+
+19:11.400 --> 19:17.720
+ knowledge representation, you know, the broader field of artificial intelligence worked on
+
+19:17.720 --> 19:20.240
+ this kind of accumulation of knowledge.
+
+19:20.240 --> 19:22.040
+ Do you think neural networks can do the same?
+
+19:22.040 --> 19:29.960
+ I think I don't see any in principle problem with neural networks doing it, but I think
+
+19:29.960 --> 19:33.760
+ the learning techniques would need to evolve significantly.
+
+19:33.760 --> 19:41.520
+ So the current learning techniques that we have are supervised learning.
+
+19:41.520 --> 19:47.520
+ You're given lots of examples, x, y, y pairs and you learn the functional mapping between
+
+19:47.520 --> 19:48.520
+ them.
+
+19:48.520 --> 19:52.360
+ I think that human learning is far richer than that.
+
+19:52.360 --> 19:54.760
+ It includes many different components.
+
+19:54.760 --> 20:05.560
+ There is a child explores the world and sees, for example, a child takes an object and manipulates
+
+20:05.560 --> 20:12.760
+ it in his hand and therefore gets to see the object from different points of view.
+
+20:12.760 --> 20:14.820
+ And the child has commanded the movement.
+
+20:14.820 --> 20:21.000
+ So that's a kind of learning data, but the learning data has been arranged by the child.
+
+20:21.000 --> 20:23.600
+ And this is a very rich kind of data.
+
+20:23.600 --> 20:30.540
+ The child can do various experiments with the world.
+
+20:30.540 --> 20:36.700
+ So there are many aspects of sort of human learning, and these have been studied in child
+
+20:36.700 --> 20:39.600
+ development by psychologists.
+
+20:39.600 --> 20:45.120
+ And what they tell us is that supervised learning is a very small part of it.
+
+20:45.120 --> 20:48.920
+ There are many different aspects of learning.
+
+20:48.920 --> 20:57.220
+ And what we would need to do is to develop models of all of these and then train our
+
+20:57.220 --> 21:02.480
+ systems with that kind of a protocol.
+
+21:02.480 --> 21:07.800
+ So new methods of learning, some of which might imitate the human brain, but you also
+
+21:07.800 --> 21:13.640
+ in your talks have mentioned sort of the compute side of things, in terms of the difference
+
+21:13.640 --> 21:19.440
+ in the human brain or referencing Moravec, Hans Moravec.
+
+21:19.440 --> 21:25.360
+ So do you think there's something interesting, valuable to consider about the difference
+
+21:25.360 --> 21:32.000
+ in the computational power of the human brain versus the computers of today in terms of
+
+21:32.000 --> 21:34.360
+ instructions per second?
+
+21:34.360 --> 21:41.880
+ Yes, so if we go back, so this is a point I've been making for 20 years now.
+
+21:41.880 --> 21:47.240
+ And I think once upon a time, the way I used to argue this was that we just didn't have
+
+21:47.240 --> 21:49.160
+ the computing power of the human brain.
+
+21:49.160 --> 21:53.480
+ Our computers were not quite there.
+
+21:53.480 --> 22:03.200
+ And I mean, there is a well known trade off, which we know that neurons are slow compared
+
+22:03.200 --> 22:09.720
+ to transistors, but we have a lot of them and they have a very high connectivity.
+
+22:09.720 --> 22:18.240
+ Whereas in silicon, you have much faster devices, transistors switch at the order of nanoseconds,
+
+22:18.240 --> 22:21.780
+ but the connectivity is usually smaller.
+
+22:21.780 --> 22:27.640
+ At this point in time, I mean, we are now talking about 2020, we do have, if you consider
+
+22:27.640 --> 22:31.840
+ the latest GPUs and so on, amazing computing power.
+
+22:31.840 --> 22:39.200
+ And if we look back at Hans Moravec type of calculations, which he did in the 1990s, we
+
+22:39.200 --> 22:44.800
+ may be there today in terms of computing power comparable to the brain, but it's not in the
+
+22:44.800 --> 22:49.960
+ of the same style, it's of a very different style.
+
+22:49.960 --> 22:55.560
+ So I mean, for example, the style of computing that we have in our GPUs is far, far more
+
+22:55.560 --> 23:02.920
+ power hungry than the style of computing that is there in the human brain or other biological
+
+23:02.920 --> 23:03.920
+ entities.
+
+23:03.920 --> 23:04.920
+ Yeah.
+
+23:04.920 --> 23:11.040
+ And that the efficiency part is, we're going to have to solve that in order to build actual
+
+23:11.040 --> 23:15.160
+ real world systems of large scale.
+
+23:15.160 --> 23:19.520
+ Let me ask sort of the high level question, taking a step back.
+
+23:19.520 --> 23:24.400
+ How would you articulate the general problem of computer vision?
+
+23:24.400 --> 23:25.560
+ Does such a thing exist?
+
+23:25.560 --> 23:30.220
+ So if you look at the computer vision conferences and the work that's been going on, it's often
+
+23:30.220 --> 23:36.280
+ separated into different little segments, breaking the problem of vision apart into
+
+23:36.280 --> 23:44.640
+ whether segmentation, 3D reconstruction, object detection, I don't know, image capturing,
+
+23:44.640 --> 23:45.640
+ whatever.
+
+23:45.640 --> 23:46.840
+ There's benchmarks for each.
+
+23:46.840 --> 23:52.340
+ But if you were to sort of philosophically say, what is the big problem of computer vision?
+
+23:52.340 --> 23:54.640
+ Does such a thing exist?
+
+23:54.640 --> 23:57.400
+ Yes, but it's not in isolation.
+
+23:57.400 --> 24:09.840
+ So for all intelligence tasks, I always go back to sort of biology or humans.
+
+24:09.840 --> 24:15.800
+ And if we think about vision or perception in that setting, we realize that perception
+
+24:15.800 --> 24:18.480
+ is always to guide action.
+
+24:18.480 --> 24:25.040
+ Action for a biological system does not give any benefits unless it is coupled with action.
+
+24:25.040 --> 24:30.920
+ So we can go back and think about the first multicellular animals, which arose in the
+
+24:30.920 --> 24:35.040
+ Cambrian era, you know, 500 million years ago.
+
+24:35.040 --> 24:40.840
+ And these animals could move and they could see in some way.
+
+24:40.840 --> 24:43.600
+ And the two activities helped each other.
+
+24:43.600 --> 24:47.720
+ Because how does movement help?
+
+24:47.720 --> 24:52.240
+ Movement helps that because you can get food in different places.
+
+24:52.240 --> 24:54.420
+ But you need to know where to go.
+
+24:54.420 --> 25:00.580
+ And that's really about perception or seeing, I mean, vision is perhaps the single most
+
+25:00.580 --> 25:02.760
+ perception sense.
+
+25:02.760 --> 25:06.040
+ But all the others are equally are also important.
+
+25:06.040 --> 25:10.160
+ So perception and action kind of go together.
+
+25:10.160 --> 25:17.700
+ So earlier, it was in these very simple feedback loops, which were about finding food or avoid
+
+25:17.700 --> 25:24.360
+ avoiding becoming food if there's a predator running, trying to, you know, eat you up,
+
+25:24.360 --> 25:25.360
+ and so forth.
+
+25:25.360 --> 25:30.160
+ So we must, at the fundamental level, connect perception to action.
+
+25:30.160 --> 25:37.400
+ Then as we evolved, perception became more and more sophisticated because it served many
+
+25:37.400 --> 25:39.800
+ more purposes.
+
+25:39.800 --> 25:46.520
+ And so today we have what seems like a fairly general purpose capability, which can look
+
+25:46.520 --> 25:53.520
+ at the external world and build a model of the external world inside the head.
+
+25:53.520 --> 25:55.040
+ We do have that capability.
+
+25:55.040 --> 25:56.960
+ That model is not perfect.
+
+25:56.960 --> 26:01.440
+ And psychologists have great fun in pointing out the ways in which the model in your head
+
+26:01.440 --> 26:05.240
+ is not a perfect model of the external world.
+
+26:05.240 --> 26:11.460
+ They create various illusions to show the ways in which it is imperfect.
+
+26:11.460 --> 26:17.840
+ But it's amazing how far it has come from a very simple perception action loop that
+
+26:17.840 --> 26:23.840
+ you exist in, you know, an animal 500 million years ago.
+
+26:23.840 --> 26:29.760
+ Once we have this, these very sophisticated visual systems, we can then impose a structure
+
+26:29.760 --> 26:30.760
+ on them.
+
+26:30.760 --> 26:36.500
+ It's we as scientists who are imposing that structure, where we have chosen to characterize
+
+26:36.500 --> 26:43.040
+ this part of the system as this quote, module of object detection or quote, this module
+
+26:43.040 --> 26:45.120
+ of 3D reconstruction.
+
+26:45.120 --> 26:55.400
+ What's going on is really all of these processes are running simultaneously and they are running
+
+26:55.400 --> 27:01.000
+ simultaneously because originally their purpose was in fact to help guide action.
+
+27:01.000 --> 27:08.080
+ So as a guiding general statement of a problem, do you think we can say that the general problem
+
+27:08.080 --> 27:14.680
+ of computer vision, you said in humans, it was tied to action.
+
+27:14.680 --> 27:20.880
+ Do you think we should also say that ultimately the goal, the problem of computer vision is
+
+27:20.880 --> 27:27.080
+ to sense the world in a way that helps you act in the world?
+
+27:27.080 --> 27:28.080
+ Yes.
+
+27:28.080 --> 27:32.960
+ I think that's the most fundamental, that's the most fundamental purpose.
+
+27:32.960 --> 27:37.320
+ We have by now hyper evolved.
+
+27:37.320 --> 27:42.000
+ So we have this visual system which can be used for other things.
+
+27:42.000 --> 27:46.940
+ For example, judging the aesthetic value of a painting.
+
+27:46.940 --> 27:49.300
+ And this is not guiding action.
+
+27:49.300 --> 27:54.240
+ Maybe it's guiding action in terms of how much money you will put in your auction bid,
+
+27:54.240 --> 27:56.020
+ but that's a bit stretched.
+
+27:56.020 --> 28:06.120
+ But the basics are in fact in terms of action, but we evolved really this hyper, we have
+
+28:06.120 --> 28:08.160
+ hyper evolved our visual system.
+
+28:08.160 --> 28:13.640
+ Actually just to, sorry to interrupt, but perhaps it is fundamentally about action.
+
+28:13.640 --> 28:20.940
+ You kind of jokingly said about spending, but perhaps the capitalistic drive that drives
+
+28:20.940 --> 28:25.600
+ a lot of the development in this world is about the exchange of money and the fundamental
+
+28:25.600 --> 28:26.600
+ action is money.
+
+28:26.600 --> 28:30.840
+ If you watch Netflix, if you enjoy watching movies, you're using your perception system
+
+28:30.840 --> 28:36.780
+ to interpret the movie, ultimately your enjoyment of that movie means you'll subscribe to Netflix.
+
+28:36.780 --> 28:44.680
+ So the action is this extra layer that we've developed in modern society perhaps is fundamentally
+
+28:44.680 --> 28:47.760
+ tied to the action of spending money.
+
+28:47.760 --> 28:54.200
+ Well certainly with respect to interactions with firms.
+
+28:54.200 --> 29:01.960
+ So in this homo economicus role, when you're interacting with firms, it does become that.
+
+29:01.960 --> 29:02.960
+ What else is there?
+
+29:02.960 --> 29:07.800
+ And that was a rhetorical question.
+
+29:07.800 --> 29:16.200
+ So to linger on the division between the static and the dynamic, so much of the work in computer
+
+29:16.200 --> 29:20.560
+ vision, so many of the breakthroughs that you've been a part of have been in the static
+
+29:20.560 --> 29:24.560
+ world and looking at static images.
+
+29:24.560 --> 29:29.000
+ And then you've also worked on starting, but it's a much smaller degree, the community
+
+29:29.000 --> 29:32.880
+ is looking at dynamic, at video, at dynamic scenes.
+
+29:32.880 --> 29:38.840
+ And then there is robotic vision, which is dynamic, but also where you actually have
+
+29:38.840 --> 29:43.620
+ a robot in the physical world interacting based on that vision.
+
+29:43.620 --> 29:49.840
+ Which problem is harder?
+
+29:49.840 --> 29:53.960
+ The trivial first answer is, well, of course one image is harder.
+
+29:53.960 --> 30:03.400
+ But if you look at a deeper question there, are we, what's the term, cutting ourselves
+
+30:03.400 --> 30:08.200
+ at the knees or like making the problem harder by focusing on images?
+
+30:08.200 --> 30:09.200
+ That's a fair question.
+
+30:09.200 --> 30:20.800
+ I think sometimes we can simplify a problem so much that we essentially lose part of the
+
+30:20.800 --> 30:24.640
+ juice that could enable us to solve the problem.
+
+30:24.640 --> 30:29.600
+ And one could reasonably argue that to some extent this happens when we go from video
+
+30:29.600 --> 30:31.400
+ to single images.
+
+30:31.400 --> 30:39.920
+ Now historically you have to consider the limits imposed by the computation capabilities
+
+30:39.920 --> 30:41.040
+ we had.
+
+30:41.040 --> 30:50.780
+ So many of the choices made in the computer vision community through the 70s, 80s, 90s
+
+30:50.780 --> 30:59.720
+ can be understood as choices which were forced upon us by the fact that we just didn't have
+
+30:59.720 --> 31:01.760
+ enough access to enough compute.
+
+31:01.760 --> 31:04.360
+ Not enough memory, not enough hardware.
+
+31:04.360 --> 31:05.360
+ Exactly.
+
+31:05.360 --> 31:08.240
+ Not enough compute, not enough storage.
+
+31:08.240 --> 31:09.480
+ So think of these choices.
+
+31:09.480 --> 31:14.280
+ So one of the choices is focusing on single images rather than video.
+
+31:14.280 --> 31:15.280
+ Okay.
+
+31:15.280 --> 31:16.760
+ Clear question.
+
+31:16.760 --> 31:19.400
+ Storage and compute.
+
+31:19.400 --> 31:24.960
+ We had to focus on, we used to detect edges and throw away the image.
+
+31:24.960 --> 31:25.960
+ Right?
+
+31:25.960 --> 31:31.120
+ So we would have an image which I say 256 by 256 pixels and instead of keeping around
+
+31:31.120 --> 31:37.360
+ the grayscale value, what we did was we detected edges, find the places where the brightness
+
+31:37.360 --> 31:42.040
+ changes a lot and then throw away the rest.
+
+31:42.040 --> 31:47.640
+ So this was a major compression device and the hope was that this makes it that you can
+
+31:47.640 --> 31:53.480
+ still work with it and the logic was humans can interpret a line drawing.
+
+31:53.480 --> 31:58.240
+ And yes, and this will save us computation.
+
+31:58.240 --> 32:00.920
+ So many of the choices were dictated by that.
+
+32:00.920 --> 32:07.240
+ I think today we are no longer detecting edges, right?
+
+32:07.240 --> 32:10.840
+ We process images with ConvNets because we don't need to.
+
+32:10.840 --> 32:14.040
+ We don't have those computer restrictions anymore.
+
+32:14.040 --> 32:19.880
+ Now video is still understudied because video compute is still quite challenging if you
+
+32:19.880 --> 32:22.320
+ are a university researcher.
+
+32:22.320 --> 32:29.080
+ I think video computing is not so challenging if you are at Google or Facebook or Amazon.
+
+32:29.080 --> 32:30.080
+ Still super challenging.
+
+32:30.080 --> 32:35.480
+ I just spoke with the VP of engineering at Google, head of the YouTube search and discovery
+
+32:35.480 --> 32:38.480
+ and they still struggle doing stuff on video.
+
+32:38.480 --> 32:44.360
+ It's very difficult except using techniques that are essentially the techniques you used
+
+32:44.360 --> 32:45.500
+ in the 90s.
+
+32:45.500 --> 32:48.680
+ Some very basic computer vision techniques.
+
+32:48.680 --> 32:51.540
+ No, that's when you want to do things at scale.
+
+32:51.540 --> 32:56.920
+ So if you want to operate at the scale of all the content of YouTube, it's very challenging
+
+32:56.920 --> 32:59.440
+ and there are similar issues with Facebook.
+
+32:59.440 --> 33:05.840
+ But as a researcher, you have more opportunities.
+
+33:05.840 --> 33:11.240
+ You can train large networks with relatively large video data sets.
+
+33:11.240 --> 33:17.160
+ So I think that this is part of the reason why we have so emphasized static images.
+
+33:17.160 --> 33:22.800
+ I think that this is changing and over the next few years, I see a lot more progress
+
+33:22.800 --> 33:25.240
+ happening in video.
+
+33:25.240 --> 33:32.560
+ So I have this generic statement that to me, video recognition feels like 10 years behind
+
+33:32.560 --> 33:37.840
+ object recognition and you can quantify that because you can take some of the challenging
+
+33:37.840 --> 33:45.280
+ video data sets and their performance on action classification is like say 30%, which is kind
+
+33:45.280 --> 33:51.840
+ of what we used to have around 2009 in object detection.
+
+33:51.840 --> 33:58.160
+ It's like about 10 years behind and whether it'll take 10 years to catch up is a different
+
+33:58.160 --> 33:59.160
+ question.
+
+33:59.160 --> 34:01.360
+ Hopefully, it will take less than that.
+
+34:01.360 --> 34:08.600
+ Let me ask a similar question I've already asked, but once again, so for dynamic scenes,
+
+34:08.600 --> 34:17.280
+ do you think some kind of injection of knowledge bases and reasoning is required to help improve
+
+34:17.280 --> 34:20.400
+ like action recognition?
+
+34:20.400 --> 34:28.800
+ Like if we saw the general action recognition problem, what do you think the solution would
+
+34:28.800 --> 34:31.120
+ look like as another way to put it?
+
+34:31.120 --> 34:39.720
+ So I completely agree that knowledge is called for and that knowledge can be quite sophisticated.
+
+34:39.720 --> 34:44.960
+ So the way I would say it is that perception blends into cognition and cognition brings
+
+34:44.960 --> 34:54.040
+ in issues of memory and this notion of a schema from psychology, which is, let me use the
+
+34:54.040 --> 34:58.780
+ classic example, which is you go to a restaurant, right?
+
+34:58.780 --> 35:03.580
+ Now there are things that happen in a certain order, you walk in, somebody takes you to
+
+35:03.580 --> 35:13.240
+ a table, waiter comes, gives you a menu, takes the order, food arrives, eventually bill arrives,
+
+35:13.240 --> 35:15.160
+ et cetera, et cetera.
+
+35:15.160 --> 35:19.840
+ This is a classic example of AI from the 1970s.
+
+35:19.840 --> 35:26.080
+ It was called, there was the term frames and scripts and schemas, these are all quite similar
+
+35:26.080 --> 35:27.080
+ ideas.
+
+35:27.080 --> 35:34.280
+ Okay, and in the 70s, the way the AI of the time dealt with it was by hand coding this.
+
+35:34.280 --> 35:40.440
+ So they hand coded in this notion of a script and the various stages and the actors and
+
+35:40.440 --> 35:45.440
+ so on and so forth, and use that to interpret, for example, language.
+
+35:45.440 --> 35:52.840
+ I mean, if there's a description of a story involving some people eating at a restaurant,
+
+35:52.840 --> 35:58.440
+ there are all these inferences you can make because you know what happens typically at
+
+35:58.440 --> 36:00.240
+ a restaurant.
+
+36:00.240 --> 36:06.120
+ So I think this kind of knowledge is absolutely essential.
+
+36:06.120 --> 36:12.320
+ So I think that when we are going to do long form video understanding, we are going to
+
+36:12.320 --> 36:13.400
+ need to do this.
+
+36:13.400 --> 36:19.360
+ I think the kinds of technology that we have right now with 3D convolutions over a couple
+
+36:19.360 --> 36:26.080
+ of seconds of clip or video, it's very much tailored towards short term video understanding,
+
+36:26.080 --> 36:28.440
+ not that long term understanding.
+
+36:28.440 --> 36:35.760
+ Long term understanding requires this notion of schemas that I talked about, perhaps some
+
+36:35.760 --> 36:43.120
+ notions of goals, intentionality, functionality, and so on and so forth.
+
+36:43.120 --> 36:46.040
+ Now, how will we bring that in?
+
+36:46.040 --> 36:51.760
+ So we could either revert back to the 70s and say, OK, I'm going to hand code in a script
+
+36:51.760 --> 36:56.280
+ or we might try to learn it.
+
+36:56.280 --> 37:03.560
+ So I tend to believe that we have to find learning ways of doing this because I think
+
+37:03.560 --> 37:06.880
+ learning ways land up being more robust.
+
+37:06.880 --> 37:12.440
+ And there must be a learning version of the story because children acquire a lot of this
+
+37:12.440 --> 37:16.640
+ knowledge by sort of just observation.
+
+37:16.640 --> 37:24.320
+ So at no moment in a child's life does it's possible, but I think it's not so typical
+
+37:24.320 --> 37:29.560
+ that somebody that a mother coaches a child through all the stages of what happens in
+
+37:29.560 --> 37:30.560
+ a restaurant.
+
+37:30.560 --> 37:36.480
+ They just go as a family, they go to the restaurant, they eat, come back, and the child goes through
+
+37:36.480 --> 37:41.560
+ ten such experiences and the child has got a schema of what happens when you go to a
+
+37:41.560 --> 37:42.720
+ restaurant.
+
+37:42.720 --> 37:48.040
+ So we somehow need to provide that capability to our systems.
+
+37:48.040 --> 37:53.880
+ You mentioned the following line from the end of the Alan Turing paper, Computing Machinery
+
+37:53.880 --> 37:59.680
+ and Intelligence, that many people, like you said, many people know and very few have read
+
+37:59.680 --> 38:03.960
+ where he proposes the Turing test.
+
+38:03.960 --> 38:06.960
+ This is how you know because it's towards the end of the paper.
+
+38:06.960 --> 38:10.940
+ Instead of trying to produce a program to simulate the adult mind, why not rather try
+
+38:10.940 --> 38:14.440
+ to produce one which simulates the child's?
+
+38:14.440 --> 38:17.280
+ So that's a really interesting point.
+
+38:17.280 --> 38:24.520
+ If I think about the benchmarks we have before us, the tests of our computer vision systems,
+
+38:24.520 --> 38:28.340
+ they're often kind of trying to get to the adult.
+
+38:28.340 --> 38:31.160
+ So what kind of benchmarks should we have?
+
+38:31.160 --> 38:37.400
+ What kind of tests for computer vision do you think we should have that mimic the child's
+
+38:37.400 --> 38:38.400
+ in computer vision?
+
+38:38.400 --> 38:42.880
+ I think we should have those and we don't have those today.
+
+38:42.880 --> 38:50.240
+ And I think the part of the challenge is that we should really be collecting data of the
+
+38:50.240 --> 38:55.180
+ type that the child experiences.
+
+38:55.180 --> 38:59.400
+ So that gets into issues of privacy and so on and so forth.
+
+38:59.400 --> 39:05.080
+ But there are attempts in this direction to sort of try to collect the kind of data that
+
+39:05.080 --> 39:08.600
+ a child encounters growing up.
+
+39:08.600 --> 39:11.200
+ So what's the child's linguistic environment?
+
+39:11.200 --> 39:13.580
+ What's the child's visual environment?
+
+39:13.580 --> 39:20.800
+ So if we could collect that kind of data and then develop learning schemes based on that
+
+39:20.800 --> 39:25.160
+ data, that would be one way to do it.
+
+39:25.160 --> 39:28.880
+ I think that's a very promising direction myself.
+
+39:28.880 --> 39:33.920
+ There might be people who would argue that we could just short circuit this in some way
+
+39:33.920 --> 39:44.440
+ and sometimes we have imitated, we have had success by not imitating nature in detail.
+
+39:44.440 --> 39:47.520
+ So the usual example is airplanes, right?
+
+39:47.520 --> 39:51.940
+ We don't build flapping wings.
+
+39:51.940 --> 39:57.160
+ So yes, that's one of the points of debate.
+
+39:57.160 --> 40:05.120
+ In my mind, I would bet on this learning like a child approach.
+
+40:05.120 --> 40:11.400
+ So one of the fundamental aspects of learning like a child is the interactivity.
+
+40:11.400 --> 40:14.200
+ So the child gets to play with the data set it's learning from.
+
+40:14.200 --> 40:15.200
+ Yes.
+
+40:15.200 --> 40:16.200
+ So it gets to select.
+
+40:16.200 --> 40:19.600
+ I mean, you can call that active learning.
+
+40:19.600 --> 40:23.660
+ In the machine learning world, you can call it a lot of terms.
+
+40:23.660 --> 40:27.600
+ What are your thoughts about this whole space of being able to play with the data set or
+
+40:27.600 --> 40:29.320
+ select what you're learning?
+
+40:29.320 --> 40:30.320
+ Yeah.
+
+40:30.320 --> 40:38.720
+ So I think that I believe in that and I think that we could achieve it in two ways and I
+
+40:38.720 --> 40:40.800
+ think we should use both.
+
+40:40.800 --> 40:45.560
+ So one is actually real robotics, right?
+
+40:45.560 --> 40:52.880
+ So real physical embodiments of agents who are interacting with the world and they have
+
+40:52.880 --> 40:59.440
+ a physical body with dynamics and mass and moment of inertia and friction and all the
+
+40:59.440 --> 41:08.400
+ rest and you learn your body, the robot learns its body by doing a series of actions.
+
+41:08.400 --> 41:11.640
+ The second is that simulation environments.
+
+41:11.640 --> 41:17.000
+ So I think simulation environments are getting much, much better.
+
+41:17.000 --> 41:24.880
+ In my life in Facebook AI research, our group has worked on something called Habitat, which
+
+41:24.880 --> 41:34.560
+ is a simulation environment, which is a visually photorealistic environment of places like
+
+41:34.560 --> 41:39.680
+ houses or interiors of various urban spaces and so forth.
+
+41:39.680 --> 41:45.000
+ And as you move, you get a picture, which is a pretty accurate picture.
+
+41:45.000 --> 41:53.880
+ So now you can imagine that subsequent generations of these simulators will be accurate, not
+
+41:53.880 --> 42:01.600
+ just visually, but with respect to forces and masses and haptic interactions and so
+
+42:01.600 --> 42:03.560
+ on.
+
+42:03.560 --> 42:07.520
+ And then we have that environment to play with.
+
+42:07.520 --> 42:16.280
+ I think, let me state one reason why I think being able to act in the world is important.
+
+42:16.280 --> 42:23.000
+ I think that this is one way to break the correlation versus causation barrier.
+
+42:23.000 --> 42:27.160
+ So this is something which is of a great deal of interest these days.
+
+42:27.160 --> 42:34.660
+ I mean, people like Judea Pearl have talked a lot about that we are neglecting causality
+
+42:34.660 --> 42:42.740
+ and he describes the entire set of successes of deep learning as just curve fitting, right?
+
+42:42.740 --> 42:45.240
+ But I don't quite agree about it.
+
+42:45.240 --> 42:46.240
+ He's a troublemaker.
+
+42:46.240 --> 42:47.240
+ He is.
+
+42:47.240 --> 42:54.520
+ But causality is important, but causality is not like a single silver bullet.
+
+42:54.520 --> 42:56.160
+ It's not like one single principle.
+
+42:56.160 --> 42:58.660
+ There are many different aspects here.
+
+42:58.660 --> 43:05.120
+ And one of the ways in which, one of our most reliable ways of establishing causal links
+
+43:05.120 --> 43:11.600
+ and this is the way, for example, the medical community does this is randomized control
+
+43:11.600 --> 43:12.840
+ trials.
+
+43:12.840 --> 43:18.440
+ So you have, you pick some situation and now in some situation you perform an action and
+
+43:18.440 --> 43:22.600
+ for certain others you don't, right?
+
+43:22.600 --> 43:23.800
+ So you have a controlled experiment.
+
+43:23.800 --> 43:28.880
+ Well, the child is in fact performing controlled experiments all the time, right?
+
+43:28.880 --> 43:29.880
+ Right.
+
+43:29.880 --> 43:30.880
+ Okay.
+
+43:30.880 --> 43:31.880
+ Small scale.
+
+43:31.880 --> 43:32.880
+ In a small scale.
+
+43:32.880 --> 43:41.240
+ But that is a way that the child gets to build and refine its causal models of the world.
+
+43:41.240 --> 43:47.000
+ And my colleague Alison Gopnik has, together with a couple of authors, coauthors, has this
+
+43:47.000 --> 43:50.820
+ book called The Scientist in the Crib, referring to the children.
+
+43:50.820 --> 43:57.720
+ So I like, the part that I like about that is the scientist wants to do, wants to build
+
+43:57.720 --> 44:01.820
+ causal models and the scientist does control experiments.
+
+44:01.820 --> 44:03.800
+ And I think the child is doing that.
+
+44:03.800 --> 44:10.240
+ So to enable that, we will need to have these active experiments.
+
+44:10.240 --> 44:14.640
+ And I think this could be done, some in the real world and some in simulation.
+
+44:14.640 --> 44:16.840
+ So you have hope for simulation.
+
+44:16.840 --> 44:18.120
+ I have hope for simulation.
+
+44:18.120 --> 44:22.960
+ That's an exciting possibility if we can get to not just photorealistic, but what's that
+
+44:22.960 --> 44:27.720
+ called life realistic simulation.
+
+44:27.720 --> 44:35.800
+ So you don't see any fundamental blocks to why we can't eventually simulate the principles
+
+44:35.800 --> 44:39.440
+ of what it means to exist in the world as a physical scientist.
+
+44:39.440 --> 44:43.960
+ I don't see any fundamental problems that, I mean, and look, the computer graphics community
+
+44:43.960 --> 44:45.440
+ has come a long way.
+
+44:45.440 --> 44:50.600
+ So in the early days, back going back to the eighties and nineties, they were focusing
+
+44:50.600 --> 44:52.760
+ on visual realism, right?
+
+44:52.760 --> 44:58.080
+ And then they could do the easy stuff, but they couldn't do stuff like hair or fur and
+
+44:58.080 --> 44:59.080
+ so on.
+
+44:59.080 --> 45:01.280
+ Okay, well, they managed to do that.
+
+45:01.280 --> 45:04.440
+ Then they couldn't do physical actions, right?
+
+45:04.440 --> 45:09.120
+ Like there's a bowl of glass and it falls down and it shatters, but then they could
+
+45:09.120 --> 45:13.920
+ start to do pretty realistic models of that and so on and so forth.
+
+45:13.920 --> 45:19.920
+ So the graphics people have shown that they can do this forward direction, not just for
+
+45:19.920 --> 45:23.880
+ optical interactions, but also for physical interactions.
+
+45:23.880 --> 45:30.000
+ So I think, of course, some of that is very compute intensive, but I think by and by we
+
+45:30.000 --> 45:35.860
+ will find ways of making our models ever more realistic.
+
+45:35.860 --> 45:40.600
+ You break vision apart into, in one of your presentations, early vision, static scene
+
+45:40.600 --> 45:44.320
+ understanding, dynamic scene understanding, and raise a few interesting questions.
+
+45:44.320 --> 45:50.360
+ I thought I could just throw some at you to see if you want to talk about them.
+
+45:50.360 --> 45:58.360
+ So early vision, so it's, what is it that you said, sensation, perception and cognition.
+
+45:58.360 --> 46:00.720
+ So is this a sensation?
+
+46:00.720 --> 46:01.720
+ Yes.
+
+46:01.720 --> 46:05.720
+ What can we learn from image statistics that we don't already know?
+
+46:05.720 --> 46:15.560
+ So at the lowest level, what can we make from just the statistics, the basics, or the variations
+
+46:15.560 --> 46:18.480
+ in the rock pixels, the textures and so on?
+
+46:18.480 --> 46:19.480
+ Yeah.
+
+46:19.480 --> 46:28.960
+ So what we seem to have learned is that there's a lot of redundancy in these images and as
+
+46:28.960 --> 46:35.000
+ a result, we are able to do a lot of compression and this compression is very important in
+
+46:35.000 --> 46:36.960
+ biological settings, right?
+
+46:36.960 --> 46:42.560
+ So you might have 10 to the 8 photoreceptors and only 10 to the 6 fibers in the optic nerve.
+
+46:42.560 --> 46:46.880
+ So you have to do this compression by a factor of 100 is to 1.
+
+46:46.880 --> 46:54.760
+ And so there are analogs of that which are happening in our neural net, artificial neural
+
+46:54.760 --> 46:55.760
+ network.
+
+46:55.760 --> 46:56.760
+ That's the early layers.
+
+46:56.760 --> 47:01.520
+ So you think there's a lot of compression that can be done in the beginning.
+
+47:01.520 --> 47:02.520
+ Just the statistics.
+
+47:02.520 --> 47:03.520
+ Yeah.
+
+47:03.520 --> 47:05.640
+ So how successful is image compression?
+
+47:05.640 --> 47:06.640
+ How much?
+
+47:06.640 --> 47:14.160
+ Well, I mean, the way to think about it is just how successful is image compression,
+
+47:14.160 --> 47:15.160
+ right?
+
+47:15.160 --> 47:23.160
+ And that's been done with older technologies, but it can be done with, there are several
+
+47:23.160 --> 47:29.160
+ companies which are trying to use sort of these more advanced neural network type techniques
+
+47:29.160 --> 47:34.360
+ for compression, both for static images as well as for video.
+
+47:34.360 --> 47:41.880
+ One of my former students has a company which is trying to do stuff like this.
+
+47:41.880 --> 47:47.480
+ And I think that they are showing quite interesting results.
+
+47:47.480 --> 47:52.560
+ And I think that that's all the success of, that's really about image statistics and
+
+47:52.560 --> 47:53.560
+ video statistics.
+
+47:53.560 --> 47:59.120
+ But that's still not doing compression of the kind, when I see a picture of a cat, all
+
+47:59.120 --> 48:02.480
+ I have to say is it's a cat, that's another semantic kind of compression.
+
+48:02.480 --> 48:03.480
+ Yeah.
+
+48:03.480 --> 48:04.800
+ So this is at the lower level, right?
+
+48:04.800 --> 48:10.280
+ So we are, as I said, yeah, that's focusing on low level statistics.
+
+48:10.280 --> 48:17.880
+ So to linger on that for a little bit, you mentioned how far can bottom up image segmentation
+
+48:17.880 --> 48:18.880
+ go.
+
+48:18.880 --> 48:24.680
+ You know, what you mentioned that the central question for scene understanding is the interplay
+
+48:24.680 --> 48:26.880
+ of bottom up and top down information.
+
+48:26.880 --> 48:29.980
+ Maybe this is a good time to elaborate on that.
+
+48:29.980 --> 48:37.400
+ Maybe define what is bottom up, what is top down in the context of computer vision.
+
+48:37.400 --> 48:38.400
+ Right.
+
+48:38.400 --> 48:45.160
+ So today what we have are very interesting systems because they work completely bottom
+
+48:45.160 --> 48:46.160
+ up.
+
+48:46.160 --> 48:47.920
+ What does bottom up mean, sorry?
+
+48:47.920 --> 48:52.160
+ So bottom up means, in this case means a feed forward neural network.
+
+48:52.160 --> 48:57.020
+ So starting from the raw pixels, yeah, they start from the raw pixels and they end up
+
+48:57.020 --> 49:00.600
+ with some, something like cat or not a cat, right?
+
+49:00.600 --> 49:04.600
+ So our systems are running totally feed forward.
+
+49:04.600 --> 49:07.560
+ They're trained in a very top down way.
+
+49:07.560 --> 49:11.560
+ So they're trained by saying, okay, this is a cat, there's a cat, there's a dog, there's
+
+49:11.560 --> 49:14.440
+ a zebra, et cetera.
+
+49:14.440 --> 49:18.560
+ And I'm not happy with either of these choices fully.
+
+49:18.560 --> 49:24.960
+ We have gone into, because we have completely separated these processes, right?
+
+49:24.960 --> 49:34.160
+ So there's a, so I would like the process, so what do we know compared to biology?
+
+49:34.160 --> 49:42.500
+ So in biology, what we know is that the processes in at test time, at runtime, those processes
+
+49:42.500 --> 49:46.340
+ are not purely feed forward, but they involve feedback.
+
+49:46.340 --> 49:50.080
+ So and they involve much shallower neural networks.
+
+49:50.080 --> 49:55.880
+ So the kinds of neural networks we are using in computer vision, say a ResNet 50 has 50
+
+49:55.880 --> 49:56.880
+ layers.
+
+49:56.880 --> 50:02.800
+ Well in the brain, in the visual cortex going from the retina to IT, maybe we have like
+
+50:02.800 --> 50:04.240
+ seven, right?
+
+50:04.240 --> 50:08.080
+ So they're far shallower, but we have the possibility of feedback.
+
+50:08.080 --> 50:11.000
+ So there are backward connections.
+
+50:11.000 --> 50:18.240
+ And this might enable us to deal with the more ambiguous stimuli, for example.
+
+50:18.240 --> 50:26.480
+ So the biological solution seems to involve feedback, the solution in artificial vision
+
+50:26.480 --> 50:30.760
+ seems to be just feed forward, but with a much deeper network.
+
+50:30.760 --> 50:35.500
+ And the two are functionally equivalent because if you have a feedback network, which just
+
+50:35.500 --> 50:40.440
+ has like three rounds of feedback, you can just unroll it and make it three times the
+
+50:40.440 --> 50:44.520
+ depth and create it in a totally feed forward way.
+
+50:44.520 --> 50:49.800
+ So this is something which, I mean, we have written some papers on this theme, but I really
+
+50:49.800 --> 50:55.720
+ feel that this should, this theme should be pursued further.
+
+50:55.720 --> 50:57.440
+ Some kind of occurrence mechanism.
+
+50:57.440 --> 50:58.440
+ Yeah.
+
+50:58.440 --> 50:59.440
+ Okay.
+
+50:59.440 --> 51:07.440
+ The other, so that's, so I want to have a little bit more top down in the, at test time.
+
+51:07.440 --> 51:08.440
+ Okay.
+
+51:08.440 --> 51:13.800
+ And then at training time, we make use of a lot of top down knowledge right now.
+
+51:13.800 --> 51:19.320
+ So basically to learn to segment an object, we have to have all these examples of this
+
+51:19.320 --> 51:22.840
+ is the boundary of a cat, and this is the boundary of a chair, and this is the boundary
+
+51:22.840 --> 51:24.640
+ of a horse and so on.
+
+51:24.640 --> 51:27.960
+ And this is too much top down knowledge.
+
+51:27.960 --> 51:30.400
+ How do humans do this?
+
+51:30.400 --> 51:36.680
+ We manage to, we manage with far less supervision and we do it in a sort of bottom up way because
+
+51:36.680 --> 51:44.540
+ for example, we are looking at a video stream and the horse moves and that enables me to
+
+51:44.540 --> 51:47.360
+ say that all these pixels are together.
+
+51:47.360 --> 51:53.180
+ So the Gestalt psychologist used to call this the principle of common fate.
+
+51:53.180 --> 51:58.160
+ So there was a bottom up process by which we were able to segment out these objects
+
+51:58.160 --> 52:04.540
+ and we have totally focused on this top down training signal.
+
+52:04.540 --> 52:10.280
+ So in my view, we have currently solved it in machine vision, this top down bottom up
+
+52:10.280 --> 52:17.680
+ interaction, but I don't find the solution fully satisfactory and I would rather have
+
+52:17.680 --> 52:20.200
+ a bit of both at both stages.
+
+52:20.200 --> 52:25.440
+ For all computer vision problems, not just segmentation.
+
+52:25.440 --> 52:30.360
+ And the question that you can ask is, so for me, I'm inspired a lot by human vision and
+
+52:30.360 --> 52:31.880
+ I care about that.
+
+52:31.880 --> 52:35.560
+ You could be just a hard boiled engineer and not give a damn.
+
+52:35.560 --> 52:41.960
+ So to you, I would then argue that you would need far less training data if you could make
+
+52:41.960 --> 52:45.920
+ my research agenda fruitful.
+
+52:45.920 --> 52:54.120
+ Okay, so then maybe taking a step into segmentation, static scene understanding.
+
+52:54.120 --> 52:57.400
+ What is the interaction between segmentation and recognition?
+
+52:57.400 --> 53:00.800
+ You mentioned the movement of objects.
+
+53:00.800 --> 53:07.680
+ So for people who don't know computer vision, segmentation is this weird activity that computer
+
+53:07.680 --> 53:15.220
+ vision folks have all agreed is very important of drawing outlines around objects versus
+
+53:15.220 --> 53:21.920
+ a bounding box and then classifying that object.
+
+53:21.920 --> 53:23.660
+ What's the value of segmentation?
+
+53:23.660 --> 53:27.320
+ What is it as a problem in computer vision?
+
+53:27.320 --> 53:31.720
+ How is it fundamentally different from detection recognition and the other problems?
+
+53:31.720 --> 53:41.760
+ Yeah, so I think, so segmentation enables us to say that some set of pixels are an object
+
+53:41.760 --> 53:47.120
+ without necessarily even being able to name that object or knowing properties of that
+
+53:47.120 --> 53:48.120
+ object.
+
+53:48.120 --> 53:55.000
+ Oh, so you mean segmentation purely as the act of separating an object.
+
+53:55.000 --> 53:56.000
+ From its background.
+
+53:56.000 --> 54:01.120
+ It's a job that's united in some way from its background.
+
+54:01.120 --> 54:05.760
+ Yeah, so entitification, if you will, making an entity out of it.
+
+54:05.760 --> 54:09.280
+ Entitification, beautifully termed.
+
+54:09.280 --> 54:17.820
+ So I think that we have that capability and that enables us to, as we are growing up,
+
+54:17.820 --> 54:23.760
+ to acquire names of objects with very little supervision.
+
+54:23.760 --> 54:28.720
+ So suppose the child, let's posit that the child has this ability to separate out objects
+
+54:28.720 --> 54:30.080
+ in the world.
+
+54:30.080 --> 54:42.160
+ Then when the mother says, pick up your bottle or the cat's behaving funny today, the word
+
+54:42.160 --> 54:47.740
+ cat suggests some object and then the child sort of does the mapping, right?
+
+54:47.740 --> 54:55.000
+ The mother doesn't have to teach specific object labels by pointing to them.
+
+54:55.000 --> 55:01.600
+ Weak supervision works in the context that you have the ability to create objects.
+
+55:01.600 --> 55:07.800
+ So I think that, so to me, that's a very fundamental capability.
+
+55:07.800 --> 55:13.180
+ There are applications where this is very important, for example, medical diagnosis.
+
+55:13.180 --> 55:20.180
+ So in medical diagnosis, you have some brain scan, I mean, this is some work that we did
+
+55:20.180 --> 55:26.960
+ in my group where you have CT scans of people who have had traumatic brain injury and what
+
+55:26.960 --> 55:32.680
+ the radiologist needs to do is to precisely delineate various places where there might
+
+55:32.680 --> 55:39.840
+ be bleeds, for example, and there are clear needs like that.
+
+55:39.840 --> 55:46.360
+ So there are certainly very practical applications of computer vision where segmentation is necessary,
+
+55:46.360 --> 55:54.980
+ but philosophically segmentation enables the task of recognition to proceed with much weaker
+
+55:54.980 --> 55:58.000
+ supervision than we require today.
+
+55:58.000 --> 56:03.960
+ And you think of segmentation as this kind of task that takes on a visual scene and breaks
+
+56:03.960 --> 56:11.840
+ it apart into interesting entities that might be useful for whatever the task is.
+
+56:11.840 --> 56:12.840
+ Yeah.
+
+56:12.840 --> 56:14.760
+ And it is not semantics free.
+
+56:14.760 --> 56:22.080
+ So I think, I mean, it blends into, it involves perception and cognition.
+
+56:22.080 --> 56:28.440
+ It is not, I think the mistake that we used to make in the early days of computer vision
+
+56:28.440 --> 56:32.520
+ was to treat it as a purely bottom up perceptual task.
+
+56:32.520 --> 56:41.000
+ It is not just that because we do revise our notion of segmentation with more experience,
+
+56:41.000 --> 56:42.000
+ right?
+
+56:42.000 --> 56:47.320
+ Because for example, there are objects which are nonrigid like animals or humans.
+
+56:47.320 --> 56:53.280
+ And I think understanding that all the pixels of a human are one entity is actually quite
+
+56:53.280 --> 56:59.400
+ a challenge because the parts of the human, they can move independently and the human
+
+56:59.400 --> 57:02.800
+ wears clothes, so they might be differently colored.
+
+57:02.800 --> 57:05.600
+ So it's all sort of a challenge.
+
+57:05.600 --> 57:12.280
+ You mentioned the three R's of computer vision are recognition, reconstruction and reorganization.
+
+57:12.280 --> 57:15.760
+ Can you describe these three R's and how they interact?
+
+57:15.760 --> 57:16.840
+ Yeah.
+
+57:16.840 --> 57:24.240
+ So recognition is the easiest one because that's what I think people generally think
+
+57:24.240 --> 57:30.520
+ of as computer vision achieving these days, which is labels.
+
+57:30.520 --> 57:31.600
+ So is this a cat?
+
+57:31.600 --> 57:32.640
+ Is this a dog?
+
+57:32.640 --> 57:35.160
+ Is this a chihuahua?
+
+57:35.160 --> 57:41.080
+ I mean, you know, it could be very fine grained like, you know, specific breed of a dog or
+
+57:41.080 --> 57:47.080
+ a specific species of bird, or it could be very abstract like animal.
+
+57:47.080 --> 57:51.880
+ But given a part of an image or a whole image, say put a label on it.
+
+57:51.880 --> 57:52.880
+ Yeah.
+
+57:52.880 --> 57:54.440
+ That's recognition.
+
+57:54.440 --> 58:03.440
+ Reconstruction is essentially, you can think of it as inverse graphics.
+
+58:03.440 --> 58:07.160
+ I mean, that's one way to think about it.
+
+58:07.160 --> 58:14.760
+ So graphics is you have some internal computer representation and you have a computer representation
+
+58:14.760 --> 58:17.440
+ of some objects arranged in a scene.
+
+58:17.440 --> 58:22.080
+ And what you do is you produce a picture, you produce the pixels corresponding to a
+
+58:22.080 --> 58:24.560
+ rendering of that scene.
+
+58:24.560 --> 58:28.840
+ So let's do the inverse of this.
+
+58:28.840 --> 58:38.480
+ We are given an image and we try to, we say, oh, this image arises from some objects in
+
+58:38.480 --> 58:41.960
+ a scene looked at with a camera from this viewpoint.
+
+58:41.960 --> 58:47.520
+ And we might have more information about the objects like their shape, maybe their textures,
+
+58:47.520 --> 58:51.720
+ maybe, you know, color, et cetera, et cetera.
+
+58:51.720 --> 58:53.320
+ So that's the reconstruction problem.
+
+58:53.320 --> 59:00.200
+ In a way, you are in your head creating a model of the external world.
+
+59:00.200 --> 59:01.200
+ Right.
+
+59:01.200 --> 59:02.200
+ Okay.
+
+59:02.200 --> 59:09.240
+ Reorganization is to do with essentially finding these entities.
+
+59:09.240 --> 59:15.600
+ So it's organization, the word organization implies structure.
+
+59:15.600 --> 59:22.760
+ So that in perception, in psychology, we use the term perceptual organization.
+
+59:22.760 --> 59:30.980
+ That the world is not just, an image is not just seen as, is not internally represented
+
+59:30.980 --> 59:34.800
+ as just a collection of pixels, but we make these entities.
+
+59:34.800 --> 59:38.120
+ We create these entities, objects, whatever you want to call it.
+
+59:38.120 --> 59:42.400
+ And the relationship between the entities as well, or is it purely about the entities?
+
+59:42.400 --> 59:47.160
+ It could be about the relationships, but mainly we focus on the fact that there are entities.
+
+59:47.160 --> 59:48.160
+ Okay.
+
+59:48.160 --> 59:52.440
+ So I'm trying to pinpoint what the organization means.
+
+59:52.440 --> 1:00:02.120
+ So organization is that instead of like a uniform grid, we have this structure of objects.
+
+1:00:02.120 --> 1:00:05.400
+ So the segmentation is the small part of that.
+
+1:00:05.400 --> 1:00:09.000
+ So segmentation gets us going towards that.
+
+1:00:09.000 --> 1:00:10.120
+ Yeah.
+
+1:00:10.120 --> 1:00:13.560
+ And you kind of have this triangle where they all interact together.
+
+1:00:13.560 --> 1:00:14.560
+ Yes.
+
+1:00:14.560 --> 1:00:23.560
+ So how do you see that interaction in sort of reorganization is yes, finding the entities
+
+1:00:23.560 --> 1:00:25.200
+ in the world.
+
+1:00:25.200 --> 1:00:32.720
+ The recognition is labeling those entities and then reconstruction is what filling in
+
+1:00:32.720 --> 1:00:33.720
+ the gaps.
+
+1:00:33.720 --> 1:00:43.280
+ Well, for example, see, impute some 3D objects corresponding to each of these entities.
+
+1:00:43.280 --> 1:00:44.280
+ That would be part of it.
+
+1:00:44.280 --> 1:00:48.400
+ So adding more information that's not there in the raw data.
+
+1:00:48.400 --> 1:00:49.400
+ Correct.
+
+1:00:49.400 --> 1:00:58.260
+ I mean, I started pushing this kind of a view in the, around 2010 or something like that.
+
+1:00:58.260 --> 1:01:06.360
+ Because at that time in computer vision, the distinction that people were just working
+
+1:01:06.360 --> 1:01:11.360
+ on many different problems, but they treated each of them as a separate isolated problem
+
+1:01:11.360 --> 1:01:13.880
+ with each with its own data set.
+
+1:01:13.880 --> 1:01:17.040
+ And then you try to solve that and get good numbers on it.
+
+1:01:17.040 --> 1:01:23.840
+ So I wasn't, I didn't like that approach because I wanted to see the connection between these.
+
+1:01:23.840 --> 1:01:30.640
+ And if people divided up vision into, into various modules, the way they would do it
+
+1:01:30.640 --> 1:01:36.720
+ is as low level, mid level and high level vision corresponding roughly to the psychologist's
+
+1:01:36.720 --> 1:01:40.180
+ notion of sensation, perception and cognition.
+
+1:01:40.180 --> 1:01:45.160
+ And I didn't, that didn't map to tasks that people cared about.
+
+1:01:45.160 --> 1:01:46.160
+ Okay.
+
+1:01:46.160 --> 1:01:52.380
+ So therefore I tried to promote this particular framework as a way of considering the problems
+
+1:01:52.380 --> 1:01:58.180
+ that people in computer vision were actually working on and trying to be more explicit
+
+1:01:58.180 --> 1:02:02.440
+ about the fact that they actually are connected to each other.
+
+1:02:02.440 --> 1:02:07.400
+ And I was at that time just doing this on the basis of information flow.
+
+1:02:07.400 --> 1:02:17.180
+ Now it turns out in the last five years or so in the post, the deep learning revolution
+
+1:02:17.180 --> 1:02:25.000
+ that this, this architecture has turned out to be very conducive to that.
+
+1:02:25.000 --> 1:02:33.040
+ Because basically in these neural networks, we are trying to build multiple representations.
+
+1:02:33.040 --> 1:02:37.280
+ They can be multiple output heads sharing common representations.
+
+1:02:37.280 --> 1:02:46.240
+ So in a certain sense today, given the reality of what solutions people have to this, I do
+
+1:02:46.240 --> 1:02:48.320
+ not need to preach this anymore.
+
+1:02:48.320 --> 1:02:50.720
+ It is, it is just there.
+
+1:02:50.720 --> 1:02:52.600
+ It's part of the sedation space.
+
+1:02:52.600 --> 1:03:02.280
+ So speaking of neural networks, how much of this problem of computer vision of reorganization
+
+1:03:02.280 --> 1:03:09.280
+ recognition can be reconstruction?
+
+1:03:09.280 --> 1:03:12.800
+ How much of it can be learned end to end, do you think?
+
+1:03:12.800 --> 1:03:17.160
+ Sort of set it and forget it.
+
+1:03:17.160 --> 1:03:23.160
+ Just plug and play, have a giant data set, multiple, perhaps multimodal, and then just
+
+1:03:23.160 --> 1:03:25.680
+ learn the entirety of it.
+
+1:03:25.680 --> 1:03:31.440
+ Well, so I think that currently what that end to end learning means nowadays is end
+
+1:03:31.440 --> 1:03:34.360
+ to end supervised learning.
+
+1:03:34.360 --> 1:03:38.360
+ And that I would argue is too narrow a view of the problem.
+
+1:03:38.360 --> 1:03:46.440
+ I like this child development view, this lifelong learning view, one where there are certain
+
+1:03:46.440 --> 1:03:51.720
+ capabilities that are built up and then there are certain capabilities which are built up
+
+1:03:51.720 --> 1:03:53.320
+ on top of that.
+
+1:03:53.320 --> 1:03:58.700
+ So that's what I believe in.
+
+1:03:58.700 --> 1:04:13.080
+ So I think end to end learning in the supervised setting for a very precise task to me is kind
+
+1:04:13.080 --> 1:04:17.560
+ of is sort of a limited view of the learning process.
+
+1:04:17.560 --> 1:04:18.660
+ Got it.
+
+1:04:18.660 --> 1:04:25.500
+ So if we think about beyond purely supervised, looking back to children, you mentioned six
+
+1:04:25.500 --> 1:04:33.400
+ lessons that we can learn from children of be multimodal, be incremental, be physical,
+
+1:04:33.400 --> 1:04:36.520
+ explore, be social, use language.
+
+1:04:36.520 --> 1:04:42.280
+ Can you speak to these, perhaps picking one that you find most fundamental to our time
+
+1:04:42.280 --> 1:04:43.280
+ today?
+
+1:04:43.280 --> 1:04:44.280
+ Yeah.
+
+1:04:44.280 --> 1:04:50.120
+ So I mean, I should say to give a due credit, this is from a paper by Smith and Gasser.
+
+1:04:50.120 --> 1:05:00.000
+ And it reflects essentially, I would say common wisdom among child development people.
+
+1:05:00.000 --> 1:05:07.040
+ It's just that this is not common wisdom among people in computer vision and AI and machine
+
+1:05:07.040 --> 1:05:08.040
+ learning.
+
+1:05:08.040 --> 1:05:15.920
+ So I view my role as trying to bridge the two worlds.
+
+1:05:15.920 --> 1:05:18.960
+ So let's take an example of a multimodal.
+
+1:05:18.960 --> 1:05:20.160
+ I like that.
+
+1:05:20.160 --> 1:05:28.840
+ So multimodal, a canonical example is a child interacting with an object.
+
+1:05:28.840 --> 1:05:32.600
+ So then the child holds a ball and plays with it.
+
+1:05:32.600 --> 1:05:35.720
+ So at that point, it's getting a touch signal.
+
+1:05:35.720 --> 1:05:44.120
+ So the touch signal is getting the notion of 3D shape, but it is sparse.
+
+1:05:44.120 --> 1:05:48.320
+ And then the child is also seeing a visual signal.
+
+1:05:48.320 --> 1:05:52.640
+ And these two, so imagine these are two in totally different spaces.
+
+1:05:52.640 --> 1:05:59.660
+ So one is the space of receptors on the skin of the fingers and the thumb and the palm.
+
+1:05:59.660 --> 1:06:06.460
+ And then these map onto these neuronal fibers are getting activated somewhere.
+
+1:06:06.460 --> 1:06:10.360
+ These lead to some activation in somatosensory cortex.
+
+1:06:10.360 --> 1:06:15.800
+ I mean, a similar thing will happen if we have a robot hand.
+
+1:06:15.800 --> 1:06:20.440
+ And then we have the pixels corresponding to the visual view, but we know that they
+
+1:06:20.440 --> 1:06:24.440
+ correspond to the same object.
+
+1:06:24.440 --> 1:06:28.920
+ So that's a very, very strong cross calibration signal.
+
+1:06:28.920 --> 1:06:32.520
+ And it is self supervisory, which is beautiful.
+
+1:06:32.520 --> 1:06:34.000
+ There's nobody assigning a label.
+
+1:06:34.000 --> 1:06:37.880
+ The mother doesn't have to come and assign a label.
+
+1:06:37.880 --> 1:06:42.760
+ The child doesn't even have to know that this object is called a ball.
+
+1:06:42.760 --> 1:06:49.600
+ That the child is learning something about the three dimensional world from this signal.
+
+1:06:49.600 --> 1:06:54.880
+ I think tactile and visual, there is some work on, there is a lot of work currently
+
+1:06:54.880 --> 1:06:57.960
+ on audio and visual.
+
+1:06:57.960 --> 1:07:02.600
+ And audio visual, so there is some event that happens in the world and that event has a
+
+1:07:02.600 --> 1:07:07.200
+ visual signature and it has a auditory signature.
+
+1:07:07.200 --> 1:07:12.020
+ So there is this glass bowl on the table and it falls and breaks and I hear the smashing
+
+1:07:12.020 --> 1:07:14.200
+ sound and I see the pieces of glass.
+
+1:07:14.200 --> 1:07:19.520
+ Okay, I've built that connection between the two, right?
+
+1:07:19.520 --> 1:07:24.280
+ We have people, I mean, this has become a hot topic in computer vision in the last couple
+
+1:07:24.280 --> 1:07:26.120
+ of years.
+
+1:07:26.120 --> 1:07:32.560
+ There are problems like separating out multiple speakers, right?
+
+1:07:32.560 --> 1:07:35.460
+ Which was a classic problem in auditions.
+
+1:07:35.460 --> 1:07:40.680
+ They call this the problem of source separation or the cocktail party effect and so on.
+
+1:07:40.680 --> 1:07:47.560
+ But just try to do it visually when you also have, it becomes so much easier and so much
+
+1:07:47.560 --> 1:07:50.640
+ more useful.
+
+1:07:50.640 --> 1:07:56.680
+ So the multimodal, I mean, there's so much more signal with multimodal and you can use
+
+1:07:56.680 --> 1:08:00.240
+ that for some kind of weak supervision as well.
+
+1:08:00.240 --> 1:08:03.220
+ Yes, because they are occurring at the same time in time.
+
+1:08:03.220 --> 1:08:06.220
+ So you have time which links the two, right?
+
+1:08:06.220 --> 1:08:10.840
+ So at a certain moment, T1, you've got a certain signal in the auditory domain and a certain
+
+1:08:10.840 --> 1:08:14.520
+ signal in the visual domain, but they must be causally related.
+
+1:08:14.520 --> 1:08:16.640
+ Yeah, that's an exciting area.
+
+1:08:16.640 --> 1:08:17.640
+ Not well studied yet.
+
+1:08:17.640 --> 1:08:25.540
+ Yeah, I mean, we have a little bit of work at this, but so much more needs to be done.
+
+1:08:25.540 --> 1:08:28.220
+ So this is a good example.
+
+1:08:28.220 --> 1:08:34.040
+ Be physical, that's to do with like the one thing we talked about earlier that there's
+
+1:08:34.040 --> 1:08:36.560
+ a embodied world.
+
+1:08:36.560 --> 1:08:39.440
+ To mention language, use language.
+
+1:08:39.440 --> 1:08:44.160
+ So Noam Chomsky believes that language may be at the core of cognition, at the core of
+
+1:08:44.160 --> 1:08:46.480
+ everything in the human mind.
+
+1:08:46.480 --> 1:08:50.760
+ What is the connection between language and vision to you?
+
+1:08:50.760 --> 1:08:51.920
+ What's more fundamental?
+
+1:08:51.920 --> 1:08:53.440
+ Are they neighbors?
+
+1:08:53.440 --> 1:08:58.000
+ Is one the parent and the child, the chicken and the egg?
+
+1:08:58.000 --> 1:08:59.000
+ Oh, it's very clear.
+
+1:08:59.000 --> 1:09:00.560
+ It is vision, which is the parent.
+
+1:09:00.560 --> 1:09:07.680
+ Which is the fundamental ability, okay.
+
+1:09:07.680 --> 1:09:11.640
+ It comes before you think vision is more fundamental than language.
+
+1:09:11.640 --> 1:09:12.640
+ Correct.
+
+1:09:12.640 --> 1:09:18.240
+ And you can think of it either in phylogeny or in ontogeny.
+
+1:09:18.240 --> 1:09:22.320
+ So phylogeny means if you look at evolutionary time, right?
+
+1:09:22.320 --> 1:09:27.160
+ So we have vision that developed 500 million years ago, okay.
+
+1:09:27.160 --> 1:09:33.040
+ Then something like when we get to maybe like five million years ago, you have the first
+
+1:09:33.040 --> 1:09:34.400
+ bipedal primate.
+
+1:09:34.400 --> 1:09:38.920
+ So when we started to walk, then the hands became free.
+
+1:09:38.920 --> 1:09:45.160
+ And so then manipulation, the ability to manipulate objects and build tools and so on and so forth.
+
+1:09:45.160 --> 1:09:47.520
+ So you said 500,000 years ago?
+
+1:09:47.520 --> 1:09:48.520
+ No, sorry.
+
+1:09:48.520 --> 1:09:56.720
+ The first multicellular animals, which you can say had some intelligence arose 500 million
+
+1:09:56.720 --> 1:09:57.720
+ years ago.
+
+1:09:57.720 --> 1:09:58.720
+ Million.
+
+1:09:58.720 --> 1:09:59.720
+ Okay.
+
+1:09:59.720 --> 1:10:05.680
+ And now let's fast forward to say the last seven million years, which is the development
+
+1:10:05.680 --> 1:10:10.560
+ of the hominid line, right, where from the other primates, we have the branch which leads
+
+1:10:10.560 --> 1:10:12.840
+ on to modern humans.
+
+1:10:12.840 --> 1:10:21.680
+ Now there are many of these hominids, but the ones which, you know, people talk about
+
+1:10:21.680 --> 1:10:25.080
+ Lucy because that's like a skeleton from three million years ago.
+
+1:10:25.080 --> 1:10:28.600
+ And we know that Lucy walked, okay.
+
+1:10:28.600 --> 1:10:34.360
+ So at this stage you have that the hand is free for manipulating objects and then the
+
+1:10:34.360 --> 1:10:43.520
+ ability to manipulate objects, build tools and the brain size grew in this era.
+
+1:10:43.520 --> 1:10:46.140
+ So okay, so now you have manipulation.
+
+1:10:46.140 --> 1:10:49.660
+ Now we don't know exactly when language arose.
+
+1:10:49.660 --> 1:10:50.660
+ But after that.
+
+1:10:50.660 --> 1:10:57.760
+ Because no apes have, I mean, so I mean Chomsky is correct in that, that it is a uniquely
+
+1:10:57.760 --> 1:11:04.440
+ human capability and we primates, other primates don't have that.
+
+1:11:04.440 --> 1:11:12.040
+ But so it developed somewhere in this era, but it developed, I would, I mean, argue that
+
+1:11:12.040 --> 1:11:19.520
+ it probably developed after we had this stage of humans, I mean, the human species already
+
+1:11:19.520 --> 1:11:25.440
+ able to manipulate and hands free much bigger brain size.
+
+1:11:25.440 --> 1:11:31.720
+ And for that, there's a lot of vision has already had, had to have developed.
+
+1:11:31.720 --> 1:11:35.800
+ So the sensation and the perception may be some of the cognition.
+
+1:11:35.800 --> 1:11:36.800
+ Yeah.
+
+1:11:36.800 --> 1:11:45.800
+ So we, we, we, so those, so, so that vision, so the world, so there, so, so these ancestors
+
+1:11:45.800 --> 1:11:53.360
+ of ours, you know, three, four million years ago, they had, they had special intelligence.
+
+1:11:53.360 --> 1:11:56.240
+ So they knew that the world consists of objects.
+
+1:11:56.240 --> 1:11:59.720
+ They knew that the objects were in certain relationships to each other.
+
+1:11:59.720 --> 1:12:05.280
+ They had observed causal interactions among objects.
+
+1:12:05.280 --> 1:12:06.500
+ They could move in space.
+
+1:12:06.500 --> 1:12:09.000
+ So they had space and time and all of that.
+
+1:12:09.000 --> 1:12:13.120
+ So language builds on that substrate.
+
+1:12:13.120 --> 1:12:19.800
+ So language has a lot of, I mean, I mean, the none, all human languages have constructs
+
+1:12:19.800 --> 1:12:22.840
+ which depend on a notion of space and time.
+
+1:12:22.840 --> 1:12:26.920
+ Where did that notion of space and time come from?
+
+1:12:26.920 --> 1:12:30.960
+ It had to come from perception and action in the world we live in.
+
+1:12:30.960 --> 1:12:31.960
+ Yeah.
+
+1:12:31.960 --> 1:12:33.560
+ Well, you've referred to the spatial intelligence.
+
+1:12:33.560 --> 1:12:34.560
+ Yeah.
+
+1:12:34.560 --> 1:12:35.560
+ Yeah.
+
+1:12:35.560 --> 1:12:42.960
+ So to linger a little bit, we'll mention Turing and his mention of, we should learn from
+
+1:12:42.960 --> 1:12:43.960
+ children.
+
+1:12:43.960 --> 1:12:49.360
+ Nevertheless, language is the fundamental piece of the test of intelligence that Turing
+
+1:12:49.360 --> 1:12:50.360
+ proposed.
+
+1:12:50.360 --> 1:12:51.360
+ Yes.
+
+1:12:51.360 --> 1:12:53.840
+ What do you think is a good test of intelligence?
+
+1:12:53.840 --> 1:12:56.480
+ Are you, what would impress the heck out of you?
+
+1:12:56.480 --> 1:13:02.800
+ Is it fundamentally natural language or is there something in vision?
+
+1:13:02.800 --> 1:13:10.160
+ I think, I wouldn't, I don't think we should have created a single test of intelligence.
+
+1:13:10.160 --> 1:13:17.200
+ So just like I don't believe in IQ as a single number, I think generally there can be many
+
+1:13:17.200 --> 1:13:21.920
+ capabilities which are correlated perhaps.
+
+1:13:21.920 --> 1:13:28.920
+ So I think that there will be, there will be accomplishments which are visual accomplishments,
+
+1:13:28.920 --> 1:13:36.000
+ accomplishments which are accomplishments in manipulation or robotics, and then accomplishments
+
+1:13:36.000 --> 1:13:37.000
+ in language.
+
+1:13:37.000 --> 1:13:40.400
+ But I do believe that language will be the hardest nut to crack.
+
+1:13:40.400 --> 1:13:41.400
+ Really?
+
+1:13:41.400 --> 1:13:42.400
+ Yeah.
+
+1:13:42.400 --> 1:13:46.840
+ So what's harder, to pass the spirit of the Turing test or like whatever formulation will
+
+1:13:46.840 --> 1:13:52.000
+ make it natural language, convincingly a natural language, like somebody you would want to
+
+1:13:52.000 --> 1:13:59.340
+ have a beer with, hang out and have a chat with, or the general natural scene understanding?
+
+1:13:59.340 --> 1:14:01.440
+ You think language is the tougher problem?
+
+1:14:01.440 --> 1:14:09.080
+ I think, I'm not a fan of the, I think, I think Turing test, that Turing as he proposed
+
+1:14:09.080 --> 1:14:13.840
+ the test in 1950 was trying to solve a certain problem.
+
+1:14:13.840 --> 1:14:14.840
+ Yeah, imitation.
+
+1:14:14.840 --> 1:14:15.840
+ Yeah.
+
+1:14:15.840 --> 1:14:18.240
+ And, and I think it made a lot of sense then.
+
+1:14:18.240 --> 1:14:26.720
+ Where we are today, 70 years later, I think, I think we should not worry about that.
+
+1:14:26.720 --> 1:14:34.620
+ I think the Turing test is no longer the right way to channel research in AI, because that,
+
+1:14:34.620 --> 1:14:39.720
+ it takes us down this path of this chat bot, which can fool us for five minutes or whatever.
+
+1:14:39.720 --> 1:14:40.720
+ Okay.
+
+1:14:40.720 --> 1:14:44.400
+ I think I would rather have a list of 10 different tasks.
+
+1:14:44.400 --> 1:14:50.720
+ I mean, I think there are tasks which, there are tasks in the manipulation domain, tasks
+
+1:14:50.720 --> 1:14:58.120
+ in navigation, tasks in visual scene understanding, tasks in reading a story and answering questions
+
+1:14:58.120 --> 1:14:59.120
+ based on that.
+
+1:14:59.120 --> 1:15:05.520
+ I mean, so my favorite language understanding task would be, you know, reading a novel and
+
+1:15:05.520 --> 1:15:08.560
+ being able to answer arbitrary questions from it.
+
+1:15:08.560 --> 1:15:09.560
+ Okay.
+
+1:15:09.560 --> 1:15:10.560
+ Right.
+
+1:15:10.560 --> 1:15:15.800
+ I think that to me, and this is not an exhaustive list by any means.
+
+1:15:15.800 --> 1:15:21.120
+ So I would, I think that that's what we, where we need to be going to.
+
+1:15:21.120 --> 1:15:26.120
+ And each of these, on each of these axes, there's a fair amount of work to be done.
+
+1:15:26.120 --> 1:15:31.240
+ So on the visual understanding side, in this intelligence Olympics that we've set up, what's
+
+1:15:31.240 --> 1:15:39.840
+ a good test for one of many of visual scene understanding?
+
+1:15:39.840 --> 1:15:41.320
+ Do you think such benchmarks exist?
+
+1:15:41.320 --> 1:15:42.320
+ Sorry to interrupt.
+
+1:15:42.320 --> 1:15:43.680
+ No, there aren't any.
+
+1:15:43.680 --> 1:15:50.920
+ I think, I think essentially to me, a really good aid to the blind.
+
+1:15:50.920 --> 1:15:57.160
+ So suppose there was a blind person and I needed to assist the blind person.
+
+1:15:57.160 --> 1:16:05.840
+ So ultimately, like we said, vision that aids in the action in a survival in this world,
+
+1:16:05.840 --> 1:16:09.000
+ maybe in the simulated world.
+
+1:16:09.000 --> 1:16:15.280
+ Maybe easier to measure performance in a simulated world, what we are ultimately after is performance
+
+1:16:15.280 --> 1:16:17.680
+ in the real world.
+
+1:16:17.680 --> 1:16:23.920
+ So David Hilbert in 1900 proposed 23 open problems in mathematics, some of which are
+
+1:16:23.920 --> 1:16:29.400
+ still unsolved, most important, famous of which is probably the Riemann hypothesis.
+
+1:16:29.400 --> 1:16:33.240
+ You've thought about and presented about the Hilbert problems of computer vision.
+
+1:16:33.240 --> 1:16:38.960
+ So let me ask, what do you today, I don't know when the last year you presented that
+
+1:16:38.960 --> 1:16:44.000
+ in 2015, but versions of it, you're kind of the face and the spokesperson for computer
+
+1:16:44.000 --> 1:16:45.000
+ vision.
+
+1:16:45.000 --> 1:16:51.840
+ It's your job to state what the open problems are for the field.
+
+1:16:51.840 --> 1:16:56.560
+ So what today are the Hilbert problems of computer vision, do you think?
+
+1:16:56.560 --> 1:17:05.760
+ Let me pick one which I regard as clearly unsolved, which is what I would call long
+
+1:17:05.760 --> 1:17:08.280
+ form video understanding.
+
+1:17:08.280 --> 1:17:20.840
+ So we have a video clip and we want to understand the behavior in there in terms of agents,
+
+1:17:20.840 --> 1:17:30.600
+ their goals, intentionality and make predictions about what might happen.
+
+1:17:30.600 --> 1:17:37.120
+ So that kind of understanding which goes away from atomic visual action.
+
+1:17:37.120 --> 1:17:41.800
+ So in the short range, the question is, are you sitting, are you standing, are you catching
+
+1:17:41.800 --> 1:17:44.080
+ a ball?
+
+1:17:44.080 --> 1:17:50.400
+ That we can do now, or even if we can't do it fully accurately, if we can do it at 50%,
+
+1:17:50.400 --> 1:17:54.000
+ maybe next year we'll do it at 65% and so forth.
+
+1:17:54.000 --> 1:18:01.800
+ But I think the long range video understanding, I don't think we can do today.
+
+1:18:01.800 --> 1:18:06.920
+ And it blends into cognition, that's the reason why it's challenging.
+
+1:18:06.920 --> 1:18:11.280
+ So you have to track, you have to understand the entities, you have to understand the entities,
+
+1:18:11.280 --> 1:18:16.960
+ you have to track them and you have to have some kind of model of their behavior.
+
+1:18:16.960 --> 1:18:17.960
+ Correct.
+
+1:18:17.960 --> 1:18:24.080
+ And their behavior might be, these are agents, so they are not just like passive objects,
+
+1:18:24.080 --> 1:18:29.760
+ but they're agents, so therefore they would exhibit goal directed behavior.
+
+1:18:29.760 --> 1:18:32.580
+ Okay, so this is one area.
+
+1:18:32.580 --> 1:18:37.120
+ Then I will talk about understanding the world in 3D.
+
+1:18:37.120 --> 1:18:43.020
+ This may seem paradoxical because in a way we have been able to do 3D understanding even
+
+1:18:43.020 --> 1:18:45.840
+ like 30 years ago, right?
+
+1:18:45.840 --> 1:18:51.600
+ But I don't think we currently have the richness of 3D understanding in our computer vision
+
+1:18:51.600 --> 1:18:55.440
+ system that we would like.
+
+1:18:55.440 --> 1:18:57.560
+ So let me elaborate on that a bit.
+
+1:18:57.560 --> 1:19:03.340
+ So currently we have two kinds of techniques which are not fully unified.
+
+1:19:03.340 --> 1:19:08.080
+ So they are the kinds of techniques from multi view geometry that you have multiple pictures
+
+1:19:08.080 --> 1:19:14.660
+ of a scene and you do a reconstruction using stereoscopic vision or structure from motion.
+
+1:19:14.660 --> 1:19:21.520
+ But these techniques do not, they totally fail if you just have a single view because
+
+1:19:21.520 --> 1:19:25.680
+ they are relying on this multiple view geometry.
+
+1:19:25.680 --> 1:19:30.240
+ Okay, then we have some techniques that we have developed in the computer vision community
+
+1:19:30.240 --> 1:19:34.440
+ which try to guess 3D from single views.
+
+1:19:34.440 --> 1:19:41.780
+ And these techniques are based on supervised learning and they are based on having a training
+
+1:19:41.780 --> 1:19:46.020
+ time 3D models of objects available.
+
+1:19:46.020 --> 1:19:50.080
+ And this is completely unnatural supervision, right?
+
+1:19:50.080 --> 1:19:54.000
+ That's not, CAD models are not injected into your brain.
+
+1:19:54.000 --> 1:19:56.120
+ Okay, so what would I like?
+
+1:19:56.120 --> 1:20:06.360
+ What I would like would be a kind of learning as you move around the world notion of 3D.
+
+1:20:06.360 --> 1:20:19.200
+ So we have our succession of visual experiences and from those we, so as part of that I might
+
+1:20:19.200 --> 1:20:24.880
+ see a chair from different viewpoints or a table from different viewpoints and so on.
+
+1:20:24.880 --> 1:20:31.320
+ Now as part that enables me to build some internal representation.
+
+1:20:31.320 --> 1:20:37.260
+ And then next time I just see a single photograph and it may not even be of that chair, it's
+
+1:20:37.260 --> 1:20:38.960
+ of some other chair.
+
+1:20:38.960 --> 1:20:42.040
+ And I have a guess of what it's 3D shape is like.
+
+1:20:42.040 --> 1:20:45.680
+ So you're almost learning the CAD model, kind of.
+
+1:20:45.680 --> 1:20:46.680
+ Yeah, implicitly.
+
+1:20:46.680 --> 1:20:47.680
+ Implicitly.
+
+1:20:47.680 --> 1:20:52.600
+ I mean, the CAD model need not be in the same form as used by computer graphics programs.
+
+1:20:52.600 --> 1:20:53.880
+ Hidden in the representation.
+
+1:20:53.880 --> 1:20:58.240
+ It's hidden in the representation, the ability to predict new views.
+
+1:20:58.240 --> 1:21:04.320
+ And what I would see if I went to such and such position.
+
+1:21:04.320 --> 1:21:14.360
+ By the way, on a small tangent on that, are you okay or comfortable with neural networks
+
+1:21:14.360 --> 1:21:19.200
+ that do achieve visual understanding that do, for example, achieve this kind of 3D understanding
+
+1:21:19.200 --> 1:21:27.600
+ and you don't know how they, you're not able to interest, you're not able to visualize
+
+1:21:27.600 --> 1:21:31.120
+ or understand or interact with the representation.
+
+1:21:31.120 --> 1:21:34.960
+ So the fact that they're not or may not be explainable.
+
+1:21:34.960 --> 1:21:38.400
+ Yeah, I think that's fine.
+
+1:21:38.400 --> 1:21:44.540
+ To me that is, so let me put some caveats on that.
+
+1:21:44.540 --> 1:21:46.460
+ So it depends on the setting.
+
+1:21:46.460 --> 1:21:55.600
+ So first of all, I think the humans are not explainable.
+
+1:21:55.600 --> 1:21:57.120
+ So that's a really good point.
+
+1:21:57.120 --> 1:22:02.680
+ So we, one human to another human is not fully explainable.
+
+1:22:02.680 --> 1:22:10.880
+ I think there are settings where explainability matters and these might be, for example, questions
+
+1:22:10.880 --> 1:22:13.520
+ on medical diagnosis.
+
+1:22:13.520 --> 1:22:19.400
+ So I'm in a setting where maybe the doctor, maybe a computer program has made a certain
+
+1:22:19.400 --> 1:22:25.840
+ diagnosis and then depending on the diagnosis, perhaps I should have treatment A or treatment
+
+1:22:25.840 --> 1:22:28.120
+ B, right?
+
+1:22:28.120 --> 1:22:38.720
+ So now is the computer program's diagnosis based on data, which was data collected off
+
+1:22:38.720 --> 1:22:45.500
+ for American males who are in their 30s and 40s and maybe not so relevant to me.
+
+1:22:45.500 --> 1:22:48.560
+ Maybe it is relevant, you know, et cetera, et cetera.
+
+1:22:48.560 --> 1:22:53.560
+ I mean, in medical diagnosis, we have major issues to do with the reference class.
+
+1:22:53.560 --> 1:22:58.680
+ So we may have acquired statistics from one group of people and applying it to a different
+
+1:22:58.680 --> 1:23:02.880
+ group of people who may not share all the same characteristics.
+
+1:23:02.880 --> 1:23:07.600
+ The data might have, there might be error bars in the prediction.
+
+1:23:07.600 --> 1:23:14.120
+ So that prediction should really be taken with a huge grain of salt.
+
+1:23:14.120 --> 1:23:20.400
+ But this has an impact on what treatments should be picked, right?
+
+1:23:20.400 --> 1:23:26.800
+ So there are settings where I want to know more than just, this is the answer.
+
+1:23:26.800 --> 1:23:33.840
+ But what I acknowledge is that, so in that sense, explainability and interpretability
+
+1:23:33.840 --> 1:23:34.840
+ may matter.
+
+1:23:34.840 --> 1:23:40.840
+ It's about giving error bounds and a better sense of the quality of the decision.
+
+1:23:40.840 --> 1:23:50.000
+ Where I'm willing to sacrifice interpretability is that I believe that there can be systems
+
+1:23:50.000 --> 1:23:56.200
+ which can be highly performant, but which are internally black boxes.
+
+1:23:56.200 --> 1:23:57.880
+ And that seems to be where it's headed.
+
+1:23:57.880 --> 1:24:04.200
+ Some of the best performing systems are essentially black boxes, fundamentally by their construction.
+
+1:24:04.200 --> 1:24:06.360
+ You and I are black boxes to each other.
+
+1:24:06.360 --> 1:24:07.360
+ Yeah.
+
+1:24:07.360 --> 1:24:13.960
+ So the nice thing about the black boxes we are is, so we ourselves are black boxes, but
+
+1:24:13.960 --> 1:24:20.720
+ we're also, those of us who are charming are able to convince others, like explain the
+
+1:24:20.720 --> 1:24:25.440
+ black, what's going on inside the black box with narratives of stories.
+
+1:24:25.440 --> 1:24:31.480
+ So in some sense, neural networks don't have to actually explain what's going on inside.
+
+1:24:31.480 --> 1:24:37.080
+ They just have to come up with stories, real or fake that convince you that they know what's
+
+1:24:37.080 --> 1:24:38.560
+ going on.
+
+1:24:38.560 --> 1:24:39.880
+ And I'm sure we can do that.
+
+1:24:39.880 --> 1:24:45.080
+ We can create those stories, neural networks can create those stories.
+
+1:24:45.080 --> 1:24:46.080
+ Yeah.
+
+1:24:46.080 --> 1:24:50.040
+ And the transformer will be involved.
+
+1:24:50.040 --> 1:24:56.520
+ Do you think we will ever build a system of human level or superhuman level intelligence?
+
+1:24:56.520 --> 1:25:01.680
+ We've kind of defined what it takes to try to approach that, but do you think that's
+
+1:25:01.680 --> 1:25:02.680
+ within our reach?
+
+1:25:02.680 --> 1:25:07.480
+ The thing that we thought we could do, what Turing thought actually we could do by year
+
+1:25:07.480 --> 1:25:09.480
+ 2000, right?
+
+1:25:09.480 --> 1:25:11.200
+ What do you think we'll ever be able to do?
+
+1:25:11.200 --> 1:25:12.880
+ So I think there are two answers here.
+
+1:25:12.880 --> 1:25:18.240
+ One question, one answer is in principle, can we do this at some time?
+
+1:25:18.240 --> 1:25:20.560
+ And my answer is yes.
+
+1:25:20.560 --> 1:25:23.640
+ The second answer is a pragmatic one.
+
+1:25:23.640 --> 1:25:27.840
+ Do you think we will be able to do it in the next 20 years or whatever?
+
+1:25:27.840 --> 1:25:30.400
+ And to that my answer is no.
+
+1:25:30.400 --> 1:25:34.680
+ So of course that's a wild guess.
+
+1:25:34.680 --> 1:25:40.800
+ I think that, you know, Donald Rumsfeld is not a favorite person of mine, but one of
+
+1:25:40.800 --> 1:25:48.280
+ his lines was very good, which is about known unknowns and unknown unknowns.
+
+1:25:48.280 --> 1:25:55.040
+ So in the business we are in, there are known unknowns and we have unknown unknowns.
+
+1:25:55.040 --> 1:26:04.800
+ So I think with respect to a lot of what's the case in vision and robotics, I feel like
+
+1:26:04.800 --> 1:26:06.960
+ we have known unknowns.
+
+1:26:06.960 --> 1:26:13.520
+ So I have a sense of where we need to go and what the problems that need to be solved are.
+
+1:26:13.520 --> 1:26:21.320
+ I feel with respect to natural language, understanding and high level cognition, it's not just known
+
+1:26:21.320 --> 1:26:24.200
+ unknowns, but also unknown unknowns.
+
+1:26:24.200 --> 1:26:30.920
+ So it is very difficult to put any kind of a timeframe to that.
+
+1:26:30.920 --> 1:26:36.360
+ Do you think some of the unknown unknowns might be positive in that they'll surprise
+
+1:26:36.360 --> 1:26:38.720
+ us and make the job much easier?
+
+1:26:38.720 --> 1:26:40.120
+ So fundamental breakthroughs?
+
+1:26:40.120 --> 1:26:45.680
+ I think that is possible because certainly I have been very positively surprised by how
+
+1:26:45.680 --> 1:26:53.880
+ effective these deep learning systems have been because I certainly would not have believed
+
+1:26:53.880 --> 1:26:57.640
+ that in 2010.
+
+1:26:57.640 --> 1:27:06.160
+ I think what we knew from the mathematical theory was that convex optimization works.
+
+1:27:06.160 --> 1:27:11.200
+ When there's a single global optima, then these gradient descent techniques would work.
+
+1:27:11.200 --> 1:27:16.240
+ Now these are nonlinear systems with non convex systems.
+
+1:27:16.240 --> 1:27:18.680
+ Huge number of variables, so over parametrized.
+
+1:27:18.680 --> 1:27:26.680
+ And the people who used to play with them a lot, the ones who are totally immersed in
+
+1:27:26.680 --> 1:27:33.920
+ the lore and the black magic, they knew that they worked well, even though they were...
+
+1:27:33.920 --> 1:27:34.920
+ Really?
+
+1:27:34.920 --> 1:27:35.920
+ I thought like everybody...
+
+1:27:35.920 --> 1:27:43.200
+ No, the claim that I hear from my friends like Yann LeCun and so forth is that they
+
+1:27:43.200 --> 1:27:45.960
+ feel that they were comfortable with them.
+
+1:27:45.960 --> 1:27:50.920
+ But the community as a whole was certainly not.
+
+1:27:50.920 --> 1:27:59.820
+ And I think to me that was the surprise that they actually worked robustly for a wide range
+
+1:27:59.820 --> 1:28:04.960
+ of problems from a wide range of initializations and so on.
+
+1:28:04.960 --> 1:28:13.720
+ And so that was certainly more rapid progress than we expected.
+
+1:28:13.720 --> 1:28:19.520
+ But then there are certainly lots of times, in fact, most of the history of AI is when
+
+1:28:19.520 --> 1:28:24.060
+ we have made less progress at a slower rate than we expected.
+
+1:28:24.060 --> 1:28:27.360
+ So we just keep going.
+
+1:28:27.360 --> 1:28:39.600
+ I think what I regard as really unwarranted are these fears of AGI in 10 years and 20
+
+1:28:39.600 --> 1:28:44.880
+ years and that kind of stuff, because that's based on completely unrealistic models of
+
+1:28:44.880 --> 1:28:48.800
+ how rapidly we will make progress in this field.
+
+1:28:48.800 --> 1:28:54.680
+ So I agree with you, but I've also gotten the chance to interact with very smart people
+
+1:28:54.680 --> 1:28:57.840
+ who really worry about existential threats of AI.
+
+1:28:57.840 --> 1:29:04.080
+ And I, as an open minded person, am sort of taking it in.
+
+1:29:04.080 --> 1:29:12.920
+ Do you think if AI systems in some way, the unknown unknowns, not super intelligent AI,
+
+1:29:12.920 --> 1:29:18.080
+ but in ways we don't quite understand the nature of super intelligence, will have a
+
+1:29:18.080 --> 1:29:20.280
+ detrimental effect on society?
+
+1:29:20.280 --> 1:29:25.920
+ Do you think this is something we should be worried about or we need to first allow the
+
+1:29:25.920 --> 1:29:29.800
+ unknown unknowns to become known unknowns?
+
+1:29:29.800 --> 1:29:32.960
+ I think we need to be worried about AI today.
+
+1:29:32.960 --> 1:29:38.240
+ I think that it is not just a worry we need to have when we get that AGI.
+
+1:29:38.240 --> 1:29:43.360
+ I think that AI is being used in many systems today.
+
+1:29:43.360 --> 1:29:49.800
+ And there might be settings, for example, when it causes biases or decisions which could
+
+1:29:49.800 --> 1:29:50.800
+ be harmful.
+
+1:29:50.800 --> 1:29:55.400
+ I mean, decisions which could be unfair to some people or it could be a self driving
+
+1:29:55.400 --> 1:29:57.740
+ cars which kills a pedestrian.
+
+1:29:57.740 --> 1:30:02.000
+ So AI systems are being deployed today, right?
+
+1:30:02.000 --> 1:30:05.440
+ And they're being deployed in many different settings, maybe in medical diagnosis, maybe
+
+1:30:05.440 --> 1:30:10.000
+ in a self driving car, maybe in selecting applicants for an interview.
+
+1:30:10.000 --> 1:30:18.320
+ So I would argue that when these systems make mistakes, there are consequences.
+
+1:30:18.320 --> 1:30:22.760
+ And we are in a certain sense responsible for those consequences.
+
+1:30:22.760 --> 1:30:27.040
+ So I would argue that this is a continuous effort.
+
+1:30:27.040 --> 1:30:32.440
+ It is we and this is something that in a way is not so surprising.
+
+1:30:32.440 --> 1:30:40.000
+ It's about all engineering and scientific progress which great power comes great responsibility.
+
+1:30:40.000 --> 1:30:44.300
+ So as these systems are deployed, we have to worry about them and it's a continuous
+
+1:30:44.300 --> 1:30:45.300
+ problem.
+
+1:30:45.300 --> 1:30:51.680
+ I don't think of it as something which will suddenly happen on some day in 2079 for which
+
+1:30:51.680 --> 1:30:54.880
+ I need to design some clever trick.
+
+1:30:54.880 --> 1:31:00.800
+ I'm saying that these problems exist today and we need to be continuously on the lookout
+
+1:31:00.800 --> 1:31:06.840
+ for worrying about safety, biases, risks, right?
+
+1:31:06.840 --> 1:31:11.600
+ I mean, the self driving car kills a pedestrian and they have, right?
+
+1:31:11.600 --> 1:31:16.080
+ I mean, this Uber incident in Arizona, right?
+
+1:31:16.080 --> 1:31:17.760
+ It has happened, right?
+
+1:31:17.760 --> 1:31:18.760
+ This is not about AGI.
+
+1:31:18.760 --> 1:31:23.880
+ In fact, it's about a very dumb intelligence which is still killing people.
+
+1:31:23.880 --> 1:31:28.480
+ The worry people have with AGI is the scale.
+
+1:31:28.480 --> 1:31:34.840
+ But I think you're 100% right is like the thing that worries me about AI today and it's
+
+1:31:34.840 --> 1:31:39.320
+ happening in a huge scale is recommender systems, recommendation systems.
+
+1:31:39.320 --> 1:31:47.600
+ So if you look at Twitter or Facebook or YouTube, they're controlling the ideas that we have
+
+1:31:47.600 --> 1:31:50.560
+ access to, the news and so on.
+
+1:31:50.560 --> 1:31:55.480
+ And that's a fundamental machine learning algorithm behind each of these recommendations.
+
+1:31:55.480 --> 1:32:00.840
+ And they, I mean, my life would not be the same without these sources of information.
+
+1:32:00.840 --> 1:32:07.180
+ I'm a totally new human being and the ideas that I know are very much because of the internet,
+
+1:32:07.180 --> 1:32:09.680
+ because of the algorithm that recommend those ideas.
+
+1:32:09.680 --> 1:32:16.880
+ And so as they get smarter and smarter, I mean, that is the AGI is that's the algorithm
+
+1:32:16.880 --> 1:32:23.480
+ that's recommending the next YouTube video you should watch has control of millions of
+
+1:32:23.480 --> 1:32:30.160
+ billions of people that that algorithm is already super intelligent and has complete
+
+1:32:30.160 --> 1:32:35.160
+ control of the population, not a complete, but very strong control.
+
+1:32:35.160 --> 1:32:39.920
+ For now we can turn off YouTube, we can just go have a normal life outside of that.
+
+1:32:39.920 --> 1:32:46.760
+ But the more and more that gets into our life, it's that algorithm we start depending on
+
+1:32:46.760 --> 1:32:49.040
+ it in the different companies that are working on the algorithm.
+
+1:32:49.040 --> 1:32:53.000
+ So I think it's, you're right, it's already there.
+
+1:32:53.000 --> 1:32:59.760
+ And YouTube in particular is using computer vision, doing their hardest to try to understand
+
+1:32:59.760 --> 1:33:05.680
+ the content of videos so they could be able to connect videos with the people who would
+
+1:33:05.680 --> 1:33:08.080
+ benefit from those videos the most.
+
+1:33:08.080 --> 1:33:12.860
+ And so that development could go in a bunch of different directions, some of which might
+
+1:33:12.860 --> 1:33:14.820
+ be harmful.
+
+1:33:14.820 --> 1:33:19.720
+ So yeah, you're right, the threats of AI are here already and we should be thinking about
+
+1:33:19.720 --> 1:33:20.720
+ them.
+
+1:33:20.720 --> 1:33:29.200
+ On a philosophical notion, if you could, personal perhaps, if you could relive a moment in
+
+1:33:29.200 --> 1:33:36.280
+ your life outside of family because it made you truly happy or it was a profound moment
+
+1:33:36.280 --> 1:33:44.160
+ that impacted the direction of your life, what moment would you go to?
+
+1:33:44.160 --> 1:33:49.240
+ I don't think of single moments, but I look over the long haul.
+
+1:33:49.240 --> 1:33:58.840
+ I feel that I've been very lucky because I feel that, I think that in scientific research,
+
+1:33:58.840 --> 1:34:03.720
+ a lot of it is about being at the right place at the right time.
+
+1:34:03.720 --> 1:34:10.680
+ And you can work on problems at a time when they're just too premature.
+
+1:34:10.680 --> 1:34:18.440
+ You butt your head against them and nothing happens because the prerequisites for success
+
+1:34:18.440 --> 1:34:19.840
+ are not there.
+
+1:34:19.840 --> 1:34:25.500
+ And then there are times when you are in a field which is all pretty mature and you can
+
+1:34:25.500 --> 1:34:30.020
+ only solve curlicues upon curlicues.
+
+1:34:30.020 --> 1:34:36.920
+ I've been lucky to have been in this field which for 34 years, well actually 34 years
+
+1:34:36.920 --> 1:34:44.600
+ as a professor at Berkeley, so longer than that, which when I started in it was just
+
+1:34:44.600 --> 1:34:53.600
+ like some little crazy, absolutely useless field which couldn't really do anything to
+
+1:34:53.600 --> 1:35:01.200
+ a time when it's really, really solving a lot of practical problems, has offered a lot
+
+1:35:01.200 --> 1:35:08.580
+ of tools for scientific research because computer vision is impactful for images in biology
+
+1:35:08.580 --> 1:35:12.160
+ or astronomy and so on and so forth.
+
+1:35:12.160 --> 1:35:18.180
+ And we have, so we have made great scientific progress which has had real practical impact
+
+1:35:18.180 --> 1:35:19.400
+ in the world.
+
+1:35:19.400 --> 1:35:28.360
+ And I feel lucky that I got in at a time when the field was very young and at a time when
+
+1:35:28.360 --> 1:35:34.120
+ it is, it's now mature but not fully mature.
+
+1:35:34.120 --> 1:35:35.600
+ It's mature but not done.
+
+1:35:35.600 --> 1:35:39.040
+ I mean, it's really still in a productive phase.
+
+1:35:39.040 --> 1:35:45.680
+ Yeah, I think people 500 years from now would laugh at you calling this field mature.
+
+1:35:45.680 --> 1:35:46.680
+ That is very possible.
+
+1:35:46.680 --> 1:35:47.680
+ Yeah.
+
+1:35:47.680 --> 1:35:53.860
+ So, but you're also, lest I forget to mention, you've also mentored some of the biggest names
+
+1:35:53.860 --> 1:35:59.200
+ of computer vision, computer science and AI today.
+
+1:35:59.200 --> 1:36:04.560
+ So many questions I could ask, but really is what, what is it, how did you do it?
+
+1:36:04.560 --> 1:36:06.760
+ What does it take to be a good mentor?
+
+1:36:06.760 --> 1:36:09.200
+ What does it take to be a good guide?
+
+1:36:09.200 --> 1:36:17.640
+ Yeah, I think what I feel, I've been lucky to have had very, very smart and hardworking
+
+1:36:17.640 --> 1:36:18.920
+ and creative students.
+
+1:36:18.920 --> 1:36:25.600
+ I think some part of the credit just belongs to being at Berkeley.
+
+1:36:25.600 --> 1:36:32.880
+ Those of us who are at top universities are blessed because we have very, very smart and
+
+1:36:32.880 --> 1:36:37.040
+ capable students coming on, knocking on our door.
+
+1:36:37.040 --> 1:36:40.440
+ So I have to be humble enough to acknowledge that.
+
+1:36:40.440 --> 1:36:41.960
+ But what have I added?
+
+1:36:41.960 --> 1:36:44.160
+ I think I have added something.
+
+1:36:44.160 --> 1:36:52.360
+ What I have added is, I think what I've always tried to teach them is a sense of picking
+
+1:36:52.360 --> 1:36:54.760
+ the right problems.
+
+1:36:54.760 --> 1:37:04.240
+ So I think that in science, in the short run, success is always based on technical competence.
+
+1:37:04.240 --> 1:37:09.080
+ You're, you know, you're quick with math or you are whatever.
+
+1:37:09.080 --> 1:37:15.640
+ I mean, there's certain technical capabilities which make for short range progress.
+
+1:37:15.640 --> 1:37:21.280
+ Long range progress is really determined by asking the right questions and focusing on
+
+1:37:21.280 --> 1:37:23.280
+ the right problems.
+
+1:37:23.280 --> 1:37:31.320
+ And I feel that what I've been able to bring to the table in terms of advising these students
+
+1:37:31.320 --> 1:37:38.760
+ is some sense of taste of what are good problems, what are problems that are worth attacking
+
+1:37:38.760 --> 1:37:41.680
+ now as opposed to waiting 10 years.
+
+1:37:41.680 --> 1:37:42.720
+ What's a good problem?
+
+1:37:42.720 --> 1:37:47.320
+ If you could summarize, is that possible to even summarize, like what's your sense of
+
+1:37:47.320 --> 1:37:48.320
+ a good problem?
+
+1:37:48.320 --> 1:37:55.400
+ I think, I think I have a sense of what is a good problem, which is there is a British
+
+1:37:55.400 --> 1:38:02.920
+ scientist, in fact, he won a Nobel Prize, Peter Medover, who has a book on this.
+
+1:38:02.920 --> 1:38:08.440
+ And basically he calls it, research is the art of the soluble.
+
+1:38:08.440 --> 1:38:18.440
+ So we need to sort of find problems which are not yet solved, but which are approachable.
+
+1:38:18.440 --> 1:38:25.080
+ And he sort of refers to this sense that there is this problem which isn't quite solved yet,
+
+1:38:25.080 --> 1:38:26.760
+ but it has a soft underbelly.
+
+1:38:26.760 --> 1:38:32.800
+ There is some place where you can, you know, spear the beast.
+
+1:38:32.800 --> 1:38:39.160
+ And having that intuition that this problem is ripe is a good thing because otherwise
+
+1:38:39.160 --> 1:38:42.400
+ you can just beat your head and not make progress.
+
+1:38:42.400 --> 1:38:45.840
+ So I think that is important.
+
+1:38:45.840 --> 1:38:52.080
+ So if I have that and if I can convey that to students, it's not just that they do great
+
+1:38:52.080 --> 1:38:56.320
+ research while they're working with me, but that they continue to do great research.
+
+1:38:56.320 --> 1:39:01.200
+ So in a sense, I'm proud of my students and their achievements and their great research
+
+1:39:01.200 --> 1:39:05.760
+ even 20 years after they've ceased being my student.
+
+1:39:05.760 --> 1:39:11.440
+ So it's in part developing, helping them develop that sense that a problem is not yet solved,
+
+1:39:11.440 --> 1:39:12.440
+ but it's solvable.
+
+1:39:12.440 --> 1:39:13.440
+ Correct.
+
+1:39:13.440 --> 1:39:21.600
+ The other thing which I have, which I think I bring to the table, is a certain intellectual
+
+1:39:21.600 --> 1:39:22.600
+ breadth.
+
+1:39:22.600 --> 1:39:29.320
+ I've spent a fair amount of time studying psychology, neuroscience, relevant areas of
+
+1:39:29.320 --> 1:39:31.320
+ applied math and so forth.
+
+1:39:31.320 --> 1:39:40.480
+ So I can probably help them see some connections to disparate things, which they might not
+
+1:39:40.480 --> 1:39:42.960
+ have otherwise.
+
+1:39:42.960 --> 1:39:50.440
+ So the smart students coming into Berkeley can be very deep, they can think very deeply,
+
+1:39:50.440 --> 1:39:58.520
+ meaning very hard down one particular path, but where I could help them is the shallow
+
+1:39:58.520 --> 1:40:08.560
+ breadth, but they would have the narrow depth, but that's of some value.
+
+1:40:08.560 --> 1:40:14.760
+ Well, it was beautifully refreshing just to hear you naturally jump to psychology back
+
+1:40:14.760 --> 1:40:18.520
+ to computer science in this conversation back and forth.
+
+1:40:18.520 --> 1:40:23.680
+ That's actually a rare quality and I think it's certainly for students empowering to
+
+1:40:23.680 --> 1:40:25.600
+ think about problems in a new way.
+
+1:40:25.600 --> 1:40:29.440
+ So for that and for many other reasons, I really enjoyed this conversation.
+
+1:40:29.440 --> 1:40:30.440
+ Thank you so much.
+
+1:40:30.440 --> 1:40:31.440
+ It was a huge honor.
+
+1:40:31.440 --> 1:40:32.440
+ Thanks for talking to me.
+
+1:40:32.440 --> 1:40:34.320
+ It's been my pleasure.
+
+1:40:34.320 --> 1:40:39.840
+ Thanks for listening to this conversation with Jitendra Malik and thank you to our sponsors,
+
+1:40:39.840 --> 1:40:43.120
+ BetterHelp and ExpressVPN.
+
+1:40:43.120 --> 1:40:49.480
+ Please consider supporting this podcast by going to betterhelp.com slash Lex and signing
+
+1:40:49.480 --> 1:40:52.940
+ up at expressvpn.com slash LexPod.
+
+1:40:52.940 --> 1:40:55.440
+ Click the links, buy the stuff.
+
+1:40:55.440 --> 1:41:00.720
+ That's how they know I sent you and it really is the best way to support this podcast and
+
+1:41:00.720 --> 1:41:02.360
+ the journey I'm on.
+
+1:41:02.360 --> 1:41:07.520
+ If you enjoy this thing, subscribe on YouTube, review it with five stars on Apple podcast,
+
+1:41:07.520 --> 1:41:12.280
+ support it on Patreon or connect with me on Twitter at Lex Friedman.
+
+1:41:12.280 --> 1:41:13.360
+ Don't ask me how to spell that.
+
+1:41:13.360 --> 1:41:15.720
+ I don't remember it myself.
+
+1:41:15.720 --> 1:41:22.120
+ And now let me leave you with some words from Prince Mishkin in The Idiot by Dostoevsky.
+
+1:41:22.120 --> 1:41:24.760
+ Beauty will save the world.
+
+1:41:24.760 --> 1:41:27.520
+ Thank you for listening and hope to see you next time.
+

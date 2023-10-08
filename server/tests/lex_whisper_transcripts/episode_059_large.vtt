@@ -1,0 +1,5459 @@
+WEBVTT
+
+00:00.000 --> 00:03.480
+ The following is a conversation with Sebastian Thrun.
+
+00:03.480 --> 00:08.080
+ He's one of the greatest roboticists, computer scientists, and educators of our time.
+
+00:08.080 --> 00:11.440
+ He led the development of the autonomous vehicles at Stanford
+
+00:11.440 --> 00:18.120
+ that won the 2005 DARPA Grand Challenge and placed second in the 2007 DARPA Urban Challenge.
+
+00:18.120 --> 00:24.600
+ He then led the Google self driving car program, which launched the self driving car revolution.
+
+00:24.600 --> 00:29.040
+ He taught the popular Stanford course on artificial intelligence in 2011,
+
+00:29.040 --> 00:35.000
+ which was one of the first massive open online courses, or MOOCs as they're commonly called.
+
+00:35.000 --> 00:39.800
+ That experience led him to co found Udacity, an online education platform.
+
+00:39.800 --> 00:43.280
+ If you haven't taken courses on it yet, I highly recommend it.
+
+00:43.280 --> 00:47.120
+ Their self driving car program, for example, is excellent.
+
+00:47.120 --> 00:52.960
+ He's also the CEO of Kitty Hawk, a company working on building flying cars,
+
+00:52.960 --> 00:58.640
+ or more technically, EVTOLs, which stands for electric vertical takeoff and landing aircraft.
+
+00:58.640 --> 01:02.640
+ He has launched several revolutions and inspired millions of people.
+
+01:02.640 --> 01:06.800
+ But also, as many know, he's just a really nice guy.
+
+01:06.800 --> 01:10.520
+ It was an honor and a pleasure to talk with him.
+
+01:10.520 --> 01:12.760
+ This is the Artificial Intelligence Podcast.
+
+01:12.760 --> 01:17.080
+ If you enjoy it, subscribe on YouTube, give it five stars on Apple Podcast,
+
+01:17.080 --> 01:21.800
+ follow it on Spotify, support it on Patreon, or simply connect with me on Twitter
+
+01:21.800 --> 01:25.800
+ at Lex Friedman, spelled F R I D M A N.
+
+01:25.800 --> 01:29.200
+ If you leave a review on Apple Podcast or YouTube or Twitter,
+
+01:29.200 --> 01:32.800
+ consider mentioning ideas, people, topics you find interesting.
+
+01:32.800 --> 01:35.760
+ It helps guide the future of this podcast.
+
+01:35.760 --> 01:40.080
+ But in general, I just love comments with kindness and thoughtfulness in them.
+
+01:40.080 --> 01:43.560
+ This podcast is a side project for me, as many people know,
+
+01:43.560 --> 01:45.800
+ but I still put a lot of effort into it.
+
+01:45.800 --> 01:52.120
+ So the positive words of support from an amazing community, from you, really help.
+
+01:52.120 --> 01:55.160
+ I recently started doing ads at the end of the introduction.
+
+01:55.160 --> 01:58.080
+ I'll do one or two minutes after introducing the episode
+
+01:58.080 --> 02:01.800
+ and never any ads in the middle that can break the flow of the conversation.
+
+02:01.800 --> 02:05.360
+ I hope that works for you and doesn't hurt the listening experience.
+
+02:05.360 --> 02:09.240
+ I provide timestamps for the start of the conversation that you can skip to,
+
+02:09.240 --> 02:12.680
+ but it helps if you listen to the ad and support this podcast
+
+02:12.680 --> 02:16.440
+ by trying out the product or service being advertised.
+
+02:16.440 --> 02:21.400
+ This show is presented by Cash App, the number one finance app in the App Store.
+
+02:21.400 --> 02:24.000
+ I personally use Cash App to send money to friends,
+
+02:24.000 --> 02:28.160
+ but you can also use it to buy, sell, and deposit Bitcoin in just seconds.
+
+02:28.160 --> 02:31.040
+ Cash App also has a new investing feature.
+
+02:31.040 --> 02:36.560
+ You can buy fractions of a stock, say $1 worth, no matter what the stock price is.
+
+02:36.560 --> 02:39.480
+ Broker services are provided by Cash App Investing,
+
+02:39.480 --> 02:42.920
+ a subsidiary of Square, and member SIPC.
+
+02:42.920 --> 02:44.640
+ I'm excited to be working with Cash App
+
+02:44.640 --> 02:47.840
+ to support one of my favorite organizations called FIRST,
+
+02:47.840 --> 02:51.280
+ best known for their FIRST Robotics and LEGO competitions.
+
+02:51.280 --> 02:54.640
+ They educate and inspire hundreds of thousands of students
+
+02:54.640 --> 02:59.000
+ in over 110 countries and have a perfect rating on Charity Navigator,
+
+02:59.000 --> 03:03.080
+ which means the donated money is used to maximum effectiveness.
+
+03:03.080 --> 03:06.040
+ When you get Cash App from the App Store or Google Play
+
+03:06.040 --> 03:09.320
+ and use code LEGSPODCAST, you'll get $10,
+
+03:09.320 --> 03:12.080
+ and Cash App will also donate $10 to FIRST,
+
+03:12.080 --> 03:16.640
+ which again is an organization that I've personally seen inspire girls and boys
+
+03:16.640 --> 03:19.720
+ to dream of engineering a better world.
+
+03:19.720 --> 03:24.920
+ And now, here's my conversation with Sebastian Thrun.
+
+03:24.920 --> 03:28.960
+ You mentioned that The Matrix may be your favorite movie.
+
+03:28.960 --> 03:32.160
+ So let's start with a crazy philosophical question.
+
+03:32.160 --> 03:34.800
+ Do you think we're living in a simulation?
+
+03:34.800 --> 03:40.000
+ And in general, do you find the thought experiment interesting?
+
+03:40.000 --> 03:42.240
+ Define simulation, I would say.
+
+03:42.240 --> 03:43.720
+ Maybe we are, maybe we are not,
+
+03:43.720 --> 03:47.160
+ but it's completely irrelevant to the way we should act.
+
+03:47.160 --> 03:49.880
+ Putting aside, for a moment,
+
+03:49.880 --> 03:55.080
+ the fact that it might not have any impact on how we should act as human beings,
+
+03:55.080 --> 03:57.280
+ for people studying theoretical physics,
+
+03:57.280 --> 03:59.560
+ these kinds of questions might be kind of interesting,
+
+03:59.560 --> 04:03.720
+ looking at the universe as an information processing system.
+
+04:03.720 --> 04:05.920
+ The universe is an information processing system.
+
+04:05.920 --> 04:10.960
+ It's a huge physical, biological, chemical computer, there's no question.
+
+04:10.960 --> 04:12.880
+ But I live here and now.
+
+04:12.880 --> 04:15.600
+ I care about people, I care about us.
+
+04:15.600 --> 04:17.600
+ What do you think is trying to compute?
+
+04:17.600 --> 04:18.800
+ I don't think there's an intention.
+
+04:18.800 --> 04:22.000
+ I think the world evolves the way it evolves.
+
+04:22.000 --> 04:25.360
+ And it's beautiful, it's unpredictable.
+
+04:25.360 --> 04:28.040
+ And I'm really, really grateful to be alive.
+
+04:28.040 --> 04:30.480
+ Spoken like a true human.
+
+04:30.480 --> 04:33.360
+ Which last time I checked, I was.
+
+04:33.360 --> 04:36.480
+ Or that, in fact, this whole conversation is just a touring test
+
+04:36.480 --> 04:40.240
+ to see if indeed you are.
+
+04:40.240 --> 04:42.720
+ You've also said that one of the first programs,
+
+04:42.720 --> 04:49.080
+ or the first few programs you've written was a, wait for it, TI57 calculator.
+
+04:49.080 --> 04:50.000
+ Yeah.
+
+04:50.000 --> 04:52.000
+ Maybe that's early 80s.
+
+04:52.000 --> 04:54.240
+ We don't want to date calculators or anything.
+
+04:54.240 --> 04:55.560
+ That's early 80s, correct.
+
+04:55.560 --> 04:56.440
+ Yeah.
+
+04:56.440 --> 05:02.120
+ So if you were to place yourself back into that time, into the mindset you were in,
+
+05:02.120 --> 05:06.840
+ could you have predicted the evolution of computing, AI,
+
+05:06.840 --> 05:10.720
+ the internet technology in the decades that followed?
+
+05:10.720 --> 05:14.960
+ I was super fascinated by Silicon Valley, which I'd seen on television once
+
+05:14.960 --> 05:16.400
+ and thought, my god, this is so cool.
+
+05:16.400 --> 05:19.600
+ They build like DRAMs there and CPUs.
+
+05:19.600 --> 05:20.440
+ How cool is that?
+
+05:20.440 --> 05:25.240
+ And as a college student a few years later, I decided to really study
+
+05:25.240 --> 05:26.920
+ intelligence and study human beings.
+
+05:26.920 --> 05:30.560
+ And found that even back then in the 80s and 90s,
+
+05:30.560 --> 05:33.440
+ artificial intelligence is what fascinated me the most.
+
+05:33.440 --> 05:38.040
+ What's missing is that back in the day, the computers are really small.
+
+05:38.040 --> 05:41.560
+ The brains we could build were not anywhere bigger than a cockroach.
+
+05:41.560 --> 05:43.760
+ And cockroaches aren't very smart.
+
+05:43.760 --> 05:46.320
+ So we weren't at the scale yet where we are today.
+
+05:46.320 --> 05:51.040
+ Did you dream at that time to achieve the kind of scale we have today?
+
+05:51.040 --> 05:52.680
+ Or did that seem possible?
+
+05:52.680 --> 05:54.320
+ I always wanted to make robots smart.
+
+05:54.320 --> 05:57.960
+ And I felt it was super cool to build an artificial human.
+
+05:57.960 --> 06:00.680
+ And the best way to build an artificial human was to build a robot,
+
+06:00.680 --> 06:03.080
+ because that's kind of the closest we could do.
+
+06:03.080 --> 06:04.920
+ Unfortunately, we aren't there yet.
+
+06:04.920 --> 06:07.280
+ The robots today are still very brittle.
+
+06:07.280 --> 06:10.240
+ But it's fascinating to study intelligence from a constructive
+
+06:10.240 --> 06:12.880
+ perspective when you build something.
+
+06:12.880 --> 06:18.680
+ To understand you build, what do you think it takes to build an intelligent
+
+06:18.680 --> 06:20.880
+ system, an intelligent robot?
+
+06:20.880 --> 06:23.760
+ I think the biggest innovation that we've seen is machine learning.
+
+06:23.760 --> 06:28.600
+ And it's the idea that the computers can basically teach themselves.
+
+06:28.600 --> 06:29.720
+ Let's give an example.
+
+06:29.720 --> 06:33.080
+ I'd say everybody pretty much knows how to walk.
+
+06:33.080 --> 06:36.800
+ And we learn how to walk in the first year or two of our lives.
+
+06:36.800 --> 06:41.120
+ But no scientist has ever been able to write down the rules of human gait.
+
+06:41.120 --> 06:42.080
+ We don't understand it.
+
+06:42.080 --> 06:43.960
+ We have it in our brains somehow.
+
+06:43.960 --> 06:45.120
+ We can practice it.
+
+06:45.120 --> 06:46.560
+ We understand it.
+
+06:46.560 --> 06:47.720
+ But we can't articulate it.
+
+06:47.720 --> 06:50.240
+ We can't pass it on by language.
+
+06:50.240 --> 06:53.320
+ And that, to me, is kind of the deficiency of today's computer programming.
+
+06:53.320 --> 06:57.640
+ When you program a computer, they're so insanely dumb that you have to give them
+
+06:57.640 --> 06:59.840
+ rules for every contingencies.
+
+06:59.840 --> 07:03.440
+ Very unlike the way people learn from data and experience,
+
+07:03.440 --> 07:05.440
+ computers are being instructed.
+
+07:05.440 --> 07:07.800
+ And because it's so hard to get this instruction set right,
+
+07:07.800 --> 07:11.480
+ we pay software engineers $200,000 a year.
+
+07:11.480 --> 07:14.440
+ Now, the most recent innovation, which has been in the make for 30,
+
+07:14.440 --> 07:18.480
+ 40 years, is an idea that computers can find their own rules.
+
+07:18.480 --> 07:21.720
+ So they can learn from falling down and getting up the same way children can
+
+07:21.720 --> 07:23.840
+ learn from falling down and getting up.
+
+07:23.840 --> 07:28.720
+ And that revolution has led to a capability that's completely unmatched.
+
+07:28.720 --> 07:32.120
+ Today's computers can watch experts do their jobs, whether you're
+
+07:32.120 --> 07:36.920
+ a doctor or a lawyer, pick up the regularities, learn those rules,
+
+07:36.920 --> 07:39.400
+ and then become as good as the best experts.
+
+07:39.400 --> 07:44.400
+ So the dream of in the 80s of expert systems, for example, had at its core
+
+07:44.400 --> 07:49.360
+ the idea that humans could boil down their expertise on a sheet of paper,
+
+07:49.360 --> 07:53.280
+ so to sort of reduce, sort of be able to explain to machines
+
+07:53.280 --> 07:55.520
+ how to do something explicitly.
+
+07:55.520 --> 08:00.040
+ So do you think, what's the use of human expertise into this whole picture?
+
+08:00.040 --> 08:03.240
+ Do you think most of the intelligence will come from machines learning
+
+08:03.240 --> 08:06.480
+ from experience without human expertise input?
+
+08:06.480 --> 08:10.680
+ So the question for me is much more how do you express expertise?
+
+08:10.680 --> 08:12.960
+ You can express expertise by writing a book.
+
+08:12.960 --> 08:16.240
+ You can express expertise by showing someone what you're doing.
+
+08:16.240 --> 08:20.000
+ You can express expertise by applying it by many different ways.
+
+08:20.000 --> 08:23.680
+ And I think the expert systems was our best attempt in AI
+
+08:23.680 --> 08:25.960
+ to capture expertise and rules.
+
+08:25.960 --> 08:28.600
+ But someone sat down and said, here are the rules of human gait.
+
+08:28.600 --> 08:32.600
+ Here's when you put your big toe forward and your heel backwards
+
+08:32.600 --> 08:34.720
+ and you always stop stumbling.
+
+08:34.720 --> 08:39.480
+ And as we now know, the set of rules, the set of language that we can command
+
+08:39.480 --> 08:41.200
+ is incredibly limited.
+
+08:41.200 --> 08:43.760
+ The majority of the human brain doesn't deal with language.
+
+08:43.760 --> 08:48.160
+ It deals with subconscious, numerical, perceptual things
+
+08:48.160 --> 08:51.360
+ that we don't even self aware of.
+
+08:51.360 --> 08:57.880
+ Now, when an AI system watches an expert do their job and practice their job,
+
+08:57.880 --> 09:01.680
+ it can pick up things that people can't even put into writing,
+
+09:01.680 --> 09:03.200
+ into books or rules.
+
+09:03.200 --> 09:04.520
+ And that's where the real power is.
+
+09:04.520 --> 09:08.280
+ We now have AI systems that, for example, look over the shoulders
+
+09:08.280 --> 09:12.840
+ of highly paid human doctors like dermatologists or radiologists,
+
+09:12.840 --> 09:18.440
+ and they can somehow pick up those skills that no one can express in words.
+
+09:18.440 --> 09:22.200
+ So you were a key person in launching three revolutions,
+
+09:22.200 --> 09:28.240
+ online education, autonomous vehicles, and flying cars or VTOLs.
+
+09:28.240 --> 09:34.680
+ So high level, and I apologize for all the philosophical questions.
+
+09:34.680 --> 09:37.400
+ There's no apology necessary.
+
+09:37.400 --> 09:40.640
+ How do you choose what problems to try and solve?
+
+09:40.640 --> 09:43.400
+ What drives you to make those solutions a reality?
+
+09:43.400 --> 09:44.840
+ I have two desires in life.
+
+09:44.840 --> 09:48.560
+ I want to literally make the lives of others better.
+
+09:48.560 --> 09:52.840
+ Or as we often say, maybe jokingly, make the world a better place.
+
+09:52.840 --> 09:54.920
+ I actually believe in this.
+
+09:54.920 --> 09:57.720
+ It's as funny as it sounds.
+
+09:57.720 --> 09:59.160
+ And second, I want to learn.
+
+09:59.160 --> 10:00.400
+ I want to get new skills.
+
+10:00.400 --> 10:02.920
+ I don't want to be in a job I'm good at, because if I'm in a job
+
+10:02.920 --> 10:05.840
+ that I'm good at, the chances for me to learn something interesting
+
+10:05.840 --> 10:06.760
+ is actually minimized.
+
+10:06.760 --> 10:09.040
+ So I want to be in a job I'm bad at.
+
+10:09.040 --> 10:10.240
+ That's really important to me.
+
+10:10.240 --> 10:12.160
+ So in a bill, for example, what people often
+
+10:12.160 --> 10:15.320
+ call flying cars, these are electrical, vertical, takeoff,
+
+10:15.320 --> 10:17.960
+ and landing vehicles.
+
+10:17.960 --> 10:19.720
+ I'm just no expert in any of this.
+
+10:19.720 --> 10:23.080
+ And it's so much fun to learn on the job what it actually means
+
+10:23.080 --> 10:24.920
+ to build something like this.
+
+10:24.920 --> 10:27.560
+ Now, I'd say the stuff that I've done lately
+
+10:27.560 --> 10:31.120
+ after I finished my professorship at Stanford,
+
+10:31.120 --> 10:35.520
+ they really focused on what has the maximum impact on society.
+
+10:35.520 --> 10:38.240
+ Transportation is something that has transformed the 21st
+
+10:38.240 --> 10:40.120
+ or 20th century more than any other invention,
+
+10:40.120 --> 10:42.600
+ in my opinion, even more than communication.
+
+10:42.600 --> 10:43.600
+ And cities are different.
+
+10:43.600 --> 10:45.080
+ Workers are different.
+
+10:45.080 --> 10:47.920
+ Women's rights are different because of transportation.
+
+10:47.920 --> 10:51.360
+ And yet, we still have a very suboptimal transportation
+
+10:51.360 --> 10:56.960
+ solution where we kill 1.2 or so million people every year
+
+10:56.960 --> 10:57.680
+ in traffic.
+
+10:57.680 --> 10:59.880
+ It's like the leading cause of death for young people
+
+10:59.880 --> 11:02.880
+ in many countries, where we are extremely inefficient
+
+11:02.880 --> 11:03.600
+ resource wise.
+
+11:03.600 --> 11:06.800
+ Just go to your average neighborhood city
+
+11:06.800 --> 11:08.320
+ and look at the number of parked cars.
+
+11:08.320 --> 11:10.400
+ That's a travesty, in my opinion.
+
+11:10.400 --> 11:13.840
+ Or where we spend endless hours in traffic jams.
+
+11:13.840 --> 11:15.680
+ And very, very simple innovations,
+
+11:15.680 --> 11:18.800
+ like a self driving car or what people call a flying car,
+
+11:18.800 --> 11:20.240
+ could completely change this.
+
+11:20.240 --> 11:21.000
+ And it's there.
+
+11:21.000 --> 11:23.280
+ I mean, the technology is basically there.
+
+11:23.280 --> 11:26.920
+ You have to close your eyes not to see it.
+
+11:26.920 --> 11:30.720
+ So lingering on autonomous vehicles, a fascinating space,
+
+11:30.720 --> 11:33.560
+ some incredible work you've done throughout your career there.
+
+11:33.560 --> 11:39.440
+ So let's start with DARPA, I think, the DARPA challenge,
+
+11:39.440 --> 11:42.840
+ through the desert and then urban to the streets.
+
+11:42.840 --> 11:45.720
+ I think that inspired an entire generation of roboticists
+
+11:45.720 --> 11:49.520
+ and obviously sprung this whole excitement
+
+11:49.520 --> 11:52.680
+ about this particular kind of four wheeled robots
+
+11:52.680 --> 11:55.520
+ we called autonomous cars, self driving cars.
+
+11:55.520 --> 11:58.960
+ So you led the development of Stanley, the autonomous car
+
+11:58.960 --> 12:03.920
+ that won the race to the desert, the DARPA challenge in 2005.
+
+12:03.920 --> 12:07.400
+ And Junior, the car that finished second
+
+12:07.400 --> 12:11.040
+ in the DARPA urban challenge, also did incredibly well
+
+12:11.040 --> 12:14.360
+ in 2007, I think.
+
+12:14.360 --> 12:17.360
+ What are some painful, inspiring, or enlightening
+
+12:17.360 --> 12:20.560
+ experiences from that time that stand out to you?
+
+12:20.560 --> 12:22.640
+ Oh my god.
+
+12:22.640 --> 12:28.160
+ Painful were all these incredibly complicated,
+
+12:28.160 --> 12:30.440
+ stupid bugs that had to be found.
+
+12:30.440 --> 12:35.040
+ We had a phase where Stanley, our car that eventually
+
+12:35.040 --> 12:38.120
+ won the DARPA grand challenge, would every 30 miles
+
+12:38.120 --> 12:39.320
+ just commit suicide.
+
+12:39.320 --> 12:40.840
+ And we didn't know why.
+
+12:40.840 --> 12:44.360
+ And it ended up to be that in the sinking of two computer
+
+12:44.360 --> 12:47.720
+ clocks, occasionally a clock went backwards
+
+12:47.720 --> 12:50.880
+ and that negative time elapsed, screwed up
+
+12:50.880 --> 12:51.880
+ the entire internal logic.
+
+12:51.880 --> 12:54.360
+ But it took ages to find this.
+
+12:54.360 --> 12:56.280
+ There were bugs like that.
+
+12:56.280 --> 12:59.840
+ I'd say enlightening is the Stanford team immediately
+
+12:59.840 --> 13:02.360
+ focused on machine learning and on software,
+
+13:02.360 --> 13:05.160
+ whereas everybody else seemed to focus on building better hardware.
+
+13:05.160 --> 13:08.640
+ Our analysis had been a human being with an existing rental
+
+13:08.640 --> 13:10.240
+ car can perfectly drive the course
+
+13:10.240 --> 13:12.160
+ but why do I have to build a better rental car?
+
+13:12.160 --> 13:15.080
+ I just should replace the human being.
+
+13:15.080 --> 13:18.840
+ And the human being, to me, was a conjunction of three steps.
+
+13:18.840 --> 13:22.360
+ We had sensors, eyes and ears, mostly eyes.
+
+13:22.360 --> 13:23.800
+ We had brains in the middle.
+
+13:23.800 --> 13:26.360
+ And then we had actuators, our hands and our feet.
+
+13:26.360 --> 13:28.200
+ Now, the actuators are easy to build.
+
+13:28.200 --> 13:29.720
+ The sensors are actually also easy to build.
+
+13:29.720 --> 13:30.960
+ What was missing was the brain.
+
+13:30.960 --> 13:32.640
+ So we had to build a human brain.
+
+13:32.640 --> 13:36.040
+ And nothing clearer than to me that the human brain
+
+13:36.040 --> 13:37.000
+ is a learning machine.
+
+13:37.000 --> 13:38.240
+ So why not just train our robot?
+
+13:38.240 --> 13:40.720
+ So we would build massive machine learning
+
+13:40.720 --> 13:42.320
+ into our machine.
+
+13:42.320 --> 13:44.840
+ And with that, we were able to not just learn
+
+13:44.840 --> 13:45.680
+ from human drivers.
+
+13:45.680 --> 13:47.960
+ We had the entire speed control of the vehicle
+
+13:47.960 --> 13:49.840
+ was copied from human driving.
+
+13:49.840 --> 13:51.640
+ But also have the robot learn from experience
+
+13:51.640 --> 13:53.680
+ where it made a mistake and recover from it
+
+13:53.680 --> 13:55.600
+ and learn from it.
+
+13:55.600 --> 14:00.720
+ You mentioned the pain point of software and clocks.
+
+14:00.720 --> 14:04.720
+ Synchronization seems to be a problem that
+
+14:04.720 --> 14:06.080
+ continues with robotics.
+
+14:06.080 --> 14:09.920
+ It's a tricky one with drones and so on.
+
+14:09.920 --> 14:14.520
+ What does it take to build a thing, a system
+
+14:14.520 --> 14:16.640
+ with so many constraints?
+
+14:16.640 --> 14:20.320
+ You have a deadline, no time.
+
+14:20.320 --> 14:22.080
+ You're unsure about anything really.
+
+14:22.080 --> 14:24.960
+ It's the first time that people really even exploring.
+
+14:24.960 --> 14:26.800
+ It's not even sure that anybody can finish
+
+14:26.800 --> 14:28.840
+ when we're talking about the race to the desert
+
+14:28.840 --> 14:30.640
+ the year before nobody finish.
+
+14:30.640 --> 14:32.760
+ What does it take to scramble and finish
+
+14:32.760 --> 14:35.800
+ a product that actually, a system that actually works?
+
+14:35.800 --> 14:36.760
+ We were very lucky.
+
+14:36.760 --> 14:38.280
+ We were a really small team.
+
+14:38.280 --> 14:40.440
+ The core of the team were four people.
+
+14:40.440 --> 14:43.080
+ It was four because five couldn't comfortably sit
+
+14:43.080 --> 14:45.360
+ inside a car, but four could.
+
+14:45.360 --> 14:47.080
+ And I, as a team leader, my job was
+
+14:47.080 --> 14:50.120
+ to get pizza for everybody and wash the car and stuff
+
+14:50.120 --> 14:52.880
+ like this and repair the radiator when it broke
+
+14:52.880 --> 14:55.240
+ and debug the system.
+
+14:55.240 --> 14:56.880
+ And we were very open minded.
+
+14:56.880 --> 14:58.400
+ We had no egos involved.
+
+14:58.400 --> 15:00.840
+ We just wanted to see how far we can get.
+
+15:00.840 --> 15:03.280
+ What we did really, really well was time management.
+
+15:03.280 --> 15:06.280
+ We were done with everything a month before the race.
+
+15:06.280 --> 15:08.760
+ And we froze the entire software a month before the race.
+
+15:08.760 --> 15:11.440
+ And it turned out, looking at other teams,
+
+15:11.440 --> 15:14.120
+ every other team complained if they had just one more week,
+
+15:14.120 --> 15:15.440
+ they would have won.
+
+15:15.440 --> 15:18.760
+ And we decided we're not going to fall into that mistake.
+
+15:18.760 --> 15:19.920
+ We're going to be early.
+
+15:19.920 --> 15:22.720
+ And we had an entire month to shake the system.
+
+15:22.720 --> 15:24.920
+ And we actually found two or three minor bugs
+
+15:24.920 --> 15:27.080
+ in the last month that we had to fix.
+
+15:27.080 --> 15:30.000
+ And we were completely prepared when the race occurred.
+
+15:30.000 --> 15:33.880
+ Okay, so first of all, that's such an incredibly rare
+
+15:33.880 --> 15:37.760
+ achievement in terms of being able to be done on time
+
+15:37.760 --> 15:39.000
+ or ahead of time.
+
+15:39.000 --> 15:43.080
+ What do you, how do you do that in your future work?
+
+15:43.080 --> 15:44.760
+ What advice do you have in general?
+
+15:44.760 --> 15:46.360
+ Because it seems to be so rare,
+
+15:46.360 --> 15:49.280
+ especially in highly innovative projects like this.
+
+15:49.280 --> 15:50.840
+ People work till the last second.
+
+15:50.840 --> 15:52.560
+ Well, the nice thing about the DARPA Grand Challenge
+
+15:52.560 --> 15:55.320
+ is that the problem was incredibly well defined.
+
+15:55.320 --> 15:57.160
+ We were able for a while to drive
+
+15:57.160 --> 15:58.800
+ the old DARPA Grand Challenge course,
+
+15:58.800 --> 16:00.800
+ which had been used the year before.
+
+16:00.800 --> 16:04.040
+ And then at some reason we were kicked out of the region.
+
+16:04.040 --> 16:06.320
+ So we had to go to a different desert, the Snorran Desert,
+
+16:06.320 --> 16:08.880
+ and we were able to drive desert trails
+
+16:08.880 --> 16:10.600
+ just of the same type.
+
+16:10.600 --> 16:12.320
+ So there was never any debate about like,
+
+16:12.320 --> 16:13.240
+ what is actually the problem?
+
+16:13.240 --> 16:14.400
+ We didn't sit down and say,
+
+16:14.400 --> 16:16.680
+ hey, should we build a car or a plane?
+
+16:16.680 --> 16:18.280
+ We had to build a car.
+
+16:18.280 --> 16:20.400
+ That made it very, very easy.
+
+16:20.400 --> 16:23.800
+ Then I studied my own life and life of others.
+
+16:23.800 --> 16:26.360
+ And we realized that the typical mistake that people make
+
+16:26.360 --> 16:29.600
+ is that there's this kind of crazy bug left
+
+16:29.600 --> 16:31.240
+ that they haven't found yet.
+
+16:32.200 --> 16:34.360
+ And it's just, they regret it.
+
+16:34.360 --> 16:36.160
+ And that bug would have been trivial to fix.
+
+16:36.160 --> 16:37.760
+ They just haven't fixed it yet.
+
+16:37.760 --> 16:39.600
+ They didn't want to fall into that trap.
+
+16:39.600 --> 16:41.080
+ So I built a testing team.
+
+16:41.080 --> 16:43.760
+ We had a testing team that built a testing booklet
+
+16:43.760 --> 16:46.800
+ of 160 pages of tests we had to go through
+
+16:46.800 --> 16:49.720
+ just to make sure we shake out the system appropriately.
+
+16:49.720 --> 16:51.800
+ And the testing team was with us all the time
+
+16:51.800 --> 16:55.520
+ and dictated to us today, we do railroad crossings.
+
+16:55.520 --> 16:58.480
+ Tomorrow we do, we practice the start of the event.
+
+16:58.480 --> 17:00.680
+ And in all of these, we thought,
+
+17:00.680 --> 17:02.240
+ oh my God, it's long solved trivial.
+
+17:02.240 --> 17:03.200
+ And then we tested it out.
+
+17:03.200 --> 17:04.560
+ Oh my God, it doesn't do a railroad crossing.
+
+17:04.560 --> 17:05.400
+ Why not?
+
+17:05.400 --> 17:09.720
+ Oh my God, it mistakes the rails for metal barriers.
+
+17:09.720 --> 17:11.600
+ We have to fix this.
+
+17:11.600 --> 17:14.480
+ So it was really a continuous focus
+
+17:14.480 --> 17:16.360
+ on improving the weakest part of the system.
+
+17:16.360 --> 17:19.160
+ And as long as you focus on improving
+
+17:19.160 --> 17:20.560
+ the weakest part of the system,
+
+17:20.560 --> 17:23.080
+ you eventually build a really great system.
+
+17:23.080 --> 17:25.880
+ Let me just pause on that, to me as an engineer,
+
+17:25.880 --> 17:28.280
+ it's just super exciting that you were thinking like that,
+
+17:28.280 --> 17:30.440
+ especially at that stage as brilliant,
+
+17:30.440 --> 17:33.400
+ that testing was such a core part of it.
+
+17:33.400 --> 17:35.720
+ It may be to linger on the point of leadership.
+
+17:36.720 --> 17:39.120
+ I think it's one of the first times
+
+17:39.120 --> 17:41.960
+ you were really a leader
+
+17:41.960 --> 17:45.440
+ and you've led many very successful teams since then.
+
+17:46.440 --> 17:48.480
+ What does it take to be a good leader?
+
+17:48.480 --> 17:51.000
+ I would say most of all, I just take credit.
+
+17:51.000 --> 17:55.320
+ I put the work of others, right?
+
+17:55.320 --> 17:57.560
+ That's very convenient turns out
+
+17:57.560 --> 18:00.200
+ because I can't do all these things myself.
+
+18:00.200 --> 18:01.120
+ I'm an engineer at heart.
+
+18:01.120 --> 18:03.760
+ So I care about engineering.
+
+18:03.760 --> 18:06.160
+ So I don't know what the chicken and the egg is,
+
+18:06.160 --> 18:07.880
+ but as a kid, I loved computers
+
+18:07.880 --> 18:09.560
+ because you could tell them to do something
+
+18:09.560 --> 18:10.720
+ and they actually did it.
+
+18:10.720 --> 18:11.560
+ It was very cool.
+
+18:11.560 --> 18:12.760
+ And you could like in the middle of the night,
+
+18:12.760 --> 18:15.200
+ wake up at one in the morning and switch on your computer.
+
+18:15.200 --> 18:18.160
+ And what he told you to yesterday, it would still do.
+
+18:18.160 --> 18:19.400
+ That was really cool.
+
+18:19.400 --> 18:21.320
+ Unfortunately, that didn't quite work with people.
+
+18:21.320 --> 18:22.880
+ So you go to people and tell them what to do
+
+18:22.880 --> 18:24.360
+ and they don't do it.
+
+18:24.360 --> 18:26.960
+ And they hate you for it, or you do it today
+
+18:26.960 --> 18:29.040
+ and then you go a day later and they stop doing it.
+
+18:29.040 --> 18:30.240
+ So you have to...
+
+18:30.240 --> 18:31.480
+ So then the question really became,
+
+18:31.480 --> 18:34.120
+ how can you put yourself in the brain of people
+
+18:34.120 --> 18:35.120
+ as opposed to computers?
+
+18:35.120 --> 18:37.400
+ And in terms of computers, it's super dumb.
+
+18:37.400 --> 18:38.240
+ That's so dumb.
+
+18:38.240 --> 18:39.640
+ If people were as dumb as computers,
+
+18:39.640 --> 18:41.280
+ I wouldn't want to work with them.
+
+18:41.280 --> 18:43.640
+ But people are smart and people are emotional
+
+18:43.640 --> 18:45.920
+ and people have pride and people have aspirations.
+
+18:45.920 --> 18:49.840
+ So how can I connect to that?
+
+18:49.840 --> 18:52.560
+ And that's the thing that most of our leadership just fails
+
+18:52.560 --> 18:56.240
+ because many, many engineers turn manager
+
+18:56.240 --> 18:58.480
+ believe they can treat their team just the same way
+
+18:58.480 --> 18:59.320
+ it can treat your computer.
+
+18:59.320 --> 19:00.440
+ And it just doesn't work this way.
+
+19:00.440 --> 19:02.320
+ It's just really bad.
+
+19:02.320 --> 19:05.080
+ So how can I connect to people?
+
+19:05.080 --> 19:07.680
+ And it turns out as a college professor,
+
+19:07.680 --> 19:10.000
+ the wonderful thing you do all the time
+
+19:10.000 --> 19:11.000
+ is to empower other people.
+
+19:11.000 --> 19:14.720
+ Like your job is to make your students look great.
+
+19:14.720 --> 19:15.560
+ That's all you do.
+
+19:15.560 --> 19:16.920
+ You're the best coach.
+
+19:16.920 --> 19:19.160
+ And it turns out if you do a fantastic job with making
+
+19:19.160 --> 19:21.560
+ your students look great, they actually love you
+
+19:21.560 --> 19:22.720
+ and their parents love you.
+
+19:22.720 --> 19:25.520
+ And they give you all the credit for stuff you don't deserve.
+
+19:25.520 --> 19:27.200
+ All my students were smarter than me.
+
+19:27.200 --> 19:28.720
+ All the great stuff invented at Stanford
+
+19:28.720 --> 19:30.040
+ was their stuff, not my stuff.
+
+19:30.040 --> 19:32.480
+ And they give me credit and say, oh, Sebastian.
+
+19:32.480 --> 19:35.240
+ We're just making them feel good about themselves.
+
+19:35.240 --> 19:38.040
+ So the question really is, can you take a team of people
+
+19:38.040 --> 19:40.400
+ and what does it take to make them
+
+19:40.400 --> 19:43.360
+ to connect to what they actually want in life
+
+19:43.360 --> 19:45.760
+ and turn this into productive action?
+
+19:45.760 --> 19:48.520
+ It turns out every human being that I know
+
+19:48.520 --> 19:50.120
+ has incredibly good intentions.
+
+19:50.120 --> 19:54.120
+ I've really rarely met a person with bad intentions.
+
+19:54.120 --> 19:55.920
+ I believe every person wants to contribute.
+
+19:55.920 --> 19:59.440
+ I think every person I've met wants to help others.
+
+19:59.440 --> 20:01.840
+ It's amazing how much of an urge we have
+
+20:01.840 --> 20:04.440
+ not to just help ourselves, but to help others.
+
+20:04.440 --> 20:06.480
+ So how can we empower people and give them
+
+20:06.480 --> 20:10.600
+ the right framework that they can accomplish this?
+
+20:10.600 --> 20:12.400
+ In moments when it works, it's magical.
+
+20:12.400 --> 20:17.160
+ Because you'd see the confluence of people
+
+20:17.160 --> 20:19.160
+ being able to make the world a better place
+
+20:19.160 --> 20:22.840
+ and deriving enormous confidence and pride out of this.
+
+20:22.840 --> 20:27.160
+ And that's when my environment works the best.
+
+20:27.160 --> 20:29.400
+ These are moments where I can disappear for a month
+
+20:29.400 --> 20:31.560
+ and come back and things still work.
+
+20:31.560 --> 20:32.760
+ It's very hard to accomplish.
+
+20:32.760 --> 20:35.040
+ But when it works, it's amazing.
+
+20:35.040 --> 20:37.240
+ So I agree with you very much.
+
+20:37.240 --> 20:42.000
+ It's not often heard that most people in the world
+
+20:42.000 --> 20:43.520
+ have good intentions.
+
+20:43.520 --> 20:45.920
+ At the core, their intentions are good
+
+20:45.920 --> 20:47.400
+ and they're good people.
+
+20:47.400 --> 20:50.160
+ That's a beautiful message, it's not often heard.
+
+20:50.160 --> 20:52.600
+ We make this mistake, and this is a friend of mine,
+
+20:52.600 --> 20:56.400
+ Alex Werder, talking to us, that we judge ourselves
+
+20:56.400 --> 20:59.160
+ by our intentions and others by their actions.
+
+21:00.080 --> 21:01.880
+ And I think that the biggest skill,
+
+21:01.880 --> 21:03.560
+ I mean, here in Silicon Valley, we follow engineers
+
+21:03.560 --> 21:06.640
+ who have very little empathy and are kind of befuddled
+
+21:06.640 --> 21:09.200
+ by why it doesn't work for them.
+
+21:09.200 --> 21:13.080
+ The biggest skill, I think, that people should acquire
+
+21:13.080 --> 21:16.880
+ is to put themselves into the position of the other
+
+21:16.880 --> 21:20.000
+ and listen, and listen to what the other has to say.
+
+21:20.000 --> 21:23.400
+ And they'd be shocked how similar they are to themselves.
+
+21:23.400 --> 21:26.160
+ And they might even be shocked how their own actions
+
+21:26.160 --> 21:28.320
+ don't reflect their intentions.
+
+21:28.320 --> 21:30.920
+ I often have conversations with engineers
+
+21:30.920 --> 21:33.400
+ where I say, look, hey, I love you, you're doing a great job.
+
+21:33.400 --> 21:37.320
+ And by the way, what you just did has the following effect.
+
+21:37.320 --> 21:38.840
+ Are you aware of that?
+
+21:38.840 --> 21:41.280
+ And then people would say, oh my God, not I wasn't,
+
+21:41.280 --> 21:43.120
+ because my intention was that.
+
+21:43.120 --> 21:45.000
+ And I say, yeah, I trust your intention.
+
+21:45.000 --> 21:46.360
+ You're a good human being.
+
+21:46.360 --> 21:48.480
+ But just to help you in the future,
+
+21:48.480 --> 21:51.320
+ if you keep expressing it that way,
+
+21:51.320 --> 21:53.400
+ then people will just hate you.
+
+21:53.400 --> 21:55.240
+ And I've had many instances where people say,
+
+21:55.240 --> 21:56.600
+ oh my God, thank you for telling me this,
+
+21:56.600 --> 21:59.280
+ because it wasn't my intention to look like an idiot.
+
+21:59.280 --> 22:00.720
+ It wasn't my intention to help other people.
+
+22:00.720 --> 22:02.480
+ I just didn't know how to do it.
+
+22:02.480 --> 22:04.000
+ Very simple, by the way.
+
+22:04.000 --> 22:07.440
+ There's a book, Dale Carnegie, 1936,
+
+22:07.440 --> 22:10.400
+ how to make friends and how to influence others.
+
+22:10.400 --> 22:12.720
+ Has the entire Bible, you just read it and you're done
+
+22:12.720 --> 22:13.960
+ and you apply it every day.
+
+22:13.960 --> 22:16.760
+ And I wish I was good enough to apply it every day.
+
+22:16.760 --> 22:18.880
+ But it's just simple things, right?
+
+22:18.880 --> 22:22.600
+ Like be positive, remember people's name, smile,
+
+22:22.600 --> 22:24.480
+ and eventually have empathy.
+
+22:24.480 --> 22:27.400
+ Really think that the person that you hate
+
+22:27.400 --> 22:28.640
+ and you think is an idiot,
+
+22:28.640 --> 22:30.440
+ is actually just like yourself.
+
+22:30.440 --> 22:33.200
+ It's a person who's struggling, who means well,
+
+22:33.200 --> 22:36.560
+ and who might need help, and guess what, you need help.
+
+22:36.560 --> 22:39.960
+ I've recently spoken with Stephen Schwarzman.
+
+22:39.960 --> 22:41.960
+ I'm not sure if you know who that is, but.
+
+22:41.960 --> 22:42.920
+ I do.
+
+22:42.920 --> 22:44.320
+ So, and he said.
+
+22:44.320 --> 22:45.160
+ It's on my list.
+
+22:45.160 --> 22:47.440
+ On the list.
+
+22:47.440 --> 22:52.440
+ But he said, sort of to expand on what you're saying,
+
+22:52.760 --> 22:56.040
+ that one of the biggest things you can do
+
+22:56.040 --> 23:00.040
+ is hear people when they tell you what their problem is
+
+23:00.040 --> 23:02.360
+ and then help them with that problem.
+
+23:02.360 --> 23:06.000
+ He says, it's surprising how few people
+
+23:06.000 --> 23:09.280
+ actually listen to what troubles others.
+
+23:09.280 --> 23:12.600
+ And because it's right there in front of you
+
+23:12.600 --> 23:15.240
+ and you can benefit the world the most.
+
+23:15.240 --> 23:18.040
+ And in fact, yourself and everybody around you
+
+23:18.040 --> 23:20.840
+ by just hearing the problems and solving them.
+
+23:20.840 --> 23:23.960
+ I mean, that's my little history of engineering.
+
+23:23.960 --> 23:28.240
+ That is, while I was engineering with computers,
+
+23:28.240 --> 23:32.400
+ I didn't care at all what the computer's problems were.
+
+23:32.400 --> 23:34.800
+ I just told them what to do and to do it.
+
+23:34.800 --> 23:37.600
+ And it just doesn't work this way with people.
+
+23:37.600 --> 23:38.480
+ It doesn't work with me.
+
+23:38.480 --> 23:41.240
+ If you come to me and say, do A, I do the opposite.
+
+23:43.600 --> 23:47.160
+ But let's return to the comfortable world of engineering.
+
+23:47.160 --> 23:52.160
+ And can you tell me in broad strokes in how you see it?
+
+23:52.160 --> 23:53.840
+ Because you're the core of starting it,
+
+23:53.840 --> 23:55.120
+ the core of driving it,
+
+23:55.120 --> 23:58.040
+ the technical evolution of autonomous vehicles
+
+23:58.040 --> 24:00.440
+ from the first DARPA Grand Challenge
+
+24:00.440 --> 24:03.640
+ to the incredible success we see with the program
+
+24:03.640 --> 24:05.400
+ you started with Google self driving car
+
+24:05.400 --> 24:08.360
+ and Waymo and the entire industry that sprung up
+
+24:08.360 --> 24:11.200
+ of different kinds of approaches, debates and so on.
+
+24:11.200 --> 24:14.160
+ Well, the idea of self driving car goes back to the 80s.
+
+24:14.160 --> 24:15.480
+ There was a team in Germany and another team
+
+24:15.480 --> 24:18.720
+ at Carnegie Mellon that did some very pioneering work.
+
+24:18.720 --> 24:21.760
+ But back in the day, I'd say the computers were so deficient
+
+24:21.760 --> 24:25.880
+ that even the best professors and engineers in the world
+
+24:25.880 --> 24:27.280
+ basically stood no chance.
+
+24:28.200 --> 24:31.200
+ It then folded into a phase where the US government
+
+24:31.200 --> 24:33.320
+ spent at least half a billion dollars
+
+24:33.320 --> 24:36.160
+ that I could count on research projects.
+
+24:36.160 --> 24:37.960
+ But the way the procurement works,
+
+24:38.920 --> 24:42.800
+ a successful stack of paper describing lots of stuff
+
+24:42.800 --> 24:43.880
+ that no one's ever gonna read
+
+24:43.880 --> 24:47.640
+ was a successful product of a research project.
+
+24:47.640 --> 24:50.520
+ So we trained our researchers to produce lots of paper.
+
+24:52.600 --> 24:54.320
+ That all changed with the DARPA Grand Challenge.
+
+24:54.320 --> 24:58.480
+ And I really gotta credit the ingenious people at DARPA
+
+24:58.480 --> 25:00.400
+ and the US government and Congress
+
+25:00.400 --> 25:03.000
+ that took a complete new funding model where they said,
+
+25:03.000 --> 25:05.640
+ let's not fund effort, let's fund outcomes.
+
+25:05.640 --> 25:06.840
+ And it sounds very trivial,
+
+25:06.840 --> 25:09.840
+ but there was no tax code that allowed
+
+25:09.840 --> 25:13.720
+ the use of congressional tax money for a price.
+
+25:13.720 --> 25:15.120
+ It was all effort based.
+
+25:15.120 --> 25:16.320
+ So if you put in a hundred hours in,
+
+25:16.320 --> 25:17.480
+ you could charge a hundred hours.
+
+25:17.480 --> 25:18.520
+ If you put in a thousand hours in,
+
+25:18.520 --> 25:20.720
+ you could build a thousand hours.
+
+25:20.720 --> 25:22.880
+ By changing the focus instead of making the price,
+
+25:22.880 --> 25:24.040
+ we don't pay you for development,
+
+25:24.040 --> 25:26.360
+ we pay for the accomplishment.
+
+25:26.360 --> 25:28.960
+ They drew in, they automatically drew out
+
+25:28.960 --> 25:31.720
+ all these contractors who are used to the drug
+
+25:31.720 --> 25:33.400
+ of getting money per hour.
+
+25:33.400 --> 25:35.520
+ And they drew in a whole bunch of new people.
+
+25:35.520 --> 25:37.600
+ And these people are mostly crazy people.
+
+25:37.600 --> 25:40.680
+ They were people who had a car and a computer
+
+25:40.680 --> 25:42.440
+ and they wanted to make a million bucks.
+
+25:42.440 --> 25:43.920
+ The million bucks was their visual price money,
+
+25:43.920 --> 25:45.440
+ it was then doubled.
+
+25:45.440 --> 25:48.040
+ And they felt if I put my computer in my car
+
+25:48.040 --> 25:50.880
+ and program it, I can be rich.
+
+25:50.880 --> 25:52.080
+ And that was so awesome.
+
+25:52.080 --> 25:55.480
+ Like half the teams, there was a team that was surfer dudes
+
+25:55.480 --> 25:58.520
+ and they had like two surfboards on their vehicle
+
+25:58.520 --> 26:01.560
+ and brought like these fashion girls, super cute girls,
+
+26:01.560 --> 26:02.800
+ like twin sisters.
+
+26:03.720 --> 26:06.400
+ And you could tell these guys were not your common
+
+26:06.400 --> 26:10.840
+ beltway bandit who gets all these big multimillion
+
+26:10.840 --> 26:13.520
+ and billion dollar countries from the US government.
+
+26:13.520 --> 26:15.240
+ And there was a great reset.
+
+26:16.280 --> 26:18.560
+ Universities moved in.
+
+26:18.560 --> 26:21.800
+ I was very fortunate at Stanford that I just received tenure
+
+26:21.800 --> 26:23.360
+ so I couldn't get fired no matter what I do,
+
+26:23.360 --> 26:25.120
+ otherwise I wouldn't have done it.
+
+26:25.120 --> 26:28.240
+ And I had enough money to finance this thing
+
+26:28.240 --> 26:31.160
+ and I was able to attract a lot of money from third parties.
+
+26:31.160 --> 26:32.520
+ And even car companies moved in.
+
+26:32.520 --> 26:34.040
+ They kind of moved in very quietly
+
+26:34.040 --> 26:36.600
+ because they were super scared to be embarrassed
+
+26:36.600 --> 26:38.560
+ that their car would flip over.
+
+26:38.560 --> 26:40.680
+ But Ford was there and Volkswagen was there
+
+26:40.680 --> 26:43.360
+ and a few others and GM was there.
+
+26:43.360 --> 26:46.360
+ So it kind of reset the entire landscape of people.
+
+26:46.360 --> 26:48.200
+ And if you look at who's a big name
+
+26:48.200 --> 26:49.480
+ in self driving cars today,
+
+26:49.480 --> 26:51.320
+ these were mostly people who participated
+
+26:51.320 --> 26:52.320
+ in those challenges.
+
+26:53.400 --> 26:54.280
+ Okay, that's incredible.
+
+26:54.280 --> 26:59.080
+ Can you just comment quickly on your sense of lessons learned
+
+26:59.080 --> 27:01.240
+ from that kind of funding model
+
+27:01.240 --> 27:04.400
+ and the research that's going on in academia
+
+27:04.400 --> 27:06.120
+ in terms of producing papers,
+
+27:06.120 --> 27:10.200
+ is there something to be learned and scaled up bigger,
+
+27:10.200 --> 27:11.720
+ having these kinds of grand challenges
+
+27:11.720 --> 27:14.560
+ that could improve outcomes?
+
+27:14.560 --> 27:16.320
+ So I'm a big believer in focusing
+
+27:16.320 --> 27:19.680
+ on kind of an end to end system.
+
+27:19.680 --> 27:21.920
+ I'm a really big believer in systems building.
+
+27:21.920 --> 27:23.680
+ I've always built systems in my academic career,
+
+27:23.680 --> 27:27.040
+ even though I do a lot of math and abstract stuff,
+
+27:27.040 --> 27:28.160
+ but it's all derived from the idea
+
+27:28.160 --> 27:29.680
+ of let's solve a real problem.
+
+27:29.680 --> 27:33.840
+ And it's very hard for me to be an academic
+
+27:33.840 --> 27:35.800
+ and say, let me solve a component of a problem.
+
+27:35.800 --> 27:38.680
+ Like with someone there's fields like nonmonetary logic
+
+27:38.680 --> 27:41.800
+ or AI planning systems where people believe
+
+27:41.800 --> 27:44.320
+ that a certain style of problem solving
+
+27:44.320 --> 27:47.280
+ is the ultimate end objective.
+
+27:47.280 --> 27:49.600
+ And I would always turn it around and say,
+
+27:49.600 --> 27:52.640
+ hey, what problem would my grandmother care about
+
+27:52.640 --> 27:54.680
+ that doesn't understand computer technology
+
+27:54.680 --> 27:56.520
+ and doesn't wanna understand?
+
+27:56.520 --> 27:58.480
+ And how could I make her love what I do?
+
+27:58.480 --> 28:01.320
+ Because only then do I have an impact on the world.
+
+28:01.320 --> 28:02.960
+ I can easily impress my colleagues.
+
+28:02.960 --> 28:04.760
+ That is much easier,
+
+28:04.760 --> 28:07.640
+ but impressing my grandmother is very, very hard.
+
+28:07.640 --> 28:10.760
+ So I would always thought if I can build a self driving car
+
+28:10.760 --> 28:12.880
+ and my grandmother can use it
+
+28:12.880 --> 28:14.720
+ even after she loses her driving privileges
+
+28:14.720 --> 28:16.160
+ or children can use it,
+
+28:16.160 --> 28:20.560
+ or we save maybe a million lives a year,
+
+28:20.560 --> 28:22.440
+ that would be very impressive.
+
+28:22.440 --> 28:23.920
+ And then there's so many problems like these,
+
+28:23.920 --> 28:25.320
+ like there's a problem with curing cancer,
+
+28:25.320 --> 28:27.800
+ or whatever it is, live twice as long.
+
+28:27.800 --> 28:29.600
+ Once a problem is defined,
+
+28:29.600 --> 28:31.440
+ of course I can't solve it in its entirety.
+
+28:31.440 --> 28:34.200
+ Like it takes sometimes tens of thousands of people
+
+28:34.200 --> 28:35.360
+ to find a solution.
+
+28:35.360 --> 28:39.360
+ There's no way you can fund an army of 10,000 at Stanford.
+
+28:39.360 --> 28:41.080
+ So you gotta build a prototype.
+
+28:41.080 --> 28:42.480
+ Let's build a meaningful prototype.
+
+28:42.480 --> 28:43.920
+ And the DARPA Grand Challenge was beautiful
+
+28:43.920 --> 28:46.400
+ because it told me what this prototype had to do.
+
+28:46.400 --> 28:47.680
+ I didn't have to think about what it had to do,
+
+28:47.680 --> 28:48.840
+ I just had to read the rules.
+
+28:48.840 --> 28:51.080
+ And that was really beautiful.
+
+28:51.080 --> 28:52.320
+ And it's most beautiful,
+
+28:52.320 --> 28:54.720
+ you think what academia could aspire to
+
+28:54.720 --> 28:58.600
+ is to build a prototype that's the systems level,
+
+28:58.600 --> 29:01.360
+ that solves or gives you an inkling
+
+29:01.360 --> 29:03.480
+ that this problem could be solved with this prototype.
+
+29:03.480 --> 29:06.520
+ First of all, I wanna emphasize what academia really is.
+
+29:06.520 --> 29:08.560
+ And I think people misunderstand it.
+
+29:08.560 --> 29:11.280
+ First and foremost, academia is a way
+
+29:11.280 --> 29:13.320
+ to educate young people.
+
+29:13.320 --> 29:15.400
+ First and foremost, a professor is an educator.
+
+29:15.400 --> 29:17.040
+ No matter where you are at,
+
+29:17.040 --> 29:18.560
+ a small suburban college,
+
+29:18.560 --> 29:21.960
+ or whether you are a Harvard or Stanford professor,
+
+29:21.960 --> 29:25.000
+ that's not the way most people think of themselves
+
+29:25.000 --> 29:28.000
+ in academia because we have this kind of competition
+
+29:28.000 --> 29:31.440
+ going on for citations and publication.
+
+29:31.440 --> 29:32.840
+ That's a measurable thing,
+
+29:32.840 --> 29:35.440
+ but that is secondary to the primary purpose
+
+29:35.440 --> 29:37.800
+ of educating people to think.
+
+29:37.800 --> 29:39.960
+ Now, in terms of research,
+
+29:39.960 --> 29:42.880
+ most of the great science,
+
+29:42.880 --> 29:45.520
+ the great research comes out of universities.
+
+29:45.520 --> 29:46.960
+ You can trace almost everything back,
+
+29:46.960 --> 29:48.840
+ including Google, to universities.
+
+29:48.840 --> 29:52.120
+ So there's nothing really fundamentally broken here.
+
+29:52.120 --> 29:53.400
+ It's a good system.
+
+29:53.400 --> 29:55.920
+ And I think America has the finest university system
+
+29:55.920 --> 29:56.760
+ on the planet.
+
+29:57.640 --> 29:59.320
+ We can talk about reach
+
+29:59.320 --> 30:01.440
+ and how to reach people outside the system.
+
+30:01.440 --> 30:02.280
+ It's a different topic,
+
+30:02.280 --> 30:04.760
+ but the system itself is a good system.
+
+30:04.760 --> 30:08.320
+ If I had one wish, I would say it'd be really great
+
+30:08.320 --> 30:11.760
+ if there was more debate about
+
+30:11.760 --> 30:15.880
+ what the great big problems are in society
+
+30:15.880 --> 30:18.760
+ and focus on those.
+
+30:18.760 --> 30:21.600
+ And most of them are interdisciplinary.
+
+30:21.600 --> 30:24.640
+ Unfortunately, it's very easy to fall
+
+30:24.640 --> 30:28.160
+ into an interdisciplinary viewpoint
+
+30:28.160 --> 30:30.440
+ where your problem is dictated
+
+30:30.440 --> 30:33.680
+ by what your closest colleagues believe the problem is.
+
+30:33.680 --> 30:35.280
+ It's very hard to break out and say,
+
+30:35.280 --> 30:37.920
+ well, there's an entire new field of problems.
+
+30:37.920 --> 30:39.840
+ So to give an example,
+
+30:39.840 --> 30:41.640
+ prior to me working on self driving cars,
+
+30:41.640 --> 30:44.640
+ I was a roboticist and a machine learning expert.
+
+30:44.640 --> 30:46.840
+ And I wrote books on robotics,
+
+30:46.840 --> 30:48.480
+ something called probabilistic robotics.
+
+30:48.480 --> 30:51.480
+ It's a very methods driven kind of viewpoint of the world.
+
+30:51.480 --> 30:54.000
+ I built robots that acted in museums as tour guides,
+
+30:54.000 --> 30:55.600
+ that let children around.
+
+30:55.600 --> 31:00.000
+ It is something that at the time was moderately challenging.
+
+31:00.000 --> 31:02.240
+ When I started working on cars,
+
+31:02.240 --> 31:03.720
+ several colleagues told me,
+
+31:03.720 --> 31:06.080
+ Sebastian, you're destroying your career
+
+31:06.080 --> 31:08.160
+ because in our field of robotics,
+
+31:08.160 --> 31:10.400
+ cars are looked like as a gimmick
+
+31:10.400 --> 31:11.760
+ and they're not expressive enough.
+
+31:11.760 --> 31:15.080
+ They can only push the throttle and the brakes.
+
+31:15.080 --> 31:16.440
+ There's no dexterity.
+
+31:16.440 --> 31:18.240
+ There's no complexity.
+
+31:18.240 --> 31:19.480
+ It's just too simple.
+
+31:19.480 --> 31:21.200
+ And no one came to me and said,
+
+31:21.200 --> 31:22.720
+ wow, if you solve that problem,
+
+31:22.720 --> 31:25.000
+ you can save a million lives, right?
+
+31:25.000 --> 31:27.240
+ Among all robotic problems that I've seen in my life,
+
+31:27.240 --> 31:29.760
+ I would say the self driving car, transportation,
+
+31:29.760 --> 31:32.080
+ is the one that has the most hope for society.
+
+31:32.080 --> 31:35.120
+ So how come the robotics community wasn't all over the place?
+
+31:35.120 --> 31:37.920
+ And it was because we focused on methods and solutions
+
+31:37.920 --> 31:39.880
+ and not on problems.
+
+31:39.880 --> 31:42.400
+ Like if you go around today and ask your grandmother,
+
+31:42.400 --> 31:43.240
+ what bugs you?
+
+31:43.240 --> 31:45.240
+ What really makes you upset?
+
+31:45.240 --> 31:48.720
+ I challenge any academic to do this
+
+31:48.720 --> 31:51.800
+ and then realize how far your research
+
+31:51.800 --> 31:53.840
+ is probably away from that today.
+
+31:54.840 --> 31:56.760
+ At the very least, that's a good thing
+
+31:56.760 --> 31:59.240
+ for academics to deliberate on.
+
+31:59.240 --> 32:01.600
+ The other thing that's really nice in Silicon Valley is,
+
+32:01.600 --> 32:04.360
+ Silicon Valley is full of smart people outside academia.
+
+32:04.360 --> 32:06.720
+ So there's the Larry Pages and Mark Zuckerbergs in the world
+
+32:06.720 --> 32:09.000
+ who are anywhere smarter, smarter
+
+32:09.000 --> 32:11.400
+ than the best academics I've met in my life.
+
+32:11.400 --> 32:15.360
+ And what they do is they are at a different level.
+
+32:15.360 --> 32:16.680
+ They build the systems,
+
+32:16.680 --> 32:19.280
+ they build the customer facing systems,
+
+32:19.280 --> 32:21.920
+ they build things that people can use
+
+32:21.920 --> 32:23.760
+ without technical education.
+
+32:23.760 --> 32:25.800
+ And they are inspired by research.
+
+32:25.800 --> 32:27.480
+ They're inspired by scientists.
+
+32:27.480 --> 32:30.280
+ They hire the best PhDs from the best universities
+
+32:30.280 --> 32:31.120
+ for a reason.
+
+32:31.960 --> 32:35.080
+ So I think this kind of vertical integration
+
+32:35.080 --> 32:37.720
+ between the real product, the real impact
+
+32:37.720 --> 32:39.800
+ and the real thought, the real ideas,
+
+32:39.800 --> 32:42.720
+ that's actually working surprisingly well in Silicon Valley.
+
+32:42.720 --> 32:44.840
+ It did not work as well in other places in this nation.
+
+32:44.840 --> 32:46.640
+ So when I worked at Carnegie Mellon,
+
+32:46.640 --> 32:49.800
+ we had the world's finest computer science university,
+
+32:49.800 --> 32:52.720
+ but there wasn't those people in Pittsburgh
+
+32:52.720 --> 32:54.280
+ that would be able to take these
+
+32:54.280 --> 32:56.000
+ very fine computer science ideas
+
+32:56.000 --> 33:00.560
+ and turn them into massive, impactful products.
+
+33:00.560 --> 33:02.800
+ That symbiosis seemed to exist
+
+33:02.800 --> 33:04.600
+ pretty much only in Silicon Valley
+
+33:04.600 --> 33:06.560
+ and maybe a bit in Boston and Austin.
+
+33:06.560 --> 33:11.040
+ Yeah, with Stanford, that's really interesting.
+
+33:11.040 --> 33:14.000
+ So if we look a little bit further on
+
+33:14.000 --> 33:17.120
+ from the DARPA Grand Challenge
+
+33:17.120 --> 33:20.000
+ and the launch of the Google self driving car,
+
+33:20.000 --> 33:22.000
+ what do you see as the state,
+
+33:22.000 --> 33:25.840
+ the challenges of autonomous vehicles as they are now
+
+33:25.840 --> 33:29.120
+ is actually achieving that huge scale
+
+33:29.120 --> 33:31.640
+ and having a huge impact on society?
+
+33:31.640 --> 33:35.200
+ I'm extremely proud of what has been accomplished.
+
+33:35.200 --> 33:38.280
+ And again, I'm taking a lot of credit for the work of others.
+
+33:38.280 --> 33:40.160
+ And I'm actually very optimistic.
+
+33:40.160 --> 33:42.320
+ And people have been kind of worrying,
+
+33:42.320 --> 33:43.800
+ is it too fast? Is it too slow?
+
+33:43.800 --> 33:45.840
+ Why is it not there yet? And so on.
+
+33:45.840 --> 33:48.800
+ It is actually quite an interesting, hard problem.
+
+33:48.800 --> 33:51.640
+ And in that a self driving car,
+
+33:51.640 --> 33:55.280
+ to build one that manages 90% of the problems
+
+33:55.280 --> 33:57.200
+ encountered in everyday driving is easy.
+
+33:57.200 --> 33:59.440
+ We can literally do this over a weekend.
+
+33:59.440 --> 34:02.040
+ To do 99% might take a month.
+
+34:02.040 --> 34:03.200
+ Then there's 1% left.
+
+34:03.200 --> 34:06.920
+ So 1% would mean that you still have a fatal accident
+
+34:06.920 --> 34:08.960
+ every week, very unacceptable.
+
+34:08.960 --> 34:10.920
+ So now you work on this 1%
+
+34:10.920 --> 34:13.640
+ and the 99% of that, the remaining 1%
+
+34:13.640 --> 34:15.760
+ is actually still relatively easy,
+
+34:15.760 --> 34:18.160
+ but now you're down to like a hundredth of 1%.
+
+34:18.160 --> 34:21.560
+ And it's still completely unacceptable in terms of safety.
+
+34:21.560 --> 34:24.200
+ So the variety of things you encounter are just enormous.
+
+34:24.200 --> 34:26.440
+ And that gives me enormous respect for human being
+
+34:26.440 --> 34:30.440
+ that we're able to deal with the couch on the highway,
+
+34:30.440 --> 34:33.440
+ or the deer in the headlights, or the blown tire
+
+34:33.440 --> 34:34.880
+ that we've never been trained for.
+
+34:34.880 --> 34:35.960
+ And all of a sudden have to handle it
+
+34:35.960 --> 34:37.080
+ in an emergency situation
+
+34:37.080 --> 34:38.720
+ and often do very, very successfully.
+
+34:38.720 --> 34:40.640
+ It's amazing from that perspective,
+
+34:40.640 --> 34:43.640
+ how safe driving actually is given how many millions
+
+34:43.640 --> 34:45.960
+ of miles we drive every year in this country.
+
+34:47.600 --> 34:49.400
+ We are now at a point where I believe the technology
+
+34:49.400 --> 34:51.560
+ is there and I've seen it.
+
+34:51.560 --> 34:53.520
+ I've seen it in Waymo, I've seen it in Aptiv,
+
+34:53.520 --> 34:56.760
+ I've seen it in Cruise and in a number of companies
+
+34:56.760 --> 35:00.920
+ and in Voyage where vehicles now driving around
+
+35:00.920 --> 35:04.360
+ and basically flawlessly are able to drive people around
+
+35:04.360 --> 35:06.040
+ in limited scenarios.
+
+35:06.040 --> 35:07.960
+ In fact, you can go to Vegas today
+
+35:07.960 --> 35:09.880
+ and order a Summon and Lift.
+
+35:09.880 --> 35:13.480
+ And if you get the right setting of your app,
+
+35:13.480 --> 35:15.760
+ you'll be picked up by a driverless car.
+
+35:15.760 --> 35:18.040
+ Now there's still safety drivers in there,
+
+35:18.040 --> 35:21.280
+ but that's a fantastic way to kind of learn
+
+35:21.280 --> 35:22.920
+ what the limits are of technology today.
+
+35:22.920 --> 35:24.680
+ And there's still some glitches,
+
+35:24.680 --> 35:26.520
+ but the glitches have become very, very rare.
+
+35:26.520 --> 35:29.680
+ I think the next step is gonna be to down cost it,
+
+35:29.680 --> 35:33.720
+ to harden it, the entrapment, the sensors
+
+35:33.720 --> 35:36.120
+ are not quite an automotive grade standard yet.
+
+35:36.120 --> 35:37.760
+ And then to really build the business models,
+
+35:37.760 --> 35:40.920
+ to really kind of go somewhere and make the business case.
+
+35:40.920 --> 35:42.520
+ And the business case is hard work.
+
+35:42.520 --> 35:44.560
+ It's not just, oh my God, we have this capability,
+
+35:44.560 --> 35:45.480
+ people are just gonna buy it.
+
+35:45.480 --> 35:46.680
+ You have to make it affordable.
+
+35:46.680 --> 35:51.680
+ You have to find the social acceptance of people.
+
+35:52.240 --> 35:55.360
+ None of the teams yet has been able to or gutsy enough
+
+35:55.360 --> 35:59.240
+ to drive around without a person inside the car.
+
+35:59.240 --> 36:01.320
+ And that's the next magical hurdle.
+
+36:01.320 --> 36:03.800
+ We'll be able to send these vehicles around
+
+36:03.800 --> 36:05.760
+ completely empty in traffic.
+
+36:05.760 --> 36:08.120
+ And I think, I mean, I wait every day,
+
+36:08.120 --> 36:10.680
+ wait for the news that Waymo has just done this.
+
+36:11.840 --> 36:15.080
+ So, interesting you mentioned gutsy.
+
+36:15.080 --> 36:20.080
+ Let me ask some maybe unanswerable question,
+
+36:20.200 --> 36:21.480
+ maybe edgy questions.
+
+36:21.480 --> 36:26.480
+ But in terms of how much risk is required,
+
+36:26.880 --> 36:30.360
+ some guts in terms of leadership style,
+
+36:30.360 --> 36:32.600
+ it would be good to contrast approaches.
+
+36:32.600 --> 36:34.680
+ And I don't think anyone knows what's right.
+
+36:34.680 --> 36:38.560
+ But if we compare Tesla and Waymo, for example,
+
+36:38.560 --> 36:41.440
+ Elon Musk and the Waymo team,
+
+36:43.200 --> 36:45.680
+ there's slight differences in approach.
+
+36:45.680 --> 36:49.560
+ So on the Elon side, there's more,
+
+36:49.560 --> 36:50.840
+ I don't know what the right word to use,
+
+36:50.840 --> 36:53.920
+ but aggression in terms of innovation.
+
+36:53.920 --> 36:58.920
+ And on Waymo side, there's more sort of cautious,
+
+36:59.800 --> 37:03.480
+ safety focused approach to the problem.
+
+37:03.480 --> 37:06.200
+ What do you think it takes?
+
+37:06.200 --> 37:09.160
+ What leadership at which moment is right?
+
+37:09.160 --> 37:10.680
+ Which approach is right?
+
+37:11.600 --> 37:13.880
+ Look, I don't sit in either of those teams.
+
+37:13.880 --> 37:18.000
+ So I'm unable to even verify like somebody says correct.
+
+37:18.000 --> 37:21.240
+ In the end of the day, every innovator in that space
+
+37:21.240 --> 37:23.160
+ will face a fundamental dilemma.
+
+37:23.160 --> 37:27.120
+ And I would say you could put aerospace titans
+
+37:27.120 --> 37:28.880
+ into the same bucket,
+
+37:28.880 --> 37:31.600
+ which is you have to balance public safety
+
+37:31.600 --> 37:34.280
+ with your drive to innovate.
+
+37:34.280 --> 37:36.760
+ And this country in particular in the States
+
+37:36.760 --> 37:38.320
+ has a hundred plus year history
+
+37:38.320 --> 37:40.600
+ of doing this very successfully.
+
+37:40.600 --> 37:43.880
+ Air travel is what a hundred times a safe per mile
+
+37:43.880 --> 37:46.600
+ than ground travel, than cars.
+
+37:46.600 --> 37:50.320
+ And there's a reason for it because people have found ways
+
+37:50.320 --> 37:55.080
+ to be very methodological about ensuring public safety
+
+37:55.080 --> 37:56.880
+ while still being able to make progress
+
+37:56.880 --> 37:59.000
+ on important aspects, for example,
+
+37:59.000 --> 38:01.720
+ like air and noise and fuel consumption.
+
+38:03.600 --> 38:06.120
+ So I think that those practices are proven
+
+38:06.120 --> 38:07.840
+ and they actually work.
+
+38:07.840 --> 38:09.840
+ We live in a world safer than ever before.
+
+38:09.840 --> 38:11.880
+ And yes, there will always be the provision
+
+38:11.880 --> 38:12.720
+ that something goes wrong.
+
+38:12.720 --> 38:14.040
+ There's always the possibility
+
+38:14.040 --> 38:15.240
+ that someone makes a mistake
+
+38:15.240 --> 38:17.120
+ or there's an unexpected failure.
+
+38:17.120 --> 38:19.720
+ We can never guarantee to a hundred percent
+
+38:19.720 --> 38:23.320
+ absolute safety other than just not doing it.
+
+38:23.320 --> 38:27.080
+ But I think I'm very proud of the history of the United States.
+
+38:27.080 --> 38:30.120
+ I mean, we've dealt with much more dangerous technology
+
+38:30.120 --> 38:32.720
+ like nuclear energy and kept that safe too.
+
+38:33.760 --> 38:36.400
+ We have nuclear weapons and we keep those safe.
+
+38:36.400 --> 38:39.440
+ So we have methods and procedures
+
+38:39.440 --> 38:42.920
+ that really balance these two things very, very successfully.
+
+38:42.920 --> 38:46.320
+ You've mentioned a lot of great autonomous vehicle companies
+
+38:46.320 --> 38:48.760
+ that are taking sort of the level four, level five,
+
+38:48.760 --> 38:51.840
+ they jump in full autonomy with a safety driver
+
+38:51.840 --> 38:53.120
+ and take that kind of approach
+
+38:53.120 --> 38:55.760
+ and also through simulation and so on.
+
+38:55.760 --> 38:59.560
+ There's also the approach that Tesla Autopilot is doing,
+
+38:59.560 --> 39:03.680
+ which is kind of incrementally taking a level two vehicle
+
+39:03.680 --> 39:04.920
+ and using machine learning
+
+39:04.920 --> 39:08.360
+ and learning from the driving of human beings
+
+39:08.360 --> 39:10.560
+ and trying to creep up,
+
+39:10.560 --> 39:12.360
+ trying to incrementally improve the system
+
+39:12.360 --> 39:15.520
+ until it's able to achieve level four autonomy.
+
+39:15.520 --> 39:19.760
+ So perfect autonomy in certain kind of geographical regions.
+
+39:19.760 --> 39:23.120
+ What are your thoughts on these contrasting approaches?
+
+39:23.120 --> 39:25.560
+ Well, so first of all, I'm a very proud Tesla owner
+
+39:25.560 --> 39:27.840
+ and I literally use the Autopilot every day
+
+39:27.840 --> 39:29.520
+ and it literally has kept me safe.
+
+39:30.760 --> 39:33.920
+ It is a beautiful technology specifically
+
+39:33.920 --> 39:37.600
+ for highway driving when I'm slightly tired
+
+39:37.600 --> 39:42.200
+ because then it turns me into a much safer driver.
+
+39:42.200 --> 39:45.000
+ And I'm 100% confident that's the case.
+
+39:46.520 --> 39:47.680
+ In terms of the right approach,
+
+39:47.680 --> 39:49.880
+ I think the biggest change I've seen
+
+39:49.880 --> 39:54.280
+ since I went to Waymo team is this thing called deep learning.
+
+39:54.280 --> 39:56.320
+ I think deep learning was not a hot topic
+
+39:56.320 --> 39:59.400
+ when I started Waymo or Google self driving cars.
+
+39:59.400 --> 40:01.760
+ It was there, in fact, we started Google Brain
+
+40:01.760 --> 40:02.840
+ at the same time in Google X.
+
+40:02.840 --> 40:04.760
+ So I invested in deep learning,
+
+40:04.760 --> 40:07.840
+ but people didn't talk about it, it wasn't a hot topic.
+
+40:07.840 --> 40:10.360
+ And now it is, there's a shift of emphasis
+
+40:10.360 --> 40:12.440
+ from a more geometric perspective
+
+40:12.440 --> 40:14.320
+ where you use geometric sensors
+
+40:14.320 --> 40:15.680
+ that give you a full 3D view
+
+40:15.680 --> 40:17.280
+ when you do a geometric reasoning about,
+
+40:17.280 --> 40:19.640
+ oh, this box over here might be a car
+
+40:19.640 --> 40:24.160
+ towards a more human like, oh, let's just learn about it.
+
+40:24.160 --> 40:26.520
+ This looks like the thing I've seen 10,000 times before.
+
+40:26.520 --> 40:30.280
+ So maybe it's the same thing, machine learning perspective.
+
+40:30.280 --> 40:32.160
+ And that has really put, I think,
+
+40:32.160 --> 40:34.760
+ all these approaches on steroids.
+
+40:36.000 --> 40:38.720
+ At Udacity, we teach a course in self driving cars.
+
+40:38.720 --> 40:43.720
+ In fact, I think we've graduated over 20,000 or so people
+
+40:43.800 --> 40:45.000
+ on self driving car skills.
+
+40:45.000 --> 40:47.440
+ So every self driving car team in the world
+
+40:47.440 --> 40:49.280
+ now uses our engineers.
+
+40:49.280 --> 40:51.920
+ And in this course, the very first homework assignment
+
+40:51.920 --> 40:54.920
+ is to do lane finding on images.
+
+40:54.920 --> 40:56.960
+ And lane finding images for layman,
+
+40:56.960 --> 40:59.040
+ what this means is you put a camera into your car
+
+40:59.040 --> 41:02.440
+ or you open your eyes and you would know where the lane is.
+
+41:02.440 --> 41:05.000
+ So you can stay inside the lane with your car.
+
+41:05.000 --> 41:06.520
+ Humans can do this super easily.
+
+41:06.520 --> 41:08.120
+ You just look and you know where the lane is,
+
+41:08.120 --> 41:10.200
+ just intuitively.
+
+41:10.200 --> 41:12.240
+ For machines, for a long time, it was super hard
+
+41:12.240 --> 41:14.680
+ because people would write these kind of crazy rules.
+
+41:14.680 --> 41:16.120
+ If there's like wine lane markers
+
+41:16.120 --> 41:17.680
+ and here's what white really means,
+
+41:17.680 --> 41:19.160
+ this is not quite white enough.
+
+41:19.160 --> 41:20.360
+ So let's, oh, it's not white.
+
+41:20.360 --> 41:21.480
+ Or maybe the sun is shining.
+
+41:21.480 --> 41:23.520
+ So when the sun shines and this is white
+
+41:23.520 --> 41:24.720
+ and this is a straight line,
+
+41:24.720 --> 41:25.760
+ I mean, it's not quite a straight line
+
+41:25.760 --> 41:27.320
+ because the road is curved.
+
+41:27.320 --> 41:29.280
+ And do we know that there's really six feet
+
+41:29.280 --> 41:32.120
+ between lane markings or not or 12 feet, whatever it is.
+
+41:34.000 --> 41:36.320
+ And now what the students are doing,
+
+41:36.320 --> 41:37.440
+ they would take machine learning.
+
+41:37.440 --> 41:39.640
+ So instead of like writing these crazy rules
+
+41:39.640 --> 41:40.480
+ for the lane marker,
+
+41:40.480 --> 41:42.720
+ they'll say, hey, let's take an hour of driving
+
+41:42.720 --> 41:44.440
+ and label it and tell the vehicle,
+
+41:44.440 --> 41:45.800
+ this is actually the lane by hand.
+
+41:45.800 --> 41:47.360
+ And then these are examples
+
+41:47.360 --> 41:49.400
+ and have the machine find its own rules,
+
+41:49.400 --> 41:51.400
+ what lane markings are.
+
+41:51.400 --> 41:53.800
+ And within 24 hours, now every student
+
+41:53.800 --> 41:56.040
+ that's never done any programming before in this space
+
+41:56.040 --> 41:58.320
+ can write a perfect lane finder
+
+41:58.320 --> 42:00.880
+ as good as the best commercial lane finders.
+
+42:00.880 --> 42:02.760
+ And that's completely amazing to me.
+
+42:02.760 --> 42:05.520
+ We've seen progress using machine learning
+
+42:05.520 --> 42:08.160
+ that completely dwarfs anything
+
+42:08.160 --> 42:09.920
+ that I saw 10 years ago.
+
+42:10.960 --> 42:12.840
+ Yeah, and just as a side note,
+
+42:12.840 --> 42:15.240
+ the self driving car nanodegree,
+
+42:15.240 --> 42:18.960
+ the fact that you launched that many years ago now,
+
+42:18.960 --> 42:22.080
+ maybe four years ago, three years ago is incredible
+
+42:22.080 --> 42:24.760
+ that that's a great example of system level thinking
+
+42:24.760 --> 42:27.160
+ sort of just taking an entire course
+
+42:27.160 --> 42:29.280
+ that teaches you how to solve the entire problem.
+
+42:29.280 --> 42:31.240
+ I definitely recommend people.
+
+42:31.240 --> 42:32.480
+ It's become super popular
+
+42:32.480 --> 42:34.320
+ and it's become actually incredibly high quality
+
+42:34.320 --> 42:37.360
+ really with Mercedes and various other companies
+
+42:37.360 --> 42:38.200
+ in that space.
+
+42:38.200 --> 42:40.600
+ And we find that engineers from Tesla and Waymo
+
+42:40.600 --> 42:42.000
+ are taking it today.
+
+42:43.120 --> 42:45.520
+ The insight was that two things,
+
+42:45.520 --> 42:49.240
+ one is existing universities will be very slow to move
+
+42:49.240 --> 42:50.520
+ because they're departmentalized
+
+42:50.520 --> 42:52.360
+ and there's no department for self driving cars.
+
+42:52.360 --> 42:56.240
+ So between Mac E and double E and computer science,
+
+42:56.240 --> 42:57.240
+ getting those folks together
+
+42:57.240 --> 42:59.680
+ into one room is really, really hard.
+
+42:59.680 --> 43:01.280
+ And every professor listening here will know,
+
+43:01.280 --> 43:02.960
+ they'll probably agree to that.
+
+43:02.960 --> 43:06.400
+ And secondly, even if all the great universities
+
+43:06.400 --> 43:09.120
+ just did this, which none so far has developed
+
+43:09.120 --> 43:11.120
+ a curriculum in this field,
+
+43:11.120 --> 43:13.720
+ it is just a few thousand students that can partake
+
+43:13.720 --> 43:16.280
+ because all the great universities are super selective.
+
+43:16.280 --> 43:18.160
+ So how about people in India?
+
+43:18.160 --> 43:20.680
+ How about people in China or in the Middle East
+
+43:20.680 --> 43:23.480
+ or Indonesia or Africa?
+
+43:23.480 --> 43:25.200
+ Why should those be excluded
+
+43:25.200 --> 43:27.280
+ from the skill of building self driving cars?
+
+43:27.280 --> 43:28.480
+ Are they any dumber than we are?
+
+43:28.480 --> 43:30.240
+ Are we any less privileged?
+
+43:30.240 --> 43:34.880
+ And the answer is we should just give everybody the skill
+
+43:34.880 --> 43:35.920
+ to build a self driving car.
+
+43:35.920 --> 43:37.440
+ Because if we do this,
+
+43:37.440 --> 43:40.360
+ then we have like a thousand self driving car startups.
+
+43:40.360 --> 43:42.960
+ And if 10% succeed, that's like a hundred,
+
+43:42.960 --> 43:44.200
+ that means hundred countries now
+
+43:44.200 --> 43:46.800
+ will have self driving cars and be safer.
+
+43:46.800 --> 43:50.360
+ It's kind of interesting to imagine impossible to quantify,
+
+43:50.360 --> 43:53.600
+ but the number, the, you know,
+
+43:53.600 --> 43:55.080
+ over a period of several decades,
+
+43:55.080 --> 43:57.960
+ the impact that has like a single course,
+
+43:57.960 --> 44:00.760
+ like a ripple effect of society.
+
+44:00.760 --> 44:03.520
+ If you, I just recently talked to Andrew
+
+44:03.520 --> 44:06.560
+ who was creator of Cosmos show.
+
+44:06.560 --> 44:08.200
+ It's interesting to think about
+
+44:08.200 --> 44:10.720
+ how many scientists that show launched.
+
+44:10.720 --> 44:15.600
+ And so it's really, in terms of impact,
+
+44:15.600 --> 44:17.200
+ I can't imagine a better course
+
+44:17.200 --> 44:18.680
+ than the self driving car course.
+
+44:18.680 --> 44:21.840
+ That's, you know, there's other more specific disciplines
+
+44:21.840 --> 44:24.120
+ like deep learning and so on that Udacity is also teaching,
+
+44:24.120 --> 44:25.160
+ but self driving cars,
+
+44:25.160 --> 44:26.920
+ it's really, really interesting course.
+
+44:26.920 --> 44:28.440
+ And then it came at the right moment.
+
+44:28.440 --> 44:31.720
+ It came at a time when there were a bunch of Acqui hires.
+
+44:31.720 --> 44:34.200
+ Acqui hire is a acquisition of a company,
+
+44:34.200 --> 44:36.400
+ not for its technology or its products or business,
+
+44:36.400 --> 44:38.320
+ but for its people.
+
+44:38.320 --> 44:40.640
+ So Acqui hire means maybe that a company of 70 people,
+
+44:40.640 --> 44:43.160
+ they have no product yet, but they're super smart people
+
+44:43.160 --> 44:44.320
+ and they pay a certain amount of money.
+
+44:44.320 --> 44:48.440
+ So I took Acqui hires like GM Cruise and Uber and others,
+
+44:48.440 --> 44:50.120
+ and did the math and said,
+
+44:50.120 --> 44:53.760
+ hey, how many people are there and how much money was paid?
+
+44:53.760 --> 44:55.640
+ And as a lower bound,
+
+44:55.640 --> 44:58.560
+ I estimated the value of a self driving car engineer
+
+44:58.560 --> 45:02.240
+ in these acquisitions to be at least $10 million, right?
+
+45:02.240 --> 45:05.080
+ So think about this, you get yourself a skill
+
+45:05.080 --> 45:06.680
+ and you team up and build a company
+
+45:06.680 --> 45:09.800
+ and your worth now is $10 million.
+
+45:09.800 --> 45:10.840
+ I mean, that's kind of cool.
+
+45:10.840 --> 45:13.440
+ I mean, what other thing could you do in life
+
+45:13.440 --> 45:15.920
+ to be worth $10 million within a year?
+
+45:15.920 --> 45:17.640
+ Yeah, amazing.
+
+45:17.640 --> 45:21.000
+ But to come back for a moment on to deep learning
+
+45:21.000 --> 45:23.760
+ and its application in autonomous vehicles,
+
+45:23.760 --> 45:28.480
+ what are your thoughts on Elon Musk's statement,
+
+45:28.480 --> 45:31.080
+ provocative statement, perhaps that light air is a crutch.
+
+45:31.080 --> 45:34.000
+ So this geometric way of thinking about the world
+
+45:34.000 --> 45:38.920
+ may be holding us back if what we should instead be doing
+
+45:38.920 --> 45:39.920
+ in this robotic space,
+
+45:39.920 --> 45:42.520
+ in this particular space of autonomous vehicles
+
+45:42.520 --> 45:46.440
+ is using camera as a primary sensor
+
+45:46.440 --> 45:48.200
+ and using computer vision and machine learning
+
+45:48.200 --> 45:49.720
+ as the primary way to...
+
+45:49.720 --> 45:50.560
+ Look, I have two comments.
+
+45:50.560 --> 45:52.240
+ I think first of all, we all know
+
+45:52.240 --> 45:56.880
+ that people can drive cars without lighters in their heads
+
+45:56.880 --> 45:59.000
+ because we only have eyes
+
+45:59.000 --> 46:02.080
+ and we mostly just use eyes for driving.
+
+46:02.080 --> 46:04.560
+ Maybe we use some other perception about our bodies,
+
+46:04.560 --> 46:06.680
+ accelerations, occasionally our ears,
+
+46:08.000 --> 46:09.480
+ certainly not our noses.
+
+46:10.680 --> 46:12.440
+ So the existence proof is there,
+
+46:12.440 --> 46:14.600
+ that eyes must be sufficient.
+
+46:15.560 --> 46:17.920
+ In fact, we could even drive a car
+
+46:17.920 --> 46:19.440
+ if someone put a camera out
+
+46:19.440 --> 46:23.440
+ and then gave us the camera image with no latency,
+
+46:23.440 --> 46:26.360
+ we would be able to drive a car that way the same way.
+
+46:26.360 --> 46:28.720
+ So a camera is also sufficient.
+
+46:28.720 --> 46:31.840
+ Secondly, I really love the idea that in the Western world,
+
+46:31.840 --> 46:33.600
+ we have many, many different people
+
+46:33.600 --> 46:35.680
+ trying different hypotheses.
+
+46:35.680 --> 46:36.840
+ It's almost like an anthill,
+
+46:36.840 --> 46:39.560
+ like if an anthill tries to forge for food,
+
+46:39.560 --> 46:41.000
+ you can sit there as two ants
+
+46:41.000 --> 46:42.560
+ and agree what the perfect path is
+
+46:42.560 --> 46:44.040
+ and then every single ant marches
+
+46:44.040 --> 46:46.320
+ for the most likely location of food is,
+
+46:46.320 --> 46:47.960
+ or you can even just spread out.
+
+46:47.960 --> 46:50.440
+ And I promise you the spread out solution will be better
+
+46:50.440 --> 46:53.960
+ because if the discussing philosophical,
+
+46:53.960 --> 46:55.560
+ intellectual ants get it wrong
+
+46:55.560 --> 46:56.920
+ and they're all moving the wrong direction,
+
+46:56.920 --> 46:58.240
+ they're going to waste a day
+
+46:58.240 --> 47:00.520
+ and then they're going to discuss again for another week.
+
+47:00.520 --> 47:02.480
+ Whereas if all these ants go in a random direction,
+
+47:02.480 --> 47:03.520
+ someone's going to succeed
+
+47:03.520 --> 47:05.560
+ and they're going to come back and claim victory
+
+47:05.560 --> 47:08.520
+ and get the Nobel prize or whatever the ant equivalent is.
+
+47:08.520 --> 47:10.520
+ And then they all march in the same direction.
+
+47:10.520 --> 47:11.800
+ And that's great about society.
+
+47:11.800 --> 47:13.160
+ That's great about the Western society.
+
+47:13.160 --> 47:15.480
+ We're not plan based, we're not central based.
+
+47:15.480 --> 47:19.120
+ We don't have a Soviet Union style central government
+
+47:19.120 --> 47:20.960
+ that tells us where to forge.
+
+47:20.960 --> 47:21.800
+ We just forge.
+
+47:21.800 --> 47:23.120
+ We started in C Corp.
+
+47:24.040 --> 47:25.840
+ We get investor money, go out and try it out.
+
+47:25.840 --> 47:27.480
+ And who knows who's going to win.
+
+47:28.720 --> 47:30.160
+ I like it.
+
+47:30.160 --> 47:33.440
+ In your, when you look at the longterm vision
+
+47:33.440 --> 47:35.160
+ of autonomous vehicles,
+
+47:35.160 --> 47:36.920
+ do you see machine learning
+
+47:36.920 --> 47:39.600
+ as fundamentally being able to solve most of the problems?
+
+47:39.600 --> 47:42.280
+ So learning from experience.
+
+47:42.280 --> 47:44.200
+ I'd say we should be very clear
+
+47:44.200 --> 47:46.080
+ about what machine learning is and is not.
+
+47:46.080 --> 47:48.160
+ And I think there's a lot of confusion.
+
+47:48.160 --> 47:50.880
+ What it is today is a technology
+
+47:50.880 --> 47:54.680
+ that can go through large databases
+
+47:54.680 --> 47:59.680
+ of repetitive patterns and find those patterns.
+
+48:00.880 --> 48:03.560
+ So in example, we did a study at Stanford two years ago
+
+48:03.560 --> 48:05.440
+ where we applied machine learning
+
+48:05.440 --> 48:07.880
+ to detecting skin cancer in images.
+
+48:07.880 --> 48:10.760
+ And we harvested or built a data set
+
+48:10.760 --> 48:15.080
+ of 129,000 skin photo shots
+
+48:15.080 --> 48:17.000
+ that were all had been biopsied
+
+48:17.000 --> 48:19.440
+ for what the actual situation was.
+
+48:19.440 --> 48:22.680
+ And those included melanomas and carcinomas,
+
+48:22.680 --> 48:26.440
+ also included rashes and other skin conditions, lesions.
+
+48:27.200 --> 48:30.720
+ And then we had a network find those patterns.
+
+48:30.720 --> 48:34.520
+ And it was by and large able to then detect skin cancer
+
+48:34.520 --> 48:36.680
+ with an iPhone as accurately
+
+48:36.680 --> 48:41.400
+ as the best board certified Stanford level dermatologist.
+
+48:41.400 --> 48:42.800
+ We proved that.
+
+48:42.800 --> 48:45.880
+ Now this thing was great in this one thing
+
+48:45.880 --> 48:48.560
+ and finding skin cancer, but it couldn't drive a car.
+
+48:49.680 --> 48:51.600
+ So the difference to human intelligence
+
+48:51.600 --> 48:53.280
+ is we do all these many, many things
+
+48:53.280 --> 48:56.720
+ and we can often learn from a very small data set
+
+48:56.720 --> 48:58.160
+ of experiences.
+
+48:58.160 --> 49:01.120
+ Whereas machines still need very large data sets
+
+49:01.120 --> 49:03.320
+ and things that will be very repetitive.
+
+49:03.320 --> 49:04.680
+ Now that's still super impactful
+
+49:04.680 --> 49:06.440
+ because almost everything we do is repetitive.
+
+49:06.440 --> 49:10.000
+ So that's gonna really transform human labor
+
+49:10.000 --> 49:13.120
+ but it's not this almighty general intelligence.
+
+49:13.120 --> 49:15.280
+ We're really far away from a system
+
+49:15.280 --> 49:17.280
+ that will exhibit general intelligence.
+
+49:18.760 --> 49:21.320
+ To that end, I actually commiserate the naming a little bit
+
+49:21.320 --> 49:24.440
+ because artificial intelligence, if you believe Hollywood
+
+49:24.440 --> 49:27.320
+ is immediately mixed into the idea of human suppression
+
+49:27.320 --> 49:30.360
+ and machine superiority.
+
+49:30.360 --> 49:32.960
+ I don't think that we're gonna see this in my lifetime.
+
+49:32.960 --> 49:36.440
+ I don't think human suppression is a good idea.
+
+49:36.440 --> 49:37.440
+ I don't see it coming.
+
+49:37.440 --> 49:39.720
+ I don't see the technology being there.
+
+49:39.720 --> 49:42.960
+ What I see instead is a very pointed focused
+
+49:42.960 --> 49:45.440
+ pattern recognition technology that's able to
+
+49:45.440 --> 49:48.400
+ extract patterns from large data sets.
+
+49:48.400 --> 49:51.520
+ And in doing so, it can be super impactful.
+
+49:51.520 --> 49:53.520
+ Super impactful.
+
+49:53.520 --> 49:55.920
+ Let's take the impact of artificial intelligence
+
+49:55.920 --> 49:57.640
+ on human work.
+
+49:57.640 --> 50:00.520
+ We all know that it takes something like 10,000 hours
+
+50:00.520 --> 50:01.520
+ to become an expert.
+
+50:01.520 --> 50:03.360
+ If you're gonna be a doctor or a lawyer
+
+50:03.360 --> 50:05.320
+ or even a really good driver,
+
+50:05.320 --> 50:08.520
+ it takes a certain amount of time to become experts.
+
+50:08.520 --> 50:11.400
+ Machines now are able and have been shown
+
+50:11.400 --> 50:15.640
+ to observe people become experts and observe experts
+
+50:15.640 --> 50:17.440
+ and then extract those rules from experts
+
+50:17.440 --> 50:18.680
+ in some interesting way.
+
+50:18.680 --> 50:23.680
+ They could go from law to sales to driving cars
+
+50:25.840 --> 50:28.200
+ to diagnosing cancer.
+
+50:28.200 --> 50:30.840
+ And then giving that capability to people who are
+
+50:30.840 --> 50:32.320
+ completely new in their job.
+
+50:32.320 --> 50:34.760
+ We now can, and that's been done.
+
+50:34.760 --> 50:37.800
+ It's been done commercially in many, many instantiations.
+
+50:37.800 --> 50:40.120
+ So that means we can use machine learning
+
+50:40.120 --> 50:44.880
+ to make people expert on the very first day of their work.
+
+50:44.880 --> 50:45.880
+ Like think about the impact.
+
+50:45.880 --> 50:50.360
+ If your doctor is still in their first 10,000 hours,
+
+50:50.360 --> 50:53.120
+ you have a doctor who is not quite an expert yet.
+
+50:53.120 --> 50:56.720
+ Who would not want a doctor who is the world's best expert?
+
+50:56.720 --> 51:00.400
+ And now we can leverage machines to really eradicate
+
+51:00.400 --> 51:02.760
+ the error in decision making,
+
+51:02.760 --> 51:06.240
+ error and lack of expertise for human doctors.
+
+51:06.240 --> 51:08.360
+ That could save your life.
+
+51:08.360 --> 51:10.360
+ If we can link on that for a little bit,
+
+51:10.360 --> 51:14.800
+ in which way do you hope machines in the medical field
+
+51:14.800 --> 51:16.360
+ could help assist doctors?
+
+51:16.360 --> 51:21.320
+ You mentioned this sort of accelerating the learning curve
+
+51:21.320 --> 51:26.120
+ or people, if they start a job or in the first 10,000 hours
+
+51:26.120 --> 51:27.360
+ can be assisted by machines.
+
+51:27.360 --> 51:29.720
+ How do you envision that assistance looking?
+
+51:29.720 --> 51:33.480
+ So we built this app for an iPhone that can detect
+
+51:33.480 --> 51:36.320
+ and classify and diagnose skin cancer.
+
+51:36.320 --> 51:40.560
+ And we proved two years ago that it does pretty much
+
+51:40.560 --> 51:42.240
+ as good or better than the best human doctors.
+
+51:42.240 --> 51:43.600
+ So let me tell you a story.
+
+51:43.600 --> 51:45.480
+ So there's a friend of mine, let's call him Ben.
+
+51:45.480 --> 51:47.680
+ Ben is a very famous venture capitalist.
+
+51:47.680 --> 51:50.720
+ He goes to his doctor and the doctor looks at a mole
+
+51:50.720 --> 51:55.360
+ and says, hey, that mole is probably harmless.
+
+51:55.360 --> 51:59.800
+ And for some very funny reason, he pulls out that phone
+
+51:59.800 --> 52:00.640
+ with our app.
+
+52:00.640 --> 52:02.640
+ He's a collaborator in our study.
+
+52:02.640 --> 52:06.320
+ And the app says, no, no, no, no, this is a melanoma.
+
+52:06.320 --> 52:08.720
+ And for background, melanomas are,
+
+52:08.720 --> 52:12.400
+ and skin cancer is the most common cancer in this country.
+
+52:12.400 --> 52:16.640
+ Melanomas can go from stage zero to stage four
+
+52:16.640 --> 52:18.120
+ within less than a year.
+
+52:18.120 --> 52:20.880
+ Stage zero means you can basically cut it out yourself
+
+52:20.880 --> 52:23.200
+ with a kitchen knife and be safe.
+
+52:23.200 --> 52:25.520
+ And stage four means your chances of living
+
+52:25.520 --> 52:28.000
+ five more years in less than 20%.
+
+52:28.000 --> 52:31.160
+ So it's a very serious, serious, serious condition.
+
+52:31.160 --> 52:36.160
+ So this doctor who took out the iPhone,
+
+52:36.160 --> 52:37.680
+ looked at the iPhone and was a little bit puzzled.
+
+52:37.680 --> 52:39.720
+ He said, I mean, but just to be safe,
+
+52:39.720 --> 52:41.600
+ let's cut it out and biopsy it.
+
+52:41.600 --> 52:43.560
+ That's the technical term for let's get
+
+52:43.560 --> 52:47.720
+ an in depth diagnostics that is more than just looking at it.
+
+52:47.720 --> 52:50.760
+ And it came back as cancerous, as a melanoma.
+
+52:50.760 --> 52:52.240
+ And it was then removed.
+
+52:52.240 --> 52:54.960
+ And my friend, Ben, I was hiking with him
+
+52:54.960 --> 52:56.280
+ and we were talking about AI.
+
+52:56.280 --> 52:58.880
+ And I told him I do this work on skin cancer.
+
+52:58.880 --> 53:00.720
+ And he said, oh, funny.
+
+53:00.720 --> 53:03.800
+ My doctor just had an iPhone that found my cancer.
+
+53:05.480 --> 53:06.920
+ So I was like completely intrigued.
+
+53:06.920 --> 53:08.200
+ I didn't even know about this.
+
+53:08.200 --> 53:11.640
+ So here's a person, I mean, this is a real human life, right?
+
+53:11.640 --> 53:12.920
+ Like who doesn't know somebody
+
+53:12.920 --> 53:14.000
+ who has been affected by cancer.
+
+53:14.000 --> 53:16.160
+ Cancer is cause of death number two.
+
+53:16.160 --> 53:19.440
+ Cancer is this kind of disease that is mean
+
+53:19.440 --> 53:21.080
+ in the following way.
+
+53:21.080 --> 53:24.520
+ Most cancers can actually be cured relatively easily
+
+53:24.520 --> 53:25.880
+ if we catch them early.
+
+53:25.880 --> 53:28.360
+ And the reason why we don't tend to catch them early
+
+53:28.360 --> 53:30.600
+ is because they have no symptoms.
+
+53:30.600 --> 53:33.880
+ Like your very first symptom of a gallbladder cancer
+
+53:33.880 --> 53:37.040
+ or a pancreas cancer might be a headache.
+
+53:37.040 --> 53:38.680
+ And when you finally go to your doctor
+
+53:38.680 --> 53:41.600
+ because of these headaches or your back pain
+
+53:41.600 --> 53:45.880
+ and you're being imaged, it's usually stage four plus.
+
+53:45.880 --> 53:48.200
+ And that's the time when the occurring chances
+
+53:48.200 --> 53:50.880
+ might be dropped to a single digit percentage.
+
+53:50.880 --> 53:54.560
+ So if we could leverage AI to inspect your body
+
+53:54.560 --> 53:58.120
+ on a regular basis without even a doctor in the room,
+
+53:58.120 --> 54:00.360
+ maybe when you take a shower or what have you,
+
+54:00.360 --> 54:01.480
+ I know this sounds creepy,
+
+54:01.480 --> 54:03.800
+ but then we might be able to save millions
+
+54:03.800 --> 54:04.900
+ and millions of lives.
+
+54:06.320 --> 54:09.520
+ You've mentioned there's a concern that people have
+
+54:09.520 --> 54:12.880
+ about near term impacts of AI in terms of job loss.
+
+54:12.880 --> 54:15.560
+ So you've mentioned being able to assist doctors,
+
+54:15.560 --> 54:17.940
+ being able to assist people in their jobs.
+
+54:17.940 --> 54:21.120
+ Do you have a worry of people losing their jobs
+
+54:22.260 --> 54:25.480
+ or the economy being affected by the improvements in AI?
+
+54:25.480 --> 54:27.680
+ Yeah, anybody concerned about job losses,
+
+54:27.680 --> 54:30.040
+ please come to Gdacity.com.
+
+54:30.040 --> 54:32.320
+ We teach contemporary tech skills
+
+54:32.320 --> 54:35.840
+ and we have a kind of implicit job promise.
+
+54:36.680 --> 54:38.960
+ We often, when we measure,
+
+54:38.960 --> 54:41.840
+ we spend way over 50% of our graders in new jobs
+
+54:41.840 --> 54:43.720
+ and they're very satisfied about it.
+
+54:43.720 --> 54:44.800
+ And it costs almost nothing,
+
+54:44.800 --> 54:47.120
+ costs like 1,500 max or something like that.
+
+54:47.120 --> 54:48.920
+ And so there's a cool new program
+
+54:48.920 --> 54:51.080
+ that you agree with the U.S. government,
+
+54:51.080 --> 54:54.880
+ guaranteeing that you will help us give scholarships
+
+54:54.880 --> 54:57.840
+ that educate people in this kind of situation.
+
+54:57.840 --> 54:59.960
+ Yeah, we're working with the U.S. government
+
+54:59.960 --> 55:03.880
+ on the idea of basically rebuilding the American dream.
+
+55:03.880 --> 55:07.440
+ So Gdacity has just dedicated 100,000 scholarships
+
+55:07.440 --> 55:12.080
+ for citizens of America for various levels of courses
+
+55:12.080 --> 55:15.560
+ that eventually will get you a job.
+
+55:15.560 --> 55:18.740
+ And those courses are all somewhat related
+
+55:18.740 --> 55:20.460
+ to the tech sector because the tech sector
+
+55:20.460 --> 55:22.060
+ is kind of the hottest sector right now.
+
+55:22.060 --> 55:24.940
+ And they range from interlevel digital marketing
+
+55:24.940 --> 55:28.060
+ to very advanced self diving car engineering.
+
+55:28.060 --> 55:29.420
+ And we're doing this with the White House
+
+55:29.420 --> 55:30.860
+ because we think it's bipartisan.
+
+55:30.860 --> 55:35.860
+ It's an issue that if you wanna really make America great,
+
+55:36.020 --> 55:40.060
+ being able to be a part of the solution
+
+55:40.060 --> 55:43.780
+ and live the American dream requires us to be proactive
+
+55:43.780 --> 55:45.780
+ about our education and our skillset.
+
+55:45.780 --> 55:47.700
+ It's just the way it is today.
+
+55:47.700 --> 55:48.700
+ And it's always been this way.
+
+55:48.700 --> 55:49.940
+ And we always had this American dream
+
+55:49.940 --> 55:51.140
+ to send our kids to college.
+
+55:51.140 --> 55:53.260
+ And now the American dream has to be
+
+55:53.260 --> 55:54.660
+ to send ourselves to college.
+
+55:54.660 --> 55:58.220
+ We can do this very, very, very efficiently
+
+55:58.220 --> 56:00.900
+ and very, very, we can squeeze in in the evenings
+
+56:00.900 --> 56:01.820
+ and things to online.
+
+56:01.820 --> 56:03.140
+ So at all ages.
+
+56:03.140 --> 56:03.980
+ All ages.
+
+56:03.980 --> 56:08.980
+ So our learners go from age 11 to age 80.
+
+56:08.980 --> 56:13.980
+ I just traveled Germany and the guy in the train compartment
+
+56:15.180 --> 56:17.500
+ next to me was one of my students.
+
+56:17.500 --> 56:19.820
+ It's like, wow, that's amazing.
+
+56:19.820 --> 56:21.020
+ Think about impact.
+
+56:21.020 --> 56:24.020
+ We've become the educator of choice for now,
+
+56:24.020 --> 56:26.500
+ I believe officially six countries or five countries.
+
+56:26.500 --> 56:30.080
+ Most in the Middle East, like Saudi Arabia and in Egypt.
+
+56:30.080 --> 56:33.420
+ In Egypt, we just had a cohort graduate
+
+56:33.420 --> 56:37.280
+ where we had 1100 high school students
+
+56:37.280 --> 56:39.820
+ that went through programming skills,
+
+56:39.820 --> 56:42.920
+ proficient at the level of a computer science undergrad.
+
+56:42.920 --> 56:45.220
+ And we had a 95% graduation rate,
+
+56:45.220 --> 56:46.900
+ even though everything's online, it's kind of tough,
+
+56:46.900 --> 56:48.260
+ but we kind of trying to figure out
+
+56:48.260 --> 56:50.120
+ how to make this effective.
+
+56:50.120 --> 56:52.540
+ The vision is very, very simple.
+
+56:52.540 --> 56:57.540
+ The vision is education ought to be a basic human right.
+
+56:58.340 --> 57:02.320
+ It cannot be locked up behind ivory tower walls
+
+57:02.320 --> 57:04.420
+ only for the rich people, for the parents
+
+57:04.420 --> 57:06.780
+ who might be bribe themselves into the system.
+
+57:06.780 --> 57:09.260
+ And only for young people and only for people
+
+57:09.260 --> 57:11.740
+ from the right demographics and the right geography
+
+57:11.740 --> 57:14.260
+ and possibly even the right race.
+
+57:14.260 --> 57:15.860
+ It has to be opened up to everybody.
+
+57:15.860 --> 57:18.740
+ If we are truthful to the human mission,
+
+57:18.740 --> 57:20.660
+ if we are truthful to our values,
+
+57:20.660 --> 57:23.460
+ we're gonna open up education to everybody in the world.
+
+57:23.460 --> 57:27.220
+ So Udacity's pledge of 100,000 scholarships,
+
+57:27.220 --> 57:29.220
+ I think is the biggest pledge of scholarships ever
+
+57:29.220 --> 57:30.760
+ in terms of numbers.
+
+57:30.760 --> 57:33.020
+ And we're working, as I said, with the White House
+
+57:33.020 --> 57:36.100
+ and with very accomplished CEOs like Tim Cook
+
+57:36.100 --> 57:39.020
+ from Apple and others to really bring education
+
+57:39.020 --> 57:40.980
+ to everywhere in the world.
+
+57:40.980 --> 57:44.620
+ Not to ask you to pick the favorite of your children,
+
+57:44.620 --> 57:45.580
+ but at this point.
+
+57:45.580 --> 57:46.600
+ Oh, that's Jasper.
+
+57:46.600 --> 57:49.740
+ I only have one that I know of.
+
+57:49.740 --> 57:50.580
+ Okay, good.
+
+57:52.700 --> 57:55.820
+ In this particular moment, what nano degree,
+
+57:55.820 --> 58:00.060
+ what set of courses are you most excited about at Udacity
+
+58:00.060 --> 58:02.020
+ or is that too impossible to pick?
+
+58:02.020 --> 58:03.820
+ I've been super excited about something
+
+58:03.820 --> 58:05.500
+ we haven't launched yet in the building,
+
+58:05.500 --> 58:09.100
+ which is when we talk to our partner companies,
+
+58:09.100 --> 58:12.700
+ we have now a very strong footing in the enterprise world.
+
+58:12.700 --> 58:14.580
+ And also to our students,
+
+58:14.580 --> 58:17.260
+ we've kind of always focused on these hard skills,
+
+58:17.260 --> 58:19.740
+ like the programming skills or math skills
+
+58:19.740 --> 58:22.180
+ or building skills or design skills.
+
+58:22.180 --> 58:25.180
+ And a very common ask is soft skills.
+
+58:25.180 --> 58:26.860
+ Like how do you behave in your work?
+
+58:26.860 --> 58:28.280
+ How do you develop empathy?
+
+58:28.280 --> 58:29.580
+ How do you work on a team?
+
+58:30.460 --> 58:32.380
+ What are the very basics of management?
+
+58:32.380 --> 58:33.700
+ How do you do time management?
+
+58:33.700 --> 58:36.240
+ How do you advance your career
+
+58:36.240 --> 58:39.260
+ in the context of a broader community?
+
+58:39.260 --> 58:41.740
+ And that's something that we haven't done very well
+
+58:41.740 --> 58:43.860
+ at Udacity and I would say most universities
+
+58:43.860 --> 58:45.180
+ are doing very poorly as well
+
+58:45.180 --> 58:47.900
+ because we are so obsessed with individual test scores
+
+58:47.900 --> 58:52.620
+ and pays a little attention to teamwork in education.
+
+58:52.620 --> 58:55.500
+ So that's something I see us moving into as a company
+
+58:55.500 --> 58:56.940
+ because I'm excited about this.
+
+58:56.940 --> 59:00.100
+ And I think, look, we can teach people tech skills
+
+59:00.100 --> 59:00.940
+ and they're gonna be great.
+
+59:00.940 --> 59:02.700
+ But if you teach people empathy,
+
+59:02.700 --> 59:04.960
+ that's gonna have the same impact.
+
+59:04.960 --> 59:08.100
+ Maybe harder than self driving cars, but.
+
+59:08.100 --> 59:08.940
+ I don't think so.
+
+59:08.940 --> 59:11.300
+ I think the rules are really simple.
+
+59:11.300 --> 59:14.380
+ You just have to, you have to want to engage.
+
+59:14.380 --> 59:18.180
+ It's, we literally went in school and in K through 12,
+
+59:18.180 --> 59:20.460
+ we teach kids like get the highest math score.
+
+59:20.460 --> 59:22.900
+ And if you are a rational human being,
+
+59:22.900 --> 59:25.620
+ you might evolve from this education say,
+
+59:25.620 --> 59:28.060
+ having the best math score and the best English scores
+
+59:28.060 --> 59:29.640
+ make me the best leader.
+
+59:29.640 --> 59:31.060
+ And it turns out not to be that case.
+
+59:31.060 --> 59:34.340
+ It's actually really wrong because making the,
+
+59:34.340 --> 59:35.820
+ first of all, in terms of math scores,
+
+59:35.820 --> 59:37.620
+ I think it's perfectly fine to hire somebody
+
+59:37.620 --> 59:38.500
+ with great math skills.
+
+59:38.500 --> 59:40.620
+ You don't have to do it yourself.
+
+59:40.620 --> 59:42.740
+ You can hire someone with good empathy for you.
+
+59:42.740 --> 59:43.860
+ That's much harder,
+
+59:43.860 --> 59:46.340
+ but you can always hire someone with great math skills.
+
+59:46.340 --> 59:48.940
+ But we live in an affluent world
+
+59:48.940 --> 59:51.000
+ where we constantly deal with other people.
+
+59:51.000 --> 59:51.880
+ And that's a beauty.
+
+59:51.880 --> 59:52.760
+ It's not a nuisance.
+
+59:52.760 --> 59:53.600
+ It's a beauty.
+
+59:53.600 --> 59:55.940
+ So if we somehow develop that muscle
+
+59:55.940 --> 59:59.700
+ that we can do that well and empower others
+
+59:59.700 --> 1:00:02.880
+ in the workplace, I think we're gonna be super successful.
+
+1:00:02.880 --> 1:00:07.220
+ And I know many fellow robot assistant computer scientists
+
+1:00:07.220 --> 1:00:09.820
+ that I will insist to take this course.
+
+1:00:09.820 --> 1:00:12.180
+ Not to be named here.
+
+1:00:12.180 --> 1:00:13.740
+ Not to be named.
+
+1:00:13.740 --> 1:00:17.940
+ Many, many years ago, 1903,
+
+1:00:17.940 --> 1:00:22.580
+ the Wright brothers flew in Kitty Hawk for the first time.
+
+1:00:22.580 --> 1:00:26.940
+ And you've launched a company of the same name, Kitty Hawk,
+
+1:00:26.940 --> 1:00:31.940
+ with the dream of building flying cars, eVTOLs.
+
+1:00:32.300 --> 1:00:34.560
+ So at the big picture,
+
+1:00:34.560 --> 1:00:36.620
+ what are the big challenges of making this thing
+
+1:00:36.620 --> 1:00:39.980
+ that actually have inspired generations of people
+
+1:00:39.980 --> 1:00:41.740
+ about what the future looks like?
+
+1:00:41.740 --> 1:00:42.580
+ What does it take?
+
+1:00:42.580 --> 1:00:43.660
+ What are the biggest challenges?
+
+1:00:43.660 --> 1:00:47.220
+ So flying cars has always been a dream.
+
+1:00:47.220 --> 1:00:49.700
+ Every boy, every girl wants to fly.
+
+1:00:49.700 --> 1:00:50.540
+ Let's be honest.
+
+1:00:50.540 --> 1:00:51.360
+ Yes.
+
+1:00:51.360 --> 1:00:52.340
+ And let's go back in our history
+
+1:00:52.340 --> 1:00:53.760
+ of your dreaming of flying.
+
+1:00:53.760 --> 1:00:57.420
+ I think honestly, my single most remembered childhood dream
+
+1:00:57.420 --> 1:00:59.420
+ has been a dream where I was sitting on a pillow
+
+1:00:59.420 --> 1:01:00.740
+ and I could fly.
+
+1:01:00.740 --> 1:01:02.020
+ I was like five years old.
+
+1:01:02.020 --> 1:01:04.140
+ I remember like maybe three dreams of my childhood,
+
+1:01:04.140 --> 1:01:06.400
+ but that's the one I remember most vividly.
+
+1:01:07.540 --> 1:01:09.400
+ And then Peter Thiel famously said,
+
+1:01:09.400 --> 1:01:10.660
+ they promised us flying cars
+
+1:01:10.660 --> 1:01:14.460
+ and they gave us 140 characters pointing as Twitter
+
+1:01:14.460 --> 1:01:18.380
+ at the time, limited message size to 140 characters.
+
+1:01:18.380 --> 1:01:20.220
+ So if you're coming back now to really go
+
+1:01:20.220 --> 1:01:23.220
+ for these super impactful stuff like flying cars
+
+1:01:23.220 --> 1:01:25.900
+ and to be precise, they're not really cars.
+
+1:01:25.900 --> 1:01:27.140
+ They don't have wheels.
+
+1:01:27.140 --> 1:01:28.580
+ They're actually much closer to a helicopter
+
+1:01:28.580 --> 1:01:29.640
+ than anything else.
+
+1:01:29.640 --> 1:01:32.080
+ They take off vertically and they fly horizontally,
+
+1:01:32.080 --> 1:01:34.380
+ but they have important differences.
+
+1:01:34.380 --> 1:01:37.740
+ One difference is that they are much quieter.
+
+1:01:37.740 --> 1:01:41.580
+ We just released a vehicle called Project Heaviside
+
+1:01:41.580 --> 1:01:43.500
+ that can fly over you as low as a helicopter
+
+1:01:43.500 --> 1:01:45.200
+ and you basically can't hear.
+
+1:01:45.200 --> 1:01:46.700
+ It's like 38 decibels.
+
+1:01:46.700 --> 1:01:49.240
+ It's like, if you were inside the library,
+
+1:01:49.240 --> 1:01:50.220
+ you might be able to hear it,
+
+1:01:50.220 --> 1:01:53.540
+ but anywhere outdoors, your ambient noise is higher.
+
+1:01:53.540 --> 1:01:57.020
+ Secondly, they're much more affordable.
+
+1:01:57.020 --> 1:01:58.980
+ They're much more affordable than helicopters.
+
+1:01:58.980 --> 1:02:01.920
+ And the reason is helicopters are expensive
+
+1:02:01.920 --> 1:02:03.020
+ for many reasons.
+
+1:02:04.380 --> 1:02:06.980
+ There's lots of single point of figures in a helicopter.
+
+1:02:06.980 --> 1:02:09.140
+ There's a bolt between the blades
+
+1:02:09.140 --> 1:02:10.780
+ that's caused Jesus bolt.
+
+1:02:10.780 --> 1:02:12.420
+ And the reason why it's called Jesus bolt
+
+1:02:12.420 --> 1:02:16.380
+ is that if this bolt breaks, you will die.
+
+1:02:16.380 --> 1:02:19.500
+ There is no second solution in helicopter flight.
+
+1:02:19.500 --> 1:02:21.500
+ Whereas we have these distributed mechanism.
+
+1:02:21.500 --> 1:02:23.740
+ When you go from gasoline to electric,
+
+1:02:23.740 --> 1:02:25.820
+ you can now have many, many, many small motors
+
+1:02:25.820 --> 1:02:27.260
+ as opposed to one big motor.
+
+1:02:27.260 --> 1:02:28.780
+ And that means if you lose one of those motors,
+
+1:02:28.780 --> 1:02:29.620
+ not a big deal.
+
+1:02:29.620 --> 1:02:32.820
+ Heaviside, if it loses a motor, has eight of those.
+
+1:02:32.820 --> 1:02:34.020
+ If it loses one of those eight motors,
+
+1:02:34.020 --> 1:02:37.260
+ so it's seven left, it can take off just like before
+
+1:02:37.260 --> 1:02:38.820
+ and land just like before.
+
+1:02:40.100 --> 1:02:42.020
+ We are now also moving into a technology
+
+1:02:42.020 --> 1:02:44.160
+ that doesn't require a commercial pilot
+
+1:02:44.160 --> 1:02:45.500
+ because in some level,
+
+1:02:45.500 --> 1:02:48.980
+ flight is actually easier than ground transportation
+
+1:02:48.980 --> 1:02:50.740
+ like in self driving cars.
+
+1:02:51.820 --> 1:02:54.500
+ The world is full of like children and bicycles
+
+1:02:54.500 --> 1:02:57.580
+ and other cars and mailboxes and curbs and shrubs
+
+1:02:57.580 --> 1:02:58.420
+ and what have you.
+
+1:02:58.420 --> 1:03:00.500
+ All these things you have to avoid.
+
+1:03:00.500 --> 1:03:03.740
+ When you go above the buildings and tree lines,
+
+1:03:03.740 --> 1:03:04.620
+ there's nothing there.
+
+1:03:04.620 --> 1:03:06.100
+ I mean, you can do the test right now,
+
+1:03:06.100 --> 1:03:09.420
+ look outside and count the number of things you see flying.
+
+1:03:09.420 --> 1:03:11.500
+ I'd be shocked if you could see more than two things.
+
+1:03:11.500 --> 1:03:12.860
+ It's probably just zero.
+
+1:03:13.860 --> 1:03:16.940
+ In the Bay Area, the most I've ever seen was six.
+
+1:03:16.940 --> 1:03:18.820
+ And maybe it's 15 or 20,
+
+1:03:18.820 --> 1:03:20.400
+ but not 10,000.
+
+1:03:20.400 --> 1:03:24.000
+ So the sky is very ample and very empty and very free.
+
+1:03:24.000 --> 1:03:27.820
+ So the vision is, can we build a socially acceptable
+
+1:03:27.820 --> 1:03:32.360
+ mass transit solution for daily transportation
+
+1:03:32.360 --> 1:03:34.280
+ that is affordable?
+
+1:03:34.280 --> 1:03:36.340
+ And we have an existence proof.
+
+1:03:36.340 --> 1:03:39.780
+ Heaviside can fly 100 miles in range
+
+1:03:39.780 --> 1:03:43.260
+ with still 30% electric reserves.
+
+1:03:43.260 --> 1:03:46.060
+ It can fly up to like 180 miles an hour.
+
+1:03:46.060 --> 1:03:48.900
+ We know that that solution at scale
+
+1:03:48.900 --> 1:03:51.420
+ would make your ground transportation
+
+1:03:51.420 --> 1:03:53.820
+ 10 times as fast as a car
+
+1:03:53.820 --> 1:03:57.580
+ based on use census or statistics data,
+
+1:03:57.580 --> 1:04:00.900
+ which means you would take your 300 hours of daily,
+
+1:04:00.900 --> 1:04:03.020
+ of yearly commute down to 30 hours
+
+1:04:03.020 --> 1:04:05.180
+ and give you 270 hours back.
+
+1:04:05.180 --> 1:04:07.700
+ Who wouldn't want, I mean, who doesn't hate traffic?
+
+1:04:07.700 --> 1:04:10.820
+ Like I hate, give me the person that doesn't hate traffic.
+
+1:04:10.820 --> 1:04:11.660
+ I hate traffic.
+
+1:04:11.660 --> 1:04:13.900
+ Every time I'm in traffic, I hate it.
+
+1:04:13.900 --> 1:04:17.580
+ And if we could free the world from traffic,
+
+1:04:17.580 --> 1:04:18.460
+ we have technology.
+
+1:04:18.460 --> 1:04:20.060
+ We can free the world from traffic.
+
+1:04:20.060 --> 1:04:21.340
+ We have the technology.
+
+1:04:21.340 --> 1:04:22.180
+ It's there.
+
+1:04:22.180 --> 1:04:23.060
+ We have an existence proof.
+
+1:04:23.060 --> 1:04:25.440
+ It's not a technological problem anymore.
+
+1:04:25.440 --> 1:04:29.340
+ Do you think there is a future where tens of thousands,
+
+1:04:29.340 --> 1:04:34.340
+ maybe hundreds of thousands of both delivery drones
+
+1:04:34.380 --> 1:04:39.380
+ and flying cars of this kind, EV talls fill the sky?
+
+1:04:39.940 --> 1:04:40.940
+ I absolutely believe this.
+
+1:04:40.940 --> 1:04:43.860
+ And there's obviously the societal acceptance
+
+1:04:43.860 --> 1:04:45.460
+ is a major question.
+
+1:04:45.460 --> 1:04:46.940
+ And of course, safety is.
+
+1:04:46.940 --> 1:04:48.060
+ I believe in safety,
+
+1:04:48.060 --> 1:04:50.340
+ we're gonna exceed ground transportation safety
+
+1:04:50.340 --> 1:04:54.500
+ as has happened for aviation already, commercial aviation.
+
+1:04:54.500 --> 1:04:56.640
+ And in terms of acceptance,
+
+1:04:56.640 --> 1:04:58.320
+ I think one of the key things is noise.
+
+1:04:58.320 --> 1:05:00.980
+ That's why we are focusing relentlessly on noise
+
+1:05:00.980 --> 1:05:05.660
+ and we build perhaps the quietest electric vehicle
+
+1:05:05.660 --> 1:05:06.500
+ ever built.
+
+1:05:07.640 --> 1:05:09.760
+ The nice thing about the sky is it's three dimensional.
+
+1:05:09.760 --> 1:05:12.520
+ So any mathematician will immediately recognize
+
+1:05:12.520 --> 1:05:14.980
+ the difference between 1D of like a regular highway
+
+1:05:14.980 --> 1:05:16.260
+ to 3D of a sky.
+
+1:05:17.320 --> 1:05:19.360
+ But to make it clear for the layman,
+
+1:05:20.220 --> 1:05:22.740
+ say you wanna make 100 vertical lanes
+
+1:05:22.740 --> 1:05:25.040
+ of highway 101 in San Francisco,
+
+1:05:25.040 --> 1:05:27.220
+ because you believe building 100 vertical lanes
+
+1:05:27.220 --> 1:05:28.900
+ is the right solution.
+
+1:05:28.900 --> 1:05:31.780
+ Imagine how much it would cost to stack 100 vertical lanes
+
+1:05:31.780 --> 1:05:33.420
+ physically onto 101.
+
+1:05:33.420 --> 1:05:34.340
+ That would be prohibitive.
+
+1:05:34.340 --> 1:05:37.780
+ That would be consuming the world's GDP for an entire year
+
+1:05:37.780 --> 1:05:39.260
+ just for one highway.
+
+1:05:39.260 --> 1:05:41.300
+ It's amazingly expensive.
+
+1:05:41.300 --> 1:05:43.740
+ In the sky, it would just be a recompilation
+
+1:05:43.740 --> 1:05:46.580
+ of a piece of software because all these lanes are virtual.
+
+1:05:46.580 --> 1:05:49.260
+ That means any vehicle that is in conflict
+
+1:05:49.260 --> 1:05:51.860
+ with another vehicle would just go to different altitudes
+
+1:05:51.860 --> 1:05:53.340
+ and then the conflict is gone.
+
+1:05:53.340 --> 1:05:55.380
+ And if you don't believe this,
+
+1:05:55.380 --> 1:05:58.580
+ that's exactly how commercial aviation works.
+
+1:05:58.580 --> 1:06:01.460
+ When you fly from New York to San Francisco,
+
+1:06:01.460 --> 1:06:04.240
+ another plane flies from San Francisco to New York,
+
+1:06:04.240 --> 1:06:05.300
+ they are different altitudes.
+
+1:06:05.300 --> 1:06:06.740
+ So they don't hit each other.
+
+1:06:06.740 --> 1:06:10.420
+ It's a solved problem for the jet space
+
+1:06:10.420 --> 1:06:12.780
+ and it will be a solved problem for the urban space.
+
+1:06:12.780 --> 1:06:15.380
+ There's companies like Google Wing and Amazon
+
+1:06:15.380 --> 1:06:17.060
+ working on very innovative solutions.
+
+1:06:17.060 --> 1:06:18.580
+ How do we have space management?
+
+1:06:18.580 --> 1:06:21.660
+ They use exactly the same principles as we use today
+
+1:06:21.660 --> 1:06:23.300
+ to route today's jets.
+
+1:06:23.300 --> 1:06:25.000
+ There's nothing hard about this.
+
+1:06:25.940 --> 1:06:29.040
+ Do you envision autonomy being a key part of it
+
+1:06:29.040 --> 1:06:34.040
+ so that the flying vehicles are either semi autonomous
+
+1:06:34.040 --> 1:06:36.920
+ semi autonomous or fully autonomous?
+
+1:06:36.920 --> 1:06:37.880
+ 100% autonomous.
+
+1:06:37.880 --> 1:06:40.480
+ You don't want idiots like me flying in the sky,
+
+1:06:40.480 --> 1:06:41.960
+ I promise you.
+
+1:06:41.960 --> 1:06:43.240
+ And if you have 10,000,
+
+1:06:44.280 --> 1:06:46.040
+ watch the movie, The Fifth Element
+
+1:06:46.040 --> 1:06:49.480
+ to get a feel for what will happen if it's not autonomous.
+
+1:06:49.480 --> 1:06:51.720
+ And a centralized, that's a really interesting idea
+
+1:06:51.720 --> 1:06:55.240
+ of a centralized sort of management system
+
+1:06:55.240 --> 1:06:56.320
+ for lanes and so on.
+
+1:06:56.320 --> 1:06:58.760
+ So actually just being able to have
+
+1:07:00.280 --> 1:07:03.000
+ similar as we have in the current commercial aviation,
+
+1:07:03.000 --> 1:07:05.560
+ but scale it up to much, much more vehicles.
+
+1:07:05.560 --> 1:07:07.660
+ That's a really interesting optimization problem.
+
+1:07:07.660 --> 1:07:11.080
+ It is very mathematically, very, very straightforward.
+
+1:07:11.080 --> 1:07:13.520
+ Like the gap we leave between jets is gargantuous.
+
+1:07:13.520 --> 1:07:16.400
+ And part of the reason is there isn't that many jets.
+
+1:07:16.400 --> 1:07:18.800
+ So it just feels like a good solution.
+
+1:07:18.800 --> 1:07:22.380
+ Today, when you get vectored by air traffic control,
+
+1:07:22.380 --> 1:07:23.900
+ someone talks to you, right?
+
+1:07:23.900 --> 1:07:26.960
+ So any ATC controller might have up to maybe 20 planes
+
+1:07:26.960 --> 1:07:28.160
+ on the same frequency.
+
+1:07:28.160 --> 1:07:30.360
+ And then they talk to you, you have to talk back.
+
+1:07:30.360 --> 1:07:32.720
+ And it feels right because there isn't more than 20 planes
+
+1:07:32.720 --> 1:07:34.960
+ around anyhow, so you can talk to everybody.
+
+1:07:34.960 --> 1:07:36.760
+ But if there's 20,000 things around,
+
+1:07:36.760 --> 1:07:37.980
+ you can't talk to everybody anymore.
+
+1:07:37.980 --> 1:07:40.260
+ So we have to do something that's called digital,
+
+1:07:40.260 --> 1:07:41.520
+ like text messaging.
+
+1:07:41.520 --> 1:07:43.040
+ Like we do have solutions.
+
+1:07:43.040 --> 1:07:45.560
+ Like we have what, four or five billion smartphones
+
+1:07:45.560 --> 1:07:46.440
+ in the world now, right?
+
+1:07:46.440 --> 1:07:47.720
+ And they're all connected.
+
+1:07:47.720 --> 1:07:50.720
+ And somehow we solve the scale problem for smartphones.
+
+1:07:50.720 --> 1:07:51.960
+ We know where they all are.
+
+1:07:51.960 --> 1:07:54.880
+ They can talk to somebody and they're very reliable.
+
+1:07:54.880 --> 1:07:56.460
+ They're amazingly reliable.
+
+1:07:56.460 --> 1:07:58.640
+ We could use the same system,
+
+1:07:58.640 --> 1:08:01.080
+ the same scale for air traffic control.
+
+1:08:01.080 --> 1:08:04.080
+ So instead of me as a pilot talking to a human being
+
+1:08:04.080 --> 1:08:06.280
+ and in the middle of the conversation
+
+1:08:06.280 --> 1:08:09.660
+ receiving a new frequency, like how ancient is that?
+
+1:08:09.660 --> 1:08:11.240
+ We could digitize this stuff
+
+1:08:11.240 --> 1:08:15.240
+ and digitally transmit the right flight coordinates.
+
+1:08:15.240 --> 1:08:18.060
+ And that solution will automatically scale
+
+1:08:18.060 --> 1:08:20.040
+ to 10,000 vehicles.
+
+1:08:20.040 --> 1:08:22.200
+ We talked about empathy a little bit.
+
+1:08:22.200 --> 1:08:25.800
+ Do you think we will one day build an AI system
+
+1:08:25.800 --> 1:08:27.580
+ that a human being can love
+
+1:08:27.580 --> 1:08:31.320
+ and that loves that human back, like in the movie, Her?
+
+1:08:31.320 --> 1:08:33.960
+ Look, I'm a pragmatist.
+
+1:08:33.960 --> 1:08:35.600
+ For me, AI is a tool.
+
+1:08:35.600 --> 1:08:36.920
+ It's like a shovel.
+
+1:08:36.920 --> 1:08:40.800
+ And the ethics of using the shovel are always
+
+1:08:40.800 --> 1:08:41.840
+ with us, the people.
+
+1:08:41.840 --> 1:08:44.040
+ And it has to be this way.
+
+1:08:44.040 --> 1:08:46.140
+ In terms of emotions,
+
+1:08:47.160 --> 1:08:49.800
+ I would hate to come into my kitchen
+
+1:08:49.800 --> 1:08:54.200
+ and see that my refrigerator spoiled all my food,
+
+1:08:54.200 --> 1:08:55.280
+ then have it explained to me
+
+1:08:55.280 --> 1:08:57.960
+ that it fell in love with the dishwasher
+
+1:08:57.960 --> 1:08:59.680
+ and it wasn't as nice as the dishwasher.
+
+1:08:59.680 --> 1:09:02.160
+ So as a result, it neglected me.
+
+1:09:02.160 --> 1:09:05.120
+ That would just be a bad experience
+
+1:09:05.120 --> 1:09:07.040
+ and it would be a bad product.
+
+1:09:07.040 --> 1:09:09.520
+ I would probably not recommend this refrigerator
+
+1:09:09.520 --> 1:09:10.460
+ to my friends.
+
+1:09:11.720 --> 1:09:12.880
+ And that's where I draw the line.
+
+1:09:12.880 --> 1:09:16.600
+ I think to me, technology has to be reliable
+
+1:09:16.600 --> 1:09:17.680
+ and has to be predictable.
+
+1:09:17.680 --> 1:09:19.840
+ I want my car to work.
+
+1:09:19.840 --> 1:09:22.840
+ I don't want to fall in love with my car.
+
+1:09:22.840 --> 1:09:24.560
+ I just want it to work.
+
+1:09:24.560 --> 1:09:27.160
+ I want it to compliment me, not to replace me.
+
+1:09:27.160 --> 1:09:30.640
+ I have very unique human properties
+
+1:09:30.640 --> 1:09:33.420
+ and I want the machines to make me,
+
+1:09:33.420 --> 1:09:35.680
+ turn me into a superhuman.
+
+1:09:35.680 --> 1:09:37.800
+ Like I'm already a superhuman today,
+
+1:09:37.800 --> 1:09:39.280
+ thanks to the machines that surround me.
+
+1:09:39.280 --> 1:09:40.780
+ And I give you examples.
+
+1:09:40.780 --> 1:09:44.160
+ I can run across the Atlantic
+
+1:09:44.160 --> 1:09:48.480
+ at near the speed of sound at 36,000 feet today.
+
+1:09:48.480 --> 1:09:49.560
+ That's kind of amazing.
+
+1:09:49.560 --> 1:09:54.560
+ I can, my voice now carries me all the way to Australia
+
+1:09:54.640 --> 1:09:56.600
+ using a smartphone today.
+
+1:09:56.600 --> 1:10:00.060
+ And it's not the speed of sound, which would take hours.
+
+1:10:00.060 --> 1:10:01.300
+ It's the speed of light.
+
+1:10:01.300 --> 1:10:03.820
+ My voice travels at the speed of light.
+
+1:10:03.820 --> 1:10:04.660
+ How cool is that?
+
+1:10:04.660 --> 1:10:06.320
+ That makes me superhuman.
+
+1:10:06.320 --> 1:10:10.520
+ I would even argue my flushing toilet makes me superhuman.
+
+1:10:10.520 --> 1:10:13.800
+ Just think of the time before flushing toilets.
+
+1:10:13.800 --> 1:10:16.460
+ And maybe you have a very old person in your family
+
+1:10:16.460 --> 1:10:18.480
+ that you can ask about this
+
+1:10:18.480 --> 1:10:22.160
+ or take a trip to rural India to experience it.
+
+1:10:23.400 --> 1:10:25.840
+ It makes me superhuman.
+
+1:10:25.840 --> 1:10:28.900
+ So to me, what technology does, it compliments me.
+
+1:10:28.900 --> 1:10:30.920
+ It makes me stronger.
+
+1:10:30.920 --> 1:10:33.520
+ Therefore, words like love and compassion
+
+1:10:33.520 --> 1:10:38.520
+ have very little interest in this for machines.
+
+1:10:38.640 --> 1:10:40.720
+ I have interest in people.
+
+1:10:40.720 --> 1:10:44.280
+ You don't think, first of all, beautifully put,
+
+1:10:44.280 --> 1:10:45.680
+ beautifully argued,
+
+1:10:45.680 --> 1:10:49.520
+ but do you think love has use in our tools?
+
+1:10:49.520 --> 1:10:50.440
+ Compassion.
+
+1:10:50.440 --> 1:10:53.280
+ I think love is a beautiful human concept.
+
+1:10:53.280 --> 1:10:55.420
+ And if you think of what love really is,
+
+1:10:55.420 --> 1:11:00.420
+ love is a means to convey safety, to convey trust.
+
+1:11:03.240 --> 1:11:07.440
+ I think trust has a huge need in technology as well,
+
+1:11:07.440 --> 1:11:09.160
+ not just people.
+
+1:11:09.160 --> 1:11:12.600
+ We want to trust our technology the same way,
+
+1:11:12.600 --> 1:11:15.960
+ in a similar way we trust people.
+
+1:11:15.960 --> 1:11:19.360
+ In human interaction, standards have emerged
+
+1:11:19.360 --> 1:11:21.760
+ and feelings, emotions have emerged,
+
+1:11:21.760 --> 1:11:23.920
+ maybe genetically, maybe biologically,
+
+1:11:23.920 --> 1:11:26.560
+ that are able to convey sense of trust, sense of safety,
+
+1:11:26.560 --> 1:11:28.880
+ sense of passion, of love, of dedication
+
+1:11:28.880 --> 1:11:30.800
+ that makes the human fabric.
+
+1:11:30.800 --> 1:11:33.740
+ And I'm a big slacker for love.
+
+1:11:33.740 --> 1:11:34.600
+ I want to be loved.
+
+1:11:34.600 --> 1:11:35.440
+ I want to be trusted.
+
+1:11:35.440 --> 1:11:36.880
+ I want to be admired.
+
+1:11:36.880 --> 1:11:38.880
+ All these wonderful things.
+
+1:11:38.880 --> 1:11:42.200
+ And because all of us, we have this beautiful system,
+
+1:11:42.200 --> 1:11:44.840
+ I wouldn't just blindly copy this to the machines.
+
+1:11:44.840 --> 1:11:46.200
+ Here's why.
+
+1:11:46.200 --> 1:11:49.360
+ When you look at, say, transportation,
+
+1:11:49.360 --> 1:11:53.320
+ you could have observed that up to the end
+
+1:11:53.320 --> 1:11:57.120
+ of the 19th century, almost all transportation used
+
+1:11:57.120 --> 1:11:59.820
+ any number of legs, from one leg to two legs
+
+1:11:59.820 --> 1:12:01.720
+ to a thousand legs.
+
+1:12:01.720 --> 1:12:03.840
+ And you could have concluded that is the right way
+
+1:12:03.840 --> 1:12:05.660
+ to move about the environment.
+
+1:12:06.800 --> 1:12:08.080
+ We've been made the exception of birds
+
+1:12:08.080 --> 1:12:08.960
+ who use flapping wings.
+
+1:12:08.960 --> 1:12:10.880
+ In fact, there are many people in aviation
+
+1:12:10.880 --> 1:12:13.720
+ that flap wings to their arms and jump from cliffs.
+
+1:12:13.720 --> 1:12:15.120
+ Most of them didn't survive.
+
+1:12:16.920 --> 1:12:19.880
+ Then the interesting thing is that the technology solutions
+
+1:12:19.880 --> 1:12:21.600
+ are very different.
+
+1:12:21.600 --> 1:12:23.880
+ Like in technology, it's really easy to build a wheel.
+
+1:12:23.880 --> 1:12:25.680
+ In biology, it's super hard to build a wheel.
+
+1:12:25.680 --> 1:12:30.080
+ There's very few perpetually rotating things in biology
+
+1:12:30.080 --> 1:12:34.180
+ and they usually run cells and things.
+
+1:12:34.180 --> 1:12:37.200
+ In engineering, we can build wheels.
+
+1:12:37.200 --> 1:12:41.020
+ And those wheels gave rise to cars.
+
+1:12:41.020 --> 1:12:44.360
+ Similar wheels gave rise to aviation.
+
+1:12:44.360 --> 1:12:46.680
+ Like there's no thing that flies
+
+1:12:46.680 --> 1:12:48.840
+ that wouldn't have something that rotates,
+
+1:12:48.840 --> 1:12:52.400
+ like a jet engine or helicopter blades.
+
+1:12:52.400 --> 1:12:55.520
+ So the solutions have used very different physical laws
+
+1:12:55.520 --> 1:12:58.040
+ than nature, and that's great.
+
+1:12:58.040 --> 1:13:00.080
+ So for me to be too much focused on,
+
+1:13:00.080 --> 1:13:03.340
+ oh, this is how nature does it, let's just replicate it.
+
+1:13:03.340 --> 1:13:05.400
+ If you really believed that the solution
+
+1:13:05.400 --> 1:13:08.720
+ to the agricultural evolution was a humanoid robot,
+
+1:13:08.720 --> 1:13:10.920
+ you would still be waiting today.
+
+1:13:10.920 --> 1:13:12.520
+ Again, beautifully put.
+
+1:13:12.520 --> 1:13:15.920
+ You said that you don't take yourself too seriously.
+
+1:13:15.920 --> 1:13:16.760
+ Did I say that?
+
+1:13:18.160 --> 1:13:19.160
+ You want me to say that?
+
+1:13:19.160 --> 1:13:20.000
+ Maybe.
+
+1:13:20.000 --> 1:13:20.960
+ You're not taking me seriously.
+
+1:13:20.960 --> 1:13:22.880
+ I'm not, that's right.
+
+1:13:22.880 --> 1:13:24.480
+ Good, you're right, I don't wanna.
+
+1:13:24.480 --> 1:13:25.720
+ I just made that up.
+
+1:13:25.720 --> 1:13:29.120
+ But you have a humor and a lightness about life
+
+1:13:29.120 --> 1:13:33.520
+ that I think is beautiful and inspiring to a lot of people.
+
+1:13:33.520 --> 1:13:35.040
+ Where does that come from?
+
+1:13:35.040 --> 1:13:38.400
+ The smile, the humor, the lightness
+
+1:13:38.400 --> 1:13:42.600
+ amidst all the chaos of the hard work that you're in,
+
+1:13:42.600 --> 1:13:43.640
+ where does that come from?
+
+1:13:43.640 --> 1:13:44.560
+ I just love my life.
+
+1:13:44.560 --> 1:13:46.120
+ I love the people around me.
+
+1:13:47.520 --> 1:13:49.740
+ I'm just so glad to be alive.
+
+1:13:49.740 --> 1:13:53.640
+ Like I'm, what, 52, hard to believe.
+
+1:13:53.640 --> 1:13:56.260
+ People say 52 is a new 51, so now I feel better.
+
+1:13:56.260 --> 1:14:01.260
+ But in looking around the world,
+
+1:14:01.260 --> 1:14:05.180
+ looking around the world, just go back 200, 300 years.
+
+1:14:06.180 --> 1:14:09.360
+ Humanity is, what, 300,000 years old?
+
+1:14:09.360 --> 1:14:13.980
+ But for the first 300,000 years minus the last 100,
+
+1:14:13.980 --> 1:14:17.060
+ our life expectancy would have been
+
+1:14:17.060 --> 1:14:20.260
+ plus or minus 30 years roughly, give or take.
+
+1:14:20.260 --> 1:14:22.660
+ So I would be long dead now.
+
+1:14:24.360 --> 1:14:26.840
+ That makes me just enjoy every single day of my life
+
+1:14:26.840 --> 1:14:28.260
+ because I don't deserve this.
+
+1:14:28.260 --> 1:14:32.460
+ Why am I born today when so many of my ancestors
+
+1:14:32.460 --> 1:14:37.460
+ died of horrible deaths, like famines, massive wars
+
+1:14:38.820 --> 1:14:41.860
+ that ravaged Europe for the last 1,000 years
+
+1:14:41.860 --> 1:14:44.520
+ mystically disappeared after World War II
+
+1:14:44.520 --> 1:14:46.540
+ when the Americans and the Allies
+
+1:14:46.540 --> 1:14:48.300
+ did something amazing to my country
+
+1:14:48.300 --> 1:14:51.460
+ that didn't deserve it, the country of Germany.
+
+1:14:51.460 --> 1:14:52.620
+ This is so amazing.
+
+1:14:52.620 --> 1:14:56.960
+ And then when you're alive and feel this every day,
+
+1:14:56.960 --> 1:15:01.960
+ then it's just so amazing what we can accomplish,
+
+1:15:02.020 --> 1:15:03.500
+ what we can do.
+
+1:15:03.500 --> 1:15:06.380
+ We live in a world that is so incredibly,
+
+1:15:06.380 --> 1:15:08.720
+ vastly changing every day.
+
+1:15:08.720 --> 1:15:12.900
+ Almost everything that we cherish from your smartphone
+
+1:15:12.900 --> 1:15:16.220
+ to your flushing toilet, to all these basic inventions,
+
+1:15:16.220 --> 1:15:19.620
+ your new clothes you're wearing, your watch, your plane,
+
+1:15:19.620 --> 1:15:24.620
+ penicillin, I don't know, anesthesia for surgery,
+
+1:15:24.620 --> 1:15:29.060
+ penicillin have been invented in the last 150 years.
+
+1:15:29.060 --> 1:15:31.420
+ So in the last 150 years, something magical happened.
+
+1:15:31.420 --> 1:15:33.380
+ And I would trace it back to Gutenberg
+
+1:15:33.380 --> 1:15:34.980
+ and the printing press that has been able
+
+1:15:34.980 --> 1:15:37.860
+ to disseminate information more efficiently than before
+
+1:15:37.860 --> 1:15:41.860
+ that all of a sudden we were able to invent agriculture
+
+1:15:41.860 --> 1:15:44.940
+ and nitrogen fertilization that made agriculture
+
+1:15:44.940 --> 1:15:47.100
+ so much more potent that we didn't have to work
+
+1:15:47.100 --> 1:15:49.180
+ in the farms anymore and we could start reading and writing
+
+1:15:49.180 --> 1:15:51.340
+ and we could become all these wonderful things
+
+1:15:51.340 --> 1:15:53.860
+ we are today, from airline pilot to massage therapist
+
+1:15:53.860 --> 1:15:56.300
+ to software engineer.
+
+1:15:56.300 --> 1:15:57.140
+ It's just amazing.
+
+1:15:57.140 --> 1:16:00.180
+ Like living in that time is such a blessing.
+
+1:16:00.180 --> 1:16:03.940
+ We should sometimes really think about this, right?
+
+1:16:03.940 --> 1:16:06.860
+ Steven Pinker, who is a very famous author and philosopher
+
+1:16:06.860 --> 1:16:08.980
+ whom I really adore, wrote a great book called
+
+1:16:08.980 --> 1:16:09.820
+ Enlightenment Now.
+
+1:16:09.820 --> 1:16:11.420
+ And that's maybe the one book I would recommend.
+
+1:16:11.420 --> 1:16:13.020
+ And he asks the question,
+
+1:16:13.020 --> 1:16:15.180
+ if there was only a single article written
+
+1:16:15.180 --> 1:16:18.580
+ in the 20th century, it's only one article, what would it be?
+
+1:16:18.580 --> 1:16:20.620
+ What's the most important innovation,
+
+1:16:20.620 --> 1:16:22.580
+ the most important thing that happened?
+
+1:16:22.580 --> 1:16:24.700
+ And he would say this article would credit
+
+1:16:24.700 --> 1:16:27.020
+ a guy named Karl Bosch.
+
+1:16:27.020 --> 1:16:29.460
+ And I challenge anybody, have you ever heard
+
+1:16:29.460 --> 1:16:31.180
+ of the name Karl Foch?
+
+1:16:31.180 --> 1:16:32.940
+ I hadn't, okay.
+
+1:16:32.940 --> 1:16:35.420
+ There's a Bosch Corporation in Germany,
+
+1:16:35.420 --> 1:16:37.420
+ but it's not associated with Karl Bosch.
+
+1:16:38.420 --> 1:16:39.860
+ So I looked it up.
+
+1:16:39.860 --> 1:16:42.660
+ Karl Bosch invented nitrogen fertilization.
+
+1:16:42.660 --> 1:16:45.580
+ And in doing so, together with an older invention
+
+1:16:45.580 --> 1:16:49.220
+ of irrigation, was able to increase the yields
+
+1:16:49.220 --> 1:16:52.860
+ per agricultural land by a factor of 26.
+
+1:16:52.860 --> 1:16:57.700
+ So a 2,500% increase in fertility of land.
+
+1:16:57.700 --> 1:17:00.540
+ And that, so Steve Pinker argues,
+
+1:17:00.540 --> 1:17:03.900
+ saved over 2 billion lives today.
+
+1:17:03.900 --> 1:17:05.700
+ 2 billion people who would be dead
+
+1:17:05.700 --> 1:17:08.420
+ if this man hadn't done what he had done, okay?
+
+1:17:08.420 --> 1:17:12.180
+ Think about that impact and what that means to society.
+
+1:17:12.180 --> 1:17:14.180
+ That's the way I look at the world.
+
+1:17:14.180 --> 1:17:16.940
+ I mean, it's so amazing to be alive and to be part of this.
+
+1:17:16.940 --> 1:17:20.300
+ And I'm so glad I lived after Karl Bosch and not before.
+
+1:17:21.300 --> 1:17:23.980
+ I don't think there's a better way to end this, Sebastian.
+
+1:17:23.980 --> 1:17:25.460
+ It's an honor to talk to you,
+
+1:17:25.460 --> 1:17:27.340
+ to have had the chance to learn from you.
+
+1:17:27.340 --> 1:17:28.300
+ Thank you so much for talking to me.
+
+1:17:28.300 --> 1:17:29.140
+ Thanks for coming out.
+
+1:17:29.140 --> 1:17:30.980
+ It's been a real pleasure.
+
+1:17:30.980 --> 1:17:32.780
+ Thank you for listening to this conversation
+
+1:17:32.780 --> 1:17:34.380
+ with Sebastian Thrun.
+
+1:17:34.380 --> 1:17:37.460
+ And thank you to our presenting sponsor, Cash App.
+
+1:17:37.460 --> 1:17:40.220
+ Download it, use code LexPodcast,
+
+1:17:40.220 --> 1:17:43.220
+ you'll get $10 and $10 will go to FIRST,
+
+1:17:43.220 --> 1:17:45.500
+ a STEM education nonprofit that inspires
+
+1:17:45.500 --> 1:17:47.460
+ hundreds of thousands of young minds
+
+1:17:47.460 --> 1:17:50.540
+ to learn and to dream of engineering our future.
+
+1:17:50.540 --> 1:17:53.340
+ If you enjoy this podcast, subscribe on YouTube,
+
+1:17:53.340 --> 1:17:56.620
+ get five stars on Apple Podcast, support it on Patreon,
+
+1:17:56.620 --> 1:17:58.860
+ or connect with me on Twitter.
+
+1:17:58.860 --> 1:18:01.260
+ And now, let me leave you with some words of wisdom
+
+1:18:01.260 --> 1:18:03.260
+ from Sebastian Thrun.
+
+1:18:03.260 --> 1:18:05.420
+ It's important to celebrate your failures
+
+1:18:05.420 --> 1:18:07.700
+ as much as your successes.
+
+1:18:07.700 --> 1:18:09.780
+ If you celebrate your failures really well,
+
+1:18:09.780 --> 1:18:13.900
+ if you say, wow, I failed, I tried, I was wrong,
+
+1:18:13.900 --> 1:18:18.260
+ but I learned something, then you realize you have no fear.
+
+1:18:18.260 --> 1:18:22.460
+ And when your fear goes away, you can move the world.
+
+1:18:22.460 --> 1:18:44.580
+ Thank you for listening and hope to see you next time.
+

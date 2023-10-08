@@ -1,0 +1,2945 @@
+WEBVTT
+
+00:00.000 --> 00:02.720
+ The following is a conversation with Dmitry Korkin.
+
+00:02.720 --> 00:04.560
+ He's a professor of bioinformatics
+
+00:04.560 --> 00:07.280
+ and computational biology at WPI,
+
+00:07.280 --> 00:09.320
+ Worcester Polytechnic Institute,
+
+00:09.320 --> 00:11.400
+ where he specializes in bioinformatics
+
+00:11.400 --> 00:14.600
+ of complex diseases, computational genomics,
+
+00:14.600 --> 00:18.360
+ systems biology, and biomedical data analytics.
+
+00:18.360 --> 00:21.400
+ I came across Dmitry's work when in February,
+
+00:21.400 --> 00:25.040
+ his group used the viral genome of the COVID 19
+
+00:25.040 --> 00:29.040
+ to reconstruct the 3D structure of its major viral proteins
+
+00:29.040 --> 00:32.360
+ and their interaction with the human proteins.
+
+00:32.360 --> 00:34.960
+ In effect, creating a structural genomics map
+
+00:34.960 --> 00:37.560
+ of the coronavirus and making this data open
+
+00:37.560 --> 00:40.200
+ and available to researchers everywhere.
+
+00:40.200 --> 00:42.360
+ We talked about the biology of COVID 19,
+
+00:42.360 --> 00:44.520
+ SARS, and viruses in general,
+
+00:44.520 --> 00:47.760
+ and how computational methods can help us understand
+
+00:47.760 --> 00:49.400
+ their structure and function
+
+00:49.400 --> 00:52.880
+ in order to develop antiviral drugs and vaccines.
+
+00:54.040 --> 00:56.360
+ This conversation was recorded recently
+
+00:56.360 --> 00:58.720
+ in the time of the coronavirus pandemic
+
+00:58.720 --> 01:01.080
+ for everyone feeling the medical, psychological,
+
+01:01.080 --> 01:03.040
+ and financial burden of this crisis.
+
+01:03.040 --> 01:04.800
+ I'm sending love your way.
+
+01:04.800 --> 01:05.880
+ Stay strong.
+
+01:05.880 --> 01:06.920
+ We're in this together.
+
+01:06.920 --> 01:08.000
+ We'll beat this thing.
+
+01:09.160 --> 01:11.560
+ This is the Artificial Intelligence Podcast.
+
+01:11.560 --> 01:13.720
+ If you enjoy it, subscribe on YouTube,
+
+01:13.720 --> 01:16.080
+ review it with five stars on Apple Podcast,
+
+01:16.080 --> 01:17.400
+ support it on Patreon,
+
+01:17.400 --> 01:19.440
+ or simply connect with me on Twitter
+
+01:19.440 --> 01:23.520
+ at Lex Friedman, spelled F R I D M A N.
+
+01:23.520 --> 01:25.600
+ This show is presented by Cash App,
+
+01:25.600 --> 01:27.760
+ the number one finance app in the app store.
+
+01:27.760 --> 01:30.600
+ When you get it, use code LEXBODCAST.
+
+01:30.600 --> 01:32.880
+ Cash App lets you send money to friends,
+
+01:32.880 --> 01:35.000
+ buy Bitcoin, and invest in the stock market
+
+01:35.000 --> 01:36.720
+ with as little as $1.
+
+01:36.720 --> 01:38.920
+ Since Cash App allows you to buy Bitcoin,
+
+01:38.920 --> 01:40.880
+ let me mention that cryptocurrency
+
+01:40.880 --> 01:44.040
+ in the context of the history of money is fascinating.
+
+01:44.040 --> 01:46.160
+ I recommend Ascent of Money
+
+01:46.160 --> 01:48.240
+ as a great book on this history.
+
+01:48.240 --> 01:49.880
+ Debits and credits on ledgers
+
+01:49.880 --> 01:52.800
+ started around 30,000 years ago.
+
+01:52.800 --> 01:55.720
+ The US dollar created over 200 years ago.
+
+01:55.720 --> 01:58.480
+ And Bitcoin, the first decentralized cryptocurrency,
+
+01:58.480 --> 02:00.640
+ released just over 10 years ago.
+
+02:00.640 --> 02:04.160
+ So given that history, cryptocurrency is still very much
+
+02:04.160 --> 02:06.040
+ in its early days of development,
+
+02:06.040 --> 02:07.600
+ but it's still aiming to,
+
+02:07.600 --> 02:10.880
+ and just might, redefine the nature of money.
+
+02:12.800 --> 02:15.160
+ So again, if you get Cash App from the app store,
+
+02:15.160 --> 02:18.280
+ Google Play, and use the code LEXBODCAST,
+
+02:18.280 --> 02:22.200
+ you get $10, and Cash App will also donate $10 to FIRST,
+
+02:22.200 --> 02:25.040
+ an organization that is helping to advance robotics
+
+02:25.040 --> 02:28.480
+ and STEM education for young people around the world.
+
+02:28.480 --> 02:32.280
+ And now, here's my conversation with Dmitry Korkin.
+
+02:33.320 --> 02:36.960
+ Do you find viruses terrifying or fascinating?
+
+02:38.040 --> 02:42.320
+ When I think about viruses, I think about them,
+
+02:42.320 --> 02:47.320
+ I mean, I imagine them as those villains
+
+02:47.680 --> 02:52.680
+ that do their work so perfectly well.
+
+02:52.680 --> 02:57.600
+ That is impossible not to be fascinated with them.
+
+02:57.600 --> 03:00.040
+ So what do you imagine when you think about a virus?
+
+03:00.040 --> 03:02.840
+ Do you imagine the individual,
+
+03:02.840 --> 03:07.280
+ sort of these 100 nanometer particle things?
+
+03:07.280 --> 03:11.960
+ Or do you imagine the whole pandemic, like society level,
+
+03:11.960 --> 03:15.200
+ when you say the efficiency at which they do their work,
+
+03:15.200 --> 03:18.960
+ do you think of viruses as the millions
+
+03:18.960 --> 03:23.560
+ that occupy human body or living organism,
+
+03:23.560 --> 03:26.680
+ society level, like spreading as a pandemic,
+
+03:26.680 --> 03:29.240
+ or do you think of the individual little guy?
+
+03:29.240 --> 03:34.240
+ Yes, I think this is a unique concept
+
+03:34.680 --> 03:39.680
+ that allows you to move from micro scale to the macro scale.
+
+03:40.000 --> 03:45.000
+ So the virus itself, I mean, it's not a living organism.
+
+03:45.080 --> 03:48.800
+ It's a machine to me, it's a machine.
+
+03:48.800 --> 03:51.720
+ But it is perfected to the way
+
+03:51.720 --> 03:56.720
+ that it essentially has a limited number of functions,
+
+03:57.000 --> 04:00.560
+ it needs to do necessary functions.
+
+04:00.560 --> 04:05.560
+ And it essentially has enough information
+
+04:05.840 --> 04:07.760
+ just to do those functions,
+
+04:07.760 --> 04:11.640
+ as well as the ability to modify itself.
+
+04:13.400 --> 04:18.280
+ So it's a machine, it's an intelligent machine.
+
+04:18.280 --> 04:20.240
+ So yeah, look, maybe on that point,
+
+04:20.240 --> 04:23.320
+ you're in danger of reducing the power of this thing
+
+04:23.320 --> 04:24.980
+ by calling it a machine, right?
+
+04:26.880 --> 04:30.520
+ But you now mentioned that it's also possibly intelligent.
+
+04:30.520 --> 04:34.360
+ It seems that there is these elements of brilliance
+
+04:34.360 --> 04:37.520
+ that a virus has, of intelligence,
+
+04:37.520 --> 04:42.520
+ of maximizing so many things about its behavior
+
+04:42.680 --> 04:45.680
+ and to ensure its survival and its success.
+
+04:45.680 --> 04:48.680
+ So do you see it as intelligent?
+
+04:48.680 --> 04:53.200
+ So, you know, I think it's a different,
+
+04:53.200 --> 04:55.800
+ I understand it differently than, you know,
+
+04:55.800 --> 05:00.000
+ I think about, you know, intelligence of humankind
+
+05:00.000 --> 05:05.000
+ or intelligence of the artificial intelligence mechanisms.
+
+05:10.560 --> 05:14.040
+ I think the intelligence of a virus
+
+05:14.040 --> 05:16.360
+ is in its simplicity.
+
+05:18.280 --> 05:23.280
+ The ability to do so much
+
+05:23.800 --> 05:28.800
+ with so little material and information.
+
+05:31.160 --> 05:33.680
+ But also, I think it's interesting.
+
+05:33.680 --> 05:35.720
+ It keeps me thinking, you know,
+
+05:35.720 --> 05:40.720
+ it keeps me wondering whether or not it's also the,
+
+05:40.720 --> 05:45.720
+ an example of the basic swarm intelligence
+
+05:48.200 --> 05:53.200
+ where, you know, essentially, the viruses act as the whole
+
+05:54.800 --> 05:57.680
+ and they're extremely efficient in that.
+
+05:59.320 --> 06:02.040
+ So what do you attribute the incredible simplicity
+
+06:02.040 --> 06:04.360
+ and the efficiency to?
+
+06:04.360 --> 06:06.560
+ Is it the evolutionary process?
+
+06:06.560 --> 06:08.560
+ So maybe another way to ask that question
+
+06:08.560 --> 06:11.400
+ is if you look at the next hundred years,
+
+06:11.400 --> 06:15.360
+ are you more worried about the natural pandemics
+
+06:15.360 --> 06:17.400
+ or the engineered pandemics?
+
+06:17.400 --> 06:20.240
+ So how hard is it to build a virus?
+
+06:20.240 --> 06:23.240
+ Yes, it's a very, very interesting question
+
+06:23.240 --> 06:27.680
+ because obviously there's a lot of conversations
+
+06:27.680 --> 06:32.680
+ about the, you know, whether we are capable
+
+06:32.680 --> 06:37.680
+ of engineering a, you know, an even worse virus.
+
+06:39.280 --> 06:44.280
+ I personally expect and am mostly concerned
+
+06:44.280 --> 06:47.840
+ with the naturally occurring viruses
+
+06:47.840 --> 06:51.680
+ simply because we keep seeing that.
+
+06:51.680 --> 06:56.320
+ We keep seeing new strains of influenza emerging,
+
+06:56.320 --> 06:58.720
+ some of them becoming pandemic.
+
+06:58.720 --> 07:02.880
+ We keep seeing new strains of coronaviruses emerging.
+
+07:04.400 --> 07:06.360
+ This is a natural process
+
+07:06.360 --> 07:10.840
+ and I think this is why it's so powerful.
+
+07:14.400 --> 07:17.400
+ You know, if you ask me, you know,
+
+07:17.400 --> 07:22.400
+ I've read papers about scientists trying to study
+
+07:22.400 --> 07:27.400
+ the capacity of the modern, you know,
+
+07:27.400 --> 07:32.400
+ biotechnology to alter the viruses.
+
+07:33.440 --> 07:36.440
+ But I hope that, you know,
+
+07:36.440 --> 07:41.440
+ it won't be our main concern in the nearest future.
+
+07:43.400 --> 07:46.400
+ What do you mean by hope?
+
+07:46.400 --> 07:51.400
+ Well, you know, if you look back and look at the history
+
+07:51.400 --> 07:55.400
+ of the most dangerous viruses, right?
+
+07:55.400 --> 08:00.400
+ So the first thing that comes into mind is a smallpox.
+
+08:02.400 --> 08:07.400
+ So right now there is perhaps a handful of places
+
+08:08.400 --> 08:11.400
+ where there is a smallpox.
+
+08:11.400 --> 08:16.400
+ There is perhaps a handful of places where this,
+
+08:17.400 --> 08:22.400
+ you know, the strains of this virus are stored, right?
+
+08:22.400 --> 08:27.400
+ So this is essentially the effort of the whole society
+
+08:27.400 --> 08:32.400
+ to limit the access to those viruses.
+
+08:32.400 --> 08:34.400
+ You mean in a lab in a controlled environment
+
+08:34.400 --> 08:36.400
+ in order to study? Correct.
+
+08:36.400 --> 08:38.400
+ And then smallpox is one of the viruses
+
+08:38.400 --> 08:43.400
+ that should be stated there's a vaccine is developed.
+
+08:43.400 --> 08:44.400
+ Yes, yes.
+
+08:44.400 --> 08:48.400
+ And that's, you know, it's until 70s,
+
+08:48.400 --> 08:52.400
+ I mean, in my opinion, it was perhaps
+
+08:52.400 --> 08:56.400
+ the most dangerous thing that was there.
+
+08:56.400 --> 08:58.400
+ Is that a very different virus
+
+08:58.400 --> 09:03.400
+ than the influenza and the coronaviruses?
+
+09:03.400 --> 09:08.400
+ It is, it is different in several aspects.
+
+09:08.400 --> 09:13.400
+ Biologically, it's a so called double stranded DNA virus,
+
+09:15.400 --> 09:20.400
+ but also in the way that it is much more contagious.
+
+09:24.400 --> 09:29.400
+ So the R naught for, so this is the...
+
+09:29.400 --> 09:30.400
+ What's R naught?
+
+09:30.400 --> 09:35.400
+ R naught is essentially an average number
+
+09:35.400 --> 09:40.400
+ as person infected by the virus can spread to other people.
+
+09:42.400 --> 09:44.400
+ So then the average number of people
+
+09:44.400 --> 09:49.400
+ that he or she can, you know, spread it to.
+
+09:50.400 --> 09:54.400
+ And, you know, there is still some, you know,
+
+09:54.400 --> 09:59.400
+ discussion about the estimates of the current virus,
+
+09:59.400 --> 10:04.400
+ you know, the estimations vary between, you know, 1.5 and 3.
+
+10:06.400 --> 10:10.400
+ In case of smallpox, it was 5 to 7.
+
+10:13.400 --> 10:17.400
+ And we're talking about the exponential growth, right?
+
+10:17.400 --> 10:20.400
+ So that's a very big difference.
+
+10:23.400 --> 10:25.400
+ It's not the most contagious one.
+
+10:25.400 --> 10:30.400
+ Measles, for example, it's, I think, 15 and up.
+
+10:30.400 --> 10:35.400
+ So it's, you know, but it's definitely more contagious
+
+10:38.400 --> 10:43.400
+ that the seasonal flu than the current coronavirus
+
+10:45.400 --> 10:47.400
+ or SARS for that matter.
+
+10:48.400 --> 10:52.400
+ What makes a virus more contagious?
+
+10:52.400 --> 10:54.400
+ I'm sure there's a lot of variables that come into play,
+
+10:54.400 --> 10:58.400
+ but is it that whole discussion of aerosol
+
+10:58.400 --> 11:01.400
+ and like the size of droplets if it's airborne,
+
+11:01.400 --> 11:04.400
+ or is there some other stuff that's more biology centered?
+
+11:04.400 --> 11:06.400
+ I mean, there are a lot of components
+
+11:06.400 --> 11:09.400
+ and there are biological components
+
+11:09.400 --> 11:12.400
+ that there are also, you know, social components.
+
+11:14.400 --> 11:17.400
+ The ability of the virus to, you know,
+
+11:17.400 --> 11:21.400
+ so the ways in which the virus is spread is definitely one.
+
+11:21.400 --> 11:27.400
+ The ability of the virus to stay on the surfaces, to survive.
+
+11:27.400 --> 11:33.400
+ The ability of the virus to replicate fast or so, you know.
+
+11:33.400 --> 11:35.400
+ Or once it's in the cell or whatever.
+
+11:35.400 --> 11:38.400
+ Once it's inside the host.
+
+11:38.400 --> 11:42.400
+ And interestingly enough, something that I think
+
+11:42.400 --> 11:49.400
+ we didn't pay that much attention to is the incubation period.
+
+11:49.400 --> 11:52.400
+ The, where, you know, hosts are symptomatic.
+
+11:52.400 --> 11:55.400
+ And now it turns out that another thing that we,
+
+11:55.400 --> 11:58.400
+ one really needs to take into account,
+
+12:00.400 --> 12:03.400
+ the percentage of the symptomatic population.
+
+12:04.400 --> 12:08.400
+ Because those people still shed this virus
+
+12:08.400 --> 12:12.400
+ and still are, you know, they still are contagious.
+
+12:12.400 --> 12:14.400
+ So there's an, the Iceland study,
+
+12:14.400 --> 12:17.400
+ which I think is probably the most impressive size wise,
+
+12:17.400 --> 12:22.400
+ shows 50% asymptomatic for this virus.
+
+12:22.400 --> 12:28.400
+ I also recently learned the swine flu is,
+
+12:28.400 --> 12:33.400
+ like the, just the number of people who got infected
+
+12:33.400 --> 12:35.400
+ was in the billions.
+
+12:35.400 --> 12:37.400
+ It was some crazy number.
+
+12:37.400 --> 12:41.400
+ It was like, it was like, like 20% of the pop,
+
+12:41.400 --> 12:44.400
+ 30% of the population, something crazy like that.
+
+12:44.400 --> 12:49.400
+ So the lucky thing there is the fatality rate is low,
+
+12:49.400 --> 12:52.400
+ but the fact that a virus can just take over
+
+12:52.400 --> 12:56.400
+ an entire population so quickly, it's terrifying.
+
+12:56.400 --> 12:59.400
+ I think, I mean, this is, you know,
+
+12:59.400 --> 13:04.400
+ that's perhaps my favorite example of a butterfly effect
+
+13:04.400 --> 13:09.400
+ because it's really, I mean, it's even tinier than a butterfly
+
+13:09.400 --> 13:11.400
+ and look at, you know, and with, you know,
+
+13:11.400 --> 13:13.400
+ if you think about it, right.
+
+13:13.400 --> 13:19.400
+ It used to be in those bat species.
+
+13:19.400 --> 13:22.400
+ And perhaps because of, you know,
+
+13:22.400 --> 13:28.400
+ a couple of small changes in the viral genome,
+
+13:28.400 --> 13:32.400
+ it first had, you know, become capable of jumping
+
+13:32.400 --> 13:36.400
+ from bats to human, and then it became capable
+
+13:36.400 --> 13:39.400
+ of jumping from human to human, right.
+
+13:39.400 --> 13:42.400
+ So this is, I mean, it's not even the size of a virus.
+
+13:42.400 --> 13:46.400
+ It's the size of several, you know, several atoms
+
+13:46.400 --> 13:50.400
+ or a few atoms.
+
+13:50.400 --> 13:57.400
+ And all of a sudden this change has such a major impact.
+
+13:57.400 --> 14:01.400
+ So is that a mutation like on a single virus?
+
+14:01.400 --> 14:04.400
+ Is that like, so if we talk about those,
+
+14:04.400 --> 14:08.400
+ the flap of a butterfly wing, like what's the first flap?
+
+14:08.400 --> 14:12.400
+ Well, I think this is the mutations that make,
+
+14:12.400 --> 14:17.400
+ that made this virus capable of jumping
+
+14:17.400 --> 14:20.400
+ from bat species to human.
+
+14:20.400 --> 14:23.400
+ Of course there's, you know, the scientists are still trying
+
+14:23.400 --> 14:26.400
+ to find, I mean, they're still even trying to find
+
+14:26.400 --> 14:30.400
+ who was the first infected, right, the patient zero.
+
+14:30.400 --> 14:31.400
+ The first human.
+
+14:31.400 --> 14:34.400
+ The first human infected, right.
+
+14:34.400 --> 14:38.400
+ I mean, the fact that there are coronaviruses,
+
+14:38.400 --> 14:40.400
+ different strains of coronaviruses
+
+14:40.400 --> 14:43.400
+ in various bat species, I mean, we know that.
+
+14:43.400 --> 14:47.400
+ So we, you know, virologists observe them.
+
+14:47.400 --> 14:48.400
+ They study them.
+
+14:48.400 --> 14:51.400
+ They look at their genomic sequences.
+
+14:51.400 --> 14:55.400
+ They're trying, of course, to understand what make
+
+14:55.400 --> 15:01.400
+ these viruses to jump from bats to human.
+
+15:01.400 --> 15:05.400
+ Because, you know, similar to that in influenza,
+
+15:05.400 --> 15:09.400
+ there was, I think a few years ago, there was this,
+
+15:09.400 --> 15:16.400
+ you know, interesting story where several groups
+
+15:16.400 --> 15:21.400
+ of scientists studying influenza virus essentially,
+
+15:21.400 --> 15:25.400
+ you know, made experiments to show that this virus
+
+15:25.400 --> 15:29.400
+ can jump from one species to another,
+
+15:29.400 --> 15:34.400
+ you know, by changing, I think, just a couple of residues.
+
+15:34.400 --> 15:38.400
+ And, of course, it was very controversial.
+
+15:38.400 --> 15:43.400
+ I think there was a moratorium on this study for a while.
+
+15:43.400 --> 15:45.400
+ But then the study was released.
+
+15:45.400 --> 15:47.400
+ It was published.
+
+15:47.400 --> 15:49.400
+ So that, why was there a moratorium?
+
+15:49.400 --> 15:52.400
+ Because it shows through engineering it,
+
+15:52.400 --> 15:55.400
+ through modifying it, you can make it jump.
+
+15:55.400 --> 15:57.400
+ Yes.
+
+15:57.400 --> 16:02.400
+ I personally think it is important to study this.
+
+16:02.400 --> 16:05.400
+ I mean, we should be informed.
+
+16:05.400 --> 16:08.400
+ We should try to understand as much as possible
+
+16:08.400 --> 16:10.400
+ in order to prevent it.
+
+16:10.400 --> 16:14.400
+ But so then the engineering aspect there is,
+
+16:14.400 --> 16:18.400
+ can't you then just start searching because there's
+
+16:18.400 --> 16:20.400
+ so many strands of viruses out there.
+
+16:20.400 --> 16:24.400
+ Can't you just search for the ones in bats that are
+
+16:24.400 --> 16:28.400
+ the deadliest from the virologist perspective
+
+16:28.400 --> 16:33.400
+ and then just try to engineer, try to see how to.
+
+16:33.400 --> 16:37.400
+ But see, there's a nice aspect to it.
+
+16:37.400 --> 16:41.400
+ The really nice thing about engineering viruses,
+
+16:41.400 --> 16:44.400
+ it has the same problem as nuclear weapons.
+
+16:44.400 --> 16:49.400
+ It's hard for it to not lead to mutual self destruction.
+
+16:49.400 --> 16:51.400
+ So you can't control a virus.
+
+16:51.400 --> 16:53.400
+ It can't be used as a weapon, right?
+
+16:53.400 --> 16:56.400
+ Yeah, that's why in the beginning I said,
+
+16:56.400 --> 17:02.400
+ I'm hopeful because there are definitely regulations
+
+17:02.400 --> 17:05.400
+ needed to be introduced.
+
+17:05.400 --> 17:10.400
+ And I mean, as the scientific society is,
+
+17:10.400 --> 17:17.400
+ we are in charge of making the right actions,
+
+17:17.400 --> 17:19.400
+ making the right decisions.
+
+17:19.400 --> 17:25.400
+ But I think we will benefit tremendously by understanding
+
+17:25.400 --> 17:31.400
+ the mechanisms by which the virus can jump,
+
+17:31.400 --> 17:40.400
+ by which the virus can become more dangerous to humans
+
+17:40.400 --> 17:47.400
+ because all these answers would eventually lead to designing
+
+17:47.400 --> 17:50.400
+ better vaccines, hopefully universal vaccines, right?
+
+17:50.400 --> 17:56.400
+ And that would be a triumph of science.
+
+17:56.400 --> 17:58.400
+ So what's the universal vaccine?
+
+17:58.400 --> 18:02.400
+ So is that something that, how universal is universal?
+
+18:02.400 --> 18:04.400
+ Well, I mean, you know, so what's the dream, I guess,
+
+18:04.400 --> 18:06.400
+ because you kind of mentioned the dream of this.
+
+18:06.400 --> 18:13.400
+ I would be extremely happy if we designed the vaccine
+
+18:13.400 --> 18:16.400
+ that is able, I mean, I'll give you an example.
+
+18:16.400 --> 18:21.400
+ So every year we do a seasonal flu shot.
+
+18:21.400 --> 18:25.400
+ The reason we do it is because, you know, we are in the arms race,
+
+18:25.400 --> 18:28.400
+ you know, our vaccines are in the arms race
+
+18:28.400 --> 18:32.400
+ with constantly changing virus, right?
+
+18:32.400 --> 18:39.400
+ Now, if the next pandemic, influenza pandemic will occur,
+
+18:39.400 --> 18:43.400
+ most likely this vaccine would not save us, right?
+
+18:43.400 --> 18:48.400
+ Although it's, you know, it's the same virus,
+
+18:48.400 --> 18:52.400
+ might be different strain.
+
+18:52.400 --> 18:58.400
+ So if we're able to essentially design a vaccine against,
+
+18:58.400 --> 19:02.400
+ you know, influenza A virus, no matter what's the strain,
+
+19:02.400 --> 19:08.400
+ no matter which species did it jump from, that would be,
+
+19:08.400 --> 19:13.400
+ I think that would be a huge, huge progress and advancement.
+
+19:13.400 --> 19:16.400
+ You mentioned the smallpox until the 70s,
+
+19:16.400 --> 19:20.400
+ might've been something that you would be worried the most about.
+
+19:20.400 --> 19:22.400
+ What about these days?
+
+19:22.400 --> 19:28.400
+ Well, we're sitting here in the middle of a COVID 19 pandemic,
+
+19:28.400 --> 19:33.400
+ but these days, nevertheless, what is your biggest worry virus wise?
+
+19:33.400 --> 19:37.400
+ What are you keeping your eye out on?
+
+19:37.400 --> 19:43.400
+ It looks like, you know, based on the past several years
+
+19:43.400 --> 19:47.400
+ of the new viruses emerging,
+
+19:47.400 --> 19:55.400
+ I think we're still dealing with different types of influence.
+
+19:55.400 --> 20:04.400
+ I mean, so the H7N9 avian flu that emerged,
+
+20:04.400 --> 20:07.400
+ I think a couple of years ago in China,
+
+20:07.400 --> 20:13.400
+ I think the mortality rate was incredible.
+
+20:13.400 --> 20:18.400
+ I mean, it was, you know, I think about 30%, you know,
+
+20:18.400 --> 20:20.400
+ so this is, this is huge.
+
+20:20.400 --> 20:26.400
+ I mean, luckily for us, this strain was not pandemic, right?
+
+20:26.400 --> 20:29.400
+ So it was jumping from birds to human,
+
+20:29.400 --> 20:34.400
+ but I don't think it was actually transmittable between the humans.
+
+20:34.400 --> 20:38.400
+ And, you know, this is actually a very interesting question,
+
+20:38.400 --> 20:42.400
+ which scientists try to understand, right?
+
+20:42.400 --> 20:47.400
+ So the balance, the delicate balance between the virus being very contagious,
+
+20:47.400 --> 20:55.400
+ right, so efficient in spreading and virus to be very pathogenic,
+
+20:55.400 --> 21:04.400
+ you know, causing, you know, harms, you know, and that's to the horse.
+
+21:04.400 --> 21:10.400
+ So it looks like that the more pathogenic the virus is,
+
+21:10.400 --> 21:13.400
+ the less contagious it is.
+
+21:13.400 --> 21:17.400
+ Is that a property of biology or what is it?
+
+21:17.400 --> 21:19.400
+ I don't have an answer to that.
+
+21:19.400 --> 21:22.400
+ And I think this is still an open question.
+
+21:22.400 --> 21:28.400
+ But, you know, if you look at, you know, with the coronavirus, for example,
+
+21:28.400 --> 21:34.400
+ if you look at, you know, the deadlier relative MERS,
+
+21:34.400 --> 21:39.400
+ MERS was never a pandemic virus.
+
+21:39.400 --> 21:40.400
+ Right.
+
+21:40.400 --> 21:46.400
+ But, you know, again, the mortality rate from MERS is far above,
+
+21:46.400 --> 21:52.400
+ you know, I think 20 or 30%, so.
+
+21:52.400 --> 21:57.400
+ So whatever is making this all happen doesn't want us dead
+
+21:57.400 --> 21:59.400
+ because it's balancing out nicely.
+
+21:59.400 --> 22:05.400
+ I mean, how do you explain that we're not dead yet?
+
+22:05.400 --> 22:11.400
+ Like, because there's so many viruses and they're so good at what they do.
+
+22:11.400 --> 22:14.400
+ Why do they keep us alive?
+
+22:14.400 --> 22:18.400
+ I mean, we also have, you know, a lot of protection.
+
+22:18.400 --> 22:19.400
+ Right.
+
+22:19.400 --> 22:21.400
+ So we do the immune system.
+
+22:21.400 --> 22:31.400
+ And so, I mean, we do have, you know, ways to fight against those viruses.
+
+22:31.400 --> 22:35.400
+ And I think with the now we're much better equipped.
+
+22:35.400 --> 22:36.400
+ Right.
+
+22:36.400 --> 22:39.400
+ So with the discoveries of vaccines and, you know,
+
+22:39.400 --> 22:46.400
+ there are vaccines against the viruses that maybe 200 years ago
+
+22:46.400 --> 22:50.400
+ would wipe us out completely.
+
+22:50.400 --> 22:55.400
+ But because of these vaccines, we are actually, we are capable of eradicating
+
+22:55.400 --> 22:58.400
+ pretty much fully as is the case with smallpox.
+
+22:58.400 --> 23:04.400
+ So if we could, can we go to the basics a little bit of the biology of the virus?
+
+23:04.400 --> 23:07.400
+ How does a virus infect the body?
+
+23:07.400 --> 23:13.400
+ So I think there are some key steps that the virus needs to perform.
+
+23:13.400 --> 23:21.400
+ And of course, the first one, the viral particle needs to get attached to the host cell.
+
+23:21.400 --> 23:28.400
+ In the case of coronavirus, there is a lot of evidence that it actually interacts
+
+23:28.400 --> 23:33.400
+ in the same way as the SARS coronavirus.
+
+23:33.400 --> 23:38.400
+ So it gets attached to AC2 human receptor.
+
+23:38.400 --> 23:45.400
+ And so there is, I mean, as we speak, there is a growing number of papers suggesting it.
+
+23:45.400 --> 23:53.400
+ Moreover, most recent, I think most recent results suggest that this virus
+
+23:53.400 --> 23:59.400
+ attaches more efficiently to this human receptor than SARS.
+
+23:59.400 --> 24:06.400
+ So just to sort of back off, so there is a family of viruses that are coronaviruses
+
+24:06.400 --> 24:11.400
+ and SARS, whatever the heck for that, whatever that stands for.
+
+24:11.400 --> 24:20.400
+ So SARS actually stands for the disease that you get is the syndrome of acute respiratory syndrome.
+
+24:20.400 --> 24:24.400
+ So SARS is the first strand and then there's MERS.
+
+24:24.400 --> 24:32.400
+ And there is, yes, scientists actually know more than three strands.
+
+24:32.400 --> 24:46.400
+ I mean, so there is the MHV strain, which is considered to be a canonical disease model in mice.
+
+24:46.400 --> 24:52.400
+ And so there is a lot of work done on this virus because it's...
+
+24:52.400 --> 24:53.400
+ But it hasn't jumped to humans yet?
+
+24:53.400 --> 24:54.400
+ No.
+
+24:54.400 --> 24:55.400
+ Oh, interesting.
+
+24:55.400 --> 24:56.400
+ Yes.
+
+24:56.400 --> 24:57.400
+ That's fascinating.
+
+24:57.400 --> 25:00.400
+ And then you mentioned AC2.
+
+25:00.400 --> 25:06.400
+ So when you say attach, proteins are involved on both sides.
+
+25:06.400 --> 25:07.400
+ Yes.
+
+25:07.400 --> 25:14.400
+ So we have this infamous spike protein on the surface of the virion particle,
+
+25:14.400 --> 25:16.400
+ and it does look like a spike.
+
+25:16.400 --> 25:22.400
+ And I mean, that's essentially because of this protein, we call the coronavirus coronavirus.
+
+25:22.400 --> 25:27.400
+ So that's what makes corona on top of the surface.
+
+25:27.400 --> 25:35.400
+ So this protein, it actually it acts, so it doesn't act alone.
+
+25:35.400 --> 25:42.400
+ It actually it makes three copies and it makes so called trimer.
+
+25:42.400 --> 25:45.400
+ So this trimer is essentially a functional unit,
+
+25:45.400 --> 25:54.400
+ a single functional unit that starts interacting with the AC2 receptor.
+
+25:54.400 --> 26:03.400
+ So this is, again, another protein that now sits on the surface of a human cell or host cell, I would say.
+
+26:03.400 --> 26:14.400
+ And that's essentially in that way the virus anchors itself to the host cell.
+
+26:14.400 --> 26:18.400
+ Because then it needs to actually it needs to get inside.
+
+26:18.400 --> 26:23.400
+ You know, it fuses its membrane with the host membrane.
+
+26:23.400 --> 26:27.400
+ It releases the key components.
+
+26:27.400 --> 26:37.400
+ It releases its, you know, RNA and then essentially hijacks the machinery of the cell
+
+26:37.400 --> 26:45.400
+ because none of the viruses that we know of have ribosome,
+
+26:45.400 --> 26:50.400
+ the machinery that allows us to print out proteins.
+
+26:50.400 --> 26:55.400
+ So in order to print out proteins that are necessary for functioning of this virus,
+
+26:55.400 --> 26:59.400
+ it actually needs to hijack the host ribosomes.
+
+26:59.400 --> 27:03.400
+ So a virus is an RNA wrapped in a bunch of proteins,
+
+27:03.400 --> 27:09.400
+ one of which is this functional mechanism of a spike protein that does the attachment.
+
+27:09.400 --> 27:15.400
+ Yeah, so if you look at this virus, there are several basic components.
+
+27:15.400 --> 27:18.400
+ So we start with the spike protein.
+
+27:18.400 --> 27:24.400
+ This is not the only surface protein, the protein that lives on the surface of the viral particle.
+
+27:24.400 --> 27:33.400
+ There is also perhaps the protein with the highest number of copies is the membrane protein.
+
+27:33.400 --> 27:43.400
+ So it's essentially it forms the envelope of the protein of the viral particle
+
+27:43.400 --> 27:54.400
+ and essentially, you know, helps to maintain a certain curvature, helps to make a certain curvature.
+
+27:54.400 --> 28:00.400
+ Then there is another protein called envelope protein or E protein,
+
+28:00.400 --> 28:05.400
+ and it actually occurs in far less quantities.
+
+28:05.400 --> 28:13.400
+ And still there is ongoing research what exactly does this protein do?
+
+28:13.400 --> 28:21.400
+ So these are sort of the three major surface proteins that, you know, make the viral envelope.
+
+28:21.400 --> 28:29.400
+ And when we go inside, then we have another structural protein called nuclear protein.
+
+28:29.400 --> 28:34.400
+ And the purpose of this protein is to protect the viral RNA.
+
+28:34.400 --> 28:39.400
+ It actually binds to the viral RNA, creates a capsid.
+
+28:39.400 --> 28:46.400
+ And so the rest of the virus viral information is inside of this RNA.
+
+28:46.400 --> 28:58.400
+ And, you know, if you compare the amount of the genes or proteins that are made of these genes,
+
+28:58.400 --> 29:04.400
+ it's significantly higher than of influenza virus, for example.
+
+29:04.400 --> 29:12.400
+ Influenza virus has, I think, around eight or nine proteins where this one has at least 29.
+
+29:12.400 --> 29:17.400
+ Wow. That has to do with the length of the RNA strand?
+
+29:17.400 --> 29:21.400
+ So it affects the length of the RNA strand.
+
+29:21.400 --> 29:29.400
+ So because you essentially need to have sort of the minimum amount of information to encode those genes.
+
+29:29.400 --> 29:31.400
+ How many proteins did you say?
+
+29:31.400 --> 29:32.400
+ 29.
+
+29:32.400 --> 29:34.400
+ 29 proteins.
+
+29:34.400 --> 29:42.400
+ Yes. So this is, you know, something definitely interesting because, you know, believe it or not,
+
+29:42.400 --> 29:47.400
+ we've been studying, you know, coronaviruses for over two decades.
+
+29:47.400 --> 29:52.400
+ We've yet to uncover all functionalities of these proteins.
+
+29:52.400 --> 30:03.400
+ Could we maybe take a small attention and can you say how one would try to figure out what a function of a particular protein is?
+
+30:03.400 --> 30:11.400
+ So you've mentioned people are still trying to figure out what the function of the envelope protein might be or what's the process?
+
+30:11.400 --> 30:21.400
+ So this is where the research that computational scientists do might be of help because, you know,
+
+30:21.400 --> 30:34.400
+ in the past several decades, we actually have collected a pretty decent amount of knowledge about different proteins in different viruses.
+
+30:34.400 --> 30:46.400
+ So what we can actually try to do, and this is sort of could be sort of our first lead to a possible function is to see whether those, you know,
+
+30:46.400 --> 30:56.400
+ say we have this genome of the coronavirus, of the novel coronavirus, and we identify the potential proteins.
+
+30:56.400 --> 31:07.400
+ Then in order to infer the function, what we can do, we can actually see whether those proteins are similar to those ones that we already know.
+
+31:07.400 --> 31:19.400
+ OK, in such a way, we can, you know, for example, clearly identify, you know, some critical components that RNA polymerase or different types of proteases.
+
+31:19.400 --> 31:27.400
+ These are the proteins that essentially clip the protein sequences.
+
+31:27.400 --> 31:36.400
+ And so this works in many cases. However, in some cases you have truly novel proteins.
+
+31:36.400 --> 31:40.400
+ And this is a much more difficult task.
+
+31:40.400 --> 31:48.400
+ Now, as a small pause, when you say similar, like what if some parts are different and some parts are similar?
+
+31:48.400 --> 31:51.400
+ Like, how do you disentangle that?
+
+31:51.400 --> 31:59.400
+ You know, it's a big question. Of course, you know, what bioinformatics does, it does predictions, right?
+
+31:59.400 --> 32:05.400
+ So those predictions, they have to be validated by experiments.
+
+32:05.400 --> 32:07.400
+ Functional or structural predictions?
+
+32:07.400 --> 32:14.400
+ Both. I mean, we do structural predictions, we do functional predictions, we do interactions predictions.
+
+32:14.400 --> 32:23.400
+ Oh, so this is interesting. So you just generate a lot of predictions, like reasonable predictions based on structural function, interaction, like you said.
+
+32:23.400 --> 32:32.400
+ And then here you go. That's the power of bioinformatics is data grounded, good predictions of what should happen.
+
+32:32.400 --> 32:42.400
+ So, you know, in a way I see it, we're helping experimental scientists to streamline the discovery process.
+
+32:42.400 --> 32:47.400
+ And the experimental scientists, is that what a virologist is?
+
+32:47.400 --> 32:54.400
+ So yeah, virology is one of the experimental sciences that, you know, focus on viruses.
+
+32:54.400 --> 33:02.400
+ They often work with other experimental scientists, for example, the molecular imaging scientists, right?
+
+33:02.400 --> 33:11.400
+ So the viruses often can be viewed and reconstructed through electron microscopy techniques.
+
+33:11.400 --> 33:16.400
+ So but these are, you know, specialists that are not necessarily virologists.
+
+33:16.400 --> 33:33.400
+ They work with small particles, whether it's viruses or it's an organelle of a human cell, whether it's a complex molecular machinery.
+
+33:33.400 --> 33:41.400
+ So the techniques that are used are very similar in sort of in their essence.
+
+33:41.400 --> 34:06.400
+ And so, yeah, so typically we see it now, the research on, you know, that is emerging and that is needed often involves the collaborations between virologists, you know, biochemists,
+
+34:06.400 --> 34:15.400
+ people from pharmaceutical sciences, computational sciences.
+
+34:15.400 --> 34:18.400
+ So we have to work together.
+
+34:18.400 --> 34:29.400
+ So from my perspective, just to step back, sometimes I look at this stuff, just how much we understand about RNA and DNA, how much we understand about protein, like your work,
+
+34:29.400 --> 34:41.400
+ the amount of proteins that you're exploring, is it surprising to you that we were able, we descendants of apes, were able to figure all of this out?
+
+34:41.400 --> 34:46.400
+ Like how? So you're a computer scientist.
+
+34:46.400 --> 34:51.400
+ So for me, from a computer science perspective, I know how to write a Python program, things are clear.
+
+34:51.400 --> 34:58.400
+ But biology is a giant mess, it feels like to me from an outsider's perspective.
+
+34:58.400 --> 35:04.400
+ How surprising is it, amazing is it that we were able to figure this stuff out?
+
+35:04.400 --> 35:12.400
+ You know, if you look at the, you know, how computational science and computer science was evolving, right?
+
+35:12.400 --> 35:16.400
+ I think it was just a matter of time that we would approach biology.
+
+35:16.400 --> 35:32.400
+ So we started from, you know, applications to much more fundamental systems, physics, you know, and now we are, or, you know, small chemical compounds.
+
+35:32.400 --> 35:48.400
+ So now we are approaching the more complex biological systems, and I think it's a natural evolution of, you know, of the computer science, of mathematics.
+
+35:48.400 --> 35:52.400
+ So sure, that's the computer science side, I just meant even in higher level.
+
+35:52.400 --> 35:57.400
+ So that to me is surprising that computer science can offer help in this messy world.
+
+35:57.400 --> 36:02.400
+ But I just mean, it's incredible that the biologists and the chemists can figure all this out.
+
+36:02.400 --> 36:07.400
+ Or does that just sound ridiculous to you, that of course they would.
+
+36:07.400 --> 36:15.400
+ It just seems like a very complicated set of problems, like the variety of the kinds of things that could be produced in the body.
+
+36:15.400 --> 36:26.400
+ Just like you said, 29 protein, I mean, just getting a hang of it so quickly, it just seems impossible to me.
+
+36:26.400 --> 36:34.400
+ I agree. I mean, it's, and I have to say we are, you know, in the very, very beginning of this journey.
+
+36:34.400 --> 36:51.400
+ I mean, we've yet to, I mean, we've yet to comprehend, not even try to understand and figure out all the details, but we've yet to comprehend the complexity of the cell.
+
+36:51.400 --> 36:59.400
+ We know that neuroscience is not even at the beginning of understanding the human mind.
+
+36:59.400 --> 37:09.400
+ So where's biology sit in terms of understanding the function, deeply understanding the function of viruses and cells?
+
+37:09.400 --> 37:29.400
+ So there, sometimes it's easy to say when you talk about function, what you really refer to is perhaps not a deep understanding, but more of a understanding sufficient to be able to mess with it using a antivirus, like mess with it chemically to prevent some of its function.
+
+37:29.400 --> 37:31.400
+ Or do you understand the function?
+
+37:31.400 --> 37:42.400
+ Well, I think, I think we are much farther in terms of understanding of the complex genetic disorder, such as cancer, where you have layers of complexity.
+
+37:42.400 --> 38:00.400
+ And we, you know, as in my laboratory, we're trying to contribute to that research, but we're also, you know, we're overwhelmed with how many different layers of complexity, different layers of mechanisms that can be hijacked by cancer simultaneously.
+
+38:00.400 --> 38:18.400
+ And so, you know, I think biology in the past 20 years, again, from the perspective of the outsider, because I'm not a biologist, but I think it has advanced tremendously.
+
+38:18.400 --> 38:43.400
+ And one thing that where computational scientists and data scientists are now becoming very, very helpful is in the fact, it's coming from the fact that we are now able to generate a lot of information about the cell.
+
+38:43.400 --> 39:01.400
+ Whether it's next generation sequencing or transcriptomics, whether it's life imaging information, where it is, you know, complex interactions between proteins or between proteins and small molecules such as drugs.
+
+39:01.400 --> 39:20.400
+ We are becoming very efficient in generating this information. And now the next step is to become equally efficient in processing this information and extracting the key knowledge from that.
+
+39:20.400 --> 39:23.400
+ That could then be validated with experiment.
+
+39:23.400 --> 39:24.400
+ Yes.
+
+39:24.400 --> 39:37.400
+ So maybe then going all the way back, we were talking, you said the first step is seeing if we can match the new proteins you found in the virus against something we've seen before to figure out its function.
+
+39:37.400 --> 39:47.400
+ And then you also mentioned that, but there could be cases where it's a totally new protein. Is there something bioinformatics can offer when it's a totally new protein?
+
+39:47.400 --> 39:59.400
+ This is where many of the methods and you probably are aware of, you know, the case of machine learning, many of these methods rely on the previous knowledge.
+
+39:59.400 --> 40:00.400
+ Right.
+
+40:00.400 --> 40:07.400
+ Right. So things that where we try to do from scratch are incredibly difficult.
+
+40:07.400 --> 40:31.400
+ You know, something that we call ab initio. And this is, I mean, it's not just the function. I mean, you know, we've yet to have a robust method to predict the structures of these proteins in ab initio, you know, by not using any templates of other related proteins.
+
+40:31.400 --> 40:35.400
+ So protein is a chain of amino acids.
+
+40:35.400 --> 40:36.400
+ It's residues.
+
+40:36.400 --> 40:48.400
+ Residues. Yeah. And then somehow magically, maybe you can tell me, they seem to fold in incredibly weird and complicated 3D shapes.
+
+40:48.400 --> 40:49.400
+ Yes.
+
+40:49.400 --> 41:04.400
+ So, and that's where actually the idea of protein folding or just not the idea, but the problem of figuring out how the concept, how they fold into those weird shapes comes in.
+
+41:04.400 --> 41:22.400
+ So that's another side of computational work. So can you describe what protein folding from the computational side is and maybe your thoughts on the folding at home efforts that a lot of people know that you can use your machine to do protein folding?
+
+41:22.400 --> 41:30.400
+ So yeah, protein folding is, you know, one of those $1 million price challenges, right?
+
+41:30.400 --> 41:53.400
+ So the reason for that is we've yet to understand precisely how the protein gets folded so efficiently to the point that in many cases where you, you know, where you try to unfold it due to the high temperature, it actually folds back into its original state.
+
+41:53.400 --> 42:10.400
+ So we know a lot about the mechanisms, right? But putting those mechanisms together and making sense, it's a computationally very expensive task.
+
+42:10.400 --> 42:19.400
+ In general, do proteins fold, can they fold in arbitrary large number of ways or do they usually fold in a very small number of ways?
+
+42:19.400 --> 42:36.400
+ It's typically, I mean, we tend to think that, you know, there is a one sort of canonical fold for a protein, although there are many cases where the proteins, you know, upon destabilization, it can be folded into a different confirmation.
+
+42:36.400 --> 42:48.400
+ And this is especially true when you look at sort of proteins that include more than one structural unit. So those structural units, we call them protein domains.
+
+42:48.400 --> 43:04.400
+ Essentially, protein domain is a single unit that typically is evolutionary preserved, that typically carries out a single function and typically has a very distinct fold, right?
+
+43:04.400 --> 43:30.400
+ The structure, 3D structure organization. But turns out that if you look at human, an average protein in a human cell would have a bit of two or three such subunits and how they are trying to fold into the sort of, you know, next level fold, right?
+
+43:30.400 --> 43:38.400
+ So within subunit there's folding and then they fold into the larger 3D structure, right?
+
+43:38.400 --> 43:44.400
+ And all of that, there's some understanding of the basic mechanisms, but not to put together to be able to fold it.
+
+43:44.400 --> 44:02.400
+ We're still, I mean, we're still struggling. I mean, we're getting pretty good about folding relatively small proteins up to 100 residues. I mean, but we're still far away from folding, you know, larger proteins.
+
+44:02.400 --> 44:19.400
+ And some of them are notoriously difficult. For example, transmembrane proteins, proteins that sit in the membranes of the cell, they're incredibly important, but they are incredibly difficult to solve.
+
+44:19.400 --> 44:28.400
+ And so basically there's a lot of degrees of freedom, how it folds. And so it's a combinatorial problem where it just explodes. There's so many dimensions.
+
+44:28.400 --> 44:47.400
+ Well, it is a combinatorial problem, but it doesn't mean that we cannot approach it from the, not from the brute force approach. And so the machine learning approaches, you know, have been emerged that try to tackle it.
+
+44:47.400 --> 44:55.400
+ So folding at home, I don't know how familiar you are with it, but is that using machine learning or is it more brute force?
+
+44:55.400 --> 45:10.400
+ So folding at home, it was originally, and I remember I was, I mean, it was a long time ago. I was a postdoc and we learned about this, you know, this game because it was originally designed as the game.
+
+45:10.400 --> 45:32.400
+ And we, you know, I took a look at it and it's interesting because it's really, you know, it's very transparent, very intuitive. So, and from what I heard, I've yet to introduce it to my son, but you know, kids are actually getting very good at folding the proteins.
+
+45:32.400 --> 45:52.400
+ And it was, you know, it came to me as the, not as a surprise, but actually as the sort of manifest of, you know, our capacity to do this kind of, to solve this kind of problems.
+
+45:52.400 --> 46:07.400
+ When a paper was published in one of these top journals with the coauthors being the actual players of this game.
+
+46:07.400 --> 46:18.400
+ So, and what happened was that they managed to get better structures than the scientists themselves.
+
+46:18.400 --> 46:38.400
+ So that, you know, that was very, I mean, it was kind of profound, you know, revelation that problems that are so challenging for a computational science, maybe not that challenging for a human brain.
+
+46:38.400 --> 46:58.400
+ That's a really good, that's a hopeful message always when there's a, the proof of existence, the existence proof that it's possible. That's really interesting, but it seems, what are the best ways to do protein folding now?
+
+46:58.400 --> 47:14.400
+ So if you look at what DeepMind does with AlphaFold, so they kind of, that's a learning approach. What's your sense? I mean, your background is in machine learning, but is this a learnable problem? Is this still a brute force?
+
+47:14.400 --> 47:24.400
+ Are we in the Gary Kasparov deep blue days or are we in the AlphaGo playing the game of Go days of folding?
+
+47:24.400 --> 47:45.400
+ Well, I think we are, we are advancing towards this direction. I mean, if you look, so there is a sort of Olympic game for protein folders called CASP, and it's essentially, it's, you know, it's a competition where different teams are given exactly the same
+
+47:45.400 --> 48:04.400
+ protein sequences and they try to predict their structures, right? And of course there are different sort of sub tasks, but in the recent competition, AlphaFold was among the top performing teams, if not the top performing team.
+
+48:04.400 --> 48:33.400
+ So there is definitely a benefit from the data that have been generated, you know, in the past several decades, the structural data. And certainly, you know, we are now at the capacity to summarize this data, to generalize this data and to use those principles, you know, in order to predict protein structures.
+
+48:33.400 --> 48:43.400
+ That's one of the really cool things here is there's, maybe you can comment on it. There seems to be these open data sets of protein. How did that?
+
+48:43.400 --> 48:45.400
+ Protein Data Bank?
+
+48:45.400 --> 48:52.400
+ Yeah, Protein Data Bank. I mean, that's crazy. Is this a recent thing for just the coronavirus?
+
+48:52.400 --> 49:21.400
+ It's been for many, many years. I believe the first Protein Data Bank was designed on flashcards. So, yes, this is a great example of the community efforts of everyone contributing because every time you solve a protein or a protein complex,
+
+49:21.400 --> 49:41.400
+ this is where you submit it. And, you know, the scientists get access to it, scientists get to test it. And we, bioinformaticians, use this information to, you know, to make predictions.
+
+49:41.400 --> 50:06.400
+ So, there's no culture of like hoarding discoveries here. So, I mean, you've released a few or a bunch of proteins that were matching, whatever. We'll talk about details a little bit, but it's kind of amazing how open the culture here is.
+
+50:06.400 --> 50:34.400
+ It is. And I think this pandemic actually demonstrated the ability of scientific community to, you know, to solve this challenge collaboratively. And this is, I think, if anything, it actually moved us to a brand new level of collaborations of the efficiency
+
+50:34.400 --> 50:44.400
+ in which people establish new collaborations, in which people offer their help to each other, scientists offer their help to each other.
+
+50:44.400 --> 51:03.400
+ And publish results too. It's very interesting. We're now trying to figure out, there's a few journals that are trying to sort of do the very accelerated review cycle, but so many preprints. So, just posting a paper going out, I think it's fundamentally changing the way we think about papers.
+
+51:03.400 --> 51:26.400
+ Yes. I mean, the way we think about knowledge, I would say, yes. Because, yes, I completely agree. I think now the knowledge is becoming sort of the core value, not the paper or the journal where this knowledge is published.
+
+51:26.400 --> 51:43.400
+ And I think this is, again, we are living in the times where it becomes really crystallized, the idea that the most important value is in the knowledge.
+
+51:43.400 --> 52:00.400
+ So, maybe you can comment, like, what do you think the future of that knowledge sharing looks like? So, you have this paper that I hope we get a chance to talk about a little bit, but it has, like, a really nice abstract and introduction related, like, it has all the usual, I mean, probably took a long time to put together.
+
+52:00.400 --> 52:15.400
+ So, but is that going to remain, like, you could have communicated a lot of fundamental ideas here in much shorter amount that's less traditionally acceptable by the journal context.
+
+52:15.400 --> 52:33.400
+ So, well, you know, so the first version that we posted, not even on the bioarchive, because bioarchive back then, it was essentially, you know, overwhelmed with the number of submissions.
+
+52:33.400 --> 52:55.400
+ So, our submission, I think it took five or six days to just for it to be screened and put online. So, we, you know, essentially we put the first preprint on our website, and, you know, it started getting access right away.
+
+52:55.400 --> 53:05.400
+ So, and, you know, so this original preprint was in a much rougher shape than this paper.
+
+53:05.400 --> 53:26.400
+ And, but we tried, I mean, we honestly tried to be as compact as possible with, you know, introducing the information that is necessary to explain our, you know, our results.
+
+53:26.400 --> 53:38.400
+ So, maybe you can dive right in if it's okay. Sure. So, this is a paper called Structural Genomics of SARS Co, how do you even pronounce? SARS CoV2. CoV2? Yeah.
+
+53:38.400 --> 53:49.400
+ By the way, CoVid is such a terrible name, but it stuck. Anyway, SARS CoV2 indicates evolutionary conserved functional regions of viral proteins.
+
+53:49.400 --> 54:01.400
+ So, this is looking at all kinds of proteins that are part of this novel coronavirus and how they match up against the previous other kinds of coronaviruses.
+
+54:01.400 --> 54:11.400
+ I mean, there's a lot of beautiful figures. I was wondering if you could, I mean, there's so many questions I could ask here, but maybe at the, how do you get started doing this paper?
+
+54:11.400 --> 54:15.400
+ So, how do you start to figure out the 3D structure of a novel virus?
+
+54:15.400 --> 54:27.400
+ Yes. So, there is actually a little story behind it. And so, the story actually dated back in September of 2019.
+
+54:27.400 --> 54:39.400
+ And you probably remember that back then, we had another dangerous virus, triple E virus. It's a queen encephalitis virus.
+
+54:39.400 --> 54:45.400
+ Can you maybe linger on it? I have to admit, I was sadly completely unaware.
+
+54:45.400 --> 54:57.400
+ So, that was actually a virus outbreak that happened in New England only. The danger in this virus was that it actually targeted your brain.
+
+54:57.400 --> 55:11.400
+ So, the word death from this virus, it was transferred, the main vector was mosquitoes.
+
+55:11.400 --> 55:18.400
+ And obviously, fall time is the time where you have a lot of them in New England.
+
+55:18.400 --> 55:31.400
+ And on one hand, people realize this is actually a very dangerous thing. So, it had an impact on the local economy.
+
+55:31.400 --> 55:47.400
+ The schools were closed past six o clock, no activities outside for the kids because the kids were suffering quite tremendously when infected from this virus.
+
+55:47.400 --> 55:51.400
+ How do I not know about this? Was universities impacted?
+
+55:51.400 --> 56:08.400
+ It was in the news. I mean, it was not impacted to a high degree in Boston necessarily, but in the Metro West area and actually spread around, I think, all the way to New Hampshire, Connecticut.
+
+56:08.400 --> 56:13.400
+ And you mentioned affecting the brain. That's one other comment we should make.
+
+56:13.400 --> 56:23.400
+ So, you mentioned AC2 for the coronavirus. So, these viruses kind of attached to something in the body.
+
+56:23.400 --> 56:35.400
+ So, it essentially attaches to these proteins in those cells in the body where those proteins are expressed, where they actually have them in abundance.
+
+56:35.400 --> 56:39.400
+ So, sometimes that could be in the lungs, that could be in the brain, that could be in something.
+
+56:39.400 --> 56:49.400
+ So, I think right now, from what I read, they have the epithelial cells inside.
+
+56:49.400 --> 56:50.400
+ What does that mean?
+
+56:50.400 --> 57:13.400
+ So, the cells that are covering the surface, so inside the nasal surfaces, the throat, the lung cells, and I believe liver as a couple of other organs where they are actually expressed in abundance.
+
+57:13.400 --> 57:14.400
+ That's for the AC2 you said?
+
+57:14.400 --> 57:16.400
+ For the AC2 receptors.
+
+57:16.400 --> 57:20.400
+ So, okay. So, back to the story, the outbreak in the fall.
+
+57:20.400 --> 57:29.400
+ So, now the impact of this virus is significant.
+
+57:29.400 --> 57:38.400
+ However, it's a prelocal problem to the point that this is something that we would call a neglected disease
+
+57:38.400 --> 57:52.400
+ because it's not big enough to make the drug design companies to design a new antiviral or a new vaccine.
+
+57:52.400 --> 58:03.400
+ It's not big enough to generate a lot of grants from the national funding agencies.
+
+58:03.400 --> 58:08.400
+ So, it doesn't mean we cannot do anything about it.
+
+58:08.400 --> 58:25.400
+ And so, what I did is I taught a bioinformatics class in Worcester Polytechnic Institute, and we are very much a problem learning institution.
+
+58:25.400 --> 58:31.400
+ So, I thought that that would be a perfect project for the class.
+
+58:31.400 --> 58:34.400
+ It's an ongoing case study.
+
+58:34.400 --> 58:47.400
+ So, we essentially designed a study where we tried to use bioinformatics to understand as much as possible about this virus.
+
+58:47.400 --> 58:55.400
+ And a very substantial portion of the study was to understand the structures of the proteins,
+
+58:55.400 --> 59:08.400
+ to understand how they interact with each other and with the host proteins, try to understand the evolution of this virus.
+
+59:08.400 --> 59:21.400
+ So, obviously, a very important question, where it will evolve further, how it happened here.
+
+59:21.400 --> 59:32.400
+ So, we did all these projects, and now I'm trying to put them into a paper where all these undergraduate students will be coauthors.
+
+59:32.400 --> 59:39.400
+ But essentially, the projects were finished right about mid December.
+
+59:39.400 --> 59:50.400
+ And a couple of weeks later, I heard about this mysterious new virus that was discovered and was reported in Wuhan province.
+
+59:50.400 --> 1:00:00.400
+ And immediately I thought that, well, we just did that, can't we do the same thing with this virus?
+
+1:00:00.400 --> 1:00:08.400
+ And so, we started waiting for the genome to be released, because that's essentially the first piece of information that is critical.
+
+1:00:08.400 --> 1:00:13.400
+ Once you have the genome sequence, you can start doing a lot using bioinformatics.
+
+1:00:13.400 --> 1:00:20.400
+ When you say genome sequence, that's referring to the sequence of letters that make up the RNA?
+
+1:00:20.400 --> 1:00:28.400
+ Well, the sequence that make up the entire information encoded in the protein, right?
+
+1:00:28.400 --> 1:00:34.400
+ So, that includes all 29 genes.
+
+1:00:34.400 --> 1:00:38.400
+ What are genes? What's the encoding of information?
+
+1:00:38.400 --> 1:00:46.400
+ So, genes is essentially a basic functional unit that we can consider.
+
+1:00:46.400 --> 1:00:53.400
+ So, each gene in the virus would correspond to a protein.
+
+1:00:53.400 --> 1:00:56.400
+ So, gene by itself doesn't do its function.
+
+1:00:56.400 --> 1:01:06.400
+ It needs to be converted or translated into the protein that will become the actual functional unit.
+
+1:01:06.400 --> 1:01:09.400
+ Yeah, like you said, the printer.
+
+1:01:09.400 --> 1:01:11.400
+ So, we need the printer for that.
+
+1:01:11.400 --> 1:01:12.400
+ We need the printer, okay.
+
+1:01:12.400 --> 1:01:21.400
+ So, the first step is to figure out the genome, the sequence of things that could be then used for printing the protein.
+
+1:01:21.400 --> 1:01:22.400
+ So, okay.
+
+1:01:22.400 --> 1:01:37.400
+ So, then the next step, so once we have this and so we use the existing information about SARS because the SARS genomics has been done in abundance.
+
+1:01:37.400 --> 1:01:48.400
+ So, we have different strains of SARS and actually other related coronaviruses, MERS, the bat coronavirus.
+
+1:01:48.400 --> 1:01:56.400
+ And we started by identifying the potential genes because right now it's just a sequence, right?
+
+1:01:56.400 --> 1:02:04.400
+ So, it's a sequence that is roughly, it's less than 30,000 nucleotide long.
+
+1:02:04.400 --> 1:02:06.400
+ Just a raw sequence.
+
+1:02:06.400 --> 1:02:07.400
+ It's a raw sequence.
+
+1:02:07.400 --> 1:02:08.400
+ No other information really.
+
+1:02:08.400 --> 1:02:22.400
+ And we now need to define the boundaries of the genes that would then be used to identify the protein and protein structures.
+
+1:02:22.400 --> 1:02:23.400
+ How hard is that problem?
+
+1:02:23.400 --> 1:02:27.400
+ It's not, I mean, it's pretty straightforward.
+
+1:02:27.400 --> 1:02:35.400
+ So, you know, so because we use the existing information about SARS proteins and SARS genes.
+
+1:02:35.400 --> 1:02:40.400
+ So, once again, you kind of, we are relying on the, yes.
+
+1:02:40.400 --> 1:02:54.400
+ So, and then once we get there, this is where sort of the first more traditional bioinformatics step begins.
+
+1:02:54.400 --> 1:03:03.400
+ We're trying to use this protein sequences and get the 3D information about those proteins.
+
+1:03:03.400 --> 1:03:15.400
+ So, this is where we are relying heavily on the structure information specifically from the protein databank that we're talking about.
+
+1:03:15.400 --> 1:03:18.400
+ And here you're looking for similar proteins.
+
+1:03:18.400 --> 1:03:19.400
+ Yes.
+
+1:03:19.400 --> 1:03:27.400
+ So, the concept that we are operating when we do this kind of modeling, it's called homology or template based modeling.
+
+1:03:27.400 --> 1:03:43.400
+ So, essentially using the concept that if you have two sequences that are similar in terms of the letters, the structures of the sequences are expected to be similar as well.
+
+1:03:43.400 --> 1:03:48.400
+ And this is at the micro, at the very local scale?
+
+1:03:48.400 --> 1:03:50.400
+ At the scale of the whole protein.
+
+1:03:50.400 --> 1:03:51.400
+ At the whole protein.
+
+1:03:51.400 --> 1:03:57.400
+ So, actually, so, you know, so, of course the devil is in the details.
+
+1:03:57.400 --> 1:04:11.400
+ And this is why we need actually pre sophisticated modeling tools to do so.
+
+1:04:11.400 --> 1:04:31.400
+ Once we get the structures of the individual proteins, we try to see whether or not these proteins act alone or they have to be forming protein complexes in order to perform this function.
+
+1:04:31.400 --> 1:04:51.400
+ And again, so, this is sort of the next level of the modeling because now you need to understand how proteins interact and it could be the case that the protein interacts with itself and makes sort of a multimeric complex.
+
+1:04:51.400 --> 1:05:14.400
+ The same protein just repeated multiple times and we have quite a few such proteins in SARS CoV2, specifically spike protein needs three copies to function, envelope protein needs five copies to function.
+
+1:05:14.400 --> 1:05:18.400
+ And there are some other multimeric complexes.
+
+1:05:18.400 --> 1:05:27.400
+ That's what you mean by attracted with itself and you see multiple copies. So, how do you, how do you make a good guess whether something's going to interact?
+
+1:05:27.400 --> 1:05:41.400
+ Well, again, so there are two approaches, right? So one is look at the previously solved complexes. Now we're looking not at the individual structures but the structures of the whole complex.
+
+1:05:41.400 --> 1:05:43.400
+ Complex is a bunch of multiple proteins.
+
+1:05:43.400 --> 1:05:47.400
+ Yeah, so it's a bunch of proteins essentially glued together.
+
+1:05:47.400 --> 1:05:49.400
+ And when you say glued, that's the interaction.
+
+1:05:49.400 --> 1:05:57.400
+ That's the interaction. So there are different forces, different sort of physical forces behind this.
+
+1:05:57.400 --> 1:06:10.400
+ Sorry to keep asking dumb questions, but is the interaction fundamentally structural or is it functional? Like in the way you're thinking about it?
+
+1:06:10.400 --> 1:06:27.400
+ That's actually a very good way to ask this question because it turns out that the interaction is structural, but in the way it forms the structure, it actually also carries out the function.
+
+1:06:27.400 --> 1:06:35.400
+ So interaction is often needed to carry out very specific function of a protein.
+
+1:06:35.400 --> 1:06:43.400
+ But in terms of on the other side, figuring out you're really starting at the structure before you figure out the function.
+
+1:06:43.400 --> 1:06:58.400
+ So there's a beautiful figure too in the paper of all the different proteins that make up, able to figure out that make up the novel coronavirus.
+
+1:06:58.400 --> 1:07:16.400
+ What are we looking at? So these are like, that's through the step two that you mentioned, when you try to guess at the possible proteins, that's what you're going to get is these blue cyan blobs.
+
+1:07:16.400 --> 1:07:28.400
+ Yes. So those are the individual proteins for which we have at least some information from the previous studies.
+
+1:07:28.400 --> 1:07:40.400
+ So there is advantage and disadvantage of using previous studies. The biggest, well, the disadvantage is that we may not necessarily have the coverage of all 29 proteins.
+
+1:07:40.400 --> 1:07:56.400
+ However, the biggest advantage is that the accuracy in which we can model these proteins is very high, much higher compared to ab initio methods that do not use any template information.
+
+1:07:56.400 --> 1:08:10.400
+ So, but nevertheless, this figure also has, it's such a beautiful and I love these pictures so much. It has like the pink parts, which are the parts that are different.
+
+1:08:10.400 --> 1:08:18.400
+ So you're highlighting, so the difference you find is on the 2D sequence. And then you try to infer what that will look like on the 3D.
+
+1:08:18.400 --> 1:08:23.400
+ Yeah. So the difference actually is on the 1D sequence.
+
+1:08:23.400 --> 1:08:26.400
+ 1D, sorry, 2D, right.
+
+1:08:26.400 --> 1:08:51.400
+ So this is one of these first questions that we try to answer is that, well, if you take this new virus and you take the closest relatives, which are SARS and a couple of bad coronavirus strains, they are already the closest relatives that we are aware of.
+
+1:08:51.400 --> 1:09:07.400
+ Now, what are the difference between this virus and its close relatives, right? And if you look, typically when you take a sequence, those differences could be quite far away from each other.
+
+1:09:07.400 --> 1:09:18.400
+ So what make, what 3D structure makes those difference to do, very often they tend to cluster together.
+
+1:09:18.400 --> 1:09:19.400
+ Interesting.
+
+1:09:19.400 --> 1:09:36.400
+ And then all of a sudden the differences that may look completely unrelated actually relate to each other. And sometimes they are there because they correspond, they attack the functional site, right?
+
+1:09:36.400 --> 1:09:43.400
+ So they are there because this is the functional site that is highly mutated.
+
+1:09:43.400 --> 1:09:58.400
+ So that's a computational approach to figuring something out. And when it comes together like that, that's kind of a nice clean indication that there's something, this could be actually indicative of what's happening.
+
+1:09:58.400 --> 1:10:23.400
+ Yes. I mean, so we need this information and the 3D structure gives us just a very intuitive way to look at this information and then start to ask, start asking questions such as, so this place of this protein that is highly mutated,
+
+1:10:23.400 --> 1:10:42.400
+ does it, is it the functional part of the protein? So does this part of the protein interact with some other proteins or maybe with some other ligands, small molecules, right?
+
+1:10:42.400 --> 1:10:50.400
+ So we will try now to functionally inform this 3D structure.
+
+1:10:50.400 --> 1:11:08.400
+ So you have a bunch of these mutated parts, if like, I don't know, how many are there in the novel coronavirus when you compare to SARS? We're talking about hundreds, thousands, like these pink regions.
+
+1:11:08.400 --> 1:11:31.400
+ No, no, much less than that. And it's very interesting that if you look at that, you know, so the first thing that you start seeing, right, you know, you look at patterns, right? And the first pattern that becomes obvious is that some of the proteins in the new coronavirus are pretty much intact.
+
+1:11:31.400 --> 1:11:42.400
+ So they're pretty much exactly the same as SARS, as the bat coronavirus, whereas some others are heavily mutated.
+
+1:11:42.400 --> 1:12:01.400
+ So it looks like that the, you know, the evolution is not occurring, you know, uniformly across the entire, you know, viral genome, but actually target very specific proteins.
+
+1:12:01.400 --> 1:12:05.400
+ And what do you do with that? Like from the Sherlock Holmes perspective?
+
+1:12:05.400 --> 1:12:34.400
+ Well, you know, so one of the most interesting findings we had was the fact that the viral, so the binding sites on the viral surfaces that get targeted by the known small molecules, they were pretty much not affected at all.
+
+1:12:34.400 --> 1:12:50.400
+ And so that means that the same small drugs or small drug like compounds can be efficient for the new coronavirus.
+
+1:12:50.400 --> 1:13:07.400
+ Ah, so this all actually maps to the drug compounds too. So you're actually mapping out what old stuff is going to work on this thing and then possibilities for new stuff to work by mapping out the things that have mutated.
+
+1:13:07.400 --> 1:13:25.400
+ Yes. So we essentially know which parts behave differently and which parts are likely to behave similar. And again, you know, of course, all our predictions need to be validated by experiments.
+
+1:13:25.400 --> 1:13:38.400
+ But hopefully that sort of helps us to delineate the regions of this virus that, you know, can be promising in terms of the drug discovery.
+
+1:13:38.400 --> 1:13:51.400
+ You kind of, you kind of mentioned this already, but maybe you can elaborate. So how different from the structural and functional perspective does the new coronavirus appear to be relative to SARS?
+
+1:13:51.400 --> 1:14:08.400
+ We now are trying to understand the overall structural characteristics of this virus because I mean, that's our next step, trying to model the viral particle of single viral particle of this virus.
+
+1:14:08.400 --> 1:14:19.400
+ So that means you have the individual proteins, like you said, you have to figure out what their interaction is. So you have this, is that where this graph kind of interactome?
+
+1:14:19.400 --> 1:14:48.400
+ So the interactome is essentially our prediction on the potential interactions, some of them that we already deciphered from the structural knowledge, but some of them that are essentially are deciphered from the knowledge of the existing interactions that people previously obtained for SARS, for MERS or other related viruses.
+
+1:14:48.400 --> 1:15:01.400
+ Is there kind of interactomes, am I pronouncing that correctly by the way? Are those already converged towards for SARS?
+
+1:15:01.400 --> 1:15:25.400
+ So I think there are a couple of papers that now investigate the sort of the large scale set of interactions between the new SARS and its host. And so I think that's an ongoing study.
+
+1:15:25.400 --> 1:15:37.400
+ And the success of that, the result would be an interactome. Yes. And so when you say not trying to figure out the entire, the particle, the entire thing.
+
+1:15:37.400 --> 1:15:58.400
+ So if you look, you know, so structure, right? So what this viral particle looks like, right? So as I said, it's, you know, the surface of it is an envelope, which is essentially a so called lipid bilayer with proteins integrated into the surface.
+
+1:15:58.400 --> 1:16:20.400
+ So how, so an average particle is around 80 nanometers, right? So this particle can have about 50 to 100 spike proteins.
+
+1:16:20.400 --> 1:16:32.400
+ So at least we suspect it and, you know, based on the micrographs images, it's very comparable to MHV virus in mice and SARS virus.
+
+1:16:32.400 --> 1:16:40.400
+ Micrographs are actual pictures of the actual virus. Okay. So these are models. This is the actual images, right?
+
+1:16:40.400 --> 1:16:51.400
+ What do they, sorry for the tangents, but what are these things? So when you look on the internet, the models and the pictures are kind of, and the models you have here are just gorgeous and beautiful.
+
+1:16:51.400 --> 1:16:55.400
+ When you actually take pictures of them with a micrograph, like what, what do we look?
+
+1:16:55.400 --> 1:17:08.400
+ Well, they typically are not perfect. Right? So, so the, most of the images that you see now is the, is the sphere with those spikes.
+
+1:17:08.400 --> 1:17:31.400
+ You actually see the spikes? Yes, you do see the spikes. And now, you know, the, our collaborators for Texas A&M University, Benjamin Newman, he actually in the recent paper about SARS he proposed, and there's some actually evidence behind it,
+
+1:17:31.400 --> 1:17:49.400
+ that the particle is not a sphere, but is actually as elongated ellipsoid like particles. So, so that's what we are trying to incorporate into our model.
+
+1:17:49.400 --> 1:18:02.400
+ And the, I mean, you know, if you look at the actual micrographs, you see that those particles are, you know, are not symmetric.
+
+1:18:02.400 --> 1:18:14.400
+ So the, the, the, some of them, and of course, you know, it could be due to the treatment of the, of the material. It could be due to the, some noise in the imaging.
+
+1:18:14.400 --> 1:18:27.400
+ Right. So there's a lot of uncertainty in all this. So it's okay. So structurally figuring out the entire part. By the way, again, sorry for the tangents, but why the term particle? Or is it just something that's stuck?
+
+1:18:27.400 --> 1:18:35.400
+ It's a, it's a, it's a single, you know, so we call, you know, we call it the virion. So virion particle, it's essentially a single virus.
+
+1:18:35.400 --> 1:18:48.400
+ But it just feels like, because particle to me, from the physics perspective, feels like this, the most basic unit, because there seems to be so much going on inside the virus.
+
+1:18:48.400 --> 1:18:49.400
+ Yeah.
+
+1:18:49.400 --> 1:18:50.400
+ It doesn't feel like a particle to me.
+
+1:18:50.400 --> 1:18:57.400
+ Yeah, well, yeah, it's probably, I think it's the, you know, virion is a good way to call it.
+
+1:18:57.400 --> 1:19:05.400
+ So, okay, so trying to figure out, trying to figure out the entirety of the system.
+
+1:19:05.400 --> 1:19:28.400
+ Yes. So, you know, so, you know, so this is, so the virion has 5200 spikes, trimer spikes. It has roughly 200 to 400 membrane protein dimers. And those are arranged in the very nice lattice.
+
+1:19:28.400 --> 1:19:35.400
+ So you can actually see sort of the, it's like a carpet of...
+
+1:19:35.400 --> 1:19:36.400
+ On the surface again.
+
+1:19:36.400 --> 1:19:43.400
+ Exactly, on the surface. And occasionally you also see this envelope protein inside.
+
+1:19:43.400 --> 1:19:46.400
+ Is that the one we don't know what it does?
+
+1:19:46.400 --> 1:20:08.400
+ Exactly. Exactly. The one that forms the pentamer, this very nice pentameric ring. And so, you know, so this is what we're trying to, you know, we're trying to put now all our knowledge together and see whether we can actually generate this overall virion model.
+
+1:20:08.400 --> 1:20:35.400
+ With an idea to understand, you know, well, first of all, to understand how it looks like, how far it is from those images that were generated. But I mean, the implications are, you know, there is a potential for the, you know, nanoparticle design that will mimic this virion particle.
+
+1:20:35.400 --> 1:20:41.400
+ Is the process of nanoparticle design meaning artificially designing something that looks similar?
+
+1:20:41.400 --> 1:20:54.400
+ Yes. And also the one that can potentially compete with the actual virion particles and therefore reduce the effect of the infection.
+
+1:20:54.400 --> 1:20:58.400
+ So is this the idea of, like, what is a vaccine?
+
+1:20:58.400 --> 1:21:09.400
+ So vaccine, so there are two ways of essentially treating and in the case of vaccine is preventing the infection.
+
+1:21:09.400 --> 1:21:18.400
+ So vaccine is, you know, a way to train our immune system.
+
+1:21:18.400 --> 1:21:47.400
+ So our immune system becomes aware of this new danger and therefore is capable of generating the antibodies then will essentially bind to the spike proteins because that's the main target for the, you know, for the vaccine's design and block its functioning.
+
+1:21:47.400 --> 1:21:56.400
+ If you have the spike with the antibody on top, it can no longer interact with AC2 receptor.
+
+1:21:56.400 --> 1:22:09.400
+ So the process of designing a vaccine then is you have to understand enough about the structure of the virus itself to be able to create an artificial, an artificial particle?
+
+1:22:09.400 --> 1:22:25.400
+ Well, I mean, so the nanoparticle is a very exciting and new research. So there are already established ways to, you know, to make vaccines and there are several different ones, right?
+
+1:22:25.400 --> 1:22:52.400
+ So there is one where essentially the virus gets through the cell culture multiple times, so it becomes essentially adjusted to the specific embryonic cell and as a result becomes less, you know, compatible with the host human cells.
+
+1:22:52.400 --> 1:23:12.400
+ So therefore it's sort of the idea of the live vaccine where the particles are there, but they are not so efficient, you know, so they cannot replicate, you know, as rapidly as, you know, before the vaccine.
+
+1:23:12.400 --> 1:23:29.400
+ They can be introduced to the immune system, the immune system will learn and the person who gets this vaccine won't get, you know, sick or, you know, will have mild, you know, mild symptoms.
+
+1:23:29.400 --> 1:23:45.400
+ So then there is sort of different types of the way to introduce the nonfunctional parts of this virus or the virus where some of the information is stripped down.
+
+1:23:45.400 --> 1:23:59.400
+ For example, the virus with no genetic material, so with no RNA genome, exactly. So it cannot replicate, it cannot essentially perform most of its functions.
+
+1:23:59.400 --> 1:24:24.400
+ What is the biggest hurdle to design one of these, to arrive at one of these? Is it the work that you're doing in the fundamental understanding of this new virus or is it in the, from our perspective, well, complicated world of experimental validation and sort of showing that this, like going through the whole process of showing this is actually going to work with FDA approval, all that kind of stuff?
+
+1:24:24.400 --> 1:24:42.400
+ I think it's both. I mean, you know, our understanding of the molecular mechanisms will allow us to, you know, to design, to have more efficient designs of the vaccines. However, once you design a vaccine, it needs to be tested.
+
+1:24:42.400 --> 1:24:54.400
+ But when you look at the 18 months and the different projections, it seems like an exceptionally, historically speaking, maybe you can correct me, but it's even 18 months seems like a very accelerated timeline.
+
+1:24:54.400 --> 1:25:14.400
+ It is. It is. I mean, I remember reading about, you know, in the book about some previous vaccines that it could take up to 10 years to design and, you know, properly test a vaccine before its mass production.
+
+1:25:14.400 --> 1:25:23.400
+ So yeah, we, you know, everything is accelerated these days. I mean, for better, for worse, but, but, you know, we definitely need that.
+
+1:25:23.400 --> 1:25:35.400
+ Well, especially with the coronavirus, I mean, the scientific community is really stepping up and working together. The collaborative aspect is really interesting. You mentioned, so the vaccine is one and then there's antivirals, antiviral drugs.
+
+1:25:35.400 --> 1:25:47.400
+ So antiviral drugs. So where, you know, vaccines are typically needed to prevent the infection. Right. But once you have an infection, one, you know, so what we try to do, we try to stop it.
+
+1:25:47.400 --> 1:26:06.400
+ So we try to stop virus from functioning. And so the antiviral drugs are designed to block some critical functioning of the proteins from the virus.
+
+1:26:06.400 --> 1:26:25.400
+ So there are a number of interesting candidates. And I think, you know, if you ask me, I, you know, I think Remdesivir is perhaps the most promising.
+
+1:26:25.400 --> 1:26:38.400
+ It's, it has been shown to be, you know, an efficient and effective antiviral for SARS.
+
+1:26:38.400 --> 1:26:49.400
+ Originally, it was the antiviral drug developed for a completely different virus, I think, for Ebola and Marburg.
+
+1:26:49.400 --> 1:26:51.400
+ At high levels, you know how it works?
+
+1:26:51.400 --> 1:27:04.400
+ So it tries to mimic one of the nucleotides in RNA and essentially that stops the replication.
+
+1:27:04.400 --> 1:27:11.400
+ So messes, I guess that's what, so antiviral drugs mess with some aspect of this process.
+
+1:27:11.400 --> 1:27:31.400
+ So, you know, so essentially we try to stop certain functions of the virus. There are some other ones, you know, that are designed to inhibit the protease, the thing that clips protein sequences.
+
+1:27:31.400 --> 1:27:42.400
+ There is one that was originally designed for malaria, which is a bacterial, you know, bacterial disease.
+
+1:27:42.400 --> 1:27:54.400
+ This is so cool. So, but that's exactly where your work steps in is you're figuring out the functional and the structure of these different, so like providing candidates for where drugs can plug in.
+
+1:27:54.400 --> 1:28:08.400
+ Well, yes, because, you know, one thing that we don't know is whether or not, so let's say we have a perfect drug candidate that is efficient against SARS and against MERS.
+
+1:28:08.400 --> 1:28:14.400
+ Now, is it going to be efficient against new SARS COVID 2?
+
+1:28:14.400 --> 1:28:22.400
+ We don't know that. And there are multiple aspects that can affect this efficiency.
+
+1:28:22.400 --> 1:28:40.400
+ So, for instance, if the binding site, so the part of the protein where this ligand gets attached, if this site is mutated, then the ligand may not be attachable to this part any longer.
+
+1:28:40.400 --> 1:28:54.400
+ And, you know, our work and the work of other bioinformatics groups, you know, essentially are trying to understand whether or not that will be the case.
+
+1:28:54.400 --> 1:29:07.400
+ And it looks like for the ligands that we looked at, the ligand binding sites are pretty much intact, which is very promising.
+
+1:29:07.400 --> 1:29:15.400
+ So, if we can just like zoom out for a second. Are you optimistic?
+
+1:29:15.400 --> 1:29:21.400
+ So, there's two, well, there's three possible ends to the coronavirus pandemic.
+
+1:29:21.400 --> 1:29:30.400
+ So, one is drugs or vaccines get figured out very quickly, probably drugs first.
+
+1:29:30.400 --> 1:29:37.400
+ The other is the pandemic runs its course for this wave, at least.
+
+1:29:37.400 --> 1:29:46.400
+ And then the third is, you know, things go much worse in some dark, bad, very bad direction.
+
+1:29:46.400 --> 1:29:50.400
+ Do you see, let's focus on the first two.
+
+1:29:50.400 --> 1:30:03.400
+ Do you see the anti drugs or the work you're doing being relevant for us right now in stopping the pandemic?
+
+1:30:03.400 --> 1:30:06.400
+ Or do you hope that the pandemic will run its course?
+
+1:30:06.400 --> 1:30:20.400
+ So, the social distancing, things like wearing masks, all those discussions that we're having will be the method with which we fight coronavirus in the short term.
+
+1:30:20.400 --> 1:30:25.400
+ Or do you think that it will have to be antiviral drugs?
+
+1:30:25.400 --> 1:30:36.400
+ I think antivirals would be, I would view that as at least the short term solution.
+
+1:30:36.400 --> 1:30:48.400
+ I see more and more cases in the news of those new drug candidates being administered in hospitals.
+
+1:30:48.400 --> 1:30:55.400
+ And I mean, this is right now the best what we have.
+
+1:30:55.400 --> 1:30:58.400
+ But do we need it in order to reopen the economy?
+
+1:30:58.400 --> 1:31:01.400
+ I mean, we definitely need it.
+
+1:31:01.400 --> 1:31:16.400
+ I cannot sort of speculate on how that will affect reopening of the economy because we are, you know, we are kind of deep into the pandemic.
+
+1:31:16.400 --> 1:31:23.400
+ And it's not just the states. It's also, you know, worldwide, you know.
+
+1:31:23.400 --> 1:31:34.400
+ Of course, you know, there is also the possibility of the second wave, as we, you know, as you mentioned.
+
+1:31:34.400 --> 1:31:41.400
+ And this is why, you know, we need to be super careful.
+
+1:31:41.400 --> 1:31:50.400
+ We need to follow all the precautions that the doctors tell us to do.
+
+1:31:50.400 --> 1:31:54.400
+ Are you worried about the mutation of the virus?
+
+1:31:54.400 --> 1:31:58.400
+ It's, of course, a real possibility.
+
+1:31:58.400 --> 1:32:06.400
+ Now, how, to what extent this virus can mutate, it's an open question.
+
+1:32:06.400 --> 1:32:19.400
+ I mean, we know that it is able to mutate, to jump from one species to another and to become transmittable between humans.
+
+1:32:19.400 --> 1:32:26.400
+ Right. So will it, you know, so let's imagine that we have the new antiviral.
+
+1:32:26.400 --> 1:32:33.400
+ Will this virus become eventually resistant to this antiviral?
+
+1:32:33.400 --> 1:32:36.400
+ We don't know. I mean, this is what needs to be studied.
+
+1:32:36.400 --> 1:32:51.400
+ This is such a beautiful and terrifying process that a virus, some viruses may be able to mutate to respond to the, to mutate around the thing we've put before it.
+
+1:32:51.400 --> 1:32:57.400
+ Can you explain that process? Like, how does that happen? Is that just the way of evolution?
+
+1:32:57.400 --> 1:33:02.400
+ I would say so, yes. I mean, it's the evolutionary mechanisms.
+
+1:33:02.400 --> 1:33:12.400
+ There is nothing imprinted into this virus that makes it, you know, it just the way it evolves.
+
+1:33:12.400 --> 1:33:18.400
+ And actually, it's the way it core evolves with its host.
+
+1:33:18.400 --> 1:33:27.400
+ It's just amazing, especially the evolution mechanisms, especially amazing given how simple the virus is.
+
+1:33:27.400 --> 1:33:32.400
+ It's incredible that it's, I mean, it's beautiful.
+
+1:33:32.400 --> 1:33:38.400
+ It's beautiful because it's one of the cleanest examples of evolution working.
+
+1:33:38.400 --> 1:33:53.400
+ Well, I think, I mean, one of the sort of the reasons for its simplicity is because it does not require all the necessary functions to be stored.
+
+1:33:53.400 --> 1:34:00.400
+ So it actually can hijack the majority of the necessary functions from the host cell.
+
+1:34:00.400 --> 1:34:11.400
+ So the ability to do so, in my view, reduces the complexity of this machine drastically.
+
+1:34:11.400 --> 1:34:15.400
+ Although if you look at the, you know, most recent discoveries.
+
+1:34:15.400 --> 1:34:21.400
+ So the scientists discovered viruses that are as large as bacteria.
+
+1:34:21.400 --> 1:34:26.400
+ Right. So this MIMI viruses and MAMA viruses.
+
+1:34:26.400 --> 1:34:36.400
+ It actually, those discoveries made scientists to reconsider the origins of the virus.
+
+1:34:36.400 --> 1:34:46.400
+ You know, and what are the mechanisms and how, you know, what are the mechanisms, the evolution mechanisms that leads to the appearance of the viruses.
+
+1:34:46.400 --> 1:34:52.400
+ By the way, I mean, you did mention that viruses are, I think you mentioned that they're not living.
+
+1:34:52.400 --> 1:34:54.400
+ Yes, they're not living organisms.
+
+1:34:54.400 --> 1:34:57.400
+ So let me ask that question again.
+
+1:34:57.400 --> 1:35:00.400
+ Why do you think they're not living organisms?
+
+1:35:00.400 --> 1:35:04.400
+ Well, because they are dependent.
+
+1:35:04.400 --> 1:35:12.400
+ The majority of the functions of the virus are dependent on the host.
+
+1:35:12.400 --> 1:35:19.400
+ So let me do the devil's advocate, let me be the philosophical devil's advocate here and say,
+
+1:35:19.400 --> 1:35:27.400
+ well, humans, which we would say are living, need our host planet to survive.
+
+1:35:27.400 --> 1:35:34.400
+ So you can basically take every living organism that we think of as definitively living.
+
+1:35:34.400 --> 1:35:42.400
+ It's always going to have some aspects of its host that it needs, of its environment.
+
+1:35:42.400 --> 1:35:49.400
+ So is that really the key aspect of why a virus is that dependence?
+
+1:35:49.400 --> 1:35:57.400
+ Because it seems to be very good at doing so many things that we consider to be intelligent.
+
+1:35:57.400 --> 1:36:00.400
+ It's just that dependence part.
+
+1:36:00.400 --> 1:36:10.400
+ Well, I mean, it's difficult to answer in this way.
+
+1:36:10.400 --> 1:36:21.400
+ I mean, the way I think about the virus is, you know, in order for it to function,
+
+1:36:21.400 --> 1:36:31.400
+ it needs to have the critical component, the critical tools that it doesn't have.
+
+1:36:31.400 --> 1:36:42.400
+ So, I mean, in my way, it's not autonomous.
+
+1:36:42.400 --> 1:36:50.400
+ That's how I separate the idea of the living organism on a very high level between the living organism
+
+1:36:50.400 --> 1:36:51.400
+ and...
+
+1:36:51.400 --> 1:36:57.400
+ And you have some, we have, I mean, these are just terms and perhaps they don't mean much,
+
+1:36:57.400 --> 1:37:05.400
+ but we have some kind of sense of what autonomous means and that humans are autonomous.
+
+1:37:05.400 --> 1:37:15.400
+ You've also done excellent work in the epidemiological modeling, the simulation of these things.
+
+1:37:15.400 --> 1:37:19.400
+ So the zooming out outside of the body, doing the agent based simulation.
+
+1:37:19.400 --> 1:37:24.400
+ So that's where you actually simulate individual human beings
+
+1:37:24.400 --> 1:37:28.400
+ and then the spread of viruses from one to the other.
+
+1:37:28.400 --> 1:37:33.400
+ How does at a high level agent based simulation work?
+
+1:37:33.400 --> 1:37:34.400
+ All right.
+
+1:37:34.400 --> 1:37:40.400
+ So it's also one of this irony of timing.
+
+1:37:40.400 --> 1:37:46.400
+ Because, I mean, we've worked on this project for the past five years
+
+1:37:46.400 --> 1:37:57.400
+ and the New Year's Eve, I got an email from my PhD student that the last experiments were completed.
+
+1:37:57.400 --> 1:38:03.400
+ And three weeks after that, we get this Diamond Princess story
+
+1:38:03.400 --> 1:38:09.400
+ and emailing each other with the same news saying like...
+
+1:38:09.400 --> 1:38:12.400
+ So the Diamond Princess is a cruise ship.
+
+1:38:12.400 --> 1:38:13.400
+ Yes.
+
+1:38:13.400 --> 1:38:15.400
+ And what was the project that you worked on for five years?
+
+1:38:15.400 --> 1:38:23.400
+ The project, I mean, the code name, it started with a bunch of undergraduates.
+
+1:38:23.400 --> 1:38:27.400
+ The code name was Zombies on a Cruise Ship.
+
+1:38:27.400 --> 1:38:35.400
+ So they wanted to essentially model the zombie apocalypse on a cruise ship.
+
+1:38:35.400 --> 1:38:44.400
+ And after having some fun, we then thought about the fact that if you look at the cruise ships,
+
+1:38:44.400 --> 1:38:53.400
+ the infectious outbreak has been one of the biggest threats to the cruise ship economy.
+
+1:38:53.400 --> 1:39:01.400
+ So perhaps the most frequently occurring is the Norwalk virus.
+
+1:39:01.400 --> 1:39:07.400
+ And this is essentially one of these stomach flus that you have.
+
+1:39:07.400 --> 1:39:12.400
+ And it can be quite devastating.
+
+1:39:12.400 --> 1:39:24.400
+ So occasionally there are cruise ships, they get canceled, they get returned back to the origin.
+
+1:39:24.400 --> 1:39:31.400
+ And so we wanted to study, and this is very different from the traditional epidemiological studies
+
+1:39:31.400 --> 1:39:33.400
+ where the scale is much larger.
+
+1:39:33.400 --> 1:39:41.400
+ So we wanted to study this in a confined environment, which is a cruise ship, it could be a school,
+
+1:39:41.400 --> 1:39:53.400
+ it could be other places such as this large company where people are in interaction.
+
+1:39:53.400 --> 1:40:01.400
+ And the benefit of this model is we can actually track that in the real time.
+
+1:40:01.400 --> 1:40:16.400
+ So we can actually see the whole course of the evolution, the whole course of the interaction between the infected host
+
+1:40:16.400 --> 1:40:21.400
+ and the host and the pathogen, et cetera.
+
+1:40:21.400 --> 1:40:37.400
+ So agent based system or multi agent system to be precisely is a good way to approach this problem
+
+1:40:37.400 --> 1:40:47.400
+ because we can introduce the behavior of the passengers, of the crews.
+
+1:40:47.400 --> 1:40:59.400
+ And what we did for the first time, that's where we introduced some novelty is we introduced a pathogen agent explicitly.
+
+1:40:59.400 --> 1:41:11.400
+ So that allowed us to essentially model the behavior on the host side as well on the pathogen side.
+
+1:41:11.400 --> 1:41:23.400
+ And all of a sudden we can have a flexible model that allows us to integrate all the key parameters about the infections.
+
+1:41:23.400 --> 1:41:29.400
+ So for example, the virus, right?
+
+1:41:29.400 --> 1:41:36.400
+ So the ways of transmitting the virus between the host.
+
+1:41:36.400 --> 1:41:44.400
+ How long does virus survive on the surface, the fomite?
+
+1:41:44.400 --> 1:42:02.400
+ What is, you know, how much of the viral particles does a host shed when he or she is asymptomatic versus symptomatic?
+
+1:42:02.400 --> 1:42:06.400
+ And you can encode all of that into this pathogen. It's just for people who don't know.
+
+1:42:06.400 --> 1:42:11.400
+ So agent based simulation, usually the agent represents a single human being.
+
+1:42:11.400 --> 1:42:18.400
+ And then there's some graphs, like contact graphs that represent the interaction between those human beings.
+
+1:42:18.400 --> 1:42:30.400
+ So, yes. So we, so essentially, you know, so agents are, you know, individual programs that are run in parallel.
+
+1:42:30.400 --> 1:42:45.400
+ And we can provide instructions for these agents how to interact with each other, how to exchange information, in this case, exchange the infection.
+
+1:42:45.400 --> 1:42:51.400
+ But in this case, in your case, you've added a pathogen as an agent. I mean, that's kind of fascinating.
+
+1:42:51.400 --> 1:43:04.400
+ It's kind of a brilliant way to condense the parameters, to aggregate, to bring the parameters together that represent the pathogen, the virus.
+
+1:43:04.400 --> 1:43:06.400
+ Yes. That's fascinating, actually.
+
+1:43:06.400 --> 1:43:15.400
+ So, yeah, it was, you know, we realized that, you know, by bringing in the virus, we can actually start modeling.
+
+1:43:15.400 --> 1:43:24.400
+ I mean, we are no longer bounded by very specific sort of aspects of the specific virus.
+
+1:43:24.400 --> 1:43:30.400
+ So we end up, we started with, you know, Norwalk virus and of course, zombies.
+
+1:43:30.400 --> 1:43:51.400
+ But we continued to modeling Ebola virus outbreak, flu, SARS, and because I felt that we need to add a little bit more sort of excitement for our undergraduate students.
+
+1:43:51.400 --> 1:43:56.400
+ So we actually modeled the virus from the Contagion movie.
+
+1:43:56.400 --> 1:44:06.400
+ So MEV1 and, you know, unfortunately, that virus and we tried to extract as much information.
+
+1:44:06.400 --> 1:44:20.400
+ Luckily, the this movie was the scientific consultant was Ian Lipkin, a virologist from Columbia University, who is actually who provided.
+
+1:44:20.400 --> 1:44:26.400
+ I think he designed this virus for this movie based on Nipah virus.
+
+1:44:26.400 --> 1:44:43.400
+ And I think with some ideas behind SARS or flu like airborne viruses and, you know, the movie surprisingly contained enough details for us to extract and to model it.
+
+1:44:43.400 --> 1:44:47.400
+ I was hoping you would like publish a paper of how this virus works.
+
+1:44:47.400 --> 1:44:49.400
+ Yeah, we are planning to publish.
+
+1:44:49.400 --> 1:44:57.400
+ I would love it if you did, but it would be nice if the, you know, if the the the origin of the virus.
+
+1:44:57.400 --> 1:45:01.400
+ But you're now actually being a scientist and studying the virus from that perspective.
+
+1:45:01.400 --> 1:45:13.400
+ But the origin of the virus, you know, you know, the first time I actually saw this movie is assignment number one in my bioinformatics class that they give.
+
+1:45:13.400 --> 1:45:22.400
+ Because it it also tell it tells you that, you know, bioinformatics can be of use because if if I don't know you watched it.
+
+1:45:22.400 --> 1:45:24.400
+ Have you watched it a long time ago?
+
+1:45:24.400 --> 1:45:31.400
+ So so there is, you know, approximately a week from the virus detection.
+
+1:45:31.400 --> 1:45:39.400
+ We see a screenshot of scientists looking at the structure of the surface protein.
+
+1:45:39.400 --> 1:45:49.400
+ And this is where I tell my students that, you know, if you ask an experimental biologist, they will tell you that it's impossible because it takes months,
+
+1:45:49.400 --> 1:45:55.400
+ maybe years to get the crystal structure of this, you know, the structure that is represented.
+
+1:45:55.400 --> 1:46:03.400
+ If you ask a bioinformatician, they tell you, sure, why not just get it modeled.
+
+1:46:03.400 --> 1:46:17.400
+ And and yes, but but it was very interesting to to see that there is actually, you know, and if you do it, do screenshots,
+
+1:46:17.400 --> 1:46:23.400
+ you actually see the filogenetic tree, the evolutionary tree that relate this virus with other viruses.
+
+1:46:23.400 --> 1:46:27.400
+ So it was a lot of scientific thought put into the movie.
+
+1:46:27.400 --> 1:46:41.400
+ And one thing that I was actually, you know, it was interesting to learn is that the origin of this virus was there were two animals that led to the,
+
+1:46:41.400 --> 1:46:51.400
+ you know, the the, you know, the zoonotic origin of this virus were fruit bat and a pig.
+
+1:46:51.400 --> 1:46:57.400
+ So, you know, so this is this is this doesn't feel like we're this.
+
+1:46:57.400 --> 1:47:00.400
+ This definitely feels like we're living in a simulation.
+
+1:47:00.400 --> 1:47:05.400
+ OK, but maybe a big picture.
+
+1:47:05.400 --> 1:47:14.400
+ Ageing based simulation now, larger scale, sort of not focused on inclusion, but larger scale are used now to drive some policy.
+
+1:47:14.400 --> 1:47:23.400
+ So politicians use them to tell stories and narratives and try to figure out how how to move forward under so much, so much uncertainty.
+
+1:47:23.400 --> 1:47:31.400
+ But in your sense, are ageing based simulation useful for actually predicting the future?
+
+1:47:31.400 --> 1:47:37.400
+ Or are they useful mostly for comparing relative comparison of different intervention methods?
+
+1:47:37.400 --> 1:47:53.400
+ Well, I think both because, you know, in the case of new coronavirus, we we essentially learning that the current intervention methods may not be efficient enough.
+
+1:47:53.400 --> 1:48:18.400
+ One thing that one important aspect that I find to be so critical and yet something that was overlooked, you know, during the past pandemics is the effect of the asymptomatic period.
+
+1:48:18.400 --> 1:48:25.400
+ This virus is different because it has such a long symptomatic period.
+
+1:48:25.400 --> 1:48:33.400
+ And all of a sudden, that creates a completely new game when trying to contain this virus.
+
+1:48:33.400 --> 1:48:36.400
+ In terms of the dynamics of the infection.
+
+1:48:36.400 --> 1:48:37.400
+ Exactly.
+
+1:48:37.400 --> 1:48:52.400
+ Do you also I don't know how close you're tracking this, but do you also think that there's a different rate of infection for when you're asymptomatic like that?
+
+1:48:52.400 --> 1:48:55.400
+ That aspect or does a virus not care?
+
+1:48:55.400 --> 1:48:59.400
+ So there were a couple of works.
+
+1:48:59.400 --> 1:49:18.400
+ So one important parameter that tells us how contagious the the person was asymptomatic versus asymptomatic is looking at the number of viral particles this person sheds.
+
+1:49:18.400 --> 1:49:22.400
+ You know, as a function of time.
+
+1:49:22.400 --> 1:49:47.400
+ So, so far, what I saw is the study that tells us that the, you know, the person during the asymptomatic period is already contagious and it sheds the person sheds enough viruses to infect another host.
+
+1:49:47.400 --> 1:50:00.400
+ And I think there's so many excellent papers coming out, but I think I just saw some maybe a nature paper that said the first week is when you're symptomatic or asymptomatic, you're the most contagious.
+
+1:50:00.400 --> 1:50:08.400
+ So the highest level of the like the plot sort of in the 14 day period that collected a bunch of subjects.
+
+1:50:08.400 --> 1:50:11.400
+ And I think the first week is when it's the most.
+
+1:50:11.400 --> 1:50:24.400
+ Yeah, I think, I mean, I'm waiting, I'm waiting to see sort of more, more populated studies with higher numbers.
+
+1:50:24.400 --> 1:50:35.400
+ My one of my favorite studies was, again, very recent one where scientists determined that
+
+1:50:35.400 --> 1:50:46.400
+ tears are not contagious. So, so there is, you know, so there is no viral shedding done through, through tears.
+
+1:50:46.400 --> 1:51:01.400
+ So they found one moist thing that's not contagious. And I mean, there's a lot of, I've personally been, because I'm on a survey paper, somehow that's looking at masks.
+
+1:51:01.400 --> 1:51:05.400
+ And there's been so much interesting debates on the efficacy of masks.
+
+1:51:05.400 --> 1:51:13.400
+ And there's a lot of work and there's a lot of interesting work on whether this virus is airborne.
+
+1:51:13.400 --> 1:51:22.400
+ I mean, it's a totally open question. It's leaning one way right now, but it's a totally open question whether it can travel in aerosols long distances.
+
+1:51:22.400 --> 1:51:28.400
+ I mean, do you have a, do you think about this stuff? Do you track this stuff? Are you focused on the, the bioinformatics of it?
+
+1:51:28.400 --> 1:51:36.400
+ I mean, this is, this is a very important aspect for our epidemiology study.
+
+1:51:36.400 --> 1:51:55.400
+ I think the, I mean, and it's sort of a very simple sort of idea, but I agree with people who say that the mask, the masks work in both ways.
+
+1:51:55.400 --> 1:52:11.400
+ So it not only protects you from the, you know, incoming viral particles, but also, you know, it, it, you know, makes the potentially contagious person not to spread the viral particles.
+
+1:52:11.400 --> 1:52:21.400
+ Who is, when they're asymptomatic may not even know that they're, in fact, it seems to be, there's evidence that they don't, surgical and certainly homemade masks,
+
+1:52:21.400 --> 1:52:29.400
+ which is what's needed now actually, because there's a huge shortage of, they don't work as to protect you that well.
+
+1:52:29.400 --> 1:52:36.400
+ They work much better to protect others. So it's, it's, it's a motivation for us to all wear one.
+
+1:52:36.400 --> 1:52:50.400
+ Exactly. Cause I mean, you know, you don't know where, you know, about 30%, as far as I remember, at least 30% of the asymptomatic cases are completely asymptomatic.
+
+1:52:50.400 --> 1:52:58.400
+ Right. So you don't really cough. You don't, I mean, you don't have any symptoms, yet you shed viruses.
+
+1:52:58.400 --> 1:53:05.400
+ Do you think it's possible that we'll all wear masks? I wore a mask at a grocery store and you just, you get looks.
+
+1:53:05.400 --> 1:53:17.400
+ I mean, this was like a week ago. Maybe it's already changed because I think CDC or somebody, I think the CDC has said that we should be wearing masks, like LA, they starting to happen.
+
+1:53:17.400 --> 1:53:24.400
+ But do you, it just seems like something that this country will really struggle doing or no?
+
+1:53:24.400 --> 1:53:40.400
+ I hope not. I mean, you know, it, it was interesting. I was looking through the, through the old pictures during the Spanish flu and you could see that the, you know,
+
+1:53:40.400 --> 1:53:58.400
+ pretty much everyone was wearing masks with some exceptions and they were like, you know, sort of iconic photograph of the, I think it was San Francisco, this tram who was refusing to let in a, you know, someone without the mask.
+
+1:53:58.400 --> 1:54:16.400
+ So I think, well, you know, it's also, you know, it's related to the fact of how much we are scared. Right. So how much do we treat this problem seriously?
+
+1:54:16.400 --> 1:54:28.400
+ And, you know, my take on it is we should, because it is very serious.
+
+1:54:28.400 --> 1:54:51.400
+ Yeah, I, from a psychology perspective, just worry about the entirety, the entire big mess of a psychology experiment that this is, whether mask will help it or hurt it. You know, masks have a way of distancing us from others by removing the emotional expression and all that kind of stuff.
+
+1:54:51.400 --> 1:55:07.400
+ But at the same time, mask also signal that I care about your wellbeing. Exactly. So it's a really interesting trade off. That's just, yeah, it's, it's interesting, right? About distancing. Aren't we distanced enough?
+
+1:55:07.400 --> 1:55:24.400
+ Right. Exactly. And when we try to come closer together, when they do reopen the economy, that's going to be a long road of rebuilding trust and not all being huge germaphobes.
+
+1:55:24.400 --> 1:55:41.400
+ Let me ask sort of, you have a bit of a Russian accent, Russian or no Russian accent? Were you born in Russia? Yes. And you're too kind. I have a pretty thick Russian accent.
+
+1:55:41.400 --> 1:55:44.400
+ What are your favorite memories of Russia?
+
+1:55:44.400 --> 1:56:07.400
+ So I moved first to Canada and then to the United States back in 99. So by that time I was 22. So, you know, whatever Russian accent I got back then, you know, it stuck with me for the rest of my life.
+
+1:56:07.400 --> 1:56:28.400
+ You know, it's, yeah, so I, you know, by the time the Soviet Union collapsed, I was, you know, I was a kid, but sort of, you know, old enough to realize that there are changes.
+
+1:56:28.400 --> 1:56:30.400
+ Did you want to be a scientist back then?
+
+1:56:30.400 --> 1:56:50.400
+ Oh, yes. Oh, yeah. I mean, my first, the first sort of 10 years of my sort of, you know, juvenile life, I wanted to be a pilot of a passenger jet plane.
+
+1:56:50.400 --> 1:56:51.400
+ Wow.
+
+1:56:51.400 --> 1:57:06.400
+ So yes, it was like, you know, I was getting ready, you know, to go to a college to get the degree, but I've been always fascinated by science.
+
+1:57:06.400 --> 1:57:22.400
+ And, you know, so not just by math, of course, math was one of my favorite subjects, but, you know, biology, chemistry, physics, somehow I, you know, I liked those four subjects together.
+
+1:57:22.400 --> 1:57:42.400
+ And yes, so essentially after a certain period of time, I wanted to actually, back then it was a very popular sort of area of science called cybernetics.
+
+1:57:42.400 --> 1:57:50.400
+ So it's sort of, it's not really computer science, but it was like, you know, computational robotics in this sense.
+
+1:57:50.400 --> 1:58:06.400
+ And so I really wanted to do that. And but then, you know, I, you know, I realized that, you know, my biggest passion was in mathematics.
+
+1:58:06.400 --> 1:58:20.400
+ And later I, you know, when, you know, studying in Moscow State University, I also realized that I really want to apply the knowledge.
+
+1:58:20.400 --> 1:58:31.400
+ So I really wanted to mix, you know, the mathematical knowledge that I get with real life problems.
+
+1:58:31.400 --> 1:58:41.400
+ And that could be, you mentioned chemistry and now biology. And I sort of, does it make you sad?
+
+1:58:41.400 --> 1:58:54.400
+ Maybe I'm wrong on this, but it seems like it's difficult to be in collaboration, to do open, big science in Russia.
+
+1:58:54.400 --> 1:59:01.400
+ From my distant perspective in computer science, I don't, I'm not, I can go to conferences in Russia.
+
+1:59:01.400 --> 1:59:09.400
+ I sadly don't have many collaborators in Russia. I don't know many people doing great AI work in Russia.
+
+1:59:09.400 --> 1:59:14.400
+ Does it make, does that make you sad? Am I wrong in seeing it this way?
+
+1:59:14.400 --> 1:59:29.400
+ Well, I mean, I am, I have to tell you, I am privileged to have collaborators in bioinformatics in Russia. And I think this is the bioinformatics school in Russia is very strong.
+
+1:59:29.400 --> 1:59:30.400
+ In Moscow?
+
+1:59:30.400 --> 1:59:51.400
+ In Moscow, in Novosibirsk, in St. Petersburg, have great collaborators in Kazan. And so at least, you know, in terms of, you know, my area of research.
+
+1:59:51.400 --> 1:59:53.400
+ There's strong people there.
+
+1:59:53.400 --> 2:00:13.400
+ Yeah, strong people, a lot of great ideas, very open to collaborations. So I, perhaps, you know, it's my luck, but, you know, I haven't experienced, you know, any difficulties in establishing collaborations.
+
+2:00:13.400 --> 2:00:14.400
+ That's bioinformatics though.
+
+2:00:14.400 --> 2:00:29.400
+ It could be bioinformatics too. And it could, yeah, it could be person by person related, but I just don't feel the warmth and love that I would, you know, you talk about the Seminole people who are French in artificial intelligence.
+
+2:00:29.400 --> 2:00:49.400
+ France welcomes them with open arms in so many ways. I just don't feel the love from Russia. I do on the human beings, like people in general, like friends and just cool, interesting people. But from the scientific community, no conferences, no big conferences.
+
+2:00:49.400 --> 2:01:00.400
+ Yeah, it's actually, you know, I'm trying to think. Yeah, I cannot recall any big AI conferences in Russia.
+
+2:01:00.400 --> 2:01:13.400
+ It has an effect on, for me, I haven't sadly been back to Russia. But my problem is it's very difficult. So now I have to renounce the citizenship.
+
+2:01:13.400 --> 2:01:14.400
+ Oh, is that right?
+
+2:01:14.400 --> 2:01:25.400
+ I mean, I'm a citizen in the United States and it makes it very difficult. There's a mess now, right? So, I want to be able to travel like, you know, legitimately.
+
+2:01:25.400 --> 2:01:26.400
+ Yeah.
+
+2:01:26.400 --> 2:01:34.400
+ And it's not an obvious process that will make it super easy. I mean, that's part of that, like, you know, it should be super easy for me to travel there.
+
+2:01:34.400 --> 2:01:47.400
+ Well, you know, hopefully this unfortunate circumstances that we're in will actually promote the remote collaborations.
+
+2:01:47.400 --> 2:01:48.400
+ Yes.
+
+2:01:48.400 --> 2:02:06.400
+ And I think what we are experiencing right now is that you still can do science, you know, being quarantined in your own homes, especially when it comes. I mean, you know, I certainly understand there is a very challenging time for experimental scientists.
+
+2:02:06.400 --> 2:02:13.400
+ I mean, I have many collaborators who are, you know, who are affected by that. But for computational scientists.
+
+2:02:13.400 --> 2:02:25.400
+ Yeah, we're really leaning into the remote communication. Nevertheless, I had to force you to talk to you in person because there's something that you just can't do in terms of conversation like this.
+
+2:02:25.400 --> 2:02:31.400
+ I don't know why, but in person is very much needed. So I really appreciate you doing it.
+
+2:02:31.400 --> 2:02:34.400
+ You have a collection of science bobbleheads.
+
+2:02:34.400 --> 2:02:35.400
+ Yes.
+
+2:02:35.400 --> 2:02:46.400
+ Which look amazing. Which bobblehead is your favorite and which real world version, which scientist is your favorite?
+
+2:02:46.400 --> 2:03:01.400
+ So yeah, by the way, I was trying to bring it in, but they are quarantined now. In my office, they sort of demonstrate the social distance so they're nicely spaced away from each other.
+
+2:03:01.400 --> 2:03:19.400
+ But so, you know, it's interesting. So I've been collecting those bobbleheads for the past maybe 12 or 13 years. And it, you know, interestingly enough, it started with the two bobbleheads of Watson and Crick.
+
+2:03:19.400 --> 2:03:35.400
+ And interestingly enough, my last bobblehead in this collection for now, and my favorite one, because I felt so good when I got it, was the Rosalind Franklin.
+
+2:03:35.400 --> 2:03:58.400
+ Who is the full group? So I have Watson, Crick, Newton, Einstein, Marie Curie, Tesla, of course, Charles Darwin, and Rosalind Franklin.
+
+2:03:58.400 --> 2:04:16.400
+ I am definitely missing quite a few of my favorite scientists. And but so, you know, if I were to add to this collection, so I would add, of course, Kolmogorov.
+
+2:04:16.400 --> 2:04:36.400
+ That's, you know, I've been always fascinated by his, well, his dedication to science, but also his dedication to educating young people, the next generation. So it's very inspiring.
+
+2:04:36.400 --> 2:04:51.400
+ He's one of the, okay, yeah, he's one of the Russia's greats. Yes. Yeah. So he also, you know, the school, the high school that I attended was named after him, and he was great.
+
+2:04:51.400 --> 2:04:58.400
+ You know, so he founded the school, and he actually taught there.
+
+2:04:58.400 --> 2:05:18.400
+ Is this in Moscow? Yes. So, but then, I mean, you know, other people that I would definitely like to see in my collections was, would be Alan Turing, would be John von Neumann.
+
+2:05:18.400 --> 2:05:29.400
+ Yeah, you're a little bit late on the computer scientists. Yes. Well, I mean, they don't, they don't make them, you know, I still am amazed that they haven't made Alan Turing yet.
+
+2:05:29.400 --> 2:05:40.400
+ Yes. And I would also add Linus Pauling. Linus Pauling. Who is Linus Pauling?
+
+2:05:40.400 --> 2:06:00.400
+ So this is, this is, to me is one of the greatest chemists. And the person who actually discovered the secondary structure of proteins, who was very close to solving the DNA structure.
+
+2:06:00.400 --> 2:06:26.400
+ And, you know, people argue, but some of them were pretty sure that if not for this, you know, photograph 51 by Rosalind Franklin that, you know, Watson and Crick got access to, he would be, he would be the one who would solve it.
+
+2:06:26.400 --> 2:06:51.400
+ Science is a funny race. It is. Let me ask the biggest and the most ridiculous question. So you've kind of studied the human body and its defenses and these enemies that are about from a biological perspective, bioinformatics perspective, a computer scientists perspective.
+
+2:06:51.400 --> 2:07:04.400
+ How has that made you see your own life, sort of the meaning of it, or just even seeing your, what it means to be human?
+
+2:07:04.400 --> 2:07:25.400
+ Well, it certainly makes me realizing how fragile the human life is. If you think about this little tiny thing can impact the life of the whole human kind to such extent.
+
+2:07:25.400 --> 2:07:51.400
+ So, you know, it's, it's something to appreciate and to remember that, that, you know, we are fragile, we have to bond together as a society.
+
+2:07:51.400 --> 2:08:05.400
+ And, you know, it also gives me sort of hope that what we do as scientists is useful.
+
+2:08:05.400 --> 2:08:09.400
+ Well, I don't think there's a better way to end it. Dmitry, thank you so much for talking today. It was an honor.
+
+2:08:09.400 --> 2:08:11.400
+ Thank you very much.
+
+2:08:11.400 --> 2:08:22.400
+ Thanks for listening to this conversation with Dmitry Korkin. And thank you to our presenting sponsor, Cash App. Please consider supporting the podcast by downloading Cash App and using code LexPodcast.
+
+2:08:22.400 --> 2:08:33.400
+ If you enjoy this podcast, subscribe on YouTube, review it with five stars on Apple Podcast, support it on Patreon, or simply connect with me on Twitter at LexFriedman.
+
+2:08:33.400 --> 2:08:49.400
+ And now, let me leave you with some words from Edward Osborne Wilson, E.O. Wilson, the variety of genes on the planet and viruses exceeds or is likely to exceed that in all of the rest of life combined.
+
+2:08:49.400 --> 2:09:04.400
+ Thank you for listening and hope to see you next time.
+

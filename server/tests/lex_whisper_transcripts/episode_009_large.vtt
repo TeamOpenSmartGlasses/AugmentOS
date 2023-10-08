@@ -1,0 +1,2288 @@
+WEBVTT
+
+00:00.000 --> 00:04.720
+ The following is a conversation with Stuart Russell. He's a professor of computer science at
+
+00:04.720 --> 00:10.240
+ UC Berkeley and a coauthor of a book that introduced me and millions of other people
+
+00:10.240 --> 00:16.720
+ to the amazing world of AI called Artificial Intelligence, A Modern Approach. So it was an
+
+00:16.720 --> 00:23.120
+ honor for me to have this conversation as part of MIT course in artificial general intelligence
+
+00:23.120 --> 00:28.560
+ and the artificial intelligence podcast. If you enjoy it, please subscribe on YouTube,
+
+00:28.560 --> 00:34.320
+ iTunes or your podcast provider of choice, or simply connect with me on Twitter at Lex Friedman
+
+00:34.320 --> 00:40.080
+ spelled F R I D. And now here's my conversation with Stuart Russell.
+
+00:41.440 --> 00:47.600
+ So you've mentioned in 1975 in high school, you've created one of your first AI programs
+
+00:47.600 --> 00:57.360
+ that play chess. Were you ever able to build a program that beat you at chess or another board
+
+00:57.360 --> 01:06.880
+ game? So my program never beat me at chess. I actually wrote the program at Imperial College.
+
+01:06.880 --> 01:14.400
+ So I used to take the bus every Wednesday with a box of cards this big and shove them into the
+
+01:14.400 --> 01:21.440
+ card reader. And they gave us eight seconds of CPU time. It took about five seconds to read the cards
+
+01:21.440 --> 01:28.080
+ in and compile the code. So we had three seconds of CPU time, which was enough to make one move,
+
+01:28.080 --> 01:32.080
+ you know, with a not very deep search. And then we would print that move out and then
+
+01:32.080 --> 01:35.840
+ we'd have to go to the back of the queue and wait to feed the cards in again.
+
+01:35.840 --> 01:39.760
+ How deep was the search? Are we talking about one move, two moves, three moves?
+
+01:39.760 --> 01:48.160
+ No, I think we got an eight move, a depth eight with alpha beta. And we had some tricks of our
+
+01:48.160 --> 01:55.120
+ own about move ordering and some pruning of the tree. But you were still able to beat that program?
+
+01:55.120 --> 02:01.840
+ Yeah, yeah. I was a reasonable chess player in my youth. I did an Othello program and a
+
+02:01.840 --> 02:08.640
+ backgammon program. So when I got to Berkeley, I worked a lot on what we call meta reasoning,
+
+02:08.640 --> 02:14.240
+ which really means reasoning about reasoning. And in the case of a game playing program,
+
+02:14.240 --> 02:19.040
+ you need to reason about what parts of the search tree you're actually going to explore because the
+
+02:19.040 --> 02:27.840
+ search tree is enormous, bigger than the number of atoms in the universe. And the way programs
+
+02:27.840 --> 02:33.280
+ succeed and the way humans succeed is by only looking at a small fraction of the search tree.
+
+02:33.280 --> 02:37.760
+ And if you look at the right fraction, you play really well. If you look at the wrong fraction,
+
+02:37.760 --> 02:41.600
+ if you waste your time thinking about things that are never going to happen,
+
+02:41.600 --> 02:46.480
+ moves that no one's ever going to make, then you're going to lose because you won't be able
+
+02:46.480 --> 02:53.920
+ to figure out the right decision. So that question of how machines can manage their own computation,
+
+02:53.920 --> 03:00.000
+ how they decide what to think about, is the meta reasoning question. And we developed some methods
+
+03:00.720 --> 03:07.040
+ for doing that. And very simply, the machine should think about whatever thoughts are going
+
+03:07.040 --> 03:13.840
+ to improve its decision quality. We were able to show that both for Othello, which is a standard
+
+03:13.840 --> 03:19.680
+ two player game, and for Backgammon, which includes dice rolls, so it's a two player game
+
+03:19.680 --> 03:25.600
+ with uncertainty. For both of those cases, we could come up with algorithms that were actually
+
+03:25.600 --> 03:31.760
+ much more efficient than the standard alpha beta search, which chess programs at the time were
+
+03:31.760 --> 03:42.000
+ using. And that those programs could beat me. And I think you can see the same basic ideas in Alpha
+
+03:42.000 --> 03:51.600
+ Go and Alpha Zero today. The way they explore the tree is using a form of meta reasoning to select
+
+03:51.600 --> 03:57.360
+ what to think about based on how useful it is to think about it. Is there any insights you can
+
+03:57.360 --> 04:04.720
+ describe with our Greek symbols of how do we select which paths to go down? There's really
+
+04:04.720 --> 04:11.280
+ two kinds of learning going on. So as you say, Alpha Go learns to evaluate board positions. So
+
+04:11.280 --> 04:19.760
+ it can look at a go board. And it actually has probably a superhuman ability to instantly tell
+
+04:19.760 --> 04:28.240
+ how promising that situation is. To me, the amazing thing about Alpha Go is not that it can
+
+04:28.240 --> 04:36.960
+ be the world champion with its hands tied behind his back, but the fact that if you stop it from
+
+04:36.960 --> 04:42.160
+ searching altogether, so you say, okay, you're not allowed to do any thinking ahead. You can just
+
+04:42.160 --> 04:48.240
+ consider each of your legal moves and then look at the resulting situation and evaluate it. So
+
+04:48.240 --> 04:53.760
+ what we call a depth one search. So just the immediate outcome of your moves and decide if
+
+04:53.760 --> 05:01.040
+ that's good or bad. That version of Alpha Go can still play at a professional level.
+
+05:02.000 --> 05:06.960
+ And human professionals are sitting there for five, 10 minutes deciding what to do and Alpha Go
+
+05:06.960 --> 05:14.800
+ in less than a second can instantly intuit what is the right move to make based on its ability to
+
+05:14.800 --> 05:23.280
+ evaluate positions. And that is remarkable because we don't have that level of intuition about Go.
+
+05:23.280 --> 05:31.680
+ We actually have to think about the situation. So anyway, that capability that Alpha Go has is one
+
+05:31.680 --> 05:41.520
+ big part of why it beats humans. The other big part is that it's able to look ahead 40, 50, 60 moves
+
+05:41.520 --> 05:49.840
+ into the future. And if it was considering all possibilities, 40 or 50 or 60 moves into the
+
+05:49.840 --> 06:01.360
+ future, that would be 10 to the 200 possibilities. So way more than atoms in the universe and so on.
+
+06:01.360 --> 06:08.800
+ So it's very, very selective about what it looks at. So let me try to give you an intuition about
+
+06:08.800 --> 06:14.800
+ how you decide what to think about. It's a combination of two things. One is how promising
+
+06:14.800 --> 06:22.560
+ it is. So if you're already convinced that a move is terrible, there's no point spending a lot more
+
+06:22.560 --> 06:28.800
+ time convincing yourself that it's terrible because it's probably not going to change your mind. So
+
+06:28.800 --> 06:34.400
+ the real reason you think is because there's some possibility of changing your mind about what to do.
+
+06:34.400 --> 06:40.960
+ And it's that changing your mind that would result then in a better final action in the real world.
+
+06:40.960 --> 06:47.920
+ So that's the purpose of thinking is to improve the final action in the real world. So if you
+
+06:47.920 --> 06:53.440
+ think about a move that is guaranteed to be terrible, you can convince yourself it's terrible,
+
+06:53.440 --> 06:59.280
+ you're still not going to change your mind. But on the other hand, suppose you had a choice between
+
+06:59.280 --> 07:05.040
+ two moves. One of them you've already figured out is guaranteed to be a draw, let's say. And then
+
+07:05.040 --> 07:10.000
+ the other one looks a little bit worse. It looks fairly likely that if you make that move, you're
+
+07:10.000 --> 07:16.640
+ going to lose. But there's still some uncertainty about the value of that move. There's still some
+
+07:16.640 --> 07:22.080
+ possibility that it will turn out to be a win. Then it's worth thinking about that. So even though
+
+07:22.080 --> 07:27.840
+ it's less promising on average than the other move, which is a good move, it's worth thinking
+
+07:27.840 --> 07:32.160
+ about on average than the other move, which is guaranteed to be a draw. There's still some
+
+07:32.160 --> 07:36.800
+ purpose in thinking about it because there's a chance that you will change your mind and discover
+
+07:36.800 --> 07:42.720
+ that in fact it's a better move. So it's a combination of how good the move appears to be
+
+07:42.720 --> 07:48.640
+ and how much uncertainty there is about its value. The more uncertainty, the more it's worth thinking
+
+07:48.640 --> 07:52.240
+ about because there's a higher upside if you want to think of it that way.
+
+07:52.240 --> 07:59.760
+ And of course in the beginning, especially in the AlphaGo Zero formulation, everything is shrouded
+
+07:59.760 --> 08:06.240
+ in uncertainty. So you're really swimming in a sea of uncertainty. So it benefits you to,
+
+08:07.600 --> 08:11.120
+ I mean, actually following the same process as you described, but because you're so uncertain
+
+08:11.120 --> 08:15.360
+ about everything, you basically have to try a lot of different directions.
+
+08:15.360 --> 08:22.480
+ Yeah. So the early parts of the search tree are fairly bushy that it will look at a lot
+
+08:22.480 --> 08:27.840
+ of different possibilities, but fairly quickly, the degree of certainty about some of the moves,
+
+08:27.840 --> 08:32.000
+ I mean, if a move is really terrible, you'll pretty quickly find out, right? You lose half
+
+08:32.000 --> 08:37.280
+ your pieces or half your territory and then you'll say, okay, this is not worth thinking
+
+08:37.280 --> 08:45.360
+ about anymore. And then so further down the tree becomes very long and narrow and you're following
+
+08:45.360 --> 08:55.280
+ various lines of play, 10, 20, 30, 40, 50 moves into the future. And that again is something that
+
+08:55.280 --> 09:02.000
+ human beings have a very hard time doing mainly because they just lack the short term memory.
+
+09:02.000 --> 09:08.960
+ You just can't remember a sequence of moves that's 50 moves long. And you can't imagine
+
+09:08.960 --> 09:12.400
+ the board correctly for that many moves into the future.
+
+09:13.040 --> 09:18.880
+ Of course, the top players, I'm much more familiar with chess, but the top players probably have,
+
+09:19.680 --> 09:26.000
+ they have echoes of the same kind of intuition instinct that in a moment's time AlphaGo applies
+
+09:26.720 --> 09:31.600
+ when they see a board. I mean, they've seen those patterns, human beings have seen those patterns
+
+09:31.600 --> 09:41.360
+ before at the top, at the grandmaster level. It seems that there is some similarities or maybe
+
+09:41.360 --> 09:47.360
+ it's our imagination creates a vision of those similarities, but it feels like this kind of
+
+09:47.360 --> 09:53.920
+ pattern recognition that the AlphaGo approaches are using is similar to what human beings at the
+
+09:53.920 --> 09:55.360
+ top level are using.
+
+09:55.360 --> 10:03.040
+ I think there's, there's some truth to that, but not entirely. Yeah. I mean, I think the,
+
+10:03.040 --> 10:10.720
+ the extent to which a human grandmaster can reliably instantly recognize the right move
+
+10:10.720 --> 10:15.840
+ and instantly recognize the value of the position. I think that's a little bit overrated.
+
+10:15.840 --> 10:20.480
+ But if you sacrifice a queen, for example, I mean, there's these, there's these beautiful games of
+
+10:20.480 --> 10:28.400
+ chess with Bobby Fischer, somebody where it's seeming to make a bad move. And I'm not sure
+
+10:28.400 --> 10:34.720
+ there's a perfect degree of calculation involved where they've calculated all the possible things
+
+10:34.720 --> 10:39.040
+ that happen, but there's an instinct there, right? That somehow adds up to
+
+10:40.640 --> 10:46.160
+ Yeah. So I think what happens is you, you, you get a sense that there's some possibility in the
+
+10:46.160 --> 10:54.080
+ position, even if you make a weird looking move, that it opens up some, some lines of,
+
+10:56.080 --> 11:05.040
+ of calculation that otherwise would be definitely bad. And, and it's that intuition that there's
+
+11:05.040 --> 11:10.880
+ something here in this position that might, might yield a win.
+
+11:10.880 --> 11:16.080
+ And then you follow that, right? And, and in some sense, when a, when a chess player is
+
+11:16.080 --> 11:23.440
+ following a line and in his or her mind, they're, they're mentally simulating what the other person
+
+11:23.440 --> 11:29.200
+ is going to do, what the opponent is going to do. And they can do that as long as the moves are kind
+
+11:29.200 --> 11:34.640
+ of forced, right? As long as there's, you know, there's a, a fort we call a forcing variation
+
+11:34.640 --> 11:39.120
+ where the opponent doesn't really have much choice how to respond. And then you follow that,
+
+11:39.120 --> 11:43.520
+ how to respond. And then you see if you can force them into a situation where you win.
+
+11:43.520 --> 11:51.920
+ You know, we see plenty of mistakes even, even in grandmaster games where they just miss some
+
+11:51.920 --> 11:58.560
+ simple three, four, five move combination that, you know, wasn't particularly apparent in,
+
+11:58.560 --> 12:02.560
+ in the position, but was still there. That's the thing that makes us human.
+
+12:02.560 --> 12:09.680
+ Yeah. So when you mentioned that in Othello, those games were after some matter reasoning
+
+12:09.680 --> 12:14.240
+ improvements and research was able to beat you. How did that make you feel?
+
+12:14.960 --> 12:23.680
+ Part of the meta reasoning capability that it had was based on learning and, and you could
+
+12:23.680 --> 12:30.240
+ sit down the next day and you could just feel that it had got a lot smarter, you know, and all of a
+
+12:30.240 --> 12:37.280
+ sudden you really felt like you're sort of pressed against the wall because it was, it was much more
+
+12:37.280 --> 12:43.440
+ aggressive and, and was totally unforgiving of any minor mistake that you might make. And, and
+
+12:43.440 --> 12:51.200
+ actually it seemed understood the game better than I did. And Gary Kasparov has this quote where
+
+12:52.000 --> 12:56.880
+ during his match against Deep Blue, he said, he suddenly felt that there was a new kind of
+
+12:56.880 --> 13:02.480
+ intelligence across the board. Do you think that's a scary or an exciting
+
+13:03.120 --> 13:10.320
+ possibility for, for Kasparov and for yourself in, in the context of chess, purely sort of
+
+13:10.320 --> 13:16.720
+ in this, like that feeling, whatever that is? I think it's definitely an exciting feeling.
+
+13:17.680 --> 13:23.680
+ You know, this is what made me work on AI in the first place was as soon as I really understood
+
+13:23.680 --> 13:29.920
+ what a computer was, I wanted to make it smart. You know, I started out with the first program
+
+13:29.920 --> 13:35.680
+ I wrote was for the Sinclair programmable calculator. And I think you could write a
+
+13:35.680 --> 13:42.800
+ 21 step algorithm. That was the biggest program you could write, something like that. And do
+
+13:42.800 --> 13:48.080
+ little arithmetic calculations. So I think I implemented Newton's method for a square
+
+13:48.080 --> 13:54.240
+ roots and a few other things like that. But then, you know, I thought, okay, if I just had more
+
+13:54.240 --> 14:02.080
+ space, I could make this thing intelligent. And so I started thinking about AI and,
+
+14:04.880 --> 14:11.280
+ and I think the, the, the thing that's scary is not, is not the chess program
+
+14:11.280 --> 14:17.520
+ because, you know, chess programs, they're not in the taking over the world business.
+
+14:19.520 --> 14:29.040
+ But if you extrapolate, you know, there are things about chess that don't resemble
+
+14:29.040 --> 14:32.480
+ the real world, right? We know, we know the rules of chess.
+
+14:35.120 --> 14:40.720
+ The chess board is completely visible to the program where of course the real world is not
+
+14:40.720 --> 14:45.840
+ most, most of the real world is, is not visible from wherever you're sitting, so to speak.
+
+14:47.520 --> 14:56.720
+ And to overcome those kinds of problems, you need qualitatively different algorithms. Another thing
+
+14:56.720 --> 15:05.520
+ about the real world is that, you know, we, we regularly plan ahead on the timescales involving
+
+15:05.520 --> 15:12.400
+ billions or trillions of steps. Now we don't plan those in detail, but you know, when you
+
+15:12.400 --> 15:19.680
+ choose to do a PhD at Berkeley, that's a five year commitment and that amounts to about a trillion
+
+15:19.680 --> 15:26.240
+ motor control steps that you will eventually be committed to. Including going up the stairs,
+
+15:26.240 --> 15:32.240
+ opening doors, drinking water. Yeah. I mean, every, every finger movement while you're typing,
+
+15:32.240 --> 15:36.240
+ every character of every paper and the thesis and everything. So you're not committing in
+
+15:36.240 --> 15:41.600
+ advance to the specific motor control steps, but you're still reasoning on a timescale that
+
+15:41.600 --> 15:50.080
+ will eventually reduce to trillions of motor control actions. And so for all of these reasons,
+
+15:52.160 --> 15:58.080
+ you know, AlphaGo and Deep Blue and so on don't represent any kind of threat to humanity,
+
+15:58.080 --> 16:07.040
+ but they are a step towards it, right? And progress in AI occurs by essentially removing
+
+16:07.040 --> 16:14.640
+ one by one these assumptions that make problems easy. Like the assumption of complete observability
+
+16:14.640 --> 16:19.280
+ of the situation, right? We remove that assumption, you need a much more complicated
+
+16:20.160 --> 16:25.120
+ kind of computing design. It needs, it needs something that actually keeps track of all the
+
+16:25.120 --> 16:30.320
+ things you can't see and tries to estimate what's going on. And there's inevitable uncertainty
+
+16:31.040 --> 16:36.880
+ in that. So it becomes a much more complicated problem. But, you know, we are removing those
+
+16:36.880 --> 16:42.320
+ assumptions. We are starting to have algorithms that can cope with much longer timescales,
+
+16:42.320 --> 16:45.680
+ that can cope with uncertainty, that can cope with partial observability.
+
+16:47.520 --> 16:54.240
+ And so each of those steps sort of magnifies by a thousand the range of things that we can
+
+16:54.240 --> 16:58.880
+ do with AI systems. So the way I started in AI, I wanted to be a psychiatrist for a long time. I
+
+16:58.880 --> 17:04.240
+ wanted to understand the mind in high school and of course program and so on. And I showed up
+
+17:04.960 --> 17:10.160
+ University of Illinois to an AI lab and they said, okay, I don't have time for you,
+
+17:10.160 --> 17:15.200
+ but here's a book, AI and Modern Approach. I think it was the first edition at the time.
+
+17:16.640 --> 17:22.080
+ Here, go, go, go learn this. And I remember the lay of the land was, well, it's incredible that
+
+17:22.080 --> 17:26.400
+ we solved chess, but we'll never solve go. I mean, it was pretty certain that go
+
+17:27.360 --> 17:33.440
+ in the way we thought about systems that reason wasn't possible to solve. And now we've solved
+
+17:33.440 --> 17:39.120
+ this. So it's a very... Well, I think I would have said that it's unlikely we could take
+
+17:39.840 --> 17:46.480
+ the kind of algorithm that was used for chess and just get it to scale up and work well for go.
+
+17:46.480 --> 17:56.800
+ And at the time what we thought was that in order to solve go, we would have to do something similar
+
+17:56.800 --> 18:02.800
+ to the way humans manage the complexity of go, which is to break it down into kind of sub games.
+
+18:02.800 --> 18:08.320
+ So when a human thinks about a go board, they think about different parts of the board as sort
+
+18:08.320 --> 18:13.280
+ of weakly connected to each other. And they think about, okay, within this part of the board, here's
+
+18:13.280 --> 18:18.000
+ how things could go in that part of board, here's how things could go. And then you try to sort of
+
+18:18.000 --> 18:24.000
+ couple those two analyses together and deal with the interactions and maybe revise your views of
+
+18:24.000 --> 18:28.640
+ how things are going to go in each part. And then you've got maybe five, six, seven, ten parts of
+
+18:28.640 --> 18:38.160
+ the board. And that actually resembles the real world much more than chess does because in the
+
+18:38.160 --> 18:46.880
+ real world, we have work, we have home life, we have sport, different kinds of activities,
+
+18:46.880 --> 18:54.560
+ shopping, these all are connected to each other, but they're weakly connected. So when I'm typing
+
+18:54.560 --> 19:01.280
+ a paper, I don't simultaneously have to decide which order I'm going to get the milk and the
+
+19:01.280 --> 19:08.240
+ butter, that doesn't affect the typing. But I do need to realize, okay, I better finish this
+
+19:08.240 --> 19:12.320
+ before the shops close because I don't have anything, I don't have any food at home. So
+
+19:12.320 --> 19:19.040
+ there's some weak connection, but not in the way that chess works where everything is tied into a
+
+19:19.040 --> 19:26.080
+ single stream of thought. So the thought was that to solve go, we'd have to make progress on stuff
+
+19:26.080 --> 19:29.520
+ that would be useful for the real world. And in a way, AlphaGo is a little bit disappointing,
+
+19:29.520 --> 19:39.680
+ right? Because the program designed for AlphaGo is actually not that different from Deep Blue
+
+19:39.680 --> 19:48.160
+ or even from Arthur Samuel's checker playing program from the 1950s. And in fact, the two
+
+19:48.160 --> 19:53.360
+ things that make AlphaGo work is one is this amazing ability to evaluate the positions,
+
+19:53.360 --> 19:57.520
+ and the other is the meta reasoning capability, which allows it to
+
+19:57.520 --> 20:04.400
+ explore some paths in the tree very deeply and to abandon other paths very quickly.
+
+20:04.400 --> 20:14.160
+ So this word meta reasoning, while technically correct, inspires perhaps the wrong degree of
+
+20:14.160 --> 20:19.280
+ power that AlphaGo has, for example, the word reasoning is a powerful word. So let me ask you,
+
+20:19.280 --> 20:27.760
+ sort of, you were part of the symbolic AI world for a while, like AI was, there's a lot of
+
+20:27.760 --> 20:37.520
+ excellent, interesting ideas there that unfortunately met a winter. And so do you think it reemerges?
+
+20:38.320 --> 20:44.320
+ So I would say, yeah, it's not quite as simple as that. So the AI winter
+
+20:44.320 --> 20:49.440
+ for the first winter that was actually named as such was the one in the late 80s.
+
+20:51.440 --> 21:00.960
+ And that came about because in the mid 80s, there was a really a concerted attempt to push AI
+
+21:01.520 --> 21:09.120
+ out into the real world using what was called expert system technology. And for the most part,
+
+21:09.120 --> 21:17.040
+ that technology was just not ready for primetime. They were trying, in many cases, to do a form of
+
+21:17.040 --> 21:23.200
+ uncertain reasoning, judgment, combinations of evidence, diagnosis, those kinds of things,
+
+21:24.480 --> 21:31.600
+ which was simply invalid. And when you try to apply invalid reasoning methods to real problems,
+
+21:31.600 --> 21:36.720
+ you can fudge it for small versions of the problem. But when it starts to get larger,
+
+21:36.720 --> 21:44.240
+ the thing just falls apart. So many companies found that the stuff just didn't work, and they
+
+21:44.240 --> 21:50.400
+ were spending tons of money on consultants to try to make it work. And there were other
+
+21:50.400 --> 21:56.160
+ practical reasons, like they were asking the companies to buy incredibly expensive
+
+21:56.160 --> 22:06.080
+ Lisp machine workstations, which were literally between $50,000 and $100,000 in 1980s money,
+
+22:06.080 --> 22:13.920
+ which would be like between $150,000 and $300,000 per workstation in current prices.
+
+22:13.920 --> 22:17.280
+ And then the bottom line, they weren't seeing a profit from it.
+
+22:17.280 --> 22:22.880
+ Yeah, in many cases. I think there were some successes, there's no doubt about that. But
+
+22:23.920 --> 22:30.800
+ people, I would say, overinvested. Every major company was starting an AI department, just like
+
+22:30.800 --> 22:40.000
+ now. And I worry a bit that we might see similar disappointments, not because the current technology
+
+22:40.000 --> 22:51.280
+ is invalid, but it's limited in its scope. And it's almost the duel of the scope problems that
+
+22:51.280 --> 22:56.720
+ expert systems had. So what have you learned from that hype cycle? And what can we do to
+
+22:56.720 --> 23:02.800
+ prevent another winter, for example? Yeah, so when I'm giving talks these days,
+
+23:02.800 --> 23:11.120
+ that's one of the warnings that I give. So this is a two part warning slide. One is that rather
+
+23:11.120 --> 23:18.880
+ than data being the new oil, data is the new snake oil. That's a good line. And then the other
+
+23:18.880 --> 23:30.800
+ is that we might see a kind of very visible failure in some of the major application areas. And I think
+
+23:30.800 --> 23:40.000
+ self driving cars would be the flagship. And I think when you look at the history,
+
+23:40.000 --> 23:49.760
+ so the first self driving car was on the freeway, driving itself, changing lanes, overtaking in 1987.
+
+23:52.000 --> 23:59.040
+ And so it's more than 30 years. And that kind of looks like where we are today, right? You know,
+
+23:59.040 --> 24:05.920
+ prototypes on the freeway, changing lanes and overtaking. Now, I think that's one of the things
+
+24:05.920 --> 24:12.400
+ that's been made, particularly on the perception side. So we worked a lot on autonomous vehicles
+
+24:12.400 --> 24:21.200
+ in the early mid 90s at Berkeley. And we had our own big demonstrations. We put congressmen into
+
+24:21.680 --> 24:30.640
+ self driving cars and had them zooming along the freeway. And the problem was clearly perception.
+
+24:30.640 --> 24:36.160
+ At the time, the problem was perception. Yeah. So in simulation, with perfect perception,
+
+24:36.160 --> 24:40.640
+ you could actually show that you can drive safely for a long time, even if the other cars are
+
+24:40.640 --> 24:48.800
+ misbehaving and so on. But simultaneously, we worked on machine vision for detecting cars and
+
+24:48.800 --> 24:56.880
+ tracking pedestrians and so on. And we couldn't get the cars to do that. And so we had to do
+
+24:56.880 --> 25:02.560
+ that for pedestrians and so on. And we couldn't get the reliability of detection and tracking
+
+25:03.120 --> 25:10.800
+ up to a high enough level, particularly in bad weather conditions, nighttime,
+
+25:10.800 --> 25:15.920
+ rainfall. Good enough for demos, but perhaps not good enough to cover the general operation.
+
+25:15.920 --> 25:19.680
+ Yeah. So the thing about driving is, you know, suppose you're a taxi driver, you know,
+
+25:19.680 --> 25:25.200
+ and you drive every day, eight hours a day for 10 years, right? That's 100 million seconds of
+
+25:25.200 --> 25:30.560
+ driving, you know, and any one of those seconds, you can make a fatal mistake. So you're talking
+
+25:30.560 --> 25:40.080
+ about eight nines of reliability, right? Now, if your vision system only detects 98.3% of the
+
+25:40.080 --> 25:47.200
+ vehicles, right, then that's sort of, you know, one in a bit nines of reliability. So you have
+
+25:47.200 --> 25:54.560
+ another seven orders of magnitude to go. And this is what people don't understand. They think,
+
+25:54.560 --> 26:01.440
+ oh, because I had a successful demo, I'm pretty much done. But you're not even within seven orders
+
+26:01.440 --> 26:09.760
+ of magnitude of being done. And that's the difficulty. And it's not the, can I follow a
+
+26:09.760 --> 26:15.280
+ white line? That's not the problem, right? We follow a white line all the way across the country.
+
+26:16.640 --> 26:22.160
+ But it's the weird stuff that happens. It's all the edge cases, yeah.
+
+26:22.160 --> 26:28.480
+ The edge case, other drivers doing weird things. You know, so if you talk to Google, right, so
+
+26:29.200 --> 26:35.600
+ they had actually a very classical architecture where, you know, you had machine vision which
+
+26:35.600 --> 26:41.440
+ would detect all the other cars and pedestrians and the white lines and the road signs. And then
+
+26:41.440 --> 26:48.880
+ basically that was fed into a logical database. And then you had a classical 1970s rule based
+
+26:48.880 --> 26:55.360
+ expert system telling you, okay, if you're in the middle lane and there's a bicyclist in the right
+
+26:55.360 --> 27:02.640
+ lane who is signaling this, then you do that, right? And what they found was that every day
+
+27:02.640 --> 27:06.560
+ they'd go out and there'd be another situation that the rules didn't cover. You know, so they'd
+
+27:06.560 --> 27:10.880
+ come to a traffic circle and there's a little girl riding her bicycle the wrong way around
+
+27:10.880 --> 27:14.720
+ the traffic circle. Okay, what do you do? We don't have a rule. Oh my God. Okay, stop.
+
+27:14.720 --> 27:20.560
+ And then, you know, they come back and add more rules and they just found that this was not really
+
+27:20.560 --> 27:28.240
+ converging. And if you think about it, right, how do you deal with an unexpected situation,
+
+27:28.240 --> 27:35.040
+ meaning one that you've never previously encountered and the sort of reasoning required
+
+27:35.600 --> 27:41.200
+ to figure out the solution for that situation has never been done. It doesn't match any previous
+
+27:41.200 --> 27:46.560
+ situation in terms of the kind of reasoning you have to do. Well, you know, in chess programs,
+
+27:46.560 --> 27:51.280
+ this happens all the time, right? You're constantly coming up with situations you haven't
+
+27:51.280 --> 27:56.480
+ seen before and you have to reason about them and you have to think about, okay, here are the
+
+27:56.480 --> 28:01.680
+ possible things I could do. Here are the outcomes. Here's how desirable the outcomes are and then
+
+28:01.680 --> 28:05.440
+ pick the right one. You know, in the 90s, we were saying, okay, this is how you're going to have to
+
+28:05.440 --> 28:10.880
+ do automated vehicles. They're going to have to have a look ahead capability, but the look ahead
+
+28:10.880 --> 28:18.000
+ for driving is more difficult than it is for chess because there's humans and they're less
+
+28:18.000 --> 28:23.840
+ predictable than chess pieces. Well, then you have an opponent in chess who's also somewhat
+
+28:23.840 --> 28:29.920
+ unpredictable. But for example, in chess, you always know the opponent's intention. They're
+
+28:29.920 --> 28:36.000
+ trying to beat you, right? Whereas in driving, you don't know is this guy trying to turn left
+
+28:36.000 --> 28:42.000
+ or has he just forgotten to turn off his turn signal or is he drunk or is he changing the
+
+28:42.000 --> 28:47.520
+ channel on his radio or whatever it might be. You've got to try and figure out the mental state,
+
+28:47.520 --> 28:53.520
+ the intent of the other drivers to forecast the possible evolutions of their trajectories.
+
+28:54.880 --> 28:58.960
+ And then you've got to figure out, okay, which is the trajectory for me that's going to be safest.
+
+29:00.400 --> 29:04.720
+ And those all interact with each other because the other drivers are going to react to your
+
+29:04.720 --> 29:10.640
+ trajectory and so on. So, you know, they've got the classic merging onto the freeway problem where
+
+29:10.640 --> 29:15.520
+ you're kind of racing a vehicle that's already on the freeway and you're going to pull ahead of
+
+29:15.520 --> 29:19.920
+ them or you're going to let them go first and pull in behind and you get this sort of uncertainty
+
+29:19.920 --> 29:29.440
+ about who's going first. So all those kinds of things mean that you need a decision making
+
+29:29.440 --> 29:37.200
+ architecture that's very different from either a rule based system or it seems to me kind of an
+
+29:37.200 --> 29:43.840
+ end to end neural network system. So just as AlphaGo is pretty good when it doesn't do any
+
+29:43.840 --> 29:49.920
+ look ahead, but it's way, way, way, way better when it does, I think the same is going to be
+
+29:49.920 --> 29:55.120
+ true for driving. You can have a driving system that's pretty good when it doesn't do any look
+
+29:55.120 --> 30:03.440
+ ahead, but that's not good enough. And we've already seen multiple deaths caused by poorly
+
+30:03.440 --> 30:08.480
+ designed machine learning algorithms that don't really understand what they're doing.
+
+30:09.360 --> 30:16.480
+ Yeah. On several levels, I think on the perception side, there's mistakes being made by those
+
+30:16.480 --> 30:21.200
+ algorithms where the perception is very shallow. On the planning side, the look ahead, like you
+
+30:21.200 --> 30:31.200
+ said, and the thing that we come up against that's really interesting when you try to deploy systems
+
+30:31.200 --> 30:36.160
+ in the real world is you can't think of an artificial intelligence system as a thing that
+
+30:36.160 --> 30:41.440
+ responds to the world always. You have to realize that it's an agent that others will respond to as
+
+30:41.440 --> 30:47.680
+ well. So in order to drive successfully, you can't just try to do obstacle avoidance.
+
+30:47.680 --> 30:51.920
+ Right. You can't pretend that you're invisible, right? You're the invisible car.
+
+30:51.920 --> 30:53.440
+ Right. It doesn't work that way.
+
+30:53.440 --> 30:58.320
+ I mean, but you have to assert yet others have to be scared of you. Just we're all,
+
+30:58.320 --> 31:04.080
+ there's this tension, there's this game. So if we study a lot of work with pedestrians,
+
+31:04.080 --> 31:10.000
+ if you approach pedestrians as purely an obstacle avoidance, so you're doing look ahead as in
+
+31:10.000 --> 31:15.200
+ modeling the intent that they're not going to, they're going to take advantage of you. They're
+
+31:15.200 --> 31:21.040
+ not going to respect you at all. There has to be a tension, a fear, some amount of uncertainty.
+
+31:21.040 --> 31:24.160
+ That's how we have created.
+
+31:24.160 --> 31:29.760
+ Or at least just a kind of a resoluteness. You have to display a certain amount of
+
+31:29.760 --> 31:39.120
+ resoluteness. You can't be too tentative. And yeah, so the solutions then become
+
+31:39.120 --> 31:46.000
+ pretty complicated, right? You get into game theoretic analyses. And so at Berkeley now,
+
+31:46.000 --> 31:51.440
+ we're working a lot on this kind of interaction between machines and humans.
+
+31:51.440 --> 31:53.200
+ And that's exciting.
+
+31:53.200 --> 32:04.400
+ And so my colleague, Ankur Dragan, actually, if you formulate the problem game theoretically,
+
+32:04.400 --> 32:10.080
+ you just let the system figure out the solution. It does interesting unexpected things. Like
+
+32:10.080 --> 32:17.920
+ sometimes at a stop sign, if no one is going first, the car will actually back up a little,
+
+32:18.640 --> 32:23.680
+ right? And just to indicate to the other cars that they should go. And that's something it
+
+32:23.680 --> 32:29.920
+ invented entirely by itself. We didn't say this is the language of communication at stop signs.
+
+32:29.920 --> 32:30.720
+ It figured it out.
+
+32:30.720 --> 32:38.960
+ That's really interesting. So let me one just step back for a second. Just this beautiful
+
+32:38.960 --> 32:47.040
+ philosophical notion. So Pamela McCordick in 1979 wrote, AI began with the ancient wish to
+
+32:47.040 --> 32:53.840
+ forge the gods. So when you think about the history of our civilization, do you think
+
+32:53.840 --> 33:01.520
+ that there is an inherent desire to create, let's not say gods, but to create superintelligence?
+
+33:01.520 --> 33:10.320
+ Is it inherent to us? Is it in our genes? That the natural arc of human civilization is to create
+
+33:11.280 --> 33:19.200
+ things that are of greater and greater power and perhaps echoes of ourselves. So to create the gods
+
+33:19.200 --> 33:32.080
+ as Pamela said. Maybe. I mean, we're all individuals, but certainly we see over and over
+
+33:32.080 --> 33:40.240
+ again in history, individuals who thought about this possibility. Hopefully when I'm not being too
+
+33:40.240 --> 33:47.440
+ philosophical here, but if you look at the arc of this, where this is going and we'll talk about AI
+
+33:47.440 --> 33:54.320
+ safety, we'll talk about greater and greater intelligence. Do you see that there in, when you
+
+33:54.320 --> 33:59.680
+ created the Othello program and you felt this excitement, what was that excitement? Was it
+
+33:59.680 --> 34:07.680
+ excitement of a tinkerer who created something cool like a clock? Or was there a magic or was
+
+34:07.680 --> 34:14.320
+ it more like a child being born? Yeah. So I mean, I certainly understand that viewpoint. And if you
+
+34:14.320 --> 34:23.520
+ look at the Lighthill report, which was, so in the 70s, there was a lot of controversy in the UK
+
+34:23.520 --> 34:30.000
+ about AI and whether it was for real and how much money the government should invest. And
+
+34:32.320 --> 34:39.040
+ there was a long story, but the government commissioned a report by Lighthill, who was a
+
+34:39.040 --> 34:48.800
+ physicist, and he wrote a very damning report about AI, which I think was the point. And he
+
+34:48.800 --> 34:59.200
+ said that these are frustrated men who are unable to have children would like to create and create
+
+34:59.200 --> 35:16.800
+ a life as a kind of replacement, which I think is really pretty unfair. But there is a kind of magic,
+
+35:17.360 --> 35:28.000
+ I would say, when you build something and what you're building in is really just, you're building
+
+35:28.000 --> 35:35.200
+ in some understanding of the principles of learning and decision making. And to see those
+
+35:35.200 --> 35:45.600
+ principles actually then turn into intelligent behavior in specific situations, it's an
+
+35:45.600 --> 35:58.400
+ incredible thing. And that is naturally going to make you think, okay, where does this end?
+
+36:00.000 --> 36:08.240
+ And so there's magical optimistic views of where it ends, whatever your view of optimism is,
+
+36:08.240 --> 36:13.280
+ whatever your view of utopia is, it's probably different for everybody. But you've often talked
+
+36:13.280 --> 36:26.000
+ about concerns you have of how things may go wrong. So I've talked to Max Tegmark. There's a
+
+36:26.000 --> 36:33.280
+ lot of interesting ways to think about AI safety. You're one of the seminal people thinking about
+
+36:33.280 --> 36:39.440
+ this problem amongst sort of being in the weeds of actually solving specific AI problems. You're
+
+36:39.440 --> 36:44.800
+ also thinking about the big picture of where are we going? So can you talk about several elements
+
+36:44.800 --> 36:52.800
+ of it? Let's just talk about maybe the control problem. So this idea of losing ability to control
+
+36:52.800 --> 37:00.000
+ the behavior in our AI system. So how do you see that? How do you see that coming about?
+
+37:00.000 --> 37:04.480
+ What do you think we can do to manage it?
+
+37:04.480 --> 37:09.280
+ Well, so it doesn't take a genius to realize that if you make something that's smarter than you,
+
+37:09.280 --> 37:20.640
+ you might have a problem. Alan Turing wrote about this and gave lectures about this in 1951.
+
+37:22.240 --> 37:31.200
+ He did a lecture on the radio and he basically says, once the machine thinking method starts,
+
+37:31.200 --> 37:42.640
+ very quickly they'll outstrip humanity. And if we're lucky, we might be able to turn off the power
+
+37:42.640 --> 37:49.360
+ at strategic moments, but even so, our species would be humbled. Actually, he was wrong about
+
+37:49.360 --> 37:55.120
+ that. If it's sufficiently intelligent machine, it's not going to let you switch it off. It's
+
+37:55.120 --> 37:59.440
+ actually in competition with you. So what do you think is most likely going to happen?
+
+37:59.440 --> 38:06.560
+ What do you think is meant just for a quick tangent, if we shut off this super intelligent
+
+38:06.560 --> 38:16.400
+ machine that our species will be humbled? I think he means that we would realize that
+
+38:16.400 --> 38:22.240
+ we are inferior, right? That we only survive by the skin of our teeth because we happen to get
+
+38:22.240 --> 38:30.240
+ to the off switch just in time. And if we hadn't, then we would have lost control over the earth.
+
+38:32.160 --> 38:36.800
+ Are you more worried when you think about this stuff about super intelligent AI,
+
+38:36.800 --> 38:43.200
+ or are you more worried about super powerful AI that's not aligned with our values? So the
+
+38:43.200 --> 38:54.560
+ paperclip scenarios kind of... So the main problem I'm working on is the control problem, the problem
+
+38:54.560 --> 39:01.520
+ of machines pursuing objectives that are, as you say, not aligned with human objectives. And
+
+39:02.320 --> 39:07.520
+ this has been the way we've thought about AI since the beginning.
+
+39:07.520 --> 39:14.320
+ You build a machine for optimizing, and then you put in some objective, and it optimizes, right?
+
+39:14.320 --> 39:23.920
+ And we can think of this as the King Midas problem, right? Because if the King Midas put
+
+39:23.920 --> 39:30.080
+ in this objective, everything I touch should turn to gold. And the gods, that's like the machine,
+
+39:30.080 --> 39:35.520
+ they said, okay, done. You now have this power. And of course, his father,
+
+39:35.520 --> 39:43.840
+ his drink, and his family all turned to gold. And then he dies of misery and starvation. And
+
+39:47.200 --> 39:54.240
+ it's a warning, it's a failure mode that pretty much every culture in history has had some story
+
+39:54.240 --> 39:59.520
+ along the same lines. There's the genie that gives you three wishes, and the third wish is always,
+
+39:59.520 --> 40:09.040
+ you know, please undo the first two wishes because I messed up. And when Arthur Samuel wrote his
+
+40:09.920 --> 40:13.680
+ checker playing program, which learned to play checkers considerably better than
+
+40:13.680 --> 40:17.200
+ Arthur Samuel could play, and actually reached a pretty decent standard.
+
+40:20.080 --> 40:24.640
+ Norbert Wiener, who was one of the major mathematicians of the 20th century,
+
+40:24.640 --> 40:31.680
+ he's sort of the father of modern automation control systems. He saw this and he basically
+
+40:31.680 --> 40:38.160
+ extrapolated, as Turing did, and said, okay, this is how we could lose control.
+
+40:39.840 --> 40:49.680
+ And specifically, that we have to be certain that the purpose we put into the machine is the
+
+40:49.680 --> 40:55.520
+ purpose which we really desire. And the problem is, we can't do that.
+
+40:57.840 --> 41:00.720
+ You mean we're not, it's a very difficult to encode,
+
+41:00.720 --> 41:05.360
+ to put our values on paper is really difficult, or you're just saying it's impossible?
+
+41:10.720 --> 41:17.840
+ So theoretically, it's possible, but in practice, it's extremely unlikely that we could
+
+41:17.840 --> 41:23.680
+ specify correctly in advance, the full range of concerns of humanity.
+
+41:24.160 --> 41:27.120
+ You talked about cultural transmission of values,
+
+41:27.120 --> 41:30.640
+ I think is how humans to human transmission of values happens, right?
+
+41:31.680 --> 41:37.760
+ Well, we learn, yeah, I mean, as we grow up, we learn about the values that matter,
+
+41:37.760 --> 41:43.040
+ how things should go, what is reasonable to pursue and what isn't reasonable to pursue.
+
+41:43.600 --> 41:46.000
+ You think machines can learn in the same kind of way?
+
+41:46.000 --> 41:52.000
+ Yeah, so I think that what we need to do is to get away from this idea that
+
+41:52.560 --> 41:55.680
+ you build an optimising machine, and then you put the objective into it.
+
+41:56.800 --> 42:03.840
+ Because if it's possible that you might put in a wrong objective, and we already know this is
+
+42:03.840 --> 42:09.600
+ possible because it's happened lots of times, right? That means that the machine should never
+
+42:09.600 --> 42:18.000
+ take an objective that's given as gospel truth. Because once it takes the objective as gospel
+
+42:18.000 --> 42:26.480
+ truth, then it believes that whatever actions it's taking in pursuit of that objective are
+
+42:26.480 --> 42:30.480
+ the correct things to do. So you could be jumping up and down and saying, no, no, no,
+
+42:30.480 --> 42:35.280
+ no, you're going to destroy the world, but the machine knows what the true objective is and is
+
+42:35.280 --> 42:41.840
+ pursuing it, and tough luck to you. And this is not restricted to AI, right? This is, I think,
+
+42:42.480 --> 42:48.080
+ many of the 20th century technologies, right? So in statistics, you minimise a loss function,
+
+42:48.080 --> 42:53.440
+ the loss function is exogenously specified. In control theory, you minimise a cost function.
+
+42:53.440 --> 42:59.040
+ In operations research, you maximise a reward function, and so on. So in all these disciplines,
+
+42:59.040 --> 43:07.040
+ this is how we conceive of the problem. And it's the wrong problem because we cannot specify
+
+43:07.040 --> 43:13.840
+ with certainty the correct objective, right? We need uncertainty, we need the machine to be
+
+43:13.840 --> 43:18.080
+ uncertain about what it is that it's supposed to be maximising.
+
+43:18.080 --> 43:23.920
+ Favourite idea of yours, I've heard you say somewhere, well, I shouldn't pick favourites,
+
+43:23.920 --> 43:31.440
+ but it just sounds beautiful, we need to teach machines humility. It's a beautiful way to put it,
+
+43:31.440 --> 43:32.640
+ I love it.
+
+43:32.640 --> 43:39.520
+ That they're humble, they know that they don't know what it is they're supposed to be doing,
+
+43:39.520 --> 43:47.200
+ and that those objectives, I mean, they exist, they're within us, but we may not be able to
+
+43:47.200 --> 43:56.160
+ we may not be able to explicate them, we may not even know how we want our future to go.
+
+43:56.160 --> 43:58.240
+ Exactly.
+
+43:58.240 --> 44:06.800
+ And the machine, a machine that's uncertain is going to be deferential to us. So if we say,
+
+44:06.800 --> 44:11.840
+ don't do that, well, now the machines learn something a bit more about our true objectives,
+
+44:11.840 --> 44:16.480
+ because something that it thought was reasonable in pursuit of our objective,
+
+44:16.480 --> 44:20.640
+ turns out not to be, so now it's learned something. So it's going to defer because
+
+44:20.640 --> 44:30.240
+ it wants to be doing what we really want. And that point, I think, is absolutely central
+
+44:30.240 --> 44:37.920
+ to solving the control problem. And it's a different kind of AI when you take away this
+
+44:37.920 --> 44:44.560
+ idea that the objective is known, then in fact, a lot of the theoretical frameworks that we're so
+
+44:44.560 --> 44:53.440
+ familiar with, you know, Markov decision processes, goal based planning, you know,
+
+44:53.440 --> 44:59.280
+ standard games research, all of these techniques actually become inapplicable.
+
+44:59.280 --> 45:11.360
+ And you get a more complicated problem because now the interaction with the human becomes part
+
+45:11.360 --> 45:20.400
+ of the problem. Because the human by making choices is giving you more information about
+
+45:21.200 --> 45:25.360
+ the true objective and that information helps you achieve the objective better.
+
+45:26.640 --> 45:31.840
+ And so that really means that you're mostly dealing with game theoretic problems where
+
+45:31.840 --> 45:34.320
+ you've got the machine and the human and they're coupled together,
+
+45:35.840 --> 45:39.040
+ rather than a machine going off by itself with a fixed objective.
+
+45:39.040 --> 45:46.800
+ LW. Which is fascinating on the machine and the human level that we, when you don't have an
+
+45:46.800 --> 45:53.120
+ objective, means you're together coming up with an objective. I mean, there's a lot of philosophy
+
+45:53.120 --> 45:58.880
+ that, you know, you could argue that life doesn't really have meaning. We together agree on what
+
+45:58.880 --> 46:05.920
+ gives it meaning and we kind of culturally create things that give why the heck we are on this earth
+
+46:05.920 --> 46:11.280
+ anyway. We together as a society create that meaning and you have to learn that objective.
+
+46:11.280 --> 46:14.960
+ And one of the biggest, I thought that's where you were going to go for a second,
+
+46:15.760 --> 46:21.200
+ one of the biggest troubles we run into outside of statistics and machine learning and AI
+
+46:21.200 --> 46:28.080
+ and just human civilization is when you look at, I came from, I was born in the Soviet Union
+
+46:28.080 --> 46:36.320
+ and the history of the 20th century, we ran into the most trouble, us humans, when there was a
+
+46:36.320 --> 46:41.200
+ certainty about the objective and you do whatever it takes to achieve that objective, whether you're
+
+46:41.200 --> 46:47.040
+ talking about Germany or communist Russia. You get into trouble with humans.
+
+46:47.040 --> 46:52.400
+ I would say with, you know, corporations, in fact, some people argue that, you know,
+
+46:52.400 --> 46:57.200
+ we don't have to look forward to a time when AI systems take over the world. They already have
+
+46:57.200 --> 47:03.760
+ and they call corporations, right? That corporations happen to be using people as
+
+47:03.760 --> 47:10.160
+ components right now, but they are effectively algorithmic machines and they're optimizing
+
+47:10.160 --> 47:17.520
+ an objective, which is quarterly profit that isn't aligned with overall wellbeing of the human race.
+
+47:17.520 --> 47:23.440
+ And they are destroying the world. They are primarily responsible for our inability to tackle
+
+47:23.440 --> 47:30.240
+ climate change. So I think that's one way of thinking about what's going on with corporations,
+
+47:30.240 --> 47:39.680
+ but I think the point you're making is valid that there are many systems in the real world where
+
+47:39.680 --> 47:48.480
+ we've sort of prematurely fixed on the objective and then decoupled the machine from those that's
+
+47:48.480 --> 47:54.800
+ supposed to be serving. And I think you see this with government, right? Government is supposed to
+
+47:54.800 --> 48:02.720
+ be a machine that serves people, but instead it tends to be taken over by people who have their
+
+48:02.720 --> 48:08.160
+ own objective and use government to optimize that objective regardless of what people want.
+
+48:09.120 --> 48:16.080
+ Do you find appealing the idea of almost arguing machines where you have multiple AI systems with
+
+48:16.080 --> 48:22.480
+ a clear fixed objective. We have in government, the red team and the blue team, they're very fixed on
+
+48:22.480 --> 48:28.640
+ their objectives and they argue and they kind of may disagree, but it kind of seems to make it
+
+48:29.760 --> 48:39.680
+ work somewhat that the duality of it. Okay. Let's go a hundred years back when there was still was
+
+48:39.680 --> 48:46.480
+ going on or at the founding of this country, there was disagreements and that disagreement is where,
+
+48:46.480 --> 48:52.160
+ so it was a balance between certainty and forced humility because the power was distributed.
+
+48:53.840 --> 49:04.000
+ Yeah. I think that the nature of debate and disagreement argument takes as a premise,
+
+49:04.000 --> 49:12.320
+ the idea that you could be wrong, which means that you're not necessarily absolutely convinced
+
+49:12.320 --> 49:19.440
+ that your objective is the correct one. If you were absolutely convinced, there'd be no point
+
+49:19.440 --> 49:24.080
+ in having any discussion or argument because you would never change your mind and there wouldn't
+
+49:24.080 --> 49:32.000
+ be any sort of synthesis or anything like that. I think you can think of argumentation as an
+
+49:32.000 --> 49:44.640
+ implementation of a form of uncertain reasoning. I've been reading recently about utilitarianism
+
+49:44.640 --> 49:50.640
+ and the history of efforts to define in a sort of clear mathematical way,
+
+49:53.600 --> 50:00.400
+ if you like a formula for moral or political decision making. It's really interesting that
+
+50:00.400 --> 50:07.920
+ the parallels between the philosophical discussions going back 200 years and what you see now in
+
+50:07.920 --> 50:14.640
+ discussions about existential risk because it's almost exactly the same. Someone would say,
+
+50:14.640 --> 50:20.720
+ okay, well here's a formula for how we should make decisions. Utilitarianism is roughly each
+
+50:20.720 --> 50:27.120
+ person has a utility function and then we make decisions to maximize the sum of everybody's
+
+50:27.120 --> 50:36.480
+ utility. Then people point out, well, in that case, the best policy is one that leads to
+
+50:36.480 --> 50:42.560
+ the enormously vast population, all of whom are living a life that's barely worth living.
+
+50:44.000 --> 50:50.640
+ This is called the repugnant conclusion. Another version is that we should maximize
+
+50:50.640 --> 50:57.840
+ pleasure and that's what we mean by utility. Then you'll get people effectively saying, well,
+
+50:57.840 --> 51:03.040
+ in that case, we might as well just have everyone hooked up to a heroin drip. They didn't use those
+
+51:03.040 --> 51:11.520
+ words, but that debate was happening in the 19th century as it is now about AI that if we get the
+
+51:11.520 --> 51:20.160
+ formula wrong, we're going to have AI systems working towards an outcome that in retrospect
+
+51:20.160 --> 51:26.400
+ would be exactly wrong. Do you think there's, as beautifully put, so the echoes are there,
+
+51:26.400 --> 51:32.880
+ but do you think, I mean, if you look at Sam Harris, our imagination worries about the AI
+
+51:32.880 --> 51:44.080
+ version of that because of the speed at which the things going wrong in the utilitarian context
+
+51:44.080 --> 51:53.520
+ could happen. Is that a worry for you? Yeah. I think that in most cases, not in all, but if we
+
+51:53.520 --> 52:00.560
+ have a wrong political idea, we see it starting to go wrong and we're not completely stupid and so
+
+52:00.560 --> 52:09.600
+ we say, okay, maybe that was a mistake. Let's try something different. Also, we're very slow and
+
+52:09.600 --> 52:14.800
+ inefficient about implementing these things and so on. So you have to worry when you have
+
+52:14.800 --> 52:20.800
+ corporations or political systems that are extremely efficient. But when we look at AI systems
+
+52:22.240 --> 52:29.200
+ or even just computers in general, they have this different characteristic from ordinary
+
+52:29.760 --> 52:36.000
+ human activity in the past. So let's say you were a surgeon, you had some idea about how to do some
+
+52:36.000 --> 52:42.400
+ operation. Well, and let's say you were wrong, that way of doing the operation would mostly
+
+52:42.400 --> 52:49.280
+ kill the patient. Well, you'd find out pretty quickly, like after three, maybe three or four
+
+52:49.280 --> 53:00.160
+ tries. But that isn't true for pharmaceutical companies because they don't do three or four
+
+53:00.160 --> 53:05.840
+ operations. They manufacture three or four billion pills and they sell them and then they find out
+
+53:05.840 --> 53:11.520
+ maybe six months or a year later that, oh, people are dying of heart attacks or getting cancer from
+
+53:11.520 --> 53:18.720
+ this drug. And so that's why we have the FDA, right? Because of the scalability of pharmaceutical
+
+53:18.720 --> 53:29.840
+ production. And there have been some unbelievably bad episodes in the history of pharmaceuticals
+
+53:29.840 --> 53:36.640
+ and adulteration of products and so on that have killed tens of thousands or paralyzed hundreds
+
+53:36.640 --> 53:43.760
+ of thousands of people. Now with computers, we have that same scalability problem that you can
+
+53:43.760 --> 53:49.760
+ sit there and type for I equals one to five billion do, right? And all of a sudden you're
+
+53:49.760 --> 53:56.160
+ having an impact on a global scale. And yet we have no FDA, right? There's absolutely no controls
+
+53:56.160 --> 54:02.480
+ at all over what a bunch of undergraduates with too much caffeine can do to the world.
+
+54:03.440 --> 54:10.160
+ And we look at what happened with Facebook, well, social media in general and click through
+
+54:10.160 --> 54:18.720
+ optimization. So you have a simple feedback algorithm that's trying to just optimize click
+
+54:18.720 --> 54:24.400
+ through, right? That sounds reasonable, right? Because you don't want to be feeding people ads
+
+54:24.400 --> 54:33.200
+ that they don't care about or not interested in. And you might even think of that process as
+
+54:33.840 --> 54:40.560
+ simply adjusting the feeding of ads or news articles or whatever it might be
+
+54:41.280 --> 54:45.440
+ to match people's preferences, right? Which sounds like a good idea.
+
+54:47.360 --> 54:54.080
+ But in fact, that isn't how the algorithm works, right? You make more money,
+
+54:54.080 --> 55:01.200
+ the algorithm makes more money if it can better predict what people are going to click on,
+
+55:01.200 --> 55:07.680
+ because then it can feed them exactly that, right? So the way to maximize click through
+
+55:07.680 --> 55:14.640
+ is actually to modify the people to make them more predictable. And one way to do that is to
+
+55:16.320 --> 55:23.600
+ feed them information, which will change their behavior and preferences towards extremes that
+
+55:23.600 --> 55:28.400
+ make them predictable. Whatever is the nearest extreme or the nearest predictable point,
+
+55:29.200 --> 55:33.920
+ that's where you're going to end up. And the machines will force you there.
+
+55:35.520 --> 55:40.240
+ And I think there's a reasonable argument to say that this, among other things,
+
+55:40.240 --> 55:43.920
+ is contributing to the destruction of democracy in the world.
+
+55:47.280 --> 55:52.720
+ And where was the oversight of this process? Where were the people saying, okay,
+
+55:52.720 --> 55:57.680
+ you would like to apply this algorithm to 5 billion people on the face of the earth.
+
+55:58.560 --> 56:03.760
+ Can you show me that it's safe? Can you show me that it won't have various kinds of negative
+
+56:03.760 --> 56:09.200
+ effects? No, there was no one asking that question. There was no one placed between
+
+56:11.120 --> 56:16.160
+ the undergrads with too much caffeine and the human race. They just did it.
+
+56:16.160 --> 56:22.800
+ But some way outside the scope of my knowledge, so economists would argue that the, what is it,
+
+56:22.800 --> 56:29.280
+ the invisible hand, so the capitalist system, it was the oversight. So if you're going to corrupt
+
+56:29.280 --> 56:33.600
+ society with whatever decision you make as a company, then that's going to be reflected in
+
+56:33.600 --> 56:38.160
+ people not using your product. That's one model of oversight.
+
+56:38.160 --> 56:48.000
+ We shall see, but in the meantime, but you might even have broken the political system
+
+56:48.000 --> 56:51.440
+ that enables capitalism to function. Well, you've changed it.
+
+56:53.040 --> 56:54.960
+ We shall see.
+
+56:54.960 --> 57:01.360
+ Change is often painful. So my question is absolutely, it's fascinating. You're absolutely
+
+57:01.360 --> 57:09.040
+ right that there was zero oversight on algorithms that can have a profound civilization changing
+
+57:09.040 --> 57:15.840
+ effect. So do you think it's possible? I mean, I haven't, have you seen government? So do you
+
+57:15.840 --> 57:24.400
+ think it's possible to create regulatory bodies oversight over AI algorithms, which are inherently
+
+57:24.400 --> 57:28.400
+ such cutting edge set of ideas and technologies?
+
+57:28.400 --> 57:35.040
+ Yeah, but I think it takes time to figure out what kind of oversight, what kinds of controls.
+
+57:35.040 --> 57:40.160
+ I mean, it took time to design the FDA regime, you know, and some people still don't like it and
+
+57:40.160 --> 57:45.520
+ they want to fix it. And I think there are clear ways that it could be improved.
+
+57:46.960 --> 57:51.680
+ But the whole notion that you have stage one, stage two, stage three, and here are the criteria
+
+57:51.680 --> 57:58.320
+ for what you have to do to pass a stage one trial, right? We haven't even thought about what those
+
+57:58.320 --> 58:07.040
+ would be for algorithms. So, I mean, I think there are things we could do right now with regard to
+
+58:07.040 --> 58:15.280
+ bias, for example, we have a pretty good technical handle on how to detect algorithms that are
+
+58:15.280 --> 58:22.960
+ propagating bias that exists in data sets, how to de bias those algorithms, and even what it's going
+
+58:22.960 --> 58:30.320
+ to cost you to do that. So I think we could start having some standards on that. I think there are
+
+58:30.320 --> 58:37.280
+ things to do with impersonation and falsification that we could work on.
+
+58:37.280 --> 58:38.400
+ Fakes, yeah.
+
+58:38.400 --> 58:44.960
+ A very simple point. So impersonation is a machine acting as if it was a person.
+
+58:46.000 --> 58:53.200
+ I can't see a real justification for why we shouldn't insist that machines self identify
+
+58:53.200 --> 59:02.800
+ as machines. Where is the social benefit in fooling people into thinking that this is really
+
+59:02.800 --> 59:09.360
+ a person when it isn't? I don't mind if it uses a human like voice, that's easy to understand,
+
+59:09.360 --> 59:13.360
+ that's fine, but it should just say, I'm a machine in some form.
+
+59:14.960 --> 59:20.000
+ And how many people are speaking to that? I would think relatively obvious facts.
+
+59:20.000 --> 59:27.280
+ Yeah, I mean, there is actually a law in California that bans impersonation, but only in certain
+
+59:27.280 --> 59:36.000
+ restricted circumstances. So for the purpose of engaging in a fraudulent transaction and for the
+
+59:36.000 --> 59:44.160
+ purpose of modifying someone's voting behavior. So those are the circumstances where machines have
+
+59:44.160 --> 59:51.280
+ to self identify. But I think arguably, it should be in all circumstances. And
+
+59:51.280 --> 59:58.480
+ then when you talk about deep fakes, we're just at the beginning, but already it's possible to
+
+59:58.480 --> 1:00:04.480
+ make a movie of anybody saying anything in ways that are pretty hard to detect.
+
+1:00:05.440 --> 1:00:09.040
+ Including yourself because you're on camera now and your voice is coming through with high
+
+1:00:09.040 --> 1:00:09.520
+ resolution.
+
+1:00:09.520 --> 1:00:13.600
+ Yeah, so you could take what I'm saying and replace it with pretty much anything else you
+
+1:00:13.600 --> 1:00:17.040
+ wanted me to be saying. And it's a very simple thing.
+
+1:00:17.040 --> 1:00:21.440
+ Take what I'm saying and replace it with pretty much anything else you wanted me to be saying. And
+
+1:00:21.440 --> 1:00:29.040
+ even it would change my lips and facial expressions to fit. And there's actually not much
+
+1:00:30.640 --> 1:00:38.160
+ in the way of real legal protection against that. I think in the commercial area, you could say,
+
+1:00:38.160 --> 1:00:45.600
+ yeah, you're using my brand and so on. There are rules about that. But in the political sphere,
+
+1:00:45.600 --> 1:00:52.480
+ I think at the moment, anything goes. That could be really, really damaging.
+
+1:00:53.840 --> 1:01:03.280
+ And let me just try to make not an argument, but try to look back at history and say something dark
+
+1:01:04.160 --> 1:01:10.240
+ in essence is while regulation seems to be, oversight seems to be exactly the right thing to
+
+1:01:10.240 --> 1:01:15.440
+ do here. It seems that human beings, what they naturally do is they wait for something to go
+
+1:01:15.440 --> 1:01:21.840
+ wrong. If you're talking about nuclear weapons, you can't talk about nuclear weapons being dangerous
+
+1:01:21.840 --> 1:01:28.720
+ until somebody actually like the United States drops the bomb or Chernobyl melting. Do you think
+
+1:01:28.720 --> 1:01:36.880
+ we will have to wait for things going wrong in a way that's obviously damaging to society,
+
+1:01:36.880 --> 1:01:43.440
+ not an existential risk, but obviously damaging? Or do you have faith that...
+
+1:01:43.440 --> 1:01:48.000
+ I hope not, but I think we do have to look at history.
+
+1:01:49.840 --> 1:01:57.280
+ And so the two examples you gave, nuclear weapons and nuclear power are very, very interesting
+
+1:01:57.280 --> 1:02:07.520
+ because nuclear weapons, we knew in the early years of the 20th century that atoms contained
+
+1:02:07.520 --> 1:02:12.880
+ a huge amount of energy. We had E equals MC squared. We knew the mass differences between
+
+1:02:12.880 --> 1:02:15.440
+ the different atoms and their components. And we knew that
+
+1:02:17.920 --> 1:02:23.760
+ you might be able to make an incredibly powerful explosive. So HG Wells wrote science fiction book,
+
+1:02:23.760 --> 1:02:31.920
+ I think in 1912. Frederick Soddy, who was the guy who discovered isotopes, the Nobel prize winner,
+
+1:02:31.920 --> 1:02:40.400
+ he gave a speech in 1915 saying that one pound of this new explosive would be the equivalent
+
+1:02:40.400 --> 1:02:48.320
+ of 150 tons of dynamite, which turns out to be about right. And this was in World War I,
+
+1:02:48.320 --> 1:02:56.160
+ so he was imagining how much worse the world war would be if we were using that kind of explosive.
+
+1:02:56.160 --> 1:03:04.000
+ But the physics establishment simply refused to believe that these things could be made.
+
+1:03:04.000 --> 1:03:05.760
+ Including the people who are making it.
+
+1:03:05.760 --> 1:03:11.200
+ Well, so they were doing the nuclear physics. I mean, eventually were the ones who made it.
+
+1:03:11.200 --> 1:03:13.440
+ You talk about Fermi or whoever.
+
+1:03:13.440 --> 1:03:22.240
+ Well, so up to the development was mostly theoretical. So it was people using sort of
+
+1:03:22.240 --> 1:03:29.440
+ primitive kinds of particle acceleration and doing experiments at the level of single particles
+
+1:03:29.440 --> 1:03:37.280
+ or collections of particles. They weren't yet thinking about how to actually make a bomb or
+
+1:03:37.280 --> 1:03:40.640
+ anything like that. But they knew the energy was there and they figured if they understood it
+
+1:03:40.640 --> 1:03:47.040
+ better, it might be possible. But the physics establishment, their view, and I think because
+
+1:03:47.040 --> 1:03:54.320
+ they did not want it to be true, their view was that it could not be true. That this could not
+
+1:03:54.320 --> 1:04:03.520
+ not provide a way to make a super weapon. And there was this famous speech given by Rutherford,
+
+1:04:03.520 --> 1:04:11.840
+ who was the sort of leader of nuclear physics. And it was on September 11th, 1933. And he said,
+
+1:04:11.840 --> 1:04:17.760
+ anyone who talks about the possibility of obtaining energy from transformation of atoms
+
+1:04:17.760 --> 1:04:26.080
+ is talking complete moonshine. And the next morning, Leo Szilard read about that speech
+
+1:04:26.080 --> 1:04:32.880
+ and then invented the nuclear chain reaction. And so as soon as he invented, as soon as he had that
+
+1:04:32.880 --> 1:04:38.560
+ idea that you could make a chain reaction with neutrons, because neutrons were not repelled by
+
+1:04:38.560 --> 1:04:44.240
+ the nucleus, so they could enter the nucleus and then continue the reaction. As soon as he has that
+
+1:04:44.240 --> 1:04:54.400
+ idea, he instantly realized that the world was in deep doo doo. Because this is 1933, right? Hitler
+
+1:04:54.400 --> 1:05:02.800
+ had recently come to power in Germany. Szilard was in London and eventually became a refugee
+
+1:05:04.000 --> 1:05:11.920
+ and came to the US. And in the process of having the idea about the chain reaction,
+
+1:05:11.920 --> 1:05:18.960
+ he figured out basically how to make a bomb and also how to make a reactor. And he patented the
+
+1:05:18.960 --> 1:05:27.920
+ reactor in 1934. But because of the situation, the great power conflict situation that he could see
+
+1:05:27.920 --> 1:05:39.920
+ happening, he kept that a secret. And so between then and the beginning of World War II, people
+
+1:05:39.920 --> 1:05:49.200
+ were working, including the Germans, on how to actually create neutron sources, what specific
+
+1:05:50.320 --> 1:05:55.120
+ fission reactions would produce neutrons of the right energy to continue the reaction.
+
+1:05:57.440 --> 1:06:01.440
+ And that was demonstrated in Germany, I think in 1938, if I remember correctly.
+
+1:06:01.440 --> 1:06:16.480
+ The first nuclear weapon patent was 1939 by the French. So this was actually going on well before
+
+1:06:16.480 --> 1:06:22.640
+ World War II really got going. And then the British probably had the most advanced capability
+
+1:06:22.640 --> 1:06:30.160
+ in this area. But for safety reasons, among others, and just resources, they moved the program
+
+1:06:30.160 --> 1:06:37.840
+ from Britain to the US and then that became Manhattan Project. So the reason why we couldn't
+
+1:06:40.560 --> 1:06:44.880
+ have any kind of oversight of nuclear weapons and nuclear technology
+
+1:06:46.560 --> 1:06:50.800
+ was because we were basically already in an arms race and a war.
+
+1:06:50.800 --> 1:07:00.960
+ LR But you mentioned then in the 20s and 30s. So what are the echoes? The way you've described
+
+1:07:00.960 --> 1:07:05.040
+ this story, I mean, there's clearly echoes. Why do you think most AI researchers,
+
+1:07:06.800 --> 1:07:11.760
+ folks who are really close to the metal, they really are not concerned about AI. They don't
+
+1:07:11.760 --> 1:07:18.240
+ think about it, whether it's they don't want to think about it. But why do you think that is,
+
+1:07:18.240 --> 1:07:27.120
+ is what are the echoes of the nuclear situation to the current AI situation? And what can we do
+
+1:07:27.120 --> 1:07:35.520
+ about it? BF I think there is a kind of motivated cognition, which is a term in psychology means
+
+1:07:35.520 --> 1:07:46.000
+ that you believe what you would like to be true, rather than what is true. And it's unsettling
+
+1:07:46.000 --> 1:07:52.640
+ to think that what you're working on might be the end of the human race, obviously. So you would
+
+1:07:52.640 --> 1:08:00.560
+ rather instantly deny it and come up with some reason why it couldn't be true. And I have,
+
+1:08:00.560 --> 1:08:08.160
+ I collected a long list of reasons that extremely intelligent, competent AI scientists have come up
+
+1:08:08.160 --> 1:08:16.800
+ with for why we shouldn't worry about this. For example, calculators are superhuman at arithmetic
+
+1:08:16.800 --> 1:08:22.000
+ and they haven't taken over the world. So there's nothing to worry about. Well, okay, my five year
+
+1:08:22.000 --> 1:08:29.040
+ old, you know, could have figured out why that was an unreasonable and really quite weak argument.
+
+1:08:29.040 --> 1:08:40.320
+ Another one was, while it's theoretically possible that you could have superhuman AI destroy the
+
+1:08:40.320 --> 1:08:45.680
+ world, it's also theoretically possible that a black hole could materialize right next to the
+
+1:08:45.680 --> 1:08:50.960
+ earth and destroy humanity. I mean, yes, it's theoretically possible, quantum theoretically,
+
+1:08:50.960 --> 1:08:58.080
+ extremely unlikely that it would just materialize right there. But that's a completely bogus analogy,
+
+1:08:58.080 --> 1:09:04.240
+ because, you know, if the whole physics community on earth was working to materialize a black hole
+
+1:09:04.240 --> 1:09:10.160
+ in near earth orbit, right? Wouldn't you ask them, is that a good idea? Is that going to be safe?
+
+1:09:10.160 --> 1:09:16.720
+ You know, what if you succeed? Right. And that's the thing, right? The AI community is sort of
+
+1:09:16.720 --> 1:09:24.240
+ refused to ask itself, what if you succeed? And initially I think that was because it was too hard,
+
+1:09:24.240 --> 1:09:32.720
+ but, you know, Alan Turing asked himself that, and he said, we'd be toast, right? If we were lucky,
+
+1:09:32.720 --> 1:09:37.600
+ we might be able to switch off the power, but probably we'd be toast. But there's also an aspect
+
+1:09:37.600 --> 1:09:45.200
+ that because we're not exactly sure what the future holds, it's not clear exactly,
+
+1:09:45.200 --> 1:09:52.640
+ so technically what to worry about, sort of how things go wrong. And so there is something,
+
+1:09:53.360 --> 1:09:58.800
+ it feels like, maybe you can correct me if I'm wrong, but there's something paralyzing about
+
+1:09:58.800 --> 1:10:05.200
+ worrying about something that logically is inevitable, but you have to think about it,
+
+1:10:05.200 --> 1:10:10.000
+ logically is inevitable, but you don't really know what that will look like.
+
+1:10:10.720 --> 1:10:18.480
+ Yeah, I think that's, it's a reasonable point and, you know, it's certainly in terms of
+
+1:10:18.480 --> 1:10:24.000
+ existential risks, it's different from, you know, asteroid collides with the earth, right? Which,
+
+1:10:24.000 --> 1:10:29.520
+ again, is quite possible, you know, it's happened in the past, it'll probably happen again,
+
+1:10:29.520 --> 1:10:34.960
+ we don't know right now, but if we did detect an asteroid that was going to hit the earth
+
+1:10:34.960 --> 1:10:39.760
+ in 75 years time, we'd certainly be doing something about it.
+
+1:10:39.760 --> 1:10:42.080
+ Well, it's clear there's got big rock and there's,
+
+1:10:42.080 --> 1:10:45.600
+ we'll probably have a meeting and see what do we do about the big rock with AI.
+
+1:10:46.160 --> 1:10:50.160
+ Right, with AI, I mean, there are very few people who think it's not going to happen within the
+
+1:10:50.160 --> 1:10:56.160
+ next 75 years. I know Rod Brooks doesn't think it's going to happen, maybe Andrew Ng doesn't
+
+1:10:56.160 --> 1:11:02.800
+ think it's happened, but, you know, a lot of the people who work day to day, you know, as you say,
+
+1:11:02.800 --> 1:11:10.640
+ at the rock face, they think it's going to happen. I think the median estimate from AI researchers is
+
+1:11:10.640 --> 1:11:16.000
+ somewhere in 40 to 50 years from now, or maybe, you know, I think in Asia, they think it's going
+
+1:11:16.000 --> 1:11:23.440
+ to be even faster than that. I'm a little bit more conservative, I think it'd probably take
+
+1:11:24.080 --> 1:11:30.720
+ longer than that, but I think, you know, as happened with nuclear weapons, it can happen
+
+1:11:30.720 --> 1:11:34.240
+ overnight that you have these breakthroughs and we need more than one breakthrough, but,
+
+1:11:34.960 --> 1:11:40.640
+ you know, it's on the order of half a dozen, I mean, this is a very rough scale, but sort of
+
+1:11:40.640 --> 1:11:49.920
+ half a dozen breakthroughs of that nature would have to happen for us to reach the superhuman AI.
+
+1:11:49.920 --> 1:11:57.280
+ But the, you know, the AI research community is vast now, the massive investments from governments,
+
+1:11:57.280 --> 1:12:03.360
+ from corporations, tons of really, really smart people, you know, you just have to look at the
+
+1:12:03.360 --> 1:12:09.200
+ rate of progress in different areas of AI to see that things are moving pretty fast. So to say,
+
+1:12:09.200 --> 1:12:14.560
+ oh, it's just going to be thousands of years, I don't see any basis for that. You know, I see,
+
+1:12:15.920 --> 1:12:26.400
+ you know, for example, the Stanford 100 year AI project, right, which is supposed to be sort of,
+
+1:12:26.400 --> 1:12:32.400
+ you know, the serious establishment view, their most recent report actually said it's probably
+
+1:12:32.400 --> 1:12:34.720
+ not even possible. Oh, wow.
+
+1:12:35.280 --> 1:12:42.880
+ Right. Which if you want a perfect example of people in denial, that's it. Because, you know,
+
+1:12:42.880 --> 1:12:49.520
+ for the whole history of AI, we've been saying to philosophers who said it wasn't possible,
+
+1:12:49.520 --> 1:12:53.920
+ well, you have no idea what you're talking about. Of course it's possible, right? Give me an argument
+
+1:12:53.920 --> 1:13:00.400
+ for why it couldn't happen. And there isn't one, right? And now, because people are worried that
+
+1:13:00.400 --> 1:13:06.080
+ maybe AI might get a bad name, or I just don't want to think about this, they're saying, okay,
+
+1:13:06.080 --> 1:13:12.240
+ well, of course, it's not really possible. You know, imagine if, you know, the leaders of the
+
+1:13:12.240 --> 1:13:17.360
+ cancer biology community got up and said, well, you know, of course, curing cancer,
+
+1:13:17.360 --> 1:13:28.320
+ it's not really possible. There'd be complete outrage and dismay. And, you know, I find this
+
+1:13:28.320 --> 1:13:35.680
+ really a strange phenomenon. So, okay, so if you accept that it's possible,
+
+1:13:35.680 --> 1:13:42.400
+ and if you accept that it's probably going to happen, the point that you're making that,
+
+1:13:42.400 --> 1:13:50.160
+ you know, how does it go wrong? A valid question. Without that, without an answer to that question,
+
+1:13:50.160 --> 1:13:54.320
+ then you're stuck with what I call the gorilla problem, which is, you know, the problem that
+
+1:13:54.320 --> 1:14:00.480
+ the gorillas face, right? They made something more intelligent than them, namely us, a few million
+
+1:14:00.480 --> 1:14:07.680
+ years ago, and now they're in deep doo doo. So there's really nothing they can do. They've lost
+
+1:14:07.680 --> 1:14:13.760
+ the control. They failed to solve the control problem of controlling humans, and so they've
+
+1:14:13.760 --> 1:14:20.240
+ lost. So we don't want to be in that situation. And if the gorilla problem is the only formulation
+
+1:14:20.240 --> 1:14:25.360
+ you have, there's not a lot you can do, right? Other than to say, okay, we should try to stop,
+
+1:14:26.640 --> 1:14:31.760
+ you know, we should just not make the humans, or in this case, not make the AI. And I think
+
+1:14:31.760 --> 1:14:40.320
+ that's really hard to do. I'm not actually proposing that that's a feasible course of
+
+1:14:40.320 --> 1:14:46.080
+ action. I also think that, you know, if properly controlled AI could be incredibly beneficial.
+
+1:14:48.800 --> 1:14:56.720
+ But it seems to me that there's a consensus that one of the major failure modes is this
+
+1:14:56.720 --> 1:15:05.040
+ loss of control, that we create AI systems that are pursuing incorrect objectives. And because
+
+1:15:05.040 --> 1:15:12.240
+ the AI system believes it knows what the objective is, it has no incentive to listen to us anymore,
+
+1:15:12.240 --> 1:15:21.680
+ so to speak, right? It's just carrying out the strategy that it has computed as being the optimal
+
+1:15:21.680 --> 1:15:30.480
+ solution. And, you know, it may be that in the process, it needs to acquire more resources to
+
+1:15:30.480 --> 1:15:36.800
+ increase the possibility of success or prevent various failure modes by defending itself against
+
+1:15:36.800 --> 1:15:45.920
+ interference. And so that collection of problems, I think, is something we can address. The other
+
+1:15:45.920 --> 1:15:55.680
+ problems are, roughly speaking, you know, misuse, right? So even if we solve the control problem,
+
+1:15:55.680 --> 1:16:01.600
+ we make perfectly safe controllable AI systems. Well, why? You know, why does Dr. Evil going to
+
+1:16:01.600 --> 1:16:06.480
+ use those, right? He wants to just take over the world and he'll make unsafe AI systems that then
+
+1:16:06.480 --> 1:16:12.960
+ get out of control. So that's one problem, which is sort of a, you know, partly a policing problem,
+
+1:16:12.960 --> 1:16:21.280
+ partly a sort of a cultural problem for the profession of how we teach people what kinds
+
+1:16:21.280 --> 1:16:26.000
+ of AI systems are safe. You talk about autonomous weapon system and how pretty much everybody
+
+1:16:26.000 --> 1:16:32.000
+ agrees that there's too many ways that that can go horribly wrong. This great slaughterbots movie
+
+1:16:32.000 --> 1:16:36.000
+ that kind of illustrates that beautifully. I want to talk about that. That's another,
+
+1:16:36.960 --> 1:16:41.200
+ there's another topic I'm having to talk about. I just want to mention that what I see is the
+
+1:16:41.200 --> 1:16:49.760
+ third major failure mode, which is overuse, not so much misuse, but overuse of AI that we become
+
+1:16:49.760 --> 1:16:54.960
+ overly dependent. So I call this the WALL E problem. So if you've seen WALL E, the movie,
+
+1:16:54.960 --> 1:17:00.240
+ all right, all the humans are on the spaceship and the machines look after everything for them,
+
+1:17:00.240 --> 1:17:07.440
+ and they just watch TV and drink big gulps. And they're all sort of obese and stupid and they
+
+1:17:07.440 --> 1:17:17.680
+ sort of totally lost any notion of human autonomy. And, you know, so in effect, right. This would
+
+1:17:17.680 --> 1:17:24.240
+ happen like the slow boiling frog, right? We would gradually turn over more and more of the
+
+1:17:24.240 --> 1:17:29.520
+ management of our civilization to machines as we are already doing. And this, you know, if this
+
+1:17:29.520 --> 1:17:37.920
+ if this process continues, you know, we sort of gradually switch from sort of being the masters
+
+1:17:37.920 --> 1:17:44.160
+ of technology to just being the guests. Right. So we become guests on a cruise ship, you know,
+
+1:17:44.160 --> 1:17:51.360
+ which is fine for a week, but not not for the rest of eternity. You know, and it's almost
+
+1:17:51.360 --> 1:17:58.640
+ irreversible. Right. Once you once you lose the incentive to, for example, you know, learn to be
+
+1:17:58.640 --> 1:18:08.000
+ an engineer or a doctor or a sanitation operative or any other of the infinitely many ways that we
+
+1:18:08.000 --> 1:18:14.240
+ maintain and propagate our civilization. You know, if you if you don't have the incentive to do any
+
+1:18:14.240 --> 1:18:20.320
+ of that, you won't. And then it's really hard to recover. And of course, as just one of the
+
+1:18:20.320 --> 1:18:24.400
+ technologies that could that third failure mode result in that there's probably other
+
+1:18:24.400 --> 1:18:31.120
+ technology in general detaches us from it does a bit. But the difference is that in terms of
+
+1:18:31.120 --> 1:18:38.240
+ the knowledge to to run our civilization, you know, up to now, we've had no alternative but
+
+1:18:38.240 --> 1:18:43.920
+ to put it into people's heads. Right. And if you software with Google, I mean, so software in
+
+1:18:43.920 --> 1:18:51.200
+ general, so computers in general, but but the, you know, the knowledge of how, you know, how a
+
+1:18:51.200 --> 1:18:56.000
+ sanitation system works, you know, that's an AI has to understand that it's no good putting it
+
+1:18:56.000 --> 1:19:02.560
+ into Google. So, I mean, we we've always put knowledge in on paper, but paper doesn't run our
+
+1:19:02.560 --> 1:19:07.120
+ civilization and only runs when it goes from the paper into people's heads again. Right. So we've
+
+1:19:07.120 --> 1:19:13.680
+ always propagated civilization through human minds. And we've spent about a trillion person
+
+1:19:13.680 --> 1:19:19.440
+ years doing that. I literally write you, you can work it out. It's about right. There's about just
+
+1:19:19.440 --> 1:19:25.280
+ over 100 billion people who've ever lived. And each of them has spent about 10 years learning
+
+1:19:25.280 --> 1:19:30.640
+ stuff to keep their civilization going. And so that's a trillion person years we put into this
+
+1:19:30.640 --> 1:19:36.160
+ effort. Beautiful way to describe all civilization. And now we're, you know, we're in danger of
+
+1:19:36.160 --> 1:19:40.880
+ throwing that away. So this is a problem that AI can't solve. It's not a technical problem. It's
+
+1:19:40.880 --> 1:19:48.560
+ you know, if we do our job right, the AI systems will say, you know, the human race doesn't in the
+
+1:19:48.560 --> 1:19:54.560
+ long run want to be passengers in a cruise ship. The human race wants autonomy. This is part of
+
+1:19:54.560 --> 1:20:01.200
+ human preferences. So we, the AI systems are not going to do this stuff for you. You've got to do
+
+1:20:01.200 --> 1:20:06.320
+ it for yourself. Right. I'm not going to carry you to the top of Everest in an autonomous
+
+1:20:06.320 --> 1:20:14.960
+ helicopter. You have to climb it if you want to get the benefit and so on. So, but I'm afraid that
+
+1:20:14.960 --> 1:20:22.400
+ because we are short sighted and lazy, we're going to override the AI systems. And, and there's an
+
+1:20:22.400 --> 1:20:28.720
+ amazing short story that I recommend to everyone that I talked to about this called The Machine
+
+1:20:28.720 --> 1:20:37.520
+ Stops, written in 1909 by E.M. Forster, who, you know, wrote novels about the British Empire and
+
+1:20:37.520 --> 1:20:42.240
+ sort of things that became costume dramas on the BBC. But he wrote this one science fiction story,
+
+1:20:42.240 --> 1:20:51.680
+ which is an amazing vision of the future. It has basically iPads, it has video conferencing,
+
+1:20:51.680 --> 1:21:00.320
+ it has MOOCs, it has computer induced obesity. I mean, literally it's what people spend their
+
+1:21:00.320 --> 1:21:05.920
+ time doing is giving online courses or listening to online courses and talking about ideas,
+
+1:21:05.920 --> 1:21:11.200
+ but they never get out there in the real world. They don't really have a lot of face to face
+
+1:21:11.200 --> 1:21:16.480
+ contact. Everything is done online, you know, so all the things we're worrying about now
+
+1:21:17.520 --> 1:21:22.000
+ were described in the story. And, and then the human race becomes more and more dependent on
+
+1:21:22.000 --> 1:21:30.000
+ the machine, loses knowledge of how things really run and then becomes vulnerable to collapse. And
+
+1:21:31.360 --> 1:21:38.640
+ so it's a, it's a pretty unbelievably amazing story for someone writing in 1909 to imagine all
+
+1:21:38.640 --> 1:21:45.760
+ this. So there's very few people that represent artificial intelligence more than you Stuart
+
+1:21:45.760 --> 1:21:57.200
+ Russell. If you say it's okay, that's very kind. So it's all my fault. Right. You're often brought
+
+1:21:57.200 --> 1:22:03.680
+ up as the person, well, Stuart Russell, like the AI person is worried about this. That's why you
+
+1:22:03.680 --> 1:22:10.240
+ should be worried about it. Do you feel the burden of that? I don't know if you feel that at all,
+
+1:22:10.240 --> 1:22:15.840
+ but when I talk to people like from, you talk about people outside of computer science,
+
+1:22:15.840 --> 1:22:21.280
+ when they think about this, Stuart Russell is worried about AI safety. You should be worried
+
+1:22:21.280 --> 1:22:29.840
+ too. Do you feel the burden of that? I mean, in a practical sense, yeah, because I get, you know,
+
+1:22:29.840 --> 1:22:38.640
+ a dozen, sometimes 25 invitations a day to talk about it, to give interviews, to write press
+
+1:22:38.640 --> 1:22:46.160
+ articles and so on. So in that very practical sense, I'm seeing that people are concerned and
+
+1:22:46.160 --> 1:22:52.320
+ really interested about this. Are you worried that you could be wrong as all good scientists are?
+
+1:22:52.320 --> 1:22:57.920
+ Of course. I worry about that all the time. I mean, that's, that's always been the way that I,
+
+1:22:57.920 --> 1:23:03.440
+ I've worked, you know, is like I have an argument in my head with myself, right? So I have,
+
+1:23:03.440 --> 1:23:10.560
+ I have some idea and then I think, okay, how could that be wrong? Or did someone else already have
+
+1:23:10.560 --> 1:23:16.720
+ that idea? So I'll go and, you know, search in as much literature as I can to see whether someone
+
+1:23:16.720 --> 1:23:23.680
+ else already thought of that or, or even refuted it. So, you know, I, right now I'm, I'm reading a
+
+1:23:23.680 --> 1:23:32.800
+ lot of philosophy because, you know, in, in the form of the debates over, over utilitarianism and,
+
+1:23:32.800 --> 1:23:41.600
+ and other kinds of moral, moral formulas, shall we say, people have already thought through
+
+1:23:42.800 --> 1:23:47.680
+ some of these issues. But, you know, what, one of the things I'm, I'm not seeing in a lot of
+
+1:23:47.680 --> 1:23:54.880
+ these debates is this specific idea about the importance of uncertainty in the objective
+
+1:23:56.400 --> 1:24:01.920
+ that this is the way we should think about machines that are beneficial to humans. So this
+
+1:24:01.920 --> 1:24:08.960
+ idea of provably beneficial machines based on explicit uncertainty in the objective,
+
+1:24:10.000 --> 1:24:17.600
+ you know, it seems to be, you know, my gut feeling is this is the core of it. It's going to have to
+
+1:24:17.600 --> 1:24:23.600
+ be elaborated in a lot of different directions and there are a lot of beneficial. Yeah. But there,
+
+1:24:23.600 --> 1:24:30.640
+ there are, I mean, it has to be right. We can't afford, you know, hand wavy beneficial because
+
+1:24:30.640 --> 1:24:34.800
+ there are, you know, whenever we do hand wavy stuff, there are loopholes. And the thing about
+
+1:24:34.800 --> 1:24:40.560
+ super intelligent machines is they find the loopholes, you know, just like, you know, tax
+
+1:24:40.560 --> 1:24:46.400
+ evaders. If you don't write your tax law properly, people will find the loopholes and end up paying
+
+1:24:46.400 --> 1:24:54.400
+ no tax. And, and so you should think of it this way and, and getting those definitions right,
+
+1:24:56.480 --> 1:25:04.400
+ you know, it is really a long process, you know, so you can, you can define mathematical frameworks
+
+1:25:04.400 --> 1:25:08.560
+ and within that framework, you can prove mathematical theorems that yes, this will,
+
+1:25:08.560 --> 1:25:13.680
+ you know, this, this theoretical entity will be provably beneficial to that theoretical entity,
+
+1:25:13.680 --> 1:25:20.160
+ but that framework may not match the real world in some crucial way. So it's a long process,
+
+1:25:20.160 --> 1:25:27.120
+ thinking through it, iterating and so on. Last question. Yep. You have 10 seconds to answer it.
+
+1:25:27.120 --> 1:25:34.480
+ What is your favorite sci fi movie about AI? I would say interstellar has my favorite robots.
+
+1:25:34.480 --> 1:25:42.160
+ Oh, beats space. Yeah. Yeah. Yeah. So, so Tars, the robots, one of the robots in interstellar is
+
+1:25:42.160 --> 1:25:50.960
+ the way robot should behave. And, uh, I would say ex machina is in some ways, the one,
+
+1:25:51.520 --> 1:25:58.080
+ the one that makes you think, uh, in a nervous kind of way about, about where we're going.
+
+1:25:58.080 --> 1:26:12.880
+ Well Stuart, thank you so much for talking today. Pleasure.
+

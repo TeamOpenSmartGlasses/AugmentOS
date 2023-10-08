@@ -1,0 +1,2939 @@
+WEBVTT
+
+00:00.000 --> 00:03.120
+ The following is a conversation with Peter Abbeel.
+
+00:03.120 --> 00:04.840
+ He's a professor at UC Berkeley
+
+00:04.840 --> 00:07.840
+ and the director of the Berkeley Robotics Learning Lab.
+
+00:07.840 --> 00:10.080
+ He's one of the top researchers in the world
+
+00:10.080 --> 00:13.080
+ working on how we make robots understand
+
+00:13.080 --> 00:15.360
+ and interact with the world around them,
+
+00:15.360 --> 00:18.680
+ especially using imitation and deep reinforcement learning.
+
+00:19.720 --> 00:22.360
+ This conversation is part of the MIT course
+
+00:22.360 --> 00:24.080
+ on Artificial General Intelligence
+
+00:24.080 --> 00:26.400
+ and the Artificial Intelligence podcast.
+
+00:26.400 --> 00:29.060
+ If you enjoy it, please subscribe on YouTube,
+
+00:29.060 --> 00:31.680
+ iTunes, or your podcast provider of choice,
+
+00:31.680 --> 00:34.840
+ or simply connect with me on Twitter at Lex Friedman,
+
+00:34.840 --> 00:36.920
+ spelled F R I D.
+
+00:36.920 --> 00:41.400
+ And now, here's my conversation with Peter Abbeel.
+
+00:41.400 --> 00:44.120
+ You've mentioned that if there was one person
+
+00:44.120 --> 00:46.200
+ you could meet, it would be Roger Federer.
+
+00:46.200 --> 00:50.120
+ So let me ask, when do you think we'll have a robot
+
+00:50.120 --> 00:54.760
+ that fully autonomously can beat Roger Federer at tennis?
+
+00:54.760 --> 00:57.520
+ Roger Federer level player at tennis?
+
+00:57.520 --> 01:00.720
+ Well, first, if you can make it happen for me to meet Roger,
+
+01:00.720 --> 01:01.560
+ let me know.
+
+01:01.560 --> 01:06.560
+ In terms of getting a robot to beat him at tennis,
+
+01:07.440 --> 01:08.920
+ it's kind of an interesting question
+
+01:08.920 --> 01:13.920
+ because for a lot of the challenges we think about in AI,
+
+01:14.560 --> 01:16.760
+ the software is really the missing piece,
+
+01:16.760 --> 01:18.620
+ but for something like this,
+
+01:18.620 --> 01:22.720
+ the hardware is nowhere near either.
+
+01:22.720 --> 01:26.560
+ To really have a robot that can physically run around,
+
+01:26.560 --> 01:28.560
+ the Boston Dynamics robots are starting to get there,
+
+01:28.560 --> 01:33.040
+ but still not really human level ability to run around
+
+01:33.040 --> 01:34.980
+ and then swing a racket.
+
+01:36.920 --> 01:38.400
+ So you think that's a hardware problem?
+
+01:38.400 --> 01:39.960
+ I don't think it's a hardware problem only.
+
+01:39.960 --> 01:41.640
+ I think it's a hardware and a software problem.
+
+01:41.640 --> 01:43.160
+ I think it's both.
+
+01:43.160 --> 01:45.680
+ And I think they'll have independent progress.
+
+01:45.680 --> 01:50.400
+ So I'd say the hardware maybe in 10, 15 years.
+
+01:51.680 --> 01:52.920
+ On clay, not grass.
+
+01:52.920 --> 01:53.760
+ I mean, grass is probably harder.
+
+01:53.760 --> 01:54.600
+ With the sliding?
+
+01:54.600 --> 01:55.420
+ Yeah.
+
+01:55.420 --> 01:58.920
+ With the clay, I'm not sure what's harder, grass or clay.
+
+01:58.920 --> 02:01.600
+ The clay involves sliding,
+
+02:01.600 --> 02:04.560
+ which might be harder to master actually, yeah.
+
+02:06.040 --> 02:08.940
+ But you're not limited to a bipedal.
+
+02:08.940 --> 02:09.780
+ I mean, I'm sure there's no...
+
+02:09.780 --> 02:11.480
+ Well, if we can build a machine,
+
+02:11.480 --> 02:13.200
+ it's a whole different question, of course.
+
+02:13.200 --> 02:16.300
+ If you can say, okay, this robot can be on wheels,
+
+02:16.300 --> 02:19.400
+ it can move around on wheels and can be designed differently,
+
+02:19.400 --> 02:23.040
+ then I think that can be done sooner probably
+
+02:23.040 --> 02:26.280
+ than a full humanoid type of setup.
+
+02:26.280 --> 02:27.760
+ What do you think of swing a racket?
+
+02:27.760 --> 02:31.240
+ So you've worked at basic manipulation.
+
+02:31.240 --> 02:34.240
+ How hard do you think is the task of swinging a racket
+
+02:34.240 --> 02:37.480
+ would be able to hit a nice backhand or a forehand?
+
+02:39.480 --> 02:42.720
+ Let's say we just set up stationary,
+
+02:42.720 --> 02:46.580
+ a nice robot arm, let's say, a standard industrial arm,
+
+02:46.580 --> 02:49.840
+ and it can watch the ball come and then swing the racket.
+
+02:50.700 --> 02:51.540
+ It's a good question.
+
+02:51.540 --> 02:56.200
+ I'm not sure it would be super hard to do.
+
+02:56.200 --> 02:58.240
+ I mean, I'm sure it would require a lot,
+
+02:58.240 --> 03:00.000
+ if we do it with reinforcement learning,
+
+03:00.000 --> 03:01.520
+ it would require a lot of trial and error.
+
+03:01.520 --> 03:03.380
+ It's not gonna swing it right the first time around,
+
+03:03.380 --> 03:07.920
+ but yeah, I don't see why I couldn't
+
+03:07.920 --> 03:09.480
+ swing it the right way.
+
+03:09.480 --> 03:10.340
+ I think it's learnable.
+
+03:10.340 --> 03:12.160
+ I think if you set up a ball machine,
+
+03:12.160 --> 03:13.800
+ let's say on one side,
+
+03:13.800 --> 03:17.780
+ and then a robot with a tennis racket on the other side,
+
+03:17.780 --> 03:20.280
+ I think it's learnable
+
+03:20.280 --> 03:22.940
+ and maybe a little bit of pre training and simulation.
+
+03:22.940 --> 03:25.560
+ Yeah, I think that's feasible.
+
+03:25.560 --> 03:27.280
+ I think the swing the racket is feasible.
+
+03:27.280 --> 03:28.900
+ It'd be very interesting to see how much precision
+
+03:28.900 --> 03:29.740
+ it can get.
+
+03:31.840 --> 03:35.400
+ Cause I mean, that's where, I mean,
+
+03:35.400 --> 03:37.920
+ some of the human players can hit it on the lines,
+
+03:37.920 --> 03:39.240
+ which is very high precision.
+
+03:39.240 --> 03:42.840
+ With spin, the spin is an interesting,
+
+03:42.840 --> 03:45.760
+ whether RL can learn to put a spin on the ball.
+
+03:45.760 --> 03:46.880
+ Well, you got me interested.
+
+03:46.880 --> 03:48.400
+ Maybe someday we'll set this up.
+
+03:48.400 --> 03:51.120
+ Sure, you got me intrigued.
+
+03:51.120 --> 03:52.680
+ Your answer is basically, okay,
+
+03:52.680 --> 03:54.160
+ for this problem, it sounds fascinating,
+
+03:54.160 --> 03:56.480
+ but for the general problem of a tennis player,
+
+03:56.480 --> 03:58.560
+ we might be a little bit farther away.
+
+03:58.560 --> 04:01.260
+ What's the most impressive thing you've seen a robot do
+
+04:01.260 --> 04:02.500
+ in the physical world?
+
+04:04.140 --> 04:06.480
+ So physically for me,
+
+04:06.480 --> 04:10.920
+ it's the Boston Dynamics videos.
+
+04:10.920 --> 04:14.560
+ Always just bring home and just super impressed.
+
+04:15.680 --> 04:17.700
+ Recently, the robot running up the stairs,
+
+04:17.700 --> 04:19.440
+ doing the parkour type thing.
+
+04:19.440 --> 04:22.280
+ I mean, yes, we don't know what's underneath.
+
+04:22.280 --> 04:23.940
+ They don't really write a lot of detail,
+
+04:23.940 --> 04:27.040
+ but even if it's hard coded underneath,
+
+04:27.040 --> 04:29.800
+ which it might or might not be just the physical abilities
+
+04:29.800 --> 04:32.680
+ of doing that parkour, that's a very impressive.
+
+04:32.680 --> 04:34.960
+ So have you met Spot Mini
+
+04:34.960 --> 04:36.840
+ or any of those robots in person?
+
+04:36.840 --> 04:41.040
+ Met Spot Mini last year in April at the Mars event
+
+04:41.040 --> 04:42.960
+ that Jeff Bezos organizes.
+
+04:42.960 --> 04:44.160
+ They brought it out there
+
+04:44.160 --> 04:47.760
+ and it was nicely following around Jeff.
+
+04:47.760 --> 04:50.640
+ When Jeff left the room, they had it follow him along,
+
+04:50.640 --> 04:52.160
+ which is pretty impressive.
+
+04:52.160 --> 04:55.680
+ So I think there's some confidence to know
+
+04:55.680 --> 04:58.040
+ that there's no learning going on in those robots.
+
+04:58.040 --> 05:00.160
+ The psychology of it, so while knowing that,
+
+05:00.160 --> 05:01.140
+ while knowing there's not,
+
+05:01.140 --> 05:04.040
+ if there's any learning going on, it's very limited.
+
+05:04.040 --> 05:05.800
+ I met Spot Mini earlier this year
+
+05:06.840 --> 05:09.520
+ and knowing everything that's going on,
+
+05:09.520 --> 05:11.000
+ having one on one interaction,
+
+05:11.000 --> 05:15.960
+ so I got to spend some time alone and there's immediately
+
+05:15.960 --> 05:18.640
+ a deep connection on the psychological level.
+
+05:18.640 --> 05:21.000
+ Even though you know the fundamentals, how it works,
+
+05:21.000 --> 05:23.240
+ there's something magical.
+
+05:23.240 --> 05:27.560
+ So do you think about the psychology of interacting
+
+05:27.560 --> 05:29.080
+ with robots in the physical world?
+
+05:29.080 --> 05:32.800
+ Even you just showed me the PR2, the robot,
+
+05:33.720 --> 05:36.860
+ and there was a little bit something like a face,
+
+05:36.860 --> 05:38.480
+ had a little bit something like a face.
+
+05:38.480 --> 05:40.600
+ There's something that immediately draws you to it.
+
+05:40.600 --> 05:45.160
+ Do you think about that aspect of the robotics problem?
+
+05:45.160 --> 05:48.400
+ Well, it's very hard with Brad here.
+
+05:48.400 --> 05:50.680
+ We'll give him a name, Berkeley Robot
+
+05:50.680 --> 05:52.200
+ for the Elimination of Tedious Tasks.
+
+05:52.200 --> 05:56.560
+ It's very hard to not think of the robot as a person
+
+05:56.560 --> 05:58.880
+ and it seems like everybody calls him a he
+
+05:58.880 --> 06:01.160
+ for whatever reason, but that also makes it more a person
+
+06:01.160 --> 06:06.160
+ than if it was a it, and it seems pretty natural
+
+06:06.360 --> 06:07.320
+ to think of it that way.
+
+06:07.320 --> 06:08.680
+ This past weekend really struck me.
+
+06:08.680 --> 06:13.360
+ I've seen Pepper many times on videos,
+
+06:13.360 --> 06:15.360
+ but then I was at an event organized by,
+
+06:15.360 --> 06:18.880
+ this was by Fidelity, and they had scripted Pepper
+
+06:18.880 --> 06:22.800
+ to help moderate some sessions,
+
+06:22.800 --> 06:23.920
+ and they had scripted Pepper
+
+06:23.920 --> 06:26.520
+ to have the personality of a child a little bit,
+
+06:26.520 --> 06:28.600
+ and it was very hard to not think of it
+
+06:28.600 --> 06:31.920
+ as its own person in some sense
+
+06:31.920 --> 06:34.560
+ because it would just jump in the conversation,
+
+06:34.560 --> 06:35.880
+ making it very interactive.
+
+06:35.880 --> 06:37.960
+ Moderate would be saying, Pepper would just jump in,
+
+06:37.960 --> 06:40.120
+ hold on, how about me?
+
+06:40.120 --> 06:41.360
+ Can I participate in this too?
+
+06:41.360 --> 06:43.720
+ And you're just like, okay, this is like a person,
+
+06:43.720 --> 06:46.640
+ and that was 100% scripted, and even then it was hard
+
+06:46.640 --> 06:50.640
+ not to have that sense of somehow there is something there.
+
+06:50.640 --> 06:54.440
+ So as we have robots interact in this physical world,
+
+06:54.440 --> 06:56.120
+ is that a signal that could be used
+
+06:56.120 --> 06:57.440
+ in reinforcement learning?
+
+06:57.440 --> 07:00.240
+ You've worked a little bit in this direction,
+
+07:00.240 --> 07:03.300
+ but do you think that psychology can be somehow pulled in?
+
+07:04.360 --> 07:07.160
+ Yes, that's a question I would say
+
+07:07.160 --> 07:11.320
+ a lot of people ask, and I think part of why they ask it
+
+07:11.320 --> 07:14.960
+ is they're thinking about how unique
+
+07:14.960 --> 07:16.680
+ are we really still as people?
+
+07:16.680 --> 07:18.120
+ Like after they see some results,
+
+07:18.120 --> 07:21.440
+ they see a computer play Go, they see a computer do this,
+
+07:21.440 --> 07:23.760
+ that, they're like, okay, but can it really have emotion?
+
+07:23.760 --> 07:26.760
+ Can it really interact with us in that way?
+
+07:26.760 --> 07:29.100
+ And then once you're around robots,
+
+07:29.100 --> 07:30.120
+ you already start feeling it,
+
+07:30.120 --> 07:33.180
+ and I think that kind of maybe mythologically,
+
+07:33.180 --> 07:34.720
+ the way that I think of it is
+
+07:34.720 --> 07:37.640
+ if you run something like reinforcement learning,
+
+07:37.640 --> 07:39.920
+ it's about optimizing some objective,
+
+07:39.920 --> 07:44.920
+ and there's no reason that the objective
+
+07:45.360 --> 07:49.380
+ couldn't be tied into how much does a person like
+
+07:49.380 --> 07:50.720
+ interacting with this system,
+
+07:50.720 --> 07:53.220
+ and why could not the reinforcement learning system
+
+07:53.220 --> 07:56.720
+ optimize for the robot being fun to be around?
+
+07:56.720 --> 07:58.940
+ And why wouldn't it then naturally become
+
+07:58.940 --> 08:01.400
+ more and more interactive and more and more
+
+08:01.400 --> 08:03.200
+ maybe like a person or like a pet?
+
+08:03.200 --> 08:04.600
+ I don't know what it would exactly be,
+
+08:04.600 --> 08:06.640
+ but more and more have those features
+
+08:06.640 --> 08:08.320
+ and acquire them automatically.
+
+08:08.320 --> 08:10.880
+ As long as you can formalize an objective
+
+08:10.880 --> 08:13.440
+ of what it means to like something,
+
+08:13.440 --> 08:16.800
+ what, how you exhibit, what's the ground truth?
+
+08:16.800 --> 08:19.560
+ How do you get the reward from human?
+
+08:19.560 --> 08:20.760
+ Because you have to somehow collect
+
+08:20.760 --> 08:22.400
+ that information within you, human.
+
+08:22.400 --> 08:26.280
+ But you're saying if you can formulate as an objective,
+
+08:26.280 --> 08:27.240
+ it can be learned.
+
+08:27.240 --> 08:29.380
+ There's no reason it couldn't emerge through learning,
+
+08:29.380 --> 08:31.480
+ and maybe one way to formulate as an objective,
+
+08:31.480 --> 08:33.800
+ you wouldn't have to necessarily score it explicitly,
+
+08:33.800 --> 08:36.560
+ so standard rewards are numbers,
+
+08:36.560 --> 08:38.740
+ and numbers are hard to come by.
+
+08:38.740 --> 08:41.320
+ This is a 1.5 or a 1.7 on some scale.
+
+08:41.320 --> 08:43.060
+ It's very hard to do for a person,
+
+08:43.060 --> 08:45.420
+ but much easier is for a person to say,
+
+08:45.420 --> 08:47.800
+ okay, what you did the last five minutes
+
+08:47.800 --> 08:51.160
+ was much nicer than what you did the previous five minutes,
+
+08:51.160 --> 08:53.080
+ and that now gives a comparison.
+
+08:53.080 --> 08:55.320
+ And in fact, there have been some results on that.
+
+08:55.320 --> 08:57.880
+ For example, Paul Christiano and collaborators at OpenAI
+
+08:57.880 --> 09:02.040
+ had the Hopper, Mojoko Hopper, a one legged robot,
+
+09:02.040 --> 09:05.600
+ going through backflips purely from feedback.
+
+09:05.600 --> 09:06.920
+ I like this better than that.
+
+09:06.920 --> 09:08.640
+ That's kind of equally good,
+
+09:08.640 --> 09:10.920
+ and after a bunch of interactions,
+
+09:10.920 --> 09:13.080
+ it figured out what it was the person was asking for,
+
+09:13.080 --> 09:14.400
+ namely a backflip.
+
+09:14.400 --> 09:15.920
+ And so I think the same thing.
+
+09:15.920 --> 09:18.640
+ Oh, it wasn't trying to do a backflip.
+
+09:18.640 --> 09:20.820
+ It was just getting a comparison score
+
+09:20.820 --> 09:22.300
+ from the person based on?
+
+09:23.320 --> 09:26.080
+ Person having in mind, in their own mind,
+
+09:26.080 --> 09:27.400
+ I wanted to do a backflip,
+
+09:27.400 --> 09:30.760
+ but the robot didn't know what it was supposed to be doing.
+
+09:30.760 --> 09:32.800
+ It just knew that sometimes the person said,
+
+09:32.800 --> 09:34.560
+ this is better, this is worse,
+
+09:34.560 --> 09:36.020
+ and then the robot figured out
+
+09:36.020 --> 09:38.760
+ what the person was actually after was a backflip.
+
+09:38.760 --> 09:40.040
+ And I'd imagine the same would be true
+
+09:40.040 --> 09:43.120
+ for things like more interactive robots,
+
+09:43.120 --> 09:45.100
+ that the robot would figure out over time,
+
+09:45.100 --> 09:48.160
+ oh, this kind of thing apparently is appreciated more
+
+09:48.160 --> 09:50.200
+ than this other kind of thing.
+
+09:50.200 --> 09:54.000
+ So when I first picked up Sutton's,
+
+09:54.000 --> 09:56.200
+ Richard Sutton's reinforcement learning book,
+
+09:56.200 --> 10:00.240
+ before sort of this deep learning,
+
+10:01.280 --> 10:03.360
+ before the reemergence of neural networks
+
+10:03.360 --> 10:05.640
+ as a powerful mechanism for machine learning,
+
+10:05.640 --> 10:08.320
+ RL seemed to me like magic.
+
+10:08.320 --> 10:10.280
+ It was beautiful.
+
+10:10.280 --> 10:13.560
+ So that seemed like what intelligence is,
+
+10:13.560 --> 10:15.520
+ RL reinforcement learning.
+
+10:15.520 --> 10:20.320
+ So how do you think we can possibly learn anything
+
+10:20.320 --> 10:22.980
+ about the world when the reward for the actions
+
+10:22.980 --> 10:25.840
+ is delayed, is so sparse?
+
+10:25.840 --> 10:29.680
+ Like where is, why do you think RL works?
+
+10:30.560 --> 10:32.800
+ Why do you think you can learn anything
+
+10:32.800 --> 10:35.040
+ under such sparse rewards,
+
+10:35.040 --> 10:36.880
+ whether it's regular reinforcement learning
+
+10:36.880 --> 10:38.640
+ or deep reinforcement learning?
+
+10:38.640 --> 10:39.740
+ What's your intuition?
+
+10:40.580 --> 10:44.480
+ The counterpart of that is why is RL,
+
+10:44.480 --> 10:47.240
+ why does it need so many samples,
+
+10:47.240 --> 10:49.640
+ so many experiences to learn from?
+
+10:49.640 --> 10:50.760
+ Because really what's happening is
+
+10:50.760 --> 10:53.040
+ when you have a sparse reward,
+
+10:53.040 --> 10:55.200
+ you do something maybe for like, I don't know,
+
+10:55.200 --> 10:57.440
+ you take 100 actions and then you get a reward.
+
+10:57.440 --> 10:59.760
+ And maybe you get like a score of three.
+
+10:59.760 --> 11:03.000
+ And I'm like okay, three, not sure what that means.
+
+11:03.000 --> 11:05.040
+ You go again and now you get two.
+
+11:05.040 --> 11:07.160
+ And now you know that that sequence of 100 actions
+
+11:07.160 --> 11:08.320
+ that you did the second time around
+
+11:08.320 --> 11:10.600
+ somehow was worse than the sequence of 100 actions
+
+11:10.600 --> 11:11.920
+ you did the first time around.
+
+11:11.920 --> 11:14.440
+ But that's tough to now know which one of those
+
+11:14.440 --> 11:15.280
+ were better or worse.
+
+11:15.280 --> 11:17.480
+ Some might have been good and bad in either one.
+
+11:17.480 --> 11:19.840
+ And so that's why it needs so many experiences.
+
+11:19.840 --> 11:21.280
+ But once you have enough experiences,
+
+11:21.280 --> 11:23.480
+ effectively RL is teasing that apart.
+
+11:23.480 --> 11:26.640
+ It's trying to say okay, what is consistently there
+
+11:26.640 --> 11:27.840
+ when you get a higher reward
+
+11:27.840 --> 11:30.000
+ and what's consistently there when you get a lower reward?
+
+11:30.000 --> 11:32.480
+ And then kind of the magic of sometimes
+
+11:32.480 --> 11:34.720
+ the policy gradient update is to say
+
+11:34.720 --> 11:37.000
+ now let's update the neural network
+
+11:37.000 --> 11:39.160
+ to make the actions that were kind of present
+
+11:39.160 --> 11:41.460
+ when things are good more likely
+
+11:41.460 --> 11:43.080
+ and make the actions that are present
+
+11:43.080 --> 11:45.140
+ when things are not as good less likely.
+
+11:45.140 --> 11:47.000
+ So that is the counterpoint,
+
+11:47.000 --> 11:49.540
+ but it seems like you would need to run it
+
+11:49.540 --> 11:50.920
+ a lot more than you do.
+
+11:50.920 --> 11:52.760
+ Even though right now people could say
+
+11:52.760 --> 11:54.480
+ that RL is very inefficient,
+
+11:54.480 --> 11:56.320
+ but it seems to be way more efficient
+
+11:56.320 --> 11:58.880
+ than one would imagine on paper.
+
+11:58.880 --> 12:02.040
+ That the simple updates to the policy,
+
+12:02.040 --> 12:04.960
+ the policy gradient, that somehow you can learn,
+
+12:04.960 --> 12:07.740
+ exactly you just said, what are the common actions
+
+12:07.740 --> 12:09.820
+ that seem to produce some good results?
+
+12:09.820 --> 12:12.800
+ That that somehow can learn anything.
+
+12:12.800 --> 12:15.600
+ It seems counterintuitive at least.
+
+12:15.600 --> 12:16.920
+ Is there some intuition behind it?
+
+12:16.920 --> 12:21.920
+ Yeah, so I think there's a few ways to think about this.
+
+12:21.920 --> 12:26.440
+ The way I tend to think about it mostly originally,
+
+12:26.440 --> 12:29.080
+ so when we started working on deep reinforcement learning
+
+12:29.080 --> 12:32.760
+ here at Berkeley, which was maybe 2011, 12, 13,
+
+12:32.760 --> 12:36.160
+ around that time, John Schulman was a PhD student
+
+12:36.160 --> 12:38.400
+ initially kind of driving it forward here.
+
+12:39.520 --> 12:44.080
+ And the way we thought about it at the time was
+
+12:44.080 --> 12:47.000
+ if you think about rectified linear units
+
+12:47.000 --> 12:49.340
+ or kind of rectifier type neural networks,
+
+12:50.240 --> 12:51.080
+ what do you get?
+
+12:51.080 --> 12:55.080
+ You get something that's piecewise linear feedback control.
+
+12:55.080 --> 12:57.120
+ And if you look at the literature,
+
+12:57.120 --> 12:59.360
+ linear feedback control is extremely successful,
+
+12:59.360 --> 13:02.460
+ can solve many, many problems surprisingly well.
+
+13:03.720 --> 13:05.700
+ I remember, for example, when we did helicopter flight,
+
+13:05.700 --> 13:07.320
+ if you're in a stationary flight regime,
+
+13:07.320 --> 13:10.440
+ not a non stationary, but a stationary flight regime
+
+13:10.440 --> 13:12.520
+ like hover, you can use linear feedback control
+
+13:12.520 --> 13:15.580
+ to stabilize a helicopter, very complex dynamical system,
+
+13:15.580 --> 13:18.480
+ but the controller is relatively simple.
+
+13:18.480 --> 13:20.660
+ And so I think that's a big part of it is that
+
+13:20.660 --> 13:23.220
+ if you do feedback control, even though the system
+
+13:23.220 --> 13:25.000
+ you control can be very, very complex,
+
+13:25.000 --> 13:28.760
+ often relatively simple control architectures
+
+13:28.760 --> 13:30.560
+ can already do a lot.
+
+13:30.560 --> 13:32.600
+ But then also just linear is not good enough.
+
+13:32.600 --> 13:35.120
+ And so one way you can think of these neural networks
+
+13:35.120 --> 13:37.120
+ is that sometimes they tile the space,
+
+13:37.120 --> 13:39.480
+ which people were already trying to do more by hand
+
+13:39.480 --> 13:41.000
+ or with finite state machines,
+
+13:41.000 --> 13:42.520
+ say this linear controller here,
+
+13:42.520 --> 13:43.840
+ this linear controller here.
+
+13:43.840 --> 13:45.640
+ Neural network learns to tile the space
+
+13:45.640 --> 13:46.600
+ and say linear controller here,
+
+13:46.600 --> 13:48.320
+ another linear controller here,
+
+13:48.320 --> 13:50.080
+ but it's more subtle than that.
+
+13:50.080 --> 13:52.000
+ And so it's benefiting from this linear control aspect,
+
+13:52.000 --> 13:53.600
+ it's benefiting from the tiling,
+
+13:53.600 --> 13:57.440
+ but it's somehow tiling it one dimension at a time.
+
+13:57.440 --> 13:59.440
+ Because if let's say you have a two layer network,
+
+13:59.440 --> 14:03.360
+ if in that hidden layer, you make a transition
+
+14:03.360 --> 14:06.560
+ from active to inactive or the other way around,
+
+14:06.560 --> 14:09.520
+ that is essentially one axis, but not axis aligned,
+
+14:09.520 --> 14:12.360
+ but one direction that you change.
+
+14:12.360 --> 14:14.780
+ And so you have this kind of very gradual tiling
+
+14:14.780 --> 14:16.800
+ of the space where you have a lot of sharing
+
+14:16.800 --> 14:19.560
+ between the linear controllers that tile the space.
+
+14:19.560 --> 14:21.720
+ And that was always my intuition as to why
+
+14:21.720 --> 14:24.820
+ to expect that this might work pretty well.
+
+14:24.820 --> 14:26.160
+ It's essentially leveraging the fact
+
+14:26.160 --> 14:28.560
+ that linear feedback control is so good,
+
+14:28.560 --> 14:29.880
+ but of course not enough.
+
+14:29.880 --> 14:31.800
+ And this is a gradual tiling of the space
+
+14:31.800 --> 14:33.520
+ with linear feedback controls
+
+14:33.520 --> 14:36.620
+ that share a lot of expertise across them.
+
+14:36.620 --> 14:39.040
+ So that's really nice intuition,
+
+14:39.040 --> 14:41.520
+ but do you think that scales to the more
+
+14:41.520 --> 14:44.720
+ and more general problems of when you start going up
+
+14:44.720 --> 14:49.480
+ the number of dimensions when you start
+
+14:49.480 --> 14:52.760
+ going down in terms of how often
+
+14:52.760 --> 14:55.400
+ you get a clean reward signal?
+
+14:55.400 --> 14:58.800
+ Does that intuition carry forward to those crazier,
+
+14:58.800 --> 15:01.580
+ weirder worlds that we think of as the real world?
+
+15:03.360 --> 15:08.040
+ So I think where things get really tricky
+
+15:08.040 --> 15:09.760
+ in the real world compared to the things
+
+15:09.760 --> 15:11.920
+ we've looked at so far with great success
+
+15:11.920 --> 15:16.920
+ in reinforcement learning is the time scales,
+
+15:17.320 --> 15:18.960
+ which takes us to an extreme.
+
+15:18.960 --> 15:21.800
+ So when you think about the real world,
+
+15:21.800 --> 15:24.320
+ I mean, I don't know, maybe some student
+
+15:24.320 --> 15:26.920
+ decided to do a PhD here, right?
+
+15:26.920 --> 15:28.760
+ Okay, that's a decision.
+
+15:28.760 --> 15:30.840
+ That's a very high level decision.
+
+15:30.840 --> 15:32.680
+ But if you think about their lives,
+
+15:32.680 --> 15:34.080
+ I mean, any person's life,
+
+15:34.080 --> 15:37.440
+ it's a sequence of muscle fiber contractions
+
+15:37.440 --> 15:40.360
+ and relaxations, and that's how you interact with the world.
+
+15:40.360 --> 15:42.800
+ And that's a very high frequency control thing,
+
+15:42.800 --> 15:44.640
+ but it's ultimately what you do
+
+15:44.640 --> 15:46.600
+ and how you affect the world,
+
+15:46.600 --> 15:48.320
+ until I guess we have brain readings
+
+15:48.320 --> 15:49.800
+ and you can maybe do it slightly differently.
+
+15:49.800 --> 15:52.600
+ But typically that's how you affect the world.
+
+15:52.600 --> 15:56.360
+ And the decision of doing a PhD is so abstract
+
+15:56.360 --> 15:59.320
+ relative to what you're actually doing in the world.
+
+15:59.320 --> 16:01.120
+ And I think that's where credit assignment
+
+16:01.120 --> 16:04.800
+ becomes just completely beyond
+
+16:04.800 --> 16:06.760
+ what any current RL algorithm can do.
+
+16:06.760 --> 16:09.000
+ And we need hierarchical reasoning
+
+16:09.000 --> 16:12.520
+ at a level that is just not available at all yet.
+
+16:12.520 --> 16:14.920
+ Where do you think we can pick up hierarchical reasoning?
+
+16:14.920 --> 16:16.960
+ By which mechanisms?
+
+16:16.960 --> 16:18.680
+ Yeah, so maybe let me highlight
+
+16:18.680 --> 16:20.640
+ what I think the limitations are
+
+16:20.640 --> 16:25.640
+ of what already was done 20, 30 years ago.
+
+16:26.080 --> 16:27.720
+ In fact, you'll find reasoning systems
+
+16:27.720 --> 16:30.960
+ that reason over relatively long horizons,
+
+16:30.960 --> 16:32.800
+ but the problem is that they were not grounded
+
+16:32.800 --> 16:34.200
+ in the real world.
+
+16:34.200 --> 16:37.440
+ So people would have to hand design
+
+16:39.160 --> 16:43.920
+ some kind of logical, dynamical descriptions of the world
+
+16:43.920 --> 16:46.360
+ and that didn't tie into perception.
+
+16:46.360 --> 16:49.280
+ And so it didn't tie into real objects and so forth.
+
+16:49.280 --> 16:51.120
+ And so that was a big gap.
+
+16:51.120 --> 16:53.960
+ Now with deep learning, we start having the ability
+
+16:53.960 --> 16:58.960
+ to really see with sensors, process that
+
+16:59.560 --> 17:01.440
+ and understand what's in the world.
+
+17:01.440 --> 17:02.840
+ And so it's a good time to try
+
+17:02.840 --> 17:04.960
+ to bring these things together.
+
+17:04.960 --> 17:06.480
+ I see a few ways of getting there.
+
+17:06.480 --> 17:08.160
+ One way to get there would be to say
+
+17:08.160 --> 17:10.120
+ deep learning can get bolted on somehow
+
+17:10.120 --> 17:12.280
+ to some of these more traditional approaches.
+
+17:12.280 --> 17:14.120
+ Now bolted on would probably mean
+
+17:14.120 --> 17:16.320
+ you need to do some kind of end to end training
+
+17:16.320 --> 17:18.600
+ where you say my deep learning processing
+
+17:18.600 --> 17:20.840
+ somehow leads to a representation
+
+17:20.840 --> 17:24.640
+ that in term uses some kind of traditional
+
+17:24.640 --> 17:29.640
+ underlying dynamical systems that can be used for planning.
+
+17:29.840 --> 17:32.280
+ And that's, for example, the direction Aviv Tamar
+
+17:32.280 --> 17:34.080
+ and Thanard Kuretach here have been pushing
+
+17:34.080 --> 17:36.720
+ with causal info again and of course other people too.
+
+17:36.720 --> 17:38.200
+ That's one way.
+
+17:38.200 --> 17:41.080
+ Can we somehow force it into the form factor
+
+17:41.080 --> 17:43.760
+ that is amenable to reasoning?
+
+17:43.760 --> 17:46.520
+ Another direction we've been thinking about
+
+17:46.520 --> 17:50.200
+ for a long time and didn't make any progress on
+
+17:50.200 --> 17:53.640
+ was more information theoretic approaches.
+
+17:53.640 --> 17:56.560
+ So the idea there was that what it means
+
+17:56.560 --> 17:59.960
+ to take high level action is to take
+
+17:59.960 --> 18:02.560
+ and choose a latent variable now
+
+18:02.560 --> 18:04.640
+ that tells you a lot about what's gonna be the case
+
+18:04.640 --> 18:05.480
+ in the future.
+
+18:05.480 --> 18:09.400
+ Because that's what it means to take a high level action.
+
+18:09.400 --> 18:13.040
+ I say okay, I decide I'm gonna navigate
+
+18:13.040 --> 18:15.480
+ to the gas station because I need to get gas for my car.
+
+18:15.480 --> 18:17.880
+ Well, that'll now take five minutes to get there.
+
+18:17.880 --> 18:19.280
+ But the fact that I get there,
+
+18:19.280 --> 18:22.320
+ I could already tell that from the high level action
+
+18:22.320 --> 18:23.520
+ I took much earlier.
+
+18:24.480 --> 18:28.440
+ That we had a very hard time getting success with.
+
+18:28.440 --> 18:30.640
+ Not saying it's a dead end necessarily,
+
+18:30.640 --> 18:33.120
+ but we had a lot of trouble getting that to work.
+
+18:33.120 --> 18:34.720
+ And then we started revisiting the notion
+
+18:34.720 --> 18:36.720
+ of what are we really trying to achieve?
+
+18:37.800 --> 18:40.680
+ What we're trying to achieve is not necessarily hierarchy
+
+18:40.680 --> 18:41.720
+ per se, but you could think about
+
+18:41.720 --> 18:43.340
+ what does hierarchy give us?
+
+18:44.280 --> 18:47.200
+ What we hope it would give us is better credit assignment.
+
+18:49.120 --> 18:51.240
+ What is better credit assignment?
+
+18:51.240 --> 18:55.760
+ It's giving us, it gives us faster learning, right?
+
+18:55.760 --> 18:59.800
+ And so faster learning is ultimately maybe what we're after.
+
+18:59.800 --> 19:03.400
+ And so that's where we ended up with the RL squared paper
+
+19:03.400 --> 19:05.160
+ on learning to reinforcement learn,
+
+19:06.040 --> 19:07.840
+ which at a time Rocky Dwan led.
+
+19:08.840 --> 19:11.080
+ And that's exactly the meta learning approach
+
+19:11.080 --> 19:14.240
+ where you say, okay, we don't know how to design hierarchy.
+
+19:14.240 --> 19:15.760
+ We know what we want to get from it.
+
+19:15.760 --> 19:18.240
+ Let's just enter and optimize for what we want to get
+
+19:18.240 --> 19:20.200
+ from it and see if it might emerge.
+
+19:20.200 --> 19:21.240
+ And we saw things emerge.
+
+19:21.240 --> 19:25.160
+ The maze navigation had consistent motion down hallways,
+
+19:26.120 --> 19:27.160
+ which is what you want.
+
+19:27.160 --> 19:28.320
+ A hierarchical control should say,
+
+19:28.320 --> 19:29.720
+ I want to go down this hallway.
+
+19:29.720 --> 19:31.640
+ And then when there is an option to take a turn,
+
+19:31.640 --> 19:33.840
+ I can decide whether to take a turn or not and repeat.
+
+19:33.840 --> 19:37.280
+ Even had the notion of where have you been before or not
+
+19:37.280 --> 19:39.960
+ to not revisit places you've been before.
+
+19:39.960 --> 19:42.520
+ It still didn't scale yet
+
+19:42.520 --> 19:46.000
+ to the real world kind of scenarios I think you had in mind,
+
+19:46.000 --> 19:47.200
+ but it was some sign of life
+
+19:47.200 --> 19:51.160
+ that maybe you can meta learn these hierarchical concepts.
+
+19:51.160 --> 19:56.160
+ I mean, it seems like through these meta learning concepts,
+
+19:56.160 --> 19:59.800
+ get at the, what I think is one of the hardest
+
+19:59.800 --> 20:02.360
+ and most important problems of AI,
+
+20:02.360 --> 20:04.040
+ which is transfer learning.
+
+20:04.040 --> 20:06.280
+ So it's generalization.
+
+20:06.280 --> 20:08.480
+ How far along this journey
+
+20:08.480 --> 20:11.160
+ towards building general systems are we?
+
+20:11.160 --> 20:13.600
+ Being able to do transfer learning well.
+
+20:13.600 --> 20:17.520
+ So there's some signs that you can generalize a little bit,
+
+20:17.520 --> 20:19.600
+ but do you think we're on the right path
+
+20:19.600 --> 20:23.760
+ or it's totally different breakthroughs are needed
+
+20:23.760 --> 20:26.800
+ to be able to transfer knowledge
+
+20:26.800 --> 20:29.040
+ between different learned models?
+
+20:31.240 --> 20:33.840
+ Yeah, I'm pretty torn on this in that
+
+20:33.840 --> 20:35.560
+ I think there are some very impressive.
+
+20:35.560 --> 20:40.520
+ Well, there's just some very impressive results already.
+
+20:40.520 --> 20:44.040
+ I mean, I would say when,
+
+20:44.040 --> 20:47.240
+ even with the initial kind of big breakthrough in 2012
+
+20:47.240 --> 20:51.240
+ with AlexNet, the initial thing is okay, great.
+
+20:52.160 --> 20:55.680
+ This does better on ImageNet, hence image recognition.
+
+20:55.680 --> 20:57.840
+ But then immediately thereafter,
+
+20:57.840 --> 21:00.520
+ there was of course the notion that,
+
+21:00.520 --> 21:03.320
+ wow, what was learned on ImageNet
+
+21:03.320 --> 21:05.000
+ and you now wanna solve a new task,
+
+21:05.000 --> 21:07.760
+ you can fine tune AlexNet for new tasks.
+
+21:09.080 --> 21:12.040
+ And that was often found to be the even bigger deal
+
+21:12.040 --> 21:14.320
+ that you learn something that was reusable,
+
+21:14.320 --> 21:16.040
+ which was not often the case before.
+
+21:16.040 --> 21:17.520
+ Usually machine learning, you learn something
+
+21:17.520 --> 21:19.320
+ for one scenario and that was it.
+
+21:19.320 --> 21:20.280
+ And that's really exciting.
+
+21:20.280 --> 21:22.280
+ I mean, that's a huge application.
+
+21:22.280 --> 21:23.680
+ That's probably the biggest success
+
+21:23.680 --> 21:27.920
+ of transfer learning today in terms of scope and impact.
+
+21:27.920 --> 21:29.040
+ That was a huge breakthrough.
+
+21:29.040 --> 21:33.040
+ And then recently, I feel like similar kind of,
+
+21:33.040 --> 21:34.760
+ by scaling things up, it seems like
+
+21:34.760 --> 21:36.160
+ this has been expanded upon.
+
+21:36.160 --> 21:37.960
+ Like people training even bigger networks,
+
+21:37.960 --> 21:39.480
+ they might transfer even better.
+
+21:39.480 --> 21:41.200
+ If you looked at, for example,
+
+21:41.200 --> 21:43.400
+ some of the OpenAI results on language models
+
+21:43.400 --> 21:46.600
+ and some of the recent Google results on language models,
+
+21:47.560 --> 21:51.040
+ they're learned for just prediction
+
+21:51.040 --> 21:54.960
+ and then they get reused for other tasks.
+
+21:54.960 --> 21:56.680
+ And so I think there is something there
+
+21:56.680 --> 21:58.520
+ where somehow if you train a big enough model
+
+21:58.520 --> 22:01.360
+ on enough things, it seems to transfer
+
+22:01.360 --> 22:03.600
+ some deep mind results that I thought were very impressive,
+
+22:03.600 --> 22:08.600
+ the Unreal results, where it was learned to navigate mazes
+
+22:09.240 --> 22:11.240
+ in ways where it wasn't just doing reinforcement learning,
+
+22:11.240 --> 22:14.280
+ but it had other objectives it was optimizing for.
+
+22:14.280 --> 22:17.240
+ So I think there's a lot of interesting results already.
+
+22:17.240 --> 22:22.240
+ I think maybe where it's hard to wrap my head around this,
+
+22:22.520 --> 22:26.720
+ to which extent or when do we call something generalization?
+
+22:26.720 --> 22:29.760
+ Or the levels of generalization in the real world,
+
+22:29.760 --> 22:31.880
+ or the levels of generalization involved
+
+22:31.880 --> 22:35.080
+ in these different tasks, right?
+
+22:36.240 --> 22:39.280
+ You draw this, by the way, just to frame things.
+
+22:39.280 --> 22:41.400
+ I've heard you say somewhere, it's the difference
+
+22:41.400 --> 22:44.920
+ between learning to master versus learning to generalize,
+
+22:44.920 --> 22:47.880
+ that it's a nice line to think about.
+
+22:47.880 --> 22:50.920
+ And I guess you're saying that it's a gray area
+
+22:50.920 --> 22:53.680
+ of what learning to master and learning to generalize,
+
+22:53.680 --> 22:54.520
+ where one starts.
+
+22:54.520 --> 22:56.120
+ I think I might have heard this.
+
+22:56.120 --> 22:57.840
+ I might have heard it somewhere else.
+
+22:57.840 --> 23:00.480
+ And I think it might've been one of your interviews,
+
+23:00.480 --> 23:03.720
+ maybe the one with Yoshua Benjamin, I'm not 100% sure.
+
+23:03.720 --> 23:08.440
+ But I liked the example, I'm not sure who it was,
+
+23:08.440 --> 23:10.600
+ but the example was essentially,
+
+23:10.600 --> 23:13.320
+ if you use current deep learning techniques,
+
+23:13.320 --> 23:17.200
+ what we're doing to predict, let's say,
+
+23:17.200 --> 23:22.200
+ the relative motion of our planets, it would do pretty well.
+
+23:22.200 --> 23:27.200
+ But then now if a massive new mass enters our solar system,
+
+23:28.440 --> 23:32.120
+ it would probably not predict what will happen, right?
+
+23:32.120 --> 23:33.600
+ And that's a different kind of generalization.
+
+23:33.600 --> 23:34.960
+ That's a generalization that relies
+
+23:34.960 --> 23:38.560
+ on the ultimate simplest, simplest explanation
+
+23:38.560 --> 23:40.240
+ that we have available today
+
+23:40.240 --> 23:41.600
+ to explain the motion of planets,
+
+23:41.600 --> 23:43.700
+ whereas just pattern recognition could predict
+
+23:43.700 --> 23:47.320
+ our current solar system motion pretty well, no problem.
+
+23:47.320 --> 23:48.880
+ And so I think that's an example
+
+23:48.880 --> 23:52.440
+ of a kind of generalization that is a little different
+
+23:52.440 --> 23:54.560
+ from what we've achieved so far.
+
+23:54.560 --> 23:59.560
+ And it's not clear if just regularizing more
+
+23:59.720 --> 24:01.840
+ and forcing it to come up with a simpler, simpler,
+
+24:01.840 --> 24:03.840
+ simpler explanation and say, look, this is not simple.
+
+24:03.840 --> 24:05.600
+ But that's what physics researchers do, right?
+
+24:05.600 --> 24:08.220
+ They say, can I make this even simpler?
+
+24:08.220 --> 24:09.440
+ How simple can I get this?
+
+24:09.440 --> 24:12.400
+ What's the simplest equation that can explain everything?
+
+24:12.400 --> 24:15.560
+ The master equation for the entire dynamics of the universe,
+
+24:15.560 --> 24:17.600
+ we haven't really pushed that direction as hard
+
+24:17.600 --> 24:19.480
+ in deep learning, I would say.
+
+24:20.740 --> 24:22.040
+ Not sure if it should be pushed,
+
+24:22.040 --> 24:24.560
+ but it seems a kind of generalization you get from that
+
+24:24.560 --> 24:27.400
+ that you don't get in our current methods so far.
+
+24:27.400 --> 24:30.040
+ So I just talked to Vladimir Vapnik, for example,
+
+24:30.040 --> 24:34.200
+ who's a statistician of statistical learning,
+
+24:34.200 --> 24:36.120
+ and he kind of dreams of creating
+
+24:37.000 --> 24:41.080
+ the E equals MC squared for learning, right?
+
+24:41.080 --> 24:42.460
+ The general theory of learning.
+
+24:42.460 --> 24:44.640
+ Do you think that's a fruitless pursuit
+
+24:44.640 --> 24:49.640
+ in the near term, within the next several decades?
+
+24:51.800 --> 24:53.560
+ I think that's a really interesting pursuit
+
+24:53.560 --> 24:58.040
+ in the following sense, in that there is a lot of evidence
+
+24:58.040 --> 25:03.040
+ that the brain is pretty modular.
+
+25:03.480 --> 25:05.520
+ And so I wouldn't maybe think of it as the theory,
+
+25:05.520 --> 25:09.360
+ maybe the underlying theory, but more kind of the principle
+
+25:10.700 --> 25:12.840
+ where there have been findings where
+
+25:12.840 --> 25:16.600
+ people who are blind will use the part of the brain
+
+25:16.600 --> 25:20.720
+ usually used for vision for other functions.
+
+25:21.640 --> 25:24.720
+ And even after some kind of,
+
+25:24.720 --> 25:26.440
+ if people get rewired in some way,
+
+25:26.440 --> 25:28.700
+ they might be able to reuse parts of their brain
+
+25:28.700 --> 25:30.400
+ for other functions.
+
+25:30.400 --> 25:35.160
+ And so what that suggests is some kind of modularity.
+
+25:35.160 --> 25:39.280
+ And I think it is a pretty natural thing to strive for
+
+25:39.280 --> 25:41.720
+ to see, can we find that modularity?
+
+25:41.720 --> 25:43.200
+ Can we find this thing?
+
+25:43.200 --> 25:45.960
+ Of course, every part of the brain is not exactly the same.
+
+25:45.960 --> 25:48.600
+ Not everything can be rewired arbitrarily.
+
+25:48.600 --> 25:50.240
+ But if you think of things like the neocortex,
+
+25:50.240 --> 25:52.300
+ which is a pretty big part of the brain,
+
+25:52.300 --> 25:56.560
+ that seems fairly modular from what the findings so far.
+
+25:56.560 --> 25:59.240
+ Can you design something equally modular?
+
+25:59.240 --> 26:00.560
+ And if you can just grow it,
+
+26:00.560 --> 26:02.520
+ it becomes more capable probably.
+
+26:02.520 --> 26:04.940
+ I think that would be the kind of interesting
+
+26:04.940 --> 26:09.400
+ underlying principle to shoot for that is not unrealistic.
+
+26:09.400 --> 26:14.400
+ Do you think you prefer math or empirical trial and error
+
+26:15.200 --> 26:17.560
+ for the discovery of the essence of what it means
+
+26:17.560 --> 26:19.000
+ to do something intelligent?
+
+26:19.000 --> 26:22.120
+ So reinforcement learning embodies both groups, right?
+
+26:22.120 --> 26:26.400
+ To prove that something converges, prove the bounds.
+
+26:26.400 --> 26:29.320
+ And then at the same time, a lot of those successes are,
+
+26:29.320 --> 26:31.560
+ well, let's try this and see if it works.
+
+26:31.560 --> 26:33.400
+ So which do you gravitate towards?
+
+26:33.400 --> 26:39.920
+ How do you think of those two parts of your brain?
+
+26:39.920 --> 26:44.560
+ Maybe I would prefer we could make the progress
+
+26:44.560 --> 26:45.600
+ with mathematics.
+
+26:45.600 --> 26:48.040
+ And the reason maybe I would prefer that is because often
+
+26:48.040 --> 26:52.840
+ if you have something you can mathematically formalize,
+
+26:52.840 --> 26:55.800
+ you can leapfrog a lot of experimentation.
+
+26:55.800 --> 26:58.800
+ And experimentation takes a long time to get through.
+
+26:58.800 --> 27:01.280
+ And a lot of trial and error,
+
+27:01.280 --> 27:04.120
+ kind of reinforcement learning, your research process,
+
+27:04.120 --> 27:05.560
+ but you need to do a lot of trial and error
+
+27:05.560 --> 27:06.720
+ before you get to a success.
+
+27:06.720 --> 27:08.520
+ So if you can leapfrog that, to my mind,
+
+27:08.520 --> 27:10.480
+ that's what the math is about.
+
+27:10.480 --> 27:13.280
+ And hopefully once you do a bunch of experiments,
+
+27:13.280 --> 27:14.440
+ you start seeing a pattern.
+
+27:14.440 --> 27:18.320
+ You can do some derivations that leapfrog some experiments.
+
+27:18.320 --> 27:19.160
+ But I agree with you.
+
+27:19.160 --> 27:21.360
+ I mean, in practice, a lot of the progress has been such
+
+27:21.360 --> 27:23.680
+ that we have not been able to find the math
+
+27:23.680 --> 27:25.120
+ that allows you to leapfrog ahead.
+
+27:25.120 --> 27:28.100
+ And we are kind of making gradual progress
+
+27:28.100 --> 27:30.440
+ one step at a time, a new experiment here,
+
+27:30.440 --> 27:32.920
+ a new experiment there that gives us new insights
+
+27:32.920 --> 27:34.400
+ and gradually building up,
+
+27:34.400 --> 27:36.600
+ but not getting to something yet where we're just,
+
+27:36.600 --> 27:39.120
+ okay, here's an equation that now explains how,
+
+27:39.120 --> 27:40.560
+ you know, that would be,
+
+27:40.560 --> 27:42.540
+ have been two years of experimentation to get there,
+
+27:42.540 --> 27:45.440
+ but this tells us what the result's going to be.
+
+27:45.440 --> 27:47.560
+ Unfortunately, not so much yet.
+
+27:47.560 --> 27:50.200
+ Not so much yet, but your hope is there.
+
+27:50.200 --> 27:53.680
+ In trying to teach robots or systems
+
+27:53.680 --> 27:58.340
+ to do everyday tasks or even in simulation,
+
+27:58.340 --> 28:01.860
+ what do you think you're more excited about?
+
+28:02.740 --> 28:04.800
+ Imitation learning or self play?
+
+28:04.800 --> 28:08.700
+ So letting robots learn from humans
+
+28:08.700 --> 28:11.340
+ or letting robots plan their own
+
+28:11.340 --> 28:13.880
+ to try to figure out in their own way
+
+28:13.880 --> 28:18.320
+ and eventually play, eventually interact with humans
+
+28:18.320 --> 28:20.180
+ or solve whatever the problem is.
+
+28:20.180 --> 28:21.860
+ What's the more exciting to you?
+
+28:21.860 --> 28:24.660
+ What's more promising you think as a research direction?
+
+28:24.660 --> 28:29.660
+ So when we look at self play,
+
+28:32.300 --> 28:34.900
+ what's so beautiful about it is goes back
+
+28:34.900 --> 28:37.260
+ to kind of the challenges in reinforcement learning.
+
+28:37.260 --> 28:38.460
+ So the challenge of reinforcement learning
+
+28:38.460 --> 28:39.440
+ is getting signal.
+
+28:40.580 --> 28:43.300
+ And if you don't never succeed, you don't get any signal.
+
+28:43.300 --> 28:46.740
+ In self play, you're on both sides.
+
+28:46.740 --> 28:48.020
+ So one of you succeeds.
+
+28:48.020 --> 28:49.980
+ And the beauty is also one of you fails.
+
+28:49.980 --> 28:51.100
+ And so you see the contrast.
+
+28:51.100 --> 28:53.300
+ You see the one version of me that did better
+
+28:53.300 --> 28:54.140
+ than the other version.
+
+28:54.140 --> 28:57.260
+ So every time you play yourself, you get signal.
+
+28:57.260 --> 29:00.100
+ And so whenever you can turn something into self play,
+
+29:00.100 --> 29:02.080
+ you're in a beautiful situation
+
+29:02.080 --> 29:04.820
+ where you can naturally learn much more quickly
+
+29:04.820 --> 29:07.980
+ than in most other reinforcement learning environments.
+
+29:07.980 --> 29:12.460
+ So I think if somehow we can turn more
+
+29:12.460 --> 29:13.720
+ reinforcement learning problems
+
+29:13.720 --> 29:15.500
+ into self play formulations,
+
+29:15.500 --> 29:17.180
+ that would go really, really far.
+
+29:17.180 --> 29:20.720
+ So far, self play has been largely around games
+
+29:20.720 --> 29:22.820
+ where there is natural opponents.
+
+29:22.820 --> 29:24.740
+ But if we could do self play for other things,
+
+29:24.740 --> 29:25.580
+ and let's say, I don't know,
+
+29:25.580 --> 29:26.940
+ a robot learns to build a house.
+
+29:26.940 --> 29:28.380
+ I mean, that's a pretty advanced thing
+
+29:28.380 --> 29:29.500
+ to try to do for a robot,
+
+29:29.500 --> 29:31.900
+ but maybe it tries to build a hut or something.
+
+29:31.900 --> 29:34.140
+ If that can be done through self play,
+
+29:34.140 --> 29:35.420
+ it would learn a lot more quickly
+
+29:35.420 --> 29:36.500
+ if somebody can figure that out.
+
+29:36.500 --> 29:37.980
+ And I think that would be something
+
+29:37.980 --> 29:41.560
+ where it goes closer to kind of the mathematical leapfrogging
+
+29:41.560 --> 29:43.900
+ where somebody figures out a formalism to say,
+
+29:43.900 --> 29:47.200
+ okay, any RL problem by playing this and this idea,
+
+29:47.200 --> 29:48.700
+ you can turn it into a self play problem
+
+29:48.700 --> 29:50.740
+ where you get signal a lot more easily.
+
+29:50.740 --> 29:52.780
+ Reality is, many problems we don't know
+
+29:52.780 --> 29:53.980
+ how to turn into self play.
+
+29:53.980 --> 29:56.980
+ And so either we need to provide detailed reward.
+
+29:56.980 --> 29:58.940
+ That doesn't just reward for achieving a goal,
+
+29:58.940 --> 30:00.780
+ but rewards for making progress,
+
+30:00.780 --> 30:02.660
+ and that becomes time consuming.
+
+30:02.660 --> 30:03.900
+ And once you're starting to do that,
+
+30:03.900 --> 30:05.060
+ let's say you want a robot to do something,
+
+30:05.060 --> 30:07.180
+ you need to give all this detailed reward.
+
+30:07.180 --> 30:09.340
+ Well, why not just give a demonstration?
+
+30:09.340 --> 30:11.940
+ Because why not just show the robot?
+
+30:11.940 --> 30:14.540
+ And now the question is, how do you show the robot?
+
+30:14.540 --> 30:16.620
+ One way to show is to tally operate the robot,
+
+30:16.620 --> 30:19.020
+ and then the robot really experiences things.
+
+30:19.020 --> 30:21.140
+ And that's nice, because that's really high signal
+
+30:21.140 --> 30:23.060
+ to noise ratio data, and we've done a lot of that.
+
+30:23.060 --> 30:26.020
+ And you teach your robot skills in just 10 minutes,
+
+30:26.020 --> 30:27.860
+ you can teach your robot a new basic skill,
+
+30:27.860 --> 30:30.300
+ like okay, pick up the bottle, place it somewhere else.
+
+30:30.300 --> 30:32.420
+ That's a skill, no matter where the bottle starts,
+
+30:32.420 --> 30:34.940
+ maybe it always goes onto a target or something.
+
+30:34.940 --> 30:38.100
+ That's fairly easy to teach your robot with tally up.
+
+30:38.100 --> 30:40.340
+ Now, what's even more interesting
+
+30:40.340 --> 30:41.380
+ if you can now teach your robot
+
+30:41.380 --> 30:43.100
+ through third person learning,
+
+30:43.100 --> 30:45.700
+ where the robot watches you do something
+
+30:45.700 --> 30:48.500
+ and doesn't experience it, but just kind of watches you.
+
+30:48.500 --> 30:49.820
+ It doesn't experience it, but just watches it
+
+30:49.820 --> 30:52.180
+ and says, okay, well, if you're showing me that,
+
+30:52.180 --> 30:53.800
+ that means I should be doing this.
+
+30:53.800 --> 30:55.380
+ And I'm not gonna be using your hand,
+
+30:55.380 --> 30:57.100
+ because I don't get to control your hand,
+
+30:57.100 --> 30:59.540
+ but I'm gonna use my hand, I do that mapping.
+
+30:59.540 --> 31:02.140
+ And so that's where I think one of the big breakthroughs
+
+31:02.140 --> 31:03.340
+ has happened this year.
+
+31:03.340 --> 31:05.540
+ This was led by Chelsea Finn here.
+
+31:06.460 --> 31:08.280
+ It's almost like learning a machine translation
+
+31:08.280 --> 31:11.340
+ for demonstrations, where you have a human demonstration,
+
+31:11.340 --> 31:12.820
+ and the robot learns to translate it
+
+31:12.820 --> 31:15.900
+ into what it means for the robot to do it.
+
+31:15.900 --> 31:17.560
+ And that was a meta learning formulation,
+
+31:17.560 --> 31:20.380
+ learn from one to get the other.
+
+31:20.380 --> 31:23.020
+ And that, I think, opens up a lot of opportunities
+
+31:23.020 --> 31:24.540
+ to learn a lot more quickly.
+
+31:24.540 --> 31:26.580
+ So my focus is on autonomous vehicles.
+
+31:26.580 --> 31:29.940
+ Do you think this approach of third person watching,
+
+31:29.940 --> 31:31.980
+ the autonomous driving is amenable
+
+31:31.980 --> 31:33.860
+ to this kind of approach?
+
+31:33.860 --> 31:36.660
+ So for autonomous driving,
+
+31:36.660 --> 31:41.580
+ I would say third person is slightly easier.
+
+31:41.580 --> 31:43.460
+ And the reason I'm gonna say it's slightly easier
+
+31:43.460 --> 31:46.620
+ to do with third person is because
+
+31:46.620 --> 31:49.540
+ the car dynamics are very well understood.
+
+31:49.540 --> 31:51.020
+ So the...
+
+31:51.020 --> 31:53.980
+ Easier than first person, you mean?
+
+31:53.980 --> 31:55.700
+ Or easier than...
+
+31:55.700 --> 31:57.540
+ So I think the distinction between third person
+
+31:57.540 --> 32:00.180
+ and first person is not a very important distinction
+
+32:00.180 --> 32:01.840
+ for autonomous driving.
+
+32:01.840 --> 32:03.460
+ They're very similar.
+
+32:03.460 --> 32:06.100
+ Because the distinction is really about
+
+32:06.100 --> 32:08.100
+ who turns the steering wheel.
+
+32:09.180 --> 32:12.340
+ Or maybe, let me put it differently.
+
+32:12.340 --> 32:14.860
+ How to get from a point where you are now
+
+32:14.860 --> 32:17.440
+ to a point, let's say, a couple meters in front of you.
+
+32:17.440 --> 32:19.240
+ And that's a problem that's very well understood.
+
+32:19.240 --> 32:20.260
+ And that's the only distinction
+
+32:20.260 --> 32:21.920
+ between third and first person there.
+
+32:21.920 --> 32:23.220
+ Whereas with the robot manipulation,
+
+32:23.220 --> 32:25.420
+ interaction forces are very complex.
+
+32:25.420 --> 32:27.980
+ And it's still a very different thing.
+
+32:27.980 --> 32:29.940
+ For autonomous driving,
+
+32:29.940 --> 32:31.420
+ I think there is still the question,
+
+32:31.420 --> 32:34.580
+ imitation versus RL.
+
+32:34.580 --> 32:36.740
+ So imitation gives you a lot more signal.
+
+32:36.740 --> 32:38.900
+ I think where imitation is lacking
+
+32:38.900 --> 32:42.380
+ and needs some extra machinery is,
+
+32:42.380 --> 32:45.460
+ it doesn't, in its normal format,
+
+32:45.460 --> 32:48.580
+ doesn't think about goals or objectives.
+
+32:48.580 --> 32:51.060
+ And of course, there are versions of imitation learning
+
+32:51.060 --> 32:52.900
+ and versus reinforcement learning type imitation learning
+
+32:52.900 --> 32:54.640
+ which also thinks about goals.
+
+32:54.640 --> 32:57.100
+ I think then we're getting much closer.
+
+32:57.100 --> 32:59.620
+ But I think it's very hard to think of a
+
+32:59.620 --> 33:04.060
+ fully reactive car, generalizing well.
+
+33:04.060 --> 33:05.960
+ If it really doesn't have a notion of objectives
+
+33:05.960 --> 33:08.540
+ to generalize well to the kind of general
+
+33:08.540 --> 33:09.500
+ that you would want.
+
+33:09.500 --> 33:12.160
+ You'd want more than just that reactivity
+
+33:12.160 --> 33:13.660
+ that you get from just behavioral cloning
+
+33:13.660 --> 33:15.440
+ slash supervised learning.
+
+33:17.100 --> 33:18.700
+ So a lot of the work,
+
+33:19.560 --> 33:22.060
+ whether it's self play or even imitation learning,
+
+33:22.060 --> 33:24.860
+ would benefit significantly from simulation,
+
+33:24.860 --> 33:26.540
+ from effective simulation.
+
+33:26.540 --> 33:27.580
+ And you're doing a lot of stuff
+
+33:27.580 --> 33:29.660
+ in the physical world and in simulation.
+
+33:29.660 --> 33:33.620
+ Do you have hope for greater and greater
+
+33:33.620 --> 33:38.380
+ power of simulation being boundless eventually
+
+33:38.380 --> 33:40.740
+ to where most of what we need to operate
+
+33:40.740 --> 33:43.780
+ in the physical world could be simulated
+
+33:43.780 --> 33:46.460
+ to a degree that's directly transferable
+
+33:46.460 --> 33:47.580
+ to the physical world?
+
+33:47.580 --> 33:49.620
+ Or are we still very far away from that?
+
+33:51.660 --> 33:56.660
+ So I think we could even rephrase that question
+
+33:57.780 --> 33:58.780
+ in some sense.
+
+33:58.780 --> 34:00.360
+ Please.
+
+34:00.360 --> 34:04.000
+ And so the power of simulation, right?
+
+34:04.940 --> 34:06.580
+ As simulators get better and better,
+
+34:06.580 --> 34:08.980
+ of course, becomes stronger
+
+34:08.980 --> 34:11.260
+ and we can learn more in simulation.
+
+34:11.260 --> 34:12.460
+ But there's also another version
+
+34:12.460 --> 34:13.660
+ which is where you say the simulator
+
+34:13.660 --> 34:15.900
+ doesn't even have to be that precise.
+
+34:15.900 --> 34:18.660
+ As long as it's somewhat representative
+
+34:18.660 --> 34:21.060
+ and instead of trying to get one simulator
+
+34:21.060 --> 34:23.140
+ that is sufficiently precise to learn in
+
+34:23.140 --> 34:25.300
+ and transfer really well to the real world,
+
+34:25.300 --> 34:27.100
+ I'm gonna build many simulators.
+
+34:27.100 --> 34:28.260
+ Ensemble of simulators?
+
+34:28.260 --> 34:29.940
+ Ensemble of simulators.
+
+34:29.940 --> 34:33.580
+ Not any single one of them is sufficiently representative
+
+34:33.580 --> 34:36.740
+ of the real world such that it would work
+
+34:36.740 --> 34:37.900
+ if you train in there.
+
+34:37.900 --> 34:39.760
+ But if you train in all of them,
+
+34:40.700 --> 34:43.600
+ then there is something that's good in all of them.
+
+34:43.600 --> 34:47.620
+ The real world will just be another one of them
+
+34:47.620 --> 34:49.700
+ that's not identical to any one of them
+
+34:49.700 --> 34:50.940
+ but just another one of them.
+
+34:50.940 --> 34:53.180
+ Another sample from the distribution of simulators.
+
+34:53.180 --> 34:54.020
+ Exactly.
+
+34:54.020 --> 34:54.860
+ We do live in a simulation,
+
+34:54.860 --> 34:57.780
+ so this is just one other one.
+
+34:57.780 --> 34:59.420
+ I'm not sure about that, but yeah.
+
+35:01.580 --> 35:03.580
+ It's definitely a very advanced simulator if it is.
+
+35:03.580 --> 35:05.700
+ Yeah, it's a pretty good one.
+
+35:05.700 --> 35:07.660
+ I've talked to Stuart Russell.
+
+35:07.660 --> 35:09.460
+ It's something you think about a little bit too.
+
+35:09.460 --> 35:12.060
+ Of course, you're really trying to build these systems,
+
+35:12.060 --> 35:13.780
+ but do you think about the future of AI?
+
+35:13.780 --> 35:16.380
+ A lot of people have concern about safety.
+
+35:16.380 --> 35:18.240
+ How do you think about AI safety?
+
+35:18.240 --> 35:21.460
+ As you build robots that are operating in the physical world,
+
+35:21.460 --> 35:25.060
+ what is, yeah, how do you approach this problem
+
+35:25.060 --> 35:27.720
+ in an engineering kind of way, in a systematic way?
+
+35:29.220 --> 35:32.340
+ So when a robot is doing things,
+
+35:32.340 --> 35:36.240
+ you kind of have a few notions of safety to worry about.
+
+35:36.240 --> 35:39.380
+ One is that the robot is physically strong
+
+35:39.380 --> 35:42.340
+ and of course could do a lot of damage.
+
+35:42.340 --> 35:44.840
+ Same for cars, which we can think of as robots too
+
+35:44.840 --> 35:45.680
+ in some way.
+
+35:46.780 --> 35:48.340
+ And this could be completely unintentional.
+
+35:48.340 --> 35:51.780
+ So it could be not the kind of longterm AI safety concerns
+
+35:51.780 --> 35:54.380
+ that, okay, AI is smarter than us and now what do we do?
+
+35:54.380 --> 35:55.860
+ But it could be just very practical.
+
+35:55.860 --> 35:58.920
+ Okay, this robot, if it makes a mistake,
+
+35:58.920 --> 36:00.700
+ what are the results going to be?
+
+36:00.700 --> 36:02.280
+ Of course, simulation comes in a lot there
+
+36:02.280 --> 36:07.280
+ to test in simulation. It's a difficult question.
+
+36:07.780 --> 36:09.540
+ And I'm always wondering, like, I always wonder,
+
+36:09.540 --> 36:12.020
+ let's say you look at, let's go back to driving
+
+36:12.020 --> 36:15.280
+ because a lot of people know driving well, of course.
+
+36:15.280 --> 36:18.940
+ What do we do to test somebody for driving, right?
+
+36:18.940 --> 36:21.420
+ Get a driver's license. What do they really do?
+
+36:21.420 --> 36:26.420
+ I mean, you fill out some tests and then you drive.
+
+36:26.660 --> 36:29.500
+ And I mean, it's suburban California.
+
+36:29.500 --> 36:32.940
+ That driving test is just you drive around the block,
+
+36:32.940 --> 36:36.500
+ pull over, you do a stop sign successfully,
+
+36:36.500 --> 36:40.060
+ and then you pull over again and you're pretty much done.
+
+36:40.060 --> 36:44.500
+ And you're like, okay, if a self driving car did that,
+
+36:44.500 --> 36:46.840
+ would you trust it that it can drive?
+
+36:46.840 --> 36:48.900
+ And I'd be like, no, that's not enough for me to trust it.
+
+36:48.900 --> 36:51.540
+ But somehow for humans, we've figured out
+
+36:51.540 --> 36:55.220
+ that somebody being able to do that is representative
+
+36:55.220 --> 36:57.900
+ of them being able to do a lot of other things.
+
+36:57.900 --> 36:59.980
+ And so I think somehow for humans,
+
+36:59.980 --> 37:02.660
+ we figured out representative tests
+
+37:02.660 --> 37:05.860
+ of what it means if you can do this, what you can really do.
+
+37:05.860 --> 37:07.380
+ Of course, testing humans,
+
+37:07.380 --> 37:09.180
+ humans don't wanna be tested at all times.
+
+37:09.180 --> 37:10.300
+ Self driving cars or robots
+
+37:10.300 --> 37:11.980
+ could be tested more often probably.
+
+37:11.980 --> 37:13.460
+ You can have replicas that get tested
+
+37:13.460 --> 37:14.820
+ that are known to be identical
+
+37:14.820 --> 37:17.140
+ because they use the same neural net and so forth.
+
+37:17.140 --> 37:21.260
+ But still, I feel like we don't have this kind of unit tests
+
+37:21.260 --> 37:24.420
+ or proper tests for robots.
+
+37:24.420 --> 37:25.520
+ And I think there's something very interesting
+
+37:25.520 --> 37:26.780
+ to be thought about there,
+
+37:26.780 --> 37:28.540
+ especially as you update things.
+
+37:28.540 --> 37:29.580
+ Your software improves,
+
+37:29.580 --> 37:32.320
+ you have a better self driving car suite, you update it.
+
+37:32.320 --> 37:35.960
+ How do you know it's indeed more capable on everything
+
+37:35.960 --> 37:37.280
+ than what you had before,
+
+37:37.280 --> 37:41.500
+ that you didn't have any bad things creep into it?
+
+37:41.500 --> 37:43.540
+ So I think that's a very interesting direction of research
+
+37:43.540 --> 37:46.340
+ that there is no real solution yet,
+
+37:46.340 --> 37:47.980
+ except that somehow for humans we do.
+
+37:47.980 --> 37:50.820
+ Because we say, okay, you have a driving test, you passed,
+
+37:50.820 --> 37:51.940
+ you can go on the road now,
+
+37:51.940 --> 37:54.900
+ and humans have accidents every like a million
+
+37:54.900 --> 37:57.860
+ or 10 million miles, something pretty phenomenal
+
+37:57.860 --> 38:01.660
+ compared to that short test that is being done.
+
+38:01.660 --> 38:06.100
+ So let me ask, you've mentioned that Andrew Ng by example
+
+38:06.100 --> 38:08.000
+ showed you the value of kindness.
+
+38:10.100 --> 38:14.580
+ Do you think the space of policies,
+
+38:14.580 --> 38:17.500
+ good policies for humans and for AI
+
+38:17.500 --> 38:22.500
+ is populated by policies that with kindness
+
+38:22.500 --> 38:27.500
+ or ones that are the opposite, exploitation, even evil?
+
+38:28.220 --> 38:30.300
+ So if you just look at the sea of policies
+
+38:30.300 --> 38:32.540
+ we operate under as human beings,
+
+38:32.540 --> 38:35.300
+ or if AI system had to operate in this real world,
+
+38:35.300 --> 38:38.060
+ do you think it's really easy to find policies
+
+38:38.060 --> 38:39.580
+ that are full of kindness,
+
+38:39.580 --> 38:41.340
+ like we naturally fall into them?
+
+38:41.340 --> 38:44.780
+ Or is it like a very hard optimization problem?
+
+38:48.100 --> 38:50.300
+ I mean, there is kind of two optimizations
+
+38:50.300 --> 38:52.300
+ happening for humans, right?
+
+38:52.300 --> 38:54.140
+ So for humans, there's kind of the very long term
+
+38:54.140 --> 38:56.900
+ optimization which evolution has done for us
+
+38:56.900 --> 39:00.780
+ and we're kind of predisposed to like certain things.
+
+39:00.780 --> 39:02.780
+ And that's in some sense what makes our learning easier
+
+39:02.780 --> 39:05.420
+ because I mean, we know things like pain
+
+39:05.420 --> 39:08.420
+ and hunger and thirst.
+
+39:08.420 --> 39:10.100
+ And the fact that we know about those
+
+39:10.100 --> 39:12.740
+ is not something that we were taught, that's kind of innate.
+
+39:12.740 --> 39:14.060
+ When we're hungry, we're unhappy.
+
+39:14.060 --> 39:16.220
+ When we're thirsty, we're unhappy.
+
+39:16.220 --> 39:18.420
+ When we have pain, we're unhappy.
+
+39:18.420 --> 39:21.760
+ And ultimately evolution built that into us
+
+39:21.760 --> 39:22.600
+ to think about those things.
+
+39:22.600 --> 39:24.660
+ And so I think there is a notion that
+
+39:24.660 --> 39:28.220
+ it seems somehow humans evolved in general
+
+39:28.220 --> 39:32.820
+ to prefer to get along in some ways,
+
+39:32.820 --> 39:36.940
+ but at the same time also to be very territorial
+
+39:36.940 --> 39:40.080
+ and kind of centric to their own tribe.
+
+39:41.620 --> 39:43.580
+ Like it seems like that's the kind of space
+
+39:43.580 --> 39:44.660
+ we converged onto.
+
+39:44.660 --> 39:46.660
+ I mean, I'm not an expert in anthropology,
+
+39:46.660 --> 39:49.260
+ but it seems like we're very kind of good
+
+39:49.260 --> 39:52.860
+ within our own tribe, but need to be taught
+
+39:52.860 --> 39:54.660
+ to be nice to other tribes.
+
+39:54.660 --> 39:56.300
+ Well, if you look at Steven Pinker,
+
+39:56.300 --> 39:58.100
+ he highlights this pretty nicely in
+
+40:00.740 --> 40:02.340
+ Better Angels of Our Nature,
+
+40:02.340 --> 40:04.980
+ where he talks about violence decreasing over time
+
+40:04.980 --> 40:05.800
+ consistently.
+
+40:05.800 --> 40:08.340
+ So whatever tension, whatever teams we pick,
+
+40:08.340 --> 40:11.100
+ it seems that the long arc of history
+
+40:11.100 --> 40:14.220
+ goes towards us getting along more and more.
+
+40:14.220 --> 40:15.420
+ So. I hope so.
+
+40:15.420 --> 40:20.420
+ So do you think that, do you think it's possible
+
+40:20.620 --> 40:25.620
+ to teach RL based robots this kind of kindness,
+
+40:26.180 --> 40:28.380
+ this kind of ability to interact with humans,
+
+40:28.380 --> 40:32.860
+ this kind of policy, even to, let me ask a fun one.
+
+40:32.860 --> 40:35.140
+ Do you think it's possible to teach RL based robot
+
+40:35.140 --> 40:38.580
+ to love a human being and to inspire that human
+
+40:38.580 --> 40:40.020
+ to love the robot back?
+
+40:40.020 --> 40:45.020
+ So to like RL based algorithm that leads to a happy marriage.
+
+40:47.540 --> 40:48.860
+ That's an interesting question.
+
+40:48.860 --> 40:52.820
+ Maybe I'll answer it with another question, right?
+
+40:52.820 --> 40:56.700
+ Because I mean, but I'll come back to it.
+
+40:56.700 --> 40:58.940
+ So another question you can have is okay.
+
+40:58.940 --> 41:03.560
+ I mean, how close does some people's happiness get
+
+41:03.560 --> 41:07.620
+ from interacting with just a really nice dog?
+
+41:07.620 --> 41:09.900
+ Like, I mean, dogs, you come home,
+
+41:09.900 --> 41:10.740
+ that's what dogs do.
+
+41:10.740 --> 41:12.660
+ They greet you, they're excited,
+
+41:12.660 --> 41:14.700
+ makes you happy when you come home to your dog.
+
+41:14.700 --> 41:16.460
+ You're just like, okay, this is exciting.
+
+41:16.460 --> 41:18.340
+ They're always happy when I'm here.
+
+41:18.340 --> 41:21.300
+ And if they don't greet you, cause maybe whatever,
+
+41:21.300 --> 41:23.540
+ your partner took them on a trip or something,
+
+41:23.540 --> 41:26.100
+ you might not be nearly as happy when you get home, right?
+
+41:26.100 --> 41:30.260
+ And so the kind of, it seems like the level of reasoning
+
+41:30.260 --> 41:32.200
+ a dog has is pretty sophisticated,
+
+41:32.200 --> 41:35.660
+ but then it's still not yet at the level of human reasoning.
+
+41:35.660 --> 41:37.840
+ And so it seems like we don't even need to achieve
+
+41:37.840 --> 41:40.460
+ human level reasoning to get like very strong affection
+
+41:40.460 --> 41:41.700
+ with humans.
+
+41:41.700 --> 41:44.220
+ And so my thinking is why not, right?
+
+41:44.220 --> 41:47.140
+ Why couldn't, with an AI, couldn't we achieve
+
+41:47.140 --> 41:51.460
+ the kind of level of affection that humans feel
+
+41:51.460 --> 41:56.080
+ among each other or with friendly animals and so forth?
+
+41:57.480 --> 41:59.740
+ So question, is it a good thing for us or not?
+
+41:59.740 --> 42:01.380
+ That's another thing, right?
+
+42:01.380 --> 42:05.980
+ Because I mean, but I don't see why not.
+
+42:05.980 --> 42:09.020
+ Why not, yeah, so Elon Musk says love is the answer.
+
+42:09.020 --> 42:12.660
+ Maybe he should say love is the objective function
+
+42:12.660 --> 42:14.700
+ and then RL is the answer, right?
+
+42:14.700 --> 42:16.500
+ Well, maybe.
+
+42:17.660 --> 42:18.880
+ Oh, Peter, thank you so much.
+
+42:18.880 --> 42:20.260
+ I don't want to take up more of your time.
+
+42:20.260 --> 42:21.900
+ Thank you so much for talking today.
+
+42:21.900 --> 42:23.500
+ Well, thanks for coming by.
+
+42:23.500 --> 42:44.500
+ Great to have you visit.
+

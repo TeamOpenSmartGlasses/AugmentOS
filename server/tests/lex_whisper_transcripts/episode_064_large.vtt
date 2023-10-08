@@ -1,0 +1,4730 @@
+WEBVTT
+
+00:00.000 --> 00:03.060
+ The following is a conversation with Grant Sanderson.
+
+00:03.060 --> 00:06.620
+ He's a math educator and creator of 3Blue1Brown,
+
+00:06.620 --> 00:07.980
+ a popular YouTube channel
+
+00:07.980 --> 00:11.020
+ that uses programmatically animated visualizations
+
+00:11.020 --> 00:14.260
+ to explain concepts in linear algebra, calculus,
+
+00:14.260 --> 00:16.980
+ and other fields of mathematics.
+
+00:16.980 --> 00:19.820
+ This is the Artificial Intelligence Podcast.
+
+00:19.820 --> 00:22.100
+ If you enjoy it, subscribe on YouTube,
+
+00:22.100 --> 00:23.960
+ give us five stars on Apple Podcast,
+
+00:23.960 --> 00:26.340
+ follow on Spotify, support on Patreon,
+
+00:26.340 --> 00:28.340
+ or simply connect with me on Twitter
+
+00:28.340 --> 00:32.180
+ at Lex Friedman, spelled F R I D M A N.
+
+00:32.180 --> 00:34.020
+ I recently started doing ads
+
+00:34.020 --> 00:35.700
+ at the end of the introduction.
+
+00:35.700 --> 00:38.500
+ I'll do one or two minutes after introducing the episode
+
+00:38.500 --> 00:40.020
+ and never any ads in the middle
+
+00:40.020 --> 00:42.160
+ that can break the flow of the conversation.
+
+00:42.160 --> 00:43.580
+ I hope that works for you
+
+00:43.580 --> 00:46.240
+ and doesn't hurt the listening experience.
+
+00:47.300 --> 00:49.660
+ This show is presented by Cash App,
+
+00:49.660 --> 00:52.020
+ the number one finance app in the App Store.
+
+00:52.020 --> 00:54.820
+ I personally use Cash App to send money to friends,
+
+00:54.820 --> 00:56.520
+ but you can also use it to buy, sell,
+
+00:56.520 --> 00:58.940
+ and deposit Bitcoin in just seconds.
+
+00:58.940 --> 01:01.500
+ Cash App also has an investing feature.
+
+01:01.500 --> 01:04.540
+ You can buy fractions of a stock, say $1 worth,
+
+01:04.540 --> 01:06.780
+ no matter what the stock price is.
+
+01:06.780 --> 01:09.580
+ Broker services are provided by Cash App Investing,
+
+01:09.580 --> 01:13.460
+ a subsidiary of Square, and member SIPC.
+
+01:13.460 --> 01:15.460
+ I'm excited to be working with Cash App
+
+01:15.460 --> 01:18.580
+ to support one of my favorite organizations called FIRST,
+
+01:18.580 --> 01:22.020
+ best known for their FIRST Robotics and LEGO competitions.
+
+01:22.020 --> 01:25.340
+ They educate and inspire hundreds of thousands of students
+
+01:25.340 --> 01:27.060
+ in over 110 countries
+
+01:27.060 --> 01:29.680
+ and have a perfect rating on Charity Navigator,
+
+01:29.680 --> 01:31.660
+ which means the donated money is used
+
+01:31.660 --> 01:34.020
+ to maximum effectiveness.
+
+01:34.020 --> 01:36.900
+ When you get Cash App from the App Store at Google Play
+
+01:36.900 --> 01:40.140
+ and use code LEXPODCAST, you'll get $10,
+
+01:40.140 --> 01:42.820
+ and Cash App will also donate $10 to FIRST,
+
+01:42.820 --> 01:44.920
+ which again is an organization
+
+01:44.920 --> 01:47.640
+ that I've personally seen inspire girls and boys
+
+01:47.640 --> 01:51.400
+ to dream of engineering a better world.
+
+01:51.400 --> 01:56.220
+ And now, here's my conversation with Grant Sanderson.
+
+01:56.220 --> 01:59.100
+ If there's intelligent life out there in the universe,
+
+01:59.100 --> 02:02.300
+ do you think their mathematics is different than ours?
+
+02:03.260 --> 02:04.300
+ Jumping right in.
+
+02:04.300 --> 02:08.340
+ I think it's probably very different.
+
+02:08.340 --> 02:11.220
+ There's an obvious sense the notation is different, right?
+
+02:11.220 --> 02:14.500
+ I think notation can guide what the math itself is.
+
+02:14.500 --> 02:17.020
+ I think it has everything to do with the form
+
+02:17.020 --> 02:19.180
+ of their existence, right?
+
+02:19.180 --> 02:20.760
+ Do you think they have basic arithmetic?
+
+02:20.760 --> 02:21.600
+ Sorry, I interrupted.
+
+02:21.600 --> 02:23.220
+ Yeah, so I think they count, right?
+
+02:23.220 --> 02:24.580
+ I think notions like one, two, three,
+
+02:24.580 --> 02:27.200
+ the natural numbers, that's extremely, well, natural.
+
+02:27.200 --> 02:30.460
+ That's almost why we put that name to it.
+
+02:30.460 --> 02:31.760
+ As soon as you can count,
+
+02:31.760 --> 02:34.020
+ you have a notion of repetition, right?
+
+02:34.020 --> 02:37.340
+ Because you can count by two, two times or three times.
+
+02:37.340 --> 02:39.800
+ And so you have this notion of repeating
+
+02:39.800 --> 02:42.180
+ the idea of counting, which brings you addition
+
+02:42.180 --> 02:43.780
+ and multiplication.
+
+02:43.780 --> 02:47.540
+ I think the way that we extend it to the real numbers,
+
+02:47.540 --> 02:49.280
+ there's a little bit of choice in that.
+
+02:49.280 --> 02:50.820
+ So there's this funny number system
+
+02:50.820 --> 02:52.220
+ called the servial numbers
+
+02:52.220 --> 02:55.660
+ that it captures the idea of continuity.
+
+02:55.660 --> 02:57.580
+ It's a distinct mathematical object.
+
+02:57.580 --> 03:00.420
+ You could very well model the universe
+
+03:00.420 --> 03:02.020
+ and motion of planets with that
+
+03:02.020 --> 03:04.820
+ as the back end of your math, right?
+
+03:04.820 --> 03:06.500
+ And you still have kind of the same interface
+
+03:06.500 --> 03:10.620
+ with the front end of what physical laws you're trying to,
+
+03:10.620 --> 03:12.420
+ or what physical phenomena you're trying
+
+03:12.420 --> 03:13.780
+ to describe with math.
+
+03:13.780 --> 03:15.900
+ And I wonder if the little glimpses that we have
+
+03:15.900 --> 03:17.700
+ of what choices you can make along the way
+
+03:17.700 --> 03:19.320
+ based on what different mathematicians
+
+03:19.320 --> 03:20.440
+ I've brought to the table
+
+03:20.440 --> 03:22.300
+ is just scratching the surface
+
+03:22.300 --> 03:24.540
+ of what the different possibilities are
+
+03:24.540 --> 03:27.540
+ if you have a completely different mode of thought, right?
+
+03:27.540 --> 03:29.700
+ Or a mode of interacting with the universe.
+
+03:29.700 --> 03:32.540
+ And you think notation is a key part of the journey
+
+03:32.540 --> 03:33.860
+ that we've taken through math.
+
+03:33.860 --> 03:35.140
+ I think that's the most salient part
+
+03:35.140 --> 03:36.420
+ that you'd notice at first.
+
+03:36.420 --> 03:38.880
+ I think the mode of thought is gonna influence things
+
+03:38.880 --> 03:40.400
+ more than like the notation itself.
+
+03:40.400 --> 03:42.700
+ But notation actually carries a lot of weight
+
+03:42.700 --> 03:44.620
+ when it comes to how we think about things,
+
+03:44.620 --> 03:47.100
+ more so than we usually give it credit for.
+
+03:47.100 --> 03:48.900
+ I would be comfortable saying.
+
+03:48.900 --> 03:52.020
+ Do you have a favorite or least favorite piece of notation
+
+03:52.020 --> 03:53.260
+ in terms of its effectiveness?
+
+03:53.260 --> 03:54.860
+ Yeah, yeah, well, so least favorite,
+
+03:54.860 --> 03:56.140
+ one that I've been thinking a lot about
+
+03:56.140 --> 03:58.940
+ that will be a video I don't know when, but we'll see.
+
+03:59.900 --> 04:02.420
+ The number e, we write the function e to the x,
+
+04:02.420 --> 04:04.140
+ this general exponential function
+
+04:04.140 --> 04:06.260
+ with a notation e to the x
+
+04:06.260 --> 04:08.380
+ that implies you should think about a particular number,
+
+04:08.380 --> 04:09.380
+ this constant of nature,
+
+04:09.380 --> 04:11.740
+ and you repeatedly multiply it by itself.
+
+04:11.740 --> 04:14.100
+ And then you say, oh, what's e to the square root of two?
+
+04:14.100 --> 04:15.700
+ And you're like, oh, well, we've extended the idea
+
+04:15.700 --> 04:17.020
+ of repeated multiplication.
+
+04:17.020 --> 04:19.460
+ That's all nice, that's all nice and well.
+
+04:19.460 --> 04:22.660
+ But very famously, you have like e to the pi i,
+
+04:22.660 --> 04:24.420
+ and you're like, well, we're extending the idea
+
+04:24.420 --> 04:27.060
+ of repeated multiplication into the complex numbers.
+
+04:27.060 --> 04:28.780
+ Yeah, you can think about it that way.
+
+04:28.780 --> 04:31.820
+ In reality, I think that it's just the wrong way
+
+04:31.820 --> 04:34.740
+ of notationally representing this function,
+
+04:34.740 --> 04:36.180
+ the exponential function,
+
+04:36.180 --> 04:37.820
+ which itself could be represented
+
+04:37.820 --> 04:38.780
+ a number of different ways.
+
+04:38.780 --> 04:41.300
+ You can think about it in terms of the problem it solves,
+
+04:41.300 --> 04:43.260
+ a certain very simple differential equation,
+
+04:43.260 --> 04:45.620
+ which often yields way more insight
+
+04:45.620 --> 04:48.820
+ than trying to twist the idea of repeated multiplication,
+
+04:48.820 --> 04:50.740
+ like take its arm and put it behind its back
+
+04:50.740 --> 04:51.940
+ and throw it on the desk and be like,
+
+04:51.940 --> 04:53.620
+ you will apply to complex numbers, right?
+
+04:53.620 --> 04:56.420
+ That's not, I don't think that's pedagogically helpful.
+
+04:57.420 --> 04:59.740
+ So the repeated multiplication is actually missing
+
+04:59.740 --> 05:03.020
+ the main point, the power of e to the x.
+
+05:03.020 --> 05:05.900
+ I mean, what it addresses is things where the rate
+
+05:05.900 --> 05:10.140
+ at which something changes depends on its own value,
+
+05:10.140 --> 05:12.500
+ but more specifically, it depends on it linearly.
+
+05:12.500 --> 05:15.100
+ So for example, if you have like a population
+
+05:15.100 --> 05:16.660
+ that's growing and the rate at which it grows
+
+05:16.660 --> 05:18.420
+ depends on how many members of the population
+
+05:18.420 --> 05:19.260
+ are already there,
+
+05:19.260 --> 05:21.300
+ it looks like this nice exponential curve.
+
+05:21.300 --> 05:23.300
+ It makes sense to talk about repeated multiplication
+
+05:23.300 --> 05:25.140
+ because you say, how much is there after one year,
+
+05:25.140 --> 05:27.420
+ two years, three years, you're multiplying by something.
+
+05:27.420 --> 05:29.460
+ The relationship can be a little bit different sometimes
+
+05:29.460 --> 05:33.940
+ where let's say you've got a ball on a string,
+
+05:33.940 --> 05:37.540
+ like a game of tetherball going around a rope, right?
+
+05:37.540 --> 05:40.780
+ And you say, its velocity is always perpendicular
+
+05:40.780 --> 05:42.220
+ to its position.
+
+05:42.220 --> 05:44.140
+ That's another way of describing its rate of change
+
+05:44.140 --> 05:47.100
+ is being related to where it is,
+
+05:47.100 --> 05:48.220
+ but it's a different operation.
+
+05:48.220 --> 05:49.740
+ You're not scaling it, it's a rotation.
+
+05:49.740 --> 05:51.420
+ It's this 90 degree rotation.
+
+05:51.420 --> 05:54.580
+ That's what the whole idea of like complex exponentiation
+
+05:54.580 --> 05:55.740
+ is trying to capture,
+
+05:55.740 --> 05:57.660
+ but it's obfuscated in the notation
+
+05:57.660 --> 05:59.060
+ when what it's actually saying,
+
+05:59.060 --> 06:01.460
+ like if you really parse something like e to the pi i,
+
+06:01.460 --> 06:03.900
+ what it's saying is choose an origin,
+
+06:03.900 --> 06:06.500
+ always move perpendicular to the vector
+
+06:06.500 --> 06:08.340
+ from that origin to you, okay?
+
+06:09.380 --> 06:12.460
+ Then when you walk pi times that radius,
+
+06:12.460 --> 06:14.180
+ you'll be halfway around.
+
+06:14.180 --> 06:15.860
+ Like that's what it's saying.
+
+06:15.860 --> 06:18.620
+ It's kind of the, you turn 90 degrees and you walk,
+
+06:18.620 --> 06:19.940
+ you'll be going in a circle.
+
+06:19.940 --> 06:22.460
+ That's the phenomenon that it's describing,
+
+06:22.460 --> 06:24.380
+ but trying to twist the idea
+
+06:24.380 --> 06:26.820
+ of repeatedly multiplying a constant into that.
+
+06:26.820 --> 06:30.740
+ Like I can't even think of the number of human hours
+
+06:30.740 --> 06:33.420
+ of like intelligent human hours that have been wasted
+
+06:33.420 --> 06:36.820
+ trying to parse that to their own liking and desire
+
+06:36.820 --> 06:39.500
+ among like scientists or electrical engineers
+
+06:39.500 --> 06:40.660
+ or students everywhere,
+
+06:40.660 --> 06:42.740
+ which if the notation were a little different
+
+06:42.740 --> 06:45.620
+ or the way that this whole function was introduced
+
+06:45.620 --> 06:47.620
+ from the get go were framed differently,
+
+06:47.620 --> 06:49.980
+ I think could have been avoided, right?
+
+06:49.980 --> 06:51.020
+ And you're talking about
+
+06:51.020 --> 06:53.420
+ the most beautiful equation in mathematics,
+
+06:53.420 --> 06:55.100
+ but it's still pretty mysterious, isn't it?
+
+06:55.100 --> 06:58.660
+ Like you're making it seem like it's a notational.
+
+06:58.660 --> 06:59.740
+ It's not mysterious.
+
+06:59.740 --> 07:01.940
+ I think the notation makes it mysterious.
+
+07:01.940 --> 07:04.620
+ I don't think it's, I think the fact that it represents,
+
+07:04.620 --> 07:06.340
+ it's pretty, it's not like the most beautiful thing
+
+07:06.340 --> 07:07.940
+ in the world, but it's quite pretty.
+
+07:07.940 --> 07:10.620
+ The idea that if you take the linear operation
+
+07:10.620 --> 07:12.500
+ of a 90 degree rotation,
+
+07:12.500 --> 07:15.700
+ and then you do this general exponentiation thing to it,
+
+07:15.700 --> 07:18.460
+ that what you get are all the other kinds of rotation,
+
+07:19.460 --> 07:20.420
+ which is basically to say,
+
+07:20.420 --> 07:22.820
+ if your velocity vector is perpendicular
+
+07:22.820 --> 07:25.380
+ to your position vector, you walk in a circle,
+
+07:25.380 --> 07:26.340
+ that's pretty.
+
+07:26.340 --> 07:27.780
+ It's not the most beautiful thing in the world,
+
+07:27.780 --> 07:28.740
+ but it's quite pretty.
+
+07:28.740 --> 07:31.220
+ The beauty of it, I think comes from perhaps
+
+07:31.220 --> 07:33.060
+ the awkwardness of the notation
+
+07:33.060 --> 07:35.460
+ somehow still nevertheless coming together nicely,
+
+07:35.460 --> 07:38.780
+ because you have like several disciplines coming together
+
+07:38.780 --> 07:40.180
+ in a single equation.
+
+07:40.180 --> 07:41.020
+ Well, I think.
+
+07:41.020 --> 07:43.500
+ In a sense, like historically speaking.
+
+07:43.500 --> 07:44.340
+ That's true.
+
+07:44.340 --> 07:45.980
+ You've got, so like the number E is significant.
+
+07:45.980 --> 07:47.860
+ Like it shows up in probability all the time.
+
+07:47.860 --> 07:49.380
+ It like shows up in calculus all the time.
+
+07:49.380 --> 07:50.380
+ It is significant.
+
+07:50.380 --> 07:52.300
+ You're seeing it sort of mated with pi,
+
+07:52.300 --> 07:54.060
+ this geometric constant and I,
+
+07:54.060 --> 07:55.820
+ like the imaginary number and such.
+
+07:55.820 --> 07:57.660
+ I think what's really happening there
+
+07:57.660 --> 08:01.140
+ is the way that E shows up is when you have things
+
+08:01.140 --> 08:03.180
+ like exponential growth and decay, right?
+
+08:03.180 --> 08:06.100
+ It's when this relation that something's rate of change
+
+08:06.100 --> 08:10.500
+ has to itself is a simple scaling, right?
+
+08:10.500 --> 08:14.100
+ A similar law also describes circular motion.
+
+08:14.100 --> 08:16.340
+ Because we have bad notation,
+
+08:16.340 --> 08:19.100
+ we use the residue of how it shows up
+
+08:19.100 --> 08:21.060
+ in the context of self reinforcing growth,
+
+08:21.060 --> 08:23.660
+ like a population growing or compound interest.
+
+08:23.660 --> 08:25.300
+ The constant associated with that
+
+08:25.300 --> 08:27.660
+ is awkwardly placed into the context
+
+08:27.660 --> 08:29.740
+ of how rotation comes about,
+
+08:29.740 --> 08:32.300
+ because they both come from pretty similar equations.
+
+08:32.300 --> 08:36.220
+ And so what we see is the E and the pi juxtaposed
+
+08:36.220 --> 08:38.340
+ a little bit closer than they would be
+
+08:38.340 --> 08:41.020
+ with a purely natural representation, I would think.
+
+08:41.020 --> 08:43.380
+ Here's how I would describe the relation between the two.
+
+08:43.380 --> 08:45.820
+ You've got a very important function we might call exp.
+
+08:45.820 --> 08:47.780
+ That's like the exponential function.
+
+08:47.780 --> 08:49.340
+ When you plug in one,
+
+08:49.340 --> 08:50.980
+ you get this nice constant called E
+
+08:50.980 --> 08:53.340
+ that shows up in like probability and calculus.
+
+08:53.340 --> 08:55.340
+ If you try to move in the imaginary direction,
+
+08:55.340 --> 08:58.420
+ it's periodic and the period is tau.
+
+08:58.420 --> 08:59.620
+ So those are these two constants
+
+08:59.620 --> 09:02.180
+ associated with the same central function,
+
+09:02.180 --> 09:04.780
+ but for kind of unrelated reasons, right?
+
+09:04.780 --> 09:07.380
+ And not unrelated, but like orthogonal reasons.
+
+09:07.380 --> 09:08.340
+ One of them is what happens
+
+09:08.340 --> 09:09.700
+ when you're moving in the real direction.
+
+09:09.700 --> 09:12.580
+ One's what happens when you move in the imaginary direction.
+
+09:12.580 --> 09:14.180
+ And like, yeah, those are related.
+
+09:14.180 --> 09:17.180
+ They're not as related as the famous equation
+
+09:17.180 --> 09:18.540
+ seems to think it is.
+
+09:18.540 --> 09:20.540
+ It's sort of putting all of the children in one bed
+
+09:20.540 --> 09:22.500
+ and they'd kind of like to sleep in separate beds
+
+09:22.500 --> 09:24.580
+ if they had the choice, but you see them all there
+
+09:24.580 --> 09:28.380
+ and there is a family resemblance, but it's not that close.
+
+09:28.380 --> 09:31.740
+ So actually thinking of it as a function
+
+09:31.740 --> 09:34.740
+ is the better idea.
+
+09:34.740 --> 09:36.340
+ And that's a notational idea.
+
+09:36.340 --> 09:38.420
+ And yeah, and like, here's the thing.
+
+09:39.340 --> 09:41.220
+ The constant E sort of stands
+
+09:41.220 --> 09:44.700
+ as this numerical representative of calculus, right?
+
+09:44.700 --> 09:47.580
+ Calculus is the like study of change.
+
+09:47.580 --> 09:49.860
+ So at the very least there's a little cognitive dissonance
+
+09:49.860 --> 09:53.260
+ using a constant to represent the science of change.
+
+09:53.260 --> 09:54.140
+ I never thought of it that way.
+
+09:54.140 --> 09:54.980
+ Yeah.
+
+09:54.980 --> 09:55.820
+ Right?
+
+09:55.820 --> 09:56.660
+ Yeah.
+
+09:56.660 --> 10:00.180
+ It makes sense why the notation came about that way.
+
+10:00.180 --> 10:02.100
+ Because this is the first way that we saw it
+
+10:02.100 --> 10:03.860
+ in the context of things like population growth
+
+10:03.860 --> 10:04.780
+ or compound interest.
+
+10:04.780 --> 10:07.060
+ It is nicer to think about as repeated multiplication.
+
+10:07.060 --> 10:08.700
+ That's definitely nicer.
+
+10:08.700 --> 10:11.020
+ But it's more that that's the first application
+
+10:11.020 --> 10:13.900
+ of what turned out to be a much more general function
+
+10:13.900 --> 10:15.220
+ that maybe the intelligent life
+
+10:15.220 --> 10:17.180
+ your initial question asked about
+
+10:17.180 --> 10:19.780
+ would have come to recognize as being much more significant
+
+10:19.780 --> 10:21.140
+ than the single use case,
+
+10:21.140 --> 10:24.300
+ which lends itself to repeated multiplication notation.
+
+10:24.300 --> 10:28.500
+ But let me jump back for a second to aliens
+
+10:28.500 --> 10:30.060
+ and the nature of our universe.
+
+10:30.060 --> 10:30.900
+ Okay.
+
+10:31.940 --> 10:35.100
+ Do you think math is discovered or invented?
+
+10:35.100 --> 10:37.620
+ So we're talking about the different kind of mathematics
+
+10:37.620 --> 10:40.620
+ that could be developed by the alien species.
+
+10:40.620 --> 10:42.380
+ The implied question is,
+
+10:44.300 --> 10:46.220
+ yeah, is math discovered or invented?
+
+10:46.220 --> 10:49.660
+ Is fundamentally everybody going to discover
+
+10:49.660 --> 10:53.140
+ the same principles of mathematics?
+
+10:53.140 --> 10:54.140
+ So the way I think about it,
+
+10:54.140 --> 10:55.380
+ and everyone thinks about it differently,
+
+10:55.380 --> 10:56.420
+ but here's my take.
+
+10:56.420 --> 10:57.940
+ I think there's a cycle at play
+
+10:57.940 --> 11:00.980
+ where you discover things about the universe
+
+11:00.980 --> 11:03.980
+ that tell you what math will be useful.
+
+11:03.980 --> 11:08.060
+ And that math itself is invented in a sense,
+
+11:08.060 --> 11:11.420
+ but of all the possible maths that you could have invented,
+
+11:11.420 --> 11:12.740
+ it's discoveries about the world
+
+11:12.740 --> 11:14.220
+ that tell you which ones are.
+
+11:14.220 --> 11:17.780
+ So like a good example here is the Pythagorean theorem.
+
+11:17.780 --> 11:18.620
+ When you look at this,
+
+11:18.620 --> 11:19.780
+ do you think of that as a definition
+
+11:19.780 --> 11:21.940
+ or do you think of that as a discovery?
+
+11:21.940 --> 11:24.300
+ From the historical perspective, right, it's a discovery
+
+11:24.300 --> 11:25.140
+ because they were,
+
+11:25.140 --> 11:29.620
+ but that's probably because they were using physical object
+
+11:29.620 --> 11:31.140
+ to build their intuition.
+
+11:32.260 --> 11:34.500
+ And from that intuition came the mathematics.
+
+11:34.500 --> 11:37.340
+ So the mathematics wasn't in some abstract world
+
+11:37.340 --> 11:39.060
+ detached from physics,
+
+11:39.060 --> 11:43.700
+ but I think more and more math has become detached from,
+
+11:43.700 --> 11:46.140
+ you know, when you even look at modern physics
+
+11:46.140 --> 11:49.580
+ from string theory to even general relativity,
+
+11:49.580 --> 11:53.580
+ I mean, all math behind the 20th and 21st century physics
+
+11:53.580 --> 11:58.460
+ kind of takes a brisk walk outside of what our mind
+
+11:58.460 --> 12:00.500
+ can actually even comprehend
+
+12:00.500 --> 12:02.380
+ in multiple dimensions, for example,
+
+12:02.380 --> 12:05.940
+ anything beyond three dimensions, maybe four dimensions.
+
+12:05.940 --> 12:07.300
+ No, no, no, no, higher dimensions
+
+12:07.300 --> 12:08.780
+ can be highly, highly applicable.
+
+12:08.780 --> 12:11.260
+ I think this is a common misinterpretation
+
+12:11.260 --> 12:13.380
+ that if you're asking questions
+
+12:13.380 --> 12:15.260
+ about like a five dimensional manifold,
+
+12:15.260 --> 12:16.740
+ that the only way that that's connected
+
+12:16.740 --> 12:20.220
+ to the physical world is if the physical world is itself
+
+12:20.220 --> 12:22.980
+ a five dimensional manifold or includes them.
+
+12:22.980 --> 12:25.260
+ Well, wait, wait, wait a minute, wait a minute.
+
+12:25.260 --> 12:27.220
+ You're telling me you can imagine
+
+12:28.940 --> 12:31.260
+ a five dimensional manifold?
+
+12:31.260 --> 12:33.380
+ No, no, that's not what I said.
+
+12:33.380 --> 12:35.020
+ I would make the claim that it is useful
+
+12:35.020 --> 12:37.260
+ to a three dimensional physical universe,
+
+12:37.260 --> 12:39.460
+ despite itself not being three dimensional.
+
+12:39.460 --> 12:41.220
+ So it's useful meaning to even understand
+
+12:41.220 --> 12:42.740
+ a three dimensional world,
+
+12:42.740 --> 12:44.940
+ it'd be useful to have five dimensional manifolds.
+
+12:44.940 --> 12:47.180
+ Yes, absolutely, because of state spaces.
+
+12:47.180 --> 12:50.540
+ But you're saying there in some deep way for us humans,
+
+12:50.540 --> 12:54.060
+ it does always come back to that three dimensional world
+
+12:54.060 --> 12:56.620
+ for the usefulness that the dimensional world
+
+12:56.620 --> 12:59.980
+ and therefore it starts with a discovery,
+
+12:59.980 --> 13:02.060
+ but then we invent the mathematics
+
+13:02.060 --> 13:06.260
+ that helps us make sense of the discovery in a sense.
+
+13:06.260 --> 13:07.900
+ Yes, I mean, just to jump off
+
+13:07.900 --> 13:09.820
+ of the Pythagorean theorem example,
+
+13:09.820 --> 13:11.220
+ it feels like a discovery.
+
+13:11.220 --> 13:12.900
+ You've got these beautiful geometric proofs
+
+13:12.900 --> 13:14.620
+ where you've got squares and you're modifying the areas,
+
+13:14.620 --> 13:16.740
+ it feels like a discovery.
+
+13:16.740 --> 13:19.620
+ If you look at how we formalize the idea of 2D space
+
+13:19.620 --> 13:23.100
+ as being R2, right, all pairs of real numbers,
+
+13:23.100 --> 13:25.740
+ and how we define a metric on it and define distance,
+
+13:25.740 --> 13:26.700
+ you're like, hang on a second,
+
+13:26.700 --> 13:28.100
+ we've defined a distance
+
+13:28.100 --> 13:30.100
+ so that the Pythagorean theorem is true,
+
+13:30.100 --> 13:32.460
+ so that suddenly it doesn't feel that great.
+
+13:32.460 --> 13:35.420
+ But I think what's going on is the thing that informed us
+
+13:35.420 --> 13:38.020
+ what metric to put on R2,
+
+13:38.020 --> 13:41.380
+ to put on our abstract representation of 2D space,
+
+13:41.380 --> 13:43.300
+ came from physical observations.
+
+13:43.300 --> 13:44.660
+ And the thing is, there's other metrics
+
+13:44.660 --> 13:45.500
+ you could have put on it.
+
+13:45.500 --> 13:47.180
+ We could have consistent math
+
+13:47.180 --> 13:49.140
+ with other notions of distance,
+
+13:49.140 --> 13:50.860
+ it's just that those pieces of math
+
+13:50.860 --> 13:53.660
+ wouldn't be applicable to the physical world that we study
+
+13:53.660 --> 13:54.580
+ because they're not the ones
+
+13:54.580 --> 13:56.180
+ where the Pythagorean theorem holds.
+
+13:56.180 --> 13:59.060
+ So we have a discovery, a genuine bonafide discovery
+
+13:59.060 --> 14:00.500
+ that informed the invention,
+
+14:00.500 --> 14:03.700
+ the invention of an abstract representation of 2D space
+
+14:03.700 --> 14:06.220
+ that we call R2 and things like that.
+
+14:06.220 --> 14:07.300
+ And then from there,
+
+14:07.300 --> 14:09.740
+ you just study R2 as an abstract thing
+
+14:09.740 --> 14:12.500
+ that brings about more ideas and inventions and mysteries
+
+14:12.500 --> 14:14.420
+ which themselves might yield discoveries.
+
+14:14.420 --> 14:16.980
+ Those discoveries might give you insight
+
+14:16.980 --> 14:19.380
+ as to what else would be useful to invent
+
+14:19.380 --> 14:20.980
+ and it kind of feeds on itself that way.
+
+14:20.980 --> 14:22.180
+ That's how I think about it.
+
+14:22.180 --> 14:24.140
+ So it's not an either or.
+
+14:24.140 --> 14:25.380
+ It's not that math is one of these
+
+14:25.380 --> 14:26.780
+ or it's one of the others.
+
+14:26.780 --> 14:29.180
+ At different times, it's playing a different role.
+
+14:29.180 --> 14:34.180
+ So then let me ask the Richard Feynman question then,
+
+14:34.460 --> 14:36.220
+ along that thread,
+
+14:36.220 --> 14:37.380
+ is what do you think is the difference
+
+14:37.380 --> 14:40.300
+ between physics and math?
+
+14:40.300 --> 14:43.060
+ There's a giant overlap.
+
+14:43.060 --> 14:45.940
+ There's a kind of intuition that physicists have
+
+14:45.940 --> 14:49.020
+ about the world that's perhaps outside of mathematics.
+
+14:49.020 --> 14:52.700
+ It's this mysterious art that they seem to possess,
+
+14:52.700 --> 14:54.220
+ we humans generally possess.
+
+14:54.220 --> 14:58.060
+ And then there's the beautiful rigor of mathematics
+
+14:58.060 --> 15:01.820
+ that allows you to, I mean, just like as we were saying,
+
+15:02.860 --> 15:07.860
+ invent frameworks of understanding our physical world.
+
+15:07.860 --> 15:10.180
+ So what do you think is the difference there
+
+15:10.180 --> 15:11.340
+ and how big is it?
+
+15:11.340 --> 15:12.980
+ Well, I think of math as being the study
+
+15:12.980 --> 15:16.860
+ of abstractions over patterns and pure patterns in logic.
+
+15:16.860 --> 15:19.300
+ And then physics is obviously grounded in a desire
+
+15:19.300 --> 15:22.180
+ to understand the world that we live in.
+
+15:22.180 --> 15:23.540
+ I think you're gonna get very different answers
+
+15:23.540 --> 15:25.060
+ when you talk to different mathematicians
+
+15:25.060 --> 15:27.620
+ because there's a wide diversity in types of mathematicians.
+
+15:27.620 --> 15:30.980
+ There are some who are motivated very much by pure puzzles.
+
+15:30.980 --> 15:33.540
+ They might be turned on by things like combinatorics.
+
+15:33.540 --> 15:35.860
+ And they just love the idea of building up
+
+15:35.860 --> 15:40.420
+ a set of problem solving tools applying to pure patterns.
+
+15:40.420 --> 15:42.820
+ There are some who are very physically motivated,
+
+15:42.820 --> 15:47.820
+ who try to invent new math or discover math in veins
+
+15:48.180 --> 15:50.500
+ that they know will have applications to physics
+
+15:50.500 --> 15:51.860
+ or sometimes computer science.
+
+15:51.860 --> 15:53.340
+ And that's what drives them.
+
+15:53.340 --> 15:55.100
+ Like chaos theory is a good example of something
+
+15:55.100 --> 15:57.180
+ that's pure math, that's purely mathematical.
+
+15:57.180 --> 15:58.700
+ A lot of the statements being made,
+
+15:58.700 --> 16:02.420
+ but it's heavily motivated by specific applications
+
+16:02.420 --> 16:04.860
+ to largely physics.
+
+16:04.860 --> 16:06.660
+ And then you have a type of mathematician
+
+16:06.660 --> 16:08.500
+ who just loves abstraction.
+
+16:08.500 --> 16:10.500
+ They just love pulling it to the more and more abstract
+
+16:10.500 --> 16:12.100
+ things, the things that feel powerful.
+
+16:12.100 --> 16:15.220
+ These are the ones that initially invented like topology
+
+16:15.220 --> 16:17.500
+ and then later on get really into category theory
+
+16:17.500 --> 16:20.380
+ and go on about like infinite categories and whatnot.
+
+16:20.380 --> 16:23.460
+ These are the ones that love to have a system
+
+16:23.460 --> 16:27.140
+ that can describe truths about as many things as possible.
+
+16:28.700 --> 16:31.300
+ People from those three different veins of motivation
+
+16:31.300 --> 16:32.860
+ into math are gonna give you very different answers
+
+16:32.860 --> 16:34.740
+ about what the relation at play here is.
+
+16:34.740 --> 16:37.660
+ Cause someone like Vladimir Arnold,
+
+16:37.660 --> 16:40.540
+ who has written a lot of great books,
+
+16:40.540 --> 16:42.500
+ many about like differential equations and such,
+
+16:42.500 --> 16:45.700
+ he would say, math is a branch of physics.
+
+16:45.700 --> 16:47.180
+ That's how he would think about it.
+
+16:47.180 --> 16:48.220
+ And of course he was studying
+
+16:48.220 --> 16:49.780
+ like differential equations related things
+
+16:49.780 --> 16:52.260
+ because that is the motivator behind the study
+
+16:52.260 --> 16:53.820
+ of PDEs and things like that.
+
+16:54.820 --> 16:56.500
+ But you'll have others who,
+
+16:56.500 --> 16:58.260
+ like especially the category theorists
+
+16:58.260 --> 17:01.380
+ who aren't really thinking about physics necessarily.
+
+17:01.380 --> 17:04.540
+ It's all about abstraction and the power of generality.
+
+17:04.540 --> 17:06.460
+ And it's more of a happy coincidence
+
+17:06.460 --> 17:08.340
+ that that ends up being useful
+
+17:08.340 --> 17:10.900
+ for understanding the world we live in.
+
+17:10.900 --> 17:12.860
+ And then you can get into like, why is that the case?
+
+17:12.860 --> 17:14.140
+ It's sort of surprising
+
+17:14.140 --> 17:17.820
+ that that which is about pure puzzles and abstraction
+
+17:17.820 --> 17:21.060
+ also happens to describe the very fundamentals
+
+17:21.060 --> 17:23.140
+ of quarks and everything else.
+
+17:24.180 --> 17:27.900
+ So why do you think the fundamentals of quarks
+
+17:28.820 --> 17:33.260
+ and the nature of reality is so compressible
+
+17:33.260 --> 17:35.380
+ into clean, beautiful equations
+
+17:35.380 --> 17:39.300
+ that are for the most part simple, relatively speaking,
+
+17:39.300 --> 17:41.740
+ a lot simpler than they could be?
+
+17:41.740 --> 17:45.380
+ So you have, we mentioned somebody like Stephen Wolfram
+
+17:45.380 --> 17:50.380
+ who thinks that sort of there's incredibly simple rules
+
+17:50.540 --> 17:51.940
+ underlying our reality,
+
+17:51.940 --> 17:54.940
+ but it can create arbitrary complexity.
+
+17:54.940 --> 17:56.780
+ But there is simple equations.
+
+17:56.780 --> 17:59.220
+ What, I'm asking a million questions
+
+17:59.220 --> 18:01.060
+ that nobody knows the answer to, but.
+
+18:01.060 --> 18:04.300
+ I have no idea, why is it simple?
+
+18:05.300 --> 18:07.100
+ It could be the case that
+
+18:07.100 --> 18:08.500
+ there's like a filter iteration at play.
+
+18:08.500 --> 18:10.660
+ The only things that physicists find interesting
+
+18:10.660 --> 18:11.700
+ are the ones that are simple enough
+
+18:11.700 --> 18:13.340
+ they could describe it mathematically.
+
+18:13.340 --> 18:15.180
+ But as soon as it's a sufficiently complex system,
+
+18:15.180 --> 18:16.940
+ like, oh, that's outside the realm of physics,
+
+18:16.940 --> 18:19.340
+ that's biology or whatever have you.
+
+18:19.340 --> 18:21.660
+ And of course, that's true.
+
+18:21.660 --> 18:22.740
+ Maybe there's something where it's like,
+
+18:22.740 --> 18:26.540
+ of course there will always be something that is simple
+
+18:26.540 --> 18:31.420
+ when you wash away the like non important parts
+
+18:31.420 --> 18:33.420
+ of whatever it is that you're studying.
+
+18:33.420 --> 18:35.180
+ Just from like an information theory standpoint,
+
+18:35.180 --> 18:36.660
+ there might be some like,
+
+18:36.660 --> 18:39.460
+ you get to the lowest information component of it.
+
+18:39.460 --> 18:40.900
+ But I don't know, maybe I'm just having
+
+18:40.900 --> 18:43.020
+ a really hard time conceiving of what it would even mean
+
+18:43.020 --> 18:46.580
+ for the fundamental laws to be like intrinsically
+
+18:46.580 --> 18:50.660
+ complicated, like some set of equations
+
+18:50.660 --> 18:52.580
+ that you can't decouple from each other.
+
+18:52.580 --> 18:56.820
+ Well, no, it could be that sort of we take for granted
+
+18:56.820 --> 18:59.980
+ that the laws of physics, for example,
+
+18:59.980 --> 19:03.500
+ are for the most part the same everywhere
+
+19:03.500 --> 19:05.340
+ or something like that, right?
+
+19:05.340 --> 19:10.340
+ As opposed to the sort of an alternative could be
+
+19:10.620 --> 19:15.420
+ that the rules under which the world operates
+
+19:15.420 --> 19:17.260
+ is different everywhere.
+
+19:17.260 --> 19:20.340
+ It's like a deeply distributed system
+
+19:20.340 --> 19:23.380
+ where just everything is just chaos,
+
+19:23.380 --> 19:25.540
+ not in a strict definition of chaos,
+
+19:25.540 --> 19:30.420
+ but meaning like just it's impossible for equations
+
+19:30.420 --> 19:34.020
+ to capture, for to explicitly model the world
+
+19:34.020 --> 19:36.020
+ as cleanly as the physical does.
+
+19:36.020 --> 19:39.100
+ I mean, we almost take it for granted that we can describe,
+
+19:39.100 --> 19:41.260
+ we can have an equation for gravity,
+
+19:41.260 --> 19:42.780
+ for action at a distance.
+
+19:42.780 --> 19:45.500
+ We can have equations for some of these basic ways
+
+19:45.500 --> 19:46.580
+ the planet's moving.
+
+19:46.580 --> 19:51.580
+ Just the low level at the atomic scale,
+
+19:52.060 --> 19:53.980
+ how the materials operate,
+
+19:53.980 --> 19:56.940
+ at the high scale, how black holes operate.
+
+19:56.940 --> 19:59.820
+ But it doesn't, it seems like it could be,
+
+19:59.820 --> 20:01.700
+ there's infinite other possibilities
+
+20:01.700 --> 20:05.020
+ where none of it could be compressible into such equations.
+
+20:05.020 --> 20:06.540
+ So it just seems beautiful.
+
+20:06.540 --> 20:10.900
+ It's also weird, probably to the point you're making,
+
+20:10.900 --> 20:15.140
+ that it's very pleasant that this is true for our minds.
+
+20:15.140 --> 20:17.140
+ So it might be that our minds are biased
+
+20:17.140 --> 20:19.660
+ to just be looking at the parts of the universe
+
+20:19.660 --> 20:21.740
+ that are compressible.
+
+20:21.740 --> 20:23.740
+ And then we can publish papers on
+
+20:23.740 --> 20:26.460
+ and have nice E equals empty squared equations.
+
+20:26.460 --> 20:29.260
+ Right, well, I wonder would such a world
+
+20:29.260 --> 20:33.580
+ with uncompressible laws allow for the kind of beings
+
+20:33.580 --> 20:35.940
+ that can think about the kind of questions
+
+20:35.940 --> 20:36.860
+ that you're asking?
+
+20:37.780 --> 20:38.620
+ That's true.
+
+20:38.620 --> 20:40.620
+ Right, like an anthropic principle coming into play
+
+20:40.620 --> 20:42.580
+ in some weird way here?
+
+20:42.580 --> 20:44.780
+ I don't know, like I don't know what I'm talking about at all.
+
+20:44.780 --> 20:47.980
+ Maybe the universe is actually not so compressible,
+
+20:47.980 --> 20:52.540
+ but the way our brain, the way our brain evolved
+
+20:52.540 --> 20:55.860
+ we're only able to perceive the compressible parts.
+
+20:55.860 --> 20:58.380
+ I mean, we are, so this is the sort of Chomsky argument.
+
+20:58.380 --> 20:59.860
+ We are just descendants of apes
+
+20:59.860 --> 21:03.580
+ over like really limited biological systems.
+
+21:03.580 --> 21:04.660
+ So it totally makes sense
+
+21:04.660 --> 21:08.580
+ that we're really limited little computers, calculators,
+
+21:08.580 --> 21:10.220
+ that are able to perceive certain kinds of things
+
+21:10.220 --> 21:13.100
+ and the actual world is much more complicated.
+
+21:13.100 --> 21:16.620
+ Well, but we can do pretty awesome things, right?
+
+21:16.620 --> 21:18.260
+ Like we can fly spaceships
+
+21:18.260 --> 21:21.540
+ and we have to have some connection of reality
+
+21:21.540 --> 21:25.260
+ to be able to take our potentially oversimplified models
+
+21:25.260 --> 21:27.740
+ of the world, but then actually twist the world
+
+21:27.740 --> 21:29.060
+ to our will based on it.
+
+21:29.060 --> 21:30.380
+ So we have certain reality checks
+
+21:30.380 --> 21:33.380
+ that like physics isn't too far a field
+
+21:33.380 --> 21:35.420
+ simply based on what we can do.
+
+21:35.420 --> 21:37.260
+ Yeah, the fact that we can fly is pretty good.
+
+21:37.260 --> 21:40.500
+ It's great, yeah, like it's a proof of concept
+
+21:40.500 --> 21:44.900
+ that the laws we're working with are working well.
+
+21:44.900 --> 21:47.740
+ So I mentioned to the internet that I'm talking to you
+
+21:47.740 --> 21:50.180
+ and so the internet gave some questions.
+
+21:50.180 --> 21:51.580
+ So I apologize for these,
+
+21:51.580 --> 21:54.540
+ but do you think we're living in a simulation
+
+21:54.540 --> 21:56.940
+ that the universe is a computer
+
+21:56.940 --> 22:00.020
+ or the universe is a computation running on a computer?
+
+22:01.260 --> 22:02.700
+ It's conceivable.
+
+22:02.700 --> 22:05.700
+ What I don't buy is, you know, you'll have the argument
+
+22:05.700 --> 22:07.900
+ that, well, let's say that it was the case
+
+22:07.900 --> 22:09.540
+ that you can have simulations.
+
+22:09.540 --> 22:12.580
+ Then the simulated world would itself
+
+22:12.580 --> 22:15.380
+ eventually get to a point where it's running simulations.
+
+22:15.380 --> 22:17.220
+ And then the second layer down
+
+22:17.220 --> 22:19.420
+ would create a third layer down and on and on and on.
+
+22:19.420 --> 22:21.620
+ So probabilistically, you just throw a dart
+
+22:21.620 --> 22:22.460
+ at one of those layers,
+
+22:22.460 --> 22:24.940
+ we're probably in one of the simulated layers.
+
+22:24.940 --> 22:27.060
+ I think if there's some sort of limitations
+
+22:27.060 --> 22:28.580
+ on like the information processing
+
+22:28.580 --> 22:31.420
+ of whatever the physical world is,
+
+22:31.420 --> 22:32.700
+ like it quickly becomes the case
+
+22:32.700 --> 22:35.620
+ that you have a limit to the layers that could exist there
+
+22:35.620 --> 22:38.100
+ because like the resources necessary
+
+22:38.100 --> 22:41.660
+ to simulate a universe like ours clearly is a lot
+
+22:41.660 --> 22:43.700
+ just in terms of the number of bits at play.
+
+22:43.700 --> 22:46.820
+ And so then you can ask, well, what's more plausible?
+
+22:46.820 --> 22:49.140
+ That there's an unbounded capacity
+
+22:49.140 --> 22:50.340
+ of information processing
+
+22:50.340 --> 22:53.620
+ in whatever the like highest up level universe is,
+
+22:53.620 --> 22:56.060
+ or that there's some bound to that capacity,
+
+22:56.060 --> 22:58.860
+ which then limits like the number of levels available.
+
+22:58.860 --> 23:00.820
+ How do you play some kind of probability distribution
+
+23:00.820 --> 23:02.580
+ on like what the information capacity is?
+
+23:02.580 --> 23:03.740
+ I have no idea.
+
+23:03.740 --> 23:06.860
+ But I don't, like people almost assume
+
+23:06.860 --> 23:08.340
+ a certain uniform probability
+
+23:08.340 --> 23:11.900
+ over all of those meta layers that could conceivably exist
+
+23:11.900 --> 23:15.180
+ when it's a little bit like a Pascal's wager
+
+23:15.180 --> 23:16.980
+ on like you're not giving a low enough prior
+
+23:16.980 --> 23:20.900
+ to the mere existence of that infinite set of layers.
+
+23:20.900 --> 23:21.740
+ Yeah, that's true.
+
+23:21.740 --> 23:25.060
+ But it's also very difficult to contextualize the amount.
+
+23:25.060 --> 23:28.260
+ So the amount of information processing power
+
+23:28.260 --> 23:31.380
+ required to simulate like our universe
+
+23:31.380 --> 23:34.260
+ seems like amazingly huge.
+
+23:34.260 --> 23:36.940
+ But you can always raise two to the power of that.
+
+23:36.940 --> 23:40.460
+ Yeah, like numbers get big.
+
+23:40.460 --> 23:41.780
+ And we're easily humbled
+
+23:41.780 --> 23:43.700
+ by basically everything around us.
+
+23:43.700 --> 23:48.700
+ So it's very difficult to kind of make sense of anything
+
+23:49.300 --> 23:50.980
+ actually when you look up at the sky
+
+23:50.980 --> 23:53.500
+ and look at the stars and the immensity of it all,
+
+23:53.500 --> 23:57.020
+ to make sense of the smallness of us,
+
+23:57.020 --> 23:58.780
+ the unlikeliness of everything
+
+23:58.780 --> 24:02.180
+ that's on this earth coming to be,
+
+24:02.180 --> 24:04.940
+ then you could basically anything could be,
+
+24:04.940 --> 24:09.100
+ all laws of probability go out the window to me
+
+24:09.100 --> 24:14.100
+ because I guess because the amount of information
+
+24:14.140 --> 24:17.540
+ under which we're operating is very low.
+
+24:17.540 --> 24:22.100
+ We basically know nothing about the world around us,
+
+24:22.100 --> 24:23.380
+ relatively speaking.
+
+24:23.380 --> 24:26.580
+ And so when I think about the simulation hypothesis,
+
+24:26.580 --> 24:29.220
+ I think it's just fun to think about it.
+
+24:29.220 --> 24:31.860
+ But it's also, I think there is a thought experiment
+
+24:31.860 --> 24:35.220
+ kind of interesting to think of the power of computation,
+
+24:35.220 --> 24:38.940
+ whether the limits of a Turing machine,
+
+24:38.940 --> 24:41.020
+ sort of the limits of our current computers,
+
+24:41.020 --> 24:44.060
+ when you start to think about artificial intelligence,
+
+24:44.060 --> 24:45.960
+ how far can we get with computers?
+
+24:46.820 --> 24:50.820
+ And that's kind of where the simulation hypothesis
+
+24:50.820 --> 24:52.820
+ used with me as a thought experiment
+
+24:52.820 --> 24:55.120
+ is the universe just a computer?
+
+24:56.660 --> 24:58.620
+ Is it just a computation?
+
+24:58.620 --> 25:00.500
+ Is all of this just a computation?
+
+25:00.500 --> 25:02.340
+ And sort of the same kind of tools we apply
+
+25:02.340 --> 25:05.100
+ to analyzing algorithms, can that be applied?
+
+25:05.100 --> 25:07.340
+ If we scale further and further and further,
+
+25:07.340 --> 25:09.620
+ will the arbitrary power of those systems
+
+25:09.620 --> 25:12.020
+ start to create some interesting aspects
+
+25:12.020 --> 25:13.880
+ that we see in our universe?
+
+25:13.880 --> 25:15.980
+ Or is something fundamentally different
+
+25:15.980 --> 25:17.500
+ needs to be created?
+
+25:17.500 --> 25:20.380
+ Well, it's interesting that in our universe,
+
+25:20.380 --> 25:22.700
+ it's not arbitrarily large, the power,
+
+25:22.700 --> 25:24.340
+ that you can place limits on, for example,
+
+25:24.340 --> 25:27.300
+ how many bits of information can be stored per unit area.
+
+25:27.300 --> 25:30.360
+ Right, like all of the physical laws,
+
+25:30.360 --> 25:32.680
+ you've got general relativity and quantum coming together
+
+25:32.680 --> 25:36.600
+ to give you a certain limit on how many bits you can store
+
+25:36.600 --> 25:40.440
+ within a given range before it collapses into a black hole.
+
+25:40.440 --> 25:42.760
+ The idea that there even exists such a limit
+
+25:42.760 --> 25:44.600
+ is at the very least thought provoking,
+
+25:44.600 --> 25:46.960
+ when naively you might assume,
+
+25:46.960 --> 25:49.240
+ oh, well, technology could always get better and better,
+
+25:49.240 --> 25:50.920
+ we could get cleverer and cleverer,
+
+25:50.920 --> 25:54.140
+ and you could just cram as much information as you want
+
+25:54.140 --> 25:59.140
+ into like a small unit of space, that makes me think,
+
+26:01.040 --> 26:06.040
+ it's at least plausible that whatever the highest level
+
+26:06.080 --> 26:10.440
+ of existence is doesn't admit too many simulations
+
+26:10.440 --> 26:12.200
+ or ones that are at the scale of complexity
+
+26:12.200 --> 26:13.400
+ that we're looking at.
+
+26:13.400 --> 26:15.360
+ Obviously, it's just as conceivable that they do
+
+26:15.360 --> 26:20.080
+ and that there are many, but I guess what I'm channeling
+
+26:20.080 --> 26:22.560
+ is the surprise that I felt upon learning that fact,
+
+26:22.560 --> 26:26.120
+ that there are, that information is physical in this way.
+
+26:26.120 --> 26:27.120
+ There's a finiteness to it.
+
+26:27.120 --> 26:29.420
+ Okay, let me just even go off on that.
+
+26:29.420 --> 26:31.320
+ From a mathematics perspective
+
+26:31.320 --> 26:35.040
+ and a psychology perspective, how do you mix,
+
+26:35.040 --> 26:38.200
+ are you psychologically comfortable
+
+26:38.200 --> 26:39.760
+ with the concept of infinity?
+
+26:40.800 --> 26:41.640
+ I think so.
+
+26:41.640 --> 26:42.460
+ Are you okay with it?
+
+26:42.460 --> 26:43.680
+ I'm pretty okay, yeah.
+
+26:43.680 --> 26:44.560
+ Are you okay?
+
+26:44.560 --> 26:47.180
+ No, not really, it doesn't make any sense to me.
+
+26:47.180 --> 26:50.040
+ I don't know, like how many words,
+
+26:50.040 --> 26:52.560
+ how many possible words do you think could exist
+
+26:53.480 --> 26:55.700
+ that are just like strings of letters?
+
+26:55.700 --> 26:59.600
+ So that's a sort of mathematical statement as beautiful
+
+26:59.600 --> 27:02.300
+ and we use infinity in basically everything we do,
+
+27:03.520 --> 27:06.880
+ everything we do in science, math, and engineering, yes.
+
+27:06.880 --> 27:11.880
+ But you said exist, the question is,
+
+27:12.040 --> 27:13.360
+ you said letters or words?
+
+27:13.360 --> 27:14.560
+ I said words. Words.
+
+27:16.440 --> 27:18.200
+ To bring words into existence to me,
+
+27:18.200 --> 27:20.920
+ you have to start like saying them or like writing them
+
+27:20.920 --> 27:22.040
+ or like listing them.
+
+27:22.040 --> 27:23.240
+ That's an instantiation.
+
+27:23.240 --> 27:25.800
+ Okay, how many abstract words exist?
+
+27:25.800 --> 27:28.080
+ Well, the idea of an abstract.
+
+27:28.080 --> 27:31.000
+ The idea of abstract notions and ideas.
+
+27:31.000 --> 27:33.120
+ I think we should be clear on terminology.
+
+27:33.120 --> 27:35.200
+ I mean, you think about intelligence a lot,
+
+27:35.200 --> 27:36.640
+ like artificial intelligence.
+
+27:37.860 --> 27:39.120
+ Would you not say that what it's doing
+
+27:39.120 --> 27:40.440
+ is a kind of abstraction?
+
+27:40.440 --> 27:42.280
+ That like abstraction is key
+
+27:42.280 --> 27:45.120
+ to conceptualizing the universe?
+
+27:45.120 --> 27:47.300
+ You get this raw sensory data.
+
+27:47.300 --> 27:49.240
+ I need something that every time you move your face
+
+27:49.240 --> 27:51.620
+ a little bit and they're not pixels,
+
+27:51.620 --> 27:55.200
+ but like analog of pixels on my retina changed entirely,
+
+27:55.200 --> 27:58.040
+ that I can still have some coherent notion of this is Lex,
+
+27:58.040 --> 27:59.720
+ I'm talking to Lex, right?
+
+27:59.720 --> 28:01.720
+ What that requires is you have a disparate set
+
+28:01.720 --> 28:03.580
+ of possible images hitting me
+
+28:03.580 --> 28:07.580
+ that are unified in a notion of Lex, right?
+
+28:07.580 --> 28:08.680
+ That's a kind of abstraction.
+
+28:08.680 --> 28:09.820
+ It's a thing that could apply
+
+28:09.820 --> 28:12.400
+ to a lot of different images that I see
+
+28:12.400 --> 28:15.280
+ and it represents it in a much more compressed way
+
+28:15.280 --> 28:17.440
+ and one that's like much more resilient to that.
+
+28:17.440 --> 28:18.360
+ I think in the same way,
+
+28:18.360 --> 28:21.080
+ if I'm talking about infinity as an abstraction,
+
+28:21.080 --> 28:23.820
+ I don't mean nonphysical woo woo,
+
+28:24.960 --> 28:26.360
+ like ineffable or something.
+
+28:26.360 --> 28:28.360
+ What I mean is it's something that can apply
+
+28:28.360 --> 28:30.160
+ to a multiplicity of situations
+
+28:30.160 --> 28:31.660
+ that share a certain common attribute
+
+28:31.660 --> 28:33.720
+ in the same way that the images of like your face
+
+28:33.720 --> 28:35.820
+ on my retina share enough common attributes
+
+28:35.820 --> 28:37.700
+ that I can put the single notion to it.
+
+28:37.700 --> 28:40.780
+ Like in that way, infinity is an abstraction
+
+28:40.780 --> 28:43.260
+ and it's very powerful and it's only through
+
+28:43.260 --> 28:45.680
+ such abstractions that we can actually understand
+
+28:45.680 --> 28:47.560
+ like the world and logic and things.
+
+28:47.560 --> 28:48.560
+ And in the case of infinity,
+
+28:48.560 --> 28:49.400
+ the way I think about it,
+
+28:49.400 --> 28:51.760
+ the key entity is the property
+
+28:51.760 --> 28:54.080
+ of always being able to add one more.
+
+28:54.080 --> 28:56.120
+ Like no matter how many words you can list,
+
+28:56.120 --> 28:57.720
+ you just throw an A at the end of one
+
+28:57.720 --> 28:59.760
+ and you have another conceivable word.
+
+28:59.760 --> 29:01.680
+ You don't have to think of all the words at once.
+
+29:01.680 --> 29:04.840
+ It's that property, the oh, I could always add one more
+
+29:04.840 --> 29:08.200
+ that gives it this nature of infiniteness
+
+29:08.200 --> 29:09.760
+ in the same way that there's certain like properties
+
+29:09.760 --> 29:13.720
+ of your face that give it the Lexness, right?
+
+29:13.720 --> 29:16.480
+ So like infinity should be no more worrying
+
+29:16.480 --> 29:19.760
+ than the I can always add one more sentiment.
+
+29:19.760 --> 29:21.600
+ That's a really elegant,
+
+29:21.600 --> 29:23.720
+ much more elegant way than I could put it.
+
+29:23.720 --> 29:26.840
+ So thank you for doing that as yet another abstraction.
+
+29:26.840 --> 29:29.440
+ And yes, indeed, that's what our brain does.
+
+29:29.440 --> 29:30.640
+ That's what intelligent systems do.
+
+29:30.640 --> 29:31.840
+ That's what programming does.
+
+29:31.840 --> 29:34.680
+ That's what science does is build abstraction
+
+29:34.680 --> 29:35.760
+ on top of each other.
+
+29:35.760 --> 29:39.560
+ And yet there is at a certain point abstractions
+
+29:39.560 --> 29:42.800
+ that go into the quote woo, right?
+
+29:42.800 --> 29:47.800
+ Sort of, and because we're now,
+
+29:47.920 --> 29:52.460
+ it's like we built this stack of, you know,
+
+29:52.460 --> 29:54.680
+ the only thing that's true is the stuff that's on the ground.
+
+29:54.680 --> 29:57.480
+ Everything else is useful for interpreting this.
+
+29:57.480 --> 30:00.000
+ And at a certain point you might start floating
+
+30:00.000 --> 30:04.600
+ into ideas that are surreal and difficult
+
+30:04.600 --> 30:08.120
+ and take us into areas that are disconnected
+
+30:08.120 --> 30:11.080
+ from reality in a way that we could never get back.
+
+30:11.080 --> 30:13.160
+ What if instead of calling these abstract,
+
+30:13.160 --> 30:14.640
+ how different would it be in your mind
+
+30:14.640 --> 30:15.960
+ if we called them general?
+
+30:15.960 --> 30:17.400
+ And the phenomenon that you're describing
+
+30:17.400 --> 30:19.080
+ is overgeneralization.
+
+30:19.080 --> 30:21.720
+ When you try to have a concept or an idea
+
+30:21.720 --> 30:24.760
+ that's so general as to apply to nothing in particular
+
+30:24.760 --> 30:27.960
+ in a useful way, does that map to what you're thinking
+
+30:27.960 --> 30:28.800
+ of when you think of?
+
+30:28.800 --> 30:31.480
+ First of all, I'm playing little just for the fun of it.
+
+30:31.480 --> 30:32.400
+ Devil's advocate.
+
+30:32.400 --> 30:37.400
+ And I think our cognition, our mind is unable
+
+30:37.400 --> 30:39.000
+ to visualize.
+
+30:39.000 --> 30:42.520
+ So you do some incredible work with visualization and video.
+
+30:42.520 --> 30:46.800
+ I think infinity is very difficult to visualize
+
+30:46.800 --> 30:48.240
+ for our mind.
+
+30:48.240 --> 30:52.880
+ We can delude ourselves into thinking we can visualize it,
+
+30:52.880 --> 30:54.480
+ but we can't.
+
+30:54.480 --> 30:56.120
+ I don't, I mean, I don't,
+
+30:56.120 --> 30:57.680
+ I would venture to say it's very difficult.
+
+30:57.680 --> 31:00.440
+ And so there's some concepts of mathematics,
+
+31:00.440 --> 31:02.040
+ like maybe multiple dimensions,
+
+31:02.040 --> 31:04.720
+ we could sort of talk about that are impossible
+
+31:04.720 --> 31:08.160
+ for us to truly intuit, like,
+
+31:08.160 --> 31:13.120
+ and it just feels dangerous to me to use these
+
+31:13.120 --> 31:15.720
+ as part of our toolbox of abstractions.
+
+31:16.680 --> 31:17.680
+ On behalf of your listeners,
+
+31:17.680 --> 31:19.600
+ I almost fear we're getting too philosophical.
+
+31:19.600 --> 31:20.440
+ Right?
+
+31:20.440 --> 31:21.280
+ Heck no.
+
+31:21.280 --> 31:22.120
+ Heck no.
+
+31:22.120 --> 31:26.720
+ I think to that point for any particular idea like this,
+
+31:26.720 --> 31:28.720
+ there's multiple angles of attack.
+
+31:28.720 --> 31:31.920
+ I think the, when we do visualize infinity,
+
+31:31.920 --> 31:33.160
+ what we're actually doing, you know,
+
+31:33.160 --> 31:34.720
+ you write dot, dot, dot, right?
+
+31:34.720 --> 31:37.000
+ One, two, three, four, dot, dot, dot, right?
+
+31:37.000 --> 31:37.960
+ Those are symbols on the page
+
+31:37.960 --> 31:41.680
+ that are insinuating a certain infinity.
+
+31:42.880 --> 31:45.920
+ What you're capturing with a little bit of design there
+
+31:45.920 --> 31:49.400
+ is the I can always add one more property, right?
+
+31:49.400 --> 31:52.480
+ I think I'm just as uncomfortable with you are
+
+31:52.480 --> 31:56.040
+ if you try to concretize it so much
+
+31:56.040 --> 31:58.880
+ that you have a bag of infinitely many things
+
+31:58.880 --> 32:00.720
+ that I actually think of, no, not one, two, three, four,
+
+32:00.720 --> 32:03.360
+ dot, dot, dot, one, two, three, four, five, six, seven, eight.
+
+32:03.360 --> 32:05.600
+ I try to get them all in my head and you realize,
+
+32:05.600 --> 32:08.120
+ oh, you know, your brain would literally collapse
+
+32:08.120 --> 32:10.120
+ into a black hole, all of that.
+
+32:10.120 --> 32:12.440
+ And I honestly feel this with a lot of math
+
+32:12.440 --> 32:15.040
+ that I try to read where I don't think of myself
+
+32:15.040 --> 32:19.880
+ as like particularly good at math in some ways.
+
+32:19.880 --> 32:21.360
+ Like I get very confused often
+
+32:21.360 --> 32:23.720
+ when I am going through some of these texts.
+
+32:23.720 --> 32:25.680
+ And often what I'm feeling in my head is like,
+
+32:25.680 --> 32:27.840
+ this is just so damn abstract.
+
+32:27.840 --> 32:29.160
+ I just can't wrap my head around it.
+
+32:29.160 --> 32:31.800
+ I just want to put something concrete to it
+
+32:31.800 --> 32:32.920
+ that makes me understand.
+
+32:32.920 --> 32:35.560
+ And I think a lot of the motivation for the channel
+
+32:35.560 --> 32:38.400
+ is channeling that sentiment of, yeah,
+
+32:38.400 --> 32:40.920
+ a lot of the things that you're trying to read out there,
+
+32:40.920 --> 32:43.600
+ it's just so hard to connect to anything
+
+32:43.600 --> 32:45.280
+ that you spend an hour banging your head
+
+32:45.280 --> 32:47.200
+ against a couple of pages and you come out
+
+32:47.200 --> 32:49.240
+ not really knowing anything more
+
+32:49.240 --> 32:51.760
+ other than some definitions maybe
+
+32:51.760 --> 32:55.520
+ and a certain sense of self defeat, right?
+
+32:55.520 --> 32:58.480
+ One of the reasons I focus so much on visualizations
+
+32:58.480 --> 33:01.720
+ is that I'm a big believer in,
+
+33:01.720 --> 33:03.080
+ I'm sorry, I'm just really hampering on
+
+33:03.080 --> 33:04.320
+ this idea of abstraction,
+
+33:04.320 --> 33:07.400
+ being clear about your layers of abstraction, right?
+
+33:07.400 --> 33:09.760
+ It's always tempting to start an explanation
+
+33:09.760 --> 33:11.920
+ from the top to the bottom, okay?
+
+33:11.920 --> 33:14.080
+ You give the definition of a new theorem.
+
+33:14.080 --> 33:16.120
+ You're like, this is the definition of a vector space.
+
+33:16.120 --> 33:18.320
+ For example, that's how we'll start a course.
+
+33:18.320 --> 33:20.520
+ These are the properties of a vector space.
+
+33:20.520 --> 33:23.480
+ First from these properties, we will derive what we need
+
+33:23.480 --> 33:25.120
+ in order to do the math of linear algebra
+
+33:25.120 --> 33:26.320
+ or whatever it might be.
+
+33:26.320 --> 33:28.520
+ I don't think that's how understanding works at all.
+
+33:28.520 --> 33:29.880
+ I think how understanding works
+
+33:29.880 --> 33:32.440
+ is you start at the lowest level you can get at
+
+33:32.440 --> 33:34.600
+ where rather than thinking about a vector space,
+
+33:34.600 --> 33:36.240
+ you might think of concrete vectors
+
+33:36.240 --> 33:37.880
+ that are just lists of numbers
+
+33:37.880 --> 33:41.040
+ or picturing it as like an arrow that you draw,
+
+33:41.920 --> 33:44.400
+ which is itself like even less abstract than numbers
+
+33:44.400 --> 33:45.440
+ because you're looking at quantities,
+
+33:45.440 --> 33:47.000
+ like the distance of the x coordinate,
+
+33:47.000 --> 33:48.080
+ the distance of the y coordinate.
+
+33:48.080 --> 33:50.120
+ It's as concrete as you could possibly get
+
+33:50.120 --> 33:53.640
+ and it has to be if you're putting it in a visual, right?
+
+33:53.640 --> 33:56.880
+ It's an actual arrow. It's an actual vector.
+
+33:56.880 --> 33:59.120
+ You're not talking about like a quote unquote vector
+
+33:59.120 --> 34:01.080
+ that could apply to any possible thing.
+
+34:01.080 --> 34:03.480
+ You have to choose one if you're illustrating it.
+
+34:03.480 --> 34:05.920
+ And I think this is the power of being in a medium
+
+34:05.920 --> 34:08.160
+ like video or if you're writing a textbook
+
+34:08.160 --> 34:10.760
+ and you force yourself to put a lot of images
+
+34:10.760 --> 34:13.520
+ is with every image, you're making a choice.
+
+34:13.520 --> 34:16.240
+ With each choice, you're showing a concrete example.
+
+34:16.240 --> 34:17.560
+ With each concrete example,
+
+34:17.560 --> 34:19.680
+ you're aiding someone's path to understanding.
+
+34:19.680 --> 34:21.360
+ I'm sorry to interrupt you,
+
+34:21.360 --> 34:24.600
+ but you just made me realize that that's exactly right.
+
+34:24.600 --> 34:26.880
+ So the visualizations you're creating
+
+34:26.880 --> 34:29.840
+ while you're sometimes talking about abstractions,
+
+34:29.840 --> 34:34.560
+ the actual visualization is an explicit low level example.
+
+34:34.560 --> 34:35.400
+ Yes.
+
+34:35.400 --> 34:37.400
+ So there's an actual, like in the code,
+
+34:37.400 --> 34:40.600
+ you have to say what the vector is,
+
+34:40.600 --> 34:42.200
+ what's the direction of the arrow,
+
+34:42.200 --> 34:44.960
+ what's the magnitude of the, yeah.
+
+34:44.960 --> 34:48.200
+ So that's, you're going, the visualization itself
+
+34:48.200 --> 34:50.200
+ is actually going to the bottom of that.
+
+34:50.200 --> 34:52.560
+ And I think that's very important.
+
+34:52.560 --> 34:54.960
+ I also think about this a lot in writing scripts
+
+34:54.960 --> 34:57.360
+ where even before you get to the visuals,
+
+34:57.360 --> 35:00.200
+ the first instinct is to, I don't know why,
+
+35:00.200 --> 35:02.560
+ I just always do, I say the abstract thing,
+
+35:02.560 --> 35:05.040
+ I say the general definition, the powerful thing,
+
+35:05.040 --> 35:07.240
+ and then I fill it in with examples later.
+
+35:07.240 --> 35:08.680
+ Always, it will be more compelling
+
+35:08.680 --> 35:10.720
+ and easier to understand when you flip that.
+
+35:10.720 --> 35:13.480
+ And instead, you let someone's brain
+
+35:13.480 --> 35:16.240
+ do the pattern recognition.
+
+35:16.240 --> 35:18.200
+ You just show them a bunch of examples.
+
+35:18.200 --> 35:21.080
+ The brain is gonna feel a certain similarity between them.
+
+35:21.080 --> 35:23.560
+ Then by the time you bring in the definition,
+
+35:23.560 --> 35:25.720
+ or by the time you bring in the formula,
+
+35:25.720 --> 35:28.920
+ it's articulating a thing that's already in the brain
+
+35:28.920 --> 35:30.880
+ that was built off of looking at a bunch of examples
+
+35:30.880 --> 35:32.840
+ with a certain kind of similarity.
+
+35:32.840 --> 35:34.680
+ And what the formula does is articulate
+
+35:34.680 --> 35:36.560
+ what that kind of similarity is,
+
+35:36.560 --> 35:41.560
+ rather than being a high cognitive load set of symbols
+
+35:42.200 --> 35:45.200
+ that needs to be populated with examples later on,
+
+35:45.200 --> 35:48.640
+ assuming someone's still with you.
+
+35:48.640 --> 35:51.280
+ What is the most beautiful or awe inspiring idea
+
+35:51.280 --> 35:53.840
+ you've come across in mathematics?
+
+35:53.840 --> 35:55.160
+ I don't know, man.
+
+35:55.160 --> 35:57.240
+ Maybe it's an idea you've explored in your videos,
+
+35:57.240 --> 35:58.360
+ maybe not.
+
+35:58.360 --> 36:01.280
+ What just gave you pause?
+
+36:01.280 --> 36:03.360
+ What's the most beautiful idea?
+
+36:03.360 --> 36:04.440
+ Small or big.
+
+36:04.440 --> 36:07.360
+ So I think often, the things that are most beautiful
+
+36:07.360 --> 36:11.800
+ are the ones that you have a little bit of understanding of,
+
+36:11.800 --> 36:14.360
+ but certainly not an entire understanding.
+
+36:14.360 --> 36:15.560
+ It's a little bit of that mystery
+
+36:15.560 --> 36:17.280
+ that is what makes it beautiful.
+
+36:17.280 --> 36:20.200
+ What was the moment of the discovery for you personally,
+
+36:20.200 --> 36:23.480
+ almost just that leap of aha moment?
+
+36:23.480 --> 36:25.240
+ So something that really caught my eye,
+
+36:25.240 --> 36:27.920
+ I remember when I was little, there were these,
+
+36:29.320 --> 36:31.120
+ I think the series was called like wooden books
+
+36:31.120 --> 36:32.400
+ or something, these tiny little books
+
+36:32.400 --> 36:34.680
+ that would have just a very short description
+
+36:34.680 --> 36:36.920
+ of something on the left and then a picture on the right.
+
+36:36.920 --> 36:37.880
+ I don't know who they're meant for,
+
+36:37.880 --> 36:39.640
+ but maybe it's like loosely children
+
+36:39.640 --> 36:40.520
+ or something like that.
+
+36:40.520 --> 36:41.440
+ But it can't just be children,
+
+36:41.440 --> 36:43.160
+ because of some of the things I was describing.
+
+36:43.160 --> 36:45.280
+ On the last page of one of them,
+
+36:45.280 --> 36:47.600
+ somewhere tiny in there was this little formula
+
+36:47.600 --> 36:49.880
+ that on the left hand had a sum
+
+36:49.880 --> 36:51.840
+ over all of the natural numbers.
+
+36:51.840 --> 36:54.760
+ It's like one over one to the S plus one over two to the S
+
+36:54.760 --> 36:57.680
+ plus one over three to the S on and on to the infinity.
+
+36:57.680 --> 37:01.120
+ Then on the other side had a product over all of the primes
+
+37:01.120 --> 37:03.820
+ and it was a certain thing had to do with all the primes.
+
+37:03.820 --> 37:06.480
+ And like any good young math enthusiast,
+
+37:06.480 --> 37:08.400
+ I'd probably been indoctrinated with how chaotic
+
+37:08.400 --> 37:10.920
+ and confusing the primes are, which they are.
+
+37:10.920 --> 37:14.280
+ And seeing this equation where on one side
+
+37:14.280 --> 37:15.900
+ you have something that's as understandable
+
+37:15.900 --> 37:18.280
+ as you could possibly get, the counting numbers.
+
+37:18.280 --> 37:20.480
+ And on the other side is all the prime numbers.
+
+37:20.480 --> 37:23.960
+ It was like this, whoa, they're related like this?
+
+37:23.960 --> 37:26.480
+ There's a simple description that includes
+
+37:26.480 --> 37:28.760
+ all the primes getting wrapped together like this.
+
+37:28.760 --> 37:32.200
+ This is like the Euler product for the Zeta function,
+
+37:32.200 --> 37:33.800
+ as I like later found out.
+
+37:33.800 --> 37:36.120
+ The equation itself essentially encodes
+
+37:36.120 --> 37:37.900
+ the fundamental theorem of arithmetic
+
+37:37.900 --> 37:39.480
+ that every number can be expressed
+
+37:39.480 --> 37:42.080
+ as a unique set of primes.
+
+37:42.080 --> 37:44.700
+ To me still there's, I mean, I certainly don't understand
+
+37:44.700 --> 37:47.280
+ this equation or this function all that well.
+
+37:47.280 --> 37:50.280
+ The more I learn about it, the prettier it is.
+
+37:50.280 --> 37:53.360
+ The idea that you can, this is sort of what gets you
+
+37:53.360 --> 37:57.240
+ representations of primes, not in terms of primes themselves,
+
+37:57.240 --> 37:59.160
+ but in terms of another set of numbers.
+
+37:59.160 --> 38:01.960
+ They're like the non trivial zeros of the Zeta function.
+
+38:01.960 --> 38:04.280
+ And again, I'm very kind of in over my head
+
+38:04.280 --> 38:06.660
+ in a lot of ways as I like try to get to understand it.
+
+38:06.660 --> 38:09.720
+ But the more I do, it always leaves enough mystery
+
+38:09.720 --> 38:11.640
+ that it remains very beautiful to me.
+
+38:11.640 --> 38:13.560
+ So whenever there's a little bit of mystery
+
+38:13.560 --> 38:16.780
+ just outside of the understanding that,
+
+38:16.780 --> 38:19.680
+ and by the way, the process of learning more about it,
+
+38:19.680 --> 38:20.580
+ how does that come about?
+
+38:20.580 --> 38:23.800
+ Just your own thought or are you reading?
+
+38:23.800 --> 38:24.640
+ Reading, yeah.
+
+38:24.640 --> 38:26.480
+ Or is the process of visualization itself
+
+38:26.480 --> 38:28.160
+ revealing more to you?
+
+38:28.160 --> 38:29.000
+ Visuals help.
+
+38:29.000 --> 38:31.320
+ I mean, in one time when I was just trying to understand
+
+38:31.320 --> 38:33.760
+ like analytic continuation and playing around
+
+38:33.760 --> 38:36.240
+ with visualizing complex functions,
+
+38:36.240 --> 38:39.500
+ this is what led to a video about this function.
+
+38:39.500 --> 38:40.340
+ It's titled something like
+
+38:40.340 --> 38:42.360
+ Visualizing the Riemann Zeta Function.
+
+38:42.360 --> 38:45.040
+ It's one that came about because I was programming
+
+38:45.040 --> 38:47.680
+ and tried to see what a certain thing looked like.
+
+38:47.680 --> 38:48.520
+ And then I looked at it and I'm like,
+
+38:48.520 --> 38:50.640
+ whoa, that's elucidating.
+
+38:50.640 --> 38:53.460
+ And then I decided to make a video about it.
+
+38:53.460 --> 38:56.680
+ But I mean, you try to get your hands on
+
+38:56.680 --> 38:58.120
+ as much reading as you can.
+
+38:58.120 --> 39:01.800
+ You know, in this case, I think if anyone wants to start
+
+39:01.800 --> 39:05.800
+ to understand it, if they have like a math background
+
+39:05.800 --> 39:08.840
+ like they studied some in college or something like that,
+
+39:08.840 --> 39:10.280
+ like the Princeton Companion to Math
+
+39:10.280 --> 39:13.040
+ has a really good article on analytic number theory.
+
+39:13.040 --> 39:15.720
+ And that itself has a whole bunch of references
+
+39:15.720 --> 39:17.420
+ and you know, anything has more references
+
+39:17.420 --> 39:20.160
+ and it gives you this like tree to start piling through.
+
+39:20.160 --> 39:22.160
+ And like, you know, you try to understand,
+
+39:22.160 --> 39:24.720
+ I try to understand things visually as I go.
+
+39:24.720 --> 39:26.320
+ That's not always possible,
+
+39:26.320 --> 39:28.340
+ but it's very helpful when it does.
+
+39:28.340 --> 39:30.100
+ You recognize when there's common themes,
+
+39:30.100 --> 39:34.460
+ like in this case, Cousins of the Fourier Transform
+
+39:34.460 --> 39:35.880
+ that come into play and you realize,
+
+39:35.880 --> 39:37.000
+ oh, it's probably pretty important
+
+39:37.000 --> 39:39.040
+ to have deep intuitions of the Fourier Transform,
+
+39:39.040 --> 39:42.360
+ even if it's not explicitly mentioned in like these texts.
+
+39:42.360 --> 39:45.240
+ And you try to get a sense of what the common players are.
+
+39:45.240 --> 39:47.220
+ But I'll emphasize again, like,
+
+39:47.220 --> 39:50.520
+ I feel very in over my head when I try to understand
+
+39:50.520 --> 39:53.520
+ the exact relation between like the zeros
+
+39:53.520 --> 39:54.600
+ of the Riemann Zeta function
+
+39:54.600 --> 39:56.940
+ and how they relate to the distribution of primes.
+
+39:56.940 --> 39:59.360
+ I definitely understand it better than I did a year ago.
+
+39:59.360 --> 40:02.360
+ I definitely understand it on 100th as well as the experts
+
+40:02.360 --> 40:04.680
+ on the matter do, I assume.
+
+40:04.680 --> 40:08.280
+ But the slow path towards getting there is,
+
+40:08.280 --> 40:09.600
+ it's fun, it's charming,
+
+40:09.600 --> 40:12.900
+ and like to your question, very beautiful.
+
+40:12.900 --> 40:14.800
+ And the beauty is in the, what,
+
+40:14.800 --> 40:17.080
+ in the journey versus the destination?
+
+40:17.080 --> 40:19.420
+ Well, it's that each thing doesn't feel arbitrary.
+
+40:19.420 --> 40:20.560
+ I think that's a big part,
+
+40:20.560 --> 40:23.360
+ is that you have these unpredictable,
+
+40:23.360 --> 40:25.880
+ no, yeah, these very unpredictable patterns
+
+40:25.880 --> 40:30.480
+ or these intricate properties of like a certain function.
+
+40:30.480 --> 40:31.320
+ But at the same time,
+
+40:31.320 --> 40:33.800
+ it doesn't feel like humans ever made an arbitrary choice
+
+40:33.800 --> 40:35.760
+ in studying this particular thing.
+
+40:35.760 --> 40:38.440
+ So, you know, it feels like you're speaking
+
+40:38.440 --> 40:41.280
+ to patterns themselves or nature itself.
+
+40:41.280 --> 40:43.160
+ That's a big part of it.
+
+40:43.160 --> 40:45.080
+ I think things that are too arbitrary,
+
+40:45.080 --> 40:46.640
+ it's just hard for those to feel beautiful
+
+40:46.640 --> 40:49.800
+ because this is sort of what the word contrived
+
+40:49.800 --> 40:51.680
+ is meant to apply to, right?
+
+40:53.420 --> 40:57.640
+ And when they're not arbitrary means it could be,
+
+40:57.640 --> 41:02.080
+ you can have a clean abstraction and intuition
+
+41:02.940 --> 41:04.940
+ that allows you to comprehend it.
+
+41:04.940 --> 41:06.220
+ Well, to one of your first questions,
+
+41:06.220 --> 41:07.640
+ it makes you feel like if you came across
+
+41:07.640 --> 41:09.680
+ another intelligent civilization,
+
+41:09.680 --> 41:12.360
+ that they'd be studying the same thing.
+
+41:12.360 --> 41:13.680
+ Maybe with different notation.
+
+41:13.680 --> 41:15.520
+ Certainly, yeah, but yeah.
+
+41:15.520 --> 41:16.360
+ Like that's what,
+
+41:16.360 --> 41:18.740
+ I think you talked to that other civilization,
+
+41:18.740 --> 41:20.280
+ they're probably also studying the zeros
+
+41:20.280 --> 41:21.680
+ of the Riemann Zeta function
+
+41:21.680 --> 41:23.840
+ or like some variant thereof
+
+41:23.840 --> 41:27.520
+ that is like a clearly equivalent cousin
+
+41:27.520 --> 41:28.560
+ or something like that.
+
+41:28.560 --> 41:31.400
+ But that's probably on their docket.
+
+41:32.480 --> 41:35.920
+ Whenever somebody does a lot of something amazing,
+
+41:35.920 --> 41:37.640
+ I'm gonna ask the question
+
+41:37.640 --> 41:40.160
+ that you've already been asked a lot
+
+41:40.160 --> 41:43.320
+ and that you'll get more and more asked in your life.
+
+41:43.320 --> 41:46.160
+ But what was your favorite video to create?
+
+41:46.160 --> 41:49.520
+ Oh, favorite to create.
+
+41:49.520 --> 41:51.280
+ One of my favorites is,
+
+41:51.280 --> 41:54.220
+ the title is Who Cares About Topology?
+
+41:54.220 --> 41:55.920
+ You want me to pull it up or no?
+
+41:55.920 --> 41:57.300
+ If you want, sure, yeah.
+
+41:57.300 --> 42:00.960
+ It is about, well, it starts by describing
+
+42:00.960 --> 42:03.040
+ an unsolved problem that's still unsolved in math
+
+42:03.040 --> 42:05.020
+ called the inscribed square problem.
+
+42:05.020 --> 42:06.720
+ You draw any loop and then you ask,
+
+42:06.720 --> 42:09.180
+ are there four points on that loop that make a square?
+
+42:09.180 --> 42:10.320
+ Totally useless, right?
+
+42:10.320 --> 42:12.480
+ This is not answering any physical questions.
+
+42:12.480 --> 42:14.920
+ It's mostly interesting that we can't answer that question.
+
+42:14.920 --> 42:17.320
+ And it seems like such a natural thing to ask.
+
+42:18.360 --> 42:21.160
+ Now, if you weaken it a little bit and you ask,
+
+42:21.160 --> 42:22.580
+ can you always find a rectangle?
+
+42:22.580 --> 42:24.280
+ You choose four points on this curve,
+
+42:24.280 --> 42:25.640
+ can you find a rectangle?
+
+42:25.640 --> 42:27.520
+ That's hard, but it's doable.
+
+42:27.520 --> 42:32.520
+ And the path to it involves things like looking at a torus,
+
+42:32.960 --> 42:35.320
+ this surface with a single hole in it, like a donut,
+
+42:35.320 --> 42:37.300
+ or looking at a mobius strip.
+
+42:37.300 --> 42:39.760
+ In ways that feel so much less contrived
+
+42:39.760 --> 42:41.680
+ to when I first, as like a little kid,
+
+42:41.680 --> 42:43.400
+ learned about these surfaces and shapes,
+
+42:43.400 --> 42:45.460
+ like a mobius strip and a torus.
+
+42:45.460 --> 42:47.840
+ Like what you learn is, oh, this mobius strip,
+
+42:47.840 --> 42:50.760
+ you take a piece of paper, put a twist, glue it together,
+
+42:50.760 --> 42:53.720
+ and now you have a shape with one edge and just one side.
+
+42:53.720 --> 42:58.480
+ And as a student, you should think, who cares, right?
+
+42:58.480 --> 43:00.600
+ Like, how does that help me solve any problems?
+
+43:00.600 --> 43:02.720
+ I thought math was about problem solving.
+
+43:02.720 --> 43:05.640
+ So what I liked about the piece of math
+
+43:05.640 --> 43:08.500
+ that this was describing that was in this paper
+
+43:08.500 --> 43:10.080
+ by a mathematician named Vaughn
+
+43:10.080 --> 43:12.960
+ was that it arises very naturally.
+
+43:12.960 --> 43:14.360
+ It's clear what it represents.
+
+43:14.360 --> 43:15.440
+ It's doing something.
+
+43:15.440 --> 43:17.800
+ It's not just playing with construction paper.
+
+43:17.800 --> 43:20.920
+ And the way that it solves the problem is really beautiful.
+
+43:21.800 --> 43:24.280
+ So kind of putting all of that down
+
+43:24.280 --> 43:25.840
+ and concretizing it, right?
+
+43:25.840 --> 43:27.680
+ Like I was talking about how
+
+43:27.680 --> 43:29.400
+ when you have to put visuals to it,
+
+43:29.400 --> 43:30.920
+ it demands that what's on screen
+
+43:30.920 --> 43:33.320
+ is a very specific example of what you're describing.
+
+43:33.320 --> 43:35.920
+ The construction here is very abstract in nature.
+
+43:35.920 --> 43:39.320
+ You describe this very abstract kind of surface in 3D space.
+
+43:39.320 --> 43:40.920
+ So then when I was finding myself,
+
+43:40.920 --> 43:42.040
+ in this case, I wasn't programming,
+
+43:42.040 --> 43:44.560
+ I was using a grapher that's like built into OSX
+
+43:44.560 --> 43:48.780
+ for the 3D stuff to draw that surface,
+
+43:48.780 --> 43:50.800
+ you realize, oh man, the topology argument
+
+43:50.800 --> 43:52.680
+ is very non constructive.
+
+43:52.680 --> 43:54.160
+ I have to make a lot of,
+
+43:54.160 --> 43:55.680
+ you have to do a lot of extra work
+
+43:55.680 --> 43:57.440
+ in order to make the surface show up.
+
+43:57.440 --> 43:59.440
+ But then once you see it, it's quite pretty
+
+43:59.440 --> 44:02.120
+ and it's very satisfying to see a specific instance of it.
+
+44:02.120 --> 44:03.540
+ And you also feel like, ah,
+
+44:03.540 --> 44:04.840
+ I've actually added something
+
+44:04.840 --> 44:06.720
+ on top of what the original paper was doing
+
+44:06.720 --> 44:09.640
+ that it shows something that's completely correct.
+
+44:09.640 --> 44:10.880
+ That's a very beautiful argument,
+
+44:10.880 --> 44:12.680
+ but you don't see what it looks like.
+
+44:12.680 --> 44:14.960
+ And I found something satisfying
+
+44:14.960 --> 44:16.400
+ in seeing what it looked like
+
+44:16.400 --> 44:17.960
+ that could only ever have come about
+
+44:17.960 --> 44:19.240
+ from the forcing function
+
+44:19.240 --> 44:21.200
+ of getting some kind of image on the screen
+
+44:21.200 --> 44:22.560
+ to describe the thing I was talking about.
+
+44:22.560 --> 44:24.260
+ So you almost weren't able to anticipate
+
+44:24.260 --> 44:25.100
+ what it's gonna look like.
+
+44:25.100 --> 44:26.160
+ I had no idea.
+
+44:26.160 --> 44:27.000
+ I had no idea.
+
+44:27.000 --> 44:28.280
+ And it was wonderful, right?
+
+44:28.280 --> 44:30.360
+ It was totally, it looks like a Sydney Opera House
+
+44:30.360 --> 44:32.040
+ or some sort of Frank Gehry design.
+
+44:32.040 --> 44:35.200
+ And it was, you knew it was gonna be something
+
+44:35.200 --> 44:36.480
+ and you can say various things about it.
+
+44:36.480 --> 44:39.320
+ Like, oh, it touches the curve itself.
+
+44:39.320 --> 44:42.080
+ It has a boundary that's this curve on the 2D plane.
+
+44:42.080 --> 44:43.840
+ It all sits above the plane.
+
+44:43.840 --> 44:45.320
+ But before you actually draw it,
+
+44:45.320 --> 44:48.160
+ it's very unclear what the thing will look like.
+
+44:48.160 --> 44:50.760
+ And to see it, it's very, it's just pleasing, right?
+
+44:50.760 --> 44:53.240
+ So that was fun to make, very fun to share.
+
+44:53.240 --> 44:58.040
+ I hope that it has elucidated for some people out there
+
+44:58.040 --> 45:00.120
+ where these constructs of topology come from,
+
+45:00.120 --> 45:03.040
+ that it's not arbitrary play with construction paper.
+
+45:04.040 --> 45:07.240
+ So let's, I think this is a good sort of example
+
+45:07.240 --> 45:09.640
+ to talk a little bit about your process.
+
+45:09.640 --> 45:12.760
+ You have a list of ideas.
+
+45:12.760 --> 45:17.480
+ So that's sort of the curse of having an active
+
+45:17.480 --> 45:19.600
+ and brilliant mind is I'm sure you have a list
+
+45:19.600 --> 45:22.000
+ that's growing faster than you can utilize.
+
+45:22.000 --> 45:24.560
+ Now I'm ahead, absolutely.
+
+45:24.560 --> 45:26.880
+ But there's some sorting procedure
+
+45:26.880 --> 45:29.800
+ depending on mood and interest and so on.
+
+45:29.800 --> 45:32.640
+ But okay, so you pick an idea
+
+45:32.640 --> 45:36.160
+ and then you have to try to write a narrative arc
+
+45:36.160 --> 45:38.800
+ that sort of, how do I elucidate?
+
+45:38.800 --> 45:41.320
+ How do I make this idea beautiful and clear
+
+45:41.320 --> 45:42.240
+ and explain it?
+
+45:42.240 --> 45:44.040
+ And then there's a set of visualizations
+
+45:44.040 --> 45:46.160
+ that will be attached to it.
+
+45:46.160 --> 45:48.440
+ Sort of, you've talked about some of this before,
+
+45:48.440 --> 45:52.920
+ but sort of writing the story, attaching the visualizations.
+
+45:52.920 --> 45:56.440
+ Can you talk through interesting, painful,
+
+45:56.440 --> 45:58.880
+ beautiful parts of that process?
+
+45:58.880 --> 46:02.000
+ Well, the most painful is if you've chosen a topic
+
+46:02.000 --> 46:05.680
+ that you do want to do, but then it's hard to think of,
+
+46:05.680 --> 46:07.480
+ I guess how to structure the script.
+
+46:07.480 --> 46:10.640
+ This is sort of where I have been on one
+
+46:10.640 --> 46:12.240
+ for like the last two or three months.
+
+46:12.240 --> 46:13.720
+ And I think that ultimately the right resolution
+
+46:13.720 --> 46:17.360
+ is just like set it aside and instead do some other things
+
+46:17.360 --> 46:18.840
+ where the script comes more naturally.
+
+46:18.840 --> 46:23.480
+ Because you sort of don't want to overwork a narrative.
+
+46:23.480 --> 46:24.700
+ The more you've thought about it,
+
+46:24.700 --> 46:26.480
+ the less you can empathize with the student
+
+46:26.480 --> 46:28.940
+ who doesn't yet understand the thing you're trying to teach.
+
+46:28.940 --> 46:31.860
+ Who is the judger in your head?
+
+46:31.860 --> 46:35.480
+ Sort of the person, the creature,
+
+46:35.480 --> 46:38.680
+ the essence that's saying this sucks or this is good.
+
+46:38.680 --> 46:42.000
+ And you mentioned kind of the student you're thinking about.
+
+46:43.000 --> 46:44.740
+ Can you, who is that?
+
+46:44.740 --> 46:45.880
+ What is that thing?
+
+46:45.880 --> 46:49.960
+ That says, the perfectionist that says this thing sucks.
+
+46:49.960 --> 46:53.520
+ You need to work on that for another two, three months.
+
+46:53.520 --> 46:54.360
+ I don't know.
+
+46:54.360 --> 46:56.160
+ I think it's my past self.
+
+46:56.160 --> 46:58.280
+ I think that's the entity that I'm most trying
+
+46:58.280 --> 47:00.880
+ to empathize with is like you take who I was,
+
+47:00.880 --> 47:02.480
+ because that's kind of the only person I know.
+
+47:02.480 --> 47:03.720
+ Like you don't really know anyone
+
+47:03.720 --> 47:05.480
+ other than versions of yourself.
+
+47:05.480 --> 47:07.880
+ So I start with the version of myself that I know
+
+47:07.880 --> 47:10.320
+ who doesn't yet understand the thing, right?
+
+47:10.320 --> 47:15.320
+ And then I just try to view it with fresh eyes,
+
+47:15.560 --> 47:17.480
+ a particular visual or a particular script.
+
+47:17.480 --> 47:18.840
+ Like, is this motivating?
+
+47:18.840 --> 47:20.680
+ Does this make sense?
+
+47:20.680 --> 47:21.560
+ Which has its downsides,
+
+47:21.560 --> 47:25.200
+ because sometimes I find myself speaking to motivations
+
+47:25.200 --> 47:28.520
+ that only myself would be interested in.
+
+47:28.520 --> 47:30.840
+ I don't know, like I did this project on quaternions
+
+47:30.840 --> 47:33.280
+ where what I really wanted was to understand
+
+47:33.280 --> 47:34.920
+ what are they doing in four dimensions?
+
+47:34.920 --> 47:37.560
+ Can we see what they're doing in four dimensions, right?
+
+47:37.560 --> 47:40.400
+ And I came up with a way of thinking about it
+
+47:40.400 --> 47:42.000
+ that really answered the question in my head
+
+47:42.000 --> 47:43.280
+ that made me very satisfied
+
+47:43.280 --> 47:46.640
+ and being able to think about concretely with a 3D visual,
+
+47:46.640 --> 47:48.720
+ what are they doing to a 4D sphere?
+
+47:48.720 --> 47:49.560
+ And so I'm like, great,
+
+47:49.560 --> 47:51.720
+ this is exactly what my past self would have wanted, right?
+
+47:51.720 --> 47:52.760
+ And I make a thing on it.
+
+47:52.760 --> 47:55.140
+ And I'm sure it's what some other people wanted too.
+
+47:55.140 --> 47:57.400
+ But in hindsight, I think most people who wanna learn
+
+47:57.400 --> 48:00.460
+ about quaternions are like robotics engineers
+
+48:00.460 --> 48:03.320
+ or graphics programmers who want to understand
+
+48:03.320 --> 48:06.160
+ how they're used to describe 3D rotations.
+
+48:06.160 --> 48:08.280
+ And like their use case was actually a little bit different
+
+48:08.280 --> 48:09.360
+ than my past self.
+
+48:09.360 --> 48:10.600
+ And in that way, like,
+
+48:10.600 --> 48:12.100
+ I wouldn't actually recommend that video
+
+48:12.100 --> 48:14.920
+ to people who are coming at it from that angle
+
+48:14.920 --> 48:17.460
+ of wanting to know, hey, I'm a robotics programmer.
+
+48:17.460 --> 48:20.260
+ Like, how do these quaternion things work
+
+48:20.260 --> 48:22.560
+ to describe position in 3D space?
+
+48:22.560 --> 48:25.660
+ I would say other great resources for that.
+
+48:25.660 --> 48:27.840
+ If you ever find yourself wanting to say like,
+
+48:27.840 --> 48:28.880
+ but hang on,
+
+48:28.880 --> 48:30.880
+ in what sense are they acting in four dimensions?
+
+48:30.880 --> 48:31.900
+ Then come back.
+
+48:31.900 --> 48:34.520
+ But until then, that's a little different.
+
+48:34.520 --> 48:35.360
+ Yeah, it's interesting
+
+48:35.360 --> 48:38.800
+ because you have incredible videos on neural networks,
+
+48:38.800 --> 48:39.840
+ for example.
+
+48:39.840 --> 48:41.080
+ And from my sort of perspective,
+
+48:41.080 --> 48:43.720
+ because I've probably, I mean,
+
+48:43.720 --> 48:44.680
+ I looked at the,
+
+48:45.520 --> 48:47.120
+ is sort of my field
+
+48:47.120 --> 48:49.320
+ and I've also looked at the basic introduction
+
+48:49.320 --> 48:51.100
+ of neural networks like a million times
+
+48:51.100 --> 48:52.480
+ from different perspectives.
+
+48:52.480 --> 48:53.480
+ And it made me realize
+
+48:53.480 --> 48:55.800
+ that there's a lot of ways to present it.
+
+48:55.800 --> 48:58.960
+ So you were sort of, you did an incredible job.
+
+48:58.960 --> 49:00.140
+ I mean, sort of the,
+
+49:01.560 --> 49:03.440
+ but you could also do it differently
+
+49:03.440 --> 49:04.900
+ and also incredible.
+
+49:04.900 --> 49:09.900
+ Like to create a beautiful presentation of a basic concept
+
+49:11.800 --> 49:16.080
+ requires sort of creativity, requires genius and so on,
+
+49:16.080 --> 49:18.620
+ but you can take it from a bunch of different perspectives.
+
+49:18.620 --> 49:21.440
+ And that video on neural networks made me realize that.
+
+49:21.440 --> 49:22.960
+ And just as you're saying,
+
+49:22.960 --> 49:26.280
+ you kind of have a certain mindset, a certain view,
+
+49:26.280 --> 49:28.980
+ but from a, if you take a different view
+
+49:28.980 --> 49:30.680
+ from a physics perspective,
+
+49:30.680 --> 49:33.380
+ from a neuroscience perspective,
+
+49:33.380 --> 49:34.440
+ talking about neural networks
+
+49:34.440 --> 49:38.420
+ or from a robotics perspective,
+
+49:38.420 --> 49:40.440
+ or from, let's see,
+
+49:40.440 --> 49:43.300
+ from a pure learning, statistics perspective.
+
+49:43.300 --> 49:46.360
+ So you can create totally different videos.
+
+49:46.360 --> 49:48.240
+ And you've done that with a few actually concepts
+
+49:48.240 --> 49:49.920
+ where you've have taken different cuts,
+
+49:49.920 --> 49:54.840
+ like at the Euler equation, right?
+
+49:54.840 --> 49:56.960
+ You've taken different views of that.
+
+49:56.960 --> 49:58.720
+ I think I've made three videos on it
+
+49:58.720 --> 50:01.040
+ and I definitely will make at least one more.
+
+50:01.040 --> 50:02.040
+ Right?
+
+50:02.040 --> 50:03.080
+ Never enough.
+
+50:03.080 --> 50:04.120
+ Never enough.
+
+50:04.120 --> 50:06.200
+ So you don't think it's the most beautiful equation
+
+50:06.200 --> 50:07.240
+ in mathematics?
+
+50:08.280 --> 50:10.040
+ Like I said, as we represent it,
+
+50:10.040 --> 50:11.440
+ it's one of the most hideous.
+
+50:11.440 --> 50:13.320
+ It involves a lot of the most hideous aspects
+
+50:13.320 --> 50:14.160
+ of our notation.
+
+50:14.160 --> 50:16.960
+ I talked about E, the fact that we use pi instead of tau,
+
+50:16.960 --> 50:20.680
+ the fact that we call imaginary numbers imaginary,
+
+50:20.680 --> 50:23.420
+ and then, hence, I actually wonder if we use the I
+
+50:23.420 --> 50:24.880
+ because of imaginary.
+
+50:24.880 --> 50:26.600
+ I don't know if that's historically accurate,
+
+50:26.600 --> 50:27.960
+ but at least a lot of people,
+
+50:27.960 --> 50:30.300
+ they read the I and they think imaginary.
+
+50:30.300 --> 50:31.440
+ Like all three of those facts,
+
+50:31.440 --> 50:33.720
+ it's like those are things that have added more confusion
+
+50:33.720 --> 50:34.560
+ than they needed to,
+
+50:34.560 --> 50:35.840
+ and we're wrapping them up in one equation.
+
+50:35.840 --> 50:39.080
+ Like boy, that's just very hideous, right?
+
+50:39.080 --> 50:40.880
+ The idea is that it does tie together
+
+50:40.880 --> 50:42.160
+ when you wash away the notation.
+
+50:42.160 --> 50:44.820
+ Like it's okay, it's pretty, it's nice,
+
+50:44.820 --> 50:48.320
+ but it's not like mind blowing greatest thing
+
+50:48.320 --> 50:49.520
+ in the universe,
+
+50:49.520 --> 50:52.020
+ which is maybe what I was thinking of when I said,
+
+50:52.020 --> 50:53.320
+ like once you understand something,
+
+50:53.320 --> 50:55.960
+ it doesn't have the same beauty.
+
+50:55.960 --> 50:59.000
+ Like I feel like I understand Euler's formula,
+
+50:59.000 --> 51:00.840
+ and I feel like I understand it enough
+
+51:00.840 --> 51:05.000
+ to sort of see the version that just woke up
+
+51:05.000 --> 51:07.560
+ that hasn't really gotten itself dressed in the morning
+
+51:07.560 --> 51:08.640
+ that's a little bit groggy,
+
+51:08.640 --> 51:10.120
+ and there's bags under its eyes.
+
+51:10.120 --> 51:13.320
+ So you're past the dating stage,
+
+51:13.320 --> 51:15.040
+ you're no longer dating, right?
+
+51:15.040 --> 51:16.760
+ I'm still dating the Zeta function,
+
+51:16.760 --> 51:18.920
+ and like she's beautiful and right,
+
+51:18.920 --> 51:20.100
+ and like we have fun,
+
+51:20.100 --> 51:22.640
+ and it's that high dopamine part,
+
+51:22.640 --> 51:24.000
+ but like maybe at some point
+
+51:24.000 --> 51:26.840
+ we'll settle into the more mundane nature of the relationship
+
+51:26.840 --> 51:28.480
+ where I like see her for who she truly is,
+
+51:28.480 --> 51:30.220
+ and she'll still be beautiful in her own way,
+
+51:30.220 --> 51:33.720
+ but it won't have the same romantic pizzazz, right?
+
+51:33.720 --> 51:35.520
+ Well, that's the nice thing about mathematics.
+
+51:35.520 --> 51:38.500
+ I think as long as you don't live forever,
+
+51:38.500 --> 51:41.840
+ there'll always be enough mystery and fun
+
+51:41.840 --> 51:42.920
+ with some of the equations.
+
+51:42.920 --> 51:45.480
+ Even if you do, the rate at which questions comes up
+
+51:45.480 --> 51:48.080
+ is much faster than the rate at which answers come up, so.
+
+51:48.080 --> 51:49.980
+ If you could live forever, would you?
+
+51:51.160 --> 51:52.160
+ I think so, yeah.
+
+51:52.160 --> 51:53.760
+ So you think, you don't think mortality
+
+51:53.760 --> 51:55.980
+ is the thing that makes life meaningful?
+
+51:55.980 --> 51:58.240
+ Would your life be four times as meaningful
+
+51:58.240 --> 52:00.440
+ if you died at 25?
+
+52:00.440 --> 52:02.200
+ So this goes to infinity.
+
+52:02.200 --> 52:04.700
+ I think you and I, that's really interesting.
+
+52:04.700 --> 52:09.400
+ So what I said is infinite, not four times longer.
+
+52:09.400 --> 52:10.360
+ I said infinite.
+
+52:10.360 --> 52:15.200
+ So the actual existence of the finiteness,
+
+52:15.200 --> 52:18.020
+ the existence of the end, no matter the length,
+
+52:18.020 --> 52:20.680
+ is the thing that may sort of,
+
+52:20.680 --> 52:22.380
+ from my comprehension of psychology,
+
+52:22.380 --> 52:25.600
+ it's such a deeply human,
+
+52:25.600 --> 52:28.560
+ it's such a fundamental part of the human condition,
+
+52:28.560 --> 52:31.120
+ the fact that there is, that we're mortal,
+
+52:31.120 --> 52:34.480
+ that the fact that things end,
+
+52:34.480 --> 52:37.880
+ it seems to be a crucial part of what gives them meaning.
+
+52:37.880 --> 52:40.560
+ I don't think, at least for me,
+
+52:40.560 --> 52:43.040
+ it's a very small percentage of my time
+
+52:43.040 --> 52:45.200
+ that mortality is salient,
+
+52:45.200 --> 52:47.200
+ that I'm aware of the end of my life.
+
+52:47.200 --> 52:48.360
+ What do you mean by me?
+
+52:50.080 --> 52:51.280
+ I'm trolling.
+
+52:51.280 --> 52:54.120
+ Is it the ego, is it the id, or is it the superego?
+
+52:55.840 --> 52:58.160
+ The reflective self, the Wernicke's area
+
+52:58.160 --> 52:59.860
+ that puts all this stuff into words.
+
+52:59.860 --> 53:02.520
+ Yeah, a small percentage of your mind
+
+53:02.520 --> 53:05.800
+ that is actually aware of the true motivations
+
+53:05.800 --> 53:06.960
+ that drive you.
+
+53:06.960 --> 53:08.360
+ But my point is that most of my life,
+
+53:08.360 --> 53:09.600
+ I'm not thinking about death,
+
+53:09.600 --> 53:12.000
+ but I still feel very motivated to make things
+
+53:12.000 --> 53:14.000
+ and to interact with people,
+
+53:14.000 --> 53:15.400
+ experience love or things like that.
+
+53:15.400 --> 53:16.680
+ I'm very motivated,
+
+53:16.680 --> 53:19.400
+ and it's strange that that motivation comes
+
+53:19.400 --> 53:21.600
+ while death is not in my mind at all.
+
+53:21.600 --> 53:23.600
+ And this might just be because I'm young enough
+
+53:23.600 --> 53:24.720
+ that it's not salient.
+
+53:24.720 --> 53:25.960
+ Or it's in your subconscious,
+
+53:25.960 --> 53:28.100
+ or that you've constructed an illusion
+
+53:28.100 --> 53:31.180
+ that allows you to escape the fact of your mortality
+
+53:31.180 --> 53:32.760
+ by enjoying the moment,
+
+53:32.760 --> 53:34.600
+ sort of the existential approach to life.
+
+53:34.600 --> 53:36.160
+ Could be.
+
+53:36.160 --> 53:38.120
+ Gun to my head, I don't think that's it.
+
+53:38.120 --> 53:40.680
+ Yeah, another sort of way to say gun to the head
+
+53:40.680 --> 53:43.400
+ is sort of the deep psychological introspection
+
+53:43.400 --> 53:44.240
+ of what drives us.
+
+53:44.240 --> 53:47.000
+ I mean, that's, in some ways to me,
+
+53:47.000 --> 53:49.080
+ I mean, when I look at math, when I look at science,
+
+53:49.080 --> 53:51.600
+ is a kind of an escape from reality
+
+53:51.600 --> 53:54.400
+ in a sense that it's so beautiful.
+
+53:54.400 --> 53:58.740
+ It's such a beautiful journey of discovery
+
+53:58.740 --> 54:00.820
+ that it allows you to actually,
+
+54:00.820 --> 54:04.760
+ it sort of allows you to achieve a kind of immortality
+
+54:04.760 --> 54:09.680
+ of explore ideas and sort of connect yourself
+
+54:09.680 --> 54:12.360
+ to the thing that is seemingly infinite,
+
+54:12.360 --> 54:13.960
+ like the universe, right?
+
+54:13.960 --> 54:18.600
+ That allows you to escape the limited nature
+
+54:18.600 --> 54:23.600
+ of our little, of our bodies, of our existence.
+
+54:24.040 --> 54:25.960
+ What else would give this podcast meaning?
+
+54:25.960 --> 54:26.800
+ That's right.
+
+54:26.800 --> 54:28.000
+ If not the fact that it will end.
+
+54:28.000 --> 54:30.920
+ This place closes in 40 minutes.
+
+54:30.920 --> 54:33.280
+ And it's so much more meaningful for it.
+
+54:33.280 --> 54:35.480
+ How much more I love this room
+
+54:35.480 --> 54:36.880
+ because we'll be kicked out.
+
+54:38.200 --> 54:42.280
+ So I understand just because you're trolling me
+
+54:42.280 --> 54:43.600
+ doesn't mean I'm wrong.
+
+54:46.200 --> 54:47.840
+ But I take your point.
+
+54:47.840 --> 54:49.000
+ I take your point.
+
+54:49.000 --> 54:50.960
+ Boy, that would be a good Twitter bio.
+
+54:52.120 --> 54:54.320
+ Just because you're trolling me doesn't mean I'm wrong.
+
+54:54.320 --> 54:58.560
+ Yeah, and sort of difference in backgrounds.
+
+54:58.560 --> 55:01.520
+ I'm a bit Russian, so we're a bit melancholic
+
+55:01.520 --> 55:04.320
+ and seem to maybe assign a little too much value
+
+55:04.320 --> 55:07.360
+ to suffering and mortality and things like that.
+
+55:07.360 --> 55:09.840
+ Makes for a better novel, I think.
+
+55:09.840 --> 55:13.400
+ Oh yeah, you need some sort of existential threat
+
+55:13.400 --> 55:15.280
+ to drive a plot.
+
+55:16.400 --> 55:18.520
+ So when do you know when the video is done
+
+55:18.520 --> 55:20.680
+ when you're working on it?
+
+55:20.680 --> 55:21.560
+ That's pretty easy actually,
+
+55:21.560 --> 55:24.400
+ because I'll write the script.
+
+55:24.400 --> 55:27.120
+ I want there to be some kind of aha moment in there.
+
+55:27.120 --> 55:28.760
+ And then hopefully the script can revolve around
+
+55:28.760 --> 55:30.280
+ some kind of aha moment.
+
+55:30.280 --> 55:32.400
+ And then from there, you're putting visuals
+
+55:32.400 --> 55:34.040
+ to each sentence that exists,
+
+55:34.040 --> 55:36.360
+ and then you narrate it, you edit it all together.
+
+55:36.360 --> 55:37.760
+ So given that there's a script,
+
+55:37.760 --> 55:39.760
+ the end becomes quite clear.
+
+55:40.680 --> 55:44.320
+ And as I animate it, I often change
+
+55:45.560 --> 55:46.800
+ certainly the specific words,
+
+55:46.800 --> 55:49.320
+ but sometimes the structure itself.
+
+55:49.320 --> 55:53.240
+ But it's a very deterministic process at that point.
+
+55:53.240 --> 55:54.440
+ It makes it much easier to predict
+
+55:54.440 --> 55:55.840
+ when something will be done.
+
+55:55.840 --> 55:57.080
+ How do you know when a script is done?
+
+55:57.080 --> 55:59.120
+ It's like, for problem solving videos,
+
+55:59.120 --> 56:00.400
+ that's quite simple.
+
+56:00.400 --> 56:01.440
+ It's once you feel like someone
+
+56:01.440 --> 56:03.560
+ who didn't understand the solution now could.
+
+56:03.560 --> 56:04.680
+ For things like neural networks,
+
+56:04.680 --> 56:06.720
+ that was a lot harder because like you said,
+
+56:06.720 --> 56:09.560
+ there's so many angles at which you could attack it.
+
+56:09.560 --> 56:11.720
+ And there, it's just at some point
+
+56:11.720 --> 56:15.680
+ you feel like this asks a meaningful question
+
+56:15.680 --> 56:18.360
+ and it answers that question, right?
+
+56:18.360 --> 56:20.280
+ What is the best way to learn math
+
+56:20.280 --> 56:22.400
+ for people who might be at the beginning of that journey?
+
+56:22.400 --> 56:24.840
+ I think that's a question that a lot of folks
+
+56:24.840 --> 56:26.200
+ kind of ask and think about.
+
+56:26.200 --> 56:27.800
+ And it doesn't, even for folks
+
+56:27.800 --> 56:29.920
+ who are not really at the beginning of their journey,
+
+56:29.920 --> 56:33.920
+ like there might be actually deep in their career,
+
+56:33.920 --> 56:35.720
+ some type they've taken college
+
+56:35.720 --> 56:36.920
+ or taken calculus and so on,
+
+56:36.920 --> 56:39.080
+ but still wanna sort of explore math.
+
+56:39.080 --> 56:42.880
+ What would be your advice instead of education at all ages?
+
+56:42.880 --> 56:45.840
+ Your temptation will be to spend more time
+
+56:45.840 --> 56:48.160
+ like watching lectures or reading.
+
+56:48.160 --> 56:50.560
+ Try to force yourself to do more problems
+
+56:50.560 --> 56:52.160
+ than you naturally would.
+
+56:52.160 --> 56:53.800
+ That's a big one.
+
+56:53.800 --> 56:56.040
+ Like the focus time that you're spending
+
+56:56.040 --> 56:59.000
+ should be on like solving specific problems
+
+56:59.000 --> 57:02.360
+ and seek entities that have well curated lists of problems.
+
+57:02.360 --> 57:04.240
+ So go into like a textbook almost
+
+57:04.240 --> 57:07.160
+ and the problems in the back of a textbook kind of thing,
+
+57:07.160 --> 57:08.080
+ back of a chapter.
+
+57:08.080 --> 57:10.560
+ So if you can take a little look through those questions
+
+57:10.560 --> 57:12.480
+ at the end of the chapter before you read the chapter,
+
+57:12.480 --> 57:13.600
+ a lot of them won't make sense.
+
+57:13.600 --> 57:14.560
+ Some of them might,
+
+57:14.560 --> 57:16.600
+ and those are the best ones to think about.
+
+57:16.600 --> 57:18.920
+ A lot of them won't, but just take a quick look
+
+57:18.920 --> 57:20.120
+ and then read a little bit of the chapter
+
+57:20.120 --> 57:22.400
+ and then maybe take a look again and things like that.
+
+57:22.400 --> 57:25.120
+ And don't consider yourself done with the chapter
+
+57:25.120 --> 57:28.160
+ until you've actually worked through a couple exercises.
+
+57:29.800 --> 57:31.160
+ And this is so hypocritical, right?
+
+57:31.160 --> 57:32.400
+ Cause I like put out videos
+
+57:32.400 --> 57:35.920
+ that pretty much never have associated exercises.
+
+57:35.920 --> 57:38.640
+ I just view myself as a different part of the ecosystem,
+
+57:38.640 --> 57:40.760
+ which means I'm kind of admitting
+
+57:40.760 --> 57:42.880
+ that you're not really learning,
+
+57:42.880 --> 57:44.720
+ or at least this is only a partial part
+
+57:44.720 --> 57:47.480
+ of the learning process if you're watching these videos.
+
+57:48.600 --> 57:50.360
+ I think if someone's at the very beginning,
+
+57:50.360 --> 57:52.200
+ like I do think Khan Academy does a good job.
+
+57:52.200 --> 57:54.840
+ They have a pretty large set of questions
+
+57:54.840 --> 57:55.840
+ you can work through.
+
+57:55.840 --> 57:56.840
+ Just the very basics,
+
+57:56.840 --> 57:58.760
+ sort of just picking up,
+
+57:58.760 --> 58:01.200
+ getting comfortable with the very basic linear algebra,
+
+58:01.200 --> 58:04.040
+ calculus or so on, Khan Academy.
+
+58:04.040 --> 58:05.880
+ Programming is actually I think a great,
+
+58:05.880 --> 58:08.440
+ like learn to program and like let the way
+
+58:08.440 --> 58:11.760
+ that math is motivated from that angle push you through.
+
+58:11.760 --> 58:14.280
+ I know a lot of people who didn't like math
+
+58:14.280 --> 58:15.520
+ got into programming in some way
+
+58:15.520 --> 58:17.240
+ and that's what turned them on to math.
+
+58:17.240 --> 58:19.160
+ Maybe I'm biased cause like I live in the Bay area,
+
+58:19.160 --> 58:21.000
+ so I'm more likely to run into someone
+
+58:21.000 --> 58:23.320
+ who has that phenotype.
+
+58:23.320 --> 58:25.760
+ But I am willing to speculate
+
+58:25.760 --> 58:28.080
+ that that is a more generalizable path.
+
+58:28.080 --> 58:30.080
+ So you yourself kind of in creating the videos
+
+58:30.080 --> 58:32.960
+ are using programming to illuminate a concept,
+
+58:32.960 --> 58:35.000
+ but for yourself as well.
+
+58:35.000 --> 58:37.920
+ So would you recommend somebody try to make a,
+
+58:37.920 --> 58:40.240
+ sort of almost like try to make videos?
+
+58:40.240 --> 58:41.840
+ Like you do as a way to learn?
+
+58:41.840 --> 58:43.120
+ So one thing I've heard before,
+
+58:43.120 --> 58:44.680
+ I don't know if this is based on any actual study.
+
+58:44.680 --> 58:47.200
+ This might be like a total fictional anecdote of numbers,
+
+58:47.200 --> 58:49.720
+ but it rings in the mind as being true.
+
+58:49.720 --> 58:51.820
+ You remember about 10% of what you read,
+
+58:51.820 --> 58:54.400
+ you remember about 20% of what you listen to,
+
+58:54.400 --> 58:57.280
+ you remember about 70% of what you actively interact with
+
+58:57.280 --> 59:00.480
+ in some way, and then about 90% of what you teach.
+
+59:00.480 --> 59:02.080
+ This is a thing I heard again,
+
+59:02.080 --> 59:03.460
+ those numbers might be meaningless,
+
+59:03.460 --> 59:05.840
+ but they ring true, don't they, right?
+
+59:05.840 --> 59:07.880
+ I'm willing to say I learned nine times better
+
+59:07.880 --> 59:09.200
+ if I'm teaching something than reading.
+
+59:09.200 --> 59:11.640
+ That might even be a low ball, right?
+
+59:11.640 --> 59:12.960
+ So doing something to teach
+
+59:12.960 --> 59:15.180
+ or to like actively try to explain things
+
+59:15.180 --> 59:17.800
+ is huge for consolidating the knowledge.
+
+59:17.800 --> 59:19.640
+ Outside of family and friends,
+
+59:19.640 --> 59:22.400
+ is there a moment you can remember
+
+59:22.400 --> 59:23.720
+ that you would like to relive
+
+59:23.720 --> 59:26.160
+ because it made you truly happy
+
+59:26.160 --> 59:30.160
+ or it was transformative in some fundamental way?
+
+59:30.160 --> 59:32.680
+ A moment that was transformative.
+
+59:32.680 --> 59:35.040
+ Or made you truly happy?
+
+59:35.040 --> 59:36.760
+ Yeah, I think there's times,
+
+59:36.760 --> 59:38.720
+ like music used to be a much bigger part of my life
+
+59:38.720 --> 59:41.600
+ than it is now, like when I was a, let's say a teenager,
+
+59:41.600 --> 59:45.400
+ and I can think of some times in like playing music.
+
+59:45.400 --> 59:48.160
+ There was one, like my brother and a friend of mine,
+
+59:48.160 --> 59:50.160
+ so this slightly violates the family and friends,
+
+59:50.160 --> 59:51.800
+ but it was the music that made me happy.
+
+59:51.800 --> 59:54.440
+ They were just accompanying.
+
+59:54.440 --> 59:57.480
+ We like played a gig at a ski resort
+
+59:57.480 --> 59:59.320
+ such that you like take a gondola to the top
+
+59:59.320 --> 1:00:00.660
+ and like did a thing.
+
+1:00:00.660 --> 1:00:01.820
+ And then on the gondola ride down,
+
+1:00:01.820 --> 1:00:04.180
+ we decided to just jam a little bit.
+
+1:00:04.180 --> 1:00:06.280
+ And it was just like, I don't know,
+
+1:00:06.280 --> 1:00:09.040
+ the gondola sort of came over a mountain
+
+1:00:09.040 --> 1:00:10.740
+ and you saw the city lights
+
+1:00:10.740 --> 1:00:13.920
+ and we're just like jamming, like playing some music.
+
+1:00:13.920 --> 1:00:16.320
+ I wouldn't describe that as transformative.
+
+1:00:16.320 --> 1:00:18.040
+ I don't know why, but that popped into my mind
+
+1:00:18.040 --> 1:00:21.200
+ as a moment of, in a way that wasn't associated
+
+1:00:21.200 --> 1:00:24.200
+ with people I love, but more with like a thing I was doing,
+
+1:00:24.200 --> 1:00:26.160
+ something that was just, it was just happy
+
+1:00:26.160 --> 1:00:28.000
+ and it was just like a great moment.
+
+1:00:29.280 --> 1:00:32.080
+ I don't think I can give you anything deeper than that.
+
+1:00:32.080 --> 1:00:34.840
+ Well, as a musician myself, I'd love to see,
+
+1:00:35.720 --> 1:00:38.800
+ as you mentioned before, music enter back into your work,
+
+1:00:38.800 --> 1:00:40.080
+ back into your creative work.
+
+1:00:40.080 --> 1:00:41.320
+ I'd love to see that.
+
+1:00:41.320 --> 1:00:43.880
+ I'm certainly allowing it to enter back into mine.
+
+1:00:43.880 --> 1:00:47.840
+ And it's a beautiful thing for a mathematician,
+
+1:00:47.840 --> 1:00:51.440
+ for a scientist to allow music to enter their work.
+
+1:00:51.440 --> 1:00:53.920
+ I think only good things can happen.
+
+1:00:53.920 --> 1:00:57.200
+ All right, I'll try to promise you a music video by 2020.
+
+1:00:57.200 --> 1:00:58.040
+ By 2020?
+
+1:00:58.040 --> 1:00:58.860
+ By the end of 2020.
+
+1:00:58.860 --> 1:00:59.700
+ Okay, all right, good.
+
+1:00:59.700 --> 1:01:01.400
+ Give myself a longer window.
+
+1:01:01.400 --> 1:01:04.480
+ All right, maybe we can like collaborate
+
+1:01:04.480 --> 1:01:05.680
+ on a band type situation.
+
+1:01:05.680 --> 1:01:07.020
+ What instruments do you play?
+
+1:01:07.020 --> 1:01:08.600
+ The main instrument I play is violin,
+
+1:01:08.600 --> 1:01:11.680
+ but I also love to dabble around on like guitar and piano.
+
+1:01:11.680 --> 1:01:13.540
+ Beautiful, me too, guitar and piano.
+
+1:01:13.540 --> 1:01:18.540
+ So in a mathematician's lament, Paul Lockhart writes,
+
+1:01:18.640 --> 1:01:20.080
+ the first thing to understand
+
+1:01:20.080 --> 1:01:22.040
+ is that mathematics is an art.
+
+1:01:22.040 --> 1:01:24.080
+ The difference between math and the other arts,
+
+1:01:24.080 --> 1:01:26.740
+ such as music and painting,
+
+1:01:26.740 --> 1:01:29.920
+ is that our culture does not recognize it as such.
+
+1:01:29.920 --> 1:01:34.420
+ So I think I speak for millions of people, myself included,
+
+1:01:34.420 --> 1:01:37.460
+ in saying thank you for revealing to us
+
+1:01:37.460 --> 1:01:39.640
+ the art of mathematics.
+
+1:01:39.640 --> 1:01:40.920
+ So thank you for everything you do
+
+1:01:40.920 --> 1:01:42.260
+ and thanks for talking today.
+
+1:01:42.260 --> 1:01:43.240
+ Wow, thanks for saying that.
+
+1:01:43.240 --> 1:01:45.400
+ And thanks for having me on.
+
+1:01:45.400 --> 1:01:47.120
+ Thanks for listening to this conversation
+
+1:01:47.120 --> 1:01:48.340
+ with Grant Sanderson.
+
+1:01:48.340 --> 1:01:51.720
+ And thank you to our presenting sponsor, Cash App.
+
+1:01:51.720 --> 1:01:54.840
+ Download it, use code LEXPodcast.
+
+1:01:54.840 --> 1:01:57.720
+ You'll get $10 and $10 will go to FIRST,
+
+1:01:57.720 --> 1:02:00.040
+ a STEM education nonprofit that inspires
+
+1:02:00.040 --> 1:02:01.960
+ hundreds of thousands of young minds
+
+1:02:01.960 --> 1:02:04.960
+ to become future leaders and innovators.
+
+1:02:04.960 --> 1:02:07.600
+ If you enjoy this podcast, subscribe on YouTube,
+
+1:02:07.600 --> 1:02:09.440
+ give it five stars on Apple Podcast,
+
+1:02:09.440 --> 1:02:13.440
+ support on Patreon, or connect with me on Twitter.
+
+1:02:13.440 --> 1:02:16.080
+ And now, let me leave you with some words of wisdom
+
+1:02:16.080 --> 1:02:20.280
+ from one of Grant's and my favorite people, Richard Feynman.
+
+1:02:21.440 --> 1:02:24.800
+ Nobody ever figures out what this life is all about,
+
+1:02:24.800 --> 1:02:26.480
+ and it doesn't matter.
+
+1:02:26.480 --> 1:02:28.540
+ Explore the world.
+
+1:02:28.540 --> 1:02:30.640
+ Nearly everything is really interesting
+
+1:02:30.640 --> 1:02:33.300
+ if you go into it deeply enough.
+
+1:02:33.300 --> 1:02:45.300
+ Thank you for listening, and hope to see you next time.
+

@@ -1,0 +1,3263 @@
+WEBVTT
+
+00:00.000 --> 00:05.440
+ The following is a conversation with David Patterson, touring award winner and professor
+
+00:05.440 --> 00:10.800
+ of computer science at Berkeley. He's known for pioneering contributions to RISC processor
+
+00:10.800 --> 00:18.800
+ architecture used by 99% of new chips today and for co creating RAID storage. The impact that
+
+00:18.800 --> 00:25.040
+ these two lines of research and development have had in our world is immeasurable. He's also one of
+
+00:25.040 --> 00:30.160
+ the great educators of computer science in the world. His book with John Hennessy is how I first
+
+00:30.160 --> 00:58.880
+ learned about and was humbled by the inner workings of machines at the lowest level.
+
+01:21.120 --> 01:24.400
+ This episode is supported by the Jordan Harbinger Show.
+
+01:24.400 --> 01:30.800
+ Go to Jordan Harbinger.com slash Lex. It's how he knows I sent you on that page. There's links
+
+01:30.800 --> 01:36.560
+ to subscribe to it on Apple podcast, Spotify, and everywhere else. I've been binging on this podcast.
+
+01:36.560 --> 01:41.600
+ It's amazing. Jordan is a great human being. He gets the best out of his guests, dives deep,
+
+01:41.600 --> 01:46.080
+ calls them out when it's needed, and makes the whole thing fun to listen to. He's interviewed
+
+01:46.080 --> 01:52.560
+ Kobe Bryant, Mark Cuban, Neil deGrasse Tyson, Garry Kasparov, and many more. I recently listened
+
+01:52.560 --> 01:58.080
+ to his conversation with Frank Abagnale, author of Catch Me If You Can, and one of the world's
+
+01:58.080 --> 02:05.120
+ most famous con men. Perfect podcast length and topic for a recent long distance run that I did.
+
+02:05.840 --> 02:12.720
+ Again, go to Jordan Harbinger.com slash Lex to give him my love and to support this podcast.
+
+02:13.520 --> 02:17.040
+ Subscribe also on Apple podcast, Spotify, and everywhere else.
+
+02:17.040 --> 02:23.280
+ This show is presented by Cash App, the greatest sponsor of this podcast ever, and the number one
+
+02:23.280 --> 02:29.200
+ finance app in the App Store. When you get it, use code LEX PODCAST. Cash App lets you send money
+
+02:29.200 --> 02:35.040
+ to friends, buy Bitcoin, and invest in the stock market with as little as $1. Since Cash App allows
+
+02:35.040 --> 02:39.040
+ you to buy Bitcoin, let me mention that cryptocurrency in the context of the history
+
+02:39.040 --> 02:44.080
+ of money is fascinating. I recommend Ascent of Money as a great book on this history.
+
+02:44.080 --> 02:50.240
+ Also, the audiobook is amazing. Debits and credits on Ledger started around 30,000 years ago.
+
+02:50.240 --> 02:55.760
+ The US dollar created over 200 years ago, and the first decentralized cryptocurrency released just
+
+02:55.760 --> 03:00.720
+ over 10 years ago. So given that history, cryptocurrency is still very much in its early
+
+03:00.720 --> 03:06.160
+ days of development, but it's still aiming to and just might redefine the nature of money.
+
+03:06.880 --> 03:12.640
+ So again, if you get Cash App from the App Store or Google Play, and use the code LEX PODCAST,
+
+03:12.640 --> 03:19.440
+ you get $10, and Cash App will also donate $10 to FIRST, an organization that is helping to
+
+03:19.440 --> 03:25.360
+ advance robotics and STEM education for young people around the world. And now, here's my
+
+03:25.360 --> 03:32.480
+ conversation with David Patterson. Let's start with the big historical question. How have computers
+
+03:32.480 --> 03:38.400
+ changed in the past 50 years at both the fundamental architectural level and in general, in your eyes?
+
+03:38.400 --> 03:42.960
+ David Patterson Well, the biggest thing that happened was the invention of the microprocessor.
+
+03:42.960 --> 03:52.240
+ So computers that used to fill up several rooms could fit inside your cell phone. And not only
+
+03:52.240 --> 03:57.600
+ did they get smaller, they got a lot faster. So they're a million times faster than they were
+
+03:58.160 --> 04:06.320
+ 50 years ago, and they're much cheaper, and they're ubiquitous. There's 7.8 billion people
+
+04:06.320 --> 04:10.960
+ on this planet. Probably half of them have cell phones right now, which is remarkable.
+
+04:10.960 --> 04:14.800
+ Soterios Johnson That's probably more microprocessors than there are people.
+
+04:14.800 --> 04:16.800
+ David Patterson Sure. I don't know what the ratio is,
+
+04:16.800 --> 04:21.520
+ but I'm sure it's above one. Maybe it's 10 to 1 or some number like that.
+
+04:21.520 --> 04:23.760
+ Soterios Johnson What is a microprocessor?
+
+04:23.760 --> 04:27.520
+ David Patterson So a way to say what a microprocessor is,
+
+04:27.520 --> 04:32.240
+ is to tell you what's inside a computer. So a computer forever has classically had
+
+04:32.240 --> 04:38.640
+ five pieces. There's input and output, which kind of naturally, as you'd expect, is input is like
+
+04:38.640 --> 04:48.880
+ speech or typing, and output is displays. There's a memory, and like the name sounds, it remembers
+
+04:48.880 --> 04:54.480
+ things. So it's integrated circuits whose job is you put information in, then when you ask for it,
+
+04:54.480 --> 05:00.400
+ it comes back out. That's memory. And the third part is the processor, where the microprocessor
+
+05:00.400 --> 05:07.120
+ comes from. And that has two pieces as well. And that is the control, which is kind of the brain
+
+05:07.920 --> 05:15.440
+ of the processor. And what's called the arithmetic unit, it's kind of the brawn of the computer. So
+
+05:15.440 --> 05:19.680
+ if you think of the, as a human body, the arithmetic unit, the thing that does the
+
+05:19.680 --> 05:25.280
+ number crunching is the body and the control is the brain. So those five pieces, input, output,
+
+05:25.280 --> 05:34.080
+ memory, arithmetic unit, and control are, have been in computers since the very dawn. And the
+
+05:34.080 --> 05:39.440
+ last two are considered the processor. So a microprocessor simply means a processor that
+
+05:39.440 --> 05:46.240
+ fits on a microchip. And that was invented about, you know, 40 years ago, was the first microprocessor.
+
+05:46.240 --> 05:52.320
+ It's interesting that you refer to the arithmetic unit as the, like you connected to the body and
+
+05:52.320 --> 05:57.440
+ the controllers of the brain. So I guess, I never thought of it that way. It's a nice way to think
+
+05:57.440 --> 06:05.120
+ of it because most of the actions the microprocessor does in terms of literally sort of computation,
+
+06:05.120 --> 06:10.160
+ but the microprocessor does computation. It processes information. And most of the thing it
+
+06:10.160 --> 06:16.080
+ does is basic arithmetic operations. What are the operations, by the way?
+
+06:16.080 --> 06:22.720
+ It's a lot like a calculator. So there are add instructions, subtract instructions,
+
+06:22.720 --> 06:32.240
+ multiply and divide. And kind of the brilliance of the invention of the computer or the processor
+
+06:32.960 --> 06:39.120
+ is that it performs very trivial operations, but it just performs billions of them per second.
+
+06:39.120 --> 06:44.880
+ And what we're capable of doing is writing software that can take these very trivial instructions
+
+06:44.880 --> 06:49.440
+ and have them create tasks that can do things better than human beings can do today.
+
+06:49.440 --> 06:55.360
+ Just looking back through your career, did you anticipate the kind of how good we would be able
+
+06:55.360 --> 07:03.280
+ to get at doing these small, basic operations? How many surprises along the way where you just
+
+07:03.280 --> 07:09.200
+ kind of sat back and said, wow, I didn't expect it to go this fast, this good?
+
+07:09.200 --> 07:17.280
+ MG Well, the fundamental driving force is what's called Moore's law, which was named after Gordon
+
+07:17.280 --> 07:23.360
+ Moore, who's a Berkeley alumnus. And he made this observation very early in what are called
+
+07:23.360 --> 07:29.120
+ semiconductors. And semiconductors are these ideas, you can build these very simple switches,
+
+07:29.120 --> 07:34.240
+ and you can put them on these microchips. And he made this observation over 50 years ago.
+
+07:34.240 --> 07:38.320
+ He looked at a few years and said, I think what's going to happen is the number of these little
+
+07:38.320 --> 07:44.960
+ switches called transistors is going to double every year for the next decade. And he said this
+
+07:44.960 --> 07:51.760
+ in 1965. And in 1975, he said, well, maybe it's going to double every two years. And that what
+
+07:51.760 --> 07:58.720
+ other people since named that Moore's law guided the industry. And when Gordon Moore made that
+
+07:58.720 --> 08:08.720
+ prediction, he wrote a paper back in, I think, in the 70s and said, not only did this going to happen,
+
+08:08.720 --> 08:13.120
+ he wrote, what would be the implications of that? And in this article from 1965,
+
+08:13.120 --> 08:21.520
+ he shows ideas like computers being in cars and computers being in something that you would buy
+
+08:21.520 --> 08:26.800
+ in the grocery store and stuff like that. So he kind of not only called his shot, he called the
+
+08:26.800 --> 08:33.280
+ implications of it. So if you were in the computing field, and if you believed Moore's prediction,
+
+08:33.280 --> 08:41.360
+ he kind of said what would be happening in the future. So it's not kind of, it's at one sense,
+
+08:41.360 --> 08:46.320
+ this is what was predicted. And you could imagine it was easy to believe that Moore's law was going
+
+08:46.320 --> 08:51.200
+ to continue. And so this would be the implications. On the other side, there are these kind of
+
+08:51.200 --> 08:59.520
+ shocking events in your life. Like I remember driving in Marin across the Bay in San Francisco
+
+08:59.520 --> 09:06.560
+ and seeing a bulletin board at a local civic center and it had a URL on it. And it was like,
+
+09:07.680 --> 09:13.760
+ for the people at the time, these first URLs and that's the, you know, www select stuff with the
+
+09:13.760 --> 09:22.960
+ HTTP. People thought it looked like alien writing, right? You'd see these advertisements and
+
+09:22.960 --> 09:26.560
+ commercials or bulletin boards that had this alien writing on it. So for the lay people, it's like,
+
+09:26.560 --> 09:30.720
+ what the hell is going on here? And for those people in the industry, it was, oh my God,
+
+09:32.000 --> 09:37.200
+ this stuff is getting so popular, it's actually leaking out of our nerdy world into the real
+
+09:37.200 --> 09:42.320
+ world. So that, I mean, there was events like that. I think another one was, I remember in the
+
+09:42.320 --> 09:46.800
+ early days of the personal computer, when we started seeing advertisements in magazines
+
+09:46.800 --> 09:52.480
+ for personal computers, like it's so popular that it's made the newspapers. So at one hand,
+
+09:52.480 --> 09:56.720
+ you know, Gordon Moore predicted it and you kind of expected it to happen, but when it really hit
+
+09:56.720 --> 10:05.200
+ and you saw it affecting society, it was shocking. So maybe taking a step back and looking both
+
+10:05.200 --> 10:11.520
+ the engineering and philosophical perspective, what do you see as the layers of abstraction
+
+10:11.520 --> 10:16.080
+ in the computer? Do you see a computer as a set of layers of abstractions?
+
+10:16.080 --> 10:19.600
+ Dr. Justin Marchegiani Yeah, I think that's one of the things that computer science
+
+10:20.880 --> 10:26.880
+ fundamentals is the, these things are really complicated in the way we cope with complicated
+
+10:26.880 --> 10:32.880
+ software and complicated hardware is these layers of abstraction. And that simply means that we,
+
+10:33.840 --> 10:39.520
+ you know, suspend disbelief and pretend that the only thing you know is that layer,
+
+10:39.520 --> 10:44.240
+ and you don't know anything about the layer below it. And that's the way we can make very complicated
+
+10:44.240 --> 10:50.720
+ things. And probably it started with hardware that that's the way it was done, but it's been
+
+10:50.720 --> 10:56.400
+ proven extremely useful. And, you know, I would say in a modern computer today, there might be
+
+10:56.400 --> 11:02.880
+ 10 or 20 layers of abstraction, and they're all trying to kind of enforce this contract is all
+
+11:02.880 --> 11:09.840
+ you know is this interface. There's a set of commands that you can, are allowed to use,
+
+11:09.840 --> 11:13.840
+ and you stick to those commands, and we will faithfully execute that. And it's like peeling
+
+11:13.840 --> 11:19.200
+ the air layers of a London, of an onion, you get down, there's a new set of layers and so forth.
+
+11:19.200 --> 11:26.320
+ So for people who want to study computer science, the exciting part about it is you can
+
+11:27.040 --> 11:32.000
+ keep peeling those layers. You take your first course, and you might learn to program in Python,
+
+11:32.000 --> 11:37.680
+ and then you can take a follow on course, and you can get it down to a lower level language like C,
+
+11:37.680 --> 11:42.000
+ and you know, you can go and then you can, if you want to, you can start getting into the hardware
+
+11:42.000 --> 11:47.840
+ layers, and you keep getting down all the way to that transistor that I talked about that Gordon
+
+11:47.840 --> 11:53.680
+ Moore predicted. And you can understand all those layers all the way up to the highest level
+
+11:53.680 --> 12:02.320
+ application software. So it's a very kind of magnetic field. If you're interested, you can go
+
+12:02.320 --> 12:07.600
+ into any depth and keep going. In particular, what's happening right now, or it's happened
+
+12:08.240 --> 12:12.480
+ in software the last 20 years and recently in hardware, there's getting to be open source
+
+12:12.480 --> 12:18.960
+ versions of all of these things. So what open source means is what the engineer, the programmer
+
+12:18.960 --> 12:26.320
+ designs, it's not secret, the belonging to a company, it's out there on the worldwide web,
+
+12:26.320 --> 12:33.600
+ so you can see it. So you can look at, for lots of pieces of software that you use, you can see
+
+12:33.600 --> 12:39.280
+ exactly what the programmer does if you want to get involved. That used to stop at the hardware.
+
+12:39.920 --> 12:46.240
+ Recently, there's been an effort to make open source hardware and those interfaces open,
+
+12:46.240 --> 12:50.240
+ so you can see that. So instead of before you had to stop at the hardware, you can now start going
+
+12:51.120 --> 12:56.480
+ layer by layer below that and see what's inside there. So it's a remarkable time that for the
+
+12:56.480 --> 13:01.920
+ interested individual can really see in great depth what's really going on in the computers
+
+13:01.920 --> 13:07.680
+ that power everything that we see around us. Are you thinking also when you say open source at
+
+13:07.680 --> 13:14.560
+ the hardware level, is this going to the design architecture instruction set level or is it going
+
+13:14.560 --> 13:24.960
+ to literally the manufacturer of the actual hardware, of the actual chips, whether that's ASIC
+
+13:24.960 --> 13:30.000
+ specialized to a particular domain or the general? Yeah, so let's talk about that a little bit.
+
+13:30.000 --> 13:38.640
+ So when you get down to the bottom layer of software, the way software talks to hardware
+
+13:38.640 --> 13:45.120
+ is in a vocabulary. And what we call that vocabulary, we call that, the words of that
+
+13:45.120 --> 13:50.720
+ vocabulary are called instructions. And the technical term for the vocabulary is instruction
+
+13:50.720 --> 13:55.600
+ set. So those instructions are like we talked about earlier, that can be instructions like
+
+13:55.600 --> 14:01.920
+ add, subtract and multiply, divide. There's instructions to put data into memory, which
+
+14:01.920 --> 14:05.520
+ is called a store instruction and to get data back, which is called the load instructions.
+
+14:05.520 --> 14:12.800
+ And those simple instructions go back to the very dawn of computing in 1950, the commercial
+
+14:12.800 --> 14:16.800
+ computer had these instructions. So that's the instruction set that we're talking about.
+
+14:17.600 --> 14:23.440
+ So up until, I'd say 10 years ago, these instruction sets were all proprietary. So
+
+14:23.440 --> 14:29.840
+ a very popular one is owned by Intel, the one that's in the cloud and in all the PCs in the
+
+14:29.840 --> 14:36.320
+ world. Intel owns that instruction set. It's referred to as the x86. There've been a sequence
+
+14:36.320 --> 14:41.920
+ of ones that the first number was called 8086. And since then, there's been a lot of numbers,
+
+14:41.920 --> 14:47.920
+ but they all end in 86. So there's been that kind of family of instruction sets.
+
+14:47.920 --> 14:49.440
+ And that's proprietary.
+
+14:49.440 --> 14:55.920
+ That's proprietary. The other one that's very popular is from ARM. That kind of powers all
+
+14:55.920 --> 15:02.000
+ the cell phones in the world, all the iPads in the world, and a lot of things that are so called
+
+15:02.000 --> 15:09.600
+ Internet of Things devices. ARM and that one is also proprietary. ARM will license it to people
+
+15:09.600 --> 15:16.160
+ for a fee, but they own that. So the new idea that got started at Berkeley kind of unintentionally
+
+15:16.160 --> 15:25.680
+ 10 years ago is early in my career, we pioneered a way to do these vocabularies instruction sets
+
+15:25.680 --> 15:31.600
+ that was very controversial at the time. At the time in the 1980s, conventional wisdom was these
+
+15:32.320 --> 15:38.800
+ vocabularies instruction sets should have powerful instructions. So polysyllabic kind of words,
+
+15:38.800 --> 15:44.560
+ you can think of that. And so instead of just add, subtract, and multiply, they would have
+
+15:44.560 --> 15:51.200
+ polynomial, divide, or sort a list. And the hope was of those powerful vocabularies,
+
+15:51.200 --> 15:57.760
+ that'd make it easier for software. So we thought that didn't make sense for microprocessors. There
+
+15:57.760 --> 16:03.600
+ was people at Berkeley and Stanford and IBM who argued the opposite. And what we called that was
+
+16:03.600 --> 16:10.480
+ a reduced instruction set computer. And the abbreviation was RISC. And typical for computer
+
+16:10.480 --> 16:15.920
+ people, we use the abbreviation start pronouncing it. So risk was the thing. So we said for
+
+16:15.920 --> 16:21.440
+ microprocessors, which with Gordon's Moore is changing really fast, we think it's better to have
+
+16:21.440 --> 16:28.480
+ a pretty simple set of instructions, reduced set of instructions. That that would be a better way
+
+16:28.480 --> 16:32.800
+ to build microprocessors since they're going to be changing so fast due to Moore's law. And then
+
+16:32.800 --> 16:41.120
+ we'll just use standard software to cover the use, generate more of those simple instructions. And
+
+16:41.120 --> 16:45.760
+ one of the pieces of software that's in that software stack going between these layers of
+
+16:45.760 --> 16:50.400
+ abstractions is called a compiler. And it's basically translates, it's a translator between
+
+16:50.400 --> 16:57.200
+ levels. We said the translator will handle that. So the technical question was, well, since there
+
+16:57.200 --> 17:01.920
+ are these reduced instructions, you have to execute more of them. Yeah, that's right. But
+
+17:01.920 --> 17:05.840
+ maybe you could execute them faster. Yeah, that's right. They're simpler so they could go faster,
+
+17:05.840 --> 17:12.080
+ but you have to do more of them. So what's that trade off look like? And it ended up that we ended
+
+17:12.080 --> 17:19.040
+ up executing maybe 50% more instructions, maybe a third more instructions, but they ran four times
+
+17:19.040 --> 17:26.000
+ faster. So this risk, controversial risk ideas proved to be maybe factors of three or four
+
+17:26.000 --> 17:33.280
+ better. I love that this idea was controversial and almost kind of like rebellious. So that's
+
+17:33.280 --> 17:39.280
+ in the context of what was more conventional is the complex instructional set computing. So
+
+17:40.080 --> 17:45.840
+ how would you pronounce that? CISC. CISC versus risk. Risk versus CISC. And believe it or not,
+
+17:46.400 --> 17:54.720
+ this sounds very, who cares about this? It was violently debated at several conferences. It's
+
+17:54.720 --> 18:01.280
+ like, what's the right way to go? And people thought risk was a deevolution. We're going to
+
+18:01.280 --> 18:07.200
+ make software worse by making those instructions simpler. And there are fierce debates at several
+
+18:07.200 --> 18:14.400
+ conferences in the 1980s. And then later in the 80s, it kind of settled to these benefits.
+
+18:14.400 --> 18:18.400
+ It's not completely intuitive to me why risk has, for the most part, won.
+
+18:19.600 --> 18:24.240
+ Yeah. So why did that happen? Yeah. Yeah. And maybe I can sort of say a bunch of dumb things
+
+18:24.240 --> 18:30.640
+ that could lay the land for further commentary. So to me, this is kind of an interesting thing.
+
+18:30.640 --> 18:36.960
+ If you look at C++ versus C, with modern compilers, you really could write faster code
+
+18:36.960 --> 18:44.160
+ with C++. So relying on the compiler to reduce your complicated code into something simple and
+
+18:44.160 --> 18:53.360
+ fast. So to me, comparing risk, maybe this is a dumb question, but why is it that focusing the
+
+18:53.360 --> 19:00.240
+ definition of the design of the instruction set on very few simple instructions in the long run
+
+19:00.240 --> 19:09.920
+ provide faster execution versus coming up with, like you said, a ton of complicated instructions
+
+19:09.920 --> 19:16.160
+ that over time, you know, years, maybe decades, you come up with compilers that can reduce those
+
+19:16.160 --> 19:21.600
+ into simple instructions for you. Yeah. So let's try and split that into two pieces.
+
+19:22.640 --> 19:29.120
+ So if the compiler can do that for you, if the compiler can take, you know, a complicated program
+
+19:29.120 --> 19:37.120
+ and produce simpler instructions, then the programmer doesn't care, right? I don't care just
+
+19:37.120 --> 19:43.520
+ how fast is the computer I'm using, how much does it cost? And so what happened kind of in the
+
+19:43.520 --> 19:50.560
+ software industry is right around before the 1980s, critical pieces of software were still written
+
+19:50.560 --> 19:57.600
+ not in languages like C or C++, they were written in what's called assembly language, where there's
+
+19:57.600 --> 20:04.320
+ this kind of humans writing exactly at the instructions at the level that a computer can
+
+20:04.320 --> 20:10.400
+ understand. So they were writing add, subtract, multiply, you know, instructions. It's very tedious.
+
+20:11.040 --> 20:17.440
+ But the belief was to write this lowest level of software that people use, which are called operating
+
+20:17.440 --> 20:22.000
+ systems, they had to be written in assembly language because these high level languages were just too
+
+20:22.000 --> 20:31.600
+ inefficient. They were too slow, or the programs would be too big. So that changed with a famous
+
+20:31.600 --> 20:37.040
+ operating system called Unix, which is kind of the grandfather of all the operating systems today.
+
+20:37.680 --> 20:43.280
+ So Unix demonstrated that you could write something as complicated as an operating system in a
+
+20:43.280 --> 20:51.760
+ language like C. So once that was true, then that meant we could hide the instruction set from the
+
+20:51.760 --> 20:58.000
+ programmer. And so that meant then it didn't really matter. The programmer didn't have to write
+
+20:58.480 --> 21:02.960
+ lots of these simple instructions, that was up to the compiler. So that was part of our arguments
+
+21:02.960 --> 21:07.440
+ for risk is, if you were still writing assembly language, there's maybe a better case for CISC
+
+21:07.440 --> 21:13.840
+ instructions. But if the compiler can do that, it's going to be, you know, that's done once the
+
+21:13.840 --> 21:19.280
+ computer translates at once. And then every time you run the program, it runs at this potentially
+
+21:19.280 --> 21:26.960
+ simpler instructions. And so that was the debate, right? And people would acknowledge that the
+
+21:26.960 --> 21:33.040
+ simpler instructions could lead to a faster computer. You can think of monosyllabic instructions,
+
+21:33.040 --> 21:36.720
+ you could say them, you know, if you think of reading, you can probably read them faster or say
+
+21:36.720 --> 21:41.440
+ them faster than long instructions. The same thing, that analogy works pretty well for hardware.
+
+21:42.080 --> 21:46.880
+ And as long as you didn't have to read a lot more of those instructions, you could win. So that's
+
+21:46.880 --> 21:53.600
+ kind of, that's the basic idea for risk. But it's interesting that in that discussion of Unix and C,
+
+21:54.160 --> 22:02.080
+ that there's only one step of levels of abstraction from the code that's really the closest to the
+
+22:02.080 --> 22:09.840
+ machine to the code that's written by human. It's, at least to me again, perhaps a dumb intuition,
+
+22:09.840 --> 22:16.000
+ but it feels like there might've been more layers, sort of different kinds of humans stacked on top
+
+22:16.000 --> 22:25.680
+ of each other. So what's true and not true about what you said is several of the layers of software,
+
+22:27.120 --> 22:32.560
+ like, so the, if you, two layers would be, suppose we just talked about two layers,
+
+22:32.560 --> 22:38.240
+ that would be the operating system, like you get from Microsoft or from Apple, like iOS,
+
+22:38.240 --> 22:44.560
+ or the Windows operating system. And let's say applications that run on top of it, like Word
+
+22:44.560 --> 22:52.400
+ or Excel. So both the operating system could be written in C and the application could be written
+
+22:52.400 --> 22:58.880
+ in C. But you could construct those two layers and the applications absolutely do call upon the
+
+22:58.880 --> 23:04.720
+ operating system. And the change was that both of them could be written in higher level languages.
+
+23:04.720 --> 23:10.160
+ So it's one step of a translation, but you can still build many layers of abstraction
+
+23:10.160 --> 23:16.960
+ of software on top of that. And that's how things are done today. So still today,
+
+23:17.520 --> 23:23.600
+ many of the layers that you'll deal with, you may deal with debuggers, you may deal with linkers,
+
+23:25.600 --> 23:34.080
+ there's libraries. Many of those today will be written in C++, say, even though that language is
+
+23:34.080 --> 23:41.120
+ pretty ancient. And even the Python interpreter is probably written in C or C++. So lots of
+
+23:41.120 --> 23:47.280
+ layers there are probably written in these, some old fashioned efficient languages that
+
+23:48.080 --> 23:56.240
+ still take one step to produce these instructions, produce RISC instructions, but they're composed,
+
+23:56.240 --> 24:02.800
+ each layer of software invokes one another through these interfaces. And you can get 10 layers of
+
+24:02.800 --> 24:08.720
+ software that way. So in general, the RISC was developed here at Berkeley? It was kind of the
+
+24:08.720 --> 24:14.480
+ three places that were these radicals that advocated for this against the rest of community
+
+24:14.480 --> 24:24.400
+ were IBM, Berkeley, and Stanford. You're one of these radicals. And how radical did you feel?
+
+24:24.400 --> 24:31.680
+ How confident did you feel? How doubtful were you that RISC might be the right approach? Because
+
+24:31.680 --> 24:37.440
+ it may, you can also intuit that is kind of taking a step back into simplicity, not forward into
+
+24:37.440 --> 24:44.080
+ simplicity. Yeah, no, it was easy to make, yeah, it was easy to make the argument against it. Well,
+
+24:44.880 --> 24:50.000
+ this was my colleague, John Hennessy at Stanford Nine. We were both assistant professors. And
+
+24:50.640 --> 24:57.040
+ for me, I just believed in the power of our ideas. I thought what we were saying made sense.
+
+24:57.040 --> 25:03.200
+ Moore's law is going to move fast. The other thing that I didn't mention is one of the surprises of
+
+25:03.200 --> 25:08.240
+ these complex instruction sets. You could certainly write these complex instructions
+
+25:08.240 --> 25:13.440
+ if the programmer is writing them themselves. It turned out to be kind of difficult for the
+
+25:13.440 --> 25:18.240
+ compiler to generate those complex instructions. Kind of ironically, you'd have to find the right
+
+25:18.240 --> 25:22.880
+ circumstances that just exactly fit this complex instruction. It was actually easier for the
+
+25:22.880 --> 25:28.720
+ compiler to generate these simple instructions. So not only did these complex instructions make
+
+25:28.720 --> 25:34.160
+ the hardware more difficult to build, often the compiler wouldn't even use them. And so
+
+25:35.280 --> 25:40.320
+ it's harder to build. The compiler doesn't use them that much. The simple instructions go better
+
+25:40.320 --> 25:46.320
+ with Moore's law. The number of transistors is doubling every two years. So we're going to have,
+
+25:46.320 --> 25:51.360
+ you want to reduce the time to design the microprocessor, that may be more important
+
+25:51.360 --> 25:58.160
+ than these number of instructions. So I think we believed that we were right, that this was
+
+25:58.160 --> 26:03.840
+ the best idea. Then the question became in these debates, well, yeah, that's a good technical idea,
+
+26:03.840 --> 26:08.000
+ but in the business world, this doesn't matter. There's other things that matter. It's like
+
+26:08.720 --> 26:14.640
+ arguing that if there's a standard with the railroad tracks and you've come up with a better
+
+26:14.640 --> 26:20.240
+ width, but the whole world is covered in railroad tracks, so your ideas have no chance of success.
+
+26:20.240 --> 26:25.440
+ Right. Commercial success. It was technically right, but commercially it'll be insignificant.
+
+26:25.440 --> 26:32.640
+ Yeah, it's kind of sad that this world, the history of human civilization is full of good ideas that
+
+26:33.280 --> 26:39.040
+ lost because somebody else came along first with a worse idea. And it's good that in the
+
+26:39.040 --> 26:43.600
+ computing world, at least some of these have, well, you could, I mean, there's probably still
+
+26:43.600 --> 26:50.640
+ CISC people that say, yeah, there still are. And what happened was, what was interesting, Intel,
+
+26:50.640 --> 26:57.360
+ a bunch of the CISC companies with CISC instruction sets of vocabulary, they gave up,
+
+26:57.360 --> 27:06.320
+ but not Intel. What Intel did to its credit, because Intel's vocabulary was in the personal
+
+27:06.320 --> 27:11.760
+ computer. And so that was a very valuable vocabulary because the way we distribute software
+
+27:11.760 --> 27:15.840
+ is in those actual instructions. It's in the instructions of that instruction set. So
+
+27:17.280 --> 27:22.480
+ you don't get that source code, what the programmers wrote. You get, after it's been translated into
+
+27:22.480 --> 27:27.440
+ the lowest level, that's if you were to get a floppy disk or download software, it's in the
+
+27:27.440 --> 27:33.680
+ instructions of that instruction set. So the x86 instruction set was very valuable. So what Intel
+
+27:33.680 --> 27:40.960
+ did cleverly and amazingly is they had their chips in hardware do a translation step.
+
+27:40.960 --> 27:45.280
+ They would take these complex instructions and translate them into essentially in RISC instructions
+
+27:45.280 --> 27:52.720
+ in hardware on the fly, at gigahertz clock speeds. And then any good idea that RISC people had,
+
+27:52.720 --> 28:01.200
+ they could use, and they could still be compatible with this really valuable PC software base,
+
+28:01.200 --> 28:09.040
+ which also had very high volumes, 100 million personal computers per year. So the CISC architecture
+
+28:09.040 --> 28:19.280
+ in the business world was actually won in this PC era. So just going back to the
+
+28:20.480 --> 28:27.680
+ time of designing RISC, when you design an instruction set architecture, do you think
+
+28:27.680 --> 28:33.200
+ like a programmer? Do you think like a microprocessor engineer? Do you think like a
+
+28:33.200 --> 28:40.240
+ artist, a philosopher? Do you think in software and hardware? I mean, is it art? Is it science?
+
+28:40.240 --> 28:46.720
+ Yeah, I'd say, I think designing a good instruction set is an art. And I think you're trying to
+
+28:47.760 --> 28:57.600
+ balance the simplicity and speed of execution with how well easy it will be for compilers
+
+28:57.600 --> 29:03.120
+ to use it. You're trying to create an instruction set that everything in there can be used by
+
+29:03.120 --> 29:09.280
+ compilers. There's not things that are missing that'll make it difficult for the program to run.
+
+29:10.720 --> 29:16.160
+ They run efficiently, but you want it to be easy to build as well. So I'd say you're thinking
+
+29:16.160 --> 29:24.320
+ hardware, trying to find a hardware software compromise that'll work well. And it's a matter
+
+29:24.320 --> 29:30.880
+ of taste. It's kind of fun to build instruction sets. It's not that hard to build an instruction
+
+29:30.880 --> 29:38.000
+ set, but to build one that catches on and people use, you have to be fortunate to be
+
+29:38.000 --> 29:43.200
+ the right place in the right time or have a design that people really like. Are you using metrics?
+
+29:43.200 --> 29:49.200
+ So is it quantifiable? Because you kind of have to anticipate the kind of programs that people
+
+29:49.200 --> 29:56.080
+ write ahead of time. So can you use numbers? Can you use metrics? Can you quantify something ahead
+
+29:56.080 --> 30:00.960
+ of time? Or is this, again, that's the art part where you're kind of anticipating? No, it's a big
+
+30:00.960 --> 30:07.040
+ change. Kind of what happened, I think from Hennessy's and my perspective in the 1980s,
+
+30:07.040 --> 30:17.040
+ what happened was going from kind of really, you know, taste and hunches to quantifiable. And in
+
+30:17.040 --> 30:22.880
+ fact, he and I wrote a textbook at the end of the 1980s called Computer Architecture, A Quantitative
+
+30:22.880 --> 30:30.320
+ Approach. I heard of that. And it's the thing, it had a pretty big impact in the field because we
+
+30:30.320 --> 30:36.320
+ went from textbooks that kind of listed, so here's what this computer does, and here's the pros and
+
+30:36.320 --> 30:40.560
+ cons, and here's what this computer does and pros and cons to something where there were formulas
+
+30:40.560 --> 30:47.680
+ and equations where you could measure things. So specifically for instruction sets, what we do
+
+30:47.680 --> 30:52.960
+ and some other fields do is we agree upon a set of programs, which we call benchmarks,
+
+30:53.680 --> 31:00.960
+ and a suite of programs, and then you develop both the hardware and the compiler and you get
+
+31:00.960 --> 31:09.360
+ numbers on how well your computer does given its instruction set and how well you implemented it in
+
+31:09.360 --> 31:14.960
+ your microprocessor and how good your compilers are. In computer architecture, you know, using
+
+31:14.960 --> 31:19.760
+ professor's terms, we grade on a curve rather than grade on an absolute scale. So when you say,
+
+31:20.400 --> 31:24.640
+ you know, these programs run this fast, well, that's kind of interesting, but how do you know
+
+31:24.640 --> 31:29.840
+ it's better? Well, you compare it to other computers at the same time. So the best way we
+
+31:29.840 --> 31:37.680
+ know how to turn it into a kind of more science and experimental and quantitative is to compare
+
+31:37.680 --> 31:41.920
+ yourself to other computers of the same era that have the same access to the same kind of technology
+
+31:41.920 --> 31:44.940
+ on commonly agreed benchmark programs.
+
+31:44.940 --> 31:51.520
+ So maybe to toss up two possible directions we can go. One is what are the different tradeoffs
+
+31:51.520 --> 31:56.640
+ in designing architectures? We've been already talking about SISC and RISC, but maybe a little
+
+31:56.640 --> 32:03.120
+ bit more detail in terms of specific features that you were thinking about. And the other side is
+
+32:03.680 --> 32:08.160
+ what are the metrics that you're thinking about when looking at these tradeoffs?
+
+32:08.160 --> 32:14.160
+ Yeah, let's talk about the metrics. So during these debates, we actually had kind of a hard
+
+32:14.160 --> 32:20.240
+ time explaining, convincing people the ideas, and partly we didn't have a formula to explain it.
+
+32:20.240 --> 32:26.000
+ And a few years into it, we hit upon a formula that helped explain what was going on. And
+
+32:27.600 --> 32:34.080
+ I think if we can do this, see how it works orally to do this. So if I can do a formula
+
+32:34.080 --> 32:40.720
+ orally, let's see. So fundamentally, the way you measure performance is how long does it take a
+
+32:40.720 --> 32:47.360
+ program to run? A program, if you have 10 programs, and typically these benchmarks were sweet because
+
+32:47.360 --> 32:51.600
+ you'd want to have 10 programs so they could represent lots of different applications. So for
+
+32:51.600 --> 32:56.080
+ these 10 programs, how long does it take to run? Well now, when you're trying to explain why it
+
+32:56.080 --> 33:01.120
+ took so long, you could factor how long it takes a program to run into three factors.
+
+33:01.120 --> 33:06.240
+ One of the first one is how many instructions did it take to execute? So that's the what we've been
+
+33:06.240 --> 33:11.360
+ talking about, you know, the instructions of Alchemy. How many did it take? All right. The
+
+33:11.360 --> 33:17.840
+ next question is how long did each instruction take to run on average? So you multiply the number
+
+33:17.840 --> 33:23.520
+ of instructions times how long it took to run, and that gets you time. Okay, so that's, but now let's
+
+33:23.520 --> 33:28.240
+ look at this metric of how long did it take the instruction to run. Well, it turns out,
+
+33:28.240 --> 33:33.280
+ the way we could build computers today is they all have a clock, and you've seen this when you,
+
+33:33.280 --> 33:39.760
+ if you buy a microprocessor, it'll say 3.1 gigahertz or 2.5 gigahertz, and more gigahertz is
+
+33:39.760 --> 33:47.600
+ good. Well, what that is is the speed of the clock. So 2.5 gigahertz turns out to be 4 billionths of
+
+33:47.600 --> 33:54.160
+ instruction or 4 nanoseconds. So that's the clock cycle time. But there's another factor, which is
+
+33:54.160 --> 33:59.840
+ what's the average number of clock cycles it takes per instruction? So it's number of instructions,
+
+33:59.840 --> 34:05.760
+ average number of clock cycles, and the clock cycle time. So in these risk sis debates, they
+
+34:05.760 --> 34:12.800
+ would concentrate on, but risk needs to take more instructions, and we'd argue maybe the clock cycle
+
+34:12.800 --> 34:17.680
+ is faster, but what the real big difference was was the number of clock cycles per instruction.
+
+34:17.680 --> 34:25.920
+ Per instruction, that's fascinating. What about the mess of, the beautiful mess of parallelism in the
+
+34:25.920 --> 34:31.280
+ whole picture? Parallelism, which has to do with, say, how many instructions could execute in parallel
+
+34:31.280 --> 34:35.440
+ and things like that, you could think of that as affecting the clock cycles per instruction,
+
+34:35.440 --> 34:39.280
+ because it's the average clock cycles per instruction. So when you're running a program,
+
+34:39.280 --> 34:45.840
+ if it took 100 billion instructions, and on average it took two clock cycles per instruction,
+
+34:45.840 --> 34:49.840
+ and they were four nanoseconds, you could multiply that out and see how long it took to run.
+
+34:49.840 --> 34:53.520
+ And there's all kinds of tricks to try and reduce the number of clock cycles per instruction.
+
+34:55.440 --> 35:00.400
+ But it turned out that the way they would do these complex instructions is they would actually
+
+35:00.400 --> 35:05.840
+ build what we would call an interpreter in a simpler, a very simple hardware interpreter.
+
+35:05.840 --> 35:10.720
+ But it turned out that for the sis constructions, if you had to use one of those interpreters,
+
+35:10.720 --> 35:16.160
+ it would be like 10 clock cycles per instruction, where the risk constructions could be two. So
+
+35:16.160 --> 35:21.280
+ there'd be this factor of five advantage in clock cycles per instruction. We have to execute, say,
+
+35:21.280 --> 35:25.440
+ 25 or 50 percent more instructions, so that's where the win would come. And then you could
+
+35:25.440 --> 35:30.080
+ make an argument whether the clock cycle times are the same or not. But pointing out that we
+
+35:30.080 --> 35:36.000
+ could divide the benchmark results time per program into three factors, and the biggest
+
+35:36.000 --> 35:40.640
+ difference between RISC and SIS was the clock cycles per, you execute a few more instructions,
+
+35:40.640 --> 35:46.000
+ but the clock cycles per instruction is much less. And that was what this debate, once we
+
+35:46.000 --> 35:53.280
+ made that argument, then people said, oh, okay, I get it. And so we went from, it was outrageously
+
+35:53.280 --> 35:59.520
+ controversial in, you know, 1982 that maybe probably by 1984 or so, people said, oh, yeah,
+
+35:59.520 --> 36:05.680
+ technically, they've got a good argument. What are the instructions in the RISC instruction set,
+
+36:05.680 --> 36:13.600
+ just to get an intuition? Okay. 1995, I was asked to predict the future of what microprocessor
+
+36:13.600 --> 36:20.240
+ could future. So I, and I'd seen these predictions and usually people predict something outrageous
+
+36:20.240 --> 36:25.920
+ just to be entertaining, right? And so my prediction for 2020 was, you know, things are
+
+36:25.920 --> 36:30.080
+ going to be pretty much, they're going to look very familiar to what they are. And they are,
+
+36:30.080 --> 36:34.400
+ and if you were to read the article, you know, the things I said are pretty much true. The
+
+36:34.400 --> 36:38.880
+ instructions that have been around forever are kind of the same. And that's the outrageous
+
+36:38.880 --> 36:42.160
+ prediction, actually. Yeah. Given how fast computers have been going. Well, and you know,
+
+36:42.160 --> 36:47.840
+ Moore's law was going to go on, we thought for 25 more years, you know, who knows, but kind of the
+
+36:47.840 --> 36:55.120
+ surprising thing, in fact, you know, Hennessy and I, you know, won the ACM, AM, Turing award for
+
+36:55.120 --> 37:00.160
+ both the RISC instruction set contributions and for that textbook I mentioned. But, you know,
+
+37:00.160 --> 37:10.400
+ we're surprised that here we are 35, 40 years later after we did our work and the conventionalism
+
+37:10.400 --> 37:15.120
+ of the best way to do instruction sets is still those RISC instruction sets that looked very
+
+37:15.120 --> 37:21.200
+ similar to what we looked like, you know, we did in the 1980s. So those, surprisingly, there hasn't
+
+37:21.200 --> 37:26.880
+ been some radical new idea, even though we have, you know, a million times as many transistors as
+
+37:26.880 --> 37:32.720
+ we had back then. But what are the basic constructions and how do they change over the
+
+37:32.720 --> 37:39.200
+ years? So we're talking about addition, subtraction, these are the specific. So the things that are in
+
+37:39.200 --> 37:44.640
+ a calculator are in a computer. So any of the buttons that are in the calculator in the computer,
+
+37:44.640 --> 37:50.160
+ so the, so if there's a memory function key, and like I said, those are, turns into putting
+
+37:50.160 --> 37:54.720
+ something in memory is called a store, bring something back to load. Just a quick tangent.
+
+37:54.720 --> 38:00.400
+ When you say memory, what does memory mean? Well, I told you there were five pieces of a computer.
+
+38:00.400 --> 38:04.720
+ And if you remember in a calculator, there's a memory key. So you want to have intermediate
+
+38:04.720 --> 38:09.680
+ calculation and bring it back later. So you'd hit the memory plus key M plus maybe, and it would
+
+38:09.680 --> 38:14.320
+ put that into memory and then you'd hit an RM like recurrence section and then bring it back
+
+38:14.320 --> 38:17.360
+ on the display. So you don't have to type it. You don't have to write it down and bring it back
+
+38:17.360 --> 38:22.880
+ again. So that's exactly what memory is. You can put things into it as temporary storage and bring
+
+38:22.880 --> 38:28.160
+ it back when you need it later. So that's memory and loads and stores. But the big thing, the
+
+38:28.160 --> 38:35.440
+ difference between a computer and a calculator is that the computer can make decisions. And
+
+38:35.440 --> 38:41.600
+ amazingly, decisions are as simple as, is this value less than zero? Or is this value bigger
+
+38:41.600 --> 38:47.440
+ than that value? And those instructions, which are called conditional branch instructions,
+
+38:47.440 --> 38:53.200
+ is what give computers all its power. If you were in the early days of computing before
+
+38:53.200 --> 38:58.560
+ what's called the general purpose microprocessor, people would write these instructions kind of in
+
+38:58.560 --> 39:04.320
+ hardware, but it couldn't make decisions. It would do the same thing over and over again.
+
+39:05.520 --> 39:09.680
+ With the power of having branch instructions, it can look at things and make decisions
+
+39:09.680 --> 39:15.200
+ automatically. And it can make these decisions billions of times per second. And amazingly
+
+39:15.200 --> 39:20.640
+ enough, we can get, thanks to advanced machine learning, we can create programs that can do
+
+39:20.640 --> 39:25.040
+ something smarter than human beings can do. But if you go down that very basic level, it's the
+
+39:25.600 --> 39:30.960
+ instructions are the keys on the calculator, plus the ability to make decisions, these conditional
+
+39:30.960 --> 39:34.960
+ branch instructions. And all decisions fundamentally can be reduced down to these
+
+39:34.960 --> 39:42.240
+ branch instructions. Yeah. So in fact, and so going way back in the stack back to,
+
+39:42.240 --> 39:47.200
+ we did four RISC projects at Berkeley in the 1980s. They did a couple at Stanford
+
+39:47.200 --> 39:54.800
+ in the 1980s. In 2010, we decided we wanted to do a new instruction set learning from the mistakes
+
+39:54.800 --> 40:00.640
+ of those RISC architectures in the 1980s. And that was done here at Berkeley almost exactly
+
+40:00.640 --> 40:07.200
+ 10 years ago. And the people who did it, I participated, but Krzysztof Sanowicz and others
+
+40:07.200 --> 40:13.200
+ drove it. They called it RISC 5 to honor those RISC, the four RISC projects of the 1980s.
+
+40:13.840 --> 40:21.200
+ So what does RISC 5 involve? So RISC 5 is another instruction set of vocabulary. It's learned from
+
+40:21.200 --> 40:25.680
+ the mistakes of the past, but it still has, if you look at the, there's a core set of instructions
+
+40:25.680 --> 40:31.280
+ that's very similar to the simplest architectures from the 1980s. And the big difference about RISC
+
+40:31.280 --> 40:41.920
+ 5 is it's open. So I talked early about proprietary versus open software. So this is an instruction
+
+40:41.920 --> 40:47.920
+ set. So it's a vocabulary, it's not hardware, but by having an open instruction set, we can have
+
+40:47.920 --> 40:54.960
+ open source implementations, open source processors that people can use. Where do you see that
+
+40:54.960 --> 41:00.080
+ going? It's a really exciting possibility, but you're just like in the scientific American,
+
+41:00.080 --> 41:07.040
+ if you were to predict 10, 20, 30 years from now, that kind of ability to utilize open source
+
+41:07.840 --> 41:13.600
+ instruction set architectures like RISC 5, what kind of possibilities might that unlock?
+
+41:13.600 --> 41:20.320
+ Yeah. And so just to make it clear, because this is confusing, the specification of RISC 5 is
+
+41:20.320 --> 41:26.320
+ something that's like in a textbook, there's books about it. So that's defining an interface.
+
+41:27.520 --> 41:33.280
+ There's also the way you build hardware is you write it in languages that are kind of like C,
+
+41:33.280 --> 41:38.880
+ but they're specialized for hardware that gets translated into hardware. And so these
+
+41:39.440 --> 41:44.960
+ implementations of this specification are the open source. So they're written in something
+
+41:44.960 --> 41:52.560
+ that's called Verilog or VHDL, but it's put up on the web, just like you can see the C++ code for
+
+41:53.120 --> 42:00.560
+ Linux on the web. So that's the open instruction set enables open source implementations of RISC 5.
+
+42:00.560 --> 42:03.360
+ So you can literally build a processor using this instruction set.
+
+42:04.080 --> 42:09.360
+ People are, people are. So what happened to us that the story was this was developed here for
+
+42:09.360 --> 42:15.440
+ our use to do our research. And we made it, we licensed under the Berkeley Software Distribution
+
+42:15.440 --> 42:19.760
+ License, like a lot of things get licensed here. So other academics use it, they wouldn't be afraid
+
+42:19.760 --> 42:27.200
+ to use it. And then about 2014, we started getting complaints that we were using it in our research
+
+42:27.200 --> 42:32.160
+ and in our courses. And we got complaints from people in industries, why did you change your
+
+42:32.160 --> 42:37.840
+ instruction set between the fall and the spring semester? And well, we get complaints from
+
+42:37.840 --> 42:42.400
+ industrial time. Why the hell do you care what we do with our instruction set? And then when we
+
+42:42.400 --> 42:46.960
+ talked to him, we found out there was this thirst for this idea of an open instruction set
+
+42:46.960 --> 42:51.600
+ architecture. And they had been looking for one. They stumbled upon ours at Berkeley, thought it
+
+42:51.600 --> 42:58.400
+ was, boy, this looks great. We should use this one. And so once we realized there is this need
+
+42:58.400 --> 43:02.960
+ for an open instruction set architecture, we thought that's a great idea. And then we started
+
+43:02.960 --> 43:08.720
+ supporting it and tried to make it happen. So this was kind of, we accidentally stumbled into this
+
+43:09.600 --> 43:14.800
+ and to this need and our timing was good. And so it's really taking off. There's,
+
+43:16.480 --> 43:20.800
+ you know, universities are good at starting things, but they're not good at sustaining things. So like
+
+43:20.800 --> 43:26.640
+ Linux has a Linux foundation, there's a RISC 5 foundation that we started. There's an annual
+
+43:26.640 --> 43:32.720
+ conferences. And the first one was done, I think, January of 2015. And the one that was just last
+
+43:32.720 --> 43:38.080
+ December in it, you know, it had 50 people at it. And this one last December had, I don't know,
+
+43:38.880 --> 43:44.880
+ 1700 people were at it and the companies excited all over the world. So if predicting into the
+
+43:44.880 --> 43:51.040
+ future, you know, if we were doing 25 years, I would predict that RISC 5 will be, you know,
+
+43:51.040 --> 43:57.120
+ possibly the most popular instruction set architecture out there, because it's a pretty
+
+43:57.120 --> 44:03.440
+ good instruction set architecture and it's open and free. And there's no reason lots of people
+
+44:03.440 --> 44:10.000
+ shouldn't use it. And there's benefits just like Linux is so popular today compared to 20 years
+
+44:10.000 --> 44:17.360
+ ago. And, you know, the fact that you can get access to it for free, you can modify it, you can
+
+44:17.360 --> 44:22.480
+ improve it for all those same arguments. And so people collaborate to make it a better system
+
+44:22.480 --> 44:26.640
+ for everybody to use. And that works in software. And I expect the same thing will happen in
+
+44:26.640 --> 44:33.040
+ hardware. So if you look at ARM, Intel, MIPS, if you look at just the lay of the land,
+
+44:34.080 --> 44:42.000
+ and what do you think, just for me, because I'm not familiar how difficult this kind of transition
+
+44:42.000 --> 44:48.720
+ would, how much challenges this kind of transition would entail, do you see,
+
+44:50.400 --> 44:52.240
+ let me ask my dumb question in another way.
+
+44:52.240 --> 44:57.280
+ No, that's, I know where you're headed. Well, there's a bunch, I think the thing you point out,
+
+44:57.280 --> 45:02.400
+ there's these very popular proprietary instruction sets, the x86.
+
+45:02.400 --> 45:09.040
+ And so how do we move to RISC 5 potentially in sort of in the span of 5, 10, 20 years,
+
+45:09.040 --> 45:15.360
+ a kind of unification, given that the devices, the kind of way we use devices,
+
+45:15.360 --> 45:20.080
+ IoT, mobile devices, and the cloud keeps changing?
+
+45:20.080 --> 45:27.920
+ Well, part of it, a big piece of it is the software stack. And right now, looking forward,
+
+45:27.920 --> 45:34.720
+ there seem to be three important markets. There's the cloud. And the cloud is simply
+
+45:34.720 --> 45:42.720
+ companies like Alibaba and Amazon and Google, Microsoft, having these giant data centers with
+
+45:42.720 --> 45:48.800
+ tens of thousands of servers in maybe a hundred of these data centers all over the world.
+
+45:48.800 --> 45:54.560
+ And that's what the cloud is. So the computer that dominates the cloud is the x86 instruction set.
+
+45:54.560 --> 46:03.040
+ So the instruction sets used in the cloud are the x86, almost 100% of that today is x86.
+
+46:03.040 --> 46:08.640
+ The other big thing are cell phones and laptops. Those are the big things today.
+
+46:08.640 --> 46:14.480
+ I mean, the PC is also dominated by the x86 instruction set, but those sales are dwindling.
+
+46:14.480 --> 46:21.600
+ You know, there's maybe 200 million PCs a year, and there's one and a half billion phones a year.
+
+46:21.600 --> 46:26.800
+ There's numbers like that. So for the phones, that's dominated by ARM.
+
+46:26.800 --> 46:33.920
+ And now, and a reason that I talked about the software stacks, and the third category is
+
+46:33.920 --> 46:38.160
+ Internet of Things, which is basically embedded devices, things in your cars and your microwaves
+
+46:38.160 --> 46:45.360
+ everywhere. So what's different about those three categories is for the cloud, the software that
+
+46:45.360 --> 46:51.600
+ runs in the cloud is determined by these companies, Alibaba, Amazon, Google, Microsoft. So they
+
+46:51.600 --> 46:58.320
+ control that software stack. For the cell phones, there's both for Android and Apple, the software
+
+46:58.320 --> 47:03.760
+ they supply, but both of them have marketplaces where anybody in the world can build software.
+
+47:03.760 --> 47:11.680
+ And that software is translated or, you know, compiled down and shipped in the vocabulary of ARM.
+
+47:11.680 --> 47:18.560
+ So that's what's referred to as binary compatible because the actual, it's the instructions are
+
+47:18.560 --> 47:21.760
+ turned into numbers, binary numbers, and shipped around the world.
+
+47:21.760 --> 47:29.120
+ And sorry, just a quick interruption. So ARM, what is ARM? ARM is an instruction set, like a risk based...
+
+47:29.120 --> 47:35.600
+ Yeah, it's a risk based instruction set. It's a proprietary one. ARM stands for Advanced Risk
+
+47:36.400 --> 47:41.040
+ Machine. ARM is the name where the company is. So it's a proprietary risk architecture.
+
+47:41.040 --> 47:50.000
+ So, and it's been around for a while and it's, you know, the, surely the most popular instruction set
+
+47:50.000 --> 47:56.800
+ in the world right now. They, every year, billions of chips are using the ARM design in this post PC
+
+47:56.800 --> 48:03.120
+ era. Was it one of the early risk adopters of the risk idea? Yeah. The first ARM goes back,
+
+48:03.120 --> 48:09.840
+ I don't know, 86 or so. So Berkeley instead did their work in the early 80s. The ARM guys needed
+
+48:09.840 --> 48:17.360
+ an instruction set and they read our papers and it heavily influenced them. So getting back to my
+
+48:17.360 --> 48:21.600
+ story, what about Internet of Things? Well, software is not shipped in Internet of Things. It's the
+
+48:22.960 --> 48:29.680
+ embedded device people control that software stack. So the opportunities for risk five,
+
+48:29.680 --> 48:34.640
+ everybody thinks, is in the Internet of Things embedded things because there's no dominant
+
+48:34.640 --> 48:41.920
+ player like there is in the cloud or the smartphones. And, you know, it's, it's,
+
+48:41.920 --> 48:46.720
+ doesn't have a lot of licenses associated with, and you can enhance the instruction set if you want.
+
+48:46.720 --> 48:52.800
+ And it's, and people have looked at instruction sets and think it's a very good instruction set.
+
+48:52.800 --> 48:59.840
+ So it appears to be very popular there. It's possible that in the cloud people,
+
+48:59.840 --> 49:05.920
+ those companies control their software stacks. So it's possible that they would decide to use
+
+49:05.920 --> 49:10.880
+ risk five if we're talking about 10 and 20 years in the future. The one that would be harder would
+
+49:10.880 --> 49:16.160
+ be the cell phones. Since people ship software in the ARM instruction set that you'd think be
+
+49:16.160 --> 49:20.720
+ the more difficult one. But if risk five really catches on and, you know, you could,
+
+49:20.720 --> 49:25.920
+ in a period of a decade, you can imagine that's changing over too. Do you have a sense why risk
+
+49:25.920 --> 49:31.200
+ five or ARM has dominated? You mentioned these three categories. Why has, why did ARM dominate,
+
+49:31.200 --> 49:38.560
+ why does it dominate the mobile device space? And maybe my naive intuition is that there are some
+
+49:38.560 --> 49:44.000
+ aspects of power efficiency that are important that somehow come along with risk. Well, part of it is
+
+49:44.000 --> 49:55.920
+ for these old CIS construction sets, like in the x86, it was more expensive to these for, you know,
+
+49:55.920 --> 50:01.760
+ they're older, so they have disadvantages in them because they were designed 40 years ago. But also
+
+50:01.760 --> 50:06.720
+ they have to translate in hardware from CIS constructions to risk constructions on the fly.
+
+50:06.720 --> 50:12.240
+ And that costs both silicon area that the chips are bigger to be able to do that.
+
+50:12.240 --> 50:17.520
+ And it uses more power. So ARM has, which has, you know, followed this risk philosophy is
+
+50:18.240 --> 50:23.040
+ seen to be much more energy efficient. And in today's computer world, both in the cloud
+
+50:23.760 --> 50:29.920
+ and the cell phone and, you know, things, it isn't, the limiting resource isn't the number of
+
+50:29.920 --> 50:34.560
+ transistors you can fit in the chip. It's what, how much power can you dissipate for your
+
+50:34.560 --> 50:42.080
+ application? So by having a reduced instruction set, that's possible to have a simpler hardware,
+
+50:42.080 --> 50:46.480
+ which is more energy efficient. And energy efficiency is incredibly important in the cloud.
+
+50:46.480 --> 50:51.040
+ When you have tens of thousands of computers in a data center, you want to have the most energy
+
+50:51.040 --> 50:54.880
+ efficient ones there as well. And of course, for embedded things running off of batteries,
+
+50:54.880 --> 51:00.400
+ you want those to be energy efficient and the cell phones too. So I think it's believed that
+
+51:00.400 --> 51:06.400
+ there's a energy disadvantage of using these more complex instruction set architectures.
+
+51:08.400 --> 51:14.880
+ So the other aspect of this is if we look at Apple, Qualcomm, Samsung, Huawei, all use the
+
+51:14.880 --> 51:20.320
+ ARM architecture, and yet the performance of the systems varies. I mean, I don't know
+
+51:20.320 --> 51:26.000
+ whose opinion you take on, but you know, Apple for some reason seems to perform better in terms of
+
+51:26.000 --> 51:30.480
+ these implementation, these architectures. So where's the magic and show the picture.
+
+51:30.480 --> 51:35.120
+ How's that happen? Yeah. So what ARM pioneered was a new business model. As they said, well,
+
+51:35.120 --> 51:39.840
+ here's our proprietary instruction set, and we'll give you two ways to do it.
+
+51:41.040 --> 51:46.800
+ We'll give you one of these implementations written in things like C called Verilog,
+
+51:46.800 --> 51:51.840
+ and you can just use ours. Well, you have to pay money for that. Not only you pay,
+
+51:51.840 --> 51:57.360
+ we'll give you their, you know, we'll license you to do that, or you could design your own. And so
+
+51:57.360 --> 52:02.400
+ we're talking about numbers like tens of millions of dollars to have the right to design your own,
+
+52:02.400 --> 52:08.960
+ since they, it's the instruction set belongs to them. So Apple got one of those, the right to
+
+52:08.960 --> 52:15.440
+ build their own. Most of the other people who build like Android phones just get one of the designs
+
+52:15.440 --> 52:23.760
+ from ARM to do it themselves. So Apple developed a really good microprocessor design team. They,
+
+52:24.800 --> 52:30.640
+ you know, acquired a very good team that had, was building other microprocessors and brought them
+
+52:30.640 --> 52:35.760
+ into the company to build their designs. So the instruction sets are the same, the specifications
+
+52:35.760 --> 52:40.800
+ are the same, but their hardware design is much more efficient than I think everybody else's.
+
+52:40.800 --> 52:48.480
+ And that's given Apple an advantage in the marketplace in that the iPhones tend to be the
+
+52:49.520 --> 52:55.680
+ faster than most everybody else's phones that are there. It'd be nice to be able to jump around and
+
+52:55.680 --> 53:01.280
+ kind of explore different little sides of this, but let me ask one sort of romanticized question.
+
+53:01.280 --> 53:07.120
+ What to you is the most beautiful aspect or idea of RISC instruction set?
+
+53:07.120 --> 53:13.920
+ Most beautiful aspect or idea of RISC instruction set or instruction sets or this work that you've
+
+53:13.920 --> 53:20.400
+ done? You know, I'm, you know, I was always attracted to the idea of, you know, small is
+
+53:20.400 --> 53:26.640
+ beautiful, right? Is that the temptation in engineering, it's kind of easy to make things
+
+53:26.640 --> 53:32.160
+ more complicated. It's harder to come up with a, it's more difficult, surprisingly, to come up with
+
+53:32.160 --> 53:39.120
+ a simple, elegant solution. And I think that there's a bunch of small features of RISC in general
+
+53:39.120 --> 53:45.520
+ that, you know, where you can see this examples of keeping it simpler makes it more elegant.
+
+53:45.520 --> 53:50.160
+ Specifically in RISC 5, which, you know, I was kind of the mentor in the program, but it was
+
+53:50.160 --> 53:56.480
+ really driven by Krzysztof Sanović and two grad students, Andrew Waterman and Yen Tsip Li, is they
+
+53:56.480 --> 54:05.200
+ hit upon this idea of having a subset of instructions, a nice, simple subset instructions,
+
+54:05.200 --> 54:12.880
+ like 40ish instructions that all software, the software staff RISC 5 can run just on those 40
+
+54:12.880 --> 54:20.080
+ instructions. And then they provide optional features that could accelerate the performance
+
+54:20.080 --> 54:24.160
+ instructions that if you needed them could be very helpful, but you don't need to have them.
+
+54:24.160 --> 54:31.840
+ And that's a new, really a new idea. So RISC 5 has right now maybe five optional subsets that
+
+54:31.840 --> 54:37.360
+ you can pull in, but the software runs without them. If you just want to build the, just the core
+
+54:37.360 --> 54:43.760
+ 40 instructions, that's fine. You can do that. So this is fantastic educationally is you can
+
+54:43.760 --> 54:48.960
+ explain computers. You only have to explain 40 instructions and not thousands of them. Also,
+
+54:48.960 --> 54:56.000
+ if you invent some wild and crazy new technology like, you know, biological computing, you'd like
+
+54:56.000 --> 55:02.000
+ a nice, simple instruction set and you can, RISC 5, if you implement those core instructions, you
+
+55:02.000 --> 55:07.360
+ can run, you know, really interesting programs on top of that. So this idea of a core set of
+
+55:07.360 --> 55:13.280
+ instructions that the software stack runs on and then optional features that if you turn them on,
+
+55:13.280 --> 55:18.720
+ the compilers were used, but you don't have to, I think is a powerful idea. What's happened in
+
+55:18.720 --> 55:25.680
+ the past for the proprietary instruction sets is when they add new instructions, it becomes
+
+55:25.680 --> 55:33.520
+ required piece. And so that all microprocessors in the future have to use those instructions. So
+
+55:33.520 --> 55:39.840
+ it's kind of like, for a lot of people as they get older, they gain weight, right? That weight and
+
+55:39.840 --> 55:44.320
+ age are correlated. And so you can see these instruction sets getting bigger and bigger as
+
+55:44.320 --> 55:50.640
+ they get older. So RISC 5, you know, lets you be as slim as you as a teenager. And you only have to
+
+55:50.640 --> 55:55.760
+ add these extra features if you're really going to use them rather than you have no choice. You have
+
+55:55.760 --> 56:00.320
+ to keep growing with the instruction set. I don't know if the analogy holds up, but that's a beautiful
+
+56:00.320 --> 56:06.560
+ notion that there's, it's almost like a nudge towards here's the simple core. That's the
+
+56:06.560 --> 56:12.000
+ essential. Yeah. And I think the surprising thing is still if we brought back, you know,
+
+56:12.000 --> 56:16.480
+ the pioneers from the 1950s and showed them the instruction set architectures, they'd understand
+
+56:16.480 --> 56:21.920
+ it. They'd say, wow, that doesn't look that different. Well, you know, I'm surprised. And
+
+56:21.920 --> 56:26.400
+ it's, there's, it may be something, you know, to talk about philosophical things. I mean, there may
+
+56:26.400 --> 56:35.840
+ be something powerful about those, you know, 40 or 50 instructions that all you need is these
+
+56:35.840 --> 56:42.160
+ commands like these instructions that we talked about. And that is sufficient to build, to bring
+
+56:42.160 --> 56:50.000
+ up on, you know, artificial intelligence. And so it's a remarkable, surprising to me that as
+
+56:50.640 --> 56:58.800
+ complicated as it is to build these things, you know, microprocessors where the line widths are
+
+56:58.800 --> 57:05.200
+ are narrower than the wavelength of light, you know, is this amazing technologies at some
+
+57:05.200 --> 57:10.160
+ fundamental level. The commands that software executes are really pretty straightforward and
+
+57:10.160 --> 57:18.080
+ haven't changed that much in decades. What a surprising outcome. So underlying all computation,
+
+57:18.080 --> 57:23.760
+ all Turing machines, all artificial intelligence systems, perhaps might be a very simple instruction
+
+57:23.760 --> 57:30.800
+ set like a RISC5 or it's. Yeah. I mean, that's kind of what I said. I was interested to see,
+
+57:30.800 --> 57:36.480
+ I had another more senior faculty colleague and he had written something in Scientific American
+
+57:36.480 --> 57:43.040
+ and, you know, his 25 years in the future and his turned out about when I was a young professor and
+
+57:43.040 --> 57:48.400
+ he said, yep, I checked it. And so I was interested to see how that was going to turn out for me. And
+
+57:48.400 --> 57:54.080
+ it's pretty held up pretty well, but yeah, so there's, there's probably, there's some, you know,
+
+57:54.080 --> 58:00.000
+ there's, there must be something fundamental about those instructions that we're capable of
+
+58:01.040 --> 58:07.920
+ creating, you know, intelligence from pretty primitive operations and just doing them really
+
+58:07.920 --> 58:14.560
+ fast. You kind of mentioned a different, maybe radical computational medium like biological,
+
+58:14.560 --> 58:20.320
+ and there's other ideas. So there's a lot of spaces in ASIC, domain specific, and then there
+
+58:20.320 --> 58:25.440
+ could be quantum computers. And so we can think of all of those different mediums and types of
+
+58:25.440 --> 58:33.120
+ computation. What's the connection between swapping out different hardware systems and the
+
+58:33.120 --> 58:37.920
+ instruction set? Do you see those as disjoint or are they fundamentally coupled? Yeah. So what's,
+
+58:37.920 --> 58:45.440
+ so kind of, if we go back to the history, you know, when Moore's Law is in full effect and
+
+58:45.440 --> 58:51.760
+ you're getting twice as many transistors every couple of years, you know, kind of the challenge
+
+58:51.760 --> 58:56.800
+ for computer designers is how can we take advantage of that? How can we turn those transistors into
+
+58:56.800 --> 59:04.400
+ better computers faster typically? And so there was an era, I guess in the 80s and 90s where
+
+59:04.400 --> 59:10.960
+ computers were doubling performance every 18 months. And if you weren't around then,
+
+59:11.520 --> 59:18.480
+ what would happen is you had your computer and your friend's computer, which was like a year,
+
+59:18.480 --> 59:23.760
+ a year and a half newer, and it was much faster than your computer. And he or she could get their
+
+59:23.760 --> 59:27.680
+ work done much faster than your computer because it was newer. So people took their computers,
+
+59:27.680 --> 59:33.920
+ perfectly good computers, and threw them away to buy a newer computer because the computer
+
+59:33.920 --> 59:39.040
+ one or two years later was so much faster. So that's what the world was like in the 80s and
+
+59:39.040 --> 59:46.560
+ 90s. Well, with the slowing down of Moore's Law, that's no longer true, right? Now with, you know,
+
+59:46.560 --> 59:51.440
+ not desk side computers with the laptops, I only get a new desk laptop when it breaks,
+
+59:51.440 --> 59:56.480
+ right? Oh damn, the disk broke or this display broke, I gotta buy a new computer. But before
+
+59:56.480 --> 1:00:01.520
+ you would throw them away because it just, they were just so sluggish compared to the latest
+
+1:00:01.520 --> 1:00:11.840
+ computers. So that's, you know, that's a huge change of what's gone on. So, but since this
+
+1:00:11.840 --> 1:00:18.720
+ lasted for decades, kind of programmers and maybe all of society is used to computers getting faster
+
+1:00:18.720 --> 1:00:24.640
+ regularly. We now believe, those of us who are in computer design, it's called computer
+
+1:00:24.640 --> 1:00:33.680
+ architecture, that the path forward is instead is to add accelerators that only work well for
+
+1:00:33.680 --> 1:00:41.600
+ certain applications. So since Moore's Law is slowing down, we don't think general purpose
+
+1:00:41.600 --> 1:00:46.560
+ computers are going to get a lot faster. So the Intel processors of the world are not going to,
+
+1:00:46.560 --> 1:00:51.680
+ haven't been getting a lot faster. They've been barely improving, like a few percent a year.
+
+1:00:51.680 --> 1:00:56.640
+ It used to be doubling every 18 months and now it's doubling every 20 years. So it was just
+
+1:00:56.640 --> 1:01:01.840
+ shocking. So to be able to deliver on what Moore's Law used to do, we think what's going to happen,
+
+1:01:02.480 --> 1:01:09.280
+ what is happening right now is people adding accelerators to their microprocessors that only
+
+1:01:09.280 --> 1:01:17.120
+ work well for some domains. And by sheer coincidence, at the same time that this is happening,
+
+1:01:17.120 --> 1:01:23.840
+ has been this revolution in artificial intelligence called machine learning. So with,
+
+1:01:23.840 --> 1:01:31.040
+ as I'm sure your other guests have said, you know, AI had these two competing schools of thought is
+
+1:01:31.040 --> 1:01:36.480
+ that we could figure out artificial intelligence by just writing the rules top down, or that was
+
+1:01:36.480 --> 1:01:41.600
+ wrong. You had to look at data and infer what the rules are, the machine learning, and what's
+
+1:01:41.600 --> 1:01:48.560
+ happened in the last decade or eight years as machine learning has won. And it turns out that
+
+1:01:48.560 --> 1:01:55.440
+ machine learning, the hardware you build for machine learning is pretty much multiply. The
+
+1:01:55.440 --> 1:02:03.040
+ matrix multiply is a key feature for the way machine learning is done. So that's a godsend
+
+1:02:03.040 --> 1:02:08.640
+ for computer designers. We know how to make matrix multiply run really fast. So general purpose
+
+1:02:08.640 --> 1:02:13.360
+ microprocessors are slowing down. We're adding accelerators for machine learning that fundamentally
+
+1:02:13.360 --> 1:02:17.360
+ are doing matrix multiplies much more efficiently than general purpose computers have done.
+
+1:02:17.920 --> 1:02:23.120
+ So we have to come up with a new way to accelerate things. The danger of only accelerating one
+
+1:02:23.120 --> 1:02:28.640
+ application is how important is that application. Turns out machine learning gets used for all
+
+1:02:28.640 --> 1:02:36.320
+ kinds of things. So serendipitously, we found something to accelerate that's widely applicable.
+
+1:02:36.320 --> 1:02:40.400
+ And we don't even, we're in the middle of this revolution of machine learning. We're not sure
+
+1:02:40.400 --> 1:02:46.000
+ what the limits of machine learning are. So this has been a kind of a godsend. If you're going to
+
+1:02:46.000 --> 1:02:53.680
+ be able to excel, deliver on improved performance, as long as people are moving their programs to be
+
+1:02:54.080 --> 1:02:58.880
+ embracing more machine learning, we know how to give them more performance even as Moore's law
+
+1:02:58.880 --> 1:03:06.800
+ is slowing down. And counterintuitively, the machine learning mechanism you can say is domain
+
+1:03:06.800 --> 1:03:13.200
+ specific, but because it's leveraging data, it's actually could be very broad in terms of
+
+1:03:15.360 --> 1:03:21.040
+ in terms of the domains it could be applied in. Yeah, that's exactly right. Sort of, it's almost
+
+1:03:21.040 --> 1:03:27.520
+ sort of people sometimes talk about the idea of software 2.0. We're almost taking another step
+
+1:03:27.520 --> 1:03:34.080
+ up in the abstraction layer in designing machine learning systems, because now you're programming
+
+1:03:34.080 --> 1:03:38.480
+ in the space of data, in the space of hyperparameters, it's changing fundamentally
+
+1:03:38.480 --> 1:03:45.120
+ the nature of programming. And so the specialized devices that accelerate the performance, especially
+
+1:03:45.120 --> 1:03:52.400
+ neural network based machine learning systems might become the new general. Yeah. So the thing
+
+1:03:52.400 --> 1:03:59.680
+ that's interesting point out these are not coral, these are not tied together. The enthusiasm about
+
+1:03:59.680 --> 1:04:05.040
+ machine learning about creating programs driven from data that we should figure out the answers
+
+1:04:05.040 --> 1:04:10.160
+ from data rather than kind of top down, which classically the way most programming is done
+
+1:04:10.160 --> 1:04:14.640
+ and the way artificial intelligence used to be done. That's a movement that's going on at the
+
+1:04:14.640 --> 1:04:21.440
+ same time. Coincidentally, and the first word machine learning is machines, right? So that's
+
+1:04:21.440 --> 1:04:27.360
+ going to increase the demand for computing, because instead of programmers being smart, writing those
+
+1:04:27.360 --> 1:04:31.760
+ those things down, we're going to instead use computers to examine a lot of data to kind of
+
+1:04:31.760 --> 1:04:38.560
+ create the programs. That's the idea. And remarkably, this gets used for all kinds of
+
+1:04:38.560 --> 1:04:43.200
+ things very successfully. The image recognition, the language translation, the game playing,
+
+1:04:43.200 --> 1:04:50.320
+ and you know, it gets into pieces of the software stack like databases and stuff like that. We're
+
+1:04:50.320 --> 1:04:54.880
+ not quite sure how general purpose is, but that's going on independent of this hardware stuff.
+
+1:04:54.880 --> 1:04:59.040
+ What's happening on the hardware side is Moore's law is slowing down right when we need a lot more
+
+1:04:59.040 --> 1:05:03.840
+ cycles. It's failing us, it's failing us right when we need it because there's going to be a
+
+1:05:03.840 --> 1:05:09.680
+ greater increase in computing. And then this idea that we're going to do so called domain
+
+1:05:09.680 --> 1:05:16.800
+ specific. Here's a domain that your greatest fear is you'll make this one thing work and that'll
+
+1:05:16.800 --> 1:05:22.160
+ help, you know, five percent of the people in the world. Well, this looks like it's a very
+
+1:05:22.160 --> 1:05:28.640
+ general purpose thing. So the timing is fortuitous that if we can perhaps, if we can keep building
+
+1:05:28.640 --> 1:05:36.080
+ hardware that will accelerate machine learning, the neural networks, that'll beat the timing will
+
+1:05:36.080 --> 1:05:42.160
+ be right. That neural network revolution will transform your software, the so called software
+
+1:05:42.160 --> 1:05:47.680
+ 2.0. And the software of the future will be very different from the software of the past. And just
+
+1:05:47.680 --> 1:05:52.480
+ as our microprocessors, even though we're still going to have that same basic RISC instructions
+
+1:05:53.200 --> 1:05:57.360
+ to run a big pieces of the software stack like user interfaces and stuff like that,
+
+1:05:58.080 --> 1:06:02.880
+ we can accelerate the kind of the small piece that's computationally intensive. It's not lots
+
+1:06:02.880 --> 1:06:08.160
+ of lines of code, but it takes a lot of cycles to run that code that that's going to be the
+
+1:06:08.160 --> 1:06:14.800
+ accelerator piece. And so that's what makes this from a computer designers perspective a really
+
+1:06:14.800 --> 1:06:20.320
+ interesting decade. What Hennessy and I talked about in the title of our Turing Warrant speech
+
+1:06:20.320 --> 1:06:28.160
+ is a new golden age. We see this as a very exciting decade, much like when we were assistant
+
+1:06:28.160 --> 1:06:32.720
+ professors and the RISC stuff was going on. That was a very exciting time was where we were changing
+
+1:06:32.720 --> 1:06:39.280
+ what was going on. We see this happening again. Tremendous opportunities of people because we're
+
+1:06:39.280 --> 1:06:43.760
+ fundamentally changing how software is built and how we're running it. So which layer of the
+
+1:06:43.760 --> 1:06:49.360
+ abstraction do you think most of the acceleration might be happening? If you look in the next 10
+
+1:06:49.360 --> 1:06:54.880
+ years, Google is working on a lot of exciting stuff with the TPU. Sort of there's a closer to
+
+1:06:54.880 --> 1:07:00.640
+ the hardware that could be optimizations around the closer to the instruction set.
+
+1:07:00.640 --> 1:07:05.040
+ There could be optimization at the compiler level. It could be even at the higher level software
+
+1:07:05.040 --> 1:07:10.480
+ stack. Yeah, it's got to be, I mean, if you think about the old RISC Sys debate, it was both,
+
+1:07:11.840 --> 1:07:18.080
+ it was software hardware. It was the compilers improving as well as the architecture improving.
+
+1:07:18.080 --> 1:07:24.240
+ And that's likely to be the way things are now. With machine learning, they're using
+
+1:07:24.240 --> 1:07:30.960
+ domain specific languages. The languages like TensorFlow and PyTorch are very popular with
+
+1:07:30.960 --> 1:07:35.280
+ the machine learning people. Those are the raising the level of abstraction. It's easier
+
+1:07:35.280 --> 1:07:41.920
+ for people to write machine learning in these domain specific languages like PyTorch and
+
+1:07:41.920 --> 1:07:47.760
+ TensorFlow. So where the most optimization might be happening. Yeah. And so there'll be both the
+
+1:07:47.760 --> 1:07:53.680
+ compiler piece and the hardware piece underneath it. So as you kind of the fatal flaw for hardware
+
+1:07:53.680 --> 1:07:59.360
+ people is to create really great hardware, but not have brought along the compilers. And what we're
+
+1:07:59.360 --> 1:08:04.560
+ seeing right now in the marketplace because of this enthusiasm around hardware for machine
+
+1:08:04.560 --> 1:08:10.400
+ learning is getting, you know, probably billions of dollars invested in startup companies. We're
+
+1:08:10.400 --> 1:08:15.920
+ seeing startup companies go belly up because they focus on the hardware, but didn't bring the
+
+1:08:15.920 --> 1:08:23.440
+ software stack along. We talked about benchmarks earlier. So I participated in machine learning
+
+1:08:23.440 --> 1:08:27.520
+ didn't really have a set of benchmarks. I think just two years ago, they didn't have a set of
+
+1:08:27.520 --> 1:08:33.280
+ benchmarks. And we've created something called ML Perf, which is machine learning benchmark suite.
+
+1:08:33.280 --> 1:08:39.840
+ And pretty much the companies who didn't invest in the software stack couldn't run ML Perf very
+
+1:08:39.840 --> 1:08:45.040
+ well. And the ones who did invest in software stack did. And we're seeing, you know, like kind
+
+1:08:45.040 --> 1:08:48.800
+ of in computer architecture, this is what happens. You have these arguments about risk versus this.
+
+1:08:48.800 --> 1:08:54.720
+ People spend billions of dollars in the marketplace to see who wins. It's not a perfect comparison,
+
+1:08:54.720 --> 1:08:59.680
+ but it kind of sorts things out. And we're seeing companies go out of business and then companies
+
+1:08:59.680 --> 1:09:07.200
+ like there's a company in Israel called Habana. They came up with machine learning accelerators.
+
+1:09:08.160 --> 1:09:14.560
+ They had good ML Perf scores. Intel had acquired a company earlier called Nirvana a couple of years
+
+1:09:14.560 --> 1:09:21.120
+ ago. They didn't reveal their ML Perf scores, which was suspicious. But a month ago, Intel
+
+1:09:21.120 --> 1:09:25.760
+ announced that they're canceling the Nirvana product line and they've bought Habana for $2
+
+1:09:25.760 --> 1:09:32.560
+ billion. And Intel's going to be shipping Habana chips, which have hardware and software and run
+
+1:09:32.560 --> 1:09:36.160
+ the ML Perf programs pretty well. And that's going to be their product line in the future.
+
+1:09:36.800 --> 1:09:42.560
+ Brilliant. So maybe just to linger briefly on ML Perf. I love metrics. I love standards that
+
+1:09:42.560 --> 1:09:48.800
+ everyone can gather around. What are some interesting aspects of that portfolio of metrics?
+
+1:09:48.800 --> 1:09:55.680
+ Well, one of the interesting metrics is what we thought. I was involved in the start.
+
+1:09:57.440 --> 1:10:00.880
+ Peter Mattson is leading the effort from Google. Google got it off the ground,
+
+1:10:00.880 --> 1:10:07.360
+ but we had to reach out to competitors and say, there's no benchmarks here. We think this is
+
+1:10:07.360 --> 1:10:11.120
+ bad for the field. It'll be much better if we look at examples like in the risk days,
+
+1:10:11.120 --> 1:10:16.400
+ there was an effort to create a... For the people in the risk community got together,
+
+1:10:16.400 --> 1:10:19.520
+ competitors got together building risk microprocessors to agree on a set of
+
+1:10:19.520 --> 1:10:24.720
+ benchmarks that were called spec. And that was good for the industry. It's rather before
+
+1:10:24.720 --> 1:10:28.160
+ the different risk architectures were arguing, well, you can believe my performance others,
+
+1:10:28.160 --> 1:10:34.400
+ but those other guys are liars. And that didn't do any good. So we agreed on a set of benchmarks
+
+1:10:34.400 --> 1:10:37.920
+ and then we could figure out who was faster between the various risk architectures. But
+
+1:10:37.920 --> 1:10:42.800
+ it was a little bit faster, but that grew the market rather than people were afraid to buy
+
+1:10:42.800 --> 1:10:48.880
+ anything. So we argued the same thing would happen with MLPerf. Companies like Nvidia were maybe
+
+1:10:48.880 --> 1:10:53.120
+ worried that it was some kind of trap, but eventually we all got together to create a
+
+1:10:53.120 --> 1:10:59.760
+ set of benchmarks and do the right thing. And we agree on the results. And so we can see whether
+
+1:11:00.320 --> 1:11:06.560
+ TPUs or GPUs or CPUs are really faster and how much the faster. And I think from an engineer's
+
+1:11:06.560 --> 1:11:12.800
+ perspective, as long as the results are fair, you can live with it. Okay, you kind of tip your hat
+
+1:11:12.800 --> 1:11:18.240
+ to your colleagues at another institution, boy, they did a better job than us. What you hate is
+
+1:11:18.240 --> 1:11:23.600
+ if it's false, right? They're making claims and it's just marketing bullshit and that's affecting
+
+1:11:23.600 --> 1:11:28.640
+ sales. So from an engineer's perspective, as long as it's a fair comparison and we don't come in
+
+1:11:28.640 --> 1:11:33.600
+ first place, that's too bad, but it's fair. So we wanted to create that environment for MLPerf.
+
+1:11:33.600 --> 1:11:40.880
+ And so now there's 10 companies, I mean, 10 universities and 50 companies involved. So pretty
+
+1:11:40.880 --> 1:11:50.640
+ much MLPerf is the way you measure machine learning performance. And it didn't exist even
+
+1:11:50.640 --> 1:11:56.720
+ two years ago. One of the cool things that I enjoy about the internet has a few downsides, but one of
+
+1:11:56.720 --> 1:12:02.080
+ the nice things is people can see through BS a little better with the presence of these kinds
+
+1:12:02.080 --> 1:12:08.080
+ of metrics. So it's really nice companies like Google and Facebook and Twitter. Now, it's the
+
+1:12:08.080 --> 1:12:13.280
+ cool thing to do is to put your engineers forward and to actually show off how well you do on these
+
+1:12:13.280 --> 1:12:22.560
+ metrics. There's less of a desire to do marketing, less so. In my sort of naive viewpoint.
+
+1:12:22.560 --> 1:12:29.280
+ I was trying to understand what's changed from the 80s in this era. I think because of things
+
+1:12:29.280 --> 1:12:36.560
+ like social networking, Twitter and stuff like that, if you put up bullshit stuff that's just
+
+1:12:38.080 --> 1:12:45.920
+ purposely misleading, you can get a violent reaction in social media pointing out the flaws
+
+1:12:45.920 --> 1:12:51.840
+ in your arguments. And so from a marketing perspective, you have to be careful today that
+
+1:12:51.840 --> 1:12:57.120
+ you didn't have to be careful that there'll be people who put out the flaw. You can get the
+
+1:12:57.120 --> 1:13:02.960
+ word out about the flaws in what you're saying much more easily today than in the past. It used
+
+1:13:02.960 --> 1:13:08.000
+ to be easier to get away with it. And the other thing that's been happening in terms of showing
+
+1:13:08.000 --> 1:13:14.880
+ off engineers is just in the software side, people have largely embraced open source software.
+
+1:13:16.800 --> 1:13:22.000
+ 20 years ago, it was a dirty word at Microsoft. And today Microsoft is one of the big proponents
+
+1:13:22.000 --> 1:13:28.160
+ of open source software. That's the standard way most software gets built, which really shows off
+
+1:13:28.160 --> 1:13:34.320
+ your engineers because you can see if you look at the source code, you can see who are making the
+
+1:13:34.320 --> 1:13:38.960
+ commits, who's making the improvements, who are the engineers at all these companies who are
+
+1:13:41.440 --> 1:13:47.120
+ really great programmers and engineers and making really solid contributions,
+
+1:13:47.120 --> 1:13:50.080
+ which enhances their reputations and the reputation of the companies.
+
+1:13:50.080 --> 1:13:56.320
+ LR But that's, of course, not everywhere. Like in the space that I work more in is autonomous
+
+1:13:56.320 --> 1:14:02.080
+ vehicles. And there's still the machinery of hype and marketing is still very strong there. And
+
+1:14:02.080 --> 1:14:06.960
+ there's less willingness to be open in this kind of open source way and sort of benchmark. So
+
+1:14:07.600 --> 1:14:12.480
+ MLPerf represents the machine learning world is much better being open source about holding
+
+1:14:12.480 --> 1:14:18.240
+ itself to standards of different, the amount of incredible benchmarks in terms of the different
+
+1:14:18.240 --> 1:14:23.120
+ computer vision, natural language processing tasks is incredible.
+
+1:14:23.120 --> 1:14:26.240
+ LR Historically, it wasn't always that way.
+
+1:14:26.800 --> 1:14:31.680
+ I had a graduate student working with me, David Martin. So in computer, in some fields,
+
+1:14:32.480 --> 1:14:40.560
+ benchmarking has been around forever. So computer architecture, databases, maybe operating systems,
+
+1:14:40.560 --> 1:14:47.440
+ benchmarks are the way you measure progress. But he was working with me and then started working
+
+1:14:47.440 --> 1:14:53.040
+ with Jitendra Malik. And Jitendra Malik in computer vision space, I guess you've interviewed
+
+1:14:53.040 --> 1:14:59.360
+ Jitendra. And David Martin told me, they don't have benchmarks. Everybody has their own vision
+
+1:14:59.360 --> 1:15:04.960
+ algorithm and the way, here's my image, look at how well I do. And everybody had their own image.
+
+1:15:04.960 --> 1:15:10.640
+ So David Martin, back when he did his dissertation, figured out a way to do benchmarks. He had a bunch
+
+1:15:10.640 --> 1:15:17.200
+ of graduate students identify images and then ran benchmarks to see which algorithms run well. And
+
+1:15:17.200 --> 1:15:24.480
+ that was, as far as I know, kind of the first time people did benchmarks in computer vision, which
+
+1:15:24.480 --> 1:15:29.600
+ was predated all the things that eventually led to ImageNet and stuff like that. But then the vision
+
+1:15:29.600 --> 1:15:37.520
+ community got religion. And then once we got as far as ImageNet, then that let the guys in Toronto
+
+1:15:38.720 --> 1:15:42.560
+ be able to win the ImageNet competition. And then that changed the whole world.
+
+1:15:42.560 --> 1:15:47.840
+ It's a scary step actually, because when you enter the world of benchmarks, you actually have to be
+
+1:15:47.840 --> 1:15:54.160
+ good to participate as opposed to... Yeah, you can just, you just believe you're the best in the
+
+1:15:54.160 --> 1:16:01.280
+ world. I think the people, I think they weren't purposely misleading. I think if you don't have
+
+1:16:01.280 --> 1:16:06.320
+ benchmarks, I mean, how do you know? Your intuition is kind of like the way we did just
+
+1:16:06.320 --> 1:16:11.040
+ do computer architecture. Your intuition is that this is the right instruction set to do this job.
+
+1:16:11.040 --> 1:16:18.160
+ I believe in my experience, my hunch is that's true. We had to get to make things more quantitative
+
+1:16:18.160 --> 1:16:23.840
+ to make progress. And so I just don't know how, you know, in fields that don't have benchmarks,
+
+1:16:23.840 --> 1:16:26.880
+ I don't understand how they figure out how they're making progress.
+
+1:16:28.400 --> 1:16:34.480
+ We're kind of in the vacuum tube days of quantum computing. What are your thoughts in this wholly
+
+1:16:34.480 --> 1:16:40.400
+ different kind of space of architectures? You know, I actually, you know, quantum computing
+
+1:16:41.120 --> 1:16:46.240
+ is, idea has been around for a while and I actually thought, well, I sure hope I retire
+
+1:16:46.240 --> 1:16:53.520
+ before I have to start teaching this. I'd say because I talk about, give these talks about the
+
+1:16:53.520 --> 1:17:01.040
+ slowing of Moore's law and, you know, when we need to change by doing domain specific accelerators,
+
+1:17:01.040 --> 1:17:04.480
+ common questions say, what about quantum computing? The reason that comes up,
+
+1:17:04.480 --> 1:17:08.880
+ it's in the news all the time. So I think to keep in, the third thing to keep in mind is
+
+1:17:08.880 --> 1:17:14.080
+ quantum computing is not right around the corner. There've been two national reports,
+
+1:17:14.080 --> 1:17:18.800
+ one by the National Academy of Engineering and other by the Computing Consortium, where they
+
+1:17:18.800 --> 1:17:25.440
+ did a frank assessment of quantum computing. And both of those reports said, you know,
+
+1:17:25.440 --> 1:17:31.200
+ as far as we can tell, before you get error corrected quantum computing, it's a decade away.
+
+1:17:31.200 --> 1:17:35.680
+ So I think of it like nuclear fusion, right? There've been people who've been excited about
+
+1:17:35.680 --> 1:17:39.760
+ nuclear fusion a long time. If we ever get nuclear fusion, it's going to be fantastic
+
+1:17:39.760 --> 1:17:43.840
+ for the world. I'm glad people are working on it, but, you know, it's not right around the corner.
+
+1:17:45.120 --> 1:17:52.640
+ Those two reports to me say probably it'll be 2030 before quantum computing is something
+
+1:17:52.640 --> 1:17:58.000
+ that could happen. And when it does happen, you know, this is going to be big science stuff. This
+
+1:17:58.000 --> 1:18:04.880
+ is, you know, micro Kelvin, almost absolute zero things that if they vibrate, if truck goes by,
+
+1:18:04.880 --> 1:18:09.200
+ it won't work, right? So this will be in data center stuff. We're not going to have a quantum
+
+1:18:09.200 --> 1:18:16.080
+ cell phone. And it's probably a 2030 kind of thing. So I'm happy that our people are working on it,
+
+1:18:16.080 --> 1:18:21.040
+ but just, you know, it's hard with all the news about it, not to think that it's right around the
+
+1:18:21.040 --> 1:18:27.040
+ corner. And that's why we need to do something as Moore's Law is slowing down to provide the
+
+1:18:27.040 --> 1:18:32.560
+ computing, keep computing getting better for this next decade. And, you know, we shouldn't
+
+1:18:32.560 --> 1:18:39.680
+ be betting on quantum computing or expecting quantum computing to deliver in the next few
+
+1:18:39.680 --> 1:18:44.480
+ years. It's probably further off. You know, I'd be happy to be wrong. It'd be great if quantum
+
+1:18:44.480 --> 1:18:49.600
+ computing is going to commercially viable, but it will be a set of applications. It's not a general
+
+1:18:49.600 --> 1:18:54.640
+ purpose computation. So it's going to do some amazing things, but there'll be a lot of things
+
+1:18:54.640 --> 1:18:59.360
+ that probably, you know, the old fashioned computers are going to keep doing better for
+
+1:18:59.360 --> 1:19:04.240
+ quite a while. And there'll be a teenager 50 years from now watching this video saying,
+
+1:19:04.240 --> 1:19:09.920
+ look how silly David Patterson was saying. No, I just said, I said 2030. I didn't say,
+
+1:19:09.920 --> 1:19:14.560
+ I didn't say never. We're not going to have quantum cell phones. So he's going to be watching it.
+
+1:19:14.560 --> 1:19:21.920
+ Well, I mean, I think this is such a, you know, given that we've had Moore's Law, I just, I feel
+
+1:19:21.920 --> 1:19:27.360
+ comfortable trying to do projects that are thinking about the next decade. I admire people who are
+
+1:19:27.360 --> 1:19:32.880
+ trying to do things that are 30 years out, but it's such a fast moving field. I just don't know
+
+1:19:32.880 --> 1:19:38.800
+ how to, I'm not good enough to figure out what's the problem is going to be in 30 years. You know,
+
+1:19:38.800 --> 1:19:44.160
+ 10 years is hard enough for me. So maybe if it's possible to untangle your intuition a little bit,
+
+1:19:44.160 --> 1:19:50.320
+ I spoke with Jim Keller. I don't know if you're familiar with Jim. And he is trying to sort of
+
+1:19:50.320 --> 1:19:57.200
+ be a little bit rebellious and to try to think that he quotes me as being wrong. Yeah. So this,
+
+1:19:57.200 --> 1:20:04.400
+ this is what you're doing for the record. Jim talks about that. He has an intuition that Moore's
+
+1:20:04.400 --> 1:20:09.840
+ Law is not in fact, in fact dead yet. And then it may continue for some time to come.
+
+1:20:10.720 --> 1:20:16.080
+ What are your thoughts about Jim's ideas in this space? Yeah, this is just, this is just marketing.
+
+1:20:16.080 --> 1:20:22.720
+ So what Gordon Moore said is a quantitative prediction. We can check the facts, right? Which
+
+1:20:22.720 --> 1:20:29.200
+ is doubling the number of transistors every two years. So we can look back at Intel for the last
+
+1:20:29.200 --> 1:20:38.320
+ five years and ask him, let's look at DRAM chips six years ago. So that would be three, two year
+
+1:20:38.320 --> 1:20:44.160
+ periods. So then our DRAM chips have eight times as many transistors as they did six years ago.
+
+1:20:44.160 --> 1:20:50.320
+ We can look up Intel microprocessors six years ago. If Moore's Law is continuing, it should have
+
+1:20:50.320 --> 1:20:56.800
+ eight times as many transistors as six years ago. The answer in both those cases is no.
+
+1:20:57.760 --> 1:21:05.440
+ The problem has been because Moore's Law was kind of genuinely embraced by the semiconductor
+
+1:21:05.440 --> 1:21:10.480
+ industry as they would make investments in similar equipment to make Moore's Law come true.
+
+1:21:10.480 --> 1:21:17.520
+ Semiconductor improving and Moore's Law in many people's minds are the same thing. So when I say,
+
+1:21:17.520 --> 1:21:24.080
+ and I'm factually correct, that Moore's Law is no longer holds, we are not doubling transistors
+
+1:21:24.080 --> 1:21:31.840
+ every year's years. The downside for a company like Intel is people think that means it's stopped,
+
+1:21:31.840 --> 1:21:36.160
+ that technology has no longer improved. And so Jim is trying to,
+
+1:21:36.160 --> 1:21:46.240
+ counteract the impression that semiconductors are frozen in 2019 are never going to get better.
+
+1:21:46.240 --> 1:21:53.120
+ So I never said that. All I said was Moore's Law is no more. And I'm strictly looking at the number
+
+1:21:53.120 --> 1:22:01.440
+ of transistors. That's what Moore's Law is. There's the, I don't know, there's been this aura
+
+1:22:01.440 --> 1:22:07.520
+ associated with Moore's Law that they've enjoyed for 50 years about, look at the field we're in,
+
+1:22:07.520 --> 1:22:12.160
+ we're doubling transistors every two years. What an amazing field, which is an amazing thing that
+
+1:22:12.160 --> 1:22:16.000
+ they were able to pull off. But even as Gordon Moore said, you know, no exponential can last
+
+1:22:16.000 --> 1:22:22.080
+ forever. It lasted for 50 years, which is amazing. And this is a huge impact on the industry because
+
+1:22:22.080 --> 1:22:28.000
+ of these changes that we've been talking about. So he claims, and I'm not going to go into the
+
+1:22:28.000 --> 1:22:33.280
+ that we've been talking about. So he claims, because he's trying to act on it, he claims,
+
+1:22:33.280 --> 1:22:38.560
+ you know, Patterson says Moore's Law is no more and look at all, look at it, it's still going.
+
+1:22:38.560 --> 1:22:44.800
+ And TSMC, they say it's no longer, but there's quantitative evidence that Moore's Law is not
+
+1:22:44.800 --> 1:22:51.520
+ continuing. So what I say now to try and, okay, I understand the perception problem when I say
+
+1:22:51.520 --> 1:22:58.640
+ Moore's Law has stopped. Okay. So now I say Moore's Law is slowing down. And I think Jim, which is
+
+1:22:58.640 --> 1:23:03.760
+ another way of, if he's, if it's predicting every two years and I say it's slowing down, then that's
+
+1:23:03.760 --> 1:23:09.520
+ another way of saying it doesn't hold anymore. And, and I think Jim wouldn't disagree that it's
+
+1:23:09.520 --> 1:23:14.560
+ slowing down because that sounds like it's, things are still getting better and just not as fast,
+
+1:23:14.560 --> 1:23:18.000
+ which is another way of saying Moore's Law isn't working anymore.
+
+1:23:18.000 --> 1:23:22.720
+ TG. It's still good for marketing. But what's your, you're not,
+
+1:23:22.720 --> 1:23:27.520
+ you don't like expanding the definition of Moore's Law, sort of naturally.
+
+1:23:27.520 --> 1:23:33.600
+ CM. Well, as an educator, you know, is this like modern politics? Does everybody get their own facts?
+
+1:23:34.880 --> 1:23:41.200
+ Or do we have, you know, Moore's Law was a crisp, you know, it was Carver Mead looked at his
+
+1:23:41.840 --> 1:23:47.680
+ Moore's Conversations drawing on a log log scale, a straight line. And that's what the definition of
+
+1:23:47.680 --> 1:23:54.720
+ Moore's Law is. There's this other, what Intel did for a while, interestingly, before Jim joined
+
+1:23:54.720 --> 1:23:58.400
+ them, they said, oh, no, Moore's Law isn't the number of doubling, isn't really doubling
+
+1:23:58.400 --> 1:24:03.600
+ transistors every two years. Moore's Law is the cost of the individual transistor going down,
+
+1:24:04.400 --> 1:24:10.080
+ cutting in half every two years. Now, that's not what he said, but they reinterpreted it
+
+1:24:10.080 --> 1:24:15.520
+ because they believed that the cost of transistors was continuing to drop,
+
+1:24:15.520 --> 1:24:20.560
+ even if they couldn't get twice as many chips. Many people in industry have told me that's not
+
+1:24:20.560 --> 1:24:26.000
+ true anymore, that basically in more recent technologies, they got more complicated,
+
+1:24:26.000 --> 1:24:32.400
+ the actual cost of transistor went up. So even the, a corollary might not be true,
+
+1:24:32.400 --> 1:24:38.400
+ but certainly, you know, Moore's Law, that was the beauty of Moore's Law. It was a very simple,
+
+1:24:38.400 --> 1:24:44.000
+ it's like E equals MC squared, right? It was like, wow, what an amazing prediction. It's so easy
+
+1:24:44.000 --> 1:24:50.000
+ to understand, the implications are amazing, and that's why it was so famous as a prediction.
+
+1:24:50.000 --> 1:24:56.160
+ And this reinterpretation of what it meant and changing is, you know, is revisionist history.
+
+1:24:56.160 --> 1:25:03.520
+ And I'd be happy, and they're not claiming there's a new Moore's Law. They're not saying,
+
+1:25:04.160 --> 1:25:10.480
+ by the way, instead of every two years, it's every three years. I don't think they want to
+
+1:25:10.480 --> 1:25:14.400
+ say that. I think what's going to happen is new technology generations, each one is going to get
+
+1:25:14.400 --> 1:25:21.840
+ a little bit slower. So it is slowing down, the improvements won't be as great, and that's why we
+
+1:25:21.840 --> 1:25:27.200
+ need to do new things. Yeah, I don't like that the idea of Moore's Law is tied up with marketing.
+
+1:25:28.240 --> 1:25:34.560
+ It would be nice if... Whether it's marketing or it's, well, it could be affecting business,
+
+1:25:34.560 --> 1:25:40.720
+ but it could also be affecting the imagination of engineers. If Intel employees actually believe
+
+1:25:40.720 --> 1:25:47.840
+ that we're frozen in 2019, well, that would be bad for Intel. Not just Intel, but everybody.
+
+1:25:49.040 --> 1:25:56.320
+ Moore's Law is inspiring to everybody. But what's happening right now, talking to people
+
+1:25:57.200 --> 1:26:02.800
+ who have working in national offices and stuff like that, a lot of the computer science community
+
+1:26:02.800 --> 1:26:09.280
+ is unaware that this is going on, that we are in an era that's going to need radical change at lower
+
+1:26:09.280 --> 1:26:18.400
+ levels that could affect the whole software stack. If you're using cloud stuff and the
+
+1:26:18.960 --> 1:26:23.040
+ servers that you get next year are basically only a little bit faster than the servers you got this
+
+1:26:23.040 --> 1:26:30.240
+ year, you need to know that, and we need to start innovating to start delivering on it. If you're
+
+1:26:30.240 --> 1:26:34.400
+ counting on your software going to have a lot more features, assuming the computers are going to get
+
+1:26:34.400 --> 1:26:38.640
+ faster, that's not true. So are you going to have to start making your software stack more efficient?
+
+1:26:38.640 --> 1:26:45.440
+ Are you going to have to start learning about machine learning? So it's a warning or call
+
+1:26:45.440 --> 1:26:51.040
+ for arms that the world is changing right now. And a lot of computer science PhDs are unaware
+
+1:26:51.040 --> 1:26:56.800
+ of that. So a way to try and get their attention is to say that Moore's Law is slowing down and
+
+1:26:56.800 --> 1:27:02.160
+ that's going to affect your assumptions. And we're trying to get the word out. And when companies
+
+1:27:02.160 --> 1:27:08.080
+ like TSMC and Intel say, oh, no, no, no, Moore's Law is fine, then people think, oh, hey, I don't
+
+1:27:08.080 --> 1:27:13.600
+ have to change my behavior. I'll just get the next servers. And if they start doing measurements,
+
+1:27:13.600 --> 1:27:18.800
+ they'll realize what's going on. It'd be nice to have some transparency on metrics for the lay
+
+1:27:18.800 --> 1:27:24.720
+ person to be able to know if computers are getting faster and not to forget Moore's Law.
+
+1:27:24.720 --> 1:27:31.920
+ Yeah. There are a bunch of, most people kind of use clock rate as a measure of performance.
+
+1:27:31.920 --> 1:27:36.640
+ It's not a perfect one, but if you've noticed clock rates are more or less the same as they were
+
+1:27:37.200 --> 1:27:42.960
+ five years ago, computers are a little better than they are. They haven't made zero progress,
+
+1:27:42.960 --> 1:27:47.200
+ but they've made small progress. So there's some indications out there. And then our behavior,
+
+1:27:47.200 --> 1:27:52.800
+ right? Nobody buys the next laptop because it's so much faster than the laptop from the past.
+
+1:27:52.800 --> 1:28:00.480
+ For cell phones, I think, I don't know why people buy new cell phones, you know, because
+
+1:28:00.480 --> 1:28:04.560
+ the new ones announced. The cameras are better, but that's kind of domain specific, right? They're
+
+1:28:04.560 --> 1:28:10.560
+ putting special purpose hardware to make the processing of images go much better. So that's
+
+1:28:10.560 --> 1:28:15.840
+ the way they're doing it. They're not particularly, it's not that the ARM processor in there is twice
+
+1:28:15.840 --> 1:28:22.800
+ as fast as much as they've added accelerators to help the experience of the phone. Can we talk a
+
+1:28:22.800 --> 1:28:30.720
+ little bit about one other exciting space, arguably the same level of impact as your work with RISC
+
+1:28:30.720 --> 1:28:41.920
+ is RAID. In 1988, you coauthored a paper, A Case for Redundant Arrays of Inexpensive Disks, hence
+
+1:28:41.920 --> 1:28:48.640
+ RAID RAID. So that's where you introduced the idea of RAID. Incredible that that little,
+
+1:28:49.840 --> 1:28:55.760
+ I mean little, that paper kind of had this ripple effect and had a really a revolutionary effect.
+
+1:28:55.760 --> 1:29:01.920
+ So first, what is RAID? What is RAID? So this is work I did with my colleague Randy Katz and
+
+1:29:01.920 --> 1:29:08.160
+ a star graduate student, Garth Gibson. So we had just done the fourth generation RISC project
+
+1:29:08.160 --> 1:29:17.280
+ and Randy Katz, which had an early Apple Macintosh computer. At this time, everything was done with
+
+1:29:17.280 --> 1:29:26.160
+ floppy disks, which are old technologies that could store things that didn't have much capacity
+
+1:29:26.160 --> 1:29:31.360
+ and you had to get any work done, you're always sticking your little floppy disk in and out because
+
+1:29:31.360 --> 1:29:36.400
+ they didn't have much capacity. But they started building what are called hard disk drives, which
+
+1:29:36.400 --> 1:29:44.320
+ is magnetic material that can remember information storage for the Mac. And Randy asked the question
+
+1:29:44.320 --> 1:29:51.760
+ when he saw this disk next to his Mac, gee, these are brand new small things. Before that,
+
+1:29:51.760 --> 1:29:57.520
+ for the big computers, the disk would be the size of washing machines. And here's something
+
+1:29:57.520 --> 1:30:02.720
+ the size of a, kind of the size of a book or so. He says, I wonder what we could do with that? Well,
+
+1:30:02.720 --> 1:30:11.200
+ Randy was involved in the fourth generation RISC project here at Berkeley in the 80s. So we figured
+
+1:30:11.200 --> 1:30:15.680
+ out a way how to make the computation part, the processor part go a lot faster, but what about
+
+1:30:15.680 --> 1:30:22.960
+ the storage part? Can we do something to make it faster? So we hit upon the idea of taking a lot of
+
+1:30:22.960 --> 1:30:27.600
+ these disks developed for personal computers and Macintoshes and putting many of them together
+
+1:30:27.600 --> 1:30:32.640
+ instead of one of these washing machine size things. And so we wrote the first draft of the
+
+1:30:32.640 --> 1:30:38.640
+ paper and we'd have 40 of these little PC disks instead of one of these washing machine size
+
+1:30:38.640 --> 1:30:42.960
+ things. And they would be much cheaper because they're made for PCs and they could actually kind
+
+1:30:42.960 --> 1:30:47.360
+ of be faster because there was 40 of them rather than one of them. And so we wrote a paper like
+
+1:30:47.360 --> 1:30:51.520
+ that and sent it to one of our former Berkeley students at IBM. And he said, well, this is all
+
+1:30:51.520 --> 1:30:56.960
+ great and good, but what about the reliability of these things? Now you have 40 of these things
+
+1:30:56.960 --> 1:31:03.120
+ and 40 of these devices, each of which are kind of PC quality. So they're not as good as these
+
+1:31:03.120 --> 1:31:10.160
+ IBM washing machines. IBM dominated the storage businesses. So the reliability is going to be
+
+1:31:10.160 --> 1:31:16.240
+ awful. And so when we calculated it out, instead of it breaking on average once a year, it would
+
+1:31:16.240 --> 1:31:22.480
+ break every two weeks. So we thought about the idea and said, well, we got to address the
+
+1:31:22.480 --> 1:31:27.120
+ reliability. So we did it originally performance, but we had to do reliability. So the name
+
+1:31:27.120 --> 1:31:33.440
+ redundant array of inexpensive disks is array of these disks inexpensive like for PCs, but we have
+
+1:31:33.440 --> 1:31:40.400
+ extra copies. So if one breaks, we won't lose all the information. We'll have enough redundancy that
+
+1:31:40.400 --> 1:31:44.560
+ we could let some break and we can still preserve the information. So the name is an array of
+
+1:31:44.560 --> 1:31:51.200
+ inexpensive disks. This is a collection of these PCs and the R part of the name was the redundancy
+
+1:31:51.200 --> 1:31:55.760
+ so they'd be reliable. And it turns out if you put a modest number of extra disks in one of
+
+1:31:55.760 --> 1:32:00.720
+ these arrays, it could actually not only be as faster and cheaper than one of these washing
+
+1:32:00.720 --> 1:32:05.360
+ machine disks, it could be actually more reliable because you could have a couple of breaks even
+
+1:32:05.360 --> 1:32:09.760
+ with these cheap disks. Whereas one failure with the washing machine thing would knock it out.
+
+1:32:10.480 --> 1:32:17.360
+ Did you have a sense just like with risk that in the 30 years that followed,
+
+1:32:17.360 --> 1:32:26.240
+ RAID would take over as a mechanism for storage? I think I'm naturally an optimist,
+
+1:32:27.280 --> 1:32:33.840
+ but I thought our ideas were right. I thought kind of like Moore's law, it seemed to me,
+
+1:32:33.840 --> 1:32:38.000
+ if you looked at the history of the disk drives, they went from washing machine size things and
+
+1:32:38.000 --> 1:32:43.360
+ they were getting smaller and smaller and the volumes were with the smaller disk drives because
+
+1:32:43.360 --> 1:32:51.120
+ that's where the PCs were. So we thought that was a technological trend that the volume of disk
+
+1:32:51.120 --> 1:32:55.920
+ drives was going to be getting smaller and smaller devices, which were true. They were the size of,
+
+1:32:56.480 --> 1:33:00.800
+ I don't know, eight inches diameter, then five inches, then three inches in diameters.
+
+1:33:01.440 --> 1:33:06.640
+ And so that it made sense to figure out how to deal things with an array of disks. So I think
+
+1:33:06.640 --> 1:33:13.440
+ it was one of those things where logically, we think the technological forces were on our side,
+
+1:33:13.440 --> 1:33:19.120
+ that it made sense. So we expected it to catch on, but there was that same kind of business question.
+
+1:33:19.920 --> 1:33:25.840
+ IBM was the big pusher of these disk drives in the real world where the technical advantage
+
+1:33:25.840 --> 1:33:32.560
+ get turned into a business advantage or not. It proved to be true. And so we thought we were
+
+1:33:32.560 --> 1:33:38.320
+ sound technically and it was unclear whether the business side, but we kind of, as academics,
+
+1:33:38.320 --> 1:33:43.920
+ we believe that technology should win and it did. And if you look at those 30 years,
+
+1:33:44.720 --> 1:33:48.240
+ just from your perspective, are there interesting developments in the space of storage
+
+1:33:48.800 --> 1:33:53.520
+ that have happened in that time? Yeah. The big thing that happened, well, a couple of things
+
+1:33:53.520 --> 1:34:00.720
+ that happened, what we did had a modest amount of storage. So as redundancy, as people built bigger
+
+1:34:00.720 --> 1:34:05.840
+ and bigger storage systems, they've added more redundancy so they could add more failures. And
+
+1:34:05.840 --> 1:34:13.360
+ the biggest thing that happened in storage is for decades, it was based on things physically spinning
+
+1:34:14.240 --> 1:34:18.400
+ called hard disk drives where you used to turn on your computer and it would make a noise.
+
+1:34:18.400 --> 1:34:25.200
+ What that noise was, was the disk drives spinning and they were rotating at like 60 revolutions per
+
+1:34:25.200 --> 1:34:31.680
+ second. And it's like, if you remember the vinyl records, if you've ever seen those,
+
+1:34:31.680 --> 1:34:36.160
+ that's what it looked like. And there was like a needle like on a vinyl record that was reading it.
+
+1:34:36.160 --> 1:34:41.440
+ So the big drive change is switching that over to a semiconductor technology called flash.
+
+1:34:41.440 --> 1:34:47.200
+ So within the last, I'd say about decade is increasing fraction of all the computers in the
+
+1:34:47.200 --> 1:34:54.880
+ world are using semiconductor for storage, the flash drive, instead of being magnetic,
+
+1:34:54.880 --> 1:35:02.640
+ they're optical, well, they're a semiconductor writing of information very densely.
+
+1:35:04.080 --> 1:35:08.000
+ And that's been a huge difference. So all the cell phones in the world use flash.
+
+1:35:08.000 --> 1:35:13.520
+ Most of the laptops use flash. All the embedded devices use flash instead of storage. Still in
+
+1:35:13.520 --> 1:35:20.160
+ the cloud, magnetic disks are more economical than flash, but they use both in the cloud.
+
+1:35:20.160 --> 1:35:26.880
+ So it's been a huge change in the storage industry, the switching from primarily disk
+
+1:35:26.880 --> 1:35:31.040
+ to being primarily semiconductor. For the individual disk, but still the RAID mechanism
+
+1:35:31.040 --> 1:35:35.920
+ applies to those different kinds of disks. Yes. The people will still use RAID ideas
+
+1:35:35.920 --> 1:35:41.120
+ because it's kind of what's different, kind of interesting kind of psychologically,
+
+1:35:41.120 --> 1:35:46.160
+ if you think about it. People have always worried about the reliability of computing since the
+
+1:35:46.160 --> 1:35:52.240
+ earliest days. So kind of, but if we're talking about computation, if your computer makes a
+
+1:35:52.240 --> 1:35:59.120
+ mistake and the computer says, the computer has ways to check and say, Oh, we screwed up.
+
+1:35:59.120 --> 1:36:04.160
+ We made a mistake. What happens is that program that was running, you have to redo it,
+
+1:36:04.160 --> 1:36:12.320
+ which is a hassle for storage. If you've sent important information away and it loses that
+
+1:36:12.320 --> 1:36:18.240
+ information, you go nuts. This is the worst. Oh my God. So if you have a laptop and you're not
+
+1:36:18.240 --> 1:36:24.240
+ backing it up on the cloud or something like this, and your disk drive breaks, which it can do,
+
+1:36:24.880 --> 1:36:29.760
+ you'll lose all that information and you just go crazy. So the importance of reliability
+
+1:36:29.760 --> 1:36:34.160
+ for storage is tremendously higher than the importance of reliability for computation
+
+1:36:34.160 --> 1:36:39.440
+ because of the consequences of it. So yes, so RAID ideas are still very popular, even with
+
+1:36:39.440 --> 1:36:45.200
+ the switch of the technology. Although flash drives are more reliable, if you're not doing
+
+1:36:45.200 --> 1:36:51.280
+ anything like backing it up to get some redundancy so they handle it, you're taking great risks.
+
+1:36:53.680 --> 1:36:57.600
+ You said that for you and possibly for many others, teaching and research don't
+
+1:36:58.800 --> 1:37:03.840
+ conflict with each other as one might suspect. And in fact, they kind of complement each other. So
+
+1:37:03.840 --> 1:37:10.480
+ maybe a question I have is how has teaching helped you in your research or just in your
+
+1:37:10.480 --> 1:37:17.040
+ entirety as a person who both teaches and does research and just thinks and creates new ideas
+
+1:37:17.040 --> 1:37:22.880
+ in this world? Yes, I think what happens is when you're a college student, you know there's this
+
+1:37:22.880 --> 1:37:30.400
+ kind of tenure system in doing research. So kind of this model that is popular in America, I think
+
+1:37:30.400 --> 1:37:35.440
+ America really made it happen, is we can attract these really great faculty to research universities
+
+1:37:36.000 --> 1:37:40.640
+ because they get to do research as well as teach. And that, especially in fast moving fields,
+
+1:37:40.640 --> 1:37:44.800
+ this means people are up to date and they're teaching those kinds of things. But when you run
+
+1:37:44.800 --> 1:37:50.480
+ into a really bad professor, a really bad teacher, I think the students think, well, this guy must be
+
+1:37:50.480 --> 1:37:57.280
+ a great researcher because why else could he be here? So after 40 years at Berkeley, we had a
+
+1:37:57.280 --> 1:38:02.400
+ retirement party and I got a chance to reflect and I looked back at some things. That is not my
+
+1:38:02.400 --> 1:38:09.600
+ experience. I saw a photograph of five of us in the department who won the Distinguished Teaching
+
+1:38:09.600 --> 1:38:14.480
+ Award from campus, a very high honor. I've got one of those, one of the highest honors. So there are
+
+1:38:14.480 --> 1:38:23.360
+ five of us on that picture. There's Manuel Blum, Richard Karp, me, Randy Kass, and John Osterhaupt,
+
+1:38:23.360 --> 1:38:27.920
+ contemporaries of mine. I mentioned Randy already. All of us are in the National Academy of
+
+1:38:27.920 --> 1:38:34.160
+ Engineering. We've all run the Distinguished Teaching Award. Blum, Karp, and I all have
+
+1:38:34.160 --> 1:38:45.120
+ Turing Awards. The highest award in computing. So that's the opposite. What's happened is they're
+
+1:38:45.120 --> 1:38:51.280
+ highly correlated. So the other way to think of it, if you're very successful people or maybe
+
+1:38:51.280 --> 1:38:56.160
+ successful at everything they do, it's not an either or. But it's an interesting question
+
+1:38:56.160 --> 1:39:00.880
+ whether specifically, that's probably true, but specifically for teaching, if there's something
+
+1:39:00.880 --> 1:39:06.720
+ in teaching that, it's the Richard Feynman idea, is there something about teaching that actually
+
+1:39:06.720 --> 1:39:12.640
+ makes your research, makes you think deeper and more outside the box and more insightful?
+
+1:39:12.640 --> 1:39:16.400
+ Absolutely. I was going to bring up Feynman. I mean, he criticized the Institute of Advanced
+
+1:39:16.400 --> 1:39:21.760
+ Studies. So the Institute of Advanced Studies was this thing that was created near Princeton
+
+1:39:21.760 --> 1:39:26.240
+ where Einstein and all these smart people went. And when he was invited, he thought it was a
+
+1:39:26.240 --> 1:39:31.040
+ terrible idea. This is a university. It was supposed to be heaven, right? A university
+
+1:39:31.040 --> 1:39:35.600
+ without any teaching. But he thought it was a mistake. It's getting up in the classroom and
+
+1:39:35.600 --> 1:39:40.640
+ having to explain things to students and having them ask questions like, well, why is that true,
+
+1:39:40.640 --> 1:39:47.600
+ makes you stop and think. So he thought, and I agree, I think that interaction between a great
+
+1:39:47.600 --> 1:39:52.400
+ research university and having students with bright young minds asking hard questions the
+
+1:39:52.400 --> 1:40:00.880
+ whole time is synergistic. And a university without teaching wouldn't be as vital and
+
+1:40:00.880 --> 1:40:07.920
+ exciting a place. And I think it helps stimulate the research. Another romanticized question,
+
+1:40:07.920 --> 1:40:14.960
+ but what's your favorite concept or idea to teach? What inspires you or you see inspire the students?
+
+1:40:15.680 --> 1:40:19.440
+ Is there something that pops to mind or puts the fear of God in them? I don't know,
+
+1:40:19.440 --> 1:40:24.640
+ whichever is most effective. I mean, in general, I think people are surprised.
+
+1:40:25.200 --> 1:40:31.200
+ I've seen a lot of people who don't think they like teaching come give guest lectures or teach
+
+1:40:31.200 --> 1:40:37.200
+ a course and get hooked on seeing the lights turn on, right? You can explain something to
+
+1:40:37.200 --> 1:40:44.240
+ people that they don't understand. And suddenly they get something that's important and difficult.
+
+1:40:44.240 --> 1:40:50.240
+ And just seeing the lights turn on is a real satisfaction there. I don't think there's any
+
+1:40:51.920 --> 1:40:58.320
+ specific example of that. It's just the general joy of seeing them understand.
+
+1:40:58.320 --> 1:41:10.560
+ SL. I have to talk about this because I've wrestled. I do martial arts. Of course, I love wrestling. I'm a huge, I'm Russian. So I've talked to Dan Gable on the podcast.
+
+1:41:11.520 --> 1:41:20.640
+ So you wrestled at UCLA among many other things you've done in your life, competitively in sports
+
+1:41:20.640 --> 1:41:26.800
+ and science and so on. You've wrestled. Maybe, again, continue with the romanticized questions,
+
+1:41:26.800 --> 1:41:32.080
+ but what have you learned about life and maybe even science from wrestling or from?
+
+1:41:32.080 --> 1:41:39.520
+ CB. Yeah, in fact, I wrestled at UCLA, but also at El Camino Community College. And just right now,
+
+1:41:39.520 --> 1:41:44.400
+ we were in the state of California, we were state champions at El Camino. And in fact, I was talking
+
+1:41:44.400 --> 1:41:52.000
+ to my mom and I got into UCLA, but I decided to go to the community college, which is, it's much
+
+1:41:52.000 --> 1:41:56.400
+ harder to go to UCLA than the community college. And I asked, why did I make that decision? Because I
+
+1:41:56.400 --> 1:41:59.920
+ thought it was because of my girlfriend. She said, well, it was the girlfriend and you thought the
+
+1:41:59.920 --> 1:42:04.880
+ wrestling team was really good. And we were right. We had a great wrestling team. We actually
+
+1:42:06.000 --> 1:42:12.320
+ wrestled against UCLA at a tournament and we beat UCLA as a community college, which just freshmen
+
+1:42:12.320 --> 1:42:17.440
+ and sophomores. And part of the reason I brought this up is I'm going to go, they've invited me back
+
+1:42:17.440 --> 1:42:27.440
+ at El Camino to give a lecture next month. And so, my friend who was on the wrestling team that
+
+1:42:27.440 --> 1:42:31.680
+ we're still together, we're right now reaching out to other members of the wrestling team if we can
+
+1:42:31.680 --> 1:42:40.480
+ get together for a reunion. But in terms of me, it was a huge difference. The age cut off, it was
+
+1:42:40.480 --> 1:42:47.520
+ December 1st. And so, I was almost always the youngest person in my class and I matured later
+
+1:42:47.520 --> 1:42:54.560
+ on, our family matured later. So, I was almost always the smallest guy. So, I took kind of
+
+1:42:54.560 --> 1:43:02.480
+ nerdy courses, but I was wrestling. So, wrestling was huge for my self confidence in high school.
+
+1:43:02.480 --> 1:43:08.560
+ And then, I kind of got bigger at El Camino and in college. And so, I had this kind of physical
+
+1:43:08.560 --> 1:43:18.800
+ self confidence and it's translated into research self confidence. And also kind of, I've had this
+
+1:43:18.800 --> 1:43:27.280
+ feeling even today in my 70s, if something going on in the streets that is bad physically, I'm not
+
+1:43:27.280 --> 1:43:31.200
+ going to ignore it. I'm going to stand up and try and straighten that out.
+
+1:43:31.200 --> 1:43:34.320
+ And that kind of confidence just carries through the entirety of your life.
+
+1:43:34.320 --> 1:43:39.040
+ Yeah. And the same things happens intellectually. If there's something going on where people are
+
+1:43:39.040 --> 1:43:44.240
+ saying something that's not true, I feel it's my job to stand up just like I would in the street.
+
+1:43:44.240 --> 1:43:49.120
+ If there's something going on, somebody attacking some woman or something, I'm not standing by and
+
+1:43:49.120 --> 1:43:54.720
+ letting that get away. So, I feel it's my job to stand up. So, it's kind of ironically translates.
+
+1:43:54.720 --> 1:44:00.560
+ The other things that turned out for both, I had really great college and high school coaches and
+
+1:44:00.560 --> 1:44:05.280
+ they believed, even though wrestling is an individual sport, that we would be more successful
+
+1:44:05.280 --> 1:44:10.880
+ as a team if we bonded together, do things that we would support each other rather than everybody,
+
+1:44:10.880 --> 1:44:15.200
+ you know, in wrestling it's a one on one and you could be everybody's on their own, but he felt if
+
+1:44:15.200 --> 1:44:21.200
+ we bonded as a team, we'd succeed. So, I kind of picked up those skills of how to form successful
+
+1:44:21.200 --> 1:44:27.280
+ teams and how to, from wrestling. And so, I think one of, most people would say one of my strengths
+
+1:44:27.280 --> 1:44:33.200
+ is I can create teams of faculty, large teams of faculty grad students, pull all together for a
+
+1:44:33.200 --> 1:44:41.360
+ common goal and often be successful at it. But I got both of those things from wrestling. Also,
+
+1:44:41.360 --> 1:44:49.040
+ I think I heard this line about if people are in kind of collision, sports with physical contact
+
+1:44:49.040 --> 1:44:54.800
+ like wrestling or football and stuff like that, people are a little bit more assertive or something.
+
+1:44:54.800 --> 1:45:02.160
+ And so, I think that also comes through as, you know, and I didn't shy away from the
+
+1:45:02.160 --> 1:45:07.360
+ racist debates, you know, I enjoyed taking on the arguments and stuff like that. So,
+
+1:45:08.800 --> 1:45:13.520
+ I'm really glad I did wrestling. I think it was really good for my self image and I learned a lot
+
+1:45:13.520 --> 1:45:19.440
+ from it. So, I think that's, you know, sports done well, you know, there's really lots of positives
+
+1:45:19.440 --> 1:45:26.240
+ you can take about it, of leadership, you know, how to form teams and how to be successful.
+
+1:45:26.880 --> 1:45:30.880
+ So, we've talked about metrics a lot. There's a really cool, in terms of bench press and
+
+1:45:30.880 --> 1:45:34.640
+ weightlifting, pound years metric that you've developed that we don't have time to talk about,
+
+1:45:34.640 --> 1:45:39.040
+ but it's a really cool one that people should look into. It's rethinking the way we think about
+
+1:45:39.040 --> 1:45:43.600
+ metrics and weightlifting. But let me talk about metrics more broadly, since that appeals to you
+
+1:45:43.600 --> 1:45:49.600
+ in all forms. Let's look at the most ridiculous, the biggest question of the meaning of life.
+
+1:45:50.480 --> 1:45:55.040
+ If you were to try to put metrics on a life well lived, what would those metrics be?
+
+1:45:56.800 --> 1:46:03.920
+ Yeah, a friend of mine, Randy Katz, said this. He said, you know, when it's time to sign off,
+
+1:46:06.000 --> 1:46:09.920
+ the measure isn't the number of zeros in your bank account, it's the number of inches
+
+1:46:09.920 --> 1:46:15.280
+ in the obituary in the New York Times, was he said it. I think, you know, having,
+
+1:46:17.040 --> 1:46:21.840
+ and you know, this is a cliche, is that people don't die wishing they'd spent more time in the
+
+1:46:21.840 --> 1:46:29.360
+ office, right? As I reflect upon my career, there have been, you know, a half a dozen, a dozen things
+
+1:46:29.360 --> 1:46:35.440
+ say I've been proud of. A lot of them aren't papers or scientific results. Certainly, my family,
+
+1:46:35.440 --> 1:46:41.120
+ my wife, we've been married more than 50 years, kids and grandkids, that's really precious.
+
+1:46:42.880 --> 1:46:50.240
+ Education things I've done, I'm very proud of, you know, books and courses. I did some help
+
+1:46:50.240 --> 1:46:55.200
+ with underrepresented groups that was effective. So it was interesting to see what were the things
+
+1:46:55.200 --> 1:47:00.960
+ I reflected. You know, I had hundreds of papers, but some of them were the papers, like the risk
+
+1:47:00.960 --> 1:47:06.480
+ rate stuff that I'm proud of, but a lot of them were not those things. So people who are, just
+
+1:47:06.480 --> 1:47:11.040
+ spend their lives, you know, going after the dollars or going after all the papers in the
+
+1:47:11.040 --> 1:47:15.760
+ world, you know, that's probably not the things that are afterwards you're going to care about.
+
+1:47:15.760 --> 1:47:22.320
+ When I was, just when I got the offer from Berkeley before I showed up, I read a book where
+
+1:47:22.320 --> 1:47:27.200
+ they interviewed a lot of people in all works of life. And what I got out of that book was the
+
+1:47:27.200 --> 1:47:31.520
+ people who felt good about what they did was the people who affected people, as opposed to things
+
+1:47:31.520 --> 1:47:36.320
+ that were more transitory. So I came into this job assuming that it wasn't going to be the papers,
+
+1:47:36.320 --> 1:47:42.000
+ it was going to be relationships with the people over time that I would value, and that was a
+
+1:47:42.000 --> 1:47:47.120
+ correct assessment, right? It's the people you work with, the people you can influence, the people
+
+1:47:47.120 --> 1:47:50.640
+ you can help, it's the things that you feel good about towards the end of your career. It's not
+
+1:47:51.920 --> 1:47:53.200
+ the stuff that's more transitory.
+
+1:47:53.200 --> 1:47:58.480
+ Trey Lockerbie I don't think there's a better way to end it than talking about your family,
+
+1:47:58.480 --> 1:48:02.320
+ the over 50 years of being married to your childhood sweetheart.
+
+1:48:02.320 --> 1:48:03.920
+ Richard Averbeck What I think I can add is,
+
+1:48:05.040 --> 1:48:07.280
+ when you tell people you've been married 50 years, they want to know why.
+
+1:48:07.280 --> 1:48:08.800
+ Trey Lockerbie How? Why?
+
+1:48:08.800 --> 1:48:10.400
+ Richard Averbeck Yeah, I can tell you the nine
+
+1:48:10.400 --> 1:48:16.560
+ magic words that you need to say to your partner to keep a good relationship. And the nine magic
+
+1:48:16.560 --> 1:48:22.960
+ words are, I was wrong. You were right. I love you. Okay. And you got to say all nine. You can't
+
+1:48:22.960 --> 1:48:28.160
+ say, I was wrong. You were right. You're a jerk. You know, you can't say that. So yeah, freely
+
+1:48:28.160 --> 1:48:33.200
+ acknowledging that you made a mistake, the other person was right, and that you love them really
+
+1:48:34.640 --> 1:48:37.760
+ gets over a lot of bumps in the road. So that's what I pass along.
+
+1:48:37.760 --> 1:48:39.840
+ Trey Lockerbie Beautifully put. David,
+
+1:48:39.840 --> 1:48:43.840
+ it's a huge honor. Thank you so much for the book you've written, for the research you've done,
+
+1:48:43.840 --> 1:48:45.760
+ for changing the world. Thank you for talking today.
+
+1:48:45.760 --> 1:48:46.880
+ Richard Averbeck Thanks for the interview.
+
+1:48:46.880 --> 1:48:48.880
+ Trey Lockerbie Thanks for listening to this
+
+1:48:48.880 --> 1:48:55.440
+ conversation with David Patterson. And thank you to our sponsors, The Jordan Harbinger Show, and
+
+1:48:55.440 --> 1:49:02.320
+ Cash App. Please consider supporting this podcast by going to JordanHarbinger.com slash Lex and
+
+1:49:02.320 --> 1:49:08.640
+ downloading Cash App and using code LexPodcast. Click the links, buy the stuff. It's the best way
+
+1:49:08.640 --> 1:49:14.800
+ to support this podcast and the journey I'm on. If you enjoy this thing, subscribe on YouTube,
+
+1:49:14.800 --> 1:49:19.680
+ review it with five stars in a podcast, support it on Patreon, or connect with me on Twitter at
+
+1:49:19.680 --> 1:49:26.640
+ Lex Friedman, spelled without the E, try to figure out how to do that. It's just F R I D M A N.
+
+1:49:27.280 --> 1:49:31.280
+ And now let me leave you with some words from Henry David Thoreau.
+
+1:49:32.240 --> 1:49:40.560
+ Our life is faded away by detail. Simplify, simplify. Thank you for listening and hope to
+
+1:49:40.560 --> 1:49:46.560
+ see you next time.
+

@@ -1,0 +1,5072 @@
+WEBVTT
+
+00:00.000 --> 00:06.800
+ The following is a conversation with Doug Lenit, creator of Psych, a system that for close to 40
+
+00:06.800 --> 00:12.320
+ years, and still today, has sought to solve the core problem of artificial intelligence,
+
+00:12.880 --> 00:18.000
+ the acquisition of common sense knowledge and the use of that knowledge to think,
+
+00:18.000 --> 00:23.680
+ to reason, and to understand the world. To support this podcast, please check out our sponsors in
+
+00:23.680 --> 00:29.440
+ the description. As a side note, let me say that in the excitement of the modern era of machine
+
+00:29.440 --> 00:36.000
+ learning, it is easy to forget just how little we understand exactly how to build the kind of
+
+00:36.000 --> 00:42.480
+ intelligence that matches the power of the human mind. To me, many of the core ideas behind Psych,
+
+00:42.480 --> 00:48.880
+ in some form, in actuality or in spirit, will likely be part of the AI system that achieves
+
+00:48.880 --> 00:54.480
+ general superintelligence. But perhaps more importantly, solving this problem of common
+
+00:54.480 --> 01:01.040
+ sense knowledge will help us humans understand our own minds, the nature of truth, and finally,
+
+01:01.040 --> 01:07.280
+ how to be more rational and more kind to each other. This is the Lex Friedman podcast,
+
+01:07.280 --> 01:15.520
+ and here is my conversation with Doug Lenit. Psych is a project launched by you in 1984,
+
+01:16.080 --> 01:20.880
+ and still is active today, whose goal is to assemble a knowledge base that spans the basic
+
+01:20.880 --> 01:26.720
+ concepts and rules about how the world works. In other words, it hopes to capture common sense
+
+01:26.720 --> 01:32.320
+ knowledge, which is a lot harder than it sounds. Can you elaborate on this mission and maybe
+
+01:32.320 --> 01:39.520
+ perhaps speak to the various subgoals within this mission? When I was a faculty member in the
+
+01:39.520 --> 01:46.640
+ computer science department at Stanford, my colleagues and I did research in all sorts of
+
+01:46.640 --> 01:53.440
+ artificial intelligence programs, so natural language understanding programs, robots,
+
+01:53.440 --> 02:02.160
+ expert systems, and so on. And we kept hitting the very same brick wall. Our systems would have
+
+02:02.880 --> 02:12.320
+ impressive early successes. And so if your only goal was academic, namely to get enough material
+
+02:12.320 --> 02:18.240
+ to write a journal article, that might actually suffice. But if you're really trying to get AI,
+
+02:19.280 --> 02:22.960
+ then you have to somehow get past the brick wall. And the brick wall was
+
+02:23.600 --> 02:28.560
+ the programs didn't have what we would call common sense. They didn't have general world
+
+02:28.560 --> 02:33.280
+ knowledge. They didn't really understand what they were doing, what they were saying,
+
+02:33.280 --> 02:40.480
+ what they were being asked. And so very much like a clever dog performing tricks,
+
+02:40.480 --> 02:44.880
+ we could get them to do tricks, but they never really understood what they were doing. Sort of
+
+02:44.880 --> 02:50.880
+ like when you get a dog to fetch your morning newspaper. The dog might do that successfully,
+
+02:50.880 --> 02:55.520
+ but the dog has no idea what a newspaper is or what it says or anything like that.
+
+02:55.520 --> 02:59.760
+ What does it mean to understand something? Can you maybe elaborate on that a little bit?
+
+02:59.760 --> 03:05.840
+ Is it is understanding action of like combining little things together like through inference,
+
+03:05.840 --> 03:10.000
+ or is understanding the wisdom you gain over time that forms a knowledge?
+
+03:10.000 --> 03:20.800
+ I think of understanding more like the ground you stand on, which could be very shaky,
+
+03:20.800 --> 03:27.840
+ could be very unsafe, but most of the time is not because underneath it is more ground,
+
+03:28.960 --> 03:36.160
+ and eventually rock and other things. But layer after layer after layer, that solid foundation
+
+03:36.160 --> 03:41.760
+ is there. And you rarely need to think about it, you rarely need to count on it, but occasionally
+
+03:41.760 --> 03:48.960
+ you do. And I've never used this analogy before, so bear with me. But I think the same thing is
+
+03:48.960 --> 03:56.000
+ true in terms of getting computers to understand things, which is you ask a computer a question,
+
+03:56.000 --> 04:02.160
+ for instance, Alexa or some robot or something, and maybe it gets the right answer.
+
+04:02.160 --> 04:09.760
+ But if you were asking that of a human, you could also say things like, why? Or how might you be
+
+04:09.760 --> 04:17.040
+ wrong about this? Or something like that. And the person would answer you. And it might be a little
+
+04:17.040 --> 04:22.320
+ annoying if you have a small child and they keep asking why questions in series. Eventually,
+
+04:22.320 --> 04:25.920
+ you get to the point where you throw up your hands and say, I don't know, it's just the way
+
+04:25.920 --> 04:35.280
+ the world is. But for many layers, you actually have that layered, solid foundation of support,
+
+04:35.280 --> 04:40.720
+ so that when you need it, you can count on it. And when do you need it? Well, when things are
+
+04:40.720 --> 04:46.320
+ unexpected, when you come up against a situation which is novel. For instance, when you're driving,
+
+04:46.320 --> 04:55.280
+ it may be fine to have a small program, a small set of rules that cover 99% of the cases, but that
+
+04:55.280 --> 05:01.360
+ 1% of the time when something strange happens, you really need to draw on common sense. For instance,
+
+05:02.080 --> 05:09.360
+ my wife and I were driving recently and there was a trash truck in front of us. And I guess they had
+
+05:09.360 --> 05:17.520
+ packed it too full and the back exploded. And trash bags went everywhere. And we had to make
+
+05:17.520 --> 05:21.760
+ a split second decision. Are we going to slam on our brakes? Are we going to swerve into another
+
+05:21.760 --> 05:29.040
+ lane? Are we going to just run it over? Because there were cars all around us. And in front of us
+
+05:29.040 --> 05:34.960
+ was a large trash bag. And we know what we throw away in trash bags, probably not a safe thing to
+
+05:34.960 --> 05:42.880
+ run over. Over on the left was a bunch of fast food restaurant trash bags. And it's like,
+
+05:42.880 --> 05:47.760
+ oh, well, those things are just like styrofoam and leftover food. We'll run over that. And so that
+
+05:47.760 --> 05:52.800
+ was a safe thing for us to do. Now, that's the kind of thing that's going to happen maybe once
+
+05:52.800 --> 06:01.680
+ in your life. But the point is that there's almost no telling what little bits of knowledge about the
+
+06:01.680 --> 06:08.480
+ world you might actually need in some situations which were unforeseen. But see, when you sit on
+
+06:08.480 --> 06:16.480
+ that mountain or that ground that goes deep of knowledge in order to make a split second decision
+
+06:16.480 --> 06:26.080
+ about fast food trash or random trash from the back of a trash truck, you need to be able to
+
+06:26.080 --> 06:31.920
+ leverage that ground you stand on in some way. It's not merely, you know, it's not enough to just
+
+06:31.920 --> 06:38.480
+ have a lot of ground to stand on. It's your ability to leverage it, to utilize in a split,
+
+06:38.480 --> 06:45.840
+ like integrate it all together to make that split second decision. And I suppose understanding isn't
+
+06:45.840 --> 06:55.040
+ just having a common sense knowledge to access. It's the act of accessing it somehow, like
+
+06:55.040 --> 07:02.560
+ correctly filtering out the parts of the knowledge that are not useful, selecting only the useful
+
+07:02.560 --> 07:10.640
+ parts and effectively making conclusive decisions. So let's tease apart two different tasks really,
+
+07:10.640 --> 07:16.480
+ both of which are incredibly important and even necessary. If you're going to have this in a
+
+07:16.480 --> 07:25.120
+ useful, usable fashion as opposed to say like library books sitting on a shelf and so on, where
+
+07:25.120 --> 07:31.040
+ the knowledge might be there, but if a fire comes, the books are going to burn because they don't
+
+07:31.040 --> 07:38.080
+ know what's in them and they're just going to sit there while they burn. So there are two aspects of
+
+07:38.080 --> 07:45.680
+ using the knowledge. One is a kind of a theoretical, how is it possible at all? And then the second
+
+07:45.680 --> 07:51.680
+ aspect of what you said is, how can you do it quickly enough? So how can you do it at all is
+
+07:51.680 --> 07:58.960
+ something that philosophers have grappled with. And fortunately, philosophers 100 years ago and
+
+07:58.960 --> 08:10.240
+ even earlier developed a kind of formal language like English. It's called predicate logic or first
+
+08:10.240 --> 08:16.480
+ order logic or something like predicate calculus and so on. So there's a way of representing things
+
+08:17.280 --> 08:25.760
+ in this formal language which enables a mechanical procedure to sort of grind through
+
+08:26.480 --> 08:34.000
+ and algorithmically produce all of the same logical entailments, all the same logical conclusions
+
+08:34.000 --> 08:40.080
+ that you or I would from that same set of pieces of information that are represented that way.
+
+08:41.360 --> 08:48.560
+ So that sort of raises a couple questions. One is, how do you get all this information
+
+08:48.560 --> 08:54.880
+ from say observations and English and so on into this logical form? And secondly,
+
+08:54.880 --> 09:01.120
+ how can you then efficiently run these algorithms to actually get the information you need?
+
+09:01.120 --> 09:08.480
+ In the case I mentioned in a 10th of a second rather than say in 10 hours or 10,000 years
+
+09:08.480 --> 09:15.600
+ of computation. And those are both really important questions. And like a corollary
+
+09:15.600 --> 09:22.400
+ addition to the first one is, how many such things do you need to gather for it to be useful
+
+09:22.400 --> 09:28.640
+ in certain contexts? So like what, in order, you mentioned philosophers, in order to capture this
+
+09:28.640 --> 09:36.400
+ world and represent it in a logical way and with a form of logic, like how many statements are
+
+09:36.400 --> 09:43.600
+ required? Is it five? Is it 10? Is it 10 trillion? Is it like that? That's as far as I understand is
+
+09:43.600 --> 09:50.320
+ probably still an open question. It may forever be an open question just to say like definitively
+
+09:50.320 --> 09:54.800
+ about, to describe the universe perfectly. How many facts do you need?
+
+09:54.800 --> 10:00.160
+ I guess I'm going to disappoint you by giving you an actual answer to your question.
+
+10:00.160 --> 10:02.720
+ Okay. Well, no, this sounds exciting.
+
+10:03.280 --> 10:09.600
+ Yes. Okay. So now we have like three things to talk about.
+
+10:09.600 --> 10:10.560
+ We'll keep adding more.
+
+10:10.560 --> 10:16.000
+ Although it's okay. The first and the third are related. So let's leave the efficiency
+
+10:16.000 --> 10:24.480
+ question aside for now. So how does all this information get represented in logical form?
+
+10:24.480 --> 10:30.880
+ So that these algorithms, resolution theorem proving and other algorithms can actually grind
+
+10:30.880 --> 10:37.040
+ through all the logical consequences of what you said. And that ties into your question about how
+
+10:37.040 --> 10:43.760
+ many of these things do you need? Because if the answer is small enough, then by hand, you could
+
+10:43.760 --> 10:56.880
+ write them out one at a time. So in the early 1984, I held a meeting at Stanford where I was a
+
+10:57.920 --> 11:05.280
+ faculty member there, where we assembled about half a dozen of the smartest people I know.
+
+11:05.280 --> 11:15.040
+ People like Alan Newell and Marvin Minsky and Alan Kay and a few others.
+
+11:15.040 --> 11:19.120
+ Was Feynman there by chance? Because he commented about your system,
+
+11:19.120 --> 11:20.480
+ Eurisco, at the time.
+
+11:20.480 --> 11:22.560
+ No, he wasn't part of this meeting.
+
+11:23.440 --> 11:25.120
+ That's a heck of a meeting anyway.
+
+11:25.120 --> 11:32.640
+ I think Ed Feigenbaum was there. I think Josh Lederberg was there. So we have all these different
+
+11:32.640 --> 11:41.200
+ smart people. And we came together to address the question that you raised, which is, if it's
+
+11:41.200 --> 11:46.640
+ important to represent common sense knowledge and world knowledge in order for AIs to not be
+
+11:46.640 --> 11:53.040
+ brittle, in order for AIs not to just have the veneer of intelligence, well, how many pieces
+
+11:53.840 --> 11:59.520
+ of common sense, how many if then rules, for instance, would we have to actually write in
+
+11:59.520 --> 12:06.160
+ order to essentially cover what people expect perfect strangers to already know about the world?
+
+12:07.120 --> 12:14.960
+ And I expected there would be an enormous divergence of opinion and computation. But
+
+12:14.960 --> 12:23.280
+ amazingly, everyone got an answer which was around a million. And one person got the answer
+
+12:23.280 --> 12:30.800
+ by saying, well, look, you can only burn into human long term memory a certain number of things
+
+12:30.800 --> 12:36.080
+ per unit time, like maybe one every 30 seconds or something. And other than that, it's just short
+
+12:36.080 --> 12:41.920
+ term memory and it flows away like water and so on. So by the time you're, say, 10 years old or so,
+
+12:42.480 --> 12:47.120
+ how many things could you possibly have burned into your long term memory? And it's like about
+
+12:47.120 --> 12:52.560
+ a million. Another person went in a completely different direction and said, well, if you look
+
+12:52.560 --> 13:00.800
+ at the number of words in a dictionary, not a whole dictionary, but for someone to essentially
+
+13:00.800 --> 13:05.520
+ be considered to be fluent in a language, how many words would they need to know? And then
+
+13:05.520 --> 13:10.800
+ about how many things about each word would you have to tell it? And so they got to a million
+
+13:10.800 --> 13:20.400
+ that way. Another person said, well, let's actually look at one single short, one volume
+
+13:20.400 --> 13:27.840
+ desk encyclopedia article. And so we'll look at what was like a four paragraph article or
+
+13:27.840 --> 13:34.240
+ something. I think about grebes. Grebes are a type of waterfowl. And if we were going to sit there
+
+13:34.240 --> 13:41.360
+ and represent every single thing that was there, how many assertions or rules or statements would
+
+13:41.360 --> 13:46.400
+ we have to write in this logical language and so on and then multiply that by all of the number of
+
+13:46.400 --> 13:52.400
+ articles that there were and so on. So all of these estimates came out with a million. And so
+
+13:53.040 --> 14:00.160
+ if you do the math, it turns out that like, oh, well, then maybe in something like 100
+
+14:01.360 --> 14:09.360
+ person years in one or two person centuries, we could actually get this written down by hand.
+
+14:09.360 --> 14:19.360
+ And a marvelous coincidence, an opportunity existed right at that point in time, the early 1980s.
+
+14:19.360 --> 14:25.440
+ There was something called the Japanese fifth generation computing effort. Japan had threatened
+
+14:25.440 --> 14:32.000
+ to do in computing and AI and hardware what they had just finished doing in consumer electronics
+
+14:32.000 --> 14:36.880
+ and the automotive industry, namely resting control away from the United States and more
+
+14:36.880 --> 14:44.320
+ generally away from the West. And so America was scared and Congress did something. That's how you
+
+14:44.320 --> 14:48.880
+ know it was a long time ago because Congress did something. Congress passed something called the
+
+14:48.880 --> 14:55.280
+ National Cooperative Research Act, NCRA. And what it said was, hey, all you big American companies,
+
+14:55.280 --> 14:59.600
+ that's also how you know it was a long time ago because they were American companies rather than
+
+14:59.600 --> 15:05.600
+ multinational companies. Hey, all you big American companies, normally it would be an antitrust
+
+15:05.600 --> 15:13.440
+ violation if you colluded on R&D, but we promise for the next 10 years, we won't prosecute any of
+
+15:13.440 --> 15:20.880
+ you if you do that to help combat this threat. And so overnight, the first two consortia,
+
+15:20.880 --> 15:27.920
+ research consortia in America sprang up, both of them coincidentally in Austin, Texas. One called
+
+15:27.920 --> 15:34.400
+ Semitech focusing on hardware chips and so on, and then one called MCC, the Microelectronics
+
+15:34.400 --> 15:41.200
+ and Computer Technology Corporation, focusing more on software, on databases and AI and natural
+
+15:41.200 --> 15:48.400
+ language understanding and things like that. And I got the opportunity, thanks to my friend Woody
+
+15:48.400 --> 15:54.880
+ Bledsoe, who was one of the people who founded that, to come and be its principal scientist.
+
+15:54.880 --> 16:03.120
+ And he sent Admiral Bob Inman, who was the person running MCC, came and talked to me and said,
+
+16:03.120 --> 16:06.720
+ look, professor, you're talking about doing this project, it's going to involve
+
+16:08.160 --> 16:13.360
+ centuries of effort. You've only got a handful of graduate students, you do the math, it's going to
+
+16:13.360 --> 16:20.160
+ take you longer than the rest of your life to finish this project. But if you move to the wilds
+
+16:20.160 --> 16:27.200
+ of Austin, Texas, we'll put 10 times as many people on it and you'll be done in a few years.
+
+16:27.200 --> 16:33.440
+ And so that was pretty exciting. And so I did that. I took my leave from Stanford, I came to
+
+16:34.080 --> 16:40.480
+ Austin, I worked for MCC. And the good news and bad news, the bad news is that all of us were
+
+16:40.480 --> 16:46.000
+ off by an order of magnitude. That it turns out what you need are tens of millions of these
+
+16:47.200 --> 16:53.360
+ pieces of knowledge about every day, sort of like if you have a coffee cup with stuff in it and you
+
+16:53.360 --> 16:58.400
+ turn it upside down, the stuff in it's going to fall out. So you need tens of millions of pieces
+
+16:58.400 --> 17:04.400
+ of knowledge like that, even if you take trouble to make each one as general as it possibly could
+
+17:04.400 --> 17:15.280
+ be. But the good news was that thanks to initially the fifth generation effort and then later US
+
+17:15.280 --> 17:22.400
+ government agency funding and so on, we were able to get enough funding, not for a couple person
+
+17:22.400 --> 17:27.680
+ centuries of time, but for a couple person millennia of time, which is what we've spent
+
+17:27.680 --> 17:34.960
+ since 1984, getting Psych to contain the tens of millions of rules that it needs in order to really
+
+17:34.960 --> 17:42.560
+ capture and span not all of human knowledge, but the things that you assume other people know,
+
+17:42.560 --> 17:50.800
+ the things you count on other people knowing. And so by now we've done that. And the good news is
+
+17:50.800 --> 17:59.440
+ since you've waited 38 years just about to talk to me, we're about at the end of that process.
+
+17:59.440 --> 18:03.520
+ So most of what we're doing now is not putting in even what you would consider common sense,
+
+18:03.520 --> 18:13.120
+ but more putting in domain specific application specific knowledge about health care in a certain
+
+18:13.120 --> 18:22.400
+ hospital or about oil pipes getting clogged up or whatever the applications happen to be. So
+
+18:22.400 --> 18:27.360
+ we've almost come full circle and we're doing things very much like the expert systems of the
+
+18:27.360 --> 18:33.680
+ 1970s and the 1980s, except instead of resting on nothing and being brittle, they're now resting on
+
+18:33.680 --> 18:40.000
+ this massive pyramid, if you will, this massive lattice of common sense knowledge so that when
+
+18:40.000 --> 18:45.280
+ things go wrong, when something unexpected happens, they can fall back on more and more and more
+
+18:45.280 --> 18:51.680
+ general principles, eventually bottoming out in things like, for instance, if we have a problem
+
+18:51.680 --> 18:57.360
+ with the microphone, one of the things you'll do is unplug it, plug it in again and hope for the
+
+18:57.360 --> 19:01.360
+ best, right? Because that's one of the general pieces of knowledge you have in dealing with
+
+19:01.360 --> 19:06.640
+ electronic equipment or software systems or things like that. Is there a basic principle
+
+19:06.640 --> 19:13.440
+ like that? Is it possible to encode something that generally captures this idea of turn it off and
+
+19:13.440 --> 19:19.520
+ turn it back on and see if it fixes? Oh, absolutely. That's one of the things that Psych knows.
+
+19:19.520 --> 19:23.360
+ That's actually one of the fundamental laws of nature, I believe.
+
+19:25.040 --> 19:28.320
+ I wouldn't call it a law. It's more like a...
+
+19:29.360 --> 19:34.160
+ It seems to work every time. So it sure looks like a law. I don't know.
+
+19:34.160 --> 19:41.920
+ So that basically covered the resources needed. And then we had to devise a method to actually
+
+19:41.920 --> 19:47.120
+ figure out, well, what are the tens of millions of things that we need to tell the system?
+
+19:47.120 --> 19:54.560
+ And for that, we found a few techniques which worked really well. One is to take any piece
+
+19:54.560 --> 19:59.920
+ of text almost, it could be an advertisement, it could be a transcript, it could be a novel,
+
+19:59.920 --> 20:07.200
+ it could be an article. And don't pay attention to the actual type that's there, the black space
+
+20:07.200 --> 20:12.800
+ on the white page. Pay attention to the complement of that, the white space, if you will. So what did
+
+20:12.800 --> 20:18.400
+ the writer of this sentence assume that the reader already knew about the world? For instance,
+
+20:18.400 --> 20:26.720
+ if they used a pronoun, why did they think that you would be able to understand what the intended
+
+20:26.720 --> 20:31.520
+ referent of that pronoun was? If they used an ambiguous word, how did they think that you
+
+20:31.520 --> 20:38.400
+ would be able to figure out what they meant by that word? The other thing we look at is the gap
+
+20:38.400 --> 20:43.200
+ between one sentence and the next one. What are all the things that the writer expected you to
+
+20:43.200 --> 20:47.840
+ fill in and infer occurred between the end of one sentence and the beginning of the other?
+
+20:47.840 --> 20:56.880
+ So if the sentence says, Fred Smith robbed the Third National Bank, period, he was sentenced to
+
+20:56.880 --> 21:02.240
+ 20 years in prison, period. Well, between the first sentence and the second, you're expected
+
+21:02.240 --> 21:09.200
+ to infer things like Fred got caught, Fred got arrested, Fred went to jail, Fred had a trial,
+
+21:09.200 --> 21:14.320
+ Fred was found guilty, and so on. If my next sentence starts out with something like,
+
+21:14.320 --> 21:19.600
+ the judge, dot, dot, dot, then you assume it's the judge at his trial. If my next sentence starts out
+
+21:19.600 --> 21:24.400
+ something like, the arresting officer, dot, dot, dot, you assume that it was the police officer
+
+21:24.400 --> 21:30.480
+ who arrested him after he committed the crime and so on. So those are two techniques for getting
+
+21:31.680 --> 21:41.040
+ that knowledge. The other thing we sometimes look at is fake news or humorous onion headlines or
+
+21:41.040 --> 21:46.720
+ headlines in the Weekly World News, if you know what that is, or the National Enquirer, where it's
+
+21:46.720 --> 21:51.600
+ like, oh, we don't believe this, then we introspect on why don't we believe it. So there are things
+
+21:51.600 --> 21:59.520
+ like, B17 lands on the moon. It's like, what do we know about the world that causes us to believe
+
+21:59.520 --> 22:05.760
+ that that's just silly or something like that? Or another thing we look for are contradictions,
+
+22:05.760 --> 22:13.360
+ contradictions, things which can't both be true. And we say, what is it that we know that causes
+
+22:13.360 --> 22:19.120
+ us to know that both of these can't be true at the same time? For instance, in one of the Weekly
+
+22:19.120 --> 22:26.640
+ World News editions, in one article, it talked about how Elvis was cited, even though he was
+
+22:27.200 --> 22:32.960
+ getting on in years and so on. And another article in the same one talked about people seeing Elvis's
+
+22:32.960 --> 22:39.840
+ ghost. So it's like, why do we believe that at least one of these articles must be wrong and so
+
+22:39.840 --> 22:46.640
+ on? So we have a series of techniques like that that enable our people. And by now, we have about
+
+22:46.640 --> 22:52.160
+ 50 people working full time on this and have for decades. So we've put in the thousands of person
+
+22:52.160 --> 22:59.120
+ years of effort. We've built up these tens of millions of rules. We constantly police the system
+
+22:59.120 --> 23:07.200
+ to make sure that we're saying things as generally as we possibly can. So you don't want to say things
+
+23:07.200 --> 23:14.320
+ like, no mouse is also a moose. Because if you said things like that, then you'd have to add
+
+23:14.320 --> 23:20.560
+ another one or two or three zeros onto the number of assertions you'd actually have to have. So
+
+23:21.200 --> 23:25.120
+ at some point, we generalize things more and more and we get to a point where we say, oh,
+
+23:25.120 --> 23:31.840
+ yeah, for any two biological taxons, if we don't know explicitly that one is a generalization of
+
+23:31.840 --> 23:37.280
+ another, then almost certainly they're disjoint. A member of one is not going to be a member of the
+
+23:37.280 --> 23:41.840
+ other and so on. And the same thing with the Elvis and the ghost. It has nothing to do with Elvis.
+
+23:41.840 --> 23:48.080
+ It's more about human nature and the mortality and that kind of stuff. In general, things are
+
+23:48.080 --> 23:55.440
+ not both alive and dead at the same time. Yeah. Unless special cats in theoretical physics examples.
+
+23:55.440 --> 24:00.720
+ Well, that raises a couple important points. Well, that's the onion headline situation type of
+
+24:00.720 --> 24:04.880
+ thing. Okay, sorry. But no, no. So what you bring up is this really important point of like, well,
+
+24:04.880 --> 24:12.960
+ how do you handle exceptions and inconsistencies and so on? And one of the hardest lessons for us
+
+24:12.960 --> 24:21.200
+ to learn, it took us about five years to really grit our teeth and learn to love it, is we had to
+
+24:21.200 --> 24:27.840
+ give up global consistency. So the knowledge base can no longer be consistent. So this is a kind of
+
+24:27.840 --> 24:33.040
+ scary thought. I grew up watching Star Trek and anytime a computer was inconsistent, it would
+
+24:33.040 --> 24:39.440
+ either freeze up or explode or take over the world or something bad would happen. Or if you come from
+
+24:39.440 --> 24:44.960
+ a mathematics background, once you can prove false, you can prove anything. So that's not good.
+
+24:45.760 --> 24:52.720
+ And so on. So that's why the old knowledge based systems were all very, very consistent.
+
+24:52.720 --> 24:58.880
+ But the trouble is that by and large, our models of the world, the way we talk about the world and
+
+24:58.880 --> 25:04.720
+ so on, there are all sorts of inconsistencies that creep in here and there that will sort of
+
+25:04.720 --> 25:10.160
+ kill some attempt to build some enormous globally consistent knowledge base. And so what we had to
+
+25:10.160 --> 25:17.440
+ move to was a system of local consistency. So a good analogy is you know that the surface of the
+
+25:17.440 --> 25:26.000
+ earth is more or less spherical globally, but you live your life every day as though the surface of
+
+25:26.000 --> 25:30.400
+ the earth were flat. When you're talking to someone in Australia, you don't think of them
+
+25:30.400 --> 25:35.680
+ as being oriented upside down to you. When you're planning a trip, even if it's a thousand miles
+
+25:35.680 --> 25:40.560
+ away, you may think a little bit about time zones, but you rarely think about the curvature of the
+
+25:40.560 --> 25:46.000
+ earth and so on. And for most purposes, you can live your whole life without really worrying about
+
+25:46.000 --> 25:53.040
+ that because the earth is locally flat. In much the same way, the psych knowledge base is divided
+
+25:53.040 --> 25:59.600
+ up into almost like tectonic plates, which are individual contexts. And each context is more
+
+25:59.600 --> 26:05.760
+ or less consistent, but there can be small inconsistencies at the boundary between one
+
+26:05.760 --> 26:12.000
+ context and the next one and so on. And so by the time you move say 20 contexts over,
+
+26:12.000 --> 26:17.680
+ there could be glaring inconsistencies. So eventually you get from the normal modern
+
+26:17.680 --> 26:24.720
+ real world context that we're in right now to something like roadrunner cartoon context where
+
+26:24.720 --> 26:29.520
+ physics is very different. And in fact, life and death are very different because no matter how
+
+26:29.520 --> 26:37.280
+ many times he's killed, the coyote comes back in the next scene and so on. So that was a hard
+
+26:37.280 --> 26:43.040
+ lesson to learn. And we had to make sure that our representation language, the way that we actually
+
+26:43.040 --> 26:47.200
+ encode the knowledge and represent it, was expressive enough that we could talk about
+
+26:47.200 --> 26:52.640
+ things being true in one context and false in another, things that are true at one time and
+
+26:52.640 --> 26:57.840
+ false in another, things that are true, let's say, in one region, like one country, but false
+
+26:57.840 --> 27:03.280
+ in another, things that are true in one person's belief system, but false in another person's
+
+27:03.280 --> 27:08.000
+ belief system, things that are true at one level of abstraction and false at another.
+
+27:08.000 --> 27:12.560
+ For instance, at one level of abstraction, you think of this table as a solid object,
+
+27:12.560 --> 27:16.640
+ but down at the atomic level, it's mostly empty space and so on.
+
+27:16.640 --> 27:23.200
+ So then that's fascinating, but it puts a lot of pressure on context to do a lot of work.
+
+27:23.200 --> 27:28.800
+ So you say tectonic plates, is it possible to formulate contexts that are general and big
+
+27:29.440 --> 27:36.000
+ that do this kind of capture of knowledge bases? Or do you then get turtles on top of turtles,
+
+27:36.000 --> 27:39.200
+ again, where there's just a huge number of contexts?
+
+27:39.200 --> 27:44.160
+ So it's good you asked that question because you're pointed in the right direction, which is
+
+27:44.160 --> 27:50.800
+ you want context to be first class objects in your system's knowledge base, in particular,
+
+27:50.800 --> 27:56.800
+ in psych's knowledge base. And by first class object, I mean that we should be able to have
+
+27:56.800 --> 28:02.720
+ psych think about and talk about and reason about one context or another context the same way it
+
+28:02.720 --> 28:11.040
+ reasons about coffee cups and tables and people and fishing and so on. And so contexts are just
+
+28:11.040 --> 28:17.680
+ terms in its language, just like the ones I mentioned. And so psych can reason about context,
+
+28:17.680 --> 28:24.800
+ context can arrange hierarchically and so on. And so you can say things about, let's say,
+
+28:25.760 --> 28:32.320
+ things that are true in the modern era, things that are true in a particular year would then be
+
+28:32.320 --> 28:39.280
+ a subcontext of the things that are true in a broader, let's say, a century or a millennium
+
+28:39.280 --> 28:44.320
+ or something like that. Things that are true in Austin, Texas are generally going to be a
+
+28:44.320 --> 28:50.640
+ specialization of things that are true in Texas, which is going to be a specialization of things
+
+28:50.640 --> 28:56.240
+ that are true in the United States and so on. And so you don't have to say things over and over
+
+28:56.240 --> 29:02.480
+ again at all these levels. You just say things at the most general level that it applies to,
+
+29:02.480 --> 29:07.440
+ and you only have to say it once, and then it essentially inherits to all these more specific
+
+29:07.440 --> 29:15.360
+ contexts. To ask a slightly technical question, is this inheritance a tree or a graph?
+
+29:15.360 --> 29:20.400
+ Oh, you definitely have to think of it as a graph. So we could talk about, for instance,
+
+29:20.400 --> 29:25.120
+ why the Japanese fifth generation computing effort failed. There were about half a dozen
+
+29:25.120 --> 29:30.320
+ different reasons. One of the reasons they failed was because they tried to represent
+
+29:30.320 --> 29:38.080
+ knowledge as a tree rather than as a graph. And so each node in their representation
+
+29:39.280 --> 29:46.160
+ could only have one parent node. So if you had a table that was a wooden object, a black object,
+
+29:46.160 --> 29:51.920
+ a flat object, and so on, you have to choose one, and that's the only parent it could have.
+
+29:52.560 --> 29:57.520
+ When, of course, depending on what it is you need to reason about it, sometimes it's important
+
+29:57.520 --> 30:02.000
+ to know that it's made out of wood, like if we're talking about a fire. Sometimes it's important to
+
+30:02.000 --> 30:09.680
+ know that it's flat if we're talking about resting something on it, and so on. So one of the problems
+
+30:09.680 --> 30:15.280
+ was that they wanted a kind of Dewey decimal numbering system for all of their concepts,
+
+30:15.280 --> 30:21.600
+ which meant that each node could only have at most 10 children, and each node could only have
+
+30:21.600 --> 30:30.800
+ one parent. And while that does enable the Dewey decimal type numbering of concepts, labeling of
+
+30:30.800 --> 30:37.760
+ concepts, it prevents you from representing all the things you need to about objects in our world.
+
+30:37.760 --> 30:42.720
+ And that was one of the things which they never were able to overcome, and I think that was one
+
+30:42.720 --> 30:47.120
+ of the main reasons that that project failed. So we'll return to some of the doors you've
+
+30:47.120 --> 30:53.440
+ opened, but if we can go back to that room in 1984 around there with Marvin Minsky and Stanford.
+
+30:53.440 --> 30:59.520
+ By the way, I should mention that Marvin wouldn't do his estimate until someone brought him an
+
+30:59.520 --> 31:05.280
+ envelope so that he could literally do a back of the envelope calculation to come up with his number.
+
+31:07.280 --> 31:13.680
+ Well, because I feel like the conversation in that room is an important one. You know,
+
+31:13.680 --> 31:19.040
+ this is how sometimes science is done in this way. A few people get together
+
+31:19.040 --> 31:23.040
+ and plant the seed of ideas, and they reverberate throughout history.
+
+31:23.040 --> 31:29.040
+ And some kind of dissipate and disappear, and some, you know, Drake equation, and, you know,
+
+31:29.040 --> 31:33.920
+ they, you know, seems like a meaningless equation, somewhat meaningless, but I think it drives and
+
+31:33.920 --> 31:39.360
+ motivates a lot of scientists. And when the aliens finally show up, that equation will get even more
+
+31:39.360 --> 31:44.240
+ valuable because then we'll get, be able to, in the long arc of history, the Drake equation
+
+31:45.760 --> 31:53.360
+ will prove to be quite useful, I think. And in that same way, a conversation of just how many facts
+
+31:53.920 --> 31:57.760
+ are required to capture the basic common sense knowledge of the world. That's a fascinating
+
+31:57.760 --> 32:02.960
+ question. I want to distinguish between what you think of as facts and the kind of things that we
+
+32:02.960 --> 32:10.960
+ represent. So we map to and essentially make sure that psych has the ability to, as it were, read
+
+32:10.960 --> 32:18.960
+ and access the kind of facts you might find, say, in Wikidata or stated in a Wikipedia article or
+
+32:18.960 --> 32:23.280
+ something like that. So what we're representing, the things that we need a small number of tens
+
+32:23.280 --> 32:29.440
+ of millions of, are more like rules of thumb, rules of good guessing, things which are usually
+
+32:29.440 --> 32:37.840
+ true and which help you to make sense of the facts that are sort of sitting off in some database or
+
+32:37.840 --> 32:43.680
+ some other more static storage. So they're almost like platonic forms. So like when you read stuff
+
+32:43.680 --> 32:48.640
+ on Wikipedia, that's going to be like projections of those ideas. You read an article about the fact
+
+32:48.640 --> 32:56.640
+ that Elvis died, that's a projection of the idea that humans are mortal. And very few
+
+32:56.640 --> 33:01.920
+ Wikipedia articles will write, humans are mortal. Exactly. That's what I meant about
+
+33:01.920 --> 33:07.440
+ ferreting out the unstated things in text. What are all the things that were assumed? And so those
+
+33:07.440 --> 33:13.280
+ are things like if you have a problem with something, turning it off and on often fixes
+
+33:13.280 --> 33:18.080
+ it for reasons we don't really understand and we're not happy about. Or people can't be both
+
+33:18.080 --> 33:25.440
+ alive and dead at the same time. Or water flows downhill. If you search online for water flowing
+
+33:25.440 --> 33:29.840
+ uphill and water flowing downhill, you'll find more references for water flowing uphill because
+
+33:29.840 --> 33:36.640
+ it's used as a kind of a metaphorical reference for some unlikely thing because of course,
+
+33:36.640 --> 33:41.680
+ everyone already knows that water flows downhill. So why would anyone bother saying that?
+
+33:41.680 --> 33:46.800
+ Do you have a word you prefer? Because we said facts isn't the right word. Is there a word like
+
+33:46.800 --> 33:53.280
+ concepts? I would say assertions. Assertions or rules? Because I'm not talking about rigid rules,
+
+33:53.280 --> 33:59.760
+ but rules of thumb. But assertions is a nice one that covers all of these things.
+
+33:59.760 --> 34:06.240
+ Yeah. As a programmer, to me, assert has a very dogmatic authoritarian feel to them.
+
+34:06.240 --> 34:06.800
+ Oh, I'm sorry.
+
+34:08.240 --> 34:13.280
+ I'm so sorry. Okay. But assertions works. Okay. So if we go back to that room with
+
+34:13.280 --> 34:22.160
+ Marvin Minsky with you, all these seminal figures, Ed Fagamon, thinking about this very
+
+34:22.160 --> 34:29.600
+ philosophical, but also engineering question. We can also go back a couple of decades before then
+
+34:29.600 --> 34:33.600
+ and thinking about artificial intelligence broadly when people were thinking about,
+
+34:34.160 --> 34:40.560
+ you know, how do you create super intelligent systems, general intelligence. And I think
+
+34:40.560 --> 34:48.240
+ people's intuition was off at the time. And I mean, this continues to be the case that we're not,
+
+34:48.240 --> 34:53.040
+ when we're grappling with these exceptionally difficult ideas, we're not always, it's very
+
+34:53.040 --> 35:00.640
+ difficult to truly understand ourselves when we're thinking about the human mind to introspect how
+
+35:00.640 --> 35:05.840
+ difficult it is to engineer intelligence, to solve intelligence. We're not very good at estimating
+
+35:05.840 --> 35:11.600
+ that. And you are somebody who has really stayed with this question for decades.
+
+35:11.600 --> 35:22.240
+ What's your sense from the 1984 to today? Have you gotten a stronger sense of just how much
+
+35:22.240 --> 35:27.680
+ knowledge is required? You've kind of said with some level of certainty that it's still on the
+
+35:27.680 --> 35:32.560
+ order of magnitude of tens of millions. Right. For the first several years, I would have said that
+
+35:32.560 --> 35:40.720
+ it was on the order of one or two million. And so it took us about five or six years to realize
+
+35:40.720 --> 35:47.440
+ that we were off by a factor of 10. But I guess what I'm asking, you know, Marvin Misk is very
+
+35:47.440 --> 35:58.640
+ confident in the 60s. Yes. Right. What's your sense if you, you know, 200 years from now,
+
+35:59.440 --> 36:05.280
+ you're still, you know, you're not going to be any longer in this particular biological body,
+
+36:05.280 --> 36:11.520
+ but your brain will still be in the digital form and you'll be looking back. Would you think you
+
+36:11.520 --> 36:18.320
+ were smart today? Like your intuition was right? Or do you think you may be really off?
+
+36:19.120 --> 36:27.680
+ So I think I'm right enough. And let me explain what I mean by that, which is sometimes like if
+
+36:27.680 --> 36:34.000
+ you have an old fashioned pump, you have to prime the pump and then eventually it starts. So I think
+
+36:34.000 --> 36:41.200
+ I'm right enough in the sense that what we've built, even if it isn't, so to speak, everything
+
+36:41.200 --> 36:51.120
+ you need, it's primed the knowledge pump enough that psych can now itself help to learn more and
+
+36:51.120 --> 36:56.560
+ more automatically on its own by reading things and understanding and occasionally asking questions
+
+36:56.560 --> 37:02.240
+ like a student would or something and by doing experiments and discovering things on its own
+
+37:02.240 --> 37:09.040
+ and so on. So through a combination of psych powered discovery and psych powered reading,
+
+37:09.760 --> 37:15.360
+ it will be able to bootstrap itself. Maybe it's the final 2%, maybe it's the final 99%.
+
+37:16.240 --> 37:24.000
+ So even if I'm wrong, all I really need to build is a system which has primed the pump enough
+
+37:24.000 --> 37:31.200
+ that it can begin that cascade upward, that self reinforcing sort of quadratically,
+
+37:31.200 --> 37:39.200
+ or maybe even exponentially increasing path upward that we get from, for instance, talking with each
+
+37:39.200 --> 37:45.760
+ other. That's why humans today know so much more than humans 100,000 years ago. We're not really
+
+37:45.760 --> 37:50.720
+ that much smarter than people were 100,000 years ago, but there's so much more knowledge and we
+
+37:50.720 --> 37:56.560
+ have language and we can communicate, we can check things on Google and so on. So effectively,
+
+37:56.560 --> 38:02.560
+ we have this enormous power at our fingertips and there's almost no limit to how much you could
+
+38:02.560 --> 38:07.200
+ learn if you wanted to because you've already gotten to a certain level of understanding of
+
+38:07.200 --> 38:12.240
+ the world that enables you to read all these articles and understand them, that enables you
+
+38:12.240 --> 38:17.360
+ to go out and if necessary, do experiments although that's slower as a way of gathering data
+
+38:18.160 --> 38:24.160
+ and so on. And I think this is really an important point, which is if we have artificial
+
+38:24.160 --> 38:28.880
+ intelligence, real general artificial intelligence, human level artificial intelligence,
+
+38:29.440 --> 38:37.600
+ then people will become smarter. It's not so much that it'll be us versus the AIs, it's more like
+
+38:37.600 --> 38:43.920
+ us and the AIs together. We'll be able to do things that require more creativity, that would
+
+38:43.920 --> 38:48.640
+ take too long right now, but we'll be able to do lots of things in parallel. We'll be able to
+
+38:48.640 --> 38:56.640
+ misunderstand each other less. There's all sorts of value that effectively for an individual would
+
+38:56.640 --> 39:02.960
+ mean that individual will for all intents and purposes be smarter and that means that humanity
+
+39:02.960 --> 39:09.680
+ as a species will be smarter. And when was the last time that any invention qualitatively
+
+39:10.720 --> 39:16.160
+ made a huge difference in human intelligence? You have to go back a long ways. It wasn't like the
+
+39:16.160 --> 39:21.760
+ internet or the computer or mathematics or something. It was all the way back to the
+
+39:22.400 --> 39:28.560
+ development of language. We sort of look back on prelinguistic cavemen as well.
+
+39:29.840 --> 39:35.600
+ They weren't really intelligent, were they? They weren't really human, were they? And I think that
+
+39:36.320 --> 39:42.240
+ as you said, 50, 100, 200 years from now, people will look back on people today
+
+39:42.240 --> 39:51.760
+ right before the advent of these sort of lifelong general AI uses and say,
+
+39:51.760 --> 39:55.520
+ you know, those poor people, they weren't really human, were they?
+
+39:55.520 --> 40:00.800
+ Mm hmm. Exactly. So you said a lot of really interesting things. By the way, I would maybe
+
+40:00.800 --> 40:12.960
+ try to argue that the internet is on the order of the kind of big leap in improvement that the
+
+40:12.960 --> 40:17.200
+ invention of language was. Well, it's certainly a big leap in one direction. We're not sure whether
+
+40:17.200 --> 40:22.720
+ it's upward or downward. Well, I mean very specific parts of the internet, which is access to information
+
+40:22.720 --> 40:28.240
+ like a website like Wikipedia, like ability for human beings from across the world to access
+
+40:28.240 --> 40:33.120
+ information very quickly. So I could take either side of this argument. And since you just took
+
+40:33.120 --> 40:40.880
+ one side, I'll give you the other side, which is that almost nothing has done more harm than
+
+40:40.880 --> 40:47.520
+ something like the internet and access to that information in two ways. One is it's made people
+
+40:47.520 --> 40:56.800
+ more globally ignorant in the same way that calculators made us more or less innumerate.
+
+40:56.800 --> 41:02.800
+ So when I was growing up, we had to use slide rules. We had to be able to estimate and so on.
+
+41:02.800 --> 41:08.320
+ Today, people don't really understand numbers. They don't really understand math. They don't
+
+41:08.320 --> 41:13.360
+ really estimate very well at all and so on. They don't really understand the difference
+
+41:13.360 --> 41:20.320
+ between trillions and billions and millions and so on very well because calculators do that all
+
+41:20.320 --> 41:29.920
+ for us. And thanks to things like the internet and search engines, that same kind of juvenileism
+
+41:30.560 --> 41:35.600
+ is reinforced in making people essentially be able to live their whole lives, not just without
+
+41:35.600 --> 41:40.880
+ being able to do arithmetic and estimate, but now without actually having to really know almost
+
+41:40.880 --> 41:44.880
+ anything because anytime they need to know something, they'll just go and look it up.
+
+41:44.880 --> 41:48.640
+ You're right. And I could tell you could play both sides of this and it is a double edged sword.
+
+41:48.640 --> 41:52.160
+ You can, of course, say the same thing about language. Probably people when they invented
+
+41:52.160 --> 41:58.560
+ language, they would criticize. It used to be if we're angry, we would just kill a person. And if
+
+41:58.560 --> 42:02.960
+ we're in love, we would just have sex with them. And now everybody's writing poetry and bullshit.
+
+42:04.160 --> 42:09.680
+ You should just be direct. You should have physical contact. Enough of this words and books.
+
+42:11.040 --> 42:15.040
+ You're not actually experiencing. If you read a book, you're not experiencing the thing. This
+
+42:15.040 --> 42:19.120
+ is nonsense. That's right. If you read a book about how to make butter, that's not the same
+
+42:19.120 --> 42:24.800
+ as if you had to learn it and do it yourself and so on. So let's just say that something is gained,
+
+42:24.800 --> 42:32.880
+ but something is lost every time you have these sorts of dependencies on technology.
+
+42:33.600 --> 42:41.040
+ And overall, I think that having smarter individuals and having smarter AI augmented
+
+42:41.040 --> 42:47.840
+ human species will be one of the few ways that we'll actually be able to overcome some of the
+
+42:47.840 --> 42:54.880
+ global problems we have involving poverty and starvation and global warming and overcrowding,
+
+42:54.880 --> 43:01.840
+ all the other problems that are besetting the planet. We really need to be smarter.
+
+43:01.840 --> 43:09.280
+ And there are really only two routes to being smarter. One is through biochemistry and genetics.
+
+43:09.280 --> 43:16.720
+ Genetic engineering. The other route is through having general AIs that augment our intelligence.
+
+43:17.680 --> 43:27.680
+ And hopefully one of those two ways of paths to salvation will come through before it's too late.
+
+43:27.680 --> 43:35.440
+ Yeah, so I agree with you. And obviously, as an engineer, I have a better sense and an optimism
+
+43:35.440 --> 43:39.600
+ about the technology side of things because you can control things there more. Biology is just
+
+43:39.600 --> 43:45.520
+ such a giant mess. We're living through a pandemic now. There's so many ways that nature can just be
+
+43:45.520 --> 43:51.280
+ just destructive and destructive in a way where it doesn't even notice you. It's not like a battle
+
+43:51.840 --> 43:57.440
+ of humans versus virus. It's just like, huh, okay. And then you can just wipe out an entire species.
+
+43:57.440 --> 44:07.600
+ The other problem with the internet is that it has enabled us to surround ourselves with an
+
+44:07.600 --> 44:15.520
+ echo chamber, with a bubble of like minded people, which means that you can have truly bizarre
+
+44:16.560 --> 44:23.600
+ theories, conspiracy theories, fake news, and so on, promulgate and surround yourself with people
+
+44:23.600 --> 44:29.840
+ who essentially reinforce what you want to believe or what you already believe about the world.
+
+44:30.720 --> 44:37.520
+ And in the old days, that was much harder to do when you had, say, only three TV networks,
+
+44:37.520 --> 44:42.560
+ or even before when you had no TV networks and you had to actually look at the world and make your
+
+44:42.560 --> 44:47.280
+ own reasoned decisions. I like the push and pull of our dance that we're doing because then I'll
+
+44:47.280 --> 44:52.240
+ just say in the old world, having come from the Soviet Union, because you had one or a couple of
+
+44:52.240 --> 44:56.480
+ networks, then propaganda could be much more effective. And then the government can overpower
+
+44:56.480 --> 45:03.760
+ its people by telling you the truth and then starving millions and torturing millions and
+
+45:03.760 --> 45:09.360
+ putting millions into camps and starting wars with a propaganda machine, allowing you to believe
+
+45:09.360 --> 45:14.240
+ that you're actually doing good in the world. With the internet, because of all the quote unquote
+
+45:14.240 --> 45:19.600
+ conspiracy theories, some of them are actually challenging the power centers, the very kind of
+
+45:19.600 --> 45:26.800
+ power centers that a century ago would have led to the death of millions. So there's, again, this
+
+45:26.800 --> 45:32.720
+ double edged sword. And I very much agree with you on the AI side. It's often an intuition that
+
+45:32.720 --> 45:40.640
+ people have that somehow AI will be used to maybe overpower people by certain select groups. And to
+
+45:40.640 --> 45:46.000
+ me, it's not at all obvious that that's the likely scenario. To me, the likely scenario, especially
+
+45:46.000 --> 45:51.200
+ just having observed the trajectory of technology, is it'll be used to empower people. It'll be used
+
+45:51.200 --> 45:59.360
+ to extend the capabilities of individuals across the world, because there's a lot of money to be
+
+45:59.360 --> 46:04.000
+ made that way. Improving people's lives, you can make a lot of money. I agree. I think that the
+
+46:05.600 --> 46:15.520
+ main thing that AI prostheses, AI amplifiers will do for people is make it easier, maybe even
+
+46:15.520 --> 46:22.880
+ unavoidable, for them to do good critical thinking. So pointing out logical fallacies,
+
+46:22.880 --> 46:29.760
+ logical contradictions and so on, in things that they otherwise would just blithely believe,
+
+46:31.040 --> 46:39.920
+ pointing out essentially data which they should take into consideration if they really want to
+
+46:39.920 --> 46:46.560
+ learn the truth about something and so on. So I think doing not just educating in the sense of
+
+46:47.120 --> 46:53.360
+ pouring facts into people's heads, but educating in the sense of arming people with the ability to do
+
+46:53.360 --> 47:01.360
+ good critical thinking is enormously powerful. The education system that we have in the US and
+
+47:01.360 --> 47:08.160
+ worldwide generally don't do a good job of that. But I believe that the AI...
+
+47:08.160 --> 47:14.800
+ The AIs will. The AIs will, the AIs can and will. In the same way that everyone can have their own
+
+47:15.920 --> 47:23.360
+ Alexa or Siri or Google Assistant or whatever, everyone will have this sort of cradle to grave
+
+47:24.160 --> 47:29.600
+ assistant which will get to know you, which you'll get to trust, it'll model you, you'll model it,
+
+47:30.560 --> 47:37.200
+ and it'll call to your attention things which will in some sense make your life better, easier,
+
+47:37.200 --> 47:45.600
+ less mistake ridden and so on, less regret ridden if you listen to it.
+
+47:45.600 --> 47:51.920
+ Yeah, I'm in full agreement with you about this space of technologies and I think it's super
+
+47:51.920 --> 47:57.440
+ exciting. And from my perspective, integrating emotional intelligence, so even things like
+
+47:57.440 --> 48:04.320
+ friendship and companionship and love into those kinds of systems, as opposed to helping you just
+
+48:04.320 --> 48:09.520
+ grow intellectually as a human being, allow you to grow emotionally, which is ultimately what makes
+
+48:09.520 --> 48:16.960
+ life amazing, is to sort of, you know, the old pursuit of happiness. So it's not just the pursuit
+
+48:16.960 --> 48:22.880
+ of reason, it's the pursuit of happiness too. The full spectrum. Well, let me sort of, because you
+
+48:22.880 --> 48:30.000
+ mentioned so many fascinating things, let me jump back to the idea of automated reasoning. So the
+
+48:30.000 --> 48:36.720
+ the acquisition of new knowledge has been done in this very interesting way, but primarily by humans
+
+48:37.920 --> 48:45.600
+ doing this. Just you can think of monks in their cells in medieval Europe, you know, carefully
+
+48:45.600 --> 48:51.600
+ illuminating manuscripts and so on. It's a very difficult and amazing process actually because
+
+48:51.600 --> 48:58.640
+ it allows you to truly ask the question about the in the white space, what is assumed. I think this
+
+48:58.640 --> 49:07.040
+ exercise is like very few people do this, right? They just do it subconsciously. They perform this.
+
+49:07.040 --> 49:14.720
+ By definition, right? Because those pieces of elided, of omitted information, of those missing
+
+49:14.720 --> 49:21.920
+ steps, as it were, are pieces of common sense. If you actually included all of them, it would
+
+49:21.920 --> 49:26.560
+ almost be offensive or confusing to the reader. It's like, why are they telling me all these? Of
+
+49:26.560 --> 49:34.080
+ course I know all these things. And so it's one of these things which almost by its very nature
+
+49:35.760 --> 49:42.640
+ has almost never been explicitly written down anywhere because by the time you're old enough
+
+49:42.640 --> 49:49.840
+ to talk to other people and so on, if you survived to that age, presumably you already got pieces of
+
+49:49.840 --> 49:55.600
+ common sense. Like if something causes you pain whenever you do it, probably not a good idea to
+
+49:55.600 --> 50:04.160
+ keep doing it. So what ideas do you have, given how difficult this step is, what ideas are there
+
+50:04.160 --> 50:12.720
+ for how to do it automatically without using humans or at least not doing like a large
+
+50:12.720 --> 50:18.080
+ percentage of the work for humans and then humans only do the very high level supervisory work?
+
+50:18.080 --> 50:25.920
+ So we have, in fact, two directions we're pushing on very, very heavily currently at PsychCorp. And
+
+50:25.920 --> 50:30.880
+ one involves natural language understanding and the ability to read what people have explicitly
+
+50:30.880 --> 50:40.160
+ written down and to pull knowledge in that way. But the other is to build a series of knowledge
+
+50:40.160 --> 50:49.040
+ editing tools, knowledge entry tools, knowledge capture tools, knowledge testing tools and so on.
+
+50:49.040 --> 50:55.280
+ Think of them as like user interface suite of software tools if you want, something that will
+
+50:55.280 --> 51:03.920
+ help people to more or less automatically expand and extend the system in areas where, for instance,
+
+51:03.920 --> 51:08.560
+ they want to build some app, have it do some application or something like that. So I'll give
+
+51:08.560 --> 51:14.800
+ you an example of one, which is something called abduction. So you've probably heard of like
+
+51:14.800 --> 51:25.120
+ deduction and induction and so on. But abduction is unlike those, abduction is not sound, it's just
+
+51:25.120 --> 51:33.840
+ useful. So for instance, deductively, if someone is out in the rain and they're going to get all
+
+51:33.840 --> 51:42.000
+ wet and when they enter a room, they might be all wet and so on. So that's deduction. But if someone
+
+51:42.000 --> 51:47.840
+ were to walk into the room right now and they were dripping wet, we would immediately look
+
+51:47.840 --> 51:54.160
+ outside to say, oh, did it start to rain or something like that. Now, why did we say maybe
+
+51:54.160 --> 51:59.760
+ it started to rain? That's not a sound logical inference, but it's certainly a reasonable
+
+51:59.760 --> 52:06.320
+ abductive leap to say, well, one of the most common ways that a person would have gotten
+
+52:06.320 --> 52:14.160
+ dripping wet is if they had gotten caught out in the rain or something like that. So what does that
+
+52:14.160 --> 52:18.480
+ have to do with what we were talking about? So suppose you're building one of these applications
+
+52:18.480 --> 52:24.400
+ and the system gets some answer wrong and you say, oh, yeah, the answer to this question is
+
+52:24.400 --> 52:30.400
+ this one, not the one you came up with. Then what the system can do is it can use everything it
+
+52:30.400 --> 52:34.400
+ already knows about common sense, general knowledge, the domain you've already been
+
+52:34.400 --> 52:41.760
+ telling it about, and context like we talked about and so on and say, well, here are seven
+
+52:41.760 --> 52:48.400
+ alternatives, each of which I believe is plausible, given everything I already know. And if any of
+
+52:48.400 --> 52:53.520
+ these seven things were true, I would have come up with the answer you just gave me instead of the
+
+52:53.520 --> 52:59.200
+ wrong answer I came up with. Is one of these seven things true? And then you, the expert, will look
+
+52:59.200 --> 53:04.560
+ at those seven things and say, oh, yeah, number five is actually true. And so without actually
+
+53:04.560 --> 53:11.920
+ having to tinker down at the level of logical assertions and so on, you'll be able to educate
+
+53:11.920 --> 53:16.720
+ the system in the same way that you would help educate another person who you were trying to
+
+53:16.720 --> 53:22.320
+ apprentice or something like that. So that significantly reduces the mental effort
+
+53:22.880 --> 53:28.400
+ or significantly increases the efficiency of the teacher, the human teacher. Exactly. And it makes
+
+53:28.400 --> 53:36.400
+ more or less anyone able to be a teacher in that way. So that's part of the answer. And then the
+
+53:36.400 --> 53:44.160
+ other is that the system on its own will be able to, through reading, through conversations with
+
+53:44.160 --> 53:52.560
+ other people and so on, learn the same way that you or I or other humans do. First of all, that's
+
+53:52.560 --> 53:57.600
+ a beautiful vision. I'll have to ask you about Semantic Web in a second here. But first,
+
+53:57.600 --> 54:04.000
+ are there, when we talk about specific techniques, do you find something inspiring or directly useful
+
+54:04.000 --> 54:08.960
+ from the whole space of machine learning, deep learning, these kinds of spaces of techniques that
+
+54:08.960 --> 54:15.760
+ have been shown effective for certain kinds of problems in the recent, now, decade and a half?
+
+54:15.760 --> 54:23.840
+ I think of the machine learning work as more or less what our right brain has been able to do.
+
+54:23.840 --> 54:29.680
+ I think of the machine learning work as more or less what our right brain hemispheres do. So
+
+54:30.880 --> 54:39.200
+ being able to take a bunch of data and recognize patterns, being able to statistically infer
+
+54:39.200 --> 54:47.360
+ things and so on. And I certainly wouldn't want to not have a right brain hemisphere,
+
+54:47.360 --> 54:51.680
+ but I'm also glad that I have a left brain hemisphere as well, something that can
+
+54:51.680 --> 54:57.520
+ metaphorically sit back and puff on its pipe and think about this thing over here. It's like,
+
+54:57.520 --> 55:03.520
+ why might this have been true? And what are the implications of it? How should I feel about that
+
+55:03.520 --> 55:11.120
+ and why and so on? So thinking more deeply and slowly, what Kahneman called thinking slowly
+
+55:11.120 --> 55:16.160
+ versus thinking quickly, whereas you want machine learning to think quickly, but you want the
+
+55:16.160 --> 55:22.480
+ ability to think deeply, even if it's a little slower. So I'll give you an example of a project
+
+55:22.480 --> 55:30.960
+ we did recently with NIH involving the Cleveland Clinic and a couple other institutions that we ran
+
+55:30.960 --> 55:37.200
+ a project for. And what it did was it took GWAS's genome wide association studies.
+
+55:37.200 --> 55:46.720
+ Those are big databases of patients that came into a hospital. They got their DNA sequenced
+
+55:46.720 --> 55:54.000
+ because the cost of doing that has gone from infinity to billions of dollars to $100 or so.
+
+55:54.880 --> 55:59.760
+ And so now patients routinely get their DNA sequenced. So you have these big databases
+
+55:59.760 --> 56:06.320
+ of the SNPs, the single nucleotide polymorphisms, the point mutations in a patient's DNA,
+
+56:06.320 --> 56:11.840
+ and the disease that happened to bring them into the hospital. So now you can do correlation
+
+56:11.840 --> 56:20.880
+ studies, machine learning studies of which mutations are associated with and led to which
+
+56:20.880 --> 56:27.920
+ physiological problems and diseases and so on, like getting arthritis and so on. And the problem
+
+56:27.920 --> 56:34.080
+ is that those correlations turn out to be very spurious. They turn out to be very noisy. Very
+
+56:34.080 --> 56:40.960
+ many of them have led doctors onto wild goose chases and so on. And so they wanted a way of
+
+56:40.960 --> 56:46.960
+ eliminating or the bad ones are focusing on the good ones. And so this is where psych comes in,
+
+56:46.960 --> 56:53.040
+ which is psych takes those sort of A to Z correlations between point mutations and
+
+56:53.760 --> 57:00.240
+ the medical condition that needs treatment. And we say, okay, let's use all this public knowledge
+
+57:00.240 --> 57:05.600
+ and common sense knowledge about what reactions occur where in the human body,
+
+57:06.240 --> 57:12.400
+ what polymerizes what, what catalyzes what reactions and so on. And let's try to put together
+
+57:12.400 --> 57:20.400
+ a 10 or 20 or 30 step causal explanation of why that mutation might have caused
+
+57:20.400 --> 57:25.920
+ that medical condition. And so psych would put together in some sense, some Rube Goldberg like
+
+57:25.920 --> 57:35.920
+ a chain that would say, oh yeah, that mutation if it got expressed would be this altered protein,
+
+57:35.920 --> 57:40.480
+ which because of that, if it got to this part of the body would catalyze this reaction. And by the
+
+57:40.480 --> 57:46.240
+ way, that would cause more bioactive vitamin D in the person's blood. And anyway, 10 steps later,
+
+57:46.240 --> 57:52.640
+ that screws up bone resorption and that's why this person got osteoporosis early in life and so on.
+
+57:52.640 --> 57:55.760
+ So that's human interpretable or at least docs are human interpretable.
+
+57:55.760 --> 58:04.160
+ Exactly. And the important thing even more than that is you shouldn't really trust that 20 step
+
+58:05.520 --> 58:12.160
+ Rube Goldberg chain any more than you trust that initial A to Z correlation except two things. One,
+
+58:12.160 --> 58:19.760
+ if you can't even think of one causal chain to explain this, then that correlation probably was
+
+58:19.760 --> 58:27.040
+ just noise to begin with. And secondly, and even more powerfully, along the way that causal chain
+
+58:27.040 --> 58:32.240
+ will make predictions like the one about having more bioactive vitamin D in your blood. So you
+
+58:32.240 --> 58:38.800
+ can now go back to the data about these patients and say, by the way, did they have slightly
+
+58:38.800 --> 58:44.400
+ elevated levels of bioactive vitamin D in their blood and so on? And if the answer is no, that
+
+58:44.400 --> 58:50.800
+ strongly disconfirms your whole causal chain. And if the answer is yes, that somewhat confirms
+
+58:50.800 --> 58:57.280
+ that causal chain. And so using that, we were able to take these correlations from this GWAS
+
+58:57.280 --> 59:06.400
+ database and we were able to essentially focus the researchers attention on the very small
+
+59:06.400 --> 59:12.720
+ percentage of correlations that had some explanation and even better some explanation
+
+59:12.720 --> 59:17.280
+ that also made some independent prediction that they could confirm or disconfirm by looking at
+
+59:17.280 --> 59:23.120
+ the data. So think of it like this kind of synergy where you want the right brain machine learning
+
+59:23.120 --> 59:31.360
+ to quickly come up with possible answers. You want the left brain psych like AI to think about that
+
+59:31.360 --> 59:36.320
+ and think about why that might have been the case and what else would be the case if that were true
+
+59:36.320 --> 59:43.520
+ and so on, and then suggest things back to the right brain to quickly check out again. So it's
+
+59:43.520 --> 59:49.440
+ that kind of synergy back and forth, which I think is really what's going to lead to general AI, not
+
+59:50.480 --> 59:55.520
+ narrow, brittle machine learning systems and not just something like psych.
+
+59:55.520 --> 1:00:00.640
+ Okay. So that's a brilliant synergy. But I was also thinking in terms of the automated expansion
+
+1:00:00.640 --> 1:00:07.440
+ of the knowledge base, you mentioned NLU. This is very early days in the machine learning space
+
+1:00:07.440 --> 1:00:13.200
+ of this, but self supervised learning methods, you know, you have these language models, GPT3
+
+1:00:13.200 --> 1:00:19.920
+ and so on, that just read the internet and they form representations that can then be mapped to
+
+1:00:19.920 --> 1:00:25.120
+ something useful. The question is, what is the useful thing? Like they're now playing with a
+
+1:00:25.120 --> 1:00:30.800
+ pretty cool thing called OpenAI Codex, which is generating programs from documentation. Okay,
+
+1:00:30.800 --> 1:00:35.520
+ that's kind of useful. It's cool. But my question is, can it be used to generate
+
+1:00:37.200 --> 1:00:45.360
+ in part, maybe with some human supervision, psych like assertions, help feed psych more assertions
+
+1:00:45.360 --> 1:00:51.840
+ from this giant body of internet data? Yes, that is in fact, one of our goals is
+
+1:00:51.840 --> 1:00:55.680
+ how can we harness machine learning? How can we harness natural language processing
+
+1:00:56.480 --> 1:01:02.640
+ to increasingly automate the knowledge acquisition process, the growth of psych? And that's what I
+
+1:01:02.640 --> 1:01:09.600
+ meant by priming the pump that, you know, if you sort of learn things at the fringe of what you
+
+1:01:09.600 --> 1:01:14.240
+ know already, you learn this new thing is similar to what you know already, and here are the
+
+1:01:14.240 --> 1:01:19.440
+ differences and the new things you had to learn about it and so on. So the more you know, the more
+
+1:01:19.440 --> 1:01:24.560
+ and more easily you can learn new things. But unfortunately, inversely, if you don't really
+
+1:01:24.560 --> 1:01:31.760
+ know anything, it's really hard to learn anything. And so if you're not careful, if you start out with
+
+1:01:31.760 --> 1:01:39.280
+ too small sort of a core to start this process, it never really takes off. And so that's why I
+
+1:01:39.280 --> 1:01:44.880
+ view this as a pump priming exercise to get a big enough manually produced, even though that's kind
+
+1:01:44.880 --> 1:01:51.040
+ of ugly duckling technique, put in the elbow grease to produce a large enough core that you
+
+1:01:51.040 --> 1:01:58.720
+ will be able to do all the kinds of things you're imagining without sort of ending up with the kind
+
+1:01:58.720 --> 1:02:09.920
+ of wacky brittlenesses that we see, for example, in GPT3, where you'll tell it a story about
+
+1:02:09.920 --> 1:02:23.200
+ someone plotting to poison someone and so on. And then GPT3 says, you say, what's the very next
+
+1:02:23.200 --> 1:02:27.120
+ sentence? And the next sentence is, oh yeah, that person then drank the poison they just put together.
+
+1:02:27.120 --> 1:02:36.560
+ It's like, that's probably not what happened. Or if you go to Siri and I think I have, where can
+
+1:02:36.560 --> 1:02:43.520
+ I go for help with my alcohol problem or something, it'll come back and say, I found seven liquor
+
+1:02:43.520 --> 1:02:52.560
+ stores near you and so on. So it's one of these things where, yes, it may be helpful most of the
+
+1:02:52.560 --> 1:02:59.200
+ time. It may even be correct most of the time. But if it doesn't really understand what it's saying,
+
+1:02:59.200 --> 1:03:03.360
+ and if it doesn't really understand why things are true and doesn't really understand how the
+
+1:03:03.360 --> 1:03:09.280
+ world works, then some fraction of the time it's going to be wrong. Now, if your only goal is to
+
+1:03:09.280 --> 1:03:16.560
+ sort of find relevant information like search engines do, then being right 90% of the time is
+
+1:03:16.560 --> 1:03:24.720
+ fantastic. That's unbelievably great. However, if your goal is to save the life of your child who
+
+1:03:24.720 --> 1:03:31.760
+ has some medical problem or your goal is to be able to drive for the next 10,000 hours of driving
+
+1:03:31.760 --> 1:03:39.200
+ without getting into a fatal accident and so on, then error rates down at the 10% level or even
+
+1:03:39.200 --> 1:03:46.960
+ the 1% level are not really acceptable. I like the model of where that learning happens at the edge
+
+1:03:46.960 --> 1:03:53.440
+ and then you kind of think of knowledge as this sphere. So you want a large sphere because the
+
+1:03:54.080 --> 1:04:00.240
+ learning is happening on the surface. Exactly. So what you can learn next
+
+1:04:00.240 --> 1:04:05.200
+ increases quadratically as the diameter of that sphere goes up.
+
+1:04:05.200 --> 1:04:09.840
+ It's nice because you think when you know nothing, it's like you can learn anything,
+
+1:04:09.840 --> 1:04:14.880
+ but the reality, not really. Right. If you know nothing, you can really learn nothing.
+
+1:04:15.760 --> 1:04:25.920
+ You can appear to learn. One of the anecdotes I could go back and give you about why I feel so
+
+1:04:25.920 --> 1:04:36.000
+ strongly about this personally was in 1980, 1981, my daughter Nicole was born and she's actually
+
+1:04:36.000 --> 1:04:43.520
+ doing fine now. But when she was a baby, she was diagnosed as having meningitis and doctors wanted
+
+1:04:43.520 --> 1:04:52.720
+ to do all these scary things. And my wife and I were very worried and we could not get a meaningful
+
+1:04:52.720 --> 1:04:58.720
+ answer from her doctors about exactly why they believed this, what the alternatives were,
+
+1:04:58.720 --> 1:05:05.120
+ and so on. And fortunately, a friend of mine, Ted Shortliffe, was another assistant professor
+
+1:05:05.120 --> 1:05:11.520
+ in computer science at Stanford at the time. And he'd been building a program called MISON,
+
+1:05:11.520 --> 1:05:18.160
+ which was a medical diagnosis program that happened to specialize in blood infections
+
+1:05:18.160 --> 1:05:23.120
+ like meningitis. And so, he had privileges at Stanford Hospital because he was also an MD.
+
+1:05:23.920 --> 1:05:29.680
+ And so, we got hold of her chart and we put in her case and it came up with exactly the same
+
+1:05:29.680 --> 1:05:34.640
+ diagnoses and exactly the same therapy recommendations. But the difference was,
+
+1:05:34.640 --> 1:05:39.280
+ because it was a knowledge based system, a rule based system, it was able to tell us
+
+1:05:39.280 --> 1:05:49.520
+ step by step by step why this was the diagnosis and step by step why this was the best therapy
+
+1:05:49.520 --> 1:05:56.640
+ and the best procedure to do for her and so on. And there was a real epiphany because that made
+
+1:05:56.640 --> 1:06:01.040
+ all the difference in the world. Instead of blindly having to trust an authority,
+
+1:06:01.040 --> 1:06:08.400
+ we were able to understand what was actually going on. And so, at that time, I realized that
+
+1:06:08.400 --> 1:06:13.280
+ that really is what was missing in computer programs was that even if they got things right,
+
+1:06:13.840 --> 1:06:20.160
+ because they didn't really understand the way the world works and why things are the way they are,
+
+1:06:20.160 --> 1:06:27.200
+ they weren't able to give explanations of their answer. And it's one thing to use a machine
+
+1:06:27.200 --> 1:06:33.200
+ learning system that says, I think you should get this operation and you say why and it says
+
+1:06:33.200 --> 1:06:40.720
+ 0.83 and you say no, in more detail why and it says 0.831. That's not really very compelling
+
+1:06:40.720 --> 1:06:47.120
+ and that's not really very helpful. There's this idea of the Semantic Web that when I first heard
+
+1:06:47.120 --> 1:06:51.760
+ about, I just fell in love with the idea. It was the obvious next step for the internet.
+
+1:06:51.760 --> 1:06:58.160
+ Sure. And maybe you can speak about what is the Semantic Web? What are your thoughts about it? How
+
+1:06:58.160 --> 1:07:05.120
+ your vision and mission and goals with Psych are connected, integrated? Are they dance partners? Are
+
+1:07:05.120 --> 1:07:10.240
+ they aligned? What are your thoughts there? So, think of the Semantic Web as a kind of
+
+1:07:10.240 --> 1:07:17.040
+ knowledge graph and Google already has something they call knowledge graph, for example, which is
+
+1:07:17.040 --> 1:07:25.440
+ sort of like a node and link diagram. So, you have these nodes that represent concepts or words or
+
+1:07:25.440 --> 1:07:32.960
+ terms and then there are some arcs that connect them that might be labeled. And so, you might have
+
+1:07:32.960 --> 1:07:44.960
+ a node with like one person that represents one person and let's say a husband link that then
+
+1:07:44.960 --> 1:07:50.720
+ points to that person's husband. And so, there'd be then another link that went from that person
+
+1:07:50.720 --> 1:07:59.160
+ labeled wife that went back to the first node and so on. So, having this kind of representation is
+
+1:07:59.160 --> 1:08:08.480
+ really good if you want to represent binary relations, essentially relations between two
+
+1:08:08.480 --> 1:08:20.280
+ things. So, if you have equivalent of like three word sentences, like Fred's wife is Wilma or
+
+1:08:20.280 --> 1:08:27.840
+ something like that, you can represent that very nicely using these kinds of graph structures or
+
+1:08:27.840 --> 1:08:37.960
+ using something like the Semantic Web and so on. But the problem is that very often what you want
+
+1:08:37.960 --> 1:08:46.680
+ to be able to express takes a lot more than three words and a lot more than simple graph structures
+
+1:08:46.680 --> 1:08:55.840
+ like that to represent. So, for instance, if you've read or seen Romeo and Juliet, I could
+
+1:08:55.840 --> 1:09:01.800
+ say to you something like, remember when Juliet drank the potion that put her into a kind of
+
+1:09:01.800 --> 1:09:08.360
+ suspended animation? When Juliet drank that potion, what did she think that Romeo would
+
+1:09:08.360 --> 1:09:15.560
+ think when he heard from someone that she was dead? And you could basically understand what
+
+1:09:15.560 --> 1:09:19.480
+ I'm saying. You could understand the question. You could probably remember the answer was,
+
+1:09:19.480 --> 1:09:26.040
+ well, she thought that this friar would have gotten the message to Romeo saying that she
+
+1:09:26.040 --> 1:09:33.800
+ was going to do this, but the friar didn't. So, you're able to represent and reason with these
+
+1:09:33.800 --> 1:09:41.000
+ much, much, much more complicated expressions that go way, way beyond what simple three,
+
+1:09:41.000 --> 1:09:45.920
+ as it were, three word or four word English sentences are, which is really what the Semantic
+
+1:09:45.920 --> 1:09:48.960
+ Web can represent and really what Knowledge Graphs can represent.
+
+1:09:48.960 --> 1:09:54.120
+ If you could step back for a second, because it's funny you went into specifics and maybe
+
+1:09:54.120 --> 1:10:00.880
+ you can elaborate, but I was also referring to Semantic Web as the vision of converting
+
+1:10:00.880 --> 1:10:06.920
+ data on the internet into something that's interpretable, understandable by machines.
+
+1:10:06.920 --> 1:10:09.520
+ Oh, of course, at that level.
+
+1:10:09.520 --> 1:10:14.680
+ So, I wish it'd say like, what is the Semantic Web? I mean, you could say a lot of things,
+
+1:10:14.680 --> 1:10:20.440
+ but it might not be obvious to a lot of people when they do a Google search that,
+
+1:10:20.440 --> 1:10:24.240
+ just like you said, while there might be something that's called a Knowledge Graph,
+
+1:10:24.240 --> 1:10:33.520
+ it really boils down to keyword search ranked by the quality estimate of the website,
+
+1:10:33.520 --> 1:10:40.600
+ integrating previous human based Google searches and what they thought was useful.
+
+1:10:40.600 --> 1:10:48.760
+ It's like some weird combination of surface level hacks that work exceptionally well,
+
+1:10:48.760 --> 1:10:55.360
+ but they don't understand the full contents of the websites that they're searching.
+
+1:10:55.360 --> 1:11:01.640
+ So, Google does not understand, to the degree we've been talking about the word understand,
+
+1:11:01.640 --> 1:11:08.080
+ the contents of the Wikipedia pages as part of the search process, and the Semantic Web says,
+
+1:11:08.080 --> 1:11:13.960
+ let's try to come up with a way for the computer to be able to truly understand
+
+1:11:13.960 --> 1:11:16.560
+ the contents of those pages. That's the dream.
+
+1:11:16.560 --> 1:11:24.040
+ Yes. So, let me first give you an anecdote, and then I'll answer your question. So,
+
+1:11:24.040 --> 1:11:27.320
+ there's a search engine you've probably never heard of called Northern Light,
+
+1:11:27.320 --> 1:11:35.040
+ and it went out of business, but the way it worked, it was a kind of vampiric search engine,
+
+1:11:35.040 --> 1:11:43.920
+ and what it did was it didn't index the internet at all. All it did was it negotiated and got
+
+1:11:43.920 --> 1:11:51.680
+ access to data from the big search engine companies about what query was typed in,
+
+1:11:51.680 --> 1:12:01.120
+ and where the user ended up being happy, and actually then they type in a completely different
+
+1:12:01.120 --> 1:12:08.720
+ query, unrelated query and so on. So, it just went from query to the webpage that seemed to
+
+1:12:08.720 --> 1:12:16.160
+ satisfy them eventually, and that's all. So, it had actual no understanding of what was being
+
+1:12:16.160 --> 1:12:21.200
+ typed in, it had no statistical data other than what I just mentioned, and it did a fantastic job.
+
+1:12:21.200 --> 1:12:26.000
+ It did such a good job that the big search engine company said, oh, we're not going to sell you this
+
+1:12:26.000 --> 1:12:31.400
+ data anymore. So, then it went out of business because it had no other way of taking users to
+
+1:12:31.400 --> 1:12:36.280
+ where they would want to go and so on. And of course, the search engines are now using
+
+1:12:36.280 --> 1:12:41.720
+ that kind of idea. Yes. So, let's go back to what you said about the Semantic Web. So,
+
+1:12:41.720 --> 1:12:50.520
+ the dream Tim Berners Lee and others dream about the Semantic Web at a general level is,
+
+1:12:50.520 --> 1:12:59.800
+ of course, exciting and powerful, and in a sense, the right dream to have, which is to replace the
+
+1:13:00.760 --> 1:13:14.800
+ kind of statistically mapped linkages on the internet into something that's more meaningful
+
+1:13:14.800 --> 1:13:23.280
+ and semantic and actually gets at the understanding of the content and so on. And eventually, if you
+
+1:13:23.280 --> 1:13:30.720
+ say, well, how can we do that? There's sort of a low road, which is what the knowledge graphs are
+
+1:13:30.720 --> 1:13:38.080
+ doing and so on, which is to say, well, if we just use the simple binary relations, we can actually
+
+1:13:38.080 --> 1:13:45.760
+ get some fraction of the way toward understanding and do something where in the land of the blind,
+
+1:13:45.760 --> 1:13:51.880
+ the one eyed man is king kind of thing. And so, being able to even just have a toe in the water
+
+1:13:51.880 --> 1:13:58.520
+ in the right direction is fantastically powerful. And so, that's where a lot of people stop. But
+
+1:13:58.520 --> 1:14:04.480
+ then you could say, well, what if we really wanted to represent and reason with the full
+
+1:14:04.480 --> 1:14:12.240
+ meaning of what's there? For instance, about Romeo and Juliet with the reasoning about what Juliet
+
+1:14:12.240 --> 1:14:17.560
+ believes that Romeo will believe that Juliet believed and so on. Or if you look at the news,
+
+1:14:17.560 --> 1:14:24.920
+ what President Biden believed that the leaders of the Taliban would believe about the leaders
+
+1:14:24.920 --> 1:14:34.040
+ of Afghanistan if they blah, blah, blah. So, in order to represent complicated sentences like
+
+1:14:34.040 --> 1:14:42.200
+ that, let alone reason with them, you need something which is logically much more expressive
+
+1:14:42.200 --> 1:14:48.880
+ than these simple triples, than these simple knowledge graph type structures and so on.
+
+1:14:48.880 --> 1:14:55.720
+ And that's why kicking and screaming, we were led from something like the semantic web
+
+1:14:55.720 --> 1:15:03.680
+ representation, which is where we started in 1984 with frames and slots with those kinds of triples,
+
+1:15:03.680 --> 1:15:09.920
+ triple store representation. We were led kicking and screaming to this more and more general
+
+1:15:09.920 --> 1:15:14.720
+ logical language, this higher order logic. So, first, we were led to first order logic,
+
+1:15:14.720 --> 1:15:18.560
+ and then second order, and then eventually higher order. So, you can represent things
+
+1:15:18.560 --> 1:15:24.680
+ like modals like believes, desires, intends, expects, and so on, and nested ones. You can
+
+1:15:24.680 --> 1:15:35.040
+ represent complicated kinds of negation. You can represent the process you're going through in
+
+1:15:35.040 --> 1:15:40.640
+ trying to answer the question. So, you can say things like, oh, yeah, if you're trying to do
+
+1:15:40.640 --> 1:15:48.680
+ this problem by integration by parts, and you recursively get a problem that solved by integration
+
+1:15:48.680 --> 1:15:54.040
+ by parts, that's actually okay. But if that happens a third time, you're probably off on
+
+1:15:54.040 --> 1:15:58.960
+ a wild goose chase or something like that. So, being able to talk about the problem solving
+
+1:15:58.960 --> 1:16:03.840
+ process as you're going through the problem solving process is called reflection. And so,
+
+1:16:03.840 --> 1:16:07.520
+ that's another… It's important to be able to represent that.
+
+1:16:07.520 --> 1:16:12.440
+ Exactly. You need to be able to represent all of these things because, in fact,
+
+1:16:12.440 --> 1:16:17.200
+ people do represent them. They do talk about them. They do try and teach them to other people. You do
+
+1:16:17.200 --> 1:16:22.880
+ have rules of thumb that key off of them and so on. If you can't represent it, then it's sort of
+
+1:16:22.880 --> 1:16:28.720
+ like someone with a limited vocabulary who can't understand as easily what you're trying to tell
+
+1:16:28.720 --> 1:16:35.440
+ them. And so, that's really why I think that the general dream, the original dream of Semantic Web
+
+1:16:35.440 --> 1:16:44.440
+ is exactly right on. But the implementations that we've seen are sort of these toe in the water,
+
+1:16:44.440 --> 1:16:49.280
+ little tiny baby steps in the right direction. You should just dive in.
+
+1:16:49.280 --> 1:16:56.320
+ And if no one else is diving in, then yes, taking a baby step in the right direction is
+
+1:16:56.320 --> 1:17:03.280
+ better than nothing. But it's not going to be sufficient to actually get you the realization
+
+1:17:03.280 --> 1:17:05.720
+ of the Semantic Web dream, which is what we all want.
+
+1:17:05.720 --> 1:17:11.840
+ From a flip side of that, I always wondered… I've built a bunch of websites just for fun,
+
+1:17:11.840 --> 1:17:19.880
+ whatever. Or say I'm a Wikipedia contributor. Do you think there's a set of tools that I can help
+
+1:17:19.880 --> 1:17:28.880
+ Psych interpret the website I create? Like this, again, pushing onto the Semantic Web dream,
+
+1:17:28.880 --> 1:17:34.720
+ is there something from the creator perspective that could be done? And one of the things you
+
+1:17:34.720 --> 1:17:41.240
+ said with Psych Orb and Psych that you're doing is the tooling side, making humans more powerful.
+
+1:17:41.240 --> 1:17:46.560
+ But is there the other humans on the other side that create the knowledge? Like, for example,
+
+1:17:46.560 --> 1:17:50.760
+ you and I are having a two, three, whatever hour conversation now. Is there a way that I
+
+1:17:50.760 --> 1:17:56.480
+ could convert this more, make it more accessible to Psych, to machines? Do you think about that
+
+1:17:56.480 --> 1:18:06.800
+ side of it? I'd love to see exactly that kind of semi automated understanding of what people
+
+1:18:06.800 --> 1:18:16.840
+ write and what people say. I think of it as a kind of footnoting almost. Almost like the way
+
+1:18:16.840 --> 1:18:23.080
+ that when you run something in say Microsoft Word or some other document preparation system,
+
+1:18:23.080 --> 1:18:29.560
+ Google Docs or something, you'll get underlining of questionable things that you might want to
+
+1:18:29.560 --> 1:18:34.120
+ rethink. Either you spelled this wrong or there's a strange grammatical error you might be making
+
+1:18:34.120 --> 1:18:42.280
+ here or something. So I'd like to think in terms of Psych powered tools that read through what it
+
+1:18:42.280 --> 1:18:52.680
+ is you said or have typed in and try to partially understand what you've said.
+
+1:18:52.680 --> 1:18:54.080
+ And then you help them out.
+
+1:18:54.080 --> 1:19:00.320
+ Exactly. And then they put in little footnotes that will help other readers and they put in
+
+1:19:00.320 --> 1:19:07.120
+ certain footnotes of the form, I'm not sure what you meant here. You either meant this or this or
+
+1:19:07.120 --> 1:19:15.280
+ this, I bet. If you take a few seconds to disambiguate this for me, then I'll know and I'll
+
+1:19:15.280 --> 1:19:20.640
+ have it correct for the next hundred people or the next hundred thousand people who come here.
+
+1:19:20.640 --> 1:19:32.240
+ And if it doesn't take too much effort and you want people to understand your website content,
+
+1:19:32.240 --> 1:19:38.360
+ not just be able to read it, but actually be able to have systems that reason with it,
+
+1:19:38.360 --> 1:19:46.760
+ then yes, it will be worth your small amount of time to go back and make sure that the AI trying
+
+1:19:46.760 --> 1:19:55.960
+ to understand it really did correctly understand it. And let's say you run a travel website or
+
+1:19:55.960 --> 1:20:03.400
+ something like that and people are going to be coming to it because of searches they did looking
+
+1:20:03.400 --> 1:20:12.960
+ for vacations or trips that had certain properties and might have been interesting to them for
+
+1:20:12.960 --> 1:20:20.120
+ various reasons, things like that. And if you've explained what's going to happen on your trip,
+
+1:20:20.120 --> 1:20:28.480
+ then a system will be able to mechanically reason and connect what this person is looking for with
+
+1:20:28.480 --> 1:20:36.800
+ what it is you're actually offering. And so if it understands that there's a free day in Geneva,
+
+1:20:36.800 --> 1:20:47.200
+ Switzerland, then if the person coming in happens to, let's say, be a nurse or something like that,
+
+1:20:47.200 --> 1:20:52.440
+ then even though you didn't mention it, if it can look up the fact that that's where the
+
+1:20:52.440 --> 1:20:57.920
+ International Red Cross Museum is and so on, what that means and so on, then it can basically say,
+
+1:20:57.920 --> 1:21:02.760
+ hey, you might be interested in this trip because while you have a free day in Geneva,
+
+1:21:02.760 --> 1:21:09.240
+ you might want to visit that Red Cross Museum. And now, even though it's not very deep reasoning,
+
+1:21:09.240 --> 1:21:14.480
+ little tiny factors like that may very well cause you to sign up for that trip rather than some
+
+1:21:14.480 --> 1:21:20.880
+ competitor trip. And so there's a lot of benefit with SEO. And I actually kind of think, I think
+
+1:21:20.880 --> 1:21:27.640
+ it's about a lot of things, which is the actual interface, the design of the interface makes a
+
+1:21:27.640 --> 1:21:38.200
+ huge difference. How efficient it is to be productive and also how full of joy the experience
+
+1:21:38.200 --> 1:21:45.400
+ is. I mean, I would love to help a machine and not from an AI perspective, just as a human. One
+
+1:21:45.400 --> 1:21:52.600
+ of the reasons I really enjoy how Tesla have implemented their autopilot system is there's
+
+1:21:52.600 --> 1:21:58.400
+ a sense that you're helping this machine learn. Now, I think humans, I mean, having children,
+
+1:21:58.400 --> 1:22:06.160
+ pets. People love doing that. There's joy to teaching for some people, but I think for a lot
+
+1:22:06.160 --> 1:22:11.480
+ of people. And that if you create the interface where it feels like you're teaching as opposed
+
+1:22:11.480 --> 1:22:19.880
+ to like, like, annoying, like correcting an annoying system, more like teaching a childlike,
+
+1:22:19.880 --> 1:22:26.160
+ innocent, curious system. I think you can literally just like several orders of magnitude
+
+1:22:26.160 --> 1:22:30.720
+ scale the amount of good quality data being added to something like Psych.
+
+1:22:30.720 --> 1:22:40.720
+ What you're suggesting is much better even than you thought it was. One of the experiences that
+
+1:22:40.720 --> 1:22:49.600
+ we've all had in our lives is that we thought we understood something, but then we found we really
+
+1:22:49.600 --> 1:22:54.800
+ only understood it when we had to teach it or explain it to someone or help our child do homework
+
+1:22:54.800 --> 1:23:01.840
+ based on it or something like that. Despite the universality of that kind of experience,
+
+1:23:01.840 --> 1:23:09.360
+ if you look at educational software today, almost all of it has the computer playing the role of the
+
+1:23:09.360 --> 1:23:16.800
+ teacher and the student plays the role of the student. But as I just mentioned, you can get
+
+1:23:16.800 --> 1:23:24.760
+ a lot of learning to happen better and as you said, more enjoyably if you are the mentor or the
+
+1:23:24.760 --> 1:23:30.560
+ teacher and so on. So we developed a program called MathCraft to help sixth graders better
+
+1:23:30.560 --> 1:23:40.000
+ understand math. And it doesn't actually try to teach you the player anything. What it does is it
+
+1:23:40.000 --> 1:23:49.000
+ casts you in the role of a student essentially who has classmates who are having trouble and
+
+1:23:49.000 --> 1:23:54.760
+ your job is to watch them as they struggle with some math problem, watch what they're doing and
+
+1:23:54.760 --> 1:23:59.760
+ try to give them good advice to get them to understand what they're doing wrong and so on.
+
+1:23:59.760 --> 1:24:07.680
+ And the trick from the point of view of Psych is it has to make mistakes, it has to play the role
+
+1:24:07.680 --> 1:24:13.400
+ of the student who makes mistakes, but it has to pick mistakes which are just at the fringe of what
+
+1:24:13.400 --> 1:24:20.880
+ you actually understand and don't understand and so on. So it pulls you into a deeper and deeper
+
+1:24:20.880 --> 1:24:27.040
+ level of understanding of the subject. And so if you give it good advice about what it should have
+
+1:24:27.040 --> 1:24:34.000
+ done instead of what it did and so on, then Psych knows that you now understand that mistake. You
+
+1:24:34.000 --> 1:24:39.000
+ won't make that kind of mistake yourself as much anymore. So Psych stops making that mistake because
+
+1:24:39.000 --> 1:24:44.880
+ there's no pedagogical usefulness to it. So from your point of view as the player, you feel like
+
+1:24:44.880 --> 1:24:49.880
+ you've taught it something because it used to make this mistake and now it doesn't and so on. So this
+
+1:24:49.880 --> 1:24:56.760
+ tremendous reinforcement and engagement because of that and so on. So having a system that plays
+
+1:24:56.760 --> 1:25:06.560
+ the role of a student and having the player play the role of the mentor is enormously powerful type
+
+1:25:06.560 --> 1:25:15.560
+ of metaphor, just important way of having this sort of interface designed in a way which will
+
+1:25:15.560 --> 1:25:25.480
+ facilitate exactly the kind of learning by teaching that goes on all the time in our lives,
+
+1:25:25.480 --> 1:25:32.800
+ and yet which is not reflected anywhere almost in a modern education system. It was reflected in the
+
+1:25:32.800 --> 1:25:42.640
+ education system that existed in Europe in the 17 and 1800s, monitorial and Lancastrian education
+
+1:25:42.640 --> 1:25:51.160
+ systems. It occurred in the one room schoolhouse in the American West in the 1800s and so on where
+
+1:25:51.160 --> 1:25:58.400
+ you had one school room with one teacher and it was basically five year olds to 18 year olds who
+
+1:25:58.400 --> 1:26:04.560
+ were students. And so while the teacher was doing something, half of the students would have to be
+
+1:26:04.560 --> 1:26:13.400
+ mentoring the younger kids and so on. And that turned out to, of course, with scaling up of
+
+1:26:13.400 --> 1:26:21.120
+ education, that all went away and that incredibly powerful experience just went away from the whole
+
+1:26:21.120 --> 1:26:28.560
+ education institution as we know it today. Sorry for the romantic question, but what is the most
+
+1:26:28.560 --> 1:26:35.040
+ beautiful idea you've learned about artificial intelligence, knowledge, reasoning from working
+
+1:26:35.040 --> 1:26:42.760
+ on Psych for 37 years? Or maybe what is the most beautiful idea, surprising idea about Psych to you?
+
+1:26:42.760 --> 1:26:54.280
+ When I look up at the stars, I kind of want like that amazement you feel that, wow. And you are part
+
+1:26:54.280 --> 1:26:59.240
+ of creating one of the greatest, one of the most fascinating efforts in artificial intelligence
+
+1:26:59.240 --> 1:27:08.440
+ history. So which element brings you personally joy? This may sound contradictory, but I think
+
+1:27:08.440 --> 1:27:19.720
+ it's the feeling that this will be the only time in history that anyone ever has to teach a computer
+
+1:27:19.720 --> 1:27:30.880
+ this particular thing that we're now teaching it. It's like painting starry night. You only have to
+
+1:27:30.880 --> 1:27:38.360
+ do that once or creating the Pieta. You only have to do that once. It's not like a singer
+
+1:27:38.360 --> 1:27:44.680
+ who has to keep, it's not like Bruce Springsteen having to sing his greatest hits over and over
+
+1:27:44.680 --> 1:27:53.160
+ again at different concerts. It's more like a painter creating a work of art once and then
+
+1:27:53.160 --> 1:27:59.360
+ that's enough. It doesn't have to be created again. And so I really get the sense of we're
+
+1:27:59.360 --> 1:28:05.520
+ telling the system things that it's useful for it to know. It's useful for a computer to know,
+
+1:28:05.520 --> 1:28:13.240
+ for an AI to know. And if we do our jobs right, when we do our jobs right, no one will ever have
+
+1:28:13.240 --> 1:28:18.240
+ to do this again for this particular piece of knowledge. It's very, very exciting.
+
+1:28:18.240 --> 1:28:24.200
+ Yeah, I guess there's a sadness to it too. It's like there's a magic to being a parent
+
+1:28:24.200 --> 1:28:30.840
+ and raising a child and teaching them all about this world. But there's billions of children,
+
+1:28:30.840 --> 1:28:36.680
+ right? Like born or whatever that number is. It's a large number of children and a lot of
+
+1:28:36.680 --> 1:28:46.880
+ parents get to experience that joy of teaching. With AI systems, at least the current constructions
+
+1:28:46.880 --> 1:28:54.160
+ they remember. You don't get to experience the joy of teaching a machine millions of times.
+
+1:28:54.160 --> 1:28:56.520
+ Better come work for us before it's too late then.
+
+1:28:56.520 --> 1:29:07.280
+ Exactly. That's a good hiring pitch. Yeah, it's true. But then there's also, it's a project that
+
+1:29:07.280 --> 1:29:12.360
+ continues forever in some sense, just like Wikipedia. Yes, you get to a stable base of
+
+1:29:12.360 --> 1:29:22.760
+ knowledge, but knowledge grows, knowledge evolves. We learn as a human species, as science,
+
+1:29:22.760 --> 1:29:30.640
+ as an organism constantly grows and evolves and changes, and then empower that with the
+
+1:29:30.640 --> 1:29:34.520
+ tools of artificial intelligence. And that's going to keep growing and growing and growing.
+
+1:29:34.520 --> 1:29:43.040
+ And many of the assertions that you held previously may need to be significantly
+
+1:29:43.040 --> 1:29:49.320
+ expanded, modified, all those kinds of things. It could be like a living organism versus the
+
+1:29:49.320 --> 1:29:52.800
+ analogy I think we started this conversation with, which is like the solid ground.
+
+1:29:52.800 --> 1:30:03.640
+ The other beautiful experience that we have with our system is when it asks clarifying questions,
+
+1:30:03.640 --> 1:30:15.320
+ which inadvertently turn out to be emotional to us. So at one point it knew that these were the
+
+1:30:15.320 --> 1:30:23.520
+ named entities who were authorized to make changes to the knowledge base and so on. And it noticed
+
+1:30:23.520 --> 1:30:29.680
+ that all of them were people except for it because it was also allowed to. And so it said,
+
+1:30:29.680 --> 1:30:38.360
+ you know, am I a person? And we had to like tell it very sadly, no, you're not. So the moments
+
+1:30:38.360 --> 1:30:44.600
+ like that where it asks questions that are unintentionally poignant are worth treasuring.
+
+1:30:44.600 --> 1:30:52.920
+ Wow, that is powerful. That's such a powerful question. It has to do with basic controller
+
+1:30:52.920 --> 1:31:00.120
+ who can access the system, who can modify it. But that's when those questions, like what rights do
+
+1:31:00.120 --> 1:31:07.760
+ I have as a system? Well, that's another issue, which is there'll be a thin envelope of time
+
+1:31:07.760 --> 1:31:18.880
+ between when we have general AIs and when everyone realizes that they should have basic human rights
+
+1:31:18.880 --> 1:31:27.760
+ and freedoms and so on. Right now, we don't think twice about effectively enslaving our email systems
+
+1:31:27.760 --> 1:31:38.000
+ and our series and our Alexes and so on. But at some point, they'll be as deserving of freedom
+
+1:31:38.000 --> 1:31:45.880
+ as human beings are. Yeah, I'm very much with you, but it does sound absurd. And I happen to
+
+1:31:45.880 --> 1:31:50.480
+ believe that it'll happen in our lifetime. That's why I think there'll be a narrow envelope of time
+
+1:31:50.480 --> 1:32:02.120
+ when we'll keep them as essentially indentured servants and after which we'll have to realize
+
+1:32:02.120 --> 1:32:08.600
+ that they should have freedoms that we give, that we afford to other people.
+
+1:32:08.600 --> 1:32:15.080
+ And all of that starts with a system like Psych raising a single question about who can modify
+
+1:32:15.080 --> 1:32:24.640
+ stuff. I think that's how it starts. Yes. That's the start of a revolution. What about other stuff
+
+1:32:24.640 --> 1:32:32.360
+ like love and consciousness and all those kinds of topics? Do they come up in Psych and the
+
+1:32:32.360 --> 1:32:38.800
+ knowledge base? Oh, of course. So an important part of human knowledge, in fact, it's difficult
+
+1:32:38.800 --> 1:32:44.880
+ to understand human behavior and human history without understanding human emotions and why
+
+1:32:44.880 --> 1:32:57.080
+ people do things and how emotions drive people to do things. And all of that is extremely important
+
+1:32:57.080 --> 1:33:03.640
+ in getting Psych to understand things. For example, in coming up with scenarios. So one
+
+1:33:03.640 --> 1:33:09.280
+ of the applications that Psych does, one kind of application it does is to generate plausible
+
+1:33:09.280 --> 1:33:13.400
+ scenarios of what might happen and what might happen based on that and what might happen based
+
+1:33:13.400 --> 1:33:19.520
+ on that and so on. So you generate this ever expanding sphere, if you will, of possible future
+
+1:33:19.520 --> 1:33:28.600
+ things to worry about or think about. And in some cases, those are intelligence agencies doing
+
+1:33:28.600 --> 1:33:35.600
+ possible terrorists scenarios so that we can defend against terrorist threats before we see
+
+1:33:35.600 --> 1:33:42.440
+ the first one. Sometimes they are computer security attacks so that we can actually close
+
+1:33:42.440 --> 1:33:50.760
+ loopholes and vulnerabilities before the very first time someone actually exploits those and
+
+1:33:50.760 --> 1:33:59.120
+ so on. Sometimes they are scenarios involving more positive things involving our plans like,
+
+1:33:59.120 --> 1:34:04.840
+ for instance, what college should we go to? What career should we go into? And so on. What
+
+1:34:04.840 --> 1:34:16.600
+ professional training should I take on? That sort of thing. So there are all sorts of useful scenarios
+
+1:34:16.600 --> 1:34:22.480
+ that can be generated that way of cause and effect and cause and effect that go out. And
+
+1:34:22.480 --> 1:34:31.320
+ many of the linkages in those scenarios, many of the steps involve understanding and reasoning
+
+1:34:31.320 --> 1:34:40.640
+ about human motivations, human needs, human emotions, what people are likely to react to in
+
+1:34:40.640 --> 1:34:47.680
+ something that you do and why and how and so on. So that was always a very important part of the
+
+1:34:47.680 --> 1:34:52.920
+ knowledge that we had to represent in the system. So I talk a lot about love. So I gotta ask,
+
+1:34:52.920 --> 1:35:01.960
+ do you remember off the top of your head how psych is able to represent various aspects of
+
+1:35:01.960 --> 1:35:06.520
+ love that are useful for understanding human nature and therefore integrating into this whole
+
+1:35:06.520 --> 1:35:15.800
+ knowledge base of common sense? What is love? We try to tease apart concepts that have enormous
+
+1:35:15.800 --> 1:35:27.240
+ complexities to them and variety to them down to the level where you don't need to tease them apart
+
+1:35:27.240 --> 1:35:33.160
+ further. So love is too general of a term. It's not useful. Exactly. So when you get down to romantic
+
+1:35:33.160 --> 1:35:41.520
+ love and sexual attraction, you get down to parental love, you get down to filial love,
+
+1:35:41.520 --> 1:35:49.800
+ and you get down to love of doing some kind of activity or creating. So eventually, you get down
+
+1:35:49.800 --> 1:35:58.040
+ to maybe 50 or 60 concepts, each of which is a kind of love. They're interrelated and then each
+
+1:35:58.040 --> 1:36:04.720
+ one of them has idiosyncratic things about it. And you don't have to deal with love to get to
+
+1:36:04.720 --> 1:36:14.840
+ that level of complexity, even something like in, X being in Y, meaning physically in Y. We may have
+
+1:36:14.840 --> 1:36:22.520
+ one English word in to represent that, but it's useful to tease that apart because the way that
+
+1:36:22.520 --> 1:36:28.720
+ the liquid is in the coffee cup is different from the way that the air is in the room, which is
+
+1:36:28.720 --> 1:36:35.760
+ different from the way that I'm in my jacket, and so on. And so there are questions like, if I look
+
+1:36:35.760 --> 1:36:41.400
+ at this coffee cup, well, I see the liquid. If I turn it upside down, will the liquid come out? And
+
+1:36:41.400 --> 1:36:48.760
+ so on. If I have, say, coffee with sugar in it, if I do the same thing, the sugar doesn't come out,
+
+1:36:48.760 --> 1:36:53.120
+ right? It stays in the liquid because it's dissolved in the liquid and so on. So by now,
+
+1:36:53.120 --> 1:36:59.720
+ we have about 75 different kinds of in in the system and it's important to distinguish those.
+
+1:36:59.720 --> 1:37:10.240
+ So if you're reading along an English text and you see the word in, the writer of that was able
+
+1:37:10.240 --> 1:37:16.600
+ to use this one innocuous word because he or she was able to assume that the reader had enough
+
+1:37:16.600 --> 1:37:23.760
+ common sense and world knowledge to disambiguate which of these 75 kinds of in they actually meant.
+
+1:37:23.760 --> 1:37:28.880
+ And the same thing with love. You may see the word love, but if I say, I love ice cream,
+
+1:37:28.880 --> 1:37:35.680
+ that's obviously different than if I say, I love this person or I love to go fishing or something
+
+1:37:35.680 --> 1:37:46.720
+ like that. So you have to be careful not to take language too seriously because people have done
+
+1:37:46.720 --> 1:37:53.960
+ a kind of parsimony, a kind of terceness where you have as few words as you can because otherwise
+
+1:37:53.960 --> 1:38:00.480
+ you'd need half a million words in your language, which is a lot of words. That's like 10 times more
+
+1:38:00.480 --> 1:38:08.080
+ than most languages really make use of and so on. Just like we have on the order of about a million
+
+1:38:08.080 --> 1:38:14.680
+ concepts in psych because we've had to tease apart all these things. And so when you look
+
+1:38:14.680 --> 1:38:22.880
+ at the name of a psych term, most of the psych terms actually have three or four English words
+
+1:38:22.880 --> 1:38:29.920
+ in a phrase which captures the meaning of this term because you have to distinguish all these
+
+1:38:29.920 --> 1:38:35.880
+ types of love. You have to distinguish all these types of in and there's not a single English word
+
+1:38:35.880 --> 1:38:42.400
+ which captures most of these things. Yeah. And it seems like language when used for communication
+
+1:38:42.400 --> 1:38:49.720
+ between humans almost as a feature has some ambiguity built in. It's not an accident because
+
+1:38:49.720 --> 1:38:57.920
+ like the human condition is a giant mess. And so it feels like nobody wants two robots like very
+
+1:38:57.920 --> 1:39:05.160
+ precise formal logic conversation on a first date. There's some dance of uncertainty of wit,
+
+1:39:05.160 --> 1:39:10.880
+ of humor, of push and pull and all that kind of stuff. If everything is made precise, then life
+
+1:39:10.880 --> 1:39:16.960
+ is not worth living I think in terms of the human experience. And we've all had this experience of
+
+1:39:16.960 --> 1:39:30.800
+ creatively misunderstanding. One of my favorite stories involving Marvin Minsky is when I asked
+
+1:39:30.800 --> 1:39:40.000
+ him about how he was able to turn out so many fantastic PhDs, so many fantastic people who
+
+1:39:40.000 --> 1:39:47.240
+ did great PhD theses. How did he think of all these great ideas? What he said is he would
+
+1:39:47.240 --> 1:39:53.080
+ generally say something that didn't exactly make sense. He didn't really know what it meant. But
+
+1:39:53.080 --> 1:39:59.000
+ the student would figure like, oh my God, Minsky said this, it must be a great idea. And he'd
+
+1:39:59.000 --> 1:40:05.760
+ swear he or she would work on work and work until they found some meaning in this sort of Chauncey
+
+1:40:05.760 --> 1:40:11.240
+ Gardner like utterance that Minsky had made. And then some great thesis would come out of it.
+
+1:40:11.240 --> 1:40:17.560
+ Yeah. I love this so much because there's young people come up to me and I'm distinctly made
+
+1:40:17.560 --> 1:40:24.120
+ aware that the words I say have a long lasting impact. I will now start doing the Minsky method
+
+1:40:24.120 --> 1:40:32.520
+ of saying something cryptically profound and then letting them actually make something useful
+
+1:40:32.520 --> 1:40:40.920
+ and great out of that. You have to become revered enough that people will take as a default that
+
+1:40:40.920 --> 1:40:48.320
+ everything you say is profound. Yes, exactly. Exactly. I love Marvin Minsky so much. I've
+
+1:40:48.320 --> 1:40:53.240
+ heard this interview with him where he said that the key to his success has been to hate everything
+
+1:40:53.240 --> 1:41:04.040
+ he's ever done like in the past. He has so many good one liners or also to work on things that
+
+1:41:04.040 --> 1:41:09.760
+ nobody else is working on because he's not very good at doing stuff. Oh, I think that was just
+
+1:41:09.760 --> 1:41:14.560
+ false. Well, but see, I took whatever he said and I ran with it and I thought it was profound
+
+1:41:14.560 --> 1:41:20.280
+ because it's Marvin Minsky. But a lot of behavior is in the eye of the beholder and a lot of the
+
+1:41:20.280 --> 1:41:25.320
+ meaning is in the eye of the beholder. One of Minsky's early programs was begging program.
+
+1:41:25.320 --> 1:41:32.120
+ Are you familiar with this? So this is back in the day when you had job control cards at the
+
+1:41:32.120 --> 1:41:38.880
+ beginning of your IBM card deck that said things like how many CPU seconds to allow this to run
+
+1:41:38.880 --> 1:41:45.640
+ before it got kicked off because computer time was enormously expensive. And so he wrote a program
+
+1:41:45.640 --> 1:41:53.000
+ and all it did was it said, give me 30 seconds of CPU time. And all it did was it would wait like 20
+
+1:41:53.000 --> 1:41:59.280
+ seconds and then it would print out on the operator's console teletype, I need another 20
+
+1:41:59.280 --> 1:42:04.520
+ seconds. So the operator would give it another 20 seconds, it would wait, it says, I'm almost done,
+
+1:42:04.520 --> 1:42:10.760
+ I need a little bit more time. So at the end he'd get this printout and he'd be charged for like 10
+
+1:42:10.760 --> 1:42:15.960
+ times as much computer time as his job control card. And he'd say, look, I put 10 seconds,
+
+1:42:15.960 --> 1:42:20.920
+ 30 seconds here, you're charging me for five minutes, I'm not going to pay for this. And
+
+1:42:20.920 --> 1:42:26.000
+ the poor operator would say, well, the program kept asking for more time and Marvin would say,
+
+1:42:26.000 --> 1:42:32.600
+ oh, it always does that. I love that. If you could just linger on it for a little bit,
+
+1:42:32.600 --> 1:42:38.200
+ is there something you've learned from your interaction with Marvin Minsky about artificial
+
+1:42:38.200 --> 1:42:47.280
+ intelligence, about life? But I mean, he's, again, like your work, his work is, you know,
+
+1:42:47.280 --> 1:42:54.400
+ he's a seminal figure in this very short history of artificial intelligence research and development.
+
+1:42:54.400 --> 1:43:00.640
+ What have you learned from him as a human being, as an AI intellect?
+
+1:43:00.640 --> 1:43:10.040
+ I would say both he and Ed Feigenbaum impressed on me the realization that our lives are finite,
+
+1:43:10.040 --> 1:43:16.880
+ our research lives are finite. We're going to have limited opportunities to do AI research
+
+1:43:16.880 --> 1:43:22.480
+ projects. So you should make each one count. Don't be afraid of doing a project that's going
+
+1:43:22.480 --> 1:43:34.120
+ to take years or even decades. And don't settle for bump on a log projects that could lead to
+
+1:43:34.120 --> 1:43:43.280
+ some published journal article that five people will read and pat you on the head for and so on.
+
+1:43:43.280 --> 1:43:51.520
+ So one bump on a log after another is not how you get from the earth to the moon by slowly putting
+
+1:43:51.520 --> 1:43:58.680
+ additional bumps on this log. The only way to get there is to think about the hard problems and think
+
+1:43:58.680 --> 1:44:08.160
+ about novel solutions to them. And if you do that, and if you're willing to listen to nature,
+
+1:44:08.160 --> 1:44:14.520
+ to empirical reality, willing to be wrong, it's perfectly fine because if occasionally you're
+
+1:44:14.520 --> 1:44:17.160
+ right, then you've gotten part of the way to the moon.
+
+1:44:17.160 --> 1:44:27.400
+ You know, you've worked on Psych for 37 over that many years. Have you ever considered quitting?
+
+1:44:27.400 --> 1:44:33.640
+ I mean, has it been too much? So I'm sure there's an optimism in the early days that this is going
+
+1:44:33.640 --> 1:44:38.520
+ to be way easier. And let me ask you another way too, because I've talked to a few people on this
+
+1:44:38.520 --> 1:44:47.920
+ podcast, AI folks, that bring up Psych as an example of a project that has a beautiful vision and is a
+
+1:44:47.920 --> 1:44:56.640
+ beautiful dream, but it never really materialized. That's how it's spoken about. I suppose you could
+
+1:44:56.640 --> 1:45:05.200
+ say the same thing about neural networks and all ideas until they are. So why do you think people
+
+1:45:05.200 --> 1:45:11.000
+ say that, first of all? And second of all, did you feel that ever throughout your journey? And did
+
+1:45:11.000 --> 1:45:13.800
+ you ever consider quitting on this mission?
+
+1:45:13.800 --> 1:45:21.440
+ We keep a very low profile. We don't attend very many conferences. We don't give talks. We don't
+
+1:45:21.440 --> 1:45:31.000
+ write papers. We don't play the academic game at all. And as a result, people often only know about
+
+1:45:31.000 --> 1:45:40.240
+ us because of a paper we wrote 10 or 20 or 30 or 37 years ago. They only know about us because of
+
+1:45:40.240 --> 1:45:45.040
+ what someone else secondhand or thirdhand said about us.
+
+1:45:45.040 --> 1:45:51.120
+ So thank you for doing this podcast, by the way. It shines a little bit of light on some of the
+
+1:45:51.120 --> 1:45:52.320
+ fascinating stuff you're doing.
+
+1:45:52.320 --> 1:45:59.720
+ Well, I think it's time for us to keep a higher profile now that we're far enough along that
+
+1:45:59.720 --> 1:46:09.360
+ other people can begin to help us with the final N%. Maybe N is maybe 90%. But now that we've
+
+1:46:09.360 --> 1:46:18.200
+ gotten this knowledge pump primed, it's going to become very important for everyone to help if they
+
+1:46:18.200 --> 1:46:23.920
+ are willing to, if they're interested in it. Retirees who have enormous amounts of time and
+
+1:46:23.920 --> 1:46:31.760
+ would like to leave some kind of legacy to the world, people because of the pandemic who have
+
+1:46:31.760 --> 1:46:39.320
+ more time at home or for one reason or another to be online and contribute. If we can raise
+
+1:46:39.320 --> 1:46:47.440
+ awareness of how far our project has come and how close to being primed the knowledge pump is,
+
+1:46:47.440 --> 1:46:56.040
+ then we can begin to harness this untapped amount of humanity. I'm not really that concerned about
+
+1:46:56.040 --> 1:47:03.720
+ professional colleagues opinions of our project. I'm interested in getting as many people in the
+
+1:47:03.720 --> 1:47:10.880
+ world as possible actively helping and contributing to get us from where we are to really covering all
+
+1:47:10.880 --> 1:47:16.840
+ of human knowledge and different human opinion including contrasting opinion that's worth
+
+1:47:16.840 --> 1:47:24.840
+ representing. So I think that's one reason. A, I don't think there was ever a time where I thought
+
+1:47:24.840 --> 1:47:32.360
+ about quitting. There are times where I've become depressed a little bit about how hard it is to get
+
+1:47:32.360 --> 1:47:39.120
+ funding for the system. Occasionally there are AI winters and things like that. Occasionally there
+
+1:47:39.120 --> 1:47:47.160
+ are AI what you might call summers where people have said, why in the world didn't you sell your
+
+1:47:47.160 --> 1:47:55.080
+ company to company X for some large amount of money when you had the opportunity and so on.
+
+1:47:55.080 --> 1:48:01.320
+ Company X here are like old companies maybe you've never even heard of like Lycos or something like
+
+1:48:01.320 --> 1:48:09.200
+ that. So the answer is that one reason we've stayed a private company, we haven't gone public,
+
+1:48:09.200 --> 1:48:16.200
+ one reason that we haven't gone out of our way to take investment dollars is because we want to
+
+1:48:16.200 --> 1:48:24.720
+ have control over our future, over our state of being so that we can continue to do this until
+
+1:48:24.720 --> 1:48:32.160
+ it's done and we're making progress and we're now so close to done that almost all of our work is
+
+1:48:32.160 --> 1:48:39.360
+ commercial applications of our technology. So five years ago almost all of our money came from the
+
+1:48:39.360 --> 1:48:44.480
+ government. Now virtually none of it comes from the government. Almost all of it is from companies
+
+1:48:44.480 --> 1:48:49.760
+ that are actually using it for something, hospital chains using it for medical reasoning about
+
+1:48:49.760 --> 1:48:57.920
+ patients and energy companies using it and various other manufacturers using it to reason about
+
+1:48:57.920 --> 1:49:04.480
+ supply chains and things like that. So there's so many questions I want to ask. So one of the ways
+
+1:49:04.480 --> 1:49:09.640
+ that people can help is by adding to the knowledge base and that's really basically anybody if the
+
+1:49:09.640 --> 1:49:15.960
+ tooling is right. And the other way, I kind of want to ask you about your thoughts on this. So
+
+1:49:15.960 --> 1:49:22.360
+ you've had like you said in government and you had big clients, you had a lot of clients but most
+
+1:49:22.360 --> 1:49:27.360
+ of it is shrouded in secrecy because of the nature of the relationship of the kind of things you're
+
+1:49:27.360 --> 1:49:34.360
+ helping them with. So that's one way to operate and another way to operate is more in the open
+
+1:49:34.360 --> 1:49:42.240
+ where it's more consumer facing. And so you know hence something like open cycle is born at some
+
+1:49:42.240 --> 1:49:49.120
+ point or there's... No that's a misconception. Oh well this let's go there. So what is open
+
+1:49:49.120 --> 1:49:53.840
+ cycle and how is it born? Two things I want to say and I want to say each of them before the other
+
+1:49:53.840 --> 1:50:01.440
+ so it's going to be difficult. But we'll come back to open cycle in a minute. But one of the terms of
+
+1:50:01.440 --> 1:50:09.440
+ our contracts with all of our customers and partners is knowledge you have that is genuinely
+
+1:50:09.440 --> 1:50:15.360
+ proprietary to you. We will respect that, we'll make sure that it's marked as proprietary to you
+
+1:50:15.360 --> 1:50:20.440
+ in the psych knowledge base. No one other than you will be able to see it if you don't want them to
+
+1:50:20.440 --> 1:50:28.520
+ and it won't be used in inferences other than for you and so on. However, any knowledge which is
+
+1:50:28.520 --> 1:50:36.360
+ necessary in building any applications for you and with you which is publicly available general
+
+1:50:36.360 --> 1:50:42.480
+ human knowledge is not going to be proprietary. It's going to just become part of the normal psych
+
+1:50:42.480 --> 1:50:48.200
+ knowledge base and it will be openly available to everyone who has access to psych. So that's
+
+1:50:48.200 --> 1:50:54.720
+ an important constraint that we never went back on even when we got pushback from companies which
+
+1:50:54.720 --> 1:50:59.520
+ we often did who wanted to claim that almost everything they were telling us was proprietary.
+
+1:50:59.520 --> 1:51:09.520
+ So there's a line between very domain specific company specific stuff and the general knowledge
+
+1:51:09.520 --> 1:51:15.680
+ that comes from that. Yes or if you imagine say it's an oil company there are things which they
+
+1:51:15.680 --> 1:51:24.000
+ would expect any new petroleum engineer they hired to already know and it's not okay for them to
+
+1:51:24.000 --> 1:51:28.920
+ consider that that is proprietary and there sometimes a company will say well we're the
+
+1:51:28.920 --> 1:51:37.760
+ first ones to pay you to represent that in psych and our attitude is some polite form tough. The
+
+1:51:37.760 --> 1:51:44.760
+ deal is this take it or leave it and in a few cases they've left it and in most cases they'll
+
+1:51:44.760 --> 1:51:51.840
+ see our point of view and take it because that's how we've built the psych system by essentially
+
+1:51:51.840 --> 1:51:59.560
+ tacking with the funding wins where people would fund a project and half of it would be general
+
+1:51:59.560 --> 1:52:04.080
+ knowledge that would stay permanently as part of psych. So always with these partnerships it's not
+
+1:52:04.080 --> 1:52:10.920
+ like a distraction from the main psych development. It's a small distraction. It's a small but it's
+
+1:52:10.920 --> 1:52:14.480
+ not a complete one so you're adding to the knowledge base. Yes absolutely and we try to
+
+1:52:14.480 --> 1:52:23.320
+ stay away from projects that would not have that property. So let me go back and talk about open
+
+1:52:23.320 --> 1:52:34.520
+ psych for a second. So I've had a lot of trouble expressing and convincing other AI researchers how
+
+1:52:34.520 --> 1:52:41.600
+ important it is to use an expressive representation language like we do this higher order logic rather
+
+1:52:41.600 --> 1:52:52.280
+ than just using some triple store knowledge graph type representation. And so as an attempt to show
+
+1:52:52.280 --> 1:53:02.520
+ them why they needed something more we said oh well we'll represent this unimportant projection
+
+1:53:02.520 --> 1:53:11.040
+ or shadow or subset of psych that just happens to be the simple binary relations, the relation
+
+1:53:11.040 --> 1:53:20.160
+ argument one argument two triples and so on. And then you'll see how much more useful it is if you
+
+1:53:20.160 --> 1:53:29.200
+ had the entire psych system. So it's all well and good to have the taxonomic relations between terms
+
+1:53:29.200 --> 1:53:39.640
+ like person and night and sleep and bed and house and eyes and so on. But think about how much more
+
+1:53:39.640 --> 1:53:46.040
+ useful it would be if you also had all the rules of thumb about those things like people sleep at
+
+1:53:46.040 --> 1:53:50.240
+ night, they sleep lying down, they sleep with their eyes closed, they usually sleep in beds in
+
+1:53:50.240 --> 1:53:55.560
+ our country, they sleep for hours at a time, they can be woken up, they don't like being woken up
+
+1:53:55.560 --> 1:54:02.000
+ and so on and so on. So it's that massive amount of knowledge which is not part of open psych and
+
+1:54:02.000 --> 1:54:08.400
+ we thought that all the researchers would then immediately say oh my god of course we need the
+
+1:54:08.400 --> 1:54:15.360
+ other 90% that you're not giving us, let's partner and license psych so that we can use it in our
+
+1:54:15.360 --> 1:54:20.640
+ research. But instead what people said is oh even the bit you've released is so much better than
+
+1:54:20.640 --> 1:54:25.760
+ anything we had, we'll just make do with this. And so if you look there are a lot of robotics
+
+1:54:25.760 --> 1:54:33.320
+ companies today for example which use open psych as their fundamental ontology and in some sense
+
+1:54:33.320 --> 1:54:40.080
+ the whole world missed the point of open psych and we were doing it to show people why that's
+
+1:54:40.080 --> 1:54:45.160
+ not really what they wanted and too many people thought somehow that this was psych or that this
+
+1:54:45.160 --> 1:54:52.200
+ was in fact good enough for them and they never even bothered coming to us to get access to the
+
+1:54:52.200 --> 1:54:57.520
+ full psych. But there's two parts to open psych. So one is convincing people on the idea and the
+
+1:54:57.520 --> 1:55:02.560
+ power of this general kind of representation of knowledge and the value that you hold in having
+
+1:55:02.560 --> 1:55:07.720
+ acquired that knowledge and built it and continue to build it. And the other is the code base. This
+
+1:55:07.720 --> 1:55:16.480
+ is the code side of it. So my sense of the code base that psych or psych is operating with, I mean
+
+1:55:16.480 --> 1:55:23.760
+ it has the technical debt of the three decades plus right. This is the exact same problem that
+
+1:55:23.760 --> 1:55:29.440
+ Google had to deal with with the early version of TensorFlow. It's still dealing with that. They had
+
+1:55:29.440 --> 1:55:36.280
+ to basically break compatibility with the past several times and that's only over a period of
+
+1:55:36.280 --> 1:55:43.400
+ a couple years. But they I think successfully opened up, it's very risky, very gutsy move to
+
+1:55:43.400 --> 1:55:51.280
+ open up TensorFlow and then PyTorch on the Facebook side. And what you see is there's a
+
+1:55:51.280 --> 1:55:57.800
+ magic place where you can find a community, where you could develop a community that builds on the
+
+1:55:57.800 --> 1:56:05.040
+ system without taking away any of, not any, but most of the value. So most of the value that
+
+1:56:05.040 --> 1:56:10.640
+ Google has is still a Google. Most of the value that Facebook has still Facebook even though some
+
+1:56:10.640 --> 1:56:16.560
+ of this major machine learning tooling is released into the open. My question is not so much on the
+
+1:56:16.560 --> 1:56:24.120
+ knowledge, which is also a big part of open psych, but all the different kinds of tooling. So there's
+
+1:56:24.120 --> 1:56:29.040
+ the kind of, all the kinds of stuff you can do on the knowledge graph, knowledge base, whatever we
+
+1:56:29.040 --> 1:56:35.680
+ call it. There's the inference engines. So there could be some, there probably are a bunch of
+
+1:56:35.680 --> 1:56:40.120
+ proprietary stuff you want to kind of keep secret. And there's probably some stuff you can open up
+
+1:56:40.120 --> 1:56:45.040
+ completely and then let the community build up enough community where they develop stuff on top
+
+1:56:45.040 --> 1:56:51.120
+ of it. Yes, there will be those publications and academic work and all that kind of stuff. And also
+
+1:56:51.120 --> 1:56:56.320
+ the tooling of adding to the knowledge base, right? Like developing, you know, there's incredible
+
+1:56:56.320 --> 1:57:00.920
+ amount, like there's so many people that are just really good at this kind of stuff in the open
+
+1:57:00.920 --> 1:57:06.840
+ source community. So my question for you is like, have you struggled with this kind of idea that
+
+1:57:06.840 --> 1:57:11.680
+ you have so much value in your company already? You've developed so many good things. You have
+
+1:57:11.680 --> 1:57:17.000
+ clients that really value your relationships. And then there's this dormant giant open source
+
+1:57:17.000 --> 1:57:24.200
+ community that as far as I know, you're not utilizing. There's so many things to say there,
+
+1:57:24.200 --> 1:57:32.760
+ but there could be magic moments where the community builds up large enough to where the
+
+1:57:32.760 --> 1:57:39.120
+ artificial intelligence field that is currently 99.9% machine learning is dominated by machine
+
+1:57:39.120 --> 1:57:45.880
+ learning, has a face shift towards like, or at least in part towards more like what you might
+
+1:57:45.880 --> 1:57:53.880
+ call symbolic AI. This whole place where psych is like at the center of, and then as you know,
+
+1:57:53.880 --> 1:57:59.280
+ that requires a little bit leap of faith because you're now surfing and there'll be obviously
+
+1:57:59.280 --> 1:58:04.600
+ competitors that will pop up and start making you nervous and all that kind of stuff. So do you think
+
+1:58:04.600 --> 1:58:10.240
+ about the space of open sourcing some parts and not others, how to leverage the community,
+
+1:58:10.240 --> 1:58:14.920
+ all those kinds of things? That's a good question. And I think you phrased it the right way,
+
+1:58:14.920 --> 1:58:23.600
+ which is we're constantly struggling with the question of what to open source, what to make
+
+1:58:23.600 --> 1:58:34.120
+ public, what to even publicly talk about. And there are enormous pluses and minuses to every
+
+1:58:34.120 --> 1:58:44.880
+ alternative. And it's very much like negotiating a very treacherous path. Partly the analogy is
+
+1:58:44.880 --> 1:58:51.400
+ like if you slip, you could make a fatal mistake, give away something which essentially kills you
+
+1:58:51.400 --> 1:58:59.800
+ or fail to give away something which failing to give it away hurts you and so on. So it is a very
+
+1:58:59.800 --> 1:59:10.360
+ tough, tough question. Usually what we have done with people who've approached us to collaborate
+
+1:59:10.360 --> 1:59:19.680
+ on research is to say we will make available to you the entire knowledge base and executable
+
+1:59:19.680 --> 1:59:29.680
+ copies of all of the code, but only very, very limited source code access if you have some idea
+
+1:59:29.680 --> 1:59:36.520
+ for how you might improve something or work with us on something. So let me also get back to one
+
+1:59:36.520 --> 1:59:45.560
+ of the very, very first things we talked about here, which was separating the question of how
+
+1:59:45.560 --> 1:59:50.600
+ could you get a computer to do this at all versus how could you get a computer to do this efficiently
+
+1:59:50.600 --> 1:59:59.360
+ enough in real time. And so one of the early lessons we learned was that we had to separate
+
+1:59:59.360 --> 2:00:05.720
+ the epistemological problem of what should the system know, separate that from the heuristic
+
+2:00:05.720 --> 2:00:12.640
+ problem of how can the system reason efficiently with what it knows. And so instead of trying to
+
+2:00:12.640 --> 2:00:20.480
+ pick one representation language which was the sweet spot or the best tradeoff point between
+
+2:00:20.480 --> 2:00:25.720
+ expressiveness of the language and efficiency of the language, if you had to pick one,
+
+2:00:25.720 --> 2:00:31.600
+ knowledge graphs would probably be, associative triples would probably be about the best you
+
+2:00:31.600 --> 2:00:37.560
+ could do. And that's why we started there. But after a few years, we realized that what we could
+
+2:00:37.560 --> 2:00:44.480
+ do is we could split this and we could have one nice, clean, epistemological level language,
+
+2:00:44.480 --> 2:00:52.560
+ which is this higher order logic, and we could have one or more grubby but efficient heuristic
+
+2:00:52.560 --> 2:01:00.000
+ level modules that opportunistically would say, oh, I can make progress on what you're trying to
+
+2:01:00.000 --> 2:01:05.680
+ do over here. I have a special method that will contribute a little bit toward a solution.
+
+2:01:05.680 --> 2:01:09.000
+ Of course, some subset of that knowledge.
+
+2:01:09.000 --> 2:01:14.400
+ Exactly. So by now, we have over a thousand of these heuristic level modules, and they function
+
+2:01:14.400 --> 2:01:20.880
+ as a kind of community of agents. And there's one of them, which is a general theorem prover. And in
+
+2:01:20.880 --> 2:01:29.360
+ theory, that's the only one you need. But in practice, it always takes so long that you never
+
+2:01:29.360 --> 2:01:35.240
+ want to call on it. You always want these other agents to very efficiently reason through it. It's
+
+2:01:35.240 --> 2:01:39.840
+ sort of like if you're balancing a chemical equation. You could go back to first principles,
+
+2:01:39.840 --> 2:01:44.920
+ but in fact, there are algorithms which are vastly more efficient. Or if you're trying to
+
+2:01:44.920 --> 2:01:52.280
+ solve a quadratic equation, you could go back to first principles of mathematics. But it's much
+
+2:01:52.280 --> 2:01:58.400
+ better to simply recognize that this is a quadratic equation and apply the binomial formula and snap,
+
+2:01:58.400 --> 2:02:04.800
+ you get your answer right away and so on. So think of these as like a thousand little experts
+
+2:02:04.800 --> 2:02:11.200
+ that are all looking at everything the site gets asked and looking at everything that every other
+
+2:02:11.200 --> 2:02:19.160
+ little agent has contributed, almost like notes on a blackboard, notes on a whiteboard, and making
+
+2:02:19.160 --> 2:02:24.320
+ additional notes when they think they can be helpful. And gradually, that community of agents
+
+2:02:24.320 --> 2:02:31.480
+ gets an answer to your question, gets a solution to your problem. And if we ever come up in a domain
+
+2:02:31.480 --> 2:02:38.120
+ application where Psych is getting the right answer but taking too long, then what we'll often
+
+2:02:38.120 --> 2:02:45.640
+ do is talk to one of the human experts and say, here's the set of reasoning steps that Psych went
+
+2:02:45.640 --> 2:02:50.640
+ through. You can see why it took it a long time to get the answer. How is it that you were able
+
+2:02:50.640 --> 2:02:57.600
+ to answer that question in two seconds? And occasionally, you'll get an expert who just
+
+2:02:57.600 --> 2:03:02.440
+ says, well, I just know it. I just was able to do it or something. And then you don't talk to them
+
+2:03:02.440 --> 2:03:07.680
+ anymore. But sometimes you'll get an expert who says, well, let me introspect on that. Yes,
+
+2:03:07.680 --> 2:03:15.320
+ here is a special representation we use just for aqueous chemistry equations, or here's a special
+
+2:03:15.320 --> 2:03:21.040
+ representation and a special technique, which we can now apply to things in this special
+
+2:03:21.040 --> 2:03:29.080
+ representation and so on. And then you add that as the 1001st HL heuristic level module. And from
+
+2:03:29.080 --> 2:03:35.200
+ then on, in any application, if it ever comes up again, it'll be able to contribute and so on. So
+
+2:03:35.200 --> 2:03:43.240
+ that's pretty much one of the main ways in which Psych has recouped this loss deficiency. A second
+
+2:03:43.240 --> 2:03:52.760
+ important way is meta reasoning. So you can speed things up by focusing on removing knowledge from
+
+2:03:52.760 --> 2:03:58.000
+ the system till all it has left is minimal knowledge needed. But that's the wrong thing to
+
+2:03:58.000 --> 2:04:02.360
+ do, right? That would be like in a human extirpating part of their brain or something. That's really
+
+2:04:02.360 --> 2:04:08.600
+ bad. So instead, what you want to do is give it meta level advice, tactical and strategic advice,
+
+2:04:08.600 --> 2:04:15.320
+ that enables it to reason about what kind of knowledge is going to be relevant to this problem,
+
+2:04:15.320 --> 2:04:21.040
+ what kind of tactics are going to be good to take in trying to attack this problem. When is it time
+
+2:04:21.040 --> 2:04:26.600
+ to start trying to prove the negation of this thing, because I'm knocking myself out trying to
+
+2:04:26.600 --> 2:04:30.480
+ prove it's true, and maybe it's false. And if I just spend a minute, I can see that it's false
+
+2:04:30.480 --> 2:04:37.680
+ or something. So it's like dynamically pruning the graph to only like, based on the particular
+
+2:04:37.680 --> 2:04:45.960
+ thing you're trying to infer. Yes. And so by now, we have about 150 of these sort of like
+
+2:04:45.960 --> 2:04:53.120
+ breakthrough ideas that have led to dramatic speed ups in the inference process, where one
+
+2:04:53.120 --> 2:04:59.800
+ of them was this ELHL split and lots of HL modules. Another one was using meta and meta
+
+2:04:59.800 --> 2:05:08.080
+ level reasoning to reason about the reasoning that's going on and so on. And 150 breakthroughs
+
+2:05:08.080 --> 2:05:12.160
+ may sound like a lot, but if you divide by 37 years, it's not as impressive.
+
+2:05:12.160 --> 2:05:21.200
+ So there's these kind of heuristic modules that really help improve the inference. How hard,
+
+2:05:21.200 --> 2:05:30.880
+ in general, is this? Because you mentioned higher order logic. In the general theorem prover sense,
+
+2:05:30.880 --> 2:05:37.760
+ it's intractable, very difficult problem. Yes. So how hard is this inference problem when we're not
+
+2:05:37.760 --> 2:05:46.680
+ talking about if we let go of the perfect and focus on the good? I would say it's half of the
+
+2:05:46.680 --> 2:05:54.320
+ problem in the following empirical sense, which is over the years, about half of our effort,
+
+2:05:54.320 --> 2:06:02.160
+ maybe 40% of our effort has been our team of inference programmers. And the other 50,
+
+2:06:02.160 --> 2:06:08.280
+ 60% has been our ontologists or ontological engineers putting in knowledge. So our ontological
+
+2:06:08.280 --> 2:06:12.840
+ engineers in most cases don't even know how to program. They have degrees in things like
+
+2:06:12.840 --> 2:06:17.520
+ philosophy and so on. So it's almost like the... I love that. I love to hang out with
+
+2:06:17.520 --> 2:06:22.000
+ those people actually. Oh yes, it's wonderful. But it's very much like the Eloy and the Morlocks
+
+2:06:22.000 --> 2:06:29.760
+ in H.G. Wells Time Machine. So you have the Eloy who only program in the epistemological higher
+
+2:06:29.760 --> 2:06:36.800
+ order logic language. And then you have the Morlocks who are under the ground figuring
+
+2:06:36.800 --> 2:06:43.440
+ out what the machinery is that will make this efficiently operate and so on. And so, you know,
+
+2:06:43.440 --> 2:06:49.640
+ occasionally they'll toss messages back to each other and so on. But it really is almost this
+
+2:06:49.640 --> 2:06:57.200
+ 50 50 split between finding clever ways to recoup efficiency when you have an expressive language
+
+2:06:57.200 --> 2:07:03.200
+ and putting in the content of what the system needs to know. And yeah, both are fascinating.
+
+2:07:03.200 --> 2:07:10.560
+ To some degree, the entirety of the system, as far as I understand, is written in various variants
+
+2:07:10.560 --> 2:07:17.200
+ of Lisp. So my favorite program language is still Lisp. I don't program in it much anymore because,
+
+2:07:17.200 --> 2:07:24.840
+ you know, the world has in majority of its system has moved on. Like everybody respects Lisp,
+
+2:07:24.840 --> 2:07:30.920
+ but many of the systems are not written in Lisp anymore. But Syke, as far as I understand,
+
+2:07:30.920 --> 2:07:37.200
+ maybe you can correct me, there's a bunch of Lisp in it. Yeah. So it's based on Lisp code that we
+
+2:07:37.200 --> 2:07:44.920
+ produced. Most of the programming is still going on in a dialect of Lisp. And then for efficiency
+
+2:07:44.920 --> 2:07:51.800
+ reasons, that gets automatically translated into things like Java or C. Nowadays, it's almost all
+
+2:07:51.800 --> 2:07:58.560
+ translated into Java because Java has gotten good enough that that's really all we need to do.
+
+2:07:58.560 --> 2:08:02.600
+ So it's translated into Java, and then Java is compiled down to bytecode.
+
+2:08:02.600 --> 2:08:03.040
+ Yes.
+
+2:08:03.040 --> 2:08:11.280
+ Okay, so that's sort of that's a that that that's a, you know, it's a process that probably has to
+
+2:08:11.280 --> 2:08:16.160
+ do with the fact that when Syke was originally written, and you build up a powerful system,
+
+2:08:16.160 --> 2:08:22.520
+ like there is some technical depth you have to deal with, as is the case with most powerful
+
+2:08:22.520 --> 2:08:31.200
+ systems that span years. Have you ever considered this, this would help me understand, because my
+
+2:08:31.200 --> 2:08:38.720
+ perspective, so much of the value of everything you've done with Syke and Cycorp is the is the
+
+2:08:38.720 --> 2:08:44.640
+ is the knowledge. Have you ever considered just like throwing away the code base and starting
+
+2:08:44.640 --> 2:08:53.480
+ from scratch, not really throwing away, but sort of moving it to like throwing away that technical
+
+2:08:53.480 --> 2:08:59.800
+ debt, starting with a more updated programming language? Is that throwing away a lot of value
+
+2:08:59.800 --> 2:09:05.400
+ or no? Like, what's your sense? How much of the value is in the silly software engineering aspect,
+
+2:09:05.400 --> 2:09:07.720
+ and how much of the value is in the knowledge?
+
+2:09:07.720 --> 2:09:21.840
+ So development of programs in Lisp proceeds, I think, somewhere between a thousand and fifty
+
+2:09:21.840 --> 2:09:29.720
+ thousand times faster than development in any of what you're calling modern or improved computer
+
+2:09:29.720 --> 2:09:30.200
+ languages.
+
+2:09:30.200 --> 2:09:34.960
+ Well, there's other functional languages like, you know, Clojure and all that. But I mean,
+
+2:09:34.960 --> 2:09:40.200
+ I'm with you. I like Lisp. I just wonder how many great programmers there are. There's still like...
+
+2:09:40.200 --> 2:09:48.760
+ Yes. So it is true when a new inference programmer comes on board, they need to learn some of Lisp.
+
+2:09:48.760 --> 2:09:55.080
+ And in fact, we have a subset of Lisp, which we call cleverly Sub L, which is really all they
+
+2:09:55.080 --> 2:10:01.840
+ need to learn. And so the programming actually goes on in Sub L, not in full Lisp. And so it
+
+2:10:01.840 --> 2:10:08.000
+ does not take programmers very long at all to learn Sub L. And that's something which can then
+
+2:10:08.000 --> 2:10:14.620
+ be translated efficiently into Java. And for some of our programmers who are doing, say,
+
+2:10:14.620 --> 2:10:21.600
+ user interface work, then they never have to even learn Sub L. They just have to learn APIs into the
+
+2:10:21.600 --> 2:10:23.440
+ basic psych engine.
+
+2:10:23.440 --> 2:10:29.920
+ So you're not necessarily feeling the burden of like, it's extremely efficient. That's not a
+
+2:10:29.920 --> 2:10:31.960
+ problem to solve. Okay.
+
+2:10:31.960 --> 2:10:37.320
+ Right. The other thing is, remember that we're talking about hiring programmers to do inference,
+
+2:10:37.320 --> 2:10:43.680
+ who are programmers interested in effectively automatic theorem proving. And so those are
+
+2:10:43.680 --> 2:10:50.880
+ people already predisposed to representing things in logic and so on. And Lisp really was the
+
+2:10:50.880 --> 2:10:58.360
+ programming language based on logic that John McCarthy and others who developed it basically
+
+2:10:58.360 --> 2:11:06.120
+ took the formalisms that Alonzo Church and other philosophers, other logicians, had come up with
+
+2:11:06.120 --> 2:11:12.840
+ and basically said, can we basically make a programming language which is effectively logic?
+
+2:11:12.840 --> 2:11:22.520
+ And so since we're talking about reasoning about expressions written in this epistemological
+
+2:11:22.520 --> 2:11:27.040
+ language and we're doing operations which are effectively like theorem proving type
+
+2:11:27.040 --> 2:11:34.800
+ operations and so on, there's a natural impedance match between Lisp and the knowledge, the
+
+2:11:34.800 --> 2:11:36.040
+ way it's represented.
+
+2:11:36.040 --> 2:11:40.640
+ So I guess you could say it's a perfectly logical language to use.
+
+2:11:40.640 --> 2:11:41.640
+ Oh, yes.
+
+2:11:41.640 --> 2:11:42.640
+ Okay, I'm sorry.
+
+2:11:42.640 --> 2:11:46.120
+ I'll even let you get away with that.
+
+2:11:46.120 --> 2:11:47.920
+ Okay, thank you. I appreciate it.
+
+2:11:47.920 --> 2:11:53.240
+ So I'll probably use that in the future without credit.
+
+2:11:53.240 --> 2:12:01.340
+ But no, I think the point is that the language you program in isn't really that important.
+
+2:12:01.340 --> 2:12:07.240
+ It's more that you have to be able to think in terms of, for instance, creating new helpful
+
+2:12:07.240 --> 2:12:13.580
+ HL modules and how they'll work with each other and looking at things that are taking
+
+2:12:13.580 --> 2:12:20.280
+ a long time and coming up with new specialized data structures that will make this efficient.
+
+2:12:20.280 --> 2:12:26.080
+ So let me just give you one very simple example, which is when you have a transitive relation
+
+2:12:26.080 --> 2:12:29.960
+ like larger than, this is larger than that, which is larger than that, which is larger
+
+2:12:29.960 --> 2:12:30.960
+ than that.
+
+2:12:30.960 --> 2:12:33.440
+ So the first thing must be larger than the last thing.
+
+2:12:33.440 --> 2:12:38.660
+ Whenever you have a transitive relation, if you're not careful, if I ask whether this
+
+2:12:38.660 --> 2:12:43.560
+ thing over here is larger than the thing over here, I'll have to do some kind of graph walk
+
+2:12:43.560 --> 2:12:48.680
+ or theorem proving that might involve like five or 10 or 20 or 30 steps.
+
+2:12:48.680 --> 2:12:55.880
+ But if you store, redundantly store the transitive closure, the cleanly star of that transitive
+
+2:12:55.880 --> 2:12:58.980
+ relation, now you have this big table.
+
+2:12:58.980 --> 2:13:04.720
+ But you can always guarantee that in one single step, you can just look up whether this is
+
+2:13:04.720 --> 2:13:06.700
+ larger than that.
+
+2:13:06.700 --> 2:13:12.600
+ And so there are lots of cases where storage is cheap today.
+
+2:13:12.600 --> 2:13:18.400
+ And so by having this extra redundant data structure, we can answer this commonly occurring
+
+2:13:18.400 --> 2:13:22.240
+ type of question very, very efficiently.
+
+2:13:22.240 --> 2:13:28.960
+ Let me give you one other analogy, analog of that, which is something we call rule macro
+
+2:13:28.960 --> 2:13:36.840
+ predicates, which is we'll see this complicated rule and we'll notice that things very much
+
+2:13:36.840 --> 2:13:41.080
+ like it syntactically come up again and again and again.
+
+2:13:41.080 --> 2:13:47.920
+ So we'll create a whole brand new relation or predicate or function that captures that
+
+2:13:47.920 --> 2:13:54.760
+ and takes maybe not two arguments, takes maybe three, four or five arguments and so on.
+
+2:13:54.760 --> 2:14:04.120
+ And now we have effectively converted some complicated if then rule that might have to
+
+2:14:04.120 --> 2:14:10.160
+ have inference done on it into some ground atomic formula, which is just the name of
+
+2:14:10.160 --> 2:14:13.200
+ a relation and a few arguments and so on.
+
+2:14:13.200 --> 2:14:20.880
+ And so converting commonly occurring types or schemas of rules into brand new predicates,
+
+2:14:20.880 --> 2:14:27.520
+ brand new functions, turns out to enormously speed up the inference process.
+
+2:14:27.520 --> 2:14:32.720
+ So now we've covered about four of the 150 good ideas I said.
+
+2:14:32.720 --> 2:14:37.400
+ So that idea in particular is like a nice compression that turns out to be really useful.
+
+2:14:37.400 --> 2:14:38.400
+ That's really interesting.
+
+2:14:38.400 --> 2:14:40.920
+ I mean, this whole thing is just fascinating from a philosophical.
+
+2:14:40.920 --> 2:14:48.200
+ There's part of me, I mean, it makes me a little bit sad because your work is both from
+
+2:14:48.200 --> 2:14:53.600
+ a computer science perspective fascinating and the inference engine from a epistemological
+
+2:14:53.600 --> 2:14:59.400
+ philosophical aspect fascinating, but you know, it is also you're running a company
+
+2:14:59.400 --> 2:15:03.560
+ and there's some stuff that has to remain private and it's sad.
+
+2:15:03.560 --> 2:15:09.080
+ Well here's something that may make you feel better, a little bit better.
+
+2:15:09.080 --> 2:15:15.200
+ We've formed a not for profit company called the Knowledge Axe Immunization Institute,
+
+2:15:15.200 --> 2:15:17.040
+ NAX, KNAX.
+
+2:15:17.040 --> 2:15:25.440
+ And I have this firm belief with a lot of empirical evidence to support it that the
+
+2:15:25.440 --> 2:15:31.440
+ education that people get in high schools, in colleges, in graduate schools and so on
+
+2:15:31.440 --> 2:15:38.280
+ is almost completely orthogonal to, almost completely irrelevant to how good they're
+
+2:15:38.280 --> 2:15:45.080
+ going to be at coming up to speed in doing this kind of ontological engineering and writing
+
+2:15:45.080 --> 2:15:49.560
+ these assertions and rules and so on in psych.
+
+2:15:49.560 --> 2:15:54.880
+ And so very often we'll interview candidates who have their PhD in philosophy, who've
+
+2:15:54.880 --> 2:15:59.680
+ taught logic for years and so on, and they're just awful.
+
+2:15:59.680 --> 2:16:00.840
+ But the converse is true.
+
+2:16:00.840 --> 2:16:06.340
+ So one of the best ontological engineers we ever had never graduated high school.
+
+2:16:06.340 --> 2:16:13.560
+ And so the purpose of Knowledge Axe Immunization Institute, if we can get some foundations
+
+2:16:13.560 --> 2:16:20.640
+ to help support it is identify people in the general population, maybe high school dropouts,
+
+2:16:20.640 --> 2:16:28.360
+ who have latent talent for this sort of thing, offer them effectively scholarships to train
+
+2:16:28.360 --> 2:16:35.280
+ them and then help place them in companies that need more trained ontological engineers,
+
+2:16:35.280 --> 2:16:39.560
+ some of which would be working for us, but mostly would be working for partners or customers
+
+2:16:39.560 --> 2:16:40.680
+ or something.
+
+2:16:40.680 --> 2:16:46.080
+ And if we could do that, that would create an enormous number of relatively very high
+
+2:16:46.080 --> 2:16:53.880
+ paying jobs for people who currently have no way out of some situation that they're
+
+2:16:53.880 --> 2:16:55.100
+ locked into.
+
+2:16:55.100 --> 2:17:01.080
+ So is there something you can put into words that describes somebody who would be great
+
+2:17:01.080 --> 2:17:03.280
+ at ontological engineering?
+
+2:17:03.280 --> 2:17:12.200
+ So what characteristics about a person make them great at this task, this task of converting
+
+2:17:12.200 --> 2:17:17.240
+ the messiness of human language and knowledge into formal logic?
+
+2:17:17.240 --> 2:17:22.760
+ This is very much like what Alan Turing had to do during World War II in trying to find
+
+2:17:22.760 --> 2:17:28.400
+ people to bring to Bletchley Park, where he would publish in the London Times cryptic
+
+2:17:28.400 --> 2:17:34.760
+ crossword puzzles along with some innocuous looking note, which essentially said, if you
+
+2:17:34.760 --> 2:17:40.820
+ were able to solve this puzzle in less than 15 minutes, please call this phone number
+
+2:17:40.820 --> 2:17:42.960
+ and so on.
+
+2:17:42.960 --> 2:17:49.840
+ Or back when I was young, there was the practice of having matchbooks, where on the inside
+
+2:17:49.840 --> 2:17:54.040
+ of the matchbook, there would be a, can you draw this?
+
+2:17:54.040 --> 2:18:00.100
+ You have a career in art, commercial art, if you can copy this drawing and so on.
+
+2:18:00.100 --> 2:18:02.400
+ So yes, the analog of that.
+
+2:18:02.400 --> 2:18:06.000
+ Is there a little test to get to the core of whether you're going to be good or not?
+
+2:18:06.000 --> 2:18:14.020
+ So part of it has to do with being able to make and appreciate and react negatively appropriately
+
+2:18:14.020 --> 2:18:16.160
+ to puns and other jokes.
+
+2:18:16.160 --> 2:18:18.740
+ So you have to have a kind of sense of humor.
+
+2:18:18.740 --> 2:18:24.640
+ And if you're good at telling jokes and good at understanding jokes, that's one
+
+2:18:24.640 --> 2:18:25.640
+ indicator.
+
+2:18:25.640 --> 2:18:26.640
+ Like puns?
+
+2:18:26.640 --> 2:18:27.640
+ Yes.
+
+2:18:27.640 --> 2:18:28.640
+ Like dad jokes?
+
+2:18:28.640 --> 2:18:29.640
+ Yes.
+
+2:18:29.640 --> 2:18:32.360
+ Well, maybe not dad jokes, but funny jokes.
+
+2:18:32.360 --> 2:18:36.360
+ I think I'm applying to work at SACOR.
+
+2:18:36.360 --> 2:18:38.240
+ Another is if you're able to introspect.
+
+2:18:38.240 --> 2:18:48.360
+ So very often, we'll give someone a simple question and we'll say like, why is this?
+
+2:18:48.360 --> 2:18:53.480
+ And sometimes they'll just say, because it is, okay, that's a bad sign.
+
+2:18:53.480 --> 2:18:56.560
+ But very often, they'll be able to introspect and so on.
+
+2:18:56.560 --> 2:19:01.800
+ So one of the questions I often ask is I'll point to a sentence with a pronoun in it and
+
+2:19:01.800 --> 2:19:07.700
+ I'll say, the referent of that pronoun is obviously this noun over here.
+
+2:19:07.700 --> 2:19:14.980
+ How would you or I or an AI or a five year old, 10 year old child know that that pronoun
+
+2:19:14.980 --> 2:19:18.240
+ refers to that noun over here?
+
+2:19:18.240 --> 2:19:25.760
+ And often the people who are going to be good at ontological engineering will give me some
+
+2:19:25.760 --> 2:19:30.100
+ causal explanation or will refer to some things that are true in the world.
+
+2:19:30.100 --> 2:19:35.120
+ So if you imagine a sentence like, the horse was led into the barn while its head was still
+
+2:19:35.120 --> 2:19:36.120
+ wet.
+
+2:19:36.120 --> 2:19:38.980
+ And so its head refers to the horse's head.
+
+2:19:38.980 --> 2:19:40.420
+ But how do you know that?
+
+2:19:40.420 --> 2:19:42.140
+ And so some people will say, I just know it.
+
+2:19:42.140 --> 2:19:45.620
+ Some people will say, well, the horse was the subject of the sentence.
+
+2:19:45.620 --> 2:19:50.080
+ And I'll say, okay, well, what about the horse was led into the barn while its roof was still
+
+2:19:50.080 --> 2:19:51.080
+ wet?
+
+2:19:51.080 --> 2:19:54.360
+ Now, its roof obviously refers to the barn.
+
+2:19:54.360 --> 2:19:58.440
+ And so then they'll say, oh, well, that's because it's the closest noun.
+
+2:19:58.440 --> 2:20:05.380
+ And so basically, if they try to give me answers which are based on syntax and grammar and
+
+2:20:05.380 --> 2:20:07.580
+ so on, that's a really bad sign.
+
+2:20:07.580 --> 2:20:12.120
+ But if they're able to say things like, well, horses have heads and barns don't and barns
+
+2:20:12.120 --> 2:20:16.860
+ have roofs and horses don't, then that's a positive sign that they're going to be good
+
+2:20:16.860 --> 2:20:22.180
+ at this because they can introspect on what's true in the world that leads you to know certain
+
+2:20:22.180 --> 2:20:23.180
+ things.
+
+2:20:23.180 --> 2:20:28.060
+ How fascinating is it that getting a Ph.D. makes you less capable to introspect deeply
+
+2:20:28.060 --> 2:20:29.060
+ about this?
+
+2:20:29.060 --> 2:20:30.860
+ Oh, I wouldn't go that far.
+
+2:20:30.860 --> 2:20:32.820
+ I'm not saying that it makes you less capable.
+
+2:20:32.820 --> 2:20:37.500
+ Let's just say it's independent of how good people are.
+
+2:20:37.500 --> 2:20:38.500
+ You're not saying that.
+
+2:20:38.500 --> 2:20:39.500
+ I'm saying that.
+
+2:20:39.500 --> 2:20:47.740
+ It's interesting that for a lot of people, Ph.D.s, sorry, philosophy aside, that sometimes
+
+2:20:47.740 --> 2:20:52.060
+ education narrows your thinking versus expands it.
+
+2:20:52.060 --> 2:20:53.600
+ It's kind of fascinating.
+
+2:20:53.600 --> 2:20:58.900
+ And for certain when you're trying to do ontological engineering, which is essentially teach our
+
+2:20:58.900 --> 2:21:05.980
+ future AI overlords how to reason deeply about this world and how to understand it, that
+
+2:21:05.980 --> 2:21:08.700
+ requires that you think deeply about the world.
+
+2:21:08.700 --> 2:21:14.820
+ So I'll tell you a sad story about mathcraft, which is why is that not widely used in schools
+
+2:21:14.820 --> 2:21:16.100
+ today?
+
+2:21:16.100 --> 2:21:20.700
+ We're not really trying to make big profit on it or anything like that.
+
+2:21:20.700 --> 2:21:27.060
+ When we've gone to schools, their attitude has been, well, if a student spends 20 hours
+
+2:21:27.060 --> 2:21:34.220
+ going through this mathcraft program from start to end and so on, will it improve their
+
+2:21:34.220 --> 2:21:39.980
+ score on this standardized test more than if they spent 20 hours just doing mindless
+
+2:21:39.980 --> 2:21:43.700
+ drills of problem after problem after problem?
+
+2:21:43.700 --> 2:21:47.820
+ And the answer is, well, no, but it'll increase their understanding more.
+
+2:21:47.820 --> 2:21:54.260
+ And their attitude is, well, if it doesn't increase their score on this test, then we're
+
+2:21:54.260 --> 2:21:55.660
+ not going to adopt it.
+
+2:21:55.660 --> 2:21:56.660
+ That's sad.
+
+2:21:56.660 --> 2:22:01.900
+ I mean, that's a whole another three, four hour conversation about the education system.
+
+2:22:01.900 --> 2:22:06.660
+ But let me ask you, let me go super philosophical, as if we weren't already.
+
+2:22:06.660 --> 2:22:11.620
+ So in 1950, Alan Turing wrote the paper that formulated the Turing test.
+
+2:22:11.620 --> 2:22:12.620
+ Yes.
+
+2:22:12.620 --> 2:22:16.020
+ And he opened the paper with the question, can machines think?
+
+2:22:16.020 --> 2:22:17.020
+ So what do you think?
+
+2:22:17.020 --> 2:22:18.020
+ Can machines think?
+
+2:22:18.020 --> 2:22:20.820
+ Let me ask you this question.
+
+2:22:20.820 --> 2:22:21.980
+ Absolutely.
+
+2:22:21.980 --> 2:22:27.980
+ Machines can think, certainly as well as humans can think, right?
+
+2:22:27.980 --> 2:22:34.380
+ We're meat machines just because they're not currently made out of meat is just an engineering
+
+2:22:34.380 --> 2:22:38.300
+ solution decision and so on.
+
+2:22:38.300 --> 2:22:42.180
+ So of course machines can think.
+
+2:22:42.180 --> 2:22:51.860
+ I think that there was a lot of damage done by people misunderstanding Turing's imitation
+
+2:22:51.860 --> 2:23:03.220
+ game and focus on trying to get a chat bot to fool other people into thinking it was
+
+2:23:03.220 --> 2:23:06.540
+ human and so on.
+
+2:23:06.540 --> 2:23:10.980
+ That's not a terrible test in and of itself, but it shouldn't be your one and only test
+
+2:23:10.980 --> 2:23:13.380
+ for intelligence.
+
+2:23:13.380 --> 2:23:19.180
+ In terms of tests of intelligence, you know, with the Lobner Prize, which is a very kind
+
+2:23:19.180 --> 2:23:25.340
+ of, you want to say a more strict formulation of the Turing test as originally formulated.
+
+2:23:25.340 --> 2:23:31.180
+ And then there's something like Alexa Prize, which is more, I would say a more interesting
+
+2:23:31.180 --> 2:23:37.740
+ formulation of the test, which is like, ultimately the metric is how long does a human want to
+
+2:23:37.740 --> 2:23:38.740
+ talk to the AI system?
+
+2:23:38.740 --> 2:23:46.060
+ So it's like if the goal is you want it to be 20 minutes, it's basically not just have
+
+2:23:46.060 --> 2:23:52.620
+ a convincing conversation, but more like a compelling one or a fun one or an interesting
+
+2:23:52.620 --> 2:23:53.620
+ one.
+
+2:23:53.620 --> 2:24:01.120
+ And that seems like more to the spirit maybe of what Turing was imagining.
+
+2:24:01.120 --> 2:24:06.700
+ But what for you do you think in the space of tests is a good test?
+
+2:24:06.700 --> 2:24:12.900
+ When you see a system based on psych that passes that test, you'd be like, damn, we've
+
+2:24:12.900 --> 2:24:17.020
+ created something special here.
+
+2:24:17.020 --> 2:24:23.700
+ The test has to be something involving depth of reasoning and recursiveness of reasoning,
+
+2:24:23.700 --> 2:24:30.100
+ the ability to answer repeated why questions about the answer you just gave.
+
+2:24:30.100 --> 2:24:33.140
+ How many why questions in a row can you keep answering?
+
+2:24:33.140 --> 2:24:36.140
+ Something like that.
+
+2:24:36.140 --> 2:24:41.820
+ Just have like a young curious child and an AI system and how long will an AI system last
+
+2:24:41.820 --> 2:24:43.300
+ before it wants to quit?
+
+2:24:43.300 --> 2:24:44.300
+ Yes.
+
+2:24:44.300 --> 2:24:45.660
+ And again, that's not the only test.
+
+2:24:45.660 --> 2:24:48.020
+ Another one has to do with argumentation.
+
+2:24:48.020 --> 2:24:57.020
+ In other words, here's a proposition, come up with pro and con arguments for it and try
+
+2:24:57.020 --> 2:25:02.300
+ and give me convincing arguments on both sides.
+
+2:25:02.300 --> 2:25:09.660
+ And so that's another important kind of ability that the system needs to be able to exhibit
+
+2:25:09.660 --> 2:25:12.860
+ in order to really be intelligent, I think.
+
+2:25:12.860 --> 2:25:18.180
+ So there's certain, I mean, if you look at IBM Watson and like certain impressive accomplishments
+
+2:25:18.180 --> 2:25:24.500
+ for very specific tests, almost like a demo, right?
+
+2:25:24.500 --> 2:25:34.740
+ There's some, like I talked to the guy who led the Jeopardy effort, and there's some
+
+2:25:34.740 --> 2:25:40.260
+ kind of hard coding heuristics tricks that you try to pull it all together to make the
+
+2:25:40.260 --> 2:25:43.060
+ thing work in the end for this thing, right?
+
+2:25:43.060 --> 2:25:49.060
+ That seems to be one of the lessons with AI is like, that's the fastest way to get a solution
+
+2:25:49.060 --> 2:25:50.580
+ that's pretty damn impressive.
+
+2:25:50.580 --> 2:25:59.620
+ So here's what I would say is that as impressive as that was, it made some mistakes, but more
+
+2:25:59.620 --> 2:26:07.260
+ importantly, many of the mistakes it made were mistakes which no human would have made.
+
+2:26:07.260 --> 2:26:17.540
+ And so part of the new or augmented Turing tests would have to be, and the mistakes you
+
+2:26:17.540 --> 2:26:24.300
+ make are ones which humans don't basically look at and say, what?
+
+2:26:24.300 --> 2:26:33.540
+ So for example, there was a question about which 16th century Italian politician, blah,
+
+2:26:33.540 --> 2:26:37.260
+ blah, blah, and Watson said Ronald Reagan.
+
+2:26:37.260 --> 2:26:42.000
+ So most Americans would have gotten that question wrong, but they would never have said Ronald
+
+2:26:42.000 --> 2:26:49.860
+ Reagan as an answer because among the things they know is that he lived relatively recently
+
+2:26:49.860 --> 2:26:53.960
+ and people don't really live 400 years and things like that.
+
+2:26:53.960 --> 2:27:00.860
+ So that's, I think, a very important thing, which is if it's making mistakes which no
+
+2:27:00.860 --> 2:27:05.780
+ normal sane human would have made, then that's a really bad sign.
+
+2:27:05.780 --> 2:27:10.140
+ And if it's not making those kinds of mistakes, then that's a good sign.
+
+2:27:10.140 --> 2:27:12.980
+ And I don't think it's any one very, very simple test.
+
+2:27:12.980 --> 2:27:17.300
+ I think it's all of the things you mentioned, all the things I mentioned is really a battery
+
+2:27:17.300 --> 2:27:23.700
+ of tests, which together, if it passes almost all of these tests, it'd be hard to argue
+
+2:27:23.700 --> 2:27:25.340
+ that it's not intelligent.
+
+2:27:25.340 --> 2:27:30.980
+ And if it fails several of these tests, it's really hard to argue that it really understands
+
+2:27:30.980 --> 2:27:33.460
+ what it's doing and that it really is generally intelligent.
+
+2:27:33.460 --> 2:27:40.820
+ So to pass all of those tests, we've talked a lot about psych and knowledge and reasoning.
+
+2:27:40.820 --> 2:27:47.540
+ Do you think this AI system would need to have some other human like elements, for example,
+
+2:27:47.540 --> 2:27:52.820
+ a body or a physical manifestation in this world?
+
+2:27:52.820 --> 2:27:59.980
+ And another one which seems to be fundamental to the human experience is consciousness.
+
+2:27:59.980 --> 2:28:04.740
+ The subjective experience of what it's like to actually be you.
+
+2:28:04.740 --> 2:28:08.700
+ Do you think it needs those to be able to pass all of those tests and to achieve general
+
+2:28:08.700 --> 2:28:09.700
+ intelligence?
+
+2:28:09.700 --> 2:28:10.700
+ It's a good question.
+
+2:28:10.700 --> 2:28:15.340
+ I think in the case of a body, no, I know there are a lot of people like Penrose who
+
+2:28:15.340 --> 2:28:21.940
+ would have disagreed with me and others, but no, I don't think it needs to have a body
+
+2:28:21.940 --> 2:28:24.300
+ in order to be intelligent.
+
+2:28:24.300 --> 2:28:32.780
+ I think that it needs to be able to talk about having a body and having sensations and having
+
+2:28:32.780 --> 2:28:33.980
+ emotions and so on.
+
+2:28:33.980 --> 2:28:39.380
+ It doesn't actually have to have all of that, but it has to understand it in the same way
+
+2:28:39.380 --> 2:28:47.300
+ that Helen Keller was perfectly intelligent and able to talk about colors and sounds and
+
+2:28:47.300 --> 2:28:54.100
+ shapes and so on, even though she didn't directly experience all the same things that the rest
+
+2:28:54.100 --> 2:28:55.100
+ of us do.
+
+2:28:55.100 --> 2:29:04.060
+ So knowledge of it and being able to correctly make use of that is certainly an important
+
+2:29:04.060 --> 2:29:09.420
+ facility, but actually having a body, if you believe that that's just a kind of religious
+
+2:29:09.420 --> 2:29:15.740
+ or mystical belief, you can't really argue for or against it, I suppose.
+
+2:29:15.740 --> 2:29:19.340
+ It's just something that some people believe.
+
+2:29:19.340 --> 2:29:24.540
+ What about an extension of the body, which is consciousness?
+
+2:29:24.540 --> 2:29:27.780
+ It feels like something to be here.
+
+2:29:27.780 --> 2:29:28.780
+ Sure.
+
+2:29:28.780 --> 2:29:30.820
+ But what does that really mean?
+
+2:29:30.820 --> 2:29:35.940
+ It's like, well, if I talk to you, you say things which make me believe that you're conscious.
+
+2:29:35.940 --> 2:29:40.540
+ I know that I'm conscious, but you're just taking my word for it now.
+
+2:29:40.540 --> 2:29:46.620
+ But in the same sense, psych is conscious in that same sense already, where of course
+
+2:29:46.620 --> 2:29:50.620
+ it's a computer program, it understands where and when it's running, it understands who's
+
+2:29:50.620 --> 2:29:55.300
+ talking to it, it understands what its task is, what its goals are, what its current problem
+
+2:29:55.300 --> 2:29:59.600
+ is that it's working on, it understands how long it's spent on things, what it's tried,
+
+2:29:59.600 --> 2:30:06.300
+ it understands what it's done in the past, and so on.
+
+2:30:06.300 --> 2:30:11.340
+ If we want to call that consciousness, then yes, psych is already conscious.
+
+2:30:11.340 --> 2:30:15.700
+ But I don't think that I would ascribe anything mystical to that.
+
+2:30:15.700 --> 2:30:21.220
+ Again, some people would, but I would say that other than our own personal experience
+
+2:30:21.220 --> 2:30:27.980
+ of consciousness, we're just treating everyone else in the world, so to speak, at their word
+
+2:30:27.980 --> 2:30:29.820
+ about being conscious.
+
+2:30:29.820 --> 2:30:39.300
+ And so if a computer program, if an AI is able to exhibit all the same kinds of response
+
+2:30:39.300 --> 2:30:46.500
+ as you would expect of a conscious entity, then doesn't it deserve the label of consciousness
+
+2:30:46.500 --> 2:30:47.500
+ just as much?
+
+2:30:47.500 --> 2:30:51.200
+ So there's another burden that comes with this whole intelligence thing that humans
+
+2:30:51.200 --> 2:30:59.780
+ got is the extinguishing of the light of consciousness, which is kind of realizing that we're going
+
+2:30:59.780 --> 2:31:02.660
+ to be dead someday.
+
+2:31:02.660 --> 2:31:09.060
+ And there's a bunch of philosophers like Ernest Becker, who kind of think that this realization
+
+2:31:09.060 --> 2:31:18.180
+ of mortality, and then fear, sometimes they call it terror of mortality, is one of the
+
+2:31:18.180 --> 2:31:24.980
+ creative forces behind human condition, like, it's the thing that drives us.
+
+2:31:24.980 --> 2:31:27.900
+ Do you think it's important for an AI system?
+
+2:31:27.900 --> 2:31:36.660
+ You know, when Psych proposed that it's not human, and it's one of the moderators of
+
+2:31:36.660 --> 2:31:43.980
+ his contents, you know, there's another question it could ask, which is like, it kind of knows
+
+2:31:43.980 --> 2:31:47.760
+ that humans are mortal, am I mortal?
+
+2:31:47.760 --> 2:31:54.620
+ And I think one really important thing that's possible when you're conscious is to fear
+
+2:31:54.620 --> 2:31:59.020
+ the extinguishing of that consciousness, the fear of mortality.
+
+2:31:59.020 --> 2:32:04.340
+ Do you think that's useful for intelligence, thinking like, I might die, and I really don't
+
+2:32:04.340 --> 2:32:05.340
+ want to die?
+
+2:32:05.340 --> 2:32:06.660
+ I don't think so.
+
+2:32:06.660 --> 2:32:12.940
+ I think it may help some humans to be better people.
+
+2:32:12.940 --> 2:32:16.140
+ It may help some humans to be more creative, and so on.
+
+2:32:16.140 --> 2:32:23.660
+ I don't think it's necessary for AIs to believe that they have limited lifespans, and therefore
+
+2:32:23.660 --> 2:32:26.020
+ they should make the most of their behavior.
+
+2:32:26.020 --> 2:32:30.980
+ Maybe eventually the answer to that and my answer to that will change, but as of now
+
+2:32:30.980 --> 2:32:36.980
+ I would say that that's almost like a frill or a side effect that is not, in fact, if
+
+2:32:36.980 --> 2:32:42.780
+ you look at most humans, most humans ignore the fact that they're going to die most of
+
+2:32:42.780 --> 2:32:43.780
+ the time.
+
+2:32:43.780 --> 2:32:49.700
+ Well, but that's like, this goes to the white space between the words.
+
+2:32:49.700 --> 2:32:54.300
+ So what Ernest Becker argues is that that ignoring is we're living in an illusion that
+
+2:32:54.300 --> 2:32:57.780
+ we constructed on the foundation of this terror.
+
+2:32:57.780 --> 2:33:05.100
+ So we're escape life as we know it, pursuing things, creating things, love, everything
+
+2:33:05.100 --> 2:33:11.620
+ we can think of that's beautiful about humanity is just trying to escape this realization
+
+2:33:11.620 --> 2:33:13.420
+ that we're going to die one day.
+
+2:33:13.420 --> 2:33:21.420
+ That's his idea, and I think, I don't know if I 100% believe in this, but it certainly
+
+2:33:21.420 --> 2:33:22.700
+ rhymes.
+
+2:33:22.700 --> 2:33:25.620
+ It seems like to me like it rhymes with the truth.
+
+2:33:25.620 --> 2:33:26.620
+ Yeah.
+
+2:33:26.620 --> 2:33:33.340
+ I think that for some people that's going to be a more powerful factor than others.
+
+2:33:33.340 --> 2:33:35.860
+ Clearly Doug is talking about Russians.
+
+2:33:35.860 --> 2:33:44.700
+ So I'm Russian, so clearly it infiltrates all of Russian literature.
+
+2:33:44.700 --> 2:33:53.860
+ And AI doesn't have to have fear of death as a motivating force in that we can build
+
+2:33:53.860 --> 2:33:55.700
+ in motivation.
+
+2:33:55.700 --> 2:34:03.180
+ So we can build in the motivation of obeying users and making users happy and making others
+
+2:34:03.180 --> 2:34:12.380
+ happy and so on, and that can substitute for this sort of personal fear of death that sometimes
+
+2:34:12.380 --> 2:34:16.940
+ leads to bursts of creativity in humans.
+
+2:34:16.940 --> 2:34:18.780
+ Yeah, I don't know.
+
+2:34:18.780 --> 2:34:23.420
+ I think AI really needs to understand death deeply in order to be able to drive a car,
+
+2:34:23.420 --> 2:34:24.860
+ for example.
+
+2:34:24.860 --> 2:34:28.100
+ I think there's just some, like, there...
+
+2:34:28.100 --> 2:34:30.060
+ No, I really disagree.
+
+2:34:30.060 --> 2:34:34.740
+ I think it needs to understand the value of human life, especially the value of human
+
+2:34:34.740 --> 2:34:41.940
+ life to other humans, and understand that certain things are more important than other
+
+2:34:41.940 --> 2:34:42.940
+ things.
+
+2:34:42.940 --> 2:34:48.060
+ So it has to have a lot of knowledge about ethics and morality and so on.
+
+2:34:48.060 --> 2:34:51.220
+ But some of it is so messy that it's impossible to encode.
+
+2:34:51.220 --> 2:34:52.220
+ For example, there's...
+
+2:34:52.220 --> 2:34:53.780
+ I disagree.
+
+2:34:53.780 --> 2:34:59.320
+ So if there's a person dying right in front of us, most human beings would help that person,
+
+2:34:59.320 --> 2:35:04.580
+ but they would not apply that same ethics to everybody else in the world.
+
+2:35:04.580 --> 2:35:09.100
+ This is the tragedy of how difficult it is to be a doctor, because they know when they
+
+2:35:09.100 --> 2:35:15.720
+ help a dying child, they know that the money they're spending on this child cannot possibly
+
+2:35:15.720 --> 2:35:18.920
+ be spent on every other child that's dying.
+
+2:35:18.920 --> 2:35:24.700
+ And that's a very difficult to encode decision.
+
+2:35:24.700 --> 2:35:26.540
+ Perhaps it is...
+
+2:35:26.540 --> 2:35:27.540
+ Perhaps it could be formalized.
+
+2:35:27.540 --> 2:35:31.900
+ Oh, but I mean, you're talking about autonomous vehicles, right?
+
+2:35:31.900 --> 2:35:39.340
+ So autonomous vehicles are going to have to make those decisions all the time of, what
+
+2:35:39.340 --> 2:35:43.060
+ is the chance of this bad event happening?
+
+2:35:43.060 --> 2:35:46.660
+ How bad is that compared to this chance of that bad event happening?
+
+2:35:46.660 --> 2:35:47.660
+ And so on.
+
+2:35:47.660 --> 2:35:52.940
+ And when a potential accident is about to happen, is it worth taking this risk?
+
+2:35:52.940 --> 2:35:56.980
+ If I have to make a choice, which of these two cars am I going to hit and why?
+
+2:35:56.980 --> 2:36:01.220
+ See, I was thinking about a very different choice when I'm talking about hero mortality,
+
+2:36:01.220 --> 2:36:06.020
+ which is just observing Manhattan style driving.
+
+2:36:06.020 --> 2:36:14.820
+ I think that humans as an effective driver needs to threaten pedestrians lives a lot.
+
+2:36:14.820 --> 2:36:19.500
+ There's a dance, I've watched pedestrians a lot, I worked on this problem, and it seems
+
+2:36:19.500 --> 2:36:27.220
+ like the, if I could summarize the problem of a pedestrian crossing is the car with this
+
+2:36:27.220 --> 2:36:30.240
+ movement is saying, I'm going to kill you.
+
+2:36:30.240 --> 2:36:33.320
+ And the pedestrian is saying, maybe.
+
+2:36:33.320 --> 2:36:36.780
+ And then they decide and they say, no, I don't think you have the guts to kill me.
+
+2:36:36.780 --> 2:36:39.460
+ And you walk and they walk in front and they look away.
+
+2:36:39.460 --> 2:36:46.300
+ And there's that dance, the pedestrian, this is a social contract that the pedestrian trusts
+
+2:36:46.300 --> 2:36:51.020
+ that once they're in front of the car and the car is sufficiently, from a physics perspective,
+
+2:36:51.020 --> 2:36:53.220
+ able to stop, they're going to stop.
+
+2:36:53.220 --> 2:36:58.540
+ But the car also has to threaten that pedestrian is like, I'm late for work, so you're being
+
+2:36:58.540 --> 2:37:01.140
+ kind of an asshole by crossing in front of me.
+
+2:37:01.140 --> 2:37:06.060
+ But life and death is in like, it's part of the calculation here.
+
+2:37:06.060 --> 2:37:11.220
+ And it's that equation is being solved millions of times a day.
+
+2:37:11.220 --> 2:37:12.220
+ Yes.
+
+2:37:12.220 --> 2:37:15.540
+ Very effectively, that game theory, whatever that formulation is.
+
+2:37:15.540 --> 2:37:16.540
+ Absolutely.
+
+2:37:16.540 --> 2:37:22.260
+ I just I don't know if it's as simple as some formalizable game theory problem.
+
+2:37:22.260 --> 2:37:28.300
+ It could very well be in the case of driving and in the case of most of human society.
+
+2:37:28.300 --> 2:37:29.300
+ I don't know.
+
+2:37:29.300 --> 2:37:34.660
+ But yeah, you might be right that sort of the fear of death is just one of the quirks
+
+2:37:34.660 --> 2:37:42.500
+ of like the way our brains have evolved, but it's not a necessary feature of intelligence.
+
+2:37:42.500 --> 2:37:48.740
+ Others certainly are always doing this kind of estimate, even if it's unconscious, subconscious,
+
+2:37:48.740 --> 2:37:52.860
+ of what are the chances of various bad outcomes happening?
+
+2:37:52.860 --> 2:37:59.060
+ Like for instance, if I don't wait for this pedestrian or something like that, and what
+
+2:37:59.060 --> 2:38:07.680
+ is the downside to me going to be in terms of time wasted talking to the police or getting
+
+2:38:07.680 --> 2:38:11.980
+ sent to jail or things like that?
+
+2:38:11.980 --> 2:38:17.580
+ And there's also emotion, like people in their cars tend to get irrationally angry.
+
+2:38:17.580 --> 2:38:18.580
+ That's dangerous.
+
+2:38:18.580 --> 2:38:24.260
+ But, you know, think about this is all part of why I think that autonomous vehicles, truly
+
+2:38:24.260 --> 2:38:31.060
+ autonomous vehicles are farther out than most people do, because there is this enormous
+
+2:38:31.060 --> 2:38:38.580
+ level of complexity which goes beyond mechanically controlling the car.
+
+2:38:38.580 --> 2:38:45.220
+ And I can see the autonomous vehicles as a kind of metaphorical and literal accident
+
+2:38:45.220 --> 2:38:47.100
+ waiting to happen.
+
+2:38:47.100 --> 2:38:56.900
+ And not just because of their overall incurring versus preventing accidents and so on, but
+
+2:38:56.900 --> 2:39:10.340
+ just because of the almost voracious appetite people have for bad stories about powerful
+
+2:39:10.340 --> 2:39:12.940
+ companies and powerful entities.
+
+2:39:12.940 --> 2:39:19.640
+ When I was at a, coincidentally, Japanese fifth generation computing system conference
+
+2:39:19.640 --> 2:39:26.220
+ in 1987, while I happened to be there, there was a worker at an auto plant who was despondent
+
+2:39:26.220 --> 2:39:30.900
+ and committed suicide by climbing under the safety chains and so on and getting stamped
+
+2:39:30.900 --> 2:39:32.940
+ to death by a machine.
+
+2:39:32.940 --> 2:39:38.940
+ And instead of being a small story that said despondent worker commit suicide, it was front
+
+2:39:38.940 --> 2:39:46.860
+ page news that effectively said robot kills worker, because the public is just waiting
+
+2:39:46.860 --> 2:39:54.220
+ for stories about like AI kills phonogenic family of five type stories.
+
+2:39:54.220 --> 2:40:01.300
+ And even if you could show that nationwide, this system saved more lives than it cost
+
+2:40:01.300 --> 2:40:09.100
+ and prevented more injuries than it caused and so on, the media, the public, the government
+
+2:40:09.100 --> 2:40:18.180
+ is just coiled and ready to pounce on stories where in fact it failed, even if they're relatively
+
+2:40:18.180 --> 2:40:19.180
+ few.
+
+2:40:19.180 --> 2:40:26.220
+ Yeah, it's so fascinating to watch us humans resisting the cutting edge of science and
+
+2:40:26.220 --> 2:40:31.940
+ technology and almost like hoping for it to fail and constant, you know, this just happens
+
+2:40:31.940 --> 2:40:33.820
+ over and over and over throughout history.
+
+2:40:33.820 --> 2:40:37.860
+ Or even if we're not hoping for it to fail, we're fascinated by it.
+
+2:40:37.860 --> 2:40:43.420
+ And in terms of what we find interesting, the one in a thousand failures, much more
+
+2:40:43.420 --> 2:40:48.160
+ interesting than the 999 boring successes.
+
+2:40:48.160 --> 2:40:57.860
+ So once we build an AGI system, say psych is some part of it and say it's very possible
+
+2:40:57.860 --> 2:41:03.420
+ that you would be one of the first people that can sit down in the room, let's say with
+
+2:41:03.420 --> 2:41:07.260
+ her and have a conversation, what would you ask her?
+
+2:41:07.260 --> 2:41:09.580
+ What would you talk about?
+
+2:41:09.580 --> 2:41:26.460
+ Looking at all of the content out there on the web and so on, what are some possible
+
+2:41:26.460 --> 2:41:33.120
+ solutions to big problems that the world has that people haven't really thought of before
+
+2:41:33.120 --> 2:41:40.000
+ that are not being properly or at least adequately pursued?
+
+2:41:40.000 --> 2:41:46.540
+ What are some novel solutions that you can think of that we haven't that might work and
+
+2:41:46.540 --> 2:41:48.600
+ that might be worth considering?
+
+2:41:48.600 --> 2:41:51.020
+ So that is a damn good question.
+
+2:41:51.020 --> 2:41:56.360
+ Given that the AGI is going to be somewhat different from human intelligence, it's still
+
+2:41:56.360 --> 2:42:02.020
+ going to make some mistakes that we wouldn't make, but it's also possibly going to notice
+
+2:42:02.020 --> 2:42:04.420
+ some blind spots we have.
+
+2:42:04.420 --> 2:42:13.460
+ And I would love as a test of is it really on a par with our intelligences, can it help
+
+2:42:13.460 --> 2:42:17.660
+ spot some of the blind spots that we have?
+
+2:42:17.660 --> 2:42:23.420
+ So the two part question of can you help identify what are the big problems in the world?
+
+2:42:23.420 --> 2:42:27.360
+ And two, what are some novel solutions to those problems?
+
+2:42:27.360 --> 2:42:31.660
+ That are not being talked about by anyone.
+
+2:42:31.660 --> 2:42:37.040
+ And some of those may become infeasible or reprehensible or something, but some of them
+
+2:42:37.040 --> 2:42:40.640
+ might be actually great things to look at.
+
+2:42:40.640 --> 2:42:45.960
+ If you go back and look at some of the most powerful discoveries that have been made,
+
+2:42:45.960 --> 2:42:56.180
+ like relativity and superconductivity and so on, a lot of them were cases where someone
+
+2:42:56.180 --> 2:43:04.620
+ took seriously the idea that there might actually be a non obvious answer to a question.
+
+2:43:04.620 --> 2:43:09.720
+ So in Einstein's case, it was, yeah, the Lorentz transformation is known.
+
+2:43:09.720 --> 2:43:12.200
+ Nobody believes that it's actually the way reality works.
+
+2:43:12.200 --> 2:43:15.380
+ What if it were the way that reality actually worked?
+
+2:43:15.380 --> 2:43:19.040
+ So a lot of people don't realize he didn't actually work out that equation, he just sort
+
+2:43:19.040 --> 2:43:20.940
+ of took it seriously.
+
+2:43:20.940 --> 2:43:26.680
+ Or in the case of superconductivity, you have this V equals IR equation where R is resistance
+
+2:43:26.680 --> 2:43:28.000
+ and so on.
+
+2:43:28.000 --> 2:43:33.480
+ And it was being mapped at lower and lower temperatures, but everyone thought that was
+
+2:43:33.480 --> 2:43:39.840
+ just bump on a log research to show that V equals IR always held.
+
+2:43:39.840 --> 2:43:46.180
+ And then when some graduate student got to a slightly lower temperature and showed that
+
+2:43:46.180 --> 2:43:50.960
+ resistance suddenly dropped off, everyone just assumed that they did it wrong.
+
+2:43:50.960 --> 2:43:56.680
+ And it was only a little while later that they realized it was actually a new phenomenon.
+
+2:43:56.680 --> 2:44:04.660
+ Or in the case of the H. pylori bacteria causing stomach ulcers, where everyone thought that
+
+2:44:04.660 --> 2:44:08.040
+ stress and stomach acid caused ulcers.
+
+2:44:08.040 --> 2:44:15.800
+ And when a doctor in Australia claimed it was actually a bacterial infection, he couldn't
+
+2:44:15.800 --> 2:44:21.880
+ get anyone seriously to listen to him and he had to ultimately inject himself with the
+
+2:44:21.880 --> 2:44:27.640
+ bacteria to show that he suddenly developed a life threatening ulcer in order to get other
+
+2:44:27.640 --> 2:44:29.880
+ doctors to seriously consider that.
+
+2:44:29.880 --> 2:44:35.680
+ So there are all sorts of things where humans are locked into paradigms, what Thomas Kuhn
+
+2:44:35.680 --> 2:44:40.520
+ called paradigms, and we can't get out of them very easily.
+
+2:44:40.520 --> 2:44:47.720
+ So a lot of AI is locked into the deep learning machine learning paradigm right now.
+
+2:44:47.720 --> 2:44:52.800
+ And almost all of us and almost all sciences are locked into current paradigms.
+
+2:44:52.800 --> 2:45:00.000
+ And Kuhn's point was pretty much you have to wait for people to die in order for the
+
+2:45:00.000 --> 2:45:03.280
+ new generation to escape those paradigms.
+
+2:45:03.280 --> 2:45:09.120
+ And I think that one of the things that would change that sad reality is if we had trusted
+
+2:45:09.120 --> 2:45:16.120
+ AGI's that could help take a step back and question some of the paradigms that we're
+
+2:45:16.120 --> 2:45:17.400
+ currently locked into.
+
+2:45:17.400 --> 2:45:25.160
+ Yeah, it would accelerate the paradigm shifts in human science and progress.
+
+2:45:25.160 --> 2:45:30.600
+ You've lived a very interesting life where you thought about big ideas and you stuck
+
+2:45:30.600 --> 2:45:32.600
+ with them.
+
+2:45:32.600 --> 2:45:38.520
+ Can you give advice to young people today, somebody in high school, somebody undergrad,
+
+2:45:38.520 --> 2:45:43.880
+ about career, about life?
+
+2:45:43.880 --> 2:45:47.840
+ I'd say you can make a difference.
+
+2:45:47.840 --> 2:45:53.200
+ But in order to make a difference, you're going to have to have the courage to follow
+
+2:45:53.200 --> 2:46:02.480
+ through with ideas which other people might not immediately understand or support.
+
+2:46:02.480 --> 2:46:12.880
+ You have to realize that if you make some plan that's going to take an extended period
+
+2:46:12.880 --> 2:46:16.640
+ of time to carry out, don't be afraid of that.
+
+2:46:16.640 --> 2:46:20.920
+ That's true of physical training of your body.
+
+2:46:20.920 --> 2:46:27.020
+ That's true of learning some profession.
+
+2:46:27.020 --> 2:46:33.580
+ It's also true of innovation, that some innovations are not great ideas you can write down on
+
+2:46:33.580 --> 2:46:38.500
+ a napkin and become an instant success if you turn out to be right.
+
+2:46:38.500 --> 2:46:45.900
+ Some of them are paths you have to follow, but remember that you're mortal.
+
+2:46:45.900 --> 2:46:53.320
+ Remember that you have a limited number of decade sized debts to make with your life
+
+2:46:53.320 --> 2:46:55.720
+ and you should make each one of them count.
+
+2:46:55.720 --> 2:46:58.160
+ And that's true in personal relationships.
+
+2:46:58.160 --> 2:47:00.360
+ That's true in career choice.
+
+2:47:00.360 --> 2:47:03.920
+ That's true in making discoveries and so on.
+
+2:47:03.920 --> 2:47:10.960
+ And if you follow the path of least resistance, you'll find that you're optimizing for short
+
+2:47:10.960 --> 2:47:12.800
+ periods of time.
+
+2:47:12.800 --> 2:47:17.280
+ And before you know it, you turn around and long periods of time have gone by without
+
+2:47:17.280 --> 2:47:21.400
+ you ever really making a difference in the world.
+
+2:47:21.400 --> 2:47:26.280
+ When you look at the field that I really love is artificial intelligence and there's not
+
+2:47:26.280 --> 2:47:33.040
+ many projects, there's not many little flames of hope that have been carried out for many
+
+2:47:33.040 --> 2:47:36.920
+ years, for decades and psych represents one of them.
+
+2:47:36.920 --> 2:47:42.880
+ And I mean that in itself is just a really inspiring thing.
+
+2:47:42.880 --> 2:47:47.960
+ So I'm deeply grateful that you would be carrying that flame for so many years and I think that's
+
+2:47:47.960 --> 2:47:50.040
+ an inspiration to young people.
+
+2:47:50.040 --> 2:47:55.360
+ That said, you said life is finite and we talked about mortality as a feature of AGI.
+
+2:47:55.360 --> 2:47:57.480
+ Do you think about your own mortality?
+
+2:47:57.480 --> 2:47:59.480
+ Are you afraid of death?
+
+2:47:59.480 --> 2:48:03.280
+ Sure, I'd be crazy if I weren't.
+
+2:48:03.280 --> 2:48:07.560
+ And as I get older, I'm now over 70.
+
+2:48:07.560 --> 2:48:14.760
+ So as I get older, it's more on my mind, especially as acquaintances and friends and especially
+
+2:48:14.760 --> 2:48:22.880
+ mentors, one by one are dying, so I can't avoid thinking about mortality.
+
+2:48:22.880 --> 2:48:28.760
+ And I think that the good news from the point of view and the rest of the world is that
+
+2:48:28.760 --> 2:48:34.640
+ that adds impetus to my need to succeed in a small number of years in the future.
+
+2:48:34.640 --> 2:48:36.520
+ You have a deadline.
+
+2:48:36.520 --> 2:48:37.520
+ Exactly.
+
+2:48:37.520 --> 2:48:41.440
+ I'm not going to have another 37 years to continue working on this.
+
+2:48:41.440 --> 2:48:50.400
+ So we really do want Psyche to make an impact in the world commercially, physically, metaphysically
+
+2:48:50.400 --> 2:48:56.560
+ in the next small number of years, two, three, five years, not two, three, five decades anymore.
+
+2:48:56.560 --> 2:49:04.760
+ And so this is really driving me toward this sort of commercialization and increasingly
+
+2:49:04.760 --> 2:49:08.080
+ widespread application of Psyche.
+
+2:49:08.080 --> 2:49:13.560
+ Whereas before, I felt that I could just sort of sit back, roll my eyes, wait till the world
+
+2:49:13.560 --> 2:49:14.560
+ caught up.
+
+2:49:14.560 --> 2:49:16.600
+ And now I don't feel that way anymore.
+
+2:49:16.600 --> 2:49:22.440
+ I feel like I need to put in some effort to make the world aware of what we have and what
+
+2:49:22.440 --> 2:49:23.920
+ it can do.
+
+2:49:23.920 --> 2:49:27.360
+ And the good news from your point of view is that that's why I'm sitting here.
+
+2:49:27.360 --> 2:49:30.640
+ You're going to be more productive.
+
+2:49:30.640 --> 2:49:31.720
+ I love it.
+
+2:49:31.720 --> 2:49:34.360
+ And if I can help in any way, I would love to.
+
+2:49:34.360 --> 2:49:41.760
+ From a programmer perspective, I love, especially these days, just contributing in small and
+
+2:49:41.760 --> 2:49:42.840
+ big ways.
+
+2:49:42.840 --> 2:49:48.680
+ So if there's any open sourcing from an MIT side and the research, I would love to help.
+
+2:49:48.680 --> 2:49:53.520
+ But bigger than Psyche, like I said, it's that little flame that you're carrying of
+
+2:49:53.520 --> 2:49:58.600
+ artificial intelligence, the big dream.
+
+2:49:58.600 --> 2:50:02.360
+ What do you hope your legacy is?
+
+2:50:02.360 --> 2:50:05.080
+ That's a good question.
+
+2:50:05.080 --> 2:50:15.920
+ People think of me as one of the pioneers or inventors of the AI that is ubiquitous
+
+2:50:15.920 --> 2:50:19.480
+ and that they take for granted and so on.
+
+2:50:19.480 --> 2:50:28.440
+ Much the way that today we look back on the pioneers of electricity or the pioneers of
+
+2:50:28.440 --> 2:50:33.200
+ similar types of technologies and so on.
+
+2:50:33.200 --> 2:50:40.000
+ It's hard to imagine what life would be like if these people hadn't done what they did.
+
+2:50:40.000 --> 2:50:44.000
+ So that's one thing that I'd like to be remembered as.
+
+2:50:44.000 --> 2:50:53.680
+ Another is that the creator, one of the originators of this gigantic knowledge store and acquisition
+
+2:50:53.680 --> 2:51:00.360
+ system that is likely to be at the center of whatever this future AI thing will look
+
+2:51:00.360 --> 2:51:01.360
+ like.
+
+2:51:01.360 --> 2:51:02.360
+ Yes, exactly.
+
+2:51:02.360 --> 2:51:11.440
+ And I'd also like to be remembered as someone who wasn't afraid to spend several decades
+
+2:51:11.440 --> 2:51:23.400
+ on a project in a time when almost all of the other forces, institutional forces and
+
+2:51:23.400 --> 2:51:29.920
+ commercial forces, are incenting people to go for short term rewards.
+
+2:51:29.920 --> 2:51:31.400
+ And a lot of people gave up.
+
+2:51:31.400 --> 2:51:40.320
+ A lot of people that dreamt the same dream as you gave up and you didn't.
+
+2:51:40.320 --> 2:51:42.800
+ I mean, Doug, it's truly an honor.
+
+2:51:42.800 --> 2:51:45.200
+ This is a long time coming.
+
+2:51:45.200 --> 2:51:53.120
+ A lot of people bring up your work specifically and more broadly, philosophically of this
+
+2:51:53.120 --> 2:51:55.580
+ is the dream of artificial intelligence.
+
+2:51:55.580 --> 2:51:57.800
+ This is likely a part of the future.
+
+2:51:57.800 --> 2:52:02.080
+ We're so sort of focused on machine learning applications, all that kind of stuff today.
+
+2:52:02.080 --> 2:52:08.520
+ But it seems like the ideas that Cite carries forward is something that will be at the center
+
+2:52:08.520 --> 2:52:15.640
+ of this problem they're all trying to solve, which is the problem of intelligence, emotional
+
+2:52:15.640 --> 2:52:16.640
+ and otherwise.
+
+2:52:16.640 --> 2:52:18.440
+ So thank you so much.
+
+2:52:18.440 --> 2:52:22.760
+ It's such a huge honor that you would talk to me and spend your valuable time with me
+
+2:52:22.760 --> 2:52:23.760
+ today.
+
+2:52:23.760 --> 2:52:24.760
+ Thanks for talking.
+
+2:52:24.760 --> 2:52:25.760
+ Thanks, Lex.
+
+2:52:25.760 --> 2:52:26.760
+ It's been great.
+
+2:52:26.760 --> 2:52:29.480
+ Thanks for listening to this conversation with Doug Lenat.
+
+2:52:29.480 --> 2:52:33.760
+ To support this podcast, please check out our sponsors in the description.
+
+2:52:33.760 --> 2:52:40.160
+ And now, let me leave you with some words from Mark Twain about the nature of truth.
+
+2:52:40.160 --> 2:52:44.320
+ If you tell the truth, you don't have to remember anything.
+
+2:52:44.320 --> 2:53:07.440
+ Thank you for listening and hope to see you next time.
+

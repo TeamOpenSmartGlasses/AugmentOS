@@ -1,0 +1,2138 @@
+WEBVTT
+
+00:00.000 --> 00:04.720
+ The following is a conversation with Gavin Miller, he's the head of Adobe Research.
+
+00:04.720 --> 00:09.040
+ Adobe has empowered artists, designers, and creative minds from all professions
+
+00:09.040 --> 00:13.680
+ working in the digital medium for over 30 years with software such as Photoshop,
+
+00:13.680 --> 00:19.440
+ Illustrator, Premiere, After Effects, InDesign, Audition, software that work with images,
+
+00:19.440 --> 00:25.200
+ video, and audio. Adobe Research is working to define the future evolution of these products
+
+00:25.200 --> 00:30.560
+ in a way that makes the life of creatives easier, automates the tedious tasks, and gives more and
+
+00:30.560 --> 00:36.560
+ more time to operate in the idea space instead of pixel space. This is where the cutting edge,
+
+00:36.560 --> 00:41.280
+ deep learning methods of the past decade can really shine more than perhaps any other application.
+
+00:42.160 --> 00:47.840
+ Gavin is the embodiment of combining tech and creativity. Outside of Adobe Research,
+
+00:47.840 --> 00:53.600
+ he writes poetry and builds robots, both things that are near and dear to my heart as well.
+
+00:53.600 --> 00:58.080
+ This conversation is part of the Artificial Intelligence Podcast. If you enjoy it,
+
+00:58.080 --> 01:04.880
+ subscribe on YouTube, iTunes, or simply connect with me on Twitter at Lux Friedman spelled F R I D.
+
+01:05.360 --> 01:09.040
+ And now, here's my conversation with Gavin Miller.
+
+01:10.400 --> 01:15.280
+ You're head of Adobe Research, leading a lot of innovative efforts and applications of AI,
+
+01:15.280 --> 01:22.640
+ creating images, video, audio, language, but you're also yourself an artist, a poet,
+
+01:22.640 --> 01:29.280
+ a writer, and even a roboticist. So, while I promised to everyone listening that I will not
+
+01:29.280 --> 01:34.880
+ spend the entire time we have together reading your poetry, which I love, I have to sprinkle it
+
+01:34.880 --> 01:40.000
+ in at least a little bit. So, some of them are pretty deep and profound and some are light and
+
+01:40.000 --> 01:49.520
+ silly. Let's start with a few lines from the silly variety. You write in Je Ne Vinaigrette Rien,
+
+01:49.520 --> 01:56.000
+ a poem that beautifully parodies both Edith Piaf's Je Ne Vinaigrette Rien and My Way by
+
+01:56.000 --> 02:04.160
+ Frank Sinatra. So, it opens with, and now dessert is near. It's time to pay the final total.
+
+02:04.960 --> 02:12.160
+ I've tried to slim all year, but my diets have been anecdotal. So,
+
+02:12.720 --> 02:16.720
+ where does that love for poetry come from for you? And if we dissect your mind,
+
+02:16.720 --> 02:22.160
+ how does it all fit together in the bigger puzzle of Dr. Gavin Miller?
+
+02:22.160 --> 02:27.920
+ Oh, well, interesting you chose that one. That was a poem I wrote when I'd been to my doctor
+
+02:27.920 --> 02:32.960
+ and he said you really need to lose some weight and go on a diet. And whilst the rational part
+
+02:32.960 --> 02:37.520
+ of my brain wanted to do that, the irrational part of my brain was protesting and sort of
+
+02:37.520 --> 02:40.560
+ embraced the opposite idea. I regret nothing hence.
+
+02:40.560 --> 02:44.640
+ Yes, exactly. Taken to an extreme, I thought it would be funny. Obviously, it's a serious
+
+02:44.640 --> 02:52.560
+ topic for some people. But I think for me, I've always been interested in writing since I was in
+
+02:52.560 --> 02:57.360
+ high school, as well as doing technology and invention. And sometimes there are parallel
+
+02:57.360 --> 03:02.720
+ strands in your life that carry on. And one is more about your private life and one's more about
+
+03:02.720 --> 03:09.120
+ your technological career. And then at sort of happy moments along the way, sometimes the two
+
+03:09.120 --> 03:14.880
+ things touch. One idea informs the other. And we can talk about that as we go.
+
+03:14.880 --> 03:17.760
+ Do you think your writing, the art, the poetry contribute
+
+03:17.760 --> 03:21.920
+ indirectly or directly to your research, to your work in Adobe?
+
+03:21.920 --> 03:28.160
+ Well, sometimes it does if I say, imagine a future in a science fiction kind of way. And
+
+03:28.160 --> 03:31.760
+ then once it exists on paper, I think, well, why shouldn't I just build that?
+
+03:31.760 --> 03:38.000
+ There was an example where when realistic voice synthesis first started in the 90s at Apple,
+
+03:38.000 --> 03:43.360
+ where I worked in research, it was done by a friend of mine. I sort of sat down and started
+
+03:43.360 --> 03:48.640
+ writing a poem, which each line I would enter into the voice synthesizer and see how it sounded,
+
+03:48.640 --> 03:55.280
+ and sort of wrote it for that voice. And at the time, the agents weren't very sophisticated. So
+
+03:55.280 --> 04:00.160
+ they'd sort of add random intonation. And I kind of made up the poem to sort of
+
+04:00.160 --> 04:05.120
+ match the tone of the voice. And it sounded slightly sad and depressed. So I pretended
+
+04:05.120 --> 04:11.040
+ it was a poem written by an intelligent agent, sort of telling the user to go home and leave
+
+04:11.040 --> 04:14.400
+ them alone. But at the same time, they were lonely and wanted to have company and learn
+
+04:14.400 --> 04:19.520
+ from what the user was saying. And at the time, it was way beyond anything that AI could possibly
+
+04:19.520 --> 04:28.000
+ do. But since then, it's becoming more within the bounds of possibility. And then
+
+04:28.000 --> 04:34.000
+ at the same time, I had a project at home where I did sort of a smart home. This was probably 93,
+
+04:34.000 --> 04:39.440
+ 94. And I had the talking voice who'd remind me when I walked in the door of what things I had
+
+04:39.440 --> 04:43.920
+ to do. I had buttons on my washing machine because I was a bachelor and I'd leave the clothes in
+
+04:43.920 --> 04:47.760
+ there for three days and they got moldy. So as I got up in the morning, it would say,
+
+04:47.760 --> 04:55.600
+ don't forget the washing and so on. I made photo albums that use light sensors to know which page
+
+04:55.600 --> 05:00.400
+ you were looking at would send that over wireless radio to the agent who would then play sounds that
+
+05:00.400 --> 05:04.960
+ match the image you were looking at in the book. So I was kind of in love with this idea of magical
+
+05:04.960 --> 05:10.480
+ realism and whether it was possible to do that with technology. So that was a case where the sort
+
+05:10.480 --> 05:17.200
+ of the agent sort of intrigued me from a literary point of view and became a personality. I think
+
+05:17.200 --> 05:23.120
+ more recently, I've also written plays and when plays you write dialogue and obviously
+
+05:23.120 --> 05:28.240
+ you write a fixed set of dialogue that follows a linear narrative. But with modern agents,
+
+05:28.240 --> 05:33.120
+ as you design a personality or a capability for conversation, you're sort of thinking of,
+
+05:33.120 --> 05:38.000
+ I kind of have imaginary dialogue in my head. And then I think, what would it take not only to have
+
+05:38.000 --> 05:43.600
+ that be real, but for it to really know what it's talking about. So it's easy to fall into the
+
+05:43.600 --> 05:48.640
+ uncanny valley with AI where it says something it doesn't really understand, but it sounds good to
+
+05:48.640 --> 05:55.360
+ the person. But you rapidly realize that it's kind of just stimulus response. It doesn't really have
+
+05:55.360 --> 06:01.520
+ real world knowledge about the thing it's describing. And so when you get to that point,
+
+06:01.520 --> 06:05.760
+ it really needs to have multiple ways of talking about the same concept. So it sounds as though it
+
+06:05.760 --> 06:11.360
+ really understands it. Now, what really understanding means is in the eye of the beholder, right? But
+
+06:11.360 --> 06:15.760
+ if it only has one way of referring to something, it feels like it's a canned response. But if it
+
+06:15.760 --> 06:20.720
+ can reason about it, or you can go at it from multiple angles and give a similar kind of
+
+06:20.720 --> 06:28.080
+ response that people would, then it starts to seem more like there's something there that's sentient.
+
+06:28.080 --> 06:33.600
+ You can say the same thing, multiple things from different perspectives. I mean, with the automatic
+
+06:33.600 --> 06:37.680
+ image captioning that I've seen the work that you're doing, there's elements of that, right?
+
+06:37.680 --> 06:40.480
+ Being able to generate different kinds of statements about the same picture.
+
+06:40.480 --> 06:52.080
+ Right. So in my team, there's a lot of work on turning a medium from one form to another, whether it's auto tagging imagery or making up full sentences about what's in the image,
+
+06:52.080 --> 06:58.000
+ then changing the sentence, finding another image that matches the new sentence or vice versa.
+
+06:58.000 --> 07:06.400
+ And in the modern world of GANs, you sort of give it a description and it synthesizes an asset that matches the description.
+
+07:06.400 --> 07:17.600
+ So I've sort of gone on a journey. My early days in my career were about 3D computer graphics, the sort of pioneering work, sort of before movies had special effects done with 3D graphics,
+
+07:17.600 --> 07:25.840
+ and sort of rode that revolution. And that was very much like the Renaissance where people would model light and color and shape and everything.
+
+07:25.840 --> 07:34.400
+ And now we're kind of in another wave where it's more impressionistic and it's sort of the idea of something can be used to generate an image directly, which is
+
+07:34.400 --> 07:43.040
+ sort of the new frontier in computer image generation using AI algorithms.
+
+07:43.040 --> 07:50.000
+ So the creative process is more in the space of ideas or becoming more in the space of ideas versus in the raw pixels?
+
+07:50.000 --> 08:02.240
+ Well, it's interesting. It depends. I think at Adobe, we really want to span the entire range from really, really good, what you might call low level tools by low level as close to say, analog workflows as possible.
+
+08:02.240 --> 08:08.720
+ So what we do there is we make up systems that do really realistic oil paint and watercolor simulations.
+
+08:08.720 --> 08:18.800
+ So if you want every bristle to behave as it would in the real world and leave a beautiful analog trail of water and then flow after you've made the brushstroke, you can do that.
+
+08:18.800 --> 08:26.640
+ And that's really important for people who want to create something really expressive or really novel because they have complete control.
+
+08:26.640 --> 08:35.520
+ And then as certain other tasks become automated, it frees the artists up to focus on the inspiration and less of the perspiration.
+
+08:35.520 --> 08:48.880
+ So thinking about different ideas, obviously. Once you finish the design, there's a lot of work to, say, do it for all the different aspect ratio of phones or websites and so on.
+
+08:48.880 --> 08:51.920
+ And that used to take up an awful lot of time for artists.
+
+08:51.920 --> 09:03.600
+ It still does for many what we call content velocity. And one of the targets of AI is actually to reason about from the first example of what are the likely intent for these other formats?
+
+09:03.600 --> 09:12.160
+ Maybe if you change the language to German and the words are longer, how do you reflow everything so that it looks nicely artistic in that way?
+
+09:12.160 --> 09:21.840
+ And so the person can focus on the really creative bit in the middle, which is what is the look and style and feel and what's the message and what's the story and the human element?
+
+09:21.840 --> 09:33.520
+ So I think creativity is changing. So that's one way in which we're trying to just make it easier and faster and cheaper to do so that there can be more of it, more demand because it's less expensive.
+
+09:33.520 --> 09:39.360
+ So everyone wants beautiful artwork for everything from a school website to Hollywood movie.
+
+09:39.360 --> 09:53.680
+ On the other side, as some of these things have automatic versions of them, people will possibly change role from being the hands on artisan to being either the art director or the conceptual artist.
+
+09:53.680 --> 09:59.520
+ And then the computer will be a partner to help create polished examples of the idea that they're exploring.
+
+09:59.520 --> 10:02.880
+ Let's talk about Adobe products, AI and Adobe products.
+
+10:02.880 --> 10:12.480
+ Just so you know where I'm coming from, I'm a huge fan of Photoshop for images, Premiere for video, Audition for audio.
+
+10:12.480 --> 10:19.680
+ I'll probably use Photoshop to create the thumbnail for this video, Premiere to edit the video, Audition to do the audio.
+
+10:19.680 --> 10:32.640
+ That said, everything I do is really manually and I set up, I use this old school Kinesis keyboard and I have auto hotkey that just, it's really about optimizing the flow.
+
+10:32.640 --> 10:39.520
+ Of just making sure there's as few clicks as possible, so just being extremely efficient, something you started to speak to.
+
+10:39.520 --> 10:50.160
+ So before we get into the fun sort of awesome deep learning things, where does AI, if you could speak a little more to it, AI or just automation in general,
+
+10:50.160 --> 11:04.000
+ do you see in the coming months and years or in general, prior in 2018, fitting into making the life, the low level pixel work flow easier?
+
+11:04.000 --> 11:05.040
+ Yeah, that's a great question.
+
+11:05.040 --> 11:14.560
+ So we have a very rich array of algorithms already in Photoshop, just classical procedural algorithms as well as ones based on data.
+
+11:14.560 --> 11:20.160
+ In some cases, they end up with a large number of sliders and degrees of freedom.
+
+11:20.160 --> 11:29.120
+ So one way in which AI can help is just an auto button, which comes up with default settings based on the content itself rather than default values for the tool.
+
+11:29.120 --> 11:31.840
+ At that point, you then start tweaking.
+
+11:31.840 --> 11:39.520
+ So that's a very kind of make life easier for people whilst making use of common sense from other example images.
+
+11:39.520 --> 11:40.960
+ So like smart defaults.
+
+11:40.960 --> 11:42.480
+ Smart defaults, absolutely.
+
+11:42.480 --> 11:53.040
+ Another one is something we've spent a lot of work over the last 20 years I've been at Adobe, or 19, thinking about selection, for instance,
+
+11:53.040 --> 12:03.920
+ where, you know, with quick select, you would look at color boundaries and figure out how to sort of flood fill into regions that you thought were physically connected in the real world.
+
+12:03.920 --> 12:08.720
+ But that algorithm had no visual common sense about what a cat looks like or a dog.
+
+12:08.720 --> 12:12.880
+ It would just do it based on rules of thumb, which were applied to graph theory.
+
+12:12.880 --> 12:19.120
+ And it was a big improvement over the previous work where you had sort of almost click everything by hand.
+
+12:19.120 --> 12:24.480
+ Or if it just did similar colors, it would do little tiny regions that wouldn't be connected.
+
+12:24.480 --> 12:34.080
+ But in the future, using neural nets to actually do a great job with, say, a single click or even in the case of well known categories like people or animals,
+
+12:34.080 --> 12:40.960
+ no click where you just say select the object and it just knows the dominant object is a person in the middle of the photograph.
+
+12:40.960 --> 12:51.920
+ Those kinds of things are really valuable if they can be robust enough to give you good quality results or they can be a great start for like tweaking it.
+
+12:51.920 --> 12:54.240
+ So, for example, background removal.
+
+12:54.240 --> 12:54.480
+ Correct.
+
+12:54.480 --> 13:01.520
+ Like one thing I'll, in a thumbnail, I'll take a picture of you right now and essentially remove the background behind you.
+
+13:01.520 --> 13:04.080
+ And I want to make that as easy as possible.
+
+13:04.080 --> 13:08.480
+ You don't have flowing hair, like rich at the moment.
+
+13:08.480 --> 13:10.480
+ I had it in the past.
+
+13:10.480 --> 13:11.680
+ It may come again in the future.
+
+13:13.680 --> 13:17.360
+ So that sometimes makes it a little more challenging to remove the background.
+
+13:17.360 --> 13:25.040
+ How difficult do you think is that problem for AI for basically making the quick selection tool smarter and smarter and smarter?
+
+13:25.040 --> 13:26.960
+ Well, we have a lot of research on that already.
+
+13:26.960 --> 13:36.240
+ If you want a sort of quick, cheap and cheerful, look, I'm pretending I'm in Hawaii, but it's sort of a joke, then you don't need perfect boundaries.
+
+13:36.240 --> 13:39.280
+ And you can do that today with a single click with the algorithms we have.
+
+13:40.320 --> 13:47.120
+ We have other algorithms where with a little bit more guidance on the boundaries, like you might need to touch it up a little bit.
+
+13:48.560 --> 13:53.200
+ We have other algorithms that can pull a nice mat from a crude selection.
+
+13:53.200 --> 13:57.440
+ So we have combinations of tools that can do all of that.
+
+13:57.440 --> 14:08.080
+ And at our recent Max conference at Adobe Max, we demonstrated how very quickly, just by drawing a simple polygon around the object of interest,
+
+14:08.080 --> 14:16.880
+ we could not only do it for a single still, but we could pull a mat, well, pull at least a selection mask from a moving target,
+
+14:16.880 --> 14:19.760
+ like a person dancing in front of a brick wall or something.
+
+14:19.760 --> 14:28.560
+ And so it's going from hours to a few seconds for workflows that are really nice, and then you might go in and touch up a little.
+
+14:28.560 --> 14:30.480
+ So that's a really interesting question.
+
+14:30.480 --> 14:31.520
+ You mentioned the word robust.
+
+14:31.520 --> 14:36.240
+ You know, there's like a journey for an idea, right?
+
+14:36.240 --> 14:45.680
+ And what you presented probably at Max has elements of just sort of, it inspires the concept, it can work pretty well in a majority of cases.
+
+14:45.680 --> 14:56.240
+ But how do you make something that works, well, in majority of cases, how do you make something that works, maybe in all cases, or it becomes a robust tool that can...
+
+14:56.240 --> 14:57.600
+ Well, there are a couple of things.
+
+14:57.600 --> 15:02.960
+ So that really touches on the difference between academic research and industrial research.
+
+15:02.960 --> 15:09.360
+ So in academic research, it's really about who's the person to have the great new idea that shows promise.
+
+15:09.360 --> 15:11.600
+ And we certainly love to be those people too.
+
+15:12.320 --> 15:15.040
+ But we have sort of two forms of publishing.
+
+15:15.040 --> 15:21.440
+ One is academic peer review, which we do a lot of, and we have great success there as much as some universities.
+
+15:22.880 --> 15:26.080
+ But then we also have shipping, which is a different type of...
+
+15:26.640 --> 15:30.800
+ And then we get customer review, as well as, you know, product critics.
+
+15:30.800 --> 15:39.440
+ And that might be a case where it's not about being perfect every single time, but perfect enough of the time,
+
+15:39.440 --> 15:43.280
+ plus a mechanism to intervene and recover where you do have mistakes.
+
+15:43.280 --> 15:46.000
+ So we have the luxury of very talented customers.
+
+15:46.000 --> 15:50.640
+ We don't want them to be overly taxed doing it every time.
+
+15:50.640 --> 15:58.960
+ But if they can go in and just take it from 99 to 100 with the touch of a mouse or something,
+
+15:58.960 --> 16:03.840
+ then for the professional end, that's something that we definitely want to support as well.
+
+16:03.840 --> 16:09.840
+ And for them, it went from having to do that tedious task all the time to much less often.
+
+16:09.840 --> 16:15.280
+ So I think that gives us an out. If it had to be 100% automatic all the time,
+
+16:15.920 --> 16:18.640
+ then that would delay the time at which we could get to market.
+
+16:19.760 --> 16:22.880
+ So on that thread, maybe you can untangle something.
+
+16:23.760 --> 16:26.960
+ Again, I'm sort of just speaking to my own experience.
+
+16:28.960 --> 16:30.400
+ Maybe that is the most useful.
+
+16:30.400 --> 16:30.900
+ Absolutely.
+
+16:30.900 --> 16:40.900
+ So I think Photoshop, as an example, or Premiere, has a lot of amazing features that I haven't touched.
+
+16:41.940 --> 16:49.700
+ And so in terms of AI helping make my life or the life of creatives easier,
+
+16:52.740 --> 16:57.220
+ this collaboration between human and machine, how do you learn to collaborate better?
+
+16:57.220 --> 16:58.980
+ How do you learn the new algorithms?
+
+16:58.980 --> 17:03.860
+ Is it something where you have to watch tutorials and you have to watch videos and so on?
+
+17:03.860 --> 17:10.100
+ Or do you think about the experience itself through exploration, being the teacher?
+
+17:10.100 --> 17:11.220
+ We absolutely do.
+
+17:11.220 --> 17:14.980
+ So I'm glad that you brought this up.
+
+17:15.940 --> 17:17.860
+ We sort of think about two things.
+
+17:17.860 --> 17:21.060
+ One is helping the person in the moment to do the task that they need to do,
+
+17:21.060 --> 17:24.900
+ but the other is thinking more holistically about their journey learning a tool.
+
+17:24.900 --> 17:30.020
+ And when it's like, think of it as Adobe University, where you use the tool long enough, you become an expert.
+
+17:30.020 --> 17:32.100
+ And not necessarily an expert in everything.
+
+17:32.100 --> 17:33.140
+ It's like living in a city.
+
+17:33.140 --> 17:36.740
+ You don't necessarily know every street, but you know the important ones you need to get to.
+
+17:38.180 --> 17:42.900
+ So we have projects in research, which actually look at the thousands of hours of tutorials online
+
+17:42.900 --> 17:45.540
+ and try to understand what's being taught in them.
+
+17:46.100 --> 17:50.100
+ And then we had one publication at CHI where it was looking at,
+
+17:50.100 --> 17:54.900
+ given the last three or four actions you did, what did other people in tutorials do next?
+
+17:54.900 --> 18:00.340
+ So if you want some inspiration for what you might do next, or you just want to watch the tutorial and see,
+
+18:00.340 --> 18:02.980
+ learn from people who are doing similar workflows to you,
+
+18:02.980 --> 18:06.580
+ you can without having to go and search on keywords and everything.
+
+18:06.580 --> 18:13.540
+ So really trying to use the context of your use of the app to make intelligent suggestions,
+
+18:13.540 --> 18:16.340
+ either about choices that you might make,
+
+18:16.340 --> 18:21.060
+ or in a more assistive way, where it could say, if you did this next, we could show you.
+
+18:21.060 --> 18:24.740
+ And that's basically the frontier that we're exploring now, which is,
+
+18:25.300 --> 18:30.100
+ if we really deeply understand the domain in which designers and creative people work,
+
+18:30.660 --> 18:36.820
+ can we combine that with AI and pattern matching of behavior to make intelligent suggestions,
+
+18:37.460 --> 18:41.380
+ either through, you know, verbal,
+
+18:41.380 --> 18:46.660
+ possibilities, or just showing the results of if you try this. And that's really the sort of,
+
+18:47.460 --> 18:50.020
+ you know, I was in a meeting today thinking about these things.
+
+18:50.020 --> 18:57.060
+ Well, it's still a grand challenge. You know, we'd all love an artist over one shoulder and a teacher over the other, right?
+
+18:57.060 --> 19:05.140
+ And we hope to get there. And the right thing to do is to give enough at each stage that it's useful in itself,
+
+19:05.140 --> 19:07.620
+ but it builds a foundation for the next stage.
+
+19:07.620 --> 19:11.780
+ Give enough at each stage that it's useful in itself, but it builds a foundation for the next
+
+19:12.340 --> 19:13.700
+ level of expectation.
+
+19:14.340 --> 19:19.940
+ Are you aware of this gigantic medium of YouTube that's creating
+
+19:20.900 --> 19:26.180
+ just a bunch of creative people, both artists and teachers of different kinds?
+
+19:26.180 --> 19:32.660
+ Absolutely. And the more we can understand those media types, both visually and in terms of transcripts and
+
+19:32.660 --> 19:38.100
+ words, the more we can bring the wisdom that they embody into the guidance that's embedded in the tool.
+
+19:38.100 --> 19:45.220
+ That would be brilliant to remove the barrier from having to yourself type in the keyword searching, so on.
+
+19:45.220 --> 19:51.300
+ Absolutely. And then in the longer term, an interesting discussion is, does it ultimately
+
+19:51.860 --> 19:56.820
+ not just assist with learning the interface we have, but does it modify the interface to be simpler?
+
+19:56.820 --> 20:02.820
+ Or do you fragment into a variety of tools, each of which has a different level of visibility of
+
+20:02.820 --> 20:08.820
+ the functionality? I like to say that if you add a feature to a GUI, you have to have
+
+20:08.820 --> 20:15.620
+ yet more visual complexity confronting the new user. Whereas if you have an assistant with a new skill,
+
+20:15.620 --> 20:20.020
+ if you know they have it, so you know to ask for it, then it's sort of additive without being
+
+20:20.740 --> 20:25.380
+ more intimidating. So we definitely think about new users and how to onboard them.
+
+20:25.380 --> 20:31.780
+ Many actually value the idea of being able to master that complex interface and keyboard shortcuts
+
+20:31.780 --> 20:37.060
+ like you were talking about earlier, because with great familiarity, it becomes a musical instrument
+
+20:37.060 --> 20:43.220
+ for expressing your visual ideas. And other people just want to get something done quickly
+
+20:43.220 --> 20:48.180
+ in the simplest way possible. And that's where a more assistive version of the same technology
+
+20:48.180 --> 20:55.940
+ might be useful, maybe on a different class of device, which is more in context for CAPTCHA, say.
+
+20:55.940 --> 21:01.700
+ Whereas somebody who's in a deep post production workflow maybe want to be on a laptop or a big
+
+21:01.700 --> 21:10.580
+ screen desktop and have more knobs and dials to really express the subtlety of what they want to do.
+
+21:12.180 --> 21:16.260
+ So there's so many exciting applications of computer vision and machine learning
+
+21:16.260 --> 21:23.300
+ that Adobe is working on, like scene stitching, sky replacement, foreground, background removal,
+
+21:23.300 --> 21:28.980
+ spatial object based image search, automatic image captioning, like we mentioned, project cloak,
+
+21:28.980 --> 21:35.140
+ project deep fill, filling in parts of the images, project scribbler, style transform video, style
+
+21:35.140 --> 21:44.820
+ transform faces and video with project puppetron, best name ever. Can you talk through a favorite
+
+21:44.820 --> 21:52.420
+ or some of them or examples that popped in mind? I'm sure I'll be able to provide links to other
+
+21:52.420 --> 21:58.900
+ ones we don't talk about because there's visual elements to all of them that are exciting.
+
+21:58.900 --> 22:03.620
+ Why they're interesting for different reasons might be a good way to go. So I think sky replace
+
+22:03.620 --> 22:08.820
+ is interesting because we talked about selection being sort of an atomic operation. It's almost
+
+22:08.820 --> 22:15.700
+ like if you think of an assembly language, it's like a single instruction. Whereas sky replace is
+
+22:15.700 --> 22:21.540
+ a compound action where you automatically select the sky, you look for stock content that matches
+
+22:21.540 --> 22:27.220
+ the geometry of the scene. You try to have variety in your choices so that you do coverage of different
+
+22:27.220 --> 22:34.980
+ moods. It then mats in the sky behind the foreground. But then importantly, it uses the
+
+22:34.980 --> 22:39.780
+ foreground of the other image that you just searched on to recolor the foreground of the
+
+22:39.780 --> 22:46.500
+ image that you're editing. So if you say go from a midday sky to an evening sky, it will actually
+
+22:47.540 --> 22:50.340
+ add sort of an orange glow to the foreground objects as well.
+
+22:51.620 --> 22:57.380
+ I was a big fan in college of Magritte and he has a number of paintings where it's surrealism
+
+22:57.380 --> 23:01.940
+ because he'll like do a composite, but the foreground building will be at night and the
+
+23:01.940 --> 23:05.860
+ sky will be during the day. There's one called The Empire of Light, which was on my wall in college.
+
+23:06.500 --> 23:13.380
+ And we're trying not to do surrealism. It can be a choice, but we'd rather have it be natural by
+
+23:13.380 --> 23:17.620
+ default rather than it looking fake. And then you have to do a whole bunch of post production to
+
+23:17.620 --> 23:23.460
+ fix it. So that's a case where we're kind of capturing an entire workflow into a single action
+
+23:23.460 --> 23:29.220
+ and doing it in about a second rather than a minute or two. And when you do that, you can
+
+23:29.220 --> 23:34.420
+ not just do it once, but you can do it for say like 10 different backgrounds. And then you're
+
+23:34.420 --> 23:39.060
+ almost back to this inspiration idea of I don't know quite what I want, but I'll know it when I
+
+23:39.060 --> 23:45.300
+ see it. And you can just explore the design space as close to final production value as possible.
+
+23:45.940 --> 23:49.620
+ And then when you really pick one, you might go back and slightly tweak the selection mask just
+
+23:49.620 --> 23:54.340
+ to make it perfect and do that kind of polish that professionals like to bring to their work.
+
+23:54.340 --> 24:00.980
+ So then there's this idea of, you mentioned the sky, replacing it to different stock images of
+
+24:00.980 --> 24:04.820
+ the sky. But in general, you have this idea. Or it could be on your disc or whatever.
+
+24:04.820 --> 24:10.900
+ Disc, right. But making even more intelligent choices about ways to search stock images,
+
+24:10.900 --> 24:13.700
+ which is really interesting. It's kind of spatial.
+
+24:13.700 --> 24:19.540
+ Absolutely. Right. So that was something we called concept canvas. So normally when you do
+
+24:19.540 --> 24:26.260
+ a say an image search, you would I assuming it's just based on text, you would give the keywords
+
+24:26.260 --> 24:30.100
+ of the things you want to be in the image, and it would find the nearest one that had those tags.
+
+24:32.660 --> 24:36.740
+ For many tasks, you really want, you know, to be able to say I want a big person in the middle or
+
+24:36.740 --> 24:41.220
+ in a dog to the right and umbrella above the left because you want to leave space for the text or
+
+24:41.220 --> 24:47.540
+ whatever for the and so concept canvas lets you assign spatial regions to the keywords.
+
+24:47.540 --> 24:53.060
+ And then we've already pre indexed the images to know where the important concepts are in the
+
+24:53.060 --> 25:00.020
+ picture. So we then go through that index matching to assets. And even though it's just another form
+
+25:00.020 --> 25:05.700
+ of search, because you're doing spatial design or layout, it starts to feel like design, you sort of
+
+25:05.700 --> 25:12.340
+ feel oddly responsible for the image that comes back as if you invented it. Yeah. So it's, it's a
+
+25:12.340 --> 25:18.740
+ it's a good example where giving enough control starts to make people have a sense of ownership
+
+25:18.740 --> 25:23.540
+ over the outcome of the event. And then we also have technologies in Photoshop, we physically can
+
+25:23.540 --> 25:29.460
+ move the dog in post as well. But for concept canvas, it was just a very fast way to sort of
+
+25:29.460 --> 25:38.100
+ loop through and be able to lay things out. And in terms of being able to remove objects from a
+
+25:38.100 --> 25:45.140
+ scene and fill in the background, right, automatically. I so that's extremely
+
+25:45.140 --> 25:50.420
+ exciting. And that's so neural networks are stepping in there. I just talked this week,
+
+25:50.420 --> 25:56.660
+ Ian Goodfellow, so the GANs for doing that is definitely one approach. So that is that is that
+
+25:56.660 --> 26:01.940
+ a really difficult problem? Is it as difficult as it looks, again, to take it to a robust
+
+26:01.940 --> 26:07.540
+ product level? Well, there are certain classes of image for which the traditional algorithms
+
+26:07.540 --> 26:12.500
+ like content aware fill work really well, like if you have a naturalistic texture, like a gravel
+
+26:12.500 --> 26:17.860
+ path or something, because it's patch based, it will make up a very plausible looking intermediate
+
+26:17.860 --> 26:23.220
+ thing and fill in the hole. And then we use some algorithms to sort of smooth out the lighting so
+
+26:23.220 --> 26:27.860
+ you don't see any brightness contrast in that region, or you've gradually ramped from one from
+
+26:27.860 --> 26:33.940
+ dark to light, if it straddles the boundary, where it gets complicated as if you have to infer
+
+26:33.940 --> 26:40.420
+ invisible structure behind behind the person in front. And that really requires a common sense
+
+26:40.420 --> 26:45.460
+ knowledge of the world to know what, you know, if I see three quarters of a house, do I have a rough
+
+26:45.460 --> 26:49.780
+ sense of what the rest of the house looks like? If you just fill it in with patches, it can end up
+
+26:49.780 --> 26:53.860
+ sort of doing things that make sense locally, but you look at the global structure, and it looks
+
+26:53.860 --> 27:00.820
+ like it's just sort of crumpled or messed up. And so what GANs and neural nets bring to the table is
+
+27:00.820 --> 27:08.740
+ this common sense learned from the training set. And the challenge right now is that the generative
+
+27:08.740 --> 27:14.340
+ methods that can make up missing holes using that kind of technology are still only stable at low
+
+27:14.340 --> 27:19.220
+ resolutions. And so you either need to then go from a low resolution to a high resolution using
+
+27:19.220 --> 27:23.860
+ some other algorithm, or we need to push the state of the art and it's still in research to
+
+27:23.860 --> 27:29.860
+ get to that point. Of course, if you show it something, say it's trained on houses,
+
+27:29.860 --> 27:35.940
+ and then you show it an octopus, it's not going to do a very good job of showing common sense about
+
+27:35.940 --> 27:44.980
+ octopuses. So again, you're asking about how you know that it's ready for primetime. You really
+
+27:44.980 --> 27:52.020
+ need a very diverse training set of images. And ultimately, that may be a case where you put it
+
+27:52.020 --> 28:01.540
+ out there with some guardrails where you might do a detector which looks at the image and sort of
+
+28:01.540 --> 28:07.620
+ estimates its own competence of how well a job could this algorithm do. So eventually, there
+
+28:07.620 --> 28:13.220
+ may be this idea of what we call an ensemble of experts where any particular expert is specialized
+
+28:13.220 --> 28:17.380
+ in certain things. And then there's sort of a, either they vote to say how confident they are
+
+28:17.380 --> 28:22.500
+ about what to do, this is sort of more future looking, or there's some dispatcher which says
+
+28:22.500 --> 28:29.940
+ you're good at houses, you're good at trees. So I mean, all this adds up to a lot of work
+
+28:29.940 --> 28:34.580
+ because each of those models will be a whole bunch of work. But I think over time, you'd
+
+28:34.580 --> 28:40.660
+ gradually fill out the set and initially focus on certain workflows and then sort of branch out as
+
+28:40.660 --> 28:48.100
+ you get more capable. You mentioned workflows, and have you considered maybe looking far into
+
+28:48.100 --> 28:57.700
+ the future? First of all, using the fact that there is a huge amount of people that use Photoshop,
+
+28:57.700 --> 29:05.380
+ for example, and have certain workflows, being able to collect the information by which they,
+
+29:05.380 --> 29:10.260
+ you know, basically get information about their workflows, about what they need, the
+
+29:10.260 --> 29:15.940
+ ways to help them, whether it is houses or octopus that people work on more, you know,
+
+29:15.940 --> 29:23.380
+ like basically getting a beat on what kind of data is needed to be annotated and collected for people
+
+29:23.380 --> 29:27.780
+ to build tools that actually work well for people. Right, absolutely. And this is a big
+
+29:27.780 --> 29:33.700
+ topic in the whole world of AI is what data can you gather and why? Right. At one level,
+
+29:33.700 --> 29:39.620
+ a way to think about it is we not only want to train our customers in how to use our products,
+
+29:39.620 --> 29:44.580
+ but we want them to teach us what's important and what's useful. At the same time, we want to
+
+29:44.580 --> 29:51.140
+ respect their privacy. And obviously, we wouldn't do things without their explicit permission.
+
+29:52.820 --> 29:57.620
+ And I think the modern spirit of the age around this is you have to demonstrate to somebody how
+
+29:57.620 --> 30:02.980
+ they're benefiting from sharing their data with the tool. Either it's helping in the short term
+
+30:02.980 --> 30:08.500
+ to understand their intent, so you can make better recommendations, or if they're friendly to your
+
+30:08.500 --> 30:12.900
+ cause, or your tool, or they want to help you evolve quickly, because they depend on you for
+
+30:12.900 --> 30:21.700
+ their livelihood, they may be willing to share some of their workflows or choices with the data
+
+30:21.700 --> 30:28.500
+ set to be then trained. There are technologies for looking at learning without necessarily
+
+30:29.060 --> 30:33.940
+ storing all the information permanently, so that you can sort of learn on the fly, but not
+
+30:33.940 --> 30:38.420
+ keep a record of what somebody did. So we're definitely exploring all of those possibilities.
+
+30:38.420 --> 30:44.660
+ And I think Adobe exists in a space where Photoshop, like if I look at the data I've
+
+30:44.660 --> 30:49.940
+ created and own, you know, I'm less comfortable sharing data with social networks than I am with
+
+30:49.940 --> 30:58.100
+ Adobe, because there's a, just exactly as you said, there's an obvious benefit for sharing
+
+30:58.100 --> 31:04.580
+ for sharing the data that I use to create in Photoshop, because it's helping improve
+
+31:04.580 --> 31:09.460
+ the workflow in the future, as opposed to it's not clear what the benefit is in social networks.
+
+31:10.020 --> 31:14.020
+ It's nice for you to say that. I mean, I think there are some professional workflows where
+
+31:14.020 --> 31:17.300
+ people might be very protective of what they're doing, such as if I was preparing
+
+31:18.180 --> 31:24.420
+ evidence for a legal case, I wouldn't want any of that, you know, phoning home to help train
+
+31:24.420 --> 31:29.700
+ the algorithm or anything. There may be other cases where people are, say, having a trial version,
+
+31:29.700 --> 31:33.860
+ or they're doing some, I'm not saying we're doing this today, but there's a future scenario where
+
+31:33.860 --> 31:39.220
+ somebody has a more permissive relationship with Adobe, where they explicitly say, I'm fine,
+
+31:39.220 --> 31:46.260
+ I'm only doing hobby projects, or things which are non confidential. And in exchange for some
+
+31:46.260 --> 31:53.380
+ benefit, tangible or otherwise, I'm willing to share very fine grained data. So another possible
+
+31:53.380 --> 31:59.300
+ scenario is to capture relatively crude, high level things from more people, and then more
+
+31:59.300 --> 32:03.620
+ detailed knowledge from people who are willing to participate. We do that today with explicit
+
+32:03.620 --> 32:09.060
+ customer studies where, you know, we go and visit somebody and ask them to try the tool and we
+
+32:09.060 --> 32:15.060
+ human observe what they're doing. In the future, to be able to do that enough to be able to train
+
+32:15.060 --> 32:20.260
+ an algorithm, we'd need a more systematic process. But we'd have to do it very consciously, because
+
+32:20.260 --> 32:26.340
+ is one of the things people treasure about Adobe is a sense of trust. And we don't want to endanger
+
+32:26.340 --> 32:32.500
+ that through overly aggressive data collection. So we have a chief privacy officer. And it's
+
+32:32.500 --> 32:36.740
+ definitely front and center of thinking about AI rather than an afterthought.
+
+32:37.460 --> 32:40.020
+ Well, when you start that program, sign me up.
+
+32:40.020 --> 32:41.060
+ Okay, happy to.
+
+32:42.900 --> 32:47.700
+ Is there other projects that you wanted to mention that that I didn't perhaps
+
+32:47.700 --> 32:51.860
+ that pop into mind? Well, you covered the number, I think you mentioned Project Puppetron,
+
+32:51.860 --> 32:58.420
+ I think that one is interesting, because it's, you might think of Adobe as only thinking in 2d.
+
+32:59.780 --> 33:04.820
+ And that's a good example where we're actually thinking more three dimensionally about how to
+
+33:04.820 --> 33:10.500
+ assign features to faces so that we can, you know, if you take so what puppet run does, it takes
+
+33:10.500 --> 33:16.740
+ either a still or a video of a person talking, and then it can take a painting of somebody else
+
+33:16.740 --> 33:23.460
+ and then apply the style of the painting to the person who's talking in the video. And it's
+
+33:24.500 --> 33:31.060
+ unlike a sort of screen door post filter effect that you sometimes see online, it really looks
+
+33:31.060 --> 33:36.500
+ as though it's sort of somehow attached or reflecting the motion of the face. And so
+
+33:37.060 --> 33:42.340
+ that's the case where even to do a 2d workflow, like stylization, you really need to infer more
+
+33:42.340 --> 33:48.580
+ about the 3d structure of the world. And I think, as 3d computer vision algorithms get better,
+
+33:48.580 --> 33:53.540
+ initially, they'll focus on particular domains, like faces, where you have a lot of prior knowledge
+
+33:53.540 --> 33:58.020
+ about structure, and you can maybe have a parameterized template that you fit to the image.
+
+33:58.580 --> 34:04.340
+ But over time, this should be possible for more general content. And it might even be invisible to
+
+34:04.340 --> 34:10.020
+ the user that you're doing 3d reconstruction, but under the hood, but it might then let you
+
+34:10.020 --> 34:15.140
+ do edits much more reliably or correctly than you would otherwise.
+
+34:15.780 --> 34:20.580
+ And, you know, the face is a very important application, right?
+
+34:20.580 --> 34:20.820
+ Absolutely.
+
+34:20.820 --> 34:22.500
+ So making things work.
+
+34:22.500 --> 34:26.500
+ And a very sensitive one. If you do something uncanny, it's very disturbing.
+
+34:26.500 --> 34:36.900
+ That's right. You have to get it right. So in the space of augmented reality and virtual reality,
+
+34:36.900 --> 34:43.220
+ what do you think is the role of AR and VR and in the content we consume as people, as consumers,
+
+34:43.220 --> 34:45.300
+ and the content we create as creators?
+
+34:45.300 --> 34:51.540
+ Now, that's a great question. We think about this a lot, too. So I think VR and AR serve
+
+34:51.540 --> 34:56.580
+ slightly different purposes. So VR can really transport you to an entire immersive world,
+
+34:57.300 --> 35:02.740
+ no matter what your personal situation is. To that extent, it's a bit like a really,
+
+35:02.740 --> 35:06.340
+ really widescreen television, where it sort of snaps you out of your context and
+
+35:06.340 --> 35:12.500
+ puts you in a new one. And I think it's still evolving in terms of the hardware.
+
+35:12.500 --> 35:16.980
+ I actually worked on VR in the 90s trying to solve the latency and sort of nausea problem,
+
+35:16.980 --> 35:22.580
+ which we did, but it was very expensive and a bit early. There's a new wave of that now,
+
+35:22.580 --> 35:26.740
+ I think. And increasingly, those devices are becoming all in one rather than something
+
+35:26.740 --> 35:33.380
+ that's tethered to a box. I think the market seems to be bifurcating into things for consumers
+
+35:33.380 --> 35:38.580
+ and things for professional use cases, like for architects and people designing where your
+
+35:38.580 --> 35:43.060
+ product is a building and you really want to experience it better than looking at a scale
+
+35:43.060 --> 35:48.900
+ model or a drawing, I think, or even than a video. So I think for that, where you need a
+
+35:48.900 --> 35:54.500
+ sense of scale and spatial relationships, it's great. I think AR holds the promise of
+
+35:55.380 --> 36:01.940
+ sort of taking digital assets off the screen and putting them in context in the real world
+
+36:01.940 --> 36:08.660
+ on the table in front of you, on the wall behind you. And that has the corresponding need that the
+
+36:08.660 --> 36:13.620
+ assets need to adapt to the physical context in which they're being placed. I mean, it's a bit
+
+36:13.620 --> 36:19.140
+ like having a live theater troupe come to your house and put on Hamlet. My mother had a friend
+
+36:19.140 --> 36:24.180
+ who used to do this at Stately Homes in England for the National Trust. And they would adapt the
+
+36:24.180 --> 36:31.300
+ scenes and even they'd walk the audience through the rooms to see the action based on the country
+
+36:31.300 --> 36:35.860
+ house they found themselves in for two days. And I think AR will have the same issue that,
+
+36:36.500 --> 36:40.100
+ you know, if you have a tiny table and a big living room or something, it'll try to figure
+
+36:40.100 --> 36:47.460
+ out what can you change and what's fixed. And there's a little bit of a tension between fidelity
+
+36:47.460 --> 36:53.540
+ where if you captured, say, Nureyev doing a fantastic ballet, you'd want it to be sort of
+
+36:53.540 --> 36:59.300
+ exactly reproduced. And maybe all you could do is scale it down. Whereas somebody telling you a
+
+36:59.300 --> 37:05.940
+ story might be walking around the room doing some gestures and that could adapt to the room in which
+
+37:05.940 --> 37:10.820
+ they were telling the story. And do you think fidelity is that important in that space or is
+
+37:10.820 --> 37:16.820
+ it more about the storytelling? I think it may depend on the characteristic of the media. If it's
+
+37:16.820 --> 37:21.300
+ a famous celebrity, then it may be that you want to catch every nuance and they don't want to be
+
+37:21.300 --> 37:28.660
+ reanimated by some algorithm. It could be that if it's really, you know, a lovable frog telling you
+
+37:28.660 --> 37:33.780
+ a story and it's about a princess and a frog, then it doesn't matter if the frog moves in a
+
+37:33.780 --> 37:38.580
+ different way. I think a lot of the ideas that have sort of grown up in the game world will
+
+37:39.460 --> 37:45.140
+ now come into the broader commercial sphere once they're needing adaptive characters in AR.
+
+37:45.940 --> 37:49.940
+ Are you thinking of engineering tools that allow creators to create in
+
+37:50.820 --> 37:56.020
+ the augmented world, basically making a Photoshop for the augmented world?
+
+37:56.020 --> 38:02.500
+ Well, we have shown a few demos of sort of taking a Photoshop layer stack and then expanding it into
+
+38:02.500 --> 38:08.580
+ 3D. That's actually been shown publicly as one example in AR. Where we're particularly excited
+
+38:08.580 --> 38:17.140
+ at the moment is in 3D. 3D design is still a very challenging space. And we believe that it's a
+
+38:17.140 --> 38:23.220
+ worthwhile experiment to try to figure out if AR or immersive makes 3D design more spontaneous.
+
+38:23.220 --> 38:26.980
+ Can you give me an example of 3D design, just like applications?
+
+38:26.980 --> 38:32.020
+ Literally, a simple one would be laying out objects, right? So on a conventional screen,
+
+38:32.020 --> 38:35.380
+ you'd sort of have a plan view and a side view and a perspective view, and you'd sort of be
+
+38:35.380 --> 38:39.460
+ dragging it around with a mouse. And if you're not careful, it would go through the wall and all that.
+
+38:39.460 --> 38:46.420
+ Whereas if you were really laying out objects, say, in a VR headset, you could literally move
+
+38:46.420 --> 38:50.740
+ your head to see a different viewpoint. They'd be in stereo. So you'd have a sense of depth
+
+38:50.740 --> 38:54.500
+ because you're already wearing the depth glasses, right? So it would be
+
+38:55.300 --> 39:00.340
+ those sort of big gross motor move things around kind of skills seem much more spontaneous,
+
+39:00.340 --> 39:06.420
+ just like they are in the real world. The frontier for us, I think, is whether
+
+39:06.420 --> 39:12.660
+ that same medium can be used to do fine grained design tasks, like very accurate constraints on,
+
+39:12.660 --> 39:17.780
+ say, a CAD model or something that may be better done on a desktop, but it may just be a matter
+
+39:17.780 --> 39:26.020
+ of inventing the right UI. So we're hopeful that because there will be this potential explosion
+
+39:26.020 --> 39:32.580
+ of demand for 3D assets driven by AR and more real time animation on conventional screens,
+
+39:33.220 --> 39:40.500
+ that those tools will also help with, or those devices will help with designing the content as
+
+39:40.500 --> 39:45.700
+ well. You've mentioned quite a few interesting sort of new ideas. And at the same time, there's
+
+39:45.700 --> 39:49.700
+ old timers like me that are stuck in their old ways and are...
+
+39:49.700 --> 39:51.300
+ Well, I think I'm the old timer.
+
+39:51.300 --> 39:55.540
+ Okay. All right. All right. But the opposed all change at all costs.
+
+39:55.540 --> 39:55.940
+ Yes.
+
+39:57.540 --> 40:02.660
+ When you're thinking about creating new interfaces, do you feel the burden of just
+
+40:02.660 --> 40:10.660
+ this giant user base that loves the current product? So anything new you do, any new idea
+
+40:11.700 --> 40:13.700
+ comes at a cost that you'll be resisted?
+
+40:13.700 --> 40:19.860
+ Well, I think if you have to trade off control for convenience, then our existing user base would
+
+40:19.860 --> 40:26.180
+ definitely be offended by that. I think if there are some things where you have more convenience
+
+40:26.180 --> 40:32.740
+ and just as much control, that may be more welcome. We do think about not breaking well known
+
+40:32.740 --> 40:39.140
+ metaphors for things. So things should sort of make sense. Photoshop has never been a static
+
+40:39.140 --> 40:45.140
+ target. It's always been evolving and growing. And to some extent, there's been a lot of brilliant
+
+40:45.140 --> 40:49.140
+ thought along the way of how it works today. So we don't want to just throw all that out.
+
+40:50.420 --> 40:54.100
+ If there's a fundamental breakthrough, like a single click is good enough to select an object
+
+40:54.100 --> 41:00.340
+ rather than having to do lots of strokes, that actually fits in quite nicely to the existing
+
+41:00.340 --> 41:06.420
+ toolset, either as an optional mode or as a starting point. I think where we're looking at
+
+41:06.420 --> 41:13.060
+ radical simplicity, where you could encapsulate an entire workflow with a much simpler UI, then
+
+41:13.060 --> 41:18.100
+ sometimes that's easier to do in the context of either a different device, like a mobile device,
+
+41:18.100 --> 41:24.580
+ where the affordances are naturally different. Or in a tool that's targeted at a different workflow,
+
+41:24.580 --> 41:30.820
+ where it's about spontaneity and velocity rather than precision. And we have projects like Rush,
+
+41:30.820 --> 41:38.500
+ which can let you do professional quality video editing for a certain class of media output that
+
+41:39.940 --> 41:47.300
+ is targeted very differently in terms of users and the experience. And ideally, people would go,
+
+41:47.300 --> 41:54.580
+ if I'm feeling like doing Premiere, big project, I'm doing a four part television series, that's
+
+41:54.580 --> 41:59.220
+ definitely a Premiere thing. But if I want to do something to show my recent vacation, maybe I'll
+
+41:59.220 --> 42:04.740
+ just use Rush because I can do it in the half an hour I have free at home rather than the four
+
+42:04.740 --> 42:11.860
+ hours I need to do it at work. And for the use cases, which we can do well, it really is much
+
+42:11.860 --> 42:16.660
+ faster to get the same output. But the more professional tools obviously have a much richer
+
+42:16.660 --> 42:22.020
+ toolkit and more flexibility in what they can do. And then at the same time with the flexibility
+
+42:22.020 --> 42:30.740
+ and control, I like this idea of smart defaults, of using AI to coach you to like what Google has,
+
+42:30.740 --> 42:38.020
+ I'm feeling lucky button. Or one button kind of gives you a pretty good set of settings. And then
+
+42:38.020 --> 42:45.700
+ that's almost an educational tool to show. Because sometimes when you have all this control,
+
+42:45.700 --> 42:51.780
+ you're not sure about the correlation between the different bars that control different elements of
+
+42:51.780 --> 42:57.940
+ the image and so on. And sometimes there's a degree of, you don't know what the optimal is.
+
+42:59.140 --> 43:05.060
+ And then some things are sort of on demand, like help, right? Where I'm stuck, I need to know what
+
+43:05.060 --> 43:10.420
+ to look for. I'm not quite sure what it's called. And something that was proactively making helpful
+
+43:10.420 --> 43:17.380
+ suggestions or, you could imagine a make a suggestion button where you'd use all of that
+
+43:17.380 --> 43:21.700
+ knowledge of workflows and everything to maybe suggest something to go and learn about or just
+
+43:21.700 --> 43:28.580
+ to try or show the answer. And maybe it's not one intelligent default, but it's like a variety of
+
+43:28.580 --> 43:36.740
+ defaults. And then you go, I like that one. Yeah. Yeah. Several options. So back to poetry.
+
+43:36.740 --> 43:44.340
+ Ah, yes. We're going to interleave. So first few lines of a recent poem of yours before I ask the
+
+43:44.340 --> 43:52.820
+ next question. This is about the smartphone. Today I left my phone at home and went down to the sea.
+
+43:53.860 --> 44:00.980
+ The sand was soft, the ocean glass, but I was still just me. This is a poem about you leaving
+
+44:00.980 --> 44:08.100
+ your phone behind and feeling quite liberated because of it. So this is kind of a difficult
+
+44:08.100 --> 44:14.500
+ topic and let's see if we can talk about it, figure it out. But so with the help of AI more and more,
+
+44:14.500 --> 44:20.660
+ we can create sort of versions of ourselves, versions of reality that are in some ways more
+
+44:20.660 --> 44:29.540
+ beautiful than actual reality. And some of the creative ways that we can do that,
+
+44:29.540 --> 44:34.980
+ some of the creative effort there is part of creating this illusion.
+
+44:36.260 --> 44:41.620
+ So of course this is inevitable, but how do you think we should adjust as human beings to live in
+
+44:41.620 --> 44:49.540
+ this digital world that's partly artificial, that's better than the world that we lived in
+
+44:49.540 --> 44:56.340
+ a hundred years ago when you didn't have Instagram and Facebook versions of ourselves and the online
+
+44:56.340 --> 45:02.420
+ Oh, this is sort of showing off better versions of ourselves. We're using the tooling of modifying
+
+45:02.420 --> 45:10.660
+ the images or even with artificial intelligence ideas of deep fakes and creating adjusted or
+
+45:10.660 --> 45:16.500
+ fake versions of ourselves and reality. I think it's an interesting question. You're all sort of
+
+45:16.500 --> 45:23.380
+ historical bent on this. So I actually wonder if 18th century aristocrats who commissioned famous
+
+45:23.380 --> 45:28.660
+ painters to paint portraits of them had portraits that were slightly nicer than they actually looked
+
+45:28.660 --> 45:34.740
+ in practice. So human desire to put your best foot forward has always been true.
+
+45:37.460 --> 45:42.260
+ I think it's interesting. You sort of framed it in two ways. One is if we can imagine alternate
+
+45:42.260 --> 45:47.300
+ realities and visualize them, is that a good or bad thing? In the old days, you do it with
+
+45:47.300 --> 45:54.500
+ storytelling and words and poetry, which still resides sometimes on websites, but we've become
+
+45:54.500 --> 46:01.380
+ a very visual culture in particular. In the 19th century, we're very much a text based culture.
+
+46:02.180 --> 46:05.540
+ People would read long tracks, political speeches were very long.
+
+46:06.660 --> 46:10.100
+ Nowadays, everything's very kind of quick and visual and snappy.
+
+46:10.100 --> 46:18.180
+ I think it depends on how harmless your intent. A lot of it's about intent. So if you have a
+
+46:18.180 --> 46:22.740
+ somewhat flattering photo that you pick out of the photos that you have in your inbox to say,
+
+46:22.740 --> 46:31.860
+ this is what I look like, it's probably fine. If someone's going to judge you by how you look,
+
+46:31.860 --> 46:35.940
+ then they'll decide soon enough when they meet you whether the reality, you know.
+
+46:35.940 --> 46:40.420
+ Yeah, right.
+
+46:40.420 --> 46:46.100
+ I think where it can be harmful is if people hold themselves up to an impossible standard,
+
+46:46.100 --> 46:51.860
+ which they then feel bad about themselves for not meeting. I think that definitely can be an issue.
+
+46:55.540 --> 46:58.900
+ But I think the ability to imagine and visualize an alternate reality,
+
+46:58.900 --> 47:06.100
+ which sometimes you then go off and build later, can be a wonderful thing too. People can imagine
+
+47:06.100 --> 47:10.420
+ architectural styles, which they then, you know, have a startup, make a fortune,
+
+47:10.420 --> 47:14.500
+ and then build a house that looks like their favorite video game. Is that a terrible thing?
+
+47:17.140 --> 47:23.860
+ I think I used to worry about exploration, actually, that part of the joy of going to the
+
+47:23.860 --> 47:30.100
+ moon. When I was a tiny child, I remember it in grainy black and white, was to know what it would
+
+47:30.100 --> 47:35.140
+ look like when you got there. And I think now we have such good graphics for visualizing the
+
+47:35.140 --> 47:40.580
+ experience before it happens, that I slightly worry that it may take the edge off actually
+
+47:40.580 --> 47:44.820
+ wanting to go, you know what I mean? Because we've seen it on TV. We kind of, oh, you know,
+
+47:44.820 --> 47:48.260
+ by the time we finally get to Mars, we'll go, yeah, yeah, so it's Mars. That's what it looks like.
+
+47:48.260 --> 47:56.420
+ But then, you know, the outer exploration, I mean, I think Pluto was a fantastic recent
+
+47:56.420 --> 48:00.740
+ discovery where nobody had any idea what it looked like. And it was just breathtakingly
+
+48:00.740 --> 48:07.860
+ varied and beautiful. So I think expanding the ability of the human toolkit to imagine and
+
+48:07.860 --> 48:13.380
+ communicate on balance is a good thing. I think there are abuses, we definitely take them seriously
+
+48:13.380 --> 48:21.140
+ and try to discourage them. I think there's a parallel side where the public needs to know
+
+48:21.140 --> 48:27.620
+ what's possible through events like this, right? So that you don't believe everything you read in
+
+48:27.620 --> 48:34.340
+ print anymore. And it may over time become true of images as well. Or you need multiple sets of
+
+48:34.340 --> 48:39.220
+ evidence to really believe something rather than a single media asset. So I think it's a constantly
+
+48:39.220 --> 48:45.380
+ evolving thing. It's been true forever. There's a famous story about Anne of Cleves and Henry VIII
+
+48:45.380 --> 48:53.780
+ where luckily for Anne, they didn't get married, right? So, or they got married and broke up in it.
+
+48:53.780 --> 48:54.580
+ What's the story?
+
+48:54.580 --> 48:58.900
+ Oh, so Holbein went and painted a picture and then Henry VIII wasn't pleased and,
+
+48:58.900 --> 49:04.020
+ you know, history doesn't record whether Anne was pleased, but I think she was pleased not to
+
+49:04.020 --> 49:08.180
+ be married more than a day or something. So, I mean, this has gone on for a long time, but
+
+49:08.180 --> 49:13.300
+ I think it's just a part of the magnification of human capability.
+
+49:14.660 --> 49:21.380
+ You've kind of built up an amazing research environment here, research culture, research lab,
+
+49:21.380 --> 49:24.660
+ and you've written that the secret to a thriving research lab is interns.
+
+49:24.660 --> 49:26.180
+ Can you unpack that a little bit?
+
+49:26.180 --> 49:33.940
+ Oh, absolutely. So a couple of reasons. As you see looking at my personal history,
+
+49:33.940 --> 49:37.540
+ there are certain ideas you bond with at a certain stage of your career and you tend to
+
+49:37.540 --> 49:43.060
+ keep revisiting them through time. If you're lucky, you pick one that doesn't just get solved
+
+49:43.060 --> 49:48.340
+ in the next five years and then you're sort of out of luck. So I think a constant influx of new
+
+49:48.340 --> 49:55.060
+ people brings new ideas with it. From the point of view of industrial research, because a big
+
+49:55.060 --> 49:59.620
+ part of what we do is really taking those ideas to the point where they can ship as very robust
+
+49:59.620 --> 50:06.660
+ features, you end up investing a lot in a particular idea. And if you're not careful,
+
+50:06.660 --> 50:10.660
+ people can get too conservative in what they choose to do next, knowing that the product teams
+
+50:10.660 --> 50:18.420
+ will want it. And interns let you explore the more fanciful or unproven ideas in a relatively
+
+50:18.420 --> 50:24.340
+ lightweight way, ideally leading to new publications for the intern and for the researcher.
+
+50:24.340 --> 50:29.380
+ And it gives you then a portfolio from which to draw which idea am I going to then try to take
+
+50:29.380 --> 50:35.140
+ all the way through to being robust in the next year or two to ship. So it sort of becomes part
+
+50:35.140 --> 50:40.740
+ of the funnel. It's also a great way for us to identify future full time researchers. Many of
+
+50:40.740 --> 50:46.660
+ our greatest researchers were former interns. It builds a bridge to university departments so we
+
+50:46.660 --> 50:52.660
+ can get to know and build an enduring relationship with the professors whom we often do academic
+
+50:52.660 --> 50:57.540
+ give funds to as well as an acknowledgement of the value the interns add in their own
+
+50:57.540 --> 51:04.580
+ collaborations. So it's sort of a virtuous cycle. And then the long term legacy of a great research
+
+51:04.580 --> 51:09.620
+ lab hopefully will be not only the people who stay, but the ones who move through and then go
+
+51:09.620 --> 51:16.260
+ off and carry that same model to other companies. And so we believe strongly in industrial research
+
+51:16.260 --> 51:21.460
+ and how it can complement academia. And we hope that this model will continue to propagate and
+
+51:21.460 --> 51:27.300
+ be invested in by other companies, which makes it harder for us to recruit, of course, but that's a
+
+51:27.300 --> 51:34.260
+ sign of success. And a rising tide lifts all ships in that sense. And where's the idea born
+
+51:34.260 --> 51:41.620
+ with the interns? Is there brainstorming? Is there discussions about, you know, like what?
+
+51:42.340 --> 51:43.860
+ Where do the ideas come from?
+
+51:43.860 --> 51:48.820
+ Yeah. As I'm asking the question, I realize how dumb it is, but I'm hoping you have a better
+
+51:48.820 --> 51:57.460
+ answer. A question I ask at the beginning of every summer. So what will happen is we'll send out a
+
+51:57.460 --> 52:02.900
+ call for interns. They'll, we'll have a number of resumes come in. People will contact the
+
+52:02.900 --> 52:08.020
+ candidates, talk to them about their interests. They'll usually try to find some, somebody who
+
+52:08.020 --> 52:12.820
+ has a reasonably good match to what they're already doing, or just has a really interesting
+
+52:12.820 --> 52:17.940
+ domain that they've been pursuing in their PhD. And we think we'd love to do one of those projects
+
+52:17.940 --> 52:25.380
+ too. And then the intern stays in touch with the mentor, as we call them. And then they come and
+
+52:26.340 --> 52:31.380
+ at the end of two weeks, they have to decide. So they'll often have a general sense by the time
+
+52:31.380 --> 52:37.700
+ they arrive. And we'll have internal discussions about what are all the general ideas that we're
+
+52:37.700 --> 52:41.860
+ wanting to pursue to see whether two people have the same idea, and maybe they should talk and all
+
+52:41.860 --> 52:47.620
+ that. But then once the intern actually arrives, sometimes the idea goes linearly. And sometimes
+
+52:47.620 --> 52:51.460
+ it takes a giant left turn. And we go, that sounded good. But when we thought about it,
+
+52:51.460 --> 52:55.780
+ there's this other project, or it's already been done. And we found this paper, we were scooped.
+
+52:55.780 --> 53:02.260
+ But we have this other great idea. So it's pretty, pretty flexible at the beginning. One of the
+
+53:02.260 --> 53:08.260
+ questions for research labs is who's deciding what to do? And then who's to blame if it goes wrong?
+
+53:08.260 --> 53:15.540
+ Who gets the credit if it goes right? And so in Adobe, we push the needle very much towards
+
+53:15.540 --> 53:22.900
+ freedom of choice of projects by the researchers and the interns. But then we reward people based
+
+53:22.900 --> 53:28.180
+ on impact. So if the projects ultimately end up impacting the products and having papers and so on.
+
+53:28.740 --> 53:34.420
+ And so your alternative model, just to be clear, is that you have one lab director who thinks he's
+
+53:34.420 --> 53:38.740
+ a genius and tells everybody what to do, takes all the credit if it goes well, blames everybody
+
+53:38.740 --> 53:44.820
+ else if it goes badly. So we don't want that model. And this helps new ideas percolate up.
+
+53:45.460 --> 53:49.860
+ The art of running such a lab is that there are strategic priorities for the company.
+
+53:49.860 --> 53:55.300
+ And there are areas where we do want to invest and pressing problems. And so it's a little bit
+
+53:55.300 --> 54:00.660
+ of a trickle down and filter up meets in the middle. And so you don't tell people you have
+
+54:00.660 --> 54:06.980
+ to do X, but you say X would be particularly appreciated this year. And then people reinterpret
+
+54:06.980 --> 54:11.780
+ X through the filter of things they want to do and they're interested in. And miraculously,
+
+54:11.780 --> 54:17.380
+ it usually comes together very well. One thing that really helps is Adobe has a really broad
+
+54:17.380 --> 54:24.180
+ portfolio of products. So if we have a good idea, there's usually a product team that is intrigued
+
+54:24.180 --> 54:29.540
+ or interested. So it means we don't have to qualify things too much ahead of time.
+
+54:30.260 --> 54:35.460
+ Once in a while, the product teams sponsor extra intern, because they have a particular problem
+
+54:35.460 --> 54:40.420
+ that they really care about, in which case it's a little bit more, we really need one of these.
+
+54:40.420 --> 54:44.340
+ And then we sort of say, great, I get an extra intern, we find an intern who thinks that's a
+
+54:44.340 --> 54:48.580
+ great problem. But that's not the typical model. That's sort of the icing on the cake as far as
+
+54:48.580 --> 54:55.140
+ the budget is concerned. And all of the above end up being important. It's really hard to predict
+
+54:55.140 --> 55:00.260
+ at the beginning of the summer, which we all have high hopes of all of the intern projects, but
+
+55:00.260 --> 55:04.660
+ ultimately, some of them pay off and some of them sort of are a nice paper, but don't turn into a
+
+55:04.660 --> 55:09.700
+ feature. Others turn out not to be as novel as we thought, but they'd be a great feature,
+
+55:09.700 --> 55:15.700
+ but not a paper. And then others, we make a little bit of progress and we realize how much
+
+55:15.700 --> 55:20.020
+ we don't know. And maybe we revisit that problem several years in a row until it,
+
+55:20.660 --> 55:26.180
+ finally we have a breakthrough and then it becomes more on track to impact a product.
+
+55:26.180 --> 55:32.900
+ Jumping back to a big overall view of Adobe research, what are you looking forward to
+
+55:32.900 --> 55:38.580
+ in 2019 and beyond? What is, you mentioned there's a giant suite of products,
+
+55:38.580 --> 55:45.940
+ a giant suite of ideas, new interns, a large team of researchers.
+
+55:49.940 --> 55:51.140
+ What do you think the future holds?
+
+55:52.260 --> 55:54.420
+ In terms of the technological breakthroughs?
+
+55:54.420 --> 56:00.180
+ Technological breakthroughs, especially ones that will make it into product,
+
+56:00.180 --> 56:01.620
+ will get to impact the world.
+
+56:01.620 --> 56:05.940
+ So I think the creative or the analytics assistants that we talked about where
+
+56:05.940 --> 56:10.100
+ they're constantly trying to figure out what you're trying to do and how can they be helpful
+
+56:10.100 --> 56:15.620
+ and make useful suggestions is a really hot topic. And it's very unpredictable as to when
+
+56:15.620 --> 56:19.460
+ it'll be ready, but I'm really looking forward to seeing how much progress we make against that.
+
+56:20.260 --> 56:28.180
+ I think some of the core technologies like generative adversarial networks are immensely
+
+56:28.180 --> 56:34.020
+ promising and seeing how quickly those become practical for mainstream use cases at high
+
+56:34.020 --> 56:38.740
+ resolution with really good quality is also exciting. And they also have this sort of
+
+56:38.740 --> 56:43.540
+ strange way of even the things they do oddly are odd in an interesting way. So it can look
+
+56:43.540 --> 56:52.820
+ like dreaming or something. So that's fascinating. I think internally, we have a Sensei platform,
+
+56:52.820 --> 56:59.060
+ which is a way in which we're pulling our neural nets and other intelligence models
+
+56:59.060 --> 57:05.060
+ into a central platform, which can then be leveraged by multiple product teams at once.
+
+57:05.060 --> 57:10.180
+ So we're in the middle of transitioning from once you have a good idea, you pick a product team to
+
+57:10.180 --> 57:17.380
+ work with and they sort of hand design it for that use case to a more sort of Henry Ford standard
+
+57:17.380 --> 57:21.620
+ up in a standard way, which can be accessed in a standard way, which should mean that the time
+
+57:21.620 --> 57:27.380
+ between a good idea and impacting our products will be greatly shortened. And when one product
+
+57:27.380 --> 57:33.060
+ has a good idea, many of the other products can just leverage it too. So it's sort of an economy
+
+57:33.060 --> 57:37.780
+ of scale. So that's more about the how than the what. But that combination of this sort of
+
+57:37.780 --> 57:43.220
+ renaissance in AI, there's a comparable one in graphics with real time ray tracing and other
+
+57:43.220 --> 57:48.900
+ really exciting emerging technologies. And when these all come together, you'll sort of basically
+
+57:48.900 --> 57:55.060
+ be dancing with light, right, where you'll have real time shadows, reflections and as if it's a
+
+57:55.060 --> 57:59.140
+ real world in front of you. But then with all these magical properties brought by AI, where it
+
+57:59.140 --> 58:04.500
+ sort of anticipates or modifies itself in ways that make sense based on how it understands the
+
+58:04.500 --> 58:11.300
+ creative task you're trying to do. That's a really exciting future for creative for myself to the
+
+58:11.300 --> 58:16.180
+ creator. So first of all, I work in autonomous vehicles. I'm a roboticist. I love robots.
+
+58:16.180 --> 58:22.260
+ And I think you have a fascination with snakes, both natural and artificial robots. I share your
+
+58:22.260 --> 58:27.860
+ fascination. I mean, their movement is beautiful, adaptable. The adaptability is fascinating.
+
+58:28.580 --> 58:33.300
+ There are, I looked it up, 2,900 species of snakes in the world.
+
+58:33.300 --> 58:33.860
+ Wow.
+
+58:33.860 --> 58:41.620
+ 875 venomous. Some are tiny, some are huge. I saw that there's one that's 25 feet in some cases. So
+
+58:41.620 --> 58:49.140
+ what's the most interesting thing that you connect with in terms of snakes, both natural and
+
+58:49.140 --> 58:56.340
+ artificial? What was the connection with robotics AI and this particular form of a robot?
+
+58:56.340 --> 59:01.060
+ Well, it actually came out of my work in the 80s on computer animation, where I started doing
+
+59:01.060 --> 59:06.740
+ things like cloth simulation and other kind of soft body simulation. And you'd sort of drop it
+
+59:06.740 --> 59:10.020
+ and it would bounce and then it would just sort of stop moving. And I thought, well, what if you
+
+59:10.020 --> 59:15.380
+ animate the spring lengths and simulate muscles? And the simplest object I could do that for was
+
+59:15.380 --> 59:21.060
+ an earthworm. So I actually did a paper in 1988 called The Motion Dynamics of Snakes and Worms.
+
+59:21.060 --> 59:27.300
+ And I read the physiology literature on both how snakes and worms move and then did some of the
+
+59:27.300 --> 59:35.860
+ early computer animation examples of that. And so your interest in robotics came out of simulation
+
+59:35.860 --> 59:42.020
+ and graphics. When I moved from Alias to Apple, we actually did a movie called Her Majesty's
+
+59:42.020 --> 59:47.140
+ Secret Serpent, which is about a secret agent snake that parachutes in and captures a film
+
+59:47.140 --> 59:51.140
+ canister from a satellite, which tells you how old fashioned we were thinking back then. Sort
+
+59:51.140 --> 59:58.660
+ of classic 1950s or 60s Bond movie kind of thing. And at the same time, I'd always made radio
+
+59:58.660 --> 1:00:03.940
+ controlled chips when I was a child and from scratch. And I thought, well, how can it be to
+
+1:00:03.940 --> 1:00:10.100
+ build a real one? And so then started what turned out to be like a 15 year obsession with trying to
+
+1:00:10.100 --> 1:00:15.140
+ build better snake robots. And the first one that I built just sort of slithered sideways,
+
+1:00:15.140 --> 1:00:20.100
+ but didn't actually go forward. Then I added wheels and building things in real life makes
+
+1:00:20.100 --> 1:00:26.180
+ you honest about the friction. The thing that appeals to me is I love creating the illusion
+
+1:00:26.180 --> 1:00:31.540
+ of life, which is what drove me to animation. And if you have a robot with enough degrees of
+
+1:00:31.540 --> 1:00:36.580
+ coordinated freedom that move in a kind of biological way, then it starts to cross the
+
+1:00:36.580 --> 1:00:42.580
+ Ancani Valley and to seem like a creature rather than a thing. And I certainly got that with the
+
+1:00:42.580 --> 1:00:50.980
+ early snakes by S3, I had it able to sidewind as well as go directly forward. My wife to be
+
+1:00:50.980 --> 1:00:54.740
+ suggested that it would be the ring bearer at our wedding. So it actually went down the aisle
+
+1:00:54.740 --> 1:01:02.980
+ carrying the rings and got in the local paper for that, which was really fun. And this was all done
+
+1:01:02.980 --> 1:01:07.860
+ as a hobby. And then I, at the time that can onboard compute was incredibly limited. It was
+
+1:01:07.860 --> 1:01:12.100
+ sort of. Yeah. So you should explain that these things, the whole idea is that you would, you're
+
+1:01:12.100 --> 1:01:20.580
+ trying to run it autonomously. Autonomously on board right. And so the very first one,
+
+1:01:20.580 --> 1:01:26.340
+ I actually built the controller from discrete logic cause I used to do LSI, you know, circuits
+
+1:01:26.340 --> 1:01:32.020
+ and things when I was a teenager. And then the second and third one, the eight bit microprocessors
+
+1:01:32.020 --> 1:01:37.780
+ were available with like the whole 256 bytes of RAM, which you could just about squeeze in. So
+
+1:01:37.780 --> 1:01:43.380
+ they were radio controlled rather than autonomous and really were more about the physicality and
+
+1:01:43.380 --> 1:01:51.060
+ coordinated motion. I've occasionally taken a sidestep into, if only I could make it cheaply
+
+1:01:51.060 --> 1:01:59.380
+ enough, bake a great toy, which has been a lesson in how clockwork is its own magical realm that you
+
+1:01:59.380 --> 1:02:03.540
+ venture into and learn things about backlash and other things you don't take into account
+
+1:02:03.540 --> 1:02:07.540
+ as a computer scientist, which is why what seemed like a good idea doesn't work. So it was quite
+
+1:02:07.540 --> 1:02:14.580
+ humbling. And then more recently I've been building S9, which is a much better engineered version of
+
+1:02:14.580 --> 1:02:18.340
+ S3 where the motors wore out and it doesn't work anymore. And you can't buy replacements,
+
+1:02:18.340 --> 1:02:26.260
+ which is sad given that it was such a meaningful one. S5 was about twice as long and looked much
+
+1:02:26.260 --> 1:02:33.940
+ more biologically inspired. Unlike the typical roboticist, I taper my snakes. There are good
+
+1:02:33.940 --> 1:02:38.180
+ mechanical reasons to do that, but it also makes them look more biological, although it means every
+
+1:02:38.180 --> 1:02:44.820
+ segment's unique rather than a repetition, which is why most engineers don't do it. It actually
+
+1:02:44.820 --> 1:02:50.820
+ saves weight and leverage and everything. And that one is currently on display at the International
+
+1:02:50.820 --> 1:02:57.780
+ Spy Museum in Washington, DC. Not that it's done any spying. It was on YouTube and it got its own
+
+1:02:57.780 --> 1:03:01.380
+ conspiracy theory where people thought that it wasn't real because I work at Adobe, it must be
+
+1:03:01.380 --> 1:03:06.180
+ fake graphics. And people would write to me, tell me it's real. You know, they say the background
+
+1:03:06.180 --> 1:03:12.340
+ doesn't move and it's like, it's on a tripod, you know? So that one, but you can see the real thing,
+
+1:03:12.340 --> 1:03:18.900
+ so it really is true. And then the latest one is the first one where I could put a Raspberry Pi,
+
+1:03:18.900 --> 1:03:25.700
+ which leads to all sorts of terrible jokes about Pythons and things. But this one can have on board
+
+1:03:25.700 --> 1:03:33.300
+ compute. And then where my hobby work and my work work are converging is you can now add vision
+
+1:03:33.300 --> 1:03:38.820
+ accelerator chips, which can evaluate neural nets and do object recognition and everything. So both
+
+1:03:38.820 --> 1:03:44.660
+ for the snakes and more recently for the spider that I've been working on, having, you know,
+
+1:03:44.660 --> 1:03:51.060
+ desktop level compute is now opening up a whole world of true autonomy with onboard compute,
+
+1:03:51.060 --> 1:03:58.180
+ onboard batteries, and still having that sort of biomimetic quality that appeals to
+
+1:03:58.980 --> 1:04:02.820
+ children in particular. They are really drawn to them and adults think they look creepy,
+
+1:04:02.820 --> 1:04:10.500
+ but children actually think they look charming. And I gave a series of lectures at Girls Who Code
+
+1:04:10.500 --> 1:04:16.180
+ to encourage people to take an interest in technology. And at the moment, I'd say they're
+
+1:04:16.180 --> 1:04:20.660
+ still more expensive than the value that they add, which is why they're a great hobby for me,
+
+1:04:20.660 --> 1:04:27.940
+ but they're not really a great product. It makes me think about doing that very early thing I did
+
+1:04:27.940 --> 1:04:33.300
+ at Alias with changing the muscle rest lengths. If I could do that with a real artificial muscle
+
+1:04:33.300 --> 1:04:39.140
+ material, then the next snake ideally would use that rather than motors and gearboxes and
+
+1:04:39.140 --> 1:04:47.460
+ everything. It would be lighter, much stronger, and more continuous and smooth. So it's, I like
+
+1:04:47.460 --> 1:04:51.540
+ to say being in research is a license to be curious. And I have the same feeling with my
+
+1:04:51.540 --> 1:04:58.180
+ hobby. It forced me to read biology and be curious about things that otherwise would have just been,
+
+1:04:58.180 --> 1:05:02.500
+ you know, a National Geographic special. Suddenly I'm thinking, how does that snake move? Can I copy
+
+1:05:02.500 --> 1:05:07.860
+ it? I look at the trails that sidewinding snakes leave in sand and see if my snake robots would
+
+1:05:07.860 --> 1:05:13.300
+ do the same thing. So out of something inanimate, I like why you put it, try to bring life into it
+
+1:05:13.300 --> 1:05:18.260
+ and beauty. Absolutely. And then ultimately give it a personality, which is where the intelligent
+
+1:05:18.260 --> 1:05:25.060
+ agent research will converge with the vision and voice synthesis to give it a sense of having,
+
+1:05:25.060 --> 1:05:29.860
+ not necessarily human level intelligence. I think the Turing test is such a high bar. It's
+
+1:05:30.500 --> 1:05:36.100
+ a little bit self defeating, but having one that you can have a meaningful conversation with,
+
+1:05:36.100 --> 1:05:42.820
+ especially if you have a reasonably good sense of what you can say. So not trying to have it so a
+
+1:05:43.380 --> 1:05:49.780
+ stranger could walk up and have one, but so as a pet owner or a robot pet owner, you could know
+
+1:05:49.780 --> 1:05:55.860
+ what it thinks about and what it can reason about. Or sometimes just the meaningful interaction. If
+
+1:05:55.860 --> 1:06:00.260
+ you have the kind of interaction you have with the dog, sometimes you might have a conversation,
+
+1:06:00.260 --> 1:06:04.340
+ but it's usually one way. Absolutely. And nevertheless, it feels like a meaningful
+
+1:06:04.340 --> 1:06:10.660
+ and meaningful connection. And one of the things that I'm trying to do in the sample audio that
+
+1:06:10.660 --> 1:06:16.580
+ will play you is beginning to get towards the point where the reasoning system can explain
+
+1:06:16.580 --> 1:06:21.700
+ why it knows something or why it thinks something. And that again, creates the sense that it really
+
+1:06:21.700 --> 1:06:29.140
+ does know what it's talking about, but also for debugging as you get more and more elaborate
+
+1:06:29.140 --> 1:06:34.660
+ behavior, it's like, why did you decide to do that? You know, how do you know that? I think
+
+1:06:36.020 --> 1:06:41.780
+ the robot's really my muse for helping me think about the future of AI and what to invent next.
+
+1:06:42.580 --> 1:06:47.940
+ So even at Adobe, that's mostly operating in digital world. Correct. Do you ever,
+
+1:06:49.060 --> 1:06:55.460
+ do you see a future where Adobe even expands into the more physical world perhaps? So bringing life
+
+1:06:55.460 --> 1:07:02.660
+ not into animations, but bringing life into physical objects with, whether it's, well,
+
+1:07:03.300 --> 1:07:08.180
+ I'd have to say at the moment, it's a twinkle in my eye. I think the more likely thing is that we
+
+1:07:08.180 --> 1:07:15.620
+ will bring virtual objects into the physical world through augmented reality and many of the ideas
+
+1:07:15.620 --> 1:07:22.580
+ that might take five years to build a robot to do, you can do in a few weeks with digital assets. So
+
+1:07:22.580 --> 1:07:29.300
+ I think when really intelligent robots finally become commonplace, they won't be that surprising
+
+1:07:29.300 --> 1:07:33.300
+ because we'll have been living with those personalities for in the virtual sphere for
+
+1:07:33.300 --> 1:07:37.380
+ a long time. And then they'll just say, Oh, it's, you know, Siri with legs or Alexa,
+
+1:07:38.340 --> 1:07:46.740
+ Alexa on hooves or something. So I can see that world coming. And for now, it's still an adventure,
+
+1:07:46.740 --> 1:07:52.340
+ still an adventure. And we don't know quite what the experience will be like. And it's really
+
+1:07:52.340 --> 1:07:58.420
+ exciting to sort of see all of these different strands of my career converge. Yeah. In interesting
+
+1:07:58.420 --> 1:08:07.060
+ ways. And it is definitely a fun adventure. So let me end with my favorite poem, the last few
+
+1:08:07.060 --> 1:08:13.140
+ lines of my favorite poem of yours that ponders mortality and in some sense, immortality, you know,
+
+1:08:13.140 --> 1:08:19.060
+ as our ideas live through the ideas of others, through the work of others, it ends with do not
+
+1:08:19.060 --> 1:08:25.540
+ weep or mourn. It was enough. The little enemies permitted just a single dance, scattered them as
+
+1:08:25.540 --> 1:08:31.940
+ deep as your eyes can see. I'm content. They'll have another chance sweeping more centered parts
+
+1:08:31.940 --> 1:08:40.420
+ along to join a jostling lifting throng as others danced in me. Beautiful poem. Beautiful way to
+
+1:08:40.420 --> 1:08:45.540
+ end it. Gavin, thank you so much for talking today. And thank you for inspiring and empowering millions
+
+1:08:45.540 --> 1:09:10.900
+ of people like myself for creating amazing stuff. Oh, thank you. Great conversation.
+

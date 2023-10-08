@@ -1,0 +1,3629 @@
+WEBVTT
+
+00:00.000 --> 00:03.080
+ The following is a conversation with Leonard Susskind.
+
+00:03.080 --> 00:04.840
+ He's a professor of theoretical physics
+
+00:04.840 --> 00:07.640
+ at Stanford University and founding director
+
+00:07.640 --> 00:10.400
+ of Stanford Institute of Theoretical Physics.
+
+00:10.400 --> 00:13.040
+ He is widely regarded as one of the fathers
+
+00:13.040 --> 00:14.920
+ of string theory and in general,
+
+00:14.920 --> 00:17.400
+ as one of the greatest physicists of our time,
+
+00:17.400 --> 00:20.400
+ both as a researcher and an educator.
+
+00:20.400 --> 00:23.320
+ This is the Artificial Intelligence Podcast.
+
+00:23.320 --> 00:26.120
+ Perhaps you noticed that the people I've been speaking with
+
+00:26.120 --> 00:27.880
+ are not just computer scientists,
+
+00:27.880 --> 00:30.640
+ but philosophers, mathematicians, writers,
+
+00:30.640 --> 00:34.240
+ psychologists, physicists, and soon other disciplines.
+
+00:34.240 --> 00:37.400
+ To me, AI is much bigger than deep learning,
+
+00:37.400 --> 00:39.000
+ bigger than computing.
+
+00:39.000 --> 00:40.880
+ It is our civilization's journey
+
+00:40.880 --> 00:42.880
+ into understanding the human mind
+
+00:42.880 --> 00:45.880
+ and creating echoes of it in the machine.
+
+00:45.880 --> 00:48.800
+ If you enjoy the podcast, subscribe on YouTube,
+
+00:48.800 --> 00:51.840
+ give it five stars on iTunes, support it on Patreon,
+
+00:51.840 --> 00:53.680
+ or simply connect with me on Twitter
+
+00:53.680 --> 00:57.600
+ at Lex Friedman, spelled F R I D M A M.
+
+00:57.600 --> 01:01.640
+ And now, here's my conversation with Leonard Susskind.
+
+01:02.760 --> 01:05.360
+ You worked and were friends with Richard Feynman.
+
+01:05.360 --> 01:07.640
+ How has he influenced you, changed you
+
+01:07.640 --> 01:09.120
+ as a physicist and thinker?
+
+01:10.160 --> 01:13.920
+ What I saw, I think what I saw was somebody
+
+01:13.920 --> 01:18.600
+ who could do physics in this deeply intuitive way.
+
+01:18.600 --> 01:21.080
+ His style was almost to close his eyes
+
+01:21.080 --> 01:24.540
+ and visualize the phenomena that he was thinking about.
+
+01:24.540 --> 01:29.540
+ And through visualization, outflank the mathematical,
+
+01:30.520 --> 01:34.360
+ the highly mathematical and very, very sophisticated
+
+01:34.360 --> 01:37.020
+ technical arguments that people would use.
+
+01:37.020 --> 01:39.400
+ I think that was also natural to me,
+
+01:39.400 --> 01:43.960
+ but I saw somebody who was actually successful at it,
+
+01:43.960 --> 01:47.760
+ who could do physics in a way that I regarded
+
+01:47.760 --> 01:54.760
+ as simpler, more direct, more intuitive.
+
+01:55.520 --> 01:59.080
+ And while I don't think he changed my way of thinking,
+
+01:59.080 --> 02:01.480
+ I do think he validated it.
+
+02:01.480 --> 02:03.080
+ He made me look at it and say, yeah,
+
+02:03.080 --> 02:06.280
+ that's something you can do and get away with.
+
+02:06.280 --> 02:08.680
+ Practically didn't get away with it.
+
+02:08.680 --> 02:12.000
+ So do you find yourself, whether you're thinking
+
+02:12.000 --> 02:14.720
+ about quantum mechanics or black holes
+
+02:14.720 --> 02:19.400
+ or string theory, using intuition as a first step
+
+02:19.400 --> 02:22.160
+ or step throughout using visualization?
+
+02:22.160 --> 02:24.680
+ Yeah, very much so, very much so.
+
+02:24.680 --> 02:27.720
+ I tend not to think about the equations.
+
+02:27.720 --> 02:30.160
+ I tend not to think about the symbols.
+
+02:30.160 --> 02:34.660
+ I tend to try to visualize the phenomena themselves.
+
+02:34.660 --> 02:38.400
+ And then when I get an insight that I think is valid,
+
+02:38.400 --> 02:40.360
+ I might try to convert it to mathematics,
+
+02:40.360 --> 02:44.400
+ but I'm not a natural mathematician.
+
+02:44.400 --> 02:46.280
+ I'm good enough at it.
+
+02:46.280 --> 02:49.820
+ I'm good enough at it, but I'm not a great mathematician.
+
+02:49.820 --> 02:52.440
+ So for me, the way of thinking about physics
+
+02:52.440 --> 02:56.660
+ is first intuitive, first visualization,
+
+02:57.760 --> 02:59.680
+ scribble a few equations maybe,
+
+02:59.680 --> 03:02.980
+ but then try to convert it to mathematics.
+
+03:02.980 --> 03:04.800
+ Experience is that other people are better
+
+03:04.800 --> 03:06.880
+ at converting it to mathematics than I am.
+
+03:08.000 --> 03:12.000
+ And yet you've worked with very counterintuitive ideas.
+
+03:12.000 --> 03:12.840
+ No, that's true.
+
+03:12.840 --> 03:13.680
+ That's true.
+
+03:13.680 --> 03:15.600
+ You can visualize something counterintuitive.
+
+03:15.600 --> 03:16.440
+ How do you dare?
+
+03:16.440 --> 03:18.900
+ By rewiring your brain in new ways.
+
+03:19.920 --> 03:22.680
+ Yeah, quantum mechanics is not intuitive.
+
+03:22.680 --> 03:25.740
+ Very little of modern physics is intuitive.
+
+03:26.840 --> 03:29.480
+ Intuitive, what does intuitive mean?
+
+03:29.480 --> 03:31.800
+ It means the ability to think about it
+
+03:31.800 --> 03:33.720
+ with basic classical physics,
+
+03:33.720 --> 03:38.720
+ the physics that we evolved with throwing stones,
+
+03:38.720 --> 03:43.360
+ or splashing water, whatever it happens to be.
+
+03:44.800 --> 03:47.080
+ Quantum physics, general relativity,
+
+03:47.080 --> 03:51.160
+ quantum field theory are deeply unintuitive in that way.
+
+03:51.160 --> 03:55.200
+ But after time and getting familiar with these things,
+
+03:55.200 --> 03:57.040
+ you develop new intuitions.
+
+03:57.040 --> 03:58.520
+ I always said you rewire.
+
+03:59.680 --> 04:04.360
+ And it's to the point where me and many of my friends,
+
+04:04.360 --> 04:05.680
+ I and many of my friends,
+
+04:05.680 --> 04:10.280
+ can think more easily quantum mechanically
+
+04:10.280 --> 04:11.520
+ than we can classically.
+
+04:11.520 --> 04:13.520
+ We've gotten so used to it.
+
+04:13.520 --> 04:17.240
+ I mean, yes, our neural wiring in our brain
+
+04:17.240 --> 04:20.400
+ is such that we understand rocks and stones and water
+
+04:20.400 --> 04:21.240
+ and so on.
+
+04:21.240 --> 04:22.060
+ We sort of evolved for that.
+
+04:22.060 --> 04:23.320
+ Evolved for it.
+
+04:23.320 --> 04:26.720
+ Do you think it's possible to create a wiring
+
+04:26.720 --> 04:31.160
+ of neuron like state devices that more naturally
+
+04:31.160 --> 04:35.880
+ understand quantum mechanics, understand wave function,
+
+04:35.880 --> 04:38.120
+ understand these weird things?
+
+04:38.120 --> 04:39.040
+ Well, I'm not sure.
+
+04:39.040 --> 04:42.480
+ I think many of us have evolved the ability
+
+04:42.480 --> 04:46.360
+ to think quantum mechanically to some extent.
+
+04:46.360 --> 04:48.960
+ But that doesn't mean you can think like an electron.
+
+04:50.220 --> 04:53.600
+ That doesn't mean another example.
+
+04:53.600 --> 04:55.880
+ Forget for a minute quantum mechanics.
+
+04:55.880 --> 04:58.660
+ Just visualizing four dimensional space
+
+04:58.660 --> 05:02.080
+ or five dimensional space or six dimensional space,
+
+05:02.080 --> 05:05.780
+ I think we're fundamentally wired
+
+05:05.780 --> 05:08.240
+ to visualize three dimensions.
+
+05:08.240 --> 05:11.960
+ I can't even visualize two dimensions or one dimension
+
+05:11.960 --> 05:16.040
+ without thinking about it as embedded in three dimensions.
+
+05:16.040 --> 05:18.280
+ If I wanna visualize a line,
+
+05:18.280 --> 05:21.820
+ I think of the line as being a line in three dimensions.
+
+05:23.000 --> 05:25.580
+ Or I think of the line as being a line on a piece of paper
+
+05:25.580 --> 05:28.160
+ with a piece of paper being in three dimensions.
+
+05:28.160 --> 05:33.160
+ I never seem to be able to, in some abstract and pure way,
+
+05:33.240 --> 05:35.920
+ visualize in my head the one dimension,
+
+05:35.920 --> 05:38.840
+ the two dimension, the four dimension, the five dimensions.
+
+05:38.840 --> 05:41.400
+ And I don't think that's ever gonna happen.
+
+05:41.400 --> 05:43.600
+ The reason is I think our neural wiring
+
+05:43.600 --> 05:44.920
+ is just set up for that.
+
+05:47.000 --> 05:49.060
+ On the other hand, we do learn ways
+
+05:49.060 --> 05:52.600
+ to think about five, six, seven dimensions.
+
+05:52.600 --> 05:56.200
+ We learn ways, we learn mathematical ways,
+
+05:56.200 --> 05:59.640
+ and we learn ways to visualize them, but they're different.
+
+06:00.800 --> 06:04.800
+ And so yeah, I think we do rewire ourselves.
+
+06:04.800 --> 06:07.240
+ Whether we can ever completely rewire ourselves
+
+06:07.240 --> 06:11.680
+ to be completely comfortable with these concepts, I doubt.
+
+06:11.680 --> 06:13.560
+ So that it's completely natural.
+
+06:13.560 --> 06:15.080
+ To where it's completely natural.
+
+06:15.080 --> 06:18.160
+ So I'm sure there's somewhat, you could argue,
+
+06:18.160 --> 06:22.400
+ creatures that live in a two dimensional space.
+
+06:22.400 --> 06:23.560
+ Yeah, maybe there are.
+
+06:23.560 --> 06:28.560
+ And while it's romanticizing the notion of curse,
+
+06:28.640 --> 06:30.040
+ we're all living, as far as we know,
+
+06:30.040 --> 06:31.680
+ in three dimensional space.
+
+06:31.680 --> 06:35.600
+ But how do those creatures imagine 3D space?
+
+06:35.600 --> 06:37.640
+ Well, probably the way we imagine 4D,
+
+06:37.640 --> 06:40.480
+ by using some mathematics and some equations
+
+06:40.480 --> 06:43.060
+ and some tricks.
+
+06:44.440 --> 06:48.380
+ Okay, so jumping back to Feynman just for a second.
+
+06:48.380 --> 06:52.700
+ He had a little bit of an ego.
+
+06:52.700 --> 06:54.780
+ Yes.
+
+06:54.780 --> 06:59.140
+ Why, do you think ego is powerful or dangerous in science?
+
+07:00.140 --> 07:02.880
+ I think both, both, both.
+
+07:02.880 --> 07:06.500
+ I think you have to have both arrogance and humility.
+
+07:06.500 --> 07:10.620
+ You have to have the arrogance to say, I can do this.
+
+07:10.620 --> 07:13.620
+ Nature is difficult, nature is very, very hard.
+
+07:13.620 --> 07:16.140
+ I'm smart enough, I can do it.
+
+07:16.140 --> 07:19.020
+ I can win the battle with nature.
+
+07:19.020 --> 07:21.020
+ On the other hand, I think you also have to have
+
+07:21.020 --> 07:26.020
+ the humility to know that you're very likely
+
+07:26.460 --> 07:29.060
+ to be wrong on any given occasion.
+
+07:29.060 --> 07:32.060
+ Everything you're thinking could suddenly change.
+
+07:33.300 --> 07:35.500
+ Young people can come along and say things
+
+07:35.500 --> 07:38.920
+ you won't understand and you'll be lost and flabbergasted.
+
+07:39.820 --> 07:42.620
+ So I think it's a combination of both.
+
+07:42.620 --> 07:46.660
+ You better recognize that you're very limited,
+
+07:46.660 --> 07:49.280
+ and you better be able to say to yourself,
+
+07:49.280 --> 07:52.500
+ I'm not so limited that I can't win this battle with nature.
+
+07:53.460 --> 07:56.640
+ It takes a special kind of person
+
+07:56.640 --> 07:59.820
+ who can manage both of those, I would say.
+
+07:59.820 --> 08:03.020
+ And I would say there's echoes of that in your own work,
+
+08:03.020 --> 08:05.900
+ a little bit of ego, a little bit of outside of the box,
+
+08:05.900 --> 08:06.860
+ humble thinking.
+
+08:08.260 --> 08:09.580
+ I hope so.
+
+08:09.580 --> 08:14.580
+ So was there a time where you felt,
+
+08:16.500 --> 08:18.080
+ you looked at yourself and asked,
+
+08:18.080 --> 08:19.920
+ am I completely wrong about this?
+
+08:19.920 --> 08:23.980
+ Oh yeah, about the whole thing or about specific things?
+
+08:23.980 --> 08:24.900
+ The whole thing.
+
+08:24.900 --> 08:25.900
+ What do you mean?
+
+08:25.900 --> 08:27.060
+ Wait, which whole thing?
+
+08:27.060 --> 08:29.960
+ Me and me and my ability to do this thing.
+
+08:29.960 --> 08:31.420
+ Oh, those kinds of doubts.
+
+08:31.420 --> 08:33.840
+ First of all, did you have those kinds of doubts?
+
+08:33.840 --> 08:35.940
+ No, I had different kind of doubts.
+
+08:35.940 --> 08:37.940
+ I came from a very working class background
+
+08:37.940 --> 08:41.100
+ and I was uncomfortable in academia for,
+
+08:41.100 --> 08:42.680
+ oh, for a long time.
+
+08:43.760 --> 08:46.260
+ But they weren't doubts about my ability or my,
+
+08:48.020 --> 08:52.740
+ they were just the discomfort in being in an environment
+
+08:52.740 --> 08:56.620
+ that my family hadn't participated in,
+
+08:56.620 --> 08:58.320
+ I knew nothing about as a young person.
+
+08:58.320 --> 09:00.700
+ I didn't learn that there was such a thing called physics
+
+09:00.700 --> 09:02.340
+ until I was almost 20 years old.
+
+09:02.340 --> 09:07.340
+ Yeah, so I did have certain kind of doubts,
+
+09:09.560 --> 09:11.860
+ but not about my ability.
+
+09:11.860 --> 09:14.000
+ I don't think I was too worried
+
+09:14.000 --> 09:15.900
+ about whether I would succeed or not.
+
+09:18.040 --> 09:21.860
+ I never felt this insecurity, am I ever gonna get a job?
+
+09:23.080 --> 09:25.720
+ That had never occurred to me that I wouldn't.
+
+09:27.180 --> 09:29.860
+ Maybe you could speak a little bit to this sense
+
+09:29.860 --> 09:31.720
+ of what is academia.
+
+09:31.720 --> 09:35.100
+ Because I too feel a bit uncomfortable in it.
+
+09:37.800 --> 09:40.040
+ There's something I can't put quite into words
+
+09:40.040 --> 09:45.040
+ what you have that's not, doesn't, if we call it music,
+
+09:45.240 --> 09:48.520
+ you play a different kind of music than a lot of academia.
+
+09:48.520 --> 09:51.960
+ How have you joined this orchestra?
+
+09:51.960 --> 09:54.480
+ How do you think about it?
+
+09:54.480 --> 09:56.080
+ I don't know that I thought about it
+
+09:56.080 --> 09:58.240
+ as much as I just felt it.
+
+09:58.240 --> 10:02.800
+ Thinking is one thing, feeling is another thing.
+
+10:02.800 --> 10:07.100
+ I felt like an outsider until a certain age
+
+10:07.100 --> 10:10.740
+ when I suddenly found myself the ultimate insider
+
+10:10.740 --> 10:12.080
+ in academic physics.
+
+10:14.520 --> 10:19.520
+ And that was a sharp transition, and I wasn't a young man.
+
+10:19.600 --> 10:22.280
+ I was probably 50 years old.
+
+10:22.280 --> 10:24.960
+ So you were never quite, it was a phase transition,
+
+10:24.960 --> 10:27.360
+ you were never quite in the middle.
+
+10:27.360 --> 10:29.440
+ Yeah, that's right, I wasn't.
+
+10:29.440 --> 10:32.080
+ I always felt a little bit of an outsider.
+
+10:32.080 --> 10:34.280
+ In the beginning, a lot an outsider.
+
+10:37.200 --> 10:40.440
+ My way of thinking was different,
+
+10:40.440 --> 10:43.040
+ my approach to mathematics was different,
+
+10:43.040 --> 10:47.160
+ but also my social background
+
+10:47.160 --> 10:49.320
+ that I came from was different.
+
+10:49.320 --> 10:51.520
+ Now these days, half the young people I meet,
+
+10:51.520 --> 10:53.020
+ they're parents or professors.
+
+10:53.020 --> 10:55.860
+ That was not my case.
+
+10:59.900 --> 11:02.220
+ But then all of a sudden, at some point,
+
+11:02.220 --> 11:06.260
+ I found myself at very much the center of,
+
+11:06.260 --> 11:07.840
+ maybe not the only one at the center,
+
+11:07.840 --> 11:09.860
+ but certainly one of the people in the center
+
+11:09.860 --> 11:11.360
+ of a certain kind of physics.
+
+11:12.220 --> 11:16.120
+ And all that went away, it went away in a flash.
+
+11:17.700 --> 11:21.780
+ So maybe a little bit with Feynman,
+
+11:21.780 --> 11:24.500
+ but in general, how do you develop ideas?
+
+11:24.500 --> 11:26.100
+ Do you work through ideas alone?
+
+11:26.100 --> 11:27.820
+ Do you brainstorm with others?
+
+11:27.820 --> 11:30.360
+ Oh, both, both, very definitely both.
+
+11:31.400 --> 11:35.580
+ The younger time, I spent more time with myself.
+
+11:36.580 --> 11:39.460
+ Now, because I'm at Stanford,
+
+11:39.460 --> 11:44.460
+ because I have a lot of ex students
+
+11:44.460 --> 11:49.460
+ and people who are interested in the same thing I am,
+
+11:50.840 --> 11:54.320
+ I spend a good deal of time, almost on a daily basis,
+
+11:54.320 --> 11:57.360
+ interacting, brainstorming, as you said.
+
+11:57.360 --> 11:59.400
+ It's a very important part.
+
+12:00.400 --> 12:03.720
+ I spend less time probably completely self focused
+
+12:03.720 --> 12:07.800
+ than with a piece of paper
+
+12:07.800 --> 12:09.640
+ and just sitting there staring at it.
+
+12:09.640 --> 12:13.320
+ What are your hopes for quantum computers?
+
+12:13.320 --> 12:16.240
+ So machines that are based on,
+
+12:16.240 --> 12:21.240
+ that have some elements of leverage quantum mechanical ideas.
+
+12:21.240 --> 12:23.840
+ Yeah, it's not just leveraging quantum mechanical ideas.
+
+12:24.840 --> 12:29.840
+ You can simulate quantum systems on a classical computer.
+
+12:29.840 --> 12:33.200
+ Simulate them means solve the Schrodinger equation for them
+
+12:33.200 --> 12:36.640
+ or solve the equations of quantum mechanics
+
+12:36.640 --> 12:40.200
+ or solve the equations of quantum mechanics
+
+12:40.200 --> 12:43.600
+ on a computer, on a classical computer.
+
+12:43.600 --> 12:47.400
+ But the classical computer is not doing,
+
+12:47.400 --> 12:49.760
+ is not a quantum mechanical system itself.
+
+12:49.760 --> 12:50.640
+ Of course it is.
+
+12:50.640 --> 12:52.120
+ Everything's made of quantum mechanics,
+
+12:52.120 --> 12:53.280
+ but it's not functioning.
+
+12:53.280 --> 12:56.080
+ It's not functioning as a quantum system.
+
+12:56.080 --> 12:58.560
+ It's just solving equations.
+
+12:58.560 --> 13:01.840
+ The quantum computer is truly a quantum system
+
+13:01.840 --> 13:05.000
+ which is actually doing the things
+
+13:05.000 --> 13:07.360
+ that you're programming it to do.
+
+13:07.360 --> 13:11.200
+ You want to program a quantum field theory.
+
+13:12.040 --> 13:13.680
+ If you do it in classical physics,
+
+13:13.680 --> 13:17.600
+ that program is not actually functioning in the computer
+
+13:17.600 --> 13:18.760
+ as a quantum field theory.
+
+13:18.760 --> 13:20.460
+ It's just solving some equations.
+
+13:21.760 --> 13:23.720
+ Physically, it's not doing the things
+
+13:23.720 --> 13:27.240
+ that the quantum system would do.
+
+13:27.240 --> 13:30.400
+ The quantum computer is really a quantum mechanical system
+
+13:30.400 --> 13:34.120
+ which is actually carrying out the quantum operations.
+
+13:34.120 --> 13:36.320
+ You can measure it at the end.
+
+13:36.320 --> 13:40.480
+ It intrinsically satisfies the uncertainty principle.
+
+13:40.480 --> 13:44.320
+ It is limited in the same way that quantum systems
+
+13:44.320 --> 13:47.440
+ are limited by uncertainty and so forth.
+
+13:47.440 --> 13:49.240
+ And it really is a quantum system.
+
+13:49.240 --> 13:51.360
+ That means that what you're doing
+
+13:51.360 --> 13:53.360
+ when you program something for a quantum system
+
+13:53.360 --> 13:56.900
+ is you're actually building a real version of the system.
+
+13:58.160 --> 14:00.440
+ The limits of a classical computer,
+
+14:00.440 --> 14:02.920
+ classical computers are enormously limited
+
+14:02.920 --> 14:07.160
+ when it comes to the quantum systems.
+
+14:07.160 --> 14:09.040
+ They're enormously limited
+
+14:09.040 --> 14:12.240
+ because you've probably heard this before,
+
+14:12.240 --> 14:14.960
+ but in order to store the amount of information
+
+14:14.960 --> 14:19.920
+ that's in a quantum state of 400 spins,
+
+14:19.920 --> 14:23.040
+ that's not very many, 400 I can put in my pocket,
+
+14:23.040 --> 14:25.560
+ I can put 400 pennies in my pocket.
+
+14:27.840 --> 14:32.160
+ To be able to simulate the quantum state
+
+14:32.160 --> 14:37.160
+ of 400 elementary quantum systems, qubits we call them,
+
+14:37.640 --> 14:39.880
+ to do that would take more information
+
+14:39.880 --> 14:43.120
+ than can possibly be stored in the entire universe
+
+14:43.120 --> 14:46.560
+ if it were packed so tightly
+
+14:46.560 --> 14:50.380
+ that you couldn't pack any more in.
+
+14:50.380 --> 14:52.240
+ 400 qubits.
+
+14:52.240 --> 14:54.520
+ On the other hand, if your quantum computer
+
+14:54.520 --> 14:56.320
+ is composed of 400 qubits,
+
+14:56.320 --> 14:59.420
+ it can do everything 400 qubits can do.
+
+14:59.420 --> 15:02.280
+ What kind of space, if you just intuitively think
+
+15:02.280 --> 15:06.320
+ about the space of algorithms that that unlocks for us,
+
+15:06.320 --> 15:08.480
+ so there's a whole complexity theory
+
+15:08.480 --> 15:10.080
+ around classical computers,
+
+15:10.080 --> 15:12.440
+ measuring the running time of things,
+
+15:12.440 --> 15:14.880
+ and P, so on, what kind of algorithms
+
+15:14.880 --> 15:18.360
+ just intuitively do you think it unlocks for us?
+
+15:18.360 --> 15:22.080
+ Okay, so we know that there are a handful of algorithms
+
+15:22.080 --> 15:25.760
+ that can seriously beat classical computers
+
+15:25.760 --> 15:28.200
+ and which can have exponentially more power.
+
+15:28.200 --> 15:29.480
+ This is a mathematical statement.
+
+15:29.480 --> 15:32.320
+ Nobody's exhibited this in the laboratory.
+
+15:32.320 --> 15:33.600
+ It's a mathematical statement.
+
+15:33.600 --> 15:37.640
+ We know that's true, but it also seems more and more
+
+15:37.640 --> 15:40.320
+ that the number of such things is very limited.
+
+15:40.320 --> 15:45.080
+ Only very, very special problems
+
+15:45.080 --> 15:48.760
+ exhibit that much advantage for a quantum computer,
+
+15:49.600 --> 15:52.120
+ of standard problems.
+
+15:52.120 --> 15:53.900
+ To my mind, as far as I can tell,
+
+15:53.900 --> 15:55.600
+ the great power of quantum computers
+
+15:55.600 --> 15:58.700
+ will actually be to simulate quantum systems.
+
+15:59.880 --> 16:02.760
+ If you're interested in a certain quantum system
+
+16:02.760 --> 16:05.880
+ and it's too hard to simulate classically,
+
+16:07.360 --> 16:09.840
+ you simply build a version of the same system.
+
+16:09.840 --> 16:11.100
+ You build a version of it.
+
+16:11.100 --> 16:12.040
+ You build a model of it
+
+16:12.040 --> 16:14.440
+ that's actually functioning as the system.
+
+16:14.440 --> 16:16.880
+ You run it, and then you do the same thing
+
+16:16.880 --> 16:18.500
+ you would do to the quantum system.
+
+16:18.500 --> 16:21.820
+ You make measurements on it, quantum measurements on it.
+
+16:21.820 --> 16:26.140
+ The advantage is you can run it much slower.
+
+16:26.140 --> 16:27.540
+ You could say, why bother?
+
+16:27.540 --> 16:29.580
+ Why not just use the real system?
+
+16:29.580 --> 16:32.340
+ Why not just do experiments on the real system?
+
+16:32.340 --> 16:33.900
+ Well, real systems are kind of limited.
+
+16:33.900 --> 16:34.780
+ You can't change them.
+
+16:34.780 --> 16:36.300
+ You can't manipulate them.
+
+16:36.300 --> 16:39.380
+ You can't slow them down so that you can poke into them.
+
+16:40.420 --> 16:43.420
+ You can't modify them in arbitrary kinds of ways
+
+16:43.420 --> 16:48.420
+ to see what would happen if I change the system a little bit.
+
+16:48.420 --> 16:53.420
+ I think that quantum computers will be extremely valuable
+
+16:55.500 --> 17:00.500
+ in understanding quantum systems.
+
+17:00.940 --> 17:04.340
+ At the lowest level of the fundamental laws.
+
+17:04.340 --> 17:06.540
+ They're actually satisfying the same laws
+
+17:06.540 --> 17:09.860
+ as the systems that they're simulating.
+
+17:09.860 --> 17:13.060
+ Okay, so on the one hand, you have things like factoring.
+
+17:13.060 --> 17:17.580
+ Factoring is the great thing of quantum computers.
+
+17:17.580 --> 17:20.620
+ Factoring large numbers, that doesn't seem that much
+
+17:20.620 --> 17:22.580
+ to do with quantum mechanics.
+
+17:22.580 --> 17:27.580
+ It seems to be almost a fluke that a quantum computer
+
+17:28.540 --> 17:32.920
+ can solve the factoring problem in a short time.
+
+17:34.420 --> 17:38.520
+ And those problems seem to be extremely special, rare,
+
+17:38.520 --> 17:40.300
+ and it's not clear to me
+
+17:40.300 --> 17:42.740
+ that there's gonna be a lot of them.
+
+17:42.740 --> 17:45.180
+ On the other hand, there are a lot of quantum systems.
+
+17:45.180 --> 17:47.900
+ Chemistry, there's solid state physics,
+
+17:47.900 --> 17:51.020
+ there's material science, there's quantum gravity,
+
+17:51.020 --> 17:53.660
+ there's all kinds of quantum field theory.
+
+17:54.540 --> 17:56.780
+ And some of these are actually turning out
+
+17:56.780 --> 17:58.100
+ to be applied sciences,
+
+17:58.100 --> 18:00.140
+ as well as very fundamental sciences.
+
+18:01.120 --> 18:05.140
+ So we probably will run out of the ability
+
+18:05.140 --> 18:07.960
+ to solve equations for these things.
+
+18:07.960 --> 18:11.620
+ Solve equations by the standard methods of pencil and paper.
+
+18:11.620 --> 18:15.440
+ Solve the equations by the method of classical computers.
+
+18:16.380 --> 18:18.740
+ And so what we'll do is we'll build versions
+
+18:18.740 --> 18:22.120
+ of these systems, run them,
+
+18:22.120 --> 18:24.280
+ and run them under controlled circumstances
+
+18:24.280 --> 18:26.840
+ where we can change them, manipulate them,
+
+18:26.840 --> 18:28.100
+ make measurements on them,
+
+18:28.100 --> 18:30.540
+ and find out all the things we wanna know.
+
+18:30.540 --> 18:33.640
+ So in finding out the things we wanna know
+
+18:33.640 --> 18:38.640
+ about very small systems, is there something
+
+18:38.640 --> 18:42.080
+ that we can also find out about the macro level,
+
+18:42.080 --> 18:45.040
+ about something about the function, forgive me,
+
+18:45.040 --> 18:48.080
+ of our brain, biological systems,
+
+18:48.080 --> 18:50.380
+ the stuff that's about one meter in size
+
+18:50.380 --> 18:53.260
+ versus much, much smaller?
+
+18:53.260 --> 18:55.200
+ Well, what all the excitement is about
+
+18:55.200 --> 18:56.880
+ among the people that I interact with
+
+18:56.880 --> 18:58.960
+ is understanding black holes.
+
+18:58.960 --> 18:59.800
+ Black holes.
+
+18:59.800 --> 19:01.040
+ Black holes are big things.
+
+19:02.160 --> 19:04.100
+ They are many, many degrees of freedom.
+
+19:04.100 --> 19:08.740
+ There is another kind of quantum system that is big.
+
+19:08.740 --> 19:10.860
+ It's a large quantum computer.
+
+19:11.760 --> 19:13.140
+ And one of the things we've learned
+
+19:13.140 --> 19:15.700
+ is that the physics of large quantum computers
+
+19:15.700 --> 19:17.580
+ is in some ways similar to the physics
+
+19:17.580 --> 19:19.740
+ of large quantum black holes.
+
+19:19.740 --> 19:22.000
+ And we're using that relationship.
+
+19:22.000 --> 19:24.780
+ Now you asked, you didn't ask about quantum computers
+
+19:24.780 --> 19:28.100
+ or systems, you didn't ask about black holes,
+
+19:28.100 --> 19:29.940
+ you asked about brains.
+
+19:29.940 --> 19:32.300
+ Yeah, about stuff that's in the middle of the two.
+
+19:32.300 --> 19:34.060
+ It's different.
+
+19:34.060 --> 19:36.580
+ So black holes are,
+
+19:36.580 --> 19:39.580
+ there's something fundamental about black holes
+
+19:39.580 --> 19:42.180
+ that feels to be very different than a brain.
+
+19:42.180 --> 19:43.300
+ Yes.
+
+19:43.300 --> 19:45.980
+ And they also function in a very quantum mechanical way.
+
+19:45.980 --> 19:46.820
+ Right.
+
+19:46.820 --> 19:47.820
+ Okay.
+
+19:47.820 --> 19:50.620
+ It is, first of all, unclear to me,
+
+19:50.620 --> 19:52.140
+ but of course it's unclear to me.
+
+19:52.140 --> 19:54.480
+ I'm not a neuroscientist.
+
+19:55.340 --> 19:58.100
+ I have, I don't even have very many friends
+
+19:58.100 --> 20:00.200
+ who are neuroscientists.
+
+20:00.200 --> 20:02.580
+ I would like to have more friends who are neuroscientists.
+
+20:02.580 --> 20:04.460
+ I just don't run into them very often.
+
+20:05.620 --> 20:07.420
+ Among the few neuroscientists
+
+20:07.420 --> 20:09.640
+ I've ever talked about about this,
+
+20:09.640 --> 20:12.440
+ they are pretty convinced
+
+20:12.440 --> 20:15.720
+ that the brain functions classically,
+
+20:16.740 --> 20:20.600
+ that it is not intrinsically a quantum mechanical system
+
+20:20.600 --> 20:23.640
+ or it doesn't make use of the special features,
+
+20:23.640 --> 20:26.460
+ entanglement, coherence, superposition.
+
+20:26.460 --> 20:27.380
+ Are they right?
+
+20:27.380 --> 20:28.960
+ I don't know.
+
+20:28.960 --> 20:30.340
+ I sort of hope they're wrong
+
+20:30.340 --> 20:32.900
+ just because I like the romantic idea
+
+20:32.900 --> 20:35.180
+ that the brain is a quantum system.
+
+20:35.180 --> 20:37.820
+ But I think probably not.
+
+20:38.680 --> 20:40.100
+ The other thing,
+
+20:40.100 --> 20:43.020
+ big systems can be composed of lots of little systems.
+
+20:44.180 --> 20:47.700
+ Materials, the materials that we work with and so forth
+
+20:47.700 --> 20:52.700
+ are, can be large systems, a large piece of material,
+
+20:52.880 --> 20:55.140
+ but they're made out of quantum systems.
+
+20:55.140 --> 20:57.180
+ Now, one of the things that's been happening
+
+20:57.180 --> 21:00.580
+ over the last good number of years
+
+21:00.580 --> 21:04.720
+ is we're discovering materials and quantum systems,
+
+21:04.720 --> 21:08.220
+ which function much more quantum mechanically
+
+21:08.220 --> 21:09.640
+ than we imagined.
+
+21:09.640 --> 21:12.020
+ Topological insulators, this kind of thing,
+
+21:12.020 --> 21:13.500
+ that kind of thing.
+
+21:13.500 --> 21:15.220
+ Those are macroscopic systems,
+
+21:15.220 --> 21:17.860
+ but they're just superconductors.
+
+21:17.860 --> 21:21.880
+ Superconductors have a lot of quantum mechanics in them.
+
+21:22.900 --> 21:25.040
+ You can have a large chunk of superconductor.
+
+21:25.040 --> 21:26.780
+ So it's a big piece of material.
+
+21:26.780 --> 21:29.640
+ On the other hand, it's functioning and its properties
+
+21:29.640 --> 21:32.840
+ depend very, very strongly on quantum mechanics.
+
+21:32.840 --> 21:36.200
+ And to analyze them, you need the tools of quantum mechanics.
+
+21:37.380 --> 21:39.540
+ If we can go on to black holes
+
+21:41.100 --> 21:42.940
+ and looking at the universe
+
+21:42.940 --> 21:45.140
+ as a information processing system,
+
+21:45.140 --> 21:46.740
+ as a computer, as a giant computer.
+
+21:46.740 --> 21:48.560
+ It's a giant computer.
+
+21:48.560 --> 21:50.900
+ What's the power of thinking of the universe
+
+21:50.900 --> 21:52.340
+ as an information processing system?
+
+21:52.340 --> 21:55.160
+ Or what is perhaps its use
+
+21:55.160 --> 21:58.740
+ besides the mathematical use of discussing black holes
+
+21:59.740 --> 22:02.820
+ and your famous debates and ideas around that
+
+22:02.820 --> 22:06.080
+ to human beings,
+
+22:06.080 --> 22:08.800
+ or life in general as information processing systems?
+
+22:08.800 --> 22:11.500
+ Well, all systems are information processing systems.
+
+22:13.300 --> 22:16.740
+ You poke them, they change a little bit, they evolve.
+
+22:16.740 --> 22:18.340
+ All systems are information processing systems.
+
+22:18.340 --> 22:21.420
+ So there's no extra magic to us humans?
+
+22:22.660 --> 22:25.020
+ It certainly feels, consciousness intelligence
+
+22:25.020 --> 22:26.060
+ feels like magic.
+
+22:26.060 --> 22:26.900
+ It sure does.
+
+22:26.900 --> 22:28.200
+ Where does it emerge from?
+
+22:29.340 --> 22:31.740
+ If we look at information processing,
+
+22:33.620 --> 22:35.100
+ what are the emergent phenomena
+
+22:35.100 --> 22:37.500
+ that come from viewing the world
+
+22:37.500 --> 22:39.880
+ as an information processing system?
+
+22:39.880 --> 22:41.940
+ Here is what I think.
+
+22:41.940 --> 22:43.540
+ My thoughts are not worth much in this.
+
+22:43.540 --> 22:44.620
+ If you ask me about physics,
+
+22:44.620 --> 22:46.660
+ my thoughts may be worth something.
+
+22:46.660 --> 22:48.060
+ If you ask me about this,
+
+22:48.060 --> 22:50.880
+ I'm not sure my thoughts are worth anything.
+
+22:50.880 --> 22:53.280
+ But as I said earlier,
+
+22:53.280 --> 22:55.780
+ I think when we do introspection,
+
+22:55.780 --> 22:57.500
+ when we imagine doing introspection
+
+22:57.500 --> 22:58.980
+ and try to figure out what it is
+
+22:58.980 --> 23:00.540
+ when we do when we're thinking,
+
+23:00.540 --> 23:03.500
+ I think we get it wrong.
+
+23:03.500 --> 23:04.840
+ I'm pretty sure we get it wrong.
+
+23:04.840 --> 23:07.260
+ Everything I've heard about the way the brain functions
+
+23:07.260 --> 23:08.860
+ is so counterintuitive.
+
+23:09.740 --> 23:14.380
+ For example, you have neurons which detect vertical lines.
+
+23:14.380 --> 23:15.620
+ You have different neurons
+
+23:15.620 --> 23:17.880
+ which detect lines at 45 degrees.
+
+23:17.880 --> 23:19.420
+ You have different neurons.
+
+23:19.420 --> 23:21.800
+ I never imagined that there were whole circuits
+
+23:21.800 --> 23:25.380
+ which were devoted to vertical lines in my brain.
+
+23:25.380 --> 23:28.100
+ Doesn't seem to be the way my brain works.
+
+23:28.100 --> 23:31.140
+ My brain seems to work if I put my finger up vertically
+
+23:31.140 --> 23:32.220
+ or if I put it horizontally
+
+23:32.220 --> 23:33.380
+ or if I put it this way or that way.
+
+23:33.380 --> 23:36.220
+ It seems to me it's the same circuits.
+
+23:36.220 --> 23:37.680
+ It's not the way it works.
+
+23:38.860 --> 23:41.460
+ The way the brain is compartmentalized
+
+23:41.460 --> 23:43.660
+ seems to be very, very different
+
+23:43.660 --> 23:45.580
+ than what I would have imagined
+
+23:45.580 --> 23:49.660
+ if I were just doing psychological introspection
+
+23:49.660 --> 23:51.940
+ about how things work.
+
+23:51.940 --> 23:55.920
+ My conclusion is that we won't get it right that way,
+
+23:55.920 --> 23:58.780
+ that how will we get it right?
+
+23:59.640 --> 24:03.220
+ I think maybe computer scientists will get it right eventually.
+
+24:03.220 --> 24:04.420
+ I don't think there are any ways near it.
+
+24:04.420 --> 24:06.680
+ I don't even think they're thinking about it,
+
+24:06.680 --> 24:11.440
+ but eventually we will build machines perhaps
+
+24:11.440 --> 24:13.380
+ which are complicated enough
+
+24:15.040 --> 24:18.340
+ and partly engineered, partly evolved,
+
+24:18.340 --> 24:21.060
+ maybe evolved by machine learning and so forth.
+
+24:21.060 --> 24:23.500
+ This machine learning is very interesting.
+
+24:23.500 --> 24:26.020
+ By machine learning, we will evolve systems
+
+24:26.020 --> 24:29.380
+ and we may start to discover mechanisms
+
+24:30.320 --> 24:35.340
+ that have implications for how we think
+
+24:35.340 --> 24:38.500
+ and for what this consciousness thing is all about
+
+24:39.500 --> 24:42.060
+ and we'll be able to do experiments on them
+
+24:42.060 --> 24:43.700
+ and perhaps answer questions
+
+24:43.700 --> 24:48.700
+ that we can't possibly answer by introspection.
+
+24:49.660 --> 24:51.700
+ So that's a really interesting point.
+
+24:51.700 --> 24:55.240
+ In many cases, if you look at even a string theory,
+
+24:55.240 --> 24:56.780
+ when you first think about a system,
+
+24:56.780 --> 24:59.620
+ it seems really complicated, like the human brain,
+
+24:59.620 --> 25:01.460
+ and through some basic reasoning
+
+25:02.460 --> 25:07.060
+ and trying to discover fundamental low level behavior
+
+25:07.060 --> 25:10.140
+ of the system, you find out that it's actually much simpler.
+
+25:10.140 --> 25:13.580
+ Do you, one, have you, is that generally the process
+
+25:13.580 --> 25:15.580
+ and two, do you have that also hope
+
+25:15.580 --> 25:17.920
+ for biological systems as well,
+
+25:17.920 --> 25:21.740
+ for all the kinds of stuff we're studying at the human level?
+
+25:21.740 --> 25:23.080
+ Of course, physics always begins
+
+25:23.080 --> 25:25.500
+ by trying to find the simplest version of something
+
+25:25.500 --> 25:26.560
+ and analyze it.
+
+25:26.560 --> 25:28.420
+ Yeah, I mean, there are lots of examples
+
+25:28.420 --> 25:33.360
+ where physics has taken very complicated systems,
+
+25:33.360 --> 25:36.980
+ analyzed them and found simplicity in them for sure.
+
+25:36.980 --> 25:39.900
+ I said superconductors before, it's an obvious one.
+
+25:39.900 --> 25:42.520
+ A superconductor seems like a monstrously complicated thing
+
+25:42.520 --> 25:45.980
+ with all sorts of crazy electrical properties,
+
+25:45.980 --> 25:48.380
+ magnetic properties and so forth.
+
+25:48.380 --> 25:50.460
+ And when it finally is boiled down
+
+25:50.460 --> 25:52.940
+ to its simplest elements,
+
+25:52.940 --> 25:56.100
+ it's a very simple quantum mechanical phenomenon
+
+25:56.100 --> 25:58.300
+ called spontaneous symmetry breaking,
+
+25:59.260 --> 26:04.260
+ and which we, in other contexts, we learned about
+
+26:04.820 --> 26:06.760
+ and we're very familiar with.
+
+26:06.760 --> 26:10.540
+ So yeah, I mean, yes, we do take complicated things,
+
+26:10.540 --> 26:13.740
+ make them simple, but what we don't want to do
+
+26:13.740 --> 26:16.540
+ is take things which are intrinsically complicated
+
+26:16.540 --> 26:18.420
+ and fool ourselves into thinking
+
+26:18.420 --> 26:20.640
+ that we can make them simple.
+
+26:20.640 --> 26:22.380
+ We don't want to make, I don't know who said this,
+
+26:22.380 --> 26:23.660
+ but we don't want to make them simpler
+
+26:23.660 --> 26:26.740
+ than they really are, okay?
+
+26:26.740 --> 26:30.820
+ Is the brain a thing which ultimately functions
+
+26:30.820 --> 26:35.580
+ by some simple rules or is it just complicated?
+
+26:35.580 --> 26:37.780
+ In terms of artificial intelligence,
+
+26:37.780 --> 26:40.840
+ nobody really knows what are the limits
+
+26:40.840 --> 26:43.020
+ of our current approaches, you mentioned machine learning.
+
+26:43.020 --> 26:44.840
+ How do we create human level intelligence?
+
+26:44.840 --> 26:48.220
+ It seems that there's a lot of very smart physicists
+
+26:48.220 --> 26:51.260
+ who perhaps oversimplify the nature of intelligence
+
+26:51.260 --> 26:53.660
+ and think of it as information processing,
+
+26:53.660 --> 26:55.180
+ and therefore there doesn't seem to be
+
+26:55.180 --> 26:59.100
+ any theoretical reason why we can't artificially create
+
+27:00.820 --> 27:02.980
+ human level or superhuman level intelligence.
+
+27:02.980 --> 27:04.540
+ In fact, the reasoning goes,
+
+27:04.540 --> 27:07.300
+ if you create human level intelligence,
+
+27:07.300 --> 27:08.660
+ the same approach you just used
+
+27:08.660 --> 27:10.440
+ to create human level intelligence
+
+27:10.440 --> 27:13.740
+ should allow you to create superhuman level intelligence
+
+27:13.740 --> 27:16.000
+ very easily, exponentially.
+
+27:16.000 --> 27:18.960
+ So what do you think that way of thinking
+
+27:18.960 --> 27:22.260
+ that comes from physicists is all about?
+
+27:22.260 --> 27:24.180
+ I wish I knew, but there's a particular reason
+
+27:24.180 --> 27:25.140
+ why I wish I knew.
+
+27:27.420 --> 27:29.360
+ I have a second job.
+
+27:30.420 --> 27:34.860
+ I consult for Google, not for Google, for Google X.
+
+27:34.860 --> 27:37.780
+ I am the senior academic advisor
+
+27:39.060 --> 27:42.100
+ to a group of machine learning physicists.
+
+27:43.740 --> 27:45.700
+ Now that sounds crazy because I know nothing
+
+27:45.700 --> 27:46.700
+ about the subject.
+
+27:47.780 --> 27:49.980
+ I know very little about the subject.
+
+27:49.980 --> 27:52.180
+ On the other hand, I'm good at giving advice,
+
+27:52.180 --> 27:53.660
+ so I give them advice on things.
+
+27:53.660 --> 27:56.300
+ Anyway, I see these young physicists
+
+27:56.300 --> 27:58.660
+ who are approaching the machine learning problem.
+
+27:58.660 --> 28:00.900
+ There is a real machine learning problem.
+
+28:00.900 --> 28:03.060
+ Namely, why does it work as well as it does?
+
+28:03.060 --> 28:06.300
+ Nobody really seems to understand
+
+28:06.300 --> 28:09.460
+ why it is capable of doing the kind of generalizations
+
+28:09.460 --> 28:11.640
+ that it does and so forth.
+
+28:11.640 --> 28:14.980
+ And there are three groups of people
+
+28:14.980 --> 28:17.460
+ who have thought about this.
+
+28:17.460 --> 28:19.060
+ There are the engineers.
+
+28:19.060 --> 28:21.580
+ The engineers are incredibly smart,
+
+28:21.580 --> 28:23.800
+ but they tend not to think as hard
+
+28:23.800 --> 28:26.080
+ about why the thing is working
+
+28:26.080 --> 28:28.220
+ as much as they do how to use it.
+
+28:28.220 --> 28:31.820
+ Obviously, they provided a lot of data,
+
+28:31.820 --> 28:34.060
+ and it is they who demonstrated
+
+28:34.060 --> 28:35.820
+ that machine learning can work much better
+
+28:35.820 --> 28:37.380
+ than you have any right to expect.
+
+28:37.380 --> 28:40.180
+ The machine learning systems are systems.
+
+28:40.180 --> 28:41.940
+ The system's not too different
+
+28:41.940 --> 28:44.900
+ than the kind of systems that physicists study.
+
+28:44.900 --> 28:46.740
+ There's not all that much difference
+
+28:46.740 --> 28:50.580
+ between quantum, in the structure of mathematics,
+
+28:51.540 --> 28:54.480
+ physically, yes, but in the structure of mathematics,
+
+28:54.480 --> 28:57.660
+ between a tensor network designed
+
+28:57.660 --> 29:01.420
+ to describe a quantum system on the one hand
+
+29:01.420 --> 29:05.100
+ and the kind of networks that are used in machine learning.
+
+29:05.100 --> 29:08.940
+ So there are more and more, I think,
+
+29:08.940 --> 29:10.940
+ young physicists are being drawn
+
+29:10.940 --> 29:12.820
+ to this field of machine learning,
+
+29:12.820 --> 29:15.100
+ some very, very good ones.
+
+29:15.100 --> 29:16.820
+ I work with a number of very good ones,
+
+29:16.820 --> 29:20.380
+ not on machine learning, but on having lunch.
+
+29:20.380 --> 29:21.300
+ On having lunch?
+
+29:21.300 --> 29:22.460
+ Right.
+
+29:22.460 --> 29:23.860
+ Yeah.
+
+29:23.860 --> 29:27.620
+ And I can tell you they are super smart.
+
+29:27.620 --> 29:30.540
+ They don't seem to be so arrogant
+
+29:30.540 --> 29:32.020
+ about their physics backgrounds
+
+29:32.020 --> 29:35.100
+ that they think they can do things that nobody else can do.
+
+29:35.100 --> 29:37.460
+ But the physics way of thinking, I think,
+
+29:37.460 --> 29:40.900
+ will add great value to,
+
+29:41.780 --> 29:43.980
+ or will bring value to the machine learning.
+
+29:43.980 --> 29:45.740
+ I believe it will.
+
+29:45.740 --> 29:47.140
+ And I think it already has.
+
+29:47.980 --> 29:50.500
+ At what time scale do you think
+
+29:50.500 --> 29:53.180
+ predicting the future becomes useless
+
+29:53.180 --> 29:55.340
+ in your long experience
+
+29:55.340 --> 29:57.680
+ and being surprised at new discoveries?
+
+29:57.680 --> 30:02.680
+ Well, sometimes a day, sometimes 20 years.
+
+30:03.480 --> 30:05.600
+ There are things which I thought
+
+30:07.040 --> 30:09.840
+ we were very far from understanding,
+
+30:09.840 --> 30:12.420
+ which practically in a snap of the fingers
+
+30:12.420 --> 30:17.420
+ or a blink of the eye suddenly became understood,
+
+30:17.440 --> 30:19.100
+ completely surprising to me.
+
+30:21.220 --> 30:24.120
+ There are other things which I looked at and I said,
+
+30:24.120 --> 30:27.320
+ we're not gonna understand these things for 500 years,
+
+30:27.320 --> 30:29.280
+ in particular quantum gravity.
+
+30:29.280 --> 30:32.840
+ The scale for that was 20 years, 25 years.
+
+30:32.840 --> 30:33.800
+ And we understand a lot
+
+30:33.800 --> 30:35.920
+ and we don't understand it completely now by any means,
+
+30:35.920 --> 30:40.780
+ but I thought it was 500 years to make any progress.
+
+30:40.780 --> 30:42.960
+ It turned out to be very, very far from that.
+
+30:42.960 --> 30:45.200
+ It turned out to be more like 20 or 25 years
+
+30:45.200 --> 30:48.400
+ from the time when I thought it was 500 years.
+
+30:48.400 --> 30:51.940
+ So if we may, can we jump around quantum gravity,
+
+30:51.940 --> 30:53.720
+ some basic ideas in physics?
+
+30:53.720 --> 30:58.720
+ What is the dream of string theory mathematically?
+
+30:59.280 --> 31:00.120
+ What is the hope?
+
+31:00.120 --> 31:01.440
+ Where does it come from?
+
+31:01.440 --> 31:03.560
+ What problem is it trying to solve?
+
+31:03.560 --> 31:05.000
+ I don't think the dream of string theory
+
+31:05.000 --> 31:06.540
+ is any different than the dream
+
+31:06.540 --> 31:09.560
+ of fundamental theoretical physics altogether.
+
+31:09.560 --> 31:12.680
+ Understanding a unified theory of everything.
+
+31:12.680 --> 31:15.040
+ I don't like thinking of string theory
+
+31:15.040 --> 31:17.320
+ as a subject unto itself
+
+31:17.320 --> 31:19.440
+ with people called string theorists
+
+31:19.440 --> 31:21.560
+ who are the practitioners
+
+31:21.560 --> 31:24.120
+ of this thing called string theory.
+
+31:24.120 --> 31:28.160
+ I much prefer to think of them as theoretical physicists
+
+31:28.160 --> 31:32.060
+ trying to answer deep fundamental questions about nature,
+
+31:32.060 --> 31:33.400
+ in particular gravity,
+
+31:33.400 --> 31:35.040
+ in particular gravity and its connection
+
+31:35.040 --> 31:36.340
+ with quantum mechanics,
+
+31:38.040 --> 31:41.320
+ and who at the present time find string theory
+
+31:41.320 --> 31:44.520
+ a useful tool rather than saying
+
+31:44.520 --> 31:46.440
+ there's a subject called string theorists.
+
+31:46.440 --> 31:48.680
+ I don't like being referred to as a string theorist.
+
+31:48.680 --> 31:53.680
+ Yes, but as a tool, is it useful to think about our nature
+
+31:54.080 --> 31:57.500
+ in multiple dimensions, the strings vibrating?
+
+31:57.500 --> 31:59.040
+ I believe it is useful.
+
+31:59.040 --> 32:02.120
+ I'll tell you what the main use of it has been up till now.
+
+32:02.120 --> 32:03.920
+ Well, it has had a number of main uses.
+
+32:03.920 --> 32:06.360
+ Originally, string theory was invented,
+
+32:06.360 --> 32:07.520
+ and I know that I was there.
+
+32:07.520 --> 32:08.960
+ I was right at the spot
+
+32:08.960 --> 32:13.080
+ where it was being invented literally,
+
+32:13.080 --> 32:16.960
+ and it was being invented to understand hadrons.
+
+32:16.960 --> 32:19.120
+ Hadrons are subnuclear particles,
+
+32:19.120 --> 32:20.920
+ protons, neutrons, mesons,
+
+32:21.960 --> 32:26.960
+ and at that time, the late 60s, early 70s,
+
+32:28.580 --> 32:30.120
+ it was clear from experiment
+
+32:30.120 --> 32:33.680
+ that these particles called hadrons could vibrate,
+
+32:33.680 --> 32:36.800
+ could rotate, could do all the things
+
+32:36.800 --> 32:39.640
+ that a little closed string can do,
+
+32:39.640 --> 32:46.640
+ and it was and is a valid and correct theory of these hadrons.
+
+32:47.920 --> 32:52.460
+ It's been experimentally tested, and that is a done deal.
+
+32:53.940 --> 32:56.240
+ It had a second life as a theory of gravity,
+
+32:56.240 --> 32:58.100
+ the same basic mathematics,
+
+32:58.100 --> 33:01.320
+ except on a very, very much smaller distance scale.
+
+33:02.360 --> 33:07.360
+ The objects of gravitation are 19 orders of magnitude
+
+33:07.360 --> 33:10.080
+ or orders of magnitude smaller than a proton,
+
+33:10.080 --> 33:12.000
+ but the same mathematics turned up.
+
+33:12.000 --> 33:14.300
+ The same mathematics turned up.
+
+33:14.300 --> 33:15.980
+ What has been its value?
+
+33:15.980 --> 33:20.720
+ Its value is that it's mathematically rigorous in many ways
+
+33:20.720 --> 33:25.720
+ and enabled us to find mathematical structures
+
+33:27.040 --> 33:30.120
+ which have both quantum mechanics and gravity.
+
+33:30.120 --> 33:34.080
+ With rigor, we can test out ideas.
+
+33:34.080 --> 33:35.160
+ We can test out ideas.
+
+33:35.160 --> 33:37.240
+ We can't test them in the laboratory.
+
+33:37.240 --> 33:39.840
+ They're 19 orders of magnitude too small
+
+33:39.840 --> 33:41.280
+ are things that we're interested in,
+
+33:41.280 --> 33:43.160
+ but we can test them out mathematically
+
+33:43.160 --> 33:46.860
+ and analyze their internal consistency.
+
+33:47.800 --> 33:52.800
+ By now, 40 years ago, 35 years ago, and so forth,
+
+33:53.720 --> 33:57.120
+ people very, very much questioned the consistency
+
+33:57.120 --> 33:59.240
+ between gravity and quantum mechanics.
+
+33:59.240 --> 34:02.840
+ Stephen Hawking was very famous for it, rightly so.
+
+34:02.840 --> 34:05.840
+ Now, nobody questions that consistency anymore.
+
+34:05.840 --> 34:09.240
+ They don't because we have mathematically precise
+
+34:09.240 --> 34:12.680
+ string theories which contain both gravity
+
+34:12.680 --> 34:15.760
+ and quantum mechanics in a consistent way.
+
+34:15.760 --> 34:20.760
+ So it's provided that certainty that quantum mechanics
+
+34:21.280 --> 34:22.840
+ and gravity can coexist.
+
+34:22.840 --> 34:24.160
+ That's not a small thing.
+
+34:24.160 --> 34:25.000
+ It's a very big thing.
+
+34:25.000 --> 34:25.840
+ It's a huge thing.
+
+34:25.840 --> 34:27.240
+ Einstein would be proud.
+
+34:27.240 --> 34:28.800
+ Einstein, he might be appalled.
+
+34:28.800 --> 34:29.640
+ I don't know.
+
+34:29.640 --> 34:30.460
+ He didn't like it.
+
+34:30.460 --> 34:31.300
+ He didn't like it.
+
+34:31.300 --> 34:32.920
+ He might not be appalled, I don't know.
+
+34:32.920 --> 34:34.560
+ He didn't like quantum mechanics very much,
+
+34:34.560 --> 34:36.360
+ but he would certainly be struck by it.
+
+34:37.680 --> 34:40.060
+ I think that may be, at this time,
+
+34:40.060 --> 34:42.000
+ its biggest contribution to physics
+
+34:42.000 --> 34:45.360
+ in illustrating almost definitively
+
+34:45.360 --> 34:46.800
+ that quantum mechanics and gravity
+
+34:46.800 --> 34:48.640
+ are very closely related
+
+34:48.640 --> 34:51.000
+ and not inconsistent with each other.
+
+34:51.000 --> 34:53.840
+ Is there a possibility of something deeper,
+
+34:53.840 --> 34:58.840
+ more profound that still is consistent with string theory
+
+34:58.840 --> 35:03.120
+ but is deeper, that is to be found?
+
+35:03.120 --> 35:04.900
+ Well, you could ask the same thing about quantum mechanics.
+
+35:04.900 --> 35:05.740
+ Is there something?
+
+35:05.740 --> 35:06.560
+ Exactly.
+
+35:06.560 --> 35:07.400
+ Yeah, yeah.
+
+35:07.400 --> 35:09.060
+ I think string theory is just an example
+
+35:09.060 --> 35:11.000
+ of a quantum mechanical system
+
+35:11.000 --> 35:15.660
+ that contains both gravitation and quantum mechanics.
+
+35:16.600 --> 35:19.760
+ So is there something underlying quantum mechanics?
+
+35:19.760 --> 35:21.560
+ Perhaps something deterministic.
+
+35:21.560 --> 35:23.920
+ Perhaps something deterministic.
+
+35:23.920 --> 35:27.360
+ My friend, Ferad Etouf, whose name you may know,
+
+35:27.360 --> 35:29.600
+ he's a very famous physicist.
+
+35:29.600 --> 35:32.240
+ Dutch, not as famous as he should be, but...
+
+35:33.820 --> 35:35.160
+ Hard to spell his name.
+
+35:35.160 --> 35:36.280
+ It's hard to say his name.
+
+35:36.280 --> 35:37.520
+ No, it's easy to spell his name.
+
+35:37.520 --> 35:39.240
+ Apostrophe, he's the only person I know
+
+35:39.240 --> 35:41.080
+ whose name begins with an apostrophe.
+
+35:42.040 --> 35:44.280
+ And he's one of my heroes in physics.
+
+35:44.280 --> 35:45.160
+ He's a little younger than me,
+
+35:45.160 --> 35:47.640
+ but he's nevertheless one of my heroes.
+
+35:47.640 --> 35:52.640
+ Etouf believes that there is some substructure to the world
+
+35:52.640 --> 35:55.640
+ which is classical in character,
+
+35:55.640 --> 35:58.040
+ deterministic in character,
+
+35:58.040 --> 36:00.520
+ which somehow by some mechanism
+
+36:00.520 --> 36:03.840
+ that he has a hard time spelling out
+
+36:03.840 --> 36:05.880
+ emerges as quantum mechanics.
+
+36:07.400 --> 36:08.240
+ I don't.
+
+36:08.240 --> 36:10.680
+ The wave function is somehow emergent.
+
+36:10.680 --> 36:13.080
+ The wave function, not just the wave function,
+
+36:13.080 --> 36:16.760
+ but the whole thing that goes with quantum mechanics,
+
+36:16.760 --> 36:19.760
+ uncertainty, entanglement, all these things,
+
+36:19.760 --> 36:22.680
+ are emergent. So you think quantum mechanics
+
+36:22.680 --> 36:23.800
+ is the bottom of the well?
+
+36:23.800 --> 36:25.600
+ Is the...
+
+36:25.600 --> 36:30.120
+ Here I think is where you have to be humble.
+
+36:30.120 --> 36:31.440
+ Here's where humility comes.
+
+36:31.440 --> 36:33.440
+ I don't think anybody should say anything
+
+36:33.440 --> 36:36.360
+ is the bottom of the well at this time.
+
+36:36.360 --> 36:39.240
+ I think we can reasonably say,
+
+36:40.960 --> 36:44.200
+ I can reasonably say when I look into the well,
+
+36:44.200 --> 36:47.240
+ I can't see past quantum mechanics.
+
+36:47.240 --> 36:50.480
+ I can't see past quantum mechanics.
+
+36:50.480 --> 36:52.800
+ I don't see any reason for there to be anything
+
+36:52.800 --> 36:55.040
+ beyond quantum mechanics.
+
+36:55.040 --> 36:58.200
+ I think Etouf has asked very interesting
+
+36:58.200 --> 36:59.240
+ and deep questions.
+
+36:59.240 --> 37:00.780
+ I don't like his answers.
+
+37:01.960 --> 37:03.720
+ Well, again, let me ask,
+
+37:03.720 --> 37:06.560
+ if we look at the deepest nature of reality
+
+37:06.560 --> 37:08.320
+ with whether it's deterministic
+
+37:09.320 --> 37:13.080
+ or when observed as probabilistic,
+
+37:13.080 --> 37:16.960
+ what does that mean for our human level
+
+37:16.960 --> 37:18.320
+ of ideas of free will?
+
+37:18.320 --> 37:21.560
+ Is there any connection whatsoever
+
+37:21.560 --> 37:24.700
+ from this perception, perhaps illusion of free will
+
+37:24.700 --> 37:27.760
+ that we have and the fundamental nature of reality?
+
+37:27.760 --> 37:31.400
+ The only thing I can say is I am puzzled by that
+
+37:31.400 --> 37:32.680
+ as much as you are.
+
+37:32.680 --> 37:33.520
+ The illusion of it.
+
+37:33.520 --> 37:36.080
+ The illusion of consciousness,
+
+37:36.080 --> 37:39.980
+ the illusion of free will, the illusion of self.
+
+37:39.980 --> 37:43.380
+ Does that connect to?
+
+37:43.380 --> 37:45.380
+ How can a physical system do that?
+
+37:45.380 --> 37:48.820
+ And I am as puzzled as anybody.
+
+37:48.820 --> 37:51.980
+ There's echoes of it in the observer effect.
+
+37:51.980 --> 37:55.340
+ So do you understand what it means to be an observer?
+
+37:55.340 --> 37:57.700
+ I understand it at a technical level.
+
+37:57.700 --> 38:00.480
+ An observer is a system with enough degrees of freedom
+
+38:00.480 --> 38:02.280
+ that it can record information
+
+38:02.280 --> 38:03.980
+ and which can become entangled
+
+38:03.980 --> 38:05.740
+ with the thing that it's measuring.
+
+38:05.740 --> 38:07.300
+ Entanglement is the key.
+
+38:07.300 --> 38:12.020
+ When a system which we call an apparatus or an observer,
+
+38:12.020 --> 38:15.180
+ same thing, interacts with the system
+
+38:15.180 --> 38:19.100
+ that it's observing, it doesn't just look at it.
+
+38:19.100 --> 38:21.540
+ It becomes physically entangled with it.
+
+38:21.540 --> 38:24.460
+ And it's that entanglement which we call an observation
+
+38:24.460 --> 38:26.480
+ or a measurement.
+
+38:26.480 --> 38:29.980
+ Now, does that satisfy me personally as an observer?
+
+38:32.520 --> 38:33.360
+ Yes and no.
+
+38:33.360 --> 38:34.300
+ I find it very satisfying
+
+38:34.300 --> 38:36.680
+ that we have a mathematical representation
+
+38:36.680 --> 38:40.340
+ of what it means to observe a system.
+
+38:40.340 --> 38:44.300
+ You are observing stuff right now, the conscious level.
+
+38:44.300 --> 38:48.100
+ Do you think there's echoes of that kind of entanglement
+
+38:48.100 --> 38:49.420
+ in our macro scale?
+
+38:49.420 --> 38:52.200
+ Yes, absolutely, for sure.
+
+38:52.200 --> 38:53.780
+ We're entangled with,
+
+38:53.780 --> 38:56.740
+ quantum mechanically entangled with everything in this room.
+
+38:56.740 --> 38:59.860
+ If we weren't, then it would just,
+
+38:59.860 --> 39:01.760
+ well, we wouldn't be observing it.
+
+39:03.140 --> 39:05.620
+ But on the other hand, you can ask,
+
+39:05.620 --> 39:10.260
+ do I really, am I really comfortable with it?
+
+39:10.260 --> 39:12.540
+ And I'm uncomfortable with it in the same way
+
+39:12.540 --> 39:15.300
+ that I can never get comfortable with five dimensions.
+
+39:15.300 --> 39:17.500
+ My brain isn't wired for it.
+
+39:18.860 --> 39:21.380
+ Are you comfortable with four dimensions?
+
+39:21.380 --> 39:22.620
+ A little bit more,
+
+39:22.620 --> 39:26.340
+ because I can always imagine the fourth dimension is time.
+
+39:26.340 --> 39:29.980
+ So the arrow of time, are you comfortable with that arrow?
+
+39:29.980 --> 39:31.980
+ Do you think time is an emergent phenomena
+
+39:31.980 --> 39:33.680
+ or is it fundamental to nature?
+
+39:33.680 --> 39:37.560
+ That is a big question in physics right now.
+
+39:37.560 --> 39:39.160
+ All the physics that we do,
+
+39:40.160 --> 39:42.800
+ or at least that the people that I am comfortable
+
+39:42.800 --> 39:47.800
+ with talking to, my friends, my friends.
+
+39:49.400 --> 39:51.880
+ No, we all ask the same question that you just asked.
+
+39:51.880 --> 39:55.240
+ Space, we have a pretty good idea is emergent
+
+39:55.240 --> 40:00.240
+ and it emerges out of entanglement and other things.
+
+40:00.240 --> 40:03.920
+ Time always seems to be built into our equations
+
+40:03.920 --> 40:06.680
+ as just what Newton pretty much would have thought.
+
+40:06.680 --> 40:09.140
+ Newton, modified a little bit by Einstein,
+
+40:09.140 --> 40:10.380
+ would have called time.
+
+40:12.000 --> 40:17.000
+ And mostly in our equations, it is not emergent.
+
+40:19.200 --> 40:21.560
+ Time in physics is completely symmetric,
+
+40:21.560 --> 40:22.400
+ forward and backward.
+
+40:22.400 --> 40:23.400
+ Right, it's symmetric.
+
+40:23.400 --> 40:27.300
+ So you don't really need to think about the arrow of time
+
+40:27.300 --> 40:29.240
+ for most physical phenomena.
+
+40:29.240 --> 40:33.400
+ For most microscopic phenomena, no.
+
+40:33.400 --> 40:35.640
+ It's only when the phenomena involve systems
+
+40:35.640 --> 40:38.960
+ which are big enough for thermodynamics to become important,
+
+40:38.960 --> 40:41.680
+ for entropy to become important.
+
+40:41.680 --> 40:46.020
+ For a small system, entropy is not a good concept.
+
+40:47.960 --> 40:52.840
+ Entropy is something which emerges out of large numbers.
+
+40:52.840 --> 40:56.600
+ It's a probabilistic idea or it's a statistical idea
+
+40:56.600 --> 40:58.500
+ and it's a thermodynamic idea.
+
+40:58.500 --> 41:00.840
+ Thermodynamics requires lots and lots
+
+41:00.840 --> 41:04.120
+ and lots of little substructures, okay?
+
+41:04.120 --> 41:09.120
+ So it's not until you emerge at the thermodynamic level
+
+41:09.680 --> 41:11.720
+ that there's an arrow of time.
+
+41:11.720 --> 41:13.560
+ Do we understand it?
+
+41:13.560 --> 41:15.800
+ Yeah, I think we understand better
+
+41:15.800 --> 41:17.160
+ than most people think they have.
+
+41:17.160 --> 41:19.360
+ Most people say they think we understand it.
+
+41:19.360 --> 41:21.280
+ Yeah, I think we understand it.
+
+41:21.280 --> 41:23.900
+ It's a statistical idea.
+
+41:23.900 --> 41:26.400
+ You mean like second law of thermodynamics,
+
+41:26.400 --> 41:27.240
+ entropy and so on?
+
+41:27.240 --> 41:29.720
+ Yeah, take a pack of cards and you fling it in the air
+
+41:29.720 --> 41:32.480
+ and you look what happens to it, it gets random.
+
+41:32.480 --> 41:33.400
+ We understand it.
+
+41:33.400 --> 41:36.200
+ It doesn't go from random to simple.
+
+41:36.200 --> 41:37.720
+ It goes from simple to random.
+
+41:38.600 --> 41:41.820
+ But do you think it ever breaks down?
+
+41:41.820 --> 41:46.180
+ What I think you can do is in a laboratory setting,
+
+41:46.180 --> 41:49.020
+ you can take a system which is somewhere intermediate
+
+41:49.020 --> 41:51.160
+ between being small and being large
+
+41:53.080 --> 41:56.080
+ and make it go backward.
+
+41:56.080 --> 41:59.560
+ A thing which looks like it only wants to go forward
+
+41:59.560 --> 42:01.640
+ because of statistical mechanical reasons,
+
+42:01.640 --> 42:03.920
+ because of the second law,
+
+42:03.920 --> 42:07.120
+ you can very, very carefully manipulate it
+
+42:07.120 --> 42:09.100
+ to make it run backward.
+
+42:09.100 --> 42:11.400
+ I don't think you can take an egg, a Humpty Dumpty
+
+42:11.400 --> 42:15.000
+ who fell on the floor and reverse that.
+
+42:15.000 --> 42:18.480
+ But you can, in a very controlled situation,
+
+42:18.480 --> 42:22.760
+ you can take systems which appear to be evolving
+
+42:22.760 --> 42:25.360
+ statistically toward randomness,
+
+42:25.360 --> 42:29.280
+ stop them, reverse them, and make them go back.
+
+42:29.280 --> 42:30.800
+ What's the intuition behind that?
+
+42:30.800 --> 42:31.940
+ How do we do that?
+
+42:31.940 --> 42:33.520
+ How do we reverse it?
+
+42:33.520 --> 42:35.600
+ You're saying a closed system.
+
+42:35.600 --> 42:38.320
+ Yeah, pretty much closed system, yes.
+
+42:38.320 --> 42:41.600
+ Did you just say that time travel is possible?
+
+42:41.600 --> 42:44.080
+ No, I didn't say time travel is possible.
+
+42:44.080 --> 42:45.960
+ I said you can make a system go backward.
+
+42:45.960 --> 42:46.800
+ In time.
+
+42:46.800 --> 42:48.040
+ You can make it go back.
+
+42:48.040 --> 42:49.520
+ You can make it reverse its steps.
+
+42:49.520 --> 42:51.520
+ You can make it reverse its trajectory.
+
+42:51.520 --> 42:52.400
+ Yeah.
+
+42:52.400 --> 42:53.240
+ How do we do it?
+
+42:53.240 --> 42:54.640
+ What's the intuition there?
+
+42:54.640 --> 42:58.720
+ Does it have, is it just a fluke thing
+
+42:58.720 --> 43:00.840
+ that we can do at a small scale in the lab
+
+43:00.840 --> 43:01.680
+ that doesn't have?
+
+43:01.680 --> 43:02.840
+ Well, what I'm saying is you can do it
+
+43:02.840 --> 43:05.260
+ a little bit better than a small scale.
+
+43:05.260 --> 43:10.260
+ You can certainly do it with a simple, small system.
+
+43:10.480 --> 43:14.240
+ Small systems don't have any sense of the arrow of time.
+
+43:14.240 --> 43:19.240
+ Atoms, atoms are no sense of an arrow of time.
+
+43:20.580 --> 43:22.380
+ They're completely reversible.
+
+43:22.380 --> 43:24.440
+ It's only when you have, you know,
+
+43:24.440 --> 43:25.880
+ the second law of thermodynamics
+
+43:25.880 --> 43:28.480
+ is the law of large numbers.
+
+43:28.480 --> 43:30.800
+ So you can break the law because it's not
+
+43:30.800 --> 43:31.640
+ a deterministic law. You can break it,
+
+43:31.640 --> 43:33.880
+ you can break it, but it's hard.
+
+43:33.880 --> 43:36.080
+ It requires great care.
+
+43:36.080 --> 43:38.480
+ The bigger the system is, the more care,
+
+43:38.480 --> 43:40.760
+ the more, the harder it is.
+
+43:40.760 --> 43:43.880
+ You have to overcome what's called chaos.
+
+43:43.880 --> 43:45.600
+ And that's hard.
+
+43:45.600 --> 43:47.660
+ And it requires more and more precision.
+
+43:47.660 --> 43:50.080
+ For 10 particles, you might be able to do it
+
+43:50.080 --> 43:54.000
+ with some effort.
+
+43:54.000 --> 43:56.760
+ For a hundred particles, it's really hard.
+
+43:56.760 --> 43:59.340
+ For a thousand or a million particles, forget it,
+
+43:59.340 --> 44:01.220
+ but not for any fundamental reason,
+
+44:01.220 --> 44:03.720
+ just because it's technologically too hard
+
+44:03.720 --> 44:05.660
+ to make the system go backward.
+
+44:08.320 --> 44:13.320
+ So, no time travel for engineering reasons.
+
+44:13.440 --> 44:15.280
+ Oh, no, no, no, no.
+
+44:15.280 --> 44:16.880
+ What is time travel?
+
+44:16.880 --> 44:19.280
+ Time travel to the future?
+
+44:19.280 --> 44:20.400
+ That's easy.
+
+44:20.400 --> 44:22.400
+ You just close your eyes, go to sleep,
+
+44:22.400 --> 44:23.480
+ and you wake up in the future.
+
+44:23.480 --> 44:25.960
+ Yeah, yeah, a good nap gets you there, yeah.
+
+44:25.960 --> 44:27.400
+ A good nap gets you there, right.
+
+44:27.400 --> 44:32.280
+ But reversing the second law of thermodynamics,
+
+44:32.280 --> 44:36.760
+ going backward in time for anything that's human scale
+
+44:36.760 --> 44:40.000
+ is a very difficult engineering effort.
+
+44:40.000 --> 44:41.440
+ I wouldn't call that time travel
+
+44:41.440 --> 44:43.040
+ because it gets too mixed up
+
+44:43.040 --> 44:46.040
+ with what science fiction calls time travel.
+
+44:46.040 --> 44:51.040
+ This is just the ability to reverse a system.
+
+44:51.040 --> 44:55.680
+ You take the system and you reverse the direction
+
+44:55.680 --> 44:58.280
+ of motion of every molecule in it.
+
+44:58.280 --> 45:00.940
+ That, you can do it with one molecule.
+
+45:00.940 --> 45:03.500
+ If you find a particle moving in a certain direction,
+
+45:03.500 --> 45:05.740
+ let's not say a particle, a baseball,
+
+45:06.700 --> 45:10.960
+ you stop it dead and then you simply reverse its motion.
+
+45:10.960 --> 45:12.840
+ In principle, that's not too hard.
+
+45:12.840 --> 45:15.240
+ And it'll go back along its trajectory
+
+45:15.240 --> 45:16.440
+ in the backward direction.
+
+45:16.440 --> 45:18.200
+ Just running the program backwards.
+
+45:18.200 --> 45:19.480
+ Running the program backward.
+
+45:19.480 --> 45:20.460
+ Yeah. Okay.
+
+45:20.460 --> 45:22.400
+ If you have two baseballs colliding,
+
+45:22.400 --> 45:23.520
+ well, you can do it,
+
+45:23.520 --> 45:26.920
+ but you have to be very, very careful to get it just right.
+
+45:28.760 --> 45:32.400
+ If you have 10 baseballs, really, really, better yet,
+
+45:32.400 --> 45:36.200
+ 10 billiard balls on an idealized,
+
+45:36.200 --> 45:37.820
+ frictionless billiard table.
+
+45:38.840 --> 45:41.800
+ Okay, so you start the balls all on a triangle, right?
+
+45:41.800 --> 45:43.440
+ And you whack them.
+
+45:43.440 --> 45:44.640
+ Depending on the game you're playing,
+
+45:44.640 --> 45:46.000
+ you either whack them or you're really careful,
+
+45:46.000 --> 45:48.280
+ but you whack them.
+
+45:48.280 --> 45:51.520
+ And they go flying off in all possible directions.
+
+45:51.520 --> 45:53.140
+ Okay, try to reverse that.
+
+45:54.720 --> 45:55.680
+ Try to reverse that.
+
+45:55.680 --> 45:57.680
+ Imagine trying to take every billiard ball,
+
+45:57.680 --> 46:00.320
+ stopping it dead at some point,
+
+46:00.320 --> 46:01.680
+ and reversing its motion
+
+46:01.680 --> 46:04.200
+ so that it was going in the opposite direction.
+
+46:04.200 --> 46:07.340
+ If you did that with tremendous care,
+
+46:07.340 --> 46:11.500
+ it would reassemble itself back into the triangle.
+
+46:11.500 --> 46:14.520
+ Okay, that is a fact.
+
+46:14.520 --> 46:16.860
+ And you can probably do it with two billiard balls,
+
+46:16.860 --> 46:19.920
+ maybe with three billiard balls if you're really lucky.
+
+46:19.920 --> 46:21.840
+ But what happens is as the system
+
+46:21.840 --> 46:23.160
+ gets more and more complicated,
+
+46:23.160 --> 46:26.120
+ you have to be more and more precise
+
+46:26.120 --> 46:27.880
+ not to make the tiniest error,
+
+46:27.880 --> 46:30.960
+ because the tiniest errors will get magnified
+
+46:30.960 --> 46:33.920
+ and you'll simply not be able to do the reversal.
+
+46:34.920 --> 46:38.560
+ So yeah, but I wouldn't call that time travel.
+
+46:38.560 --> 46:39.680
+ Yeah, that's something else.
+
+46:39.680 --> 46:43.240
+ But if you think of it, it just made me think,
+
+46:43.240 --> 46:46.980
+ if you think the unrolling of state
+
+46:46.980 --> 46:49.840
+ that's happening as a program,
+
+46:49.840 --> 46:52.860
+ if we look at the world,
+
+46:52.860 --> 46:56.440
+ silly idea of looking at the world as a simulation,
+
+46:56.440 --> 46:57.360
+ as a computer.
+
+46:59.080 --> 47:01.920
+ But it's not a computer, it's just a single program.
+
+47:03.200 --> 47:06.320
+ A question arises that might be useful.
+
+47:06.320 --> 47:11.320
+ How hard is it to have a computer that runs the universe?
+
+47:11.320 --> 47:16.320
+ Okay, so there are mathematical universes
+
+47:18.300 --> 47:20.040
+ that we know about.
+
+47:20.040 --> 47:22.840
+ One of them is called anti de Sitter space,
+
+47:22.840 --> 47:27.840
+ where we, and it's quantum mechanics,
+
+47:28.520 --> 47:32.240
+ I think we could simulate it in a computer,
+
+47:32.240 --> 47:34.140
+ in a quantum computer.
+
+47:34.140 --> 47:36.600
+ Classical computer, all you can do is solve its equations.
+
+47:36.600 --> 47:39.160
+ You can't make it work like the real system.
+
+47:39.160 --> 47:41.600
+ If we could build a quantum computer, a big enough one,
+
+47:41.600 --> 47:46.600
+ a robust enough one, we could probably simulate a universe,
+
+47:49.880 --> 47:52.880
+ a small version of an anti de Sitter universe.
+
+47:52.880 --> 47:55.800
+ Anti de Sitter is a kind of cosmology.
+
+47:57.680 --> 48:00.100
+ So I think we know how to do that.
+
+48:00.100 --> 48:02.340
+ The trouble is the universe that we live in
+
+48:02.340 --> 48:04.840
+ is not the anti de Sitter geometry,
+
+48:04.840 --> 48:07.320
+ it's the de Sitter geometry.
+
+48:07.320 --> 48:11.120
+ And we don't really understand its quantum mechanics at all.
+
+48:11.120 --> 48:12.120
+ So at the present time,
+
+48:12.120 --> 48:14.000
+ I would say we wouldn't have the vaguest idea
+
+48:14.000 --> 48:16.540
+ how to simulate a universe similar to our own.
+
+48:18.020 --> 48:21.120
+ No, we can ask, could we build in the laboratory
+
+48:21.120 --> 48:26.120
+ a small version, a quantum mechanical version,
+
+48:27.720 --> 48:29.620
+ the collection of quantum computers
+
+48:29.620 --> 48:32.880
+ and tangled and coupled together,
+
+48:32.880 --> 48:37.880
+ which would reproduce the phenomena that go on in the universe,
+
+48:38.120 --> 48:40.400
+ even on a small scale.
+
+48:40.400 --> 48:43.060
+ Yes, if it were anti de Sitter space,
+
+48:43.060 --> 48:44.680
+ no, if it's de Sitter space.
+
+48:44.680 --> 48:47.400
+ Can you slightly describe de Sitter space
+
+48:47.400 --> 48:48.640
+ and anti de Sitter space?
+
+48:48.640 --> 48:49.860
+ Yeah.
+
+48:49.860 --> 48:51.400
+ What are the geometric properties of?
+
+48:51.400 --> 48:54.860
+ They differ by the sign of a single constant
+
+48:54.860 --> 48:56.660
+ called the cosmological constant.
+
+48:57.960 --> 49:01.760
+ One of them is negatively curved,
+
+49:01.760 --> 49:03.680
+ the other is positively curved.
+
+49:04.840 --> 49:08.260
+ Anti de Sitter space, which is the negatively curved one,
+
+49:08.260 --> 49:11.360
+ you can think of as an isolated system
+
+49:11.360 --> 49:14.620
+ in a box with reflecting walls.
+
+49:14.620 --> 49:16.200
+ You could think of it as a system
+
+49:16.200 --> 49:19.240
+ of quantum mechanical system isolated
+
+49:19.240 --> 49:21.800
+ in an isolated environment.
+
+49:21.800 --> 49:23.740
+ De Sitter space is the one we really live in.
+
+49:23.740 --> 49:26.880
+ And that's the one that's exponentially expanding,
+
+49:26.880 --> 49:30.040
+ exponential expansion, dark energy,
+
+49:30.040 --> 49:31.520
+ whatever we wanna call it.
+
+49:31.520 --> 49:34.300
+ And we don't understand that mathematically.
+
+49:35.880 --> 49:36.960
+ Do we understand?
+
+49:36.960 --> 49:38.200
+ Not everybody would agree with me,
+
+49:38.200 --> 49:39.560
+ but I don't understand.
+
+49:39.560 --> 49:40.600
+ They would agree with me,
+
+49:40.600 --> 49:41.920
+ they definitely would agree with me
+
+49:41.920 --> 49:43.300
+ that I don't understand it.
+
+49:44.720 --> 49:48.480
+ What about, is there an understanding of the birth,
+
+49:48.480 --> 49:50.320
+ the origin, the big bang?
+
+49:50.320 --> 49:51.800
+ So there's one problem with the other.
+
+49:51.800 --> 49:53.160
+ No, no, there's theories.
+
+49:53.160 --> 49:54.160
+ There are theories.
+
+49:55.840 --> 49:58.980
+ My favorite is the one called eternal inflation.
+
+49:58.980 --> 50:00.680
+ The infinity can be on both sides,
+
+50:00.680 --> 50:02.600
+ on one of the sides and none of the sides.
+
+50:02.600 --> 50:05.520
+ So what's eternal infinity?
+
+50:05.520 --> 50:06.360
+ Okay.
+
+50:09.480 --> 50:11.120
+ Infinity on both sides.
+
+50:13.040 --> 50:13.920
+ Oh boy.
+
+50:13.920 --> 50:15.480
+ Yeah, yeah, that's.
+
+50:15.480 --> 50:16.520
+ Why is that your favorite?
+
+50:16.520 --> 50:21.520
+ Because it's the most just mind blowing?
+
+50:21.520 --> 50:22.360
+ No.
+
+50:22.360 --> 50:23.200
+ Because we want a beginning.
+
+50:23.200 --> 50:24.980
+ No, why do we want a beginning?
+
+50:26.800 --> 50:28.380
+ In practice there was a beginning, of course.
+
+50:28.380 --> 50:31.280
+ In practice there was a beginning.
+
+50:31.280 --> 50:36.280
+ But could it have been a random fluctuation
+
+50:36.800 --> 50:39.320
+ in an otherwise infinite time?
+
+50:39.320 --> 50:40.160
+ Maybe.
+
+50:41.320 --> 50:45.840
+ In any case, the eternal inflation theory,
+
+50:45.840 --> 50:47.280
+ I think if correctly understood,
+
+50:47.280 --> 50:49.220
+ would be infinite in both directions.
+
+50:50.680 --> 50:52.840
+ How do you think about infinity?
+
+50:52.840 --> 50:53.960
+ Oh God.
+
+50:53.960 --> 50:57.520
+ So, okay, of course you can think about it mathematically.
+
+50:57.520 --> 51:01.480
+ I just finished this discussion with my friend Sergei Brin.
+
+51:01.480 --> 51:02.800
+ How do you think about infinity?
+
+51:02.800 --> 51:05.280
+ I say, well, Sergei Brin is infinitely rich.
+
+51:07.960 --> 51:09.360
+ How do you test that hypothesis?
+
+51:09.360 --> 51:10.200
+ Okay.
+
+51:12.000 --> 51:13.240
+ Such a good line.
+
+51:13.240 --> 51:14.080
+ Right.
+
+51:15.400 --> 51:17.160
+ Yeah, so there's really no way
+
+51:17.160 --> 51:18.800
+ to visualize some of these things.
+
+51:20.240 --> 51:22.360
+ Yeah, no, this is a very good question.
+
+51:22.360 --> 51:24.680
+ Does physics have any,
+
+51:24.680 --> 51:27.360
+ does infinity have any place in physics?
+
+51:27.360 --> 51:28.200
+ Right.
+
+51:28.200 --> 51:32.600
+ Right, and all I can say is very good question.
+
+51:35.840 --> 51:39.400
+ So what do you think of the recent first image
+
+51:39.400 --> 51:43.040
+ of a black hole visualized from the Horizon Telescope?
+
+51:43.040 --> 51:45.680
+ It's an incredible triumph of science.
+
+51:45.680 --> 51:47.740
+ In itself, the fact that there are black holes
+
+51:47.740 --> 51:50.620
+ which collide is not a surprise.
+
+51:50.620 --> 51:52.640
+ And they seem to work exactly
+
+51:52.640 --> 51:54.760
+ the way they're supposed to work.
+
+51:54.760 --> 51:57.040
+ Will we learn a great deal from it?
+
+51:57.040 --> 52:00.160
+ I don't know, we might.
+
+52:00.160 --> 52:01.300
+ But the kind of things we'll learn
+
+52:01.300 --> 52:03.280
+ won't really be about black holes.
+
+52:05.240 --> 52:09.500
+ Why there are black holes in nature
+
+52:09.500 --> 52:12.780
+ of that particular mass scale and why they're so common
+
+52:12.780 --> 52:15.680
+ may tell us something about the structure,
+
+52:15.680 --> 52:18.440
+ evolution of structure in the universe.
+
+52:18.440 --> 52:19.520
+ But I don't think it's gonna tell us
+
+52:19.520 --> 52:22.000
+ anything new about black holes.
+
+52:22.000 --> 52:23.620
+ But it's a triumph in the sense
+
+52:23.620 --> 52:25.420
+ that you go back 100 years
+
+52:25.420 --> 52:28.200
+ and it was a continuous development,
+
+52:28.200 --> 52:31.480
+ general relativity, the discovery of black holes,
+
+52:31.480 --> 52:35.500
+ LIGO, the incredible technology that went into LIGO.
+
+52:37.600 --> 52:42.600
+ It is something that I never would have believed
+
+52:43.120 --> 52:47.760
+ was gonna happen 30, 40 years ago.
+
+52:47.760 --> 52:51.840
+ And I think it's a magnificent structure,
+
+52:51.840 --> 52:56.840
+ magnificent thing, this evolution of general relativity,
+
+52:59.680 --> 53:03.980
+ LIGO, high precision, ability to measure things
+
+53:03.980 --> 53:06.300
+ on a scale of 10 to the minus 21.
+
+53:07.680 --> 53:09.400
+ So, astonishing.
+
+53:09.400 --> 53:12.800
+ So you're just in awe that this path
+
+53:12.800 --> 53:14.780
+ took us to this picture.
+
+53:14.780 --> 53:15.840
+ Is it different?
+
+53:17.480 --> 53:19.840
+ You've thought a lot about black holes.
+
+53:19.840 --> 53:22.380
+ How did you visualize them in your mind?
+
+53:23.560 --> 53:26.240
+ And is the picture different than you've visualized it?
+
+53:26.240 --> 53:28.700
+ No, it's simply confirmed.
+
+53:30.000 --> 53:32.720
+ It's a magnificent triumph to have confirmed
+
+53:32.720 --> 53:37.320
+ a direct observation that Einstein's theory of gravity
+
+53:37.320 --> 53:41.440
+ at the level of black hole collisions actually works
+
+53:42.380 --> 53:45.600
+ is awesome, it is really awesome.
+
+53:45.600 --> 53:48.160
+ I know some of the people who are involved in that.
+
+53:48.160 --> 53:49.960
+ They're just ordinary people.
+
+53:49.960 --> 53:54.440
+ And the idea that they could carry this out,
+
+53:54.440 --> 53:56.460
+ I just, I'm shocked.
+
+53:56.460 --> 53:59.360
+ Yeah, just these little homo sapiens?
+
+53:59.360 --> 54:00.960
+ Yeah, just these little monkeys.
+
+54:00.960 --> 54:04.800
+ Yeah, got together and took a picture of...
+
+54:04.800 --> 54:06.680
+ Slightly advanced limer's, I think.
+
+54:08.540 --> 54:11.320
+ What kind of questions can science not currently answer
+
+54:11.320 --> 54:13.460
+ but you hope might be able to soon?
+
+54:13.460 --> 54:15.080
+ Well, you've already addressed them.
+
+54:15.080 --> 54:17.020
+ What is consciousness, for example?
+
+54:17.020 --> 54:19.400
+ You think that's within the reach of science?
+
+54:19.400 --> 54:21.640
+ I think it's somewhat within the reach of science,
+
+54:21.640 --> 54:23.680
+ but I think that now I think it's in the hands
+
+54:23.680 --> 54:27.120
+ of the computer scientists and the neuroscientists.
+
+54:27.120 --> 54:29.520
+ Not a physicist, with the help.
+
+54:29.520 --> 54:31.720
+ Perhaps at some point, but I think physicists
+
+54:31.720 --> 54:34.640
+ will try to simplify it down to something
+
+54:34.640 --> 54:36.320
+ that they can use their methods
+
+54:36.320 --> 54:38.560
+ and maybe they're not appropriate.
+
+54:38.560 --> 54:43.560
+ Maybe we simply need to do more machine learning
+
+54:43.560 --> 54:47.800
+ on bigger scales, evolve machines.
+
+54:47.800 --> 54:49.360
+ Machines not only that learn
+
+54:49.360 --> 54:51.320
+ but evolve their own architecture.
+
+54:51.320 --> 54:54.300
+ As a process of learning, evolve in architecture.
+
+54:54.300 --> 54:56.960
+ Not under our control, only partially under our control,
+
+54:56.960 --> 54:59.220
+ but under the control of machine learning.
+
+55:00.320 --> 55:03.200
+ I'll tell you another thing that I find awesome.
+
+55:03.200 --> 55:05.640
+ You know this Google thing that they taught
+
+55:05.640 --> 55:07.480
+ the computers how to play chess?
+
+55:07.480 --> 55:08.320
+ Yeah, yeah.
+
+55:08.320 --> 55:10.680
+ Okay, they taught the computers how to play chess,
+
+55:10.680 --> 55:12.440
+ not by teaching them how to play chess,
+
+55:12.440 --> 55:14.400
+ but just having them play against each other.
+
+55:14.400 --> 55:15.400
+ Against each other, self play.
+
+55:15.400 --> 55:17.840
+ Against each other, this is a form of evolution.
+
+55:18.800 --> 55:22.920
+ These machines evolved, they evolved in intelligence.
+
+55:25.600 --> 55:27.400
+ They evolved in intelligence
+
+55:27.400 --> 55:30.880
+ without anybody telling them how to do it.
+
+55:30.880 --> 55:33.240
+ They were not engineered, they just played
+
+55:33.240 --> 55:36.040
+ against each other and got better and better and better.
+
+55:36.040 --> 55:41.040
+ That makes me think that machines can evolve intelligence.
+
+55:43.500 --> 55:46.580
+ What exact kind of intelligence, I don't know.
+
+55:46.580 --> 55:49.020
+ But in understanding that better and better,
+
+55:49.020 --> 55:52.260
+ maybe we'll get better clues as to what goes on
+
+55:52.260 --> 55:53.100
+ in our own intelligence.
+
+55:53.100 --> 55:55.220
+ What life in intelligence is.
+
+55:55.220 --> 55:58.700
+ Last question, what kind of questions can science
+
+55:58.700 --> 56:01.820
+ not currently answer and may never be able to answer?
+
+56:01.820 --> 56:02.660
+ Yeah.
+
+56:02.660 --> 56:03.500
+ Yeah.
+
+56:05.620 --> 56:07.300
+ Is there an intelligence out there
+
+56:07.300 --> 56:09.260
+ that's underlies the whole thing?
+
+56:09.260 --> 56:11.980
+ You can call them with a G word if you want.
+
+56:11.980 --> 56:16.920
+ I can say, are we a computer simulation with a purpose?
+
+56:18.960 --> 56:22.560
+ Is there an agent, an intelligent agent
+
+56:22.560 --> 56:27.180
+ that underlies or is responsible for the whole thing?
+
+56:27.180 --> 56:30.560
+ Does that intelligent agent satisfy the laws of physics?
+
+56:30.560 --> 56:32.600
+ Does it satisfy the laws of quantum mechanics?
+
+56:32.600 --> 56:34.460
+ Is it made of atoms and molecules?
+
+56:34.460 --> 56:36.560
+ Yeah, there's a lot of questions.
+
+56:36.560 --> 56:41.080
+ And I don't see, it seems to me a real question.
+
+56:42.080 --> 56:43.500
+ It's an answerable question.
+
+56:43.500 --> 56:44.800
+ Well, I don't know if it's answerable.
+
+56:44.800 --> 56:47.360
+ The questions have to be answerable to be real.
+
+56:49.300 --> 56:52.240
+ Some philosophers would say that a question
+
+56:52.240 --> 56:54.520
+ is not a question unless it's answerable.
+
+56:55.580 --> 56:58.300
+ This question doesn't seem to me answerable
+
+56:58.300 --> 57:03.300
+ by any known method, but it seems to me real.
+
+57:05.140 --> 57:07.180
+ There's no better place to end.
+
+57:07.180 --> 57:08.660
+ Leonard, thank you so much for talking today.
+
+57:08.660 --> 57:28.660
+ Okay, good.
+

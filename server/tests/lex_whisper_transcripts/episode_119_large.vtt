@@ -1,0 +1,7280 @@
+WEBVTT
+
+00:00.000 --> 00:02.980
+ The following is a conversation with David Eagleman,
+
+00:02.980 --> 00:06.360
+ a neuroscientist and one of the great science communicators
+
+00:06.360 --> 00:09.260
+ of our time, exploring the beauty and mystery
+
+00:09.260 --> 00:10.780
+ of the human brain.
+
+00:10.780 --> 00:13.140
+ He's an author of a lot of amazing books
+
+00:13.140 --> 00:18.060
+ about the human mind, and his new one called Livewired.
+
+00:18.060 --> 00:21.200
+ Livewired is a work of 10 years on a topic
+
+00:21.200 --> 00:24.700
+ that is fascinating to me, which is neuroplasticity
+
+00:24.700 --> 00:26.780
+ or the malleability of the human brain.
+
+00:27.740 --> 00:29.260
+ Quick summary of the sponsors.
+
+00:29.260 --> 00:32.700
+ Athletic Greens, BetterHelp, and Cash App.
+
+00:32.700 --> 00:34.500
+ Click the sponsor links in the description
+
+00:34.500 --> 00:37.820
+ to get a discount and to support this podcast.
+
+00:37.820 --> 00:41.420
+ As a side note, let me say that the adaptability
+
+00:41.420 --> 00:44.380
+ of the human mind at the biological, chemical,
+
+00:44.380 --> 00:48.500
+ cognitive, psychological, and even sociological levels
+
+00:48.500 --> 00:51.860
+ is the very thing that captivated me many years ago
+
+00:51.860 --> 00:54.980
+ when I first began to wonder how would my engineer
+
+00:54.980 --> 00:57.760
+ something like it in the machine.
+
+00:57.760 --> 01:00.700
+ The open question today in the 21st century
+
+01:00.700 --> 01:03.700
+ is what are the limits of this adaptability?
+
+01:03.700 --> 01:07.420
+ As new, smarter and smarter devices and AI systems
+
+01:07.420 --> 01:10.420
+ come to life, or as better and better brain computer
+
+01:10.420 --> 01:13.820
+ interfaces are engineered, will our brain be able to adapt,
+
+01:13.820 --> 01:16.580
+ to catch up, to excel?
+
+01:16.580 --> 01:19.540
+ I personally believe yes, that we're far from reaching
+
+01:19.540 --> 01:23.100
+ the limitation of the human mind and the human brain,
+
+01:23.100 --> 01:26.060
+ just as we are far from reaching the limitations
+
+01:26.060 --> 01:27.900
+ of our computational systems.
+
+01:28.860 --> 01:31.420
+ If you enjoy this thing, subscribe on YouTube,
+
+01:31.420 --> 01:33.580
+ review it with five stars on Apple Podcast,
+
+01:33.580 --> 01:36.240
+ follow on Spotify, support on Patreon,
+
+01:36.240 --> 01:39.200
+ or connect with me on Twitter at Lex Friedman.
+
+01:40.100 --> 01:41.980
+ As usual, I'll do a few minutes of ads now
+
+01:41.980 --> 01:43.460
+ and no ads in the middle.
+
+01:43.460 --> 01:45.100
+ I try to make these interesting,
+
+01:45.100 --> 01:47.940
+ but I give you timestamps so you can skip.
+
+01:47.940 --> 01:49.740
+ But please do check out the sponsors
+
+01:49.740 --> 01:51.660
+ by clicking the links in the description.
+
+01:51.660 --> 01:55.000
+ It's the best way to support this podcast.
+
+01:55.000 --> 01:58.300
+ This show is brought to you by Athletic Greens,
+
+01:58.300 --> 02:01.140
+ the all in one daily drink to support better health
+
+02:01.140 --> 02:02.680
+ and peak performance.
+
+02:02.680 --> 02:04.800
+ Even with a balanced diet, it's difficult to cover
+
+02:04.800 --> 02:07.020
+ all of your nutritional bases.
+
+02:07.020 --> 02:09.140
+ That's where Athletic Greens will help.
+
+02:09.140 --> 02:11.820
+ Their daily drink is like nutritional insurance
+
+02:11.820 --> 02:15.380
+ for your body as delivered straight to your door.
+
+02:15.380 --> 02:18.580
+ As you may know, I fast often, sometimes intermittent fasting
+
+02:18.580 --> 02:21.860
+ for 16 hours, sometimes 24 hours,
+
+02:21.860 --> 02:24.500
+ dinner to dinner, sometimes more.
+
+02:24.500 --> 02:26.900
+ I break the fast with Athletic Greens.
+
+02:26.900 --> 02:30.980
+ It's delicious, refreshing, just makes me feel good.
+
+02:30.980 --> 02:34.380
+ I think it's like 50 calories, less than a gram of sugar,
+
+02:34.380 --> 02:36.460
+ but has a ton of nutrients to make sure my body
+
+02:36.460 --> 02:40.200
+ has what it needs despite what I'm eating.
+
+02:40.200 --> 02:43.100
+ Go to athleticgreens.com slash lex
+
+02:43.100 --> 02:48.100
+ to claim a special offer of a free vitamin D3K2 for a year.
+
+02:49.140 --> 02:51.420
+ If you listen to the Joe Rogan experience,
+
+02:51.420 --> 02:53.340
+ you might've listened to him rant about
+
+02:53.340 --> 02:56.140
+ how awesome vitamin D is for your immune system.
+
+02:56.140 --> 02:57.580
+ So there you have it.
+
+02:57.580 --> 03:00.940
+ So click the athleticgreens.com slash lex
+
+03:00.940 --> 03:03.420
+ in the description to get the free stuff
+
+03:03.420 --> 03:05.320
+ and to support this podcast.
+
+03:06.400 --> 03:11.400
+ This show is sponsored by BetterHelp, spelled H E L P, help.
+
+03:11.460 --> 03:14.200
+ Check it out at betterhelp.com slash lex.
+
+03:14.200 --> 03:15.860
+ They figure out what you need and match you
+
+03:15.860 --> 03:19.340
+ with a licensed professional therapist in under 48 hours.
+
+03:19.340 --> 03:21.820
+ It's not a crisis line, it's not self help,
+
+03:21.820 --> 03:25.500
+ it's professional counseling done securely online.
+
+03:25.500 --> 03:28.100
+ I'm a bit from the David Goggins line of creatures
+
+03:28.100 --> 03:30.680
+ and so have some demons to contend with,
+
+03:30.680 --> 03:34.940
+ usually on long runs or all nights full of self doubt.
+
+03:34.940 --> 03:37.880
+ I think suffering is essential for creation,
+
+03:37.880 --> 03:39.540
+ but you can suffer beautifully
+
+03:39.540 --> 03:41.660
+ in a way that doesn't destroy you.
+
+03:41.660 --> 03:45.300
+ For most people, I think a good therapist can help on this.
+
+03:45.300 --> 03:47.140
+ So it's at least worth a try.
+
+03:47.140 --> 03:49.260
+ Check out their reviews, they're good.
+
+03:49.260 --> 03:52.660
+ It's easy, private, affordable, available worldwide.
+
+03:52.660 --> 03:54.760
+ You can communicate by text anytime
+
+03:54.760 --> 03:58.280
+ and schedule a weekly audio and video session.
+
+03:58.280 --> 04:01.520
+ Check it out at betterhelp.com slash lex.
+
+04:02.420 --> 04:04.620
+ This show is presented by Cash App,
+
+04:04.620 --> 04:06.660
+ the number one finance app in the App Store.
+
+04:06.660 --> 04:09.280
+ When you get it, use code lexpodcast.
+
+04:09.280 --> 04:11.660
+ Cash App lets you send money to friends, buy Bitcoin,
+
+04:11.660 --> 04:14.540
+ invest in the stock market with as little as $1.
+
+04:14.540 --> 04:16.880
+ Since Cash App allows you to buy Bitcoin,
+
+04:16.880 --> 04:18.480
+ let me mention that cryptocurrency
+
+04:18.480 --> 04:21.860
+ in the context of the history of money is fascinating.
+
+04:21.860 --> 04:25.420
+ I recommend Ascent of Money as a great book on this history.
+
+04:25.420 --> 04:29.980
+ Davidson credits on ledgers started around 30,000 years ago
+
+04:29.980 --> 04:32.260
+ and the first decentralized cryptocurrency
+
+04:32.260 --> 04:34.220
+ released just over 10 years ago.
+
+04:34.220 --> 04:37.420
+ So given that history, cryptocurrency is still very much
+
+04:37.420 --> 04:39.340
+ in its early days of development,
+
+04:39.340 --> 04:40.700
+ but it's still aiming to
+
+04:40.700 --> 04:43.880
+ and just might redefine the nature of money.
+
+04:44.880 --> 04:47.900
+ So again, if you get Cash App from the App Store or Google Play
+
+04:47.900 --> 04:51.020
+ and use code lexpodcast, you get $10
+
+04:51.020 --> 04:53.940
+ and Cash App will also donate $10 to FIRST,
+
+04:53.940 --> 04:56.980
+ an organization that is helping to advance robotics
+
+04:56.980 --> 05:00.420
+ and STEM education for young people around the world.
+
+05:00.420 --> 05:04.620
+ And now here's my conversation with David Eagleman.
+
+05:05.780 --> 05:10.360
+ You have a new book coming out on the changing brain.
+
+05:10.360 --> 05:13.260
+ Can you give a high level overview of the book?
+
+05:13.260 --> 05:14.620
+ It's called Livewired by the way.
+
+05:14.620 --> 05:17.780
+ Yeah, the thing is we typically think about the brain
+
+05:17.780 --> 05:19.500
+ in terms of the metaphors we already have,
+
+05:19.500 --> 05:21.820
+ like hardware and software, that's how we build
+
+05:21.820 --> 05:24.420
+ all our stuff, but what's happening in the brain
+
+05:24.420 --> 05:26.860
+ is fundamentally so different.
+
+05:26.860 --> 05:29.060
+ So I coined this new term liveware,
+
+05:29.060 --> 05:32.400
+ which is a system that's constantly reconfiguring itself
+
+05:32.400 --> 05:37.100
+ physically as it learns and adapts to the world around it.
+
+05:37.100 --> 05:38.660
+ It's physically changing.
+
+05:38.660 --> 05:43.620
+ So it's liveware meaning like hardware but changing.
+
+05:43.620 --> 05:44.560
+ Yeah, exactly.
+
+05:44.560 --> 05:47.500
+ Well, the hardware and the software layers are blended
+
+05:47.500 --> 05:52.500
+ and so typically engineers are praised for their efficiency
+
+05:53.660 --> 05:55.220
+ and making something really clean and clear,
+
+05:55.220 --> 05:56.380
+ like, okay, here's the hardware layer,
+
+05:56.380 --> 05:57.780
+ then I'm gonna run software on top of it.
+
+05:57.780 --> 06:00.300
+ And there's all sorts of universality that you get out
+
+06:00.300 --> 06:02.840
+ of a piece of hardware like that that's useful.
+
+06:02.840 --> 06:05.240
+ But what the brain is doing is completely different.
+
+06:05.240 --> 06:08.360
+ And I am so excited about where this is all going
+
+06:08.360 --> 06:13.360
+ because I feel like this is where our engineering will go.
+
+06:13.360 --> 06:17.140
+ So currently we build all our devices a particular way,
+
+06:17.140 --> 06:20.620
+ but I can't tear half the circuitry out of your cell phone
+
+06:20.620 --> 06:22.660
+ and expect it to still function.
+
+06:22.660 --> 06:26.460
+ But you can do that with the brain.
+
+06:26.460 --> 06:29.260
+ So just as an example, kids who are under
+
+06:29.260 --> 06:32.060
+ about seven years old can get one half of their brain
+
+06:32.060 --> 06:35.700
+ removed, it's called a hemispherectomy, and they're fine.
+
+06:35.700 --> 06:37.420
+ They have a slight limp on the other side of their body,
+
+06:37.420 --> 06:40.540
+ but they can function just fine that way.
+
+06:40.540 --> 06:42.380
+ And this is generally true.
+
+06:42.380 --> 06:45.220
+ You know, sometimes children are born without a hemisphere
+
+06:45.220 --> 06:48.580
+ and their visual system rewires so that everything is
+
+06:48.580 --> 06:52.140
+ on the single remaining hemisphere.
+
+06:52.140 --> 06:55.420
+ What thousands of cases like this teach us
+
+06:55.420 --> 06:59.940
+ is that it's a very malleable system that is simply trying
+
+06:59.940 --> 07:04.060
+ to accomplish the tasks in front of it by rewiring itself
+
+07:04.060 --> 07:06.100
+ with the available real estate.
+
+07:06.100 --> 07:09.860
+ How much of that is a quirk or a feature of evolution?
+
+07:09.860 --> 07:11.860
+ Like, how hard is it to engineer?
+
+07:11.860 --> 07:14.620
+ Because evolution took a lot of work.
+
+07:14.620 --> 07:18.500
+ Trillions of organisms had to die for it to create
+
+07:18.500 --> 07:21.580
+ this thing we have in our skull.
+
+07:21.580 --> 07:24.540
+ Like, because you said you kind of look forward to the idea
+
+07:24.540 --> 07:27.940
+ that we might be engineering our systems like this
+
+07:27.940 --> 07:30.740
+ in the future, like creating liveware systems.
+
+07:30.740 --> 07:33.180
+ How hard do you think is it to create systems like that?
+
+07:33.180 --> 07:34.020
+ Great question.
+
+07:34.020 --> 07:37.060
+ It has proven itself to be a difficult challenge.
+
+07:37.060 --> 07:40.260
+ What I mean by that is even though it's taken evolution
+
+07:40.260 --> 07:43.180
+ a really long time to get where it is now,
+
+07:44.260 --> 07:47.620
+ all we have to do now is peek at the blueprints.
+
+07:47.620 --> 07:49.620
+ It's just three pounds, this organ,
+
+07:49.620 --> 07:50.860
+ and we just figure out how to do it.
+
+07:50.860 --> 07:52.760
+ But that's the part that I mean is a difficult challenge
+
+07:52.760 --> 07:57.100
+ because there are tens of thousands of neuroscientists,
+
+07:57.100 --> 07:59.260
+ we're all poking and prodding and trying to figure this out,
+
+07:59.260 --> 08:00.700
+ but it's an extremely complicated system.
+
+08:00.700 --> 08:03.300
+ But it's only gonna be complicated until we figure out
+
+08:03.300 --> 08:05.380
+ the general principles.
+
+08:05.380 --> 08:09.420
+ Exactly like if you had a magic camera
+
+08:09.420 --> 08:10.940
+ you could look inside the nucleus of a cell
+
+08:10.940 --> 08:13.220
+ and you'd see hundreds of thousands of things
+
+08:13.220 --> 08:14.180
+ moving around or whatever,
+
+08:14.180 --> 08:16.060
+ and then it takes Crick and Watson to say,
+
+08:16.060 --> 08:17.380
+ oh, you know what, you're just trying to maintain
+
+08:17.380 --> 08:20.300
+ the order of the base pairs and all the rest is details.
+
+08:20.300 --> 08:23.500
+ Then it simplifies it and we come to understand something.
+
+08:23.500 --> 08:25.100
+ That was my goal in LiveWire,
+
+08:25.100 --> 08:26.900
+ which I've written over 10 years, by the way,
+
+08:26.900 --> 08:29.920
+ is to try to distill things down to the principles
+
+08:29.920 --> 08:34.180
+ of what plastic systems are trying to accomplish.
+
+08:34.180 --> 08:36.260
+ But to even just linger, you said,
+
+08:36.260 --> 08:38.820
+ it's possible to be born with just one hemisphere
+
+08:38.820 --> 08:41.940
+ and you still are able to function.
+
+08:41.940 --> 08:43.460
+ First of all, just to pause on that,
+
+08:43.460 --> 08:45.660
+ I mean, that's kind of, that's amazing.
+
+08:47.940 --> 08:50.100
+ I don't know if people quite,
+
+08:50.100 --> 08:51.740
+ I mean, you kind of hear things here and there.
+
+08:51.740 --> 08:54.300
+ This is why I'm kind of, I'm really excited about your book
+
+08:54.300 --> 08:59.300
+ is I don't know if there's definitive sort of popular sources
+
+09:00.020 --> 09:01.500
+ to think about this stuff.
+
+09:01.500 --> 09:05.060
+ I mean, there's a lot of, I think from my perspective,
+
+09:05.060 --> 09:07.940
+ what I heard is there's like been debates over decades
+
+09:07.940 --> 09:12.060
+ about how much neuroplasticity there is in the brain
+
+09:12.060 --> 09:14.860
+ and so on, and people have learned a lot of things
+
+09:14.860 --> 09:16.900
+ and now it's converging towards people
+
+09:16.900 --> 09:20.380
+ that are understanding there's much more plastic
+
+09:20.380 --> 09:21.440
+ than people realize.
+
+09:21.440 --> 09:23.900
+ But just like linger on that topic,
+
+09:23.900 --> 09:28.380
+ like how malleable is the hardware of the human brain?
+
+09:28.380 --> 09:32.300
+ Maybe you said children at each stage of life.
+
+09:32.300 --> 09:33.680
+ Yeah, so here's the whole thing.
+
+09:33.680 --> 09:36.960
+ I think part of the confusion about plasticity
+
+09:36.960 --> 09:38.220
+ has been that there are studies
+
+09:38.220 --> 09:40.340
+ at all sorts of different ages,
+
+09:40.340 --> 09:42.400
+ and then people might read that from a distance
+
+09:42.400 --> 09:45.360
+ and they think, oh, well, Fred didn't recover
+
+09:45.360 --> 09:47.060
+ when half his brain was taken out
+
+09:47.060 --> 09:49.020
+ and so clearly you're not plastic,
+
+09:49.020 --> 09:52.180
+ but then you do it with a child and they are plastic.
+
+09:52.180 --> 09:56.420
+ And so part of my goal here was to pull together
+
+09:56.420 --> 09:59.060
+ the tens of thousands of papers on this,
+
+09:59.060 --> 10:02.460
+ both from clinical work and from all the way down
+
+10:02.460 --> 10:04.140
+ to the molecular and understand
+
+10:04.140 --> 10:04.980
+ what are the principles here?
+
+10:04.980 --> 10:08.260
+ The principles are that plasticity diminishes,
+
+10:08.260 --> 10:09.540
+ that's no surprise.
+
+10:09.540 --> 10:11.540
+ By the way, maybe I should just define plasticity.
+
+10:11.540 --> 10:14.840
+ It's the ability of a system to mold into a new shape
+
+10:14.840 --> 10:16.260
+ and then hold that shape.
+
+10:16.260 --> 10:19.860
+ That's why we make things that we call plastic
+
+10:20.740 --> 10:23.620
+ because they are moldable and they can hold that new shape,
+
+10:23.620 --> 10:25.240
+ like a plastic toy or something.
+
+10:25.240 --> 10:29.480
+ And so maybe we'll use a lot of terms that are synonymous.
+
+10:29.480 --> 10:34.460
+ So something is plastic, something is malleable,
+
+10:34.460 --> 10:38.740
+ changing, live wire, the name of the book is like synonyms.
+
+10:38.740 --> 10:39.880
+ So I'll tell you, exactly right,
+
+10:39.880 --> 10:41.740
+ but I'll tell you why I chose live wire
+
+10:41.740 --> 10:42.980
+ instead of plasticity.
+
+10:42.980 --> 10:47.140
+ So I use the term plasticity in the book, but sparingly,
+
+10:47.140 --> 10:51.060
+ because that was a term coined by William James
+
+10:51.060 --> 10:53.980
+ over a hundred years ago and he was, of course,
+
+10:53.980 --> 10:55.820
+ very impressed with plastic manufacturing
+
+10:55.820 --> 10:57.660
+ that you could mold something into shape
+
+10:57.660 --> 10:58.540
+ and then it holds that.
+
+10:58.540 --> 11:01.420
+ But that's not what's actually happening in the brain.
+
+11:01.420 --> 11:03.700
+ It's constantly rewiring your entire life.
+
+11:03.700 --> 11:06.380
+ You never hit an end point.
+
+11:06.380 --> 11:08.220
+ The whole point is for it to keep changing.
+
+11:08.220 --> 11:11.020
+ So even in the few minutes of conversation
+
+11:11.020 --> 11:12.560
+ that we've been having, your brain is changing,
+
+11:12.560 --> 11:13.820
+ my brain is changing.
+
+11:15.460 --> 11:18.020
+ Next time I see your face, I will remember,
+
+11:18.020 --> 11:19.860
+ oh yeah, like that time Lex and I sat together
+
+11:19.860 --> 11:21.420
+ and we did these things.
+
+11:21.420 --> 11:24.020
+ I wonder if your brain will have like a Lex thing
+
+11:24.020 --> 11:25.300
+ going on for the next few months.
+
+11:25.300 --> 11:27.860
+ Like it'll stay there until you get rid of it
+
+11:27.860 --> 11:29.340
+ because it was useful for now.
+
+11:29.340 --> 11:30.820
+ Yeah, no, I'll probably never get rid of it.
+
+11:30.820 --> 11:32.000
+ Let's say for some circumstance,
+
+11:32.000 --> 11:34.300
+ you and I don't see each other for the next 35 years.
+
+11:34.300 --> 11:36.220
+ When I run into you, I'll be like, oh yeah.
+
+11:36.220 --> 11:37.460
+ That looks familiar.
+
+11:37.460 --> 11:40.420
+ Yeah, yeah, we sat down for a podcast
+
+11:40.420 --> 11:42.460
+ back when there were podcasts.
+
+11:42.460 --> 11:43.300
+ Exactly.
+
+11:43.300 --> 11:45.260
+ Back when we lived outside virtual reality.
+
+11:46.140 --> 11:47.020
+ Exactly.
+
+11:47.020 --> 11:50.180
+ So you chose live wire to mold a plastic.
+
+11:50.180 --> 11:52.820
+ Exactly, because plastic implies,
+
+11:52.820 --> 11:54.380
+ I mean, it's the term that's used in the field
+
+11:54.380 --> 11:57.780
+ and so that's why we need to use it still for a while.
+
+11:57.780 --> 11:59.620
+ But yeah, it implies something gets molded into shape
+
+11:59.620 --> 12:00.780
+ and then holds that shape forever.
+
+12:00.780 --> 12:03.220
+ But in fact, the whole system is completely changing.
+
+12:03.220 --> 12:07.700
+ Then back to how malleable is the human brain
+
+12:07.700 --> 12:08.820
+ at each stage of life.
+
+12:08.820 --> 12:13.820
+ So what, just at a high level, is it malleable?
+
+12:13.940 --> 12:17.220
+ So yes, and plasticity diminishes.
+
+12:17.220 --> 12:19.900
+ But one of the things that I felt like
+
+12:19.900 --> 12:21.740
+ I was able to put together for myself
+
+12:21.740 --> 12:23.900
+ after reading thousands of papers on this issue
+
+12:23.900 --> 12:26.880
+ is that different parts of the brain
+
+12:26.880 --> 12:30.820
+ have different plasticity windows.
+
+12:30.820 --> 12:33.140
+ So for example, with the visual cortex,
+
+12:33.140 --> 12:35.940
+ that cements itself into place pretty quickly
+
+12:35.940 --> 12:37.740
+ over the course of a few years.
+
+12:37.740 --> 12:41.020
+ And I argue that's because of the stability of the data.
+
+12:41.020 --> 12:43.940
+ In other words, what you're getting in from the world,
+
+12:43.940 --> 12:47.220
+ you've got a certain number of angles, colors, shapes.
+
+12:47.220 --> 12:49.940
+ It's essentially the world is visually stable.
+
+12:49.940 --> 12:52.420
+ So that hardens around that data.
+
+12:52.420 --> 12:55.100
+ As opposed to, let's say, the somatosensory cortex,
+
+12:55.100 --> 12:56.540
+ which is the part that's taking information
+
+12:56.540 --> 12:58.580
+ from your body, or the motor cortex right next to it,
+
+12:58.580 --> 13:00.380
+ which is what drives your body.
+
+13:00.380 --> 13:01.880
+ The fact is, bodies are always changing.
+
+13:01.880 --> 13:05.100
+ You get taller over time, you get fatter, thinner,
+
+13:05.100 --> 13:06.980
+ over time, you might break a leg
+
+13:06.980 --> 13:08.560
+ and have to limp for a while, stuff like that.
+
+13:08.560 --> 13:11.740
+ So because the data there is always changing,
+
+13:11.740 --> 13:12.900
+ by the way, you might get on a bicycle,
+
+13:12.900 --> 13:15.660
+ you might get on a surfboard, things like that.
+
+13:15.660 --> 13:16.780
+ Because the data is always changing,
+
+13:16.780 --> 13:18.300
+ that stays more malleable.
+
+13:19.260 --> 13:20.860
+ And when you look through the brain,
+
+13:20.860 --> 13:23.940
+ you find that it appears to be this,
+
+13:23.940 --> 13:26.660
+ how stable the data is determines how fast
+
+13:26.660 --> 13:28.060
+ something hardens into place.
+
+13:28.060 --> 13:30.000
+ But the point is, different parts of the brain
+
+13:30.000 --> 13:31.940
+ harden into place at different times.
+
+13:31.940 --> 13:33.840
+ Do you think it's possible that,
+
+13:35.020 --> 13:38.700
+ depending on how much data you get on different sensors,
+
+13:38.700 --> 13:41.480
+ that it stays more malleable longer?
+
+13:41.480 --> 13:44.220
+ So like, if you look at different cultures
+
+13:44.220 --> 13:47.580
+ that experience, like if you keep your eyes closed,
+
+13:47.580 --> 13:48.860
+ or maybe you're blind, I don't know,
+
+13:48.860 --> 13:51.180
+ but let's say you keep your eyes closed
+
+13:51.180 --> 13:55.820
+ for your entire life, then the visual cortex
+
+13:55.820 --> 13:58.660
+ might be much less malleable.
+
+13:58.660 --> 14:01.300
+ The reason I bring that up is like,
+
+14:01.300 --> 14:03.340
+ well maybe we'll talk about brain computer interfaces
+
+14:03.340 --> 14:07.400
+ a little bit down the line, but is this,
+
+14:08.500 --> 14:11.300
+ is the malleability a genetic thing,
+
+14:11.300 --> 14:14.380
+ or is it more about the data, like you said, that comes in?
+
+14:14.380 --> 14:17.980
+ Ah, so the malleability itself is a genetic thing.
+
+14:17.980 --> 14:20.840
+ The big trick that Mother Nature discovered with humans
+
+14:20.840 --> 14:24.220
+ is make a system that's really flexible,
+
+14:24.220 --> 14:28.100
+ as opposed to most other creatures to different degrees.
+
+14:28.100 --> 14:31.220
+ So if you take an alligator, it's born,
+
+14:31.220 --> 14:34.180
+ its brain does the same thing every generation.
+
+14:34.180 --> 14:36.220
+ If you compare an alligator 100,000 years ago
+
+14:36.220 --> 14:38.460
+ to an alligator now, they're essentially the same.
+
+14:39.660 --> 14:41.360
+ We, on the other hand, as humans,
+
+14:41.360 --> 14:44.220
+ drop into a world with a half baked brain,
+
+14:44.220 --> 14:48.180
+ and what we require is to absorb the culture around us,
+
+14:48.180 --> 14:50.300
+ and the language, and the beliefs, and the customs,
+
+14:50.300 --> 14:55.060
+ and so on, that's what Mother Nature has done with us,
+
+14:55.060 --> 14:57.340
+ and it's been a tremendously successful trick
+
+14:57.340 --> 15:00.120
+ we've taken over the whole planet as a result of this.
+
+15:00.120 --> 15:01.220
+ So that's an interesting point,
+
+15:01.220 --> 15:03.140
+ I mean, just to link on it, that,
+
+15:03.140 --> 15:05.400
+ I mean, this is a nice feature,
+
+15:05.400 --> 15:07.060
+ like if you were to design a thing
+
+15:07.060 --> 15:11.780
+ to survive in this world, do you put it at age zero
+
+15:11.780 --> 15:14.580
+ already equipped to deal with the world
+
+15:14.580 --> 15:17.740
+ in a hard coded way, or do you put it,
+
+15:17.740 --> 15:19.580
+ do you make it malleable and just throw it in,
+
+15:19.580 --> 15:23.380
+ take the risk that you're maybe going to die,
+
+15:23.380 --> 15:25.220
+ but you're going to learn a lot in the process,
+
+15:25.220 --> 15:27.620
+ and if you don't die, you'll learn a hell of a lot
+
+15:27.620 --> 15:29.300
+ to be able to survive in the environment.
+
+15:29.300 --> 15:31.340
+ So this is the experiment that Mother Nature ran,
+
+15:31.340 --> 15:34.980
+ and it turns out that, for better or worse, we've won.
+
+15:34.980 --> 15:37.500
+ I mean, yeah, we put other animals in the zoos,
+
+15:37.500 --> 15:38.620
+ and we, yeah, that's right.
+
+15:38.620 --> 15:39.580
+ AI might do better.
+
+15:39.580 --> 15:41.320
+ Okay, fair enough, that's true.
+
+15:41.320 --> 15:43.620
+ And maybe what the trick Mother Nature did
+
+15:43.620 --> 15:46.660
+ is just the stepping stone to AI, but.
+
+15:46.660 --> 15:50.220
+ So that's a beautiful feature of the human brain,
+
+15:50.220 --> 15:52.420
+ that it's malleable, but let's,
+
+15:52.420 --> 15:56.380
+ on the topic of Mother Nature, what do we start with?
+
+15:56.380 --> 15:58.420
+ Like, how blank is the slate?
+
+15:58.420 --> 16:01.060
+ Ah, so it's not actually a blank slate.
+
+16:01.060 --> 16:05.340
+ What it's, it's terrific engineering that's set up in there,
+
+16:05.340 --> 16:07.700
+ but much of that engineering has to do with,
+
+16:07.700 --> 16:10.100
+ okay, just make sure that things get to the right place.
+
+16:10.100 --> 16:12.260
+ For example, like the fibers from the eyes
+
+16:12.260 --> 16:13.840
+ getting to the visual cortex,
+
+16:13.840 --> 16:15.640
+ or all this very complicated machinery in the ear
+
+16:15.640 --> 16:17.700
+ getting to the auditory cortex, and so on.
+
+16:17.700 --> 16:19.860
+ So things, first of all, there's that.
+
+16:19.860 --> 16:21.520
+ And then what we also come equipped with
+
+16:21.520 --> 16:24.580
+ is the ability to absorb language
+
+16:24.580 --> 16:27.060
+ and culture and beliefs, and so on.
+
+16:27.060 --> 16:28.600
+ So you're already set up for that.
+
+16:28.600 --> 16:30.020
+ So no matter what you're exposed to,
+
+16:30.020 --> 16:32.940
+ you will absorb some sort of language.
+
+16:32.940 --> 16:34.980
+ That's the trick, is how do you engineer something
+
+16:34.980 --> 16:37.300
+ just enough that it's then a sponge
+
+16:37.300 --> 16:40.060
+ that's ready to take in and fill in the blanks?
+
+16:40.060 --> 16:42.460
+ How much of the malleability is hardware?
+
+16:42.460 --> 16:43.300
+ How much is software?
+
+16:43.300 --> 16:45.100
+ Is that useful at all in the brain?
+
+16:45.100 --> 16:46.980
+ So what are we talking about?
+
+16:46.980 --> 16:51.980
+ So there's neurons, there's synapses,
+
+16:52.100 --> 16:54.060
+ and all kinds of different synapses,
+
+16:54.060 --> 16:55.900
+ and there's chemical communication,
+
+16:55.900 --> 16:57.060
+ like electrical signals,
+
+16:57.060 --> 17:01.520
+ and there's chemical communication from the synapses.
+
+17:04.020 --> 17:09.020
+ I would say the software would be the timing
+
+17:09.020 --> 17:11.540
+ and the nature of the electrical signals, I guess,
+
+17:11.540 --> 17:14.140
+ and the hardware would be the actual synapses.
+
+17:14.140 --> 17:16.860
+ So here's the thing, this is why I really, if we can,
+
+17:16.860 --> 17:19.580
+ I wanna get away from the hardware and software metaphor
+
+17:19.580 --> 17:21.900
+ because what happens is,
+
+17:21.900 --> 17:25.100
+ as activity passes through the system, it changes things.
+
+17:25.100 --> 17:27.880
+ Now, the thing that computer engineers
+
+17:27.880 --> 17:30.300
+ are really used to thinking about is synapses,
+
+17:30.300 --> 17:31.700
+ where two neurons connect.
+
+17:31.700 --> 17:33.700
+ Of course, each neuron connects with 10,000 of its neighbors,
+
+17:33.700 --> 17:35.360
+ but at a point where they connect,
+
+17:36.860 --> 17:37.700
+ what we're all used to thinking about
+
+17:37.700 --> 17:40.820
+ is the changing of the strength of that connection,
+
+17:40.820 --> 17:42.240
+ the synaptic weight.
+
+17:42.240 --> 17:44.560
+ But in fact, everything is changing.
+
+17:44.560 --> 17:47.440
+ The receptor distribution inside that neuron
+
+17:47.440 --> 17:49.600
+ so that you're more or less sensitive
+
+17:49.600 --> 17:50.760
+ to the neurotransmitter,
+
+17:50.760 --> 17:53.440
+ then the structure of the neuron itself
+
+17:53.440 --> 17:54.440
+ and what's happening there,
+
+17:54.440 --> 17:57.360
+ all the way down to biochemical cascades inside the cell,
+
+17:57.360 --> 17:59.200
+ all the way down to the nucleus,
+
+17:59.200 --> 18:00.920
+ and for example, the epigenome,
+
+18:00.920 --> 18:05.600
+ which is these little proteins that are attached to the DNA
+
+18:05.600 --> 18:07.680
+ that cause conformational changes,
+
+18:07.680 --> 18:11.200
+ that cause more genes to be expressed or repressed.
+
+18:11.200 --> 18:13.640
+ All of these things are plastic.
+
+18:13.640 --> 18:15.960
+ The reason that most people only talk
+
+18:15.960 --> 18:17.560
+ about the synaptic weights
+
+18:17.560 --> 18:20.560
+ is because that's really all we can measure well.
+
+18:20.560 --> 18:22.600
+ And all this other stuff is really, really hard to see
+
+18:22.600 --> 18:23.600
+ with our current technology.
+
+18:23.600 --> 18:25.840
+ So essentially, that just gets ignored.
+
+18:25.840 --> 18:27.720
+ But in fact, the system is plastic
+
+18:27.720 --> 18:28.880
+ at all these different levels.
+
+18:28.880 --> 18:33.640
+ And my way of thinking about this
+
+18:33.640 --> 18:37.560
+ is an analogy to pace layers.
+
+18:37.560 --> 18:40.080
+ So pace layers is a concept that Stewart Brand
+
+18:40.080 --> 18:43.000
+ suggested about how to think about cities.
+
+18:43.000 --> 18:46.520
+ So you have fashion, which changes rapidly in cities.
+
+18:46.520 --> 18:51.520
+ You have governance, which changes more slowly.
+
+18:52.040 --> 18:54.440
+ You have the structure, the buildings of a city,
+
+18:54.440 --> 18:57.760
+ which changes more slowly, all the way down to nature.
+
+18:57.760 --> 18:59.560
+ You've got all these different layers of things
+
+18:59.560 --> 19:02.680
+ that are changing at different paces, at different speeds.
+
+19:02.680 --> 19:05.680
+ I've taken that idea and mapped it onto the brain,
+
+19:05.680 --> 19:08.480
+ which is to say you have some biochemical cascades
+
+19:08.480 --> 19:10.120
+ that are just changing really rapidly
+
+19:10.120 --> 19:11.840
+ when something happens, all the way down to things
+
+19:11.840 --> 19:14.520
+ that are more and more cemented in there.
+
+19:14.520 --> 19:19.320
+ And this actually allows us to understand a lot
+
+19:19.320 --> 19:20.920
+ about particular kinds of things that happen.
+
+19:20.920 --> 19:22.160
+ For example, one of the oldest,
+
+19:22.160 --> 19:24.680
+ probably the oldest rule in neurology
+
+19:24.680 --> 19:27.520
+ is called Ribot's Law, which is that older memories
+
+19:27.520 --> 19:29.600
+ are more stable than newer memories.
+
+19:29.600 --> 19:32.640
+ So when you get old and demented,
+
+19:32.640 --> 19:36.160
+ you'll be able to remember things from your young life.
+
+19:36.160 --> 19:37.400
+ Maybe you'll remember this podcast,
+
+19:37.400 --> 19:39.320
+ but you won't remember what you did
+
+19:39.320 --> 19:41.520
+ a month ago or a year ago.
+
+19:41.520 --> 19:43.440
+ And this is a very weird structure, right?
+
+19:43.440 --> 19:44.640
+ No other system works this way,
+
+19:44.640 --> 19:48.320
+ where older memories are more stable than newer memories.
+
+19:48.320 --> 19:52.000
+ But it's because through time,
+
+19:52.000 --> 19:53.520
+ things get more and more cemented
+
+19:53.520 --> 19:56.280
+ into deeper layers of the system.
+
+19:56.280 --> 19:59.880
+ And so this is, I think, the way we have to think
+
+19:59.880 --> 20:03.080
+ about the brain, not as, okay, you've got neurons,
+
+20:03.080 --> 20:04.880
+ you've got synaptic weights, and that's it.
+
+20:04.880 --> 20:08.640
+ So, yeah, so the idea of LiveWare and LiveWired
+
+20:08.640 --> 20:13.640
+ is that it's like a, it's a gradual, yeah,
+
+20:14.480 --> 20:18.240
+ it's a gradual spectrum between software and hardware.
+
+20:18.240 --> 20:22.000
+ And so the metaphors completely doesn't make sense.
+
+20:22.000 --> 20:24.480
+ Cause like when you talk about software and hardware,
+
+20:24.480 --> 20:26.480
+ it's really hard lines.
+
+20:26.480 --> 20:31.480
+ I mean, of course, software is unlike hard,
+
+20:31.480 --> 20:36.320
+ but even hardware, but like, so there's two groups,
+
+20:36.320 --> 20:37.640
+ but in the software world,
+
+20:37.640 --> 20:39.040
+ there's levels of abstractions, right?
+
+20:39.040 --> 20:42.120
+ There's the operating system, there's machine code,
+
+20:42.120 --> 20:44.520
+ and then it gets higher and higher levels.
+
+20:44.520 --> 20:46.920
+ But somehow that's actually fundamentally different
+
+20:46.920 --> 20:50.040
+ than the layers of abstractions in the hardware.
+
+20:50.040 --> 20:53.160
+ But in the brain, it's all like the same.
+
+20:53.160 --> 20:55.400
+ And I love the city, the city metaphor.
+
+20:55.400 --> 20:57.880
+ I mean, yeah, it's kind of mind blowing
+
+20:57.880 --> 21:01.440
+ cause it's hard to know what to think about that.
+
+21:01.440 --> 21:03.200
+ Like if I were to ask the question,
+
+21:04.160 --> 21:07.520
+ this is an important question for machine learning is,
+
+21:07.520 --> 21:09.720
+ how does the brain learn?
+
+21:09.720 --> 21:13.880
+ So essentially you're saying that,
+
+21:13.880 --> 21:17.160
+ I mean, it just learns on all of these different levels
+
+21:17.160 --> 21:19.040
+ at all different paces.
+
+21:19.040 --> 21:19.880
+ Exactly right.
+
+21:19.880 --> 21:21.360
+ And as a result, what happens is
+
+21:21.360 --> 21:24.480
+ as you practice something, you get good at something,
+
+21:24.480 --> 21:26.600
+ you're physically changing the circuitry,
+
+21:26.600 --> 21:30.000
+ you're adapting your brain around the thing
+
+21:30.000 --> 21:31.280
+ that is relevant to you.
+
+21:31.280 --> 21:34.920
+ So let's say you take up, do you know how to surf?
+
+21:34.920 --> 21:35.760
+ Nope.
+
+21:35.760 --> 21:36.600
+ Okay, great.
+
+21:36.600 --> 21:39.200
+ So let's say you take up surfing now at this age.
+
+21:39.200 --> 21:41.080
+ What happens is you'll be terrible at first,
+
+21:41.080 --> 21:42.000
+ you don't know how to operate your body,
+
+21:42.000 --> 21:43.960
+ you don't know how to read the waves, things like that.
+
+21:43.960 --> 21:45.680
+ And through time you get better and better.
+
+21:45.680 --> 21:46.960
+ What you're doing is you're burning that
+
+21:46.960 --> 21:48.600
+ into the actual circuitry of your brain.
+
+21:48.600 --> 21:50.800
+ You're of course conscious when you're first doing it,
+
+21:50.800 --> 21:52.120
+ you're thinking about, okay, where am I doing?
+
+21:52.120 --> 21:53.600
+ What's my body weight?
+
+21:53.600 --> 21:55.320
+ But eventually when you become a pro at it,
+
+21:55.320 --> 21:57.160
+ you are not conscious of it at all.
+
+21:57.160 --> 22:00.200
+ In fact, you can't even unpack what it is that you did.
+
+22:00.200 --> 22:01.920
+ Think about riding a bicycle.
+
+22:01.920 --> 22:04.080
+ You can't describe how you're doing it,
+
+22:04.080 --> 22:05.600
+ you're just doing it, you're changing your balance
+
+22:05.600 --> 22:08.040
+ when you come, you know, you do this to go to a stop.
+
+22:08.040 --> 22:10.800
+ So this is what we're constantly doing
+
+22:10.800 --> 22:14.320
+ is actually shaping our own circuitry
+
+22:14.320 --> 22:16.000
+ based on what is relevant for us.
+
+22:16.000 --> 22:18.800
+ Survival, of course, being the top thing that's relevant.
+
+22:18.800 --> 22:21.440
+ But interestingly, especially with humans,
+
+22:21.440 --> 22:23.400
+ we have these particular goals in our lives,
+
+22:23.400 --> 22:25.600
+ computer science, neuroscience, whatever.
+
+22:25.600 --> 22:28.680
+ And so we actually shape our circuitry around that.
+
+22:28.680 --> 22:31.400
+ I mean, you mentioned this gets slower and slower with age,
+
+22:31.400 --> 22:36.080
+ but is there, like I think I've read and spoken offline,
+
+22:36.080 --> 22:41.080
+ even on this podcast with a developmental neurobiologist,
+
+22:41.320 --> 22:43.400
+ I guess would be the right terminology,
+
+22:43.400 --> 22:45.520
+ is like looking at the very early,
+
+22:45.520 --> 22:50.440
+ like from embryonic stem cells to the creation of the brain.
+
+22:50.440 --> 22:55.320
+ And like, that's mind blowing how much stuff happens there.
+
+22:55.320 --> 22:57.440
+ So it's very malleable at that stage.
+
+22:59.280 --> 23:01.560
+ And then, but after that,
+
+23:01.560 --> 23:04.600
+ at which point does it stop being malleable?
+
+23:04.600 --> 23:06.040
+ So that's the interesting thing
+
+23:06.040 --> 23:08.480
+ is that it remains malleable your whole life.
+
+23:08.480 --> 23:10.200
+ So even when you're an old person,
+
+23:10.200 --> 23:13.120
+ you'll be able to remember new faces and names,
+
+23:13.120 --> 23:15.680
+ you'll be able to learn new sorts of tasks.
+
+23:15.680 --> 23:16.520
+ And thank goodness,
+
+23:16.520 --> 23:17.960
+ cause the world is changing rapidly
+
+23:17.960 --> 23:19.720
+ in terms of technology and so on.
+
+23:19.720 --> 23:21.400
+ I just sent my mother an Alexa
+
+23:21.400 --> 23:23.400
+ and she figured out how to go on the settings
+
+23:23.400 --> 23:24.240
+ and do the thing.
+
+23:24.240 --> 23:26.960
+ And I was really impressed that she was able to do it.
+
+23:26.960 --> 23:28.520
+ So there are parts of the brain
+
+23:28.520 --> 23:30.360
+ that remain malleable their whole life.
+
+23:30.360 --> 23:34.200
+ The interesting part is that really your goal
+
+23:34.200 --> 23:36.080
+ is to make an internal model of the world.
+
+23:36.080 --> 23:39.120
+ Your goal is to say, okay,
+
+23:39.120 --> 23:42.280
+ the brain is trapped in silence and darkness,
+
+23:42.280 --> 23:43.520
+ and it's trying to understand
+
+23:43.520 --> 23:46.040
+ how the world works out there, right?
+
+23:46.040 --> 23:47.080
+ I love that image.
+
+23:47.080 --> 23:48.240
+ Yeah, I guess it is.
+
+23:48.240 --> 23:49.080
+ Yeah.
+
+23:49.080 --> 23:53.040
+ You forget, it's like this lonely thing
+
+23:53.040 --> 23:54.640
+ is sitting in its own container
+
+23:54.640 --> 23:57.080
+ and trying to actually throw a few sensors,
+
+23:57.080 --> 23:58.760
+ figure out what the hell's going on.
+
+23:58.760 --> 23:59.800
+ You know what I sometimes think about
+
+23:59.800 --> 24:03.120
+ is that movie, The Martian with Matt Damon,
+
+24:03.120 --> 24:05.560
+ the, I mean, it was written in a book, of course,
+
+24:05.560 --> 24:08.400
+ but the movie poster shows Matt Damon
+
+24:08.400 --> 24:09.800
+ all alone on the red planet.
+
+24:09.800 --> 24:12.520
+ And I think, God, that's actually what it's like
+
+24:12.520 --> 24:16.360
+ to be inside your head and my head and anybody's head
+
+24:16.360 --> 24:20.200
+ is that you're essentially on your own planet in there.
+
+24:20.200 --> 24:21.600
+ And I'm essentially on my own planet.
+
+24:21.600 --> 24:24.080
+ And everyone's got their own world
+
+24:24.080 --> 24:26.680
+ where you've absorbed all of your experiences
+
+24:26.680 --> 24:28.000
+ up to this moment in your life
+
+24:28.000 --> 24:29.560
+ that have made you exactly who you are
+
+24:29.560 --> 24:31.120
+ and same for me and everyone.
+
+24:31.120 --> 24:36.120
+ And we've got this very thin bandwidth of communication.
+
+24:36.680 --> 24:38.720
+ And I'll say something like,
+
+24:38.720 --> 24:40.720
+ oh yeah, that tastes just like peaches.
+
+24:40.720 --> 24:42.840
+ And you'll say, oh, I know what you mean.
+
+24:42.840 --> 24:44.280
+ But the experience, of course,
+
+24:44.280 --> 24:46.560
+ might be vastly different for us.
+
+24:47.680 --> 24:48.520
+ But anyway, yes.
+
+24:48.520 --> 24:50.520
+ So the brain is trapped in silence and darkness,
+
+24:50.520 --> 24:53.280
+ each one of us, and what it's trying to do,
+
+24:53.280 --> 24:54.120
+ this is the important part,
+
+24:54.120 --> 24:55.720
+ it's trying to make an internal model
+
+24:55.720 --> 24:56.560
+ of what's going on out there,
+
+24:56.560 --> 24:58.800
+ as in how do I function in the world?
+
+24:58.800 --> 25:00.800
+ How do I interact with other people?
+
+25:00.800 --> 25:02.680
+ Do I say something nice and polite?
+
+25:02.680 --> 25:04.040
+ Do I say something aggressive and mean?
+
+25:04.040 --> 25:05.560
+ Do I, you know, all these things
+
+25:05.560 --> 25:08.440
+ that it's putting together about the world.
+
+25:08.440 --> 25:12.320
+ And I think what happens when people get older and older,
+
+25:12.320 --> 25:15.480
+ it may not be that plasticity is diminishing.
+
+25:15.480 --> 25:18.160
+ It may be that their internal model essentially
+
+25:18.160 --> 25:20.120
+ has set itself up in a way where it says,
+
+25:20.120 --> 25:21.160
+ okay, I've pretty much got
+
+25:21.160 --> 25:22.800
+ a really good understanding of the world now,
+
+25:22.800 --> 25:25.400
+ and I don't really need to change, right?
+
+25:25.400 --> 25:28.600
+ So when much older people find themselves
+
+25:28.600 --> 25:30.800
+ in a situation where they need to change,
+
+25:30.800 --> 25:33.280
+ they can actually are able to do it.
+
+25:33.280 --> 25:34.760
+ It's just that I think this notion
+
+25:34.760 --> 25:36.960
+ that we all have that plasticity diminishes
+
+25:36.960 --> 25:38.880
+ as we grow older is in part
+
+25:38.880 --> 25:41.480
+ because the motivation isn't there.
+
+25:41.480 --> 25:44.120
+ But if you were 80 and you get fired from your job
+
+25:44.120 --> 25:45.720
+ and suddenly had to figure out
+
+25:45.720 --> 25:47.440
+ how to program a WordPress site or something,
+
+25:47.440 --> 25:48.920
+ you'd figure it out.
+
+25:48.920 --> 25:49.760
+ Got it.
+
+25:49.760 --> 25:53.720
+ So the capability, the possibility of change is there.
+
+25:53.720 --> 25:57.040
+ But then that's the highest challenge,
+
+25:57.040 --> 26:00.880
+ the interesting challenge to this plasticity,
+
+26:00.880 --> 26:03.440
+ to this liveware system.
+
+26:03.440 --> 26:06.000
+ If we could talk about brain computer interfaces
+
+26:06.000 --> 26:09.040
+ and Neuralink, what are your thoughts
+
+26:09.040 --> 26:13.680
+ about the efforts of Elon Musk, Neuralink, BCI in general
+
+26:13.680 --> 26:18.320
+ in this regard, which is adding a machine,
+
+26:18.320 --> 26:21.720
+ a computer, the capability of a computer
+
+26:21.720 --> 26:22.800
+ to communicate with the brain
+
+26:22.800 --> 26:24.920
+ and the brain to communicate with a computer
+
+26:24.920 --> 26:26.800
+ at the very basic applications
+
+26:26.800 --> 26:28.880
+ and then like the futuristic kind of thoughts.
+
+26:28.880 --> 26:30.920
+ Yeah, first of all, it's terrific
+
+26:30.920 --> 26:32.360
+ that people are jumping in and doing that
+
+26:32.360 --> 26:34.480
+ because it's clearly the future.
+
+26:34.480 --> 26:37.280
+ The interesting part is our brains have pretty good methods
+
+26:37.280 --> 26:38.760
+ of interacting with technology.
+
+26:38.760 --> 26:41.520
+ So maybe it's your fat thumbs on a cell phone or something,
+
+26:41.520 --> 26:44.600
+ but, or maybe it's watching a YouTube video
+
+26:44.600 --> 26:45.840
+ and getting into your eye that way.
+
+26:45.840 --> 26:48.360
+ But we have pretty rapid ways of communicating
+
+26:48.360 --> 26:49.960
+ with technology and getting data.
+
+26:49.960 --> 26:52.760
+ So if you actually crack open the skull
+
+26:52.760 --> 26:55.600
+ and go into the inner sanctum of the brain,
+
+26:56.520 --> 26:58.200
+ you might be able to get a little bit faster,
+
+26:58.200 --> 27:03.200
+ but I'll tell you, I'm not so sanguine
+
+27:03.400 --> 27:06.640
+ on the future of that as a business.
+
+27:06.640 --> 27:07.480
+ And I'll tell you why.
+
+27:07.480 --> 27:10.040
+ It's because there are various ways
+
+27:10.040 --> 27:11.160
+ of getting data in and out
+
+27:11.160 --> 27:14.480
+ and an open head surgery is a big deal.
+
+27:14.480 --> 27:16.560
+ Neurosurgeons don't wanna do it
+
+27:16.560 --> 27:18.000
+ because there's always risk of death
+
+27:18.000 --> 27:19.640
+ and infection on the table.
+
+27:19.640 --> 27:23.200
+ And also it's not clear how many people would say,
+
+27:23.200 --> 27:26.000
+ I'm gonna volunteer to get something in my head
+
+27:26.000 --> 27:29.800
+ so that I can text faster, 20% faster.
+
+27:29.800 --> 27:33.720
+ So I think it's, mother nature surrounds the brain
+
+27:33.720 --> 27:37.840
+ with this armored bunker of the skull
+
+27:37.840 --> 27:39.680
+ because it's a very delicate material.
+
+27:39.680 --> 27:41.680
+ And there's an expression in neurosurgery
+
+27:44.200 --> 27:46.480
+ about the brain is,
+
+27:46.480 --> 27:49.080
+ the person is never the same after you open up their skull.
+
+27:49.080 --> 27:51.640
+ Now, whether or not that's true or whatever, who cares?
+
+27:51.640 --> 27:54.080
+ But it's a big deal to do an open head surgery.
+
+27:54.080 --> 27:57.520
+ So what I'm interested in is how can we get information
+
+27:57.520 --> 27:58.360
+ in and out of the brain
+
+27:58.360 --> 28:00.680
+ without having to crack the skull open?
+
+28:00.680 --> 28:03.880
+ Without messing with the biological part,
+
+28:03.880 --> 28:06.480
+ directly connecting or messing
+
+28:06.480 --> 28:10.440
+ with the intricate biological thing that we got going on
+
+28:10.440 --> 28:11.920
+ and it seems to be working.
+
+28:11.920 --> 28:12.760
+ Yeah, exactly.
+
+28:12.760 --> 28:15.400
+ And by the way, where Neuralink is going,
+
+28:15.400 --> 28:18.240
+ which is wonderful, is going to be in patient cases.
+
+28:18.240 --> 28:20.520
+ It really matters for all kinds of surgeries
+
+28:20.520 --> 28:21.760
+ that a person needs,
+
+28:21.760 --> 28:24.000
+ whether for Parkinson's or epilepsy or whatever.
+
+28:24.000 --> 28:25.680
+ It's a terrific new technology
+
+28:25.680 --> 28:27.760
+ for essentially sewing electrodes in there
+
+28:27.760 --> 28:30.000
+ and getting more higher density of electrodes.
+
+28:30.000 --> 28:30.960
+ So that's great.
+
+28:30.960 --> 28:34.400
+ I just don't think as far as the future of BCI goes,
+
+28:34.400 --> 28:38.400
+ I don't suspect that people will go in and say,
+
+28:38.400 --> 28:40.640
+ yeah, drill a hole in my head and do this.
+
+28:40.640 --> 28:41.680
+ Well, it's interesting
+
+28:41.680 --> 28:44.280
+ because I think there's a similar intuition
+
+28:44.280 --> 28:46.680
+ but say in the world of autonomous vehicles
+
+28:46.680 --> 28:49.400
+ that folks know how hard it is
+
+28:49.400 --> 28:51.560
+ and it seems damn impossible.
+
+28:51.560 --> 28:52.960
+ The similar intuition about,
+
+28:52.960 --> 28:54.680
+ I'm sticking on the Elon Musk thing
+
+28:54.680 --> 28:57.040
+ is just a good, easy example.
+
+28:57.040 --> 28:59.680
+ Similar intuition about colonizing Mars,
+
+28:59.680 --> 29:01.440
+ it like, if you really think about it,
+
+29:01.440 --> 29:04.760
+ it seems extremely difficult.
+
+29:04.760 --> 29:08.960
+ And almost, I mean, just technically difficult
+
+29:08.960 --> 29:12.000
+ to a degree where you wanna ask,
+
+29:12.000 --> 29:14.840
+ is it really worth doing, worth trying?
+
+29:14.840 --> 29:17.880
+ And then the same is applied with BCI.
+
+29:17.880 --> 29:20.400
+ But the thing about the future
+
+29:21.800 --> 29:23.720
+ is it's hard to predict.
+
+29:23.720 --> 29:26.680
+ So the exciting thing to me with,
+
+29:26.680 --> 29:29.640
+ so once it does, once if successful,
+
+29:29.640 --> 29:31.640
+ it's able to help patients,
+
+29:31.640 --> 29:36.640
+ it may be able to discover something very surprising
+
+29:36.680 --> 29:39.560
+ of our ability to directly communicate with the brain.
+
+29:39.560 --> 29:42.840
+ So exactly what you're interested in is figuring out
+
+29:42.840 --> 29:46.640
+ how to play with this malleable brain,
+
+29:46.640 --> 29:49.480
+ but like help assist it somehow.
+
+29:49.480 --> 29:52.240
+ I mean, it's such a compelling notion to me
+
+29:52.240 --> 29:53.640
+ that we're now working on
+
+29:53.640 --> 29:55.960
+ all these exciting machine learning systems
+
+29:55.960 --> 29:59.760
+ that are able to learn from data.
+
+29:59.760 --> 30:04.040
+ And then if we can have this other brain
+
+30:04.040 --> 30:05.600
+ that's a learning system,
+
+30:05.600 --> 30:09.600
+ that's live wired on the human side
+
+30:09.600 --> 30:11.520
+ and them to be able to communicate,
+
+30:11.520 --> 30:14.120
+ it's like a self play mechanism
+
+30:14.120 --> 30:17.800
+ was able to beat the world champion at Go.
+
+30:17.800 --> 30:19.560
+ So they can play with each other,
+
+30:19.560 --> 30:22.440
+ the computer and the brain, like when you sleep.
+
+30:22.440 --> 30:24.520
+ I mean, there's a lot of futuristic kind of things
+
+30:24.520 --> 30:27.640
+ that it's just exciting possibilities,
+
+30:27.640 --> 30:30.240
+ but I hear you, we understand so little
+
+30:30.240 --> 30:34.080
+ about the actual intricacies of the communication
+
+30:34.080 --> 30:38.480
+ of the brain that it's hard to find the common language.
+
+30:38.480 --> 30:43.480
+ Well, interestingly, the technologies that have been built
+
+30:45.800 --> 30:48.320
+ don't actually require the perfect common language.
+
+30:48.320 --> 30:51.080
+ So for example, hundreds of thousands of people
+
+30:51.080 --> 30:52.440
+ are walking around with artificial ears
+
+30:52.440 --> 30:53.440
+ and artificial eyes,
+
+30:53.440 --> 30:56.920
+ meaning cochlear implants or retinal implants.
+
+30:56.920 --> 31:00.320
+ So this is, you take a essentially digital microphone,
+
+31:00.320 --> 31:03.240
+ you slip an electrode strip into the inner ear
+
+31:03.240 --> 31:05.160
+ and people can learn how to hear that way,
+
+31:05.160 --> 31:06.600
+ or you take an electrode grid
+
+31:06.600 --> 31:09.240
+ and you plug it into the retina at the back of the eye
+
+31:09.240 --> 31:11.160
+ and people can learn how to see that way.
+
+31:11.160 --> 31:13.880
+ The interesting part is those devices
+
+31:13.880 --> 31:17.120
+ don't speak exactly the natural biological language,
+
+31:17.120 --> 31:19.400
+ they speak the dialect of Silicon Valley.
+
+31:19.400 --> 31:24.360
+ And it turns out that as recently as about 25 years ago,
+
+31:24.360 --> 31:26.520
+ a lot of people thought this was never gonna work.
+
+31:26.520 --> 31:28.960
+ They thought it wasn't gonna work for that reason,
+
+31:28.960 --> 31:30.360
+ but the brain figures it out.
+
+31:30.360 --> 31:32.200
+ It's really good at saying, okay, look,
+
+31:32.200 --> 31:34.200
+ there's some correlation between what I can touch
+
+31:34.200 --> 31:35.840
+ and feel and hear and so on,
+
+31:35.840 --> 31:37.040
+ and the data that's coming in,
+
+31:37.040 --> 31:41.520
+ or between I clap my hands and I have signals coming in there
+
+31:41.520 --> 31:44.240
+ and it figures out how to speak any language.
+
+31:44.240 --> 31:45.080
+ Oh, that's fascinating.
+
+31:45.080 --> 31:50.000
+ So like no matter if it's Neuralink,
+
+31:50.000 --> 31:51.760
+ so directly communicating with the brain,
+
+31:51.760 --> 31:54.720
+ or it's a smartphone or Google Glass,
+
+31:54.720 --> 31:58.800
+ or the brain figures out the efficient way of communication.
+
+31:58.800 --> 32:00.200
+ Well, exactly, exactly.
+
+32:00.200 --> 32:03.680
+ And what I propose is the potato head theory of evolution,
+
+32:03.680 --> 32:08.320
+ which is that all our eyes and nose and mouth and ears
+
+32:08.320 --> 32:10.760
+ and fingertips, all this stuff is just plug and play.
+
+32:10.760 --> 32:12.760
+ And the brain can figure out
+
+32:12.760 --> 32:14.160
+ what to do with the data that comes in.
+
+32:14.160 --> 32:17.600
+ And part of the reason that I think this is right,
+
+32:17.600 --> 32:18.960
+ and I care so deeply about this,
+
+32:18.960 --> 32:20.360
+ is when you look across the animal kingdom,
+
+32:20.360 --> 32:23.520
+ you find all kinds of weird peripheral devices plugged in,
+
+32:23.520 --> 32:25.760
+ and the brain figures out what to do with the data.
+
+32:25.760 --> 32:27.360
+ And I don't believe that Mother Nature
+
+32:27.360 --> 32:32.360
+ has to reinvent the principles of brain operation each time
+
+32:32.360 --> 32:33.800
+ to say, oh, now I'm gonna have heat pits
+
+32:33.800 --> 32:34.640
+ to detect infrared.
+
+32:34.640 --> 32:36.280
+ Now I'm gonna have something
+
+32:36.280 --> 32:39.200
+ to detect electroreceptors on the body.
+
+32:39.200 --> 32:40.040
+ Now I'm gonna detect something
+
+32:40.040 --> 32:42.520
+ to pick up the magnetic field of the earth
+
+32:42.520 --> 32:43.960
+ with cryptochromes in the eye.
+
+32:43.960 --> 32:45.800
+ And so instead the brain says, oh, I got it.
+
+32:45.800 --> 32:47.240
+ There's data coming in.
+
+32:47.240 --> 32:48.080
+ Is that useful?
+
+32:48.080 --> 32:48.920
+ Can I do something with it?
+
+32:48.920 --> 32:50.440
+ Oh, great, I'm gonna mold myself
+
+32:50.440 --> 32:52.640
+ around the data that's coming in.
+
+32:52.640 --> 32:55.440
+ It's kind of fascinating to think that,
+
+32:55.440 --> 32:56.560
+ we think of smartphones
+
+32:56.560 --> 32:58.760
+ and all this new technology as novel.
+
+32:58.760 --> 33:02.680
+ It's totally novel as outside of what evolution
+
+33:02.680 --> 33:05.600
+ ever intended or like what nature ever intended.
+
+33:05.600 --> 33:08.400
+ It's fascinating to think that like the entirety
+
+33:08.400 --> 33:10.960
+ of the process of evolution is perfectly fine
+
+33:10.960 --> 33:14.200
+ and ready for the smartphone and the internet.
+
+33:14.200 --> 33:15.240
+ Like it's ready.
+
+33:15.240 --> 33:17.120
+ It's ready to be valuable to that.
+
+33:17.120 --> 33:21.440
+ And whatever comes to cyborgs, to virtual reality,
+
+33:21.440 --> 33:23.480
+ we kind of think like, this is, you know,
+
+33:23.480 --> 33:27.000
+ there's all these like books written about what's natural
+
+33:27.000 --> 33:29.600
+ and we're like destroying our natural cells
+
+33:29.600 --> 33:32.560
+ by like embracing all this technology.
+
+33:32.560 --> 33:34.520
+ It's kind of, you know,
+
+33:34.520 --> 33:36.480
+ probably not giving the brain enough credit.
+
+33:36.480 --> 33:40.240
+ Like this thing is just fine with new tech.
+
+33:40.240 --> 33:41.840
+ Oh, exactly, it wraps itself around.
+
+33:41.840 --> 33:43.120
+ And by the way, wait till you have kids.
+
+33:43.120 --> 33:46.320
+ You'll see the ease with which they pick up on stuff.
+
+33:46.320 --> 33:50.280
+ And as Kevin Kelly said,
+
+33:50.280 --> 33:54.480
+ technology is what gets invented after you're born.
+
+33:54.480 --> 33:56.280
+ But the stuff that already exists when you're born,
+
+33:56.280 --> 33:58.120
+ that's not even tech, that's just background furniture.
+
+33:58.120 --> 34:00.840
+ Like the fact that the iPad exists for my son and daughter,
+
+34:00.840 --> 34:02.320
+ like that's just background furniture.
+
+34:02.320 --> 34:06.240
+ So, yeah, it's because we have
+
+34:06.240 --> 34:08.200
+ this incredibly malleable system,
+
+34:08.200 --> 34:10.680
+ that just absorbs whatever is going on in the world
+
+34:10.680 --> 34:11.840
+ and learns what to do with it.
+
+34:11.840 --> 34:15.400
+ So do you think, just to linger for a little bit more,
+
+34:15.400 --> 34:20.400
+ do you think it's possible to co adjust?
+
+34:22.160 --> 34:25.400
+ Like we're kind of, you know,
+
+34:25.400 --> 34:27.880
+ for the machine to adjust to the brain,
+
+34:27.880 --> 34:29.240
+ for the brain to adjust to the machine.
+
+34:29.240 --> 34:31.040
+ I guess that's what's already happening.
+
+34:31.040 --> 34:32.360
+ Sure, that is what's happening.
+
+34:32.360 --> 34:34.640
+ So for example, when you put electrodes
+
+34:34.640 --> 34:37.200
+ in the motor cortex to control a robotic arm
+
+34:37.200 --> 34:39.240
+ for somebody who's paralyzed,
+
+34:39.240 --> 34:41.080
+ the engineers do a lot of work to figure out,
+
+34:41.080 --> 34:42.840
+ okay, what can we do with the algorithm here
+
+34:42.840 --> 34:45.640
+ so that we can detect what's going on from these cells
+
+34:45.640 --> 34:49.760
+ and figure out how to best program the robotic arm to move
+
+34:49.760 --> 34:51.920
+ given the data that we're measuring from these cells.
+
+34:51.920 --> 34:54.560
+ But also the brain is learning too.
+
+34:54.560 --> 34:57.040
+ So, you know, the paralyzed woman says,
+
+34:57.040 --> 34:58.840
+ wait, I'm trying to grab this thing.
+
+34:58.840 --> 35:00.880
+ And by the way, it's all about relevance.
+
+35:00.880 --> 35:04.040
+ So if there's a piece of food there and she's hungry,
+
+35:04.040 --> 35:08.240
+ she'll figure out how to get this food into her mouth
+
+35:08.240 --> 35:11.320
+ with the robotic arm because that is what matters.
+
+35:13.240 --> 35:15.520
+ Well, that's, okay, first of all,
+
+35:15.520 --> 35:17.640
+ that paints a really promising and beautiful,
+
+35:17.640 --> 35:20.160
+ for some reason, really optimistic picture
+
+35:20.160 --> 35:25.160
+ that, you know, our brain is able to adjust to so much.
+
+35:26.320 --> 35:29.640
+ You know, so many things happened this year, 2020,
+
+35:29.640 --> 35:32.960
+ that you think like, how are we ever going to deal with it?
+
+35:32.960 --> 35:35.680
+ And it's somehow encouraging
+
+35:35.680 --> 35:40.680
+ and inspiring that like we're going to be okay.
+
+35:41.120 --> 35:41.960
+ Well, that's right.
+
+35:41.960 --> 35:45.080
+ I actually think, so 2020 has been an awful year
+
+35:45.080 --> 35:46.960
+ for almost everybody in many ways,
+
+35:46.960 --> 35:50.440
+ but the one silver lining has to do with brain plasticity,
+
+35:50.440 --> 35:54.080
+ which is to say we've all been on our, you know,
+
+35:54.080 --> 35:56.480
+ on our gerbil wheels, we've all been in our routines.
+
+35:56.480 --> 35:58.600
+ And, you know, as I mentioned,
+
+35:58.600 --> 36:00.760
+ our internal models are all about
+
+36:00.760 --> 36:02.320
+ how do you maximally succeed?
+
+36:02.320 --> 36:04.560
+ How do you optimize your operation
+
+36:04.560 --> 36:07.240
+ in this circumstance where you are, right?
+
+36:07.240 --> 36:09.080
+ And then all of a sudden, bang, 2020 comes,
+
+36:09.080 --> 36:10.920
+ we're completely off our wheels.
+
+36:10.920 --> 36:14.880
+ We're having to create new things all the time
+
+36:14.880 --> 36:15.960
+ and figure out how to do it.
+
+36:15.960 --> 36:18.720
+ And that is terrific for brain plasticity because,
+
+36:18.720 --> 36:23.480
+ and we know this because there are very large studies
+
+36:23.480 --> 36:26.480
+ on older people who stay cognitively active
+
+36:26.480 --> 36:28.000
+ their whole lives.
+
+36:28.000 --> 36:31.760
+ Some fraction of them have Alzheimer's disease
+
+36:31.760 --> 36:34.640
+ physically, but nobody knows that when they're alive.
+
+36:34.640 --> 36:36.000
+ Even though their brain is getting chewed up
+
+36:36.000 --> 36:38.600
+ with the ravages of Alzheimer's,
+
+36:38.600 --> 36:40.000
+ cognitively they're doing just fine.
+
+36:40.000 --> 36:40.840
+ Why?
+
+36:40.840 --> 36:44.080
+ It's because they're challenged all the time.
+
+36:44.080 --> 36:45.520
+ They've got all these new things going on,
+
+36:45.520 --> 36:47.200
+ all this novelty, all these responsibilities,
+
+36:47.200 --> 36:49.640
+ chores, social life, all these things happening.
+
+36:49.640 --> 36:52.760
+ And as a result, they're constantly building new roadways,
+
+36:52.760 --> 36:54.680
+ even as parts degrade.
+
+36:54.680 --> 36:57.720
+ And that's the only good news is that
+
+36:57.720 --> 36:59.480
+ we are in a situation where suddenly
+
+36:59.480 --> 37:02.000
+ we can't just operate like automata anymore.
+
+37:02.000 --> 37:05.520
+ We have to think of completely new ways to do things.
+
+37:05.520 --> 37:06.720
+ And that's wonderful.
+
+37:07.880 --> 37:11.200
+ I don't know why this question popped into my head.
+
+37:11.200 --> 37:16.080
+ It's quite absurd, but are we gonna be okay?
+
+37:16.080 --> 37:17.200
+ Yeah.
+
+37:17.200 --> 37:19.640
+ You said this is the promising silver lining
+
+37:19.640 --> 37:20.480
+ just from your own,
+
+37:20.480 --> 37:22.840
+ cause you've written about this and thought about this
+
+37:22.840 --> 37:25.240
+ outside of maybe even the plasticity of the brain,
+
+37:25.240 --> 37:29.920
+ but just this whole pandemic kind of changed the way
+
+37:29.920 --> 37:34.920
+ it knocked us out of this hamster wheel like that of habit.
+
+37:35.560 --> 37:39.400
+ A lot of people had to reinvent themselves.
+
+37:39.400 --> 37:42.240
+ Unfortunately, and I have a lot of friends
+
+37:42.240 --> 37:47.240
+ who either already or are going to lose their business,
+
+37:48.160 --> 37:52.720
+ is basically it's taking the dreams that people have had
+
+37:52.720 --> 37:57.720
+ and said this dream, this particular dream you've had
+
+37:58.160 --> 38:00.080
+ will no longer be possible.
+
+38:00.080 --> 38:02.040
+ So you have to find something new.
+
+38:02.040 --> 38:06.000
+ What are your, are we gonna be okay?
+
+38:06.000 --> 38:08.080
+ Yeah, we'll be okay in the sense that,
+
+38:08.080 --> 38:09.560
+ I mean, it's gonna be a rough time
+
+38:09.560 --> 38:11.800
+ for many or most people,
+
+38:11.800 --> 38:16.120
+ but in the sense that it is sometimes useful
+
+38:18.000 --> 38:20.760
+ to find that what you thought was your dream
+
+38:20.760 --> 38:24.520
+ was not the thing that you're going to do.
+
+38:24.520 --> 38:26.760
+ This is obviously the plot in lots of Hollywood movies
+
+38:26.760 --> 38:27.920
+ that someone says, I'm gonna do this,
+
+38:27.920 --> 38:29.280
+ and then that gets foiled
+
+38:29.280 --> 38:31.080
+ and they end up doing something better.
+
+38:31.080 --> 38:32.320
+ But this is true in life.
+
+38:32.320 --> 38:37.320
+ I mean, in general, even though we plan our lives
+
+38:38.440 --> 38:42.080
+ as best we can, it's predicated on our notion of,
+
+38:42.080 --> 38:43.600
+ okay, given everything that's around me,
+
+38:43.600 --> 38:45.800
+ this is what's possible for me next.
+
+38:47.040 --> 38:49.400
+ But it takes 2020 to knock you off that
+
+38:49.400 --> 38:50.840
+ where you think, oh, well, actually,
+
+38:50.840 --> 38:52.680
+ maybe there's something I can be doing
+
+38:52.680 --> 38:54.320
+ that's bigger, that's better.
+
+38:54.320 --> 38:56.560
+ Yeah, you know, for me, one exciting thing,
+
+38:56.560 --> 38:59.600
+ and I just talked to Grant Sanderson.
+
+38:59.600 --> 39:00.680
+ I don't know if you know who he is.
+
+39:00.680 --> 39:03.600
+ He's a 3Blue1Brown, it's a YouTube channel.
+
+39:03.600 --> 39:08.200
+ He does, he's a, if you see it, you would recognize it.
+
+39:08.200 --> 39:11.120
+ He's like a really famous math guy,
+
+39:11.120 --> 39:12.400
+ and he's a math educator,
+
+39:12.400 --> 39:15.040
+ and he does these incredible, beautiful videos.
+
+39:15.040 --> 39:17.000
+ And now I see sort of at MIT,
+
+39:17.000 --> 39:19.680
+ folks are struggling to try to figure out,
+
+39:19.680 --> 39:21.800
+ you know, if we do teach remotely,
+
+39:21.800 --> 39:23.560
+ how do we do it effectively?
+
+39:23.560 --> 39:27.960
+ So you have these world class researchers
+
+39:27.960 --> 39:30.240
+ and professors trying to figure out
+
+39:30.240 --> 39:33.760
+ how to put content online that teaches people.
+
+39:33.760 --> 39:37.720
+ And to me, a possible future of that is,
+
+39:37.720 --> 39:42.720
+ you know, Nobel Prize winning faculty become YouTubers.
+
+39:42.720 --> 39:47.720
+ Like that to me is so exciting, like what Grant said,
+
+39:47.720 --> 39:52.480
+ which is like the possibility of creating canonical videos
+
+39:52.480 --> 39:55.000
+ on the thing you're a world expert in.
+
+39:55.000 --> 39:56.880
+ You know, there's so many topics.
+
+39:56.880 --> 40:00.880
+ It just, the world doesn't, you know, there's faculty.
+
+40:00.880 --> 40:02.120
+ I mentioned Russ Tedrick.
+
+40:02.120 --> 40:04.240
+ There's all these people in robotics
+
+40:04.240 --> 40:07.880
+ that are experts in a particular beautiful field
+
+40:07.880 --> 40:09.840
+ on which there's only just papers.
+
+40:09.840 --> 40:12.680
+ There's no popular book.
+
+40:12.680 --> 40:16.400
+ There's no clean canonical video
+
+40:16.400 --> 40:18.120
+ showing the beauty of a subject.
+
+40:18.120 --> 40:22.360
+ And one possibility is they try to create that
+
+40:22.360 --> 40:25.400
+ and share it with the world.
+
+40:25.400 --> 40:26.400
+ This is the beautiful thing.
+
+40:26.400 --> 40:28.880
+ This of course has been happening for a while already.
+
+40:28.880 --> 40:31.720
+ I mean, for example, when I go and I give book talks,
+
+40:31.720 --> 40:33.760
+ often what'll happen is some 13 year old
+
+40:33.760 --> 40:35.360
+ will come up to me afterwards and say something,
+
+40:35.360 --> 40:37.160
+ and I'll say, my God, that was so smart.
+
+40:37.160 --> 40:38.840
+ Like, how did you know that?
+
+40:38.840 --> 40:40.320
+ And they'll say, oh, I saw it on a Ted talk.
+
+40:40.320 --> 40:42.880
+ Well, what an amazing opportunity.
+
+40:42.880 --> 40:46.440
+ Here you got the best person in the world on subject X
+
+40:46.440 --> 40:51.440
+ giving a 15 minute talk as beautifully as he or she can.
+
+40:51.880 --> 40:53.440
+ And the 13 year old just grows up with that.
+
+40:53.440 --> 40:55.160
+ That's just the mother's milk, right?
+
+40:55.160 --> 40:57.720
+ As opposed to when we grew up,
+
+40:57.720 --> 41:00.320
+ you know, I had whatever homeroom teacher I had
+
+41:00.320 --> 41:03.200
+ and, you know, whatever classmates I had.
+
+41:03.200 --> 41:06.440
+ And hopefully that person knew what he or she was teaching
+
+41:06.440 --> 41:08.760
+ and often didn't and, you know, just made things up.
+
+41:08.760 --> 41:12.960
+ So the opportunity that has become extraordinary
+
+41:12.960 --> 41:14.480
+ to get the best of the world.
+
+41:14.480 --> 41:15.720
+ And the reason this matters, of course,
+
+41:15.720 --> 41:18.560
+ is because obviously, back to plasticity,
+
+41:18.560 --> 41:22.000
+ the way that we, the way our brain gets molded
+
+41:22.000 --> 41:24.320
+ is by absorbing everything from the world,
+
+41:24.320 --> 41:28.520
+ all of the knowledge and the data and so on that it can get,
+
+41:28.520 --> 41:33.040
+ and then springboarding off of that.
+
+41:33.040 --> 41:34.340
+ And we're in a very lucky time now
+
+41:34.340 --> 41:39.340
+ because we grew up with a lot of just in case learning.
+
+41:40.340 --> 41:42.000
+ So, you know, just in case you ever need to know
+
+41:42.000 --> 41:44.720
+ these dates in Mongolian history, here they are.
+
+41:44.720 --> 41:47.280
+ But what kids are grown up with now, like my kids,
+
+41:47.280 --> 41:48.800
+ is tons of just in time learning.
+
+41:48.800 --> 41:50.120
+ So as soon as they're curious about something,
+
+41:50.120 --> 41:51.800
+ they ask Alexa, they ask Google Home,
+
+41:51.800 --> 41:53.080
+ they get the answer right there
+
+41:53.080 --> 41:54.600
+ in the context of their curiosity.
+
+41:54.600 --> 41:59.600
+ The reason this matters is because for plasticity to happen,
+
+41:59.720 --> 42:02.480
+ you need to care, you need to be curious about something.
+
+42:02.480 --> 42:03.760
+ And this is something, by the way,
+
+42:03.760 --> 42:06.320
+ that the ancient Romans had noted.
+
+42:06.320 --> 42:08.360
+ They had outlined seven different levels of learning
+
+42:08.360 --> 42:10.600
+ and the highest level is when you're curious about a topic.
+
+42:10.600 --> 42:13.200
+ But anyway, so kids now are getting tons
+
+42:13.200 --> 42:15.800
+ of just in time learning, and as a result,
+
+42:15.800 --> 42:18.440
+ they're gonna be so much smarter than we are.
+
+42:18.440 --> 42:19.760
+ They're just, and we can already see that.
+
+42:19.760 --> 42:22.200
+ I mean, my boy is eight years old, my girl is five.
+
+42:22.200 --> 42:25.740
+ But I mean, the things that he knows are amazing
+
+42:25.740 --> 42:27.800
+ because it's not just him having to do
+
+42:27.800 --> 42:29.960
+ the rote memorization stuff that we did.
+
+42:29.960 --> 42:32.280
+ Yeah, it's just fascinating what the brain,
+
+42:32.280 --> 42:33.640
+ what young brains look like now
+
+42:33.640 --> 42:36.880
+ because of all those TED Talks just loaded in there.
+
+42:36.880 --> 42:39.920
+ And there's also, I mean, a lot of people, right,
+
+42:39.920 --> 42:42.960
+ kind of, there's a sense that our attention span
+
+42:42.960 --> 42:46.320
+ is growing shorter, but it's complicated
+
+42:46.320 --> 42:50.760
+ because for example, most people, majority of people,
+
+42:50.760 --> 42:53.000
+ it's the 80 plus percent of people listen
+
+42:53.000 --> 42:54.600
+ to the entirety of these things,
+
+42:54.600 --> 42:56.800
+ two, three hours for the podcast,
+
+42:56.800 --> 43:00.920
+ long form podcasts are becoming more and more popular.
+
+43:00.920 --> 43:04.240
+ So like that's, it's all really giant complicated mess.
+
+43:04.240 --> 43:07.440
+ And the point is that the brain is able to adjust to it
+
+43:07.440 --> 43:11.840
+ and somehow like form a worldview
+
+43:11.840 --> 43:16.840
+ within this new medium of like information that we have.
+
+43:17.040 --> 43:19.920
+ You have like these short tweets
+
+43:19.920 --> 43:22.840
+ and you have these three, four hour podcasts
+
+43:22.840 --> 43:24.940
+ and you have Netflix movie.
+
+43:24.940 --> 43:27.200
+ I mean, it's just, it's adjusting to the entirety
+
+43:27.200 --> 43:30.080
+ and just absorbing it and taking it all in
+
+43:30.080 --> 43:34.600
+ and then pops up COVID that forces us all to be home
+
+43:34.600 --> 43:39.200
+ and it all just adjusts and figures it out.
+
+43:39.200 --> 43:40.200
+ Yeah, yeah, exactly.
+
+43:40.200 --> 43:41.880
+ It's fascinating.
+
+43:41.880 --> 43:43.880
+ Been talking about the brain
+
+43:43.880 --> 43:48.400
+ as if it's something separate from the human
+
+43:48.400 --> 43:50.280
+ that carries it a little bit.
+
+43:50.280 --> 43:52.180
+ Like whenever you talk about the brain,
+
+43:52.180 --> 43:55.340
+ it's easy to forget that that's like, that's us.
+
+43:55.340 --> 43:58.700
+ Like how much do you,
+
+43:59.620 --> 44:03.420
+ how much is the whole thing like predetermined?
+
+44:04.860 --> 44:07.720
+ Like how much is it already encoded in there?
+
+44:08.580 --> 44:12.380
+ And how much is it the, what's the hit?
+
+44:17.020 --> 44:22.020
+ The actions, the decisions, the judgments, the...
+
+44:22.220 --> 44:23.300
+ You mean like who you are?
+
+44:23.300 --> 44:24.140
+ Who you are.
+
+44:24.140 --> 44:25.760
+ Oh, yeah, yeah, okay, great question.
+
+44:25.760 --> 44:27.400
+ Right, so there used to be a big debate
+
+44:27.400 --> 44:28.900
+ about nature versus nurture.
+
+44:28.900 --> 44:31.380
+ And we now know that it's always both.
+
+44:31.380 --> 44:32.720
+ You can't even separate them
+
+44:32.720 --> 44:35.500
+ because you come to the table with a certain amount of nature
+
+44:35.500 --> 44:37.740
+ for example, your whole genome and so on.
+
+44:37.740 --> 44:39.680
+ The experiences you have in the womb,
+
+44:39.680 --> 44:41.820
+ like whether your mother is smoking or drinking,
+
+44:41.820 --> 44:43.740
+ things like that, whether she's stressed, so on.
+
+44:43.740 --> 44:47.260
+ Those all influence how you're gonna pop out of the womb.
+
+44:47.260 --> 44:50.180
+ From there, everything is an interaction
+
+44:50.180 --> 44:55.180
+ between all of your experiences and the nature.
+
+44:55.500 --> 44:59.900
+ What I mean is, I think of it like a space time cone
+
+44:59.900 --> 45:01.820
+ where you have, you drop into the world
+
+45:01.820 --> 45:03.160
+ and depending on the experience that you have,
+
+45:03.160 --> 45:04.220
+ you might go off in this direction
+
+45:04.220 --> 45:05.980
+ or that direction or in that direction
+
+45:05.980 --> 45:08.460
+ because there's interaction on the way.
+
+45:08.460 --> 45:11.080
+ Your experiences determine what happens
+
+45:11.080 --> 45:12.380
+ with the expression of your genes.
+
+45:12.380 --> 45:15.980
+ So some genes get repressed, some get expressed and so on.
+
+45:15.980 --> 45:17.620
+ And you actually become a different person
+
+45:17.620 --> 45:18.940
+ based on your experiences.
+
+45:18.940 --> 45:21.140
+ There's a whole field called epigenomics,
+
+45:21.140 --> 45:24.020
+ which is, or epigenetics I should say,
+
+45:24.020 --> 45:26.400
+ which is about the epigenome.
+
+45:26.400 --> 45:30.380
+ And that is the layer that sits on top of the DNA
+
+45:30.380 --> 45:32.560
+ and causes the genes to express differently.
+
+45:32.560 --> 45:35.140
+ That is directly related to the experiences that you have.
+
+45:35.140 --> 45:38.700
+ So if, just as an example, they take rat pups
+
+45:38.700 --> 45:41.560
+ and one group is placed away from their parents
+
+45:41.560 --> 45:43.580
+ and the other group is groomed and licked
+
+45:43.580 --> 45:44.620
+ and taken good care of,
+
+45:44.620 --> 45:46.100
+ that changes their gene expression
+
+45:46.100 --> 45:46.940
+ for the rest of their life.
+
+45:46.940 --> 45:48.140
+ They go off in different directions
+
+45:48.140 --> 45:49.580
+ in this space time cone.
+
+45:50.940 --> 45:55.820
+ So yeah, this is of course why it matters
+
+45:55.820 --> 45:58.380
+ that we take care of children and pour money
+
+45:58.380 --> 46:00.780
+ into things like education and good childcare
+
+46:00.780 --> 46:03.480
+ and so on for children broadly,
+
+46:04.460 --> 46:08.340
+ because these formative years matter so much.
+
+46:08.340 --> 46:10.160
+ So is there a free will?
+
+46:11.620 --> 46:13.940
+ This is a great question.
+
+46:13.940 --> 46:16.500
+ I apologize for the absurd high level
+
+46:16.500 --> 46:17.340
+ philosophical questions.
+
+46:17.340 --> 46:19.060
+ No, no, these are my favorite kind of questions.
+
+46:19.060 --> 46:20.900
+ Here's the thing, here's the thing.
+
+46:20.900 --> 46:21.780
+ We don't know.
+
+46:21.780 --> 46:23.300
+ If you ask most neuroscientists,
+
+46:23.300 --> 46:26.780
+ they'll say that we can't really think
+
+46:26.780 --> 46:28.660
+ of how you would get free will in there
+
+46:28.660 --> 46:30.280
+ because as far as we can tell, it's a machine.
+
+46:30.280 --> 46:32.200
+ It's a very complicated machine.
+
+46:33.420 --> 46:36.140
+ Enormously sophisticated, 86 billion neurons,
+
+46:36.140 --> 46:38.140
+ about the same number of glial cells.
+
+46:38.140 --> 46:40.140
+ Each of these things is as complicated
+
+46:40.140 --> 46:41.280
+ as the city of San Francisco.
+
+46:41.280 --> 46:43.500
+ Each neuron in your head has the entire human genome in it.
+
+46:43.500 --> 46:47.580
+ It's expressing millions of gene products.
+
+46:47.580 --> 46:50.000
+ These are incredibly complicated biochemical cascades.
+
+46:50.000 --> 46:51.860
+ Each one is connected to 10,000 of its neighbors,
+
+46:51.860 --> 46:54.960
+ which means you have like half a quadrillion connections
+
+46:54.960 --> 46:55.800
+ in the brain.
+
+46:55.800 --> 46:58.180
+ So it's incredibly complicated thing,
+
+46:58.180 --> 47:01.560
+ but it is fundamentally appears to just be a machine.
+
+47:02.540 --> 47:04.980
+ And therefore, if there's nothing in it
+
+47:04.980 --> 47:07.420
+ that's not being driven by something else,
+
+47:07.420 --> 47:10.160
+ then it seems it's hard to understand
+
+47:10.160 --> 47:12.600
+ where free will would come from.
+
+47:12.600 --> 47:14.860
+ So that's the camp that pretty much all of us fall into,
+
+47:14.860 --> 47:18.120
+ but I will say, our science is still quite young.
+
+47:18.120 --> 47:20.860
+ And I'm a fan of the history of science,
+
+47:20.860 --> 47:22.780
+ and the thing that always strikes me as interesting
+
+47:22.780 --> 47:26.100
+ is when you look back at any moment in science,
+
+47:26.100 --> 47:28.500
+ everybody believes something is true,
+
+47:28.500 --> 47:31.340
+ and they simply didn't know about
+
+47:31.340 --> 47:33.180
+ what Einstein revealed or whatever.
+
+47:33.180 --> 47:35.140
+ And so who knows?
+
+47:35.140 --> 47:37.080
+ And they all feel like that we've,
+
+47:37.080 --> 47:38.620
+ at any moment in history,
+
+47:38.620 --> 47:40.700
+ they all feel like we've converged to the final answer.
+
+47:40.700 --> 47:41.800
+ Exactly, exactly.
+
+47:41.800 --> 47:43.780
+ Like all the pieces of the puzzle are there.
+
+47:43.780 --> 47:45.620
+ And I think that's a funny illusion
+
+47:45.620 --> 47:47.180
+ that's worth getting rid of.
+
+47:47.180 --> 47:49.540
+ And in fact, this is what drives good science
+
+47:49.540 --> 47:52.660
+ is recognizing that we don't have most of the puzzle pieces.
+
+47:52.660 --> 47:55.620
+ So as far as the free will question goes, I don't know.
+
+47:55.620 --> 47:57.060
+ At the moment, it seems, wow,
+
+47:57.060 --> 47:58.540
+ it'd be really impossible to figure out
+
+47:58.540 --> 48:00.020
+ how something else could fit in there,
+
+48:00.020 --> 48:02.720
+ but 100 years from now,
+
+48:02.720 --> 48:05.620
+ our textbooks might be very different than they are now.
+
+48:05.620 --> 48:07.620
+ I mean, could I ask you to speculate
+
+48:07.620 --> 48:11.060
+ where do you think free will could be squeezed into there?
+
+48:11.060 --> 48:12.900
+ Like, what's that even,
+
+48:14.580 --> 48:16.300
+ is it possible that our brain just creates
+
+48:16.300 --> 48:19.880
+ kinds of illusions that are useful for us?
+
+48:19.880 --> 48:24.200
+ Or like what, where could it possibly be squeezed in?
+
+48:24.200 --> 48:27.140
+ Well, let me give a speculation answer
+
+48:27.140 --> 48:28.740
+ to your very nice question,
+
+48:28.740 --> 48:32.180
+ but don't, and the listeners of this podcast,
+
+48:32.180 --> 48:33.140
+ don't quote me on this.
+
+48:33.140 --> 48:33.980
+ Yeah, exactly.
+
+48:33.980 --> 48:35.620
+ I'm not saying this is what I believe to be true,
+
+48:35.620 --> 48:36.740
+ but let me just give an example.
+
+48:36.740 --> 48:38.940
+ I give this at the end of my book, Incognito.
+
+48:38.940 --> 48:41.340
+ So the whole book of Incognito is about,
+
+48:41.340 --> 48:42.900
+ all the what's happening in the brain.
+
+48:42.900 --> 48:44.060
+ And essentially I'm saying, look,
+
+48:44.060 --> 48:45.460
+ here's all the reasons to think
+
+48:45.460 --> 48:47.020
+ that free will probably does not exist.
+
+48:47.020 --> 48:50.580
+ But at the very end, I say, look,
+
+48:50.580 --> 48:52.560
+ imagine that you are,
+
+48:53.860 --> 48:56.140
+ imagine that you're a Kalahari Bushman
+
+48:56.140 --> 48:58.900
+ and you find a radio in the sand
+
+48:58.900 --> 49:01.100
+ and you've never seen anything like this.
+
+49:01.100 --> 49:04.420
+ And you look at this radio and you realize
+
+49:04.420 --> 49:07.180
+ that when you turn this knob, you hear voices coming from,
+
+49:07.180 --> 49:08.700
+ there are voices coming from it.
+
+49:08.700 --> 49:11.700
+ So being a radio materialist,
+
+49:11.700 --> 49:14.020
+ you try to figure out like, how does this thing operate?
+
+49:14.020 --> 49:15.420
+ So you take off the back cover
+
+49:15.420 --> 49:16.780
+ and you realize there's all these wires.
+
+49:16.780 --> 49:19.740
+ And when you take out some wires,
+
+49:19.740 --> 49:22.140
+ the voices get garbled or stop or whatever.
+
+49:22.140 --> 49:24.300
+ And so what you end up developing is a whole theory
+
+49:24.300 --> 49:26.820
+ about how this connection, this pattern of wires
+
+49:26.820 --> 49:29.020
+ gives rise to voices.
+
+49:29.020 --> 49:31.780
+ But it would never strike you that in distant cities,
+
+49:31.780 --> 49:34.460
+ there's a radio tower and there's invisible stuff beaming.
+
+49:34.460 --> 49:36.780
+ And that's actually the origin of the voices.
+
+49:36.780 --> 49:38.700
+ And this is just necessary for it.
+
+49:38.700 --> 49:42.580
+ So I mentioned this just as a speculation,
+
+49:42.580 --> 49:44.100
+ say, look, how would we know,
+
+49:44.100 --> 49:46.060
+ what we know about the brain for absolutely certain
+
+49:46.060 --> 49:48.580
+ is that when you damage pieces and parts of it,
+
+49:48.580 --> 49:50.580
+ things get jumbled up.
+
+49:50.580 --> 49:52.680
+ But how would you know if there's something else going on
+
+49:52.680 --> 49:55.140
+ that we can't see like electromagnetic radiation
+
+49:55.140 --> 49:58.180
+ that is what's actually generating this?
+
+49:58.180 --> 50:01.420
+ Yeah, you paint a beautiful example
+
+50:01.420 --> 50:06.260
+ of how totally,
+
+50:06.260 --> 50:10.300
+ because we don't know most of how our universe works,
+
+50:10.300 --> 50:14.460
+ how totally off base we might be with our science until,
+
+50:14.460 --> 50:19.100
+ I mean, yeah, I mean, that's inspiring, that's beautiful.
+
+50:19.100 --> 50:21.780
+ It's kind of terrifying, it's humbling.
+
+50:21.780 --> 50:23.980
+ It's all of the above.
+
+50:23.980 --> 50:26.820
+ And the important part just to recognize
+
+50:26.820 --> 50:28.660
+ is that of course we're in the position
+
+50:28.660 --> 50:31.780
+ of having massive unknowns.
+
+50:31.780 --> 50:36.340
+ And we have of course the known unknowns
+
+50:36.340 --> 50:38.420
+ and that's all the things we're pursuing in our labs
+
+50:38.420 --> 50:39.260
+ and trying to figure out that,
+
+50:39.260 --> 50:41.620
+ but there's this whole space of unknown unknowns.
+
+50:41.620 --> 50:44.020
+ Things we haven't even realized we haven't asked yet.
+
+50:44.020 --> 50:47.660
+ Let me kind of ask a weird, maybe a difficult question,
+
+50:47.660 --> 50:50.580
+ part that has to do with,
+
+50:50.580 --> 50:54.340
+ I've been recently reading a lot about World War II.
+
+50:54.340 --> 50:56.620
+ I'm currently reading a book I recommend for people,
+
+50:56.620 --> 51:00.940
+ which as a Jew has been difficult to read,
+
+51:00.940 --> 51:04.020
+ but the rise and fall of the Third Reich.
+
+51:04.940 --> 51:08.900
+ So let me just ask about like the nature of genius,
+
+51:08.900 --> 51:10.460
+ the nature of evil.
+
+51:10.460 --> 51:14.220
+ If we look at somebody like Einstein,
+
+51:14.220 --> 51:19.220
+ we look at Hitler, Stalin, modern day Jeffrey Epstein,
+
+51:19.500 --> 51:24.500
+ just folks who through their life have done with Einstein
+
+51:24.500 --> 51:27.540
+ and works of genius and with the others I mentioned
+
+51:27.540 --> 51:29.420
+ have done evil on this world.
+
+51:30.580 --> 51:34.940
+ What do we think about that in a livewired brain?
+
+51:34.940 --> 51:39.580
+ Like how do we think about these extreme people?
+
+51:39.580 --> 51:41.700
+ Here's what I'd say.
+
+51:41.700 --> 51:43.540
+ This is a very big and difficult question,
+
+51:43.540 --> 51:45.380
+ but what I would say briefly on it is,
+
+51:47.620 --> 51:51.500
+ first of all, I saw a cover of Time Magazine some years ago
+
+51:51.500 --> 51:55.500
+ and it was a big sagittal slice of the brain
+
+51:55.500 --> 51:59.020
+ and it said something like, what makes us good and evil?
+
+51:59.020 --> 52:00.460
+ And there was a little spot pointing to it
+
+52:00.460 --> 52:01.300
+ and there was a picture of Gandhi
+
+52:01.300 --> 52:03.380
+ and there was a little spot that was pointing to Hitler.
+
+52:03.380 --> 52:05.780
+ And these Time Magazine covers always make me mad
+
+52:05.780 --> 52:08.660
+ because it's so goofy to think that we're gonna find
+
+52:08.660 --> 52:10.940
+ some spot in the brain or something.
+
+52:10.940 --> 52:15.940
+ Instead, the interesting part is because we're livewired,
+
+52:16.860 --> 52:20.580
+ we are all about the world and the culture around us.
+
+52:20.580 --> 52:25.580
+ So somebody like Adolf Hitler got all this positive feedback
+
+52:25.740 --> 52:28.780
+ about what was going on and the crazier and crazier
+
+52:28.780 --> 52:31.980
+ the ideas he had and he's like, let's set up death camps
+
+52:31.980 --> 52:34.140
+ and murder a bunch of people and so on.
+
+52:34.140 --> 52:37.340
+ Somehow he was getting positive feedback from that
+
+52:37.340 --> 52:40.300
+ and all these other people, they're all spun each other up.
+
+52:40.300 --> 52:45.300
+ And you look at anything like, I mean, look at the cultural
+
+52:45.300 --> 52:50.300
+ revolution in China or the Russian revolution
+
+52:51.180 --> 52:52.620
+ or things like this where you look at these things,
+
+52:52.620 --> 52:55.300
+ my God, how do people all behave like this?
+
+52:55.300 --> 52:58.860
+ But it's easy to see groups of people spinning themselves up
+
+52:58.860 --> 53:00.300
+ in particular ways where they all say,
+
+53:00.300 --> 53:03.820
+ well, would I have thought this was right
+
+53:03.820 --> 53:04.740
+ in a different circumstance?
+
+53:04.740 --> 53:05.940
+ I don't know, but Fred thinks it's right
+
+53:05.940 --> 53:06.780
+ and Steve thinks it's right,
+
+53:06.780 --> 53:08.180
+ everyone around me seems to think it's right.
+
+53:08.180 --> 53:13.060
+ And so part of the maybe downside of having a livewired brain
+
+53:13.060 --> 53:17.500
+ is that you can get crowds of people doing things as a group.
+
+53:17.500 --> 53:20.420
+ So it's interesting to, we would pinpoint Hitler
+
+53:20.420 --> 53:21.660
+ as saying that's the evil guy.
+
+53:21.660 --> 53:24.740
+ But in a sense, I think it was Tolstoy who said
+
+53:24.740 --> 53:29.740
+ the king becomes slave to the people.
+
+53:30.860 --> 53:34.740
+ In other words, Hitler was just a representation
+
+53:34.740 --> 53:37.420
+ of whatever was going on with that huge crowd
+
+53:37.420 --> 53:39.420
+ that he was surrounded with.
+
+53:39.420 --> 53:44.420
+ So I only bring that up to say that it's very difficult
+
+53:45.260 --> 53:48.340
+ to say what it is about this person's brain
+
+53:48.340 --> 53:49.180
+ or that person's brain.
+
+53:49.180 --> 53:51.660
+ He obviously got feedback for what he was doing.
+
+53:51.660 --> 53:52.820
+ The other thing, by the way,
+
+53:52.820 --> 53:57.300
+ about what we often think of as being evil in society
+
+53:57.300 --> 54:01.820
+ is my lab recently published some work
+
+54:01.820 --> 54:04.620
+ on in groups and out groups,
+
+54:04.620 --> 54:08.260
+ which is a very important part of this puzzle.
+
+54:08.260 --> 54:13.260
+ So it turns out that we are very engineered
+
+54:13.860 --> 54:16.060
+ to care about in groups versus out groups.
+
+54:16.060 --> 54:18.700
+ And this seems to be like a really fundamental thing.
+
+54:18.700 --> 54:20.140
+ So we did this experiment in my lab
+
+54:20.140 --> 54:23.420
+ where we brought people and we stick them in the scanner.
+
+54:23.420 --> 54:25.020
+ And we, I don't know if you noticed,
+
+54:25.020 --> 54:30.020
+ but we show them on the screen six hands
+
+54:30.700 --> 54:33.460
+ and the computer goes around randomly picks a hand.
+
+54:33.460 --> 54:34.980
+ And then you see that hand gets stabbed
+
+54:34.980 --> 54:36.060
+ with a syringe needle.
+
+54:36.060 --> 54:38.260
+ So you actually see a syringe needle enter the hand
+
+54:38.260 --> 54:39.100
+ and come out.
+
+54:39.100 --> 54:41.940
+ And it's really, what that does is that triggers
+
+54:42.940 --> 54:44.540
+ parts of the pain matrix,
+
+54:44.540 --> 54:46.140
+ this areas in your brain that are involved
+
+54:46.140 --> 54:47.260
+ in feeling physical pain.
+
+54:47.260 --> 54:48.860
+ Now, the interesting thing is it's not your hand
+
+54:48.860 --> 54:49.940
+ that was stabbed.
+
+54:49.940 --> 54:51.620
+ So what you're seeing is empathy.
+
+54:51.620 --> 54:54.140
+ This is you seeing someone else's hand gets stabbed.
+
+54:54.140 --> 54:56.220
+ You feel like, oh God, this is awful, right?
+
+54:56.220 --> 54:57.420
+ Okay.
+
+54:57.420 --> 54:58.580
+ We contrast that by the way,
+
+54:58.580 --> 55:00.820
+ with somebody's hand getting poked as a Q tip,
+
+55:00.820 --> 55:02.540
+ which is, you know, looks visually the same,
+
+55:02.540 --> 55:06.100
+ but you don't have that same level of response.
+
+55:06.100 --> 55:10.100
+ Now what we do is we label each hand with a one word label,
+
+55:10.980 --> 55:14.340
+ Christian, Jewish, Muslim, atheist, Scientologist, Hindu.
+
+55:14.340 --> 55:16.940
+ And now the computer goes around, picks a hand,
+
+55:16.940 --> 55:17.900
+ stabs the hand.
+
+55:17.900 --> 55:21.420
+ And the question is, how much does your brain care
+
+55:21.420 --> 55:23.220
+ about all the people in your out group
+
+55:23.220 --> 55:25.700
+ versus the one label that happens to match you?
+
+55:26.660 --> 55:29.140
+ And it turns out for everybody across all religions,
+
+55:29.140 --> 55:31.020
+ they care much more about their in group
+
+55:31.020 --> 55:31.860
+ than their out group.
+
+55:31.860 --> 55:33.420
+ And when I say they care, what I mean is
+
+55:33.420 --> 55:35.580
+ you get a bigger response from their brain.
+
+55:35.580 --> 55:36.420
+ Everything's the same.
+
+55:36.420 --> 55:38.820
+ It's the same hands.
+
+55:38.820 --> 55:40.620
+ It's just a one word label.
+
+55:40.620 --> 55:42.900
+ You care much more about your in group than your out group.
+
+55:42.900 --> 55:45.700
+ And I wish this weren't true, but this is how humans are.
+
+55:45.700 --> 55:47.820
+ I wonder how fundamental that is,
+
+55:47.820 --> 55:52.820
+ or if it's the emergent thing about culture.
+
+55:53.220 --> 55:55.540
+ Like if we lived alone with like,
+
+55:55.540 --> 55:57.500
+ if it's genetically built into the brain,
+
+55:57.500 --> 56:00.300
+ like this longing for tribe.
+
+56:00.300 --> 56:02.300
+ So I'll tell you, we addressed that.
+
+56:02.300 --> 56:03.260
+ So here's what we did.
+
+56:03.260 --> 56:06.820
+ There are two, actually there are two other things
+
+56:06.820 --> 56:07.860
+ we did as part of this study
+
+56:07.860 --> 56:09.580
+ that I think matter for this point.
+
+56:09.580 --> 56:11.740
+ One is, so okay, so we show that you have
+
+56:11.740 --> 56:13.020
+ a much bigger response.
+
+56:13.020 --> 56:14.460
+ And by the way, this is not a cognitive thing.
+
+56:14.460 --> 56:17.460
+ This is a very low level basic response
+
+56:17.460 --> 56:19.060
+ to seeing pain in somebody, okay.
+
+56:19.060 --> 56:20.060
+ Great study by the way.
+
+56:20.060 --> 56:21.940
+ Thanks, thanks, thanks.
+
+56:21.940 --> 56:24.820
+ What we did next is we next have it where we say,
+
+56:24.820 --> 56:28.700
+ okay, the year is 2025 and these three religions
+
+56:28.700 --> 56:30.780
+ are now in a war against these three religions.
+
+56:30.780 --> 56:31.820
+ And it's all randomized, right?
+
+56:31.820 --> 56:34.980
+ But what you see is your thing and you have two allies now
+
+56:34.980 --> 56:36.020
+ against these others.
+
+56:37.100 --> 56:38.700
+ And now it happens over the course of many trials,
+
+56:38.700 --> 56:41.620
+ you see everybody gets stabbed at different times.
+
+56:41.620 --> 56:43.500
+ And the question is, do you care more about your allies?
+
+56:43.500 --> 56:44.340
+ And the answer is yes.
+
+56:44.340 --> 56:45.940
+ Suddenly people who a moment ago,
+
+56:45.940 --> 56:47.300
+ you didn't really care when they got stabbed.
+
+56:47.300 --> 56:49.740
+ Now, simply with this one word thing
+
+56:49.740 --> 56:52.700
+ that they're now your allies, you care more about them.
+
+56:52.700 --> 56:55.340
+ But then what I wanted to do was look at
+
+56:55.340 --> 56:57.660
+ how ingrained is this or how arbitrary is it?
+
+56:57.660 --> 57:01.460
+ So we brought new participants in and we said,
+
+57:01.460 --> 57:02.700
+ here's a coin, toss the coin.
+
+57:02.700 --> 57:04.140
+ If it's heads, you're an Augustinian.
+
+57:04.140 --> 57:06.140
+ If it's a tails, you're a Justinian.
+
+57:06.140 --> 57:08.020
+ These are totally made up.
+
+57:08.020 --> 57:10.100
+ Okay, so they toss it, they get whatever.
+
+57:10.100 --> 57:13.380
+ We give them a band that says Augustinian on it,
+
+57:13.380 --> 57:16.740
+ whatever tribe they're in now, and they get in the scanner
+
+57:16.740 --> 57:18.500
+ and they see a thing on the screen that says
+
+57:18.500 --> 57:21.100
+ the Augustinians and Justinians are two warring tribes.
+
+57:21.100 --> 57:22.180
+ Then you see a bunch of hands,
+
+57:22.180 --> 57:24.620
+ some are labeled Augustinians, some are Justinian.
+
+57:24.620 --> 57:27.820
+ And now you care more about whichever team you're on
+
+57:27.820 --> 57:29.740
+ than the other team, even though it's totally arbitrary
+
+57:29.740 --> 57:30.580
+ and you know it's arbitrary
+
+57:30.580 --> 57:32.900
+ because you're the one who tossed the coin.
+
+57:32.900 --> 57:36.980
+ So it's a state that's very easy to find ourselves in.
+
+57:36.980 --> 57:39.500
+ In other words, just before walking in the door,
+
+57:39.500 --> 57:41.700
+ they'd never even heard of Augustinian versus Justinian
+
+57:41.700 --> 57:43.940
+ and now their brain is representing it
+
+57:43.940 --> 57:46.380
+ simply because they're told they're on this team.
+
+57:46.380 --> 57:49.620
+ You know, now I did my own personal study of this.
+
+57:49.620 --> 57:54.620
+ So once you're an Augustinian, that tends to be sticky
+
+57:55.500 --> 57:57.460
+ because I've been a Packers fan,
+
+57:57.460 --> 57:59.100
+ grew to be a Packers fan my whole life.
+
+57:59.100 --> 58:03.020
+ Now when I'm in Boston with like the Patriots,
+
+58:03.020 --> 58:05.420
+ it's been tough going for my livewired brain
+
+58:05.420 --> 58:07.980
+ to switch to the Patriots.
+
+58:07.980 --> 58:10.020
+ So once you become, it's as interesting,
+
+58:10.020 --> 58:12.140
+ once the tribe is sticky.
+
+58:12.140 --> 58:14.180
+ Yeah, I'll admit that's true.
+
+58:14.180 --> 58:15.020
+ That's it, you know.
+
+58:15.020 --> 58:16.620
+ You know, we never tried that about saying,
+
+58:16.620 --> 58:19.140
+ okay, now you're a Justinian and you were an Augustinian.
+
+58:19.140 --> 58:21.820
+ We never saw how sticky it is.
+
+58:21.820 --> 58:24.380
+ But there are studies of this,
+
+58:24.380 --> 58:28.500
+ of monkey troops on some island.
+
+58:30.060 --> 58:33.580
+ And what happens is they look at the way monkeys behave
+
+58:33.580 --> 58:34.460
+ when they're part of this tribe
+
+58:34.460 --> 58:37.580
+ and how they treat members of the other tribe of monkeys.
+
+58:37.580 --> 58:39.500
+ And then what they do, I've forgotten how they do that,
+
+58:39.500 --> 58:42.060
+ exactly, but they end up switching a monkey
+
+58:42.060 --> 58:43.100
+ so he ends up in the other troop.
+
+58:43.100 --> 58:45.220
+ And very quickly they end up becoming a part
+
+58:45.220 --> 58:48.180
+ of that other troop and hating and behaving badly
+
+58:48.180 --> 58:50.380
+ towards the original troop.
+
+58:50.380 --> 58:52.500
+ These are fascinating studies, by the way.
+
+58:52.500 --> 58:55.020
+ This is beautiful.
+
+58:55.020 --> 59:00.020
+ In your book, you have a good light bulb joke.
+
+59:01.220 --> 59:04.460
+ How many psychiatrists does it take to change a light bulb?
+
+59:04.460 --> 59:07.900
+ Only one, but the light bulb has to want to change.
+
+59:07.900 --> 59:08.740
+ Sorry.
+
+59:09.700 --> 59:11.780
+ I'm a sucker for a good light bulb joke.
+
+59:11.780 --> 59:15.100
+ Okay, so given, you know, I've been interested
+
+59:15.100 --> 59:19.140
+ in psychiatry my whole life, just maybe tangentially.
+
+59:19.140 --> 59:22.500
+ I've kind of early on dreamed to be a psychiatrist
+
+59:22.500 --> 59:24.420
+ until I understood what it entails.
+
+59:25.660 --> 59:30.660
+ But, you know, is there hope for psychiatry
+
+59:31.940 --> 59:36.940
+ for somebody else to help this live, wired brain to adjust?
+
+59:37.260 --> 59:40.180
+ Oh yeah, I mean, in the sense that,
+
+59:40.180 --> 59:41.180
+ and this has to do with this issue
+
+59:41.180 --> 59:43.220
+ about us being trapped on our own planet.
+
+59:43.220 --> 59:45.900
+ Forget psychiatrists, just think of like
+
+59:45.900 --> 59:47.020
+ when you're talking with a friend
+
+59:47.020 --> 59:48.900
+ and you say, oh, I'm so upset about this.
+
+59:48.900 --> 59:51.500
+ And your friend says, hey, just look at it this way.
+
+59:53.300 --> 59:55.780
+ You know, all we have access to under normal circumstances
+
+59:55.780 --> 59:57.420
+ is just the way we're seeing something.
+
+59:57.420 --> 1:00:02.180
+ And so it's super helpful to have friends and communities
+
+1:00:02.180 --> 1:00:05.740
+ and psychiatrists and so on to help things change that way.
+
+1:00:05.740 --> 1:00:07.220
+ So that's how psychiatrists sort of helped us.
+
+1:00:07.220 --> 1:00:10.500
+ But more importantly, the role that psychiatrists have played
+
+1:00:10.500 --> 1:00:13.940
+ is that there's this sort of naive assumption
+
+1:00:13.940 --> 1:00:15.140
+ that we all come to the table with,
+
+1:00:15.140 --> 1:00:18.340
+ which is that everyone is fundamentally just like us.
+
+1:00:18.340 --> 1:00:21.140
+ And when you're a kid, you believe this entirely,
+
+1:00:21.140 --> 1:00:22.780
+ but as you get older and you start realizing,
+
+1:00:22.780 --> 1:00:25.260
+ okay, there's something called schizophrenia
+
+1:00:25.260 --> 1:00:26.300
+ and that's a real thing.
+
+1:00:26.300 --> 1:00:29.100
+ And to be inside that person's head is totally different
+
+1:00:29.100 --> 1:00:32.140
+ than what it is to be inside my head or their psychopathy.
+
+1:00:32.140 --> 1:00:34.900
+ And to be inside the psychopath's head,
+
+1:00:34.900 --> 1:00:36.300
+ he doesn't care about other people.
+
+1:00:36.300 --> 1:00:37.460
+ He doesn't care about hurting other people.
+
+1:00:37.460 --> 1:00:40.900
+ He's just doing what he needs to do to get what he needs.
+
+1:00:40.900 --> 1:00:42.100
+ That's a different head.
+
+1:00:42.100 --> 1:00:45.540
+ There's a million different things going on
+
+1:00:45.540 --> 1:00:47.740
+ and it is different to be inside those heads.
+
+1:00:48.860 --> 1:00:51.300
+ This is where the field of psychiatry comes in.
+
+1:00:51.300 --> 1:00:53.380
+ Now, I think it's an interesting question
+
+1:00:53.380 --> 1:00:57.020
+ about the degree to which neuroscience is leaking into
+
+1:00:57.020 --> 1:00:58.540
+ and taking over psychiatry
+
+1:00:58.540 --> 1:01:00.860
+ and what the landscape will look like 50 years from now.
+
+1:01:00.860 --> 1:01:05.860
+ It may be that psychiatry as a profession changes a lot
+
+1:01:05.860 --> 1:01:07.220
+ or maybe goes away entirely,
+
+1:01:07.220 --> 1:01:09.220
+ and neuroscience will essentially be able
+
+1:01:09.220 --> 1:01:10.420
+ to take over some of these functions,
+
+1:01:10.420 --> 1:01:14.220
+ but it has been extremely useful to understand
+
+1:01:14.220 --> 1:01:18.220
+ the differences between how people behave and why
+
+1:01:18.220 --> 1:01:19.580
+ and what you can tell about what's going on
+
+1:01:19.580 --> 1:01:22.380
+ inside their brain just based on observation
+
+1:01:22.380 --> 1:01:23.420
+ of their behavior.
+
+1:01:25.220 --> 1:01:28.340
+ This might be years ago, but I'm not sure.
+
+1:01:28.340 --> 1:01:30.300
+ There's an Atlantic article you've written
+
+1:01:32.300 --> 1:01:34.460
+ about moving away from a distinction
+
+1:01:34.460 --> 1:01:36.900
+ between neurological disorders,
+
+1:01:36.900 --> 1:01:39.100
+ quote unquote, brain problems,
+
+1:01:39.100 --> 1:01:43.820
+ and psychiatric disorders or quote unquote, mind problems.
+
+1:01:43.820 --> 1:01:47.220
+ So on that topic, how do you think about this gray area?
+
+1:01:47.220 --> 1:01:50.580
+ Yeah, this is exactly the evolution that things are going
+
+1:01:50.580 --> 1:01:54.140
+ is there was psychiatry and then there were guys and gals
+
+1:01:54.140 --> 1:01:55.940
+ in labs poking cells and so on.
+
+1:01:55.940 --> 1:01:57.020
+ Those were the neuroscientists.
+
+1:01:57.020 --> 1:01:58.860
+ But yeah, I think these are moving together
+
+1:01:58.860 --> 1:02:00.580
+ for exactly the reason you just cited.
+
+1:02:00.580 --> 1:02:02.540
+ And where this matters a lot,
+
+1:02:02.540 --> 1:02:04.660
+ the Atlantic article that I wrote
+
+1:02:04.660 --> 1:02:06.780
+ was called The Brain on Trial,
+
+1:02:06.780 --> 1:02:09.580
+ where this matters a lot is the legal system
+
+1:02:09.580 --> 1:02:12.740
+ because the way we run our legal system now,
+
+1:02:12.740 --> 1:02:13.900
+ and this is true everywhere in the world,
+
+1:02:13.900 --> 1:02:17.420
+ is someone shows up in front of the judge's bench,
+
+1:02:17.420 --> 1:02:18.540
+ or let's say there's five people
+
+1:02:18.540 --> 1:02:20.100
+ in front of the judge's bench,
+
+1:02:20.100 --> 1:02:21.380
+ and they've all committed the same crime.
+
+1:02:21.380 --> 1:02:23.820
+ What we do, because we feel like, hey, this is fair,
+
+1:02:23.820 --> 1:02:25.580
+ is we say, all right, you're gonna get the same sentence.
+
+1:02:25.580 --> 1:02:27.780
+ You'll all get three years in prison or whatever it is.
+
+1:02:27.780 --> 1:02:29.780
+ But in fact, brains can be so different.
+
+1:02:29.780 --> 1:02:31.580
+ This guy's got schizophrenia, this guy's a psychopath,
+
+1:02:31.580 --> 1:02:33.620
+ this guy's tweaked down on drugs, and so on and so on,
+
+1:02:33.620 --> 1:02:37.620
+ that it actually doesn't make sense to keep doing that.
+
+1:02:37.620 --> 1:02:41.220
+ And what we do in this country more than anywhere
+
+1:02:41.220 --> 1:02:44.100
+ in the world is we imagine that incarceration
+
+1:02:44.100 --> 1:02:45.500
+ is a one size fits all solution.
+
+1:02:45.500 --> 1:02:47.300
+ And you may know we have the,
+
+1:02:47.300 --> 1:02:49.140
+ America has the highest incarceration rate
+
+1:02:49.140 --> 1:02:50.860
+ in the whole world in terms of the percentage
+
+1:02:50.860 --> 1:02:52.860
+ of our population we put behind bars.
+
+1:02:52.860 --> 1:02:56.580
+ So there's a much more refined thing we can do
+
+1:02:56.580 --> 1:02:59.180
+ as neuroscience comes in and changes,
+
+1:02:59.180 --> 1:03:01.900
+ and has the opportunity to change the legal system.
+
+1:03:01.900 --> 1:03:03.980
+ Which is to say, this doesn't let anybody off the hook.
+
+1:03:03.980 --> 1:03:06.100
+ It doesn't say, oh, it's not your fault, and so on.
+
+1:03:06.100 --> 1:03:09.380
+ But what it does is it changes the equation
+
+1:03:09.380 --> 1:03:12.940
+ so it's not about, hey, how blameworthy are you?
+
+1:03:12.940 --> 1:03:15.220
+ But instead is about, hey, what do we do from here?
+
+1:03:15.220 --> 1:03:16.260
+ What's the best thing to do from here?
+
+1:03:16.260 --> 1:03:17.740
+ So if you take somebody with schizophrenia
+
+1:03:17.740 --> 1:03:21.100
+ and you have them break rocks in the hot summer sun
+
+1:03:21.100 --> 1:03:24.500
+ in a chain gang, that doesn't help their schizophrenia.
+
+1:03:24.500 --> 1:03:25.900
+ That doesn't fix the problem.
+
+1:03:25.900 --> 1:03:28.020
+ If you take somebody with a drug addiction
+
+1:03:28.020 --> 1:03:30.660
+ who's in jail for being caught with two ounces
+
+1:03:30.660 --> 1:03:34.500
+ of some illegal substance, and you put them in prison,
+
+1:03:34.500 --> 1:03:36.020
+ it doesn't actually fix the addiction.
+
+1:03:36.020 --> 1:03:37.260
+ It doesn't help anything.
+
+1:03:38.580 --> 1:03:40.580
+ Happily, what neuroscience and psychiatry
+
+1:03:40.580 --> 1:03:43.260
+ bring to the table is lots of really useful things
+
+1:03:43.260 --> 1:03:45.620
+ you can do with schizophrenia, with drug addiction,
+
+1:03:45.620 --> 1:03:46.940
+ things like this.
+
+1:03:46.940 --> 1:03:49.140
+ And that's why, so I don't know if you guys
+
+1:03:49.140 --> 1:03:50.540
+ better run a national law and profit
+
+1:03:50.540 --> 1:03:52.140
+ called the Center for Science and Law.
+
+1:03:52.140 --> 1:03:53.660
+ And it's all about this intersection
+
+1:03:53.660 --> 1:03:55.140
+ of neuroscience and psychiatry.
+
+1:03:55.140 --> 1:03:57.340
+ It's the intersection of neuroscience and legal system.
+
+1:03:57.340 --> 1:03:59.060
+ And we're trying to implement changes
+
+1:03:59.060 --> 1:04:01.660
+ in every county, in every state.
+
+1:04:02.540 --> 1:04:04.700
+ I'll just, without going down that rabbit hole,
+
+1:04:04.700 --> 1:04:07.540
+ I'll just say one of the very simplest things to do
+
+1:04:07.540 --> 1:04:09.140
+ is to set up specialized court systems
+
+1:04:09.140 --> 1:04:12.660
+ where you have a mental health court
+
+1:04:12.660 --> 1:04:14.980
+ that has judges and juries with expertise
+
+1:04:14.980 --> 1:04:15.820
+ in mental illness.
+
+1:04:15.820 --> 1:04:17.780
+ Because if you go, by the way, to a regular court
+
+1:04:17.780 --> 1:04:21.220
+ and the person says, or the defense lawyer says,
+
+1:04:21.220 --> 1:04:24.300
+ this person has schizophrenia, most of the jury will say,
+
+1:04:24.300 --> 1:04:25.780
+ man, I call bullshit on that.
+
+1:04:25.780 --> 1:04:26.620
+ Why?
+
+1:04:26.620 --> 1:04:28.660
+ Because they don't know about schizophrenia.
+
+1:04:28.660 --> 1:04:30.780
+ They don't know what it's about.
+
+1:04:30.780 --> 1:04:34.500
+ And it turns out people who know about schizophrenia
+
+1:04:34.500 --> 1:04:35.900
+ feel very differently as a juror
+
+1:04:35.900 --> 1:04:37.740
+ than someone who happens not to know anybody with
+
+1:04:37.740 --> 1:04:39.540
+ schizophrenia, they think it's an excuse.
+
+1:04:39.540 --> 1:04:42.380
+ So you have judges and juries with expertise
+
+1:04:42.380 --> 1:04:44.180
+ in mental illness and they know the rehabilitative
+
+1:04:44.180 --> 1:04:45.780
+ strategies that are available.
+
+1:04:45.780 --> 1:04:46.620
+ That's one thing.
+
+1:04:46.620 --> 1:04:48.500
+ Having a drug court where you have judges and juries
+
+1:04:48.500 --> 1:04:50.540
+ with expertise in rehabilitative strategies
+
+1:04:50.540 --> 1:04:51.860
+ and what can be done and so on.
+
+1:04:51.860 --> 1:04:54.140
+ A specialized prostitution court and so on.
+
+1:04:54.140 --> 1:04:55.700
+ All these different things.
+
+1:04:55.700 --> 1:04:57.620
+ By the way, this is very easy for counties
+
+1:04:57.620 --> 1:04:59.260
+ to implement this sort of thing.
+
+1:04:59.260 --> 1:05:01.820
+ And this is, I think, where this matters
+
+1:05:01.820 --> 1:05:05.020
+ to get neuroscience into public policy.
+
+1:05:05.020 --> 1:05:08.620
+ What's the process of injecting expertise into this?
+
+1:05:08.620 --> 1:05:10.540
+ Yeah, I'll tell you exactly what it is.
+
+1:05:10.540 --> 1:05:12.420
+ A county needs to run out of money first.
+
+1:05:12.420 --> 1:05:14.460
+ I've seen this happen over and over.
+
+1:05:14.460 --> 1:05:17.220
+ So what happens is a county has a completely full jail
+
+1:05:17.220 --> 1:05:18.540
+ and they say, you know what?
+
+1:05:18.540 --> 1:05:19.780
+ We need to build another jail.
+
+1:05:19.780 --> 1:05:21.220
+ And then they realize, God, we don't have any money.
+
+1:05:21.220 --> 1:05:22.260
+ We can't afford this.
+
+1:05:22.260 --> 1:05:23.260
+ We've got too many people in jail.
+
+1:05:23.260 --> 1:05:25.500
+ And that's when they turn to,
+
+1:05:25.500 --> 1:05:26.700
+ God, we need something smarter.
+
+1:05:26.700 --> 1:05:28.700
+ And that's when they set up specialized court systems.
+
+1:05:28.700 --> 1:05:29.540
+ Yeah.
+
+1:05:30.940 --> 1:05:34.300
+ We're all function best when our back is against the wall.
+
+1:05:34.300 --> 1:05:36.180
+ And that's what COVID is good for.
+
+1:05:36.180 --> 1:05:38.380
+ It's because we've all had our routines
+
+1:05:38.380 --> 1:05:40.820
+ and we are optimized for the things we do.
+
+1:05:40.820 --> 1:05:43.020
+ And suddenly our backs are against the wall, all of us.
+
+1:05:43.020 --> 1:05:44.620
+ Yeah, it's really, I mean,
+
+1:05:44.620 --> 1:05:47.580
+ one of the exciting things about COVID.
+
+1:05:47.580 --> 1:05:51.940
+ I mean, I'm a big believer in the possibility
+
+1:05:51.940 --> 1:05:56.140
+ of what government can do for the people.
+
+1:05:56.140 --> 1:05:59.180
+ And when it becomes too big of a bureaucracy,
+
+1:05:59.180 --> 1:06:02.580
+ it starts functioning poorly, it starts wasting money.
+
+1:06:02.580 --> 1:06:07.140
+ It's nice to, I mean, COVID reveals that nicely.
+
+1:06:07.140 --> 1:06:11.700
+ And lessons to be learned about who gets elected
+
+1:06:11.700 --> 1:06:14.180
+ and who goes into government.
+
+1:06:14.180 --> 1:06:18.860
+ Hopefully this, hopefully this inspires talented
+
+1:06:18.860 --> 1:06:20.780
+ and young people to go into government
+
+1:06:20.780 --> 1:06:23.580
+ to revolutionize different aspects of it.
+
+1:06:23.580 --> 1:06:28.580
+ Yeah, so that's the positive silver lining of COVID.
+
+1:06:28.660 --> 1:06:30.740
+ I mean, I thought it'd be fun to ask you,
+
+1:06:30.740 --> 1:06:31.900
+ I don't know if you're paying attention
+
+1:06:31.900 --> 1:06:34.620
+ to the machine learning world and GPT3.
+
+1:06:37.100 --> 1:06:39.260
+ So the GPT3 is this language model,
+
+1:06:39.260 --> 1:06:41.180
+ this neural network that's able to,
+
+1:06:41.180 --> 1:06:44.860
+ it has 175 billion parameters.
+
+1:06:44.860 --> 1:06:47.820
+ So it's very large and it's trained
+
+1:06:47.820 --> 1:06:51.540
+ in an unsupervised way on the internet.
+
+1:06:51.540 --> 1:06:55.780
+ It just reads a lot of unstructured texts
+
+1:06:55.780 --> 1:06:59.420
+ and it's able to generate some pretty impressive things.
+
+1:06:59.420 --> 1:07:02.020
+ The human brain compared to that has about,
+
+1:07:02.020 --> 1:07:05.980
+ you know, a thousand times more synapses.
+
+1:07:05.980 --> 1:07:10.060
+ People get so upset when machine learning people
+
+1:07:10.060 --> 1:07:14.380
+ compare the brain and we know synapses are different.
+
+1:07:14.380 --> 1:07:16.860
+ It was very different, very different.
+
+1:07:16.860 --> 1:07:20.580
+ But like, do you, what do you think about GPT3?
+
+1:07:20.580 --> 1:07:22.660
+ Here's what I think, here's what I think, a few things.
+
+1:07:22.660 --> 1:07:25.580
+ What GPT3 is doing is extremely impressive,
+
+1:07:25.580 --> 1:07:27.620
+ but it's very different from what the brain does.
+
+1:07:27.620 --> 1:07:32.620
+ So it's a good impersonator, but just as one example,
+
+1:07:33.060 --> 1:07:37.500
+ everybody takes a passage that GPT3 has written
+
+1:07:37.500 --> 1:07:40.420
+ and they say, wow, look at this, and it's pretty good, right?
+
+1:07:40.420 --> 1:07:42.420
+ But it's already gone through a filtering process
+
+1:07:42.420 --> 1:07:43.740
+ of humans looking at it and saying,
+
+1:07:43.740 --> 1:07:45.340
+ okay, well that's crap, that's crap, okay.
+
+1:07:45.340 --> 1:07:47.500
+ Oh, here's a sentence that's pretty cool.
+
+1:07:47.500 --> 1:07:49.940
+ Now here's the thing, human creativity
+
+1:07:49.940 --> 1:07:51.740
+ is about absorbing everything around it
+
+1:07:51.740 --> 1:07:53.420
+ and remixing that and coming up with stuff.
+
+1:07:53.420 --> 1:07:55.420
+ So in that sense, we're sort of like GPT3,
+
+1:07:55.420 --> 1:07:58.820
+ you know, we're remixing what we've gotten in before.
+
+1:07:59.700 --> 1:08:03.140
+ But we also know, we also have very good models
+
+1:08:03.140 --> 1:08:04.780
+ of what it is to be another human.
+
+1:08:04.780 --> 1:08:08.220
+ And so, you know, I don't know if you speak French
+
+1:08:08.220 --> 1:08:09.820
+ or something, but I'm not gonna start speaking in French
+
+1:08:09.820 --> 1:08:11.500
+ because then you'll say, wait, what are you doing?
+
+1:08:11.500 --> 1:08:12.420
+ I don't understand it.
+
+1:08:12.420 --> 1:08:14.700
+ Instead, everything coming out of my mouth
+
+1:08:14.700 --> 1:08:16.260
+ is meant for your ears.
+
+1:08:16.260 --> 1:08:18.140
+ I know what you'll understand.
+
+1:08:18.140 --> 1:08:20.140
+ I know the vocabulary that you know and don't know.
+
+1:08:20.140 --> 1:08:21.860
+ I know what parts you care about.
+
+1:08:23.740 --> 1:08:25.140
+ That's a huge part of it.
+
+1:08:25.140 --> 1:08:28.580
+ And so of all the possible sentences I could say,
+
+1:08:29.420 --> 1:08:31.700
+ I'm navigating this thin bandwidth
+
+1:08:31.700 --> 1:08:34.540
+ so that it's something useful for our conversation.
+
+1:08:34.540 --> 1:08:36.740
+ Yeah, in real time, but also throughout your life.
+
+1:08:36.740 --> 1:08:39.740
+ I mean, we're co evolving together.
+
+1:08:39.740 --> 1:08:42.980
+ We're learning how to communicate together.
+
+1:08:42.980 --> 1:08:46.220
+ Exactly, but this is what GPT3 does not do.
+
+1:08:46.220 --> 1:08:47.300
+ All it's doing is saying, okay,
+
+1:08:47.300 --> 1:08:49.500
+ I'm gonna take all these senses and remix stuff
+
+1:08:49.500 --> 1:08:51.100
+ and pop some stuff out.
+
+1:08:51.100 --> 1:08:52.540
+ But it doesn't know how to make it
+
+1:08:52.540 --> 1:08:54.340
+ so that you, Lex, will feel like,
+
+1:08:54.340 --> 1:08:56.820
+ oh yeah, that's exactly what I needed to hear.
+
+1:08:56.820 --> 1:08:59.700
+ That's the next sentence that I needed to know about
+
+1:08:59.700 --> 1:09:00.540
+ for something.
+
+1:09:00.540 --> 1:09:02.860
+ Well, of course, it could be,
+
+1:09:02.860 --> 1:09:04.220
+ all the impressive results we see.
+
+1:09:04.220 --> 1:09:07.700
+ The question is, if you raise the number of parameters,
+
+1:09:07.700 --> 1:09:09.980
+ whether it's going to be after some...
+
+1:09:09.980 --> 1:09:11.020
+ It will not be.
+
+1:09:11.020 --> 1:09:11.860
+ It will not be.
+
+1:09:11.860 --> 1:09:14.060
+ Raising more parameters won't...
+
+1:09:14.060 --> 1:09:15.180
+ Here's the thing.
+
+1:09:15.180 --> 1:09:16.740
+ It's not that I don't think neural networks
+
+1:09:16.740 --> 1:09:18.100
+ can't be like the human brain,
+
+1:09:18.100 --> 1:09:20.420
+ because I suspect they will be at some point, 50 years.
+
+1:09:20.420 --> 1:09:21.260
+ Who knows?
+
+1:09:21.260 --> 1:09:26.020
+ But what we are missing in artificial neural networks
+
+1:09:26.020 --> 1:09:29.300
+ is we've got this basic structure where you've got units
+
+1:09:29.300 --> 1:09:32.420
+ and you've got synapses that are connected.
+
+1:09:32.420 --> 1:09:33.380
+ And that's great.
+
+1:09:33.380 --> 1:09:35.820
+ And it's done incredibly mind blowing, impressive things,
+
+1:09:35.820 --> 1:09:40.260
+ but it's not doing the same algorithms as the human brain.
+
+1:09:40.260 --> 1:09:43.620
+ So when I look at my children, as little kids,
+
+1:09:43.620 --> 1:09:47.660
+ as infants, they can do things that no GPT3 can do.
+
+1:09:47.660 --> 1:09:50.620
+ They can navigate a complex room.
+
+1:09:50.620 --> 1:09:54.900
+ They can navigate social conversation with an adult.
+
+1:09:54.900 --> 1:09:55.740
+ They can lie.
+
+1:09:55.740 --> 1:09:58.180
+ They can do a million things.
+
+1:09:58.180 --> 1:10:03.180
+ They are active thinkers in our world and doing things.
+
+1:10:03.180 --> 1:10:04.580
+ And this, of course, I mean, look,
+
+1:10:04.580 --> 1:10:07.820
+ we totally agree on how incredibly awesome
+
+1:10:07.820 --> 1:10:09.060
+ artificial neural networks are right now,
+
+1:10:09.060 --> 1:10:12.780
+ but we also know the things that they can't do well,
+
+1:10:12.780 --> 1:10:14.900
+ like be generally intelligent,
+
+1:10:14.900 --> 1:10:16.380
+ do all these different things.
+
+1:10:16.380 --> 1:10:17.620
+ The reason about the world,
+
+1:10:17.620 --> 1:10:19.900
+ efficiently learn, efficiently adapt.
+
+1:10:19.900 --> 1:10:20.740
+ Exactly.
+
+1:10:20.740 --> 1:10:23.540
+ But it's still the rate of improvement.
+
+1:10:23.540 --> 1:10:28.100
+ It's, to me, it's possible that we'll be surprised.
+
+1:10:28.100 --> 1:10:30.020
+ I agree, possible we'll be surprised.
+
+1:10:30.020 --> 1:10:33.060
+ But what I would assert,
+
+1:10:33.060 --> 1:10:36.180
+ and I'm glad I'm getting to say this on your podcast,
+
+1:10:36.180 --> 1:10:38.340
+ we can look back at this in two years and 10 years,
+
+1:10:38.340 --> 1:10:41.580
+ is that we've got to be much more sophisticated
+
+1:10:41.580 --> 1:10:44.740
+ than units and synapses between them.
+
+1:10:44.740 --> 1:10:45.660
+ Let me give you an example,
+
+1:10:45.660 --> 1:10:47.220
+ and this is something I talk about in LiveWired,
+
+1:10:47.220 --> 1:10:50.540
+ is despite the amazing impressiveness,
+
+1:10:50.540 --> 1:10:52.340
+ mind blowing impressiveness,
+
+1:10:52.340 --> 1:10:54.580
+ computers don't have some basic things,
+
+1:10:54.580 --> 1:10:56.580
+ artificial neural networks don't have some basic things
+
+1:10:56.580 --> 1:10:59.460
+ that we like caring about relevance, for example.
+
+1:10:59.460 --> 1:11:02.380
+ So as humans, we are confronted
+
+1:11:02.380 --> 1:11:03.900
+ with tons of data all the time,
+
+1:11:03.900 --> 1:11:05.620
+ and we only encode particular things
+
+1:11:05.620 --> 1:11:07.740
+ that are relevant to us.
+
+1:11:07.740 --> 1:11:10.060
+ We have this very deep sense of relevance
+
+1:11:10.060 --> 1:11:11.900
+ that I mentioned earlier is based on survival
+
+1:11:11.900 --> 1:11:12.740
+ at the most basic level,
+
+1:11:12.740 --> 1:11:16.420
+ but then all the things about my life and your life,
+
+1:11:16.420 --> 1:11:18.740
+ what's relevant to you, that we encode.
+
+1:11:19.660 --> 1:11:20.500
+ This is very useful.
+
+1:11:20.500 --> 1:11:21.980
+ Computers at the moment don't have that.
+
+1:11:21.980 --> 1:11:24.020
+ They don't even have a yen to survive
+
+1:11:24.020 --> 1:11:24.860
+ and things like that.
+
+1:11:24.860 --> 1:11:27.500
+ So we filled out a bunch of the junk we don't need.
+
+1:11:27.500 --> 1:11:29.900
+ We're really good at efficiently
+
+1:11:29.900 --> 1:11:31.460
+ zooming in on things we need.
+
+1:11:32.580 --> 1:11:34.500
+ Again, could be argued, you know,
+
+1:11:34.500 --> 1:11:35.940
+ let me put on my Freud hat.
+
+1:11:35.940 --> 1:11:39.660
+ Maybe it's, I mean, that's our conscious mind.
+
+1:11:42.540 --> 1:11:44.060
+ There's no reason that neural networks
+
+1:11:44.060 --> 1:11:46.140
+ aren't doing the same kind of filtration.
+
+1:11:46.140 --> 1:11:48.500
+ I mean, in the sense with GPT3 is doing,
+
+1:11:48.500 --> 1:11:50.820
+ so there's a priming step.
+
+1:11:50.820 --> 1:11:53.420
+ It's doing an essential kind of filtration
+
+1:11:53.420 --> 1:11:58.100
+ when you ask it to generate tweets from,
+
+1:11:58.100 --> 1:12:00.780
+ I don't know, from an Elon Musk or something like that.
+
+1:12:00.780 --> 1:12:04.060
+ It's doing a filtration of it's throwing away
+
+1:12:04.060 --> 1:12:06.900
+ all the parameters it doesn't need for this task.
+
+1:12:06.900 --> 1:12:09.700
+ And it's figuring out how to do that successfully.
+
+1:12:09.700 --> 1:12:12.100
+ And then ultimately it's not doing a very good job
+
+1:12:12.100 --> 1:12:14.340
+ right now, but it's doing a lot better job
+
+1:12:14.340 --> 1:12:15.460
+ than we expected.
+
+1:12:15.460 --> 1:12:17.500
+ But it won't ever do a really good job.
+
+1:12:17.500 --> 1:12:18.340
+ And I'll tell you why.
+
+1:12:18.340 --> 1:12:20.100
+ I mean, so let's say we say,
+
+1:12:20.100 --> 1:12:21.660
+ hey, produce an Elon Musk tweet.
+
+1:12:21.660 --> 1:12:23.980
+ And we see like, oh, wow, it produced these three.
+
+1:12:23.980 --> 1:12:24.820
+ That's great.
+
+1:12:24.820 --> 1:12:27.500
+ But again, we're not seeing the 3000 produced
+
+1:12:27.500 --> 1:12:28.900
+ that didn't really make any sense.
+
+1:12:28.900 --> 1:12:32.700
+ It's because it has no idea what it is like to be a human.
+
+1:12:32.700 --> 1:12:34.540
+ And all the things that you might want to say
+
+1:12:34.540 --> 1:12:35.380
+ and all the reasons you wouldn't,
+
+1:12:35.380 --> 1:12:37.100
+ like when you go to write a tweet,
+
+1:12:37.100 --> 1:12:38.140
+ you might write something you think,
+
+1:12:38.140 --> 1:12:39.860
+ ah, it's not gonna come off quite right
+
+1:12:39.860 --> 1:12:41.580
+ in this modern political climate or whatever.
+
+1:12:41.580 --> 1:12:43.340
+ Like, you know, you can change things.
+
+1:12:43.340 --> 1:12:44.180
+ So.
+
+1:12:44.180 --> 1:12:46.700
+ And it somehow boils down to fear of mortality
+
+1:12:46.700 --> 1:12:49.940
+ and all of these human things at the end of the day,
+
+1:12:49.940 --> 1:12:52.500
+ all contained with that tweeting experience.
+
+1:12:52.500 --> 1:12:55.540
+ Well, interestingly, the fear of mortality
+
+1:12:55.540 --> 1:12:56.860
+ is at the bottom of this,
+
+1:12:56.860 --> 1:12:58.700
+ but you've got all these more things like,
+
+1:12:58.700 --> 1:13:01.220
+ you know, oh, I want to,
+
+1:13:01.220 --> 1:13:03.180
+ just in case the chairman of my department reads this,
+
+1:13:03.180 --> 1:13:04.260
+ I want it to come off well there.
+
+1:13:04.260 --> 1:13:05.740
+ Just in case my mom looks at this tweet,
+
+1:13:05.740 --> 1:13:08.220
+ I want to make sure she, you know, and so on.
+
+1:13:08.220 --> 1:13:10.260
+ So those are all the things that humans are able
+
+1:13:10.260 --> 1:13:12.340
+ to sort of throw into the calculation.
+
+1:13:13.260 --> 1:13:14.820
+ I mean.
+
+1:13:14.820 --> 1:13:16.540
+ What it required, what it requires though,
+
+1:13:16.540 --> 1:13:18.740
+ is having a model of your chairman,
+
+1:13:18.740 --> 1:13:19.820
+ having a model of your mother,
+
+1:13:19.820 --> 1:13:22.060
+ having a model of, you know,
+
+1:13:22.060 --> 1:13:24.500
+ the person you want to go on a date with
+
+1:13:24.500 --> 1:13:26.020
+ who might look at your tweet and so on.
+
+1:13:26.020 --> 1:13:27.820
+ All these things are,
+
+1:13:27.820 --> 1:13:30.980
+ you're running models of what it is like to be them.
+
+1:13:30.980 --> 1:13:34.540
+ So in terms of the structure of the brain,
+
+1:13:34.540 --> 1:13:37.140
+ again, this may be going into speculation land.
+
+1:13:37.140 --> 1:13:39.060
+ I hope you go along with me.
+
+1:13:39.060 --> 1:13:39.900
+ Yeah, of course.
+
+1:13:39.900 --> 1:13:40.740
+ Yep.
+
+1:13:40.740 --> 1:13:45.220
+ Is, okay, so the brain seems to be intelligent
+
+1:13:45.220 --> 1:13:48.380
+ and our AI systems aren't very currently.
+
+1:13:48.380 --> 1:13:52.860
+ So where do you think intelligence arises in the brain?
+
+1:13:52.860 --> 1:13:55.660
+ Like what is it about the brain?
+
+1:13:55.660 --> 1:13:58.780
+ So if you mean where location wise,
+
+1:13:58.780 --> 1:13:59.900
+ it's no single spot.
+
+1:13:59.900 --> 1:14:01.980
+ It would be equivalent to asking,
+
+1:14:01.980 --> 1:14:03.500
+ I'm looking at New York city,
+
+1:14:04.820 --> 1:14:06.500
+ where is the economy?
+
+1:14:06.500 --> 1:14:08.180
+ The answer is you can't point to anywhere.
+
+1:14:08.180 --> 1:14:09.980
+ The economy is all about the interaction
+
+1:14:09.980 --> 1:14:12.180
+ of all of the pieces and parts of the city.
+
+1:14:12.180 --> 1:14:14.140
+ And that's what, you know, intelligence,
+
+1:14:14.140 --> 1:14:15.540
+ whatever we mean by that in the brain
+
+1:14:15.540 --> 1:14:18.220
+ is interacting from everything going on at once.
+
+1:14:18.220 --> 1:14:19.500
+ In terms of a structure.
+
+1:14:19.500 --> 1:14:23.620
+ So we look humans are much smarter than fish,
+
+1:14:23.620 --> 1:14:26.700
+ maybe not dolphins, but dolphins are mammals, right?
+
+1:14:26.700 --> 1:14:28.580
+ I assert that what we mean by smarter
+
+1:14:28.580 --> 1:14:30.020
+ has to do with live wiring.
+
+1:14:30.020 --> 1:14:32.220
+ So what we mean when we say, oh, we're smart
+
+1:14:32.220 --> 1:14:33.700
+ is, oh, we can figure out a new thing
+
+1:14:33.700 --> 1:14:36.740
+ and figure out a new pathway to get where we need to go.
+
+1:14:36.740 --> 1:14:39.700
+ And that's because fish are essentially coming to the table
+
+1:14:39.700 --> 1:14:43.740
+ with, you know, okay, here's the hardware, go swim, mate.
+
+1:14:43.740 --> 1:14:46.100
+ But we have the capacity to say,
+
+1:14:46.100 --> 1:14:47.580
+ okay, look, I'm gonna absorb, oh, oh,
+
+1:14:47.580 --> 1:14:49.260
+ but you know, I saw someone else do this thing
+
+1:14:49.260 --> 1:14:51.980
+ and I read once that you could do this other thing
+
+1:14:51.980 --> 1:14:52.820
+ and so on.
+
+1:14:52.820 --> 1:14:54.620
+ So do you think there's, is there something,
+
+1:14:54.620 --> 1:14:56.700
+ I know these are mysteries,
+
+1:14:56.700 --> 1:15:00.140
+ but like architecturally speaking,
+
+1:15:00.140 --> 1:15:05.140
+ what feature of the brain of the live wire aspect of it
+
+1:15:06.100 --> 1:15:08.140
+ that is really useful for intelligence?
+
+1:15:08.140 --> 1:15:13.140
+ So like, is it the ability of neurons to reconnect?
+
+1:15:15.180 --> 1:15:16.220
+ Like, is there something,
+
+1:15:16.220 --> 1:15:18.180
+ is there any lessons about the human brain
+
+1:15:18.180 --> 1:15:21.020
+ you think might be inspiring for us
+
+1:15:21.020 --> 1:15:26.020
+ to take into the artificial, into the machine learning world?
+
+1:15:26.860 --> 1:15:29.620
+ Yeah, I'm actually just trying to write some up on this now
+
+1:15:29.620 --> 1:15:31.300
+ called, you know, if you wanna build a robot,
+
+1:15:31.300 --> 1:15:32.460
+ start with the stomach.
+
+1:15:32.460 --> 1:15:35.380
+ And what I mean by that, what I mean by that is
+
+1:15:35.380 --> 1:15:37.220
+ a robot has to care, it has to have hunger,
+
+1:15:37.220 --> 1:15:40.340
+ it has to care about surviving, that kind of thing.
+
+1:15:40.340 --> 1:15:41.260
+ Here's an example.
+
+1:15:41.260 --> 1:15:44.180
+ So the penultimate chapter of my book,
+
+1:15:44.180 --> 1:15:46.620
+ I titled The Wolf and the Mars Rover.
+
+1:15:46.620 --> 1:15:48.860
+ And I just look at this simple comparison
+
+1:15:48.860 --> 1:15:52.580
+ of you look at a wolf, it gets its leg caught in a trap.
+
+1:15:52.580 --> 1:15:53.420
+ What does it do?
+
+1:15:53.420 --> 1:15:55.460
+ It gnaws its leg off,
+
+1:15:55.460 --> 1:15:58.220
+ and then it figures out how to walk on three legs.
+
+1:15:58.220 --> 1:15:59.060
+ No problem.
+
+1:15:59.060 --> 1:16:02.180
+ Now, the Mars Rover Curiosity got its front wheel stuck
+
+1:16:02.180 --> 1:16:05.220
+ in some Martian soil, and it died.
+
+1:16:05.220 --> 1:16:09.100
+ This project that cost billions of dollars died
+
+1:16:09.100 --> 1:16:09.980
+ because it got its wheels.
+
+1:16:09.980 --> 1:16:12.740
+ Wouldn't it be terrific if we could build a robot
+
+1:16:12.740 --> 1:16:15.260
+ that chewed off its front wheel and figured out
+
+1:16:15.260 --> 1:16:17.780
+ how to operate with a slightly different body plan?
+
+1:16:17.780 --> 1:16:21.020
+ That's the kind of thing that we wanna be able to build.
+
+1:16:21.020 --> 1:16:23.300
+ And to get there, what we need,
+
+1:16:23.300 --> 1:16:25.140
+ the whole reason the wolf is able to do that
+
+1:16:25.140 --> 1:16:27.940
+ is because its motor and somatosensory systems
+
+1:16:27.940 --> 1:16:28.780
+ are live wired.
+
+1:16:28.780 --> 1:16:29.980
+ So it says, oh, you know what?
+
+1:16:29.980 --> 1:16:31.620
+ Turns out we've got a body plan that's different
+
+1:16:31.620 --> 1:16:34.140
+ than what I thought a few minutes ago,
+
+1:16:34.140 --> 1:16:38.820
+ but I have a yen to survive and I care about relevance,
+
+1:16:38.820 --> 1:16:40.660
+ which in this case is getting to food,
+
+1:16:40.660 --> 1:16:42.580
+ getting back to my pack and so on.
+
+1:16:42.580 --> 1:16:44.660
+ So I'm just gonna figure out how to operate with this.
+
+1:16:44.660 --> 1:16:46.020
+ Oh, whoops, that didn't work.
+
+1:16:46.020 --> 1:16:48.500
+ Oh, okay, I'm kind of getting it to work.
+
+1:16:48.500 --> 1:16:49.900
+ But the Mars Rover doesn't do that.
+
+1:16:49.900 --> 1:16:51.860
+ It just says, oh geez, I was pre programmed.
+
+1:16:51.860 --> 1:16:53.980
+ Four wheels, now I have three, I'm screwed.
+
+1:16:53.980 --> 1:16:55.900
+ Yeah, you know, I don't know if you're familiar
+
+1:16:55.900 --> 1:16:58.180
+ with a philosopher named Ernest Becker.
+
+1:16:58.180 --> 1:17:00.780
+ He wrote a book called Denial of Death.
+
+1:17:00.780 --> 1:17:03.500
+ And there's a few psychologists, Sheldon Solomon,
+
+1:17:03.500 --> 1:17:06.220
+ I think I just spoke with him on his podcast
+
+1:17:07.260 --> 1:17:09.900
+ who developed terror management theory,
+
+1:17:09.900 --> 1:17:12.940
+ which is like Ernest Becker is a philosopher
+
+1:17:12.940 --> 1:17:17.220
+ that basically said that fear of mortality
+
+1:17:17.220 --> 1:17:18.220
+ is at the core of it.
+
+1:17:18.220 --> 1:17:19.060
+ Yeah.
+
+1:17:19.060 --> 1:17:23.140
+ And so I don't know if it sounds compelling as an idea
+
+1:17:23.140 --> 1:17:26.980
+ that all of the civilization we've constructed
+
+1:17:26.980 --> 1:17:29.100
+ is based on this, but it's.
+
+1:17:29.100 --> 1:17:30.300
+ I'm familiar with his work.
+
+1:17:30.300 --> 1:17:31.220
+ Here's what I think.
+
+1:17:31.220 --> 1:17:35.180
+ I think that yes, fundamentally this desire to survive
+
+1:17:35.180 --> 1:17:37.420
+ is at the core of it, I would agree with that.
+
+1:17:37.420 --> 1:17:40.660
+ But how that expresses itself in your life
+
+1:17:40.660 --> 1:17:41.700
+ ends up being very different.
+
+1:17:41.700 --> 1:17:45.340
+ The reason you do what you do is, I mean,
+
+1:17:45.340 --> 1:17:47.900
+ you could list the 100 reasons why you chose
+
+1:17:47.900 --> 1:17:49.300
+ to write your tweet this way and that way.
+
+1:17:49.300 --> 1:17:51.340
+ And it really has nothing to do with the survival part.
+
+1:17:51.340 --> 1:17:53.540
+ It has to do with, you know, trying to impress fellow humans
+
+1:17:53.540 --> 1:17:55.260
+ and surprise them and say something.
+
+1:17:55.260 --> 1:17:56.940
+ Yeah, so many things built on top of each other,
+
+1:17:56.940 --> 1:17:58.820
+ but it's fascinating to think
+
+1:17:58.820 --> 1:18:00.900
+ that in artificial intelligence systems,
+
+1:18:00.900 --> 1:18:05.420
+ we wanna be able to somehow engineer this drive
+
+1:18:05.420 --> 1:18:08.300
+ for survival, for immortality.
+
+1:18:08.300 --> 1:18:11.460
+ I mean, because as humans, we're not just about survival,
+
+1:18:11.460 --> 1:18:14.740
+ we're aware of the fact that we're going to die,
+
+1:18:14.740 --> 1:18:17.420
+ which is a very kind of, we're aware of like space time.
+
+1:18:17.420 --> 1:18:18.500
+ Most people aren't, by the way.
+
+1:18:18.500 --> 1:18:19.340
+ Aren't?
+
+1:18:19.340 --> 1:18:20.340
+ Aren't.
+
+1:18:20.340 --> 1:18:25.340
+ Confucius said, he said, each person has two lives.
+
+1:18:25.980 --> 1:18:28.060
+ The second one begins when you realize
+
+1:18:28.060 --> 1:18:29.500
+ that you have just one.
+
+1:18:29.500 --> 1:18:30.340
+ Yeah.
+
+1:18:30.340 --> 1:18:31.340
+ But most people, it takes a long time
+
+1:18:31.340 --> 1:18:32.700
+ for most people to get there.
+
+1:18:32.700 --> 1:18:34.660
+ I mean, you could argue this kind of Freudian thing,
+
+1:18:34.660 --> 1:18:41.660
+ which Erzbecker argues is they actually figured it out
+
+1:18:41.660 --> 1:18:44.860
+ early on and the terror they felt
+
+1:18:44.860 --> 1:18:47.580
+ was like the reason it's been suppressed.
+
+1:18:47.580 --> 1:18:49.300
+ And the reason most people, when I ask them
+
+1:18:49.300 --> 1:18:50.700
+ about whether they're afraid of death,
+
+1:18:50.700 --> 1:18:52.180
+ they basically say no.
+
+1:18:53.180 --> 1:18:56.980
+ They basically say like, I'm afraid I won't get,
+
+1:18:56.980 --> 1:18:59.820
+ like submit the paper before I die.
+
+1:18:59.820 --> 1:19:01.900
+ Like they kind of see, they see death
+
+1:19:01.900 --> 1:19:04.780
+ as a kind of a inconvenient deadline
+
+1:19:04.780 --> 1:19:08.180
+ for a particular set of, like a book you're writing.
+
+1:19:08.180 --> 1:19:10.700
+ As opposed to like, what the hell?
+
+1:19:10.700 --> 1:19:14.780
+ This thing ends at any moment.
+
+1:19:14.780 --> 1:19:17.260
+ Like most people, as I've encountered,
+
+1:19:17.260 --> 1:19:20.700
+ do not meditate on the idea that like right now
+
+1:19:20.700 --> 1:19:21.740
+ you could die.
+
+1:19:21.740 --> 1:19:26.380
+ Like right now, like in the next five minutes,
+
+1:19:26.380 --> 1:19:29.940
+ it could be all over and, you know, meditate on that idea.
+
+1:19:29.940 --> 1:19:32.580
+ I think that somehow brings you closer
+
+1:19:32.580 --> 1:19:36.500
+ to like the core of the motivations
+
+1:19:36.500 --> 1:19:40.140
+ and the core of the human cognition condition.
+
+1:19:40.140 --> 1:19:41.300
+ I think it might be the core, but like I said,
+
+1:19:41.300 --> 1:19:43.820
+ it is not what drives us day to day.
+
+1:19:43.820 --> 1:19:45.540
+ Yeah, there's so many things on top of it,
+
+1:19:45.540 --> 1:19:46.380
+ but it is interesting.
+
+1:19:46.380 --> 1:19:48.780
+ I mean, as the ancient poet said,
+
+1:19:49.660 --> 1:19:53.340
+ death whispers at my ear, live for I come.
+
+1:19:53.340 --> 1:19:56.100
+ So it's, it is certainly motivating
+
+1:19:56.100 --> 1:19:58.060
+ when we think about that.
+
+1:19:58.060 --> 1:19:59.220
+ Okay, I've got some deadline.
+
+1:19:59.220 --> 1:20:00.340
+ I don't know exactly when it is,
+
+1:20:00.340 --> 1:20:02.180
+ but I better make stuff happen.
+
+1:20:02.180 --> 1:20:04.300
+ It is motivating, but I don't think,
+
+1:20:04.300 --> 1:20:06.780
+ I mean, I know for just speaking for me personally,
+
+1:20:06.780 --> 1:20:08.900
+ that's not what motivates me day to day.
+
+1:20:08.900 --> 1:20:13.380
+ It's instead, oh, I want to get this, you know,
+
+1:20:13.380 --> 1:20:14.780
+ program up and running before this,
+
+1:20:14.780 --> 1:20:17.300
+ or I want to make sure my coauthor isn't mad at me
+
+1:20:17.300 --> 1:20:18.220
+ because I haven't gotten this in,
+
+1:20:18.220 --> 1:20:19.580
+ or I don't want to miss this grant deadline,
+
+1:20:19.580 --> 1:20:21.180
+ or, you know, whatever the thing is.
+
+1:20:21.180 --> 1:20:24.060
+ Yeah, it's too distant in a sense.
+
+1:20:24.060 --> 1:20:26.540
+ Nevertheless, it is good to reconnect.
+
+1:20:26.540 --> 1:20:30.220
+ But for the AI systems, none of that is there.
+
+1:20:31.220 --> 1:20:33.860
+ Like a neural network does not fear its mortality.
+
+1:20:34.940 --> 1:20:37.180
+ And that seems to be somehow
+
+1:20:37.180 --> 1:20:39.660
+ fundamentally missing the point.
+
+1:20:39.660 --> 1:20:40.700
+ I think that's missing the point,
+
+1:20:40.700 --> 1:20:42.420
+ but I wonder, it's an interesting speculation
+
+1:20:42.420 --> 1:20:43.700
+ about whether you can build an AI system
+
+1:20:43.700 --> 1:20:45.780
+ that is much closer to being a human
+
+1:20:45.780 --> 1:20:48.380
+ without the mortality and survival piece,
+
+1:20:48.380 --> 1:20:51.140
+ but just the thing of relevance,
+
+1:20:51.140 --> 1:20:52.740
+ just I care about this versus that.
+
+1:20:52.740 --> 1:20:54.780
+ Right now, if you have a robot roll into the room,
+
+1:20:54.780 --> 1:20:55.660
+ it's going to be frozen
+
+1:20:55.660 --> 1:20:57.700
+ because it doesn't have any reason to go there versus there.
+
+1:20:57.700 --> 1:21:02.580
+ It doesn't have any particular set of things
+
+1:21:02.580 --> 1:21:05.620
+ about this is how I should navigate my next move
+
+1:21:05.620 --> 1:21:07.700
+ because I want something.
+
+1:21:07.700 --> 1:21:10.900
+ Yeah, the thing about humans
+
+1:21:10.900 --> 1:21:13.740
+ is they seem to generate goals.
+
+1:21:13.740 --> 1:21:15.740
+ They're like, you said livewired.
+
+1:21:15.740 --> 1:21:19.980
+ I mean, it's very flexible in terms of the goals
+
+1:21:19.980 --> 1:21:21.780
+ and creative in terms of the goals we generate
+
+1:21:21.780 --> 1:21:23.700
+ when we enter a room.
+
+1:21:23.700 --> 1:21:25.540
+ You show up to a party without a goal,
+
+1:21:25.540 --> 1:21:27.900
+ usually, and then you figure it out along the way.
+
+1:21:27.900 --> 1:21:29.980
+ Yes, but this goes back to the question about free will,
+
+1:21:29.980 --> 1:21:31.940
+ which is when I walk into the party,
+
+1:21:33.340 --> 1:21:35.620
+ if you rewound it 10,000 times,
+
+1:21:35.620 --> 1:21:37.980
+ would I go and talk to that couple over there
+
+1:21:37.980 --> 1:21:38.980
+ versus that person?
+
+1:21:38.980 --> 1:21:41.700
+ Like, I might do this exact same thing every time
+
+1:21:41.700 --> 1:21:44.380
+ because I've got some goal stack and I think,
+
+1:21:44.380 --> 1:21:45.820
+ okay, well, at this party,
+
+1:21:45.820 --> 1:21:47.700
+ I really want to meet these kind of people
+
+1:21:47.700 --> 1:21:51.340
+ or I feel awkward or whatever my goals are.
+
+1:21:51.340 --> 1:21:52.620
+ By the way, so there was something
+
+1:21:52.620 --> 1:21:54.580
+ that I meant to mention earlier.
+
+1:21:54.580 --> 1:21:56.140
+ If you don't mind going back,
+
+1:21:56.140 --> 1:21:58.340
+ which is this, when we were talking about BCI.
+
+1:21:59.380 --> 1:22:00.260
+ So I don't know if you know this,
+
+1:22:00.260 --> 1:22:02.620
+ but what I'm spending 90% of my time doing now
+
+1:22:02.620 --> 1:22:03.820
+ is running a company.
+
+1:22:03.820 --> 1:22:04.660
+ Do you know about this?
+
+1:22:04.660 --> 1:22:08.100
+ Yes, I wasn't sure what the company is involved in.
+
+1:22:08.100 --> 1:22:09.420
+ Right, so. Can you talk about it?
+
+1:22:09.420 --> 1:22:10.820
+ Yeah, yeah.
+
+1:22:10.820 --> 1:22:13.020
+ So when it comes to the future of BCI,
+
+1:22:15.020 --> 1:22:18.860
+ you can put stuff into the brain invasively,
+
+1:22:18.860 --> 1:22:22.060
+ but my interest has been how you can get data streams
+
+1:22:22.060 --> 1:22:24.180
+ into the brain noninvasively.
+
+1:22:24.180 --> 1:22:26.340
+ So I run a company called Neosensory
+
+1:22:26.340 --> 1:22:29.620
+ and what we build is this little wristband.
+
+1:22:29.620 --> 1:22:30.580
+ We've built this in many different form factors.
+
+1:22:30.580 --> 1:22:31.940
+ Oh, wow, that's it?
+
+1:22:31.940 --> 1:22:32.780
+ Yeah, this is it.
+
+1:22:32.780 --> 1:22:35.420
+ And it's got these vibratory motors in it.
+
+1:22:35.420 --> 1:22:38.220
+ So these things, as I'm speaking, for example,
+
+1:22:38.220 --> 1:22:41.060
+ it's capturing my voice and running algorithms
+
+1:22:41.060 --> 1:22:44.460
+ and then turning that into patterns of vibration here.
+
+1:22:44.460 --> 1:22:48.740
+ So people who are deaf, for example,
+
+1:22:48.740 --> 1:22:50.780
+ learn to hear through their skin.
+
+1:22:50.780 --> 1:22:54.260
+ So the information is getting up to their brain this way
+
+1:22:54.260 --> 1:22:55.820
+ and they learn how to hear.
+
+1:22:55.820 --> 1:22:58.020
+ So it turns out on day one, people are pretty good,
+
+1:22:58.020 --> 1:23:00.580
+ like better than you'd expect at being able to say,
+
+1:23:00.580 --> 1:23:02.540
+ oh, that's weird, was that a dog barking?
+
+1:23:02.540 --> 1:23:03.380
+ Was that a baby crying?
+
+1:23:03.380 --> 1:23:04.740
+ Was that a door knock, a doorbell?
+
+1:23:04.740 --> 1:23:06.500
+ Like people are pretty good at it,
+
+1:23:06.500 --> 1:23:09.260
+ but with time they get better and better
+
+1:23:09.260 --> 1:23:12.380
+ and what it becomes is a new qualia.
+
+1:23:12.380 --> 1:23:15.380
+ In other words, a new subjective internal experience.
+
+1:23:15.380 --> 1:23:18.380
+ So on day one, they say, whoa, what was that?
+
+1:23:18.380 --> 1:23:20.620
+ Oh, oh, that was the dog barking.
+
+1:23:20.620 --> 1:23:23.420
+ But by three months later, they say,
+
+1:23:23.420 --> 1:23:24.540
+ oh, there's a dog barking somewhere.
+
+1:23:24.540 --> 1:23:25.540
+ Oh, there's the dog.
+
+1:23:25.540 --> 1:23:26.380
+ That's fascinating.
+
+1:23:26.380 --> 1:23:27.700
+ And by the way, that's exactly how you learn
+
+1:23:27.700 --> 1:23:29.380
+ how to use your ears.
+
+1:23:29.380 --> 1:23:30.540
+ So of course you don't remember this,
+
+1:23:30.540 --> 1:23:33.100
+ but when you were an infant, all you have are
+
+1:23:33.100 --> 1:23:36.540
+ your eardrum vibrating causes spikes to go down,
+
+1:23:36.540 --> 1:23:39.940
+ your auditory nerves and impinging your auditory cortex.
+
+1:23:40.940 --> 1:23:43.060
+ Your brain doesn't know what those mean automatically,
+
+1:23:43.060 --> 1:23:44.820
+ but what happens is you learn how to hear
+
+1:23:44.820 --> 1:23:46.420
+ by looking for correlations.
+
+1:23:46.420 --> 1:23:48.900
+ You clap your hands as a baby,
+
+1:23:48.900 --> 1:23:50.860
+ you look at your mother's mouth moving
+
+1:23:50.860 --> 1:23:53.180
+ and that correlates with what's going on there.
+
+1:23:53.180 --> 1:23:54.860
+ And eventually your brain says, all right,
+
+1:23:54.860 --> 1:23:57.940
+ I'm just gonna summarize this as an internal experience,
+
+1:23:57.940 --> 1:23:59.300
+ as a conscious experience.
+
+1:23:59.300 --> 1:24:01.260
+ And that's exactly what happens here.
+
+1:24:01.260 --> 1:24:04.140
+ The weird part is that you can feed data into the brain,
+
+1:24:04.140 --> 1:24:06.260
+ not through the ears, but through any channel
+
+1:24:06.260 --> 1:24:07.180
+ that gets there.
+
+1:24:07.180 --> 1:24:08.500
+ As long as the information gets there,
+
+1:24:08.500 --> 1:24:10.260
+ your brain figures out what to do with it.
+
+1:24:10.260 --> 1:24:11.340
+ That's fascinating.
+
+1:24:11.340 --> 1:24:14.740
+ Like expanding the set of sensors,
+
+1:24:14.740 --> 1:24:19.060
+ it could be arbitrarily, yeah,
+
+1:24:19.060 --> 1:24:21.220
+ it could expand arbitrarily, which is fascinating.
+
+1:24:21.220 --> 1:24:22.060
+ Well, exactly.
+
+1:24:22.060 --> 1:24:24.500
+ And by the way, the reason I use this skin,
+
+1:24:24.500 --> 1:24:26.300
+ there's all kinds of cool stuff going on
+
+1:24:26.300 --> 1:24:28.140
+ in the AR world with glasses.
+
+1:24:28.140 --> 1:24:29.940
+ But the fact is your eyes are overtaxed
+
+1:24:29.940 --> 1:24:30.900
+ and your ears are overtaxed
+
+1:24:30.900 --> 1:24:33.420
+ and you need to be able to see and hear other stuff.
+
+1:24:33.420 --> 1:24:34.660
+ But you're covered with the skin,
+
+1:24:34.660 --> 1:24:38.140
+ which is this incredible computational material
+
+1:24:38.140 --> 1:24:39.700
+ with which you can feed information.
+
+1:24:39.700 --> 1:24:42.540
+ And we don't use our skin for much of anything nowadays.
+
+1:24:42.540 --> 1:24:44.260
+ My joke in the lab is that I say,
+
+1:24:44.260 --> 1:24:45.820
+ we don't call this the waste for nothing.
+
+1:24:45.820 --> 1:24:47.380
+ Because originally we built this as the vest
+
+1:24:47.380 --> 1:24:51.020
+ and you're passing in all this information that way.
+
+1:24:51.020 --> 1:24:56.020
+ And what I'm doing here with the deaf community
+
+1:24:56.380 --> 1:24:59.020
+ is what's called sensory substitution,
+
+1:24:59.020 --> 1:25:02.420
+ where I'm capturing sound and I'm just replacing the ears
+
+1:25:02.420 --> 1:25:04.340
+ with the skin and that works.
+
+1:25:05.900 --> 1:25:07.140
+ One of the things I talk about LiveWire
+
+1:25:07.140 --> 1:25:09.500
+ is sensory expansion.
+
+1:25:09.500 --> 1:25:11.980
+ So what if you took something like your visual system,
+
+1:25:11.980 --> 1:25:13.500
+ which picks up on a very thin slice
+
+1:25:13.500 --> 1:25:15.300
+ of the electromagnetic spectrum,
+
+1:25:15.300 --> 1:25:18.460
+ and you could see infrared or ultraviolet.
+
+1:25:18.460 --> 1:25:21.100
+ So we've hooked that up, infrared and ultraviolet detectors,
+
+1:25:21.100 --> 1:25:22.780
+ and I can feel what's going on.
+
+1:25:22.780 --> 1:25:25.220
+ So just as an example, the first night I built the infrared,
+
+1:25:25.220 --> 1:25:27.460
+ one of my engineers built it, the infrared detector,
+
+1:25:27.460 --> 1:25:29.420
+ I was walking in the dark between two houses
+
+1:25:29.420 --> 1:25:31.780
+ and suddenly I felt all this infrared radiation.
+
+1:25:31.780 --> 1:25:32.860
+ I was like, where's that come from?
+
+1:25:32.860 --> 1:25:35.900
+ And I just followed my wrist and I found an infrared camera,
+
+1:25:35.900 --> 1:25:37.780
+ a night vision camera that was,
+
+1:25:37.780 --> 1:25:40.420
+ but I immediately, oh, there's that thing there.
+
+1:25:40.420 --> 1:25:42.060
+ Of course, I would have never seen it,
+
+1:25:42.060 --> 1:25:45.260
+ but now it's just part of my reality.
+
+1:25:45.260 --> 1:25:46.100
+ That's fascinating.
+
+1:25:46.100 --> 1:25:46.940
+ Yeah, and then of course,
+
+1:25:46.940 --> 1:25:49.860
+ what I'm really interested in is sensory addition.
+
+1:25:49.860 --> 1:25:51.620
+ What if you could pick up on stuff
+
+1:25:51.620 --> 1:25:55.060
+ that isn't even part of what we normally pick up on,
+
+1:25:55.060 --> 1:25:57.620
+ like the magnetic field of the earth
+
+1:25:57.620 --> 1:26:00.660
+ or Twitter or stock market or things like that.
+
+1:26:00.660 --> 1:26:02.300
+ Or the, I don't know, some weird stuff
+
+1:26:02.300 --> 1:26:04.260
+ like the moods of other people or something like that.
+
+1:26:04.260 --> 1:26:06.540
+ Sure, now what you need is a way to measure this.
+
+1:26:06.540 --> 1:26:08.180
+ So as long as there's a machine that can measure it,
+
+1:26:08.180 --> 1:26:09.980
+ it's easy, it's trivial to feed this in here
+
+1:26:09.980 --> 1:26:14.300
+ and you come to be, it comes to be part of your reality.
+
+1:26:14.300 --> 1:26:16.220
+ It's like you have another sensor.
+
+1:26:16.220 --> 1:26:19.140
+ And that kind of thing is without doing like,
+
+1:26:19.140 --> 1:26:20.860
+ if you look in Neuralink,
+
+1:26:20.860 --> 1:26:23.700
+ I forgot how you put it, but it was eloquent,
+
+1:26:23.700 --> 1:26:26.140
+ without getting, cutting into the brain, basically.
+
+1:26:26.140 --> 1:26:27.300
+ Yeah, exactly, exactly.
+
+1:26:27.300 --> 1:26:30.660
+ So this costs, at the moment, $399.
+
+1:26:30.660 --> 1:26:32.060
+ That's not gonna kill you.
+
+1:26:32.060 --> 1:26:33.380
+ Yeah, it's not gonna kill you.
+
+1:26:33.380 --> 1:26:36.540
+ You just put it on and when you're done, you take it off.
+
+1:26:36.540 --> 1:26:39.180
+ Yeah, and so, and the name of the company, by the way,
+
+1:26:39.180 --> 1:26:42.700
+ is Neosensory for new senses, because the whole idea is.
+
+1:26:42.700 --> 1:26:43.540
+ Beautiful, that's.
+
+1:26:43.540 --> 1:26:45.940
+ You can, as I said, you come to the table
+
+1:26:45.940 --> 1:26:48.060
+ with certain plug and play devices and then that's it.
+
+1:26:48.060 --> 1:26:49.140
+ Like I can pick up on this little bit
+
+1:26:49.140 --> 1:26:50.180
+ of the electromagnetic radiation,
+
+1:26:50.180 --> 1:26:53.420
+ you can pick up on this little frequency band
+
+1:26:53.420 --> 1:26:56.220
+ for hearing and so on, but I'm stuck there
+
+1:26:56.220 --> 1:26:57.820
+ and there's no reason we have to be stuck there.
+
+1:26:57.820 --> 1:27:01.740
+ We can expand our umwelt by adding new senses, yeah.
+
+1:27:01.740 --> 1:27:02.660
+ What's umwelt?
+
+1:27:02.660 --> 1:27:05.740
+ Oh, I'm sorry, the umwelt is the slice of reality
+
+1:27:05.740 --> 1:27:06.580
+ that you pick up on.
+
+1:27:06.580 --> 1:27:09.420
+ So each animal has its own umwelt.
+
+1:27:09.420 --> 1:27:10.780
+ Yeah, exactly.
+
+1:27:10.780 --> 1:27:11.620
+ Nice.
+
+1:27:11.620 --> 1:27:12.460
+ I'm sorry, I forgot to define it before.
+
+1:27:12.460 --> 1:27:15.660
+ It's such an important concept, which is to say,
+
+1:27:17.340 --> 1:27:19.780
+ for example, if you are a tick,
+
+1:27:19.780 --> 1:27:22.820
+ you pick up on butyric gas, you pick up on odor
+
+1:27:22.820 --> 1:27:24.100
+ and you pick up on temperature, that's it.
+
+1:27:24.100 --> 1:27:25.740
+ That's how you construct your reality
+
+1:27:25.740 --> 1:27:26.860
+ is with those two sensors.
+
+1:27:26.860 --> 1:27:28.820
+ If you are a blind echolocating bat,
+
+1:27:28.820 --> 1:27:31.500
+ you're picking up on air compression waves coming back,
+
+1:27:31.500 --> 1:27:32.540
+ you know, echolocation.
+
+1:27:32.540 --> 1:27:34.820
+ If you are the black ghost knife fish,
+
+1:27:34.820 --> 1:27:37.980
+ you're picking up on changes in the electrical field
+
+1:27:37.980 --> 1:27:40.420
+ around you with electroreception.
+
+1:27:40.420 --> 1:27:41.380
+ That's how they swim around
+
+1:27:41.380 --> 1:27:43.020
+ and tell there's a rock there and so on.
+
+1:27:43.020 --> 1:27:45.060
+ But that's all they pick up on.
+
+1:27:45.060 --> 1:27:47.020
+ That's their umwelt.
+
+1:27:47.020 --> 1:27:49.820
+ That's the signals they get from the world
+
+1:27:49.820 --> 1:27:51.300
+ from which to construct their reality.
+
+1:27:51.300 --> 1:27:53.540
+ And they can be totally different umwelts.
+
+1:27:53.540 --> 1:27:54.380
+ That's fantastic.
+
+1:27:54.380 --> 1:27:57.460
+ And so our human umwelt is, you know,
+
+1:27:57.460 --> 1:27:59.380
+ we've got little bits that we can pick up on.
+
+1:27:59.380 --> 1:28:01.100
+ One of the things I like to do with my students
+
+1:28:01.100 --> 1:28:05.780
+ is talk about, imagine that you are a bloodhound dog, right?
+
+1:28:05.780 --> 1:28:07.500
+ You are a bloodhound dog with a huge snout
+
+1:28:07.500 --> 1:28:09.380
+ with 200 million scent receptors in it.
+
+1:28:09.380 --> 1:28:11.260
+ And your whole world is about smelling.
+
+1:28:11.260 --> 1:28:13.740
+ You know, you've got slits in your nostrils,
+
+1:28:13.740 --> 1:28:15.300
+ like big nose fulls of air and so on.
+
+1:28:15.300 --> 1:28:16.460
+ Do you have a dog?
+
+1:28:16.460 --> 1:28:17.300
+ Nope, used to.
+
+1:28:17.300 --> 1:28:18.140
+ Used to, okay, right.
+
+1:28:18.140 --> 1:28:19.340
+ So you know, you walk your dog around
+
+1:28:19.340 --> 1:28:21.020
+ and your dog is smelling everything.
+
+1:28:21.020 --> 1:28:22.260
+ The whole world is full of signals
+
+1:28:22.260 --> 1:28:23.820
+ that you do not pick up on.
+
+1:28:23.820 --> 1:28:25.380
+ And so imagine if you were that dog
+
+1:28:25.380 --> 1:28:26.940
+ and you looked at your human master and thought,
+
+1:28:26.940 --> 1:28:28.100
+ my God, what is it like to have
+
+1:28:28.100 --> 1:28:30.420
+ the pitiful little nose of a human?
+
+1:28:30.420 --> 1:28:32.740
+ How could you not know that there's a cat 100 yards away
+
+1:28:32.740 --> 1:28:34.500
+ or that your friend was here six hours ago?
+
+1:28:34.500 --> 1:28:37.980
+ And so the idea is because we're stuck in our own belt,
+
+1:28:37.980 --> 1:28:39.180
+ because we have this little pitiful noses,
+
+1:28:39.180 --> 1:28:41.500
+ we think, okay, well, yeah, we're seeing reality,
+
+1:28:41.500 --> 1:28:44.540
+ but you can have very different sorts of realities
+
+1:28:44.540 --> 1:28:46.940
+ depending on the peripheral plug and play devices
+
+1:28:46.940 --> 1:28:47.780
+ you're equipped with.
+
+1:28:47.780 --> 1:28:49.660
+ It's fascinating to think that like,
+
+1:28:49.660 --> 1:28:52.100
+ if we're being honest, probably our own belt
+
+1:28:52.100 --> 1:28:57.340
+ is, you know, some infinitely tiny percent
+
+1:28:57.340 --> 1:29:01.420
+ of the possibilities of how you can sense,
+
+1:29:01.420 --> 1:29:04.380
+ quote unquote, reality, even if you could,
+
+1:29:04.380 --> 1:29:08.780
+ I mean, there's a guy named Donald Hoffman, yeah,
+
+1:29:08.780 --> 1:29:13.780
+ who basically says we're really far away from reality
+
+1:29:13.860 --> 1:29:15.980
+ in terms of our ability to sense anything.
+
+1:29:15.980 --> 1:29:20.700
+ Like we're very, we're almost like we're floating out there
+
+1:29:20.700 --> 1:29:22.420
+ that's almost like completely attached
+
+1:29:22.420 --> 1:29:24.220
+ to the actual physical reality.
+
+1:29:24.220 --> 1:29:27.060
+ It's fascinating that we can have extra senses
+
+1:29:27.060 --> 1:29:29.660
+ that could help us get a little bit closer.
+
+1:29:29.660 --> 1:29:33.340
+ Exactly, and by the way, this has been the fruits
+
+1:29:33.340 --> 1:29:36.100
+ of science is realizing, like, for example,
+
+1:29:36.100 --> 1:29:36.940
+ you know, you open your eyes
+
+1:29:36.940 --> 1:29:38.220
+ and there's the world around you, right?
+
+1:29:38.220 --> 1:29:40.100
+ But of course, depending on how you calculate it,
+
+1:29:40.100 --> 1:29:42.900
+ it's less than a 10 trillionth of the electromagnetic
+
+1:29:42.900 --> 1:29:45.780
+ spectrum that we call visible light.
+
+1:29:45.780 --> 1:29:46.620
+ The reason I say it depends,
+
+1:29:46.620 --> 1:29:47.820
+ because, you know, it's actually infinite
+
+1:29:47.820 --> 1:29:49.220
+ in all directions presumably.
+
+1:29:49.220 --> 1:29:51.260
+ Yeah, and so that's exactly that.
+
+1:29:51.260 --> 1:29:53.620
+ And then science allows you to actually look
+
+1:29:53.620 --> 1:29:54.980
+ into the rest of it.
+
+1:29:54.980 --> 1:29:57.140
+ Exactly, so understanding how big the world is out there.
+
+1:29:57.140 --> 1:29:59.060
+ And the same with the world of really small
+
+1:29:59.060 --> 1:30:00.460
+ and the world of really large.
+
+1:30:00.460 --> 1:30:01.300
+ Exactly.
+
+1:30:01.300 --> 1:30:03.100
+ That's beyond our ability to sense.
+
+1:30:03.100 --> 1:30:04.980
+ Exactly, and so the reason I think this kind of thing
+
+1:30:04.980 --> 1:30:07.740
+ matters is because we now have an opportunity
+
+1:30:07.740 --> 1:30:10.900
+ for the first time in human history to say,
+
+1:30:10.900 --> 1:30:13.060
+ okay, well, I'm just gonna include other things
+
+1:30:13.060 --> 1:30:13.900
+ in my own belt.
+
+1:30:13.900 --> 1:30:15.700
+ So I'm gonna include infrared radiation
+
+1:30:15.700 --> 1:30:19.020
+ and have a direct perceptual experience of that.
+
+1:30:19.020 --> 1:30:21.340
+ And so I'm very, you know, I mean,
+
+1:30:21.340 --> 1:30:22.660
+ so, you know, I've given up my lab
+
+1:30:22.660 --> 1:30:25.340
+ and I run this company 90% of my time now.
+
+1:30:25.340 --> 1:30:26.180
+ That's what I'm doing.
+
+1:30:26.180 --> 1:30:27.740
+ I still teach at Stanford and I'm, you know,
+
+1:30:27.740 --> 1:30:29.660
+ teaching courses and stuff like that.
+
+1:30:29.660 --> 1:30:32.980
+ But this is like, this is your passion.
+
+1:30:32.980 --> 1:30:35.020
+ The fire is on this.
+
+1:30:35.020 --> 1:30:37.420
+ Yeah, I feel like this is the most important thing
+
+1:30:37.420 --> 1:30:38.820
+ that's happening right now.
+
+1:30:38.820 --> 1:30:40.100
+ I mean, obviously I think that,
+
+1:30:40.100 --> 1:30:42.300
+ because that's what I'm devoting my time in my life to.
+
+1:30:42.300 --> 1:30:45.100
+ But I mean, it's a brilliant set of ideas.
+
+1:30:45.100 --> 1:30:50.100
+ It certainly is like, it's a step in a very vibrant future,
+
+1:30:50.100 --> 1:30:50.940
+ I would say.
+
+1:30:50.940 --> 1:30:54.180
+ Like the possibilities there are endless.
+
+1:30:54.180 --> 1:30:55.020
+ Exactly.
+
+1:30:55.020 --> 1:30:57.220
+ So if you ask what I think about Neuralink,
+
+1:30:57.220 --> 1:30:59.260
+ I think it's amazing what those guys are doing
+
+1:30:59.260 --> 1:31:00.100
+ and working on,
+
+1:31:00.100 --> 1:31:02.820
+ but I think it's not practical for almost everybody.
+
+1:31:02.820 --> 1:31:05.700
+ For example, for people who are deaf, they buy this
+
+1:31:05.700 --> 1:31:08.420
+ and, you know, every day we're getting tons of emails
+
+1:31:08.420 --> 1:31:09.980
+ and tweets and whatever from people saying, wow,
+
+1:31:09.980 --> 1:31:12.500
+ I picked up on this and then I had no idea that was a,
+
+1:31:12.500 --> 1:31:14.700
+ I didn't even know that was happening out there.
+
+1:31:14.700 --> 1:31:16.820
+ And they're coming to hear, by the way,
+
+1:31:16.820 --> 1:31:18.700
+ this is, you know, less than a 10 year old,
+
+1:31:18.700 --> 1:31:20.860
+ by the way, this is less than a 10th of the price
+
+1:31:20.860 --> 1:31:23.340
+ of a hearing aid and like 250 times less
+
+1:31:23.340 --> 1:31:25.220
+ than a cochlear implant.
+
+1:31:25.220 --> 1:31:26.060
+ That's amazing.
+
+1:31:27.100 --> 1:31:30.660
+ People love hearing about what, you know,
+
+1:31:30.660 --> 1:31:33.900
+ brilliant folks like yourself could recommend
+
+1:31:33.900 --> 1:31:35.020
+ in terms of books.
+
+1:31:35.020 --> 1:31:36.980
+ Of course, you're an author of many books.
+
+1:31:36.980 --> 1:31:38.780
+ So I'll, in the introduction,
+
+1:31:38.780 --> 1:31:40.300
+ mention all the books you've written.
+
+1:31:40.300 --> 1:31:42.500
+ People should definitely read LiveWired.
+
+1:31:42.500 --> 1:31:44.820
+ I've gotten a chance to read some of it and it's amazing.
+
+1:31:44.820 --> 1:31:48.300
+ But is there three books, technical, fiction,
+
+1:31:48.300 --> 1:31:52.100
+ philosophical that had an impact on you
+
+1:31:52.100 --> 1:31:56.380
+ when you were younger or today and books,
+
+1:31:56.380 --> 1:31:59.580
+ perhaps some of which you would want to recommend
+
+1:31:59.580 --> 1:32:00.500
+ that others read?
+
+1:32:01.380 --> 1:32:02.460
+ You know, as an undergraduate,
+
+1:32:02.460 --> 1:32:04.140
+ I majored in British and American literature.
+
+1:32:04.140 --> 1:32:06.780
+ That was my major because I love literature.
+
+1:32:06.780 --> 1:32:08.660
+ I grew up with literature.
+
+1:32:08.660 --> 1:32:10.500
+ My father had these extensive bookshelves.
+
+1:32:10.500 --> 1:32:13.860
+ And so I grew up in the mountains in New Mexico.
+
+1:32:13.860 --> 1:32:16.100
+ And so that was mostly why I spent my time was reading books.
+
+1:32:16.100 --> 1:32:21.100
+ But, you know, I love, you know, Faulkner, Hemingway.
+
+1:32:23.660 --> 1:32:26.100
+ I love many South American authors,
+
+1:32:26.100 --> 1:32:28.220
+ Gabriel Garcia Marquez and Italo Calvino.
+
+1:32:28.220 --> 1:32:29.860
+ I would actually recommend Invisible Cities.
+
+1:32:29.860 --> 1:32:33.140
+ I just, I loved that book by Italo Calvino.
+
+1:32:33.140 --> 1:32:34.660
+ Sorry, it's a book of fiction.
+
+1:32:37.020 --> 1:32:39.100
+ Anthony Dorr wrote a book called
+
+1:32:39.100 --> 1:32:41.020
+ All the Light We Cannot See,
+
+1:32:41.020 --> 1:32:44.140
+ which actually was inspired by incognito,
+
+1:32:44.140 --> 1:32:45.940
+ by exactly what we were talking about earlier
+
+1:32:45.940 --> 1:32:48.740
+ about how you can only see a little bit of the,
+
+1:32:48.740 --> 1:32:51.460
+ what we call visible light in the electromagnetic radiation.
+
+1:32:51.460 --> 1:32:52.780
+ I wrote about this in incognito,
+
+1:32:52.780 --> 1:32:54.780
+ and then he reviewed incognito for the Washington Post.
+
+1:32:54.780 --> 1:32:56.020
+ Oh no, that's awesome.
+
+1:32:56.020 --> 1:32:57.580
+ And then he wrote this book called,
+
+1:32:57.580 --> 1:32:58.700
+ the book has nothing to do with that,
+
+1:32:58.700 --> 1:33:00.860
+ but that's where the title comes from.
+
+1:33:00.860 --> 1:33:01.700
+ All the Light We Cannot See
+
+1:33:01.700 --> 1:33:02.940
+ is about the rest of the spectrum.
+
+1:33:02.940 --> 1:33:07.940
+ But the, that's an absolutely gorgeous book.
+
+1:33:08.340 --> 1:33:09.420
+ That's a book of fiction.
+
+1:33:09.420 --> 1:33:10.500
+ Yeah, it's a book of fiction.
+
+1:33:10.500 --> 1:33:12.620
+ What's it about?
+
+1:33:12.620 --> 1:33:14.340
+ It takes place during World War II
+
+1:33:14.340 --> 1:33:15.420
+ about these two young people,
+
+1:33:15.420 --> 1:33:18.260
+ one of whom is blind and yeah.
+
+1:33:18.260 --> 1:33:19.820
+ Anything else?
+
+1:33:19.820 --> 1:33:21.940
+ So what, any, so you mentioned Hemingway?
+
+1:33:21.940 --> 1:33:22.780
+ I mean.
+
+1:33:22.780 --> 1:33:26.500
+ Old Man and the Sea, what's your favorite?
+
+1:33:27.860 --> 1:33:29.380
+ Snow's a Kilimanjaro.
+
+1:33:29.380 --> 1:33:30.220
+ Oh wow, okay.
+
+1:33:30.220 --> 1:33:31.660
+ It's a collection of short stories that I love.
+
+1:33:31.660 --> 1:33:33.300
+ As far as nonfiction goes,
+
+1:33:33.300 --> 1:33:35.780
+ I grew up with Cosmos,
+
+1:33:35.780 --> 1:33:38.180
+ both watching the PBS series and then reading the book,
+
+1:33:38.180 --> 1:33:41.260
+ and that influenced me a huge amount in terms of what I do.
+
+1:33:41.260 --> 1:33:42.980
+ I, from the time I was a kid,
+
+1:33:42.980 --> 1:33:44.940
+ I felt like I want to be Carl Sagan.
+
+1:33:44.940 --> 1:33:46.140
+ Like, I just, that's what I loved.
+
+1:33:46.140 --> 1:33:47.940
+ And in the end, I just, you know,
+
+1:33:47.940 --> 1:33:50.980
+ I studied space physics for a while as an undergrad,
+
+1:33:50.980 --> 1:33:53.560
+ but then I, in my last semester,
+
+1:33:53.560 --> 1:33:55.460
+ discovered neuroscience last semester,
+
+1:33:55.460 --> 1:33:57.540
+ and I just thought, wow, I'm hooked on that.
+
+1:33:57.540 --> 1:33:59.580
+ So the Carl Sagan of the brain.
+
+1:34:01.420 --> 1:34:02.260
+ That was my aspiration.
+
+1:34:02.260 --> 1:34:03.700
+ Is the aspiration.
+
+1:34:03.700 --> 1:34:07.900
+ I mean, you're doing an incredible job of it.
+
+1:34:07.900 --> 1:34:11.900
+ So you open the book live wide with a quote by Heidegger.
+
+1:34:11.900 --> 1:34:15.540
+ Every man is born as many men and dies as a single one.
+
+1:34:17.700 --> 1:34:20.020
+ Well, what do you mean, or what?
+
+1:34:20.020 --> 1:34:21.620
+ I'll tell you what I meant by it.
+
+1:34:21.620 --> 1:34:23.740
+ So he had his own reason why he was writing that,
+
+1:34:23.740 --> 1:34:25.740
+ but I meant this in terms of brain plasticity,
+
+1:34:25.740 --> 1:34:26.860
+ in terms of the library,
+
+1:34:26.860 --> 1:34:28.500
+ which is this issue that I mentioned before
+
+1:34:28.500 --> 1:34:29.900
+ about this, you know, this cone,
+
+1:34:29.900 --> 1:34:31.780
+ the space time cone that we are in,
+
+1:34:31.780 --> 1:34:35.740
+ which is that when you dropped into the world,
+
+1:34:35.740 --> 1:34:37.900
+ you, Lex, had all this different potential.
+
+1:34:37.900 --> 1:34:40.400
+ You could have been a great surfer
+
+1:34:40.400 --> 1:34:42.260
+ or a great chess player or a,
+
+1:34:42.260 --> 1:34:45.460
+ you could have been thousands of different men
+
+1:34:45.460 --> 1:34:46.460
+ when you grew up,
+
+1:34:46.460 --> 1:34:49.300
+ but what you did is things that were not your choice
+
+1:34:49.300 --> 1:34:50.620
+ and your choice along the way.
+
+1:34:50.620 --> 1:34:52.760
+ You know, you ended up navigating a particular path
+
+1:34:52.760 --> 1:34:54.140
+ and now you're exactly who you are.
+
+1:34:54.140 --> 1:34:55.300
+ You used to have lots of potential,
+
+1:34:55.300 --> 1:34:59.100
+ but the day you die, you will be exactly Lex.
+
+1:34:59.100 --> 1:35:01.580
+ You will be that one person, yeah.
+
+1:35:01.580 --> 1:35:03.580
+ So on that, in that context,
+
+1:35:03.580 --> 1:35:06.580
+ I mean, first of all, it's just a beautiful,
+
+1:35:06.580 --> 1:35:09.940
+ it's a humbling picture, but it's a beautiful one
+
+1:35:09.940 --> 1:35:12.700
+ because it's all the possible trajectories
+
+1:35:12.700 --> 1:35:14.540
+ and you pick one and you walk down that road
+
+1:35:14.540 --> 1:35:16.260
+ and it's the Robert Frost poem.
+
+1:35:16.260 --> 1:35:18.860
+ But on that topic, let me ask the biggest
+
+1:35:18.860 --> 1:35:20.500
+ and the most ridiculous question.
+
+1:35:21.380 --> 1:35:23.300
+ So in this live, wide brain,
+
+1:35:23.300 --> 1:35:25.100
+ when we choose all these different trajectories
+
+1:35:25.100 --> 1:35:27.940
+ and end up with one, what's the meaning of it all?
+
+1:35:27.940 --> 1:35:32.180
+ What's, is there a why here?
+
+1:35:32.180 --> 1:35:34.100
+ What's the meaning of life?
+
+1:35:34.100 --> 1:35:34.940
+ Yeah.
+
+1:35:34.940 --> 1:35:36.380
+ David Engelman.
+
+1:35:36.380 --> 1:35:37.220
+ That's it.
+
+1:35:37.220 --> 1:35:42.220
+ I mean, this is the question that everyone has attacked
+
+1:35:42.940 --> 1:35:45.300
+ from their own life or point of view,
+
+1:35:45.300 --> 1:35:47.300
+ by which I mean, culturally,
+
+1:35:47.300 --> 1:35:49.180
+ if you grew up in a religious society,
+
+1:35:49.180 --> 1:35:51.100
+ you have one way of attacking that question.
+
+1:35:51.100 --> 1:35:53.300
+ So if you grew up in a secular or scientific society,
+
+1:35:53.300 --> 1:35:55.460
+ you have a different way of attacking that question.
+
+1:35:55.460 --> 1:35:59.660
+ Obviously, I don't know, I abstain on that question.
+
+1:35:59.660 --> 1:36:00.860
+ Yeah.
+
+1:36:00.860 --> 1:36:03.340
+ I mean, I think one of the fundamental things,
+
+1:36:03.340 --> 1:36:06.260
+ I guess, in that, in all those possible trajectories
+
+1:36:06.260 --> 1:36:09.260
+ is you're always asking.
+
+1:36:09.260 --> 1:36:11.540
+ I mean, that's the act of asking
+
+1:36:11.540 --> 1:36:14.220
+ what the heck is this thing for,
+
+1:36:14.220 --> 1:36:18.460
+ is equivalent to, or at least runs in parallel
+
+1:36:18.460 --> 1:36:20.860
+ to all the choices that you're making.
+
+1:36:20.860 --> 1:36:23.700
+ Cause it's kind of, that's the underlying question.
+
+1:36:23.700 --> 1:36:24.540
+ Well, that's right.
+
+1:36:24.540 --> 1:36:25.500
+ And by the way, you know,
+
+1:36:25.500 --> 1:36:27.820
+ this is the interesting thing about human psychology.
+
+1:36:27.820 --> 1:36:29.460
+ You know, we've got all these layers of things
+
+1:36:29.460 --> 1:36:30.900
+ at which we can ask questions.
+
+1:36:30.900 --> 1:36:33.740
+ And so if you keep asking yourself the question about,
+
+1:36:33.740 --> 1:36:36.500
+ what is the optimal way for me to be spending my time?
+
+1:36:36.500 --> 1:36:37.340
+ What should I be doing?
+
+1:36:37.340 --> 1:36:39.060
+ What charity should I get involved with and so on?
+
+1:36:39.060 --> 1:36:41.340
+ If you're asking those big questions
+
+1:36:42.500 --> 1:36:44.740
+ that steers you appropriately,
+
+1:36:44.740 --> 1:36:46.540
+ if you're the type of person who never asks,
+
+1:36:46.540 --> 1:36:48.900
+ hey, is there something better I can be doing with my time,
+
+1:36:48.900 --> 1:36:51.060
+ then presumably you won't optimize
+
+1:36:51.060 --> 1:36:53.740
+ whatever it is that is important to you.
+
+1:36:53.740 --> 1:36:58.060
+ So you've, I think just in your eyes, in your work,
+
+1:36:58.060 --> 1:37:03.060
+ there's a passion that just is obvious and it's inspiring.
+
+1:37:03.060 --> 1:37:04.380
+ It's contagious.
+
+1:37:04.380 --> 1:37:09.180
+ What, if you were to give advice to us,
+
+1:37:09.180 --> 1:37:10.700
+ a young person today,
+
+1:37:10.700 --> 1:37:14.660
+ in the crazy chaos that we live today about life,
+
+1:37:14.660 --> 1:37:19.660
+ about how to discover their passion,
+
+1:37:20.820 --> 1:37:23.220
+ is there some words that you could give?
+
+1:37:24.620 --> 1:37:26.220
+ First of all, I would say the main thing
+
+1:37:26.220 --> 1:37:29.500
+ for a young person is stay adaptable.
+
+1:37:29.500 --> 1:37:31.980
+ And this is back to this issue of why COVID
+
+1:37:31.980 --> 1:37:35.420
+ is useful for us because it forces us off our tracks.
+
+1:37:35.420 --> 1:37:39.020
+ The fact is the jobs that will exist 20 years from now,
+
+1:37:39.020 --> 1:37:40.100
+ we don't even have names for it.
+
+1:37:40.100 --> 1:37:42.540
+ We can't even imagine the jobs that are gonna exist.
+
+1:37:42.540 --> 1:37:44.980
+ And so when young people that I know go into college
+
+1:37:44.980 --> 1:37:47.460
+ and they say, hey, what should I major in and so on,
+
+1:37:47.460 --> 1:37:50.660
+ college is and should be less and less vocational,
+
+1:37:50.660 --> 1:37:52.300
+ as in, oh, I'm gonna learn how to do this
+
+1:37:52.300 --> 1:37:54.100
+ and then I'm gonna do that the rest of my career.
+
+1:37:54.100 --> 1:37:55.620
+ The world just isn't that way anymore
+
+1:37:55.620 --> 1:37:57.820
+ with the exponential speed of things.
+
+1:37:57.820 --> 1:38:00.460
+ So the important thing is learning how to learn,
+
+1:38:00.460 --> 1:38:03.540
+ learning how to be livewired and adaptable.
+
+1:38:03.540 --> 1:38:04.580
+ That's really key.
+
+1:38:04.580 --> 1:38:07.740
+ And what I advise young people when I talk to them is,
+
+1:38:09.540 --> 1:38:13.660
+ what you digest, that's what gives you the raw storehouse
+
+1:38:13.660 --> 1:38:17.380
+ of things that you can remix and be creative with.
+
+1:38:17.380 --> 1:38:21.220
+ And so eat broadly and widely.
+
+1:38:21.220 --> 1:38:23.020
+ And obviously this is the wonderful thing
+
+1:38:23.020 --> 1:38:24.620
+ about the internet world we live in now
+
+1:38:24.620 --> 1:38:25.580
+ is you kind of can't help it.
+
+1:38:25.580 --> 1:38:27.140
+ You're constantly, whoa.
+
+1:38:27.140 --> 1:38:28.900
+ You go down some mole hole of Wikipedia
+
+1:38:28.900 --> 1:38:31.140
+ and you think, oh, I didn't even realize that was a thing.
+
+1:38:31.140 --> 1:38:32.540
+ I didn't know that existed.
+
+1:38:32.540 --> 1:38:33.740
+ And so.
+
+1:38:33.740 --> 1:38:34.580
+ Embrace that.
+
+1:38:34.580 --> 1:38:36.220
+ Embrace that, yeah, exactly.
+
+1:38:36.220 --> 1:38:39.900
+ And what I tell people is just always do a gut check
+
+1:38:39.900 --> 1:38:41.500
+ about, okay, I'm reading this paper
+
+1:38:41.500 --> 1:38:44.260
+ and yeah, I think that, but this paper, wow,
+
+1:38:44.260 --> 1:38:47.700
+ that really, I really cared about that in some way.
+
+1:38:47.700 --> 1:38:50.500
+ I tell them just to keep a real sniff out for that.
+
+1:38:50.500 --> 1:38:54.020
+ And when you find those things, keep going down those paths.
+
+1:38:54.020 --> 1:38:55.020
+ Yeah, don't be afraid.
+
+1:38:55.020 --> 1:38:58.260
+ I mean, that's one of the challenges and the downsides
+
+1:38:58.260 --> 1:39:00.060
+ of having so many beautiful options
+
+1:39:00.060 --> 1:39:02.860
+ is that sometimes people are a little bit afraid
+
+1:39:02.860 --> 1:39:05.620
+ to really commit, but that's very true.
+
+1:39:05.620 --> 1:39:09.140
+ If there's something that just sparks your interest
+
+1:39:09.140 --> 1:39:10.860
+ and passion, just run with it.
+
+1:39:10.860 --> 1:39:13.420
+ I mean, that's, it goes back to the Haider quote.
+
+1:39:14.500 --> 1:39:16.220
+ I mean, we only get this one life
+
+1:39:16.220 --> 1:39:20.140
+ and that trajectory, it doesn't last forever.
+
+1:39:20.140 --> 1:39:23.540
+ So just if something sparks your imagination,
+
+1:39:23.540 --> 1:39:24.940
+ your passion is run with it.
+
+1:39:24.940 --> 1:39:26.380
+ Yeah, exactly.
+
+1:39:26.380 --> 1:39:29.940
+ I don't think there's a more beautiful way to end it.
+
+1:39:29.940 --> 1:39:32.620
+ David, it's a huge honor to finally meet you.
+
+1:39:32.620 --> 1:39:34.860
+ Your work is inspiring so many people.
+
+1:39:34.860 --> 1:39:36.340
+ I've talked to so many people who are passionate
+
+1:39:36.340 --> 1:39:39.220
+ about neuroscience, about the brain, even outside
+
+1:39:39.220 --> 1:39:40.900
+ that read your book.
+
+1:39:40.900 --> 1:39:43.700
+ So I hope you keep doing so.
+
+1:39:43.700 --> 1:39:46.100
+ I think you're already there with Carl Sagan.
+
+1:39:46.100 --> 1:39:47.460
+ I hope you continue growing.
+
+1:39:48.340 --> 1:39:50.060
+ Yeah, it was an honor talking with you today.
+
+1:39:50.060 --> 1:39:50.900
+ Thanks so much.
+
+1:39:50.900 --> 1:39:52.220
+ Great, you too, Lex, wonderful.
+
+1:39:53.380 --> 1:39:54.900
+ Thanks for listening to this conversation
+
+1:39:54.900 --> 1:39:58.100
+ with David Eagleman, and thank you to our sponsors,
+
+1:39:58.100 --> 1:40:01.500
+ Athletic Greens, BetterHelp, and Cash App.
+
+1:40:01.500 --> 1:40:03.860
+ Click the sponsor links in the description
+
+1:40:03.860 --> 1:40:07.340
+ to get a discount and to support this podcast.
+
+1:40:07.340 --> 1:40:09.620
+ If you enjoy this thing, subscribe on YouTube,
+
+1:40:09.620 --> 1:40:11.860
+ review it with Five Stars on Apple Podcast,
+
+1:40:11.860 --> 1:40:14.660
+ follow on Spotify, support on Patreon,
+
+1:40:14.660 --> 1:40:18.380
+ or connect with me on Twitter at Lex Friedman.
+
+1:40:18.380 --> 1:40:20.100
+ And now let me leave you with some words
+
+1:40:20.100 --> 1:40:21.620
+ from David Eagleman in his book,
+
+1:40:21.620 --> 1:40:25.020
+ Some Forty Tales from the Afterlives.
+
+1:40:25.020 --> 1:40:28.020
+ Imagine for a moment there were nothing but
+
+1:40:28.020 --> 1:40:30.380
+ the product of billions of years of molecules
+
+1:40:30.380 --> 1:40:35.020
+ coming together and ratcheting up through natural selection.
+
+1:40:35.020 --> 1:40:37.380
+ There were composed only of highways of fluids
+
+1:40:37.380 --> 1:40:39.940
+ and chemicals sliding along roadways
+
+1:40:39.940 --> 1:40:42.540
+ within billions of dancing cells.
+
+1:40:42.540 --> 1:40:46.140
+ The trillions of synaptic connections hum in parallel
+
+1:40:46.140 --> 1:40:50.220
+ that this vast egg like fabric of micro thin circuitry
+
+1:40:50.220 --> 1:40:54.300
+ runs algorithms undreamt of in modern science,
+
+1:40:54.300 --> 1:40:56.660
+ and that these neural programs give rise to
+
+1:40:56.660 --> 1:41:01.660
+ our decision making, loves, desires, fears, and aspirations.
+
+1:41:02.900 --> 1:41:07.540
+ To me, understanding this would be a numinous experience,
+
+1:41:07.540 --> 1:41:11.940
+ better than anything ever proposed in any holy text.
+
+1:41:11.940 --> 1:41:23.940
+ Thank you for listening and hope to see you next time.
+

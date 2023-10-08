@@ -1,0 +1,5681 @@
+WEBVTT
+
+00:00.000 --> 00:03.320
+ The following is a conversation with Ray Dalio.
+
+00:03.320 --> 00:05.120
+ He's the founder, co chairman,
+
+00:05.120 --> 00:08.560
+ and co chief investment officer of Bridgewater Associates,
+
+00:08.560 --> 00:09.840
+ one of the world's largest
+
+00:09.840 --> 00:11.920
+ and most successful investment firms
+
+00:11.920 --> 00:14.640
+ that is famous for the principles of radical truth
+
+00:14.640 --> 00:17.880
+ and transparency that underlies culture.
+
+00:17.880 --> 00:20.760
+ Ray is one of the wealthiest people in the world
+
+00:20.760 --> 00:23.160
+ with ideas that extend far beyond the specifics
+
+00:23.160 --> 00:24.920
+ of how he made that wealth.
+
+00:24.920 --> 00:27.400
+ His ideas that are applicable to everyone
+
+00:27.400 --> 00:30.660
+ are brilliantly summarized in his book, Principles.
+
+00:30.660 --> 00:32.760
+ They're also even further condensed
+
+00:32.760 --> 00:35.280
+ on several other platforms, including YouTube,
+
+00:35.280 --> 00:38.600
+ where, for example, the 30 minute video titled
+
+00:38.600 --> 00:40.720
+ How the Economic Machine Works
+
+00:40.720 --> 00:43.420
+ is one of the best educational videos
+
+00:43.420 --> 00:46.560
+ I personally have ever seen on YouTube.
+
+00:46.560 --> 00:49.040
+ Once again, you may have noticed
+
+00:49.040 --> 00:50.600
+ that the people I've been speaking with
+
+00:50.600 --> 00:52.520
+ are not just computer scientists,
+
+00:52.520 --> 00:55.040
+ but philosophers, mathematicians, writers,
+
+00:55.040 --> 00:57.520
+ psychologists, physicists, economists, investors,
+
+00:57.520 --> 00:59.600
+ and soon, much more.
+
+00:59.600 --> 01:03.000
+ To me, AI is much bigger than deep learning,
+
+01:03.000 --> 01:04.440
+ bigger than computing.
+
+01:04.440 --> 01:06.200
+ It is our civilization's journey
+
+01:06.200 --> 01:08.160
+ into understanding the human mind
+
+01:08.160 --> 01:10.880
+ and creating echoes of it in the machine.
+
+01:10.880 --> 01:14.000
+ That journey includes the mechanisms of our economy,
+
+01:14.000 --> 01:15.880
+ of our politics, and the leaders
+
+01:15.880 --> 01:18.080
+ that shape the future of both.
+
+01:18.080 --> 01:21.200
+ This is the Artificial Intelligence Podcast.
+
+01:21.200 --> 01:23.560
+ If you enjoy it, subscribe on YouTube,
+
+01:23.560 --> 01:25.640
+ give it five stars on Apple Podcast,
+
+01:25.640 --> 01:27.080
+ support it on Patreon,
+
+01:27.080 --> 01:29.240
+ or simply connect with me on Twitter
+
+01:29.240 --> 01:32.680
+ at Lex Friedman, spelled F R I D M A N.
+
+01:33.840 --> 01:35.940
+ This show is presented by Cash App,
+
+01:35.940 --> 01:38.460
+ the number one finance app in the App Store.
+
+01:38.460 --> 01:41.200
+ I personally use Cash App to send money to friends,
+
+01:41.200 --> 01:44.640
+ but you can also use it to buy, sell, and deposit Bitcoin.
+
+01:44.640 --> 01:46.440
+ Most Bitcoin exchanges take days
+
+01:46.440 --> 01:48.680
+ for a bank transfer to become investable.
+
+01:48.680 --> 01:51.040
+ Through Cash App, it takes seconds.
+
+01:51.040 --> 01:54.360
+ Cash App also has a new investing feature.
+
+01:54.360 --> 01:56.120
+ You can buy fractions of a stock,
+
+01:56.120 --> 01:58.880
+ which to me is a really interesting concept.
+
+01:58.880 --> 02:03.120
+ So you can buy $1 worth no matter what the stock price is.
+
+02:03.120 --> 02:06.080
+ Brokerage services are provided by Cash App Investing,
+
+02:06.080 --> 02:09.840
+ subsidiary of Square and member SIPC.
+
+02:09.840 --> 02:11.680
+ I'm excited to be working with Cash App
+
+02:11.680 --> 02:14.360
+ to support one of my favorite organizations
+
+02:14.360 --> 02:17.320
+ that many of you may know and have benefited from
+
+02:17.320 --> 02:20.760
+ called First, best known for their first robotics
+
+02:20.760 --> 02:22.480
+ and Lego competitions.
+
+02:22.480 --> 02:26.160
+ They educate and inspire hundreds of thousands of students
+
+02:26.160 --> 02:29.240
+ in over 110 countries and have a perfect rating
+
+02:29.240 --> 02:32.200
+ on Charity Navigator, which means the donated money
+
+02:32.200 --> 02:35.540
+ is used to maximum effectiveness.
+
+02:35.540 --> 02:38.560
+ When you get Cash App from the App Store or Google Play
+
+02:38.560 --> 02:42.080
+ and use code LexPodcast, you'll get $10
+
+02:42.080 --> 02:44.800
+ and Cash App will also donate $10 to First,
+
+02:44.800 --> 02:47.880
+ which again is an organization that I've personally seen
+
+02:47.880 --> 02:51.400
+ inspire girls and boys to dream of engineering
+
+02:51.400 --> 02:52.480
+ a better world.
+
+02:52.480 --> 02:55.920
+ And now here's my conversation with Ray Dalio.
+
+02:56.920 --> 02:59.600
+ Truth or more precisely an accurate understanding
+
+02:59.600 --> 03:03.360
+ of reality is the essential foundation of any good outcome.
+
+03:03.360 --> 03:05.720
+ I believe you've said that.
+
+03:05.720 --> 03:08.640
+ Let me ask an absurd sounding question
+
+03:08.640 --> 03:10.880
+ at the high philosophical level.
+
+03:10.880 --> 03:12.800
+ So what is truth?
+
+03:12.800 --> 03:14.960
+ When you're trying to do something different
+
+03:14.960 --> 03:16.760
+ than everybody else is doing
+
+03:16.760 --> 03:19.800
+ and perhaps something that has not been done before,
+
+03:19.800 --> 03:23.520
+ how do you accurately analyze the situation?
+
+03:23.520 --> 03:25.440
+ How do you accurately discover the truth,
+
+03:25.440 --> 03:27.320
+ the nature of things?
+
+03:27.320 --> 03:30.320
+ Almost the way you're asking the question implies
+
+03:30.320 --> 03:35.200
+ that truth and newness have nothing, are almost at odds.
+
+03:35.200 --> 03:37.360
+ And I just want to say that I don't think
+
+03:37.360 --> 03:39.040
+ that that's true, right?
+
+03:39.040 --> 03:43.600
+ So what I mean by truth is, you know, what's the reality?
+
+03:43.600 --> 03:45.480
+ How does the reality work?
+
+03:45.480 --> 03:47.800
+ And so if you're doing something new
+
+03:47.800 --> 03:49.080
+ that has never been done before,
+
+03:49.080 --> 03:51.320
+ which is exciting and I like to do,
+
+03:51.320 --> 03:54.000
+ the way that you would start with that
+
+03:54.000 --> 03:57.160
+ is experimenting on what are the realities
+
+03:57.160 --> 03:59.440
+ and the premises that you're using on that
+
+03:59.440 --> 04:01.880
+ and how to stress test those types of things.
+
+04:01.880 --> 04:04.360
+ I think what you're talking about is instead
+
+04:04.360 --> 04:06.320
+ the fact of how do you deal with something
+
+04:06.320 --> 04:08.040
+ that's never been done before
+
+04:08.040 --> 04:11.160
+ and deal with the associated probabilities.
+
+04:11.160 --> 04:13.320
+ And so I think in that,
+
+04:13.320 --> 04:15.720
+ don't let something that's never been done before
+
+04:15.720 --> 04:20.160
+ stand in the way of you doing that particular thing.
+
+04:20.160 --> 04:22.720
+ You have, because almost the only way
+
+04:22.720 --> 04:25.160
+ that you understand what truth is,
+
+04:25.160 --> 04:27.240
+ is through experimentation.
+
+04:27.240 --> 04:29.440
+ And so when you go out and experiment,
+
+04:29.440 --> 04:32.320
+ you're going to learn a lot more about what truth is.
+
+04:32.320 --> 04:35.840
+ But the essence of what I'm saying is that
+
+04:35.840 --> 04:38.960
+ when you take a look at that, use truth,
+
+04:38.960 --> 04:41.720
+ find out what the realities are as a foundation,
+
+04:41.720 --> 04:43.560
+ do the independent thinking,
+
+04:43.560 --> 04:47.120
+ do the experimentation to find out what's true
+
+04:47.120 --> 04:50.400
+ and change and keep going after that.
+
+04:50.400 --> 04:54.320
+ So I think that when you're thinking about it
+
+04:54.320 --> 04:56.040
+ the way you're thinking about it,
+
+04:56.040 --> 05:00.600
+ that almost implies that you're letting people
+
+05:00.600 --> 05:03.160
+ almost say that they're reliant
+
+05:03.160 --> 05:06.480
+ on what's been discovered before to find out what's true.
+
+05:06.480 --> 05:11.200
+ And what's been discovered before is often not true, right?
+
+05:11.200 --> 05:16.200
+ Conventional view of what is true is very often wrong.
+
+05:16.360 --> 05:19.800
+ It'll go in ups and downs and I mean, there are fads
+
+05:19.800 --> 05:22.360
+ and okay, this thing, it goes this way and that way.
+
+05:22.360 --> 05:25.880
+ And so definitions of truths that are conventional
+
+05:25.880 --> 05:28.720
+ are not the thing to go by.
+
+05:28.720 --> 05:32.280
+ How do you know the thing that has been done before
+
+05:32.280 --> 05:33.880
+ that it might succeed?
+
+05:33.880 --> 05:37.840
+ It's to do whatever homework that you have
+
+05:37.840 --> 05:40.000
+ in order to try to get a foundation.
+
+05:40.000 --> 05:43.080
+ And then to go into worlds of not knowing
+
+05:43.080 --> 05:45.200
+ and you go into the world of not knowing,
+
+05:45.200 --> 05:48.920
+ but not stupidly, not naively, you know,
+
+05:48.920 --> 05:51.160
+ you go into that world of not knowing
+
+05:51.160 --> 05:54.960
+ and then you do experimenting and you learn what truth is
+
+05:54.960 --> 05:57.680
+ and what's possible through that process.
+
+05:57.680 --> 05:59.960
+ I describe it as a five step process.
+
+05:59.960 --> 06:02.080
+ The first step is you go after your goals.
+
+06:02.080 --> 06:04.800
+ The second step is you identify the problems
+
+06:04.800 --> 06:07.180
+ that stand in the way of you getting to your goals.
+
+06:07.180 --> 06:09.320
+ The third step is you diagnose those
+
+06:09.320 --> 06:11.360
+ to get at the root cause of those.
+
+06:11.360 --> 06:13.760
+ Then the fourth step is then now that you know
+
+06:13.760 --> 06:17.880
+ the exact root cause, you design a way to get around those
+
+06:17.880 --> 06:21.080
+ and then you follow through and do the designs
+
+06:21.080 --> 06:23.900
+ you set out to do and it's the experimentation.
+
+06:23.900 --> 06:27.480
+ I think that what happens to people mostly
+
+06:27.480 --> 06:31.120
+ is that they try to decide whether they're gonna be
+
+06:31.120 --> 06:34.040
+ successful or not ahead of doing it
+
+06:34.040 --> 06:36.160
+ and they don't know how to do the process well
+
+06:36.160 --> 06:39.560
+ because the nature of your questions are along those lines
+
+06:39.560 --> 06:40.760
+ like how do you know?
+
+06:40.760 --> 06:43.680
+ Well, you don't know, but a practical person
+
+06:43.680 --> 06:47.220
+ who is also used to making dreams happen
+
+06:47.220 --> 06:48.840
+ knows how to do that process.
+
+06:48.840 --> 06:52.580
+ I've given personality tests to shapers.
+
+06:52.580 --> 06:56.000
+ So the person, what I mean by a shaper is a person
+
+06:56.000 --> 07:00.320
+ who can take something from visualization,
+
+07:00.320 --> 07:02.980
+ they have an audacious goal and then they go
+
+07:02.980 --> 07:06.140
+ from visualization to actualization, building it out.
+
+07:06.140 --> 07:10.320
+ That includes Elon Musk, I gave him the personality test,
+
+07:10.320 --> 07:12.900
+ I've given it to Bill Gates and I've given it to many,
+
+07:12.900 --> 07:17.320
+ many such shapers and they know that process
+
+07:17.320 --> 07:19.920
+ that I'm talking about, they experience it
+
+07:19.920 --> 07:22.440
+ which is a process essentially of knowing
+
+07:22.440 --> 07:24.420
+ how to go from an audacious goal
+
+07:24.420 --> 07:27.800
+ but not in a ridiculous way, not a dream
+
+07:27.800 --> 07:31.600
+ and then to do that learning along the way
+
+07:31.600 --> 07:34.360
+ that allows them in a very practical way
+
+07:34.360 --> 07:38.240
+ to learn very rapidly as they're moving toward that goal.
+
+07:38.240 --> 07:42.240
+ So the call to adventure, the adventure starts
+
+07:42.240 --> 07:44.680
+ not trying to analyze the probabilities of the situation
+
+07:44.680 --> 07:48.120
+ but using what, instinct?
+
+07:48.120 --> 07:49.400
+ How do you dive in?
+
+07:49.400 --> 07:50.880
+ So let's talk about.
+
+07:50.880 --> 07:54.960
+ It is being a, it's simultaneously being a dreamer
+
+07:54.960 --> 07:58.680
+ and a realist, it's to know how to do that well.
+
+07:58.680 --> 08:01.820
+ The pull comes from a pull to adventure.
+
+08:01.820 --> 08:05.160
+ For whatever reason, I can't tell you how much
+
+08:05.160 --> 08:07.680
+ of it's genetics and how much is environment
+
+08:07.680 --> 08:11.440
+ but there's a early on, it's exciting.
+
+08:11.440 --> 08:15.440
+ That notion is exciting, being creative is exciting
+
+08:15.440 --> 08:19.160
+ and so one feels that, then one gets in the habit
+
+08:19.160 --> 08:21.440
+ of doing that, okay, how do I know?
+
+08:21.440 --> 08:25.560
+ How do I learn very well and then how do I imagine
+
+08:25.560 --> 08:30.560
+ and then how do I experiment to go from that imagination?
+
+08:30.560 --> 08:34.800
+ So it's that process that one, and then one,
+
+08:34.800 --> 08:38.900
+ the more one does it, the better one becomes at it.
+
+08:40.120 --> 08:44.160
+ You mentioned shapers, Elon Musk, Bill Gates.
+
+08:44.160 --> 08:47.560
+ What, who are the shapers that you find yourself
+
+08:47.560 --> 08:51.120
+ thinking about when you're constructing these ideas?
+
+08:51.120 --> 08:54.400
+ The ones that define the archetype of a shaper for you.
+
+08:54.400 --> 08:57.400
+ Well, as I say, a shaper for me is somebody
+
+08:57.400 --> 09:01.160
+ who comes up with a great visualization,
+
+09:02.080 --> 09:04.720
+ usually a really unique visualization
+
+09:04.720 --> 09:08.560
+ and then actually builds it out and makes the world different,
+
+09:08.560 --> 09:10.800
+ changes the world in that kind of a way.
+
+09:10.800 --> 09:14.640
+ So when I look at it, Mark Benioff with Salesforce,
+
+09:14.640 --> 09:17.920
+ Chris Anderson with TED, Mohammed Yunus
+
+09:17.920 --> 09:20.480
+ with social enterprise and philanthropy,
+
+09:20.480 --> 09:23.520
+ Jeffrey Canada and Harlem Children's Zone,
+
+09:23.520 --> 09:28.520
+ there are, all domains have shapers who have the ability
+
+09:28.920 --> 09:32.440
+ to visualize and make extraordinary things happen.
+
+09:32.440 --> 09:35.000
+ What are the commonalities between some of them?
+
+09:35.000 --> 09:38.960
+ The commonalities are, first of all,
+
+09:38.960 --> 09:43.280
+ the excitement of something new, that call to adventure,
+
+09:43.280 --> 09:47.920
+ and then again, that practicality, the capacity to learn.
+
+09:47.920 --> 09:51.760
+ The capacity then, they're able to be,
+
+09:51.760 --> 09:53.640
+ in many ways, full rage.
+
+09:53.640 --> 09:55.480
+ That means they're able to go
+
+09:55.480 --> 09:59.360
+ from the big, big picture down to the detail.
+
+09:59.360 --> 10:02.360
+ So let's say, for example, Elon Musk,
+
+10:02.360 --> 10:06.000
+ he describes, he gets a lot of money
+
+10:06.000 --> 10:09.600
+ from selling PayPal, his interest in PayPal.
+
+10:09.600 --> 10:14.000
+ He said, why isn't anybody going to Mars or outer space?
+
+10:14.000 --> 10:16.120
+ What are we gonna do if the planet goes to hell?
+
+10:16.120 --> 10:18.200
+ And how are we gonna get that?
+
+10:18.200 --> 10:19.920
+ And nobody's paying attention to that.
+
+10:19.920 --> 10:21.560
+ He doesn't know much about it.
+
+10:21.560 --> 10:24.400
+ He then reads and learns and so on.
+
+10:24.400 --> 10:27.480
+ Says, I'm gonna take, okay, half of my money,
+
+10:27.480 --> 10:29.600
+ and I'm gonna put it in there,
+
+10:29.600 --> 10:31.240
+ and I'm gonna do this thing, and he learns,
+
+10:31.240 --> 10:32.200
+ and blah, blah, blah, blah, blah, blah, blah,
+
+10:32.200 --> 10:33.400
+ and he's got creative, okay.
+
+10:33.400 --> 10:35.000
+ That's one dimension.
+
+10:35.000 --> 10:39.480
+ So he gave me the keys to his car,
+
+10:39.480 --> 10:42.280
+ but this was just early days in Tesla,
+
+10:42.280 --> 10:45.640
+ and he then points out the details.
+
+10:45.640 --> 10:48.720
+ Okay, if you push this button here, it's this,
+
+10:48.720 --> 10:53.180
+ the detail that, so he's simultaneously talking
+
+10:53.180 --> 10:56.020
+ about the big, the big, big, big picture.
+
+10:56.020 --> 10:59.920
+ Okay, when does humanity going to abandon the planet?
+
+10:59.920 --> 11:03.480
+ But he will then be able to take it down into the detail
+
+11:03.480 --> 11:06.280
+ so he can go, let's call it helicoptering.
+
+11:06.280 --> 11:07.840
+ He can go up, he can go down,
+
+11:07.840 --> 11:09.800
+ and see things at those types of perspective.
+
+11:09.800 --> 11:11.560
+ And then you've seen that with the other shapers.
+
+11:11.560 --> 11:14.120
+ And that's a common thing that they can do that.
+
+11:14.120 --> 11:18.440
+ Another important difference that they have in mind
+
+11:18.440 --> 11:21.120
+ is how they deal with people.
+
+11:21.120 --> 11:24.280
+ I mean, meaning there's nothing more important
+
+11:24.280 --> 11:25.960
+ than achieving the mission.
+
+11:25.960 --> 11:30.960
+ And so what they have in common is that there's a test
+
+11:30.960 --> 11:34.080
+ that I give these personality tests,
+
+11:34.080 --> 11:36.400
+ because they're very helpful for understanding people.
+
+11:36.400 --> 11:38.720
+ And so I gave it to all these shapers.
+
+11:38.720 --> 11:42.280
+ And one of the things in workplace inventory test
+
+11:42.280 --> 11:45.880
+ is this test, and it has a category called concern for others.
+
+11:45.880 --> 11:49.600
+ They're all having concern for others.
+
+11:49.600 --> 11:51.280
+ This includes Muhammad Yunus,
+
+11:51.280 --> 11:54.760
+ who invented microfinance, social enterprise,
+
+11:54.760 --> 11:57.320
+ impact investing, as Muhammad Yunus received
+
+11:57.320 --> 11:59.640
+ the Nobel Peace Prize for this,
+
+11:59.640 --> 12:01.680
+ the Congressional Medal of Honor.
+
+12:01.680 --> 12:04.280
+ One of the, a fortune determined,
+
+12:04.280 --> 12:08.960
+ one of the 10 greatest entrepreneurs of our time.
+
+12:08.960 --> 12:12.400
+ He's built all sorts of businesses to give back money
+
+12:12.400 --> 12:14.920
+ in social enterprise, a remarkable man.
+
+12:14.920 --> 12:17.440
+ He has nobody that I know practically
+
+12:17.440 --> 12:20.320
+ could have more concern for others.
+
+12:20.320 --> 12:22.400
+ He lives a life of a saint.
+
+12:22.400 --> 12:24.200
+ I mean, a very modest lifestyle,
+
+12:24.200 --> 12:27.320
+ and he puts all his money into trying to help others.
+
+12:27.320 --> 12:30.160
+ And he tests low on what's called concern for others,
+
+12:30.160 --> 12:33.280
+ because what it really, those questions under that
+
+12:33.280 --> 12:36.880
+ are questions about conflict to get at the mission.
+
+12:36.880 --> 12:38.840
+ So they all, Jeffrey Canada,
+
+12:38.840 --> 12:40.560
+ who changed Harlem Children's Zone
+
+12:40.560 --> 12:42.920
+ and developed that to take children in Harlem
+
+12:42.920 --> 12:44.200
+ and get them well taken care of,
+
+12:44.200 --> 12:47.040
+ not only just in their education, but their whole lives.
+
+12:47.040 --> 12:49.560
+ Harlem, him also, concern for others.
+
+12:49.560 --> 12:53.680
+ What they mean is that they can see
+
+12:53.680 --> 12:58.080
+ whether though individuals are performing at a level
+
+12:58.080 --> 13:00.640
+ that an extremely high level
+
+13:00.640 --> 13:03.520
+ that's necessary to make those dreams happen.
+
+13:03.520 --> 13:06.600
+ So when you think of, let's say Steve Jobs was famous
+
+13:06.600 --> 13:09.840
+ for being difficult with people and so on,
+
+13:09.840 --> 13:11.160
+ and I didn't know Steve Jobs,
+
+13:11.160 --> 13:13.120
+ so I can't speak personally to that,
+
+13:13.120 --> 13:15.800
+ but his comments on, do you have A players?
+
+13:15.800 --> 13:17.800
+ And if you have A players, if you put in B players,
+
+13:17.800 --> 13:19.840
+ pretty soon you'll have C players and so on.
+
+13:19.840 --> 13:22.080
+ That is a common element of them,
+
+13:22.080 --> 13:24.000
+ holding people to high standards
+
+13:24.000 --> 13:28.320
+ and not letting anybody stand in the way of the mission.
+
+13:28.320 --> 13:30.120
+ What do you think about that kind of idea?
+
+13:30.120 --> 13:31.620
+ Sorry to pause on that for a second,
+
+13:31.620 --> 13:35.840
+ that the A, B, and C players,
+
+13:35.840 --> 13:39.420
+ and the importance of, so when you have a mission,
+
+13:39.420 --> 13:41.120
+ to really only have A players
+
+13:41.120 --> 13:45.280
+ and be sort of aggressively filtering for that?
+
+13:45.280 --> 13:47.400
+ Yes, but I think that there are all different ways
+
+13:47.400 --> 13:49.640
+ of being A players.
+
+13:49.640 --> 13:53.180
+ And I think, in order to grade a great team,
+
+13:53.180 --> 13:55.840
+ you have to appreciate all the differences
+
+13:55.840 --> 13:59.320
+ in ways of being A players, okay?
+
+13:59.320 --> 14:00.520
+ That's the first thing.
+
+14:00.520 --> 14:04.720
+ And then you always have to be super excellent,
+
+14:04.720 --> 14:07.420
+ in my opinion, you always have to be really excellent
+
+14:07.420 --> 14:11.960
+ with people to help them understand each other themselves
+
+14:11.960 --> 14:15.960
+ and get in sync with them about what's true about them
+
+14:15.960 --> 14:18.080
+ and their circumstances and how they're doing,
+
+14:18.080 --> 14:19.800
+ so that they're having a fabulous
+
+14:19.800 --> 14:23.080
+ personal development experience at the same time
+
+14:23.080 --> 14:24.460
+ as you're dealing with them.
+
+14:24.460 --> 14:27.740
+ So when I say that they're all different ways,
+
+14:27.740 --> 14:30.600
+ this is one of the then qualities,
+
+14:30.600 --> 14:32.480
+ you asked me what are the qualities.
+
+14:32.480 --> 14:35.480
+ So one of the third qualities that I would say
+
+14:35.480 --> 14:40.480
+ is to know how to deal well with your not knowing
+
+14:41.800 --> 14:46.440
+ and to be able to get the best expertise
+
+14:46.440 --> 14:50.380
+ so that you're a great orchestrator of different ways,
+
+14:50.380 --> 14:53.840
+ so that the people who are really, really successful,
+
+14:53.840 --> 14:56.720
+ unlike most people believe that they're successful
+
+14:56.720 --> 14:58.480
+ because of what they know,
+
+14:58.480 --> 15:01.600
+ they're even more successful
+
+15:01.600 --> 15:04.640
+ by being able to effectively learn from others
+
+15:04.640 --> 15:06.840
+ and tap into the skills of people
+
+15:06.840 --> 15:09.000
+ who see things different from them.
+
+15:09.000 --> 15:11.740
+ Brilliant, so how do you win that personality
+
+15:11.740 --> 15:13.780
+ being first of all, open to the fact
+
+15:13.780 --> 15:18.200
+ that there's other people see things differently than you,
+
+15:18.200 --> 15:22.320
+ and at the same time have supreme confidence in your vision?
+
+15:22.320 --> 15:24.920
+ Is there just the psychology of that?
+
+15:24.920 --> 15:27.300
+ Do you see a tension there between the confidence
+
+15:27.300 --> 15:28.560
+ and the open mindedness?
+
+15:28.560 --> 15:31.600
+ No, it's funny because I think we grow up thinking
+
+15:31.600 --> 15:33.200
+ that there's a tension there, right?
+
+15:33.200 --> 15:35.160
+ That there's a confidence
+
+15:35.160 --> 15:38.360
+ and the more confidence that you have,
+
+15:38.360 --> 15:40.560
+ there's a tension with the open mindedness
+
+15:40.560 --> 15:43.620
+ and not being sure, okay?
+
+15:43.620 --> 15:45.960
+ Confident and accurate
+
+15:45.960 --> 15:50.120
+ are almost negatively correlated to many people.
+
+15:50.120 --> 15:53.840
+ They're extremely confident and they're often inaccurate.
+
+15:53.840 --> 15:57.360
+ And so I think one of the greatest tragedies of people
+
+15:57.360 --> 16:00.220
+ is not realizing how those things to go together
+
+16:00.220 --> 16:05.220
+ because instead it's really that by saying I know a lot
+
+16:05.640 --> 16:08.620
+ and how do I know I'm still not wrong?
+
+16:08.620 --> 16:13.480
+ And how do I take that the best thinking available to me
+
+16:13.480 --> 16:16.640
+ and then raise my probability of learning?
+
+16:16.640 --> 16:19.560
+ All these people think for themselves, okay?
+
+16:19.560 --> 16:21.520
+ I mean, meaning they're smart,
+
+16:21.520 --> 16:24.000
+ but they take in like vacuum cleaners,
+
+16:24.000 --> 16:26.200
+ they take in ideas of others,
+
+16:26.200 --> 16:28.840
+ they stress test their ideas with others,
+
+16:28.840 --> 16:31.140
+ they assess what comes back to them
+
+16:31.140 --> 16:33.640
+ in the form of other thinking
+
+16:33.640 --> 16:36.360
+ and they also know what they're not good at
+
+16:36.360 --> 16:38.840
+ and what other people who are good at the things
+
+16:38.840 --> 16:39.840
+ that they're not good at,
+
+16:39.840 --> 16:41.440
+ they know how to get those people
+
+16:41.440 --> 16:43.600
+ and be successful all around
+
+16:43.600 --> 16:46.960
+ because nobody has enough knowledge in their heads
+
+16:46.960 --> 16:49.600
+ and that I think is one of the great differences.
+
+16:49.600 --> 16:53.400
+ So the reason my company has been successful
+
+16:53.400 --> 16:55.200
+ in terms of this is because of an idea
+
+16:55.200 --> 16:58.000
+ meritocratic decision making a process
+
+16:58.000 --> 17:00.920
+ by which you can get the best ideas.
+
+17:00.920 --> 17:02.840
+ You know, what's an idea meritocracy?
+
+17:02.840 --> 17:05.860
+ An idea meritocracy is to get the best ideas
+
+17:05.860 --> 17:07.120
+ that are available out there
+
+17:07.120 --> 17:09.820
+ and to work together with other people in the team
+
+17:09.820 --> 17:10.840
+ to achieve that.
+
+17:10.840 --> 17:12.640
+ That's an incredible process that you describe
+
+17:12.640 --> 17:15.400
+ in several places to arrive at the truth,
+
+17:15.400 --> 17:18.640
+ but I apologize if I'm romanticizing the notion,
+
+17:18.640 --> 17:19.840
+ but let me linger on it.
+
+17:20.880 --> 17:23.680
+ Just having enough self belief,
+
+17:24.680 --> 17:27.600
+ you don't think there's a self delusion there
+
+17:27.600 --> 17:30.040
+ that's necessary, especially in the beginning.
+
+17:30.040 --> 17:31.800
+ You talk about in the journey,
+
+17:31.800 --> 17:34.640
+ maybe the trials or the abyss.
+
+17:34.640 --> 17:39.640
+ Do you think there is value to diluting yourself?
+
+17:41.580 --> 17:44.280
+ I think what you're calling delusion
+
+17:44.280 --> 17:48.880
+ is a bad word for uncertainty, okay?
+
+17:48.880 --> 17:50.720
+ So in other words,
+
+17:50.720 --> 17:52.800
+ because we keep coming back to the question,
+
+17:52.800 --> 17:55.040
+ how would you know and all of those things?
+
+17:55.040 --> 17:58.640
+ No, I think that delusion is not gonna help you,
+
+17:58.640 --> 18:01.480
+ that you have to find out truth, okay?
+
+18:01.480 --> 18:03.880
+ To deal with uncertainty, not saying,
+
+18:03.880 --> 18:05.360
+ listen, I have this dream
+
+18:05.360 --> 18:08.120
+ and I don't know how I'm going to get that dream.
+
+18:08.120 --> 18:10.160
+ I mentioned in my book principles
+
+18:10.160 --> 18:12.920
+ and described the process in a more complete way
+
+18:12.920 --> 18:15.060
+ than we're gonna be able to go here.
+
+18:15.060 --> 18:19.760
+ But what happens is I say, you form your dreams first
+
+18:19.760 --> 18:21.760
+ and you can't judge
+
+18:21.760 --> 18:24.600
+ whether you're going to achieve those dreams
+
+18:24.600 --> 18:26.880
+ because you haven't learned
+
+18:26.880 --> 18:28.680
+ the things that you're going to learn
+
+18:28.680 --> 18:31.400
+ on the way toward those dreams, okay?
+
+18:31.400 --> 18:33.840
+ So that isn't delusion.
+
+18:33.840 --> 18:35.640
+ I wouldn't use delusion.
+
+18:35.640 --> 18:38.740
+ I think you're overemphasizing the importance
+
+18:38.740 --> 18:41.680
+ of knowing whether you're going to succeed or not.
+
+18:41.680 --> 18:43.240
+ Get rid of that, okay?
+
+18:43.240 --> 18:45.320
+ If you can get rid of that and say,
+
+18:45.320 --> 18:48.380
+ okay, no, I can have that dream,
+
+18:48.380 --> 18:52.680
+ but I'm so realistic in the notion of finding out.
+
+18:52.680 --> 18:56.440
+ I'm curious, I'm a great learner, I'm a great experimenter.
+
+18:56.440 --> 18:58.800
+ Along the way, you'll do those experiments
+
+18:58.800 --> 19:00.760
+ which will teach you more truths
+
+19:00.760 --> 19:03.200
+ and more learning about the reality
+
+19:03.200 --> 19:04.980
+ so that you can get your dreams.
+
+19:04.980 --> 19:08.400
+ Because if you still live in that world of delusion, okay?
+
+19:08.400 --> 19:10.400
+ And you think delusion's helpful.
+
+19:10.400 --> 19:12.240
+ No, the delusion isn't.
+
+19:12.240 --> 19:14.520
+ Don't confuse delusion with not knowing.
+
+19:14.520 --> 19:18.940
+ Yes, but nevertheless, so if we look at the abyss,
+
+19:18.940 --> 19:22.060
+ we can look at your own that you describe.
+
+19:22.060 --> 19:24.200
+ It's difficult psychologically for people.
+
+19:24.200 --> 19:26.080
+ So many people quit.
+
+19:26.080 --> 19:28.960
+ Many people choose a path that is more comfortable.
+
+19:32.160 --> 19:34.640
+ The heartbreak of that breaks people.
+
+19:34.640 --> 19:36.200
+ So if you have the dream
+
+19:36.200 --> 19:38.640
+ and there's this cycle of learning, setting a goal,
+
+19:38.640 --> 19:42.200
+ and so on, what's your value for the psychology
+
+19:42.200 --> 19:45.440
+ of just being broken by these difficult moments?
+
+19:45.440 --> 19:48.380
+ Well, that's classically the defining moment.
+
+19:48.380 --> 19:51.720
+ It's almost like evolution taking care of,
+
+19:51.720 --> 19:55.440
+ okay, now you crash, you're in the abyss.
+
+19:55.440 --> 19:56.960
+ Oh my God, that's bad.
+
+19:56.960 --> 19:59.320
+ And then the question is, what do you do?
+
+19:59.320 --> 20:01.280
+ And it sorts people, okay?
+
+20:01.280 --> 20:04.720
+ And some people get off the field
+
+20:04.720 --> 20:07.320
+ and they say, oh, I don't like this and so on.
+
+20:07.320 --> 20:12.320
+ And some people learn and they have a metamorphosis
+
+20:12.800 --> 20:15.280
+ and it changes their approach to learning.
+
+20:16.140 --> 20:19.360
+ The number one thing it should give them is uncertainty.
+
+20:19.360 --> 20:23.960
+ You should take an audacious dreamer,
+
+20:23.960 --> 20:28.680
+ guy who wants to change the world, crash, okay,
+
+20:28.680 --> 20:31.720
+ and then come out of that crashing and saying,
+
+20:31.720 --> 20:35.200
+ okay, I can be audacious
+
+20:35.200 --> 20:39.680
+ and scared that I'm gonna be wrong at the same time.
+
+20:39.680 --> 20:41.000
+ And then how do I do that?
+
+20:41.000 --> 20:42.400
+ Because that's the key.
+
+20:42.400 --> 20:44.560
+ When you don't lose your audaciousness
+
+20:44.560 --> 20:46.880
+ and you keep going after your big goal,
+
+20:46.880 --> 20:48.400
+ and at the same time you say,
+
+20:48.400 --> 20:50.640
+ hey, I'm worried that I'm gonna be wrong,
+
+20:50.640 --> 20:53.780
+ you gain your radical open mindedness
+
+20:53.780 --> 20:56.120
+ that allows you to take in the things,
+
+20:56.120 --> 20:59.560
+ that allows you to go to the next level of being successful.
+
+20:59.560 --> 21:02.580
+ So your own process, I mean, you've talked about it before,
+
+21:02.580 --> 21:05.260
+ but it would be great if you can describe it
+
+21:05.260 --> 21:06.600
+ because our darkest moments
+
+21:06.600 --> 21:07.980
+ are perhaps the most interesting.
+
+21:07.980 --> 21:12.980
+ So your own with the prediction of another depression.
+
+21:13.120 --> 21:14.480
+ Economic depression.
+
+21:14.480 --> 21:17.160
+ Yes, I apologize, economic depression.
+
+21:17.160 --> 21:22.160
+ Can you talk to what you were feeling, thinking,
+
+21:22.320 --> 21:24.600
+ planning, strategizing at those moments?
+
+21:24.600 --> 21:28.820
+ Yeah, that was my biggest moment, okay?
+
+21:28.820 --> 21:30.840
+ Building my little company.
+
+21:30.840 --> 21:34.080
+ This is in 1981, 82.
+
+21:34.080 --> 21:36.680
+ I had calculated that American banks
+
+21:36.680 --> 21:40.920
+ had given a lot more money to, lent a lot more money
+
+21:40.920 --> 21:42.120
+ to Latin American countries
+
+21:42.120 --> 21:44.040
+ than those countries were gonna pay back,
+
+21:44.040 --> 21:46.720
+ and that they would have a debt crisis,
+
+21:46.720 --> 21:49.880
+ and that this had sent the economy tumbling,
+
+21:49.880 --> 21:53.520
+ and that was an extremely controversial point of view.
+
+21:53.520 --> 21:55.600
+ Then it started to happen, and it happened,
+
+21:55.600 --> 21:58.800
+ and Mexico defaulted in August 1982.
+
+21:58.800 --> 22:02.440
+ I thought that there was gonna be an economic collapse
+
+22:02.440 --> 22:03.360
+ that was gonna follow
+
+22:03.360 --> 22:05.640
+ because there was a series of the other countries,
+
+22:05.640 --> 22:08.160
+ it was just playing out as I had imagined,
+
+22:08.160 --> 22:11.000
+ and that couldn't have been more wrong.
+
+22:11.000 --> 22:14.080
+ That was the exact bottom in the stock market
+
+22:14.080 --> 22:17.440
+ because central banks eased monetary policy, blah, blah, blah,
+
+22:17.440 --> 22:19.120
+ and I couldn't have been more wrong,
+
+22:19.120 --> 22:21.940
+ and I was very publicly wrong and all of that,
+
+22:21.940 --> 22:24.840
+ and I lost money for me, and I lost money for my clients,
+
+22:24.840 --> 22:27.880
+ and I only had a small company then,
+
+22:27.880 --> 22:32.080
+ but these were close people, I had to let them go.
+
+22:32.080 --> 22:35.680
+ I was down to me as the last person.
+
+22:35.680 --> 22:39.960
+ I was so broke I had to borrow $4,000 from my dad
+
+22:39.960 --> 22:43.120
+ to help to pay for my family bills, very painful,
+
+22:43.120 --> 22:46.960
+ and at the same time, I would say it definitely
+
+22:46.960 --> 22:50.460
+ was one of the best things that ever happened to me,
+
+22:50.460 --> 22:52.320
+ maybe the best thing from happened to me,
+
+22:52.320 --> 22:55.060
+ because it changed my approach to decision making.
+
+22:55.060 --> 22:56.360
+ It's what I'm saying.
+
+22:56.360 --> 22:58.960
+ In other words, I kept saying, okay,
+
+22:58.960 --> 23:01.000
+ how do I know whether I'm right?
+
+23:01.000 --> 23:02.840
+ How do I know I'm not wrong?
+
+23:02.840 --> 23:07.480
+ It gave me that, and it didn't give up my audaciousness
+
+23:07.480 --> 23:10.680
+ because I was in a position, what am I gonna do?
+
+23:10.680 --> 23:13.280
+ Am I gonna go back, put on a tie,
+
+23:13.280 --> 23:16.520
+ go to Wall Street and just do those things?
+
+23:16.520 --> 23:19.600
+ No, I can't bring myself to do that, so I'm at a juncture.
+
+23:19.600 --> 23:22.000
+ How do I deal with my risk and how do I deal with that?
+
+23:22.000 --> 23:25.200
+ And it told me how to deal with my uncertainties,
+
+23:25.200 --> 23:28.760
+ and that taught me, for example, a number of techniques.
+
+23:28.760 --> 23:31.740
+ First, to find the smartest people I could find
+
+23:31.740 --> 23:35.200
+ who disagreed with me and to have quality disagreement.
+
+23:35.200 --> 23:37.420
+ I learned the art of thoughtful disagreement.
+
+23:37.420 --> 23:39.680
+ I learned how to produce diversification.
+
+23:39.680 --> 23:41.800
+ I learned how to do a number of things.
+
+23:41.800 --> 23:46.080
+ That is what led me to create an idea meritocracy.
+
+23:46.080 --> 23:48.440
+ In other words, person by person, I hired them,
+
+23:48.440 --> 23:50.320
+ and I wanted the smartest people
+
+23:50.320 --> 23:51.760
+ who would be independent thinkers
+
+23:51.760 --> 23:55.000
+ who would disagree with each other and me well
+
+23:55.000 --> 23:57.560
+ so that we could be independent thinkers
+
+23:57.560 --> 24:00.200
+ to go off to produce those audacious dreams
+
+24:00.200 --> 24:02.480
+ because you have to be an independent thinker to do that,
+
+24:02.480 --> 24:05.480
+ and to do that independently of the consensus,
+
+24:05.480 --> 24:06.920
+ independently of each other,
+
+24:06.920 --> 24:08.800
+ and then work ourselves through that
+
+24:08.800 --> 24:11.400
+ because who know whether you're gonna have the right answer?
+
+24:11.400 --> 24:15.720
+ And by doing that, then that was the key to our success.
+
+24:15.720 --> 24:18.240
+ And the things that I wanna pass along to people,
+
+24:18.240 --> 24:20.860
+ the reason I'm doing this podcast with you
+
+24:20.860 --> 24:23.160
+ is I'm 70 years old,
+
+24:23.160 --> 24:28.000
+ and that is a magical way of achieving success.
+
+24:28.000 --> 24:30.920
+ If you can create an idea meritocracy,
+
+24:30.920 --> 24:34.040
+ it's so much better in terms of achieving success
+
+24:34.040 --> 24:36.640
+ and also quality relationships with people,
+
+24:36.640 --> 24:38.920
+ but that's what that experience gave me.
+
+24:38.920 --> 24:41.560
+ So if we can linger on a little bit longer,
+
+24:41.560 --> 24:44.880
+ the idea of an idea meritocracy, it's fascinating,
+
+24:44.880 --> 24:48.020
+ but especially because it seems to be rare,
+
+24:48.020 --> 24:50.920
+ not just in companies, but in society.
+
+24:50.920 --> 24:54.280
+ So there is a lot of people on Twitter and public discourse
+
+24:54.280 --> 24:56.960
+ and politics and so on that are really stuck
+
+24:56.960 --> 24:59.900
+ in certain sets of ideas, whatever they are.
+
+24:59.900 --> 25:03.420
+ So when you're confronted with an idea
+
+25:03.420 --> 25:08.420
+ that's different than your own about a particular topic,
+
+25:09.040 --> 25:12.720
+ what kind of process do you go through mentally?
+
+25:12.720 --> 25:16.040
+ Are you arguing through the idea with the person,
+
+25:16.040 --> 25:18.320
+ sort of present is almost like a debate,
+
+25:18.320 --> 25:20.980
+ or do you sit on it and consider the world
+
+25:20.980 --> 25:22.680
+ sort of empathetically?
+
+25:22.680 --> 25:27.280
+ If this is true, then what does that world look like?
+
+25:27.280 --> 25:28.800
+ Does that world make sense and so on?
+
+25:28.800 --> 25:30.480
+ So what's the process of considering
+
+25:30.480 --> 25:32.840
+ those conflicting ideas for you?
+
+25:32.840 --> 25:35.200
+ I'm gonna answer that question,
+
+25:35.200 --> 25:39.120
+ but after saying first, almost implicit in your question
+
+25:39.120 --> 25:42.420
+ is it's not common, okay?
+
+25:42.420 --> 25:47.040
+ What's common produces only common results, okay?
+
+25:47.040 --> 25:50.080
+ So don't judge anything that is good
+
+25:50.080 --> 25:51.600
+ based on whether it's common,
+
+25:51.600 --> 25:53.560
+ because it's only gonna give you common results.
+
+25:53.560 --> 25:57.160
+ If you want unique, you have a unique approach, okay?
+
+25:57.160 --> 26:00.440
+ And so that art of thoughtful disagreement
+
+26:00.440 --> 26:05.120
+ is the capacity to hold two things in your mind
+
+26:05.120 --> 26:06.560
+ at the same time.
+
+26:06.560 --> 26:09.700
+ The, gee, I think this makes sense,
+
+26:09.700 --> 26:13.360
+ and then saying, I'm not sure it makes sense,
+
+26:13.360 --> 26:17.560
+ and then try to say, why does it make sense?
+
+26:17.560 --> 26:20.160
+ And then to triangulate with others.
+
+26:20.160 --> 26:22.460
+ So if I'm having a discussion like that
+
+26:22.460 --> 26:26.560
+ and I work myself through and I'm not sure,
+
+26:26.560 --> 26:29.240
+ then I have to do that in a good way.
+
+26:29.240 --> 26:32.200
+ So I always give attention, for example,
+
+26:32.200 --> 26:34.360
+ let's start off, what does the other person know
+
+26:34.360 --> 26:36.120
+ relative to what I know?
+
+26:36.120 --> 26:39.840
+ So if a person has a higher expertise or things,
+
+26:39.840 --> 26:42.240
+ I'm much more inclined to ask questions.
+
+26:42.240 --> 26:43.840
+ I'm always asking questions.
+
+26:43.840 --> 26:46.640
+ If you wanna learn, you're asking questions,
+
+26:46.640 --> 26:48.480
+ you're not arguing, okay?
+
+26:48.480 --> 26:51.840
+ You're taking in, you're assessing when it comes into you.
+
+26:51.840 --> 26:53.000
+ Does that make sense?
+
+26:53.000 --> 26:54.080
+ Are you learning something?
+
+26:54.080 --> 26:56.000
+ Are you getting epiphanies and so on?
+
+26:56.000 --> 27:00.160
+ And I try to then do that if the conversation,
+
+27:00.160 --> 27:02.800
+ as we're trying to decide what is true,
+
+27:02.800 --> 27:04.560
+ and we're trying to do that together,
+
+27:04.560 --> 27:06.200
+ and we see truth different,
+
+27:06.200 --> 27:10.320
+ then I might even call in another really smart,
+
+27:10.320 --> 27:13.280
+ capable person and try to say, what is true
+
+27:13.280 --> 27:15.400
+ and how do we explore that together?
+
+27:15.400 --> 27:17.640
+ And you go through that same thing.
+
+27:17.640 --> 27:22.600
+ So I would, I said, I describe it as having open mindedness
+
+27:22.600 --> 27:25.000
+ and assertiveness at the same time,
+
+27:25.000 --> 27:28.560
+ that you can simultaneously be open minded
+
+27:28.560 --> 27:30.920
+ and take in with that curiosity
+
+27:30.920 --> 27:32.600
+ and then also be assertive and say,
+
+27:32.600 --> 27:33.840
+ but that doesn't make sense.
+
+27:33.840 --> 27:35.640
+ Why would this be the case?
+
+27:35.640 --> 27:37.440
+ And you do that back and forth.
+
+27:39.040 --> 27:41.520
+ And when you're doing that kind of back and forth
+
+27:41.520 --> 27:44.800
+ on a topic like the economy, which you have,
+
+27:44.800 --> 27:46.640
+ to me, perhaps I'm naive,
+
+27:46.640 --> 27:51.160
+ but it seems both incredible and incredibly complex,
+
+27:51.160 --> 27:54.680
+ the economy, the trading, the transactions,
+
+27:54.680 --> 27:57.720
+ that these transactions between two individuals
+
+27:57.720 --> 28:00.320
+ somehow add up to this giant mechanism.
+
+28:00.320 --> 28:03.400
+ You've put out a 30 minute video.
+
+28:03.400 --> 28:06.520
+ You have a lot of incredible videos online
+
+28:06.520 --> 28:10.080
+ that people should definitely watch on YouTube,
+
+28:10.080 --> 28:11.680
+ but you've put out this 30 minute video
+
+28:11.680 --> 28:14.640
+ titled How the Economic Machine Works.
+
+28:14.640 --> 28:19.120
+ That is probably one of the best, if not the best video
+
+28:19.120 --> 28:22.400
+ I've seen on the internet in terms of educational videos.
+
+28:22.400 --> 28:24.280
+ So people should definitely watch it,
+
+28:24.280 --> 28:29.280
+ especially because it's not that the individual components
+
+28:29.280 --> 28:31.940
+ of the video are somehow revolutionary,
+
+28:31.940 --> 28:33.600
+ but the simplicity and the clarity
+
+28:33.600 --> 28:36.200
+ of the different components just makes you,
+
+28:36.200 --> 28:37.760
+ there's a few light bulb moments there
+
+28:37.760 --> 28:40.880
+ about how the economy works as a machine.
+
+28:40.880 --> 28:43.160
+ So as you described, there's three main forces
+
+28:43.160 --> 28:45.200
+ that drive the economy, productivity growth,
+
+28:45.200 --> 28:48.340
+ short term debt cycle, long term debt cycle.
+
+28:48.340 --> 28:52.300
+ The former, productivity growth is how valuable things,
+
+28:52.300 --> 28:56.180
+ how much value people create,
+
+28:56.180 --> 28:57.420
+ valuable things people create.
+
+28:57.420 --> 29:02.100
+ The latter is people borrowing from their future selves
+
+29:02.100 --> 29:05.220
+ to hopefully create those valuable things faster.
+
+29:05.220 --> 29:07.420
+ So this is an incredible system to me.
+
+29:07.420 --> 29:09.980
+ Maybe we can linger on it a little bit,
+
+29:09.980 --> 29:14.180
+ but you've also said what most people think about
+
+29:14.180 --> 29:15.700
+ as money is actually credit.
+
+29:15.700 --> 29:20.580
+ Total amount of credit in the US is $50 trillion.
+
+29:20.580 --> 29:23.180
+ Total amount of money is $3 trillion.
+
+29:24.100 --> 29:26.060
+ That's just crazy to me.
+
+29:26.060 --> 29:28.540
+ Maybe I'm silly, maybe you can educate me,
+
+29:28.540 --> 29:29.920
+ but that seems crazy.
+
+29:30.980 --> 29:33.460
+ It gives me just positive human civilization
+
+29:33.460 --> 29:37.140
+ has been able to create a system that has so much credit.
+
+29:37.140 --> 29:40.900
+ So that's a long way to ask,
+
+29:40.900 --> 29:45.060
+ do you think credit is good or bad for society?
+
+29:45.060 --> 29:49.180
+ That system of that's so fundamentally based on credit.
+
+29:49.180 --> 29:51.300
+ I think credit is great,
+
+29:51.300 --> 29:54.580
+ even though people often overdo it.
+
+29:54.580 --> 29:58.940
+ Credit is that somebody has earned money.
+
+29:58.940 --> 30:03.940
+ And what happens is they lend it to somebody else
+
+30:04.820 --> 30:07.020
+ who's got better ideas and they cut a deal.
+
+30:07.020 --> 30:09.500
+ And then that person with the better ideas
+
+30:09.500 --> 30:10.540
+ is gonna pay it back.
+
+30:10.540 --> 30:11.980
+ And if it works well,
+
+30:11.980 --> 30:15.680
+ it helps resource allocations go well,
+
+30:15.680 --> 30:18.340
+ providing people like the entrepreneurs
+
+30:18.340 --> 30:20.500
+ and all of those, they need capital.
+
+30:20.500 --> 30:22.180
+ They don't have capital themselves.
+
+30:22.180 --> 30:24.020
+ And so somebody is gonna give them capital
+
+30:24.020 --> 30:26.580
+ and they'll give them credit along those lines.
+
+30:26.580 --> 30:30.180
+ Then what happens is it's not managed well
+
+30:30.180 --> 30:31.860
+ in a variety of ways.
+
+30:31.860 --> 30:34.460
+ So I did another book on principles,
+
+30:34.460 --> 30:38.660
+ principles of big debt crises that go into that.
+
+30:38.660 --> 30:39.660
+ And it's free, by the way,
+
+30:39.660 --> 30:43.880
+ I put it free online as a PDF.
+
+30:43.880 --> 30:47.060
+ So if you go online and you look principles
+
+30:47.060 --> 30:48.900
+ of a big debt crisis is under my name,
+
+30:48.900 --> 30:50.660
+ you can download it in a PDF
+
+30:50.660 --> 30:52.900
+ or you can buy a print book of it.
+
+30:52.900 --> 30:55.780
+ And it goes through that particular process.
+
+30:55.780 --> 31:00.780
+ And so you always have it overdone in always the same way.
+
+31:01.500 --> 31:03.100
+ Everything, by the way,
+
+31:03.100 --> 31:04.960
+ almost everything happens over and over again
+
+31:04.960 --> 31:07.080
+ for the same reasons, okay?
+
+31:07.080 --> 31:09.700
+ So these debt crisis is all happened over and over again
+
+31:09.700 --> 31:11.100
+ for the same reasons.
+
+31:11.100 --> 31:12.580
+ They get it overdone.
+
+31:12.580 --> 31:14.400
+ In the book, it explains how you identify
+
+31:14.400 --> 31:16.100
+ whether it's overdone or not.
+
+31:16.100 --> 31:17.500
+ They get it overdone.
+
+31:17.500 --> 31:19.280
+ And then you go through the process
+
+31:19.280 --> 31:21.580
+ of making the adjustments according that
+
+31:21.580 --> 31:25.340
+ and it explains how they can use the levers and so on.
+
+31:25.340 --> 31:27.220
+ If you didn't have credit,
+
+31:27.220 --> 31:30.860
+ then you would be sort of everybody sort of be stuck.
+
+31:30.860 --> 31:35.340
+ So credit is a good thing,
+
+31:35.340 --> 31:37.220
+ but it can easily be overdone.
+
+31:37.220 --> 31:39.800
+ So now we get into the, what is money?
+
+31:39.800 --> 31:41.020
+ What is credit?
+
+31:41.020 --> 31:43.260
+ Okay, you get into money and credit.
+
+31:43.260 --> 31:46.540
+ So if you're holding credit and you think that's worthwhile,
+
+31:46.540 --> 31:48.780
+ keep in mind that the central bank,
+
+31:48.780 --> 31:50.480
+ let's say it can print the money.
+
+31:50.480 --> 31:51.980
+ What is that problem?
+
+31:51.980 --> 31:55.020
+ You have an IOU and the IOU says
+
+31:55.020 --> 31:58.020
+ you're gonna get a certain number of dollars, let's say,
+
+31:58.020 --> 32:00.220
+ or yen or euros.
+
+32:00.220 --> 32:02.660
+ And that is what the IOU is.
+
+32:02.660 --> 32:05.860
+ And so the question is, will you get that money
+
+32:05.860 --> 32:07.860
+ and what will it be worth?
+
+32:07.860 --> 32:10.500
+ And then also you have a government,
+
+32:10.500 --> 32:13.020
+ which is a participant in that process
+
+32:13.020 --> 32:16.380
+ because they are on the hook, they owe money.
+
+32:16.380 --> 32:18.540
+ And then will they print the money
+
+32:18.540 --> 32:20.940
+ to make it easy for everybody to pay?
+
+32:20.940 --> 32:23.140
+ So you have to pay attention to those two.
+
+32:23.140 --> 32:26.400
+ I would suggest like you recommend to other people,
+
+32:26.400 --> 32:28.940
+ just take that 30 minutes
+
+32:28.940 --> 32:31.540
+ and it comes across pretty clearly.
+
+32:31.540 --> 32:35.140
+ But my conclusion is that of course you want it.
+
+32:35.140 --> 32:39.860
+ And even if you understand it and the cycles well,
+
+32:39.860 --> 32:42.180
+ you can benefit from those cycles
+
+32:42.180 --> 32:45.360
+ rather than to be hurt by those cycles.
+
+32:45.360 --> 32:48.620
+ Because I don't know the way the cycle works
+
+32:48.620 --> 32:50.420
+ is somebody gets over indebted,
+
+32:50.420 --> 32:52.300
+ they have to sell an asset.
+
+32:52.300 --> 32:53.580
+ Okay, then I don't know,
+
+32:53.580 --> 32:55.700
+ that's when assets become cheaper.
+
+32:55.700 --> 32:57.380
+ How do you acquire the asset?
+
+32:57.380 --> 32:59.240
+ It's a whole process.
+
+32:59.240 --> 33:03.820
+ So again, maybe another dumb question, but...
+
+33:03.820 --> 33:05.980
+ There are no such things as dumb questions.
+
+33:05.980 --> 33:06.820
+ There you go.
+
+33:06.820 --> 33:07.920
+ But what is money?
+
+33:07.920 --> 33:12.060
+ So you've mentioned credit and money.
+
+33:13.200 --> 33:16.440
+ Another thing that if I just zoom out
+
+33:16.440 --> 33:19.400
+ from an alien perspective and look at human civilization,
+
+33:19.400 --> 33:22.720
+ it's incredible that we've created a thing
+
+33:22.720 --> 33:27.380
+ that only works because currency,
+
+33:27.380 --> 33:30.480
+ because we all agree it has value.
+
+33:31.360 --> 33:36.360
+ So I guess my question is how do you think about money
+
+33:36.360 --> 33:38.920
+ as this emergent phenomenon?
+
+33:38.920 --> 33:41.720
+ And what do you think is the future of money?
+
+33:41.720 --> 33:44.480
+ You've commented on Bitcoin, other forms.
+
+33:44.480 --> 33:48.600
+ What do you think is its history and future?
+
+33:48.600 --> 33:51.340
+ How do you think about money?
+
+33:51.340 --> 33:55.100
+ There are two things that money is for.
+
+33:55.100 --> 33:59.820
+ It's a medium of exchange and it's a storehold of wealth.
+
+33:59.820 --> 34:00.660
+ Yes.
+
+34:00.660 --> 34:05.660
+ So money, so you could say something's a medium of exchange,
+
+34:06.800 --> 34:09.400
+ and then you could say, is it a storehold of wealth?
+
+34:11.280 --> 34:16.280
+ And money is that vehicle that is those things
+
+34:17.000 --> 34:20.840
+ and can be used to pay off your debt.
+
+34:20.840 --> 34:25.040
+ So when you have a debt and you provide it,
+
+34:25.040 --> 34:26.880
+ it pays off your debt.
+
+34:26.880 --> 34:28.760
+ So that's that process.
+
+34:28.760 --> 34:31.200
+ And it's, I apologize to interrupt,
+
+34:31.200 --> 34:35.080
+ but it only can be a medium of exchange or store wealth
+
+34:35.080 --> 34:37.680
+ when everybody recognizes it to be of value.
+
+34:37.680 --> 34:38.640
+ That's right.
+
+34:38.640 --> 34:41.400
+ And so you see in the history around the world
+
+34:41.400 --> 34:46.400
+ and you go to places, I was in an island in the Pacific
+
+34:48.320 --> 34:53.320
+ in which they had as money these big stones.
+
+34:53.660 --> 34:56.760
+ And literally, they were taking a boat,
+
+34:56.760 --> 34:59.320
+ this big carved stone,
+
+34:59.320 --> 35:01.560
+ and they were taking it from one of the islands to the other
+
+35:01.560 --> 35:06.560
+ and it sank, the piece of this big stone,
+
+35:06.880 --> 35:10.120
+ piece of money that they had, and it went to the bottom
+
+35:10.120 --> 35:13.560
+ and they still perceived it as having value
+
+35:13.560 --> 35:15.960
+ so that it was, even though it was in the bottom
+
+35:15.960 --> 35:17.820
+ and it's this big hunk of rock,
+
+35:17.820 --> 35:19.280
+ the fact that somebody owned it,
+
+35:19.280 --> 35:21.920
+ they would say, oh, I'll own it for this and that.
+
+35:21.920 --> 35:25.480
+ I've seen beads in different places,
+
+35:25.480 --> 35:28.880
+ shells converted to this and mediums of exchange.
+
+35:28.880 --> 35:32.480
+ And when we look at what we've got, you're exactly right.
+
+35:32.480 --> 35:35.120
+ It is the notion that if I give it to you,
+
+35:35.120 --> 35:37.960
+ I can then take it and I can buy something with it.
+
+35:37.960 --> 35:40.700
+ And that's, so it's a matter of perception.
+
+35:40.700 --> 35:41.540
+ Okay.
+
+35:41.540 --> 35:44.880
+ And then we go through then the history of money
+
+35:44.880 --> 35:47.520
+ and the vulnerabilities of money.
+
+35:47.520 --> 35:50.840
+ And what we have is there's, through history,
+
+35:50.840 --> 35:52.880
+ there's been two types of money.
+
+35:52.880 --> 35:57.880
+ Those that are claims on something of value,
+
+35:58.200 --> 36:01.680
+ like the connection to gold or something.
+
+36:01.680 --> 36:02.520
+ That's right.
+
+36:02.520 --> 36:03.520
+ That would be.
+
+36:03.520 --> 36:07.480
+ Or they just are money without any connection,
+
+36:07.480 --> 36:08.840
+ and then we have a system now,
+
+36:08.840 --> 36:10.940
+ which is a fiat monetary system.
+
+36:10.940 --> 36:12.680
+ So that's what money is.
+
+36:12.680 --> 36:17.680
+ Then it will last as long as it's kept a value
+
+36:17.840 --> 36:19.140
+ and it works that way.
+
+36:19.140 --> 36:23.780
+ So let's say central banks, when they get in the position
+
+36:23.780 --> 36:26.220
+ of like they owe a lot of money,
+
+36:26.220 --> 36:29.780
+ like we have in the case, it's increasingly the case,
+
+36:29.780 --> 36:33.700
+ and they also in our mind and they have the printing press
+
+36:33.700 --> 36:36.700
+ to print the money and get out of that.
+
+36:36.700 --> 36:39.480
+ And you have a lot of people might be in that position.
+
+36:39.480 --> 36:43.420
+ Then you can print it and then it could be devalued in there.
+
+36:43.420 --> 36:46.860
+ And so history has shown, forget about today,
+
+36:46.860 --> 36:49.840
+ history has shown that no currency,
+
+36:52.180 --> 36:56.380
+ every currency has either ended as being a currency
+
+36:56.380 --> 36:59.900
+ or devalued as a currency over periods of time,
+
+36:59.900 --> 37:01.420
+ long periods of time.
+
+37:01.420 --> 37:03.540
+ So it evolves and it changes,
+
+37:03.540 --> 37:06.300
+ but everybody needs that medium of exchange
+
+37:06.300 --> 37:08.780
+ and everybody needs that storehold of wealth.
+
+37:08.780 --> 37:12.360
+ So it keeps changing what is money over a period of time.
+
+37:12.360 --> 37:17.360
+ But so much is being digitized today and there's this ideas
+
+37:18.820 --> 37:22.580
+ that are based on the blockchain of Bitcoin and so on.
+
+37:22.580 --> 37:27.580
+ So if all currencies, like all empires come to an end,
+
+37:27.660 --> 37:30.060
+ what do you think, well, do you think something
+
+37:30.060 --> 37:34.340
+ like Bitcoin might emerge as a common store of value,
+
+37:34.340 --> 37:37.860
+ a store of wealth and a medium of exchange?
+
+37:37.860 --> 37:42.860
+ The problem with Bitcoin is that it's not
+
+37:43.660 --> 37:44.920
+ an effective medium of exchange.
+
+37:44.920 --> 37:47.460
+ Like it's not easy for me to go in there
+
+37:47.460 --> 37:49.100
+ and buy things with it.
+
+37:49.100 --> 37:52.060
+ And then it's not an effective storehold of value
+
+37:52.060 --> 37:56.020
+ because it has a volatility that's based on speculation
+
+37:56.020 --> 38:00.020
+ and the like, so it's not a very effective saving.
+
+38:00.020 --> 38:03.500
+ That's very different from Facebook's
+
+38:03.500 --> 38:05.620
+ of a stable value currency,
+
+38:05.620 --> 38:09.100
+ which would be effective as both a medium of exchange
+
+38:09.100 --> 38:11.140
+ and a storehold of wealth.
+
+38:11.140 --> 38:12.860
+ Because if you were to hold it
+
+38:12.860 --> 38:15.700
+ and the way it's linked to number of things
+
+38:15.700 --> 38:17.460
+ that it's linked to would mean
+
+38:17.460 --> 38:20.780
+ that it could be a very effective storehold of wealth.
+
+38:20.780 --> 38:22.480
+ And then you have a digital currency
+
+38:22.480 --> 38:24.980
+ that could be a very effective medium exchange
+
+38:24.980 --> 38:26.780
+ and storehold of wealth.
+
+38:26.780 --> 38:29.940
+ So in my opinion, some digital currencies
+
+38:29.940 --> 38:32.800
+ are likely to succeed more or less
+
+38:32.800 --> 38:35.060
+ based on that ability to do it.
+
+38:35.060 --> 38:37.940
+ Then the question is what happens?
+
+38:37.940 --> 38:40.740
+ Okay, what happens is do central banks
+
+38:40.740 --> 38:42.640
+ allow that to happen?
+
+38:42.640 --> 38:44.860
+ I really do believe it's possible
+
+38:44.860 --> 38:47.060
+ to get a better form of money
+
+38:47.060 --> 38:49.760
+ that central banks don't control.
+
+38:49.760 --> 38:51.980
+ Okay, a better force of money
+
+38:51.980 --> 38:54.540
+ that the central banks don't control.
+
+38:54.540 --> 38:57.820
+ But then that's not yet happened.
+
+38:57.820 --> 38:59.660
+ And we also have to,
+
+38:59.660 --> 39:03.460
+ and so they've got to go through that evolutionary process.
+
+39:03.460 --> 39:05.700
+ In order to go through that evolutionary process,
+
+39:05.700 --> 39:09.140
+ first of all, governments have got to allow that to happen,
+
+39:09.140 --> 39:11.520
+ which is to some extent a threat to them
+
+39:11.520 --> 39:13.100
+ in terms of their power.
+
+39:13.100 --> 39:14.620
+ And that's an issue.
+
+39:14.620 --> 39:17.540
+ And then you have to also build the confidence
+
+39:17.540 --> 39:20.500
+ in all of the components of it
+
+39:20.500 --> 39:23.580
+ to say, okay, that's going to be effective
+
+39:23.580 --> 39:28.580
+ because I won't have problems owning it.
+
+39:28.580 --> 39:30.940
+ So I think that digital currencies
+
+39:30.940 --> 39:35.200
+ have some element of potential,
+
+39:35.200 --> 39:37.700
+ but there's a lot of hurdles
+
+39:37.700 --> 39:39.860
+ that are going to have to be gotten over.
+
+39:39.860 --> 39:42.820
+ I think that it'll be a very long time,
+
+39:42.820 --> 39:46.140
+ possibly never, but anyway, a very long time
+
+39:46.140 --> 39:47.960
+ before we have that, let's say,
+
+39:47.960 --> 39:49.860
+ get into a position that would be
+
+39:51.860 --> 39:55.120
+ effective means relative to gold, let's say,
+
+39:55.120 --> 39:56.300
+ if you were to think of that.
+
+39:56.300 --> 40:00.740
+ Because gold has a track record of thousands of years.
+
+40:00.740 --> 40:04.820
+ All across countries, it has its mobility,
+
+40:04.820 --> 40:06.500
+ it has the ability to put it down,
+
+40:06.500 --> 40:07.580
+ it has certain abilities.
+
+40:07.580 --> 40:12.140
+ It's got disadvantages relative to digital currencies,
+
+40:12.140 --> 40:14.100
+ but central banks will hold it.
+
+40:14.100 --> 40:18.420
+ Like there's central banks that worry about others,
+
+40:18.420 --> 40:20.220
+ other countries, central banks might worry
+
+40:20.220 --> 40:23.020
+ about whether the U.S. dollar is going to print or not.
+
+40:23.020 --> 40:24.860
+ And so the thing they're going to go to
+
+40:24.860 --> 40:26.980
+ is not going to be the digital currency.
+
+40:26.980 --> 40:30.740
+ The thing they're going to go to is gold or something else,
+
+40:30.740 --> 40:32.780
+ some other currency, they got to pick it.
+
+40:32.780 --> 40:35.380
+ And so I think it's a long way to go.
+
+40:35.380 --> 40:37.260
+ Well, you think it's possible that one day
+
+40:37.260 --> 40:39.140
+ we don't even have a central bank
+
+40:39.140 --> 40:42.940
+ because of a currency that doesn't,
+
+40:42.940 --> 40:46.300
+ that cannot be controlled by the central bank
+
+40:46.300 --> 40:47.940
+ is the primary currency?
+
+40:49.000 --> 40:50.700
+ Or does that seem very unlikely?
+
+40:50.700 --> 40:55.700
+ It would be very remote possibility
+
+40:57.960 --> 41:00.440
+ or very long in the future.
+
+41:00.440 --> 41:01.480
+ Got it.
+
+41:01.480 --> 41:04.240
+ Again, maybe a dumb question, but romanticize one.
+
+41:04.240 --> 41:06.080
+ When you sit back and you look,
+
+41:06.080 --> 41:09.840
+ you describe these transactions between individuals,
+
+41:09.840 --> 41:13.940
+ somehow creating short term debt cycles,
+
+41:13.940 --> 41:17.520
+ long term debt cycles, there's productivity growth.
+
+41:17.520 --> 41:22.400
+ Does it amaze you that this whole thing works?
+
+41:22.400 --> 41:25.360
+ That there's however many million,
+
+41:25.360 --> 41:27.800
+ hundreds of millions of people in the United States,
+
+41:27.800 --> 41:30.200
+ globally over seven billion people,
+
+41:30.200 --> 41:33.100
+ that this thing between individual transactions,
+
+41:34.200 --> 41:36.200
+ it just, it works.
+
+41:36.200 --> 41:37.080
+ Yeah.
+
+41:37.080 --> 41:38.480
+ It amazes me.
+
+41:38.480 --> 41:43.400
+ Like I go back and forth between being in it
+
+41:43.400 --> 41:48.000
+ and then I think, like, how did a credit card,
+
+41:48.000 --> 41:49.600
+ how is that really possible?
+
+41:49.600 --> 41:52.520
+ I'm still used, I look up credit card, I put it on,
+
+41:52.520 --> 41:53.880
+ the guy doesn't know me.
+
+41:53.880 --> 41:54.720
+ Yeah.
+
+41:54.720 --> 41:57.100
+ It's all strangers. It signs, okay.
+
+41:57.100 --> 41:58.660
+ We're making the digital entries.
+
+41:58.660 --> 42:01.080
+ Is that really secure enough and that kind of thing?
+
+42:01.080 --> 42:04.280
+ And then it goes back and it goes this and it clears
+
+42:04.280 --> 42:05.520
+ and it all happens.
+
+42:05.520 --> 42:09.680
+ And what I marvel at that and those types of things
+
+42:09.680 --> 42:14.240
+ is because of the capacity of the human mind
+
+42:14.240 --> 42:19.000
+ to create abstractions that are true.
+
+42:19.000 --> 42:23.400
+ It's imagination and then the ability to go from one level
+
+42:23.400 --> 42:25.680
+ and then if these things are true,
+
+42:25.680 --> 42:28.880
+ then you go to the next level and if those things are true,
+
+42:28.880 --> 42:30.200
+ then you go to the next level.
+
+42:30.200 --> 42:33.700
+ And all those miracles that we almost become common,
+
+42:33.700 --> 42:36.440
+ it's like when I'm flying in a plane
+
+42:36.440 --> 42:39.520
+ or when I'm looking at all of the things that happen.
+
+42:39.520 --> 42:42.600
+ When I get communications in the middle of,
+
+42:42.600 --> 42:45.040
+ I don't know, Africa or Antarctica
+
+42:45.040 --> 42:48.720
+ and we're communicating in the ways where I see the face
+
+42:48.720 --> 42:52.560
+ on my iPad of somebody, my grandkid and someplace else
+
+42:52.560 --> 42:57.560
+ and I look at this and I say, wow, yes, it all amazes me.
+
+42:58.080 --> 43:01.620
+ So while being amazing, do you have a sense,
+
+43:01.620 --> 43:02.920
+ the principles you described,
+
+43:02.920 --> 43:06.120
+ that the whole thing is stable somehow also?
+
+43:06.120 --> 43:08.440
+ Or is this, are we just lucky?
+
+43:08.440 --> 43:11.600
+ So the principles that you described,
+
+43:11.600 --> 43:16.600
+ are those describing a system that is stable, robust
+
+43:16.880 --> 43:18.560
+ and will remain so?
+
+43:18.560 --> 43:22.920
+ Or is it a lucky accident of our early history?
+
+43:22.920 --> 43:26.000
+ My area of expertise is economics and markets
+
+43:26.000 --> 43:28.840
+ so I get down to like a real nitty gritty.
+
+43:28.840 --> 43:30.280
+ I can't tell you whether the plane
+
+43:30.280 --> 43:32.280
+ is gonna fall out of the sky
+
+43:32.280 --> 43:34.960
+ because of its particular fundamentals.
+
+43:34.960 --> 43:36.380
+ I don't know enough about that
+
+43:36.380 --> 43:37.960
+ but it happens over and over again
+
+43:37.960 --> 43:39.760
+ and so on, it gives me faith, okay?
+
+43:39.760 --> 43:41.300
+ So without me knowing it.
+
+43:41.300 --> 43:43.800
+ In the markets and the economy,
+
+43:43.800 --> 43:47.440
+ I know those things well enough, in a sense,
+
+43:47.440 --> 43:52.440
+ to say that by and large, that structure is right,
+
+43:53.600 --> 43:55.120
+ what we're seeing is right.
+
+43:55.120 --> 43:58.060
+ Now, whether there are disruptions
+
+43:58.060 --> 44:01.200
+ and it has effects that can come,
+
+44:01.200 --> 44:03.200
+ not because that structure is right,
+
+44:03.200 --> 44:04.600
+ and I believe it's right,
+
+44:04.600 --> 44:09.600
+ but whether it can be hurt by let's say connectivity
+
+44:09.640 --> 44:11.200
+ or journal entries,
+
+44:11.200 --> 44:13.480
+ they could take all the money away from you
+
+44:13.480 --> 44:15.360
+ through your digital entries.
+
+44:15.360 --> 44:19.120
+ There's all sorts of things that can happen in various ways
+
+44:19.120 --> 44:23.620
+ that means that that money is worthless or the system falls
+
+44:23.620 --> 44:26.840
+ but from what I see in terms of its basic structure
+
+44:26.840 --> 44:30.200
+ and those complexities that still take my breath away,
+
+44:30.200 --> 44:33.560
+ I would say knowing enough about the mechanics of them,
+
+44:33.560 --> 44:34.840
+ that doesn't worry me.
+
+44:34.840 --> 44:37.040
+ Have you seen disruptions in your lifetime
+
+44:37.040 --> 44:38.240
+ that really surprised you?
+
+44:38.240 --> 44:39.800
+ Major disruptions? Oh, all the time.
+
+44:39.800 --> 44:42.200
+ This is one of the great lessons of my life
+
+44:42.200 --> 44:46.520
+ is that many times I've seen things
+
+44:46.520 --> 44:50.460
+ that I was very surprised about
+
+44:50.460 --> 44:54.920
+ and that I realized almost all of those
+
+44:54.920 --> 44:57.600
+ I was surprised about because they just,
+
+44:57.600 --> 45:00.240
+ they were just the first time it happened to me,
+
+45:00.240 --> 45:02.620
+ they didn't happen in my lifetime before
+
+45:02.620 --> 45:04.660
+ but when I researched them,
+
+45:04.660 --> 45:08.240
+ they happened in other places or other people lifetimes.
+
+45:08.240 --> 45:13.240
+ So for example, I remember 1971, the dollar,
+
+45:13.520 --> 45:16.720
+ there was no such thing as a devaluation of a currency,
+
+45:16.720 --> 45:18.520
+ it didn't experience it
+
+45:18.520 --> 45:21.120
+ and the dollar was connected to gold
+
+45:21.120 --> 45:23.160
+ and I was watching events happen
+
+45:23.160 --> 45:26.520
+ and then you get on and that definition of money
+
+45:26.520 --> 45:29.060
+ all of a sudden went out the window
+
+45:29.060 --> 45:31.340
+ because it was not tied to gold
+
+45:31.340 --> 45:34.200
+ and then you have this devaluation.
+
+45:34.200 --> 45:38.720
+ So and then, or the first oil shock or the second oil shock
+
+45:38.720 --> 45:41.840
+ or so many of these things.
+
+45:41.840 --> 45:46.840
+ But almost always I realized that they,
+
+45:47.340 --> 45:50.080
+ when I looked in history, they happened before,
+
+45:50.080 --> 45:53.000
+ they just happened in other people's lifetimes
+
+45:53.000 --> 45:58.000
+ which led me to realize that I needed to study history
+
+45:58.280 --> 46:00.880
+ and what happened in other people's lifetimes
+
+46:00.880 --> 46:04.120
+ and what happened in other countries and places
+
+46:04.120 --> 46:07.760
+ so that I would have timeless and universal principles
+
+46:07.760 --> 46:09.360
+ for dealing with that thing.
+
+46:09.360 --> 46:11.960
+ So I've, oh yeah, I've been, you know,
+
+46:11.960 --> 46:13.860
+ the implausible happening
+
+46:13.860 --> 46:18.860
+ but it's like a one in a hundred year storm, okay?
+
+46:19.080 --> 46:20.960
+ Or it's or.
+
+46:20.960 --> 46:22.160
+ They've happened before.
+
+46:22.160 --> 46:23.100
+ Yeah, they've happened.
+
+46:23.100 --> 46:24.400
+ Just not to you.
+
+46:24.400 --> 46:28.160
+ Let me talk about, if we could, about AI a little bit.
+
+46:28.160 --> 46:32.880
+ So we've, Bridgewater Associates manage
+
+46:32.880 --> 46:36.560
+ about $160 billion in assets
+
+46:37.680 --> 46:41.200
+ and our artificial intelligence systems algorithms
+
+46:41.200 --> 46:43.640
+ are pretty good with data.
+
+46:43.640 --> 46:48.000
+ What role in the future do you see AI play
+
+46:48.000 --> 46:50.240
+ in analysis and decision making
+
+46:50.240 --> 46:55.240
+ in this kind of data rich and impactful area of investment?
+
+46:55.240 --> 46:57.880
+ I'm gonna answer that not only in investment
+
+46:57.880 --> 47:02.880
+ but I give a more all encompassing rule for AI.
+
+47:04.440 --> 47:09.440
+ As I think you know, for the last 25 years,
+
+47:09.440 --> 47:13.640
+ we have taken our thinking and put them in algorithms
+
+47:13.640 --> 47:15.680
+ and so we make decisions.
+
+47:15.680 --> 47:20.120
+ The computer takes those criteria, algorithms,
+
+47:20.120 --> 47:22.960
+ and they put them, they're in there and it takes data
+
+47:22.960 --> 47:27.280
+ and they operate as an independent decision maker
+
+47:27.280 --> 47:29.520
+ in parallel with our decision making.
+
+47:29.520 --> 47:33.200
+ So for me, it's like there's a chess game playing
+
+47:33.200 --> 47:36.360
+ and I'm a person with my chess game
+
+47:36.360 --> 47:38.840
+ and I'm saying it made that move and I'm making the move
+
+47:38.840 --> 47:40.680
+ and how do I compare those two moves?
+
+47:40.680 --> 47:43.800
+ So we've done a lot but let me give you a rule.
+
+47:43.800 --> 47:47.960
+ If the future can be different from the past
+
+47:47.960 --> 47:52.960
+ and you don't have deep understanding,
+
+47:53.960 --> 47:58.960
+ you should not rely on AI, okay?
+
+47:59.280 --> 48:00.520
+ Those two things.
+
+48:00.520 --> 48:02.440
+ Deep understanding of?
+
+48:02.440 --> 48:05.120
+ The cause of fact relationships that are leading you
+
+48:05.120 --> 48:08.280
+ to place that bet in anything, okay?
+
+48:08.280 --> 48:10.240
+ Anything important.
+
+48:10.240 --> 48:12.080
+ Let's say if it was do surgeries
+
+48:12.080 --> 48:14.680
+ and you would say, how do I do surgeries?
+
+48:14.680 --> 48:17.200
+ I think it's a good idea to do surgeries
+
+48:17.200 --> 48:19.280
+ but I think it's totally fine
+
+48:19.280 --> 48:21.920
+ to watch all the doctors do the surgeries.
+
+48:21.920 --> 48:26.920
+ You can put it on, take a digital camera and do that,
+
+48:28.320 --> 48:33.320
+ convert that into AI algorithms that go to robots
+
+48:33.960 --> 48:37.080
+ and have them do surgeries and I'd be comfortable with that
+
+48:37.080 --> 48:38.800
+ because if it'll do the,
+
+48:38.800 --> 48:41.240
+ if it keeps doing the same thing over and over again
+
+48:41.240 --> 48:44.280
+ and you have enough of that, that would be fine
+
+48:44.280 --> 48:47.040
+ even though you may not understand the algorithms
+
+48:47.040 --> 48:49.440
+ because if the thing's happening over and over again
+
+48:49.440 --> 48:52.000
+ and you're not asking, the future would be the same.
+
+48:52.000 --> 48:54.200
+ That appendicitis or whatever it is
+
+48:54.200 --> 48:57.600
+ will be handled the same way, the surgery, that's fine.
+
+48:57.600 --> 49:02.600
+ However, what happens with AI is for the most part
+
+49:03.000 --> 49:08.000
+ is it takes a lot of data with a high enough sample size
+
+49:09.600 --> 49:13.240
+ and then it puts together its own algorithms.
+
+49:13.240 --> 49:16.200
+ Okay, there are two ways you can come up with algorithms.
+
+49:16.200 --> 49:18.400
+ You can either take your thinking
+
+49:18.400 --> 49:20.640
+ and express them in algorithms
+
+49:20.640 --> 49:23.640
+ or you can say, put the data in
+
+49:23.640 --> 49:26.280
+ and say, what is the algorithm?
+
+49:26.280 --> 49:27.920
+ That's machine learning.
+
+49:27.920 --> 49:30.640
+ And when you have machine learning,
+
+49:30.640 --> 49:32.080
+ it'll give you equations
+
+49:32.080 --> 49:35.160
+ which quite often are not understandable.
+
+49:35.160 --> 49:36.160
+ If you would try to say,
+
+49:36.160 --> 49:38.400
+ okay, now describe what it's telling you,
+
+49:38.400 --> 49:40.160
+ it's very difficult to describe
+
+49:40.160 --> 49:42.960
+ and so they can escape understanding.
+
+49:42.960 --> 49:46.280
+ And so it's very good for doing those things
+
+49:46.280 --> 49:47.960
+ that could be done over and over again
+
+49:47.960 --> 49:49.960
+ if you're watching and you're not taking that.
+
+49:49.960 --> 49:53.080
+ But if the future is different from the past
+
+49:53.080 --> 49:54.000
+ and you have that,
+
+49:54.000 --> 49:56.880
+ then if the future is different from the past
+
+49:56.880 --> 49:59.080
+ and you don't have deep understanding,
+
+49:59.080 --> 50:00.720
+ you're gonna get in trouble.
+
+50:00.720 --> 50:03.160
+ And so that's the main thing.
+
+50:03.160 --> 50:05.360
+ As far as AI is concerned,
+
+50:05.360 --> 50:09.080
+ AI and let's say computer replications of thinking
+
+50:09.080 --> 50:13.560
+ in very ways, I think it's particularly good for processing.
+
+50:13.560 --> 50:18.280
+ But the notion of what you want to do
+
+50:18.280 --> 50:23.040
+ is better most of the time determined by the human mind.
+
+50:23.040 --> 50:24.480
+ What are the principles?
+
+50:24.480 --> 50:27.520
+ Like, okay, how should I raise my children?
+
+50:27.520 --> 50:29.960
+ It's gonna be a long time before AI,
+
+50:29.960 --> 50:31.160
+ you're going to say,
+
+50:31.160 --> 50:33.120
+ it has a good enough judgment to do that.
+
+50:33.120 --> 50:34.720
+ Who should I marry?
+
+50:34.720 --> 50:35.600
+ All of those things.
+
+50:35.600 --> 50:37.440
+ Maybe you can get the computer to help you
+
+50:37.440 --> 50:40.120
+ but if you just took data and do machine learning,
+
+50:40.120 --> 50:41.320
+ it's not gonna find it.
+
+50:41.320 --> 50:44.440
+ If you were to then take one of my criteria
+
+50:44.440 --> 50:47.280
+ for any of those questions
+
+50:47.280 --> 50:49.680
+ and then say, put them into an algorithm
+
+50:49.680 --> 50:53.160
+ and you'd be a lot better off than if you took AI to do it.
+
+50:53.160 --> 50:56.960
+ But by and large, the mind should be used
+
+50:56.960 --> 51:00.520
+ for inventing and those creative things.
+
+51:00.520 --> 51:04.000
+ And then the computer should be used for processing
+
+51:04.000 --> 51:06.920
+ because it could process a lot more information,
+
+51:06.920 --> 51:10.280
+ a lot faster, a lot more accurately
+
+51:10.280 --> 51:12.240
+ and a lot less emotionally.
+
+51:12.240 --> 51:15.120
+ So any notion of thinking
+
+51:15.120 --> 51:17.720
+ in the form of processing type thinking
+
+51:17.720 --> 51:19.640
+ should be done by a computer
+
+51:19.640 --> 51:21.560
+ and anything that is in the notion
+
+51:21.560 --> 51:23.480
+ of doing that other type of thinking
+
+51:23.480 --> 51:26.800
+ should be operating with the brain,
+
+51:26.800 --> 51:29.920
+ operating in a way where you can say,
+
+51:29.920 --> 51:31.360
+ ah, that makes sense.
+
+51:31.360 --> 51:35.600
+ You know, the process of reducing your understanding down
+
+51:35.600 --> 51:38.840
+ to principles is kind of like the process,
+
+51:38.840 --> 51:41.600
+ the first one you mentioned,
+
+51:41.600 --> 51:45.600
+ type of AI algorithm where you're encoding your expertise,
+
+51:45.600 --> 51:47.920
+ you're trying to program, write a program,
+
+51:47.920 --> 51:50.400
+ the human is trying to write a program.
+
+51:50.400 --> 51:53.560
+ How do you think that's attainable?
+
+51:53.560 --> 51:58.560
+ The process of reducing principles to a computer program
+
+51:58.560 --> 52:03.560
+ or when you say, when you write about,
+
+52:03.560 --> 52:05.800
+ when you think about principles,
+
+52:05.800 --> 52:07.440
+ is there still a human element
+
+52:07.440 --> 52:10.880
+ that's not reducible to an algorithm?
+
+52:12.160 --> 52:17.160
+ My experience has been that almost all things,
+
+52:17.560 --> 52:19.560
+ including those things that I thought
+
+52:19.560 --> 52:23.720
+ were pretty much impossible to express,
+
+52:23.720 --> 52:27.600
+ I've been able to express in algorithms,
+
+52:27.600 --> 52:31.120
+ but that doesn't constitute all things.
+
+52:31.120 --> 52:36.120
+ So you can express far more
+
+52:36.640 --> 52:39.360
+ than you can imagine you'll be able to express.
+
+52:39.360 --> 52:41.040
+ So I use the example of,
+
+52:41.040 --> 52:43.920
+ okay, it's not, how do you raise your children?
+
+52:43.920 --> 52:48.280
+ Okay, you will be able to take it one piece by piece.
+
+52:48.280 --> 52:51.600
+ Okay, at what age, what school?
+
+52:51.600 --> 52:54.880
+ And the way to do that, in my experience,
+
+52:54.880 --> 52:59.880
+ is to take that and when you're in the moment
+
+52:59.960 --> 53:04.960
+ of making a decision or just past making a decision,
+
+53:04.960 --> 53:09.000
+ to take the time and to write down your criteria
+
+53:09.000 --> 53:11.840
+ for making that decision in words.
+
+53:11.840 --> 53:16.360
+ Okay, that way you'll get your principles down on paper.
+
+53:16.360 --> 53:19.840
+ I created an app online call,
+
+53:19.840 --> 53:23.280
+ it's right now just on the iPhone, it'll be on Android.
+
+53:23.280 --> 53:25.320
+ I tried getting it on Android, come on now.
+
+53:25.320 --> 53:26.640
+ Let's get it on Android.
+
+53:26.640 --> 53:28.600
+ It'll be, in a few months it'll be on Android.
+
+53:28.600 --> 53:29.440
+ Awesome.
+
+53:29.440 --> 53:31.600
+ But it has an app in there
+
+53:31.600 --> 53:35.160
+ that helps people write down their own principles.
+
+53:35.160 --> 53:37.160
+ Because this is very powerful.
+
+53:37.160 --> 53:39.320
+ So when you're in that moment
+
+53:39.320 --> 53:41.520
+ where you've just, you're thinking about it
+
+53:41.520 --> 53:43.120
+ and you're thinking your criteria
+
+53:43.120 --> 53:46.080
+ for choosing the school for your child
+
+53:46.080 --> 53:47.640
+ or whatever that might be,
+
+53:47.640 --> 53:49.680
+ and you write down your criteria
+
+53:49.680 --> 53:52.200
+ or whatever they are, those principles,
+
+53:52.200 --> 53:57.200
+ you write down and that will at that moment
+
+53:57.440 --> 54:02.160
+ make you articulate your principles in a very valuable way.
+
+54:02.160 --> 54:04.840
+ And if you have the way that we operate
+
+54:04.840 --> 54:06.480
+ that you have easy access,
+
+54:06.480 --> 54:08.800
+ so then the next time that comes along,
+
+54:08.800 --> 54:09.920
+ you can go to that,
+
+54:09.920 --> 54:12.000
+ or you can show those principles to others
+
+54:12.000 --> 54:13.920
+ to see if they're the right principles.
+
+54:13.920 --> 54:16.920
+ You will get a clarity of that principle
+
+54:16.920 --> 54:19.080
+ that's really invaluable in words
+
+54:19.080 --> 54:21.120
+ and that'll help you a lot.
+
+54:21.120 --> 54:23.040
+ But then you start to think,
+
+54:23.040 --> 54:26.080
+ how do I express that in data?
+
+54:26.080 --> 54:29.320
+ And it'll shock you about how you can do that.
+
+54:29.320 --> 54:33.360
+ You'll form an equation that will show the relationship
+
+54:33.360 --> 54:35.040
+ between these particular parts
+
+54:35.040 --> 54:38.440
+ and then essentially the variables
+
+54:38.440 --> 54:41.560
+ that are going to go into that particular equation
+
+54:41.560 --> 54:43.120
+ and you will be able to do that.
+
+54:43.120 --> 54:45.160
+ And you take that little piece
+
+54:45.160 --> 54:48.080
+ and you put it into the computer.
+
+54:48.080 --> 54:49.920
+ And then take the next little piece
+
+54:49.920 --> 54:51.960
+ and you put that into the computer.
+
+54:51.960 --> 54:54.080
+ And before you know it,
+
+54:54.080 --> 54:56.280
+ you will have a decision making system
+
+54:56.280 --> 54:58.120
+ that's of the sort that I'm describing.
+
+54:58.120 --> 55:00.560
+ So you're almost making an argument
+
+55:00.560 --> 55:03.160
+ against an earlier statement you've made.
+
+55:03.160 --> 55:04.200
+ You're convincing me.
+
+55:04.200 --> 55:05.440
+ At first you said,
+
+55:05.440 --> 55:08.920
+ there's no way a computer could raise a child essentially.
+
+55:10.000 --> 55:12.160
+ But now you've described making me think of it.
+
+55:12.160 --> 55:16.080
+ If you have that kind of idea meritocracy,
+
+55:16.080 --> 55:17.600
+ you have this rigorous approach
+
+55:17.600 --> 55:19.280
+ that Bridgewater takes with investment
+
+55:19.280 --> 55:21.880
+ and applied to raising a child.
+
+55:21.880 --> 55:24.920
+ It feels like through the process you just described,
+
+55:24.920 --> 55:29.120
+ we could as a society arrive at a set of principles
+
+55:29.120 --> 55:33.880
+ for raising a child and encode it into computer.
+
+55:33.880 --> 55:38.880
+ That originality will not come from machine learning.
+
+55:39.280 --> 55:40.800
+ The first time you do,
+
+55:40.800 --> 55:42.280
+ so that the original, yes.
+
+55:42.280 --> 55:43.200
+ That's what I'm referring to.
+
+55:43.200 --> 55:45.960
+ But eventually as we together develop it
+
+55:45.960 --> 55:47.280
+ and then we can automate it.
+
+55:47.280 --> 55:50.160
+ That's why I'm saying the processing
+
+55:50.160 --> 55:51.800
+ can be done by the computer.
+
+55:51.800 --> 55:53.240
+ So we're saying the same thing.
+
+55:53.240 --> 55:54.920
+ We're not inconsistent.
+
+55:54.920 --> 55:56.440
+ We're saying the same thing.
+
+55:56.440 --> 55:58.600
+ That the processing of that information
+
+55:58.600 --> 56:01.240
+ and those algorithms can be done by the computer
+
+56:01.240 --> 56:03.560
+ in a very, very effective way.
+
+56:03.560 --> 56:05.280
+ You don't need to sit there and process
+
+56:05.280 --> 56:07.680
+ and try to weigh all those things in your equation
+
+56:07.680 --> 56:09.040
+ and all those things.
+
+56:09.040 --> 56:10.800
+ But that notion of,
+
+56:10.800 --> 56:13.760
+ okay, how do I get at that principle?
+
+56:13.760 --> 56:15.720
+ And you're saying you'd be surprised.
+
+56:15.720 --> 56:18.880
+ How much you can express.
+
+56:18.880 --> 56:19.720
+ That's right.
+
+56:19.720 --> 56:22.080
+ You can do that.
+
+56:22.080 --> 56:25.800
+ So this is where I think you're going to see the future.
+
+56:25.800 --> 56:30.800
+ And right now we go to our devices
+
+56:30.960 --> 56:35.640
+ and we get information to a large extent.
+
+56:35.640 --> 56:37.480
+ And then we get some guidance.
+
+56:37.480 --> 56:39.640
+ We have our GPS and the like.
+
+56:39.640 --> 56:42.400
+ In my opinion, principles.
+
+56:42.400 --> 56:43.800
+ Principles, principles, principles.
+
+56:43.800 --> 56:44.960
+ I wanna emphasize that.
+
+56:44.960 --> 56:46.480
+ You write them down.
+
+56:46.480 --> 56:48.280
+ You've got those principles.
+
+56:48.280 --> 56:52.720
+ They will be converted into algorithms for decision making.
+
+56:52.720 --> 56:55.200
+ And they're gonna also have the benefit
+
+56:55.200 --> 56:57.360
+ of collective decision making.
+
+56:57.360 --> 56:58.880
+ Because right now,
+
+56:58.880 --> 57:01.880
+ individuals based on what's stuck in their heads
+
+57:01.880 --> 57:05.200
+ are making their decisions in very ignorant ways.
+
+57:05.200 --> 57:06.960
+ They're not the best decision makers.
+
+57:06.960 --> 57:08.880
+ They're not the best criteria.
+
+57:08.880 --> 57:10.040
+ And they're operating.
+
+57:10.040 --> 57:12.520
+ When those principles are written down
+
+57:12.520 --> 57:14.840
+ and converted into algorithms,
+
+57:14.840 --> 57:16.560
+ it's almost like you'll look at that
+
+57:16.560 --> 57:18.240
+ and follow the instructions
+
+57:18.240 --> 57:20.720
+ and it'll give you better results.
+
+57:20.720 --> 57:23.760
+ Medicine will be much more like this.
+
+57:23.760 --> 57:25.560
+ You can go to your local doctor
+
+57:25.560 --> 57:27.840
+ and you could ask his point of view and whatever.
+
+57:27.840 --> 57:31.400
+ And he's rushed and he may not be the best doctor around.
+
+57:31.400 --> 57:33.360
+ And you're gonna go to this thing
+
+57:33.360 --> 57:35.160
+ and give that same information
+
+57:35.160 --> 57:37.760
+ or just automatically have it input in that.
+
+57:37.760 --> 57:41.440
+ And it's gonna tell you, okay, here's what you should go do.
+
+57:41.440 --> 57:44.240
+ And it's gonna be much better than your local doctor.
+
+57:44.240 --> 57:49.240
+ And that, the converting of information into intelligence,
+
+57:50.000 --> 57:52.680
+ okay, intelligence is the thing.
+
+57:52.680 --> 57:55.760
+ We're coming out with, again, I'm 70
+
+57:55.760 --> 57:57.920
+ and I wanna pass all these things along.
+
+57:57.920 --> 58:02.920
+ So all these tools that I've found need to develop
+
+58:03.240 --> 58:04.960
+ all over these periods of time,
+
+58:04.960 --> 58:07.440
+ all those things I wanna make available.
+
+58:07.440 --> 58:10.960
+ And what's gonna happen as they're going to see this,
+
+58:10.960 --> 58:13.400
+ they're going to see these tools
+
+58:13.400 --> 58:15.000
+ operating much more that way.
+
+58:15.000 --> 58:20.000
+ The idea of converting data into intelligence.
+
+58:20.040 --> 58:23.880
+ Intelligence, for example, on what they are like.
+
+58:23.880 --> 58:25.400
+ Or what are your strengths and weaknesses?
+
+58:25.400 --> 58:28.280
+ Intelligence on who do I work well with
+
+58:28.280 --> 58:29.440
+ under what circumstances?
+
+58:29.440 --> 58:30.280
+ The personalized.
+
+58:30.280 --> 58:31.360
+ Intelligence.
+
+58:31.360 --> 58:35.680
+ We're gonna go from what are called systems of record,
+
+58:35.680 --> 58:38.280
+ which are a lot of, okay, information organized
+
+58:38.280 --> 58:41.600
+ in the right way, to intelligence.
+
+58:41.600 --> 58:46.600
+ And that'll be the next big move, in my opinion.
+
+58:46.680 --> 58:49.920
+ And so you will get intelligence back.
+
+58:49.920 --> 58:52.200
+ And that intelligence comes from reducing things
+
+58:52.200 --> 58:54.120
+ down to principles into.
+
+58:54.120 --> 58:55.480
+ That's how it happens.
+
+58:55.480 --> 58:58.880
+ So what's your intuition if we look at future societies?
+
+58:58.880 --> 59:03.880
+ Do you think we'll be able to reduce a lot of the details
+
+59:06.640 --> 59:08.280
+ of our lives down to principles
+
+59:08.280 --> 59:10.200
+ that would be further and further automated?
+
+59:10.200 --> 59:12.760
+ I think the real question hinges
+
+59:12.760 --> 59:17.760
+ on people's emotions and irrational behaviors.
+
+59:20.920 --> 59:25.920
+ I think that there's subliminal things that we want, okay?
+
+59:25.920 --> 59:30.000
+ And then there's cerebral, conscious logic.
+
+59:30.000 --> 59:32.920
+ And the two often are at odds.
+
+59:32.920 --> 59:36.680
+ So there's almost like two you's in you, right?
+
+59:36.680 --> 59:39.920
+ And so let's say, what do you want?
+
+59:39.920 --> 59:42.280
+ And your mind will answer one thing,
+
+59:42.280 --> 59:44.680
+ your emotions will answer something else.
+
+59:44.680 --> 59:47.920
+ So when I think about it, I think emotions are,
+
+59:47.920 --> 59:52.320
+ I want inspiration, I want love is a good thing,
+
+59:52.320 --> 59:54.040
+ being able to have a good impact,
+
+59:54.040 --> 59:59.040
+ but it is in the reconciliation of your subliminal wants
+
+1:00:00.400 --> 1:00:02.720
+ and your intellectual wants
+
+1:00:02.720 --> 1:00:05.800
+ so that you really say they're aligned.
+
+1:00:05.800 --> 1:00:08.880
+ And so to do that in a way to get what you want.
+
+1:00:08.880 --> 1:00:13.360
+ So irrationality is a bad thing
+
+1:00:13.360 --> 1:00:16.480
+ if it means that it doesn't make sense
+
+1:00:16.480 --> 1:00:18.200
+ in getting you what you want,
+
+1:00:18.200 --> 1:00:20.200
+ but you better decide which you you're satisfying.
+
+1:00:20.200 --> 1:00:23.400
+ Is it the lower level you, emotional, subliminal one,
+
+1:00:23.400 --> 1:00:24.600
+ or is it the other?
+
+1:00:24.600 --> 1:00:26.080
+ But if you can align them.
+
+1:00:26.080 --> 1:00:30.440
+ So what I find is that by going from my,
+
+1:00:30.440 --> 1:00:34.800
+ you experience the decision, do this thing subliminally.
+
+1:00:34.800 --> 1:00:36.040
+ And that's the thing I want.
+
+1:00:36.040 --> 1:00:37.720
+ It comes to the surface.
+
+1:00:37.720 --> 1:00:40.360
+ I find that if I can align that
+
+1:00:40.360 --> 1:00:42.640
+ with what my logical me wants
+
+1:00:42.640 --> 1:00:45.920
+ and do the double check between them
+
+1:00:45.920 --> 1:00:47.920
+ and I get the same sort of thing,
+
+1:00:47.920 --> 1:00:49.760
+ that that helps me a lot.
+
+1:00:49.760 --> 1:00:53.080
+ I find, for example, meditation is one of the things
+
+1:00:53.080 --> 1:00:55.200
+ that helps to achieve that alignment.
+
+1:00:55.200 --> 1:00:58.480
+ It's fantastic for achieving that alignment.
+
+1:00:58.480 --> 1:01:02.160
+ And often then I also want to not just do it in my head.
+
+1:01:02.160 --> 1:01:03.600
+ I want to say, does that make sense?
+
+1:01:03.600 --> 1:01:04.440
+ Help you.
+
+1:01:04.440 --> 1:01:07.160
+ And so I do it with other people and I say, okay,
+
+1:01:07.160 --> 1:01:09.440
+ well, let's say I want this thing and whatever.
+
+1:01:09.440 --> 1:01:10.720
+ Does that make sense?
+
+1:01:10.720 --> 1:01:13.640
+ And when you do that kind of triangulation,
+
+1:01:13.640 --> 1:01:17.800
+ your two you's, and you do that with also the other way,
+
+1:01:17.800 --> 1:01:21.240
+ then you certainly want to be rational, right?
+
+1:01:21.240 --> 1:01:24.600
+ But rationality has to be defined by those things.
+
+1:01:26.000 --> 1:01:28.760
+ And then you discover sort of new ideas
+
+1:01:28.760 --> 1:01:30.840
+ that drive your future.
+
+1:01:30.840 --> 1:01:32.680
+ So it's always, you're always at the edge
+
+1:01:32.680 --> 1:01:34.360
+ of the set of principles you've developed.
+
+1:01:34.360 --> 1:01:36.160
+ You're doing new things always.
+
+1:01:36.160 --> 1:01:38.360
+ That's where the intellect is needed.
+
+1:01:38.360 --> 1:01:40.600
+ Well, and the inspiration.
+
+1:01:40.600 --> 1:01:43.600
+ The inspiration is needed to do that, right?
+
+1:01:43.600 --> 1:01:45.280
+ Like what are you doing it for?
+
+1:01:45.280 --> 1:01:46.960
+ It's the excitement.
+
+1:01:46.960 --> 1:01:47.800
+ What is that thing?
+
+1:01:47.800 --> 1:01:49.800
+ The adventure, the curiosity, the hunger.
+
+1:01:49.800 --> 1:01:52.720
+ What's, if you can be Freud for a second,
+
+1:01:52.720 --> 1:01:55.000
+ what's in that subconscious?
+
+1:01:55.000 --> 1:01:57.400
+ What's the thing that drives us?
+
+1:01:57.400 --> 1:02:00.000
+ I think you can't generalize of us.
+
+1:02:00.000 --> 1:02:02.640
+ I think different people are driven by different things.
+
+1:02:02.640 --> 1:02:04.800
+ There's not a common one, right?
+
+1:02:04.800 --> 1:02:07.960
+ So like if you would take the shapers,
+
+1:02:07.960 --> 1:02:12.960
+ I think it is a combination of, subliminally,
+
+1:02:13.040 --> 1:02:18.040
+ it's a combination of excitement, curiosity.
+
+1:02:18.400 --> 1:02:20.000
+ Is there a dark element there?
+
+1:02:20.000 --> 1:02:21.800
+ Is there demons?
+
+1:02:21.800 --> 1:02:22.840
+ Is there fears?
+
+1:02:22.840 --> 1:02:25.960
+ Is there, in your sense, something dark that drives them?
+
+1:02:25.960 --> 1:02:27.960
+ Most of the ones that I'm dealing with,
+
+1:02:27.960 --> 1:02:29.720
+ I have not seen that.
+
+1:02:29.720 --> 1:02:33.280
+ I see the, what I really see is,
+
+1:02:33.280 --> 1:02:37.680
+ ooh, if I can do that, that would be the most dream.
+
+1:02:37.680 --> 1:02:40.280
+ And then the act of creativity.
+
+1:02:40.280 --> 1:02:41.400
+ And you say, ooh.
+
+1:02:41.400 --> 1:02:44.200
+ So excitement is one of the things.
+
+1:02:44.200 --> 1:02:47.960
+ Curiosity is a big pull, okay?
+
+1:02:47.960 --> 1:02:51.760
+ And then tenacity, you know, okay, to do those things.
+
+1:02:51.760 --> 1:02:55.360
+ But definitely emotions are entering into it.
+
+1:02:55.360 --> 1:02:58.760
+ Then there's an intellectual component of it too, okay?
+
+1:02:58.760 --> 1:03:01.160
+ It may be empathy.
+
+1:03:01.160 --> 1:03:02.800
+ Can I have an impact?
+
+1:03:02.800 --> 1:03:04.440
+ Can I have an impact?
+
+1:03:04.440 --> 1:03:06.040
+ The desire to have an impact.
+
+1:03:06.040 --> 1:03:10.280
+ That's an emotional thrill, but it also has empathy.
+
+1:03:10.280 --> 1:03:12.760
+ And then you start to see spirituality.
+
+1:03:12.760 --> 1:03:16.000
+ By spirituality, I mean the connectedness to the whole.
+
+1:03:16.000 --> 1:03:18.360
+ You start to see people operate those things.
+
+1:03:18.360 --> 1:03:21.440
+ Those tend to be the things that you see the most of.
+
+1:03:22.360 --> 1:03:25.480
+ And I think you're gonna shut down this idea completely,
+
+1:03:25.480 --> 1:03:29.560
+ but there's a notion that some of these shapers
+
+1:03:29.560 --> 1:03:33.480
+ really walk the line between sort of madness and genius.
+
+1:03:33.480 --> 1:03:36.960
+ Do you think madness has a role in any of this?
+
+1:03:36.960 --> 1:03:40.280
+ Or do you still see Steve Jobs and Elon Musk
+
+1:03:40.280 --> 1:03:42.160
+ as fundamentally rational?
+
+1:03:42.160 --> 1:03:43.960
+ Yeah, there's a continuum there.
+
+1:03:43.960 --> 1:03:47.720
+ And what comes to my mind is that
+
+1:03:47.720 --> 1:03:52.720
+ genius is often at the edge,
+
+1:03:52.960 --> 1:03:56.440
+ in some cases, imaginary genius,
+
+1:03:56.440 --> 1:04:00.240
+ is at the edge of insanity.
+
+1:04:00.240 --> 1:04:02.880
+ And it's almost like a radio that I think,
+
+1:04:02.880 --> 1:04:06.720
+ okay, if I can tune it just right, it's playing right,
+
+1:04:06.720 --> 1:04:11.720
+ but if I go a little bit too far, it goes off, okay?
+
+1:04:11.920 --> 1:04:14.720
+ And so you can see this.
+
+1:04:14.720 --> 1:04:17.360
+ Kay Jamison was studying bipolar.
+
+1:04:17.360 --> 1:04:22.000
+ What it shows is that that's definitely the case,
+
+1:04:22.000 --> 1:04:23.600
+ because when you're going out there,
+
+1:04:23.600 --> 1:04:26.400
+ that imagination, whatever, is at the,
+
+1:04:26.400 --> 1:04:29.000
+ can be near the edge sometimes.
+
+1:04:29.000 --> 1:04:31.280
+ Doesn't have to always be.
+
+1:04:31.280 --> 1:04:33.320
+ So let me ask you about automation.
+
+1:04:33.320 --> 1:04:37.200
+ That's been a part of public discourse recently.
+
+1:04:38.400 --> 1:04:41.800
+ What's your view on the impact of automation,
+
+1:04:41.800 --> 1:04:44.240
+ of whether we're talking about AI
+
+1:04:44.240 --> 1:04:46.960
+ and more basic forms of automation on the economy
+
+1:04:46.960 --> 1:04:49.120
+ in the short term and the long term?
+
+1:04:49.120 --> 1:04:52.720
+ Do you have concerns about it, as some do,
+
+1:04:52.720 --> 1:04:55.360
+ or do you think it's overblown?
+
+1:04:55.360 --> 1:04:56.200
+ It's not overblown.
+
+1:04:56.200 --> 1:04:57.480
+ I mean, it's a giant thing.
+
+1:04:57.480 --> 1:05:01.280
+ It'll come at us in a very big way in the future.
+
+1:05:01.280 --> 1:05:04.440
+ We're right at the edge of even really accelerating it.
+
+1:05:04.440 --> 1:05:07.880
+ It's had a big impact, and it will have a big impact.
+
+1:05:07.880 --> 1:05:09.400
+ And it's a two edged sword,
+
+1:05:09.400 --> 1:05:14.400
+ because it'll have tremendous benefits.
+
+1:05:14.480 --> 1:05:18.580
+ And at the same time, it has profound benefits
+
+1:05:18.580 --> 1:05:21.420
+ in employment and distributions of wealth,
+
+1:05:21.420 --> 1:05:25.160
+ because the way I think about it is,
+
+1:05:25.160 --> 1:05:27.560
+ there are certain things human beings can do.
+
+1:05:27.560 --> 1:05:31.880
+ And over time, we've evolved to go
+
+1:05:31.880 --> 1:05:34.360
+ to almost higher and higher levels.
+
+1:05:34.360 --> 1:05:36.960
+ And now we're almost like, we're at this level.
+
+1:05:36.960 --> 1:05:39.120
+ You know, it used to be your labor,
+
+1:05:39.120 --> 1:05:41.400
+ and you would then do your labor,
+
+1:05:41.400 --> 1:05:42.960
+ and okay, we can get past the labor.
+
+1:05:42.960 --> 1:05:44.240
+ We got tractors and things,
+
+1:05:44.240 --> 1:05:46.160
+ and you go up, up, up, up, up,
+
+1:05:46.160 --> 1:05:47.320
+ and we're up over here,
+
+1:05:47.320 --> 1:05:50.000
+ and up to the point in our minds,
+
+1:05:50.000 --> 1:05:55.000
+ where okay, anything related to mental processing,
+
+1:05:55.080 --> 1:05:57.320
+ the computer can probably do better,
+
+1:05:57.320 --> 1:05:58.560
+ and we can find that.
+
+1:05:58.560 --> 1:06:01.900
+ And so other than almost inventing,
+
+1:06:01.900 --> 1:06:05.460
+ you're at a point where the machines
+
+1:06:05.460 --> 1:06:09.680
+ and the automation will probably do it better.
+
+1:06:09.680 --> 1:06:12.840
+ And that's accelerating, and that's a force,
+
+1:06:12.840 --> 1:06:15.480
+ and that's a force for the good.
+
+1:06:15.480 --> 1:06:17.880
+ And at the same time,
+
+1:06:17.880 --> 1:06:20.720
+ what it does is it displaces people
+
+1:06:20.720 --> 1:06:22.800
+ in terms of employment and changes,
+
+1:06:22.800 --> 1:06:25.240
+ and it produces wealth gaps and all of that.
+
+1:06:25.240 --> 1:06:28.000
+ So I think the real issue is that
+
+1:06:28.000 --> 1:06:32.160
+ that has to be viewed as a national emergency.
+
+1:06:32.160 --> 1:06:35.240
+ In other words, I think the wealth gap,
+
+1:06:35.240 --> 1:06:37.640
+ the income gap, the opportunity gap,
+
+1:06:37.640 --> 1:06:40.440
+ all of those things that force
+
+1:06:40.440 --> 1:06:43.940
+ is creating the problems that we're having today,
+
+1:06:43.940 --> 1:06:47.120
+ a lot of the problems, the great polarity,
+
+1:06:47.120 --> 1:06:49.120
+ the disenfranchised,
+
+1:06:49.120 --> 1:06:54.120
+ not anything approaching equality of education,
+
+1:06:54.800 --> 1:06:56.620
+ all of these problems,
+
+1:06:56.620 --> 1:06:59.360
+ a lot of problems are coming as a result of that.
+
+1:06:59.360 --> 1:07:02.520
+ And so it needs to be viewed really
+
+1:07:02.520 --> 1:07:05.440
+ as an emergency situation
+
+1:07:05.440 --> 1:07:08.400
+ in which there's a good work,
+
+1:07:08.400 --> 1:07:13.400
+ good plan worked out for how to deal with that effectively,
+
+1:07:13.400 --> 1:07:17.160
+ so that it's dealt with effectively.
+
+1:07:17.160 --> 1:07:21.640
+ So because it's good for the average,
+
+1:07:21.640 --> 1:07:23.120
+ it's good for the impact,
+
+1:07:23.120 --> 1:07:24.440
+ but it's not good for everyone,
+
+1:07:24.440 --> 1:07:25.960
+ and that creates that polarity.
+
+1:07:25.960 --> 1:07:27.800
+ So it's gotta be dealt with.
+
+1:07:27.800 --> 1:07:30.020
+ Yeah, and you've talked about the American dream,
+
+1:07:30.020 --> 1:07:32.720
+ and that that's something that all people
+
+1:07:32.720 --> 1:07:34.080
+ should have an opportunity for,
+
+1:07:34.080 --> 1:07:36.680
+ and that we need to reform capitalism
+
+1:07:36.680 --> 1:07:39.360
+ to give that opportunity for everyone.
+
+1:07:39.360 --> 1:07:43.520
+ Let me ask on one of the ideas
+
+1:07:43.520 --> 1:07:46.280
+ in terms of safety nets that support
+
+1:07:46.280 --> 1:07:47.840
+ that kind of opportunity.
+
+1:07:47.840 --> 1:07:49.040
+ There's been a lot of discussion
+
+1:07:49.040 --> 1:07:51.760
+ of universal basic income amongst people.
+
+1:07:51.760 --> 1:07:55.400
+ So there's Andrew Yang, who's running on that.
+
+1:07:55.400 --> 1:07:57.880
+ He's a political candidate running for president
+
+1:07:57.880 --> 1:08:00.480
+ on the idea of universal basic income.
+
+1:08:00.480 --> 1:08:01.880
+ What do you think about that,
+
+1:08:01.880 --> 1:08:05.640
+ giving $1,000 or some amount of money to everybody
+
+1:08:05.640 --> 1:08:09.360
+ as a way to give them the padding,
+
+1:08:09.360 --> 1:08:12.400
+ the freedom to sort of take leaps,
+
+1:08:12.400 --> 1:08:14.240
+ to take the call for adventure,
+
+1:08:14.240 --> 1:08:16.800
+ to take the crazy pursuits?
+
+1:08:16.800 --> 1:08:19.200
+ Before I get right into my thoughts
+
+1:08:19.200 --> 1:08:20.520
+ on universal basic income,
+
+1:08:20.520 --> 1:08:25.520
+ I wanna start with the notion that opportunity,
+
+1:08:26.800 --> 1:08:31.800
+ education, development, creating equality,
+
+1:08:31.800 --> 1:08:36.240
+ so that people say there's equal opportunity
+
+1:08:36.240 --> 1:08:39.760
+ and is the most important thing.
+
+1:08:39.760 --> 1:08:43.120
+ And then to find out what is the amount,
+
+1:08:43.120 --> 1:08:45.080
+ how are you going to provide that?
+
+1:08:45.080 --> 1:08:50.080
+ How do you get the money into a public school system?
+
+1:08:50.300 --> 1:08:52.400
+ How do you get the teaching?
+
+1:08:52.400 --> 1:08:57.400
+ The fleshing out that plan to create equal opportunity
+
+1:08:57.680 --> 1:09:00.580
+ in all of its various forms
+
+1:09:00.580 --> 1:09:03.000
+ is the most pressing thing to do.
+
+1:09:03.000 --> 1:09:06.240
+ And so that is that.
+
+1:09:06.240 --> 1:09:08.360
+ The opportunity, the most important one
+
+1:09:08.360 --> 1:09:11.440
+ you're kind of implying is the earlier, the better.
+
+1:09:11.440 --> 1:09:14.480
+ Sort of like opportunity to education.
+
+1:09:14.480 --> 1:09:17.820
+ So in the early development of a human being
+
+1:09:17.820 --> 1:09:20.120
+ is when you should have the equal opportunities.
+
+1:09:20.120 --> 1:09:21.080
+ That's the most important.
+
+1:09:21.080 --> 1:09:24.240
+ Right, in the first phase of your life,
+
+1:09:24.240 --> 1:09:27.860
+ which goes from birth until you're on your own
+
+1:09:27.860 --> 1:09:30.560
+ and you're an adult and you're now out there.
+
+1:09:31.600 --> 1:09:34.680
+ And you deal with early childhood development, okay?
+
+1:09:34.680 --> 1:09:38.040
+ And you take the brain and you say, what's important?
+
+1:09:38.040 --> 1:09:42.680
+ The childcare, okay, it makes a world of difference,
+
+1:09:42.680 --> 1:09:44.740
+ for example, if you have good parents
+
+1:09:44.740 --> 1:09:48.760
+ who are trying to think about instilling the stability
+
+1:09:48.760 --> 1:09:52.100
+ in a non traumatic environment to provide them.
+
+1:09:52.100 --> 1:09:53.800
+ So I would say the good guidance
+
+1:09:53.800 --> 1:09:55.840
+ that normally comes from parents
+
+1:09:55.840 --> 1:09:59.520
+ and the good education that they're receiving
+
+1:10:01.360 --> 1:10:06.240
+ are the most important things in that person's development.
+
+1:10:06.240 --> 1:10:10.400
+ The ability to be able to be prepared to go out there
+
+1:10:10.400 --> 1:10:12.800
+ and then to go into a market
+
+1:10:12.800 --> 1:10:15.880
+ that's an equal opportunity job market,
+
+1:10:15.880 --> 1:10:19.040
+ to be able to then go into that kind of market
+
+1:10:19.040 --> 1:10:22.840
+ is a system that creates not only fairness,
+
+1:10:22.840 --> 1:10:25.000
+ anything else is not fair.
+
+1:10:25.000 --> 1:10:27.160
+ And then in addition to that,
+
+1:10:27.160 --> 1:10:30.440
+ it also is a more effective economic system
+
+1:10:30.440 --> 1:10:33.740
+ because the consequences of not doing that
+
+1:10:33.740 --> 1:10:35.760
+ to a society are devastating.
+
+1:10:35.760 --> 1:10:38.600
+ If you look at what the difference in outcomes
+
+1:10:38.600 --> 1:10:40.960
+ for somebody who completes high school
+
+1:10:40.960 --> 1:10:42.560
+ or doesn't complete high school,
+
+1:10:42.560 --> 1:10:45.880
+ or does each one of those state changes.
+
+1:10:45.880 --> 1:10:47.800
+ And you look at what that means
+
+1:10:47.800 --> 1:10:52.120
+ in terms of their costs to society, not only themselves,
+
+1:10:52.120 --> 1:10:54.720
+ but their cost and incarceration costs
+
+1:10:54.720 --> 1:10:57.520
+ and crimes and all of those things.
+
+1:10:57.520 --> 1:11:00.760
+ It's economically better for the society
+
+1:11:00.760 --> 1:11:05.760
+ and it's fairer if they can get those particular things.
+
+1:11:06.200 --> 1:11:07.760
+ Once they have those things,
+
+1:11:07.760 --> 1:11:09.280
+ then you move on to other things.
+
+1:11:09.280 --> 1:11:13.160
+ But yes, from birth all the way through that process,
+
+1:11:13.160 --> 1:11:18.160
+ anything less than that is bad, is a tragedy and so on.
+
+1:11:18.920 --> 1:11:20.400
+ So that's what, yeah,
+
+1:11:20.400 --> 1:11:22.200
+ those are the things that I'm estimating.
+
+1:11:22.200 --> 1:11:27.200
+ And so what I would want above all else is to provide that.
+
+1:11:27.360 --> 1:11:28.720
+ So with that in mind,
+
+1:11:28.720 --> 1:11:30.840
+ now we'll talk about universal basic income.
+
+1:11:30.840 --> 1:11:33.280
+ Start with that, now we can talk about UBI.
+
+1:11:33.280 --> 1:11:34.920
+ Right, because you have to have that.
+
+1:11:34.920 --> 1:11:38.160
+ Now the question is what's the best way to provide that?
+
+1:11:39.080 --> 1:11:41.360
+ So when I look at UBI,
+
+1:11:41.360 --> 1:11:43.880
+ I really think is what is going to happen
+
+1:11:43.880 --> 1:11:46.280
+ with that $1,000, okay?
+
+1:11:46.280 --> 1:11:50.540
+ And will that $1,000 come from another program?
+
+1:11:50.540 --> 1:11:54.200
+ Does that come from an early childhood developmental program?
+
+1:11:54.200 --> 1:11:57.200
+ Who are you giving the $1,000 to
+
+1:11:57.200 --> 1:11:59.720
+ and what will they do for that $1,000?
+
+1:11:59.720 --> 1:12:01.920
+ I mean, like my reaction would be,
+
+1:12:01.920 --> 1:12:04.060
+ I think it's a great thing that everybody
+
+1:12:04.060 --> 1:12:07.760
+ should have almost $1,000 in their bank and so on.
+
+1:12:07.760 --> 1:12:10.680
+ But when do they get to make decisions or who's the parent?
+
+1:12:10.680 --> 1:12:14.000
+ A lot of times you can give $1,000 to somebody
+
+1:12:14.000 --> 1:12:15.760
+ and it could have a negative result.
+
+1:12:15.760 --> 1:12:19.320
+ It can have, they can use that money detrimentally,
+
+1:12:19.320 --> 1:12:21.080
+ not just productively.
+
+1:12:21.080 --> 1:12:22.920
+ And if that money's coming away
+
+1:12:22.920 --> 1:12:24.480
+ from some of those other things
+
+1:12:24.480 --> 1:12:26.440
+ that are gonna produce the things I want
+
+1:12:26.440 --> 1:12:28.840
+ and you're shifted to, let's say,
+
+1:12:28.840 --> 1:12:30.400
+ to come in and give a check,
+
+1:12:30.400 --> 1:12:32.580
+ doesn't mean its outcomes are going to be good
+
+1:12:32.580 --> 1:12:33.720
+ in providing those things
+
+1:12:33.720 --> 1:12:36.540
+ that I think are so fundamental important.
+
+1:12:36.540 --> 1:12:39.580
+ If it was just everybody can have $1,000 and use it
+
+1:12:39.580 --> 1:12:40.420
+ so when the time comes.
+
+1:12:40.420 --> 1:12:41.240
+ Use it well, right.
+
+1:12:41.240 --> 1:12:44.240
+ And use it well, that would be really, really good
+
+1:12:44.240 --> 1:12:46.640
+ because it's almost like everybody,
+
+1:12:46.640 --> 1:12:48.440
+ you'd wish everybody could have $1,000
+
+1:12:48.440 --> 1:12:51.680
+ worth of wiggle room in their lives, okay.
+
+1:12:51.680 --> 1:12:53.960
+ And I think that would be great.
+
+1:12:53.960 --> 1:12:55.040
+ I love that.
+
+1:12:55.040 --> 1:12:58.360
+ But I wanna make sure that these other things
+
+1:12:58.360 --> 1:12:59.420
+ that are taken care of.
+
+1:12:59.420 --> 1:13:01.360
+ So if it comes out of that budget
+
+1:13:01.360 --> 1:13:04.120
+ and I don't want it to come out of that budget
+
+1:13:04.120 --> 1:13:06.000
+ that's gonna be doing those things.
+
+1:13:06.000 --> 1:13:08.840
+ And so you have to figure it out.
+
+1:13:08.840 --> 1:13:10.500
+ And you have a certain skepticism
+
+1:13:10.500 --> 1:13:13.980
+ that human nature will use,
+
+1:13:13.980 --> 1:13:16.800
+ may not always, in fact frequently,
+
+1:13:16.800 --> 1:13:19.680
+ may not use that $1,000 for the optimal,
+
+1:13:19.680 --> 1:13:21.960
+ to support the optimal trajectory.
+
+1:13:21.960 --> 1:13:23.800
+ Some will and some won't.
+
+1:13:23.800 --> 1:13:27.380
+ One of the big advantages of universal basic income
+
+1:13:27.380 --> 1:13:29.680
+ is that if you put it in the hands,
+
+1:13:29.680 --> 1:13:32.400
+ let's say of parents who know how to do the right things
+
+1:13:32.400 --> 1:13:34.960
+ and make the right choices for their children
+
+1:13:34.960 --> 1:13:36.080
+ because they're responsible
+
+1:13:36.080 --> 1:13:38.920
+ and you say I'm gonna give them $1,000 wiggle room
+
+1:13:38.920 --> 1:13:41.440
+ to use for the benefit of their children.
+
+1:13:41.440 --> 1:13:43.300
+ Wow, that sounds great.
+
+1:13:43.300 --> 1:13:47.480
+ If you put it in the hands of let's say an alcoholic
+
+1:13:47.480 --> 1:13:52.160
+ or drug addicted parent who is not making those choices
+
+1:13:52.160 --> 1:13:53.840
+ well for their children
+
+1:13:53.840 --> 1:13:56.360
+ and what they do is they take that $1,000
+
+1:13:56.360 --> 1:13:58.100
+ and they don't use it well,
+
+1:13:58.100 --> 1:14:01.040
+ then that's gonna produce more harm than good.
+
+1:14:01.040 --> 1:14:02.220
+ Well put.
+
+1:14:02.220 --> 1:14:03.840
+ You're, if I may say so,
+
+1:14:03.840 --> 1:14:05.780
+ one of the richest people in the world.
+
+1:14:06.820 --> 1:14:09.120
+ So you're a good person to ask.
+
+1:14:09.120 --> 1:14:11.300
+ Does money buy happiness?
+
+1:14:11.300 --> 1:14:14.760
+ No, it's been shown that between,
+
+1:14:14.760 --> 1:14:18.800
+ once you get over a basic level of income
+
+1:14:18.800 --> 1:14:21.920
+ so that you can take care of the pain
+
+1:14:21.920 --> 1:14:24.240
+ that you can, health and whatever,
+
+1:14:24.240 --> 1:14:28.120
+ there's no correlation between the level of happiness
+
+1:14:28.120 --> 1:14:32.080
+ that one has and the level of money that one has.
+
+1:14:32.080 --> 1:14:35.780
+ That thing that has the highest correlation
+
+1:14:35.780 --> 1:14:39.680
+ is quality relationships with others, community.
+
+1:14:39.680 --> 1:14:41.760
+ If you look at surveys of these things
+
+1:14:41.760 --> 1:14:44.740
+ across all surveys and all societies,
+
+1:14:44.740 --> 1:14:49.660
+ it's a sense of community and interpersonal relationships.
+
+1:14:49.660 --> 1:14:52.600
+ That is not in any way correlated with money.
+
+1:14:52.600 --> 1:14:57.320
+ You can go down to native tribes in very poor places
+
+1:14:57.320 --> 1:15:00.480
+ or you can go in all different communities
+
+1:15:00.480 --> 1:15:03.200
+ and so they have the opportunity to have that.
+
+1:15:03.200 --> 1:15:06.980
+ I'm very lucky in that I started with nothing
+
+1:15:06.980 --> 1:15:08.320
+ so I have the full range.
+
+1:15:08.320 --> 1:15:11.080
+ I can tell you I'm not having money
+
+1:15:12.280 --> 1:15:13.920
+ and then having quite a lot of money
+
+1:15:13.920 --> 1:15:16.040
+ and I did that in the right order.
+
+1:15:16.040 --> 1:15:17.880
+ So you started from nothing in Long Island.
+
+1:15:17.880 --> 1:15:20.620
+ Yeah, and my dad was a jazz musician
+
+1:15:20.620 --> 1:15:23.160
+ but I had all really that I needed
+
+1:15:23.160 --> 1:15:25.800
+ because I had two parents who loved me
+
+1:15:25.800 --> 1:15:28.920
+ and took good care of me and I went to a public school
+
+1:15:28.920 --> 1:15:30.760
+ that was a good public school
+
+1:15:30.760 --> 1:15:34.080
+ and basically you don't need much more than that
+
+1:15:34.080 --> 1:15:36.920
+ in order to, that's the equal opportunity part.
+
+1:15:36.920 --> 1:15:40.720
+ Anyway, what I'm saying is I experienced the range
+
+1:15:40.720 --> 1:15:44.620
+ and there are many studies on the answer to your question.
+
+1:15:44.620 --> 1:15:46.840
+ No money does not bring happiness.
+
+1:15:48.220 --> 1:15:52.560
+ Money gives you an ability to make choices.
+
+1:15:52.560 --> 1:15:57.520
+ Does it get in the way in any way
+
+1:15:57.520 --> 1:16:00.560
+ of forming those deep, meaningful relationships?
+
+1:16:00.560 --> 1:16:01.600
+ It can.
+
+1:16:01.600 --> 1:16:03.320
+ There are lots of ways that it makes negative.
+
+1:16:03.320 --> 1:16:04.480
+ That's one of them.
+
+1:16:04.480 --> 1:16:06.200
+ It could stand in the way of that.
+
+1:16:06.200 --> 1:16:08.480
+ Yes, okay.
+
+1:16:08.480 --> 1:16:11.720
+ But I could almost list the ways that it could stand.
+
+1:16:11.720 --> 1:16:12.840
+ It could be a problem.
+
+1:16:12.840 --> 1:16:15.420
+ Yeah, what does it buy?
+
+1:16:15.420 --> 1:16:19.580
+ So if you can elaborate, you mentioned a bit of freedom.
+
+1:16:19.580 --> 1:16:21.400
+ At the most fundamental level,
+
+1:16:21.400 --> 1:16:25.320
+ it doesn't take a whole lot but it takes enough
+
+1:16:25.320 --> 1:16:30.320
+ that you can take care of yourself and your family
+
+1:16:30.320 --> 1:16:35.320
+ to be able to learn,
+
+1:16:35.840 --> 1:16:40.280
+ do the basics of, have the relationships,
+
+1:16:40.280 --> 1:16:44.480
+ have healthcare, the basics of those types of things.
+
+1:16:44.480 --> 1:16:46.580
+ You know, you can cover the patients.
+
+1:16:46.580 --> 1:16:50.320
+ And then to have maybe enough security
+
+1:16:50.320 --> 1:16:52.320
+ but maybe not too much security.
+
+1:16:52.320 --> 1:16:53.440
+ That's right, yeah.
+
+1:16:53.440 --> 1:16:57.760
+ That you essentially are okay.
+
+1:16:57.760 --> 1:17:00.680
+ Okay, that's really good.
+
+1:17:00.680 --> 1:17:04.160
+ And you don't, that's what money will get you.
+
+1:17:04.160 --> 1:17:06.580
+ And everything else could go either way.
+
+1:17:06.580 --> 1:17:08.000
+ Well, no, there's more.
+
+1:17:08.000 --> 1:17:08.820
+ There's more.
+
+1:17:08.820 --> 1:17:09.800
+ Okay.
+
+1:17:09.800 --> 1:17:13.520
+ Then beyond that, what it then starts to do,
+
+1:17:13.520 --> 1:17:15.120
+ that's the most important thing.
+
+1:17:15.120 --> 1:17:18.020
+ But beyond that, what it starts to do
+
+1:17:18.020 --> 1:17:22.840
+ is to help to make your dreams happen in various ways.
+
+1:17:22.840 --> 1:17:27.840
+ Okay, so for example, now I, you know, like in my case,
+
+1:17:29.200 --> 1:17:32.080
+ it's like those dreams might not be just my own dreams,
+
+1:17:32.080 --> 1:17:35.760
+ they're impact on others dreams, okay?
+
+1:17:35.760 --> 1:17:40.400
+ So my own dreams might be, I don't know,
+
+1:17:40.400 --> 1:17:43.640
+ I can pass along these, at my stage in life,
+
+1:17:43.640 --> 1:17:45.360
+ I could pass along these principles to you
+
+1:17:45.360 --> 1:17:49.840
+ and I can give those things or I could do whatever.
+
+1:17:49.840 --> 1:17:54.840
+ I can go on an adventure, I can start a business,
+
+1:17:54.880 --> 1:17:58.040
+ I can do those other things, be productive,
+
+1:17:58.040 --> 1:18:00.720
+ I can self actualize in ways
+
+1:18:00.720 --> 1:18:04.300
+ that might be not possible otherwise.
+
+1:18:05.200 --> 1:18:07.880
+ And so that's my own belief.
+
+1:18:07.880 --> 1:18:11.000
+ And then I can also help others.
+
+1:18:11.000 --> 1:18:13.640
+ I mean, this is, you know, to the extent when you get older
+
+1:18:13.640 --> 1:18:17.080
+ and with time and whatever, you start to feel connected,
+
+1:18:17.080 --> 1:18:19.960
+ spirituality, that's what I'm referring to,
+
+1:18:19.960 --> 1:18:21.840
+ you can start to have an effect on others
+
+1:18:21.840 --> 1:18:24.480
+ that's beneficial and so on, gives you the ability.
+
+1:18:24.480 --> 1:18:29.120
+ I could tell you that people who are very wealthy
+
+1:18:29.120 --> 1:18:32.320
+ who have that feel that they don't have enough money.
+
+1:18:32.320 --> 1:18:35.200
+ Bill Gates will feel almost broke
+
+1:18:35.200 --> 1:18:39.040
+ because relative to the things he'd like to accomplish
+
+1:18:39.040 --> 1:18:41.760
+ through the Gates Foundation and things like that,
+
+1:18:41.760 --> 1:18:44.160
+ you know, oh my God, he doesn't have enough money
+
+1:18:44.160 --> 1:18:46.440
+ to accomplish the things he wishes for.
+
+1:18:46.440 --> 1:18:49.240
+ But those things are not, you know,
+
+1:18:49.240 --> 1:18:51.560
+ they're not the most fundamental things.
+
+1:18:51.560 --> 1:18:56.240
+ So I think that people sometimes think money has value.
+
+1:18:56.240 --> 1:18:58.480
+ Money doesn't have value.
+
+1:18:58.480 --> 1:18:59.920
+ Money is, like you say,
+
+1:18:59.920 --> 1:19:02.960
+ just a medium of exchange at a store all the while.
+
+1:19:02.960 --> 1:19:05.000
+ And so what you have to say is,
+
+1:19:05.000 --> 1:19:07.400
+ what is it that you're going to buy?
+
+1:19:07.400 --> 1:19:10.120
+ Now, there are other people who get their gratification
+
+1:19:10.120 --> 1:19:12.440
+ in ways that are different from me,
+
+1:19:12.440 --> 1:19:14.640
+ but I think in many cases,
+
+1:19:14.640 --> 1:19:18.920
+ let's say somebody who used money to have a status symbol,
+
+1:19:18.920 --> 1:19:20.240
+ what would I say?
+
+1:19:20.240 --> 1:19:22.240
+ Or that's probably unhealthy.
+
+1:19:22.240 --> 1:19:25.120
+ But then, I don't know, somebody who says,
+
+1:19:25.120 --> 1:19:28.120
+ I love a great, gorgeous painting
+
+1:19:28.120 --> 1:19:29.960
+ and it's going to cost lots of money.
+
+1:19:29.960 --> 1:19:33.880
+ In my priorities, I can't get there.
+
+1:19:35.240 --> 1:19:38.520
+ But that doesn't mean, who am I to judge others
+
+1:19:38.520 --> 1:19:41.040
+ in terms of, let's say, their element of the freedom
+
+1:19:41.040 --> 1:19:42.160
+ to do those things.
+
+1:19:42.160 --> 1:19:43.920
+ So it's a little bit complicated.
+
+1:19:43.920 --> 1:19:48.920
+ But by and large, that's my view on money and wealth.
+
+1:19:48.920 --> 1:19:53.840
+ So let me ask you in terms of the idea of,
+
+1:19:53.840 --> 1:19:56.640
+ so much of your passions in life has been
+
+1:19:56.640 --> 1:19:59.880
+ through something you might be able to call work.
+
+1:19:59.880 --> 1:20:02.000
+ Alan Watts has this quote.
+
+1:20:02.000 --> 1:20:06.440
+ He said that the real key to life, secret to life,
+
+1:20:06.440 --> 1:20:08.960
+ is to be completely engaged with what you're doing
+
+1:20:08.960 --> 1:20:10.600
+ in the here and now.
+
+1:20:10.600 --> 1:20:14.200
+ And instead of calling it work, realize it is play.
+
+1:20:14.200 --> 1:20:17.920
+ So I'd like to ask, what is the role of work
+
+1:20:17.920 --> 1:20:21.600
+ in your life's journey, or in a life's journey?
+
+1:20:21.600 --> 1:20:24.040
+ And what do you think about this modern idea
+
+1:20:24.040 --> 1:20:28.080
+ of kind of separating work and work life balance?
+
+1:20:28.920 --> 1:20:31.200
+ I have a principle that I believe in is,
+
+1:20:31.200 --> 1:20:33.520
+ make your work and your passion the same thing.
+
+1:20:33.520 --> 1:20:35.360
+ Okay. Okay.
+
+1:20:35.360 --> 1:20:38.320
+ So that's a similar view.
+
+1:20:38.320 --> 1:20:40.360
+ In other words, if you can make your work and your passion,
+
+1:20:40.360 --> 1:20:41.960
+ it's just gonna work out great.
+
+1:20:41.960 --> 1:20:45.840
+ And then of course, people have different purposes of work.
+
+1:20:45.840 --> 1:20:48.640
+ And I don't wanna be theoretical about that.
+
+1:20:48.640 --> 1:20:51.000
+ People have to take care of their family.
+
+1:20:51.000 --> 1:20:54.920
+ So money at a certain point is the base,
+
+1:20:54.920 --> 1:20:57.680
+ is an important component of that work.
+
+1:20:57.680 --> 1:21:00.160
+ So you look beyond that, what is the money gonna get you
+
+1:21:00.160 --> 1:21:02.040
+ and what are you trying to achieve?
+
+1:21:02.040 --> 1:21:04.800
+ But the most important thing, I agree,
+
+1:21:04.800 --> 1:21:07.640
+ is meaningful work and meaningful relationships.
+
+1:21:07.640 --> 1:21:10.360
+ Like if you can get into the thing that you're at,
+
+1:21:10.360 --> 1:21:12.480
+ your mission that you're on,
+
+1:21:12.480 --> 1:21:15.800
+ and you are excited about that mission that you're on.
+
+1:21:15.800 --> 1:21:18.360
+ And then you can do that with people
+
+1:21:18.360 --> 1:21:21.920
+ who you have the meaningful relationships with.
+
+1:21:21.920 --> 1:21:25.320
+ You have meaningful work and meaningful relationships.
+
+1:21:25.320 --> 1:21:28.960
+ I mean, that is fabulous for most people.
+
+1:21:30.840 --> 1:21:34.640
+ And it seems that many people struggle to get there,
+
+1:21:34.640 --> 1:21:39.040
+ not out of, not necessarily because they're constrained
+
+1:21:39.040 --> 1:21:41.280
+ by the fact that they have the financial constraints
+
+1:21:41.280 --> 1:21:45.760
+ of having to provide for their family and so on.
+
+1:21:45.760 --> 1:21:50.120
+ But it's, I mean, this idea is out there
+
+1:21:50.120 --> 1:21:51.880
+ that there needs to be a work life balance,
+
+1:21:51.880 --> 1:21:54.240
+ which means that most people,
+
+1:21:54.240 --> 1:21:56.240
+ we're gonna return to the same things,
+
+1:21:56.240 --> 1:21:57.800
+ most doesn't mean optimal,
+
+1:21:57.800 --> 1:22:01.920
+ but most people seem to not be doing their life's passion,
+
+1:22:01.920 --> 1:22:04.960
+ not unifying work and passion.
+
+1:22:04.960 --> 1:22:06.240
+ Why do you think that is?
+
+1:22:07.360 --> 1:22:08.760
+ Well, the work life balance,
+
+1:22:08.760 --> 1:22:12.000
+ there's a life arc that you go through.
+
+1:22:12.920 --> 1:22:17.920
+ Starts at zero and ends somewhere in the vicinity of 80,
+
+1:22:17.920 --> 1:22:19.080
+ and there is a phase.
+
+1:22:19.080 --> 1:22:22.280
+ And you could look at the different degrees of happiness
+
+1:22:22.280 --> 1:22:23.880
+ that happen in those phases.
+
+1:22:23.880 --> 1:22:25.600
+ I can go through that if that was interesting,
+
+1:22:25.600 --> 1:22:27.640
+ but we don't have time probably for it.
+
+1:22:27.640 --> 1:22:30.160
+ But you get in the part of the life,
+
+1:22:30.160 --> 1:22:32.600
+ that part of the life,
+
+1:22:32.600 --> 1:22:37.600
+ which has the lowest level of happiness is age 45 to 55.
+
+1:22:38.600 --> 1:22:43.600
+ And because as you move into this second phase of your life,
+
+1:22:44.960 --> 1:22:46.360
+ now the first phase of your life
+
+1:22:46.360 --> 1:22:48.920
+ is when you're learning dependent on others.
+
+1:22:48.920 --> 1:22:51.680
+ Second phase of your life is when you're working
+
+1:22:51.680 --> 1:22:53.440
+ and others are dependent on you
+
+1:22:53.440 --> 1:22:55.560
+ and you're trying to be successful.
+
+1:22:55.560 --> 1:22:58.120
+ And in that phase of one's life,
+
+1:22:58.120 --> 1:23:01.360
+ you encounter the work life balance challenge
+
+1:23:01.360 --> 1:23:04.000
+ because you're trying to be successful at work
+
+1:23:04.000 --> 1:23:05.560
+ and successful at parenting
+
+1:23:05.560 --> 1:23:08.440
+ and successful and successful in all those things
+
+1:23:08.440 --> 1:23:10.080
+ that take your demand.
+
+1:23:10.080 --> 1:23:11.240
+ And they get into that.
+
+1:23:11.240 --> 1:23:15.320
+ And I understand that problem in the work life balance.
+
+1:23:15.320 --> 1:23:20.080
+ The issue is primarily to know how to approach that, okay?
+
+1:23:20.080 --> 1:23:24.160
+ So I understand it's stressful, it produces stress
+
+1:23:24.160 --> 1:23:25.680
+ and it produces bad results
+
+1:23:25.680 --> 1:23:28.080
+ and it produces the lowest level of happiness.
+
+1:23:28.080 --> 1:23:29.120
+ In one's life.
+
+1:23:29.120 --> 1:23:31.880
+ It's interesting as you get later in life,
+
+1:23:31.880 --> 1:23:33.760
+ the levels of happiness rise
+
+1:23:33.760 --> 1:23:35.880
+ and the highest level of happiness
+
+1:23:35.880 --> 1:23:37.640
+ is between ages 70 and 80,
+
+1:23:37.640 --> 1:23:39.440
+ which is interesting for other reasons.
+
+1:23:39.440 --> 1:23:41.400
+ But in that spot,
+
+1:23:41.400 --> 1:23:44.400
+ and the key to work life balance
+
+1:23:45.520 --> 1:23:49.000
+ is to realize and to learn
+
+1:23:49.000 --> 1:23:53.760
+ how to get more out of an hour of life, okay?
+
+1:23:53.760 --> 1:23:56.840
+ Because an hour of work,
+
+1:23:56.840 --> 1:24:00.560
+ what people are thinking is that they have to make a choice
+
+1:24:00.560 --> 1:24:02.520
+ between one thing and another.
+
+1:24:02.520 --> 1:24:04.720
+ And of course they do.
+
+1:24:04.720 --> 1:24:08.320
+ But they don't realize that if they develop the skill
+
+1:24:08.320 --> 1:24:11.320
+ to get a lot more out of an hour,
+
+1:24:11.320 --> 1:24:14.680
+ it's the equivalent of having many more hours in your life.
+
+1:24:14.680 --> 1:24:17.480
+ And so, that's why in the book principles,
+
+1:24:17.480 --> 1:24:19.360
+ I try to go into, okay, now,
+
+1:24:19.360 --> 1:24:23.320
+ how can you get a lot more out of an hour?
+
+1:24:23.320 --> 1:24:25.920
+ That allows you to get more life into your life
+
+1:24:25.920 --> 1:24:28.040
+ and it reduces the work life balance.
+
+1:24:28.040 --> 1:24:31.600
+ And that's the primary struggle in that 35 to 45.
+
+1:24:32.920 --> 1:24:35.120
+ If you could linger on that,
+
+1:24:35.120 --> 1:24:37.880
+ so what are the ups and downs of life
+
+1:24:37.880 --> 1:24:39.960
+ in terms of happiness in general
+
+1:24:39.960 --> 1:24:42.960
+ and perhaps in your own life
+
+1:24:42.960 --> 1:24:46.600
+ when you look back at the moments, the peaks?
+
+1:24:47.720 --> 1:24:50.040
+ It's pretty much the same pattern.
+
+1:24:50.040 --> 1:24:54.400
+ Early in one's life tends to be a very happy period,
+
+1:24:54.400 --> 1:24:58.800
+ all the way up and 16 is like a really great happy,
+
+1:24:58.800 --> 1:25:03.400
+ I think like myself, you start to get elements of freedom,
+
+1:25:03.400 --> 1:25:07.680
+ you get your driver's license, whatever, but 16 is there.
+
+1:25:08.720 --> 1:25:10.560
+ Junior year in high school quite often
+
+1:25:10.560 --> 1:25:11.760
+ could be a stressful period
+
+1:25:11.760 --> 1:25:13.760
+ to try to get thinking about the high school.
+
+1:25:13.760 --> 1:25:15.280
+ You go into college,
+
+1:25:15.280 --> 1:25:18.440
+ tends to be very hot happiness, generally speaking.
+
+1:25:18.440 --> 1:25:19.280
+ Freedom.
+
+1:25:19.280 --> 1:25:22.600
+ And then freedom, friendships, all of that.
+
+1:25:22.600 --> 1:25:24.200
+ Freedom is a big thing.
+
+1:25:24.200 --> 1:25:29.200
+ And then 23 is a peak point kind of in happiness,
+
+1:25:30.680 --> 1:25:31.680
+ that freedom.
+
+1:25:31.680 --> 1:25:35.000
+ Then sequentially, one has a great time,
+
+1:25:35.000 --> 1:25:36.600
+ they date, they go out and so on,
+
+1:25:36.600 --> 1:25:38.920
+ you find the love of your life,
+
+1:25:38.920 --> 1:25:41.560
+ you begin to develop a family.
+
+1:25:41.560 --> 1:25:44.400
+ And then with that, as time happens,
+
+1:25:44.400 --> 1:25:48.040
+ you have more of your work life balance challenges
+
+1:25:48.040 --> 1:25:50.120
+ that come in your responsibilities.
+
+1:25:50.120 --> 1:25:53.920
+ And then as you get there in that mid part of your life,
+
+1:25:53.920 --> 1:25:56.520
+ that is the biggest struggle.
+
+1:25:56.520 --> 1:26:00.040
+ Chances are you will crash in that period of time,
+
+1:26:00.040 --> 1:26:02.440
+ you'll have your series of failures,
+
+1:26:02.440 --> 1:26:05.520
+ that's when you go into the abyss,
+
+1:26:05.520 --> 1:26:09.000
+ you learn, you hopefully learn from those mistakes,
+
+1:26:09.000 --> 1:26:12.440
+ you have the metamorphosis, you come out, you change,
+
+1:26:12.440 --> 1:26:14.520
+ you hopefully become better
+
+1:26:14.520 --> 1:26:17.240
+ and you take more responsibilities and so on.
+
+1:26:17.240 --> 1:26:20.760
+ And then when you get to the later part,
+
+1:26:20.760 --> 1:26:24.560
+ as you are starting to approach the transition
+
+1:26:24.560 --> 1:26:28.560
+ in that late part of the second phase of your life,
+
+1:26:28.560 --> 1:26:31.200
+ before you go into the third phase of your life,
+
+1:26:31.200 --> 1:26:33.800
+ second phase is you're working, trying to be successful.
+
+1:26:33.800 --> 1:26:37.640
+ Third phase of your life is you want people
+
+1:26:37.640 --> 1:26:40.480
+ to be successful without you, okay?
+
+1:26:40.480 --> 1:26:43.920
+ You want your kids to be successful without you
+
+1:26:43.920 --> 1:26:46.400
+ because when you're at that phase,
+
+1:26:46.400 --> 1:26:48.640
+ they're at making their transition
+
+1:26:48.640 --> 1:26:50.560
+ from the first phase to the second phase
+
+1:26:50.560 --> 1:26:52.000
+ and they're trying to be successful
+
+1:26:52.000 --> 1:26:53.920
+ and you want them to be successful without you
+
+1:26:53.920 --> 1:26:58.680
+ and your parents are gone and then you have freedom
+
+1:26:58.680 --> 1:27:00.640
+ and then you have freedom again.
+
+1:27:00.640 --> 1:27:03.720
+ And with that freedom and then you have these,
+
+1:27:03.720 --> 1:27:06.760
+ history has shown with this, you have friendships,
+
+1:27:06.760 --> 1:27:09.640
+ you have perspective on life, you have different things
+
+1:27:09.640 --> 1:27:11.080
+ and that's one of the reasons
+
+1:27:11.080 --> 1:27:13.720
+ that that later part of the life can be real.
+
+1:27:13.720 --> 1:27:16.160
+ On average, actually, it's the highest.
+
+1:27:16.160 --> 1:27:19.840
+ Very interesting thing, there are surveys
+
+1:27:19.840 --> 1:27:24.560
+ and say, how good do you look and how good do you feel?
+
+1:27:24.560 --> 1:27:28.360
+ And that's the highest survey.
+
+1:27:28.360 --> 1:27:30.400
+ Now, they're not looking the best
+
+1:27:30.400 --> 1:27:32.160
+ and they're not feeling the best, right?
+
+1:27:32.160 --> 1:27:35.080
+ Maybe it's 35 that they're actually looking the best
+
+1:27:35.080 --> 1:27:38.520
+ and feeling the best, but they rank the highest
+
+1:27:38.520 --> 1:27:41.080
+ at that point, survey results of being the highest
+
+1:27:41.080 --> 1:27:44.200
+ in that 70 to 80 period of time
+
+1:27:44.200 --> 1:27:47.200
+ because it has to do with an attitude on life.
+
+1:27:47.200 --> 1:27:48.960
+ Then you start to have grandkids,
+
+1:27:48.960 --> 1:27:50.760
+ oh, grandkids are great
+
+1:27:50.760 --> 1:27:54.680
+ and you start to experience that transition well.
+
+1:27:54.680 --> 1:27:57.800
+ So that's what the arc of life pretty much looks like
+
+1:27:57.800 --> 1:28:00.920
+ and I'm experiencing it.
+
+1:28:00.920 --> 1:28:02.360
+ You've lived it.
+
+1:28:02.360 --> 1:28:05.760
+ When you meditate, we're all human, we're all mortal.
+
+1:28:05.760 --> 1:28:09.600
+ When you meditate on your own mortality,
+
+1:28:09.600 --> 1:28:14.600
+ having achieved a lot of success on whatever dimension,
+
+1:28:14.600 --> 1:28:17.040
+ what do you think is the meaning of it all?
+
+1:28:17.040 --> 1:28:22.040
+ The meaning of our short existence on earth as human beings?
+
+1:28:22.120 --> 1:28:25.120
+ I think that evolution is the greatest force
+
+1:28:25.120 --> 1:28:30.120
+ of the universe and that we're all tiny bits
+
+1:28:30.320 --> 1:28:33.480
+ of an evolutionary type of process
+
+1:28:33.480 --> 1:28:38.000
+ where it's just matter and machines that go through time
+
+1:28:38.000 --> 1:28:43.000
+ and that we all have a deeply embedded inclination
+
+1:28:43.000 --> 1:28:48.000
+ to evolve and contribute to evolution.
+
+1:28:48.480 --> 1:28:52.000
+ So I think it's to personally evolve
+
+1:28:52.000 --> 1:28:54.260
+ and contribute to evolution.
+
+1:28:54.260 --> 1:28:56.200
+ I could have predicted you would answer that way.
+
+1:28:56.200 --> 1:28:58.320
+ It's brilliant and exactly right.
+
+1:28:59.360 --> 1:29:02.920
+ And I think we've said it before, but I'll say it again.
+
+1:29:02.920 --> 1:29:05.440
+ You have a lot of incredible videos out there
+
+1:29:05.440 --> 1:29:07.520
+ that people should definitely watch.
+
+1:29:07.520 --> 1:29:08.780
+ I don't say this often.
+
+1:29:08.780 --> 1:29:11.560
+ I mean, it's literally the best spend of time
+
+1:29:11.560 --> 1:29:14.000
+ and in terms of reading principles
+
+1:29:14.000 --> 1:29:16.120
+ and reading basically anything you write on LinkedIn
+
+1:29:16.120 --> 1:29:18.480
+ and so on is a really good use of time.
+
+1:29:18.480 --> 1:29:20.640
+ It's a lot of light bulb moments,
+
+1:29:20.640 --> 1:29:22.680
+ a lot of transformative ideas in there.
+
+1:29:22.680 --> 1:29:24.800
+ So Ray, thank you so much.
+
+1:29:24.800 --> 1:29:25.640
+ It's been an honor.
+
+1:29:25.640 --> 1:29:26.640
+ I really appreciate it.
+
+1:29:26.640 --> 1:29:28.080
+ It's been a pleasure for me too.
+
+1:29:28.080 --> 1:29:31.340
+ I'm happy to hear it's a use to you and others.
+
+1:29:32.840 --> 1:29:35.920
+ Thanks for listening to this conversation with Ray Dalio
+
+1:29:35.920 --> 1:29:38.840
+ and thank you to our presenting sponsor, Cash App.
+
+1:29:38.840 --> 1:29:41.360
+ Download it, use code LexBodcast.
+
+1:29:41.360 --> 1:29:44.480
+ You'll get $10 and $10 will go to FIRST,
+
+1:29:44.480 --> 1:29:46.240
+ a STEM education nonprofit
+
+1:29:46.240 --> 1:29:49.200
+ that inspires hundreds of thousands of young minds
+
+1:29:49.200 --> 1:29:52.600
+ to learn and to dream of engineering our future.
+
+1:29:52.600 --> 1:29:55.540
+ If you enjoy this podcast, subscribe on YouTube,
+
+1:29:55.540 --> 1:29:59.000
+ get five stars on Apple Podcast, support on Patreon
+
+1:29:59.000 --> 1:30:00.880
+ or connect with me on Twitter.
+
+1:30:00.880 --> 1:30:04.240
+ Finally, closing words of advice from Ray Dalio,
+
+1:30:04.240 --> 1:30:08.280
+ pain plus reflection equals progress.
+
+1:30:08.280 --> 1:30:11.400
+ Thank you for listening and hope to see you next time.
+

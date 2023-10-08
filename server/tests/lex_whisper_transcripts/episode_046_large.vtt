@@ -1,0 +1,3605 @@
+WEBVTT
+
+00:00.000 --> 00:03.560
+ The following is a conversation with Gary Kasparov.
+
+00:03.560 --> 00:06.460
+ He's considered by many to be the greatest chess player
+
+00:06.460 --> 00:07.680
+ of all time.
+
+00:07.680 --> 00:11.240
+ From 1986 until his retirement in 2005,
+
+00:11.240 --> 00:13.360
+ he dominated the chess world,
+
+00:13.360 --> 00:17.200
+ ranking world number one for most of those 19 years.
+
+00:17.200 --> 00:18.880
+ While he has many historical matches
+
+00:18.880 --> 00:20.840
+ against human chess players,
+
+00:20.840 --> 00:24.040
+ in the long arc of history he may be remembered
+
+00:24.040 --> 00:28.840
+ for his match against the machine, IBM's Deep Blue.
+
+00:28.840 --> 00:31.840
+ His initial victories and eventual loss to Deep Blue
+
+00:31.840 --> 00:34.680
+ captivated the imagination of the world,
+
+00:34.680 --> 00:37.440
+ of what role artificial intelligence systems may play
+
+00:37.440 --> 00:39.720
+ in our civilization's future.
+
+00:39.720 --> 00:42.420
+ That excitement inspired an entire generation
+
+00:42.420 --> 00:45.160
+ of AI researchers, including myself,
+
+00:45.160 --> 00:47.240
+ to get into the field.
+
+00:47.240 --> 00:51.320
+ Gary is also a pro democracy political thinker and leader,
+
+00:51.320 --> 00:53.280
+ a fearless human rights activist,
+
+00:53.280 --> 00:54.960
+ and author of several books,
+
+00:54.960 --> 00:57.320
+ including How Life Imitates Chess,
+
+00:57.320 --> 01:00.080
+ which is a book on strategy and decision making,
+
+01:00.080 --> 01:01.400
+ Winter is Coming,
+
+01:01.400 --> 01:03.560
+ which is a book articulating his opposition
+
+01:03.560 --> 01:05.000
+ to the Putin regime,
+
+01:05.000 --> 01:06.280
+ and Deep Thinking,
+
+01:06.280 --> 01:07.680
+ which is a book on the role
+
+01:07.680 --> 01:11.480
+ of both artificial intelligence and human intelligence
+
+01:11.480 --> 01:13.560
+ in defining our future.
+
+01:13.560 --> 01:16.520
+ This is the Artificial Intelligence Podcast.
+
+01:16.520 --> 01:19.040
+ If you enjoy it, subscribe on YouTube,
+
+01:19.040 --> 01:21.040
+ give it five stars on iTunes,
+
+01:21.040 --> 01:22.280
+ support it on Patreon,
+
+01:22.280 --> 01:24.360
+ or simply connect with me on Twitter
+
+01:24.360 --> 01:28.160
+ at Lex Friedman, spelled F R I D M A N.
+
+01:28.160 --> 01:32.400
+ And now, here's my conversation with Gary Kasparov.
+
+01:33.460 --> 01:35.960
+ As perhaps the greatest chess player of all time,
+
+01:35.960 --> 01:39.080
+ when you look introspectively at your psychology
+
+01:39.080 --> 01:40.720
+ throughout your career,
+
+01:40.720 --> 01:42.560
+ what was the bigger motivator,
+
+01:42.560 --> 01:45.260
+ the love of winning or the hatred of losing?
+
+01:46.940 --> 01:47.840
+ Tough question.
+
+01:49.120 --> 01:51.800
+ Have to confess I never heard it before,
+
+01:51.800 --> 01:53.720
+ which is again, congratulations.
+
+01:53.720 --> 01:55.120
+ It's quite an accomplishment.
+
+01:58.760 --> 02:01.200
+ Losing was always painful.
+
+02:01.200 --> 02:04.480
+ For me, it was almost like a physical pain
+
+02:04.480 --> 02:08.120
+ because I knew that if I lost the game,
+
+02:09.640 --> 02:11.560
+ it's just because I made a mistake.
+
+02:11.560 --> 02:16.480
+ So I always believed that the result of the game
+
+02:18.160 --> 02:21.000
+ had to be decided by the quality of my play.
+
+02:21.000 --> 02:24.360
+ Okay, you may say it sounds arrogant,
+
+02:24.360 --> 02:26.520
+ but it helped me to move forward
+
+02:26.520 --> 02:30.080
+ because I always knew that there was room for improvement.
+
+02:30.080 --> 02:31.120
+ So it's the...
+
+02:31.120 --> 02:32.960
+ Was there the fear of the mistake?
+
+02:32.960 --> 02:36.680
+ Actually, fear of mistake guarantees mistakes.
+
+02:36.680 --> 02:40.180
+ And the difference between top players at the very top
+
+02:40.180 --> 02:44.620
+ is that it's the ability to make a decision
+
+02:44.620 --> 02:46.400
+ without predictable consequences.
+
+02:46.400 --> 02:47.560
+ You don't know what's happening.
+
+02:47.560 --> 02:48.680
+ It's just intuitively.
+
+02:48.680 --> 02:50.600
+ I can go this way or that way.
+
+02:50.600 --> 02:52.680
+ And there are always hesitations.
+
+02:52.680 --> 02:55.040
+ People are like, you are just at the crossroad.
+
+02:55.040 --> 02:57.240
+ You can go right, you can go left, you can go straight.
+
+02:57.240 --> 02:58.760
+ You can turn and go back.
+
+02:58.760 --> 03:03.160
+ And the consequences are just very uncertain.
+
+03:03.160 --> 03:07.040
+ Yes, you have certain ideas what happens on the right
+
+03:07.040 --> 03:09.020
+ or on the left or on just if you go straight,
+
+03:09.020 --> 03:13.440
+ but it's not enough to make well calculated choice.
+
+03:13.440 --> 03:16.400
+ And when you play chess at the very top,
+
+03:16.400 --> 03:18.740
+ it's about your inner strength.
+
+03:18.740 --> 03:21.080
+ So I can make this decision.
+
+03:21.080 --> 03:24.880
+ I will stand firm and I'm not going to waste my time
+
+03:24.880 --> 03:28.740
+ because I have full confidence that I will go through.
+
+03:29.640 --> 03:32.160
+ Going back to your original question is,
+
+03:32.160 --> 03:34.340
+ I would say neither.
+
+03:34.340 --> 03:39.020
+ It's just, it's love for winning, hate for losing.
+
+03:39.020 --> 03:41.640
+ There were important elements, psychological elements,
+
+03:41.640 --> 03:46.640
+ but the key element, I would say the driving force
+
+03:46.640 --> 03:51.640
+ was always my passion for making a difference.
+
+03:53.320 --> 03:57.080
+ It's just, I can move forward and I can always,
+
+03:57.080 --> 03:59.920
+ I can always enjoy not just playing,
+
+03:59.920 --> 04:01.660
+ but creating something new.
+
+04:01.660 --> 04:03.160
+ Creating something new.
+
+04:03.160 --> 04:04.520
+ How do you think about that?
+
+04:04.520 --> 04:07.440
+ It's just finding new ideas in the openings,
+
+04:07.440 --> 04:09.580
+ some original plan in the middle game.
+
+04:09.580 --> 04:13.300
+ It's actually, that helped me to make the transition
+
+04:13.300 --> 04:15.920
+ from the game of chess where I was on the very top
+
+04:15.920 --> 04:20.160
+ to another life where I knew I would not be number one.
+
+04:20.160 --> 04:22.080
+ I would not be necessarily on the top,
+
+04:22.080 --> 04:26.720
+ but I could still be very active and productive
+
+04:26.720 --> 04:30.240
+ by my ability to make a difference,
+
+04:30.240 --> 04:34.400
+ by influencing people, say joining the democratic movement
+
+04:34.400 --> 04:36.580
+ in Russia or talking to people
+
+04:36.580 --> 04:38.560
+ about human machine relations.
+
+04:38.560 --> 04:41.920
+ There's so many things where I knew my influence
+
+04:42.800 --> 04:45.720
+ may not be as decisive as in chess,
+
+04:45.720 --> 04:49.040
+ but still strong enough to help people
+
+04:49.040 --> 04:51.640
+ to make their choices.
+
+04:51.640 --> 04:53.120
+ So you can still create something new
+
+04:53.120 --> 04:57.160
+ that makes a difference in the world outside of chess.
+
+04:57.160 --> 05:01.880
+ But wait, you've kind of painted a beautiful picture
+
+05:01.880 --> 05:04.220
+ of your motivations in chess to create something new,
+
+05:04.220 --> 05:08.460
+ to look for those moments of some brilliant new ideas.
+
+05:09.320 --> 05:11.080
+ But were you haunted by something?
+
+05:11.080 --> 05:15.120
+ See, you make it seem like to be at the level you're at,
+
+05:15.120 --> 05:18.440
+ you can get away without having demons,
+
+05:18.440 --> 05:21.760
+ without having fears,
+
+05:21.760 --> 05:25.380
+ without being driven by some of the darker forces.
+
+05:26.840 --> 05:29.640
+ I mean, you sound almost religious.
+
+05:29.640 --> 05:32.800
+ The darker forces, spiritual demons.
+
+05:32.800 --> 05:34.800
+ I mean, do you have a call for a priest?
+
+05:34.800 --> 05:37.480
+ That's what I'm dressing as.
+
+05:37.480 --> 05:42.400
+ Now, just let's go back to these crucial chess moments
+
+05:42.400 --> 05:44.480
+ where I had to make big decisions.
+
+05:44.480 --> 05:49.480
+ As I said, it was all about my belief from very early days
+
+05:50.120 --> 05:52.920
+ that I can make all the difference by playing well
+
+05:52.920 --> 05:53.960
+ or by making mistakes.
+
+05:53.960 --> 05:57.080
+ So yes, I always had an opponent
+
+05:57.080 --> 06:00.240
+ across the chess board, opposite me.
+
+06:00.240 --> 06:02.920
+ But no matter how strong the opponent was,
+
+06:02.920 --> 06:04.360
+ whether it just was ordinary player
+
+06:04.360 --> 06:07.720
+ or another world champion like Anatoly Karpov,
+
+06:09.400 --> 06:10.880
+ having all respect for my opponent,
+
+06:10.880 --> 06:14.400
+ I still believe that it's up to me to make the difference.
+
+06:14.400 --> 06:19.400
+ And I knew I was not invincible.
+
+06:21.600 --> 06:22.560
+ I made mistakes.
+
+06:22.560 --> 06:23.800
+ I made some blunders.
+
+06:23.800 --> 06:28.240
+ And with age, I made more blunders.
+
+06:28.240 --> 06:30.400
+ So I knew it.
+
+06:30.400 --> 06:34.360
+ But it's still, it's very much for me
+
+06:34.360 --> 06:37.000
+ to be decisive factor in the game.
+
+06:37.000 --> 06:38.360
+ I mean, even now, look, I just,
+
+06:38.360 --> 06:40.360
+ my latest chess experience was horrible.
+
+06:40.360 --> 06:44.920
+ I mean, I played Caruana, Fabi Caruana,
+
+06:44.920 --> 06:46.120
+ this number two, number two,
+
+06:46.120 --> 06:47.840
+ number three player in the world these days.
+
+06:47.840 --> 06:50.520
+ We played this 960 with the Fischer,
+
+06:50.520 --> 06:52.960
+ so called Fischer random chess, reshuffling pieces.
+
+06:52.960 --> 06:56.240
+ Yeah, I lost very badly, but it's because I made mistakes.
+
+06:56.240 --> 06:57.720
+ I mean, I had so many winning positions.
+
+06:57.720 --> 07:00.000
+ I mean, 15 years ago, I would have crushed him.
+
+07:00.000 --> 07:03.640
+ So, and it's, you know, while I lost,
+
+07:03.640 --> 07:05.160
+ I was not so much upset.
+
+07:05.160 --> 07:08.280
+ I mean, I know, as I said in the interview,
+
+07:08.280 --> 07:10.840
+ I can fight any opponent, but not my biological clock.
+
+07:10.840 --> 07:15.840
+ So it's fighting time is always a losing proposition.
+
+07:16.600 --> 07:18.920
+ But even today at age 56, you know,
+
+07:18.920 --> 07:22.120
+ I knew that, you know, I could play great game.
+
+07:22.120 --> 07:24.400
+ I couldn't finish it because I didn't have enough energy
+
+07:24.400 --> 07:25.560
+ or just, you know,
+
+07:25.560 --> 07:27.640
+ I couldn't have the same level of concentration.
+
+07:27.640 --> 07:29.720
+ But, you know, in number of games
+
+07:29.720 --> 07:31.960
+ where I completely outplayed one of the top players
+
+07:31.960 --> 07:35.360
+ in the world, I mean, gave me a certain amount of pleasure.
+
+07:35.360 --> 07:38.440
+ That is, even today, I haven't lost my touch.
+
+07:38.440 --> 07:40.320
+ Not the same, you know.
+
+07:40.320 --> 07:43.080
+ Okay, the jaws are not as strong
+
+07:43.080 --> 07:44.760
+ and the teeth are not as sharp,
+
+07:44.760 --> 07:47.040
+ but I could get to him just, you know,
+
+07:47.040 --> 07:49.240
+ almost, you know, on the ropes.
+
+07:49.240 --> 07:50.080
+ Still got it.
+
+07:50.080 --> 07:50.920
+ Still got it.
+
+07:50.920 --> 07:52.320
+ And it's, you know, and it's,
+
+07:52.320 --> 07:54.560
+ I think it's, my wife said it well.
+
+07:54.560 --> 07:55.920
+ I mean, she said, look, Gary,
+
+07:55.920 --> 07:59.720
+ it's somehow, it's not just fighting your biological clock.
+
+07:59.720 --> 08:01.480
+ It's just, you know, maybe it's a signal
+
+08:01.480 --> 08:03.720
+ because, you know, the goddess of chess,
+
+08:03.720 --> 08:05.640
+ since you spoke great about demons.
+
+08:05.640 --> 08:07.560
+ The goddess of chess, Keisha,
+
+08:07.560 --> 08:09.000
+ maybe she didn't want you to win
+
+08:09.000 --> 08:11.560
+ because, you know, if you could beat
+
+08:12.480 --> 08:14.480
+ number two, number three player in the world,
+
+08:14.480 --> 08:16.600
+ I mean, that's one of the top players
+
+08:16.600 --> 08:19.280
+ who just recently played World Championship match.
+
+08:19.280 --> 08:20.840
+ If you could beat him,
+
+08:20.840 --> 08:23.040
+ that would be really bad for the game of chess.
+
+08:23.040 --> 08:24.880
+ But just, what people will say,
+
+08:24.880 --> 08:26.280
+ oh, look, the game of chess, you know,
+
+08:26.280 --> 08:28.400
+ it's not making any progress.
+
+08:28.400 --> 08:29.520
+ The game is just, you know,
+
+08:29.520 --> 08:32.480
+ it's totally devalued because, look,
+
+08:32.480 --> 08:34.080
+ the guy coming out of retirement,
+
+08:34.080 --> 08:35.600
+ you know, just, you know, winning games,
+
+08:35.600 --> 08:37.800
+ maybe that was good for chess, not good for you.
+
+08:37.800 --> 08:41.520
+ But it's, look, I've been following your logic.
+
+08:41.520 --> 08:43.480
+ We should always look for, you know, demons,
+
+08:43.480 --> 08:46.360
+ you know, superior forces and other things
+
+08:46.360 --> 08:48.960
+ that could, you know, if not dominate our lives,
+
+08:48.960 --> 08:52.640
+ but somehow, you know, play a significant role
+
+08:52.640 --> 08:55.560
+ in the outcome.
+
+08:55.560 --> 08:58.240
+ Yeah, so the goddess of chess had to send a message.
+
+08:58.240 --> 08:59.840
+ Yeah, that's okay.
+
+08:59.840 --> 09:02.680
+ So Gary, you should do something else.
+
+09:02.680 --> 09:04.000
+ Time.
+
+09:04.000 --> 09:06.920
+ Now for a question that you have heard before,
+
+09:06.920 --> 09:09.320
+ but give me a chance.
+
+09:09.320 --> 09:12.280
+ You've dominated the chess world for 20 years,
+
+09:12.280 --> 09:14.240
+ even still got it.
+
+09:14.240 --> 09:15.880
+ Is there a moment, you said,
+
+09:15.880 --> 09:17.560
+ you always look to create something new.
+
+09:17.560 --> 09:21.320
+ Is there games or moments
+
+09:21.320 --> 09:23.400
+ where you're especially proud of
+
+09:23.400 --> 09:27.240
+ in terms of your brilliance of a new creative move?
+
+09:27.240 --> 09:28.600
+ You've talked about Mikhail Tal
+
+09:28.600 --> 09:31.840
+ as somebody who was aggressive and creative chess player
+
+09:31.840 --> 09:33.480
+ in your own game.
+
+09:33.480 --> 09:35.560
+ Look, you mentioned Mikhail Tal.
+
+09:35.560 --> 09:39.400
+ It's very aggressive, very sharp player,
+
+09:39.400 --> 09:42.280
+ famous for his combinations and sacrifices,
+
+09:42.280 --> 09:44.120
+ even called magician from Riga,
+
+09:44.120 --> 09:47.400
+ so for his very unique style.
+
+09:47.400 --> 09:50.920
+ But any world champion, you know,
+
+09:50.920 --> 09:53.160
+ it's, yeah, was a creator.
+
+09:53.160 --> 09:57.600
+ Some of them were so flamboyant and flash like Tal.
+
+09:57.600 --> 09:59.160
+ Some of them were no just, you know,
+
+09:59.160 --> 10:04.000
+ less discerned at the chess board like Tigran Petrosian,
+
+10:04.000 --> 10:07.120
+ but every world champion, every top player
+
+10:07.120 --> 10:09.000
+ brought something into the game of chess.
+
+10:09.000 --> 10:11.680
+ And each contribution was priceless
+
+10:11.680 --> 10:13.680
+ because it's not just about sacrifices.
+
+10:13.680 --> 10:15.920
+ Of course, amateurs, they enjoy, you know,
+
+10:15.920 --> 10:18.800
+ the brilliant games where pieces being sacrificed.
+
+10:18.800 --> 10:21.520
+ It's all just, you know, it's all piece of hanging.
+
+10:21.520 --> 10:24.040
+ And it's all of a sudden, you know,
+
+10:24.040 --> 10:26.320
+ being material down, a rook down,
+
+10:26.320 --> 10:28.280
+ or just, you know, queen down.
+
+10:28.280 --> 10:33.280
+ The weaker side delivers the final blow
+
+10:33.880 --> 10:36.200
+ on just, you know, mating opponent's king.
+
+10:36.200 --> 10:38.600
+ But there are other kinds of beauty.
+
+10:38.600 --> 10:41.080
+ I mean, it's a slow positional maneuvering,
+
+10:41.080 --> 10:42.520
+ you know, looking for weaknesses
+
+10:42.520 --> 10:44.880
+ and just, and gradually, you know,
+
+10:44.880 --> 10:47.280
+ strangling your opponent
+
+10:47.280 --> 10:51.720
+ and eventually delivering sort of a positional masterpiece.
+
+10:51.720 --> 10:55.280
+ So I think I made more difference in the game of chess
+
+10:55.280 --> 10:58.800
+ than I could have imagined when I started playing.
+
+10:58.800 --> 11:01.600
+ And the reason I thought it was time for me to leave
+
+11:01.600 --> 11:04.680
+ was just, I mean, I knew that I was not,
+
+11:05.560 --> 11:08.880
+ I was not, no longer the position to
+
+11:10.360 --> 11:14.800
+ bring the same kind of contribution,
+
+11:14.800 --> 11:18.320
+ the same kind of new knowledge into the game.
+
+11:18.320 --> 11:21.640
+ So, and going back,
+
+11:21.640 --> 11:24.160
+ I could immediately look at my games
+
+11:24.160 --> 11:25.280
+ against Anatoly Karpov.
+
+11:25.280 --> 11:27.800
+ It's not just I won the match in 1985
+
+11:27.800 --> 11:31.160
+ and became a world champion at age 22,
+
+11:31.160 --> 11:34.600
+ but there were at least two games in that match.
+
+11:34.600 --> 11:36.680
+ Of course, the last one, game 24,
+
+11:36.680 --> 11:38.120
+ that was decisive game of the match,
+
+11:38.120 --> 11:40.760
+ I won and became world champion.
+
+11:40.760 --> 11:45.640
+ But also the way I won, it was a very sharp game
+
+11:45.640 --> 11:48.920
+ and I found a unique maneuver that was absolutely new
+
+11:48.920 --> 11:52.280
+ and it became some sort of just a typical now,
+
+11:52.280 --> 11:54.320
+ though just when the move was made,
+
+11:55.200 --> 11:58.920
+ was made on the board and put on display,
+
+11:58.920 --> 12:01.360
+ a lot of people thought it was ugly.
+
+12:01.360 --> 12:03.600
+ And another game, game 16 in the match
+
+12:03.600 --> 12:06.800
+ where I just also managed to outplay Karpov completely
+
+12:06.800 --> 12:10.840
+ with black pieces, just paralyzing his entire army
+
+12:10.840 --> 12:13.280
+ in its own camp.
+
+12:13.280 --> 12:14.800
+ Technically or psychologically,
+
+12:14.800 --> 12:17.560
+ or was that a mix of both in game 16?
+
+12:17.560 --> 12:19.960
+ Yeah, I think it was a big blow to Karpov.
+
+12:19.960 --> 12:21.840
+ I think it was a big psychological victory
+
+12:21.840 --> 12:22.920
+ for a number of reasons.
+
+12:22.920 --> 12:25.280
+ One, the score was equal at the time
+
+12:25.280 --> 12:28.040
+ and the world champion by the rules
+
+12:28.040 --> 12:30.760
+ could retain his title in case of a tie.
+
+12:30.760 --> 12:35.080
+ So we still have, before game 16, we have nine games to go.
+
+12:35.080 --> 12:37.080
+ And also it was some sort of a bluff
+
+12:37.080 --> 12:41.520
+ because neither me nor Karpov saw the refutation
+
+12:41.520 --> 12:42.840
+ of this opening idea.
+
+12:42.840 --> 12:46.640
+ And I think it says for Karpov, it was double blow
+
+12:46.640 --> 12:48.840
+ because not that he lost the game, I should triple blow.
+
+12:48.840 --> 12:50.960
+ He lost the game, it was a brilliant game
+
+12:50.960 --> 12:55.240
+ and I played impeccably after just this opening bluff.
+
+12:55.240 --> 12:57.440
+ And then they discovered that it was a bluff.
+
+12:57.440 --> 13:00.480
+ So it's the, again, I didn't know, I was not bluffing.
+
+13:00.480 --> 13:03.160
+ So that's why it happens very often.
+
+13:03.160 --> 13:04.520
+ Some ideas could be refuted.
+
+13:04.520 --> 13:06.240
+ And it's just, what I found out,
+
+13:06.240 --> 13:09.200
+ and this is again, going back to your spiritual theme
+
+13:09.200 --> 13:13.000
+ is that you could spend a lot of time working.
+
+13:13.000 --> 13:16.400
+ And when I say you could, it's in the 80s, in the 90s.
+
+13:16.400 --> 13:17.960
+ It doesn't happen these days because everybody
+
+13:17.960 --> 13:18.880
+ has a computer.
+
+13:18.880 --> 13:21.400
+ You could immediately see if it works or it doesn't work.
+
+13:21.400 --> 13:24.600
+ Machine shows your refutation in a split of a second.
+
+13:24.600 --> 13:28.640
+ But many of the analysis in the 80s or in the 90s,
+
+13:28.640 --> 13:31.560
+ they were not perfect simply because we're humans
+
+13:31.560 --> 13:34.080
+ and just you analyze the game,
+
+13:34.080 --> 13:36.040
+ you look for some fresh ideas.
+
+13:36.040 --> 13:39.280
+ And then just it happens that there was something
+
+13:39.280 --> 13:42.720
+ that you missed because the level of the concentration
+
+13:42.720 --> 13:45.960
+ at the chess board is different from when you analyze
+
+13:45.960 --> 13:47.760
+ the game, just moving the pieces around.
+
+13:47.760 --> 13:52.480
+ And, but somehow if you spend a lot of time
+
+13:52.480 --> 13:55.360
+ at the chess board preparing, so in your studies
+
+13:55.360 --> 13:59.880
+ with your coaches, hours and hours and hours,
+
+13:59.880 --> 14:03.560
+ and nothing of what you found could,
+
+14:03.560 --> 14:08.560
+ had materialized on the chess board.
+
+14:08.920 --> 14:12.280
+ Somehow these hours help, I don't know why,
+
+14:12.280 --> 14:14.200
+ always helped you.
+
+14:14.200 --> 14:19.200
+ It's as if the amount of work you did could be transformed
+
+14:19.640 --> 14:23.840
+ into some sort of spiritual energy that helped you
+
+14:23.840 --> 14:27.400
+ to come up with other great ideas during the board.
+
+14:27.400 --> 14:30.320
+ Again, even if there was no direct connection
+
+14:30.320 --> 14:33.880
+ between your preparation and your victory in the game,
+
+14:33.880 --> 14:37.760
+ there was always some sort of invisible connection
+
+14:37.760 --> 14:39.880
+ between the amount of work you did,
+
+14:39.880 --> 14:42.840
+ your dedication to actually, and your passion
+
+14:42.840 --> 14:47.440
+ to discover new ideas, and your ability during the game
+
+14:47.440 --> 14:49.320
+ at the chess board, when the clock was ticking,
+
+14:49.320 --> 14:52.120
+ we still had ticking clock, not digital clock at the time.
+
+14:52.120 --> 14:55.120
+ So to come up with some brilliance.
+
+14:55.120 --> 14:59.800
+ And I also can mention many games from the 90s.
+
+14:59.800 --> 15:04.240
+ So it's the, obviously all amateurs would pick up my game
+
+15:04.240 --> 15:07.360
+ against Veselin Topalov in 1999 and V. Konzai.
+
+15:07.360 --> 15:09.680
+ Again, because it was a brilliant game,
+
+15:09.680 --> 15:13.560
+ the Black King traveled from its own camp
+
+15:13.560 --> 15:17.760
+ to into White's camp across the entire board.
+
+15:17.760 --> 15:20.600
+ It doesn't happen often, trust me, as you know,
+
+15:20.600 --> 15:23.280
+ in the games with professional players,
+
+15:23.280 --> 15:24.520
+ top professional players.
+
+15:24.520 --> 15:26.720
+ So that's why visually it was one
+
+15:26.720 --> 15:28.360
+ of the most impressive victories.
+
+15:28.360 --> 15:33.280
+ But I could bring to your attention many other games
+
+15:33.280 --> 15:37.600
+ that were not so impressive for amateurs,
+
+15:37.600 --> 15:42.600
+ not so beautiful, just because it's sacrifice
+
+15:43.080 --> 15:44.840
+ is always beautiful, you sacrifice pieces.
+
+15:44.840 --> 15:48.840
+ And then eventually you have very few resources left
+
+15:48.840 --> 15:53.840
+ and you use them just to crush your opponent basically.
+
+15:54.720 --> 15:58.240
+ You have to make the king because you have almost
+
+15:58.240 --> 16:01.280
+ nothing left at your disposal.
+
+16:01.280 --> 16:06.160
+ But up to the very end, again, less and less,
+
+16:06.160 --> 16:08.880
+ but still up to the very end, I always had games
+
+16:08.880 --> 16:11.880
+ with some sort of interesting ideas
+
+16:11.880 --> 16:14.800
+ and games that gave me great satisfaction.
+
+16:14.800 --> 16:19.800
+ But I think it's what happened from 2005 up to these days
+
+16:20.840 --> 16:24.600
+ was also a very big accomplishment
+
+16:24.600 --> 16:28.640
+ since I had to find myself to sort of relocate myself.
+
+16:28.640 --> 16:30.680
+ Yeah, rechannel the creative energies.
+
+16:30.680 --> 16:35.680
+ Exactly, and to find something where I feel comfortable,
+
+16:35.680 --> 16:39.440
+ even confident that my participation
+
+16:39.440 --> 16:41.400
+ still makes the difference.
+
+16:41.400 --> 16:42.560
+ Beautifully put.
+
+16:42.560 --> 16:44.880
+ So let me ask perhaps a silly question,
+
+16:44.880 --> 16:48.440
+ but sticking on chest for just a little longer.
+
+16:48.440 --> 16:51.120
+ Where do you put Magnus Carlsen, the current world champion
+
+16:51.120 --> 16:52.880
+ in the list of all time greats?
+
+16:54.200 --> 16:57.880
+ In terms of style, moments of brilliance, consistency.
+
+16:57.880 --> 16:59.520
+ It's a tricky question.
+
+16:59.520 --> 17:02.600
+ The moment you start ranking world champions.
+
+17:02.600 --> 17:04.560
+ Yeah, you lose something?
+
+17:04.560 --> 17:09.560
+ I think it's not fair because any new generation
+
+17:12.040 --> 17:15.120
+ knows much more about the game than the previous one.
+
+17:15.120 --> 17:17.640
+ So when people say, oh, Gary was the greatest,
+
+17:17.640 --> 17:19.680
+ Fischer was the greatest, Magnus was the greatest,
+
+17:19.680 --> 17:24.360
+ it disregard the fact that the great players of the past,
+
+17:24.360 --> 17:26.800
+ whether it was Alaskia, Capoplank, Alokian,
+
+17:26.800 --> 17:28.800
+ I mean, they knew so little about chess
+
+17:28.800 --> 17:29.920
+ by today's standards.
+
+17:29.920 --> 17:32.640
+ I mean, today, just any kid that spent a few years
+
+17:32.640 --> 17:37.520
+ with his or her chess computer knows much more
+
+17:37.520 --> 17:40.080
+ about the game simply just because you have access
+
+17:40.080 --> 17:40.960
+ to this information.
+
+17:40.960 --> 17:43.480
+ And it has been discovered generation after generation.
+
+17:43.480 --> 17:46.880
+ We added more and more knowledge to the game of chess.
+
+17:46.880 --> 17:50.360
+ It's about the gap between the world champion
+
+17:50.360 --> 17:51.720
+ and the rest of the field.
+
+17:51.720 --> 17:55.240
+ So it's the, now, if you look at the gap,
+
+17:55.240 --> 17:58.280
+ then probably Fischer could be on top,
+
+17:58.280 --> 17:59.800
+ but very short period of time.
+
+17:59.800 --> 18:01.960
+ Then you should also add a time factor.
+
+18:01.960 --> 18:05.640
+ I was on top, not as big as Fischer, but much longer.
+
+18:05.640 --> 18:08.440
+ So, and also, unlike Fischer,
+
+18:08.440 --> 18:11.760
+ I succeeded in beating next generation.
+
+18:11.760 --> 18:13.240
+ Here's the question.
+
+18:13.240 --> 18:14.800
+ Let's see if you still got the fire,
+
+18:14.800 --> 18:15.960
+ speaking of the next generation,
+
+18:15.960 --> 18:19.000
+ because you did succeed beating the next generation.
+
+18:19.000 --> 18:19.840
+ It's close.
+
+18:19.840 --> 18:22.920
+ Okay, Anand, Short, Anand, the sheer of,
+
+18:22.920 --> 18:24.440
+ Kramnik is already 12 years younger.
+
+18:24.440 --> 18:25.560
+ So that's the next.
+
+18:25.560 --> 18:28.200
+ But still yet, I competed with them
+
+18:28.200 --> 18:30.000
+ and I just, I beat most of them.
+
+18:30.000 --> 18:34.200
+ And I was still dominant when I left at age of 41.
+
+18:34.200 --> 18:36.800
+ So back to Magnus.
+
+18:36.800 --> 18:40.240
+ Magnus, I mean, consistency is phenomenal.
+
+18:40.240 --> 18:42.920
+ The reason Magnus is on top,
+
+18:42.920 --> 18:46.640
+ and it seems unbeatable today,
+
+18:46.640 --> 18:50.680
+ Magnus is a lethal combination of Fischer and Karpov,
+
+18:50.680 --> 18:52.920
+ which is very, it's very unusual
+
+18:52.920 --> 18:54.840
+ because Fischer's style was very dynamic,
+
+18:54.840 --> 18:56.800
+ just fighting to the last point,
+
+18:56.800 --> 18:59.120
+ just using every resource available.
+
+18:59.120 --> 19:01.320
+ Karpov was very different.
+
+19:01.320 --> 19:04.680
+ It's just an unparalleled ability
+
+19:04.680 --> 19:07.600
+ to use every piece with a maximum effect.
+
+19:07.600 --> 19:12.040
+ Just its minimal resources always produce maximum effect.
+
+19:12.040 --> 19:15.160
+ So now imagine that you merge these two styles.
+
+19:15.160 --> 19:17.160
+ So it's like, you know,
+
+19:17.160 --> 19:20.080
+ it's squeezing every stone for a drop of water,
+
+19:21.280 --> 19:22.880
+ but doing it, you know, just, you know,
+
+19:22.880 --> 19:25.080
+ for 50, 60, 70, 80 moves.
+
+19:25.080 --> 19:27.280
+ I mean, Magnus could go on as long as Fischer
+
+19:27.280 --> 19:28.920
+ with all his passion and energy.
+
+19:28.920 --> 19:31.440
+ And at the same time being as meticulous
+
+19:31.440 --> 19:35.200
+ and deadly as Karpov by just, you know,
+
+19:35.200 --> 19:36.840
+ using every little advantage.
+
+19:36.840 --> 19:40.560
+ So, and he has good, you know, very good health.
+
+19:40.560 --> 19:41.400
+ It's important.
+
+19:41.400 --> 19:42.600
+ I mean, physical conditions are, by the way,
+
+19:42.600 --> 19:43.440
+ very important.
+
+19:43.440 --> 19:44.720
+ So a lot of people don't recognize it.
+
+19:44.720 --> 19:46.920
+ Their latest study shows that chess players
+
+19:46.920 --> 19:50.920
+ burn thousands of calories during the game.
+
+19:50.920 --> 19:54.480
+ So that puts him on the top of this field
+
+19:54.480 --> 19:56.000
+ of the world champions.
+
+19:56.000 --> 19:59.440
+ But again, it's the discussion that is,
+
+19:59.440 --> 20:00.720
+ I saw recently on the internet,
+
+20:00.720 --> 20:03.200
+ whether Garry Kasparov of his peak,
+
+20:03.200 --> 20:06.600
+ let's say late eighties, could beat Magnus Carlsen today.
+
+20:06.600 --> 20:07.600
+ I mean, it's certainly irrelevant
+
+20:07.600 --> 20:10.920
+ because Garry Kasparov in 1989, okay,
+
+20:10.920 --> 20:12.760
+ has played great chess,
+
+20:12.760 --> 20:15.200
+ but still I knew very little about chess
+
+20:15.200 --> 20:17.160
+ compared to Magnus Carlsen in 2019,
+
+20:17.160 --> 20:18.840
+ who by the way, learned from me as well.
+
+20:18.840 --> 20:20.480
+ So that's why, yeah.
+
+20:20.480 --> 20:24.040
+ I'm extremely cautious in making any judgment
+
+20:24.040 --> 20:26.560
+ that involves, you know, time gaps.
+
+20:26.560 --> 20:28.720
+ You ask, you know, soccer fans.
+
+20:28.720 --> 20:30.120
+ So who is your favorite?
+
+20:30.120 --> 20:31.960
+ Pele, Maradona, or Messi?
+
+20:31.960 --> 20:32.800
+ Yeah.
+
+20:32.800 --> 20:33.960
+ Yeah, who's your favorite?
+
+20:33.960 --> 20:34.800
+ Messi.
+
+20:34.800 --> 20:35.640
+ Messi.
+
+20:35.640 --> 20:36.720
+ Yeah, why?
+
+20:36.720 --> 20:37.560
+ Because?
+
+20:37.560 --> 20:38.520
+ Maybe Maradona, maybe.
+
+20:38.520 --> 20:40.040
+ Not because you're younger, but that's simple.
+
+20:40.040 --> 20:41.720
+ Your instinctive answer is correct
+
+20:41.720 --> 20:44.480
+ because you saw, you didn't see Maradona in action.
+
+20:44.480 --> 20:45.880
+ I saw all of them in action.
+
+20:45.880 --> 20:48.080
+ So that's why, but since, you know,
+
+20:48.080 --> 20:50.240
+ when I was, you know, just following it, you know,
+
+20:50.240 --> 20:52.800
+ just Pele and Maradona, they were just, you know,
+
+20:52.800 --> 20:55.280
+ they were big stars and it's, Messi's already just,
+
+20:55.280 --> 20:58.800
+ I was gradually losing interest in just other things.
+
+20:58.800 --> 21:02.240
+ So I remember Pele in 1970, the final match Brazil Italy.
+
+21:02.240 --> 21:05.720
+ So that's the first World Cup soccer I watched.
+
+21:05.720 --> 21:09.280
+ So that's the, and actually my answer when I just,
+
+21:09.280 --> 21:10.400
+ when I just, you know,
+
+21:10.400 --> 21:12.480
+ because I was asked this question as well.
+
+21:12.480 --> 21:13.840
+ So I say that it's just,
+
+21:13.840 --> 21:15.640
+ while it's impossible to make a choice,
+
+21:15.640 --> 21:18.440
+ I would still probably go with Maradona for simple reason.
+
+21:18.440 --> 21:21.960
+ The Brazilian team in 1970 could have won without Pele.
+
+21:21.960 --> 21:23.200
+ It was absolutely great.
+
+21:23.200 --> 21:26.280
+ Still could have won, maybe, but it is,
+
+21:26.280 --> 21:28.720
+ Argentinian team in 1986 without Maradona
+
+21:28.720 --> 21:29.760
+ would not be in the final.
+
+21:29.760 --> 21:33.880
+ So this is, and Messi, he still hasn't won a title.
+
+21:33.880 --> 21:35.600
+ You could argue for that for an hour,
+
+21:35.600 --> 21:38.680
+ but you could say, if you ask Maradona,
+
+21:38.680 --> 21:40.680
+ if you look in his eyes, especially,
+
+21:40.680 --> 21:43.520
+ let's say Gary Kasparov in 1989,
+
+21:43.520 --> 21:45.200
+ he would have said,
+
+21:45.200 --> 21:48.560
+ I was sure as hell would beat Magnus Carlsen.
+
+21:48.560 --> 21:50.480
+ Just simply because. The confidence, the fire.
+
+21:50.480 --> 21:54.080
+ Simply because, again, they saw me in action.
+
+21:54.080 --> 21:56.880
+ So this, again, it's the age factor that's important.
+
+21:56.880 --> 21:58.640
+ Definitely with the passion and energy
+
+21:58.640 --> 22:01.720
+ and being equipped with all modern ideas.
+
+22:01.720 --> 22:04.040
+ But again, then you make, you know,
+
+22:04.040 --> 22:05.880
+ a very just important assumption
+
+22:05.880 --> 22:08.720
+ that you could empower Gary Kasparov in 1989
+
+22:08.720 --> 22:11.560
+ with all ideas that have been accumulated over 30 years.
+
+22:11.560 --> 22:12.720
+ That would not be Gary Kasparov.
+
+22:12.720 --> 22:14.320
+ That would be someone else.
+
+22:14.320 --> 22:16.280
+ Because again, I belong to 1989.
+
+22:16.280 --> 22:18.960
+ I was way ahead of the field.
+
+22:18.960 --> 22:21.840
+ And I beat Karpov several times
+
+22:21.840 --> 22:23.240
+ in the World Championship matches.
+
+22:23.240 --> 22:26.440
+ And I crossed 2800, which, by the way,
+
+22:26.440 --> 22:28.480
+ if you look at the, in the rating,
+
+22:28.480 --> 22:31.480
+ which is just, even today,
+
+22:31.480 --> 22:33.680
+ so this is the rating that I retire.
+
+22:33.680 --> 22:37.120
+ So it's still, you know, it's just, it's a top two, three.
+
+22:37.120 --> 22:38.840
+ So that's Caruana and Ding.
+
+22:38.840 --> 22:40.600
+ It's about the same rating now.
+
+22:40.600 --> 22:43.440
+ And I crossed 2800 in 1990.
+
+22:43.440 --> 22:45.000
+ Well, just you look at the inflation.
+
+22:45.000 --> 22:47.440
+ When I crossed 2800 in 1990,
+
+22:47.440 --> 22:49.720
+ there was only one player in 2700 category,
+
+22:49.720 --> 22:50.720
+ and not only Karpov.
+
+22:50.720 --> 22:52.240
+ Now we had more than 50.
+
+22:52.240 --> 22:55.160
+ So just, when you see this, so if you add inflation,
+
+22:55.160 --> 22:58.160
+ so I think my 2851, it could probably,
+
+22:58.160 --> 23:02.160
+ could be more valuable as Magnus 2882,
+
+23:02.160 --> 23:04.240
+ which was his highest rating.
+
+23:04.240 --> 23:07.080
+ But anyway, again, too many hypotheticals.
+
+23:07.080 --> 23:10.960
+ You're lost to IBM Deep Blue in 1997.
+
+23:10.960 --> 23:13.440
+ In my eyes, that is one of the most seminal moments
+
+23:13.440 --> 23:15.040
+ in the history.
+
+23:15.040 --> 23:18.560
+ Again, I apologize for being romanticizing the notion,
+
+23:18.560 --> 23:20.520
+ but in the history of our civilization,
+
+23:20.520 --> 23:25.280
+ because humans, as the civilizations,
+
+23:25.280 --> 23:27.200
+ for centuries saw chess as, you know,
+
+23:27.200 --> 23:29.360
+ the peak of what man can accomplish
+
+23:29.360 --> 23:31.720
+ of intellectual mastery, right?
+
+23:31.720 --> 23:36.600
+ And that moment when a machine could beat a human being
+
+23:36.600 --> 23:40.240
+ was inspiring to just an entire,
+
+23:40.240 --> 23:43.360
+ anyone who cares about science, innovation,
+
+23:43.360 --> 23:46.280
+ an entire generation of AI researchers.
+
+23:46.280 --> 23:50.800
+ And yet, to you that loss, at least if reading your face,
+
+23:50.800 --> 23:53.640
+ was, seemed like a tragedy, extremely painful.
+
+23:53.640 --> 23:55.560
+ Like you said, physically painful.
+
+23:55.560 --> 23:56.560
+ Why?
+
+23:56.560 --> 23:59.720
+ When you look back at your psychology of that loss,
+
+23:59.720 --> 24:01.240
+ why was it so painful?
+
+24:01.240 --> 24:05.640
+ Were you not able to see the seminal nature of that moment?
+
+24:07.240 --> 24:10.240
+ Or was that exactly why it was that painful?
+
+24:10.240 --> 24:15.240
+ As I already said, losing was painful, physically painful.
+
+24:17.040 --> 24:18.960
+ And the match I lost in 1997
+
+24:18.960 --> 24:22.000
+ was not the first match I lost to a machine.
+
+24:22.000 --> 24:23.720
+ It was the first match I lost, period.
+
+24:23.720 --> 24:24.560
+ Yeah.
+
+24:24.560 --> 24:25.400
+ That's...
+
+24:27.120 --> 24:28.440
+ Oh, wow.
+
+24:28.440 --> 24:29.280
+ So...
+
+24:29.280 --> 24:30.400
+ Oh, wow.
+
+24:30.400 --> 24:31.800
+ Yeah, it's...
+
+24:31.800 --> 24:32.640
+ Right.
+
+24:32.640 --> 24:35.840
+ Yeah, that makes all the difference to me.
+
+24:35.840 --> 24:36.680
+ Yes.
+
+24:36.680 --> 24:38.360
+ First time I lost, it's just...
+
+24:38.360 --> 24:42.360
+ Now, I lost, and the reason I was so angry
+
+24:42.360 --> 24:46.120
+ that I just, you know, I had suspicions
+
+24:46.120 --> 24:49.160
+ that my loss was not just a result of my bad play.
+
+24:49.160 --> 24:50.000
+ Yes.
+
+24:50.000 --> 24:51.520
+ So though I played quite poorly, you know,
+
+24:51.520 --> 24:53.240
+ just when you started looking at the games today,
+
+24:53.240 --> 24:54.880
+ I made tons of mistakes.
+
+24:54.880 --> 24:57.760
+ But, you know, I had all reasons to believe that,
+
+24:57.760 --> 25:00.160
+ you know, there were other factors
+
+25:00.160 --> 25:01.720
+ that had nothing to do with the game of chess.
+
+25:01.720 --> 25:02.920
+ And that's why I was angry.
+
+25:02.920 --> 25:05.440
+ But look, it was 22 years ago.
+
+25:05.440 --> 25:07.200
+ It's water under the bridge.
+
+25:07.200 --> 25:08.920
+ We can analyze this match,
+
+25:08.920 --> 25:10.640
+ and this is with everything you said.
+
+25:10.640 --> 25:13.280
+ I agree with probably one exception,
+
+25:13.280 --> 25:16.360
+ is that considering chess, you know,
+
+25:16.360 --> 25:20.200
+ as the sort of, as a pinnacle of intellectual activities,
+
+25:20.200 --> 25:21.320
+ was our mistake.
+
+25:21.320 --> 25:22.960
+ Because, you know, we just thought,
+
+25:22.960 --> 25:25.680
+ oh, it's a game of the highest intellect,
+
+25:25.680 --> 25:27.480
+ and it's just, you know, you have to be so,
+
+25:27.480 --> 25:29.560
+ you know, intelligent, and you could see things
+
+25:29.560 --> 25:34.560
+ that, you know, the ordinary mortals could not see.
+
+25:34.560 --> 25:39.560
+ It's a game, and all machines had to do with this game
+
+25:40.080 --> 25:43.040
+ is just to make fewer mistakes, not to solve the game.
+
+25:43.040 --> 25:44.600
+ Because the game cannot be solved.
+
+25:44.600 --> 25:45.760
+ I mean, according to Kovalevich Shannon,
+
+25:45.760 --> 25:49.040
+ the number of legal moves is 10 to the 46th power.
+
+25:49.040 --> 25:51.680
+ Too many zeros, so just for any computer
+
+25:51.680 --> 25:56.680
+ to finish the job, you know, in next few billion years.
+
+25:57.560 --> 25:59.120
+ But it doesn't have to.
+
+25:59.120 --> 26:01.480
+ It's all about making fewer mistakes.
+
+26:01.480 --> 26:03.560
+ And I think that's the, this match,
+
+26:03.560 --> 26:06.000
+ this match actually, and what's happened afterwards
+
+26:06.000 --> 26:11.000
+ with other games, with Go, with Shoggy, with video games.
+
+26:12.640 --> 26:17.320
+ It's a demonstration that machines will always be humans
+
+26:17.320 --> 26:19.360
+ in what I call closed systems.
+
+26:19.360 --> 26:22.000
+ The moment you build a closed system,
+
+26:22.000 --> 26:26.040
+ no matter how the system's called, chess, Go, Shoggy,
+
+26:26.040 --> 26:31.040
+ Dota, machines will prevail simply because they will
+
+26:31.040 --> 26:34.800
+ bring down a number of mistakes.
+
+26:34.800 --> 26:38.320
+ Machines don't have to solve it, they just have to,
+
+26:38.320 --> 26:41.080
+ the way they outplay us, it's not by just being
+
+26:41.080 --> 26:45.040
+ more intelligent, it's just by doing something else,
+
+26:45.040 --> 26:48.720
+ but eventually it's just, it's capitalizing on our mistakes.
+
+26:48.720 --> 26:51.760
+ When you look at the chess machines ratings today,
+
+26:51.760 --> 26:54.280
+ and compare this to Magnus Carlsen,
+
+26:54.280 --> 26:57.160
+ it's the same as comparing Ferrari to Usain Bolt.
+
+26:57.160 --> 27:01.160
+ It's the, the gap is, I mean, by chess standards,
+
+27:01.160 --> 27:06.160
+ is insane, 34, 3500 to 2800, 2850 on Magnus.
+
+27:06.400 --> 27:09.880
+ It's like difference between Magnus and an ordinary player
+
+27:09.880 --> 27:11.800
+ from an open international tournament.
+
+27:13.560 --> 27:15.200
+ It's not because machine understanding
+
+27:15.200 --> 27:17.040
+ is better than Magnus Carlsen,
+
+27:17.040 --> 27:19.320
+ but simply because it's steady.
+
+27:19.320 --> 27:21.480
+ Machine has steady hand.
+
+27:21.480 --> 27:24.920
+ And I think that is what we, we, we,
+
+27:24.920 --> 27:28.920
+ we have to learn from 1997 experience,
+
+27:28.920 --> 27:31.680
+ and from further encounters with computers,
+
+27:31.680 --> 27:36.120
+ and sort of the current state of affairs with AlphaZero,
+
+27:36.120 --> 27:38.320
+ beating other machines.
+
+27:38.320 --> 27:41.880
+ The idea that we can compete with computers
+
+27:41.880 --> 27:43.680
+ in so called intellectual fields,
+
+27:44.800 --> 27:47.400
+ it was wrong from the very beginning.
+
+27:47.400 --> 27:50.240
+ It's just, it's, by the way, the 1997 match
+
+27:50.240 --> 27:54.680
+ was not the first victory of machines over AlphaZero.
+
+27:54.680 --> 27:56.680
+ Or grandmasters.
+
+27:56.680 --> 27:57.640
+ Or grandmasters.
+
+27:57.640 --> 28:00.720
+ No, actually it's, I played against
+
+28:00.720 --> 28:04.120
+ first decent chess computers from late, from late 80s.
+
+28:04.120 --> 28:07.200
+ So I played with the prototype of Deep Blue
+
+28:07.200 --> 28:09.280
+ called Deep Thought in 1989,
+
+28:09.280 --> 28:10.600
+ two rapid chess games in New York,
+
+28:10.600 --> 28:13.120
+ I won handily to both games.
+
+28:13.120 --> 28:17.240
+ We played against new chess engines like Fritz,
+
+28:17.240 --> 28:18.800
+ and other programs.
+
+28:18.800 --> 28:21.320
+ And then it's the, it was Israeli program Junior
+
+28:21.320 --> 28:23.240
+ that appeared in 1995.
+
+28:23.240 --> 28:25.440
+ Yeah, so there were, there were several programs.
+
+28:25.440 --> 28:28.240
+ I, you know, I lost few games in Blitz.
+
+28:28.240 --> 28:31.160
+ I lost one match against the computer chess engine
+
+28:31.160 --> 28:33.120
+ 1994 rapid chess.
+
+28:33.120 --> 28:36.120
+ So I lost one game to Deep Blue in 1996 match,
+
+28:36.120 --> 28:38.160
+ the man, the match I won.
+
+28:38.160 --> 28:40.000
+ Some people, you know, tend to forget about it
+
+28:40.000 --> 28:41.360
+ that I won the first match.
+
+28:41.360 --> 28:42.280
+ Yes.
+
+28:42.280 --> 28:44.520
+ But it's, it's, we,
+
+28:45.520 --> 28:48.280
+ we made a very important psychological mistake
+
+28:48.280 --> 28:51.120
+ thinking that the reason we lost Blitz matches,
+
+28:51.120 --> 28:52.440
+ five, five minutes games.
+
+28:52.440 --> 28:55.440
+ The reason we lost some of the rapid chess matches,
+
+28:55.440 --> 28:56.560
+ 25 minutes chess.
+
+28:56.560 --> 28:58.200
+ Because we didn't have enough time.
+
+28:58.200 --> 29:00.040
+ If you play a longer match,
+
+29:00.040 --> 29:02.080
+ we will not make the same mistakes.
+
+29:02.080 --> 29:02.960
+ Nonsense.
+
+29:02.960 --> 29:05.120
+ So this, yeah, we had more time,
+
+29:05.120 --> 29:06.160
+ but we still make mistakes.
+
+29:06.160 --> 29:07.600
+ And machine also has more time.
+
+29:07.600 --> 29:10.120
+ And machines, machine will always, you know,
+
+29:10.120 --> 29:13.080
+ will always be steady and consistent
+
+29:13.080 --> 29:18.080
+ compared to humans instabilities and inconsistencies.
+
+29:18.120 --> 29:20.800
+ And today we are at the point where yes,
+
+29:20.800 --> 29:23.320
+ nobody talks about, you know,
+
+29:23.320 --> 29:24.560
+ humans playing as machines.
+
+29:24.560 --> 29:27.600
+ Now machines can offer handicap to top players
+
+29:27.600 --> 29:31.280
+ and still, you know, will, will, will be favored.
+
+29:31.280 --> 29:33.320
+ I think we're just learning that it's, it's,
+
+29:33.320 --> 29:35.400
+ it's no longer human versus machines.
+
+29:35.400 --> 29:37.880
+ It's about human working with machines.
+
+29:37.880 --> 29:41.760
+ That's what I recognized in 1998,
+
+29:41.760 --> 29:44.000
+ just after leaking my wounds and spending one year
+
+29:44.000 --> 29:46.080
+ in just, you know, ruminating so the,
+
+29:46.080 --> 29:48.400
+ so what's happened in this match.
+
+29:48.400 --> 29:50.840
+ And I knew that though we still could play
+
+29:50.840 --> 29:51.680
+ against the machines.
+
+29:51.680 --> 29:53.960
+ I had two more matches in, in 2003,
+
+29:53.960 --> 29:56.640
+ playing both Deep Fritz and Deep Junior.
+
+29:56.640 --> 29:58.560
+ Both matches ended as a tie.
+
+29:59.640 --> 30:01.920
+ Though these machines were not weaker,
+
+30:01.920 --> 30:05.000
+ at least actually probably stronger than Deep Blue.
+
+30:05.000 --> 30:08.800
+ And by the way, today chess app on your mobile phone
+
+30:08.800 --> 30:10.520
+ is probably stronger than Deep Blue.
+
+30:10.520 --> 30:12.440
+ I'm not speaking about chess engines
+
+30:12.440 --> 30:13.920
+ that are so much superior.
+
+30:13.920 --> 30:16.360
+ And by the way, when you analyze games
+
+30:16.360 --> 30:19.240
+ we played against Deep Blue in 1997 on your chess engine,
+
+30:19.240 --> 30:20.600
+ they'll be laughing.
+
+30:20.600 --> 30:23.240
+ So this is, and it's also shows that's how chess changed
+
+30:23.240 --> 30:26.760
+ because chess commentators, they look at some of our games
+
+30:26.760 --> 30:29.360
+ like game four, game five, brilliant idea.
+
+30:29.360 --> 30:34.360
+ Now you ask Stockfish, you ask Houdini,
+
+30:35.200 --> 30:37.600
+ you ask Commodore, all the leading chess engines.
+
+30:37.600 --> 30:40.160
+ Within 30 seconds, they will show you how many mistakes
+
+30:40.160 --> 30:43.880
+ both Gary and Deep Blue made in the game
+
+30:43.880 --> 30:48.880
+ that was trumpeted as the, as a great chess match in 1997.
+
+30:50.920 --> 30:51.760
+ Well, okay.
+
+30:51.760 --> 30:54.000
+ So you've made an interesting,
+
+30:54.000 --> 30:56.400
+ if you can untangle that comment.
+
+30:56.400 --> 31:01.040
+ So now in retrospect, it was a mistake to see chess
+
+31:01.040 --> 31:03.520
+ as the peak of human intellect.
+
+31:03.520 --> 31:06.640
+ Nevertheless, that was done for centuries.
+
+31:06.640 --> 31:10.320
+ So by the way, in Europe, because you know,
+
+31:10.320 --> 31:13.240
+ you move to the far East, they will go,
+
+31:13.240 --> 31:14.600
+ they had show games.
+
+31:14.600 --> 31:15.440
+ But games, games.
+
+31:15.440 --> 31:20.040
+ Again, some of the games like, you know, board games.
+
+31:20.040 --> 31:20.880
+ Yes.
+
+31:20.880 --> 31:22.000
+ Yeah, I agree.
+
+31:22.000 --> 31:26.400
+ So if I push back a little bit, so now you say that,
+
+31:26.400 --> 31:29.200
+ okay, but it was a mistake to see chess as the epitome
+
+31:29.200 --> 31:32.280
+ and now, and then now there's other things maybe
+
+31:32.280 --> 31:34.880
+ like language, that conversation,
+
+31:34.880 --> 31:36.840
+ like some of the things that in your view
+
+31:36.840 --> 31:40.840
+ is still way out of reach of computers, but inside humans.
+
+31:40.840 --> 31:44.320
+ Do you think, can you talk about what those things might be?
+
+31:44.320 --> 31:47.680
+ And do you think just like chess, they might fall?
+
+31:48.880 --> 31:51.000
+ Soon with the same set of approaches,
+
+31:51.000 --> 31:52.920
+ if you look at AlphaZero,
+
+31:52.920 --> 31:55.240
+ the same kind of learning approaches
+
+31:55.240 --> 31:57.400
+ as the machines grow in size.
+
+31:57.400 --> 31:59.280
+ No, no, it's not about growing in size.
+
+31:59.280 --> 32:02.360
+ It's about, again, it's about understanding the difference
+
+32:02.360 --> 32:05.240
+ between closed system and open ended system.
+
+32:05.240 --> 32:06.880
+ So you think that key difference,
+
+32:06.880 --> 32:11.000
+ so the board games are closed in terms of the rule set,
+
+32:11.000 --> 32:15.920
+ the actions, the state space, everything is just constrained.
+
+32:15.920 --> 32:19.800
+ You think once you open it, the machines are lost?
+
+32:19.800 --> 32:22.920
+ Not lost, but again, the effectiveness is very different
+
+32:22.920 --> 32:25.600
+ because machine does not understand the moment
+
+32:25.600 --> 32:28.520
+ it's reaching territory of diminishing returns.
+
+32:28.520 --> 32:32.480
+ It's the, to put it in a different way,
+
+32:32.480 --> 32:35.880
+ machine doesn't know how to ask right questions.
+
+32:35.880 --> 32:38.200
+ It can ask questions, but it will never tell you
+
+32:38.200 --> 32:39.440
+ which questions are relevant.
+
+32:39.440 --> 32:41.200
+ So there's the, it's like about the, it's the,
+
+32:41.200 --> 32:42.360
+ it's a direction.
+
+32:42.360 --> 32:45.080
+ So these, it's, I think it's in human machine relations,
+
+32:45.080 --> 32:48.320
+ we have to consider, so our role and people,
+
+32:48.320 --> 32:50.280
+ many people feel uncomfortable that this,
+
+32:50.280 --> 32:54.320
+ the territory that belongs to us is shrinking.
+
+32:55.800 --> 32:57.640
+ I'm saying, so what, you know, this is,
+
+32:57.640 --> 33:00.720
+ eventually we'll belong to the last few decimal points,
+
+33:00.720 --> 33:05.480
+ but it's like having, so a very powerful gun,
+
+33:05.480 --> 33:09.840
+ that's, and all you can do there is slightly,
+
+33:09.840 --> 33:11.640
+ you know, alter direction of the bullet.
+
+33:11.640 --> 33:16.160
+ Maybe, you know, 0.1 degree of this angle,
+
+33:16.160 --> 33:21.080
+ but that means a mile away, 10 meters of target.
+
+33:21.080 --> 33:25.120
+ So that's, we have to recognize that is a certain
+
+33:25.120 --> 33:30.120
+ unique human qualities that machines in a foreseeable future
+
+33:30.200 --> 33:33.000
+ will not be able to reproduce.
+
+33:33.000 --> 33:35.880
+ And the effectiveness of this cooperation,
+
+33:35.880 --> 33:38.280
+ collaboration depends on our understanding
+
+33:38.280 --> 33:40.400
+ what exactly we can bring into the game.
+
+33:40.400 --> 33:43.840
+ So the greatest danger is when we try to interfere
+
+33:43.840 --> 33:45.600
+ with machine superior knowledge.
+
+33:45.600 --> 33:48.560
+ So that's why I always say that sometimes you'd rather have,
+
+33:48.560 --> 33:51.640
+ by reading these pictures in radiology,
+
+33:51.640 --> 33:55.440
+ you may probably prefer an experienced nurse
+
+33:55.440 --> 33:57.640
+ than rather than having top professor,
+
+33:57.640 --> 34:00.600
+ because she will not try to interfere
+
+34:00.600 --> 34:02.200
+ with machines understanding.
+
+34:02.200 --> 34:05.000
+ So it's very important to know that if machines knows
+
+34:05.000 --> 34:09.000
+ how to do better things in 95%, 96% of territory,
+
+34:09.000 --> 34:11.360
+ we should not touch it because it's happened.
+
+34:11.360 --> 34:15.400
+ It's like in chess, recognize they do it better.
+
+34:15.400 --> 34:17.160
+ See where we can make the difference.
+
+34:17.160 --> 34:20.320
+ You mentioned AlphaZero, I mean, AlphaZero is,
+
+34:20.320 --> 34:24.200
+ it's actually a first step into what you may call AI,
+
+34:24.200 --> 34:26.800
+ because everything that's being called AI today,
+
+34:26.800 --> 34:30.840
+ it's just, it's one or another variation
+
+34:30.840 --> 34:34.000
+ of what Claude Shannon characterized as a brute force.
+
+34:34.000 --> 34:36.680
+ It's a type A machine, whether it's Deep Blue,
+
+34:36.680 --> 34:41.480
+ whether it's Watson, and all these modern technologies
+
+34:41.480 --> 34:45.320
+ that are being trumpeted as AI, it's still brute force.
+
+34:45.320 --> 34:48.760
+ It's the, all they do, it's they do optimization.
+
+34:48.760 --> 34:52.560
+ It's this, they are, you know, they keep, you know,
+
+34:52.560 --> 34:56.920
+ improving the way to process human generated data.
+
+34:56.920 --> 35:01.920
+ Now, AlphaZero is the first step towards, you know,
+
+35:02.000 --> 35:04.840
+ machine produced knowledge.
+
+35:04.840 --> 35:06.880
+ Which is, by the way, it's quite ironic
+
+35:06.880 --> 35:10.400
+ that the first company that championed that was IBM.
+
+35:12.040 --> 35:13.560
+ Oh, it's in backgammon.
+
+35:13.560 --> 35:15.400
+ Interesting, in backgammon.
+
+35:15.400 --> 35:19.640
+ Yes, you should look at IBM, it's a newer gammon.
+
+35:19.640 --> 35:22.040
+ It's the scientist called Cesaro.
+
+35:22.040 --> 35:23.520
+ He's still working at IBM.
+
+35:23.520 --> 35:25.520
+ They had it in the early 90s.
+
+35:25.520 --> 35:29.360
+ It's the program that played, you know, the AlphaZero type,
+
+35:29.360 --> 35:31.720
+ so just trying to come up with own strategies.
+
+35:31.720 --> 35:34.360
+ But because of success of Deep Blue,
+
+35:34.360 --> 35:36.720
+ this project had been not abandoned,
+
+35:36.720 --> 35:40.000
+ but just, you know, it was put on hold.
+
+35:40.000 --> 35:42.520
+ And now we just, you know, it's, you know,
+
+35:42.520 --> 35:44.520
+ everybody talks about this,
+
+35:44.520 --> 35:48.480
+ the machines generated knowledge, so as revolutionary.
+
+35:48.480 --> 35:51.400
+ And it is, but there's still, you know,
+
+35:51.400 --> 35:54.120
+ many open ended questions.
+
+35:54.120 --> 35:58.160
+ Yes, AlphaZero generates its own data.
+
+35:58.160 --> 36:00.800
+ Many ideas that AlphaZero generated in chess
+
+36:00.800 --> 36:02.200
+ were quite intriguing.
+
+36:02.200 --> 36:04.640
+ So I looked at these games with,
+
+36:06.040 --> 36:08.160
+ not just with interest, but with, you know,
+
+36:08.160 --> 36:11.360
+ it was quite exciting to learn how machine
+
+36:11.360 --> 36:13.880
+ could actually, you know, juggle all the pieces
+
+36:13.880 --> 36:17.400
+ and just play positions with a broken material balance,
+
+36:17.400 --> 36:20.480
+ sacrificing material, always being ahead of other programs,
+
+36:20.480 --> 36:22.040
+ you know, one or two moves ahead
+
+36:22.040 --> 36:24.840
+ by foreseeing the consequences,
+
+36:24.840 --> 36:27.440
+ not overcalculating because machines,
+
+36:27.440 --> 36:30.280
+ other machines were at least as powerful in calculating,
+
+36:30.280 --> 36:33.200
+ but it's having this unique knowledge
+
+36:33.200 --> 36:37.240
+ based on discovered patterns after playing 60 million games.
+
+36:37.240 --> 36:39.680
+ Almost something that feels like intuition.
+
+36:39.680 --> 36:41.400
+ Exactly, but there's one problem.
+
+36:41.400 --> 36:42.240
+ Yeah.
+
+36:42.240 --> 36:44.800
+ Now, the simple question,
+
+36:44.800 --> 36:47.640
+ if AlphaZero faces superior point,
+
+36:47.640 --> 36:52.640
+ let's say another powerful computer accompanied by a human
+
+36:53.760 --> 36:56.240
+ who could help just to discover certain problems,
+
+36:56.240 --> 36:58.720
+ because I already, I look at many AlphaZero games.
+
+36:58.720 --> 37:00.280
+ I visited their lab, you know,
+
+37:00.280 --> 37:01.840
+ spoke to Demis Hassabis and his team,
+
+37:01.840 --> 37:04.200
+ and I know there's certain weaknesses there.
+
+37:04.200 --> 37:05.680
+ Now, if these weaknesses are exposed,
+
+37:05.680 --> 37:07.680
+ the question is how many games will it take
+
+37:07.680 --> 37:09.560
+ for AlphaZero to correct it?
+
+37:09.560 --> 37:11.560
+ The answer is hundreds of thousands.
+
+37:11.560 --> 37:13.320
+ Even if it keeps losing, it can,
+
+37:13.320 --> 37:16.400
+ it's just because the whole system is based.
+
+37:16.400 --> 37:19.160
+ So it's now, imagine so this is,
+
+37:19.160 --> 37:21.680
+ you can have a human by just making a few tweaks.
+
+37:21.680 --> 37:24.520
+ So humans are still more flexible.
+
+37:24.520 --> 37:28.360
+ And as long as we recognize what is our role,
+
+37:28.360 --> 37:30.720
+ where we can play sort of,
+
+37:30.720 --> 37:34.280
+ so the most valuable part in this collaboration.
+
+37:34.280 --> 37:36.960
+ So it's, it will help us to understand
+
+37:36.960 --> 37:40.440
+ what are the next steps in human machine collaboration.
+
+37:40.440 --> 37:41.280
+ Beautifully put.
+
+37:41.280 --> 37:43.240
+ So let's talk about the thing that machines
+
+37:43.240 --> 37:46.120
+ certainly don't know how to do yet, which is morality.
+
+37:46.120 --> 37:47.480
+ Machines and morality.
+
+37:47.480 --> 37:48.760
+ It's another question that, you know,
+
+37:48.760 --> 37:51.560
+ just it's being asked all the time these days.
+
+37:51.560 --> 37:54.280
+ And I think it's another phantom
+
+37:54.280 --> 37:57.320
+ that is haunting a general public
+
+37:57.320 --> 37:59.280
+ because it's just being fed with this,
+
+37:59.280 --> 38:03.600
+ you know, illusions is that how can we avoid machines,
+
+38:03.600 --> 38:07.640
+ you know, having bias, being prejudiced?
+
+38:07.640 --> 38:10.480
+ You cannot, because it's like looking in the mirror
+
+38:10.480 --> 38:12.080
+ and complaining about what you see.
+
+38:12.080 --> 38:14.760
+ If you have certain bias in the society,
+
+38:14.760 --> 38:17.440
+ machine will just follow it.
+
+38:17.440 --> 38:19.760
+ It's just, it's, you know, you look at the mirror,
+
+38:19.760 --> 38:20.960
+ you don't like what you see there.
+
+38:20.960 --> 38:23.680
+ You can, you know, you can break it.
+
+38:23.680 --> 38:25.480
+ You can try to distort it.
+
+38:25.480 --> 38:27.960
+ Or you can try to actually change something.
+
+38:27.960 --> 38:29.400
+ Just by yourself.
+
+38:29.400 --> 38:30.360
+ By yourself, yes.
+
+38:30.360 --> 38:31.880
+ So it's very important to understand
+
+38:31.880 --> 38:33.640
+ is that you cannot expect machines
+
+38:33.640 --> 38:37.280
+ to improve the ills of our society.
+
+38:37.280 --> 38:39.680
+ And moreover machines will simply, you know,
+
+38:39.680 --> 38:41.240
+ just, you know, amplify it.
+
+38:41.240 --> 38:42.120
+ Yes. Yeah.
+
+38:42.120 --> 38:45.600
+ But the thing is people are more comfortable
+
+38:45.600 --> 38:50.600
+ with other people doing injustice, with being biased.
+
+38:50.600 --> 38:52.440
+ We're not comfortable with machines
+
+38:52.440 --> 38:54.280
+ having the same kind of bias.
+
+38:54.280 --> 38:58.040
+ So that's an interesting standard
+
+38:58.040 --> 38:59.320
+ that we place on machines.
+
+38:59.320 --> 39:01.960
+ With autonomous vehicles, they have to be much safer.
+
+39:01.960 --> 39:04.080
+ With automated systems.
+
+39:04.080 --> 39:05.200
+ Of course they're much safer.
+
+39:05.200 --> 39:07.120
+ Statistically, they're much safer than.
+
+39:07.120 --> 39:08.560
+ It's not of course.
+
+39:08.560 --> 39:10.720
+ Why would, it's not of course.
+
+39:10.720 --> 39:12.680
+ It's not given.
+
+39:13.720 --> 39:16.400
+ Autonomous vehicles, you have to work really hard
+
+39:16.400 --> 39:19.080
+ to make them safer.
+
+39:21.160 --> 39:22.760
+ I think it just, it goes without saying
+
+39:22.760 --> 39:25.600
+ is the outcome of this,
+
+39:25.600 --> 39:29.040
+ I would call it competition with comparison is very clear.
+
+39:29.040 --> 39:32.320
+ But the problem is not about being, you know, safer.
+
+39:32.320 --> 39:36.200
+ It's the 40,000 people or so every year died
+
+39:36.200 --> 39:38.280
+ in car accidents in the United States.
+
+39:38.280 --> 39:40.120
+ And it's statistics.
+
+39:40.120 --> 39:42.680
+ One accident with autonomous vehicle
+
+39:42.680 --> 39:43.920
+ and it's front page of a newspaper.
+
+39:43.920 --> 39:44.760
+ Yes.
+
+39:44.760 --> 39:47.240
+ So it's, again, it's about psychology.
+
+39:47.240 --> 39:49.400
+ So it's while people, you know,
+
+39:49.400 --> 39:50.600
+ kill each other in car accidents
+
+39:50.600 --> 39:52.680
+ because they make mistakes, they make more mistakes.
+
+39:52.680 --> 39:54.400
+ For me, it's not a question.
+
+39:54.400 --> 39:57.040
+ Of course we make more mistakes because we're human.
+
+39:57.040 --> 39:58.520
+ Yes, machines are old.
+
+39:58.520 --> 40:01.360
+ And by the way, no machine will ever reach 100% perfection.
+
+40:01.360 --> 40:04.000
+ That's another important fake story
+
+40:04.000 --> 40:05.840
+ that is being fed to the public.
+
+40:05.840 --> 40:09.040
+ If machine doesn't reach 100% performance, it's not safe.
+
+40:09.040 --> 40:11.640
+ No, all you can ask any computer,
+
+40:11.640 --> 40:13.560
+ whether it's, you know, playing chess
+
+40:13.560 --> 40:16.280
+ or doing the stock market calculations
+
+40:16.280 --> 40:18.640
+ or driving your autonomous vehicle,
+
+40:18.640 --> 40:21.200
+ it's to make fewer mistakes.
+
+40:21.200 --> 40:23.160
+ And yes, I know it's not, you know,
+
+40:23.160 --> 40:25.600
+ it's not easy for us to accept because ah,
+
+40:25.600 --> 40:28.200
+ if, you know, if you have two humans, you know,
+
+40:28.200 --> 40:31.280
+ colliding in their cars, okay, it's like,
+
+40:31.280 --> 40:34.120
+ if one of these cars is autonomous vehicle,
+
+40:34.120 --> 40:37.320
+ and by the way, even if it's humans fault, terrible.
+
+40:37.320 --> 40:40.560
+ How could you allow a machine to run
+
+40:40.560 --> 40:42.600
+ without a driver at the wheel?
+
+40:42.600 --> 40:45.160
+ So, you know, let's linger that for a second,
+
+40:45.160 --> 40:48.040
+ that double standard, the way you felt
+
+40:48.040 --> 40:51.560
+ with your first loss against Deep Blue,
+
+40:51.560 --> 40:54.400
+ were you treating the machine differently
+
+40:54.400 --> 40:56.560
+ than you would have a human?
+
+40:56.560 --> 40:58.640
+ Or, so what do you think about that difference
+
+40:58.640 --> 41:02.120
+ between the way we see machines and humans?
+
+41:02.120 --> 41:04.240
+ No, it's the, at that time, you know, for me it was a match.
+
+41:04.240 --> 41:06.480
+ And that's why I was angry because I believed that
+
+41:06.480 --> 41:08.840
+ the match was not, you know, fairly organized.
+
+41:08.840 --> 41:12.960
+ So it's, definitely there were unfair advantages for IBM
+
+41:12.960 --> 41:16.840
+ and I wanted to play another match, like a rubber match.
+
+41:16.840 --> 41:20.600
+ So your anger or displeasure was aimed more like
+
+41:20.600 --> 41:24.520
+ at the humans behind IBM versus the actual pure algorithm.
+
+41:24.520 --> 41:26.760
+ Absolutely, look, I knew at the time,
+
+41:26.760 --> 41:29.040
+ and by the way, I was, objectively speaking,
+
+41:29.040 --> 41:30.280
+ I was stronger at that time.
+
+41:30.280 --> 41:32.480
+ So that probably added to my anger
+
+41:32.480 --> 41:34.000
+ because I knew I could beat the machine.
+
+41:34.000 --> 41:35.560
+ Yeah. Yeah, so that's, and that's the,
+
+41:35.560 --> 41:38.040
+ and as I lost, and I knew I was not well prepared.
+
+41:38.040 --> 41:39.920
+ So because they, I have to give them credit.
+
+41:39.920 --> 41:43.560
+ They did some good work from 1996 and I,
+
+41:43.560 --> 41:45.240
+ but I still could beat the machine.
+
+41:45.240 --> 41:47.000
+ So I made too many mistakes.
+
+41:47.000 --> 41:48.440
+ Also, this is the whole, it's this,
+
+41:48.440 --> 41:49.800
+ the publicity around the match.
+
+41:49.800 --> 41:53.160
+ So I underestimated the effect, you know, just it's,
+
+41:53.160 --> 41:56.680
+ and being called the, you know, the brain's last stand,
+
+41:56.680 --> 41:59.280
+ you know, okay, no pressure.
+
+42:02.160 --> 42:04.000
+ Okay, well, let me ask.
+
+42:04.000 --> 42:06.840
+ So I was born also in the Soviet Union.
+
+42:06.840 --> 42:09.240
+ What lessons do you draw from the rise and fall
+
+42:09.240 --> 42:11.440
+ of the Soviet Union in the 20th century?
+
+42:11.440 --> 42:15.240
+ When you just look at this nation
+
+42:15.240 --> 42:19.440
+ that is now pushing forward into what Russia is,
+
+42:19.440 --> 42:22.920
+ if you look at the long arc of history of the 20th century,
+
+42:22.920 --> 42:25.440
+ what do we take away?
+
+42:27.000 --> 42:28.800
+ What do we take away from that?
+
+42:28.800 --> 42:35.320
+ I think the lesson of history is clear.
+
+42:35.320 --> 42:38.560
+ Undemocratic systems, totalitarian regimes,
+
+42:38.560 --> 42:42.800
+ systems that are based on controlling their citizens
+
+42:42.800 --> 42:46.000
+ and just every aspect of their life,
+
+42:46.000 --> 42:52.640
+ not offering opportunities to, for private initiative,
+
+42:52.640 --> 42:55.080
+ central planning systems, they're doomed.
+
+42:55.080 --> 42:59.480
+ They just, you know, they cannot be driving force
+
+42:59.480 --> 43:02.560
+ for innovation, so they, in the history timeline,
+
+43:02.560 --> 43:06.200
+ I mean, they could cause certain, you know,
+
+43:06.200 --> 43:11.360
+ distortion of the concept of progress.
+
+43:11.360 --> 43:13.200
+ They, by the way, they may call themselves progressive,
+
+43:13.200 --> 43:17.240
+ but we know that the damage that they caused to humanity
+
+43:17.240 --> 43:19.760
+ is just, it's yet to be measured.
+
+43:19.760 --> 43:22.200
+ But at the end of the day, they fail.
+
+43:22.200 --> 43:26.640
+ They fail, and the end of the Cold War was a great triumph
+
+43:26.640 --> 43:28.320
+ of the free world.
+
+43:28.320 --> 43:30.080
+ It's not that the free world is perfect.
+
+43:30.080 --> 43:32.840
+ It's very important to recognize the fact that,
+
+43:32.840 --> 43:34.280
+ I always like to mention, you know,
+
+43:34.280 --> 43:36.560
+ one of my favorite books, The Lord of the Rings,
+
+43:36.560 --> 43:42.080
+ that there's no absolute good, but there is an absolute evil.
+
+43:42.080 --> 43:43.960
+ Good, you know, comes in many forms,
+
+43:43.960 --> 43:47.200
+ but we all, you know, it's being humans
+
+43:47.200 --> 43:49.640
+ or being even, you know, humans from fairy tales
+
+43:49.640 --> 43:52.160
+ or just some sort of mythical creatures.
+
+43:52.160 --> 43:57.160
+ It's the, you can always find spots on the songs.
+
+43:57.480 --> 44:01.280
+ So this is conducting war and just,
+
+44:01.280 --> 44:03.280
+ and fighting for justice.
+
+44:03.280 --> 44:04.800
+ There are always things that, you know,
+
+44:04.800 --> 44:06.440
+ can be easily criticized.
+
+44:06.440 --> 44:08.120
+ And human history is the,
+
+44:08.120 --> 44:11.000
+ is a never ending quest for perfection.
+
+44:11.000 --> 44:13.200
+ But we know that there is absolute evil.
+
+44:13.200 --> 44:16.120
+ We know it's, for me, it's no clear, it's, I mean,
+
+44:16.120 --> 44:18.680
+ nobody argues about Hitler being absolute evil,
+
+44:18.680 --> 44:19.840
+ but I think it's very important to recognize
+
+44:19.840 --> 44:21.240
+ Stalin was absolute evil.
+
+44:21.240 --> 44:23.280
+ Communism caused more damage
+
+44:23.280 --> 44:26.360
+ than any other ideology in the 20th century.
+
+44:26.360 --> 44:28.400
+ And unfortunately, while we all know
+
+44:28.400 --> 44:30.400
+ that fascism was condemned,
+
+44:30.400 --> 44:32.160
+ but there was no Nuremberg for communism.
+
+44:32.160 --> 44:33.600
+ And that's why we could see, you know,
+
+44:33.600 --> 44:36.840
+ still the successors of Stalin
+
+44:36.840 --> 44:39.080
+ are feeling far more comfortable.
+
+44:39.080 --> 44:40.880
+ And Putin is one of them.
+
+44:40.880 --> 44:43.280
+ You highlight a few interesting connections actually
+
+44:43.280 --> 44:45.040
+ between Stalin and Hitler.
+
+44:45.040 --> 44:49.520
+ I mean, in terms of the adjusting
+
+44:49.520 --> 44:53.240
+ or clarifying the history of World War II,
+
+44:53.240 --> 44:54.080
+ which is very interesting.
+
+44:54.080 --> 44:55.320
+ Of course, we don't have time.
+
+44:55.320 --> 44:56.160
+ So let me ask.
+
+44:56.160 --> 44:57.000
+ You can ask, you know,
+
+44:57.000 --> 44:59.960
+ I just recently delivered a speech in Toronto
+
+44:59.960 --> 45:02.400
+ at 80th anniversary of Molotov Ribbentrop Pact.
+
+45:02.400 --> 45:03.880
+ It's something that I believe, you know,
+
+45:03.880 --> 45:07.040
+ just, you know, has, must be taught in the schools
+
+45:07.040 --> 45:11.560
+ that the World War II had been started by two dictators
+
+45:11.560 --> 45:15.440
+ by signing these criminal treaty,
+
+45:15.440 --> 45:19.160
+ collusion of two tyrants in August 1939
+
+45:19.160 --> 45:21.280
+ that led to the beginning of the World War II.
+
+45:21.280 --> 45:24.200
+ And the fact is that eventually Stalin had no choice
+
+45:24.200 --> 45:27.600
+ but to join allies because Hitler attacked him.
+
+45:27.600 --> 45:29.960
+ So it just doesn't, you know,
+
+45:29.960 --> 45:33.320
+ eliminate the fact that Stalin helped Hitler
+
+45:33.320 --> 45:34.360
+ to start World War II.
+
+45:34.360 --> 45:37.840
+ And he was one of the beneficiaries at early stage
+
+45:37.840 --> 45:40.480
+ by annexing a part of Eastern Europe.
+
+45:40.480 --> 45:42.080
+ And as a result of the World War II,
+
+45:42.080 --> 45:44.560
+ he annexed almost entire Eastern Europe.
+
+45:44.560 --> 45:46.440
+ And for many Eastern European nations,
+
+45:46.440 --> 45:47.760
+ the end of the World War II
+
+45:47.760 --> 45:50.520
+ was the beginning of communist occupation.
+
+45:50.520 --> 45:55.520
+ So Putin, you've talked about as a man who stands
+
+45:56.560 --> 46:00.440
+ between Russia and democracy, essentially today.
+
+46:00.440 --> 46:04.280
+ You've been a strong opponent and critic of Putin.
+
+46:04.280 --> 46:07.840
+ Let me ask again, how much does fear
+
+46:07.840 --> 46:09.320
+ enter your mind and heart?
+
+46:09.320 --> 46:12.720
+ So in 2007, there's this interesting comment
+
+46:12.720 --> 46:17.720
+ from Oleg Kalugin, KGB general.
+
+46:17.960 --> 46:19.840
+ He said that I do not talk details.
+
+46:19.840 --> 46:21.880
+ People who knew them are all dead now
+
+46:21.880 --> 46:23.800
+ because they were vocal.
+
+46:23.800 --> 46:25.000
+ I'm quiet.
+
+46:25.000 --> 46:28.480
+ There's only one man who's vocal and he may be in trouble.
+
+46:28.480 --> 46:30.680
+ World Chess champion Kasparov.
+
+46:30.680 --> 46:33.640
+ He has been very outspoken in his attacks on Putin.
+
+46:33.640 --> 46:36.320
+ And I believe he's probably next on the list.
+
+46:36.320 --> 46:38.840
+ So clearly your life has been
+
+46:38.840 --> 46:40.920
+ and perhaps continues to be in danger.
+
+46:40.920 --> 46:45.520
+ How do you think about having the views you have,
+
+46:45.520 --> 46:48.280
+ the ideas you have, being in opposition as you are
+
+46:49.960 --> 46:53.880
+ in this kind of context when your life could be in danger?
+
+46:55.720 --> 46:58.080
+ That's the reason I live in New York.
+
+46:58.080 --> 47:00.200
+ So it was not my first choice,
+
+47:00.200 --> 47:01.960
+ but I knew I had to leave Russia at one point.
+
+47:01.960 --> 47:05.480
+ And among other places, New York is the safest.
+
+47:05.480 --> 47:07.040
+ Is it safe?
+
+47:07.040 --> 47:07.880
+ No.
+
+47:07.880 --> 47:11.280
+ It's the, I know what happened,
+
+47:11.280 --> 47:14.720
+ what is happening with many of Putin's enemies.
+
+47:14.720 --> 47:18.720
+ But at the end of the day, I mean, what can I do?
+
+47:18.720 --> 47:21.600
+ I could be very proactive
+
+47:21.600 --> 47:24.560
+ by trying to change things I can influence.
+
+47:24.560 --> 47:26.360
+ But here are a few facts.
+
+47:26.360 --> 47:30.560
+ I cannot stop doing what I've been doing for a long time.
+
+47:30.560 --> 47:32.480
+ It's the right thing to do.
+
+47:32.480 --> 47:36.280
+ I grew up with my family teaching me
+
+47:36.280 --> 47:38.080
+ sort of the wisdom of Soviet dissidents,
+
+47:38.080 --> 47:39.560
+ do what you must and so be.
+
+47:41.680 --> 47:44.920
+ I could try to be cautious by not traveling
+
+47:44.920 --> 47:49.600
+ to certain places where my security could be at risk.
+
+47:49.600 --> 47:51.200
+ There are so many invitations to speak
+
+47:51.200 --> 47:52.640
+ at different locations in the world.
+
+47:52.640 --> 47:57.440
+ And I have to say that many countries are just now
+
+47:57.440 --> 48:00.440
+ are not destinations that I can afford to travel.
+
+48:01.320 --> 48:02.680
+ My mother still lives in Moscow.
+
+48:02.680 --> 48:04.320
+ I meet her a few times a year.
+
+48:04.320 --> 48:07.320
+ She was devastated when I had to leave Russia
+
+48:07.320 --> 48:10.560
+ because since my father died in 1971,
+
+48:10.560 --> 48:14.080
+ so she was 33 and she dedicated her entire life
+
+48:14.080 --> 48:15.640
+ to her only son.
+
+48:15.640 --> 48:19.480
+ But she recognized in just a year or so
+
+48:19.480 --> 48:22.120
+ since I left Russia that it was the only chance
+
+48:22.120 --> 48:25.880
+ for me to continue my normal life.
+
+48:25.880 --> 48:29.560
+ So just to, I mean, to be relatively safe
+
+48:29.560 --> 48:34.560
+ and to do what she taught me to do to make the difference.
+
+48:35.880 --> 48:37.880
+ Do you think you will ever return to Russia
+
+48:37.880 --> 48:39.360
+ or let me ask a different way?
+
+48:39.360 --> 48:40.200
+ When?
+
+48:40.200 --> 48:41.640
+ Even sooner than many people think
+
+48:41.640 --> 48:43.080
+ because I think Putin's regime
+
+48:43.080 --> 48:46.640
+ is facing unsurmountable difficulties.
+
+48:46.640 --> 48:49.400
+ And again, I read enough historical books
+
+48:49.400 --> 48:54.400
+ to know that dictatorships, they end suddenly.
+
+48:54.400 --> 48:59.400
+ It's just on Sunday, dictator feels comfortable.
+
+49:01.120 --> 49:05.960
+ He believes he's popular on Monday morning, he's bust.
+
+49:05.960 --> 49:07.120
+ The good news and bad news.
+
+49:07.120 --> 49:09.720
+ I mean, the bad news is that I don't know
+
+49:09.720 --> 49:13.040
+ when and how Putin rule ends.
+
+49:13.040 --> 49:14.840
+ The good news, he also doesn't know.
+
+49:14.840 --> 49:19.280
+ Okay, well put.
+
+49:19.280 --> 49:24.280
+ Let me ask a question that seems to preoccupy
+
+49:24.880 --> 49:28.920
+ the American mind from the perspective of Russia.
+
+49:28.920 --> 49:33.920
+ One, did Russia interfere in the 2016 U.S. election,
+
+49:33.960 --> 49:37.920
+ government sanction and future?
+
+49:37.920 --> 49:41.840
+ Two, will Russia interfere in the 2020 U.S. election?
+
+49:42.880 --> 49:45.840
+ And what does that interference look like?
+
+49:45.840 --> 49:46.680
+ It's very old.
+
+49:46.680 --> 49:48.480
+ We had such an intelligent conversation.
+
+49:48.480 --> 49:51.880
+ And you are ruining everything
+
+49:51.880 --> 49:53.720
+ by asking such a stupid question.
+
+49:53.720 --> 49:58.720
+ It's insulting for my intellect.
+
+50:01.120 --> 50:03.480
+ Of course they did interfere.
+
+50:03.480 --> 50:05.720
+ Of course they did absolutely everything to elect Trump.
+
+50:05.720 --> 50:07.400
+ I mean, they said it many times.
+
+50:07.400 --> 50:11.320
+ It is just, you know, I met enough KGB colonels in my life
+
+50:11.320 --> 50:12.680
+ to tell you that, you know,
+
+50:12.680 --> 50:16.160
+ just the way Putin looks at Trump, this is the way.
+
+50:16.160 --> 50:18.600
+ Look, and I don't have to hear what he says,
+
+50:18.600 --> 50:20.360
+ what Trump says, it just is,
+
+50:20.360 --> 50:23.040
+ I don't need to go through congressional investigations.
+
+50:23.040 --> 50:24.800
+ The way Putin looks at Trump
+
+50:24.800 --> 50:28.440
+ is the way the KGB officers looked at the assets.
+
+50:28.440 --> 50:31.480
+ It's just, and following to 2020,
+
+50:31.480 --> 50:33.160
+ of course they will do absolutely everything
+
+50:33.160 --> 50:35.160
+ to help Trump to survive.
+
+50:35.160 --> 50:37.880
+ Because I think the damage that Trump's reelections
+
+50:37.880 --> 50:40.320
+ could cause to America and to the free world,
+
+50:40.320 --> 50:42.760
+ it's just, it's beyond one's imagination.
+
+50:42.760 --> 50:44.520
+ I think basically if Trump is reelected,
+
+50:44.520 --> 50:47.040
+ he will ruin NATO, because he's already heading
+
+50:47.040 --> 50:49.400
+ in this direction, but now he's just,
+
+50:49.400 --> 50:52.960
+ he's still limited by the reelection hurdles.
+
+50:56.920 --> 51:01.480
+ If he's still in the office after November, 2020,
+
+51:01.480 --> 51:05.960
+ okay, January, 2021, I don't want to think about it.
+
+51:05.960 --> 51:07.320
+ My problem is not just Trump,
+
+51:07.320 --> 51:09.520
+ because Trump is basically, it's a symptom.
+
+51:09.520 --> 51:11.960
+ But the problem is that I don't see,
+
+51:11.960 --> 51:16.240
+ it's just, it's the, in American political horizon,
+
+51:18.000 --> 51:19.920
+ politicians who could take on Trump
+
+51:22.040 --> 51:25.960
+ for all damage that he's doing for the free world.
+
+51:25.960 --> 51:27.400
+ Not just things that has happened
+
+51:27.400 --> 51:28.800
+ that went wrong in America.
+
+51:28.800 --> 51:30.920
+ So there's the, it seems to me that the campaign,
+
+51:30.920 --> 51:32.680
+ political campaign on the Democratic side
+
+51:32.680 --> 51:37.680
+ is fixed on certain important, but still secondary issues.
+
+51:37.800 --> 51:40.560
+ Because when you have the foundation of the republic
+
+51:40.560 --> 51:44.080
+ in jeopardy, I mean, you cannot talk about healthcare.
+
+51:44.080 --> 51:45.920
+ I mean, I understand how important it is,
+
+51:45.920 --> 51:48.680
+ but it's still secondary because the entire framework
+
+51:48.680 --> 51:50.680
+ of American political life is at risk.
+
+51:50.680 --> 51:53.320
+ And you have Vladimir Putin just,
+
+51:53.320 --> 51:56.160
+ it's having, fortunately, free hands
+
+51:56.160 --> 52:00.600
+ by attacking America and other free countries.
+
+52:00.600 --> 52:02.440
+ And by the way, we have so much evidence
+
+52:02.440 --> 52:04.400
+ about Russian interference in Brexit,
+
+52:04.400 --> 52:07.280
+ in elections in almost every European country.
+
+52:07.280 --> 52:11.080
+ And thinking that they will be shy of attacking America
+
+52:11.080 --> 52:15.520
+ in 2020, now with Trump in the office, yeah.
+
+52:15.520 --> 52:19.120
+ I think it's, yeah, it definitely diminishes
+
+52:19.120 --> 52:21.360
+ the intellectual quality of our conversation.
+
+52:21.360 --> 52:24.800
+ I do what I can.
+
+52:24.800 --> 52:26.000
+ Last question.
+
+52:26.000 --> 52:28.920
+ If you can go back, just look at the entirety of your life,
+
+52:28.920 --> 52:33.400
+ you accomplished more than most humans will ever do.
+
+52:33.400 --> 52:35.640
+ If you could go back and relive a single moment
+
+52:35.640 --> 52:38.680
+ in your life, what would that moment be?
+
+52:43.400 --> 52:46.280
+ There are moments in my life when I think
+
+52:46.280 --> 52:50.680
+ about what could be done differently, but.
+
+52:52.160 --> 52:56.680
+ No, experience happiness and joy and pride.
+
+52:56.680 --> 52:58.520
+ Just a touch once again.
+
+52:58.520 --> 53:00.280
+ I know, I know, but it's the, it's the,
+
+53:00.280 --> 53:01.760
+ I made many mistakes in my life.
+
+53:01.760 --> 53:05.480
+ So I just, it's the, I know that at the end of the day,
+
+53:05.480 --> 53:07.520
+ it's, I believe in the butterfly effect.
+
+53:07.520 --> 53:11.560
+ So it's the, it's the, I knew moments where I could,
+
+53:11.560 --> 53:16.560
+ now if I'm there at that point in 89 and 93,
+
+53:16.760 --> 53:20.840
+ you pick up a year, I could improve my actions
+
+53:20.840 --> 53:22.400
+ by not doing this stupid thing.
+
+53:25.000 --> 53:26.040
+ But then how do you know
+
+53:26.040 --> 53:27.880
+ that I will have all other accomplishments?
+
+53:27.880 --> 53:31.640
+ I just, I'm, I'm afraid that, you know,
+
+53:31.640 --> 53:34.840
+ we just have to just follow this,
+
+53:34.840 --> 53:36.720
+ if you may call wisdom before is gump, you know,
+
+53:36.720 --> 53:38.800
+ it's the life is this, you know, it's, this is,
+
+53:38.800 --> 53:41.520
+ it's a box of, of, of, of chocolate
+
+53:41.520 --> 53:42.760
+ and you don't know what's inside,
+
+53:42.760 --> 53:44.600
+ but you have to go one by one.
+
+53:44.600 --> 53:47.800
+ So it's the, I'm, I'm happy with who I am
+
+53:47.800 --> 53:49.000
+ and where I am today.
+
+53:49.000 --> 53:52.920
+ And I am very proud, not only with my chess accomplishments,
+
+53:52.920 --> 53:54.880
+ but that I made this transition.
+
+53:54.880 --> 53:56.520
+ And since I left chess, you know,
+
+53:56.520 --> 54:00.200
+ I built my own reputation that had some influence
+
+54:00.200 --> 54:03.240
+ on the game of chess, but not, it's not, you know,
+
+54:03.240 --> 54:06.640
+ directly derived from, from, from the game.
+
+54:06.640 --> 54:08.160
+ I'm grateful for my wife.
+
+54:08.160 --> 54:10.200
+ So help me to build this life.
+
+54:10.200 --> 54:11.600
+ We actually married in 2005.
+
+54:11.600 --> 54:12.600
+ It was my third marriage.
+
+54:12.600 --> 54:14.200
+ That's why I said I'd made mistakes in my life.
+
+54:14.200 --> 54:17.200
+ But, and by the way, I'm close with two kids
+
+54:17.200 --> 54:18.480
+ from my previous marriages.
+
+54:18.480 --> 54:20.240
+ So that's, that's the, I'm, you know,
+
+54:20.240 --> 54:23.800
+ I managed to sort of to balance my life and,
+
+54:23.800 --> 54:25.120
+ and here in, I live in New York.
+
+54:25.120 --> 54:28.040
+ So we have our two kids born here in New York.
+
+54:28.040 --> 54:31.640
+ It's, it's new life and it's, you know, it's, it's busy.
+
+54:31.640 --> 54:33.760
+ Sometimes I wish I could, you know, I could limit
+
+54:33.760 --> 54:37.520
+ my engagement in many other things that are still,
+
+54:37.520 --> 54:42.120
+ you know, taking time and energy,
+
+54:42.120 --> 54:44.880
+ but life is exciting.
+
+54:44.880 --> 54:48.760
+ And as long as I can feel that I have energy,
+
+54:48.760 --> 54:53.640
+ I have strengths, I have passion to make the difference,
+
+54:54.640 --> 54:55.480
+ I'm happy.
+
+54:56.760 --> 54:59.400
+ I think that's a beautiful moment to end on.
+
+54:59.400 --> 55:02.520
+ Gary, thank you very much for talking today.
+
+55:02.520 --> 55:29.520
+ Thank you.
+

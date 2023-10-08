@@ -1,0 +1,7094 @@
+WEBVTT
+
+00:00.000 --> 00:02.960
+ The following is a conversation with Rohit Prasad.
+
+00:02.960 --> 00:06.360
+ He's the vice president and head scientist of Amazon Alexa
+
+00:06.360 --> 00:08.880
+ and one of its original creators.
+
+00:08.880 --> 00:12.120
+ The Alexa team embodies some of the most challenging,
+
+00:12.120 --> 00:14.960
+ incredible, impactful, and inspiring work
+
+00:14.960 --> 00:17.040
+ that is done in AI today.
+
+00:17.040 --> 00:19.120
+ The team has to both solve problems
+
+00:19.120 --> 00:21.720
+ at the cutting edge of natural language processing
+
+00:21.720 --> 00:25.320
+ and provide a trustworthy, secure, and enjoyable experience
+
+00:25.320 --> 00:27.440
+ to millions of people.
+
+00:27.440 --> 00:29.400
+ This is where state of the art methods
+
+00:29.400 --> 00:31.840
+ in computer science meet the challenges
+
+00:31.840 --> 00:33.720
+ of real world engineering.
+
+00:33.720 --> 00:37.280
+ In many ways, Alexa and the other voice assistants
+
+00:37.280 --> 00:39.520
+ are the voices of artificial intelligence
+
+00:39.520 --> 00:43.160
+ to millions of people and an introduction to AI
+
+00:43.160 --> 00:46.940
+ for people who have only encountered it in science fiction.
+
+00:46.940 --> 00:49.960
+ This is an important and exciting opportunity.
+
+00:49.960 --> 00:52.920
+ So the work that Rohit and the Alexa team are doing
+
+00:52.920 --> 00:55.960
+ is an inspiration to me and to many researchers
+
+00:55.960 --> 00:58.840
+ and engineers in the AI community.
+
+00:58.840 --> 01:01.940
+ This is the Artificial Intelligence Podcast.
+
+01:01.940 --> 01:04.400
+ If you enjoy it, subscribe on YouTube,
+
+01:04.400 --> 01:07.720
+ give it five stars on Apple Podcast, support it on Patreon,
+
+01:07.720 --> 01:09.820
+ or simply connect with me on Twitter,
+
+01:09.820 --> 01:13.680
+ at Lex Friedman, spelled F R I D M A N.
+
+01:13.680 --> 01:16.960
+ If you leave a review on Apple Podcasts especially,
+
+01:16.960 --> 01:20.040
+ but also cast box or comment on YouTube,
+
+01:20.040 --> 01:22.920
+ consider mentioning topics, people, ideas, questions,
+
+01:22.920 --> 01:25.160
+ quotes in science, tech, or philosophy
+
+01:25.160 --> 01:26.320
+ that you find interesting,
+
+01:26.320 --> 01:28.800
+ and I'll read them on this podcast.
+
+01:28.800 --> 01:31.640
+ I won't call out names, but I love comments
+
+01:31.640 --> 01:33.240
+ with kindness and thoughtfulness in them,
+
+01:33.240 --> 01:35.720
+ so I thought I'd share them.
+
+01:35.720 --> 01:37.480
+ Someone on YouTube highlighted a quote
+
+01:37.480 --> 01:40.280
+ from the conversation with Ray Dalio,
+
+01:40.280 --> 01:41.960
+ where he said that you have to appreciate
+
+01:41.960 --> 01:45.300
+ all the different ways that people can be A players.
+
+01:45.300 --> 01:48.560
+ This connected me to, on teams of engineers,
+
+01:48.560 --> 01:50.360
+ it's easy to think that raw productivity
+
+01:50.360 --> 01:53.480
+ is the measure of excellence, but there are others.
+
+01:53.480 --> 01:55.760
+ I've worked with people who brought a smile to my face
+
+01:55.760 --> 01:57.920
+ every time I got to work in the morning.
+
+01:57.920 --> 02:01.240
+ Their contribution to the team is immeasurable.
+
+02:01.240 --> 02:03.040
+ I recently started doing podcast ads
+
+02:03.040 --> 02:04.660
+ at the end of the introduction.
+
+02:04.660 --> 02:07.640
+ I'll do one or two minutes after introducing the episode,
+
+02:07.640 --> 02:09.160
+ and never any ads in the middle
+
+02:09.160 --> 02:11.540
+ that break the flow of the conversation.
+
+02:11.540 --> 02:13.000
+ I hope that works for you.
+
+02:13.000 --> 02:15.680
+ It doesn't hurt the listening experience.
+
+02:15.680 --> 02:17.840
+ This show is presented by Cash App,
+
+02:17.840 --> 02:20.340
+ the number one finance app in the App Store.
+
+02:20.340 --> 02:23.000
+ I personally use Cash App to send money to friends,
+
+02:23.000 --> 02:24.720
+ but you can also use it to buy, sell,
+
+02:24.720 --> 02:27.140
+ and deposit Bitcoin in just seconds.
+
+02:27.140 --> 02:30.360
+ Cash App also has a new investing feature.
+
+02:30.360 --> 02:33.640
+ You can buy fractions of a stock, say $1 worth,
+
+02:33.640 --> 02:35.800
+ no matter what the stock price is.
+
+02:35.800 --> 02:38.660
+ Brokerage services are provided by Cash App Investing,
+
+02:38.660 --> 02:42.420
+ a subsidiary of Square and member SIPC.
+
+02:42.420 --> 02:44.440
+ I'm excited to be working with Cash App
+
+02:44.440 --> 02:47.560
+ to support one of my favorite organizations called First,
+
+02:47.560 --> 02:50.920
+ best known for their FIRST Robotics and Lego competitions.
+
+02:50.920 --> 02:54.360
+ They educate and inspire hundreds of thousands of students
+
+02:54.360 --> 02:57.360
+ in over 110 countries, and have a perfect rating
+
+02:57.360 --> 03:00.100
+ on Charity Navigator, which means that donated money
+
+03:00.100 --> 03:03.480
+ is used to maximum effectiveness.
+
+03:03.480 --> 03:06.380
+ When you get Cash App from the App Store, Google Play,
+
+03:06.380 --> 03:10.260
+ and use code LexPodcast, you'll get $10,
+
+03:10.260 --> 03:13.240
+ and Cash App will also donate $10 to FIRST,
+
+03:13.240 --> 03:16.140
+ which again, is an organization that I've personally seen
+
+03:16.140 --> 03:19.100
+ inspire girls and boys to dream
+
+03:19.100 --> 03:20.740
+ of engineering a better world.
+
+03:20.740 --> 03:24.240
+ This podcast is also supported by ZipRecruiter.
+
+03:24.240 --> 03:26.880
+ Hiring great people is hard, and to me,
+
+03:26.880 --> 03:28.960
+ is one of the most important elements
+
+03:28.960 --> 03:31.400
+ of a successful mission driven team.
+
+03:31.400 --> 03:33.280
+ I've been fortunate to be a part of,
+
+03:33.280 --> 03:35.920
+ and lead several great engineering teams.
+
+03:35.920 --> 03:38.840
+ The hiring I've done in the past was mostly through tools
+
+03:38.840 --> 03:42.720
+ we built ourselves, but reinventing the wheel was painful.
+
+03:42.720 --> 03:45.880
+ ZipRecruiter is a tool that's already available for you.
+
+03:45.880 --> 03:49.400
+ It seeks to make hiring simple, fast, and smart.
+
+03:49.400 --> 03:52.800
+ For example, Codable cofounder, Gretchen Huebner,
+
+03:52.800 --> 03:55.160
+ used ZipRecruiter to find a new game artist
+
+03:55.160 --> 03:57.320
+ to join our education tech company.
+
+03:57.320 --> 03:59.440
+ By using ZipRecruiter's screening questions
+
+03:59.440 --> 04:02.080
+ to filter candidates, Gretchen found it easier
+
+04:02.080 --> 04:03.760
+ to focus on the best candidates,
+
+04:03.760 --> 04:06.840
+ and finally, hiring the perfect person for the role,
+
+04:06.840 --> 04:10.160
+ in less than two weeks, from start to finish.
+
+04:10.160 --> 04:12.640
+ ZipRecruiter, the smartest way to hire.
+
+04:13.600 --> 04:15.920
+ See why ZipRecruiter is effective for businesses
+
+04:15.920 --> 04:17.920
+ of all sizes by signing up,
+
+04:17.920 --> 04:22.920
+ as I did, for free, at ziprecruiter.com slash lexpod.
+
+04:23.160 --> 04:27.160
+ That's ziprecruiter.com slash lexpod.
+
+04:27.160 --> 04:32.160
+ And now, here's my conversation with Rohit Prasad.
+
+04:33.000 --> 04:36.120
+ In the movie Her, I'm not sure if you've ever seen it.
+
+04:36.120 --> 04:39.720
+ Human falls in love with the voice of an AI system.
+
+04:39.720 --> 04:42.000
+ Let's start at the highest philosophical level
+
+04:42.000 --> 04:45.080
+ before we get to deep learning and some of the fun things.
+
+04:45.080 --> 04:48.200
+ Do you think this, what the movie Her shows,
+
+04:48.200 --> 04:49.360
+ is within our reach?
+
+04:51.160 --> 04:54.480
+ I think not specifically about Her,
+
+04:54.480 --> 04:59.000
+ but I think what we are seeing is a massive increase
+
+04:59.000 --> 05:02.240
+ in adoption of AI assistance, or AI,
+
+05:02.240 --> 05:05.320
+ in all parts of our social fabric.
+
+05:05.320 --> 05:08.880
+ And I think it's, what I do believe,
+
+05:08.880 --> 05:11.680
+ is that the utility these AIs provide,
+
+05:11.680 --> 05:14.680
+ some of the functionalities that are shown
+
+05:14.680 --> 05:16.520
+ are absolutely within reach.
+
+05:18.240 --> 05:19.600
+ So some of the functionality
+
+05:19.600 --> 05:21.640
+ in terms of the interactive elements,
+
+05:21.640 --> 05:24.680
+ but in terms of the deep connection,
+
+05:24.680 --> 05:26.840
+ that's purely voice based.
+
+05:26.840 --> 05:29.160
+ Do you think such a close connection is possible
+
+05:29.160 --> 05:30.600
+ with voice alone?
+
+05:30.600 --> 05:32.240
+ It's been a while since I saw Her,
+
+05:32.240 --> 05:36.760
+ but I would say in terms of interactions
+
+05:36.760 --> 05:40.240
+ which are both human like and in these AI systems,
+
+05:40.240 --> 05:43.840
+ you have to value what is also superhuman.
+
+05:44.800 --> 05:47.760
+ We as humans can be in only one place.
+
+05:47.760 --> 05:51.240
+ AI assistance can be in multiple places at the same time.
+
+05:51.240 --> 05:53.720
+ One with you on your mobile device,
+
+05:53.720 --> 05:56.360
+ one at your home, one at work.
+
+05:56.360 --> 05:59.160
+ So you have to respect these superhuman capabilities too.
+
+06:00.280 --> 06:03.080
+ Plus as humans, we have certain attributes
+
+06:03.080 --> 06:05.120
+ we are very good at, very good at reasoning.
+
+06:05.120 --> 06:07.360
+ AI assistance not yet there,
+
+06:07.360 --> 06:10.360
+ but in the realm of AI assistance,
+
+06:10.360 --> 06:12.680
+ what they're great at is computation, memory,
+
+06:12.680 --> 06:14.600
+ it's infinite and pure.
+
+06:14.600 --> 06:16.440
+ These are the attributes you have to start respecting.
+
+06:16.440 --> 06:18.360
+ So I think the comparison with human like
+
+06:18.360 --> 06:21.480
+ versus the other aspect, which is also superhuman,
+
+06:21.480 --> 06:22.920
+ has to be taken into consideration.
+
+06:22.920 --> 06:25.440
+ So I think we need to elevate the discussion
+
+06:25.440 --> 06:27.240
+ to not just human like.
+
+06:27.240 --> 06:28.800
+ So there's certainly elements,
+
+06:28.800 --> 06:32.680
+ we just mentioned, Alexa is everywhere,
+
+06:32.680 --> 06:33.960
+ computation speaking.
+
+06:33.960 --> 06:35.600
+ So this is a much bigger infrastructure
+
+06:35.600 --> 06:38.440
+ than just the thing that sits there in the room with you.
+
+06:38.440 --> 06:43.120
+ But it certainly feels to us mere humans
+
+06:43.120 --> 06:47.320
+ that there's just another little creature there
+
+06:47.320 --> 06:48.400
+ when you're interacting with it.
+
+06:48.400 --> 06:49.880
+ You're not interacting with the entirety
+
+06:49.880 --> 06:52.360
+ of the infrastructure, you're interacting with the device.
+
+06:52.360 --> 06:56.560
+ The feeling is, okay, sure, we anthropomorphize things,
+
+06:56.560 --> 06:58.640
+ but that feeling is still there.
+
+06:58.640 --> 07:02.240
+ So what do you think we as humans,
+
+07:02.240 --> 07:04.760
+ the purity of the interaction with a smart device,
+
+07:04.760 --> 07:06.920
+ interaction with a smart assistant,
+
+07:06.920 --> 07:10.200
+ what do you think we look for in that interaction?
+
+07:10.200 --> 07:12.240
+ I think in the certain interactions
+
+07:12.240 --> 07:15.920
+ I think will be very much where it does feel like a human
+
+07:15.920 --> 07:18.160
+ because it has a persona of its own.
+
+07:19.080 --> 07:20.680
+ And in certain ones it wouldn't be.
+
+07:20.680 --> 07:23.080
+ So I think a simple example to think of it
+
+07:23.080 --> 07:25.200
+ is if you're walking through the house
+
+07:25.200 --> 07:27.960
+ and you just wanna turn on your lights on and off
+
+07:27.960 --> 07:29.840
+ and you're issuing a command,
+
+07:29.840 --> 07:32.040
+ that's not very much like a human like interaction
+
+07:32.040 --> 07:33.840
+ and that's where the AI shouldn't come back
+
+07:33.840 --> 07:35.240
+ and have a conversation with you,
+
+07:35.240 --> 07:38.480
+ just it should simply complete that command.
+
+07:38.480 --> 07:40.200
+ So those, I think the blend of,
+
+07:40.200 --> 07:43.360
+ we have to think about this is not human, human alone.
+
+07:43.360 --> 07:45.080
+ It is a human machine interaction
+
+07:45.080 --> 07:48.160
+ and certain aspects of humans are needed
+
+07:48.160 --> 07:49.920
+ and certain aspects are in situations
+
+07:49.920 --> 07:51.640
+ demand it to be like a machine.
+
+07:51.640 --> 07:55.040
+ So I told you, it's gonna be philosophical in parts.
+
+07:55.040 --> 07:57.480
+ What's the difference between human and machine
+
+07:57.480 --> 07:58.640
+ in that interaction?
+
+07:58.640 --> 08:00.760
+ When we interact to humans,
+
+08:00.760 --> 08:04.000
+ especially those are friends and loved ones
+
+08:04.000 --> 08:09.000
+ versus you and a machine that you also are close with.
+
+08:10.400 --> 08:12.640
+ I think the, you have to think about the roles
+
+08:12.640 --> 08:13.800
+ the AI plays, right?
+
+08:13.800 --> 08:16.320
+ So, and it differs from different customer to customer,
+
+08:16.320 --> 08:18.040
+ different situation to situation,
+
+08:18.840 --> 08:21.560
+ especially I can speak from Alexa's perspective.
+
+08:21.560 --> 08:25.000
+ It is a companion, a friend at times,
+
+08:25.000 --> 08:27.520
+ an assistant, an advisor down the line.
+
+08:27.520 --> 08:31.240
+ So I think most AIs will have this kind of attributes
+
+08:31.240 --> 08:33.040
+ and it will be very situational in nature.
+
+08:33.040 --> 08:34.680
+ So where is the boundary?
+
+08:34.680 --> 08:37.080
+ I think the boundary depends on exact context
+
+08:37.080 --> 08:39.320
+ in which you're interacting with the AI.
+
+08:39.320 --> 08:41.240
+ So the depth and the richness
+
+08:41.240 --> 08:42.920
+ of natural language conversation
+
+08:42.920 --> 08:47.920
+ is been by Alan Turing been used to try to define
+
+08:48.160 --> 08:50.480
+ what it means to be intelligent.
+
+08:50.480 --> 08:52.280
+ There's a lot of criticism of that kind of test,
+
+08:52.280 --> 08:55.840
+ but what do you think is a good test of intelligence
+
+08:55.840 --> 08:58.360
+ in your view, in the context of the Turing test
+
+08:58.360 --> 09:03.240
+ and Alexa or the Alexa prize, this whole realm,
+
+09:03.240 --> 09:07.160
+ do you think about this human intelligence,
+
+09:07.160 --> 09:08.000
+ what it means to define it,
+
+09:08.000 --> 09:10.080
+ what it means to reach that level?
+
+09:10.080 --> 09:12.480
+ I do think the ability to converse
+
+09:12.480 --> 09:15.160
+ is a sign of an ultimate intelligence.
+
+09:15.160 --> 09:17.440
+ I think that there's no question about it.
+
+09:18.320 --> 09:20.560
+ So if you think about all aspects of humans,
+
+09:20.560 --> 09:22.840
+ there are sensors we have,
+
+09:22.840 --> 09:26.400
+ and those are basically a data collection mechanism.
+
+09:26.400 --> 09:27.240
+ And based on that,
+
+09:27.240 --> 09:30.560
+ we make some decisions with our sensory brains, right?
+
+09:30.560 --> 09:32.720
+ And from that perspective,
+
+09:32.720 --> 09:35.240
+ I think there are elements we have to talk about
+
+09:35.240 --> 09:37.080
+ how we sense the world
+
+09:37.080 --> 09:40.360
+ and then how we act based on what we sense.
+
+09:40.360 --> 09:43.640
+ Those elements clearly machines have,
+
+09:43.640 --> 09:46.800
+ but then there's the other aspects of computation
+
+09:46.800 --> 09:48.360
+ that is way better.
+
+09:48.360 --> 09:50.040
+ I also mentioned about memory again,
+
+09:50.040 --> 09:51.880
+ in terms of being near infinite,
+
+09:51.880 --> 09:54.200
+ depending on the storage capacity you have,
+
+09:54.200 --> 09:58.200
+ and the retrieval can be extremely fast and pure
+
+09:58.200 --> 09:59.600
+ in terms of like, there's no ambiguity
+
+09:59.600 --> 10:02.080
+ of who did I see when, right?
+
+10:02.080 --> 10:04.440
+ I mean, machines can remember that quite well.
+
+10:04.440 --> 10:06.840
+ So again, on a philosophical level,
+
+10:06.840 --> 10:10.840
+ I do subscribe to the fact that to be able to converse
+
+10:10.840 --> 10:13.400
+ and as part of that, to be able to reason
+
+10:13.400 --> 10:15.240
+ based on the world knowledge you've acquired
+
+10:15.240 --> 10:18.320
+ and the sensory knowledge that is there
+
+10:18.320 --> 10:22.080
+ is definitely very much the essence of intelligence.
+
+10:23.160 --> 10:26.960
+ But intelligence can go beyond human level intelligence
+
+10:26.960 --> 10:29.800
+ based on what machines are getting capable of.
+
+10:29.800 --> 10:33.440
+ So what do you think maybe stepping outside of Alexa
+
+10:33.440 --> 10:35.760
+ broadly as an AI field,
+
+10:35.760 --> 10:38.720
+ what do you think is a good test of intelligence?
+
+10:38.720 --> 10:41.200
+ Put it another way outside of Alexa,
+
+10:41.200 --> 10:43.040
+ because so much of Alexa is a product,
+
+10:43.040 --> 10:44.920
+ is an experience for the customer.
+
+10:44.920 --> 10:46.400
+ On the research side,
+
+10:46.400 --> 10:49.240
+ what would impress the heck out of you if you saw,
+
+10:49.240 --> 10:50.800
+ you know, what is the test where you said,
+
+10:50.800 --> 10:55.800
+ wow, this thing is now starting to encroach
+
+10:57.000 --> 10:59.040
+ into the realm of what we loosely think
+
+10:59.040 --> 11:00.360
+ of as human intelligence?
+
+11:00.360 --> 11:02.400
+ So, well, we think of it as AGI
+
+11:02.400 --> 11:04.320
+ and human intelligence altogether, right?
+
+11:04.320 --> 11:08.000
+ So in some sense, and I think we are quite far from that.
+
+11:08.000 --> 11:11.480
+ I think an unbiased view I have
+
+11:11.480 --> 11:16.480
+ is that the Alexa's intelligence capability is a great test.
+
+11:17.760 --> 11:20.600
+ I think of it as there are many other true points
+
+11:20.600 --> 11:25.320
+ like self driving cars, game playing like go or chess.
+
+11:26.320 --> 11:28.680
+ Let's take those two for as an example,
+
+11:28.680 --> 11:31.760
+ clearly requires a lot of data driven learning
+
+11:31.760 --> 11:35.080
+ and intelligence, but it's not as hard a problem
+
+11:35.080 --> 11:39.760
+ as conversing with, as an AI is with humans
+
+11:39.760 --> 11:42.320
+ to accomplish certain tasks or open domain chat,
+
+11:42.320 --> 11:44.000
+ as you mentioned, Alexa prize.
+
+11:44.880 --> 11:47.760
+ In those settings, the key differences
+
+11:47.760 --> 11:51.920
+ that the end goal is not defined unlike game playing.
+
+11:51.920 --> 11:55.720
+ You also do not know exactly what state you are in
+
+11:55.720 --> 11:58.960
+ in a particular goal completion scenario.
+
+11:58.960 --> 12:00.760
+ In certain sense, sometimes you can,
+
+12:00.760 --> 12:04.440
+ if it's a simple goal, but if you're even certain examples
+
+12:04.440 --> 12:07.120
+ like planning a weekend or you can imagine
+
+12:07.120 --> 12:09.920
+ how many things change along the way,
+
+12:09.920 --> 12:11.920
+ you look for whether you may change your mind
+
+12:11.920 --> 12:14.840
+ and you change the destination,
+
+12:14.840 --> 12:17.040
+ or you want to catch a particular event
+
+12:17.040 --> 12:19.400
+ and then you decide, no, I want this other event
+
+12:19.400 --> 12:20.520
+ I want to go to.
+
+12:20.520 --> 12:24.000
+ So these dimensions of how many different steps
+
+12:24.000 --> 12:26.360
+ are possible when you're conversing as a human
+
+12:26.360 --> 12:29.120
+ with a machine makes it an extremely daunting problem.
+
+12:29.120 --> 12:32.360
+ And I think it is the ultimate test for intelligence.
+
+12:32.360 --> 12:37.360
+ And don't you think that natural language is enough to prove
+
+12:37.440 --> 12:40.360
+ that conversation, just pure conversation?
+
+12:40.360 --> 12:42.280
+ From a scientific standpoint,
+
+12:42.280 --> 12:45.000
+ natural language is a great test,
+
+12:45.000 --> 12:47.800
+ but I would go beyond, I don't want to limit it
+
+12:47.800 --> 12:51.040
+ to as natural language as simply understanding an intent
+
+12:51.040 --> 12:52.760
+ or parsing for entities and so forth.
+
+12:52.760 --> 12:54.880
+ We are really talking about dialogue.
+
+12:54.880 --> 12:55.720
+ Dialogue, yeah.
+
+12:55.720 --> 12:58.480
+ So I would say human machine dialogue
+
+12:58.480 --> 13:02.960
+ is definitely one of the best tests of intelligence.
+
+13:02.960 --> 13:06.680
+ So can you briefly speak to the Alexa Prize
+
+13:06.680 --> 13:08.640
+ for people who are not familiar with it,
+
+13:08.640 --> 13:12.640
+ and also just maybe where things stand
+
+13:12.640 --> 13:15.440
+ and what have you learned and what's surprising?
+
+13:15.440 --> 13:16.920
+ What have you seen that's surprising
+
+13:16.920 --> 13:18.440
+ from this incredible competition?
+
+13:18.440 --> 13:20.960
+ Absolutely, it's a very exciting competition.
+
+13:20.960 --> 13:24.040
+ Alexa Prize is essentially a grand challenge
+
+13:24.040 --> 13:26.880
+ in conversational artificial intelligence,
+
+13:26.880 --> 13:29.440
+ where we threw the gauntlet to the universities
+
+13:29.440 --> 13:31.960
+ who do active research in the field,
+
+13:31.960 --> 13:35.360
+ to say, can you build what we call a social bot
+
+13:35.360 --> 13:37.320
+ that can converse with you coherently
+
+13:37.320 --> 13:39.800
+ and engagingly for 20 minutes?
+
+13:39.800 --> 13:42.480
+ That is an extremely hard challenge,
+
+13:42.480 --> 13:46.480
+ talking to someone who you're meeting for the first time,
+
+13:46.480 --> 13:49.640
+ or even if you've met them quite often,
+
+13:49.640 --> 13:53.560
+ to speak at 20 minutes on any topic,
+
+13:53.560 --> 13:57.760
+ an evolving nature of topics is super hard.
+
+13:57.760 --> 14:01.600
+ We have completed two successful years of the competition.
+
+14:01.600 --> 14:03.400
+ The first was won with the University of Washington,
+
+14:03.400 --> 14:05.560
+ second, the University of California.
+
+14:05.560 --> 14:06.880
+ We are in our third instance.
+
+14:06.880 --> 14:09.640
+ We have an extremely strong team of 10 cohorts,
+
+14:09.640 --> 14:13.960
+ and the third instance of the Alexa Prize is underway now.
+
+14:14.840 --> 14:17.480
+ And we are seeing a constant evolution.
+
+14:17.480 --> 14:18.920
+ First year was definitely a learning.
+
+14:18.920 --> 14:21.200
+ It was a lot of things to be put together.
+
+14:21.200 --> 14:23.640
+ We had to build a lot of infrastructure
+
+14:23.640 --> 14:25.960
+ to enable these universities
+
+14:25.960 --> 14:28.280
+ to be able to build magical experiences
+
+14:28.280 --> 14:31.560
+ and do high quality research.
+
+14:31.560 --> 14:33.880
+ Just a few quick questions, sorry for the interruption.
+
+14:33.880 --> 14:37.240
+ What does failure look like in the 20 minute session?
+
+14:37.240 --> 14:38.720
+ So what does it mean to fail,
+
+14:38.720 --> 14:39.960
+ not to reach the 20 minute mark?
+
+14:39.960 --> 14:41.200
+ Oh, awesome question.
+
+14:41.200 --> 14:43.360
+ So there are one, first of all,
+
+14:43.360 --> 14:45.360
+ I forgot to mention one more detail.
+
+14:45.360 --> 14:46.560
+ It's not just 20 minutes,
+
+14:46.560 --> 14:49.320
+ but the quality of the conversation too that matters.
+
+14:49.320 --> 14:51.480
+ And the beauty of this competition
+
+14:51.480 --> 14:53.800
+ before I answer that question on what failure means
+
+14:53.800 --> 14:56.600
+ is first that you actually converse
+
+14:56.600 --> 14:59.000
+ with millions and millions of customers
+
+14:59.000 --> 15:00.840
+ as the social bots.
+
+15:00.840 --> 15:05.000
+ So during the judging phases, there are multiple phases,
+
+15:05.000 --> 15:06.320
+ before we get to the finals,
+
+15:06.320 --> 15:08.640
+ which is a very controlled judging in a situation
+
+15:08.640 --> 15:10.400
+ where we bring in judges
+
+15:10.400 --> 15:14.400
+ and we have interactors who interact with these social bots,
+
+15:14.400 --> 15:15.920
+ that is a much more controlled setting.
+
+15:15.920 --> 15:18.960
+ But till the point we get to the finals,
+
+15:18.960 --> 15:22.680
+ all the judging is essentially by the customers of Alexa.
+
+15:22.680 --> 15:26.160
+ And there you basically rate on a simple question,
+
+15:26.160 --> 15:28.400
+ how good your experience was.
+
+15:28.400 --> 15:29.840
+ So that's where we are not testing
+
+15:29.840 --> 15:32.760
+ for a 20 minute boundary being crossed,
+
+15:32.760 --> 15:36.600
+ because you do want it to be very much like a clear cut,
+
+15:36.600 --> 15:40.040
+ winner, be chosen, and it's an absolute bar.
+
+15:40.040 --> 15:42.760
+ So did you really break that 20 minute barrier
+
+15:42.760 --> 15:45.880
+ is why we have to test it in a more controlled setting
+
+15:45.880 --> 15:48.640
+ with actors, essentially interactors.
+
+15:48.640 --> 15:50.800
+ And see how the conversation goes.
+
+15:50.800 --> 15:54.160
+ So this is why it's a subtle difference
+
+15:54.160 --> 15:57.000
+ between how it's being tested in the field
+
+15:57.000 --> 16:00.480
+ with real customers versus in the lab to award the prize.
+
+16:00.480 --> 16:03.520
+ So on the latter one, what it means is that
+
+16:03.520 --> 16:08.000
+ essentially there are three judges
+
+16:08.000 --> 16:09.520
+ and two of them have to say
+
+16:09.520 --> 16:11.720
+ this conversation has stalled, essentially.
+
+16:13.080 --> 16:13.920
+ Got it.
+
+16:13.920 --> 16:15.720
+ And the judges are human experts.
+
+16:15.720 --> 16:16.920
+ Judges are human experts.
+
+16:16.920 --> 16:17.760
+ Okay, great.
+
+16:17.760 --> 16:19.120
+ So this is in the third year.
+
+16:19.120 --> 16:20.920
+ So what's been the evolution?
+
+16:20.920 --> 16:24.640
+ How far, so the DARPA challenge in the first year,
+
+16:24.640 --> 16:26.560
+ the autonomous vehicles, nobody finished.
+
+16:26.560 --> 16:29.680
+ In the second year, a few more finished in the desert.
+
+16:30.640 --> 16:33.280
+ So how far along in this,
+
+16:33.280 --> 16:36.360
+ I would say much harder challenge are we?
+
+16:36.360 --> 16:37.720
+ This challenge has come a long way
+
+16:37.720 --> 16:40.480
+ to the extent that we're definitely not close
+
+16:40.480 --> 16:42.760
+ to the 20 minute barrier being with coherence
+
+16:42.760 --> 16:44.760
+ and engaging conversation.
+
+16:44.760 --> 16:46.880
+ I think we are still five to 10 years away
+
+16:46.880 --> 16:49.480
+ in that horizon to complete that.
+
+16:49.480 --> 16:51.360
+ But the progress is immense.
+
+16:51.360 --> 16:54.080
+ Like what you're finding is the accuracy
+
+16:54.080 --> 16:57.360
+ and what kind of responses these social bots generate
+
+16:57.360 --> 16:59.520
+ is getting better and better.
+
+16:59.520 --> 17:03.360
+ What's even amazing to see that now there's humor coming in.
+
+17:03.360 --> 17:04.880
+ The bots are quite...
+
+17:04.880 --> 17:05.720
+ Awesome.
+
+17:05.720 --> 17:07.360
+ You know, you're talking about
+
+17:07.360 --> 17:09.440
+ ultimate science of intelligence.
+
+17:09.440 --> 17:11.840
+ I think humor is a very high bar
+
+17:11.840 --> 17:14.880
+ in terms of what it takes to create humor.
+
+17:14.880 --> 17:16.520
+ And I don't mean just being goofy.
+
+17:16.520 --> 17:19.480
+ I really mean good sense of humor
+
+17:19.480 --> 17:21.600
+ is also a sign of intelligence in my mind
+
+17:21.600 --> 17:23.120
+ and something very hard to do.
+
+17:23.120 --> 17:25.040
+ So these social bots are now exploring
+
+17:25.040 --> 17:28.560
+ not only what we think of natural language abilities,
+
+17:28.560 --> 17:30.400
+ but also personality attributes
+
+17:30.400 --> 17:34.120
+ and aspects of when to inject an appropriate joke,
+
+17:34.120 --> 17:38.440
+ when you don't know the domain,
+
+17:38.440 --> 17:41.400
+ how you come back with something more intelligible
+
+17:41.400 --> 17:43.200
+ so that you can continue the conversation.
+
+17:43.200 --> 17:45.200
+ If you and I are talking about AI
+
+17:45.200 --> 17:47.480
+ and we are domain experts, we can speak to it.
+
+17:47.480 --> 17:50.480
+ But if you suddenly switch a topic to that I don't know of,
+
+17:50.480 --> 17:52.160
+ how do I change the conversation?
+
+17:52.160 --> 17:55.240
+ So you're starting to notice these elements as well.
+
+17:55.240 --> 17:58.560
+ And that's coming from partly by the nature
+
+17:58.560 --> 18:00.120
+ of the 20 minute challenge
+
+18:00.120 --> 18:02.520
+ that people are getting quite clever
+
+18:02.520 --> 18:05.600
+ on how to really converse
+
+18:05.600 --> 18:08.600
+ and essentially mask some of the understanding defects
+
+18:08.600 --> 18:09.840
+ if they exist.
+
+18:09.840 --> 18:12.680
+ So some of this, this is not Alexa, the product.
+
+18:12.680 --> 18:16.240
+ This is somewhat for fun, for research,
+
+18:16.240 --> 18:17.800
+ for innovation and so on.
+
+18:17.800 --> 18:20.280
+ I have a question sort of in this modern era,
+
+18:20.280 --> 18:24.280
+ there's a lot of, if you look at Twitter and Facebook
+
+18:24.280 --> 18:27.160
+ and so on, there's discourse, public discourse going on
+
+18:27.160 --> 18:28.800
+ and some things that are a little bit too edgy,
+
+18:28.800 --> 18:30.640
+ people get blocked and so on.
+
+18:30.640 --> 18:32.280
+ I'm just out of curiosity,
+
+18:32.280 --> 18:35.960
+ are people in this context pushing the limits?
+
+18:35.960 --> 18:37.760
+ Is anyone using the F word?
+
+18:37.760 --> 18:41.440
+ Is anyone sort of pushing back
+
+18:41.440 --> 18:45.960
+ sort of arguing, I guess I should say,
+
+18:45.960 --> 18:48.280
+ as part of the dialogue to really draw people in?
+
+18:48.280 --> 18:50.320
+ First of all, let me just back up a bit
+
+18:50.320 --> 18:52.120
+ in terms of why we are doing this, right?
+
+18:52.120 --> 18:54.280
+ So you said it's fun.
+
+18:54.280 --> 18:59.280
+ I think fun is more part of the engaging part for customers.
+
+18:59.920 --> 19:02.480
+ It is one of the most used skills as well
+
+19:02.480 --> 19:04.360
+ in our skill store.
+
+19:04.360 --> 19:07.200
+ But up that apart, the real goal was essentially
+
+19:07.200 --> 19:10.400
+ what was happening is with a lot of AI research
+
+19:10.400 --> 19:14.200
+ moving to industry, we felt that academia has the risk
+
+19:14.200 --> 19:16.800
+ of not being able to have the same resources
+
+19:16.800 --> 19:20.480
+ at disposal that we have, which is lots of data,
+
+19:20.480 --> 19:24.640
+ massive computing power, and a clear ways
+
+19:24.640 --> 19:28.520
+ to test these AI advances with real customer benefits.
+
+19:28.520 --> 19:30.880
+ So we brought all these three together in the Alexa price.
+
+19:30.880 --> 19:33.880
+ That's why it's one of my favorite projects in Amazon.
+
+19:33.880 --> 19:37.800
+ And with that, the secondary effect is yes,
+
+19:37.800 --> 19:40.920
+ it has become engaging for our customers as well.
+
+19:40.920 --> 19:43.880
+ We're not there in terms of where we want it to be, right?
+
+19:43.880 --> 19:45.040
+ But it's a huge progress.
+
+19:45.040 --> 19:47.080
+ But coming back to your question on
+
+19:47.080 --> 19:48.800
+ how do the conversations evolve?
+
+19:48.800 --> 19:51.880
+ Yes, there is some natural attributes of what you said
+
+19:51.880 --> 19:54.160
+ in terms of argument and some amount of swearing.
+
+19:54.160 --> 19:57.160
+ The way we take care of that is that there is
+
+19:57.160 --> 20:00.400
+ a sensitive filter we have built that sees keywords.
+
+20:00.400 --> 20:03.480
+ It's more than keywords, a little more in terms of,
+
+20:03.480 --> 20:04.880
+ of course, there's keyword based too,
+
+20:04.880 --> 20:07.920
+ but there's more in terms of these words can be
+
+20:07.920 --> 20:09.440
+ very contextual, as you can see,
+
+20:09.440 --> 20:12.600
+ and also the topic can be something
+
+20:12.600 --> 20:15.400
+ that you don't want a conversation to happen
+
+20:15.400 --> 20:17.320
+ because this is a communal device as well.
+
+20:17.320 --> 20:19.240
+ A lot of people use these devices.
+
+20:19.240 --> 20:22.600
+ So we have put a lot of guardrails for the conversation
+
+20:22.600 --> 20:25.920
+ to be more useful for advancing AI
+
+20:25.920 --> 20:30.920
+ and not so much of these other issues you attributed
+
+20:31.080 --> 20:32.880
+ what's happening in the AI field as well.
+
+20:32.880 --> 20:35.280
+ Right, so this is actually a serious opportunity.
+
+20:35.280 --> 20:36.880
+ I didn't use the right word, fun.
+
+20:36.880 --> 20:39.960
+ I think it's an open opportunity to do
+
+20:39.960 --> 20:42.000
+ some of the best innovation
+
+20:42.000 --> 20:44.760
+ in conversational agents in the world.
+
+20:44.760 --> 20:45.920
+ Absolutely.
+
+20:45.920 --> 20:49.000
+ Why just universities?
+
+20:49.000 --> 20:49.880
+ Why just universities?
+
+20:49.880 --> 20:51.560
+ Because as I said, I really felt
+
+20:51.560 --> 20:52.400
+ Young minds.
+
+20:52.400 --> 20:55.080
+ Young minds, it's also to,
+
+20:55.080 --> 20:57.920
+ if you think about the other aspect
+
+20:57.920 --> 21:01.400
+ of where the whole industry is moving with AI,
+
+21:01.400 --> 21:04.880
+ there's a dearth of talent given the demands.
+
+21:04.880 --> 21:09.880
+ So you do want universities to have a clear place
+
+21:09.880 --> 21:11.440
+ where they can invent and research
+
+21:11.440 --> 21:13.920
+ and not fall behind that they can't motivate students.
+
+21:13.920 --> 21:18.920
+ Imagine all grad students left to industry like us
+
+21:19.600 --> 21:22.880
+ or faculty members, which has happened too.
+
+21:22.880 --> 21:25.200
+ So this is a way that if you're so passionate
+
+21:25.200 --> 21:28.640
+ about the field where you feel industry and academia
+
+21:28.640 --> 21:31.360
+ need to work well, this is a great example
+
+21:31.360 --> 21:34.440
+ and a great way for universities to participate.
+
+21:35.360 --> 21:37.280
+ So what do you think it takes to build a system
+
+21:37.280 --> 21:39.600
+ that wins the Alexa Prize?
+
+21:39.600 --> 21:44.600
+ I think you have to start focusing on aspects of reasoning
+
+21:46.200 --> 21:50.760
+ that it is, there are still more lookups
+
+21:50.760 --> 21:54.160
+ of what intents customers asking for
+
+21:54.160 --> 21:58.920
+ and responding to those rather than really reasoning
+
+21:58.920 --> 22:02.480
+ about the elements of the conversation.
+
+22:02.480 --> 22:06.240
+ For instance, if you're playing,
+
+22:06.240 --> 22:08.120
+ if the conversation is about games
+
+22:08.120 --> 22:11.240
+ and it's about a recent sports event,
+
+22:11.240 --> 22:13.320
+ there's so much context involved
+
+22:13.320 --> 22:15.800
+ and you have to understand the entities
+
+22:15.800 --> 22:17.320
+ that are being mentioned
+
+22:17.320 --> 22:19.640
+ so that the conversation is coherent
+
+22:19.640 --> 22:23.200
+ rather than you suddenly just switch to knowing some fact
+
+22:23.200 --> 22:26.280
+ about a sports entity and you're just relaying that
+
+22:26.280 --> 22:28.680
+ rather than understanding the true context of the game.
+
+22:28.680 --> 22:32.280
+ Like if you just said, I learned this fun fact
+
+22:32.280 --> 22:36.000
+ about Tom Brady rather than really say
+
+22:36.000 --> 22:39.280
+ how he played the game the previous night,
+
+22:39.280 --> 22:42.800
+ then the conversation is not really that intelligent.
+
+22:42.800 --> 22:46.200
+ So you have to go to more reasoning elements
+
+22:46.200 --> 22:49.120
+ of understanding the context of the dialogue
+
+22:49.120 --> 22:51.240
+ and giving more appropriate responses,
+
+22:51.240 --> 22:53.680
+ which tells you that we are still quite far
+
+22:53.680 --> 22:57.400
+ because a lot of times it's more facts being looked up
+
+22:57.400 --> 22:59.920
+ and something that's close enough as an answer,
+
+22:59.920 --> 23:02.080
+ but not really the answer.
+
+23:02.080 --> 23:05.040
+ So that is where the research needs to go more
+
+23:05.040 --> 23:08.360
+ and actual true understanding and reasoning.
+
+23:08.360 --> 23:10.440
+ And that's why I feel it's a great way to do it
+
+23:10.440 --> 23:13.520
+ because you have an engaged set of users
+
+23:13.520 --> 23:18.200
+ working to help these AI advances happen in this case.
+
+23:18.200 --> 23:20.640
+ You mentioned customers, they're quite a bit,
+
+23:20.640 --> 23:22.120
+ and there's a skill.
+
+23:22.120 --> 23:26.520
+ What is the experience for the user that's helping?
+
+23:26.520 --> 23:30.120
+ So just to clarify, this isn't, as far as I understand,
+
+23:30.120 --> 23:32.560
+ the Alexa, so this skill is a standalone
+
+23:32.560 --> 23:33.560
+ for the Alexa Prize.
+
+23:33.560 --> 23:35.360
+ I mean, it's focused on the Alexa Prize.
+
+23:35.360 --> 23:37.720
+ It's not you ordering certain things on Amazon.
+
+23:37.720 --> 23:39.200
+ Like, oh, we're checking the weather
+
+23:39.200 --> 23:40.720
+ or playing Spotify, right?
+
+23:40.720 --> 23:42.520
+ This is a separate skill.
+
+23:42.520 --> 23:45.600
+ And so you're focused on helping that,
+
+23:45.600 --> 23:48.520
+ I don't know, how do people, how do customers think of it?
+
+23:48.520 --> 23:49.800
+ Are they having fun?
+
+23:49.800 --> 23:52.040
+ Are they helping teach the system?
+
+23:52.040 --> 23:53.040
+ What's the experience like?
+
+23:53.040 --> 23:54.640
+ I think it's both actually.
+
+23:54.640 --> 23:57.800
+ And let me tell you how you invoke this skill.
+
+23:57.800 --> 24:00.200
+ So all you have to say, Alexa, let's chat.
+
+24:00.200 --> 24:03.320
+ And then the first time you say, Alexa, let's chat,
+
+24:03.320 --> 24:04.720
+ it comes back with a clear message
+
+24:04.720 --> 24:06.240
+ that you're interacting with one of those
+
+24:06.240 --> 24:08.000
+ university social bots.
+
+24:08.000 --> 24:09.320
+ And there's a clear,
+
+24:09.320 --> 24:11.800
+ so you know exactly how you interact, right?
+
+24:11.800 --> 24:14.080
+ And that is why it's very transparent.
+
+24:14.080 --> 24:16.240
+ You are being asked to help, right?
+
+24:16.240 --> 24:18.800
+ And we have a lot of mechanisms
+
+24:18.800 --> 24:23.680
+ where as we are in the first phase of feedback phase,
+
+24:23.680 --> 24:26.720
+ then you send a lot of emails to our customers
+
+24:26.720 --> 24:31.720
+ and then they know that the team needs a lot of interactions
+
+24:31.760 --> 24:33.920
+ to improve the accuracy of the system.
+
+24:33.920 --> 24:35.880
+ So we know we have a lot of customers
+
+24:35.880 --> 24:38.920
+ who really want to help these university bots
+
+24:38.920 --> 24:40.400
+ and they're conversing with that.
+
+24:40.400 --> 24:42.680
+ And some are just having fun with just saying,
+
+24:42.680 --> 24:44.000
+ Alexa, let's chat.
+
+24:44.000 --> 24:47.320
+ And also some adversarial behavior to see whether,
+
+24:47.320 --> 24:50.240
+ how much do you understand as a social bot?
+
+24:50.240 --> 24:51.480
+ So I think we have a good,
+
+24:51.480 --> 24:53.920
+ healthy mix of all three situations.
+
+24:53.920 --> 24:55.280
+ So what is the,
+
+24:55.280 --> 24:58.040
+ if we talk about solving the Alexa challenge,
+
+24:58.040 --> 24:59.080
+ the Alexa prize,
+
+25:00.720 --> 25:05.480
+ what's the data set of really engaging,
+
+25:05.480 --> 25:07.520
+ pleasant conversations look like?
+
+25:07.520 --> 25:08.360
+ Because if we think of this
+
+25:08.360 --> 25:10.600
+ as a supervised learning problem,
+
+25:10.600 --> 25:12.200
+ I don't know if it has to be,
+
+25:12.200 --> 25:15.400
+ but if it does, maybe you can comment on that.
+
+25:15.400 --> 25:17.480
+ Do you think there needs to be a data set
+
+25:17.480 --> 25:21.880
+ of what it means to be an engaging, successful,
+
+25:21.880 --> 25:22.720
+ fulfilling conversation?
+
+25:22.720 --> 25:24.760
+ I think that's part of the research question here.
+
+25:24.760 --> 25:29.200
+ This was, I think, we at least got the first part right,
+
+25:29.200 --> 25:33.360
+ which is have a way for universities to build
+
+25:33.360 --> 25:35.680
+ and test in a real world setting.
+
+25:35.680 --> 25:38.640
+ Now you're asking in terms of the next phase of questions,
+
+25:38.640 --> 25:41.120
+ which we are still, we're also asking, by the way,
+
+25:41.120 --> 25:45.400
+ what does success look like from a optimization function?
+
+25:45.400 --> 25:47.200
+ That's what you're asking in terms of,
+
+25:47.200 --> 25:49.560
+ we as researchers are used to having a great corpus
+
+25:49.560 --> 25:53.480
+ of annotated data and then making,
+
+25:53.480 --> 25:57.600
+ then sort of tune our algorithms on those, right?
+
+25:57.600 --> 26:00.640
+ And fortunately and unfortunately,
+
+26:00.640 --> 26:02.920
+ in this world of Alexa prize,
+
+26:02.920 --> 26:05.400
+ that is not the way we are going after it.
+
+26:05.400 --> 26:07.720
+ So you have to focus more on learning
+
+26:07.720 --> 26:10.920
+ based on life feedback.
+
+26:10.920 --> 26:12.960
+ That is another element that's unique,
+
+26:12.960 --> 26:15.080
+ where just not to,
+
+26:15.080 --> 26:17.280
+ I started with giving you how you ingress
+
+26:17.280 --> 26:21.520
+ and experience this capability as a customer.
+
+26:21.520 --> 26:23.600
+ What happens when you're done?
+
+26:23.600 --> 26:27.560
+ So they ask you a simple question on a scale of one to five,
+
+26:27.560 --> 26:31.880
+ how likely are you to interact with this social bot again?
+
+26:31.880 --> 26:33.840
+ That is a good feedback
+
+26:33.840 --> 26:37.440
+ and customers can also leave more open ended feedback.
+
+26:37.440 --> 26:40.840
+ And I think partly that to me
+
+26:40.840 --> 26:42.640
+ is one part of the question you're asking,
+
+26:42.640 --> 26:44.600
+ which I'm saying is a mental model shift
+
+26:44.600 --> 26:47.120
+ that as researchers also,
+
+26:47.120 --> 26:48.560
+ you have to change your mindset
+
+26:48.560 --> 26:52.680
+ that this is not a DARPA evaluation or NSF funded study
+
+26:52.680 --> 26:54.960
+ and you have a nice corpus.
+
+26:54.960 --> 26:56.960
+ This is where it's real world.
+
+26:56.960 --> 26:58.720
+ You have real data.
+
+26:58.720 --> 27:01.560
+ The scale is amazing and that's a beautiful thing.
+
+27:01.560 --> 27:02.960
+ And then the customer,
+
+27:02.960 --> 27:06.160
+ the user can quit the conversation at any time.
+
+27:06.160 --> 27:07.200
+ Exactly, the user can,
+
+27:07.200 --> 27:11.720
+ that is also a signal for how good you were at that point.
+
+27:11.720 --> 27:15.000
+ So, and then on a scale one to five, one to three,
+
+27:15.000 --> 27:16.360
+ do they say how likely are you
+
+27:16.360 --> 27:18.040
+ or is it just a binary?
+
+27:18.040 --> 27:18.880
+ One to five.
+
+27:18.880 --> 27:20.040
+ One to five.
+
+27:20.040 --> 27:22.680
+ Wow, okay, that's such a beautifully constructed challenge.
+
+27:22.680 --> 27:23.520
+ Okay.
+
+27:24.720 --> 27:29.720
+ You said the only way to make a smart assistant really smart
+
+27:30.040 --> 27:32.480
+ is to give it eyes and let it explore the world.
+
+27:34.560 --> 27:36.840
+ I'm not sure it might've been taken out of context,
+
+27:36.840 --> 27:38.240
+ but can you comment on that?
+
+27:38.240 --> 27:40.080
+ Can you elaborate on that idea?
+
+27:40.080 --> 27:43.120
+ Is that I personally also find that idea super exciting
+
+27:43.120 --> 27:46.240
+ from a social robotics, personal robotics perspective.
+
+27:46.240 --> 27:48.840
+ Yeah, a lot of things do get taken out of context.
+
+27:48.840 --> 27:50.600
+ This particular one was just
+
+27:50.600 --> 27:53.000
+ as philosophical discussion we were having
+
+27:53.000 --> 27:55.520
+ on terms of what does intelligence look like?
+
+27:55.520 --> 27:59.200
+ And the context was in terms of learning,
+
+27:59.200 --> 28:03.040
+ I think just we said we as humans are empowered
+
+28:03.040 --> 28:05.480
+ with many different sensory abilities.
+
+28:05.480 --> 28:09.560
+ I do believe that eyes are an important aspect of it
+
+28:09.560 --> 28:13.680
+ in terms of if you think about how we as humans learn,
+
+28:14.640 --> 28:18.320
+ it is quite complex and it's also not unimodal
+
+28:18.320 --> 28:22.040
+ that you are fed a ton of text or audio
+
+28:22.040 --> 28:23.360
+ and you just learn that way.
+
+28:23.360 --> 28:27.240
+ No, you learn by experience, you learn by seeing,
+
+28:27.240 --> 28:30.320
+ you're taught by humans
+
+28:30.320 --> 28:33.240
+ and we are very efficient in how we learn.
+
+28:33.240 --> 28:35.320
+ Machines on the contrary are very inefficient
+
+28:35.320 --> 28:38.480
+ on how they learn, especially these AIs.
+
+28:38.480 --> 28:42.640
+ I think the next wave of research is going to be
+
+28:42.640 --> 28:46.000
+ with less data, not just less human,
+
+28:46.000 --> 28:48.240
+ not just with less labeled data,
+
+28:48.240 --> 28:51.080
+ but also with a lot of weak supervision
+
+28:51.080 --> 28:55.160
+ and where you can increase the learning rate.
+
+28:55.160 --> 28:56.120
+ I don't mean less data
+
+28:56.120 --> 28:58.640
+ in terms of not having a lot of data to learn from
+
+28:58.640 --> 29:00.360
+ that we are generating so much data,
+
+29:00.360 --> 29:02.640
+ but it is more about from a aspect
+
+29:02.640 --> 29:04.880
+ of how fast can you learn?
+
+29:04.880 --> 29:07.880
+ So improving the quality of the data,
+
+29:07.880 --> 29:09.920
+ the quality of data and the learning process.
+
+29:09.920 --> 29:11.440
+ I think more on the learning process.
+
+29:11.440 --> 29:13.560
+ I think we have to, we as humans learn
+
+29:13.560 --> 29:15.720
+ with a lot of noisy data, right?
+
+29:15.720 --> 29:18.480
+ And I think that's the part
+
+29:18.480 --> 29:21.440
+ that I don't think should change.
+
+29:21.440 --> 29:23.880
+ What should change is how we learn, right?
+
+29:23.880 --> 29:26.080
+ So if you look at, you mentioned supervised learning,
+
+29:26.080 --> 29:27.960
+ we have making transformative shifts
+
+29:27.960 --> 29:31.160
+ from moving to more unsupervised, more weak supervision.
+
+29:31.160 --> 29:34.840
+ Those are the key aspects of how to learn.
+
+29:34.840 --> 29:37.760
+ And I think in that setting, I hope you agree with me
+
+29:37.760 --> 29:41.680
+ that having other senses is very crucial
+
+29:41.680 --> 29:43.480
+ in terms of how you learn.
+
+29:43.480 --> 29:44.640
+ So absolutely.
+
+29:44.640 --> 29:46.680
+ And from a machine learning perspective,
+
+29:46.680 --> 29:49.680
+ which I hope we get a chance to talk to a few aspects
+
+29:49.680 --> 29:51.080
+ that are fascinating there,
+
+29:51.080 --> 29:55.600
+ but to stick on the point of sort of a body,
+
+29:55.600 --> 29:56.440
+ an embodiment.
+
+29:56.440 --> 29:57.520
+ So Alexa has a body.
+
+29:57.520 --> 30:01.600
+ It has a very minimalistic, beautiful interface
+
+30:01.600 --> 30:02.840
+ where there's a ring and so on.
+
+30:02.840 --> 30:04.480
+ I mean, I'm not sure of all the flavors
+
+30:04.480 --> 30:07.560
+ of the devices that Alexa lives on,
+
+30:07.560 --> 30:11.000
+ but there's a minimalistic basic interface.
+
+30:13.280 --> 30:15.640
+ And nevertheless, we humans, so I have a Roomba,
+
+30:15.640 --> 30:18.240
+ I have all kinds of robots all over everywhere.
+
+30:18.240 --> 30:23.240
+ So what do you think the Alexa of the future looks like
+
+30:24.680 --> 30:29.240
+ if it begins to shift what his body looks like?
+
+30:29.240 --> 30:30.640
+ Maybe beyond the Alexa,
+
+30:30.640 --> 30:33.720
+ what do you think are the different devices in the home
+
+30:33.720 --> 30:36.880
+ as they start to embody their intelligence more and more?
+
+30:36.880 --> 30:38.080
+ What do you think that looks like?
+
+30:38.080 --> 30:41.200
+ Philosophically, a future, what do you think that looks like?
+
+30:41.200 --> 30:43.600
+ I think let's look at what's happening today.
+
+30:43.600 --> 30:46.840
+ You mentioned, I think our devices as an Amazon devices,
+
+30:46.840 --> 30:49.840
+ but I also wanted to point out Alexa is already integrated
+
+30:49.840 --> 30:51.360
+ a lot of third party devices,
+
+30:51.360 --> 30:54.840
+ which also come in lots of forms and shapes,
+
+30:54.840 --> 30:58.960
+ some in robots, some in microwaves,
+
+30:58.960 --> 31:02.600
+ some in appliances that you use in everyday life.
+
+31:02.600 --> 31:07.600
+ So I think it's not just the shape Alexa takes
+
+31:07.720 --> 31:09.200
+ in terms of form factors,
+
+31:09.200 --> 31:13.000
+ but it's also where all it's available.
+
+31:13.000 --> 31:14.240
+ And it's getting in cars,
+
+31:14.240 --> 31:16.760
+ it's getting in different appliances in homes,
+
+31:16.760 --> 31:18.720
+ even toothbrushes, right?
+
+31:18.720 --> 31:20.760
+ So I think you have to think about it
+
+31:20.760 --> 31:25.440
+ as not a physical assistant.
+
+31:25.440 --> 31:28.480
+ It will be in some embodiment, as you said,
+
+31:28.480 --> 31:31.120
+ we already have these nice devices,
+
+31:31.120 --> 31:33.800
+ but I think it's also important to think of it,
+
+31:33.800 --> 31:35.640
+ it is a virtual assistant.
+
+31:35.640 --> 31:38.520
+ It is superhuman in the sense that it is in multiple places
+
+31:38.520 --> 31:40.280
+ at the same time.
+
+31:40.280 --> 31:45.200
+ So I think the actual embodiment in some sense,
+
+31:45.200 --> 31:46.680
+ to me doesn't matter.
+
+31:47.600 --> 31:52.600
+ I think you have to think of it as not as human like
+
+31:52.800 --> 31:56.080
+ and more of what its capabilities are
+
+31:56.080 --> 31:58.840
+ that derive a lot of benefit for customers
+
+31:58.840 --> 32:00.680
+ and how there are different ways to delight it
+
+32:00.680 --> 32:03.960
+ and delight customers and different experiences.
+
+32:03.960 --> 32:08.960
+ And I think I'm a big fan of it not being just human like,
+
+32:09.240 --> 32:11.120
+ it should be human like in certain situations.
+
+32:11.120 --> 32:13.360
+ Alexa price social bot in terms of conversation
+
+32:13.360 --> 32:14.920
+ is a great way to look at it,
+
+32:14.920 --> 32:18.800
+ but there are other scenarios where human like,
+
+32:18.800 --> 32:22.080
+ I think is underselling the abilities of this AI.
+
+32:22.080 --> 32:26.120
+ So if I could trivialize what we're talking about.
+
+32:26.120 --> 32:29.400
+ So if you look at the way Steve Jobs thought
+
+32:29.400 --> 32:33.440
+ about the interaction with the device that Apple produced,
+
+32:33.440 --> 32:36.760
+ there was a extreme focus on controlling the experience
+
+32:36.760 --> 32:40.200
+ by making sure there's only this Apple produced devices.
+
+32:40.200 --> 32:45.200
+ You see the voice of Alexa being taking all kinds of forms
+
+32:45.600 --> 32:47.080
+ depending on what the customers want.
+
+32:47.080 --> 32:49.920
+ And that means it could be anywhere
+
+32:49.920 --> 32:53.760
+ from the microwave to a vacuum cleaner to the home
+
+32:53.760 --> 32:56.960
+ and so on the voice is the essential element
+
+32:56.960 --> 32:57.800
+ of the interaction.
+
+32:57.800 --> 33:01.160
+ I think voice is an essence, it's not all,
+
+33:01.160 --> 33:02.240
+ but it's a key aspect.
+
+33:02.240 --> 33:05.720
+ I think to your question in terms of,
+
+33:05.720 --> 33:08.280
+ you should be able to recognize Alexa
+
+33:08.280 --> 33:10.000
+ and that's a huge problem.
+
+33:10.000 --> 33:12.080
+ I think in terms of a huge scientific problem,
+
+33:12.080 --> 33:13.800
+ I should say like, what are the traits?
+
+33:13.800 --> 33:16.200
+ What makes it look like Alexa,
+
+33:16.200 --> 33:17.600
+ especially in different settings
+
+33:17.600 --> 33:20.440
+ and especially if it's primarily voice, what it is,
+
+33:20.440 --> 33:22.320
+ but Alexa is not just voice either, right?
+
+33:22.320 --> 33:25.080
+ I mean, we have devices with a screen.
+
+33:25.080 --> 33:28.520
+ Now you're seeing just other behaviors of Alexa.
+
+33:28.520 --> 33:31.400
+ So I think we're in very early stages of what that means
+
+33:31.400 --> 33:34.960
+ and this will be an important topic for the following years.
+
+33:34.960 --> 33:38.240
+ But I do believe that being able to recognize
+
+33:38.240 --> 33:40.520
+ and tell when it's Alexa versus it's not
+
+33:40.520 --> 33:43.400
+ is going to be important from an Alexa perspective.
+
+33:43.400 --> 33:46.040
+ I'm not speaking for the entire AI community,
+
+33:46.040 --> 33:51.040
+ but I think attribution and as we go into more
+
+33:51.040 --> 33:54.400
+ of understanding who did what,
+
+33:54.400 --> 33:58.000
+ that identity of the AI is crucial in the coming world.
+
+33:58.000 --> 34:00.320
+ I think from the broad AI community perspective,
+
+34:00.320 --> 34:02.120
+ that's also a fascinating problem.
+
+34:02.120 --> 34:05.480
+ So basically if I close my eyes and listen to the voice,
+
+34:05.480 --> 34:08.040
+ what would it take for me to recognize that this is Alexa?
+
+34:08.040 --> 34:08.880
+ Exactly.
+
+34:08.880 --> 34:10.600
+ Or at least the Alexa that I've come to know
+
+34:10.600 --> 34:13.000
+ from my personal experience in my home
+
+34:13.000 --> 34:14.400
+ through my interactions that come through.
+
+34:14.400 --> 34:16.920
+ Yeah, and the Alexa here in the US is very different
+
+34:16.920 --> 34:19.440
+ than Alexa in UK and the Alexa in India,
+
+34:19.440 --> 34:21.640
+ even though they are all speaking English
+
+34:21.640 --> 34:23.280
+ or the Australian version.
+
+34:23.280 --> 34:26.680
+ So again, so now think about when you go
+
+34:26.680 --> 34:28.400
+ into a different culture, a different community,
+
+34:28.400 --> 34:31.800
+ but you travel there, what do you recognize Alexa?
+
+34:31.800 --> 34:34.160
+ I think these are super hard questions actually.
+
+34:34.160 --> 34:36.840
+ So there's a team that works on personality.
+
+34:36.840 --> 34:39.360
+ So if we talk about those different flavors
+
+34:39.360 --> 34:41.040
+ of what it means culturally speaking,
+
+34:41.040 --> 34:44.680
+ India, UK, US, what does it mean to add?
+
+34:44.680 --> 34:46.440
+ So the problem that we just stated,
+
+34:46.440 --> 34:51.080
+ it's just fascinating, how do we make it purely recognizable
+
+34:51.080 --> 34:55.000
+ that it's Alexa, assuming that the qualities
+
+34:55.000 --> 34:56.720
+ of the voice are not sufficient?
+
+34:58.040 --> 35:01.000
+ It's also the content of what is being said.
+
+35:01.000 --> 35:02.160
+ How do we do that?
+
+35:02.160 --> 35:04.320
+ How does the personality come into play?
+
+35:04.320 --> 35:06.800
+ What's that research gonna look like?
+
+35:06.800 --> 35:08.120
+ I mean, it's such a fascinating subject.
+
+35:08.120 --> 35:11.080
+ We have some very fascinating folks
+
+35:11.080 --> 35:13.560
+ who from both the UX background and human factors
+
+35:13.560 --> 35:16.360
+ are looking at these aspects and these exact questions.
+
+35:16.360 --> 35:21.360
+ But I'll definitely say it's not just how it sounds,
+
+35:21.600 --> 35:25.320
+ the choice of words, the tone, not just, I mean,
+
+35:25.320 --> 35:28.040
+ the voice identity of it, but the tone matters,
+
+35:28.040 --> 35:30.720
+ the speed matters, how you speak,
+
+35:30.720 --> 35:34.880
+ how you enunciate words, what choice of words
+
+35:34.880 --> 35:37.320
+ are you using, how terse are you,
+
+35:37.320 --> 35:40.720
+ or how lengthy in your explanations you are.
+
+35:40.720 --> 35:42.920
+ All of these are factors.
+
+35:42.920 --> 35:45.440
+ And you also, you mentioned something crucial
+
+35:45.440 --> 35:49.160
+ that you may have personalized it, Alexa,
+
+35:49.160 --> 35:51.400
+ to some extent in your homes
+
+35:51.400 --> 35:53.440
+ or in the devices you are interacting with.
+
+35:53.440 --> 35:58.440
+ So you, as your individual, how you prefer Alexa sounds
+
+35:59.240 --> 36:01.240
+ can be different than how I prefer.
+
+36:01.240 --> 36:04.440
+ And the amount of customizability you want to give
+
+36:04.440 --> 36:07.640
+ is also a key debate we always have.
+
+36:07.640 --> 36:10.720
+ But I do want to point out it's more than the voice actor
+
+36:10.720 --> 36:14.000
+ that recorded and it sounds like that actor.
+
+36:14.000 --> 36:16.920
+ It is more about the choices of words,
+
+36:16.920 --> 36:19.800
+ the attributes of tonality, the volume
+
+36:19.800 --> 36:22.600
+ in terms of how you raise your pitch and so forth.
+
+36:22.600 --> 36:23.880
+ All of that matters.
+
+36:23.880 --> 36:25.440
+ This is such a fascinating problem
+
+36:25.440 --> 36:27.600
+ from a product perspective.
+
+36:27.600 --> 36:29.480
+ I could see those debates just happening
+
+36:29.480 --> 36:32.440
+ inside of the Alexa team of how much personalization
+
+36:32.440 --> 36:34.440
+ do you do for the specific customer?
+
+36:34.440 --> 36:37.360
+ Because you're taking a risk if you over personalize.
+
+36:38.240 --> 36:42.080
+ Because you don't, if you create a personality
+
+36:42.080 --> 36:46.040
+ for a million people, you can test that better.
+
+36:46.040 --> 36:48.640
+ You can create a rich, fulfilling experience
+
+36:48.640 --> 36:50.040
+ that will do well.
+
+36:50.040 --> 36:53.480
+ But the more you personalize it, the less you can test it,
+
+36:53.480 --> 36:56.320
+ the less you can know that it's a great experience.
+
+36:56.320 --> 36:59.720
+ So how much personalization, what's the right balance?
+
+36:59.720 --> 37:01.600
+ I think the right balance depends on the customer.
+
+37:01.600 --> 37:02.800
+ Give them the control.
+
+37:02.800 --> 37:07.400
+ So I'll say, I think the more control you give customers,
+
+37:07.400 --> 37:09.600
+ the better it is for everyone.
+
+37:09.600 --> 37:13.880
+ And I'll give you some key personalization features.
+
+37:13.880 --> 37:15.840
+ I think we have a feature called Remember This,
+
+37:15.840 --> 37:19.440
+ which is where you can tell Alexa to remember something.
+
+37:19.440 --> 37:23.080
+ There you have an explicit sort of control
+
+37:23.080 --> 37:24.600
+ in customer's hand because they have to say,
+
+37:24.600 --> 37:26.520
+ Alexa, remember X, Y, Z.
+
+37:26.520 --> 37:28.000
+ What kind of things would that be used for?
+
+37:28.000 --> 37:32.200
+ So you can like you, I have stored my tire specs
+
+37:32.200 --> 37:34.800
+ for my car because it's so hard to go and find
+
+37:34.800 --> 37:36.760
+ and see what it is, right?
+
+37:36.760 --> 37:38.320
+ When you're having some issues.
+
+37:38.320 --> 37:41.440
+ I store my mileage plan numbers
+
+37:41.440 --> 37:43.120
+ for all the frequent flyer ones
+
+37:43.120 --> 37:46.520
+ where I'm sometimes just looking at it and it's not handy.
+
+37:46.520 --> 37:49.960
+ So those are my own personal choices I've made
+
+37:49.960 --> 37:52.320
+ for Alexa to remember something on my behalf, right?
+
+37:52.320 --> 37:56.000
+ So again, I think the choice was be explicit
+
+37:56.000 --> 38:00.000
+ about how you provide that to a customer as a control.
+
+38:00.000 --> 38:03.440
+ So I think these are the aspects of what you do.
+
+38:03.440 --> 38:07.360
+ Like think about where we can use speaker recognition
+
+38:07.360 --> 38:11.000
+ capabilities that it's, if you taught Alexa
+
+38:11.000 --> 38:14.440
+ that you are Lex and this person in your household
+
+38:14.440 --> 38:17.920
+ is person two, then you can personalize the experiences.
+
+38:17.920 --> 38:22.840
+ Again, these are very in the CX customer experience patterns
+
+38:22.840 --> 38:26.520
+ are very clear about and transparent
+
+38:26.520 --> 38:29.200
+ when a personalization action is happening.
+
+38:30.040 --> 38:32.240
+ And then you have other ways like you go
+
+38:32.240 --> 38:34.640
+ through explicit control right now through your app
+
+38:34.640 --> 38:36.920
+ that your multiple service providers,
+
+38:36.920 --> 38:39.480
+ let's say for music, which one is your preferred one.
+
+38:39.480 --> 38:42.000
+ So when you say play sting, depend on your
+
+38:42.000 --> 38:44.880
+ whether you have preferred Spotify or Amazon music
+
+38:44.880 --> 38:47.240
+ or Apple music, that the decision is made
+
+38:47.240 --> 38:48.320
+ where to play it from.
+
+38:49.480 --> 38:52.720
+ So what's Alexa's backstory from her perspective?
+
+38:52.720 --> 38:57.720
+ Is there, I remember just asking as probably a lot
+
+38:58.120 --> 39:00.600
+ of us are just the basic questions about love
+
+39:00.600 --> 39:03.800
+ and so on of Alexa, just to see what the answer would be.
+
+39:03.800 --> 39:08.800
+ It feels like there's a little bit of a personality
+
+39:10.280 --> 39:12.840
+ but not too much.
+
+39:12.840 --> 39:17.840
+ Is Alexa have a metaphysical presence
+
+39:18.360 --> 39:21.880
+ in this human universe we live in
+
+39:21.880 --> 39:23.720
+ or is it something more ambiguous?
+
+39:23.720 --> 39:25.080
+ Is there a past?
+
+39:25.080 --> 39:26.240
+ Is there a birth?
+
+39:26.240 --> 39:28.920
+ Is there a family kind of idea
+
+39:28.920 --> 39:31.120
+ even for joking purposes and so on?
+
+39:31.120 --> 39:34.800
+ I think, well, it does tell you if I think you,
+
+39:34.800 --> 39:36.320
+ I should double check this but if you said
+
+39:36.320 --> 39:39.000
+ when were you born, I think we do respond.
+
+39:39.000 --> 39:40.120
+ I need to double check that
+
+39:40.120 --> 39:41.480
+ but I'm pretty positive about it.
+
+39:41.480 --> 39:44.000
+ I think you do actually because I think I've tested that.
+
+39:44.000 --> 39:49.000
+ But that's like how I was born in your brand of champagne
+
+39:49.120 --> 39:51.240
+ and whatever the year kind of thing, yeah.
+
+39:51.240 --> 39:55.720
+ So in terms of the metaphysical, I think it's early.
+
+39:55.720 --> 40:00.360
+ Does it have the historic knowledge about herself
+
+40:00.360 --> 40:01.440
+ to be able to do that?
+
+40:01.440 --> 40:03.720
+ Maybe, have we crossed that boundary?
+
+40:03.720 --> 40:04.560
+ Not yet, right?
+
+40:04.560 --> 40:06.520
+ In terms of being, thank you.
+
+40:06.520 --> 40:08.600
+ Have we thought about it quite a bit
+
+40:08.600 --> 40:11.480
+ but I wouldn't say that we have come to a clear decision
+
+40:11.480 --> 40:13.000
+ in terms of what it should look like.
+
+40:13.000 --> 40:16.920
+ But you can imagine though, and I bring this back
+
+40:16.920 --> 40:19.200
+ to the Alexa Prize social bot one,
+
+40:19.200 --> 40:21.200
+ there you will start seeing some of that.
+
+40:21.200 --> 40:23.440
+ Like these bots have their identity
+
+40:23.440 --> 40:25.720
+ and in terms of that, you may find,
+
+40:26.800 --> 40:28.400
+ this is such a great research topic
+
+40:28.400 --> 40:32.120
+ that some academia team may think of these problems
+
+40:32.120 --> 40:34.080
+ and start solving them too.
+
+40:35.080 --> 40:38.840
+ So let me ask a question.
+
+40:38.840 --> 40:41.160
+ It's kind of difficult, I think,
+
+40:41.160 --> 40:43.280
+ but it feels, and fascinating to me
+
+40:43.280 --> 40:45.320
+ because I'm fascinated with psychology.
+
+40:45.320 --> 40:48.200
+ It feels that the more personality you have,
+
+40:48.200 --> 40:50.400
+ the more dangerous it is
+
+40:50.400 --> 40:54.480
+ in terms of a customer perspective of product.
+
+40:54.480 --> 40:57.080
+ If you want to create a product that's useful.
+
+40:57.080 --> 41:01.360
+ By dangerous, I mean creating an experience that upsets me.
+
+41:02.360 --> 41:06.680
+ And so how do you get that right?
+
+41:06.680 --> 41:10.040
+ Because if you look at the relationships,
+
+41:10.040 --> 41:11.800
+ maybe I'm just a screwed up Russian,
+
+41:11.800 --> 41:15.040
+ but if you look at the human to human relationship,
+
+41:15.040 --> 41:18.120
+ some of our deepest relationships have fights,
+
+41:18.120 --> 41:21.200
+ have tension, have the push and pull,
+
+41:21.200 --> 41:22.800
+ have a little flavor in them.
+
+41:22.800 --> 41:26.800
+ Do you want to have such flavor in an interaction with Alexa?
+
+41:26.800 --> 41:28.200
+ How do you think about that?
+
+41:28.200 --> 41:31.280
+ So there's one other common thing that you didn't say,
+
+41:31.280 --> 41:35.000
+ but we think of it as paramount for any deep relationship.
+
+41:35.000 --> 41:36.680
+ That's trust.
+
+41:36.680 --> 41:37.520
+ Trust, yeah.
+
+41:37.520 --> 41:40.960
+ So I think if you trust every attribute you said,
+
+41:40.960 --> 41:44.880
+ a fight, some tension, is all healthy.
+
+41:44.880 --> 41:49.880
+ But what is sort of unnegotiable in this instance is trust.
+
+41:49.880 --> 41:52.920
+ And I think the bar to earn customer trust for AI
+
+41:52.920 --> 41:56.880
+ is very high, in some sense, more than a human.
+
+41:56.880 --> 42:01.880
+ It's not just about personal information or your data.
+
+42:02.040 --> 42:05.120
+ It's also about your actions on a daily basis.
+
+42:05.120 --> 42:07.920
+ How trustworthy are you in terms of consistency,
+
+42:07.920 --> 42:11.200
+ in terms of how accurate are you in understanding me?
+
+42:11.200 --> 42:13.680
+ Like if you're talking to a person on the phone,
+
+42:13.680 --> 42:14.880
+ if you have a problem with your,
+
+42:14.880 --> 42:16.360
+ let's say your internet or something,
+
+42:16.360 --> 42:17.720
+ if the person's not understanding,
+
+42:17.720 --> 42:19.040
+ you lose trust right away.
+
+42:19.040 --> 42:20.960
+ You don't want to talk to that person.
+
+42:20.960 --> 42:24.360
+ That whole example gets amplified by a factor of 10,
+
+42:24.360 --> 42:28.200
+ because when you're a human interacting with an AI,
+
+42:28.200 --> 42:29.720
+ you have a certain expectation.
+
+42:29.720 --> 42:31.960
+ Either you expect it to be very intelligent
+
+42:31.960 --> 42:34.400
+ and then you get upset, why is it behaving this way?
+
+42:34.400 --> 42:37.640
+ Or you expect it to be not so intelligent
+
+42:37.640 --> 42:38.800
+ and when it surprises you, you're like,
+
+42:38.800 --> 42:40.960
+ really, you're trying to be too smart?
+
+42:40.960 --> 42:43.680
+ So I think we grapple with these hard questions as well.
+
+42:43.680 --> 42:47.720
+ But I think the key is actions need to be trustworthy.
+
+42:47.720 --> 42:50.840
+ From these AIs, not just about data protection,
+
+42:50.840 --> 42:53.400
+ your personal information protection,
+
+42:53.400 --> 42:57.200
+ but also from how accurately it accomplishes
+
+42:57.200 --> 42:59.760
+ all commands or all interactions.
+
+42:59.760 --> 43:02.200
+ Well, it's tough to hear because trust,
+
+43:02.200 --> 43:03.080
+ you're absolutely right,
+
+43:03.080 --> 43:05.560
+ but trust is such a high bar with AI systems
+
+43:05.560 --> 43:07.400
+ because people, and I see this
+
+43:07.400 --> 43:08.880
+ because I work with autonomous vehicles.
+
+43:08.880 --> 43:11.720
+ I mean, the bar that's placed on AI system
+
+43:11.720 --> 43:13.440
+ is unreasonably high.
+
+43:13.440 --> 43:16.120
+ Yeah, that is going to be, I agree with you.
+
+43:16.120 --> 43:19.920
+ And I think of it as it's a challenge
+
+43:19.920 --> 43:23.120
+ and it's also keeps my job, right?
+
+43:23.120 --> 43:26.360
+ So from that perspective, I totally,
+
+43:26.360 --> 43:28.720
+ I think of it at both sides as a customer
+
+43:28.720 --> 43:30.240
+ and as a researcher.
+
+43:30.240 --> 43:33.400
+ I think as a researcher, yes, occasionally it will frustrate
+
+43:33.400 --> 43:36.920
+ me that why is the bar so high for these AIs?
+
+43:36.920 --> 43:38.640
+ And as a customer, then I say,
+
+43:38.640 --> 43:40.920
+ absolutely, it has to be that high, right?
+
+43:40.920 --> 43:44.120
+ So I think that's the trade off we have to balance,
+
+43:44.120 --> 43:46.760
+ but it doesn't change the fundamentals.
+
+43:46.760 --> 43:50.520
+ That trust has to be earned and the question then becomes
+
+43:50.520 --> 43:53.520
+ is are we holding the AIs to a different bar
+
+43:53.520 --> 43:56.320
+ in accuracy and mistakes than we hold humans?
+
+43:56.320 --> 43:58.280
+ That's going to be a great societal questions
+
+43:58.280 --> 44:00.320
+ for years to come, I think for us.
+
+44:00.320 --> 44:04.000
+ Well, one of the questions that we grapple as a society now
+
+44:04.000 --> 44:05.480
+ that I think about a lot,
+
+44:05.480 --> 44:07.840
+ I think a lot of people in the AI think about a lot
+
+44:07.840 --> 44:11.640
+ and Alexis taking on head on is privacy.
+
+44:11.640 --> 44:16.640
+ The reality is us giving over data to any AI system
+
+44:20.760 --> 44:25.760
+ can be used to enrich our lives in profound ways.
+
+44:25.800 --> 44:28.520
+ So if basically any product that does anything awesome
+
+44:28.520 --> 44:31.680
+ for you, the more data it has,
+
+44:31.680 --> 44:34.040
+ the more awesome things it can do.
+
+44:34.040 --> 44:37.040
+ And yet on the other side,
+
+44:37.040 --> 44:39.400
+ people imagine the worst case possible scenario
+
+44:39.400 --> 44:42.240
+ of what can you possibly do with that data?
+
+44:42.240 --> 44:45.680
+ People, it's goes down to trust, as you said before.
+
+44:45.680 --> 44:48.200
+ There's a fundamental distrust of,
+
+44:48.200 --> 44:50.440
+ in certain groups of governments and so on.
+
+44:50.440 --> 44:51.560
+ And depending on the government,
+
+44:51.560 --> 44:52.880
+ depending on who's in power,
+
+44:52.880 --> 44:55.400
+ depending on all these kinds of factors.
+
+44:55.400 --> 44:59.600
+ And so here's Alexa in the middle of all of it in the home,
+
+44:59.600 --> 45:02.320
+ trying to do good things for the customers.
+
+45:02.320 --> 45:05.040
+ So how do you think about privacy in this context,
+
+45:05.040 --> 45:06.720
+ the smart assistance in the home?
+
+45:06.720 --> 45:08.680
+ How do you maintain, how do you earn trust?
+
+45:08.680 --> 45:09.520
+ Absolutely.
+
+45:09.520 --> 45:12.400
+ So as you said, trust is the key here.
+
+45:12.400 --> 45:13.560
+ So you start with trust
+
+45:13.560 --> 45:16.760
+ and then privacy is a key aspect of it.
+
+45:16.760 --> 45:20.240
+ It has to be designed from very beginning about that.
+
+45:20.240 --> 45:23.920
+ And we believe in two fundamental principles.
+
+45:23.920 --> 45:26.840
+ One is transparency and second is control.
+
+45:26.840 --> 45:28.920
+ So by transparency, I mean,
+
+45:28.920 --> 45:32.120
+ when we build what is now called smart speaker
+
+45:32.120 --> 45:33.360
+ or the first echo,
+
+45:34.320 --> 45:38.400
+ we were quite judicious about making these right trade offs
+
+45:38.400 --> 45:40.160
+ on customer's behalf,
+
+45:40.160 --> 45:41.920
+ that it is pretty clear
+
+45:41.920 --> 45:44.200
+ when the audio is being sent to cloud,
+
+45:44.200 --> 45:45.280
+ the light ring comes on
+
+45:45.280 --> 45:48.280
+ when it has heard you say the word wake word,
+
+45:48.280 --> 45:49.760
+ and then the streaming happens, right?
+
+45:49.760 --> 45:51.360
+ So when the light ring comes up,
+
+45:51.360 --> 45:55.520
+ we also had, we put a physical mute button on it,
+
+45:55.520 --> 45:57.920
+ just so if you didn't want it to be listening,
+
+45:57.920 --> 45:58.760
+ even for the wake word,
+
+45:58.760 --> 46:01.800
+ then you turn the power button or the mute button on,
+
+46:01.800 --> 46:04.960
+ and that disables the microphones.
+
+46:04.960 --> 46:08.040
+ That's just the first decision on essentially transparency
+
+46:08.040 --> 46:09.720
+ and control.
+
+46:09.720 --> 46:11.720
+ Oh, then even when we launched,
+
+46:11.720 --> 46:13.840
+ we gave the control in the hands of the customers
+
+46:13.840 --> 46:16.400
+ that you can go and look at any of your individual utterances
+
+46:16.400 --> 46:19.560
+ that is recorded and delete them anytime.
+
+46:19.560 --> 46:22.520
+ And we've got to true to that promise, right?
+
+46:22.520 --> 46:25.000
+ So, and that is super, again,
+
+46:25.000 --> 46:29.080
+ a great instance of showing how you have the control.
+
+46:29.080 --> 46:30.440
+ Then we made it even easier.
+
+46:30.440 --> 46:33.080
+ You can say, like I said, delete what I said today.
+
+46:33.080 --> 46:36.880
+ So that is now making it even just more control
+
+46:36.880 --> 46:39.360
+ in your hands with what's most convenient
+
+46:39.360 --> 46:42.000
+ about this technology is voice.
+
+46:42.000 --> 46:44.400
+ You delete it with your voice now.
+
+46:44.400 --> 46:48.080
+ So these are the types of decisions we continually make.
+
+46:48.080 --> 46:51.240
+ We just recently launched this feature called,
+
+46:51.240 --> 46:52.360
+ what we think of it as,
+
+46:52.360 --> 46:55.760
+ if you wanted humans not to review your data,
+
+46:56.680 --> 46:59.160
+ because you've mentioned supervised learning, right?
+
+46:59.160 --> 47:01.160
+ So in supervised learning,
+
+47:01.160 --> 47:03.760
+ humans have to give some annotation.
+
+47:03.760 --> 47:06.200
+ And that also is now a feature
+
+47:06.200 --> 47:09.320
+ where you can essentially, if you've selected that flag,
+
+47:09.320 --> 47:11.320
+ your data will not be reviewed by a human.
+
+47:11.320 --> 47:13.640
+ So these are the types of controls
+
+47:13.640 --> 47:17.480
+ that we have to constantly offer with customers.
+
+47:18.440 --> 47:23.440
+ So why do you think it bothers people so much that,
+
+47:23.840 --> 47:26.920
+ so everything you just said is really powerful.
+
+47:26.920 --> 47:28.400
+ So the control, the ability to delete,
+
+47:28.400 --> 47:31.120
+ cause we collect, we have studies here running at MIT
+
+47:31.120 --> 47:32.760
+ that collects huge amounts of data
+
+47:32.760 --> 47:34.880
+ and people consent and so on.
+
+47:34.880 --> 47:38.040
+ The ability to delete that data is really empowering
+
+47:38.040 --> 47:40.000
+ and almost nobody ever asked to delete it,
+
+47:40.000 --> 47:44.200
+ but the ability to have that control is really powerful.
+
+47:44.200 --> 47:47.040
+ But still, there's these popular anecdote,
+
+47:47.040 --> 47:49.280
+ anecdotal evidence that people say,
+
+47:49.280 --> 47:51.000
+ they like to tell that,
+
+47:51.000 --> 47:53.160
+ them and a friend were talking about something,
+
+47:53.160 --> 47:56.120
+ I don't know, sweaters for cats.
+
+47:56.120 --> 47:58.200
+ And all of a sudden they'll have advertisements
+
+47:58.200 --> 48:01.400
+ for cat sweaters on Amazon.
+
+48:01.400 --> 48:02.680
+ That's a popular anecdote
+
+48:02.680 --> 48:05.040
+ as if something is always listening.
+
+48:05.040 --> 48:07.800
+ What, can you explain that anecdote,
+
+48:07.800 --> 48:09.120
+ that experience that people have?
+
+48:09.120 --> 48:11.000
+ What's the psychology of that?
+
+48:11.000 --> 48:13.080
+ What's that experience?
+
+48:13.080 --> 48:15.080
+ And can you, you've answered it,
+
+48:15.080 --> 48:17.440
+ but let me just ask, is Alexa listening?
+
+48:18.280 --> 48:22.560
+ No, Alexa listens only for the wake word on the device.
+
+48:22.560 --> 48:23.920
+ And the wake word is?
+
+48:23.920 --> 48:28.080
+ The words like Alexa, Amazon, Echo,
+
+48:28.080 --> 48:29.640
+ but you only choose one at a time.
+
+48:29.640 --> 48:31.640
+ So you choose one and it listens only
+
+48:31.640 --> 48:33.000
+ for that on our devices.
+
+48:34.040 --> 48:35.160
+ So that's first.
+
+48:35.160 --> 48:36.480
+ From a listening perspective,
+
+48:36.480 --> 48:38.360
+ we have to be very clear that it's just the wake word.
+
+48:38.360 --> 48:41.280
+ So you said, why is there this anxiety, if you may?
+
+48:41.280 --> 48:42.120
+ Yeah, exactly.
+
+48:42.120 --> 48:43.560
+ It's because there's a lot of confusion,
+
+48:43.560 --> 48:45.360
+ what it really listens to, right?
+
+48:45.360 --> 48:48.760
+ And I think it's partly on us to keep educating
+
+48:49.680 --> 48:52.240
+ our customers and the general media more
+
+48:52.240 --> 48:54.080
+ in terms of like how, what really happens.
+
+48:54.080 --> 48:56.560
+ And we've done a lot of it.
+
+48:56.560 --> 49:00.840
+ And our pages on information are clear,
+
+49:00.840 --> 49:04.040
+ but still people have to have more,
+
+49:04.040 --> 49:06.680
+ there's always a hunger for information and clarity.
+
+49:06.680 --> 49:09.120
+ And we'll constantly look at how best to communicate.
+
+49:09.120 --> 49:10.560
+ If you go back and read everything,
+
+49:10.560 --> 49:12.280
+ yes, it states exactly that.
+
+49:13.120 --> 49:15.360
+ And then people could still question it.
+
+49:15.360 --> 49:17.760
+ And I think that's absolutely okay to question.
+
+49:17.760 --> 49:21.760
+ What we have to make sure is that we are,
+
+49:21.760 --> 49:24.880
+ because our fundamental philosophy is customer first,
+
+49:24.880 --> 49:27.280
+ customer obsession is our leadership principle.
+
+49:27.280 --> 49:31.040
+ If you put, as researchers, I put myself
+
+49:31.040 --> 49:33.200
+ in the shoes of the customer,
+
+49:33.200 --> 49:35.880
+ and all decisions in Amazon are made with that.
+
+49:35.880 --> 49:38.040
+ And trust has to be earned,
+
+49:38.040 --> 49:39.440
+ and we have to keep earning the trust
+
+49:39.440 --> 49:41.800
+ of our customers in this setting.
+
+49:41.800 --> 49:44.080
+ And to your other point on like,
+
+49:44.080 --> 49:45.560
+ is there something showing up
+
+49:45.560 --> 49:46.680
+ based on your conversations?
+
+49:46.680 --> 49:49.640
+ No, I think the answer is like,
+
+49:49.640 --> 49:51.400
+ a lot of times when those experiences happen,
+
+49:51.400 --> 49:52.840
+ you have to also know that, okay,
+
+49:52.840 --> 49:54.600
+ it may be a winter season,
+
+49:54.600 --> 49:56.480
+ people are looking for sweaters, right?
+
+49:56.480 --> 49:59.640
+ And it shows up on your amazon.com because it is popular.
+
+49:59.640 --> 50:01.440
+ So there are many of these,
+
+50:02.720 --> 50:06.320
+ you mentioned that personality or personalization,
+
+50:06.320 --> 50:09.120
+ turns out we are not that unique either, right?
+
+50:09.120 --> 50:12.080
+ So those things we as humans start thinking,
+
+50:12.080 --> 50:14.120
+ oh, must be because something was heard,
+
+50:14.120 --> 50:16.720
+ and that's why this other thing showed up.
+
+50:16.720 --> 50:17.760
+ The answer is no,
+
+50:17.760 --> 50:21.520
+ probably it is just the season for sweaters.
+
+50:21.520 --> 50:23.800
+ I'm not gonna ask you this question
+
+50:23.800 --> 50:27.160
+ because people have so much paranoia.
+
+50:27.160 --> 50:29.200
+ But let me just say from my perspective,
+
+50:29.200 --> 50:33.160
+ I hope there's a day when customer can ask Alexa
+
+50:33.160 --> 50:34.320
+ to listen all the time,
+
+50:35.200 --> 50:36.640
+ to improve the experience,
+
+50:36.640 --> 50:39.800
+ to improve because I personally don't see the negative
+
+50:40.760 --> 50:43.920
+ because if you have the control and if you have the trust,
+
+50:43.920 --> 50:45.640
+ there's no reason why I shouldn't be listening
+
+50:45.640 --> 50:48.280
+ all the time to the conversations to learn more about you.
+
+50:48.280 --> 50:49.640
+ Because ultimately,
+
+50:49.640 --> 50:52.560
+ as long as you have control and trust,
+
+50:52.560 --> 50:55.680
+ every data you provide to the device,
+
+50:55.680 --> 51:00.200
+ that the device wants is going to be useful.
+
+51:00.200 --> 51:03.880
+ And so to me, as a machine learning person,
+
+51:03.880 --> 51:08.200
+ I think it worries me how sensitive people are
+
+51:08.200 --> 51:13.200
+ about their data relative to how empowering it could be
+
+51:13.200 --> 51:18.200
+ relative to how empowering it could be
+
+51:19.320 --> 51:21.160
+ for the devices around them,
+
+51:21.160 --> 51:23.720
+ how enriching it could be for their own life
+
+51:23.720 --> 51:25.440
+ to improve the product.
+
+51:25.440 --> 51:28.320
+ So I just, it's something I think about sort of a lot,
+
+51:28.320 --> 51:29.520
+ how do we make that devices,
+
+51:29.520 --> 51:32.200
+ obviously Alexa thinks about a lot as well.
+
+51:32.200 --> 51:34.200
+ I don't know if you wanna comment on that,
+
+51:34.200 --> 51:35.360
+ sort of, okay, have you seen,
+
+51:35.360 --> 51:37.560
+ let me ask it in the form of a question, okay.
+
+51:38.680 --> 51:42.240
+ Have you seen an evolution in the way people think about
+
+51:42.240 --> 51:46.400
+ their private data in the previous several years?
+
+51:46.400 --> 51:48.680
+ So as we as a society get more and more comfortable
+
+51:48.680 --> 51:52.600
+ to the benefits we get by sharing more data.
+
+51:53.520 --> 51:55.040
+ First, let me answer that part
+
+51:55.040 --> 51:55.960
+ and then I'll wanna go back
+
+51:55.960 --> 51:58.440
+ to the other aspect you were mentioning.
+
+51:58.440 --> 52:01.160
+ So as a society, on a general,
+
+52:01.160 --> 52:03.120
+ we are getting more comfortable as a society.
+
+52:03.120 --> 52:05.840
+ Doesn't mean that everyone is,
+
+52:05.840 --> 52:07.600
+ and I think we have to respect that.
+
+52:07.600 --> 52:10.320
+ I don't think one size fits all
+
+52:10.320 --> 52:13.520
+ is always gonna be the answer for all, right?
+
+52:13.520 --> 52:14.360
+ By definition.
+
+52:14.360 --> 52:17.160
+ So I think that's something to keep in mind in these.
+
+52:17.160 --> 52:19.600
+ Going back to your, on what more
+
+52:21.400 --> 52:23.640
+ magical experiences can be launched
+
+52:23.640 --> 52:26.040
+ in these kinds of AI settings.
+
+52:26.040 --> 52:29.200
+ I think again, if you give the control,
+
+52:29.200 --> 52:32.080
+ we, it's possible certain parts of it.
+
+52:32.080 --> 52:33.960
+ So we have a feature called follow up mode
+
+52:33.960 --> 52:37.000
+ where you, if you turn it on
+
+52:37.000 --> 52:40.400
+ and Alexa, after you've spoken to it,
+
+52:40.400 --> 52:42.000
+ will open the mics again,
+
+52:42.000 --> 52:44.680
+ thinking you will answer something again.
+
+52:44.680 --> 52:47.880
+ Like if you're adding lists to your shopping item,
+
+52:47.880 --> 52:50.360
+ so right, or a shopping list or to do list,
+
+52:50.360 --> 52:51.440
+ you're not done.
+
+52:51.440 --> 52:53.000
+ You want to keep, so in that setting,
+
+52:53.000 --> 52:54.520
+ it's awesome that it opens the mic
+
+52:54.520 --> 52:57.160
+ for you to say eggs and milk and then bread, right?
+
+52:57.160 --> 52:59.920
+ So these are the kinds of things which you can empower.
+
+52:59.920 --> 53:02.320
+ So, and then another feature we have,
+
+53:02.320 --> 53:04.960
+ which is called Alexa Guard.
+
+53:04.960 --> 53:07.800
+ I said it only listens for the wake word, right?
+
+53:07.800 --> 53:10.480
+ But if you have, let's say you're going to say,
+
+53:10.480 --> 53:13.440
+ like you leave your home and you want Alexa to listen
+
+53:13.440 --> 53:17.200
+ for a couple of sound events like smoke alarm going off
+
+53:17.200 --> 53:19.280
+ or someone breaking your glass, right?
+
+53:19.280 --> 53:22.160
+ So it's like just to keep your peace of mind.
+
+53:22.160 --> 53:26.480
+ So you can say Alexa on guard or I'm away
+
+53:26.480 --> 53:29.200
+ and then it can be listening for these sound events.
+
+53:29.200 --> 53:33.040
+ And when you're home, you come out of that mode, right?
+
+53:33.040 --> 53:35.560
+ So this is another one where you again gave controls
+
+53:35.560 --> 53:38.040
+ in the hands of the user or the customer
+
+53:38.040 --> 53:42.440
+ and to enable some experience that is high utility
+
+53:42.440 --> 53:44.600
+ and maybe even more delightful in the certain settings
+
+53:44.600 --> 53:46.480
+ like follow up mode and so forth.
+
+53:46.480 --> 53:48.880
+ And again, this general principle is the same,
+
+53:48.880 --> 53:50.760
+ control in the hands of the customer.
+
+53:52.640 --> 53:55.480
+ So I know we kind of started with a lot of philosophy
+
+53:55.480 --> 53:56.840
+ and a lot of interesting topics
+
+53:56.840 --> 53:58.280
+ and we're just jumping all over the place,
+
+53:58.280 --> 54:00.280
+ but really some of the fascinating things
+
+54:00.280 --> 54:03.040
+ that the Alexa team and Amazon is doing
+
+54:03.040 --> 54:05.480
+ is in the algorithm side, the data side,
+
+54:05.480 --> 54:07.520
+ the technology, the deep learning, machine learning
+
+54:07.520 --> 54:08.880
+ and so on.
+
+54:08.880 --> 54:13.040
+ So can you give a brief history of Alexa
+
+54:13.040 --> 54:15.440
+ from the perspective of just innovation,
+
+54:15.440 --> 54:18.640
+ the algorithms, the data of how it was born,
+
+54:18.640 --> 54:22.280
+ how it came to be, how it's grown, where it is today?
+
+54:22.280 --> 54:24.360
+ Yeah, it start with in Amazon,
+
+54:24.360 --> 54:27.000
+ everything starts with the customer
+
+54:27.000 --> 54:30.320
+ and we have a process called working backwards.
+
+54:30.320 --> 54:35.040
+ Alexa and more specifically than the product Echo,
+
+54:35.040 --> 54:37.320
+ there was a working backwards document essentially
+
+54:37.320 --> 54:38.880
+ that reflected what it would be,
+
+54:38.880 --> 54:43.880
+ started with a very simple vision statement for instance
+
+54:44.320 --> 54:47.160
+ that morphed into a full fledged document
+
+54:47.160 --> 54:51.720
+ along the way changed into what all it can do, right?
+
+54:51.720 --> 54:54.160
+ But the inspiration was the Star Trek computer.
+
+54:54.160 --> 54:56.240
+ So when you think of it that way,
+
+54:56.240 --> 54:58.360
+ everything is possible, but when you launch a product,
+
+54:58.360 --> 55:01.040
+ you have to start with some place.
+
+55:01.040 --> 55:05.520
+ And when I joined, the product was already in conception
+
+55:05.520 --> 55:08.960
+ and we started working on the far field speech recognition
+
+55:08.960 --> 55:10.960
+ because that was the first thing to solve.
+
+55:10.960 --> 55:12.880
+ By that we mean that you should be able to speak
+
+55:12.880 --> 55:15.280
+ to the device from a distance.
+
+55:15.280 --> 55:18.840
+ And in those days, that wasn't a common practice.
+
+55:18.840 --> 55:22.360
+ And even in the previous research world I was in
+
+55:22.360 --> 55:24.640
+ was considered to an unsolvable problem then
+
+55:24.640 --> 55:28.320
+ in terms of whether you can converse from a length.
+
+55:28.320 --> 55:30.360
+ And here I'm still talking about the first part
+
+55:30.360 --> 55:32.440
+ of the problem where you say,
+
+55:32.440 --> 55:34.080
+ get the attention of the device
+
+55:34.080 --> 55:37.120
+ as in by saying what we call the wake word,
+
+55:37.120 --> 55:40.400
+ which means the word Alexa has to be detected
+
+55:40.400 --> 55:44.880
+ with a very high accuracy because it is a very common word.
+
+55:44.880 --> 55:48.240
+ It has sound units that map with words like I like you
+
+55:48.240 --> 55:51.160
+ or Alec, Alex, right?
+
+55:51.160 --> 55:56.160
+ So it's a undoubtedly hard problem to detect
+
+55:56.160 --> 56:00.520
+ the right mentions of Alexa's address to the device
+
+56:00.520 --> 56:02.800
+ versus I like Alexa.
+
+56:02.800 --> 56:04.240
+ So you have to pick up that signal
+
+56:04.240 --> 56:06.040
+ when there's a lot of noise.
+
+56:06.040 --> 56:09.120
+ Not only noise but a lot of conversation in the house,
+
+56:09.120 --> 56:09.960
+ right?
+
+56:09.960 --> 56:10.800
+ You remember on the device,
+
+56:10.800 --> 56:13.160
+ you're simply listening for the wake word, Alexa.
+
+56:13.160 --> 56:15.760
+ And there's a lot of words being spoken in the house.
+
+56:15.760 --> 56:20.760
+ How do you know it's Alexa and directed at Alexa?
+
+56:21.720 --> 56:25.320
+ Because I could say, I love my Alexa, I hate my Alexa.
+
+56:25.320 --> 56:27.000
+ I want Alexa to do this.
+
+56:27.000 --> 56:29.280
+ And in all these three sentences, I said, Alexa,
+
+56:29.280 --> 56:30.600
+ I didn't want it to wake up.
+
+56:32.120 --> 56:33.720
+ Can I just pause on that second?
+
+56:33.720 --> 56:36.680
+ What would be your device that I should probably
+
+56:36.680 --> 56:39.920
+ in the introduction of this conversation give to people
+
+56:39.920 --> 56:43.440
+ in terms of them turning off their Alexa device
+
+56:43.440 --> 56:48.440
+ if they're listening to this podcast conversation out loud?
+
+56:49.240 --> 56:51.640
+ Like what's the probability that an Alexa device
+
+56:51.640 --> 56:55.160
+ will go off because we mentioned Alexa like a million times.
+
+56:55.160 --> 56:58.120
+ So it will, we have done a lot of different things
+
+56:58.120 --> 57:03.120
+ where we can figure out that there is the device,
+
+57:03.720 --> 57:08.200
+ the speech is coming from a human versus over the air.
+
+57:08.200 --> 57:11.720
+ Also, I mean, in terms of like, also it is think about ads
+
+57:11.720 --> 57:14.240
+ or so we have also launched a technology
+
+57:14.240 --> 57:16.280
+ for watermarking kind of approaches
+
+57:16.280 --> 57:18.800
+ in terms of filtering it out.
+
+57:18.800 --> 57:21.600
+ But yes, if this kind of a podcast is happening,
+
+57:21.600 --> 57:24.360
+ it's possible your device will wake up a few times.
+
+57:24.360 --> 57:25.440
+ It's an unsolved problem,
+
+57:25.440 --> 57:30.440
+ but it is definitely something we care very much about.
+
+57:31.040 --> 57:33.880
+ But the idea is you wanna detect Alexa.
+
+57:33.880 --> 57:36.080
+ Meant for the device.
+
+57:36.080 --> 57:40.040
+ First of all, just even hearing Alexa versus I like something.
+
+57:40.040 --> 57:41.040
+ I mean, that's a fascinating part.
+
+57:41.040 --> 57:43.040
+ So that was the first relief.
+
+57:43.040 --> 57:43.880
+ That's the first.
+
+57:43.880 --> 57:45.960
+ The world's best detector of Alexa.
+
+57:45.960 --> 57:48.720
+ Yeah, the world's best wake word detector
+
+57:48.720 --> 57:49.920
+ in a far field setting,
+
+57:49.920 --> 57:52.960
+ not like something where the phone is sitting on the table.
+
+57:53.840 --> 57:56.680
+ This is like people have devices 40 feet away
+
+57:56.680 --> 58:00.640
+ like in my house or 20 feet away and you still get an answer.
+
+58:00.640 --> 58:02.480
+ So that was the first part.
+
+58:02.480 --> 58:05.880
+ The next is, okay, you're speaking to the device.
+
+58:05.880 --> 58:09.000
+ Of course, you're gonna issue many different requests.
+
+58:09.000 --> 58:11.560
+ Some may be simple, some may be extremely hard,
+
+58:11.560 --> 58:13.720
+ but it's a large vocabulary speech recognition problem
+
+58:13.720 --> 58:17.600
+ essentially, where the audio is now not coming
+
+58:17.600 --> 58:20.360
+ onto your phone or a handheld mic like this
+
+58:20.360 --> 58:23.880
+ or a close talking mic, but it's from 20 feet away
+
+58:23.880 --> 58:26.240
+ where if you're in a busy household,
+
+58:26.240 --> 58:28.840
+ your son may be listening to music,
+
+58:28.840 --> 58:31.600
+ your daughter may be running around with something
+
+58:31.600 --> 58:33.800
+ and asking your mom something and so forth, right?
+
+58:33.800 --> 58:36.360
+ So this is like a common household setting
+
+58:36.360 --> 58:40.160
+ where the words you're speaking to Alexa
+
+58:40.160 --> 58:43.400
+ need to be recognized with very high accuracy, right?
+
+58:43.400 --> 58:45.800
+ Now we are still just in the recognition problem.
+
+58:45.800 --> 58:48.160
+ We haven't yet come to the understanding one, right?
+
+58:48.160 --> 58:50.160
+ And if I pause them, sorry, once again,
+
+58:50.160 --> 58:51.160
+ what year was this?
+
+58:51.160 --> 58:55.520
+ Is this before neural networks began to start
+
+58:56.440 --> 59:00.480
+ to seriously prove themselves in the audio space?
+
+59:00.480 --> 59:05.480
+ Yeah, this is around, so I joined in 2013 in April, right?
+
+59:05.480 --> 59:08.800
+ So the early research and neural networks coming back
+
+59:08.800 --> 59:11.240
+ and showing some promising results
+
+59:11.240 --> 59:13.560
+ in speech recognition space had started happening,
+
+59:13.560 --> 59:15.360
+ but it was very early.
+
+59:15.360 --> 59:17.800
+ But we just now build on that
+
+59:17.800 --> 59:22.800
+ on the very first thing we did when I joined with the team.
+
+59:23.240 --> 59:25.960
+ And remember, it was a very much of a startup environment,
+
+59:25.960 --> 59:28.080
+ which is great about Amazon.
+
+59:28.080 --> 59:31.240
+ And we doubled down on deep learning right away.
+
+59:31.240 --> 59:36.240
+ And we knew we'll have to improve accuracy fast.
+
+59:36.600 --> 59:38.960
+ And because of that, we worked on,
+
+59:38.960 --> 59:41.640
+ and the scale of data, once you have a device like this,
+
+59:41.640 --> 59:44.920
+ if it is successful, will improve big time.
+
+59:44.920 --> 59:48.040
+ Like you'll suddenly have large volumes of data
+
+59:48.040 --> 59:51.080
+ to learn from to make the customer experience better.
+
+59:51.080 --> 59:52.480
+ So how do you scale deep learning?
+
+59:52.480 --> 59:54.560
+ So we did one of the first works
+
+59:54.560 --> 59:57.600
+ in training with distributed GPUs
+
+59:57.600 --> 1:00:01.400
+ and where the training time was linear
+
+1:00:01.400 --> 1:00:03.960
+ in terms of the amount of data.
+
+1:00:03.960 --> 1:00:06.200
+ So that was quite important work
+
+1:00:06.200 --> 1:00:07.840
+ where it was algorithmic improvements
+
+1:00:07.840 --> 1:00:09.920
+ as well as a lot of engineering improvements
+
+1:00:09.920 --> 1:00:14.000
+ to be able to train on thousands and thousands of speech.
+
+1:00:14.000 --> 1:00:15.600
+ And that was an important factor.
+
+1:00:15.600 --> 1:00:19.320
+ So if you ask me like back in 2013 and 2014,
+
+1:00:19.320 --> 1:00:22.440
+ when we launched Echo,
+
+1:00:22.440 --> 1:00:25.680
+ the combination of large scale data,
+
+1:00:25.680 --> 1:00:29.680
+ deep learning progress, near infinite GPUs
+
+1:00:29.680 --> 1:00:33.120
+ we had available on AWS even then,
+
+1:00:33.120 --> 1:00:35.320
+ was all came together for us to be able
+
+1:00:35.320 --> 1:00:38.400
+ to solve the far field speech recognition
+
+1:00:38.400 --> 1:00:40.640
+ to the extent it could be useful to the customers.
+
+1:00:40.640 --> 1:00:41.480
+ It's still not solved.
+
+1:00:41.480 --> 1:00:43.000
+ Like, I mean, it's not that we are perfect
+
+1:00:43.000 --> 1:00:45.520
+ at recognizing speech, but we are great at it
+
+1:00:45.520 --> 1:00:48.360
+ in terms of the settings that are in homes, right?
+
+1:00:48.360 --> 1:00:50.920
+ So, and that was important even in the early stages.
+
+1:00:50.920 --> 1:00:51.960
+ So first of all, just even,
+
+1:00:51.960 --> 1:00:54.240
+ I'm trying to look back at that time.
+
+1:00:54.240 --> 1:00:57.120
+ If I remember correctly,
+
+1:00:57.120 --> 1:01:01.160
+ it was, it seems like the task would be pretty daunting.
+
+1:01:01.160 --> 1:01:04.480
+ So like, so we kind of take it for granted
+
+1:01:04.480 --> 1:01:06.400
+ that it works now.
+
+1:01:06.400 --> 1:01:07.720
+ Yes, you're right.
+
+1:01:07.720 --> 1:01:10.880
+ So let me, like how, first of all, you mentioned startup.
+
+1:01:10.880 --> 1:01:12.880
+ I wasn't familiar how big the team was.
+
+1:01:12.880 --> 1:01:14.200
+ I kind of, cause I know there's a lot
+
+1:01:14.200 --> 1:01:16.040
+ of really smart people working on it.
+
+1:01:16.040 --> 1:01:17.880
+ So now it's a very, very large team.
+
+1:01:19.120 --> 1:01:20.840
+ How big was the team?
+
+1:01:20.840 --> 1:01:24.120
+ How likely were you to fail in the eyes of everyone else?
+
+1:01:24.120 --> 1:01:26.120
+ And ourselves?
+
+1:01:26.120 --> 1:01:27.760
+ And yourself?
+
+1:01:27.760 --> 1:01:28.600
+ So like what?
+
+1:01:28.600 --> 1:01:31.600
+ I'll give you a very interesting anecdote on that.
+
+1:01:31.600 --> 1:01:33.880
+ When I joined the team,
+
+1:01:33.880 --> 1:01:37.680
+ the speech recognition team was six people.
+
+1:01:37.680 --> 1:01:40.520
+ My first meeting, and we had hired a few more people,
+
+1:01:40.520 --> 1:01:41.680
+ it was 10 people.
+
+1:01:42.960 --> 1:01:45.560
+ Nine out of 10 people thought it can't be done.
+
+1:01:48.040 --> 1:01:48.880
+ Who was the one?
+
+1:01:50.080 --> 1:01:52.960
+ The one was me, say, actually I should say,
+
+1:01:52.960 --> 1:01:56.000
+ and one was semi optimistic.
+
+1:01:56.000 --> 1:01:59.120
+ And eight were trying to convince,
+
+1:01:59.120 --> 1:02:01.720
+ let's go to the management and say,
+
+1:02:01.720 --> 1:02:03.600
+ let's not work on this problem.
+
+1:02:03.600 --> 1:02:05.240
+ Let's work on some other problem,
+
+1:02:05.240 --> 1:02:09.000
+ like either telephony speech for customer service calls
+
+1:02:09.000 --> 1:02:10.160
+ and so forth.
+
+1:02:10.160 --> 1:02:12.040
+ But this was the kind of belief you must have.
+
+1:02:12.040 --> 1:02:14.360
+ And I had experience with far field speech recognition
+
+1:02:14.360 --> 1:02:17.720
+ and my eyes lit up when I saw a problem like that saying,
+
+1:02:17.720 --> 1:02:20.840
+ okay, we have been in speech recognition,
+
+1:02:20.840 --> 1:02:23.400
+ always looking for that killer app.
+
+1:02:23.400 --> 1:02:25.840
+ And this was a killer use case
+
+1:02:25.840 --> 1:02:28.840
+ to bring something delightful in the hands of customers.
+
+1:02:28.840 --> 1:02:31.200
+ So you mentioned the way you kind of think of it
+
+1:02:31.200 --> 1:02:32.680
+ in the product way in the future,
+
+1:02:32.680 --> 1:02:35.760
+ have a press release and an FAQ and you think backwards.
+
+1:02:35.760 --> 1:02:39.880
+ Did you have, did the team have the echo in mind?
+
+1:02:41.000 --> 1:02:43.040
+ So this far field speech recognition,
+
+1:02:43.040 --> 1:02:45.360
+ actually putting a thing in the home that works,
+
+1:02:45.360 --> 1:02:46.640
+ that it's able to interact with,
+
+1:02:46.640 --> 1:02:48.160
+ was that the press release?
+
+1:02:48.160 --> 1:02:49.000
+ What was the?
+
+1:02:49.000 --> 1:02:51.440
+ The way close, I would say, in terms of the,
+
+1:02:51.440 --> 1:02:55.520
+ as I said, the vision was start a computer, right?
+
+1:02:55.520 --> 1:02:56.880
+ Or the inspiration.
+
+1:02:56.880 --> 1:02:59.120
+ And from there, I can't divulge
+
+1:02:59.120 --> 1:03:00.600
+ all the exact specifications,
+
+1:03:00.600 --> 1:03:05.600
+ but one of the first things that was magical on Alexa
+
+1:03:07.200 --> 1:03:08.800
+ was music.
+
+1:03:08.800 --> 1:03:11.160
+ It brought me to back to music
+
+1:03:11.160 --> 1:03:14.200
+ because my taste was still in when I was an undergrad.
+
+1:03:14.200 --> 1:03:17.400
+ So I still listened to those songs and I,
+
+1:03:17.400 --> 1:03:21.400
+ it was too hard for me to be a music fan with a phone, right?
+
+1:03:21.400 --> 1:03:24.200
+ So I, and I don't, I hate things in my ears.
+
+1:03:24.200 --> 1:03:28.120
+ So from that perspective, it was quite hard
+
+1:03:28.120 --> 1:03:30.560
+ and music was part of the,
+
+1:03:32.040 --> 1:03:33.640
+ at least the documents I have seen, right?
+
+1:03:33.640 --> 1:03:36.120
+ So from that perspective, I think, yes,
+
+1:03:36.120 --> 1:03:40.920
+ in terms of how far are we from the original vision?
+
+1:03:40.920 --> 1:03:42.400
+ I can't reveal that, but it's,
+
+1:03:42.400 --> 1:03:44.520
+ that's why I have done a fun at work
+
+1:03:44.520 --> 1:03:47.200
+ because every day we go in and thinking like,
+
+1:03:47.200 --> 1:03:49.080
+ these are the new set of challenges to solve.
+
+1:03:49.080 --> 1:03:51.920
+ Yeah, that's a great way to do great engineering
+
+1:03:51.920 --> 1:03:53.640
+ as you think of the press release.
+
+1:03:53.640 --> 1:03:55.040
+ I like that idea actually.
+
+1:03:55.040 --> 1:03:56.840
+ Maybe we'll talk about it a bit later,
+
+1:03:56.840 --> 1:03:59.280
+ but it's just a super nice way to have a focus.
+
+1:03:59.280 --> 1:04:01.400
+ I'll tell you this, you're a scientist
+
+1:04:01.400 --> 1:04:03.760
+ and a lot of my scientists have adopted that.
+
+1:04:03.760 --> 1:04:07.000
+ They have now, they love it as a process
+
+1:04:07.000 --> 1:04:09.000
+ because it was very, as scientists,
+
+1:04:09.000 --> 1:04:10.960
+ you're trained to write great papers,
+
+1:04:10.960 --> 1:04:13.520
+ but they are all after you've done the research
+
+1:04:13.520 --> 1:04:16.640
+ or you've proven that and your PhD dissertation proposal
+
+1:04:16.640 --> 1:04:18.480
+ is something that comes closest
+
+1:04:18.480 --> 1:04:21.200
+ or a DARPA proposal or a NSF proposal
+
+1:04:21.200 --> 1:04:23.640
+ is the closest that comes to a press release.
+
+1:04:23.640 --> 1:04:27.040
+ But that process is now ingrained in our scientists,
+
+1:04:27.040 --> 1:04:29.840
+ which is like delightful for me to see.
+
+1:04:30.960 --> 1:04:33.080
+ You write the paper first and then make it happen.
+
+1:04:33.080 --> 1:04:33.920
+ That's right.
+
+1:04:33.920 --> 1:04:34.760
+ In fact, it's not.
+
+1:04:34.760 --> 1:04:36.320
+ State of the art results.
+
+1:04:36.320 --> 1:04:38.480
+ Or you leave the results section open
+
+1:04:38.480 --> 1:04:41.680
+ where you have a thesis about here's what I expect, right?
+
+1:04:41.680 --> 1:04:44.960
+ And here's what it will change, right?
+
+1:04:44.960 --> 1:04:46.560
+ So I think it is a great thing.
+
+1:04:46.560 --> 1:04:48.280
+ It works for researchers as well.
+
+1:04:48.280 --> 1:04:49.120
+ Yeah.
+
+1:04:49.120 --> 1:04:50.760
+ So far field recognition.
+
+1:04:50.760 --> 1:04:52.400
+ Yeah.
+
+1:04:52.400 --> 1:04:53.920
+ What was the big leap?
+
+1:04:53.920 --> 1:04:55.520
+ What were the breakthroughs
+
+1:04:55.520 --> 1:04:58.440
+ and what was that journey like to today?
+
+1:04:58.440 --> 1:05:00.240
+ Yeah, I think the, as you said first,
+
+1:05:00.240 --> 1:05:01.640
+ there was a lot of skepticism
+
+1:05:01.640 --> 1:05:03.400
+ on whether far field speech recognition
+
+1:05:03.400 --> 1:05:06.560
+ will ever work to be good enough, right?
+
+1:05:06.560 --> 1:05:10.040
+ And what we first did was got a lot of training data
+
+1:05:10.040 --> 1:05:11.520
+ in a far field setting.
+
+1:05:11.520 --> 1:05:14.080
+ And that was extremely hard to get
+
+1:05:14.080 --> 1:05:16.240
+ because none of it existed.
+
+1:05:16.240 --> 1:05:20.120
+ So how do you collect data in far field setup, right?
+
+1:05:20.120 --> 1:05:21.400
+ With no customer base at this time.
+
+1:05:21.400 --> 1:05:22.720
+ With no customer base, right?
+
+1:05:22.720 --> 1:05:24.840
+ So that was first innovation.
+
+1:05:24.840 --> 1:05:27.040
+ And once we had that, the next thing was,
+
+1:05:27.040 --> 1:05:29.760
+ okay, if you have the data,
+
+1:05:29.760 --> 1:05:31.920
+ first of all, we didn't talk about like,
+
+1:05:31.920 --> 1:05:35.320
+ what would magical mean in this kind of a setting?
+
+1:05:35.320 --> 1:05:37.520
+ What is good enough for customers, right?
+
+1:05:37.520 --> 1:05:40.480
+ That's always, since you've never done this before,
+
+1:05:40.480 --> 1:05:41.680
+ what would be magical?
+
+1:05:41.680 --> 1:05:44.280
+ So it wasn't just a research problem.
+
+1:05:44.280 --> 1:05:47.720
+ You had to put some in terms of accuracy
+
+1:05:47.720 --> 1:05:49.960
+ and customer experience features,
+
+1:05:49.960 --> 1:05:51.560
+ some stakes on the ground saying,
+
+1:05:51.560 --> 1:05:55.000
+ here's where I think it should get to.
+
+1:05:55.000 --> 1:05:56.120
+ So you established a bar
+
+1:05:56.120 --> 1:05:57.520
+ and then how do you measure progress
+
+1:05:57.520 --> 1:06:01.800
+ towards given you have no customer right now.
+
+1:06:01.800 --> 1:06:04.240
+ So from that perspective, we went,
+
+1:06:04.240 --> 1:06:07.600
+ so first was the data without customers.
+
+1:06:07.600 --> 1:06:10.600
+ Second was doubling down on deep learning
+
+1:06:10.600 --> 1:06:11.960
+ as a way to learn.
+
+1:06:11.960 --> 1:06:16.200
+ And I can just tell you that the combination of the two
+
+1:06:16.200 --> 1:06:19.240
+ got our error rates by a factor of five.
+
+1:06:19.240 --> 1:06:21.440
+ From where we were when I started
+
+1:06:21.440 --> 1:06:24.360
+ to within six months of having that data,
+
+1:06:24.360 --> 1:06:28.440
+ we, at that point, I got the conviction
+
+1:06:28.440 --> 1:06:29.960
+ that this will work, right?
+
+1:06:29.960 --> 1:06:31.680
+ So, because that was magical
+
+1:06:31.680 --> 1:06:34.760
+ in terms of when it started working and.
+
+1:06:34.760 --> 1:06:36.280
+ That reached the magical bar.
+
+1:06:36.280 --> 1:06:38.000
+ That came close to the magical bar.
+
+1:06:38.000 --> 1:06:39.560
+ To the bar, right?
+
+1:06:39.560 --> 1:06:44.280
+ That we felt would be where people will use it.
+
+1:06:44.280 --> 1:06:45.360
+ That was critical.
+
+1:06:45.360 --> 1:06:48.880
+ Because you really have one chance at this.
+
+1:06:48.880 --> 1:06:51.920
+ If we had launched in November 2014 is when we launched,
+
+1:06:51.920 --> 1:06:53.160
+ if it was below the bar,
+
+1:06:53.160 --> 1:06:56.520
+ I don't think this category exists
+
+1:06:56.520 --> 1:06:58.120
+ if you don't meet the bar.
+
+1:06:58.120 --> 1:07:02.080
+ Yeah, and just having looked at voice based interactions
+
+1:07:02.080 --> 1:07:06.120
+ like in the car or earlier systems,
+
+1:07:06.120 --> 1:07:08.320
+ it's a source of huge frustration for people.
+
+1:07:08.320 --> 1:07:10.280
+ In fact, we use voice based interaction
+
+1:07:10.280 --> 1:07:14.600
+ for collecting data on subjects to measure frustration.
+
+1:07:14.600 --> 1:07:16.560
+ So, as a training set for computer vision,
+
+1:07:16.560 --> 1:07:19.360
+ for face data, so we can get a data set
+
+1:07:19.360 --> 1:07:20.600
+ of frustrated people.
+
+1:07:20.600 --> 1:07:22.240
+ That's the best way to get frustrated people
+
+1:07:22.240 --> 1:07:24.840
+ is having them interact with a voice based system
+
+1:07:24.840 --> 1:07:25.680
+ in the car.
+
+1:07:25.680 --> 1:07:28.520
+ So, that bar I imagine is pretty high.
+
+1:07:28.520 --> 1:07:29.480
+ It was very high.
+
+1:07:29.480 --> 1:07:32.720
+ And we talked about how also errors are perceived
+
+1:07:32.720 --> 1:07:35.400
+ from AIs versus errors by humans.
+
+1:07:35.400 --> 1:07:38.320
+ But we are not done with the problems that ended up,
+
+1:07:38.320 --> 1:07:39.800
+ we had to solve to get it to launch.
+
+1:07:39.800 --> 1:07:41.280
+ So, do you want the next one?
+
+1:07:41.280 --> 1:07:42.680
+ Yeah, the next one.
+
+1:07:42.680 --> 1:07:47.680
+ So, the next one was what I think of as
+
+1:07:47.680 --> 1:07:50.960
+ multi domain natural language understanding.
+
+1:07:50.960 --> 1:07:53.200
+ It's very, I wouldn't say easy,
+
+1:07:53.200 --> 1:07:56.160
+ but it is during those days,
+
+1:07:56.160 --> 1:07:59.720
+ solving it, understanding in one domain,
+
+1:07:59.720 --> 1:08:02.880
+ a narrow domain was doable,
+
+1:08:02.880 --> 1:08:06.880
+ but for these multiple domains like music,
+
+1:08:06.880 --> 1:08:10.680
+ like information, other kinds of household productivity,
+
+1:08:10.680 --> 1:08:14.160
+ alarms, timers, even though it wasn't as big as it is
+
+1:08:14.160 --> 1:08:15.640
+ in terms of the number of skills Alexa has
+
+1:08:15.640 --> 1:08:17.480
+ and the confusion space has like grown
+
+1:08:17.480 --> 1:08:20.680
+ by three orders of magnitude,
+
+1:08:20.680 --> 1:08:22.680
+ it was still daunting even those days.
+
+1:08:22.680 --> 1:08:24.640
+ And again, no customer base yet.
+
+1:08:24.640 --> 1:08:26.200
+ Again, no customer base.
+
+1:08:26.200 --> 1:08:28.200
+ So, now you're looking at meaning understanding
+
+1:08:28.200 --> 1:08:30.120
+ and intent understanding and taking actions
+
+1:08:30.120 --> 1:08:31.640
+ on behalf of customers.
+
+1:08:31.640 --> 1:08:33.440
+ Based on their requests.
+
+1:08:33.440 --> 1:08:36.440
+ And that is the next hard problem.
+
+1:08:36.440 --> 1:08:39.960
+ Even if you have gotten the words recognized,
+
+1:08:39.960 --> 1:08:41.640
+ how do you make sense of them?
+
+1:08:42.520 --> 1:08:47.520
+ In those days, there was still a lot of emphasis
+
+1:08:47.520 --> 1:08:50.760
+ on rule based systems for writing grammar patterns
+
+1:08:50.760 --> 1:08:52.360
+ to understand the intent.
+
+1:08:52.360 --> 1:08:55.560
+ But we had a statistical first approach even then,
+
+1:08:55.560 --> 1:08:58.240
+ where for our language understanding we had,
+
+1:08:58.240 --> 1:09:00.200
+ and even those starting days,
+
+1:09:00.200 --> 1:09:03.520
+ an entity recognizer and an intent classifier,
+
+1:09:03.520 --> 1:09:06.080
+ which was all trained statistically.
+
+1:09:06.080 --> 1:09:09.400
+ In fact, we had to build the deterministic matching
+
+1:09:09.400 --> 1:09:14.400
+ as a follow up to fix bugs that statistical models have.
+
+1:09:14.400 --> 1:09:16.320
+ So, it was just a different mindset
+
+1:09:16.320 --> 1:09:20.080
+ where we focused on data driven statistical understanding.
+
+1:09:20.080 --> 1:09:22.720
+ It wins in the end if you have a huge data set.
+
+1:09:22.720 --> 1:09:24.520
+ Yes, it is contingent on that.
+
+1:09:24.520 --> 1:09:27.120
+ And that's why it came back to how do you get the data.
+
+1:09:27.120 --> 1:09:30.360
+ Before customers, the fact that this is why data
+
+1:09:30.360 --> 1:09:33.280
+ becomes crucial to get to the point
+
+1:09:33.280 --> 1:09:37.840
+ that you have the understanding system built up.
+
+1:09:37.840 --> 1:09:40.680
+ And notice that for you,
+
+1:09:40.680 --> 1:09:42.480
+ we were talking about human machine dialogue,
+
+1:09:42.480 --> 1:09:44.800
+ and even those early days,
+
+1:09:44.800 --> 1:09:47.120
+ even it was very much transactional,
+
+1:09:47.120 --> 1:09:50.560
+ do one thing, one shot utterances in great way.
+
+1:09:50.560 --> 1:09:52.840
+ There was a lot of debate on how much should Alexa talk back
+
+1:09:52.840 --> 1:09:55.680
+ in terms of if you misunderstood it.
+
+1:09:55.680 --> 1:10:01.440
+ If you misunderstood you or you said play songs by the stones,
+
+1:10:01.440 --> 1:10:04.760
+ and let's say it doesn't know early days,
+
+1:10:04.760 --> 1:10:09.240
+ knowledge can be sparse, who are the stones?
+
+1:10:09.240 --> 1:10:12.760
+ It's the Rolling Stones.
+
+1:10:12.760 --> 1:10:16.280
+ And you don't want the match to be Stone Temple Pilots
+
+1:10:16.280 --> 1:10:17.200
+ or Rolling Stones.
+
+1:10:17.200 --> 1:10:18.840
+ So, you don't know which one it is.
+
+1:10:18.840 --> 1:10:22.480
+ So, these kind of other signals,
+
+1:10:22.480 --> 1:10:27.040
+ now there we had great assets from Amazon in terms of...
+
+1:10:27.040 --> 1:10:29.560
+ UX, like what is it, what kind of...
+
+1:10:29.560 --> 1:10:31.200
+ Yeah, how do you solve that problem?
+
+1:10:31.200 --> 1:10:32.280
+ In terms of what we think of it
+
+1:10:32.280 --> 1:10:34.000
+ as an entity resolution problem, right?
+
+1:10:34.000 --> 1:10:36.200
+ So, because which one is it, right?
+
+1:10:36.200 --> 1:10:40.160
+ I mean, even if you figured out the stones as an entity,
+
+1:10:40.160 --> 1:10:42.200
+ you have to resolve it to whether it's the stones
+
+1:10:42.200 --> 1:10:44.840
+ or the Stone Temple Pilots or some other stones.
+
+1:10:44.840 --> 1:10:47.080
+ Maybe I misunderstood, is the resolution
+
+1:10:47.080 --> 1:10:50.520
+ the job of the algorithm or is the job of UX
+
+1:10:50.520 --> 1:10:52.320
+ communicating with the human to help the resolution?
+
+1:10:52.320 --> 1:10:54.240
+ Well, there is both, right?
+
+1:10:54.240 --> 1:10:58.760
+ It is, you want 90% or high 90s to be done
+
+1:10:58.760 --> 1:11:01.200
+ without any further questioning or UX, right?
+
+1:11:01.200 --> 1:11:05.560
+ So, but it's absolutely okay, just like as humans,
+
+1:11:05.560 --> 1:11:09.000
+ we ask the question, I didn't understand you, Lex.
+
+1:11:09.000 --> 1:11:10.640
+ It's fine for Alexa to occasionally say,
+
+1:11:10.640 --> 1:11:12.080
+ I did not understand you, right?
+
+1:11:12.080 --> 1:11:14.640
+ And that's an important way to learn.
+
+1:11:14.640 --> 1:11:16.240
+ And I'll talk about where we have come
+
+1:11:16.240 --> 1:11:20.080
+ with more self learning with these kind of feedback signals.
+
+1:11:20.080 --> 1:11:23.240
+ But in those days, just solving the ability
+
+1:11:23.240 --> 1:11:26.480
+ of understanding the intent and resolving to an action
+
+1:11:26.480 --> 1:11:28.760
+ where action could be play a particular artist
+
+1:11:28.760 --> 1:11:31.960
+ or a particular song was super hard.
+
+1:11:31.960 --> 1:11:35.400
+ Again, the bar was high as we were talking about, right?
+
+1:11:35.400 --> 1:11:40.240
+ So, while we launched it in sort of 13 big domains,
+
+1:11:40.240 --> 1:11:42.360
+ I would say in terms of,
+
+1:11:42.360 --> 1:11:44.760
+ we think of it as 13, the big skills we had,
+
+1:11:44.760 --> 1:11:47.720
+ like music is a massive one when we launched it.
+
+1:11:47.720 --> 1:11:51.480
+ And now we have 90,000 plus skills on Alexa.
+
+1:11:51.480 --> 1:11:52.640
+ So, what are the big skills?
+
+1:11:52.640 --> 1:11:53.480
+ Can you just go over them?
+
+1:11:53.480 --> 1:11:55.480
+ Because the only thing I use it for
+
+1:11:55.480 --> 1:11:57.640
+ is music, weather and shopping.
+
+1:11:58.840 --> 1:12:02.520
+ So, we think of it as music information, right?
+
+1:12:02.520 --> 1:12:05.360
+ So, weather is a part of information, right?
+
+1:12:05.360 --> 1:12:08.000
+ So, when we launched, we didn't have smart home,
+
+1:12:08.000 --> 1:12:10.360
+ but within, by smart home I mean,
+
+1:12:10.360 --> 1:12:12.040
+ you connect your smart devices,
+
+1:12:12.040 --> 1:12:13.080
+ you control them with voice.
+
+1:12:13.080 --> 1:12:15.000
+ If you haven't done it, it's worth,
+
+1:12:15.000 --> 1:12:15.840
+ it will change your life.
+
+1:12:15.840 --> 1:12:16.680
+ Like turning on the lights and so on.
+
+1:12:16.680 --> 1:12:20.200
+ Turning on your light to anything that's connected
+
+1:12:20.200 --> 1:12:21.480
+ and has a, it's just that.
+
+1:12:21.480 --> 1:12:23.160
+ What's your favorite smart device for you?
+
+1:12:23.160 --> 1:12:24.000
+ My light.
+
+1:12:24.000 --> 1:12:24.840
+ Light.
+
+1:12:24.840 --> 1:12:26.320
+ And now you have the smart plug with,
+
+1:12:26.320 --> 1:12:29.880
+ and you don't, we also have this echo plug, which is.
+
+1:12:29.880 --> 1:12:30.720
+ Oh yeah, you can plug in anything.
+
+1:12:30.720 --> 1:12:31.560
+ You can plug in anything
+
+1:12:31.560 --> 1:12:33.560
+ and now you can turn that one on and off.
+
+1:12:33.560 --> 1:12:35.680
+ I use this conversation motivation to get one.
+
+1:12:35.680 --> 1:12:39.560
+ Garage door, you can check your status of the garage door
+
+1:12:39.560 --> 1:12:41.200
+ and things like, and we have gone,
+
+1:12:41.200 --> 1:12:43.200
+ make Alexa more and more proactive,
+
+1:12:43.200 --> 1:12:45.120
+ where it even has hunches now,
+
+1:12:45.120 --> 1:12:49.160
+ that, oh, looks, hunches, like you left your light on.
+
+1:12:50.520 --> 1:12:51.640
+ Let's say you've gone to your bed
+
+1:12:51.640 --> 1:12:52.880
+ and you left the garage light on.
+
+1:12:52.880 --> 1:12:56.600
+ So it will help you out in these settings, right?
+
+1:12:56.600 --> 1:13:00.160
+ That's smart devices, information, smart devices.
+
+1:13:00.160 --> 1:13:01.120
+ You said music.
+
+1:13:01.120 --> 1:13:02.960
+ Yeah, so I don't remember everything we had,
+
+1:13:02.960 --> 1:13:05.040
+ but alarms, timers were the big ones.
+
+1:13:05.040 --> 1:13:06.680
+ Like that was, you know,
+
+1:13:06.680 --> 1:13:09.520
+ the timers were very popular right away.
+
+1:13:09.520 --> 1:13:13.440
+ Music also, like you could play song, artist, album,
+
+1:13:13.440 --> 1:13:17.000
+ everything, and so that was like a clear win
+
+1:13:17.000 --> 1:13:19.440
+ in terms of the customer experience.
+
+1:13:19.440 --> 1:13:22.760
+ So that's, again, this is language understanding.
+
+1:13:22.760 --> 1:13:24.080
+ Now things have evolved, right?
+
+1:13:24.080 --> 1:13:28.360
+ So where we want Alexa definitely to be more accurate,
+
+1:13:28.360 --> 1:13:29.800
+ competent, trustworthy,
+
+1:13:29.800 --> 1:13:33.080
+ based on how well it does these core things,
+
+1:13:33.080 --> 1:13:35.240
+ but we have evolved in many different dimensions.
+
+1:13:35.240 --> 1:13:38.360
+ First is what I think of are doing more conversational
+
+1:13:38.360 --> 1:13:40.920
+ for high utility, not just for chat, right?
+
+1:13:40.920 --> 1:13:44.920
+ And there at Remars this year, which is our AI conference,
+
+1:13:44.920 --> 1:13:48.560
+ we launched what is called Alexa Conversations.
+
+1:13:48.560 --> 1:13:51.800
+ That is providing the ability for developers
+
+1:13:51.800 --> 1:13:55.040
+ to author multi turn experiences on Alexa
+
+1:13:55.040 --> 1:13:57.080
+ with no code, essentially,
+
+1:13:57.080 --> 1:13:58.880
+ in terms of the dialogue code.
+
+1:13:58.880 --> 1:14:02.600
+ Initially it was like, you know, all these IVR systems,
+
+1:14:02.600 --> 1:14:06.560
+ you have to fully author if the customer says this,
+
+1:14:06.560 --> 1:14:07.560
+ do that, right?
+
+1:14:07.560 --> 1:14:11.440
+ So the whole dialogue flow is hand authored.
+
+1:14:11.440 --> 1:14:13.640
+ And with Alexa Conversations,
+
+1:14:13.640 --> 1:14:15.440
+ the way it is that you just provide
+
+1:14:15.440 --> 1:14:18.040
+ a sample interaction data with your service or your API,
+
+1:14:18.040 --> 1:14:21.400
+ let's say your Atom tickets that provides a service
+
+1:14:21.400 --> 1:14:23.400
+ for buying movie tickets.
+
+1:14:23.400 --> 1:14:25.840
+ You provide a few examples of how your customers
+
+1:14:25.840 --> 1:14:27.840
+ will interact with your APIs.
+
+1:14:27.840 --> 1:14:29.960
+ And then the dialogue flow is automatically constructed
+
+1:14:29.960 --> 1:14:33.360
+ using a record neural network trained on that data.
+
+1:14:33.360 --> 1:14:35.920
+ So that simplifies the developer experience.
+
+1:14:35.920 --> 1:14:38.440
+ We just launched our preview for the developers
+
+1:14:38.440 --> 1:14:40.600
+ to try this capability out.
+
+1:14:40.600 --> 1:14:42.120
+ And then the second part of it,
+
+1:14:42.120 --> 1:14:45.680
+ which shows even increased utility for customers
+
+1:14:45.680 --> 1:14:49.960
+ is you and I, when we interact with Alexa or any customer,
+
+1:14:50.920 --> 1:14:53.160
+ as I'm coming back to our initial part of the conversation,
+
+1:14:53.160 --> 1:14:58.160
+ the goal is often unclear or unknown to the AI.
+
+1:14:58.960 --> 1:15:02.680
+ If I say, Alexa, what movies are playing nearby?
+
+1:15:02.680 --> 1:15:07.080
+ Am I trying to just buy movie tickets?
+
+1:15:07.080 --> 1:15:09.120
+ Am I actually even,
+
+1:15:09.120 --> 1:15:12.040
+ do you think I'm looking for just movies for curiosity,
+
+1:15:12.040 --> 1:15:15.120
+ whether the Avengers is still in theater or when is it?
+
+1:15:15.120 --> 1:15:17.640
+ Maybe it's gone and maybe it will come on my missed it.
+
+1:15:17.640 --> 1:15:20.680
+ So I may watch it on Prime, right?
+
+1:15:20.680 --> 1:15:21.920
+ Which happened to me.
+
+1:15:21.920 --> 1:15:24.680
+ So from that perspective now,
+
+1:15:24.680 --> 1:15:27.680
+ you're looking into what is my goal?
+
+1:15:27.680 --> 1:15:31.480
+ And let's say I now complete the movie ticket purchase.
+
+1:15:31.480 --> 1:15:34.080
+ Maybe I would like to get dinner nearby.
+
+1:15:35.760 --> 1:15:38.680
+ So what is really the goal here?
+
+1:15:38.680 --> 1:15:41.920
+ Is it night out or is it movies?
+
+1:15:41.920 --> 1:15:44.040
+ As in just go watch a movie?
+
+1:15:44.040 --> 1:15:46.240
+ The answer is, we don't know.
+
+1:15:46.240 --> 1:15:50.720
+ So can Alexa now figuratively have the intelligence
+
+1:15:50.720 --> 1:15:53.760
+ that I think this meta goal is really night out
+
+1:15:53.760 --> 1:15:55.800
+ or at least say to the customer
+
+1:15:55.800 --> 1:15:58.200
+ when you've completed the purchase of movie tickets
+
+1:15:58.200 --> 1:16:00.320
+ from Atom tickets or Fandango,
+
+1:16:00.320 --> 1:16:01.840
+ or pick your anyone.
+
+1:16:01.840 --> 1:16:02.880
+ Then the next thing is,
+
+1:16:02.880 --> 1:16:07.880
+ do you want to get an Uber to the theater, right?
+
+1:16:09.360 --> 1:16:12.880
+ Or do you want to book a restaurant next to it?
+
+1:16:12.880 --> 1:16:17.560
+ And then not ask the same information over and over again,
+
+1:16:17.560 --> 1:16:22.560
+ what time, how many people in your party, right?
+
+1:16:22.560 --> 1:16:26.560
+ So this is where you shift the cognitive burden
+
+1:16:26.560 --> 1:16:29.000
+ from the customer to the AI.
+
+1:16:29.000 --> 1:16:32.120
+ Where it's thinking of what is your,
+
+1:16:32.120 --> 1:16:34.200
+ it anticipates your goal
+
+1:16:34.200 --> 1:16:37.480
+ and takes the next best action to complete it.
+
+1:16:37.480 --> 1:16:39.760
+ Now that's the machine learning problem.
+
+1:16:40.760 --> 1:16:43.760
+ But essentially the way we solve this first instance,
+
+1:16:43.760 --> 1:16:46.800
+ and we have a long way to go to make it scale
+
+1:16:46.800 --> 1:16:48.720
+ to everything possible in the world.
+
+1:16:48.720 --> 1:16:50.160
+ But at least for this situation,
+
+1:16:50.160 --> 1:16:53.000
+ it is from at every instance,
+
+1:16:53.000 --> 1:16:54.600
+ Alexa is making the determination,
+
+1:16:54.600 --> 1:16:56.240
+ whether it should stick with the experience
+
+1:16:56.240 --> 1:16:58.600
+ with Atom tickets or not.
+
+1:16:58.600 --> 1:17:03.600
+ Or offer you based on what you say,
+
+1:17:03.800 --> 1:17:06.280
+ whether either you have completed the interaction,
+
+1:17:06.280 --> 1:17:07.760
+ or you said, no, get me an Uber now.
+
+1:17:07.760 --> 1:17:12.080
+ So it will shift context into another experience or skill
+
+1:17:12.080 --> 1:17:12.920
+ or another service.
+
+1:17:12.920 --> 1:17:15.360
+ So that's a dynamic decision making.
+
+1:17:15.360 --> 1:17:18.160
+ That's making Alexa, you can say more conversational
+
+1:17:18.160 --> 1:17:20.200
+ for the benefit of the customer,
+
+1:17:20.200 --> 1:17:22.520
+ rather than simply complete transactions,
+
+1:17:22.520 --> 1:17:24.360
+ which are well thought through.
+
+1:17:24.360 --> 1:17:27.840
+ You as a customer has fully specified
+
+1:17:27.840 --> 1:17:29.680
+ what you want to be accomplished.
+
+1:17:29.680 --> 1:17:30.840
+ It's accomplishing that.
+
+1:17:30.840 --> 1:17:34.080
+ So it's kind of as we do this with pedestrians,
+
+1:17:34.080 --> 1:17:36.840
+ like intent modeling is predicting
+
+1:17:36.840 --> 1:17:40.040
+ what your possible goals are and what's the most likely goal
+
+1:17:40.040 --> 1:17:42.440
+ and switching that depending on the things you say.
+
+1:17:42.440 --> 1:17:44.440
+ So my question is there,
+
+1:17:44.440 --> 1:17:46.520
+ it seems maybe it's a dumb question,
+
+1:17:46.520 --> 1:17:51.400
+ but it would help a lot if Alexa remembered me,
+
+1:17:51.400 --> 1:17:53.040
+ what I said previously.
+
+1:17:53.040 --> 1:17:53.880
+ Right.
+
+1:17:53.880 --> 1:17:58.360
+ Is it trying to use some memories for the customer?
+
+1:17:58.360 --> 1:18:00.680
+ Yeah, it is using a lot of memory within that.
+
+1:18:00.680 --> 1:18:02.560
+ So right now, not so much in terms of,
+
+1:18:02.560 --> 1:18:05.280
+ okay, which restaurant do you prefer, right?
+
+1:18:05.280 --> 1:18:06.680
+ That is a more longterm memory,
+
+1:18:06.680 --> 1:18:09.720
+ but within the short term memory, within the session,
+
+1:18:09.720 --> 1:18:11.720
+ it is remembering how many people did you,
+
+1:18:11.720 --> 1:18:13.720
+ so if you said buy four tickets,
+
+1:18:13.720 --> 1:18:15.560
+ now it has made an implicit assumption
+
+1:18:15.560 --> 1:18:18.200
+ that you were gonna have,
+
+1:18:18.200 --> 1:18:21.640
+ you need at least four seats at a restaurant, right?
+
+1:18:21.640 --> 1:18:24.200
+ So these are the kind of context it's preserving
+
+1:18:24.200 --> 1:18:26.720
+ between these skills, but within that session.
+
+1:18:26.720 --> 1:18:28.000
+ But you're asking the right question
+
+1:18:28.000 --> 1:18:32.040
+ in terms of for it to be more and more useful,
+
+1:18:32.040 --> 1:18:33.680
+ it has to have more longterm memory
+
+1:18:33.680 --> 1:18:35.120
+ and that's also an open question
+
+1:18:35.120 --> 1:18:37.400
+ and again, these are still early days.
+
+1:18:37.400 --> 1:18:40.240
+ So for me, I mean, everybody's different,
+
+1:18:40.240 --> 1:18:43.920
+ but yeah, I'm definitely not representative
+
+1:18:43.920 --> 1:18:45.240
+ of the general population in the sense
+
+1:18:45.240 --> 1:18:47.800
+ that I do the same thing every day.
+
+1:18:47.800 --> 1:18:48.640
+ Like I eat the same,
+
+1:18:48.640 --> 1:18:51.760
+ I do everything the same, the same thing,
+
+1:18:51.760 --> 1:18:55.360
+ wear the same thing clearly, this or the black shirt.
+
+1:18:55.360 --> 1:18:59.000
+ So it's frustrating when Alexa doesn't get what I'm saying
+
+1:18:59.000 --> 1:19:01.920
+ because I have to correct her every time
+
+1:19:01.920 --> 1:19:02.800
+ in the exact same way.
+
+1:19:02.800 --> 1:19:05.480
+ This has to do with certain songs,
+
+1:19:05.480 --> 1:19:08.240
+ like she doesn't know certain weird songs I like
+
+1:19:08.240 --> 1:19:11.240
+ and doesn't know, I've complained to Spotify about this,
+
+1:19:11.240 --> 1:19:13.840
+ talked to the RD, head of RD at Spotify,
+
+1:19:13.840 --> 1:19:15.040
+ it's their way to heaven.
+
+1:19:15.040 --> 1:19:16.280
+ I have to correct it every time.
+
+1:19:16.280 --> 1:19:18.720
+ It doesn't play Led Zeppelin correctly.
+
+1:19:18.720 --> 1:19:22.080
+ It plays cover of Led's of Stairway to Heaven.
+
+1:19:22.080 --> 1:19:22.920
+ So I'm.
+
+1:19:22.920 --> 1:19:24.920
+ You should figure, you should send me your,
+
+1:19:24.920 --> 1:19:27.480
+ next time it fails, feel free to send it to me,
+
+1:19:27.480 --> 1:19:28.400
+ we'll take care of it.
+
+1:19:28.400 --> 1:19:29.240
+ Okay, well.
+
+1:19:29.240 --> 1:19:31.720
+ Because Led Zeppelin is one of my favorite brands,
+
+1:19:31.720 --> 1:19:34.120
+ it works for me, so I'm like shocked it doesn't work for you.
+
+1:19:34.120 --> 1:19:35.440
+ This is an official bug report.
+
+1:19:35.440 --> 1:19:37.480
+ I'll put it, I'll make it public,
+
+1:19:37.480 --> 1:19:39.000
+ I'll make everybody retweet it.
+
+1:19:39.000 --> 1:19:40.960
+ We're gonna fix the Stairway to Heaven problem.
+
+1:19:40.960 --> 1:19:43.200
+ Anyway, but the point is,
+
+1:19:43.200 --> 1:19:45.120
+ you know, I'm pretty boring and do the same things,
+
+1:19:45.120 --> 1:19:48.320
+ but I'm sure most people do the same set of things.
+
+1:19:48.320 --> 1:19:51.360
+ Do you see Alexa sort of utilizing that in the future
+
+1:19:51.360 --> 1:19:52.760
+ for improving the experience?
+
+1:19:52.760 --> 1:19:54.680
+ Yes, and not only utilizing,
+
+1:19:54.680 --> 1:19:56.200
+ it's already doing some of it.
+
+1:19:56.200 --> 1:19:59.520
+ We call it, where Alexa is becoming more self learning.
+
+1:19:59.520 --> 1:20:04.360
+ So, Alexa is now auto correcting millions and millions
+
+1:20:04.360 --> 1:20:06.360
+ of utterances in the US
+
+1:20:06.360 --> 1:20:08.720
+ without any human supervision involved.
+
+1:20:08.720 --> 1:20:10.840
+ The way it does it is,
+
+1:20:10.840 --> 1:20:13.320
+ let's take an example of a particular song
+
+1:20:13.320 --> 1:20:14.720
+ didn't work for you.
+
+1:20:14.720 --> 1:20:15.680
+ What do you do next?
+
+1:20:15.680 --> 1:20:17.840
+ You either it played the wrong song
+
+1:20:17.840 --> 1:20:20.720
+ and you said, Alexa, no, that's not the song I want.
+
+1:20:20.720 --> 1:20:25.160
+ Or you say, Alexa play that, you try it again.
+
+1:20:25.160 --> 1:20:27.440
+ And that is a signal to Alexa
+
+1:20:27.440 --> 1:20:30.080
+ that she may have done something wrong.
+
+1:20:30.080 --> 1:20:31.840
+ And from that perspective,
+
+1:20:31.840 --> 1:20:35.200
+ we can learn if there's that failure pattern
+
+1:20:35.200 --> 1:20:38.480
+ or that action of song A was played
+
+1:20:38.480 --> 1:20:41.000
+ when song B was requested.
+
+1:20:41.000 --> 1:20:43.040
+ And it's very common with station names
+
+1:20:43.040 --> 1:20:47.160
+ because play NPR, you can have N be confused as an M.
+
+1:20:47.160 --> 1:20:50.920
+ And then you, for a certain accent like mine,
+
+1:20:51.840 --> 1:20:54.720
+ people confuse my N and M all the time.
+
+1:20:54.720 --> 1:20:57.640
+ And because I have a Indian accent,
+
+1:20:57.640 --> 1:20:59.600
+ they're confusable to humans.
+
+1:20:59.600 --> 1:21:01.600
+ It is for Alexa too.
+
+1:21:01.600 --> 1:21:05.080
+ And in that part, but it starts auto correcting
+
+1:21:05.080 --> 1:21:09.680
+ and we collect, we correct a lot of these automatically
+
+1:21:09.680 --> 1:21:12.680
+ without a human looking at the failures.
+
+1:21:12.680 --> 1:21:17.360
+ So one of the things that's for me missing in Alexa,
+
+1:21:17.360 --> 1:21:19.720
+ I don't know if I'm a representative customer,
+
+1:21:19.720 --> 1:21:22.920
+ but every time I correct it,
+
+1:21:22.920 --> 1:21:26.120
+ it would be nice to know that that made a difference.
+
+1:21:26.120 --> 1:21:26.960
+ Yes.
+
+1:21:26.960 --> 1:21:27.800
+ You know what I mean?
+
+1:21:27.800 --> 1:21:31.880
+ Like the sort of like, I heard you like a sort of.
+
+1:21:31.880 --> 1:21:33.840
+ Some acknowledgement of that.
+
+1:21:33.840 --> 1:21:37.440
+ We work a lot with Tesla, we study autopilot and so on.
+
+1:21:37.440 --> 1:21:39.240
+ And a large amount of the customers
+
+1:21:39.240 --> 1:21:40.720
+ that use Tesla autopilot,
+
+1:21:40.720 --> 1:21:43.000
+ they feel like they're always teaching the system.
+
+1:21:43.000 --> 1:21:43.840
+ They're almost excited
+
+1:21:43.840 --> 1:21:45.080
+ by the possibility that they're teaching.
+
+1:21:45.080 --> 1:21:48.440
+ I don't know if Alexa customers generally think of it
+
+1:21:48.440 --> 1:21:51.160
+ as they're teaching to improve the system.
+
+1:21:51.160 --> 1:21:52.680
+ And that's a really powerful thing.
+
+1:21:52.680 --> 1:21:55.200
+ Again, I would say it's a spectrum.
+
+1:21:55.200 --> 1:21:57.320
+ Some customers do think that way
+
+1:21:57.320 --> 1:22:01.320
+ and some would be annoyed by Alexa acknowledging that.
+
+1:22:02.320 --> 1:22:04.360
+ So there's, again, no one,
+
+1:22:04.360 --> 1:22:05.760
+ while there are certain patterns,
+
+1:22:05.760 --> 1:22:08.280
+ not everyone is the same in this way.
+
+1:22:08.280 --> 1:22:13.280
+ But we believe that, again, customers helping Alexa
+
+1:22:13.680 --> 1:22:15.720
+ is a tenet for us in terms of improving it.
+
+1:22:15.720 --> 1:22:18.280
+ And some more self learning is by, again,
+
+1:22:18.280 --> 1:22:20.120
+ this is like fully unsupervised, right?
+
+1:22:20.120 --> 1:22:23.600
+ There is no human in the loop and no labeling happening.
+
+1:22:23.600 --> 1:22:27.120
+ And based on your actions as a customer,
+
+1:22:27.120 --> 1:22:29.080
+ Alexa becomes smarter.
+
+1:22:29.080 --> 1:22:31.160
+ Again, it's early days,
+
+1:22:31.160 --> 1:22:35.840
+ but I think this whole area of teachable AI
+
+1:22:35.840 --> 1:22:38.680
+ is gonna get bigger and bigger in the whole space,
+
+1:22:38.680 --> 1:22:40.760
+ especially in the AI assistant space.
+
+1:22:40.760 --> 1:22:41.920
+ So that's the second part
+
+1:22:41.920 --> 1:22:44.800
+ where I mentioned more conversational.
+
+1:22:44.800 --> 1:22:46.520
+ This is more self learning.
+
+1:22:46.520 --> 1:22:48.320
+ The third is more natural.
+
+1:22:48.320 --> 1:22:50.240
+ And the way I think of more natural
+
+1:22:50.240 --> 1:22:53.240
+ is we talked about how Alexa sounds.
+
+1:22:53.240 --> 1:22:58.080
+ And we have done a lot of advances in our text to speech
+
+1:22:58.080 --> 1:23:00.480
+ by using, again, neural network technology
+
+1:23:00.480 --> 1:23:03.520
+ for it to sound very humanlike.
+
+1:23:03.520 --> 1:23:07.520
+ From the individual texture of the sound to the timing,
+
+1:23:07.520 --> 1:23:09.240
+ the tonality, the tone, everything, the whole thing.
+
+1:23:09.240 --> 1:23:11.000
+ I would think in terms of,
+
+1:23:11.000 --> 1:23:13.360
+ there's a lot of controls in each of the places
+
+1:23:13.360 --> 1:23:16.640
+ for how, I mean, the speed of the voice,
+
+1:23:16.640 --> 1:23:18.200
+ the prosthetic patterns,
+
+1:23:19.520 --> 1:23:23.360
+ the actual smoothness of how it sounds,
+
+1:23:23.360 --> 1:23:24.360
+ all of those are factored
+
+1:23:24.360 --> 1:23:27.120
+ and we do a ton of listening tests to make sure.
+
+1:23:27.120 --> 1:23:30.720
+ But naturalness, how it sounds should be very natural.
+
+1:23:30.720 --> 1:23:33.920
+ How it understands requests is also very important.
+
+1:23:33.920 --> 1:23:37.120
+ And in terms of, we have 95,000 skills.
+
+1:23:37.120 --> 1:23:41.440
+ And if we have, imagine that in many of these skills,
+
+1:23:41.440 --> 1:23:43.440
+ you have to remember the skill name
+
+1:23:43.440 --> 1:23:48.440
+ and say, Alexa, ask the tide skill to tell me X.
+
+1:23:51.120 --> 1:23:52.960
+ Now, if you have to remember the skill name,
+
+1:23:52.960 --> 1:23:56.640
+ that means the discovery and the interaction is unnatural.
+
+1:23:56.640 --> 1:23:58.120
+ And we are trying to solve that
+
+1:23:58.120 --> 1:24:01.680
+ by what we think of as, again,
+
+1:24:03.960 --> 1:24:05.680
+ you don't have to have the app metaphor here.
+
+1:24:05.680 --> 1:24:07.400
+ These are not individual apps, right?
+
+1:24:07.400 --> 1:24:08.360
+ Even though they're,
+
+1:24:08.360 --> 1:24:11.400
+ so you're not sort of opening one at a time and interacting.
+
+1:24:11.400 --> 1:24:14.000
+ So it should be seamless because it's voice.
+
+1:24:14.000 --> 1:24:15.160
+ And when it's voice,
+
+1:24:15.160 --> 1:24:17.560
+ you have to be able to understand these requests
+
+1:24:17.560 --> 1:24:20.600
+ independent of the specificity, like a skill name.
+
+1:24:20.600 --> 1:24:21.640
+ And to do that,
+
+1:24:21.640 --> 1:24:22.840
+ what we have done is again,
+
+1:24:22.840 --> 1:24:24.440
+ built a deep learning based capability
+
+1:24:24.440 --> 1:24:27.040
+ where we shortlist a bunch of skills
+
+1:24:27.040 --> 1:24:28.880
+ when you say, Alexa, get me a car.
+
+1:24:28.880 --> 1:24:30.080
+ And then we figure it out, okay,
+
+1:24:30.080 --> 1:24:33.320
+ it's meant for an Uber skill versus a Lyft
+
+1:24:33.320 --> 1:24:34.880
+ or based on your preferences.
+
+1:24:34.880 --> 1:24:38.320
+ And then you can rank the responses from the skill
+
+1:24:38.320 --> 1:24:41.280
+ and then choose the best response for the customer.
+
+1:24:41.280 --> 1:24:43.240
+ So that's on the more natural,
+
+1:24:43.240 --> 1:24:46.360
+ other examples of more natural is like,
+
+1:24:46.360 --> 1:24:49.120
+ we were talking about lists, for instance,
+
+1:24:49.120 --> 1:24:51.720
+ and you don't wanna say, Alexa, add milk,
+
+1:24:51.720 --> 1:24:55.160
+ Alexa, add eggs, Alexa, add cookies.
+
+1:24:55.160 --> 1:24:57.280
+ No, Alexa, add cookies, milk, and eggs
+
+1:24:57.280 --> 1:24:59.240
+ and that in one shot, right?
+
+1:24:59.240 --> 1:25:01.760
+ So that works, that helps with the naturalness.
+
+1:25:01.760 --> 1:25:05.400
+ We talked about memory, like if you said,
+
+1:25:05.400 --> 1:25:09.040
+ you can say, Alexa, remember I have to go to mom's house,
+
+1:25:09.040 --> 1:25:11.160
+ or you may have entered a calendar event
+
+1:25:11.160 --> 1:25:13.520
+ through your calendar that's linked to Alexa.
+
+1:25:13.520 --> 1:25:15.800
+ You don't wanna remember whether it's in my calendar
+
+1:25:15.800 --> 1:25:18.360
+ or did I tell you to remember something
+
+1:25:18.360 --> 1:25:20.960
+ or some other reminder, right?
+
+1:25:20.960 --> 1:25:25.320
+ So you have to now, independent of how customers
+
+1:25:25.320 --> 1:25:28.120
+ create these events, it should just say,
+
+1:25:28.120 --> 1:25:29.840
+ Alexa, when do I have to go to mom's house?
+
+1:25:29.840 --> 1:25:32.320
+ And it tells you when you have to go to mom's house.
+
+1:25:32.320 --> 1:25:33.720
+ Now that's a fascinating problem.
+
+1:25:33.720 --> 1:25:35.280
+ Who's that problem on?
+
+1:25:35.280 --> 1:25:37.480
+ So there's people who create skills.
+
+1:25:38.520 --> 1:25:42.840
+ Who's tasked with integrating all of that knowledge together
+
+1:25:42.840 --> 1:25:44.640
+ so the skills become seamless?
+
+1:25:44.640 --> 1:25:46.840
+ Is it the creators of the skills
+
+1:25:46.840 --> 1:25:51.280
+ or is it an infrastructure that Alexa provides problem?
+
+1:25:51.280 --> 1:25:52.120
+ It's both.
+
+1:25:52.120 --> 1:25:54.960
+ I think the large problem in terms of making sure
+
+1:25:54.960 --> 1:25:56.720
+ your skill quality is high,
+
+1:25:58.560 --> 1:26:01.240
+ that has to be done by our tools,
+
+1:26:01.240 --> 1:26:03.160
+ because it's just, so these skills,
+
+1:26:03.160 --> 1:26:04.720
+ just to put the context,
+
+1:26:04.720 --> 1:26:06.360
+ they are built through Alexa Skills Kit,
+
+1:26:06.360 --> 1:26:09.160
+ which is a self serve way of building
+
+1:26:09.160 --> 1:26:11.320
+ an experience on Alexa.
+
+1:26:11.320 --> 1:26:13.000
+ This is like any developer in the world
+
+1:26:13.000 --> 1:26:14.880
+ could go to Alexa Skills Kit
+
+1:26:14.880 --> 1:26:16.840
+ and build an experience on Alexa.
+
+1:26:16.840 --> 1:26:20.160
+ Like if you're a Domino's, you can build a Domino's Skills.
+
+1:26:20.160 --> 1:26:22.560
+ For instance, that does pizza ordering.
+
+1:26:22.560 --> 1:26:24.440
+ When you have authored that,
+
+1:26:25.320 --> 1:26:28.280
+ you do want to now,
+
+1:26:28.280 --> 1:26:30.120
+ if people say, Alexa, open Domino's
+
+1:26:30.120 --> 1:26:35.120
+ or Alexa, ask Domino's to get a particular type of pizza,
+
+1:26:35.360 --> 1:26:37.800
+ that will work, but the discovery is hard.
+
+1:26:37.800 --> 1:26:39.360
+ You can't just say, Alexa, get me a pizza.
+
+1:26:39.360 --> 1:26:42.440
+ And then Alexa figures out what to do.
+
+1:26:42.440 --> 1:26:45.000
+ That latter part is definitely our responsibility
+
+1:26:45.000 --> 1:26:48.960
+ in terms of when the request is not fully specific,
+
+1:26:48.960 --> 1:26:51.560
+ how do you figure out what's the best skill
+
+1:26:51.560 --> 1:26:56.120
+ or a service that can fulfill the customer's request?
+
+1:26:56.120 --> 1:26:57.280
+ And it can keep evolving.
+
+1:26:57.280 --> 1:26:59.280
+ Imagine going to the situation I said,
+
+1:26:59.280 --> 1:27:00.360
+ which was the night out planning,
+
+1:27:00.360 --> 1:27:03.520
+ that the goal could be more than that individual request
+
+1:27:03.520 --> 1:27:05.600
+ that came up.
+
+1:27:05.600 --> 1:27:08.600
+ A pizza ordering could mean a night in,
+
+1:27:08.600 --> 1:27:10.520
+ where you're having an event with your kids
+
+1:27:10.520 --> 1:27:12.920
+ in their house, and you're, so this is,
+
+1:27:12.920 --> 1:27:15.160
+ welcome to the world of conversational AI.
+
+1:27:16.720 --> 1:27:18.920
+ This is super exciting because it's not
+
+1:27:18.920 --> 1:27:20.760
+ the academic problem of NLP,
+
+1:27:20.760 --> 1:27:23.080
+ of natural language processing, understanding, dialogue.
+
+1:27:23.080 --> 1:27:24.640
+ This is like real world.
+
+1:27:24.640 --> 1:27:27.120
+ And the stakes are high in the sense
+
+1:27:27.120 --> 1:27:30.000
+ that customers get frustrated quickly,
+
+1:27:30.000 --> 1:27:31.800
+ people get frustrated quickly.
+
+1:27:31.800 --> 1:27:33.120
+ So you have to get it right,
+
+1:27:33.120 --> 1:27:35.280
+ you have to get that interaction right.
+
+1:27:35.280 --> 1:27:36.880
+ So it's, I love it.
+
+1:27:36.880 --> 1:27:39.200
+ But so from that perspective,
+
+1:27:39.200 --> 1:27:41.920
+ what are the challenges today?
+
+1:27:41.920 --> 1:27:45.040
+ What are the problems that really need to be solved
+
+1:27:45.040 --> 1:27:45.880
+ in the next few years?
+
+1:27:45.880 --> 1:27:46.840
+ What's the focus?
+
+1:27:46.840 --> 1:27:48.720
+ First and foremost, as I mentioned,
+
+1:27:48.720 --> 1:27:53.080
+ that get the basics right is still true.
+
+1:27:53.080 --> 1:27:57.000
+ Basically, even the one shot requests,
+
+1:27:57.000 --> 1:27:58.840
+ which we think of as transactional requests,
+
+1:27:58.840 --> 1:28:01.680
+ needs to work magically, no question about that.
+
+1:28:01.680 --> 1:28:03.600
+ If it doesn't turn your light on and off,
+
+1:28:03.600 --> 1:28:05.200
+ you'll be super frustrated.
+
+1:28:05.200 --> 1:28:07.080
+ Even if I can complete the night out for you
+
+1:28:07.080 --> 1:28:10.720
+ and not do that, that is unacceptable as a customer, right?
+
+1:28:10.720 --> 1:28:14.120
+ So that you have to get the foundational understanding
+
+1:28:14.120 --> 1:28:15.440
+ going very well.
+
+1:28:15.440 --> 1:28:17.760
+ The second aspect when I said more conversational
+
+1:28:17.760 --> 1:28:20.120
+ is as you imagine is more about reasoning.
+
+1:28:20.120 --> 1:28:24.360
+ It is really about figuring out what the latent goal is
+
+1:28:24.360 --> 1:28:28.520
+ of the customer based on what I have the information now
+
+1:28:28.520 --> 1:28:31.360
+ and the history, what's the next best thing to do.
+
+1:28:31.360 --> 1:28:35.400
+ So that's a complete reasoning and decision making problem.
+
+1:28:35.400 --> 1:28:37.040
+ Just like your self driving car,
+
+1:28:37.040 --> 1:28:38.680
+ but the goal is still more finite.
+
+1:28:38.680 --> 1:28:41.960
+ Here it evolves, your environment is super hard
+
+1:28:41.960 --> 1:28:46.880
+ and self driving and the cost of a mistake is huge here,
+
+1:28:46.880 --> 1:28:48.520
+ but there are certain similarities.
+
+1:28:48.520 --> 1:28:52.640
+ But if you think about how many decisions Alexa is making
+
+1:28:52.640 --> 1:28:54.280
+ or evaluating at any given time,
+
+1:28:54.280 --> 1:28:56.480
+ it's a huge hypothesis space.
+
+1:28:56.480 --> 1:28:59.760
+ And we're only talked about so far
+
+1:28:59.760 --> 1:29:02.080
+ about what I think of reactive decision
+
+1:29:02.080 --> 1:29:03.640
+ in terms of you asked for something
+
+1:29:03.640 --> 1:29:05.920
+ and Alexa is reacting to it.
+
+1:29:05.920 --> 1:29:07.760
+ If you bring the proactive part,
+
+1:29:07.760 --> 1:29:10.040
+ which is Alexa having hunches.
+
+1:29:10.040 --> 1:29:14.440
+ So any given instance then it's really a decision
+
+1:29:14.440 --> 1:29:17.240
+ at any given point based on the information.
+
+1:29:17.240 --> 1:29:20.120
+ Alexa has to determine what's the best thing it needs to do.
+
+1:29:20.120 --> 1:29:22.520
+ So these are the ultimate AI problem
+
+1:29:22.520 --> 1:29:25.080
+ about decisions based on the information you have.
+
+1:29:25.080 --> 1:29:27.880
+ Do you think, just from my perspective,
+
+1:29:27.880 --> 1:29:31.120
+ I work a lot with sensing of the human face.
+
+1:29:31.120 --> 1:29:33.680
+ Do you think they'll, and we touched this topic
+
+1:29:33.680 --> 1:29:36.560
+ a little bit earlier, but do you think it'll be a day soon
+
+1:29:36.560 --> 1:29:41.360
+ when Alexa can also look at you to help improve the quality
+
+1:29:41.360 --> 1:29:46.360
+ of the hunch it has, or at least detect frustration
+
+1:29:46.360 --> 1:29:51.360
+ or detect, improve the quality of its perception
+
+1:29:51.600 --> 1:29:54.360
+ of what you're trying to do?
+
+1:29:54.360 --> 1:29:57.160
+ I mean, let me again bring back to what it already does.
+
+1:29:57.160 --> 1:30:01.800
+ We talked about how based on you barge in over Alexa,
+
+1:30:01.800 --> 1:30:04.960
+ clearly it's a very high probability
+
+1:30:04.960 --> 1:30:06.560
+ it must have done something wrong.
+
+1:30:06.560 --> 1:30:08.520
+ That's why you barged in.
+
+1:30:08.520 --> 1:30:13.240
+ The next extension of whether frustration is a signal or not,
+
+1:30:13.240 --> 1:30:15.320
+ of course, is a natural thought
+
+1:30:15.320 --> 1:30:18.200
+ in terms of how that should be in a signal to it.
+
+1:30:18.200 --> 1:30:19.520
+ You can get that from voice.
+
+1:30:19.520 --> 1:30:21.280
+ You can get from voice, but it's very hard.
+
+1:30:21.280 --> 1:30:25.920
+ Like, I mean, frustration as a signal historically,
+
+1:30:25.920 --> 1:30:28.440
+ if you think about emotions of different kinds,
+
+1:30:29.640 --> 1:30:31.440
+ there's a whole field of affective computing,
+
+1:30:31.440 --> 1:30:34.520
+ something that MIT has also done a lot of research in,
+
+1:30:34.520 --> 1:30:35.600
+ is super hard.
+
+1:30:35.600 --> 1:30:39.040
+ And you are now talking about a far field device,
+
+1:30:39.040 --> 1:30:41.920
+ as in you're talking to a distance noisy environment.
+
+1:30:41.920 --> 1:30:44.080
+ And in that environment,
+
+1:30:44.080 --> 1:30:47.520
+ it needs to have a good sense for your emotions.
+
+1:30:47.520 --> 1:30:49.440
+ This is a very, very hard problem.
+
+1:30:49.440 --> 1:30:50.960
+ Very hard problem, but you haven't shied away
+
+1:30:50.960 --> 1:30:51.800
+ from hard problems.
+
+1:30:51.800 --> 1:30:55.240
+ So, Deep Learning has been at the core
+
+1:30:55.240 --> 1:30:57.360
+ of a lot of this technology.
+
+1:30:57.360 --> 1:30:58.200
+ Are you optimistic
+
+1:30:58.200 --> 1:30:59.680
+ about the current Deep Learning approaches
+
+1:30:59.680 --> 1:31:03.200
+ to solving the hardest aspects of what we're talking about?
+
+1:31:03.200 --> 1:31:05.320
+ Or do you think there will come a time
+
+1:31:05.320 --> 1:31:07.960
+ where new ideas need to further,
+
+1:31:07.960 --> 1:31:09.320
+ if we look at reasoning,
+
+1:31:09.320 --> 1:31:10.640
+ so OpenAI, DeepMind,
+
+1:31:10.640 --> 1:31:13.840
+ a lot of folks are now starting to work in reasoning,
+
+1:31:13.840 --> 1:31:16.560
+ trying to see how we can make neural networks reason.
+
+1:31:16.560 --> 1:31:20.480
+ Do you see that new approaches need to be invented
+
+1:31:20.480 --> 1:31:23.280
+ to take the next big leap?
+
+1:31:23.280 --> 1:31:27.160
+ Absolutely, I think there has to be a lot more investment.
+
+1:31:27.160 --> 1:31:29.360
+ And I think in many different ways,
+
+1:31:29.360 --> 1:31:31.160
+ and there are these, I would say,
+
+1:31:31.160 --> 1:31:33.520
+ nuggets of research forming in a good way,
+
+1:31:33.520 --> 1:31:36.040
+ like learning with less data
+
+1:31:36.040 --> 1:31:39.640
+ or like zero short learning, one short learning.
+
+1:31:39.640 --> 1:31:41.360
+ And the active learning stuff you've talked about
+
+1:31:41.360 --> 1:31:43.200
+ is incredible stuff.
+
+1:31:43.200 --> 1:31:45.640
+ So, transfer learning is also super critical,
+
+1:31:45.640 --> 1:31:48.560
+ especially when you're thinking about applying knowledge
+
+1:31:48.560 --> 1:31:49.840
+ from one task to another,
+
+1:31:49.840 --> 1:31:52.000
+ or one language to another, right?
+
+1:31:52.000 --> 1:31:52.960
+ It's really ripe.
+
+1:31:52.960 --> 1:31:55.280
+ So, these are great pieces.
+
+1:31:55.280 --> 1:31:56.760
+ Deep learning has been useful too.
+
+1:31:56.760 --> 1:31:58.840
+ And now we are sort of marrying deep learning
+
+1:31:58.840 --> 1:32:02.440
+ with transfer learning and active learning.
+
+1:32:02.440 --> 1:32:04.480
+ Of course, that's more straightforward
+
+1:32:04.480 --> 1:32:05.840
+ in terms of applying deep learning
+
+1:32:05.840 --> 1:32:06.960
+ and an active learning setup.
+
+1:32:06.960 --> 1:32:11.960
+ But I do think in terms of now looking
+
+1:32:12.120 --> 1:32:14.200
+ into more reasoning based approaches
+
+1:32:14.200 --> 1:32:19.200
+ is going to be key for our next wave of the technology.
+
+1:32:19.440 --> 1:32:20.840
+ But there is a good news.
+
+1:32:20.840 --> 1:32:23.280
+ The good news is that I think for keeping on
+
+1:32:23.280 --> 1:32:25.200
+ to delight customers, that a lot of it
+
+1:32:25.200 --> 1:32:27.880
+ can be done by prediction tasks.
+
+1:32:27.880 --> 1:32:30.640
+ So, we haven't exhausted that.
+
+1:32:30.640 --> 1:32:34.440
+ So, we don't need to give up
+
+1:32:34.440 --> 1:32:37.280
+ on the deep learning approaches for that.
+
+1:32:37.280 --> 1:32:39.520
+ So, that's just I wanted to sort of point that out.
+
+1:32:39.520 --> 1:32:42.560
+ Creating a rich, fulfilling, amazing experience
+
+1:32:42.560 --> 1:32:44.200
+ that makes Amazon a lot of money
+
+1:32:44.200 --> 1:32:46.360
+ and a lot of everybody a lot of money
+
+1:32:46.360 --> 1:32:49.840
+ because it does awesome things, deep learning is enough.
+
+1:32:49.840 --> 1:32:51.080
+ The point.
+
+1:32:51.080 --> 1:32:54.160
+ I don't think, I wouldn't say deep learning is enough.
+
+1:32:54.160 --> 1:32:56.680
+ I think for the purposes of Alexa
+
+1:32:56.680 --> 1:32:58.400
+ accomplished the task for customers.
+
+1:32:58.400 --> 1:33:02.160
+ I'm saying there are still a lot of things we can do
+
+1:33:02.160 --> 1:33:05.280
+ with prediction based approaches that do not reason.
+
+1:33:05.280 --> 1:33:08.600
+ I'm not saying that and we haven't exhausted those.
+
+1:33:08.600 --> 1:33:12.440
+ But for the kind of high utility experiences
+
+1:33:12.440 --> 1:33:14.240
+ that I'm personally passionate about
+
+1:33:14.240 --> 1:33:18.760
+ of what Alexa needs to do, reasoning has to be solved
+
+1:33:18.760 --> 1:33:21.000
+ to the same extent as you can think
+
+1:33:21.000 --> 1:33:24.720
+ of natural language understanding and speech recognition
+
+1:33:24.720 --> 1:33:27.600
+ to the extent of understanding intents
+
+1:33:27.600 --> 1:33:30.120
+ has been how accurate it has become.
+
+1:33:30.120 --> 1:33:32.760
+ But reasoning, we have very, very early days.
+
+1:33:32.760 --> 1:33:34.000
+ Let me ask it another way.
+
+1:33:34.000 --> 1:33:36.760
+ How hard of a problem do you think that is?
+
+1:33:36.760 --> 1:33:37.800
+ Hardest of them.
+
+1:33:39.160 --> 1:33:41.680
+ I would say hardest of them because again,
+
+1:33:42.560 --> 1:33:47.560
+ the hypothesis space is really, really large.
+
+1:33:47.560 --> 1:33:50.000
+ And when you go back in time, like you were saying,
+
+1:33:50.000 --> 1:33:53.000
+ I wanna, I want Alexa to remember more things
+
+1:33:53.000 --> 1:33:56.280
+ that once you go beyond a session of interaction,
+
+1:33:56.280 --> 1:33:59.200
+ which is by session, I mean a time span,
+
+1:33:59.200 --> 1:34:03.120
+ which is today to versus remembering which restaurant I like.
+
+1:34:03.120 --> 1:34:05.440
+ And then when I'm planning a night out to say,
+
+1:34:05.440 --> 1:34:07.480
+ do you wanna go to the same restaurant?
+
+1:34:07.480 --> 1:34:09.720
+ Now you're up the stakes big time.
+
+1:34:09.720 --> 1:34:12.800
+ And this is where the reasoning dimension
+
+1:34:12.800 --> 1:34:14.680
+ also goes way, way bigger.
+
+1:34:14.680 --> 1:34:17.760
+ So you think the space, we'll be elaborating that
+
+1:34:17.760 --> 1:34:20.480
+ a little bit, just philosophically speaking,
+
+1:34:20.480 --> 1:34:24.480
+ do you think when you reason about trying to model
+
+1:34:24.480 --> 1:34:28.040
+ what the goal of a person is in the context
+
+1:34:28.040 --> 1:34:31.080
+ of interacting with Alexa, you think that space is huge?
+
+1:34:31.080 --> 1:34:32.840
+ It's huge, absolutely huge.
+
+1:34:32.840 --> 1:34:35.840
+ Do you think, so like another sort of devil's advocate
+
+1:34:35.840 --> 1:34:38.520
+ would be that we human beings are really simple
+
+1:34:38.520 --> 1:34:41.360
+ and we all want like just a small set of things.
+
+1:34:41.360 --> 1:34:44.720
+ And so do you think it's possible?
+
+1:34:44.720 --> 1:34:47.000
+ Cause we're not talking about
+
+1:34:47.000 --> 1:34:49.240
+ a fulfilling general conversation.
+
+1:34:49.240 --> 1:34:53.320
+ Perhaps actually the Alexa prize is a little bit after that.
+
+1:34:53.320 --> 1:34:56.080
+ Creating a customer, like there's so many
+
+1:34:56.080 --> 1:35:01.040
+ of the interactions, it feels like are clustered
+
+1:35:01.040 --> 1:35:06.040
+ in groups that are, don't require general reasoning.
+
+1:35:06.520 --> 1:35:09.320
+ I think you're right in terms of the head
+
+1:35:09.320 --> 1:35:11.800
+ of the distribution of all the possible things
+
+1:35:11.800 --> 1:35:13.720
+ customers may wanna accomplish.
+
+1:35:13.720 --> 1:35:18.200
+ But the tail is long and it's diverse, right?
+
+1:35:18.200 --> 1:35:19.040
+ So from that.
+
+1:35:19.040 --> 1:35:21.280
+ There's many, many long tails.
+
+1:35:21.280 --> 1:35:24.880
+ So from that perspective, I think you have
+
+1:35:24.880 --> 1:35:26.720
+ to solve that problem otherwise,
+
+1:35:27.640 --> 1:35:28.800
+ and everyone's very different.
+
+1:35:28.800 --> 1:35:30.440
+ Like, I mean, we see this already
+
+1:35:30.440 --> 1:35:32.320
+ in terms of the skills, right?
+
+1:35:32.320 --> 1:35:36.960
+ I mean, if you're an average surfer, which I am not, right?
+
+1:35:36.960 --> 1:35:41.640
+ But somebody is asking Alexa about surfing conditions, right?
+
+1:35:41.640 --> 1:35:45.480
+ And there's a skill that is there for them to get to, right?
+
+1:35:45.480 --> 1:35:47.840
+ That tells you that the tail is massive.
+
+1:35:47.840 --> 1:35:50.720
+ Like in terms of like what kind of skills
+
+1:35:50.720 --> 1:35:54.200
+ people have created, it's humongous in terms of it.
+
+1:35:54.200 --> 1:35:56.960
+ And which means there are these diverse needs.
+
+1:35:56.960 --> 1:36:00.040
+ And when you start looking at the combinations
+
+1:36:00.040 --> 1:36:00.960
+ of these, right?
+
+1:36:00.960 --> 1:36:05.400
+ Even if you had pairs of skills and 90,000 choose two,
+
+1:36:05.400 --> 1:36:07.920
+ it's still a big set of combinations.
+
+1:36:07.920 --> 1:36:11.720
+ So I'm saying there's a huge to do here now.
+
+1:36:11.720 --> 1:36:14.760
+ And I think customers are, you know,
+
+1:36:14.760 --> 1:36:18.080
+ wonderfully frustrated with things.
+
+1:36:18.080 --> 1:36:20.880
+ And they have to keep getting to do better things for them.
+
+1:36:20.880 --> 1:36:21.720
+ So.
+
+1:36:21.720 --> 1:36:23.920
+ And they're not known to be super patient.
+
+1:36:23.920 --> 1:36:24.760
+ So you have to.
+
+1:36:24.760 --> 1:36:25.600
+ Do it fast.
+
+1:36:25.600 --> 1:36:26.960
+ You have to do it fast.
+
+1:36:26.960 --> 1:36:29.840
+ So you've mentioned the idea of a press release,
+
+1:36:29.840 --> 1:36:33.880
+ the research and development, Amazon Alexa
+
+1:36:33.880 --> 1:36:35.960
+ and Amazon general, you kind of think of what
+
+1:36:35.960 --> 1:36:37.240
+ the future product will look like.
+
+1:36:37.240 --> 1:36:38.360
+ And you kind of make it happen.
+
+1:36:38.360 --> 1:36:40.040
+ You work backwards.
+
+1:36:40.040 --> 1:36:43.920
+ So can you draft for me, you probably already have one,
+
+1:36:43.920 --> 1:36:48.880
+ but can you make up one for 10, 20, 30, 40 years out
+
+1:36:48.880 --> 1:36:52.800
+ that you see the Alexa team putting out
+
+1:36:52.800 --> 1:36:56.520
+ just in broad strokes, something that you dream about?
+
+1:36:56.520 --> 1:37:00.920
+ I think let's start with the five years first, right?
+
+1:37:00.920 --> 1:37:03.600
+ So, and I'll get to the 40 years too.
+
+1:37:03.600 --> 1:37:06.000
+ Cause I'm pretty sure you have a real five year one.
+
+1:37:06.000 --> 1:37:08.720
+ That's why I didn't want to, but yeah,
+
+1:37:08.720 --> 1:37:10.120
+ in broad strokes, let's start with five years.
+
+1:37:10.120 --> 1:37:11.800
+ I think the five year is where, I mean,
+
+1:37:11.800 --> 1:37:14.800
+ I think of in these spaces, it's hard,
+
+1:37:14.800 --> 1:37:16.160
+ especially if you're in the thick of things
+
+1:37:16.160 --> 1:37:17.960
+ to think beyond the five year space,
+
+1:37:17.960 --> 1:37:20.280
+ because a lot of things change, right?
+
+1:37:20.280 --> 1:37:22.200
+ I mean, if you ask me five years back,
+
+1:37:22.200 --> 1:37:24.200
+ will Alexa will be here?
+
+1:37:24.200 --> 1:37:26.360
+ I wouldn't have, I think it has surpassed
+
+1:37:26.360 --> 1:37:29.040
+ my imagination of that time, right?
+
+1:37:29.040 --> 1:37:33.160
+ So I think from the next five years perspective,
+
+1:37:33.160 --> 1:37:37.120
+ from a AI perspective, what we're gonna see
+
+1:37:37.120 --> 1:37:40.400
+ is that notion, which you said goal oriented dialogues
+
+1:37:40.400 --> 1:37:42.400
+ and open domain like Alexa prize.
+
+1:37:42.400 --> 1:37:45.200
+ I think that bridge is gonna get closed.
+
+1:37:45.200 --> 1:37:46.400
+ They won't be different.
+
+1:37:46.400 --> 1:37:48.520
+ And I'll give you why that's the case.
+
+1:37:48.520 --> 1:37:50.200
+ You mentioned shopping.
+
+1:37:50.200 --> 1:37:52.240
+ How do you shop?
+
+1:37:52.240 --> 1:37:55.680
+ Do you shop in one shot?
+
+1:37:55.680 --> 1:37:59.400
+ Sure, your double A batteries, paper towels.
+
+1:37:59.400 --> 1:38:04.160
+ Yes, how long does it take for you to buy a camera?
+
+1:38:04.160 --> 1:38:07.480
+ You do ton of research, then you make a decision.
+
+1:38:07.480 --> 1:38:11.440
+ So is that a goal oriented dialogue
+
+1:38:11.440 --> 1:38:15.480
+ when somebody says, Alexa, find me a camera?
+
+1:38:15.480 --> 1:38:18.640
+ Is it simply inquisitiveness, right?
+
+1:38:18.640 --> 1:38:20.880
+ So even in the something that you think of it as shopping,
+
+1:38:20.880 --> 1:38:23.960
+ which you said you yourself use a lot of,
+
+1:38:23.960 --> 1:38:27.360
+ if you go beyond where it's reorders
+
+1:38:27.360 --> 1:38:32.360
+ or items where you sort of are not brand conscious
+
+1:38:32.440 --> 1:38:33.520
+ and so forth.
+
+1:38:33.520 --> 1:38:35.040
+ So that was just in shopping.
+
+1:38:35.040 --> 1:38:36.120
+ Just to comment quickly,
+
+1:38:36.120 --> 1:38:38.040
+ I've never bought anything through Alexa
+
+1:38:38.040 --> 1:38:41.160
+ that I haven't bought before on Amazon on the desktop
+
+1:38:41.160 --> 1:38:44.000
+ after I clicked in a bunch of read a bunch of reviews,
+
+1:38:44.000 --> 1:38:44.840
+ that kind of stuff.
+
+1:38:44.840 --> 1:38:45.800
+ So it's repurchase.
+
+1:38:45.800 --> 1:38:47.480
+ So now you think in,
+
+1:38:47.480 --> 1:38:51.280
+ even for something that you felt like is a finite goal,
+
+1:38:51.280 --> 1:38:54.680
+ I think the space is huge because even products,
+
+1:38:54.680 --> 1:38:56.640
+ the attributes are many,
+
+1:38:56.640 --> 1:38:58.240
+ and you wanna look at reviews,
+
+1:38:58.240 --> 1:39:00.000
+ some on Amazon, some outside,
+
+1:39:00.000 --> 1:39:01.960
+ some you wanna look at what CNET is saying
+
+1:39:01.960 --> 1:39:05.200
+ or another consumer forum is saying
+
+1:39:05.200 --> 1:39:06.880
+ about even a product for instance, right?
+
+1:39:06.880 --> 1:39:11.640
+ So that's just shopping where you could argue
+
+1:39:11.640 --> 1:39:13.960
+ the ultimate goal is sort of known.
+
+1:39:13.960 --> 1:39:15.680
+ And we haven't talked about Alexa,
+
+1:39:15.680 --> 1:39:18.880
+ what's the weather in Cape Cod this weekend, right?
+
+1:39:18.880 --> 1:39:22.480
+ So why am I asking that weather question, right?
+
+1:39:22.480 --> 1:39:27.480
+ So I think of it as how do you complete goals
+
+1:39:27.480 --> 1:39:30.040
+ with minimum steps for our customers, right?
+
+1:39:30.040 --> 1:39:32.400
+ And when you think of it that way,
+
+1:39:32.400 --> 1:39:35.960
+ the distinction between goal oriented and conversations
+
+1:39:35.960 --> 1:39:38.640
+ for open domain say goes away.
+
+1:39:38.640 --> 1:39:41.680
+ I may wanna know what happened
+
+1:39:41.680 --> 1:39:43.520
+ in the presidential debate, right?
+
+1:39:43.520 --> 1:39:45.800
+ And is it I'm seeking just information
+
+1:39:45.800 --> 1:39:49.560
+ or I'm looking at who's winning the debates, right?
+
+1:39:49.560 --> 1:39:53.360
+ So these are all quite hard problems.
+
+1:39:53.360 --> 1:39:55.560
+ So even the five year horizon problem,
+
+1:39:55.560 --> 1:39:59.840
+ I'm like, I sure hope we'll solve these.
+
+1:39:59.840 --> 1:40:03.440
+ And you're optimistic because that's a hard problem.
+
+1:40:03.440 --> 1:40:04.280
+ Which part?
+
+1:40:04.280 --> 1:40:09.280
+ The reasoning enough to be able to help explore
+
+1:40:09.600 --> 1:40:12.400
+ complex goals that are beyond something simplistic.
+
+1:40:12.400 --> 1:40:16.560
+ That feels like it could be, well, five years is a nice.
+
+1:40:16.560 --> 1:40:18.280
+ Is a nice bar for it, right?
+
+1:40:18.280 --> 1:40:21.240
+ I think you will, it's a nice ambition
+
+1:40:21.240 --> 1:40:23.760
+ and do we have press releases for that?
+
+1:40:23.760 --> 1:40:25.880
+ Absolutely, can I tell you what specifically
+
+1:40:25.880 --> 1:40:26.720
+ the roadmap will be?
+
+1:40:26.720 --> 1:40:28.080
+ No, right?
+
+1:40:28.080 --> 1:40:30.760
+ And what, and will we solve all of it
+
+1:40:30.760 --> 1:40:31.760
+ in the five year space?
+
+1:40:31.760 --> 1:40:35.560
+ No, this is, we'll work on this forever actually.
+
+1:40:35.560 --> 1:40:37.960
+ This is the hardest of the AI problems
+
+1:40:37.960 --> 1:40:42.240
+ and I don't see that being solved even in a 40 year horizon
+
+1:40:42.240 --> 1:40:45.200
+ because even if you limit to the human intelligence,
+
+1:40:45.200 --> 1:40:47.640
+ we know we are quite far from that.
+
+1:40:47.640 --> 1:40:52.640
+ In fact, every aspects of our sensing to neural processing,
+
+1:40:52.640 --> 1:40:56.320
+ to how brain stores information and how it processes it,
+
+1:40:56.320 --> 1:40:59.000
+ we don't yet know how to represent knowledge, right?
+
+1:40:59.000 --> 1:41:02.920
+ So we are still in those early stages.
+
+1:41:02.920 --> 1:41:06.360
+ So I wanted to start, that's why at the five year,
+
+1:41:06.360 --> 1:41:09.120
+ because the five year success would look like that
+
+1:41:09.120 --> 1:41:11.240
+ in solving these complex goals.
+
+1:41:11.240 --> 1:41:14.560
+ And the 40 year would be where it's just natural
+
+1:41:14.560 --> 1:41:18.720
+ to talk to these in terms of more of these complex goals.
+
+1:41:18.720 --> 1:41:20.000
+ Right now, we've already come to the point
+
+1:41:20.000 --> 1:41:22.840
+ where these transactions you mentioned
+
+1:41:22.840 --> 1:41:25.720
+ of asking for weather or reordering something
+
+1:41:25.720 --> 1:41:28.560
+ or listening to your favorite tune,
+
+1:41:28.560 --> 1:41:30.840
+ it's natural for you to ask Alexa.
+
+1:41:30.840 --> 1:41:33.880
+ It's now unnatural to pick up your phone, right?
+
+1:41:33.880 --> 1:41:36.600
+ And that I think is the first five year transformation.
+
+1:41:36.600 --> 1:41:38.800
+ The next five year transformation would be,
+
+1:41:38.800 --> 1:41:40.960
+ okay, I can plan my weekend with Alexa
+
+1:41:40.960 --> 1:41:43.640
+ or I can plan my next meal with Alexa
+
+1:41:43.640 --> 1:41:47.840
+ or my next night out with seamless effort.
+
+1:41:47.840 --> 1:41:51.200
+ So just to pause and look back at the big picture of it all.
+
+1:41:51.200 --> 1:41:55.560
+ It's a, you're a part of a large team
+
+1:41:55.560 --> 1:41:58.680
+ that's creating a system that's in the home
+
+1:41:58.680 --> 1:42:02.760
+ that's not human, that gets to interact with human beings.
+
+1:42:02.760 --> 1:42:06.120
+ So we human beings, we these descendants of apes
+
+1:42:06.120 --> 1:42:09.000
+ have created an artificial intelligence system
+
+1:42:09.000 --> 1:42:10.960
+ that's able to have conversations.
+
+1:42:10.960 --> 1:42:15.960
+ I mean, that to me, the two most transformative robots
+
+1:42:18.800 --> 1:42:22.000
+ of this century, I think will be autonomous vehicles,
+
+1:42:23.200 --> 1:42:24.760
+ but they're a little bit transformative
+
+1:42:24.760 --> 1:42:26.360
+ in a more boring way.
+
+1:42:26.360 --> 1:42:28.120
+ It's like a tool.
+
+1:42:28.120 --> 1:42:32.840
+ I think conversational agents in the home
+
+1:42:32.840 --> 1:42:34.640
+ is like an experience.
+
+1:42:34.640 --> 1:42:36.120
+ How does that make you feel?
+
+1:42:36.120 --> 1:42:38.560
+ That you're at the center of creating that?
+
+1:42:38.560 --> 1:42:42.800
+ Do you sit back in awe sometimes?
+
+1:42:42.800 --> 1:42:47.320
+ What is your feeling about the whole mess of it?
+
+1:42:47.320 --> 1:42:49.000
+ Can you even believe that we're able
+
+1:42:49.000 --> 1:42:50.840
+ to create something like this?
+
+1:42:50.840 --> 1:42:52.440
+ I think it's a privilege.
+
+1:42:52.440 --> 1:42:57.440
+ I'm so fortunate like where I ended up, right?
+
+1:42:57.640 --> 1:43:00.800
+ And it's been a long journey.
+
+1:43:00.800 --> 1:43:03.480
+ Like I've been in this space for a long time in Cambridge,
+
+1:43:03.480 --> 1:43:07.080
+ right, and it's so heartwarming to see
+
+1:43:07.080 --> 1:43:11.440
+ the kind of adoption conversational agents are having now.
+
+1:43:12.440 --> 1:43:14.480
+ Five years back, it was almost like,
+
+1:43:14.480 --> 1:43:17.120
+ should I move out of this because we are unable
+
+1:43:17.120 --> 1:43:21.360
+ to find this killer application that customers would love
+
+1:43:21.360 --> 1:43:24.440
+ that would not simply be a good to have thing
+
+1:43:24.440 --> 1:43:26.080
+ in research labs.
+
+1:43:26.080 --> 1:43:29.160
+ And it's so fulfilling to see it make a difference
+
+1:43:29.160 --> 1:43:32.240
+ to millions and billions of people worldwide.
+
+1:43:32.240 --> 1:43:34.400
+ The good thing is that it's still very early.
+
+1:43:34.400 --> 1:43:37.360
+ So I have another 20 years of job security
+
+1:43:37.360 --> 1:43:38.200
+ doing what I love.
+
+1:43:38.200 --> 1:43:40.560
+ Like, so I think from that perspective,
+
+1:43:42.000 --> 1:43:44.280
+ I tell every researcher that joins
+
+1:43:44.280 --> 1:43:46.240
+ or every member of my team,
+
+1:43:46.240 --> 1:43:47.640
+ that this is a unique privilege.
+
+1:43:47.640 --> 1:43:49.560
+ Like I think, and we have,
+
+1:43:49.560 --> 1:43:52.760
+ and I would say not just launching Alexa in 2014,
+
+1:43:52.760 --> 1:43:54.360
+ which was first of its kind.
+
+1:43:54.360 --> 1:43:57.360
+ Along the way we have, when we launched Alexa Skills Kit,
+
+1:43:57.360 --> 1:43:59.680
+ it became democratizing AI.
+
+1:43:59.680 --> 1:44:02.440
+ When before that there was no good evidence
+
+1:44:02.440 --> 1:44:04.960
+ of an SDK for speech and language.
+
+1:44:04.960 --> 1:44:06.640
+ Now we are coming to this where you and I
+
+1:44:06.640 --> 1:44:09.440
+ are having this conversation where I'm not saying,
+
+1:44:10.320 --> 1:44:14.560
+ oh, Lex, planning a night out with an AI agent, impossible.
+
+1:44:14.560 --> 1:44:17.120
+ I'm saying it's in the realm of possibility
+
+1:44:17.120 --> 1:44:19.480
+ and not only possibility, we'll be launching this, right?
+
+1:44:19.480 --> 1:44:23.800
+ So some elements of that, it will keep getting better.
+
+1:44:23.800 --> 1:44:25.640
+ We know that is a universal truth.
+
+1:44:25.640 --> 1:44:30.160
+ Once you have these kinds of agents out there being used,
+
+1:44:30.160 --> 1:44:32.080
+ they get better for your customers.
+
+1:44:32.080 --> 1:44:34.240
+ And I think that's where,
+
+1:44:34.240 --> 1:44:36.560
+ I think the amount of research topics
+
+1:44:36.560 --> 1:44:39.480
+ we are throwing out at our budding researchers
+
+1:44:39.480 --> 1:44:41.840
+ is just gonna be exponentially hard.
+
+1:44:41.840 --> 1:44:45.600
+ And the great thing is you can now get immense satisfaction
+
+1:44:45.600 --> 1:44:47.280
+ by having customers use it,
+
+1:44:47.280 --> 1:44:51.120
+ not just a paper in NeurIPS or another conference.
+
+1:44:51.120 --> 1:44:53.120
+ I think everyone, myself included,
+
+1:44:53.120 --> 1:44:54.840
+ are deeply excited about that future.
+
+1:44:54.840 --> 1:44:58.040
+ So I don't think there's a better place to end, Rohit.
+
+1:44:58.040 --> 1:44:58.880
+ Thank you so much for talking to us.
+
+1:44:58.880 --> 1:44:59.720
+ Thank you so much.
+
+1:44:59.720 --> 1:45:00.560
+ This was fun.
+
+1:45:00.560 --> 1:45:02.240
+ Thank you, same here.
+
+1:45:02.240 --> 1:45:04.240
+ Thanks for listening to this conversation
+
+1:45:04.240 --> 1:45:05.760
+ with Rohit Prasad.
+
+1:45:05.760 --> 1:45:08.880
+ And thank you to our presenting sponsor, Cash App.
+
+1:45:08.880 --> 1:45:11.600
+ Download it, use code LEGSPodcast,
+
+1:45:11.600 --> 1:45:14.720
+ you'll get $10 and $10 will go to FIRST,
+
+1:45:14.720 --> 1:45:16.520
+ a STEM education nonprofit
+
+1:45:16.520 --> 1:45:19.760
+ that inspires hundreds of thousands of young minds
+
+1:45:19.760 --> 1:45:23.320
+ to learn and to dream of engineering our future.
+
+1:45:23.320 --> 1:45:26.220
+ If you enjoy this podcast, subscribe on YouTube,
+
+1:45:26.220 --> 1:45:28.200
+ give it five stars on Apple Podcast,
+
+1:45:28.200 --> 1:45:31.720
+ support it on Patreon, or connect with me on Twitter.
+
+1:45:31.720 --> 1:45:34.960
+ And now let me leave you with some words of wisdom
+
+1:45:34.960 --> 1:45:37.500
+ from the great Alan Turing.
+
+1:45:37.500 --> 1:45:41.680
+ Sometimes it is the people no one can imagine anything of
+
+1:45:41.680 --> 1:45:44.180
+ who do the things no one can imagine.
+
+1:45:44.180 --> 1:45:57.180
+ Thank you for listening and hope to see you next time.
+

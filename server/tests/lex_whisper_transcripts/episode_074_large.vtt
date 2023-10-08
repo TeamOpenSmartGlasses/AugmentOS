@@ -1,0 +1,5765 @@
+WEBVTT
+
+00:00.000 --> 00:05.620
+ The following is a conversation with Michael I. Jordan, a professor at Berkeley and one
+
+00:05.620 --> 00:10.280
+ of the most influential people in the history of machine learning, statistics, and artificial
+
+00:10.280 --> 00:11.280
+ intelligence.
+
+00:11.280 --> 00:17.640
+ He has been cited over 170,000 times and he has mentored many of the world class researchers
+
+00:17.640 --> 00:25.480
+ defining the field of AI today, including Andrew Ng, Zubin Garamani, Ben Taskar, and
+
+00:25.480 --> 00:27.640
+ Yoshua Bengio.
+
+00:27.640 --> 00:34.560
+ All this, to me, is as impressive as the over 32,000 points in the six NBA championships
+
+00:34.560 --> 00:38.120
+ of the Michael J. Jordan of basketball fame.
+
+00:38.120 --> 00:43.200
+ There's a nonzero probability that I talked to the other Michael Jordan given my connection
+
+00:43.200 --> 00:48.480
+ to and love of the Chicago Bulls of the 90s, but if I had to pick one, I'm going with
+
+00:48.480 --> 00:54.160
+ the Michael Jordan of statistics and computer science, or as Yann LeCun calls him, the Miles
+
+00:54.160 --> 00:56.080
+ Davis of machine learning.
+
+00:56.080 --> 01:01.560
+ In his blog post titled Artificial Intelligence, the Revolution Hasn't Happened Yet, Michael
+
+01:01.560 --> 01:05.560
+ argues for broadening the scope of the artificial intelligence field.
+
+01:05.560 --> 01:12.080
+ In many ways, the underlying spirit of this podcast is the same, to see artificial intelligence
+
+01:12.080 --> 01:18.660
+ as a deeply human endeavor, to not only engineer algorithms and robots, but to understand and
+
+01:18.660 --> 01:25.120
+ empower human beings at all levels of abstraction, from the individual to our civilization as
+
+01:25.120 --> 01:26.800
+ a whole.
+
+01:26.800 --> 01:29.480
+ This is the Artificial Intelligence Podcast.
+
+01:29.480 --> 01:34.080
+ If you enjoy it, subscribe and YouTube, give it five stars at Apple Podcast, support it
+
+01:34.080 --> 01:42.160
+ on Patreon, or simply connect with me on Twitter at Lex Friedman spelled F R I D M A N.
+
+01:42.160 --> 01:46.560
+ As usual, I'll do one or two minutes of ads now and never any ads in the middle that
+
+01:46.560 --> 01:48.640
+ can break the flow of the conversation.
+
+01:48.640 --> 01:54.000
+ I hope that works for you and doesn't hurt the listening experience.
+
+01:54.000 --> 01:58.360
+ This show is presented by Cash App, the number one finance app in the App Store.
+
+01:58.360 --> 02:02.080
+ When you get it, use code LEX PODCAST.
+
+02:02.080 --> 02:06.500
+ Cash App lets you send money to friends, buy Bitcoin, and invest in the stock market with
+
+02:06.500 --> 02:08.760
+ as little as $1.
+
+02:08.760 --> 02:13.500
+ Since Cash App does fractional share trading, let me mention that the order execution algorithm
+
+02:13.500 --> 02:18.480
+ that worked behind the scenes to create the abstraction of the fractional orders is to
+
+02:18.480 --> 02:21.200
+ me an algorithmic marvel.
+
+02:21.200 --> 02:26.400
+ Great props for the Cash App engineers for solving a hard problem that in the end provides
+
+02:26.400 --> 02:31.140
+ an easy interface that takes a step up to the next layer of abstraction over the stock
+
+02:31.140 --> 02:38.440
+ market, making trading more accessible for new investors and diversification much easier.
+
+02:38.440 --> 02:42.760
+ So once again, if you get Cash App from the App Store or Google Play and use the code
+
+02:42.760 --> 02:49.280
+ LEX PODCAST, you'll get $10 and Cash App will also donate $10 to First, one of my favorite
+
+02:49.280 --> 02:55.120
+ organizations that is helping to advance robotics and STEM education for young people around
+
+02:55.120 --> 02:57.120
+ the world.
+
+02:57.120 --> 03:02.760
+ And now, here's my conversation with Michael I. Jordan.
+
+03:02.760 --> 03:06.480
+ Given that you're one of the greats in the field of AI, machine learning, computer science,
+
+03:06.480 --> 03:14.000
+ and so on, you're trivially called the Michael Jordan of machine learning, although as you
+
+03:14.000 --> 03:19.680
+ know, you were born first, so technically MJ is the Michael I. Jordan of basketball.
+
+03:19.680 --> 03:25.520
+ But anyway, my favorite is Yann LeCun calling you the Miles Davis of machine learning because
+
+03:25.520 --> 03:30.600
+ as he says, you reinvent yourself periodically and sometimes leave fans scratching their
+
+03:30.600 --> 03:32.460
+ heads after you change direction.
+
+03:32.460 --> 03:38.840
+ So can you put at first your historian hat on and give a history of computer science
+
+03:38.840 --> 03:46.040
+ and AI as you saw it, as you experienced it, including the four generations of AI successes
+
+03:46.040 --> 03:47.800
+ that I've seen you talk about?
+
+03:47.800 --> 03:48.800
+ Sure.
+
+03:48.800 --> 03:54.040
+ Yeah, first of all, I much prefer Yann's metaphor.
+
+03:54.040 --> 04:00.020
+ Miles Davis was a real explorer in jazz and he had a coherent story.
+
+04:00.020 --> 04:04.320
+ So I think I have one, but it's not just the one you lived, it's the one you think about
+
+04:04.320 --> 04:05.320
+ later.
+
+04:05.320 --> 04:09.920
+ What the historian does is they look back and they revisit.
+
+04:09.920 --> 04:16.520
+ I think what's happening right now is not AI, that was an intellectual aspiration that's
+
+04:16.520 --> 04:18.640
+ still alive today as an aspiration.
+
+04:18.640 --> 04:22.480
+ But I think this is akin to the development of chemical engineering from chemistry or
+
+04:22.480 --> 04:25.900
+ electrical engineering from electromagnetism.
+
+04:25.900 --> 04:31.040
+ So if you go back to the 30s or 40s, there wasn't yet chemical engineering.
+
+04:31.040 --> 04:35.600
+ There was chemistry, there was fluid flow, there was mechanics and so on.
+
+04:35.600 --> 04:41.280
+ But people pretty clearly viewed interesting goals to try to build factories that make
+
+04:41.280 --> 04:48.060
+ chemicals products and do it viably, safely, make good ones, do it at scale.
+
+04:48.060 --> 04:52.160
+ So people started to try to do that, of course, and some factories worked, some didn't, some
+
+04:52.160 --> 04:58.200
+ were not viable, some exploded, but in parallel, developed a whole field called chemical engineering.
+
+04:58.200 --> 05:02.040
+ Electrical engineering is a field, it's no bones about it, it has theoretical aspects
+
+05:02.040 --> 05:04.720
+ to it, it has practical aspects.
+
+05:04.720 --> 05:09.640
+ It's not just engineering, quote unquote, it's the real thing, real concepts are needed.
+
+05:09.640 --> 05:11.680
+ Same thing with electrical engineering.
+
+05:11.680 --> 05:16.620
+ There was Maxwell's equations, which in some sense were everything you know about electromagnetism,
+
+05:16.620 --> 05:19.120
+ but you needed to figure out how to build circuits, how to build modules, how to put
+
+05:19.120 --> 05:22.920
+ them together, how to bring electricity from one point to another safely and so on and
+
+05:22.920 --> 05:23.920
+ so forth.
+
+05:23.920 --> 05:26.080
+ So a whole field that developed called electrical engineering.
+
+05:26.080 --> 05:33.320
+ I think that's what's happening right now, is that we have a proto field, which is statistics,
+
+05:33.320 --> 05:36.560
+ more of the theoretical side of it, algorithmic side of computer science, that was enough
+
+05:36.560 --> 05:39.240
+ to start to build things, but what things?
+
+05:39.240 --> 05:44.120
+ Systems that bring value to human beings and use human data and mix in human decisions.
+
+05:44.120 --> 05:47.620
+ The engineering side of that is all ad hoc.
+
+05:47.620 --> 05:48.620
+ That's what's emerging.
+
+05:48.620 --> 05:51.560
+ In fact, if you wanna call machine learning a field, I think that's what it is, that it's
+
+05:51.560 --> 05:56.600
+ a proto form of engineering based on statistical and computational ideas of previous generations.
+
+05:56.600 --> 06:01.280
+ But do you think there's something deeper about AI in his dreams and aspirations as
+
+06:01.280 --> 06:03.840
+ compared to chemical engineering and electrical engineering?
+
+06:03.840 --> 06:07.960
+ Well the dreams and aspirations maybe, but those are 500 years from now.
+
+06:07.960 --> 06:10.480
+ I think that that's like the Greeks sitting there and saying, it would be neat to get
+
+06:10.480 --> 06:12.920
+ to the moon someday.
+
+06:12.920 --> 06:16.200
+ I think we have no clue how the brain does computation.
+
+06:16.200 --> 06:17.560
+ We're just a clueless.
+
+06:17.560 --> 06:23.600
+ We're even worse than the Greeks on most anything interesting scientifically of our era.
+
+06:23.600 --> 06:29.100
+ Can you linger on that just for a moment because you stand not completely unique, but a little
+
+06:29.100 --> 06:31.400
+ bit unique in the clarity of that.
+
+06:31.400 --> 06:36.760
+ Can you elaborate your intuition of why we're, like where we stand in our understanding of
+
+06:36.760 --> 06:37.760
+ the human brain?
+
+06:37.760 --> 06:41.280
+ And a lot of people say, you know, scientists say we're not very far in understanding human
+
+06:41.280 --> 06:44.560
+ brain, but you're like, you're saying we're in the dark here.
+
+06:44.560 --> 06:45.960
+ Well, I know I'm not unique.
+
+06:45.960 --> 06:49.240
+ I don't even think in the clarity, but if you talk to real neuroscientists that really
+
+06:49.240 --> 06:53.480
+ study real synapses or real neurons, they agree, they agree.
+
+06:53.480 --> 06:58.680
+ It's a hundreds of year task and they're building it up slowly and surely.
+
+06:58.680 --> 07:00.920
+ What the signal is there is not clear.
+
+07:00.920 --> 07:02.700
+ We think we have all of our metaphors.
+
+07:02.700 --> 07:08.240
+ We think it's electrical, maybe it's chemical, it's a whole soup, it's ions and proteins
+
+07:08.240 --> 07:09.240
+ and it's a cell.
+
+07:09.240 --> 07:11.080
+ And that's even around like a single synapse.
+
+07:11.080 --> 07:15.920
+ If you look at a electron micrograph of a single synapse, it's a city of its own.
+
+07:15.920 --> 07:20.800
+ And that's one little thing on a dendritic tree, which is extremely complicated electrochemical
+
+07:20.800 --> 07:22.000
+ thing.
+
+07:22.000 --> 07:25.760
+ And it's doing these spikes and voltages are flying around and then proteins are taking
+
+07:25.760 --> 07:29.440
+ that and taking it down into the DNA and who knows what.
+
+07:29.440 --> 07:31.760
+ So it is the problem of the next few centuries.
+
+07:31.760 --> 07:33.360
+ It is fantastic.
+
+07:33.360 --> 07:34.940
+ But we have our metaphors about it.
+
+07:34.940 --> 07:36.160
+ Is it an economic device?
+
+07:36.160 --> 07:42.040
+ Is it like the immune system or is it like a layered set of, you know, arithmetic computations?
+
+07:42.040 --> 07:44.780
+ We have all these metaphors and they're fun.
+
+07:44.780 --> 07:48.120
+ But that's not real science per se.
+
+07:48.120 --> 07:49.120
+ There is neuroscience.
+
+07:49.120 --> 07:50.120
+ That's not neuroscience.
+
+07:50.120 --> 07:51.120
+ All right.
+
+07:51.120 --> 07:55.380
+ That's like the Greek speculating about how to get to the moon, fun, right?
+
+07:55.380 --> 07:59.040
+ And I think that I like to say this fairly strongly because I think a lot of young people
+
+07:59.040 --> 08:03.440
+ think we're on the verge because a lot of people who don't talk about it clearly let
+
+08:03.440 --> 08:07.520
+ it be understood that, yes, we kind of, this is a brain inspired, we're kind of close,
+
+08:07.520 --> 08:10.280
+ you know, breakthroughs are on the horizon.
+
+08:10.280 --> 08:13.600
+ And that's scrupulous people sometimes who need money for their labs.
+
+08:13.600 --> 08:18.680
+ That's what I'm saying, scrupulous, but people will oversell, I need money for my lab, I'm
+
+08:18.680 --> 08:23.880
+ studying computational neuroscience, I'm going to oversell it.
+
+08:23.880 --> 08:25.200
+ And so there's been too much of that.
+
+08:25.200 --> 08:32.040
+ So I'll step into the gray area between metaphor and engineering with, I'm not sure if you're
+
+08:32.040 --> 08:35.520
+ familiar with brain computer interfaces.
+
+08:35.520 --> 08:42.240
+ So a company like Elon Musk has Neuralink that's working on putting electrodes into
+
+08:42.240 --> 08:46.520
+ the brain and trying to be able to read, both read and send electrical signals.
+
+08:46.520 --> 08:54.320
+ Just as you said, even the basic mechanism of communication in the brain is not something
+
+08:54.320 --> 08:55.320
+ we understand.
+
+08:55.320 --> 09:00.880
+ But do you hope without understanding the fundamental principles of how the brain works,
+
+09:00.880 --> 09:06.600
+ we'll be able to do something interesting at that gray area of metaphor?
+
+09:06.600 --> 09:07.600
+ It's not my area.
+
+09:07.600 --> 09:11.200
+ So I hope in the sense, like anybody else hopes for some interesting things to happen
+
+09:11.200 --> 09:15.600
+ from research, I would expect more something like Alzheimer's will get figured out from
+
+09:15.600 --> 09:16.600
+ modern neuroscience.
+
+09:16.600 --> 09:22.560
+ There's a lot of human suffering based on brain disease and we throw things like lithium
+
+09:22.560 --> 09:25.900
+ at the brain, it kind of works, no one has a clue why.
+
+09:25.900 --> 09:28.240
+ That's not quite true, but mostly we don't know.
+
+09:28.240 --> 09:31.940
+ And that's even just about the biochemistry of the brain and how it leads to mood swings
+
+09:31.940 --> 09:33.120
+ and so on.
+
+09:33.120 --> 09:38.160
+ How thought emerges from that, we were really, really completely dim.
+
+09:38.160 --> 09:41.540
+ So that you might want to hook up electrodes and try to do some signal processing on that
+
+09:41.540 --> 09:45.640
+ and try to find patterns, fine, by all means, go for it.
+
+09:45.640 --> 09:48.740
+ It's just not scientific at this point.
+
+09:48.740 --> 09:53.220
+ So it's like kind of sitting in a satellite and watching the emissions from a city and
+
+09:53.220 --> 09:57.680
+ trying to infer things about the microeconomy, even though you don't have microeconomic concepts.
+
+09:57.680 --> 09:59.200
+ It's really that kind of thing.
+
+09:59.200 --> 10:02.520
+ And so yes, can you find some signals that do something interesting or useful?
+
+10:02.520 --> 10:06.640
+ Can you control a cursor or mouse with your brain?
+
+10:06.640 --> 10:13.240
+ Yeah, absolutely, and then I can imagine business models based on that and even medical applications
+
+10:13.240 --> 10:14.240
+ of that.
+
+10:14.240 --> 10:19.680
+ But from there to understanding algorithms that allow us to really tie in deeply from
+
+10:19.680 --> 10:22.580
+ the brain to computer, I just, no, I don't agree with Elon Musk.
+
+10:22.580 --> 10:26.580
+ I don't think that's even, that's not for our generations, not even for the century.
+
+10:26.580 --> 10:33.580
+ So just in hopes of getting you to dream, you've mentioned Kolmogorov and Turing might
+
+10:33.580 --> 10:41.120
+ pop up, do you think that there might be breakthroughs that will get you to sit back in five, 10
+
+10:41.120 --> 10:43.160
+ years and say, wow?
+
+10:43.160 --> 10:49.240
+ Oh, I'm sure there will be, but I don't think that there'll be demos that impress me.
+
+10:49.240 --> 10:55.120
+ I don't think that having a computer call a restaurant and pretend to be a human is
+
+10:55.120 --> 10:56.120
+ a breakthrough.
+
+10:56.120 --> 10:57.120
+ Right.
+
+10:57.120 --> 10:59.840
+ And people, you know, some people present it as such.
+
+10:59.840 --> 11:01.660
+ It's imitating human intelligence.
+
+11:01.660 --> 11:07.400
+ It's even putting coughs in the thing to make a bit of a PR stunt.
+
+11:07.400 --> 11:11.440
+ And so fine that the world runs on those things too.
+
+11:11.440 --> 11:14.940
+ And I don't want to diminish all the hard work and engineering that goes behind things
+
+11:14.940 --> 11:17.760
+ like that and the ultimate value to the human race.
+
+11:17.760 --> 11:20.520
+ But that's not scientific understanding.
+
+11:20.520 --> 11:23.880
+ And I know the people that work on these things, they are after scientific understanding.
+
+11:23.880 --> 11:26.780
+ In the meantime, they've got to kind of, you know, the trains got to run and they got mouths
+
+11:26.780 --> 11:30.460
+ to feed and they got things to do and there's nothing wrong with all that.
+
+11:30.460 --> 11:32.560
+ I would call that though, just engineering.
+
+11:32.560 --> 11:35.960
+ And I want to distinguish that between an engineering field, like electrical engineering
+
+11:35.960 --> 11:39.360
+ and chemical engineering that originally emerged, that had real principles and you really know
+
+11:39.360 --> 11:43.680
+ what you're doing and you had a little scientific understanding, maybe not even complete.
+
+11:43.680 --> 11:49.040
+ So it became more predictable and it really gave value to human life because it was understood.
+
+11:49.040 --> 11:54.180
+ And so we don't want to muddle too much these waters of, you know, what we're able to do
+
+11:54.180 --> 11:58.080
+ versus what we really can't do in a way that's going to impress the next.
+
+11:58.080 --> 12:02.520
+ So I don't need to be wowed, but I think that someone comes along in 20 years, a younger
+
+12:02.520 --> 12:08.400
+ person who's absorbed all the technology and for them to be wowed, I think they have to
+
+12:08.400 --> 12:09.400
+ be more deeply impressed.
+
+12:09.400 --> 12:13.020
+ A young Kolmogorov would not be wowed by some of the stunts that you see right now coming
+
+12:13.020 --> 12:14.020
+ from the big companies.
+
+12:14.020 --> 12:19.040
+ The demos, but do you think the breakthroughs from Kolmogorov would be, and give this question
+
+12:19.040 --> 12:24.120
+ a chance, do you think there'll be in the scientific fundamental principles arena or
+
+12:24.120 --> 12:28.400
+ do you think it's possible to have fundamental breakthroughs in engineering?
+
+12:28.400 --> 12:33.200
+ Meaning, you know, I would say some of the things that Elon Musk is working with SpaceX
+
+12:33.200 --> 12:39.840
+ and then others sort of trying to revolutionize the fundamentals of engineering, of manufacturing,
+
+12:39.840 --> 12:44.480
+ of saying, here's a problem we know how to do a demo of and actually taking it to scale.
+
+12:44.480 --> 12:45.480
+ Yeah.
+
+12:45.480 --> 12:46.960
+ So there's going to be all kinds of breakthroughs.
+
+12:46.960 --> 12:48.280
+ I just don't like that terminology.
+
+12:48.280 --> 12:52.000
+ I'm a scientist and I work on things day in and day out and things move along and eventually
+
+12:52.000 --> 12:56.400
+ you say, wow, something happened, but I don't like that language very much.
+
+12:56.400 --> 13:01.000
+ Also I don't like to prize theoretical breakthroughs over practical ones.
+
+13:01.000 --> 13:05.080
+ I tend to be more of a theoretician and I think there's lots to do in that arena right
+
+13:05.080 --> 13:06.760
+ now.
+
+13:06.760 --> 13:09.800
+ And so I wouldn't point to the Kolmogorovs, I might point to the Edisons of the era and
+
+13:09.800 --> 13:11.840
+ maybe Musk is a bit more like that.
+
+13:11.840 --> 13:17.440
+ But you know, Musk, God bless him, also will say things about AI that he knows very little
+
+13:17.440 --> 13:23.840
+ about and he leads people astray when he talks about things he doesn't know anything about.
+
+13:23.840 --> 13:27.360
+ Trying to program a computer to understand natural language, to be involved in a dialogue
+
+13:27.360 --> 13:30.460
+ we're having right now, that ain't going to happen in our lifetime.
+
+13:30.460 --> 13:35.240
+ You could fake it, you can mimic, sort of take old sentences that humans use and retread
+
+13:35.240 --> 13:38.560
+ them, but the deep understanding of language, no, it's not going to happen.
+
+13:38.560 --> 13:42.960
+ And so from that, I hope you can perceive that the deeper, yet deeper kind of aspects
+
+13:42.960 --> 13:44.520
+ and intelligence are not going to happen.
+
+13:44.520 --> 13:45.520
+ Now will there be breakthroughs?
+
+13:45.520 --> 13:49.600
+ No, I think that Google was a breakthrough, I think Amazon is a breakthrough, you know,
+
+13:49.600 --> 13:53.280
+ I think Uber is a breakthrough, you know, that bring value to human beings at scale
+
+13:53.280 --> 13:56.880
+ in new, brand new ways based on data flows and so on.
+
+13:56.880 --> 14:01.260
+ A lot of these things are slightly broken because there's not kind of an engineering
+
+14:01.260 --> 14:06.680
+ field that takes economic value in context of data and, you know, planetary scale and
+
+14:06.680 --> 14:11.240
+ worries about all the externalities, the privacy, you know, we don't have that field so we don't
+
+14:11.240 --> 14:13.200
+ think these things through very well.
+
+14:13.200 --> 14:17.560
+ I see that as emerging and that will be, you know, looking back from 100 years, that will
+
+14:17.560 --> 14:21.240
+ be a constituted breakthrough in this era, just like electrical engineering was a breakthrough
+
+14:21.240 --> 14:24.560
+ in the early part of the last century and chemical engineering was a breakthrough.
+
+14:24.560 --> 14:30.360
+ So the scale, the markets that you talk about and we'll get to will be seen as sort of breakthrough
+
+14:30.360 --> 14:34.360
+ and we're in the very early days of really doing interesting stuff there and we'll get
+
+14:34.360 --> 14:40.920
+ to that, but just taking a quick step back, can you give, kind of throw off the historian
+
+14:40.920 --> 14:41.920
+ hat.
+
+14:41.920 --> 14:47.760
+ I mean, you briefly said that the history of AI kind of mimics the history of chemical
+
+14:47.760 --> 14:49.240
+ engineering, but...
+
+14:49.240 --> 14:50.360
+ I keep saying machine learning.
+
+14:50.360 --> 14:54.280
+ You keep wanting to say AI, just to let you know, I don't, you know, I resist that.
+
+14:54.280 --> 15:01.080
+ I don't think this is about AI really was John McCarthy as almost a philosopher saying,
+
+15:01.080 --> 15:03.560
+ wouldn't it be cool if we could put thought in a computer?
+
+15:03.560 --> 15:08.040
+ If we could mimic the human capability to think or put intelligence in, in some sense
+
+15:08.040 --> 15:09.960
+ into a computer.
+
+15:09.960 --> 15:13.560
+ That's an interesting philosophical question and he wanted to make it more than philosophy.
+
+15:13.560 --> 15:17.340
+ He wanted to actually write down a logical formula and algorithms that would do that.
+
+15:17.340 --> 15:20.180
+ And that is a perfectly valid, reasonable thing to do.
+
+15:20.180 --> 15:23.080
+ That's not what's happening in this era.
+
+15:23.080 --> 15:27.760
+ So the reason I keep saying AI actually, and I'd love to hear what you think about it.
+
+15:27.760 --> 15:34.640
+ Machine learning has a very particular set of methods and tools.
+
+15:34.640 --> 15:37.720
+ Maybe your version of it is that mine doesn't, it's very, very open.
+
+15:37.720 --> 15:40.160
+ It does optimization, it does sampling, it does...
+
+15:40.160 --> 15:42.920
+ So systems that learn is what machine learning is.
+
+15:42.920 --> 15:44.560
+ Systems that learn and make decisions.
+
+15:44.560 --> 15:45.560
+ And make decisions.
+
+15:45.560 --> 15:49.080
+ So it's not just pattern recognition and, you know, finding patterns, it's all about
+
+15:49.080 --> 15:52.560
+ making decisions in real worlds and having close feedback loops.
+
+15:52.560 --> 15:58.400
+ So something like symbolic AI, expert systems, reasoning systems, knowledge based representation,
+
+15:58.400 --> 16:03.760
+ all of those kinds of things, search, does that neighbor fit into what you think of as
+
+16:03.760 --> 16:04.760
+ machine learning?
+
+16:04.760 --> 16:07.560
+ So I don't even like the word machine learning, I think that what the field you're talking
+
+16:07.560 --> 16:11.720
+ about is all about making large collections of decisions under uncertainty by large collections
+
+16:11.720 --> 16:12.720
+ of entities.
+
+16:12.720 --> 16:13.720
+ Right?
+
+16:13.720 --> 16:16.100
+ And there are principles for that, at that scale.
+
+16:16.100 --> 16:19.040
+ You don't have to say the principles are for a single entity that's making decisions, single
+
+16:19.040 --> 16:20.560
+ agent or single human.
+
+16:20.560 --> 16:22.600
+ It really immediately goes to the network of decisions.
+
+16:22.600 --> 16:24.080
+ Is a good word for that or no?
+
+16:24.080 --> 16:25.400
+ No, there's no good words for any of this.
+
+16:25.400 --> 16:27.240
+ That's kind of part of the problem.
+
+16:27.240 --> 16:29.920
+ So we can continue the conversation to use AI for all that.
+
+16:29.920 --> 16:35.520
+ I just want to kind of raise the flag here that this is not about, we don't know what
+
+16:35.520 --> 16:38.140
+ intelligence is and real intelligence.
+
+16:38.140 --> 16:41.000
+ We don't know much about abstraction and reasoning at the level of humans.
+
+16:41.000 --> 16:42.000
+ We don't have a clue.
+
+16:42.000 --> 16:44.720
+ We're not trying to build that because we don't have a clue.
+
+16:44.720 --> 16:45.720
+ Eventually it may emerge.
+
+16:45.720 --> 16:48.280
+ They'll make, I don't know if there'll be breakthroughs, but eventually we'll start
+
+16:48.280 --> 16:50.160
+ to get glimmers of that.
+
+16:50.160 --> 16:51.480
+ It's not what's happening right now.
+
+16:51.480 --> 16:52.480
+ Okay.
+
+16:52.480 --> 16:53.480
+ We're taking data.
+
+16:53.480 --> 16:54.560
+ We're trying to make good decisions based on that.
+
+16:54.560 --> 16:55.560
+ We're trying to scale.
+
+16:55.560 --> 16:58.260
+ We're trying to economically viably, we're trying to build markets.
+
+16:58.260 --> 17:04.680
+ We're trying to keep value at that scale and aspects of this will look intelligent.
+
+17:04.680 --> 17:08.120
+ Computers were so dumb before, they will seem more intelligent.
+
+17:08.120 --> 17:12.320
+ We will use that buzzword of intelligence so we can use it in that sense.
+
+17:12.320 --> 17:17.960
+ So machine learning, you can scope it narrowly as just learning from data and pattern recognition.
+
+17:17.960 --> 17:22.140
+ But when I talk about these topics, maybe data science is another word you could throw
+
+17:22.140 --> 17:26.880
+ in the mix, it really is important that the decisions are as part of it.
+
+17:26.880 --> 17:28.760
+ It's consequential decisions in the real world.
+
+17:28.760 --> 17:30.880
+ Am I going to have a medical operation?
+
+17:30.880 --> 17:33.480
+ Am I going to drive down the street?
+
+17:33.480 --> 17:38.240
+ Things where there's scarcity, things that impact other human beings or other environments
+
+17:38.240 --> 17:39.400
+ and so on.
+
+17:39.400 --> 17:40.800
+ How do I do that based on data?
+
+17:40.800 --> 17:41.800
+ How do I do that adaptively?
+
+17:41.800 --> 17:44.160
+ How do I use computers to help those kinds of things go forward?
+
+17:44.160 --> 17:45.640
+ Whatever you want to call that.
+
+17:45.640 --> 17:46.640
+ So let's call it AI.
+
+17:46.640 --> 17:52.960
+ Let's agree to call it AI, but let's not say that the goal of that is intelligence.
+
+17:52.960 --> 17:56.640
+ The goal of that is really good working systems at planetary scale that we've never seen before.
+
+17:56.640 --> 18:00.800
+ So reclaim the word AI from the Dartmouth conference from many decades ago of the dream
+
+18:00.800 --> 18:01.800
+ of humans.
+
+18:01.800 --> 18:02.800
+ I don't want to reclaim it.
+
+18:02.800 --> 18:03.800
+ I want a new word.
+
+18:03.800 --> 18:04.800
+ I think it was a bad choice.
+
+18:04.800 --> 18:09.820
+ I mean, if you read one of my little things, the history was basically that McCarthy needed
+
+18:09.820 --> 18:14.800
+ a new name because cybernetics already existed and he didn't like, no one really liked Norbert
+
+18:14.800 --> 18:15.800
+ Wiener.
+
+18:15.800 --> 18:19.560
+ Norbert Wiener was kind of an island to himself and he felt that he had encompassed all this
+
+18:19.560 --> 18:21.200
+ and in some sense he did.
+
+18:21.200 --> 18:24.400
+ You look at the language of cybernetics, it was everything we're talking about.
+
+18:24.400 --> 18:28.200
+ It was control theory and signal processing and some notions of intelligence and closed
+
+18:28.200 --> 18:29.440
+ feedback loops and data.
+
+18:29.440 --> 18:30.960
+ It was all there.
+
+18:30.960 --> 18:34.240
+ It's just not a word that lived on partly because of the maybe the personalities.
+
+18:34.240 --> 18:36.720
+ But McCarthy needed a new word to say, I'm different from you.
+
+18:36.720 --> 18:38.400
+ I'm not part of your show.
+
+18:38.400 --> 18:40.080
+ I got my own.
+
+18:40.080 --> 18:46.240
+ Invented this word and again, thinking forward about the movies that would be made about
+
+18:46.240 --> 18:48.680
+ it, it was a great choice.
+
+18:48.680 --> 18:52.000
+ But thinking forward about creating a sober academic and real world discipline, it was
+
+18:52.000 --> 18:56.320
+ a terrible choice because it led to promises that are not true that we understand.
+
+18:56.320 --> 18:58.880
+ We understand artificial perhaps, but we don't understand intelligence.
+
+18:58.880 --> 19:03.360
+ It's a small tangent because you're one of the great personalities of machine learning,
+
+19:03.360 --> 19:06.400
+ whatever the heck you call the field.
+
+19:06.400 --> 19:11.880
+ Do you think science progresses by personalities or by the fundamental principles and theories
+
+19:11.880 --> 19:15.080
+ and research that's outside of personalities?
+
+19:15.080 --> 19:16.080
+ Both.
+
+19:16.080 --> 19:17.560
+ And I wouldn't say there should be one kind of personality.
+
+19:17.560 --> 19:23.200
+ I have mine and I have my preferences and I have a kind of network around me that feeds
+
+19:23.200 --> 19:26.680
+ me and some of them agree with me and some of them disagree, but all kinds of personalities
+
+19:26.680 --> 19:28.480
+ are needed.
+
+19:28.480 --> 19:31.680
+ Right now, I think the personality that it's a little too exuberant, a little bit too ready
+
+19:31.680 --> 19:35.840
+ to promise the moon is a little bit too much in ascendance.
+
+19:35.840 --> 19:38.160
+ And I do think that there's some good to that.
+
+19:38.160 --> 19:41.580
+ It certainly attracts lots of young people to our field, but a lot of those people come
+
+19:41.580 --> 19:47.400
+ in with strong misconceptions and they have to then unlearn those and then find something
+
+19:47.400 --> 19:48.880
+ to do.
+
+19:48.880 --> 19:52.920
+ And so I think there's just got to be some multiple voices and I wasn't hearing enough
+
+19:52.920 --> 19:54.840
+ of the more sober voice.
+
+19:54.840 --> 20:02.160
+ So as a continuation of a fun tangent and speaking of vibrant personalities, what would
+
+20:02.160 --> 20:07.400
+ you say is the most interesting disagreement you have with Jan Lacune?
+
+20:07.400 --> 20:12.520
+ So Jan's an old friend and I just say that I don't think we disagree about very much
+
+20:12.520 --> 20:13.520
+ really.
+
+20:13.520 --> 20:18.800
+ He and I both kind of have a let's build it kind of mentality and does it work kind of
+
+20:18.800 --> 20:21.360
+ mentality and kind of concrete.
+
+20:21.360 --> 20:27.120
+ We both speak French and we speak French more together and we have a lot in common.
+
+20:27.120 --> 20:31.800
+ And so if one wanted to highlight a disagreement, it's not really a fundamental one.
+
+20:31.800 --> 20:35.200
+ I think it's just kind of what we're emphasizing.
+
+20:35.200 --> 20:43.440
+ Jan has emphasized pattern recognition and has emphasized prediction.
+
+20:43.440 --> 20:45.320
+ And it's interesting to try to take that as far as you can.
+
+20:45.320 --> 20:50.600
+ If you could do perfect prediction, what would that give you kind of as a thought experiment?
+
+20:50.600 --> 20:55.200
+ And I think that's way too limited.
+
+20:55.200 --> 20:56.640
+ We cannot do perfect prediction.
+
+20:56.640 --> 20:59.360
+ We will never have the data sets that allow me to figure out what you're about ready to
+
+20:59.360 --> 21:00.760
+ do, what question you're going to ask next.
+
+21:00.760 --> 21:01.760
+ I have no clue.
+
+21:01.760 --> 21:03.320
+ I will never know such things.
+
+21:03.320 --> 21:07.520
+ Moreover, most of us find ourselves during the day in all kinds of situations we had
+
+21:07.520 --> 21:13.480
+ no anticipation of that are kind of very, very novel in various ways.
+
+21:13.480 --> 21:16.340
+ And in that moment, we want to think through what we want.
+
+21:16.340 --> 21:19.240
+ And also there's going to be market forces acting on us.
+
+21:19.240 --> 21:22.320
+ I'd like to go down that street, but now it's full because there's a crane in the street.
+
+21:22.320 --> 21:23.320
+ I got it.
+
+21:23.320 --> 21:24.320
+ I got to think about that.
+
+21:24.320 --> 21:26.240
+ I got to think about what I might really want here.
+
+21:26.240 --> 21:29.520
+ And I got to sort of think about how much it costs me to do this action versus this
+
+21:29.520 --> 21:30.520
+ action.
+
+21:30.520 --> 21:32.800
+ I got to think about the risks involved.
+
+21:32.800 --> 21:37.000
+ A lot of our current pattern recognition and prediction systems don't do any risk evaluations.
+
+21:37.000 --> 21:39.000
+ They have no error bars, right?
+
+21:39.000 --> 21:41.080
+ I got to think about other people's decisions around me.
+
+21:41.080 --> 21:45.560
+ I got to think about a collection of my decisions, even just thinking about like a medical treatment,
+
+21:45.560 --> 21:50.480
+ you know, I'm not going to take a, the prediction of a neural net about my health, about something
+
+21:50.480 --> 21:51.480
+ consequential.
+
+21:51.480 --> 21:54.580
+ I'm not about ready to have a heart attack because some number is over 0.7.
+
+21:54.580 --> 21:58.920
+ Even if you had all the data in the world that ever been collected about heart attacks
+
+21:58.920 --> 22:02.640
+ better than any doctor ever had, I'm not going to trust the output of that neural net to
+
+22:02.640 --> 22:03.640
+ predict my heart attack.
+
+22:03.640 --> 22:06.400
+ I'm going to want to ask what if questions around that.
+
+22:06.400 --> 22:10.360
+ I'm going to want to look at some us or other possible data I didn't have, causal things.
+
+22:10.360 --> 22:13.680
+ I'm going to want to have a dialogue with a doctor about things we didn't think about
+
+22:13.680 --> 22:15.480
+ when he gathered the data.
+
+22:15.480 --> 22:16.640
+ You know, I could go on and on.
+
+22:16.640 --> 22:17.900
+ I hope you can see.
+
+22:17.900 --> 22:21.520
+ And I don't, I think that if you say predictions, everything that, that, that you're missing
+
+22:21.520 --> 22:23.520
+ all of this stuff.
+
+22:23.520 --> 22:28.240
+ And so prediction plus decision making is everything, but both of them are equally important.
+
+22:28.240 --> 22:32.520
+ And so the field has emphasized prediction, Jan rightly so has seen how powerful that
+
+22:32.520 --> 22:33.660
+ is.
+
+22:33.660 --> 22:37.240
+ But at the cost of people not being aware that decision making is where the rubber really
+
+22:37.240 --> 22:41.440
+ hits the road, where human lives are at stake, where risks are being taken, where you got
+
+22:41.440 --> 22:42.440
+ to gather more data.
+
+22:42.440 --> 22:43.640
+ You got to think about the error bars.
+
+22:43.640 --> 22:45.920
+ You got to think about the consequences of your decisions on others.
+
+22:45.920 --> 22:48.960
+ You got to think about the economy around your decisions, blah, blah, blah, blah.
+
+22:48.960 --> 22:52.120
+ I'm not the only one working on those, but we're a smaller tribe.
+
+22:52.120 --> 22:56.400
+ And right now we're not the one that people talk about the most.
+
+22:56.400 --> 23:00.460
+ But you know, if you go out in the real world and industry, you know, at Amazon, I'd say
+
+23:00.460 --> 23:03.720
+ half the people there are working on decision making and the other half are doing, you know,
+
+23:03.720 --> 23:04.720
+ the pattern recognition.
+
+23:04.720 --> 23:05.720
+ It's important.
+
+23:05.720 --> 23:10.160
+ And the words of pattern recognition and prediction, I think the distinction there, not to linger
+
+23:10.160 --> 23:16.120
+ on words, but the distinction there is more a constrained sort of in the lab data set
+
+23:16.120 --> 23:21.160
+ versus decision making is talking about consequential decisions in the real world, under the messiness
+
+23:21.160 --> 23:23.760
+ and the uncertainty of the real world.
+
+23:23.760 --> 23:27.480
+ And just the whole of it, the whole mess of it that actually touches human beings and
+
+23:27.480 --> 23:28.480
+ scale.
+
+23:28.480 --> 23:31.120
+ And the forces, that's the distinction.
+
+23:31.120 --> 23:33.840
+ It helps add those, that perspective, that broader perspective.
+
+23:33.840 --> 23:34.840
+ You're right.
+
+23:34.840 --> 23:35.840
+ I totally agree.
+
+23:35.840 --> 23:38.120
+ On the other hand, if you're a real prediction person, of course, you want it to be in the
+
+23:38.120 --> 23:39.120
+ real world.
+
+23:39.120 --> 23:40.120
+ You want to predict real world events.
+
+23:40.120 --> 23:43.200
+ I'm just saying that's not possible with just data sets.
+
+23:43.200 --> 23:47.520
+ That it has to be in the context of, you know, strategic things that someone's doing, data
+
+23:47.520 --> 23:50.880
+ they might gather, things they could have gathered, the reasoning process around data.
+
+23:50.880 --> 23:53.580
+ It's not just taking data and making predictions based on the data.
+
+23:53.580 --> 23:58.280
+ So one of the things that you're working on, I'm sure there's others working on it, but
+
+23:58.280 --> 24:04.960
+ I don't hear often it talked about, especially in the clarity that you talk about it, and
+
+24:04.960 --> 24:10.600
+ I think it's both the most exciting and the most concerning area of AI in terms of decision
+
+24:10.600 --> 24:11.600
+ making.
+
+24:11.600 --> 24:15.400
+ So you've talked about AI systems that help make decisions that scale in a distributed
+
+24:15.400 --> 24:19.720
+ way, millions, billions decisions, sort of markets of decisions.
+
+24:19.720 --> 24:24.920
+ Can you, as a starting point, sort of give an example of a system that you think about
+
+24:24.920 --> 24:27.240
+ when you're thinking about these kinds of systems?
+
+24:27.240 --> 24:31.400
+ Yeah, so first of all, you're absolutely getting into some territory, which I will be beyond
+
+24:31.400 --> 24:32.400
+ my expertise.
+
+24:32.400 --> 24:35.720
+ And there are lots of things that are going to be very not obvious to think about.
+
+24:35.720 --> 24:39.920
+ Just like, again, I like to think about history a little bit, but think about put yourself
+
+24:39.920 --> 24:40.920
+ back in the sixties.
+
+24:40.920 --> 24:43.440
+ There was kind of a banking system that wasn't computerized really.
+
+24:43.440 --> 24:48.160
+ There was database theory emerging and database people had to think about how do I actually
+
+24:48.160 --> 24:53.560
+ not just move data around, but actual money and have it be, you know, valid and have transactions
+
+24:53.560 --> 24:57.840
+ that ATMs happen that are actually, you know, all valid and so on and so forth.
+
+24:57.840 --> 25:01.560
+ So that's the kind of issues you get into when you start to get serious about sorts
+
+25:01.560 --> 25:02.960
+ of things like this.
+
+25:02.960 --> 25:07.240
+ I like to think about as kind of almost a thought experiment to help me think something
+
+25:07.240 --> 25:11.160
+ simpler, which is the music market.
+
+25:11.160 --> 25:16.160
+ And because there is, to first order, there is no music market in the world right now
+
+25:16.160 --> 25:18.740
+ and in our country, for sure.
+
+25:18.740 --> 25:23.720
+ There are something called things called record companies and they make money and they prop
+
+25:23.720 --> 25:29.480
+ up a few really good musicians and make them superstars and they all make huge amounts
+
+25:29.480 --> 25:30.980
+ of money.
+
+25:30.980 --> 25:33.820
+ But there's a long tail of huge numbers of people that make lots and lots of really good
+
+25:33.820 --> 25:40.560
+ music that is actually listened to by more people than the famous people.
+
+25:40.560 --> 25:41.560
+ They are not in a market.
+
+25:41.560 --> 25:42.820
+ They cannot have a career.
+
+25:42.820 --> 25:43.880
+ They do not make money.
+
+25:43.880 --> 25:47.760
+ The creators, the creators, the creators, the so called influencers or whatever that
+
+25:47.760 --> 25:49.340
+ diminishes who they are.
+
+25:49.340 --> 25:53.360
+ So there are people who make extremely good music, especially in the hip hop or Latin
+
+25:53.360 --> 25:55.260
+ world these days.
+
+25:55.260 --> 25:56.320
+ They do it on their laptop.
+
+25:56.320 --> 26:01.040
+ That's what they do on the weekend and they have another job during the week and they
+
+26:01.040 --> 26:03.920
+ put it up on SoundCloud or other sites.
+
+26:03.920 --> 26:04.920
+ Eventually it gets streamed.
+
+26:04.920 --> 26:06.140
+ It now gets turned into bits.
+
+26:06.140 --> 26:07.720
+ It's not economically valuable.
+
+26:07.720 --> 26:08.980
+ The information is lost.
+
+26:08.980 --> 26:10.200
+ It gets put up there.
+
+26:10.200 --> 26:11.580
+ People stream it.
+
+26:11.580 --> 26:16.240
+ You walk around in a big city, you see people with headphones, especially young kids listening
+
+26:16.240 --> 26:17.240
+ to music all the time.
+
+26:17.240 --> 26:21.080
+ If you look at the data, very little of the music they are listening to is the famous
+
+26:21.080 --> 26:23.120
+ people's music and none of it's old music.
+
+26:23.120 --> 26:24.360
+ It's all the latest stuff.
+
+26:24.360 --> 26:27.480
+ But the people who made that latest stuff are like some 16 year old somewhere who will
+
+26:27.480 --> 26:29.600
+ never make a career out of this, who will never make money.
+
+26:29.600 --> 26:31.480
+ Of course there will be a few counter examples.
+
+26:31.480 --> 26:35.360
+ The record companies incentivize to pick out a few and highlight them.
+
+26:35.360 --> 26:37.720
+ Long story short, there's a missing market there.
+
+26:37.720 --> 26:43.480
+ There is not a consumer producer relationship at the level of the actual creative acts.
+
+26:43.480 --> 26:48.200
+ The pipelines and Spotify's of the world that take this stuff and stream it along, they
+
+26:48.200 --> 26:51.160
+ make money off of subscriptions or advertising and those things.
+
+26:51.160 --> 26:52.160
+ They're making the money.
+
+26:52.160 --> 26:53.160
+ All right.
+
+26:53.160 --> 26:55.800
+ And then they will offer bits and pieces of it to a few people again to highlight that
+
+26:55.800 --> 26:58.640
+ they simulate a market.
+
+26:58.640 --> 27:03.560
+ Anyway, a real market would be if you're a creator of music that you actually are somebody
+
+27:03.560 --> 27:07.440
+ who's good enough that people want to listen to you, you should have the data available
+
+27:07.440 --> 27:08.440
+ to you.
+
+27:08.440 --> 27:11.480
+ There should be a dashboard showing a map of the United States.
+
+27:11.480 --> 27:14.680
+ So in last week, here's all the places your songs were listened to.
+
+27:14.680 --> 27:20.520
+ It should be transparent, vetable, so that if someone down in Providence sees that you're
+
+27:20.520 --> 27:24.160
+ being listened to 10,000 times in Providence, that they know that's real data.
+
+27:24.160 --> 27:25.320
+ You know it's real data.
+
+27:25.320 --> 27:27.300
+ They will have you come give a show down there.
+
+27:27.300 --> 27:30.040
+ They will broadcast to the people who've been listening to you that you're coming.
+
+27:30.040 --> 27:34.480
+ If you do this right, you could go down there and make $20,000.
+
+27:34.480 --> 27:37.100
+ You do that three times a year, you start to have a career.
+
+27:37.100 --> 27:39.600
+ So in this sense, AI creates jobs.
+
+27:39.600 --> 27:40.680
+ It's not about taking away human jobs.
+
+27:40.680 --> 27:43.480
+ It's creating new jobs because it creates a new market.
+
+27:43.480 --> 27:46.800
+ Once you've created a market, you've now connected up producers and consumers.
+
+27:46.800 --> 27:50.000
+ The person who's making the music can say to someone who comes to their shows a lot,
+
+27:50.000 --> 27:53.200
+ hey, I'll play at your daughter's wedding for $10,000.
+
+27:53.200 --> 27:54.200
+ You'll say 8,000.
+
+27:54.200 --> 27:55.200
+ They'll say 9,000.
+
+27:55.200 --> 27:59.000
+ Then again, you can now get an income up to $100,000.
+
+27:59.000 --> 28:01.920
+ You're not going to be a millionaire.
+
+28:01.920 --> 28:06.900
+ And now even think about really the value of music is in these personal connections,
+
+28:06.900 --> 28:13.180
+ even so much so that a young kid wants to wear a tshirt with their favorite musician's
+
+28:13.180 --> 28:14.840
+ signature on it.
+
+28:14.840 --> 28:18.080
+ So if they listen to the music on the internet, the internet should be able to provide them
+
+28:18.080 --> 28:21.840
+ with a button that they push and the merchandise arrives the next day.
+
+28:21.840 --> 28:23.000
+ We can do that.
+
+28:23.000 --> 28:24.400
+ And now why should we do that?
+
+28:24.400 --> 28:27.560
+ Well, because the kid who bought the shirt will be happy, but more the person who made
+
+28:27.560 --> 28:29.080
+ the music will get the money.
+
+28:29.080 --> 28:32.360
+ There's no advertising needed.
+
+28:32.360 --> 28:36.460
+ So you can create markets between producers and consumers, take 5% cut.
+
+28:36.460 --> 28:39.200
+ Your company will be perfectly sound.
+
+28:39.200 --> 28:45.080
+ It'll go forward into the future and it will create new markets and that raises human happiness.
+
+28:45.080 --> 28:48.280
+ Now this seems like, well, this is easy, just create this dashboard, kind of create some
+
+28:48.280 --> 28:49.280
+ connections and all that.
+
+28:49.280 --> 28:52.900
+ But if you think about Uber or whatever, you think about the challenges in the real world
+
+28:52.900 --> 28:56.180
+ of doing things like this, and there are actually new principles going to be needed.
+
+28:56.180 --> 28:59.080
+ You're trying to create a new kind of two way market at a different scale that's ever
+
+28:59.080 --> 29:00.080
+ been done before.
+
+29:00.080 --> 29:04.720
+ There's going to be unwanted aspects of the market.
+
+29:04.720 --> 29:05.720
+ There'll be bad people.
+
+29:05.720 --> 29:10.880
+ There'll be the data will get used in the wrong ways, it'll fail in some ways, it won't
+
+29:10.880 --> 29:11.880
+ deliver about.
+
+29:11.880 --> 29:12.880
+ You have to think that through.
+
+29:12.880 --> 29:17.240
+ Just like anyone who ran a big auction or ran a big matching service in economics will
+
+29:17.240 --> 29:18.880
+ think these things through.
+
+29:18.880 --> 29:22.520
+ And so that maybe doesn't get at all the huge issues that can arise when you start to create
+
+29:22.520 --> 29:26.760
+ markets, but it starts to, at least for me, solidify my thoughts and allow me to move
+
+29:26.760 --> 29:28.080
+ forward in my own thinking.
+
+29:28.080 --> 29:29.080
+ Yeah.
+
+29:29.080 --> 29:32.840
+ So I talked to the head of research at Spotify actually, and I think their longterm goal,
+
+29:32.840 --> 29:39.920
+ they've said, is to have at least one million creators make a comfortable living putting
+
+29:39.920 --> 29:41.120
+ on Spotify.
+
+29:41.120 --> 29:52.160
+ So I think you articulate a really nice vision of the world and the digital and the cyberspace
+
+29:52.160 --> 29:53.920
+ of markets.
+
+29:53.920 --> 30:04.100
+ What do you think companies like Spotify or YouTube or Netflix can do to create such markets?
+
+30:04.100 --> 30:05.400
+ Is it an AI problem?
+
+30:05.400 --> 30:08.600
+ Is it an interface problem for interface design?
+
+30:08.600 --> 30:13.440
+ Is it some other kind of, is it an economics problem?
+
+30:13.440 --> 30:15.600
+ Who should they hire to solve these problems?
+
+30:15.600 --> 30:17.480
+ Well, part of it's not just top down.
+
+30:17.480 --> 30:20.000
+ So the Silicon Valley has this attitude that they know how to do it.
+
+30:20.000 --> 30:23.380
+ They will create the system just like Google did with the search box that will be so good
+
+30:23.380 --> 30:27.000
+ that they'll just, everyone will adopt that.
+
+30:27.000 --> 30:31.500
+ It's everything you said, but really I think missing that kind of culture.
+
+30:31.500 --> 30:34.800
+ So it's literally that 16 year old who's able to create the songs.
+
+30:34.800 --> 30:37.000
+ You don't create that as a Silicon Valley entity.
+
+30:37.000 --> 30:39.340
+ You don't hire them per se.
+
+30:39.340 --> 30:44.320
+ You have to create an ecosystem in which they are wanted and that they belong.
+
+30:44.320 --> 30:47.680
+ And so you have to have some cultural credibility to do things like this.
+
+30:47.680 --> 30:53.060
+ Netflix, to their credit, wanted some of that credibility and they created shows, content.
+
+30:53.060 --> 30:54.060
+ They call it content.
+
+30:54.060 --> 30:56.880
+ It's such a terrible word, but it's culture.
+
+30:56.880 --> 31:01.160
+ And so with movies, you can kind of go give a large sum of money to somebody graduating
+
+31:01.160 --> 31:03.440
+ from the USC film school.
+
+31:03.440 --> 31:07.880
+ It's a whole thing of its own, but it's kind of like rich white people's thing to do.
+
+31:07.880 --> 31:11.760
+ And American culture has not been so much about rich white people.
+
+31:11.760 --> 31:16.580
+ It's been about all the immigrants, all the Africans who came and brought that culture
+
+31:16.580 --> 31:23.040
+ and those rhythms to this world and created this whole new thing.
+
+31:23.040 --> 31:24.040
+ American culture.
+
+31:24.040 --> 31:26.800
+ And so companies can't artificially create that.
+
+31:26.800 --> 31:28.440
+ They can't just say, hey, we're here.
+
+31:28.440 --> 31:29.440
+ We're going to buy it up.
+
+31:29.440 --> 31:31.440
+ You've got a partner.
+
+31:31.440 --> 31:37.520
+ And so anyway, not to denigrate, these companies are all trying and they should, and I'm sure
+
+31:37.520 --> 31:40.160
+ they're asking these questions and some of them are even making an effort.
+
+31:40.160 --> 31:44.400
+ But it is partly a respect the culture as a technology person.
+
+31:44.400 --> 31:49.880
+ You've got to blend your technology with cultural meaning.
+
+31:49.880 --> 31:54.400
+ How much of a role do you think the algorithm, so machine learning has in connecting the
+
+31:54.400 --> 31:59.600
+ consumer to the creator, sort of the recommender system aspect of this?
+
+31:59.600 --> 32:00.600
+ Yeah.
+
+32:00.600 --> 32:01.600
+ It's a great question.
+
+32:01.600 --> 32:02.600
+ I think pretty high.
+
+32:02.600 --> 32:07.320
+ There's no magic in the algorithms, but a good recommender system is way better than
+
+32:07.320 --> 32:09.160
+ a bad recommender system.
+
+32:09.160 --> 32:15.180
+ And recommender systems is a billion dollar industry back even 10, 20 years ago.
+
+32:15.180 --> 32:17.540
+ And it continues to be extremely important going forward.
+
+32:17.540 --> 32:20.680
+ What's your favorite recommender system, just so we can put something, well, just historically
+
+32:20.680 --> 32:24.800
+ I was one of the, when I first went to Amazon, I first didn't like Amazon because they put
+
+32:24.800 --> 32:30.400
+ the book people out of business or the library, the local booksellers went out of business.
+
+32:30.400 --> 32:34.620
+ I've come to accept that there probably are more books being sold now and poor people
+
+32:34.620 --> 32:36.920
+ reading them than ever before.
+
+32:36.920 --> 32:39.440
+ And then local book stores are coming back.
+
+32:39.440 --> 32:41.540
+ So that's how economics sometimes work.
+
+32:41.540 --> 32:44.280
+ You go up and you go down.
+
+32:44.280 --> 32:48.760
+ But anyway, when I finally started going there and I bought a few books, I was really pleased
+
+32:48.760 --> 32:52.400
+ to see another few books being recommended to me that I never would have thought of.
+
+32:52.400 --> 32:53.400
+ And I bought a bunch of them.
+
+32:53.400 --> 32:55.320
+ So they obviously had a good business model.
+
+32:55.320 --> 33:00.980
+ But I learned things and I still to this day kind of browse using that service.
+
+33:00.980 --> 33:05.760
+ And I think lots of people get a lot, that is a good aspect of a recommendation system.
+
+33:05.760 --> 33:10.480
+ I'm learning from my peers in an indirect way.
+
+33:10.480 --> 33:13.880
+ And their algorithms are not meant to have them impose what we learn.
+
+33:13.880 --> 33:16.680
+ It really is trying to find out what's in the data.
+
+33:16.680 --> 33:19.680
+ It doesn't work so well for other kinds of entities, but that's just the complexity of
+
+33:19.680 --> 33:20.680
+ human life.
+
+33:20.680 --> 33:26.440
+ Like shirts, I'm not going to get recommendations on shirts, but that's interesting.
+
+33:26.440 --> 33:32.160
+ If you try to recommend restaurants, it's hard.
+
+33:32.160 --> 33:35.400
+ It's hard to do it at scale.
+
+33:35.400 --> 33:42.080
+ But a blend of recommendation systems with other economic ideas, matchings and so on
+
+33:42.080 --> 33:45.240
+ is really, really still very open research wise.
+
+33:45.240 --> 33:48.680
+ And there's new companies that are going to emerge that do that well.
+
+33:48.680 --> 33:54.480
+ What do you think is going to the messy, difficult land of say politics and things like that,
+
+33:54.480 --> 33:58.480
+ that YouTube and Twitter have to deal with in terms of recommendation systems?
+
+33:58.480 --> 34:03.120
+ Being able to suggest, I think Facebook just launched Facebook news.
+
+34:03.120 --> 34:08.920
+ So recommend the kind of news that are most likely for you to be interesting.
+
+34:08.920 --> 34:14.520
+ Do you think this is AI solvable, again, whatever term we want to use, do you think it's a solvable
+
+34:14.520 --> 34:18.760
+ problem for machines or is it a deeply human problem that's unsolvable?
+
+34:18.760 --> 34:20.240
+ So I don't even think about it at that level.
+
+34:20.240 --> 34:25.400
+ I think that what's broken with some of these companies, it's all monetization by advertising.
+
+34:25.400 --> 34:29.200
+ They're not, at least Facebook, I want to critique them, but they didn't really try
+
+34:29.200 --> 34:32.680
+ to connect a producer and a consumer in an economic way, right?
+
+34:32.680 --> 34:34.700
+ No one wants to pay for anything.
+
+34:34.700 --> 34:38.420
+ And so they all, you know, starting with Google and Facebook, they went back to the playbook
+
+34:38.420 --> 34:41.440
+ of, you know, the television companies back in the day.
+
+34:41.440 --> 34:43.200
+ No one wanted to pay for this signal.
+
+34:43.200 --> 34:47.200
+ They will pay for the TV box, but not for the signal, at least back in the day.
+
+34:47.200 --> 34:50.400
+ And so advertising kind of filled that gap and advertising was new and interesting and
+
+34:50.400 --> 34:54.400
+ it somehow didn't take over our lives quite, right?
+
+34:54.400 --> 34:59.880
+ Fast forward, Google provides a service that people don't want to pay for.
+
+34:59.880 --> 35:04.120
+ And so somewhat surprisingly in the nineties, they made, they ended up making huge amounts
+
+35:04.120 --> 35:05.600
+ so they cornered the advertising market.
+
+35:05.600 --> 35:08.400
+ It didn't seem like that was going to happen, at least to me.
+
+35:08.400 --> 35:11.720
+ These little things on the right hand side of the screen just did not seem all that economically
+
+35:11.720 --> 35:14.360
+ interesting, but that companies had maybe no other choice.
+
+35:14.360 --> 35:17.800
+ The TV market was going away and billboards and so on.
+
+35:17.800 --> 35:19.860
+ So they've, they got it.
+
+35:19.860 --> 35:24.880
+ And I think that sadly that Google just has, it was doing so well with that at making such
+
+35:24.880 --> 35:25.880
+ money.
+
+35:25.880 --> 35:28.700
+ They didn't think much more about how, wait a minute, is there a producer consumer relationship
+
+35:28.700 --> 35:29.700
+ to be set up here?
+
+35:29.700 --> 35:32.840
+ Not just between us and the advertisers market to be created.
+
+35:32.840 --> 35:35.160
+ Is there an actual market between the producer consumer?
+
+35:35.160 --> 35:38.240
+ They're the producers, the person who created that video clip, the person that made that
+
+35:38.240 --> 35:42.000
+ website, the person who could make more such things, the person who could adjust it as
+
+35:42.000 --> 35:46.800
+ a function of demand, the person on the other side who's asking for different kinds of things,
+
+35:46.800 --> 35:47.800
+ you know?
+
+35:47.800 --> 35:51.320
+ So you see glimmers of that now there's influencers and there's kind of a little glimmering of
+
+35:51.320 --> 35:53.480
+ a market, but it should have been done 20 years ago.
+
+35:53.480 --> 35:54.480
+ It should have been thought about.
+
+35:54.480 --> 35:58.400
+ It should have been created in parallel with the advertising ecosystem.
+
+35:58.400 --> 35:59.860
+ And then Facebook inherited that.
+
+35:59.860 --> 36:03.160
+ And I think they also didn't think very much about that.
+
+36:03.160 --> 36:07.960
+ So fast forward and now they are making huge amounts of money off of advertising.
+
+36:07.960 --> 36:11.560
+ And the news thing and all these clicks is just feeding the advertising.
+
+36:11.560 --> 36:13.640
+ It's all connected up to the advertiser.
+
+36:13.640 --> 36:18.580
+ So you want more people to click on certain things because that money flows to you, Facebook.
+
+36:18.580 --> 36:20.000
+ You're very much incentivized to do that.
+
+36:20.000 --> 36:23.480
+ And when you start to find it's breaking, people are telling you, well, we're getting
+
+36:23.480 --> 36:24.480
+ into some troubles.
+
+36:24.480 --> 36:27.580
+ You try to adjust it with your smart AI algorithms, right?
+
+36:27.580 --> 36:28.960
+ And figure out what are bad clicks.
+
+36:28.960 --> 36:31.040
+ So maybe it shouldn't be click through rate, it should be something else.
+
+36:31.040 --> 36:34.080
+ I find that pretty much hopeless.
+
+36:34.080 --> 36:37.400
+ It does get into all the complexity of human life and you can try to fix it.
+
+36:37.400 --> 36:40.840
+ You should, but you could also fix the whole business model.
+
+36:40.840 --> 36:44.600
+ And the business model is that really, what are, are there some human producers and consumers
+
+36:44.600 --> 36:45.600
+ out there?
+
+36:45.600 --> 36:48.760
+ Is there some economic value to be liberated by connecting them directly?
+
+36:48.760 --> 36:52.640
+ Is it such that it's so valuable that people will be able to pay for it?
+
+36:52.640 --> 36:53.640
+ All right.
+
+36:53.640 --> 36:54.640
+ And micro payments, like small payments.
+
+36:54.640 --> 36:56.620
+ Micro, but even have to be micro.
+
+36:56.620 --> 37:00.120
+ So I like the example, suppose I'm going, next week I'm going to India.
+
+37:00.120 --> 37:01.120
+ Never been to India before.
+
+37:01.120 --> 37:02.120
+ Right?
+
+37:02.120 --> 37:06.560
+ I have a couple of days in Mumbai, I have no idea what to do there.
+
+37:06.560 --> 37:07.560
+ Right?
+
+37:07.560 --> 37:08.880
+ And I could go on the web right now and search.
+
+37:08.880 --> 37:10.080
+ It's going to be kind of hopeless.
+
+37:10.080 --> 37:14.080
+ I'm not going to find, you know, I have lots of advertisers in my face.
+
+37:14.080 --> 37:15.080
+ Right?
+
+37:15.080 --> 37:19.320
+ What I really want to do is broadcast to the world that I am going to Mumbai and have someone
+
+37:19.320 --> 37:24.000
+ on the other side of a market look at me and, and there's a recommendation system there.
+
+37:24.000 --> 37:26.040
+ So I'm not looking at all possible people coming to Mumbai.
+
+37:26.040 --> 37:27.680
+ They're looking at the people who are relevant to them.
+
+37:27.680 --> 37:32.480
+ So someone in my age group, someone who kind of knows me in some level, I give up a little
+
+37:32.480 --> 37:35.720
+ privacy by that, but I'm happy because what I'm going to get back is this person can make
+
+37:35.720 --> 37:39.320
+ a little video for me, or they're going to write a little two page paper on here's the
+
+37:39.320 --> 37:43.160
+ cool things that you want to do and move by this week, especially, right?
+
+37:43.160 --> 37:44.160
+ I'm going to look at that.
+
+37:44.160 --> 37:45.160
+ I'm not going to pay a micro payment.
+
+37:45.160 --> 37:48.000
+ I'm going to pay, you know, a hundred dollars or whatever for that.
+
+37:48.000 --> 37:49.000
+ It's real value.
+
+37:49.000 --> 37:50.000
+ It's like journalism.
+
+37:50.000 --> 37:54.920
+ Um, and as an honest subscription, it's that I'm going to pay that person in that moment.
+
+37:54.920 --> 37:56.680
+ Company's going to take 5% of that.
+
+37:56.680 --> 37:57.760
+ And that person has now got it.
+
+37:57.760 --> 38:01.240
+ It's a gig economy, if you will, but you know, done for it, you know, thinking about a little
+
+38:01.240 --> 38:05.000
+ bit behind YouTube, there was actually people who could make more of those things.
+
+38:05.000 --> 38:07.960
+ If they were connected to a market, they would make more of those things independently.
+
+38:07.960 --> 38:08.960
+ You don't have to tell them what to do.
+
+38:08.960 --> 38:11.680
+ You don't have to incentivize them any other way.
+
+38:11.680 --> 38:15.760
+ Um, and so, yeah, these companies, I don't think have thought long and hard about that.
+
+38:15.760 --> 38:20.160
+ So I do distinguish on Facebook on the one side, who just not thought about these things
+
+38:20.160 --> 38:21.160
+ at all.
+
+38:21.160 --> 38:25.200
+ I think, uh, thinking that AI will fix everything, uh, and Amazon thinks about them all the time
+
+38:25.200 --> 38:26.520
+ because they were already out in the real world.
+
+38:26.520 --> 38:28.080
+ They were delivering packages, people's doors.
+
+38:28.080 --> 38:29.400
+ They were, they were worried about a market.
+
+38:29.400 --> 38:32.600
+ They were worried about sellers and, you know, they worry and some things they do are great.
+
+38:32.600 --> 38:36.440
+ Some things maybe not so great, but you know, they're in that business model.
+
+38:36.440 --> 38:38.360
+ And then I'd say Google sort of hovers somewhere in between.
+
+38:38.360 --> 38:41.440
+ I don't, I don't think for a long, long time they got it.
+
+38:41.440 --> 38:45.720
+ I think they probably see that YouTube is more pregnant with possibility than, than,
+
+38:45.720 --> 38:49.120
+ than they might've thought and that they're probably heading that direction.
+
+38:49.120 --> 38:54.000
+ Um, but uh, you know, Silicon Valley has been dominated by the Google Facebook kind of mentality
+
+38:54.000 --> 38:58.800
+ and the subscription and advertising and that is, that's the core problem, right?
+
+38:58.800 --> 39:03.640
+ The fake news actually rides on top of that because it means that you're monetizing with
+
+39:03.640 --> 39:05.600
+ clip through rate and that is the core problem.
+
+39:05.600 --> 39:06.880
+ You got to remove that.
+
+39:06.880 --> 39:11.200
+ So advertisement, if we're going to linger on that, I mean, that's an interesting thesis.
+
+39:11.200 --> 39:15.060
+ I don't know if everyone really deeply thinks about that.
+
+39:15.060 --> 39:16.720
+ So you're right.
+
+39:16.720 --> 39:20.960
+ The thought is the advertising model is the only thing we have, the only thing we'll ever
+
+39:20.960 --> 39:21.960
+ have.
+
+39:21.960 --> 39:30.240
+ We have to fix, we have to build algorithms that despite that business model, you know,
+
+39:30.240 --> 39:34.680
+ find the better angels of our nature and do good by society and by the individual.
+
+39:34.680 --> 39:40.000
+ But you think we can slowly, you think, first of all, there's a difference between should
+
+39:40.000 --> 39:42.040
+ and could.
+
+39:42.040 --> 39:46.600
+ So you're saying we should slowly move away from the advertising model and have a direct
+
+39:46.600 --> 39:49.920
+ connection between the consumer and the creator.
+
+39:49.920 --> 39:55.240
+ The question I also have is, can we, because the advertising model is so successful now
+
+39:55.240 --> 40:00.400
+ in terms of just making a huge amount of money and therefore being able to build a big company
+
+40:00.400 --> 40:03.920
+ that provides, has really smart people working that create a good service.
+
+40:03.920 --> 40:05.680
+ Do you think it's possible?
+
+40:05.680 --> 40:07.880
+ And just to clarify, you think we should move away?
+
+40:07.880 --> 40:08.880
+ Well, I think we should.
+
+40:08.880 --> 40:09.880
+ Yeah.
+
+40:09.880 --> 40:10.880
+ But we is the, you know, me.
+
+40:10.880 --> 40:11.880
+ So society.
+
+40:11.880 --> 40:12.880
+ Yeah.
+
+40:12.880 --> 40:16.360
+ Well, the companies, I mean, so first of all, full disclosure, I'm doing a day a week at
+
+40:16.360 --> 40:18.840
+ Amazon because I kind of want to learn more about how they do things.
+
+40:18.840 --> 40:22.760
+ So, you know, I'm not speaking for Amazon in any way, but, you know, I did go there
+
+40:22.760 --> 40:26.240
+ because I actually believe they get a little bit of this or trying to create these markets.
+
+40:26.240 --> 40:29.520
+ And they don't really use, advertising is not a crucial part of it.
+
+40:29.520 --> 40:30.520
+ Well, that's a good question.
+
+40:30.520 --> 40:34.840
+ So it has become not crucial, but it's become more and more present if you go to Amazon
+
+40:34.840 --> 40:35.840
+ website.
+
+40:35.840 --> 40:38.840
+ And, you know, without revealing too many deep secrets about Amazon, I can tell you
+
+40:38.840 --> 40:42.480
+ that, you know, a lot of people in the company question this and there's a huge questioning
+
+40:42.480 --> 40:43.620
+ going on.
+
+40:43.620 --> 40:45.660
+ You do not want a world where there's zero advertising.
+
+40:45.660 --> 40:47.160
+ That actually is a bad world.
+
+40:47.160 --> 40:48.160
+ Okay.
+
+40:48.160 --> 40:49.280
+ So here's a way to think about it.
+
+40:49.280 --> 40:55.000
+ You're a company that like Amazon is trying to bring products to customers, right?
+
+40:55.000 --> 40:58.360
+ And the customer, at any given moment, you want to buy a vacuum cleaner, say, you want
+
+40:58.360 --> 40:59.360
+ to know what's available for me.
+
+40:59.360 --> 41:00.840
+ And, you know, it's not going to be that obvious.
+
+41:00.840 --> 41:02.160
+ You have to do a little bit of work at it.
+
+41:02.160 --> 41:04.600
+ The recommendation system will sort of help, right?
+
+41:04.600 --> 41:08.080
+ But now suppose this other person over here has just made the world, you know, they spent
+
+41:08.080 --> 41:09.080
+ a huge amount of energy.
+
+41:09.080 --> 41:10.080
+ They had a great idea.
+
+41:10.080 --> 41:11.080
+ They made a great vacuum cleaner.
+
+41:11.080 --> 41:12.400
+ They know they really did it.
+
+41:12.400 --> 41:13.400
+ They nailed it.
+
+41:13.400 --> 41:16.680
+ It's an MIT, you know, whiz kid that made a great new vacuum cleaner, right?
+
+41:16.680 --> 41:18.240
+ It's not going to be in the recommendation system.
+
+41:18.240 --> 41:19.280
+ No one will know about it.
+
+41:19.280 --> 41:22.440
+ The algorithms will not find it and AI will not fix that.
+
+41:22.440 --> 41:23.440
+ Okay.
+
+41:23.440 --> 41:24.440
+ At all.
+
+41:24.440 --> 41:25.440
+ Right.
+
+41:25.440 --> 41:30.660
+ How do you allow that vacuum cleaner to start to get in front of people, be sold well advertising.
+
+41:30.660 --> 41:35.360
+ And here, what advertising is, it's a signal that you're, you believe in your product enough
+
+41:35.360 --> 41:37.480
+ that you're willing to pay some real money for it.
+
+41:37.480 --> 41:39.480
+ And to me as a consumer, I look at that signal.
+
+41:39.480 --> 41:43.240
+ I say, well, first of all, I know these are not just cheap little ads cause we have now
+
+41:43.240 --> 41:44.240
+ right now there.
+
+41:44.240 --> 41:47.740
+ I know that, you know, these are super cheap, you know, pennies.
+
+41:47.740 --> 41:51.120
+ If I see an ad where it's actually, I know the company is only doing a few of these and
+
+41:51.120 --> 41:54.520
+ they're making, you know, real money is kind of flowing and I see an ad, I may pay more
+
+41:54.520 --> 41:55.520
+ attention to it.
+
+41:55.520 --> 42:01.600
+ And I actually might want that because I see, Hey, that guy spent money on his vacuum cleaner.
+
+42:01.600 --> 42:02.600
+ Maybe there's something good there.
+
+42:02.600 --> 42:03.600
+ So I will look at it.
+
+42:03.600 --> 42:06.620
+ And so that's part of the overall information flow in a good market.
+
+42:06.620 --> 42:11.720
+ So advertising has a role, but the problem is of course that that signal is now completely
+
+42:11.720 --> 42:15.800
+ gone because it just, you know, dominant by these tiny little things that add up to big
+
+42:15.800 --> 42:17.740
+ money for the company, you know?
+
+42:17.740 --> 42:22.600
+ So I think it will just, I think it will change because the societies just don't, you know,
+
+42:22.600 --> 42:26.480
+ stick with things that annoy a lot of people and advertising currently annoys people more
+
+42:26.480 --> 42:28.480
+ than it provides information.
+
+42:28.480 --> 42:32.200
+ And I think that a Google probably is smart enough to figure out that this is a dead,
+
+42:32.200 --> 42:35.760
+ this is a bad model, even though it's a hard, huge amount of money and they'll have to figure
+
+42:35.760 --> 42:38.080
+ out how to pull it away from it slowly.
+
+42:38.080 --> 42:42.280
+ And I'm sure the CEO there will figure it out, but they need to do it.
+
+42:42.280 --> 42:47.120
+ And they needed it to, so if you reduce advertising, not to zero, but you reduce it at the same
+
+42:47.120 --> 42:51.640
+ time you bring up producer, consumer, actual real value being delivered.
+
+42:51.640 --> 42:56.260
+ So real money is being paid and they take a 5% cut that 5% could start to get big enough
+
+42:56.260 --> 43:00.080
+ to cancel out the lost revenue from the kind of the poor kind of advertising.
+
+43:00.080 --> 43:04.740
+ And I think that a good company will do that, will realize that.
+
+43:04.740 --> 43:08.440
+ And Facebook, you know, again, God bless them.
+
+43:08.440 --> 43:14.680
+ They bring, you know, grandmothers, they bring children's pictures into grandmothers lives.
+
+43:14.680 --> 43:17.340
+ It's fantastic.
+
+43:17.340 --> 43:22.440
+ But they need to think of a new business model and that's the core problem there.
+
+43:22.440 --> 43:26.440
+ Until they start to connect producer consumer, I think they will just continue to make money
+
+43:26.440 --> 43:30.560
+ and then buy the next social network company and then buy the next one and the innovation
+
+43:30.560 --> 43:34.880
+ level will not be high and the health issues will not go away.
+
+43:34.880 --> 43:41.120
+ So I apologize that we kind of returned to words, I don't think the exact terms matter,
+
+43:41.120 --> 43:49.440
+ but in sort of defense of advertisement, don't you think the kind of direct connection between
+
+43:49.440 --> 44:00.960
+ consumer and creator producer is what advertisement strives to do, right?
+
+44:00.960 --> 44:06.680
+ So that is best advertisement is literally now Facebook is listening to our conversation
+
+44:06.680 --> 44:11.400
+ and heard that you're going to India and will be able to actually start automatically for
+
+44:11.400 --> 44:14.500
+ you making these connections and start giving this offer.
+
+44:14.500 --> 44:19.800
+ So like, I apologize if it's just a matter of terms, but just to draw a distinction,
+
+44:19.800 --> 44:23.000
+ is it possible to make advertisements just better and better and better algorithmically
+
+44:23.000 --> 44:26.040
+ to where it actually becomes a connection, almost a direct connection?
+
+44:26.040 --> 44:27.040
+ That's a good question.
+
+44:27.040 --> 44:28.040
+ So let's component on that.
+
+44:28.040 --> 44:32.000
+ First of all, what we just talked about, I was defending advertising.
+
+44:32.000 --> 44:33.000
+ Okay.
+
+44:33.000 --> 44:36.400
+ So I was defending it as a way to get signals into a market that don't come any other way,
+
+44:36.400 --> 44:37.720
+ especially algorithmically.
+
+44:37.720 --> 44:41.640
+ It's a sign that someone spent money on it, it's a sign they think it's valuable.
+
+44:41.640 --> 44:45.020
+ And if I think that if other things, someone else thinks it's valuable, and if I trust
+
+44:45.020 --> 44:47.360
+ other people, I might be willing to listen.
+
+44:47.360 --> 44:51.840
+ I don't trust that Facebook though, who's an intermediary between this.
+
+44:51.840 --> 44:54.600
+ I don't think they care about me.
+
+44:54.600 --> 44:55.600
+ Okay.
+
+44:55.600 --> 44:56.720
+ I don't think they do.
+
+44:56.720 --> 45:00.880
+ And I find it creepy that they know I'm going to India next week because of our conversation.
+
+45:00.880 --> 45:02.360
+ Why do you think that is?
+
+45:02.360 --> 45:07.120
+ So what, could you just put your PR hat on?
+
+45:07.120 --> 45:14.180
+ Why do you think you find Facebook creepy and not trust them as do majority of the population?
+
+45:14.180 --> 45:19.360
+ So they're out of the Silicon Valley companies, I saw like not approval rate, but there's
+
+45:19.360 --> 45:23.080
+ ranking of how much people trust companies and Facebook is in the gutter.
+
+45:23.080 --> 45:25.600
+ In the gutter, including people inside of Facebook.
+
+45:25.600 --> 45:28.000
+ So what do you attribute that to?
+
+45:28.000 --> 45:29.000
+ Because when I...
+
+45:29.000 --> 45:31.840
+ Come on, you don't find it creepy that right now we're talking that I might walk out on
+
+45:31.840 --> 45:35.880
+ the street right now that some unknown person who I don't know kind of comes up to me and
+
+45:35.880 --> 45:37.500
+ says, I hear you're going to India.
+
+45:37.500 --> 45:38.900
+ I mean, that's not even Facebook.
+
+45:38.900 --> 45:42.560
+ That's just, I want transparency in human society.
+
+45:42.560 --> 45:45.680
+ I want to have, if you know something about me, there's actually some reason you know
+
+45:45.680 --> 45:47.080
+ something about me.
+
+45:47.080 --> 45:51.560
+ That's something that if I look at it later and audit it kind of, I approve.
+
+45:51.560 --> 45:54.580
+ You know something about me because you care in some way.
+
+45:54.580 --> 45:58.240
+ There's a caring relationship even, or an economic one or something.
+
+45:58.240 --> 46:02.000
+ Not just that you're someone who could exploit it in ways I don't know about or care about
+
+46:02.000 --> 46:05.240
+ or I'm troubled by or whatever.
+
+46:05.240 --> 46:09.880
+ We're in a world right now where that happens way too much and that Facebook knows things
+
+46:09.880 --> 46:14.720
+ about a lot of people and could exploit it and does exploit it at times.
+
+46:14.720 --> 46:16.880
+ I think most people do find that creepy.
+
+46:16.880 --> 46:17.880
+ It's not for them.
+
+46:17.880 --> 46:23.440
+ It's not that Facebook is not doing it because they care about them in a real sense.
+
+46:23.440 --> 46:24.440
+ And they shouldn't.
+
+46:24.440 --> 46:26.740
+ They should not be a big brother caring about us.
+
+46:26.740 --> 46:28.560
+ That is not the role of a company like that.
+
+46:28.560 --> 46:29.560
+ Why not?
+
+46:29.560 --> 46:32.160
+ Wait, not the big brother part, but the caring, the trusting.
+
+46:32.160 --> 46:37.120
+ I mean, don't those companies, just to link on it because a lot of companies have a lot
+
+46:37.120 --> 46:38.320
+ of information about us.
+
+46:38.320 --> 46:42.560
+ I would argue that there's companies like Microsoft that has more information about
+
+46:42.560 --> 46:46.000
+ us than Facebook does and yet we trust Microsoft more.
+
+46:46.000 --> 46:47.480
+ Well, Microsoft is pivoting.
+
+46:47.480 --> 46:51.360
+ Microsoft, you know, under Satya Nadella has decided this is really important.
+
+46:51.360 --> 46:53.320
+ We don't want to do creepy things.
+
+46:53.320 --> 46:56.720
+ Really want people to trust us to actually only use information in ways that they really
+
+46:56.720 --> 47:00.360
+ would approve of, that we don't decide, right?
+
+47:00.360 --> 47:06.640
+ And I'm just kind of adding that the health of a market is that when I connect to someone
+
+47:06.640 --> 47:10.160
+ who produces a consumer, it's not just a random producer or consumer, it's people who see
+
+47:10.160 --> 47:11.160
+ each other.
+
+47:11.160 --> 47:14.360
+ They don't like each other, but they sense that if they transact, some happiness will
+
+47:14.360 --> 47:15.940
+ go up on both sides.
+
+47:15.940 --> 47:22.800
+ If a company helps me to do that in moments that I choose of my choosing, then fine.
+
+47:22.800 --> 47:28.560
+ So, and also think about the difference between, you know, browsing versus buying, right?
+
+47:28.560 --> 47:31.760
+ There are moments in my life I just want to buy, you know, a gadget or something.
+
+47:31.760 --> 47:33.080
+ I need something for that moment.
+
+47:33.080 --> 47:37.400
+ I need some ammonia for my house or something because I got a problem with a spill.
+
+47:37.400 --> 47:38.400
+ I want to just go in.
+
+47:38.400 --> 47:40.080
+ I don't want to be advertised at that moment.
+
+47:40.080 --> 47:43.040
+ I don't want to be led down various, you know, that's annoying.
+
+47:43.040 --> 47:49.020
+ I want to just go and have it be extremely easy to do what I want.
+
+47:49.020 --> 47:52.440
+ Other moments I might say, no, it's like today I'm going to the shopping mall.
+
+47:52.440 --> 47:55.560
+ I want to walk around and see things and see people and be exposed to stuff.
+
+47:55.560 --> 47:56.800
+ So I want control over that though.
+
+47:56.800 --> 48:00.200
+ I don't want the company's algorithms to decide for me, right?
+
+48:00.200 --> 48:01.200
+ I think that's the thing.
+
+48:01.200 --> 48:04.880
+ There's a total loss of control if Facebook thinks they should take the control from us
+
+48:04.880 --> 48:08.200
+ of deciding when we want to have certain kinds of information, when we don't, what information
+
+48:08.200 --> 48:11.880
+ that is, how much it relates to what they know about us that we didn't really want them
+
+48:11.880 --> 48:13.680
+ to know about us.
+
+48:13.680 --> 48:15.840
+ I don't want them to be helping me in that way.
+
+48:15.840 --> 48:21.640
+ I don't want them to be helping them by they decide they have control over what I want
+
+48:21.640 --> 48:22.640
+ and when.
+
+48:22.640 --> 48:23.640
+ I totally agree.
+
+48:23.640 --> 48:28.560
+ Facebook, by the way, I have this optimistic thing where I think Facebook has the kind
+
+48:28.560 --> 48:32.480
+ of personal information about us that could create a beautiful thing.
+
+48:32.480 --> 48:36.200
+ So I'm really optimistic of what Facebook could do.
+
+48:36.200 --> 48:38.680
+ It's not what it's doing, but what it could do.
+
+48:38.680 --> 48:39.840
+ So I don't see that.
+
+48:39.840 --> 48:43.400
+ I think that optimism is misplaced because there's not a bit, you have to have a business
+
+48:43.400 --> 48:44.400
+ model behind these things.
+
+48:44.400 --> 48:48.480
+ Create a beautiful thing is really, let's be, let's be clear.
+
+48:48.480 --> 48:51.400
+ It's about something that people would value.
+
+48:51.400 --> 48:55.080
+ And I don't think they have that business model and I don't think they will suddenly
+
+48:55.080 --> 48:58.920
+ discover it by what, you know, a long hot shower.
+
+48:58.920 --> 48:59.920
+ I disagree.
+
+48:59.920 --> 49:04.840
+ I disagree in terms of, you can discover a lot of amazing things in a shower.
+
+49:04.840 --> 49:05.840
+ So I didn't say that.
+
+49:05.840 --> 49:10.240
+ I said, they won't come, they won't do it, but in the shower, I think a lot of other
+
+49:10.240 --> 49:11.300
+ people will discover it.
+
+49:11.300 --> 49:15.240
+ I think that this guy, so I should also, full disclosure, there's a company called United
+
+49:15.240 --> 49:18.760
+ Masters, which I'm on their board and they've created this music market and I have a hundred
+
+49:18.760 --> 49:23.220
+ thousand artists now signed on and they've done things like gone to the NBA and the NBA,
+
+49:23.220 --> 49:26.960
+ the music you find behind NBA clips right now is their music, right?
+
+49:26.960 --> 49:31.920
+ That's a company that had the right business model in mind from the get go, right?
+
+49:31.920 --> 49:32.920
+ Executed on that.
+
+49:32.920 --> 49:37.220
+ And from day one, there was value brought to, so here you have a kid who made some songs
+
+49:37.220 --> 49:41.260
+ who suddenly their songs are on the NBA website, right?
+
+49:41.260 --> 49:43.440
+ That's real economic value to people.
+
+49:43.440 --> 49:51.800
+ And so, you know, so you and I differ on the optimism of being able to sort of change the
+
+49:51.800 --> 49:54.440
+ direction of the Titanic, right?
+
+49:54.440 --> 50:01.120
+ So I, yeah, I'm older than you, so I've seen some Titanic's crash, got it.
+
+50:01.120 --> 50:05.560
+ But and just to elaborate, cause I totally agree with you and I just want to know how
+
+50:05.560 --> 50:11.880
+ difficult you think this problem is of, so for example, I want to read some news and
+
+50:11.880 --> 50:16.940
+ I would, there's a lot of times in the day where something makes me either smile or think
+
+50:16.940 --> 50:20.800
+ in a way where I like consciously think this really gave me value.
+
+50:20.800 --> 50:26.480
+ Like I sometimes listen to the daily podcasts in the New York times, way better than the
+
+50:26.480 --> 50:29.320
+ New York times themselves, by the way, for people listening.
+
+50:29.320 --> 50:32.560
+ That's like real journalism is happening for some reason in the podcast space.
+
+50:32.560 --> 50:37.600
+ It doesn't make sense to me, but often I listen to it 20 minutes and I would be willing to
+
+50:37.600 --> 50:41.860
+ pay for that, like $5, $10 for that experience.
+
+50:41.860 --> 50:48.200
+ And how difficult, that's kind of what you're getting at is that little transaction.
+
+50:48.200 --> 50:52.640
+ How difficult is it to create a frictionless system like Uber has, for example, for other
+
+50:52.640 --> 50:53.640
+ things?
+
+50:53.640 --> 50:55.280
+ What's your intuition there?
+
+50:55.280 --> 50:58.500
+ So I, first of all, I pay little bits of money to, you know, to send, there's something
+
+50:58.500 --> 51:00.300
+ called courts that does financial things.
+
+51:00.300 --> 51:04.480
+ I like medium as a site, I don't pay there, but I would.
+
+51:04.480 --> 51:06.280
+ You had a great post on medium.
+
+51:06.280 --> 51:10.280
+ I would have loved to pay you a dollar and not others.
+
+51:10.280 --> 51:15.560
+ I wouldn't have wanted it per se because there should be also sites where that's not actually
+
+51:15.560 --> 51:16.560
+ the goal.
+
+51:16.560 --> 51:20.240
+ The goal is to actually have a broadcast channel that I monetize in some other way if I chose
+
+51:20.240 --> 51:21.240
+ to.
+
+51:21.240 --> 51:23.080
+ I mean, I could now people know about it.
+
+51:23.080 --> 51:26.360
+ I could, I'm not doing it, but that's fine with me.
+
+51:26.360 --> 51:29.840
+ Also the musicians who are making all this music, I don't think the right model is that
+
+51:29.840 --> 51:32.880
+ you pay a little subscription fee to them, right?
+
+51:32.880 --> 51:35.860
+ Because people can copy the bits too easily and it's just not that somewhere the value
+
+51:35.860 --> 51:36.860
+ is.
+
+51:36.860 --> 51:39.800
+ The value is that a connection was made between real human beings, then you can follow up
+
+51:39.800 --> 51:40.800
+ on that.
+
+51:40.800 --> 51:41.800
+ All right.
+
+51:41.800 --> 51:42.960
+ And create yet more value.
+
+51:42.960 --> 51:47.920
+ So no, I think there's a lot of open questions here, hot open questions, but also, yeah,
+
+51:47.920 --> 51:51.360
+ I do want good recommendation systems that recommend cool stuff to me.
+
+51:51.360 --> 51:52.360
+ But it's pretty hard, right?
+
+51:52.360 --> 51:55.880
+ I don't like them to recommend stuff just based on my browsing history.
+
+51:55.880 --> 51:59.000
+ I don't like the based on stuff they know about me, quote unquote.
+
+51:59.000 --> 52:00.860
+ What's unknown about me is the most interesting.
+
+52:00.860 --> 52:03.640
+ So this is the, this is the really interesting question.
+
+52:03.640 --> 52:05.860
+ We may disagree, maybe not.
+
+52:05.860 --> 52:12.160
+ I think that I love recommender systems and I want to give them everything about me in
+
+52:12.160 --> 52:13.160
+ a way that I trust.
+
+52:13.160 --> 52:14.160
+ Yeah.
+
+52:14.160 --> 52:17.880
+ But you, but you don't, because, so for example, this morning I clicked on a, you know, I was
+
+52:17.880 --> 52:19.960
+ pretty sleepy this morning.
+
+52:19.960 --> 52:23.280
+ I clicked on a story about the queen of England.
+
+52:23.280 --> 52:24.280
+ Yes.
+
+52:24.280 --> 52:25.280
+ Right.
+
+52:25.280 --> 52:26.440
+ I do not give a damn about the queen of England.
+
+52:26.440 --> 52:27.560
+ I really do not.
+
+52:27.560 --> 52:28.560
+ But it was clickbait.
+
+52:28.560 --> 52:31.520
+ It kind of looked funny and I had to say, what the heck are they talking about?
+
+52:31.520 --> 52:34.040
+ I don't want to have my life, you know, heading that direction.
+
+52:34.040 --> 52:36.180
+ Now that's in my browsing history.
+
+52:36.180 --> 52:39.880
+ The system in any reasonable system will think that I care about the queen of England.
+
+52:39.880 --> 52:40.880
+ That's browsing history.
+
+52:40.880 --> 52:41.880
+ Right.
+
+52:41.880 --> 52:44.640
+ But, but you're saying all the trace, all the digital exhaust or whatever, that's been
+
+52:44.640 --> 52:45.640
+ kind of the models.
+
+52:45.640 --> 52:48.560
+ If you collect all this stuff, you're going to figure all of us out.
+
+52:48.560 --> 52:51.280
+ Well, if you're trying to figure out like kind of one person like Trump or something,
+
+52:51.280 --> 52:52.280
+ maybe you could figure him out.
+
+52:52.280 --> 52:58.040
+ But if you're trying to figure out, you know, 500 million people, you know, no way, no way.
+
+52:58.040 --> 52:59.040
+ You think so?
+
+52:59.040 --> 53:00.040
+ No, I do.
+
+53:00.040 --> 53:01.040
+ I think so.
+
+53:01.040 --> 53:02.560
+ I think we are, humans are just amazingly rich and complicated.
+
+53:02.560 --> 53:05.220
+ Every one of us has our little quirks, every one of us has our little things that could
+
+53:05.220 --> 53:08.020
+ intrigue us that we don't even know it will intrigue us.
+
+53:08.020 --> 53:12.240
+ And there's no sign of it in our past, but by God, there it comes and you know, you fall
+
+53:12.240 --> 53:13.240
+ in love with it.
+
+53:13.240 --> 53:16.520
+ And I don't want a company trying to figure that out for me and anticipate that I want
+
+53:16.520 --> 53:22.160
+ them to provide a forum, a market, a place that I kind of go and by hook or by crook,
+
+53:22.160 --> 53:26.120
+ this happens, you know, I I'm walking down the street and I hear some Chilean music being
+
+53:26.120 --> 53:28.580
+ played and I never knew I liked Chilean music, but wow.
+
+53:28.580 --> 53:33.680
+ So there is that side and I want them to provide a limited, but you know, interesting place
+
+53:33.680 --> 53:34.680
+ to go.
+
+53:34.680 --> 53:35.680
+ Right.
+
+53:35.680 --> 53:39.740
+ And so don't try to use your AI to kind of, you know, figure me out and then put me in
+
+53:39.740 --> 53:45.140
+ a world where you figured me out, you know, no, create huge spaces for human beings where
+
+53:45.140 --> 53:50.360
+ our creativity and our style will be enriched and come forward and it'll be a lot of more
+
+53:50.360 --> 53:51.360
+ transparency.
+
+53:51.360 --> 53:55.400
+ I won't have people randomly, anonymously putting comments up and I'll special based
+
+53:55.400 --> 54:00.080
+ on stuff they know about me, facts that, you know, we are so broken right now.
+
+54:00.080 --> 54:02.920
+ If you're, you know, especially if you're a celebrity, but you know, it's about anybody
+
+54:02.920 --> 54:06.720
+ that anonymous people are hurting lots and lots of people right now.
+
+54:06.720 --> 54:10.200
+ That's part of this thing that Silicon Valley is thinking that, you know, just collect all
+
+54:10.200 --> 54:12.480
+ this information and use it in a great way.
+
+54:12.480 --> 54:16.420
+ So no, I'm not, I'm not a pessimist, I'm very much an optimist by nature, but I think that's
+
+54:16.420 --> 54:19.920
+ just been the wrong path for the whole technology to take.
+
+54:19.920 --> 54:24.040
+ Be more limited, create, let humans rise up.
+
+54:24.040 --> 54:25.740
+ Don't try to replace them.
+
+54:25.740 --> 54:26.760
+ That's the AI mantra.
+
+54:26.760 --> 54:28.660
+ Don't try to anticipate them.
+
+54:28.660 --> 54:32.320
+ Don't try to predict them because you're, you're, you're not going to, you're not going
+
+54:32.320 --> 54:33.320
+ to be able to do those things.
+
+54:33.320 --> 54:34.320
+ You're going to make things worse.
+
+54:34.320 --> 54:35.320
+ Okay.
+
+54:35.320 --> 54:38.760
+ So right now, just give this a chance.
+
+54:38.760 --> 54:43.840
+ Right now, the recommender systems are the creepy people in the shadow watching your
+
+54:43.840 --> 54:45.500
+ every move.
+
+54:45.500 --> 54:47.800
+ So they're looking at traces of you.
+
+54:47.800 --> 54:53.000
+ They're not directly interacting with you, sort of the, your close friends and family,
+
+54:53.000 --> 54:57.120
+ the way they know you is by having conversation, by actually having interactions back and forth.
+
+54:57.120 --> 55:02.360
+ Do you think there's a place for recommender systems sort of to step, cause you, you just
+
+55:02.360 --> 55:06.740
+ emphasize the value of human to human connection, but yeah, just give it a chance, AI human
+
+55:06.740 --> 55:07.840
+ connection.
+
+55:07.840 --> 55:13.560
+ Is there a role for an AI system to have conversations with you in terms of, to try to figure out
+
+55:13.560 --> 55:17.360
+ what kind of music you like, not by just watching what you listening to, but actually having
+
+55:17.360 --> 55:19.560
+ a conversation, natural language or otherwise.
+
+55:19.560 --> 55:21.760
+ Yeah, no, I'm, I'm, so I'm not against it.
+
+55:21.760 --> 55:25.120
+ I just wanted to push back against the, maybe you're saying you have options for Facebook.
+
+55:25.120 --> 55:31.760
+ So there I think it's misplaced, but, but I think that distributing, yeah, no, so good
+
+55:31.760 --> 55:33.520
+ for you.
+
+55:33.520 --> 55:34.520
+ Go for it.
+
+55:34.520 --> 55:35.520
+ That's a hard spot to be in.
+
+55:35.520 --> 55:36.520
+ Yeah, no, good.
+
+55:36.520 --> 55:39.520
+ Human interaction, like on our daily, the context around me in my own home is something
+
+55:39.520 --> 55:42.280
+ that I don't want some big company to know about at all, but I would be more than happy
+
+55:42.280 --> 55:44.200
+ to have technology help me with it.
+
+55:44.200 --> 55:45.200
+ Which kind of technology?
+
+55:45.200 --> 55:49.200
+ Well, you know, just, Alexa, Amazon, well, a good, Alexa's done right.
+
+55:49.200 --> 55:52.160
+ And I think Alexa is a research platform right now more than anything else.
+
+55:52.160 --> 55:56.480
+ But Alexa done right, you know, could do things like I, I leave the water running in my garden
+
+55:56.480 --> 55:59.200
+ and I say, Hey, Alexa, the water's running in my garden.
+
+55:59.200 --> 56:02.040
+ And even have Alexa figure out that that means when my wife comes home, that she should be
+
+56:02.040 --> 56:03.600
+ told about that.
+
+56:03.600 --> 56:04.600
+ That's a little bit of a reasoning.
+
+56:04.600 --> 56:08.860
+ I would call that AI and by any kind of stretch, it's a little bit of reasoning and it actually
+
+56:08.860 --> 56:11.000
+ kind of would make my life a little easier and better.
+
+56:11.000 --> 56:14.600
+ And you know, I don't, I wouldn't call this a wow moment, but I kind of think that overall
+
+56:14.600 --> 56:18.320
+ rises human happiness up to have that kind of thing.
+
+56:18.320 --> 56:20.840
+ But not when you're lonely, Alexa, knowing loneliness.
+
+56:20.840 --> 56:25.600
+ No, no, I don't want Alexa to be, feel intrusive.
+
+56:25.600 --> 56:28.440
+ And I don't want just the designer of the system to kind of work all this out.
+
+56:28.440 --> 56:32.440
+ I really want to have a lot of control and I want transparency and control.
+
+56:32.440 --> 56:36.800
+ And if a company can stand up and give me that in the context of new technology, I think
+
+56:36.800 --> 56:37.800
+ they're good.
+
+56:37.800 --> 56:39.280
+ First of all, be way more successful than our current generation.
+
+56:39.280 --> 56:43.300
+ And like I said, I was mentioning Microsoft, I really think they're, they're pivoting to
+
+56:43.300 --> 56:47.000
+ kind of be the trusted old uncle, but you know, I think that they get that this is a
+
+56:47.000 --> 56:51.600
+ way to go, that if you let people find technology, empowers them to have more control and have
+
+56:51.600 --> 56:56.720
+ and have control, not just over privacy, but over this rich set of interactions, that that
+
+56:56.720 --> 56:58.120
+ people are going to like that a lot more.
+
+56:58.120 --> 57:00.560
+ And that's, that's the right business model going forward.
+
+57:00.560 --> 57:02.240
+ What does control over privacy look like?
+
+57:02.240 --> 57:04.760
+ Do you think you should be able to just view all the data that?
+
+57:04.760 --> 57:05.920
+ No, it's much more than that.
+
+57:05.920 --> 57:07.900
+ I mean, first of all, it should be an individual decision.
+
+57:07.900 --> 57:09.220
+ Some people don't want privacy.
+
+57:09.220 --> 57:10.720
+ They want their whole life out there.
+
+57:10.720 --> 57:13.720
+ Other people's want it.
+
+57:13.720 --> 57:16.020
+ Privacy is not a zero one.
+
+57:16.020 --> 57:17.020
+ It's not a legal thing.
+
+57:17.020 --> 57:20.280
+ It's not just about which data is available, which is not.
+
+57:20.280 --> 57:24.880
+ I like to recall to people that, you know, a couple hundred years ago, everyone, there
+
+57:24.880 --> 57:29.640
+ was not really big cities, everyone lived in on the countryside and villages and villages.
+
+57:29.640 --> 57:30.640
+ Everybody knew everything about you.
+
+57:30.640 --> 57:32.720
+ Very, you didn't have any privacy.
+
+57:32.720 --> 57:33.720
+ Is that bad?
+
+57:33.720 --> 57:34.720
+ Are we better off now?
+
+57:34.720 --> 57:39.040
+ Well, you know, arguably no, because what did you get for that loss of certain kinds
+
+57:39.040 --> 57:40.520
+ of privacy?
+
+57:40.520 --> 57:44.080
+ Well, people help each other if they, because they know everything about you.
+
+57:44.080 --> 57:46.400
+ They know something's bad's happening, they will help you with that.
+
+57:46.400 --> 57:47.400
+ Right.
+
+57:47.400 --> 57:48.400
+ And now you live in a big city, no one knows about that.
+
+57:48.400 --> 57:50.840
+ You get no help.
+
+57:50.840 --> 57:52.680
+ So it kind of depends the answer.
+
+57:52.680 --> 57:56.320
+ I want certain people who I trust and there should be relationships.
+
+57:56.320 --> 57:59.000
+ I should kind of manage all those, but who knows what about me?
+
+57:59.000 --> 58:00.800
+ I should have some agency there.
+
+58:00.800 --> 58:04.680
+ It shouldn't, I shouldn't be a drift in a sea of technology where I have no agency.
+
+58:04.680 --> 58:08.560
+ I don't want to go reading things and checking boxes.
+
+58:08.560 --> 58:09.960
+ So I don't know how to do that.
+
+58:09.960 --> 58:11.480
+ And I'm not a privacy researcher per se.
+
+58:11.480 --> 58:14.360
+ I just, I recognize the vast complexity of this.
+
+58:14.360 --> 58:15.360
+ It's not just technology.
+
+58:15.360 --> 58:18.920
+ It's not just legal scholars meeting technologists.
+
+58:18.920 --> 58:20.900
+ There's gotta be kind of a whole layers around it.
+
+58:20.900 --> 58:26.480
+ And so I, when I alluded to this emerging engineering field, this is a big part of it.
+
+58:26.480 --> 58:31.320
+ When electrical engineering came, I'm not one around at the time, but you just didn't
+
+58:31.320 --> 58:34.120
+ plug electricity into walls and all kinds of work.
+
+58:34.120 --> 58:37.840
+ You don't have to have like underwriters laboratory that reassured you that that plug's not going
+
+58:37.840 --> 58:41.720
+ to burn up your house and that that machine will do this and that and everything.
+
+58:41.720 --> 58:44.520
+ There'll be whole people who can install things.
+
+58:44.520 --> 58:46.360
+ There'll be people who can watch the installers.
+
+58:46.360 --> 58:49.960
+ There'll be a whole layers, you know, an onion of these kinds of things.
+
+58:49.960 --> 58:53.960
+ And for things as deep and interesting as privacy, which is as least as interesting
+
+58:53.960 --> 58:58.120
+ as electricity, that's going to take decades to kind of work out, but it's going to require
+
+58:58.120 --> 59:00.320
+ a lot of new structures that we don't have right now.
+
+59:00.320 --> 59:02.320
+ So it's kind of hard to talk about it.
+
+59:02.320 --> 59:04.840
+ And you're saying there's a lot of money to be made if you get it right.
+
+59:04.840 --> 59:05.840
+ So something you should look at.
+
+59:05.840 --> 59:09.560
+ A lot of money to be made in all these things that provide human services and people recognize
+
+59:09.560 --> 59:12.360
+ them as useful parts of their lives.
+
+59:12.360 --> 59:14.280
+ So yeah.
+
+59:14.280 --> 59:19.660
+ So yeah, the dialogue sometimes goes from the exuberant technologists to the no technology
+
+59:19.660 --> 59:20.800
+ is good, kind of.
+
+59:20.800 --> 59:24.480
+ And that's, you know, in our public discourse, you know, and as far as you see too much of
+
+59:24.480 --> 59:28.400
+ this kind of thing and the sober discussions in the middle, which are the challenge he
+
+59:28.400 --> 59:31.560
+ wants to have or where we need to be having our conversations.
+
+59:31.560 --> 59:36.480
+ And you know, there's just not actually, there's not many forum fora for those.
+
+59:36.480 --> 59:39.180
+ You know, there's, that's, that's kind of what I would look for.
+
+59:39.180 --> 59:42.040
+ Maybe I could go and I could read a comment section of something and it would actually
+
+59:42.040 --> 59:44.520
+ be this kind of dialogue going back and forth.
+
+59:44.520 --> 59:45.800
+ You don't see much of this, right?
+
+59:45.800 --> 59:49.800
+ Which is why actually there's a resurgence of podcasts out of all, because people are
+
+59:49.800 --> 59:55.760
+ really hungry for conversation, but there's technology is not helping much.
+
+59:55.760 --> 1:00:01.520
+ So comment sections of anything, including YouTube is not hurting and not helping.
+
+1:00:01.520 --> 1:00:02.520
+ Yeah.
+
+1:00:02.520 --> 1:00:07.800
+ And you think technically speaking, it's possible to help.
+
+1:00:07.800 --> 1:00:13.840
+ I don't know the answers, but it's a, it's a, it's a less anonymity, a little more locality,
+
+1:00:13.840 --> 1:00:17.340
+ you know, worlds that you kind of enter in and you trust the people there in those worlds
+
+1:00:17.340 --> 1:00:20.040
+ so that when you start having a discussion, you know, not only is that people are not
+
+1:00:20.040 --> 1:00:23.120
+ going to hurt you, but it's not going to be a total waste of your time because there's
+
+1:00:23.120 --> 1:00:26.640
+ a lot of wasting of time that, you know, a lot of us, I pulled out of Facebook early
+
+1:00:26.640 --> 1:00:31.360
+ on cause it was clearly going to waste a lot of my time even though there was some value.
+
+1:00:31.360 --> 1:00:34.600
+ And so, yeah, worlds that are somehow you enter in and you know what you're getting
+
+1:00:34.600 --> 1:00:38.400
+ and it's kind of appeals to you and you might, new things might happen, but you kind of have
+
+1:00:38.400 --> 1:00:40.820
+ some, some trust in that world.
+
+1:00:40.820 --> 1:00:46.520
+ And there's some deep, interesting, complex psychological aspects around anonymity, how
+
+1:00:46.520 --> 1:00:49.960
+ that changes human behavior that's quite dark.
+
+1:00:49.960 --> 1:00:50.960
+ Quite dark.
+
+1:00:50.960 --> 1:00:51.960
+ Yeah.
+
+1:00:51.960 --> 1:00:55.440
+ I think a lot of us are, especially those of us who really loved the advent of technology.
+
+1:00:55.440 --> 1:00:56.760
+ I love social networks when they came out.
+
+1:00:56.760 --> 1:00:59.520
+ I was just, I didn't see any negatives there at all.
+
+1:00:59.520 --> 1:01:01.720
+ But then I started seeing comment sections.
+
+1:01:01.720 --> 1:01:04.760
+ I think it was maybe, you know, with the CNN or something.
+
+1:01:04.760 --> 1:01:10.040
+ And I started to go, wow, this, this darkness I just did not know about and, and our technology
+
+1:01:10.040 --> 1:01:11.520
+ is now amplifying it.
+
+1:01:11.520 --> 1:01:15.960
+ So sorry for the big philosophical question, but on that topic, do you think human beings,
+
+1:01:15.960 --> 1:01:21.120
+ cause you've also, out of all things, had a foot in psychology too, the, do you think
+
+1:01:21.120 --> 1:01:23.800
+ human beings are fundamentally good?
+
+1:01:23.800 --> 1:01:32.240
+ Like all of us have good intent that could be mind or is it depending on context and
+
+1:01:32.240 --> 1:01:34.960
+ environment, everybody could be evil.
+
+1:01:34.960 --> 1:01:37.720
+ So my answer is fundamentally good.
+
+1:01:37.720 --> 1:01:39.240
+ But fundamentally limited.
+
+1:01:39.240 --> 1:01:41.320
+ All of us have very, you know, blinkers on.
+
+1:01:41.320 --> 1:01:43.940
+ We don't see the other person's pain that easily.
+
+1:01:43.940 --> 1:01:46.680
+ We don't see the other person's point of view that easily.
+
+1:01:46.680 --> 1:01:49.880
+ We're very much in our own head, in our own world.
+
+1:01:49.880 --> 1:01:53.920
+ And on my good days, I think the technology could open us up to, you know, more perspectives
+
+1:01:53.920 --> 1:01:58.560
+ and more less blinkered and more understanding, you know, a lot of wars in human history happened
+
+1:01:58.560 --> 1:01:59.560
+ because of just ignorance.
+
+1:01:59.560 --> 1:02:02.600
+ They didn't, they, they thought the other person was doing this while their person wasn't
+
+1:02:02.600 --> 1:02:03.600
+ doing this.
+
+1:02:03.600 --> 1:02:05.440
+ And we have a huge amounts of that.
+
+1:02:05.440 --> 1:02:09.200
+ But in my lifetime, I've not seen technology really help in that way yet.
+
+1:02:09.200 --> 1:02:13.600
+ And I do, I do, I do believe in that, but you know, no, I think fundamentally humans
+
+1:02:13.600 --> 1:02:14.600
+ are good.
+
+1:02:14.600 --> 1:02:17.440
+ The people suffer, people have grievances because you have grudges and those things
+
+1:02:17.440 --> 1:02:20.000
+ cause them to do things they probably wouldn't want.
+
+1:02:20.000 --> 1:02:22.640
+ They regret it often.
+
+1:02:22.640 --> 1:02:28.080
+ So no, I, I think it's a, you know, part of the progress of technology is to indeed allow
+
+1:02:28.080 --> 1:02:31.160
+ it to be a little easier to be the real good person you actually are.
+
+1:02:31.160 --> 1:02:39.880
+ Well, but do you think individual human life or society could be modeled as an optimization
+
+1:02:39.880 --> 1:02:40.880
+ problem?
+
+1:02:40.880 --> 1:02:45.080
+ Not the way I think typically, I mean, that's, you're talking about one of the most complex
+
+1:02:45.080 --> 1:02:49.600
+ phenomenon in the whole, you know, in all of which the individual human life or society
+
+1:02:49.600 --> 1:02:50.600
+ as a whole.
+
+1:02:50.600 --> 1:02:51.600
+ Both, both.
+
+1:02:51.600 --> 1:02:54.440
+ I mean, individual human life is amazingly complex.
+
+1:02:54.440 --> 1:02:58.960
+ And so you know, optimization is kind of just one branch of mathematics that talks about
+
+1:02:58.960 --> 1:02:59.960
+ certain kinds of things.
+
+1:02:59.960 --> 1:03:04.520
+ And it just feels way too limited for the complexity of such things.
+
+1:03:04.520 --> 1:03:09.440
+ What properties of optimization problems do you think, so do you think most interesting
+
+1:03:09.440 --> 1:03:13.860
+ problems that could be solved through optimization, what kind of properties does that surface
+
+1:03:13.860 --> 1:03:19.680
+ have non convexity, convexity, linearity, all those kinds of things, saddle points?
+
+1:03:19.680 --> 1:03:22.160
+ Well, so optimization is just one piece of mathematics.
+
+1:03:22.160 --> 1:03:27.480
+ You know, there's like, you just, even in our era, we're aware that say sampling is
+
+1:03:27.480 --> 1:03:31.520
+ coming up, examples of something coming up with a distribution.
+
+1:03:31.520 --> 1:03:32.520
+ What's optimization?
+
+1:03:32.520 --> 1:03:33.520
+ What's sampling?
+
+1:03:33.520 --> 1:03:35.920
+ Well, they, you can, if you're a kind of a certain kind of mathematician, you can try
+
+1:03:35.920 --> 1:03:38.680
+ to blend them and make them seem to be sort of the same thing.
+
+1:03:38.680 --> 1:03:44.160
+ But optimization is roughly speaking, trying to find a point that, a single point that
+
+1:03:44.160 --> 1:03:48.740
+ is the optimum of a criterion function of some kind.
+
+1:03:48.740 --> 1:03:53.940
+ And sampling is trying to, from that same surface, treat that as a distribution or density
+
+1:03:53.940 --> 1:03:56.920
+ and find points that have high density.
+
+1:03:56.920 --> 1:04:03.480
+ So I want the entire distribution in a sampling paradigm and I want the, you know, the single
+
+1:04:03.480 --> 1:04:07.640
+ point, that's the best point in the optimization paradigm.
+
+1:04:07.640 --> 1:04:11.880
+ Now if you were optimizing in the space of probability measures, the output of that could
+
+1:04:11.880 --> 1:04:13.080
+ be a whole probability distribution.
+
+1:04:13.080 --> 1:04:15.560
+ So you can start to make these things the same.
+
+1:04:15.560 --> 1:04:18.400
+ But in mathematics, if you go too high up that kind of abstraction hierarchy, you start
+
+1:04:18.400 --> 1:04:22.900
+ to lose the, you know, the ability to do the interesting theorems.
+
+1:04:22.900 --> 1:04:23.900
+ So you kind of don't try that.
+
+1:04:23.900 --> 1:04:26.960
+ You don't try to overly over abstract.
+
+1:04:26.960 --> 1:04:31.540
+ So as a small tangent, what kind of worldview do you find more appealing?
+
+1:04:31.540 --> 1:04:35.080
+ One that is deterministic or stochastic?
+
+1:04:35.080 --> 1:04:36.880
+ Well, that's easy.
+
+1:04:36.880 --> 1:04:38.160
+ I mean, I'm a statistician.
+
+1:04:38.160 --> 1:04:40.400
+ You know, the world is highly stochastic.
+
+1:04:40.400 --> 1:04:42.360
+ I don't know what's going to happen in the next five minutes, right?
+
+1:04:42.360 --> 1:04:44.360
+ Because what you're going to ask, what we're going to do, what I'll say.
+
+1:04:44.360 --> 1:04:45.360
+ Due to the uncertainty.
+
+1:04:45.360 --> 1:04:46.360
+ Due to the...
+
+1:04:46.360 --> 1:04:47.360
+ Massive uncertainty.
+
+1:04:47.360 --> 1:04:48.360
+ Yeah.
+
+1:04:48.360 --> 1:04:49.360
+ You know, massive uncertainty.
+
+1:04:49.360 --> 1:04:53.080
+ And so the best I can do is have come rough sense or probability distribution on things
+
+1:04:53.080 --> 1:04:58.280
+ and somehow use that in my reasoning about what to do now.
+
+1:04:58.280 --> 1:05:07.080
+ So how does the distributed at scale when you have multi agent systems look like?
+
+1:05:07.080 --> 1:05:13.760
+ So optimization can optimize sort of, it makes a lot more sense, sort of at least from my
+
+1:05:13.760 --> 1:05:18.240
+ from robotics perspective, for a single robot, for a single agent, trying to optimize some
+
+1:05:18.240 --> 1:05:21.040
+ objective function.
+
+1:05:21.040 --> 1:05:27.080
+ When you start to enter the real world, this game theoretic concept starts popping up.
+
+1:05:27.080 --> 1:05:30.400
+ That's how do you see optimization in this?
+
+1:05:30.400 --> 1:05:32.720
+ Because you've talked about markets in a scale.
+
+1:05:32.720 --> 1:05:33.720
+ What does that look like?
+
+1:05:33.720 --> 1:05:34.720
+ Do you see it as optimization?
+
+1:05:34.720 --> 1:05:36.120
+ Do you see it as sampling?
+
+1:05:36.120 --> 1:05:38.280
+ Do you see like, how should you mark?
+
+1:05:38.280 --> 1:05:39.280
+ These all blend together.
+
+1:05:39.280 --> 1:05:44.120
+ And a system designer thinking about how to build an incentivized system will have a blend
+
+1:05:44.120 --> 1:05:45.120
+ of all these things.
+
+1:05:45.120 --> 1:05:49.800
+ So, you know, a particle in a potential well is optimizing a functional called a Lagrangian,
+
+1:05:49.800 --> 1:05:50.800
+ right?
+
+1:05:50.800 --> 1:05:51.800
+ The particle doesn't know that.
+
+1:05:51.800 --> 1:05:54.640
+ There's no algorithm running that does that.
+
+1:05:54.640 --> 1:05:55.640
+ It just happens.
+
+1:05:55.640 --> 1:05:59.160
+ And so it's a description mathematically of something that helps us understand as analysts
+
+1:05:59.160 --> 1:06:00.840
+ what's happening, right?
+
+1:06:00.840 --> 1:06:03.520
+ And so the same thing will happen when we talk about, you know, mixtures of humans and
+
+1:06:03.520 --> 1:06:07.080
+ computers and markets and so on and so forth, there'll be certain principles that allow
+
+1:06:07.080 --> 1:06:10.320
+ us to understand what's happening, whether or not the actual algorithms are being used
+
+1:06:10.320 --> 1:06:13.000
+ by any sense is not clear.
+
+1:06:13.000 --> 1:06:19.080
+ Now at some point, I may have set up a multi agent or market kind of system.
+
+1:06:19.080 --> 1:06:22.440
+ And I'm now thinking about an individual agent in that system.
+
+1:06:22.440 --> 1:06:25.200
+ And they're asked to do some task and they're incentivized in some way, they get certain
+
+1:06:25.200 --> 1:06:28.160
+ signals and they have some utility.
+
+1:06:28.160 --> 1:06:31.560
+ What they will do at that point is they just won't know the answer, they may have to optimize
+
+1:06:31.560 --> 1:06:32.560
+ to find an answer.
+
+1:06:32.560 --> 1:06:36.920
+ Okay, so an artist could be embedded inside of an overall market.
+
+1:06:36.920 --> 1:06:39.880
+ You know, and game theory is very, very broad.
+
+1:06:39.880 --> 1:06:44.020
+ It is often studied very narrowly for certain kinds of problems.
+
+1:06:44.020 --> 1:06:47.920
+ But it's roughly speaking, this is just the, I don't know what you're going to do.
+
+1:06:47.920 --> 1:06:51.560
+ So I kind of anticipate that a little bit, and you anticipate what I'm anticipating.
+
+1:06:51.560 --> 1:06:53.360
+ And we kind of go back and forth in our own minds.
+
+1:06:53.360 --> 1:06:55.480
+ We run kind of thought experiments.
+
+1:06:55.480 --> 1:07:00.420
+ You've talked about this interesting point in terms of game theory, you know, most optimization
+
+1:07:00.420 --> 1:07:04.840
+ problems really hate saddle points, maybe you can describe what saddle points are.
+
+1:07:04.840 --> 1:07:09.560
+ But I've heard you kind of mentioned that there's a there's a branch of optimization
+
+1:07:09.560 --> 1:07:14.720
+ that you could try to explicitly look for saddle points as a good thing.
+
+1:07:14.720 --> 1:07:15.840
+ Oh, not optimization.
+
+1:07:15.840 --> 1:07:19.740
+ That's just game theory that that so there's all kinds of different equilibria in game
+
+1:07:19.740 --> 1:07:20.740
+ theory.
+
+1:07:20.740 --> 1:07:23.220
+ And some of them are highly explanatory behavior.
+
+1:07:23.220 --> 1:07:24.760
+ They're not attempting to be algorithmic.
+
+1:07:24.760 --> 1:07:29.080
+ They're just trying to say, if you happen to be at this equilibrium, you would see certain
+
+1:07:29.080 --> 1:07:30.080
+ kind of behavior.
+
+1:07:30.080 --> 1:07:31.080
+ And we see that in real life.
+
+1:07:31.080 --> 1:07:39.420
+ That's what an economist wants to do, especially behavioral economists in continuous differential
+
+1:07:39.420 --> 1:07:44.020
+ game theory, you're in continuous spaces, a some of the simplest equilibria are saddle
+
+1:07:44.020 --> 1:07:46.400
+ points and Nash equilibrium as a saddle point.
+
+1:07:46.400 --> 1:07:48.440
+ It's a special kind of saddle point.
+
+1:07:48.440 --> 1:07:53.560
+ So classically, in game theory, you were trying to find Nash equilibria and an algorithmic
+
+1:07:53.560 --> 1:07:56.400
+ game theory, you're trying to find algorithms that would find them.
+
+1:07:56.400 --> 1:07:57.760
+ And so you're trying to find saddle points.
+
+1:07:57.760 --> 1:08:00.720
+ I mean, so that's literally what you're trying to do.
+
+1:08:00.720 --> 1:08:04.160
+ But you know, any economist knows that Nash equilibria have their limitations.
+
+1:08:04.160 --> 1:08:08.200
+ They are definitely not that explanatory in many situations.
+
+1:08:08.200 --> 1:08:10.360
+ They're not what you really want.
+
+1:08:10.360 --> 1:08:12.180
+ There's other kind of equilibria.
+
+1:08:12.180 --> 1:08:15.440
+ And there's names associated with these because they came from history with certain people
+
+1:08:15.440 --> 1:08:18.080
+ working on them, but there will be new ones emerging.
+
+1:08:18.080 --> 1:08:21.200
+ So you know, one example is a Stackelberg equilibrium.
+
+1:08:21.200 --> 1:08:25.800
+ So you know, Nash, you and I are both playing this game against each other or for each other,
+
+1:08:25.800 --> 1:08:29.000
+ maybe it's cooperative, and we're both going to think it through and then we're going to
+
+1:08:29.000 --> 1:08:32.520
+ decide and we're going to do our thing simultaneously.
+
+1:08:32.520 --> 1:08:34.640
+ You know, in a Stackelberg, no, I'm going to be the first mover.
+
+1:08:34.640 --> 1:08:35.880
+ I'm going to make a move.
+
+1:08:35.880 --> 1:08:38.400
+ You're going to look at my move and then you're going to make yours.
+
+1:08:38.400 --> 1:08:42.180
+ Now since I know you're going to look at my move, I anticipate what you're going to do.
+
+1:08:42.180 --> 1:08:46.960
+ And so I don't do something stupid, but then I know that you are also anticipating me.
+
+1:08:46.960 --> 1:08:51.800
+ So we're kind of going back and forth on why, but there is then a first mover thing.
+
+1:08:51.800 --> 1:08:54.920
+ And so those are different equilibria, right?
+
+1:08:54.920 --> 1:08:59.220
+ And so just mathematically, yeah, these things have certain topologies and certain shapes
+
+1:08:59.220 --> 1:09:02.840
+ that are like, what's it, algorithmically or dynamically, how do you move towards them?
+
+1:09:02.840 --> 1:09:05.820
+ How do you move away from things?
+
+1:09:05.820 --> 1:09:09.500
+ You know, so some of these questions have answers, they've been studied, others do not.
+
+1:09:09.500 --> 1:09:13.920
+ And especially if it becomes stochastic, especially if there's large numbers of decentralized
+
+1:09:13.920 --> 1:09:17.440
+ things, there's just, you know, young people get in this field who kind of think it's all
+
+1:09:17.440 --> 1:09:19.520
+ done because we have, you know, TensorFlow.
+
+1:09:19.520 --> 1:09:23.680
+ Well, no, these are all open problems and they're really important and interesting.
+
+1:09:23.680 --> 1:09:25.140
+ And it's about strategic settings.
+
+1:09:25.140 --> 1:09:26.640
+ How do I collect data?
+
+1:09:26.640 --> 1:09:29.280
+ Suppose I don't know what you're going to do because I don't know you very well, right?
+
+1:09:29.280 --> 1:09:31.180
+ Well, I got to collect data about you.
+
+1:09:31.180 --> 1:09:34.280
+ So maybe I want to push you into a part of the space where I don't know much about you
+
+1:09:34.280 --> 1:09:35.280
+ so I can get data.
+
+1:09:35.280 --> 1:09:38.960
+ Cause, and then later I'll realize that you'll never, you'll never go there because of the
+
+1:09:38.960 --> 1:09:39.960
+ way the game is set up.
+
+1:09:39.960 --> 1:09:44.080
+ You know, that's part of the overall, you know, data analysis context is that.
+
+1:09:44.080 --> 1:09:47.840
+ Even the game of poker is fascinating space, whenever there's any uncertainty, a lack of
+
+1:09:47.840 --> 1:09:52.560
+ information, it's a super exciting space.
+
+1:09:52.560 --> 1:09:55.360
+ Just to linger on optimization for a second.
+
+1:09:55.360 --> 1:10:01.600
+ So when we look at deep learning, it's essentially minimization of a complicated loss function.
+
+1:10:01.600 --> 1:10:07.400
+ So is there something insightful or hopeful that you see in the kinds of function surface
+
+1:10:07.400 --> 1:10:13.800
+ that loss functions, the deep learning and in the real world is trying to optimize over?
+
+1:10:13.800 --> 1:10:20.040
+ Is there something interesting as it's just the usual kind of problems of optimization?
+
+1:10:20.040 --> 1:10:25.600
+ I think from an optimization point of view, that surface, first of all, it's pretty smooth.
+
+1:10:25.600 --> 1:10:29.120
+ And secondly, if there's over, if it's over parameterized, there's kind of lots of paths
+
+1:10:29.120 --> 1:10:31.540
+ down to reasonable Optima.
+
+1:10:31.540 --> 1:10:35.680
+ And so kind of the getting downhill to the, to an optimum is viewed as not as hard as
+
+1:10:35.680 --> 1:10:39.980
+ you might've expected in high dimensions.
+
+1:10:39.980 --> 1:10:43.200
+ The fact that some Optima tend to be really good ones and others not so good.
+
+1:10:43.200 --> 1:10:48.080
+ And you tend to, it's not, sometimes you find the good ones is sort of still needs explanation.
+
+1:10:48.080 --> 1:10:49.080
+ Yeah.
+
+1:10:49.080 --> 1:10:53.560
+ But, but the particular surface is coming from the particular generation of neural nets.
+
+1:10:53.560 --> 1:10:56.880
+ I kind of suspect those will, those will change in 10 years.
+
+1:10:56.880 --> 1:10:58.360
+ It will not be exactly those surfaces.
+
+1:10:58.360 --> 1:11:02.500
+ There'll be some others that are an optimization theory will help contribute to why other surfaces
+
+1:11:02.500 --> 1:11:05.640
+ or why other algorithms.
+
+1:11:05.640 --> 1:11:09.840
+ Years of arithmetic operations with a little bit of nonlinearity, that's not, that didn't
+
+1:11:09.840 --> 1:11:10.960
+ come from neuroscience per se.
+
+1:11:10.960 --> 1:11:13.920
+ I mean, maybe in the minds of some of the people working on it, they were thinking about
+
+1:11:13.920 --> 1:11:19.040
+ brains, but they were arithmetic circuits in all kinds of fields, computer science control
+
+1:11:19.040 --> 1:11:20.640
+ theory and so on.
+
+1:11:20.640 --> 1:11:23.480
+ And that layers of these could transform things in certain ways.
+
+1:11:23.480 --> 1:11:32.000
+ And that if it's smooth, maybe you could find parameter values is a sort of big discovery
+
+1:11:32.000 --> 1:11:35.000
+ that it's working, it's able to work at this scale.
+
+1:11:35.000 --> 1:11:39.840
+ But I don't think that we're stuck with that and we're, we're certainly not stuck with
+
+1:11:39.840 --> 1:11:42.120
+ that cause we're understanding the brain.
+
+1:11:42.120 --> 1:11:46.360
+ So in terms of on the algorithm side sort of gradient descent, do you think we're stuck
+
+1:11:46.360 --> 1:11:49.360
+ with gradient descent as a variance of it?
+
+1:11:49.360 --> 1:11:53.600
+ What variance do you find interesting or do you think there'll be something else invented
+
+1:11:53.600 --> 1:11:59.720
+ that is able to walk all over these optimization spaces in more interesting ways?
+
+1:11:59.720 --> 1:12:04.700
+ So there's a co design of the surface and the, or the architecture and the algorithm.
+
+1:12:04.700 --> 1:12:08.080
+ So if you just ask if we stay with the kind of architectures that we have now and not
+
+1:12:08.080 --> 1:12:13.080
+ just neural nets, but you know, phase retrieval architectures or matrix completion architectures
+
+1:12:13.080 --> 1:12:15.080
+ and so on.
+
+1:12:15.080 --> 1:12:19.560
+ You know, I think we've kind of come to a place where yeah, a stochastic gradient algorithms
+
+1:12:19.560 --> 1:12:25.840
+ are dominant and there are versions that are a little better than others.
+
+1:12:25.840 --> 1:12:29.160
+ They have more guarantees, they're more robust and so on.
+
+1:12:29.160 --> 1:12:34.260
+ And there's ongoing research to kind of figure out which is the best arm for which situation.
+
+1:12:34.260 --> 1:12:37.880
+ But I think that that'll start to co evolve, that that'll put pressure on the actual architecture.
+
+1:12:37.880 --> 1:12:40.800
+ And so we shouldn't do it in this particular way, we should do it in a different way because
+
+1:12:40.800 --> 1:12:45.340
+ this other algorithm is now available if you do it in a different way.
+
+1:12:45.340 --> 1:12:51.600
+ So that I can't really anticipate that co evolution process, but you know, gradients
+
+1:12:51.600 --> 1:12:54.480
+ are amazing mathematical objects.
+
+1:12:54.480 --> 1:13:01.120
+ They have a lot of people who start to study them more deeply mathematically are kind of
+
+1:13:01.120 --> 1:13:05.160
+ shocked about what they are and what they can do.
+
+1:13:05.160 --> 1:13:11.040
+ Think about it this way, suppose that I tell you if you move along the x axis, you go uphill
+
+1:13:11.040 --> 1:13:15.920
+ in some objective by three units, whereas if you move along the y axis, you go uphill
+
+1:13:15.920 --> 1:13:18.000
+ by seven units, right?
+
+1:13:18.000 --> 1:13:22.440
+ Now I'm going to only allow you to move a certain unit distance, right?
+
+1:13:22.440 --> 1:13:23.440
+ What are you going to do?
+
+1:13:23.440 --> 1:13:27.240
+ Well, most people will say that I'm going to go along the y axis, I'm getting the biggest
+
+1:13:27.240 --> 1:13:31.120
+ bang for my buck, you know, and my buck is only one unit, so I'm going to put all of
+
+1:13:31.120 --> 1:13:33.960
+ it in the y axis, right?
+
+1:13:33.960 --> 1:13:39.320
+ And why should I even take any of my strength, my step size and put any of it in the x axis
+
+1:13:39.320 --> 1:13:41.480
+ because I'm getting less bang for my buck.
+
+1:13:41.480 --> 1:13:47.480
+ That seems like a completely clear argument and it's wrong because the gradient direction
+
+1:13:47.480 --> 1:13:51.780
+ is not to go along the y axis, it's to take a little bit of the x axis.
+
+1:13:51.780 --> 1:13:59.200
+ And to understand that, you have to know some math and so even a trivial so called operator
+
+1:13:59.200 --> 1:14:04.020
+ like gradient is not trivial and so, you know, exploiting its properties is still very important.
+
+1:14:04.020 --> 1:14:06.840
+ Now we know that just pervading descent has got all kinds of problems, it gets stuck in
+
+1:14:06.840 --> 1:14:10.960
+ many ways and it had never, you know, good dimension dependence and so on.
+
+1:14:10.960 --> 1:14:15.960
+ So my own line of work recently has been about what kinds of stochasticity, how can we get
+
+1:14:15.960 --> 1:14:20.200
+ dimension dependence, how can we do the theory of that and we've come up pretty favorable
+
+1:14:20.200 --> 1:14:22.720
+ results with certain kinds of stochasticity.
+
+1:14:22.720 --> 1:14:25.000
+ We have sufficient conditions generally.
+
+1:14:25.000 --> 1:14:28.760
+ We know if you do this, we will give you a good guarantee.
+
+1:14:28.760 --> 1:14:32.280
+ We don't have necessary conditions that it must be done a certain way in general.
+
+1:14:32.280 --> 1:14:38.200
+ So stochasticity, how much randomness to inject into the walking along the gradient?
+
+1:14:38.200 --> 1:14:40.000
+ And what kind of randomness?
+
+1:14:40.000 --> 1:14:42.240
+ Why is randomness good in this process?
+
+1:14:42.240 --> 1:14:44.240
+ Why is stochasticity good?
+
+1:14:44.240 --> 1:14:49.320
+ Yeah, so I can give you simple answers but in some sense again, it's kind of amazing.
+
+1:14:49.320 --> 1:14:55.600
+ Stochasticity just, you know, particular features of a surface that could have hurt you if you
+
+1:14:55.600 --> 1:15:02.080
+ were doing one thing deterministically won't hurt you because by chance, there's very little
+
+1:15:02.080 --> 1:15:04.800
+ chance that you would get hurt.
+
+1:15:04.800 --> 1:15:12.840
+ So here stochasticity, it just kind of saves you from some of the particular features of
+
+1:15:12.840 --> 1:15:13.840
+ surfaces.
+
+1:15:13.840 --> 1:15:19.400
+ In fact, if you think about surfaces that are discontinuous in our first derivative,
+
+1:15:19.400 --> 1:15:25.400
+ like an absolute value function, you will go down and hit that point where there's nondifferentiability.
+
+1:15:25.400 --> 1:15:28.520
+ And if you're running a deterministic algorithm at that point, you can really do something
+
+1:15:28.520 --> 1:15:29.520
+ bad.
+
+1:15:29.520 --> 1:15:32.960
+ Whereas stochasticity just means it's pretty unlikely that's going to happen, that you're
+
+1:15:32.960 --> 1:15:35.720
+ going to hit that point.
+
+1:15:35.720 --> 1:15:41.860
+ So it's again, nontrivial to analyze but especially in higher dimensions, also stochasticity,
+
+1:15:41.860 --> 1:15:45.440
+ our intuition isn't very good about it but it has properties that kind of are very appealing
+
+1:15:45.440 --> 1:15:49.200
+ in high dimensions for a lot of large number of reasons.
+
+1:15:49.200 --> 1:15:52.520
+ So it's all part of the mathematics to kind of, that's what's fun to work in the field
+
+1:15:52.520 --> 1:15:57.040
+ is that you get to try to understand this mathematics.
+
+1:15:57.040 --> 1:16:01.200
+ But long story short, you know, partly empirically, it was discovered stochastic gradient is very
+
+1:16:01.200 --> 1:16:06.600
+ effective and theory kind of followed, I'd say, that but I don't see that we're getting
+
+1:16:06.600 --> 1:16:09.120
+ clearly out of that.
+
+1:16:09.120 --> 1:16:15.560
+ What's the most beautiful, mysterious, a profound idea to you in optimization?
+
+1:16:15.560 --> 1:16:17.360
+ I don't know the most.
+
+1:16:17.360 --> 1:16:23.600
+ But let me just say that Nesterov's work on Nesterov acceleration to me is pretty surprising
+
+1:16:23.600 --> 1:16:26.280
+ and pretty deep.
+
+1:16:26.280 --> 1:16:27.280
+ Can you elaborate?
+
+1:16:27.280 --> 1:16:32.240
+ Well Nesterov acceleration is just that, suppose that we are going to use gradients
+
+1:16:32.240 --> 1:16:33.240
+ to move around in a space.
+
+1:16:33.240 --> 1:16:37.280
+ For the reasons I've alluded to, they're nice directions to move.
+
+1:16:37.280 --> 1:16:40.520
+ And suppose that I tell you that you're only allowed to use gradients, you're not going
+
+1:16:40.520 --> 1:16:47.440
+ to be allowed to use this local person that can only sense kind of the change in the surface.
+
+1:16:47.440 --> 1:16:50.920
+ But I'm going to give you kind of a computer that's able to store all your previous gradients.
+
+1:16:50.920 --> 1:16:55.020
+ And so you start to learn some something about the surface.
+
+1:16:55.020 --> 1:16:58.620
+ And I'm going to restrict you to maybe move in the direction of like a linear span of
+
+1:16:58.620 --> 1:16:59.620
+ all the gradients.
+
+1:16:59.620 --> 1:17:02.880
+ So you can't kind of just move in some arbitrary direction, right?
+
+1:17:02.880 --> 1:17:05.720
+ So now we have a well defined mathematical complexity model.
+
+1:17:05.720 --> 1:17:09.320
+ There's certain classes of algorithms that can do that and others that can't.
+
+1:17:09.320 --> 1:17:13.800
+ And we can ask for certain kinds of surfaces, how fast can you get down to the optimum?
+
+1:17:13.800 --> 1:17:14.960
+ So there's answers to these.
+
+1:17:14.960 --> 1:17:21.040
+ So for a smooth convex function, there's an answer, which is one over the number of steps
+
+1:17:21.040 --> 1:17:22.400
+ squared.
+
+1:17:22.400 --> 1:17:29.120
+ You will be within a ball of that size after k steps.
+
+1:17:29.120 --> 1:17:35.420
+ Gradient descent in particular has a slower rate, it's one over k.
+
+1:17:35.420 --> 1:17:38.960
+ So you could ask, is gradient descent actually, even though we know it's a good algorithm,
+
+1:17:38.960 --> 1:17:39.960
+ is it the best algorithm?
+
+1:17:39.960 --> 1:17:41.960
+ And the answer is no.
+
+1:17:41.960 --> 1:17:47.420
+ Well, not clear yet, because one over k squared is a lower bound.
+
+1:17:47.420 --> 1:17:49.960
+ That's probably the best you can do.
+
+1:17:49.960 --> 1:17:52.740
+ Gradient is one over k, but is there something better?
+
+1:17:52.740 --> 1:17:59.280
+ And so I think as a surprise to most, Nesterov discovered a new algorithm that has got two
+
+1:17:59.280 --> 1:18:00.280
+ pieces to it.
+
+1:18:00.280 --> 1:18:06.640
+ It's two gradients and puts those together in a certain kind of obscure way.
+
+1:18:06.640 --> 1:18:09.280
+ And the thing doesn't even move downhill all the time.
+
+1:18:09.280 --> 1:18:10.760
+ It sometimes goes back uphill.
+
+1:18:10.760 --> 1:18:13.160
+ And if you're a physicist, that kind of makes some sense.
+
+1:18:13.160 --> 1:18:17.720
+ You're building up some momentum and that is kind of the right intuition, but that intuition
+
+1:18:17.720 --> 1:18:22.460
+ is not enough to understand kind of how to do it and why it works.
+
+1:18:22.460 --> 1:18:23.460
+ But it does.
+
+1:18:23.460 --> 1:18:27.520
+ It achieves one over k squared and it has a mathematical structure and it's still kind
+
+1:18:27.520 --> 1:18:31.160
+ of to this day, a lot of us are writing papers and trying to explore that and understand
+
+1:18:31.160 --> 1:18:32.560
+ it.
+
+1:18:32.560 --> 1:18:36.680
+ So there are lots of cool ideas and optimization, but just kind of using gradients, I think
+
+1:18:36.680 --> 1:18:40.760
+ is number one that goes back, you know, 150 years.
+
+1:18:40.760 --> 1:18:43.580
+ And then Nesterov, I think has made a major contribution with this idea.
+
+1:18:43.580 --> 1:18:47.840
+ So like you said, gradients themselves are in some sense, mysterious.
+
+1:18:47.840 --> 1:18:50.440
+ They're not as trivial as...
+
+1:18:50.440 --> 1:18:52.040
+ Not as trivial.
+
+1:18:52.040 --> 1:18:54.080
+ Coordinate descent is more of a trivial one.
+
+1:18:54.080 --> 1:18:55.080
+ You just pick one of the coordinates.
+
+1:18:55.080 --> 1:18:56.080
+ That's how we think.
+
+1:18:56.080 --> 1:18:57.080
+ That's how our human mind thinks.
+
+1:18:57.080 --> 1:18:58.200
+ That's how our human minds think.
+
+1:18:58.200 --> 1:19:03.280
+ And gradients are not that easy for our human mind to grapple with.
+
+1:19:03.280 --> 1:19:08.600
+ An absurd question, but what is statistics?
+
+1:19:08.600 --> 1:19:12.160
+ So here it's a little bit, it's somewhere between math and science and technology.
+
+1:19:12.160 --> 1:19:13.420
+ It's somewhere in that convex hole.
+
+1:19:13.420 --> 1:19:17.720
+ So it's a set of principles that allow you to make inferences that have got some reason
+
+1:19:17.720 --> 1:19:22.640
+ to be believed and also principles that allow you to make decisions where you can have some
+
+1:19:22.640 --> 1:19:25.100
+ reason to believe you're not going to make errors.
+
+1:19:25.100 --> 1:19:27.680
+ So all of that requires some assumptions about what do you mean by an error?
+
+1:19:27.680 --> 1:19:31.420
+ What do you mean by the probabilities?
+
+1:19:31.420 --> 1:19:38.080
+ But after you start making some of those assumptions, you're led to conclusions that, yes, I can
+
+1:19:38.080 --> 1:19:42.080
+ guarantee that if you do this in this way, your probability of making an error will be
+
+1:19:42.080 --> 1:19:43.600
+ small.
+
+1:19:43.600 --> 1:19:47.880
+ Your probability of continuing to not make errors over time will be small.
+
+1:19:47.880 --> 1:19:52.280
+ And the probability that you found something that's real will be small, will be high.
+
+1:19:52.280 --> 1:19:54.640
+ So decision making is a big part of that.
+
+1:19:54.640 --> 1:19:55.640
+ Decision making is a big part.
+
+1:19:55.640 --> 1:19:56.640
+ Yeah.
+
+1:19:56.640 --> 1:20:03.600
+ So statistics, short history was that, it goes back as a formal discipline, 250 years
+
+1:20:03.600 --> 1:20:04.960
+ or so.
+
+1:20:04.960 --> 1:20:09.280
+ It was called inverse probability because around that era, probability was developed
+
+1:20:09.280 --> 1:20:12.000
+ sort of especially to explain gambling situations.
+
+1:20:12.000 --> 1:20:15.480
+ Of course, interesting.
+
+1:20:15.480 --> 1:20:18.880
+ So you would say, well, given the state of nature is this, there's a certain roulette
+
+1:20:18.880 --> 1:20:23.680
+ board that has a certain mechanism and what kind of outcomes do I expect to see?
+
+1:20:23.680 --> 1:20:27.440
+ And especially if I do things long amounts of time, what outcomes will I see?
+
+1:20:27.440 --> 1:20:30.640
+ And the physicists started to pay attention to this.
+
+1:20:30.640 --> 1:20:33.500
+ And then people said, well, let's turn the problem around.
+
+1:20:33.500 --> 1:20:37.480
+ What if I saw certain outcomes, could I infer what the underlying mechanism was?
+
+1:20:37.480 --> 1:20:38.480
+ That's an inverse problem.
+
+1:20:38.480 --> 1:20:41.640
+ And in fact, for quite a while, statistics was called inverse probability.
+
+1:20:41.640 --> 1:20:44.060
+ That was the name of the field.
+
+1:20:44.060 --> 1:20:50.600
+ And I believe that it was Laplace who was working in Napoleon's government who needed
+
+1:20:50.600 --> 1:20:54.280
+ to do a census of France, learn about the people there.
+
+1:20:54.280 --> 1:21:01.240
+ So he went and gathered data and he analyzed that data to determine policy and said, well,
+
+1:21:01.240 --> 1:21:06.760
+ let's call this field that does this kind of thing statistics because the word state
+
+1:21:06.760 --> 1:21:07.760
+ is in there.
+
+1:21:07.760 --> 1:21:12.360
+ In French, that's etat, but it's the study of data for the state.
+
+1:21:12.360 --> 1:21:18.640
+ So anyway, that caught on and it's been called statistics ever since.
+
+1:21:18.640 --> 1:21:23.280
+ But by the time it got formalized, it was sort of in the 30s.
+
+1:21:23.280 --> 1:21:28.560
+ And around that time, there was game theory and decision theory developed nearby.
+
+1:21:28.560 --> 1:21:31.640
+ People in that era didn't think of themselves as either computer science or statistics or
+
+1:21:31.640 --> 1:21:32.640
+ control or econ.
+
+1:21:32.640 --> 1:21:34.540
+ They were all the above.
+
+1:21:34.540 --> 1:21:39.320
+ And so Von Neumann is developing game theory, but also thinking of that as decision theory.
+
+1:21:39.320 --> 1:21:45.120
+ Wald is an econometrician developing decision theory and then turning that into statistics.
+
+1:21:45.120 --> 1:21:50.160
+ And so it's all about, here's not just data and you analyze it, here's a loss function.
+
+1:21:50.160 --> 1:21:51.160
+ Here's what you care about.
+
+1:21:51.160 --> 1:21:53.080
+ Here's the question you're trying to ask.
+
+1:21:53.080 --> 1:21:59.440
+ Here is a probability model and here's the risk you will face if you make certain decisions.
+
+1:21:59.440 --> 1:22:04.040
+ And to this day, in most advanced statistical curricula, you teach decision theory as the
+
+1:22:04.040 --> 1:22:08.500
+ starting point and then it branches out into the two branches of Bayesian and frequentist.
+
+1:22:08.500 --> 1:22:11.840
+ But that's all about decisions.
+
+1:22:11.840 --> 1:22:19.040
+ In statistics, what is the most beautiful, mysterious, maybe surprising idea that you've
+
+1:22:19.040 --> 1:22:20.040
+ come across?
+
+1:22:20.040 --> 1:22:21.040
+ Yeah, good question.
+
+1:22:21.040 --> 1:22:27.640
+ I mean, there's a bunch of surprising ones.
+
+1:22:27.640 --> 1:22:30.320
+ There's something that's way too technical for this thing, but something called James
+
+1:22:30.320 --> 1:22:36.040
+ Stein estimation, which is kind of surprising and really takes time to wrap your head around.
+
+1:22:36.040 --> 1:22:37.040
+ Can you try to maybe...
+
+1:22:37.040 --> 1:22:39.120
+ I think I don't want to even want to try.
+
+1:22:39.120 --> 1:22:44.200
+ Let me just say a colleague at Steven Stigler at University of Chicago wrote a really beautiful
+
+1:22:44.200 --> 1:22:47.200
+ paper on James Stein estimation, which helps to...
+
+1:22:47.200 --> 1:22:48.600
+ It's views a paradox.
+
+1:22:48.600 --> 1:22:52.240
+ It kind of defeats the mind's attempts to understand it, but you can and Steve has a
+
+1:22:52.240 --> 1:22:56.560
+ nice perspective on that.
+
+1:22:56.560 --> 1:23:00.320
+ So one of the troubles with statistics is that it's like in physics that are in quantum
+
+1:23:00.320 --> 1:23:02.520
+ physics, you have multiple interpretations.
+
+1:23:02.520 --> 1:23:07.600
+ There's a wave and particle duality in physics and you get used to that over time, but it
+
+1:23:07.600 --> 1:23:11.680
+ still kind of haunts you that you don't really quite understand the relationship.
+
+1:23:11.680 --> 1:23:15.840
+ The electron's a wave and electron's a particle.
+
+1:23:15.840 --> 1:23:16.840
+ Well the same thing happens here.
+
+1:23:16.840 --> 1:23:21.320
+ There's Bayesian ways of thinking and frequentist, and they are different.
+
+1:23:21.320 --> 1:23:25.000
+ They sometimes become sort of the same in practice, but they are physically different.
+
+1:23:25.000 --> 1:23:27.640
+ And then in some practice, they are not the same at all.
+
+1:23:27.640 --> 1:23:30.480
+ They give you rather different answers.
+
+1:23:30.480 --> 1:23:33.860
+ And so it is very much like wave and particle duality, and that is something that you have
+
+1:23:33.860 --> 1:23:35.840
+ to kind of get used to in the field.
+
+1:23:35.840 --> 1:23:37.720
+ Can you define Bayesian and frequentist?
+
+1:23:37.720 --> 1:23:41.320
+ Yeah in decision theory you can make, I have a video that people could see.
+
+1:23:41.320 --> 1:23:46.040
+ It's called are you a Bayesian or a frequentist and kind of help try to make it really clear.
+
+1:23:46.040 --> 1:23:47.160
+ It comes from decision theory.
+
+1:23:47.160 --> 1:23:51.920
+ So you know, decision theory, you're talking about loss functions, which are a function
+
+1:23:51.920 --> 1:23:54.760
+ of data X and parameter theta.
+
+1:23:54.760 --> 1:23:57.080
+ They're a function of two arguments.
+
+1:23:57.080 --> 1:23:58.080
+ Okay.
+
+1:23:58.080 --> 1:23:59.880
+ Neither one of those arguments is known.
+
+1:23:59.880 --> 1:24:01.640
+ You don't know the data a priori.
+
+1:24:01.640 --> 1:24:03.760
+ It's random and the parameters unknown.
+
+1:24:03.760 --> 1:24:04.760
+ All right.
+
+1:24:04.760 --> 1:24:07.240
+ So you have a function of two things you don't know, and you're trying to say, I want that
+
+1:24:07.240 --> 1:24:08.240
+ function to be small.
+
+1:24:08.240 --> 1:24:10.880
+ I want small loss, right?
+
+1:24:10.880 --> 1:24:13.440
+ Well what are you going to do?
+
+1:24:13.440 --> 1:24:17.280
+ So you sort of say, well, I'm going to average over these quantities or maximize over them
+
+1:24:17.280 --> 1:24:23.120
+ or something so that, you know, I turn that uncertainty into something certain.
+
+1:24:23.120 --> 1:24:25.920
+ So you could look at the first argument and average over it, or you could look at the
+
+1:24:25.920 --> 1:24:27.040
+ second argument and average over it.
+
+1:24:27.040 --> 1:24:28.040
+ That's Bayesian and frequentist.
+
+1:24:28.040 --> 1:24:32.840
+ So the frequentist says, I'm going to look at the X, the data, and I'm going to take
+
+1:24:32.840 --> 1:24:35.360
+ that as random and I'm going to average over the distribution.
+
+1:24:35.360 --> 1:24:40.700
+ So I take the expectation loss under X. Theta is held fixed, right?
+
+1:24:40.700 --> 1:24:42.140
+ That's called the risk.
+
+1:24:42.140 --> 1:24:46.480
+ And so it's looking at other, all the data sets you could get, right?
+
+1:24:46.480 --> 1:24:50.200
+ And say, how well will a certain procedure do under all those data sets?
+
+1:24:50.200 --> 1:24:52.560
+ That's called a frequentist guarantee, right?
+
+1:24:52.560 --> 1:24:56.080
+ So I think it is very appropriate when like you're building a piece of software and you're
+
+1:24:56.080 --> 1:24:59.280
+ shipping it out there and people are using it on all kinds of data sets.
+
+1:24:59.280 --> 1:25:02.600
+ You want to have a stamp, a guarantee on it that as people run it on many, many data sets
+
+1:25:02.600 --> 1:25:07.720
+ that you never even thought about that 95% of the time it will do the right thing.
+
+1:25:07.720 --> 1:25:09.800
+ Perfectly reasonable.
+
+1:25:09.800 --> 1:25:13.240
+ The Bayesian perspective says, well, no, I'm going to look at the other argument of the
+
+1:25:13.240 --> 1:25:15.240
+ loss function, the theta part, okay?
+
+1:25:15.240 --> 1:25:17.600
+ That's unknown and I'm uncertain about it.
+
+1:25:17.600 --> 1:25:21.560
+ So I could have my own personal probability for what it is, you know, how many tall people
+
+1:25:21.560 --> 1:25:22.560
+ are there out there?
+
+1:25:22.560 --> 1:25:25.160
+ I'm trying to infer the average height of the population while I have an idea roughly
+
+1:25:25.160 --> 1:25:27.440
+ what the height is.
+
+1:25:27.440 --> 1:25:32.200
+ So I'm going to average over the theta.
+
+1:25:32.200 --> 1:25:37.760
+ So now that loss function as only now, again, one argument's gone, now it's a function of
+
+1:25:37.760 --> 1:25:41.760
+ X and that's what a Bayesian does is they say, well, let's just focus on the particular
+
+1:25:41.760 --> 1:25:45.360
+ X we got, the data set we got, we condition on that.
+
+1:25:45.360 --> 1:25:48.240
+ Conditional on the X, I say something about my loss.
+
+1:25:48.240 --> 1:25:50.480
+ That's a Bayesian approach to things.
+
+1:25:50.480 --> 1:25:54.360
+ And the Bayesian will argue that it's not relevant to look at all the other data sets
+
+1:25:54.360 --> 1:25:58.800
+ you could have gotten and average over them, the frequentist approach.
+
+1:25:58.800 --> 1:26:02.080
+ It's really only the data sets you got, right?
+
+1:26:02.080 --> 1:26:06.000
+ And I do agree with that, especially in situations where you're working with a scientist, you
+
+1:26:06.000 --> 1:26:09.440
+ can learn a lot about the domain and you're really only focused on certain kinds of data
+
+1:26:09.440 --> 1:26:13.320
+ and you gathered your data and you make inferences.
+
+1:26:13.320 --> 1:26:17.600
+ I don't agree with it though, that, you know, in the sense that there are needs for frequentist
+
+1:26:17.600 --> 1:26:20.880
+ guarantees, you're writing software, people are using it out there, you want to say something.
+
+1:26:20.880 --> 1:26:24.880
+ So these two things have to got to fight each other a little bit, but they have to blend.
+
+1:26:24.880 --> 1:26:27.880
+ So long story short, there's a set of ideas that are right in the middle that are called
+
+1:26:27.880 --> 1:26:29.880
+ empirical Bayes.
+
+1:26:29.880 --> 1:26:34.600
+ And empirical Bayes sort of starts with the Bayesian framework.
+
+1:26:34.600 --> 1:26:40.680
+ It's kind of arguably philosophically more, you know, reasonable and kosher.
+
+1:26:40.680 --> 1:26:44.120
+ Write down a bunch of the math that kind of flows from that, and then realize there's
+
+1:26:44.120 --> 1:26:48.040
+ a bunch of things you don't know because it's the real world and you don't know everything.
+
+1:26:48.040 --> 1:26:50.160
+ So you're uncertain about certain quantities.
+
+1:26:50.160 --> 1:26:54.440
+ At that point, ask, is there a reasonable way to plug in an estimate for those things?
+
+1:26:54.440 --> 1:26:55.440
+ Okay.
+
+1:26:55.440 --> 1:27:00.480
+ And in some cases, there's quite a reasonable thing to do, to plug in, there's a natural
+
+1:27:00.480 --> 1:27:04.000
+ thing you can observe in the world that you can plug in and then do a little bit more
+
+1:27:04.000 --> 1:27:06.440
+ mathematics and assure yourself it's really good.
+
+1:27:06.440 --> 1:27:09.800
+ So based on math or based on human expertise, what's, what, what are good?
+
+1:27:09.800 --> 1:27:10.800
+ Oh, they're both going in.
+
+1:27:10.800 --> 1:27:16.160
+ The Bayesian framework allows you to put a lot of human expertise in, but the math kind
+
+1:27:16.160 --> 1:27:19.480
+ of guides you along that path and then kind of reassures you the end, you could put that
+
+1:27:19.480 --> 1:27:22.780
+ stamp of approval under certain assumptions, this thing will work.
+
+1:27:22.780 --> 1:27:25.960
+ So you asked the question, what's my favorite, you know, or what's the most surprising, nice
+
+1:27:25.960 --> 1:27:26.960
+ idea.
+
+1:27:26.960 --> 1:27:31.760
+ So one that is more accessible is something called false discovery rate, which is, you
+
+1:27:31.760 --> 1:27:35.520
+ know, you're making not just one hypothesis test or making one decision, you're making
+
+1:27:35.520 --> 1:27:37.440
+ a whole bag of them.
+
+1:27:37.440 --> 1:27:41.800
+ And in that bag of decisions, you look at the ones where you made a discovery, you announced
+
+1:27:41.800 --> 1:27:43.320
+ that something interesting had happened.
+
+1:27:43.320 --> 1:27:44.320
+ All right.
+
+1:27:44.320 --> 1:27:47.160
+ That's going to be some subset of your big bag.
+
+1:27:47.160 --> 1:27:50.880
+ In the ones you made a discovery, which subset of those are bad?
+
+1:27:50.880 --> 1:27:53.320
+ Or false, false discoveries.
+
+1:27:53.320 --> 1:27:57.680
+ You'd like the fraction of your false discoveries among your discoveries to be small.
+
+1:27:57.680 --> 1:28:02.480
+ That's a different criterion than accuracy or precision or recall or sensitivity and
+
+1:28:02.480 --> 1:28:03.480
+ specificity.
+
+1:28:03.480 --> 1:28:04.960
+ It's a different quantity.
+
+1:28:04.960 --> 1:28:09.960
+ Those latter ones are almost all of them have more of a frequentist flavor.
+
+1:28:09.960 --> 1:28:13.960
+ They say, given the truth is that the null hypothesis is true.
+
+1:28:13.960 --> 1:28:17.400
+ Here's what accuracy I would get, or given that the alternative is true, here's what
+
+1:28:17.400 --> 1:28:18.400
+ I would get.
+
+1:28:18.400 --> 1:28:22.360
+ So it's kind of going forward from the state of nature to the data.
+
+1:28:22.360 --> 1:28:25.920
+ The Bayesian goes the other direction from the data back to the state of nature.
+
+1:28:25.920 --> 1:28:28.180
+ And that's actually what false discovery rate is.
+
+1:28:28.180 --> 1:28:32.680
+ It says, given you made a discovery, okay, that's conditioned on your data.
+
+1:28:32.680 --> 1:28:34.960
+ What's the probability of the hypothesis?
+
+1:28:34.960 --> 1:28:36.920
+ It's going the other direction.
+
+1:28:36.920 --> 1:28:41.000
+ And so the classical frequency look at that, well, I can't know that there's some priors
+
+1:28:41.000 --> 1:28:42.600
+ needed in that.
+
+1:28:42.600 --> 1:28:47.460
+ And the empirical Bayesian goes ahead and plows forward and starts writing down these formulas
+
+1:28:47.460 --> 1:28:51.280
+ and realizes at some point, some of those things can actually be estimated in a reasonable
+
+1:28:51.280 --> 1:28:52.600
+ way.
+
+1:28:52.600 --> 1:28:54.220
+ And so it's kind of, it's a beautiful set of ideas.
+
+1:28:54.220 --> 1:28:56.800
+ So I, this kind of line of argument has come out.
+
+1:28:56.800 --> 1:29:02.320
+ It's not certainly mine, but it sort of came out from Robbins around 1960.
+
+1:29:02.320 --> 1:29:07.320
+ Brad Efron has written beautifully about this in various papers and books.
+
+1:29:07.320 --> 1:29:14.120
+ And the FDR is, you know, Benjamin in Israel, John Story did this Bayesian interpretation
+
+1:29:14.120 --> 1:29:15.120
+ and so on.
+
+1:29:15.120 --> 1:29:18.480
+ And he used to absorb these things over the years and find it a very healthy way to think
+
+1:29:18.480 --> 1:29:21.280
+ about statistics.
+
+1:29:21.280 --> 1:29:28.240
+ Let me ask you about intelligence to jump slightly back out into philosophy, perhaps.
+
+1:29:28.240 --> 1:29:33.940
+ You said that maybe you can elaborate, but you said that defining just even the question
+
+1:29:33.940 --> 1:29:38.800
+ of what is intelligence is a very difficult question.
+
+1:29:38.800 --> 1:29:39.800
+ Is it a useful question?
+
+1:29:39.800 --> 1:29:45.240
+ Do you think we'll one day understand the fundamentals of human intelligence and what
+
+1:29:45.240 --> 1:29:51.880
+ it means, you know, have good benchmarks for general intelligence that we put before our
+
+1:29:51.880 --> 1:29:53.520
+ machines?
+
+1:29:53.520 --> 1:29:58.240
+ So I don't work on these topics so much that you're really asking the question for a psychologist
+
+1:29:58.240 --> 1:29:59.240
+ really.
+
+1:29:59.240 --> 1:30:04.440
+ And I studied some, but I don't consider myself at least an expert at this point.
+
+1:30:04.440 --> 1:30:07.680
+ You know, a psychologist aims to understand human intelligence, right?
+
+1:30:07.680 --> 1:30:10.960
+ And I think many psychologists I know are fairly humble about this.
+
+1:30:10.960 --> 1:30:15.880
+ They might try to understand how a baby understands, you know, whether something's a solid or liquid
+
+1:30:15.880 --> 1:30:18.720
+ or whether something's hidden or not.
+
+1:30:18.720 --> 1:30:24.400
+ And maybe how a child starts to learn the meaning of certain words, what's a verb, what's
+
+1:30:24.400 --> 1:30:30.580
+ a noun and also, you know, slowly but surely trying to figure out things.
+
+1:30:30.580 --> 1:30:35.720
+ But humans ability to take a really complicated environment, reason about it, abstract about
+
+1:30:35.720 --> 1:30:41.520
+ it, find the right abstractions, communicate about it, interact and so on is just, you
+
+1:30:41.520 --> 1:30:46.920
+ know, really staggeringly rich and complicated.
+
+1:30:46.920 --> 1:30:51.320
+ And so, you know, I think in all humility, we don't think we're kind of aiming for that
+
+1:30:51.320 --> 1:30:52.320
+ in the near future.
+
+1:30:52.320 --> 1:30:56.820
+ A certain psychologist doing experiments with babies in the lab or with people talking has
+
+1:30:56.820 --> 1:30:58.920
+ a much more limited aspiration.
+
+1:30:58.920 --> 1:31:02.120
+ And you know, Kahneman and Tversky would look at our reasoning patterns and they're not
+
+1:31:02.120 --> 1:31:05.880
+ deeply understanding all the how we do our reasoning, but they're sort of saying, hey,
+
+1:31:05.880 --> 1:31:09.480
+ here's some oddities about the reasoning and some things you should think about it.
+
+1:31:09.480 --> 1:31:14.560
+ But also, as I emphasize in some things I've been writing about, you know, AI, the revolution
+
+1:31:14.560 --> 1:31:15.560
+ hasn't happened yet.
+
+1:31:15.560 --> 1:31:16.560
+ Yeah.
+
+1:31:16.560 --> 1:31:17.560
+ Great blog post.
+
+1:31:17.560 --> 1:31:22.580
+ I've been emphasizing that, you know, if you step back and look at intelligent systems
+
+1:31:22.580 --> 1:31:26.800
+ of any kind and whatever you mean by intelligence, it's not just the humans or the animals or,
+
+1:31:26.800 --> 1:31:31.680
+ you know, the plants or whatever, you know, so a market that brings goods into a city,
+
+1:31:31.680 --> 1:31:35.680
+ you know, food to restaurants or something every day is a system.
+
+1:31:35.680 --> 1:31:37.820
+ It's a decentralized set of decisions.
+
+1:31:37.820 --> 1:31:40.840
+ Looking at it from far enough away, it's just like a collection of neurons.
+
+1:31:40.840 --> 1:31:44.600
+ Every neuron is making its own little decisions, presumably in some way.
+
+1:31:44.600 --> 1:31:48.000
+ And if you step back enough, every little part of an economic system is making all of
+
+1:31:48.000 --> 1:31:49.560
+ its decisions.
+
+1:31:49.560 --> 1:31:53.020
+ And just like with the brain, who knows what an individual neuron does and what the overall
+
+1:31:53.020 --> 1:31:54.800
+ goal is, right?
+
+1:31:54.800 --> 1:31:58.560
+ But something happens at some aggregate level, same thing with the economy.
+
+1:31:58.560 --> 1:32:01.380
+ People eat in a city and it's robust.
+
+1:32:01.380 --> 1:32:04.840
+ It works at all scales, small villages to big cities.
+
+1:32:04.840 --> 1:32:07.040
+ It's been working for thousands of years.
+
+1:32:07.040 --> 1:32:10.520
+ It works rain or shine, so it's adaptive.
+
+1:32:10.520 --> 1:32:14.680
+ So all the kind of, you know, those are adjectives one tends to apply to intelligent systems.
+
+1:32:14.680 --> 1:32:19.960
+ Robust, adaptive, you know, you don't need to keep adjusting it, self healing, whatever.
+
+1:32:19.960 --> 1:32:20.960
+ Plus not perfect.
+
+1:32:20.960 --> 1:32:24.680
+ You know, intelligences are never perfect and markets are not perfect.
+
+1:32:24.680 --> 1:32:28.160
+ But I do not believe in this era that you cannot, that you can say, well, our computers
+
+1:32:28.160 --> 1:32:31.760
+ are, our humans are smart, but you know, no markets are not, more markets are.
+
+1:32:31.760 --> 1:32:34.080
+ So they are intelligent.
+
+1:32:34.080 --> 1:32:38.160
+ Now we humans didn't evolve to be markets.
+
+1:32:38.160 --> 1:32:40.320
+ We've been participating in them, right?
+
+1:32:40.320 --> 1:32:43.280
+ But we are not ourselves a market per se.
+
+1:32:43.280 --> 1:32:45.920
+ The neurons could be viewed as the market.
+
+1:32:45.920 --> 1:32:48.200
+ There's economic, you know, neuroscience kind of perspective.
+
+1:32:48.200 --> 1:32:50.320
+ That's interesting to pursue all that.
+
+1:32:50.320 --> 1:32:54.200
+ The point though is, is that if you were to study humans and really be the world's best
+
+1:32:54.200 --> 1:32:57.440
+ psychologist studied for thousands of years and come up with the theory of human intelligence,
+
+1:32:57.440 --> 1:33:01.840
+ you might have never discovered principles of markets, you know, supply demand curves
+
+1:33:01.840 --> 1:33:05.000
+ and you know, matching and auctions and all that.
+
+1:33:05.000 --> 1:33:08.760
+ Those are real principles and they lead to a form of intelligence that's not maybe human
+
+1:33:08.760 --> 1:33:09.760
+ intelligence.
+
+1:33:09.760 --> 1:33:11.480
+ It's arguably another kind of intelligence.
+
+1:33:11.480 --> 1:33:14.880
+ There probably are third kinds of intelligence or fourth that none of us are really thinking
+
+1:33:14.880 --> 1:33:16.480
+ too much about right now.
+
+1:33:16.480 --> 1:33:20.840
+ So if you really, and then all of those are relevant to computer systems in the future.
+
+1:33:20.840 --> 1:33:23.880
+ Certainly the market one is relevant right now.
+
+1:33:23.880 --> 1:33:27.440
+ Whereas the understanding of human intelligence is not so clear that it's relevant right now.
+
+1:33:27.440 --> 1:33:29.360
+ Probably not.
+
+1:33:29.360 --> 1:33:33.160
+ So if you want general intelligence, whatever one means by that, or, you know, understanding
+
+1:33:33.160 --> 1:33:37.000
+ intelligence in a deep sense and all that, it is definitely has to be not just human
+
+1:33:37.000 --> 1:33:38.000
+ intelligence.
+
+1:33:38.000 --> 1:33:39.280
+ It's gotta be this broader thing.
+
+1:33:39.280 --> 1:33:40.480
+ And that's not a mystery.
+
+1:33:40.480 --> 1:33:41.480
+ Markets are intelligent.
+
+1:33:41.480 --> 1:33:46.000
+ So, you know, it's definitely not just a philosophical stance to say we've got to move beyond intelligence.
+
+1:33:46.000 --> 1:33:47.000
+ That sounds ridiculous.
+
+1:33:47.000 --> 1:33:48.000
+ Yeah.
+
+1:33:48.000 --> 1:33:49.000
+ But it's not.
+
+1:33:49.000 --> 1:33:52.160
+ And in that blog post, you define different kinds of like intelligent infrastructure,
+
+1:33:52.160 --> 1:33:58.040
+ AI, which I really like is some of the concepts you've just been describing.
+
+1:33:58.040 --> 1:34:02.720
+ Do you see ourselves, if we see earth, human civilization as a single organism, do you
+
+1:34:02.720 --> 1:34:06.980
+ think the intelligence of that organism, when you think from the perspective of markets
+
+1:34:06.980 --> 1:34:12.340
+ and intelligence infrastructure is increasing, is it increasing linearly?
+
+1:34:12.340 --> 1:34:14.240
+ Is it increasing exponentially?
+
+1:34:14.240 --> 1:34:16.000
+ What do you think the future of that intelligence?
+
+1:34:16.000 --> 1:34:17.000
+ Yeah, I don't know.
+
+1:34:17.000 --> 1:34:20.560
+ I don't tend to think, I don't tend to answer questions like that because you know, that's
+
+1:34:20.560 --> 1:34:21.560
+ science fiction.
+
+1:34:21.560 --> 1:34:25.200
+ I'm hoping to catch you off guard.
+
+1:34:25.200 --> 1:34:31.320
+ Well again, because you said it's so far in the future, it's fun to ask and you'll probably,
+
+1:34:31.320 --> 1:34:36.440
+ you know, like you said, predicting the future is really nearly impossible.
+
+1:34:36.440 --> 1:34:43.720
+ But say as an axiom, one day we create a human level, a superhuman level intelligent, not
+
+1:34:43.720 --> 1:34:47.560
+ the scale of markets, but the scale of an individual.
+
+1:34:47.560 --> 1:34:51.760
+ What do you think it is, what do you think it would take to do that?
+
+1:34:51.760 --> 1:34:58.880
+ Or maybe to ask another question is how would that system be different than the biological
+
+1:34:58.880 --> 1:35:01.480
+ human beings that we see around us today?
+
+1:35:01.480 --> 1:35:06.160
+ Is it possible to say anything interesting to that question or is it just a stupid question?
+
+1:35:06.160 --> 1:35:08.200
+ It's not a stupid question, but it's science fiction.
+
+1:35:08.200 --> 1:35:09.200
+ Science fiction.
+
+1:35:09.200 --> 1:35:13.400
+ And so I'm totally happy to read science fiction and think about it from time in my own life.
+
+1:35:13.400 --> 1:35:17.480
+ I loved, there was this like brain in a vat kind of, you know, little thing that people
+
+1:35:17.480 --> 1:35:22.680
+ were talking about when I was a student, I remember, you know, imagine that, you know,
+
+1:35:22.680 --> 1:35:26.960
+ between your brain and your body, there's a, you know, there's a bunch of wires, right?
+
+1:35:26.960 --> 1:35:31.480
+ And suppose that every one of them was replaced with a literal wire.
+
+1:35:31.480 --> 1:35:35.000
+ And then suppose that wire was turned in actually a little wireless, you know, there's a receiver
+
+1:35:35.000 --> 1:35:36.000
+ and sender.
+
+1:35:36.000 --> 1:35:41.560
+ So the brain has got all the senders and receiver, you know, on all of its exiting, you know,
+
+1:35:41.560 --> 1:35:45.920
+ axons and all the dendrites down to the body have replaced with senders and receivers.
+
+1:35:45.920 --> 1:35:50.080
+ Now you could move the body off somewhere and put the brain in a vat, right?
+
+1:35:50.080 --> 1:35:54.600
+ And then you could do things like start killing off those senders and receivers one by one.
+
+1:35:54.600 --> 1:35:56.960
+ And after you've killed off all of them, where is that person?
+
+1:35:56.960 --> 1:35:59.640
+ You know, they thought they were out in the body walking around the world and they moved
+
+1:35:59.640 --> 1:36:00.640
+ on.
+
+1:36:00.640 --> 1:36:01.640
+ So those are science fiction things.
+
+1:36:01.640 --> 1:36:02.640
+ Those are fun to think about.
+
+1:36:02.640 --> 1:36:05.760
+ It's just intriguing about where is, what is thought, where is it and all that.
+
+1:36:05.760 --> 1:36:10.680
+ And I think every 18 year old should take philosophy classes and think about these things.
+
+1:36:10.680 --> 1:36:13.440
+ And I think that everyone should think about what could happen in society that's kind of
+
+1:36:13.440 --> 1:36:14.440
+ bad and all that.
+
+1:36:14.440 --> 1:36:17.600
+ But I really don't think that's the right thing for most of us that are my age group
+
+1:36:17.600 --> 1:36:19.480
+ to be doing and thinking about.
+
+1:36:19.480 --> 1:36:26.720
+ I really think that we have so many more present, you know, first challenges and dangers and
+
+1:36:26.720 --> 1:36:32.320
+ real things to build and all that such that, you know, spending too much time on science
+
+1:36:32.320 --> 1:36:36.080
+ fiction, at least in public for like this, I think is not what we should be doing.
+
+1:36:36.080 --> 1:36:37.600
+ Maybe over beers in private.
+
+1:36:37.600 --> 1:36:38.600
+ That's right.
+
+1:36:38.600 --> 1:36:43.600
+ Well, I'm not going to broadcast where I have beers because this is going to go on Facebook
+
+1:36:43.600 --> 1:36:45.480
+ and I don't want a lot of people showing up there.
+
+1:36:45.480 --> 1:36:51.640
+ But yeah, I'll, I love Facebook, Twitter, Amazon, YouTube.
+
+1:36:51.640 --> 1:36:58.280
+ I have I'm optimistic and hopeful, but maybe, maybe I don't have grounds for such optimism
+
+1:36:58.280 --> 1:36:59.280
+ and hope.
+
+1:36:59.280 --> 1:37:07.160
+ But let me ask, you've mentored some of the brightest sort of some of the seminal figures
+
+1:37:07.160 --> 1:37:08.160
+ in the field.
+
+1:37:08.160 --> 1:37:14.080
+ Can you give advice to people who are undergraduates today?
+
+1:37:14.080 --> 1:37:17.640
+ What does it take to take, you know, advice on their journey if they're interested in
+
+1:37:17.640 --> 1:37:23.920
+ machine learning and in the ideas of markets from economics and psychology and all the
+
+1:37:23.920 --> 1:37:25.680
+ kinds of things that you've exploring?
+
+1:37:25.680 --> 1:37:27.960
+ What steps should they take on that journey?
+
+1:37:27.960 --> 1:37:30.360
+ Well, yeah, first of all, the door is open and second, it's a journey.
+
+1:37:30.360 --> 1:37:33.880
+ I like your language there.
+
+1:37:33.880 --> 1:37:37.120
+ It is not that you're so brilliant and you have great, brilliant ideas and therefore
+
+1:37:37.120 --> 1:37:42.440
+ that's just, you know, that's how you have success or that's how you enter into the field.
+
+1:37:42.440 --> 1:37:48.480
+ It's that you apprentice yourself, you spend a lot of time, you work on hard things, you
+
+1:37:48.480 --> 1:37:53.880
+ try and pull back and you be as broad as you can, you talk to lots of people.
+
+1:37:53.880 --> 1:37:57.000
+ And it's like entering in any kind of a creative community.
+
+1:37:57.000 --> 1:38:01.600
+ There's years that are needed and human connections are critical to it.
+
+1:38:01.600 --> 1:38:06.080
+ So, you know, I think about, you know, being a musician or being an artist or something,
+
+1:38:06.080 --> 1:38:10.600
+ you don't just, you know, immediately from day one, you know, you're a genius and therefore
+
+1:38:10.600 --> 1:38:11.600
+ you do it.
+
+1:38:11.600 --> 1:38:18.900
+ No, you, you know, practice really, really hard on basics and you be humble about where
+
+1:38:18.900 --> 1:38:22.200
+ you are and then, and you realize you'll never be an expert on everything.
+
+1:38:22.200 --> 1:38:29.460
+ So you kind of pick and there's a lot of randomness and a lot of kind of luck, but luck just kind
+
+1:38:29.460 --> 1:38:33.960
+ of picks out which branch of the tree you go down, but you'll go down some branch.
+
+1:38:33.960 --> 1:38:35.460
+ So yeah, it's a community.
+
+1:38:35.460 --> 1:38:39.200
+ So the graduate school is, I still think is one of the wonderful phenomena that we have
+
+1:38:39.200 --> 1:38:40.780
+ in our, in our world.
+
+1:38:40.780 --> 1:38:43.160
+ It's very much about apprenticeship with an advisor.
+
+1:38:43.160 --> 1:38:45.780
+ It's very much about a group of people you belong to.
+
+1:38:45.780 --> 1:38:47.020
+ It's a four or five year process.
+
+1:38:47.020 --> 1:38:51.580
+ So it's plenty of time to start from kind of nothing to come up to something, you know,
+
+1:38:51.580 --> 1:38:54.700
+ more, more expertise, and then to start to have your own creativity start to flower,
+
+1:38:54.700 --> 1:38:58.240
+ even surprising your own self.
+
+1:38:58.240 --> 1:38:59.760
+ And it's a very cooperative endeavor.
+
+1:38:59.760 --> 1:39:05.620
+ I think a lot of people think of science as highly competitive and I think in some other
+
+1:39:05.620 --> 1:39:08.080
+ fields it might be more so.
+
+1:39:08.080 --> 1:39:11.860
+ Here it's way more cooperative than you might imagine.
+
+1:39:11.860 --> 1:39:14.660
+ And people are always teaching each other something and people are always more than
+
+1:39:14.660 --> 1:39:20.000
+ happy to be clear that, so I feel I'm an expert on certain kinds of things, but I'm very much
+
+1:39:20.000 --> 1:39:23.480
+ not expert on lots of other things and a lot of them are relevant and a lot of them are,
+
+1:39:23.480 --> 1:39:26.320
+ I should know, but should in some society, you know, you don't.
+
+1:39:26.320 --> 1:39:32.100
+ So I'm always willing to reveal my ignorance to people around me so they can teach me things.
+
+1:39:32.100 --> 1:39:34.220
+ And I think a lot of us feel that way about our field.
+
+1:39:34.220 --> 1:39:35.460
+ So it's very cooperative.
+
+1:39:35.460 --> 1:39:39.140
+ I might add it's also very international because it's so cooperative.
+
+1:39:39.140 --> 1:39:40.780
+ We see no barriers.
+
+1:39:40.780 --> 1:39:44.460
+ And so that the nationalism that you see, especially in the current era and everything
+
+1:39:44.460 --> 1:39:48.180
+ is just at odds with the way that most of us think about what we're doing here, where
+
+1:39:48.180 --> 1:39:53.420
+ this is a human endeavor and we cooperate and are very much trying to do it together
+
+1:39:53.420 --> 1:39:56.580
+ for the, you know, the benefit of everybody.
+
+1:39:56.580 --> 1:40:02.820
+ So last question, where and how and why did you learn French and which language is more
+
+1:40:02.820 --> 1:40:05.660
+ beautiful English or French?
+
+1:40:05.660 --> 1:40:06.660
+ Great question.
+
+1:40:06.660 --> 1:40:10.100
+ So first of all, I think Italian is actually more beautiful than French and English.
+
+1:40:10.100 --> 1:40:11.100
+ And I also speak that.
+
+1:40:11.100 --> 1:40:15.860
+ So I'm married to an Italian and I have kids and we speak Italian.
+
+1:40:15.860 --> 1:40:23.180
+ Anyway, all kidding aside, every language allows you to express things a bit differently.
+
+1:40:23.180 --> 1:40:26.820
+ And it is one of the great fun things to do in life is to explore those things.
+
+1:40:26.820 --> 1:40:34.540
+ So in fact, when I kids or teens or college students ask me what they study, I say, well,
+
+1:40:34.540 --> 1:40:36.980
+ do what your heart, where your heart is, certainly do a lot of math.
+
+1:40:36.980 --> 1:40:42.500
+ Math is good for everybody, but do some poetry and do some history and do some language too.
+
+1:40:42.500 --> 1:40:44.620
+ You know, throughout your life, you'll want to be a thinking person.
+
+1:40:44.620 --> 1:40:47.500
+ You'll want to have done that.
+
+1:40:47.500 --> 1:40:54.700
+ For me, French I learned when I was, I'd say a late teen, I was living in the middle of
+
+1:40:54.700 --> 1:41:01.100
+ the country in Kansas and not much was going on in Kansas with all due respect to Kansas.
+
+1:41:01.100 --> 1:41:04.380
+ And so my parents happened to have some French books on the shelf and just in my boredom,
+
+1:41:04.380 --> 1:41:07.140
+ I pulled them down and I found this is fun.
+
+1:41:07.140 --> 1:41:09.220
+ And I kind of learned the language by reading.
+
+1:41:09.220 --> 1:41:13.540
+ And when I first heard it spoken, I had no idea what was being spoken, but I realized
+
+1:41:13.540 --> 1:41:18.540
+ I had somehow knew it from some previous life and so I made the connection.
+
+1:41:18.540 --> 1:41:23.500
+ But then I traveled and just I love to go beyond my own barriers and my own comfort
+
+1:41:23.500 --> 1:41:24.500
+ or whatever.
+
+1:41:24.500 --> 1:41:29.460
+ And I found myself on trains in France next to say older people who had lived a whole
+
+1:41:29.460 --> 1:41:30.460
+ life of their own.
+
+1:41:30.460 --> 1:41:37.900
+ And the ability to communicate with them was special and the ability to also see myself
+
+1:41:37.900 --> 1:41:43.100
+ in other people's shoes and have empathy and kind of work on that language as part of that.
+
+1:41:43.100 --> 1:41:49.140
+ So after that kind of experience and also embedding myself in French culture, which
+
+1:41:49.140 --> 1:41:53.780
+ is quite amazing, languages are rich, not just because there's something inherently
+
+1:41:53.780 --> 1:41:55.940
+ beautiful about it, but it's all the creativity that went into it.
+
+1:41:55.940 --> 1:41:59.900
+ So I learned a lot of songs, read poems, read books.
+
+1:41:59.900 --> 1:42:05.300
+ And then I was here actually at MIT where we're doing the podcast today and a young
+
+1:42:05.300 --> 1:42:11.960
+ professor not yet married and not having a lot of friends in the area.
+
+1:42:11.960 --> 1:42:13.980
+ So I just didn't have, I was kind of a bored person.
+
+1:42:13.980 --> 1:42:16.020
+ I said, I heard a lot of Italians around.
+
+1:42:16.020 --> 1:42:20.020
+ There's happened to be a lot of Italians at MIT, an Italian professor for some reason.
+
+1:42:20.020 --> 1:42:22.060
+ And so I was kind of vaguely understanding what they were talking about.
+
+1:42:22.060 --> 1:42:23.660
+ I said, well, I should learn this language too.
+
+1:42:23.660 --> 1:42:25.620
+ So I did.
+
+1:42:25.620 --> 1:42:30.860
+ And then later met my spouse and Italian became a part of my life.
+
+1:42:30.860 --> 1:42:32.180
+ But I go to China a lot these days.
+
+1:42:32.180 --> 1:42:38.160
+ I go to Asia, I go to Europe and every time I go, I kind of am amazed by the richness
+
+1:42:38.160 --> 1:42:42.820
+ of human experience and the people don't have any idea if you haven't traveled, kind of
+
+1:42:42.820 --> 1:42:46.900
+ how amazingly rich and I love the diversity.
+
+1:42:46.900 --> 1:42:48.060
+ It's not just a buzzword to me.
+
+1:42:48.060 --> 1:42:49.060
+ It really means something.
+
+1:42:49.060 --> 1:42:53.180
+ I love to embed myself with other people's experiences.
+
+1:42:53.180 --> 1:42:56.420
+ And so yeah, learning language is a big part of that.
+
+1:42:56.420 --> 1:43:00.460
+ I think I've said in some interview at some point that if I had millions of dollars and
+
+1:43:00.460 --> 1:43:03.300
+ infinite time or whatever, what would you really work on if you really wanted to do
+
+1:43:03.300 --> 1:43:04.300
+ AI?
+
+1:43:04.300 --> 1:43:07.360
+ And for me, that is natural language and really done right.
+
+1:43:07.360 --> 1:43:09.840
+ Deep understanding of language.
+
+1:43:09.840 --> 1:43:13.580
+ That's to me, an amazingly interesting scientific challenge.
+
+1:43:13.580 --> 1:43:15.180
+ One we're very far away on.
+
+1:43:15.180 --> 1:43:17.720
+ One we're very far away, but good natural language.
+
+1:43:17.720 --> 1:43:19.140
+ People are kind of really invested then.
+
+1:43:19.140 --> 1:43:22.460
+ I think a lot of them see that's where the core of AI is that if you understand that
+
+1:43:22.460 --> 1:43:26.580
+ you really help human communication, you understand something about the human mind, the semantics
+
+1:43:26.580 --> 1:43:30.980
+ that come out of the human mind and I agree, I think that will be such a long time.
+
+1:43:30.980 --> 1:43:34.720
+ So I didn't do that in my career just cause I kind of, I was behind in the early days.
+
+1:43:34.720 --> 1:43:36.460
+ I didn't kind of know enough of that stuff.
+
+1:43:36.460 --> 1:43:41.180
+ I was at MIT, I didn't learn much language and it was too late at some point to kind
+
+1:43:41.180 --> 1:43:47.180
+ of spend a whole career doing that, but I admire that field and so in my little way
+
+1:43:47.180 --> 1:43:53.340
+ by learning language, you know, kind of that part of my brain has been trained up.
+
+1:43:53.340 --> 1:43:55.460
+ Jan was right.
+
+1:43:55.460 --> 1:43:57.460
+ You truly are the Miles Davis of machine learning.
+
+1:43:57.460 --> 1:43:59.620
+ I don't think there's a better place than it.
+
+1:43:59.620 --> 1:44:01.580
+ Mike it was a huge honor talking to you today.
+
+1:44:01.580 --> 1:44:02.580
+ Merci beaucoup.
+
+1:44:02.580 --> 1:44:03.580
+ All right.
+
+1:44:03.580 --> 1:44:04.580
+ It's been my pleasure.
+
+1:44:04.580 --> 1:44:09.300
+ Thanks for listening to this conversation with Michael I. Jordan and thank you to our
+
+1:44:09.300 --> 1:44:11.420
+ presenting sponsor, Cash App.
+
+1:44:11.420 --> 1:44:18.100
+ Download it, use code LEXPodcast, you'll get $10 and $10 will go to FIRST, an organization
+
+1:44:18.100 --> 1:44:22.580
+ that inspires and educates young minds to become science and technology innovators of
+
+1:44:22.580 --> 1:44:23.880
+ tomorrow.
+
+1:44:23.880 --> 1:44:28.820
+ If you enjoy this podcast, subscribe on YouTube, give it five stars on Apple Podcast, support
+
+1:44:28.820 --> 1:44:34.700
+ on Patreon, or simply connect with me on Twitter at Lex Friedman.
+
+1:44:34.700 --> 1:44:39.340
+ And now let me leave you with some words of wisdom from Michael I. Jordan from his blog
+
+1:44:39.340 --> 1:44:45.580
+ post titled Artificial Intelligence, the revolution hasn't happened yet, calling for broadening
+
+1:44:45.580 --> 1:44:48.560
+ the scope of the AI field.
+
+1:44:48.560 --> 1:44:52.860
+ We should embrace the fact that what we are witnessing is the creation of a new branch
+
+1:44:52.860 --> 1:44:54.340
+ of engineering.
+
+1:44:54.340 --> 1:45:00.660
+ The term engineering is often invoked in a narrow sense in academia and beyond with overtones
+
+1:45:00.660 --> 1:45:07.540
+ of cold, effectless machinery and negative connotations of loss of control by humans.
+
+1:45:07.540 --> 1:45:11.020
+ But an engineering discipline can be what we want it to be.
+
+1:45:11.020 --> 1:45:16.340
+ In the current era, we have a real opportunity to conceive of something historically new,
+
+1:45:16.340 --> 1:45:19.740
+ a human centric engineering discipline.
+
+1:45:19.740 --> 1:45:24.380
+ I will resist giving this emerging discipline a name, but if the acronym AI continues to
+
+1:45:24.380 --> 1:45:29.860
+ be used, let's be aware of the very real limitations of this placeholder.
+
+1:45:29.860 --> 1:45:37.300
+ Let's broaden our scope, tone down the hype, and recognize the serious challenges ahead.
+
+1:45:37.300 --> 1:45:50.300
+ Thank you for listening and hope to see you next time.
+

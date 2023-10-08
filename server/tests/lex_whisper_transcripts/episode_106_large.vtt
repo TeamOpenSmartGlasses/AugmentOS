@@ -1,0 +1,7190 @@
+WEBVTT
+
+00:00.000 --> 00:03.440
+ The following is a conversation with Matt Botmanek,
+
+00:03.440 --> 00:06.680
+ Director of Neuroscience Research at DeepMind.
+
+00:06.680 --> 00:09.360
+ He's a brilliant, cross disciplinary mind,
+
+00:09.360 --> 00:12.480
+ navigating effortlessly between cognitive psychology,
+
+00:12.480 --> 00:16.760
+ computational neuroscience, and artificial intelligence.
+
+00:16.760 --> 00:18.320
+ Quick summary of the ads.
+
+00:18.320 --> 00:21.060
+ Two sponsors, The Jordan Harbinger Show
+
+00:21.060 --> 00:23.880
+ and Magic Spoon Cereal.
+
+00:23.880 --> 00:25.600
+ Please consider supporting the podcast
+
+00:25.600 --> 00:29.320
+ by going to jordanharbinger.com slash lex
+
+00:29.320 --> 00:33.800
+ and also going to magicspoon.com slash lex
+
+00:33.800 --> 00:36.120
+ and using code lex at checkout
+
+00:36.120 --> 00:39.080
+ after you buy all of their cereal.
+
+00:39.080 --> 00:40.920
+ Click the links, buy the stuff.
+
+00:40.920 --> 00:43.040
+ It's the best way to support this podcast
+
+00:43.040 --> 00:44.740
+ and the journey I'm on.
+
+00:44.740 --> 00:47.680
+ If you enjoy this podcast, subscribe on YouTube,
+
+00:47.680 --> 00:49.920
+ review it with five stars on Apple Podcast,
+
+00:49.920 --> 00:52.380
+ follow on Spotify, support on Patreon,
+
+00:52.380 --> 00:55.600
+ or connect with me on Twitter at lexfriedman,
+
+00:55.600 --> 00:58.920
+ spelled surprisingly without the E,
+
+00:58.920 --> 01:01.180
+ just F R I D M A N.
+
+01:02.080 --> 01:03.920
+ As usual, I'll do a few minutes of ads now
+
+01:03.920 --> 01:05.160
+ and never any ads in the middle
+
+01:05.160 --> 01:07.620
+ that can break the flow of the conversation.
+
+01:07.620 --> 01:11.740
+ This episode is supported by The Jordan Harbinger Show.
+
+01:11.740 --> 01:15.200
+ Go to jordanharbinger.com slash lex.
+
+01:15.200 --> 01:16.900
+ It's how he knows I sent you.
+
+01:16.900 --> 01:19.400
+ On that page, subscribe to his podcast
+
+01:19.400 --> 01:24.320
+ on Apple Podcast, Spotify, and you know where to look.
+
+01:24.320 --> 01:26.120
+ I've been binging on his podcast.
+
+01:26.120 --> 01:28.400
+ Jordan is a great interviewer
+
+01:28.400 --> 01:30.280
+ and even a better human being.
+
+01:30.280 --> 01:32.760
+ I recently listened to his conversation with Jack Barsky,
+
+01:32.760 --> 01:36.120
+ former sleeper agent for the KGB in the 80s
+
+01:36.120 --> 01:38.880
+ and author of Deep Undercover,
+
+01:38.880 --> 01:40.740
+ which is a memoir that paints yet another
+
+01:40.740 --> 01:43.440
+ interesting perspective on the Cold War era.
+
+01:43.440 --> 01:46.720
+ I've been reading a lot about the Stalin
+
+01:46.720 --> 01:49.280
+ and then Gorbachev and Putin eras of Russia,
+
+01:49.280 --> 01:50.800
+ but this conversation made me realize
+
+01:50.800 --> 01:53.680
+ that I need to do a deep dive into the Cold War era
+
+01:53.680 --> 01:57.120
+ to get a complete picture of Russia's recent history.
+
+01:57.120 --> 02:01.160
+ Again, go to jordanharbinger.com slash lex.
+
+02:01.160 --> 02:02.880
+ Subscribe to his podcast.
+
+02:02.880 --> 02:04.440
+ It's how he knows I sent you.
+
+02:04.440 --> 02:06.740
+ It's awesome, you won't regret it.
+
+02:06.740 --> 02:10.320
+ This episode is also supported by Magic Spoon,
+
+02:10.320 --> 02:15.320
+ low carb, keto friendly, super amazingly delicious cereal.
+
+02:15.700 --> 02:18.300
+ I've been on a keto or very low carb diet
+
+02:18.300 --> 02:19.480
+ for a long time now.
+
+02:19.480 --> 02:21.300
+ It helps with my mental performance.
+
+02:21.300 --> 02:22.840
+ It helps with my physical performance,
+
+02:22.840 --> 02:26.520
+ even during this crazy push up, pull up challenge I'm doing,
+
+02:26.520 --> 02:29.680
+ including the running, it just feels great.
+
+02:29.680 --> 02:31.320
+ I used to love cereal.
+
+02:31.320 --> 02:33.840
+ Obviously, I can't have it now
+
+02:33.840 --> 02:36.820
+ because most cereals have crazy amounts of sugar,
+
+02:36.820 --> 02:40.140
+ which is terrible for you, so I quit it years ago.
+
+02:40.140 --> 02:44.260
+ But Magic Spoon, amazingly, somehow,
+
+02:44.260 --> 02:45.920
+ is a totally different thing.
+
+02:45.920 --> 02:48.340
+ Zero sugar, 11 grams of protein,
+
+02:48.340 --> 02:50.920
+ and only three net grams of carbs.
+
+02:50.920 --> 02:53.140
+ It tastes delicious.
+
+02:53.140 --> 02:55.200
+ It has a lot of flavors, two new ones,
+
+02:55.200 --> 02:56.760
+ including peanut butter.
+
+02:56.760 --> 02:58.520
+ But if you know what's good for you,
+
+02:58.520 --> 03:01.560
+ you'll go with cocoa, my favorite flavor,
+
+03:01.560 --> 03:04.200
+ and the flavor of champions.
+
+03:04.200 --> 03:07.880
+ Click the magicspoon.com slash lex link in the description
+
+03:07.880 --> 03:11.040
+ and use code lex at checkout for free shipping
+
+03:11.040 --> 03:13.100
+ and to let them know I sent you.
+
+03:13.100 --> 03:16.480
+ They have agreed to sponsor this podcast for a long time.
+
+03:16.480 --> 03:19.920
+ They're an amazing sponsor and an even better cereal.
+
+03:19.920 --> 03:21.760
+ I highly recommend it.
+
+03:21.760 --> 03:24.720
+ It's delicious, it's good for you, you won't regret it.
+
+03:24.720 --> 03:28.460
+ And now, here's my conversation with Matt Botpenik.
+
+03:29.600 --> 03:32.360
+ How much of the human brain do you think we understand?
+
+03:33.400 --> 03:36.920
+ I think we're at a weird moment
+
+03:36.920 --> 03:40.080
+ in the history of neuroscience in the sense that
+
+03:45.200 --> 03:47.320
+ I feel like we understand a lot about the brain
+
+03:47.320 --> 03:52.320
+ at a very high level, but a very coarse level.
+
+03:52.600 --> 03:54.280
+ When you say high level, what are you thinking?
+
+03:54.280 --> 03:55.440
+ Are you thinking functional?
+
+03:55.440 --> 03:56.960
+ Are you thinking structurally?
+
+03:56.960 --> 04:00.960
+ So in other words, what is the brain for?
+
+04:00.960 --> 04:03.680
+ What kinds of computation does the brain do?
+
+04:05.000 --> 04:10.000
+ What kinds of behaviors would we have to explain
+
+04:12.320 --> 04:14.920
+ if we were gonna look down at the mechanistic level?
+
+04:16.560 --> 04:18.440
+ And at that level, I feel like we understand
+
+04:18.440 --> 04:19.680
+ much, much more about the brain
+
+04:19.680 --> 04:22.060
+ than we did when I was in high school.
+
+04:22.060 --> 04:25.240
+ But it's almost like we're seeing it through a fog.
+
+04:25.240 --> 04:26.600
+ It's only at a very coarse level.
+
+04:26.600 --> 04:30.200
+ We don't really understand what the neuronal mechanisms are
+
+04:30.200 --> 04:32.500
+ that underlie these computations.
+
+04:32.500 --> 04:34.600
+ We've gotten better at saying,
+
+04:34.600 --> 04:36.720
+ what are the functions that the brain is computing
+
+04:36.720 --> 04:38.400
+ that we would have to understand
+
+04:38.400 --> 04:40.200
+ if we were gonna get down to the neuronal level?
+
+04:40.200 --> 04:42.120
+ And at the other end of the spectrum,
+
+04:45.500 --> 04:49.600
+ in the last few years, incredible progress has been made
+
+04:49.600 --> 04:54.600
+ in terms of technologies that allow us to see,
+
+04:54.880 --> 04:57.220
+ actually literally see, in some cases,
+
+04:57.220 --> 05:01.040
+ what's going on at the single unit level,
+
+05:01.040 --> 05:02.640
+ even the dendritic level.
+
+05:02.640 --> 05:05.800
+ And then there's this yawning gap in between.
+
+05:05.800 --> 05:06.640
+ Well, that's interesting.
+
+05:06.640 --> 05:07.460
+ So at the high level,
+
+05:07.460 --> 05:09.600
+ so that's almost a cognitive science level.
+
+05:09.600 --> 05:11.900
+ And then at the neuronal level,
+
+05:11.900 --> 05:14.600
+ that's neurobiology and neuroscience,
+
+05:14.600 --> 05:16.040
+ just studying single neurons,
+
+05:16.040 --> 05:19.800
+ the synaptic connections and all the dopamine,
+
+05:19.800 --> 05:21.560
+ all the kind of neurotransmitters.
+
+05:21.560 --> 05:23.360
+ One blanket statement I should probably make
+
+05:23.360 --> 05:27.760
+ is that as I've gotten older,
+
+05:27.760 --> 05:30.200
+ I have become more and more reluctant
+
+05:30.200 --> 05:33.400
+ to make a distinction between psychology and neuroscience.
+
+05:33.400 --> 05:37.240
+ To me, the point of neuroscience
+
+05:37.240 --> 05:41.780
+ is to study what the brain is for.
+
+05:41.780 --> 05:44.360
+ If you're a nephrologist
+
+05:44.360 --> 05:46.560
+ and you wanna learn about the kidney,
+
+05:46.560 --> 05:50.000
+ you start by saying, what is this thing for?
+
+05:50.000 --> 05:55.000
+ Well, it seems to be for taking blood on one side
+
+05:55.800 --> 06:00.260
+ that has metabolites in it that shouldn't be there,
+
+06:01.120 --> 06:03.320
+ sucking them out of the blood
+
+06:03.320 --> 06:05.160
+ while leaving the good stuff behind,
+
+06:05.160 --> 06:07.060
+ and then excreting that in the form of urine.
+
+06:07.060 --> 06:08.400
+ That's what the kidney is for.
+
+06:08.400 --> 06:10.240
+ It's like obvious.
+
+06:10.240 --> 06:13.200
+ So the rest of the work is deciding how it does that.
+
+06:13.200 --> 06:14.800
+ And this, it seems to me,
+
+06:14.800 --> 06:17.080
+ is the right approach to take to the brain.
+
+06:17.080 --> 06:19.120
+ You say, well, what is the brain for?
+
+06:19.120 --> 06:22.760
+ The brain, as far as I can tell, is for producing behavior.
+
+06:22.760 --> 06:27.020
+ It's for going from perceptual inputs to behavioral outputs,
+
+06:27.980 --> 06:30.280
+ and the behavioral outputs should be adaptive.
+
+06:31.420 --> 06:33.620
+ So that's what psychology is about.
+
+06:33.620 --> 06:35.920
+ It's about understanding the structure of that function.
+
+06:35.920 --> 06:38.920
+ And then the rest of neuroscience is about figuring out
+
+06:38.920 --> 06:41.880
+ how those operations are actually carried out
+
+06:41.880 --> 06:44.160
+ at a mechanistic level.
+
+06:44.160 --> 06:47.960
+ That's really interesting, but so unlike the kidney,
+
+06:47.960 --> 06:52.020
+ the brain, the gap between the electrical signal
+
+06:52.020 --> 06:57.020
+ and behavior, so you truly see neuroscience
+
+06:57.120 --> 07:01.220
+ as the science that touches behavior,
+
+07:01.220 --> 07:03.260
+ how the brain generates behavior,
+
+07:03.260 --> 07:07.400
+ or how the brain converts raw visual information
+
+07:07.400 --> 07:08.960
+ into understanding.
+
+07:08.960 --> 07:12.520
+ Like, you basically see cognitive science,
+
+07:12.520 --> 07:15.860
+ psychology, and neuroscience as all one science.
+
+07:15.860 --> 07:19.240
+ Yeah, it's a personal statement.
+
+07:19.240 --> 07:22.920
+ Is that a hopeful or a realistic statement?
+
+07:22.920 --> 07:26.880
+ So certainly you will be correct in your feeling
+
+07:26.880 --> 07:29.240
+ in some number of years, but that number of years
+
+07:29.240 --> 07:31.440
+ could be 200, 300 years from now.
+
+07:31.440 --> 07:33.400
+ Oh, well, there's a...
+
+07:33.400 --> 07:37.600
+ Is that aspirational or is that pragmatic engineering
+
+07:37.600 --> 07:39.360
+ feeling that you have?
+
+07:39.360 --> 07:44.360
+ It's both in the sense that this is what I hope
+
+07:46.520 --> 07:51.520
+ and expect will bear fruit over the coming decades,
+
+07:53.360 --> 07:57.560
+ but it's also pragmatic in the sense that I'm not sure
+
+07:57.560 --> 08:02.560
+ what we're doing in either psychology or neuroscience
+
+08:02.840 --> 08:04.920
+ if that's not the framing.
+
+08:04.920 --> 08:09.760
+ I don't know what it means to understand the brain
+
+08:09.760 --> 08:14.320
+ if there's no, if part of the enterprise
+
+08:14.320 --> 08:18.520
+ is not about understanding the behavior
+
+08:18.520 --> 08:20.020
+ that's being produced.
+
+08:20.020 --> 08:23.040
+ I mean, yeah, but I would compare it
+
+08:23.040 --> 08:25.880
+ to maybe astronomers looking at the movement
+
+08:25.880 --> 08:30.120
+ of the planets and the stars without any interest
+
+08:30.120 --> 08:32.360
+ of the underlying physics, right?
+
+08:32.360 --> 08:35.560
+ And I would argue that at least in the early days,
+
+08:35.560 --> 08:37.780
+ there is some value to just tracing the movement
+
+08:37.780 --> 08:41.680
+ of the planets and the stars without thinking
+
+08:41.680 --> 08:44.100
+ about the physics too much because it's such a big leap
+
+08:44.100 --> 08:45.600
+ to start thinking about the physics
+
+08:45.600 --> 08:48.640
+ before you even understand even the basic structural
+
+08:48.640 --> 08:49.520
+ elements of...
+
+08:49.520 --> 08:50.420
+ Oh, I agree with that.
+
+08:50.420 --> 08:51.260
+ I agree.
+
+08:51.260 --> 08:53.240
+ But you're saying in the end, the goal should be
+
+08:53.240 --> 08:54.760
+ to deeply understand.
+
+08:54.760 --> 08:57.300
+ Well, right, and I think...
+
+08:57.300 --> 08:59.240
+ So I thought about this a lot when I was in grad school
+
+08:59.240 --> 09:00.600
+ because a lot of what I studied in grad school
+
+09:00.600 --> 09:05.600
+ was psychology and I found myself a little bit confused
+
+09:06.120 --> 09:08.680
+ about what it meant to...
+
+09:08.680 --> 09:11.500
+ It seems like what we were talking about a lot of the time
+
+09:11.500 --> 09:14.800
+ were virtual causal mechanisms.
+
+09:14.800 --> 09:18.500
+ Like, oh, well, you know, attentional selection
+
+09:18.500 --> 09:22.200
+ then selects some object in the environment
+
+09:22.200 --> 09:25.600
+ and that is then passed on to the motor, you know,
+
+09:25.600 --> 09:27.800
+ information about that is passed on to the motor system.
+
+09:27.800 --> 09:29.760
+ But these are virtual mechanisms.
+
+09:29.760 --> 09:31.480
+ These are, you know, they're metaphors.
+
+09:31.480 --> 09:36.480
+ They're, you know, there's no reduction going on
+
+09:37.040 --> 09:40.200
+ in that conversation to some physical mechanism that,
+
+09:40.200 --> 09:43.240
+ you know, which is really what it would take
+
+09:43.240 --> 09:47.320
+ to fully understand, you know, how behavior is rising.
+
+09:47.320 --> 09:50.780
+ But the causal mechanisms are definitely neurons interacting.
+
+09:50.780 --> 09:53.360
+ I'm willing to say that at this point in history.
+
+09:53.360 --> 09:56.240
+ So in psychology, at least for me personally,
+
+09:56.240 --> 10:00.160
+ there was this strange insecurity about trafficking
+
+10:00.160 --> 10:02.680
+ in these metaphors, you know,
+
+10:02.680 --> 10:05.740
+ which were supposed to explain the function of the mind.
+
+10:07.360 --> 10:09.400
+ If you can't ground them in physical mechanisms,
+
+10:09.400 --> 10:14.400
+ then what is the explanatory validity of these explanations?
+
+10:16.120 --> 10:21.120
+ And I managed to soothe my own nerves
+
+10:21.120 --> 10:26.120
+ by thinking about the history of genetics research.
+
+10:29.400 --> 10:32.460
+ So I'm very far from being an expert
+
+10:32.460 --> 10:34.660
+ on the history of this field.
+
+10:34.660 --> 10:38.160
+ But I know enough to say that, you know,
+
+10:38.160 --> 10:42.800
+ Mendelian genetics preceded, you know, Watson and Crick.
+
+10:42.800 --> 10:45.520
+ And so there was a significant period of time
+
+10:45.520 --> 10:49.600
+ during which people were, you know,
+
+10:49.600 --> 10:54.600
+ productively investigating the structure of inheritance
+
+10:54.760 --> 10:56.880
+ using what was essentially a metaphor,
+
+10:56.880 --> 10:58.600
+ the notion of a gene, you know.
+
+10:58.600 --> 11:00.760
+ Oh, genes do this and genes do that.
+
+11:00.760 --> 11:02.520
+ But, you know, where are the genes?
+
+11:02.520 --> 11:06.080
+ They're sort of an explanatory thing that we made up.
+
+11:06.080 --> 11:08.880
+ And we ascribed to them these causal properties.
+
+11:08.880 --> 11:10.640
+ Oh, there's a dominant, there's a recessive,
+
+11:10.640 --> 11:12.800
+ and then they recombine it.
+
+11:12.800 --> 11:17.460
+ And then later, there was a kind of blank there
+
+11:17.460 --> 11:21.620
+ that was filled in with a physical mechanism.
+
+11:21.620 --> 11:22.880
+ That connection was made.
+
+11:24.300 --> 11:26.800
+ But it was worth having that metaphor
+
+11:26.800 --> 11:29.360
+ because that gave us a good sense
+
+11:29.360 --> 11:34.280
+ of what kind of causal mechanism we were looking for.
+
+11:34.280 --> 11:38.880
+ And the fundamental metaphor of cognition, you said,
+
+11:38.880 --> 11:40.780
+ is the interaction of neurons.
+
+11:40.780 --> 11:42.680
+ Is that, what is the metaphor?
+
+11:42.680 --> 11:44.280
+ No, no, the metaphor,
+
+11:44.280 --> 11:47.640
+ the metaphors we use in cognitive psychology
+
+11:47.640 --> 11:52.640
+ are things like attention, the way that memory works.
+
+11:56.040 --> 11:59.440
+ I retrieve something from memory, right?
+
+11:59.440 --> 12:01.880
+ A memory retrieval occurs.
+
+12:01.880 --> 12:02.860
+ What is that?
+
+12:02.860 --> 12:06.620
+ You know, that's not a physical mechanism
+
+12:06.620 --> 12:08.960
+ that I can examine in its own right.
+
+12:08.960 --> 12:13.840
+ But it's still worth having, that metaphorical level.
+
+12:13.840 --> 12:16.000
+ Yeah, so yeah, I misunderstood actually.
+
+12:16.000 --> 12:17.640
+ So the higher level of abstractions
+
+12:17.640 --> 12:19.640
+ is the metaphor that's most useful.
+
+12:19.640 --> 12:20.480
+ Yes.
+
+12:20.480 --> 12:24.420
+ But what about, so how does that connect
+
+12:24.420 --> 12:29.420
+ to the idea that that arises from interaction of neurons?
+
+12:33.000 --> 12:35.940
+ Well, even, is the interaction of neurons
+
+12:35.940 --> 12:38.080
+ also not a metaphor to you?
+
+12:38.080 --> 12:42.400
+ Or is it literally, like that's no longer a metaphor.
+
+12:42.400 --> 12:46.160
+ That's already the lowest level of abstractions
+
+12:46.160 --> 12:48.960
+ that could actually be directly studied.
+
+12:50.280 --> 12:53.840
+ Well, I'm hesitating because I think
+
+12:53.840 --> 12:57.000
+ what I want to say could end up being controversial.
+
+12:57.960 --> 12:59.960
+ So what I want to say is, yes,
+
+12:59.960 --> 13:03.040
+ the interactions of neurons, that's not metaphorical.
+
+13:03.040 --> 13:04.680
+ That's a physical fact.
+
+13:04.680 --> 13:08.500
+ That's where the causal interactions actually occur.
+
+13:08.500 --> 13:09.880
+ Now, I suppose you could say,
+
+13:09.880 --> 13:12.720
+ well, even that is metaphorical relative
+
+13:12.720 --> 13:14.880
+ to the quantum events that underlie.
+
+13:15.840 --> 13:17.320
+ I don't want to go down that rabbit hole.
+
+13:17.320 --> 13:18.920
+ It's always turtles on top of turtles.
+
+13:18.920 --> 13:21.200
+ Yeah, there's turtles all the way down.
+
+13:21.200 --> 13:22.560
+ There's a reduction that you can do.
+
+13:22.560 --> 13:24.640
+ You can say these psychological phenomena
+
+13:25.720 --> 13:28.200
+ can be explained through a very different
+
+13:28.200 --> 13:29.160
+ kind of causal mechanism,
+
+13:29.160 --> 13:31.440
+ which has to do with neurotransmitter release.
+
+13:31.440 --> 13:33.800
+ And so what we're really trying to do
+
+13:33.800 --> 13:37.120
+ in neuroscience writ large, as I say,
+
+13:37.120 --> 13:39.760
+ which for me includes psychology,
+
+13:39.760 --> 13:44.400
+ is to take these psychological phenomena
+
+13:44.400 --> 13:48.500
+ and map them onto neural events.
+
+13:49.980 --> 13:54.980
+ I think remaining forever at the level of description
+
+13:57.160 --> 14:00.520
+ that is natural for psychology,
+
+14:00.520 --> 14:02.280
+ for me personally, would be disappointing.
+
+14:02.280 --> 14:05.640
+ I want to understand how mental activity
+
+14:05.640 --> 14:10.360
+ arises from neural activity.
+
+14:10.360 --> 14:13.000
+ But the converse is also true.
+
+14:13.000 --> 14:15.880
+ Studying neural activity without any sense
+
+14:15.880 --> 14:18.520
+ of what you're trying to explain,
+
+14:19.800 --> 14:24.800
+ to me feels like at best groping around at random.
+
+14:27.280 --> 14:30.280
+ Now, you've kind of talked about this bridging
+
+14:30.280 --> 14:32.880
+ of the gap between psychology and neuroscience,
+
+14:32.880 --> 14:34.040
+ but do you think it's possible,
+
+14:34.040 --> 14:38.280
+ like my love is, like I fell in love with psychology
+
+14:38.280 --> 14:40.120
+ and psychiatry in general with Freud
+
+14:40.120 --> 14:41.760
+ and when I was really young,
+
+14:41.760 --> 14:43.540
+ and I hoped to understand the mind.
+
+14:43.540 --> 14:45.240
+ And for me, understanding the mind,
+
+14:45.240 --> 14:48.400
+ at least at that young age before I discovered AI
+
+14:48.400 --> 14:52.840
+ and even neuroscience was to, is psychology.
+
+14:52.840 --> 14:55.840
+ And do you think it's possible to understand the mind
+
+14:55.840 --> 14:59.920
+ without getting into all the messy details of neuroscience?
+
+14:59.920 --> 15:03.120
+ Like you kind of mentioned to you it's appealing
+
+15:03.120 --> 15:06.040
+ to try to understand the mechanisms at the lowest level,
+
+15:06.040 --> 15:07.560
+ but do you think that's needed,
+
+15:07.560 --> 15:10.200
+ that's required to understand how the mind works?
+
+15:11.480 --> 15:14.760
+ That's an important part of the whole picture,
+
+15:14.760 --> 15:18.480
+ but I would be the last person on earth
+
+15:18.480 --> 15:23.440
+ to suggest that that reality
+
+15:23.440 --> 15:27.240
+ renders psychology in its own right unproductive.
+
+15:29.440 --> 15:31.160
+ I trained as a psychologist.
+
+15:31.160 --> 15:35.000
+ I am fond of saying that I have learned much more
+
+15:35.000 --> 15:38.480
+ from psychology than I have from neuroscience.
+
+15:38.480 --> 15:43.480
+ To me, psychology is a hugely important discipline.
+
+15:43.740 --> 15:47.400
+ And one thing that warms in my heart is that
+
+15:50.360 --> 15:54.080
+ ways of investigating behavior
+
+15:54.080 --> 15:58.000
+ that have been native to cognitive psychology
+
+15:58.000 --> 16:01.600
+ since it's dawn in the 60s
+
+16:01.600 --> 16:03.960
+ are starting to become,
+
+16:03.960 --> 16:07.680
+ they're starting to become interesting to AI researchers
+
+16:07.680 --> 16:09.480
+ for a variety of reasons.
+
+16:09.480 --> 16:11.680
+ And that's been exciting for me to see.
+
+16:11.680 --> 16:14.920
+ Can you maybe talk a little bit about what you see
+
+16:14.920 --> 16:19.320
+ as beautiful aspects of psychology,
+
+16:19.320 --> 16:21.920
+ maybe limiting aspects of psychology?
+
+16:21.920 --> 16:25.640
+ I mean, maybe just start it off as a science, as a field.
+
+16:25.640 --> 16:29.760
+ To me, it was when I understood what psychology is,
+
+16:29.760 --> 16:30.880
+ analytical psychology,
+
+16:30.880 --> 16:32.760
+ like the way it's actually carried out,
+
+16:32.760 --> 16:36.240
+ it was really disappointing to see two aspects.
+
+16:36.240 --> 16:39.200
+ One is how small the N is,
+
+16:39.200 --> 16:43.040
+ how small the number of subject is in the studies.
+
+16:43.040 --> 16:45.320
+ And two, it was disappointing to see
+
+16:45.320 --> 16:47.480
+ how controlled the entire,
+
+16:47.480 --> 16:49.680
+ how much it was in the lab.
+
+16:50.520 --> 16:52.680
+ It wasn't studying humans in the wild.
+
+16:52.680 --> 16:55.000
+ There was no mechanism for studying humans in the wild.
+
+16:55.000 --> 16:57.640
+ So that's where I became a little bit disillusioned
+
+16:57.640 --> 16:59.480
+ to psychology.
+
+16:59.480 --> 17:01.680
+ And then the modern world of the internet
+
+17:01.680 --> 17:02.960
+ is so exciting to me.
+
+17:02.960 --> 17:05.720
+ The Twitter data or YouTube data,
+
+17:05.720 --> 17:08.280
+ data of human behavior on the internet becomes exciting
+
+17:08.280 --> 17:11.920
+ because the N grows and then in the wild grows.
+
+17:11.920 --> 17:13.880
+ But that's just my narrow sense.
+
+17:13.880 --> 17:16.560
+ Like, do you have a optimistic or pessimistic
+
+17:16.560 --> 17:18.160
+ cynical view of psychology?
+
+17:18.160 --> 17:19.840
+ How do you see the field broadly?
+
+17:21.120 --> 17:22.720
+ When I was in graduate school,
+
+17:22.720 --> 17:27.720
+ it was early enough that there was still a thrill
+
+17:27.800 --> 17:32.800
+ in seeing that there were ways of doing,
+
+17:32.960 --> 17:35.640
+ there were ways of doing experimental science
+
+17:36.560 --> 17:40.040
+ that provided insight to the structure of the mind.
+
+17:40.040 --> 17:43.720
+ One thing that impressed me most when I was at that stage
+
+17:43.720 --> 17:46.000
+ in my education was neuropsychology,
+
+17:46.000 --> 17:51.000
+ looking at, analyzing the behavior of populations
+
+17:51.000 --> 17:55.560
+ who had brain damage of different kinds
+
+17:55.560 --> 18:00.560
+ and trying to understand what the specific deficits were
+
+18:02.920 --> 18:06.760
+ that arose from a lesion in a particular part of the brain.
+
+18:06.760 --> 18:08.960
+ And the kind of experimentation that was done
+
+18:08.960 --> 18:13.520
+ and that's still being done to get answers in that context
+
+18:13.520 --> 18:18.160
+ was so creative and it was so deliberate.
+
+18:18.160 --> 18:21.360
+ It was good science.
+
+18:21.360 --> 18:24.400
+ An experiment answered one question but raised another
+
+18:24.400 --> 18:25.600
+ and somebody would do an experiment
+
+18:25.600 --> 18:26.600
+ that answered that question.
+
+18:26.600 --> 18:29.360
+ And you really felt like you were narrowing in on
+
+18:29.360 --> 18:31.760
+ some kind of approximate understanding
+
+18:31.760 --> 18:34.840
+ of what this part of the brain was for.
+
+18:34.840 --> 18:36.880
+ Do you have an example from memory
+
+18:36.880 --> 18:39.560
+ of what kind of aspects of the mind
+
+18:39.560 --> 18:41.400
+ could be studied in this kind of way?
+
+18:41.400 --> 18:42.240
+ Oh, sure.
+
+18:42.240 --> 18:45.840
+ I mean, the very detailed neuropsychological studies
+
+18:45.840 --> 18:49.720
+ of language function,
+
+18:49.720 --> 18:52.040
+ looking at production and reception
+
+18:52.040 --> 18:57.080
+ and the relationship between visual function,
+
+18:57.080 --> 19:00.680
+ reading and auditory and semantic.
+
+19:00.680 --> 19:03.920
+ There were these, and still are, these beautiful models
+
+19:03.920 --> 19:05.560
+ that came out of that kind of research
+
+19:05.560 --> 19:08.480
+ that really made you feel like you understood something
+
+19:08.480 --> 19:10.320
+ that you hadn't understood before
+
+19:10.320 --> 19:15.320
+ about how language processing is organized in the brain.
+
+19:15.320 --> 19:17.280
+ But having said all that,
+
+19:20.840 --> 19:25.400
+ I think you are, I mean, I agree with you
+
+19:25.400 --> 19:30.400
+ that the cost of doing highly controlled experiments
+
+19:30.960 --> 19:35.960
+ is that you, by construction, miss out on the richness
+
+19:36.480 --> 19:39.160
+ and complexity of the real world.
+
+19:39.160 --> 19:42.360
+ One thing that, so I was drawn into science
+
+19:42.360 --> 19:44.960
+ by what in those days was called connectionism,
+
+19:44.960 --> 19:49.120
+ which is, of course, what we now call deep learning.
+
+19:49.120 --> 19:50.840
+ And at that point in history,
+
+19:50.840 --> 19:54.200
+ neural networks were primarily being used
+
+19:54.200 --> 19:56.440
+ in order to model human cognition.
+
+19:56.440 --> 20:00.200
+ They weren't yet really useful for industrial applications.
+
+20:00.200 --> 20:02.080
+ So you always found neural networks
+
+20:02.080 --> 20:04.080
+ in biological form beautiful.
+
+20:04.080 --> 20:07.160
+ Oh, neural networks were very concretely the thing
+
+20:07.160 --> 20:09.160
+ that drew me into science.
+
+20:09.160 --> 20:13.320
+ I was handed, are you familiar with the PDP books
+
+20:13.320 --> 20:15.720
+ from the 80s when I was in,
+
+20:15.720 --> 20:18.240
+ I went to medical school before I went into science.
+
+20:18.240 --> 20:19.160
+ And, yeah.
+
+20:19.160 --> 20:20.800
+ Really, interesting.
+
+20:20.800 --> 20:21.960
+ Wow.
+
+20:21.960 --> 20:23.920
+ I also did a graduate degree in art history,
+
+20:23.920 --> 20:26.480
+ so I'm kind of exploring.
+
+20:26.480 --> 20:28.560
+ Well, art history, I understand.
+
+20:28.560 --> 20:31.280
+ That's just a curious, creative mind.
+
+20:31.280 --> 20:33.960
+ But medical school, with the dream of what,
+
+20:33.960 --> 20:36.560
+ if we take that slight tangent?
+
+20:36.560 --> 20:39.120
+ What, did you want to be a surgeon?
+
+20:39.120 --> 20:41.680
+ I actually was quite interested in surgery.
+
+20:41.680 --> 20:44.200
+ I was interested in surgery and psychiatry.
+
+20:44.200 --> 20:49.200
+ And I thought, I must be the only person on the planet
+
+20:49.520 --> 20:52.680
+ who was torn between those two fields.
+
+20:52.680 --> 20:56.840
+ And I said exactly that to my advisor in medical school,
+
+20:56.840 --> 20:59.440
+ who turned out, I found out later,
+
+20:59.440 --> 21:01.920
+ to be a famous psychoanalyst.
+
+21:01.920 --> 21:05.160
+ And he said to me, no, no, it's actually not so uncommon
+
+21:05.160 --> 21:07.520
+ to be interested in surgery and psychiatry.
+
+21:07.520 --> 21:10.480
+ And he conjectured that the reason
+
+21:10.480 --> 21:12.600
+ that people develop these two interests
+
+21:12.600 --> 21:15.480
+ is that both fields are about going beneath the surface
+
+21:16.360 --> 21:19.120
+ and kind of getting into the kind of secret.
+
+21:19.120 --> 21:21.040
+ I mean, maybe you understand this as someone
+
+21:21.040 --> 21:23.440
+ who was interested in psychoanalysis.
+
+21:23.440 --> 21:26.200
+ There's sort of a, there's a cliche phrase
+
+21:26.200 --> 21:28.400
+ that people use now, like in NPR,
+
+21:28.400 --> 21:31.400
+ the secret life of blankety blank, right?
+
+21:31.400 --> 21:33.560
+ And that was part of the thrill of surgery,
+
+21:33.560 --> 21:38.120
+ was seeing the secret activity
+
+21:38.120 --> 21:40.560
+ that's inside everybody's abdomen and thorax.
+
+21:40.560 --> 21:43.880
+ That's a very poetic way to connect it to disciplines
+
+21:43.880 --> 21:45.560
+ that are very, practically speaking,
+
+21:45.560 --> 21:46.520
+ different from each other.
+
+21:46.520 --> 21:48.480
+ That's for sure, that's for sure, yes.
+
+21:48.480 --> 21:52.480
+ So how did we get onto medical school?
+
+21:52.480 --> 21:53.720
+ So I was in medical school
+
+21:53.720 --> 21:57.360
+ and I was doing a psychiatry rotation
+
+21:57.360 --> 22:01.000
+ and my kind of advisor in that rotation
+
+22:02.280 --> 22:04.720
+ asked me what I was interested in.
+
+22:04.720 --> 22:07.800
+ And I said, well, maybe psychiatry.
+
+22:07.800 --> 22:09.280
+ He said, why?
+
+22:09.280 --> 22:11.120
+ And I said, well, I've always been interested
+
+22:11.120 --> 22:13.080
+ in how the brain works.
+
+22:13.080 --> 22:16.160
+ I'm pretty sure that nobody's doing scientific research
+
+22:16.160 --> 22:19.160
+ that addresses my interests,
+
+22:19.160 --> 22:21.880
+ which are, I didn't have a word for it then,
+
+22:21.880 --> 22:25.200
+ but I would have said about cognition.
+
+22:25.200 --> 22:27.680
+ And he said, well, you know, I'm not sure that's true.
+
+22:27.680 --> 22:29.600
+ You might be interested in these books.
+
+22:29.600 --> 22:32.440
+ And he pulled down the PDB books from his shelf
+
+22:32.440 --> 22:33.960
+ and they were still shrink wrapped.
+
+22:33.960 --> 22:36.920
+ He hadn't read them, but he handed them to me.
+
+22:36.920 --> 22:38.680
+ He said, you feel free to borrow these.
+
+22:38.680 --> 22:41.440
+ And that was, you know, I went back to my dorm room
+
+22:41.440 --> 22:43.400
+ and I just, you know, read them cover to cover.
+
+22:43.400 --> 22:44.960
+ And what's PDB?
+
+22:44.960 --> 22:46.520
+ Parallel distributed processing,
+
+22:46.520 --> 22:50.840
+ which was one of the original names for deep learning.
+
+22:50.840 --> 22:55.000
+ And so I apologize for the romanticized question,
+
+22:55.000 --> 22:58.360
+ but what idea in the space of neuroscience
+
+22:58.360 --> 23:00.840
+ and the space of the human brain is to you
+
+23:00.840 --> 23:03.880
+ the most beautiful, mysterious, surprising?
+
+23:03.880 --> 23:07.160
+ What had always fascinated me,
+
+23:08.480 --> 23:11.440
+ even when I was a pretty young kid, I think,
+
+23:12.320 --> 23:17.320
+ was the paradox that lies in the fact
+
+23:21.360 --> 23:25.640
+ that the brain is so mysterious
+
+23:25.640 --> 23:28.200
+ and seems so distant.
+
+23:30.640 --> 23:32.520
+ But at the same time,
+
+23:32.520 --> 23:37.360
+ it's responsible for the full transparency
+
+23:37.360 --> 23:39.040
+ of everyday life.
+
+23:39.040 --> 23:41.520
+ The brain is literally what makes everything obvious
+
+23:41.520 --> 23:43.080
+ and familiar.
+
+23:43.080 --> 23:47.280
+ And there's always one in the room with you.
+
+23:47.280 --> 23:48.120
+ Yeah.
+
+23:48.120 --> 23:50.520
+ I used to teach, when I taught at Princeton,
+
+23:50.520 --> 23:53.000
+ I used to teach a cognitive neuroscience course.
+
+23:53.000 --> 23:56.720
+ And the very last thing I would say to the students was,
+
+23:56.720 --> 24:00.160
+ you know, people often,
+
+24:00.160 --> 24:04.200
+ when people think of scientific inspiration,
+
+24:04.200 --> 24:08.120
+ the metaphor is often, well, look to the stars.
+
+24:08.120 --> 24:12.360
+ The stars will inspire you to wonder at the universe
+
+24:12.360 --> 24:15.800
+ and think about your place in it and how things work.
+
+24:15.800 --> 24:18.360
+ And I'm all for looking at the stars,
+
+24:18.360 --> 24:21.600
+ but I've always been much more inspired.
+
+24:21.600 --> 24:25.360
+ And my sense of wonder comes from the,
+
+24:25.360 --> 24:28.560
+ not from the distant, mysterious stars,
+
+24:28.560 --> 24:33.560
+ but from the extremely intimately close brain.
+
+24:34.440 --> 24:35.280
+ Yeah.
+
+24:35.280 --> 24:38.680
+ There's something just endlessly fascinating
+
+24:38.680 --> 24:40.000
+ to me about that.
+
+24:40.000 --> 24:41.360
+ The, like, just like you said,
+
+24:41.360 --> 24:45.500
+ the one that's close and yet distant
+
+24:45.500 --> 24:48.000
+ in terms of our understanding of it.
+
+24:48.000 --> 24:53.000
+ Do you, are you also captivated by the fact
+
+24:53.640 --> 24:56.040
+ that this very conversation is happening
+
+24:56.040 --> 24:57.560
+ because two brains are communicating so that?
+
+24:57.560 --> 24:59.120
+ Yes, exactly.
+
+24:59.120 --> 25:03.800
+ The, I guess what I mean is the subjective nature
+
+25:03.800 --> 25:06.320
+ of the experience, if it can take a small attention
+
+25:06.320 --> 25:10.240
+ into the mystical of it, the consciousness,
+
+25:10.240 --> 25:13.320
+ or when you were saying you're captivated
+
+25:13.320 --> 25:14.920
+ by the idea of the brain,
+
+25:14.920 --> 25:16.320
+ are you talking about specifically
+
+25:16.320 --> 25:18.200
+ the mechanism of cognition?
+
+25:18.200 --> 25:23.080
+ Or are you also just, like, at least for me,
+
+25:23.080 --> 25:26.600
+ it's almost like paralyzing the beauty and the mystery
+
+25:26.600 --> 25:29.480
+ of the fact that it creates the entirety of the experience,
+
+25:29.480 --> 25:32.880
+ not just the reasoning capability, but the experience.
+
+25:32.880 --> 25:37.880
+ Well, I definitely resonate with that latter thought.
+
+25:38.920 --> 25:43.920
+ And I often find discussions of artificial intelligence
+
+25:45.280 --> 25:49.120
+ to be disappointingly narrow.
+
+25:50.720 --> 25:55.720
+ Speaking as someone who has always had an interest in art.
+
+25:55.720 --> 25:56.560
+ Right.
+
+25:56.560 --> 25:57.400
+ I was just gonna go there
+
+25:57.400 --> 26:00.200
+ because it sounds like somebody who has an interest in art.
+
+26:00.200 --> 26:04.000
+ Yeah, I mean, there are many layers
+
+26:04.000 --> 26:08.200
+ to full bore human experience.
+
+26:08.200 --> 26:12.040
+ And in some ways it's not enough to say,
+
+26:12.040 --> 26:15.020
+ oh, well, don't worry, we're talking about cognition,
+
+26:15.020 --> 26:17.240
+ but we'll add emotion, you know?
+
+26:17.240 --> 26:21.200
+ There's an incredible scope
+
+26:21.200 --> 26:25.280
+ to what humans go through in every moment.
+
+26:25.280 --> 26:30.280
+ And yes, so that's part of what fascinates me,
+
+26:33.320 --> 26:37.320
+ is that our brains are producing that.
+
+26:40.040 --> 26:43.040
+ But at the same time, it's so mysterious to us.
+
+26:43.040 --> 26:43.880
+ How?
+
+26:46.240 --> 26:49.120
+ Our brains are literally in our heads
+
+26:49.120 --> 26:50.600
+ producing this experience.
+
+26:50.600 --> 26:52.120
+ Producing the experience.
+
+26:52.120 --> 26:55.100
+ And yet it's so mysterious to us.
+
+26:55.100 --> 26:57.000
+ And so, and the scientific challenge
+
+26:57.000 --> 27:00.880
+ of getting at the actual explanation for that
+
+27:00.880 --> 27:03.360
+ is so overwhelming.
+
+27:03.360 --> 27:05.600
+ That's just, I don't know.
+
+27:05.600 --> 27:08.440
+ Certain people have fixations on particular questions
+
+27:08.440 --> 27:11.680
+ and that's always, that's just always been mine.
+
+27:11.680 --> 27:14.020
+ Yeah, I would say the poetry of that is fascinating.
+
+27:14.020 --> 27:16.740
+ And I'm really interested in natural language as well.
+
+27:16.740 --> 27:19.440
+ And when you look at artificial intelligence community,
+
+27:19.440 --> 27:23.880
+ it always saddens me how much
+
+27:23.880 --> 27:25.720
+ when you try to create a benchmark
+
+27:25.720 --> 27:28.200
+ for the community to gather around,
+
+27:28.200 --> 27:30.920
+ how much of the magic of language is lost
+
+27:30.920 --> 27:33.240
+ when you create that benchmark.
+
+27:33.240 --> 27:35.920
+ That there's something, we talk about experience,
+
+27:35.920 --> 27:38.600
+ the music of the language, the wit,
+
+27:38.600 --> 27:41.080
+ the something that makes a rich experience,
+
+27:41.080 --> 27:43.800
+ something that would be required to pass
+
+27:43.800 --> 27:47.660
+ the spirit of the Turing test is lost in these benchmarks.
+
+27:47.660 --> 27:50.240
+ And I wonder how to get it back in
+
+27:50.240 --> 27:51.920
+ because it's very difficult.
+
+27:51.920 --> 27:55.160
+ The moment you try to do like real good rigorous science,
+
+27:55.160 --> 27:56.960
+ you lose some of that magic.
+
+27:56.960 --> 28:00.160
+ When you try to study cognition
+
+28:00.160 --> 28:01.560
+ in a rigorous scientific way,
+
+28:01.560 --> 28:03.800
+ it feels like you're losing some of the magic.
+
+28:03.800 --> 28:07.520
+ The seeing cognition in a mechanistic way
+
+28:07.520 --> 28:10.060
+ that AI folk at this stage in our history.
+
+28:10.060 --> 28:13.040
+ Well, I agree with you, but at the same time,
+
+28:13.040 --> 28:18.040
+ one thing that I found really exciting
+
+28:18.040 --> 28:22.960
+ about that first wave of deep learning models in cognition
+
+28:22.960 --> 28:27.960
+ was the fact that the people who were building these models
+
+28:29.640 --> 28:32.960
+ were focused on the richness and complexity
+
+28:32.960 --> 28:34.800
+ of human cognition.
+
+28:34.800 --> 28:39.800
+ So an early debate in cognitive science,
+
+28:40.080 --> 28:41.820
+ which I sort of witnessed as a grad student
+
+28:41.820 --> 28:44.200
+ was about something that sounds very dry,
+
+28:44.200 --> 28:47.180
+ which is the formation of the past tense.
+
+28:47.180 --> 28:49.200
+ But there were these two camps.
+
+28:49.200 --> 28:54.200
+ One said, well, the mind encodes certain rules
+
+28:54.400 --> 28:57.900
+ and it also has a list of exceptions
+
+28:57.900 --> 29:00.380
+ because of course, the rule is add ED,
+
+29:00.380 --> 29:01.820
+ but that's not always what you do.
+
+29:01.820 --> 29:03.720
+ So you have to have a list of exceptions.
+
+29:05.000 --> 29:06.960
+ And then there were the connectionists
+
+29:06.960 --> 29:10.700
+ who evolved into the deep learning people who said,
+
+29:10.700 --> 29:13.820
+ well, if you look carefully at the data,
+
+29:13.820 --> 29:18.280
+ if you actually look at corpora, like language corpora,
+
+29:18.280 --> 29:20.080
+ it turns out to be very rich
+
+29:20.080 --> 29:25.080
+ because yes, there are most verbs
+
+29:25.080 --> 29:28.640
+ that you just tack on ED, and then there are exceptions,
+
+29:28.640 --> 29:33.640
+ but there are rules that the exceptions aren't just random.
+
+29:36.040 --> 29:39.560
+ There are certain clues to which verbs
+
+29:39.560 --> 29:41.040
+ should be exceptional.
+
+29:41.040 --> 29:44.120
+ And then there are exceptions to the exceptions.
+
+29:44.120 --> 29:47.760
+ And there was a word that was kind of deployed
+
+29:47.760 --> 29:51.760
+ in order to capture this, which was quasi regular.
+
+29:51.760 --> 29:54.740
+ In other words, there are rules, but it's messy.
+
+29:54.740 --> 29:58.760
+ And there's either structure even among the exceptions.
+
+29:58.760 --> 30:01.280
+ And it would be, yeah, you could try to write down,
+
+30:01.280 --> 30:03.820
+ we could try to write down the structure
+
+30:03.820 --> 30:04.840
+ in some sort of closed form,
+
+30:04.840 --> 30:07.560
+ but really the right way to understand
+
+30:07.560 --> 30:09.080
+ how the brain is handling all this,
+
+30:09.080 --> 30:11.440
+ and by the way, producing all of this,
+
+30:11.440 --> 30:14.000
+ is to build a deep neural network
+
+30:14.000 --> 30:15.200
+ and train it on this data
+
+30:15.200 --> 30:18.520
+ and see how it ends up representing all of this richness.
+
+30:18.520 --> 30:21.420
+ So the way that deep learning
+
+30:21.420 --> 30:23.720
+ was deployed in cognitive psychology
+
+30:23.720 --> 30:25.960
+ was that was the spirit of it.
+
+30:25.960 --> 30:28.080
+ It was about that richness.
+
+30:29.560 --> 30:31.960
+ And that's something that I always found very compelling,
+
+30:31.960 --> 30:33.160
+ still do.
+
+30:33.160 --> 30:36.200
+ Is there something especially interesting
+
+30:36.200 --> 30:37.520
+ and profound to you
+
+30:37.520 --> 30:40.480
+ in terms of our current deep learning neural network,
+
+30:40.480 --> 30:42.640
+ artificial neural network approaches,
+
+30:42.640 --> 30:46.300
+ and whatever we do understand
+
+30:46.300 --> 30:49.000
+ about the biological neural networks in our brain?
+
+30:49.000 --> 30:52.440
+ Is there, there's quite a few differences.
+
+30:52.440 --> 30:54.680
+ Are some of them to you,
+
+30:54.680 --> 30:58.040
+ either interesting or perhaps profound
+
+30:58.040 --> 31:03.040
+ in terms of the gap we might want to try to close
+
+31:03.040 --> 31:07.560
+ in trying to create a human level intelligence?
+
+31:07.560 --> 31:08.840
+ What I would say here is something
+
+31:08.840 --> 31:10.720
+ that a lot of people are saying,
+
+31:10.720 --> 31:15.720
+ which is that one seeming limitation
+
+31:16.580 --> 31:18.960
+ of the systems that we're building now
+
+31:18.960 --> 31:21.860
+ is that they lack the kind of flexibility,
+
+31:22.900 --> 31:25.960
+ the readiness to sort of turn on a dime
+
+31:25.960 --> 31:28.200
+ when the context calls for it
+
+31:28.200 --> 31:32.200
+ that is so characteristic of human behavior.
+
+31:32.200 --> 31:34.920
+ So is that connected to you to the,
+
+31:34.920 --> 31:37.720
+ like which aspect of the neural networks in our brain
+
+31:37.720 --> 31:39.160
+ is that connected to?
+
+31:39.160 --> 31:42.660
+ Is that closer to the cognitive science level of,
+
+31:45.080 --> 31:47.320
+ now again, see like my natural inclination
+
+31:47.320 --> 31:51.640
+ is to separate into three disciplines of neuroscience,
+
+31:51.640 --> 31:54.280
+ cognitive science and psychology.
+
+31:54.280 --> 31:56.380
+ And you've already kind of shut that down
+
+31:56.380 --> 31:58.360
+ by saying you're kind of see them as separate,
+
+31:58.360 --> 32:01.500
+ but just to look at those layers,
+
+32:01.500 --> 32:05.320
+ I guess where is there something about the lowest layer
+
+32:05.320 --> 32:09.160
+ of the way the neural neurons interact
+
+32:09.160 --> 32:13.320
+ that is profound to you in terms of this difference
+
+32:13.320 --> 32:15.480
+ to the artificial neural networks,
+
+32:15.480 --> 32:17.220
+ or is all the key differences
+
+32:17.220 --> 32:19.240
+ at a higher level of abstraction?
+
+32:20.720 --> 32:22.720
+ One thing I often think about is that,
+
+32:24.440 --> 32:27.140
+ if you take an introductory computer science course
+
+32:27.140 --> 32:29.600
+ and they are introducing you to the notion
+
+32:29.600 --> 32:31.480
+ of Turing machines,
+
+32:31.480 --> 32:36.000
+ one way of articulating
+
+32:36.000 --> 32:39.320
+ what the significance of a Turing machine is,
+
+32:39.320 --> 32:41.620
+ is that it's a machine emulator.
+
+32:42.760 --> 32:45.320
+ It can emulate any other machine.
+
+32:47.540 --> 32:50.480
+ And that to me,
+
+32:52.960 --> 32:54.920
+ that way of looking at a Turing machine
+
+32:56.200 --> 32:57.640
+ really sticks with me.
+
+32:57.640 --> 33:01.960
+ I think of humans as maybe sharing
+
+33:01.960 --> 33:05.000
+ in some of that character.
+
+33:05.000 --> 33:06.160
+ We're capacity limited,
+
+33:06.160 --> 33:07.540
+ we're not Turing machines obviously,
+
+33:07.540 --> 33:11.040
+ but we have the ability to adapt behaviors
+
+33:11.040 --> 33:15.420
+ that are very much unlike anything we've done before,
+
+33:15.420 --> 33:17.720
+ but there's some basic mechanism
+
+33:17.720 --> 33:18.960
+ that's implemented in our brain
+
+33:18.960 --> 33:22.400
+ that allows us to run software.
+
+33:22.400 --> 33:24.600
+ But just on that point, you mentioned Turing machine,
+
+33:24.600 --> 33:26.840
+ but nevertheless, it's fundamentally
+
+33:26.840 --> 33:29.720
+ our brains are just computational devices in your view.
+
+33:29.720 --> 33:31.160
+ Is that what you're getting at?
+
+33:31.160 --> 33:35.680
+ It was a little bit unclear to this line you drew.
+
+33:35.680 --> 33:37.800
+ Is there any magic in there
+
+33:37.800 --> 33:40.720
+ or is it just basic computation?
+
+33:40.720 --> 33:43.320
+ I'm happy to think of it as just basic computation,
+
+33:43.320 --> 33:46.120
+ but mind you, I won't be satisfied
+
+33:46.120 --> 33:48.280
+ until somebody explains to me
+
+33:48.280 --> 33:49.840
+ what the basic computations are
+
+33:49.840 --> 33:53.760
+ that are leading to the full richness of human cognition.
+
+33:54.760 --> 33:56.680
+ It's not gonna be enough for me
+
+33:56.680 --> 33:58.880
+ to understand what the computations are
+
+33:58.880 --> 34:02.160
+ that allow people to do arithmetic or play chess.
+
+34:02.160 --> 34:06.360
+ I want the whole thing.
+
+34:06.360 --> 34:07.780
+ And a small tangent,
+
+34:07.780 --> 34:10.480
+ because you kind of mentioned coronavirus,
+
+34:10.480 --> 34:12.400
+ there's group behavior.
+
+34:12.400 --> 34:13.480
+ Oh, sure.
+
+34:13.480 --> 34:14.960
+ Is there something interesting
+
+34:14.960 --> 34:17.680
+ to your search of understanding the human mind
+
+34:18.720 --> 34:21.520
+ where behavior of large groups
+
+34:21.520 --> 34:24.240
+ or just behavior of groups is interesting,
+
+34:24.240 --> 34:25.640
+ seeing that as a collective mind,
+
+34:25.640 --> 34:27.120
+ as a collective intelligence,
+
+34:27.120 --> 34:28.880
+ perhaps seeing the groups of people
+
+34:28.880 --> 34:31.080
+ as a single intelligent organisms,
+
+34:31.080 --> 34:34.200
+ especially looking at the reinforcement learning work
+
+34:34.200 --> 34:35.600
+ you've done recently.
+
+34:35.600 --> 34:36.920
+ Well, yeah, I can't.
+
+34:36.920 --> 34:41.760
+ I mean, I have the honor of working
+
+34:41.760 --> 34:43.640
+ with a lot of incredibly smart people
+
+34:43.640 --> 34:45.480
+ and I wouldn't wanna take any credit
+
+34:45.480 --> 34:48.820
+ for leading the way on the multiagent work
+
+34:48.820 --> 34:51.360
+ that's come out of my group or DeepMind lately,
+
+34:51.360 --> 34:53.840
+ but I do find it fascinating.
+
+34:53.840 --> 34:58.840
+ And I mean, I think it can't be debated.
+
+35:00.760 --> 35:05.760
+ You know, human behavior arises within communities.
+
+35:06.000 --> 35:08.960
+ That just seems to me self evident.
+
+35:08.960 --> 35:11.400
+ But to me, it is self evident,
+
+35:11.400 --> 35:14.720
+ but that seems to be a profound aspects
+
+35:14.720 --> 35:16.040
+ of something that created.
+
+35:16.040 --> 35:19.160
+ That was like, if you look at like 2001 Space Odyssey
+
+35:19.160 --> 35:21.360
+ when the monkeys touched the...
+
+35:21.360 --> 35:22.200
+ Yeah.
+
+35:22.200 --> 35:25.320
+ That's the magical moment I think Yuval Harari argues
+
+35:25.320 --> 35:29.400
+ that the ability of our large numbers of humans
+
+35:29.400 --> 35:31.880
+ to hold an idea, to converge towards idea together,
+
+35:31.880 --> 35:34.360
+ like you said, shaking hands versus bumping elbows,
+
+35:34.360 --> 35:39.360
+ somehow converge without being in a room altogether,
+
+35:40.880 --> 35:43.380
+ just kind of this like distributed convergence
+
+35:43.380 --> 35:46.720
+ towards an idea over a particular period of time
+
+35:46.720 --> 35:51.520
+ seems to be fundamental to just every aspect
+
+35:51.520 --> 35:53.400
+ of our cognition, of our intelligence,
+
+35:53.400 --> 35:56.720
+ because humans, I will talk about reward,
+
+35:56.720 --> 35:58.720
+ but it seems like we don't really have
+
+35:58.720 --> 36:01.320
+ a clear objective function under which we operate,
+
+36:01.320 --> 36:04.160
+ but we all kind of converge towards one somehow.
+
+36:04.160 --> 36:06.740
+ And that to me has always been a mystery
+
+36:07.600 --> 36:09.840
+ that I think is somehow productive
+
+36:09.840 --> 36:13.620
+ for also understanding AI systems.
+
+36:13.620 --> 36:16.520
+ But I guess that's the next step.
+
+36:16.520 --> 36:18.780
+ The first step is try to understand the mind.
+
+36:18.780 --> 36:19.700
+ Well, I don't know.
+
+36:19.700 --> 36:22.520
+ I mean, I think there's something to the argument
+
+36:22.520 --> 36:27.520
+ that that kind of like strictly bottom up approach
+
+36:27.520 --> 36:29.920
+ is wrongheaded.
+
+36:29.920 --> 36:33.920
+ In other words, there are basic phenomena,
+
+36:34.880 --> 36:36.860
+ basic aspects of human intelligence
+
+36:36.860 --> 36:41.860
+ that can only be understood in the context of groups.
+
+36:43.280 --> 36:44.680
+ I'm perfectly open to that.
+
+36:44.680 --> 36:48.680
+ I've never been particularly convinced by the notion
+
+36:48.680 --> 36:52.360
+ that we should consider intelligence
+
+36:52.360 --> 36:55.600
+ to inhere at the level of communities.
+
+36:55.600 --> 36:58.720
+ I don't know why, I'm sort of stuck on the notion
+
+36:58.720 --> 37:01.380
+ that the basic unit that we want to understand
+
+37:01.380 --> 37:02.720
+ is individual humans.
+
+37:02.720 --> 37:05.880
+ And if we have to understand that
+
+37:05.880 --> 37:07.680
+ in the context of other humans, fine.
+
+37:08.560 --> 37:11.320
+ But for me, intelligence is just,
+
+37:11.320 --> 37:14.640
+ I stubbornly define it as something
+
+37:14.640 --> 37:18.800
+ that is an aspect of an individual human.
+
+37:18.800 --> 37:20.200
+ That's just my, I don't know if that's a matter of taste.
+
+37:20.200 --> 37:22.880
+ I'm with you, but that could be the reductionist dream
+
+37:22.880 --> 37:26.400
+ of a scientist because you can understand a single human.
+
+37:26.400 --> 37:30.760
+ It also is very possible that intelligence can only arise
+
+37:30.760 --> 37:33.040
+ when there's multiple intelligences.
+
+37:33.040 --> 37:37.480
+ When there's multiple sort of, it's a sad thing,
+
+37:37.480 --> 37:39.880
+ if that's true, because it's very difficult to study.
+
+37:39.880 --> 37:42.440
+ But if it's just one human,
+
+37:42.440 --> 37:44.880
+ that one human would not be homosapien,
+
+37:44.880 --> 37:46.520
+ would not become that intelligent.
+
+37:46.520 --> 37:48.500
+ That's a possibility.
+
+37:48.500 --> 37:50.040
+ I'm with you.
+
+37:50.040 --> 37:52.800
+ One thing I will say along these lines
+
+37:52.800 --> 37:57.800
+ is that I think a serious effort
+
+38:01.280 --> 38:03.440
+ to understand human intelligence
+
+38:05.600 --> 38:09.680
+ and maybe to build humanlike intelligence
+
+38:09.680 --> 38:11.840
+ needs to pay just as much attention
+
+38:11.840 --> 38:14.000
+ to the structure of the environment
+
+38:14.000 --> 38:17.000
+ as to the structure of the cognizing system,
+
+38:20.040 --> 38:22.180
+ whether it's a brain or an AI system.
+
+38:23.260 --> 38:24.640
+ That's one thing I took away actually
+
+38:24.640 --> 38:27.920
+ from my early studies with the pioneers
+
+38:27.920 --> 38:29.900
+ of neural network research,
+
+38:29.900 --> 38:32.240
+ people like Jay McClelland and John Cohen.
+
+38:34.080 --> 38:38.600
+ The structure of cognition is really,
+
+38:38.600 --> 38:43.600
+ it's only partly a function of the architecture of the brain
+
+38:44.480 --> 38:46.980
+ and the learning algorithms that it implements.
+
+38:46.980 --> 38:51.520
+ What really shapes it is the interaction of those things
+
+38:51.520 --> 38:54.460
+ with the structure of the world
+
+38:54.460 --> 38:56.680
+ in which those things are embedded.
+
+38:56.680 --> 38:58.280
+ And that's especially important for,
+
+38:58.280 --> 39:00.880
+ that's made most clear in reinforcement learning
+
+39:00.880 --> 39:03.720
+ where the simulated environment is,
+
+39:03.720 --> 39:05.800
+ you can only learn as much as you can simulate.
+
+39:05.800 --> 39:09.360
+ And that's what DeepMind made very clear
+
+39:09.360 --> 39:11.080
+ with the other aspect of the environment,
+
+39:11.080 --> 39:15.600
+ which is the self play mechanism of the other agent,
+
+39:15.600 --> 39:16.840
+ of the competitive behavior,
+
+39:16.840 --> 39:20.000
+ which the other agent becomes the environment essentially.
+
+39:20.000 --> 39:24.080
+ And that's, I mean, one of the most exciting ideas in AI
+
+39:24.080 --> 39:27.960
+ is the self play mechanism that's able to learn successfully.
+
+39:27.960 --> 39:28.800
+ So there you go.
+
+39:28.800 --> 39:31.600
+ There's a thing where competition is essential
+
+39:31.600 --> 39:35.040
+ for learning, at least in that context.
+
+39:35.040 --> 39:37.960
+ So if we can step back into another sort of beautiful world,
+
+39:37.960 --> 39:42.040
+ which is the actual mechanics,
+
+39:42.040 --> 39:44.680
+ the dirty mess of it of the human brain,
+
+39:44.680 --> 39:48.520
+ is there something for people who might not know?
+
+39:49.440 --> 39:51.120
+ Is there something you can comment on
+
+39:51.120 --> 39:53.960
+ or describe the key parts of the brain
+
+39:53.960 --> 39:56.840
+ that are important for intelligence or just in general,
+
+39:56.840 --> 39:58.620
+ what are the different parts of the brain
+
+39:58.620 --> 40:01.120
+ that you're curious about that you've studied
+
+40:01.120 --> 40:03.880
+ and that are just good to know about
+
+40:03.880 --> 40:06.240
+ when you're thinking about cognition?
+
+40:06.240 --> 40:11.200
+ Well, my area of expertise, if I have one,
+
+40:11.200 --> 40:14.200
+ is prefrontal cortex.
+
+40:14.200 --> 40:16.560
+ So, you know. What's that?
+
+40:16.560 --> 40:18.200
+ Where do we?
+
+40:18.200 --> 40:19.520
+ It depends on who you ask.
+
+40:21.520 --> 40:25.640
+ The technical definition is anatomical.
+
+40:25.640 --> 40:30.640
+ There are parts of your brain
+
+40:30.680 --> 40:32.480
+ that are responsible for motor behavior
+
+40:32.480 --> 40:34.620
+ and they're very easy to identify.
+
+40:35.740 --> 40:40.740
+ And the region of your cerebral cortex,
+
+40:40.760 --> 40:43.960
+ the sort of outer crust of your brain
+
+40:43.960 --> 40:46.440
+ that lies in front of those
+
+40:46.440 --> 40:49.360
+ is defined as the prefrontal cortex.
+
+40:49.360 --> 40:51.960
+ And when you say anatomical, sorry to interrupt,
+
+40:51.960 --> 40:56.960
+ so that's referring to sort of the geographic region
+
+40:57.160 --> 41:00.160
+ as opposed to some kind of functional definition.
+
+41:00.160 --> 41:04.400
+ Exactly, so this is kind of the coward's way out.
+
+41:04.400 --> 41:06.000
+ I'm telling you what the prefrontal cortex is
+
+41:06.000 --> 41:09.640
+ just in terms of what part of the real estate it occupies.
+
+41:09.640 --> 41:10.720
+ It's the thing in the front of the brain.
+
+41:10.720 --> 41:11.680
+ Yeah, exactly.
+
+41:11.680 --> 41:14.960
+ And in fact, the early history
+
+41:14.960 --> 41:19.960
+ of neuroscientific investigation
+
+41:20.840 --> 41:23.480
+ of what this front part of the brain does
+
+41:23.480 --> 41:25.760
+ is sort of funny to read
+
+41:25.760 --> 41:30.760
+ because it was really World War I
+
+41:32.280 --> 41:34.580
+ that started people down this road
+
+41:34.580 --> 41:37.280
+ of trying to figure out what different parts of the brain,
+
+41:37.280 --> 41:39.440
+ the human brain do in the sense
+
+41:39.440 --> 41:42.560
+ that there were a lot of people with brain damage
+
+41:42.560 --> 41:44.800
+ who came back from the war with brain damage.
+
+41:44.800 --> 41:47.740
+ And that provided, as tragic as that was,
+
+41:47.740 --> 41:49.900
+ it provided an opportunity for scientists
+
+41:49.900 --> 41:53.440
+ to try to identify the functions of different brain regions.
+
+41:53.440 --> 41:56.200
+ And that was actually incredibly productive,
+
+41:56.200 --> 41:59.480
+ but one of the frustrations that neuropsychologists faced
+
+41:59.480 --> 42:02.160
+ was they couldn't really identify exactly
+
+42:02.160 --> 42:05.040
+ what the deficit was that arose from damage
+
+42:05.040 --> 42:08.440
+ to these most kind of frontal parts of the brain.
+
+42:08.440 --> 42:13.440
+ It was just a very difficult thing to pin down.
+
+42:13.680 --> 42:16.080
+ There were a couple of neuropsychologists
+
+42:16.080 --> 42:20.600
+ who identified through a large amount
+
+42:20.600 --> 42:23.000
+ of clinical experience and close observation,
+
+42:23.000 --> 42:26.240
+ they started to put their finger on a syndrome
+
+42:26.240 --> 42:27.680
+ that was associated with frontal damage.
+
+42:27.680 --> 42:30.480
+ Actually, one of them was a Russian neuropsychologist
+
+42:30.480 --> 42:35.120
+ named Luria, who students of cognitive psychology still read.
+
+42:36.160 --> 42:41.160
+ And what he started to figure out was that
+
+42:41.360 --> 42:45.600
+ the frontal cortex was somehow involved in flexibility,
+
+42:48.060 --> 42:52.320
+ in guiding behaviors that required someone
+
+42:52.320 --> 42:57.320
+ to override a habit, or to do something unusual,
+
+42:57.600 --> 43:01.040
+ or to change what they were doing in a very flexible way
+
+43:01.040 --> 43:02.560
+ from one moment to another.
+
+43:02.560 --> 43:05.080
+ So focused on like new experiences.
+
+43:05.080 --> 43:08.800
+ And so the way your brain processes
+
+43:08.800 --> 43:10.960
+ and acts in new experiences.
+
+43:10.960 --> 43:14.760
+ Yeah, what later helped bring this function
+
+43:14.760 --> 43:17.240
+ into better focus was a distinction
+
+43:17.240 --> 43:19.880
+ between controlled and automatic behavior,
+
+43:19.880 --> 43:23.680
+ or in other literatures, this is referred to
+
+43:23.680 --> 43:28.280
+ as habitual behavior versus goal directed behavior.
+
+43:28.280 --> 43:33.280
+ So it's very, very clear that the human brain
+
+43:33.440 --> 43:36.600
+ has pathways that are dedicated to habits,
+
+43:36.600 --> 43:39.360
+ to things that you do all the time,
+
+43:39.360 --> 43:42.440
+ and they need to be automatized
+
+43:42.440 --> 43:45.140
+ so that they don't require you to concentrate too much.
+
+43:45.140 --> 43:47.840
+ So that leaves your cognitive capacity
+
+43:47.840 --> 43:49.800
+ free to do other things.
+
+43:49.800 --> 43:51.640
+ Just think about the difference
+
+43:51.640 --> 43:55.960
+ between driving when you're learning to drive
+
+43:55.960 --> 43:59.160
+ versus driving after you're a fairly expert.
+
+43:59.160 --> 44:03.560
+ There are brain pathways that slowly absorb
+
+44:03.560 --> 44:07.840
+ those frequently performed behaviors
+
+44:07.840 --> 44:12.360
+ so that they can be habits, so that they can be automatic.
+
+44:12.360 --> 44:14.900
+ That's kind of like the purest form of learning.
+
+44:14.900 --> 44:18.360
+ I guess it's happening there, which is why,
+
+44:18.360 --> 44:20.000
+ I mean, this is kind of jumping ahead,
+
+44:20.000 --> 44:22.480
+ which is why that perhaps is the most useful for us
+
+44:22.480 --> 44:24.080
+ to focusing on and trying to see
+
+44:24.080 --> 44:27.340
+ how artificial intelligence systems can learn.
+
+44:27.340 --> 44:28.180
+ Is that the way you think?
+
+44:28.180 --> 44:29.000
+ It's interesting.
+
+44:29.000 --> 44:30.040
+ I do think about this distinction
+
+44:30.040 --> 44:31.440
+ between controlled and automatic,
+
+44:31.440 --> 44:34.600
+ or goal directed and habitual behavior a lot
+
+44:34.600 --> 44:38.640
+ in thinking about where we are in AI research.
+
+44:42.960 --> 44:46.480
+ But just to finish the kind of dissertation here,
+
+44:46.480 --> 44:51.380
+ the role of the prefrontal cortex
+
+44:51.380 --> 44:54.600
+ is generally understood these days
+
+44:54.600 --> 44:59.600
+ sort of in contradistinction to that habitual domain.
+
+45:00.440 --> 45:02.320
+ In other words, the prefrontal cortex
+
+45:02.320 --> 45:05.840
+ is what helps you override those habits.
+
+45:05.840 --> 45:07.440
+ It's what allows you to say,
+
+45:07.440 --> 45:10.800
+ well, what I usually do in this situation is X,
+
+45:10.800 --> 45:14.160
+ but given the context, I probably should do Y.
+
+45:14.160 --> 45:18.080
+ I mean, the elbow bump is a great example, right?
+
+45:18.080 --> 45:19.300
+ Reaching out and shaking hands
+
+45:19.300 --> 45:22.520
+ is probably a habitual behavior,
+
+45:22.520 --> 45:26.000
+ and it's the prefrontal cortex that allows us
+
+45:26.000 --> 45:28.760
+ to bear in mind that there's something unusual
+
+45:28.760 --> 45:31.360
+ going on right now, and in this situation,
+
+45:31.360 --> 45:33.480
+ I need to not do the usual thing.
+
+45:34.720 --> 45:38.560
+ The kind of behaviors that Luria reported,
+
+45:38.560 --> 45:42.040
+ and he built tests for detecting these kinds of things,
+
+45:42.040 --> 45:43.460
+ were exactly like this.
+
+45:43.460 --> 45:46.680
+ So in other words, when I stick out my hand,
+
+45:47.540 --> 45:49.760
+ I want you instead to present your elbow.
+
+45:49.760 --> 45:51.080
+ A patient with frontal damage
+
+45:51.080 --> 45:53.520
+ would have a great deal of trouble with that.
+
+45:53.520 --> 45:57.760
+ Somebody proffering their hand would elicit a handshake.
+
+45:58.800 --> 46:00.920
+ The prefrontal cortex is what allows us to say,
+
+46:00.920 --> 46:03.840
+ hold on, hold on, that's the usual thing,
+
+46:03.840 --> 46:07.120
+ but I have the ability to bear in mind
+
+46:07.120 --> 46:10.520
+ even very unusual contexts and to reason about
+
+46:10.520 --> 46:13.240
+ what behavior is appropriate there.
+
+46:13.240 --> 46:17.560
+ Just to get a sense, are us humans special
+
+46:17.560 --> 46:20.680
+ in the presence of the prefrontal cortex?
+
+46:20.680 --> 46:22.640
+ Do mice have a prefrontal cortex?
+
+46:22.640 --> 46:25.900
+ Do other mammals that we can study?
+
+46:25.900 --> 46:30.040
+ If no, then how do they integrate new experiences?
+
+46:30.040 --> 46:33.760
+ Yeah, that's a really tricky question
+
+46:33.760 --> 46:35.840
+ and a very timely question
+
+46:35.840 --> 46:42.840
+ because we have revolutionary new technologies
+
+46:44.040 --> 46:48.280
+ for monitoring, measuring,
+
+46:48.280 --> 46:52.040
+ and also causally influencing neural behavior
+
+46:52.040 --> 46:57.000
+ in mice and fruit flies.
+
+46:57.000 --> 47:00.640
+ And these techniques are not fully available
+
+47:00.640 --> 47:05.640
+ even for studying brain function in monkeys,
+
+47:06.080 --> 47:07.280
+ let alone humans.
+
+47:08.160 --> 47:12.920
+ And so it's a very sort of, for me at least,
+
+47:12.920 --> 47:16.160
+ a very urgent question whether the kinds of things
+
+47:16.160 --> 47:18.000
+ that we wanna understand about human intelligence
+
+47:18.000 --> 47:22.000
+ can be pursued in these other organisms.
+
+47:22.000 --> 47:26.500
+ And to put it briefly, there's disagreement.
+
+47:26.500 --> 47:31.500
+ People who study fruit flies will often tell you,
+
+47:32.960 --> 47:35.520
+ hey, fruit flies are smarter than you think.
+
+47:35.520 --> 47:37.600
+ And they'll point to experiments where fruit flies
+
+47:37.600 --> 47:40.320
+ were able to learn new behaviors,
+
+47:40.320 --> 47:44.180
+ were able to generalize from one stimulus to another
+
+47:44.180 --> 47:47.500
+ in a way that suggests that they have abstractions
+
+47:47.500 --> 47:49.340
+ that guide their generalization.
+
+47:51.880 --> 47:53.840
+ I've had many conversations in which
+
+47:53.840 --> 47:56.520
+ I will start by observing,
+
+47:58.160 --> 48:03.160
+ recounting some observation about mouse behavior
+
+48:05.200 --> 48:09.060
+ where it seemed like mice were taking an awfully long time
+
+48:09.060 --> 48:13.660
+ to learn a task that for a human would be profoundly trivial.
+
+48:13.660 --> 48:16.460
+ And I will conclude from that,
+
+48:16.460 --> 48:18.800
+ that mice really don't have the cognitive flexibility
+
+48:18.800 --> 48:20.100
+ that we want to explain.
+
+48:20.100 --> 48:21.760
+ And then a mouse researcher will say to me,
+
+48:21.760 --> 48:26.360
+ well, hold on, that experiment may not have worked
+
+48:26.360 --> 48:31.280
+ because you asked a mouse to deal with stimuli
+
+48:31.280 --> 48:34.300
+ and behaviors that were very unnatural for the mouse.
+
+48:34.300 --> 48:38.760
+ If instead you kept the logic of the experiment the same,
+
+48:38.760 --> 48:43.760
+ but presented the information in a way
+
+48:44.440 --> 48:46.880
+ that aligns with what mice are used to dealing with
+
+48:46.880 --> 48:48.480
+ in their natural habitats,
+
+48:48.480 --> 48:51.080
+ you might find that a mouse actually has more intelligence
+
+48:51.080 --> 48:52.440
+ than you think.
+
+48:52.440 --> 48:54.920
+ And then they'll go on to show you videos
+
+48:54.920 --> 48:57.440
+ of mice doing things in their natural habitat,
+
+48:57.440 --> 49:00.000
+ which seem strikingly intelligent,
+
+49:00.000 --> 49:02.920
+ dealing with physical problems.
+
+49:02.920 --> 49:07.180
+ I have to drag this piece of food back to my lair,
+
+49:07.180 --> 49:08.560
+ but there's something in my way
+
+49:08.560 --> 49:10.400
+ and how do I get rid of that thing?
+
+49:10.400 --> 49:13.160
+ So I think these are open questions
+
+49:13.160 --> 49:15.400
+ to put it, to sum that up.
+
+49:15.400 --> 49:18.520
+ And then taking a small step back related to that
+
+49:18.520 --> 49:21.440
+ is you kind of mentioned we're taking a little shortcut
+
+49:21.440 --> 49:26.440
+ by saying it's a geographic part of the prefrontal cortex
+
+49:26.600 --> 49:28.280
+ is a region of the brain.
+
+49:28.280 --> 49:33.280
+ But if we, what's your sense in a bigger philosophical view,
+
+49:33.720 --> 49:36.260
+ prefrontal cortex and the brain in general,
+
+49:36.260 --> 49:38.840
+ do you have a sense that it's a set of subsystems
+
+49:38.840 --> 49:41.180
+ in the way we've kind of implied
+
+49:41.180 --> 49:46.180
+ that are pretty distinct or to what degree is it that
+
+49:46.180 --> 49:49.460
+ or to what degree is it a giant interconnected mess
+
+49:49.460 --> 49:51.380
+ where everything kind of does everything
+
+49:51.380 --> 49:53.820
+ and it's impossible to disentangle them?
+
+49:54.920 --> 49:57.020
+ I think there's overwhelming evidence
+
+49:57.020 --> 50:00.060
+ that there's functional differentiation,
+
+50:00.060 --> 50:03.460
+ that it's clearly not the case
+
+50:03.460 --> 50:07.100
+ that all parts of the brain are doing the same thing.
+
+50:07.100 --> 50:11.100
+ This follows immediately from the kinds of studies
+
+50:11.100 --> 50:14.620
+ of brain damage that we were chatting about before.
+
+50:14.620 --> 50:18.060
+ It's obvious from what you see
+
+50:18.060 --> 50:19.620
+ if you stick an electrode in the brain
+
+50:19.620 --> 50:24.540
+ and measure what's going on at the level of neural activity.
+
+50:25.960 --> 50:30.680
+ Having said that, there are two other things to add,
+
+50:30.680 --> 50:32.740
+ which kind of, I don't know,
+
+50:32.740 --> 50:34.340
+ maybe tug in the other direction.
+
+50:34.340 --> 50:39.340
+ One is that it's when you look carefully
+
+50:39.740 --> 50:42.220
+ at functional differentiation in the brain,
+
+50:42.220 --> 50:44.900
+ what you usually end up concluding,
+
+50:44.900 --> 50:48.140
+ at least this is my observation of the literature,
+
+50:48.140 --> 50:52.780
+ is that the differences between regions are graded
+
+50:52.780 --> 50:55.180
+ rather than being discreet.
+
+50:55.180 --> 50:57.460
+ So it doesn't seem like it's easy
+
+50:57.460 --> 51:01.740
+ to divide the brain up into true modules
+
+51:03.300 --> 51:07.460
+ that have clear boundaries and that have
+
+51:07.460 --> 51:12.460
+ you know, clear channels of communication between them.
+
+51:16.020 --> 51:18.020
+ And this applies to the prefrontal cortex?
+
+51:18.020 --> 51:18.860
+ Yeah, oh yeah.
+
+51:18.860 --> 51:20.200
+ The prefrontal cortex is made up
+
+51:20.200 --> 51:22.080
+ of a bunch of different subregions,
+
+51:23.140 --> 51:27.380
+ the functions of which are not clearly defined
+
+51:27.380 --> 51:30.820
+ and the borders of which seem to be quite vague.
+
+51:32.300 --> 51:34.420
+ And then there's another thing that's popping up
+
+51:34.420 --> 51:37.400
+ in very recent research, which, you know, which,
+
+51:40.280 --> 51:43.640
+ involves application of these new techniques,
+
+51:44.940 --> 51:47.740
+ which there are a number of studies that suggest that
+
+51:48.820 --> 51:51.540
+ parts of the brain that we would have previously thought
+
+51:51.540 --> 51:56.540
+ were quite focused in their function
+
+51:57.740 --> 51:59.100
+ are actually carrying signals
+
+51:59.100 --> 52:01.340
+ that we wouldn't have thought would be there.
+
+52:01.340 --> 52:04.500
+ For example, looking in the primary visual cortex,
+
+52:04.500 --> 52:07.900
+ which is classically thought of as basically
+
+52:07.900 --> 52:09.380
+ the first cortical way station
+
+52:09.380 --> 52:10.900
+ for processing visual information.
+
+52:10.900 --> 52:12.980
+ Basically what it should care about is, you know,
+
+52:12.980 --> 52:15.840
+ where are the edges in this scene that I'm viewing?
+
+52:17.460 --> 52:19.460
+ It turns out that if you have enough data,
+
+52:19.460 --> 52:22.220
+ you can recover information from primary visual cortex
+
+52:22.220 --> 52:23.220
+ about all sorts of things.
+
+52:23.220 --> 52:26.180
+ Like, you know, what behavior the animal is engaged
+
+52:26.180 --> 52:29.340
+ in right now and how much reward is on offer
+
+52:29.340 --> 52:31.340
+ in the task that it's pursuing.
+
+52:31.340 --> 52:36.340
+ So it's clear that even regions whose function
+
+52:36.740 --> 52:40.540
+ is pretty well defined at a core screen
+
+52:40.540 --> 52:42.860
+ are nonetheless carrying some information
+
+52:42.860 --> 52:47.060
+ about information from very different domains.
+
+52:47.060 --> 52:49.780
+ So, you know, the history of neuroscience
+
+52:49.780 --> 52:52.660
+ is sort of this oscillation between the two views
+
+52:52.660 --> 52:55.460
+ that you articulated, you know, the kind of modular view
+
+52:55.460 --> 52:57.740
+ and then the big, you know, mush view.
+
+52:57.740 --> 53:01.580
+ And, you know, I think, I guess we're gonna end up
+
+53:01.580 --> 53:02.800
+ somewhere in the middle.
+
+53:02.800 --> 53:05.580
+ Which is unfortunate for our understanding
+
+53:05.580 --> 53:08.880
+ because there's something about our, you know,
+
+53:08.880 --> 53:11.380
+ conceptual system that finds it's easy to think about
+
+53:11.380 --> 53:13.680
+ a modularized system and easy to think about
+
+53:13.680 --> 53:15.500
+ a completely undifferentiated system.
+
+53:15.500 --> 53:19.980
+ But something that kind of lies in between is confusing.
+
+53:19.980 --> 53:21.860
+ But we're gonna have to get used to it, I think.
+
+53:21.860 --> 53:24.660
+ Unless we can understand deeply the lower level mechanism
+
+53:24.660 --> 53:25.860
+ of neuronal communication.
+
+53:25.860 --> 53:26.760
+ Yeah, yeah.
+
+53:26.760 --> 53:29.660
+ But on that topic, you kind of mentioned information.
+
+53:29.660 --> 53:31.860
+ Just to get a sense, I imagine something
+
+53:31.860 --> 53:34.620
+ that there's still mystery and disagreement on
+
+53:34.620 --> 53:38.060
+ is how does the brain carry information and signal?
+
+53:38.060 --> 53:43.060
+ Like what in your sense is the basic mechanism
+
+53:43.380 --> 53:46.420
+ of communication in the brain?
+
+53:46.420 --> 53:51.420
+ Well, I guess I'm old fashioned in that I consider
+
+53:52.020 --> 53:54.340
+ the networks that we use in deep learning research
+
+53:54.340 --> 53:59.080
+ to be a reasonable approximation to, you know,
+
+53:59.080 --> 54:02.500
+ the mechanisms that carry information in the brain.
+
+54:02.500 --> 54:06.180
+ So the usual way of articulating that is to say,
+
+54:06.180 --> 54:08.540
+ what really matters is a rate code.
+
+54:08.540 --> 54:13.540
+ What matters is how quickly is an individual neuron spiking?
+
+54:14.580 --> 54:16.380
+ You know, what's the frequency at which it's spiking?
+
+54:16.380 --> 54:17.200
+ Is it right?
+
+54:17.200 --> 54:18.040
+ So the timing of the spike.
+
+54:18.040 --> 54:20.340
+ Yeah, is it firing fast or slow?
+
+54:20.340 --> 54:22.740
+ Let's, you know, let's put a number on that.
+
+54:22.740 --> 54:24.380
+ And that number is enough to capture
+
+54:24.380 --> 54:26.140
+ what neurons are doing.
+
+54:26.140 --> 54:30.620
+ There's, you know, there's still uncertainty
+
+54:30.620 --> 54:34.500
+ about whether that's an adequate description
+
+54:34.500 --> 54:39.500
+ of how information is transmitted within the brain.
+
+54:39.880 --> 54:42.820
+ There, you know, there are studies that suggest
+
+54:42.820 --> 54:46.060
+ that the precise timing of spikes matters.
+
+54:46.060 --> 54:50.660
+ There are studies that suggest that there are computations
+
+54:50.660 --> 54:54.520
+ that go on within the dendritic tree, within a neuron,
+
+54:54.520 --> 54:57.100
+ that are quite rich and structured
+
+54:57.100 --> 54:59.980
+ and that really don't equate to anything that we're doing
+
+54:59.980 --> 55:01.740
+ in our artificial neural networks.
+
+55:02.820 --> 55:05.360
+ Having said that, I feel like we can get,
+
+55:05.360 --> 55:08.260
+ I feel like we're getting somewhere
+
+55:08.260 --> 55:11.620
+ by sticking to this high level of abstraction.
+
+55:11.620 --> 55:13.380
+ Just the rate, and by the way,
+
+55:13.380 --> 55:16.220
+ we're talking about the electrical signal.
+
+55:16.220 --> 55:20.060
+ I remember reading some vague paper somewhere recently
+
+55:20.060 --> 55:23.420
+ where the mechanical signal, like the vibrations
+
+55:23.420 --> 55:28.420
+ or something of the neurons, also communicates information.
+
+55:28.820 --> 55:30.260
+ I haven't seen that, but.
+
+55:30.260 --> 55:32.100
+ There's somebody who was arguing
+
+55:32.100 --> 55:36.840
+ that the electrical signal, this is in a nature paper,
+
+55:36.840 --> 55:38.780
+ something like that, where the electrical signal
+
+55:38.780 --> 55:43.740
+ is actually a side effect of the mechanical signal.
+
+55:43.740 --> 55:46.100
+ But I don't think that changes the story.
+
+55:46.100 --> 55:49.060
+ But it's almost an interesting idea
+
+55:49.060 --> 55:52.420
+ that there could be a deeper, it's always like in physics
+
+55:52.420 --> 55:55.740
+ with quantum mechanics, there's always a deeper story
+
+55:55.740 --> 55:57.500
+ that could be underlying the whole thing.
+
+55:57.500 --> 56:00.540
+ But you think it's basically the rate of spiking
+
+56:00.540 --> 56:02.820
+ that gets us, that's like the lowest hanging fruit
+
+56:02.820 --> 56:04.060
+ that can get us really far.
+
+56:04.060 --> 56:06.580
+ This is a classical view.
+
+56:06.580 --> 56:10.700
+ I mean, this is not, the only way in which this stance
+
+56:10.700 --> 56:13.580
+ would be controversial is in the sense
+
+56:13.580 --> 56:17.100
+ that there are members of the neuroscience community
+
+56:17.100 --> 56:18.820
+ who are interested in alternatives.
+
+56:18.820 --> 56:21.400
+ But this is really a very mainstream view.
+
+56:21.400 --> 56:22.940
+ The way that neurons communicate
+
+56:22.940 --> 56:27.460
+ is that neurotransmitters arrive,
+
+56:30.180 --> 56:34.500
+ they wash up on a neuron, the neuron has receptors
+
+56:34.500 --> 56:39.040
+ for those transmitters, the meeting of the transmitter
+
+56:39.040 --> 56:42.340
+ with these receptors changes the voltage of the neuron.
+
+56:42.340 --> 56:46.860
+ And if enough voltage change occurs, then a spike occurs,
+
+56:46.860 --> 56:48.660
+ one of these like discrete events.
+
+56:48.660 --> 56:52.300
+ And it's that spike that is conducted down the axon
+
+56:52.300 --> 56:54.580
+ and leads to neurotransmitter release.
+
+56:54.580 --> 56:56.860
+ This is just like neuroscience 101.
+
+56:56.860 --> 56:59.300
+ This is like the way the brain is supposed to work.
+
+56:59.300 --> 57:03.660
+ Now, what we do when we build artificial neural networks
+
+57:03.660 --> 57:06.780
+ of the kind that are now popular in the AI community
+
+57:08.060 --> 57:11.780
+ is that we don't worry about those individual spikes.
+
+57:11.780 --> 57:14.220
+ We just worry about the frequency
+
+57:14.220 --> 57:16.980
+ at which those spikes are being generated.
+
+57:16.980 --> 57:21.980
+ And people talk about that as the activity of a neuron.
+
+57:22.340 --> 57:27.180
+ And so the activity of units in a deep learning system
+
+57:27.180 --> 57:32.180
+ is broadly analogous to the spike rate of a neuron.
+
+57:32.900 --> 57:37.900
+ There are people who believe that there are other forms
+
+57:38.020 --> 57:39.180
+ of communication in the brain.
+
+57:39.180 --> 57:41.260
+ In fact, I've been involved in some research recently
+
+57:41.260 --> 57:46.260
+ that suggests that the voltage fluctuations
+
+57:46.260 --> 57:49.260
+ that occur in populations of neurons
+
+57:49.260 --> 57:54.260
+ that are sort of below the level of spike production
+
+57:54.860 --> 57:57.220
+ may be important for communication.
+
+57:57.220 --> 58:00.220
+ But I'm still pretty old school in the sense
+
+58:00.220 --> 58:02.700
+ that I think that the things that we're building
+
+58:02.700 --> 58:06.980
+ in AI research constitute reasonable models
+
+58:06.980 --> 58:08.260
+ of how a brain would work.
+
+58:10.300 --> 58:14.220
+ Let me ask just for fun a crazy question, because I can.
+
+58:14.220 --> 58:17.020
+ Do you think it's possible we're completely wrong
+
+58:17.020 --> 58:20.060
+ about the way this basic mechanism
+
+58:20.060 --> 58:23.700
+ of neuronal communication, that the information
+
+58:23.700 --> 58:26.340
+ is stored in some very different kind of way in the brain?
+
+58:26.340 --> 58:27.580
+ Oh, heck yes.
+
+58:27.580 --> 58:29.900
+ I mean, look, I wouldn't be a scientist
+
+58:29.900 --> 58:32.500
+ if I didn't think there was any chance we were wrong.
+
+58:32.500 --> 58:36.420
+ But I mean, if you look at the history
+
+58:36.420 --> 58:39.900
+ of deep learning research as it's been applied
+
+58:39.900 --> 58:42.620
+ to neuroscience, of course the vast majority
+
+58:42.620 --> 58:45.380
+ of deep learning research these days isn't about neuroscience.
+
+58:45.380 --> 58:49.060
+ But if you go back to the 1980s,
+
+58:49.060 --> 58:52.740
+ there's sort of an unbroken chain of research
+
+58:52.740 --> 58:54.940
+ in which a particular strategy is taken,
+
+58:54.940 --> 58:59.940
+ which is, hey, let's train a deep learning system.
+
+59:00.180 --> 59:04.060
+ Let's train a multi layer neural network
+
+59:04.060 --> 59:09.060
+ on this task that we trained our rat on,
+
+59:09.260 --> 59:12.300
+ or our monkey on, or this human being on.
+
+59:12.300 --> 59:15.700
+ And then let's look at what the units
+
+59:15.700 --> 59:17.700
+ deep in the system are doing.
+
+59:17.700 --> 59:20.780
+ And let's ask whether what they're doing
+
+59:20.780 --> 59:23.260
+ resembles what we know about what neurons
+
+59:23.260 --> 59:24.620
+ deep in the brain are doing.
+
+59:24.620 --> 59:28.540
+ And over and over and over and over,
+
+59:28.540 --> 59:31.140
+ that strategy works in the sense that
+
+59:32.020 --> 59:34.340
+ the learning algorithms that we have access to,
+
+59:34.340 --> 59:37.740
+ which typically center on back propagation,
+
+59:37.740 --> 59:42.060
+ they give rise to patterns of activity,
+
+59:42.060 --> 59:44.100
+ patterns of response,
+
+59:45.220 --> 59:48.740
+ patterns of neuronal behavior in these artificial models
+
+59:48.740 --> 59:53.660
+ that look hauntingly similar to what you see in the brain.
+
+59:53.660 --> 59:57.380
+ And is that a coincidence?
+
+59:57.380 --> 1:00:00.780
+ At a certain point, it starts looking like such coincidence
+
+1:00:00.780 --> 1:00:03.340
+ is unlikely to not be deeply meaningful, yeah.
+
+1:00:03.340 --> 1:00:07.140
+ Yeah, the circumstantial evidence is overwhelming.
+
+1:00:07.140 --> 1:00:07.980
+ But it could be.
+
+1:00:07.980 --> 1:00:10.460
+ But you're always open to total flipping at the table.
+
+1:00:10.460 --> 1:00:11.620
+ Hey, of course.
+
+1:00:11.620 --> 1:00:15.140
+ So you have coauthored several recent papers
+
+1:00:15.140 --> 1:00:17.860
+ that sort of weave beautifully between the world
+
+1:00:17.860 --> 1:00:20.660
+ of neuroscience and artificial intelligence.
+
+1:00:20.660 --> 1:00:25.660
+ And maybe if we could, can we just try to dance around
+
+1:00:26.380 --> 1:00:27.500
+ and talk about some of them?
+
+1:00:27.500 --> 1:00:29.740
+ Maybe try to pick out interesting ideas
+
+1:00:29.740 --> 1:00:32.300
+ that jump to your mind from memory.
+
+1:00:32.300 --> 1:00:34.300
+ So maybe looking at, we were talking about
+
+1:00:34.300 --> 1:00:38.220
+ the prefrontal cortex, the 2018, I believe, paper
+
+1:00:38.220 --> 1:00:40.060
+ called the Prefrontal Cortex
+
+1:00:40.060 --> 1:00:42.140
+ as a Meta Reinforcement Learning System.
+
+1:00:42.140 --> 1:00:44.340
+ What, is there a key idea
+
+1:00:44.340 --> 1:00:46.700
+ that you can speak to from that paper?
+
+1:00:47.660 --> 1:00:52.660
+ Yeah, I mean, the key idea is about meta learning.
+
+1:00:53.860 --> 1:00:54.860
+ What is meta learning?
+
+1:00:54.860 --> 1:00:58.620
+ Meta learning is, by definition,
+
+1:01:00.940 --> 1:01:04.900
+ a situation in which you have a learning algorithm
+
+1:01:06.100 --> 1:01:09.780
+ and the learning algorithm operates in such a way
+
+1:01:09.780 --> 1:01:14.060
+ that it gives rise to another learning algorithm.
+
+1:01:14.060 --> 1:01:17.140
+ In the earliest applications of this idea,
+
+1:01:17.140 --> 1:01:20.340
+ you had one learning algorithm sort of adjusting
+
+1:01:20.340 --> 1:01:23.060
+ the parameters on another learning algorithm.
+
+1:01:23.060 --> 1:01:25.100
+ But the case that we're interested in this paper
+
+1:01:25.100 --> 1:01:29.140
+ is one where you start with just one learning algorithm
+
+1:01:29.140 --> 1:01:33.020
+ and then another learning algorithm kind of emerges
+
+1:01:33.020 --> 1:01:35.180
+ out of thin air.
+
+1:01:35.180 --> 1:01:36.700
+ I can say more about what I mean by that.
+
+1:01:36.700 --> 1:01:39.780
+ I don't mean to be scurrentist,
+
+1:01:39.780 --> 1:01:44.140
+ but that's the idea of meta learning.
+
+1:01:44.140 --> 1:01:46.020
+ It relates to the old idea in psychology
+
+1:01:46.020 --> 1:01:47.300
+ of learning to learn.
+
+1:01:49.380 --> 1:01:54.300
+ Situations where you have experiences
+
+1:01:54.300 --> 1:01:57.980
+ that make you better at learning something new.
+
+1:01:57.980 --> 1:02:01.380
+ A familiar example would be learning a foreign language.
+
+1:02:01.380 --> 1:02:02.860
+ The first time you learn a foreign language,
+
+1:02:02.860 --> 1:02:06.420
+ it may be quite laborious and disorienting
+
+1:02:06.420 --> 1:02:10.300
+ and novel, but let's say you've learned
+
+1:02:10.300 --> 1:02:12.220
+ two foreign languages.
+
+1:02:12.220 --> 1:02:14.140
+ The third foreign language, obviously,
+
+1:02:14.140 --> 1:02:15.940
+ is gonna be much easier to pick up.
+
+1:02:15.940 --> 1:02:16.780
+ And why?
+
+1:02:16.780 --> 1:02:18.220
+ Because you've learned how to learn.
+
+1:02:18.220 --> 1:02:20.220
+ You know how this goes.
+
+1:02:20.220 --> 1:02:22.140
+ You know, okay, I'm gonna have to learn how to conjugate.
+
+1:02:22.140 --> 1:02:23.940
+ I'm gonna have to...
+
+1:02:23.940 --> 1:02:26.340
+ That's a simple form of meta learning
+
+1:02:26.340 --> 1:02:30.260
+ in the sense that there's some slow learning mechanism
+
+1:02:30.260 --> 1:02:33.020
+ that's helping you kind of update
+
+1:02:33.020 --> 1:02:34.300
+ your fast learning mechanism.
+
+1:02:34.300 --> 1:02:35.660
+ Does that make sense?
+
+1:02:35.660 --> 1:02:40.540
+ So how from our understanding from the psychology world,
+
+1:02:40.540 --> 1:02:43.180
+ from neuroscience, our understanding
+
+1:02:43.180 --> 1:02:47.180
+ how meta learning might work in the human brain,
+
+1:02:47.180 --> 1:02:49.980
+ what lessons can we draw from that
+
+1:02:49.980 --> 1:02:53.060
+ that we can bring into the artificial intelligence world?
+
+1:02:53.060 --> 1:02:55.980
+ Well, yeah, so the origin of that paper
+
+1:02:55.980 --> 1:03:00.180
+ was in AI work that we were doing in my group.
+
+1:03:00.180 --> 1:03:03.700
+ We were looking at what happens
+
+1:03:03.700 --> 1:03:06.260
+ when you train a recurrent neural network
+
+1:03:06.260 --> 1:03:10.180
+ using standard reinforcement learning algorithms.
+
+1:03:10.180 --> 1:03:12.660
+ But you train that network, not just in one task,
+
+1:03:12.660 --> 1:03:15.140
+ but you train it in a bunch of interrelated tasks.
+
+1:03:15.140 --> 1:03:18.700
+ And then you ask what happens when you give it
+
+1:03:18.700 --> 1:03:23.380
+ yet another task in that sort of line of interrelated tasks.
+
+1:03:23.380 --> 1:03:27.500
+ And what we started to realize is that
+
+1:03:29.380 --> 1:03:31.860
+ a form of meta learning spontaneously happens
+
+1:03:31.860 --> 1:03:33.780
+ in recurrent neural networks.
+
+1:03:33.780 --> 1:03:37.700
+ And the simplest way to explain it is to say
+
+1:03:39.540 --> 1:03:43.500
+ a recurrent neural network has a kind of memory
+
+1:03:43.500 --> 1:03:45.340
+ in its activation patterns.
+
+1:03:45.340 --> 1:03:47.540
+ It's recurrent by definition in the sense
+
+1:03:47.540 --> 1:03:50.180
+ that you have units that connect to other units,
+
+1:03:50.180 --> 1:03:51.060
+ that connect to other units.
+
+1:03:51.060 --> 1:03:53.660
+ So you have sort of loops of connectivity,
+
+1:03:53.660 --> 1:03:55.740
+ which allows activity to stick around
+
+1:03:55.740 --> 1:03:57.380
+ and be updated over time.
+
+1:03:57.380 --> 1:03:59.020
+ In psychology we call, in neuroscience
+
+1:03:59.020 --> 1:04:00.100
+ we call this working memory.
+
+1:04:00.100 --> 1:04:03.020
+ It's like actively holding something in mind.
+
+1:04:04.260 --> 1:04:09.260
+ And so that memory gives
+
+1:04:09.260 --> 1:04:13.100
+ the recurrent neural network a dynamics, right?
+
+1:04:13.100 --> 1:04:17.700
+ The way that the activity pattern evolves over time
+
+1:04:17.700 --> 1:04:19.980
+ is inherent to the connectivity
+
+1:04:19.980 --> 1:04:21.580
+ of the recurrent neural network, okay?
+
+1:04:21.580 --> 1:04:23.500
+ So that's idea number one.
+
+1:04:23.500 --> 1:04:26.020
+ Now, the dynamics of that network are shaped
+
+1:04:26.020 --> 1:04:29.660
+ by the connectivity, by the synaptic weights.
+
+1:04:29.660 --> 1:04:31.660
+ And those synaptic weights are being shaped
+
+1:04:31.660 --> 1:04:33.860
+ by this reinforcement learning algorithm
+
+1:04:33.860 --> 1:04:36.020
+ that you're training the network with.
+
+1:04:37.700 --> 1:04:41.260
+ So the punchline is if you train a recurrent neural network
+
+1:04:41.260 --> 1:04:43.140
+ with a reinforcement learning algorithm
+
+1:04:43.140 --> 1:04:44.180
+ that's adjusting its weights,
+
+1:04:44.180 --> 1:04:45.940
+ and you do that for long enough,
+
+1:04:47.060 --> 1:04:50.860
+ the activation dynamics will become very interesting, right?
+
+1:04:50.860 --> 1:04:53.180
+ So imagine I give you a task
+
+1:04:53.180 --> 1:04:56.060
+ where you have to press one button or another,
+
+1:04:56.060 --> 1:04:57.580
+ left button or right button.
+
+1:04:57.580 --> 1:05:00.820
+ And there's some probability
+
+1:05:00.820 --> 1:05:02.260
+ that I'm gonna give you an M&M
+
+1:05:02.260 --> 1:05:04.220
+ if you press the left button,
+
+1:05:04.220 --> 1:05:06.220
+ and there's some probability I'll give you an M&M
+
+1:05:06.220 --> 1:05:07.620
+ if you press the other button.
+
+1:05:07.620 --> 1:05:09.340
+ And you have to figure out what those probabilities are
+
+1:05:09.340 --> 1:05:10.700
+ just by trying things out.
+
+1:05:12.060 --> 1:05:13.780
+ But as I said before,
+
+1:05:13.780 --> 1:05:15.500
+ instead of just giving you one of these tasks,
+
+1:05:15.500 --> 1:05:17.020
+ I give you a whole sequence.
+
+1:05:17.020 --> 1:05:18.700
+ You know, I give you two buttons
+
+1:05:18.700 --> 1:05:19.860
+ and you figure out which one's best.
+
+1:05:19.860 --> 1:05:22.180
+ And I go, good job, here's a new box.
+
+1:05:22.180 --> 1:05:24.100
+ Two new buttons, you have to figure out which one's best.
+
+1:05:24.100 --> 1:05:25.420
+ Good job, here's a new box.
+
+1:05:25.420 --> 1:05:27.340
+ And every box has its own probabilities
+
+1:05:27.340 --> 1:05:28.300
+ and you have to figure it out.
+
+1:05:28.300 --> 1:05:30.420
+ So if you train a recurrent neural network
+
+1:05:30.420 --> 1:05:32.660
+ on that kind of sequence of tasks,
+
+1:05:33.700 --> 1:05:37.380
+ what happens, it seemed almost magical to us
+
+1:05:37.380 --> 1:05:41.180
+ when we first started kind of realizing what was going on.
+
+1:05:41.180 --> 1:05:43.620
+ The slow learning algorithm that's adjusting
+
+1:05:43.620 --> 1:05:45.540
+ the synaptic weights,
+
+1:05:46.980 --> 1:05:51.380
+ those slow synaptic changes give rise to a network dynamics
+
+1:05:51.380 --> 1:05:53.020
+ that themselves, that, you know,
+
+1:05:53.020 --> 1:05:56.860
+ the dynamics themselves turn into a learning algorithm.
+
+1:05:56.860 --> 1:05:59.060
+ So in other words, you can tell this is happening
+
+1:05:59.060 --> 1:06:01.020
+ by just freezing the synaptic weights saying,
+
+1:06:01.020 --> 1:06:03.460
+ okay, no more learning, you're done.
+
+1:06:03.460 --> 1:06:07.620
+ Here's a new box, figure out which button is best.
+
+1:06:07.620 --> 1:06:09.620
+ And the recurrent neural network will do this just fine.
+
+1:06:09.620 --> 1:06:13.060
+ There's no, like it figures out which button is best.
+
+1:06:13.060 --> 1:06:16.700
+ It kind of transitions from exploring the two buttons
+
+1:06:16.700 --> 1:06:18.380
+ to just pressing the one that it likes best
+
+1:06:18.380 --> 1:06:20.700
+ in a very rational way.
+
+1:06:20.700 --> 1:06:21.660
+ How is that happening?
+
+1:06:21.660 --> 1:06:24.700
+ It's happening because the activity dynamics
+
+1:06:24.700 --> 1:06:28.460
+ of the network have been shaped by the slow learning process
+
+1:06:28.460 --> 1:06:30.660
+ that's occurred over many, many boxes.
+
+1:06:30.660 --> 1:06:34.660
+ And so what's happened is that this slow learning algorithm
+
+1:06:34.660 --> 1:06:37.140
+ that's slowly adjusting the weights
+
+1:06:37.140 --> 1:06:39.740
+ is changing the dynamics of the network,
+
+1:06:39.740 --> 1:06:43.460
+ the activity dynamics into its own learning algorithm.
+
+1:06:43.460 --> 1:06:48.460
+ And as we were kind of realizing that this is a thing,
+
+1:06:51.340 --> 1:06:53.740
+ it just so happened that the group that was working on this
+
+1:06:53.740 --> 1:06:56.020
+ included a bunch of neuroscientists
+
+1:06:56.020 --> 1:06:59.900
+ and it started kind of ringing a bell for us,
+
+1:06:59.900 --> 1:07:02.860
+ which is to say that we thought this sounds a lot
+
+1:07:02.860 --> 1:07:06.180
+ like the distinction between synaptic learning
+
+1:07:06.180 --> 1:07:08.460
+ and activity, synaptic memory
+
+1:07:08.460 --> 1:07:10.460
+ and activity based memory in the brain.
+
+1:07:11.700 --> 1:07:15.900
+ And it also reminded us of recurrent connectivity
+
+1:07:15.900 --> 1:07:18.420
+ that's very characteristic of prefrontal function.
+
+1:07:19.620 --> 1:07:22.820
+ So this is kind of why it's good to have people working
+
+1:07:22.820 --> 1:07:26.180
+ on AI that know a little bit about neuroscience
+
+1:07:26.180 --> 1:07:29.340
+ and vice versa, because we started thinking
+
+1:07:29.340 --> 1:07:32.340
+ about whether we could apply this principle to neuroscience.
+
+1:07:32.340 --> 1:07:33.660
+ And that's where the paper came from.
+
+1:07:33.660 --> 1:07:37.540
+ So the kind of principle of the recurrence
+
+1:07:37.540 --> 1:07:39.540
+ they can see in the prefrontal cortex,
+
+1:07:39.540 --> 1:07:43.660
+ then you start to realize that it's possible
+
+1:07:43.660 --> 1:07:46.340
+ for something like an idea of a learning
+
+1:07:46.340 --> 1:07:50.860
+ to learn emerging from this learning process
+
+1:07:50.860 --> 1:07:54.500
+ as long as you keep varying the environment sufficiently.
+
+1:07:54.500 --> 1:07:59.300
+ Exactly, so the kind of metaphorical transition
+
+1:07:59.300 --> 1:08:00.740
+ we made to neuroscience was to think,
+
+1:08:00.740 --> 1:08:03.660
+ okay, well, we know that the prefrontal cortex
+
+1:08:03.660 --> 1:08:04.940
+ is highly recurrent.
+
+1:08:04.940 --> 1:08:08.500
+ We know that it's an important locus for working memory
+
+1:08:08.500 --> 1:08:11.260
+ for activation based memory.
+
+1:08:11.260 --> 1:08:13.660
+ So maybe the prefrontal cortex
+
+1:08:13.660 --> 1:08:15.620
+ supports reinforcement learning.
+
+1:08:15.620 --> 1:08:19.260
+ In other words, what is reinforcement learning?
+
+1:08:19.260 --> 1:08:21.620
+ You take an action, you see how much reward you got,
+
+1:08:21.620 --> 1:08:23.580
+ you update your policy of behavior.
+
+1:08:24.580 --> 1:08:26.860
+ Maybe the prefrontal cortex is doing that sort of thing
+
+1:08:26.860 --> 1:08:28.500
+ strictly in its activation patterns.
+
+1:08:28.500 --> 1:08:31.900
+ It's keeping around a memory in its activity patterns
+
+1:08:31.900 --> 1:08:35.340
+ of what you did, how much reward you got,
+
+1:08:35.340 --> 1:08:38.980
+ and it's using that activity based memory
+
+1:08:38.980 --> 1:08:41.100
+ as a basis for updating behavior.
+
+1:08:41.100 --> 1:08:42.180
+ But then the question is, well,
+
+1:08:42.180 --> 1:08:44.540
+ how did the prefrontal cortex get so smart?
+
+1:08:44.540 --> 1:08:48.020
+ In other words, where did these activity dynamics come from?
+
+1:08:48.020 --> 1:08:50.780
+ How did that program that's implemented
+
+1:08:50.780 --> 1:08:54.460
+ in the recurrent dynamics of the prefrontal cortex arise?
+
+1:08:54.460 --> 1:08:58.060
+ And one answer that became evident in this work was,
+
+1:08:58.060 --> 1:09:00.940
+ well, maybe the mechanisms that operate
+
+1:09:00.940 --> 1:09:05.020
+ on the synaptic level, which we believe are mediated
+
+1:09:05.020 --> 1:09:08.740
+ by dopamine, are responsible for shaping those dynamics.
+
+1:09:10.180 --> 1:09:12.420
+ So this may be a silly question,
+
+1:09:12.420 --> 1:09:17.420
+ but because this kind of several temporal sort of classes
+
+1:09:19.340 --> 1:09:23.020
+ of learning are happening and the learning to learnism
+
+1:09:23.020 --> 1:09:28.020
+ emerges, can you keep building stacks of learning
+
+1:09:28.660 --> 1:09:30.940
+ to learn to learn, learning to learn to learn
+
+1:09:30.940 --> 1:09:32.900
+ to learn to learn because it keeps,
+
+1:09:32.900 --> 1:09:37.020
+ I mean, basically abstractions of more powerful abilities
+
+1:09:37.020 --> 1:09:41.140
+ to generalize of learning complex rules.
+
+1:09:41.140 --> 1:09:46.100
+ Yeah, that's overstretching this kind of mechanism.
+
+1:09:46.100 --> 1:09:51.100
+ Well, one of the people in AI who started thinking
+
+1:09:51.260 --> 1:09:54.700
+ about meta learning from very early on,
+
+1:09:54.700 --> 1:09:59.700
+ Jürgen Schmidhuber sort of cheekily suggested,
+
+1:09:59.780 --> 1:10:03.900
+ I think it may have been in his PhD thesis,
+
+1:10:03.900 --> 1:10:06.900
+ that we should think about meta, meta, meta,
+
+1:10:06.900 --> 1:10:08.740
+ meta, meta, meta learning.
+
+1:10:08.740 --> 1:10:13.140
+ That's really what's gonna get us to true intelligence.
+
+1:10:13.140 --> 1:10:15.380
+ Certainly there's a poetic aspect to it
+
+1:10:15.380 --> 1:10:19.260
+ and it seems interesting and correct
+
+1:10:19.260 --> 1:10:21.660
+ that that kind of levels of abstraction would be powerful,
+
+1:10:21.660 --> 1:10:23.940
+ but is that something you see in the brain?
+
+1:10:23.940 --> 1:10:27.780
+ This kind of, is it useful to think of learning
+
+1:10:27.780 --> 1:10:32.100
+ in these meta, meta, meta way or is it just meta learning?
+
+1:10:32.100 --> 1:10:35.300
+ Well, one thing that really fascinated me
+
+1:10:35.300 --> 1:10:39.020
+ about this mechanism that we were starting to look at,
+
+1:10:39.020 --> 1:10:41.100
+ and other groups started talking
+
+1:10:41.100 --> 1:10:44.740
+ about very similar things at the same time.
+
+1:10:44.740 --> 1:10:47.020
+ And then a kind of explosion of interest
+
+1:10:47.020 --> 1:10:48.980
+ in meta learning happened in the AI community
+
+1:10:48.980 --> 1:10:50.580
+ shortly after that.
+
+1:10:50.580 --> 1:10:52.060
+ I don't know if we had anything to do with that,
+
+1:10:52.060 --> 1:10:55.620
+ but I was gratified to see that a lot of people
+
+1:10:55.620 --> 1:10:57.780
+ started talking about meta learning.
+
+1:10:57.780 --> 1:11:01.380
+ One of the things that I liked about the kind of flavor
+
+1:11:01.380 --> 1:11:04.060
+ of meta learning that we were studying was that
+
+1:11:04.060 --> 1:11:05.940
+ it didn't require anything special.
+
+1:11:05.940 --> 1:11:08.620
+ It was just, if you took a system that had
+
+1:11:08.620 --> 1:11:12.460
+ some form of memory that the function of which
+
+1:11:12.460 --> 1:11:16.860
+ could be shaped by pick URL algorithm,
+
+1:11:16.860 --> 1:11:19.100
+ then this would just happen, right?
+
+1:11:19.100 --> 1:11:21.300
+ I mean, there are a lot of forms of,
+
+1:11:21.300 --> 1:11:23.180
+ there are a lot of meta learning algorithms
+
+1:11:23.180 --> 1:11:24.500
+ that have been proposed since then
+
+1:11:24.500 --> 1:11:26.580
+ that are fascinating and effective
+
+1:11:26.580 --> 1:11:29.780
+ in their domains of application.
+
+1:11:29.780 --> 1:11:32.580
+ But they're engineered, they're things that somebody
+
+1:11:32.580 --> 1:11:34.340
+ had to say, well, gee, if we wanted meta learning
+
+1:11:34.340 --> 1:11:35.700
+ to happen, how would we do that?
+
+1:11:35.700 --> 1:11:37.060
+ Here's an algorithm that would,
+
+1:11:37.060 --> 1:11:39.500
+ but there's something about the kind of meta learning
+
+1:11:39.500 --> 1:11:42.540
+ that we were studying that seemed to me special
+
+1:11:42.540 --> 1:11:44.980
+ in the sense that it wasn't an algorithm.
+
+1:11:44.980 --> 1:11:48.740
+ It was just something that automatically happened
+
+1:11:48.740 --> 1:11:51.060
+ if you had a system that had memory
+
+1:11:51.060 --> 1:11:54.020
+ and it was trained with a reinforcement learning algorithm.
+
+1:11:54.020 --> 1:11:59.020
+ And in that sense, it can be as meta as it wants to be.
+
+1:11:59.020 --> 1:12:04.020
+ There's no limit on how abstract the meta learning can get
+
+1:12:04.700 --> 1:12:07.980
+ because it's not reliant on a human engineering
+
+1:12:07.980 --> 1:12:11.540
+ a particular meta learning algorithm to get there.
+
+1:12:11.540 --> 1:12:15.140
+ And that's, I also, I don't know,
+
+1:12:15.140 --> 1:12:17.820
+ I guess I hope that that's relevant in the brain.
+
+1:12:17.820 --> 1:12:19.180
+ I think there's a kind of beauty
+
+1:12:19.180 --> 1:12:23.380
+ in the ability of this emergent.
+
+1:12:23.380 --> 1:12:26.460
+ The emergent aspect of it, as opposed to engineered.
+
+1:12:26.460 --> 1:12:29.020
+ Exactly, it's something that just, it just happens
+
+1:12:29.020 --> 1:12:33.620
+ in a sense, in a sense, you can't avoid this happening.
+
+1:12:33.620 --> 1:12:35.820
+ If you have a system that has memory
+
+1:12:35.820 --> 1:12:39.660
+ and the function of that memory is shaped
+
+1:12:39.660 --> 1:12:42.740
+ by reinforcement learning, and this system is trained
+
+1:12:42.740 --> 1:12:46.900
+ in a series of interrelated tasks, this is gonna happen.
+
+1:12:46.900 --> 1:12:48.460
+ You can't stop it.
+
+1:12:48.460 --> 1:12:50.140
+ As long as you have certain properties,
+
+1:12:50.140 --> 1:12:52.540
+ maybe like a recurrent structure to.
+
+1:12:52.540 --> 1:12:53.380
+ You have to have memory.
+
+1:12:53.380 --> 1:12:55.220
+ It actually doesn't have to be a recurrent neural network.
+
+1:12:55.220 --> 1:12:58.740
+ One of, a paper that I was honored to be involved
+
+1:12:58.740 --> 1:13:02.260
+ with even earlier, used a kind of slot based memory.
+
+1:13:02.260 --> 1:13:03.100
+ Do you remember the title?
+
+1:13:03.100 --> 1:13:05.060
+ Just for people to understand.
+
+1:13:05.060 --> 1:13:08.140
+ It was Memory Augmented Neural Networks.
+
+1:13:08.140 --> 1:13:10.180
+ I think it was, I think the title was
+
+1:13:10.180 --> 1:13:13.040
+ Meta Learning in Memory Augmented Neural Networks.
+
+1:13:14.660 --> 1:13:17.940
+ And it was the same exact story.
+
+1:13:17.940 --> 1:13:21.100
+ If you have a system with memory,
+
+1:13:21.100 --> 1:13:22.780
+ here it was a different kind of memory,
+
+1:13:22.780 --> 1:13:26.860
+ but the function of that memory is shaped
+
+1:13:26.860 --> 1:13:28.600
+ by reinforcement learning.
+
+1:13:29.900 --> 1:13:34.300
+ Here it was the reads and writes that occurred
+
+1:13:34.300 --> 1:13:36.420
+ on this slot based memory.
+
+1:13:36.420 --> 1:13:38.080
+ This will just happen.
+
+1:13:39.940 --> 1:13:42.060
+ But this brings us back to something I was saying earlier
+
+1:13:42.060 --> 1:13:44.500
+ about the importance of the environment.
+
+1:13:46.340 --> 1:13:49.940
+ This will happen if the system is being trained
+
+1:13:49.940 --> 1:13:53.060
+ in a setting where there's like a sequence of tasks
+
+1:13:53.060 --> 1:13:55.240
+ that all share some abstract structure.
+
+1:13:56.100 --> 1:13:59.020
+ Sometimes we talk about task distributions.
+
+1:13:59.020 --> 1:14:04.020
+ And that's something that's very obviously true
+
+1:14:04.180 --> 1:14:06.360
+ of the world that humans inhabit.
+
+1:14:09.500 --> 1:14:13.140
+ Like if you just kind of think about what you do every day,
+
+1:14:13.140 --> 1:14:16.280
+ you never do exactly the same thing
+
+1:14:16.280 --> 1:14:17.640
+ that you did the day before.
+
+1:14:17.640 --> 1:14:21.060
+ But everything that you do sort of has a family resemblance.
+
+1:14:21.060 --> 1:14:23.500
+ It shares a structure with something that you did before.
+
+1:14:23.500 --> 1:14:26.700
+ And so the real world is sort of
+
+1:14:29.260 --> 1:14:32.700
+ saturated with this kind of, this property.
+
+1:14:32.700 --> 1:14:37.540
+ It's endless variety with endless redundancy.
+
+1:14:37.540 --> 1:14:38.700
+ And that's the setting in which
+
+1:14:38.700 --> 1:14:40.540
+ this kind of meta learning happens.
+
+1:14:40.540 --> 1:14:44.980
+ And it does seem like we're just so good at finding,
+
+1:14:44.980 --> 1:14:47.820
+ just like in this emergent phenomena you described,
+
+1:14:47.820 --> 1:14:50.020
+ we're really good at finding that redundancy,
+
+1:14:50.020 --> 1:14:53.480
+ finding those similarities, the family resemblance.
+
+1:14:53.480 --> 1:14:56.560
+ Some people call it sort of, what is it?
+
+1:14:56.560 --> 1:14:59.180
+ Melanie Mitchell was talking about analogies.
+
+1:14:59.180 --> 1:15:01.940
+ So we're able to connect concepts together
+
+1:15:01.940 --> 1:15:03.860
+ in this kind of way,
+
+1:15:03.860 --> 1:15:06.020
+ in this same kind of automated emergent way,
+
+1:15:06.020 --> 1:15:08.620
+ which there's so many echoes here
+
+1:15:08.620 --> 1:15:10.640
+ of psychology and neuroscience.
+
+1:15:10.640 --> 1:15:15.300
+ And obviously now with reinforcement learning
+
+1:15:15.300 --> 1:15:18.260
+ with recurrent neural networks at the core.
+
+1:15:18.260 --> 1:15:20.180
+ If we could talk a little bit about dopamine,
+
+1:15:20.180 --> 1:15:23.780
+ you have really, you're a part of coauthoring
+
+1:15:23.780 --> 1:15:26.420
+ really exciting recent paper, very recent,
+
+1:15:26.420 --> 1:15:28.900
+ in terms of release on dopamine
+
+1:15:28.900 --> 1:15:31.040
+ and temporal difference learning.
+
+1:15:31.040 --> 1:15:34.820
+ Can you describe the key ideas of that paper?
+
+1:15:34.820 --> 1:15:35.660
+ Sure, yeah.
+
+1:15:35.660 --> 1:15:37.740
+ I mean, one thing I want to pause to do
+
+1:15:37.740 --> 1:15:39.460
+ is acknowledge my coauthors
+
+1:15:39.460 --> 1:15:41.540
+ on actually both of the papers we're talking about.
+
+1:15:41.540 --> 1:15:42.660
+ So this dopamine paper.
+
+1:15:42.660 --> 1:15:45.700
+ I'll just, I'll certainly post all their names.
+
+1:15:45.700 --> 1:15:46.540
+ Okay, wonderful.
+
+1:15:46.540 --> 1:15:49.300
+ Yeah, because I'm sort of abashed
+
+1:15:49.300 --> 1:15:51.000
+ to be the spokesperson for these papers
+
+1:15:51.000 --> 1:15:55.180
+ when I had such amazing collaborators on both.
+
+1:15:55.180 --> 1:15:56.980
+ So it's a comfort to me to know
+
+1:15:56.980 --> 1:15:58.580
+ that you'll acknowledge them.
+
+1:15:58.580 --> 1:16:00.420
+ Yeah, there's an incredible team there, but yeah.
+
+1:16:00.420 --> 1:16:03.080
+ Oh yeah, it's such a, it's so much fun.
+
+1:16:03.080 --> 1:16:06.360
+ And in the case of the dopamine paper,
+
+1:16:06.360 --> 1:16:09.020
+ we also collaborated with Naochit at Harvard,
+
+1:16:09.020 --> 1:16:11.180
+ who, you know, obviously a paper simply
+
+1:16:11.180 --> 1:16:12.620
+ wouldn't have happened without him.
+
+1:16:12.620 --> 1:16:17.540
+ But so you were asking for like a thumbnail sketch of.
+
+1:16:17.540 --> 1:16:20.820
+ Yeah, thumbnail sketch or key ideas or, you know,
+
+1:16:20.820 --> 1:16:22.500
+ things, the insights that are, you know,
+
+1:16:22.500 --> 1:16:24.780
+ continuing on our kind of discussion here
+
+1:16:24.780 --> 1:16:26.900
+ between neuroscience and AI.
+
+1:16:26.900 --> 1:16:28.860
+ Yeah, I mean, this was another,
+
+1:16:28.860 --> 1:16:30.620
+ a lot of the work that we've done so far
+
+1:16:30.620 --> 1:16:35.380
+ is taking ideas that have bubbled up in AI
+
+1:16:35.380 --> 1:16:39.660
+ and, you know, asking the question of whether the brain
+
+1:16:39.660 --> 1:16:41.460
+ might be doing something related,
+
+1:16:41.460 --> 1:16:45.420
+ which I think on the surface sounds like something
+
+1:16:45.420 --> 1:16:48.360
+ that's really mainly of use to neuroscience.
+
+1:16:49.380 --> 1:16:53.600
+ We see it also as a way of validating
+
+1:16:53.600 --> 1:16:55.320
+ what we're doing on the AI side.
+
+1:16:55.320 --> 1:16:57.940
+ If we can gain some evidence that the brain
+
+1:16:57.940 --> 1:17:01.760
+ is using some technique that we've been trying out
+
+1:17:01.760 --> 1:17:05.500
+ in our AI work, that gives us confidence
+
+1:17:05.500 --> 1:17:07.780
+ that, you know, it may be a good idea,
+
+1:17:07.780 --> 1:17:11.560
+ that it'll, you know, scale to rich, complex tasks,
+
+1:17:11.560 --> 1:17:14.840
+ that it'll interface well with other mechanisms.
+
+1:17:14.840 --> 1:17:16.860
+ So you see it as a two way road.
+
+1:17:16.860 --> 1:17:18.520
+ Yeah, for sure. Just because a particular paper
+
+1:17:18.520 --> 1:17:21.140
+ is a little bit focused on from one to the,
+
+1:17:21.140 --> 1:17:25.620
+ from AI, from neural networks to neuroscience.
+
+1:17:25.620 --> 1:17:28.380
+ Ultimately the discussion, the thinking,
+
+1:17:28.380 --> 1:17:30.840
+ the productive longterm aspect of it
+
+1:17:30.840 --> 1:17:33.220
+ is the two way road nature of the whole interaction.
+
+1:17:33.220 --> 1:17:36.260
+ Yeah, I mean, we've talked about the notion
+
+1:17:36.260 --> 1:17:39.300
+ of a virtuous circle between AI and neuroscience.
+
+1:17:39.300 --> 1:17:41.820
+ And, you know, the way I see it,
+
+1:17:42.660 --> 1:17:47.460
+ that's always been there since the two fields,
+
+1:17:47.460 --> 1:17:49.040
+ you know, jointly existed.
+
+1:17:50.100 --> 1:17:52.140
+ There have been some phases in that history
+
+1:17:52.140 --> 1:17:53.540
+ when AI was sort of ahead.
+
+1:17:53.540 --> 1:17:56.340
+ There are some phases when neuroscience was sort of ahead.
+
+1:17:56.340 --> 1:18:00.660
+ I feel like given the burst of innovation
+
+1:18:00.660 --> 1:18:03.780
+ that's happened recently on the AI side,
+
+1:18:03.780 --> 1:18:06.320
+ AI is kind of ahead in the sense that
+
+1:18:06.320 --> 1:18:10.620
+ there are all of these ideas that we, you know,
+
+1:18:10.620 --> 1:18:12.660
+ for which it's exciting to consider
+
+1:18:12.660 --> 1:18:14.720
+ that there might be neural analogs.
+
+1:18:16.100 --> 1:18:19.620
+ And neuroscience, you know,
+
+1:18:19.620 --> 1:18:22.420
+ in a sense has been focusing on approaches
+
+1:18:22.420 --> 1:18:24.860
+ to studying behavior that come from, you know,
+
+1:18:24.860 --> 1:18:27.540
+ that are kind of derived from this earlier era
+
+1:18:27.540 --> 1:18:29.620
+ of cognitive psychology.
+
+1:18:29.620 --> 1:18:33.540
+ And, you know, so in some ways fail to connect
+
+1:18:33.540 --> 1:18:36.700
+ with some of the issues that we're grappling with in AI.
+
+1:18:36.700 --> 1:18:37.940
+ Like how do we deal with, you know,
+
+1:18:37.940 --> 1:18:40.180
+ large, you know, complex environments.
+
+1:18:41.560 --> 1:18:45.220
+ But, you know, I think it's inevitable
+
+1:18:45.220 --> 1:18:47.920
+ that this circle will keep turning
+
+1:18:47.920 --> 1:18:49.540
+ and there will be a moment
+
+1:18:49.540 --> 1:18:51.300
+ in the not too different distant future
+
+1:18:51.300 --> 1:18:54.640
+ when neuroscience is pelting AI researchers
+
+1:18:54.640 --> 1:18:58.260
+ with insights that may change the direction of our work.
+
+1:18:58.260 --> 1:19:00.940
+ Just a quick human question.
+
+1:19:00.940 --> 1:19:05.460
+ Is it, you have parts of your brain,
+
+1:19:05.460 --> 1:19:08.260
+ this is very meta, but they're able to both think
+
+1:19:08.260 --> 1:19:10.300
+ about neuroscience and AI.
+
+1:19:10.300 --> 1:19:14.220
+ You know, I don't often meet people like that.
+
+1:19:14.220 --> 1:19:19.220
+ So do you think, let me ask a meta plasticity question.
+
+1:19:19.780 --> 1:19:22.660
+ Do you think a human being can be both good at AI
+
+1:19:22.660 --> 1:19:23.580
+ and neuroscience?
+
+1:19:23.580 --> 1:19:26.500
+ It's like what, on the team at DeepMind,
+
+1:19:26.500 --> 1:19:30.180
+ what kind of human can occupy these two realms?
+
+1:19:30.180 --> 1:19:33.340
+ And is that something you see everybody should be doing,
+
+1:19:33.340 --> 1:19:36.620
+ can be doing, or is that a very special few
+
+1:19:36.620 --> 1:19:37.460
+ can kind of jump?
+
+1:19:37.460 --> 1:19:39.180
+ Just like we talk about art history,
+
+1:19:39.180 --> 1:19:41.020
+ I would think it's a special person
+
+1:19:41.020 --> 1:19:43.620
+ that can major in art history
+
+1:19:43.620 --> 1:19:46.860
+ and also consider being a surgeon.
+
+1:19:46.860 --> 1:19:48.380
+ Otherwise known as a dilettante.
+
+1:19:48.380 --> 1:19:50.140
+ A dilettante, yeah.
+
+1:19:50.140 --> 1:19:52.100
+ Easily distracted.
+
+1:19:52.100 --> 1:19:57.100
+ No, I think it does take a special kind of person
+
+1:19:58.620 --> 1:20:02.660
+ to be truly world class at both AI and neuroscience.
+
+1:20:02.660 --> 1:20:04.460
+ And I am not on that list.
+
+1:20:05.940 --> 1:20:10.300
+ I happen to be someone whose interest in neuroscience
+
+1:20:10.300 --> 1:20:15.300
+ and psychology involved using the kinds
+
+1:20:15.940 --> 1:20:20.940
+ of modeling techniques that are now very central in AI.
+
+1:20:20.940 --> 1:20:24.140
+ And that sort of, I guess, bought me a ticket
+
+1:20:24.140 --> 1:20:26.500
+ to be involved in all of the amazing things
+
+1:20:26.500 --> 1:20:29.500
+ that are going on in AI research right now.
+
+1:20:29.500 --> 1:20:32.660
+ I do know a few people who I would consider
+
+1:20:32.660 --> 1:20:34.780
+ pretty expert on both fronts,
+
+1:20:34.780 --> 1:20:36.260
+ and I won't embarrass them by naming them,
+
+1:20:36.260 --> 1:20:40.540
+ but there are exceptional people out there
+
+1:20:40.540 --> 1:20:41.380
+ who are like this.
+
+1:20:41.380 --> 1:20:45.900
+ The one thing that I find is a barrier
+
+1:20:45.900 --> 1:20:49.300
+ to being truly world class on both fronts
+
+1:20:49.300 --> 1:20:54.300
+ is just the complexity of the technology
+
+1:20:54.980 --> 1:20:58.180
+ that's involved in both disciplines now.
+
+1:20:58.180 --> 1:21:02.980
+ So the engineering expertise that it takes
+
+1:21:02.980 --> 1:21:07.860
+ to do truly frontline, hands on AI research
+
+1:21:07.860 --> 1:21:10.620
+ is really, really considerable.
+
+1:21:10.620 --> 1:21:11.940
+ The learning curve of the tools,
+
+1:21:11.940 --> 1:21:15.260
+ just like the specifics of just whether it's programming
+
+1:21:15.260 --> 1:21:17.500
+ or the kind of tools necessary to collect the data,
+
+1:21:17.500 --> 1:21:19.780
+ to manage the data, to distribute, to compute,
+
+1:21:19.780 --> 1:21:20.780
+ all that kind of stuff.
+
+1:21:20.780 --> 1:21:22.380
+ And on the neuroscience, I guess, side,
+
+1:21:22.380 --> 1:21:24.580
+ there'll be all different sets of tools.
+
+1:21:24.580 --> 1:21:26.820
+ Exactly, especially with the recent explosion
+
+1:21:26.820 --> 1:21:28.980
+ in neuroscience methods.
+
+1:21:28.980 --> 1:21:32.100
+ So having said all that,
+
+1:21:32.100 --> 1:21:37.100
+ I think the best scenario for both neuroscience
+
+1:21:39.860 --> 1:21:44.860
+ and AI is to have people interacting
+
+1:21:44.860 --> 1:21:48.140
+ who live at every point on this spectrum
+
+1:21:48.140 --> 1:21:51.900
+ from exclusively focused on neuroscience
+
+1:21:51.900 --> 1:21:55.540
+ to exclusively focused on the engineering side of AI.
+
+1:21:55.540 --> 1:22:00.540
+ But to have those people inhabiting a community
+
+1:22:01.060 --> 1:22:03.740
+ where they're talking to people who live elsewhere
+
+1:22:03.740 --> 1:22:04.820
+ on the spectrum.
+
+1:22:04.820 --> 1:22:08.660
+ And I may be someone who's very close to the center
+
+1:22:08.660 --> 1:22:12.180
+ in the sense that I have one foot in the neuroscience world
+
+1:22:12.180 --> 1:22:14.020
+ and one foot in the AI world,
+
+1:22:14.020 --> 1:22:17.220
+ and that central position, I will admit,
+
+1:22:17.220 --> 1:22:19.060
+ prevents me, at least someone
+
+1:22:19.060 --> 1:22:21.300
+ with my limited cognitive capacity,
+
+1:22:21.300 --> 1:22:26.300
+ from having true technical expertise in either domain.
+
+1:22:26.820 --> 1:22:30.140
+ But at the same time, I at least hope
+
+1:22:30.140 --> 1:22:32.340
+ that it's worthwhile having people around
+
+1:22:32.340 --> 1:22:34.980
+ who can kind of see the connections.
+
+1:22:34.980 --> 1:22:39.100
+ Yeah, the community, the emergent intelligence
+
+1:22:39.100 --> 1:22:43.300
+ of the community when it's nicely distributed is useful.
+
+1:22:43.300 --> 1:22:44.580
+ Exactly, yeah.
+
+1:22:44.580 --> 1:22:46.620
+ So hopefully that, I mean, I've seen that work,
+
+1:22:46.620 --> 1:22:48.420
+ I've seen that work out well at DeepMind.
+
+1:22:48.420 --> 1:22:52.860
+ There are people who, I mean, even if you just focus
+
+1:22:52.860 --> 1:22:55.820
+ on the AI work that happens at DeepMind,
+
+1:22:55.820 --> 1:22:59.540
+ it's been a good thing to have some people around
+
+1:22:59.540 --> 1:23:03.260
+ doing that kind of work whose PhDs are in neuroscience
+
+1:23:03.260 --> 1:23:04.780
+ or psychology.
+
+1:23:04.780 --> 1:23:09.780
+ Every academic discipline has its kind of blind spots
+
+1:23:09.780 --> 1:23:14.780
+ and kind of unfortunate obsessions and its metaphors
+
+1:23:16.820 --> 1:23:18.260
+ and its reference points,
+
+1:23:18.260 --> 1:23:23.260
+ and having some intellectual diversity is really healthy.
+
+1:23:24.020 --> 1:23:28.420
+ People get each other unstuck, I think.
+
+1:23:28.420 --> 1:23:30.620
+ I see it all the time at DeepMind.
+
+1:23:30.620 --> 1:23:33.060
+ And I like to think that the people
+
+1:23:33.060 --> 1:23:35.940
+ who bring some neuroscience background to the table
+
+1:23:35.940 --> 1:23:37.460
+ are helping with that.
+
+1:23:37.460 --> 1:23:41.420
+ So one of my probably the deepest passion for me,
+
+1:23:41.420 --> 1:23:44.140
+ what I would say, maybe we kind of spoke off mic
+
+1:23:44.140 --> 1:23:49.140
+ a little bit about it, but that I think is a blind spot
+
+1:23:49.460 --> 1:23:51.380
+ for at least robotics and AI folks
+
+1:23:51.380 --> 1:23:55.540
+ is human robot interaction, human agent interaction.
+
+1:23:55.540 --> 1:24:00.540
+ Maybe do you have thoughts about how we reduce the size
+
+1:24:01.860 --> 1:24:02.980
+ of that blind spot?
+
+1:24:02.980 --> 1:24:07.460
+ Do you also share the feeling that not enough folks
+
+1:24:07.460 --> 1:24:10.260
+ are studying this aspect of interaction?
+
+1:24:10.260 --> 1:24:14.540
+ Well, I'm actually pretty intensively interested
+
+1:24:14.540 --> 1:24:17.060
+ in this issue now, and there are people in my group
+
+1:24:17.060 --> 1:24:20.940
+ who've actually pivoted pretty hard over the last few years
+
+1:24:20.940 --> 1:24:24.180
+ from doing more traditional cognitive psychology
+
+1:24:24.180 --> 1:24:28.060
+ and cognitive neuroscience to doing experimental work
+
+1:24:28.060 --> 1:24:30.220
+ on human agent interaction.
+
+1:24:30.220 --> 1:24:33.700
+ And there are a couple of reasons that I'm
+
+1:24:33.700 --> 1:24:35.500
+ pretty passionately interested in this.
+
+1:24:35.500 --> 1:24:40.500
+ One is it's kind of the outcome of having thought
+
+1:24:42.460 --> 1:24:46.900
+ for a few years now about what we're up to.
+
+1:24:46.900 --> 1:24:49.340
+ Like what are we doing?
+
+1:24:49.340 --> 1:24:53.420
+ Like what is this AI research for?
+
+1:24:53.420 --> 1:24:57.020
+ So what does it mean to make the world a better place?
+
+1:24:57.020 --> 1:24:59.740
+ I think I'm pretty sure that means making life better
+
+1:24:59.740 --> 1:25:00.580
+ for humans.
+
+1:25:02.620 --> 1:25:05.820
+ And so how do you make life better for humans?
+
+1:25:05.820 --> 1:25:10.540
+ That's a proposition that when you look at it carefully
+
+1:25:10.540 --> 1:25:15.540
+ and honestly is rather horrendously complicated,
+
+1:25:15.860 --> 1:25:18.820
+ especially when the AI systems
+
+1:25:18.820 --> 1:25:23.820
+ that you're building are learning systems.
+
+1:25:25.220 --> 1:25:29.060
+ They're not, you're not programming something
+
+1:25:29.060 --> 1:25:31.420
+ that you then introduce to the world
+
+1:25:31.420 --> 1:25:33.140
+ and it just works as programmed,
+
+1:25:33.140 --> 1:25:34.860
+ like Google Maps or something.
+
+1:25:36.500 --> 1:25:39.700
+ We're building systems that learn from experience.
+
+1:25:39.700 --> 1:25:43.500
+ So that typically leads to AI safety questions.
+
+1:25:43.500 --> 1:25:45.420
+ How do we keep these things from getting out of control?
+
+1:25:45.420 --> 1:25:49.060
+ How do we keep them from doing things that harm humans?
+
+1:25:49.060 --> 1:25:51.820
+ And I mean, I hasten to say,
+
+1:25:51.820 --> 1:25:54.500
+ I consider those hugely important issues.
+
+1:25:54.500 --> 1:25:58.900
+ And there are large sectors of the research community
+
+1:25:58.900 --> 1:26:00.780
+ at DeepMind and of course elsewhere
+
+1:26:00.780 --> 1:26:03.460
+ who are dedicated to thinking hard all day,
+
+1:26:03.460 --> 1:26:04.980
+ every day about that.
+
+1:26:04.980 --> 1:26:09.620
+ But there's, I guess I would say a positive side to this too
+
+1:26:09.620 --> 1:26:13.300
+ which is to say, well, what would it mean
+
+1:26:13.300 --> 1:26:15.900
+ to make human life better?
+
+1:26:15.900 --> 1:26:20.140
+ And how can we imagine learning systems doing that?
+
+1:26:21.180 --> 1:26:23.500
+ And in talking to my colleagues about that,
+
+1:26:23.500 --> 1:26:25.700
+ we reached the initial conclusion
+
+1:26:25.700 --> 1:26:30.100
+ that it's not sufficient to philosophize about that.
+
+1:26:30.100 --> 1:26:32.060
+ You actually have to take into account
+
+1:26:32.060 --> 1:26:37.060
+ how humans actually work and what humans want
+
+1:26:37.860 --> 1:26:40.500
+ and the difficulties of knowing what humans want
+
+1:26:41.740 --> 1:26:43.780
+ and the difficulties that arise
+
+1:26:43.780 --> 1:26:46.340
+ when humans want different things.
+
+1:26:47.380 --> 1:26:50.900
+ And so human agent interaction has become,
+
+1:26:50.900 --> 1:26:55.060
+ a quite intensive focus of my group lately.
+
+1:26:56.460 --> 1:26:58.020
+ If for no other reason that,
+
+1:26:59.020 --> 1:27:04.020
+ in order to really address that issue in an adequate way,
+
+1:27:04.660 --> 1:27:07.340
+ you have to, I mean, psychology becomes part of the picture.
+
+1:27:07.340 --> 1:27:10.380
+ Yeah, and so there's a few elements there.
+
+1:27:10.380 --> 1:27:12.900
+ So if you focus on solving like the,
+
+1:27:12.900 --> 1:27:14.700
+ if you focus on the robotics problem,
+
+1:27:14.700 --> 1:27:18.140
+ let's say AGI without humans in the picture
+
+1:27:18.140 --> 1:27:22.300
+ is you're missing fundamentally the final step.
+
+1:27:22.300 --> 1:27:24.580
+ When you do want to help human civilization,
+
+1:27:24.580 --> 1:27:27.340
+ you eventually have to interact with humans.
+
+1:27:27.340 --> 1:27:31.380
+ And when you create a learning system, just as you said,
+
+1:27:31.380 --> 1:27:34.340
+ that will eventually have to interact with humans,
+
+1:27:34.340 --> 1:27:37.900
+ the interaction itself has to be become,
+
+1:27:37.900 --> 1:27:40.780
+ has to become part of the learning process.
+
+1:27:40.780 --> 1:27:43.820
+ So you can't just watch, well, my sense is,
+
+1:27:43.820 --> 1:27:46.580
+ it sounds like your sense is you can't just watch humans
+
+1:27:46.580 --> 1:27:48.260
+ to learn about humans.
+
+1:27:48.260 --> 1:27:50.220
+ You have to also be part of the human world.
+
+1:27:50.220 --> 1:27:51.420
+ You have to interact with humans.
+
+1:27:51.420 --> 1:27:52.260
+ Yeah, exactly.
+
+1:27:52.260 --> 1:27:57.260
+ And I mean, then questions arise that start imperceptibly,
+
+1:27:57.380 --> 1:28:02.380
+ but inevitably to slip beyond the realm of engineering.
+
+1:28:02.380 --> 1:28:05.940
+ So questions like, if you have an agent
+
+1:28:05.940 --> 1:28:08.940
+ that can do something that you can't do,
+
+1:28:10.900 --> 1:28:13.780
+ under what conditions do you want that agent to do it?
+
+1:28:13.780 --> 1:28:18.780
+ So if I have a robot that can play Beethoven sonatas
+
+1:28:24.700 --> 1:28:29.700
+ better than any human, in the sense that the sensitivity,
+
+1:28:30.740 --> 1:28:33.940
+ the expression is just beyond what any human,
+
+1:28:33.940 --> 1:28:36.300
+ do I want to listen to that?
+
+1:28:36.300 --> 1:28:38.780
+ Do I want to go to a concert and hear a robot play?
+
+1:28:38.780 --> 1:28:41.340
+ These aren't engineering questions.
+
+1:28:41.340 --> 1:28:44.340
+ These are questions about human preference
+
+1:28:44.340 --> 1:28:45.980
+ and human culture.
+
+1:28:45.980 --> 1:28:47.940
+ Psychology bordering on philosophy.
+
+1:28:47.940 --> 1:28:50.260
+ Yeah, and then you start asking,
+
+1:28:50.260 --> 1:28:54.660
+ well, even if we knew the answer to that,
+
+1:28:54.660 --> 1:28:57.060
+ is it our place as AI engineers
+
+1:28:57.060 --> 1:28:59.180
+ to build that into these agents?
+
+1:28:59.180 --> 1:29:02.140
+ Probably the agents should interact with humans
+
+1:29:03.500 --> 1:29:05.620
+ beyond the population of AI engineers
+
+1:29:05.620 --> 1:29:07.820
+ and figure out what those humans want.
+
+1:29:08.780 --> 1:29:10.620
+ And then when you start,
+
+1:29:10.620 --> 1:29:11.780
+ I referred this the moment ago,
+
+1:29:11.780 --> 1:29:14.340
+ but even that becomes complicated.
+
+1:29:14.340 --> 1:29:19.100
+ Be quote, what if two humans want different things?
+
+1:29:19.100 --> 1:29:22.380
+ And you have only one agent that's able to interact with them
+
+1:29:22.380 --> 1:29:24.620
+ and try to satisfy their preferences.
+
+1:29:24.620 --> 1:29:27.060
+ Then you're into the realm of economics
+
+1:29:30.340 --> 1:29:33.660
+ and social choice theory and even politics.
+
+1:29:33.660 --> 1:29:35.540
+ So there's a sense in which,
+
+1:29:35.540 --> 1:29:37.980
+ if you kind of follow what we're doing
+
+1:29:37.980 --> 1:29:39.940
+ to its logical conclusion,
+
+1:29:39.940 --> 1:29:44.940
+ then it goes beyond questions of engineering and technology
+
+1:29:45.060 --> 1:29:48.420
+ and starts to shade imperceptibly into questions
+
+1:29:48.420 --> 1:29:51.660
+ about what kind of society do you want?
+
+1:29:51.660 --> 1:29:55.740
+ And actually, once that dawned on me,
+
+1:29:55.740 --> 1:29:57.300
+ I actually felt,
+
+1:29:58.620 --> 1:29:59.860
+ I don't know what the right word is,
+
+1:29:59.860 --> 1:30:03.020
+ quite refreshed in my involvement in AI research.
+
+1:30:03.020 --> 1:30:06.300
+ It was almost like building this kind of stuff
+
+1:30:06.300 --> 1:30:10.220
+ is gonna lead us back to asking really fundamental questions
+
+1:30:10.220 --> 1:30:13.860
+ about what is this,
+
+1:30:13.860 --> 1:30:16.700
+ what's the good life and who gets to decide
+
+1:30:16.700 --> 1:30:21.700
+ and bringing in viewpoints from multiple sub communities
+
+1:30:23.780 --> 1:30:26.300
+ to help us shape the way that we live.
+
+1:30:27.460 --> 1:30:30.820
+ There's something, it started making me feel like
+
+1:30:30.820 --> 1:30:36.300
+ doing AI research in a fully responsible way, would,
+
+1:30:38.300 --> 1:30:42.820
+ could potentially lead to a kind of like cultural renewal.
+
+1:30:42.820 --> 1:30:47.820
+ Yeah, it's the way to understand human beings
+
+1:30:48.180 --> 1:30:50.340
+ at the individual, at the societal level.
+
+1:30:50.340 --> 1:30:54.020
+ It may become a way to answer all the silly human questions
+
+1:30:54.020 --> 1:30:57.060
+ of the meaning of life and all those kinds of things.
+
+1:30:57.060 --> 1:30:58.060
+ Even if it doesn't give us a way
+
+1:30:58.060 --> 1:30:59.220
+ of answering those questions,
+
+1:30:59.220 --> 1:31:03.660
+ it may force us back to thinking about them.
+
+1:31:03.660 --> 1:31:06.940
+ And it might bring, it might restore a certain,
+
+1:31:06.940 --> 1:31:10.460
+ I don't know, a certain depth to,
+
+1:31:10.460 --> 1:31:15.460
+ or even dare I say spirituality to the way that,
+
+1:31:16.380 --> 1:31:18.060
+ to the world, I don't know.
+
+1:31:18.060 --> 1:31:19.380
+ Maybe that's too grandiose.
+
+1:31:19.380 --> 1:31:21.020
+ Well, I'm with you.
+
+1:31:21.020 --> 1:31:26.020
+ I think it's AI will be the philosophy of the 21st century,
+
+1:31:27.620 --> 1:31:29.020
+ the way which will open the door.
+
+1:31:29.020 --> 1:31:32.500
+ I think a lot of AI researchers are afraid to open that door
+
+1:31:32.500 --> 1:31:35.660
+ of exploring the beautiful richness
+
+1:31:35.660 --> 1:31:39.540
+ of the human agent interaction, human AI interaction.
+
+1:31:39.540 --> 1:31:42.380
+ I'm really happy that somebody like you
+
+1:31:42.380 --> 1:31:43.700
+ have opened that door.
+
+1:31:43.700 --> 1:31:48.700
+ And one thing I often think about is the usual schema
+
+1:31:49.500 --> 1:31:54.500
+ for thinking about human agent interaction
+
+1:31:54.500 --> 1:31:59.500
+ as this kind of dystopian, oh, our robot overlords.
+
+1:32:00.460 --> 1:32:03.500
+ And again, I hasten to say AI safety is hugely important.
+
+1:32:03.500 --> 1:32:06.420
+ And I'm not saying we shouldn't be thinking
+
+1:32:06.420 --> 1:32:09.540
+ about those risks, totally on board for that.
+
+1:32:09.540 --> 1:32:14.060
+ But there's, having said that,
+
+1:32:17.060 --> 1:32:18.860
+ what often follows for me is the thought
+
+1:32:18.860 --> 1:32:22.980
+ that there's another kind of narrative
+
+1:32:22.980 --> 1:32:24.780
+ that might be relevant, which is,
+
+1:32:24.780 --> 1:32:29.780
+ when we think of humans gaining more and more information
+
+1:32:31.020 --> 1:32:36.020
+ about human life, the narrative there is usually
+
+1:32:36.380 --> 1:32:38.540
+ that they gain more and more wisdom
+
+1:32:38.540 --> 1:32:40.700
+ and they get closer to enlightenment
+
+1:32:40.700 --> 1:32:43.260
+ and they become more benevolent.
+
+1:32:43.260 --> 1:32:47.300
+ And the Buddha is like, that's a totally different narrative.
+
+1:32:47.300 --> 1:32:50.380
+ And why isn't it the case that we imagine
+
+1:32:50.380 --> 1:32:52.460
+ that the AI systems that we're creating
+
+1:32:52.460 --> 1:32:53.980
+ are just gonna, like, they're gonna figure out
+
+1:32:53.980 --> 1:32:55.660
+ more and more about the way the world works
+
+1:32:55.660 --> 1:32:56.820
+ and the way that humans interact
+
+1:32:56.820 --> 1:32:59.180
+ and they'll become beneficent.
+
+1:32:59.180 --> 1:33:00.500
+ I'm not saying that will happen.
+
+1:33:00.500 --> 1:33:05.420
+ I don't honestly expect that to happen
+
+1:33:05.420 --> 1:33:08.820
+ without some careful, setting things up very carefully.
+
+1:33:08.820 --> 1:33:11.340
+ But it's another way things could go, right?
+
+1:33:11.340 --> 1:33:13.820
+ And yeah, and I would even push back on that.
+
+1:33:13.820 --> 1:33:18.820
+ I personally believe that the most trajectories,
+
+1:33:18.820 --> 1:33:23.820
+ natural human trajectories will lead us towards progress.
+
+1:33:25.460 --> 1:33:28.420
+ So for me, there is a kind of sense
+
+1:33:28.420 --> 1:33:30.820
+ that most trajectories in AI development
+
+1:33:30.820 --> 1:33:32.540
+ will lead us into trouble.
+
+1:33:32.540 --> 1:33:37.140
+ To me, and we over focus on the worst case.
+
+1:33:37.140 --> 1:33:38.500
+ It's like in computer science,
+
+1:33:38.500 --> 1:33:40.860
+ theoretical computer science has been this focus
+
+1:33:40.860 --> 1:33:42.060
+ on worst case analysis.
+
+1:33:42.060 --> 1:33:45.180
+ There's something appealing to our human mind
+
+1:33:45.180 --> 1:33:47.660
+ at some lowest level to be good.
+
+1:33:47.660 --> 1:33:50.220
+ I mean, we don't wanna be eaten by the tiger, I guess.
+
+1:33:50.220 --> 1:33:52.300
+ So we wanna do the worst case analysis.
+
+1:33:52.300 --> 1:33:55.660
+ But the reality is that shouldn't stop us
+
+1:33:55.660 --> 1:33:58.620
+ from actually building out all the other trajectories
+
+1:33:58.620 --> 1:34:01.900
+ which are potentially leading to all the positive worlds,
+
+1:34:01.900 --> 1:34:04.540
+ all the enlightenment.
+
+1:34:04.540 --> 1:34:05.700
+ There's a book, Enlightenment Now,
+
+1:34:05.700 --> 1:34:06.980
+ with Steven Pinker and so on.
+
+1:34:06.980 --> 1:34:09.660
+ This is looking generally at human progress.
+
+1:34:09.660 --> 1:34:12.300
+ And there's so many ways that human progress
+
+1:34:12.300 --> 1:34:13.900
+ can happen with AI.
+
+1:34:13.900 --> 1:34:16.300
+ And I think you have to do that research.
+
+1:34:16.300 --> 1:34:17.380
+ You have to do that work.
+
+1:34:17.380 --> 1:34:20.700
+ You have to do the, not just the AI safety work
+
+1:34:20.700 --> 1:34:22.500
+ of the one worst case analysis.
+
+1:34:22.500 --> 1:34:23.500
+ How do we prevent that?
+
+1:34:23.500 --> 1:34:27.540
+ But the actual tools and the glue
+
+1:34:27.540 --> 1:34:31.340
+ and the mechanisms of human AI interaction
+
+1:34:31.340 --> 1:34:34.180
+ that would lead to all the positive actions that can go.
+
+1:34:34.180 --> 1:34:36.540
+ It's a super exciting area, right?
+
+1:34:36.540 --> 1:34:38.340
+ Yeah, we should be spending,
+
+1:34:38.340 --> 1:34:40.820
+ we should be spending a lot of our time saying
+
+1:34:40.820 --> 1:34:42.860
+ what can go wrong.
+
+1:34:42.860 --> 1:34:47.860
+ I think it's harder to see that there's work to be done
+
+1:34:47.860 --> 1:34:51.540
+ to bring into focus the question of what it would look like
+
+1:34:51.540 --> 1:34:52.980
+ for things to go right.
+
+1:34:54.420 --> 1:34:56.500
+ That's not obvious.
+
+1:34:57.660 --> 1:34:59.620
+ And we wouldn't be doing this if we didn't have the sense
+
+1:34:59.620 --> 1:35:01.980
+ there was huge potential, right?
+
+1:35:01.980 --> 1:35:05.100
+ We're not doing this for no reason.
+
+1:35:05.100 --> 1:35:10.100
+ We have a sense that AGI would be a major boom to humanity.
+
+1:35:10.100 --> 1:35:13.700
+ But I think it's worth starting now,
+
+1:35:13.700 --> 1:35:15.620
+ even when our technology is quite primitive,
+
+1:35:15.620 --> 1:35:19.420
+ asking exactly what would that mean?
+
+1:35:19.420 --> 1:35:21.060
+ We can start now with applications
+
+1:35:21.060 --> 1:35:22.580
+ that are already gonna make the world a better place,
+
+1:35:22.580 --> 1:35:25.060
+ like solving protein folding.
+
+1:35:25.060 --> 1:35:27.860
+ I think DeepMind has gotten heavy
+
+1:35:27.860 --> 1:35:30.060
+ into science applications lately,
+
+1:35:30.060 --> 1:35:34.380
+ which I think is a wonderful, wonderful move
+
+1:35:34.380 --> 1:35:36.060
+ for us to be making.
+
+1:35:36.060 --> 1:35:37.260
+ But when we think about AGI,
+
+1:35:37.260 --> 1:35:39.860
+ when we think about building fully intelligent
+
+1:35:39.860 --> 1:35:42.460
+ agents that are gonna be able to, in a sense,
+
+1:35:42.460 --> 1:35:43.780
+ do whatever they want,
+
+1:35:45.540 --> 1:35:46.740
+ we should start thinking about
+
+1:35:46.740 --> 1:35:48.940
+ what do we want them to want, right?
+
+1:35:48.940 --> 1:35:51.460
+ What kind of world do we wanna live in?
+
+1:35:52.300 --> 1:35:54.300
+ That's not an easy question.
+
+1:35:54.300 --> 1:35:56.700
+ And I think we just need to start working on it.
+
+1:35:56.700 --> 1:35:58.620
+ And even on the path to,
+
+1:35:58.620 --> 1:35:59.900
+ it doesn't have to be AGI,
+
+1:35:59.900 --> 1:36:02.300
+ but just intelligent agents that interact with us
+
+1:36:02.300 --> 1:36:06.220
+ and help us enrich our own existence on social networks,
+
+1:36:06.220 --> 1:36:08.820
+ for example, on recommender systems of various intelligence.
+
+1:36:08.820 --> 1:36:10.540
+ And there's so much interesting interaction
+
+1:36:10.540 --> 1:36:12.300
+ that's yet to be understood and studied.
+
+1:36:12.300 --> 1:36:15.540
+ And how do you create,
+
+1:36:15.540 --> 1:36:19.460
+ I mean, Twitter is struggling with this very idea,
+
+1:36:19.460 --> 1:36:21.420
+ how do you create AI systems
+
+1:36:21.420 --> 1:36:24.380
+ that increase the quality and the health of a conversation?
+
+1:36:24.380 --> 1:36:25.220
+ For sure.
+
+1:36:25.220 --> 1:36:28.500
+ That's a beautiful human psychology question.
+
+1:36:28.500 --> 1:36:29.740
+ And how do you do that
+
+1:36:29.740 --> 1:36:34.740
+ without deception being involved,
+
+1:36:34.740 --> 1:36:38.100
+ without manipulation being involved,
+
+1:36:38.100 --> 1:36:41.060
+ maximizing human autonomy?
+
+1:36:42.420 --> 1:36:45.820
+ And how do you make these choices in a democratic way?
+
+1:36:45.820 --> 1:36:50.180
+ How do we face the,
+
+1:36:50.180 --> 1:36:52.740
+ again, I'm speaking for myself here.
+
+1:36:52.740 --> 1:36:54.660
+ How do we face the fact that
+
+1:36:55.700 --> 1:36:57.740
+ it's a small group of people
+
+1:36:57.740 --> 1:37:01.340
+ who have the skillset to build these kinds of systems,
+
+1:37:01.340 --> 1:37:05.860
+ but what it means to make the world a better place
+
+1:37:05.860 --> 1:37:09.020
+ is something that we all have to be talking about.
+
+1:37:09.020 --> 1:37:14.020
+ Yeah, the world that we're trying to make a better place
+
+1:37:14.020 --> 1:37:18.020
+ includes a huge variety of different kinds of people.
+
+1:37:18.020 --> 1:37:19.420
+ Yeah, how do we cope with that?
+
+1:37:19.420 --> 1:37:22.820
+ This is a problem that has been discussed
+
+1:37:22.820 --> 1:37:27.820
+ in gory, extensive detail in social choice theory.
+
+1:37:28.500 --> 1:37:29.900
+ One thing I'm really interested in
+
+1:37:29.900 --> 1:37:32.900
+ and one thing I'm really enjoying
+
+1:37:32.900 --> 1:37:35.180
+ about the recent direction work has taken
+
+1:37:35.180 --> 1:37:36.900
+ in some parts of my team is that,
+
+1:37:36.900 --> 1:37:38.620
+ yeah, we're reading the AI literature,
+
+1:37:38.620 --> 1:37:39.940
+ we're reading the neuroscience literature,
+
+1:37:39.940 --> 1:37:42.940
+ but we've also started reading economics
+
+1:37:42.940 --> 1:37:44.820
+ and, as I mentioned, social choice theory,
+
+1:37:44.820 --> 1:37:45.940
+ even some political theory,
+
+1:37:45.940 --> 1:37:50.380
+ because it turns out that it all becomes relevant.
+
+1:37:50.380 --> 1:37:51.580
+ It all becomes relevant.
+
+1:37:53.540 --> 1:37:55.660
+ But at the same time,
+
+1:37:55.660 --> 1:38:00.140
+ we've been trying not to write philosophy papers,
+
+1:38:00.140 --> 1:38:01.980
+ we've been trying not to write physician papers.
+
+1:38:01.980 --> 1:38:03.780
+ We're trying to figure out ways
+
+1:38:03.780 --> 1:38:05.740
+ of doing actual empirical research
+
+1:38:05.740 --> 1:38:07.780
+ that kind of take the first small steps
+
+1:38:07.780 --> 1:38:10.820
+ to thinking about what it really means
+
+1:38:10.820 --> 1:38:13.580
+ for humans with all of their complexity
+
+1:38:13.580 --> 1:38:16.980
+ and contradiction and paradox
+
+1:38:18.540 --> 1:38:22.340
+ to be brought into contact with these AI systems
+
+1:38:22.340 --> 1:38:25.540
+ in a way that really makes the world a better place.
+
+1:38:25.540 --> 1:38:27.540
+ Often, reinforcement learning frameworks
+
+1:38:27.540 --> 1:38:30.860
+ actually kind of allow you to do that,
+
+1:38:30.860 --> 1:38:33.580
+ machine learning, and so that's the exciting thing about AI
+
+1:38:33.580 --> 1:38:37.260
+ is it allows you to reduce the unsolvable problem,
+
+1:38:37.260 --> 1:38:40.380
+ philosophical problem, into something more concrete
+
+1:38:40.380 --> 1:38:41.700
+ that you can get ahold of.
+
+1:38:41.700 --> 1:38:43.900
+ Yeah, and it allows you to kind of define the problem
+
+1:38:43.900 --> 1:38:48.900
+ in some way that allows for growth in the system
+
+1:38:49.980 --> 1:38:51.140
+ that's sort of, you know,
+
+1:38:51.140 --> 1:38:54.100
+ you're not responsible for the details, right?
+
+1:38:54.100 --> 1:38:56.700
+ You say, this is generally what I want you to do,
+
+1:38:56.700 --> 1:38:58.740
+ and then learning takes care of the rest.
+
+1:38:59.580 --> 1:39:04.100
+ Of course, the safety issues arise in that context,
+
+1:39:04.100 --> 1:39:05.980
+ but I think also some of these positive issues
+
+1:39:05.980 --> 1:39:06.940
+ arise in that context.
+
+1:39:06.940 --> 1:39:09.180
+ What would it mean for an AI system
+
+1:39:09.180 --> 1:39:12.700
+ to really come to understand what humans want?
+
+1:39:14.780 --> 1:39:18.940
+ And with all of the subtleties of that, right?
+
+1:39:18.940 --> 1:39:23.940
+ You know, humans want help with certain things,
+
+1:39:24.660 --> 1:39:27.420
+ but they don't want everything done for them, right?
+
+1:39:27.420 --> 1:39:29.660
+ There is, part of the satisfaction
+
+1:39:29.660 --> 1:39:32.700
+ that humans get from life is in accomplishing things.
+
+1:39:32.700 --> 1:39:34.660
+ So if there were devices around that did everything for,
+
+1:39:34.660 --> 1:39:37.500
+ you know, I often think of the movie WALLI, right?
+
+1:39:37.500 --> 1:39:39.380
+ That's like dystopian in a totally different way.
+
+1:39:39.380 --> 1:39:41.340
+ It's like, the machines are doing everything for us.
+
+1:39:41.340 --> 1:39:43.780
+ That's not what we wanted.
+
+1:39:43.780 --> 1:39:46.700
+ You know, anyway, I find this, you know,
+
+1:39:46.700 --> 1:39:50.500
+ this opens up a whole landscape of research
+
+1:39:50.500 --> 1:39:52.740
+ that feels affirmative and exciting.
+
+1:39:52.740 --> 1:39:56.020
+ To me, it's one of the most exciting, and it's wide open.
+
+1:39:56.020 --> 1:39:58.260
+ We have to, because it's a cool paper,
+
+1:39:58.260 --> 1:39:59.300
+ talk about dopamine.
+
+1:39:59.300 --> 1:40:01.100
+ Oh yeah, okay, so I can.
+
+1:40:01.100 --> 1:40:04.980
+ We were gonna, I was gonna give you a quick summary.
+
+1:40:04.980 --> 1:40:09.900
+ Yeah, a quick summary of, what's the title of the paper?
+
+1:40:09.900 --> 1:40:14.900
+ I think we called it a distributional code for value
+
+1:40:14.900 --> 1:40:19.020
+ in dopamine based reinforcement learning, yes.
+
+1:40:19.020 --> 1:40:24.020
+ So that's another project that grew out of pure AI research.
+
+1:40:25.740 --> 1:40:29.620
+ A number of people at DeepMind and a few other places
+
+1:40:29.620 --> 1:40:32.340
+ had started working on a new version
+
+1:40:32.340 --> 1:40:33.740
+ of reinforcement learning,
+
+1:40:35.740 --> 1:40:38.940
+ which was defined by taking something
+
+1:40:38.940 --> 1:40:41.420
+ in traditional reinforcement learning and just tweaking it.
+
+1:40:41.420 --> 1:40:42.740
+ So the thing that they took
+
+1:40:42.740 --> 1:40:46.860
+ from traditional reinforcement learning was a value signal.
+
+1:40:46.860 --> 1:40:49.540
+ So at the center of reinforcement learning,
+
+1:40:49.540 --> 1:40:52.580
+ at least most algorithms, is some representation
+
+1:40:52.580 --> 1:40:54.140
+ of how well things are going,
+
+1:40:54.140 --> 1:40:57.660
+ your expected cumulative future reward.
+
+1:40:57.660 --> 1:41:01.220
+ And that's usually represented as a single number.
+
+1:41:01.220 --> 1:41:04.260
+ So if you imagine a gambler in a casino
+
+1:41:04.260 --> 1:41:07.980
+ and the gambler's thinking, well, I have this probability
+
+1:41:07.980 --> 1:41:09.540
+ of winning such and such an amount of money,
+
+1:41:09.540 --> 1:41:11.260
+ and I have this probability of losing such and such
+
+1:41:11.260 --> 1:41:14.860
+ an amount of money, that situation would be represented
+
+1:41:14.860 --> 1:41:17.260
+ as a single number, which is like the expected,
+
+1:41:17.260 --> 1:41:19.580
+ the weighted average of all those outcomes.
+
+1:41:20.580 --> 1:41:23.740
+ And this new form of reinforcement learning said,
+
+1:41:23.740 --> 1:41:26.460
+ well, what if we generalize that
+
+1:41:26.460 --> 1:41:28.140
+ to a distributional representation?
+
+1:41:28.140 --> 1:41:30.820
+ So now we think of the gambler as literally thinking,
+
+1:41:30.820 --> 1:41:32.260
+ well, there's this probability
+
+1:41:32.260 --> 1:41:33.620
+ that I'll win this amount of money,
+
+1:41:33.620 --> 1:41:34.580
+ and there's this probability
+
+1:41:34.580 --> 1:41:35.700
+ that I'll lose that amount of money,
+
+1:41:35.700 --> 1:41:37.820
+ and we don't reduce that to a single number.
+
+1:41:37.820 --> 1:41:40.580
+ And it had been observed through experiments,
+
+1:41:40.580 --> 1:41:42.420
+ through just trying this out,
+
+1:41:42.420 --> 1:41:45.900
+ that that kind of distributional representation
+
+1:41:45.900 --> 1:41:49.620
+ really accelerated reinforcement learning
+
+1:41:49.620 --> 1:41:52.380
+ and led to better policies.
+
+1:41:52.380 --> 1:41:53.620
+ What's your intuition about,
+
+1:41:53.620 --> 1:41:55.260
+ so we're talking about rewards.
+
+1:41:55.260 --> 1:41:56.100
+ Yeah.
+
+1:41:56.100 --> 1:41:58.420
+ So what's your intuition why that is, why does it do that?
+
+1:41:58.420 --> 1:42:02.620
+ Well, it's kind of a surprising historical note,
+
+1:42:02.620 --> 1:42:04.460
+ at least surprised me when I learned it,
+
+1:42:04.460 --> 1:42:07.260
+ that this had been proven to be true.
+
+1:42:07.260 --> 1:42:09.820
+ This had been tried out in a kind of heuristic way.
+
+1:42:09.820 --> 1:42:12.500
+ People thought, well, gee, what would happen if we tried?
+
+1:42:12.500 --> 1:42:14.580
+ And then it had this, empirically,
+
+1:42:14.580 --> 1:42:17.300
+ it had this striking effect.
+
+1:42:17.300 --> 1:42:19.300
+ And it was only then that people started thinking,
+
+1:42:19.300 --> 1:42:21.380
+ well, gee, wait, why?
+
+1:42:21.380 --> 1:42:22.220
+ Wait, why?
+
+1:42:22.220 --> 1:42:23.420
+ Why is this working?
+
+1:42:23.420 --> 1:42:26.180
+ And that's led to a series of studies
+
+1:42:26.180 --> 1:42:29.740
+ just trying to figure out why it works, which is ongoing.
+
+1:42:29.740 --> 1:42:31.780
+ But one thing that's already clear from that research
+
+1:42:31.780 --> 1:42:34.340
+ is that one reason that it helps
+
+1:42:34.340 --> 1:42:38.300
+ is that it drives richer representation learning.
+
+1:42:39.420 --> 1:42:43.060
+ So if you imagine two situations
+
+1:42:43.060 --> 1:42:45.300
+ that have the same expected value,
+
+1:42:45.300 --> 1:42:47.300
+ the same kind of weighted average value,
+
+1:42:48.980 --> 1:42:51.300
+ standard deep reinforcement learning algorithms
+
+1:42:51.300 --> 1:42:53.500
+ are going to take those two situations
+
+1:42:53.500 --> 1:42:55.020
+ and kind of, in terms of the way
+
+1:42:55.020 --> 1:42:56.460
+ they're represented internally,
+
+1:42:56.460 --> 1:42:58.180
+ they're gonna squeeze them together
+
+1:42:58.180 --> 1:43:02.580
+ because the thing that you're trying to represent,
+
+1:43:02.580 --> 1:43:04.180
+ which is their expected value, is the same.
+
+1:43:04.180 --> 1:43:06.260
+ So all the way through the system,
+
+1:43:06.260 --> 1:43:08.420
+ things are gonna be mushed together.
+
+1:43:08.420 --> 1:43:11.060
+ But what if those two situations
+
+1:43:11.060 --> 1:43:13.940
+ actually have different value distributions?
+
+1:43:13.940 --> 1:43:16.900
+ They have the same average value,
+
+1:43:16.900 --> 1:43:19.900
+ but they have different distributions of value.
+
+1:43:19.900 --> 1:43:22.300
+ In that situation, distributional learning
+
+1:43:22.300 --> 1:43:25.100
+ will maintain the distinction between these two things.
+
+1:43:25.100 --> 1:43:26.820
+ So to make a long story short,
+
+1:43:26.820 --> 1:43:30.020
+ distributional learning can keep things separate
+
+1:43:30.020 --> 1:43:32.180
+ in the internal representation
+
+1:43:32.180 --> 1:43:35.140
+ that might otherwise be conflated or squished together.
+
+1:43:35.140 --> 1:43:36.380
+ And maintaining those distinctions
+
+1:43:36.380 --> 1:43:40.180
+ can be useful when the system is now faced
+
+1:43:40.180 --> 1:43:43.260
+ with some other task where the distinction is important.
+
+1:43:43.260 --> 1:43:44.540
+ If we look at the optimistic
+
+1:43:44.540 --> 1:43:46.580
+ and pessimistic dopamine neurons.
+
+1:43:46.580 --> 1:43:49.580
+ So first of all, what is dopamine?
+
+1:43:50.900 --> 1:43:51.740
+ Oh, God.
+
+1:43:51.740 --> 1:43:54.740
+ Why is this at all useful
+
+1:43:58.220 --> 1:44:00.740
+ to think about in the artificial intelligence sense?
+
+1:44:00.740 --> 1:44:04.180
+ But what do we know about dopamine in the human brain?
+
+1:44:04.180 --> 1:44:05.620
+ What is it?
+
+1:44:05.620 --> 1:44:06.460
+ Why is it useful?
+
+1:44:06.460 --> 1:44:07.460
+ Why is it interesting?
+
+1:44:07.460 --> 1:44:09.380
+ What does it have to do with the prefrontal cortex
+
+1:44:09.380 --> 1:44:10.260
+ and learning in general?
+
+1:44:10.260 --> 1:44:15.260
+ Yeah, so, well, this is also a case
+
+1:44:15.540 --> 1:44:19.660
+ where there's a huge amount of detail and debate.
+
+1:44:19.660 --> 1:44:24.660
+ But one currently prevailing idea
+
+1:44:24.740 --> 1:44:29.060
+ is that the function of this neurotransmitter dopamine
+
+1:44:29.060 --> 1:44:33.460
+ resembles a particular component
+
+1:44:33.460 --> 1:44:36.860
+ of standard reinforcement learning algorithms,
+
+1:44:36.860 --> 1:44:39.860
+ which is called the reward prediction error.
+
+1:44:39.860 --> 1:44:41.580
+ So I was talking a moment ago
+
+1:44:41.580 --> 1:44:44.220
+ about these value representations.
+
+1:44:44.220 --> 1:44:45.180
+ How do you learn them?
+
+1:44:45.180 --> 1:44:46.900
+ How do you update them based on experience?
+
+1:44:46.900 --> 1:44:51.820
+ Well, if you made some prediction about a future reward
+
+1:44:51.820 --> 1:44:54.460
+ and then you get more reward than you were expecting,
+
+1:44:54.460 --> 1:44:56.020
+ then probably retrospectively,
+
+1:44:56.020 --> 1:45:00.740
+ you want to go back and increase the value representation
+
+1:45:00.740 --> 1:45:03.820
+ that you attached to that earlier situation.
+
+1:45:03.820 --> 1:45:06.180
+ If you got less reward than you were expecting,
+
+1:45:06.180 --> 1:45:08.540
+ you should probably decrement that estimate.
+
+1:45:08.540 --> 1:45:10.300
+ And that's the process of temporal difference.
+
+1:45:10.300 --> 1:45:12.020
+ Exactly, this is the central mechanism
+
+1:45:12.020 --> 1:45:12.860
+ of temporal difference learning,
+
+1:45:12.860 --> 1:45:17.660
+ which is one of several sort of the backbone
+
+1:45:17.660 --> 1:45:20.420
+ of our momentarium in NRL.
+
+1:45:20.420 --> 1:45:25.020
+ And this connection between the reward prediction error
+
+1:45:25.020 --> 1:45:30.020
+ and dopamine was made in the 1990s.
+
+1:45:31.940 --> 1:45:33.420
+ And there's been a huge amount of research
+
+1:45:33.420 --> 1:45:35.860
+ that seems to back it up.
+
+1:45:35.860 --> 1:45:37.340
+ Dopamine may be doing other things,
+
+1:45:37.340 --> 1:45:39.860
+ but this is clearly, at least roughly,
+
+1:45:39.860 --> 1:45:42.460
+ one of the things that it's doing.
+
+1:45:42.460 --> 1:45:45.100
+ But the usual idea was that dopamine
+
+1:45:45.100 --> 1:45:48.060
+ was representing these reward prediction errors,
+
+1:45:48.060 --> 1:45:51.340
+ again, in this like kind of single number way
+
+1:45:51.340 --> 1:45:56.340
+ that representing your surprise with a single number.
+
+1:45:56.700 --> 1:45:58.500
+ And in distributional reinforcement learning,
+
+1:45:58.500 --> 1:46:02.780
+ this kind of new elaboration of the standard approach,
+
+1:46:03.660 --> 1:46:06.060
+ it's not only the value function
+
+1:46:06.060 --> 1:46:08.460
+ that's represented as a single number,
+
+1:46:08.460 --> 1:46:10.940
+ it's also the reward prediction error.
+
+1:46:10.940 --> 1:46:15.940
+ And so what happened was that Will Dabney,
+
+1:46:16.180 --> 1:46:18.980
+ one of my collaborators who was one of the first people
+
+1:46:18.980 --> 1:46:22.300
+ to work on distributional temporal difference learning,
+
+1:46:22.300 --> 1:46:25.740
+ talked to a guy in my group, Zeb Kurt Nelson,
+
+1:46:25.740 --> 1:46:27.660
+ who's a computational neuroscientist,
+
+1:46:27.660 --> 1:46:29.580
+ and said, gee, you know, is it possible
+
+1:46:29.580 --> 1:46:31.740
+ that dopamine might be doing something
+
+1:46:31.740 --> 1:46:33.420
+ like this distributional coding thing?
+
+1:46:33.420 --> 1:46:35.980
+ And they started looking at what was in the literature,
+
+1:46:35.980 --> 1:46:36.820
+ and then they brought me in,
+
+1:46:36.820 --> 1:46:39.220
+ and we started talking to Nao Uchida,
+
+1:46:39.220 --> 1:46:41.300
+ and we came up with some specific predictions
+
+1:46:41.300 --> 1:46:43.500
+ about if the brain is using
+
+1:46:43.500 --> 1:46:45.140
+ this kind of distributional coding,
+
+1:46:45.140 --> 1:46:47.340
+ then in the tasks that Nao has studied,
+
+1:46:47.340 --> 1:46:49.300
+ you should see this, this, this, and this,
+
+1:46:49.300 --> 1:46:50.620
+ and that's where the paper came from.
+
+1:46:50.620 --> 1:46:53.540
+ We kind of enumerated a set of predictions,
+
+1:46:53.540 --> 1:46:56.420
+ all of which ended up being fairly clearly confirmed,
+
+1:46:57.260 --> 1:47:00.740
+ and all of which leads to at least some initial indication
+
+1:47:00.740 --> 1:47:02.180
+ that the brain might be doing something
+
+1:47:02.180 --> 1:47:03.420
+ like this distributional coding,
+
+1:47:03.420 --> 1:47:06.780
+ that dopamine might be representing surprise signals
+
+1:47:06.780 --> 1:47:09.980
+ in a way that is not just collapsing everything
+
+1:47:09.980 --> 1:47:12.180
+ to a single number, but instead is kind of respecting
+
+1:47:12.180 --> 1:47:16.620
+ the variety of future outcomes, if that makes sense.
+
+1:47:16.620 --> 1:47:19.580
+ So yeah, so that's showing, suggesting possibly
+
+1:47:19.580 --> 1:47:21.900
+ that dopamine has a really interesting
+
+1:47:21.900 --> 1:47:25.940
+ representation scheme in the human brain
+
+1:47:25.940 --> 1:47:27.660
+ for its reward signal.
+
+1:47:27.660 --> 1:47:29.660
+ Exactly. That's fascinating.
+
+1:47:29.660 --> 1:47:32.140
+ That's another beautiful example of AI
+
+1:47:32.140 --> 1:47:34.460
+ revealing something nice about neuroscience,
+
+1:47:34.460 --> 1:47:36.260
+ potentially suggesting possibilities.
+
+1:47:36.260 --> 1:47:37.100
+ Well, you never know.
+
+1:47:37.100 --> 1:47:39.260
+ So the minute you publish a paper like that,
+
+1:47:39.260 --> 1:47:42.620
+ the next thing you think is, I hope that replicates.
+
+1:47:42.620 --> 1:47:44.940
+ Like, I hope we see that same thing in other data sets,
+
+1:47:44.940 --> 1:47:47.380
+ but of course, several labs now
+
+1:47:47.380 --> 1:47:50.180
+ are doing the followup experiments, so we'll know soon.
+
+1:47:50.180 --> 1:47:52.580
+ But it has been a lot of fun for us
+
+1:47:52.580 --> 1:47:54.780
+ to take these ideas from AI
+
+1:47:54.780 --> 1:47:56.820
+ and kind of bring them into neuroscience
+
+1:47:56.820 --> 1:47:58.980
+ and see how far we can get.
+
+1:47:58.980 --> 1:48:01.300
+ So we kind of talked about it a little bit,
+
+1:48:01.300 --> 1:48:04.020
+ but where do you see the field of neuroscience
+
+1:48:04.020 --> 1:48:07.740
+ and artificial intelligence heading broadly?
+
+1:48:07.740 --> 1:48:12.580
+ Like, what are the possible exciting areas
+
+1:48:12.580 --> 1:48:15.300
+ that you can see breakthroughs in the next,
+
+1:48:15.300 --> 1:48:17.980
+ let's get crazy, not just three or five years,
+
+1:48:17.980 --> 1:48:20.020
+ but the next 10, 20, 30 years
+
+1:48:22.340 --> 1:48:26.100
+ that would make you excited
+
+1:48:26.100 --> 1:48:27.980
+ and perhaps you'd be part of?
+
+1:48:29.020 --> 1:48:31.020
+ On the neuroscience side,
+
+1:48:32.980 --> 1:48:34.420
+ there's a great deal of interest now
+
+1:48:34.420 --> 1:48:36.780
+ in what's going on in AI.
+
+1:48:36.780 --> 1:48:41.500
+ And at the same time,
+
+1:48:41.500 --> 1:48:45.900
+ I feel like, so neuroscience,
+
+1:48:45.900 --> 1:48:50.100
+ especially the part of neuroscience
+
+1:48:50.100 --> 1:48:54.180
+ that's focused on circuits and systems,
+
+1:48:54.180 --> 1:48:56.340
+ kind of like really mechanism focused,
+
+1:48:57.780 --> 1:49:01.980
+ there's been this explosion in new technology.
+
+1:49:01.980 --> 1:49:05.100
+ And up until recently,
+
+1:49:05.100 --> 1:49:08.940
+ the experiments that have exploited this technology
+
+1:49:08.940 --> 1:49:13.340
+ have not involved a lot of interesting behavior.
+
+1:49:13.340 --> 1:49:15.420
+ And this is for a variety of reasons,
+
+1:49:16.300 --> 1:49:18.700
+ one of which is in order to employ
+
+1:49:18.700 --> 1:49:19.860
+ some of these technologies,
+
+1:49:19.860 --> 1:49:22.260
+ you actually have to, if you're studying a mouse,
+
+1:49:22.260 --> 1:49:23.620
+ you have to head fix the mouse.
+
+1:49:23.620 --> 1:49:26.260
+ In other words, you have to like immobilize the mouse.
+
+1:49:26.260 --> 1:49:28.700
+ And so it's been tricky to come up
+
+1:49:28.700 --> 1:49:30.860
+ with ways of eliciting interesting behavior
+
+1:49:30.860 --> 1:49:33.460
+ from a mouse that's restrained in this way,
+
+1:49:33.460 --> 1:49:35.660
+ but people have begun to create
+
+1:49:35.660 --> 1:49:39.460
+ very interesting solutions to this,
+
+1:49:39.460 --> 1:49:41.300
+ like virtual reality environments
+
+1:49:41.300 --> 1:49:43.860
+ where the animal can kind of move a track ball.
+
+1:49:43.860 --> 1:49:48.780
+ And as people have kind of begun to explore
+
+1:49:48.780 --> 1:49:50.260
+ what you can do with these technologies,
+
+1:49:50.260 --> 1:49:52.820
+ I feel like more and more people are asking,
+
+1:49:52.820 --> 1:49:55.740
+ well, let's try to bring behavior into the picture.
+
+1:49:55.740 --> 1:49:58.220
+ Let's try to like reintroduce behavior,
+
+1:49:58.220 --> 1:50:01.020
+ which was supposed to be what this whole thing was about.
+
+1:50:01.020 --> 1:50:05.700
+ And I'm hoping that those two trends,
+
+1:50:05.700 --> 1:50:09.180
+ the kind of growing interest in behavior
+
+1:50:09.180 --> 1:50:14.180
+ and the widespread interest in what's going on in AI,
+
+1:50:14.180 --> 1:50:17.580
+ will come together to kind of open a new chapter
+
+1:50:17.580 --> 1:50:22.580
+ in neuroscience research where there's a kind of
+
+1:50:22.580 --> 1:50:25.820
+ a rebirth of interest in the structure of behavior
+
+1:50:25.820 --> 1:50:27.540
+ and its underlying substrates,
+
+1:50:27.540 --> 1:50:31.340
+ but that that research is being informed
+
+1:50:31.340 --> 1:50:33.700
+ by computational mechanisms
+
+1:50:33.700 --> 1:50:35.620
+ that we're coming to understand in AI.
+
+1:50:36.740 --> 1:50:39.580
+ If we can do that, then we might be taking a step closer
+
+1:50:39.580 --> 1:50:43.260
+ to this utopian future that we were talking about earlier
+
+1:50:43.260 --> 1:50:44.860
+ where there's really no distinction
+
+1:50:44.860 --> 1:50:46.940
+ between psychology and neuroscience.
+
+1:50:46.940 --> 1:50:50.900
+ Neuroscience is about studying the mechanisms
+
+1:50:50.900 --> 1:50:54.660
+ that underlie whatever it is the brain is for,
+
+1:50:54.660 --> 1:50:56.340
+ and what is the brain for?
+
+1:50:56.340 --> 1:50:58.460
+ What is the brain for? It's for behavior.
+
+1:50:58.460 --> 1:51:03.100
+ I feel like we could maybe take a step toward that now
+
+1:51:03.100 --> 1:51:05.180
+ if people are motivated in the right way.
+
+1:51:06.780 --> 1:51:08.780
+ You also asked about AI.
+
+1:51:08.780 --> 1:51:10.340
+ So that was a neuroscience question.
+
+1:51:10.340 --> 1:51:12.180
+ You said neuroscience, that's right.
+
+1:51:12.180 --> 1:51:13.740
+ And especially places like DeepMind
+
+1:51:13.740 --> 1:51:15.260
+ are interested in both branches.
+
+1:51:15.260 --> 1:51:18.720
+ So what about the engineering of intelligence systems?
+
+1:51:20.820 --> 1:51:24.900
+ I think one of the key challenges
+
+1:51:24.900 --> 1:51:28.700
+ that a lot of people are seeing now in AI
+
+1:51:28.700 --> 1:51:33.700
+ is to build systems that have the kind of flexibility
+
+1:51:34.300 --> 1:51:38.580
+ and the kind of flexibility that humans have in two senses.
+
+1:51:38.580 --> 1:51:41.860
+ One is that humans can be good at many things.
+
+1:51:41.860 --> 1:51:44.300
+ They're not just expert at one thing.
+
+1:51:44.300 --> 1:51:45.620
+ And they're also flexible in the sense
+
+1:51:45.620 --> 1:51:49.660
+ that they can switch between things very easily
+
+1:51:49.660 --> 1:51:52.060
+ and they can pick up new things very quickly
+
+1:51:52.060 --> 1:51:57.060
+ because they very ably see what a new task has in common
+
+1:51:57.620 --> 1:51:59.420
+ with other things that they've done.
+
+1:52:01.860 --> 1:52:05.340
+ And that's something that our AI systems
+
+1:52:05.340 --> 1:52:08.060
+ just blatantly do not have.
+
+1:52:09.100 --> 1:52:11.380
+ There are some people who like to argue
+
+1:52:11.380 --> 1:52:13.740
+ that deep learning and deep RL
+
+1:52:13.740 --> 1:52:17.080
+ are simply wrong for getting that kind of flexibility.
+
+1:52:17.080 --> 1:52:20.060
+ I don't share that belief,
+
+1:52:20.060 --> 1:52:22.620
+ but the simpler fact of the matter
+
+1:52:22.620 --> 1:52:23.860
+ is we're not building things yet
+
+1:52:23.860 --> 1:52:25.500
+ that do have that kind of flexibility.
+
+1:52:25.500 --> 1:52:28.700
+ And I think the attention of a large part
+
+1:52:28.700 --> 1:52:31.500
+ of the AI community is starting to pivot to that question.
+
+1:52:31.500 --> 1:52:32.460
+ How do we get that?
+
+1:52:33.460 --> 1:52:38.060
+ That's gonna lead to a focus on abstraction.
+
+1:52:38.060 --> 1:52:40.460
+ It's gonna lead to a focus on
+
+1:52:40.460 --> 1:52:43.620
+ what in psychology we call cognitive control,
+
+1:52:43.620 --> 1:52:45.900
+ which is the ability to switch between tasks,
+
+1:52:45.900 --> 1:52:49.300
+ the ability to quickly put together a program of behavior
+
+1:52:49.300 --> 1:52:51.740
+ that you've never executed before,
+
+1:52:51.740 --> 1:52:55.260
+ but you know makes sense for a particular set of demands.
+
+1:52:55.260 --> 1:52:58.140
+ It's very closely related to what the prefrontal cortex does
+
+1:52:59.140 --> 1:53:01.060
+ on the neuroscience side.
+
+1:53:01.060 --> 1:53:05.380
+ So I think it's gonna be an interesting new chapter.
+
+1:53:05.380 --> 1:53:07.420
+ So that's the reasoning side and cognition side,
+
+1:53:07.420 --> 1:53:10.540
+ but let me ask the over romanticized question.
+
+1:53:10.540 --> 1:53:13.700
+ Do you think we'll ever engineer an AGI system
+
+1:53:13.700 --> 1:53:17.140
+ that we humans would be able to love
+
+1:53:17.140 --> 1:53:19.580
+ and that would love us back?
+
+1:53:19.580 --> 1:53:23.060
+ So have that level and depth of connection?
+
+1:53:26.220 --> 1:53:27.860
+ I love that question.
+
+1:53:27.860 --> 1:53:31.980
+ And it relates closely to things
+
+1:53:31.980 --> 1:53:33.900
+ that I've been thinking about a lot lately,
+
+1:53:33.900 --> 1:53:36.620
+ in the context of this human AI research.
+
+1:53:36.620 --> 1:53:39.940
+ There's social psychology research
+
+1:53:41.140 --> 1:53:44.940
+ in particular by Susan Fisk at Princeton
+
+1:53:44.940 --> 1:53:47.100
+ the department where I used to work,
+
+1:53:48.420 --> 1:53:53.420
+ where she dissects human attitudes toward other humans
+
+1:53:54.500 --> 1:53:59.500
+ into a sort of two dimensional scheme.
+
+1:53:59.900 --> 1:54:03.940
+ And one dimension is about ability.
+
+1:54:03.940 --> 1:54:08.220
+ How able, how capable is this other person?
+
+1:54:10.100 --> 1:54:11.780
+ But the other dimension is warmth.
+
+1:54:11.780 --> 1:54:15.580
+ So you can imagine another person who's very skilled
+
+1:54:15.580 --> 1:54:17.740
+ and capable, but is very cold.
+
+1:54:19.540 --> 1:54:22.500
+ And you wouldn't really like highly,
+
+1:54:22.500 --> 1:54:25.140
+ you might have some reservations about that other person.
+
+1:54:26.660 --> 1:54:28.980
+ But there's also a kind of reservation
+
+1:54:28.980 --> 1:54:31.020
+ that we might have about another person
+
+1:54:31.020 --> 1:54:34.860
+ who elicits in us or displays a lot of human warmth,
+
+1:54:34.860 --> 1:54:37.940
+ but is not good at getting things done.
+
+1:54:37.940 --> 1:54:40.940
+ We reserve our greatest esteem really
+
+1:54:40.940 --> 1:54:43.820
+ for people who are both highly capable
+
+1:54:43.820 --> 1:54:47.300
+ and also quite warm.
+
+1:54:47.300 --> 1:54:49.820
+ That's like the best of the best.
+
+1:54:49.820 --> 1:54:53.300
+ This isn't a normative statement I'm making.
+
+1:54:53.300 --> 1:54:55.780
+ This is just an empirical statement.
+
+1:54:55.780 --> 1:54:57.180
+ This is what humans seem...
+
+1:54:57.180 --> 1:54:59.740
+ These are the two dimensions that people seem to kind of like
+
+1:54:59.740 --> 1:55:02.660
+ along which people size other people up.
+
+1:55:02.660 --> 1:55:03.980
+ And in AI research,
+
+1:55:03.980 --> 1:55:06.580
+ there's a lot of people who think that humans are
+
+1:55:06.580 --> 1:55:08.700
+ very capable, and in AI research,
+
+1:55:08.700 --> 1:55:11.420
+ we really focus on this capability thing.
+
+1:55:11.420 --> 1:55:13.420
+ We want our agents to be able to do stuff.
+
+1:55:13.420 --> 1:55:15.460
+ This thing can play go at a superhuman level.
+
+1:55:15.460 --> 1:55:16.860
+ That's awesome.
+
+1:55:16.860 --> 1:55:18.700
+ But that's only one dimension.
+
+1:55:18.700 --> 1:55:20.060
+ What about the other dimension?
+
+1:55:20.060 --> 1:55:25.060
+ What would it mean for an AI system to be warm?
+
+1:55:25.060 --> 1:55:27.620
+ And I don't know, maybe there are easy solutions here.
+
+1:55:27.620 --> 1:55:30.620
+ Like we can put a face on our AI systems.
+
+1:55:30.620 --> 1:55:32.020
+ It's cute, it has big ears.
+
+1:55:32.020 --> 1:55:33.820
+ I mean, that's probably part of it.
+
+1:55:33.820 --> 1:55:36.540
+ But I think it also has to do with a pattern of behavior.
+
+1:55:36.540 --> 1:55:40.180
+ A pattern of what would it mean for an AI system
+
+1:55:40.180 --> 1:55:43.460
+ to display caring, compassionate behavior
+
+1:55:43.460 --> 1:55:47.740
+ in a way that actually made us feel like it was for real?
+
+1:55:47.740 --> 1:55:49.940
+ That we didn't feel like it was simulated.
+
+1:55:49.940 --> 1:55:51.900
+ We didn't feel like we were being duped.
+
+1:55:53.100 --> 1:55:55.740
+ To me, people talk about the Turing test
+
+1:55:55.740 --> 1:55:57.860
+ or some descendant of it.
+
+1:55:57.860 --> 1:56:01.140
+ I feel like that's the ultimate Turing test.
+
+1:56:01.140 --> 1:56:05.460
+ Is there an AI system that can not only convince us
+
+1:56:05.460 --> 1:56:07.180
+ that it knows how to reason
+
+1:56:07.180 --> 1:56:09.100
+ and it knows how to interpret language,
+
+1:56:09.100 --> 1:56:12.700
+ but that we're comfortable saying,
+
+1:56:12.700 --> 1:56:14.580
+ yeah, that AI system's a good guy.
+
+1:56:15.980 --> 1:56:18.700
+ On the warmth scale, whatever warmth is,
+
+1:56:18.700 --> 1:56:20.860
+ we kind of intuitively understand it,
+
+1:56:20.860 --> 1:56:25.060
+ but we also wanna be able to, yeah,
+
+1:56:25.060 --> 1:56:29.180
+ we don't understand it explicitly enough yet
+
+1:56:29.180 --> 1:56:30.940
+ to be able to engineer it.
+
+1:56:30.940 --> 1:56:31.780
+ Exactly.
+
+1:56:31.780 --> 1:56:33.620
+ And that's an open scientific question.
+
+1:56:33.620 --> 1:56:35.340
+ You kind of alluded it several times
+
+1:56:35.340 --> 1:56:37.220
+ in the human AI interaction.
+
+1:56:37.220 --> 1:56:38.900
+ That's a question that should be studied
+
+1:56:38.900 --> 1:56:42.300
+ and probably one of the most important questions
+
+1:56:42.300 --> 1:56:43.540
+ as we move to AGI.
+
+1:56:43.540 --> 1:56:46.020
+ We humans are so good at it.
+
+1:56:46.020 --> 1:56:46.860
+ Yeah.
+
+1:56:46.860 --> 1:56:50.140
+ It's not just that we're born warm.
+
+1:56:50.140 --> 1:56:53.060
+ I suppose some people are warmer than others
+
+1:56:53.060 --> 1:56:55.700
+ given whatever genes they manage to inherit.
+
+1:56:55.700 --> 1:57:00.700
+ But there are also learned skills involved.
+
+1:57:01.620 --> 1:57:04.740
+ There are ways of communicating to other people
+
+1:57:04.740 --> 1:57:07.740
+ that you care, that they matter to you,
+
+1:57:07.740 --> 1:57:11.100
+ that you're enjoying interacting with them, right?
+
+1:57:11.100 --> 1:57:14.140
+ And we learn these skills from one another.
+
+1:57:14.140 --> 1:57:16.740
+ And it's not out of the question
+
+1:57:16.740 --> 1:57:20.020
+ that we could build engineered systems.
+
+1:57:20.020 --> 1:57:21.460
+ I think it's hopeless, as you say,
+
+1:57:21.460 --> 1:57:23.580
+ that we could somehow hand design
+
+1:57:23.580 --> 1:57:26.100
+ these sorts of behaviors.
+
+1:57:26.100 --> 1:57:27.060
+ But it's not out of the question
+
+1:57:27.060 --> 1:57:30.060
+ that we could build systems that kind of,
+
+1:57:30.060 --> 1:57:34.460
+ we instill in them something that sets them out
+
+1:57:34.460 --> 1:57:35.980
+ in the right direction,
+
+1:57:35.980 --> 1:57:39.580
+ so that they end up learning what it is
+
+1:57:39.580 --> 1:57:40.540
+ to interact with humans
+
+1:57:40.540 --> 1:57:44.180
+ in a way that's gratifying to humans.
+
+1:57:44.180 --> 1:57:47.500
+ I mean, honestly, if that's not where we're headed,
+
+1:57:49.220 --> 1:57:50.340
+ I want out.
+
+1:57:50.340 --> 1:57:54.940
+ I think it's exciting as a scientific problem,
+
+1:57:54.940 --> 1:57:56.820
+ just as you described.
+
+1:57:56.820 --> 1:57:59.500
+ I honestly don't see a better way to end it
+
+1:57:59.500 --> 1:58:01.180
+ than talking about warmth and love.
+
+1:58:01.180 --> 1:58:05.380
+ And Matt, I don't think I've ever had such a wonderful
+
+1:58:05.380 --> 1:58:07.540
+ conversation where my questions were so bad
+
+1:58:07.540 --> 1:58:09.380
+ and your answers were so beautiful.
+
+1:58:09.380 --> 1:58:10.740
+ So I deeply appreciate it.
+
+1:58:10.740 --> 1:58:11.580
+ I really enjoyed it.
+
+1:58:11.580 --> 1:58:12.420
+ Thanks for talking to me.
+
+1:58:12.420 --> 1:58:13.260
+ Well, it's been very fun.
+
+1:58:13.260 --> 1:58:14.580
+ As you can probably tell,
+
+1:58:17.140 --> 1:58:19.020
+ there's something I like about kind of thinking
+
+1:58:19.020 --> 1:58:21.060
+ outside the box and like,
+
+1:58:21.060 --> 1:58:22.940
+ so it's good having an opportunity to do that.
+
+1:58:22.940 --> 1:58:23.780
+ Awesome.
+
+1:58:23.780 --> 1:58:25.620
+ Thanks so much for doing it.
+
+1:58:25.620 --> 1:58:27.180
+ Thanks for listening to this conversation
+
+1:58:27.180 --> 1:58:28.420
+ with Matt Bopenik.
+
+1:58:28.420 --> 1:58:30.540
+ And thank you to our sponsors,
+
+1:58:30.540 --> 1:58:32.300
+ The Jordan Harbinger Show
+
+1:58:32.300 --> 1:58:36.140
+ and Magic Spoon Low Carb Keto Cereal.
+
+1:58:36.140 --> 1:58:38.020
+ Please consider supporting this podcast
+
+1:58:38.020 --> 1:58:41.020
+ by going to jordanharbinger.com slash lex
+
+1:58:41.020 --> 1:58:44.940
+ and also going to magicspoon.com slash lex
+
+1:58:44.940 --> 1:58:48.220
+ and using code lex at checkout.
+
+1:58:48.220 --> 1:58:50.900
+ Click the links, buy all the stuff.
+
+1:58:50.900 --> 1:58:52.860
+ It's the best way to support this podcast
+
+1:58:52.860 --> 1:58:57.260
+ and the journey I'm on in my research and the startup.
+
+1:58:57.260 --> 1:58:59.580
+ If you enjoy this thing, subscribe on YouTube,
+
+1:58:59.580 --> 1:59:02.380
+ review it with the five stars in Apple Podcasts,
+
+1:59:02.380 --> 1:59:05.380
+ support it on Patreon, follow on Spotify
+
+1:59:05.380 --> 1:59:08.220
+ or connect with me on Twitter at lexfreedman.
+
+1:59:08.220 --> 1:59:12.220
+ Again, spelled miraculously without the E,
+
+1:59:12.220 --> 1:59:15.060
+ just F R I D M A N.
+
+1:59:15.060 --> 1:59:17.100
+ And now let me leave you with some words
+
+1:59:17.100 --> 1:59:20.820
+ from neurologist V.S. Amarachandran.
+
+1:59:20.820 --> 1:59:23.340
+ How can a three pound mass of jelly
+
+1:59:23.340 --> 1:59:26.620
+ that you can hold in your palm imagine angels,
+
+1:59:26.620 --> 1:59:28.700
+ contemplate the meaning of an infinity
+
+1:59:28.700 --> 1:59:31.740
+ and even question its own place in the cosmos?
+
+1:59:31.740 --> 1:59:35.660
+ Especially awe inspiring is the fact that any single brain,
+
+1:59:35.660 --> 1:59:38.580
+ including yours, is made up of atoms
+
+1:59:38.580 --> 1:59:40.060
+ that were forged in the hearts
+
+1:59:40.060 --> 1:59:45.060
+ of countless far flung stars billions of years ago.
+
+1:59:45.500 --> 1:59:48.340
+ These particles drifted for eons and light years
+
+1:59:48.340 --> 1:59:53.180
+ until gravity and change brought them together here now.
+
+1:59:53.180 --> 1:59:57.540
+ These atoms now form a conglomerate, your brain,
+
+1:59:57.540 --> 2:00:00.860
+ that can not only ponder the very stars they gave at birth,
+
+2:00:00.860 --> 2:00:04.180
+ but can also think about its own ability to think
+
+2:00:04.180 --> 2:00:07.820
+ and wonder about its own ability to wander.
+
+2:00:07.820 --> 2:00:10.660
+ With the arrival of humans, it has been said,
+
+2:00:10.660 --> 2:00:14.580
+ the universe has suddenly become conscious of itself.
+
+2:00:14.580 --> 2:00:18.620
+ This truly is the greatest mystery of all.
+
+2:00:18.620 --> 2:00:31.620
+ Thank you for listening and hope to see you next time.
+

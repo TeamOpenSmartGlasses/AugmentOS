@@ -1,0 +1,5327 @@
+WEBVTT
+
+00:00.000 --> 00:03.000
+ The following is a conversation with Stephen Pressfield,
+
+00:03.000 --> 00:06.000
+ author of several powerful nonfiction
+
+00:06.000 --> 00:10.120
+ and historical fiction books, including The War of Art,
+
+00:10.120 --> 00:12.920
+ a book that had a big impact on my life
+
+00:12.920 --> 00:15.240
+ and the life of millions of people
+
+00:15.240 --> 00:20.000
+ whose passion is to create in art, science, business,
+
+00:20.000 --> 00:22.720
+ sport, and everywhere else.
+
+00:22.720 --> 00:26.840
+ I highly recommend it and others of his books on this topic,
+
+00:26.840 --> 00:30.480
+ including Turning Pro, Do the Work,
+
+00:30.480 --> 00:35.400
+ Nobody Wants to Read Your Shit, and The Warrior Ethos.
+
+00:35.400 --> 00:38.440
+ Also, his books Gets a Fire about the Spartans
+
+00:38.440 --> 00:42.640
+ and the Battle of Thermopylae, The Lionsgate, Tides of War,
+
+00:42.640 --> 00:44.480
+ and others are some of the best
+
+00:44.480 --> 00:47.440
+ historical fiction novels ever written.
+
+00:48.600 --> 00:50.800
+ As some of you know, I don't shy away
+
+00:50.800 --> 00:53.640
+ from taking on a big, difficult challenge.
+
+00:53.640 --> 00:56.920
+ One of the hardest for me and for millions of others
+
+00:56.920 --> 01:01.560
+ is the discipline of staring at an empty page every day,
+
+01:01.560 --> 01:04.840
+ pushing on to think deeply, to create,
+
+01:04.840 --> 01:07.400
+ despite the millions of excuses that fill the head.
+
+01:08.360 --> 01:11.800
+ In his work, Stephen has articulated this struggle
+
+01:11.800 --> 01:14.120
+ better than anyone I've ever read.
+
+01:15.040 --> 01:16.600
+ Quick summary of the ads.
+
+01:16.600 --> 01:21.400
+ Two sponsors, The Jordan Harbinger Show and Cash App.
+
+01:21.400 --> 01:23.160
+ Please consider supporting the podcast
+
+01:23.160 --> 01:26.200
+ by going to jordanharbinger.com slash lex
+
+01:27.160 --> 01:29.840
+ and subscribing to it everywhere after that
+
+01:29.840 --> 01:34.000
+ and downloading Cash App and using code lexpodcast.
+
+01:34.000 --> 01:37.200
+ Click on the links, buy all of the stuff.
+
+01:37.200 --> 01:40.520
+ It really is the best way to support this podcast.
+
+01:40.520 --> 01:43.760
+ This is the Artificial Intelligence Podcast.
+
+01:43.760 --> 01:46.400
+ I recently considered renaming this podcast
+
+01:46.400 --> 01:48.080
+ but decided against it.
+
+01:48.080 --> 01:51.200
+ AI is my passion, and in some sense,
+
+01:51.200 --> 01:53.560
+ this podcast is not as much about AI
+
+01:53.560 --> 01:56.000
+ but more about a journey of an AI researcher
+
+01:56.000 --> 01:58.640
+ struggling to explore the human mind,
+
+01:58.640 --> 02:00.280
+ the physics of our universe,
+
+02:00.280 --> 02:02.320
+ and the nature of human behavior,
+
+02:02.320 --> 02:07.240
+ intelligence, consciousness, love, and power.
+
+02:07.240 --> 02:09.640
+ I will continue to return home to the technical,
+
+02:09.640 --> 02:11.080
+ computer science, machine learning,
+
+02:11.080 --> 02:12.920
+ engineering, math, programming,
+
+02:12.920 --> 02:15.760
+ but also venture out to talk to people
+
+02:15.760 --> 02:17.840
+ who had a big impact on my life
+
+02:17.840 --> 02:19.880
+ outside the technical fields.
+
+02:19.880 --> 02:24.120
+ Writers like Steven Pressfield and Stephen King,
+
+02:24.120 --> 02:26.520
+ musicians like Tom Waits,
+
+02:26.520 --> 02:30.560
+ political leaders like, well, you know who,
+
+02:31.520 --> 02:32.680
+ and even athletes.
+
+02:33.720 --> 02:36.040
+ I hope you join me on this journey.
+
+02:36.040 --> 02:38.360
+ As usual, I'll do a few minutes of ads now
+
+02:38.360 --> 02:39.520
+ and no ads in the middle
+
+02:39.520 --> 02:41.760
+ that can break the flow of the conversation.
+
+02:41.760 --> 02:44.520
+ Click on the links, buy all of the stuff.
+
+02:44.520 --> 02:46.880
+ It's the best way to support this podcast.
+
+02:46.880 --> 02:50.880
+ This episode is supported by the Jordan Harbinger Show.
+
+02:50.880 --> 02:53.840
+ Go to jordanharbinger.com slash Lex.
+
+02:53.840 --> 02:55.760
+ It's how he knows I sent you.
+
+02:55.760 --> 02:58.040
+ On that page, there's links to subscribe to it
+
+02:58.040 --> 03:00.840
+ on Apple Podcasts, Spotify, and everywhere else.
+
+03:00.840 --> 03:02.920
+ I've been binging on this podcast.
+
+03:02.920 --> 03:05.480
+ Jordan is a great human being.
+
+03:05.480 --> 03:07.200
+ He gets the best out of his guests,
+
+03:07.200 --> 03:10.080
+ dives deep, calls them out when it's needed,
+
+03:10.080 --> 03:12.360
+ and makes the whole thing fun to listen to.
+
+03:12.360 --> 03:15.400
+ He's interviewed Kobe Bryant, Mark Cuban,
+
+03:15.400 --> 03:18.960
+ Neil deGrasse Tyson, Gary Kasparov, and many more.
+
+03:18.960 --> 03:21.200
+ I just finished listening to his recent conversation
+
+03:21.200 --> 03:24.920
+ with Mick West about debunking conspiracy theories.
+
+03:24.920 --> 03:28.400
+ This topic can be both fascinating and frustrating
+
+03:28.400 --> 03:31.320
+ on both sides, but in this conversation,
+
+03:31.320 --> 03:33.400
+ Jordan thread the needle beautifully,
+
+03:33.400 --> 03:35.840
+ and so it turned out to be a great listen.
+
+03:35.840 --> 03:37.800
+ I highly recommend it.
+
+03:37.800 --> 03:40.880
+ Again, go to jordanharbinger.com slash Lex.
+
+03:40.880 --> 03:42.840
+ It's how he knows I sent you.
+
+03:42.840 --> 03:45.760
+ On that page, there's links to subscribe to this show
+
+03:45.760 --> 03:49.680
+ on Apple Podcasts, Spotify, and everywhere else.
+
+03:49.680 --> 03:51.880
+ This show is presented by Cash App,
+
+03:51.880 --> 03:54.480
+ the number one finance app in the App Store.
+
+03:54.480 --> 03:58.000
+ When you get it, use code LexPodcast.
+
+03:58.000 --> 04:00.920
+ Cash App lets you send money to friends, buy Bitcoin,
+
+04:00.920 --> 04:04.320
+ and invest in the stock market with as little as $1.
+
+04:04.320 --> 04:06.520
+ Since Cash App allows you to buy Bitcoin,
+
+04:06.520 --> 04:08.480
+ let me mention that the cryptocurrency
+
+04:08.480 --> 04:11.960
+ in the context of the history of money is fascinating.
+
+04:11.960 --> 04:16.080
+ I recommend Ascent of Money as a great book on this history.
+
+04:16.080 --> 04:18.480
+ Debits and credits on ledgers started
+
+04:18.480 --> 04:20.720
+ around 30,000 years ago.
+
+04:20.720 --> 04:23.800
+ The US dollar created over 200 years ago,
+
+04:23.800 --> 04:26.040
+ and the first decentralized cryptocurrency
+
+04:26.040 --> 04:28.320
+ released just over 10 years ago.
+
+04:28.320 --> 04:31.240
+ So given that history, cryptocurrency's still very much
+
+04:31.240 --> 04:33.440
+ in its early days of development,
+
+04:33.440 --> 04:34.880
+ but it's still aiming to,
+
+04:34.880 --> 04:37.840
+ and just might redefine the nature of money.
+
+04:38.840 --> 04:41.480
+ So again, if you get Cash App from the App Store
+
+04:41.480 --> 04:44.840
+ or Google Play, and use the code LexPodcast,
+
+04:44.840 --> 04:49.000
+ you get $10, and Cash App will also donate $10 to FIRST,
+
+04:49.000 --> 04:51.320
+ an organization that is helping advance robotics
+
+04:51.320 --> 04:54.080
+ and STEM education for young people around the world.
+
+04:55.200 --> 04:59.360
+ And now, here's my conversation with Steven Pressfield.
+
+05:00.520 --> 05:03.240
+ Modern society in many ways dreams
+
+05:03.240 --> 05:05.320
+ of creating universal peace,
+
+05:06.200 --> 05:08.880
+ and yet war has molded civilization
+
+05:08.880 --> 05:10.760
+ as we know it throughout its history.
+
+05:10.760 --> 05:15.760
+ So let's start at the high philosophical level.
+
+05:16.280 --> 05:18.800
+ If you could imagine a world without war,
+
+05:18.800 --> 05:20.440
+ how would that world be different?
+
+05:20.440 --> 05:24.800
+ Perhaps put another way, what purpose has war served?
+
+05:25.920 --> 05:27.400
+ Why do we fight?
+
+05:27.400 --> 05:31.760
+ I think we're basically the same creatures internally
+
+05:31.760 --> 05:34.440
+ that we were in the cave, right?
+
+05:34.440 --> 05:39.440
+ In tribal society, back for however many,
+
+05:39.440 --> 05:41.840
+ you know, hundreds of thousands, millions of years,
+
+05:41.840 --> 05:46.720
+ which means that we're in the dynamic in our mind
+
+05:46.720 --> 05:48.960
+ is a kind of an us versus them dynamic
+
+05:48.960 --> 05:52.000
+ where our tribe is the people,
+
+05:52.000 --> 05:54.760
+ and everybody else are whatever, you know?
+
+05:54.760 --> 05:57.000
+ And I don't see that,
+
+05:57.000 --> 06:01.520
+ I don't think that's changed one iota over the centuries.
+
+06:01.520 --> 06:06.360
+ It's just a question of how one might sublimate
+
+06:06.360 --> 06:10.120
+ that urge to compete.
+
+06:10.120 --> 06:12.760
+ When you're a martial artist, you know,
+
+06:12.760 --> 06:14.960
+ a great part of your day I'm sure is dedicated
+
+06:14.960 --> 06:19.960
+ to reaching that place of total commitment
+
+06:21.360 --> 06:23.280
+ and in the face of competition,
+
+06:23.280 --> 06:25.120
+ in the face of adversity, et cetera, et cetera,
+
+06:25.120 --> 06:28.920
+ which is, I think, natural and great for the human race
+
+06:28.920 --> 06:30.960
+ on an individual basis.
+
+06:30.960 --> 06:35.680
+ So the hope that I have, if there is any hope,
+
+06:35.680 --> 06:37.040
+ personally, I don't think the human race
+
+06:37.040 --> 06:38.920
+ is gonna be around very long,
+
+06:38.920 --> 06:43.920
+ but would be in sports
+
+06:43.920 --> 06:47.480
+ or in other kind of sublimated activities
+
+06:47.480 --> 06:51.560
+ where people can act out their need for conquest
+
+06:51.560 --> 06:53.200
+ or aggression or so forth,
+
+06:53.200 --> 06:56.080
+ but at the same time relate to their opponents
+
+06:56.080 --> 06:58.360
+ as human beings, and when the game is over,
+
+06:58.360 --> 07:01.320
+ you know, you embrace your competitors, stuff like that.
+
+07:01.320 --> 07:06.320
+ So you think war was inevitable, it's a part of human nature
+
+07:06.840 --> 07:11.840
+ as opposed to a force, a creative force in society
+
+07:11.960 --> 07:14.160
+ that served a benefit.
+
+07:14.160 --> 07:17.280
+ Well, I'm sure it has benefited, you know,
+
+07:17.280 --> 07:21.000
+ spreading cultures and mixing cultures and stuff like that,
+
+07:21.000 --> 07:26.000
+ but I think the urge to conquest,
+
+07:26.440 --> 07:28.040
+ if you think about Alexander the Great
+
+07:28.040 --> 07:30.360
+ or Julius Caesar or Napoleon or anybody like that,
+
+07:30.360 --> 07:33.080
+ or even individual, or if we even think about
+
+07:33.080 --> 07:36.240
+ one of the plants that we're looking at right outside,
+
+07:36.240 --> 07:39.120
+ I mean, if you let a particular plant have its way,
+
+07:39.120 --> 07:41.520
+ it would take over, you know, the whole hillside.
+
+07:41.520 --> 07:46.520
+ And certainly in the days of Alexander the Great, let's say,
+
+07:47.080 --> 07:50.760
+ there were, who knows, over the face of the earth,
+
+07:50.760 --> 07:54.240
+ hundreds of little kingdoms, China, Japan,
+
+07:54.240 --> 07:56.480
+ you know, Asia, Europe, wherever,
+
+07:56.480 --> 08:01.480
+ and every prince that grew up dreamt of conquering
+
+08:01.960 --> 08:04.580
+ his neighbor and conquering a neighbor after that.
+
+08:04.580 --> 08:09.580
+ That seems to be a universal human imperative,
+
+08:11.120 --> 08:14.040
+ at least in the male of the species.
+
+08:14.040 --> 08:14.880
+ So...
+
+08:14.880 --> 08:16.920
+ The war is just a realization of that imperative.
+
+08:16.920 --> 08:18.320
+ I think so.
+
+08:18.320 --> 08:22.120
+ So you've written about Spartans in the Battle of Thermopylae,
+
+08:22.120 --> 08:23.520
+ you've about Alexander the Great,
+
+08:23.520 --> 08:26.420
+ about the Six Day War in 67 in Israel,
+
+08:28.160 --> 08:30.360
+ against Egypt, Jordan, Syria.
+
+08:30.360 --> 08:35.280
+ What war, not just out of those, but in general,
+
+08:35.280 --> 08:38.880
+ do you think has been most transformative for the world?
+
+08:38.880 --> 08:40.680
+ Well, these are great questions, Lex.
+
+08:40.680 --> 08:42.560
+ Tough, easy ones, right?
+
+08:42.560 --> 08:47.120
+ I mean, I wish I knew more about the Mongols,
+
+08:47.120 --> 08:49.660
+ because I certainly, from what little I know,
+
+08:49.660 --> 08:51.360
+ I think that was a very,
+
+08:51.360 --> 08:54.200
+ their conquests were very transformative,
+
+08:54.200 --> 08:59.200
+ bringing cultures in a horrible, bloody way together.
+
+09:00.520 --> 09:05.180
+ But gosh, what's then the most transformative?
+
+09:05.180 --> 09:07.480
+ Maybe the Roman conquest,
+
+09:07.480 --> 09:10.680
+ establishing the Roman Empire and bringing that culture.
+
+09:10.680 --> 09:13.680
+ Maybe Alexander the Great's wars
+
+09:13.680 --> 09:18.680
+ that united east and west, at least for a minute.
+
+09:19.280 --> 09:20.760
+ So building of empire.
+
+09:20.760 --> 09:23.680
+ Do you have a sense, so there's wars,
+
+09:23.680 --> 09:28.680
+ I mean, the Six Day War is not about building empires.
+
+09:30.280 --> 09:35.280
+ It's about deeply held religious, cultural conflict
+
+09:39.180 --> 09:42.680
+ and holding the line, holding the border.
+
+09:42.680 --> 09:45.400
+ And then there is conquests, like the Mongols,
+
+09:45.400 --> 09:48.800
+ that, what is it, some large percentage of the population
+
+09:48.800 --> 09:52.240
+ is a descendant of Genghis Khan, I believe, right?
+
+09:52.240 --> 09:54.360
+ So that has transformative effects.
+
+09:54.360 --> 09:56.800
+ And then World War II, I mean, personally,
+
+09:56.800 --> 09:59.800
+ and my family and so on, had transformative effects.
+
+09:59.800 --> 10:01.080
+ Let me ask you this, Lex.
+
+10:01.080 --> 10:03.520
+ Why are you, what are you trying to get at
+
+10:03.520 --> 10:04.880
+ with these questions?
+
+10:04.880 --> 10:09.180
+ What is this kind of the theme that you're aiming at?
+
+10:09.180 --> 10:11.680
+ Well, I talked to Eric Weinstein,
+
+10:11.680 --> 10:13.800
+ and he said everything is great about war
+
+10:13.800 --> 10:15.300
+ except the killing.
+
+10:15.300 --> 10:20.300
+ And there's a romantic notion of war.
+
+10:21.660 --> 10:23.920
+ Certainly there's a romantic notion of being a warrior,
+
+10:23.920 --> 10:26.440
+ but there's a romantic notion of war
+
+10:26.440 --> 10:31.080
+ that somehow there's a creative force to it,
+
+10:32.200 --> 10:37.200
+ that because we fight, out of that fighting comes culture,
+
+10:37.280 --> 10:42.280
+ comes music and art, and more and more desire to create
+
+10:42.280 --> 10:45.780
+ with the societies that win.
+
+10:45.780 --> 10:50.780
+ And to me, war is not just, hey, I have a stick
+
+10:51.020 --> 10:53.380
+ and I want your land.
+
+10:53.380 --> 10:58.380
+ It's some kind of, like it has echoes of the creative force
+
+11:02.420 --> 11:05.940
+ that makes humans unique to other animals.
+
+11:05.940 --> 11:09.740
+ Like, war is, it can't be just four people
+
+11:09.740 --> 11:11.620
+ or 10 people or 100 people.
+
+11:11.620 --> 11:14.740
+ You have to have thousands of people agreeing,
+
+11:14.740 --> 11:19.740
+ usually thousands or more, for something so deeply
+
+11:20.500 --> 11:22.980
+ that you would be willing to risk your own life.
+
+11:22.980 --> 11:24.940
+ And there's a romantic notion to that.
+
+11:24.940 --> 11:27.500
+ And because you've written so well and passionate
+
+11:27.500 --> 11:29.940
+ about some of these, I wanted to see,
+
+11:29.940 --> 11:31.220
+ because I don't have any answers,
+
+11:31.220 --> 11:32.780
+ I wanted to untangle that.
+
+11:32.780 --> 11:37.780
+ If there is a reason we fight that's more than just anger
+
+11:37.780 --> 11:42.780
+ and hate and a way to conquer.
+
+11:43.280 --> 11:47.480
+ Well, let me take it from a completely different side.
+
+11:47.480 --> 11:51.580
+ I don't think that I, in writing about war,
+
+11:51.580 --> 11:55.240
+ am really that interested in war per se.
+
+11:55.240 --> 11:57.460
+ I'm more interested in the metaphor.
+
+11:58.400 --> 12:02.860
+ I think for me, I'm really writing about my own internal
+
+12:02.860 --> 12:07.860
+ war and the war against myself and against my own resistance,
+
+12:10.880 --> 12:13.440
+ my own negativity, all of those things
+
+12:13.440 --> 12:18.440
+ that spirituality would be the opposite of.
+
+12:20.320 --> 12:23.920
+ So I'm not really an expert on war.
+
+12:23.920 --> 12:25.720
+ It's not like talking to Jim Mattis
+
+12:25.720 --> 12:30.720
+ or to Victor Davis Hanson or whatever. To me, the human being,
+
+12:37.840 --> 12:42.840
+ we are spiritual beings in a physical envelope.
+
+12:43.080 --> 12:48.080
+ And there's an automatic terrible tension within that.
+
+12:48.220 --> 12:53.140
+ And which creates a war inside ourselves.
+
+12:53.140 --> 12:58.140
+ So the outer war, when I think about the Israeli army
+
+12:58.640 --> 13:02.440
+ standing up to, whatever, 10 to one odds
+
+13:02.440 --> 13:07.440
+ or whatever it was, that is a metaphor to me
+
+13:07.600 --> 13:10.080
+ of the fight we're fighting inside ourselves.
+
+13:10.080 --> 13:12.360
+ For me, the six day war was, as you know,
+
+13:12.360 --> 13:15.600
+ my feeling was it was about a return from exile.
+
+13:15.600 --> 13:19.480
+ It was sort of the culmination of the reestablishment
+
+13:19.480 --> 13:22.040
+ of the state of Israel, which had never really
+
+13:22.040 --> 13:24.840
+ been completed because the holiest places
+
+13:24.840 --> 13:27.260
+ of the Jewish people were in the hands of their enemies.
+
+13:27.260 --> 13:31.580
+ So now, on the other hand, Alexander the Great's conquests,
+
+13:31.580 --> 13:34.280
+ I think, were a whole other different scenario
+
+13:34.280 --> 13:38.680
+ where the metaphor was that Alexander's father, Philip,
+
+13:39.520 --> 13:43.360
+ I think created the First Nation, capital N Nation,
+
+13:43.360 --> 13:48.280
+ and he created a sort of a pathway for these guys
+
+13:48.280 --> 13:53.280
+ who were mountain men and basically barbarians,
+
+13:54.800 --> 13:59.720
+ Macedonians, and by creating this army
+
+13:59.720 --> 14:03.440
+ and this dream of conquering the world,
+
+14:03.440 --> 14:07.120
+ which Alexander took to the, you know, really enacted,
+
+14:07.120 --> 14:10.080
+ he gave them a way of rising out of themselves,
+
+14:10.080 --> 14:12.940
+ of transcending themselves, not just individually,
+
+14:12.940 --> 14:14.040
+ but as a people.
+
+14:14.040 --> 14:16.400
+ So that would go along with what you're saying, Lex,
+
+14:16.400 --> 14:19.260
+ of a certain creativity to it.
+
+14:20.840 --> 14:24.640
+ But again, that's not, for whatever,
+
+14:24.640 --> 14:27.720
+ and I'm just realizing this as I'm answering this,
+
+14:27.720 --> 14:29.380
+ that's not really what's interesting to me
+
+14:29.380 --> 14:31.360
+ about these stories.
+
+14:31.360 --> 14:34.580
+ And the Spartans, what was a whole, at Thermopylae,
+
+14:34.580 --> 14:37.540
+ that was a whole other kind of metaphor of war.
+
+14:37.540 --> 14:42.540
+ That was a sort of a willingly going to one's own death
+
+14:42.540 --> 14:46.140
+ for a greater cause, just like, to me,
+
+14:46.140 --> 14:49.340
+ the Spartans at Thermopylae enacted as a group
+
+14:49.340 --> 14:52.220
+ what Jesus Christ enacted as an individual,
+
+14:52.220 --> 14:57.220
+ a sacrifice of their lives for the greater good.
+
+14:57.540 --> 14:58.900
+ I don't know if that answers your question,
+
+14:58.900 --> 15:01.100
+ but that's how I see it.
+
+15:01.100 --> 15:04.340
+ I do feel like, you know, I get invited to speak
+
+15:04.340 --> 15:07.780
+ to Marine Corps groups and things like that all the time,
+
+15:07.780 --> 15:10.580
+ and I decline because I don't really feel
+
+15:10.580 --> 15:15.540
+ like I'm a spokesman for the warrior class
+
+15:15.540 --> 15:17.140
+ or anything like that.
+
+15:18.860 --> 15:22.980
+ That's not what's interesting about it to me.
+
+15:24.860 --> 15:28.540
+ But didn't you just say, with war as a metaphor,
+
+15:28.540 --> 15:33.180
+ that we're all essentially, in various ways, warriors?
+
+15:33.180 --> 15:36.900
+ If we think of it in terms of Jungian archetypes,
+
+15:36.900 --> 15:40.900
+ and think of our life at least as males,
+
+15:40.900 --> 15:44.060
+ and the earliest archetypes that kick in
+
+15:44.060 --> 15:46.540
+ are the youth and the wanderer and the student
+
+15:46.540 --> 15:48.700
+ and that kind of thing, and then at some point
+
+15:48.700 --> 15:52.180
+ around age 15 to 20, whatever,
+
+15:52.180 --> 15:54.460
+ the warrior archetype kicks in,
+
+15:54.460 --> 15:56.700
+ and we want to play football, we want to do martial arts,
+
+15:56.700 --> 15:58.860
+ we want to join the special forces,
+
+15:58.860 --> 16:00.340
+ we want to hang out with our buddies,
+
+16:00.340 --> 16:03.140
+ that's our great bond, we want to test ourselves
+
+16:03.140 --> 16:05.360
+ against adversity and so on and so forth.
+
+16:05.360 --> 16:07.920
+ But at some point, that archetype,
+
+16:07.920 --> 16:09.740
+ we move beyond that archetype,
+
+16:09.740 --> 16:14.620
+ and we become fathers and teachers and so on and so forth.
+
+16:14.620 --> 16:17.060
+ And then there are many archetypes beyond that
+
+16:17.060 --> 16:18.380
+ towards the end.
+
+16:18.380 --> 16:23.380
+ So I'm interested in the warrior archetype,
+
+16:23.460 --> 16:27.460
+ but not to the be all and end all of everything else.
+
+16:30.800 --> 16:34.780
+ In my book, The Virtues of War, have you read that?
+
+16:34.780 --> 16:37.460
+ Well, there's a character named Telamon,
+
+16:37.460 --> 16:39.460
+ who's actually, it's a long story,
+
+16:39.460 --> 16:44.380
+ but when he's with Alexander's army,
+
+16:44.380 --> 16:46.820
+ and when they arrive in India,
+
+16:46.820 --> 16:51.820
+ he becomes fascinated by the gymnosophists,
+
+16:51.860 --> 16:55.620
+ the fakirs, the naked wise men, the yogis.
+
+16:55.620 --> 17:00.020
+ And he says to Alexander that these guys
+
+17:00.020 --> 17:05.020
+ are warriors beyond what we are, even though they do nothing
+
+17:06.380 --> 17:11.380
+ because they are inside their own selves all day long.
+
+17:11.940 --> 17:14.700
+ If we go to the Six Day War,
+
+17:17.400 --> 17:19.640
+ you write about, in Lionsgate,
+
+17:19.640 --> 17:21.740
+ you write about the Six Day War in Israel.
+
+17:22.900 --> 17:24.680
+ I think of the wars you've written about
+
+17:24.680 --> 17:28.220
+ as the one we're still in many ways in the midst of today.
+
+17:28.220 --> 17:29.540
+ Yes.
+
+17:29.540 --> 17:34.540
+ So what is at the core of that conflict in Israel?
+
+17:35.860 --> 17:37.860
+ The Israeli Palestinian conflict?
+
+17:37.860 --> 17:40.820
+ I mean, today it's the Israeli Palestinian conflict,
+
+17:40.820 --> 17:44.420
+ but it echoes of the same conflict
+
+17:44.420 --> 17:47.340
+ in that part of the world with Israel.
+
+17:47.340 --> 17:52.340
+ What is, in your sense, the nature of that conflict?
+
+17:53.500 --> 17:55.060
+ What can we learn about society
+
+17:55.060 --> 17:57.180
+ and human nature from that conflict?
+
+17:57.180 --> 17:59.820
+ That is one of the hottest conflicts
+
+17:59.820 --> 18:01.780
+ that still goes on today.
+
+18:01.780 --> 18:04.700
+ Well, when I was working on the Lionsgate
+
+18:04.700 --> 18:08.700
+ about the Six Day War, I wrote in the introduction
+
+18:10.740 --> 18:14.180
+ that this was not gonna be a multi sided story.
+
+18:14.180 --> 18:17.620
+ I was taking it entirely, I'm a Jew,
+
+18:17.620 --> 18:20.140
+ I identify with the Israeli people,
+
+18:20.140 --> 18:23.740
+ I was gonna see it entirely from their side.
+
+18:23.740 --> 18:27.100
+ So that's probably not what you're asking,
+
+18:27.100 --> 18:32.100
+ but to me, the Six Day War and that whole,
+
+18:34.060 --> 18:35.780
+ it's a piece of land that's holy
+
+18:35.780 --> 18:39.620
+ to at least three religions and probably more.
+
+18:39.620 --> 18:43.760
+ And from the Jewish point of view,
+
+18:43.760 --> 18:46.220
+ it's where the state of Israel,
+
+18:46.220 --> 18:47.780
+ it's where David founded Jerusalem,
+
+18:47.780 --> 18:50.700
+ it's all where the 12 tribes were, et cetera, et cetera,
+
+18:50.700 --> 18:52.900
+ where Moses came and brought the people.
+
+18:52.900 --> 18:57.900
+ So to me, the Six Day War was about,
+
+18:58.820 --> 19:00.780
+ as I said, a return from exile,
+
+19:00.780 --> 19:03.380
+ from diaspora after 2000 years.
+
+19:03.380 --> 19:06.580
+ Now, obviously, from the Palestinian point of view
+
+19:06.580 --> 19:09.340
+ or the Saudi Arabian point of view or whatever,
+
+19:09.340 --> 19:12.060
+ it's a whole other scenario.
+
+19:12.060 --> 19:14.980
+ Religion is at the core of this conflict in some ways,
+
+19:14.980 --> 19:15.980
+ but religious beliefs.
+
+19:15.980 --> 19:20.980
+ Religion and racial slash ethnic tribal identity.
+
+19:20.980 --> 19:23.060
+ I mean, again, what is a Jew?
+
+19:23.060 --> 19:26.220
+ Is a Jew somebody that believes in the religion
+
+19:26.220 --> 19:28.380
+ or is it somebody of a certain race
+
+19:28.380 --> 19:31.700
+ that race arose in a certain place?
+
+19:31.700 --> 19:32.740
+ Same thing as a Muslim.
+
+19:32.740 --> 19:33.580
+ What is a Muslim?
+
+19:33.580 --> 19:36.200
+ Do they believe in Muhammad or whatever?
+
+19:37.260 --> 19:40.500
+ Or did they arise in a certain place and a certain ethnicity?
+
+19:40.500 --> 19:43.020
+ Because if we landed from Mars,
+
+19:43.020 --> 19:46.260
+ we couldn't tell a Jew from a Palestinian, could we?
+
+19:46.260 --> 19:47.740
+ Just looking at them,
+
+19:47.740 --> 19:50.020
+ you could easily mix them and you'd never know.
+
+19:50.020 --> 19:52.260
+ And the specifics of the faith
+
+19:52.260 --> 19:54.700
+ is not necessarily the thing that defines a person.
+
+19:54.700 --> 19:56.340
+ No, I don't think so.
+
+19:56.340 --> 19:58.140
+ So you could be, like many are,
+
+19:58.140 --> 20:01.980
+ secular Jew living in Israel
+
+20:01.980 --> 20:04.100
+ and still have a strong bond.
+
+20:04.100 --> 20:05.540
+ Definitely, definitely.
+
+20:05.540 --> 20:08.460
+ In fact, almost all of the Jews,
+
+20:08.460 --> 20:12.020
+ the fighters that I spoke to from the Six Day War
+
+20:12.020 --> 20:15.020
+ were secular and it really was not
+
+20:15.020 --> 20:19.460
+ a religious thing with them
+
+20:19.460 --> 20:21.340
+ as much as it was a national thing.
+
+20:22.540 --> 20:24.820
+ So having spent time in Israel,
+
+20:27.220 --> 20:30.700
+ how's the world where military conflict is directly felt
+
+20:30.700 --> 20:33.220
+ as opposed to maybe if we look at the US
+
+20:33.220 --> 20:35.180
+ where it's distant and far away?
+
+20:35.180 --> 20:36.380
+ How is that world different?
+
+20:36.380 --> 20:37.460
+ How are the people different?
+
+20:37.460 --> 20:40.300
+ It's very different, as you know.
+
+20:40.300 --> 20:41.860
+ I've never been to Israel, actually.
+
+20:41.860 --> 20:43.620
+ Oh, you haven't? I haven't felt it.
+
+20:43.620 --> 20:46.940
+ Ah, well, you should definitely go.
+
+20:46.940 --> 20:50.260
+ I mean, here in the United States,
+
+20:51.460 --> 20:56.140
+ where when an incident like Charlottesville comes up,
+
+20:56.140 --> 20:56.980
+ where people are chanting,
+
+20:56.980 --> 20:59.260
+ Jews will not replace us, blah, blah, blah,
+
+20:59.260 --> 21:02.740
+ the impulse in the Jewish community is to think of,
+
+21:02.740 --> 21:05.820
+ well, how can we reach out to the other side?
+
+21:05.820 --> 21:10.820
+ How can we show them that we are human beings like they are
+
+21:10.820 --> 21:13.380
+ and show them that we care for them, et cetera, et cetera?
+
+21:13.380 --> 21:16.660
+ That's the sort of distant from war.
+
+21:16.660 --> 21:18.300
+ From, if you're in Israel,
+
+21:20.020 --> 21:23.860
+ like if you and I were Israeli citizens right now,
+
+21:23.860 --> 21:27.540
+ you would be a fighter pilot or a tank commander or whatever.
+
+21:27.540 --> 21:30.980
+ You would not just be working at MIT or whatever.
+
+21:30.980 --> 21:33.220
+ And I would be in the army too.
+
+21:33.220 --> 21:35.220
+ And so from their point of view,
+
+21:35.220 --> 21:38.180
+ they say all those people who hate us,
+
+21:38.180 --> 21:39.500
+ can I curse on this?
+
+21:39.500 --> 21:40.340
+ Of course.
+
+21:40.340 --> 21:41.700
+ Can I curse on this thing?
+
+21:41.700 --> 21:43.420
+ Fuck them, we'll kill them.
+
+21:43.420 --> 21:44.260
+ We'll kill them.
+
+21:44.260 --> 21:46.660
+ If they dared to cross the line,
+
+21:46.660 --> 21:49.020
+ and that's their whole different point of view.
+
+21:50.020 --> 21:52.260
+ To me, it's actually a healthier point of view.
+
+21:52.260 --> 21:53.100
+ You think so?
+
+21:53.100 --> 21:53.940
+ Yeah.
+
+21:53.940 --> 21:57.220
+ So there's no, so let me ask the hard question is,
+
+21:57.220 --> 21:59.700
+ well, maybe it's an impossible question is,
+
+21:59.700 --> 22:02.980
+ how do we resolve that conflict?
+
+22:02.980 --> 22:04.140
+ In Israel and?
+
+22:04.140 --> 22:05.420
+ In Israel or?
+
+22:05.420 --> 22:06.260
+ Anywhere?
+
+22:06.260 --> 22:09.260
+ Anywhere where the instinct is to reach out in US
+
+22:09.260 --> 22:13.900
+ and say, F you and the people, yeah.
+
+22:13.900 --> 22:18.900
+ Here's my, I think that the only way that two warring sides
+
+22:19.060 --> 22:21.460
+ or two sides that are opposed to one another
+
+22:21.460 --> 22:22.980
+ can ever really come together
+
+22:22.980 --> 22:24.660
+ is when there's mutual respect,
+
+22:24.660 --> 22:26.540
+ we'll get just more water.
+
+22:26.540 --> 22:27.380
+ I got it, I got this.
+
+22:27.380 --> 22:28.780
+ When there's mutual respect
+
+22:31.300 --> 22:33.260
+ and they can see each other as equals
+
+22:33.260 --> 22:36.740
+ and when there's mutual fear, you know,
+
+22:36.740 --> 22:40.300
+ where one side says, we don't dare cross the line
+
+22:40.300 --> 22:41.500
+ with this other side,
+
+22:41.500 --> 22:43.460
+ and the other side says the same thing.
+
+22:43.460 --> 22:45.620
+ I think then you can kind of reach across that thing
+
+22:45.620 --> 22:48.340
+ and say, okay, we'll stay here, you stay here.
+
+22:48.340 --> 22:51.580
+ We'll mingle in cultural ways
+
+22:51.580 --> 22:54.580
+ and we'll have interchange, you know, winter marriage,
+
+22:54.580 --> 22:56.060
+ da, da, da, da, da, da.
+
+22:56.060 --> 22:58.860
+ But as soon as one side has no power,
+
+22:58.860 --> 23:01.300
+ as the Jewish people have had no power
+
+23:01.300 --> 23:04.460
+ throughout the diaspora forever, right?
+
+23:04.460 --> 23:07.620
+ Then it's just a human nature.
+
+23:07.620 --> 23:09.300
+ You can see it in Trump
+
+23:09.300 --> 23:13.100
+ and what he does to any vulnerable minority, right?
+
+23:15.380 --> 23:16.500
+ And he's not alone.
+
+23:16.500 --> 23:18.460
+ I'm not blaming him alone.
+
+23:18.460 --> 23:19.860
+ That's human nature.
+
+23:19.860 --> 23:22.700
+ So I do think that that idea of like, fuck you,
+
+23:22.700 --> 23:24.740
+ if you cross the line, we'll kill you,
+
+23:24.740 --> 23:28.140
+ is really a good way, is a good place to start from.
+
+23:28.140 --> 23:30.940
+ Because now you can sit down on opposite sides of the table
+
+23:30.940 --> 23:33.100
+ and say, you know, what do we have in common?
+
+23:33.100 --> 23:35.100
+ How can we, we want to raise our children.
+
+23:35.100 --> 23:36.620
+ You want to raise your children.
+
+23:36.620 --> 23:41.100
+ How can we do this in a way that we're not hurting each other?
+
+23:42.460 --> 23:45.180
+ So you kind of said that you need to arrive at a balance,
+
+23:45.180 --> 23:46.740
+ some kind of balance of power.
+
+23:46.740 --> 23:47.580
+ Yeah.
+
+23:47.580 --> 23:49.220
+ But you haven't spoken to the fact
+
+23:49.220 --> 23:54.220
+ that there's deeply rooted hatred of the other.
+
+23:54.820 --> 23:57.300
+ So is there no way to alleviate that hatred?
+
+23:57.300 --> 24:03.260
+ Or is that, I mean, what role does love and hate come?
+
+24:03.260 --> 24:04.100
+ I think that hatred can go away.
+
+24:04.100 --> 24:04.940
+ I really do.
+
+24:04.940 --> 24:07.140
+ I mean, if you look at even now
+
+24:07.140 --> 24:09.700
+ that I haven't seen this in person,
+
+24:09.700 --> 24:12.700
+ but they say that the Saudis and the Israelis
+
+24:12.700 --> 24:15.220
+ are collaborating in certain things, you know,
+
+24:15.220 --> 24:18.500
+ by their mutual fear of or antagonism to Iran.
+
+24:19.420 --> 24:24.420
+ I do think that even really long, long, longstanding
+
+24:24.420 --> 24:27.700
+ hatreds and animosities, thousands of years old,
+
+24:27.700 --> 24:30.660
+ can go away under the right circumstances.
+
+24:30.660 --> 24:33.020
+ In a, on what time scale?
+
+24:34.540 --> 24:37.340
+ I mean, for instance, I don't know if there's some,
+
+24:37.340 --> 24:39.220
+ do people have to die?
+
+24:39.220 --> 24:41.380
+ Do generations have to die and pass away
+
+24:41.380 --> 24:44.340
+ and new generations come up with less hate?
+
+24:44.340 --> 24:47.180
+ Or can a single individual learn to not hate?
+
+24:47.180 --> 24:49.420
+ I think a single individual can learn to not hate
+
+24:49.420 --> 24:50.860
+ because it certainly doesn't seem to,
+
+24:50.860 --> 24:52.940
+ over thousands of years, doesn't seem to work.
+
+24:52.940 --> 24:55.340
+ You know, we keep thinking that that's gonna happen.
+
+24:55.340 --> 25:00.340
+ But I think it's, we're in a real spiritual realm here
+
+25:00.740 --> 25:02.140
+ when you're talking about that.
+
+25:02.140 --> 25:05.660
+ You're in a realm of, you know, Buddha, Jesus, whatever,
+
+25:05.660 --> 25:09.500
+ something like that, that where, you know,
+
+25:10.460 --> 25:13.380
+ a true change of soul happens.
+
+25:13.380 --> 25:15.020
+ But I do think that's possible.
+
+25:16.340 --> 25:20.700
+ So what do you think is the future of warfare?
+
+25:20.700 --> 25:25.140
+ Especially with what many people see as the expansion
+
+25:25.140 --> 25:27.340
+ of the military industrial conflict.
+
+25:27.340 --> 25:31.600
+ To what, do you, I know you're not a military historian.
+
+25:32.500 --> 25:35.260
+ I'm asking more as a metaphor.
+
+25:36.420 --> 25:40.380
+ And do you see us as people continuing to fight?
+
+25:41.380 --> 25:43.740
+ You know, it's a really great question, Alex,
+
+25:43.740 --> 25:48.740
+ because I think now with social media, TV, movies,
+
+25:48.740 --> 25:53.740
+ all of these things that create empathy across cultures,
+
+25:55.220 --> 25:58.820
+ it becomes harder and harder, I think, I think,
+
+25:58.820 --> 26:02.080
+ to totally demonize the other,
+
+26:02.080 --> 26:05.100
+ the way it was in previous wars.
+
+26:05.100 --> 26:08.780
+ I also think, I don't really see an appetite
+
+26:08.780 --> 26:12.060
+ for people wanting to go to war these days.
+
+26:12.060 --> 26:15.140
+ And in a way, I don't know if that's good or bad.
+
+26:15.140 --> 26:17.580
+ It's like everybody's so fat and lazy
+
+26:17.580 --> 26:20.500
+ and so concerned with how many clicks they're getting
+
+26:20.500 --> 26:25.500
+ that, you know, whereas I know at the start of World War I,
+
+26:26.420 --> 26:30.900
+ both the younger generations were eager to go to war.
+
+26:30.900 --> 26:34.500
+ You know, I think it was insane,
+
+26:34.500 --> 26:36.540
+ but it was that sort of warrior archetype
+
+26:36.540 --> 26:38.540
+ that we were talking about before that,
+
+26:38.540 --> 26:43.540
+ that generational testosterone eros thing.
+
+26:43.540 --> 26:48.060
+ Whereas nowadays, I don't know.
+
+26:48.060 --> 26:52.180
+ I mean, it's hard to say there's not gonna be another war
+
+26:52.180 --> 26:53.940
+ because there always are,
+
+26:53.940 --> 26:55.780
+ but it's sort of hard to imagine people
+
+26:55.780 --> 26:59.380
+ getting off their ass these days to do anything.
+
+26:59.380 --> 27:01.460
+ Well, it's funny that you mentioned social media
+
+27:01.460 --> 27:03.700
+ as a place for empathy, sure.
+
+27:03.700 --> 27:08.140
+ But in a sense, it's a place for war as well.
+
+27:08.140 --> 27:08.980
+ For hatred, yeah, true.
+
+27:08.980 --> 27:09.820
+ For hatred.
+
+27:09.820 --> 27:14.820
+ And perhaps the positive aspect of hatred on social media
+
+27:16.700 --> 27:21.340
+ is that it's somewhat less harmful than murder.
+
+27:22.220 --> 27:26.140
+ And so it kind of dissipates sort of the hatefuls.
+
+27:27.580 --> 27:30.580
+ You get the hate out at a less,
+
+27:35.100 --> 27:37.900
+ on a daily basis and thereby never boils up
+
+27:37.900 --> 27:39.460
+ to a point where you want to kill.
+
+27:39.460 --> 27:42.300
+ It's also a really weird thing that's going on
+
+27:42.300 --> 27:43.820
+ that I don't know if anybody really understands,
+
+27:43.820 --> 27:47.700
+ like with video games where kids are acting out
+
+27:47.700 --> 27:49.980
+ these incredible horror things, right?
+
+27:49.980 --> 27:52.660
+ But you know that if they cut their finger,
+
+27:52.660 --> 27:55.860
+ they would like freak out, you know?
+
+27:55.860 --> 27:58.860
+ And I also don't think that many of the people
+
+27:58.860 --> 28:02.380
+ that are hateful on social media,
+
+28:02.380 --> 28:05.260
+ if they were face to face with the person, they wouldn't.
+
+28:05.260 --> 28:10.260
+ So there's a sort of two mental spheres
+
+28:11.060 --> 28:13.180
+ happening at the same time.
+
+28:13.180 --> 28:15.620
+ And I don't know how that plays out.
+
+28:15.620 --> 28:17.260
+ Maps to the actual military,
+
+28:17.260 --> 28:19.220
+ how that actually maps to military conflict.
+
+28:19.220 --> 28:20.060
+ Yeah, yeah.
+
+28:21.020 --> 28:25.380
+ Like if you in the United States have a draft, for example,
+
+28:25.380 --> 28:28.300
+ how the populace would respond different than they did
+
+28:28.300 --> 28:29.460
+ in previous generations.
+
+28:29.460 --> 28:30.820
+ Yeah, I think they certainly would.
+
+28:30.820 --> 28:31.780
+ Yeah.
+
+28:31.780 --> 28:34.260
+ Another question, not sure if you've thought about it,
+
+28:34.260 --> 28:38.140
+ but I work on building artificial intelligence systems.
+
+28:38.140 --> 28:39.780
+ In our community, many people are worried
+
+28:39.780 --> 28:41.740
+ about AI being used in war.
+
+28:41.740 --> 28:46.740
+ So automating the killing process with drones
+
+28:46.940 --> 28:49.080
+ and in general, it's being used more and more.
+
+28:49.080 --> 28:50.680
+ I should recuse myself on that one.
+
+28:50.680 --> 28:51.740
+ I really haven't thought about that one.
+
+28:51.740 --> 28:52.580
+ You haven't thought about it.
+
+28:52.580 --> 28:55.300
+ I'd rather ask you what you think about it.
+
+28:55.300 --> 28:56.260
+ Well, it's interesting, I mean,
+
+28:56.260 --> 28:57.920
+ because it's so fundamentally different
+
+28:57.920 --> 29:02.020
+ from if you look at the Battle of Thermopylae.
+
+29:02.020 --> 29:05.020
+ It means just if we talk about the difference between a gun
+
+29:05.020 --> 29:07.460
+ and a sword.
+
+29:07.460 --> 29:09.360
+ I'll tell you one little anecdote.
+
+29:09.360 --> 29:13.540
+ There was a Spartan king, I don't know which one it was,
+
+29:13.540 --> 29:16.540
+ but at one point they showed him a new invention
+
+29:16.540 --> 29:20.620
+ and it could launch a bolt that would kill someone
+
+29:20.620 --> 29:22.380
+ at a range of 200 yards.
+
+29:22.380 --> 29:27.380
+ And the king wept and said, alas, valor is no more.
+
+29:27.380 --> 29:30.460
+ Because their point of view of war,
+
+29:30.460 --> 29:32.740
+ it was highly ritualized, as you know,
+
+29:32.740 --> 29:37.420
+ and the code of honor was that you were not supposed
+
+29:37.420 --> 29:39.420
+ to be able to kill another person
+
+29:39.420 --> 29:43.180
+ unless you yourself were in equal danger of being killed.
+
+29:43.180 --> 29:44.740
+ And any other way of doing that,
+
+29:44.740 --> 29:49.740
+ even bow and arrow was considered less than manly
+
+29:50.540 --> 29:51.700
+ and less than honorable.
+
+29:51.700 --> 29:53.220
+ And maybe we should go back to that
+
+29:53.220 --> 29:56.540
+ because at least it makes the stakes real and true.
+
+29:56.540 --> 30:01.540
+ Not that we could.
+
+30:02.220 --> 30:04.980
+ Not that's the point.
+
+30:04.980 --> 30:06.660
+ You were in the Marine Corps,
+
+30:06.660 --> 30:11.660
+ so we talk about the real, the bloody conflicts
+
+30:13.780 --> 30:16.620
+ that you've written about, many of them.
+
+30:16.620 --> 30:20.280
+ So let me ask a personal question.
+
+30:21.180 --> 30:24.340
+ Have you, sort of as a writing and in general,
+
+30:24.340 --> 30:28.940
+ have you thought about what it takes to kill a person
+
+30:30.260 --> 30:33.180
+ if you yourself could do it in the war?
+
+30:33.180 --> 30:34.220
+ I have thought about it, yeah.
+
+30:34.220 --> 30:36.920
+ And how that would make you feel?
+
+30:37.940 --> 30:39.660
+ Of course, one never knows.
+
+30:39.660 --> 30:41.340
+ I certainly, I have not been in combat.
+
+30:41.340 --> 30:43.140
+ I haven't killed anybody.
+
+30:43.140 --> 30:47.700
+ But I would imagine in the real world
+
+30:47.700 --> 30:51.720
+ that it would change you utterly forever.
+
+30:51.720 --> 30:56.720
+ Because you can't help but identify
+
+30:58.880 --> 31:01.280
+ with the person that you've just killed.
+
+31:01.280 --> 31:02.920
+ And it's another human being.
+
+31:02.920 --> 31:07.100
+ And I mean, I have a hard time killing a spider.
+
+31:07.100 --> 31:09.880
+ So I would imagine that it's something
+
+31:09.880 --> 31:14.260
+ that warriors understand and nobody else understands.
+
+31:15.100 --> 31:16.760
+ And you've spoken with many.
+
+31:16.760 --> 31:19.320
+ How, I mean, you've spoken with people
+
+31:19.320 --> 31:21.940
+ who've seen military combat in Israel.
+
+31:23.160 --> 31:26.640
+ What, have they been able to articulate
+
+31:26.640 --> 31:28.980
+ the experience of killing?
+
+31:28.980 --> 31:31.100
+ It's sort of just what I said.
+
+31:31.100 --> 31:34.600
+ I mean, I'm even thinking of one pilot
+
+31:34.600 --> 31:36.580
+ that I interviewed over there
+
+31:37.880 --> 31:42.880
+ who was strafing a tank in his Mustang
+
+31:45.180 --> 31:48.120
+ and saw, at really low altitude,
+
+31:48.120 --> 31:50.880
+ and saw what his bullets did to the guy
+
+31:50.880 --> 31:52.920
+ and could see his face and everything like that,
+
+31:52.920 --> 31:56.360
+ which is even one remove or more removes
+
+31:56.360 --> 31:59.200
+ from an infantryman, what an infantryman does.
+
+31:59.200 --> 32:02.000
+ And he said that same thing that I said,
+
+32:02.000 --> 32:04.600
+ that it just changes you and you can never say it,
+
+32:04.600 --> 32:07.000
+ never look at the world or look at anything
+
+32:07.000 --> 32:08.640
+ the same way again.
+
+32:08.640 --> 32:10.700
+ And when that happens at scale,
+
+32:10.700 --> 32:13.120
+ it's thousands, tens of thousands, hundreds.
+
+32:13.120 --> 32:14.600
+ That changes entire societies.
+
+32:14.600 --> 32:16.560
+ I mean, that's what we've seen.
+
+32:16.560 --> 32:18.200
+ At least it, but the problem is
+
+32:18.200 --> 32:20.440
+ it doesn't change the politicians back home.
+
+32:20.440 --> 32:21.280
+ Right.
+
+32:22.280 --> 32:26.280
+ How important is mortality, finiteness,
+
+32:28.480 --> 32:32.280
+ the fact that this thing ends to the creative process?
+
+32:32.280 --> 32:37.280
+ So, killing and war really emphasizes that,
+
+32:37.800 --> 32:41.380
+ but in general, the fact that this thing ends.
+
+32:42.760 --> 32:43.920
+ It does?
+
+32:43.920 --> 32:46.280
+ It does, and uh.
+
+32:46.280 --> 32:47.120
+ Shit.
+
+32:49.400 --> 32:51.560
+ And on a serious note,
+
+32:51.560 --> 32:53.640
+ do you think about your own mortality?
+
+32:53.640 --> 32:55.520
+ Do you meditate on your own mortality
+
+32:55.520 --> 32:57.240
+ when you think about the work you do?
+
+32:57.240 --> 32:59.320
+ That's another great question, Lex.
+
+32:59.320 --> 33:03.480
+ I actually, I'm 75, and I just was having,
+
+33:03.480 --> 33:05.620
+ I had breakfast in New York a few months ago
+
+33:05.620 --> 33:08.880
+ with a friend of mine who's like my exact same age.
+
+33:08.880 --> 33:10.720
+ And I said to him, I said,
+
+33:10.720 --> 33:12.940
+ Nick, do you ever think about mortality?
+
+33:12.940 --> 33:16.680
+ And he said, every fucking minute of every day.
+
+33:16.680 --> 33:21.020
+ And I was kind of relieved to hear that because I do too.
+
+33:22.000 --> 33:24.640
+ But actually, I always have, I think.
+
+33:24.640 --> 33:28.360
+ And I think, you know, the fact of mortality
+
+33:31.000 --> 33:32.460
+ gives meaning to life, you know?
+
+33:32.460 --> 33:34.520
+ I think that's why we want to create.
+
+33:36.160 --> 33:39.540
+ That's why we want to make a mark of some kind.
+
+33:39.540 --> 33:43.980
+ Or, and the other aspect of it is
+
+33:43.980 --> 33:46.860
+ what's on the other side of that mortality?
+
+33:46.860 --> 33:49.500
+ I'm a believer in previous lives.
+
+33:49.500 --> 33:52.780
+ So I sort of, and I,
+
+33:52.780 --> 33:54.980
+ the question I've never been able to answer
+
+33:54.980 --> 33:58.740
+ among many, many others is like, why are we even here?
+
+33:58.740 --> 34:01.620
+ Why are we in the flesh?
+
+34:01.620 --> 34:04.060
+ You know, I sort of, I like to believe that God
+
+34:04.060 --> 34:13.060
+ or some force is, we're on some kind of journey, but I'm not sure why,
+
+34:13.060 --> 34:17.340
+ why we were put in this world where the ground rules are,
+
+34:17.340 --> 34:19.980
+ if you think about animal life,
+
+34:19.980 --> 34:22.660
+ that you cannot live from one day to the next
+
+34:22.660 --> 34:26.780
+ without killing and eating some other form of life.
+
+34:26.780 --> 34:29.820
+ I mean, what a demented thing, you know?
+
+34:29.820 --> 34:33.100
+ Why couldn't we just have a solar panel on our head
+
+34:33.100 --> 34:35.500
+ and, you know, be friends with everybody?
+
+34:35.500 --> 34:40.160
+ So I sort of, I don't get what that was all about,
+
+34:40.160 --> 34:42.380
+ but that's sort of the big issue.
+
+34:42.380 --> 34:46.160
+ Have you read to Ernest Becker's Denial of Death, for example?
+
+34:46.160 --> 34:51.160
+ Is Ernest Becker's a philosopher that said that the death,
+
+34:52.100 --> 34:57.100
+ that the fear of death is really the primary driver
+
+34:57.380 --> 34:58.420
+ of everything we do.
+
+34:58.420 --> 35:00.460
+ So Freud had what the?
+
+35:00.460 --> 35:02.420
+ Right, I would agree with that.
+
+35:02.420 --> 35:04.660
+ So to you, you've always thought about your,
+
+35:04.660 --> 35:06.080
+ even your own mortality.
+
+35:06.080 --> 35:07.820
+ Yes, definitely.
+
+35:07.820 --> 35:13.780
+ And can you elaborate on the reincarnation aspect
+
+35:13.780 --> 35:14.780
+ of what you were talking about?
+
+35:14.780 --> 35:17.540
+ Like that we kind of, what's your sense
+
+35:17.540 --> 35:19.580
+ that we had previous lives?
+
+35:20.860 --> 35:22.720
+ In what, have you thought concretely
+
+35:22.720 --> 35:24.900
+ or is it a lot of it kind of is?
+
+35:24.900 --> 35:27.540
+ No, I've thought concretely about it.
+
+35:27.540 --> 35:32.540
+ I mean, it's very clear when you see children,
+
+35:32.860 --> 35:36.780
+ young kids, or even dogs and cats,
+
+35:36.780 --> 35:40.620
+ that they come into the world with personalities, you know,
+
+35:40.620 --> 35:43.700
+ and three kids in a family are gonna be completely different
+
+35:43.700 --> 35:45.420
+ and completely their own person.
+
+35:45.420 --> 35:50.420
+ And that person that they are doesn't change over life.
+
+35:50.420 --> 35:57.420
+ And I, you know, there's one of the things that I did in my book
+
+35:58.100 --> 36:00.420
+ The Artist's Journey is that there were certain things
+
+36:00.420 --> 36:02.900
+ where I tracked or just listed in order,
+
+36:02.900 --> 36:05.400
+ like all of Bruce Springsteen's albums
+
+36:05.400 --> 36:07.900
+ or all of Philip Roth's books, you know,
+
+36:07.900 --> 36:10.180
+ kind of a body of work throughout over, you know,
+
+36:10.180 --> 36:13.020
+ a period of 30, 40, 50 years, you know.
+
+36:13.020 --> 36:18.020
+ And you can see that there's a theme running through all
+
+36:18.020 --> 36:22.740
+ of those things, that it's completely unique to that person.
+
+36:22.740 --> 36:25.140
+ Nobody else could have written Philip Roth's books
+
+36:25.140 --> 36:28.060
+ or Bruce Springsteen's songs.
+
+36:28.060 --> 36:31.620
+ And you can even see sort of a destiny there.
+
+36:31.620 --> 36:36.020
+ So I ask myself, well, where did that come from?
+
+36:36.020 --> 36:41.020
+ What, it seems to be a continuation of something that was,
+
+36:41.220 --> 36:44.420
+ that happened before, and that will lead to something else
+
+36:44.420 --> 36:47.020
+ because it's not starting from scratch.
+
+36:47.020 --> 36:52.020
+ It seems like there's a calling, a destiny in there already.
+
+36:53.340 --> 36:56.020
+ This gets back to the muse and all that kind of thing.
+
+36:56.020 --> 36:59.540
+ So yeah, it's almost like the, there's this,
+
+36:59.540 --> 37:03.380
+ let's call it a God, it's passing,
+
+37:03.380 --> 37:07.300
+ it's almost like sampling parts of a previous human
+
+37:07.300 --> 37:10.840
+ that has lived and putting those into the new one.
+
+37:11.740 --> 37:14.060
+ Sampling is probably a pretty good word.
+
+37:14.060 --> 37:15.700
+ Taking some of the good, well, you can't take
+
+37:15.700 --> 37:17.500
+ all the good parts because the bad parts
+
+37:17.500 --> 37:19.660
+ is what makes the person.
+
+37:19.660 --> 37:21.160
+ Let's say you're taking it all together.
+
+37:21.160 --> 37:24.060
+ Okay, this is humans only, or does it pass around
+
+37:24.060 --> 37:25.360
+ from animals in your view?
+
+37:26.340 --> 37:29.580
+ I don't know, that's above my pay grade, I don't know.
+
+37:29.580 --> 37:33.180
+ So, okay, so you talk about the muse
+
+37:33.180 --> 37:38.180
+ as the source of ideas maybe.
+
+37:39.240 --> 37:44.240
+ Since you've gotten a few glimpses of her in your writing,
+
+37:44.240 --> 37:49.240
+ tell me, what is it possible for you to tell me about her?
+
+37:51.680 --> 37:53.680
+ Where does she reside?
+
+37:53.680 --> 37:54.920
+ What does she look like?
+
+37:54.920 --> 37:57.680
+ I mean, you can look at it many different ways, right?
+
+37:57.680 --> 38:00.480
+ The Greeks did it in an anthropomorphic way, right?
+
+38:00.480 --> 38:02.840
+ They created gods that were like human beings.
+
+38:03.720 --> 38:07.440
+ But if you look at it from a Kabbalistic Jewish perspective,
+
+38:07.440 --> 38:09.440
+ Jewish mysticism, you could say
+
+38:09.440 --> 38:11.800
+ that it's the soul, the neshama, right?
+
+38:11.800 --> 38:14.320
+ That the soul is above us on a higher plane,
+
+38:14.320 --> 38:16.480
+ our own, your soul, my soul,
+
+38:16.480 --> 38:21.360
+ and is trying to reach down to us and communicate with us.
+
+38:21.360 --> 38:24.680
+ And we're trying simultaneously to reach up to it
+
+38:24.680 --> 38:28.520
+ through prayer or through, if you're a writer or an artist,
+
+38:28.520 --> 38:31.000
+ you know, when you sit down at the keyboard,
+
+38:31.000 --> 38:33.580
+ you're entering into a kind of prayer.
+
+38:33.580 --> 38:35.520
+ You're entering into a different state
+
+38:35.520 --> 38:39.480
+ of an altered consciousness to some extent.
+
+38:39.480 --> 38:41.840
+ You're opening yourself, opening the pipeline,
+
+38:41.840 --> 38:44.080
+ or turning on the radio to tune into
+
+38:44.080 --> 38:46.640
+ the cosmic radio station.
+
+38:46.640 --> 38:49.280
+ And another way of looking at it, this is an,
+
+38:49.280 --> 38:53.800
+ did you ever see the movie City of Angels?
+
+38:53.800 --> 38:58.800
+ The visual of the movie, it was Meg Ryan and Nicolas Cage.
+
+38:59.280 --> 39:01.200
+ Yeah, yeah, I've seen it, yep.
+
+39:01.200 --> 39:04.200
+ And right, the visual of the movie sort of was
+
+39:05.240 --> 39:08.960
+ Meg Ryan is a heart surgeon.
+
+39:08.960 --> 39:11.320
+ And as she's operating on somebody,
+
+39:11.320 --> 39:14.780
+ suddenly Nicolas Cage in this long duster coat,
+
+39:14.780 --> 39:17.680
+ like Jesse James, appears right next to her
+
+39:17.680 --> 39:19.920
+ in the operating room, and he's an angel.
+
+39:19.920 --> 39:23.520
+ And he's waiting to take out the soul
+
+39:23.520 --> 39:27.000
+ of the patient on the operating table.
+
+39:27.000 --> 39:29.720
+ And she doesn't see him, she's totally unaware of him.
+
+39:29.720 --> 39:31.820
+ And so is everybody else in the operating room,
+
+39:31.820 --> 39:33.920
+ except maybe the guy who's about to die,
+
+39:33.920 --> 39:35.480
+ who suddenly sees him.
+
+39:35.480 --> 39:40.480
+ But I kind of believe that there are beings like that,
+
+39:42.160 --> 39:44.640
+ or if you don't like that, it's a force,
+
+39:44.640 --> 39:46.840
+ it's a consciousness, it's something
+
+39:46.840 --> 39:48.480
+ that are right here, right now.
+
+39:49.800 --> 39:53.560
+ And they're trying to communicate to us.
+
+39:54.560 --> 39:57.200
+ And like through a membrane,
+
+39:57.200 --> 39:59.160
+ like tapping on that window over there,
+
+39:59.160 --> 40:00.720
+ they're like right out there.
+
+40:00.720 --> 40:03.600
+ And they carry the future.
+
+40:03.600 --> 40:08.160
+ They are everything that is in potential.
+
+40:08.160 --> 40:11.340
+ All the works that you will do, Lex,
+
+40:11.340 --> 40:14.480
+ your startup, whatever else you're doing,
+
+40:14.480 --> 40:17.780
+ they know that.
+
+40:17.780 --> 40:19.800
+ And it's not really you
+
+40:19.800 --> 40:22.680
+ that's coming up with those ideas, in my opinion.
+
+40:22.680 --> 40:24.740
+ Those things are appearing,
+
+40:24.740 --> 40:28.080
+ it's like somebody knocks on the door and puts it in.
+
+40:28.080 --> 40:33.080
+ I mean, in the Iliad, where gods and goddesses appear,
+
+40:33.880 --> 40:35.840
+ along with the human antagonists
+
+40:35.840 --> 40:37.960
+ on the battlefield all the time, right?
+
+40:37.960 --> 40:40.880
+ There'll be, you know, Homer flashes to Olympus
+
+40:40.880 --> 40:42.520
+ and then back to the real world.
+
+40:42.520 --> 40:45.280
+ And there's a thing where one Aphrodite,
+
+40:45.280 --> 40:47.880
+ let's say wants to help Paris.
+
+40:47.880 --> 40:52.520
+ And so she says, well, I will appear to him in a dream.
+
+40:52.520 --> 40:55.800
+ And I'll take the form of his brother
+
+40:55.800 --> 40:57.680
+ and I'll say, bump, bump, bump, bump.
+
+40:57.680 --> 41:02.680
+ So that's creatures, beings on one dimension,
+
+41:03.520 --> 41:06.600
+ as the Greeks saw it, communicating with,
+
+41:06.600 --> 41:09.380
+ and I believe that that's exactly what's going on,
+
+41:09.380 --> 41:12.560
+ in one, whatever analogy you want to use.
+
+41:12.560 --> 41:15.800
+ That communication, to which degree
+
+41:17.600 --> 41:20.500
+ do you play the role in that communication?
+
+41:20.500 --> 41:23.080
+ As opposed to sitting at the computer,
+
+41:23.080 --> 41:27.120
+ if you're a writer, and staring at the blank page
+
+41:27.120 --> 41:29.440
+ and putting in the time and waiting.
+
+41:30.640 --> 41:35.640
+ So if, in your view, are these creatures
+
+41:39.240 --> 41:42.040
+ basically waiting to tell you about your future?
+
+41:42.960 --> 41:44.960
+ Or is there choice?
+
+41:44.960 --> 41:46.720
+ How many possible futures are there?
+
+41:46.720 --> 41:48.480
+ How many possible ideas are there?
+
+41:48.480 --> 41:49.680
+ That's a great question.
+
+41:49.680 --> 41:54.440
+ I think there's basically, yes, there are alternatives,
+
+41:54.440 --> 41:56.800
+ you know, degrees within it.
+
+41:56.800 --> 41:59.700
+ But if you look at Bruce Springsteen's albums,
+
+42:01.280 --> 42:05.840
+ how much could he have done really differently?
+
+42:05.840 --> 42:08.120
+ Yeah, he would, you can just see
+
+42:08.120 --> 42:11.360
+ there's a whole impetus going through the whole thing.
+
+42:11.360 --> 42:14.080
+ And nothing was going to shake him off that, you know?
+
+42:14.080 --> 42:16.880
+ And yeah, maybe the river could have been different,
+
+42:16.880 --> 42:18.960
+ could have been called something else,
+
+42:18.960 --> 42:23.080
+ but he was dealing with certain issues.
+
+42:23.080 --> 42:26.220
+ His conscious self was dealing with certain issues
+
+42:26.220 --> 42:28.040
+ that were really out of his control.
+
+42:28.040 --> 42:30.900
+ He was drawn, he was called to it, right?
+
+42:30.900 --> 42:32.760
+ Nothing could stop him.
+
+42:32.760 --> 42:37.320
+ And so it is sort of a partnership, I think,
+
+42:37.320 --> 42:41.640
+ the creative process, between the creative impulse
+
+42:41.640 --> 42:43.600
+ that's coming from some other place,
+
+42:45.360 --> 42:47.120
+ or it's coming from deep within us
+
+42:47.120 --> 42:48.480
+ is another way to look at it.
+
+42:48.480 --> 42:50.520
+ You know, it's like if we are acorns
+
+42:50.520 --> 42:53.300
+ and we're growing into oaks.
+
+42:53.300 --> 42:58.200
+ So the conscious artist,
+
+42:58.200 --> 43:01.040
+ who's sitting there at the keyboard or whatever,
+
+43:01.040 --> 43:04.800
+ is applying his or her consciousness to that,
+
+43:04.800 --> 43:08.960
+ but is also going into opening themselves
+
+43:08.960 --> 43:11.120
+ to the unconscious or to this other realm,
+
+43:11.120 --> 43:13.140
+ whatever that is.
+
+43:13.140 --> 43:16.200
+ I mean, certainly songwriters for a million years
+
+43:16.200 --> 43:18.280
+ have said, you know, a song just came into their head,
+
+43:18.280 --> 43:19.120
+ right?
+
+43:19.120 --> 43:21.020
+ A poem, just all they had to do was write.
+
+43:21.020 --> 43:23.920
+ But then, you ever see that thing where,
+
+43:23.920 --> 43:28.360
+ of Keats's notes for a thing of beauty is a joy forever?
+
+43:28.360 --> 43:29.760
+ It's like covers an entire page,
+
+43:29.760 --> 43:32.000
+ and it's like, you know, he's crossing this out
+
+43:32.000 --> 43:33.080
+ and that out, and he has to go.
+
+43:33.080 --> 43:36.660
+ His consciousness is, his conscious mind is working on it.
+
+43:36.660 --> 43:39.600
+ But, so I do think it's a partnership.
+
+43:39.600 --> 43:42.800
+ And I think that, I know when I was first starting out
+
+43:42.800 --> 43:45.680
+ as a writer, I worked in advertising,
+
+43:45.680 --> 43:49.040
+ and I tried to do novels that I could never do.
+
+43:49.040 --> 43:54.040
+ I was like, really unskilled at getting to that,
+
+43:54.880 --> 43:56.760
+ tuning into that station.
+
+43:56.760 --> 44:01.760
+ I just, I beat my brains out and was unable to do it,
+
+44:01.900 --> 44:03.240
+ you know, except in,
+
+44:03.240 --> 44:05.320
+ because I was sort of trying too hard,
+
+44:05.320 --> 44:08.980
+ it was sort of like a Zen monk or a monk of some kind
+
+44:08.980 --> 44:12.520
+ trying to meditate and just like constantly thoughts
+
+44:12.520 --> 44:14.240
+ driving you crazy.
+
+44:14.240 --> 44:16.420
+ But over time, you know, knock wood,
+
+44:16.420 --> 44:19.280
+ I've kind of gotten better at it.
+
+44:19.280 --> 44:22.200
+ And I can sort of let go of those,
+
+44:22.200 --> 44:25.520
+ that part of me that's trying so hard.
+
+44:25.520 --> 44:30.520
+ And so these angels can speak a little more easily
+
+44:31.140 --> 44:32.400
+ through the membrane.
+
+44:32.400 --> 44:36.760
+ Can you put into words the process of letting go
+
+44:36.760 --> 44:40.080
+ and clearing that channel of communication?
+
+44:40.080 --> 44:41.080
+ What does it take?
+
+44:41.080 --> 44:42.200
+ That's another great question.
+
+44:42.200 --> 44:46.440
+ For me, it just took, it took probably 30 years.
+
+44:46.440 --> 44:49.680
+ And I don't even, I guess I would liken it to meditation,
+
+44:49.680 --> 44:51.280
+ even though I'm not a meditator.
+
+44:52.400 --> 44:54.720
+ But it would seem to me to be one of the hardest things
+
+44:54.720 --> 44:59.720
+ in the world to just sit still and stop thinking, right?
+
+45:00.560 --> 45:03.240
+ And so it's very hard to put into words.
+
+45:03.240 --> 45:06.400
+ And I think that's why these teachers of meditation
+
+45:06.400 --> 45:10.880
+ use tricks and koans and stuff like that.
+
+45:10.880 --> 45:15.500
+ But for me, at least, I think it was just a process
+
+45:15.500 --> 45:17.920
+ of years of years and years of trying,
+
+45:17.920 --> 45:20.560
+ and finally beating my head in the wall.
+
+45:20.560 --> 45:22.840
+ And finally, little by little giving up
+
+45:22.840 --> 45:25.080
+ the beating of the head.
+
+45:26.480 --> 45:28.000
+ But there doesn't seem to be any trick.
+
+45:28.000 --> 45:30.580
+ Everybody wants a hack these days.
+
+45:30.580 --> 45:32.280
+ And I don't think there is a hack.
+
+45:34.200 --> 45:37.360
+ If you look at it in terms of the goddess, the muse,
+
+45:37.360 --> 45:39.360
+ she's watching you down there,
+
+45:39.360 --> 45:40.800
+ beating your head in the wall.
+
+45:40.800 --> 45:43.560
+ You're like a Marine going through an obstacle course,
+
+45:43.560 --> 45:46.080
+ or a martial artist trying to learn,
+
+45:46.080 --> 45:49.000
+ like Uma Thurman doing the casket deal,
+
+45:49.000 --> 45:51.800
+ trying to make that little four inch punch, you know?
+
+45:54.040 --> 45:56.400
+ The muse or the goddess is just sort of watching,
+
+45:56.400 --> 45:59.620
+ going, it's Lex, he's trying, he's trying.
+
+45:59.620 --> 46:01.380
+ I'm gonna come back in another couple of months
+
+46:01.380 --> 46:03.080
+ and see if he's still there.
+
+46:03.080 --> 46:06.160
+ And finally, she'll say, all right, he's had it,
+
+46:06.160 --> 46:09.760
+ he's paid his dues, I'm gonna give it to him.
+
+46:09.760 --> 46:13.560
+ So, the hard work and the suffering, yeah.
+
+46:13.560 --> 46:18.560
+ But I'm also, being Russian, in wrestling and martial arts,
+
+46:18.740 --> 46:21.080
+ we're big into drilling technique.
+
+46:21.080 --> 46:23.200
+ I was also just even getting at,
+
+46:24.560 --> 46:26.360
+ certainly there's no shortcut.
+
+46:26.360 --> 46:28.100
+ But is there a process?
+
+46:28.100 --> 46:33.100
+ So you're, that can be, the process of practice.
+
+46:33.100 --> 46:35.660
+ So you had two.
+
+46:35.660 --> 46:39.020
+ One, you had an example of meditation.
+
+46:39.020 --> 46:41.860
+ So it's essentially the practice of meditation.
+
+46:41.860 --> 46:42.700
+ Is you sitting here?
+
+46:42.700 --> 46:44.100
+ I think a lot of drill, I think,
+
+46:44.100 --> 46:45.980
+ is a good way to look at it too.
+
+46:45.980 --> 46:48.220
+ But what are you drilling?
+
+46:48.220 --> 46:50.220
+ You're just sitting and?
+
+46:50.220 --> 46:51.780
+ You're writing, you know?
+
+46:51.780 --> 46:52.620
+ Just writing.
+
+46:52.620 --> 46:55.540
+ You're writing, then you're looking at what you wrote,
+
+46:55.540 --> 46:56.380
+ you know?
+
+46:56.380 --> 47:00.660
+ You're hitting moments when it flows, you know?
+
+47:00.660 --> 47:02.600
+ And then your other hitting moments
+
+47:02.600 --> 47:03.740
+ where you just can't do anything.
+
+47:03.740 --> 47:07.060
+ And you're trying to, from the moments where it flowed,
+
+47:07.060 --> 47:08.500
+ you're trying to come back and look at it and say,
+
+47:08.500 --> 47:09.820
+ what did I do?
+
+47:09.820 --> 47:11.600
+ How did that happen?
+
+47:11.600 --> 47:13.780
+ Where was my mind, you know?
+
+47:13.780 --> 47:16.300
+ But I think it's just a process of over and over
+
+47:16.300 --> 47:21.160
+ and over and over until finally it gets a little bit easier.
+
+47:22.220 --> 47:26.420
+ And did you always, when you read something you write,
+
+47:26.420 --> 47:28.620
+ did you always have a pretty good radar
+
+47:28.620 --> 47:33.100
+ for what's good and not after it's written?
+
+47:33.100 --> 47:33.940
+ No.
+
+47:33.940 --> 47:37.460
+ I think I do now.
+
+47:37.460 --> 47:42.460
+ But no, it was always really hard
+
+47:42.860 --> 47:44.340
+ for me to know what was good.
+
+47:45.680 --> 47:48.220
+ I mean, do you edit, the process of editing
+
+47:49.300 --> 47:52.100
+ is the process of looking at what you've written
+
+47:52.100 --> 47:54.060
+ and improving it.
+
+47:54.060 --> 47:56.460
+ Are you a better writer or an editor?
+
+47:56.460 --> 47:57.820
+ How often do you edit?
+
+47:57.820 --> 47:59.300
+ That's another great question.
+
+47:59.300 --> 48:00.140
+ Great question.
+
+48:00.140 --> 48:01.980
+ Cause I do think that in writing,
+
+48:01.980 --> 48:03.740
+ the real process of looking at it
+
+48:03.740 --> 48:05.820
+ is the process that an editor does
+
+48:05.820 --> 48:08.100
+ rather than what a writer does.
+
+48:08.100 --> 48:10.420
+ The gentleman I was just talking to on the phone
+
+48:10.420 --> 48:12.020
+ is my editor, Sean Coyne,
+
+48:12.020 --> 48:14.600
+ who was the guy who bought Gates of Fire
+
+48:14.600 --> 48:16.780
+ when he was an editor at Doubleday.
+
+48:16.780 --> 48:20.360
+ And who basically when I finish a book, I give it to him.
+
+48:21.220 --> 48:23.860
+ And he gives me, you know,
+
+48:23.860 --> 48:28.860
+ editing doesn't really mean like crossing out commas.
+
+48:29.580 --> 48:34.220
+ It really means looking at the overall work
+
+48:34.220 --> 48:36.380
+ and saying, does it work?
+
+48:36.380 --> 48:39.100
+ And if it doesn't work, why doesn't it work?
+
+48:39.100 --> 48:41.020
+ Is there something wrong here?
+
+48:41.020 --> 48:44.540
+ You know, like if you were building the Golden Gate Bridge,
+
+48:44.540 --> 48:46.620
+ you know, and one span was out of whack, you know,
+
+48:46.620 --> 48:50.260
+ you could, and I think a really skilled editor,
+
+48:50.260 --> 48:54.860
+ which Sean is, understands what makes a story tick.
+
+48:54.860 --> 48:58.220
+ And he also has the perspective that I've lost
+
+48:58.220 --> 49:01.060
+ in something I've wrote, cause I'm so close to it,
+
+49:01.060 --> 49:06.020
+ to say, you know, this isn't working and that is working.
+
+49:06.020 --> 49:07.700
+ What kind of advice has he given you?
+
+49:07.700 --> 49:09.900
+ Is it like layout?
+
+49:09.900 --> 49:12.700
+ Like this story doesn't flow correctly.
+
+49:12.700 --> 49:15.180
+ Like you shouldn't start at this point.
+
+49:15.180 --> 49:18.580
+ Or does he even sit back at a higher level and say,
+
+49:18.580 --> 49:22.460
+ I see what you're doing, but you could do better.
+
+49:22.460 --> 49:24.020
+ No, he doesn't do that.
+
+49:24.020 --> 49:28.180
+ But a lot of it is about genre
+
+49:28.180 --> 49:32.620
+ and kind of the defining what genre you're working in.
+
+49:32.620 --> 49:37.140
+ And I'm gonna get up here to just bring something over here
+
+49:37.140 --> 49:37.980
+ for the camera.
+
+49:39.220 --> 49:42.540
+ This was one where Sean tore this down
+
+49:42.540 --> 49:44.540
+ and made me start from scratch.
+
+49:44.540 --> 49:47.820
+ And what the specifics of it were really,
+
+49:47.820 --> 49:50.140
+ this is a supernatural thriller.
+
+49:50.140 --> 49:51.380
+ That's the genre.
+
+49:51.380 --> 49:55.980
+ Sort of like Rosemary's Baby or The Exorcist.
+
+49:55.980 --> 50:00.460
+ And what he showed me was that I had violated
+
+50:00.460 --> 50:02.540
+ certain conventions of the genre.
+
+50:05.460 --> 50:08.300
+ And you just can't do that.
+
+50:08.300 --> 50:12.660
+ It's gotta be, it has to be done the right way.
+
+50:12.660 --> 50:17.660
+ And so he pointed out certain things to me.
+
+50:18.820 --> 50:22.860
+ So he must be a prolific reader himself too, actually.
+
+50:22.860 --> 50:26.060
+ That's such a tough job of editor.
+
+50:26.060 --> 50:26.900
+ Yeah.
+
+50:26.900 --> 50:28.620
+ Again, he was sort of born to do that.
+
+50:28.620 --> 50:30.500
+ He just kind of glommed onto it.
+
+50:31.900 --> 50:36.900
+ But since he was his first job publishing
+
+50:36.900 --> 50:41.900
+ cat thrillers, cat detective books,
+
+50:43.020 --> 50:46.220
+ he studied how it works, what makes a story work,
+
+50:46.220 --> 50:47.060
+ et cetera, et cetera.
+
+50:47.060 --> 50:48.940
+ And so he really, he's great.
+
+50:48.940 --> 50:52.340
+ And I think any really successful writer,
+
+50:52.340 --> 50:55.300
+ unless they're utterly brilliant on their own,
+
+50:55.300 --> 50:57.740
+ has gotta have a great editor behind them.
+
+50:57.740 --> 51:00.100
+ But you yourself edit as well.
+
+51:00.100 --> 51:03.940
+ I'm constantly trying to learn from him and teach myself.
+
+51:03.940 --> 51:07.580
+ Everything you see in my blog posts
+
+51:07.580 --> 51:09.460
+ that it's about the craft of writing
+
+51:09.460 --> 51:12.860
+ is me trying to teach myself the rules
+
+51:12.860 --> 51:15.660
+ so that, I'm sure it's the same in martial arts
+
+51:15.660 --> 51:16.860
+ or anything else, right?
+
+51:16.860 --> 51:21.740
+ You try to not be dependent on that other person
+
+51:21.740 --> 51:24.300
+ because it's so painful to make those mistakes.
+
+51:24.300 --> 51:27.060
+ You really feel like, ah, I wish I could get it right
+
+51:27.060 --> 51:29.100
+ the first time the next time I do it.
+
+51:29.100 --> 51:30.980
+ Well, in research, we go through that.
+
+51:30.980 --> 51:33.100
+ In research more than writing,
+
+51:33.100 --> 51:35.780
+ so what you do is a little more solitary.
+
+51:35.780 --> 51:38.340
+ In research, there's usually two, three, four people
+
+51:38.340 --> 51:41.220
+ working on something together and we write a paper.
+
+51:41.220 --> 51:44.220
+ And there's that painful process of where you write it down
+
+51:44.220 --> 51:46.420
+ and then you share it with other.
+
+51:46.420 --> 51:49.940
+ And not only do they criticize the writing,
+
+51:49.940 --> 51:53.380
+ they criticize the fundamental aspects
+
+51:53.380 --> 51:54.940
+ of the approach you've taken.
+
+51:54.940 --> 51:55.780
+ I would think so.
+
+51:55.780 --> 51:58.740
+ So it's exactly like they would say you're attacking,
+
+51:58.740 --> 52:01.100
+ you're asking the wrong questions, right?
+
+52:01.100 --> 52:03.700
+ And that's extremely painful, especially when you,
+
+52:03.700 --> 52:06.260
+ well, yes, painful and helpful,
+
+52:06.260 --> 52:08.500
+ but there's disagreement and so on.
+
+52:09.900 --> 52:12.300
+ And through that comes out a better product.
+
+52:12.300 --> 52:15.660
+ And if you want to still have an ego,
+
+52:15.660 --> 52:17.940
+ but you also want to silence it every once in a while,
+
+52:17.940 --> 52:19.860
+ so there's a balance.
+
+52:19.860 --> 52:21.460
+ In your book, The War of Art,
+
+52:21.460 --> 52:24.700
+ you talk about resistance, what the capital R,
+
+52:24.700 --> 52:27.860
+ as the invisible force in this universe of ours
+
+52:27.860 --> 52:32.660
+ that finds a way to prevent you from starting
+
+52:32.660 --> 52:34.460
+ or doing the work.
+
+52:36.660 --> 52:39.140
+ Where do you think resistance comes from?
+
+52:39.140 --> 52:40.860
+ Why is there a force in our mind
+
+52:40.860 --> 52:44.060
+ that's constantly trying to jeopardize our efforts
+
+52:44.060 --> 52:46.580
+ with laziness, excuses, and so on?
+
+52:46.580 --> 52:48.300
+ That's another great question.
+
+52:48.300 --> 52:53.180
+ I mean, in Jewish mysticism, in Kabbalistic thinking,
+
+52:53.180 --> 52:55.460
+ it's called the yetzer hurrah, right?
+
+52:55.460 --> 52:59.540
+ And it's a force that if this up here is your soul
+
+52:59.540 --> 53:03.100
+ of Neshama trying to talk to you, us down here,
+
+53:03.100 --> 53:06.020
+ the yetzer hurrah is this negative force in the middle.
+
+53:06.020 --> 53:08.540
+ So I'm not the only one that ever thought about this.
+
+53:08.540 --> 53:11.540
+ But, and I don't know if anybody really knows the answer,
+
+53:11.540 --> 53:13.020
+ but here's my answer.
+
+53:13.940 --> 53:18.380
+ I think that there are two places
+
+53:18.380 --> 53:21.620
+ where we as human beings can see our identity.
+
+53:21.620 --> 53:24.900
+ One is the ego, the conscious ego,
+
+53:24.900 --> 53:27.460
+ and the other is the greater self.
+
+53:27.460 --> 53:30.220
+ And the self in the Jungian sense,
+
+53:30.220 --> 53:33.660
+ the self in the Jungian sense includes the unconscious
+
+53:33.660 --> 53:37.420
+ and butts up against what Jung called the divine ground,
+
+53:37.420 --> 53:40.580
+ which what I would call the muse, the goddess, or whatever.
+
+53:40.580 --> 53:43.380
+ And I think, and the ego is just this little dot
+
+53:43.380 --> 53:45.460
+ inside this bigger self.
+
+53:45.460 --> 53:50.460
+ And the ego has a completely different view of life
+
+53:52.500 --> 53:53.700
+ from the self.
+
+53:53.700 --> 53:56.980
+ The ego believes, I'm gonna give you a long answer here.
+
+53:56.980 --> 53:57.940
+ No, perfect.
+
+53:57.940 --> 54:01.300
+ The ego believes that death is real.
+
+54:01.300 --> 54:05.180
+ The ego believes that time and space are real.
+
+54:05.180 --> 54:07.940
+ The ego believes that each one of us
+
+54:07.940 --> 54:09.820
+ is separate from the other.
+
+54:09.820 --> 54:11.220
+ I'm separate from you.
+
+54:11.220 --> 54:14.380
+ If I could punch you in the face and it wouldn't hurt me,
+
+54:14.380 --> 54:16.220
+ it would only hurt you.
+
+54:16.220 --> 54:21.220
+ And in the ego's world, the dominant emotion is fear
+
+54:21.500 --> 54:23.460
+ because we were all made of flesh.
+
+54:23.460 --> 54:24.300
+ We can all die.
+
+54:24.300 --> 54:25.140
+ We can all be hurt.
+
+54:25.140 --> 54:26.820
+ We can all be ruined.
+
+54:26.820 --> 54:28.420
+ So we are protecting ourselves
+
+54:28.420 --> 54:30.940
+ and even our desire to create,
+
+54:30.940 --> 54:32.380
+ as we were talking about before,
+
+54:32.380 --> 54:33.980
+ comes out of that fear of death.
+
+54:35.020 --> 54:37.020
+ The self, on the other hand,
+
+54:37.020 --> 54:40.020
+ the greater self that butts up against the divine ground
+
+54:40.020 --> 54:42.500
+ believes that death is not real,
+
+54:42.500 --> 54:44.980
+ that time and space are not real,
+
+54:44.980 --> 54:48.300
+ that the gods travel swift as thought.
+
+54:48.300 --> 54:51.380
+ And the ego also believes that,
+
+54:51.380 --> 54:53.940
+ I mean, the self believes that there's no difference
+
+54:53.940 --> 54:55.500
+ between you and me, that we're all one.
+
+54:55.500 --> 55:00.100
+ If I hurt you, I hurt myself, karma, right?
+
+55:00.100 --> 55:03.660
+ And in the world of the self, of the greater self,
+
+55:03.660 --> 55:06.300
+ the dominant emotion is love, not fear.
+
+55:07.180 --> 55:11.340
+ Now, so I think that, I'll go farther back here,
+
+55:11.340 --> 55:13.100
+ a long way to answer your question.
+
+55:14.220 --> 55:17.540
+ When Jesus died on the cross,
+
+55:17.540 --> 55:22.540
+ or when the 300 Spartans willingly sacrificed their lives
+
+55:22.940 --> 55:25.020
+ at Thermopylae, they were acting
+
+55:25.020 --> 55:27.540
+ according to the rules of the self.
+
+55:28.420 --> 55:30.180
+ Death is not real.
+
+55:30.180 --> 55:32.380
+ No difference between you and me.
+
+55:32.380 --> 55:33.580
+ Time and space are not real.
+
+55:33.580 --> 55:36.020
+ Predominant emotion is love.
+
+55:36.020 --> 55:38.820
+ So, in my opinion,
+
+55:39.860 --> 55:43.260
+ we as conscious human vessels
+
+55:44.500 --> 55:46.580
+ are in a struggle between these two things,
+
+55:46.580 --> 55:48.180
+ the ego and the self.
+
+55:48.180 --> 55:53.180
+ To me, resistance is the voice of the ego saying,
+
+55:53.700 --> 55:55.580
+ and it's a fearful voice,
+
+55:55.580 --> 56:00.500
+ because if, when we identify with the self,
+
+56:00.500 --> 56:03.060
+ we move our consciousness over to the self
+
+56:03.060 --> 56:06.660
+ as artists or scientists opening ourselves up
+
+56:06.660 --> 56:10.940
+ to the cosmic dimension, to the other forces,
+
+56:10.940 --> 56:13.300
+ the ego is tremendously threatened by that.
+
+56:13.300 --> 56:18.260
+ Because if we're in that space, that head space,
+
+56:18.260 --> 56:20.460
+ we don't need the ego anymore.
+
+56:20.460 --> 56:23.940
+ So I think resistance is a voice of the ego
+
+56:23.940 --> 56:27.260
+ trying to keep control of us.
+
+56:27.260 --> 56:31.540
+ In a way, I'll give you a bad example, Trump is the ego.
+
+56:31.540 --> 56:33.860
+ That's probably a very good example, right?
+
+56:33.860 --> 56:35.300
+ Yeah.
+
+56:35.300 --> 56:38.820
+ It's a zero sum world for him,
+
+56:38.820 --> 56:41.340
+ and for anybody that's in that.
+
+56:41.340 --> 56:43.940
+ And the opposite of that would be somebody
+
+56:43.940 --> 56:46.460
+ like Martin Luther King or Gandhi.
+
+56:46.460 --> 56:47.740
+ Gandhi, yep.
+
+56:47.740 --> 56:49.380
+ And that's, of course, why they all wind up
+
+56:49.380 --> 56:51.260
+ getting assassinated.
+
+56:51.260 --> 56:55.260
+ Because that voice, that ego, is hanging on to itself
+
+56:55.260 --> 56:59.060
+ and feels so threatened by,
+
+57:00.060 --> 57:01.700
+ I could talk more about this if you want to.
+
+57:01.700 --> 57:04.140
+ No, for sure, that's fascinating.
+
+57:04.140 --> 57:07.940
+ It's just, it's interesting why the fear is attached
+
+57:07.940 --> 57:08.940
+ to the ego.
+
+57:08.940 --> 57:12.220
+ I really like this dichotomy of ego and self
+
+57:12.220 --> 57:14.060
+ and that struggle.
+
+57:14.060 --> 57:19.060
+ It's just, ego has a, the self obsession of it.
+
+57:20.500 --> 57:25.340
+ Why fear is such a predominant thing?
+
+57:25.340 --> 57:29.460
+ Why is resistance trying to undermine everything?
+
+57:29.460 --> 57:32.020
+ It's fear, it's out of fear.
+
+57:32.020 --> 57:34.740
+ Let's think about the whole thing in terms of stories.
+
+57:34.740 --> 57:39.740
+ In a story, the villain is always resistance,
+
+57:41.540 --> 57:42.940
+ is always the ego.
+
+57:42.940 --> 57:46.940
+ The hero is always, of course, always is not everything,
+
+57:46.940 --> 57:47.780
+ but you know what I mean?
+
+57:47.780 --> 57:50.580
+ Pretty much represents kind of the self.
+
+57:50.580 --> 57:53.660
+ If you think about the alien on the spaceship,
+
+57:53.660 --> 57:55.300
+ that's like the ultimate kind of villain.
+
+57:55.300 --> 57:57.220
+ It keeps changing form, right?
+
+57:57.220 --> 57:58.980
+ First it goes on the guy's face,
+
+57:58.980 --> 58:00.820
+ then it pops out of his chest,
+
+58:00.820 --> 58:05.340
+ but it always just has that one monomaniacal thing
+
+58:05.340 --> 58:07.700
+ to destroy, you know?
+
+58:07.700 --> 58:12.580
+ And just like the ego, just like resistance.
+
+58:12.580 --> 58:15.540
+ And maybe alien is a bad example
+
+58:15.540 --> 58:18.620
+ because Sigourney Weaver has to sort of fight
+
+58:18.620 --> 58:20.820
+ on the same terms as the alien,
+
+58:20.820 --> 58:23.100
+ but maybe a better example might be
+
+58:23.100 --> 58:24.740
+ something like Casablanca,
+
+58:24.740 --> 58:28.860
+ where in the end, the Humphrey Bogart character
+
+58:28.860 --> 58:32.500
+ has to, acting, operating out of the self,
+
+58:32.500 --> 58:37.340
+ has to give up his selfish dream
+
+58:37.340 --> 58:39.500
+ of going off with Ingrid Bergman,
+
+58:39.500 --> 58:41.460
+ Neil Salon, the love of his life,
+
+58:41.460 --> 58:46.260
+ and instead, you know, puts her on the plane to Lisbon
+
+58:46.260 --> 58:49.340
+ while he goes off to fight the Nazis in the desert.
+
+58:50.420 --> 58:51.260
+ I don't know if that's clear,
+
+58:51.260 --> 58:54.820
+ but in almost every story,
+
+58:54.820 --> 58:59.420
+ the villain is the ego, is resistance, is fear,
+
+58:59.420 --> 59:01.780
+ is that zero sum thing.
+
+59:01.780 --> 59:03.340
+ And in almost every story,
+
+59:03.340 --> 59:08.260
+ the hero is someone that is willing to make a sacrifice
+
+59:09.340 --> 59:10.580
+ to help others.
+
+59:11.540 --> 59:13.620
+ It's letting go of that fear
+
+59:13.620 --> 59:15.900
+ is what leads to productivity and to success.
+
+59:15.900 --> 59:16.740
+ Yeah.
+
+59:18.780 --> 59:20.420
+ Do you think there's a,
+
+59:20.420 --> 59:25.420
+ this is probably the answer is either obvious or impossible,
+
+59:25.900 --> 59:28.740
+ but do you think there's an evolutionary advantage
+
+59:28.740 --> 59:31.420
+ to resistance?
+
+59:31.420 --> 59:35.780
+ Like, what would life look like without resistance?
+
+59:36.740 --> 59:38.420
+ That's another great question.
+
+59:38.420 --> 59:43.220
+ I think, I also believe that resistance, like death,
+
+59:43.220 --> 59:44.780
+ gives meaning to life.
+
+59:44.780 --> 59:48.580
+ If we didn't have it, it's gonna be, you know,
+
+59:48.580 --> 59:49.460
+ what would we be?
+
+59:49.460 --> 59:51.060
+ We'd be in the Garden of Eden,
+
+59:51.060 --> 59:54.980
+ picking fruit and just happy and stupid, you know?
+
+59:56.660 --> 59:58.860
+ And I do think that that myth of the Garden of Eden
+
+59:58.860 --> 1:00:00.860
+ is really about this kind of thing, you know,
+
+1:00:00.860 --> 1:00:04.660
+ where Adam and Eve decide to sort of take matters
+
+1:00:04.660 --> 1:00:09.660
+ into their own hands and acquire knowledge
+
+1:00:10.180 --> 1:00:12.180
+ that until then, God had said,
+
+1:00:12.180 --> 1:00:14.620
+ I'm the only one that's got that knowledge.
+
+1:00:14.620 --> 1:00:17.940
+ And of course, once they have acquired that knowledge,
+
+1:00:17.940 --> 1:00:21.540
+ they're cast out into the world you and I live in now,
+
+1:00:21.540 --> 1:00:23.260
+ where they do have to deal with that fear
+
+1:00:23.260 --> 1:00:26.380
+ and they do have to deal with all that stuff.
+
+1:00:26.380 --> 1:00:27.820
+ The human condition.
+
+1:00:27.820 --> 1:00:31.780
+ The human condition and the meaning and the purpose comes
+
+1:00:31.780 --> 1:00:36.700
+ from the resistance being there
+
+1:00:36.700 --> 1:00:38.540
+ and the struggle to overcome it.
+
+1:00:38.540 --> 1:00:39.940
+ To overcome it, right.
+
+1:00:39.940 --> 1:00:42.340
+ And also the other aspect of it is that
+
+1:00:43.420 --> 1:00:45.220
+ it's not real at all.
+
+1:00:45.220 --> 1:00:48.180
+ It's not even like it's an actual force.
+
+1:00:48.180 --> 1:00:50.540
+ It's all here, right?
+
+1:00:50.540 --> 1:00:53.140
+ So the sort of,
+
+1:00:55.420 --> 1:00:58.260
+ in a way, it's sort of a surrender to it, you know?
+
+1:01:00.300 --> 1:01:05.180
+ You know, or it's just a sort of like turning on the light
+
+1:01:05.180 --> 1:01:06.020
+ in a dark thing.
+
+1:01:06.020 --> 1:01:07.180
+ It's like, oh, it's gone.
+
+1:01:09.180 --> 1:01:11.420
+ But not quite because it's never really.
+
+1:01:11.420 --> 1:01:13.260
+ Because it comes back again tomorrow morning.
+
+1:01:13.260 --> 1:01:14.100
+ Exactly.
+
+1:01:14.100 --> 1:01:17.780
+ So you have to keep changing light bulbs every day.
+
+1:01:17.780 --> 1:01:20.820
+ So what's been, maybe recently, but in general,
+
+1:01:20.820 --> 1:01:24.180
+ maybe in your life, what's been the most relentless
+
+1:01:24.180 --> 1:01:26.820
+ or one of the more relentless sources of resistance
+
+1:01:26.820 --> 1:01:28.220
+ to you personally?
+
+1:01:28.220 --> 1:01:30.620
+ I mean, it's always the same.
+
+1:01:30.620 --> 1:01:32.220
+ It's about writing for me
+
+1:01:33.660 --> 1:01:38.660
+ and evolving within my own body of work, you know?
+
+1:01:38.660 --> 1:01:43.660
+ It never goes away, it never gets any less.
+
+1:01:43.860 --> 1:01:45.540
+ Do you have particular excuses,
+
+1:01:45.540 --> 1:01:49.900
+ particular justifications that come out?
+
+1:01:49.900 --> 1:01:51.540
+ No, it's always the same.
+
+1:01:51.540 --> 1:01:53.260
+ Well, I would say it's always the same,
+
+1:01:53.260 --> 1:01:56.260
+ but it's really not because resistance is so protean,
+
+1:01:56.260 --> 1:01:58.340
+ you know, it keeps changing form.
+
+1:01:58.340 --> 1:02:02.460
+ And as you move to hopefully a higher level,
+
+1:02:02.460 --> 1:02:04.460
+ resistance gets a little more nuanced
+
+1:02:04.460 --> 1:02:07.220
+ and a little more subtle trying to fake you out.
+
+1:02:07.220 --> 1:02:11.980
+ But I think you learn that it's always there
+
+1:02:11.980 --> 1:02:14.380
+ and you're always gonna have to face it, so.
+
+1:02:14.380 --> 1:02:18.780
+ I mean, your battle is sitting down
+
+1:02:18.780 --> 1:02:22.940
+ and writing to some number of words to a blank page.
+
+1:02:23.940 --> 1:02:28.060
+ Do you have a process there with this battle?
+
+1:02:28.060 --> 1:02:31.500
+ Do you have a number of hours that you put in?
+
+1:02:31.500 --> 1:02:32.340
+ Do you sit down?
+
+1:02:32.340 --> 1:02:34.940
+ Yeah, I'm definitely a believer
+
+1:02:34.940 --> 1:02:37.460
+ that even though this battle is fought
+
+1:02:37.460 --> 1:02:40.060
+ on the highest sort of spiritual level,
+
+1:02:40.060 --> 1:02:43.060
+ that the way you fight it is on the most mundane,
+
+1:02:44.060 --> 1:02:46.860
+ I'm sure it's like martial arts, must be the same way.
+
+1:02:46.860 --> 1:02:49.980
+ I mean, I go to the gym first thing in the morning
+
+1:02:49.980 --> 1:02:53.180
+ and I sort of am rehearsing myself.
+
+1:02:54.900 --> 1:02:57.180
+ The gym is called resistance training, right?
+
+1:02:57.180 --> 1:02:59.180
+ You're working against resistance, right?
+
+1:02:59.180 --> 1:03:01.620
+ And I don't wanna go, I don't wanna get out of bed,
+
+1:03:01.620 --> 1:03:06.580
+ I hate that, but I'm sort of fortifying myself
+
+1:03:06.580 --> 1:03:09.700
+ to be ready for the day.
+
+1:03:09.700 --> 1:03:13.740
+ And like I said, over Knockwood, over years,
+
+1:03:13.740 --> 1:03:17.100
+ I've learned to sort of get into the right kind of mindset
+
+1:03:17.100 --> 1:03:20.060
+ and it's not as hard for me as it used to be.
+
+1:03:20.060 --> 1:03:22.180
+ The real resistance, I think, for me,
+
+1:03:22.180 --> 1:03:23.580
+ and I think this is true for anybody,
+
+1:03:23.580 --> 1:03:26.860
+ is the question of sort of what's the next idea?
+
+1:03:27.820 --> 1:03:29.100
+ What's the next book?
+
+1:03:29.100 --> 1:03:31.500
+ What's the next project that you're gonna work on?
+
+1:03:31.500 --> 1:03:35.820
+ And when I ask that question, I'm asking it of the muse.
+
+1:03:35.820 --> 1:03:38.020
+ I'm kind of saying, what do you want me,
+
+1:03:38.020 --> 1:03:40.420
+ or I'm asking it of my unconscious.
+
+1:03:40.420 --> 1:03:43.260
+ If we're looking at Bruce Springsteen's albums,
+
+1:03:43.260 --> 1:03:45.060
+ it's kind of, well, what's the next album?
+
+1:03:45.060 --> 1:03:46.420
+ Now he's on Broadway.
+
+1:03:46.420 --> 1:03:47.980
+ That was a great idea, right?
+
+1:03:49.980 --> 1:03:51.900
+ Where'd that come from, you know?
+
+1:03:51.900 --> 1:03:55.740
+ But, and then for him, what's after that, you know?
+
+1:03:55.740 --> 1:04:00.740
+ Because that body of work is already alive.
+
+1:04:03.980 --> 1:04:07.020
+ It already exists inside us,
+
+1:04:07.020 --> 1:04:09.460
+ kind of like a woman's biological clock,
+
+1:04:10.340 --> 1:04:12.340
+ and we have to serve it.
+
+1:04:12.340 --> 1:04:16.540
+ And we have to, otherwise it'll give us cancer, you know?
+
+1:04:17.740 --> 1:04:19.460
+ I don't mean to say that if anybody has cancer
+
+1:04:19.460 --> 1:04:21.180
+ that they're not, you know what I mean?
+
+1:04:21.180 --> 1:04:24.060
+ It'll take its revenge on us.
+
+1:04:24.060 --> 1:04:26.300
+ So the next resistance to me is sort of,
+
+1:04:27.180 --> 1:04:30.100
+ or a big aspect of it is, what's next?
+
+1:04:30.100 --> 1:04:31.780
+ You know, when I finish the book I'm working on now,
+
+1:04:31.780 --> 1:04:33.460
+ I'm not sure what I'm gonna do next.
+
+1:04:33.460 --> 1:04:35.900
+ And I see at the same time you have a kind of,
+
+1:04:37.740 --> 1:04:42.660
+ you have a sense that there's a Bruce Springsteen
+
+1:04:42.660 --> 1:04:45.980
+ single line of albums.
+
+1:04:45.980 --> 1:04:49.420
+ So like, it's already known somewhere in the universe
+
+1:04:49.420 --> 1:04:51.900
+ what you're going to do next, is the sense you have.
+
+1:04:51.900 --> 1:04:53.460
+ In a sense, yes.
+
+1:04:53.460 --> 1:04:55.940
+ I don't know if it's predetermined, you know?
+
+1:04:55.940 --> 1:04:58.420
+ But there's something like that.
+
+1:05:00.220 --> 1:05:03.380
+ Yeah, I'd like to believe that there's,
+
+1:05:03.380 --> 1:05:06.460
+ well, it's kind of like quantum mechanics, I guess.
+
+1:05:06.460 --> 1:05:11.020
+ Once you observe it, maybe once you talk to the muse,
+
+1:05:11.020 --> 1:05:13.580
+ it's one thing for sure.
+
+1:05:13.580 --> 1:05:15.540
+ It was always going to be that one thing.
+
+1:05:15.540 --> 1:05:19.260
+ But really, in reality, it's a distribution.
+
+1:05:19.260 --> 1:05:20.780
+ It could be any number of things.
+
+1:05:20.780 --> 1:05:21.620
+ Yeah, I think so.
+
+1:05:21.620 --> 1:05:22.820
+ There's alternate realities.
+
+1:05:22.820 --> 1:05:24.100
+ Alternate realities, yeah.
+
+1:05:24.100 --> 1:05:25.460
+ But they're not that far apart.
+
+1:05:25.460 --> 1:05:28.260
+ I mean, Bruce Springsteen is not gonna write
+
+1:05:28.260 --> 1:05:30.620
+ a Joni Mitchell song, you know?
+
+1:05:30.620 --> 1:05:31.460
+ No matter how hard he tries.
+
+1:05:31.460 --> 1:05:32.420
+ But he still went on Broadway.
+
+1:05:32.420 --> 1:05:33.860
+ I mean, he still did that,
+
+1:05:33.860 --> 1:05:36.320
+ which is not a Bruce Springsteen thing to do.
+
+1:05:36.320 --> 1:05:39.940
+ So I think you're being, in retrospect,
+
+1:05:39.940 --> 1:05:40.780
+ it all makes sense. I think it is
+
+1:05:40.780 --> 1:05:41.860
+ a Bruce Springsteen thing to do.
+
+1:05:41.860 --> 1:05:43.740
+ It's a next sort of evolution for him.
+
+1:05:43.740 --> 1:05:46.860
+ Why not take his music to there, you know?
+
+1:05:46.860 --> 1:05:50.340
+ In retrospect, it all makes perfect sense, I think.
+
+1:05:50.340 --> 1:05:51.180
+ Yeah.
+
+1:05:51.180 --> 1:05:53.080
+ If you pull it off, especially.
+
+1:05:54.100 --> 1:05:57.620
+ Do you visualize yourself completing the work?
+
+1:05:57.620 --> 1:06:01.140
+ Like, Olympic athletes visualize getting the gold medal.
+
+1:06:02.780 --> 1:06:06.080
+ Do you, you know, they go through,
+
+1:06:06.080 --> 1:06:08.260
+ I mean, that's actually a really,
+
+1:06:08.260 --> 1:06:09.940
+ you can learn something from athletes on that,
+
+1:06:09.940 --> 1:06:12.340
+ is years out,
+
+1:06:13.260 --> 1:06:15.260
+ certainly two, three years out,
+
+1:06:15.260 --> 1:06:16.620
+ some people do much longer,
+
+1:06:16.620 --> 1:06:19.500
+ every day, you visualize how the day
+
+1:06:19.500 --> 1:06:24.060
+ of the championship will go down to,
+
+1:06:24.060 --> 1:06:25.980
+ I mean, everything, down to how will it feel
+
+1:06:25.980 --> 1:06:27.900
+ to stand on the podium and so on.
+
+1:06:27.900 --> 1:06:29.860
+ Do you do anything like that
+
+1:06:29.860 --> 1:06:31.260
+ in how you approach writing?
+
+1:06:31.260 --> 1:06:32.260
+ No.
+
+1:06:32.260 --> 1:06:33.580
+ Because it's. It's always in the moment.
+
+1:06:33.580 --> 1:06:35.700
+ Because, yeah, it is in the moment, I think.
+
+1:06:35.700 --> 1:06:36.860
+ Because it's such a mystery.
+
+1:06:36.860 --> 1:06:37.700
+ You just don't know.
+
+1:06:37.700 --> 1:06:39.260
+ I think it's different from sports.
+
+1:06:39.260 --> 1:06:40.700
+ Right.
+
+1:06:40.700 --> 1:06:41.700
+ Because you don't know the destiny.
+
+1:06:41.700 --> 1:06:43.700
+ There's no gold medal at the end.
+
+1:06:43.700 --> 1:06:44.540
+ No.
+
+1:06:44.540 --> 1:06:48.540
+ In fact, I would like to think that
+
+1:06:48.540 --> 1:06:50.300
+ as soon as you finish one,
+
+1:06:51.220 --> 1:06:53.580
+ the next day you're on the other.
+
+1:06:53.580 --> 1:06:56.460
+ And in fact, hopefully you've already started the other.
+
+1:06:56.460 --> 1:07:00.900
+ You're already, you know, 100 pages into the other
+
+1:07:00.900 --> 1:07:03.220
+ when you finish the first one.
+
+1:07:03.220 --> 1:07:04.860
+ But it is a, it is a,
+
+1:07:08.620 --> 1:07:10.060
+ it's a journey, it's a process.
+
+1:07:10.060 --> 1:07:11.540
+ I don't think it is a,
+
+1:07:11.540 --> 1:07:14.340
+ in fact, I think it's very dangerous to think that way.
+
+1:07:14.340 --> 1:07:19.340
+ To think, oh, this, I'm gonna win the Oscar, you know?
+
+1:07:20.620 --> 1:07:21.900
+ It's interesting.
+
+1:07:21.900 --> 1:07:24.780
+ For the creative process, it might be dangerous.
+
+1:07:24.780 --> 1:07:29.060
+ It's a, maybe you can, like, why is that dangerous?
+
+1:07:29.060 --> 1:07:30.900
+ Because I kind of know where you're coming from.
+
+1:07:30.900 --> 1:07:32.220
+ Because it's the ego.
+
+1:07:32.220 --> 1:07:33.060
+ It's the ego.
+
+1:07:33.060 --> 1:07:34.980
+ Because you're giving yourself over to the ego.
+
+1:07:34.980 --> 1:07:38.740
+ You know, I keep saying this myself.
+
+1:07:38.740 --> 1:07:41.580
+ My job, I'm a servant of the muse.
+
+1:07:41.580 --> 1:07:44.820
+ I'm there to do what she tells me to do.
+
+1:07:44.820 --> 1:07:48.220
+ And if I suddenly think, oh, I'm really,
+
+1:07:48.220 --> 1:07:50.100
+ I just wanna, you know, whatever,
+
+1:07:50.100 --> 1:07:51.740
+ the muse doesn't like that.
+
+1:07:51.740 --> 1:07:56.660
+ And, you know, and she's on another dimension from me.
+
+1:07:58.220 --> 1:08:01.260
+ I'm trying to square that, because I agree.
+
+1:08:01.260 --> 1:08:03.060
+ I'm trying to square that with the,
+
+1:08:04.300 --> 1:08:07.900
+ I think there's a meditation to visualizing success
+
+1:08:07.900 --> 1:08:12.820
+ in the athletic realm, to where it focuses,
+
+1:08:12.820 --> 1:08:15.500
+ it removes everything else away,
+
+1:08:15.500 --> 1:08:18.180
+ to where you focus on this particular battle.
+
+1:08:18.180 --> 1:08:23.180
+ I mean, I think that you can do that in many kinds of ways.
+
+1:08:23.620 --> 1:08:28.620
+ And in sports, the ego serves a more important role,
+
+1:08:29.940 --> 1:08:31.580
+ I think, than it does in writing.
+
+1:08:31.580 --> 1:08:33.860
+ And the ego, there's something.
+
+1:08:33.860 --> 1:08:35.940
+ Well, let me, when you say that,
+
+1:08:35.940 --> 1:08:39.100
+ I know what you mean, Lex, and I do think there is
+
+1:08:39.100 --> 1:08:43.180
+ a sort of a, you know, it's interesting to watch interviews
+
+1:08:43.180 --> 1:08:47.980
+ with Steph Curry, who's such, obviously such a nice guy,
+
+1:08:49.780 --> 1:08:54.500
+ but he's got such tremendous self confidence,
+
+1:08:54.500 --> 1:08:58.460
+ you know, that it, but it doesn't border on ego so much
+
+1:08:58.460 --> 1:09:01.060
+ because he's worked so hard for it, you know?
+
+1:09:01.060 --> 1:09:04.420
+ But he knows, so he has visualized.
+
+1:09:04.420 --> 1:09:08.100
+ He has visualized maybe not so much winning, you know,
+
+1:09:08.100 --> 1:09:11.740
+ as just him being the best he can be,
+
+1:09:11.740 --> 1:09:15.500
+ him being in the flow, you know,
+
+1:09:15.500 --> 1:09:18.420
+ doing his thing that he knows he can do.
+
+1:09:18.420 --> 1:09:21.260
+ And I do think in the creative world,
+
+1:09:21.260 --> 1:09:23.140
+ yeah, there is a sort of a thing like that,
+
+1:09:23.140 --> 1:09:27.180
+ where you, where, and, you know,
+
+1:09:27.180 --> 1:09:29.700
+ a choreographer or a filmmaker or whatever
+
+1:09:29.700 --> 1:09:34.700
+ might be, do an internal thing where they're saying,
+
+1:09:35.380 --> 1:09:36.980
+ I can make an Oscar winning movie.
+
+1:09:36.980 --> 1:09:38.700
+ I can direct this movie.
+
+1:09:38.700 --> 1:09:40.700
+ You know, I'm banishing these thoughts
+
+1:09:40.700 --> 1:09:42.020
+ that I'm not good enough.
+
+1:09:42.020 --> 1:09:42.860
+ I can do that.
+
+1:09:42.860 --> 1:09:44.220
+ I can edit it.
+
+1:09:44.220 --> 1:09:45.420
+ I can score it.
+
+1:09:45.420 --> 1:09:47.500
+ I can, you know, bump it, bump it, bump.
+
+1:09:47.500 --> 1:09:49.380
+ But, and I don't think that's really ego.
+
+1:09:49.380 --> 1:09:53.580
+ I think that's part of the process in a good way,
+
+1:09:53.580 --> 1:09:55.180
+ like an athlete does that.
+
+1:09:55.180 --> 1:09:58.140
+ So extreme confidence is what some of the best athletes
+
+1:09:58.140 --> 1:10:02.020
+ come with, and you think it's possible to,
+
+1:10:02.020 --> 1:10:04.740
+ as a writer, to have extreme confidence in yourself?
+
+1:10:04.740 --> 1:10:07.500
+ I do think so, you know, that I'm sure
+
+1:10:07.500 --> 1:10:11.420
+ when John Lennon sat down to write a song,
+
+1:10:11.420 --> 1:10:14.260
+ he felt like, shit, I can do this, you know?
+
+1:10:14.260 --> 1:10:16.020
+ I'm not so sure.
+
+1:10:16.020 --> 1:10:19.660
+ I think, because the great artists I've seen,
+
+1:10:19.660 --> 1:10:23.340
+ and you're haunted by self doubt.
+
+1:10:23.340 --> 1:10:26.020
+ It's that resist, I mean, the confidence.
+
+1:10:26.020 --> 1:10:29.100
+ Yes, but I mean, I guess, but even beyond the self,
+
+1:10:29.100 --> 1:10:30.940
+ within the self, above the self doubt.
+
+1:10:30.940 --> 1:10:33.900
+ Oh, it's the bigger picture of the self belief, you know?
+
+1:10:33.900 --> 1:10:35.100
+ Yeah, I'm freaking out.
+
+1:10:35.100 --> 1:10:36.860
+ Yeah, I'm worried that I'm not gonna be able to do it.
+
+1:10:36.860 --> 1:10:38.460
+ But, you know, I know I can do this.
+
+1:10:38.460 --> 1:10:39.500
+ Yeah, and when you look at,
+
+1:10:39.500 --> 1:10:41.860
+ when you take a bigger picture of it.
+
+1:10:41.860 --> 1:10:46.860
+ So the writing process, is it fundamentally lonely?
+
+1:10:48.780 --> 1:10:53.540
+ No, because you're with your characters.
+
+1:10:53.540 --> 1:10:55.700
+ You are.
+
+1:10:55.700 --> 1:10:58.300
+ So you really put yourself in the world.
+
+1:10:58.300 --> 1:11:02.420
+ Absolutely, you know, I've written about this before
+
+1:11:02.420 --> 1:11:04.740
+ that I used to, my desk used to face a wall
+
+1:11:04.740 --> 1:11:06.460
+ instead of seeing, and people would say,
+
+1:11:06.460 --> 1:11:08.340
+ well, don't you wanna look out the window?
+
+1:11:08.340 --> 1:11:11.900
+ But I'm in here, I mean, I'm seeing, you know,
+
+1:11:11.900 --> 1:11:14.700
+ the Spartans, I'm seeing, you know, whatever.
+
+1:11:14.700 --> 1:11:18.500
+ And the characters that are on the page,
+
+1:11:18.500 --> 1:11:22.300
+ or that you create, are not accidents, you know?
+
+1:11:22.300 --> 1:11:24.820
+ They're coming out of some issue,
+
+1:11:24.820 --> 1:11:27.300
+ some deep issue that you have.
+
+1:11:27.300 --> 1:11:28.380
+ Whether you realize it or not,
+
+1:11:28.380 --> 1:11:30.260
+ you might not realize it till 20 years later,
+
+1:11:30.260 --> 1:11:31.900
+ or somebody explains it to you.
+
+1:11:31.900 --> 1:11:35.180
+ So your characters are kind of fascinating to you.
+
+1:11:35.180 --> 1:11:38.340
+ And their dilemmas are fascinating to you.
+
+1:11:38.340 --> 1:11:42.820
+ And you're also trying to come to grips with them,
+
+1:11:42.820 --> 1:11:46.300
+ you know, you sort of see them through a glass darkly,
+
+1:11:46.300 --> 1:11:49.100
+ you know, and you really wanna see them more clearly.
+
+1:11:49.100 --> 1:11:52.260
+ So yeah, no, it's not lonely at all.
+
+1:11:52.260 --> 1:11:55.180
+ In fact, I'm more lonely sometimes later,
+
+1:11:55.180 --> 1:11:56.620
+ going out to dinner with some people
+
+1:11:56.620 --> 1:11:58.180
+ and actually talking to people.
+
+1:11:59.300 --> 1:12:02.540
+ Do you miss the characters after it's over?
+
+1:12:03.620 --> 1:12:06.340
+ Let's say I have affection for them,
+
+1:12:06.340 --> 1:12:09.220
+ kind of like children that have gone off to college
+
+1:12:09.220 --> 1:12:12.500
+ and now are, you know, you only see them at Thanksgiving.
+
+1:12:12.500 --> 1:12:17.500
+ Definitely, I have affection for them, even the bad guys.
+
+1:12:18.860 --> 1:12:22.500
+ Maybe especially the bad guys.
+
+1:12:22.500 --> 1:12:23.700
+ Especially the bad guys.
+
+1:12:25.540 --> 1:12:29.060
+ You've said that writers, even successful writers,
+
+1:12:29.060 --> 1:12:32.300
+ are often not tough minded enough.
+
+1:12:32.300 --> 1:12:34.540
+ I've read that in the post,
+
+1:12:34.540 --> 1:12:35.820
+ that you have to be a professional
+
+1:12:35.820 --> 1:12:38.500
+ in the way you handle your emotions.
+
+1:12:38.500 --> 1:12:41.740
+ You have to be a bit of a warrior to be a writer.
+
+1:12:41.740 --> 1:12:46.740
+ So what do you think makes a warrior?
+
+1:12:47.340 --> 1:12:51.580
+ Is a warrior born or trained in the realm,
+
+1:12:51.580 --> 1:12:53.780
+ in the bigger realm, in the realm of writing,
+
+1:12:53.780 --> 1:12:55.100
+ in the creative process?
+
+1:12:55.100 --> 1:12:57.580
+ I think they're born to some extent.
+
+1:12:57.580 --> 1:12:59.820
+ You have the gift, like you might have the gift
+
+1:12:59.820 --> 1:13:02.820
+ as a martial artist to do whatever martial artists do,
+
+1:13:02.820 --> 1:13:05.140
+ but the training is the big thing.
+
+1:13:05.140 --> 1:13:09.100
+ 90% training, 10%, 10% genetics.
+
+1:13:09.100 --> 1:13:13.740
+ And, you know, I use another analogy other than warrior
+
+1:13:13.740 --> 1:13:16.580
+ as far as writer, and that's like to be a mother.
+
+1:13:16.580 --> 1:13:19.220
+ If you think about, if you're a writer
+
+1:13:19.220 --> 1:13:21.420
+ or any creative person, you're giving birth to something,
+
+1:13:21.420 --> 1:13:23.860
+ right, you're carrying a new life inside you.
+
+1:13:23.860 --> 1:13:26.900
+ And in terms of bravery,
+
+1:13:26.900 --> 1:13:30.460
+ if your child, your two year old child
+
+1:13:30.460 --> 1:13:33.620
+ is underneath a car that's coming down the street,
+
+1:13:33.620 --> 1:13:35.780
+ the mother's gonna like stop a Buick,
+
+1:13:35.780 --> 1:13:37.900
+ you know, with her bare hands.
+
+1:13:37.900 --> 1:13:41.220
+ So that's another way to think about
+
+1:13:41.220 --> 1:13:43.380
+ how a writer has to think about,
+
+1:13:43.380 --> 1:13:45.620
+ or any creative person has to think about,
+
+1:13:45.620 --> 1:13:47.260
+ I think, what they're doing,
+
+1:13:47.260 --> 1:13:50.220
+ what this child, this new creation
+
+1:13:50.220 --> 1:13:51.580
+ that they're bringing forth.
+
+1:13:53.060 --> 1:13:57.100
+ Yeah, so the hard work that's underlying that.
+
+1:13:57.100 --> 1:13:59.780
+ I've just, a couple weeks ago, talked to,
+
+1:14:00.620 --> 1:14:01.860
+ just happened to be in the same room,
+
+1:14:01.860 --> 1:14:03.940
+ both gave talks, Arianna Huffington.
+
+1:14:03.940 --> 1:14:08.180
+ I did this conversation with her.
+
+1:14:08.180 --> 1:14:11.100
+ I didn't know much about her before then,
+
+1:14:11.100 --> 1:14:14.420
+ but she has recently been, she wrote a couple books
+
+1:14:14.420 --> 1:14:16.140
+ and been promoting a lifestyle
+
+1:14:16.980 --> 1:14:20.180
+ where she basically, she created the Huffington Post,
+
+1:14:20.180 --> 1:14:23.140
+ and she gave herself like, I don't know,
+
+1:14:23.140 --> 1:14:26.340
+ 20 hours a day just obsessed with her work.
+
+1:14:26.340 --> 1:14:29.260
+ And then she fainted, passed out,
+
+1:14:29.260 --> 1:14:31.620
+ and kind of, there was some health issues.
+
+1:14:31.620 --> 1:14:36.140
+ And so she wrote this book saying that, you know, sleep,
+
+1:14:36.140 --> 1:14:38.860
+ basically you wanna establish a lifestyle
+
+1:14:38.860 --> 1:14:41.320
+ that doesn't sacrifice health,
+
+1:14:41.320 --> 1:14:43.420
+ that's productive but doesn't sacrifice health.
+
+1:14:43.420 --> 1:14:44.620
+ She thinks that you can have both,
+
+1:14:44.620 --> 1:14:46.380
+ productivity and health.
+
+1:14:46.380 --> 1:14:49.780
+ Criticizing Elon Musk, who I've also spoken with,
+
+1:14:49.780 --> 1:14:51.820
+ for working too hard,
+
+1:14:51.820 --> 1:14:56.820
+ and thereby sacrificing, you know,
+
+1:14:56.820 --> 1:14:59.380
+ being less effective than he could be.
+
+1:14:59.380 --> 1:15:04.380
+ So I'm trying to get this balance between health
+
+1:15:04.420 --> 1:15:06.780
+ and obsessively working at something
+
+1:15:06.780 --> 1:15:09.060
+ and really working hard.
+
+1:15:09.060 --> 1:15:12.100
+ So what Arianna is talking about makes sense to me,
+
+1:15:12.100 --> 1:15:13.540
+ but I'm a little bit torn.
+
+1:15:13.540 --> 1:15:17.100
+ To me, passion and reason do not overlap much
+
+1:15:17.100 --> 1:15:19.080
+ or at all sometimes.
+
+1:15:19.080 --> 1:15:20.340
+ Maybe I'm being too Russian,
+
+1:15:20.340 --> 1:15:25.340
+ but I feel madness and obsession does not care for health
+
+1:15:26.300 --> 1:15:28.580
+ or sleep or diet or any of that.
+
+1:15:28.580 --> 1:15:32.220
+ And hard work is hard work,
+
+1:15:32.220 --> 1:15:34.180
+ and everything else can go to hell.
+
+1:15:34.180 --> 1:15:37.420
+ So if you're really focused on whether it's writing a book,
+
+1:15:37.420 --> 1:15:39.820
+ it should, everything should just go to hell.
+
+1:15:40.860 --> 1:15:43.120
+ Where do you stand on this balance?
+
+1:15:43.120 --> 1:15:45.280
+ How important is health for productivity?
+
+1:15:45.280 --> 1:15:49.300
+ How important is it to sort of get sleep and so on?
+
+1:15:49.300 --> 1:15:51.320
+ I'm on the health side.
+
+1:15:52.520 --> 1:15:54.940
+ I mean, there was a period of my life
+
+1:15:54.940 --> 1:15:59.940
+ when I was just, I had no obligations
+
+1:15:59.980 --> 1:16:02.260
+ and I was just living in a little house
+
+1:16:02.260 --> 1:16:05.300
+ and just working nonstop, you know?
+
+1:16:05.300 --> 1:16:07.220
+ But even then I would get up in the morning
+
+1:16:07.220 --> 1:16:10.940
+ and I would have liver and eggs for breakfast every day,
+
+1:16:10.940 --> 1:16:13.760
+ and I would do my, you know, exercise, whatever it was.
+
+1:16:13.760 --> 1:16:16.800
+ But although I was still doing like 18 hours a day,
+
+1:16:16.800 --> 1:16:20.380
+ but I'm definitely, I kind of think of it
+
+1:16:20.380 --> 1:16:22.140
+ sort of like an athlete does.
+
+1:16:22.140 --> 1:16:27.140
+ I'm sure that like Steph Curry is totally committed
+
+1:16:27.620 --> 1:16:29.940
+ to winning championships and stuff like that.
+
+1:16:29.940 --> 1:16:31.640
+ But he has his family, he sees his family,
+
+1:16:31.640 --> 1:16:33.700
+ you know, the family is always there.
+
+1:16:33.700 --> 1:16:38.700
+ He, I'm sure he eats, you know, perfect, great stuff,
+
+1:16:38.900 --> 1:16:43.700
+ gets his sleep, you know, gets the training,
+
+1:16:43.700 --> 1:16:45.300
+ you know, the whatever a trainer does to him
+
+1:16:45.300 --> 1:16:47.320
+ for his knees and his ankles and whatever.
+
+1:16:47.320 --> 1:16:49.820
+ So I, or Kobe Bryant or anybody
+
+1:16:49.820 --> 1:16:52.580
+ that's operating at a high level.
+
+1:16:52.580 --> 1:16:55.020
+ So I do think I'm from that kind of the health school.
+
+1:16:55.020 --> 1:16:57.500
+ The good thing about being a writer
+
+1:16:57.500 --> 1:17:00.820
+ is you can't work very many hours a day.
+
+1:17:00.820 --> 1:17:03.820
+ You know, four hours is like the maximum I can work.
+
+1:17:03.820 --> 1:17:05.580
+ I've never been able to work more than that.
+
+1:17:05.580 --> 1:17:06.820
+ I don't know how people do it.
+
+1:17:06.820 --> 1:17:11.220
+ I've heard of people do 10, 12, I don't know how they do it.
+
+1:17:11.220 --> 1:17:14.780
+ So that gives you a lot of other time to do it.
+
+1:17:14.780 --> 1:17:16.180
+ Optimize your health.
+
+1:17:16.180 --> 1:17:17.020
+ Yeah, to optimize your health.
+
+1:17:17.020 --> 1:17:19.020
+ Because you need to, you're in training, you know?
+
+1:17:19.020 --> 1:17:22.260
+ You're really, you're burning up a lot of B vitamins
+
+1:17:22.260 --> 1:17:24.500
+ when you're working here, aren't you?
+
+1:17:24.500 --> 1:17:25.500
+ Yeah, but.
+
+1:17:27.020 --> 1:17:28.860
+ Maybe it's a Russian thing with you, Lex.
+
+1:17:28.860 --> 1:17:30.460
+ Well, it's not even a Russian thing.
+
+1:17:30.460 --> 1:17:32.260
+ It also may be youth, you know?
+
+1:17:32.260 --> 1:17:35.380
+ At 35, you can be crazy.
+
+1:17:35.380 --> 1:17:38.060
+ You know, that's the thing, they keep telling me,
+
+1:17:38.060 --> 1:17:43.060
+ but I'm pretty sure I'll be added still at a later time too.
+
+1:17:44.060 --> 1:17:47.100
+ I think it has to do with the career choice too.
+
+1:17:47.100 --> 1:17:51.580
+ I think writing is almost, from everything I've heard,
+
+1:17:51.580 --> 1:17:52.700
+ it's almost impossible to do it
+
+1:17:52.700 --> 1:17:55.860
+ more than a few hours really well.
+
+1:17:56.860 --> 1:17:58.820
+ When you start to get into certain disciplines,
+
+1:17:58.820 --> 1:18:02.660
+ like with Elon Musk and me, engineering disciplines,
+
+1:18:02.660 --> 1:18:07.660
+ that really there's a lot more non muse time needed.
+
+1:18:09.300 --> 1:18:10.140
+ Right, right, right.
+
+1:18:10.140 --> 1:18:17.140
+ So the crazy hours that you often are talking about
+
+1:18:17.140 --> 1:18:20.660
+ have to be done, and it doesn't.
+
+1:18:20.660 --> 1:18:22.260
+ I think that's true.
+
+1:18:22.260 --> 1:18:26.060
+ Yeah, so there's still the two, three hours of muse time
+
+1:18:26.060 --> 1:18:27.820
+ needed for truly genius ideas,
+
+1:18:27.820 --> 1:18:32.820
+ but it's something I certainly struggle with.
+
+1:18:34.620 --> 1:18:39.500
+ But yeah, I hear you loud and clear on the health.
+
+1:18:39.500 --> 1:18:44.180
+ So what does a perfect day look like for you
+
+1:18:44.180 --> 1:18:46.740
+ if we're talking about writing?
+
+1:18:46.740 --> 1:18:49.180
+ An hour by hour schedule of a perfect day.
+
+1:18:51.340 --> 1:18:54.340
+ I get up early, I go to the gym,
+
+1:18:54.340 --> 1:18:57.380
+ I have breakfast with some friends of mine.
+
+1:18:57.380 --> 1:18:58.660
+ What's early by the way?
+
+1:18:58.660 --> 1:19:00.180
+ Let's, like how early?
+
+1:19:00.180 --> 1:19:01.020
+ 3.15.
+
+1:19:02.020 --> 1:19:02.860
+ A.M.
+
+1:19:02.860 --> 1:19:03.820
+ A.M.
+
+1:19:03.820 --> 1:19:05.300
+ So we're talking really early.
+
+1:19:05.300 --> 1:19:06.180
+ Really early.
+
+1:19:06.180 --> 1:19:08.980
+ Now I'm crazy early, it's ridiculously early.
+
+1:19:08.980 --> 1:19:10.900
+ But, and I haven't done that always,
+
+1:19:10.900 --> 1:19:13.700
+ but that's kind of what I'm on now.
+
+1:19:15.740 --> 1:19:19.140
+ So I'm in bed, like when I'm with my nephews
+
+1:19:19.140 --> 1:19:21.260
+ that are like four years old and three years old,
+
+1:19:21.260 --> 1:19:22.660
+ I'm in bed before them.
+
+1:19:22.660 --> 1:19:25.020
+ Okay, you got a beat.
+
+1:19:25.020 --> 1:19:28.340
+ You wake up, sorry, you said exercise first.
+
+1:19:28.340 --> 1:19:29.700
+ Yeah.
+
+1:19:29.700 --> 1:19:30.780
+ And what does that look like?
+
+1:19:30.780 --> 1:19:32.100
+ What's exercise for you?
+
+1:19:32.100 --> 1:19:32.940
+ You go out to the gym?
+
+1:19:32.940 --> 1:19:33.780
+ I go to the gym.
+
+1:19:35.220 --> 1:19:37.380
+ I have a trainer, I have a couple of guys
+
+1:19:37.380 --> 1:19:40.980
+ that I work out with, and I'll, you know,
+
+1:19:40.980 --> 1:19:43.180
+ it's maybe an hour, maybe a little more.
+
+1:19:43.180 --> 1:19:45.660
+ I'll do a little warmup before stretching afterwards,
+
+1:19:45.660 --> 1:19:47.380
+ take a shower, go have breakfast.
+
+1:19:49.260 --> 1:19:51.620
+ But it's an intense kind of a thing
+
+1:19:51.620 --> 1:19:55.860
+ that I definitely don't wanna do that's hard, you know?
+
+1:19:55.860 --> 1:19:57.980
+ So you feel like you've accomplished something, first thing.
+
+1:19:57.980 --> 1:19:58.980
+ Yeah.
+
+1:19:58.980 --> 1:20:00.460
+ That's a big accomplishment of the day.
+
+1:20:00.460 --> 1:20:02.540
+ At the same time, it's not like so hard
+
+1:20:02.540 --> 1:20:04.940
+ that I'm completely exhausted, you know?
+
+1:20:04.940 --> 1:20:09.940
+ And then I'll come home and handle whatever correspondence
+
+1:20:10.100 --> 1:20:11.580
+ and stuff has to be done, and then I work
+
+1:20:11.580 --> 1:20:15.580
+ for maybe three hours, and then I just sort of crash.
+
+1:20:15.580 --> 1:20:18.900
+ The office is closed, I turn the switch,
+
+1:20:18.900 --> 1:20:21.340
+ I don't think about anything.
+
+1:20:21.340 --> 1:20:23.420
+ I don't think about the work at all.
+
+1:20:23.420 --> 1:20:25.660
+ Do you listen to, oh, you mean afterwards?
+
+1:20:25.660 --> 1:20:27.620
+ After work, once the office is closed.
+
+1:20:27.620 --> 1:20:31.020
+ But during, so this was like 12 to three kind of thing?
+
+1:20:31.020 --> 1:20:31.860
+ Something like that, yeah.
+
+1:20:31.860 --> 1:20:33.540
+ Something like that, okay.
+
+1:20:33.540 --> 1:20:34.660
+ You listen to music?
+
+1:20:34.660 --> 1:20:35.500
+ No.
+
+1:20:35.500 --> 1:20:36.340
+ Do you have anything?
+
+1:20:36.340 --> 1:20:38.500
+ But that's just me, I mean, I don't think, you know,
+
+1:20:38.500 --> 1:20:40.500
+ but somebody could do it a million different ways.
+
+1:20:40.500 --> 1:20:42.380
+ It's fascinating, you know, the,
+
+1:20:43.580 --> 1:20:47.820
+ I mean, you've also, of most, of many writers,
+
+1:20:47.820 --> 1:20:51.900
+ you've really, but like I've read Stephen Kington writing,
+
+1:20:51.900 --> 1:20:55.180
+ you've optimized this conversation
+
+1:20:55.180 --> 1:20:56.420
+ with the muse you're having.
+
+1:20:56.420 --> 1:20:59.700
+ Not optimized, but you've at least thought about it.
+
+1:20:59.700 --> 1:21:02.660
+ So what's, can you say a little bit more
+
+1:21:02.660 --> 1:21:05.900
+ about the trivialities of that process,
+
+1:21:05.900 --> 1:21:10.700
+ of the, like you said, facing the wall?
+
+1:21:10.700 --> 1:21:13.340
+ What's, do you have little rituals?
+
+1:21:13.340 --> 1:21:15.300
+ You mean like the granular aspect of it?
+
+1:21:15.300 --> 1:21:17.020
+ The granular aspects, yeah.
+
+1:21:19.540 --> 1:21:20.380
+ Is there?
+
+1:21:20.380 --> 1:21:21.740
+ I do have little rituals, I do have all kinds of,
+
+1:21:21.740 --> 1:21:22.940
+ which I'm not even gonna tell you about.
+
+1:21:22.940 --> 1:21:23.780
+ Sure.
+
+1:21:23.780 --> 1:21:27.660
+ But the one thing,
+
+1:21:28.980 --> 1:21:30.740
+ and I don't wanna like talk about this too much
+
+1:21:30.740 --> 1:21:32.460
+ because it sort of jinxes things, I think,
+
+1:21:32.460 --> 1:21:37.140
+ but the one thing I do try to do is when I sit down,
+
+1:21:37.140 --> 1:21:41.060
+ I immediately get into it, first, second.
+
+1:21:41.060 --> 1:21:43.660
+ I don't sit and fuck around with anything.
+
+1:21:43.660 --> 1:21:47.300
+ I immediately try to get into it as quickly as I can.
+
+1:21:47.300 --> 1:21:50.180
+ The other thing is that writing a book
+
+1:21:50.180 --> 1:21:51.420
+ or screenplay or anything like that
+
+1:21:51.420 --> 1:21:54.060
+ is a process of multiple drafts.
+
+1:21:54.060 --> 1:21:56.060
+ And it's the first draft
+
+1:21:56.060 --> 1:21:58.780
+ that's where you're most with the muse,
+
+1:21:58.780 --> 1:22:00.620
+ where you're going through the blank page.
+
+1:22:00.620 --> 1:22:02.820
+ Like right now I'm on, I don't know what,
+
+1:22:02.820 --> 1:22:04.260
+ the fifth or sixth, seventh draft
+
+1:22:04.260 --> 1:22:05.860
+ of the thing I'm working on.
+
+1:22:05.860 --> 1:22:09.260
+ So I've got pages already written
+
+1:22:09.260 --> 1:22:12.140
+ and I'm kind of reading them afresh
+
+1:22:12.140 --> 1:22:14.820
+ as I go through the story.
+
+1:22:14.820 --> 1:22:17.460
+ So it's not quite where I am now.
+
+1:22:17.460 --> 1:22:22.460
+ It's not quite a deep muse scenario, partly it is,
+
+1:22:22.540 --> 1:22:25.900
+ but it's also sort of bouncing back and forth
+
+1:22:25.900 --> 1:22:27.100
+ between the different,
+
+1:22:27.100 --> 1:22:28.500
+ between the right brain and the left brain.
+
+1:22:28.500 --> 1:22:29.500
+ I'm kind of looking at it
+
+1:22:29.500 --> 1:22:31.620
+ and trying to evaluate it.
+
+1:22:31.620 --> 1:22:33.060
+ And then I'm going into it
+
+1:22:33.060 --> 1:22:35.140
+ and try to change it a little bit.
+
+1:22:35.140 --> 1:22:37.100
+ And when, do you know,
+
+1:22:37.100 --> 1:22:38.580
+ sit down and get right into it,
+
+1:22:38.580 --> 1:22:40.860
+ do you know the night before
+
+1:22:40.860 --> 1:22:43.540
+ of what that starting point is?
+
+1:22:43.540 --> 1:22:46.220
+ I always try to stop.
+
+1:22:46.220 --> 1:22:47.060
+ And I learned this,
+
+1:22:47.060 --> 1:22:48.260
+ I think Hemingway wrote about this
+
+1:22:48.260 --> 1:22:49.940
+ or John Steinbeck or one of the,
+
+1:22:49.940 --> 1:22:51.180
+ or maybe both of them,
+
+1:22:51.180 --> 1:22:54.780
+ to always stop when you kind of know what's coming next.
+
+1:22:54.780 --> 1:22:58.220
+ So you're not at a facing a chasm, you know?
+
+1:22:58.220 --> 1:22:59.460
+ Yeah.
+
+1:22:59.460 --> 1:23:02.260
+ Okay, so and afterwards when you're done,
+
+1:23:02.260 --> 1:23:03.340
+ the office is closed.
+
+1:23:03.340 --> 1:23:04.180
+ The office is closed,
+
+1:23:04.180 --> 1:23:05.700
+ I let the muse take care of it, you know?
+
+1:23:05.700 --> 1:23:07.380
+ And I don't want to,
+
+1:23:07.380 --> 1:23:09.740
+ and I think it's a very unhealthy thing
+
+1:23:09.740 --> 1:23:13.380
+ to worry about it or think about any creative process.
+
+1:23:14.420 --> 1:23:18.700
+ You don't, like on a long walk later, think about?
+
+1:23:18.700 --> 1:23:22.220
+ Yeah, then I will sort of keep my mind open to it,
+
+1:23:22.220 --> 1:23:24.340
+ but I won't be like obsessing about it.
+
+1:23:24.340 --> 1:23:25.180
+ Okay.
+
+1:23:25.180 --> 1:23:26.660
+ Because actually on walks,
+
+1:23:26.660 --> 1:23:28.380
+ sometimes things will pop in your head, you know,
+
+1:23:28.380 --> 1:23:30.420
+ and you'll go, oh, I should change that.
+
+1:23:31.340 --> 1:23:33.560
+ But that's not your ego doing it,
+
+1:23:33.560 --> 1:23:35.280
+ that's the deeper level.
+
+1:23:36.300 --> 1:23:38.620
+ Okay, so how does the day end?
+
+1:23:38.620 --> 1:23:39.820
+ So go. In terms of writing?
+
+1:23:39.820 --> 1:23:41.540
+ So yeah, the writing, well no,
+
+1:23:41.540 --> 1:23:45.220
+ the writing, the office door closes
+
+1:23:45.220 --> 1:23:48.520
+ and then the rest of the day just do whatever the hell.
+
+1:23:49.740 --> 1:23:51.020
+ Maybe go out to dinner,
+
+1:23:51.020 --> 1:23:52.420
+ my girlfriend is not here now,
+
+1:23:52.420 --> 1:23:53.540
+ she's in New York working,
+
+1:23:53.540 --> 1:23:56.100
+ we'll make dinner or whatever.
+
+1:23:56.100 --> 1:23:57.380
+ Go out to dinner, something like that,
+
+1:23:57.380 --> 1:24:01.260
+ and maybe I'll read something, nothing heavy.
+
+1:24:02.940 --> 1:24:04.660
+ And I go to bed pretty early,
+
+1:24:04.660 --> 1:24:08.260
+ and the gym is a big thing for me.
+
+1:24:08.260 --> 1:24:10.660
+ I'll already, sort of probably like with you
+
+1:24:10.660 --> 1:24:12.020
+ with martial arts, the night before,
+
+1:24:12.020 --> 1:24:15.460
+ I'll be visualizing what I have to do the next day
+
+1:24:16.340 --> 1:24:20.020
+ and getting myself psyched up for that.
+
+1:24:20.020 --> 1:24:22.140
+ And then I'll just conk out like a light
+
+1:24:22.140 --> 1:24:24.340
+ and wake up at the crack of dawn.
+
+1:24:24.340 --> 1:24:28.140
+ Okay, so looking out into the future,
+
+1:24:28.140 --> 1:24:30.940
+ this year, next few years,
+
+1:24:30.940 --> 1:24:33.340
+ what do you think the muse has in store for you?
+
+1:24:34.900 --> 1:24:36.500
+ I don't think you can ever know.
+
+1:24:37.680 --> 1:24:40.060
+ It's probably something along the same,
+
+1:24:40.060 --> 1:24:43.740
+ I really believe there's that exercise
+
+1:24:43.740 --> 1:24:45.780
+ where they say to you,
+
+1:24:45.780 --> 1:24:48.180
+ visualize yourself five years in the future
+
+1:24:48.180 --> 1:24:50.820
+ and write a letter from that person to yourself.
+
+1:24:50.820 --> 1:24:52.300
+ I don't believe in that at all
+
+1:24:52.300 --> 1:24:54.460
+ because I don't think you can,
+
+1:24:54.460 --> 1:24:57.220
+ there's a line out of Africa
+
+1:24:57.220 --> 1:24:59.340
+ that God made the world round
+
+1:24:59.340 --> 1:25:01.900
+ so that we couldn't see too far ahead.
+
+1:25:03.660 --> 1:25:07.800
+ You just don't know as a writer or as a person,
+
+1:25:09.140 --> 1:25:12.860
+ I never knew, my first book was A Legend of Bag of Ants.
+
+1:25:12.860 --> 1:25:14.740
+ I hadn't, before that happened,
+
+1:25:14.740 --> 1:25:17.900
+ I had no clue that I was gonna be writing anything like that
+
+1:25:17.900 --> 1:25:20.900
+ on that subject, anything at all, no clue,
+
+1:25:20.900 --> 1:25:22.260
+ until it just sort of came.
+
+1:25:22.260 --> 1:25:24.460
+ And then when that was done,
+
+1:25:24.460 --> 1:25:25.780
+ people said, well, you gotta write another one.
+
+1:25:25.780 --> 1:25:27.200
+ I had no idea what it was,
+
+1:25:27.200 --> 1:25:30.160
+ which was gonna be Gates of Fire, no clue.
+
+1:25:30.160 --> 1:25:34.660
+ So if somebody had sat me down at the start of that
+
+1:25:34.660 --> 1:25:36.020
+ and asked the question,
+
+1:25:37.220 --> 1:25:39.660
+ I would have been crazy to have said it.
+
+1:25:39.660 --> 1:25:44.080
+ So I just hope as the future unfolds,
+
+1:25:44.080 --> 1:25:45.940
+ that I'm open to it.
+
+1:25:48.080 --> 1:25:51.300
+ Well, I think I speak for a lot of people
+
+1:25:51.300 --> 1:25:54.780
+ in saying that we look forward to what that future looks like.
+
+1:25:54.780 --> 1:25:57.380
+ Stephen, thank you so much for talking today, it was fun.
+
+1:25:57.380 --> 1:25:59.200
+ You got the best job in the world going around
+
+1:25:59.200 --> 1:26:01.940
+ talking to people that you wanna talk to
+
+1:26:01.940 --> 1:26:04.220
+ and that they will talk to you.
+
+1:26:04.220 --> 1:26:05.300
+ So thank you for doing it.
+
+1:26:05.300 --> 1:26:07.460
+ Hey, thank you for the great questions you made me think.
+
+1:26:07.460 --> 1:26:08.820
+ I've certainly a bunch of questions
+
+1:26:08.820 --> 1:26:10.980
+ I've never ever answered before.
+
+1:26:10.980 --> 1:26:11.820
+ Awesome, thank you so much.
+
+1:26:11.820 --> 1:26:12.780
+ So thanks a lot, great.
+
+1:26:12.780 --> 1:26:14.180
+ Thank you.
+
+1:26:14.180 --> 1:26:15.700
+ Thanks for listening to this conversation
+
+1:26:15.700 --> 1:26:17.020
+ with Stephen Pressfield,
+
+1:26:17.020 --> 1:26:19.260
+ and thank you to our sponsors,
+
+1:26:19.260 --> 1:26:22.540
+ the Jordan Harbinger Show and Cash App.
+
+1:26:22.540 --> 1:26:24.300
+ Please consider supporting the podcast
+
+1:26:24.300 --> 1:26:28.060
+ by going to jordanharbinger.com slash lex
+
+1:26:28.060 --> 1:26:32.300
+ and downloading Cash App and using code lexpodcast.
+
+1:26:32.300 --> 1:26:34.580
+ Click on the links, buy the stuff,
+
+1:26:34.580 --> 1:26:36.700
+ it's the best way to support this podcast.
+
+1:26:37.620 --> 1:26:39.980
+ If you enjoy this thing, subscribe on YouTube,
+
+1:26:39.980 --> 1:26:42.140
+ review it with five stars on Apple Podcast,
+
+1:26:42.140 --> 1:26:43.540
+ support it on Patreon,
+
+1:26:43.540 --> 1:26:46.660
+ or connect with me on Twitter at lexfreedman,
+
+1:26:46.660 --> 1:26:48.900
+ spelled without the E.
+
+1:26:48.900 --> 1:26:51.180
+ Just F R I D M A N.
+
+1:26:52.220 --> 1:26:54.100
+ And now let me leave you with some words
+
+1:26:54.100 --> 1:26:56.060
+ from Stephen Pressfield.
+
+1:26:56.060 --> 1:26:58.180
+ Are you paralyzed by fear?
+
+1:26:58.180 --> 1:26:59.660
+ That's a good sign.
+
+1:26:59.660 --> 1:27:00.900
+ Fear is good.
+
+1:27:00.900 --> 1:27:03.980
+ Like self doubt, fear is an indicator.
+
+1:27:03.980 --> 1:27:06.900
+ Fear tells us what we have to do.
+
+1:27:06.900 --> 1:27:08.860
+ Remember one rule of thumb,
+
+1:27:08.860 --> 1:27:12.300
+ the more scared we are of a work or a calling,
+
+1:27:12.300 --> 1:27:15.340
+ the more sure we can be that we have to do it.
+
+1:27:15.340 --> 1:27:19.900
+ Thank you for listening and hope to see you next time.
+

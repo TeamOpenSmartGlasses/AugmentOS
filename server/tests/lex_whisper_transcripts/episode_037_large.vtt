@@ -1,0 +1,3590 @@
+WEBVTT
+
+00:00.000 --> 00:03.080
+ The following is a conversation with Vijay Kumar.
+
+00:03.080 --> 00:05.760
+ He's one of the top roboticists in the world,
+
+00:05.760 --> 00:08.760
+ a professor at the University of Pennsylvania,
+
+00:08.760 --> 00:12.880
+ a dean of pen engineering, former director of Grasp Lab,
+
+00:12.880 --> 00:15.300
+ or the General Robotics Automation Sensing
+
+00:15.300 --> 00:17.560
+ and Perception Laboratory at Penn,
+
+00:17.560 --> 00:22.560
+ that was established back in 1979, that's 40 years ago.
+
+00:22.600 --> 00:25.280
+ Vijay is perhaps best known for his work
+
+00:25.280 --> 00:28.520
+ in multi robot systems, robot swarms,
+
+00:28.520 --> 00:30.880
+ and micro aerial vehicles,
+
+00:30.880 --> 00:34.020
+ robots that elegantly cooperate in flight
+
+00:34.020 --> 00:36.200
+ under all the uncertainty and challenges
+
+00:36.200 --> 00:38.760
+ that the real world conditions present.
+
+00:38.760 --> 00:41.920
+ This is the Artificial Intelligence Podcast.
+
+00:41.920 --> 00:44.320
+ If you enjoy it, subscribe on YouTube,
+
+00:44.320 --> 00:47.560
+ give it five stars on iTunes, support on Patreon,
+
+00:47.560 --> 00:49.500
+ or simply connect with me on Twitter
+
+00:49.500 --> 00:53.280
+ at Lex Friedman, spelled F R I D M A N.
+
+00:53.280 --> 00:58.280
+ And now, here's my conversation with Vijay Kumar.
+
+00:58.700 --> 01:01.080
+ What is the first robot you've ever built
+
+01:01.080 --> 01:02.840
+ or were a part of building?
+
+01:02.840 --> 01:04.760
+ Way back when I was in graduate school,
+
+01:04.760 --> 01:06.760
+ I was part of a fairly big project
+
+01:06.760 --> 01:11.760
+ that involved building a very large hexapod.
+
+01:12.040 --> 01:16.700
+ It's weighed close to 7,000 pounds,
+
+01:17.520 --> 01:21.620
+ and it was powered by hydraulic actuation,
+
+01:21.620 --> 01:26.620
+ or it was actuated by hydraulics with 18 motors,
+
+01:27.720 --> 01:32.720
+ hydraulic motors, each controlled by an Intel 8085 processor
+
+01:34.160 --> 01:36.680
+ and an 8086 co processor.
+
+01:38.120 --> 01:43.120
+ And so imagine this huge monster that had 18 joints,
+
+01:44.800 --> 01:46.960
+ each controlled by an independent computer,
+
+01:46.960 --> 01:49.320
+ and there was a 19th computer that actually did
+
+01:49.320 --> 01:52.320
+ the coordination between these 18 joints.
+
+01:52.320 --> 01:53.720
+ So I was part of this project,
+
+01:53.720 --> 01:58.720
+ and my thesis work was how do you coordinate the 18 legs?
+
+02:02.080 --> 02:06.320
+ And in particular, the pressures in the hydraulic cylinders
+
+02:06.320 --> 02:09.200
+ to get efficient locomotion.
+
+02:09.200 --> 02:11.640
+ It sounds like a giant mess.
+
+02:11.640 --> 02:14.440
+ So how difficult is it to make all the motors communicate?
+
+02:14.440 --> 02:17.600
+ Presumably, you have to send signals hundreds of times
+
+02:17.600 --> 02:18.440
+ a second, or at least.
+
+02:18.440 --> 02:19.880
+ So this was not my work,
+
+02:19.880 --> 02:23.960
+ but the folks who worked on this wrote what I believe
+
+02:23.960 --> 02:26.640
+ to be the first multiprocessor operating system.
+
+02:26.640 --> 02:30.320
+ This was in the 80s, and you had to make sure
+
+02:30.320 --> 02:32.800
+ that obviously messages got across
+
+02:32.800 --> 02:34.640
+ from one joint to another.
+
+02:34.640 --> 02:37.960
+ You have to remember the clock speeds on those computers
+
+02:37.960 --> 02:39.660
+ were about half a megahertz.
+
+02:39.660 --> 02:42.180
+ Right, the 80s.
+
+02:42.180 --> 02:45.320
+ So not to romanticize the notion,
+
+02:45.320 --> 02:49.700
+ but how did it make you feel to see that robot move?
+
+02:51.080 --> 02:52.280
+ It was amazing.
+
+02:52.280 --> 02:55.280
+ In hindsight, it looks like, well, we built this thing
+
+02:55.280 --> 02:57.320
+ which really should have been much smaller.
+
+02:57.320 --> 02:59.160
+ And of course, today's robots are much smaller.
+
+02:59.160 --> 03:03.120
+ You look at Boston Dynamics or Ghost Robotics,
+
+03:03.120 --> 03:04.780
+ a spinoff from Penn.
+
+03:06.080 --> 03:10.080
+ But back then, you were stuck with the substrate you had,
+
+03:10.080 --> 03:13.720
+ the compute you had, so things were unnecessarily big.
+
+03:13.720 --> 03:18.040
+ But at the same time, and this is just human psychology,
+
+03:18.040 --> 03:20.400
+ somehow bigger means grander.
+
+03:21.600 --> 03:23.640
+ People never had the same appreciation
+
+03:23.640 --> 03:26.360
+ for nanotechnology or nanodevices
+
+03:26.360 --> 03:30.160
+ as they do for the Space Shuttle or the Boeing 747.
+
+03:30.160 --> 03:32.760
+ Yeah, you've actually done quite a good job
+
+03:32.760 --> 03:36.000
+ at illustrating that small is beautiful
+
+03:36.000 --> 03:37.760
+ in terms of robotics.
+
+03:37.760 --> 03:42.600
+ So what is on that topic is the most beautiful
+
+03:42.600 --> 03:46.200
+ or elegant robot in motion that you've ever seen?
+
+03:46.200 --> 03:47.880
+ Not to pick favorites or whatever,
+
+03:47.880 --> 03:51.000
+ but something that just inspires you that you remember.
+
+03:51.000 --> 03:54.000
+ Well, I think the thing that I'm most proud of
+
+03:54.000 --> 03:57.200
+ that my students have done is really think about
+
+03:57.200 --> 04:00.360
+ small UAVs that can maneuver in constrained spaces
+
+04:00.360 --> 04:03.640
+ and in particular, their ability to coordinate
+
+04:03.640 --> 04:06.760
+ with each other and form three dimensional patterns.
+
+04:06.760 --> 04:08.920
+ So once you can do that,
+
+04:08.920 --> 04:13.920
+ you can essentially create 3D objects in the sky
+
+04:14.960 --> 04:17.680
+ and you can deform these objects on the fly.
+
+04:17.680 --> 04:21.560
+ So in some sense, your toolbox of what you can create
+
+04:21.560 --> 04:23.400
+ has suddenly got enhanced.
+
+04:25.240 --> 04:27.800
+ And before that, we did the two dimensional version of this.
+
+04:27.800 --> 04:31.680
+ So we had ground robots forming patterns and so on.
+
+04:31.680 --> 04:34.960
+ So that was not as impressive, that was not as beautiful.
+
+04:34.960 --> 04:36.560
+ But if you do it in 3D,
+
+04:36.560 --> 04:40.240
+ suspended in midair, and you've got to go back to 2011
+
+04:40.240 --> 04:43.040
+ when we did this, now it's actually pretty standard
+
+04:43.040 --> 04:45.600
+ to do these things eight years later.
+
+04:45.600 --> 04:47.680
+ But back then it was a big accomplishment.
+
+04:47.680 --> 04:50.280
+ So the distributed cooperation
+
+04:50.280 --> 04:53.480
+ is where beauty emerges in your eyes?
+
+04:53.480 --> 04:55.800
+ Well, I think beauty to an engineer is very different
+
+04:55.800 --> 04:59.400
+ from beauty to someone who's looking at robots
+
+04:59.400 --> 05:01.240
+ from the outside, if you will.
+
+05:01.240 --> 05:04.800
+ But what I meant there, so before we said that grand,
+
+05:04.800 --> 05:09.800
+ so before we said that grand is associated with size.
+
+05:10.520 --> 05:13.720
+ And another way of thinking about this
+
+05:13.720 --> 05:15.600
+ is just the physical shape
+
+05:15.600 --> 05:18.400
+ and the idea that you can get physical shapes in midair
+
+05:18.400 --> 05:21.560
+ and have them deform, that's beautiful.
+
+05:21.560 --> 05:23.040
+ But the individual components,
+
+05:23.040 --> 05:24.880
+ the agility is beautiful too, right?
+
+05:24.880 --> 05:25.720
+ That is true too.
+
+05:25.720 --> 05:28.480
+ So then how quickly can you actually manipulate
+
+05:28.480 --> 05:29.560
+ these three dimensional shapes
+
+05:29.560 --> 05:31.280
+ and the individual components?
+
+05:31.280 --> 05:32.240
+ Yes, you're right.
+
+05:32.240 --> 05:36.760
+ But by the way, you said UAV, unmanned aerial vehicle.
+
+05:36.760 --> 05:41.760
+ What's a good term for drones, UAVs, quad copters?
+
+05:41.840 --> 05:44.560
+ Is there a term that's being standardized?
+
+05:44.560 --> 05:45.440
+ I don't know if there is.
+
+05:45.440 --> 05:47.920
+ Everybody wants to use the word drones.
+
+05:47.920 --> 05:51.080
+ And I've often said this, drones to me is a pejorative word.
+
+05:51.080 --> 05:53.960
+ It signifies something that's dumb,
+
+05:53.960 --> 05:56.360
+ that's pre programmed, that does one little thing
+
+05:56.360 --> 05:58.600
+ and robots are anything but drones.
+
+05:58.600 --> 06:00.680
+ So I actually don't like that word,
+
+06:00.680 --> 06:02.960
+ but that's what everybody uses.
+
+06:02.960 --> 06:04.880
+ You could call it unpiloted.
+
+06:04.880 --> 06:05.800
+ Unpiloted.
+
+06:05.800 --> 06:08.120
+ But even unpiloted could be radio controlled,
+
+06:08.120 --> 06:11.560
+ could be remotely controlled in many different ways.
+
+06:11.560 --> 06:12.960
+ And I think the right word is,
+
+06:12.960 --> 06:15.040
+ thinking about it as an aerial robot.
+
+06:15.040 --> 06:19.080
+ You also say agile, autonomous, aerial robot, right?
+
+06:19.080 --> 06:22.160
+ Yeah, so agility is an attribute, but they don't have to be.
+
+06:23.080 --> 06:24.800
+ So what biological system,
+
+06:24.800 --> 06:27.200
+ because you've also drawn a lot of inspiration with those.
+
+06:27.200 --> 06:30.360
+ I've seen bees and ants that you've talked about.
+
+06:30.360 --> 06:35.240
+ What living creatures have you found to be most inspiring
+
+06:35.240 --> 06:38.520
+ as an engineer, instructive in your work in robotics?
+
+06:38.520 --> 06:43.440
+ To me, so ants are really quite incredible creatures, right?
+
+06:43.440 --> 06:47.880
+ So you, I mean, the individuals arguably are very simple
+
+06:47.880 --> 06:52.360
+ in how they're built and yet they're incredibly resilient
+
+06:52.360 --> 06:53.960
+ as a population.
+
+06:53.960 --> 06:56.760
+ And as individuals, they're incredibly robust.
+
+06:56.760 --> 07:00.600
+ So, if you take an ant, it's six legs,
+
+07:00.600 --> 07:04.120
+ you remove one leg, it still works just fine.
+
+07:04.120 --> 07:05.760
+ And it moves along.
+
+07:05.760 --> 07:08.720
+ And I don't know that he even realizes it's lost a leg.
+
+07:09.760 --> 07:12.520
+ So that's the robustness at the individual ant level.
+
+07:13.400 --> 07:15.360
+ But then you look about this instinct
+
+07:15.360 --> 07:17.680
+ for self preservation of the colonies
+
+07:17.680 --> 07:20.400
+ and they adapt in so many amazing ways.
+
+07:20.400 --> 07:25.400
+ You know, transcending gaps by just chaining themselves
+
+07:26.800 --> 07:29.600
+ together when you have a flood,
+
+07:29.600 --> 07:32.360
+ being able to recruit other teammates
+
+07:32.360 --> 07:34.320
+ to carry big morsels of food,
+
+07:35.760 --> 07:38.760
+ and then going out in different directions looking for food,
+
+07:38.760 --> 07:43.160
+ and then being able to demonstrate consensus,
+
+07:43.160 --> 07:47.040
+ even though they don't communicate directly with each other
+
+07:47.040 --> 07:49.080
+ the way we communicate with each other.
+
+07:49.080 --> 07:51.880
+ In some sense, they also know how to do democracy,
+
+07:51.880 --> 07:53.640
+ probably better than what we do.
+
+07:53.640 --> 07:57.000
+ Yeah, somehow it's even democracy is emergent.
+
+07:57.000 --> 07:59.120
+ It seems like all of the phenomena that we see
+
+07:59.120 --> 08:00.480
+ is all emergent.
+
+08:00.480 --> 08:03.560
+ It seems like there's no centralized communicator.
+
+08:03.560 --> 08:06.520
+ There is, so I think a lot is made about that word,
+
+08:06.520 --> 08:09.640
+ emergent, and it means lots of things to different people.
+
+08:09.640 --> 08:10.680
+ But you're absolutely right.
+
+08:10.680 --> 08:13.040
+ I think as an engineer, you think about
+
+08:13.040 --> 08:17.720
+ what element, elemental behaviors
+
+08:17.720 --> 08:21.320
+ were primitives you could synthesize
+
+08:21.320 --> 08:25.240
+ so that the whole looks incredibly powerful,
+
+08:25.240 --> 08:26.520
+ incredibly synergistic,
+
+08:26.520 --> 08:29.520
+ the whole definitely being greater than some of the parts,
+
+08:29.520 --> 08:31.480
+ and ants are living proof of that.
+
+08:32.480 --> 08:34.960
+ So when you see these beautiful swarms
+
+08:34.960 --> 08:37.520
+ where there's biological systems of robots,
+
+08:38.520 --> 08:40.200
+ do you sometimes think of them
+
+08:40.200 --> 08:44.640
+ as a single individual living intelligent organism?
+
+08:44.640 --> 08:47.400
+ So it's the same as thinking of our human beings
+
+08:47.400 --> 08:51.160
+ are human civilization as one organism,
+
+08:51.160 --> 08:52.960
+ or do you still, as an engineer,
+
+08:52.960 --> 08:54.600
+ think about the individual components
+
+08:54.600 --> 08:55.440
+ and all the engineering
+
+08:55.440 --> 08:57.320
+ that went into the individual components?
+
+08:57.320 --> 08:58.640
+ Well, that's very interesting.
+
+08:58.640 --> 09:01.480
+ So again, philosophically as engineers,
+
+09:01.480 --> 09:05.400
+ what we wanna do is to go beyond
+
+09:05.400 --> 09:08.280
+ the individual components, the individual units,
+
+09:08.280 --> 09:11.520
+ and think about it as a unit, as a cohesive unit,
+
+09:11.520 --> 09:15.120
+ without worrying about the individual components.
+
+09:15.120 --> 09:17.760
+ If you start obsessing about
+
+09:17.760 --> 09:22.120
+ the individual building blocks and what they do,
+
+09:23.320 --> 09:27.960
+ you inevitably will find it hard to scale up.
+
+09:27.960 --> 09:29.000
+ Just mathematically,
+
+09:29.000 --> 09:31.600
+ just think about individual things you wanna model,
+
+09:31.600 --> 09:34.040
+ and if you want to have 10 of those,
+
+09:34.040 --> 09:36.440
+ then you essentially are taking Cartesian products
+
+09:36.440 --> 09:39.320
+ of 10 things, and that makes it really complicated.
+
+09:39.320 --> 09:41.840
+ Then to do any kind of synthesis or design
+
+09:41.840 --> 09:44.200
+ in that high dimension space is really hard.
+
+09:44.200 --> 09:45.800
+ So the right way to do this
+
+09:45.800 --> 09:49.040
+ is to think about the individuals in a clever way
+
+09:49.040 --> 09:51.120
+ so that at the higher level,
+
+09:51.120 --> 09:53.400
+ when you look at lots and lots of them,
+
+09:53.400 --> 09:55.320
+ abstractly, you can think of them
+
+09:55.320 --> 09:57.120
+ in some low dimensional space.
+
+09:57.120 --> 09:58.680
+ So what does that involve?
+
+09:58.680 --> 10:02.160
+ For the individual, do you have to try to make
+
+10:02.160 --> 10:05.160
+ the way they see the world as local as possible?
+
+10:05.160 --> 10:06.440
+ And the other thing,
+
+10:06.440 --> 10:09.560
+ do you just have to make them robust to collisions?
+
+10:09.560 --> 10:10.880
+ Like you said with the ants,
+
+10:10.880 --> 10:15.320
+ if something fails, the whole swarm doesn't fail.
+
+10:15.320 --> 10:17.760
+ Right, I think as engineers, we do this.
+
+10:17.760 --> 10:19.760
+ I mean, you think about, we build planes,
+
+10:19.760 --> 10:21.240
+ or we build iPhones,
+
+10:22.240 --> 10:26.280
+ and we know that by taking individual components,
+
+10:26.280 --> 10:30.080
+ well engineered components with well specified interfaces
+
+10:30.080 --> 10:31.680
+ that behave in a predictable way,
+
+10:31.680 --> 10:33.560
+ you can build complex systems.
+
+10:34.440 --> 10:36.880
+ So that's ingrained, I would claim,
+
+10:36.880 --> 10:39.400
+ in most engineers thinking,
+
+10:39.400 --> 10:41.600
+ and it's true for computer scientists as well.
+
+10:41.600 --> 10:44.760
+ I think what's different here is that you want
+
+10:44.760 --> 10:49.480
+ the individuals to be robust in some sense,
+
+10:49.480 --> 10:52.000
+ as we do in these other settings,
+
+10:52.000 --> 10:54.480
+ but you also want some degree of resiliency
+
+10:54.480 --> 10:56.320
+ for the population.
+
+10:56.320 --> 11:00.560
+ And so you really want them to be able to reestablish
+
+11:02.040 --> 11:03.840
+ communication with their neighbors.
+
+11:03.840 --> 11:08.840
+ You want them to rethink their strategy for group behavior.
+
+11:08.840 --> 11:10.760
+ You want them to reorganize.
+
+11:12.200 --> 11:15.920
+ And that's where I think a lot of the challenges lie.
+
+11:15.920 --> 11:18.160
+ So just at a high level,
+
+11:18.160 --> 11:20.880
+ what does it take for a bunch of,
+
+11:22.200 --> 11:24.440
+ what should we call them, flying robots,
+
+11:24.440 --> 11:26.680
+ to create a formation?
+
+11:26.680 --> 11:28.680
+ Just for people who are not familiar
+
+11:28.680 --> 11:32.760
+ with robotics in general, how much information is needed?
+
+11:32.760 --> 11:35.840
+ How do you even make it happen
+
+11:35.840 --> 11:39.520
+ without a centralized controller?
+
+11:39.520 --> 11:41.080
+ So, I mean, there are a couple of different ways
+
+11:41.080 --> 11:43.160
+ of looking at this.
+
+11:43.160 --> 11:45.680
+ If you are a purist,
+
+11:45.680 --> 11:50.680
+ you think of it as a way of recreating what nature does.
+
+11:53.560 --> 11:58.440
+ So nature forms groups for several reasons,
+
+11:58.440 --> 12:02.000
+ but mostly it's because of this instinct
+
+12:02.000 --> 12:05.680
+ that organisms have of preserving their colonies,
+
+12:05.680 --> 12:09.520
+ their population, which means what?
+
+12:09.520 --> 12:12.920
+ You need shelter, you need food, you need to procreate,
+
+12:12.920 --> 12:14.760
+ and that's basically it.
+
+12:14.760 --> 12:18.440
+ So the kinds of interactions you see are all organic.
+
+12:18.440 --> 12:19.760
+ They're all local.
+
+12:20.760 --> 12:24.080
+ And the only information that they share,
+
+12:24.080 --> 12:27.520
+ and mostly it's indirectly, is to, again,
+
+12:27.520 --> 12:30.000
+ preserve the herd or the flock,
+
+12:30.000 --> 12:35.000
+ or the swarm, and either by looking for new sources of food
+
+12:37.480 --> 12:39.440
+ or looking for new shelters, right?
+
+12:39.440 --> 12:40.280
+ Right.
+
+12:41.240 --> 12:45.360
+ As engineers, when we build swarms, we have a mission.
+
+12:46.560 --> 12:51.560
+ And when you think of a mission, and it involves mobility,
+
+12:52.480 --> 12:55.000
+ most often it's described in some kind
+
+12:55.000 --> 12:56.880
+ of a global coordinate system.
+
+12:56.880 --> 12:59.440
+ As a human, as an operator, as a commander,
+
+12:59.440 --> 13:03.560
+ or as a collaborator, I have my coordinate system,
+
+13:03.560 --> 13:06.640
+ and I want the robots to be consistent with that.
+
+13:07.600 --> 13:11.240
+ So I might think of it slightly differently.
+
+13:11.240 --> 13:15.440
+ I might want the robots to recognize that coordinate system,
+
+13:15.440 --> 13:17.720
+ which means not only do they have to think locally
+
+13:17.720 --> 13:19.600
+ in terms of who their immediate neighbors are,
+
+13:19.600 --> 13:20.920
+ but they have to be cognizant
+
+13:20.920 --> 13:24.040
+ of what the global environment is.
+
+13:24.040 --> 13:27.040
+ They have to be cognizant of what the global environment
+
+13:27.040 --> 13:28.280
+ looks like.
+
+13:28.280 --> 13:31.040
+ So if I say, surround this building
+
+13:31.040 --> 13:33.240
+ and protect this from intruders,
+
+13:33.240 --> 13:35.600
+ well, they're immediately in a building centered
+
+13:35.600 --> 13:37.040
+ coordinate system, and I have to tell them
+
+13:37.040 --> 13:38.680
+ where the building is.
+
+13:38.680 --> 13:40.040
+ And they're globally collaborating
+
+13:40.040 --> 13:41.280
+ on the map of that building.
+
+13:41.280 --> 13:44.160
+ They're maintaining some kind of global,
+
+13:44.160 --> 13:45.480
+ not just in the frame of the building,
+
+13:45.480 --> 13:49.000
+ but there's information that's ultimately being built up
+
+13:49.000 --> 13:53.280
+ explicitly as opposed to kind of implicitly,
+
+13:53.280 --> 13:54.360
+ like nature might.
+
+13:54.360 --> 13:55.200
+ Correct, correct.
+
+13:55.200 --> 13:57.680
+ So in some sense, nature is very, very sophisticated,
+
+13:57.680 --> 14:01.880
+ but the tasks that nature solves or needs to solve
+
+14:01.880 --> 14:05.160
+ are very different from the kind of engineered tasks,
+
+14:05.160 --> 14:09.760
+ artificial tasks that we are forced to address.
+
+14:09.760 --> 14:12.520
+ And again, there's nothing preventing us
+
+14:12.520 --> 14:15.160
+ from solving these other problems,
+
+14:15.160 --> 14:16.600
+ but ultimately it's about impact.
+
+14:16.600 --> 14:19.360
+ You want these swarms to do something useful.
+
+14:19.360 --> 14:24.360
+ And so you're kind of driven into this very unnatural,
+
+14:24.640 --> 14:25.480
+ if you will.
+
+14:25.480 --> 14:29.160
+ Unnatural, meaning not like how nature does, setting.
+
+14:29.160 --> 14:31.920
+ And it's probably a little bit more expensive
+
+14:31.920 --> 14:33.760
+ to do it the way nature does,
+
+14:33.760 --> 14:37.560
+ because nature is less sensitive
+
+14:37.560 --> 14:39.480
+ to the loss of the individual.
+
+14:39.480 --> 14:42.280
+ And cost wise in robotics,
+
+14:42.280 --> 14:45.480
+ I think you're more sensitive to losing individuals.
+
+14:45.480 --> 14:49.000
+ I think that's true, although if you look at the price
+
+14:49.000 --> 14:51.520
+ to performance ratio of robotic components,
+
+14:51.520 --> 14:54.720
+ it's coming down dramatically, right?
+
+14:54.720 --> 14:56.040
+ It continues to come down.
+
+14:56.040 --> 14:58.920
+ So I think we're asymptotically approaching the point
+
+14:58.920 --> 14:59.960
+ where we would get, yeah,
+
+14:59.960 --> 15:05.040
+ the cost of individuals would really become insignificant.
+
+15:05.040 --> 15:07.640
+ So let's step back at a high level view,
+
+15:07.640 --> 15:12.480
+ the impossible question of what kind of, as an overview,
+
+15:12.480 --> 15:14.400
+ what kind of autonomous flying vehicles
+
+15:14.400 --> 15:16.200
+ are there in general?
+
+15:16.200 --> 15:19.720
+ I think the ones that receive a lot of notoriety
+
+15:19.720 --> 15:22.560
+ are obviously the military vehicles.
+
+15:22.560 --> 15:26.280
+ Military vehicles are controlled by a base station,
+
+15:26.280 --> 15:29.640
+ but have a lot of human supervision.
+
+15:29.640 --> 15:31.800
+ But they have limited autonomy,
+
+15:31.800 --> 15:34.760
+ which is the ability to go from point A to point B.
+
+15:34.760 --> 15:37.080
+ And even the more sophisticated now,
+
+15:37.080 --> 15:40.400
+ sophisticated vehicles can do autonomous takeoff
+
+15:40.400 --> 15:41.760
+ and landing.
+
+15:41.760 --> 15:44.360
+ And those usually have wings and they're heavy.
+
+15:44.360 --> 15:45.360
+ Usually they're wings,
+
+15:45.360 --> 15:47.440
+ but then there's nothing preventing us from doing this
+
+15:47.440 --> 15:49.000
+ for helicopters as well.
+
+15:49.000 --> 15:52.480
+ There are many military organizations
+
+15:52.480 --> 15:56.560
+ that have autonomous helicopters in the same vein.
+
+15:56.560 --> 16:00.080
+ And by the way, you look at autopilots and airplanes
+
+16:00.080 --> 16:02.840
+ and it's actually very similar.
+
+16:02.840 --> 16:07.160
+ In fact, one interesting question we can ask is,
+
+16:07.160 --> 16:12.120
+ if you look at all the air safety violations,
+
+16:12.120 --> 16:14.080
+ all the crashes that occurred,
+
+16:14.080 --> 16:18.640
+ would they have happened if the plane were truly autonomous?
+
+16:18.640 --> 16:21.960
+ And I think you'll find that in many of the cases,
+
+16:21.960 --> 16:24.600
+ because of pilot error, we made silly decisions.
+
+16:24.600 --> 16:26.960
+ And so in some sense, even in air traffic,
+
+16:26.960 --> 16:29.800
+ commercial air traffic, there's a lot of applications,
+
+16:29.800 --> 16:33.960
+ although we only see autonomy being enabled
+
+16:33.960 --> 16:38.960
+ at very high altitudes when the plane is an autopilot.
+
+16:38.960 --> 16:41.960
+ The plane is an autopilot.
+
+16:41.960 --> 16:42.800
+ There's still a role for the human
+
+16:42.800 --> 16:47.640
+ and that kind of autonomy is, you're kind of implying,
+
+16:47.640 --> 16:48.680
+ I don't know what the right word is,
+
+16:48.680 --> 16:53.480
+ but it's a little dumber than it could be.
+
+16:53.480 --> 16:55.720
+ Right, so in the lab, of course,
+
+16:55.720 --> 16:59.200
+ we can afford to be a lot more aggressive.
+
+16:59.200 --> 17:04.200
+ And the question we try to ask is,
+
+17:04.200 --> 17:09.200
+ can we make robots that will be able to make decisions
+
+17:10.360 --> 17:13.680
+ without any kind of external infrastructure?
+
+17:13.680 --> 17:14.880
+ So what does that mean?
+
+17:14.880 --> 17:16.960
+ So the most common piece of infrastructure
+
+17:16.960 --> 17:19.640
+ that airplanes use today is GPS.
+
+17:20.560 --> 17:25.160
+ GPS is also the most brittle form of information.
+
+17:26.680 --> 17:30.480
+ If you have driven in a city, try to use GPS navigation,
+
+17:30.480 --> 17:32.760
+ in tall buildings, you immediately lose GPS.
+
+17:32.760 --> 17:36.280
+ And so that's not a very sophisticated way
+
+17:36.280 --> 17:37.840
+ of building autonomy.
+
+17:37.840 --> 17:39.560
+ I think the second piece of infrastructure
+
+17:39.560 --> 17:41.920
+ they rely on is communications.
+
+17:41.920 --> 17:46.200
+ Again, it's very easy to jam communications.
+
+17:47.360 --> 17:51.320
+ In fact, if you use wifi, you know that wifi signals
+
+17:51.320 --> 17:53.520
+ drop out, cell signals drop out.
+
+17:53.520 --> 17:56.800
+ So to rely on something like that is not good.
+
+17:58.560 --> 18:01.200
+ The third form of infrastructure we use,
+
+18:01.200 --> 18:02.920
+ and I hate to call it infrastructure,
+
+18:02.920 --> 18:06.360
+ but it is that, in the sense of robots, is people.
+
+18:06.360 --> 18:08.640
+ So you could rely on somebody to pilot you.
+
+18:09.960 --> 18:11.600
+ And so the question you wanna ask is,
+
+18:11.600 --> 18:14.760
+ if there are no pilots, there's no communications
+
+18:14.760 --> 18:18.720
+ with any base station, if there's no knowledge of position,
+
+18:18.720 --> 18:21.640
+ and if there's no a priori map,
+
+18:21.640 --> 18:24.880
+ a priori knowledge of what the environment looks like,
+
+18:24.880 --> 18:28.240
+ a priori model of what might happen in the future,
+
+18:28.240 --> 18:29.560
+ can robots navigate?
+
+18:29.560 --> 18:31.480
+ So that is true autonomy.
+
+18:31.480 --> 18:34.160
+ So that's true autonomy, and we're talking about,
+
+18:34.160 --> 18:36.880
+ you mentioned like military application of drones.
+
+18:36.880 --> 18:38.320
+ Okay, so what else is there?
+
+18:38.320 --> 18:42.080
+ You talk about agile, autonomous flying robots,
+
+18:42.080 --> 18:45.680
+ aerial robots, so that's a different kind of,
+
+18:45.680 --> 18:48.160
+ it's not winged, it's not big, at least it's small.
+
+18:48.160 --> 18:50.840
+ So I use the word agility mostly,
+
+18:50.840 --> 18:53.520
+ or at least we're motivated to do agile robots,
+
+18:53.520 --> 18:58.000
+ mostly because robots can operate
+
+18:58.000 --> 19:01.120
+ and should be operating in constrained environments.
+
+19:02.120 --> 19:06.960
+ And if you want to operate the way a global hawk operates,
+
+19:06.960 --> 19:09.120
+ I mean, the kinds of conditions in which you operate
+
+19:09.120 --> 19:10.760
+ are very, very restrictive.
+
+19:11.760 --> 19:13.720
+ If you wanna go inside a building,
+
+19:13.720 --> 19:15.600
+ for example, for search and rescue,
+
+19:15.600 --> 19:18.120
+ or to locate an active shooter,
+
+19:18.120 --> 19:22.120
+ or you wanna navigate under the canopy in an orchard
+
+19:22.120 --> 19:23.880
+ to look at health of plants,
+
+19:23.880 --> 19:28.240
+ or to look for, to count fruits,
+
+19:28.240 --> 19:31.240
+ to measure the tree trunks.
+
+19:31.240 --> 19:33.240
+ These are things we do, by the way.
+
+19:33.240 --> 19:35.400
+ There's some cool agriculture stuff you've shown
+
+19:35.400 --> 19:37.080
+ in the past, it's really awesome.
+
+19:37.080 --> 19:40.360
+ So in those kinds of settings, you do need that agility.
+
+19:40.360 --> 19:42.560
+ Agility does not necessarily mean
+
+19:42.560 --> 19:45.440
+ you break records for the 100 meters dash.
+
+19:45.440 --> 19:48.000
+ What it really means is you see the unexpected
+
+19:48.000 --> 19:51.480
+ and you're able to maneuver in a safe way,
+
+19:51.480 --> 19:55.400
+ and in a way that gets you the most information
+
+19:55.400 --> 19:57.640
+ about the thing you're trying to do.
+
+19:57.640 --> 20:00.440
+ By the way, you may be the only person
+
+20:00.440 --> 20:04.200
+ who, in a TED Talk, has used a math equation,
+
+20:04.200 --> 20:07.600
+ which is amazing, people should go see one of your TED Talks.
+
+20:07.600 --> 20:08.800
+ Actually, it's very interesting,
+
+20:08.800 --> 20:12.400
+ because the TED curator, Chris Anderson,
+
+20:12.400 --> 20:15.360
+ told me, you can't show math.
+
+20:15.360 --> 20:18.200
+ And I thought about it, but that's who I am.
+
+20:18.200 --> 20:20.760
+ I mean, that's our work.
+
+20:20.760 --> 20:25.760
+ And so I felt compelled to give the audience a taste
+
+20:25.760 --> 20:27.640
+ for at least some math.
+
+20:27.640 --> 20:32.640
+ So on that point, simply, what does it take
+
+20:32.880 --> 20:37.360
+ to make a thing with four motors fly, a quadcopter,
+
+20:37.360 --> 20:40.640
+ one of these little flying robots?
+
+20:41.760 --> 20:43.960
+ How hard is it to make it fly?
+
+20:43.960 --> 20:46.560
+ How do you coordinate the four motors?
+
+20:46.560 --> 20:51.560
+ How do you convert those motors into actual movement?
+
+20:52.600 --> 20:54.800
+ So this is an interesting question.
+
+20:54.800 --> 20:58.080
+ We've been trying to do this since 2000.
+
+20:58.080 --> 21:00.560
+ It is a commentary on the sensors
+
+21:00.560 --> 21:02.080
+ that were available back then,
+
+21:02.080 --> 21:04.280
+ the computers that were available back then.
+
+21:05.560 --> 21:10.280
+ And a number of things happened between 2000 and 2007.
+
+21:11.520 --> 21:14.120
+ One is the advances in computing,
+
+21:14.120 --> 21:16.760
+ which is, so we all know about Moore's Law,
+
+21:16.760 --> 21:19.680
+ but I think 2007 was a tipping point,
+
+21:19.680 --> 21:22.720
+ the year of the iPhone, the year of the cloud.
+
+21:22.720 --> 21:24.640
+ Lots of things happened in 2007.
+
+21:25.600 --> 21:27.600
+ But going back even further,
+
+21:27.600 --> 21:31.360
+ inertial measurement units as a sensor really matured.
+
+21:31.360 --> 21:33.040
+ Again, lots of reasons for that.
+
+21:33.920 --> 21:35.400
+ Certainly, there's a lot of federal funding,
+
+21:35.400 --> 21:37.360
+ particularly DARPA in the US,
+
+21:38.320 --> 21:42.760
+ but they didn't anticipate this boom in IMUs.
+
+21:42.760 --> 21:46.560
+ But if you look, subsequently what happened
+
+21:46.560 --> 21:50.040
+ is that every car manufacturer had to put an airbag in,
+
+21:50.040 --> 21:52.600
+ which meant you had to have an accelerometer on board.
+
+21:52.600 --> 21:55.000
+ And so that drove down the price to performance ratio.
+
+21:55.000 --> 21:56.880
+ Wow, I should know this.
+
+21:56.880 --> 21:57.960
+ That's very interesting.
+
+21:57.960 --> 21:59.360
+ That's very interesting, the connection there.
+
+21:59.360 --> 22:01.320
+ And that's why research is very,
+
+22:01.320 --> 22:03.280
+ it's very hard to predict the outcomes.
+
+22:04.840 --> 22:07.640
+ And again, the federal government spent a ton of money
+
+22:07.640 --> 22:12.280
+ on things that they thought were useful for resonators,
+
+22:12.280 --> 22:16.840
+ but it ended up enabling these small UAVs, which is great,
+
+22:16.840 --> 22:18.520
+ because I could have never raised that much money
+
+22:18.520 --> 22:20.760
+ and sold this project,
+
+22:20.760 --> 22:22.200
+ hey, we want to build these small UAVs.
+
+22:22.200 --> 22:25.440
+ Can you actually fund the development of low cost IMUs?
+
+22:25.440 --> 22:27.600
+ So why do you need an IMU on an IMU?
+
+22:27.600 --> 22:31.000
+ So I'll come back to that.
+
+22:31.000 --> 22:33.320
+ So in 2007, 2008, we were able to build these.
+
+22:33.320 --> 22:35.200
+ And then the question you're asking was a good one.
+
+22:35.200 --> 22:40.240
+ How do you coordinate the motors to develop this?
+
+22:40.240 --> 22:43.880
+ But over the last 10 years, everything is commoditized.
+
+22:43.880 --> 22:46.240
+ A high school kid today can pick up
+
+22:46.240 --> 22:50.560
+ a Raspberry Pi kit and build this.
+
+22:50.560 --> 22:53.200
+ All the low levels functionality is all automated.
+
+22:54.160 --> 22:56.360
+ But basically at some level,
+
+22:56.360 --> 23:01.360
+ you have to drive the motors at the right RPMs,
+
+23:01.360 --> 23:03.680
+ the right velocity,
+
+23:04.560 --> 23:07.480
+ in order to generate the right amount of thrust,
+
+23:07.480 --> 23:10.360
+ in order to position it and orient it in a way
+
+23:10.360 --> 23:12.840
+ that you need to in order to fly.
+
+23:13.800 --> 23:16.680
+ The feedback that you get is from onboard sensors,
+
+23:16.680 --> 23:18.400
+ and the IMU is an important part of it.
+
+23:18.400 --> 23:23.400
+ The IMU tells you what the acceleration is,
+
+23:23.840 --> 23:26.400
+ as well as what the angular velocity is.
+
+23:26.400 --> 23:29.200
+ And those are important pieces of information.
+
+23:30.440 --> 23:34.200
+ In addition to that, you need some kind of local position
+
+23:34.200 --> 23:37.480
+ or velocity information.
+
+23:37.480 --> 23:39.360
+ For example, when we walk,
+
+23:39.360 --> 23:41.560
+ we implicitly have this information
+
+23:41.560 --> 23:45.840
+ because we kind of know what our stride length is.
+
+23:46.720 --> 23:51.480
+ We also are looking at images fly past our retina,
+
+23:51.480 --> 23:54.280
+ if you will, and so we can estimate velocity.
+
+23:54.280 --> 23:56.360
+ We also have accelerometers in our head,
+
+23:56.360 --> 23:59.160
+ and we're able to integrate all these pieces of information
+
+23:59.160 --> 24:02.360
+ to determine where we are as we walk.
+
+24:02.360 --> 24:04.320
+ And so robots have to do something very similar.
+
+24:04.320 --> 24:08.160
+ You need an IMU, you need some kind of a camera
+
+24:08.160 --> 24:11.640
+ or other sensor that's measuring velocity,
+
+24:12.560 --> 24:15.800
+ and then you need some kind of a global reference frame
+
+24:15.800 --> 24:19.520
+ if you really want to think about doing something
+
+24:19.520 --> 24:21.280
+ in a world coordinate system.
+
+24:21.280 --> 24:23.680
+ And so how do you estimate your position
+
+24:23.680 --> 24:25.160
+ with respect to that global reference frame?
+
+24:25.160 --> 24:26.560
+ That's important as well.
+
+24:26.560 --> 24:29.520
+ So coordinating the RPMs of the four motors
+
+24:29.520 --> 24:32.640
+ is what allows you to, first of all, fly and hover,
+
+24:32.640 --> 24:35.600
+ and then you can change the orientation
+
+24:35.600 --> 24:37.600
+ and the velocity and so on.
+
+24:37.600 --> 24:38.440
+ Exactly, exactly.
+
+24:38.440 --> 24:40.320
+ So it's a bunch of degrees of freedom
+
+24:40.320 --> 24:41.160
+ that you're complaining about.
+
+24:41.160 --> 24:42.200
+ There's six degrees of freedom,
+
+24:42.200 --> 24:44.920
+ but you only have four inputs, the four motors.
+
+24:44.920 --> 24:49.920
+ And it turns out to be a remarkably versatile configuration.
+
+24:50.920 --> 24:53.080
+ You think at first, well, I only have four motors,
+
+24:53.080 --> 24:55.000
+ how do I go sideways?
+
+24:55.000 --> 24:57.280
+ But it's not too hard to say, well, if I tilt myself,
+
+24:57.280 --> 25:00.440
+ I can go sideways, and then you have four motors
+
+25:00.440 --> 25:03.320
+ pointing up, how do I rotate in place
+
+25:03.320 --> 25:05.360
+ about a vertical axis?
+
+25:05.360 --> 25:07.800
+ Well, you rotate them at different speeds
+
+25:07.800 --> 25:09.720
+ and that generates reaction moments
+
+25:09.720 --> 25:11.520
+ and that allows you to turn.
+
+25:11.520 --> 25:14.960
+ So it's actually a pretty, it's an optimal configuration
+
+25:14.960 --> 25:17.040
+ from an engineer standpoint.
+
+25:18.360 --> 25:23.360
+ It's very simple, very cleverly done, and very versatile.
+
+25:23.360 --> 25:27.240
+ So if you could step back to a time,
+
+25:27.240 --> 25:30.000
+ so I've always known flying robots as,
+
+25:31.040 --> 25:35.760
+ to me, it was natural that a quadcopter should fly.
+
+25:35.760 --> 25:37.880
+ But when you first started working with it,
+
+25:38.800 --> 25:42.000
+ how surprised are you that you can make,
+
+25:42.000 --> 25:45.520
+ do so much with the four motors?
+
+25:45.520 --> 25:47.600
+ How surprising is it that you can make this thing fly,
+
+25:47.600 --> 25:49.760
+ first of all, that you can make it hover,
+
+25:49.760 --> 25:52.000
+ that you can add control to it?
+
+25:52.000 --> 25:55.080
+ Firstly, this is not, the four motor configuration
+
+25:55.080 --> 25:56.400
+ is not ours.
+
+25:56.400 --> 25:59.320
+ You can, it has at least a hundred year history.
+
+26:00.320 --> 26:04.160
+ And various people, various people try to get quadrotors
+
+26:04.160 --> 26:06.840
+ to fly without much success.
+
+26:08.480 --> 26:10.760
+ As I said, we've been working on this since 2000.
+
+26:10.760 --> 26:14.400
+ Our first designs were, well, this is way too complicated.
+
+26:14.400 --> 26:18.480
+ Why not we try to get an omnidirectional flying robot?
+
+26:18.480 --> 26:21.760
+ So our early designs, we had eight rotors.
+
+26:21.760 --> 26:25.200
+ And so these eight rotors were arranged uniformly
+
+26:26.600 --> 26:28.000
+ on a sphere, if you will.
+
+26:28.000 --> 26:30.440
+ So you can imagine a symmetric configuration.
+
+26:30.440 --> 26:33.280
+ And so you should be able to fly anywhere.
+
+26:33.280 --> 26:36.240
+ But the real challenge we had is the strength to weight ratio
+
+26:36.240 --> 26:37.080
+ is not enough.
+
+26:37.080 --> 26:39.680
+ And of course, we didn't have the sensors and so on.
+
+26:40.520 --> 26:43.040
+ So everybody knew, or at least the people
+
+26:43.040 --> 26:44.800
+ who worked with rotorcrafts knew,
+
+26:44.800 --> 26:46.520
+ four rotors will get it done.
+
+26:47.520 --> 26:49.400
+ So that was not our idea.
+
+26:49.400 --> 26:52.800
+ But it took a while before we could actually do
+
+26:52.800 --> 26:56.920
+ the onboard sensing and the computation that was needed
+
+26:56.920 --> 27:01.000
+ for the kinds of agile maneuvering that we wanted to do
+
+27:01.000 --> 27:03.000
+ in our little aerial robots.
+
+27:03.000 --> 27:07.560
+ And that only happened between 2007 and 2009 in our lab.
+
+27:07.560 --> 27:09.960
+ Yeah, and you have to send the signal
+
+27:09.960 --> 27:12.480
+ maybe a hundred times a second.
+
+27:12.480 --> 27:15.960
+ So the compute there, everything has to come down in price.
+
+27:15.960 --> 27:20.960
+ And what are the steps of getting from point A to point B?
+
+27:21.720 --> 27:25.200
+ So we just talked about like local control.
+
+27:25.200 --> 27:30.200
+ But if all the kind of cool dancing in the air
+
+27:30.840 --> 27:34.520
+ that I've seen you show, how do you make it happen?
+
+27:34.520 --> 27:37.360
+ How do you make a trajectory?
+
+27:37.360 --> 27:40.520
+ First of all, okay, figure out a trajectory.
+
+27:40.520 --> 27:41.680
+ So plan a trajectory.
+
+27:41.680 --> 27:44.400
+ And then how do you make that trajectory happen?
+
+27:44.400 --> 27:47.280
+ Yeah, I think planning is a very fundamental problem
+
+27:47.280 --> 27:48.120
+ in robotics.
+
+27:48.120 --> 27:50.800
+ I think 10 years ago it was an esoteric thing,
+
+27:50.800 --> 27:53.040
+ but today with self driving cars,
+
+27:53.040 --> 27:55.840
+ everybody can understand this basic idea
+
+27:55.840 --> 27:57.920
+ that a car sees a whole bunch of things
+
+27:57.920 --> 28:00.320
+ and it has to keep a lane or maybe make a right turn
+
+28:00.320 --> 28:01.280
+ or switch lanes.
+
+28:01.280 --> 28:02.680
+ It has to plan a trajectory.
+
+28:02.680 --> 28:03.560
+ It has to be safe.
+
+28:03.560 --> 28:04.840
+ It has to be efficient.
+
+28:04.840 --> 28:06.640
+ So everybody's familiar with that.
+
+28:06.640 --> 28:10.240
+ That's kind of the first step that you have to think about
+
+28:10.240 --> 28:14.800
+ when you say autonomy.
+
+28:14.800 --> 28:19.120
+ And so for us, it's about finding smooth motions,
+
+28:19.120 --> 28:21.320
+ motions that are safe.
+
+28:21.320 --> 28:22.880
+ So we think about these two things.
+
+28:22.880 --> 28:24.680
+ One is optimality, one is safety.
+
+28:24.680 --> 28:27.200
+ Clearly you cannot compromise safety.
+
+28:28.440 --> 28:31.360
+ So you're looking for safe, optimal motions.
+
+28:31.360 --> 28:34.480
+ The other thing you have to think about is
+
+28:34.480 --> 28:38.160
+ can you actually compute a reasonable trajectory
+
+28:38.160 --> 28:40.760
+ in a small amount of time?
+
+28:40.760 --> 28:42.280
+ Cause you have a time budget.
+
+28:42.280 --> 28:45.160
+ So the optimal becomes suboptimal,
+
+28:45.160 --> 28:50.160
+ but in our lab we focus on synthesizing smooth trajectory
+
+28:51.160 --> 28:53.000
+ that satisfy all the constraints.
+
+28:53.000 --> 28:57.120
+ In other words, don't violate any safety constraints
+
+28:58.440 --> 29:02.880
+ and is as efficient as possible.
+
+29:02.880 --> 29:04.360
+ And when I say efficient,
+
+29:04.360 --> 29:06.600
+ it could mean I want to get from point A to point B
+
+29:06.600 --> 29:08.360
+ as quickly as possible,
+
+29:08.360 --> 29:11.840
+ or I want to get to it as gracefully as possible,
+
+29:12.840 --> 29:15.960
+ or I want to consume as little energy as possible.
+
+29:15.960 --> 29:18.240
+ But always staying within the safety constraints.
+
+29:18.240 --> 29:22.800
+ But yes, always finding a safe trajectory.
+
+29:22.800 --> 29:25.040
+ So there's a lot of excitement and progress
+
+29:25.040 --> 29:27.360
+ in the field of machine learning
+
+29:27.360 --> 29:29.360
+ and reinforcement learning
+
+29:29.360 --> 29:32.200
+ and the neural network variant of that
+
+29:32.200 --> 29:33.920
+ with deep reinforcement learning.
+
+29:33.920 --> 29:36.360
+ Do you see a role of machine learning
+
+29:36.360 --> 29:40.560
+ in, so a lot of the success of flying robots
+
+29:40.560 --> 29:42.320
+ did not rely on machine learning,
+
+29:42.320 --> 29:45.040
+ except for maybe a little bit of the perception
+
+29:45.040 --> 29:46.600
+ on the computer vision side.
+
+29:46.600 --> 29:48.440
+ On the control side and the planning,
+
+29:48.440 --> 29:50.400
+ do you see there's a role in the future
+
+29:50.400 --> 29:51.680
+ for machine learning?
+
+29:51.680 --> 29:53.800
+ So let me disagree a little bit with you.
+
+29:53.800 --> 29:56.800
+ I think we never perhaps called out in my work,
+
+29:56.800 --> 29:57.720
+ called out learning,
+
+29:57.720 --> 30:00.600
+ but even this very simple idea of being able to fly
+
+30:00.600 --> 30:02.200
+ through a constrained space.
+
+30:02.200 --> 30:05.680
+ The first time you try it, you'll invariably,
+
+30:05.680 --> 30:08.440
+ you might get it wrong if the task is challenging.
+
+30:08.440 --> 30:12.200
+ And the reason is to get it perfectly right,
+
+30:12.200 --> 30:14.600
+ you have to model everything in the environment.
+
+30:15.600 --> 30:19.960
+ And flying is notoriously hard to model.
+
+30:19.960 --> 30:24.960
+ There are aerodynamic effects that we constantly discover.
+
+30:26.520 --> 30:29.440
+ Even just before I was talking to you,
+
+30:29.440 --> 30:33.440
+ I was talking to a student about how blades flap
+
+30:33.440 --> 30:35.320
+ when they fly.
+
+30:35.320 --> 30:40.320
+ And that ends up changing how a rotorcraft
+
+30:40.880 --> 30:43.960
+ is accelerated in the angular direction.
+
+30:43.960 --> 30:46.360
+ Does he use like micro flaps or something?
+
+30:46.360 --> 30:47.280
+ It's not micro flaps.
+
+30:47.280 --> 30:49.640
+ So we assume that each blade is rigid,
+
+30:49.640 --> 30:51.720
+ but actually it flaps a little bit.
+
+30:51.720 --> 30:52.880
+ It bends.
+
+30:52.880 --> 30:53.720
+ Interesting, yeah.
+
+30:53.720 --> 30:56.040
+ And so the models rely on the fact,
+
+30:56.040 --> 30:58.640
+ on the assumption that they're not rigid.
+
+30:58.640 --> 31:00.640
+ On the assumption that they're actually rigid,
+
+31:00.640 --> 31:02.240
+ but that's not true.
+
+31:02.240 --> 31:03.720
+ If you're flying really quickly,
+
+31:03.720 --> 31:06.920
+ these effects become significant.
+
+31:06.920 --> 31:09.240
+ If you're flying close to the ground,
+
+31:09.240 --> 31:12.160
+ you get pushed off by the ground, right?
+
+31:12.160 --> 31:14.920
+ Something which every pilot knows when he tries to land
+
+31:14.920 --> 31:18.000
+ or she tries to land, this is called a ground effect.
+
+31:18.920 --> 31:21.000
+ Something very few pilots think about
+
+31:21.000 --> 31:23.040
+ is what happens when you go close to a ceiling
+
+31:23.040 --> 31:25.320
+ or you get sucked into a ceiling.
+
+31:25.320 --> 31:26.880
+ There are very few aircrafts
+
+31:26.880 --> 31:29.520
+ that fly close to any kind of ceiling.
+
+31:29.520 --> 31:33.520
+ Likewise, when you go close to a wall,
+
+31:33.520 --> 31:35.720
+ there are these wall effects.
+
+31:35.720 --> 31:37.680
+ And if you've gone on a train
+
+31:37.680 --> 31:39.600
+ and you pass another train that's traveling
+
+31:39.600 --> 31:42.400
+ in the opposite direction, you feel the buffeting.
+
+31:42.400 --> 31:45.400
+ And so these kinds of microclimates
+
+31:45.400 --> 31:47.880
+ affect our UAV significantly.
+
+31:47.880 --> 31:48.720
+ So if you want...
+
+31:48.720 --> 31:50.640
+ And they're impossible to model, essentially.
+
+31:50.640 --> 31:52.480
+ I wouldn't say they're impossible to model,
+
+31:52.480 --> 31:54.880
+ but the level of sophistication you would need
+
+31:54.880 --> 31:58.600
+ in the model and the software would be tremendous.
+
+32:00.000 --> 32:02.920
+ Plus, to get everything right would be awfully tedious.
+
+32:02.920 --> 32:05.080
+ So the way we do this is over time,
+
+32:05.080 --> 32:09.000
+ we figure out how to adapt to these conditions.
+
+32:10.360 --> 32:13.160
+ So early on, we use the form of learning
+
+32:13.160 --> 32:15.760
+ that we call iterative learning.
+
+32:15.760 --> 32:18.600
+ So this idea, if you want to perform a task,
+
+32:18.600 --> 32:22.120
+ there are a few things that you need to change
+
+32:22.120 --> 32:24.960
+ and iterate over a few parameters
+
+32:24.960 --> 32:29.280
+ that over time you can figure out.
+
+32:29.280 --> 32:33.400
+ So I could call it policy gradient reinforcement learning,
+
+32:33.400 --> 32:34.920
+ but actually it was just iterative learning.
+
+32:34.920 --> 32:36.000
+ Iterative learning.
+
+32:36.000 --> 32:37.800
+ And so this was there way back.
+
+32:37.800 --> 32:39.440
+ I think what's interesting is,
+
+32:39.440 --> 32:41.640
+ if you look at autonomous vehicles today,
+
+32:43.120 --> 32:45.680
+ learning occurs, could occur in two pieces.
+
+32:45.680 --> 32:47.960
+ One is perception, understanding the world.
+
+32:47.960 --> 32:50.080
+ Second is action, taking actions.
+
+32:50.080 --> 32:52.240
+ Everything that I've seen that is successful
+
+32:52.240 --> 32:54.360
+ is on the perception side of things.
+
+32:54.360 --> 32:55.400
+ So in computer vision,
+
+32:55.400 --> 32:57.840
+ we've made amazing strides in the last 10 years.
+
+32:57.840 --> 33:01.640
+ So recognizing objects, actually detecting objects,
+
+33:01.640 --> 33:06.400
+ classifying them and tagging them in some sense,
+
+33:06.400 --> 33:07.440
+ annotating them.
+
+33:07.440 --> 33:09.640
+ This is all done through machine learning.
+
+33:09.640 --> 33:12.160
+ On the action side, on the other hand,
+
+33:12.160 --> 33:13.720
+ I don't know of any examples
+
+33:13.720 --> 33:15.560
+ where there are fielded systems
+
+33:15.560 --> 33:17.560
+ where we actually learn
+
+33:17.560 --> 33:20.560
+ the right behavior.
+
+33:20.560 --> 33:22.760
+ Outside of single demonstration is successful.
+
+33:22.760 --> 33:24.640
+ In the laboratory, this is the holy grail.
+
+33:24.640 --> 33:26.040
+ Can you do end to end learning?
+
+33:26.040 --> 33:28.800
+ Can you go from pixels to motor currents?
+
+33:30.200 --> 33:31.600
+ This is really, really hard.
+
+33:32.800 --> 33:35.080
+ And I think if you go forward,
+
+33:35.080 --> 33:37.600
+ the right way to think about these things
+
+33:37.600 --> 33:40.720
+ is data driven approaches,
+
+33:40.720 --> 33:42.400
+ learning based approaches,
+
+33:42.400 --> 33:45.280
+ in concert with model based approaches,
+
+33:45.280 --> 33:47.320
+ which is the traditional way of doing things.
+
+33:47.320 --> 33:48.720
+ So I think there's a piece,
+
+33:48.720 --> 33:51.400
+ there's a role for each of these methodologies.
+
+33:51.400 --> 33:52.440
+ So what do you think,
+
+33:52.440 --> 33:53.880
+ just jumping out on topic
+
+33:53.880 --> 33:56.200
+ since you mentioned autonomous vehicles,
+
+33:56.200 --> 33:58.480
+ what do you think are the limits on the perception side?
+
+33:58.480 --> 34:01.080
+ So I've talked to Elon Musk
+
+34:01.080 --> 34:03.320
+ and there on the perception side,
+
+34:03.320 --> 34:05.960
+ they're using primarily computer vision
+
+34:05.960 --> 34:08.080
+ to perceive the environment.
+
+34:08.080 --> 34:09.760
+ In your work with,
+
+34:09.760 --> 34:12.560
+ because you work with the real world a lot
+
+34:12.560 --> 34:13.720
+ and the physical world,
+
+34:13.720 --> 34:15.800
+ what are the limits of computer vision?
+
+34:15.800 --> 34:18.000
+ Do you think we can solve autonomous vehicles
+
+34:19.160 --> 34:20.880
+ on the perception side,
+
+34:20.880 --> 34:24.240
+ focusing on vision alone and machine learning?
+
+34:24.240 --> 34:27.480
+ So, we also have a spinoff company,
+
+34:27.480 --> 34:31.840
+ Exxon Technologies that works underground in mines.
+
+34:31.840 --> 34:35.600
+ So you go into mines, they're dark, they're dirty.
+
+34:36.480 --> 34:38.600
+ You fly in a dirty area,
+
+34:38.600 --> 34:41.120
+ there's stuff you kick up from by the propellers,
+
+34:41.120 --> 34:42.720
+ the downwash kicks up dust.
+
+34:42.720 --> 34:45.520
+ I challenge you to get a computer vision algorithm
+
+34:45.520 --> 34:46.680
+ to work there.
+
+34:46.680 --> 34:49.600
+ So we use LIDARs in that setting.
+
+34:51.200 --> 34:55.360
+ Indoors and even outdoors when we fly through fields,
+
+34:55.360 --> 34:57.120
+ I think there's a lot of potential
+
+34:57.120 --> 34:59.960
+ for just solving the problem using computer vision alone.
+
+35:01.240 --> 35:02.760
+ But I think the bigger question is,
+
+35:02.760 --> 35:06.160
+ can you actually solve
+
+35:06.160 --> 35:09.440
+ or can you actually identify all the corner cases
+
+35:09.440 --> 35:13.920
+ using a single sensing modality and using learning alone?
+
+35:13.920 --> 35:15.400
+ So what's your intuition there?
+
+35:15.400 --> 35:17.920
+ So look, if you have a corner case
+
+35:17.920 --> 35:20.000
+ and your algorithm doesn't work,
+
+35:20.000 --> 35:23.200
+ your instinct is to go get data about the corner case
+
+35:23.200 --> 35:26.640
+ and patch it up, learn how to deal with that corner case.
+
+35:27.640 --> 35:32.040
+ But at some point, this is gonna saturate,
+
+35:32.040 --> 35:34.200
+ this approach is not viable.
+
+35:34.200 --> 35:38.000
+ So today, computer vision algorithms can detect
+
+35:38.000 --> 35:41.360
+ 90% of the objects or can detect objects 90% of the time,
+
+35:41.360 --> 35:43.920
+ classify them 90% of the time.
+
+35:43.920 --> 35:47.960
+ Cats on the internet probably can do 95%, I don't know.
+
+35:47.960 --> 35:52.520
+ But to get from 90% to 99%, you need a lot more data.
+
+35:52.520 --> 35:54.480
+ And then I tell you, well, that's not enough
+
+35:54.480 --> 35:56.680
+ because I have a safety critical application,
+
+35:56.680 --> 36:00.160
+ I wanna go from 99% to 99.9%.
+
+36:00.160 --> 36:01.600
+ That's even more data.
+
+36:01.600 --> 36:08.600
+ So I think if you look at wanting accuracy on the X axis
+
+36:09.600 --> 36:14.080
+ and look at the amount of data on the Y axis,
+
+36:14.080 --> 36:16.440
+ I believe that curve is an exponential curve.
+
+36:16.440 --> 36:19.480
+ Wow, okay, it's even hard if it's linear.
+
+36:19.480 --> 36:20.800
+ It's hard if it's linear, totally,
+
+36:20.800 --> 36:22.560
+ but I think it's exponential.
+
+36:22.560 --> 36:24.120
+ And the other thing you have to think about
+
+36:24.120 --> 36:29.600
+ is that this process is a very, very power hungry process
+
+36:29.600 --> 36:32.880
+ to run data farms or servers.
+
+36:32.880 --> 36:34.600
+ Power, do you mean literally power?
+
+36:34.600 --> 36:36.600
+ Literally power, literally power.
+
+36:36.600 --> 36:41.760
+ So in 2014, five years ago, and I don't have more recent data,
+
+36:41.760 --> 36:48.360
+ 2% of US electricity consumption was from data farms.
+
+36:48.360 --> 36:52.080
+ So we think about this as an information science
+
+36:52.080 --> 36:54.240
+ and information processing problem.
+
+36:54.240 --> 36:57.840
+ Actually, it is an energy processing problem.
+
+36:57.840 --> 37:00.440
+ And so unless we figured out better ways of doing this,
+
+37:00.440 --> 37:02.440
+ I don't think this is viable.
+
+37:02.440 --> 37:06.600
+ So talking about driving, which is a safety critical application
+
+37:06.600 --> 37:10.440
+ and some aspect of flight is safety critical,
+
+37:10.440 --> 37:12.960
+ maybe philosophical question, maybe an engineering one,
+
+37:12.960 --> 37:15.000
+ what problem do you think is harder to solve,
+
+37:15.000 --> 37:18.120
+ autonomous driving or autonomous flight?
+
+37:18.120 --> 37:19.920
+ That's a really interesting question.
+
+37:19.920 --> 37:25.440
+ I think autonomous flight has several advantages
+
+37:25.440 --> 37:29.360
+ that autonomous driving doesn't have.
+
+37:29.360 --> 37:32.400
+ So look, if I want to go from point A to point B,
+
+37:32.400 --> 37:34.320
+ I have a very, very safe trajectory.
+
+37:34.320 --> 37:36.800
+ Go vertically up to a maximum altitude,
+
+37:36.800 --> 37:39.480
+ fly horizontally to just about the destination,
+
+37:39.480 --> 37:42.400
+ and then come down vertically.
+
+37:42.400 --> 37:45.400
+ This is preprogrammed.
+
+37:45.400 --> 37:48.040
+ The equivalent of that is very hard to find
+
+37:48.040 --> 37:51.560
+ in the self driving car world because you're on the ground,
+
+37:51.560 --> 37:53.560
+ you're in a two dimensional surface,
+
+37:53.560 --> 37:56.680
+ and the trajectories on the two dimensional surface
+
+37:56.680 --> 38:00.200
+ are more likely to encounter obstacles.
+
+38:00.200 --> 38:03.280
+ I mean this in an intuitive sense, but mathematically true.
+
+38:03.280 --> 38:06.360
+ That's mathematically as well, that's true.
+
+38:06.360 --> 38:10.040
+ There's other option on the 2G space of platooning,
+
+38:10.040 --> 38:11.640
+ or because there's so many obstacles,
+
+38:11.640 --> 38:13.280
+ you can connect with those obstacles
+
+38:13.280 --> 38:14.560
+ and all these kind of options.
+
+38:14.560 --> 38:16.560
+ Sure, but those exist in the three dimensional space as well.
+
+38:16.560 --> 38:17.560
+ So they do.
+
+38:17.560 --> 38:21.800
+ So the question also implies how difficult are obstacles
+
+38:21.800 --> 38:23.800
+ in the three dimensional space in flight?
+
+38:23.800 --> 38:25.600
+ So that's the downside.
+
+38:25.600 --> 38:26.920
+ I think in three dimensional space,
+
+38:26.920 --> 38:29.080
+ you're modeling three dimensional world,
+
+38:29.080 --> 38:31.280
+ not just because you want to avoid it,
+
+38:31.280 --> 38:33.040
+ but you want to reason about it,
+
+38:33.040 --> 38:35.360
+ and you want to work in the three dimensional environment,
+
+38:35.360 --> 38:37.480
+ and that's significantly harder.
+
+38:37.480 --> 38:38.920
+ So that's one disadvantage.
+
+38:38.920 --> 38:41.040
+ I think the second disadvantage is of course,
+
+38:41.040 --> 38:43.200
+ anytime you fly, you have to put up
+
+38:43.200 --> 38:46.560
+ with the peculiarities of aerodynamics
+
+38:46.560 --> 38:48.720
+ and their complicated environments.
+
+38:48.720 --> 38:49.800
+ How do you negotiate that?
+
+38:49.800 --> 38:51.880
+ So that's always a problem.
+
+38:51.880 --> 38:55.240
+ Do you see a time in the future where there is,
+
+38:55.240 --> 38:58.720
+ you mentioned there's agriculture applications.
+
+38:58.720 --> 39:01.680
+ So there's a lot of applications of flying robots,
+
+39:01.680 --> 39:03.040
+ but do you see a time in the future
+
+39:03.040 --> 39:05.360
+ where there's tens of thousands,
+
+39:05.360 --> 39:08.160
+ or maybe hundreds of thousands of delivery drones
+
+39:08.160 --> 39:12.160
+ that fill the sky, delivery flying robots?
+
+39:12.160 --> 39:14.200
+ I think there's a lot of potential
+
+39:14.200 --> 39:15.920
+ for the last mile delivery.
+
+39:15.920 --> 39:19.240
+ And so in crowded cities, I don't know,
+
+39:19.240 --> 39:21.400
+ if you go to a place like Hong Kong,
+
+39:21.400 --> 39:24.400
+ just crossing the river can take half an hour,
+
+39:24.400 --> 39:29.400
+ and while a drone can just do it in five minutes at most.
+
+39:29.400 --> 39:34.400
+ I think you look at delivery of supplies to remote villages.
+
+39:35.800 --> 39:38.680
+ I work with a nonprofit called Weave Robotics.
+
+39:38.680 --> 39:40.920
+ So they work in the Peruvian Amazon,
+
+39:40.920 --> 39:44.680
+ where the only highways that are available
+
+39:44.680 --> 39:47.440
+ are the only highways or rivers.
+
+39:47.440 --> 39:52.440
+ And to get from point A to point B may take five hours,
+
+39:52.960 --> 39:55.600
+ while with a drone, you can get there in 30 minutes.
+
+39:56.680 --> 39:59.880
+ So just delivering drugs,
+
+39:59.880 --> 40:04.880
+ retrieving samples for testing vaccines,
+
+40:05.160 --> 40:07.120
+ I think there's huge potential here.
+
+40:07.120 --> 40:09.960
+ So I think the challenges are not technological,
+
+40:09.960 --> 40:12.040
+ but the challenge is economical.
+
+40:12.040 --> 40:15.560
+ The one thing I'll tell you that nobody thinks about
+
+40:15.560 --> 40:18.920
+ is the fact that we've not made huge strides
+
+40:18.920 --> 40:20.840
+ in battery technology.
+
+40:20.840 --> 40:23.520
+ Yes, it's true, batteries are becoming less expensive
+
+40:23.520 --> 40:26.240
+ because we have these mega factories that are coming up,
+
+40:26.240 --> 40:28.800
+ but they're all based on lithium based technologies.
+
+40:28.800 --> 40:31.480
+ And if you look at the energy density
+
+40:31.480 --> 40:33.240
+ and the power density,
+
+40:33.240 --> 40:38.000
+ those are two fundamentally limiting numbers.
+
+40:38.000 --> 40:39.680
+ So power density is important
+
+40:39.680 --> 40:42.480
+ because for a UAV to take off vertically into the air,
+
+40:42.480 --> 40:46.360
+ which most drones do, they don't have a runway,
+
+40:46.360 --> 40:50.240
+ you consume roughly 200 watts per kilo at the small size.
+
+40:51.560 --> 40:53.920
+ That's a lot, right?
+
+40:53.920 --> 40:57.520
+ In contrast, the human brain consumes less than 80 watts,
+
+40:57.520 --> 40:58.920
+ the whole of the human brain.
+
+40:59.920 --> 41:03.600
+ So just imagine just lifting yourself into the air
+
+41:03.600 --> 41:06.000
+ is like two or three light bulbs,
+
+41:06.000 --> 41:07.840
+ which makes no sense to me.
+
+41:07.840 --> 41:10.440
+ Yeah, so you're going to have to at scale
+
+41:10.440 --> 41:12.880
+ solve the energy problem then,
+
+41:12.880 --> 41:17.880
+ charging the batteries, storing the energy and so on.
+
+41:18.920 --> 41:20.680
+ And then the storage is the second problem,
+
+41:20.680 --> 41:22.960
+ but storage limits the range.
+
+41:22.960 --> 41:27.960
+ But you have to remember that you have to burn
+
+41:28.680 --> 41:31.600
+ a lot of it per given time.
+
+41:31.600 --> 41:32.920
+ So the burning is another problem.
+
+41:32.920 --> 41:34.640
+ Which is a power question.
+
+41:34.640 --> 41:38.640
+ Yes, and do you think just your intuition,
+
+41:38.640 --> 41:43.640
+ there are breakthroughs in batteries on the horizon?
+
+41:44.960 --> 41:46.440
+ How hard is that problem?
+
+41:46.440 --> 41:47.600
+ Look, there are a lot of companies
+
+41:47.600 --> 41:52.600
+ that are promising flying cars that are autonomous
+
+41:53.880 --> 41:55.120
+ and that are clean.
+
+41:59.400 --> 42:01.680
+ I think they're over promising.
+
+42:01.680 --> 42:04.800
+ The autonomy piece is doable.
+
+42:04.800 --> 42:07.040
+ The clean piece, I don't think so.
+
+42:08.000 --> 42:11.840
+ There's another company that I work with called JetOptra.
+
+42:11.840 --> 42:14.360
+ They make small jet engines.
+
+42:15.760 --> 42:18.080
+ And they can get up to 50 miles an hour very easily
+
+42:18.080 --> 42:19.960
+ and lift 50 kilos.
+
+42:19.960 --> 42:22.840
+ But they're jet engines, they're efficient,
+
+42:23.920 --> 42:26.320
+ they're a little louder than electric vehicles,
+
+42:26.320 --> 42:28.960
+ but they can build flying cars.
+
+42:28.960 --> 42:32.440
+ So your sense is that there's a lot of pieces
+
+42:32.440 --> 42:33.520
+ that have come together.
+
+42:33.520 --> 42:37.360
+ So on this crazy question,
+
+42:37.360 --> 42:39.720
+ if you look at companies like Kitty Hawk,
+
+42:39.720 --> 42:42.080
+ working on electric, so the clean,
+
+42:43.880 --> 42:45.840
+ talking to Sebastian Thrun, right?
+
+42:45.840 --> 42:48.840
+ It's a crazy dream, you know?
+
+42:48.840 --> 42:52.080
+ But you work with flight a lot.
+
+42:52.080 --> 42:55.760
+ You've mentioned before that manned flights
+
+42:55.760 --> 43:00.760
+ or carrying a human body is very difficult to do.
+
+43:01.640 --> 43:04.240
+ So how crazy is flying cars?
+
+43:04.240 --> 43:05.400
+ Do you think there'll be a day
+
+43:05.400 --> 43:10.400
+ when we have vertical takeoff and landing vehicles
+
+43:11.080 --> 43:14.040
+ that are sufficiently affordable
+
+43:14.960 --> 43:17.440
+ that we're going to see a huge amount of them?
+
+43:17.440 --> 43:19.680
+ And they would look like something like we dream of
+
+43:19.680 --> 43:21.080
+ when we think about flying cars.
+
+43:21.080 --> 43:22.200
+ Yeah, like the Jetsons.
+
+43:22.200 --> 43:23.160
+ The Jetsons, yeah.
+
+43:23.160 --> 43:25.560
+ So look, there are a lot of smart people working on this
+
+43:25.560 --> 43:29.640
+ and you never say something is not possible
+
+43:29.640 --> 43:32.200
+ when you have people like Sebastian Thrun working on it.
+
+43:32.200 --> 43:35.160
+ So I totally think it's viable.
+
+43:35.160 --> 43:38.240
+ I question, again, the electric piece.
+
+43:38.240 --> 43:39.520
+ The electric piece, yeah.
+
+43:39.520 --> 43:41.680
+ And again, for short distances, you can do it.
+
+43:41.680 --> 43:43.640
+ And there's no reason to suggest
+
+43:43.640 --> 43:45.840
+ that these all just have to be rotorcrafts.
+
+43:45.840 --> 43:46.920
+ You take off vertically,
+
+43:46.920 --> 43:49.680
+ but then you morph into a forward flight.
+
+43:49.680 --> 43:51.600
+ I think there are a lot of interesting designs.
+
+43:51.600 --> 43:56.040
+ The question to me is, are these economically viable?
+
+43:56.040 --> 43:59.160
+ And if you agree to do this with fossil fuels,
+
+43:59.160 --> 44:01.960
+ it instantly immediately becomes viable.
+
+44:01.960 --> 44:03.480
+ That's a real challenge.
+
+44:03.480 --> 44:06.560
+ Do you think it's possible for robots and humans
+
+44:06.560 --> 44:08.840
+ to collaborate successfully on tasks?
+
+44:08.840 --> 44:13.640
+ So a lot of robotics folks that I talk to and work with,
+
+44:13.640 --> 44:18.000
+ I mean, humans just add a giant mess to the picture.
+
+44:18.000 --> 44:20.320
+ So it's best to remove them from consideration
+
+44:20.320 --> 44:22.400
+ when solving specific tasks.
+
+44:22.400 --> 44:23.600
+ It's very difficult to model.
+
+44:23.600 --> 44:26.000
+ There's just a source of uncertainty.
+
+44:26.000 --> 44:31.000
+ In your work with these agile flying robots,
+
+44:32.560 --> 44:35.680
+ do you think there's a role for collaboration with humans?
+
+44:35.680 --> 44:38.600
+ Or is it best to model tasks in a way
+
+44:38.600 --> 44:43.400
+ that doesn't have a human in the picture?
+
+44:43.400 --> 44:46.760
+ Well, I don't think we should ever think about robots
+
+44:46.760 --> 44:48.120
+ without human in the picture.
+
+44:48.120 --> 44:50.960
+ Ultimately, robots are there because we want them
+
+44:50.960 --> 44:54.360
+ to solve problems for humans.
+
+44:54.360 --> 44:58.280
+ But there's no general solution to this problem.
+
+44:58.280 --> 45:00.000
+ I think if you look at human interaction
+
+45:00.000 --> 45:02.400
+ and how humans interact with robots,
+
+45:02.400 --> 45:05.280
+ you know, we think of these in sort of three different ways.
+
+45:05.280 --> 45:07.600
+ One is the human commanding the robot.
+
+45:08.880 --> 45:12.880
+ The second is the human collaborating with the robot.
+
+45:12.880 --> 45:15.520
+ So for example, we work on how a robot
+
+45:15.520 --> 45:18.720
+ can actually pick up things with a human and carry things.
+
+45:18.720 --> 45:20.880
+ That's like true collaboration.
+
+45:20.880 --> 45:25.000
+ And third, we think about humans as bystanders,
+
+45:25.000 --> 45:27.240
+ self driving cars, what's the human's role
+
+45:27.240 --> 45:30.320
+ and how do self driving cars
+
+45:30.320 --> 45:32.920
+ acknowledge the presence of humans?
+
+45:32.920 --> 45:35.840
+ So I think all of these things are different scenarios.
+
+45:35.840 --> 45:38.480
+ It depends on what kind of humans, what kind of task.
+
+45:39.640 --> 45:41.840
+ And I think it's very difficult to say
+
+45:41.840 --> 45:45.520
+ that there's a general theory that we all have for this.
+
+45:45.520 --> 45:48.440
+ But at the same time, it's also silly to say
+
+45:48.440 --> 45:52.000
+ that we should think about robots independent of humans.
+
+45:52.000 --> 45:55.760
+ So to me, human robot interaction
+
+45:55.760 --> 45:59.760
+ is almost a mandatory aspect of everything we do.
+
+45:59.760 --> 46:02.440
+ Yes, but to which degree, so your thoughts,
+
+46:02.440 --> 46:05.240
+ if we jump to autonomous vehicles, for example,
+
+46:05.240 --> 46:08.680
+ there's a big debate between what's called
+
+46:08.680 --> 46:10.640
+ level two and level four.
+
+46:10.640 --> 46:13.680
+ So semi autonomous and autonomous vehicles.
+
+46:13.680 --> 46:16.440
+ And so the Tesla approach currently at least
+
+46:16.440 --> 46:18.960
+ has a lot of collaboration between human and machine.
+
+46:18.960 --> 46:22.040
+ So the human is supposed to actively supervise
+
+46:22.040 --> 46:23.880
+ the operation of the robot.
+
+46:23.880 --> 46:28.880
+ Part of the safety definition of how safe a robot is
+
+46:29.160 --> 46:32.880
+ in that case is how effective is the human in monitoring it.
+
+46:32.880 --> 46:37.880
+ Do you think that's ultimately not a good approach
+
+46:37.880 --> 46:42.360
+ in sort of having a human in the picture,
+
+46:42.360 --> 46:47.360
+ not as a bystander or part of the infrastructure,
+
+46:47.400 --> 46:50.000
+ but really as part of what's required
+
+46:50.000 --> 46:51.560
+ to make the system safe?
+
+46:51.560 --> 46:53.720
+ This is harder than it sounds.
+
+46:53.720 --> 46:58.200
+ I think, you know, if you, I mean,
+
+46:58.200 --> 47:01.360
+ I'm sure you've driven before in highways and so on.
+
+47:01.360 --> 47:06.120
+ It's really very hard to have to relinquish control
+
+47:06.120 --> 47:10.440
+ to a machine and then take over when needed.
+
+47:10.440 --> 47:12.280
+ So I think Tesla's approach is interesting
+
+47:12.280 --> 47:14.800
+ because it allows you to periodically establish
+
+47:14.800 --> 47:18.520
+ some kind of contact with the car.
+
+47:18.520 --> 47:20.640
+ Toyota, on the other hand, is thinking about
+
+47:20.640 --> 47:24.800
+ shared autonomy or collaborative autonomy as a paradigm.
+
+47:24.800 --> 47:27.480
+ If I may argue, these are very, very simple ways
+
+47:27.480 --> 47:29.680
+ of human robot collaboration,
+
+47:29.680 --> 47:31.880
+ because the task is pretty boring.
+
+47:31.880 --> 47:35.000
+ You sit in a vehicle, you go from point A to point B.
+
+47:35.000 --> 47:37.360
+ I think the more interesting thing to me is,
+
+47:37.360 --> 47:38.760
+ for example, search and rescue.
+
+47:38.760 --> 47:41.980
+ I've got a human first responder, robot first responders.
+
+47:43.160 --> 47:45.120
+ I gotta do something.
+
+47:45.120 --> 47:46.000
+ It's important.
+
+47:46.000 --> 47:47.800
+ I have to do it in two minutes.
+
+47:47.800 --> 47:49.240
+ The building is burning.
+
+47:49.240 --> 47:50.440
+ There's been an explosion.
+
+47:50.440 --> 47:51.360
+ It's collapsed.
+
+47:51.360 --> 47:52.800
+ How do I do it?
+
+47:52.800 --> 47:54.740
+ I think to me, those are the interesting things
+
+47:54.740 --> 47:57.160
+ where it's very, very unstructured.
+
+47:57.160 --> 47:58.480
+ And what's the role of the human?
+
+47:58.480 --> 48:00.200
+ What's the role of the robot?
+
+48:00.200 --> 48:02.440
+ Clearly, there's lots of interesting challenges
+
+48:02.440 --> 48:03.440
+ and there's a field.
+
+48:03.440 --> 48:05.760
+ I think we're gonna make a lot of progress in this area.
+
+48:05.760 --> 48:07.600
+ Yeah, it's an exciting form of collaboration.
+
+48:07.600 --> 48:08.440
+ You're right.
+
+48:08.440 --> 48:11.120
+ In autonomous driving, the main enemy
+
+48:11.120 --> 48:13.120
+ is just boredom of the human.
+
+48:13.120 --> 48:13.960
+ Yes.
+
+48:13.960 --> 48:15.680
+ As opposed to in rescue operations,
+
+48:15.680 --> 48:18.360
+ it's literally life and death.
+
+48:18.360 --> 48:22.080
+ And the collaboration enables
+
+48:22.080 --> 48:23.820
+ the effective completion of the mission.
+
+48:23.820 --> 48:24.760
+ So it's exciting.
+
+48:24.760 --> 48:27.400
+ In some sense, we're also doing this.
+
+48:27.400 --> 48:30.520
+ You think about the human driving a car
+
+48:30.520 --> 48:33.800
+ and almost invariably, the human's trying
+
+48:33.800 --> 48:35.000
+ to estimate the state of the car,
+
+48:35.000 --> 48:37.280
+ they estimate the state of the environment and so on.
+
+48:37.280 --> 48:40.120
+ But what if the car were to estimate the state of the human?
+
+48:40.120 --> 48:41.960
+ So for example, I'm sure you have a smartphone
+
+48:41.960 --> 48:44.580
+ and the smartphone tries to figure out what you're doing
+
+48:44.580 --> 48:48.320
+ and send you reminders and oftentimes telling you
+
+48:48.320 --> 48:49.540
+ to drive to a certain place,
+
+48:49.540 --> 48:51.400
+ although you have no intention of going there
+
+48:51.400 --> 48:53.880
+ because it thinks that that's where you should be
+
+48:53.880 --> 48:56.240
+ because of some Gmail calendar entry
+
+48:57.520 --> 48:58.960
+ or something like that.
+
+48:58.960 --> 49:01.600
+ And it's trying to constantly figure out who you are,
+
+49:01.600 --> 49:02.740
+ what you're doing.
+
+49:02.740 --> 49:04.200
+ If a car were to do that,
+
+49:04.200 --> 49:06.840
+ maybe that would make the driver safer
+
+49:06.840 --> 49:08.160
+ because the car is trying to figure out
+
+49:08.160 --> 49:09.760
+ is the driver paying attention,
+
+49:09.760 --> 49:11.600
+ looking at his or her eyes,
+
+49:12.480 --> 49:14.400
+ looking at circadian movements.
+
+49:14.400 --> 49:16.480
+ So I think the potential is there,
+
+49:16.480 --> 49:18.600
+ but from the reverse side,
+
+49:18.600 --> 49:21.640
+ it's not robot modeling, but it's human modeling.
+
+49:21.640 --> 49:22.880
+ It's more on the human, right.
+
+49:22.880 --> 49:25.320
+ And I think the robots can do a very good job
+
+49:25.320 --> 49:29.120
+ of modeling humans if you really think about the framework
+
+49:29.120 --> 49:32.640
+ that you have a human sitting in a cockpit,
+
+49:32.640 --> 49:35.820
+ surrounded by sensors, all staring at him,
+
+49:35.820 --> 49:37.860
+ in addition to be staring outside,
+
+49:37.860 --> 49:39.160
+ but also staring at him.
+
+49:39.160 --> 49:40.960
+ I think there's a real synergy there.
+
+49:40.960 --> 49:42.360
+ Yeah, I love that problem
+
+49:42.360 --> 49:45.560
+ because it's the new 21st century form of psychology,
+
+49:45.560 --> 49:48.520
+ actually AI enabled psychology.
+
+49:48.520 --> 49:51.280
+ A lot of people have sci fi inspired fears
+
+49:51.280 --> 49:54.080
+ of walking robots like those from Boston Dynamics.
+
+49:54.080 --> 49:56.480
+ If you just look at shows on Netflix and so on,
+
+49:56.480 --> 49:59.040
+ or flying robots like those you work with,
+
+49:59.920 --> 50:03.160
+ how would you, how do you think about those fears?
+
+50:03.160 --> 50:05.040
+ How would you alleviate those fears?
+
+50:05.040 --> 50:09.040
+ Do you have inklings, echoes of those same concerns?
+
+50:09.040 --> 50:11.760
+ You know, anytime we develop a technology
+
+50:11.760 --> 50:14.160
+ meaning to have positive impact in the world,
+
+50:14.160 --> 50:15.780
+ there's always the worry that,
+
+50:17.440 --> 50:21.000
+ you know, somebody could subvert those technologies
+
+50:21.000 --> 50:23.280
+ and use it in an adversarial setting.
+
+50:23.280 --> 50:25.280
+ And robotics is no exception, right?
+
+50:25.280 --> 50:29.280
+ So I think it's very easy to weaponize robots.
+
+50:29.280 --> 50:30.880
+ I think we talk about swarms.
+
+50:31.720 --> 50:33.960
+ One thing I worry a lot about is,
+
+50:33.960 --> 50:35.880
+ so, you know, for us to get swarms to work
+
+50:35.880 --> 50:38.280
+ and do something reliably, it's really hard.
+
+50:38.280 --> 50:42.040
+ But suppose I have this challenge
+
+50:42.040 --> 50:44.360
+ of trying to destroy something,
+
+50:44.360 --> 50:45.720
+ and I have a swarm of robots,
+
+50:45.720 --> 50:47.280
+ where only one out of the swarm
+
+50:47.280 --> 50:48.920
+ needs to get to its destination.
+
+50:48.920 --> 50:52.640
+ So that suddenly becomes a lot more doable.
+
+50:52.640 --> 50:54.720
+ And so I worry about, you know,
+
+50:54.720 --> 50:56.920
+ this general idea of using autonomy
+
+50:56.920 --> 50:58.600
+ with lots and lots of agents.
+
+51:00.040 --> 51:01.320
+ I mean, having said that, look,
+
+51:01.320 --> 51:03.760
+ a lot of this technology is not very mature.
+
+51:03.760 --> 51:05.520
+ My favorite saying is that
+
+51:06.560 --> 51:10.520
+ if somebody had to develop this technology,
+
+51:10.520 --> 51:12.320
+ wouldn't you rather the good guys do it?
+
+51:12.320 --> 51:13.880
+ So the good guys have a good understanding
+
+51:13.880 --> 51:15.560
+ of the technology, so they can figure out
+
+51:15.560 --> 51:18.320
+ how this technology is being used in a bad way,
+
+51:18.320 --> 51:21.360
+ or could be used in a bad way and try to defend against it.
+
+51:21.360 --> 51:22.760
+ So we think a lot about that.
+
+51:22.760 --> 51:25.400
+ So we have, we're doing research
+
+51:25.400 --> 51:28.240
+ on how to defend against swarms, for example.
+
+51:28.240 --> 51:29.600
+ That's interesting.
+
+51:29.600 --> 51:32.960
+ There's in fact a report by the National Academies
+
+51:32.960 --> 51:35.520
+ on counter UAS technologies.
+
+51:36.680 --> 51:38.200
+ This is a real threat,
+
+51:38.200 --> 51:40.320
+ but we're also thinking about how to defend against this
+
+51:40.320 --> 51:42.920
+ and knowing how swarms work.
+
+51:42.920 --> 51:47.160
+ Knowing how autonomy works is, I think, very important.
+
+51:47.160 --> 51:49.280
+ So it's not just politicians?
+
+51:49.280 --> 51:51.640
+ Do you think engineers have a role in this discussion?
+
+51:51.640 --> 51:52.480
+ Absolutely.
+
+51:52.480 --> 51:55.280
+ I think the days where politicians
+
+51:55.280 --> 51:57.680
+ can be agnostic to technology are gone.
+
+51:59.200 --> 52:02.640
+ I think every politician needs to be
+
+52:03.840 --> 52:05.680
+ literate in technology.
+
+52:05.680 --> 52:08.640
+ And I often say technology is the new liberal art.
+
+52:09.800 --> 52:12.920
+ Understanding how technology will change your life,
+
+52:12.920 --> 52:14.480
+ I think is important.
+
+52:14.480 --> 52:18.080
+ And every human being needs to understand that.
+
+52:18.080 --> 52:20.160
+ And maybe we can elect some engineers
+
+52:20.160 --> 52:22.720
+ to office as well on the other side.
+
+52:22.720 --> 52:24.840
+ What are the biggest open problems in robotics?
+
+52:24.840 --> 52:27.760
+ And you said we're in the early days in some sense.
+
+52:27.760 --> 52:31.040
+ What are the problems we would like to solve in robotics?
+
+52:31.040 --> 52:32.520
+ I think there are lots of problems, right?
+
+52:32.520 --> 52:36.440
+ But I would phrase it in the following way.
+
+52:36.440 --> 52:39.520
+ If you look at the robots we're building,
+
+52:39.520 --> 52:43.160
+ they're still very much tailored towards
+
+52:43.160 --> 52:46.520
+ doing specific tasks and specific settings.
+
+52:46.520 --> 52:49.480
+ I think the question of how do you get them to operate
+
+52:49.480 --> 52:51.080
+ in much broader settings
+
+52:53.560 --> 52:58.040
+ where things can change in unstructured environments
+
+52:58.040 --> 52:59.160
+ is up in the air.
+
+52:59.160 --> 53:01.200
+ So think of self driving cars.
+
+53:02.920 --> 53:05.680
+ Today, we can build a self driving car in a parking lot.
+
+53:05.680 --> 53:09.000
+ We can do level five autonomy in a parking lot.
+
+53:10.040 --> 53:13.240
+ But can you do a level five autonomy
+
+53:13.240 --> 53:16.840
+ in the streets of Napoli in Italy or Mumbai in India?
+
+53:16.840 --> 53:17.760
+ No.
+
+53:17.760 --> 53:22.400
+ So in some sense, when we think about robotics,
+
+53:22.400 --> 53:25.120
+ we have to think about where they're functioning,
+
+53:25.120 --> 53:27.760
+ what kind of environment, what kind of a task.
+
+53:27.760 --> 53:29.800
+ We have no understanding
+
+53:29.800 --> 53:32.800
+ of how to put both those things together.
+
+53:32.800 --> 53:34.000
+ So we're in the very early days
+
+53:34.000 --> 53:35.920
+ of applying it to the physical world.
+
+53:35.920 --> 53:38.800
+ And I was just in Naples actually.
+
+53:38.800 --> 53:42.200
+ And there's levels of difficulty and complexity
+
+53:42.200 --> 53:45.880
+ depending on which area you're applying it to.
+
+53:45.880 --> 53:46.720
+ I think so.
+
+53:46.720 --> 53:49.320
+ And we don't have a systematic way of understanding that.
+
+53:51.040 --> 53:53.800
+ Everybody says, just because a computer
+
+53:53.800 --> 53:56.520
+ can now beat a human at any board game,
+
+53:56.520 --> 53:59.920
+ we certainly know something about intelligence.
+
+53:59.920 --> 54:01.360
+ That's not true.
+
+54:01.360 --> 54:04.400
+ A computer board game is very, very structured.
+
+54:04.400 --> 54:08.480
+ It is the equivalent of working in a Henry Ford factory
+
+54:08.480 --> 54:11.680
+ where things, parts come, you assemble, move on.
+
+54:11.680 --> 54:14.120
+ It's a very, very, very structured setting.
+
+54:14.120 --> 54:15.680
+ That's the easiest thing.
+
+54:15.680 --> 54:17.040
+ And we know how to do that.
+
+54:18.400 --> 54:20.400
+ So you've done a lot of incredible work
+
+54:20.400 --> 54:23.720
+ at the UPenn, University of Pennsylvania, GraspLab.
+
+54:23.720 --> 54:26.560
+ You're now Dean of Engineering at UPenn.
+
+54:26.560 --> 54:31.320
+ What advice do you have for a new bright eyed undergrad
+
+54:31.320 --> 54:34.640
+ interested in robotics or AI or engineering?
+
+54:34.640 --> 54:36.560
+ Well, I think there's really three things.
+
+54:36.560 --> 54:40.600
+ One is you have to get used to the idea
+
+54:40.600 --> 54:42.840
+ that the world will not be the same in five years
+
+54:42.840 --> 54:45.160
+ or four years whenever you graduate, right?
+
+54:45.160 --> 54:46.120
+ Which is really hard to do.
+
+54:46.120 --> 54:48.960
+ So this thing about predicting the future,
+
+54:48.960 --> 54:50.520
+ every one of us needs to be trying
+
+54:50.520 --> 54:52.360
+ to predict the future always.
+
+54:53.280 --> 54:54.960
+ Not because you'll be any good at it,
+
+54:54.960 --> 54:56.440
+ but by thinking about it,
+
+54:56.440 --> 55:00.880
+ I think you sharpen your senses and you become smarter.
+
+55:00.880 --> 55:02.080
+ So that's number one.
+
+55:02.080 --> 55:05.760
+ Number two, it's a corollary of the first piece,
+
+55:05.760 --> 55:09.360
+ which is you really don't know what's gonna be important.
+
+55:09.360 --> 55:12.080
+ So this idea that I'm gonna specialize in something
+
+55:12.080 --> 55:15.320
+ which will allow me to go in a particular direction,
+
+55:15.320 --> 55:16.480
+ it may be interesting,
+
+55:16.480 --> 55:18.480
+ but it's important also to have this breadth
+
+55:18.480 --> 55:20.360
+ so you have this jumping off point.
+
+55:22.000 --> 55:23.000
+ I think the third thing,
+
+55:23.000 --> 55:25.360
+ and this is where I think Penn excels.
+
+55:25.360 --> 55:27.240
+ I mean, we teach engineering,
+
+55:27.240 --> 55:29.960
+ but it's always in the context of the liberal arts.
+
+55:29.960 --> 55:32.360
+ It's always in the context of society.
+
+55:32.360 --> 55:35.840
+ As engineers, we cannot afford to lose sight of that.
+
+55:35.840 --> 55:37.640
+ So I think that's important.
+
+55:37.640 --> 55:39.960
+ But I think one thing that people underestimate
+
+55:39.960 --> 55:40.920
+ when they do robotics
+
+55:40.920 --> 55:43.440
+ is the importance of mathematical foundations,
+
+55:43.440 --> 55:46.880
+ the importance of representations.
+
+55:47.720 --> 55:50.040
+ Not everything can just be solved
+
+55:50.040 --> 55:52.440
+ by looking for Ross packages on the internet
+
+55:52.440 --> 55:56.280
+ or to find a deep neural network that works.
+
+55:56.280 --> 55:59.080
+ I think the representation question is key,
+
+55:59.080 --> 56:00.400
+ even to machine learning,
+
+56:00.400 --> 56:05.400
+ where if you ever hope to achieve or get to explainable AI,
+
+56:05.400 --> 56:07.760
+ somehow there need to be representations
+
+56:07.760 --> 56:09.080
+ that you can understand.
+
+56:09.080 --> 56:11.120
+ So if you wanna do robotics,
+
+56:11.120 --> 56:12.680
+ you should also do mathematics.
+
+56:12.680 --> 56:15.080
+ And you said liberal arts, a little literature.
+
+56:16.160 --> 56:17.200
+ If you wanna build a robot,
+
+56:17.200 --> 56:19.320
+ it should be reading Dostoyevsky.
+
+56:19.320 --> 56:20.360
+ I agree with that.
+
+56:20.360 --> 56:21.200
+ Very good.
+
+56:21.200 --> 56:23.560
+ So Vijay, thank you so much for talking today.
+
+56:23.560 --> 56:24.400
+ It was an honor.
+
+56:24.400 --> 56:25.240
+ Thank you.
+
+56:25.240 --> 56:26.200
+ It was just a very exciting conversation.
+
+56:26.200 --> 56:46.200
+ Thank you.
+

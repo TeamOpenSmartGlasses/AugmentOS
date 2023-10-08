@@ -1,0 +1,4706 @@
+WEBVTT
+
+00:00.000 --> 00:03.600
+ The following is a conversation with William McCaskill.
+
+00:03.600 --> 00:09.300
+ He's a philosopher, ethicist, and one of the originators of the effective altruism movement.
+
+00:09.300 --> 00:13.000
+ His research focuses on the fundamentals of effective altruism,
+
+00:13.000 --> 00:19.500
+ or the use of evidence and reason to help others by as much as possible with our time and money,
+
+00:19.500 --> 00:24.400
+ with a particular concentration on how to act given moral uncertainty.
+
+00:24.400 --> 00:28.600
+ He's the author of Doing Good, Better, Effective Altruism,
+
+00:28.600 --> 00:31.200
+ and a Radical New Way to Make a Difference.
+
+00:31.200 --> 00:37.100
+ He is a cofounder and the president of the Center of Effective Altruism, CEA,
+
+00:37.100 --> 00:43.900
+ that encourages people to commit to donate at least 10% of their income to the most effective charities.
+
+00:43.900 --> 00:49.200
+ He cofounded 80,000 Hours, which is a nonprofit that provides research and advice
+
+00:49.200 --> 00:52.600
+ on how you can best make a difference through your career.
+
+00:52.600 --> 00:57.800
+ This conversation was recorded before the outbreak of the coronavirus pandemic.
+
+00:57.800 --> 01:02.300
+ For everyone feeling the medical, psychological, and financial burden of this crisis,
+
+01:02.300 --> 01:04.200
+ I'm sending love your way.
+
+01:04.200 --> 01:09.100
+ Stay strong. We're in this together. We'll beat this thing.
+
+01:09.100 --> 01:11.900
+ This is the Artificial Intelligence Podcast.
+
+01:11.900 --> 01:16.200
+ If you enjoy it, subscribe on YouTube, review it with five stars on Apple Podcast,
+
+01:16.200 --> 01:23.100
+ support it on Patreon, or simply connect with me on Twitter at Lex Friedman, spelled F R I D M A N.
+
+01:23.100 --> 01:25.800
+ As usual, I'll do one or two minutes of ads now,
+
+01:25.800 --> 01:29.700
+ and never any ads in the middle that can break the flow of the conversation.
+
+01:29.700 --> 01:34.700
+ I hope that works for you and doesn't hurt the listening experience.
+
+01:34.700 --> 01:39.000
+ This show is presented by Cash App, the number one finance app in the App Store.
+
+01:39.000 --> 01:42.100
+ When you get it, use code LEXPODCAST.
+
+01:42.100 --> 01:48.900
+ Cash App lets you send money to friends, buy Bitcoin, and invest in the stock market with as little as $1.
+
+01:48.900 --> 01:52.800
+ Since Cash App allows you to send and receive money digitally, peer to peer,
+
+01:52.800 --> 01:56.100
+ and security in all digital transactions is very important,
+
+01:56.100 --> 02:01.300
+ let me mention the PCI data security standard that Cash App is compliant with.
+
+02:01.300 --> 02:04.300
+ I'm a big fan of standards for safety and security.
+
+02:04.300 --> 02:07.100
+ PCI DSS is a good example of that,
+
+02:07.100 --> 02:10.000
+ where a bunch of competitors got together and agreed
+
+02:10.000 --> 02:14.400
+ that there needs to be a global standard around the security of transactions.
+
+02:14.400 --> 02:19.300
+ Now, we just need to do the same for autonomous vehicles and AI systems in general.
+
+02:19.300 --> 02:22.600
+ So again, if you get Cash App from the App Store or Google Play,
+
+02:22.600 --> 02:28.800
+ and use the code LEXPODCAST, you get $10, and Cash App will also donate $10 to FIRST,
+
+02:28.800 --> 02:34.500
+ an organization that is helping to advance robotics and STEM education for young people around the world.
+
+02:34.500 --> 02:39.100
+ And now, here's my conversation with William McCaskill.
+
+02:39.100 --> 02:43.500
+ What does utopia for humans and all life on Earth look like for you?
+
+02:43.500 --> 02:45.400
+ That's a great question.
+
+02:45.400 --> 02:49.200
+ What I want to say is that we don't know,
+
+02:49.200 --> 02:55.500
+ and the utopia we want to get to is an indirect one that I call the long reflection.
+
+02:55.500 --> 03:01.200
+ So, period of post scarcity, no longer have the kind of urgent problems we have today,
+
+03:01.200 --> 03:06.200
+ but instead can spend, perhaps it's tens of thousands of years debating,
+
+03:06.200 --> 03:12.100
+ engaging in ethical reflection in order, before we take any kind of drastic lock in,
+
+03:12.100 --> 03:14.500
+ actions like spreading to the stars,
+
+03:14.500 --> 03:20.500
+ and then we can figure out what is of kind of moral value.
+
+03:20.500 --> 03:25.100
+ The long reflection, that's a really beautiful term.
+
+03:25.100 --> 03:29.600
+ So, if we look at Twitter for just a second,
+
+03:29.600 --> 03:37.300
+ do you think human beings are able to reflect in a productive way?
+
+03:37.300 --> 03:39.500
+ I don't mean to make it sound bad,
+
+03:39.500 --> 03:45.000
+ because there is a lot of fights and politics and division in our discourse.
+
+03:45.000 --> 03:48.900
+ Maybe if you zoom out, it actually is civilized discourse.
+
+03:48.900 --> 03:51.000
+ It might not feel like it, but when you zoom out.
+
+03:51.000 --> 03:55.100
+ So, I don't want to say that Twitter is not civilized discourse.
+
+03:55.100 --> 03:56.100
+ I actually believe it.
+
+03:56.100 --> 03:58.400
+ It's more civilized than people give it credit for.
+
+03:58.400 --> 04:03.600
+ But do you think the long reflection can actually be stable,
+
+04:03.600 --> 04:08.400
+ where we as human beings with our descendant of eight brains
+
+04:08.400 --> 04:13.100
+ would be able to sort of rationally discuss things together and arrive at ideas?
+
+04:13.100 --> 04:19.800
+ I think, overall, we're pretty good at discussing things rationally,
+
+04:19.800 --> 04:28.500
+ and at least in the earlier stages of our lives being open to many different ideas,
+
+04:28.500 --> 04:33.300
+ and being able to be convinced and change our views.
+
+04:33.300 --> 04:38.800
+ I think that Twitter is designed almost to bring out all the worst tendencies.
+
+04:38.800 --> 04:43.200
+ So, if the long reflection were conducted on Twitter,
+
+04:43.200 --> 04:46.200
+ maybe it would be better just not even to bother.
+
+04:46.200 --> 04:50.300
+ But I think the challenge really is getting to a stage
+
+04:50.300 --> 04:55.700
+ where we have a society that is as conducive as possible
+
+04:55.700 --> 04:59.000
+ to rational reflection, to deliberation.
+
+04:59.000 --> 05:04.000
+ I think we're actually very lucky to be in a liberal society
+
+05:04.000 --> 05:06.900
+ where people are able to discuss a lot of ideas and so on.
+
+05:06.900 --> 05:08.100
+ I think when we look to the future,
+
+05:08.100 --> 05:12.400
+ that's not at all guaranteed that society would be like that,
+
+05:12.400 --> 05:16.900
+ rather than a society where there's a fixed canon of values
+
+05:16.900 --> 05:20.600
+ that are being imposed on all of society,
+
+05:20.600 --> 05:22.300
+ and where you aren't able to question that.
+
+05:22.300 --> 05:23.900
+ That would be very bad from my perspective,
+
+05:23.900 --> 05:27.900
+ because it means we wouldn't be able to figure out what the truth is.
+
+05:27.900 --> 05:31.300
+ I can already sense we're going to go down a million tangents,
+
+05:31.300 --> 05:36.800
+ but what do you think is the...
+
+05:36.800 --> 05:38.700
+ If Twitter is not optimal,
+
+05:38.700 --> 05:43.300
+ what kind of mechanism in this modern age of technology
+
+05:43.300 --> 05:49.300
+ can we design where the exchange of ideas could be both civilized and productive,
+
+05:49.300 --> 05:52.600
+ and yet not be too constrained
+
+05:52.600 --> 05:55.300
+ where there's rules of what you can say and can't say,
+
+05:55.300 --> 05:57.900
+ which is, as you say, is not desirable,
+
+05:57.900 --> 06:02.800
+ but yet not have some limits as to what can be said or not and so on?
+
+06:02.800 --> 06:05.700
+ Do you have any ideas, thoughts on the possible future?
+
+06:05.700 --> 06:07.200
+ Of course, nobody knows how to do it,
+
+06:07.200 --> 06:10.900
+ but do you have thoughts of what a better Twitter might look like?
+
+06:10.900 --> 06:16.200
+ I think that text based media are intrinsically going to be very hard
+
+06:16.200 --> 06:20.000
+ to be conducive to rational discussion,
+
+06:20.000 --> 06:24.100
+ because if you think about it from an informational perspective,
+
+06:24.100 --> 06:27.200
+ if I just send you a text of less than,
+
+06:27.200 --> 06:31.700
+ what is it now, 240 characters, 280 characters, I think,
+
+06:31.700 --> 06:36.100
+ that's a tiny amount of information compared to, say, you and I talking now,
+
+06:36.100 --> 06:40.100
+ where you have access to the words I say, which is the same as in text,
+
+06:40.100 --> 06:43.800
+ but also my tone, also my body language,
+
+06:43.800 --> 06:47.800
+ and we're very poorly designed to be able to assess...
+
+06:47.800 --> 06:50.300
+ I have to read all of this context into anything you say,
+
+06:50.300 --> 06:56.500
+ so maybe your partner sends you a text and has a full stop at the end.
+
+06:56.500 --> 06:58.000
+ Are they mad at you?
+
+06:58.000 --> 06:58.600
+ You don't know.
+
+06:58.600 --> 07:02.400
+ You have to infer everything about this person's mental state
+
+07:02.400 --> 07:04.700
+ from whether they put a full stop at the end of a text or not.
+
+07:04.700 --> 07:08.800
+ Well, the flip side of that is it truly text that's the problem here,
+
+07:08.800 --> 07:14.700
+ because there's a viral aspect to the text,
+
+07:14.700 --> 07:17.200
+ where you could just post text nonstop.
+
+07:17.200 --> 07:19.800
+ It's very immediate.
+
+07:19.800 --> 07:23.200
+ The times before Twitter, before the internet,
+
+07:23.200 --> 07:28.500
+ the way you would exchange texts is you would write books.
+
+07:28.500 --> 07:33.200
+ And that, while it doesn't get body language, it doesn't get tone, it doesn't...
+
+07:33.200 --> 07:36.700
+ so on, but it does actually boil down after some time of thinking,
+
+07:36.700 --> 07:40.000
+ some editing, and so on, boil down ideas.
+
+07:40.000 --> 07:45.600
+ So is the immediacy and the viral nature,
+
+07:45.600 --> 07:49.400
+ which produces the outrage mobs and so on, the potential problem?
+
+07:49.400 --> 07:51.100
+ I think that is a big issue.
+
+07:51.100 --> 07:56.200
+ I think there's going to be this strong selection effect where
+
+07:56.200 --> 07:59.000
+ something that provokes outrage, well, that's high arousal,
+
+07:59.000 --> 08:04.400
+ you're more likely to retweet that,
+
+08:04.400 --> 08:08.800
+ whereas kind of sober analysis is not as sexy, not as viral.
+
+08:08.800 --> 08:16.400
+ I do agree that long form content is much better to productive discussion.
+
+08:16.400 --> 08:19.400
+ In terms of the media that are very popular at the moment,
+
+08:19.400 --> 08:25.400
+ I think that podcasting is great where your podcasts are two hours long,
+
+08:25.400 --> 08:28.900
+ so they're much more in depth than Twitter are,
+
+08:28.900 --> 08:33.500
+ and you are able to convey so much more nuance,
+
+08:33.500 --> 08:36.800
+ so much more caveat, because it's an actual conversation.
+
+08:36.800 --> 08:40.200
+ It's more like the sort of communication that we've evolved to do,
+
+08:40.200 --> 08:44.900
+ rather than these very small little snippets of ideas that,
+
+08:44.900 --> 08:46.900
+ when also combined with bad incentives,
+
+08:46.900 --> 08:49.800
+ just clearly aren't designed for helping us get to the truth.
+
+08:49.800 --> 08:53.700
+ It's kind of interesting that it's not just the length of the podcast medium,
+
+08:53.700 --> 08:59.300
+ but it's the fact that it was started by people that don't give a damn about
+
+08:59.300 --> 09:05.100
+ quote unquote demand, that there's a relaxed,
+
+09:05.100 --> 09:08.100
+ sort of the style that Joe Rogan does,
+
+09:08.100 --> 09:12.800
+ there's a freedom to express ideas
+
+09:12.800 --> 09:15.300
+ in an unconstrained way that's very real.
+
+09:15.300 --> 09:22.100
+ It's kind of funny that it feels so refreshingly real to us today,
+
+09:22.100 --> 09:24.900
+ and I wonder what the future looks like.
+
+09:24.900 --> 09:29.700
+ It's a little bit sad now that quite a lot of sort of more popular people
+
+09:29.700 --> 09:31.600
+ are getting into podcasting,
+
+09:31.600 --> 09:37.300
+ and they try to sort of create, they try to control it,
+
+09:37.300 --> 09:40.200
+ they try to constrain it in different kinds of ways.
+
+09:40.200 --> 09:43.400
+ People I love, like Conan O Brien and so on, different comedians,
+
+09:43.400 --> 09:50.600
+ and I'd love to see where the real aspects of this podcasting medium persist,
+
+09:50.600 --> 09:52.500
+ maybe in TV, maybe in YouTube,
+
+09:52.500 --> 09:55.600
+ maybe Netflix is pushing those kind of ideas,
+
+09:55.600 --> 09:58.400
+ and it's kind of, it's a really exciting word,
+
+09:58.400 --> 10:00.200
+ that kind of sharing of knowledge.
+
+10:00.200 --> 10:02.100
+ Yeah, I mean, I think it's a double edged sword
+
+10:02.100 --> 10:04.300
+ as it becomes more popular and more profitable,
+
+10:04.300 --> 10:08.400
+ where on the one hand you'll get a lot more creativity,
+
+10:08.400 --> 10:10.700
+ people doing more interesting things with the medium,
+
+10:10.700 --> 10:12.700
+ but also perhaps you get this place to the bottom
+
+10:12.700 --> 10:18.100
+ where suddenly maybe it'll be hard to find good content on podcasts
+
+10:18.100 --> 10:24.300
+ because it'll be so overwhelmed by the latest bit of viral outrage.
+
+10:24.300 --> 10:31.100
+ So speaking of that, jumping on Effective Altruism for a second,
+
+10:31.100 --> 10:36.200
+ so much of that internet content is funded by advertisements.
+
+10:36.200 --> 10:39.800
+ Just in the context of Effective Altruism,
+
+10:39.800 --> 10:44.100
+ we're talking about the richest companies in the world,
+
+10:44.100 --> 10:45.800
+ they're funded by advertisements essentially,
+
+10:45.800 --> 10:48.800
+ Google, that's their primary source of income.
+
+10:48.800 --> 10:51.000
+ Do you see that as,
+
+10:51.000 --> 10:55.200
+ do you have any criticism of that source of income?
+
+10:55.200 --> 10:57.500
+ Do you see that source of money
+
+10:57.500 --> 11:01.000
+ as a potentially powerful source of money that could be used,
+
+11:01.000 --> 11:03.200
+ well, certainly could be used for good,
+
+11:03.200 --> 11:05.900
+ but is there something bad about that source of money?
+
+11:05.900 --> 11:08.100
+ I think there's significant worries with it,
+
+11:08.100 --> 11:13.200
+ where it means that the incentives of the company
+
+11:13.200 --> 11:20.600
+ might be quite misaligned with making people's lives better,
+
+11:20.600 --> 11:28.400
+ where again, perhaps the incentives are towards increasing drama
+
+11:28.400 --> 11:32.300
+ and debate on your social media feed
+
+11:32.300 --> 11:36.300
+ in order that more people are going to be engaged,
+
+11:36.300 --> 11:42.200
+ perhaps compulsively involved with the platform.
+
+11:42.200 --> 11:45.600
+ Whereas there are other business models
+
+11:45.600 --> 11:49.100
+ like having an opt in subscription service
+
+11:49.100 --> 11:51.500
+ where perhaps they have other issues,
+
+11:51.500 --> 11:57.600
+ but there's much more of an incentive to provide a product
+
+11:57.600 --> 12:00.500
+ that its users are just really wanting,
+
+12:00.500 --> 12:02.900
+ because now I'm paying for this product.
+
+12:02.900 --> 12:05.400
+ I'm paying for this thing that I want to buy
+
+12:05.400 --> 12:09.200
+ rather than I'm trying to use this thing
+
+12:09.200 --> 12:11.600
+ and it's going to get a profit mechanism
+
+12:11.600 --> 12:13.600
+ that is somewhat orthogonal to me
+
+12:13.600 --> 12:19.000
+ actually just wanting to use the product.
+
+12:19.000 --> 12:23.000
+ And so, I mean, in some cases it'll work better than others.
+
+12:23.000 --> 12:27.100
+ I can imagine, I can in theory imagine Facebook
+
+12:27.100 --> 12:28.800
+ having a subscription service,
+
+12:28.800 --> 12:32.200
+ but I think it's unlikely to happen anytime soon.
+
+12:32.200 --> 12:34.200
+ Well, it's interesting and it's weird
+
+12:34.200 --> 12:36.200
+ now that you bring it up that it's unlikely.
+
+12:36.200 --> 12:41.000
+ For example, I pay I think 10 bucks a month for YouTube Red
+
+12:41.000 --> 12:45.300
+ and I don't think I get it much for that
+
+12:45.300 --> 12:50.200
+ except just for no ads,
+
+12:50.200 --> 12:52.900
+ but in general it's just a slightly better experience.
+
+12:52.900 --> 12:56.100
+ And I would gladly, now I'm not wealthy,
+
+12:56.100 --> 12:59.200
+ in fact I'm operating very close to zero dollars,
+
+12:59.200 --> 13:01.800
+ but I would pay 10 bucks a month to Facebook
+
+13:01.800 --> 13:04.000
+ and 10 bucks a month to Twitter
+
+13:04.000 --> 13:07.500
+ for some kind of more control
+
+13:07.500 --> 13:09.100
+ in terms of advertisements and so on.
+
+13:09.100 --> 13:13.700
+ But the other aspect of that is data, personal data.
+
+13:13.700 --> 13:16.200
+ People are really sensitive about this
+
+13:16.200 --> 13:19.400
+ and I as one who hopes to one day
+
+13:20.700 --> 13:25.600
+ create a company that may use people's data
+
+13:25.600 --> 13:27.500
+ to do good for the world,
+
+13:27.500 --> 13:28.900
+ wonder about this.
+
+13:28.900 --> 13:32.300
+ One, the psychology of why people are so paranoid.
+
+13:32.300 --> 13:33.300
+ Well, I understand why,
+
+13:33.300 --> 13:35.200
+ but they seem to be more paranoid
+
+13:35.200 --> 13:37.700
+ than is justified at times.
+
+13:37.700 --> 13:39.400
+ And the other is how do you do it right?
+
+13:39.400 --> 13:43.500
+ So it seems that Facebook is,
+
+13:43.500 --> 13:46.200
+ it seems that Facebook is doing it wrong.
+
+13:47.300 --> 13:49.500
+ That's certainly the popular narrative.
+
+13:49.500 --> 13:52.000
+ It's unclear to me actually how wrong.
+
+13:53.000 --> 13:55.400
+ Like I tend to give them more benefit of the doubt
+
+13:55.400 --> 13:59.900
+ because it's a really hard thing to do right
+
+13:59.900 --> 14:01.300
+ and people don't necessarily realize it,
+
+14:01.300 --> 14:05.900
+ but how do we respect in your view people's privacy?
+
+14:05.900 --> 14:10.700
+ Yeah, I mean in the case of how worried are people
+
+14:10.700 --> 14:12.300
+ about using their data,
+
+14:12.300 --> 14:15.200
+ I mean there's a lot of public debate
+
+14:15.200 --> 14:16.600
+ and criticism about it.
+
+14:18.600 --> 14:22.100
+ When we look at people's revealed preferences,
+
+14:22.100 --> 14:24.200
+ people's continuing massive use
+
+14:24.200 --> 14:26.400
+ of these sorts of services.
+
+14:27.600 --> 14:30.500
+ It's not clear to me how much people really do care.
+
+14:30.500 --> 14:31.500
+ Perhaps they care a bit,
+
+14:31.500 --> 14:35.500
+ but they're happy to in effect kind of sell their data
+
+14:35.500 --> 14:37.500
+ in order to be able to kind of use a certain service.
+
+14:37.500 --> 14:39.300
+ That's a great term, revealed preferences.
+
+14:39.300 --> 14:42.500
+ So these aren't preferences you self report in the survey.
+
+14:42.500 --> 14:44.500
+ This is like your actions speak.
+
+14:44.500 --> 14:45.340
+ Yeah, exactly.
+
+14:45.340 --> 14:46.500
+ So you might say,
+
+14:46.500 --> 14:51.000
+ oh yeah, I hate the idea of Facebook having my data.
+
+14:51.000 --> 14:52.700
+ But then when it comes to it,
+
+14:52.700 --> 14:55.600
+ you actually are willing to give that data in exchange
+
+14:55.600 --> 14:58.900
+ for being able to use the service.
+
+15:00.400 --> 15:01.600
+ And if that's the case,
+
+15:01.600 --> 15:05.300
+ then I think unless we have some explanation
+
+15:05.300 --> 15:10.300
+ about why there's some negative externality from that
+
+15:11.000 --> 15:13.400
+ or why there's some coordination failure,
+
+15:15.800 --> 15:18.000
+ or if there's something that consumers
+
+15:18.000 --> 15:19.700
+ are just really misled about
+
+15:19.700 --> 15:23.100
+ where they don't realize why giving away data like this
+
+15:23.100 --> 15:25.300
+ is a really bad thing to do,
+
+15:27.400 --> 15:30.800
+ then ultimately I kind of want to,
+
+15:30.800 --> 15:32.300
+ you know, respect people's preferences.
+
+15:32.300 --> 15:34.500
+ They can give away their data if they want.
+
+15:35.500 --> 15:36.500
+ I think there's a big difference
+
+15:36.500 --> 15:39.700
+ between companies use of data
+
+15:39.700 --> 15:42.640
+ and governments having data where,
+
+15:43.600 --> 15:45.800
+ you know, looking at the track record of history,
+
+15:45.800 --> 15:50.800
+ governments knowing a lot about their people can be very bad
+
+15:51.600 --> 15:55.000
+ if the government chooses to do bad things with it.
+
+15:55.000 --> 15:57.100
+ And that's more worrying, I think.
+
+15:57.100 --> 15:59.700
+ So let's jump into it a little bit.
+
+15:59.700 --> 16:03.900
+ Most people know, but actually I, two years ago,
+
+16:03.900 --> 16:07.000
+ had no idea what effective altruism was
+
+16:07.000 --> 16:09.100
+ until I saw there was a cool looking event
+
+16:09.100 --> 16:10.800
+ in an MIT group here.
+
+16:10.800 --> 16:15.800
+ I think it's called the Effective Altruism Club or a group.
+
+16:17.900 --> 16:19.800
+ I was like, what the heck is that?
+
+16:19.800 --> 16:23.200
+ And one of my friends said,
+
+16:23.200 --> 16:27.200
+ I mean, he said that they're just
+
+16:27.200 --> 16:30.000
+ a bunch of eccentric characters.
+
+16:30.000 --> 16:31.600
+ So I was like, hell yes, I'm in.
+
+16:31.600 --> 16:32.800
+ So I went to one of their events
+
+16:32.800 --> 16:34.400
+ and looked up what's it about.
+
+16:34.400 --> 16:37.000
+ It's quite a fascinating philosophical
+
+16:37.000 --> 16:38.900
+ and just a movement of ideas.
+
+16:38.900 --> 16:42.600
+ So can you tell me what is effective altruism?
+
+16:42.600 --> 16:44.800
+ Great, so the core of effective altruism
+
+16:44.800 --> 16:46.500
+ is about trying to answer this question,
+
+16:46.500 --> 16:49.400
+ which is how can I do as much good as possible
+
+16:49.400 --> 16:53.200
+ with my scarce resources, my time and with my money?
+
+16:53.200 --> 16:57.200
+ And then once we have our best guess answers to that,
+
+16:57.200 --> 17:00.200
+ trying to take those ideas and put that into practice,
+
+17:00.200 --> 17:03.000
+ and do those things that we believe will do the most good.
+
+17:03.000 --> 17:05.000
+ And we're now a community of people,
+
+17:06.100 --> 17:08.100
+ many thousands of us around the world,
+
+17:08.100 --> 17:10.800
+ who really are trying to answer that question
+
+17:10.800 --> 17:13.100
+ as best we can and then use our time and money
+
+17:13.100 --> 17:15.200
+ to make the world better.
+
+17:15.200 --> 17:18.600
+ So what's the difference between sort of
+
+17:18.600 --> 17:22.300
+ classical general idea of altruism
+
+17:22.300 --> 17:24.700
+ and effective altruism?
+
+17:24.700 --> 17:28.300
+ So normally when people try to do good,
+
+17:28.300 --> 17:33.300
+ they often just aren't so reflective about those attempts.
+
+17:34.100 --> 17:36.300
+ So someone might approach you on the street
+
+17:36.300 --> 17:38.600
+ asking you to give to charity.
+
+17:38.600 --> 17:42.200
+ And if you're feeling altruistic,
+
+17:42.200 --> 17:44.400
+ you'll give to the person on the street.
+
+17:44.400 --> 17:48.100
+ Or if you think, oh, I wanna do some good in my life,
+
+17:48.100 --> 17:50.000
+ you might volunteer at a local place.
+
+17:50.000 --> 17:52.900
+ Or perhaps you'll decide, pursue a career
+
+17:52.900 --> 17:56.500
+ where you're working in a field
+
+17:56.500 --> 17:58.200
+ that's kind of more obviously beneficial
+
+17:58.200 --> 18:02.300
+ like being a doctor or a nurse or a healthcare professional.
+
+18:02.300 --> 18:07.300
+ But it's very rare that people apply the same level
+
+18:07.900 --> 18:11.800
+ of rigor and analytical thinking
+
+18:11.800 --> 18:14.400
+ to lots of other areas we think about.
+
+18:14.400 --> 18:16.400
+ So take the case of someone approaching you on the street.
+
+18:16.400 --> 18:18.700
+ Imagine if that person instead was saying,
+
+18:18.700 --> 18:20.200
+ hey, I've got this amazing company.
+
+18:20.200 --> 18:22.400
+ Do you want to invest in it?
+
+18:22.400 --> 18:23.800
+ It would be insane.
+
+18:23.800 --> 18:25.500
+ No one would ever think, oh, of course,
+
+18:25.500 --> 18:28.000
+ I'm just a company like you'd think it was a scam.
+
+18:29.200 --> 18:31.300
+ But somehow we don't have that same level of rigor
+
+18:31.300 --> 18:32.400
+ when it comes to doing good,
+
+18:32.400 --> 18:34.600
+ even though the stakes are more important
+
+18:34.600 --> 18:36.100
+ when it comes to trying to help others
+
+18:36.100 --> 18:38.500
+ than trying to make money for ourselves.
+
+18:38.500 --> 18:40.700
+ Well, first of all, so there is a psychology
+
+18:40.700 --> 18:44.900
+ at the individual level of doing good just feels good.
+
+18:46.200 --> 18:51.200
+ And so in some sense, on that pure psychological part,
+
+18:51.700 --> 18:52.900
+ it doesn't matter.
+
+18:52.900 --> 18:56.400
+ In fact, you don't wanna know if it does good or not
+
+18:56.400 --> 19:01.400
+ because most of the time it won't.
+
+19:01.500 --> 19:04.800
+ So like in a certain sense,
+
+19:04.800 --> 19:06.900
+ it's understandable why altruism
+
+19:06.900 --> 19:09.800
+ without the effective part is so appealing
+
+19:09.800 --> 19:11.300
+ to a certain population.
+
+19:11.300 --> 19:15.300
+ By the way, let's zoom off for a second.
+
+19:15.300 --> 19:18.700
+ Do you think most people, two questions.
+
+19:18.700 --> 19:20.900
+ Do you think most people are good?
+
+19:20.900 --> 19:22.200
+ And question number two is,
+
+19:22.200 --> 19:24.900
+ do you think most people wanna do good?
+
+19:24.900 --> 19:26.600
+ So are most people good?
+
+19:26.600 --> 19:28.000
+ I think it's just super dependent
+
+19:28.000 --> 19:31.700
+ on the circumstances that someone is in.
+
+19:31.700 --> 19:34.800
+ I think that the actions people take
+
+19:34.800 --> 19:37.700
+ and their moral worth is just much more dependent
+
+19:37.700 --> 19:41.900
+ on circumstance than it is on someone's intrinsic character.
+
+19:41.900 --> 19:43.800
+ So is there evil within all of us?
+
+19:43.800 --> 19:47.900
+ It seems like with the better angels of our nature,
+
+19:47.900 --> 19:50.400
+ there's a tendency of us as a society
+
+19:50.400 --> 19:53.300
+ to tend towards good, less war.
+
+19:53.300 --> 19:55.100
+ I mean, with all these metrics.
+
+19:56.200 --> 20:00.100
+ Is that us becoming who we want to be
+
+20:00.100 --> 20:03.300
+ or is that some kind of societal force?
+
+20:03.300 --> 20:05.300
+ What's the nature versus nurture thing here?
+
+20:05.300 --> 20:07.100
+ Yeah, so in that case, I just think,
+
+20:07.100 --> 20:10.600
+ yeah, so violence has massively declined over time.
+
+20:10.600 --> 20:14.200
+ I think that's a slow process of cultural evolution,
+
+20:14.200 --> 20:17.600
+ institutional evolution such that now the incentives
+
+20:17.600 --> 20:21.700
+ for you and I to be violent are very, very small indeed.
+
+20:21.700 --> 20:23.700
+ In contrast, when we were hunter gatherers,
+
+20:23.700 --> 20:25.800
+ the incentives were quite large.
+
+20:25.800 --> 20:30.800
+ If there was someone who was potentially disturbing
+
+20:31.900 --> 20:35.300
+ the social order and hunter gatherer setting,
+
+20:35.300 --> 20:37.800
+ there was a very strong incentive to kill that person
+
+20:37.800 --> 20:41.400
+ and people did and it was just the guarded 10% of deaths
+
+20:41.400 --> 20:44.800
+ among hunter gatherers were murders.
+
+20:44.800 --> 20:48.700
+ After hunter gatherers, when you have actual societies
+
+20:48.700 --> 20:51.300
+ is when violence can probably go up
+
+20:51.300 --> 20:54.300
+ because there's more incentive to do mass violence, right?
+
+20:54.300 --> 20:58.800
+ To take over, conquer other people's lands
+
+20:58.800 --> 21:01.200
+ and murder everybody in place and so on.
+
+21:01.200 --> 21:03.800
+ Yeah, I mean, I think total death rate
+
+21:03.800 --> 21:06.900
+ from human causes does go down,
+
+21:06.900 --> 21:10.400
+ but you're right that if you're in a hunter gatherer situation
+
+21:10.400 --> 21:15.000
+ you're kind of a group that you're part of is very small
+
+21:15.000 --> 21:17.300
+ then you can't have massive wars
+
+21:17.300 --> 21:19.600
+ that just massive communities don't exist.
+
+21:19.600 --> 21:21.300
+ But anyway, the second question,
+
+21:21.300 --> 21:23.400
+ do you think most people want to do good?
+
+21:23.400 --> 21:26.100
+ Yeah, and then I think that is true for most people.
+
+21:26.100 --> 21:31.100
+ I think you see that with the fact that most people donate,
+
+21:31.800 --> 21:33.800
+ a large proportion of people volunteer.
+
+21:33.800 --> 21:35.500
+ If you give people opportunities
+
+21:35.500 --> 21:38.700
+ to easily help other people, they will take it.
+
+21:38.700 --> 21:39.700
+ But at the same time,
+
+21:39.700 --> 21:43.700
+ we're a product of our circumstances
+
+21:43.700 --> 21:47.400
+ and if it were more socially awarded to be doing more good,
+
+21:47.400 --> 21:49.600
+ if it were more socially awarded to do good effectively
+
+21:49.600 --> 21:51.300
+ rather than not effectively,
+
+21:51.300 --> 21:53.600
+ then we would see that behavior a lot more.
+
+21:55.100 --> 21:58.700
+ So why should we do good?
+
+21:58.700 --> 22:01.400
+ Yeah, my answer to this is
+
+22:01.400 --> 22:04.100
+ there's no kind of deeper level of explanation.
+
+22:04.100 --> 22:08.500
+ So my answer to kind of why should you do good is
+
+22:08.500 --> 22:11.300
+ well, there is someone whose life is on the line,
+
+22:11.300 --> 22:13.700
+ for example, whose life you can save
+
+22:13.700 --> 22:17.800
+ via donating just actually a few thousand dollars
+
+22:17.800 --> 22:20.000
+ to an effective nonprofit
+
+22:20.000 --> 22:21.800
+ like the Against Malaria Foundation.
+
+22:21.800 --> 22:23.900
+ That is a sufficient reason to do good.
+
+22:23.900 --> 22:27.000
+ And then if you ask, well, why ought I to do that?
+
+22:27.000 --> 22:29.700
+ I'm like, I just show you the same facts again.
+
+22:29.700 --> 22:32.000
+ It's that fact that is the reason to do good.
+
+22:32.000 --> 22:34.600
+ There's nothing more fundamental than that.
+
+22:34.600 --> 22:38.200
+ I'd like to sort of make more concrete
+
+22:38.200 --> 22:41.000
+ the thing we're trying to make better.
+
+22:41.000 --> 22:43.100
+ So you just mentioned malaria.
+
+22:43.100 --> 22:45.600
+ So there's a huge amount of suffering in the world.
+
+22:46.600 --> 22:50.000
+ Are we trying to remove?
+
+22:50.000 --> 22:53.500
+ So is ultimately the goal, not ultimately,
+
+22:53.500 --> 22:58.300
+ but the first step is to remove the worst of the suffering.
+
+22:59.000 --> 23:01.600
+ So there's some kind of threshold of suffering
+
+23:01.600 --> 23:04.200
+ that we want to make sure does not exist in the world.
+
+23:06.400 --> 23:11.100
+ Or do we really naturally want to take a much further step
+
+23:11.100 --> 23:13.700
+ and look at things like income inequality?
+
+23:14.600 --> 23:17.000
+ So not just getting everybody above a certain threshold,
+
+23:17.000 --> 23:19.200
+ but making sure that there's some,
+
+23:21.500 --> 23:23.600
+ that broadly speaking,
+
+23:23.600 --> 23:27.400
+ there's less injustice in the world, unfairness,
+
+23:27.400 --> 23:29.200
+ in some definition, of course,
+
+23:29.200 --> 23:31.200
+ very difficult to define a fairness.
+
+23:31.200 --> 23:35.500
+ Yeah, so the metric I use is how many people do we affect
+
+23:35.500 --> 23:37.300
+ and by how much do we affect them?
+
+23:37.300 --> 23:43.200
+ And so that can, often that means eliminating suffering,
+
+23:43.200 --> 23:44.200
+ but it doesn't have to,
+
+23:44.200 --> 23:47.800
+ could be helping promote a flourishing life instead.
+
+23:47.800 --> 23:53.000
+ And so if I was comparing reducing income inequality
+
+23:53.000 --> 23:58.300
+ or getting people from the very pits of suffering
+
+23:58.300 --> 24:00.600
+ to a higher level,
+
+24:00.600 --> 24:03.100
+ the question I would ask is just a quantitative one
+
+24:03.100 --> 24:06.200
+ of just if I do this first thing or the second thing,
+
+24:06.200 --> 24:08.100
+ how many people am I going to benefit
+
+24:08.100 --> 24:10.000
+ and by how much am I going to benefit?
+
+24:10.000 --> 24:13.500
+ Am I going to move that one person from kind of 10%,
+
+24:13.500 --> 24:17.200
+ 0% well being to 10% well being?
+
+24:17.200 --> 24:20.200
+ Perhaps that's just not as good as moving a hundred people
+
+24:20.200 --> 24:22.800
+ from 10% well being to 50% well being.
+
+24:22.800 --> 24:27.200
+ And the idea is the diminishing returns is the idea of
+
+24:27.200 --> 24:32.800
+ when you're in terrible poverty,
+
+24:32.800 --> 24:38.200
+ then the $1 that you give goes much further
+
+24:38.200 --> 24:40.700
+ than if you were in the middle class in the United States,
+
+24:40.700 --> 24:41.700
+ for example.
+
+24:41.700 --> 24:42.300
+ Absolutely.
+
+24:42.300 --> 24:44.500
+ And this fact is really striking.
+
+24:44.500 --> 24:51.600
+ So if you take even just quite a conservative estimate
+
+24:51.600 --> 24:56.900
+ of how we are able to turn money into well being,
+
+24:56.900 --> 25:00.100
+ the economists put it as like a log curve.
+
+25:00.100 --> 25:02.000
+ That's the or steeper.
+
+25:02.000 --> 25:04.600
+ But that means that any proportional increase
+
+25:04.600 --> 25:09.300
+ in your income has the same impact on your well being.
+
+25:09.300 --> 25:11.500
+ And so someone moving from $1,000 a year
+
+25:11.500 --> 25:15.800
+ to $2,000 a year has the same impact
+
+25:15.800 --> 25:20.600
+ as someone moving from $100,000 a year to $200,000 a year.
+
+25:20.600 --> 25:23.200
+ And then when you combine that with the fact that we
+
+25:23.200 --> 25:28.700
+ in middle class members of rich countries are 100 times richer
+
+25:28.700 --> 25:31.100
+ than financial terms in the global poor,
+
+25:31.100 --> 25:33.700
+ that means we can do a hundred times to benefit the poorest people
+
+25:33.700 --> 25:37.600
+ in the world as we can to benefit people of our income level.
+
+25:37.600 --> 25:39.400
+ And that's this astonishing fact.
+
+25:39.400 --> 25:40.900
+ Yeah, it's quite incredible.
+
+25:40.900 --> 25:47.600
+ A lot of these facts and ideas are just difficult to think about
+
+25:47.600 --> 25:56.000
+ because there's an overwhelming amount of suffering in the world.
+
+25:56.000 --> 26:00.700
+ And even acknowledging it is difficult.
+
+26:00.700 --> 26:02.300
+ Not exactly sure why that is.
+
+26:02.300 --> 26:07.700
+ I mean, I mean, it's difficult because you have to bring to mind,
+
+26:07.700 --> 26:10.000
+ you know, it's an unpleasant experience thinking
+
+26:10.000 --> 26:11.700
+ about other people's suffering.
+
+26:11.700 --> 26:14.700
+ It's unpleasant to be empathizing with it, firstly.
+
+26:14.700 --> 26:16.700
+ And then secondly, thinking about it means
+
+26:16.700 --> 26:19.000
+ that maybe we'd have to change our lifestyles.
+
+26:19.000 --> 26:22.900
+ And if you're very attached to the income that you've got,
+
+26:22.900 --> 26:26.500
+ perhaps you don't want to be confronting ideas or arguments
+
+26:26.500 --> 26:31.400
+ that might cause you to use some of that money to help others.
+
+26:31.400 --> 26:34.600
+ So it's quite understandable in the psychological terms,
+
+26:34.600 --> 26:38.100
+ even if it's not the right thing that we ought to be doing.
+
+26:38.100 --> 26:40.100
+ So how can we do better?
+
+26:40.100 --> 26:42.400
+ How can we be more effective?
+
+26:42.400 --> 26:44.400
+ How does data help?
+
+26:44.400 --> 26:47.500
+ Yeah, in general, how can we do better?
+
+26:47.500 --> 26:48.800
+ It's definitely hard.
+
+26:48.800 --> 26:54.700
+ And we have spent the last 10 years engaged in kind of some deep research projects,
+
+26:54.700 --> 26:59.500
+ to try and answer kind of two questions.
+
+26:59.500 --> 27:02.500
+ One is, of all the many problems the world is facing,
+
+27:02.500 --> 27:04.700
+ what are the problems we ought to be focused on?
+
+27:04.700 --> 27:08.600
+ And then within those problems that we judge to be kind of the most pressing,
+
+27:08.600 --> 27:13.200
+ where we use this idea of focusing on problems that are the biggest in scale,
+
+27:13.200 --> 27:15.600
+ that are the most tractable,
+
+27:15.600 --> 27:20.900
+ where we can make the most progress on that problem,
+
+27:20.900 --> 27:23.800
+ and that are the most neglected.
+
+27:23.800 --> 27:27.500
+ Within them, what are the things that have the kind of best evidence,
+
+27:27.500 --> 27:32.000
+ or we have the best guess, will do the most good.
+
+27:32.000 --> 27:34.500
+ And so we have a bunch of organizations.
+
+27:34.500 --> 27:39.200
+ So GiveWell, for example, is focused on global health and development,
+
+27:39.200 --> 27:42.300
+ and has a list of seven top recommended charities.
+
+27:42.300 --> 27:44.600
+ So the idea in general, and sorry to interrupt,
+
+27:44.600 --> 27:48.600
+ is, so we'll talk about sort of poverty and animal welfare and existential risk.
+
+27:48.600 --> 27:52.200
+ Those are all fascinating topics, but in general,
+
+27:52.200 --> 27:56.200
+ the idea is there should be a group,
+
+27:56.200 --> 28:04.100
+ sorry, there's a lot of groups that seek to convert money into good.
+
+28:04.100 --> 28:11.500
+ And then you also on top of that want to have a accounting
+
+28:11.500 --> 28:15.900
+ of how good they actually perform that conversion,
+
+28:15.900 --> 28:18.400
+ how well they did in converting money to good.
+
+28:18.400 --> 28:20.400
+ So ranking of these different groups,
+
+28:20.400 --> 28:24.000
+ ranking these charities.
+
+28:24.000 --> 28:29.600
+ So does that apply across basically all aspects of effective altruism?
+
+28:29.600 --> 28:31.700
+ So there should be a group of people,
+
+28:31.700 --> 28:35.700
+ and they should report on certain metrics of how well they've done,
+
+28:35.700 --> 28:39.900
+ and you should only give your money to groups that do a good job.
+
+28:39.900 --> 28:43.500
+ That's the core idea. I'd make two comments.
+
+28:43.500 --> 28:45.300
+ One is just, it's not just about money.
+
+28:45.300 --> 28:49.700
+ So we're also trying to encourage people to work in areas
+
+28:49.700 --> 28:51.300
+ where they'll have the biggest impact.
+
+28:51.300 --> 28:51.900
+ Absolutely.
+
+28:51.900 --> 28:56.400
+ And in some areas, you know, they're really people heavy, but money poor.
+
+28:56.400 --> 28:59.700
+ Other areas are kind of money rich and people poor.
+
+28:59.700 --> 29:05.200
+ And so whether it's better to focus time or money depends on the cause area.
+
+29:05.200 --> 29:08.300
+ And then the second is that you mentioned metrics,
+
+29:08.300 --> 29:12.300
+ and while that's the ideal, and in some areas we do,
+
+29:12.300 --> 29:15.100
+ we are able to get somewhat quantitative information
+
+29:15.100 --> 29:18.900
+ about how much impact an area is having.
+
+29:18.900 --> 29:20.200
+ That's not always true.
+
+29:20.200 --> 29:23.800
+ For some of the issues, like you mentioned existential risks,
+
+29:23.800 --> 29:30.400
+ well, we're not able to measure in any sort of precise way
+
+29:30.400 --> 29:32.400
+ like how much progress we're making.
+
+29:32.400 --> 29:38.500
+ And so you have to instead fall back on just rigorous argument and evaluation,
+
+29:38.500 --> 29:41.000
+ even in the absence of data.
+
+29:41.000 --> 29:47.400
+ So let's first sort of linger on your own story for a second.
+
+29:47.400 --> 29:51.100
+ How do you yourself practice effective altruism in your own life?
+
+29:51.100 --> 29:54.700
+ Because I think that's a really interesting place to start.
+
+29:54.700 --> 30:00.100
+ So I've tried to build effective altruism into at least many components of my life.
+
+30:00.100 --> 30:06.200
+ So on the donation side, my plan is to give away most of my income
+
+30:06.200 --> 30:07.500
+ over the course of my life.
+
+30:07.500 --> 30:12.400
+ I've set a bar I feel happy with and I just donate above that bar.
+
+30:12.400 --> 30:17.300
+ So at the moment, I donate about 20% of my income.
+
+30:17.300 --> 30:22.000
+ Then on the career side, I've also shifted kind of what I do,
+
+30:22.000 --> 30:28.400
+ where I was initially planning to work on very esoteric topics
+
+30:28.400 --> 30:30.800
+ in the philosophy of logic, philosophy of language,
+
+30:30.800 --> 30:33.000
+ things that are intellectually extremely interesting,
+
+30:33.000 --> 30:37.400
+ but the path by which they really make a difference to the world is,
+
+30:37.400 --> 30:40.600
+ let's just say it's very unclear at best.
+
+30:40.600 --> 30:44.600
+ And so I switched instead to researching ethics to actually just working
+
+30:44.600 --> 30:48.400
+ on this question of how we can do as much good as possible.
+
+30:48.400 --> 30:53.300
+ And then I've also spent a very large chunk of my life over the last 10 years
+
+30:53.300 --> 30:56.400
+ creating a number of nonprofits who again in different ways
+
+30:56.400 --> 31:00.000
+ are tackling this question of how we can do the most good
+
+31:00.000 --> 31:02.000
+ and helping them to grow over time too.
+
+31:02.000 --> 31:06.600
+ Yeah, we mentioned a few of them with the career selection, 80,000.
+
+31:06.600 --> 31:07.500
+ 80,000 hours.
+
+31:07.500 --> 31:11.100
+ 80,000 hours is a really interesting group.
+
+31:11.100 --> 31:18.400
+ So maybe also just a quick pause on the origins of effective altruism
+
+31:18.400 --> 31:21.700
+ because you paint a picture who the key figures are,
+
+31:21.700 --> 31:26.800
+ including yourself in the effective altruism movement today.
+
+31:26.800 --> 31:31.300
+ Yeah, there are two main strands that kind of came together
+
+31:31.300 --> 31:34.800
+ to form the effective altruism movement.
+
+31:34.800 --> 31:40.400
+ So one was two philosophers, myself and Toby Ord at Oxford,
+
+31:40.400 --> 31:43.900
+ and we had been very influenced by the work of Peter Singer,
+
+31:43.900 --> 31:47.200
+ an Australian model philosopher who had argued for many decades
+
+31:47.200 --> 31:52.900
+ that because one can do so much good at such little cost to oneself,
+
+31:52.900 --> 31:55.600
+ we have an obligation to give away most of our income
+
+31:55.600 --> 31:58.200
+ to benefit those in extreme poverty,
+
+31:58.200 --> 32:01.300
+ just in the same way that we have an obligation to run in
+
+32:01.300 --> 32:04.700
+ and save a child from drowning in a shallow pond
+
+32:04.700 --> 32:10.300
+ if it would just ruin your suit that cost a few thousand dollars.
+
+32:10.300 --> 32:13.100
+ And we set up Giving What We Can in 2009,
+
+32:13.100 --> 32:16.000
+ which is encouraging people to give at least 10% of their income
+
+32:16.000 --> 32:18.100
+ to the most effective charities.
+
+32:18.100 --> 32:21.300
+ And the second main strand was the formation of GiveWell,
+
+32:21.300 --> 32:26.300
+ which was originally based in New York and started in about 2007.
+
+32:26.300 --> 32:30.200
+ And that was set up by Holden Carnovsky and Elie Hassenfeld,
+
+32:30.200 --> 32:36.200
+ who were two hedge fund dudes who were making good money
+
+32:36.200 --> 32:38.400
+ and thinking, well, where should I donate?
+
+32:38.400 --> 32:42.100
+ And in the same way as if they wanted to buy a product for themselves,
+
+32:42.100 --> 32:44.100
+ they would look at Amazon reviews.
+
+32:44.100 --> 32:46.600
+ They were like, well, what are the best charities?
+
+32:46.600 --> 32:49.300
+ Found they just weren't really good answers to that question,
+
+32:49.300 --> 32:51.200
+ certainly not that they were satisfied with.
+
+32:51.200 --> 32:56.200
+ And so they formed GiveWell in order to try and work out
+
+32:56.200 --> 32:59.000
+ what are those charities where they can have the biggest impact.
+
+32:59.000 --> 33:02.200
+ And then from there and some other influences,
+
+33:02.200 --> 33:05.200
+ kind of community grew and spread.
+
+33:05.200 --> 33:08.600
+ Can we explore the philosophical and political space
+
+33:08.600 --> 33:11.400
+ that effective altruism occupies a little bit?
+
+33:11.400 --> 33:16.600
+ So from the little and distant in my own lifetime
+
+33:16.600 --> 33:21.100
+ that I've read of Ayn Rand's work, Ayn Rand's philosophy of objectivism,
+
+33:21.100 --> 33:26.700
+ espouses, and it's interesting to put her philosophy in contrast
+
+33:26.700 --> 33:28.000
+ with effective altruism.
+
+33:28.000 --> 33:34.000
+ So it espouses selfishness as the best thing you can do.
+
+33:34.000 --> 33:37.600
+ But it's not actually against altruism.
+
+33:37.600 --> 33:43.100
+ It's just you have that choice, but you should be selfish in it, right?
+
+33:43.100 --> 33:44.800
+ Or not, maybe you can disagree here.
+
+33:44.800 --> 33:49.500
+ But so it can be viewed as the complete opposite of effective altruism
+
+33:49.500 --> 33:55.500
+ or it can be viewed as similar because the word effective is really interesting.
+
+33:55.500 --> 34:02.200
+ Because if you want to do good, then you should be damn good at doing good, right?
+
+34:02.200 --> 34:08.600
+ I think that would fit within the morality that's defined by objectivism.
+
+34:08.600 --> 34:11.100
+ So do you see a connection between these two philosophies
+
+34:11.100 --> 34:17.300
+ and other perhaps in this complicated space of beliefs
+
+34:17.300 --> 34:24.700
+ that effective altruism is positioned as opposing or aligned with?
+
+34:24.700 --> 34:27.800
+ I would definitely say that objectivism, Ayn Rand's philosophy,
+
+34:27.800 --> 34:33.100
+ is a philosophy that's quite fundamentally opposed to effective altruism.
+
+34:33.100 --> 34:34.300
+ In which way?
+
+34:34.300 --> 34:38.600
+ Insofar as Ayn Rand's philosophy is about championing egoism
+
+34:38.600 --> 34:42.800
+ and saying that I'm never quite sure whether the philosophy is meant to say
+
+34:42.800 --> 34:47.300
+ that just you ought to do whatever will best benefit yourself,
+
+34:47.300 --> 34:50.700
+ that's ethical egoism, no matter what the consequences are.
+
+34:50.700 --> 34:55.200
+ Or second, if there's this alternative view, which is, well,
+
+34:55.200 --> 34:59.800
+ you ought to try and benefit yourself because that's actually the best way
+
+34:59.800 --> 35:02.900
+ of benefiting society.
+
+35:02.900 --> 35:07.500
+ Certainly, in Atlas Shalaguchi is presenting her philosophy
+
+35:07.500 --> 35:12.000
+ as a way that's actually going to bring about a flourishing society.
+
+35:12.000 --> 35:16.100
+ And if it's the former, then well, effective altruism is all about promoting
+
+35:16.100 --> 35:18.800
+ the idea of altruism and saying, in fact,
+
+35:18.800 --> 35:22.400
+ we ought to really be trying to help others as much as possible.
+
+35:22.400 --> 35:23.900
+ So it's opposed there.
+
+35:23.900 --> 35:28.700
+ And then on the second side, I would just dispute the empirical premise.
+
+35:28.700 --> 35:31.500
+ It would seem, given the major problems in the world today,
+
+35:31.500 --> 35:34.200
+ it would seem like this remarkable coincidence,
+
+35:34.200 --> 35:38.500
+ quite suspicious, one might say, if benefiting myself was actually
+
+35:38.500 --> 35:41.100
+ the best way to bring about a better world.
+
+35:41.100 --> 35:46.800
+ So on that point, and I think that connects also with career selection
+
+35:46.800 --> 35:53.100
+ that we'll talk about, but let's consider not objectives, but capitalism.
+
+35:53.100 --> 36:00.900
+ And the idea that you focusing on the thing that you are damn good at,
+
+36:00.900 --> 36:05.800
+ whatever that is, may be the best thing for the world.
+
+36:05.800 --> 36:09.800
+ Part of it is also mindset, right?
+
+36:09.800 --> 36:13.200
+ The thing I love is robots.
+
+36:13.200 --> 36:17.500
+ So maybe I should focus on building robots
+
+36:17.500 --> 36:22.500
+ and never even think about the idea of effective altruism,
+
+36:22.500 --> 36:25.000
+ which is kind of the capitalist notion.
+
+36:25.000 --> 36:28.500
+ Is there any value in that idea in just finding the thing you're good at
+
+36:28.500 --> 36:31.500
+ and maximizing your productivity in this world
+
+36:31.500 --> 36:38.600
+ and thereby sort of lifting all boats and benefiting society as a result?
+
+36:38.600 --> 36:41.000
+ Yeah, I think there's two things I'd want to say on that.
+
+36:41.000 --> 36:43.500
+ So one is what your comparative advantages,
+
+36:43.500 --> 36:45.400
+ what your strengths are when it comes to career.
+
+36:45.400 --> 36:49.300
+ That's obviously super important because there's lots of career paths
+
+36:49.300 --> 36:53.800
+ I would be terrible at if I thought being an artist was the best thing one could do.
+
+36:53.800 --> 36:59.300
+ Well, I'd be doomed, just really quite astonishingly bad.
+
+36:59.300 --> 37:05.800
+ And so I do think, at least within the realm of things that could plausibly be very high impact,
+
+37:05.800 --> 37:11.500
+ choose the thing that you think you're going to be able to really be passionate at
+
+37:11.500 --> 37:15.100
+ and excel at over the long term.
+
+37:15.100 --> 37:19.000
+ Then on this question of should one just do that in an unrestricted way
+
+37:19.000 --> 37:22.300
+ and not even think about what the most important problems are.
+
+37:22.300 --> 37:27.800
+ I do think that in a kind of perfectly designed society, that might well be the case.
+
+37:27.800 --> 37:31.500
+ That would be a society where we've corrected all market failures,
+
+37:31.500 --> 37:34.700
+ we've internalized all externalities,
+
+37:34.700 --> 37:41.700
+ and then we've managed to set up incentives such that people just pursuing their own strengths
+
+37:41.700 --> 37:44.100
+ is the best way of doing good.
+
+37:44.100 --> 37:46.200
+ But we're very far from that society.
+
+37:46.200 --> 37:53.000
+ So if one did that, then it would be very unlikely that you would focus
+
+37:53.000 --> 37:57.900
+ on improving the lives of nonhuman animals that aren't participating in markets
+
+37:57.900 --> 38:00.000
+ or ensuring the long run future goes well,
+
+38:00.000 --> 38:03.200
+ where future people certainly aren't participating in markets
+
+38:03.200 --> 38:06.400
+ or benefiting the global poor who do participate,
+
+38:06.400 --> 38:11.000
+ but have so much less kind of power from a starting perspective
+
+38:11.000 --> 38:18.900
+ that their views aren't accurately kind of represented by market forces too.
+
+38:18.900 --> 38:19.500
+ Got it.
+
+38:19.500 --> 38:22.700
+ So yeah, instead of pure definition capitalism,
+
+38:22.700 --> 38:27.000
+ it just may very well ignore the people that are suffering the most,
+
+38:27.000 --> 38:28.900
+ the white swath of them.
+
+38:28.900 --> 38:35.400
+ So if you could allow me this line of thinking here.
+
+38:35.400 --> 38:38.800
+ So I've listened to a lot of your conversations online.
+
+38:38.800 --> 38:46.000
+ I find, if I can compliment you, they're very interesting conversations.
+
+38:46.000 --> 38:50.100
+ Your conversation on Rogan, on Joe Rogan was really interesting,
+
+38:50.100 --> 38:55.600
+ with Sam Harris and so on, whatever.
+
+38:55.600 --> 38:58.000
+ There's a lot of stuff that's really good out there.
+
+38:58.000 --> 39:01.600
+ And yet, when I look at the internet and I look at YouTube,
+
+39:01.600 --> 39:08.200
+ which has certain mobs, certain swaths of right leaning folks,
+
+39:08.200 --> 39:12.500
+ whom I dearly love.
+
+39:12.500 --> 39:19.000
+ I love all people, especially people with ideas.
+
+39:19.000 --> 39:22.700
+ They seem to not like you very much.
+
+39:22.700 --> 39:26.200
+ So I don't understand why exactly.
+
+39:26.200 --> 39:31.100
+ So my own sort of hypothesis is there is a right left divide
+
+39:31.100 --> 39:36.100
+ that absurdly so caricatured in politics,
+
+39:36.100 --> 39:38.300
+ at least in the United States.
+
+39:38.300 --> 39:42.700
+ And maybe you're somehow pigeonholed into one of those sides.
+
+39:42.700 --> 39:46.600
+ And maybe that's what it is.
+
+39:46.600 --> 39:49.600
+ Maybe your message is somehow politicized.
+
+39:49.600 --> 39:50.800
+ Yeah, I mean.
+
+39:50.800 --> 39:52.200
+ How do you make sense of that?
+
+39:52.200 --> 39:54.400
+ Because you're extremely interesting.
+
+39:54.400 --> 39:58.600
+ Like you got the comments I see on Joe Rogan.
+
+39:58.600 --> 40:00.400
+ There's a bunch of negative stuff.
+
+40:00.400 --> 40:03.200
+ And yet, if you listen to it, the conversation is fascinating.
+
+40:03.200 --> 40:08.300
+ I'm not speaking, I'm not some kind of lefty extremist,
+
+40:08.300 --> 40:10.100
+ but just it's a fascinating conversation.
+
+40:10.100 --> 40:13.800
+ So why are you getting some small amount of hate?
+
+40:13.800 --> 40:18.100
+ So I'm actually pretty glad that Effective Altruism has managed
+
+40:18.100 --> 40:24.000
+ to stay relatively unpoliticized because I think the core message
+
+40:24.000 --> 40:27.100
+ to just use some of your time and money to do as much good as possible
+
+40:27.100 --> 40:30.100
+ to fight some of the problems in the world can be appealing
+
+40:30.100 --> 40:31.700
+ across the political spectrum.
+
+40:31.700 --> 40:35.500
+ And we do have a diversity of political viewpoints among people
+
+40:35.500 --> 40:38.800
+ who have engaged in Effective Altruism.
+
+40:38.800 --> 40:42.700
+ We do, however, do get some criticism from the left and the right.
+
+40:42.700 --> 40:43.400
+ Oh, interesting.
+
+40:43.400 --> 40:44.400
+ What's the criticism?
+
+40:44.400 --> 40:45.800
+ Both would be interesting to hear.
+
+40:45.800 --> 40:49.300
+ Yeah, so criticism from the left is that we're not focused enough
+
+40:49.300 --> 40:54.100
+ on dismantling the capitalist system that they see as the root
+
+40:54.100 --> 40:58.500
+ of most of the problems that we're talking about.
+
+40:58.500 --> 41:06.800
+ And there I kind of disagree on partly the premise where I don't
+
+41:06.800 --> 41:11.900
+ think relevant alternative systems would say to the animals or to the
+
+41:11.900 --> 41:15.400
+ global poor or to the future generations kind of much better.
+
+41:15.400 --> 41:19.000
+ And then also the tactics where I think there are particular ways
+
+41:19.000 --> 41:22.400
+ we can change society that would massively benefit, you know,
+
+41:22.400 --> 41:27.600
+ be massively beneficial on those things that don't go via dismantling
+
+41:27.600 --> 41:30.900
+ like the entire system, which is perhaps a million times harder to do.
+
+41:30.900 --> 41:34.900
+ Then criticism on the right, there's definitely like in response
+
+41:34.900 --> 41:36.900
+ to the Joe Rogan podcast.
+
+41:36.900 --> 41:40.000
+ There definitely were a number of Ayn Rand fans who weren't keen
+
+41:40.000 --> 41:43.000
+ on the idea of promoting altruism.
+
+41:43.000 --> 41:46.900
+ There was a remarkable set of ideas.
+
+41:46.900 --> 41:50.700
+ Just the idea that Effective Altruism was unmanly, I think, was
+
+41:50.700 --> 41:52.100
+ driving a lot of criticism.
+
+41:52.100 --> 41:56.700
+ Okay, so I love fighting.
+
+41:56.700 --> 41:58.900
+ I've been in street fights my whole life.
+
+41:58.900 --> 42:04.100
+ I'm as alpha in everything I do as it gets.
+
+42:04.100 --> 42:08.700
+ And the fact that Joe Rogan said that I thought Scent of a Woman
+
+42:08.700 --> 42:14.600
+ is a better movie than John Wick put me into this beta category
+
+42:14.600 --> 42:20.700
+ amongst people who are like basically saying this, yeah, unmanly
+
+42:20.700 --> 42:21.500
+ or it's not tough.
+
+42:21.500 --> 42:26.900
+ It's not some principled view of strength that is represented
+
+42:26.900 --> 42:27.700
+ by a spasmodic.
+
+42:27.700 --> 42:31.200
+ So actually, so how do you think about this?
+
+42:31.200 --> 42:41.400
+ Because to me, altruism, especially Effective Altruism, I don't
+
+42:41.400 --> 42:44.800
+ know what the female version of that is, but on the male side, manly
+
+42:44.800 --> 42:46.300
+ as fuck, if I may say so.
+
+42:46.300 --> 42:51.500
+ So how do you think about that kind of criticism?
+
+42:51.500 --> 42:55.400
+ I think people who would make that criticism are just occupying
+
+42:55.400 --> 42:59.200
+ a like state of mind that I think is just so different from my
+
+42:59.200 --> 43:03.300
+ state of mind that I kind of struggle to maybe even understand it
+
+43:03.300 --> 43:07.700
+ where if something's manly or unmanly or feminine or unfeminine,
+
+43:07.700 --> 43:08.700
+ I'm like, I don't care.
+
+43:08.700 --> 43:11.000
+ Like, is it the right thing to do or the wrong thing to do?
+
+43:11.000 --> 43:14.700
+ So let me put it not in terms of man or woman.
+
+43:14.700 --> 43:20.100
+ I don't think that's useful, but I think there's a notion of acting
+
+43:20.100 --> 43:26.700
+ out of fear as opposed to out of principle and strength.
+
+43:26.700 --> 43:27.400
+ Yeah.
+
+43:27.400 --> 43:28.400
+ So, okay.
+
+43:28.400 --> 43:28.600
+ Yeah.
+
+43:28.600 --> 43:33.500
+ Here's something that I do feel as an intuition and that I think
+
+43:33.500 --> 43:38.200
+ drives some people who do find Canvaean Land attractive and so on
+
+43:38.200 --> 43:43.000
+ as a philosophy, which is a kind of taking control of your own
+
+43:43.000 --> 43:51.300
+ life and having power over how you're steering your life and not
+
+43:51.300 --> 43:55.500
+ kind of kowtowing to others, you know, really thinking things through.
+
+43:55.500 --> 43:59.800
+ I find like that set of ideas just very compelling and inspirational.
+
+43:59.800 --> 44:04.300
+ I actually think of effect of altruism has really, you know, that
+
+44:04.300 --> 44:05.300
+ side of my personality.
+
+44:05.300 --> 44:11.400
+ It's like scratch that itch where you are just not taking the kind
+
+44:11.400 --> 44:14.100
+ of priorities that society is giving you as granted.
+
+44:14.100 --> 44:19.300
+ Instead, you're choosing to act in accordance with the priorities
+
+44:19.300 --> 44:21.200
+ that you think are most important in the world.
+
+44:21.200 --> 44:29.400
+ And often that involves then doing quite unusual things from a
+
+44:29.400 --> 44:33.400
+ societal perspective, like donating a large chunk of your earnings
+
+44:33.400 --> 44:38.100
+ or working on these weird issues about AI and so on that other
+
+44:38.100 --> 44:39.200
+ people might not understand.
+
+44:39.200 --> 44:42.000
+ Yeah, I think that's a really gutsy thing to do.
+
+44:42.000 --> 44:43.400
+ That is taking control.
+
+44:43.400 --> 44:45.600
+ That's at least at this stage.
+
+44:45.600 --> 44:53.300
+ I mean, that's you taking ownership, not of just yourself, but
+
+44:53.300 --> 44:58.500
+ your presence in this world that's full of suffering and saying
+
+44:58.500 --> 45:02.300
+ as opposed to being paralyzed by that notion is taking control
+
+45:02.300 --> 45:03.600
+ and saying I could do something.
+
+45:03.600 --> 45:05.900
+ Yeah, I mean, that's really powerful.
+
+45:05.900 --> 45:09.500
+ But I mean, sort of the one thing I personally hate too about the
+
+45:09.500 --> 45:15.500
+ left currently that I think those folks to detect is the social
+
+45:15.500 --> 45:21.600
+ signaling. When you look at yourself, sort of late at night, would
+
+45:21.600 --> 45:25.900
+ you do everything you're doing in terms of effective altruism if
+
+45:25.900 --> 45:29.300
+ your name, because you're quite popular, but if your name was
+
+45:29.300 --> 45:32.400
+ totally unattached to it, so if it was in secret.
+
+45:32.400 --> 45:34.800
+ Yeah, I mean, I think I would.
+
+45:34.800 --> 45:39.800
+ To be honest, I think the kind of popularity is like, you know,
+
+45:39.800 --> 45:43.300
+ it's mixed bag, but there are serious costs.
+
+45:43.300 --> 45:45.600
+ And I don't particularly, I don't like love it.
+
+45:45.600 --> 45:49.700
+ Like, it means you get all these people calling you a cuck on
+
+45:49.700 --> 45:50.300
+ Joe Rogan.
+
+45:50.300 --> 45:51.900
+ It's like not the most fun thing.
+
+45:51.900 --> 45:56.100
+ But you also get a lot of sort of brownie points for doing good
+
+45:56.100 --> 45:56.700
+ for the world.
+
+45:56.700 --> 45:57.800
+ Yeah, you do.
+
+45:57.800 --> 46:02.200
+ But I think my ideal life, I would be like in some library solving
+
+46:02.200 --> 46:06.500
+ logic puzzles all day and I'd like really be like learning maths
+
+46:06.500 --> 46:07.100
+ and so on.
+
+46:07.100 --> 46:10.600
+ So you have a like good body of friends and so on.
+
+46:10.600 --> 46:14.500
+ So your instinct for effective altruism is something deep.
+
+46:14.500 --> 46:19.100
+ It's not one that is communicating
+
+46:19.100 --> 46:21.300
+ socially. It's more in your heart.
+
+46:21.300 --> 46:23.200
+ You want to do good for the world.
+
+46:23.200 --> 46:26.700
+ Yeah, I mean, so we can look back to early giving what we can.
+
+46:26.700 --> 46:31.800
+ So, you know, we're setting this up, me and Toby.
+
+46:31.800 --> 46:36.500
+ And I really thought that doing this would be a big hit to my
+
+46:36.500 --> 46:40.100
+ academic career because I was now spending, you know, at that time
+
+46:40.100 --> 46:43.700
+ more than half my time setting up this nonprofit at the crucial
+
+46:43.700 --> 46:46.500
+ time when you should be like producing your best academic work
+
+46:46.500 --> 46:47.000
+ and so on.
+
+46:47.000 --> 46:49.700
+ And it was also the case at the time.
+
+46:49.700 --> 46:52.900
+ It was kind of like the Toby order club.
+
+46:52.900 --> 46:55.300
+ You know, he was he was the most popular.
+
+46:55.300 --> 46:57.700
+ There's this personal interest story about him and his plans
+
+46:57.700 --> 47:02.600
+ donate and sorry to interrupt but Toby was donating a large
+
+47:02.600 --> 47:05.100
+ amount. Can you tell just briefly what he was doing?
+
+47:05.100 --> 47:09.000
+ Yeah, so he made this public commitment to give everything
+
+47:09.000 --> 47:13.900
+ he earned above 20,000 pounds per year to the most effective
+
+47:13.900 --> 47:17.400
+ causes. And even as a graduate student, he was still donating
+
+47:17.400 --> 47:21.600
+ about 15, 20% of his income, which is so quite significant
+
+47:21.600 --> 47:24.100
+ given that graduate students are not known for being super
+
+47:24.100 --> 47:24.500
+ wealthy.
+
+47:24.500 --> 47:28.500
+ That's right. And when we launched Giving What We Can, the
+
+47:28.500 --> 47:31.500
+ media just loved this as like a personal interest story.
+
+47:31.500 --> 47:38.500
+ So the story about him and his pledge was the most, yeah, it
+
+47:38.500 --> 47:40.500
+ was actually the most popular news story of the day.
+
+47:40.500 --> 47:43.400
+ And we kind of ran the same story a year later and it was
+
+47:43.400 --> 47:45.800
+ the most popular news story of the day a year later too.
+
+47:45.800 --> 47:53.100
+ And so it really was kind of several years before then I
+
+47:53.100 --> 47:55.400
+ was also kind of giving more talks and starting to do more
+
+47:55.400 --> 47:58.000
+ writing and then especially with, you know, I wrote this book
+
+47:58.000 --> 48:02.100
+ Doing Good Better that then there started to be kind of attention
+
+48:02.100 --> 48:06.300
+ and so on. But deep inside your own relationship with effective
+
+48:06.300 --> 48:12.300
+ altruism was, I mean, it had nothing to do with the publicity.
+
+48:12.300 --> 48:14.400
+ Did you see yourself?
+
+48:14.400 --> 48:16.900
+ How did the publicity connect with it?
+
+48:16.900 --> 48:19.700
+ Yeah, I mean, that's kind of what I'm saying is I think the
+
+48:19.700 --> 48:22.900
+ publicity came like several years afterwards.
+
+48:22.900 --> 48:25.400
+ I mean, at the early stage when we set up Giving What We Can,
+
+48:25.400 --> 48:30.200
+ it was really just every person we get to pledge 10% is, you
+
+48:30.200 --> 48:34.800
+ know, something like $100,000 over their lifetime.
+
+48:34.800 --> 48:35.800
+ That's huge.
+
+48:35.800 --> 48:39.600
+ And so it was just we had started with 23 members, every single
+
+48:39.600 --> 48:43.200
+ person was just this like kind of huge accomplishment.
+
+48:43.200 --> 48:46.500
+ And at the time, I just really thought, you know, maybe over
+
+48:46.500 --> 48:49.700
+ time we'll have a hundred members and that'll be like amazing.
+
+48:49.700 --> 48:52.900
+ Whereas now we have, you know, over four thousand and one and
+
+48:52.900 --> 48:54.100
+ a half billion dollars pledged.
+
+48:54.100 --> 48:59.100
+ That's just unimaginable to me at the time when I was first kind
+
+48:59.100 --> 49:02.000
+ of getting this, you know, getting the stuff off the ground.
+
+49:02.000 --> 49:10.100
+ So can we talk about poverty and the biggest problems that you
+
+49:10.100 --> 49:15.300
+ think in the near term effective altruism can attack in each
+
+49:15.300 --> 49:18.900
+ one. So poverty obviously is a huge one.
+
+49:18.900 --> 49:21.400
+ Yeah. How can we help?
+
+49:21.400 --> 49:22.200
+ Great.
+
+49:22.200 --> 49:22.400
+ Yeah.
+
+49:22.400 --> 49:24.800
+ So poverty, absolutely this huge problem.
+
+49:24.800 --> 49:28.800
+ 700 million people in extreme poverty living in less than two
+
+49:28.800 --> 49:33.800
+ dollars per day where that's what that means is what two dollars
+
+49:33.800 --> 49:34.900
+ would buy in the US.
+
+49:34.900 --> 49:36.900
+ So think about that.
+
+49:36.900 --> 49:38.800
+ It's like some rice, maybe some beans.
+
+49:38.800 --> 49:40.600
+ It's very, you know, really not much.
+
+49:40.600 --> 49:45.600
+ And at the same time, we can do an enormous amount to improve
+
+49:45.600 --> 49:47.400
+ the lives of people in extreme poverty.
+
+49:47.400 --> 49:51.800
+ So the things that we tend to focus on interventions in global
+
+49:51.800 --> 49:54.600
+ health and that's for a couple of few reasons.
+
+49:54.600 --> 49:58.100
+ One is like global health just has this amazing track record
+
+49:58.100 --> 50:02.700
+ life expectancy globally is up 50% relative to 60 or 70 years
+
+50:02.700 --> 50:06.600
+ ago. We've eradicated smallpox that's which killed 2 million
+
+50:06.600 --> 50:08.900
+ lives every year almost eradicated polio.
+
+50:08.900 --> 50:13.800
+ Second is that we just have great data on what works when it
+
+50:13.800 --> 50:14.600
+ comes to global health.
+
+50:14.600 --> 50:20.500
+ So we just know that bed nets protect children from prevent
+
+50:20.500 --> 50:21.600
+ them from dying from malaria.
+
+50:21.600 --> 50:26.300
+ And then the third is just that's extremely cost effective.
+
+50:26.300 --> 50:30.800
+ So it costs $5 to buy one bed net, protects two children for
+
+50:30.800 --> 50:31.900
+ two years against malaria.
+
+50:31.900 --> 50:35.600
+ If you spend about $3,000 on bed nets, then statistically
+
+50:35.600 --> 50:37.300
+ speaking, you're going to save a child's life.
+
+50:37.300 --> 50:40.900
+ And there are other interventions too.
+
+50:40.900 --> 50:45.300
+ And so given the people in such suffering and we have this
+
+50:45.300 --> 50:50.800
+ opportunity to, you know, do such huge good for such low cost.
+
+50:50.800 --> 50:52.000
+ Well, yeah, why not?
+
+50:52.000 --> 50:53.300
+ So the individual.
+
+50:53.300 --> 50:59.400
+ So for me today, if I wanted to look at poverty, how would
+
+50:59.400 --> 51:03.700
+ I help? And I wanted to say, I think donating 10% of your
+
+51:03.700 --> 51:07.000
+ income is a very interesting idea or some percentage or some
+
+51:07.000 --> 51:09.400
+ setting a bar and sort of sticking to it.
+
+51:09.400 --> 51:14.700
+ How do we then take the step towards the effective part?
+
+51:14.700 --> 51:19.200
+ So you've conveyed some notions, but who do you give the
+
+51:19.200 --> 51:21.300
+ money to? Yeah.
+
+51:21.300 --> 51:25.900
+ So GiveWell, this organization I mentioned, well, it makes
+
+51:25.900 --> 51:29.300
+ charity recommendations and some of its top recommendations.
+
+51:29.300 --> 51:34.200
+ So Against Malaria Foundation is this organization that buys
+
+51:34.200 --> 51:37.300
+ and distributes these insecticide seeded bed nets.
+
+51:37.300 --> 51:41.400
+ And then it has a total of seven charities that it recommends
+
+51:41.400 --> 51:46.100
+ very highly. So that recommendation, is it almost like a star
+
+51:46.100 --> 51:48.800
+ of approval or is there some metrics?
+
+51:48.800 --> 51:54.600
+ So what are the ways that GiveWell conveys that this is a
+
+51:54.600 --> 51:57.200
+ great charity organization?
+
+51:57.200 --> 51:58.000
+ Yeah.
+
+51:58.000 --> 52:01.700
+ So GiveWell is looking at metrics and it's trying to compare
+
+52:01.700 --> 52:05.800
+ charities ultimately in the number of lives that you can save
+
+52:05.800 --> 52:07.500
+ or an equivalent benefit.
+
+52:07.500 --> 52:11.700
+ So one of the charities it recommends is GiveDirectly, which
+
+52:11.700 --> 52:17.100
+ simply just transfers cash to the poorest families where poor
+
+52:17.100 --> 52:20.800
+ family will get a cash transfer of $1,000 and they kind of
+
+52:20.800 --> 52:24.600
+ regard that as the baseline intervention because it's so simple
+
+52:24.600 --> 52:27.300
+ and people, you know, they know what to do with how to benefit
+
+52:27.300 --> 52:30.400
+ themselves. That's quite powerful, by the way.
+
+52:30.400 --> 52:34.600
+ So before GiveWell, before the Effective Altruism Movement, was
+
+52:34.600 --> 52:39.000
+ there, I imagine there's a huge amount of corruption, funny
+
+52:39.000 --> 52:42.100
+ enough, in charity organizations or misuse of money.
+
+52:42.100 --> 52:42.500
+ Yeah.
+
+52:43.500 --> 52:46.200
+ So there was nothing like GiveWell before that?
+
+52:46.200 --> 52:46.500
+ No.
+
+52:46.500 --> 52:47.500
+ I mean, there were some.
+
+52:47.700 --> 52:49.500
+ So, I mean, the charity corruption, I mean, obviously
+
+52:49.500 --> 52:53.800
+ there's some, I don't think it's a huge issue.
+
+52:53.800 --> 52:57.700
+ They're also just focusing on the long things. Prior to GiveWell,
+
+52:57.700 --> 53:00.900
+ there were some organizations like Charity Navigator, which
+
+53:00.900 --> 53:04.600
+ were more aimed at worrying about corruption and so on.
+
+53:04.600 --> 53:07.300
+ So they weren't saying, these are the charities where you're
+
+53:07.300 --> 53:10.300
+ going to do the most good. Instead, it was like, how good
+
+53:10.300 --> 53:12.700
+ are the charities financials?
+
+53:12.700 --> 53:14.100
+ How good is its health?
+
+53:14.100 --> 53:16.800
+ Are they transparent? And yeah, so that would be more useful
+
+53:16.800 --> 53:18.800
+ for weeding out some of those worst charities.
+
+53:19.200 --> 53:21.900
+ So GiveWell has just taken a step further, sort of in this
+
+53:21.900 --> 53:24.700
+ 21st century of data.
+
+53:25.200 --> 53:28.700
+ It's actually looking at the effective part.
+
+53:28.700 --> 53:32.100
+ Yeah. So it's like, you know, if you know the wire cutter for
+
+53:32.100 --> 53:34.200
+ if you want to buy a pair of headphones, they will just look
+
+53:34.200 --> 53:36.400
+ at all the headphones and be like, these are the best headphones
+
+53:36.400 --> 53:37.100
+ you can buy.
+
+53:37.800 --> 53:38.900
+ That's the idea with GiveWell.
+
+53:39.300 --> 53:39.700
+ Okay.
+
+53:39.700 --> 53:44.400
+ So do you think there's a bar of what suffering is?
+
+53:44.400 --> 53:47.800
+ And do you think one day we can eradicate suffering in our
+
+53:47.800 --> 53:49.400
+ world? Yeah.
+
+53:49.400 --> 53:50.200
+ Amongst humans?
+
+53:50.200 --> 53:52.300
+ Let's talk humans for now. Talk humans.
+
+53:52.300 --> 53:55.000
+ But in general, yeah, actually.
+
+53:55.000 --> 54:00.800
+ So there's a colleague of mine calling the term abolitionism
+
+54:00.800 --> 54:02.800
+ for the idea that we should just be trying to abolish
+
+54:02.800 --> 54:06.100
+ suffering. And in the long run, I mean, I don't expect to
+
+54:06.100 --> 54:07.700
+ anytime soon, but I think we can.
+
+54:09.100 --> 54:11.800
+ I think that would require, you know, quite change, quite
+
+54:11.900 --> 54:15.400
+ drastic changes to the way society is structured and perhaps
+
+54:15.400 --> 54:21.600
+ even the, you know, the human, in fact, even changes to human
+
+54:21.600 --> 54:25.400
+ nature. But I do think that suffering whenever it occurs
+
+54:25.400 --> 54:28.200
+ is bad and we should want it to not occur.
+
+54:28.300 --> 54:31.400
+ So there's a line.
+
+54:31.500 --> 54:33.900
+ There's a gray area between suffering.
+
+54:33.900 --> 54:34.700
+ Now I'm Russian.
+
+54:34.700 --> 54:37.200
+ So I romanticize some aspects of suffering.
+
+54:38.600 --> 54:41.400
+ There's a gray line between struggle, gray area between
+
+54:41.400 --> 54:42.700
+ struggle and suffering.
+
+54:42.700 --> 54:50.200
+ So one, do we want to eradicate all struggle in the world?
+
+54:51.800 --> 54:59.600
+ So there's an idea, you know, that the human condition
+
+54:59.900 --> 55:04.000
+ inherently has suffering in it and it's a creative force.
+
+55:04.800 --> 55:09.400
+ It's a struggle of our lives and we somehow grow from that.
+
+55:09.400 --> 55:13.600
+ How do you think about, how do you think about that?
+
+55:13.600 --> 55:15.600
+ I agree that's true.
+
+55:15.600 --> 55:20.300
+ So, you know, often, you know, great artists can be also
+
+55:20.300 --> 55:24.300
+ suffering from, you know, major health conditions or depression
+
+55:24.300 --> 55:26.600
+ and so on. They come from abusive parents.
+
+55:26.600 --> 55:29.900
+ Most great artists, I think, come from abusive parents.
+
+55:29.900 --> 55:33.200
+ Yeah, that seems to be at least commonly the case, but I
+
+55:33.200 --> 55:37.100
+ want to distinguish between suffering as being instrumentally
+
+55:37.100 --> 55:40.900
+ good, you know, it causes people to produce good things and
+
+55:40.900 --> 55:43.300
+ whether it's intrinsically good and I think intrinsically
+
+55:43.300 --> 55:44.200
+ it's always bad.
+
+55:44.500 --> 55:47.700
+ And so if we can produce these, you know, great achievements
+
+55:48.000 --> 55:52.200
+ via some other means where, you know, if we look at the
+
+55:52.200 --> 55:55.000
+ scientific enterprise, we've produced incredible things
+
+55:55.000 --> 55:58.800
+ often from people who aren't suffering, have, you know,
+
+55:59.300 --> 56:00.000
+ pretty good lives.
+
+56:00.000 --> 56:02.700
+ They're just, they're driven instead of, you know, being
+
+56:02.700 --> 56:04.200
+ pushed by a certain sort of anguish.
+
+56:04.200 --> 56:06.200
+ They're being driven by intellectual curiosity.
+
+56:06.200 --> 56:11.300
+ If we can instead produce a society where it's all cavet
+
+56:11.300 --> 56:13.900
+ and no stick, that's better from my perspective.
+
+56:14.000 --> 56:17.000
+ Yeah, but I'm going to disagree with the notion that that's
+
+56:17.000 --> 56:21.600
+ possible, but I would say most of the suffering in the world
+
+56:21.600 --> 56:22.700
+ is not productive.
+
+56:23.100 --> 56:28.200
+ So I would dream of effective altruism curing that suffering.
+
+56:28.200 --> 56:30.800
+ Yeah, but then I would say that there is some suffering that
+
+56:30.800 --> 56:35.600
+ is productive that we want to keep the because but that's
+
+56:35.600 --> 56:38.800
+ not even the focus of because most of the suffering is just
+
+56:38.800 --> 56:44.100
+ absurd and needs to be eliminated.
+
+56:44.100 --> 56:47.700
+ So let's not even romanticize this usual notion I have,
+
+56:47.700 --> 56:51.800
+ but nevertheless struggle has some kind of inherent value
+
+56:51.800 --> 56:56.900
+ that to me at least, you're right.
+
+56:56.900 --> 56:59.400
+ There's some elements of human nature that also have to
+
+56:59.400 --> 57:01.900
+ be modified in order to cure all suffering.
+
+57:01.900 --> 57:03.900
+ Yeah, I mean, there's an interesting question of whether
+
+57:03.900 --> 57:04.500
+ it's possible.
+
+57:04.500 --> 57:07.000
+ So at the moment, you know, most of the time we're kind
+
+57:07.000 --> 57:10.300
+ of neutral and then we burn ourselves and that's negative
+
+57:10.300 --> 57:13.200
+ and that's really good that we get that negative signal
+
+57:13.200 --> 57:15.300
+ because it means we won't burn ourselves again.
+
+57:15.800 --> 57:21.100
+ There's a question like could you design agents humans such
+
+57:21.100 --> 57:23.600
+ that you're not hovering around the zero level you're hovering
+
+57:23.600 --> 57:24.500
+ it like bliss.
+
+57:24.600 --> 57:26.700
+ Yeah, and then you touch the flame and you're like, oh no,
+
+57:26.700 --> 57:28.300
+ you're just slightly worse bliss.
+
+57:28.300 --> 57:31.800
+ Yeah, but that's really bad compared to the bliss you
+
+57:31.800 --> 57:34.200
+ were normally in so that you can have like a gradient of
+
+57:34.200 --> 57:37.300
+ bliss instead of like pain and pleasure on that point.
+
+57:37.300 --> 57:41.100
+ I think it's a really important point on the experience
+
+57:41.200 --> 57:45.600
+ of suffering the relative nature of it.
+
+57:46.500 --> 57:51.500
+ Maybe having grown up in the Soviet Union were quite poor
+
+57:52.100 --> 57:57.700
+ by any measure and when I when I was in my childhood,
+
+57:58.100 --> 58:01.000
+ but it didn't feel like you're poor because everybody around
+
+58:01.000 --> 58:06.100
+ you were poor there's a and then in America, I feel I for
+
+58:06.100 --> 58:09.100
+ the first time begin to feel poor.
+
+58:09.200 --> 58:09.500
+ Yeah.
+
+58:09.500 --> 58:11.900
+ Yeah, because of the road there's different.
+
+58:11.900 --> 58:15.200
+ There's some cultural aspects to it that really emphasize
+
+58:15.200 --> 58:16.500
+ that it's good to be rich.
+
+58:17.200 --> 58:19.500
+ And then there's just the notion that there is a lot of
+
+58:19.500 --> 58:23.000
+ income inequality and therefore you experience that inequality.
+
+58:23.000 --> 58:23.900
+ That's where suffering go.
+
+58:24.200 --> 58:27.400
+ Do you so what do you think about the inequality of suffering
+
+58:27.400 --> 58:32.900
+ that that we have to think about do you think we have to
+
+58:32.900 --> 58:37.200
+ think about that as part of effective altruism?
+
+58:37.300 --> 58:40.700
+ Yeah, I think we're just things vary in terms of whether
+
+58:41.800 --> 58:45.000
+ you get benefits or costs from them just in relative terms
+
+58:45.000 --> 58:46.300
+ or in absolute terms.
+
+58:46.700 --> 58:49.300
+ So a lot of the time yeah, there's this hedonic treadmill
+
+58:49.300 --> 58:56.800
+ where if you get you know, there's money is useful because
+
+58:56.800 --> 58:59.700
+ it helps you buy things or good for you because it helps
+
+58:59.700 --> 59:02.100
+ you buy things, but there's also a status component too
+
+59:02.500 --> 59:06.600
+ and that status component is kind of zero sum if you were
+
+59:06.600 --> 59:10.900
+ saying like in Russia, you know, no one else felt poor
+
+59:10.900 --> 59:13.500
+ because everyone around you is poor.
+
+59:13.500 --> 59:16.600
+ Whereas now you've got this these other people who are
+
+59:17.600 --> 59:19.700
+ you know super rich and maybe that makes you feel.
+
+59:22.600 --> 59:24.100
+ You know less good about yourself.
+
+59:24.100 --> 59:27.300
+ There are some other things however, which are just
+
+59:27.300 --> 59:28.800
+ intrinsically good or bad.
+
+59:28.800 --> 59:33.000
+ So commuting for example, it's just people hate it.
+
+59:33.000 --> 59:35.500
+ It doesn't really change knowing the other people are
+
+59:35.500 --> 59:40.000
+ commuting to doesn't make it any any kind of less bad,
+
+59:40.000 --> 59:42.800
+ but it's sort of to push back on that for a second.
+
+59:42.800 --> 59:48.300
+ I mean, yes, but also if some people were, you know on
+
+59:48.300 --> 59:52.200
+ horseback your commute on the train might feel a lot better.
+
+59:52.200 --> 59:55.400
+ Yeah, you know the there is a relative Nick.
+
+59:55.400 --> 59:59.400
+ I mean everybody's complaining about society today forgetting
+
+59:59.400 --> 1:00:04.400
+ it's forgetting how much better is the better angels of
+
+1:00:04.400 --> 1:00:07.200
+ our nature how the technologies improve fundamentally
+
+1:00:07.200 --> 1:00:09.200
+ improving most of the world's lives.
+
+1:00:09.300 --> 1:00:13.000
+ Yeah, and actually there's some psychological research
+
+1:00:13.000 --> 1:00:16.800
+ on the well being benefits of volunteering where people
+
+1:00:16.800 --> 1:00:20.900
+ who volunteer tend to just feel happier about their lives
+
+1:00:20.900 --> 1:00:23.600
+ and one of the suggested explanations is it because it
+
+1:00:23.700 --> 1:00:25.200
+ extends your reference class.
+
+1:00:25.600 --> 1:00:28.700
+ So no longer you comparing yourself to the Joneses who
+
+1:00:28.700 --> 1:00:31.500
+ have their slightly better car because you realize that
+
+1:00:31.500 --> 1:00:34.300
+ you know people in much worse conditions than you and
+
+1:00:34.300 --> 1:00:37.600
+ so now, you know your life doesn't seem so bad.
+
+1:00:37.900 --> 1:00:39.800
+ That's actually on the psychological level.
+
+1:00:39.800 --> 1:00:42.600
+ One of the fundamental benefits of effective altruism.
+
+1:00:42.700 --> 1:00:47.700
+ Yeah is is I mean, I guess it's the altruism part of
+
+1:00:47.700 --> 1:00:51.700
+ effective altruism is exposing yourself to the suffering
+
+1:00:51.700 --> 1:00:54.700
+ in the world allows you to be more.
+
+1:00:55.700 --> 1:00:59.900
+ Yeah happier and actually allows you in the sort of
+
+1:00:59.900 --> 1:01:03.000
+ meditative introspective way realize that you don't need
+
+1:01:03.000 --> 1:01:07.400
+ most of the wealth you have to to be happy.
+
+1:01:07.800 --> 1:01:08.300
+ Absolutely.
+
+1:01:08.300 --> 1:01:10.400
+ I mean, I think effective options have been this huge
+
+1:01:10.400 --> 1:01:13.400
+ benefit for me and I really don't think that if I had
+
+1:01:13.400 --> 1:01:16.400
+ more money that I was living on that that would change
+
+1:01:16.400 --> 1:01:17.900
+ my level of well being at all.
+
+1:01:18.100 --> 1:01:21.500
+ Whereas engaging in something that I think is meaningful
+
+1:01:21.500 --> 1:01:25.100
+ that I think is stealing humanity in a positive direction.
+
+1:01:25.200 --> 1:01:26.400
+ That's extremely rewarding.
+
+1:01:27.400 --> 1:01:32.400
+ And so yeah, I mean despite my best attempts at sacrifice.
+
+1:01:32.500 --> 1:01:35.000
+ Um, I don't you know, I think I've actually ended up
+
+1:01:35.000 --> 1:01:37.500
+ happier as a result of engaging in effective altruism
+
+1:01:37.500 --> 1:01:38.700
+ than I would have done.
+
+1:01:38.800 --> 1:01:40.200
+ That's such an interesting idea.
+
+1:01:40.300 --> 1:01:43.200
+ Yeah, so let's let's talk about animal welfare.
+
+1:01:43.200 --> 1:01:46.400
+ Sure, easy question. What is consciousness?
+
+1:01:46.700 --> 1:01:50.400
+ Yeah, especially as it has to do with the capacity to
+
+1:01:50.400 --> 1:01:53.600
+ suffer. I think there seems to be a connection between
+
+1:01:53.600 --> 1:01:57.100
+ how conscious something is the amount of consciousness
+
+1:01:57.400 --> 1:02:01.100
+ and stability to suffer and that all comes into play
+
+1:02:01.100 --> 1:02:03.300
+ about us thinking how much suffering there's in the
+
+1:02:03.300 --> 1:02:05.600
+ world with regard to animals.
+
+1:02:05.600 --> 1:02:08.600
+ So how do you think about animal welfare and consciousness?
+
+1:02:08.700 --> 1:02:09.100
+ Okay.
+
+1:02:09.200 --> 1:02:10.700
+ Well consciousness easy question.
+
+1:02:10.700 --> 1:02:11.100
+ Okay.
+
+1:02:11.100 --> 1:02:13.800
+ Um, yeah, I mean, I think we don't have a good understanding
+
+1:02:13.800 --> 1:02:14.500
+ of consciousness.
+
+1:02:14.500 --> 1:02:17.000
+ My best guess is it's got and by consciousness.
+
+1:02:17.000 --> 1:02:21.200
+ I'm meaning what it is feels like to be you the subjective
+
+1:02:21.200 --> 1:02:24.000
+ experience that's seems to be different from everything
+
+1:02:24.000 --> 1:02:25.300
+ else we know about in the world.
+
+1:02:26.000 --> 1:02:27.400
+ Yeah, I think it's clear.
+
+1:02:27.400 --> 1:02:29.300
+ It's very poorly understood at the moment.
+
+1:02:29.400 --> 1:02:31.700
+ I think it has something to do with information processing.
+
+1:02:32.000 --> 1:02:35.000
+ So the fact that the brain is a computer or something
+
+1:02:35.000 --> 1:02:35.800
+ like a computer.
+
+1:02:36.300 --> 1:02:40.300
+ So that would mean that very advanced AI could be conscious
+
+1:02:40.300 --> 1:02:43.800
+ of information processors in general could be conscious
+
+1:02:44.000 --> 1:02:48.300
+ with some suitable complexity, but that also some suitable
+
+1:02:48.300 --> 1:02:49.100
+ complexity.
+
+1:02:49.200 --> 1:02:51.500
+ It's a question whether greater complexity creates some
+
+1:02:51.500 --> 1:02:54.800
+ kind of greater consciousness which relates to animals.
+
+1:02:54.900 --> 1:02:55.600
+ Yeah, right.
+
+1:02:55.600 --> 1:02:59.400
+ Is there if it's an information processing system and it's
+
+1:02:59.400 --> 1:03:03.700
+ smaller and smaller is an ant less conscious than a cow
+
+1:03:04.100 --> 1:03:06.200
+ less conscious than a monkey.
+
+1:03:06.200 --> 1:03:10.900
+ Yeah, and again this super hard question, but I think my
+
+1:03:10.900 --> 1:03:14.500
+ best guess is yes, like if you if I think well consciousness,
+
+1:03:14.500 --> 1:03:17.700
+ it's not some magical thing that appears out of nowhere.
+
+1:03:17.700 --> 1:03:20.800
+ It's not you know, Descartes thought it was just comes in
+
+1:03:20.800 --> 1:03:23.600
+ from this other realm and then enters through the pineal
+
+1:03:23.600 --> 1:03:27.300
+ gland in your brain and that's kind of soul and it's conscious.
+
+1:03:28.400 --> 1:03:30.200
+ So it's got something to do with what's going on in your
+
+1:03:30.200 --> 1:03:30.700
+ brain.
+
+1:03:30.700 --> 1:03:34.200
+ A chicken has one three hundredth of the size of the brain
+
+1:03:34.200 --> 1:03:36.100
+ that you have ants.
+
+1:03:36.100 --> 1:03:37.300
+ I don't know how small it is.
+
+1:03:37.500 --> 1:03:41.900
+ Maybe it's a millionth the size my best guess which I may
+
+1:03:41.900 --> 1:03:45.300
+ well be wrong about because this is so hard is that in some
+
+1:03:45.300 --> 1:03:49.400
+ relevant sense the chicken is experiencing consciousness
+
+1:03:49.400 --> 1:03:51.900
+ to a less degree than the human and the ants significantly
+
+1:03:51.900 --> 1:03:52.500
+ less again.
+
+1:03:52.900 --> 1:03:55.400
+ I don't think it's as little as three hundredth as much.
+
+1:03:55.400 --> 1:03:59.100
+ I think there's everyone who's ever seen a chicken that's
+
+1:03:59.100 --> 1:04:02.500
+ there's evolutionary reasons for thinking that like the
+
+1:04:02.500 --> 1:04:06.000
+ ability to feel pain comes on the scene relatively early
+
+1:04:06.000 --> 1:04:08.800
+ on and we have lots of our brain that's dedicated stuff
+
+1:04:08.800 --> 1:04:10.800
+ that doesn't seem to have to do in anything to do with
+
+1:04:10.800 --> 1:04:12.800
+ consciousness language processing and so on.
+
+1:04:13.900 --> 1:04:16.900
+ So it seems like the easy so there's a lot of complicated
+
+1:04:16.900 --> 1:04:21.300
+ questions there that we can't ask the animals about but
+
+1:04:21.300 --> 1:04:24.800
+ it seems that there is easy questions in terms of suffering
+
+1:04:24.800 --> 1:04:29.100
+ which is things like factory farming that could be addressed.
+
+1:04:29.400 --> 1:04:32.300
+ Yeah, is that is that the lowest hanging fruit?
+
+1:04:32.300 --> 1:04:36.600
+ If I may use crude terms here of animal welfare.
+
+1:04:37.000 --> 1:04:37.700
+ Absolutely.
+
+1:04:37.700 --> 1:04:39.100
+ I think that's the lowest hanging fruit.
+
+1:04:39.100 --> 1:04:43.200
+ So at the moment we kill we raise and kill about 50 billion
+
+1:04:43.200 --> 1:04:44.400
+ animals every year.
+
+1:04:44.600 --> 1:04:47.800
+ So how many 50 billion in?
+
+1:04:48.000 --> 1:04:52.300
+ Yeah, so for every human on the planet several times that
+
+1:04:52.300 --> 1:04:55.200
+ number of being killed and the vast majority of them are
+
+1:04:55.200 --> 1:04:59.200
+ raised in factory farms where basically whatever your view
+
+1:04:59.200 --> 1:05:02.400
+ on animals, I think you should agree even if you think well,
+
+1:05:02.400 --> 1:05:03.900
+ maybe it's not bad to kill an animal.
+
+1:05:03.900 --> 1:05:06.500
+ Maybe if the animal was raised in good conditions, that's
+
+1:05:06.500 --> 1:05:07.900
+ just not the empirical reality.
+
+1:05:07.900 --> 1:05:11.700
+ The empirical reality is that they are kept in incredible
+
+1:05:11.700 --> 1:05:12.900
+ cage confinement.
+
+1:05:12.900 --> 1:05:18.000
+ They are de beaked or detailed without an aesthetic, you
+
+1:05:18.000 --> 1:05:20.900
+ know chickens often peck each other to death other like
+
+1:05:20.900 --> 1:05:22.600
+ otherwise because of them such stress.
+
+1:05:23.800 --> 1:05:26.900
+ It's really, you know, I think when a chicken gets killed
+
+1:05:26.900 --> 1:05:29.200
+ that's the best thing that happened to the chicken in the
+
+1:05:29.200 --> 1:05:32.500
+ course of its life and it's also completely unnecessary.
+
+1:05:32.700 --> 1:05:35.900
+ This is in order to save, you know a few pence for the price
+
+1:05:35.900 --> 1:05:41.400
+ of meat or price of eggs and we have indeed found it's also
+
+1:05:41.400 --> 1:05:44.500
+ just inconsistent with consumer preference as well people
+
+1:05:44.500 --> 1:05:49.000
+ who buy the products if they could they all they when you
+
+1:05:49.000 --> 1:05:52.500
+ do surveys are extremely against suffering in factory farms.
+
+1:05:52.800 --> 1:05:55.300
+ It's just they don't appreciate how bad it is and you know,
+
+1:05:55.300 --> 1:05:56.900
+ just tend to go with easy options.
+
+1:05:57.500 --> 1:06:00.800
+ And so then the best the most effective programs I know of
+
+1:06:00.800 --> 1:06:04.700
+ at the moment are nonprofits that go to companies and work
+
+1:06:04.700 --> 1:06:09.900
+ with companies to get them to take a pledge to cut certain
+
+1:06:09.900 --> 1:06:12.900
+ sorts of animal products like eggs from cage confinement
+
+1:06:13.200 --> 1:06:14.700
+ out of their supply chain.
+
+1:06:14.700 --> 1:06:19.400
+ And it's now the case that the top 50 food retailers and
+
+1:06:19.400 --> 1:06:23.700
+ fast food companies have all made these kind of cage free
+
+1:06:23.700 --> 1:06:27.000
+ pledges and when you do the numbers you get the conclusion
+
+1:06:27.000 --> 1:06:29.800
+ that every dollar you're giving to these nonprofits result
+
+1:06:29.800 --> 1:06:33.000
+ in hundreds of chickens being spared from cage confinement.
+
+1:06:33.300 --> 1:06:37.600
+ And then they're working to other other types of animals
+
+1:06:37.600 --> 1:06:38.500
+ other products too.
+
+1:06:39.300 --> 1:06:43.300
+ So is that the most effective way to do in have a ripple
+
+1:06:43.300 --> 1:06:47.600
+ effect essentially it's supposed to directly having regulation
+
+1:06:48.100 --> 1:06:50.600
+ from on top that says you can't do this.
+
+1:06:51.500 --> 1:06:54.700
+ So I would be more open to the regulation approach, but
+
+1:06:55.500 --> 1:06:59.000
+ at least in the US there's quite intense regulatory capture
+
+1:06:59.100 --> 1:07:00.700
+ from the agricultural industry.
+
+1:07:01.000 --> 1:07:05.300
+ And so attempts that we've seen to try and change regulation
+
+1:07:05.800 --> 1:07:08.700
+ have it's been a real uphill struggle.
+
+1:07:08.700 --> 1:07:13.300
+ There are some examples of ballot initiatives where the
+
+1:07:13.300 --> 1:07:16.500
+ people have been able to vote in a ballot to say we want
+
+1:07:16.500 --> 1:07:19.600
+ to ban eggs from cage conditions and that's been huge.
+
+1:07:19.600 --> 1:07:22.600
+ That's been really good, but beyond that it's much more
+
+1:07:22.600 --> 1:07:27.500
+ limited. So I've been really interested in the idea of
+
+1:07:27.500 --> 1:07:32.800
+ hunting in general and wild animals and seeing nature as
+
+1:07:32.800 --> 1:07:41.300
+ a form of cruelty that I am ethically more okay with.
+
+1:07:41.400 --> 1:07:46.100
+ Okay, just from my perspective and then I read about wild
+
+1:07:46.100 --> 1:07:48.900
+ animal suffering that I'm just I'm just giving you the
+
+1:07:48.900 --> 1:07:53.900
+ kind of yeah notion of how I felt because animal because
+
+1:07:53.900 --> 1:07:57.000
+ animal factory farming is so bad.
+
+1:07:57.000 --> 1:08:00.100
+ Yeah that living in the woods seem good.
+
+1:08:00.100 --> 1:08:04.200
+ Yeah, and yet when you actually start to think about it
+
+1:08:04.300 --> 1:08:08.600
+ all I mean all of the animals in the animal world the
+
+1:08:08.600 --> 1:08:11.100
+ living in like terrible poverty, right?
+
+1:08:11.300 --> 1:08:11.600
+ Yeah.
+
+1:08:11.600 --> 1:08:15.000
+ Yeah, so you have all the medical conditions all of that.
+
+1:08:15.100 --> 1:08:17.000
+ I mean they're living horrible lives.
+
+1:08:17.000 --> 1:08:18.200
+ It could be improved.
+
+1:08:18.700 --> 1:08:21.400
+ That's a really interesting notion that I think may not
+
+1:08:21.400 --> 1:08:24.600
+ even be useful to talk about because factory farming is
+
+1:08:24.600 --> 1:08:26.400
+ such a big thing to focus on.
+
+1:08:26.500 --> 1:08:29.800
+ Yeah, but it's nevertheless an interesting notion to think
+
+1:08:29.800 --> 1:08:32.900
+ of all the animals in the wild as suffering in the same
+
+1:08:32.900 --> 1:08:34.900
+ way that humans in poverty are suffering.
+
+1:08:34.900 --> 1:08:38.400
+ Yeah, I mean and often even worse so many animals we
+
+1:08:38.400 --> 1:08:39.800
+ produce by our selection.
+
+1:08:39.800 --> 1:08:44.700
+ So you have a very large number of children in the expectation
+
+1:08:44.700 --> 1:08:46.300
+ that only a small number survive.
+
+1:08:46.700 --> 1:08:49.900
+ And so for those animals almost all of them just live short
+
+1:08:49.900 --> 1:08:51.700
+ lives where they starve to death.
+
+1:08:53.100 --> 1:08:55.100
+ So yeah, there's huge amounts of suffering in nature that
+
+1:08:55.100 --> 1:09:00.000
+ I don't think we should you know pretend that it's this kind
+
+1:09:00.000 --> 1:09:02.800
+ of wonderful paradise for most animals.
+
+1:09:04.900 --> 1:09:09.600
+ Yeah, their life is filled with hunger and fear and disease.
+
+1:09:10.400 --> 1:09:13.600
+ Yeah, I did agree with you entirely that when it comes
+
+1:09:13.600 --> 1:09:15.700
+ to focusing on animal welfare, we should focus in factory
+
+1:09:15.700 --> 1:09:20.400
+ farming, but we also yeah should be aware to the reality
+
+1:09:20.400 --> 1:09:22.300
+ of what life for most animals is like.
+
+1:09:22.300 --> 1:09:26.400
+ So let's talk about a topic I've talked a lot about and
+
+1:09:26.400 --> 1:09:29.700
+ you've actually quite eloquently talked about which is the
+
+1:09:29.700 --> 1:09:34.900
+ third priority that effective altruism considers is really
+
+1:09:34.900 --> 1:09:37.600
+ important is existential risks.
+
+1:09:37.600 --> 1:09:41.500
+ Yeah, when you think about the existential risks that
+
+1:09:41.500 --> 1:09:45.600
+ are facing our civilization, what's before us?
+
+1:09:45.600 --> 1:09:46.600
+ What concerns you?
+
+1:09:46.600 --> 1:09:49.200
+ What should we be thinking about from in the especially
+
+1:09:49.200 --> 1:09:51.100
+ from an effective altruism perspective?
+
+1:09:51.100 --> 1:09:53.900
+ Great. So the reason I started getting concerned about
+
+1:09:53.900 --> 1:09:59.500
+ this was thinking about future generations where the key
+
+1:09:59.500 --> 1:10:02.000
+ idea is just well future people matter morally.
+
+1:10:03.200 --> 1:10:05.300
+ There are vast numbers of future people.
+
+1:10:05.300 --> 1:10:07.400
+ If we don't cause our own extinction, there's no reason
+
+1:10:07.400 --> 1:10:11.100
+ why civilization might not last a million years.
+
+1:10:11.900 --> 1:10:14.200
+ I mean we last as long as a typical mammalian species
+
+1:10:14.500 --> 1:10:18.700
+ or a billion years is when the Earth is no longer habitable
+
+1:10:18.700 --> 1:10:21.500
+ or if we can take to the stars then perhaps it's trillions
+
+1:10:21.500 --> 1:10:22.400
+ of years beyond that.
+
+1:10:23.100 --> 1:10:25.500
+ So the future could be very big indeed and it seems like
+
+1:10:25.500 --> 1:10:27.700
+ we're potentially very early on in civilization.
+
+1:10:29.000 --> 1:10:31.100
+ Then the second idea is just well, maybe there are things
+
+1:10:31.100 --> 1:10:33.600
+ that are going to really derail that things that actually
+
+1:10:33.600 --> 1:10:36.900
+ could prevent us from having this long wonderful civilization
+
+1:10:37.400 --> 1:10:43.600
+ and instead could cause our own cause our own extinction
+
+1:10:43.900 --> 1:10:48.100
+ or otherwise perhaps like lock ourselves into a very bad
+
+1:10:48.100 --> 1:10:53.100
+ state. And what ways could that happen?
+
+1:10:53.100 --> 1:10:56.700
+ Well causing our own extinction development of nuclear
+
+1:10:56.700 --> 1:11:00.600
+ weapons in the 20th century at least put on the table
+
+1:11:00.600 --> 1:11:03.200
+ that we now had weapons that were powerful enough that
+
+1:11:04.100 --> 1:11:07.300
+ you could very significantly destroy society perhaps
+
+1:11:07.600 --> 1:11:09.900
+ and all that nuclear war would cause a nuclear winter.
+
+1:11:09.900 --> 1:11:14.100
+ Perhaps that would be enough for the human race to go
+
+1:11:14.100 --> 1:11:14.700
+ extinct.
+
+1:11:14.700 --> 1:11:18.000
+ Why do you think we haven't done it? Sorry to interrupt.
+
+1:11:18.000 --> 1:11:19.300
+ Why do you think we haven't done it yet?
+
+1:11:19.300 --> 1:11:26.800
+ Is it surprising to you that having, you know, always
+
+1:11:26.800 --> 1:11:30.500
+ for the past few decades several thousand of active ready
+
+1:11:30.500 --> 1:11:35.400
+ to launch nuclear weapons warheads and yet we have not
+
+1:11:35.400 --> 1:11:42.100
+ launched them ever since the initial launch on Hiroshima
+
+1:11:42.100 --> 1:11:42.900
+ and Nagasaki.
+
+1:11:42.900 --> 1:11:46.200
+ I think it's a mix of luck.
+
+1:11:46.400 --> 1:11:48.300
+ So I think it's definitely not inevitable that we haven't
+
+1:11:48.300 --> 1:11:48.800
+ used them.
+
+1:11:49.300 --> 1:11:52.300
+ So John F. Kennedy, general Cuban Missile Crisis put the
+
+1:11:52.300 --> 1:11:55.700
+ estimate of nuclear exchange between the US and USSR
+
+1:11:55.700 --> 1:11:59.100
+ that somewhere between one and three and even so, you know,
+
+1:11:59.100 --> 1:12:00.300
+ we really did come close.
+
+1:12:03.000 --> 1:12:06.000
+ At the same time, I do think mutually assured destruction
+
+1:12:06.900 --> 1:12:08.600
+ is a reason why people don't go to war.
+
+1:12:08.600 --> 1:12:11.900
+ It would be, you know, why nuclear powers don't go to war.
+
+1:12:11.900 --> 1:12:15.200
+ Do you think that holds if you can linger on that for a
+
+1:12:15.200 --> 1:12:20.100
+ second, like my dad is a physicist amongst other things
+
+1:12:20.600 --> 1:12:24.900
+ and he believes that nuclear weapons are actually just
+
+1:12:24.900 --> 1:12:29.600
+ really hard to build which is one of the really big benefits
+
+1:12:29.600 --> 1:12:34.600
+ of them currently so that you don't have it's very hard
+
+1:12:34.600 --> 1:12:38.200
+ if you're crazy to build to acquire a nuclear weapon.
+
+1:12:38.700 --> 1:12:41.200
+ So the mutually shared destruction really works when you
+
+1:12:41.200 --> 1:12:46.200
+ talk seems to work better when it's nation states, when
+
+1:12:46.200 --> 1:12:49.900
+ it's serious people, even if they're a little bit, you
+
+1:12:49.900 --> 1:12:52.000
+ know, dictatorial and so on.
+
+1:12:52.900 --> 1:12:56.200
+ Do you think this mutually sure destruction idea will
+
+1:12:56.200 --> 1:13:01.000
+ carry how far will it carry us in terms of different kinds
+
+1:13:01.000 --> 1:13:01.800
+ of weapons?
+
+1:13:02.200 --> 1:13:06.600
+ Oh, yeah, I think it's your point that nuclear weapons
+
+1:13:06.700 --> 1:13:09.600
+ are very hard to build and relatively easy to control
+
+1:13:09.600 --> 1:13:12.700
+ because you can control fissile material is a really
+
+1:13:12.700 --> 1:13:16.000
+ important one and future technology that's equally destructive
+
+1:13:16.000 --> 1:13:18.000
+ might not have those properties.
+
+1:13:18.500 --> 1:13:23.600
+ So for example, if in the future people are able to design
+
+1:13:23.700 --> 1:13:29.600
+ viruses, perhaps using a DNA printing kit that's on that,
+
+1:13:29.600 --> 1:13:31.300
+ you know, one can just buy.
+
+1:13:31.300 --> 1:13:37.500
+ In fact, there are companies in the process of creating
+
+1:13:37.500 --> 1:13:42.800
+ home DNA printing kits. Well, then perhaps that's just
+
+1:13:42.800 --> 1:13:44.000
+ totally democratized.
+
+1:13:44.000 --> 1:13:48.600
+ Perhaps the power to reap huge destructive potential is
+
+1:13:48.600 --> 1:13:52.000
+ in the hands of most people in the world or certainly
+
+1:13:52.000 --> 1:13:55.300
+ most people with effort and then yeah, I no longer trust
+
+1:13:55.300 --> 1:13:59.300
+ mutually assured destruction because some for some people
+
+1:13:59.500 --> 1:14:01.800
+ the idea that they would die is just not a disincentive.
+
+1:14:03.600 --> 1:14:05.200
+ There was a Japanese cult, for example.
+
+1:14:05.200 --> 1:14:10.400
+ Ohm Shinrikyo in the 90s that had they what they believed
+
+1:14:10.400 --> 1:14:14.800
+ was that Armageddon was coming if you died before Armageddon,
+
+1:14:14.800 --> 1:14:17.200
+ you would get good karma.
+
+1:14:17.200 --> 1:14:20.300
+ You wouldn't go to hell if you died during Armageddon.
+
+1:14:20.300 --> 1:14:25.500
+ Maybe you would go to hell and they had a biological weapons
+
+1:14:25.500 --> 1:14:28.600
+ program chemical weapons program when they were finally
+
+1:14:28.600 --> 1:14:29.300
+ apprehended.
+
+1:14:29.300 --> 1:14:33.500
+ They hadn't stocks of southern gas that were sufficient to
+
+1:14:33.500 --> 1:14:36.600
+ kill 4 million people engaged in multiple terrorist acts.
+
+1:14:36.900 --> 1:14:40.300
+ If they had had the ability to print a virus at home,
+
+1:14:40.300 --> 1:14:41.500
+ that would have been very scary.
+
+1:14:42.500 --> 1:14:45.900
+ So it's not impossible to imagine groups of people that
+
+1:14:45.900 --> 1:14:54.200
+ hold that kind of belief of death as suicide as a good
+
+1:14:54.200 --> 1:14:58.100
+ thing for passage into the next world and so on and then
+
+1:14:58.100 --> 1:15:03.800
+ connect them with some weapons then ideology and weaponry
+
+1:15:04.400 --> 1:15:07.000
+ may create serious problems for us.
+
+1:15:07.000 --> 1:15:09.800
+ Let me ask you a quick question on what do you think is
+
+1:15:09.800 --> 1:15:13.800
+ the line between killing most humans and killing all humans?
+
+1:15:14.300 --> 1:15:17.500
+ How hard is it to kill everybody?
+
+1:15:17.600 --> 1:15:19.000
+ Yeah, have you thought about this?
+
+1:15:19.800 --> 1:15:20.700
+ I've thought about it a bit.
+
+1:15:20.700 --> 1:15:22.600
+ I think it is very hard to kill everybody.
+
+1:15:22.600 --> 1:15:26.600
+ So in the case of let's say an all out nuclear exchange
+
+1:15:26.600 --> 1:15:28.300
+ and let's say that leads to nuclear winter.
+
+1:15:28.300 --> 1:15:32.700
+ We don't really know but we you know might well happen
+
+1:15:34.400 --> 1:15:38.300
+ that would I think result in billions of deaths would
+
+1:15:38.300 --> 1:15:39.300
+ it kill everybody?
+
+1:15:39.500 --> 1:15:42.600
+ It's quite it's quite hard to see how that how it would
+
+1:15:42.600 --> 1:15:45.500
+ kill everybody for a few reasons.
+
+1:15:45.500 --> 1:15:47.500
+ One is just those are so many people.
+
+1:15:47.900 --> 1:15:49.600
+ Yes, you know seven and a half billion people.
+
+1:15:49.600 --> 1:15:54.200
+ So this bad event has to kill all you know, all almost
+
+1:15:54.200 --> 1:15:54.800
+ all of them.
+
+1:15:54.800 --> 1:15:57.600
+ Secondly live in such a diversity of locations.
+
+1:15:57.600 --> 1:16:00.800
+ So a nuclear exchange or the virus that has to kill people
+
+1:16:00.800 --> 1:16:04.600
+ who live in the coast of New Zealand which is going to
+
+1:16:04.600 --> 1:16:08.700
+ be climatically much more stable than other areas in the
+
+1:16:08.700 --> 1:16:14.400
+ world or people who are on submarines or who have access
+
+1:16:14.400 --> 1:16:15.000
+ to bunkers.
+
+1:16:15.000 --> 1:16:18.000
+ So there's a very like there's just like I'm sure there's
+
+1:16:18.000 --> 1:16:20.800
+ like two guys in Siberia just badass.
+
+1:16:20.800 --> 1:16:25.400
+ There's the just human nature somehow just perseveres.
+
+1:16:25.400 --> 1:16:28.400
+ Yeah, and then the second thing is just if there's some
+
+1:16:28.400 --> 1:16:31.600
+ catastrophic event people really don't want to die.
+
+1:16:31.600 --> 1:16:34.200
+ So there's going to be like, you know, huge amounts of
+
+1:16:34.200 --> 1:16:37.100
+ effort to ensure that it doesn't affect everyone.
+
+1:16:37.100 --> 1:16:42.200
+ Have you thought about what it takes to rebuild a society
+
+1:16:42.200 --> 1:16:45.400
+ with smaller smaller numbers like how big of a setback
+
+1:16:45.400 --> 1:16:47.200
+ these kinds of things are?
+
+1:16:47.200 --> 1:16:50.100
+ Yeah, so then that's something where there's real uncertainty
+
+1:16:50.100 --> 1:16:55.100
+ I think where at some point you just lose genetic sufficient
+
+1:16:55.100 --> 1:16:57.500
+ genetic diversity such that you can't come back.
+
+1:16:58.300 --> 1:17:03.700
+ There's it's unclear how small that population is.
+
+1:17:03.700 --> 1:17:07.300
+ But if you've only got say a thousand people or fewer
+
+1:17:07.300 --> 1:17:09.100
+ than a thousand, then maybe that's small enough.
+
+1:17:09.100 --> 1:17:12.900
+ What about human knowledge and then there's human knowledge.
+
+1:17:14.900 --> 1:17:19.400
+ I mean, it's striking how short on geological timescales
+
+1:17:19.400 --> 1:17:23.200
+ or evolutionary timescales the progress in or how quickly
+
+1:17:23.200 --> 1:17:26.000
+ the progress in human knowledge has been like agriculture.
+
+1:17:26.000 --> 1:17:31.600
+ We only invented in 10,000 BC cities were only, you know,
+
+1:17:31.600 --> 1:17:35.500
+ 3000 BC whereas typical mammal species is half a million
+
+1:17:35.500 --> 1:17:36.900
+ years to a million years.
+
+1:17:37.400 --> 1:17:40.200
+ Do you think it's inevitable in some sense agriculture
+
+1:17:40.200 --> 1:17:45.800
+ everything that came the Industrial Revolution cars planes
+
+1:17:45.800 --> 1:17:50.700
+ the internet that level of innovation you think is inevitable.
+
+1:17:50.700 --> 1:17:55.200
+ I think given how quickly it arose.
+
+1:17:55.200 --> 1:17:58.000
+ So in the case of agriculture, I think that was dependent
+
+1:17:58.000 --> 1:17:58.500
+ on climate.
+
+1:17:58.500 --> 1:18:05.600
+ So it was the kind of glacial period was over the earth
+
+1:18:05.600 --> 1:18:10.300
+ warmed up a bit that made it much more likely that humans
+
+1:18:10.300 --> 1:18:14.000
+ would develop agriculture when it comes to the Industrial
+
+1:18:14.000 --> 1:18:19.100
+ Revolution. It's just you know, again only took a few thousand
+
+1:18:19.100 --> 1:18:22.700
+ years from cities to Industrial Revolution if we think okay,
+
+1:18:22.700 --> 1:18:26.700
+ we've gone back to this even let's say agricultural era,
+
+1:18:27.300 --> 1:18:29.600
+ but there's no reason why we wouldn't go extinct in the
+
+1:18:29.600 --> 1:18:32.200
+ coming tens of thousands of years or hundreds of thousands
+
+1:18:32.200 --> 1:18:32.700
+ of years.
+
+1:18:33.100 --> 1:18:34.100
+ It seems just vet.
+
+1:18:34.200 --> 1:18:37.500
+ It would be very surprising if we didn't rebound unless
+
+1:18:37.500 --> 1:18:39.800
+ there's some special reason that makes things different.
+
+1:18:40.000 --> 1:18:40.400
+ Yes.
+
+1:18:40.400 --> 1:18:44.600
+ So perhaps we just have a much greater like disease burden
+
+1:18:44.600 --> 1:18:46.600
+ now so HIV exists.
+
+1:18:46.600 --> 1:18:50.500
+ It didn't exist before and perhaps that's kind of latent
+
+1:18:50.500 --> 1:18:53.500
+ and you know and being suppressed by modern medicine
+
+1:18:53.500 --> 1:18:57.800
+ and sanitation and so on but would be a much bigger problem
+
+1:18:57.800 --> 1:19:02.600
+ for some, you know, utterly destroyed the society that
+
+1:19:02.600 --> 1:19:06.600
+ was trying to rebound or there's just maybe there's something
+
+1:19:06.600 --> 1:19:07.500
+ we don't know about.
+
+1:19:07.500 --> 1:19:14.400
+ So another existential risk comes from the mysterious the
+
+1:19:14.400 --> 1:19:16.600
+ beautiful artificial intelligence.
+
+1:19:16.600 --> 1:19:16.900
+ Yeah.
+
+1:19:17.500 --> 1:19:22.000
+ So what what's the shape of your concerns about AI?
+
+1:19:22.700 --> 1:19:25.300
+ I think there are quite a lot of concerns about AI and
+
+1:19:25.300 --> 1:19:29.700
+ sometimes the different risks don't get distinguished enough.
+
+1:19:30.400 --> 1:19:35.400
+ So the kind of classic worry most is closely associated
+
+1:19:35.400 --> 1:19:39.900
+ with Nick Bostrom and Elias Joukowski is that we at some
+
+1:19:39.900 --> 1:19:43.000
+ point move from having narrow AI systems to artificial
+
+1:19:43.000 --> 1:19:44.100
+ general intelligence.
+
+1:19:44.400 --> 1:19:48.300
+ You get this very fast feedback effect where AGI is able
+
+1:19:48.300 --> 1:19:51.300
+ to build, you know, artificial intelligence helps you to
+
+1:19:51.300 --> 1:19:53.600
+ build greater artificial intelligence.
+
+1:19:53.900 --> 1:19:57.100
+ We have this one system that suddenly very powerful far
+
+1:19:57.100 --> 1:20:01.000
+ more powerful than others than perhaps far more powerful
+
+1:20:01.000 --> 1:20:07.000
+ than, you know, the rest of the world combined and then
+
+1:20:07.000 --> 1:20:10.000
+ secondly, it has goals that are misaligned with human goals.
+
+1:20:10.400 --> 1:20:13.000
+ And so it pursues its own goals.
+
+1:20:13.000 --> 1:20:16.500
+ It realize, hey, there's this competition namely from humans.
+
+1:20:16.500 --> 1:20:19.300
+ It would be better if we eliminated them in just the same
+
+1:20:19.300 --> 1:20:22.700
+ way as homo sapiens eradicated the Neanderthals.
+
+1:20:22.700 --> 1:20:28.400
+ In fact, it in fact killed off most large animals on the
+
+1:20:28.400 --> 1:20:32.200
+ planet that walk the planet. So that's kind of one set of
+
+1:20:32.200 --> 1:20:37.700
+ worries. I think that's not my I think these shouldn't
+
+1:20:37.700 --> 1:20:39.200
+ be dismissed as science fiction.
+
+1:20:41.000 --> 1:20:44.500
+ I think it's something we should be taking very seriously,
+
+1:20:44.800 --> 1:20:47.200
+ but it's not the thing you visualize when you're concerned
+
+1:20:47.200 --> 1:20:49.300
+ about the biggest near term.
+
+1:20:49.700 --> 1:20:54.100
+ Yeah, I think it's I think it's like one possible scenario
+
+1:20:54.100 --> 1:20:55.400
+ that would be astronomically bad.
+
+1:20:55.500 --> 1:20:57.900
+ I think that other scenarios that would also be extremely
+
+1:20:57.900 --> 1:21:01.000
+ bad comparably bad that are more likely to occur.
+
+1:21:01.000 --> 1:21:05.100
+ So one is just we are able to control AI.
+
+1:21:05.600 --> 1:21:08.000
+ So we're able to get it to do what we want it to do.
+
+1:21:10.000 --> 1:21:13.600
+ And perhaps there's not like this fast takeoff of AI capabilities
+
+1:21:13.600 --> 1:21:14.700
+ within a single system.
+
+1:21:14.700 --> 1:21:17.900
+ It's distributed across many systems that do somewhat different
+
+1:21:17.900 --> 1:21:23.400
+ things, but you do get very rapid economic and technological
+
+1:21:23.400 --> 1:21:27.000
+ progress as a result that concentrates power into the hands
+
+1:21:27.000 --> 1:21:29.600
+ of a very small number of individuals, perhaps a single
+
+1:21:29.600 --> 1:21:35.500
+ dictator. And secondly, that single individual is or small
+
+1:21:35.500 --> 1:21:38.400
+ group of individuals or single country is then able to like
+
+1:21:38.400 --> 1:21:43.100
+ lock in their values indefinitely via transmitting those
+
+1:21:43.100 --> 1:21:46.300
+ values to artificial systems that have no reason to die
+
+1:21:46.400 --> 1:21:49.100
+ like, you know, their code is copyable.
+
+1:21:49.500 --> 1:21:53.900
+ Perhaps, you know, Donald Trump or Xi Jinping creates their
+
+1:21:53.900 --> 1:21:58.200
+ kind of AI progeny in their own image. And once you have
+
+1:21:58.200 --> 1:22:02.200
+ a system that's once you have a society that's controlled
+
+1:22:02.200 --> 1:22:06.400
+ by AI, you no longer have one of the main drivers of change
+
+1:22:06.400 --> 1:22:10.100
+ historically, which is the fact that human lifespans are
+
+1:22:10.600 --> 1:22:12.300
+ you know, only a hundred years give or take.
+
+1:22:12.300 --> 1:22:13.200
+ So that's really interesting.
+
+1:22:13.200 --> 1:22:18.100
+ So as opposed to sort of killing off all humans is locking
+
+1:22:18.100 --> 1:22:25.000
+ in creating a hell on earth, basically a set of principles
+
+1:22:25.000 --> 1:22:28.900
+ under which the society operates that's extremely undesirable.
+
+1:22:28.900 --> 1:22:31.000
+ So everybody is suffering indefinitely.
+
+1:22:31.200 --> 1:22:33.900
+ Or it doesn't, I mean, it also doesn't need to be hell on
+
+1:22:33.900 --> 1:22:35.700
+ earth. It could just be the long values.
+
+1:22:35.700 --> 1:22:40.400
+ So we talked at the very beginning about how I want to
+
+1:22:40.400 --> 1:22:43.300
+ see this kind of diversity of different values and exploration
+
+1:22:43.300 --> 1:22:46.900
+ so that we can just work out what is kind of morally like
+
+1:22:46.900 --> 1:22:49.600
+ what is good, what is bad and then pursue the thing that's
+
+1:22:49.600 --> 1:22:55.000
+ bad. So actually, so the idea of wrong values is actually
+
+1:22:55.000 --> 1:22:59.200
+ probably the beautiful thing is there's no such thing as
+
+1:22:59.200 --> 1:23:01.200
+ right and wrong values because we don't know the right
+
+1:23:01.200 --> 1:23:04.700
+ answer. We just kind of have a sense of which value is more
+
+1:23:04.700 --> 1:23:06.200
+ right, which is more wrong.
+
+1:23:06.500 --> 1:23:10.500
+ So any kind of lock in makes a value wrong because it
+
+1:23:10.500 --> 1:23:13.000
+ prevents exploration of this kind.
+
+1:23:13.000 --> 1:23:17.500
+ Yeah, and just, you know, imagine if fascist value, you
+
+1:23:17.500 --> 1:23:21.000
+ know, imagine if there was Hitler's utopia or Stalin's utopia
+
+1:23:21.000 --> 1:23:23.800
+ or Donald Trump's or Xi Jinping's forever.
+
+1:23:24.100 --> 1:23:28.900
+ Yeah, you know, how good or bad would that be compared
+
+1:23:28.900 --> 1:23:33.400
+ to the best possible future we could create? And my suggestion
+
+1:23:33.400 --> 1:23:36.200
+ is it would really suck compared to the best possible
+
+1:23:36.200 --> 1:23:37.000
+ future we could create.
+
+1:23:37.000 --> 1:23:38.400
+ And you're just one individual.
+
+1:23:38.400 --> 1:23:44.400
+ There's some individuals for whom Donald Trump is perhaps
+
+1:23:44.400 --> 1:23:45.800
+ the best possible future.
+
+1:23:46.100 --> 1:23:49.900
+ And so that's the whole point of us individuals exploring
+
+1:23:49.900 --> 1:23:51.000
+ the space together.
+
+1:23:51.000 --> 1:23:51.500
+ Exactly.
+
+1:23:51.500 --> 1:23:54.800
+ Yeah, and what's trying to figure out which is the path
+
+1:23:54.800 --> 1:23:56.400
+ that will make America great again.
+
+1:23:56.500 --> 1:23:57.500
+ Yeah, exactly.
+
+1:23:58.200 --> 1:24:03.100
+ So how can effective altruism help?
+
+1:24:03.200 --> 1:24:05.100
+ I mean, this is a really interesting notion they actually
+
+1:24:05.100 --> 1:24:09.800
+ describing of artificial intelligence being used as extremely
+
+1:24:09.800 --> 1:24:13.300
+ powerful technology in the hands of very few potentially
+
+1:24:13.300 --> 1:24:17.000
+ one person to create some very undesirable effect.
+
+1:24:17.300 --> 1:24:21.300
+ So as opposed to AI and again, the source of the undesirableness
+
+1:24:21.300 --> 1:24:22.900
+ there is the human.
+
+1:24:23.000 --> 1:24:25.300
+ Yeah, AI is just a really powerful tool.
+
+1:24:26.200 --> 1:24:30.500
+ So whether it's that or whether AI's AGI just runs away
+
+1:24:30.500 --> 1:24:31.600
+ from us completely.
+
+1:24:31.600 --> 1:24:38.400
+ How as individuals, as people in the effective altruism
+
+1:24:38.400 --> 1:24:41.100
+ movement, how can we think about something like this?
+
+1:24:41.100 --> 1:24:44.200
+ I understand poverty and animal welfare, but this is a far
+
+1:24:44.200 --> 1:24:47.400
+ out incredibly mysterious and difficult problem.
+
+1:24:47.500 --> 1:24:47.800
+ Great.
+
+1:24:47.800 --> 1:24:50.600
+ Well, I think there's three paths as an individual.
+
+1:24:50.600 --> 1:24:55.400
+ So if you're thinking about, you know, career paths you
+
+1:24:55.400 --> 1:24:56.000
+ can pursue.
+
+1:24:56.000 --> 1:24:59.100
+ So one is going down the line of technical AI safety.
+
+1:24:59.100 --> 1:25:05.800
+ So this is most relevant to the kind of AI winning AI taking
+
+1:25:05.800 --> 1:25:10.700
+ over scenarios where this is just technical work on current
+
+1:25:10.700 --> 1:25:13.600
+ machine learning systems often sometimes going more theoretical
+
+1:25:13.600 --> 1:25:17.800
+ to on how we can ensure that an AI is able to learn human
+
+1:25:17.800 --> 1:25:21.200
+ values and able to act in the way that you want it to act.
+
+1:25:21.500 --> 1:25:26.800
+ And that's a pretty mainstream issue and approach in machine
+
+1:25:26.800 --> 1:25:27.500
+ learning today.
+
+1:25:27.500 --> 1:25:30.800
+ So, you know, we definitely need more people doing that.
+
+1:25:31.400 --> 1:25:34.100
+ Second is on the policy side of things, which I think is
+
+1:25:34.100 --> 1:25:40.400
+ even more important at the moment, which is how should developments
+
+1:25:40.400 --> 1:25:42.300
+ in AI be managed on a political level?
+
+1:25:43.200 --> 1:25:47.600
+ How can you ensure that the benefits of AI are very distributed?
+
+1:25:47.600 --> 1:25:50.500
+ It's not being, power isn't being concentrated in the hands
+
+1:25:50.500 --> 1:25:54.200
+ of a small set of individuals.
+
+1:25:54.200 --> 1:25:59.100
+ How do you ensure that there aren't arms races between different
+
+1:25:59.100 --> 1:26:06.000
+ AI companies that might result in them, you know, cutting corners
+
+1:26:06.000 --> 1:26:07.100
+ with respect to safety.
+
+1:26:07.200 --> 1:26:11.000
+ And so there the input as individuals who can have is this.
+
+1:26:11.000 --> 1:26:12.300
+ We're not talking about money.
+
+1:26:12.300 --> 1:26:13.600
+ We're talking about effort.
+
+1:26:14.000 --> 1:26:15.600
+ We're talking about career choices.
+
+1:26:15.600 --> 1:26:16.900
+ We're talking about career choice.
+
+1:26:16.900 --> 1:26:20.700
+ Yeah, but then it is the case that supposing, you know, you're
+
+1:26:20.700 --> 1:26:22.200
+ like, I've already decided my career.
+
+1:26:22.200 --> 1:26:24.300
+ I'm doing something quite different.
+
+1:26:24.500 --> 1:26:28.000
+ You can contribute with money too, where at the Center for Effective
+
+1:26:28.000 --> 1:26:31.100
+ Altruism, we set up the Long Term Future Fund.
+
+1:26:31.400 --> 1:26:36.300
+ So if you go on to effectivealtruism.org, you can donate where
+
+1:26:36.800 --> 1:26:40.600
+ a group of individuals will then work out what's the highest value
+
+1:26:40.600 --> 1:26:44.200
+ place they can donate to work on existential risk issues with
+
+1:26:44.200 --> 1:26:46.200
+ a particular focus on AI.
+
+1:26:46.900 --> 1:26:48.200
+ What's path number three?
+
+1:26:48.400 --> 1:26:49.500
+ This was path number three.
+
+1:26:49.500 --> 1:26:53.400
+ This is donations with the third option I was thinking of.
+
+1:26:53.400 --> 1:26:53.800
+ Okay.
+
+1:26:53.900 --> 1:26:58.500
+ And then, yeah, there are, you can also donate directly to organizations
+
+1:26:58.500 --> 1:27:01.600
+ working on this, like Center for Human Compatible AI at Berkeley,
+
+1:27:01.900 --> 1:27:08.300
+ Future of Humanity Institute at Oxford, or other organizations too.
+
+1:27:08.500 --> 1:27:10.200
+ Does AI keep you up at night?
+
+1:27:10.200 --> 1:27:11.400
+ This kind of concern?
+
+1:27:13.000 --> 1:27:17.300
+ Yeah, it's kind of a mix where I think it's very likely things are
+
+1:27:17.300 --> 1:27:21.400
+ going to go well. I think we're going to be able to solve these
+
+1:27:21.400 --> 1:27:25.500
+ problems. I think that's by far the most likely outcome, at least
+
+1:27:25.500 --> 1:27:25.900
+ over the next.
+
+1:27:25.900 --> 1:27:26.800
+ By far the most likely.
+
+1:27:26.800 --> 1:27:30.800
+ So if you look at all the trajectories running away from our
+
+1:27:30.800 --> 1:27:36.600
+ current moment in the next hundred years, you see AI creating
+
+1:27:36.600 --> 1:27:41.300
+ destructive consequences as a small subset of those possible
+
+1:27:41.300 --> 1:27:41.700
+ trajectories.
+
+1:27:41.700 --> 1:27:44.900
+ Or at least, yeah, kind of eternal, destructive consequences.
+
+1:27:44.900 --> 1:27:46.500
+ I think that being a small subset.
+
+1:27:46.500 --> 1:27:48.500
+ At the same time, it still freaks me out.
+
+1:27:48.500 --> 1:27:51.600
+ I mean, when we're talking about the entire future of civilization,
+
+1:27:51.600 --> 1:27:56.900
+ then small probabilities, you know, 1% probability, that's terrifying.
+
+1:27:56.900 --> 1:28:02.500
+ What do you think about Elon Musk's strong worry that we should
+
+1:28:02.500 --> 1:28:05.200
+ be really concerned about existential risks of AI?
+
+1:28:05.200 --> 1:28:09.100
+ Yeah, I mean, I think, you know, broadly speaking, I think he's
+
+1:28:09.100 --> 1:28:09.300
+ right.
+
+1:28:09.300 --> 1:28:13.200
+ I think if we talked, we would probably have very different
+
+1:28:13.200 --> 1:28:16.200
+ probabilities on how likely it is that we're doomed.
+
+1:28:16.200 --> 1:28:19.700
+ But again, when it comes to talking about the entire future of
+
+1:28:19.700 --> 1:28:23.200
+ civilization, it doesn't really matter if it's 1% or if it's
+
+1:28:23.200 --> 1:28:26.700
+ 50%, we ought to be taking every possible safeguard we can to
+
+1:28:26.700 --> 1:28:28.300
+ ensure that things go well rather than poorly.
+
+1:28:30.300 --> 1:28:34.000
+ Last question, if you yourself could eradicate one problem from
+
+1:28:34.000 --> 1:28:35.700
+ the world, what would that problem be?
+
+1:28:35.700 --> 1:28:37.600
+ That's a great question.
+
+1:28:37.600 --> 1:28:42.900
+ I don't know if I'm cheating in saying this, but I think the
+
+1:28:42.900 --> 1:28:45.300
+ thing I would most want to change is just the fact that people
+
+1:28:45.300 --> 1:28:50.500
+ don't actually care about ensuring the long run future goes well.
+
+1:28:50.500 --> 1:28:52.500
+ People don't really care about future generations.
+
+1:28:52.500 --> 1:28:53.300
+ They don't think about it.
+
+1:28:53.300 --> 1:28:54.300
+ It's not part of their aims.
+
+1:28:54.300 --> 1:28:58.800
+ In some sense, you're not cheating at all because in speaking
+
+1:28:58.800 --> 1:29:02.200
+ the way you do, in writing the things you're writing, you're
+
+1:29:02.200 --> 1:29:05.800
+ doing, you're addressing exactly this aspect.
+
+1:29:05.800 --> 1:29:06.500
+ Exactly.
+
+1:29:06.500 --> 1:29:10.800
+ That is your input into the effective altruism movement.
+
+1:29:10.800 --> 1:29:12.900
+ So for that, Will, thank you so much.
+
+1:29:12.900 --> 1:29:14.300
+ It's an honor to talk to you.
+
+1:29:14.300 --> 1:29:15.000
+ I really enjoyed it.
+
+1:29:15.000 --> 1:29:15.900
+ Thanks so much for having me on.
+
+1:30:10.300 --> 1:30:13.300
+ If that were the case, we'd probably be pretty generous.
+
+1:30:13.300 --> 1:30:17.500
+ Next round's on me, but that's effectively the situation we're
+
+1:30:17.500 --> 1:30:18.800
+ in all the time.
+
+1:30:18.800 --> 1:30:23.400
+ It's like a 99% off sale or buy one get 99 free.
+
+1:30:23.400 --> 1:30:27.000
+ Might be the most amazing deal you'll see in your life.
+
+1:30:27.000 --> 1:30:47.200
+ Thank you for listening and hope to see you next time.
+

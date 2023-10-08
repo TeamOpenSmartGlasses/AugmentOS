@@ -1,0 +1,4148 @@
+WEBVTT
+
+00:00.000 --> 00:02.880
+ The following is a conversation with Lee Smolin.
+
+00:02.880 --> 00:04.520
+ He's a theoretical physicist,
+
+00:04.520 --> 00:06.680
+ co inventor of loop quantum gravity,
+
+00:06.680 --> 00:08.860
+ and a contributor of many interesting ideas
+
+00:08.860 --> 00:11.320
+ to cosmology, quantum field theory,
+
+00:11.320 --> 00:12.960
+ the foundations of quantum mechanics,
+
+00:12.960 --> 00:16.360
+ theoretical biology, and the philosophy of science.
+
+00:16.360 --> 00:18.180
+ He's the author of several books,
+
+00:18.180 --> 00:21.000
+ including one that critiques the state of physics
+
+00:21.000 --> 00:24.080
+ and string theory called The Trouble with Physics.
+
+00:24.080 --> 00:27.100
+ And his latest book, Einstein's Unfinished Revolution,
+
+00:27.100 --> 00:30.240
+ The Search for What Lies Beyond the Quantum.
+
+00:30.240 --> 00:32.880
+ He's an outspoken personality in the public debates
+
+00:32.880 --> 00:34.600
+ on the nature of our universe,
+
+00:34.600 --> 00:38.240
+ among the top minds in the theoretical physics community.
+
+00:38.240 --> 00:41.000
+ This community has its respected academics,
+
+00:41.000 --> 00:44.440
+ its naked emperors, its outcasts and its revolutionaries,
+
+00:44.440 --> 00:46.900
+ its madmen and its dreamers.
+
+00:46.900 --> 00:49.560
+ This is why it's an exciting world to explore
+
+00:49.560 --> 00:51.800
+ through a long form conversation.
+
+00:51.800 --> 00:53.800
+ I recommend you listen back to the episodes
+
+00:53.800 --> 00:57.200
+ with Leonard Susskind, Sean Carroll, Michio Okaku,
+
+00:57.200 --> 01:01.200
+ Max Tegmark, Eric Weinstein, and Jim Gates.
+
+01:01.200 --> 01:03.860
+ You might be asking, why talk to physicists
+
+01:03.860 --> 01:05.320
+ if you're interested in AI?
+
+01:06.160 --> 01:08.800
+ To me, creating artificial intelligence systems
+
+01:08.800 --> 01:11.400
+ requires more than Python and deep learning.
+
+01:11.400 --> 01:13.360
+ It requires that we return to exploring
+
+01:13.360 --> 01:18.360
+ the fundamental nature of the universe and the human mind.
+
+01:18.520 --> 01:21.200
+ Theoretical physicists venture out into the dark,
+
+01:21.200 --> 01:23.560
+ mysterious, psychologically challenging place
+
+01:23.560 --> 01:27.160
+ of first principles more than almost any other discipline.
+
+01:28.120 --> 01:30.880
+ This is the Artificial Intelligence Podcast.
+
+01:30.880 --> 01:33.160
+ If you enjoy it, subscribe on YouTube,
+
+01:33.160 --> 01:34.960
+ give it five stars on Apple Podcast,
+
+01:34.960 --> 01:38.280
+ support it on Patreon, or simply connect with me on Twitter
+
+01:38.280 --> 01:41.480
+ at Lex Friedman, spelled F R I D M A N.
+
+01:42.440 --> 01:45.320
+ As usual, I'll do one or two minutes of ads now
+
+01:45.320 --> 01:46.640
+ and never any ads in the middle
+
+01:46.640 --> 01:48.880
+ that can break the flow of the conversation.
+
+01:48.880 --> 01:50.200
+ I hope that works for you
+
+01:50.200 --> 01:52.520
+ and doesn't hurt the listening experience.
+
+01:52.520 --> 01:54.480
+ This show is presented by Cash App,
+
+01:54.480 --> 01:56.760
+ the number one finance app in the App Store.
+
+01:56.760 --> 02:00.200
+ When you get it, use code LEXBODCAST.
+
+02:00.200 --> 02:02.400
+ Cash App lets you send money to friends,
+
+02:02.400 --> 02:04.840
+ buy Bitcoin, and invest in the stock market
+
+02:04.840 --> 02:06.760
+ with as little as one dollar.
+
+02:06.760 --> 02:09.120
+ Since Cash App allows you to buy Bitcoin,
+
+02:09.120 --> 02:11.360
+ let me mention that cryptocurrency
+
+02:11.360 --> 02:14.640
+ in the context of the history of money is fascinating.
+
+02:14.640 --> 02:18.440
+ I recommend Ascent of Money as a great book on this history.
+
+02:18.440 --> 02:20.120
+ Debits and credits on ledgers
+
+02:20.120 --> 02:23.320
+ started around 30,000 years ago.
+
+02:23.320 --> 02:27.000
+ The US dollar, of course, created over 200 years ago,
+
+02:27.000 --> 02:30.240
+ and Bitcoin, the first decentralized cryptocurrency,
+
+02:30.240 --> 02:32.880
+ was released just over 10 years ago.
+
+02:32.880 --> 02:35.880
+ So given that history, cryptocurrency is still very much
+
+02:35.880 --> 02:37.920
+ in its early days of development,
+
+02:37.920 --> 02:39.560
+ but it still is aiming to
+
+02:39.560 --> 02:43.040
+ and just might redefine the nature of money.
+
+02:43.040 --> 02:45.360
+ If you get Cash App from the App Store or Google Play
+
+02:45.360 --> 02:49.080
+ and use the code LEXBODCAST, you'll get $10,
+
+02:49.080 --> 02:51.920
+ and Cash App will also donate $10 to First,
+
+02:51.920 --> 02:53.720
+ one of my favorite organizations
+
+02:53.720 --> 02:56.880
+ that is helping to advance robotics and STEM education
+
+02:56.880 --> 02:58.880
+ for young people around the world.
+
+02:58.880 --> 03:02.240
+ And now, here's my conversation with Lee Smolin.
+
+03:03.120 --> 03:04.280
+ What is real?
+
+03:05.120 --> 03:06.440
+ Let's start with an easy question.
+
+03:06.440 --> 03:09.160
+ Put another way, how do we know what is real
+
+03:09.160 --> 03:10.680
+ and what is merely a creation
+
+03:10.680 --> 03:14.240
+ of our human perception and imagination?
+
+03:14.240 --> 03:15.640
+ We don't know.
+
+03:15.640 --> 03:16.480
+ We don't know.
+
+03:16.480 --> 03:17.320
+ This is science.
+
+03:17.320 --> 03:19.960
+ I presume we're talking about science.
+
+03:19.960 --> 03:23.280
+ And we believe, or I believe,
+
+03:24.320 --> 03:28.520
+ that there is a world that is independent of my existence
+
+03:28.520 --> 03:32.520
+ and my experience about it and my knowledge of it,
+
+03:32.520 --> 03:34.840
+ and this I call the real world.
+
+03:35.800 --> 03:39.120
+ So you said science, but even bigger than science, what?
+
+03:39.120 --> 03:40.120
+ Sure, sure.
+
+03:40.120 --> 03:42.400
+ I need not have said this is science.
+
+03:42.400 --> 03:44.840
+ I just was warming up.
+
+03:44.840 --> 03:46.480
+ Warming up?
+
+03:46.480 --> 03:47.800
+ Okay, now that we're warmed up,
+
+03:47.800 --> 03:51.040
+ let's take a brief step outside of science.
+
+03:51.040 --> 03:54.400
+ Is it completely a crazy idea to you
+
+03:54.400 --> 03:57.480
+ that everything that exists is merely a creation
+
+03:57.480 --> 03:58.800
+ of our mind?
+
+03:58.800 --> 04:01.880
+ So there's a few, not many.
+
+04:01.880 --> 04:04.200
+ This is outside of science now.
+
+04:04.200 --> 04:06.520
+ People who believe sort of perception
+
+04:06.520 --> 04:10.000
+ is fundamentally what's in our human perception,
+
+04:10.000 --> 04:11.720
+ the visual cortex and so on,
+
+04:11.720 --> 04:16.240
+ the cognitive constructs that's being formed there
+
+04:16.240 --> 04:18.040
+ is the reality.
+
+04:18.040 --> 04:20.320
+ And then anything outside is something
+
+04:20.320 --> 04:22.480
+ that we can never really grasp.
+
+04:22.480 --> 04:24.080
+ Is that a crazy idea to you?
+
+04:24.080 --> 04:27.760
+ There's a version of that that is not crazy at all.
+
+04:27.760 --> 04:32.360
+ What we experience is constructed by our brains
+
+04:33.200 --> 04:36.200
+ and by our brains in an active mode.
+
+04:38.080 --> 04:41.920
+ So we don't see the raw world.
+
+04:41.920 --> 04:43.800
+ We see a very processed world.
+
+04:43.800 --> 04:47.480
+ We feel something that's very processed through our brains
+
+04:47.480 --> 04:49.160
+ and our brains are incredible.
+
+04:50.120 --> 04:55.120
+ But I still believe that behind that experience,
+
+04:55.720 --> 04:59.400
+ that mirror or veil or whatever you wanna call it,
+
+04:59.400 --> 05:02.520
+ there is a real world and I'm curious about it.
+
+05:02.520 --> 05:06.720
+ Can we truly, how do we get a sense of that real world?
+
+05:06.720 --> 05:08.600
+ Is it through the tools of physics,
+
+05:08.600 --> 05:11.400
+ from theory to the experiments?
+
+05:11.400 --> 05:15.320
+ Or can we actually grasp it in some intuitive way
+
+05:15.320 --> 05:20.320
+ that's more connected to our ape ancestors?
+
+05:21.240 --> 05:25.160
+ Or is it still fundamentally the tools of math and physics
+
+05:25.160 --> 05:26.440
+ that really allow us to grasp it?
+
+05:26.440 --> 05:29.040
+ Well, let's talk about what tools they are.
+
+05:29.040 --> 05:32.040
+ What you say are the tools of math and physics.
+
+05:32.040 --> 05:34.480
+ I mean, I think we're in the same position
+
+05:34.480 --> 05:37.880
+ as our ancestors in the caves
+
+05:37.880 --> 05:40.160
+ or before the caves or whatever.
+
+05:40.160 --> 05:43.320
+ We find ourselves in this world and we're curious.
+
+05:43.320 --> 05:47.920
+ We also, it's important to be able to explain
+
+05:47.920 --> 05:50.800
+ what happens when there are fires, when there are not fires,
+
+05:50.800 --> 05:55.000
+ what animals and plants are good to eat and all that stuff.
+
+05:56.360 --> 05:57.640
+ But we're also just curious.
+
+05:57.640 --> 06:01.480
+ We look up in the sky and we see the sun and the moon
+
+06:01.480 --> 06:03.960
+ and the stars and we see some of those move
+
+06:03.960 --> 06:07.160
+ and we're very curious about that.
+
+06:07.160 --> 06:10.840
+ And I think we're just naturally curious.
+
+06:10.840 --> 06:15.840
+ So we make, this is my version of how we work.
+
+06:16.120 --> 06:19.040
+ We make up stories and explanations.
+
+06:20.240 --> 06:24.080
+ And where there are two things
+
+06:24.080 --> 06:27.560
+ which I think are just true of being human,
+
+06:27.560 --> 06:31.040
+ we make judgments fast because we have to.
+
+06:31.040 --> 06:36.040
+ Where to survive, is that a tiger or is that not a tiger?
+
+06:36.040 --> 06:37.400
+ And we go.
+
+06:37.400 --> 06:38.400
+ Act.
+
+06:38.400 --> 06:41.120
+ We have to act fast on incomplete information.
+
+06:41.120 --> 06:46.000
+ So we judge quickly and we're often wrong
+
+06:46.000 --> 06:49.120
+ or at least sometimes wrong, which is all I need for this.
+
+06:49.120 --> 06:50.520
+ We're often wrong.
+
+06:50.520 --> 06:55.520
+ So we fool ourselves and we fool other people readily.
+
+06:56.880 --> 06:59.880
+ And so there's lots of stories that get told
+
+06:59.880 --> 07:04.280
+ and some of them result in a concrete benefit
+
+07:04.280 --> 07:06.880
+ and some of them don't.
+
+07:06.880 --> 07:09.360
+ So you said we're often wrong,
+
+07:09.360 --> 07:12.440
+ but what does it mean to be right?
+
+07:12.440 --> 07:15.960
+ Right, that's an excellent question.
+
+07:15.960 --> 07:20.960
+ To be right, well since I believe that there is a real world,
+
+07:23.000 --> 07:26.280
+ I believe that to be, you can challenge me on this
+
+07:26.280 --> 07:27.480
+ if you're not a realist.
+
+07:27.480 --> 07:28.960
+ A realist is somebody who believes
+
+07:28.960 --> 07:31.240
+ in this real objective world
+
+07:31.240 --> 07:33.040
+ which is independent of our perception.
+
+07:33.040 --> 07:37.640
+ If I'm a realist, I think that to be right
+
+07:38.680 --> 07:40.200
+ is to come closer.
+
+07:40.200 --> 07:42.200
+ I think first of all, there's a relative scale.
+
+07:42.200 --> 07:43.480
+ There's not right and wrong.
+
+07:43.480 --> 07:46.920
+ There's right or more right and less right.
+
+07:46.920 --> 07:49.080
+ And you're more right if you come closer
+
+07:49.080 --> 07:53.040
+ to an exact true description of that real world.
+
+07:53.040 --> 07:54.800
+ Now can we know that for sure?
+
+07:54.800 --> 07:56.040
+ No.
+
+07:56.040 --> 07:58.880
+ And the scientific method is ultimately
+
+07:58.880 --> 08:00.640
+ what allows us to get a sense
+
+08:00.640 --> 08:03.000
+ of how close we're getting to that real world?
+
+08:03.000 --> 08:04.120
+ No on two counts.
+
+08:04.120 --> 08:06.920
+ First of all, I don't believe there's a scientific method.
+
+08:08.200 --> 08:10.680
+ I was very influenced when I was in graduate school
+
+08:10.680 --> 08:12.760
+ by the writings of Paul Fireman
+
+08:12.760 --> 08:15.720
+ who was an important philosopher of science
+
+08:15.720 --> 08:18.280
+ who argued that there isn't a scientific method.
+
+08:18.280 --> 08:19.840
+ There is or there is not?
+
+08:19.840 --> 08:20.920
+ There is not.
+
+08:20.920 --> 08:23.760
+ Can you elaborate, I'm sorry if you were going to,
+
+08:23.760 --> 08:27.040
+ but can you elaborate on what does it mean
+
+08:27.040 --> 08:28.800
+ for there not to be a scientific method,
+
+08:28.800 --> 08:33.080
+ this notion that I think a lot of people believe in
+
+08:33.080 --> 08:34.840
+ in this day and age?
+
+08:34.840 --> 08:36.080
+ Sure.
+
+08:36.080 --> 08:39.760
+ Paul Fireman, he was a student of Popper
+
+08:39.760 --> 08:42.320
+ who taught Karl Popper.
+
+08:42.320 --> 08:47.320
+ And Fireman argued both by logic
+
+08:48.400 --> 08:51.400
+ and by historical example that you name anything
+
+08:51.400 --> 08:55.040
+ that should be part of the practice of science.
+
+08:55.040 --> 08:57.440
+ Say you should always make sure that your theories agree
+
+08:57.440 --> 09:01.200
+ with all the data that's already been taken.
+
+09:01.200 --> 09:03.600
+ And he'll prove to you that there have to be times
+
+09:03.600 --> 09:08.120
+ when science contradicts, when some scientist contradicts
+
+09:08.120 --> 09:13.120
+ that advice for science to progress overall.
+
+09:16.880 --> 09:18.240
+ So it's not a simple matter.
+
+09:18.240 --> 09:23.240
+ I think that, I think of science as a community.
+
+09:25.200 --> 09:26.160
+ Of people.
+
+09:26.160 --> 09:29.120
+ Of people and as a community of people
+
+09:29.120 --> 09:33.080
+ bound by certain ethical precepts,
+
+09:33.080 --> 09:35.000
+ precepts, whatever that is.
+
+09:35.000 --> 09:40.000
+ So in that community, a set of ideas they operate under,
+
+09:40.520 --> 09:44.360
+ meaning ethically of kind of the rules of the game
+
+09:44.360 --> 09:45.460
+ they operate under.
+
+09:45.460 --> 09:48.000
+ Don't lie, report all your results,
+
+09:48.000 --> 09:51.000
+ whether they agree or don't agree with your hypothesis.
+
+09:52.920 --> 09:56.000
+ Check the training of a scientist.
+
+09:56.000 --> 09:59.320
+ Mostly consists of methods of checking
+
+09:59.320 --> 10:01.460
+ because again, we make lots of mistakes.
+
+10:01.460 --> 10:03.680
+ We're very error prone.
+
+10:03.680 --> 10:06.680
+ But there are tools both on the mathematics side
+
+10:06.680 --> 10:09.380
+ and the experimental side to check and double check
+
+10:09.380 --> 10:11.000
+ and triple check.
+
+10:11.000 --> 10:14.400
+ And a scientist goes through a training
+
+10:14.400 --> 10:16.400
+ and I think this is part of it.
+
+10:16.400 --> 10:18.280
+ You can't just walk off the street and say,
+
+10:18.280 --> 10:20.640
+ yo, I'm a scientist.
+
+10:20.640 --> 10:22.280
+ You have to go through the training
+
+10:22.280 --> 10:27.280
+ and the training, the test that lets you be done
+
+10:27.560 --> 10:32.560
+ with the training is can you form a convincing case
+
+10:33.360 --> 10:37.800
+ for something that your colleagues
+
+10:37.800 --> 10:40.560
+ will not be able to shout down
+
+10:40.560 --> 10:42.520
+ because they'll ask, did you check this?
+
+10:42.520 --> 10:43.400
+ And did you check that?
+
+10:43.400 --> 10:44.240
+ And did you check this?
+
+10:44.240 --> 10:47.720
+ And what about seeming contradiction with this?
+
+10:47.720 --> 10:52.240
+ And you've got to have answers to all those things
+
+10:52.240 --> 10:53.800
+ or you don't get taken seriously.
+
+10:53.800 --> 10:56.560
+ And when you get to the point where you can produce
+
+10:56.560 --> 10:58.960
+ that kind of defense and argument,
+
+10:58.960 --> 11:00.500
+ then they give you a PhD.
+
+11:02.220 --> 11:03.920
+ And you're kind of licensed.
+
+11:03.920 --> 11:06.000
+ You're still gonna be questioned
+
+11:06.000 --> 11:10.640
+ and you still may propose or publish mistakes.
+
+11:10.640 --> 11:14.480
+ But the community is gonna have to waste less time
+
+11:14.480 --> 11:15.840
+ fixing your mistakes.
+
+11:15.840 --> 11:20.240
+ Yes, but if you can maybe linger on it a little longer,
+
+11:20.240 --> 11:25.240
+ what's the gap between the thing that that community does
+
+11:25.240 --> 11:27.640
+ and the ideal of the scientific method?
+
+11:28.800 --> 11:31.840
+ The scientific method is you should be able
+
+11:31.840 --> 11:33.840
+ to repeat and experiment.
+
+11:36.320 --> 11:39.400
+ There's a lot of elements to what construes
+
+11:39.400 --> 11:41.960
+ the scientific method, but the final result,
+
+11:41.960 --> 11:46.720
+ the hope of it is that you should be able to say
+
+11:46.720 --> 11:50.160
+ with some confidence that a particular thing
+
+11:50.160 --> 11:53.040
+ is close to the truth.
+
+11:53.040 --> 11:55.440
+ Right, but there's not a simple relationship
+
+11:55.440 --> 11:58.600
+ between experiment and hypothesis or theory.
+
+11:58.600 --> 12:01.120
+ For example, Galileo did this experiment
+
+12:01.120 --> 12:04.440
+ of dropping a ball from the top of a tower
+
+12:04.440 --> 12:06.880
+ and it falls right at the base of the tower.
+
+12:07.760 --> 12:10.480
+ And an Aristotelian would say, wow,
+
+12:10.480 --> 12:12.760
+ of course it falls right to the base of the tower.
+
+12:12.760 --> 12:14.400
+ That shows that the earth isn't moving
+
+12:14.400 --> 12:16.720
+ while the ball is falling.
+
+12:16.720 --> 12:19.760
+ And Galileo says, no way, there's a principle of inertia
+
+12:19.760 --> 12:22.280
+ and it has an inertia in the direction
+
+12:22.280 --> 12:24.360
+ where the earth isn't moving and the tower
+
+12:24.360 --> 12:26.840
+ and the ball and the earth all move together.
+
+12:26.840 --> 12:30.080
+ When the principle of inertia tells you it hits the bottom,
+
+12:30.080 --> 12:33.000
+ it does look, therefore my principle of inertia is right.
+
+12:33.000 --> 12:37.280
+ And Aristotelian says, no, our style of science is right.
+
+12:37.280 --> 12:39.400
+ The earth is stationary.
+
+12:39.400 --> 12:44.400
+ And so you gotta get an interconnected bunch of cases
+
+12:45.600 --> 12:49.200
+ and work hard to line up and explain.
+
+12:49.200 --> 12:51.840
+ It took centuries to make the transition
+
+12:51.840 --> 12:55.880
+ from Aristotelian physics to the new physics.
+
+12:55.880 --> 13:00.880
+ It wasn't done until Newton in 1680 something, 1687.
+
+13:02.000 --> 13:04.960
+ So what do you think is the nature of the process
+
+13:04.960 --> 13:07.960
+ that seems to lead to progress?
+
+13:07.960 --> 13:11.120
+ If we at least look at the long arc of science,
+
+13:11.120 --> 13:13.360
+ of all the community of scientists,
+
+13:13.360 --> 13:16.960
+ they seem to do a better job of coming up with ideas
+
+13:16.960 --> 13:21.120
+ that engineers can then take on and build rockets with
+
+13:21.120 --> 13:26.120
+ or build computers with or build cool stuff with.
+
+13:26.400 --> 13:28.600
+ I don't know, a better job than what?
+
+13:30.200 --> 13:32.480
+ Than this previous century.
+
+13:32.480 --> 13:35.800
+ So century by century, we'll talk about string theory
+
+13:35.800 --> 13:38.040
+ and so on and kind of possible,
+
+13:38.040 --> 13:41.040
+ what you might think of as dead ends and so on.
+
+13:41.040 --> 13:42.680
+ Which is not the way I think of string theory.
+
+13:42.680 --> 13:45.840
+ We'll straighten out, we'll get all the strings straight.
+
+13:45.840 --> 13:49.640
+ But there is, nevertheless in science, very often,
+
+13:49.640 --> 13:52.040
+ at least temporary dead ends.
+
+13:52.040 --> 13:57.040
+ But if you look at the, through centuries,
+
+13:57.760 --> 14:01.120
+ the century before Newton and the century after Newton,
+
+14:01.120 --> 14:06.120
+ it seems like a lot of ideas came closer to the truth
+
+14:07.080 --> 14:10.280
+ that then could be usable by our civilization
+
+14:10.280 --> 14:12.940
+ to build the iPhone, right?
+
+14:12.940 --> 14:15.900
+ To build cool things that improve our quality of life.
+
+14:15.900 --> 14:18.480
+ That's the progress I'm kind of referring to.
+
+14:19.400 --> 14:21.440
+ Let me, can I say that more precisely?
+
+14:21.440 --> 14:23.840
+ Yes, well, it's a low bar.
+
+14:23.840 --> 14:28.840
+ Because I think it's important to get the time places right.
+
+14:28.840 --> 14:33.840
+ There was a scientific revolution that partly succeeded
+
+14:34.640 --> 14:39.520
+ between about 1900 or late 1890s
+
+14:39.520 --> 14:44.520
+ and into the 1930s, 1940s and so.
+
+14:45.440 --> 14:50.280
+ And maybe some, if you stretched it, into the 1970s.
+
+14:50.280 --> 14:54.520
+ And the technology, this was the discovery of relativity
+
+14:54.520 --> 14:58.320
+ and that included a lot of developments of electromagnetism.
+
+14:58.320 --> 15:02.600
+ The confirmation, which wasn't really well confirmed
+
+15:02.600 --> 15:06.560
+ into the 20th century, that matter was made of atoms.
+
+15:06.560 --> 15:09.880
+ And the whole picture of nuclei with electrons going around,
+
+15:09.880 --> 15:12.520
+ this is early 20th century.
+
+15:12.520 --> 15:17.520
+ And then quantum mechanics was from 1905,
+
+15:17.840 --> 15:21.760
+ took a long time to develop, to the late 1920s.
+
+15:21.760 --> 15:25.280
+ And then it was basically in final form.
+
+15:25.280 --> 15:29.440
+ And the basis of this partial revolution,
+
+15:29.440 --> 15:32.280
+ and we can come back to why it's only a partial revolution,
+
+15:33.440 --> 15:36.240
+ is the basis of the technologies that you mentioned.
+
+15:37.040 --> 15:40.840
+ All of, I mean, electrical technology
+
+15:40.840 --> 15:42.880
+ was being developed slowly with this.
+
+15:42.880 --> 15:46.000
+ And in fact, there's a close relation
+
+15:46.000 --> 15:49.560
+ between the development of electricity
+
+15:49.560 --> 15:54.120
+ and the electrification of cities in the United States
+
+15:54.120 --> 15:55.640
+ and Europe and so forth.
+
+15:56.600 --> 15:59.280
+ And the development of the science.
+
+16:00.800 --> 16:05.800
+ The fundamental physics since the early 1970s
+
+16:08.520 --> 16:11.200
+ doesn't have a story like that so far.
+
+16:11.200 --> 16:16.200
+ There's not a series of triumphs and progresses
+
+16:16.560 --> 16:19.760
+ and there's not any practical application.
+
+16:19.760 --> 16:24.760
+ So just to linger briefly on the early 20th century
+
+16:26.520 --> 16:29.000
+ and the revolutions in science that happened there,
+
+16:30.320 --> 16:33.960
+ what was the method by which the scientific community
+
+16:33.960 --> 16:38.960
+ kept each other in check about when you get something right,
+
+16:39.040 --> 16:40.120
+ when you get something wrong?
+
+16:40.120 --> 16:43.600
+ Is experimental validation ultimately the final test?
+
+16:43.600 --> 16:45.320
+ It's absolutely necessary.
+
+16:45.320 --> 16:47.600
+ And the key things were all validated.
+
+16:47.600 --> 16:50.920
+ The key predictions of quantum mechanics
+
+16:50.920 --> 16:53.280
+ and of the theory of electricity and magnetism.
+
+16:54.360 --> 16:57.800
+ So before we talk about Einstein, your new book,
+
+16:57.800 --> 17:00.720
+ before String Theory, Quantum Mechanics, so on,
+
+17:00.720 --> 17:04.040
+ let's take a step back at a higher level question.
+
+17:04.040 --> 17:06.880
+ What is that you mentioned?
+
+17:06.880 --> 17:08.360
+ What is realism?
+
+17:08.360 --> 17:10.600
+ What is anti realism?
+
+17:11.600 --> 17:13.840
+ And maybe why do you find realism,
+
+17:13.840 --> 17:15.680
+ as you mentioned, so compelling?
+
+17:15.680 --> 17:20.680
+ Well, realism is the belief in an external world
+
+17:26.000 --> 17:28.680
+ independent of our existence, our perception,
+
+17:28.680 --> 17:30.720
+ our belief, our knowledge.
+
+17:30.720 --> 17:35.520
+ A realist as a physicist is somebody who believes
+
+17:35.520 --> 17:40.520
+ that there should be possible some completely objective
+
+17:40.640 --> 17:44.760
+ description of each and every process
+
+17:44.760 --> 17:49.400
+ at the fundamental level, which describes and explains
+
+17:49.400 --> 17:52.800
+ exactly what happens and why it happens.
+
+17:52.800 --> 17:55.680
+ That kind of implies that that system,
+
+17:55.680 --> 17:58.280
+ in a realist view, is deterministic,
+
+17:58.280 --> 18:01.120
+ meaning there's no fuzzy magic going on
+
+18:01.120 --> 18:02.280
+ that you can never get to the bottom,
+
+18:02.280 --> 18:04.280
+ or you can get to the bottom of anything
+
+18:04.280 --> 18:06.240
+ and perfectly describe it.
+
+18:07.640 --> 18:10.720
+ Some people would say that I'm not that interested
+
+18:10.720 --> 18:15.560
+ in determinism, but I could live with the fundamental world,
+
+18:15.560 --> 18:18.560
+ which had some chance in it.
+
+18:18.560 --> 18:21.760
+ So do you, you said you could live with it,
+
+18:21.760 --> 18:26.520
+ but do you think God plays dice in our universe?
+
+18:26.520 --> 18:28.720
+ I think it's probably much worse than that.
+
+18:30.360 --> 18:32.080
+ In which direction?
+
+18:32.080 --> 18:33.920
+ I think that theories can change,
+
+18:33.920 --> 18:36.120
+ and theories can change without warning.
+
+18:36.120 --> 18:38.520
+ I think the future is open.
+
+18:38.520 --> 18:40.920
+ You mean the fundamental laws of physics can change?
+
+18:40.920 --> 18:42.440
+ Yeah.
+
+18:42.440 --> 18:43.800
+ Oh, okay, we'll get there.
+
+18:43.800 --> 18:48.800
+ I thought we would be able to find some solid ground,
+
+18:49.720 --> 18:54.720
+ but apparently the entirety of it, temporarily so, probably.
+
+18:55.160 --> 19:00.160
+ Okay, so realism is the idea that while the ground
+
+19:00.760 --> 19:02.920
+ is solid, you can describe it.
+
+19:02.920 --> 19:04.680
+ What's the role of the human being,
+
+19:04.680 --> 19:09.680
+ our beautiful, complex human mind in realism?
+
+19:10.480 --> 19:14.760
+ Do we have a, are we just another set of molecules
+
+19:14.760 --> 19:16.480
+ connected together in a clever way,
+
+19:16.480 --> 19:21.480
+ or the observer, does the observer, our human mind,
+
+19:22.120 --> 19:24.760
+ consciousness, have a role in this realism view
+
+19:24.760 --> 19:26.360
+ of the physical universe?
+
+19:27.200 --> 19:30.400
+ There's two ways, there's two questions you could be asking.
+
+19:30.400 --> 19:35.400
+ One, does our conscious mind, do our perceptions
+
+19:35.680 --> 19:38.800
+ play a role in making things become,
+
+19:38.800 --> 19:42.280
+ in making things real or things becoming?
+
+19:42.280 --> 19:43.320
+ That's question one.
+
+19:43.320 --> 19:47.400
+ Question two is, does this, we can call it
+
+19:47.400 --> 19:52.400
+ a naturalist view of the world that is based on realism,
+
+19:54.720 --> 19:58.080
+ allow a place to understand the existence of
+
+19:58.080 --> 20:01.760
+ and the nature of perceptions and consciousness in mind,
+
+20:01.760 --> 20:03.240
+ and that's question two.
+
+20:04.080 --> 20:06.640
+ Question two, I do think a lot about,
+
+20:06.640 --> 20:11.120
+ and my answer, which is not an answer, is I hope so,
+
+20:11.120 --> 20:12.680
+ but it certainly doesn't yet.
+
+20:14.000 --> 20:14.840
+ So what kind?
+
+20:14.840 --> 20:17.000
+ Question one, I don't think so.
+
+20:17.000 --> 20:18.720
+ But of course, the answer to question one
+
+20:18.720 --> 20:20.120
+ depends on question two.
+
+20:20.120 --> 20:21.760
+ Right.
+
+20:21.760 --> 20:24.040
+ So I'm not up to question one yet.
+
+20:24.040 --> 20:26.160
+ So question two is the thing that you can kind of
+
+20:26.160 --> 20:27.720
+ struggle with at this time.
+
+20:27.720 --> 20:28.560
+ Yes.
+
+20:28.560 --> 20:32.120
+ That's, what about the anti realists?
+
+20:32.120 --> 20:36.280
+ So what flavor, what are the different camps
+
+20:36.280 --> 20:38.440
+ of anti realists that you've talked about?
+
+20:38.440 --> 20:41.000
+ I think it would be nice if you can articulate
+
+20:42.480 --> 20:44.160
+ for the people for whom there is not
+
+20:44.160 --> 20:47.520
+ a very concrete real world, or there's divisions,
+
+20:47.520 --> 20:52.280
+ or it's messier than the realist view of the universe,
+
+20:52.280 --> 20:54.680
+ what are the different camps, what are the different views?
+
+20:54.680 --> 20:58.160
+ I'm not sure I'm a good scholar and can talk about
+
+20:58.160 --> 20:59.960
+ the different camps and analyze it,
+
+20:59.960 --> 21:04.560
+ but some, many of the inventors of quantum physics
+
+21:04.560 --> 21:07.600
+ were not realists, were anti realists.
+
+21:07.600 --> 21:11.000
+ Their scholars, they lived in a very perilous time
+
+21:11.000 --> 21:12.840
+ between the two world wars.
+
+21:13.800 --> 21:17.480
+ And there were a lot of trends in culture
+
+21:17.480 --> 21:19.240
+ which were going that way.
+
+21:19.240 --> 21:21.960
+ But in any case, they said things like,
+
+21:21.960 --> 21:26.960
+ the purpose of science is not to give an objective
+
+21:27.360 --> 21:29.360
+ realist description of nature as it would be
+
+21:29.360 --> 21:30.680
+ in our absence.
+
+21:30.680 --> 21:33.040
+ This might be saying Niels Bohr.
+
+21:33.040 --> 21:36.320
+ The purpose of science is as an extension
+
+21:36.320 --> 21:38.760
+ of our conversations with each other
+
+21:38.760 --> 21:41.280
+ to describe our interactions with nature.
+
+21:41.280 --> 21:44.640
+ And we're free to invent and use terms like
+
+21:44.640 --> 21:48.760
+ particle, or wave, or causality, or time, or space.
+
+21:48.760 --> 21:53.760
+ If they're useful to us, and they carry some
+
+21:53.960 --> 21:58.000
+ intuitive implication, but we shouldn't believe
+
+21:58.000 --> 22:00.280
+ that they actually have to do with what nature
+
+22:00.280 --> 22:02.520
+ would be like in our absence,
+
+22:02.520 --> 22:04.600
+ which we have nothing to say about.
+
+22:05.440 --> 22:08.120
+ Do you find any aspect of that,
+
+22:08.120 --> 22:10.400
+ because you kind of said that we human beings
+
+22:10.400 --> 22:13.920
+ tell stories, do you find aspects of that
+
+22:13.920 --> 22:18.800
+ kind of anti realist view of Niels Bohr compelling?
+
+22:18.800 --> 22:20.960
+ That we fundamentally are storytellers,
+
+22:20.960 --> 22:24.520
+ and then we create tools of space, and time,
+
+22:24.520 --> 22:28.520
+ and causality, and whatever this fun quantum
+
+22:28.520 --> 22:32.800
+ mechanic stuff is to help us tell the story of our world.
+
+22:32.800 --> 22:35.560
+ Sure, I just would like to believe that there's
+
+22:35.560 --> 22:38.480
+ an aspiration for the other thing.
+
+22:39.680 --> 22:41.400
+ The other thing being what?
+
+22:41.400 --> 22:44.000
+ The realist point of view.
+
+22:44.000 --> 22:47.320
+ Do you hope that the stories will eventually lead us
+
+22:47.320 --> 22:52.320
+ to discovering the real world as it is?
+
+22:56.560 --> 22:57.560
+ Yeah.
+
+22:57.560 --> 22:59.200
+ Is perfection possible, by the way?
+
+22:59.200 --> 23:00.680
+ Is it? No.
+
+23:00.680 --> 23:03.880
+ Well that's, you mean will we ever get there
+
+23:03.880 --> 23:05.200
+ and know that we're there?
+
+23:05.200 --> 23:06.480
+ Yeah, exactly.
+
+23:06.480 --> 23:09.800
+ That's not my, that's for people 5,000 years in the future.
+
+23:09.800 --> 23:11.760
+ We're certainly nowhere near there yet.
+
+23:14.240 --> 23:19.240
+ Do you think reality that exists outside of our mind,
+
+23:20.720 --> 23:24.680
+ do you think there's a limit to our cognitive abilities?
+
+23:24.680 --> 23:26.840
+ Is, again, descendants of apes,
+
+23:26.840 --> 23:28.840
+ who are just biological systems,
+
+23:28.840 --> 23:31.800
+ is there a limit to our mind's capability
+
+23:31.800 --> 23:34.780
+ to actually understand reality?
+
+23:35.880 --> 23:39.200
+ Sort of, there comes a point,
+
+23:39.200 --> 23:42.360
+ even with the help of the tools of physics,
+
+23:42.360 --> 23:46.440
+ that we just cannot grasp some fundamental aspects
+
+23:46.440 --> 23:47.280
+ of that reality.
+
+23:47.280 --> 23:48.240
+ Again, I think that's a question
+
+23:48.240 --> 23:49.840
+ for 5,000 years in the future.
+
+23:49.840 --> 23:51.160
+ We're not even close to that limit.
+
+23:51.160 --> 23:54.240
+ I think there is a universality.
+
+23:54.240 --> 23:56.920
+ Here, I don't agree with David Deutsch about everything,
+
+23:56.920 --> 24:01.280
+ but I admire the way he put things in his last book.
+
+24:01.280 --> 24:04.600
+ And he talked about the role of explanation.
+
+24:04.600 --> 24:08.880
+ And he talked about the universality of certain languages
+
+24:08.880 --> 24:11.040
+ or the universality of mathematics
+
+24:11.040 --> 24:15.760
+ or of computing and so forth.
+
+24:15.760 --> 24:18.400
+ And he believed that universality,
+
+24:18.400 --> 24:19.360
+ which is something real,
+
+24:19.360 --> 24:22.880
+ which somehow comes out of the fact
+
+24:22.880 --> 24:26.160
+ that a symbolic system or a mathematical system
+
+24:26.160 --> 24:29.040
+ can refer to itself and can,
+
+24:29.040 --> 24:30.160
+ I forget what that's called,
+
+24:30.160 --> 24:34.360
+ can reference back to itself and build,
+
+24:34.360 --> 24:38.320
+ in which he argued for a universality of possibility
+
+24:38.320 --> 24:41.360
+ for our understanding, whatever is out there.
+
+24:41.360 --> 24:45.280
+ But I admire that argument,
+
+24:45.280 --> 24:50.280
+ but it seems to me we're doing okay so far,
+
+24:51.040 --> 24:53.840
+ but we'll have to see.
+
+24:53.840 --> 24:55.160
+ Whether there is a limit or not.
+
+24:55.160 --> 24:57.240
+ For now, we've got plenty to play with.
+
+24:57.240 --> 24:58.320
+ Yeah.
+
+24:58.320 --> 25:01.760
+ There are things which are right there in front of us
+
+25:01.760 --> 25:03.640
+ which we miss.
+
+25:03.640 --> 25:06.840
+ And I'll quote my friend, Eric Weinstein,
+
+25:06.840 --> 25:10.520
+ in saying, look, Einstein carried his luggage.
+
+25:10.520 --> 25:12.040
+ Freud carried his luggage.
+
+25:12.040 --> 25:13.400
+ Marx carried his luggage.
+
+25:13.400 --> 25:17.000
+ Martha Graham carried her luggage, et cetera.
+
+25:17.000 --> 25:19.240
+ Edison carried his luggage.
+
+25:19.240 --> 25:22.000
+ All these geniuses carried their luggage.
+
+25:22.000 --> 25:25.640
+ And not once before relatively recently
+
+25:25.640 --> 25:28.160
+ did it occur to anybody to put a wheel on luggage
+
+25:28.160 --> 25:29.000
+ and pull it.
+
+25:29.000 --> 25:33.040
+ And it was right there waiting to be invented
+
+25:33.040 --> 25:34.600
+ for centuries.
+
+25:34.600 --> 25:37.960
+ So this is Eric Weinstein.
+
+25:37.960 --> 25:39.040
+ Yeah.
+
+25:39.040 --> 25:40.520
+ What do the wheels represent?
+
+25:40.520 --> 25:42.200
+ Are you basically saying that there's stuff
+
+25:42.200 --> 25:43.760
+ right in front of our eyes?
+
+25:43.760 --> 25:46.200
+ That once we, it just clicks,
+
+25:46.200 --> 25:48.240
+ we put the wheels on the luggage,
+
+25:48.240 --> 25:49.880
+ a lot of things will fall into place.
+
+25:49.880 --> 25:52.440
+ Yes, I do, I do.
+
+25:52.440 --> 25:55.120
+ And every day I wake up and think,
+
+25:55.120 --> 25:58.560
+ why can't I be that guy who was walking through the airport?
+
+26:00.760 --> 26:02.840
+ What do you think it takes to be that guy?
+
+26:02.840 --> 26:05.760
+ Because like you said,
+
+26:05.760 --> 26:08.560
+ a lot of really smart people carried their luggage.
+
+26:10.040 --> 26:12.440
+ What, just psychologically speaking,
+
+26:12.440 --> 26:14.560
+ so Eric Weinstein is a good example of a person
+
+26:14.560 --> 26:16.120
+ who thinks outside the box.
+
+26:16.120 --> 26:16.960
+ Yes.
+
+26:16.960 --> 26:21.040
+ Who resists almost conventional thinking.
+
+26:21.040 --> 26:25.480
+ You're an example of a person who by habit,
+
+26:25.480 --> 26:28.880
+ by psychology, by upbringing, I don't know,
+
+26:28.880 --> 26:31.160
+ but resists conventional thinking as well,
+
+26:31.160 --> 26:32.000
+ just by nature.
+
+26:32.000 --> 26:32.920
+ Thank you, that's a compliment.
+
+26:32.920 --> 26:34.080
+ That's a compliment?
+
+26:34.080 --> 26:34.920
+ Good.
+
+26:34.920 --> 26:37.240
+ So what do you think it takes to do that?
+
+26:37.240 --> 26:39.280
+ Is that something you were just born with?
+
+26:40.880 --> 26:42.040
+ I doubt it.
+
+26:42.040 --> 26:47.040
+ Well, from my studying some cases,
+
+26:47.040 --> 26:49.840
+ because I'm curious about that, obviously,
+
+26:49.840 --> 26:52.520
+ and just in a more concrete way,
+
+26:52.520 --> 26:54.400
+ when I started out in physics,
+
+26:54.400 --> 26:57.880
+ because I started a long way from physics,
+
+26:57.880 --> 27:00.800
+ so it took me a long, not a long time,
+
+27:00.800 --> 27:04.280
+ but a lot of work to get to study it and get into it,
+
+27:04.280 --> 27:05.880
+ so I did wonder about that.
+
+27:07.040 --> 27:10.400
+ And so I read the biographies,
+
+27:10.400 --> 27:12.960
+ and in fact, I started with the autobiography of Einstein
+
+27:12.960 --> 27:17.960
+ and Newton and Galileo and all those people.
+
+27:18.520 --> 27:22.760
+ And I think there's a couple of things.
+
+27:22.760 --> 27:24.920
+ Some of it is luck, being in the right place
+
+27:24.920 --> 27:26.320
+ at the right time.
+
+27:26.320 --> 27:28.800
+ Some of it is stubbornness and arrogance,
+
+27:28.800 --> 27:30.440
+ which can easily go wrong.
+
+27:30.440 --> 27:31.960
+ Yes.
+
+27:31.960 --> 27:36.280
+ And I know all of these are doorways.
+
+27:36.280 --> 27:38.960
+ If you go through them slightly at the wrong speed
+
+27:38.960 --> 27:43.960
+ or in the wrong angle, they're ways to fail.
+
+27:45.000 --> 27:47.640
+ But if you somehow have the right luck,
+
+27:47.640 --> 27:52.040
+ the right confidence or arrogance, caring,
+
+27:52.040 --> 27:56.000
+ I think Einstein cared to understand nature
+
+27:56.000 --> 28:00.960
+ with ferocity and a commitment that exceeded
+
+28:00.960 --> 28:02.240
+ other people of his time.
+
+28:02.240 --> 28:05.080
+ So he asked more stubborn questions.
+
+28:05.080 --> 28:08.120
+ He asked deeper questions.
+
+28:09.960 --> 28:14.960
+ I think, and there's a level of ability
+
+28:15.000 --> 28:20.000
+ and whether ability is born in or can be developed
+
+28:20.120 --> 28:21.720
+ to the extent to which it can be developed,
+
+28:21.720 --> 28:24.480
+ like any of these things like musical talent.
+
+28:24.480 --> 28:27.040
+ So you mentioned ego.
+
+28:27.040 --> 28:29.000
+ What's the role of ego in that process?
+
+28:29.000 --> 28:30.040
+ Confidence.
+
+28:30.040 --> 28:30.880
+ Confidence.
+
+28:30.880 --> 28:34.680
+ But in your own life, have you found yourself
+
+28:34.680 --> 28:38.920
+ walking that nice edge of too much or too little,
+
+28:38.920 --> 28:41.000
+ so being overconfident and therefore
+
+28:41.000 --> 28:43.960
+ leaning yourself astray or not sufficiently confident
+
+28:43.960 --> 28:47.000
+ to throw away the conventional thinking
+
+28:47.000 --> 28:50.540
+ of whatever the theory of the day, of theoretical physics?
+
+28:51.480 --> 28:54.240
+ I don't know if I, I mean, I've contributed
+
+28:54.240 --> 28:57.360
+ where I've contributed, whether if I had had
+
+28:57.360 --> 29:01.360
+ more confidence in something, I would have gotten further.
+
+29:01.360 --> 29:02.200
+ I don't know.
+
+29:03.960 --> 29:08.960
+ Certainly, I'm sitting here at this moment
+
+29:09.520 --> 29:14.480
+ with very much my own approach to nearly everything.
+
+29:14.480 --> 29:17.800
+ And I'm calm, I'm happy about that.
+
+29:18.800 --> 29:20.840
+ But on the other hand, I know people
+
+29:20.840 --> 29:25.840
+ whose self confidence vastly exceeds mine.
+
+29:26.680 --> 29:28.560
+ And sometimes I think it's justified
+
+29:28.560 --> 29:31.700
+ and sometimes I think it's not justified.
+
+29:33.040 --> 29:35.280
+ Your most recent book titled
+
+29:35.280 --> 29:37.800
+ Einstein's Unfinished Revolution.
+
+29:37.800 --> 29:42.240
+ So I have to ask, what is Einstein's unfinished revolution
+
+29:42.240 --> 29:45.480
+ and also how do we finish it?
+
+29:45.480 --> 29:48.440
+ Well, that's something I've been trying to do my whole life,
+
+29:48.440 --> 29:51.240
+ but Einstein's unfinished revolution
+
+29:51.240 --> 29:54.880
+ is the twin revolutions which invented relativity theory,
+
+29:54.880 --> 29:58.200
+ special and especially general relativity,
+
+29:58.200 --> 30:01.320
+ and quantum theory, which he was the first person
+
+30:01.320 --> 30:04.960
+ to realize in 1905 that there would have to be
+
+30:04.960 --> 30:09.920
+ a radically different theory which somehow realized
+
+30:09.920 --> 30:12.240
+ or resolved the paradox of the duality
+
+30:12.240 --> 30:14.360
+ of particle and wave for photons.
+
+30:14.360 --> 30:18.720
+ And he was, I mean, people I think don't always
+
+30:18.720 --> 30:21.160
+ associate Einstein with quantum mechanics
+
+30:21.160 --> 30:23.380
+ because I think his connection with it,
+
+30:24.320 --> 30:27.080
+ founding as one of the founders,
+
+30:27.080 --> 30:28.440
+ I would say, of quantum mechanics,
+
+30:28.440 --> 30:30.480
+ he kind of put it in the closet.
+
+30:30.480 --> 30:31.320
+ Is it?
+
+30:31.320 --> 30:34.000
+ Well, he didn't believe that the quantum mechanics
+
+30:34.000 --> 30:38.160
+ as it was developed in the mid to late 1920s
+
+30:38.160 --> 30:39.560
+ was completely correct.
+
+30:39.560 --> 30:42.160
+ At first, he didn't believe it at all.
+
+30:42.160 --> 30:44.180
+ Then he was convinced that it's consistent,
+
+30:44.180 --> 30:47.280
+ but incomplete, and that also is my view.
+
+30:47.280 --> 30:52.040
+ It needs, for various reasons, I can elucidate,
+
+30:52.040 --> 30:56.960
+ to have additional degrees of freedom, particles,
+
+30:56.960 --> 31:00.680
+ forces, something to reach the stage
+
+31:00.680 --> 31:03.960
+ where it gives a complete description of each phenomenon,
+
+31:03.960 --> 31:07.620
+ as I was saying, realism demands.
+
+31:07.620 --> 31:10.320
+ So what aspect of quantum mechanics
+
+31:10.320 --> 31:12.920
+ bothers you and Einstein the most?
+
+31:12.920 --> 31:17.920
+ Is it some aspect of the wave function collapse discussions,
+
+31:18.240 --> 31:19.880
+ the measurement problem?
+
+31:19.880 --> 31:23.220
+ Is it the?
+
+31:23.220 --> 31:24.120
+ The measurement problem.
+
+31:24.120 --> 31:26.160
+ I'm not gonna speak for Einstein.
+
+31:26.160 --> 31:31.160
+ But the measurement problem, basically, and the fact that.
+
+31:31.880 --> 31:34.120
+ What is the measurement problem, sorry?
+
+31:34.120 --> 31:36.840
+ The basic formulation of quantum mechanics
+
+31:36.840 --> 31:41.100
+ gives you two ways to evolve situations in time.
+
+31:41.100 --> 31:44.920
+ One of them is explicitly when no observer is observing
+
+31:44.920 --> 31:47.200
+ and no measurement is taking place.
+
+31:47.200 --> 31:48.720
+ And the other is when a measurement
+
+31:48.720 --> 31:50.480
+ or an observation is taking place.
+
+31:50.480 --> 31:53.960
+ And they basically contradict each other.
+
+31:53.960 --> 31:56.720
+ But there's another reason why the revolution
+
+31:56.720 --> 31:58.680
+ was incomplete, which is we don't understand
+
+31:58.680 --> 32:01.200
+ the relationship between these two parts.
+
+32:01.200 --> 32:04.680
+ General relativity, which became our best theory
+
+32:04.680 --> 32:08.720
+ of space and time and gravitation and cosmology,
+
+32:08.720 --> 32:11.600
+ and quantum theory.
+
+32:11.600 --> 32:14.120
+ So for the most part, general relativity
+
+32:14.120 --> 32:15.960
+ describes big things.
+
+32:15.960 --> 32:18.080
+ Quantum theory describes little things.
+
+32:18.080 --> 32:20.360
+ And that's the revolution that we found
+
+32:20.360 --> 32:22.520
+ really powerful tools to describe
+
+32:22.520 --> 32:24.040
+ big things and little things.
+
+32:24.040 --> 32:27.400
+ And it's unfinished because we have
+
+32:27.400 --> 32:30.120
+ two totally separate things and we need to figure out
+
+32:30.120 --> 32:32.360
+ how to connect them so we can describe everything.
+
+32:32.360 --> 32:36.820
+ Right, and we either do that if we believe quantum mechanics
+
+32:36.820 --> 32:41.820
+ as understood now is correct by bringing general relativity
+
+32:42.120 --> 32:44.160
+ or some extension of general relativity
+
+32:44.160 --> 32:46.520
+ that describes gravity and so forth
+
+32:46.520 --> 32:49.680
+ into the quantum domain that's called quantize,
+
+32:50.640 --> 32:52.960
+ the theory of gravity.
+
+32:52.960 --> 32:55.840
+ Or if you believe with Einstein
+
+32:55.840 --> 32:58.200
+ that quantum mechanics needs to be completed,
+
+32:58.200 --> 33:03.080
+ and this is my view, then part of the job
+
+33:03.080 --> 33:04.880
+ of finding the right completion
+
+33:04.880 --> 33:07.120
+ or extension of quantum mechanics
+
+33:07.120 --> 33:10.360
+ would be one that incorporated space, time, and gravity.
+
+33:12.640 --> 33:14.960
+ So, where do we begin?
+
+33:14.960 --> 33:19.620
+ So first, let me ask, perhaps you can give me a chance,
+
+33:19.620 --> 33:22.100
+ if I could ask you some just really basic questions.
+
+33:22.100 --> 33:23.520
+ Well, they're not at all.
+
+33:23.520 --> 33:24.880
+ The basic questions are the hardest,
+
+33:24.880 --> 33:26.740
+ but you mentioned space, time.
+
+33:26.740 --> 33:28.880
+ What is space, time?
+
+33:28.880 --> 33:32.260
+ Space, time, you talked about a construction.
+
+33:32.260 --> 33:36.440
+ So I believe the space, time is an intellectual construction
+
+33:36.440 --> 33:39.200
+ that we make of the events in the universe.
+
+33:39.200 --> 33:40.680
+ I believe the events are real,
+
+33:40.680 --> 33:43.520
+ and the relationships between the events,
+
+33:43.520 --> 33:45.720
+ which cause which are real.
+
+33:45.720 --> 33:50.480
+ But the idea that there's a four dimensional
+
+33:50.480 --> 33:54.000
+ smooth geometry which has a metric and a connection
+
+33:54.000 --> 33:57.320
+ and satisfies the equations that Einstein wrote,
+
+33:57.320 --> 34:00.400
+ it's a good description to some scale.
+
+34:00.400 --> 34:02.760
+ It's a good approximation, it captures some
+
+34:02.760 --> 34:05.080
+ of what's really going on in nature.
+
+34:05.080 --> 34:08.600
+ But I don't believe it for a minute is fundamental.
+
+34:08.600 --> 34:12.420
+ So, okay, we're gonna allow me to linger on that.
+
+34:12.420 --> 34:16.760
+ So the universe has events, events cause other events.
+
+34:16.760 --> 34:19.080
+ This is the idea of causality.
+
+34:19.080 --> 34:22.080
+ Okay, so that's real.
+
+34:22.080 --> 34:23.720
+ That's in my.
+
+34:23.720 --> 34:25.520
+ In your view is real.
+
+34:25.520 --> 34:29.660
+ Or hypothesis, or the theories that I have been working
+
+34:29.660 --> 34:32.200
+ to develop make that assumption.
+
+34:32.200 --> 34:35.320
+ So space, time, you said four dimensional space
+
+34:35.320 --> 34:37.220
+ is kind of the location of things,
+
+34:37.220 --> 34:42.240
+ and time is whatever the heck time is.
+
+34:42.240 --> 34:47.240
+ And you're saying that space, time is,
+
+34:47.800 --> 34:51.480
+ both space and time are emergent and not fundamental?
+
+34:51.480 --> 34:52.320
+ No.
+
+34:52.320 --> 34:54.480
+ Sorry, before you correct me,
+
+34:55.460 --> 34:58.600
+ what does it mean to be fundamental or emergent?
+
+34:58.600 --> 35:01.480
+ Fundamental means it's part of the description
+
+35:01.480 --> 35:03.140
+ as far down as you go.
+
+35:03.140 --> 35:03.980
+ We have this notion.
+
+35:03.980 --> 35:04.800
+ As real.
+
+35:04.800 --> 35:05.640
+ Yes.
+
+35:05.640 --> 35:07.240
+ As real as real it could be.
+
+35:07.240 --> 35:10.160
+ Yeah, so I think that time is fundamental,
+
+35:10.160 --> 35:12.440
+ and quote goes all the way down,
+
+35:12.440 --> 35:16.080
+ and space does not, and the combination of them
+
+35:16.080 --> 35:18.960
+ we use in general relativity that we call space time
+
+35:18.960 --> 35:20.800
+ also does not.
+
+35:20.800 --> 35:24.080
+ But what is time then?
+
+35:24.080 --> 35:29.080
+ I think that time, the activity of time
+
+35:29.440 --> 35:34.360
+ is a continual creation of events from existing events.
+
+35:34.360 --> 35:37.560
+ So if there's no events, there's no time.
+
+35:37.560 --> 35:41.060
+ Then there's not only no time, there's no nothing.
+
+35:41.060 --> 35:45.800
+ So I believe the universe has a history
+
+35:47.020 --> 35:48.760
+ which goes to the past.
+
+35:48.760 --> 35:51.700
+ I believe the future does not exist.
+
+35:51.700 --> 35:53.320
+ There's a notion of the present
+
+35:53.320 --> 35:55.520
+ and a notion of the past,
+
+35:55.520 --> 35:58.720
+ and the past consists of,
+
+35:58.720 --> 36:03.640
+ is a story about events that took place to our past.
+
+36:03.640 --> 36:05.520
+ So you said the future doesn't exist.
+
+36:05.520 --> 36:06.360
+ Yes.
+
+36:08.800 --> 36:10.200
+ Could you say that again?
+
+36:10.200 --> 36:14.360
+ Can you try to give me a chance to understand that
+
+36:14.360 --> 36:15.280
+ one more time?
+
+36:15.280 --> 36:18.480
+ So events cause other events.
+
+36:18.480 --> 36:19.400
+ What is this universe?
+
+36:19.400 --> 36:23.580
+ Cause we'll talk about locality and nonlocality.
+
+36:23.580 --> 36:25.120
+ Good.
+
+36:25.120 --> 36:27.120
+ Cause it's a crazy, I mean it's not crazy,
+
+36:27.120 --> 36:32.120
+ it's a beautiful set of ideas that you propose.
+
+36:32.160 --> 36:34.640
+ But, and if Kozali is fundamental,
+
+36:34.640 --> 36:37.120
+ I'd just like to understand it better.
+
+36:37.120 --> 36:38.920
+ What is the past?
+
+36:38.920 --> 36:40.000
+ What is the future?
+
+36:40.000 --> 36:41.920
+ What is the flow of time?
+
+36:42.760 --> 36:46.680
+ Even the error of time in our universe, in your view.
+
+36:46.680 --> 36:50.440
+ And maybe what's an event, right?
+
+36:50.440 --> 36:54.360
+ Oh, an event is where something changes,
+
+36:54.360 --> 36:58.120
+ or where two,
+
+36:59.520 --> 37:02.200
+ it's hard to say because it's a primitive concept.
+
+37:02.200 --> 37:07.200
+ An event is a moment of time within space.
+
+37:07.960 --> 37:11.480
+ This is the view in general relativity,
+
+37:11.480 --> 37:15.480
+ where two particles intersect in their paths,
+
+37:15.480 --> 37:19.760
+ or something changes in the path of a particle.
+
+37:19.760 --> 37:23.600
+ Now, we are postulating that there is,
+
+37:23.600 --> 37:25.600
+ at the fundamental level, a notion,
+
+37:25.600 --> 37:27.240
+ which is an elementary notion,
+
+37:27.240 --> 37:31.480
+ so it doesn't have a definition in terms of other things,
+
+37:31.480 --> 37:34.800
+ but it is something elementary happening.
+
+37:34.800 --> 37:36.920
+ And it doesn't have a connection to energy,
+
+37:36.920 --> 37:38.240
+ or matter, or exchange of energy?
+
+37:38.240 --> 37:40.160
+ It does have a connection to energy and matter.
+
+37:40.160 --> 37:41.700
+ So it's at that level.
+
+37:41.700 --> 37:43.280
+ Yeah, it involves,
+
+37:43.280 --> 37:48.280
+ and that's why the version of a theory of events
+
+37:48.320 --> 37:50.840
+ that I've developed with Marina Cortez,
+
+37:50.840 --> 37:54.040
+ and it's, by the way, I wanna mention my collaborators,
+
+37:54.040 --> 37:55.920
+ because they've been at least as important
+
+37:55.920 --> 37:57.800
+ in this work as I have.
+
+37:57.800 --> 38:02.800
+ It's Marina Cortez in all the work since about 2013,
+
+38:02.920 --> 38:07.440
+ 2012, 2013, about causality, causal sets.
+
+38:07.440 --> 38:11.200
+ And in the period before that, Roberta Mangibera Unger,
+
+38:11.200 --> 38:14.760
+ who is a philosopher and a professor of law.
+
+38:14.760 --> 38:16.560
+ And that's in your efforts,
+
+38:16.560 --> 38:17.760
+ together with your collaborators,
+
+38:17.760 --> 38:20.120
+ to finish the unfinished revolution.
+
+38:20.120 --> 38:20.940
+ Yes.
+
+38:20.940 --> 38:23.560
+ And focus on causality as a fundamental.
+
+38:23.560 --> 38:24.400
+ Yes.
+
+38:24.400 --> 38:26.520
+ As fundamental to physics.
+
+38:26.520 --> 38:28.080
+ So.
+
+38:28.080 --> 38:30.400
+ And there's certainly other people we've worked with,
+
+38:30.400 --> 38:32.720
+ but those two people's thinking
+
+38:32.720 --> 38:34.920
+ had a huge influence on my own thinking.
+
+38:34.920 --> 38:36.800
+ So in the way you describe causality,
+
+38:36.800 --> 38:39.480
+ that's what you mean of time being fundamental.
+
+38:39.480 --> 38:41.560
+ That causality is fundamental.
+
+38:41.560 --> 38:42.400
+ Yes.
+
+38:43.640 --> 38:47.320
+ And what does it mean for space to not be fundamental,
+
+38:47.320 --> 38:48.160
+ to be emergent?
+
+38:48.160 --> 38:48.980
+ That's very good.
+
+38:48.980 --> 38:52.600
+ There's a level of description in which there are events,
+
+38:52.600 --> 38:57.080
+ there are events create other events,
+
+38:58.160 --> 38:59.280
+ but there's no space.
+
+38:59.280 --> 39:00.720
+ They don't live in space.
+
+39:00.720 --> 39:04.000
+ They have an order in which they caused each other.
+
+39:04.000 --> 39:07.560
+ And that is part of the nature of time for us.
+
+39:07.560 --> 39:12.560
+ But there is an emergent approximate description.
+
+39:13.720 --> 39:15.560
+ And you asked me to define emergent.
+
+39:15.560 --> 39:17.160
+ I didn't.
+
+39:17.160 --> 39:22.160
+ An emergent property is a property
+
+39:22.400 --> 39:26.480
+ that arises at some level of complexity,
+
+39:26.480 --> 39:31.240
+ larger than and more complex than the fundamental level,
+
+39:31.240 --> 39:36.120
+ which requires some property to describe it,
+
+39:36.120 --> 39:37.960
+ which is not directly
+
+39:40.600 --> 39:44.600
+ explicable or derivable is the word I want
+
+39:44.600 --> 39:48.640
+ from the properties of the fundamental things.
+
+39:48.640 --> 39:50.800
+ And space is one of those things
+
+39:50.800 --> 39:53.120
+ in a sufficiently complex universe,
+
+39:53.120 --> 39:58.120
+ space, three dimensional position of things emerged.
+
+39:58.280 --> 39:59.880
+ Yes, and we have this,
+
+39:59.880 --> 40:03.920
+ we saw how this happens in detail in some models,
+
+40:03.920 --> 40:07.640
+ both computationally and analytically.
+
+40:07.640 --> 40:11.240
+ Okay, so connected to space is the idea of locality.
+
+40:11.240 --> 40:12.080
+ Yes.
+
+40:13.360 --> 40:15.200
+ So we've talked about realism.
+
+40:15.200 --> 40:19.840
+ So I live in this world that like sports.
+
+40:21.520 --> 40:25.400
+ Locality is a thing that you can affect things close to you
+
+40:26.280 --> 40:29.800
+ and don't have an effect on things that are far away.
+
+40:29.800 --> 40:32.880
+ It's the thing that bothers me about gravity in general
+
+40:32.880 --> 40:35.120
+ or action at a distance.
+
+40:35.120 --> 40:37.400
+ Same thing that probably bothered Newton,
+
+40:37.400 --> 40:40.080
+ or at least he said a little bit about it.
+
+40:43.880 --> 40:45.560
+ Okay, so what do you think about locality?
+
+40:45.560 --> 40:47.000
+ Is it just a construct?
+
+40:48.720 --> 40:51.680
+ Is it us humans just like this idea
+
+40:51.680 --> 40:54.200
+ and are connected to it because we exist in it,
+
+40:54.200 --> 40:57.120
+ we need it for our survival, but it's not fundamental?
+
+40:57.120 --> 40:58.920
+ I mean, it seems crazy for it not to be
+
+40:58.920 --> 41:01.920
+ a fundamental aspect of our reality.
+
+41:01.920 --> 41:03.040
+ It does.
+
+41:03.040 --> 41:05.920
+ Can you comfort me on a sort of as a therapist,
+
+41:05.920 --> 41:07.840
+ like how do I?
+
+41:07.840 --> 41:10.400
+ I'm not a good therapist, but I'll do my best.
+
+41:10.400 --> 41:11.240
+ Okay.
+
+41:13.440 --> 41:16.800
+ There are several different definitions of locality
+
+41:16.800 --> 41:19.640
+ when you come to talk about locality in physics.
+
+41:20.720 --> 41:23.680
+ In quantum field theory,
+
+41:23.680 --> 41:27.520
+ which is a mixture of special relativity
+
+41:27.520 --> 41:29.640
+ and quantum mechanics,
+
+41:29.640 --> 41:32.640
+ there is a precise definition of locality.
+
+41:33.840 --> 41:37.560
+ Field operators corresponding to events in space time,
+
+41:37.560 --> 41:38.960
+ which are space like separated,
+
+41:38.960 --> 41:41.480
+ commute with each other as operators.
+
+41:41.480 --> 41:43.520
+ So in quantum mechanics,
+
+41:43.520 --> 41:46.200
+ you think about the nature of reality as fields
+
+41:46.200 --> 41:48.800
+ and things that are close in a field
+
+41:48.800 --> 41:53.000
+ have an impact on each other more than farther away.
+
+41:53.000 --> 41:54.200
+ That's, yes.
+
+41:54.200 --> 41:55.560
+ That's very comforting.
+
+41:55.560 --> 41:56.400
+ That makes sense.
+
+41:56.400 --> 41:58.400
+ So that's a property of quantum field theory
+
+41:58.400 --> 42:00.320
+ and it's well tested.
+
+42:00.320 --> 42:04.920
+ Unfortunately, there's another definition of local,
+
+42:04.920 --> 42:07.680
+ which was expressed by Einstein
+
+42:07.680 --> 42:11.080
+ and expressed more precisely by John Bell,
+
+42:11.080 --> 42:15.720
+ which has been tested experimentally and found to fail.
+
+42:15.720 --> 42:19.600
+ And this set up is you take two particles.
+
+42:19.600 --> 42:24.000
+ So one thing that's really weird about quantum mechanics
+
+42:24.000 --> 42:26.480
+ is a property called entanglement.
+
+42:26.480 --> 42:28.880
+ You can have two particles interact
+
+42:28.880 --> 42:31.200
+ and then share a property
+
+42:31.200 --> 42:32.680
+ without it being a property
+
+42:32.680 --> 42:35.400
+ of either one of the two particles.
+
+42:35.400 --> 42:38.480
+ And if you take such a system
+
+42:38.480 --> 42:43.440
+ and then you make a measurement on particle A,
+
+42:43.440 --> 42:46.040
+ which is over here on my right side,
+
+42:46.040 --> 42:48.200
+ and particle B, which is over here.
+
+42:48.200 --> 42:50.760
+ Somebody else makes a measurement of particle B.
+
+42:50.760 --> 42:55.760
+ You can ask that whatever is the real reality
+
+42:56.840 --> 43:01.840
+ of particle B, it not be affected by the choice
+
+43:01.960 --> 43:04.680
+ the observer at particle A makes about what to measure,
+
+43:04.680 --> 43:06.160
+ not the outcome,
+
+43:06.160 --> 43:09.680
+ just the choice of the different things they might measure.
+
+43:09.680 --> 43:11.400
+ And that's a notion of locality
+
+43:11.400 --> 43:13.240
+ because it assumes that these things
+
+43:13.240 --> 43:16.080
+ are very far spaced like separated.
+
+43:16.080 --> 43:19.040
+ And it's gonna take a while for any information
+
+43:19.040 --> 43:22.160
+ about the choice made by the people here at A
+
+43:22.160 --> 43:24.080
+ to affect the reality at B.
+
+43:24.080 --> 43:25.480
+ But you make that assumption,
+
+43:25.480 --> 43:27.600
+ that's called Bell locality.
+
+43:27.600 --> 43:30.120
+ And you derive a certain inequality
+
+43:30.120 --> 43:32.400
+ that some correlations,
+
+43:32.400 --> 43:36.040
+ functions of correlations have to satisfy.
+
+43:36.040 --> 43:39.360
+ And then you can test that pretty directly
+
+43:39.360 --> 43:42.280
+ in experiments which create pairs of photons
+
+43:42.280 --> 43:44.000
+ or other particles.
+
+43:44.000 --> 43:46.800
+ And it's wrong by many sigma.
+
+43:46.800 --> 43:49.920
+ In experiment, it doesn't match.
+
+43:49.920 --> 43:51.840
+ So what does that mean?
+
+43:51.840 --> 43:54.600
+ That means that that definition of locality
+
+43:54.600 --> 43:56.440
+ I stated is false.
+
+43:56.440 --> 43:58.840
+ The one that Einstein was playing with.
+
+43:58.840 --> 44:00.720
+ Yeah, and the one that I stated,
+
+44:00.720 --> 44:04.760
+ that is it's not true that whatever is real
+
+44:04.760 --> 44:08.720
+ about particle B is unaffected by the choice
+
+44:08.720 --> 44:10.960
+ that the observer makes as to what to measure
+
+44:10.960 --> 44:12.200
+ in particle A.
+
+44:12.200 --> 44:14.600
+ No matter how long they've been propagating
+
+44:14.600 --> 44:17.640
+ at almost the speed of light or the speed of light
+
+44:17.640 --> 44:19.360
+ away from each other, it's no matter.
+
+44:19.360 --> 44:22.000
+ So like the distance between them.
+
+44:22.000 --> 44:23.640
+ Well, it's been tested, of course,
+
+44:23.640 --> 44:27.560
+ if you want to have hope for quantum mechanics
+
+44:27.560 --> 44:30.320
+ being incomplete or wrong and corrected
+
+44:30.320 --> 44:32.440
+ by something that changes this.
+
+44:32.440 --> 44:35.880
+ It's been tested over a number of kilometers.
+
+44:35.880 --> 44:39.440
+ I don't remember whether it's 25 kilometers
+
+44:39.440 --> 44:42.160
+ or a hundred and something kilometers, but.
+
+44:42.160 --> 44:47.160
+ So in trying to solve the unsolved revolution,
+
+44:47.800 --> 44:50.200
+ in trying to come up with the theory for everything,
+
+44:50.200 --> 44:55.200
+ is causality fundamental and breaking away from locality?
+
+44:57.600 --> 44:58.440
+ Absolutely.
+
+44:59.400 --> 45:00.480
+ A crucial step.
+
+45:00.480 --> 45:04.080
+ So in your book, essentially, those are the two things
+
+45:04.080 --> 45:07.880
+ we really need to think about as a community.
+
+45:07.880 --> 45:12.120
+ Especially the physics community has to think about this.
+
+45:12.120 --> 45:15.680
+ I guess my question is, how do we solve?
+
+45:15.680 --> 45:19.120
+ How do we finish the unfinished revolution?
+
+45:19.120 --> 45:22.760
+ Well, that's, I can only tell you what I'm trying to do
+
+45:22.760 --> 45:27.880
+ and what I've abandoned as not working.
+
+45:27.880 --> 45:31.440
+ As one ant, smart ant in an ant colony.
+
+45:31.440 --> 45:32.760
+ Yep.
+
+45:32.760 --> 45:35.960
+ Or maybe dumb, that's why, who knows?
+
+45:35.960 --> 45:40.280
+ But anyway, my view of the,
+
+45:40.280 --> 45:43.120
+ we've had some nice theories invented.
+
+45:45.040 --> 45:47.240
+ There's a bunch of different ones.
+
+45:47.240 --> 45:49.640
+ Both relate to quantum mechanics,
+
+45:49.640 --> 45:51.920
+ relate to quantum gravity.
+
+45:51.920 --> 45:53.920
+ There's a lot to admire
+
+45:53.920 --> 45:56.800
+ in many of these different approaches.
+
+45:56.800 --> 45:58.480
+ But to my understanding,
+
+45:58.480 --> 46:02.840
+ they, none of them completely solve the problems
+
+46:02.840 --> 46:04.080
+ that I care about.
+
+46:05.480 --> 46:08.040
+ And so we're in a situation
+
+46:08.040 --> 46:11.800
+ which is either terrifying for a student
+
+46:11.800 --> 46:14.920
+ or full of opportunity for the right student,
+
+46:14.920 --> 46:19.560
+ in which we've got more than a dozen attempts.
+
+46:19.560 --> 46:22.120
+ And I never thought, I don't think anybody anticipated
+
+46:22.120 --> 46:23.640
+ it would work out this way.
+
+46:23.640 --> 46:26.640
+ Which work partly and then at some point,
+
+46:26.640 --> 46:28.840
+ they have an issue that nobody can figure out
+
+46:28.840 --> 46:30.920
+ how to go around or how to solve.
+
+46:31.920 --> 46:36.080
+ And that's the situation we're in.
+
+46:36.080 --> 46:39.520
+ My reaction to that is twofold.
+
+46:39.520 --> 46:42.640
+ One of them is to try to bring people,
+
+46:42.640 --> 46:46.920
+ we evolved into this unfortunate sociological situation
+
+46:46.920 --> 46:48.800
+ in which there are communities
+
+46:48.800 --> 46:50.680
+ around some of these approaches.
+
+46:50.680 --> 46:53.720
+ And to borrow again, a metaphor from Eric,
+
+46:53.720 --> 46:58.000
+ they sit on top of hills in the landscape of theories
+
+46:58.000 --> 47:00.360
+ and throw rocks at each other.
+
+47:00.360 --> 47:02.840
+ And as Eric says, we need two things.
+
+47:02.840 --> 47:05.400
+ We need people to get off their hills
+
+47:05.400 --> 47:08.680
+ and come down into the valleys and party and talk
+
+47:08.680 --> 47:13.000
+ and become friendly and learn to say,
+
+47:14.120 --> 47:18.200
+ not no but, but yes and yes.
+
+47:18.200 --> 47:19.640
+ Your idea goes this far,
+
+47:19.640 --> 47:21.800
+ but maybe if we put it together with my idea,
+
+47:21.800 --> 47:22.920
+ we can go further.
+
+47:22.920 --> 47:23.760
+ Yes.
+
+47:25.160 --> 47:29.280
+ So in that spirit, I've talked several times
+
+47:29.280 --> 47:32.680
+ with Sean Carroll, who's also written
+
+47:32.680 --> 47:34.200
+ an excellent book recently.
+
+47:34.200 --> 47:36.880
+ And he kind of, he plays around,
+
+47:36.880 --> 47:39.000
+ is a big fan of the many worlds interpretation
+
+47:39.000 --> 47:40.400
+ of quantum mechanics.
+
+47:40.400 --> 47:42.960
+ So I'm a troublemaker.
+
+47:42.960 --> 47:47.280
+ So let me ask, what's your sense of Sean
+
+47:47.280 --> 47:50.000
+ and the idea of many worlds interpretation?
+
+47:50.000 --> 47:52.760
+ I've read many the commentary back and forth.
+
+47:52.760 --> 47:55.800
+ You guys are friendly, respect each other,
+
+47:55.800 --> 47:57.400
+ but have a lot of fun debating.
+
+47:57.400 --> 48:02.280
+ I love Sean and he, no, I really,
+
+48:02.280 --> 48:07.280
+ he's articulate and he's a great representative
+
+48:07.920 --> 48:10.280
+ or ambassador of science to the public
+
+48:10.280 --> 48:13.400
+ and for different fields of science to each other.
+
+48:14.280 --> 48:19.280
+ He also, like I do, takes philosophy seriously.
+
+48:19.440 --> 48:24.360
+ And unlike what I do in all cases,
+
+48:24.360 --> 48:26.440
+ he has really done the homework.
+
+48:26.440 --> 48:29.120
+ He's read a lot, he knows the people,
+
+48:29.120 --> 48:34.120
+ he talks to them, he exposes his arguments to them.
+
+48:34.320 --> 48:37.520
+ And I, there's this mysterious thing
+
+48:37.520 --> 48:40.680
+ that we so often end up on the opposite sides
+
+48:40.680 --> 48:41.800
+ of one of these issues.
+
+48:41.800 --> 48:43.080
+ It's fun though.
+
+48:43.080 --> 48:47.720
+ It's fun and I'd love to have a conversation about that,
+
+48:47.720 --> 48:50.120
+ but I would want to include him.
+
+48:50.120 --> 48:52.160
+ I see, about many worlds, well.
+
+48:52.160 --> 48:54.080
+ No, I can tell you what I think about many worlds.
+
+48:54.080 --> 48:56.160
+ I'd love to, but actually on that, let me pause.
+
+48:56.160 --> 48:57.360
+ Sean has a podcast.
+
+48:57.360 --> 49:00.000
+ You should definitely figure out how to talk to Sean.
+
+49:00.000 --> 49:01.720
+ I would, I actually told Sean,
+
+49:01.720 --> 49:05.040
+ I would love to hear you guys just going back and forth.
+
+49:05.040 --> 49:07.520
+ So I hope you can make that happen eventually,
+
+49:07.520 --> 49:08.360
+ you and Sean.
+
+49:08.360 --> 49:09.560
+ I won't tell you what it is,
+
+49:09.560 --> 49:12.120
+ but there's something that Sean said to me
+
+49:12.120 --> 49:17.120
+ in June of 2016 that changed my whole approach to a problem.
+
+49:17.240 --> 49:19.240
+ But I'll have to tell him first.
+
+49:19.240 --> 49:23.280
+ Yes, and that, that'll be great to tell him on his podcast.
+
+49:23.280 --> 49:24.120
+ So.
+
+49:24.120 --> 49:26.280
+ I can't invite myself to his podcast.
+
+49:26.280 --> 49:28.560
+ But I told him, yeah, okay, we'll make it happen.
+
+49:28.560 --> 49:30.000
+ So many worlds.
+
+49:30.000 --> 49:30.840
+ Anyway.
+
+49:31.720 --> 49:32.560
+ What's your view?
+
+49:32.560 --> 49:34.840
+ Many worlds, we talk about nonlocality.
+
+49:34.840 --> 49:39.800
+ Many worlds is also a very uncomfortable idea
+
+49:39.800 --> 49:43.400
+ or beautiful depending on your perspective.
+
+49:43.400 --> 49:48.400
+ It's very nice in terms of,
+
+49:49.000 --> 49:50.600
+ I mean, there's a realist aspect to it.
+
+49:50.600 --> 49:52.560
+ I think you called it magical realism.
+
+49:52.560 --> 49:53.400
+ Yeah.
+
+49:53.400 --> 49:55.720
+ It's just a beautiful line.
+
+49:55.720 --> 49:57.800
+ But at the same time,
+
+49:57.800 --> 50:00.640
+ it's very difficult to far limited human minds
+
+50:00.640 --> 50:01.480
+ to comprehend.
+
+50:01.480 --> 50:03.240
+ So what are your thoughts about it?
+
+50:04.960 --> 50:08.640
+ Let me start with the easy and obvious
+
+50:08.640 --> 50:10.760
+ and then go to the scientific.
+
+50:10.760 --> 50:12.280
+ Okay.
+
+50:12.280 --> 50:13.520
+ It doesn't appeal to me.
+
+50:13.520 --> 50:17.720
+ It doesn't answer the questions that I want answered.
+
+50:17.720 --> 50:20.480
+ And it does so to such a strong case
+
+50:20.480 --> 50:23.280
+ that when Roberto Mangueber Anger and I
+
+50:23.280 --> 50:24.960
+ began looking for principles,
+
+50:24.960 --> 50:26.440
+ and I want to come back and talk about
+
+50:26.440 --> 50:28.640
+ the use of principles in science,
+
+50:28.640 --> 50:30.240
+ because that's the other thing I was going to say,
+
+50:30.240 --> 50:32.560
+ and I don't want to lose that.
+
+50:32.560 --> 50:34.720
+ When we started looking for principles,
+
+50:34.720 --> 50:36.040
+ we made our first principle,
+
+50:36.040 --> 50:39.080
+ there is just one world and it happens once.
+
+50:39.960 --> 50:44.960
+ But so it's not helpful to my personal approach,
+
+50:47.160 --> 50:49.120
+ to my personal agenda,
+
+50:49.120 --> 50:51.400
+ but of course I'm part of a community.
+
+50:51.400 --> 50:56.400
+ And my sense of the many worlds interpretation,
+
+50:57.040 --> 51:00.800
+ I have thought a lot about it and struggled a lot with it,
+
+51:00.800 --> 51:02.840
+ is the following.
+
+51:05.320 --> 51:07.840
+ First of all, there's Everett himself,
+
+51:07.840 --> 51:09.360
+ there's what's in Everett.
+
+51:10.600 --> 51:13.560
+ And there are several issues there
+
+51:13.560 --> 51:16.880
+ connected with the derivation of the Born Rule,
+
+51:16.880 --> 51:20.960
+ which is the rule that gives probabilities to events.
+
+51:20.960 --> 51:25.440
+ And the reasons why there is a problem with probability
+
+51:25.440 --> 51:28.480
+ is that I mentioned the two ways
+
+51:28.480 --> 51:31.280
+ that physical systems can evolve.
+
+51:31.280 --> 51:34.440
+ The many worlds interpretation cuts off,
+
+51:34.440 --> 51:37.120
+ one, the one having to do with measurement,
+
+51:37.120 --> 51:39.760
+ and just has the other one, the Schrodinger evolution,
+
+51:39.760 --> 51:43.040
+ which is this smooth evolution of the quantum state.
+
+51:44.000 --> 51:48.720
+ But the notion of probability is only in the second rule,
+
+51:48.720 --> 51:50.840
+ which we've thrown away.
+
+51:50.840 --> 51:52.600
+ So where does probability come from?
+
+51:52.600 --> 51:54.960
+ And you have to answer the question
+
+51:54.960 --> 51:57.720
+ because experimentalists use probabilities
+
+51:57.720 --> 51:58.920
+ to check the theory.
+
+52:00.400 --> 52:05.040
+ Now, at first sight, you get very confused
+
+52:05.040 --> 52:07.520
+ because there seems to be a real problem
+
+52:07.520 --> 52:10.960
+ because in the many worlds interpretation,
+
+52:10.960 --> 52:13.480
+ this talk about branches is not quite precise,
+
+52:13.480 --> 52:14.520
+ but I'll use it.
+
+52:16.360 --> 52:19.240
+ There's a branch in which everything that might happen
+
+52:19.240 --> 52:23.880
+ does happen with probability one in that branch.
+
+52:23.880 --> 52:27.440
+ You might think you could count the number of branches
+
+52:27.440 --> 52:30.280
+ in which things do and don't happen
+
+52:30.280 --> 52:32.360
+ and get numbers that you can define
+
+52:32.360 --> 52:34.880
+ as something like frequentist probabilities.
+
+52:35.760 --> 52:40.200
+ And Everett did have an argument in that direction,
+
+52:41.120 --> 52:43.280
+ but the argument gets very subtle
+
+52:43.280 --> 52:45.800
+ when there are an infinite number of possibilities,
+
+52:45.800 --> 52:49.000
+ as is the case in most quantum systems.
+
+52:49.000 --> 52:50.600
+ And my understanding,
+
+52:50.600 --> 52:54.840
+ although I'm not as much of an expert as some other people,
+
+52:54.840 --> 52:59.440
+ is that Everett's own proposal failed, did not work.
+
+53:00.760 --> 53:05.480
+ There are then, but it doesn't stop there.
+
+53:05.480 --> 53:08.560
+ There is an important idea that Everett didn't know about,
+
+53:08.560 --> 53:10.000
+ which is decoherence,
+
+53:10.000 --> 53:13.680
+ and it is a phenomenon that might be very much relevant.
+
+53:13.680 --> 53:18.680
+ And so a number of people post Everett
+
+53:19.080 --> 53:22.280
+ have tried to make versions of what you might call
+
+53:22.280 --> 53:24.240
+ many worlds quantum mechanics.
+
+53:26.160 --> 53:29.640
+ And this is a big area and it's subtle,
+
+53:29.640 --> 53:33.080
+ and it's not the kind of thing that I do well.
+
+53:33.080 --> 53:36.200
+ So I consulted, that's why there's two chapters on this
+
+53:36.200 --> 53:37.560
+ in the book I wrote.
+
+53:37.560 --> 53:39.680
+ Chapter 10, which is about Everett's version,
+
+53:39.680 --> 53:44.600
+ chapter 11, there's a very good group of philosophers
+
+53:44.600 --> 53:49.440
+ of physics in Oxford, Simon Saunders, David Wallace,
+
+53:49.440 --> 53:52.800
+ Harvey Brown, and a number of others.
+
+53:52.800 --> 53:57.120
+ And of course there's David Deutsch, who is there.
+
+53:57.120 --> 54:01.480
+ And those people have developed and put a lot of work
+
+54:01.480 --> 54:04.280
+ into a very sophisticated set of ideas
+
+54:04.280 --> 54:07.560
+ designed to come back and answer that question.
+
+54:07.560 --> 54:11.400
+ They have the flavor of there are really no probabilities,
+
+54:11.400 --> 54:15.720
+ we admit that, but imagine if the Everett story was true
+
+54:15.720 --> 54:18.760
+ and you were living in that multiverse,
+
+54:18.760 --> 54:20.960
+ how would you make bets?
+
+54:20.960 --> 54:24.640
+ And so they use decision theory
+
+54:24.640 --> 54:28.640
+ from the theory of probability and gambling and so forth
+
+54:28.640 --> 54:33.040
+ to shape a story of how you would bet
+
+54:33.040 --> 54:35.400
+ if you were inside an Everett in the universe
+
+54:35.400 --> 54:37.800
+ and you knew that.
+
+54:37.800 --> 54:41.920
+ And there's a debate among those experts
+
+54:41.920 --> 54:47.560
+ as to whether they or somebody else has really succeeded.
+
+54:47.560 --> 54:50.760
+ And when I checked in as I was finishing the book
+
+54:50.760 --> 54:52.800
+ with some of those people, like Simon,
+
+54:52.800 --> 54:56.600
+ who's a good friend of mine, and David Wallace,
+
+54:56.600 --> 54:59.240
+ they told me that they weren't sure
+
+54:59.240 --> 55:02.160
+ that any of them was yet correct.
+
+55:02.160 --> 55:04.840
+ So that's what I put in my book.
+
+55:04.840 --> 55:08.160
+ Now, to add to that, Sean has his own approach
+
+55:08.160 --> 55:10.720
+ to that problem in what's called self referencing
+
+55:10.720 --> 55:13.480
+ or self locating observers.
+
+55:14.640 --> 55:19.640
+ And it doesn't, I tried to read it
+
+55:20.240 --> 55:22.520
+ and it didn't make sense to me,
+
+55:22.520 --> 55:24.120
+ but I didn't study it hard,
+
+55:24.120 --> 55:25.480
+ I didn't communicate with Sean,
+
+55:25.480 --> 55:27.000
+ I didn't do the things that I would do,
+
+55:27.000 --> 55:29.360
+ so I had nothing to say about it in the book.
+
+55:30.680 --> 55:32.800
+ I don't know whether it's right or not.
+
+55:32.800 --> 55:36.520
+ Let's talk a little bit about science.
+
+55:36.520 --> 55:39.800
+ You mentioned the use of principles in science.
+
+55:40.920 --> 55:43.080
+ What does it mean to have a principle
+
+55:43.080 --> 55:45.360
+ and why is that important?
+
+55:45.360 --> 55:48.440
+ When I feel very frustrated about quantum gravity,
+
+55:48.440 --> 55:50.720
+ I like to go back and read history.
+
+55:51.840 --> 55:55.160
+ And of course, Einstein, his achievements
+
+55:55.160 --> 55:59.840
+ are a huge lesson and hopefully something
+
+55:59.840 --> 56:00.840
+ like a role model.
+
+56:00.840 --> 56:05.200
+ And it's very clear that Einstein thought
+
+56:05.200 --> 56:09.080
+ that the first job when you wanna enter a new domain
+
+56:09.080 --> 56:13.400
+ of theoretical physics is to discover and invent principles
+
+56:13.400 --> 56:15.880
+ and then make models of how those principles
+
+56:15.880 --> 56:19.280
+ might be applied in some experimental situation,
+
+56:19.280 --> 56:22.440
+ which is where the mathematics comes in.
+
+56:22.440 --> 56:27.440
+ So for Einstein, there was no unified space and time.
+
+56:27.440 --> 56:30.760
+ Minkowski invented this idea of space time.
+
+56:30.760 --> 56:33.760
+ For Einstein, it was a model of his principles
+
+56:33.760 --> 56:34.920
+ or his postulates.
+
+56:36.120 --> 56:41.120
+ And I've taken the view that we don't know
+
+56:41.280 --> 56:43.440
+ the principles of quantum gravity.
+
+56:43.440 --> 56:46.920
+ I can think about candidates and I have some papers
+
+56:46.920 --> 56:50.120
+ where I discuss different candidates
+
+56:50.120 --> 56:52.520
+ and I'm happy to discuss them.
+
+56:52.520 --> 56:56.840
+ But my belief now is that those partially successful
+
+56:56.840 --> 57:00.640
+ approaches are all models,
+
+57:01.680 --> 57:05.880
+ which might describe indeed some quantum gravity physics
+
+57:05.880 --> 57:08.960
+ in some domain, in some aspect,
+
+57:08.960 --> 57:12.720
+ but ultimately would be important
+
+57:12.720 --> 57:15.200
+ because they model the principles
+
+57:15.200 --> 57:18.200
+ and the first job is to tie down those principles.
+
+57:18.200 --> 57:21.280
+ So that's the approach that I'm taking.
+
+57:21.280 --> 57:26.240
+ So speaking of principles, in your 2006 book,
+
+57:26.240 --> 57:30.920
+ The Trouble with Physics, you criticized a bit
+
+57:30.920 --> 57:34.160
+ string theory for taking us away from the rigors
+
+57:34.160 --> 57:37.120
+ of the scientific method or whatever you would call it.
+
+57:37.120 --> 57:42.120
+ But what's the trouble with physics today
+
+57:42.760 --> 57:44.240
+ and how do we fix it?
+
+57:44.240 --> 57:47.400
+ Can I say how I read that book?
+
+57:47.400 --> 57:48.240
+ Sure.
+
+57:48.240 --> 57:52.440
+ Because I, and I'm not, this of course has to be my fault
+
+57:52.440 --> 57:55.680
+ because you can't as an author claim
+
+57:55.680 --> 57:58.320
+ after all the work you put in that you are misread.
+
+57:59.480 --> 58:04.480
+ But I will say that many of the reviewers
+
+58:04.600 --> 58:06.520
+ who are not personally involved
+
+58:06.520 --> 58:09.720
+ and even many who were working on string theory
+
+58:09.720 --> 58:12.400
+ or some other approach to quantum gravity
+
+58:12.400 --> 58:14.360
+ told me, communicated with me and told me
+
+58:14.360 --> 58:16.120
+ they thought that I was fair
+
+58:17.360 --> 58:20.840
+ and balance was the word that was usually used.
+
+58:20.840 --> 58:24.040
+ So let me tell you what my purpose was in writing that book,
+
+58:24.040 --> 58:28.760
+ which clearly got diverted by,
+
+58:28.760 --> 58:33.760
+ because there was already a rather hot argument going on.
+
+58:35.160 --> 58:36.000
+ And this is.
+
+58:36.000 --> 58:36.840
+ On which topic?
+
+58:36.840 --> 58:38.600
+ On string theory specifically?
+
+58:38.600 --> 58:40.180
+ Or in general in physics?
+
+58:41.060 --> 58:44.060
+ No, more specifically than string theory.
+
+58:44.060 --> 58:47.680
+ So since we're in Cambridge, can I say that?
+
+58:47.680 --> 58:48.520
+ We're doing this in Cambridge.
+
+58:48.520 --> 58:49.360
+ Yeah, yeah, of course.
+
+58:49.360 --> 58:52.680
+ Cambridge, just to be clear, Massachusetts.
+
+58:52.680 --> 58:55.600
+ And on Harvard campus.
+
+58:55.600 --> 59:00.600
+ Right, so Andy Straminger is a good friend of mine
+
+59:00.600 --> 59:03.460
+ and has been for many, many years.
+
+59:03.460 --> 59:08.460
+ And Andy, so originally there was this beautiful idea
+
+59:09.440 --> 59:11.360
+ that there were five string theories
+
+59:11.360 --> 59:14.420
+ and maybe they would be unified into one.
+
+59:14.420 --> 59:18.520
+ And we would discover a way to break that symmetries
+
+59:18.520 --> 59:20.640
+ of one of those string theories
+
+59:20.640 --> 59:22.760
+ and discover the standard model
+
+59:22.760 --> 59:24.560
+ and predict all the properties
+
+59:24.560 --> 59:26.280
+ of standard model particles,
+
+59:26.280 --> 59:28.960
+ like their masses and charges and so forth,
+
+59:28.960 --> 59:30.120
+ coupling constants.
+
+59:31.560 --> 59:34.880
+ And then there was a bunch of solutions
+
+59:35.840 --> 59:37.240
+ to string theory found,
+
+59:37.240 --> 59:39.700
+ which led each of them to a different version
+
+59:39.700 --> 59:42.680
+ of particle physics with a different phenomenology.
+
+59:42.680 --> 59:46.560
+ These are called the Calabi Yao manifolds,
+
+59:46.560 --> 59:50.280
+ named after Yao, who is also here.
+
+59:50.280 --> 59:52.440
+ Not, certainly we've been friends
+
+59:52.440 --> 59:54.260
+ at some time in the past anyway.
+
+59:55.400 --> 59:57.880
+ And then there were, nobody was sure,
+
+59:57.880 --> 1:00:00.200
+ but hundreds of thousands of different versions
+
+1:00:00.200 --> 1:00:01.840
+ of string theory.
+
+1:00:01.840 --> 1:00:04.620
+ And then Andy found there was a way
+
+1:00:04.620 --> 1:00:07.480
+ to put a certain kind of mathematical curvature
+
+1:00:07.480 --> 1:00:10.440
+ called torsion into the solutions.
+
+1:00:10.440 --> 1:00:13.860
+ And he wrote a paper, String Theory with Torsion,
+
+1:00:13.860 --> 1:00:15.940
+ in which he discovered there was,
+
+1:00:15.940 --> 1:00:20.180
+ and not formally uncountable,
+
+1:00:20.180 --> 1:00:22.220
+ but he was unable to invent any way
+
+1:00:22.220 --> 1:00:24.580
+ to count the number of solutions
+
+1:00:24.580 --> 1:00:27.480
+ or classify the diverse solutions.
+
+1:00:27.480 --> 1:00:31.100
+ And he wrote that this is worrying
+
+1:00:31.100 --> 1:00:33.900
+ because doing phenomenology the old fashioned way
+
+1:00:33.900 --> 1:00:37.420
+ by solving the theory is not gonna work
+
+1:00:37.420 --> 1:00:41.100
+ because there's gonna be loads of solutions
+
+1:00:41.100 --> 1:00:42.940
+ for every proposed phenomenology
+
+1:00:42.940 --> 1:00:45.220
+ for anything the experiments discovered.
+
+1:00:45.220 --> 1:00:47.500
+ And it hasn't quite worked out that way.
+
+1:00:47.500 --> 1:00:50.580
+ But nonetheless, he took that worry to me.
+
+1:00:51.700 --> 1:00:56.660
+ We spoke at least once, maybe two or three times about that.
+
+1:00:56.660 --> 1:00:59.040
+ And I got seriously worried about that.
+
+1:01:00.020 --> 1:01:02.460
+ And this is just a little.
+
+1:01:02.460 --> 1:01:05.020
+ So it's like an anecdote that inspired
+
+1:01:05.020 --> 1:01:07.280
+ your worry about string theory in general?
+
+1:01:07.280 --> 1:01:10.100
+ Well, I tried to solve the problem
+
+1:01:10.100 --> 1:01:12.960
+ and I tried to solve the problem.
+
+1:01:12.960 --> 1:01:15.740
+ I was reading at that time, a lot of biology,
+
+1:01:15.740 --> 1:01:17.300
+ a lot of evolutionary theory,
+
+1:01:17.300 --> 1:01:22.300
+ like Linmar Gullis and Steve Gould and so forth.
+
+1:01:23.100 --> 1:01:28.100
+ And I could take your time to go through the things,
+
+1:01:29.740 --> 1:01:30.580
+ but it occurred to me,
+
+1:01:30.580 --> 1:01:33.980
+ maybe physics was like evolutionary biology
+
+1:01:33.980 --> 1:01:36.060
+ and maybe the laws evolved.
+
+1:01:36.060 --> 1:01:40.060
+ And there was, the biologists talk about a landscape,
+
+1:01:40.060 --> 1:01:44.040
+ a fitness landscape of DNA sequences
+
+1:01:44.040 --> 1:01:48.780
+ or protein sequences or species or something like that.
+
+1:01:48.780 --> 1:01:51.340
+ And I took their concept and the word landscape
+
+1:01:51.340 --> 1:01:54.540
+ from theoretical biology and made a scenario
+
+1:01:54.540 --> 1:01:59.060
+ about how the universe as a whole could evolve
+
+1:01:59.060 --> 1:02:03.540
+ to discover the parameters of the standard model.
+
+1:02:03.540 --> 1:02:04.620
+ And I'm happy to discuss,
+
+1:02:04.620 --> 1:02:07.220
+ that's called cosmological natural selection.
+
+1:02:07.220 --> 1:02:09.900
+ Cosmological natural selection.
+
+1:02:09.900 --> 1:02:10.740
+ Yeah.
+
+1:02:10.740 --> 1:02:12.580
+ Wow, so the parameters of the standard model,
+
+1:02:12.580 --> 1:02:15.540
+ so the laws of physics are changing.
+
+1:02:15.540 --> 1:02:18.940
+ This idea would say that the laws of physics
+
+1:02:18.940 --> 1:02:23.420
+ are changing in some way that echoes
+
+1:02:23.420 --> 1:02:24.900
+ that of natural selection,
+
+1:02:24.900 --> 1:02:28.860
+ or just it adjusts in some way towards some goal.
+
+1:02:28.860 --> 1:02:30.000
+ Yes.
+
+1:02:30.000 --> 1:02:32.580
+ And I published that,
+
+1:02:33.660 --> 1:02:36.620
+ I wrote the paper in 1888 or 89,
+
+1:02:36.620 --> 1:02:39.140
+ the paper was published in 92.
+
+1:02:39.140 --> 1:02:40.980
+ My first book in 1997,
+
+1:02:40.980 --> 1:02:45.500
+ The Life of the Cosmos was explicitly about that.
+
+1:02:45.500 --> 1:02:49.300
+ And I was very clear that what was important
+
+1:02:49.300 --> 1:02:54.300
+ is that because you would develop an ensemble of universes,
+
+1:02:55.020 --> 1:02:59.260
+ but they were related by descent to natural selection,
+
+1:03:00.580 --> 1:03:03.500
+ almost every universe would share the property
+
+1:03:03.500 --> 1:03:08.500
+ that it was, its fitness was maximized to some extent,
+
+1:03:08.500 --> 1:03:10.920
+ or at least close to maximum.
+
+1:03:10.920 --> 1:03:12.480
+ And I could deduce predictions
+
+1:03:12.480 --> 1:03:16.080
+ that could be tested from that.
+
+1:03:16.080 --> 1:03:18.220
+ And I worked all of that out
+
+1:03:18.220 --> 1:03:20.440
+ and I compared it to the anthropic principle
+
+1:03:20.440 --> 1:03:23.320
+ where you weren't able to make tests
+
+1:03:23.320 --> 1:03:24.480
+ or make falsifications.
+
+1:03:24.480 --> 1:03:28.400
+ All of this was in the late 80s and early 90s.
+
+1:03:28.400 --> 1:03:30.000
+ That's a really compelling notion,
+
+1:03:30.000 --> 1:03:32.840
+ but how does that help you arrive?
+
+1:03:32.840 --> 1:03:36.040
+ I'm coming to where the book came from.
+
+1:03:36.040 --> 1:03:37.000
+ Yes.
+
+1:03:37.000 --> 1:03:41.080
+ So what got me,
+
+1:03:41.080 --> 1:03:42.720
+ I worked on string theory.
+
+1:03:42.720 --> 1:03:47.480
+ I also worked on loop quantum gravity.
+
+1:03:47.480 --> 1:03:50.640
+ And I was one of the inventors of loop quantum gravity.
+
+1:03:50.640 --> 1:03:55.480
+ And because of my strong belief in some other principles,
+
+1:03:55.480 --> 1:03:58.040
+ which led to this notion of wanting a quantum theory
+
+1:03:58.040 --> 1:04:00.880
+ of gravity to be what we call relational
+
+1:04:00.880 --> 1:04:03.020
+ or background independent,
+
+1:04:03.020 --> 1:04:05.960
+ I tried very hard to make string theory
+
+1:04:05.960 --> 1:04:07.600
+ background independent.
+
+1:04:07.600 --> 1:04:09.840
+ And it ended up developing a bunch of tools
+
+1:04:09.840 --> 1:04:12.600
+ which then could apply directly to general relativity
+
+1:04:12.600 --> 1:04:15.020
+ and that became loop quantum gravity.
+
+1:04:15.020 --> 1:04:17.280
+ So the things were very closely related
+
+1:04:17.280 --> 1:04:20.440
+ and have always been very closely related in my mind.
+
+1:04:20.440 --> 1:04:22.160
+ The idea that there were two communities,
+
+1:04:22.160 --> 1:04:25.320
+ one devoted to strings and one devoted to loops is nuts
+
+1:04:25.320 --> 1:04:27.740
+ and has always been nuts.
+
+1:04:28.900 --> 1:04:32.680
+ Okay, so anyway, there's this nuts community
+
+1:04:32.680 --> 1:04:35.000
+ of loops and strings that are all beautiful
+
+1:04:35.000 --> 1:04:37.400
+ and compelling and mathematically speaking.
+
+1:04:37.400 --> 1:04:38.800
+ And what's the trouble with all that?
+
+1:04:38.800 --> 1:04:40.680
+ Why is that such a problem?
+
+1:04:40.680 --> 1:04:45.620
+ So I was interested in developing that notion
+
+1:04:45.620 --> 1:04:47.820
+ of how science works based on a community
+
+1:04:47.820 --> 1:04:49.700
+ and ethics that I told you about.
+
+1:04:50.800 --> 1:04:54.780
+ And I wrote a draft of a book about that,
+
+1:04:54.780 --> 1:04:58.860
+ which had several chapters on methodology of science.
+
+1:04:58.860 --> 1:05:02.520
+ And it was a rather academically oriented book.
+
+1:05:02.520 --> 1:05:06.560
+ And those chapters were the first part of the book,
+
+1:05:06.560 --> 1:05:07.680
+ the first third of it.
+
+1:05:07.680 --> 1:05:09.880
+ And you didn't find their remnants
+
+1:05:09.880 --> 1:05:14.520
+ in what's now the last part of the trouble with physics.
+
+1:05:14.520 --> 1:05:18.680
+ And then I described a number of test cases, case studies.
+
+1:05:18.680 --> 1:05:21.480
+ And one of them, which I knew was the search
+
+1:05:21.480 --> 1:05:24.080
+ for quantum gravity and string theory and so forth.
+
+1:05:25.200 --> 1:05:28.660
+ And I wasn't able to get that book published.
+
+1:05:28.660 --> 1:05:33.660
+ So somebody made the suggestion of flipping it around
+
+1:05:34.700 --> 1:05:36.820
+ and starting with a story of string theory,
+
+1:05:36.820 --> 1:05:38.620
+ which was already controversial.
+
+1:05:38.620 --> 1:05:42.460
+ This was 2004, 2005.
+
+1:05:42.460 --> 1:05:47.460
+ But I was very careful to be detailed,
+
+1:05:48.540 --> 1:05:52.900
+ to criticize papers and not people.
+
+1:05:52.900 --> 1:05:55.540
+ You won't find me criticizing individuals.
+
+1:05:55.540 --> 1:05:59.100
+ You'll find me criticizing certain writing.
+
+1:05:59.100 --> 1:06:03.820
+ But in any case, here's what I regret.
+
+1:06:03.820 --> 1:06:06.500
+ Let me make your program worthwhile.
+
+1:06:06.500 --> 1:06:07.340
+ Yes.
+
+1:06:07.340 --> 1:06:11.980
+ As far as I know, with the exception of not understanding
+
+1:06:11.980 --> 1:06:15.380
+ how large the applications to condensed matter,
+
+1:06:15.380 --> 1:06:20.380
+ say ADS CFT would get,
+
+1:06:20.380 --> 1:06:25.380
+ I think largely my diagnosis of string theory
+
+1:06:26.580 --> 1:06:30.380
+ as it was then has stood up since 2006.
+
+1:06:31.260 --> 1:06:34.940
+ What I regret is that the same critique,
+
+1:06:34.940 --> 1:06:37.540
+ I was using string theory as an example,
+
+1:06:37.540 --> 1:06:41.780
+ and the same critique applies to many other communities
+
+1:06:41.780 --> 1:06:44.380
+ in science and all of, including,
+
+1:06:44.380 --> 1:06:46.500
+ and this is where I regret my own community,
+
+1:06:46.500 --> 1:06:49.900
+ that is a community of people working on quantum gravity.
+
+1:06:49.900 --> 1:06:52.220
+ Not science string theory.
+
+1:06:52.220 --> 1:06:55.860
+ But, and I considered saying that explicitly.
+
+1:06:55.860 --> 1:06:57.220
+ But to say that explicitly,
+
+1:06:57.220 --> 1:07:00.460
+ since it's a small, intimate community,
+
+1:07:00.460 --> 1:07:02.940
+ I would be telling stories and naming names
+
+1:07:04.100 --> 1:07:06.420
+ and making a kind of history
+
+1:07:06.420 --> 1:07:08.900
+ that I have no right to write.
+
+1:07:08.900 --> 1:07:12.060
+ So I stayed away from that, but was misunderstood.
+
+1:07:12.060 --> 1:07:16.380
+ But if I may ask, is there a hopeful message
+
+1:07:16.380 --> 1:07:20.260
+ for theoretical physics that we can take from that book,
+
+1:07:20.260 --> 1:07:22.100
+ sort of that looks at the community,
+
+1:07:22.100 --> 1:07:24.780
+ not just your own work on,
+
+1:07:24.780 --> 1:07:26.780
+ now with causality and nonlocality,
+
+1:07:26.780 --> 1:07:29.060
+ but just broadly in understanding
+
+1:07:29.060 --> 1:07:32.060
+ the fundamental nature of our reality,
+
+1:07:32.060 --> 1:07:35.940
+ what's your hope for the 21st century in physics?
+
+1:07:37.060 --> 1:07:39.660
+ Well, that we solve the problem.
+
+1:07:39.660 --> 1:07:44.300
+ That we solve the unfinished problem of Einstein's.
+
+1:07:44.300 --> 1:07:47.940
+ That's certainly the thing that I care about most in.
+
+1:07:47.940 --> 1:07:49.180
+ Hope for most.
+
+1:07:49.180 --> 1:07:50.620
+ Let me say one thing.
+
+1:07:50.620 --> 1:07:53.740
+ Among the young people that I work with,
+
+1:07:53.740 --> 1:07:58.740
+ I hear very often and sense a total disinterest
+
+1:07:59.220 --> 1:08:03.420
+ in these arguments that we older scientists have.
+
+1:08:03.420 --> 1:08:05.820
+ And an interest in what each other is doing.
+
+1:08:05.820 --> 1:08:09.860
+ And this is starting to appear in conferences
+
+1:08:09.860 --> 1:08:13.300
+ where the young people interested in quantum gravity
+
+1:08:13.300 --> 1:08:16.300
+ make a conference, they invite loops and strings
+
+1:08:16.300 --> 1:08:20.540
+ and causal dynamical triangulations and causal set people.
+
+1:08:20.540 --> 1:08:24.060
+ And we're having a conference like this next week,
+
+1:08:24.060 --> 1:08:26.980
+ a small workshop at perimeter.
+
+1:08:26.980 --> 1:08:28.380
+ And I guess I'm advertising this.
+
+1:08:28.380 --> 1:08:30.500
+ And then in the summer,
+
+1:08:30.500 --> 1:08:33.460
+ we're having a big full on conference,
+
+1:08:33.460 --> 1:08:34.900
+ which is just quantum gravity.
+
+1:08:34.900 --> 1:08:37.260
+ It's not strings, it's not loops.
+
+1:08:37.260 --> 1:08:39.420
+ But the organizers and the speakers
+
+1:08:39.420 --> 1:08:41.780
+ will be from all the different communities.
+
+1:08:41.780 --> 1:08:43.420
+ And this to me is very helpful.
+
+1:08:45.580 --> 1:08:49.020
+ That the different ideas are coming together.
+
+1:08:49.020 --> 1:08:52.300
+ At least people are expressing an interest in that.
+
+1:08:54.020 --> 1:08:56.300
+ It's a huge honor talking to you, Lee.
+
+1:08:56.300 --> 1:08:57.700
+ Thanks so much for your time today.
+
+1:08:57.700 --> 1:08:59.180
+ Thank you.
+
+1:08:59.180 --> 1:09:01.300
+ Thanks for listening to this conversation.
+
+1:09:01.300 --> 1:09:04.180
+ And thank you to our presenting sponsor, Cash App.
+
+1:09:04.180 --> 1:09:06.820
+ Download it, use code LexPodcast.
+
+1:09:06.820 --> 1:09:09.580
+ You'll get $10 and $10 will go to FIRST,
+
+1:09:09.580 --> 1:09:12.820
+ an organization that inspires and educates young minds
+
+1:09:12.820 --> 1:09:16.260
+ to become science and technology innovators of tomorrow.
+
+1:09:16.260 --> 1:09:19.060
+ If you enjoy this podcast, subscribe on YouTube,
+
+1:09:19.060 --> 1:09:20.900
+ give it five stars on Apple Podcast,
+
+1:09:20.900 --> 1:09:23.340
+ follow on Spotify, support it on Patreon,
+
+1:09:23.340 --> 1:09:26.380
+ or simply connect with me on Twitter at Lex Friedman.
+
+1:09:27.260 --> 1:09:30.420
+ And now let me leave you with some words from Lee Smolin.
+
+1:09:31.300 --> 1:09:35.340
+ One possibility is God is nothing but
+
+1:09:35.340 --> 1:09:39.580
+ the power of the universe to organize itself.
+
+1:09:39.580 --> 1:10:05.700
+ Thanks for listening and hope to see you next time.
+

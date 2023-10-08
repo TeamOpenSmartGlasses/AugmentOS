@@ -1,0 +1,1655 @@
+WEBVTT
+
+00:00.000 --> 00:04.880
+ The following is a conversation with Paul Krugman, Nobel Prize winner in economics,
+
+00:04.880 --> 00:10.560
+ professor at CUNY, and columnist at the New York Times. His academic work centers around
+
+00:10.560 --> 00:16.880
+ international economics, economic geography, liquidity traps, and currency crises. But he
+
+00:16.880 --> 00:22.400
+ also is an outspoken writer and commentator on the intersection of modern day politics
+
+00:22.400 --> 00:30.080
+ and economics, which places him in the middle of the tense, divisive, modern day political discourse.
+
+00:30.080 --> 00:34.560
+ If you have clicked dislike on this video and started writing a comment of derision before
+
+00:34.560 --> 00:39.840
+ listening to the conversation, I humbly ask that you please unsubscribe from this channel
+
+00:39.840 --> 00:44.560
+ and from this podcast. Not because you're conservative, a libertarian, a liberal,
+
+00:44.560 --> 00:49.680
+ a socialist, an anarchist, but because you're not open to new ideas, at least in this case,
+
+00:49.680 --> 00:54.480
+ especially at its most difficult, from people with whom you largely disagree.
+
+00:55.520 --> 01:00.720
+ I do my best to stay away from politics of the day because political discourse is filled
+
+01:00.720 --> 01:07.120
+ with a degree of emotion and self assured certainty that to me is not conducive to exploring
+
+01:07.120 --> 01:13.440
+ questions that nobody knows the definitive right answer to. The role of government,
+
+01:13.440 --> 01:19.840
+ the impact of automation, the regulation of tech, the medical system, guns, war, trade,
+
+01:19.840 --> 01:26.480
+ foreign policy, are not easy topics and have no clear answers, despite the certainty of the so
+
+01:26.480 --> 01:32.640
+ called experts, the pundits, the trolls, the media personalities, and the conspiracy theorists.
+
+01:33.520 --> 01:40.960
+ Please listen, empathize, and allow yourself to explore ideas with curiosity and without judgment
+
+01:40.960 --> 01:47.440
+ and without derision. I will speak with many more economists and political thinkers, trying to stay
+
+01:47.440 --> 01:52.400
+ away from the political battles of the day and instead look at the long arc of history
+
+01:52.400 --> 02:11.440
+ and the lessons it reveals. In this, I appreciate your patience and support.
+
+02:30.400 --> 02:35.120
+ This show is presented by Cash App, the number one finance app in the App Store.
+
+02:35.120 --> 02:40.080
+ Cash App lets you send money to friends, buy bitcoin, and invest in the stock market with
+
+02:40.080 --> 02:45.280
+ fractional share trading, allowing you to buy one dollars worth of a stock no matter what the stock
+
+02:45.280 --> 02:52.320
+ price is. Broker services are provided by Cash App Investing, a subsidiary of Square and member SIPC.
+
+02:52.960 --> 02:59.760
+ Get Cash App from the App Store and Google Play and use the code LEXPODCAST. You'll get ten dollars
+
+02:59.760 --> 03:04.960
+ and Cash App will also donate ten dollars to FIRST, one of my favorite organizations that is helping
+
+03:04.960 --> 03:11.520
+ to advance robotics and STEM education for young people around the world. Since Cash App does
+
+03:11.520 --> 03:17.840
+ fractional share trading, let me say that to me, it's a fascinating concept. The order execution
+
+03:17.840 --> 03:22.880
+ algorithm that works behind the scenes to create the abstraction of fractional orders for the
+
+03:22.880 --> 03:29.360
+ investor is an algorithmic marvel, so big props to the Cash App engineers for that. I like it when
+
+03:29.360 --> 03:34.960
+ tech teams solve complicated problems to provide, in the end, a simple, effortless interface that
+
+03:34.960 --> 03:41.440
+ abstracts away all the details of the underlying algorithm. And now, here's my conversation with
+
+03:41.440 --> 03:48.160
+ Paul Krugman. What does a perfect world, a utopia, from an economics perspective look like?
+
+03:50.000 --> 03:56.400
+ Wow, I don't really, I don't believe in perfection. I mean, somebody once once said
+
+03:56.400 --> 04:06.400
+ that his ideal was slightly imaginary Sweden. I mean, I like an economy that has a really high
+
+04:06.400 --> 04:14.720
+ safety net for people, good environmental regulation, and something that's kind of like
+
+04:16.080 --> 04:22.240
+ some of the better run countries in the world, but with fixing all of the smaller things that
+
+04:22.240 --> 04:27.040
+ are wrong with them. What about wealth distribution? Well, obviously, you know, total equality is
+
+04:28.720 --> 04:32.560
+ neither possible nor, I think, especially desirable, but I think you want one where,
+
+04:33.360 --> 04:41.120
+ basically one where nobody is hurting and where everybody lives in the same material universe.
+
+04:41.120 --> 04:47.040
+ Everybody is basically living in the same society, so I think it's a bad thing to have
+
+04:47.040 --> 04:50.240
+ people who are so wealthy that they're really not in the same world as the rest of us.
+
+04:50.240 --> 04:57.200
+ What about competition? Do you see the value of competition? What may be its limits?
+
+04:57.200 --> 05:04.000
+ Oh, competition is great when it can work. I mean, I remember, I'm old enough to remember
+
+05:04.000 --> 05:09.920
+ when there was only one phone company and there was really limited choice, and I think the
+
+05:09.920 --> 05:17.760
+ arrival of multiple phone carriers and all that has actually, you know, it's been a really good
+
+05:17.760 --> 05:25.680
+ thing, and that's true across many areas, but not every industry is, not every activity is suitable
+
+05:25.680 --> 05:30.400
+ for competition. So, there are some things like healthcare where competition actually
+
+05:30.400 --> 05:35.760
+ doesn't work, and so it's not one size fits all.
+
+05:35.760 --> 05:41.520
+ That's interesting. Why does competition not work in healthcare?
+
+05:41.520 --> 05:46.320
+ Oh, there's a long list. I mean, there's a famous paper by Kenneth Arrow from 1963,
+
+05:46.320 --> 05:50.160
+ which still holds up very well, where he kind of runs down the list of things you need for
+
+05:50.160 --> 05:55.680
+ competition to work well. Basically, both sides to every transaction being well informed,
+
+05:56.480 --> 06:02.880
+ having the ability to make intelligent decisions, understanding what's going on,
+
+06:02.880 --> 06:05.600
+ and healthcare fails on every dimension.
+
+06:06.560 --> 06:08.480
+ Healthcare, so not health insurance, healthcare.
+
+06:08.480 --> 06:12.240
+ Well, both healthcare and health insurance, health insurance being part of it, but no,
+
+06:12.240 --> 06:18.800
+ health insurance is really the idea that there's effective competition between health insurers is
+
+06:18.800 --> 06:25.280
+ wrong, and healthcare, I mean, the idea that you can comparison shop for major surgery is just,
+
+06:25.280 --> 06:32.160
+ you know, when people say things like that, you wonder, are you living in the same world I'm
+
+06:32.160 --> 06:33.520
+ living in?
+
+06:33.520 --> 06:38.160
+ You know, that piece of well informed, that was always an interesting piece for me,
+
+06:38.160 --> 06:44.880
+ just observing as an outsider, because so much beautiful, such a beautiful world is
+
+06:44.880 --> 06:49.440
+ possible when everybody's well informed. My question for you is, how hard is it to be
+
+06:49.440 --> 06:54.560
+ well informed about anything, whether it's healthcare, or any kind of purchasing decisions,
+
+06:54.560 --> 06:56.880
+ or just life in general in this world?
+
+06:57.520 --> 07:03.760
+ Oh, information, you know, it varies hugely. I mean, there's more information at your
+
+07:03.760 --> 07:10.880
+ fingertips than ever before in history. The trouble is, first of all, that some of that
+
+07:10.880 --> 07:18.000
+ information isn't true. So it's really hard. And then some of it is just too hard to understand.
+
+07:18.000 --> 07:24.960
+ So if I'm buying a car, I can actually probably do a pretty good job of looking up, you know,
+
+07:24.960 --> 07:28.960
+ going to consumer reports, reviews, you can get a pretty good idea of what you're getting
+
+07:28.960 --> 07:38.480
+ when you get a car. If I'm going in for surgery, first of all, you know, fairly often it happens
+
+07:39.120 --> 07:44.880
+ without your being able to plan it. But also, there's a, you know, medical school takes
+
+07:44.880 --> 07:49.760
+ many, many years, and going on the internet for some advice is not usually a very good
+
+07:50.560 --> 07:51.060
+ substitute.
+
+07:52.400 --> 07:57.440
+ So speaking about news and not being able to trust certain sources of information,
+
+07:57.440 --> 08:02.800
+ how much disagreement is there about, I mentioned utopia, perfection in the beginning, but how much
+
+08:02.800 --> 08:09.440
+ disagreement is there about what utopia looks like? Or is most of the disagreement simply about the
+
+08:09.440 --> 08:10.400
+ path to get there?
+
+08:11.760 --> 08:20.320
+ Oh, I think there's two levels of disagreement. One, maybe not utopia, but justice. You know,
+
+08:20.320 --> 08:25.760
+ what is a just society? And that's, there are different views. I mean, I teach my students
+
+08:25.760 --> 08:32.480
+ that there are, you know, broadly speaking, two views of justice. One focuses on outcomes.
+
+08:34.880 --> 08:39.920
+ You ask yourself, a just society is the one you would choose if you were trying to,
+
+08:41.520 --> 08:45.840
+ the one that you would choose to live in if you didn't know who you were going to be,
+
+08:45.840 --> 08:52.320
+ that's kind of John Rawls. And the other focuses on process, that a just society is one in which
+
+08:52.320 --> 09:00.320
+ there is no coercion except where absolutely necessary. And there's no objective way to choose
+
+09:00.320 --> 09:06.240
+ between those. I'm pretty much a Rawlsian, and I think many people are. But anyway, so there's a
+
+09:06.240 --> 09:13.280
+ legitimate dispute about what we mean by a just society anyway. But then there's also a lot of
+
+09:13.280 --> 09:22.800
+ a lot of dispute about what actually works. There's a range of legitimate dispute. I mean, any
+
+09:22.800 --> 09:28.560
+ card carrying economist will say that incentives matter, but how much do they matter? How much does
+
+09:28.560 --> 09:34.720
+ a higher tax rate actually deter people from working? How much does a stronger safety net
+
+09:34.720 --> 09:46.000
+ actually lead people to get lazy? I have a pretty strong view that the evidence points to conclusions
+
+09:46.000 --> 09:53.280
+ that are considerably to the left of where most of our politicians are. But there is legitimate
+
+09:53.280 --> 10:01.440
+ room for disagreement on those things. So you've mentioned outcomes. What are some metrics you
+
+10:01.440 --> 10:06.400
+ think about that you keep in mind, like the Gini coefficient, but really anything that measures
+
+10:07.200 --> 10:12.000
+ how good we're doing, whatever we're trying to do? What are the metrics you keep an eye on?
+
+10:12.560 --> 10:17.840
+ Well, I'm actually I'm not a fan of the Gini coefficient, not because what is the Gini
+
+10:17.840 --> 10:23.600
+ coefficient? Yeah, the Gini coefficient is a measure of inequality, and it is commonly used
+
+10:23.600 --> 10:29.600
+ because it's a single number. It usually tracks with other measures, but the trouble is there's
+
+10:29.600 --> 10:40.400
+ no sort of natural interpretation of it. If you ask me what does a society with a Gini of 0.45
+
+10:40.400 --> 10:46.720
+ look like as opposed to a society with a Gini of 0.25? And I can kind of tell you, you know,
+
+10:46.720 --> 10:56.000
+ when 0.25 is Denmark and 0.45 is Brazil, but there's no sort of easy way to do that mapping.
+
+10:56.000 --> 11:03.120
+ I mean, I look at things like what is, first of all, things like what is the income of the
+
+11:04.880 --> 11:12.160
+ median family? What is the income of the top 1%? How many people are in poverty by
+
+11:12.720 --> 11:18.720
+ various measures of poverty? And then I think you want to look at questions like
+
+11:18.720 --> 11:30.080
+ how healthy are people? How is life expectancy doing? And how satisfied are people with their
+
+11:30.080 --> 11:35.200
+ lives? Because there is that sounds like a squishy number, not so much happiness. It
+
+11:35.200 --> 11:40.160
+ turns out that life satisfaction is a better measure than happiness. But life satisfaction,
+
+11:40.160 --> 11:49.120
+ that varies quite a lot. And I think it's meaningful, if not too rigorous to say, look,
+
+11:49.120 --> 11:55.600
+ according to polling, people in Denmark are pretty satisfied with their lives and
+
+11:56.560 --> 12:01.840
+ people in the United States, not so much so. And of course, Sweden wins every time.
+
+12:01.840 --> 12:06.720
+ No, actually Denmark wins these days. Denmark and Norway tend to win these days. Sweden doesn't do
+
+12:06.720 --> 12:18.000
+ badly. None of these are perfect. But look, I think by and large, there's a bit of a
+
+12:18.000 --> 12:23.520
+ pornography test. How do you know a decent society? Well, you kind of know it when you see it.
+
+12:23.520 --> 12:26.160
+ Right. Where does America stand on that?
+
+12:26.160 --> 12:35.120
+ We have a remarkable... There are a lot of virtues to America, but there's a level of harshness,
+
+12:35.120 --> 12:44.000
+ brutality, an ability for somebody who just has bad luck to fall off the edge, that is really,
+
+12:46.320 --> 12:51.440
+ shouldn't be happening in a country as rich as ours. So we have somehow managed to produce a
+
+12:52.560 --> 12:58.960
+ a crueller society than almost any other wealthy country for no good reason.
+
+12:59.760 --> 13:04.080
+ What do you think is lacking in the safety net that the United States provides? You said
+
+13:04.080 --> 13:11.600
+ there's a harshness to it. And what are the benefits and maybe limits of a safety net
+
+13:11.600 --> 13:16.320
+ in a country like ours? Well, every other advanced country has some
+
+13:16.320 --> 13:20.960
+ universal guarantee of adequate healthcare. The United States is the only place where
+
+13:21.680 --> 13:27.440
+ citizens can actually fail to get basic healthcare because they can't afford it.
+
+13:27.440 --> 13:34.400
+ It's not hard to do. Everybody else does it, but we don't. We've gotten a little bit better at it
+
+13:34.400 --> 13:44.640
+ than we were, but still, that's a big deal. We have remarkably weak support for children.
+
+13:45.680 --> 13:53.280
+ Most countries have substantial safety... Parents of young children get much more support elsewhere.
+
+13:53.280 --> 14:04.080
+ They get often nothing in the US. We have limited care for people. Long term care for the elderly
+
+14:04.720 --> 14:14.400
+ is a very hit and miss thing. But I think that the really big issues are that we don't take care of
+
+14:14.400 --> 14:20.000
+ children who make the mistake of having the wrong parents, and we don't take care of people who make
+
+14:20.000 --> 14:25.600
+ the mistake of getting sick. And those are things that a rich country should be doing.
+
+14:26.320 --> 14:32.240
+ Sorry for sort of a difficult question, but what you just said kind of feels like the right thing
+
+14:32.240 --> 14:40.160
+ to do in terms of a just society. But is it also good for the economic health of society to take
+
+14:40.160 --> 14:44.880
+ care of the people who are the unfortunate members of society?
+
+14:44.880 --> 14:52.000
+ By and large, it looks like doing the right thing in terms of justice is also the right thing in
+
+14:52.000 --> 14:58.960
+ terms of economics. If we're talking about a society that has extremely high tax rates that
+
+14:58.960 --> 15:07.680
+ deter, remove all incentives to provide a safety net that is so generous that why bother working
+
+15:07.680 --> 15:13.440
+ or striving, that could be a problem. But I don't actually know any society that looks like that.
+
+15:13.440 --> 15:20.960
+ Even in European countries with very generous safety nets, people work and innovate and do all
+
+15:20.960 --> 15:28.480
+ of these things. And there's a lot of evidence now that lacking those basics is actually destructive,
+
+15:28.480 --> 15:32.960
+ that children who grow up without adequate health care, without adequate nutrition,
+
+15:34.640 --> 15:40.240
+ are developmentally challenged. They don't live up to their potential as adults. So the United
+
+15:40.240 --> 15:46.960
+ States actually probably pays a price. We're harsh, we're cruel, and we actually make ourselves poorer
+
+15:46.960 --> 15:51.520
+ as a society, not just the individuals, by being so harsh and cruel.
+
+15:52.400 --> 15:59.120
+ Okay, so Invisible Hand, Smith, where does that fit in? The power of just people acting selfishly
+
+16:00.000 --> 16:06.960
+ and somehow everything taking care of itself to where the economy grows,
+
+16:06.960 --> 16:14.640
+ nobody, there's no cruelty, no injustice, that the markets regulate themselves. Is there power
+
+16:14.640 --> 16:21.520
+ to that idea and what are its limits? There's a lot of power to that. I mean, there's a reason why
+
+16:23.120 --> 16:29.360
+ I don't think sensible people want the government running steel mills or they want the government
+
+16:29.360 --> 16:40.960
+ to own the farms, right? The markets are a pretty effective way of getting incentives aligned,
+
+16:40.960 --> 16:46.720
+ of inducing people to do stuff that works. And the Invisible Hand is saying that farmers aren't
+
+16:46.720 --> 16:51.120
+ growing crops because they want to feed people, they're growing crops because they can make money
+
+16:51.120 --> 16:56.960
+ by it, but it actually turns out to be a pretty good way of getting an agrarian
+
+16:56.960 --> 17:04.560
+ of getting agricultural products grown. So the Invisible Hand is an important part,
+
+17:04.560 --> 17:10.400
+ but there's nothing mystical about it. It's a mechanism, it's a way to organize economic
+
+17:10.400 --> 17:15.840
+ activity, which works well given a bunch of preconditions, which means that it actually
+
+17:15.840 --> 17:22.880
+ works well for agriculture, it works well for manufacturing, it works well for many services,
+
+17:22.880 --> 17:30.400
+ it doesn't work well for healthcare, it doesn't work well for education. So having a society
+
+17:30.400 --> 17:39.200
+ which is kind of three quarters Invisible Hand and one quarter Visible Hand, something on that
+
+17:39.200 --> 17:47.920
+ order seems to be the balance that works best. You don't want to romanticize or make something
+
+17:47.920 --> 17:54.880
+ mystical out of it. This is one way to organize stuff that happens to have broad but not universal
+
+17:54.880 --> 18:02.800
+ application. So then forgive me for romanticizing it, but it does seem pretty magical. I kind of
+
+18:02.800 --> 18:06.880
+ have an intuitive understanding of what happens when you have like five, ten, maybe even a hundred
+
+18:06.880 --> 18:12.640
+ people together, the dynamics of that. But the fact that these large society of people for the
+
+18:12.640 --> 18:17.440
+ most part acting in a self interested way and maybe electing representatives for themselves,
+
+18:17.440 --> 18:28.480
+ that it all kind of seems to work, it's pretty magical. The fact that right now there's a wide
+
+18:28.480 --> 18:39.200
+ assortment of fresh fruit and vegetables in the local markets up and down the street, who's
+
+18:39.200 --> 18:43.920
+ planning that? And the answer is nobody. That's the Invisible Hand at work and that's great.
+
+18:43.920 --> 18:55.360
+ And that's a lesson that Adam Smith figured out more than 200 years ago and it continues to apply.
+
+18:56.160 --> 19:01.600
+ But even Adam Smith has a section in his book about why it's important to regulate banks.
+
+19:02.480 --> 19:07.680
+ So the Invisible Hand has its limits. And that example is actually a powerful one in terms of
+
+19:07.680 --> 19:13.280
+ the supermarket and fruit. That was my experience coming from Russia from the Soviet Union is when
+
+19:13.280 --> 19:20.000
+ I first entered a supermarket and just seeing the assortment of fruit, bananas. I don't think I've
+
+19:20.000 --> 19:25.600
+ seen bananas before, first of all, but just the selection of fresh fruit was just mind blowing.
+
+19:27.120 --> 19:32.480
+ Beyond words and the fact that, like you said, I don't know what made that happen.
+
+19:32.480 --> 19:40.400
+ Well, there is some magic to the market. As showing my age, but the old movie quote,
+
+19:40.400 --> 19:43.520
+ sometimes the magic works and sometimes it doesn't. And you have to have some idea of when
+
+19:43.520 --> 19:51.120
+ it doesn't. So how do you get regulation? What can government at its best do? Government,
+
+19:52.400 --> 20:00.480
+ strangely enough in this country today, seems to get a bad rap. Everybody's against the government.
+
+20:01.120 --> 20:04.640
+ Yeah. Well, a lot of money has been spent on making people hate the government.
+
+20:04.640 --> 20:12.160
+ But the reality is government does some things pretty well. I mean, government does health
+
+20:12.160 --> 20:17.760
+ insurance pretty well. So much so, I mean, given our anti government bias, it really is true that
+
+20:17.760 --> 20:23.520
+ there are people out there saying, don't let the government get its hands on Medicare. So
+
+20:24.560 --> 20:28.800
+ people actually love the government health insurance program far more than they love
+
+20:28.800 --> 20:38.800
+ private health insurance. Basic education. It turns out that your local public high school
+
+20:38.800 --> 20:45.760
+ is the right place to have students trained and private for, certainly for profit education is
+
+20:46.800 --> 20:56.720
+ by and large a nightmare of rip offs and grift and people not getting what they thought they
+
+20:56.720 --> 21:03.520
+ were paying for. It's a judgment case. And it's funny, there are things, I mean, everybody talks
+
+21:05.520 --> 21:11.840
+ about the DMV as being, do you want the economy? Actually, my experience is that the DMV have
+
+21:11.840 --> 21:17.920
+ always been positive. Maybe I'm just going to the right DMVs, but in fact, a lot of government works
+
+21:17.920 --> 21:26.000
+ pretty well. So to some extent, you can do these things on a priori grounds. You can talk about the
+
+21:26.000 --> 21:30.800
+ logic of why healthcare is not going to be handled well by the market, but partly it's just experience.
+
+21:30.800 --> 21:34.800
+ We tried, or at least some countries have tried nationalizing their steel industries,
+
+21:34.800 --> 21:40.640
+ that didn't go well. But we've tried privatizing education and that didn't go well. So you find
+
+21:40.640 --> 21:49.120
+ out what works. What about this new world of tech? How do you see, what do you think works for tech?
+
+21:49.120 --> 21:56.320
+ Is it more regulation or less regulation? There are some things that need more regulation. I mean,
+
+21:56.320 --> 22:07.840
+ we're finding out that the world of social media is one in which competitive forces aren't working
+
+22:07.840 --> 22:14.000
+ very well and trusting the companies to regulate themselves isn't working very well. But I'm on the
+
+22:14.000 --> 22:19.440
+ whole a tech skeptic, not in the sense that I think the tech doesn't work and it doesn't do stuff,
+
+22:19.440 --> 22:23.760
+ but the idea that we're living through greater technological change than ever before
+
+22:24.400 --> 22:30.640
+ is really an illusion. Ever since the beginning of the industrial revolution,
+
+22:30.640 --> 22:38.400
+ we've had a series of epical shifts in the nature of work and in the kinds of jobs that are available.
+
+22:38.400 --> 22:46.720
+ And it's not at all clear that what's happening now is any bigger or faster or harder to cope
+
+22:46.720 --> 22:54.560
+ with than past shocks. It is a popular notion in today's sort of public discourse that automation
+
+22:54.560 --> 23:01.920
+ is going to have a huge impact on the job market now. There is something transformational happening
+
+23:01.920 --> 23:10.800
+ now. Can you talk about that, maybe elaborate a little bit more? Do you not see the software
+
+23:10.800 --> 23:18.320
+ revolutions happening now with machine learning, availability of data, that kind of automation,
+
+23:18.320 --> 23:25.360
+ being able to sort of process, clean, find patterns in data, and you don't see that
+
+23:25.360 --> 23:32.880
+ disrupting any one sector to a point where there's a huge loss of jobs? There may be some things. I
+
+23:32.880 --> 23:37.120
+ mean, actually, you know, translators, there's really reduced demand for translators because
+
+23:38.560 --> 23:45.200
+ machine translation ain't perfect, but it ain't bad. There are some kinds of things that are
+
+23:45.200 --> 23:56.800
+ changed, but overall productivity growth has actually been slow in recent years. It's been much
+
+23:56.800 --> 24:02.480
+ slower than in some past periods. So the idea that automation is taking away all the jobs,
+
+24:02.480 --> 24:07.840
+ the counterpart would be that we would be able to produce stuff with many fewer workers than before,
+
+24:07.840 --> 24:14.400
+ and that's not happening. There are a few isolated sectors. There are some kinds of jobs that are
+
+24:14.400 --> 24:20.480
+ going away, but that keeps on happening. I mean, New York City used to have thousands and thousands
+
+24:20.480 --> 24:29.760
+ of longshoremen taking stuff off ships and putting them on ships. They're almost all gone now. Now
+
+24:29.760 --> 24:34.960
+ you have the giant cranes taking containers on and off ships in Elizabeth, New Jersey.
+
+24:36.560 --> 24:44.000
+ That's not robots. It doesn't sound high tech, but it actually pretty much destroyed an
+
+24:44.000 --> 24:50.960
+ occupation. Well, you know, it wasn't fun for the longshoremen, to say the least. But it's not,
+
+24:52.560 --> 24:58.640
+ we coped, we moved on, and that sort of thing happens all the time. You mean farmers.
+
+25:00.640 --> 25:07.520
+ We used to be a nation which was mostly farmers. There are now very few farmers left. And the
+
+25:07.520 --> 25:14.000
+ reason is not that we've stopped eating, it's that farming has become so efficient that we don't need
+
+25:14.000 --> 25:19.920
+ a lot of farmers, and we coped with that too. So the idea that there's something qualitatively
+
+25:19.920 --> 25:26.880
+ different about what's happening now so far isn't true. So your intuition is there is going to be
+
+25:26.880 --> 25:32.320
+ lots of jobs, but it's just the thing that just continues. There's nothing qualitatively different
+
+25:32.320 --> 25:36.720
+ about this moment. Some jobs will be lost, others will be created, as has always been the case so
+
+25:36.720 --> 25:42.880
+ far. I mean, maybe there's a singularity. Maybe there's a moment when the machines get smarter
+
+25:42.880 --> 25:48.800
+ than we are, and sky tech kills us all or something, right? But that's not visible in
+
+25:48.800 --> 25:53.600
+ anything we're seeing now. You mentioned the metric of productivity. Could you explain that
+
+25:53.600 --> 25:58.080
+ a little bit? Because it's a really interesting one. I've heard you mention that before in
+
+25:58.080 --> 26:03.760
+ connection with automation. So what is that metric? And if there is something qualitatively
+
+26:03.760 --> 26:09.520
+ different, what should we see in that metric? Well, okay, productivity. First of all, production.
+
+26:09.520 --> 26:15.760
+ We do have a measure of the economy's total production, you know, real GDP, which is
+
+26:16.320 --> 26:21.280
+ itself, it's a little bit of a construct because it's quite literally, it's adding apples and
+
+26:21.280 --> 26:27.600
+ oranges. So we have to add together various things, which we basically do by using market prices,
+
+26:27.600 --> 26:32.800
+ but we try to adjust for inflation. But it's kind of, it's a reasonable measure of how much
+
+26:32.800 --> 26:37.040
+ the economy is producing. Sorry to interrupt. Is it goods and services? It's goods and services.
+
+26:37.040 --> 26:44.560
+ It's everything. Okay. Productivity is, you divide that total output by the number of hours worked.
+
+26:45.200 --> 26:51.680
+ So we're basically asking how much stuff does the average worker produce in an hour of work.
+
+26:52.320 --> 26:57.920
+ And if you're seeing really rapid technological progress, then you'd expect to see productivity
+
+26:57.920 --> 27:05.040
+ rising at a rapid clip, which we did, you know, for the generation after World War II, productivity
+
+27:05.040 --> 27:12.240
+ rose, you know, 2% a year on a sustained basis. Then it dropped down for a while. Then there was
+
+27:12.240 --> 27:17.040
+ a kind of a decade of fairly rapid growth from the mid nineties to the mid two thousands.
+
+27:18.240 --> 27:22.880
+ And then it's, it dropped off again and it's not, it's not impressive right now. So
+
+27:22.880 --> 27:29.680
+ you're just not seeing an epical shift in, in, in the economy. So let me then ask you about
+
+27:29.680 --> 27:34.720
+ the psychology of blaming automation. A few months ago, you wrote in the New York Times,
+
+27:34.720 --> 27:39.840
+ quote, the other day I found myself, as I often do at a conference, discussing lagging wages and
+
+27:39.840 --> 27:45.360
+ soaring inequality. There was a lot of interesting discussion, but one thing that struck me was how
+
+27:45.360 --> 27:50.880
+ many of the participants just assumed that robots are a big part of the problem, that machines are
+
+27:50.880 --> 27:56.400
+ taking away the good jobs or even jobs in general. For the most part, this wasn't even presented as
+
+27:56.400 --> 28:04.640
+ a hypothesis, just as part of what everyone knows. So why is, maybe can you psychoanalyze our,
+
+28:05.840 --> 28:12.480
+ the public intellectuals or economists or us actually in the general public, why this is
+
+28:12.480 --> 28:19.440
+ happening? Why this assumption has just infiltrated public discourse? There's a couple of things.
+
+28:19.440 --> 28:26.480
+ One is that the particular technologies that are advancing now are ones that are a lot more visible
+
+28:26.480 --> 28:37.120
+ to the chattering class. When containerization did away with the jobs of longshoremen, well,
+
+28:37.120 --> 28:43.280
+ not a whole lot of college professors are close friends with longshoremen. And so we see this one.
+
+28:43.280 --> 28:49.920
+ Then there's a second thing, which is, we just went through a severe financial crisis
+
+28:49.920 --> 28:56.880
+ and a period of very high unemployment. It's finally come down. There's really no question
+
+28:56.880 --> 29:01.520
+ that that high unemployment was about macroeconomics. It was about a failure of demand.
+
+29:02.160 --> 29:07.760
+ But macroeconomics is really not intuitive. I mean, people just have a hard time wrapping
+
+29:07.760 --> 29:11.360
+ their minds around it. And among other things, people have a hard time believing that something
+
+29:11.360 --> 29:16.160
+ as trivial as, well, people who just aren't spending enough can lead to the kind of mass
+
+29:16.160 --> 29:22.320
+ misery that we saw in the 1930s or the not quite so severe, but still serious misery that we saw
+
+29:22.320 --> 29:28.480
+ after 2008. And there's always a tendency to say it must be something big. It must be technological
+
+29:28.480 --> 29:33.600
+ change. That means we don't need workers anymore. There was a lot of that in the 30s. And that same
+
+29:33.600 --> 29:40.480
+ thing happened after 2008, the assumption that it has to be some deep cause, not something as trivial
+
+29:40.480 --> 29:46.240
+ as a failure of investor confidence and inadequate monetary and fiscal response.
+
+29:47.840 --> 29:57.280
+ And the last thing on wages. A lot of what's happened on wages is at some level political.
+
+29:57.280 --> 30:02.320
+ It's the collapse of the union movement. It's policies that have squeezed workers bargaining
+
+30:02.320 --> 30:08.880
+ power. And for kind of obvious reasons, there are a lot of influential people who don't want to hear
+
+30:08.880 --> 30:14.880
+ that story. They want it to be an inevitable force of nature. Technology has made it impossible to
+
+30:14.880 --> 30:23.440
+ have people earn middle class wages. And so they don't like the story that says,
+
+30:23.440 --> 30:28.240
+ actually, no, it's kind of the political decisions that we made that have caused this income
+
+30:28.240 --> 30:34.000
+ stagnation. And so they're a receptive audience for technological determinism.
+
+30:34.000 --> 30:40.640
+ LW. So what comes first in your view, the economy or politics in terms of what has impact on the
+
+30:40.640 --> 30:41.360
+ other?
+
+30:41.360 --> 30:48.800
+ RL. Oh, look, everything interacts. That's one of the rules that I was taught in economics.
+
+30:48.800 --> 30:57.440
+ Everything affects everything else in at least two ways. I mean, clearly the economy drives a
+
+30:57.440 --> 31:08.480
+ lot of political stuff. But also clearly politics has a huge impact on the economy. We look at the
+
+31:08.480 --> 31:14.320
+ decline of unions in America and say, well, the world has changed and unions don't have a role.
+
+31:15.040 --> 31:21.520
+ But two thirds of workers in Denmark are unionized. And Denmark has the same technology
+
+31:21.520 --> 31:26.640
+ and faces the same global economy that we do. It's just a difference in political choices that leads
+
+31:26.640 --> 31:33.760
+ to that difference. So I actually teach a course here at CUNY called Economics of the Welfare
+
+31:33.760 --> 31:38.800
+ State, which is about things like healthcare and retirement and to some extent wage policy and so
+
+31:38.800 --> 31:46.000
+ on. And the message I keep on trying to drive home is that, look, all advanced countries have
+
+31:46.000 --> 31:51.280
+ got roughly equal competence. We all have the same technology, but we make very different choices.
+
+31:51.840 --> 31:56.000
+ Not that America always makes the wrong choices. We do some things pretty well. Our retirement
+
+31:56.000 --> 32:03.120
+ system is one of the better ones. But the point is that there's a huge amount of political choice
+
+32:03.120 --> 32:09.840
+ involved in the shape of the economy. What is a welfare state? Well, welfare state is the old
+
+32:10.720 --> 32:17.520
+ term, but it basically refers to all the programs that are there to mitigate, if you like, the
+
+32:19.680 --> 32:25.200
+ risks and injustices of the market economy. So in the US, the welfare state is Social Security,
+
+32:25.200 --> 32:32.240
+ Medicare, Medicaid, minimum wages, food stamps. When you say welfare state, my first sort of
+
+32:32.240 --> 32:39.840
+ feeling is a negative one. Even though I like all, I probably generally, at least theoretically,
+
+32:39.840 --> 32:46.480
+ like all the welfare programs. Well, it's been demonized. And to some extent, I'm doing a little
+
+32:46.480 --> 32:53.520
+ bit of thumbing my nose at all of that by just using the term welfare state. Although it's not.
+
+32:53.520 --> 32:59.600
+ I see. Yeah, I got you. But everybody, every advanced country actually has a lot of welfare
+
+32:59.600 --> 33:07.200
+ state, even the US. I mean, that's a fundamental part of the fabric of our society. Social Security,
+
+33:07.200 --> 33:17.840
+ Medicare, Medicaid are just things we take for granted as part of the scene. There's a lot of
+
+33:17.840 --> 33:25.040
+ there's people on the right wing who are saying, oh, it's all socialism. And well,
+
+33:25.040 --> 33:33.360
+ words, I guess, mean what you want them to mean. And just today, I told my class about the
+
+33:36.160 --> 33:41.840
+ record that Ronald Reagan made in 1961, warning that Medicare would destroy American freedom.
+
+33:41.840 --> 33:50.000
+ And but that sort of didn't happen on the topic of welfare state. What are your thoughts on
+
+33:50.000 --> 33:58.800
+ universal basic income? And that's sort of a not a generic, but a universal safety net of this kind?
+
+33:58.800 --> 34:04.320
+ There's always a trade off when we talk about social safety net programs. There's always a
+
+34:04.320 --> 34:12.400
+ trade off between universality, which is clean, but means that you're giving a lot of money to
+
+34:12.400 --> 34:19.120
+ people who don't necessarily need it and some kind of targeting, which makes it easier to
+
+34:20.720 --> 34:27.520
+ get to deal with the crucial problems with limited resources. But both has incentive
+
+34:27.520 --> 34:36.480
+ problems and kind of political and I would say even psychological issues. So the great thing
+
+34:36.480 --> 34:44.000
+ about Social Security and Medicare is no questions asked. You don't have to prove that you need them.
+
+34:45.280 --> 34:54.800
+ It just comes. I'm on Medicare, allegedly. I mean, it's run through my New York Times health
+
+34:54.800 --> 35:02.160
+ insurance, but I didn't have to file an application with the Medicare office to prove that I needed it.
+
+35:02.160 --> 35:08.160
+ It just happened when I turned 65. That's good for dignity and it's also good for
+
+35:08.800 --> 35:15.360
+ the political support because everybody gets Medicare. On the other hand, if you
+
+35:15.360 --> 35:24.640
+ and we can do that with health care to give everybody a guarantee of an income that's
+
+35:24.640 --> 35:32.480
+ enough to live on comfortably. That's a lot of money. What about enough income to carry you over
+
+35:34.240 --> 35:38.000
+ through difficult periods, like if you lose a job or that kind of? Well, we have unemployment
+
+35:38.000 --> 35:44.080
+ insurance and I think our unemployment insurance is too short lived and too stingy. It would be
+
+35:44.080 --> 35:51.840
+ better to have a more comprehensive unemployment insurance benefit. But the trouble with something
+
+35:51.840 --> 35:58.720
+ like universal basic income is that either the bar is too low, so it's really not something you
+
+35:58.720 --> 36:05.680
+ can live on, or it's an enormously expensive program. And so at this point, I think that
+
+36:05.680 --> 36:12.000
+ we can do far better by building on the kinds of safety net programs we have. I mean, food stamps,
+
+36:12.000 --> 36:17.280
+ earned income tax credit. We should have a lot more family support policies.
+
+36:17.280 --> 36:23.280
+ Those things can do a lot more to really diminish the amount of misery in this country.
+
+36:24.240 --> 36:32.560
+ UBI is something that is being... I mean, it goes kind of hand in hand with this belief that
+
+36:33.120 --> 36:37.440
+ the robots are going to take all of our jobs. And if that was really happening, then I might
+
+36:37.440 --> 36:45.840
+ reconsider my views on UPI, but I don't see that happening. So are you happy with discourse that's
+
+36:45.840 --> 36:52.160
+ going on now in terms of politics? So you mentioned a few political candidates. Is the kind of thing
+
+36:52.160 --> 36:59.680
+ going on both on Twitter and debates and the media through the written word, through the spoken word,
+
+37:00.240 --> 37:05.120
+ how do you assess the public discourse now in terms of politics? We're in a fragmented world.
+
+37:05.120 --> 37:07.680
+ More so than before.
+
+37:07.680 --> 37:20.560
+ More so than ever before. So at this point, the public discourse that you see if Fox News is your
+
+37:20.560 --> 37:25.600
+ principal news source is very different from the one you get if you read the New York Times.
+
+37:26.160 --> 37:33.840
+ On the whole, my sense is that mainstream political reporting, policy reporting is a,
+
+37:33.840 --> 37:40.880
+ not too great, but b, better than it's ever been. Because when I first got into the pundit business,
+
+37:41.440 --> 37:46.640
+ it was just awful. Lots of things just never got covered. And if things did get covered,
+
+37:46.640 --> 37:53.680
+ it was always both sides. It's the line that comes back from me writing during the 2000
+
+37:53.680 --> 38:00.320
+ campaign was that if one of the candidates said that the earth was flat, the headline would
+
+38:00.320 --> 38:06.560
+ be views differ on shape of planet. I mean, that's less true. There's still a fair bit of
+
+38:06.560 --> 38:12.240
+ that out there, but it's less true than there used to be. And there are more people reporting,
+
+38:12.240 --> 38:18.880
+ writing on policy issues who actually understand them than ever before. So though that's good.
+
+38:18.880 --> 38:34.640
+ But still, how much the typical voter is actually informed is unclear. I mean, the Democratic
+
+38:34.640 --> 38:44.560
+ debates, I'm hoping that we finally get down to not having 27 people on the stage or whatever it
+
+38:44.560 --> 38:52.880
+ is they have, but they're reasonably substantive, certainly better than before. And while there's
+
+38:52.880 --> 39:00.560
+ a lot of still theater criticism instead of actual analysis and the reporting, it's not as totally
+
+39:00.560 --> 39:09.200
+ dominant as in the past. Can I ask maybe a dumb question, but from an open minded perspective,
+
+39:09.200 --> 39:21.920
+ when people on the left and people on the right, I think view the others as sometimes complete
+
+39:21.920 --> 39:32.560
+ idiots. What do we do with that? Is it possible that the people on the right are correct about
+
+39:32.560 --> 39:42.480
+ their what they currently believe? Is that kind of open mindedness helpful or is this division
+
+39:43.280 --> 39:47.280
+ long term productive for us to sort of have this food fight?
+
+39:48.480 --> 39:55.680
+ Well, the trouble you have to confront is that there's a lot of stuff that just is false out
+
+39:55.680 --> 40:02.160
+ there but commands extensive political allegiance. So the idea, well, both sides need to listen to
+
+40:02.160 --> 40:09.840
+ each other respectfully. I'm happy to do that when there's a view that is worthy of respect,
+
+40:09.840 --> 40:18.000
+ but a lot of stuff is not. And so take economics is something where I think I know something,
+
+40:18.560 --> 40:24.800
+ and I'm not sure that I'm always right. In fact, I know I've been wrong plenty of times. But I
+
+40:24.800 --> 40:33.280
+ think that there is a difference between economic views that are within the realm of we can actually
+
+40:33.280 --> 40:42.560
+ have an interesting discussion and those that are just crank doctrines or things that are purely
+
+40:42.560 --> 40:47.920
+ being disseminated because people are being paid to disseminate them. So there are plenty of good,
+
+40:47.920 --> 40:54.800
+ serious center right economists that I'm happy to talk to. None of those center right economists
+
+40:54.800 --> 40:59.280
+ has any role in the Trump administration. The Trump administration and by and large Republicans
+
+40:59.280 --> 41:07.680
+ in Congress only want to listen to people who are cranks. And so I think it's being dishonest with
+
+41:07.680 --> 41:12.400
+ my readers to pretend otherwise. There's no way I can reach out to people who think that
+
+41:12.400 --> 41:16.480
+ reading Ayn Rand novels is how you learn about monetary economics.
+
+41:17.200 --> 41:22.000
+ Let me linger on that point. So if you look at Ayn Rand, okay, so you said center right. What
+
+41:22.000 --> 41:31.600
+ about extreme? People who have like radical views, you think they're not grounded in any kind of data,
+
+41:31.600 --> 41:37.920
+ in any kind of reality. I'm just sort of curious about how open we should be
+
+41:37.920 --> 41:44.320
+ to ideas that seem radical. Oh, radical ideas is fine, but then you have to ask, is there some
+
+41:44.320 --> 41:53.920
+ basis for the radicalism? And if it's something that is not grounded in anything,
+
+41:55.440 --> 41:59.840
+ then, and particularly, by the way, if it's something that's been refuted by evidence again
+
+41:59.840 --> 42:03.440
+ and again, and the people just keep saying it, if it's a zombie, if it's a
+
+42:03.440 --> 42:08.560
+ zombie idea, and there's a lot of those out there, then there comes a point when it's not worth
+
+42:09.600 --> 42:14.560
+ trying to fake respect for it. I see. So there's a, through the scientific process,
+
+42:14.560 --> 42:19.760
+ you've shown that this idea does not hold water, but I like the idea of zombie ideas,
+
+42:19.760 --> 42:25.040
+ but they live on through, it's like the idea that the earth is flat, for example,
+
+42:26.160 --> 42:28.880
+ has been for the most part, disproven. Yeah.
+
+42:28.880 --> 42:34.480
+ But it lives on, actually, and growing in popularity currently. Yeah. And there's a lot
+
+42:34.480 --> 42:41.520
+ of that out there, and you can't wish it away, and you're not being fair to either yourself,
+
+42:41.520 --> 42:46.160
+ or if you're somebody who writes for the public, you're not being fair to your readers to pretend
+
+42:46.160 --> 42:53.920
+ otherwise. So quantum mechanics is a strange theory, but it's testable, and so while being
+
+42:53.920 --> 43:00.400
+ strange, it's widely accepted amongst physicists. How robust and testable are economics theories
+
+43:01.440 --> 43:08.160
+ if we compare them to quantum mechanics and physics and so on? Okay, economics, look, it's a
+
+43:08.160 --> 43:13.920
+ complex system, and it's also one in which, by and large, you don't get to do experiments,
+
+43:14.480 --> 43:18.480
+ and so economics is never going to be like quantum mechanics.
+
+43:18.480 --> 43:26.160
+ That said, you get natural experiments, you get tests of rival doctrines. In the immediate
+
+43:26.160 --> 43:35.600
+ aftermath of the financial crisis, there was one style, one basic theory of macroeconomics, which
+
+43:36.560 --> 43:40.960
+ ultimately goes back to John Maynard Keynes that made a few predictions. It said, under these
+
+43:40.960 --> 43:48.080
+ circumstances, the economy is going to collapse. It's going to collapse. It's going to collapse.
+
+43:48.080 --> 43:54.800
+ Printing money will not be inflationary. Running big budget deficits will not cause a rise in
+
+43:54.800 --> 44:02.240
+ interest rates. Slashing government spending austerity policies will lead to depressions if
+
+44:02.240 --> 44:11.120
+ tried. Other people had exactly the opposite predictions, and we got a fairly robust test,
+
+44:11.120 --> 44:17.600
+ and one theory won. Interest rates stayed low. Inflation stayed low. Austerity, countries that
+
+44:17.600 --> 44:24.400
+ implemented harsh austerity policies suffered severe economic downturns. You don't get much,
+
+44:24.400 --> 44:28.400
+ you know, that's pretty clear, and that's not going to be true on everything,
+
+44:29.440 --> 44:36.560
+ but there's a lot of empirical. I mean, the younger economists these days are very heavily
+
+44:36.560 --> 44:42.000
+ data based, and that's great, and I think that's the way to go.
+
+44:42.000 --> 44:47.440
+ Trey Lockerbie What theories of economics are there? Is there currently a lot of disagreement about, would you say?
+
+44:47.440 --> 44:54.560
+ John Ligato Oh, first of all, there's just a lot less disagreement, really, among serious
+
+44:54.560 --> 45:00.800
+ researchers in economics than people imagine. We actually, we can track that. The Chicago Booth
+
+45:00.800 --> 45:07.520
+ School has a panel, an ideologically diverse panel, and they pose regularly posed questions,
+
+45:07.520 --> 45:16.160
+ and on most things, there's a huge, there's remarkable consensus. There's a lot of things
+
+45:16.160 --> 45:22.240
+ where people imagine that there's dispute, but the illusion of dispute is something that's
+
+45:22.240 --> 45:28.960
+ basically being fed by political forces, and there isn't really. I mean, there are, I think,
+
+45:28.960 --> 45:37.760
+ questions about what are effective ways to regulate technology industries. We really don't know
+
+45:41.520 --> 45:50.560
+ the answers there. There's a, or, look, I don't follow every part. Minimum wages. I think there's
+
+45:50.560 --> 45:57.280
+ pretty overwhelming evidence that a modest increase in the minimum wage from current levels
+
+45:57.280 --> 46:06.960
+ would be, would not have any noticeable adverse effect on jobs. But if you ask, how high could it
+
+46:06.960 --> 46:17.040
+ go? $12 seems pretty safe, given what we know. Is $15 okay? There's some legitimate disagreement
+
+46:17.040 --> 46:24.880
+ there, I think probably, but people have a point. $20, where is the line at which it starts to
+
+46:24.880 --> 46:29.440
+ become a problem, and the answer is, truly, we don't know. It's fascinating to try to,
+
+46:30.080 --> 46:35.120
+ such a cool, economics is cool in that sense, because you're trying to predict something that
+
+46:35.120 --> 46:39.440
+ hasn't been done before, the impact, the effects of something that hasn't been done before.
+
+46:40.160 --> 46:45.200
+ Yeah, you're trying, you're going out of sample, and we have good reason to believe that there are,
+
+46:46.560 --> 46:49.840
+ you know, that it's nonlinear, that there comes a point at which it doesn't work the way it has
+
+46:49.840 --> 46:56.560
+ in the past. So, as an economist, how do you see science and technological innovation? When I
+
+46:56.560 --> 47:02.160
+ took various economics courses in college, technological innovation seemed like a
+
+47:02.160 --> 47:09.280
+ no brainer way of growing an economy, and we should invest in it aggressively. I may be biased,
+
+47:09.280 --> 47:14.720
+ but it seemed like the various ways to grow an economy, it seems like the easiest way,
+
+47:14.720 --> 47:20.560
+ especially long term. Is that correct? And if so, why aren't we doing it more?
+
+47:20.560 --> 47:26.880
+ Well, that's, okay, the first question is, yeah, I mean, all, it's pretty much overwhelming.
+
+47:27.920 --> 47:31.520
+ We think we can more or less measure this, although there are some assumptions involved,
+
+47:31.520 --> 47:38.480
+ but it's something like 70 to 80% of the growth in per capita income is basically the advance
+
+47:38.480 --> 47:43.520
+ of knowledge. It's not just, it's not just the crude accumulation of capital. It is the fact
+
+47:43.520 --> 47:50.560
+ that we get smarter. A lot of that, by the way, is more prosaic kinds of technology. So, you know,
+
+47:52.960 --> 47:57.760
+ I like to talk about things like containerization, or, you know, in an earlier period,
+
+48:01.280 --> 48:10.000
+ the invention of the flat pack cardboard box. That had to be invented, and now all of your
+
+48:10.000 --> 48:14.720
+ deliveries from Amazon are made possible by the existence of that technology. The web stuff is
+
+48:15.760 --> 48:19.040
+ important too, but what would we do without cardboard boxes?
+
+48:20.400 --> 48:26.160
+ But all of that stuff is really important in driving economic progress. Well, why don't we
+
+48:26.160 --> 48:36.560
+ invest more? Why don't we invest more in, again, more prosaic stuff? Why haven't we built another
+
+48:36.560 --> 48:44.320
+ goddamn rail tunnel under the Hudson River, for which the need is so totally overwhelmingly
+
+48:44.320 --> 48:48.000
+ obvious? How do you think about, first of all, I don't even know what the word prosaic means,
+
+48:48.000 --> 48:54.320
+ but I inferred it, but how do you think about prosaic? Is it the really most basic, dumb
+
+48:54.320 --> 49:02.800
+ technology innovation, or is it just like the lowest hanging fruit of where benefit can be
+
+49:02.800 --> 49:11.760
+ gained? When I say prosaic, I mean stuff that is not sexy and fancy and high tech. It's building
+
+49:11.760 --> 49:24.400
+ bridges and tunnels, inventing the cardboard box, or the, I don't know, where do we put
+
+49:24.400 --> 49:34.800
+ EasyPass in there? It is actually using some modern technology and all that, but it's not
+
+49:34.800 --> 49:41.120
+ going to have, I don't think we're going to make a movie about the guy, whoever it was that invented
+
+49:41.120 --> 49:47.680
+ EasyPass, but it's actually a pretty significant productivity booster. To me, it always seemed like
+
+49:47.680 --> 49:55.360
+ it's something that everybody should be able to agree on and just invest. So in the same way,
+
+49:56.160 --> 50:05.440
+ the investment in the military and the DOD is huge. So everyone kind of, not everyone, but
+
+50:05.440 --> 50:15.280
+ there's an agreement amongst people that somehow that a large defense is important. It always
+
+50:15.280 --> 50:22.720
+ seemed to me like that should be shifted towards, if you want to grow prosperity of the nation,
+
+50:22.720 --> 50:28.320
+ you should be investing in knowledge. Yes, prosaic stuff, investing in infrastructure and so on.
+
+50:29.200 --> 50:34.080
+ I mean, sorry to linger on it, but do you have any intuition? Do you have a hope that that changes?
+
+50:35.040 --> 50:38.240
+ Do you have intuition why it's not changing? It's unclear.
+
+50:38.240 --> 50:42.240
+ More than intuition, I have a theory. I'm reasonably certain that I understand why
+
+50:42.240 --> 50:55.680
+ we don't do it. And it's because we have a real values dispute about the welfare state,
+
+50:55.680 --> 51:02.080
+ about how much the government should do to help the unfortunate. And politicians believe,
+
+51:04.320 --> 51:09.200
+ probably rightly, that there's a kind of halo effect that surrounds any kind of government
+
+51:09.200 --> 51:17.600
+ intervention. That even though providing people with enhanced social security benefits is really
+
+51:17.600 --> 51:23.520
+ very different from building a tunnel under the Hudson River, politicians of both parties seem
+
+51:23.520 --> 51:28.240
+ to believe that if the government is seen to be successful at doing one kind of thing,
+
+51:28.240 --> 51:33.120
+ it will make people think more favorably on doing other kinds of things. And so we have
+
+51:33.120 --> 51:39.680
+ conservatives tend to be opposed to any kind of increase in government spending, except military,
+
+51:39.680 --> 51:46.720
+ no matter how obviously a good idea it is, because they fear that it's the thin end of
+
+51:46.720 --> 51:52.480
+ the wedge for bigger government in general. And to some extent, liberals tend to favor
+
+51:53.040 --> 51:59.760
+ spending on these things, partly because they see it as a way of proving that government can
+
+51:59.760 --> 52:11.360
+ do things well, and therefore it can turn to broader social goals. What you might have thought
+
+52:11.360 --> 52:15.440
+ would be a technocratic discussion about government investment, both in research and
+
+52:15.440 --> 52:21.520
+ in infrastructure, is contaminated by the fact that government is government and people link it
+
+52:21.520 --> 52:28.560
+ to other government actions. Perhaps a silly question, but as a species, we're currently
+
+52:28.560 --> 52:35.040
+ working on venturing out into space, one day colonizing Mars. So when we start a society
+
+52:35.040 --> 52:41.040
+ on Mars from scratch, what political and economic system should it operate under?
+
+52:41.920 --> 52:45.760
+ Oh, I'm a big believer in... First of all, I don't think we're actually going to do that,
+
+52:45.760 --> 52:54.000
+ but let's hypothesize that we colonize Mars or something. Look, representative democracy
+
+52:54.000 --> 53:06.960
+ versus pure democracy. Well, yeah, pure democracy where people vote directly on everything is really
+
+53:06.960 --> 53:16.000
+ problematic, because people don't have time to try and master every issue. I mean, we can see
+
+53:16.000 --> 53:21.920
+ what government by referendum looks like. There's a lot of that in California, and it doesn't work
+
+53:21.920 --> 53:26.800
+ so good because it's hard to explain to people that the various things they vote for may conflict.
+
+53:26.800 --> 53:37.520
+ So representative democracy, it's got lots of problems. And kind of the Winston Churchill thing,
+
+53:37.520 --> 53:43.760
+ right? It's the worst system we know, except for all the others. So yeah, sticking with the
+
+53:43.760 --> 53:52.240
+ representative and basically the American system of regulation and markets and the economy we have
+
+53:52.240 --> 53:57.760
+ going on is a pretty good one for Mars. If you start from scratch. If you're gonna start from
+
+53:57.760 --> 54:04.320
+ scratch, you wouldn't want a Senate where 16% of the population has half the seats.
+
+54:06.160 --> 54:11.360
+ You probably would want one which is actually more representative than what we have.
+
+54:11.360 --> 54:22.080
+ And the details, it's unclear. When times are good, all of the various representative
+
+54:22.080 --> 54:30.480
+ democracy systems, whether it's parliamentary democracies or a US style system, whether you
+
+54:30.480 --> 54:35.120
+ have a prime minister or the head of state as an elected president, they all kind of work well,
+
+54:36.080 --> 54:40.240
+ when times are good, and they all have different modes of breakdown. So I'm not sure I know what
+
+54:40.240 --> 54:49.760
+ the answer is. But something like that is given what we've seen through history, it's the least
+
+54:49.760 --> 55:02.240
+ bad system out there. I'm a big fan of the TV series The Expanse, and it's kind of gratifying
+
+55:02.240 --> 55:13.600
+ that out there, it's the Martian Congressional Republic. In a brief sense, so amongst many things,
+
+55:13.600 --> 55:24.000
+ you're also an expert at international trade. What do you make of the complexity? So I can
+
+55:24.000 --> 55:30.560
+ understand trade between two people, say two neighboring farmers. It seems pretty straightforward
+
+55:30.560 --> 55:35.280
+ to me. But internationally, we need to start talking about nations and nations trading seems
+
+55:35.280 --> 55:42.080
+ to be very complicated. So from a high level, why is it so complicated? What are all the different
+
+55:42.080 --> 55:48.720
+ factors that weigh the objectives that need to be considered in international trade? And maybe
+
+55:48.720 --> 55:55.680
+ feeding that into a question of, do you have concerns about the two giants right now of the
+
+55:55.680 --> 56:01.520
+ U.S. and China, and the tension that's going on with the international trade there with the trade
+
+56:01.520 --> 56:05.680
+ war? Well, first of all, international trade is not really that different from trade among
+
+56:05.680 --> 56:15.200
+ individuals. It's vastly more complex, and there are many more players. But in the end, the reasons
+
+56:15.200 --> 56:19.280
+ why countries trade are pretty much the same as the reasons why individuals trade. Countries trade
+
+56:19.280 --> 56:25.120
+ because they're different, and they can derive mutual advantage from concentrating on the things
+
+56:25.120 --> 56:36.320
+ they do relatively well. And also, there are economies of scale. Individuals have to decide
+
+56:36.320 --> 56:42.160
+ whether to be a surgeon or an accountant. It's probably not a good idea to try and be both,
+
+56:42.160 --> 56:48.400
+ and countries benefit from specializing just because of the inherent advantages of specialization.
+
+56:48.400 --> 56:56.160
+ Now, the fact that it's a big world, and we're talking about millions of products being traded,
+
+56:56.160 --> 57:05.040
+ and in today's world, often trade involves many stages. So that made in China iPhone is actually
+
+57:05.840 --> 57:11.520
+ assembled from components that are made all over the world. But it doesn't really change the
+
+57:11.520 --> 57:22.080
+ fundamentals all that much. There's a recurrent... I mean, the dirty little secret of international
+
+57:22.080 --> 57:27.840
+ trade conflict is that actually it's not... Conflicts among countries are really not that
+
+57:27.840 --> 57:37.440
+ important. Most trade is beneficial to both sides and to both countries, but it has big impacts on
+
+57:37.440 --> 57:44.720
+ the distribution of income within countries. So the growth of US trade with China has made both
+
+57:44.720 --> 57:52.320
+ US and China richer, but it's been pretty bad for people who were employed in the North Carolina
+
+57:52.320 --> 57:58.480
+ furniture industry, who did find that their jobs were displaced by a wave of imports from China.
+
+57:58.480 --> 58:08.000
+ And so that's where the complexity comes in. Not at all clear to me. We have some real problems
+
+58:08.000 --> 58:14.480
+ with China, although they don't really involve trade so much as things like respect for intellectual
+
+58:14.480 --> 58:22.080
+ property. Not clear that those real problems that we do have with China have anything to do with the
+
+58:22.080 --> 58:28.960
+ current trade war. The current trade war seems to be driven instead by a fundamentally wrong notion
+
+58:28.960 --> 58:33.680
+ that when we sell goods to China, that's good, and when we buy goods from China, that's bad. And
+
+58:33.680 --> 58:39.600
+ that's misunderstanding the whole point. Is trade with China in both directions a good thing?
+
+58:40.480 --> 58:46.720
+ Yeah, we would be poorer if it wasn't for it. But there are downsides, as there are for any economic
+
+58:46.720 --> 58:53.520
+ change. It's like any new technology makes us richer, but often hurts some people. Trade with
+
+58:53.520 --> 59:01.680
+ China makes us richer, but hurts some people. And I wouldn't undo what has happened, but I wish we
+
+59:01.680 --> 59:07.680
+ had had a better policy for supporting and compensating the losers from that growth.
+
+59:09.200 --> 59:14.880
+ So we live in a time of radicalization of political ideas, Twitter mobs, and so on.
+
+59:14.880 --> 59:21.600
+ And yet here you are in the midst of it, both tweeting and writing in the New York Times articles
+
+59:21.600 --> 59:29.040
+ with strong opinions, riding this chaotic wave of public discourse. Do you ever hesitate or feel
+
+59:29.040 --> 59:34.160
+ a tinge of fear for exploring your ideas publicly and unapologetically?
+
+59:34.160 --> 59:40.640
+ Oh, I feel fear all the time. It's not too hard to imagine scenarios in which this is going to,
+
+59:40.640 --> 59:49.360
+ you know, I might personally find myself kind of in the crosshairs. And I mean, I am the
+
+59:49.360 --> 59:55.600
+ king of hate mail. I get amazing correspondence. Does it affect you?
+
+59:55.600 --> 1:00:00.000
+ It did. It did when it started. These days I've developed a very thick skin.
+
+1:00:01.600 --> 1:00:07.520
+ So I don't usually get, in fact, if I don't get a wave of hate mail after a column, then
+
+1:00:07.520 --> 1:00:10.480
+ I've probably wasted that day.
+
+1:00:10.480 --> 1:00:16.240
+ So what do you make of that as a person who's putting ideas out there? If you look at the
+
+1:00:16.240 --> 1:00:22.400
+ history of ideas, the way it works is you write about ideas, you put them out there. But now
+
+1:00:22.400 --> 1:00:29.120
+ when there's so much hate mail, so much division, what advice do you have for yourself and for
+
+1:00:29.120 --> 1:00:33.200
+ others trying to have a discussion about ideas, difficult ideas?
+
+1:00:33.200 --> 1:00:40.720
+ Well, I don't know about advice for others. I mean, for most economists, you know, just
+
+1:00:40.720 --> 1:00:46.880
+ do your research. We can't all be public intellectuals and we shouldn't try to be.
+
+1:00:46.880 --> 1:00:55.360
+ And in fact, I'm glad that I didn't get into this business until I was in my late 40s. I mean,
+
+1:00:55.360 --> 1:01:03.840
+ this is probably best to spend your decades of greatest intellectual flexibility addressing
+
+1:01:03.840 --> 1:01:12.880
+ deep questions, not confronting Twitter mobs. And as for the rest, I think when you're writing
+
+1:01:12.880 --> 1:01:23.280
+ about stuff, the answers like no one's watching, write like nobody's reading. Write what you think
+
+1:01:23.280 --> 1:01:28.480
+ is right. Trying to make it, obviously, trying to make it comprehensible and persuasive. But
+
+1:01:29.840 --> 1:01:38.080
+ don't let yourself get intimidated by the fact that some people are going to say nasty things.
+
+1:01:40.400 --> 1:01:47.200
+ You can't do your job if you are worried about criticism.
+
+1:01:48.000 --> 1:01:52.320
+ Well, I think I speak for a lot of people in saying that I hope that you keep dancing like
+
+1:01:52.320 --> 1:01:58.960
+ nobody's watching on Twitter and New York Times and books. So Paul, it's been an honor. Thank you
+
+1:01:58.960 --> 1:02:03.920
+ so much for talking to me. Great. Thanks for listening to this conversation with Paul Krugman.
+
+1:02:03.920 --> 1:02:09.840
+ And thank you to our presenting sponsor Cash App. Download it and use code LexPodcast.
+
+1:02:09.840 --> 1:02:15.920
+ You'll get $10 and $10 will go to FIRST, an organization that inspires and educates young minds
+
+1:02:15.920 --> 1:02:21.040
+ to become science and technology innovators of tomorrow. If you enjoy this podcast,
+
+1:02:21.040 --> 1:02:26.720
+ subscribe on YouTube, give it five stars on Apple Podcast, follow on Spotify, support on Patreon,
+
+1:02:26.720 --> 1:02:33.280
+ or simply connect with me on Twitter at Lex Friedman. And now, let me leave you with some words
+
+1:02:33.280 --> 1:02:39.840
+ from Adam Smith in The Wealth of Nations, one of the most influential philosophers and economists
+
+1:02:39.840 --> 1:02:45.280
+ in our history. It is not from the benevolence of the butcher, the brewer, or the baker that we
+
+1:02:45.280 --> 1:02:51.280
+ expect our dinner, but from their regard to their own interest. We address ourselves not to their
+
+1:02:51.280 --> 1:02:59.040
+ humanity, but to their self love and never talk to them of our necessities, but of their advantages.
+
+1:02:59.040 --> 1:03:14.400
+ Thank you for listening and hope to see you next time.
+

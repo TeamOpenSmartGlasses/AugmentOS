@@ -1,0 +1,4532 @@
+WEBVTT
+
+00:00.000 --> 00:05.440
+ The following is a conversation with Jeff Hawkins, a neuroscientist seeking to understand
+
+00:05.440 --> 00:09.360
+ the structure, function, and origin of intelligence in the human brain.
+
+00:10.080 --> 00:16.720
+ He previously wrote a seminal book on the subject titled On Intelligence, and recently a new book
+
+00:16.720 --> 00:22.560
+ called A Thousand Brains, which presents a new theory of intelligence that Richard Dawkins,
+
+00:22.560 --> 00:28.400
+ for example, has been raving about, calling the book quote brilliant and exhilarating.
+
+00:28.400 --> 00:33.600
+ I can't read those two words and not think of him saying it in his British accent.
+
+00:34.160 --> 00:41.280
+ Quick mention of our sponsors, Codecademy, Biooptimizers, ExpressVPN, Asleep, and Blinkist.
+
+00:41.280 --> 00:44.080
+ Check them out in the description to support this podcast.
+
+00:44.560 --> 00:49.360
+ As a side note, let me say that one small but powerful idea that Jeff Hawkins mentions
+
+00:49.360 --> 00:54.960
+ in his new book is that if human civilization were to destroy itself, all of knowledge,
+
+00:54.960 --> 01:00.880
+ all our creations will go with us. He proposes that we should think about how to save that
+
+01:00.880 --> 01:07.040
+ knowledge in a way that long outlives us, whether that's on Earth, in orbit around Earth,
+
+01:07.040 --> 01:13.040
+ or in deep space, and then to send messages that advertise this backup of human knowledge
+
+01:13.040 --> 01:19.600
+ to other intelligent alien civilizations. The main message of this advertisement is not that
+
+01:19.600 --> 01:28.240
+ we are here, but that we were once here. This little difference somehow was deeply humbling
+
+01:28.240 --> 01:34.960
+ to me, that we may, with some nonzero likelihood, destroy ourselves, and that an alien civilization
+
+01:34.960 --> 01:40.240
+ thousands or millions of years from now may come across this knowledge store, and they
+
+01:40.240 --> 01:45.360
+ would only with some low probability even notice it, not to mention be able to interpret it.
+
+01:45.360 --> 01:49.840
+ And the deeper question here for me is what information in all of human knowledge is even
+
+01:49.840 --> 01:55.600
+ essential? Does Wikipedia capture it or not at all? This thought experiment forces me
+
+01:55.600 --> 02:00.400
+ to wonder what are the things we've accomplished and are hoping to still accomplish that will
+
+02:00.400 --> 02:08.560
+ outlive us? Is it things like complex buildings, bridges, cars, rockets? Is it ideas like science,
+
+02:08.560 --> 02:15.440
+ physics, and mathematics? Is it music and art? Is it computers, computational systems,
+
+02:15.440 --> 02:20.800
+ or even artificial intelligence systems? I personally can't imagine that aliens wouldn't
+
+02:20.800 --> 02:27.120
+ already have all of these things, in fact much more and much better. To me, the only
+
+02:27.120 --> 02:32.560
+ unique thing we may have is consciousness itself, and the actual subjective experience
+
+02:32.560 --> 02:39.200
+ and the actual subjective experience of suffering, of happiness, of hatred, of love. If we can
+
+02:39.200 --> 02:44.000
+ record these experiences in the highest resolution directly from the human brain, such that aliens
+
+02:44.000 --> 02:49.760
+ will be able to replay them, that is what we should store and send as a message. Not
+
+02:49.760 --> 02:56.640
+ Wikipedia, but the extremes of conscious experiences, the most important of which, of course, is
+
+02:56.640 --> 03:02.880
+ love. This is the Lex Friedman podcast, and here is my conversation with Jeff Hawkins.
+
+03:04.080 --> 03:09.760
+ We previously talked over two years ago. Do you think there's still neurons in your brain
+
+03:09.760 --> 03:15.600
+ that remember that conversation, that remember me and got excited? Like there's a Lex neuron
+
+03:15.600 --> 03:19.920
+ in your brain that just like finally has a purpose? I do remember our conversation. I
+
+03:19.920 --> 03:26.480
+ have some memories of it, and I formed additional memories of you in the meantime. I wouldn't
+
+03:26.480 --> 03:31.360
+ say there's a neuron or neurons in my brain that know you. There are synapses in my brain
+
+03:31.360 --> 03:36.800
+ that have formed that reflect my knowledge of you and the model I have of you in the
+
+03:36.800 --> 03:41.520
+ world. Whether the exact same synapses were formed two years ago, it's hard to say because
+
+03:41.520 --> 03:46.480
+ these things come and go all the time. One of the things to know about brains is that
+
+03:46.480 --> 03:50.400
+ when you think of things, you often erase the memory and rewrite it again. Yes, but I have
+
+03:50.400 --> 03:55.360
+ a memory of you, and that's instantiated in synapses. There's a simpler way to think about
+
+03:55.360 --> 04:02.400
+ it. We have a model of the world in your head, and that model is continually being updated.
+
+04:02.400 --> 04:06.640
+ I updated this morning. You offered me this water. You said it was from the refrigerator.
+
+04:07.200 --> 04:12.960
+ I remember these things. The model includes where we live, the places we know, the words,
+
+04:12.960 --> 04:16.960
+ the objects in the world. It's a monstrous model, and it's constantly being updated.
+
+04:17.600 --> 04:23.360
+ People are just part of that model. Our animals, our other physical objects, our events we've
+
+04:23.360 --> 04:33.440
+ done. In my mind, it's no special place for the memories of humans. Obviously, I know a lot about
+
+04:33.440 --> 04:41.120
+ my wife and friends and so on, but it's not like a special place for humans or over here.
+
+04:41.920 --> 04:46.640
+ We model everything, and we model other people's behaviors too. If I said there's a copy of your
+
+04:46.640 --> 04:53.280
+ mind in my mind, it's just because I've learned how humans behave, and I've learned some things
+
+04:53.280 --> 05:00.560
+ about you, and that's part of my world model. Well, I just also mean the collective intelligence
+
+05:00.560 --> 05:08.480
+ of the human species. I wonder if there's something fundamental to the brain that enables that,
+
+05:08.480 --> 05:13.600
+ so modeling other humans with their ideas. You're actually jumping into a lot of big
+
+05:13.600 --> 05:17.440
+ topics. Collective intelligence is a separate topic that a lot of people like to talk about.
+
+05:17.440 --> 05:24.640
+ We could talk about that. That's interesting. We're not just individuals. We live in society
+
+05:24.640 --> 05:30.960
+ and so on. From our research point of view, again, let's just talk. We studied the neocortex.
+
+05:30.960 --> 05:37.040
+ It's a sheet of neural tissue. It's about 75% of your brain. It runs on this very repetitive
+
+05:37.040 --> 05:44.000
+ algorithm. It's a very repetitive circuit. You can apply that algorithm to lots of different
+
+05:44.000 --> 05:48.640
+ problems, but underneath, it's the same thing. We're just building this model. From our point
+
+05:48.640 --> 05:52.720
+ of view, we wouldn't look for these special circuits someplace buried in your brain that
+
+05:52.720 --> 05:58.640
+ might be related to understanding other humans. It's more like, how do we build a model of
+
+05:58.640 --> 06:02.080
+ anything? How do we understand anything in the world? Humans are just another part of
+
+06:02.080 --> 06:08.720
+ the things we understand. There's nothing to the brain that knows the
+
+06:08.720 --> 06:13.120
+ emergent phenomena of collective intelligence. Well, I certainly know about that. I've heard
+
+06:13.120 --> 06:16.800
+ the terms, I've read. No, but that's as an idea.
+
+06:16.800 --> 06:21.920
+ Well, I think we have language, which is built into our brains. That's a key part of collective
+
+06:21.920 --> 06:27.680
+ intelligence. There are some prior assumptions about the world we're going to live in. When
+
+06:27.680 --> 06:35.520
+ we're born, we're not just a blank slate. Did we evolve to take advantage of those situations?
+
+06:35.520 --> 06:39.040
+ Yes. Again, we study only part of the brain, the neocortex. There's other parts of the
+
+06:39.040 --> 06:45.600
+ brain that are very much involved in societal interactions and human emotions and how we
+
+06:45.600 --> 06:53.280
+ interact and even societal issues about how we interact with other people, when we support
+
+06:53.280 --> 06:58.240
+ them, when we're greedy and things like that. Certainly, the brain is a great place
+
+07:00.160 --> 07:06.720
+ where to study intelligence. I wonder if it's the fundamental atom of intelligence.
+
+07:06.720 --> 07:12.000
+ Well, I would say it's absolutely in a central component, even if you believe in collective
+
+07:12.000 --> 07:16.320
+ intelligence as, hey, that's where it's all happening. That's what we need to study,
+
+07:16.320 --> 07:19.120
+ which I don't believe that, by the way. I think it's really important, but I don't think that
+
+07:19.120 --> 07:26.080
+ is the thing. Even if you do believe that, then you have to understand how the brain works in
+
+07:26.080 --> 07:32.880
+ doing that. It's more like we are intelligent individuals and together, we are much more
+
+07:32.880 --> 07:37.200
+ magnified, our intelligence. We can do things that we couldn't do individually, but even as
+
+07:37.200 --> 07:42.000
+ individuals, we're pretty damn smart and we can model things and understand the world and interact
+
+07:42.000 --> 07:48.160
+ with it. To me, if you're going to start someplace, you need to start with the brain. Then you could
+
+07:48.160 --> 07:53.760
+ say, well, how do brains interact with each other? What is the nature of language? How do we share
+
+07:53.760 --> 07:56.960
+ models that I've learned something about the world, how do I share it with you? Which is really
+
+07:56.960 --> 08:02.800
+ what sort of communal intelligence is. I know something, you know something. We've had different
+
+08:02.800 --> 08:06.800
+ experiences in the world. I've learned something about brains. Maybe I can impart that to you. You've
+
+08:06.800 --> 08:15.200
+ learned something about physics and you can impart that to me. Even just the epistemological
+
+08:15.200 --> 08:20.880
+ question of, well, what is knowledge and how do you represent it in the brain? That's where it's
+
+08:20.880 --> 08:27.280
+ going to reside for in our writings. It's obvious that human collaboration, human interaction
+
+08:27.280 --> 08:33.280
+ is how we build societies. But some of the things you talk about and work on,
+
+08:34.560 --> 08:40.560
+ some of those elements of what makes up an intelligent entity is there with a single person.
+
+08:40.560 --> 08:47.040
+ Absolutely. I mean, we can't deny that the brain is the core element here. At least I think it's
+
+08:47.040 --> 08:51.920
+ obvious. The brain is the core element in all theories of intelligence. It's where knowledge
+
+08:51.920 --> 08:58.080
+ is represented. It's where knowledge is created. We interact, we share, we build upon each other's
+
+08:58.080 --> 09:03.920
+ work. But without a brain, you'd have nothing. There would be no intelligence without brains.
+
+09:03.920 --> 09:10.000
+ And so that's where we start. I got into this field because I just was curious as to who I am.
+
+09:11.520 --> 09:15.840
+ How do I think? What's going on in my head when I'm thinking? What does it mean to know something?
+
+09:16.560 --> 09:21.200
+ I can ask what it means for me to know something independent of how I learned it from you or from
+
+09:21.200 --> 09:25.600
+ someone else or from society. What does it mean for me to know that I have a model of you in my
+
+09:25.600 --> 09:28.880
+ head? What does it mean to know I know what this microphone does and how it works physically,
+
+09:28.880 --> 09:34.480
+ even when I can't see right now? How do I know that? What does it mean? How the neurons do that
+
+09:34.480 --> 09:39.680
+ at the fundamental level of neurons and synapses and so on? Those are really fascinating questions.
+
+09:40.240 --> 09:44.400
+ And I'm happy to be just happy to understand those if I could.
+
+09:44.400 --> 09:54.640
+ So in your new book, you talk about our brain, our mind as being made up of many brains.
+
+09:55.920 --> 10:01.600
+ So the book is called A Thousand Brain Theory of Intelligence. What is the key idea of this book?
+
+10:02.720 --> 10:09.360
+ The book has three sections and it has sort of maybe three big ideas. So the first section is
+
+10:09.360 --> 10:13.760
+ all about what we've learned about the neocortex and that's the thousand brains theory. Just to
+
+10:13.760 --> 10:16.960
+ complete the picture, the second section is all about AI and the third section is about the future
+
+10:16.960 --> 10:26.720
+ of humanity. So the thousand brains theory, the big idea there, if I had to summarize into one
+
+10:27.440 --> 10:33.440
+ big idea, is that we think of the brain, the neocortex as learning this model of the world.
+
+10:33.440 --> 10:38.560
+ But what we learned is actually there's tens of thousands of independent modeling systems going
+
+10:38.560 --> 10:44.560
+ on. And so each, we call the column in the cortex is about 150,000 of them, is a complete modeling
+
+10:44.560 --> 10:50.320
+ system. So it's a collective intelligence in your head in some sense. So the thousand brains theory
+
+10:50.320 --> 10:55.760
+ says, well, where do I have knowledge about this coffee cup or where's the model of this cell phone?
+
+10:55.760 --> 10:59.360
+ It's not in one place. It's in thousands of separate models that are complimentary and
+
+10:59.360 --> 11:04.240
+ they communicate with each other through voting. So this idea that we feel like we're one person,
+
+11:04.240 --> 11:09.920
+ that's our experience. We can explain that. But reality, there's lots of these, it's almost like
+
+11:09.920 --> 11:16.320
+ little brains, but they're sophisticated modeling systems, about 150,000 of them in each human
+
+11:16.320 --> 11:21.280
+ brain. And that's a total different way of thinking about how the neocortex is structured
+
+11:21.280 --> 11:26.400
+ than we or anyone else thought of even just five years ago. So you mentioned you started
+
+11:27.280 --> 11:31.840
+ this journey just looking in the mirror and trying to understand who you are.
+
+11:31.840 --> 11:38.080
+ So if you have many brains, who are you then? So it's interesting. We have a singular perception,
+
+11:38.080 --> 11:42.560
+ right? We think, oh, I'm just here. I'm looking at you. But it's composed of all these things,
+
+11:42.560 --> 11:48.080
+ like there's sounds and there's vision and there's touch and all kinds of inputs. Yeah,
+
+11:48.080 --> 11:51.920
+ we have the singular perception. And what the thousand brain theory says, we have these models
+
+11:51.920 --> 11:55.040
+ that are visual models. We have a lot of models that are auditory models, models that talk to
+
+11:55.040 --> 12:01.200
+ models and so on, but they vote. And so these things in the cortex, you can think about these
+
+12:01.200 --> 12:07.920
+ columns as like little grains of rice, 150,000 stacked next to each other. And each one is its
+
+12:07.920 --> 12:11.840
+ own little modeling system, but they have these long range connections that go between them.
+
+12:12.640 --> 12:20.080
+ And we call those voting connections or voting neurons. And so the different columns try to
+
+12:20.080 --> 12:24.640
+ reach a consensus. Like, what am I looking at? Okay. Each one has some ambiguity, but they come
+
+12:24.640 --> 12:30.640
+ to a consensus. Oh, there's a water bottle I'm looking at. We are only consciously able to
+
+12:30.640 --> 12:35.680
+ perceive the voting. We're not able to perceive anything that goes on under the hood. So the
+
+12:35.680 --> 12:39.920
+ voting is what we're aware of. The results of the vote.
+
+12:39.920 --> 12:44.560
+ Yeah. Well, you can imagine it this way. We were just talking about eye movements a moment ago. So
+
+12:44.560 --> 12:49.120
+ as I'm looking at something, my eyes are moving about three times a second. And with each movement,
+
+12:49.120 --> 12:53.280
+ a completely new input is coming into the brain. It's not repetitive. It's not shifting it around.
+
+12:54.480 --> 12:58.960
+ I'm totally unaware of it. I can't perceive it. But yet if I looked at the neurons in your brain,
+
+12:58.960 --> 13:02.480
+ they're going on and off, on and off, on and off, on and off. But the voting neurons are not.
+
+13:03.040 --> 13:06.240
+ The voting neurons are saying, we all agree, even though I'm looking at different parts of this,
+
+13:06.240 --> 13:11.360
+ this is a water bottle right now. And that's not changing. And it's in some position and
+
+13:11.360 --> 13:15.520
+ pose relative to me. So I have this perception of the water bottle about two feet away from me
+
+13:15.520 --> 13:20.480
+ at a certain pose to me. That is not changing. That's the only part I'm aware of. I can't be
+
+13:20.480 --> 13:25.040
+ aware of the fact that the inputs from the eyes are moving and changing and all this other tapping.
+
+13:25.040 --> 13:31.200
+ So these long range connections are the part we can be conscious of. The individual activity in
+
+13:31.200 --> 13:37.840
+ each column doesn't go anywhere else. It doesn't get shared anywhere else. There's no way to extract
+
+13:37.840 --> 13:43.600
+ it and talk about it or extract it and even remember it to say, oh, yes, I can recall that.
+
+13:45.200 --> 13:50.160
+ But these long range connections are the things that are accessible to language and to our,
+
+13:50.160 --> 13:56.640
+ like the hippocampus, our memories, our short term memory systems and so on. So we're not aware of
+
+13:56.640 --> 14:02.960
+ 95% or maybe it's even 98% of what's going on in your brain. We're only aware of this sort of
+
+14:02.960 --> 14:09.280
+ stable, somewhat stable voting outcome of all these things that are going on underneath the hood.
+
+14:09.920 --> 14:15.520
+ So what would you say is the basic element in the thousand brains theory of intelligence
+
+14:15.520 --> 14:21.040
+ of intelligence? Like what's the atom of intelligence when you think about it? Is it
+
+14:21.040 --> 14:25.920
+ the individual brains and then what is a brain? Well, let's, let's, can we just talk about what
+
+14:25.920 --> 14:31.440
+ intelligence is first and then, and then we can talk about the elements are. So in my, in my book,
+
+14:31.440 --> 14:37.600
+ intelligence is the ability to learn a model of the world, to build internal to your head,
+
+14:38.560 --> 14:42.720
+ a model that represents the structure of everything, you know, to know what this is a
+
+14:42.720 --> 14:47.200
+ table and that's a coffee cup and this is a gooseneck lamp and all this to know these things.
+
+14:47.200 --> 14:50.240
+ I have to have a model of it in my head. I just don't look at them and go, what is that?
+
+14:50.720 --> 14:55.680
+ I already have internal representations of these things in my head and I had to learn them. I wasn't
+
+14:55.680 --> 15:00.320
+ born of any of that knowledge. You were, you know, we have some lights in the room here. I, you know,
+
+15:00.320 --> 15:05.360
+ that's not part of my evolutionary heritage, right? It's not in my genes. So, um, we have this
+
+15:05.360 --> 15:09.040
+ incredible model and the model includes not only what things look like and feel like, but where
+
+15:09.040 --> 15:12.800
+ they are relative to each other and how they behave. I've never picked up this water bottle
+
+15:12.800 --> 15:16.240
+ before, but I know that if I took my hand on that blue thing and I turn it, it'll probably make a
+
+15:16.240 --> 15:20.720
+ funny little sound as the little plastic things detach and then it'll rotate and it'll rotate a
+
+15:20.720 --> 15:23.680
+ certain way and it'll come off. How do I know that? Because I have this model in my head.
+
+15:24.480 --> 15:29.360
+ So the essence of intelligence as our ability to learn a model and the more sophisticated our
+
+15:29.360 --> 15:34.880
+ model is, the smarter we are. Uh, not that there is a single intelligence, because you can know
+
+15:34.880 --> 15:37.680
+ about, you know, a lot about things that I don't know. And I know about things you don't know.
+
+15:37.680 --> 15:42.080
+ And we can both be very smart, but we both learned a model of the world through interacting with it.
+
+15:42.080 --> 15:46.320
+ So that is the essence of intelligence. Then we can ask ourselves, what are the mechanisms in the
+
+15:46.320 --> 15:50.560
+ brain that allow us to do that? And what are the mechanisms of learning, not just the neural
+
+15:50.560 --> 15:54.800
+ mechanisms, what are the general process by how we learn a model? So that was a big insight for us.
+
+15:54.800 --> 15:59.840
+ It's like, what are the, what is the actual things that, how do you learn this stuff? It turns out
+
+15:59.840 --> 16:04.000
+ you have to learn it through movement. Um, you can't learn it just by that's how we learn. We
+
+16:04.000 --> 16:07.840
+ learn through movement. We learn. Um, so you build up this model by observing things and
+
+16:07.840 --> 16:11.680
+ touching them and moving them and walking around the world and so on. So either you move or the
+
+16:11.680 --> 16:16.960
+ thing moves somehow. Yeah. You obviously can learn things just by reading a book, something like that.
+
+16:16.960 --> 16:21.120
+ But think about if I were to say, oh, here's a new house. I want you to learn, you know,
+
+16:21.120 --> 16:25.440
+ what do you do? You have to walk, you have to walk from room to the room. You have to open the doors,
+
+16:25.440 --> 16:29.680
+ look around, see what's on the left, what's on the right. As you do this, you're building a model in
+
+16:29.680 --> 16:34.000
+ your head. It's just, that's what you're doing. You can't just sit there and say, I'm going to grok
+
+16:34.000 --> 16:37.360
+ the house. No. You know, or you can do it. You don't even want to just sit down and read some
+
+16:37.360 --> 16:41.600
+ description of it, right? Yeah. You literally physically interact. The same with like a smartphone.
+
+16:41.600 --> 16:45.760
+ If I'm going to learn a new app, I touch it and I move things around. I see what happens when I,
+
+16:45.760 --> 16:49.600
+ when I do things with it. So that's the basic way we learn in the world. And by the way,
+
+16:49.600 --> 16:54.720
+ when you say model, you mean something that can be used for prediction in the future.
+
+16:54.720 --> 17:01.200
+ It's used for prediction and for behavior and planning. Right. And does a pretty good job
+
+17:02.000 --> 17:06.560
+ doing so. Yeah. Here's the way to think about the model. A lot of people get hung up on this. So
+
+17:08.320 --> 17:13.360
+ you can imagine an architect making a model of a house, right? So there's a physical model that's
+
+17:13.360 --> 17:17.520
+ small. And why do they do that? Well, we do that because you can imagine what it would look like
+
+17:17.520 --> 17:21.200
+ from different angles. Okay. Look from here, look from there. And you can also say, well,
+
+17:21.200 --> 17:25.760
+ how, how far to get from the garage to the, to the swimming pool or something like that. Right. You
+
+17:25.760 --> 17:29.120
+ can imagine looking at this and you can say, what would be the view from this location? So we build
+
+17:29.120 --> 17:34.720
+ these physical models to let you imagine the future and imagine behaviors. Now we can take
+
+17:34.720 --> 17:39.840
+ that same model and put it in a computer. So we now, today they'll build models of houses in a
+
+17:39.840 --> 17:45.840
+ computer and they, and they do that using a set of, we'll come back to this term in a moment,
+
+17:45.840 --> 17:49.680
+ reference frames, but basically you assign a reference frame for the palace and you assign
+
+17:49.680 --> 17:53.280
+ different things for the house in different locations. And then the computer can generate
+
+17:53.280 --> 17:56.960
+ an image and say, okay, this is what it looks like in this direction. The brain is doing something
+
+17:56.960 --> 18:02.160
+ remarkably similar to this surprising. It's using reference frames. It's building these,
+
+18:02.160 --> 18:06.160
+ it's similar to a model on a computer, which has the same benefits of building a physical model.
+
+18:06.160 --> 18:10.480
+ It allows me to say, what would this thing look like if it was in this orientation? What would
+
+18:10.480 --> 18:15.120
+ likely happen if I push this button? I've never pushed this button before, or how would I accomplish
+
+18:15.120 --> 18:21.520
+ something? I want to, I want to convey a new idea I've learned. How would I do that? I can imagine
+
+18:21.520 --> 18:27.520
+ in my head, well, I could talk about it. I could write a book. I could do some podcasts. I could,
+
+18:28.400 --> 18:32.720
+ you know, maybe tell my neighbor, you know, and I can imagine the outcomes of all these things
+
+18:32.720 --> 18:36.880
+ before I do any of them. That's what the model lets you do. It lets us plan the future and
+
+18:36.880 --> 18:42.720
+ imagine the consequences of our actions. Prediction, you asked about prediction. Prediction
+
+18:42.720 --> 18:48.800
+ is not the goal of the model. Prediction is an inherent property of it, and it's how the model
+
+18:48.800 --> 18:55.040
+ corrects itself. So prediction is fundamental to intelligence. It's fundamental to building a model,
+
+18:55.600 --> 19:00.000
+ and the model's intelligent. And let me go back and be very precise about this. Prediction,
+
+19:00.000 --> 19:03.520
+ you can think of prediction two ways. One is like, hey, what would happen if I did this? That's a
+
+19:03.520 --> 19:07.920
+ type of prediction. That's a key part of intelligence. But using prediction is like, oh,
+
+19:07.920 --> 19:13.120
+ what's this water bottle going to feel like when I pick it up, you know? And that doesn't seem very
+
+19:13.120 --> 19:20.400
+ intelligent. But one way to think about prediction is it's a way for us to learn where our model is
+
+19:20.400 --> 19:26.080
+ wrong. So if I picked up this water bottle and it felt hot, I'd be very surprised. Or if I picked
+
+19:26.080 --> 19:32.720
+ it up and it was very light, I'd be surprised. Or if I turned this top and I had to turn it the other
+
+19:32.720 --> 19:38.480
+ way, I'd be surprised. And so all those might have a prediction like, okay, I'm going to do it. I'll
+
+19:38.480 --> 19:42.720
+ drink some water. I'm okay. Okay, I do this. There it is. I feel opening, right? What if I had to turn
+
+19:42.720 --> 19:47.360
+ it the other way? Or what if it's split in two? Then I say, oh my gosh, I misunderstood this. I
+
+19:47.360 --> 19:50.400
+ didn't have the right model of this thing. My attention would be drawn to it. I'd be looking at
+
+19:50.400 --> 19:55.360
+ it going, well, how the hell did that happen? Why did it open up that way? And I would update my
+
+19:55.360 --> 19:58.400
+ model by doing it. Just by looking at it and playing around with that update and say, this is
+
+19:58.400 --> 20:05.040
+ a new type of water bottle. So you're talking about sort of complicated things like a water bottle,
+
+20:05.040 --> 20:10.640
+ but this also applies for just basic vision, just like seeing things. It's almost like a
+
+20:10.640 --> 20:17.200
+ precondition of just perceiving the world is predicting it. So just everything that you see
+
+20:18.000 --> 20:23.600
+ is first passed through your prediction. Everything you see and feel. In fact,
+
+20:23.600 --> 20:31.680
+ this was the insight I had back in the early 80s. And I know that people have reached the same idea
+
+20:31.680 --> 20:37.600
+ is that every sensory input you get, not just vision, but touch and hearing, you have an
+
+20:37.600 --> 20:43.440
+ expectation about it and a prediction. Sometimes you can predict very accurately. Sometimes you
+
+20:43.440 --> 20:47.520
+ can't. I can't predict what next word is going to come out of your mouth. But as you start talking,
+
+20:47.520 --> 20:51.440
+ I'll get better and better predictions. And if you talk about some topics, I'd be very surprised.
+
+20:51.440 --> 20:57.040
+ So I have this sort of background prediction that's going on all the time for all of my senses.
+
+20:58.160 --> 21:04.080
+ Again, the way I think about that is this is how we learn. It's more about how we learn.
+
+21:04.960 --> 21:10.000
+ It's a test of our understanding. Our predictions are a test. Is this really a water bottle? If it
+
+21:10.000 --> 21:14.960
+ is, I shouldn't see a little finger sticking out the side. And if I saw a little finger sticking
+
+21:14.960 --> 21:20.480
+ out, I was like, oh, what the hell's going on? That's not normal. I mean, that's fascinating
+
+21:20.480 --> 21:27.760
+ that... Let me linger on this for a second. It really honestly feels that prediction is
+
+21:27.760 --> 21:35.760
+ fundamental to everything, to the way our mind operates, to intelligence. So it's just a different
+
+21:35.760 --> 21:41.040
+ way to see intelligence, which is like everything starts a prediction. And prediction requires a
+
+21:41.040 --> 21:46.880
+ model. You can't predict something unless you have a model of it. Right. But the action is
+
+21:46.880 --> 21:53.280
+ prediction. So the thing the model does is prediction. But it also... Yeah. But you can
+
+21:53.280 --> 21:59.600
+ then extend it to things like, oh, what would happen if I took this today? I went and did this.
+
+21:59.600 --> 22:04.320
+ What would be likely? Or how... You can extend prediction to like, oh, I want to get a promotion
+
+22:04.320 --> 22:09.280
+ at work. What action should I take? And you can say, if I did this, I predict what might happen.
+
+22:09.280 --> 22:13.360
+ If I spoke to someone, I predict what might happen. So it's not just low level predictions.
+
+22:13.360 --> 22:17.440
+ Yeah. It's all predictions. It's all predictions. It's like this black box so you can ask basically
+
+22:17.440 --> 22:20.880
+ any question, low level or high level. So we started off with that observation. It's
+
+22:21.920 --> 22:27.120
+ this nonstop prediction. And I write about this in the book. And then we asked, how do neurons
+
+22:27.120 --> 22:30.960
+ actually make predictions physically? Like what does the neuron do when it makes a prediction?
+
+22:32.400 --> 22:35.760
+ Or the neural tissue does when it makes a prediction. And then we asked, what are the
+
+22:35.760 --> 22:40.400
+ mechanisms by how we build a model that allows you to make predictions? So we started with prediction
+
+22:40.400 --> 22:47.520
+ as sort of the fundamental research agenda, if in some sense. And say, well, we understand how
+
+22:47.520 --> 22:51.360
+ the brain makes predictions. We'll understand how it builds these models and how it learns.
+
+22:51.360 --> 22:55.680
+ And that's the core of intelligence. So it was the key that got us in the door
+
+22:55.680 --> 22:58.800
+ to say, that is our research agenda. Understand predictions.
+
+22:59.360 --> 23:05.200
+ So in this whole process, where does intelligence originate, would you say?
+
+23:05.200 --> 23:12.560
+ So if we look at things that are much less intelligence to humans and you start to build
+
+23:12.560 --> 23:19.920
+ up a human through the process of evolution, where's this magic thing that has a prediction
+
+23:19.920 --> 23:24.720
+ model or a model that's able to predict that starts to look a lot more like intelligence?
+
+23:24.720 --> 23:30.960
+ Is there a place where Richard Dawkins wrote an introduction to your book, an excellent
+
+23:30.960 --> 23:36.320
+ introduction? I mean, it's, it puts a lot of things into context and it's funny just looking
+
+23:36.320 --> 23:42.080
+ at parallels for your book and Darwin's Origin of Species. So Darwin wrote about the origin
+
+23:42.640 --> 23:47.760
+ of species. So what is the origin of intelligence?
+
+23:47.760 --> 23:52.640
+ Well, we have a theory about it and it's just that, it's a theory. The theory goes as follows.
+
+23:53.200 --> 23:58.720
+ As soon as living things started to move, they're not just floating in sea, they're not just a
+
+23:58.720 --> 24:03.920
+ plant, you know, grounded someplace. As soon as they started to move, there was an advantage to
+
+24:03.920 --> 24:08.960
+ moving intelligently, to moving in certain ways. And there's some very simple things you can do,
+
+24:08.960 --> 24:14.480
+ you know, bacteria or single cell organisms can move towards the source of gradient of
+
+24:14.480 --> 24:19.280
+ food or something like that. But an animal that might know where it is and know where it's been
+
+24:19.280 --> 24:23.520
+ and how to get back to that place, or an animal that might say, oh, there was a source of food
+
+24:23.520 --> 24:29.040
+ someplace, how do I get to it? Or there was a danger, how do I get to it? There was a mate, how
+
+24:29.040 --> 24:34.480
+ do I get to them? There was a big evolutionary advantage to that. So early on, there was a
+
+24:34.480 --> 24:40.640
+ pressure to start understanding your environment, like where am I and where have I been? And what
+
+24:40.640 --> 24:49.600
+ happened in those different places? So we still have this neural mechanism in our brains. In the
+
+24:49.600 --> 24:54.320
+ mammals, it's in the hippocampus and entorhinal cortex, these are older parts of the brain.
+
+24:55.520 --> 25:02.240
+ And these are very well studied. We build a map of the of our environment. So these neurons in
+
+25:02.240 --> 25:06.800
+ these parts of the brain know where I am in this room, and where the door was and things like that.
+
+25:07.360 --> 25:09.360
+ So a lot of other mammals have this?
+
+25:09.360 --> 25:15.600
+ All mammals have this, right? And almost any animal that knows where it is, and get around
+
+25:15.600 --> 25:20.800
+ must have some mapping system, must have some way of saying, I've learned a map of my environment,
+
+25:21.360 --> 25:26.640
+ I have hummingbirds in my backyard. And they go to the same places all the time. They must know
+
+25:26.640 --> 25:30.000
+ where they are. They just know where they are when they're not just randomly flying around. They
+
+25:30.000 --> 25:36.160
+ know. They know particular flowers they come back to. So we all have this. And it turns out it's
+
+25:36.160 --> 25:42.320
+ very tricky to get neurons to do this, to build a map of an environment. And so we now know,
+
+25:42.320 --> 25:47.440
+ there's these famous studies that are still very active about place cells and grid cells and these
+
+25:47.440 --> 25:51.920
+ other types of cells in the older parts of the brain, and how they build these maps of the world.
+
+25:51.920 --> 25:55.920
+ It's really clever. It's obviously been under a lot of evolutionary pressure over a long period
+
+25:55.920 --> 26:01.040
+ of time to get good at this. So animals now know where they are. What we think has happened,
+
+26:01.920 --> 26:06.080
+ and there's a lot of evidence to suggest this, is that that mechanism we learned to map,
+
+26:06.080 --> 26:16.400
+ like a space, was repackaged. The same type of neurons was repackaged into a more compact form.
+
+26:17.840 --> 26:23.760
+ And that became the cortical column. And it was in some sense, genericized, if that's a word. It
+
+26:23.760 --> 26:28.800
+ was turned into a very specific thing about learning maps of environments to learning maps
+
+26:28.800 --> 26:34.960
+ of anything, learning a model of anything, not just your space, but coffee cups and so on. And
+
+26:34.960 --> 26:40.480
+ it got sort of repackaged into a more compact version, a more universal version,
+
+26:41.280 --> 26:46.800
+ and then replicated. So the reason we're so flexible is we have a very generic version of
+
+26:46.800 --> 26:52.800
+ this mapping algorithm, and we have 150,000 copies of it. Sounds a lot like the progress
+
+26:52.800 --> 27:00.480
+ of deep learning. How so? So take neural networks that seem to work well for a specific task,
+
+27:00.480 --> 27:07.680
+ compress them, and multiply it by a lot. And then you just stack them on top of it. It's like the
+
+27:07.680 --> 27:12.640
+ story of transformers in natural language processing. Yeah. But in deep learning networks,
+
+27:12.640 --> 27:18.160
+ they end up, you're replicating an element, but you still need the entire network to do anything.
+
+27:18.160 --> 27:24.240
+ Right. Here, what's going on, each individual element is a complete learning system. This is
+
+27:24.240 --> 27:29.680
+ why I can take a human brain, cut it in half, and it still works. It's the same thing.
+
+27:29.680 --> 27:34.000
+ It's pretty amazing. It's fundamentally distributed. It's fundamentally distributed,
+
+27:34.000 --> 27:42.560
+ complete modeling systems. But that's our story we like to tell. I would guess it's likely largely
+
+27:42.560 --> 27:50.080
+ right. But there's a lot of evidence supporting that story, this evolutionary story. The thing
+
+27:50.080 --> 27:58.720
+ which brought me to this idea is that the human brain got big very quickly. So that led to the
+
+27:58.720 --> 28:02.640
+ proposal a long time ago that, well, there's this common element just instead of creating
+
+28:02.640 --> 28:07.680
+ new things, it just replicated something. We also are extremely flexible. We can learn things that
+
+28:07.680 --> 28:15.360
+ we had no history about. And that tells it that the learning algorithm is very generic. It's very
+
+28:15.360 --> 28:20.080
+ kind of universal because it doesn't assume any prior knowledge about what it's learning.
+
+28:20.960 --> 28:26.160
+ And so you combine those things together and you say, okay, well, how did that come about? Where
+
+28:26.160 --> 28:29.760
+ did that universal algorithm come from? It had to come from something that wasn't universal. It
+
+28:29.760 --> 28:34.000
+ came from something that was more specific. So anyway, this led to our hypothesis that
+
+28:34.000 --> 28:38.960
+ you would find grid cells and place cell equivalents in the neocortex. And when we
+
+28:38.960 --> 28:43.760
+ first published our first papers on this theory, we didn't know of evidence for that. It turns out
+
+28:43.760 --> 28:48.960
+ there was some, but we didn't know about it. So then we became aware of evidence for grid
+
+28:48.960 --> 28:53.200
+ cells in parts of the neocortex. And then now there's been new evidence coming out. There's some
+
+28:53.200 --> 28:59.360
+ interesting papers that came out just January of this year. So one of our predictions was if this
+
+28:59.360 --> 29:04.000
+ evolutionary hypothesis is correct, we would see grid cell place cell equivalents, cells that work
+
+29:04.000 --> 29:08.640
+ like them through every column in the neocortex. And that's starting to be seen. What does it mean
+
+29:08.640 --> 29:13.920
+ that, why is it important that they're present? Because it tells us, well, we're asking about the
+
+29:13.920 --> 29:19.120
+ evolutionary origin of intelligence, right? So our theory is that these columns in the cortex
+
+29:19.120 --> 29:25.120
+ are working on the same principles, they're modeling systems. And it's hard to imagine how
+
+29:25.120 --> 29:30.240
+ neurons do this. And so we said, hey, it's really hard to imagine how neurons could learn these
+
+29:30.240 --> 29:36.480
+ models of things. We can talk about the details of that if you want. But there's this other part
+
+29:36.480 --> 29:41.840
+ of the brain, we know that learns models of environments. So could that mechanism to learn
+
+29:41.840 --> 29:47.280
+ to model this room be used to learn to model the water bottle? Is it the same mechanism? So we said
+
+29:47.280 --> 29:52.400
+ it's much more likely the brain's using the same mechanism, which case it would have these equivalent
+
+29:52.400 --> 29:57.920
+ cell types. So it's basically the whole theory is built on the idea that these columns have
+
+29:57.920 --> 30:02.640
+ reference frames and they're learning these models and these grid cells create these reference frames.
+
+30:02.640 --> 30:09.200
+ So it's basically the major, in some sense, the major predictive part of this theory is that we
+
+30:09.200 --> 30:14.560
+ will find these equivalent mechanisms in each column in the neocortex, which tells us that
+
+30:14.560 --> 30:21.600
+ that's what they're doing. They're learning these sensory motor models of the world. So we're pretty
+
+30:21.600 --> 30:26.000
+ confident that would happen, but now we're seeing the evidence. So the evolutionary process, nature
+
+30:26.000 --> 30:31.920
+ does a lot of copy and paste and see what happens. Yeah. Yeah. There's no direction to it. But it
+
+30:31.920 --> 30:37.600
+ just found out like, hey, if I took these elements and made more of them, what happens? And let's hook
+
+30:37.600 --> 30:43.600
+ them up to the eyes and let's hook them to ears. And that seems to work pretty well for us. Again,
+
+30:43.600 --> 30:48.240
+ just to take a quick step back to our conversation of collective intelligence.
+
+30:48.960 --> 30:56.160
+ Do you sometimes see that as just another copy and paste aspect is copying and pasting
+
+30:56.160 --> 31:04.080
+ these brains and humans and making a lot of them and then creating social structures that then
+
+31:04.080 --> 31:08.320
+ almost operate as a single brain? I wouldn't have said that, but you said it sounded pretty good.
+
+31:08.320 --> 31:15.440
+ So to you, the brain is its own thing.
+
+31:15.440 --> 31:20.560
+ I mean, our goal is to understand how the neocortex works. We can argue how essential
+
+31:20.560 --> 31:25.200
+ that is to understand the human brain because it's not the entire human brain. You can argue
+
+31:25.200 --> 31:29.680
+ how essential that is to understanding human intelligence. You can argue how essential this
+
+31:29.680 --> 31:38.640
+ is to sort of communal intelligence. Our goal was to understand the neocortex.
+
+31:38.640 --> 31:41.680
+ Yeah. So what is the neocortex and where does it fit
+
+31:41.680 --> 31:46.480
+ in the various aspects of what the brain does? Like how important is it to you?
+
+31:46.480 --> 31:53.680
+ Well, obviously, again, I mentioned again in the beginning, it's about 70 to 75% of the volume of
+
+31:53.680 --> 31:58.640
+ the human brain. So it dominates our brain in terms of size. Not in terms of number of neurons,
+
+31:58.640 --> 32:00.640
+ but in terms of size.
+
+32:00.640 --> 32:02.400
+ Size isn't everything, Jeff.
+
+32:02.400 --> 32:09.040
+ I know, but it's not that. We know that all high level vision,
+
+32:09.040 --> 32:13.920
+ hearing, and touch happens in the neocortex. We know that all language occurs and is understood
+
+32:13.920 --> 32:17.280
+ in the neocortex, whether that's spoken language, written language, sign language,
+
+32:17.280 --> 32:23.360
+ whether it's language of mathematics, language of physics, music. We know that all high level
+
+32:23.360 --> 32:27.840
+ planning and thinking occurs in the neocortex. If I were to say, what part of your brain designed
+
+32:27.840 --> 32:32.400
+ a computer and understands programming and creates music? It's all the neocortex.
+
+32:33.040 --> 32:39.920
+ So then that's an undeniable fact. But then there's other parts of our brain are important too,
+
+32:39.920 --> 32:46.720
+ right? Our emotional states, our body regulating our body. So the way I like to look at it is,
+
+32:48.400 --> 32:53.200
+ can you understand the neocortex without the rest of the brain? And some people say you can't,
+
+32:53.200 --> 32:58.480
+ and I think absolutely you can. It's not that they're not interacting, but you can understand.
+
+32:58.480 --> 33:01.920
+ Can you understand the neocortex without understanding the emotions of fear? Yes,
+
+33:01.920 --> 33:06.480
+ you can. You can understand how the system works. It's just a modeling system. I make the analogy
+
+33:06.480 --> 33:12.720
+ in the book that it's like a map of the world, and how that map is used depends on who's using it.
+
+33:12.720 --> 33:19.680
+ So how our map of our world in our neocortex, how we manifest as a human depends on the rest of our
+
+33:19.680 --> 33:23.760
+ brain. What are our motivations? What are my desires? Am I a nice guy or not a nice guy?
+
+33:23.760 --> 33:31.040
+ Am I a cheater or not a cheater? How important different things are in my life?
+
+33:33.840 --> 33:39.760
+ But the neocortex can be understood on its own. And I say that as a neuroscientist,
+
+33:39.760 --> 33:43.840
+ I know there's all these interactions, and I don't want to say I don't know them and we
+
+33:43.840 --> 33:47.840
+ don't think about them. But from a layperson's point of view, you can say it's a modeling system.
+
+33:47.840 --> 33:51.680
+ I don't generally think too much about the communal aspect of intelligence, which you brought up a
+
+33:51.680 --> 33:55.040
+ number of times already. So that's not really been my concern.
+
+33:55.040 --> 33:59.120
+ I just wonder if there's a continuum from the origin of the universe, like
+
+34:00.320 --> 34:07.840
+ this pockets of complexities that form living organisms. I wonder if we're just,
+
+34:08.480 --> 34:13.120
+ if you look at humans, we feel like we're at the top. And I wonder if there's like just,
+
+34:13.120 --> 34:19.920
+ I wonder if there's like just where everybody probably every living type pocket of complexity
+
+34:20.800 --> 34:26.240
+ probably thinks they're the, pardon the French, they're the shit. They're at the top of the
+
+34:26.240 --> 34:32.240
+ pyramid. Well, if they're thinking. Well, then what is thinking? In this sense,
+
+34:32.240 --> 34:40.560
+ the whole point is in their sense of the world, their sense is that they're at the top of it.
+
+34:40.560 --> 34:44.320
+ I think what is a turtle, but you're, you're, you're bringing up, you know,
+
+34:44.320 --> 34:48.320
+ the problems of complexity and complexity theory are, you know, it's a huge,
+
+34:48.880 --> 34:55.280
+ interesting problem in science. Um, and you know, I think we've made surprisingly little progress
+
+34:55.280 --> 35:01.120
+ and understanding complex systems in general. Um, and so, you know, the Santa Fe Institute was
+
+35:01.120 --> 35:05.200
+ founded to study this and even the scientists there will say, it's really hard. We haven't
+
+35:05.200 --> 35:10.560
+ really been able to figure out exactly, you know, that science hasn't really congealed yet. We're
+
+35:10.560 --> 35:15.360
+ still trying to figure out the basic elements of that science. Uh, what, you know, where does
+
+35:15.360 --> 35:20.000
+ complexity come from and what is it and how you define it, whether it's DNA creating bodies or
+
+35:20.000 --> 35:26.480
+ phenotypes or it's individuals creating societies or ants and, you know, markets and so on. It's,
+
+35:26.480 --> 35:32.800
+ it's a very complex thing. I'm not a complexity theorist person, right? Um, and I, I think you
+
+35:32.800 --> 35:38.000
+ should ask, well, the brain itself is a complex system. So can we understand that? Um, I think
+
+35:38.000 --> 35:42.640
+ we've made a lot of progress understanding how the brain works. So, uh, but I haven't
+
+35:42.640 --> 35:46.800
+ brought it out to like, oh, well, where are we on the complexity spectrum? You know, it's like,
+
+35:47.520 --> 35:55.680
+ um, it's a great question. I'd prefer for that answer to be we're not special. It seems like
+
+35:55.680 --> 36:01.680
+ if we're honest, most likely we're not special. So if there is a spectrum or probably not in some
+
+36:01.680 --> 36:06.480
+ kind of significant place, there's one thing we could say that we are special. And again,
+
+36:06.480 --> 36:13.120
+ only here on earth, I'm not saying is that if we think about knowledge, what we know,
+
+36:14.080 --> 36:21.040
+ um, we clearly human brains have, um, the only brains that have a certain types of knowledge.
+
+36:21.040 --> 36:25.920
+ We're the only brains on this earth to understand, uh, what the earth is, how old it is,
+
+36:25.920 --> 36:30.400
+ that the universe is a picture as a whole with the only organisms understand DNA and
+
+36:30.400 --> 36:37.200
+ the origins of, you know, of species. Uh, no other species on, on this planet has that knowledge.
+
+36:37.200 --> 36:43.440
+ So if we think about, I like to think about, you know, one of the endeavors of humanity is to
+
+36:43.440 --> 36:49.920
+ understand the universe as much as we can. Um, I think our species is further along in that
+
+36:49.920 --> 36:54.480
+ undeniably, um, whether our theories are right or wrong, we can debate, but at least we have
+
+36:54.480 --> 36:59.760
+ theories. You know, we, we know that what the sun is and how its fusion is and how what black holes
+
+36:59.760 --> 37:04.400
+ are and, you know, we know general theory of relativity and no other animal has any of this
+
+37:04.400 --> 37:10.800
+ knowledge. So in that sense that we're special, uh, are we special in terms of the hierarchy of
+
+37:10.800 --> 37:20.960
+ complexity in the universe? Probably not. Can we look at a neuron? Yeah. You say that prediction
+
+37:20.960 --> 37:24.960
+ happens in the neuron. What does that mean? So the neuron traditionally is seen as the
+
+37:24.960 --> 37:31.760
+ basic element of the brain. So we, I mentioned this earlier that prediction was our research agenda.
+
+37:31.760 --> 37:37.840
+ Yeah. We said, okay, um, how does the brain make a prediction? Like I I'm about to grab this water
+
+37:37.840 --> 37:42.720
+ bottle and my brain is predicting what I'm going to feel on, on all my parts of my fingers. If I
+
+37:42.720 --> 37:46.560
+ felt something really odd on any part here, I'd notice it. So my brain is predicting what it's
+
+37:46.560 --> 37:51.360
+ going to feel as I grab this thing. So what does that, how does that manifest itself in neural
+
+37:51.360 --> 37:57.360
+ tissue? Right. We got brains made of neurons and there's chemicals and there's neurons and there's
+
+37:57.360 --> 38:03.600
+ spikes and the connect, you know, where, where is the prediction going on? And one argument could be
+
+38:03.600 --> 38:09.360
+ that, well, when I'm predicting something, um, a neuron must be firing in advance. It's like, okay,
+
+38:09.360 --> 38:12.800
+ this neuron represents what you're going to feel and it's firing. It's sending a spike.
+
+38:13.600 --> 38:17.760
+ And certainly that happens to some extent, but our predictions are so ubiquitous
+
+38:17.760 --> 38:21.360
+ that we're making so many of them, which we're totally unaware of just the vast majority of me
+
+38:21.360 --> 38:27.120
+ have no idea that you're doing this. Um, that it, there wasn't really, we were trying to figure,
+
+38:27.120 --> 38:31.920
+ how could this be? Where, where are these, where are these happening? Right. And I won't walk you
+
+38:31.920 --> 38:38.880
+ through the whole story unless you insist upon it. But we came to the realization that most of your
+
+38:38.880 --> 38:43.440
+ predictions are occurring inside individual neurons, especially these, the most common
+
+38:43.440 --> 38:49.120
+ are in the parameter cells. And there are, there's a property of neurons. We, everyone knows,
+
+38:49.120 --> 38:53.280
+ or most people know that a neuron is a cell and it has this spike called an action potential,
+
+38:53.280 --> 38:58.160
+ and it sends information. But we now know that there's these spikes internal to the neuron,
+
+38:58.160 --> 39:03.200
+ they're called dendritic spikes. They travel along the branches of the neuron and they don't leave
+
+39:03.200 --> 39:08.240
+ the neuron. They're just internal only. There's far more dendritic spikes than there are action
+
+39:08.240 --> 39:14.240
+ potentials, far more. They're happening all the time. And what we came to understand that those
+
+39:14.240 --> 39:18.880
+ dendritic spikes, the ones that are occurring are actually a form of prediction. They're telling the
+
+39:18.880 --> 39:25.360
+ neuron, the neuron is saying, I expect that I might become active shortly. And that internal,
+
+39:25.360 --> 39:30.240
+ so the internal spike is a way of saying, you're going to, you might be generating external spikes
+
+39:30.240 --> 39:36.640
+ soon. I predicted you're going to become active. And, and we've, we've, we wrote a paper in 2016
+
+39:36.640 --> 39:42.480
+ which explained how this manifests itself in neural tissue and how it is that this all works
+
+39:42.480 --> 39:48.320
+ together. But the vast majority, we think it's, there's a lot of evidence supporting it. So we,
+
+39:48.320 --> 39:51.360
+ that's where we think that most of these predictions are internal. That's why you can't
+
+39:51.360 --> 39:54.160
+ be, they're internal to the neuron, you can't perceive them.
+
+39:54.160 --> 40:00.080
+ Well, from understanding the prediction mechanism of a single neuron, do you think there's deep
+
+40:00.080 --> 40:05.520
+ insights to be gained about the prediction capabilities of the mini brains of the neural
+
+40:05.520 --> 40:08.160
+ brain? Of the mini brains and then the bigger brain and the brain?
+
+40:08.160 --> 40:12.160
+ Oh yeah. Yeah. Yeah. So having a prediction side of their individual neuron is not that useful.
+
+40:12.720 --> 40:22.320
+ So what? The way it manifests itself in neural tissue is that when a neuron, a neuron emits these
+
+40:22.320 --> 40:27.440
+ spikes are a very singular type event. If a neuron is predicting that it's going to be active, it
+
+40:27.440 --> 40:31.840
+ emits its spike very, a little bit sooner, just a few milliseconds sooner than it would have
+
+40:31.840 --> 40:36.240
+ been. It's like, I give the analogy of the book is like a sprinter on a, on a starting blocks in a,
+
+40:36.240 --> 40:42.480
+ in a race. And if someone says, get ready, set, you get up and you're ready to go. And then when
+
+40:42.480 --> 40:46.320
+ your race starts, you get a little bit earlier start. So that it's that, that ready set is like
+
+40:46.320 --> 40:50.800
+ the prediction and the neurons like ready to go quicker. And what happens is when you have a whole
+
+40:50.800 --> 40:55.520
+ bunch of neurons together and they're all getting these inputs, the ones that are in the predictive
+
+40:55.520 --> 40:59.920
+ state, the ones that are anticipating to become active, if they do become active, they, they
+
+40:59.920 --> 41:03.680
+ sooner, they disable everything else. And it leads to different representations in the brain. So
+
+41:04.240 --> 41:09.600
+ you have to, it's not isolated just to the neuron, the prediction occurs with the neuron,
+
+41:09.600 --> 41:14.880
+ but the network behavior changes. So what happens under different predictions, different inputs
+
+41:14.880 --> 41:20.800
+ have different representations. So how I, what I predict is going to be different under different
+
+41:20.800 --> 41:24.960
+ contexts, you know, what my input will be is different under different contexts. So this is,
+
+41:24.960 --> 41:30.000
+ this is a key to the whole theory, how this works. So the theory of the thousand brains,
+
+41:30.560 --> 41:35.920
+ if you were to count the number of brains, how would you do it? The thousand brain theory says
+
+41:35.920 --> 41:42.320
+ that basically every cortical column in the, in your, in your cortex is a complete modeling system.
+
+41:42.320 --> 41:46.800
+ And that when I ask, where do I have a model of something like a coffee cup? It's not in one of
+
+41:46.800 --> 41:51.040
+ those models. It's in thousands of those models. There's thousands of models of coffee cups. That's
+
+41:51.040 --> 41:56.160
+ what the thousand brains, then there's a voting mechanism, which you lead, which you're, which is
+
+41:56.160 --> 42:01.520
+ the thing you're, which you're conscious of, which leads to your singular perception. That's why you,
+
+42:01.520 --> 42:07.200
+ you perceive something. So that's the thousand brains theory. The details, how we got to that
+
+42:07.200 --> 42:13.440
+ theory are complicated. It wasn't, we just thought of it one day. And one of those details that we
+
+42:13.440 --> 42:18.160
+ had to ask, how does a model make predictions? And we've talked about just these predictive neurons.
+
+42:18.160 --> 42:22.320
+ That's part of this theory. It's like saying, Oh, it's a detail, but it was like a crack in the
+
+42:22.320 --> 42:24.960
+ door. It's like, how are we going to figure out how these neurons built through this? You know,
+
+42:24.960 --> 42:30.080
+ what is going on here? So we just looked at prediction as like, well, we know that's ubiquitous.
+
+42:30.080 --> 42:34.400
+ We know that every part of the cortex is making predictions. Therefore, whatever the predictive
+
+42:34.400 --> 42:39.040
+ system is, it's going to be everywhere. We know there's a gazillion predictions happening at once.
+
+42:39.040 --> 42:44.000
+ So this is where we can start teasing apart, you know, ask questions about, you know, how could
+
+42:44.000 --> 42:48.640
+ neurons be making these predictions? And that sort of built up to now what we have this thousand
+
+42:48.640 --> 42:53.200
+ brains theory, which is complex. You know, it's just, I can state it simply, but we just didn't
+
+42:53.200 --> 42:59.200
+ think of it. We had to get there step by step, very, it took years to get there.
+
+42:59.200 --> 43:04.560
+ And where does reference frames fit in? So, yeah.
+
+43:04.560 --> 43:11.200
+ Okay. So again, a reference frame, I mentioned earlier about the model of a house. And I said,
+
+43:11.200 --> 43:14.560
+ if you're going to build a model of a house in a computer, they have a reference frame. And you
+
+43:14.560 --> 43:19.600
+ can think of reference frame like Cartesian coordinates, like X, Y, and Z axes. So I could
+
+43:19.600 --> 43:24.400
+ say, oh, I'm going to design a house. I can say, well, the front door is at this location, X, Y,
+
+43:24.400 --> 43:28.560
+ Z, and the roof is at this location, X, Y, Z, and so on. That's a type of reference frame.
+
+43:29.440 --> 43:33.600
+ So it turns out for you to make a prediction, and I walk you through the thought experiment in the
+
+43:33.600 --> 43:37.360
+ book where I was predicting what my finger was going to feel when I touched a coffee cup.
+
+43:37.360 --> 43:45.200
+ It was a ceramic coffee cup, but this one will do. And what I realized is that to make a prediction
+
+43:45.200 --> 43:48.240
+ of what my finger's going to feel, like it's going to feel different than this, what's it feel
+
+43:48.240 --> 43:53.280
+ different if I touch the hole or this thing on the bottom, make that prediction. The cortex needs to
+
+43:53.280 --> 43:59.360
+ know where the finger is, the tip of the finger, relative to the coffee cup. And exactly relative
+
+43:59.360 --> 44:03.440
+ to the coffee cup. And to do that, I have to have a reference frame for the coffee cup. It has to
+
+44:03.440 --> 44:08.160
+ have a way of representing the location of my finger to the coffee cup. And then we realized,
+
+44:08.160 --> 44:11.360
+ of course, every part of your skin has to have a reference frame relative to things that touch.
+
+44:11.360 --> 44:16.240
+ And then we did the same thing with vision. So the idea that a reference frame is necessary
+
+44:16.240 --> 44:19.520
+ to make a prediction when you're touching something or when you're seeing something
+
+44:20.080 --> 44:22.800
+ and you're moving your eyes or you're moving your fingers, it's just a requirement
+
+44:24.000 --> 44:29.200
+ to predict. If I have a structure, I'm going to make a prediction. I have to know where it is I'm
+
+44:29.200 --> 44:34.960
+ looking or touching it. So then we said, well, how do neurons make reference frames? It's not obvious.
+
+44:36.160 --> 44:40.480
+ X, Y, Z coordinates don't exist in the brain. It's just not the way it works. So that's when we
+
+44:40.480 --> 44:45.120
+ looked at the older part of the brain, the hippocampus and the anterior cortex, where we knew
+
+44:45.120 --> 44:49.920
+ that in that part of the brain, there's a reference frame for a room or a reference frame for an
+
+44:49.920 --> 44:55.200
+ environment. Remember, I talked earlier about how you could make a map of this room. So we said,
+
+44:55.200 --> 45:01.440
+ oh, they are implementing reference frames there. So we knew that reference frames needed to exist
+
+45:01.440 --> 45:07.680
+ in every quarter of a column. And so that was a deductive thing. We just deduced it. It has to
+
+45:07.680 --> 45:15.200
+ exist. So you take the old mammalian ability to know where you are in a particular space
+
+45:15.920 --> 45:18.320
+ and you start applying that to higher and higher levels.
+
+45:18.320 --> 45:22.560
+ Yeah. First you apply it to like where your finger is. So here's what I think about it.
+
+45:22.560 --> 45:26.720
+ The old part of the brain says, where's my body in this room? The new part of the brain says,
+
+45:26.720 --> 45:34.720
+ where's my finger relative to this object? Where is a section of my retina relative to
+
+45:34.720 --> 45:39.120
+ this object? I'm looking at one little corner. Where is that relative to this patch of my retina?
+
+45:40.800 --> 45:47.280
+ And then we take the same thing and apply it to concepts, mathematics, physics, humanity,
+
+45:47.280 --> 45:50.240
+ whatever you want to think about. And eventually you're pondering your own mortality.
+
+45:50.240 --> 45:55.520
+ Well, whatever. But the point is when we think about the world, when we have knowledge about
+
+45:55.520 --> 46:00.560
+ the world, how is that knowledge organized, Lex? Where is it in your head? The answer is it's in
+
+46:00.560 --> 46:05.920
+ reference frames. So the way I learned the structure of this water bottle where the
+
+46:05.920 --> 46:11.200
+ features are relative to each other, when I think about history or democracy or mathematics,
+
+46:11.200 --> 46:15.680
+ the same basic underlying structure is happening. There's reference frames for where the knowledge
+
+46:15.680 --> 46:19.200
+ that you're assigning things to. So in the book, I go through examples like mathematics
+
+46:19.200 --> 46:25.920
+ and language and politics. But the evidence is very clear in the neuroscience. The same mechanism
+
+46:25.920 --> 46:29.600
+ that we use to model this coffee cup, we're going to use to model high level thoughts.
+
+46:30.160 --> 46:33.600
+ Your demise of humanity, whatever you want to think about.
+
+46:34.160 --> 46:38.960
+ It's interesting to think about how different are the representations of those higher dimensional
+
+46:38.960 --> 46:45.680
+ concepts, higher level concepts, how different the representation there is in terms of reference
+
+46:45.680 --> 46:52.080
+ frames versus spatial. But the interesting thing, it's a different application, but it's the exact
+
+46:52.080 --> 46:59.680
+ same mechanism. But isn't there some aspect to higher level concepts that they seem to be
+
+46:59.680 --> 47:05.600
+ hierarchical? Like they just seem to integrate a lot of information into them. So is our physical
+
+47:05.600 --> 47:12.160
+ objects. So take this water bottle. I'm not particular to this brand, but this is a Fiji
+
+47:12.160 --> 47:18.880
+ water bottle and it has a logo on it. I use this example in my book, our company's coffee cup has
+
+47:18.880 --> 47:25.520
+ a logo on it. But this object is hierarchical. It's got like a cylinder and a cap, but then it
+
+47:25.520 --> 47:29.360
+ has this logo on it and the logo has a word, the word has letters, the letters have different
+
+47:29.360 --> 47:33.840
+ features. And so I don't have to remember, I don't have to think about this. So I say,
+
+47:33.840 --> 47:37.920
+ oh, there's a Fiji logo on this water bottle. I don't have to go through and say, oh, what is the
+
+47:37.920 --> 47:43.920
+ Fiji logo? It's the F and I and the J and I, and there's a hibiscus flower. And, oh, it has the
+
+47:43.920 --> 47:47.760
+ statement on it. I don't have to do that. I just incorporate all of that in some sort of hierarchical
+
+47:47.760 --> 47:55.040
+ representation. I say, put this logo on this water bottle. And then the logo has a word
+
+47:55.040 --> 47:59.520
+ and the word has letters, all hierarchical. All that stuff is big. It's amazing that the
+
+47:59.520 --> 48:04.960
+ brain instantly just does all that. The idea that there's water, it's liquid and the idea that you
+
+48:04.960 --> 48:11.920
+ can drink it when you're thirsty, the idea that there's brands and then there's like all of that
+
+48:11.920 --> 48:17.120
+ information is instantly like built into the whole thing once you proceed. So I wanted to
+
+48:17.120 --> 48:21.040
+ get back to your point about hierarchical representation. The world itself is hierarchical,
+
+48:21.680 --> 48:25.200
+ right? And I can take this microphone in front of me. I know inside there's going to be some
+
+48:25.200 --> 48:28.080
+ electronics. I know there's going to be some wires and I know there's going to be a little
+
+48:28.080 --> 48:33.920
+ diaphragm that moves back and forth. I don't see that, but I know it. So everything in the world
+
+48:33.920 --> 48:37.840
+ is hierarchical. You just go into a room. It's composed of other components. The kitchen has a
+
+48:37.840 --> 48:42.320
+ refrigerator. The refrigerator has a door. The door has a hinge. The hinge has screws and pin.
+
+48:43.200 --> 48:49.360
+ So anyway, the modeling system that exists in every cortical column learns the hierarchical
+
+48:49.360 --> 48:54.720
+ structure of objects. So it's a very sophisticated modeling system in this grain of rice. It's hard
+
+48:54.720 --> 48:58.800
+ to imagine, but this grain of rice can do really sophisticated things. It's got 100,000 neurons in
+
+48:58.800 --> 49:07.440
+ it. It's very sophisticated. So that same mechanism that can model a water bottle or a coffee cup
+
+49:07.440 --> 49:13.600
+ can model conceptual objects as well. That's the beauty of this discovery that this guy,
+
+49:13.600 --> 49:18.720
+ Vernon Malmkastel, made many, many years ago, which is that there's a single cortical algorithm
+
+49:18.720 --> 49:23.840
+ underlying everything we're doing. So common sense concepts and higher
+
+49:23.840 --> 49:26.720
+ level concepts are all represented in the same way?
+
+49:26.720 --> 49:31.520
+ They're set in the same mechanisms, yeah. It's a little bit like computers. All computers are
+
+49:31.520 --> 49:37.520
+ universal Turing machines. Even the little teeny one that's in my toaster and the big one that's
+
+49:37.520 --> 49:41.680
+ running some cloud server someplace. They're all running on the same principle. They can
+
+49:41.680 --> 49:46.080
+ apply different things. So the brain is all built on the same principle. It's all about
+
+49:46.080 --> 49:53.120
+ learning these structured models using movement and reference frames. And it can be applied to
+
+49:53.120 --> 49:56.400
+ something as simple as a water bottle and a coffee cup. And it can be applied to thinking
+
+49:56.400 --> 50:02.800
+ what's the future of humanity and why do you have a hedgehog on your desk? I don't know.
+
+50:02.800 --> 50:09.280
+ Nobody knows. Well, I think it's a hedgehog. That's right. It's a hedgehog in the fog.
+
+50:09.280 --> 50:16.240
+ It's a Russian reference. Does it give you any inclination or hope about how difficult
+
+50:16.240 --> 50:21.840
+ it is to engineer common sense reasoning? So how complicated is this whole process?
+
+50:21.840 --> 50:28.640
+ So looking at the brain, is this a marvel of engineering or is it pretty dumb stuff
+
+50:28.640 --> 50:34.640
+ stuck on top of each other over? Can it be both? Can it be both, right?
+
+50:35.600 --> 50:42.080
+ I don't know if it can be both because if it's an incredible engineering job, that means it's
+
+50:43.040 --> 50:48.320
+ so evolution did a lot of work. Yeah, but then it just copied that.
+
+50:48.320 --> 50:55.760
+ Yeah. Right. So as I said earlier, figuring out how to model something like a space is really hard
+
+50:55.760 --> 50:59.760
+ and evolution had to go through a lot of trick. And these cells I was talking about,
+
+50:59.760 --> 51:03.040
+ these grid cells and place cells, they're really complicated. This is not simple stuff.
+
+51:03.040 --> 51:07.120
+ This neural tissue works on these really unexpected, weird mechanisms.
+
+51:08.720 --> 51:13.120
+ But it did it. It figured it out. But now you could just make lots of copies of it.
+
+51:13.120 --> 51:18.320
+ But then finding, yeah, so it's a very interesting idea that's a lot of copies
+
+51:18.320 --> 51:25.360
+ of a basic mini brain. But the question is how difficult it is to find that mini brain
+
+51:25.360 --> 51:32.880
+ that you can copy and paste effectively. Today, we know enough to build this.
+
+51:33.920 --> 51:37.920
+ I'm sitting here with, I know the steps we have to go. There's still some engineering problems
+
+51:37.920 --> 51:43.760
+ to solve, but we know enough. And this is not like, oh, this is an interesting idea. We have
+
+51:43.760 --> 51:47.520
+ to go think about it for another few decades. No, we actually understand it pretty well in details.
+
+51:48.160 --> 51:54.800
+ So not all the details, but most of them. So it's complicated, but it is an engineering problem.
+
+51:55.360 --> 52:00.080
+ So in my company, we are working on that. We are basically a roadmap of how we do this.
+
+52:01.360 --> 52:06.880
+ It's not going to take decades. It's a matter of a few years optimistically,
+
+52:06.880 --> 52:11.840
+ but I think that's possible. It's, you know, complex things. If you understand them,
+
+52:11.840 --> 52:17.200
+ you can build them. So in which domain do you think it's best to build them?
+
+52:17.200 --> 52:23.440
+ Are we talking about robotics, like entities that operate in the physical world that are
+
+52:23.440 --> 52:27.920
+ able to interact with that world? Are we talking about entities that operate in the digital world?
+
+52:27.920 --> 52:33.840
+ Are we talking about something more like more specific, like it's done in the machine learning
+
+52:33.840 --> 52:40.240
+ community where you look at natural language or computer vision? Where do you think is easiest?
+
+52:41.120 --> 52:43.920
+ It's the first, it's the first two more than the third one, I would say.
+
+52:46.560 --> 52:52.320
+ Again, let's just use computers as an analogy. The pioneers in computing, people like John
+
+52:52.320 --> 52:56.800
+ Van Norman and Alan Turing, they created this thing, you know, we now call the universal
+
+52:56.800 --> 53:00.800
+ Turing machine, which is a computer, right? Did they know how it was going to be applied?
+
+53:00.800 --> 53:04.960
+ Where it was going to be used? Could they envision any of the future? No. They just said,
+
+53:04.960 --> 53:11.120
+ this is like a really interesting computational idea about algorithms and how you can implement
+
+53:11.120 --> 53:18.400
+ them in a machine. And we're doing something similar to that today. Like we are building this
+
+53:18.400 --> 53:23.680
+ sort of universal learning principle that can be applied to many, many different things.
+
+53:24.480 --> 53:27.600
+ But the robotics piece of that, the interactive...
+
+53:27.600 --> 53:31.360
+ Okay. All right. Let's be just specific. You can think of this cortical column as
+
+53:31.360 --> 53:35.120
+ what we call a sensory motor learning system. It has the idea that there's a sensor
+
+53:35.120 --> 53:39.520
+ and then it's moving. That sensor can be physical. It could be like my finger
+
+53:39.520 --> 53:43.440
+ and it's moving in the world. It could be like my eye and it's physically moving.
+
+53:43.440 --> 53:50.160
+ It can also be virtual. So, it could be, an example would be, I could have a system that
+
+53:50.160 --> 53:55.360
+ lives in the internet that actually samples information on the internet and moves by
+
+53:55.360 --> 54:02.240
+ following links. That's a sensory motor system. Something that echoes the process of a finger
+
+54:02.240 --> 54:06.000
+ moving along a cortical... But in a very, very loose sense. It's like,
+
+54:06.640 --> 54:10.720
+ again, learning is inherently about discovering the structure of the world and discover the
+
+54:10.720 --> 54:14.720
+ structure of the world, you have to move through the world. Even if it's a virtual world, even if
+
+54:14.720 --> 54:20.480
+ it's a conceptual world, you have to move through it. It doesn't exist in one... It has some structure
+
+54:20.480 --> 54:25.840
+ to it. So, here's a couple of predictions at getting what you're talking about.
+
+54:27.040 --> 54:31.840
+ In humans, the same algorithm does robotics. It moves my arms, my eyes, my body.
+
+54:34.560 --> 54:40.000
+ And so, in the future, to me, robotics and AI will merge. They're not going to be separate fields
+
+54:40.000 --> 54:45.200
+ because the algorithms for really controlling robots are going to be the same algorithms we
+
+54:45.200 --> 54:50.000
+ have in our brain, these sensory motor algorithms. Today, we're not there, but I think that's going
+
+54:50.000 --> 54:58.880
+ to happen. But not all AI systems will have to be robotics. You can have systems that have very
+
+54:58.880 --> 55:02.480
+ different types of embodiments. Some will have physical movements, some will not have physical
+
+55:02.480 --> 55:08.560
+ movements. It's a very generic learning system. Again, it's like computers. The Turing machine,
+
+55:08.560 --> 55:11.680
+ it doesn't say how it's supposed to be implemented, it doesn't tell you how big it is,
+
+55:11.680 --> 55:15.440
+ it doesn't tell you what you can apply it to, but it's a computational principle.
+
+55:15.440 --> 55:20.640
+ The cortical column equivalent is a computational principle about learning. It's about how you
+
+55:20.640 --> 55:27.440
+ learn and it can be applied to a gazillion things. I think this impact of AI is going to be as large,
+
+55:27.440 --> 55:33.200
+ if not larger, than computing has been in the last century, by far, because it's getting at
+
+55:33.200 --> 55:37.600
+ a fundamental thing. It's not a vision system or a learning system. It's not a vision system or
+
+55:37.600 --> 55:41.600
+ a hearing system. It is a learning system. It's a fundamental principle, how you learn the structure
+
+55:41.600 --> 55:46.400
+ in the world, how you can gain knowledge and be intelligent. That's what the thousand brains says
+
+55:46.400 --> 55:49.680
+ was going on. We have a particular implementation in our head, but it doesn't have to be like that
+
+55:49.680 --> 55:55.920
+ at all. Do you think there's going to be some kind of impact? Okay, let me ask it another way.
+
+55:56.800 --> 56:05.360
+ What do increasingly intelligent AI systems do with us humans in the following way? How hard is
+
+56:05.360 --> 56:13.040
+ the human in the loop problem? How hard is it to interact? The finger on the coffee cup equivalent
+
+56:13.040 --> 56:19.120
+ of having a conversation with a human being. How hard is it to fit into our little human world?
+
+56:20.880 --> 56:25.200
+ I think it's a lot of engineering problems. I don't think it's a fundamental problem.
+
+56:25.200 --> 56:28.880
+ I could ask you the same question. How hard is it for computers to fit into a human world?
+
+56:28.880 --> 56:39.680
+ Right. That's essentially what I'm asking. How elitist are we as humans? We try to keep out
+
+56:40.720 --> 56:48.240
+ systems. I don't know. I'm not sure that's the right question. Let's look at computers as an
+
+56:48.240 --> 56:52.480
+ analogy. Computers are a million times faster than us. They do things we can't understand.
+
+56:52.480 --> 56:57.120
+ Most people have no idea what's going on when they use computers. How do we integrate them
+
+56:57.120 --> 57:02.960
+ in our society? Well, we don't think of them as their own entity. They're not living things.
+
+57:04.160 --> 57:12.800
+ We don't afford them rights. We rely on them. Our survival as seven billion people or something
+
+57:12.800 --> 57:18.320
+ like that is relying on computers now. Don't you think that's a fundamental problem
+
+57:18.320 --> 57:22.480
+ that we see them as something we don't give rights to?
+
+57:22.480 --> 57:25.600
+ Computers? Yeah, computers. Robots,
+
+57:25.600 --> 57:29.920
+ computers, intelligence systems. It feels like for them to operate successfully,
+
+57:29.920 --> 57:36.720
+ they would need to have a lot of the elements that we would start having to think about.
+
+57:37.760 --> 57:41.360
+ Should this entity have rights? I don't think so. I think
+
+57:42.560 --> 57:47.680
+ it's tempting to think that way. First of all, hardly anyone thinks that for computers today.
+
+57:47.680 --> 57:52.320
+ No one says, oh, this thing needs a right. I shouldn't be able to turn it off. If I throw it
+
+57:52.320 --> 57:57.360
+ in the trash can and hit it with a sledgehammer, it might form a criminal act. No one thinks that.
+
+57:59.360 --> 58:02.400
+ Now we think about intelligent machines, which is where you're going.
+
+58:05.600 --> 58:10.080
+ All of a sudden, you're like, well, now we can't do that. I think the basic problem we have here
+
+58:10.080 --> 58:14.000
+ is that people think intelligent machines will be like us. They're going to have the same emotions
+
+58:14.000 --> 58:19.120
+ as we do, the same feelings as we do. What if I can build an intelligent machine that absolutely
+
+58:19.120 --> 58:23.040
+ could care less about whether it was on or off or destroyed or not? It just doesn't care. It's
+
+58:23.040 --> 58:28.400
+ just like a map. It's just a modeling system. There's no desires to live. Nothing.
+
+58:28.400 --> 58:35.280
+ Is it possible to create a system that can model the world deeply and not care
+
+58:35.280 --> 58:38.640
+ about whether it lives or dies? Absolutely. No question about it.
+
+58:38.640 --> 58:43.920
+ To me, that's not 100% obvious. It's obvious to me. We can debate it if we want.
+
+58:43.920 --> 58:52.560
+ Where does your desire to live come from? It's an old evolutionary design. We could argue,
+
+58:52.560 --> 58:58.000
+ does it really matter if we live or not? Objectively, no. We're all going to die eventually.
+
+59:00.720 --> 59:05.840
+ Evolution makes us want to live. Evolution makes us want to fight to live. Evolution makes us want
+
+59:05.840 --> 59:11.840
+ to care and love one another and to care for our children and our relatives and our family and so
+
+59:11.840 --> 59:18.880
+ on. Those are all good things. They come about not because we're smart, because we're animals
+
+59:18.880 --> 59:25.280
+ that grew up. The hummingbird in my backyard cares about its offspring. Every living thing
+
+59:25.280 --> 59:30.720
+ in some sense cares about surviving. When we talk about creating intelligent machines,
+
+59:30.720 --> 59:35.360
+ we're not creating life. We're not creating evolving creatures. We're not creating living
+
+59:35.360 --> 59:40.400
+ things. We're just creating a machine that can learn really sophisticated stuff. That machine,
+
+59:40.400 --> 59:47.120
+ it may even be able to talk to us. It's not going to have a desire to live unless somehow we put it
+
+59:47.120 --> 59:52.720
+ into that system. Well, there's learning, right? The thing is... But you don't learn to want to
+
+59:52.720 --> 59:57.600
+ live. It's built into you. It's part of your DNA. People like Ernest Becker argue,
+
+59:59.600 --> 1:00:06.000
+ there's the fact of finiteness of life. The way we think about it is something we learned,
+
+1:00:06.000 --> 1:00:13.120
+ perhaps. Okay. Yeah. Some people decide they don't want to live. Some people decide the desire to
+
+1:00:13.120 --> 1:00:18.880
+ live is built in DNA, right? But I think what I'm trying to get to is in order to accomplish goals,
+
+1:00:18.880 --> 1:00:23.200
+ it's useful to have the urgency of mortality. It's what the Stoics talked about,
+
+1:00:23.200 --> 1:00:31.600
+ is meditating in your mortality. It might be a very useful thing to do to die and have the urgency
+
+1:00:31.600 --> 1:00:38.400
+ of death and to realize that to conceive yourself as an entity that operates in this world that
+
+1:00:38.400 --> 1:00:43.280
+ eventually will no longer be a part of this world and actually conceive of yourself as a conscious
+
+1:00:43.280 --> 1:00:49.760
+ entity might be very useful for you to be a system that makes sense of the world. Otherwise,
+
+1:00:49.760 --> 1:00:55.360
+ you might get lazy. Well, okay. We're going to build these machines, right? So we're talking
+
+1:00:55.360 --> 1:01:03.360
+ about building AIs. But we're building the equivalent of the cortical columns.
+
+1:01:03.360 --> 1:01:11.120
+ The neocortex. The neocortex. And the question is, where do they arrive at? Because we're not
+
+1:01:11.120 --> 1:01:16.560
+ hard coding everything in. Well, in terms of if you build the neocortex equivalent,
+
+1:01:17.360 --> 1:01:22.640
+ it will not have any of these desires or emotional states. Now, you can argue that
+
+1:01:22.640 --> 1:01:28.240
+ that neocortex won't be useful unless I give it some agency, unless I give it some desire,
+
+1:01:28.240 --> 1:01:31.600
+ unless I give it some motivation. Otherwise, you'll be just lazy and do nothing, right?
+
+1:01:31.600 --> 1:01:37.040
+ You could argue that. But on its own, it's not going to do those things. It's just not going
+
+1:01:37.040 --> 1:01:41.120
+ to sit there and say, I understand the world. Therefore, I care to live. No, it's not going
+
+1:01:41.120 --> 1:01:46.240
+ to do that. It's just going to say, I understand the world. Why is that obvious to you? Do you think
+
+1:01:46.240 --> 1:01:52.960
+ it's possible? Okay, let me ask it this way. Do you think it's possible it will at least assign to
+
+1:01:52.960 --> 1:02:04.240
+ itself agency and perceive itself in this world as being a conscious entity as a useful way to
+
+1:02:04.240 --> 1:02:08.640
+ operate in the world and to make sense of the world? I think an intelligent machine can be
+
+1:02:08.640 --> 1:02:16.400
+ conscious, but that does not, again, imply any of these desires and goals that you're worried about.
+
+1:02:18.160 --> 1:02:20.560
+ We can talk about what it means for a machine to be conscious.
+
+1:02:20.560 --> 1:02:24.640
+ By the way, not worry about, but get excited about. It's not necessary that we should worry
+
+1:02:24.640 --> 1:02:29.200
+ about it. I think there's a legitimate problem or not problem, a question asked,
+
+1:02:29.200 --> 1:02:35.600
+ if you build this modeling system, what's it going to model? What's its desire? What's its
+
+1:02:35.600 --> 1:02:42.720
+ goal? What are we applying it to? That's an interesting question. One thing, and it depends
+
+1:02:42.720 --> 1:02:46.800
+ on the application, it's not something that inherent to the modeling system. It's something
+
+1:02:46.800 --> 1:02:51.360
+ we apply to the modeling system in a particular way. If I wanted to make a really smart car,
+
+1:02:52.320 --> 1:02:57.760
+ it would have to know about driving and cars and what's important in driving and cars.
+
+1:02:58.320 --> 1:03:01.760
+ It's not going to figure that on its own. It's not going to sit there and say, I've understood
+
+1:03:01.760 --> 1:03:06.000
+ the world and I've decided, no, no, no, no, we're going to have to tell it. We're going to have to
+
+1:03:06.000 --> 1:03:10.880
+ say, so I imagine I make this car really smart. It learns about your driving habits. It learns
+
+1:03:10.880 --> 1:03:17.200
+ about the world. Is it one day going to wake up and say, you know what? I'm tired of driving
+
+1:03:17.760 --> 1:03:21.280
+ and doing what you want. I think I have better ideas about how to spend my time.
+
+1:03:22.080 --> 1:03:26.160
+ Okay. No, it's not going to do that. Well, part of me is playing a little bit of devil's advocate,
+
+1:03:26.160 --> 1:03:32.560
+ but part of me is also trying to think through this because I've studied cars quite a bit and
+
+1:03:32.560 --> 1:03:36.800
+ I studied pedestrians and cyclists quite a bit. And there's part of me that thinks
+
+1:03:38.560 --> 1:03:45.120
+ that there needs to be more intelligence than we realize in order to drive successfully.
+
+1:03:46.160 --> 1:03:54.720
+ That game theory of human interaction seems to require some deep understanding of human nature
+
+1:03:54.720 --> 1:04:04.000
+ that, okay. When a pedestrian crosses the street, there's some sense. They look at a car usually,
+
+1:04:04.880 --> 1:04:10.960
+ and then they look away. There's some sense in which they say, I believe that you're not going
+
+1:04:10.960 --> 1:04:16.320
+ to murder me. You don't have the guts to murder me. This is the little dance of pedestrian car
+
+1:04:16.320 --> 1:04:22.960
+ interaction is saying, I'm going to look away and I'm going to put my life in your hands because
+
+1:04:22.960 --> 1:04:28.240
+ I think you're human. You're not going to kill me. And then the car in order to successfully
+
+1:04:28.240 --> 1:04:34.400
+ operate in like Manhattan streets has to say, no, no, no, no. I am going to kill you like a little
+
+1:04:34.400 --> 1:04:40.480
+ bit. There's a little bit of this weird inkling of mutual murder. And that's a dance and somehow
+
+1:04:40.480 --> 1:04:44.160
+ successfully operate through that. Do you think you were born of that? Did you learn that social
+
+1:04:44.160 --> 1:04:50.800
+ interaction? I think it might have a lot of the same elements that you're talking about,
+
+1:04:50.800 --> 1:04:56.800
+ which is we're leveraging things we were born with and applying them in the context that.
+
+1:04:57.600 --> 1:05:03.440
+ All right. I would have said that that kind of interaction is learned because people in different
+
+1:05:03.440 --> 1:05:06.880
+ cultures to have different interactions like that. If you cross the street in different cities and
+
+1:05:06.880 --> 1:05:10.400
+ different parts of the world, they have different ways of interacting. I would say that's learned.
+
+1:05:10.400 --> 1:05:15.360
+ And I would say an intelligent system can learn that too, but that does not lead. And the intelligent
+
+1:05:15.360 --> 1:05:24.320
+ system can understand humans. It could understand that just like I can study an animal and learn
+
+1:05:24.320 --> 1:05:28.640
+ something about that animal. I could study apes and learn something about their culture and so on.
+
+1:05:28.640 --> 1:05:34.160
+ I don't have to be an ape to know that. I may not be completely, but I can understand something.
+
+1:05:34.160 --> 1:05:37.360
+ So intelligent machine can model that. That's just part of the world. It's just part of the
+
+1:05:37.360 --> 1:05:42.640
+ interactions. The question we're trying to get at, will the intelligent machine have its own personal
+
+1:05:42.640 --> 1:05:49.440
+ agency that's beyond what we assign to it or its own personal goals or will it evolve and create
+
+1:05:49.440 --> 1:05:55.200
+ these things? My confidence comes from understanding the mechanisms I'm talking about creating.
+
+1:05:55.920 --> 1:06:00.880
+ This is not hand wavy stuff. It's down in the details. I'm going to build it. And I know what
+
+1:06:00.880 --> 1:06:03.760
+ it's going to look like. And I know what it's going to behave. I know what the kind of things
+
+1:06:03.760 --> 1:06:08.000
+ it could do and the kind of things it can't do. Just like when I build a computer, I know it's
+
+1:06:08.000 --> 1:06:13.440
+ not going to, on its own, decide to put another register inside of it. It can't do that. No way.
+
+1:06:13.440 --> 1:06:16.080
+ No matter what your software does, it can't add a register to the computer.
+
+1:06:17.440 --> 1:06:26.560
+ So in this way, when we build AI systems, we have to make choices about how we embed them.
+
+1:06:26.560 --> 1:06:30.880
+ So I talk about this in the book. I said intelligent system is not just the neocortex
+
+1:06:30.880 --> 1:06:36.800
+ equivalent. You have to have that. But it has to have some kind of embodiment, physical or virtual.
+
+1:06:36.800 --> 1:06:41.040
+ It has to have some sort of goals. It has to have some sort of ideas about dangers,
+
+1:06:41.040 --> 1:06:47.360
+ about things it shouldn't do. We build in safeguards into systems. We have them in our
+
+1:06:47.360 --> 1:06:53.440
+ bodies. We put them into cars. My car follows my directions until the day it sees I'm about to hit
+
+1:06:53.440 --> 1:06:58.240
+ something and it ignores my directions and puts the brakes on. So we can build those things in.
+
+1:06:58.240 --> 1:07:06.480
+ So that's a very interesting problem, how to build those in. I think my differing opinion about the
+
+1:07:06.480 --> 1:07:11.440
+ risks of AI for most people is that people assume that somehow those things will disappear
+
+1:07:11.440 --> 1:07:17.600
+ automatically and evolve. And intelligence itself begets that stuff or requires it.
+
+1:07:17.600 --> 1:07:21.120
+ But it's not. Intelligence of the neocortex equipment doesn't require this. The neocortex
+
+1:07:21.120 --> 1:07:26.880
+ equipment just says, I'm a learning system. Tell me what you want me to learn and ask me questions
+
+1:07:26.880 --> 1:07:33.920
+ and I'll tell you the answers. And that, again, it's again like a map. A map has no intent about
+
+1:07:33.920 --> 1:07:40.800
+ things, but you can use it to solve problems. Okay. So the building, engineering the neocortex
+
+1:07:41.920 --> 1:07:45.840
+ in itself is just creating an intelligent prediction system.
+
+1:07:45.840 --> 1:07:50.960
+ Modeling system. Sorry, modeling system. You can use it to then make predictions.
+
+1:07:52.480 --> 1:07:56.240
+ But you can also put it inside a thing that's actually acting in this world.
+
+1:07:56.800 --> 1:08:02.160
+ You have to put it inside something. Again, think of the map analogy, right? A map on its own doesn't
+
+1:08:02.160 --> 1:08:07.920
+ do anything. It's just inert. It can learn, but it's just inert. So we have to embed it somehow
+
+1:08:07.920 --> 1:08:13.360
+ in something to do something. So what's your intuition here? You had a conversation with
+
+1:08:13.360 --> 1:08:20.320
+ Sam Harris recently that was sort of, you've had a bit of a disagreement and you're sticking on
+
+1:08:20.320 --> 1:08:29.520
+ this point. Elon Musk, Stuart Russell kind of have us worry existential threats of AI.
+
+1:08:29.520 --> 1:08:36.400
+ What's your intuition? Why, if we engineer increasingly intelligent neocortex type of system
+
+1:08:36.720 --> 1:08:40.240
+ in the computer, why that shouldn't be a thing that we...
+
+1:08:40.240 --> 1:08:44.240
+ It was interesting to use the word intuition and Sam Harris used the word intuition too.
+
+1:08:44.240 --> 1:08:47.840
+ And we didn't use that intuition, that word. I immediately stopped and said,
+
+1:08:47.840 --> 1:08:52.960
+ oh, that's the crux of the problem. He's using intuition. I'm not speaking about my intuition.
+
+1:08:52.960 --> 1:08:56.080
+ I'm speaking about something I understand, something I'm going to build, something I am
+
+1:08:56.080 --> 1:09:01.840
+ building, something I understand completely, or at least well enough to know what... I'm guessing,
+
+1:09:01.840 --> 1:09:08.160
+ I know what this thing's going to do. And I think most people who are worried, they have trouble
+
+1:09:08.160 --> 1:09:13.280
+ separating out... They don't have the knowledge or the understanding about what is intelligence,
+
+1:09:13.280 --> 1:09:16.720
+ how's it manifest in the brain, how's it separate from these other functions in the brain.
+
+1:09:17.280 --> 1:09:21.680
+ And so they imagine it's going to be human like or animal like. It's going to have the same sort of
+
+1:09:21.680 --> 1:09:27.680
+ drives and emotions we have, but there's no reason for that. That's just because there's an unknown.
+
+1:09:27.680 --> 1:09:31.520
+ If the unknown is like, oh my God, I don't know what this is going to do. We have to be careful.
+
+1:09:31.520 --> 1:09:35.680
+ It could be like us, but really smarter. I'm saying, no, it won't be like us. It'll be really
+
+1:09:35.680 --> 1:09:42.080
+ smarter, but it won't be like us at all. But I'm coming from that, not because I'm just guessing,
+
+1:09:42.080 --> 1:09:46.640
+ I'm not using intuition. I'm basing it on like, okay, I understand this thing works. This is what
+
+1:09:46.640 --> 1:09:54.400
+ it does. It makes money to you. Okay. But to push back, so I also disagree with the intuitions that
+
+1:09:54.400 --> 1:10:02.080
+ Sam has, but I also disagree with what you just said, which, you know, what's a good analogy. So
+
+1:10:02.080 --> 1:10:08.720
+ if you look at the Twitter algorithm in the early days, just recommender systems, you can understand
+
+1:10:08.720 --> 1:10:14.640
+ how recommender systems work. What you can't understand in the early days is when you apply
+
+1:10:14.640 --> 1:10:20.400
+ that recommender system at scale to thousands and millions of people, how that can change societies.
+
+1:10:20.400 --> 1:10:27.840
+ Yeah. So the question is, yes, you're just saying this is how an engineer in your cortex works,
+
+1:10:27.840 --> 1:10:35.040
+ but the, like when you have a very useful, uh, TikTok type of service that goes viral when your
+
+1:10:35.040 --> 1:10:40.160
+ neural cortex goes viral and then millions of people start using it, can that destroy the world?
+
+1:10:40.160 --> 1:10:44.880
+ No. Uh, well, first of all, this is back. One thing I want to say is that, um, AI is a dangerous
+
+1:10:44.880 --> 1:10:48.880
+ technology. I don't, I'm not denying that. All technology is dangerous. Well, and AI,
+
+1:10:48.880 --> 1:10:54.400
+ maybe particularly so. Okay. So, um, am I worried about it? Yeah, I'm totally worried about it.
+
+1:10:54.400 --> 1:11:00.320
+ The thing where the narrow component we're talking about now is the existential risk of AI, right?
+
+1:11:00.320 --> 1:11:05.360
+ Yeah. So I want to make that distinction because I think AI can be applied poorly. It can be applied
+
+1:11:05.360 --> 1:11:11.200
+ in ways that, you know, people are going to understand the consequences of it. Um, these are
+
+1:11:11.200 --> 1:11:18.400
+ all potentially very bad things, but they're not the AI system creating this existential risk on
+
+1:11:18.400 --> 1:11:23.440
+ its own. And that's the only place that I disagree with other people. Right. So I, I think the
+
+1:11:23.440 --> 1:11:29.360
+ existential risk thing is, um, humans are really damn good at surviving. So to kill off the human
+
+1:11:29.360 --> 1:11:36.000
+ race, it'd be very, very difficult. Yes, but you can even, I'll go further. I don't think AI systems
+
+1:11:36.000 --> 1:11:40.720
+ are ever going to try to, I don't think AI systems are ever going to like say, I'm going to ignore
+
+1:11:40.720 --> 1:11:46.480
+ you. I'm going to do what I think is best. Um, I don't think that's going to happen, at least not
+
+1:11:46.480 --> 1:11:52.720
+ in the way I'm talking about it. So you, the Twitter recommendation algorithm is an interesting
+
+1:11:52.720 --> 1:11:59.600
+ example. Let's, let's use computers as an analogy again, right? I build a computer. It's a universal
+
+1:11:59.600 --> 1:12:03.440
+ computing machine. I can't predict what people are going to use it for. They can build all kinds of
+
+1:12:03.440 --> 1:12:09.040
+ things. They can, they can even create computer viruses. It's, you know, all kinds of stuff. So
+
+1:12:09.040 --> 1:12:13.360
+ there's some unknown about its utility and about where it's going to go. But on the other hand,
+
+1:12:13.360 --> 1:12:18.960
+ I pointed out that once I build a computer, it's not going to fundamentally change how it computes.
+
+1:12:18.960 --> 1:12:23.520
+ It's like, I use the example of a register, which is a part, internal part of a computer. Um, you
+
+1:12:23.520 --> 1:12:27.600
+ know, I say it can't just sit there because computers don't evolve. They don't replicate,
+
+1:12:27.600 --> 1:12:31.120
+ they don't evolve. They don't, you know, the physical manifestation of the computer itself
+
+1:12:31.120 --> 1:12:36.320
+ is not going to, there's certain things that can't do right. So we can break into things like things
+
+1:12:36.320 --> 1:12:40.400
+ that are possible to happen. We can't predict and things that are just impossible to happen.
+
+1:12:40.400 --> 1:12:44.320
+ Unless we go out of our way to make them happen, they're not going to happen unless somebody makes
+
+1:12:44.320 --> 1:12:49.120
+ them happen. Yeah. So there's, there's a bunch of things to say. One is the physical aspect,
+
+1:12:49.120 --> 1:12:54.640
+ which you're absolutely right. We have to build a thing for it to operate in the physical world
+
+1:12:54.640 --> 1:13:01.280
+ and you can just stop building them. Uh, you know, the moment they're not doing the thing you want
+
+1:13:01.280 --> 1:13:05.760
+ them to do or just change the design or change the design. The question is, I mean, there's,
+
+1:13:05.760 --> 1:13:10.640
+ uh, it's possible in the physical world. This is probably longer term is you automate the building.
+
+1:13:10.640 --> 1:13:14.000
+ It makes, it makes a lot of sense to automate the building. There's a lot of factories that
+
+1:13:14.000 --> 1:13:19.360
+ are doing more and more and more automation to go from raw resources to the final product.
+
+1:13:19.360 --> 1:13:25.040
+ It's possible to imagine that obviously much more efficient to keep, to create a factory that's
+
+1:13:25.040 --> 1:13:30.880
+ creating robots that do something, uh, you know, that do something extremely useful for society.
+
+1:13:30.880 --> 1:13:35.840
+ It could be a personal assistance. It could be, uh, it could, it could be your toaster, but a
+
+1:13:35.840 --> 1:13:41.680
+ toaster as much as deeper knowledge of your culinary preferences. Yeah. And that could,
+
+1:13:41.680 --> 1:13:46.000
+ uh, I think now you've hit on the right thing. The real thing we need to be worried about is
+
+1:13:46.000 --> 1:13:51.440
+ self replication. Right. That is the thing that we're in the physical world or even the virtual
+
+1:13:51.440 --> 1:13:56.560
+ world self replication because self replication is dangerous. It's probably more likely to be
+
+1:13:56.560 --> 1:14:01.760
+ killed by a virus, you know, or a human hand veneered virus. Anybody can create a, you know,
+
+1:14:01.760 --> 1:14:05.680
+ there's the technology is getting so almost anybody, but not anybody, but a lot of people
+
+1:14:05.680 --> 1:14:11.360
+ could create a human engineered virus that could wipe out humanity. That is really dangerous. No
+
+1:14:11.360 --> 1:14:18.480
+ intelligence required, just self replication. So, um, so we need to be careful about that.
+
+1:14:18.480 --> 1:14:24.240
+ So when I think about, you know, AI, I'm not thinking about robots, building robots. Don't
+
+1:14:24.240 --> 1:14:28.320
+ do that. Don't build a, you know, just, well, that's because you're interesting creating
+
+1:14:28.320 --> 1:14:35.360
+ intelligence. It seems like self replication is a good way to make a lot of money. Well,
+
+1:14:35.360 --> 1:14:41.120
+ fine. But so is, you know, maybe editing viruses is a good way too. I don't know. The point is,
+
+1:14:41.120 --> 1:14:46.880
+ if as a society, when we want to look at existential risks, the existential risks we face
+
+1:14:46.880 --> 1:14:54.880
+ that we can control almost all evolve around self replication. Yes. The question is, I don't see a
+
+1:14:54.880 --> 1:15:00.240
+ good, uh, way to make a lot of money by engineering viruses and deploying them on the world. There
+
+1:15:00.240 --> 1:15:04.880
+ could be, there could be applications that are useful, but let's separate out, let's separate out.
+
+1:15:04.880 --> 1:15:08.000
+ I mean, you don't need to, you only need some, you know, terrorists who wants to do it. Cause
+
+1:15:08.000 --> 1:15:13.520
+ it doesn't take a lot of money to make viruses. Um, let's just separate out what's risky and what's
+
+1:15:13.520 --> 1:15:18.560
+ not risky. I'm arguing that the intelligence side of this equation is not risky. It's not risky at
+
+1:15:18.560 --> 1:15:23.520
+ all. It's the self replication side of the equation that's risky. And I'm arguing that
+
+1:15:23.520 --> 1:15:28.880
+ it's not risky. And I'm not dismissing that. I'm scared as hell. It's like the paperclip
+
+1:15:28.880 --> 1:15:34.400
+ maximizer thing. Yeah. Those are often like talked about in the same conversation.
+
+1:15:35.200 --> 1:15:41.200
+ Um, I think you're right. Like creating ultra intelligent, super intelligent systems
+
+1:15:42.000 --> 1:15:47.600
+ is not necessarily coupled with a self replicating arbitrarily self replicating systems. Yeah. And
+
+1:15:47.600 --> 1:15:52.560
+ you don't get evolution unless you're self replicating. Yeah. And so I think that's the gist
+
+1:15:52.560 --> 1:15:56.720
+ of this argument that people have trouble separating those two out. They just think,
+
+1:15:56.720 --> 1:16:00.960
+ Oh yeah, intelligence looks like us. And look how, look at the damage we've done to this planet,
+
+1:16:00.960 --> 1:16:04.640
+ like how we've, you know, destroyed all these other species. Yeah. Well we replicate,
+
+1:16:04.640 --> 1:16:10.400
+ which the 8 billion of us are 7 billion of us now. So, um, I think the idea is that the,
+
+1:16:10.400 --> 1:16:17.120
+ the more intelligent we're able to build systems, the more tempting it becomes from a capitalist
+
+1:16:17.120 --> 1:16:21.920
+ perspective of creating products, the more tempting it becomes to create self, uh, reproducing
+
+1:16:21.920 --> 1:16:26.720
+ systems. All right. So let's say that's true. So does that mean we don't build intelligent systems?
+
+1:16:26.720 --> 1:16:33.760
+ No, that means we regulate, we, we understand the risks. Uh, we regulate them. Uh, you know,
+
+1:16:33.760 --> 1:16:37.200
+ look, there's a lot of things we could do as society, which have some sort of financial
+
+1:16:37.200 --> 1:16:42.560
+ benefit to someone, which could do a lot of harm. And we have to learn how to regulate those things.
+
+1:16:42.560 --> 1:16:46.400
+ We have to learn how to deal with those things. I will argue this. I would say the opposite. Like I
+
+1:16:46.400 --> 1:16:52.000
+ would say having intelligent machines at our disposal will actually help us in the end more,
+
+1:16:52.000 --> 1:16:55.040
+ because it'll help us understand these risks better. It'll help us mitigate these risks
+
+1:16:55.040 --> 1:16:59.040
+ better. It might be ways of saying, oh, well, how do we solve climate change problems? You know,
+
+1:16:59.040 --> 1:17:05.600
+ how do we do this? Or how do we do that? Um, that just like computers are dangerous in the hands of
+
+1:17:05.600 --> 1:17:09.840
+ the wrong people, but they've been so great for so many other things. We live with those dangers.
+
+1:17:09.840 --> 1:17:13.520
+ And I think we have to do the same with intelligent machines. We just, but we have to be
+
+1:17:13.520 --> 1:17:18.720
+ constantly vigilant about this idea of a bad actors doing bad things with them and be,
+
+1:17:19.360 --> 1:17:25.440
+ um, don't ever, ever create a self replicating system. Um, uh, and, and by the way, I don't even
+
+1:17:25.440 --> 1:17:30.320
+ know if you could create a self replicating system that uses a factory. That's really dangerous.
+
+1:17:30.320 --> 1:17:36.000
+ You know, nature's way of self replicating is so amazing. Um, you know, it doesn't require
+
+1:17:36.000 --> 1:17:41.680
+ anything. It just, you know, the thing and resources and it goes right. Um, if I said to
+
+1:17:41.680 --> 1:17:46.880
+ you, you know what we have to build, uh, our goal is to build a factory that can make that builds
+
+1:17:46.880 --> 1:17:54.000
+ new factories and it has to end to end supply chain. It has to bind the resources, get the
+
+1:17:54.000 --> 1:18:00.000
+ energy. I mean, that's really hard. It's, you know, no one's doing that in the next, you know,
+
+1:18:00.000 --> 1:18:06.400
+ a hundred years. I've been extremely impressed by the efforts of Elon Musk and Tesla to try to do
+
+1:18:06.400 --> 1:18:12.720
+ exactly that. Not, not from raw resource. Well, he actually, I think states the goal is to go from
+
+1:18:12.720 --> 1:18:19.440
+ raw resource to the, uh, the final car in one factory. Yeah. That's the main goal. Of course,
+
+1:18:19.440 --> 1:18:23.600
+ it's not currently possible, but they're taking huge leaps. Well, he's not the only one to do
+
+1:18:23.600 --> 1:18:28.720
+ that. This has been a goal for many industries for a long, long time. Um, it's difficult to do.
+
+1:18:28.720 --> 1:18:34.480
+ Well, a lot of people, what they do is instead they have like a million suppliers and then they
+
+1:18:34.480 --> 1:18:40.480
+ like there's everybody's, they all co locate them and they, and they tie the systems together.
+
+1:18:40.480 --> 1:18:45.840
+ It's a fundamental, I think that's, that also is not getting at the issue I was just talking about,
+
+1:18:45.840 --> 1:18:52.640
+ um, which is self replication. It's, um, I mean, self replication means there's no
+
+1:18:53.840 --> 1:18:58.800
+ entity involved other than the entity that's replicating. Um, right. And so if there are
+
+1:18:58.800 --> 1:19:04.400
+ humans in this, in the loop, that's not really self replicating, right? It's unless somehow we're
+
+1:19:04.400 --> 1:19:09.440
+ duped into doing it. But it's also, I don't necessarily
+
+1:19:11.920 --> 1:19:15.520
+ agree with you because you've kind of mentioned that AI will not say no to us.
+
+1:19:16.480 --> 1:19:23.520
+ I just think they will. Yeah. Yeah. So like, uh, I think it's a useful feature to build in. I'm
+
+1:19:23.520 --> 1:19:30.480
+ just trying to like, uh, put myself in the mind of engineers to sometimes say no, you know, if you,
+
+1:19:32.480 --> 1:19:38.000
+ I gave the example earlier, right? I gave the example of my car, right? My car turns the wheel
+
+1:19:38.000 --> 1:19:43.760
+ and, and applies the accelerator and the brake as I say, until it decides there's something dangerous.
+
+1:19:43.760 --> 1:19:50.240
+ Yes. And then it doesn't do that. Now that was something it didn't decide to do. It's something
+
+1:19:50.240 --> 1:19:57.600
+ we programmed into the car. And so good. It was a good idea, right? The question again, isn't like
+
+1:19:57.600 --> 1:20:02.640
+ if we create an intelligent system, will it ever ignore our commands? Of course it will. And
+
+1:20:02.640 --> 1:20:08.560
+ sometimes is it going to do it because it came up, came up with its own goals that serve its purposes
+
+1:20:08.560 --> 1:20:11.680
+ and it doesn't care about our purposes? No, I don't think that's going to happen.
+
+1:20:12.480 --> 1:20:16.960
+ Okay. So let me ask you about these, uh, super intelligent cortical systems that we engineer
+
+1:20:16.960 --> 1:20:23.760
+ and us humans, do you think, uh, with these entities operating out there in the world,
+
+1:20:24.320 --> 1:20:32.320
+ what is the future most promising future look like? Is it us merging with them or is it us?
+
+1:20:33.040 --> 1:20:38.880
+ Like, how do we keep us humans around when you have increasingly intelligent beings? Is it, uh,
+
+1:20:38.880 --> 1:20:42.960
+ one of the dreams is to upload our minds in the digital space. So can we just
+
+1:20:42.960 --> 1:20:48.400
+ give our minds to these, uh, systems so they can operate on them? Is there some kind of more
+
+1:20:48.400 --> 1:20:52.240
+ interesting merger or is there more, more communication? I talked about all these
+
+1:20:52.240 --> 1:21:00.560
+ scenarios and let me just walk through them. Sure. Um, the uploading the mind one. Yes. Extremely,
+
+1:21:00.560 --> 1:21:06.480
+ really difficult to do. Like, like, we have no idea how to do this even remotely right now. Um,
+
+1:21:06.480 --> 1:21:11.280
+ so it would be a very long way away, but I make the argument you wouldn't like the result.
+
+1:21:11.280 --> 1:21:16.080
+ Um, and you wouldn't be pleased with the result. It's really not what you think it's going to be.
+
+1:21:16.080 --> 1:21:20.000
+ Um, imagine I could upload your brain into a, into a computer right now. And now the computer
+
+1:21:20.000 --> 1:21:24.160
+ sitting there going, Hey, I'm over here. Great. Get rid of that old bio person. I don't need them.
+
+1:21:24.160 --> 1:21:28.560
+ You're still sitting here. Yeah. What are you going to do? No, no, that's not me. I'm here.
+
+1:21:28.560 --> 1:21:33.600
+ Right. Are you going to feel satisfied then? Then you, but people imagine, look, I'm on my deathbed
+
+1:21:33.600 --> 1:21:38.240
+ and I'm about to, you know, expire and I pushed the button and now I'm uploaded. But think about
+
+1:21:38.240 --> 1:21:42.640
+ it a little differently. And, and so I don't think it's going to be a thing because people,
+
+1:21:42.640 --> 1:21:47.760
+ by the time we're able to do this, if ever, because you have to replicate the entire body,
+
+1:21:47.760 --> 1:21:52.240
+ not just the brain. It's, it's really, it's, I walked through the issues. It's really substantial.
+
+1:21:52.240 --> 1:21:59.520
+ Um, do you have a sense of what makes us us? Is there, is there a shortcut to what can only save
+
+1:21:59.520 --> 1:22:04.720
+ a certain part that makes us truly ours? No, but I think that machine would feel like it's you too.
+
+1:22:04.720 --> 1:22:08.400
+ Right. Right. You have two people, just like I have a child, I have a child, right? I have two
+
+1:22:08.400 --> 1:22:16.160
+ daughters. They're independent people. I created them. Well, partly. Yeah. And, um, uh, I don't,
+
+1:22:16.160 --> 1:22:20.400
+ just because they're somewhat like me, I don't feel on them and they don't feel like I'm me. So
+
+1:22:20.400 --> 1:22:24.080
+ if you split apart, you have two people. So we can tell them, come back to what, what makes,
+
+1:22:24.080 --> 1:22:28.400
+ what consciousness do you want? We can talk about that, but we don't have like remote consciousness.
+
+1:22:28.400 --> 1:22:32.000
+ I'm not sitting there going, Oh, I'm conscious of that. You know, I mean, that system of,
+
+1:22:32.000 --> 1:22:38.480
+ so let's say, let's, let's stay on our topic. One was uploading a brand. Yep. It ain't gonna happen
+
+1:22:38.480 --> 1:22:43.280
+ in a hundred years, maybe a thousand, but I don't think people are going to want to do it. The
+
+1:22:44.080 --> 1:22:50.240
+ merging your mind with, uh, you know, the neural link thing, right? Like again, really, really
+
+1:22:50.240 --> 1:22:54.720
+ difficult. It's, it's one thing to make progress, to control a prosthetic arm. It's another to have
+
+1:22:54.720 --> 1:22:58.960
+ like a billion or several billion, you know, things and understanding what those signals
+
+1:22:58.960 --> 1:23:03.680
+ mean. Like it's the one thing that like, okay, I can learn to think some patterns to make something
+
+1:23:03.680 --> 1:23:08.800
+ happen. It's quite another thing to have a system, a computer, which actually knows exactly what
+
+1:23:08.800 --> 1:23:12.960
+ cells it's talking to and how it's talking to them and interacting in a way like that. Very,
+
+1:23:12.960 --> 1:23:18.160
+ very difficult. We're not getting anywhere closer to that. Um, interesting. Can I, can I, uh, can
+
+1:23:18.160 --> 1:23:24.880
+ I ask a question here? What, so for me, what makes that merger very difficult practically in the next
+
+1:23:24.880 --> 1:23:32.000
+ 10, 20, 50 years is like literally the biology side of it, which is like, it's just hard to do
+
+1:23:32.000 --> 1:23:38.640
+ that kind of surgery in a safe way. But your intuition is even the machine learning part of it,
+
+1:23:38.640 --> 1:23:43.280
+ where the machine has to learn what the heck it's talking to. That's even hard. I think it's even
+
+1:23:43.280 --> 1:23:49.200
+ harder. And it's not, it's, it's easy to do when you're talking about hundreds of signals. It's,
+
+1:23:49.200 --> 1:23:53.840
+ it's a totally different thing to say, talking about billions of years. It's, it's a totally
+
+1:23:53.840 --> 1:23:57.440
+ different thing to say, talking about billions of signals. So you don't think it's the raw,
+
+1:23:57.440 --> 1:24:01.360
+ the it's a machine learning problem. You don't think it could be learned? Well, I'm just saying,
+
+1:24:01.360 --> 1:24:05.440
+ no, I think you'd have to have detailed knowledge. You'd have to know exactly what the types of
+
+1:24:05.440 --> 1:24:09.440
+ neurons you're connecting to. I mean, in the brain, there's these, there are all different
+
+1:24:09.440 --> 1:24:13.520
+ types of things. It's not like a neural network. It's a very complex organism system up here. We
+
+1:24:13.520 --> 1:24:16.640
+ talked about the grid cells or the place cells, you know, you have to know what kind of cells
+
+1:24:16.640 --> 1:24:20.640
+ you're talking to and what they're doing and how their timing works and all, all this stuff,
+
+1:24:20.640 --> 1:24:24.960
+ which you can't today. There's no way of doing that. Right. But I think it's, I think it's a,
+
+1:24:24.960 --> 1:24:28.400
+ I think the problem you're right. That the biological aspect of like who wants to have
+
+1:24:28.400 --> 1:24:32.640
+ a surgery and have this stuff inserted in your brain. That's a problem. But this is when we
+
+1:24:32.640 --> 1:24:38.080
+ solve that problem. I think the, the information coding aspect is much worse. I think that's much
+
+1:24:38.080 --> 1:24:41.600
+ worse. It's not like what they're doing today. Today. It's simple machine learning stuff
+
+1:24:42.240 --> 1:24:46.720
+ because you're doing simple things. But if you want to merge your brain, like I'm thinking on
+
+1:24:46.720 --> 1:24:51.440
+ the internet, I'm merged my brain with the machine and we're both doing, that's a totally different
+
+1:24:51.440 --> 1:24:56.720
+ issue. That's interesting. I tend to think if the, okay. If you have a super clean signal
+
+1:24:57.760 --> 1:25:04.400
+ from a bunch of neurons at the start, you don't know what those neurons are. I think that's much
+
+1:25:04.400 --> 1:25:10.880
+ easier than the getting of the clean signal. I think if you think about today's machine learning,
+
+1:25:10.880 --> 1:25:14.960
+ that's what you would conclude. Right. I'm thinking about what's going on in the brain
+
+1:25:14.960 --> 1:25:19.520
+ and I don't reach that conclusion. So we'll have to see. Sure. But I don't think even, even then,
+
+1:25:20.080 --> 1:25:26.240
+ I think this kind of a sad future. Like, you know, do I, do I have to like plug my brain
+
+1:25:26.240 --> 1:25:29.440
+ into a computer? I'm still a biological organism. I assume I'm still going to die.
+
+1:25:30.000 --> 1:25:36.640
+ So what have I achieved? Right. You know, what have I achieved? Oh, I disagree that we don't
+
+1:25:36.640 --> 1:25:40.320
+ know what those are, but it seems like there could be a lot of different applications. It's
+
+1:25:40.320 --> 1:25:47.280
+ like virtual reality is to expand your brain's capability to, to like, to read Wikipedia.
+
+1:25:47.280 --> 1:25:50.080
+ Yeah. But, but fine. But, but you're still a biological organism.
+
+1:25:50.080 --> 1:25:53.280
+ Yes. Yes. You know, you're still, you're still mortal. All right. So,
+
+1:25:53.280 --> 1:25:57.360
+ so what are you accomplishing? You're making your life in this short period of time better. Right.
+
+1:25:58.000 --> 1:26:03.760
+ Just like having the internet made our life better. Yeah. Yeah. Okay. So I think that's of,
+
+1:26:03.760 --> 1:26:08.080
+ of, if I think about all the possible gains we can have here, that's a marginal one.
+
+1:26:08.080 --> 1:26:15.280
+ It's an individual, Hey, I'm better, you know, I'm smarter. But you know, fine. I'm not against it.
+
+1:26:15.280 --> 1:26:20.240
+ I just don't think it's earth changing. I, but, but it w so this is the true of the internet.
+
+1:26:20.240 --> 1:26:24.800
+ When each of us individuals are smarter, we get a chance to then share our smartness.
+
+1:26:24.800 --> 1:26:28.560
+ We get smarter and smarter together as like, as a collective, this is kind of like this
+
+1:26:28.560 --> 1:26:32.480
+ ant colony. Why don't I just create an intelligent machine that doesn't have any of this biological
+
+1:26:32.480 --> 1:26:39.360
+ nonsense that has all the same. It's everything except don't burden it with my brain. Yeah.
+
+1:26:39.360 --> 1:26:43.680
+ Right. It has a brain. It is smart. It's like my child, but it's much, much smarter than me.
+
+1:26:43.680 --> 1:26:48.320
+ So I have a choice between doing some implant, doing some hybrid, weird, you know, biological
+
+1:26:48.320 --> 1:26:53.760
+ thing that bleeding and all these problems and limited by my brain or creating a system,
+
+1:26:53.760 --> 1:26:58.240
+ which is super smart that I can talk to. Um, that helps me understand the world that can
+
+1:26:58.240 --> 1:27:03.600
+ read the internet, you know, read Wikipedia and talk to me. I guess my, the open questions there
+
+1:27:03.600 --> 1:27:10.000
+ are what does the men manifestation of super intelligence look like? So like, what are we
+
+1:27:10.000 --> 1:27:14.880
+ going to, you, you talked about why do I want to merge with AI? Like what, what's the actual
+
+1:27:14.880 --> 1:27:23.680
+ marginal benefit here? If I, if we have a super intelligent system, how will it make our life
+
+1:27:23.680 --> 1:27:28.240
+ better? So let's, let's, that's a great question, but let's break it down to little pieces. All
+
+1:27:28.240 --> 1:27:32.400
+ right. On the one hand, it can make our life better in lots of simple ways. You mentioned
+
+1:27:32.400 --> 1:27:36.960
+ like a care robot or something that helps me do things. It cooks. I don't know what it does. Right.
+
+1:27:36.960 --> 1:27:42.080
+ Little things like that. We have super better, smarter cars. We can have, you know, better agents
+
+1:27:42.640 --> 1:27:46.800
+ aids helping us in our work environment and things like that. To me, that's like the easy stuff, the
+
+1:27:47.360 --> 1:27:53.200
+ simple stuff in the beginning. Um, um, and so in the same way that computers made our lives better
+
+1:27:53.200 --> 1:27:59.600
+ in ways, many, many ways, I will have those kinds of things. To me, the really exciting thing about AI
+
+1:28:00.560 --> 1:28:05.760
+ is the sort of it's transcendent, transcendent quality in terms of humanity. We're still
+
+1:28:05.760 --> 1:28:09.760
+ biological organisms. We're still stuck here on earth. It's going to be hard for us to live
+
+1:28:09.760 --> 1:28:14.960
+ anywhere else. Uh, I don't think you and I are going to want to live on Mars anytime soon. Um,
+
+1:28:14.960 --> 1:28:22.880
+ um, and, um, and we're flawed, you know, we may end up destroying ourselves. It's totally possible.
+
+1:28:23.440 --> 1:28:28.320
+ Uh, we, if not completely, we could destroy our civilizations. You know, it's this face the fact
+
+1:28:28.320 --> 1:28:33.680
+ we have issues here, but we can create intelligent machines that can help us in various ways. For
+
+1:28:33.680 --> 1:28:38.160
+ example, one example I gave, and that sounds a little sci fi, but I believe this. If we really
+
+1:28:38.160 --> 1:28:42.560
+ wanted to live on Mars, we'd have to have intelligent systems that go there and build
+
+1:28:42.560 --> 1:28:48.240
+ the habitat for us, not humans. Humans are never going to do this. It's just too hard. Um, but could
+
+1:28:48.240 --> 1:28:53.120
+ we have a thousand or 10,000, you know, engineer workers up there doing this stuff, building things,
+
+1:28:53.120 --> 1:28:57.840
+ terraforming Mars? Sure. Maybe we can move Mars. But then if we want to, if we want to go around
+
+1:28:57.840 --> 1:29:02.400
+ the universe, should I send my children around the universe or should I send some intelligent machine,
+
+1:29:02.400 --> 1:29:07.520
+ which is like a child that represents me and understands our needs here on earth that could
+
+1:29:07.520 --> 1:29:13.280
+ travel through space. Um, so it's sort of, it, in some sense, intelligence allows us to transcend
+
+1:29:13.280 --> 1:29:19.920
+ our, the limitations of our biology, uh, with, and, and don't think of it as a negative thing.
+
+1:29:19.920 --> 1:29:26.000
+ It's in some sense, my children transcend my, the, my biology too, cause they, they live beyond me.
+
+1:29:26.000 --> 1:29:30.480
+ Yeah. Um, and we impart, they represent me and they also have their own knowledge and I can
+
+1:29:30.480 --> 1:29:34.400
+ impart knowledge to them. So intelligent machines will be like that too, but not limited like us.
+
+1:29:34.400 --> 1:29:40.320
+ I mean, but the question is, um, there's so many ways that transcendence can happen
+
+1:29:40.320 --> 1:29:45.440
+ and the merger with AI and humans is one of those ways. So you said intelligent,
+
+1:29:46.960 --> 1:29:52.000
+ basically beings or systems propagating throughout the universe, representing us humans.
+
+1:29:53.280 --> 1:29:56.560
+ They represent us humans in the sense they represent our knowledge and our history,
+
+1:29:56.560 --> 1:30:04.240
+ not us individually. Right. Right. But I mean, the question is, is it just a database
+
+1:30:04.960 --> 1:30:09.600
+ with, uh, with the really damn good, uh, model of the world?
+
+1:30:09.600 --> 1:30:12.800
+ It's conscious, it's conscious just like us. Okay. But just different?
+
+1:30:12.800 --> 1:30:16.560
+ They're different. Uh, just like my children are different. They're like me, but they're
+
+1:30:16.560 --> 1:30:22.560
+ different. Um, these are more different. I guess maybe I've already, I kind of,
+
+1:30:22.560 --> 1:30:28.320
+ I take a very broad view of our life here on earth. I say, you know, why are we living here?
+
+1:30:28.320 --> 1:30:32.960
+ Are we just living because we live? Is it, are we surviving because we can survive? Are we fighting
+
+1:30:32.960 --> 1:30:38.880
+ just because we want to just keep going? What's the point of it? Right. So to me, the point,
+
+1:30:38.880 --> 1:30:46.000
+ if I asked myself, what's the point of life is what's transcends that ephemeral sort of biological
+
+1:30:46.000 --> 1:30:53.520
+ experience is to me, this is my answer is the acquisition of knowledge to understand more about
+
+1:30:53.520 --> 1:31:01.040
+ the universe, uh, and to explore. And that's partly to learn more. Right. Um, I don't view it as
+
+1:31:01.920 --> 1:31:09.040
+ a terrible thing. If the ultimate outcome of humanity is we create systems that are intelligent
+
+1:31:09.040 --> 1:31:13.680
+ that are offspring, but they're not like us at all. And we stay, we stay here and live on earth
+
+1:31:13.680 --> 1:31:20.960
+ as long as we can, which won't be forever, but as long as we can and, but that would be a great
+
+1:31:20.960 --> 1:31:29.760
+ thing to do. It's not a, it's not like a negative thing. Well, would, uh, you be okay then if, uh,
+
+1:31:29.760 --> 1:31:37.440
+ the human species vanishes, but our knowledge is preserved and keeps being expanded by intelligence
+
+1:31:37.440 --> 1:31:44.960
+ systems. I want our knowledge to be preserved and expanded. Yeah. Am I okay with humans dying? No,
+
+1:31:44.960 --> 1:31:50.400
+ I don't want that to happen. But if it, if it does happen, what if we were sitting here and this is
+
+1:31:50.400 --> 1:31:53.920
+ all the real, the last two people on earth and we're saying, Lex, we blew it. It's all over.
+
+1:31:53.920 --> 1:31:59.520
+ Right. Wouldn't I feel better if I knew that our knowledge was preserved and that we had agents
+
+1:32:00.080 --> 1:32:04.800
+ that knew about that, that were trans, you know, there were that left earth. I wouldn't want that.
+
+1:32:04.800 --> 1:32:08.240
+ Mm. It's better than not having that, you know, I make the analogy of like, you know,
+
+1:32:08.240 --> 1:32:11.520
+ the dinosaurs, the poor dinosaurs, they live for, you know, tens of millions of years.
+
+1:32:11.520 --> 1:32:15.840
+ They raised their kids. They, you know, they, they fought to survive. They were hungry. They,
+
+1:32:15.840 --> 1:32:20.960
+ they did everything we do. And then they're all gone. Yeah. Like, you know, and, and if we didn't
+
+1:32:20.960 --> 1:32:27.600
+ discover their bones, nobody would ever know that they ever existed. Right. Do we want to be like
+
+1:32:27.600 --> 1:32:32.720
+ that? I don't want to be like that. There's a sad aspect to it. And it's kind of, it's jarring to
+
+1:32:32.720 --> 1:32:39.600
+ think about that. It's possible that a human like intelligence civilization has previously existed
+
+1:32:39.600 --> 1:32:46.640
+ on earth. The reason I say this is like, it is jarring to think that we would not, if they went
+
+1:32:46.640 --> 1:32:53.040
+ extinct, we wouldn't be able to find evidence of them after a sufficient amount of time. Of course,
+
+1:32:53.040 --> 1:32:58.800
+ there's like, like basically humans, like if we destroy ourselves now, the human civilization
+
+1:32:58.800 --> 1:33:03.280
+ destroyed ourselves. Now, after a sufficient amount of time, we would not be, we'd find evidence of
+
+1:33:03.280 --> 1:33:08.640
+ the dinosaurs would not find evidence of humans. Yeah. That's kind of an odd thing to think about.
+
+1:33:08.640 --> 1:33:14.880
+ Although I'm not sure if we have enough knowledge about species going back for billions of years,
+
+1:33:14.880 --> 1:33:18.960
+ but we could, we could, we might be able to eliminate that possibility, but it's an interesting
+
+1:33:18.960 --> 1:33:23.200
+ question. Of course, this is a similar question to, you know, there were lots of intelligent
+
+1:33:23.200 --> 1:33:29.680
+ species throughout our galaxy that have all disappeared. That's super sad that they're,
+
+1:33:30.320 --> 1:33:36.000
+ exactly that there may have been much more intelligent alien civilizations in our galaxy
+
+1:33:36.000 --> 1:33:42.480
+ that are no longer there. Yeah. You actually talked about this, that humans might destroy
+
+1:33:42.480 --> 1:33:53.920
+ ourselves and how we might preserve our knowledge and advertise that knowledge to other. Advertise
+
+1:33:53.920 --> 1:33:58.080
+ is a funny word to use. From a PR perspective. There's no financial gain in this.
+
+1:34:00.720 --> 1:34:04.480
+ You know, like make it like from a tourism perspective, make it interesting. Can you
+
+1:34:04.480 --> 1:34:07.600
+ describe how you think about this problem? Well, there's a couple things. I broke it down
+
+1:34:07.600 --> 1:34:14.960
+ into two parts, actually three parts. One is, you know, there's a lot of things we know that,
+
+1:34:14.960 --> 1:34:19.280
+ what if, what if we were, what if we ended, what if our civilization collapsed? Yeah. I'm not
+
+1:34:19.280 --> 1:34:22.400
+ talking tomorrow. Yeah. We could be a thousand years from now, like, so, you know, we don't
+
+1:34:22.400 --> 1:34:26.720
+ really know, but, but historically it would be likely at some point. Time flies when you're
+
+1:34:26.720 --> 1:34:33.200
+ having fun. Yeah. That's a good way to put it. You know, could we, and then intelligent life
+
+1:34:33.200 --> 1:34:37.680
+ evolved again on this planet. Wouldn't they want to know a lot about us and what we knew? Wouldn't
+
+1:34:37.680 --> 1:34:42.000
+ they wouldn't be able to ask us questions? So one very simple thing I said, how would we archive
+
+1:34:42.000 --> 1:34:46.080
+ what we know? That was a very simple idea. I said, you know what, that wouldn't be that hard to put
+
+1:34:46.080 --> 1:34:51.200
+ a few satellites, you know, going around the sun and we'd upload Wikipedia every day and that kind
+
+1:34:51.200 --> 1:34:55.600
+ of thing. So, you know, if we end up killing ourselves, well, it's up there and the next intelligent
+
+1:34:55.600 --> 1:34:58.720
+ species will find it and learn something. They would like that. They would appreciate that.
+
+1:34:58.720 --> 1:35:05.360
+ Um, uh, so that's one thing. The next thing I said, well, what if, you know, how outside,
+
+1:35:05.360 --> 1:35:09.680
+ outside of our solar system, we have the SETI program. We're looking for these intelligent
+
+1:35:09.680 --> 1:35:14.320
+ signals from everybody. And if you do a little bit of math, which I did in the book, uh, and
+
+1:35:14.320 --> 1:35:18.800
+ you say, well, what if intelligent species only live for 10,000 years before, you know,
+
+1:35:18.800 --> 1:35:22.560
+ technologically intelligent species, like ones are really able to do the stuff we're just starting
+
+1:35:22.560 --> 1:35:26.800
+ to be able to do. Um, well, the chances are we wouldn't be able to see any of them because they
+
+1:35:26.800 --> 1:35:31.040
+ would have all been disappeared by now. Um, they would, they've lived for 10,000 years and now
+
+1:35:31.040 --> 1:35:36.080
+ they're gone. And so we're not going to find these signals being sent from these people because, um,
+
+1:35:36.080 --> 1:35:40.560
+ but I said, what kind of signal could you create that would last a million years or a billion years
+
+1:35:41.120 --> 1:35:46.080
+ that someone would say, dammit, someone smart lived there that we know that that would be a
+
+1:35:46.080 --> 1:35:49.760
+ life changing event for us to figure that out. Well, what we're looking for today in the study
+
+1:35:49.760 --> 1:35:54.560
+ program, isn't that we're looking for very coded signals in some sense. Um, and so I asked myself,
+
+1:35:54.560 --> 1:35:58.160
+ what would be a different type of signal one could create? Um, I've always thought about
+
+1:35:58.160 --> 1:36:04.480
+ this throughout my life. And in the book, I gave one, one possible suggestion, which was, um, uh,
+
+1:36:04.480 --> 1:36:11.040
+ we now detect planets going around other, other suns, uh, other stars, uh, excuse me. And we do
+
+1:36:11.040 --> 1:36:14.800
+ that by seeing this, the, the slight dimming of the light as the planets move in front of them.
+
+1:36:14.800 --> 1:36:21.040
+ That's how, uh, we detect, uh, planets elsewhere in our galaxy. Um, what if we created something
+
+1:36:21.040 --> 1:36:26.480
+ like that, that just rotated around our, our, our, around the sun and it blocked out a little
+
+1:36:26.480 --> 1:36:31.760
+ bit of light in a particular pattern that someone said, Hey, that's not a planet. That is a sign
+
+1:36:31.760 --> 1:36:36.000
+ that someone was once there. You can say, what if it's beating up pie, you know, three point,
+
+1:36:36.000 --> 1:36:44.960
+ whatever. Um, so I did it from a distance. Broadly broadcast takes no continue activation on our
+
+1:36:44.960 --> 1:36:48.320
+ part. This is the key, right? No one has to be senior running a computer and supplying it with
+
+1:36:48.320 --> 1:36:55.200
+ power. It just goes on. So we go, it's continuous. And, and I argued that part of the study program
+
+1:36:55.200 --> 1:36:58.880
+ should be looking for signals like that. And to look for signals like that, you ought to figure
+
+1:36:58.880 --> 1:37:03.440
+ out what the, how would we create a signal? Like what would we create that would be like that,
+
+1:37:03.440 --> 1:37:07.680
+ that would persist for millions of years that would be broadcast broadly. You could see from
+
+1:37:07.680 --> 1:37:13.760
+ a distance that was unequivocal, came from an intelligent species. And so I gave that one
+
+1:37:13.760 --> 1:37:18.480
+ example. Um, cause they don't know what I know of actually. And then, and then finally, right.
+
+1:37:19.760 --> 1:37:26.640
+ If, if our, ultimately our solar system will die at some point in time, you know, how do we go
+
+1:37:26.640 --> 1:37:31.600
+ beyond that? And I think it's possible if it all possible, we'll have to create intelligent machines
+
+1:37:31.600 --> 1:37:36.880
+ that travel throughout the, throughout the solar system or the galaxy. And I don't think that's
+
+1:37:36.880 --> 1:37:41.040
+ going to be humans. I don't think it's going to be biological organisms. So these are just things to
+
+1:37:41.040 --> 1:37:44.560
+ think about, you know, like, what's the old, you know, I don't want to be like the dinosaur. I
+
+1:37:44.560 --> 1:37:48.400
+ don't want to just live in, okay, that was it. We're done. You know, well, there is a kind of
+
+1:37:48.400 --> 1:37:55.280
+ presumption that we're going to live forever, which, uh, I think it is a bit sad to imagine
+
+1:37:55.280 --> 1:38:03.680
+ that the message we send as, as you talk about is that we were once here instead of we are here.
+
+1:38:03.680 --> 1:38:09.520
+ Well, it could be, we are still here. Uh, but it's more of a, it's more of an insurance policy
+
+1:38:09.520 --> 1:38:16.080
+ in case we're not here, you know? Well, I don't know, but there is something I think about,
+
+1:38:16.080 --> 1:38:22.080
+ we as humans don't often think about this, but it's like, like whenever I, um,
+
+1:38:23.680 --> 1:38:28.160
+ record a video, I've done this a couple of times in my life. I've recorded a video for my future
+
+1:38:28.160 --> 1:38:34.400
+ self, just for personal, just for fun. And it's always just fascinating to think about
+
+1:38:34.400 --> 1:38:41.600
+ that preserving yourself for future civilizations. For me, it was preserving myself for a future me,
+
+1:38:41.600 --> 1:38:46.160
+ but that's a little, that's a little fun example of archival.
+
+1:38:46.160 --> 1:38:50.720
+ Well, these podcasts are, are, are preserving you and I in a way. Yeah. For future,
+
+1:38:51.280 --> 1:38:56.640
+ hopefully well after we're gone. But you don't often, we're sitting here talking about this.
+
+1:38:56.640 --> 1:39:02.800
+ You are not thinking about the fact that you and I are going to die and there'll be like 10 years
+
+1:39:02.800 --> 1:39:09.440
+ after somebody watching this and we're still alive. You know, in some sense I do. I'm here
+
+1:39:09.440 --> 1:39:16.720
+ cause I want to talk about ideas and these ideas transcend me and they transcend this time and, and
+
+1:39:16.720 --> 1:39:23.520
+ on our planet. Um, we're talking here about ideas that could be around a thousand years from now.
+
+1:39:23.520 --> 1:39:29.360
+ Or a million years from now. I, when I wrote my book, I had an audience in mind and one of the
+
+1:39:29.360 --> 1:39:35.200
+ clearest audiences was aliens. No. Were people reading this a hundred years from now? Yes.
+
+1:39:35.200 --> 1:39:39.360
+ I said to myself, how do I make this book relevant to someone reading this a hundred years from now?
+
+1:39:39.360 --> 1:39:44.160
+ What would they want to know that we were thinking back then? What would make it like,
+
+1:39:44.160 --> 1:39:49.360
+ that was an interesting, it's still an interesting book. I'm not sure I can achieve that, but that was
+
+1:39:49.360 --> 1:39:53.440
+ how I thought about it because these ideas, like especially in the third part of the book, the ones
+
+1:39:53.440 --> 1:39:56.960
+ we were just talking about, you know, these crazy, sounds like crazy ideas about, you know,
+
+1:39:56.960 --> 1:40:01.680
+ storing our knowledge and, and, you know, merging our brains with computers and, and sending, you
+
+1:40:01.680 --> 1:40:07.360
+ know, our machines out into space. It's not going to happen in my lifetime. Um, and they may not
+
+1:40:07.360 --> 1:40:10.640
+ have been happening in the next hundred years. They may not happen for a thousand years. Who knows?
+
+1:40:10.640 --> 1:40:17.440
+ Uh, but we have the unique opportunity right now. We, you, me, and other people in the world,
+
+1:40:17.440 --> 1:40:24.640
+ right now, we, you, me, and other people like this, um, to sort of at least propose the agenda,
+
+1:40:24.640 --> 1:40:29.840
+ um, that might impact the future like that. That's a fascinating way to think, uh, both like
+
+1:40:29.840 --> 1:40:37.680
+ writing or creating, try to make, try to create ideas, try to create things that, uh, hold up
+
+1:40:38.400 --> 1:40:42.240
+ in time. Yeah. You know, when understanding how the brain works, we're going to figure that out
+
+1:40:42.240 --> 1:40:46.720
+ once. That's it. It's going to be figured out once. And after that, that's the answer. And
+
+1:40:46.720 --> 1:40:51.600
+ people will, people will study that thousands of years now. We still, we still, you know,
+
+1:40:51.600 --> 1:40:59.040
+ venerate Newton and, and Einstein and, um, and, you know, because, because ideas are exciting,
+
+1:40:59.040 --> 1:41:04.800
+ even well into the future. Well, the interesting thing is like big ideas, even if they're wrong,
+
+1:41:05.520 --> 1:41:12.800
+ are still useful. Like, yeah, especially if they're not completely wrong, right? Right.
+
+1:41:12.800 --> 1:41:19.840
+ Newton's laws are not wrong. They're just Einstein's they're better. Um, so yeah, I mean,
+
+1:41:19.840 --> 1:41:23.440
+ but we're talking with Newton and Einstein, we're talking about physics. I wonder if we'll ever
+
+1:41:23.440 --> 1:41:30.880
+ achieve that kind of clarity, but understanding, um, like complex systems and the, this particular
+
+1:41:30.880 --> 1:41:36.160
+ manifestation of complex systems, which is the human brain. I'm totally optimistic. We can do
+
+1:41:36.160 --> 1:41:41.440
+ that. I mean, we're making progress at it. I don't see any reasons why we can't completely. I mean,
+
+1:41:41.440 --> 1:41:46.080
+ completely understand in the sense, um, you know, we don't really completely understand what all
+
+1:41:46.080 --> 1:41:50.080
+ the molecules in this water bottle are doing, but, you know, we have laws that sort of capture it
+
+1:41:50.080 --> 1:41:54.960
+ pretty good. Um, and, uh, so we'll have that kind of understanding. I mean, it's not like you're
+
+1:41:54.960 --> 1:42:00.880
+ gonna have to know what every neuron in your brain is doing. Um, but enough to, um, first of all,
+
+1:42:00.880 --> 1:42:06.400
+ to build it. And second of all, to do, you know, do what physics does, which is like have, uh,
+
+1:42:06.400 --> 1:42:12.400
+ concrete experiments where we can validate this is happening right now. Like it's not,
+
+1:42:12.400 --> 1:42:17.760
+ this is not some future thing. Um, you know, I'm very optimistic about it because I know about our,
+
+1:42:17.760 --> 1:42:22.320
+ our work and what we're doing. We'll have to prove it to people. Um, but, um,
+
+1:42:24.480 --> 1:42:30.640
+ I, I consider myself a rational person and, um, you know, until fairly recently,
+
+1:42:30.640 --> 1:42:33.840
+ I wouldn't have said that, but right now I'm, where I'm sitting right now, I'm saying, you know,
+
+1:42:33.840 --> 1:42:39.200
+ we, we could, this is going to happen. There's no big obstacles to it. Um, we finally have a
+
+1:42:39.200 --> 1:42:44.960
+ framework for understanding what's going on in the cortex and, um, and that's liberating. It's,
+
+1:42:44.960 --> 1:42:50.080
+ it's like, Oh, it's happening. So I can't see why we wouldn't be able to understand it. I just can't.
+
+1:42:50.880 --> 1:42:54.560
+ Okay. So, I mean, on that topic, let me ask you to play devil's advocate.
+
+1:42:54.560 --> 1:43:02.320
+ Is it possible for you to imagine, look, look a hundred years from now and looking at your book,
+
+1:43:02.320 --> 1:43:09.840
+ uh, in which ways might your ideas be wrong? Oh, I worry about this all the time. Um,
+
+1:43:11.840 --> 1:43:15.200
+ yeah, it's still useful. Yeah. Yeah.
+
+1:43:15.200 --> 1:43:24.800
+ Yeah. I think there's, you know, um, well I can, I can best relate it to like things I'm worried
+
+1:43:24.800 --> 1:43:29.920
+ about right now. So we talked about this voting idea, right? It's happening. There's no question.
+
+1:43:29.920 --> 1:43:36.480
+ It's happening, but it could be far more, um, um, there's, there's enough things I don't know about
+
+1:43:36.480 --> 1:43:41.520
+ it that it might be working into ways differently than I'm thinking about the kind of what's voting,
+
+1:43:41.520 --> 1:43:45.680
+ who's voting, you know, where are representations? I talked about, like, you have a thousand models
+
+1:43:45.680 --> 1:43:52.320
+ of a coffee cup like that. That could turn out to be wrong. Um, because it may be, maybe there are a
+
+1:43:52.320 --> 1:43:56.400
+ thousand models that are sub models, but not really a single model of the coffee cup. Um,
+
+1:43:57.120 --> 1:44:02.000
+ I mean, there's things, these are all sort of on the edges, things that I present as like,
+
+1:44:02.000 --> 1:44:05.440
+ Oh, it's so simple and clean. Well, it's not that it's always going to be more complex.
+
+1:44:05.440 --> 1:44:14.640
+ And, um, and there's parts of the theory, which I don't understand the complexity well. So I think,
+
+1:44:14.640 --> 1:44:19.440
+ I think the idea that this brain is a distributed modeling system is not controversial at all. Right.
+
+1:44:19.440 --> 1:44:22.720
+ It's not, that's well understood by many people. The question then is,
+
+1:44:22.720 --> 1:44:29.040
+ are each quarter of a column an independent modeling system? Um, I could be wrong about that.
+
+1:44:29.040 --> 1:44:35.600
+ Um, I don't think so, but I worry about it. My intuition, not even thinking why you could
+
+1:44:35.600 --> 1:44:41.440
+ be wrong is the same intuition I have about any sort of physicist, uh, like string theory
+
+1:44:42.480 --> 1:44:50.160
+ that we as humans desire for a clean explanation. And, uh, a hundred years from now, uh,
+
+1:44:50.160 --> 1:44:56.560
+ intelligent systems might look back at us and laugh at how we try to get rid of the whole mess
+
+1:44:56.560 --> 1:45:03.680
+ by having simple explanation when the reality is it's way messier. And in fact, it's impossible
+
+1:45:03.680 --> 1:45:08.960
+ to understand. You can only build it. It's like this idea of complex systems and cellular automata
+
+1:45:08.960 --> 1:45:13.840
+ is you can only launch the thing. You cannot understand it. Yeah. I think that, you know,
+
+1:45:13.840 --> 1:45:19.520
+ the history of science suggests that's not likely to occur. Um, the history of science suggests that
+
+1:45:20.240 --> 1:45:25.920
+ as a theorist and we're theorists, you look for simple explanations, right? Fully knowing
+
+1:45:25.920 --> 1:45:30.640
+ that whatever simple explanation you're going to come up with is not going to be completely correct.
+
+1:45:30.640 --> 1:45:35.840
+ I mean, it can't be, I mean, it's just, it's just more complexity, but that's the role of theorists
+
+1:45:35.840 --> 1:45:41.600
+ play. They, they sort of, they give you a framework on which you now can talk about a problem and
+
+1:45:41.600 --> 1:45:46.480
+ figure out, okay, now we can start digging more details. The best frameworks stick around while
+
+1:45:46.480 --> 1:45:53.440
+ the details change. You know, again, you know, the classic example is Newton and Einstein, right? You
+
+1:45:53.440 --> 1:46:00.000
+ know, um, Newton's theories are still used. They're still valuable. They're still practical. They're
+
+1:46:00.000 --> 1:46:05.120
+ not like wrong. It's just, they've been refined. Yeah. But that's in physics. It's not obvious,
+
+1:46:05.120 --> 1:46:10.400
+ by the way, it's not obvious for physics either that the universe should be such that's amenable
+
+1:46:10.400 --> 1:46:17.920
+ to these simple. But it's so far, it appears to be as far as we can tell. Um, yeah. I mean,
+
+1:46:17.920 --> 1:46:23.040
+ but as far as we could tell, and, but it's also an open question whether the brain is amenable to
+
+1:46:23.040 --> 1:46:28.960
+ such clean theories. That's the, uh, not the brain, but intelligence. Well, I, I, I don't know. I would
+
+1:46:28.960 --> 1:46:37.120
+ take intelligence out of it. Just say, you know, um, well, okay. Um, the evidence we have suggests
+
+1:46:37.120 --> 1:46:42.960
+ that the human brain is, is a, at the one time extremely messy and complex, but there's some
+
+1:46:42.960 --> 1:46:48.240
+ parts that are very regular and structured. That's why we started the neocortex. It's extremely
+
+1:46:48.240 --> 1:46:53.440
+ regular in its structure. Yeah. And unbelievably so. And then I mentioned earlier, the other thing is
+
+1:46:53.440 --> 1:47:00.560
+ it's, it's universal abilities. It is so flexible to learn so many things. We don't, we haven't
+
+1:47:00.560 --> 1:47:03.440
+ figured out what it can't learn yet. We don't know, but we haven't figured it out yet, but it
+
+1:47:03.440 --> 1:47:09.040
+ can learn things that it never was evolved to learn. So those give us hope. Um, that's why I
+
+1:47:09.040 --> 1:47:14.880
+ went into this field because I said, you know, this regular structure, it's doing this amazing
+
+1:47:14.880 --> 1:47:19.680
+ number of things. There's gotta be some underlying principles that are, that are common and other,
+
+1:47:19.680 --> 1:47:25.600
+ other scientists have come up with the same conclusions. Um, and so it's promising and,
+
+1:47:25.600 --> 1:47:32.400
+ um, and that's, and whether the theories play out exactly this way or not, that is the role that
+
+1:47:32.400 --> 1:47:38.080
+ theorists play. And so far it's worked out well, even though, you know, maybe, you know, we don't
+
+1:47:38.080 --> 1:47:42.000
+ understand all the laws of physics, but so far it's been pretty damn useful. The ones we have
+
+1:47:42.000 --> 1:47:49.280
+ are our theories are pretty useful. You mentioned that, uh, we should not necessarily be,
+
+1:47:49.840 --> 1:47:54.400
+ at least to the degree that we are worried about the existential risks of artificial intelligence
+
+1:47:55.200 --> 1:48:02.080
+ relative to, uh, human risks from human nature being existential risk.
+
+1:48:02.720 --> 1:48:07.600
+ What aspect of human nature worries you the most in terms of the survival of the human species?
+
+1:48:07.600 --> 1:48:15.440
+ I mean, I'm disappointed in humanity, humans. I mean, all of us, I'm one. So I'm disappointed
+
+1:48:15.440 --> 1:48:23.200
+ myself too. Um, it's kind of a sad state. There's two things that disappoint me. One is
+
+1:48:24.880 --> 1:48:30.640
+ how it's difficult for us to separate our rational component of ourselves from our evolutionary
+
+1:48:30.640 --> 1:48:38.800
+ heritage, which is, you know, not always pretty, you know, um, uh, rape is a, is an evolutionary
+
+1:48:38.800 --> 1:48:45.760
+ good strategy for reproduction. Murder can be at times too, you know, making other people miserable
+
+1:48:45.760 --> 1:48:50.640
+ at times is a good strategy for reproduction. It's just, and it's just, and, and so now that
+
+1:48:50.640 --> 1:48:54.640
+ we know that, and yet we have this sort of, you know, we, you and I can have this very rational
+
+1:48:54.640 --> 1:48:59.680
+ discussion talking about, you know, intelligence and brains and life and so on. So many, it seems
+
+1:48:59.680 --> 1:49:05.520
+ like it's so hard. It's just a big, big transition to get humans, all humans to, to make the
+
+1:49:05.520 --> 1:49:11.360
+ transition from be like, let's pay no attention to all that ugly stuff over here. Let's just focus
+
+1:49:11.360 --> 1:49:16.720
+ on the interesting. What's unique about humanity is our knowledge and our intellect. But the fact
+
+1:49:16.720 --> 1:49:22.480
+ that we're striving is in itself amazing, right? The fact that we're able to overcome that part.
+
+1:49:22.480 --> 1:49:28.720
+ And it seems like we are more and more becoming successful at overcoming that part. That is the
+
+1:49:28.720 --> 1:49:33.760
+ optimistic view. And I agree with you, but I worry about it. I'm not saying I'm worrying about it. I
+
+1:49:33.760 --> 1:49:38.320
+ think that was your question. I still worry about it. Yes. You know, we could be in tomorrow because
+
+1:49:38.320 --> 1:49:43.200
+ some terrorists could get nuclear bombs and, you know, blow us all up. Who knows? Right. The other
+
+1:49:43.200 --> 1:49:47.760
+ thing I think I'm disappointed is, and it's just, I understand it. It's, I guess you can't really
+
+1:49:47.760 --> 1:49:53.120
+ be disappointed. It's just a fact is that we're so prone to false beliefs that we, you know, we have
+
+1:49:53.120 --> 1:50:00.080
+ a model in our head, the things we can interact with directly, physical objects, people, that
+
+1:50:00.080 --> 1:50:04.800
+ model is pretty good. And we can test it all the time, right? I touch something, I look at it,
+
+1:50:04.800 --> 1:50:09.760
+ talk to you, see if my model is correct. But so much of what we know is stuff I can't directly
+
+1:50:09.760 --> 1:50:16.560
+ interact with. I only know because someone told me about it. And so we're prone, inherently prone
+
+1:50:16.560 --> 1:50:20.560
+ to having false beliefs because if I'm told something, how am I going to know it's right
+
+1:50:20.560 --> 1:50:26.800
+ or wrong? Right. And so then we have the scientific process, which says we are inherently flawed.
+
+1:50:26.800 --> 1:50:34.800
+ So the only way we can get closer to the truth is by looking for contrary evidence.
+
+1:50:34.800 --> 1:50:41.600
+ Yeah. Like this conspiracy theory, this theory that scientists keep telling me about that the
+
+1:50:41.600 --> 1:50:46.960
+ earth is round. As far as I can tell, when I look out, it looks pretty flat.
+
+1:50:46.960 --> 1:50:55.440
+ Yeah. So, yeah, there is a tension, but it's also, I tend to believe that we haven't figured
+
+1:50:55.440 --> 1:51:02.240
+ out most of this thing, right? Most of nature around us is a mystery. And so it...
+
+1:51:02.240 --> 1:51:06.080
+ But that doesn't, does that worry you? I mean, it's like, oh, that's like a pleasure,
+
+1:51:06.080 --> 1:51:09.760
+ more to figure out, right? Yeah. That's exciting. But I'm saying like
+
+1:51:09.760 --> 1:51:16.320
+ there's going to be a lot of quote unquote, wrong ideas. I mean, I've been thinking a lot about
+
+1:51:16.320 --> 1:51:21.120
+ engineering systems like social networks and so on. And I've been worried about censorship
+
+1:51:21.760 --> 1:51:25.520
+ and thinking through all that kind of stuff, because there's a lot of wrong ideas. There's a
+
+1:51:25.520 --> 1:51:33.360
+ lot of dangerous ideas, but then I also read a history, read history and see when you censor
+
+1:51:33.360 --> 1:51:39.760
+ ideas that are wrong. Now this could be a small scale censorship, like a young grad student who
+
+1:51:39.760 --> 1:51:46.320
+ comes up, who like raises their hand and says some crazy idea. A form of censorship could be,
+
+1:51:46.320 --> 1:51:52.000
+ I shouldn't use the word censorship, but like de incentivize them from no, no, no, no,
+
+1:51:52.000 --> 1:51:54.800
+ this is the way it's been done. Yeah. Yeah. You're a foolish kid. Don't
+
+1:51:54.800 --> 1:51:57.600
+ think that's it. Yeah. You're foolish. So in some sense,
+
+1:51:59.760 --> 1:52:05.520
+ those wrong ideas, most of the time end up being wrong, but sometimes end up being
+
+1:52:05.520 --> 1:52:11.280
+ I agree with you. So I don't like the word censorship. Um, at the very end of the book, I,
+
+1:52:11.280 --> 1:52:20.000
+ I ended up with a sort of a, um, a plea or a recommended force of action. Um, the best way I
+
+1:52:20.000 --> 1:52:26.240
+ could, I know how to deal with this issue that you bring up is if everybody understood as part of
+
+1:52:26.240 --> 1:52:31.120
+ your upbringing in life, something about how your brain works, that it builds a model of the world,
+
+1:52:31.120 --> 1:52:34.960
+ uh, how it works, you know, how basically it builds that model of the world and that the model
+
+1:52:34.960 --> 1:52:39.760
+ is not the real world. It's just a model and it's never going to reflect the entire world. And it
+
+1:52:39.760 --> 1:52:44.320
+ can be wrong and it's easy to be wrong. And here's all the ways you can get a wrong model in your
+
+1:52:44.320 --> 1:52:50.960
+ head. Right? It's not prescribed what's right or wrong. Just understand that process. If we all
+
+1:52:50.960 --> 1:52:54.720
+ understood the processes and I got together and you say, I disagree with you, Jeff. And I said,
+
+1:52:54.720 --> 1:52:59.680
+ Lex, I disagree with you that at least we understand that we're both trying to model
+
+1:52:59.680 --> 1:53:03.760
+ something. We both have different information, which leads to our different models. And therefore
+
+1:53:03.760 --> 1:53:07.760
+ I shouldn't hold it against you and you shouldn't hold it against me. And we can at least agree that,
+
+1:53:07.760 --> 1:53:13.600
+ well, what can we look for in that's common ground to test our, our beliefs, as opposed to so much,
+
+1:53:13.600 --> 1:53:20.080
+ uh, as we raise our kids on dogma, which is this is a fact, this is a fact, and these people are
+
+1:53:20.080 --> 1:53:31.120
+ bad. And, and, and, you know, where every, if everyone knew just to, to be skeptical of every
+
+1:53:31.120 --> 1:53:35.440
+ belief and why, and how their brains do that, I think we might have a better world.
+
+1:53:36.560 --> 1:53:45.600
+ Do you think the human mind is able to comprehend reality? So you talk about this creating models
+
+1:53:45.600 --> 1:53:51.440
+ how close do you think we get to, uh, to reality? There's so the wildest ideas is like Donald
+
+1:53:51.440 --> 1:53:56.560
+ Hoffman saying, we're very far away from reality. Do you think we're getting close to reality?
+
+1:53:56.560 --> 1:54:02.000
+ Well, it depends on what you define reality. Uh, we are getting, we have a model of the world
+
+1:54:02.000 --> 1:54:10.000
+ that's very useful, right? For, for basic goals. Well, for our survival and our pleasure right
+
+1:54:10.000 --> 1:54:16.560
+ now. Right. Um, so that's useful. Um, I mean, it's really useful. Oh, we can build planes. We can build computers. We can do these things. Right.
+
+1:54:17.200 --> 1:54:24.080
+ Uh, I don't think, I don't know the answer to that question. Um, I think that's part of the
+
+1:54:24.080 --> 1:54:27.920
+ question we're trying to figure out, right? Like, you know, obviously if you end up with a theory of
+
+1:54:27.920 --> 1:54:32.960
+ everything that really is a theory of everything and all of a sudden everything comes into play
+
+1:54:32.960 --> 1:54:37.120
+ and there's no room for something else, then you might feel like we have a good model of the world.
+
+1:54:37.120 --> 1:54:41.440
+ Yeah. But if we have a theory of everything and somehow, first of all, you'll never be able to
+
+1:54:41.440 --> 1:54:46.480
+ really conclusively say it's a theory of everything, but say somehow we are very damn sure it's a theory
+
+1:54:46.480 --> 1:54:51.680
+ of everything. We understand what happened at the big bang and how just the entirety of the
+
+1:54:51.680 --> 1:54:57.120
+ physical process. I'm still not sure that gives us an understanding of, uh, the next
+
+1:54:58.240 --> 1:55:03.600
+ many layers of the hierarchy of abstractions that form. Well, also what if string theory
+
+1:55:03.600 --> 1:55:09.360
+ turns out to be true? And then you say, well, we have no reality, no modeling what's going on in
+
+1:55:09.360 --> 1:55:14.320
+ those other dimensions that are wrapped into it on each other. Right. Or, or the multiverse,
+
+1:55:14.880 --> 1:55:21.600
+ you know, I honestly don't know how for us, for human interaction, for ideas of intelligence,
+
+1:55:21.600 --> 1:55:25.520
+ how it helps us to understand that we're made up of vibrating strings that are
+
+1:55:26.800 --> 1:55:33.040
+ like 10 to the whatever times smaller than us. I don't, you know, you could probably build better
+
+1:55:33.040 --> 1:55:37.200
+ weapons, a better rockets, but you're not going to be able to understand intelligence. I guess,
+
+1:55:37.200 --> 1:55:41.680
+ I guess maybe better computers. No, you won't be. I think it's just more purely knowledge.
+
+1:55:41.680 --> 1:55:45.440
+ You might lead to a better understanding of the, of the beginning of the universe,
+
+1:55:46.240 --> 1:55:52.720
+ right? It might lead to a better understanding of, uh, I don't know. I guess I think the acquisition
+
+1:55:52.720 --> 1:56:01.200
+ of knowledge has always been one where you, you pursue it for its own pleasure. Um, and you don't
+
+1:56:01.200 --> 1:56:06.400
+ always know what is going to make a difference. Yeah. Uh, you're pleasantly surprised by the,
+
+1:56:06.400 --> 1:56:11.760
+ the weird things you find. Do you think, uh, for the, for the neocortex in general, do you,
+
+1:56:11.760 --> 1:56:16.320
+ do you think there's a lot of innovation to be done on the machine side? You know,
+
+1:56:16.960 --> 1:56:21.600
+ you use the computer as a metaphor quite a bit. Is there different types of computer that would
+
+1:56:21.600 --> 1:56:26.880
+ help us build intelligence manifestations of intelligent machines? Yeah. Or is it, oh no,
+
+1:56:26.880 --> 1:56:31.920
+ it's going to be totally crazy. Uh, we have no idea how this is going to look out yet.
+
+1:56:32.720 --> 1:56:37.760
+ You can already see this. Um, today we've, of course, we model these things on traditional
+
+1:56:37.760 --> 1:56:43.840
+ computers and now, now GPUs are really popular with, with, uh, you know, neural networks and so
+
+1:56:43.840 --> 1:56:50.640
+ on. Um, but there are companies coming up with fundamentally new physical substrates, um, that
+
+1:56:50.640 --> 1:56:55.840
+ are just really cool. I don't know if they're going to work or not. Um, but I think there'll
+
+1:56:55.840 --> 1:57:01.360
+ be decades of innovation here. Yeah. Totally. Do you think the final thing will be messy,
+
+1:57:01.360 --> 1:57:07.360
+ like our biology is messy? Or do you think, uh, it's, it's the, it's the old bird versus
+
+1:57:07.360 --> 1:57:16.320
+ airplane question, or do you think we could just, um, build airplanes that, that fly way better
+
+1:57:16.320 --> 1:57:23.280
+ than birds in the same way we could build, uh, uh, electrical neocortex? Yeah. You know,
+
+1:57:23.280 --> 1:57:26.400
+ can I, can I, can I riff on the bird thing a bit? Because I think that's interesting.
+
+1:57:27.040 --> 1:57:33.120
+ People really misunderstand this. The Wright brothers, um, the problem they were trying to
+
+1:57:33.120 --> 1:57:38.320
+ solve was controlled flight, how to turn an airplane, not how to propel an airplane.
+
+1:57:38.320 --> 1:57:41.600
+ They weren't worried about that. Interesting. Yeah. They already had, at that time,
+
+1:57:41.600 --> 1:57:45.520
+ there was already wing shapes, which they had from studying birds. There was already gliders
+
+1:57:45.520 --> 1:57:49.440
+ that carry people. The problem was if you put a rudder on the back of a glider and you turn it,
+
+1:57:49.440 --> 1:57:55.680
+ the plane falls out of the sky. So the problem was how do you control flight? And they studied
+
+1:57:55.680 --> 1:58:00.240
+ birds and they actually had birds in captivity. They watched birds in wind tunnels. They observed
+
+1:58:00.240 --> 1:58:05.200
+ them in the wild and they discovered the secret was the birds twist their wings when they turn.
+
+1:58:05.200 --> 1:58:07.840
+ And so that's what they did on the Wright brothers flyer. They had these sticks that
+
+1:58:07.840 --> 1:58:12.320
+ you would twist the wing. And that was the, that was their innovation, not the propeller.
+
+1:58:12.320 --> 1:58:16.720
+ And today airplanes still twist their wings. We don't twist the entire wing. We just twist
+
+1:58:16.720 --> 1:58:22.000
+ the tail end of it, the flaps, which is the same thing. So today's airplanes fly on the
+
+1:58:22.000 --> 1:58:26.960
+ same principles as birds would observe. So everyone get that analogy wrong, but let's
+
+1:58:26.960 --> 1:58:32.640
+ step back from that. Once you understand the principles of flight, you can choose
+
+1:58:32.640 --> 1:58:39.120
+ how to implement them. No one's going to use bones and feathers and muscles, but they do have wings
+
+1:58:39.120 --> 1:58:45.040
+ and we don't flap them. We have propellers. So when we have the principles of computation that
+
+1:58:45.040 --> 1:58:49.440
+ goes on to modeling the world in a brain, we understand those principles very clearly.
+
+1:58:50.160 --> 1:58:54.400
+ We have choices on how to implement them. And some of them will be biological like and some won't.
+
+1:58:54.400 --> 1:58:59.600
+ And, but I do think there's going to be a huge amount of innovation here.
+
+1:58:59.600 --> 1:59:03.920
+ Just think about the innovation when in the computer, they had to invent the transistor,
+
+1:59:03.920 --> 1:59:09.200
+ they invented the Silicon chip. They had to invent, you know, then this software. I mean,
+
+1:59:09.200 --> 1:59:13.360
+ it's millions of things they had to do, memory systems. We're going to do, it's going to be
+
+1:59:13.360 --> 1:59:19.760
+ similar. Well, it's interesting that the deep learning, the effectiveness of deep learning for
+
+1:59:19.760 --> 1:59:26.480
+ specific tasks is driving a lot of innovation in the hardware, which may have effects for actually
+
+1:59:27.120 --> 1:59:31.760
+ allowing us to discover intelligence systems that operate very differently or at least much
+
+1:59:31.760 --> 1:59:37.040
+ bigger than deep learning. Yeah. Interesting. So ultimately it's good to have an application
+
+1:59:37.040 --> 1:59:42.960
+ that's making our life better now because the capitalist process, if you can make money.
+
+1:59:42.960 --> 1:59:48.080
+ Yeah. Yeah. That works. I mean, the other way, I mean, Neil deGrasse Tyson writes about this
+
+1:59:48.080 --> 1:59:53.360
+ is the other way we fund science, of course, is through military. So like, yeah. Conquests.
+
+1:59:53.360 --> 1:59:57.920
+ So here's an interesting thing we're doing on this regard. So we've decided, we used to have
+
+1:59:57.920 --> 2:00:01.360
+ a series of these biological principles and we can see how to build these intelligent machines,
+
+2:00:01.920 --> 2:00:06.480
+ but we've decided to apply some of these principles to today's machine learning techniques.
+
+2:00:07.280 --> 2:00:11.600
+ So one of the, we didn't talk about this principle. One is a sparsity in the brain,
+
+2:00:11.600 --> 2:00:15.440
+ um, most of the neurons are active at any point in time. It's sparse and the connectivity is sparse
+
+2:00:15.440 --> 2:00:20.800
+ and that's different than deep learning networks. Um, so we've already shown that we can speed up
+
+2:00:20.800 --> 2:00:26.400
+ existing deep learning networks, uh, anywhere from 10 to a factor of a hundred. I mean,
+
+2:00:26.400 --> 2:00:31.760
+ literally a hundred, um, and make a more robust at the same time. So this is commercially very,
+
+2:00:31.760 --> 2:00:38.960
+ very valuable. Um, and so, you know, if we can prove this actually in the largest systems that
+
+2:00:38.960 --> 2:00:44.240
+ are commercially applied today, there's a big commercial desire to do this. Well,
+
+2:00:44.240 --> 2:00:50.640
+ sparsity is something that doesn't run really well on existing hardware. It doesn't really run
+
+2:00:50.640 --> 2:00:58.800
+ really well, um, on, um, GPUs, um, and on CPUs. And so that would be a way of sort of bringing more,
+
+2:00:59.520 --> 2:01:03.920
+ more brain principles into the existing system on a, on a commercially valuable basis.
+
+2:01:03.920 --> 2:01:06.960
+ Another thing we can think we can do is we're going to use these dendrites,
+
+2:01:06.960 --> 2:01:13.200
+ um, models that we, uh, I talked earlier about the prediction occurring inside a neuron
+
+2:01:13.200 --> 2:01:18.000
+ that that basic property can be applied to existing neural networks and allow them to
+
+2:01:18.000 --> 2:01:22.960
+ learn continuously, which is something they don't do today. And so the dendritic spikes that you
+
+2:01:22.960 --> 2:01:26.080
+ were talking about. Yeah. Well, we wouldn't model the spikes, but the idea that you have
+
+2:01:26.960 --> 2:01:30.640
+ that neuron today's neural networks have this company called the point neurons is a very simple
+
+2:01:30.640 --> 2:01:36.000
+ model of a neuron. And, uh, by adding dendrites to them at just one more level of complexity,
+
+2:01:36.000 --> 2:01:41.520
+ uh, that's in biological systems, you can solve problems in continuous learning, um,
+
+2:01:41.520 --> 2:01:47.040
+ and rapid learning. So we're trying to take, we're trying to bring the existing field,
+
+2:01:47.760 --> 2:01:50.640
+ and we'll see if we can do it. We're trying to bring the existing field of machine learning,
+
+2:01:51.360 --> 2:01:55.040
+ um, commercially along with us, you brought up this idea of keeping, you know,
+
+2:01:55.040 --> 2:01:59.680
+ paying for it commercially along with us as we move towards the ultimate goal of a true AI system.
+
+2:02:00.320 --> 2:02:04.000
+ Even small innovations on your own networks are really, really exciting.
+
+2:02:04.000 --> 2:02:04.480
+ Yeah.
+
+2:02:04.480 --> 2:02:10.960
+ Is it seems like such a trivial model of the brain and applying different insights
+
+2:02:11.920 --> 2:02:18.640
+ that just even, like you said, continuous, uh, learning or, uh, making it more asynchronous
+
+2:02:19.360 --> 2:02:28.720
+ or maybe making more dynamic or like, uh, incentivizing, making it robust and making it
+
+2:02:28.720 --> 2:02:35.840
+ somehow much better incentivizing sparsity, uh, somehow. Yeah. Well, if you can make things a
+
+2:02:35.840 --> 2:02:40.480
+ hundred times faster, then there's plenty of incentive. That's true. People, people are
+
+2:02:40.480 --> 2:02:44.400
+ spending millions of dollars, you know, just training some of these networks. Now these, uh,
+
+2:02:44.400 --> 2:02:51.520
+ these transforming networks, let me ask you the big question for young people listening to this
+
+2:02:51.520 --> 2:02:57.280
+ today in high school and college, what advice would you give them in terms of, uh, which career
+
+2:02:57.280 --> 2:03:06.720
+ path to take and, um, maybe just about life in general? Well, in my case, um, I didn't start
+
+2:03:06.720 --> 2:03:11.040
+ life with any kind of goals. I was, when I was going to college, it's like, Oh, what do I study?
+
+2:03:11.040 --> 2:03:15.840
+ Well, maybe I'll do this electrical engineering stuff, you know? Um, it wasn't like, you know,
+
+2:03:15.840 --> 2:03:18.720
+ today you see some of these young kids are so motivated, like I'm changing the world. I was
+
+2:03:18.720 --> 2:03:25.920
+ like, you know, whatever. And, um, but then I did fall in love with something besides my wife,
+
+2:03:25.920 --> 2:03:30.800
+ but I fell in love with this, like, Oh my God, it would be so cool to understand how the brain works.
+
+2:03:30.800 --> 2:03:34.800
+ And then I, I said to myself, that's the most important thing I could work on. I can't imagine
+
+2:03:34.800 --> 2:03:38.240
+ anything more important because if we understand how the brains work, you build tells the machines
+
+2:03:38.240 --> 2:03:42.240
+ and they could figure out all the other big questions of the world. Right. So, and then I
+
+2:03:42.240 --> 2:03:46.320
+ said, but I want to understand how I work. So I fell in love with this idea and I became passionate
+
+2:03:46.320 --> 2:03:54.160
+ about it. And this is a trope. People say this, but it was, it's true because I was passionate
+
+2:03:54.160 --> 2:04:01.040
+ about it. I was able to put up almost so much crap, you know, you know, I was, I was in that,
+
+2:04:01.040 --> 2:04:05.200
+ you know, I was like person said, you can't do this. I was, I was a graduate student at Berkeley
+
+2:04:05.200 --> 2:04:09.040
+ when they said, you can't study this problem, you know, no one's can solve this or you can't get
+
+2:04:09.040 --> 2:04:13.120
+ funded for it. You know, then I went into do mobile computing and it was like, people say,
+
+2:04:13.120 --> 2:04:18.880
+ you can't do that. You can't build a cell phone, you know? So, but all along I kept being motivated
+
+2:04:18.880 --> 2:04:22.720
+ because I wanted to work on this problem. I said, I want to understand the brain works. And I got
+
+2:04:22.720 --> 2:04:28.160
+ myself, you know, I got one lifetime. I'm going to figure it out, do the best I can. So by having
+
+2:04:28.160 --> 2:04:33.440
+ that, cause you know, it's really, as you pointed out, Lex, it's really hard to do these things.
+
+2:04:33.440 --> 2:04:38.320
+ People, it just, there's so many downers along the way. So many ways, obstacles to get in your
+
+2:04:38.320 --> 2:04:42.000
+ way. Yeah. I'm sitting here happy all the time, but trust me, it's not always like that.
+
+2:04:42.000 --> 2:04:47.520
+ Well, that's, I guess the happiness, the passion is a prerequisite for surviving the whole thing.
+
+2:04:47.520 --> 2:04:53.120
+ Yeah, I think so. I think that's right. And so I don't want to sit to someone and say, you know,
+
+2:04:53.120 --> 2:04:57.920
+ you need to find a passion and do it. No, maybe you don't. But if you do find something you're
+
+2:04:57.920 --> 2:05:04.000
+ passionate about, then you can follow it as far as your passion will let you put up with it.
+
+2:05:04.000 --> 2:05:07.360
+ Do you remember how you found it? How the spark happened?
+
+2:05:09.200 --> 2:05:10.800
+ Why specifically for me?
+
+2:05:10.800 --> 2:05:15.200
+ Yeah. Cause you said it's such an interesting, so like almost like later in life, by later,
+
+2:05:15.200 --> 2:05:21.120
+ I mean like not when you were five, you didn't really know. And then all of a sudden you fell
+
+2:05:21.120 --> 2:05:25.040
+ in love with that idea. Yeah, yeah. There was two separate events that compounded one another.
+
+2:05:25.600 --> 2:05:31.520
+ One, when I was probably a teenager, it might've been 17 or 18, I made a list of the most
+
+2:05:31.520 --> 2:05:36.960
+ interesting problems I could think of. First was why does the universe exist? It seems like
+
+2:05:36.960 --> 2:05:41.120
+ not existing is more likely. The second one was, well, given it exists, why does it behave the way
+
+2:05:41.120 --> 2:05:45.680
+ it does? Laws of physics, why is it equal MC squared, not MC cubed? That's an interesting
+
+2:05:45.680 --> 2:05:51.680
+ question. The third one was like, what's the origin of life? And the fourth one was, what's
+
+2:05:51.680 --> 2:05:56.240
+ intelligence? And I stopped there. I said, well, that's probably the most interesting one. And I
+
+2:05:56.240 --> 2:06:05.680
+ put that aside as a teenager. But then when I was 22 and I was reading the, no, excuse me, it was
+
+2:06:05.680 --> 2:06:13.520
+ 1979, excuse me, 1979, I was reading, so I was, at that time I was 22, I was reading the September
+
+2:06:13.520 --> 2:06:19.440
+ issue of Scientific American, which is all about the brain. And then the final essay was by Francis
+
+2:06:19.440 --> 2:06:25.920
+ Crick, who of DNA fame, and he had taken his interest to studying the brain now. And he said,
+
+2:06:25.920 --> 2:06:33.600
+ you know, there's something wrong here. He says, we got all this data, all this fact, this is 1979,
+
+2:06:33.600 --> 2:06:39.360
+ all these facts about the brain, tons and tons of facts about the brain. Do we need more facts? Or do
+
+2:06:39.360 --> 2:06:42.800
+ we just need to think about a way of rearranging the facts we have? Maybe we're just not thinking
+
+2:06:42.800 --> 2:06:51.440
+ about the problem correctly. Cause he says, this shouldn't be like this. So I read that and I said,
+
+2:06:51.440 --> 2:06:57.360
+ wow. I said, I don't have to become like an experimental neuroscientist. I could just
+
+2:06:57.360 --> 2:07:04.320
+ take, look at all those facts and try and become a theoretician and try to figure it out. And I said
+
+2:07:04.320 --> 2:07:08.640
+ that I felt like it was something I would be good at. I said, I wouldn't be a good experimentalist.
+
+2:07:08.640 --> 2:07:14.320
+ I don't have the patience for it, but I'm a good thinker and I love puzzles. And this is like the
+
+2:07:14.320 --> 2:07:18.240
+ biggest puzzle in the world. It's the biggest puzzle of all time. And I got all the puzzle
+
+2:07:18.240 --> 2:07:23.360
+ pieces in front of me. Damn, that was exciting. And there's something obviously you can't
+
+2:07:23.360 --> 2:07:29.440
+ convert into words that just kind of sparked this passion. And I have that a few times in my life,
+
+2:07:29.440 --> 2:07:37.680
+ just something just like you, it grabs you. Yeah. I felt it was something that was both
+
+2:07:37.680 --> 2:07:41.680
+ important and that I could make a contribution to. And so all of a sudden it felt like,
+
+2:07:41.680 --> 2:07:46.960
+ oh, it gave me purpose in life. I honestly don't think it has to be as big as one of those four
+
+2:07:46.960 --> 2:07:54.160
+ questions. I think you can find those things in the smallest. Oh, absolutely. David Foster Wallace
+
+2:07:54.160 --> 2:08:01.040
+ said like the key to life is to be unboreable. I think it's very possible to find that intensity
+
+2:08:01.040 --> 2:08:06.000
+ of joy in the smallest thing. Absolutely. I'm just, you asked me my story. Yeah. No, but I'm
+
+2:08:06.000 --> 2:08:10.800
+ actually speaking to the audience. It doesn't have to be those four. You happen to get excited by one
+
+2:08:10.800 --> 2:08:18.320
+ of the bigger questions of in the universe, but even the smallest things and watching the Olympics
+
+2:08:18.320 --> 2:08:25.920
+ now, just giving yourself life, giving your life over to the study and the mastery of a particular
+
+2:08:25.920 --> 2:08:32.720
+ sport is fascinating. And if it sparks joy and passion, you're able to, in the case of the
+
+2:08:32.720 --> 2:08:37.520
+ Olympics, basically suffer for like a couple of decades to achieve. I mean, you can find joy and
+
+2:08:37.520 --> 2:08:43.600
+ passion just being a parent. I mean, yeah, the parenting one is funny. So I was, not always,
+
+2:08:43.600 --> 2:08:48.720
+ but for a long time, wanted kids and get married and stuff. And especially that has to do with the
+
+2:08:48.720 --> 2:08:57.440
+ fact that I've seen a lot of people that I respect get a whole nother level of joy from kids. And
+
+2:08:58.880 --> 2:09:05.920
+ at first is like, you're thinking is, well, like I don't have enough time in the day, right? If I
+
+2:09:05.920 --> 2:09:13.200
+ have this passion to solve, but like, if I want to solve intelligence, how's this kid situation
+
+2:09:13.200 --> 2:09:22.000
+ going to help me? But then you realize that, you know, like you said, the things that sparks joy,
+
+2:09:22.000 --> 2:09:28.640
+ and it's very possible that kids can provide even a greater or deeper, more meaningful joy than
+
+2:09:28.640 --> 2:09:34.160
+ those bigger questions when they enrich each other. And that seemed like, obviously when I
+
+2:09:34.160 --> 2:09:37.920
+ was younger, it's probably a counterintuitive notion because there's only so many hours in the
+
+2:09:37.920 --> 2:09:44.160
+ day, but then life is finite and you have to pick the things that give you joy.
+
+2:09:44.160 --> 2:09:50.800
+ Yeah. But you also understand you can be patient too. I mean, it's finite, but we do have, you know,
+
+2:09:50.800 --> 2:09:58.480
+ whatever, 50 years or something. So in my case, I had to give up on my dream of the neuroscience
+
+2:09:58.480 --> 2:10:02.240
+ because I was a graduate student at Berkeley and they told me I couldn't do this and I couldn't
+
+2:10:02.240 --> 2:10:09.440
+ get funded. And so I went back in the computing industry for a number of years. I thought it
+
+2:10:09.440 --> 2:10:14.880
+ would be four, but it turned out to be more. But I said, I'll come back. I'm definitely going to
+
+2:10:14.880 --> 2:10:17.920
+ come back. I know I'm going to do this computer stuff for a while, but I'm definitely coming back.
+
+2:10:17.920 --> 2:10:22.800
+ Everyone knows that. And it's like raising kids. Well, yeah, you have to spend a lot of time with
+
+2:10:22.800 --> 2:10:28.240
+ your kids. It's fun, enjoyable. But that doesn't mean you have to give up on other dreams. It just
+
+2:10:28.240 --> 2:10:34.720
+ means that you may have to wait a week or two to work on that next idea. Well, you talk about the
+
+2:10:36.800 --> 2:10:42.240
+ darker side of me, disappointing sides of human nature that we're hoping to overcome so that we
+
+2:10:42.240 --> 2:10:48.640
+ don't destroy ourselves. I tend to put a lot of value in the broad general concept of love,
+
+2:10:48.640 --> 2:10:58.960
+ of the human capacity of compassion towards each other, of just kindness, whatever that longing of
+
+2:10:58.960 --> 2:11:04.560
+ like just the human to human connection. It connects back to our initial discussion. I tend to
+
+2:11:05.120 --> 2:11:09.360
+ see a lot of value in this collective intelligence aspect. I think some of the magic of human
+
+2:11:09.360 --> 2:11:16.080
+ civilization happens when there's a party is not as fun when you're alone. I totally agree with
+
+2:11:16.080 --> 2:11:24.080
+ you on these issues. Do you think from a neocortex perspective, what role does love play in the human
+
+2:11:24.080 --> 2:11:29.600
+ condition? Well, those are two separate things from a neocortex point of view. It doesn't impact
+
+2:11:29.600 --> 2:11:34.400
+ our thinking about the neocortex. From a human condition point of view, I think it's core.
+
+2:11:34.400 --> 2:11:44.720
+ I mean, we get so much pleasure out of loving people and helping people. I'll rack it up to
+
+2:11:44.720 --> 2:11:50.720
+ old brain stuff and maybe we can throw it under the bus of evolution if you want. That's fine.
+
+2:11:52.800 --> 2:11:57.840
+ It doesn't impact how I think about how we model the world, but from a humanity point of view,
+
+2:11:57.840 --> 2:12:03.680
+ I think it's essential. Well, I tend to give it to the new brain and also I tend to give it to
+
+2:12:03.680 --> 2:12:09.120
+ the old brain. Also, I tend to think that some aspects of that need to be engineered into AI
+
+2:12:09.120 --> 2:12:21.440
+ systems, both in their ability to have compassion for other humans and their ability to maximize
+
+2:12:21.440 --> 2:12:27.760
+ love in the world between humans. I'm more thinking about social networks. Whenever there's a deep
+
+2:12:27.760 --> 2:12:34.080
+ AI systems in humans, specific applications where it's AI and humans, I think that's something that
+
+2:12:35.120 --> 2:12:42.880
+ often not talked about in terms of metrics over which you try to maximize,
+
+2:12:44.480 --> 2:12:47.920
+ like which metric to maximize in a system. It seems like one of the most
+
+2:12:48.960 --> 2:12:55.120
+ powerful things in societies is the capacity to love.
+
+2:12:55.120 --> 2:13:01.120
+ It's fascinating. I think it's a great way of thinking about it. I have been thinking more of
+
+2:13:01.120 --> 2:13:06.640
+ these fundamental mechanisms in the brain as opposed to the social interaction between humans
+
+2:13:06.640 --> 2:13:13.680
+ and AI systems in the future. If you think about that, you're absolutely right. That's a complex
+
+2:13:13.680 --> 2:13:17.360
+ system. I can have intelligent systems that don't have that component, but they're not interacting
+
+2:13:17.360 --> 2:13:21.600
+ with people. They're just running something or building some place or something. I don't know.
+
+2:13:21.600 --> 2:13:26.640
+ But if you think about interacting with humans, yeah, but it has to be engineered in there. I
+
+2:13:26.640 --> 2:13:30.560
+ don't think it's going to appear on its own. That's a good question.
+
+2:13:30.560 --> 2:13:38.000
+ Yeah. Well, we could, we'll leave that open. In terms of, from a reinforcement learning
+
+2:13:38.000 --> 2:13:46.880
+ perspective, whether the darker sides of human nature or the better angels of our nature win out,
+
+2:13:46.880 --> 2:13:51.680
+ statistically speaking, I don't know. I tend to be optimistic and hope that love wins out in the end.
+
+2:13:52.960 --> 2:14:01.520
+ You've done a lot of incredible stuff and your book is driving towards this fourth question that
+
+2:14:01.520 --> 2:14:08.880
+ you started with on the nature of intelligence. What do you hope your legacy for people reading
+
+2:14:08.880 --> 2:14:14.560
+ a hundred years from now? How do you hope they remember your work? How do you hope they remember
+
+2:14:14.560 --> 2:14:21.920
+ this book? Well, I think as an entrepreneur or a scientist or any human who's trying to accomplish
+
+2:14:21.920 --> 2:14:30.960
+ some things, I have a view that really all you can do is accelerate the inevitable. Yeah. It's like,
+
+2:14:30.960 --> 2:14:33.920
+ you know, if we didn't figure out, if we didn't study the brain, someone else will study the
+
+2:14:33.920 --> 2:14:38.080
+ brain. If, you know, if Elon didn't make electric cars, someone else would do it eventually.
+
+2:14:38.080 --> 2:14:42.400
+ And if, you know, if Thomas Edison didn't invent a light bulb, we wouldn't be using candles today.
+
+2:14:42.400 --> 2:14:48.880
+ So, what you can do as an individual is you can accelerate something that's beneficial
+
+2:14:48.880 --> 2:14:52.400
+ and make it happen sooner than it would have. That's really it. That's all you can do.
+
+2:14:53.680 --> 2:15:00.080
+ You can't create a new reality that it wasn't going to happen. So, from that perspective,
+
+2:15:01.280 --> 2:15:07.440
+ I would hope that our work, not just me, but our work in general, people would look back and said,
+
+2:15:07.440 --> 2:15:14.160
+ hey, they really helped make this better future happen sooner. They, you know, they helped us
+
+2:15:14.160 --> 2:15:18.640
+ understand the nature of false beliefs sooner than they might have. Now we're so happy that
+
+2:15:18.640 --> 2:15:22.560
+ we have these intelligent machines doing these things, helping us that maybe that solved the
+
+2:15:22.560 --> 2:15:28.320
+ climate change problem and they made it happen sooner. So, I think that's the best I would hope
+
+2:15:28.320 --> 2:15:33.280
+ for. Some would say those guys just moved the needle forward a little bit in time.
+
+2:15:33.280 --> 2:15:40.000
+ Well, I do. It feels like the progress of human civilization is not, is there's a lot
+
+2:15:40.000 --> 2:15:48.480
+ of trajectories. And if you have individuals that accelerate towards one direction that helps steer
+
+2:15:48.480 --> 2:15:55.200
+ human civilization. So, I think in those long stretch of time, all trajectories will be traveled.
+
+2:15:55.200 --> 2:15:59.840
+ But I think it's nice for this particular civilization on earth to travel down one that's
+
+2:15:59.840 --> 2:16:03.440
+ not. Well, I think you're right. We have to take the whole period of, you know, World War II,
+
+2:16:03.440 --> 2:16:07.520
+ Nazism or something like that. Well, that was a bad sidestep, right? We've been over there for a
+
+2:16:07.520 --> 2:16:13.680
+ while. But, you know, there is the optimistic view about life that ultimately it does converge
+
+2:16:13.680 --> 2:16:21.920
+ in a positive way. It progresses ultimately, even if we have years of darkness. So, yeah. So,
+
+2:16:21.920 --> 2:16:27.200
+ I think you can perhaps that's accelerating the positive could also mean eliminating some bad
+
+2:16:27.200 --> 2:16:34.560
+ missteps along the way, too. But I'm an optimistic in that way. Despite we talked about the end of
+
+2:16:34.560 --> 2:16:40.080
+ civilization, you know, I think we're going to live for a long time. I hope we are. I think our
+
+2:16:40.080 --> 2:16:42.640
+ society in the future is going to be better. We're going to have less discord. We're going to have
+
+2:16:42.640 --> 2:16:47.600
+ less people killing each other. You know, we'll make them live in some sort of way that's compatible
+
+2:16:47.600 --> 2:16:53.520
+ with the carrying capacity of the earth. I'm optimistic these things will happen. And all we
+
+2:16:53.520 --> 2:16:57.840
+ can do is try to get there sooner. And at the very least, if we do destroy ourselves,
+
+2:16:57.840 --> 2:17:05.680
+ we'll have a few satellites orbiting that will tell alien civilization that we were once here.
+
+2:17:05.680 --> 2:17:09.760
+ Or maybe our future, you know, future inhabitants of earth. You know, imagine we,
+
+2:17:10.560 --> 2:17:13.600
+ you know, the planet of the apes in here. You know, we kill ourselves, you know,
+
+2:17:13.600 --> 2:17:16.480
+ a million years from now or a billion years from now. There's another species on the planet.
+
+2:17:16.480 --> 2:17:23.200
+ Curious creatures were once here. Jeff, thank you so much for your work. And thank you so much for
+
+2:17:23.200 --> 2:17:27.040
+ talking to me once again. Well, actually, it's great. I love what you do. I love your podcast.
+
+2:17:27.040 --> 2:17:34.640
+ You have the most interesting people, me aside. So it's a real service, I think you do for,
+
+2:17:35.280 --> 2:17:39.040
+ in a very broader sense for humanity, I think. Thanks, Jeff. All right. It's a pleasure.
+
+2:17:40.000 --> 2:17:43.360
+ Thanks for listening to this conversation with Jeff Hawkins. And thank you to
+
+2:17:43.360 --> 2:17:50.960
+ Codecademy, BioOptimizers, ExpressVPN, Asleep, and Blinkist. Check them out in the description
+
+2:17:50.960 --> 2:17:56.480
+ to support this podcast. And now, let me leave you with some words from Albert Camus.
+
+2:17:57.600 --> 2:18:04.240
+ An intellectual is someone whose mind watches itself. I like this, because I'm happy to be
+
+2:18:04.240 --> 2:18:10.880
+ both halves, the watcher and the watched. Can they be brought together? This is the
+
+2:18:10.880 --> 2:18:17.200
+ practical question we must try to answer. Thank you for listening. I hope to see you next time.
+

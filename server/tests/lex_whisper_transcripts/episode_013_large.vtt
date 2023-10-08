@@ -1,0 +1,4079 @@
+WEBVTT
+
+00:00.000 --> 00:02.920
+ The following is a conversation with Tommaso Poggio.
+
+00:02.920 --> 00:06.200
+ He's a professor at MIT and is a director of the Center
+
+00:06.200 --> 00:08.360
+ for Brains, Minds, and Machines.
+
+00:08.360 --> 00:11.640
+ Cited over 100,000 times, his work
+
+00:11.640 --> 00:14.560
+ has had a profound impact on our understanding
+
+00:14.560 --> 00:18.600
+ of the nature of intelligence in both biological and artificial
+
+00:18.600 --> 00:19.920
+ neural networks.
+
+00:19.920 --> 00:23.840
+ He has been an advisor to many highly impactful researchers
+
+00:23.840 --> 00:26.120
+ and entrepreneurs in AI, including
+
+00:26.120 --> 00:29.880
+ Demis Hassabis of DeepMind, Amnon Shashua of Mobileye,
+
+00:29.880 --> 00:34.120
+ and Christoph Koch of the Allen Institute for Brain Science.
+
+00:34.120 --> 00:36.400
+ This conversation is part of the MIT course
+
+00:36.400 --> 00:38.120
+ on artificial general intelligence
+
+00:38.120 --> 00:40.240
+ and the artificial intelligence podcast.
+
+00:40.240 --> 00:42.760
+ If you enjoy it, subscribe on YouTube, iTunes,
+
+00:42.760 --> 00:44.640
+ or simply connect with me on Twitter
+
+00:44.640 --> 00:48.000
+ at Lex Friedman, spelled F R I D.
+
+00:48.000 --> 00:52.480
+ And now, here's my conversation with Tommaso Poggio.
+
+00:52.480 --> 00:54.520
+ You've mentioned that in your childhood,
+
+00:54.520 --> 00:57.560
+ you've developed a fascination with physics, especially
+
+00:57.560 --> 00:59.720
+ the theory of relativity.
+
+00:59.720 --> 01:04.520
+ And that Einstein was also a childhood hero to you.
+
+01:04.520 --> 01:09.000
+ What aspect of Einstein's genius, the nature of his genius,
+
+01:09.000 --> 01:11.280
+ do you think was essential for discovering
+
+01:11.280 --> 01:12.960
+ the theory of relativity?
+
+01:12.960 --> 01:15.920
+ You know, Einstein was a hero to me,
+
+01:15.920 --> 01:18.680
+ and I'm sure to many people, because he
+
+01:18.680 --> 01:23.440
+ was able to make, of course, a major, major contribution
+
+01:23.440 --> 01:31.920
+ to physics with simplifying a bit just a gedanken experiment,
+
+01:31.920 --> 01:37.960
+ a thought experiment, you know, imagining communication
+
+01:37.960 --> 01:41.560
+ with lights between a stationary observer
+
+01:41.560 --> 01:43.240
+ and somebody on a train.
+
+01:43.240 --> 01:47.960
+ And I thought, you know, the fact
+
+01:47.960 --> 01:51.320
+ that just with the force of his thought, of his thinking,
+
+01:51.320 --> 01:55.640
+ of his mind, he could get to something so deep
+
+01:55.640 --> 01:58.760
+ in terms of physical reality, how time
+
+01:58.760 --> 02:02.680
+ depend on space and speed, it was something
+
+02:02.680 --> 02:04.120
+ absolutely fascinating.
+
+02:04.120 --> 02:06.720
+ It was the power of intelligence,
+
+02:06.720 --> 02:08.440
+ the power of the mind.
+
+02:08.440 --> 02:11.120
+ Do you think the ability to imagine,
+
+02:11.120 --> 02:15.200
+ to visualize as he did, as a lot of great physicists do,
+
+02:15.200 --> 02:18.640
+ do you think that's in all of us human beings?
+
+02:18.640 --> 02:21.840
+ Or is there something special to that one particular human
+
+02:21.840 --> 02:22.880
+ being?
+
+02:22.880 --> 02:30.480
+ I think, you know, all of us can learn and have, in principle,
+
+02:30.480 --> 02:33.200
+ similar breakthroughs.
+
+02:33.200 --> 02:37.200
+ There are lessons to be learned from Einstein.
+
+02:37.200 --> 02:42.720
+ He was one of five PhD students at ETA,
+
+02:42.720 --> 02:47.560
+ the Eidgenössische Technische Hochschule in Zurich,
+
+02:47.560 --> 02:48.520
+ in physics.
+
+02:48.520 --> 02:50.800
+ And he was the worst of the five,
+
+02:50.800 --> 02:55.360
+ the only one who did not get an academic position when
+
+02:55.360 --> 02:57.960
+ he graduated, when he finished his PhD.
+
+02:57.960 --> 03:01.080
+ And he went to work, as everybody knows,
+
+03:01.080 --> 03:02.480
+ for the patent office.
+
+03:02.480 --> 03:05.840
+ And so it's not so much that he worked for the patent office,
+
+03:05.840 --> 03:08.720
+ but the fact that obviously he was smart,
+
+03:08.720 --> 03:11.760
+ but he was not a top student, obviously
+
+03:11.760 --> 03:13.560
+ was the anti conformist.
+
+03:13.560 --> 03:17.480
+ He was not thinking in the traditional way that probably
+
+03:17.480 --> 03:20.040
+ his teachers and the other students were doing.
+
+03:20.040 --> 03:23.880
+ So there is a lot to be said about trying
+
+03:23.880 --> 03:29.800
+ to do the opposite or something quite different from what
+
+03:29.800 --> 03:31.080
+ other people are doing.
+
+03:31.080 --> 03:32.960
+ That's certainly true for the stock market.
+
+03:32.960 --> 03:36.800
+ Never buy if everybody's buying.
+
+03:36.800 --> 03:38.600
+ And also true for science.
+
+03:38.600 --> 03:39.680
+ Yes.
+
+03:39.680 --> 03:42.520
+ So you've also mentioned, staying
+
+03:42.520 --> 03:47.600
+ on the theme of physics, that you were excited at a young age
+
+03:47.600 --> 03:51.800
+ by the mysteries of the universe that physics could uncover.
+
+03:51.800 --> 03:56.760
+ Such, as I saw mentioned, the possibility of time travel.
+
+03:56.760 --> 03:58.960
+ So the most out of the box question,
+
+03:58.960 --> 04:00.600
+ I think I'll get to ask today, do you
+
+04:00.600 --> 04:03.440
+ think time travel is possible?
+
+04:03.440 --> 04:07.800
+ Well, it would be nice if it were possible right now.
+
+04:07.800 --> 04:12.800
+ In science, you never say no.
+
+04:12.800 --> 04:15.040
+ But your understanding of the nature of time.
+
+04:15.040 --> 04:15.920
+ Yeah.
+
+04:15.920 --> 04:22.360
+ It's very likely that it's not possible to travel in time.
+
+04:22.360 --> 04:26.000
+ We may be able to travel forward in time
+
+04:26.000 --> 04:31.880
+ if we can, for instance, freeze ourselves or go
+
+04:31.880 --> 04:37.640
+ on some spacecraft traveling close to the speed of light.
+
+04:37.640 --> 04:40.440
+ But in terms of actively traveling, for instance,
+
+04:40.440 --> 04:45.320
+ back in time, I find probably very unlikely.
+
+04:45.320 --> 04:49.160
+ So do you still hold the underlying dream
+
+04:49.160 --> 04:52.320
+ of the engineering intelligence that
+
+04:52.320 --> 04:56.800
+ will build systems that are able to do such huge leaps,
+
+04:56.800 --> 05:01.120
+ like discovering the kind of mechanism that would be
+
+05:01.120 --> 05:02.600
+ required to travel through time?
+
+05:02.600 --> 05:05.600
+ Do you still hold that dream or echoes of it
+
+05:05.600 --> 05:07.080
+ from your childhood?
+
+05:07.080 --> 05:08.640
+ Yeah.
+
+05:08.640 --> 05:12.400
+ I don't think whether there are certain problems that probably
+
+05:12.400 --> 05:16.840
+ cannot be solved, depending what you believe
+
+05:16.840 --> 05:21.440
+ about the physical reality, like maybe totally impossible
+
+05:21.440 --> 05:27.720
+ to create energy from nothing or to travel back in time,
+
+05:27.720 --> 05:35.920
+ but about making machines that can think as well as we do
+
+05:35.920 --> 05:38.680
+ or better, or more likely, especially
+
+05:38.680 --> 05:42.400
+ in the short and midterm, help us think better,
+
+05:42.400 --> 05:44.280
+ which is, in a sense, is happening already
+
+05:44.280 --> 05:46.480
+ with the computers we have.
+
+05:46.480 --> 05:48.440
+ And it will happen more and more.
+
+05:48.440 --> 05:50.000
+ But that I certainly believe.
+
+05:50.000 --> 05:55.480
+ And I don't see, in principle, why computers at some point
+
+05:55.480 --> 05:59.440
+ could not become more intelligent than we are,
+
+05:59.440 --> 06:03.640
+ although the word intelligence is a tricky one
+
+06:03.640 --> 06:05.840
+ and one we should discuss.
+
+06:05.840 --> 06:08.040
+ What I mean with that.
+
+06:08.040 --> 06:13.200
+ Intelligence, consciousness, words like love,
+
+06:13.200 --> 06:16.800
+ all these need to be disentangled.
+
+06:16.800 --> 06:18.760
+ So you've mentioned also that you believe
+
+06:18.760 --> 06:22.240
+ the problem of intelligence is the greatest problem
+
+06:22.240 --> 06:24.480
+ in science, greater than the origin of life
+
+06:24.480 --> 06:27.200
+ and the origin of the universe.
+
+06:27.200 --> 06:30.760
+ You've also, in the talk I've listened to,
+
+06:30.760 --> 06:34.880
+ said that you're open to arguments against you.
+
+06:34.880 --> 06:40.400
+ So what do you think is the most captivating aspect
+
+06:40.400 --> 06:43.320
+ of this problem of understanding the nature of intelligence?
+
+06:43.320 --> 06:47.440
+ Why does it captivate you as it does?
+
+06:47.440 --> 06:51.600
+ Well, originally, I think one of the motivation
+
+06:51.600 --> 06:56.440
+ that I had as, I guess, a teenager when I was infatuated
+
+06:56.440 --> 06:59.280
+ with theory of relativity was really
+
+06:59.280 --> 07:05.960
+ that I found that there was the problem of time and space
+
+07:05.960 --> 07:07.960
+ and general relativity.
+
+07:07.960 --> 07:10.000
+ But there were so many other problems
+
+07:10.000 --> 07:13.720
+ of the same level of difficulty and importance
+
+07:13.720 --> 07:16.640
+ that I could, even if I were Einstein,
+
+07:16.640 --> 07:19.600
+ it was difficult to hope to solve all of them.
+
+07:19.600 --> 07:24.800
+ So what about solving a problem whose solution allowed
+
+07:24.800 --> 07:26.640
+ me to solve all the problems?
+
+07:26.640 --> 07:33.280
+ And this was, what if we could find the key to an intelligence
+
+07:33.280 --> 07:37.040
+ 10 times better or faster than Einstein?
+
+07:37.040 --> 07:40.160
+ So that's sort of seeing artificial intelligence
+
+07:40.160 --> 07:43.200
+ as a tool to expand our capabilities.
+
+07:43.200 --> 07:47.920
+ But is there just an inherent curiosity in you
+
+07:47.920 --> 07:52.120
+ in just understanding what it is in here
+
+07:52.120 --> 07:54.360
+ that makes it all work?
+
+07:54.360 --> 07:55.760
+ Yes, absolutely, you're right.
+
+07:55.760 --> 07:59.320
+ So I started saying this was the motivation when
+
+07:59.320 --> 08:00.560
+ I was a teenager.
+
+08:00.560 --> 08:07.160
+ But soon after, I think the problem of human intelligence
+
+08:07.160 --> 08:15.160
+ became a real focus of my science and my research
+
+08:15.160 --> 08:22.520
+ because I think for me, the most interesting problem
+
+08:22.520 --> 08:28.120
+ is really asking who we are.
+
+08:28.120 --> 08:31.720
+ It's asking not only a question about science,
+
+08:31.720 --> 08:36.000
+ but even about the very tool we are using to do science, which
+
+08:36.000 --> 08:37.920
+ is our brain.
+
+08:37.920 --> 08:39.880
+ How does our brain work?
+
+08:39.880 --> 08:42.120
+ From where does it come from?
+
+08:42.120 --> 08:43.720
+ What are its limitations?
+
+08:43.720 --> 08:46.160
+ Can we make it better?
+
+08:46.160 --> 08:50.000
+ And that, in many ways, is the ultimate question
+
+08:50.000 --> 08:54.400
+ that underlies this whole effort of science.
+
+08:54.400 --> 08:56.360
+ So you've made significant contributions
+
+08:56.360 --> 08:58.240
+ in both the science of intelligence
+
+08:58.240 --> 09:02.160
+ and the engineering of intelligence.
+
+09:02.160 --> 09:05.000
+ In a hypothetical way, let me ask,
+
+09:05.000 --> 09:07.960
+ how far do you think we can get in creating intelligence
+
+09:07.960 --> 09:12.080
+ systems without understanding the biological,
+
+09:12.080 --> 09:15.800
+ the understanding how the human brain creates intelligence?
+
+09:15.800 --> 09:17.200
+ Put another way, do you think we can
+
+09:17.200 --> 09:22.080
+ build a strong AI system without really getting at the core
+
+09:22.080 --> 09:25.240
+ understanding the functional nature of the brain?
+
+09:25.240 --> 09:29.920
+ Well, this is a real difficult question.
+
+09:29.920 --> 09:35.280
+ We did solve problems like flying
+
+09:35.280 --> 09:40.680
+ without really using too much our knowledge
+
+09:40.680 --> 09:44.720
+ about how birds fly.
+
+09:44.720 --> 09:48.680
+ It was important, I guess, to know that you could have
+
+09:48.680 --> 09:56.760
+ things heavier than air being able to fly, like birds.
+
+09:56.760 --> 10:02.560
+ But beyond that, probably we did not learn very much, some.
+
+10:02.560 --> 10:06.800
+ The Brothers Wright did learn a lot of observation
+
+10:06.800 --> 10:12.120
+ about birds and designing their aircraft.
+
+10:12.120 --> 10:16.000
+ But you can argue we did not use much of biology
+
+10:16.000 --> 10:17.920
+ in that particular case.
+
+10:17.920 --> 10:20.720
+ Now, in the case of intelligence,
+
+10:20.720 --> 10:28.920
+ I think that it's a bit of a bet right now.
+
+10:28.920 --> 10:36.280
+ If you ask, OK, we all agree we'll get at some point,
+
+10:36.280 --> 10:39.480
+ maybe soon, maybe later, to a machine that
+
+10:39.480 --> 10:42.400
+ is indistinguishable from my secretary,
+
+10:42.400 --> 10:47.600
+ say, in terms of what I can ask the machine to do.
+
+10:47.600 --> 10:49.000
+ I think we'll get there.
+
+10:49.000 --> 10:51.960
+ And now the question is, you can ask people,
+
+10:51.960 --> 10:54.240
+ do you think we'll get there without any knowledge
+
+10:54.240 --> 10:57.000
+ about the human brain?
+
+10:57.000 --> 10:59.760
+ Or that the best way to get there
+
+10:59.760 --> 11:02.560
+ is to understand better the human brain?
+
+11:02.560 --> 11:05.960
+ OK, this is, I think, an educated bet
+
+11:05.960 --> 11:09.080
+ that different people with different backgrounds
+
+11:09.080 --> 11:11.720
+ will decide in different ways.
+
+11:11.720 --> 11:14.440
+ The recent history of the progress
+
+11:14.440 --> 11:18.920
+ in AI in the last, I would say, five years or 10 years
+
+11:18.920 --> 11:23.760
+ has been that the main breakthroughs,
+
+11:23.760 --> 11:32.160
+ the main recent breakthroughs, really start from neuroscience.
+
+11:32.160 --> 11:35.800
+ I can mention reinforcement learning as one.
+
+11:35.800 --> 11:41.040
+ It's one of the algorithms at the core of AlphaGo,
+
+11:41.040 --> 11:45.200
+ which is the system that beat the kind of an official world
+
+11:45.200 --> 11:52.760
+ champion of Go, Lee Sedol, two, three years ago in Seoul.
+
+11:52.760 --> 11:53.760
+ That's one.
+
+11:53.760 --> 12:00.920
+ And that started really with the work of Pavlov in 1900,
+
+12:00.920 --> 12:05.800
+ Marvin Minsky in the 60s, and many other neuroscientists
+
+12:05.800 --> 12:07.720
+ later on.
+
+12:07.720 --> 12:12.560
+ And deep learning started, which is at the core, again,
+
+12:12.560 --> 12:17.720
+ of AlphaGo and systems like autonomous driving
+
+12:17.720 --> 12:22.520
+ systems for cars, like the systems that Mobileye,
+
+12:22.520 --> 12:25.600
+ which is a company started by one of my ex postdocs,
+
+12:25.600 --> 12:28.480
+ Amnon Shashua, did.
+
+12:28.480 --> 12:30.720
+ So that is at the core of those things.
+
+12:30.720 --> 12:34.520
+ And deep learning, really, the initial ideas
+
+12:34.520 --> 12:37.120
+ in terms of the architecture of these layered
+
+12:37.120 --> 12:43.160
+ hierarchical networks started with work of Torsten Wiesel
+
+12:43.160 --> 12:47.800
+ and David Hubel at Harvard up the river in the 60s.
+
+12:47.800 --> 12:53.240
+ So recent history suggests that neuroscience played a big role
+
+12:53.240 --> 12:54.320
+ in these breakthroughs.
+
+12:54.320 --> 12:58.720
+ My personal bet is that there is a good chance they continue
+
+12:58.720 --> 12:59.880
+ to play a big role.
+
+12:59.880 --> 13:01.840
+ Maybe not in all the future breakthroughs,
+
+13:01.840 --> 13:03.280
+ but in some of them.
+
+13:03.280 --> 13:05.000
+ At least in inspiration.
+
+13:05.000 --> 13:07.320
+ At least in inspiration, absolutely, yes.
+
+13:07.320 --> 13:12.160
+ So you studied both artificial and biological neural networks.
+
+13:12.160 --> 13:17.080
+ You said these mechanisms that underlie deep learning
+
+13:17.080 --> 13:19.760
+ and reinforcement learning.
+
+13:19.760 --> 13:23.880
+ But there is nevertheless significant differences
+
+13:23.880 --> 13:26.080
+ between biological and artificial neural networks
+
+13:26.080 --> 13:27.280
+ as they stand now.
+
+13:27.280 --> 13:30.800
+ So between the two, what do you find
+
+13:30.800 --> 13:33.080
+ is the most interesting, mysterious, maybe even
+
+13:33.080 --> 13:35.560
+ beautiful difference as it currently
+
+13:35.560 --> 13:37.800
+ stands in our understanding?
+
+13:37.800 --> 13:41.560
+ I must confess that until recently, I
+
+13:41.560 --> 13:46.040
+ found that the artificial networks, too simplistic
+
+13:46.040 --> 13:49.720
+ relative to real neural networks.
+
+13:49.720 --> 13:53.360
+ But recently, I've been starting to think that, yes,
+
+13:53.360 --> 13:57.440
+ there is a very big simplification of what
+
+13:57.440 --> 13:59.040
+ you find in the brain.
+
+13:59.040 --> 14:03.000
+ But on the other hand, they are much closer
+
+14:03.000 --> 14:07.080
+ in terms of the architecture to the brain
+
+14:07.080 --> 14:11.280
+ than other models that we had, that computer science used
+
+14:11.280 --> 14:16.560
+ as model of thinking, which were mathematical logics, LISP,
+
+14:16.560 --> 14:19.480
+ Prologue, and those kind of things.
+
+14:19.480 --> 14:21.520
+ So in comparison to those, they're
+
+14:21.520 --> 14:23.320
+ much closer to the brain.
+
+14:23.320 --> 14:26.360
+ You have networks of neurons, which
+
+14:26.360 --> 14:27.840
+ is what the brain is about.
+
+14:27.840 --> 14:32.200
+ And the artificial neurons in the models, as I said,
+
+14:32.200 --> 14:35.480
+ caricature of the biological neurons.
+
+14:35.480 --> 14:38.520
+ But they're still neurons, single units communicating
+
+14:38.520 --> 14:41.400
+ with other units, something that is absent
+
+14:41.400 --> 14:48.520
+ in the traditional computer type models of mathematics,
+
+14:48.520 --> 14:50.840
+ reasoning, and so on.
+
+14:50.840 --> 14:53.120
+ So what aspect would you like to see
+
+14:53.120 --> 14:57.280
+ in artificial neural networks added over time
+
+14:57.280 --> 14:59.920
+ as we try to figure out ways to improve them?
+
+14:59.920 --> 15:07.320
+ So one of the main differences and problems
+
+15:07.320 --> 15:11.840
+ in terms of deep learning today, and it's not only
+
+15:11.840 --> 15:16.760
+ deep learning, and the brain, is the need for deep learning
+
+15:16.760 --> 15:23.160
+ techniques to have a lot of labeled examples.
+
+15:23.160 --> 15:24.920
+ For instance, for ImageNet, you have
+
+15:24.920 --> 15:29.160
+ like a training set, which is 1 million images, each one
+
+15:29.160 --> 15:34.600
+ labeled by some human in terms of which object is there.
+
+15:34.600 --> 15:42.720
+ And it's clear that in biology, a baby
+
+15:42.720 --> 15:44.840
+ may be able to see millions of images
+
+15:44.840 --> 15:47.560
+ in the first years of life, but will not
+
+15:47.560 --> 15:52.720
+ have millions of labels given to him or her by parents
+
+15:52.720 --> 15:56.360
+ or caretakers.
+
+15:56.360 --> 15:59.560
+ So how do you solve that?
+
+15:59.560 --> 16:03.880
+ I think there is this interesting challenge
+
+16:03.880 --> 16:08.080
+ that today, deep learning and related techniques
+
+16:08.080 --> 16:11.200
+ are all about big data, big data meaning
+
+16:11.200 --> 16:18.760
+ a lot of examples labeled by humans,
+
+16:18.760 --> 16:24.400
+ whereas in nature, you have this big data
+
+16:24.400 --> 16:26.280
+ is n going to infinity.
+
+16:26.280 --> 16:30.200
+ That's the best, n meaning labeled data.
+
+16:30.200 --> 16:34.920
+ But I think the biological world is more n going to 1.
+
+16:34.920 --> 16:38.920
+ A child can learn from a very small number
+
+16:38.920 --> 16:42.720
+ of labeled examples.
+
+16:42.720 --> 16:44.920
+ Like you tell a child, this is a car.
+
+16:44.920 --> 16:48.880
+ You don't need to say, like in ImageNet, this is a car,
+
+16:48.880 --> 16:51.120
+ this is a car, this is not a car, this is not a car,
+
+16:51.120 --> 16:54.360
+ 1 million times.
+
+16:54.360 --> 16:57.720
+ And of course, with AlphaGo, or at least the AlphaZero
+
+16:57.720 --> 17:01.360
+ variants, because the world of Go
+
+17:01.360 --> 17:05.040
+ is so simplistic that you can actually
+
+17:05.040 --> 17:06.720
+ learn by yourself through self play,
+
+17:06.720 --> 17:08.520
+ you can play against each other.
+
+17:08.520 --> 17:10.600
+ In the real world, the visual system
+
+17:10.600 --> 17:14.200
+ that you've studied extensively is a lot more complicated
+
+17:14.200 --> 17:16.720
+ than the game of Go.
+
+17:16.720 --> 17:18.400
+ On the comment about children, which
+
+17:18.400 --> 17:23.000
+ are fascinatingly good at learning new stuff,
+
+17:23.000 --> 17:24.680
+ how much of it do you think is hardware,
+
+17:24.680 --> 17:26.640
+ and how much of it is software?
+
+17:26.640 --> 17:29.800
+ Yeah, that's a good, deep question.
+
+17:29.800 --> 17:32.960
+ In a sense, it's the old question of nurture and nature,
+
+17:32.960 --> 17:36.440
+ how much is in the gene, and how much
+
+17:36.440 --> 17:41.280
+ is in the experience of an individual.
+
+17:41.280 --> 17:44.720
+ Obviously, it's both that play a role.
+
+17:44.720 --> 17:53.040
+ And I believe that the way evolution gives,
+
+17:53.040 --> 17:55.760
+ puts prior information, so to speak, hardwired,
+
+17:55.760 --> 17:58.400
+ is not really hardwired.
+
+17:58.400 --> 18:02.720
+ But that's essentially an hypothesis.
+
+18:02.720 --> 18:10.000
+ I think what's going on is that evolution has almost
+
+18:10.000 --> 18:14.960
+ necessarily, if you believe in Darwin, is very opportunistic.
+
+18:14.960 --> 18:24.320
+ And think about our DNA and the DNA of Drosophila.
+
+18:24.320 --> 18:28.800
+ Our DNA does not have many more genes than Drosophila.
+
+18:28.800 --> 18:29.720
+ The fly.
+
+18:29.720 --> 18:32.560
+ The fly, the fruit fly.
+
+18:32.560 --> 18:35.520
+ Now, we know that the fruit fly does not
+
+18:35.520 --> 18:39.680
+ learn very much during its individual existence.
+
+18:39.680 --> 18:42.360
+ It looks like one of these machinery
+
+18:42.360 --> 18:47.240
+ that it's really mostly, not 100%, but 95%,
+
+18:47.240 --> 18:51.720
+ hardcoded by the genes.
+
+18:51.720 --> 18:55.040
+ But since we don't have many more genes than Drosophila,
+
+18:55.040 --> 19:02.640
+ evolution could encode in as a general learning machinery,
+
+19:02.640 --> 19:09.840
+ and then had to give very weak priors.
+
+19:09.840 --> 19:15.000
+ Like, for instance, let me give a specific example,
+
+19:15.000 --> 19:18.160
+ which is recent work by a member of our Center for Brains,
+
+19:18.160 --> 19:20.680
+ Minds, and Machines.
+
+19:20.680 --> 19:24.440
+ We know because of work of other people in our group
+
+19:24.440 --> 19:26.720
+ and other groups, that there are cells
+
+19:26.720 --> 19:31.160
+ in a part of our brain, neurons, that are tuned to faces.
+
+19:31.160 --> 19:33.840
+ They seem to be involved in face recognition.
+
+19:33.840 --> 19:41.600
+ Now, this face area seems to be present in young children
+
+19:41.600 --> 19:44.600
+ and adults.
+
+19:44.600 --> 19:48.400
+ And one question is, is there from the beginning?
+
+19:48.400 --> 19:51.760
+ Is hardwired by evolution?
+
+19:51.760 --> 19:55.000
+ Or somehow it's learned very quickly.
+
+19:55.000 --> 19:58.960
+ So what's your, by the way, a lot of the questions I'm asking,
+
+19:58.960 --> 20:00.920
+ the answer is we don't really know.
+
+20:00.920 --> 20:04.520
+ But as a person who has contributed
+
+20:04.520 --> 20:06.440
+ some profound ideas in these fields,
+
+20:06.440 --> 20:08.360
+ you're a good person to guess at some of these.
+
+20:08.360 --> 20:11.200
+ So of course, there's a caveat before a lot of the stuff
+
+20:11.200 --> 20:11.760
+ we talk about.
+
+20:11.760 --> 20:14.680
+ But what is your hunch?
+
+20:14.680 --> 20:16.400
+ Is the face, the part of the brain
+
+20:16.400 --> 20:20.120
+ that seems to be concentrated on face recognition,
+
+20:20.120 --> 20:21.240
+ are you born with that?
+
+20:21.240 --> 20:25.160
+ Or you just is designed to learn that quickly,
+
+20:25.160 --> 20:26.920
+ like the face of the mother and so on?
+
+20:26.920 --> 20:32.280
+ My hunch, my bias was the second one, learned very quickly.
+
+20:32.280 --> 20:37.240
+ And it turns out that Marge Livingstone at Harvard
+
+20:37.240 --> 20:41.480
+ has done some amazing experiments in which she raised
+
+20:41.480 --> 20:45.200
+ baby monkeys, depriving them of faces
+
+20:45.200 --> 20:48.560
+ during the first weeks of life.
+
+20:48.560 --> 20:53.000
+ So they see technicians, but the technician have a mask.
+
+20:53.000 --> 20:55.080
+ Yes.
+
+20:55.080 --> 21:02.000
+ And so when they looked at the area
+
+21:02.000 --> 21:05.720
+ in the brain of these monkeys that were usually
+
+21:05.720 --> 21:10.840
+ defined faces, they found no face preference.
+
+21:10.840 --> 21:16.800
+ So my guess is that what evolution does in this case
+
+21:16.800 --> 21:19.760
+ is there is a plastic area, which
+
+21:19.760 --> 21:22.760
+ is plastic, which is kind of predetermined
+
+21:22.760 --> 21:26.520
+ to be imprinted very easily.
+
+21:26.520 --> 21:30.160
+ But the command from the gene is not a detailed circuitry
+
+21:30.160 --> 21:32.280
+ for a face template.
+
+21:32.280 --> 21:36.280
+ Could be, but this will require probably a lot of bits.
+
+21:36.280 --> 21:39.720
+ You had to specify a lot of connection of a lot of neurons.
+
+21:39.720 --> 21:42.320
+ Instead, the command from the gene
+
+21:42.320 --> 21:47.400
+ is something like imprint, memorize what you see most
+
+21:47.400 --> 21:49.480
+ often in the first two weeks of life,
+
+21:49.480 --> 21:53.440
+ especially in connection with food and maybe nipples.
+
+21:53.440 --> 21:54.640
+ I don't know.
+
+21:54.640 --> 21:55.960
+ Well, source of food.
+
+21:55.960 --> 22:00.320
+ And so that area is very plastic at first and then solidifies.
+
+22:00.320 --> 22:03.600
+ It'd be interesting if a variant of that experiment
+
+22:03.600 --> 22:06.800
+ would show a different kind of pattern associated
+
+22:06.800 --> 22:10.200
+ with food than a face pattern, whether that could stick.
+
+22:10.200 --> 22:14.960
+ There are indications that during that experiment,
+
+22:14.960 --> 22:19.560
+ what the monkeys saw quite often were
+
+22:19.560 --> 22:23.200
+ the blue gloves of the technicians that were giving
+
+22:23.200 --> 22:25.560
+ to the baby monkeys the milk.
+
+22:25.560 --> 22:29.400
+ And some of the cells, instead of being face sensitive
+
+22:29.400 --> 22:33.680
+ in that area, are hand sensitive.
+
+22:33.680 --> 22:35.960
+ That's fascinating.
+
+22:35.960 --> 22:40.600
+ Can you talk about what are the different parts of the brain
+
+22:40.600 --> 22:43.920
+ and, in your view, sort of loosely,
+
+22:43.920 --> 22:45.760
+ and how do they contribute to intelligence?
+
+22:45.760 --> 22:49.520
+ Do you see the brain as a bunch of different modules,
+
+22:49.520 --> 22:52.440
+ and they together come in the human brain
+
+22:52.440 --> 22:53.800
+ to create intelligence?
+
+22:53.800 --> 22:59.320
+ Or is it all one mush of the same kind
+
+22:59.320 --> 23:04.600
+ of fundamental architecture?
+
+23:04.600 --> 23:08.840
+ Yeah, that's an important question.
+
+23:08.840 --> 23:15.200
+ And there was a phase in neuroscience back in the 1950
+
+23:15.200 --> 23:19.360
+ or so in which it was believed for a while
+
+23:19.360 --> 23:21.920
+ that the brain was equipotential.
+
+23:21.920 --> 23:22.960
+ This was the term.
+
+23:22.960 --> 23:28.000
+ You could cut out a piece, and nothing special
+
+23:28.000 --> 23:32.360
+ happened apart a little bit less performance.
+
+23:32.360 --> 23:37.120
+ There was a surgeon, Lashley, who
+
+23:37.120 --> 23:41.800
+ did a lot of experiments of this type with mice and rats
+
+23:41.800 --> 23:45.640
+ and concluded that every part of the brain
+
+23:45.640 --> 23:48.400
+ was essentially equivalent to any other one.
+
+23:51.360 --> 23:56.080
+ It turns out that that's really not true.
+
+23:56.080 --> 24:00.480
+ There are very specific modules in the brain, as you said.
+
+24:00.480 --> 24:05.280
+ And people may lose the ability to speak
+
+24:05.280 --> 24:07.520
+ if you have a stroke in a certain region,
+
+24:07.520 --> 24:12.840
+ or may lose control of their legs in another region.
+
+24:12.840 --> 24:14.520
+ So they're very specific.
+
+24:14.520 --> 24:17.920
+ The brain is also quite flexible and redundant,
+
+24:17.920 --> 24:27.360
+ so often it can correct things and take over functions
+
+24:27.360 --> 24:29.840
+ from one part of the brain to the other.
+
+24:29.840 --> 24:33.760
+ But really, there are specific modules.
+
+24:33.760 --> 24:40.000
+ So the answer that we know from this old work, which
+
+24:40.000 --> 24:44.840
+ was basically based on lesions, either on animals,
+
+24:44.840 --> 24:52.960
+ or very often there was a mine of very interesting data
+
+24:52.960 --> 25:00.600
+ coming from the war, from different types of injuries
+
+25:00.600 --> 25:03.800
+ that soldiers had in the brain.
+
+25:03.800 --> 25:09.120
+ And more recently, functional MRI,
+
+25:09.120 --> 25:13.840
+ which allow you to check which part of the brain
+
+25:13.840 --> 25:21.640
+ are active when you are doing different tasks,
+
+25:21.640 --> 25:23.720
+ can replace some of this.
+
+25:23.720 --> 25:27.560
+ You can see that certain parts of the brain are involved,
+
+25:27.560 --> 25:29.480
+ are active in certain tasks.
+
+25:29.480 --> 25:32.320
+ Vision, language, yeah, that's right.
+
+25:32.320 --> 25:36.520
+ But sort of taking a step back to that part of the brain
+
+25:36.520 --> 25:39.320
+ that discovers that specializes in the face
+
+25:39.320 --> 25:45.320
+ and how that might be learned, what's your intuition behind?
+
+25:45.320 --> 25:48.880
+ Is it possible that from a physicist perspective,
+
+25:48.880 --> 25:51.920
+ when you get lower and lower, that it's all the same stuff
+
+25:51.920 --> 25:54.800
+ and it just, when you're born, it's plastic
+
+25:54.800 --> 25:58.040
+ and quickly figures out this part is going to be about vision,
+
+25:58.040 --> 25:59.440
+ this is going to be about language,
+
+25:59.440 --> 26:02.000
+ this is about common sense reasoning.
+
+26:02.000 --> 26:05.120
+ Do you have an intuition that that kind of learning
+
+26:05.120 --> 26:07.080
+ is going on really quickly, or is it really
+
+26:07.080 --> 26:09.760
+ kind of solidified in hardware?
+
+26:09.760 --> 26:11.440
+ That's a great question.
+
+26:11.440 --> 26:16.920
+ So there are parts of the brain like the cerebellum
+
+26:16.920 --> 26:21.560
+ or the hippocampus that are quite different from each other.
+
+26:21.560 --> 26:23.840
+ They clearly have different anatomy,
+
+26:23.840 --> 26:26.880
+ different connectivity.
+
+26:26.880 --> 26:33.400
+ Then there is the cortex, which is the most developed part
+
+26:33.400 --> 26:36.080
+ of the brain in humans.
+
+26:36.080 --> 26:39.560
+ And in the cortex, you have different regions
+
+26:39.560 --> 26:43.360
+ of the cortex that are responsible for vision,
+
+26:43.360 --> 26:47.880
+ for audition, for motor control, for language.
+
+26:47.880 --> 26:50.760
+ Now, one of the big puzzles of this
+
+26:50.760 --> 26:55.240
+ is that in the cortex is the cortex is the cortex.
+
+26:55.240 --> 27:00.920
+ Looks like it is the same in terms of hardware,
+
+27:00.920 --> 27:05.040
+ in terms of type of neurons and connectivity
+
+27:05.040 --> 27:08.360
+ across these different modalities.
+
+27:08.360 --> 27:13.680
+ So for the cortex, I think aside these other parts
+
+27:13.680 --> 27:15.800
+ of the brain like spinal cord, hippocampus,
+
+27:15.800 --> 27:18.840
+ cerebellum, and so on, for the cortex,
+
+27:18.840 --> 27:21.920
+ I think your question about hardware and software
+
+27:21.920 --> 27:28.400
+ and learning and so on, I think is rather open.
+
+27:28.400 --> 27:33.720
+ And I find it very interesting for Risa
+
+27:33.720 --> 27:36.960
+ to think about an architecture, computer architecture, that
+
+27:36.960 --> 27:41.360
+ is good for vision and at the same time is good for language.
+
+27:41.360 --> 27:49.320
+ Seems to be so different problem areas that you have to solve.
+
+27:49.320 --> 27:51.280
+ But the underlying mechanism might be the same.
+
+27:51.280 --> 27:55.200
+ And that's really instructive for artificial neural networks.
+
+27:55.200 --> 27:58.000
+ So we've done a lot of great work in vision,
+
+27:58.000 --> 28:01.640
+ in human vision, computer vision.
+
+28:01.640 --> 28:03.800
+ And you mentioned the problem of human vision
+
+28:03.800 --> 28:07.440
+ is really as difficult as the problem of general intelligence.
+
+28:07.440 --> 28:11.480
+ And maybe that connects to the cortex discussion.
+
+28:11.480 --> 28:15.320
+ Can you describe the human visual cortex
+
+28:15.320 --> 28:20.320
+ and how the humans begin to understand the world
+
+28:20.320 --> 28:22.480
+ through the raw sensory information?
+
+28:22.480 --> 28:27.760
+ What's, for folks who are not familiar,
+
+28:27.760 --> 28:30.120
+ especially on the computer vision side,
+
+28:30.120 --> 28:33.400
+ we don't often actually take a step back except saying
+
+28:33.400 --> 28:36.560
+ with a sentence or two that one is inspired by the other.
+
+28:36.560 --> 28:40.000
+ What is it that we know about the human visual cortex?
+
+28:40.000 --> 28:40.760
+ That's interesting.
+
+28:40.760 --> 28:41.880
+ We know quite a bit.
+
+28:41.880 --> 28:43.440
+ At the same time, we don't know a lot.
+
+28:43.440 --> 28:50.080
+ But the bit we know, in a sense, we know a lot of the details.
+
+28:50.080 --> 28:53.440
+ And many we don't know.
+
+28:53.440 --> 28:58.520
+ And we know a lot of the top level,
+
+28:58.520 --> 29:00.080
+ the answer to the top level question.
+
+29:00.080 --> 29:02.200
+ But we don't know some basic ones,
+
+29:02.200 --> 29:06.200
+ even in terms of general neuroscience, forgetting vision.
+
+29:06.200 --> 29:08.960
+ Why do we sleep?
+
+29:08.960 --> 29:11.960
+ It's such a basic question.
+
+29:11.960 --> 29:15.360
+ And we really don't have an answer to that.
+
+29:15.360 --> 29:17.160
+ So taking a step back on that.
+
+29:17.160 --> 29:18.760
+ So sleep, for example, is fascinating.
+
+29:18.760 --> 29:22.040
+ Do you think that's a neuroscience question?
+
+29:22.040 --> 29:25.360
+ Or if we talk about abstractions, what do you
+
+29:25.360 --> 29:28.160
+ think is an interesting way to study intelligence
+
+29:28.160 --> 29:30.680
+ or most effective on the levels of abstraction?
+
+29:30.680 --> 29:33.120
+ Is it chemical, is it biological,
+
+29:33.120 --> 29:35.560
+ is it electrophysical, mathematical,
+
+29:35.560 --> 29:37.880
+ as you've done a lot of excellent work on that side?
+
+29:37.880 --> 29:43.280
+ Which psychology, at which level of abstraction do you think?
+
+29:43.280 --> 29:46.880
+ Well, in terms of levels of abstraction,
+
+29:46.880 --> 29:50.160
+ I think we need all of them.
+
+29:50.160 --> 29:54.360
+ It's like if you ask me, what does it
+
+29:54.360 --> 29:57.560
+ mean to understand a computer?
+
+29:57.560 --> 29:58.640
+ That's much simpler.
+
+29:58.640 --> 30:01.080
+ But in a computer, I could say, well,
+
+30:01.080 --> 30:04.800
+ I understand how to use PowerPoint.
+
+30:04.800 --> 30:08.080
+ That's my level of understanding a computer.
+
+30:08.080 --> 30:09.400
+ It is reasonable.
+
+30:09.400 --> 30:11.760
+ It gives me some power to produce slides
+
+30:11.760 --> 30:14.480
+ and beautiful slides.
+
+30:14.480 --> 30:17.320
+ Now, you can ask somebody else.
+
+30:17.320 --> 30:19.840
+ He says, well, I know how the transistors work
+
+30:19.840 --> 30:21.360
+ that are inside the computer.
+
+30:21.360 --> 30:25.920
+ I can write the equation for transistor and diodes
+
+30:25.920 --> 30:29.360
+ and circuits, logical circuits.
+
+30:29.360 --> 30:32.440
+ And I can ask this guy, do you know how to operate PowerPoint?
+
+30:32.440 --> 30:34.040
+ No idea.
+
+30:34.040 --> 30:39.800
+ So do you think if we discovered computers walking amongst us
+
+30:39.800 --> 30:43.400
+ full of these transistors that are also operating
+
+30:43.400 --> 30:45.560
+ under windows and have PowerPoint,
+
+30:45.560 --> 30:49.960
+ do you think it's digging in a little bit more?
+
+30:49.960 --> 30:53.280
+ How useful is it to understand the transistor in order
+
+30:53.280 --> 30:58.040
+ to be able to understand PowerPoint
+
+30:58.040 --> 31:00.320
+ and these higher level intelligent processes?
+
+31:00.320 --> 31:03.720
+ So I think in the case of computers,
+
+31:03.720 --> 31:06.960
+ because they were made by engineers, by us,
+
+31:06.960 --> 31:09.280
+ this different level of understanding
+
+31:09.280 --> 31:13.280
+ are rather separate on purpose.
+
+31:13.280 --> 31:17.240
+ They are separate modules so that the engineer that
+
+31:17.240 --> 31:19.640
+ designed the circuit for the chips does not
+
+31:19.640 --> 31:23.600
+ need to know what is inside PowerPoint.
+
+31:23.600 --> 31:27.440
+ And somebody can write the software translating
+
+31:27.440 --> 31:30.360
+ from one to the other.
+
+31:30.360 --> 31:36.960
+ So in that case, I don't think understanding the transistor
+
+31:36.960 --> 31:41.120
+ helps you understand PowerPoint, or very little.
+
+31:41.120 --> 31:43.960
+ If you want to understand the computer, this question,
+
+31:43.960 --> 31:45.960
+ I would say you have to understand it
+
+31:45.960 --> 31:46.800
+ at different levels.
+
+31:46.800 --> 31:51.520
+ If you really want to build one, right?
+
+31:51.520 --> 31:57.320
+ But for the brain, I think these levels of understanding,
+
+31:57.320 --> 32:00.840
+ so the algorithms, which kind of computation,
+
+32:00.840 --> 32:04.640
+ the equivalent of PowerPoint, and the circuits,
+
+32:04.640 --> 32:07.560
+ the transistors, I think they are much more
+
+32:07.560 --> 32:09.560
+ intertwined with each other.
+
+32:09.560 --> 32:14.480
+ There is not a neatly level of the software separate
+
+32:14.480 --> 32:15.840
+ from the hardware.
+
+32:15.840 --> 32:20.080
+ And so that's why I think in the case of the brain,
+
+32:20.080 --> 32:23.640
+ the problem is more difficult and more than for computers
+
+32:23.640 --> 32:26.560
+ requires the interaction, the collaboration
+
+32:26.560 --> 32:30.080
+ between different types of expertise.
+
+32:30.080 --> 32:32.320
+ The brain is a big hierarchical mess.
+
+32:32.320 --> 32:35.120
+ You can't just disentangle levels.
+
+32:35.120 --> 32:37.880
+ I think you can, but it's much more difficult.
+
+32:37.880 --> 32:40.840
+ And it's not completely obvious.
+
+32:40.840 --> 32:44.720
+ And as I said, I think it's one of the, personally,
+
+32:44.720 --> 32:47.240
+ I think is the greatest problem in science.
+
+32:47.240 --> 32:51.880
+ So I think it's fair that it's difficult.
+
+32:51.880 --> 32:53.320
+ That's a difficult one.
+
+32:53.320 --> 32:56.920
+ That said, you do talk about compositionality
+
+32:56.920 --> 32:58.280
+ and why it might be useful.
+
+32:58.280 --> 33:01.720
+ And when you discuss why these neural networks,
+
+33:01.720 --> 33:05.200
+ in artificial or biological sense, learn anything,
+
+33:05.200 --> 33:07.560
+ you talk about compositionality.
+
+33:07.560 --> 33:13.480
+ See, there's a sense that nature can be disentangled.
+
+33:13.480 --> 33:19.840
+ Or, well, all aspects of our cognition
+
+33:19.840 --> 33:22.640
+ could be disentangled to some degree.
+
+33:22.640 --> 33:25.920
+ So why do you think, first of all,
+
+33:25.920 --> 33:27.720
+ how do you see compositionality?
+
+33:27.720 --> 33:31.640
+ And why do you think it exists at all in nature?
+
+33:31.640 --> 33:39.800
+ I spoke about, I use the term compositionality
+
+33:39.800 --> 33:45.320
+ when we looked at deep neural networks, multilayers,
+
+33:45.320 --> 33:50.560
+ and trying to understand when and why they are more powerful
+
+33:50.560 --> 33:54.800
+ than more classical one layer networks,
+
+33:54.800 --> 34:01.600
+ like linear classifier, kernel machines, so called.
+
+34:01.600 --> 34:05.360
+ And what we found is that in terms
+
+34:05.360 --> 34:08.360
+ of approximating or learning or representing
+
+34:08.360 --> 34:12.200
+ a function, a mapping from an input to an output,
+
+34:12.200 --> 34:16.760
+ like from an image to the label in the image,
+
+34:16.760 --> 34:20.840
+ if this function has a particular structure,
+
+34:20.840 --> 34:26.120
+ then deep networks are much more powerful than shallow networks
+
+34:26.120 --> 34:28.880
+ to approximate the underlying function.
+
+34:28.880 --> 34:33.920
+ And the particular structure is a structure of compositionality.
+
+34:33.920 --> 34:38.960
+ If the function is made up of functions of function,
+
+34:38.960 --> 34:45.800
+ so that you need to look on when you are interpreting an image,
+
+34:45.800 --> 34:47.720
+ classifying an image, you don't need
+
+34:47.720 --> 34:51.040
+ to look at all pixels at once.
+
+34:51.040 --> 34:57.120
+ But you can compute something from small groups of pixels.
+
+34:57.120 --> 34:59.920
+ And then you can compute something
+
+34:59.920 --> 35:04.760
+ on the output of this local computation and so on,
+
+35:04.760 --> 35:07.320
+ which is similar to what you do when you read a sentence.
+
+35:07.320 --> 35:11.360
+ You don't need to read the first and the last letter.
+
+35:11.360 --> 35:16.000
+ But you can read syllables, combine them in words,
+
+35:16.000 --> 35:18.120
+ combine the words in sentences.
+
+35:18.120 --> 35:21.040
+ So this is this kind of structure.
+
+35:21.040 --> 35:22.600
+ So that's as part of a discussion
+
+35:22.600 --> 35:26.120
+ of why deep neural networks may be more
+
+35:26.120 --> 35:27.880
+ effective than the shallow methods.
+
+35:27.880 --> 35:31.320
+ And is your sense, for most things
+
+35:31.320 --> 35:37.400
+ we can use neural networks for, those problems
+
+35:37.400 --> 35:42.440
+ are going to be compositional in nature, like language,
+
+35:42.440 --> 35:44.240
+ like vision?
+
+35:44.240 --> 35:47.840
+ How far can we get in this kind of way?
+
+35:47.840 --> 35:51.560
+ So here is almost philosophy.
+
+35:51.560 --> 35:53.120
+ Well, let's go there.
+
+35:53.120 --> 35:54.240
+ Yeah, let's go there.
+
+35:54.240 --> 36:00.200
+ So a friend of mine, Max Tegmark, who is a physicist at MIT.
+
+36:00.200 --> 36:01.560
+ I've talked to him on this thing.
+
+36:01.560 --> 36:03.800
+ Yeah, and he disagrees with you, right?
+
+36:03.800 --> 36:04.440
+ A little bit.
+
+36:04.440 --> 36:07.040
+ Yeah, we agree on most.
+
+36:07.040 --> 36:10.160
+ But the conclusion is a bit different.
+
+36:10.160 --> 36:14.640
+ His conclusion is that for images, for instance,
+
+36:14.640 --> 36:19.440
+ the compositional structure of this function
+
+36:19.440 --> 36:23.360
+ that we have to learn or to solve these problems
+
+36:23.360 --> 36:27.760
+ comes from physics, comes from the fact
+
+36:27.760 --> 36:31.920
+ that you have local interactions in physics
+
+36:31.920 --> 36:37.440
+ between atoms and other atoms, between particle
+
+36:37.440 --> 36:41.120
+ of matter and other particles, between planets
+
+36:41.120 --> 36:44.400
+ and other planets, between stars and other.
+
+36:44.400 --> 36:45.200
+ It's all local.
+
+36:48.320 --> 36:51.160
+ And that's true.
+
+36:51.160 --> 36:56.280
+ But you could push this argument a bit further.
+
+36:56.280 --> 36:57.600
+ Not this argument, actually.
+
+36:57.600 --> 37:02.800
+ You could argue that maybe that's part of the truth.
+
+37:02.800 --> 37:06.800
+ But maybe what happens is kind of the opposite,
+
+37:06.800 --> 37:11.840
+ is that our brain is wired up as a deep network.
+
+37:11.840 --> 37:18.240
+ So it can learn, understand, solve
+
+37:18.240 --> 37:22.800
+ problems that have this compositional structure
+
+37:22.800 --> 37:27.520
+ and it cannot solve problems that don't have
+
+37:27.520 --> 37:29.400
+ this compositional structure.
+
+37:29.400 --> 37:34.920
+ So the problems we are accustomed to, we think about,
+
+37:34.920 --> 37:40.160
+ we test our algorithms on, are this compositional structure
+
+37:40.160 --> 37:42.600
+ because our brain is made up.
+
+37:42.600 --> 37:45.400
+ And that's, in a sense, an evolutionary perspective
+
+37:45.400 --> 37:46.400
+ that we've.
+
+37:46.400 --> 37:50.120
+ So the ones that didn't have, that weren't
+
+37:50.120 --> 37:55.200
+ dealing with the compositional nature of reality died off?
+
+37:55.200 --> 38:00.320
+ Yes, but also could be maybe the reason
+
+38:00.320 --> 38:05.480
+ why we have this local connectivity in the brain,
+
+38:05.480 --> 38:08.840
+ like simple cells in cortex looking
+
+38:08.840 --> 38:11.920
+ only at the small part of the image, each one of them,
+
+38:11.920 --> 38:14.680
+ and then other cells looking at the small number
+
+38:14.680 --> 38:16.360
+ of these simple cells and so on.
+
+38:16.360 --> 38:19.960
+ The reason for this may be purely
+
+38:19.960 --> 38:25.080
+ that it was difficult to grow long range connectivity.
+
+38:25.080 --> 38:28.640
+ So suppose it's for biology.
+
+38:28.640 --> 38:34.280
+ It's possible to grow short range connectivity but not
+
+38:34.280 --> 38:38.560
+ long range also because there is a limited number of long range
+
+38:38.560 --> 38:39.720
+ that you can.
+
+38:39.720 --> 38:45.000
+ And so you have this limitation from the biology.
+
+38:45.000 --> 38:50.160
+ And this means you build a deep convolutional network.
+
+38:50.160 --> 38:53.600
+ This would be something like a deep convolutional network.
+
+38:53.600 --> 38:57.800
+ And this is great for solving certain class of problems.
+
+38:57.800 --> 39:02.880
+ These are the ones we find easy and important for our life.
+
+39:02.880 --> 39:07.320
+ And yes, they were enough for us to survive.
+
+39:07.320 --> 39:10.800
+ And you can start a successful business
+
+39:10.800 --> 39:14.600
+ on solving those problems with Mobileye.
+
+39:14.600 --> 39:17.360
+ Driving is a compositional problem.
+
+39:17.360 --> 39:21.080
+ So on the learning task, we don't
+
+39:21.080 --> 39:24.000
+ know much about how the brain learns
+
+39:24.000 --> 39:26.320
+ in terms of optimization.
+
+39:26.320 --> 39:29.040
+ So the thing that's stochastic gradient descent
+
+39:29.040 --> 39:33.760
+ is what artificial neural networks use for the most part
+
+39:33.760 --> 39:37.520
+ to adjust the parameters in such a way that it's
+
+39:37.520 --> 39:40.640
+ able to deal based on the label data,
+
+39:40.640 --> 39:42.520
+ it's able to solve the problem.
+
+39:42.520 --> 39:50.040
+ So what's your intuition about why it works at all?
+
+39:50.040 --> 39:53.360
+ How hard of a problem it is to optimize
+
+39:53.360 --> 39:56.320
+ a neural network, artificial neural network?
+
+39:56.320 --> 39:58.720
+ Is there other alternatives?
+
+39:58.720 --> 40:01.640
+ Just in general, your intuition is
+
+40:01.640 --> 40:03.800
+ behind this very simplistic algorithm
+
+40:03.800 --> 40:06.640
+ that seems to do pretty good, surprisingly so.
+
+40:06.640 --> 40:07.840
+ Yes.
+
+40:07.840 --> 40:13.840
+ So I find neuroscience, the architecture of cortex,
+
+40:13.840 --> 40:17.440
+ is really similar to the architecture of deep networks.
+
+40:17.440 --> 40:20.360
+ So there is a nice correspondence there
+
+40:20.360 --> 40:23.160
+ between the biology and this kind
+
+40:23.160 --> 40:28.200
+ of local connectivity, hierarchical architecture.
+
+40:28.200 --> 40:30.960
+ The stochastic gradient descent, as you said,
+
+40:30.960 --> 40:35.760
+ is a very simple technique.
+
+40:35.760 --> 40:41.320
+ It seems pretty unlikely that biology could do that
+
+40:41.320 --> 40:47.360
+ from what we know right now about cortex and neurons
+
+40:47.360 --> 40:50.200
+ and synapses.
+
+40:50.200 --> 40:53.080
+ So it's a big question open whether there
+
+40:53.080 --> 40:59.040
+ are other optimization learning algorithms that
+
+40:59.040 --> 41:02.000
+ can replace stochastic gradient descent.
+
+41:02.000 --> 41:11.760
+ And my guess is yes, but nobody has found yet a real answer.
+
+41:11.760 --> 41:13.840
+ I mean, people are trying, still trying,
+
+41:13.840 --> 41:18.280
+ and there are some interesting ideas.
+
+41:18.280 --> 41:22.000
+ The fact that stochastic gradient descent
+
+41:22.000 --> 41:26.160
+ is so successful, this has become clearly not so
+
+41:26.160 --> 41:27.640
+ mysterious.
+
+41:27.640 --> 41:33.840
+ And the reason is that it's an interesting fact.
+
+41:33.840 --> 41:36.840
+ It's a change, in a sense, in how
+
+41:36.840 --> 41:39.280
+ people think about statistics.
+
+41:39.280 --> 41:45.160
+ And this is the following, is that typically when
+
+41:45.160 --> 41:51.800
+ you had data and you had, say, a model with parameters,
+
+41:51.800 --> 41:54.520
+ you are trying to fit the model to the data,
+
+41:54.520 --> 41:55.960
+ to fit the parameter.
+
+41:55.960 --> 42:04.520
+ Typically, the kind of crowd wisdom type idea
+
+42:04.520 --> 42:09.720
+ was you should have at least twice the number of data
+
+42:09.720 --> 42:12.880
+ than the number of parameters.
+
+42:12.880 --> 42:15.480
+ Maybe 10 times is better.
+
+42:15.480 --> 42:19.560
+ Now, the way you train neural networks these days
+
+42:19.560 --> 42:23.480
+ is that they have 10 or 100 times more parameters
+
+42:23.480 --> 42:26.760
+ than data, exactly the opposite.
+
+42:26.760 --> 42:34.080
+ And it has been one of the puzzles about neural networks.
+
+42:34.080 --> 42:37.120
+ How can you get something that really works
+
+42:37.120 --> 42:40.640
+ when you have so much freedom?
+
+42:40.640 --> 42:43.000
+ From that little data, it can generalize somehow.
+
+42:43.000 --> 42:44.200
+ Right, exactly.
+
+42:44.200 --> 42:46.400
+ Do you think the stochastic nature of it
+
+42:46.400 --> 42:48.160
+ is essential, the randomness?
+
+42:48.160 --> 42:50.640
+ So I think we have some initial understanding
+
+42:50.640 --> 42:52.240
+ why this happens.
+
+42:52.240 --> 42:56.480
+ But one nice side effect of having
+
+42:56.480 --> 43:00.920
+ this overparameterization, more parameters than data,
+
+43:00.920 --> 43:04.720
+ is that when you look for the minima of a loss function,
+
+43:04.720 --> 43:08.240
+ like stochastic gradient descent is doing,
+
+43:08.240 --> 43:12.120
+ you find I made some calculations based
+
+43:12.120 --> 43:19.040
+ on some old basic theorem of algebra called the Bezu
+
+43:19.040 --> 43:23.240
+ theorem that gives you an estimate of the number
+
+43:23.240 --> 43:25.960
+ of solution of a system of polynomial equation.
+
+43:25.960 --> 43:30.520
+ Anyway, the bottom line is that there are probably
+
+43:30.520 --> 43:36.080
+ more minima for a typical deep networks
+
+43:36.080 --> 43:39.480
+ than atoms in the universe.
+
+43:39.480 --> 43:42.120
+ Just to say, there are a lot because
+
+43:42.120 --> 43:44.760
+ of the overparameterization.
+
+43:44.760 --> 43:50.280
+ A more global minimum, zero minimum, good minimum.
+
+43:50.280 --> 43:51.560
+ A more global minima.
+
+43:51.560 --> 43:53.200
+ Yeah, a lot of them.
+
+43:53.200 --> 43:54.560
+ So you have a lot of solutions.
+
+43:54.560 --> 43:57.920
+ So it's not so surprising that you can find them
+
+43:57.920 --> 44:00.400
+ relatively easily.
+
+44:00.400 --> 44:04.200
+ And this is because of the overparameterization.
+
+44:04.200 --> 44:07.920
+ The overparameterization sprinkles that entire space
+
+44:07.920 --> 44:09.720
+ with solutions that are pretty good.
+
+44:09.720 --> 44:11.240
+ It's not so surprising, right?
+
+44:11.240 --> 44:14.400
+ It's like if you have a system of linear equation
+
+44:14.400 --> 44:18.520
+ and you have more unknowns than equations, then you have,
+
+44:18.520 --> 44:22.040
+ we know, you have an infinite number of solutions.
+
+44:22.040 --> 44:24.480
+ And the question is to pick one.
+
+44:24.480 --> 44:25.440
+ That's another story.
+
+44:25.440 --> 44:27.520
+ But you have an infinite number of solutions.
+
+44:27.520 --> 44:31.040
+ So there are a lot of value of your unknowns
+
+44:31.040 --> 44:33.160
+ that satisfy the equations.
+
+44:33.160 --> 44:36.360
+ But it's possible that there's a lot of those solutions that
+
+44:36.360 --> 44:37.560
+ aren't very good.
+
+44:37.560 --> 44:39.160
+ What's surprising is that they're pretty good.
+
+44:39.160 --> 44:40.160
+ So that's a good question.
+
+44:40.160 --> 44:42.840
+ Why can you pick one that generalizes well?
+
+44:42.840 --> 44:44.120
+ Yeah.
+
+44:44.120 --> 44:47.120
+ That's a separate question with separate answers.
+
+44:47.120 --> 44:51.160
+ One theorem that people like to talk about that kind of
+
+44:51.160 --> 44:53.800
+ inspires imagination of the power of neural networks
+
+44:53.800 --> 44:57.840
+ is the universality, universal approximation theorem,
+
+44:57.840 --> 45:00.960
+ that you can approximate any computable function
+
+45:00.960 --> 45:02.840
+ with just a finite number of neurons
+
+45:02.840 --> 45:04.360
+ in a single hidden layer.
+
+45:04.360 --> 45:07.680
+ Do you find this theorem one surprising?
+
+45:07.680 --> 45:12.600
+ Do you find it useful, interesting, inspiring?
+
+45:12.600 --> 45:16.440
+ No, this one, I never found it very surprising.
+
+45:16.440 --> 45:22.640
+ It was known since the 80s, since I entered the field,
+
+45:22.640 --> 45:27.560
+ because it's basically the same as Weierstrass theorem, which
+
+45:27.560 --> 45:32.000
+ says that I can approximate any continuous function
+
+45:32.000 --> 45:34.560
+ with a polynomial of sufficiently,
+
+45:34.560 --> 45:38.120
+ with a sufficient number of terms, monomials.
+
+45:38.120 --> 45:39.360
+ So basically the same.
+
+45:39.360 --> 45:41.680
+ And the proofs are very similar.
+
+45:41.680 --> 45:43.520
+ So your intuition was there was never
+
+45:43.520 --> 45:45.680
+ any doubt that neural networks in theory
+
+45:45.680 --> 45:48.000
+ could be very strong approximators.
+
+45:48.000 --> 45:48.800
+ Right.
+
+45:48.800 --> 45:50.760
+ The question, the interesting question,
+
+45:50.760 --> 45:58.520
+ is that if this theorem says you can approximate, fine.
+
+45:58.520 --> 46:03.200
+ But when you ask how many neurons, for instance,
+
+46:03.200 --> 46:06.400
+ or in the case of polynomial, how many monomials,
+
+46:06.400 --> 46:11.360
+ I need to get a good approximation.
+
+46:11.360 --> 46:15.960
+ Then it turns out that that depends
+
+46:15.960 --> 46:18.080
+ on the dimensionality of your function,
+
+46:18.080 --> 46:20.520
+ how many variables you have.
+
+46:20.520 --> 46:22.120
+ But it depends on the dimensionality
+
+46:22.120 --> 46:25.080
+ of your function in a bad way.
+
+46:25.080 --> 46:28.000
+ It's, for instance, suppose you want
+
+46:28.000 --> 46:35.040
+ an error which is no worse than 10% in your approximation.
+
+46:35.040 --> 46:38.120
+ You come up with a network that approximate your function
+
+46:38.120 --> 46:40.440
+ within 10%.
+
+46:40.440 --> 46:44.520
+ Then it turns out that the number of units you need
+
+46:44.520 --> 46:48.360
+ are in the order of 10 to the dimensionality, d,
+
+46:48.360 --> 46:50.080
+ how many variables.
+
+46:50.080 --> 46:54.840
+ So if you have two variables, these two words,
+
+46:54.840 --> 46:57.240
+ you have 100 units and OK.
+
+46:57.240 --> 47:02.920
+ But if you have, say, 200 by 200 pixel images,
+
+47:02.920 --> 47:06.840
+ now this is 40,000, whatever.
+
+47:06.840 --> 47:09.800
+ We again go to the size of the universe pretty quickly.
+
+47:09.800 --> 47:14.120
+ Exactly, 10 to the 40,000 or something.
+
+47:14.120 --> 47:18.680
+ And so this is called the curse of dimensionality,
+
+47:18.680 --> 47:22.280
+ not quite appropriately.
+
+47:22.280 --> 47:24.200
+ And the hope is with the extra layers,
+
+47:24.200 --> 47:28.040
+ you can remove the curse.
+
+47:28.040 --> 47:32.280
+ What we proved is that if you have deep layers,
+
+47:32.280 --> 47:36.200
+ hierarchical architecture with the local connectivity
+
+47:36.200 --> 47:39.960
+ of the type of convolutional deep learning,
+
+47:39.960 --> 47:42.000
+ and if you're dealing with a function that
+
+47:42.000 --> 47:46.680
+ has this kind of hierarchical architecture,
+
+47:46.680 --> 47:50.680
+ then you avoid completely the curse.
+
+47:50.680 --> 47:54.520
+ You've spoken a lot about supervised deep learning.
+
+47:54.520 --> 47:56.480
+ What are your thoughts, hopes, views
+
+47:56.480 --> 47:59.640
+ on the challenges of unsupervised learning
+
+47:59.640 --> 48:05.800
+ with GANs, with Generative Adversarial Networks?
+
+48:05.800 --> 48:08.120
+ Do you see those as distinct?
+
+48:08.120 --> 48:09.920
+ The power of GANs, do you see those
+
+48:09.920 --> 48:13.120
+ as distinct from supervised methods in neural networks,
+
+48:13.120 --> 48:16.640
+ or are they really all in the same representation ballpark?
+
+48:16.640 --> 48:24.040
+ GANs is one way to get estimation of probability
+
+48:24.040 --> 48:28.760
+ densities, which is a somewhat new way that people have not
+
+48:28.760 --> 48:30.360
+ done before.
+
+48:30.360 --> 48:36.080
+ I don't know whether this will really play an important role
+
+48:36.080 --> 48:39.000
+ in intelligence.
+
+48:39.000 --> 48:43.080
+ Or it's interesting.
+
+48:43.080 --> 48:48.600
+ I'm less enthusiastic about it than many people in the field.
+
+48:48.600 --> 48:50.880
+ I have the feeling that many people in the field
+
+48:50.880 --> 48:54.320
+ are really impressed by the ability
+
+48:54.320 --> 49:01.160
+ of producing realistic looking images in this generative way.
+
+49:01.160 --> 49:03.080
+ Which describes the popularity of the methods.
+
+49:03.080 --> 49:06.320
+ But you're saying that while that's exciting and cool
+
+49:06.320 --> 49:11.200
+ to look at, it may not be the tool that's useful for it.
+
+49:11.200 --> 49:13.560
+ So you describe it kind of beautifully.
+
+49:13.560 --> 49:16.320
+ Current supervised methods go n to infinity
+
+49:16.320 --> 49:18.200
+ in terms of number of labeled points.
+
+49:18.200 --> 49:21.360
+ And we really have to figure out how to go to n to 1.
+
+49:21.360 --> 49:23.200
+ And you're thinking GANs might help,
+
+49:23.200 --> 49:25.080
+ but they might not be the right.
+
+49:25.080 --> 49:28.480
+ I don't think for that problem, which I really think
+
+49:28.480 --> 49:32.000
+ is important, I think they may help.
+
+49:32.000 --> 49:33.680
+ They certainly have applications,
+
+49:33.680 --> 49:35.760
+ for instance, in computer graphics.
+
+49:35.760 --> 49:41.560
+ And I did work long ago, which was
+
+49:41.560 --> 49:47.000
+ a little bit similar in terms of saying, OK, I have a network.
+
+49:47.000 --> 49:49.760
+ And I present images.
+
+49:49.760 --> 49:54.040
+ And I can input its images.
+
+49:54.040 --> 49:57.520
+ And output is, for instance, the pose of the image.
+
+49:57.520 --> 50:02.960
+ A face, how much is smiling, is rotated 45 degrees or not.
+
+50:02.960 --> 50:07.440
+ What about having a network that I train with the same data
+
+50:07.440 --> 50:10.600
+ set, but now I invert input and output.
+
+50:10.600 --> 50:15.920
+ Now the input is the pose or the expression, a number,
+
+50:15.920 --> 50:16.920
+ set of numbers.
+
+50:16.920 --> 50:18.280
+ And the output is the image.
+
+50:18.280 --> 50:20.240
+ And I train it.
+
+50:20.240 --> 50:22.520
+ And we did pretty good, interesting results
+
+50:22.520 --> 50:27.840
+ in terms of producing very realistic looking images.
+
+50:27.840 --> 50:31.920
+ It was a less sophisticated mechanism.
+
+50:31.920 --> 50:35.320
+ But the output was pretty less than GANs.
+
+50:35.320 --> 50:38.960
+ But the output was pretty much of the same quality.
+
+50:38.960 --> 50:43.400
+ So I think for a computer graphics type application,
+
+50:43.400 --> 50:46.240
+ yeah, definitely GANs can be quite useful.
+
+50:46.240 --> 50:52.880
+ And not only for that, but for helping,
+
+50:52.880 --> 50:58.200
+ for instance, on this problem of unsupervised example
+
+50:58.200 --> 51:02.400
+ of reducing the number of labeled examples.
+
+51:02.400 --> 51:07.920
+ I think people, it's like they think they can get out
+
+51:07.920 --> 51:11.080
+ more than they put in.
+
+51:11.080 --> 51:14.000
+ There's no free lunch, as you said.
+
+51:14.000 --> 51:17.320
+ What do you think, what's your intuition?
+
+51:17.320 --> 51:22.720
+ How can we slow the growth of N to infinity in supervised,
+
+51:22.720 --> 51:25.080
+ N to infinity in supervised learning?
+
+51:25.080 --> 51:29.880
+ So for example, Mobileye has very successfully,
+
+51:29.880 --> 51:33.000
+ I mean, essentially annotated large amounts of data
+
+51:33.000 --> 51:34.680
+ to be able to drive a car.
+
+51:34.680 --> 51:37.440
+ Now one thought is, so we're trying
+
+51:37.440 --> 51:41.000
+ to teach machines, school of AI.
+
+51:41.000 --> 51:45.560
+ And we're trying to, so how can we become better teachers,
+
+51:45.560 --> 51:46.040
+ maybe?
+
+51:46.040 --> 51:47.320
+ That's one way.
+
+51:47.320 --> 51:51.240
+ No, I like that.
+
+51:51.240 --> 51:57.680
+ Because again, one caricature of the history of computer
+
+51:57.680 --> 52:05.360
+ science, you could say, begins with programmers, expensive.
+
+52:05.360 --> 52:09.640
+ Continuous labelers, cheap.
+
+52:09.640 --> 52:14.680
+ And the future will be schools, like we have for kids.
+
+52:14.680 --> 52:16.360
+ Yeah.
+
+52:16.360 --> 52:20.280
+ Currently, the labeling methods were not
+
+52:20.280 --> 52:25.880
+ selective about which examples we teach networks with.
+
+52:25.880 --> 52:31.320
+ So I think the focus of making networks that learn much faster
+
+52:31.320 --> 52:33.680
+ is often on the architecture side.
+
+52:33.680 --> 52:37.960
+ But how can we pick better examples with which to learn?
+
+52:37.960 --> 52:39.440
+ Do you have intuitions about that?
+
+52:39.440 --> 52:42.480
+ Well, that's part of the problem.
+
+52:42.480 --> 52:50.360
+ But the other one is, if we look at biology,
+
+52:50.360 --> 52:52.960
+ a reasonable assumption, I think,
+
+52:52.960 --> 52:58.120
+ is in the same spirit that I said,
+
+52:58.120 --> 53:03.400
+ evolution is opportunistic and has weak priors.
+
+53:03.400 --> 53:08.280
+ The way I think the intelligence of a child,
+
+53:08.280 --> 53:16.240
+ the baby may develop is by bootstrapping weak priors
+
+53:16.240 --> 53:17.400
+ from evolution.
+
+53:17.400 --> 53:24.720
+ For instance, you can assume that you
+
+53:24.720 --> 53:28.960
+ have in most organisms, including human babies,
+
+53:28.960 --> 53:35.400
+ built in some basic machinery to detect motion
+
+53:35.400 --> 53:38.200
+ and relative motion.
+
+53:38.200 --> 53:42.920
+ And in fact, we know all insects from fruit flies
+
+53:42.920 --> 53:49.760
+ to other animals, they have this,
+
+53:49.760 --> 53:53.120
+ even in the retinas, in the very peripheral part.
+
+53:53.120 --> 53:56.160
+ It's very conserved across species, something
+
+53:56.160 --> 53:59.040
+ that evolution discovered early.
+
+53:59.040 --> 54:01.480
+ It may be the reason why babies tend
+
+54:01.480 --> 54:06.160
+ to look in the first few days to moving objects
+
+54:06.160 --> 54:08.320
+ and not to not moving objects.
+
+54:08.320 --> 54:12.200
+ Now, moving objects means, OK, they're attracted by motion.
+
+54:12.200 --> 54:15.480
+ But motion also means that motion
+
+54:15.480 --> 54:20.560
+ gives automatic segmentation from the background.
+
+54:20.560 --> 54:25.360
+ So because of motion boundaries, either the object
+
+54:25.360 --> 54:30.600
+ is moving or the eye of the baby is tracking the moving object
+
+54:30.600 --> 54:32.800
+ and the background is moving, right?
+
+54:32.800 --> 54:36.040
+ Yeah, so just purely on the visual characteristics
+
+54:36.040 --> 54:37.920
+ of the scene, that seems to be the most useful.
+
+54:37.920 --> 54:43.960
+ Right, so it's like looking at an object without background.
+
+54:43.960 --> 54:45.760
+ It's ideal for learning the object.
+
+54:45.760 --> 54:48.760
+ Otherwise, it's really difficult because you
+
+54:48.760 --> 54:50.440
+ have so much stuff.
+
+54:50.440 --> 54:55.120
+ So suppose you do this at the beginning, first weeks.
+
+54:55.120 --> 54:58.560
+ Then after that, you can recognize object.
+
+54:58.560 --> 55:02.160
+ Now they are imprinted, the number one,
+
+55:02.160 --> 55:05.800
+ even in the background, even without motion.
+
+55:05.800 --> 55:08.160
+ So that's, by the way, I just want
+
+55:08.160 --> 55:10.920
+ to ask on the object recognition problem.
+
+55:10.920 --> 55:13.960
+ So there is this being responsive to movement
+
+55:13.960 --> 55:16.760
+ and doing edge detection, essentially.
+
+55:16.760 --> 55:21.600
+ What's the gap between being effective at visually
+
+55:21.600 --> 55:24.560
+ recognizing stuff, detecting where it is,
+
+55:24.560 --> 55:27.640
+ and understanding the scene?
+
+55:27.640 --> 55:32.960
+ Is this a huge gap in many layers, or is it close?
+
+55:32.960 --> 55:35.120
+ No, I think that's a huge gap.
+
+55:35.120 --> 55:42.040
+ I think present algorithm with all the success that we have
+
+55:42.040 --> 55:45.120
+ and the fact that there are a lot of very useful,
+
+55:45.120 --> 55:48.440
+ I think we are in a golden age for applications
+
+55:48.440 --> 55:53.720
+ of low level vision and low level speech recognition
+
+55:53.720 --> 55:56.800
+ and so on, Alexa and so on.
+
+55:56.800 --> 55:58.840
+ There are many more things of similar level
+
+55:58.840 --> 56:02.040
+ to be done, including medical diagnosis and so on.
+
+56:02.040 --> 56:05.600
+ But we are far from what we call understanding
+
+56:05.600 --> 56:11.960
+ of a scene, of language, of actions, of people.
+
+56:11.960 --> 56:18.480
+ That is, despite the claims, that's, I think, very far.
+
+56:18.480 --> 56:19.560
+ We're a little bit off.
+
+56:19.560 --> 56:23.160
+ So in popular culture and among many researchers,
+
+56:23.160 --> 56:25.640
+ some of which I've spoken with, the Stuart Russell
+
+56:25.640 --> 56:30.920
+ and Elon Musk, in and out of the AI field,
+
+56:30.920 --> 56:34.520
+ there's a concern about the existential threat of AI.
+
+56:34.520 --> 56:40.000
+ And how do you think about this concern?
+
+56:40.000 --> 56:45.560
+ And is it valuable to think about large scale, long term,
+
+56:45.560 --> 56:50.360
+ unintended consequences of intelligent systems
+
+56:50.360 --> 56:51.440
+ we try to build?
+
+56:51.440 --> 56:56.000
+ I always think it's better to worry first, early,
+
+56:56.000 --> 56:58.640
+ rather than late.
+
+56:58.640 --> 56:59.640
+ So worry is good.
+
+56:59.640 --> 57:00.400
+ Yeah.
+
+57:00.400 --> 57:03.000
+ I'm not against worrying at all.
+
+57:03.000 --> 57:09.520
+ Personally, I think that it will take a long time
+
+57:09.520 --> 57:15.920
+ before there is real reason to be worried.
+
+57:15.920 --> 57:19.440
+ But as I said, I think it's good to put in place
+
+57:19.440 --> 57:24.360
+ and think about possible safety against.
+
+57:24.360 --> 57:27.360
+ What I find a bit misleading are things
+
+57:27.360 --> 57:31.480
+ like that have been said by people I know, like Elon Musk,
+
+57:31.480 --> 57:35.240
+ and what is Bostrom in particular,
+
+57:35.240 --> 57:36.800
+ and what is his first name?
+
+57:36.800 --> 57:37.400
+ Nick Bostrom.
+
+57:37.400 --> 57:40.120
+ Nick Bostrom, right.
+
+57:40.120 --> 57:44.080
+ And a couple of other people that, for instance, AI
+
+57:44.080 --> 57:46.880
+ is more dangerous than nuclear weapons.
+
+57:46.880 --> 57:50.400
+ I think that's really wrong.
+
+57:50.400 --> 57:52.680
+ That can be misleading.
+
+57:52.680 --> 57:56.440
+ Because in terms of priority, we should still
+
+57:56.440 --> 57:59.480
+ be more worried about nuclear weapons
+
+57:59.480 --> 58:05.600
+ and what people are doing about it and so on than AI.
+
+58:05.600 --> 58:09.920
+ And you've spoken about Demis Hassabis
+
+58:09.920 --> 58:12.840
+ and yourself saying that you think
+
+58:12.840 --> 58:16.440
+ you'll be about 100 years out before we
+
+58:16.440 --> 58:18.920
+ have a general intelligence system that's
+
+58:18.920 --> 58:20.600
+ on par with a human being.
+
+58:20.600 --> 58:22.520
+ Do you have any updates for those predictions?
+
+58:22.520 --> 58:24.080
+ Well, I think he said.
+
+58:24.080 --> 58:25.080
+ He said 20, I think.
+
+58:25.080 --> 58:26.200
+ He said 20, right.
+
+58:26.200 --> 58:27.680
+ This was a couple of years ago.
+
+58:27.680 --> 58:29.160
+ I have not asked him again.
+
+58:29.160 --> 58:31.480
+ So should I have?
+
+58:31.480 --> 58:36.000
+ Your own prediction, what's your prediction
+
+58:36.000 --> 58:38.880
+ about when you'll be truly surprised?
+
+58:38.880 --> 58:43.000
+ And what's the confidence interval on that?
+
+58:43.000 --> 58:45.760
+ It's so difficult to predict the future and even
+
+58:45.760 --> 58:47.120
+ the present sometimes.
+
+58:47.120 --> 58:48.480
+ It's pretty hard to predict.
+
+58:48.480 --> 58:53.360
+ But I would be, as I said, this is completely,
+
+58:53.360 --> 58:56.960
+ I would be more like Rod Brooks.
+
+58:56.960 --> 58:58.960
+ I think he's about 200 years.
+
+58:58.960 --> 59:01.560
+ 200 years.
+
+59:01.560 --> 59:04.880
+ When we have this kind of AGI system,
+
+59:04.880 --> 59:06.920
+ artificial general intelligence system,
+
+59:06.920 --> 59:12.840
+ you're sitting in a room with her, him, it.
+
+59:12.840 --> 59:17.120
+ Do you think the underlying design of such a system
+
+59:17.120 --> 59:19.080
+ is something we'll be able to understand?
+
+59:19.080 --> 59:20.480
+ It will be simple?
+
+59:20.480 --> 59:25.800
+ Do you think it'll be explainable,
+
+59:25.800 --> 59:27.560
+ understandable by us?
+
+59:27.560 --> 59:30.760
+ Your intuition, again, we're in the realm of philosophy
+
+59:30.760 --> 59:32.080
+ a little bit.
+
+59:32.080 --> 59:36.120
+ Well, probably no.
+
+59:36.120 --> 59:40.280
+ But again, it depends what you really
+
+59:40.280 --> 59:42.000
+ mean for understanding.
+
+59:42.000 --> 59:53.280
+ So I think we don't understand how deep networks work.
+
+59:53.280 --> 59:56.520
+ I think we are beginning to have a theory now.
+
+59:56.520 --> 59:59.240
+ But in the case of deep networks,
+
+59:59.240 --> 1:00:04.120
+ or even in the case of the simpler kernel machines
+
+1:00:04.120 --> 1:00:08.120
+ or linear classifier, we really don't understand
+
+1:00:08.120 --> 1:00:11.520
+ the individual units or so.
+
+1:00:11.520 --> 1:00:17.280
+ But we understand what the computation and the limitations
+
+1:00:17.280 --> 1:00:20.440
+ and the properties of it are.
+
+1:00:20.440 --> 1:00:24.040
+ It's similar to many things.
+
+1:00:24.040 --> 1:00:29.600
+ What does it mean to understand how a fusion bomb works?
+
+1:00:29.600 --> 1:00:36.360
+ How many of us understand the basic principle?
+
+1:00:36.360 --> 1:00:40.600
+ And some of us may understand deeper details.
+
+1:00:40.600 --> 1:00:43.440
+ In that sense, understanding is, as a community,
+
+1:00:43.440 --> 1:00:47.360
+ as a civilization, can we build another copy of it?
+
+1:00:47.360 --> 1:00:50.880
+ And in that sense, do you think there
+
+1:00:50.880 --> 1:00:53.960
+ will need to be some evolutionary component where
+
+1:00:53.960 --> 1:00:56.200
+ it runs away from our understanding?
+
+1:00:56.200 --> 1:00:59.440
+ Or do you think it could be engineered from the ground up,
+
+1:00:59.440 --> 1:01:02.640
+ the same way you go from the transistor to PowerPoint?
+
+1:01:02.640 --> 1:01:09.160
+ So many years ago, this was actually 40, 41 years ago,
+
+1:01:09.160 --> 1:01:13.560
+ I wrote a paper with David Marr, who
+
+1:01:13.560 --> 1:01:18.000
+ was one of the founding fathers of computer vision,
+
+1:01:18.000 --> 1:01:20.440
+ computational vision.
+
+1:01:20.440 --> 1:01:23.840
+ I wrote a paper about levels of understanding,
+
+1:01:23.840 --> 1:01:26.160
+ which is related to the question we discussed earlier
+
+1:01:26.160 --> 1:01:30.200
+ about understanding PowerPoint, understanding transistors,
+
+1:01:30.200 --> 1:01:31.840
+ and so on.
+
+1:01:31.840 --> 1:01:36.560
+ And in that kind of framework, we
+
+1:01:36.560 --> 1:01:39.760
+ had the level of the hardware and the top level
+
+1:01:39.760 --> 1:01:42.240
+ of the algorithms.
+
+1:01:42.240 --> 1:01:45.040
+ We did not have learning.
+
+1:01:45.040 --> 1:01:48.280
+ Recently, I updated adding levels.
+
+1:01:48.280 --> 1:01:55.160
+ And one level I added to those three was learning.
+
+1:01:55.160 --> 1:01:59.520
+ And you can imagine, you could have a good understanding
+
+1:01:59.520 --> 1:02:04.960
+ of how you construct a learning machine, like we do.
+
+1:02:04.960 --> 1:02:09.720
+ But being unable to describe in detail what the learning
+
+1:02:09.720 --> 1:02:13.680
+ machines will discover, right?
+
+1:02:13.680 --> 1:02:17.120
+ Now, that would be still a powerful understanding,
+
+1:02:17.120 --> 1:02:19.400
+ if I can build a learning machine,
+
+1:02:19.400 --> 1:02:24.480
+ even if I don't understand in detail every time it
+
+1:02:24.480 --> 1:02:26.160
+ learns something.
+
+1:02:26.160 --> 1:02:28.440
+ Just like our children, if they start
+
+1:02:28.440 --> 1:02:31.320
+ listening to a certain type of music,
+
+1:02:31.320 --> 1:02:33.680
+ I don't know, Miley Cyrus or something,
+
+1:02:33.680 --> 1:02:36.240
+ you don't understand why they came
+
+1:02:36.240 --> 1:02:37.640
+ to that particular preference.
+
+1:02:37.640 --> 1:02:39.400
+ But you understand the learning process.
+
+1:02:39.400 --> 1:02:41.440
+ That's very interesting.
+
+1:02:41.440 --> 1:02:50.360
+ So on learning for systems to be part of our world,
+
+1:02:50.360 --> 1:02:53.480
+ it has a certain, one of the challenging things
+
+1:02:53.480 --> 1:02:57.920
+ that you've spoken about is learning ethics, learning
+
+1:02:57.920 --> 1:02:59.400
+ morals.
+
+1:02:59.400 --> 1:03:04.560
+ And how hard do you think is the problem of, first of all,
+
+1:03:04.560 --> 1:03:06.800
+ humans understanding our ethics?
+
+1:03:06.800 --> 1:03:10.600
+ What is the origin on the neural on the low level of ethics?
+
+1:03:10.600 --> 1:03:12.400
+ What is it at the higher level?
+
+1:03:12.400 --> 1:03:15.160
+ Is it something that's learnable from machines
+
+1:03:15.160 --> 1:03:17.840
+ in your intuition?
+
+1:03:17.840 --> 1:03:23.960
+ I think, yeah, ethics is learnable, very likely.
+
+1:03:23.960 --> 1:03:29.720
+ I think it's one of these problems where
+
+1:03:29.720 --> 1:03:36.680
+ I think understanding the neuroscience of ethics,
+
+1:03:36.680 --> 1:03:41.480
+ people discuss there is an ethics of neuroscience.
+
+1:03:41.480 --> 1:03:42.800
+ Yeah, yes.
+
+1:03:42.800 --> 1:03:46.560
+ How a neuroscientist should or should not behave.
+
+1:03:46.560 --> 1:03:50.480
+ Can you think of a neurosurgeon and the ethics
+
+1:03:50.480 --> 1:03:53.960
+ rule he has to be or he, she has to be.
+
+1:03:53.960 --> 1:03:57.560
+ But I'm more interested on the neuroscience of ethics.
+
+1:03:57.560 --> 1:03:58.840
+ You're blowing my mind right now.
+
+1:03:58.840 --> 1:04:01.080
+ The neuroscience of ethics is very meta.
+
+1:04:01.080 --> 1:04:05.080
+ Yeah, and I think that would be important to understand also
+
+1:04:05.080 --> 1:04:10.880
+ for being able to design machines that
+
+1:04:10.880 --> 1:04:15.160
+ are ethical machines in our sense of ethics.
+
+1:04:15.160 --> 1:04:18.520
+ And you think there is something in neuroscience,
+
+1:04:18.520 --> 1:04:21.520
+ there's patterns, tools in neuroscience
+
+1:04:21.520 --> 1:04:25.320
+ that could help us shed some light on ethics?
+
+1:04:25.320 --> 1:04:28.920
+ Or is it mostly on the psychologists of sociology
+
+1:04:28.920 --> 1:04:29.840
+ in which higher level?
+
+1:04:29.840 --> 1:04:30.960
+ No, there is psychology.
+
+1:04:30.960 --> 1:04:35.160
+ But there is also, in the meantime,
+
+1:04:35.160 --> 1:04:41.080
+ there is evidence, fMRI, of specific areas of the brain
+
+1:04:41.080 --> 1:04:44.520
+ that are involved in certain ethical judgment.
+
+1:04:44.520 --> 1:04:47.640
+ And not only this, you can stimulate those area
+
+1:04:47.640 --> 1:04:53.920
+ with magnetic fields and change the ethical decisions.
+
+1:04:53.920 --> 1:04:56.360
+ Yeah, wow.
+
+1:04:56.360 --> 1:05:00.800
+ So that's work by a colleague of mine, Rebecca Sachs.
+
+1:05:00.800 --> 1:05:05.320
+ And there is other researchers doing similar work.
+
+1:05:05.320 --> 1:05:08.280
+ And I think this is the beginning.
+
+1:05:08.280 --> 1:05:11.680
+ But ideally, at some point, we'll
+
+1:05:11.680 --> 1:05:15.560
+ have an understanding of how this works.
+
+1:05:15.560 --> 1:05:18.520
+ And why it evolved, right?
+
+1:05:18.520 --> 1:05:19.720
+ The big why question.
+
+1:05:19.720 --> 1:05:22.000
+ Yeah, it must have some purpose.
+
+1:05:22.000 --> 1:05:30.120
+ Yeah, obviously it has some social purposes, probably.
+
+1:05:30.120 --> 1:05:33.600
+ If neuroscience holds the key to at least illuminate
+
+1:05:33.600 --> 1:05:35.240
+ some aspect of ethics, that means
+
+1:05:35.240 --> 1:05:37.120
+ it could be a learnable problem.
+
+1:05:37.120 --> 1:05:38.880
+ Yeah, exactly.
+
+1:05:38.880 --> 1:05:42.040
+ And as we're getting into harder and harder questions,
+
+1:05:42.040 --> 1:05:45.440
+ let's go to the hard problem of consciousness.
+
+1:05:45.440 --> 1:05:48.080
+ Is this an important problem for us
+
+1:05:48.080 --> 1:05:52.240
+ to think about and solve on the engineering of intelligence
+
+1:05:52.240 --> 1:05:56.240
+ side of your work, of our dream?
+
+1:05:56.240 --> 1:05:57.440
+ It's unclear.
+
+1:05:57.440 --> 1:06:02.680
+ So again, this is a deep problem,
+
+1:06:02.680 --> 1:06:05.720
+ partly because it's very difficult to define
+
+1:06:05.720 --> 1:06:06.760
+ consciousness.
+
+1:06:06.760 --> 1:06:17.800
+ And there is a debate among neuroscientists
+
+1:06:17.800 --> 1:06:23.040
+ about whether consciousness and philosophers, of course,
+
+1:06:23.040 --> 1:06:28.280
+ whether consciousness is something that requires
+
+1:06:28.280 --> 1:06:31.360
+ flesh and blood, so to speak.
+
+1:06:31.360 --> 1:06:38.680
+ Or could be that we could have silicon devices that
+
+1:06:38.680 --> 1:06:42.840
+ are conscious, or up to statement
+
+1:06:42.840 --> 1:06:45.800
+ like everything has some degree of consciousness
+
+1:06:45.800 --> 1:06:48.480
+ and some more than others.
+
+1:06:48.480 --> 1:06:53.960
+ This is like Giulio Tonioni and phi.
+
+1:06:53.960 --> 1:06:56.280
+ We just recently talked to Christoph Koch.
+
+1:06:56.280 --> 1:06:57.600
+ OK.
+
+1:06:57.600 --> 1:07:00.680
+ Christoph was my first graduate student.
+
+1:07:00.680 --> 1:07:04.480
+ Do you think it's important to illuminate
+
+1:07:04.480 --> 1:07:07.480
+ aspects of consciousness in order
+
+1:07:07.480 --> 1:07:10.320
+ to engineer intelligence systems?
+
+1:07:10.320 --> 1:07:13.080
+ Do you think an intelligent system would ultimately
+
+1:07:13.080 --> 1:07:14.480
+ have consciousness?
+
+1:07:14.480 --> 1:07:16.080
+ Are they interlinked?
+
+1:07:18.800 --> 1:07:22.800
+ Most of the people working in artificial intelligence,
+
+1:07:22.800 --> 1:07:25.800
+ I think, would answer, we don't strictly
+
+1:07:25.800 --> 1:07:30.040
+ need consciousness to have an intelligent system.
+
+1:07:30.040 --> 1:07:31.800
+ That's sort of the easier question,
+
+1:07:31.800 --> 1:07:36.000
+ because it's a very engineering answer to the question.
+
+1:07:36.000 --> 1:07:38.120
+ Pass the Turing test, we don't need consciousness.
+
+1:07:38.120 --> 1:07:41.360
+ But if you were to go, do you think
+
+1:07:41.360 --> 1:07:46.200
+ it's possible that we need to have
+
+1:07:46.200 --> 1:07:48.280
+ that kind of self awareness?
+
+1:07:48.280 --> 1:07:49.920
+ We may, yes.
+
+1:07:49.920 --> 1:07:53.800
+ So for instance, I personally think
+
+1:07:53.800 --> 1:08:00.440
+ that when test a machine or a person in a Turing test,
+
+1:08:00.440 --> 1:08:05.200
+ in an extended Turing test, I think
+
+1:08:05.200 --> 1:08:11.520
+ consciousness is part of what we require in that test,
+
+1:08:11.520 --> 1:08:15.000
+ implicitly, to say that this is intelligent.
+
+1:08:15.000 --> 1:08:17.440
+ Christoph disagrees.
+
+1:08:17.440 --> 1:08:20.240
+ Yes, he does.
+
+1:08:20.240 --> 1:08:23.440
+ Despite many other romantic notions he holds,
+
+1:08:23.440 --> 1:08:24.800
+ he disagrees with that one.
+
+1:08:24.800 --> 1:08:26.520
+ Yes, that's right.
+
+1:08:26.520 --> 1:08:29.880
+ So we'll see.
+
+1:08:29.880 --> 1:08:34.640
+ Do you think, as a quick question,
+
+1:08:34.640 --> 1:08:38.520
+ Ernest Becker's fear of death, do you
+
+1:08:38.520 --> 1:08:41.920
+ think mortality and those kinds of things
+
+1:08:41.920 --> 1:08:49.200
+ are important for consciousness and for intelligence?
+
+1:08:49.200 --> 1:08:54.040
+ The finiteness of life, finiteness of existence,
+
+1:08:54.040 --> 1:08:56.600
+ or is that just a side effect of evolution,
+
+1:08:56.600 --> 1:09:01.120
+ evolutionary side effect that's useful for natural selection?
+
+1:09:01.120 --> 1:09:03.840
+ Do you think this kind of thing that this interview is
+
+1:09:03.840 --> 1:09:06.160
+ going to run out of time soon, our life
+
+1:09:06.160 --> 1:09:08.200
+ will run out of time soon, do you
+
+1:09:08.200 --> 1:09:11.720
+ think that's needed to make this conversation good and life
+
+1:09:11.720 --> 1:09:12.240
+ good?
+
+1:09:12.240 --> 1:09:13.480
+ I never thought about it.
+
+1:09:13.480 --> 1:09:15.920
+ It's a very interesting question.
+
+1:09:15.920 --> 1:09:21.200
+ I think Steve Jobs, in his commencement speech
+
+1:09:21.200 --> 1:09:26.840
+ at Stanford, argued that having a finite life
+
+1:09:26.840 --> 1:09:30.280
+ was important for stimulating achievements.
+
+1:09:30.280 --> 1:09:31.640
+ So it was different.
+
+1:09:31.640 --> 1:09:33.680
+ Yeah, live every day like it's your last, right?
+
+1:09:33.680 --> 1:09:34.840
+ Yeah.
+
+1:09:34.840 --> 1:09:41.840
+ So rationally, I don't think strictly you need mortality
+
+1:09:41.840 --> 1:09:43.200
+ for consciousness.
+
+1:09:43.200 --> 1:09:45.960
+ But who knows?
+
+1:09:45.960 --> 1:09:48.760
+ They seem to go together in our biological system, right?
+
+1:09:48.760 --> 1:09:51.320
+ Yeah, yeah.
+
+1:09:51.320 --> 1:09:57.880
+ You've mentioned before, and students are associated with,
+
+1:09:57.880 --> 1:10:01.280
+ AlphaGo immobilized the big recent success stories in AI.
+
+1:10:01.280 --> 1:10:06.040
+ And I think it's captivated the entire world of what AI can do.
+
+1:10:06.040 --> 1:10:10.360
+ So what do you think will be the next breakthrough?
+
+1:10:10.360 --> 1:10:13.680
+ And what's your intuition about the next breakthrough?
+
+1:10:13.680 --> 1:10:16.760
+ Of course, I don't know where the next breakthrough is.
+
+1:10:16.760 --> 1:10:21.440
+ I think that there is a good chance, as I said before,
+
+1:10:21.440 --> 1:10:23.200
+ that the next breakthrough will also
+
+1:10:23.200 --> 1:10:27.920
+ be inspired by neuroscience.
+
+1:10:27.920 --> 1:10:32.320
+ But which one, I don't know.
+
+1:10:32.320 --> 1:10:35.880
+ And there's, so MIT has this quest for intelligence.
+
+1:10:35.880 --> 1:10:39.240
+ And there's a few moon shots, which in that spirit,
+
+1:10:39.240 --> 1:10:41.800
+ which ones are you excited about?
+
+1:10:41.800 --> 1:10:44.080
+ Which projects kind of?
+
+1:10:44.080 --> 1:10:47.400
+ Well, of course, I'm excited about one
+
+1:10:47.400 --> 1:10:51.040
+ of the moon shots, which is our Center for Brains, Minds,
+
+1:10:51.040 --> 1:10:58.560
+ and Machines, which is the one which is fully funded by NSF.
+
+1:10:58.560 --> 1:11:02.760
+ And it is about visual intelligence.
+
+1:11:02.760 --> 1:11:06.240
+ And that one is particularly about understanding.
+
+1:11:06.240 --> 1:11:09.240
+ Visual intelligence, so the visual cortex,
+
+1:11:09.240 --> 1:11:13.400
+ and visual intelligence in the sense
+
+1:11:13.400 --> 1:11:20.000
+ of how we look around ourselves and understand
+
+1:11:20.000 --> 1:11:25.440
+ the world around ourselves, meaning what is going on,
+
+1:11:25.440 --> 1:11:29.880
+ how we could go from here to there without hitting
+
+1:11:29.880 --> 1:11:34.360
+ obstacles, whether there are other agents,
+
+1:11:34.360 --> 1:11:36.720
+ people in the environment.
+
+1:11:36.720 --> 1:11:41.160
+ These are all things that we perceive very quickly.
+
+1:11:41.160 --> 1:11:46.920
+ And it's something actually quite close to being conscious,
+
+1:11:46.920 --> 1:11:47.640
+ not quite.
+
+1:11:47.640 --> 1:11:50.360
+ But there is this interesting experiment
+
+1:11:50.360 --> 1:11:54.800
+ that was run at Google X, which is in a sense
+
+1:11:54.800 --> 1:11:58.840
+ is just a virtual reality experiment,
+
+1:11:58.840 --> 1:12:02.760
+ but in which they had a subject sitting, say,
+
+1:12:02.760 --> 1:12:11.800
+ in a chair with goggles, like Oculus and so on, earphones.
+
+1:12:11.800 --> 1:12:15.040
+ And they were seeing through the eyes of a robot
+
+1:12:15.040 --> 1:12:19.920
+ nearby to cameras, microphones for receiving.
+
+1:12:19.920 --> 1:12:23.840
+ So their sensory system was there.
+
+1:12:23.840 --> 1:12:28.120
+ And the impression of all the subject, very strong,
+
+1:12:28.120 --> 1:12:31.520
+ they could not shake it off, was that they
+
+1:12:31.520 --> 1:12:35.240
+ were where the robot was.
+
+1:12:35.240 --> 1:12:38.640
+ They could look at themselves from the robot
+
+1:12:38.640 --> 1:12:42.880
+ and still feel they were where the robot is.
+
+1:12:42.880 --> 1:12:46.000
+ They were looking at their body.
+
+1:12:46.000 --> 1:12:48.480
+ Theirself had moved.
+
+1:12:48.480 --> 1:12:50.440
+ So some aspect of scene understanding
+
+1:12:50.440 --> 1:12:54.880
+ has to have ability to place yourself,
+
+1:12:54.880 --> 1:12:57.680
+ have a self awareness about your position in the world
+
+1:12:57.680 --> 1:12:59.600
+ and what the world is.
+
+1:12:59.600 --> 1:13:04.080
+ So we may have to solve the hard problem of consciousness
+
+1:13:04.080 --> 1:13:04.840
+ to solve it.
+
+1:13:04.840 --> 1:13:05.920
+ On their way, yes.
+
+1:13:05.920 --> 1:13:07.760
+ It's quite a moonshine.
+
+1:13:07.760 --> 1:13:12.440
+ So you've been an advisor to some incredible minds,
+
+1:13:12.440 --> 1:13:15.680
+ including Demis Hassabis, Krzysztof Koch, Amna Shashua,
+
+1:13:15.680 --> 1:13:17.360
+ like you said.
+
+1:13:17.360 --> 1:13:20.120
+ All went on to become seminal figures
+
+1:13:20.120 --> 1:13:22.000
+ in their respective fields.
+
+1:13:22.000 --> 1:13:24.240
+ From your own success as a researcher
+
+1:13:24.240 --> 1:13:29.320
+ and from perspective as a mentor of these researchers,
+
+1:13:29.320 --> 1:13:34.160
+ having guided them in the way of advice,
+
+1:13:34.160 --> 1:13:36.360
+ what does it take to be successful in science
+
+1:13:36.360 --> 1:13:39.800
+ and engineering careers?
+
+1:13:39.800 --> 1:13:43.280
+ Whether you're talking to somebody in their teens,
+
+1:13:43.280 --> 1:13:48.160
+ 20s, and 30s, what does that path look like?
+
+1:13:48.160 --> 1:13:53.200
+ It's curiosity and having fun.
+
+1:13:53.200 --> 1:13:57.400
+ And I think it's important also having
+
+1:13:57.400 --> 1:14:01.480
+ fun with other curious minds.
+
+1:14:02.440 --> 1:14:04.520
+ It's the people you surround with too,
+
+1:14:04.520 --> 1:14:06.640
+ so fun and curiosity.
+
+1:14:06.640 --> 1:14:09.960
+ Is there, you mentioned Steve Jobs,
+
+1:14:09.960 --> 1:14:13.160
+ is there also an underlying ambition
+
+1:14:13.160 --> 1:14:14.720
+ that's unique that you saw?
+
+1:14:14.720 --> 1:14:16.440
+ Or does it really does boil down
+
+1:14:16.440 --> 1:14:18.800
+ to insatiable curiosity and fun?
+
+1:14:18.800 --> 1:14:22.240
+ Well of course, it's being curious
+
+1:14:22.240 --> 1:14:26.080
+ in an active and ambitious way, yes.
+
+1:14:26.080 --> 1:14:29.640
+ Definitely.
+
+1:14:29.640 --> 1:14:33.840
+ But I think sometime in science,
+
+1:14:33.840 --> 1:14:37.000
+ there are friends of mine who are like this.
+
+1:14:39.000 --> 1:14:40.680
+ There are some of the scientists
+
+1:14:40.680 --> 1:14:42.880
+ like to work by themselves
+
+1:14:44.080 --> 1:14:49.080
+ and kind of communicate only when they complete their work
+
+1:14:50.920 --> 1:14:52.840
+ or discover something.
+
+1:14:52.840 --> 1:14:57.840
+ I think I always found the actual process
+
+1:14:58.720 --> 1:15:03.720
+ of discovering something is more fun
+
+1:15:03.720 --> 1:15:07.280
+ if it's together with other intelligent
+
+1:15:07.280 --> 1:15:09.240
+ and curious and fun people.
+
+1:15:09.240 --> 1:15:11.320
+ So if you see the fun in that process,
+
+1:15:11.320 --> 1:15:13.200
+ the side effect of that process
+
+1:15:13.200 --> 1:15:14.360
+ will be that you'll actually end up
+
+1:15:14.360 --> 1:15:16.320
+ discovering some interesting things.
+
+1:15:16.320 --> 1:15:23.320
+ So as you've led many incredible efforts here,
+
+1:15:23.320 --> 1:15:25.520
+ what's the secret to being a good advisor,
+
+1:15:25.520 --> 1:15:28.360
+ mentor, leader in a research setting?
+
+1:15:28.360 --> 1:15:30.240
+ Is it a similar spirit?
+
+1:15:30.240 --> 1:15:32.600
+ Or yeah, what advice could you give
+
+1:15:32.600 --> 1:15:35.960
+ to people, young faculty and so on?
+
+1:15:35.960 --> 1:15:38.320
+ It's partly repeating what I said
+
+1:15:38.320 --> 1:15:41.280
+ about an environment that should be friendly
+
+1:15:41.280 --> 1:15:44.440
+ and fun and ambitious.
+
+1:15:44.440 --> 1:15:49.280
+ And I think I learned a lot
+
+1:15:49.280 --> 1:15:52.880
+ from some of my advisors and friends
+
+1:15:52.880 --> 1:15:55.280
+ and some who are physicists.
+
+1:15:55.280 --> 1:15:57.480
+ And there was, for instance,
+
+1:15:57.480 --> 1:16:02.480
+ this behavior that was encouraged
+
+1:16:02.800 --> 1:16:06.720
+ of when somebody comes with a new idea in the group,
+
+1:16:06.720 --> 1:16:09.080
+ you are, unless it's really stupid,
+
+1:16:09.080 --> 1:16:10.920
+ but you are always enthusiastic.
+
+1:16:11.880 --> 1:16:14.280
+ And then, and you're enthusiastic for a few minutes,
+
+1:16:14.280 --> 1:16:15.120
+ for a few hours.
+
+1:16:15.120 --> 1:16:20.120
+ Then you start asking critically a few questions,
+
+1:16:21.400 --> 1:16:23.040
+ testing this.
+
+1:16:23.040 --> 1:16:26.280
+ But this is a process that is,
+
+1:16:26.280 --> 1:16:28.240
+ I think it's very good.
+
+1:16:29.360 --> 1:16:30.480
+ You have to be enthusiastic.
+
+1:16:30.480 --> 1:16:33.680
+ Sometimes people are very critical from the beginning.
+
+1:16:33.680 --> 1:16:36.280
+ That's not...
+
+1:16:36.280 --> 1:16:37.600
+ Yes, you have to give it a chance
+
+1:16:37.600 --> 1:16:39.400
+ for that seed to grow.
+
+1:16:39.400 --> 1:16:41.600
+ That said, with some of your ideas,
+
+1:16:41.600 --> 1:16:42.800
+ which are quite revolutionary,
+
+1:16:42.800 --> 1:16:45.840
+ so there's a witness, especially in the human vision side
+
+1:16:45.840 --> 1:16:47.320
+ and neuroscience side,
+
+1:16:47.320 --> 1:16:50.000
+ there could be some pretty heated arguments.
+
+1:16:50.000 --> 1:16:51.160
+ Do you enjoy these?
+
+1:16:51.160 --> 1:16:54.520
+ Is that a part of science and academic pursuits
+
+1:16:54.520 --> 1:16:55.360
+ that you enjoy?
+
+1:16:55.360 --> 1:16:56.200
+ Yeah.
+
+1:16:56.200 --> 1:17:01.040
+ Is that something that happens in your group as well?
+
+1:17:01.040 --> 1:17:02.440
+ Yeah, absolutely.
+
+1:17:02.440 --> 1:17:04.360
+ I also spent some time in Germany.
+
+1:17:04.360 --> 1:17:05.880
+ Again, there is this tradition
+
+1:17:05.880 --> 1:17:10.880
+ in which people are more forthright,
+
+1:17:10.880 --> 1:17:14.160
+ less kind than here.
+
+1:17:14.160 --> 1:17:19.160
+ So in the U.S., when you write a bad letter,
+
+1:17:20.120 --> 1:17:23.080
+ you still say, this guy's nice.
+
+1:17:23.080 --> 1:17:24.120
+ Yes, yes.
+
+1:17:25.600 --> 1:17:26.440
+ So...
+
+1:17:26.440 --> 1:17:28.840
+ Yeah, here in America, it's degrees of nice.
+
+1:17:28.840 --> 1:17:29.680
+ Yes.
+
+1:17:29.680 --> 1:17:31.040
+ It's all just degrees of nice, yeah.
+
+1:17:31.040 --> 1:17:31.880
+ Right, right.
+
+1:17:31.880 --> 1:17:34.960
+ So as long as this does not become personal,
+
+1:17:36.400 --> 1:17:40.680
+ and it's really like a football game
+
+1:17:40.680 --> 1:17:43.520
+ with these rules, that's great.
+
+1:17:43.520 --> 1:17:45.200
+ That's fun.
+
+1:17:46.600 --> 1:17:49.280
+ So if you somehow found yourself in a position
+
+1:17:49.280 --> 1:17:51.840
+ to ask one question of an oracle,
+
+1:17:51.840 --> 1:17:54.240
+ like a genie, maybe a god,
+
+1:17:55.520 --> 1:17:57.720
+ and you're guaranteed to get a clear answer,
+
+1:17:58.760 --> 1:18:01.320
+ what kind of question would you ask?
+
+1:18:01.320 --> 1:18:03.640
+ What would be the question you would ask?
+
+1:18:04.520 --> 1:18:06.040
+ In the spirit of our discussion,
+
+1:18:06.040 --> 1:18:10.080
+ it could be, how could I become 10 times more intelligent?
+
+1:18:10.080 --> 1:18:15.080
+ And so, but see, you only get a clear short answer.
+
+1:18:16.240 --> 1:18:18.720
+ So do you think there's a clear short answer to that?
+
+1:18:18.720 --> 1:18:19.560
+ No.
+
+1:18:20.720 --> 1:18:22.760
+ And that's the answer you'll get.
+
+1:18:22.760 --> 1:18:26.920
+ Okay, so you've mentioned Flowers of Algernon.
+
+1:18:26.920 --> 1:18:27.960
+ Oh, yeah.
+
+1:18:27.960 --> 1:18:31.800
+ As a story that inspires you in your childhood,
+
+1:18:32.800 --> 1:18:37.200
+ as this story of a mouse,
+
+1:18:37.200 --> 1:18:39.360
+ human achieving genius level intelligence,
+
+1:18:39.360 --> 1:18:41.520
+ and then understanding what was happening
+
+1:18:41.520 --> 1:18:44.200
+ while slowly becoming not intelligent again,
+
+1:18:44.200 --> 1:18:46.600
+ and this tragedy of gaining intelligence
+
+1:18:46.600 --> 1:18:48.600
+ and losing intelligence,
+
+1:18:48.600 --> 1:18:51.440
+ do you think in that spirit, in that story,
+
+1:18:51.440 --> 1:18:55.360
+ do you think intelligence is a gift or a curse
+
+1:18:55.360 --> 1:19:00.160
+ from the perspective of happiness and meaning of life?
+
+1:19:00.160 --> 1:19:02.200
+ You try to create an intelligent system
+
+1:19:02.200 --> 1:19:03.880
+ that understands the universe,
+
+1:19:03.880 --> 1:19:06.480
+ but on an individual level, the meaning of life,
+
+1:19:06.480 --> 1:19:10.840
+ do you think intelligence is a gift?
+
+1:19:10.840 --> 1:19:12.040
+ It's a good question.
+
+1:19:17.120 --> 1:19:17.960
+ I don't know.
+
+1:19:22.840 --> 1:19:26.520
+ As one of the, as one people consider
+
+1:19:26.520 --> 1:19:29.280
+ the smartest people in the world,
+
+1:19:29.280 --> 1:19:33.320
+ in some dimension, at the very least, what do you think?
+
+1:19:33.320 --> 1:19:37.560
+ I don't know, it may be invariant to intelligence,
+
+1:19:37.560 --> 1:19:39.640
+ that degree of happiness.
+
+1:19:39.640 --> 1:19:41.200
+ It would be nice if it were.
+
+1:19:43.680 --> 1:19:44.680
+ That's the hope.
+
+1:19:44.680 --> 1:19:46.120
+ Yeah.
+
+1:19:46.120 --> 1:19:50.160
+ You could be smart and happy and clueless and happy.
+
+1:19:50.160 --> 1:19:51.800
+ Yeah.
+
+1:19:51.800 --> 1:19:54.480
+ As always, on the discussion of the meaning of life,
+
+1:19:54.480 --> 1:19:57.320
+ it's probably a good place to end.
+
+1:19:57.320 --> 1:19:59.240
+ Tommaso, thank you so much for talking today.
+
+1:19:59.240 --> 1:20:04.240
+ Thank you, this was great.
+

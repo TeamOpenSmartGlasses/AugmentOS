@@ -1,0 +1,4805 @@
+WEBVTT
+
+00:00.000 --> 00:03.720
+ The following is a conversation with Ian Goodfellow.
+
+00:03.720 --> 00:06.360
+ He's the author of the popular textbook on deep learning
+
+00:06.360 --> 00:08.800
+ simply titled Deep Learning.
+
+00:08.800 --> 00:12.320
+ He coined the term of Generative Adversarial Networks,
+
+00:12.320 --> 00:14.560
+ otherwise known as GANs,
+
+00:14.560 --> 00:18.160
+ and with his 2014 paper is responsible
+
+00:18.160 --> 00:20.440
+ for launching the incredible growth
+
+00:20.440 --> 00:23.140
+ of research and innovation in this subfield
+
+00:23.140 --> 00:24.720
+ of deep learning.
+
+00:24.720 --> 00:27.520
+ He got his BS and MS at Stanford,
+
+00:27.520 --> 00:30.120
+ his PhD at University of Montreal
+
+00:30.120 --> 00:33.200
+ with Yoshua Bengio and Aaron Kerrville.
+
+00:33.200 --> 00:35.240
+ He held several research positions
+
+00:35.240 --> 00:37.600
+ including at OpenAI, Google Brain,
+
+00:37.600 --> 00:41.560
+ and now at Apple as the Director of Machine Learning.
+
+00:41.560 --> 00:45.400
+ This recording happened while Ian was still at Google Brain,
+
+00:45.400 --> 00:48.520
+ but we don't talk about anything specific to Google
+
+00:48.520 --> 00:50.760
+ or any other organization.
+
+00:50.760 --> 00:52.480
+ This conversation is part
+
+00:52.480 --> 00:54.520
+ of the Artificial Intelligence Podcast.
+
+00:54.520 --> 00:57.560
+ If you enjoy it, subscribe on YouTube, iTunes,
+
+00:57.560 --> 01:00.880
+ or simply connect with me on Twitter at Lex Friedman,
+
+01:00.880 --> 01:03.000
+ spelled F R I D.
+
+01:03.000 --> 01:07.100
+ And now here's my conversation with Ian Goodfellow.
+
+01:08.240 --> 01:11.000
+ You open your popular deep learning book
+
+01:11.000 --> 01:13.620
+ with a Russian doll type diagram
+
+01:13.620 --> 01:15.880
+ that shows deep learning is a subset
+
+01:15.880 --> 01:17.140
+ of representation learning,
+
+01:17.140 --> 01:19.960
+ which in turn is a subset of machine learning
+
+01:19.960 --> 01:22.520
+ and finally a subset of AI.
+
+01:22.520 --> 01:25.280
+ So this kind of implies that there may be limits
+
+01:25.280 --> 01:27.720
+ to deep learning in the context of AI.
+
+01:27.720 --> 01:31.580
+ So what do you think is the current limits of deep learning
+
+01:31.580 --> 01:33.140
+ and are those limits something
+
+01:33.140 --> 01:35.760
+ that we can overcome with time?
+
+01:35.760 --> 01:37.740
+ Yeah, I think one of the biggest limitations
+
+01:37.740 --> 01:40.120
+ of deep learning is that right now it requires
+
+01:40.120 --> 01:42.920
+ really a lot of data, especially labeled data.
+
+01:43.960 --> 01:45.480
+ There are some unsupervised
+
+01:45.480 --> 01:47.160
+ and semi supervised learning algorithms
+
+01:47.160 --> 01:49.480
+ that can reduce the amount of labeled data you need,
+
+01:49.480 --> 01:52.200
+ but they still require a lot of unlabeled data,
+
+01:52.200 --> 01:53.480
+ reinforcement learning algorithms.
+
+01:53.480 --> 01:54.320
+ They don't need labels,
+
+01:54.320 --> 01:56.280
+ but they need really a lot of experiences.
+
+01:57.280 --> 01:58.920
+ As human beings, we don't learn to play Pong
+
+01:58.920 --> 02:01.560
+ by failing at Pong 2 million times.
+
+02:02.720 --> 02:05.880
+ So just getting the generalization ability better
+
+02:05.880 --> 02:08.040
+ is one of the most important bottlenecks
+
+02:08.040 --> 02:10.540
+ in the capability of the technology today.
+
+02:10.540 --> 02:12.360
+ And then I guess I'd also say deep learning
+
+02:12.360 --> 02:15.620
+ is like a component of a bigger system.
+
+02:16.620 --> 02:19.020
+ So far, nobody is really proposing to have
+
+02:19.020 --> 02:22.000
+ only what you'd call deep learning
+
+02:22.000 --> 02:25.520
+ as the entire ingredient of intelligence.
+
+02:25.520 --> 02:29.860
+ You use deep learning as sub modules of other systems,
+
+02:29.860 --> 02:32.320
+ like AlphaGo has a deep learning model
+
+02:32.320 --> 02:34.140
+ that estimates the value function.
+
+02:35.200 --> 02:36.600
+ Most reinforcement learning algorithms
+
+02:36.600 --> 02:37.880
+ have a deep learning module
+
+02:37.880 --> 02:40.320
+ that estimates which action to take next,
+
+02:40.320 --> 02:42.480
+ but you might have other components.
+
+02:42.480 --> 02:46.100
+ So you're basically building a function estimator.
+
+02:46.100 --> 02:48.600
+ Do you think it's possible,
+
+02:48.600 --> 02:51.000
+ you said nobody's kind of been thinking about this so far,
+
+02:51.000 --> 02:54.320
+ but do you think neural networks could be made to reason
+
+02:54.320 --> 02:57.720
+ in the way symbolic systems did in the 80s and 90s
+
+02:57.720 --> 03:00.160
+ to do more, create more like programs
+
+03:00.160 --> 03:01.440
+ as opposed to functions?
+
+03:01.440 --> 03:03.940
+ Yeah, I think we already see that a little bit.
+
+03:04.880 --> 03:06.360
+ I already kind of think of neural nets
+
+03:06.360 --> 03:08.860
+ as a kind of program.
+
+03:08.860 --> 03:12.920
+ I think of deep learning as basically learning programs
+
+03:12.920 --> 03:15.280
+ that have more than one step.
+
+03:15.280 --> 03:16.960
+ So if you draw a flow chart
+
+03:16.960 --> 03:19.540
+ or if you draw a TensorFlow graph
+
+03:19.540 --> 03:21.860
+ describing your machine learning model,
+
+03:21.860 --> 03:23.500
+ I think of the depth of that graph
+
+03:23.500 --> 03:25.860
+ as describing the number of steps that run in sequence.
+
+03:25.860 --> 03:27.640
+ And then the width of that graph
+
+03:27.640 --> 03:30.120
+ is the number of steps that run in parallel.
+
+03:30.120 --> 03:31.680
+ Now it's been long enough
+
+03:31.680 --> 03:32.880
+ that we've had deep learning working
+
+03:32.880 --> 03:33.880
+ that it's a little bit silly
+
+03:33.880 --> 03:35.740
+ to even discuss shallow learning anymore.
+
+03:35.740 --> 03:38.880
+ But back when I first got involved in AI,
+
+03:38.880 --> 03:40.080
+ when we used machine learning,
+
+03:40.080 --> 03:43.680
+ we were usually learning things like support vector machines.
+
+03:43.680 --> 03:45.640
+ You could have a lot of input features to the model
+
+03:45.640 --> 03:48.080
+ and you could multiply each feature by a different weight.
+
+03:48.080 --> 03:49.560
+ All those multiplications were done
+
+03:49.560 --> 03:51.200
+ in parallel to each other.
+
+03:51.200 --> 03:52.680
+ There wasn't a lot done in series.
+
+03:52.680 --> 03:54.320
+ I think what we got with deep learning
+
+03:54.320 --> 03:58.360
+ was really the ability to have steps of a program
+
+03:58.360 --> 04:00.280
+ that run in sequence.
+
+04:00.280 --> 04:03.160
+ And I think that we've actually started to see
+
+04:03.160 --> 04:05.000
+ that what's important with deep learning
+
+04:05.000 --> 04:07.960
+ is more the fact that we have a multi step program
+
+04:07.960 --> 04:10.760
+ rather than the fact that we've learned a representation.
+
+04:10.760 --> 04:15.100
+ If you look at things like resonance, for example,
+
+04:15.100 --> 04:18.640
+ they take one particular kind of representation
+
+04:18.640 --> 04:21.320
+ and they update it several times.
+
+04:21.320 --> 04:23.560
+ Back when deep learning first really took off
+
+04:23.560 --> 04:25.760
+ in the academic world in 2006,
+
+04:25.760 --> 04:28.400
+ when Jeff Hinton showed that you could train
+
+04:28.400 --> 04:30.160
+ deep belief networks,
+
+04:30.160 --> 04:31.960
+ everybody who was interested in the idea
+
+04:31.960 --> 04:33.560
+ thought of it as each layer
+
+04:33.560 --> 04:35.940
+ learns a different level of abstraction.
+
+04:35.940 --> 04:37.820
+ That the first layer trained on images
+
+04:37.820 --> 04:38.960
+ learns something like edges
+
+04:38.960 --> 04:40.420
+ and the second layer learns corners.
+
+04:40.420 --> 04:43.320
+ And eventually you get these kind of grandmother cell units
+
+04:43.320 --> 04:45.920
+ that recognize specific objects.
+
+04:45.920 --> 04:48.560
+ Today I think most people think of it more
+
+04:48.560 --> 04:52.000
+ as a computer program where as you add more layers
+
+04:52.000 --> 04:55.120
+ you can do more updates before you output your final number.
+
+04:55.120 --> 04:57.160
+ But I don't think anybody believes that
+
+04:57.160 --> 05:02.060
+ layer 150 of the ResNet is a grandmother cell
+
+05:02.060 --> 05:05.080
+ and layer 100 is contours or something like that.
+
+05:06.040 --> 05:08.160
+ Okay, so you're not thinking of it
+
+05:08.160 --> 05:11.520
+ as a singular representation that keeps building.
+
+05:11.520 --> 05:14.040
+ You think of it as a program,
+
+05:14.040 --> 05:15.920
+ sort of almost like a state.
+
+05:15.920 --> 05:18.720
+ Representation is a state of understanding.
+
+05:18.720 --> 05:20.260
+ Yeah, I think of it as a program
+
+05:20.260 --> 05:21.500
+ that makes several updates
+
+05:21.500 --> 05:23.840
+ and arrives at better and better understandings,
+
+05:23.840 --> 05:27.500
+ but it's not replacing the representation at each step.
+
+05:27.500 --> 05:29.160
+ It's refining it.
+
+05:29.160 --> 05:31.640
+ And in some sense, that's a little bit like reasoning.
+
+05:31.640 --> 05:33.560
+ It's not reasoning in the form of deduction,
+
+05:33.560 --> 05:36.960
+ but it's reasoning in the form of taking a thought
+
+05:36.960 --> 05:39.440
+ and refining it and refining it carefully
+
+05:39.440 --> 05:41.240
+ until it's good enough to use.
+
+05:41.240 --> 05:43.560
+ So do you think, and I hope you don't mind,
+
+05:43.560 --> 05:46.040
+ we'll jump philosophical every once in a while.
+
+05:46.040 --> 05:50.460
+ Do you think of cognition, human cognition,
+
+05:50.460 --> 05:53.520
+ or even consciousness as simply a result
+
+05:53.520 --> 05:58.120
+ of this kind of sequential representation learning?
+
+05:58.120 --> 06:00.440
+ Do you think that can emerge?
+
+06:00.440 --> 06:02.460
+ Cognition, yes, I think so.
+
+06:02.460 --> 06:05.160
+ Consciousness, it's really hard to even define
+
+06:05.160 --> 06:06.420
+ what we mean by that.
+
+06:07.400 --> 06:09.840
+ I guess there's, consciousness is often defined
+
+06:09.840 --> 06:12.080
+ as things like having self awareness,
+
+06:12.080 --> 06:16.080
+ and that's relatively easy to turn into something actionable
+
+06:16.080 --> 06:18.400
+ for a computer scientist to reason about.
+
+06:18.400 --> 06:19.720
+ People also define consciousness
+
+06:19.720 --> 06:22.440
+ in terms of having qualitative states of experience,
+
+06:22.440 --> 06:25.300
+ like qualia, and there's all these philosophical problems,
+
+06:25.300 --> 06:27.880
+ like could you imagine a zombie
+
+06:27.880 --> 06:30.740
+ who does all the same information processing as a human,
+
+06:30.740 --> 06:33.500
+ but doesn't really have the qualitative experiences
+
+06:33.500 --> 06:34.720
+ that we have?
+
+06:34.720 --> 06:37.600
+ That sort of thing, I have no idea how to formalize
+
+06:37.600 --> 06:40.000
+ or turn it into a scientific question.
+
+06:40.000 --> 06:41.620
+ I don't know how you could run an experiment
+
+06:41.620 --> 06:44.880
+ to tell whether a person is a zombie or not.
+
+06:44.880 --> 06:46.680
+ And similarly, I don't know how you could run
+
+06:46.680 --> 06:49.680
+ an experiment to tell whether an advanced AI system
+
+06:49.680 --> 06:53.060
+ had become conscious in the sense of qualia or not.
+
+06:53.060 --> 06:54.600
+ But in the more practical sense,
+
+06:54.600 --> 06:56.320
+ like almost like self attention,
+
+06:56.320 --> 06:58.920
+ you think consciousness and cognition can,
+
+06:58.920 --> 07:03.240
+ in an impressive way, emerge from current types
+
+07:03.240 --> 07:06.200
+ of architectures that we think of as learning.
+
+07:06.200 --> 07:07.920
+ Or if you think of consciousness
+
+07:07.920 --> 07:12.160
+ in terms of self awareness and just making plans
+
+07:12.160 --> 07:16.600
+ based on the fact that the agent itself exists in the world,
+
+07:16.600 --> 07:18.000
+ reinforcement learning algorithms
+
+07:18.000 --> 07:20.140
+ are already more or less forced
+
+07:20.140 --> 07:23.040
+ to model the agent's effect on the environment.
+
+07:23.040 --> 07:26.340
+ So that more limited version of consciousness
+
+07:26.340 --> 07:31.340
+ is already something that we get limited versions of
+
+07:31.400 --> 07:32.960
+ with reinforcement learning algorithms
+
+07:32.960 --> 07:34.640
+ if they're trained well.
+
+07:34.640 --> 07:39.240
+ But you say limited, so the big question really
+
+07:39.240 --> 07:42.120
+ is how you jump from limited to human level, right?
+
+07:42.120 --> 07:44.620
+ And whether it's possible,
+
+07:46.840 --> 07:49.000
+ even just building common sense reasoning
+
+07:49.000 --> 07:50.520
+ seems to be exceptionally difficult.
+
+07:50.520 --> 07:52.480
+ So if we scale things up,
+
+07:52.480 --> 07:55.000
+ if we get much better on supervised learning,
+
+07:55.000 --> 07:56.620
+ if we get better at labeling,
+
+07:56.620 --> 08:00.640
+ if we get bigger data sets, more compute,
+
+08:00.640 --> 08:03.880
+ do you think we'll start to see really impressive things
+
+08:03.880 --> 08:08.320
+ that go from limited to something,
+
+08:08.320 --> 08:10.320
+ echoes of human level cognition?
+
+08:10.320 --> 08:11.200
+ I think so, yeah.
+
+08:11.200 --> 08:13.340
+ I'm optimistic about what can happen
+
+08:13.340 --> 08:16.420
+ just with more computation and more data.
+
+08:16.420 --> 08:17.500
+ I do think it'll be important
+
+08:17.500 --> 08:20.100
+ to get the right kind of data.
+
+08:20.100 --> 08:23.160
+ Today, most of the machine learning systems we train
+
+08:23.160 --> 08:27.540
+ are mostly trained on one type of data for each model.
+
+08:27.540 --> 08:31.380
+ But the human brain, we get all of our different senses
+
+08:31.380 --> 08:33.880
+ and we have many different experiences
+
+08:33.880 --> 08:36.320
+ like riding a bike, driving a car,
+
+08:36.320 --> 08:37.960
+ talking to people, reading.
+
+08:39.160 --> 08:42.420
+ I think when we get that kind of integrated data set,
+
+08:42.420 --> 08:44.420
+ working with a machine learning model
+
+08:44.420 --> 08:47.660
+ that can actually close the loop and interact,
+
+08:47.660 --> 08:50.480
+ we may find that algorithms not so different
+
+08:50.480 --> 08:53.240
+ from what we have today learn really interesting things
+
+08:53.240 --> 08:54.400
+ when you scale them up a lot
+
+08:54.400 --> 08:58.240
+ and train them on a large amount of multimodal data.
+
+08:58.240 --> 08:59.640
+ So multimodal is really interesting,
+
+08:59.640 --> 09:04.000
+ but within, like you're working adversarial examples.
+
+09:04.000 --> 09:09.000
+ So selecting within modal, within one mode of data,
+
+09:11.120 --> 09:13.780
+ selecting better at what are the difficult cases
+
+09:13.780 --> 09:16.120
+ from which you're most useful to learn from.
+
+09:16.120 --> 09:18.880
+ Oh yeah, like could we get a whole lot of mileage
+
+09:18.880 --> 09:22.280
+ out of designing a model that's resistant
+
+09:22.280 --> 09:24.120
+ to adversarial examples or something like that?
+
+09:24.120 --> 09:26.280
+ Right, that's the question.
+
+09:26.280 --> 09:27.760
+ My thinking on that has evolved a lot
+
+09:27.760 --> 09:29.960
+ over the last few years.
+
+09:29.960 --> 09:31.280
+ When I first started to really invest
+
+09:31.280 --> 09:32.760
+ in studying adversarial examples,
+
+09:32.760 --> 09:36.320
+ I was thinking of it mostly as adversarial examples
+
+09:36.320 --> 09:38.980
+ reveal a big problem with machine learning
+
+09:38.980 --> 09:41.160
+ and we would like to close the gap
+
+09:41.160 --> 09:44.120
+ between how machine learning models respond
+
+09:44.120 --> 09:46.560
+ to adversarial examples and how humans respond.
+
+09:47.640 --> 09:49.200
+ After studying the problem more,
+
+09:49.200 --> 09:51.940
+ I still think that adversarial examples are important.
+
+09:51.940 --> 09:55.440
+ I think of them now more of as a security liability
+
+09:55.440 --> 09:57.800
+ than as an issue that necessarily shows
+
+09:57.800 --> 09:59.880
+ there's something uniquely wrong
+
+09:59.880 --> 10:02.800
+ with machine learning as opposed to humans.
+
+10:02.800 --> 10:04.600
+ Also, do you see them as a tool
+
+10:04.600 --> 10:06.480
+ to improve the performance of the system?
+
+10:06.480 --> 10:10.760
+ Not on the security side, but literally just accuracy.
+
+10:10.760 --> 10:13.480
+ I do see them as a kind of tool on that side,
+
+10:13.480 --> 10:16.640
+ but maybe not quite as much as I used to think.
+
+10:16.640 --> 10:18.500
+ We've started to find that there's a trade off
+
+10:18.500 --> 10:21.680
+ between accuracy on adversarial examples
+
+10:21.680 --> 10:24.360
+ and accuracy on clean examples.
+
+10:24.360 --> 10:27.120
+ Back in 2014, when I did the first
+
+10:27.120 --> 10:30.840
+ adversarily trained classifier that showed resistance
+
+10:30.840 --> 10:33.040
+ to some kinds of adversarial examples,
+
+10:33.040 --> 10:36.040
+ it also got better at the clean data on MNIST.
+
+10:36.040 --> 10:37.700
+ And that's something we've replicated several times
+
+10:37.700 --> 10:39.640
+ on MNIST, that when we train
+
+10:39.640 --> 10:41.500
+ against weak adversarial examples,
+
+10:41.500 --> 10:43.880
+ MNIST classifiers get more accurate.
+
+10:43.880 --> 10:47.080
+ So far that hasn't really held up on other data sets
+
+10:47.080 --> 10:48.880
+ and hasn't held up when we train
+
+10:48.880 --> 10:50.760
+ against stronger adversaries.
+
+10:50.760 --> 10:53.160
+ It seems like when you confront
+
+10:53.160 --> 10:55.680
+ a really strong adversary,
+
+10:55.680 --> 10:58.040
+ you tend to have to give something up.
+
+10:58.040 --> 10:59.040
+ Interesting.
+
+10:59.040 --> 11:00.480
+ But it's such a compelling idea
+
+11:00.480 --> 11:04.720
+ because it feels like that's how us humans learn
+
+11:04.720 --> 11:06.280
+ is through the difficult cases.
+
+11:06.280 --> 11:08.760
+ We try to think of what would we screw up
+
+11:08.760 --> 11:11.000
+ and then we make sure we fix that.
+
+11:11.000 --> 11:13.560
+ It's also in a lot of branches of engineering,
+
+11:13.560 --> 11:15.800
+ you do a worst case analysis
+
+11:15.800 --> 11:18.720
+ and make sure that your system will work in the worst case.
+
+11:18.720 --> 11:20.400
+ And then that guarantees that it'll work
+
+11:20.400 --> 11:24.360
+ in all of the messy average cases that happen
+
+11:24.360 --> 11:27.440
+ when you go out into a really randomized world.
+
+11:27.440 --> 11:29.560
+ Yeah, with driving with autonomous vehicles,
+
+11:29.560 --> 11:33.080
+ there seems to be a desire to just look for,
+
+11:33.080 --> 11:34.880
+ think adversarially,
+
+11:34.880 --> 11:36.920
+ try to figure out how to mess up the system.
+
+11:36.920 --> 11:40.620
+ And if you can be robust to all those difficult cases,
+
+11:40.620 --> 11:43.580
+ then you can, it's a hand wavy empirical way
+
+11:43.580 --> 11:47.040
+ to show your system is safe.
+
+11:47.040 --> 11:49.120
+ Today, most adversarial example research
+
+11:49.120 --> 11:51.640
+ isn't really focused on a particular use case,
+
+11:51.640 --> 11:54.000
+ but there are a lot of different use cases
+
+11:54.000 --> 11:56.940
+ where you'd like to make sure that the adversary
+
+11:56.940 --> 12:00.200
+ can't interfere with the operation of your system.
+
+12:00.200 --> 12:01.060
+ Like in finance,
+
+12:01.060 --> 12:03.320
+ if you have an algorithm making trades for you,
+
+12:03.320 --> 12:04.660
+ people go to a lot of an effort
+
+12:04.660 --> 12:06.680
+ to obfuscate their algorithm.
+
+12:06.680 --> 12:08.080
+ That's both to protect their IP
+
+12:08.080 --> 12:10.880
+ because you don't want to research
+
+12:10.880 --> 12:13.580
+ and develop a profitable trading algorithm
+
+12:13.580 --> 12:16.120
+ then have somebody else capture the gains.
+
+12:16.120 --> 12:17.160
+ But it's at least partly
+
+12:17.160 --> 12:19.520
+ because you don't want people to make adversarial examples
+
+12:19.520 --> 12:22.580
+ that fool your algorithm into making bad trades.
+
+12:24.380 --> 12:26.580
+ Or I guess one area that's been popular
+
+12:26.580 --> 12:30.180
+ in the academic literature is speech recognition.
+
+12:30.180 --> 12:34.440
+ If you use speech recognition to hear an audio wave form
+
+12:34.440 --> 12:37.720
+ and then turn that into a command
+
+12:37.720 --> 12:39.680
+ that a phone executes for you,
+
+12:39.680 --> 12:41.880
+ you don't want a malicious adversary
+
+12:41.880 --> 12:43.640
+ to be able to produce audio
+
+12:43.640 --> 12:46.300
+ that gets interpreted as malicious commands,
+
+12:46.300 --> 12:48.520
+ especially if a human in the room doesn't realize
+
+12:48.520 --> 12:50.320
+ that something like that is happening.
+
+12:50.320 --> 12:52.000
+ And speech recognition,
+
+12:52.000 --> 12:53.880
+ has there been much success
+
+12:53.880 --> 12:58.440
+ in being able to create adversarial examples
+
+12:58.440 --> 12:59.760
+ that fool the system?
+
+12:59.760 --> 13:00.880
+ Yeah, actually.
+
+13:00.880 --> 13:02.420
+ I guess the first work that I'm aware of
+
+13:02.420 --> 13:05.120
+ is a paper called Hidden Voice Commands
+
+13:05.120 --> 13:08.480
+ that came out in 2016, I believe.
+
+13:08.480 --> 13:11.920
+ And they were able to show that they could make sounds
+
+13:11.920 --> 13:14.960
+ that are not understandable by a human
+
+13:14.960 --> 13:18.400
+ but are recognized as the target phrase
+
+13:18.400 --> 13:21.320
+ that the attacker wants the phone to recognize it as.
+
+13:21.320 --> 13:24.020
+ Since then, things have gotten a little bit better
+
+13:24.020 --> 13:25.200
+ on the attacker's side
+
+13:25.200 --> 13:27.580
+ when worse on the defender's side.
+
+13:28.680 --> 13:33.360
+ It's become possible to make sounds
+
+13:33.360 --> 13:35.600
+ that sound like normal speech
+
+13:35.600 --> 13:38.980
+ but are actually interpreted as a different sentence
+
+13:38.980 --> 13:40.720
+ than the human hears.
+
+13:40.720 --> 13:42.720
+ The level of perceptibility
+
+13:42.720 --> 13:45.320
+ of the adversarial perturbation is still kind of high.
+
+13:46.640 --> 13:48.160
+ When you listen to the recording,
+
+13:48.160 --> 13:51.040
+ it sounds like there's some noise in the background,
+
+13:51.040 --> 13:52.960
+ just like rustling sounds.
+
+13:52.960 --> 13:53.940
+ But those rustling sounds
+
+13:53.940 --> 13:55.560
+ are actually the adversarial perturbation
+
+13:55.560 --> 13:58.040
+ that makes the phone hear a completely different sentence.
+
+13:58.040 --> 14:00.120
+ Yeah, that's so fascinating.
+
+14:00.120 --> 14:01.080
+ Peter Norvig mentioned
+
+14:01.080 --> 14:02.780
+ that you're writing the deep learning chapter
+
+14:02.780 --> 14:04.280
+ for the fourth edition
+
+14:04.280 --> 14:07.340
+ of the Artificial Intelligence, A Modern Approach book.
+
+14:07.340 --> 14:10.700
+ So how do you even begin summarizing
+
+14:10.700 --> 14:13.080
+ the field of deep learning in a chapter?
+
+14:13.080 --> 14:16.880
+ Well, in my case, I waited like a year
+
+14:16.880 --> 14:19.200
+ before I actually wrote anything.
+
+14:19.200 --> 14:22.660
+ Even having written a full length textbook before,
+
+14:22.660 --> 14:25.600
+ it's still pretty intimidating
+
+14:25.600 --> 14:27.840
+ to try to start writing just one chapter
+
+14:27.840 --> 14:29.080
+ that covers everything.
+
+14:31.160 --> 14:33.200
+ One thing that helped me make that plan
+
+14:33.200 --> 14:34.320
+ was actually the experience
+
+14:34.320 --> 14:36.740
+ of having written the full book before
+
+14:36.740 --> 14:39.160
+ and then watching how the field changed
+
+14:39.160 --> 14:41.000
+ after the book came out.
+
+14:41.000 --> 14:42.340
+ I've realized there's a lot of topics
+
+14:42.340 --> 14:45.040
+ that were maybe extraneous in the first book
+
+14:45.040 --> 14:47.620
+ and just seeing what stood the test
+
+14:47.620 --> 14:49.440
+ of a few years of being published
+
+14:49.440 --> 14:52.240
+ and what seems a little bit less important
+
+14:52.240 --> 14:54.320
+ to have included now helped me pare down the topics
+
+14:54.320 --> 14:55.880
+ I wanted to cover for the book.
+
+14:56.920 --> 14:58.060
+ It's also really nice now
+
+14:58.060 --> 15:00.600
+ that the field is kind of stabilized
+
+15:00.600 --> 15:02.840
+ to the point where some core ideas from the 1980s
+
+15:02.840 --> 15:04.800
+ are still used today.
+
+15:04.800 --> 15:06.720
+ When I first started studying machine learning,
+
+15:06.720 --> 15:09.600
+ almost everything from the 1980s had been rejected
+
+15:09.600 --> 15:11.400
+ and now some of it has come back.
+
+15:11.400 --> 15:13.520
+ So that stuff that's really stood the test of time
+
+15:13.520 --> 15:15.980
+ is what I focused on putting into the book.
+
+15:16.960 --> 15:21.320
+ There's also, I guess, two different philosophies
+
+15:21.320 --> 15:23.160
+ about how you might write a book.
+
+15:23.160 --> 15:24.840
+ One philosophy is you try to write a reference
+
+15:24.840 --> 15:26.240
+ that covers everything.
+
+15:26.240 --> 15:28.040
+ The other philosophy is you try to provide
+
+15:28.040 --> 15:31.160
+ a high level summary that gives people the language
+
+15:31.160 --> 15:32.440
+ to understand a field
+
+15:32.440 --> 15:35.000
+ and tells them what the most important concepts are.
+
+15:35.000 --> 15:37.080
+ The first deep learning book that I wrote
+
+15:37.080 --> 15:39.260
+ with Joshua and Aaron was somewhere
+
+15:39.260 --> 15:41.240
+ between the two philosophies,
+
+15:41.240 --> 15:43.640
+ that it's trying to be both a reference
+
+15:43.640 --> 15:45.760
+ and an introductory guide.
+
+15:45.760 --> 15:48.920
+ Writing this chapter for Russell Norvig's book,
+
+15:48.920 --> 15:52.780
+ I was able to focus more on just a concise introduction
+
+15:52.780 --> 15:54.240
+ of the key concepts and the language
+
+15:54.240 --> 15:55.980
+ you need to read about them more.
+
+15:55.980 --> 15:57.560
+ In a lot of cases, I actually just wrote paragraphs
+
+15:57.560 --> 16:00.060
+ that said, here's a rapidly evolving area
+
+16:00.060 --> 16:02.360
+ that you should pay attention to.
+
+16:02.360 --> 16:04.760
+ It's pointless to try to tell you what the latest
+
+16:04.760 --> 16:09.760
+ and best version of a learn to learn model is.
+
+16:11.680 --> 16:13.660
+ I can point you to a paper that's recent right now,
+
+16:13.660 --> 16:16.880
+ but there isn't a whole lot of a reason to delve
+
+16:16.880 --> 16:18.640
+ into exactly what's going on
+
+16:18.640 --> 16:21.600
+ with the latest learning to learn approach
+
+16:21.600 --> 16:23.400
+ or the latest module produced
+
+16:23.400 --> 16:25.000
+ by a learning to learn algorithm.
+
+16:25.000 --> 16:26.800
+ You should know that learning to learn is a thing
+
+16:26.800 --> 16:30.680
+ and that it may very well be the source of the latest
+
+16:30.680 --> 16:33.800
+ and greatest convolutional net or recurrent net module
+
+16:33.800 --> 16:36.060
+ that you would want to use in your latest project.
+
+16:36.060 --> 16:38.200
+ But there isn't a lot of point in trying to summarize
+
+16:38.200 --> 16:42.300
+ exactly which architecture and which learning approach
+
+16:42.300 --> 16:44.060
+ got to which level of performance.
+
+16:44.060 --> 16:49.060
+ So you maybe focus more on the basics of the methodology.
+
+16:49.260 --> 16:52.500
+ So from back propagation to feed forward
+
+16:52.500 --> 16:54.480
+ to recurrent neural networks, convolutional,
+
+16:54.480 --> 16:55.320
+ that kind of thing?
+
+16:55.320 --> 16:56.480
+ Yeah, yeah.
+
+16:56.480 --> 17:00.360
+ So if I were to ask you, I remember I took algorithms
+
+17:00.360 --> 17:03.720
+ and data structures algorithms course.
+
+17:03.720 --> 17:08.100
+ I remember the professor asked, what is an algorithm?
+
+17:09.160 --> 17:12.200
+ And yelled at everybody in a good way
+
+17:12.200 --> 17:14.040
+ that nobody was answering it correctly.
+
+17:14.040 --> 17:16.380
+ Everybody knew what the algorithm, it was graduate course.
+
+17:16.380 --> 17:18.140
+ Everybody knew what an algorithm was,
+
+17:18.140 --> 17:19.760
+ but they weren't able to answer it well.
+
+17:19.760 --> 17:22.360
+ So let me ask you in that same spirit,
+
+17:22.360 --> 17:23.580
+ what is deep learning?
+
+17:24.540 --> 17:29.540
+ I would say deep learning is any kind of machine learning
+
+17:29.540 --> 17:34.540
+ that involves learning parameters of more than one
+
+17:34.620 --> 17:35.900
+ consecutive step.
+
+17:37.140 --> 17:39.460
+ So that, I mean, shallow learning is things
+
+17:39.460 --> 17:43.620
+ where you learn a lot of operations that happen in parallel.
+
+17:43.620 --> 17:46.580
+ You might have a system that makes multiple steps.
+
+17:46.580 --> 17:50.700
+ Like you might have hand designed feature extractors,
+
+17:50.700 --> 17:52.500
+ but really only one step is learned.
+
+17:52.500 --> 17:55.900
+ Deep learning is anything where you have multiple operations
+
+17:55.900 --> 17:58.420
+ in sequence, and that includes the things
+
+17:58.420 --> 17:59.780
+ that are really popular today,
+
+17:59.780 --> 18:03.580
+ like convolutional networks and recurrent networks.
+
+18:03.580 --> 18:06.580
+ But it also includes some of the things that have died out
+
+18:06.580 --> 18:08.260
+ like Bolton machines,
+
+18:08.260 --> 18:10.880
+ where we weren't using back propagation.
+
+18:11.980 --> 18:14.220
+ Today, I hear a lot of people define deep learning
+
+18:14.220 --> 18:18.020
+ as gradient descent applied
+
+18:18.020 --> 18:21.460
+ to these differentiable functions.
+
+18:21.460 --> 18:24.780
+ And I think that's a legitimate usage of the term.
+
+18:24.780 --> 18:27.820
+ It's just different from the way that I use the term myself.
+
+18:27.820 --> 18:31.740
+ So what's an example of deep learning
+
+18:31.740 --> 18:34.740
+ that is not gradient descent and differentiable functions?
+
+18:34.740 --> 18:37.420
+ In your, I mean, not specifically perhaps,
+
+18:37.420 --> 18:39.780
+ but more even looking into the future,
+
+18:39.780 --> 18:44.300
+ what's your thought about that space of approaches?
+
+18:44.300 --> 18:46.340
+ Yeah, so I tend to think of machine learning algorithms
+
+18:46.340 --> 18:50.180
+ as decomposed into really three different pieces.
+
+18:50.180 --> 18:52.980
+ There's the model, which can be something like a neural net
+
+18:52.980 --> 18:56.580
+ or a Bolton machine or a recurrent model.
+
+18:56.580 --> 18:59.500
+ And that basically just describes how do you take data
+
+18:59.500 --> 19:01.140
+ and how do you take parameters?
+
+19:01.140 --> 19:04.300
+ And what function do you use to make a prediction
+
+19:04.300 --> 19:07.320
+ given the data and the parameters?
+
+19:07.320 --> 19:09.260
+ Another piece of the learning algorithm
+
+19:09.260 --> 19:12.380
+ is the optimization algorithm.
+
+19:12.380 --> 19:14.900
+ Or not every algorithm can be really described
+
+19:14.900 --> 19:15.900
+ in terms of optimization,
+
+19:15.900 --> 19:18.860
+ but what's the algorithm for updating the parameters
+
+19:18.860 --> 19:21.680
+ or updating whatever the state of the network is?
+
+19:22.620 --> 19:26.280
+ And then the last part is the data set,
+
+19:26.280 --> 19:29.180
+ like how do you actually represent the world
+
+19:29.180 --> 19:32.120
+ as it comes into your machine learning system?
+
+19:33.140 --> 19:36.740
+ So I think of deep learning as telling us something about
+
+19:36.740 --> 19:39.060
+ what does the model look like?
+
+19:39.060 --> 19:41.260
+ And basically to qualify as deep,
+
+19:41.260 --> 19:44.540
+ I say that it just has to have multiple layers.
+
+19:44.540 --> 19:46.340
+ That can be multiple steps
+
+19:46.340 --> 19:49.220
+ in a feed forward differentiable computation.
+
+19:49.220 --> 19:52.020
+ That can be multiple layers in a graphical model.
+
+19:52.020 --> 19:53.560
+ There's a lot of ways that you could satisfy me
+
+19:53.560 --> 19:56.140
+ that something has multiple steps
+
+19:56.140 --> 19:58.900
+ that are each parameterized separately.
+
+19:58.900 --> 19:59.940
+ I think of gradient descent
+
+19:59.940 --> 20:01.540
+ as being all about that other piece,
+
+20:01.540 --> 20:04.260
+ the how do you actually update the parameters piece?
+
+20:04.260 --> 20:05.980
+ So you could imagine having a deep model
+
+20:05.980 --> 20:07.540
+ like a convolutional net
+
+20:07.540 --> 20:09.660
+ and training it with something like evolution
+
+20:09.660 --> 20:11.300
+ or a genetic algorithm.
+
+20:11.300 --> 20:14.780
+ And I would say that still qualifies as deep learning.
+
+20:14.780 --> 20:16.060
+ And then in terms of models
+
+20:16.060 --> 20:18.740
+ that aren't necessarily differentiable,
+
+20:18.740 --> 20:21.260
+ I guess Bolton machines are probably
+
+20:21.260 --> 20:23.580
+ the main example of something
+
+20:23.580 --> 20:25.540
+ where you can't really take a derivative
+
+20:25.540 --> 20:27.980
+ and use that for the learning process.
+
+20:27.980 --> 20:30.780
+ But you can still argue that the model
+
+20:30.780 --> 20:33.740
+ has many steps of processing that it applies
+
+20:33.740 --> 20:35.760
+ when you run inference in the model.
+
+20:35.760 --> 20:38.900
+ So it's the steps of processing that's key.
+
+20:38.900 --> 20:41.300
+ So Jeff Hinton suggests that we need to throw away
+
+20:41.300 --> 20:44.900
+ back propagation and start all over.
+
+20:44.900 --> 20:46.500
+ What do you think about that?
+
+20:46.500 --> 20:48.540
+ What could an alternative direction
+
+20:48.540 --> 20:50.940
+ of training neural networks look like?
+
+20:50.940 --> 20:52.860
+ I don't know that back propagation
+
+20:52.860 --> 20:54.660
+ is gonna go away entirely.
+
+20:54.660 --> 20:57.140
+ Most of the time when we decide
+
+20:57.140 --> 20:59.220
+ that a machine learning algorithm
+
+20:59.220 --> 21:03.460
+ isn't on the critical path to research for improving AI,
+
+21:03.460 --> 21:04.660
+ the algorithm doesn't die.
+
+21:04.660 --> 21:07.720
+ It just becomes used for some specialized set of things.
+
+21:08.820 --> 21:11.180
+ A lot of algorithms like logistic regression
+
+21:11.180 --> 21:13.980
+ don't seem that exciting to AI researchers
+
+21:13.980 --> 21:16.760
+ who are working on things like speech recognition
+
+21:16.760 --> 21:18.420
+ or autonomous cars today.
+
+21:18.420 --> 21:21.100
+ But there's still a lot of use for logistic regression
+
+21:21.100 --> 21:24.000
+ and things like analyzing really noisy data
+
+21:24.000 --> 21:25.700
+ in medicine and finance
+
+21:25.700 --> 21:28.780
+ or making really rapid predictions
+
+21:28.780 --> 21:30.700
+ in really time limited contexts.
+
+21:30.700 --> 21:33.480
+ So I think back propagation and gradient descent
+
+21:33.480 --> 21:37.420
+ are around to stay, but they may not end up being
+
+21:38.340 --> 21:40.860
+ everything that we need to get to real human level
+
+21:40.860 --> 21:42.380
+ or super human AI.
+
+21:42.380 --> 21:44.660
+ Are you optimistic about us discovering
+
+21:46.700 --> 21:50.220
+ back propagation has been around for a few decades?
+
+21:50.220 --> 21:54.100
+ So are you optimistic about us as a community
+
+21:54.100 --> 21:56.800
+ being able to discover something better?
+
+21:56.800 --> 21:57.640
+ Yeah, I am.
+
+21:57.640 --> 22:01.820
+ I think we likely will find something that works better.
+
+22:01.820 --> 22:05.500
+ You could imagine things like having stacks of models
+
+22:05.500 --> 22:07.580
+ where some of the lower level models
+
+22:07.580 --> 22:10.200
+ predict parameters of the higher level models.
+
+22:10.200 --> 22:12.140
+ And so at the top level,
+
+22:12.140 --> 22:13.500
+ you're not learning in terms of literally
+
+22:13.500 --> 22:14.460
+ calculating gradients,
+
+22:14.460 --> 22:17.700
+ but just predicting how different values will perform.
+
+22:17.700 --> 22:19.580
+ You can kind of see that already in some areas
+
+22:19.580 --> 22:21.380
+ like Bayesian optimization,
+
+22:21.380 --> 22:22.940
+ where you have a Gaussian process
+
+22:22.940 --> 22:24.800
+ that predicts how well different parameter values
+
+22:24.800 --> 22:25.880
+ will perform.
+
+22:25.880 --> 22:27.700
+ We already use those kinds of algorithms
+
+22:27.700 --> 22:30.260
+ for things like hyper parameter optimization.
+
+22:30.260 --> 22:32.500
+ And in general, we know a lot of things other than back prop
+
+22:32.500 --> 22:34.980
+ that work really well for specific problems.
+
+22:34.980 --> 22:37.460
+ The main thing we haven't found is
+
+22:37.460 --> 22:38.880
+ a way of taking one of these other
+
+22:38.880 --> 22:41.160
+ non back prop based algorithms
+
+22:41.160 --> 22:43.500
+ and having it really advanced the state of the art
+
+22:43.500 --> 22:46.160
+ on an AI level problem.
+
+22:46.160 --> 22:47.100
+ Right.
+
+22:47.100 --> 22:49.180
+ But I wouldn't be surprised if eventually
+
+22:49.180 --> 22:50.780
+ we find that some of these algorithms
+
+22:50.780 --> 22:52.780
+ that even the ones that already exist,
+
+22:52.780 --> 22:54.220
+ not even necessarily new one,
+
+22:54.220 --> 22:58.180
+ we might find some way of customizing
+
+22:58.180 --> 23:00.540
+ one of these algorithms to do something really interesting
+
+23:00.540 --> 23:05.240
+ at the level of cognition or the level of,
+
+23:06.420 --> 23:08.660
+ I think one system that we really don't have working
+
+23:08.660 --> 23:12.060
+ quite right yet is like short term memory.
+
+23:12.940 --> 23:14.500
+ We have things like LSTMs,
+
+23:14.500 --> 23:16.980
+ they're called long short term memory.
+
+23:16.980 --> 23:20.020
+ They still don't do quite what a human does
+
+23:20.020 --> 23:21.760
+ with short term memory.
+
+23:22.860 --> 23:26.940
+ Like gradient descent to learn a specific fact
+
+23:26.940 --> 23:29.380
+ has to do multiple steps on that fact.
+
+23:29.380 --> 23:34.140
+ Like if I tell you the meeting today is at 3 p.m.,
+
+23:34.140 --> 23:35.460
+ I don't need to say over and over again,
+
+23:35.460 --> 23:37.780
+ it's at 3 p.m., it's at 3 p.m., it's at 3 p.m.,
+
+23:37.780 --> 23:38.940
+ it's at 3 p.m.
+
+23:38.940 --> 23:40.380
+ for you to do a gradient step on each one.
+
+23:40.380 --> 23:43.180
+ You just hear it once and you remember it.
+
+23:43.180 --> 23:46.940
+ There's been some work on things like self attention
+
+23:46.940 --> 23:48.340
+ and attention like mechanisms,
+
+23:48.340 --> 23:50.420
+ like the neural Turing machine
+
+23:50.420 --> 23:52.220
+ that can write to memory cells
+
+23:52.220 --> 23:54.900
+ and update themselves with facts like that right away.
+
+23:54.900 --> 23:56.900
+ But I don't think we've really nailed it yet.
+
+23:56.900 --> 23:59.580
+ And that's one area where I'd imagine
+
+23:59.580 --> 24:02.660
+ that new optimization algorithms
+
+24:02.660 --> 24:03.780
+ or different ways of applying
+
+24:03.780 --> 24:05.980
+ existing optimization algorithms
+
+24:05.980 --> 24:08.800
+ could give us a way of just lightning fast
+
+24:08.800 --> 24:11.180
+ updating the state of a machine learning system
+
+24:11.180 --> 24:14.100
+ to contain a specific fact like that
+
+24:14.100 --> 24:15.340
+ without needing to have it presented
+
+24:15.340 --> 24:16.980
+ over and over and over again.
+
+24:16.980 --> 24:21.420
+ So some of the success of symbolic systems in the 80s
+
+24:21.420 --> 24:26.220
+ is they were able to assemble these kinds of facts better.
+
+24:26.220 --> 24:29.100
+ But there's a lot of expert input required
+
+24:29.100 --> 24:31.140
+ and it's very limited in that sense.
+
+24:31.140 --> 24:33.700
+ Do you ever look back to that
+
+24:33.700 --> 24:36.560
+ as something that we'll have to return to eventually?
+
+24:36.560 --> 24:38.440
+ Sort of dust off the book from the shelf
+
+24:38.440 --> 24:41.340
+ and think about how we build knowledge,
+
+24:41.340 --> 24:42.940
+ representation, knowledge base.
+
+24:42.940 --> 24:44.820
+ Like will we have to use graph searches?
+
+24:44.820 --> 24:45.780
+ Graph searches, right.
+
+24:45.780 --> 24:47.700
+ And like first order logic and entailment
+
+24:47.700 --> 24:48.540
+ and things like that.
+
+24:48.540 --> 24:49.540
+ That kind of thing, yeah, exactly.
+
+24:49.540 --> 24:51.180
+ In my particular line of work,
+
+24:51.180 --> 24:54.540
+ which has mostly been machine learning security
+
+24:54.540 --> 24:56.740
+ and also generative modeling,
+
+24:56.740 --> 25:00.560
+ I haven't usually found myself moving in that direction.
+
+25:00.560 --> 25:03.500
+ For generative models, I could see a little bit of,
+
+25:03.500 --> 25:04.920
+ it could be useful if you had something
+
+25:04.920 --> 25:09.660
+ like a differentiable knowledge base
+
+25:09.660 --> 25:10.980
+ or some other kind of knowledge base
+
+25:10.980 --> 25:13.140
+ where it's possible for some of our
+
+25:13.140 --> 25:14.860
+ fuzzier machine learning algorithms
+
+25:14.860 --> 25:16.900
+ to interact with a knowledge base.
+
+25:16.900 --> 25:19.060
+ I mean, your network is kind of like that.
+
+25:19.060 --> 25:21.480
+ It's a differentiable knowledge base of sorts.
+
+25:21.480 --> 25:22.320
+ Yeah.
+
+25:22.320 --> 25:23.660
+ But.
+
+25:23.660 --> 25:27.660
+ If we had a really easy way of giving feedback
+
+25:27.660 --> 25:29.260
+ to machine learning models,
+
+25:29.260 --> 25:32.420
+ that would clearly help a lot with generative models.
+
+25:32.420 --> 25:33.940
+ And so you could imagine one way of getting there
+
+25:33.940 --> 25:36.760
+ would be get a lot better at natural language processing.
+
+25:36.760 --> 25:38.960
+ But another way of getting there would be
+
+25:38.960 --> 25:40.300
+ take some kind of knowledge base
+
+25:40.300 --> 25:42.340
+ and figure out a way for it to actually
+
+25:42.340 --> 25:44.100
+ interact with a neural network.
+
+25:44.100 --> 25:46.100
+ Being able to have a chat with a neural network.
+
+25:46.100 --> 25:46.940
+ Yeah.
+
+25:47.900 --> 25:50.020
+ So like one thing in generative models we see a lot today
+
+25:50.020 --> 25:53.580
+ is you'll get things like faces that are not symmetrical,
+
+25:54.780 --> 25:58.580
+ like people that have two eyes that are different colors.
+
+25:58.580 --> 25:59.580
+ I mean, there are people with eyes
+
+25:59.580 --> 26:00.900
+ that are different colors in real life,
+
+26:00.900 --> 26:03.500
+ but not nearly as many of them as you tend to see
+
+26:03.500 --> 26:06.140
+ in the machine learning generated data.
+
+26:06.140 --> 26:08.140
+ So if you had either a knowledge base
+
+26:08.140 --> 26:10.220
+ that could contain the fact,
+
+26:10.220 --> 26:13.380
+ people's faces are generally approximately symmetric
+
+26:13.380 --> 26:15.940
+ and eye color is especially likely
+
+26:15.940 --> 26:17.980
+ to be the same on both sides.
+
+26:17.980 --> 26:20.200
+ Being able to just inject that hint
+
+26:20.200 --> 26:22.060
+ into the machine learning model
+
+26:22.060 --> 26:23.860
+ without it having to discover that itself
+
+26:23.860 --> 26:25.820
+ after studying a lot of data
+
+26:25.820 --> 26:28.380
+ would be a really useful feature.
+
+26:28.380 --> 26:30.180
+ I could see a lot of ways of getting there
+
+26:30.180 --> 26:32.220
+ without bringing back some of the 1980s technology,
+
+26:32.220 --> 26:35.180
+ but I also see some ways that you could imagine
+
+26:35.180 --> 26:38.260
+ extending the 1980s technology to play nice with neural nets
+
+26:38.260 --> 26:40.080
+ and have it help get there.
+
+26:40.080 --> 26:40.920
+ Awesome.
+
+26:40.920 --> 26:44.380
+ So you talked about the story of you coming up
+
+26:44.380 --> 26:47.020
+ with the idea of GANs at a bar with some friends.
+
+26:47.020 --> 26:51.380
+ You were arguing that this, you know, GANs would work,
+
+26:51.380 --> 26:53.060
+ generative adversarial networks,
+
+26:53.060 --> 26:54.660
+ and the others didn't think so.
+
+26:54.660 --> 26:58.420
+ Then you went home at midnight, coded it up, and it worked.
+
+26:58.420 --> 27:01.340
+ So if I was a friend of yours at the bar,
+
+27:01.340 --> 27:02.700
+ I would also have doubts.
+
+27:02.700 --> 27:03.860
+ It's a really nice idea,
+
+27:03.860 --> 27:06.820
+ but I'm very skeptical that it would work.
+
+27:06.820 --> 27:09.300
+ What was the basis of their skepticism?
+
+27:09.300 --> 27:13.180
+ What was the basis of your intuition why it should work?
+
+27:14.340 --> 27:15.980
+ I don't want to be someone who goes around
+
+27:15.980 --> 27:18.280
+ promoting alcohol for the purposes of science,
+
+27:18.280 --> 27:20.020
+ but in this case,
+
+27:20.020 --> 27:23.060
+ I do actually think that drinking helped a little bit.
+
+27:23.060 --> 27:25.360
+ When your inhibitions are lowered,
+
+27:25.360 --> 27:27.380
+ you're more willing to try out things
+
+27:27.380 --> 27:29.620
+ that you wouldn't try out otherwise.
+
+27:29.620 --> 27:32.460
+ So I have noticed in general
+
+27:32.460 --> 27:34.540
+ that I'm less prone to shooting down some of my own ideas
+
+27:34.540 --> 27:37.960
+ when I have had a little bit to drink.
+
+27:37.960 --> 27:41.020
+ I think if I had had that idea at lunchtime,
+
+27:41.020 --> 27:42.260
+ I probably would have thought,
+
+27:42.260 --> 27:43.720
+ it's hard enough to train one neural net,
+
+27:43.720 --> 27:44.880
+ you can't train a second neural net
+
+27:44.880 --> 27:48.080
+ in the inner loop of the outer neural net.
+
+27:48.080 --> 27:49.820
+ That was basically my friend's objection,
+
+27:49.820 --> 27:52.740
+ was that trying to train two neural nets at the same time
+
+27:52.740 --> 27:54.260
+ would be too hard.
+
+27:54.260 --> 27:56.140
+ So it was more about the training process,
+
+27:56.140 --> 27:58.300
+ unless, so my skepticism would be,
+
+27:58.300 --> 28:01.140
+ you know, I'm sure you could train it,
+
+28:01.140 --> 28:03.180
+ but the thing it would converge to
+
+28:03.180 --> 28:05.820
+ would not be able to generate anything reasonable,
+
+28:05.820 --> 28:08.260
+ any kind of reasonable realism.
+
+28:08.260 --> 28:11.360
+ Yeah, so part of what all of us were thinking about
+
+28:11.360 --> 28:15.280
+ when we had this conversation was deep Bolton machines,
+
+28:15.280 --> 28:16.980
+ which a lot of us in the lab, including me,
+
+28:16.980 --> 28:19.580
+ were a big fan of deep Bolton machines at the time.
+
+28:20.660 --> 28:22.920
+ They involved two separate processes
+
+28:22.920 --> 28:24.180
+ running at the same time.
+
+28:25.060 --> 28:28.140
+ One of them is called the positive phase,
+
+28:28.140 --> 28:31.160
+ where you load data into the model
+
+28:31.160 --> 28:33.540
+ and tell the model to make the data more likely.
+
+28:33.540 --> 28:35.140
+ The other one is called the negative phase,
+
+28:35.140 --> 28:37.020
+ where you draw samples from the model
+
+28:37.020 --> 28:39.620
+ and tell the model to make those samples less likely.
+
+28:41.180 --> 28:42.220
+ In a deep Bolton machine,
+
+28:42.220 --> 28:43.960
+ it's not trivial to generate a sample.
+
+28:43.960 --> 28:46.980
+ You have to actually run an iterative process
+
+28:46.980 --> 28:49.140
+ that gets better and better samples
+
+28:49.140 --> 28:51.380
+ coming closer and closer to the distribution
+
+28:51.380 --> 28:52.840
+ the model represents.
+
+28:52.840 --> 28:53.900
+ So during the training process,
+
+28:53.900 --> 28:56.940
+ you're always running these two systems at the same time,
+
+28:56.940 --> 28:58.940
+ one that's updating the parameters of the model
+
+28:58.940 --> 29:00.500
+ and another one that's trying to generate samples
+
+29:00.500 --> 29:01.660
+ from the model.
+
+29:01.660 --> 29:04.340
+ And they worked really well in things like MNIST,
+
+29:04.340 --> 29:05.820
+ but a lot of us in the lab, including me,
+
+29:05.820 --> 29:07.500
+ had tried to get deep Bolton machines
+
+29:07.500 --> 29:11.900
+ to scale past MNIST to things like generating color photos,
+
+29:11.900 --> 29:14.120
+ and we just couldn't get the two processes
+
+29:14.120 --> 29:15.940
+ to stay synchronized.
+
+29:17.380 --> 29:18.740
+ So when I had the idea for GANs,
+
+29:18.740 --> 29:20.340
+ a lot of people thought that the discriminator
+
+29:20.340 --> 29:22.580
+ would have more or less the same problem
+
+29:22.580 --> 29:25.320
+ as the negative phase in the Bolton machine,
+
+29:25.320 --> 29:27.800
+ that trying to train the discriminator in the inner loop,
+
+29:27.800 --> 29:29.920
+ you just couldn't get it to keep up
+
+29:29.920 --> 29:31.540
+ with the generator in the outer loop,
+
+29:31.540 --> 29:33.820
+ and that would prevent it from converging
+
+29:33.820 --> 29:35.220
+ to anything useful.
+
+29:35.220 --> 29:36.840
+ Yeah, I share that intuition.
+
+29:36.840 --> 29:37.680
+ Yeah.
+
+29:39.540 --> 29:41.940
+ But turns out to not be the case.
+
+29:41.940 --> 29:43.760
+ A lot of the time with machine learning algorithms,
+
+29:43.760 --> 29:45.180
+ it's really hard to predict ahead of time
+
+29:45.180 --> 29:46.900
+ how well they'll actually perform.
+
+29:46.900 --> 29:49.140
+ You have to just run the experiment and see what happens.
+
+29:49.140 --> 29:52.500
+ And I would say I still today don't have
+
+29:52.500 --> 29:54.780
+ like one factor I can put my finger on and say,
+
+29:54.780 --> 29:58.340
+ this is why GANs worked for photo generation
+
+29:58.340 --> 30:00.200
+ and deep Bolton machines don't.
+
+30:01.980 --> 30:03.300
+ There are a lot of theory papers
+
+30:03.300 --> 30:06.340
+ showing that under some theoretical settings,
+
+30:06.340 --> 30:09.640
+ the GAN algorithm does actually converge,
+
+30:10.680 --> 30:14.140
+ but those settings are restricted enough
+
+30:14.140 --> 30:17.520
+ that they don't necessarily explain the whole picture
+
+30:17.520 --> 30:20.740
+ in terms of all the results that we see in practice.
+
+30:20.740 --> 30:22.300
+ So taking a step back,
+
+30:22.300 --> 30:24.860
+ can you, in the same way as we talked about deep learning,
+
+30:24.860 --> 30:28.400
+ can you tell me what generative adversarial networks are?
+
+30:29.420 --> 30:31.380
+ Yeah, so generative adversarial networks
+
+30:31.380 --> 30:33.980
+ are a particular kind of generative model.
+
+30:33.980 --> 30:36.280
+ A generative model is a machine learning model
+
+30:36.280 --> 30:38.860
+ that can train on some set of data.
+
+30:38.860 --> 30:41.220
+ Like, so you have a collection of photos of cats
+
+30:41.220 --> 30:43.980
+ and you want to generate more photos of cats,
+
+30:43.980 --> 30:47.700
+ or you want to estimate a probability distribution over cats.
+
+30:47.700 --> 30:49.800
+ So you can ask how likely it is
+
+30:49.800 --> 30:51.820
+ that some new image is a photo of a cat.
+
+30:52.860 --> 30:55.800
+ GANs are one way of doing this.
+
+30:55.800 --> 30:59.180
+ Some generative models are good at creating new data.
+
+30:59.180 --> 31:01.620
+ Other generative models are good at estimating
+
+31:01.620 --> 31:04.140
+ that density function and telling you how likely
+
+31:04.140 --> 31:07.180
+ particular pieces of data are to come
+
+31:07.180 --> 31:09.700
+ from the same distribution as the training data.
+
+31:09.700 --> 31:12.420
+ GANs are more focused on generating samples
+
+31:12.420 --> 31:15.600
+ rather than estimating the density function.
+
+31:15.600 --> 31:18.500
+ There are some kinds of GANs like FlowGAN that can do both,
+
+31:18.500 --> 31:21.620
+ but mostly GANs are about generating samples,
+
+31:21.620 --> 31:24.220
+ generating new photos of cats that look realistic.
+
+31:24.220 --> 31:29.220
+ And they do that completely from scratch.
+
+31:29.340 --> 31:32.240
+ It's analogous to human imagination.
+
+31:32.240 --> 31:34.780
+ When a GAN creates a new image of a cat,
+
+31:34.780 --> 31:39.300
+ it's using a neural network to produce a cat
+
+31:39.300 --> 31:41.040
+ that has not existed before.
+
+31:41.040 --> 31:44.540
+ It isn't doing something like compositing photos together.
+
+31:44.540 --> 31:47.100
+ You're not literally taking the eye off of one cat
+
+31:47.100 --> 31:48.300
+ and the ear off of another cat.
+
+31:48.300 --> 31:51.380
+ It's more of this digestive process
+
+31:51.380 --> 31:53.940
+ where the neural net trains in a lot of data
+
+31:53.940 --> 31:55.580
+ and comes up with some representation
+
+31:55.580 --> 31:57.420
+ of the probability distribution
+
+31:57.420 --> 31:59.820
+ and generates entirely new cats.
+
+31:59.820 --> 32:00.900
+ There are a lot of different ways
+
+32:00.900 --> 32:01.980
+ of building a generative model.
+
+32:01.980 --> 32:05.680
+ What's specific to GANs is that we have a two player game
+
+32:05.680 --> 32:08.100
+ in the game theoretic sense.
+
+32:08.100 --> 32:10.340
+ And as the players in this game compete,
+
+32:10.340 --> 32:13.940
+ one of them becomes able to generate realistic data.
+
+32:13.940 --> 32:16.140
+ The first player is called the generator.
+
+32:16.140 --> 32:20.660
+ It produces output data such as just images, for example.
+
+32:20.660 --> 32:22.460
+ And at the start of the learning process,
+
+32:22.460 --> 32:25.140
+ it'll just produce completely random images.
+
+32:25.140 --> 32:27.400
+ The other player is called the discriminator.
+
+32:27.400 --> 32:29.700
+ The discriminator takes images as input
+
+32:29.700 --> 32:32.540
+ and guesses whether they're real or fake.
+
+32:32.540 --> 32:34.260
+ You train it both on real data,
+
+32:34.260 --> 32:36.140
+ so photos that come from your training set,
+
+32:36.140 --> 32:37.860
+ actual photos of cats,
+
+32:37.860 --> 32:39.900
+ and you train it to say that those are real.
+
+32:39.900 --> 32:41.980
+ You also train it on images
+
+32:41.980 --> 32:43.860
+ that come from the generator network
+
+32:43.860 --> 32:46.740
+ and you train it to say that those are fake.
+
+32:46.740 --> 32:49.220
+ As the two players compete in this game,
+
+32:49.220 --> 32:50.960
+ the discriminator tries to become better
+
+32:50.960 --> 32:53.340
+ at recognizing whether images are real or fake.
+
+32:53.340 --> 32:54.800
+ And the generator becomes better
+
+32:54.800 --> 32:57.020
+ at fooling the discriminator into thinking
+
+32:57.020 --> 32:59.580
+ that its outputs are real.
+
+33:00.820 --> 33:03.580
+ And you can analyze this through the language of game theory
+
+33:03.580 --> 33:06.940
+ and find that there's a Nash equilibrium
+
+33:06.940 --> 33:08.620
+ where the generator has captured
+
+33:08.620 --> 33:10.820
+ the correct probability distribution.
+
+33:10.820 --> 33:12.180
+ So in the cat example,
+
+33:12.180 --> 33:14.580
+ it makes perfectly realistic cat photos.
+
+33:14.580 --> 33:17.180
+ And the discriminator is unable to do better
+
+33:17.180 --> 33:18.740
+ than random guessing
+
+33:18.740 --> 33:21.860
+ because all the samples coming from both the data
+
+33:21.860 --> 33:24.060
+ and the generator look equally likely
+
+33:24.060 --> 33:25.860
+ to have come from either source.
+
+33:25.860 --> 33:28.380
+ So do you ever sit back
+
+33:28.380 --> 33:31.300
+ and does it just blow your mind that this thing works?
+
+33:31.300 --> 33:33.380
+ So from very,
+
+33:33.380 --> 33:35.860
+ so it's able to estimate that density function
+
+33:35.860 --> 33:38.700
+ enough to generate realistic images.
+
+33:38.700 --> 33:40.860
+ I mean, does it, yeah.
+
+33:40.860 --> 33:44.700
+ Do you ever sit back and think how does this even,
+
+33:44.700 --> 33:46.780
+ why, this is quite incredible,
+
+33:46.780 --> 33:49.260
+ especially where GANs have gone in terms of realism.
+
+33:49.260 --> 33:51.620
+ Yeah, and not just to flatter my own work,
+
+33:51.620 --> 33:53.840
+ but generative models,
+
+33:53.840 --> 33:56.500
+ all of them have this property that
+
+33:56.500 --> 33:58.800
+ if they really did what we ask them to do,
+
+33:58.800 --> 34:01.060
+ they would do nothing but memorize the training data.
+
+34:01.060 --> 34:02.920
+ Right, exactly.
+
+34:02.920 --> 34:05.740
+ Models that are based on maximizing the likelihood,
+
+34:05.740 --> 34:08.140
+ the way that you obtain the maximum likelihood
+
+34:08.140 --> 34:09.700
+ for a specific training set
+
+34:09.700 --> 34:12.380
+ is you assign all of your probability mass
+
+34:12.380 --> 34:15.100
+ to the training examples and nowhere else.
+
+34:15.100 --> 34:18.380
+ For GANs, the game is played using a training set.
+
+34:18.380 --> 34:21.140
+ So the way that you become unbeatable in the game
+
+34:21.140 --> 34:23.420
+ is you literally memorize training examples.
+
+34:25.340 --> 34:28.860
+ One of my former interns wrote a paper,
+
+34:28.860 --> 34:31.020
+ his name is Vaishnav Nagarajan,
+
+34:31.020 --> 34:33.860
+ and he showed that it's actually hard for the generator
+
+34:33.860 --> 34:36.060
+ to memorize the training data,
+
+34:36.060 --> 34:39.100
+ hard in a statistical learning theory sense,
+
+34:39.100 --> 34:42.140
+ that you can actually create reasons
+
+34:42.140 --> 34:47.140
+ for why it would require quite a lot of learning steps
+
+34:48.340 --> 34:52.140
+ and a lot of observations of different latent variables
+
+34:52.140 --> 34:54.300
+ before you could memorize the training data.
+
+34:54.300 --> 34:56.140
+ That still doesn't really explain why
+
+34:56.140 --> 34:58.200
+ when you produce samples that are new,
+
+34:58.200 --> 34:59.820
+ why do you get compelling images
+
+34:59.820 --> 35:01.820
+ rather than just garbage
+
+35:01.820 --> 35:03.720
+ that's different from the training set.
+
+35:03.720 --> 35:06.900
+ And I don't think we really have a good answer for that,
+
+35:06.900 --> 35:07.880
+ especially if you think about
+
+35:07.880 --> 35:10.180
+ how many possible images are out there
+
+35:10.180 --> 35:14.020
+ and how few images the generative model sees
+
+35:14.020 --> 35:15.420
+ during training.
+
+35:15.420 --> 35:16.900
+ It seems just unreasonable
+
+35:16.900 --> 35:20.740
+ that generative models create new images as well as they do,
+
+35:20.740 --> 35:22.700
+ especially considering that we're basically
+
+35:22.700 --> 35:25.140
+ training them to memorize rather than generalize.
+
+35:26.180 --> 35:28.180
+ I think part of the answer is
+
+35:28.180 --> 35:30.820
+ there's a paper called Deep Image Prior
+
+35:30.820 --> 35:33.060
+ where they show that you can take a convolutional net
+
+35:33.060 --> 35:34.020
+ and you don't even need to learn
+
+35:34.020 --> 35:34.980
+ the parameters of it at all,
+
+35:34.980 --> 35:36.780
+ you just use the model architecture.
+
+35:36.780 --> 35:40.260
+ And it's already useful for things like inpainting images.
+
+35:40.260 --> 35:41.500
+ I think that shows us
+
+35:41.500 --> 35:43.580
+ that the convolutional network architecture
+
+35:43.580 --> 35:45.100
+ captures something really important
+
+35:45.100 --> 35:47.180
+ about the structure of images.
+
+35:47.180 --> 35:50.180
+ And we don't need to actually use the learning
+
+35:50.180 --> 35:51.460
+ to capture all the information
+
+35:51.460 --> 35:53.300
+ coming out of the convolutional net.
+
+35:54.500 --> 35:57.660
+ That would imply that it would be much harder
+
+35:57.660 --> 36:00.500
+ to make generative models in other domains.
+
+36:00.500 --> 36:02.900
+ So far, we're able to make reasonable speech models
+
+36:02.900 --> 36:04.100
+ and things like that.
+
+36:04.100 --> 36:06.780
+ But to be honest, we haven't actually explored
+
+36:06.780 --> 36:09.100
+ a whole lot of different data sets all that much.
+
+36:09.100 --> 36:13.260
+ We don't, for example, see a lot of deep learning models
+
+36:13.260 --> 36:17.780
+ of like biology data sets
+
+36:17.780 --> 36:20.260
+ where you have lots of microarrays measuring
+
+36:20.260 --> 36:22.180
+ the amount of different enzymes and things like that.
+
+36:22.180 --> 36:24.620
+ So we may find that some of the progress
+
+36:24.620 --> 36:26.220
+ that we've seen for images and speech
+
+36:26.220 --> 36:29.460
+ turns out to really rely heavily on the model architecture.
+
+36:29.460 --> 36:32.300
+ And we were able to do what we did for vision
+
+36:32.300 --> 36:35.540
+ by trying to reverse engineer the human visual system.
+
+36:35.540 --> 36:39.380
+ And maybe it'll turn out that we can't just use
+
+36:39.380 --> 36:41.980
+ that same trick for arbitrary kinds of data.
+
+36:42.860 --> 36:45.340
+ Right, so there's aspect to the human vision system,
+
+36:45.340 --> 36:49.540
+ the hardware of it, that makes it without learning,
+
+36:49.540 --> 36:51.980
+ without cognition, just makes it really effective
+
+36:51.980 --> 36:54.340
+ at detecting the patterns we see in the visual world.
+
+36:54.340 --> 36:55.180
+ Yeah.
+
+36:55.180 --> 36:57.140
+ Yeah, that's really interesting.
+
+36:57.140 --> 37:01.660
+ What, in a big, quick overview,
+
+37:01.660 --> 37:05.740
+ in your view, what types of GANs are there
+
+37:05.740 --> 37:09.540
+ and what other generative models besides GANs are there?
+
+37:09.540 --> 37:12.820
+ Yeah, so it's maybe a little bit easier to start
+
+37:12.820 --> 37:14.420
+ with what kinds of generative models are there
+
+37:14.420 --> 37:15.340
+ other than GANs.
+
+37:16.340 --> 37:20.340
+ So most generative models are likelihood based
+
+37:20.340 --> 37:24.340
+ where to train them, you have a model that tells you
+
+37:24.340 --> 37:28.580
+ how much probability it assigns to a particular example
+
+37:28.580 --> 37:30.980
+ and you just maximize the probability assigned
+
+37:30.980 --> 37:33.220
+ to all the training examples.
+
+37:33.220 --> 37:35.740
+ It turns out that it's hard to design a model
+
+37:35.740 --> 37:38.740
+ that can create really complicated images
+
+37:38.740 --> 37:41.820
+ or really complicated audio waveforms
+
+37:41.820 --> 37:45.740
+ and still have it be possible to estimate
+
+37:45.740 --> 37:50.740
+ the likelihood function from a computational point of view.
+
+37:51.740 --> 37:53.740
+ Most interesting models that you would just write down
+
+37:53.740 --> 37:56.580
+ intuitively, it turns out that it's almost impossible
+
+37:56.580 --> 37:58.980
+ to calculate the amount of probability they assign
+
+37:58.980 --> 38:01.300
+ to a particular point.
+
+38:01.300 --> 38:04.380
+ So there's a few different schools of generative models
+
+38:04.380 --> 38:05.860
+ in the likelihood family.
+
+38:07.060 --> 38:09.860
+ One approach is to very carefully design the model
+
+38:09.860 --> 38:12.420
+ so that it is computationally tractable
+
+38:12.420 --> 38:15.180
+ to measure the density it assigns to a particular point.
+
+38:15.180 --> 38:18.780
+ So there are things like autoregressive models,
+
+38:18.780 --> 38:23.580
+ like PixelCNN, those basically break down
+
+38:23.580 --> 38:26.460
+ the probability distribution into a product
+
+38:26.460 --> 38:28.300
+ over every single feature.
+
+38:28.300 --> 38:31.180
+ So for an image, you estimate the probability
+
+38:31.180 --> 38:35.420
+ of each pixel given all of the pixels that came before it.
+
+38:35.420 --> 38:37.300
+ There's tricks where if you want to measure
+
+38:37.300 --> 38:40.260
+ the density function, you can actually calculate
+
+38:40.260 --> 38:43.140
+ the density for all these pixels more or less in parallel.
+
+38:44.100 --> 38:46.500
+ Generating the image still tends to require you
+
+38:46.500 --> 38:50.460
+ to go one pixel at a time, and that can be very slow.
+
+38:50.460 --> 38:52.620
+ But there are, again, tricks for doing this
+
+38:52.620 --> 38:54.180
+ in a hierarchical pattern where you can keep
+
+38:54.180 --> 38:55.780
+ the runtime under control.
+
+38:55.780 --> 38:58.340
+ Are the quality of the images it generates,
+
+38:59.340 --> 39:01.660
+ putting runtime aside, pretty good?
+
+39:02.660 --> 39:04.420
+ They're reasonable, yeah.
+
+39:04.420 --> 39:07.460
+ I would say a lot of the best results
+
+39:07.460 --> 39:11.060
+ are from GANs these days, but it can be hard to tell
+
+39:11.060 --> 39:14.700
+ how much of that is based on who's studying
+
+39:14.700 --> 39:17.260
+ which type of algorithm, if that makes sense.
+
+39:17.260 --> 39:18.900
+ The amount of effort invested in a particular.
+
+39:18.900 --> 39:21.420
+ Yeah, or like the kind of expertise.
+
+39:21.420 --> 39:23.140
+ So a lot of people who've traditionally been excited
+
+39:23.140 --> 39:25.060
+ about graphics or art and things like that
+
+39:25.060 --> 39:27.020
+ have gotten interested in GANs.
+
+39:27.020 --> 39:28.740
+ And to some extent, it's hard to tell
+
+39:28.740 --> 39:31.740
+ are GANs doing better because they have a lot
+
+39:31.740 --> 39:34.700
+ of graphics and art experts behind them,
+
+39:34.700 --> 39:37.060
+ or are GANs doing better because they're more
+
+39:37.060 --> 39:40.300
+ computationally efficient, or are GANs doing better
+
+39:40.300 --> 39:43.460
+ because they prioritize the realism of samples
+
+39:43.460 --> 39:45.540
+ over the accuracy of the density function.
+
+39:45.540 --> 39:48.660
+ I think all of those are potentially valid explanations,
+
+39:48.660 --> 39:51.300
+ and it's hard to tell.
+
+39:51.300 --> 39:55.460
+ So can you give a brief history of GANs from 2014?
+
+39:57.620 --> 39:59.260
+ Were you paper 13?
+
+39:59.260 --> 40:00.980
+ Yeah, so a few highlights.
+
+40:00.980 --> 40:03.140
+ In the first paper, we just showed
+
+40:03.140 --> 40:04.740
+ that GANs basically work.
+
+40:04.740 --> 40:06.620
+ If you look back at the samples we had now,
+
+40:06.620 --> 40:08.820
+ they look terrible.
+
+40:08.820 --> 40:10.020
+ On the CIFAR 10 data set,
+
+40:10.020 --> 40:12.220
+ you can't even recognize objects in them.
+
+40:12.220 --> 40:15.020
+ Your paper, sorry, you used CIFAR 10?
+
+40:15.020 --> 40:18.060
+ We used MNIST, which is little handwritten digits.
+
+40:18.060 --> 40:19.860
+ We used the Toronto Face database,
+
+40:19.860 --> 40:22.660
+ which is small grayscale photos of faces.
+
+40:22.660 --> 40:24.180
+ We did have recognizable faces.
+
+40:24.180 --> 40:25.660
+ My colleague Bing Xu put together
+
+40:25.660 --> 40:28.500
+ the first GAN face model for that paper.
+
+40:29.660 --> 40:32.940
+ We also had the CIFAR 10 data set,
+
+40:32.940 --> 40:36.060
+ which is things like very small 32 by 32 pixels
+
+40:36.060 --> 40:40.660
+ of cars and cats and dogs.
+
+40:40.660 --> 40:42.980
+ For that, we didn't get recognizable objects,
+
+40:42.980 --> 40:46.140
+ but all the deep learning people back then
+
+40:46.140 --> 40:48.380
+ were really used to looking at these failed samples
+
+40:48.380 --> 40:50.420
+ and kind of reading them like tea leaves.
+
+40:50.420 --> 40:53.020
+ And people who are used to reading the tea leaves
+
+40:53.020 --> 40:56.500
+ recognize that our tea leaves at least look different.
+
+40:56.500 --> 40:57.820
+ Maybe not necessarily better,
+
+40:57.820 --> 40:59.980
+ but there was something unusual about them.
+
+41:01.220 --> 41:03.620
+ And that got a lot of us excited.
+
+41:03.620 --> 41:06.180
+ One of the next really big steps was LAPGAN
+
+41:06.180 --> 41:10.900
+ by Emily Denton and Sumit Chintala at Facebook AI Research,
+
+41:10.900 --> 41:14.460
+ where they actually got really good high resolution photos
+
+41:14.460 --> 41:16.580
+ working with GANs for the first time.
+
+41:16.580 --> 41:18.140
+ They had a complicated system
+
+41:18.140 --> 41:20.100
+ where they generated the image starting at low res
+
+41:20.100 --> 41:22.900
+ and then scaling up to high res,
+
+41:22.900 --> 41:24.900
+ but they were able to get it to work.
+
+41:24.900 --> 41:29.900
+ And then in 2015, I believe later that same year,
+
+41:31.700 --> 41:34.940
+ Alec Radford and Sumit Chintala and Luke Metz
+
+41:35.940 --> 41:38.420
+ published the DCGAN paper,
+
+41:38.420 --> 41:40.980
+ which it stands for deep convolutional GAN.
+
+41:41.860 --> 41:43.740
+ It's kind of a non unique name
+
+41:43.740 --> 41:46.420
+ because these days basically all GANs
+
+41:46.420 --> 41:48.380
+ and even some before that were deep and convolutional,
+
+41:48.380 --> 41:50.220
+ but they just kind of picked a name
+
+41:50.220 --> 41:52.260
+ for a really great recipe
+
+41:52.260 --> 41:55.380
+ where they were able to actually using only one model
+
+41:55.380 --> 41:57.300
+ instead of a multi step process,
+
+41:57.300 --> 41:59.700
+ actually generate realistic images of faces
+
+41:59.700 --> 42:00.740
+ and things like that.
+
+42:01.980 --> 42:05.260
+ That was sort of like the beginning
+
+42:05.260 --> 42:07.380
+ of the Cambrian explosion of GANs.
+
+42:07.380 --> 42:09.740
+ Like once you had animals that had a backbone,
+
+42:09.740 --> 42:12.900
+ you suddenly got lots of different versions of fish
+
+42:12.900 --> 42:15.340
+ and four legged animals and things like that.
+
+42:15.340 --> 42:17.940
+ So DCGAN became kind of the backbone
+
+42:17.940 --> 42:19.420
+ for many different models that came out.
+
+42:19.420 --> 42:21.620
+ It's used as a baseline even still.
+
+42:21.620 --> 42:23.140
+ Yeah, yeah.
+
+42:23.140 --> 42:24.820
+ And so from there,
+
+42:24.820 --> 42:26.580
+ I would say some interesting things we've seen
+
+42:26.580 --> 42:29.420
+ are there's a lot you can say
+
+42:29.420 --> 42:30.940
+ about how just the quality
+
+42:30.940 --> 42:33.580
+ of standard image generation GANs has increased,
+
+42:33.580 --> 42:35.100
+ but what's also maybe more interesting
+
+42:35.100 --> 42:36.020
+ on an intellectual level
+
+42:36.020 --> 42:40.060
+ is how the things you can use GANs for has also changed.
+
+42:41.020 --> 42:44.580
+ One thing is that you can use them to learn classifiers
+
+42:44.580 --> 42:46.660
+ without having to have class labels
+
+42:46.660 --> 42:48.940
+ for every example in your training set.
+
+42:48.940 --> 42:51.780
+ So that's called semi supervised learning.
+
+42:51.780 --> 42:53.820
+ My colleague at OpenAI, Tim Solomons,
+
+42:53.820 --> 42:55.820
+ who's at Brain now,
+
+42:55.820 --> 42:59.780
+ wrote a paper called Improve Techniques for Training GANs.
+
+42:59.780 --> 43:00.900
+ I'm a coauthor on this paper,
+
+43:00.900 --> 43:03.700
+ but I can't claim any credit for this particular part.
+
+43:03.700 --> 43:04.900
+ One thing he showed in the paper
+
+43:04.900 --> 43:07.820
+ is that you can take the GAN discriminator
+
+43:07.820 --> 43:11.540
+ and use it as a classifier that actually tells you,
+
+43:11.540 --> 43:13.620
+ this image is a cat, this image is a dog,
+
+43:13.620 --> 43:16.420
+ this image is a car, this image is a truck, and so on.
+
+43:16.420 --> 43:18.820
+ Not just to say whether the image is real or fake,
+
+43:18.820 --> 43:20.700
+ but if it is real to say specifically
+
+43:20.700 --> 43:22.620
+ what kind of object it is.
+
+43:22.620 --> 43:25.340
+ And he found that you can train these classifiers
+
+43:25.340 --> 43:28.580
+ with far fewer labeled examples
+
+43:28.580 --> 43:30.620
+ than traditional classifiers.
+
+43:30.620 --> 43:33.660
+ So if you supervise based on also
+
+43:33.660 --> 43:35.300
+ not just your discrimination ability,
+
+43:35.300 --> 43:36.820
+ but your ability to classify,
+
+43:36.820 --> 43:38.660
+ you're going to do much,
+
+43:38.660 --> 43:40.100
+ you're going to converge much faster
+
+43:40.100 --> 43:43.300
+ to being effective at being a discriminator.
+
+43:43.300 --> 43:44.260
+ Yeah.
+
+43:44.260 --> 43:46.340
+ So for example, for the MNIST dataset,
+
+43:46.340 --> 43:48.860
+ you want to look at an image of a handwritten digit
+
+43:48.860 --> 43:52.700
+ and say whether it's a zero, a one, or a two, and so on.
+
+43:54.180 --> 43:56.980
+ To get down to less than 1% accuracy
+
+43:56.980 --> 44:00.260
+ required around 60,000 examples
+
+44:00.260 --> 44:02.780
+ until maybe about 2014 or so.
+
+44:02.780 --> 44:07.460
+ In 2016 with this semi supervised GAN project,
+
+44:07.460 --> 44:11.060
+ Tim was able to get below 1% error
+
+44:11.060 --> 44:13.620
+ using only 100 labeled examples.
+
+44:13.620 --> 44:15.980
+ So that was about a 600X decrease
+
+44:15.980 --> 44:17.980
+ in the amount of labels that he needed.
+
+44:17.980 --> 44:21.060
+ He's still using more images than that,
+
+44:21.060 --> 44:22.740
+ but he doesn't need to have each of them labeled
+
+44:22.740 --> 44:25.100
+ as this one's a one, this one's a two,
+
+44:25.100 --> 44:27.020
+ this one's a zero, and so on.
+
+44:27.020 --> 44:28.460
+ Then to be able to,
+
+44:28.460 --> 44:31.220
+ for GANs to be able to generate recognizable objects,
+
+44:31.220 --> 44:33.420
+ so objects from a particular class,
+
+44:33.420 --> 44:37.020
+ you still need labeled data
+
+44:37.020 --> 44:38.900
+ because you need to know what it means
+
+44:38.900 --> 44:41.740
+ to be a particular class cat, dog.
+
+44:41.740 --> 44:44.580
+ How do you think we can move away from that?
+
+44:44.580 --> 44:46.620
+ Yeah, some researchers at Brain Zurich
+
+44:46.620 --> 44:49.020
+ actually just released a really great paper
+
+44:49.020 --> 44:51.780
+ on semi supervised GANs
+
+44:51.780 --> 44:53.940
+ where their goal isn't to classify,
+
+44:53.940 --> 44:56.180
+ it's to make recognizable objects
+
+44:56.180 --> 44:58.660
+ despite not having a lot of labeled data.
+
+44:58.660 --> 45:02.380
+ They were working off of DeepMind's BigGAN project
+
+45:02.380 --> 45:05.180
+ and they showed that they can match the performance
+
+45:05.180 --> 45:08.660
+ of BigGAN using only 10%, I believe,
+
+45:08.660 --> 45:10.540
+ of the labels.
+
+45:10.540 --> 45:12.300
+ BigGAN was trained on the ImageNet data set,
+
+45:12.300 --> 45:14.420
+ which is about 1.2 million images
+
+45:14.420 --> 45:15.860
+ and had all of them labeled.
+
+45:17.460 --> 45:19.060
+ This latest project from Brain Zurich
+
+45:19.060 --> 45:20.220
+ shows that they're able to get away
+
+45:20.220 --> 45:24.580
+ with only having about 10% of the images labeled.
+
+45:25.500 --> 45:29.860
+ And they do that essentially using a clustering algorithm
+
+45:29.860 --> 45:31.140
+ where the discriminator learns
+
+45:31.140 --> 45:34.580
+ to assign the objects to groups
+
+45:34.580 --> 45:38.220
+ and then this understanding that objects can be grouped
+
+45:38.220 --> 45:43.220
+ into similar types helps it to form more realistic ideas
+
+45:43.340 --> 45:45.300
+ of what should be appearing in the image
+
+45:45.300 --> 45:47.860
+ because it knows that every image it creates
+
+45:47.860 --> 45:50.060
+ has to come from one of these archetypal groups
+
+45:50.060 --> 45:53.100
+ rather than just being some arbitrary image.
+
+45:53.100 --> 45:54.980
+ If you train a GAN with no class labels,
+
+45:54.980 --> 45:57.700
+ you tend to get things that look sort of like grass
+
+45:57.700 --> 46:00.380
+ or water or brick or dirt,
+
+46:00.380 --> 46:04.340
+ but without necessarily a lot going on in them.
+
+46:04.340 --> 46:05.700
+ And I think that's partly because
+
+46:05.700 --> 46:07.820
+ if you look at a large ImageNet image,
+
+46:07.820 --> 46:11.180
+ the object doesn't necessarily occupy the whole image.
+
+46:11.180 --> 46:15.580
+ And so you learn to create realistic sets of pixels,
+
+46:15.580 --> 46:17.460
+ but you don't necessarily learn
+
+46:17.460 --> 46:20.060
+ that the object is the star of the show
+
+46:20.060 --> 46:22.100
+ and you want it to be in every image you make.
+
+46:22.100 --> 46:25.380
+ Yeah, I've heard you talk about the horse,
+
+46:25.380 --> 46:26.980
+ the zebra cycle GAN mapping
+
+46:26.980 --> 46:31.900
+ and how it turns out, again, thought provoking
+
+46:31.900 --> 46:33.580
+ that horses are usually on grass
+
+46:33.580 --> 46:35.660
+ and zebras are usually on drier terrain.
+
+46:35.660 --> 46:38.140
+ So when you're doing that kind of generation,
+
+46:38.140 --> 46:41.740
+ you're going to end up generating greener horses
+
+46:41.740 --> 46:45.340
+ or whatever, so those are connected together.
+
+46:45.340 --> 46:49.020
+ It's not just, you're not able to segment,
+
+46:49.980 --> 46:52.300
+ be able to generate in a segment away.
+
+46:52.300 --> 46:54.980
+ So are there other types of games you come across
+
+46:54.980 --> 46:59.540
+ in your mind that neural networks can play
+
+46:59.540 --> 47:04.540
+ with each other to be able to solve problems?
+
+47:04.540 --> 47:07.660
+ Yeah, the one that I spend most of my time on
+
+47:07.660 --> 47:09.340
+ is in security.
+
+47:09.340 --> 47:13.060
+ You can model most interactions as a game
+
+47:13.060 --> 47:15.820
+ where there's attackers trying to break your system
+
+47:15.820 --> 47:19.140
+ and you're the defender trying to build a resilient system.
+
+47:20.140 --> 47:23.060
+ There's also domain adversarial learning,
+
+47:23.060 --> 47:25.500
+ which is an approach to domain adaptation
+
+47:25.500 --> 47:27.220
+ that looks really a lot like GANs.
+
+47:28.100 --> 47:31.780
+ The authors had the idea before the GAN paper came out,
+
+47:31.780 --> 47:33.740
+ their paper came out a little bit later
+
+47:33.740 --> 47:38.220
+ and they're very nice and cited the GAN paper,
+
+47:38.220 --> 47:40.180
+ but I know that they actually had the idea
+
+47:40.180 --> 47:41.180
+ before it came out.
+
+47:42.420 --> 47:44.300
+ Domain adaptation is when you want to train
+
+47:44.300 --> 47:47.620
+ a machine learning model in one setting called a domain
+
+47:47.620 --> 47:50.260
+ and then deploy it in another domain later.
+
+47:50.260 --> 47:52.660
+ And you would like it to perform well in the new domain,
+
+47:52.660 --> 47:53.980
+ even though the new domain is different
+
+47:53.980 --> 47:55.900
+ from how it was trained.
+
+47:55.900 --> 47:58.460
+ So for example, you might want to train
+
+47:58.460 --> 48:01.340
+ on a really clean image data set like ImageNet,
+
+48:01.340 --> 48:03.340
+ but then deploy on users phones
+
+48:03.340 --> 48:05.980
+ where the user is taking pictures in the dark
+
+48:05.980 --> 48:07.780
+ and pictures while moving quickly
+
+48:07.780 --> 48:09.980
+ and just pictures that aren't really centered
+
+48:09.980 --> 48:11.300
+ or composed all that well.
+
+48:13.380 --> 48:15.820
+ When you take a normal machine learning model,
+
+48:15.820 --> 48:17.820
+ it often degrades really badly
+
+48:17.820 --> 48:18.980
+ when you move to the new domain
+
+48:18.980 --> 48:20.020
+ because it looks so different
+
+48:20.020 --> 48:22.100
+ from what the model was trained on.
+
+48:22.100 --> 48:25.420
+ Domain adaptation algorithms try to smooth out that gap
+
+48:25.420 --> 48:27.300
+ and the domain adversarial approach
+
+48:27.300 --> 48:29.780
+ is based on training a feature extractor
+
+48:29.780 --> 48:32.140
+ where the features have the same statistics
+
+48:32.140 --> 48:35.140
+ regardless of which domain you extracted them on.
+
+48:35.140 --> 48:36.860
+ So in the domain adversarial game,
+
+48:36.860 --> 48:39.140
+ you have one player that's a feature extractor
+
+48:39.140 --> 48:42.060
+ and another player that's a domain recognizer.
+
+48:42.060 --> 48:44.260
+ The domain recognizer wants to look at the output
+
+48:44.260 --> 48:45.700
+ of the feature extractor
+
+48:45.700 --> 48:49.300
+ and guess which of the two domains the features came from.
+
+48:49.300 --> 48:51.420
+ So it's a lot like the real versus fake discriminator
+
+48:51.420 --> 48:54.940
+ in GANs and then the feature extractor,
+
+48:54.940 --> 48:56.820
+ you can think of as loosely analogous
+
+48:56.820 --> 48:57.940
+ to the generator in GANs,
+
+48:57.940 --> 48:59.100
+ except what it's trying to do here
+
+48:59.100 --> 49:02.460
+ is both fool the domain recognizer
+
+49:02.460 --> 49:05.340
+ into not knowing which domain the data came from
+
+49:05.340 --> 49:09.060
+ and also extract features that are good for classification.
+
+49:09.060 --> 49:10.540
+ So at the end of the day,
+
+49:12.180 --> 49:13.780
+ in the cases where it works out,
+
+49:13.780 --> 49:16.860
+ you can actually get features
+
+49:16.860 --> 49:20.620
+ that work about the same in both domains.
+
+49:20.620 --> 49:21.980
+ Sometimes this has a drawback
+
+49:21.980 --> 49:24.820
+ where in order to make things work the same in both domains,
+
+49:24.820 --> 49:26.780
+ it just gets worse at the first one.
+
+49:26.780 --> 49:27.820
+ But there are a lot of cases
+
+49:27.820 --> 49:30.780
+ where it actually works out well on both.
+
+49:30.780 --> 49:32.980
+ So do you think of GANs being useful
+
+49:32.980 --> 49:35.420
+ in the context of data augmentation?
+
+49:35.420 --> 49:38.100
+ Yeah, one thing you could hope for with GANs
+
+49:38.100 --> 49:41.340
+ is you could imagine I've got a limited training set
+
+49:41.340 --> 49:43.860
+ and I'd like to make more training data
+
+49:43.860 --> 49:46.020
+ to train something else like a classifier.
+
+49:47.180 --> 49:50.500
+ You could train the GAN on the training set
+
+49:50.500 --> 49:52.380
+ and then create more data
+
+49:52.380 --> 49:54.300
+ and then maybe the classifier
+
+49:54.300 --> 49:55.940
+ would perform better on the test set
+
+49:55.940 --> 49:58.860
+ after training on this bigger GAN generated data set.
+
+49:58.860 --> 50:00.420
+ So that's the simplest version
+
+50:00.420 --> 50:03.060
+ of something you might hope would work.
+
+50:03.060 --> 50:05.460
+ I've never heard of that particular approach working,
+
+50:05.460 --> 50:08.940
+ but I think there's some closely related things
+
+50:08.940 --> 50:11.540
+ that I think could work in the future
+
+50:11.540 --> 50:14.100
+ and some that actually already have worked.
+
+50:14.100 --> 50:15.820
+ So if we think a little bit about what we'd be hoping for
+
+50:15.820 --> 50:18.220
+ if we use the GAN to make more training data,
+
+50:18.220 --> 50:22.060
+ we're hoping that the GAN will generalize to new examples
+
+50:22.060 --> 50:24.140
+ better than the classifier would have generalized
+
+50:24.140 --> 50:25.980
+ if it was trained on the same data.
+
+50:25.980 --> 50:27.740
+ And I don't know of any reason to believe
+
+50:27.740 --> 50:28.940
+ that the GAN would generalize better
+
+50:28.940 --> 50:30.300
+ than the classifier would,
+
+50:31.460 --> 50:33.100
+ but what we might hope for
+
+50:33.100 --> 50:35.580
+ is that the GAN could generalize differently
+
+50:35.580 --> 50:37.500
+ from a specific classifier.
+
+50:37.500 --> 50:39.180
+ So one thing I think is worth trying
+
+50:39.180 --> 50:41.740
+ that I haven't personally tried but someone could try is
+
+50:41.740 --> 50:44.020
+ what if you trained a whole lot of different
+
+50:44.020 --> 50:46.500
+ generative models on the same training set,
+
+50:46.500 --> 50:48.380
+ create samples from all of them
+
+50:48.380 --> 50:50.580
+ and then train a classifier on that?
+
+50:50.580 --> 50:52.380
+ Because each of the generative models
+
+50:52.380 --> 50:54.460
+ might generalize in a slightly different way.
+
+50:54.460 --> 50:56.980
+ They might capture many different axes of variation
+
+50:56.980 --> 50:58.860
+ that one individual model wouldn't
+
+50:58.860 --> 51:01.900
+ and then the classifier can capture all of those ideas
+
+51:01.900 --> 51:03.580
+ by training in all of their data.
+
+51:03.580 --> 51:04.740
+ So it'd be a little bit like making
+
+51:04.740 --> 51:06.340
+ an ensemble of classifiers.
+
+51:06.340 --> 51:07.180
+ And I think that...
+
+51:07.180 --> 51:08.860
+ Ensemble of GANs in a way.
+
+51:08.860 --> 51:10.100
+ I think that could generalize better.
+
+51:10.100 --> 51:12.700
+ The other thing that GANs are really good for
+
+51:12.700 --> 51:17.020
+ is not necessarily generating new data
+
+51:17.020 --> 51:19.380
+ that's exactly like what you already have,
+
+51:19.380 --> 51:23.580
+ but by generating new data that has different properties
+
+51:23.580 --> 51:25.340
+ from the data you already had.
+
+51:25.340 --> 51:27.260
+ One thing that you can do is you can create
+
+51:27.260 --> 51:29.140
+ differentially private data.
+
+51:29.140 --> 51:31.900
+ So suppose that you have something like medical records
+
+51:31.900 --> 51:33.860
+ and you don't want to train a classifier
+
+51:33.860 --> 51:36.500
+ on the medical records and then publish the classifier
+
+51:36.500 --> 51:38.180
+ because someone might be able to reverse engineer
+
+51:38.180 --> 51:40.580
+ some of the medical records you trained on.
+
+51:40.580 --> 51:42.820
+ There's a paper from Casey Green's lab
+
+51:42.820 --> 51:45.060
+ that shows how you can train a GAN
+
+51:45.060 --> 51:47.020
+ using differential privacy.
+
+51:47.020 --> 51:49.020
+ And then the samples from the GAN
+
+51:49.020 --> 51:51.180
+ still have the same differential privacy guarantees
+
+51:51.180 --> 51:52.740
+ as the parameters of the GAN.
+
+51:52.740 --> 51:55.700
+ So you can make fake patient data
+
+51:55.700 --> 51:57.260
+ for other researchers to use.
+
+51:57.260 --> 51:59.220
+ And they can do almost anything they want with that data
+
+51:59.220 --> 52:02.020
+ because it doesn't come from real people.
+
+52:02.020 --> 52:04.300
+ And the differential privacy mechanism
+
+52:04.300 --> 52:06.500
+ gives you clear guarantees
+
+52:06.500 --> 52:09.940
+ on how much the original people's data has been protected.
+
+52:09.940 --> 52:11.380
+ That's really interesting, actually.
+
+52:11.380 --> 52:13.780
+ I haven't heard you talk about that before.
+
+52:13.780 --> 52:17.780
+ In terms of fairness, I've seen from AAAI,
+
+52:17.780 --> 52:21.260
+ your talk, how can adversarial machine learning
+
+52:21.260 --> 52:25.740
+ help models be more fair with respect to sensitive variables?
+
+52:25.740 --> 52:28.460
+ Yeah, so there's a paper from Amos Starkey's lab
+
+52:28.460 --> 52:31.420
+ about how to learn machine learning models
+
+52:31.420 --> 52:34.820
+ that are incapable of using specific variables.
+
+52:34.820 --> 52:36.700
+ So say, for example, you wanted to make predictions
+
+52:36.700 --> 52:39.580
+ that are not affected by gender.
+
+52:39.580 --> 52:41.220
+ It isn't enough to just leave gender
+
+52:41.220 --> 52:42.820
+ out of the input to the model.
+
+52:42.820 --> 52:44.020
+ You can often infer gender
+
+52:44.020 --> 52:45.500
+ from a lot of other characteristics.
+
+52:45.500 --> 52:47.500
+ Like say that you have the person's name,
+
+52:47.500 --> 52:48.620
+ but you're not told their gender.
+
+52:48.620 --> 52:51.820
+ Well, if their name is Ian, they're kind of obviously a man.
+
+52:53.740 --> 52:55.660
+ So what you'd like to do is make a machine learning model
+
+52:55.660 --> 52:59.020
+ that can still take in a lot of different attributes
+
+52:59.020 --> 53:02.620
+ and make a really accurate informed prediction,
+
+53:02.620 --> 53:05.780
+ but be confident that it isn't reverse engineering gender
+
+53:05.780 --> 53:08.420
+ or another sensitive variable internally.
+
+53:08.420 --> 53:10.300
+ You can do that using something very similar
+
+53:10.300 --> 53:12.860
+ to the domain adversarial approach,
+
+53:12.860 --> 53:16.140
+ where you have one player that's a feature extractor
+
+53:16.140 --> 53:19.100
+ and another player that's a feature analyzer.
+
+53:19.100 --> 53:21.460
+ And you want to make sure that the feature analyzer
+
+53:21.460 --> 53:24.740
+ is not able to guess the value of the sensitive variable
+
+53:24.740 --> 53:26.660
+ that you're trying to keep private.
+
+53:26.660 --> 53:29.100
+ Right, that's, yeah, I love this approach.
+
+53:29.100 --> 53:31.660
+ So yeah, with the feature,
+
+53:31.660 --> 53:36.340
+ you're not able to infer the sensitive variables.
+
+53:36.340 --> 53:39.500
+ Brilliant, that's quite brilliant and simple actually.
+
+53:39.500 --> 53:42.780
+ Another way I think that GANs in particular
+
+53:42.780 --> 53:44.260
+ could be used for fairness
+
+53:44.260 --> 53:46.780
+ would be to make something like a CycleGAN,
+
+53:46.780 --> 53:49.740
+ where you can take data from one domain
+
+53:49.740 --> 53:51.180
+ and convert it into another.
+
+53:51.180 --> 53:53.900
+ We've seen CycleGAN turning horses into zebras.
+
+53:53.900 --> 53:58.900
+ We've seen other unsupervised GANs made by Mingyu Liu
+
+53:59.260 --> 54:02.020
+ doing things like turning day photos into night photos.
+
+54:03.700 --> 54:04.820
+ I think for fairness,
+
+54:04.820 --> 54:08.460
+ you could imagine taking records for people in one group
+
+54:08.460 --> 54:11.580
+ and transforming them into analogous people in another group
+
+54:11.580 --> 54:14.980
+ and testing to see if they're treated equitably
+
+54:14.980 --> 54:16.460
+ across those two groups.
+
+54:16.460 --> 54:18.100
+ There's a lot of things that'd be hard to get right
+
+54:18.100 --> 54:21.140
+ to make sure that the conversion process itself is fair.
+
+54:21.140 --> 54:23.900
+ And I don't think it's anywhere near
+
+54:23.900 --> 54:25.420
+ something that we could actually use yet,
+
+54:25.420 --> 54:27.140
+ but if you could design that conversion process
+
+54:27.140 --> 54:30.540
+ very carefully, it might give you a way of doing audits
+
+54:30.540 --> 54:33.140
+ where you say, what if we took people from this group,
+
+54:33.140 --> 54:35.460
+ converted them into equivalent people in another group,
+
+54:35.460 --> 54:38.740
+ does the system actually treat them how it ought to?
+
+54:38.740 --> 54:41.780
+ That's also really interesting.
+
+54:41.780 --> 54:46.780
+ You know, in popular press and in general,
+
+54:47.500 --> 54:49.500
+ in our imagination, you think,
+
+54:49.500 --> 54:51.700
+ well, GANs are able to generate data
+
+54:51.700 --> 54:54.540
+ and you start to think about deep fakes
+
+54:54.540 --> 54:57.940
+ or being able to sort of maliciously generate data
+
+54:57.940 --> 55:01.220
+ that fakes the identity of other people.
+
+55:01.220 --> 55:03.180
+ Is this something of a concern to you?
+
+55:03.180 --> 55:06.900
+ Is this something, if you look 10, 20 years into the future,
+
+55:06.900 --> 55:10.380
+ is that something that pops up in your work,
+
+55:10.380 --> 55:11.380
+ in the work of the community
+
+55:11.380 --> 55:13.540
+ that's working on generating models?
+
+55:13.540 --> 55:15.860
+ I'm a lot less concerned about 20 years from now
+
+55:15.860 --> 55:17.380
+ than the next few years.
+
+55:17.380 --> 55:20.820
+ I think there'll be a kind of bumpy cultural transition
+
+55:20.820 --> 55:23.180
+ as people encounter this idea
+
+55:23.180 --> 55:24.700
+ that there can be very realistic videos
+
+55:24.700 --> 55:26.260
+ and audio that aren't real.
+
+55:26.260 --> 55:28.700
+ I think 20 years from now,
+
+55:28.700 --> 55:30.100
+ people will mostly understand
+
+55:30.100 --> 55:31.940
+ that you shouldn't believe something is real
+
+55:31.940 --> 55:34.060
+ just because you saw a video of it.
+
+55:34.060 --> 55:35.220
+ People will expect to see
+
+55:35.220 --> 55:37.300
+ that it's been cryptographically signed
+
+55:38.220 --> 55:41.900
+ or have some other mechanism to make them believe
+
+55:41.900 --> 55:44.300
+ that the content is real.
+
+55:44.300 --> 55:45.700
+ There's already people working on this.
+
+55:45.700 --> 55:47.660
+ Like there's a startup called Truepick
+
+55:47.660 --> 55:50.180
+ that provides a lot of mechanisms
+
+55:50.180 --> 55:52.780
+ for authenticating that an image is real.
+
+55:52.780 --> 55:56.100
+ They're maybe not quite up to having a state actor
+
+55:56.100 --> 55:59.820
+ try to evade their verification techniques,
+
+55:59.820 --> 56:02.380
+ but it's something that people are already working on
+
+56:02.380 --> 56:04.100
+ and I think we'll get right eventually.
+
+56:04.100 --> 56:08.260
+ So you think authentication will eventually win out.
+
+56:08.260 --> 56:10.700
+ So being able to authenticate that this is real
+
+56:10.700 --> 56:11.860
+ and this is not.
+
+56:11.860 --> 56:13.260
+ Yeah.
+
+56:13.260 --> 56:15.740
+ As opposed to GANs just getting better and better
+
+56:15.740 --> 56:18.180
+ or generative models being able to get better and better
+
+56:18.180 --> 56:21.460
+ to where the nature of what is real is normal.
+
+56:21.460 --> 56:22.940
+ I don't think we'll ever be able
+
+56:22.940 --> 56:25.460
+ to look at the pixels of a photo
+
+56:25.460 --> 56:28.540
+ and tell you for sure that it's real or not real.
+
+56:28.540 --> 56:32.740
+ And I think it would actually be somewhat dangerous
+
+56:32.740 --> 56:35.140
+ to rely on that approach too much.
+
+56:35.140 --> 56:36.820
+ If you make a really good fake detector
+
+56:36.820 --> 56:38.900
+ and then someone's able to fool your fake detector
+
+56:38.900 --> 56:42.140
+ and your fake detector says this image is not fake,
+
+56:42.140 --> 56:43.500
+ then it's even more credible
+
+56:43.500 --> 56:45.060
+ than if you've never made a fake detector
+
+56:45.060 --> 56:46.260
+ in the first place.
+
+56:46.260 --> 56:50.380
+ What I do think we'll get to is systems
+
+56:50.380 --> 56:53.300
+ that we can kind of use behind the scenes
+
+56:53.300 --> 56:55.580
+ to make estimates of what's going on
+
+56:55.580 --> 56:57.820
+ and maybe not like use them in court
+
+56:57.820 --> 56:59.580
+ for a definitive analysis.
+
+56:59.580 --> 57:04.180
+ I also think we will likely get better authentication systems
+
+57:04.180 --> 57:08.500
+ where, imagine that every phone cryptographically signs
+
+57:08.500 --> 57:10.540
+ everything that comes out of it.
+
+57:10.540 --> 57:12.820
+ You wouldn't be able to conclusively tell
+
+57:12.820 --> 57:14.540
+ that an image was real,
+
+57:14.540 --> 57:17.700
+ but you would be able to tell somebody
+
+57:17.700 --> 57:21.300
+ who knew the appropriate private key for this phone
+
+57:21.300 --> 57:24.340
+ was actually able to sign this image
+
+57:24.340 --> 57:27.460
+ and upload it to this server at this timestamp.
+
+57:27.460 --> 57:31.340
+ Okay, so you could imagine maybe you make phones
+
+57:31.340 --> 57:34.260
+ that have the private keys hardware embedded in them.
+
+57:35.540 --> 57:37.460
+ If like a state security agency
+
+57:37.460 --> 57:39.220
+ really wants to infiltrate the company,
+
+57:39.220 --> 57:42.540
+ they could probably plant a private key of their choice
+
+57:42.540 --> 57:45.060
+ or break open the chip and learn the private key
+
+57:45.060 --> 57:46.180
+ or something like that.
+
+57:46.180 --> 57:47.420
+ But it would make it a lot harder
+
+57:47.420 --> 57:51.460
+ for an adversary with fewer resources to fake things.
+
+57:51.460 --> 57:53.700
+ For most of us it would be okay.
+
+57:53.700 --> 57:58.300
+ So you mentioned the beer and the bar and the new ideas.
+
+57:58.300 --> 57:59.740
+ You were able to implement this
+
+57:59.740 --> 58:02.860
+ or come up with this new idea pretty quickly
+
+58:02.860 --> 58:04.380
+ and implement it pretty quickly.
+
+58:04.380 --> 58:07.700
+ Do you think there's still many such groundbreaking ideas
+
+58:07.700 --> 58:10.980
+ in deep learning that could be developed so quickly?
+
+58:10.980 --> 58:12.980
+ Yeah, I do think that there are a lot of ideas
+
+58:12.980 --> 58:14.820
+ that can be developed really quickly.
+
+58:15.940 --> 58:17.820
+ GANs were probably a little bit of an outlier
+
+58:17.820 --> 58:20.180
+ on the whole like one hour timescale.
+
+58:20.180 --> 58:24.220
+ But just in terms of like low resource ideas
+
+58:24.220 --> 58:25.540
+ where you do something really different
+
+58:25.540 --> 58:28.780
+ on the algorithm scale and get a big payback.
+
+58:30.140 --> 58:31.900
+ I think it's not as likely that you'll see that
+
+58:31.900 --> 58:34.940
+ in terms of things like core machine learning technologies
+
+58:34.940 --> 58:36.580
+ like a better classifier
+
+58:36.580 --> 58:38.180
+ or a better reinforcement learning algorithm
+
+58:38.180 --> 58:39.580
+ or a better generative model.
+
+58:41.020 --> 58:42.420
+ If I had the GAN idea today,
+
+58:42.420 --> 58:45.260
+ it would be a lot harder to prove that it was useful
+
+58:45.260 --> 58:46.940
+ than it was back in 2014
+
+58:46.940 --> 58:49.540
+ because I would need to get it running
+
+58:49.540 --> 58:54.060
+ on something like ImageNet or Celeb A at high resolution.
+
+58:54.060 --> 58:55.540
+ You know, those take a while to train.
+
+58:55.540 --> 58:57.580
+ You couldn't train it in an hour
+
+58:57.580 --> 59:01.020
+ and know that it was something really new and exciting.
+
+59:01.020 --> 59:03.260
+ Back in 2014, training on MNIST was enough.
+
+59:04.260 --> 59:06.780
+ But there are other areas of machine learning
+
+59:06.780 --> 59:09.380
+ where I think a new idea
+
+59:09.380 --> 59:11.940
+ could actually be developed really quickly
+
+59:11.940 --> 59:13.260
+ with low resources.
+
+59:13.260 --> 59:15.420
+ What's your intuition about what areas
+
+59:15.420 --> 59:17.740
+ of machine learning are ripe for this?
+
+59:17.740 --> 59:22.740
+ Yeah, so I think fairness and interpretability
+
+59:23.140 --> 59:27.020
+ are areas where we just really don't have any idea
+
+59:27.020 --> 59:29.020
+ how anything should be done yet.
+
+59:29.020 --> 59:30.340
+ Like for interpretability,
+
+59:30.340 --> 59:32.700
+ I don't think we even have the right definitions.
+
+59:32.700 --> 59:36.060
+ And even just defining a really useful concept,
+
+59:36.060 --> 59:38.100
+ you don't even need to run any experiments,
+
+59:38.100 --> 59:40.100
+ could have a huge impact on the field.
+
+59:40.100 --> 59:42.540
+ We've seen that, for example, in differential privacy
+
+59:42.540 --> 59:45.300
+ that Cynthia Dwork and her collaborators
+
+59:45.300 --> 59:48.020
+ made this technical definition of privacy
+
+59:48.020 --> 59:50.020
+ where before a lot of things were really mushy.
+
+59:50.020 --> 59:51.580
+ And then with that definition,
+
+59:51.580 --> 59:54.220
+ you could actually design randomized algorithms
+
+59:54.220 --> 59:56.180
+ for accessing databases and guarantee
+
+59:56.180 --> 59:58.820
+ that they preserved individual people's privacy
+
+59:58.820 --> 1:00:01.780
+ in like a mathematical quantitative sense.
+
+1:00:03.460 --> 1:00:05.060
+ Right now, we all talk a lot about
+
+1:00:05.060 --> 1:00:07.540
+ how interpretable different machine learning algorithms are,
+
+1:00:07.540 --> 1:00:09.820
+ but it's really just people's opinion.
+
+1:00:09.820 --> 1:00:11.300
+ And everybody probably has a different idea
+
+1:00:11.300 --> 1:00:13.820
+ of what interpretability means in their head.
+
+1:00:13.820 --> 1:00:16.940
+ If we could define some concept related to interpretability
+
+1:00:16.940 --> 1:00:18.700
+ that's actually measurable,
+
+1:00:18.700 --> 1:00:20.540
+ that would be a huge leap forward
+
+1:00:20.540 --> 1:00:24.140
+ even without a new algorithm that increases that quantity.
+
+1:00:24.140 --> 1:00:28.740
+ And also once we had the definition of differential privacy,
+
+1:00:28.740 --> 1:00:31.340
+ it was fast to get the algorithms that guaranteed it.
+
+1:00:31.340 --> 1:00:33.500
+ So you could imagine once we have definitions
+
+1:00:33.500 --> 1:00:35.700
+ of good concepts and interpretability,
+
+1:00:35.700 --> 1:00:37.540
+ we might be able to provide the algorithms
+
+1:00:37.540 --> 1:00:40.500
+ that have the interpretability guarantees quickly too.
+
+1:00:40.500 --> 1:00:45.500
+ So what do you think it takes to build a system
+
+1:00:46.900 --> 1:00:48.660
+ with human level intelligence
+
+1:00:48.660 --> 1:00:51.980
+ as we quickly venture into the philosophical?
+
+1:00:51.980 --> 1:00:55.660
+ So artificial general intelligence, what do you think it takes?
+
+1:00:55.660 --> 1:01:00.660
+ I think that it definitely takes better environments
+
+1:01:01.820 --> 1:01:03.780
+ than we currently have for training agents
+
+1:01:03.780 --> 1:01:05.260
+ that we want them to have
+
+1:01:05.260 --> 1:01:08.740
+ a really wide diversity of experiences.
+
+1:01:08.740 --> 1:01:11.780
+ I also think it's gonna take really a lot of computation.
+
+1:01:11.780 --> 1:01:13.780
+ It's hard to imagine exactly how much.
+
+1:01:13.780 --> 1:01:16.300
+ So you're optimistic about simulation,
+
+1:01:16.300 --> 1:01:19.540
+ simulating a variety of environments as the path forward?
+
+1:01:19.540 --> 1:01:21.980
+ I think it's a necessary ingredient.
+
+1:01:21.980 --> 1:01:24.700
+ Yeah, I don't think that we're going to get
+
+1:01:24.700 --> 1:01:27.340
+ to artificial general intelligence
+
+1:01:27.340 --> 1:01:29.700
+ by training on fixed data sets
+
+1:01:29.700 --> 1:01:32.100
+ or by thinking really hard about the problem.
+
+1:01:32.100 --> 1:01:35.860
+ I think that the agent really needs to interact
+
+1:01:35.860 --> 1:01:40.860
+ and have a variety of experiences within the same lifespan.
+
+1:01:41.580 --> 1:01:44.100
+ And today we have many different models
+
+1:01:44.100 --> 1:01:45.700
+ that can each do one thing.
+
+1:01:45.700 --> 1:01:47.500
+ And we tend to train them on one data set
+
+1:01:47.500 --> 1:01:48.940
+ or one RL environment.
+
+1:01:50.100 --> 1:01:51.380
+ Sometimes there are actually papers
+
+1:01:51.380 --> 1:01:54.180
+ about getting one set of parameters to perform well
+
+1:01:54.180 --> 1:01:56.980
+ in many different RL environments.
+
+1:01:56.980 --> 1:01:59.500
+ But we don't really have anything like an agent
+
+1:01:59.500 --> 1:02:02.900
+ that goes seamlessly from one type of experience to another
+
+1:02:02.900 --> 1:02:05.260
+ and really integrates all the different things
+
+1:02:05.260 --> 1:02:08.020
+ that it does over the course of its life.
+
+1:02:08.020 --> 1:02:10.580
+ When we do see multi agent environments,
+
+1:02:10.580 --> 1:02:12.340
+ they tend to be,
+
+1:02:12.340 --> 1:02:14.660
+ or so many multi environment agents,
+
+1:02:14.660 --> 1:02:16.740
+ they tend to be similar environments.
+
+1:02:16.740 --> 1:02:20.420
+ Like all of them are playing like an action based video game.
+
+1:02:20.420 --> 1:02:23.220
+ We don't really have an agent that goes from
+
+1:02:23.220 --> 1:02:27.500
+ playing a video game to like reading the Wall Street Journal
+
+1:02:27.500 --> 1:02:31.260
+ to predicting how effective a molecule will be as a drug
+
+1:02:31.260 --> 1:02:33.260
+ or something like that.
+
+1:02:33.260 --> 1:02:35.940
+ What do you think is a good test for intelligence
+
+1:02:35.940 --> 1:02:37.020
+ in your view?
+
+1:02:37.020 --> 1:02:40.300
+ There's been a lot of benchmarks started with the,
+
+1:02:40.300 --> 1:02:41.700
+ with Alan Turing,
+
+1:02:41.700 --> 1:02:46.260
+ natural conversation being a good benchmark for intelligence.
+
+1:02:46.260 --> 1:02:51.260
+ What would Ian Goodfellow sit back
+
+1:02:51.340 --> 1:02:53.380
+ and be really damn impressed
+
+1:02:53.380 --> 1:02:56.060
+ if a system was able to accomplish?
+
+1:02:56.060 --> 1:02:58.500
+ Something that doesn't take a lot of glue
+
+1:02:58.500 --> 1:02:59.780
+ from human engineers.
+
+1:02:59.780 --> 1:03:03.540
+ So imagine that instead of having to
+
+1:03:03.540 --> 1:03:07.940
+ go to the CIFAR website and download CIFAR 10
+
+1:03:07.940 --> 1:03:11.300
+ and then write a Python script to parse it and all that,
+
+1:03:11.300 --> 1:03:16.300
+ you could just point an agent at the CIFAR 10 problem
+
+1:03:16.460 --> 1:03:19.180
+ and it downloads and extracts the data
+
+1:03:19.180 --> 1:03:22.420
+ and trains a model and starts giving you predictions.
+
+1:03:22.420 --> 1:03:25.980
+ I feel like something that doesn't need to have
+
+1:03:25.980 --> 1:03:28.620
+ every step of the pipeline assembled for it,
+
+1:03:28.620 --> 1:03:30.460
+ definitely understands what it's doing.
+
+1:03:30.460 --> 1:03:32.380
+ Is AutoML moving into that direction
+
+1:03:32.380 --> 1:03:34.380
+ or are you thinking way even bigger?
+
+1:03:34.380 --> 1:03:37.220
+ AutoML has mostly been moving toward,
+
+1:03:38.180 --> 1:03:39.900
+ once we've built all the glue,
+
+1:03:39.900 --> 1:03:42.180
+ can the machine learning system
+
+1:03:42.180 --> 1:03:44.340
+ design the architecture really well?
+
+1:03:44.340 --> 1:03:46.100
+ And so I'm more of saying like,
+
+1:03:47.260 --> 1:03:49.580
+ if something knows how to pre process the data
+
+1:03:49.580 --> 1:03:52.340
+ so that it successfully accomplishes the task,
+
+1:03:52.340 --> 1:03:53.460
+ then it would be very hard to argue
+
+1:03:53.460 --> 1:03:56.180
+ that it doesn't truly understand the task
+
+1:03:56.180 --> 1:03:58.460
+ in some fundamental sense.
+
+1:03:58.460 --> 1:04:00.020
+ And I don't necessarily know that that's like
+
+1:04:00.020 --> 1:04:02.260
+ the philosophical definition of intelligence,
+
+1:04:02.260 --> 1:04:03.780
+ but that's something that would be really cool to build
+
+1:04:03.780 --> 1:04:05.580
+ that would be really useful and would impress me
+
+1:04:05.580 --> 1:04:08.180
+ and would convince me that we've made a step forward
+
+1:04:08.180 --> 1:04:09.420
+ in real AI.
+
+1:04:09.420 --> 1:04:13.380
+ So you give it like the URL for Wikipedia
+
+1:04:13.380 --> 1:04:18.380
+ and then next day expect it to be able to solve CIFAR 10.
+
+1:04:18.700 --> 1:04:20.820
+ Or like you type in a paragraph
+
+1:04:20.820 --> 1:04:22.180
+ explaining what you want it to do
+
+1:04:22.180 --> 1:04:24.780
+ and it figures out what web searches it should run
+
+1:04:24.780 --> 1:04:28.300
+ and downloads all the necessary ingredients.
+
+1:04:28.300 --> 1:04:33.300
+ So you have a very clear, calm way of speaking,
+
+1:04:34.780 --> 1:04:37.580
+ no ums, easy to edit.
+
+1:04:37.580 --> 1:04:40.220
+ I've seen comments for both you and I
+
+1:04:40.220 --> 1:04:44.180
+ have been identified as both potentially being robots.
+
+1:04:44.180 --> 1:04:47.220
+ If you have to prove to the world that you are indeed human,
+
+1:04:47.220 --> 1:04:48.580
+ how would you do it?
+
+1:04:48.580 --> 1:04:53.060
+ I can understand thinking that I'm a robot.
+
+1:04:55.300 --> 1:04:57.780
+ It's the flip side of the Turing test, I think.
+
+1:04:57.780 --> 1:05:00.420
+ Yeah, yeah, the prove your human test.
+
+1:05:01.900 --> 1:05:04.460
+ Intellectually, so you have to...
+
+1:05:04.460 --> 1:05:08.620
+ Is there something that's truly unique in your mind?
+
+1:05:08.620 --> 1:05:11.620
+ Does it go back to just natural language again?
+
+1:05:11.620 --> 1:05:13.860
+ Just being able to talk the way out of it.
+
+1:05:13.860 --> 1:05:17.060
+ Proving that I'm not a robot with today's technology.
+
+1:05:17.060 --> 1:05:18.340
+ Yeah, that's pretty straightforward.
+
+1:05:18.340 --> 1:05:20.780
+ Like my conversation today hasn't veered off
+
+1:05:20.780 --> 1:05:24.380
+ into talking about the stock market or something
+
+1:05:24.380 --> 1:05:25.940
+ because of my training data.
+
+1:05:25.940 --> 1:05:28.060
+ But I guess more generally trying to prove
+
+1:05:28.060 --> 1:05:30.500
+ that something is real from the content alone
+
+1:05:30.500 --> 1:05:31.380
+ is incredibly hard.
+
+1:05:31.380 --> 1:05:32.460
+ That's one of the main things I've gotten
+
+1:05:32.460 --> 1:05:33.460
+ out of my GAN research,
+
+1:05:33.460 --> 1:05:37.660
+ that you can simulate almost anything.
+
+1:05:37.660 --> 1:05:41.020
+ And so you have to really step back to a separate channel
+
+1:05:41.020 --> 1:05:42.220
+ to prove that something is real.
+
+1:05:42.220 --> 1:05:45.100
+ So like, I guess I should have had myself
+
+1:05:45.100 --> 1:05:47.660
+ stamped on a blockchain when I was born or something,
+
+1:05:47.660 --> 1:05:48.580
+ but I didn't do that.
+
+1:05:48.580 --> 1:05:50.780
+ So according to my own research methodology,
+
+1:05:50.780 --> 1:05:52.940
+ there's just no way to know at this point.
+
+1:05:52.940 --> 1:05:56.300
+ So what, last question, problem stands out for you
+
+1:05:56.300 --> 1:05:58.340
+ that you're really excited about challenging
+
+1:05:58.340 --> 1:05:59.900
+ in the near future?
+
+1:05:59.900 --> 1:06:02.900
+ So I think resistance to adversarial examples,
+
+1:06:02.900 --> 1:06:05.500
+ figuring out how to make machine learning secure
+
+1:06:05.500 --> 1:06:07.380
+ against an adversary who wants to interfere
+
+1:06:07.380 --> 1:06:10.660
+ and control it, that is one of the most important things
+
+1:06:10.660 --> 1:06:12.140
+ researchers today could solve.
+
+1:06:12.140 --> 1:06:17.140
+ In all domains, image, language, driving, and everything.
+
+1:06:17.700 --> 1:06:19.780
+ I guess I'm most concerned about domains
+
+1:06:19.780 --> 1:06:21.980
+ we haven't really encountered yet.
+
+1:06:21.980 --> 1:06:24.020
+ Like imagine 20 years from now,
+
+1:06:24.020 --> 1:06:26.820
+ when we're using advanced AIs to do things
+
+1:06:26.820 --> 1:06:28.940
+ we haven't even thought of yet.
+
+1:06:28.940 --> 1:06:30.620
+ Like if you ask people,
+
+1:06:30.620 --> 1:06:35.100
+ what are the important problems in security of phones
+
+1:06:35.100 --> 1:06:37.620
+ in like 2002?
+
+1:06:37.620 --> 1:06:38.900
+ I don't think we would have anticipated
+
+1:06:38.900 --> 1:06:42.140
+ that we're using them for nearly as many things
+
+1:06:42.140 --> 1:06:43.620
+ as we're using them for today.
+
+1:06:43.620 --> 1:06:44.860
+ I think it's gonna be like that with AI
+
+1:06:44.860 --> 1:06:46.900
+ that you can kind of try to speculate
+
+1:06:46.900 --> 1:06:47.900
+ about where it's going,
+
+1:06:47.900 --> 1:06:49.580
+ but really the business opportunities
+
+1:06:49.580 --> 1:06:52.100
+ that end up taking off would be hard
+
+1:06:52.100 --> 1:06:54.140
+ to predict ahead of time.
+
+1:06:54.140 --> 1:06:55.300
+ What you can predict ahead of time
+
+1:06:55.300 --> 1:06:58.340
+ is that almost anything you can do with machine learning,
+
+1:06:58.340 --> 1:06:59.420
+ you would like to make sure
+
+1:06:59.420 --> 1:07:03.100
+ that people can't get it to do what they want
+
+1:07:03.100 --> 1:07:04.580
+ rather than what you want,
+
+1:07:04.580 --> 1:07:06.460
+ just by showing it a funny QR code
+
+1:07:06.460 --> 1:07:08.460
+ or a funny input pattern.
+
+1:07:08.460 --> 1:07:10.980
+ And you think that the set of methodology to do that
+
+1:07:10.980 --> 1:07:13.140
+ can be bigger than any one domain?
+
+1:07:13.140 --> 1:07:14.140
+ I think so, yeah.
+
+1:07:14.140 --> 1:07:19.140
+ Yeah, like one methodology that I think is,
+
+1:07:19.140 --> 1:07:20.620
+ not a specific methodology,
+
+1:07:20.620 --> 1:07:22.740
+ but like a category of solutions
+
+1:07:22.740 --> 1:07:25.660
+ that I'm excited about today is making dynamic models
+
+1:07:25.660 --> 1:07:28.180
+ that change every time they make a prediction.
+
+1:07:28.180 --> 1:07:31.100
+ So right now we tend to train models
+
+1:07:31.100 --> 1:07:33.060
+ and then after they're trained, we freeze them
+
+1:07:33.060 --> 1:07:35.180
+ and we just use the same rule
+
+1:07:35.180 --> 1:07:38.180
+ to classify everything that comes in from then on.
+
+1:07:38.180 --> 1:07:41.500
+ That's really a sitting duck from a security point of view.
+
+1:07:41.500 --> 1:07:45.420
+ If you always output the same answer for the same input,
+
+1:07:45.420 --> 1:07:48.220
+ then people can just run inputs through
+
+1:07:48.220 --> 1:07:50.140
+ until they find a mistake that benefits them.
+
+1:07:50.140 --> 1:07:51.700
+ And then they use the same mistake
+
+1:07:51.700 --> 1:07:53.100
+ over and over and over again.
+
+1:07:54.020 --> 1:07:56.460
+ I think having a model that updates its predictions
+
+1:07:56.460 --> 1:08:00.340
+ so that it's harder to predict what you're gonna get
+
+1:08:00.340 --> 1:08:02.740
+ will make it harder for an adversary
+
+1:08:02.740 --> 1:08:04.820
+ to really take control of the system
+
+1:08:04.820 --> 1:08:06.100
+ and make it do what they want it to do.
+
+1:08:06.100 --> 1:08:09.740
+ Yeah, models that maintain a bit of a sense of mystery
+
+1:08:09.740 --> 1:08:12.740
+ about them, because they always keep changing.
+
+1:08:12.740 --> 1:08:14.900
+ Ian, thanks so much for talking today, it was awesome.
+
+1:08:14.900 --> 1:08:19.900
+ Thank you for coming in, it's great to see you.
+

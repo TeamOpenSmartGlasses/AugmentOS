@@ -1,0 +1,5834 @@
+WEBVTT
+
+00:00.000 --> 00:03.640
+ The following is a conversation with Whitney Cummings.
+
+00:03.640 --> 00:07.240
+ She's a standup comedian, actor, producer, writer, director,
+
+00:07.240 --> 00:11.280
+ and recently, finally, the host of her very own podcast
+
+00:11.280 --> 00:12.920
+ called Good For You.
+
+00:12.920 --> 00:15.920
+ Her most recent Netflix special called Can I Touch It?
+
+00:15.920 --> 00:19.160
+ features in part a robot she affectionately named
+
+00:19.160 --> 00:23.420
+ Bearclaw that is designed to be visually a replica of Whitney.
+
+00:23.420 --> 00:26.000
+ It's exciting for me to see one of my favorite comedians
+
+00:26.000 --> 00:30.720
+ explore the social aspects of robotics and AI in our society.
+
+00:30.720 --> 00:32.920
+ She also has some fascinating ideas
+
+00:32.920 --> 00:36.000
+ about human behavior, psychology, and neurology,
+
+00:36.000 --> 00:37.800
+ some of which she explores in her book
+
+00:37.800 --> 00:41.240
+ called I'm Fine and Other Lies.
+
+00:41.240 --> 00:43.320
+ It was truly a pleasure to meet Whitney
+
+00:43.320 --> 00:45.200
+ and have this conversation with her
+
+00:45.200 --> 00:47.920
+ and even to continue it through text afterwards.
+
+00:47.920 --> 00:50.160
+ Every once in a while, late at night,
+
+00:50.160 --> 00:52.360
+ I'll be programming over a cup of coffee
+
+00:52.360 --> 00:55.760
+ and will get a text from Whitney saying something hilarious
+
+00:55.760 --> 00:58.960
+ or weirder yet, sending a video of Brian Callan
+
+00:58.960 --> 01:00.960
+ saying something hilarious.
+
+01:00.960 --> 01:03.880
+ That's when I know the universe has a sense of humor
+
+01:03.880 --> 01:07.400
+ and it gifted me with one hell of an amazing journey.
+
+01:07.400 --> 01:10.320
+ Then I put the phone down and go back to programming
+
+01:10.320 --> 01:13.400
+ with a stupid, joyful smile on my face.
+
+01:13.400 --> 01:14.960
+ If you enjoy this conversation,
+
+01:14.960 --> 01:17.200
+ listen to Whitney's podcast, Good For You,
+
+01:17.200 --> 01:19.840
+ and follow her on Twitter and Instagram.
+
+01:19.840 --> 01:22.640
+ This is the Artificial Intelligence Podcast.
+
+01:22.640 --> 01:24.840
+ If you enjoy it, subscribe on YouTube,
+
+01:24.840 --> 01:26.800
+ give it five stars on Apple Podcasts,
+
+01:26.800 --> 01:30.160
+ support on Patreon, or simply connect with me on Twitter
+
+01:30.160 --> 01:34.040
+ at Lex Friedman, spelled F R I D M A N.
+
+01:34.040 --> 01:35.840
+ This show is presented by Cash App,
+
+01:35.840 --> 01:38.280
+ the number one finance app in the App Store.
+
+01:38.280 --> 01:40.480
+ They regularly support Whitney's Good For You podcast
+
+01:40.480 --> 01:41.440
+ as well.
+
+01:41.440 --> 01:43.920
+ I personally use Cash App to send money to friends,
+
+01:43.920 --> 01:45.680
+ but you can also use it to buy, sell,
+
+01:45.680 --> 01:47.960
+ and deposit Bitcoin in just seconds.
+
+01:47.960 --> 01:50.680
+ Cash App also has a new investing feature.
+
+01:50.680 --> 01:53.480
+ You can buy fractions of a stock, say $1 worth,
+
+01:53.480 --> 01:55.760
+ no matter what the stock price is.
+
+01:55.760 --> 01:58.560
+ Broker services are provided by Cash App Investing,
+
+01:58.560 --> 02:02.000
+ subsidiary of Square, and member SIPC.
+
+02:02.000 --> 02:04.120
+ I'm excited to be working with Cash App
+
+02:04.120 --> 02:07.160
+ to support one of my favorite organizations called First,
+
+02:07.160 --> 02:10.400
+ best known for their FIRST Robotics and Lego competitions.
+
+02:10.400 --> 02:13.800
+ They educate and inspire hundreds of thousands of students
+
+02:13.800 --> 02:16.000
+ in over 110 countries,
+
+02:16.000 --> 02:18.680
+ and have a perfect rating on Charity Navigator,
+
+02:18.680 --> 02:19.960
+ which means the donated money
+
+02:19.960 --> 02:22.360
+ is used to maximum effectiveness.
+
+02:22.360 --> 02:25.240
+ When you get Cash App from the App Store or Google Play,
+
+02:25.240 --> 02:28.920
+ and use code LEXPODCAST, you'll get $10,
+
+02:28.920 --> 02:32.080
+ and Cash App will also donate $10 to FIRST,
+
+02:32.080 --> 02:35.240
+ which again, is an organization that I've personally seen
+
+02:35.240 --> 02:37.360
+ inspire girls and boys to dream
+
+02:37.360 --> 02:39.120
+ of engineering a better world.
+
+02:40.440 --> 02:43.040
+ This podcast is supported by ZipRecruiter.
+
+02:43.040 --> 02:45.200
+ Hiring great people is hard,
+
+02:45.200 --> 02:47.280
+ and to me is the most important element
+
+02:47.280 --> 02:50.080
+ of a successful mission driven team.
+
+02:50.080 --> 02:52.080
+ I've been fortunate to be a part of,
+
+02:52.080 --> 02:54.680
+ and to lead several great engineering teams.
+
+02:54.680 --> 02:56.640
+ The hiring I've done in the past
+
+02:56.640 --> 02:59.360
+ was mostly through tools that we built ourselves,
+
+02:59.360 --> 03:02.360
+ but reinventing the wheel was painful.
+
+03:02.360 --> 03:05.200
+ ZipRecruiter is a tool that's already available for you.
+
+03:05.200 --> 03:08.960
+ It seeks to make hiring simple, fast, and smart.
+
+03:08.960 --> 03:11.920
+ For example, Codable cofounder Gretchen Huebner
+
+03:11.920 --> 03:14.360
+ used ZipRecruiter to find a new game artist
+
+03:14.360 --> 03:16.680
+ to join her education tech company.
+
+03:16.680 --> 03:18.800
+ By using ZipRecruiter screening questions
+
+03:18.800 --> 03:21.560
+ to filter candidates, Gretchen found it easier
+
+03:21.560 --> 03:23.040
+ to focus on the best candidates,
+
+03:23.040 --> 03:26.400
+ and finally hiring the perfect person for the role
+
+03:26.400 --> 03:29.400
+ in less than two weeks from start to finish.
+
+03:29.400 --> 03:32.480
+ ZipRecruiter, the smartest way to hire.
+
+03:32.480 --> 03:34.120
+ See why ZipRecruiter is effective
+
+03:34.120 --> 03:37.520
+ for businesses of all sizes by signing up as I did
+
+03:37.520 --> 03:41.520
+ for free at ziprecruiter.com slash lexpod.
+
+03:41.520 --> 03:45.320
+ That's ziprecruiter.com slash lexpod.
+
+03:45.320 --> 03:50.320
+ And now, here's my conversation with Whitney Cummings.
+
+03:51.560 --> 03:53.720
+ I have trouble making eye contact, as you can tell.
+
+03:53.720 --> 03:54.560
+ Me too.
+
+03:54.560 --> 03:56.920
+ Did you know that I had to work on making eye contact
+
+03:56.920 --> 03:58.840
+ because I used to look here?
+
+03:58.840 --> 03:59.680
+ Do you see what I'm doing?
+
+03:59.680 --> 04:00.500
+ That helps, yeah, yeah, yeah.
+
+04:00.500 --> 04:01.760
+ Do you want me to do that?
+
+04:01.760 --> 04:03.560
+ Well, I'll do this way, I'll cheat the camera.
+
+04:03.560 --> 04:05.720
+ But I used to do this, and finally people,
+
+04:05.720 --> 04:07.380
+ like I'd be on dates and guys would be like,
+
+04:07.380 --> 04:08.220
+ are you looking at my hair?
+
+04:08.220 --> 04:10.860
+ Like they get, it would make people really insecure
+
+04:10.860 --> 04:13.160
+ because I didn't really get a lot of eye contact as a kid.
+
+04:13.160 --> 04:14.720
+ It's one to three years.
+
+04:14.720 --> 04:16.440
+ Did you not get a lot of eye contact as a kid?
+
+04:16.440 --> 04:17.280
+ I don't know.
+
+04:17.280 --> 04:19.560
+ I haven't done the soul searching.
+
+04:19.560 --> 04:20.760
+ Right.
+
+04:20.760 --> 04:24.200
+ So, but there's definitely some psychological issues.
+
+04:24.200 --> 04:25.520
+ Makes you uncomfortable.
+
+04:25.520 --> 04:27.880
+ Yeah, for some reason when I connect eyes,
+
+04:27.880 --> 04:31.800
+ I start to think, I assume that you're judging me.
+
+04:31.800 --> 04:33.320
+ Oh, well, I am.
+
+04:33.320 --> 04:34.440
+ That's why you assume that.
+
+04:34.440 --> 04:35.280
+ Yeah.
+
+04:35.280 --> 04:36.100
+ We all are.
+
+04:36.100 --> 04:36.940
+ All right.
+
+04:36.940 --> 04:37.760
+ This is perfect.
+
+04:37.760 --> 04:38.600
+ The podcast would be me and you both
+
+04:38.600 --> 04:42.400
+ staring at the table on the whole time.
+
+04:42.400 --> 04:44.200
+ Do you think robots are the future?
+
+04:44.200 --> 04:45.960
+ Ones with human level intelligence
+
+04:45.960 --> 04:49.480
+ will be female, male, genderless,
+
+04:49.480 --> 04:53.220
+ or another gender we have not yet created as a society?
+
+04:53.220 --> 04:55.220
+ You're the expert at this.
+
+04:55.220 --> 04:56.060
+ Well, I'm gonna ask you.
+
+04:56.060 --> 04:57.320
+ You know the answer.
+
+04:57.320 --> 04:58.680
+ I'm gonna ask you questions
+
+04:58.680 --> 05:00.920
+ that maybe nobody knows the answer to.
+
+05:00.920 --> 05:01.960
+ Okay.
+
+05:01.960 --> 05:04.080
+ And then I just want you to hypothesize
+
+05:04.080 --> 05:09.080
+ as a imaginative author, director, comedian.
+
+05:10.960 --> 05:12.120
+ Can we just be very clear
+
+05:12.120 --> 05:14.200
+ that you know a ton about this
+
+05:14.200 --> 05:15.780
+ and I know nothing about this,
+
+05:15.780 --> 05:19.600
+ but I have thought a lot about
+
+05:19.600 --> 05:22.840
+ what I think robots can fix in our society.
+
+05:22.840 --> 05:24.400
+ And I mean, I'm a comedian.
+
+05:24.400 --> 05:27.520
+ It's my job to study human nature,
+
+05:27.520 --> 05:28.860
+ to make jokes about human nature
+
+05:28.860 --> 05:31.080
+ and to sometimes play devil's advocate.
+
+05:31.080 --> 05:35.160
+ And I just see such a tremendous negativity around robots
+
+05:35.160 --> 05:38.040
+ or at least the idea of robots that it was like,
+
+05:38.040 --> 05:40.660
+ oh, I'm just gonna take the opposite side for fun,
+
+05:40.660 --> 05:43.400
+ for jokes and then I was like,
+
+05:43.400 --> 05:45.920
+ oh no, I really agree in this devil's advocate argument.
+
+05:45.920 --> 05:49.400
+ So please correct me when I'm wrong about this stuff.
+
+05:49.400 --> 05:51.780
+ So first of all, there's no right and wrong
+
+05:51.780 --> 05:53.840
+ because we're all,
+
+05:53.840 --> 05:55.920
+ I think most of the people working on robotics
+
+05:55.920 --> 05:57.580
+ are really not actually even thinking
+
+05:57.580 --> 06:00.040
+ about some of the big picture things
+
+06:00.040 --> 06:01.280
+ that you've been exploring.
+
+06:01.280 --> 06:04.600
+ In fact, your robot, what's her name by the way?
+
+06:04.600 --> 06:05.440
+ Bearclaw.
+
+06:05.440 --> 06:06.280
+ We'll go with Bearclaw.
+
+06:06.280 --> 06:11.280
+ What's the genesis of that name by the way?
+
+06:11.720 --> 06:15.000
+ Bearclaw was, I got, I don't even remember the joke
+
+06:15.000 --> 06:16.680
+ cause I black out after I shoot specials,
+
+06:16.680 --> 06:19.200
+ but I was writing something about like the pet names
+
+06:19.200 --> 06:22.960
+ that men call women, like cupcake, sweetie, honey,
+
+06:22.960 --> 06:26.560
+ you know, like we're always named after desserts
+
+06:26.560 --> 06:29.920
+ or something and I was just writing a joke about,
+
+06:29.920 --> 06:31.000
+ if you wanna call us a dessert,
+
+06:31.000 --> 06:33.200
+ at least pick like a cool dessert, you know,
+
+06:33.200 --> 06:35.680
+ like Bearclaw, like something cool.
+
+06:35.680 --> 06:38.240
+ So I ended up calling her Bearclaw.
+
+06:38.240 --> 06:42.280
+ So do you think the future robots
+
+06:42.280 --> 06:44.440
+ of greater and greater intelligence
+
+06:44.440 --> 06:46.520
+ would like to make them female, male?
+
+06:46.520 --> 06:48.560
+ Would we like to assign them gender
+
+06:48.560 --> 06:50.800
+ or would we like to move away from gender
+
+06:50.800 --> 06:54.000
+ and say something more ambiguous?
+
+06:54.000 --> 06:56.360
+ I think it depends on their purpose, you know?
+
+06:56.360 --> 06:59.920
+ I feel like if it's a sex robot,
+
+06:59.920 --> 07:01.900
+ people prefer certain genders, you know?
+
+07:01.900 --> 07:05.840
+ And I also, you know, when I went down and explored the robot
+
+07:05.840 --> 07:07.680
+ factory, I was asking about the type of people
+
+07:07.680 --> 07:09.240
+ that bought sex robots.
+
+07:09.240 --> 07:12.200
+ And I was very surprised at the answer
+
+07:12.200 --> 07:14.160
+ because of course the stereotype
+
+07:14.160 --> 07:15.320
+ was it's gonna be a bunch of perverts.
+
+07:15.320 --> 07:18.580
+ It ended up being a lot of people that were handicapped,
+
+07:18.580 --> 07:20.520
+ a lot of people with erectile dysfunction
+
+07:20.520 --> 07:23.880
+ and a lot of people that were exploring their sexuality.
+
+07:23.880 --> 07:25.920
+ A lot of people that thought they were gay,
+
+07:25.920 --> 07:28.120
+ but weren't sure, but didn't wanna take the risk
+
+07:28.120 --> 07:31.660
+ of trying on someone that could reject them
+
+07:31.660 --> 07:33.880
+ and being embarrassed or they were closeted
+
+07:33.880 --> 07:36.320
+ or in a city where maybe that's, you know,
+
+07:36.320 --> 07:37.920
+ taboo and stigmatized, you know?
+
+07:37.920 --> 07:40.560
+ So I think that a gendered sex robot
+
+07:40.560 --> 07:42.340
+ that would serve an important purpose
+
+07:42.340 --> 07:44.160
+ for someone trying to explore their sexuality.
+
+07:44.160 --> 07:45.000
+ Am I into men?
+
+07:45.000 --> 07:46.160
+ Let me try on this thing first.
+
+07:46.160 --> 07:47.000
+ Am I into women?
+
+07:47.000 --> 07:48.220
+ Let me try on this thing first.
+
+07:48.220 --> 07:51.200
+ So I think gendered robots would be important for that.
+
+07:51.200 --> 07:53.760
+ But I think genderless robots in terms of
+
+07:53.760 --> 07:56.520
+ emotional support robots, babysitters,
+
+07:56.520 --> 07:58.720
+ I'm fine for a genderless babysitter
+
+07:58.720 --> 08:00.100
+ with my husband in the house.
+
+08:00.100 --> 08:02.080
+ You know, there are places that I think
+
+08:02.080 --> 08:04.640
+ that genderless makes a lot of sense,
+
+08:04.640 --> 08:07.560
+ but obviously not in the sex area.
+
+08:07.560 --> 08:09.920
+ What do you mean with your husband in the house?
+
+08:09.920 --> 08:11.800
+ What does that have to do with the gender of the robot?
+
+08:11.800 --> 08:13.040
+ Right, I mean, I don't have a husband,
+
+08:13.040 --> 08:14.340
+ but hypothetically speaking,
+
+08:14.340 --> 08:15.720
+ I think every woman's worst nightmare
+
+08:15.720 --> 08:17.240
+ is like the hot babysitter.
+
+08:17.240 --> 08:19.280
+ You know what I mean?
+
+08:19.280 --> 08:21.700
+ So I think that there is a time and place,
+
+08:21.700 --> 08:25.360
+ I think, for genderless, you know, teachers, doctors,
+
+08:25.360 --> 08:27.280
+ all that kind of, it would be very awkward
+
+08:27.280 --> 08:29.700
+ if the first robotic doctor was a guy
+
+08:29.700 --> 08:32.600
+ or the first robotic nurse was a woman.
+
+08:32.600 --> 08:36.100
+ You know, it's sort of, that stuff is still loaded.
+
+08:36.100 --> 08:38.440
+ I think that genderless could just take
+
+08:38.440 --> 08:43.440
+ the unnecessary drama out of it
+
+08:43.900 --> 08:46.000
+ and possibility to sexualize them
+
+08:46.000 --> 08:49.520
+ or be triggered by any of that stuff.
+
+08:49.520 --> 08:52.800
+ So there's two components to this, to Bearclaw.
+
+08:52.800 --> 08:55.040
+ So one is the voice and the talking and so on,
+
+08:55.040 --> 08:56.360
+ and then there's the visual appearance.
+
+08:56.360 --> 08:59.580
+ So on the topic of gender and genderless,
+
+08:59.580 --> 09:03.160
+ in your experience, what has been the value
+
+09:03.160 --> 09:04.900
+ of the physical appearance?
+
+09:04.900 --> 09:08.980
+ So has it added much to the depth of the interaction?
+
+09:08.980 --> 09:11.200
+ I mean, mine's kind of an extenuating circumstance
+
+09:11.200 --> 09:13.540
+ because she is supposed to look exactly like me.
+
+09:13.540 --> 09:15.980
+ I mean, I spent six months getting my face molded
+
+09:15.980 --> 09:19.440
+ and having, you know, the idea was I was exploring
+
+09:19.440 --> 09:21.220
+ the concept of can robots replace us?
+
+09:21.220 --> 09:22.480
+ Because that's the big fear,
+
+09:22.480 --> 09:24.240
+ but also the big dream in a lot of ways.
+
+09:24.240 --> 09:28.200
+ And I wanted to dig into that area because, you know,
+
+09:28.200 --> 09:29.920
+ for a lot of people, it's like,
+
+09:29.920 --> 09:32.080
+ they're gonna take our jobs and they're gonna replace us.
+
+09:32.080 --> 09:34.360
+ Legitimate fear, but then a lot of women I know are like,
+
+09:34.360 --> 09:36.960
+ I would love for a robot to replace me every now and then
+
+09:36.960 --> 09:38.880
+ so it can go to baby showers for me
+
+09:38.880 --> 09:40.180
+ and it can pick up my kids at school
+
+09:40.180 --> 09:42.480
+ and it can cook dinner and whatever.
+
+09:42.480 --> 09:45.200
+ So I just think that was an interesting place to explore.
+
+09:45.200 --> 09:47.040
+ So her looking like me was a big part of it.
+
+09:47.040 --> 09:49.080
+ Now her looking like me just adds
+
+09:49.080 --> 09:51.360
+ an unnecessary level of insecurity
+
+09:51.360 --> 09:53.520
+ because I got her a year ago
+
+09:53.520 --> 09:54.680
+ and she already looks younger than me.
+
+09:54.680 --> 09:57.640
+ So that's a weird problem.
+
+09:57.640 --> 10:00.680
+ But I think that her looking human was the idea.
+
+10:00.680 --> 10:03.080
+ And I think that where we are now,
+
+10:03.080 --> 10:04.800
+ please correct me if I'm wrong,
+
+10:04.800 --> 10:09.800
+ a human robot resembling an actual human you know
+
+10:09.860 --> 10:13.760
+ is going to feel more realistic than some generic face.
+
+10:13.760 --> 10:18.120
+ Well, you're saying that robots that have some familiarity
+
+10:19.120 --> 10:22.480
+ like look similar to somebody that you actually know
+
+10:22.480 --> 10:24.560
+ you'll be able to form a deeper connection with?
+
+10:24.560 --> 10:26.000
+ That was the question. I think so on some level, right?
+
+10:26.000 --> 10:26.960
+ That's an open question.
+
+10:26.960 --> 10:30.240
+ I don't, you know, it's an interesting.
+
+10:30.240 --> 10:32.080
+ Or the opposite, because then you know me
+
+10:32.080 --> 10:33.360
+ and you're like, well, I know this isn't real
+
+10:33.360 --> 10:34.560
+ because you're right here.
+
+10:34.560 --> 10:36.280
+ So maybe it does the opposite.
+
+10:36.280 --> 10:39.240
+ We have a very keen eye for human faces
+
+10:39.240 --> 10:41.840
+ and they're able to detect strangeness
+
+10:41.840 --> 10:44.360
+ especially that one has to do with people
+
+10:44.360 --> 10:46.400
+ whose faces we've seen a lot of.
+
+10:46.400 --> 10:48.880
+ So I tend to be a bigger fan
+
+10:48.880 --> 10:52.840
+ of moving away completely from faces.
+
+10:52.840 --> 10:54.200
+ Of recognizable faces?
+
+10:54.200 --> 10:56.000
+ No, just human faces at all.
+
+10:56.000 --> 10:58.280
+ In general, because I think that's where things get dicey.
+
+10:58.280 --> 11:00.440
+ And one thing I will say is
+
+11:00.440 --> 11:03.040
+ I think my robot is more realistic than other robots
+
+11:03.040 --> 11:05.160
+ not necessarily because you have seen me
+
+11:05.160 --> 11:07.600
+ and then you see her and you go, oh, they're so similar
+
+11:07.600 --> 11:11.120
+ but also because human faces are flawed and asymmetrical.
+
+11:11.120 --> 11:13.440
+ And sometimes we forget when we're making things
+
+11:13.440 --> 11:14.400
+ that are supposed to look human,
+
+11:14.400 --> 11:16.000
+ we make them too symmetrical
+
+11:16.000 --> 11:17.960
+ and that's what makes them stop looking human.
+
+11:17.960 --> 11:20.520
+ So because they mold in my asymmetrical face,
+
+11:20.520 --> 11:22.860
+ she just, even if someone didn't know who I was
+
+11:22.860 --> 11:26.560
+ I think she'd look more realistic than most generic ones
+
+11:26.560 --> 11:28.880
+ that didn't have some kind of flaws.
+
+11:28.880 --> 11:29.720
+ Got it.
+
+11:29.720 --> 11:30.760
+ Because they start looking creepy
+
+11:30.760 --> 11:33.240
+ when they're too symmetrical because human beings aren't.
+
+11:33.240 --> 11:35.720
+ Yeah, the flaws is what it means to be human.
+
+11:35.720 --> 11:37.720
+ So visually as well.
+
+11:37.720 --> 11:39.400
+ But I'm just a fan of the idea
+
+11:39.400 --> 11:43.280
+ of letting humans use a little bit more imagination.
+
+11:43.280 --> 11:47.560
+ So just hearing the voice is enough for us humans
+
+11:47.560 --> 11:50.280
+ to then start imagining the visual appearance
+
+11:50.280 --> 11:52.020
+ that goes along with that voice.
+
+11:52.020 --> 11:54.480
+ And you don't necessarily need to work too hard
+
+11:54.480 --> 11:56.920
+ on creating the actual visual appearance.
+
+11:56.920 --> 11:59.120
+ So there's some value to that.
+
+11:59.120 --> 12:03.360
+ When you step into the stare of actually building a robot
+
+12:03.360 --> 12:04.400
+ that looks like Bear Claws,
+
+12:04.400 --> 12:07.680
+ such a long road of facial expressions
+
+12:07.680 --> 12:12.080
+ of sort of making everything smiling, winking,
+
+12:13.120 --> 12:14.900
+ rolling in the eyes, all that kind of stuff.
+
+12:14.900 --> 12:16.520
+ It gets really, really tricky.
+
+12:16.520 --> 12:19.160
+ It gets tricky and I think I'm, again, I'm a comedian.
+
+12:19.160 --> 12:21.800
+ Like I'm obsessed with what makes us human
+
+12:21.800 --> 12:25.440
+ and our human nature and the nasty side of human nature
+
+12:25.440 --> 12:27.560
+ tends to be where I've ended up
+
+12:27.560 --> 12:28.800
+ exploring over and over again.
+
+12:28.800 --> 12:32.620
+ And I was just mostly fascinated by people's reaction.
+
+12:32.620 --> 12:34.520
+ So it's my job to get the biggest reaction
+
+12:34.520 --> 12:37.460
+ from a group of strangers, the loudest possible reaction.
+
+12:37.460 --> 12:39.880
+ And I just had this instinct
+
+12:39.880 --> 12:41.640
+ just when I started building her
+
+12:41.640 --> 12:44.560
+ and people going, ah, ah, and people scream.
+
+12:44.560 --> 12:46.020
+ And I mean, I would bring her out on stage
+
+12:46.020 --> 12:48.080
+ and people would scream.
+
+12:48.080 --> 12:51.520
+ And I just, to me, that was the next level of entertainment.
+
+12:51.520 --> 12:53.520
+ Getting a laugh, I've done that, I know how to do that.
+
+12:53.520 --> 12:54.940
+ I think comedians were always trying to figure out
+
+12:54.940 --> 12:57.280
+ what the next level is and comedy's evolving so much.
+
+12:57.280 --> 12:59.880
+ And Jordan Peele had just done
+
+12:59.880 --> 13:01.760
+ these genius comedy horror movies,
+
+13:01.760 --> 13:04.480
+ which feel like the next level of comedy to me.
+
+13:04.480 --> 13:09.480
+ And this sort of funny horror of a robot
+
+13:10.040 --> 13:11.680
+ was fascinating to me.
+
+13:11.680 --> 13:15.520
+ But I think the thing that I got the most obsessed with
+
+13:15.520 --> 13:18.200
+ was people being freaked out and scared of her.
+
+13:18.200 --> 13:21.640
+ And I started digging around with pathogen avoidance
+
+13:21.640 --> 13:24.040
+ and the idea that we've essentially evolved
+
+13:24.040 --> 13:27.120
+ to be repelled by anything that looks human,
+
+13:27.120 --> 13:28.880
+ but is off a little bit.
+
+13:28.880 --> 13:32.100
+ Anything that could be sick or diseased or dead,
+
+13:32.100 --> 13:33.940
+ essentially, is our reptilian brain's way
+
+13:33.940 --> 13:38.660
+ to get us to not try to have sex with it, basically.
+
+13:38.660 --> 13:41.880
+ So I got really fascinated by how freaked out and scared.
+
+13:41.880 --> 13:44.360
+ I mean, I would see grown men get upset.
+
+13:44.360 --> 13:45.360
+ They'd get that thing away from me,
+
+13:45.360 --> 13:47.880
+ look, I don't like that, like people would get angry.
+
+13:47.880 --> 13:50.840
+ And it was like, you know what this is, you know?
+
+13:50.840 --> 13:55.160
+ But the sort of like, you know, amygdala getting activated
+
+13:55.160 --> 13:58.560
+ by something that to me is just a fun toy
+
+13:58.560 --> 14:02.080
+ said a lot about our history as a species
+
+14:02.080 --> 14:04.720
+ and what got us into trouble thousands of years ago.
+
+14:04.720 --> 14:07.280
+ So it's that, it's the deep down stuff
+
+14:07.280 --> 14:10.080
+ that's in our genetics, but also is it just,
+
+14:10.080 --> 14:13.080
+ are people freaked out by the fact that there's a robot?
+
+14:13.080 --> 14:14.840
+ So it's not just the appearance,
+
+14:14.840 --> 14:17.860
+ but there's an artificial human.
+
+14:17.860 --> 14:21.280
+ Anything people, I think, and I'm just also fascinated
+
+14:21.280 --> 14:23.040
+ by the blind spots humans have.
+
+14:23.040 --> 14:24.760
+ So the idea that you're afraid of that,
+
+14:24.760 --> 14:27.200
+ I mean, how many robots have killed people?
+
+14:27.200 --> 14:29.800
+ How many humans have died at the hands of other humans?
+
+14:29.800 --> 14:31.400
+ Yeah, a few more. Millions?
+
+14:31.400 --> 14:32.880
+ Hundreds of millions?
+
+14:32.880 --> 14:34.560
+ Yet we're scared of that?
+
+14:34.560 --> 14:36.080
+ And we'll go to the grocery store
+
+14:36.080 --> 14:37.200
+ and be around a bunch of humans
+
+14:37.200 --> 14:39.520
+ who statistically the chances are much higher
+
+14:39.520 --> 14:40.700
+ that you're gonna get killed by humans.
+
+14:40.700 --> 14:43.600
+ So I'm just fascinated by without judgment
+
+14:43.600 --> 14:47.840
+ how irrational we are as a species.
+
+14:47.840 --> 14:49.280
+ The word is the exponential.
+
+14:49.280 --> 14:51.400
+ So it's, you know, you can say the same thing
+
+14:51.400 --> 14:54.160
+ about nuclear weapons before we dropped
+
+14:54.160 --> 14:55.760
+ on the Hiroshima and Nagasaki.
+
+14:55.760 --> 14:59.400
+ So the worry that people have is the exponential growth.
+
+14:59.400 --> 15:03.680
+ So it's like, oh, it's fun and games right now,
+
+15:03.680 --> 15:06.260
+ but you know, overnight,
+
+15:07.160 --> 15:10.000
+ especially if a robot provides value to society,
+
+15:10.000 --> 15:11.680
+ we'll put one in every home
+
+15:11.680 --> 15:13.840
+ and then all of a sudden lose track
+
+15:13.840 --> 15:17.280
+ of the actual large scale impact it has on society.
+
+15:17.280 --> 15:20.280
+ And then all of a sudden gain greater and greater control
+
+15:20.280 --> 15:22.540
+ to where we'll all be, you know,
+
+15:22.540 --> 15:23.920
+ affect our political system
+
+15:23.920 --> 15:25.760
+ and then affect our decision.
+
+15:25.760 --> 15:27.720
+ Didn't robots already ruin our political system?
+
+15:27.720 --> 15:28.720
+ Didn't that just already happen?
+
+15:28.720 --> 15:30.800
+ Which ones? Oh, Russia hacking.
+
+15:30.800 --> 15:35.000
+ No offense, but hasn't that already happened?
+
+15:35.000 --> 15:36.440
+ I mean, that was like an algorithm
+
+15:36.440 --> 15:39.320
+ of negative things being clicked on more.
+
+15:39.320 --> 15:40.760
+ We'd like to tell stories
+
+15:40.760 --> 15:43.640
+ and like to demonize certain people.
+
+15:43.640 --> 15:46.840
+ I think nobody understands our current political system
+
+15:46.840 --> 15:49.680
+ or discourse on Twitter, the Twitter mobs.
+
+15:49.680 --> 15:52.560
+ Nobody has a sense, not Twitter, not Facebook,
+
+15:52.560 --> 15:53.400
+ the people running it.
+
+15:53.400 --> 15:55.360
+ Nobody understands the impact of these algorithms.
+
+15:55.360 --> 15:56.880
+ They're trying their best.
+
+15:56.880 --> 15:57.940
+ Despite what people think,
+
+15:57.940 --> 16:00.200
+ they're not like a bunch of lefties
+
+16:00.200 --> 16:03.240
+ trying to make sure that Hillary Clinton gets elected.
+
+16:03.240 --> 16:06.840
+ It's more that it's an incredibly complex system
+
+16:06.840 --> 16:08.860
+ that we don't, and that's the worry.
+
+16:08.860 --> 16:11.440
+ It's so complex and moves so fast
+
+16:11.440 --> 16:15.760
+ that nobody will be able to stop it once it happens.
+
+16:15.760 --> 16:16.920
+ And let me ask a question.
+
+16:16.920 --> 16:19.440
+ This is a very savage question.
+
+16:19.440 --> 16:23.840
+ Which is, is this just the next stage of evolution?
+
+16:23.840 --> 16:26.080
+ As humans, when people will die, yes.
+
+16:26.080 --> 16:28.200
+ I mean, that's always happened, you know?
+
+16:28.200 --> 16:30.320
+ Is this just taking emotion out of it?
+
+16:30.320 --> 16:34.960
+ Is this basically the next stage of survival of the fittest?
+
+16:34.960 --> 16:37.760
+ Yeah, you have to think of organisms.
+
+16:37.760 --> 16:41.360
+ You know, what does it mean to be a living organism?
+
+16:41.360 --> 16:46.360
+ Like, is a smartphone part of your living organism, or?
+
+16:46.760 --> 16:49.680
+ We're in relationships with our phones.
+
+16:49.680 --> 16:50.520
+ Yeah.
+
+16:50.520 --> 16:52.880
+ We have sex through them, with them.
+
+16:52.880 --> 16:54.440
+ What's the difference between with them and through them?
+
+16:54.440 --> 16:57.080
+ But it also expands your cognitive abilities,
+
+16:57.080 --> 16:59.060
+ expands your memory, knowledge, and so on.
+
+16:59.060 --> 17:00.640
+ So you're a much smarter person
+
+17:00.640 --> 17:02.600
+ because you have a smartphone in your hand.
+
+17:02.600 --> 17:04.780
+ But as soon as it's out of my hand,
+
+17:04.780 --> 17:06.120
+ we've got big problems,
+
+17:06.120 --> 17:08.360
+ because we've become sort of so morphed with them.
+
+17:08.360 --> 17:09.960
+ Well, there's a symbiotic relationship.
+
+17:09.960 --> 17:12.520
+ And that's what, so Elon Musk, the neural link,
+
+17:12.520 --> 17:16.640
+ is working on trying to increase the bandwidth
+
+17:16.640 --> 17:19.320
+ of communication between computers and your brain.
+
+17:19.320 --> 17:22.800
+ And so further and further expand our ability
+
+17:22.800 --> 17:26.300
+ as human beings to sort of leverage machines.
+
+17:26.300 --> 17:28.220
+ And maybe that's the future,
+
+17:28.220 --> 17:30.480
+ the next evolutionary step.
+
+17:30.480 --> 17:33.920
+ It could be also that, yes, we'll give birth,
+
+17:33.920 --> 17:36.520
+ just like we give birth to human children right now,
+
+17:36.520 --> 17:38.960
+ we'll give birth to AI and they'll replace us.
+
+17:38.960 --> 17:42.200
+ I think it's a really interesting possibility.
+
+17:42.200 --> 17:44.080
+ I'm gonna play devil's advocate.
+
+17:44.080 --> 17:48.320
+ I just think that the fear of robots is wildly classist.
+
+17:48.320 --> 17:50.120
+ Because, I mean, Facebook,
+
+17:50.120 --> 17:51.960
+ like it's easy for us to say they're taking their data.
+
+17:51.960 --> 17:53.560
+ Okay, well, a lot of people
+
+17:53.560 --> 17:55.720
+ that get employment off of Facebook,
+
+17:55.720 --> 17:58.220
+ they are able to get income off of Facebook.
+
+17:58.220 --> 17:59.800
+ They don't care if you take their phone numbers
+
+17:59.800 --> 18:01.920
+ and their emails and their data, as long as it's free.
+
+18:01.920 --> 18:03.900
+ They don't wanna have to pay $5 a month for Facebook.
+
+18:03.900 --> 18:05.800
+ Facebook is a wildly democratic thing.
+
+18:05.800 --> 18:08.240
+ Forget about the election and all that kind of stuff.
+
+18:08.240 --> 18:12.480
+ A lot of technology making people's lives easier,
+
+18:12.480 --> 18:17.100
+ I find that most elite people are more scared
+
+18:17.100 --> 18:18.800
+ than lower income people.
+
+18:18.800 --> 18:21.180
+ So, and women for the most part.
+
+18:21.180 --> 18:23.940
+ So the idea of something that's stronger than us
+
+18:23.940 --> 18:25.160
+ and that might eventually kill us,
+
+18:25.160 --> 18:26.560
+ like women are used to that.
+
+18:26.560 --> 18:29.980
+ Like that's not, I see a lot of like really rich men
+
+18:29.980 --> 18:31.240
+ being like, the robots are gonna kill us.
+
+18:31.240 --> 18:33.800
+ We're like, what's another thing that's gonna kill us?
+
+18:33.800 --> 18:35.480
+ I tend to see like, oh,
+
+18:35.480 --> 18:37.160
+ something can walk me to my car at night.
+
+18:37.160 --> 18:39.880
+ Like something can help me cook dinner or something.
+
+18:39.880 --> 18:43.020
+ For people in underprivileged countries
+
+18:43.020 --> 18:45.360
+ who can't afford eye surgery, like in a robot,
+
+18:45.360 --> 18:48.840
+ can we send a robot to underprivileged places
+
+18:48.840 --> 18:50.680
+ to do surgery where they can't?
+
+18:50.680 --> 18:53.560
+ I work with this organization called Operation Smile
+
+18:53.560 --> 18:55.660
+ where they do cleft palate surgeries.
+
+18:55.660 --> 18:56.500
+ And there's a lot of places
+
+18:56.500 --> 18:59.160
+ that can't do a very simple surgery
+
+18:59.160 --> 19:01.080
+ because they can't afford doctors and medical care.
+
+19:01.080 --> 19:01.920
+ And such.
+
+19:01.920 --> 19:04.840
+ So I just see, and this can be completely naive
+
+19:04.840 --> 19:05.840
+ and should be completely wrong,
+
+19:05.840 --> 19:08.780
+ but I feel like a lot of people are going like,
+
+19:08.780 --> 19:09.920
+ the robots are gonna destroy us.
+
+19:09.920 --> 19:11.640
+ Humans, we're destroying ourselves.
+
+19:11.640 --> 19:12.840
+ We're self destructing.
+
+19:12.840 --> 19:14.320
+ Robots to me are the only hope
+
+19:14.320 --> 19:15.960
+ to clean up all the messes that we've created.
+
+19:15.960 --> 19:18.240
+ Even when we go try to clean up pollution in the ocean,
+
+19:18.240 --> 19:21.720
+ we make it worse because of the oil that the tankers use.
+
+19:21.720 --> 19:25.400
+ Like, it's like, to me, robots are the only solution.
+
+19:25.400 --> 19:27.880
+ Firefighters are heroes, but they're limited
+
+19:27.880 --> 19:30.180
+ in how many times they can run into a fire.
+
+19:30.180 --> 19:32.360
+ So there's just something interesting to me.
+
+19:32.360 --> 19:34.360
+ I'm not hearing a lot of like,
+
+19:34.360 --> 19:38.080
+ lower income, more vulnerable populations
+
+19:38.080 --> 19:39.920
+ talking about robots.
+
+19:39.920 --> 19:42.000
+ Maybe you can speak to it a little bit more.
+
+19:42.000 --> 19:44.100
+ There's an idea, I think you've expressed it.
+
+19:44.100 --> 19:48.240
+ I've heard, actually a few female writers
+
+19:48.240 --> 19:51.480
+ and roboticists have talked to express this idea
+
+19:51.480 --> 19:55.760
+ that exactly you just said, which is,
+
+19:55.760 --> 20:00.760
+ it just seems that being afraid of existential threats
+
+20:01.680 --> 20:06.240
+ of artificial intelligence is a male issue.
+
+20:06.240 --> 20:07.280
+ Yeah.
+
+20:07.280 --> 20:09.720
+ And I wonder what that is.
+
+20:09.720 --> 20:13.680
+ If it, because men have, in certain positions,
+
+20:13.680 --> 20:15.640
+ like you said, it's also a classist issue.
+
+20:15.640 --> 20:17.400
+ They haven't been humbled by life,
+
+20:17.400 --> 20:20.680
+ and so you always look for the biggest problems
+
+20:20.680 --> 20:22.380
+ to take on around you.
+
+20:22.380 --> 20:24.200
+ It's a champagne problem to be afraid of robots.
+
+20:24.200 --> 20:26.440
+ Most people don't have health insurance.
+
+20:26.440 --> 20:27.520
+ They're afraid they're not gonna be able
+
+20:27.520 --> 20:28.360
+ to feed their kids.
+
+20:28.360 --> 20:30.000
+ They can't afford a tutor for their kids.
+
+20:30.000 --> 20:32.400
+ I mean, I just think of the way I grew up,
+
+20:32.400 --> 20:36.160
+ and I had a mother who worked two jobs, had kids.
+
+20:36.160 --> 20:38.600
+ We couldn't afford an SAT tutor.
+
+20:38.600 --> 20:40.040
+ The idea of a robot coming in,
+
+20:40.040 --> 20:41.080
+ being able to tutor your kids,
+
+20:41.080 --> 20:43.540
+ being able to provide childcare for your kids,
+
+20:43.540 --> 20:45.540
+ being able to come in with cameras for eyes
+
+20:45.540 --> 20:48.320
+ and make sure surveillance.
+
+20:48.320 --> 20:52.280
+ I'm very pro surveillance because I've had security problems
+
+20:52.280 --> 20:55.760
+ and I've been, we're generally in a little more danger
+
+20:55.760 --> 20:56.600
+ than you guys are.
+
+20:56.600 --> 20:58.640
+ So I think that robots are a little less scary to us
+
+20:58.640 --> 21:01.240
+ because we can see them maybe as like free assistance,
+
+21:01.240 --> 21:03.440
+ help and protection.
+
+21:03.440 --> 21:06.840
+ And then there's sort of another element for me personally,
+
+21:06.840 --> 21:08.800
+ which is maybe more of a female problem.
+
+21:08.800 --> 21:09.640
+ I don't know.
+
+21:09.640 --> 21:13.040
+ I'm just gonna make a generalization, happy to be wrong.
+
+21:13.040 --> 21:18.040
+ But the emotional sort of component of robots
+
+21:18.040 --> 21:22.760
+ and what they can provide in terms of, you know,
+
+21:22.760 --> 21:25.640
+ I think there's a lot of people that don't have microphones
+
+21:25.640 --> 21:28.580
+ that I just recently kind of stumbled upon
+
+21:28.580 --> 21:30.920
+ in doing all my research on the sex robots
+
+21:30.920 --> 21:32.400
+ for my standup special, which just,
+
+21:32.400 --> 21:35.840
+ there's a lot of very shy people that aren't good at dating.
+
+21:35.840 --> 21:37.880
+ There's a lot of people who are scared of human beings
+
+21:37.880 --> 21:40.500
+ who have personality disorders
+
+21:40.500 --> 21:43.080
+ or grow up in alcoholic homes or struggle with addiction
+
+21:43.080 --> 21:45.720
+ or whatever it is where a robot can solve
+
+21:45.720 --> 21:46.920
+ an emotional problem.
+
+21:46.920 --> 21:49.800
+ And so we're largely having this conversation
+
+21:49.800 --> 21:53.600
+ about like rich guys that are emotionally healthy
+
+21:53.600 --> 21:55.560
+ and how scared of robots they are.
+
+21:55.560 --> 21:58.560
+ We're forgetting about like a huge part of the population
+
+21:58.560 --> 22:01.600
+ who maybe isn't as charming and effervescent
+
+22:01.600 --> 22:05.400
+ and solvent as, you know, people like you and Elon Musk
+
+22:05.400 --> 22:09.240
+ who these robots could solve very real problems
+
+22:09.240 --> 22:11.260
+ in their life, emotional or financial.
+
+22:11.260 --> 22:13.480
+ Well, that's a, in general, a really interesting idea
+
+22:13.480 --> 22:16.700
+ that most people in the world don't have a voice.
+
+22:16.700 --> 22:18.200
+ It's a, you've talked about it,
+
+22:18.200 --> 22:19.960
+ sort of even the people on Twitter
+
+22:19.960 --> 22:22.800
+ who are driving the conversation.
+
+22:22.800 --> 22:25.400
+ You said comments, people who leave comments
+
+22:25.400 --> 22:28.240
+ represent a very tiny percent of the population
+
+22:28.240 --> 22:30.700
+ and they're the ones they, you know,
+
+22:30.700 --> 22:33.280
+ we tend to think they speak for the population,
+
+22:33.280 --> 22:37.280
+ but it's very possible on many topics they don't at all.
+
+22:37.280 --> 22:39.240
+ And look, I, and I'm sure there's gotta be
+
+22:39.240 --> 22:43.940
+ some kind of legal, you know, sort of structure in place
+
+22:43.940 --> 22:45.280
+ for when the robots happen.
+
+22:45.280 --> 22:46.640
+ You know way more about this than I do,
+
+22:46.640 --> 22:49.760
+ but you know, for me to just go, the robots are bad,
+
+22:49.760 --> 22:51.680
+ that's a wild generalization that I feel like
+
+22:51.680 --> 22:54.080
+ is really inhumane in some way.
+
+22:54.080 --> 22:56.520
+ You know, just after the research I've done,
+
+22:56.520 --> 22:59.280
+ like you're gonna tell me that a man whose wife died
+
+22:59.280 --> 23:02.960
+ suddenly and he feels guilty moving on with a human woman
+
+23:02.960 --> 23:04.280
+ or can't get over the grief,
+
+23:04.280 --> 23:06.940
+ he can't have a sex robot in his own house?
+
+23:06.940 --> 23:07.840
+ Why not?
+
+23:07.840 --> 23:08.820
+ Who cares?
+
+23:08.820 --> 23:09.980
+ Why do you care?
+
+23:09.980 --> 23:12.720
+ Well, there's a interesting aspect of human nature.
+
+23:12.720 --> 23:16.820
+ So, you know, we tend to as a civilization
+
+23:16.820 --> 23:19.920
+ to create a group that's the other in all kinds of ways.
+
+23:19.920 --> 23:20.760
+ Right.
+
+23:20.760 --> 23:23.520
+ And so you work with animals too,
+
+23:23.520 --> 23:26.760
+ you're especially sensitive to the suffering of animals.
+
+23:26.760 --> 23:28.520
+ Let me kind of ask, what's your,
+
+23:29.400 --> 23:33.920
+ do you think we'll abuse robots in the future?
+
+23:33.920 --> 23:35.920
+ Do you think some of the darker aspects
+
+23:35.920 --> 23:37.960
+ of human nature will come out?
+
+23:37.960 --> 23:39.200
+ I think some people will,
+
+23:39.200 --> 23:43.000
+ but if we design them properly, the people that do it,
+
+23:43.000 --> 23:46.920
+ we can put it on a record and we can put them in jail.
+
+23:46.920 --> 23:49.520
+ We can find sociopaths more easily, you know, like.
+
+23:49.520 --> 23:53.200
+ But why is that a sociopathic thing to harm a robot?
+
+23:53.200 --> 23:56.240
+ I think, look, I don't know enough about the consciousness
+
+23:56.240 --> 23:57.920
+ and stuff as you do.
+
+23:57.920 --> 23:59.840
+ I guess it would have to be when they're conscious,
+
+23:59.840 --> 24:02.840
+ but it is, you know, the part of the brain
+
+24:02.840 --> 24:04.400
+ that is responsible for compassion,
+
+24:04.400 --> 24:05.240
+ the frontal lobe or whatever,
+
+24:05.240 --> 24:08.160
+ like people that abuse animals also abuse humans
+
+24:08.160 --> 24:09.440
+ and commit other kinds of crimes.
+
+24:09.440 --> 24:11.080
+ Like that's, it's all the same part of the brain.
+
+24:11.080 --> 24:13.440
+ No one abuses animals and then it's like,
+
+24:13.440 --> 24:15.520
+ awesome to women and children
+
+24:15.520 --> 24:18.600
+ and awesome to underprivileged, you know, minorities.
+
+24:18.600 --> 24:20.480
+ Like it's all, so, you know,
+
+24:20.480 --> 24:23.000
+ we've been working really hard to put a database together
+
+24:23.000 --> 24:24.720
+ of all the people that have abused animals.
+
+24:24.720 --> 24:27.320
+ So when they commit another crime, you go, okay, this is,
+
+24:27.320 --> 24:29.320
+ you know, it's all the same stuff.
+
+24:29.320 --> 24:32.360
+ And I think people probably think I'm nuts
+
+24:32.360 --> 24:34.760
+ for a lot of the animal work I do,
+
+24:34.760 --> 24:37.040
+ but because when animal abuse is present,
+
+24:37.040 --> 24:38.880
+ another crime is always present,
+
+24:38.880 --> 24:40.880
+ but the animal abuse is the most socially acceptable.
+
+24:40.880 --> 24:43.920
+ You can kick a dog and there's nothing people can do,
+
+24:43.920 --> 24:46.560
+ but then what they're doing behind closed doors,
+
+24:46.560 --> 24:47.400
+ you can't see.
+
+24:47.400 --> 24:48.880
+ So there's always something else going on,
+
+24:48.880 --> 24:50.680
+ which is why I never feel compunction about it.
+
+24:50.680 --> 24:54.360
+ But I do think we'll start seeing the same thing with robots.
+
+24:54.360 --> 24:55.520
+ The person that kicks the,
+
+24:55.520 --> 24:59.720
+ I felt compassion when the kicking the dog robot
+
+24:59.720 --> 25:00.760
+ really pissed me off.
+
+25:00.760 --> 25:04.080
+ I know that they're just trying to get the stability right
+
+25:04.080 --> 25:05.200
+ and all that.
+
+25:05.200 --> 25:07.320
+ But I do think there will come a time
+
+25:07.320 --> 25:10.680
+ where that will be a great way to be able to figure out
+
+25:10.680 --> 25:15.480
+ if somebody has like, you know, antisocial behaviors.
+
+25:15.480 --> 25:18.040
+ You kind of mentioned surveillance.
+
+25:18.040 --> 25:20.000
+ It's also a really interesting idea of yours
+
+25:20.000 --> 25:21.520
+ that you just said, you know,
+
+25:21.520 --> 25:23.400
+ a lot of people seem to be really uncomfortable
+
+25:23.400 --> 25:24.240
+ with surveillance.
+
+25:24.240 --> 25:25.160
+ Yeah.
+
+25:25.160 --> 25:27.200
+ And you just said that, you know what,
+
+25:27.200 --> 25:31.160
+ for me, you know, there's positives for surveillance.
+
+25:31.160 --> 25:32.160
+ I think people behave better
+
+25:32.160 --> 25:33.280
+ when they know they're being watched.
+
+25:33.280 --> 25:36.000
+ And I know this is a very unpopular opinion.
+
+25:36.000 --> 25:38.080
+ I'm talking about it on stage right now.
+
+25:38.080 --> 25:40.320
+ We behave better when we know we're being watched.
+
+25:40.320 --> 25:41.920
+ You and I had a very different conversation
+
+25:41.920 --> 25:43.160
+ before we were recording.
+
+25:43.160 --> 25:46.040
+ If we behave different, you sit up
+
+25:46.040 --> 25:47.520
+ and you are in your best behavior.
+
+25:47.520 --> 25:49.320
+ And I'm trying to sound eloquent
+
+25:49.320 --> 25:51.120
+ and I'm trying to not hurt anyone's feelings.
+
+25:51.120 --> 25:52.840
+ And I mean, I have a camera right there.
+
+25:52.840 --> 25:54.640
+ I'm behaving totally different
+
+25:54.640 --> 25:56.200
+ than when we first started talking.
+
+25:56.200 --> 25:58.520
+ You know, when you know there's a camera,
+
+25:58.520 --> 25:59.360
+ you behave differently.
+
+25:59.360 --> 26:02.680
+ I mean, there's cameras all over LA at stoplights
+
+26:02.680 --> 26:04.000
+ so that people don't run stoplights,
+
+26:04.000 --> 26:05.800
+ but there's not even film in it.
+
+26:05.800 --> 26:07.960
+ They don't even use them anymore, but it works.
+
+26:07.960 --> 26:08.800
+ It works.
+
+26:08.800 --> 26:09.640
+ Right?
+
+26:09.640 --> 26:10.680
+ And I'm, you know, working on this thing
+
+26:10.680 --> 26:11.920
+ in stand about surveillance.
+
+26:11.920 --> 26:14.200
+ It's like, that's why we embed in Santa Claus.
+
+26:14.200 --> 26:15.520
+ You know, it's the Santa Claus
+
+26:15.520 --> 26:17.760
+ is the first surveillance basically.
+
+26:17.760 --> 26:20.360
+ All we had to say to kids is he's making a list
+
+26:20.360 --> 26:22.880
+ and he's watching you and they behave better.
+
+26:22.880 --> 26:23.720
+ That's brilliant.
+
+26:23.720 --> 26:26.080
+ You know, so I do think that there are benefits
+
+26:26.080 --> 26:27.360
+ to surveillance.
+
+26:27.360 --> 26:30.880
+ You know, I think we all do sketchy things in private
+
+26:30.880 --> 26:33.240
+ and we all have watched weird porn
+
+26:33.240 --> 26:34.400
+ or Googled weird things.
+
+26:34.400 --> 26:37.000
+ And we don't want people to know about it,
+
+26:37.000 --> 26:37.880
+ our secret lives.
+
+26:37.880 --> 26:40.160
+ So I do think that obviously there's,
+
+26:40.160 --> 26:42.800
+ we should be able to have a modicum of privacy,
+
+26:42.800 --> 26:44.600
+ but I tend to think that people
+
+26:44.600 --> 26:47.480
+ that are the most negative about surveillance
+
+26:47.480 --> 26:48.320
+ have the most secrets.
+
+26:48.320 --> 26:49.160
+ The most to hide.
+
+26:49.160 --> 26:50.480
+ Yeah.
+
+26:50.480 --> 26:51.320
+ Well, you should,
+
+26:52.280 --> 26:54.480
+ you're saying you're doing bits on it now?
+
+26:54.480 --> 26:56.640
+ Well, I'm just talking in general about,
+
+26:56.640 --> 26:58.360
+ you know, privacy and surveillance
+
+26:58.360 --> 27:00.240
+ and how paranoid we're kind of becoming
+
+27:00.240 --> 27:03.600
+ and how, you know, I mean, it's just wild to me
+
+27:03.600 --> 27:05.880
+ that people are like, our emails are gonna leak
+
+27:05.880 --> 27:07.160
+ and they're taking our phone numbers.
+
+27:07.160 --> 27:11.440
+ Like there used to be a book full of phone numbers
+
+27:11.440 --> 27:15.520
+ and addresses that were, they just throw it at your door.
+
+27:15.520 --> 27:18.040
+ And we all had a book of everyone's numbers.
+
+27:18.040 --> 27:20.320
+ You know, this is a very new thing.
+
+27:20.320 --> 27:22.360
+ And, you know, I know our amygdala is designed
+
+27:22.360 --> 27:24.680
+ to compound sort of threats
+
+27:24.680 --> 27:27.360
+ and, you know, there's stories about,
+
+27:27.360 --> 27:30.720
+ and I think we all just glom on in a very, you know,
+
+27:30.720 --> 27:32.440
+ tribal way of like, yeah, they're taking our data.
+
+27:32.440 --> 27:33.720
+ Like, we don't even know what that means,
+
+27:33.720 --> 27:37.080
+ but we're like, well, yeah, they, they, you know?
+
+27:38.080 --> 27:40.200
+ So I just think that someone's like, okay, well, so what?
+
+27:40.200 --> 27:41.320
+ They're gonna sell your data?
+
+27:41.320 --> 27:42.160
+ Who cares?
+
+27:42.160 --> 27:43.200
+ Why do you care?
+
+27:43.200 --> 27:46.240
+ First of all, that bit will kill in China.
+
+27:47.320 --> 27:51.080
+ So, and I say that sort of only a little bit joking
+
+27:51.080 --> 27:55.200
+ because a lot of people in China, including the citizens,
+
+27:55.200 --> 27:58.680
+ despite what people in the West think of as abuse,
+
+27:59.640 --> 28:03.360
+ are actually in support of the idea of surveillance.
+
+28:03.360 --> 28:06.480
+ Sort of, they're not in support of the abuse of surveillance,
+
+28:06.480 --> 28:08.160
+ but they're, they like, I mean,
+
+28:08.160 --> 28:10.280
+ the idea of surveillance is kind of like
+
+28:11.360 --> 28:14.160
+ the idea of government, like you said,
+
+28:14.160 --> 28:15.920
+ we behave differently.
+
+28:15.920 --> 28:18.520
+ And in a way, it's almost like why we like sports.
+
+28:18.520 --> 28:19.960
+ There's rules.
+
+28:19.960 --> 28:22.400
+ And within the constraints of the rules,
+
+28:22.400 --> 28:25.040
+ this is a more stable society.
+
+28:25.040 --> 28:28.120
+ And they make good arguments about success,
+
+28:28.120 --> 28:30.440
+ being able to build successful companies,
+
+28:30.440 --> 28:32.800
+ being able to build successful social lives
+
+28:32.800 --> 28:34.560
+ around a fabric that's more stable.
+
+28:34.560 --> 28:37.040
+ When you have a surveillance, it keeps the criminals away,
+
+28:37.040 --> 28:41.880
+ keeps abusive animals, whatever the values of the society,
+
+28:41.880 --> 28:44.800
+ with surveillance, you can enforce those values better.
+
+28:44.800 --> 28:45.920
+ And here's what I will say.
+
+28:45.920 --> 28:47.720
+ There's a lot of unethical things happening
+
+28:47.720 --> 28:48.560
+ with surveillance.
+
+28:48.560 --> 28:52.080
+ Like I feel the need to really make that very clear.
+
+28:52.080 --> 28:54.080
+ I mean, the fact that Google is like collecting
+
+28:54.080 --> 28:55.960
+ if people's hands start moving on the mouse
+
+28:55.960 --> 28:58.440
+ to find out if they're getting Parkinson's
+
+28:58.440 --> 29:00.080
+ and then their insurance goes up,
+
+29:00.080 --> 29:02.200
+ like that is completely unethical and wrong.
+
+29:02.200 --> 29:03.360
+ And I think stuff like that,
+
+29:03.360 --> 29:05.880
+ we have to really be careful around.
+
+29:05.880 --> 29:08.640
+ So the idea of using our data to raise our insurance rates
+
+29:08.640 --> 29:10.800
+ or, you know, I heard that they're looking,
+
+29:10.800 --> 29:13.320
+ they can sort of predict if you're gonna have depression
+
+29:13.320 --> 29:16.080
+ based on your selfies by detecting micro muscles
+
+29:16.080 --> 29:18.240
+ in your face, you know, all that kind of stuff,
+
+29:18.240 --> 29:20.040
+ that is a nightmare, not okay.
+
+29:20.040 --> 29:22.360
+ But I think, you know, we have to delineate
+
+29:22.360 --> 29:25.160
+ what's a real threat and what's getting spam
+
+29:25.160 --> 29:26.000
+ in your email box.
+
+29:26.000 --> 29:28.600
+ That's not what to spend your time and energy on.
+
+29:28.600 --> 29:31.080
+ Focus on the fact that every time you buy cigarettes,
+
+29:31.080 --> 29:35.240
+ your insurance is going up without you knowing about it.
+
+29:35.240 --> 29:36.920
+ On the topic of animals too,
+
+29:36.920 --> 29:38.360
+ can we just linger on a little bit?
+
+29:38.360 --> 29:40.320
+ Like, what do you think,
+
+29:41.320 --> 29:43.360
+ what does this say about our society
+
+29:43.360 --> 29:46.000
+ of the society wide abuse of animals
+
+29:46.000 --> 29:48.640
+ that we see in general, sort of factory farming,
+
+29:48.640 --> 29:50.640
+ just in general, just the way we treat animals
+
+29:50.640 --> 29:55.640
+ of different categories, like what do you think of that?
+
+29:57.440 --> 29:59.680
+ What does a better world look like?
+
+29:59.680 --> 30:03.640
+ What should people think about it in general?
+
+30:03.640 --> 30:06.480
+ I think the most interesting thing
+
+30:06.480 --> 30:09.520
+ I can probably say around this that's the least emotional,
+
+30:09.520 --> 30:11.880
+ cause I'm actually a very non emotional animal person
+
+30:11.880 --> 30:14.080
+ because it's, I think everyone's an animal person.
+
+30:14.080 --> 30:15.880
+ It's just a matter of if it's yours
+
+30:15.880 --> 30:19.600
+ or if you've been conditioned to go numb, you know.
+
+30:19.600 --> 30:22.280
+ I think it's really a testament to what as a species
+
+30:22.280 --> 30:24.560
+ we are able to be in denial about,
+
+30:24.560 --> 30:26.280
+ mass denial and mass delusion,
+
+30:26.280 --> 30:30.640
+ and how we're able to dehumanize and debase groups,
+
+30:31.640 --> 30:33.400
+ you know, World War II,
+
+30:34.320 --> 30:36.800
+ in a way in order to conform
+
+30:36.800 --> 30:38.880
+ and find protection in the conforming.
+
+30:38.880 --> 30:43.840
+ So we are also a species who used to go to coliseums
+
+30:43.840 --> 30:47.520
+ and watch elephants and tigers fight to the death.
+
+30:47.520 --> 30:50.280
+ We used to watch human beings be pulled apart
+
+30:50.280 --> 30:53.080
+ and that wasn't that long ago.
+
+30:53.080 --> 30:56.880
+ We're also a species who had slaves
+
+30:56.880 --> 30:59.040
+ and it was socially acceptable by a lot of people.
+
+30:59.040 --> 31:00.160
+ People didn't see anything wrong with it.
+
+31:00.160 --> 31:02.680
+ So we're a species that is able to go numb
+
+31:02.680 --> 31:05.960
+ and that is able to dehumanize very quickly
+
+31:05.960 --> 31:08.120
+ and make it the norm.
+
+31:08.120 --> 31:10.800
+ Child labor wasn't that long ago.
+
+31:10.800 --> 31:12.720
+ The idea that now we look back and go,
+
+31:12.720 --> 31:17.200
+ oh yeah, kids were losing fingers in factories making shoes.
+
+31:17.200 --> 31:20.160
+ Like someone had to come in and make that, you know.
+
+31:20.160 --> 31:23.200
+ So I think it just says a lot about the fact that,
+
+31:23.200 --> 31:25.320
+ you know, we are animals and we are self serving
+
+31:25.320 --> 31:27.280
+ and one of the most successful,
+
+31:27.280 --> 31:29.200
+ the most successful species
+
+31:29.200 --> 31:33.160
+ because we are able to debase and degrade
+
+31:33.160 --> 31:36.840
+ and essentially exploit anything that benefits us.
+
+31:36.840 --> 31:39.880
+ I think the pendulum is gonna swing as being late.
+
+31:39.880 --> 31:40.720
+ Which way?
+
+31:40.720 --> 31:42.800
+ Like, I think we're Rome now, kind of.
+
+31:42.800 --> 31:44.960
+ I think we're on the verge of collapse
+
+31:44.960 --> 31:47.240
+ because we are dopamine receptors.
+
+31:47.240 --> 31:49.560
+ Like we are just, I think we're all kind of addicts
+
+31:49.560 --> 31:50.520
+ when it comes to this stuff.
+
+31:50.520 --> 31:53.360
+ Like we don't know when to stop.
+
+31:53.360 --> 31:54.480
+ It's always the buffet.
+
+31:54.480 --> 31:56.600
+ Like we're, the thing that used to keep us alive,
+
+31:56.600 --> 31:58.360
+ which is killing animals and eating them,
+
+31:58.360 --> 31:59.720
+ now killing animals and eating them
+
+31:59.720 --> 32:01.200
+ is what's killing us in a way.
+
+32:01.200 --> 32:02.840
+ So it's like, we just can't,
+
+32:02.840 --> 32:04.920
+ we don't know when to call it and we don't,
+
+32:04.920 --> 32:06.560
+ moderation is not really something
+
+32:06.560 --> 32:10.040
+ that humans have evolved to have yet.
+
+32:10.040 --> 32:13.640
+ So I think it's really just a flaw in our wiring.
+
+32:13.640 --> 32:15.280
+ Do you think we'll look back at this time
+
+32:15.280 --> 32:19.440
+ as our society is being deeply unethical?
+
+32:19.440 --> 32:22.280
+ Yeah, yeah, I think we'll be embarrassed.
+
+32:22.280 --> 32:24.880
+ Which are the worst parts right now going on?
+
+32:24.880 --> 32:26.160
+ Is it? In terms of animal?
+
+32:26.160 --> 32:27.800
+ Well, I think. No, in terms of anything.
+
+32:27.800 --> 32:29.160
+ What's the unethical thing?
+
+32:29.160 --> 32:32.040
+ If we, and it's very hard just to take a step out of it,
+
+32:32.040 --> 32:36.240
+ but you just said we used to watch, you know,
+
+32:37.360 --> 32:40.440
+ there's been a lot of cruelty throughout history.
+
+32:40.440 --> 32:42.160
+ What's the cruelty going on now?
+
+32:42.160 --> 32:44.200
+ I think it's gonna be pigs.
+
+32:44.200 --> 32:45.520
+ I think it's gonna be, I mean,
+
+32:45.520 --> 32:48.680
+ pigs are one of the most emotionally intelligent animals
+
+32:48.680 --> 32:51.680
+ and they have the intelligence of like a three year old.
+
+32:51.680 --> 32:54.320
+ And I think we'll look back and be really,
+
+32:54.320 --> 32:55.160
+ they use tools.
+
+32:55.160 --> 32:58.440
+ I mean, I think we have this narrative
+
+32:58.440 --> 32:59.760
+ that they're pigs and they're pigs
+
+32:59.760 --> 33:01.880
+ and they're disgusting and they're dirty
+
+33:01.880 --> 33:02.880
+ and they're bacon is so good.
+
+33:02.880 --> 33:04.240
+ I think that we'll look back one day
+
+33:04.240 --> 33:06.640
+ and be really embarrassed about that.
+
+33:06.640 --> 33:09.280
+ Is this for just the, what's it called?
+
+33:09.280 --> 33:10.360
+ The factory farming?
+
+33:10.360 --> 33:11.680
+ So basically mass.
+
+33:11.680 --> 33:12.520
+ Because we don't see it.
+
+33:12.520 --> 33:14.520
+ If you saw, I mean, we do have,
+
+33:14.520 --> 33:17.600
+ I mean, this is probably an evolutionary advantage.
+
+33:17.600 --> 33:20.400
+ We do have the ability to completely
+
+33:20.400 --> 33:21.520
+ pretend something's not,
+
+33:21.520 --> 33:24.040
+ something that is so horrific that it overwhelms us
+
+33:24.040 --> 33:27.560
+ and we're able to essentially deny that it's happening.
+
+33:27.560 --> 33:29.280
+ I think if people were to see what goes on
+
+33:29.280 --> 33:30.480
+ in factory farming,
+
+33:30.480 --> 33:35.360
+ and also we're really to take in how bad it is for us,
+
+33:35.360 --> 33:37.160
+ you know, we're hurting ourselves first and foremost
+
+33:37.160 --> 33:38.440
+ with what we eat,
+
+33:38.440 --> 33:41.280
+ but that's also a very elitist argument, you know?
+
+33:41.280 --> 33:44.600
+ It's a luxury to be able to complain about meat.
+
+33:44.600 --> 33:47.160
+ It's a luxury to be able to not eat meat, you know?
+
+33:47.160 --> 33:49.960
+ There's very few people because of, you know,
+
+33:49.960 --> 33:53.360
+ how the corporations have set up meat being cheap.
+
+33:53.360 --> 33:55.320
+ You know, it's $2 to buy a Big Mac,
+
+33:55.320 --> 33:57.640
+ it's $10 to buy a healthy meal.
+
+33:57.640 --> 34:00.000
+ You know, that's, I think a lot of people
+
+34:00.000 --> 34:02.280
+ don't have the luxury to even think that way.
+
+34:02.280 --> 34:04.240
+ But I do think that animals in captivity,
+
+34:04.240 --> 34:05.080
+ I think we're gonna look back
+
+34:05.080 --> 34:07.880
+ and be pretty grossed out about mammals in captivity,
+
+34:07.880 --> 34:08.800
+ whales, dolphins.
+
+34:08.800 --> 34:12.240
+ I mean, that's already starting to dismantle, circuses,
+
+34:12.240 --> 34:14.020
+ we're gonna be pretty embarrassed about.
+
+34:14.020 --> 34:17.160
+ But I think it's really more a testament to,
+
+34:17.160 --> 34:22.080
+ you know, there's just such a ability to go like,
+
+34:22.080 --> 34:25.560
+ that thing is different than me and we're better.
+
+34:25.560 --> 34:26.800
+ It's the ego, I mean, it's just,
+
+34:26.800 --> 34:29.200
+ we have the species with the biggest ego ultimately.
+
+34:29.200 --> 34:30.720
+ Well, that's what I think,
+
+34:30.720 --> 34:32.520
+ that's my hope for robots is they'll,
+
+34:32.520 --> 34:34.240
+ you mentioned consciousness before,
+
+34:34.240 --> 34:37.640
+ nobody knows what consciousness is,
+
+34:37.640 --> 34:42.200
+ but I'm hoping robots will help us empathize
+
+34:42.200 --> 34:47.200
+ and understand that there's other creatures
+
+34:47.840 --> 34:50.320
+ besides ourselves that can suffer,
+
+34:50.320 --> 34:54.800
+ that can experience the world
+
+34:54.800 --> 34:57.680
+ and that we can torture by our actions.
+
+34:57.680 --> 34:59.880
+ And robots can explicitly teach us that,
+
+34:59.880 --> 35:01.480
+ I think better than animals can.
+
+35:01.480 --> 35:06.480
+ I have never seen such compassion
+
+35:06.480 --> 35:09.240
+ from a lot of people in my life
+
+35:10.840 --> 35:13.640
+ toward any human, animal, child,
+
+35:13.640 --> 35:15.000
+ as I have a lot of people
+
+35:15.000 --> 35:16.600
+ in the way they interact with the robot.
+
+35:16.600 --> 35:19.760
+ Because I think there's something of,
+
+35:19.760 --> 35:23.520
+ I mean, I was on the robot owner's chat boards
+
+35:23.520 --> 35:25.920
+ for a good eight months.
+
+35:25.920 --> 35:28.120
+ And the main emotional benefit is
+
+35:28.120 --> 35:30.360
+ she's never gonna cheat on you,
+
+35:30.360 --> 35:31.920
+ she's never gonna hurt you,
+
+35:31.920 --> 35:33.120
+ she's never gonna lie to you,
+
+35:33.120 --> 35:34.760
+ she doesn't judge you.
+
+35:34.760 --> 35:38.480
+ I think that robots help people,
+
+35:38.480 --> 35:40.640
+ and this is part of the work I do with animals,
+
+35:40.640 --> 35:42.760
+ like I do equine therapy and train dogs and stuff,
+
+35:42.760 --> 35:46.280
+ because there is this safe space to be authentic.
+
+35:46.280 --> 35:47.960
+ With this being that doesn't care
+
+35:47.960 --> 35:48.800
+ what you do for a living,
+
+35:48.800 --> 35:50.160
+ doesn't care how much money you have,
+
+35:50.160 --> 35:51.280
+ doesn't care who you're dating,
+
+35:51.280 --> 35:52.200
+ doesn't care what you look like,
+
+35:52.200 --> 35:54.320
+ doesn't care if you have cellulite, whatever,
+
+35:54.320 --> 35:57.720
+ you feel safe to be able to truly be present
+
+35:57.720 --> 35:59.920
+ without being defensive and worrying about eye contact
+
+35:59.920 --> 36:02.680
+ and being triggered by needing to be perfect
+
+36:02.680 --> 36:04.840
+ and fear of judgment and all that.
+
+36:04.840 --> 36:07.320
+ And robots really can't judge you yet,
+
+36:08.240 --> 36:09.320
+ but they can't judge you,
+
+36:09.320 --> 36:13.480
+ and I think it really puts people at ease
+
+36:13.480 --> 36:15.320
+ and at their most authentic.
+
+36:16.360 --> 36:18.720
+ Do you think you can have a deep connection
+
+36:18.720 --> 36:21.920
+ with a robot that's not judging,
+
+36:21.920 --> 36:25.440
+ or do you think you can really have a relationship
+
+36:25.440 --> 36:30.000
+ with a robot or a human being that's a safe space?
+
+36:30.000 --> 36:33.480
+ Or is attention, mystery, danger
+
+36:33.480 --> 36:35.960
+ necessary for a deep connection?
+
+36:35.960 --> 36:38.600
+ I'm gonna speak for myself and say that
+
+36:38.600 --> 36:40.120
+ I grew up in an alcoholic home,
+
+36:40.120 --> 36:41.440
+ I identify as a codependent,
+
+36:41.440 --> 36:43.280
+ talked about this stuff before,
+
+36:43.280 --> 36:45.360
+ but for me it's very hard to be in a relationship
+
+36:45.360 --> 36:47.600
+ with a human being without feeling like
+
+36:47.600 --> 36:50.760
+ I need to perform in some way or deliver in some way,
+
+36:50.760 --> 36:51.920
+ and I don't know if that's just the people
+
+36:51.920 --> 36:56.520
+ I've been in a relationship with or me or my brokenness,
+
+36:56.520 --> 37:00.720
+ but I do think, this is gonna sound really
+
+37:01.960 --> 37:04.160
+ negative and pessimistic,
+
+37:04.160 --> 37:07.200
+ but I do think a lot of our relationships are projection
+
+37:07.200 --> 37:09.600
+ and a lot of our relationships are performance,
+
+37:09.600 --> 37:12.280
+ and I don't think I really understood that
+
+37:12.280 --> 37:15.280
+ until I worked with horses.
+
+37:15.280 --> 37:18.080
+ And most communication with human is nonverbal, right?
+
+37:18.080 --> 37:19.920
+ I can say like, I love you,
+
+37:19.920 --> 37:22.000
+ but you don't think I love you, right?
+
+37:22.000 --> 37:24.280
+ Whereas with animals it's very direct.
+
+37:24.280 --> 37:26.840
+ It's all physical, it's all energy.
+
+37:26.840 --> 37:28.520
+ I feel like that with robots too.
+
+37:28.520 --> 37:29.800
+ It feels very,
+
+37:32.760 --> 37:35.280
+ how I say something doesn't matter.
+
+37:35.280 --> 37:36.920
+ My inflection doesn't really matter.
+
+37:36.920 --> 37:40.280
+ And you thinking that my tone is disrespectful,
+
+37:40.280 --> 37:42.160
+ like you're not filtering it through all
+
+37:42.160 --> 37:43.800
+ of the bad relationships you've been in,
+
+37:43.800 --> 37:44.840
+ you're not filtering it through
+
+37:44.840 --> 37:45.880
+ the way your mom talked to you,
+
+37:45.880 --> 37:47.760
+ you're not getting triggered.
+
+37:47.760 --> 37:49.400
+ I find that for the most part,
+
+37:49.400 --> 37:51.000
+ people don't always receive things
+
+37:51.000 --> 37:53.680
+ the way that you intend them to or the way intended,
+
+37:53.680 --> 37:56.120
+ and that makes relationships really murky.
+
+37:56.120 --> 37:57.480
+ So the relationships with animals
+
+37:57.480 --> 38:00.680
+ and relationship with the robots is they are now,
+
+38:00.680 --> 38:03.120
+ you kind of implied that that's more healthy.
+
+38:05.240 --> 38:08.080
+ Can you have a healthy relationship with other humans?
+
+38:08.080 --> 38:10.120
+ Or not healthy, I don't like that word,
+
+38:10.120 --> 38:14.440
+ but shouldn't it be, you've talked about codependency,
+
+38:14.440 --> 38:16.640
+ maybe you can talk about what is codependency,
+
+38:16.640 --> 38:21.640
+ but is that, is the challenges of that,
+
+38:21.640 --> 38:24.520
+ the complexity of that necessary for passion,
+
+38:24.520 --> 38:27.160
+ for love between humans?
+
+38:27.160 --> 38:29.360
+ That's right, you love passion.
+
+38:29.360 --> 38:31.880
+ That's a good thing.
+
+38:31.880 --> 38:33.840
+ I thought this would be a safe space.
+
+38:33.840 --> 38:38.840
+ I got trolled by Rogan for hours on this.
+
+38:39.920 --> 38:42.560
+ Look, I am not anti passion.
+
+38:42.560 --> 38:45.240
+ I think that I've just maybe been around long enough
+
+38:45.240 --> 38:48.200
+ to know that sometimes it's ephemeral
+
+38:48.200 --> 38:53.200
+ and that passion is a mixture of a lot of different things,
+
+38:55.360 --> 38:57.640
+ adrenaline, which turns into dopamine, cortisol,
+
+38:57.640 --> 39:01.160
+ it's a lot of neurochemicals, it's a lot of projection,
+
+39:01.160 --> 39:03.200
+ it's a lot of what we've seen in movies,
+
+39:03.200 --> 39:06.160
+ it's a lot of, you know, I identify as an addict.
+
+39:06.160 --> 39:08.520
+ So for me, sometimes passion is like,
+
+39:08.520 --> 39:10.120
+ uh oh, this could be bad.
+
+39:10.120 --> 39:11.520
+ And I think we've been so conditioned to believe
+
+39:11.520 --> 39:13.080
+ that passion means like your soulmates,
+
+39:13.080 --> 39:14.280
+ and I mean, how many times have you had
+
+39:14.280 --> 39:15.600
+ a passionate connection with someone
+
+39:15.600 --> 39:18.920
+ and then it was a total train wreck?
+
+39:18.920 --> 39:19.760
+ The train wreck is interesting.
+
+39:19.760 --> 39:21.080
+ How many times exactly?
+
+39:21.080 --> 39:21.920
+ Exactly.
+
+39:21.920 --> 39:22.760
+ What's a train wreck?
+
+39:22.760 --> 39:24.400
+ You just did a lot of math in your head
+
+39:24.400 --> 39:25.320
+ in that little moment.
+
+39:25.320 --> 39:26.480
+ Counting.
+
+39:26.480 --> 39:28.560
+ I mean, what's a train wreck?
+
+39:28.560 --> 39:31.480
+ What's a, why is obsession,
+
+39:31.480 --> 39:33.600
+ so you described this codependency
+
+39:33.600 --> 39:37.400
+ and sort of the idea of attachment,
+
+39:37.400 --> 39:40.240
+ over attachment to people who don't deserve
+
+39:40.240 --> 39:45.040
+ that kind of attachment as somehow a bad thing
+
+39:45.040 --> 39:47.720
+ and I think our society says it's a bad thing.
+
+39:47.720 --> 39:49.600
+ It probably is a bad thing.
+
+39:49.600 --> 39:52.560
+ Like a delicious burger is a bad thing.
+
+39:52.560 --> 39:53.400
+ I don't know, but.
+
+39:53.400 --> 39:54.280
+ Right, oh, that's a good point.
+
+39:54.280 --> 39:56.120
+ I think that you're pointing out something really fascinating
+
+39:56.120 --> 39:59.320
+ which is like passion, if you go into it knowing
+
+39:59.320 --> 40:01.160
+ this is like pizza where it's gonna be delicious
+
+40:01.160 --> 40:03.040
+ for two hours and then I don't have to have it again
+
+40:03.040 --> 40:06.360
+ for three, if you can have a choice in the passion,
+
+40:06.360 --> 40:09.520
+ I define passion as something that is relatively unmanageable
+
+40:09.520 --> 40:12.200
+ and something you can't control or stop and start
+
+40:12.200 --> 40:13.720
+ with your own volition.
+
+40:13.720 --> 40:16.320
+ So maybe we're operating under different definitions.
+
+40:16.320 --> 40:18.840
+ If passion is something that like, you know,
+
+40:18.840 --> 40:22.160
+ ruins your real marriages and screws up
+
+40:22.160 --> 40:24.280
+ your professional life and becomes this thing
+
+40:24.280 --> 40:28.600
+ that you're not in control of and becomes addictive,
+
+40:28.600 --> 40:30.560
+ I think that's the difference is,
+
+40:30.560 --> 40:32.560
+ is it a choice or is it not a choice?
+
+40:32.560 --> 40:35.120
+ And if it is a choice, then passion's great.
+
+40:35.120 --> 40:37.360
+ But if it's something that like consumes you
+
+40:37.360 --> 40:39.360
+ and makes you start making bad decisions
+
+40:39.360 --> 40:41.160
+ and clouds your frontal lobe
+
+40:41.160 --> 40:44.040
+ and is just all about dopamine
+
+40:44.040 --> 40:46.160
+ and not really about the person
+
+40:46.160 --> 40:47.800
+ and more about the neurochemical,
+
+40:47.800 --> 40:50.760
+ we call it sort of the drug, the internal drug cabinet.
+
+40:50.760 --> 40:52.960
+ If it's all just, you're on drugs, that's different,
+
+40:52.960 --> 40:54.960
+ you know, cause sometimes you're just on drugs.
+
+40:54.960 --> 40:57.360
+ Okay, so there's a philosophical question here.
+
+40:58.440 --> 41:03.320
+ So would you rather, and it's interesting for a comedian,
+
+41:03.320 --> 41:07.520
+ brilliant comedian to speak so eloquently
+
+41:07.520 --> 41:09.480
+ about a balanced life.
+
+41:09.480 --> 41:12.040
+ I kind of argue against this point.
+
+41:12.040 --> 41:13.520
+ There's such an obsession of creating
+
+41:13.520 --> 41:18.080
+ this healthy lifestyle now, psychologically speaking.
+
+41:18.080 --> 41:22.040
+ You know, I'm a fan of the idea that you sort of fly high
+
+41:22.040 --> 41:26.480
+ and you crash and die at 27 is also a possible life.
+
+41:26.480 --> 41:27.960
+ And it's not one we should judge
+
+41:27.960 --> 41:30.680
+ because I think there's moments of greatness.
+
+41:30.680 --> 41:32.120
+ I talked to Olympic athletes
+
+41:32.120 --> 41:34.280
+ where some of their greatest moments
+
+41:34.280 --> 41:36.560
+ are achieved in their early 20s.
+
+41:36.560 --> 41:39.840
+ And the rest of their life is in the kind of fog
+
+41:39.840 --> 41:41.920
+ of almost of a depression because they can never.
+
+41:41.920 --> 41:44.240
+ Because they're based on their physical prowess, right?
+
+41:44.240 --> 41:46.400
+ Physical prowess and they'll never,
+
+41:46.400 --> 41:50.200
+ so that, so they're watching their physical prowess fade
+
+41:50.200 --> 41:54.680
+ and they'll never achieve the kind of height,
+
+41:54.680 --> 41:58.240
+ not just physical, of just emotion, of.
+
+41:58.240 --> 42:01.760
+ Well, the max number of neurochemicals.
+
+42:01.760 --> 42:04.680
+ And you also put your money on the wrong horse.
+
+42:04.680 --> 42:06.360
+ That's where I would just go like,
+
+42:06.360 --> 42:10.120
+ oh yeah, if you're doing a job where you peak at 22,
+
+42:10.120 --> 42:12.320
+ the rest of your life is gonna be hard.
+
+42:12.320 --> 42:15.120
+ That idea is considering the notion
+
+42:15.120 --> 42:17.480
+ that you wanna optimize some kind of,
+
+42:17.480 --> 42:19.280
+ but we're all gonna die soon.
+
+42:19.280 --> 42:20.120
+ What?
+
+42:21.840 --> 42:23.280
+ Now you tell me.
+
+42:23.280 --> 42:26.800
+ I've immortalized myself, so I'm gonna be fine.
+
+42:26.800 --> 42:28.240
+ See, you're almost like,
+
+42:28.240 --> 42:32.160
+ how many Oscar winning movies can I direct
+
+42:32.160 --> 42:34.040
+ by the time I'm 100?
+
+42:34.040 --> 42:35.800
+ How many this and that?
+
+42:35.800 --> 42:38.080
+ But you know, there's a night, you know,
+
+42:38.080 --> 42:41.200
+ it's all, life is short, relatively speaking.
+
+42:41.200 --> 42:42.600
+ I know, but it can also come in different ways.
+
+42:42.600 --> 42:45.120
+ You go, life is short, play hard,
+
+42:45.120 --> 42:47.640
+ fall in love as much as you can, run into walls.
+
+42:47.640 --> 42:49.400
+ I would also go, life is short,
+
+42:49.400 --> 42:53.760
+ don't deplete yourself on things that aren't sustainable
+
+42:53.760 --> 42:56.560
+ and that you can't keep, you know?
+
+42:56.560 --> 42:59.720
+ So I think everyone gets dopamine from different places.
+
+42:59.720 --> 43:01.720
+ Everyone has meaning from different places.
+
+43:01.720 --> 43:04.520
+ I look at the fleeting passionate relationships
+
+43:04.520 --> 43:06.800
+ I've had in the past and I don't like,
+
+43:06.800 --> 43:07.880
+ I don't have pride in that.
+
+43:07.880 --> 43:10.400
+ I think that you have to decide what, you know,
+
+43:10.400 --> 43:11.240
+ helps you sleep at night.
+
+43:11.240 --> 43:13.480
+ For me, it's pride and feeling like I behave
+
+43:13.480 --> 43:14.480
+ with grace and integrity.
+
+43:14.480 --> 43:16.040
+ That's just me personally.
+
+43:16.040 --> 43:17.640
+ Everyone can go like, yeah,
+
+43:17.640 --> 43:20.960
+ I slept with all the hot chicks in Italy I could
+
+43:20.960 --> 43:23.440
+ and I, you know, did all the whatever,
+
+43:23.440 --> 43:25.040
+ like whatever you value,
+
+43:25.040 --> 43:26.560
+ we're allowed to value different things.
+
+43:26.560 --> 43:28.040
+ Yeah, we're talking about Brian Callan.
+
+43:28.040 --> 43:32.560
+ Brian Callan has lived his life to the fullest,
+
+43:32.560 --> 43:33.560
+ to say the least.
+
+43:33.560 --> 43:36.360
+ But I think that it's just for me personally,
+
+43:36.360 --> 43:38.800
+ I, and this could be like my workaholism
+
+43:38.800 --> 43:41.520
+ or my achievementism,
+
+43:41.520 --> 43:45.200
+ I, if I don't have something to show for something,
+
+43:45.200 --> 43:50.200
+ I feel like it's a waste of time or some kind of loss.
+
+43:50.240 --> 43:52.560
+ I'm in a 12 step program and the third step would say,
+
+43:52.560 --> 43:54.080
+ there's no such thing as waste of time
+
+43:54.080 --> 43:56.800
+ and everything happens exactly as it should
+
+43:56.800 --> 43:59.440
+ and whatever, that's a way to just sort of keep us sane
+
+43:59.440 --> 44:01.800
+ so we don't grieve too much and beat ourselves up
+
+44:01.800 --> 44:04.600
+ over past mistakes, there's no such thing as mistakes,
+
+44:04.600 --> 44:05.720
+ dah, dah, dah.
+
+44:05.720 --> 44:10.600
+ But I think passion is, I think it's so life affirming
+
+44:10.600 --> 44:13.000
+ and one of the few things that maybe people like us
+
+44:13.000 --> 44:14.840
+ makes us feel awake and seen
+
+44:14.840 --> 44:19.840
+ and we just have such a high threshold for adrenaline.
+
+44:20.480 --> 44:22.720
+ You know, I mean, you are a fighter, right?
+
+44:22.720 --> 44:24.000
+ Yeah, okay, so yeah,
+
+44:24.000 --> 44:28.680
+ so you have a very high tolerance for adrenaline
+
+44:28.680 --> 44:30.360
+ and I think that Olympic athletes,
+
+44:30.360 --> 44:33.600
+ the amount of adrenaline they get from performing,
+
+44:33.600 --> 44:34.680
+ it's very hard to follow that.
+
+44:34.680 --> 44:36.480
+ It's like when guys come back from the military
+
+44:36.480 --> 44:38.080
+ and they have depression.
+
+44:38.080 --> 44:40.600
+ It's like, do you miss bullets flying at you?
+
+44:40.600 --> 44:42.760
+ Yeah, kind of because of that adrenaline
+
+44:42.760 --> 44:45.040
+ which turned into dopamine and the camaraderie.
+
+44:45.040 --> 44:46.480
+ I mean, there's people that speak much better
+
+44:46.480 --> 44:48.360
+ about this than I do.
+
+44:48.360 --> 44:50.680
+ But I just, I'm obsessed with neurology
+
+44:50.680 --> 44:54.080
+ and I'm just obsessed with sort of the lies we tell ourselves
+
+44:54.080 --> 44:57.040
+ in order to justify getting neurochemicals.
+
+44:57.040 --> 45:00.320
+ You've done actually quite, done a lot of thinking
+
+45:00.320 --> 45:01.880
+ and talking about neurology
+
+45:01.880 --> 45:04.160
+ and just kind of look at human behavior
+
+45:04.160 --> 45:07.800
+ through the lens of looking at how our actually,
+
+45:07.800 --> 45:09.120
+ chemically our brain works.
+
+45:09.120 --> 45:10.880
+ So what, first of all,
+
+45:10.880 --> 45:15.360
+ why did you connect with that idea and what have you,
+
+45:15.360 --> 45:17.520
+ how has your view of the world changed
+
+45:17.520 --> 45:22.400
+ by considering the brain is just a machine?
+
+45:22.400 --> 45:24.520
+ You know, I know it probably sounds really nihilistic
+
+45:24.520 --> 45:27.480
+ but for me, it's very liberating to know a lot
+
+45:27.480 --> 45:30.040
+ about neurochemicals because you don't have to,
+
+45:30.040 --> 45:32.480
+ it's like the same thing with like critics,
+
+45:32.480 --> 45:33.880
+ like critical reviews.
+
+45:33.880 --> 45:34.720
+ If you believe the good,
+
+45:34.720 --> 45:36.080
+ you have to believe the bad kind of thing.
+
+45:36.080 --> 45:38.880
+ Like, you know, if you believe that your bad choices
+
+45:38.880 --> 45:43.720
+ were because of your moral integrity or whatever,
+
+45:43.720 --> 45:44.720
+ you have to believe your good ones.
+
+45:44.720 --> 45:46.280
+ I just think there's something really liberating
+
+45:46.280 --> 45:48.040
+ and going like, oh, that was just adrenaline.
+
+45:48.040 --> 45:48.880
+ I just said that thing
+
+45:48.880 --> 45:50.680
+ because I was adrenalized and I was scared
+
+45:50.680 --> 45:52.080
+ and my amygdala was activated
+
+45:52.080 --> 45:54.360
+ and that's why I said you're an asshole and get out.
+
+45:54.360 --> 45:55.880
+ And that's, you know, I think,
+
+45:55.880 --> 45:57.960
+ I just think it's important to delineate what's nature
+
+45:57.960 --> 45:59.840
+ and what's nurture, what is your choice
+
+45:59.840 --> 46:02.000
+ and what is just your brain trying to keep you safe.
+
+46:02.000 --> 46:04.520
+ I think we forget that even though we have security systems
+
+46:04.520 --> 46:06.360
+ and homes and locks on our doors,
+
+46:06.360 --> 46:07.520
+ that our brain for the most part
+
+46:07.520 --> 46:09.200
+ is just trying to keep us safe all the time.
+
+46:09.200 --> 46:11.320
+ It's why we hold grudges, it's why we get angry,
+
+46:11.320 --> 46:14.720
+ it's why we get road rage, it's why we do a lot of things.
+
+46:14.720 --> 46:17.240
+ And it's also, when I started learning about neurology,
+
+46:17.240 --> 46:19.640
+ I started having so much more compassion for other people.
+
+46:19.640 --> 46:21.520
+ You know, if someone yelled at me being like,
+
+46:21.520 --> 46:22.920
+ fuck you on the road, I'd be like,
+
+46:22.920 --> 46:24.600
+ okay, he's producing adrenaline right now
+
+46:24.600 --> 46:27.680
+ because we're all going 65 miles an hour
+
+46:27.680 --> 46:30.200
+ and our brains aren't really designed
+
+46:30.200 --> 46:33.280
+ for this type of stress and he's scared.
+
+46:33.280 --> 46:35.320
+ He was scared, you know, so that really helped me
+
+46:35.320 --> 46:38.360
+ to have more love for people in my everyday life
+
+46:38.360 --> 46:41.000
+ instead of being in fight or flight mode.
+
+46:41.000 --> 46:44.160
+ But the, I think more interesting answer to your question
+
+46:44.160 --> 46:45.720
+ is that I've had migraines my whole life.
+
+46:45.720 --> 46:49.000
+ Like I've suffered with really intense migraines,
+
+46:49.000 --> 46:52.360
+ ocular migraines, ones where my arm would go numb
+
+46:52.360 --> 46:55.000
+ and I just started having to go to so many doctors
+
+46:55.000 --> 46:58.360
+ to learn about it and I started, you know,
+
+46:58.360 --> 47:00.680
+ learning that we don't really know that much.
+
+47:00.680 --> 47:03.520
+ We know a lot, but it's wild to go into
+
+47:03.520 --> 47:04.840
+ one of the best neurologists in the world
+
+47:04.840 --> 47:05.680
+ who's like, yeah, we don't know.
+
+47:05.680 --> 47:07.320
+ We don't know. We don't know.
+
+47:07.320 --> 47:08.160
+ And that fascinated me.
+
+47:08.160 --> 47:10.720
+ Except one of the worst pains you can probably have,
+
+47:10.720 --> 47:13.280
+ all that stuff, and we don't know the source.
+
+47:13.280 --> 47:14.320
+ We don't know the source
+
+47:14.320 --> 47:16.400
+ and there is something really fascinating
+
+47:16.400 --> 47:19.480
+ about when your left arm starts going numb
+
+47:19.480 --> 47:21.000
+ and you start not being able to see
+
+47:21.000 --> 47:22.840
+ out of the left side of both your eyes.
+
+47:22.840 --> 47:25.360
+ And I remember when the migraines get really bad,
+
+47:25.360 --> 47:26.880
+ it's like a mini stroke almost
+
+47:26.880 --> 47:29.880
+ and you're able to see words on a page,
+
+47:29.880 --> 47:31.240
+ but I can't read them.
+
+47:31.240 --> 47:33.080
+ They just look like symbols to me.
+
+47:33.080 --> 47:35.000
+ So there's something just really fascinating to me
+
+47:35.000 --> 47:38.280
+ about your brain just being able to stop functioning.
+
+47:38.280 --> 47:41.640
+ And I, so I just wanted to learn about it, study about it.
+
+47:41.640 --> 47:43.360
+ I did all these weird alternative treatments.
+
+47:43.360 --> 47:45.880
+ I got this piercing in here that actually works.
+
+47:45.880 --> 47:47.000
+ I've tried everything.
+
+47:47.000 --> 47:49.200
+ And then both of my parents had strokes.
+
+47:49.200 --> 47:51.040
+ So when both of my parents had strokes,
+
+47:51.040 --> 47:54.160
+ I became sort of the person who had to decide
+
+47:54.160 --> 47:56.640
+ what was gonna happen with their recovery,
+
+47:56.640 --> 47:59.120
+ which is just a wild thing to have to deal with it.
+
+47:59.120 --> 48:02.120
+ You know, 28 years old when it happened.
+
+48:02.120 --> 48:05.840
+ And I started spending basically all day, every day in ICUs
+
+48:05.840 --> 48:08.200
+ with neurologists learning about what happened
+
+48:08.200 --> 48:11.120
+ to my dad's brain and why he can't move his left arm,
+
+48:11.120 --> 48:12.520
+ but he can move his right leg,
+
+48:12.520 --> 48:14.200
+ but he can't see out of the, you know.
+
+48:14.200 --> 48:15.960
+ And then my mom had another stroke
+
+48:17.000 --> 48:18.040
+ in a different part of the brain.
+
+48:18.040 --> 48:19.640
+ So I started having to learn
+
+48:19.640 --> 48:21.480
+ what parts of the brain did what,
+
+48:21.480 --> 48:23.840
+ and so that I wouldn't take their behavior so personally,
+
+48:23.840 --> 48:25.960
+ and so that I would be able to manage my expectations
+
+48:25.960 --> 48:27.400
+ in terms of their recovery.
+
+48:27.400 --> 48:31.240
+ So my mom, because it affected a lot of her frontal lobe,
+
+48:31.240 --> 48:33.080
+ changed a lot as a person.
+
+48:33.080 --> 48:34.560
+ She was way more emotional.
+
+48:34.560 --> 48:35.760
+ She was way more micromanaged.
+
+48:35.760 --> 48:36.960
+ She was forgetting certain things.
+
+48:36.960 --> 48:40.320
+ So it broke my heart less when I was able to know,
+
+48:40.320 --> 48:42.080
+ oh yeah, well, the stroke hit this part of the brain,
+
+48:42.080 --> 48:44.200
+ and that's the one that's responsible for short term memory,
+
+48:44.200 --> 48:46.840
+ and that's responsible for long term memory, da da da.
+
+48:46.840 --> 48:48.680
+ And then my brother just got something
+
+48:48.680 --> 48:50.520
+ called viral encephalitis,
+
+48:50.520 --> 48:53.280
+ which is an infection inside the brain.
+
+48:53.280 --> 48:56.280
+ So it was kind of wild that I was able to go,
+
+48:56.280 --> 48:57.640
+ oh, I know exactly what's happening here,
+
+48:57.640 --> 48:59.760
+ and I know, you know, so.
+
+48:59.760 --> 49:02.440
+ So that's allows you to have some more compassion
+
+49:02.440 --> 49:04.440
+ for the struggles that people have,
+
+49:04.440 --> 49:06.560
+ but does it take away some of the magic
+
+49:06.560 --> 49:08.800
+ for some of the, from the,
+
+49:08.800 --> 49:10.920
+ some of the more positive experiences of life?
+
+49:10.920 --> 49:11.920
+ Sometimes.
+
+49:11.920 --> 49:15.320
+ Sometimes, and I don't, I'm such a control addict
+
+49:15.320 --> 49:18.120
+ that, you know, I think our biggest,
+
+49:18.120 --> 49:19.360
+ someone like me,
+
+49:19.360 --> 49:21.000
+ my biggest dream is to know why someone's doing it.
+
+49:21.000 --> 49:22.240
+ That's what standup is.
+
+49:22.240 --> 49:23.440
+ It's just trying to figure out why,
+
+49:23.440 --> 49:24.280
+ or that's what writing is.
+
+49:24.280 --> 49:25.120
+ That's what acting is.
+
+49:25.120 --> 49:25.960
+ That's what performing is.
+
+49:25.960 --> 49:27.440
+ It's trying to figure out why someone would do something.
+
+49:27.440 --> 49:30.040
+ As an actor, you get a piece of, you know, material,
+
+49:30.040 --> 49:32.120
+ and you go, this person, why would he say that?
+
+49:32.120 --> 49:33.760
+ Why would he, she pick up that cup?
+
+49:33.760 --> 49:35.040
+ Why would she walk over here?
+
+49:35.040 --> 49:36.560
+ It's really why, why, why, why.
+
+49:36.560 --> 49:38.000
+ So I think neurology is,
+
+49:38.000 --> 49:40.320
+ if you're trying to figure out human motives
+
+49:40.320 --> 49:41.520
+ and why people do what they do,
+
+49:41.520 --> 49:46.080
+ it'd be crazy not to understand how neurochemicals motivate us.
+
+49:46.080 --> 49:48.080
+ I also have a lot of addiction in my family
+
+49:48.080 --> 49:51.480
+ and hardcore drug addiction and mental illness.
+
+49:51.480 --> 49:53.720
+ And in order to cope with it,
+
+49:53.720 --> 49:55.640
+ you really have to understand that borderline personality
+
+49:55.640 --> 49:58.360
+ disorder, schizophrenia, and drug addiction.
+
+49:58.360 --> 50:00.640
+ So I have a lot of people I love
+
+50:00.640 --> 50:02.840
+ that suffer from drug addiction and alcoholism.
+
+50:02.840 --> 50:04.760
+ And the first thing they started teaching you
+
+50:04.760 --> 50:05.880
+ is it's not a choice.
+
+50:05.880 --> 50:07.360
+ These people's dopamine receptors
+
+50:07.360 --> 50:09.640
+ don't hold dopamine the same ways yours do.
+
+50:09.640 --> 50:13.200
+ Their frontal lobe is underdeveloped, like, you know,
+
+50:13.200 --> 50:17.160
+ and that really helped me to navigate dealing,
+
+50:17.160 --> 50:20.240
+ loving people that were addicted to substances.
+
+50:20.240 --> 50:24.240
+ I want to be careful with this question, but how much?
+
+50:24.240 --> 50:25.320
+ Money do you have?
+
+50:25.320 --> 50:26.160
+ How much?
+
+50:26.160 --> 50:28.920
+ Can I borrow $10?
+
+50:28.920 --> 50:33.920
+ Okay, no, is how much control,
+
+50:33.920 --> 50:38.920
+ how much, despite the chemical imbalances
+
+50:39.760 --> 50:42.920
+ or the biological limitations
+
+50:42.920 --> 50:44.520
+ that each of our individual brains have,
+
+50:44.520 --> 50:47.080
+ how much mind over matter is there?
+
+50:47.080 --> 50:51.160
+ So through things that I've known people
+
+50:51.160 --> 50:53.200
+ with clinical depression,
+
+50:53.200 --> 50:55.560
+ and so it's always a touchy subject
+
+50:55.560 --> 50:57.680
+ to say how much they can really help it.
+
+50:57.680 --> 50:58.520
+ Very.
+
+50:59.680 --> 51:01.680
+ What can you, yeah, what can you,
+
+51:01.680 --> 51:03.520
+ because you've talked about codependency,
+
+51:03.520 --> 51:07.400
+ you talked about issues that you struggle through,
+
+51:07.400 --> 51:09.880
+ and nevertheless, you choose to take a journey
+
+51:09.880 --> 51:12.840
+ of healing and so on, so that's your choice,
+
+51:12.840 --> 51:14.240
+ that's your actions.
+
+51:14.240 --> 51:17.720
+ So how much can you do to help fight the limitations
+
+51:17.720 --> 51:20.040
+ of the neurochemicals in your brain?
+
+51:20.040 --> 51:21.800
+ That's such an interesting question,
+
+51:21.800 --> 51:23.440
+ and I don't think I'm at all qualified to answer,
+
+51:23.440 --> 51:25.560
+ but I'll say what I do know.
+
+51:25.560 --> 51:28.200
+ And really quick, just the definition of codependency,
+
+51:28.200 --> 51:29.920
+ I think a lot of people think of codependency
+
+51:29.920 --> 51:33.120
+ as like two people that can't stop hanging out, you know,
+
+51:33.120 --> 51:36.640
+ or like, you know, that's not totally off,
+
+51:36.640 --> 51:38.280
+ but I think for the most part,
+
+51:38.280 --> 51:39.960
+ my favorite definition of codependency
+
+51:39.960 --> 51:42.880
+ is the inability to tolerate the discomfort of others.
+
+51:42.880 --> 51:44.040
+ You grow up in an alcoholic home,
+
+51:44.040 --> 51:45.200
+ you grow up around mental illness,
+
+51:45.200 --> 51:46.480
+ you grow up in chaos,
+
+51:46.480 --> 51:48.280
+ you have a parent that's a narcissist,
+
+51:48.280 --> 51:51.520
+ you basically are wired to just people please,
+
+51:51.520 --> 51:54.720
+ worry about others, be perfect, walk on eggshells,
+
+51:54.720 --> 51:56.680
+ shape shift to accommodate other people.
+
+51:56.680 --> 52:01.680
+ So codependence is a very active wiring issue
+
+52:01.680 --> 52:04.400
+ that, you know, doesn't just affect
+
+52:04.400 --> 52:06.920
+ your romantic relationships, it affects you being a boss,
+
+52:06.920 --> 52:09.480
+ it affects you in the world.
+
+52:09.480 --> 52:11.920
+ Online, you know, you get one negative comment
+
+52:11.920 --> 52:14.080
+ and it throws you for two weeks.
+
+52:14.080 --> 52:16.080
+ You know, it also is linked to eating disorders
+
+52:16.080 --> 52:17.040
+ and other kinds of addiction.
+
+52:17.040 --> 52:20.120
+ So it's a very big thing,
+
+52:20.120 --> 52:21.920
+ and I think a lot of people sometimes only think
+
+52:21.920 --> 52:23.400
+ that it's in a romantic relationship,
+
+52:23.400 --> 52:25.840
+ so I always feel the need to say that.
+
+52:25.840 --> 52:28.000
+ And also one of the reasons I love the idea of robots
+
+52:28.000 --> 52:30.320
+ so much because you don't have to walk on eggshells
+
+52:30.320 --> 52:31.480
+ around them, you don't have to worry
+
+52:31.480 --> 52:33.240
+ they're gonna get mad at you yet,
+
+52:33.240 --> 52:36.840
+ but there's no, codependents are hypersensitive
+
+52:36.840 --> 52:39.480
+ to the needs and moods of others,
+
+52:39.480 --> 52:42.080
+ and it's very exhausting, it's depleting.
+
+52:42.080 --> 52:45.360
+ Just one conversation about where we're gonna go to dinner
+
+52:45.360 --> 52:47.200
+ is like, do you wanna go get Chinese food?
+
+52:47.200 --> 52:48.360
+ We just had Chinese food.
+
+52:48.360 --> 52:50.080
+ Well, wait, are you mad?
+
+52:50.080 --> 52:50.920
+ Well, no, I didn't mean to,
+
+52:50.920 --> 52:54.880
+ and it's just like that codependents live in this,
+
+52:54.880 --> 52:56.560
+ everything means something,
+
+52:56.560 --> 53:00.080
+ and humans can be very emotionally exhausting.
+
+53:00.080 --> 53:01.120
+ Why did you look at me that way?
+
+53:01.120 --> 53:01.960
+ What are you thinking about?
+
+53:01.960 --> 53:02.800
+ What was that?
+
+53:02.800 --> 53:03.640
+ Why'd you check your phone?
+
+53:03.640 --> 53:06.320
+ It's a hypersensitivity that can be
+
+53:06.320 --> 53:07.880
+ incredibly time consuming,
+
+53:07.880 --> 53:10.720
+ which is why I love the idea of robots just subbing in.
+
+53:10.720 --> 53:13.800
+ Even, I've had a hard time running TV shows and stuff
+
+53:13.800 --> 53:15.320
+ because even asking someone to do something,
+
+53:15.320 --> 53:16.520
+ I don't wanna come off like a bitch,
+
+53:16.520 --> 53:18.640
+ I'm very concerned about what other people think of me,
+
+53:18.640 --> 53:21.600
+ how I'm perceived, which is why I think robots
+
+53:21.600 --> 53:23.840
+ will be very beneficial for codependents.
+
+53:23.840 --> 53:25.600
+ By the way, just a real quick tangent,
+
+53:25.600 --> 53:29.120
+ that skill or flaw, whatever you wanna call it,
+
+53:29.120 --> 53:32.080
+ is actually really useful for if you ever do
+
+53:32.080 --> 53:34.600
+ start your own podcast for interviewing,
+
+53:34.600 --> 53:36.440
+ because you're now kind of obsessed
+
+53:36.440 --> 53:39.200
+ about the mindset of others,
+
+53:39.200 --> 53:43.520
+ and it makes you a good sort of listener and talker with.
+
+53:43.520 --> 53:48.240
+ So I think, what's her name from NPR?
+
+53:48.240 --> 53:49.080
+ Terry Gross.
+
+53:49.080 --> 53:50.920
+ Terry Gross talked about having that.
+
+53:50.920 --> 53:51.760
+ So.
+
+53:51.760 --> 53:53.440
+ I don't feel like she has that at all.
+
+53:53.440 --> 53:54.280
+ What?
+
+53:54.280 --> 53:56.800
+ She worries about other people's feelings?
+
+53:56.800 --> 53:57.640
+ Yeah, absolutely.
+
+53:57.640 --> 53:59.560
+ Oh, I don't get that at all.
+
+53:59.560 --> 54:01.160
+ I mean, you have to put yourself in the mind
+
+54:01.160 --> 54:03.320
+ of the person you're speaking with.
+
+54:03.320 --> 54:05.120
+ Oh, I see, just in terms of, yeah,
+
+54:05.120 --> 54:06.120
+ I am starting a podcast,
+
+54:06.120 --> 54:08.320
+ and the reason I haven't is because I'm codependent
+
+54:08.320 --> 54:10.320
+ and I'm too worried it's not gonna be perfect.
+
+54:10.320 --> 54:14.240
+ So a big codependent adage is perfectionism
+
+54:14.240 --> 54:16.360
+ leads to procrastination, which leads to paralysis.
+
+54:16.360 --> 54:18.320
+ So how do you, sorry to take a million changes,
+
+54:18.320 --> 54:19.640
+ how do you survive on social media?
+
+54:19.640 --> 54:20.960
+ Is the exception the evidence?
+
+54:20.960 --> 54:21.800
+ Is the exception the evidence?
+
+54:21.800 --> 54:22.640
+ Is the exception the evidence?
+
+54:22.640 --> 54:25.160
+ To survive on social media, is the exception active?
+
+54:25.160 --> 54:26.560
+ But by the way, I took you on a tangent
+
+54:26.560 --> 54:27.800
+ and didn't answer your last question
+
+54:27.800 --> 54:29.920
+ about how much we can control.
+
+54:29.920 --> 54:32.920
+ How much, yeah, we'll return it, or maybe not.
+
+54:32.920 --> 54:33.760
+ The answer is we can't.
+
+54:33.760 --> 54:36.240
+ Now as a codependent, I'm, okay, good.
+
+54:36.240 --> 54:38.160
+ We can, but, but, you know,
+
+54:38.160 --> 54:39.880
+ one of the things that I'm fascinated by is,
+
+54:39.880 --> 54:40.960
+ you know, the first thing you learn
+
+54:40.960 --> 54:43.520
+ when you go into 12 step programs or addiction recovery
+
+54:43.520 --> 54:45.200
+ or any of this is, you know,
+
+54:45.200 --> 54:47.840
+ genetics loads the gun, environment pulls the trigger.
+
+54:47.840 --> 54:50.520
+ And there's certain parts of your genetics
+
+54:50.520 --> 54:51.560
+ you cannot control.
+
+54:51.560 --> 54:54.240
+ I come from a lot of alcoholism.
+
+54:54.240 --> 54:59.240
+ I come from, you know, a lot of mental illness.
+
+54:59.880 --> 55:01.680
+ There's certain things I cannot control
+
+55:01.680 --> 55:04.000
+ and a lot of things that maybe we don't even know yet
+
+55:04.000 --> 55:04.840
+ what we can and can't
+
+55:04.840 --> 55:06.720
+ because of how little we actually know about the brain.
+
+55:06.720 --> 55:08.600
+ But we also talk about the warrior spirit.
+
+55:08.600 --> 55:12.080
+ And there are some people that have that warrior spirit
+
+55:12.080 --> 55:15.280
+ and we don't necessarily know what that engine is,
+
+55:15.280 --> 55:18.000
+ whether it's you get dopamine from succeeding
+
+55:18.000 --> 55:21.160
+ or achieving or martyring yourself
+
+55:21.160 --> 55:24.920
+ or the attention you get from growing.
+
+55:24.920 --> 55:25.800
+ So a lot of people are like,
+
+55:25.800 --> 55:29.080
+ oh, this person can edify themselves and overcome,
+
+55:29.080 --> 55:32.280
+ but if you're getting attention from improving yourself,
+
+55:32.280 --> 55:34.520
+ you're gonna keep wanting to do that.
+
+55:34.520 --> 55:37.200
+ So that is something that helps a lot of,
+
+55:37.200 --> 55:38.560
+ in terms of changing your brain.
+
+55:38.560 --> 55:40.400
+ If you talk about changing your brain to people
+
+55:40.400 --> 55:42.880
+ and talk about what you're doing to overcome set obstacles,
+
+55:42.880 --> 55:44.560
+ you're gonna get more attention from them,
+
+55:44.560 --> 55:46.800
+ which is gonna fire off your reward system
+
+55:46.800 --> 55:48.400
+ and then you're gonna keep doing it.
+
+55:48.400 --> 55:50.280
+ Yeah, so you can leverage that momentum.
+
+55:50.280 --> 55:52.640
+ So this is why in any 12 step program,
+
+55:52.640 --> 55:55.120
+ you go into a room and you talk about your progress
+
+55:55.120 --> 55:57.080
+ because then everyone claps for you.
+
+55:57.080 --> 55:58.760
+ And then you're more motivated to keep going.
+
+55:58.760 --> 56:00.160
+ So that's why we say you're only as sick
+
+56:00.160 --> 56:01.200
+ as the secrets you keep,
+
+56:01.200 --> 56:03.640
+ because if you keep things secret,
+
+56:03.640 --> 56:06.080
+ there's no one guiding you to go in a certain direction.
+
+56:06.080 --> 56:07.080
+ It's based on, right?
+
+56:07.080 --> 56:10.360
+ We're sort of designed to get approval from the tribe
+
+56:10.360 --> 56:11.600
+ or from a group of people
+
+56:11.600 --> 56:14.600
+ because our brain translates it to safety.
+
+56:14.600 --> 56:15.440
+ So, you know.
+
+56:15.440 --> 56:17.640
+ And in that case, the tribe is a positive one
+
+56:17.640 --> 56:19.520
+ that helps you go in a positive direction.
+
+56:19.520 --> 56:21.240
+ So that's why it's so important to go into a room
+
+56:21.240 --> 56:25.080
+ and also say, hey, I wanted to use drugs today.
+
+56:25.080 --> 56:26.440
+ And people go, hmm.
+
+56:26.440 --> 56:27.440
+ They go, me too.
+
+56:27.440 --> 56:28.600
+ And you feel less alone
+
+56:28.600 --> 56:30.400
+ and you feel less like you're, you know,
+
+56:30.400 --> 56:32.760
+ have been castigated from the pack or whatever.
+
+56:32.760 --> 56:35.080
+ And then you say, and you get a chip
+
+56:35.080 --> 56:37.600
+ when you haven't drank for 30 days or 60 days or whatever.
+
+56:37.600 --> 56:38.640
+ You get little rewards.
+
+56:38.640 --> 56:43.240
+ So talking about a pack that's not at all healthy or good,
+
+56:43.240 --> 56:46.280
+ but in fact is often toxic, social media.
+
+56:46.280 --> 56:47.680
+ So you're one of my favorite people
+
+56:47.680 --> 56:52.440
+ on Twitter and Instagram to sort of just both the comedy
+
+56:52.440 --> 56:54.440
+ and the insight and just fun.
+
+56:54.440 --> 56:55.760
+ How do you prevent social media
+
+56:55.760 --> 56:57.240
+ from destroying your mental health?
+
+56:57.240 --> 56:58.080
+ I haven't.
+
+56:59.560 --> 57:00.440
+ I haven't.
+
+57:00.440 --> 57:03.160
+ It's the next big epidemic, isn't it?
+
+57:05.720 --> 57:06.600
+ I don't think I have.
+
+57:06.600 --> 57:08.680
+ I don't think.
+
+57:08.680 --> 57:10.760
+ Is moderation the answer?
+
+57:10.760 --> 57:14.360
+ Maybe, but you can do a lot of damage in a moderate way.
+
+57:14.360 --> 57:17.120
+ I mean, I guess, again, it depends on your goals, you know?
+
+57:17.120 --> 57:20.840
+ And I think for me, the way that my addiction
+
+57:20.840 --> 57:23.080
+ to social media, I'm happy to call it an addiction.
+
+57:23.080 --> 57:24.960
+ I mean, and I define it as an addiction
+
+57:24.960 --> 57:26.280
+ because it stops being a choice.
+
+57:26.280 --> 57:29.240
+ There are times I just reach over and I'm like, that was.
+
+57:29.240 --> 57:30.080
+ Yeah, that was weird.
+
+57:30.080 --> 57:31.320
+ That was weird.
+
+57:31.320 --> 57:33.640
+ I'll be driving sometimes and I'll be like, oh my God,
+
+57:33.640 --> 57:36.800
+ my arm just went to my phone, you know?
+
+57:36.800 --> 57:37.800
+ I can put it down.
+
+57:37.800 --> 57:41.400
+ I can take time away from it, but when I do, I get antsy.
+
+57:41.400 --> 57:43.400
+ I get restless, irritable, and discontent.
+
+57:43.400 --> 57:45.880
+ I mean, that's kind of the definition, isn't it?
+
+57:45.880 --> 57:49.840
+ So I think by no means do I have a healthy relationship
+
+57:49.840 --> 57:50.680
+ with social media.
+
+57:50.680 --> 57:51.560
+ I'm sure there's a way to,
+
+57:51.560 --> 57:54.800
+ but I think I'm especially a weirdo in this space
+
+57:54.800 --> 57:56.960
+ because it's easy to conflate.
+
+57:56.960 --> 57:58.080
+ Is this work?
+
+57:58.080 --> 57:58.920
+ Is this not?
+
+57:58.920 --> 58:01.960
+ I can always say that it's for work, you know?
+
+58:01.960 --> 58:04.160
+ But I mean, don't you get the same kind of thing
+
+58:04.160 --> 58:08.080
+ as you get from when a room full of people laugh at your jokes?
+
+58:08.080 --> 58:11.200
+ Because I mean, I see, especially the way you do Twitter,
+
+58:11.200 --> 58:13.680
+ it's an extension of your comedy in a way.
+
+58:13.680 --> 58:16.000
+ So I took a big break from Twitter though,
+
+58:16.000 --> 58:16.840
+ a really big break.
+
+58:16.840 --> 58:19.160
+ I took like six months off or something for a while
+
+58:19.160 --> 58:20.520
+ because it was just like,
+
+58:20.520 --> 58:22.280
+ it seemed like it was all kind of politics
+
+58:22.280 --> 58:23.280
+ and it was just a little bit,
+
+58:23.280 --> 58:25.000
+ it wasn't giving me dopamine
+
+58:25.000 --> 58:28.320
+ because there was like this weird, a lot of feedback.
+
+58:28.320 --> 58:30.760
+ So I had to take a break from it and then go back to it
+
+58:30.760 --> 58:33.520
+ because I felt like I didn't have a healthy relationship.
+
+58:33.520 --> 58:36.160
+ Have you ever tried the, I don't know if I believe him,
+
+58:36.160 --> 58:39.480
+ but Joe Rogan seems to not read comments.
+
+58:39.480 --> 58:42.560
+ Have you, and he's one of the only people at the scale,
+
+58:42.560 --> 58:47.560
+ like at your level who at least claims not to read.
+
+58:47.880 --> 58:51.800
+ So like, cause you and him swim in this space
+
+58:51.800 --> 58:56.800
+ of tense ideas that get the toxic folks riled up.
+
+58:58.720 --> 59:01.080
+ I think Rogan, I don't, I don't know.
+
+59:01.080 --> 59:05.360
+ I don't, I think he probably looks at YouTube,
+
+59:05.360 --> 59:08.240
+ like the likes and the, you know, I think if some things,
+
+59:08.240 --> 59:10.240
+ if he doesn't know, I don't know.
+
+59:10.240 --> 59:13.800
+ I'm sure he would tell the truth, you know,
+
+59:13.800 --> 59:15.840
+ I'm sure he's got people that look at them
+
+59:15.840 --> 59:17.280
+ and it's like disgusted, great.
+
+59:17.280 --> 59:20.320
+ Or I don't, you know, like, I'm sure he gets it.
+
+59:20.320 --> 59:23.240
+ You know, I can't picture him like in the weeds on.
+
+59:23.240 --> 59:24.080
+ No, for sure.
+
+59:24.080 --> 59:26.280
+ I mean, he's honestly actually saying that I just,
+
+59:26.280 --> 59:28.720
+ it's, it's, it's admirable.
+
+59:28.720 --> 59:29.680
+ We're addicted to feedback.
+
+59:29.680 --> 59:30.560
+ Yeah, we're addicted to feedback.
+
+59:30.560 --> 59:31.960
+ I mean, you know, look,
+
+59:31.960 --> 59:36.040
+ like I think that our brain is designed to get intel
+
+59:36.040 --> 59:39.560
+ on how we're perceived so that we know where we stand,
+
+59:39.560 --> 59:40.400
+ right?
+
+59:40.400 --> 59:41.280
+ That's our whole deal, right?
+
+59:41.280 --> 59:43.040
+ As humans, we want to know where we stand.
+
+59:43.040 --> 59:44.200
+ We walk in a room and we go,
+
+59:44.200 --> 59:45.520
+ who's the most powerful person in here?
+
+59:45.520 --> 59:47.520
+ I got to talk to them and get in their good graces.
+
+59:47.520 --> 59:49.840
+ It's just, we're designed to rank ourselves, right?
+
+59:49.840 --> 59:52.840
+ And constantly know our rank and social media
+
+59:52.840 --> 59:55.880
+ because of you can't figure out your rank
+
+59:55.880 --> 59:58.120
+ with 500 million people.
+
+59:58.120 --> 1:00:00.320
+ It's possible, you know, so our brain is like,
+
+1:00:00.320 --> 1:00:01.160
+ what's my rank?
+
+1:00:01.160 --> 1:00:02.960
+ What's my, and especially if we're following people,
+
+1:00:02.960 --> 1:00:05.160
+ I think the, the big, the interesting thing,
+
+1:00:05.160 --> 1:00:07.800
+ I think I maybe be able to say about this
+
+1:00:07.800 --> 1:00:12.120
+ besides my speech impediment is that I did start muting
+
+1:00:12.120 --> 1:00:16.120
+ people that rank wildly higher than me
+
+1:00:16.120 --> 1:00:19.000
+ because it is just stressful on the brain
+
+1:00:19.000 --> 1:00:21.040
+ to constantly look at people
+
+1:00:21.040 --> 1:00:23.040
+ that are incredibly successful.
+
+1:00:23.040 --> 1:00:25.000
+ So you keep feeling bad about yourself.
+
+1:00:25.000 --> 1:00:27.280
+ You know, I think that that is like cutting
+
+1:00:27.280 --> 1:00:28.600
+ to a certain extent.
+
+1:00:28.600 --> 1:00:30.920
+ Just like, look at me looking at all these people
+
+1:00:30.920 --> 1:00:32.040
+ that have so much more money than me
+
+1:00:32.040 --> 1:00:33.760
+ and so much more success than me.
+
+1:00:33.760 --> 1:00:35.840
+ It's making me feel like a failure,
+
+1:00:35.840 --> 1:00:37.600
+ even though I don't think I'm a failure,
+
+1:00:37.600 --> 1:00:41.880
+ but it's easy to frame it so that I can feel that way.
+
+1:00:41.880 --> 1:00:43.280
+ Yeah, that's really interesting,
+
+1:00:43.280 --> 1:00:45.080
+ especially if they're close to,
+
+1:00:45.080 --> 1:00:46.880
+ like if they're other comedians or something like that,
+
+1:00:46.880 --> 1:00:48.080
+ or whatever.
+
+1:00:48.080 --> 1:00:50.440
+ That's, it's really disappointing to me.
+
+1:00:50.440 --> 1:00:51.720
+ I do the same thing as well.
+
+1:00:51.720 --> 1:00:53.560
+ So other successful people that are really close
+
+1:00:53.560 --> 1:00:56.360
+ to what I do, it, I don't know,
+
+1:00:56.360 --> 1:00:58.200
+ I wish I could just admire.
+
+1:00:58.200 --> 1:00:59.040
+ Yeah.
+
+1:00:59.040 --> 1:01:01.360
+ And for it not to be a distraction, but.
+
+1:01:01.360 --> 1:01:02.440
+ But that's why you are where you are
+
+1:01:02.440 --> 1:01:04.320
+ because you don't just admire your competitive
+
+1:01:04.320 --> 1:01:05.240
+ and you want to win.
+
+1:01:05.240 --> 1:01:07.480
+ So it's also the same thing that bums you out
+
+1:01:07.480 --> 1:01:08.800
+ when you look at this as the same reason
+
+1:01:08.800 --> 1:01:09.640
+ you are where you are.
+
+1:01:09.640 --> 1:01:11.480
+ So that's why I think it's so important
+
+1:01:11.480 --> 1:01:12.800
+ to learn about neurology and addiction
+
+1:01:12.800 --> 1:01:14.080
+ because you're able to go like,
+
+1:01:14.080 --> 1:01:15.680
+ oh, this same instinct.
+
+1:01:15.680 --> 1:01:17.120
+ So I'm very sensitive.
+
+1:01:17.120 --> 1:01:19.480
+ And I, and I sometimes don't like that about myself,
+
+1:01:19.480 --> 1:01:21.640
+ but I'm like, well, that's the reason I'm able to
+
+1:01:21.640 --> 1:01:22.480
+ write good standup.
+
+1:01:22.480 --> 1:01:23.720
+ And that's the reason, and that's the reason
+
+1:01:23.720 --> 1:01:25.680
+ I'm able to be sensitive to feedback
+
+1:01:25.680 --> 1:01:26.920
+ and go, that joke should have been better.
+
+1:01:26.920 --> 1:01:28.040
+ I can make that better.
+
+1:01:28.040 --> 1:01:29.480
+ So it's the kind of thing where it's like,
+
+1:01:29.480 --> 1:01:31.240
+ you have to be really sensitive in your work.
+
+1:01:31.240 --> 1:01:32.320
+ And the second you leave,
+
+1:01:32.320 --> 1:01:33.560
+ you got to be able to turn it off.
+
+1:01:33.560 --> 1:01:34.840
+ It's about developing the muscle,
+
+1:01:34.840 --> 1:01:38.360
+ being able to know when to let it be a superpower
+
+1:01:38.360 --> 1:01:41.240
+ and when it's going to hold you back and be an obstacle.
+
+1:01:41.240 --> 1:01:44.320
+ So I try to not be in that black and white of like,
+
+1:01:44.320 --> 1:01:45.800
+ you know, being competitive is bad
+
+1:01:45.800 --> 1:01:47.720
+ or being jealous of someone just to go like,
+
+1:01:47.720 --> 1:01:50.240
+ oh, there's that thing that makes me really successful
+
+1:01:50.240 --> 1:01:51.440
+ in a lot of other ways,
+
+1:01:51.440 --> 1:01:53.280
+ but right now it's making me feel bad.
+
+1:01:53.280 --> 1:01:54.960
+ Well, I'm kind of looking to you
+
+1:01:54.960 --> 1:01:58.200
+ because you're basically a celebrity,
+
+1:01:58.200 --> 1:02:01.240
+ a famous sort of world class comedian.
+
+1:02:01.240 --> 1:02:03.120
+ And so I feel like you're the right person
+
+1:02:03.120 --> 1:02:06.120
+ to be one of the key people to define
+
+1:02:06.120 --> 1:02:08.960
+ what's the healthy path forward with social media.
+
+1:02:08.960 --> 1:02:12.800
+ So I, because we're all trying to figure it out now
+
+1:02:12.800 --> 1:02:16.360
+ and it's, I'm curious to see where it evolves.
+
+1:02:16.360 --> 1:02:17.960
+ I think you're at the center of that.
+
+1:02:17.960 --> 1:02:20.400
+ So like, you know, there's, you know,
+
+1:02:20.400 --> 1:02:22.800
+ trying to leave Twitter and then come back and see,
+
+1:02:22.800 --> 1:02:24.080
+ can I do this in a healthy way?
+
+1:02:24.080 --> 1:02:25.760
+ I mean, you have to keep trying, exploring.
+
+1:02:25.760 --> 1:02:28.160
+ You have to know because it's being, you know,
+
+1:02:28.160 --> 1:02:29.760
+ I have a couple answers.
+
+1:02:29.760 --> 1:02:31.600
+ I think, you know, I hire a company
+
+1:02:31.600 --> 1:02:33.920
+ to do some of my social media for me, you know?
+
+1:02:33.920 --> 1:02:36.280
+ So it's also being able to go, okay,
+
+1:02:36.280 --> 1:02:38.360
+ I make a certain amount of money by doing this,
+
+1:02:38.360 --> 1:02:40.360
+ but now let me be a good business person
+
+1:02:40.360 --> 1:02:42.960
+ and say, I'm gonna pay you this amount to run this for me.
+
+1:02:42.960 --> 1:02:45.920
+ So I'm not 24 seven in the weeds hashtagging and responding.
+
+1:02:45.920 --> 1:02:47.280
+ And just, it's a lot to take on.
+
+1:02:47.280 --> 1:02:48.800
+ It's a lot of energy to take on.
+
+1:02:48.800 --> 1:02:51.280
+ But at the same time, part of what I think
+
+1:02:51.280 --> 1:02:53.480
+ makes me successful on social media if I am,
+
+1:02:53.480 --> 1:02:55.280
+ is that people know I'm actually doing it
+
+1:02:55.280 --> 1:02:57.200
+ and that I am an engaging and I'm responding
+
+1:02:57.200 --> 1:02:59.600
+ and developing a personal relationship
+
+1:02:59.600 --> 1:03:01.080
+ with complete strangers.
+
+1:03:01.080 --> 1:03:04.000
+ So I think, you know, figuring out that balance
+
+1:03:04.000 --> 1:03:06.160
+ and really approaching it as a business, you know,
+
+1:03:06.160 --> 1:03:07.280
+ that's what I try to do.
+
+1:03:07.280 --> 1:03:09.480
+ It's not dating, it's not,
+
+1:03:09.480 --> 1:03:11.200
+ I try to just be really objective about,
+
+1:03:11.200 --> 1:03:13.400
+ okay, here's what's working, here's what's not working.
+
+1:03:13.400 --> 1:03:15.880
+ And in terms of taking the break from Twitter,
+
+1:03:15.880 --> 1:03:17.640
+ this is a really savage take,
+
+1:03:17.640 --> 1:03:21.720
+ but because I don't talk about my politics publicly,
+
+1:03:21.720 --> 1:03:26.040
+ being on Twitter right after the last election
+
+1:03:26.040 --> 1:03:27.880
+ was not gonna be beneficial
+
+1:03:27.880 --> 1:03:30.280
+ because there was gonna be, you had to take a side.
+
+1:03:30.280 --> 1:03:32.360
+ You had to be political in order to get
+
+1:03:32.360 --> 1:03:34.400
+ any kind of retweets or likes.
+
+1:03:34.400 --> 1:03:37.280
+ And I just wasn't interested in doing that
+
+1:03:37.280 --> 1:03:38.720
+ because you were gonna lose as many people
+
+1:03:38.720 --> 1:03:39.560
+ as you were gonna gain
+
+1:03:39.560 --> 1:03:40.840
+ and it was gonna all come clean in the wash.
+
+1:03:40.840 --> 1:03:42.760
+ So I was just like, the best thing I can do
+
+1:03:42.760 --> 1:03:47.760
+ for me business wise is to just abstain, you know?
+
+1:03:47.840 --> 1:03:52.240
+ And you know, the robot, I joke about her replacing me,
+
+1:03:52.240 --> 1:03:55.760
+ but she does do half of my social media, you know?
+
+1:03:55.760 --> 1:03:57.960
+ Because I don't want people to get sick of me.
+
+1:03:57.960 --> 1:03:59.840
+ I don't want to be redundant.
+
+1:03:59.840 --> 1:04:02.440
+ There are times when I don't have the time or the energy
+
+1:04:02.440 --> 1:04:03.360
+ to make a funny video,
+
+1:04:03.360 --> 1:04:06.160
+ but I know she's gonna be compelling and interesting
+
+1:04:06.160 --> 1:04:08.520
+ and that's something that you can't see every day, you know?
+
+1:04:08.520 --> 1:04:11.920
+ Of course, the humor comes from your,
+
+1:04:11.920 --> 1:04:15.240
+ I mean, the cleverness, the wit, the humor comes from you
+
+1:04:15.240 --> 1:04:16.440
+ when you film the robot.
+
+1:04:16.440 --> 1:04:17.880
+ That's kind of the trick of it.
+
+1:04:17.880 --> 1:04:21.000
+ I mean, the robot is not quite there
+
+1:04:21.000 --> 1:04:23.440
+ to do anything funny.
+
+1:04:23.440 --> 1:04:26.680
+ The absurdity is revealed through the filmmaker in that case
+
+1:04:26.680 --> 1:04:27.840
+ or whoever is interacting,
+
+1:04:27.840 --> 1:04:32.840
+ not through the actual robot, you know, being who she is.
+
+1:04:33.520 --> 1:04:37.080
+ Let me sort of, love.
+
+1:04:37.080 --> 1:04:37.920
+ Okay.
+
+1:04:37.920 --> 1:04:39.600
+ How difficult.
+
+1:04:39.600 --> 1:04:40.760
+ What is it?
+
+1:04:40.760 --> 1:04:41.600
+ What is it?
+
+1:04:43.120 --> 1:04:45.080
+ Well, first, an engineering question.
+
+1:04:45.080 --> 1:04:48.080
+ I know, I know, you're not an engineer,
+
+1:04:48.080 --> 1:04:52.160
+ but how difficult do you think is it to build an AI system
+
+1:04:52.160 --> 1:04:54.280
+ that you can have a deep, fulfilling,
+
+1:04:54.280 --> 1:04:56.480
+ monogamous relationship with?
+
+1:04:56.480 --> 1:04:59.880
+ Sort of replace the human to human relationships
+
+1:04:59.880 --> 1:05:00.800
+ that we value?
+
+1:05:01.680 --> 1:05:04.840
+ I think anyone can fall in love with anything, you know?
+
+1:05:04.840 --> 1:05:08.360
+ Like, how often have you looked back at someone?
+
+1:05:08.360 --> 1:05:11.320
+ Like, I ran into someone the other day
+
+1:05:11.320 --> 1:05:12.720
+ that I was in love with and I was like,
+
+1:05:12.720 --> 1:05:16.360
+ hey, it was like, there was nothing there.
+
+1:05:16.360 --> 1:05:17.880
+ There was nothing there.
+
+1:05:17.880 --> 1:05:19.800
+ Like, do you, you know, like, where you're able to go like,
+
+1:05:19.800 --> 1:05:23.720
+ oh, that was weird, oh, right, you know?
+
+1:05:23.720 --> 1:05:25.080
+ I were able.
+
+1:05:25.080 --> 1:05:27.160
+ You mean from a distant past or something like that?
+
+1:05:27.160 --> 1:05:28.720
+ Yeah, when you're able to go like,
+
+1:05:28.720 --> 1:05:31.440
+ I can't believe we had an incredible connection
+
+1:05:31.440 --> 1:05:35.560
+ and now it's just, I do think that people will be in love
+
+1:05:35.560 --> 1:05:39.800
+ with robots probably even more deeply with humans
+
+1:05:39.800 --> 1:05:42.520
+ because it's like when people mourn their animals,
+
+1:05:42.520 --> 1:05:45.000
+ when their animals die, they're always,
+
+1:05:45.000 --> 1:05:47.760
+ it's sometimes harder than mourning a human
+
+1:05:47.760 --> 1:05:50.360
+ because you can't go, well, he was kind of an asshole,
+
+1:05:50.360 --> 1:05:52.000
+ but like, he didn't pick me up from school.
+
+1:05:52.000 --> 1:05:53.360
+ You know, it's like, you're able to get out
+
+1:05:53.360 --> 1:05:54.280
+ of your grief a little bit.
+
+1:05:54.280 --> 1:05:57.400
+ You're able to kind of be, oh, he was kind of judgmental
+
+1:05:57.400 --> 1:06:00.320
+ or she was kind of, you know, with a robot,
+
+1:06:00.320 --> 1:06:03.640
+ there's something so pure about an innocent and impish
+
+1:06:03.640 --> 1:06:07.560
+ and childlike about it that I think it probably
+
+1:06:07.560 --> 1:06:11.080
+ will be much more conducive to a narcissistic love
+
+1:06:11.080 --> 1:06:15.280
+ for sure at that, but it's not like, well, he cheated on,
+
+1:06:15.280 --> 1:06:17.960
+ she can't cheat, she can't leave you, she can't, you know?
+
+1:06:17.960 --> 1:06:21.560
+ Well, if Bearclaw leaves your life
+
+1:06:21.560 --> 1:06:25.640
+ and maybe a new version or somebody else will enter,
+
+1:06:25.640 --> 1:06:27.960
+ will you miss Bearclaw?
+
+1:06:27.960 --> 1:06:30.680
+ For guys that have these sex robots,
+
+1:06:30.680 --> 1:06:34.380
+ they're building a nursing home for the bodies
+
+1:06:34.380 --> 1:06:36.320
+ that are now resting
+
+1:06:36.320 --> 1:06:37.940
+ because they don't want to part with the bodies
+
+1:06:37.940 --> 1:06:39.720
+ because they have such an intense emotional connection
+
+1:06:39.720 --> 1:06:40.840
+ to it.
+
+1:06:40.840 --> 1:06:42.840
+ I mean, it's kind of like a car club a little bit,
+
+1:06:42.840 --> 1:06:45.000
+ you know, like it's, you know,
+
+1:06:45.000 --> 1:06:47.380
+ but I'm not saying this is right.
+
+1:06:47.380 --> 1:06:50.020
+ I'm not saying it's cool, it's weird, it's creepy,
+
+1:06:50.020 --> 1:06:53.820
+ but we do anthropomorphize things with faces
+
+1:06:53.820 --> 1:06:56.640
+ and we do develop emotional connections to things.
+
+1:06:56.640 --> 1:06:59.320
+ I mean, there's certain, have you ever tried to like throw,
+
+1:06:59.320 --> 1:07:00.800
+ I can't even throw away my teddy bear
+
+1:07:00.800 --> 1:07:01.800
+ from when I was a kid.
+
+1:07:01.800 --> 1:07:04.340
+ It's a piece of trash and it's upstairs.
+
+1:07:04.340 --> 1:07:06.660
+ Like, it's just like, why can't I throw that away?
+
+1:07:06.660 --> 1:07:08.200
+ It's bizarre, you know,
+
+1:07:08.200 --> 1:07:10.120
+ and there's something kind of beautiful about that.
+
+1:07:10.120 --> 1:07:13.120
+ There's something, it gives me hope in humans
+
+1:07:13.120 --> 1:07:15.720
+ because I see humans do such horrific things all the time
+
+1:07:15.720 --> 1:07:18.340
+ and maybe I'm too, I see too much of it, frankly,
+
+1:07:18.340 --> 1:07:20.240
+ but there's something kind of beautiful
+
+1:07:20.240 --> 1:07:24.360
+ about the way we're able to have emotional connections
+
+1:07:24.360 --> 1:07:29.200
+ to objects, which, you know, a lot of,
+
+1:07:29.200 --> 1:07:32.160
+ I mean, it's kind of specifically, I think, Western, right?
+
+1:07:32.160 --> 1:07:34.880
+ That we don't see objects as having souls,
+
+1:07:34.880 --> 1:07:36.800
+ like that's kind of specifically us,
+
+1:07:36.800 --> 1:07:39.720
+ but I don't think it's so much
+
+1:07:39.720 --> 1:07:43.420
+ that we're objectifying humans with these sex robots.
+
+1:07:43.420 --> 1:07:45.680
+ We're kind of humanizing objects, right?
+
+1:07:45.680 --> 1:07:47.080
+ So there's something kind of fascinating
+
+1:07:47.080 --> 1:07:48.160
+ in our ability to do that
+
+1:07:48.160 --> 1:07:50.080
+ because a lot of us don't humanize humans.
+
+1:07:50.080 --> 1:07:52.880
+ So it's just a weird little place to play in
+
+1:07:52.880 --> 1:07:54.980
+ and I think a lot of people, I mean,
+
+1:07:54.980 --> 1:07:57.760
+ a lot of people will be marrying these things is my guess.
+
+1:07:57.760 --> 1:08:00.640
+ So you've asked the question, let me ask it of you.
+
+1:08:00.640 --> 1:08:01.920
+ So what is love?
+
+1:08:02.880 --> 1:08:05.720
+ You have a bit of a brilliant definition of love
+
+1:08:05.720 --> 1:08:07.840
+ as being willing to die for someone
+
+1:08:07.840 --> 1:08:10.600
+ who you yourself want to kill.
+
+1:08:10.600 --> 1:08:12.240
+ So that's kind of fun.
+
+1:08:12.240 --> 1:08:13.980
+ First of all, that's brilliant.
+
+1:08:14.920 --> 1:08:16.480
+ That's a really good definition.
+
+1:08:16.480 --> 1:08:18.280
+ I think it'll stick with me for a long time.
+
+1:08:18.280 --> 1:08:19.840
+ This is how little of a romantic I am.
+
+1:08:19.840 --> 1:08:21.400
+ A plane went by when you said that
+
+1:08:21.400 --> 1:08:24.960
+ and my brain is like, you're gonna need to rerecord that.
+
+1:08:24.960 --> 1:08:26.400
+ And I want you to get into post
+
+1:08:26.400 --> 1:08:28.160
+ and then not be able to use that.
+
+1:08:31.120 --> 1:08:32.400
+ And I'm a romantic as I...
+
+1:08:32.400 --> 1:08:33.600
+ Don't mean to ruin the moment.
+
+1:08:33.600 --> 1:08:35.640
+ Actually, I can not be conscious of the fact
+
+1:08:35.640 --> 1:08:38.240
+ that I heard the plane and it made me feel like
+
+1:08:38.240 --> 1:08:41.200
+ how amazing it is that we live in a world of planes.
+
+1:08:41.200 --> 1:08:46.200
+ And I just went, why haven't we fucking evolved past planes
+
+1:08:47.040 --> 1:08:49.080
+ and why can't they make them quieter?
+
+1:08:49.080 --> 1:08:50.480
+ Yeah.
+
+1:08:50.480 --> 1:08:51.320
+ Well, yes.
+
+1:08:53.200 --> 1:08:54.440
+ My definition of love?
+
+1:08:54.440 --> 1:08:57.800
+ What, yeah, what's your sort of the more serious note?
+
+1:08:57.800 --> 1:09:00.080
+ Consistently producing dopamine for a long time.
+
+1:09:01.400 --> 1:09:05.040
+ Consistent output of oxytocin with the same person.
+
+1:09:06.080 --> 1:09:08.240
+ Dopamine is a positive thing.
+
+1:09:08.240 --> 1:09:09.520
+ What about the negative?
+
+1:09:09.520 --> 1:09:13.200
+ What about the fear and the insecurity, the longing,
+
+1:09:14.880 --> 1:09:16.520
+ anger, all that kind of stuff?
+
+1:09:16.520 --> 1:09:17.840
+ I think that's part of love.
+
+1:09:17.840 --> 1:09:22.000
+ I think that love brings out the best in you,
+
+1:09:22.000 --> 1:09:24.040
+ but it also, if you don't get angry and upset,
+
+1:09:24.040 --> 1:09:26.880
+ it's, I don't know, I think that that's part of it.
+
+1:09:26.880 --> 1:09:29.720
+ I think we have this idea that love has to be like really
+
+1:09:29.720 --> 1:09:31.080
+ placid or something.
+
+1:09:31.920 --> 1:09:34.160
+ I only saw stormy relationships growing up,
+
+1:09:34.160 --> 1:09:36.920
+ so I don't have a judgment
+
+1:09:36.920 --> 1:09:38.600
+ on how a relationship should look,
+
+1:09:38.600 --> 1:09:43.600
+ but I do think that this idea that love has to be eternal
+
+1:09:45.240 --> 1:09:48.800
+ is really destructive, is really destructive
+
+1:09:48.800 --> 1:09:53.680
+ and self defeating and a big source of stress for people.
+
+1:09:53.680 --> 1:09:55.640
+ I mean, I'm still figuring out love.
+
+1:09:55.640 --> 1:09:57.280
+ I think we all kind of are,
+
+1:09:57.280 --> 1:09:59.400
+ but I do kind of stand by that definition.
+
+1:10:01.280 --> 1:10:03.600
+ And I think that, I think for me,
+
+1:10:03.600 --> 1:10:06.280
+ love is like just being able to be authentic with somebody.
+
+1:10:06.280 --> 1:10:07.800
+ It's very simple, I know,
+
+1:10:07.800 --> 1:10:10.120
+ but I think for me it's about not feeling pressure
+
+1:10:10.120 --> 1:10:11.960
+ to have to perform or impress somebody,
+
+1:10:11.960 --> 1:10:16.560
+ just feeling truly like accepted unconditionally by someone.
+
+1:10:16.560 --> 1:10:19.160
+ Although I do believe love should be conditional.
+
+1:10:19.160 --> 1:10:22.880
+ That might be a hot take.
+
+1:10:22.880 --> 1:10:24.280
+ I think everything should be conditional.
+
+1:10:24.280 --> 1:10:27.080
+ I think if someone's behavior,
+
+1:10:27.080 --> 1:10:28.880
+ I don't think love should just be like,
+
+1:10:28.880 --> 1:10:30.960
+ I'm in love with you, now behave however you want forever.
+
+1:10:30.960 --> 1:10:31.880
+ This is unconditional.
+
+1:10:31.880 --> 1:10:35.320
+ I think love is a daily action.
+
+1:10:35.320 --> 1:10:38.120
+ It's not something you just like get tenure on
+
+1:10:38.120 --> 1:10:40.000
+ and then get to behave however you want
+
+1:10:40.000 --> 1:10:41.880
+ because we said I love you 10 years ago.
+
+1:10:41.880 --> 1:10:44.560
+ It's a daily, it's a verb.
+
+1:10:44.560 --> 1:10:46.120
+ Well, there's some things that are,
+
+1:10:46.120 --> 1:10:49.080
+ you see, if you explicitly make it clear
+
+1:10:49.080 --> 1:10:50.400
+ that it's conditional,
+
+1:10:50.400 --> 1:10:52.520
+ it takes away some of the magic of it.
+
+1:10:52.520 --> 1:10:55.360
+ So there's certain stories we tell ourselves
+
+1:10:55.360 --> 1:10:57.200
+ that we don't want to make explicit about love.
+
+1:10:57.200 --> 1:10:59.160
+ I don't know, maybe that's the wrong way to think of it.
+
+1:10:59.160 --> 1:11:02.640
+ Maybe you want to be explicit in relationships.
+
+1:11:02.640 --> 1:11:04.640
+ I also think love is a business decision.
+
+1:11:04.640 --> 1:11:08.000
+ Like I do in a good way.
+
+1:11:08.000 --> 1:11:11.160
+ Like I think that love is not just
+
+1:11:11.160 --> 1:11:12.600
+ when you're across from somebody.
+
+1:11:12.600 --> 1:11:15.720
+ It's when I go to work, can I focus?
+
+1:11:15.720 --> 1:11:16.560
+ Am I worried about you?
+
+1:11:16.560 --> 1:11:18.040
+ Am I stressed out about you?
+
+1:11:18.040 --> 1:11:19.400
+ You're not responding to me.
+
+1:11:19.400 --> 1:11:20.440
+ You're not reliable.
+
+1:11:20.440 --> 1:11:23.200
+ Like I think that being in a relationship,
+
+1:11:23.200 --> 1:11:24.280
+ the kind of love that I would want
+
+1:11:24.280 --> 1:11:26.920
+ is the kind of relationship where when we're not together,
+
+1:11:26.920 --> 1:11:30.600
+ it's not draining me, causing me stress, making me worry,
+
+1:11:30.600 --> 1:11:35.600
+ and sometimes passion, that word, we get murky about it.
+
+1:11:36.480 --> 1:11:37.320
+ But I think it's also like,
+
+1:11:37.320 --> 1:11:38.560
+ I can be the best version of myself
+
+1:11:38.560 --> 1:11:40.080
+ when the person's not around.
+
+1:11:40.080 --> 1:11:42.680
+ And I don't have to feel abandoned or scared
+
+1:11:42.680 --> 1:11:43.960
+ or any of these kinds of other things.
+
+1:11:43.960 --> 1:11:48.800
+ So it's like love, for me, I think it's a Flaubert quote
+
+1:11:48.800 --> 1:11:49.800
+ and I'm going to butcher it.
+
+1:11:49.800 --> 1:11:53.320
+ But I think it's like, be boring in your personal life
+
+1:11:53.320 --> 1:11:54.800
+ so you can be violent and take risks
+
+1:11:54.800 --> 1:11:55.760
+ in your professional life.
+
+1:11:55.760 --> 1:11:56.600
+ Is that it?
+
+1:11:56.600 --> 1:11:57.480
+ I got it wrong.
+
+1:11:57.480 --> 1:11:58.320
+ Something like that.
+
+1:11:58.320 --> 1:12:01.280
+ But I do think that it's being able to align values
+
+1:12:01.280 --> 1:12:02.960
+ in a way to where you can also thrive
+
+1:12:02.960 --> 1:12:04.600
+ outside of the relationship.
+
+1:12:04.600 --> 1:12:06.160
+ Some of the most successful people I know
+
+1:12:06.160 --> 1:12:10.040
+ are those sort of happily married and have kids and so on.
+
+1:12:10.040 --> 1:12:10.880
+ It's always funny.
+
+1:12:10.880 --> 1:12:11.800
+ It can be boring.
+
+1:12:11.800 --> 1:12:13.160
+ Boring's okay.
+
+1:12:13.160 --> 1:12:14.400
+ Boring is serenity.
+
+1:12:14.400 --> 1:12:16.440
+ And it's funny how those elements
+
+1:12:16.440 --> 1:12:18.320
+ actually make you much more productive.
+
+1:12:18.320 --> 1:12:19.640
+ I don't understand the.
+
+1:12:19.640 --> 1:12:21.080
+ I don't think relationships should drain you
+
+1:12:21.080 --> 1:12:23.360
+ and take away energy that you could be using
+
+1:12:23.360 --> 1:12:25.720
+ to create things that generate pride.
+
+1:12:25.720 --> 1:12:26.560
+ Okay.
+
+1:12:26.560 --> 1:12:28.600
+ Have you said your relationship of love yet?
+
+1:12:28.600 --> 1:12:31.360
+ Have you said your definition of love?
+
+1:12:31.360 --> 1:12:32.600
+ My definition of love?
+
+1:12:33.480 --> 1:12:35.520
+ No, I did not say it.
+
+1:12:35.520 --> 1:12:36.680
+ We're out of time.
+
+1:12:36.680 --> 1:12:37.520
+ No.
+
+1:12:39.120 --> 1:12:41.760
+ When you have a podcast, maybe you can invite me on.
+
+1:12:41.760 --> 1:12:42.600
+ Oh no, I already did.
+
+1:12:42.600 --> 1:12:44.000
+ You're doing it.
+
+1:12:44.000 --> 1:12:46.360
+ We've already talked about this.
+
+1:12:46.360 --> 1:12:49.440
+ And because I also have codependency, I have to say yes.
+
+1:12:49.440 --> 1:12:50.280
+ No, yeah.
+
+1:12:50.280 --> 1:12:52.240
+ No, I know, I'm trapping you.
+
+1:12:52.240 --> 1:12:53.080
+ You owe me now.
+
+1:12:53.080 --> 1:12:58.080
+ Actually, I wondered whether when I asked
+
+1:12:58.240 --> 1:13:01.680
+ if we could talk today, after sort of doing more research
+
+1:13:01.680 --> 1:13:04.600
+ and reading some of your book, I started to wonder,
+
+1:13:04.600 --> 1:13:07.000
+ did you just feel pressured to say yes?
+
+1:13:07.000 --> 1:13:09.320
+ Yes, of course.
+
+1:13:09.320 --> 1:13:10.160
+ Good.
+
+1:13:10.160 --> 1:13:11.000
+ But I'm a fan of yours, too.
+
+1:13:11.000 --> 1:13:11.840
+ Okay, awesome.
+
+1:13:11.840 --> 1:13:13.360
+ No, I actually, because I am codependent,
+
+1:13:13.360 --> 1:13:14.880
+ but I'm in recovery for codependence,
+
+1:13:14.880 --> 1:13:17.600
+ so I actually do, I don't do anything I don't wanna do.
+
+1:13:17.600 --> 1:13:20.360
+ You really, you go out of your way to say no.
+
+1:13:20.360 --> 1:13:21.200
+ What's that?
+
+1:13:21.200 --> 1:13:22.680
+ I say no all the time.
+
+1:13:22.680 --> 1:13:23.520
+ Good.
+
+1:13:23.520 --> 1:13:24.360
+ I'm trying to learn that as well.
+
+1:13:24.360 --> 1:13:25.200
+ I moved this a couple, remember,
+
+1:13:25.200 --> 1:13:26.040
+ I moved it from one to two.
+
+1:13:26.040 --> 1:13:26.880
+ Yeah, yeah.
+
+1:13:26.880 --> 1:13:27.960
+ Just to, yeah, just to.
+
+1:13:27.960 --> 1:13:28.800
+ Yeah, just to let you know.
+
+1:13:28.800 --> 1:13:29.640
+ I love it.
+
+1:13:29.640 --> 1:13:31.920
+ How recovered I am, and I'm not codependent.
+
+1:13:31.920 --> 1:13:34.600
+ But I don't do anything I don't wanna do.
+
+1:13:34.600 --> 1:13:35.920
+ Yeah, you're ahead of me on that.
+
+1:13:35.920 --> 1:13:36.880
+ Okay.
+
+1:13:36.880 --> 1:13:37.720
+ So do you.
+
+1:13:37.720 --> 1:13:38.560
+ You're like, I don't even wanna be here.
+
+1:13:38.560 --> 1:13:43.400
+ Do you think about your mortality?
+
+1:13:43.400 --> 1:13:46.920
+ Yes, it is a big part of how I was able
+
+1:13:46.920 --> 1:13:49.040
+ to sort of like kickstart my codependence recovery.
+
+1:13:49.040 --> 1:13:50.400
+ My dad passed a couple years ago,
+
+1:13:50.400 --> 1:13:53.040
+ and when you have someone close to you in your life die,
+
+1:13:53.040 --> 1:13:55.320
+ everything gets real clear,
+
+1:13:55.320 --> 1:13:57.720
+ in terms of how we're a speck of dust
+
+1:13:57.720 --> 1:14:00.800
+ who's only here for a certain amount of time.
+
+1:14:00.800 --> 1:14:02.320
+ What do you think is the meaning of it all?
+
+1:14:02.320 --> 1:14:05.160
+ Like what the speck of dust,
+
+1:14:05.160 --> 1:14:09.480
+ what's maybe in your own life, what's the goal,
+
+1:14:09.480 --> 1:14:13.280
+ the purpose of your existence?
+
+1:14:13.280 --> 1:14:15.200
+ Is there one?
+
+1:14:15.200 --> 1:14:17.280
+ Well, you're exceptionally ambitious.
+
+1:14:17.280 --> 1:14:19.080
+ You've created some incredible things
+
+1:14:19.080 --> 1:14:21.600
+ in different disciplines.
+
+1:14:21.600 --> 1:14:23.520
+ Yeah, we're all just managing our terror
+
+1:14:23.520 --> 1:14:24.520
+ because we know we're gonna die.
+
+1:14:24.520 --> 1:14:26.320
+ So we create and build all these things
+
+1:14:26.320 --> 1:14:29.440
+ and rituals and religions and robots
+
+1:14:29.440 --> 1:14:31.760
+ and whatever we need to do to just distract ourselves
+
+1:14:31.760 --> 1:14:36.160
+ from imminent rotting, we're rotting.
+
+1:14:36.160 --> 1:14:37.120
+ We're all dying.
+
+1:14:37.120 --> 1:14:42.120
+ And I got very into terror management theory
+
+1:14:42.520 --> 1:14:45.120
+ when my dad died and it resonated, it helped me.
+
+1:14:45.120 --> 1:14:46.560
+ And everyone's got their own religion
+
+1:14:46.560 --> 1:14:50.280
+ or sense of purpose or thing that distracts them
+
+1:14:50.280 --> 1:14:53.320
+ from the horrors of being human.
+
+1:14:54.640 --> 1:14:56.080
+ What's the terror management theory?
+
+1:14:56.080 --> 1:14:57.360
+ Terror management is basically the idea
+
+1:14:57.360 --> 1:14:58.640
+ that since we're the only animal
+
+1:14:58.640 --> 1:15:00.360
+ that knows they're gonna die,
+
+1:15:00.360 --> 1:15:03.480
+ we have to basically distract ourselves
+
+1:15:03.480 --> 1:15:08.480
+ with awards and achievements and games and whatever,
+
+1:15:09.600 --> 1:15:11.920
+ just in order to distract ourselves
+
+1:15:11.920 --> 1:15:14.560
+ from the terror we would feel if we really processed
+
+1:15:14.560 --> 1:15:16.920
+ the fact that we could not only, we are gonna die,
+
+1:15:16.920 --> 1:15:18.440
+ but also could die at any minute
+
+1:15:18.440 --> 1:15:19.800
+ because we're only superficially
+
+1:15:19.800 --> 1:15:21.200
+ at the top of the food chain.
+
+1:15:22.640 --> 1:15:26.160
+ And technically we're at the top of the food chain
+
+1:15:26.160 --> 1:15:29.320
+ if we have houses and guns and stuff machines,
+
+1:15:29.320 --> 1:15:32.400
+ but if me and a lion are in the woods together,
+
+1:15:32.400 --> 1:15:33.800
+ most things could kill us.
+
+1:15:33.800 --> 1:15:35.400
+ I mean, a bee can kill some people,
+
+1:15:35.400 --> 1:15:38.640
+ like something this big can kill a lot of humans.
+
+1:15:38.640 --> 1:15:41.480
+ So it's basically just to manage the terror
+
+1:15:41.480 --> 1:15:43.040
+ that we all would feel if we were able
+
+1:15:43.040 --> 1:15:45.200
+ to really be awake.
+
+1:15:45.200 --> 1:15:46.840
+ Cause we're mostly zombies, right?
+
+1:15:46.840 --> 1:15:51.520
+ Job, school, religion, go to sleep, drink, football,
+
+1:15:51.520 --> 1:15:54.480
+ relationship, dopamine, love, you know,
+
+1:15:54.480 --> 1:15:57.000
+ we're kind of just like trudging along
+
+1:15:57.000 --> 1:15:58.480
+ like zombies for the most part.
+
+1:15:58.480 --> 1:15:59.800
+ And then I think.
+
+1:15:59.800 --> 1:16:02.360
+ That fear of death adds some motivation.
+
+1:16:02.360 --> 1:16:03.440
+ Yes.
+
+1:16:03.440 --> 1:16:06.080
+ Well, I think I speak for a lot of people
+
+1:16:06.080 --> 1:16:08.240
+ in saying that I can't wait to see
+
+1:16:08.240 --> 1:16:13.240
+ what your terror creates in the next few years.
+
+1:16:13.640 --> 1:16:14.840
+ I'm a huge fan.
+
+1:16:14.840 --> 1:16:16.560
+ Whitney, thank you so much for talking today.
+
+1:16:16.560 --> 1:16:17.400
+ Thanks.
+
+1:16:18.840 --> 1:16:20.480
+ Thanks for listening to this conversation
+
+1:16:20.480 --> 1:16:21.880
+ with Whitney Cummings.
+
+1:16:21.880 --> 1:16:24.680
+ And thank you to our presenting sponsor, Cash App.
+
+1:16:24.680 --> 1:16:27.400
+ Download it and use code LexPodcast.
+
+1:16:27.400 --> 1:16:30.160
+ You'll get $10 and $10 will go to First,
+
+1:16:30.160 --> 1:16:33.120
+ a STEM education nonprofit that inspires hundreds
+
+1:16:33.120 --> 1:16:35.480
+ of thousands of young minds to learn
+
+1:16:35.480 --> 1:16:38.000
+ and to dream of engineering our future.
+
+1:16:38.000 --> 1:16:40.800
+ If you enjoy this podcast, subscribe on YouTube,
+
+1:16:40.800 --> 1:16:42.720
+ give it five stars on Apple Podcast,
+
+1:16:42.720 --> 1:16:46.080
+ support on Patreon or connect with me on Twitter.
+
+1:16:46.080 --> 1:17:09.080
+ Thank you for listening and hope to see you next time.
+

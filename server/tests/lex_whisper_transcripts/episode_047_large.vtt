@@ -1,0 +1,4367 @@
+WEBVTT
+
+00:00.000 --> 00:05.000
+ The following is a conversation with Sean Carroll, Part 2, the second time we've spoken
+
+00:05.000 --> 00:06.000
+ on the podcast.
+
+00:06.000 --> 00:10.320
+ You can get the link to the first time in the description.
+
+00:10.320 --> 00:15.360
+ This time we focus on quantum mechanics and the many worlds interpretation that he details
+
+00:15.360 --> 00:19.200
+ elegantly in his new book titled Something Deeply Hidden.
+
+00:19.200 --> 00:24.520
+ I own and enjoy both the eBook and audiobook versions of it.
+
+00:24.520 --> 00:29.400
+ Listening to Sean read about entanglement, complementarity, and the emergence of space
+
+00:29.400 --> 00:35.600
+ time reminds me of Bob Ross teaching the world how to paint on his old television show.
+
+00:35.600 --> 00:39.580
+ If you don't know who Bob Ross is, you're truly missing out.
+
+00:39.580 --> 00:40.580
+ Look him up.
+
+00:40.580 --> 00:42.960
+ He'll make you fall in love with painting.
+
+00:42.960 --> 00:48.320
+ Sean Carroll is the Bob Ross of theoretical physics.
+
+00:48.320 --> 00:53.520
+ He's the author of several popular books, a host of a great podcast called Mindscape,
+
+00:53.520 --> 00:59.440
+ and is a theoretical physicist at Caltech and the Santa Fe Institute, specializing in
+
+00:59.440 --> 01:04.280
+ quantum mechanics, arrow of time, cosmology, and gravitation.
+
+01:04.280 --> 01:07.020
+ This is the Artificial Intelligence Podcast.
+
+01:07.020 --> 01:12.720
+ If you enjoy it, subscribe on YouTube, give it five stars on iTunes, support it on Patreon,
+
+01:12.720 --> 01:18.560
+ or simply connect with me on Twitter at Lex Friedman, spelled F R I D M A N.
+
+01:18.560 --> 01:23.680
+ And now here's my conversation with Sean Carroll.
+
+01:23.680 --> 01:28.400
+ Isaac Newton developed what we now call classical mechanics that you describe very nicely in
+
+01:28.400 --> 01:32.500
+ your new book, as you do with a lot of basic concepts in physics.
+
+01:32.500 --> 01:39.040
+ So with classical mechanics, I can throw a rock and can predict the trajectory of that
+
+01:39.040 --> 01:41.080
+ rock's flight.
+
+01:41.080 --> 01:47.340
+ But if we could put ourselves back into Newton's time, his theories work to predict things,
+
+01:47.340 --> 01:52.480
+ but as I understand, he himself thought that they were, their interpretations of those
+
+01:52.480 --> 01:56.120
+ predictions were absurd.
+
+01:56.120 --> 02:01.560
+ Perhaps he just said it for religious reasons and so on, but in particular, sort of a world
+
+02:01.560 --> 02:05.580
+ of interaction without contact, so action at a distance.
+
+02:05.580 --> 02:09.860
+ It didn't make sense to him on a sort of a human interpretation level.
+
+02:09.860 --> 02:16.480
+ Does it make sense to you that things can affect other things at a distance?
+
+02:16.480 --> 02:20.140
+ It does, but that was one of Newton's worries.
+
+02:20.140 --> 02:24.800
+ You're actually right in a slightly different way about the religious worries.
+
+02:24.800 --> 02:29.680
+ He was smart enough, this is off the topic but still fascinating, Newton almost invented
+
+02:29.680 --> 02:33.120
+ chaos theory as soon as he invented classical mechanics.
+
+02:33.120 --> 02:37.600
+ He realized that in the solar system, so he was able to explain how planets move around
+
+02:37.600 --> 02:43.100
+ the Sun, but typically you would describe the orbit of the Earth ignoring the effects
+
+02:43.100 --> 02:46.400
+ of Jupiter and Saturn and so forth, just doing the Earth and the Sun.
+
+02:46.400 --> 02:50.640
+ He kind of knew, even though he couldn't do the math, that if you included the effects
+
+02:50.640 --> 02:54.560
+ of Jupiter and Saturn and the other planets, the solar system would be unstable, like the
+
+02:54.560 --> 02:57.120
+ orbits of the planets would get out of whack.
+
+02:57.120 --> 03:01.160
+ So he thought that God would intervene occasionally to sort of move the planets back into orbit,
+
+03:01.160 --> 03:05.560
+ which is the only way you could explain how they were there presumably forever.
+
+03:05.560 --> 03:08.540
+ But the worries about classical mechanics were a little bit different, the worry about
+
+03:08.540 --> 03:09.540
+ gravity in particular.
+
+03:09.540 --> 03:12.960
+ It wasn't a worry about classical mechanics, it was a worry about gravity.
+
+03:12.960 --> 03:16.720
+ How in the world does the Earth know that there's something called the Sun, 93 million
+
+03:16.720 --> 03:20.240
+ miles away, that is exerting gravitational force on it?
+
+03:20.240 --> 03:24.760
+ And he literally said, you know, I leave that for future generations to think about because
+
+03:24.760 --> 03:26.720
+ I don't know what the answer is.
+
+03:26.720 --> 03:31.520
+ And in fact, people under emphasized this, but future generations figured it out.
+
+03:31.520 --> 03:38.100
+ Pierre Simone Laplace in circa 1800 showed that you could rewrite Newtonian gravity as
+
+03:38.100 --> 03:39.480
+ a field theory.
+
+03:39.480 --> 03:43.640
+ So instead of just talking about the force due to gravity, you can talk about the gravitational
+
+03:43.640 --> 03:48.280
+ field or the gravitational potential field, and then there's no action at a distance.
+
+03:48.280 --> 03:52.260
+ It's exactly the same theory empirically, it makes exactly the same predictions.
+
+03:52.260 --> 03:55.880
+ But what's happening is instead of the Sun just reaching out across the void, there is
+
+03:55.880 --> 04:01.880
+ a gravitational field in between the Sun and the Earth that obeys an equation, Laplace's
+
+04:01.880 --> 04:05.700
+ equation, cleverly enough, and that tells us exactly what the field does.
+
+04:05.700 --> 04:09.900
+ So even in Newtonian gravity, you don't need action at a distance.
+
+04:09.900 --> 04:13.880
+ Now what many people say is that Einstein solved this problem because he invented general
+
+04:13.880 --> 04:14.880
+ relativity.
+
+04:14.880 --> 04:19.380
+ And in general relativity, there's certainly a field in between the Earth and the Sun.
+
+04:19.380 --> 04:21.720
+ But also there's the speed of light as a limit.
+
+04:21.720 --> 04:26.720
+ In Laplace's theory, which was exactly Newton's theory, just in a different mathematical language,
+
+04:26.720 --> 04:31.300
+ there could still be instantaneous action across the universe, whereas in general relativity,
+
+04:31.300 --> 04:36.000
+ if you shake something here, its gravitational impulse radiates out at the speed of light
+
+04:36.000 --> 04:39.340
+ and we call that a gravitational wave and we can detect those.
+
+04:39.340 --> 04:45.280
+ So but I really, it rubs me the wrong way to think that we should presume the answer
+
+04:45.280 --> 04:47.160
+ should look one way or the other.
+
+04:47.160 --> 04:51.800
+ Like if it turned out that there was action at a distance in physics and that was the
+
+04:51.800 --> 04:54.640
+ best way to describe things, then I would do it that way.
+
+04:54.640 --> 04:58.920
+ It's actually a very deep question because when we don't know what the right laws of
+
+04:58.920 --> 05:03.040
+ physics are, when we're guessing at them, when we're hypothesizing at what they might
+
+05:03.040 --> 05:07.160
+ be, we are often guided by our intuitions about what they should be.
+
+05:07.160 --> 05:11.840
+ I mean, Einstein famously was very guided by his intuitions and he did not like the
+
+05:11.840 --> 05:15.760
+ idea of action at a distance.
+
+05:15.760 --> 05:17.120
+ We don't know whether he was right or not.
+
+05:17.120 --> 05:21.800
+ It depends on your interpretation of quantum mechanics and it depends on even how you talk
+
+05:21.800 --> 05:24.040
+ about quantum mechanics within any one interpretation.
+
+05:24.040 --> 05:32.200
+ So if you see every force as a field or any other interpretation of action at a distance,
+
+05:32.200 --> 05:40.800
+ just stepping back to sort of caveman thinking, like do you really, can you really sort of
+
+05:40.800 --> 05:45.520
+ understand what it means for a force to be a field that's everywhere?
+
+05:45.520 --> 05:47.880
+ So if you look at gravity, like what do you think about?
+
+05:47.880 --> 05:48.880
+ I think so.
+
+05:48.880 --> 05:58.240
+ Is this something that you've been conditioned by society to think that, to map the fact
+
+05:58.240 --> 06:04.380
+ that science is extremely well predictive of something to believing that you actually
+
+06:04.380 --> 06:06.120
+ understand it?
+
+06:06.120 --> 06:12.080
+ Like you can intuitively, the degree that human beings can understand anything that
+
+06:12.080 --> 06:13.080
+ you actually understand it.
+
+06:13.080 --> 06:19.240
+ Or are you just trusting the beauty and the power of the predictive power of science?
+
+06:19.240 --> 06:25.000
+ That depends on what you mean by this idea of truly understanding something, right?
+
+06:25.000 --> 06:29.360
+ You know, I mean, can I truly understand Fermat's last theorem?
+
+06:29.360 --> 06:34.680
+ You know, it's easy to state it, but do I really appreciate what it means for incredibly
+
+06:34.680 --> 06:37.440
+ large numbers, right?
+
+06:37.440 --> 06:41.680
+ I think yes, I think I do understand it, but like if you want to just push people on well,
+
+06:41.680 --> 06:46.440
+ but your intuition doesn't go to the places where Andrew Wiles needed to go to prove Fermat's
+
+06:46.440 --> 06:50.120
+ last theorem, then I can say fine, but I still think I understand the theorem.
+
+06:50.120 --> 06:56.200
+ And likewise, I think that I do have a pretty good intuitive understanding of fields pervading
+
+06:56.200 --> 07:00.640
+ space time, whether it's the gravitational field or the electromagnetic field or whatever,
+
+07:00.640 --> 07:03.000
+ the Higgs field.
+
+07:03.000 --> 07:08.080
+ Of course, one's intuition gets worse and worse as you get trickier in the quantum field
+
+07:08.080 --> 07:12.960
+ theory and all sorts of new phenomena that come up in quantum field theory.
+
+07:12.960 --> 07:17.080
+ So our intuitions aren't perfect, but I think it's also okay to say that our intuitions
+
+07:17.080 --> 07:18.080
+ get trained, right?
+
+07:18.080 --> 07:21.340
+ Like, you know, I have different intuitions now than I had when I was a baby.
+
+07:21.340 --> 07:22.340
+ That's okay.
+
+07:22.340 --> 07:26.000
+ That's not, an intuition is not necessarily intrinsic to who we are.
+
+07:26.000 --> 07:27.400
+ We can train it a little bit.
+
+07:27.400 --> 07:33.080
+ So that's where I'm going to bring in Noam Chomsky for a second, who thinks that our
+
+07:33.080 --> 07:40.320
+ cognitive abilities are sort of evolved through time, and so they're biologically constrained.
+
+07:40.320 --> 07:45.520
+ And so there's a clear limit, as he puts it, to our cognitive abilities, and it's a very
+
+07:45.520 --> 07:47.280
+ harsh limit.
+
+07:47.280 --> 07:52.520
+ But you actually kind of said something interesting in nature versus nurture thing here, is we
+
+07:52.520 --> 07:58.200
+ can train our intuitions to sort of build up the cognitive muscles to be able to understand
+
+07:58.200 --> 07:59.400
+ some of these tricky concepts.
+
+07:59.400 --> 08:07.320
+ So do you think there's limits to our understanding that's deeply rooted, hardcoded into our biology
+
+08:07.320 --> 08:09.960
+ that we can't overcome?
+
+08:09.960 --> 08:15.840
+ There could be limits to things like our ability to visualize, okay?
+
+08:15.840 --> 08:20.200
+ But when someone like Ed Witten proves a theorem about, you know, 100 dimensional mathematical
+
+08:20.200 --> 08:22.640
+ spaces, he's not visualizing it.
+
+08:22.640 --> 08:23.640
+ He's doing the math.
+
+08:23.640 --> 08:27.600
+ That doesn't stop him from understanding the result.
+
+08:27.600 --> 08:32.480
+ I think, and I would love to understand this better, but my rough feeling, which is not
+
+08:32.480 --> 08:37.800
+ very educated, is that, you know, there's some threshold that one crosses in abstraction
+
+08:37.800 --> 08:41.520
+ when one becomes kind of like a Turing machine, right?
+
+08:41.520 --> 08:48.440
+ One has the ability to contain in one's brain logical, formal, symbolic structures and manipulate
+
+08:48.440 --> 08:49.440
+ them.
+
+08:49.440 --> 08:55.240
+ And that's a leap that we can make as human beings that dogs and cats haven't made.
+
+08:55.240 --> 09:00.440
+ And once you get there, I'm not sure that there are any limits to our ability to understand
+
+09:00.440 --> 09:02.320
+ the scientific world at all.
+
+09:02.320 --> 09:03.320
+ Maybe there are.
+
+09:03.320 --> 09:07.080
+ There's certainly limits in our ability to calculate things, right?
+
+09:07.080 --> 09:10.880
+ You know, people are not very good at taking cube roots of million digit numbers in their
+
+09:10.880 --> 09:11.880
+ head.
+
+09:11.880 --> 09:14.320
+ But that's not an element of understanding.
+
+09:14.320 --> 09:15.880
+ It's certainly not a limit in principle.
+
+09:15.880 --> 09:21.680
+ So of course, as a human, you would say there doesn't feel to be limits to our understanding.
+
+09:21.680 --> 09:30.240
+ But sort of, have you thought that the universe is actually a lot simpler than it appears
+
+09:30.240 --> 09:31.240
+ to us?
+
+09:31.240 --> 09:36.200
+ And we just will never be able to, like, it's outside of our, okay.
+
+09:36.200 --> 09:43.240
+ So us, our cognitive abilities combined with our mathematical prowess and whatever kind
+
+09:43.240 --> 09:50.760
+ of experimental simulation devices we can put together, is there limits to that?
+
+09:50.760 --> 09:52.960
+ Is it possible there's limits to that?
+
+09:52.960 --> 09:57.260
+ Well, of course it's possible that there are limits to that.
+
+09:57.260 --> 10:02.880
+ Is there any good reason to think that we're anywhere close to the limits is a harder question.
+
+10:02.880 --> 10:07.240
+ Look, imagine asking this question 500 years ago to the world's greatest thinkers, right?
+
+10:07.240 --> 10:12.320
+ Like are we approaching the limits of our ability to understand the natural world?
+
+10:12.320 --> 10:17.180
+ And by definition, there are questions about the natural world that are most interesting
+
+10:17.180 --> 10:19.840
+ to us that are the ones we don't quite yet understand, right?
+
+10:19.840 --> 10:23.280
+ So there's always, we're always faced with these puzzles we don't yet know.
+
+10:23.280 --> 10:26.140
+ And I don't know what they would have said 500 years ago, but they didn't even know about
+
+10:26.140 --> 10:28.800
+ classical mechanics, much less quantum mechanics.
+
+10:28.800 --> 10:33.560
+ So we know that they were nowhere close to how well they could do, right?
+
+10:33.560 --> 10:36.160
+ They could do enormously better than they were doing at the time.
+
+10:36.160 --> 10:39.240
+ I see no reason why the same thing isn't true for us today.
+
+10:39.240 --> 10:44.560
+ So of all the worries that keep me awake at night, the human mind's inability to rationally
+
+10:44.560 --> 10:47.560
+ comprehend the world is low on the list.
+
+10:47.560 --> 10:49.880
+ Well put.
+
+10:49.880 --> 10:54.320
+ So one interesting philosophical point that quantum mechanics bring up is the, that you
+
+10:54.320 --> 11:02.040
+ talk about the distinction between the world as it is and the world as we observe it.
+
+11:02.040 --> 11:08.200
+ So staying at the human level for a second, how big is the gap between what our perception
+
+11:08.200 --> 11:15.720
+ system allows us to see and the world as it is outside our mind's eye sort of, sort of
+
+11:15.720 --> 11:21.720
+ not at the quantum mechanical level, but as just our, these particular tools we have,
+
+11:21.720 --> 11:26.320
+ which is the few senses and cognitive abilities to process those senses.
+
+11:26.320 --> 11:31.400
+ Well, that last phrase, having the cognitive abilities to process them carries a lot, right?
+
+11:31.400 --> 11:36.640
+ I mean, there is our sort of intuitive understanding of the world.
+
+11:36.640 --> 11:41.040
+ You don't need to teach people about gravity for them to know that apples fall from trees,
+
+11:41.040 --> 11:42.040
+ right?
+
+11:42.040 --> 11:43.960
+ That's something that we figure out pretty quickly.
+
+11:43.960 --> 11:47.480
+ Project permanence, things like that, the three dimensionality of space, even if we
+
+11:47.480 --> 11:52.000
+ don't have the mathematical language to say that, we kind of know that it's true.
+
+11:52.000 --> 11:56.280
+ On the other hand, no one opens their eyes and sees atoms, right?
+
+11:56.280 --> 12:00.240
+ Or molecules or cells for that matter, forget about quantum mechanics.
+
+12:00.240 --> 12:07.520
+ So but we got there, we got to understanding that there are atoms and cells using the combination
+
+12:07.520 --> 12:11.080
+ of our senses and our cognitive capacities.
+
+12:11.080 --> 12:16.860
+ So adding the ability of our cognitive capacities to our senses is adding an enormous amount
+
+12:16.860 --> 12:19.640
+ and I don't think it is a hard and fast boundary.
+
+12:19.640 --> 12:23.480
+ You know, if you believe in cells, if you believe that we understand those, then there's
+
+12:23.480 --> 12:29.840
+ no reason you believe we can't believe in quantum mechanics just as well.
+
+12:29.840 --> 12:36.960
+ What to you is the most beautiful idea in physics?
+
+12:36.960 --> 12:38.500
+ Conservation of momentum.
+
+12:38.500 --> 12:39.760
+ Can you elaborate?
+
+12:39.760 --> 12:40.760
+ Yeah.
+
+12:40.760 --> 12:44.240
+ So if you were Aristotle, when Aristotle wrote his book on physics, he made the following
+
+12:44.240 --> 12:45.240
+ very obvious point.
+
+12:45.240 --> 12:46.240
+ We're on video here, right?
+
+12:46.240 --> 12:47.240
+ So people can see this.
+
+12:47.240 --> 12:48.240
+ Yeah.
+
+12:48.240 --> 12:51.400
+ So if I push the bottle, let me cover this bottle so we do not have a mess, but okay.
+
+12:51.400 --> 12:56.040
+ So I push the bottle, it moves, and if I stop pushing, it stops moving.
+
+12:56.040 --> 13:00.940
+ And this kind of thing is repeated a large number of times all over the place.
+
+13:00.940 --> 13:03.640
+ If you don't keep pushing things, they stop moving.
+
+13:03.640 --> 13:09.040
+ This is an indisputably true fact about our everyday environment, okay?
+
+13:09.040 --> 13:15.040
+ And for Aristotle, this blew up into a whole picture of the world in which things had natures
+
+13:15.040 --> 13:19.600
+ and teleologies, and they had places they wanted to be, and when you were pushing them,
+
+13:19.600 --> 13:23.040
+ you were moving them away from where they wanted to be, and they would return and stuff
+
+13:23.040 --> 13:24.360
+ like that.
+
+13:24.360 --> 13:31.880
+ And it took a thousand years or 1500 years for people to say, actually, if it weren't
+
+13:31.880 --> 13:37.280
+ for things like dissipation and air resistance and friction and so forth, the natural thing
+
+13:37.280 --> 13:42.960
+ is for things to move forever in a straight line, there's a constant velocity, right?
+
+13:42.960 --> 13:44.680
+ Conservation of momentum.
+
+13:44.680 --> 13:51.200
+ And the reason why I think that's the most beautiful idea in physics is because it shifts
+
+13:51.200 --> 13:58.140
+ us from a view of natures and teleology to a view of patterns in the world.
+
+13:58.140 --> 14:05.000
+ So when you were Aristotle, you needed to talk a vocabulary of why is this happening,
+
+14:05.000 --> 14:08.380
+ what's the purpose of it, what's the cause, etc., because, you know, it's nature does
+
+14:08.380 --> 14:12.280
+ or does not want to do that, whereas once you believe in conservation of momentum, things
+
+14:12.280 --> 14:13.760
+ just happen.
+
+14:13.760 --> 14:15.320
+ They just follow the pattern.
+
+14:15.320 --> 14:17.920
+ You give me, you have Laplace's demon, ultimately, right?
+
+14:17.920 --> 14:21.120
+ You give me the state of the world today, I can predict what it's going to do in the
+
+14:21.120 --> 14:23.180
+ future, I can predict where it was in the past.
+
+14:23.180 --> 14:26.880
+ It's impersonal, and it's also instantaneous.
+
+14:26.880 --> 14:30.920
+ It's not directed toward any future goals, it's just doing what it does given the current
+
+14:30.920 --> 14:32.320
+ state of the universe.
+
+14:32.320 --> 14:37.080
+ I think even more than either classical mechanics or quantum mechanics, that is the profound
+
+14:37.080 --> 14:40.660
+ deep insight that gets modern science off the ground.
+
+14:40.660 --> 14:45.400
+ You don't need natures and purposes and goals, you just need some patterns.
+
+14:45.400 --> 14:51.160
+ So it's the first moment in our understanding of the way the universe works where you branch
+
+14:51.160 --> 14:57.820
+ from the intuitive physical space to kind of the space of ideas.
+
+14:57.820 --> 15:03.380
+ And also the other point you said, which is, conveniently, most of the interesting ideas
+
+15:03.380 --> 15:05.940
+ are acting in the moment.
+
+15:05.940 --> 15:09.000
+ You don't need to know the history of time or the future.
+
+15:09.000 --> 15:12.000
+ And of course, this took a long time to get there, right?
+
+15:12.000 --> 15:16.260
+ I mean, the conservation of momentum itself took hundreds of years.
+
+15:16.260 --> 15:19.080
+ It's weird, because like, someone would say something interesting, and then the next interesting
+
+15:19.080 --> 15:22.200
+ thing would be said like 150 or 200 years later, right?
+
+15:22.200 --> 15:25.060
+ They weren't even talking to each other, they were reading each other's books.
+
+15:25.060 --> 15:30.640
+ And probably the first person to directly say that in outer space, in the vacuum, a
+
+15:30.640 --> 15:35.880
+ projectile would move at a constant velocity was Avicenna, Ibn Sina in the Persian Golden
+
+15:35.880 --> 15:38.200
+ Age, circa 1000.
+
+15:38.200 --> 15:39.700
+ And he didn't like the idea.
+
+15:39.700 --> 15:44.600
+ He used that, just like Schrodinger used Schrodinger's cat to say, surely you don't believe that,
+
+15:44.600 --> 15:45.600
+ right?
+
+15:45.600 --> 15:48.760
+ Ibn Sina was saying, surely you don't believe there really is a vacuum, because if there
+
+15:48.760 --> 15:52.300
+ was a really vacuum, things could keep moving forever, right?
+
+15:52.300 --> 15:56.040
+ But still, he got right the idea that there was this conservation of something impetus
+
+15:56.040 --> 15:58.300
+ or mile, he would call it.
+
+15:58.300 --> 16:03.100
+ And that's 500 years, 600 years before classical mechanics and Isaac Newton.
+
+16:03.100 --> 16:07.000
+ So Galileo played a big role in this, but he didn't exactly get it right.
+
+16:07.000 --> 16:12.280
+ And so it just takes a long time for this to sink in, because it is so against our everyday
+
+16:12.280 --> 16:13.280
+ experience.
+
+16:13.280 --> 16:21.580
+ Do you think it was a big leap, a brave or a difficult leap of sort of math and science
+
+16:21.580 --> 16:25.280
+ to be able to say that momentum is conserved?
+
+16:25.280 --> 16:26.280
+ I do.
+
+16:26.280 --> 16:31.420
+ You know, I think it's an example of human reason in action.
+
+16:31.420 --> 16:36.020
+ You know, even Aristotle knew that his theory had issues, because you could fire an arrow
+
+16:36.020 --> 16:38.700
+ and it would go a long way before it stopped.
+
+16:38.700 --> 16:42.720
+ So if his theory was things just automatically stop, what's going on?
+
+16:42.720 --> 16:43.720
+ And he had this elaborate story.
+
+16:43.720 --> 16:48.440
+ I don't know if you've heard the story, but the arrow would push the air in front of it
+
+16:48.440 --> 16:53.300
+ away and the molecules of air would run around to the back of the arrow and push it again.
+
+16:53.300 --> 16:56.860
+ And anyone reading this is going like, really, that's what you thought?
+
+16:56.860 --> 17:00.660
+ But it was that kind of thought experiment that ultimately got people to say like, actually,
+
+17:00.660 --> 17:04.460
+ no, if it weren't for the air molecules at all, the arrow would just go on by itself.
+
+17:04.460 --> 17:09.980
+ And it's always this give and take between thought and experience, back and forth, right?
+
+17:09.980 --> 17:13.740
+ Theory and experiment, we would say today.
+
+17:13.740 --> 17:20.420
+ Another big question that I think comes up, certainly with quantum mechanics, is what's
+
+17:20.420 --> 17:25.720
+ the difference between math and physics to you?
+
+17:25.720 --> 17:30.280
+ To me, you know, very, very roughly, math is about the logical structure of all possible
+
+17:30.280 --> 17:35.100
+ worlds and physics is about our actual world.
+
+17:35.100 --> 17:40.820
+ And it just feels like our actual world is a gray area when you start talking about interpretations
+
+17:40.820 --> 17:43.060
+ of quantum mechanics, or no?
+
+17:43.060 --> 17:47.940
+ I'm certainly using the word world in the broadest sense, all of reality.
+
+17:47.940 --> 17:50.740
+ So I think that reality is specific.
+
+17:50.740 --> 17:54.420
+ I don't think that there's every possible thing going on in reality.
+
+17:54.420 --> 17:58.520
+ I think that there are rules, whether it's the Schrodinger equation or whatever.
+
+17:58.520 --> 18:03.180
+ So I think that there's a sensible notion of the set of all possible worlds and we live
+
+18:03.180 --> 18:04.440
+ in one of them.
+
+18:04.440 --> 18:07.980
+ The world that we're talking about might be a multiverse, might be many worlds of quantum
+
+18:07.980 --> 18:10.940
+ mechanics, might be much bigger than the world of our everyday experience, but it's still
+
+18:10.940 --> 18:15.940
+ one physically contiguous world in some sense.
+
+18:15.940 --> 18:24.220
+ But so if you look at the overlap of math and physics, it feels like when physics tries
+
+18:24.220 --> 18:30.620
+ to reach for understanding of our world, it uses the tools of math to sort of reach beyond
+
+18:30.620 --> 18:34.320
+ the limit of our current understanding.
+
+18:34.320 --> 18:41.380
+ What do you make of that process of sort of using math to, so you start maybe with intuition
+
+18:41.380 --> 18:45.500
+ or you might start with the math and then build up an intuition or, but this kind of
+
+18:45.500 --> 18:49.540
+ reaching into the darkness, into the mystery of the world with math.
+
+18:49.540 --> 18:51.700
+ Well, I think I would put it a little bit differently.
+
+18:51.700 --> 18:57.900
+ I think we have theories, theories of the physical world, which we then extrapolate
+
+18:57.900 --> 19:02.380
+ and ask, you know, what do we conclude if we take these seriously well beyond where
+
+19:02.380 --> 19:03.700
+ we've actually tested them?
+
+19:03.700 --> 19:09.180
+ It is separately true that math is really, really useful when we construct physical theories
+
+19:09.180 --> 19:13.060
+ and you know, famously Eugene Wigner asked about the unreasonable success of mathematics
+
+19:13.060 --> 19:14.060
+ and physics.
+
+19:14.060 --> 19:20.140
+ I think that's a little bit wrong because anything that could happen, any other theory
+
+19:20.140 --> 19:24.700
+ of physics that wasn't the real world, but some other world, you could always describe
+
+19:24.700 --> 19:25.700
+ it mathematically.
+
+19:25.700 --> 19:28.180
+ It's just that it might be a mess.
+
+19:28.180 --> 19:33.660
+ The surprising thing is not that math works, but that the math is so simple and easy that
+
+19:33.660 --> 19:35.660
+ you can write it down on a t shirt, right?
+
+19:35.660 --> 19:37.640
+ I mean, that's what is amazing.
+
+19:37.640 --> 19:44.020
+ That's an enormous compression of information that seems to be valid in the real world.
+
+19:44.020 --> 19:48.340
+ So that's an interesting fact about our world, which maybe we could hope to explain or just
+
+19:48.340 --> 19:49.620
+ take as a brute fact.
+
+19:49.620 --> 19:50.880
+ I don't know.
+
+19:50.880 --> 19:56.100
+ But once you have that, you know, there's this indelible relationship between math and
+
+19:56.100 --> 19:59.380
+ physics, but philosophically I do want to separate them.
+
+19:59.380 --> 20:03.740
+ What we extrapolate, we don't extrapolate math because there's a whole bunch of wrong
+
+20:03.740 --> 20:06.060
+ math, you know, that doesn't apply to our world, right?
+
+20:06.060 --> 20:09.980
+ We extrapolate the physical theory that we best think explains our world.
+
+20:09.980 --> 20:12.700
+ Again, an unanswerable question.
+
+20:12.700 --> 20:19.780
+ Why do you think our world is so easily compressible into beautiful equations?
+
+20:19.780 --> 20:20.780
+ Yeah.
+
+20:20.780 --> 20:23.940
+ I mean, like I just hinted at, I don't know if there's an answer to that question.
+
+20:23.940 --> 20:24.940
+ There could be.
+
+20:24.940 --> 20:26.460
+ What would an answer look like?
+
+20:26.460 --> 20:31.380
+ Well, an answer could look like if you showed that there was something about our world that
+
+20:31.380 --> 20:33.260
+ maximizes something.
+
+20:33.260 --> 20:40.100
+ You know, the mean of the simplicity and the powerfulness of the laws of physics or, you
+
+20:40.100 --> 20:41.920
+ know, maybe we're just generic.
+
+20:41.920 --> 20:44.980
+ Maybe in the set of all possible worlds, this is what the world would look like, right?
+
+20:44.980 --> 20:46.500
+ Like I don't really know.
+
+20:46.500 --> 20:48.340
+ I tend to think not.
+
+20:48.340 --> 20:54.220
+ I tend to think that there is something specific and rock bottom about the facts of our world
+
+20:54.220 --> 20:56.060
+ that don't have further explanation.
+
+20:56.060 --> 20:58.260
+ Like the fact of the world exists at all.
+
+20:58.260 --> 21:00.780
+ And furthermore, the specific laws of physics that we have.
+
+21:00.780 --> 21:04.660
+ I think that in some sense, we're just going to, at some level, we're going to say, and
+
+21:04.660 --> 21:05.660
+ that's how it is.
+
+21:05.660 --> 21:07.340
+ And, you know, we can't explain anything more.
+
+21:07.340 --> 21:11.580
+ I don't know how, if we're anywhere close to that right now, but that seems plausible
+
+21:11.580 --> 21:12.580
+ to me.
+
+21:12.580 --> 21:16.780
+ And speaking of rock bottom, one of the things sort of your book kind of reminded me or revealed
+
+21:16.780 --> 21:23.340
+ to me is that what's fundamental and what's emergent, it just feels like I don't even
+
+21:23.340 --> 21:28.420
+ know anymore what's fundamental in physics, if there's anything.
+
+21:28.420 --> 21:33.980
+ It feels like everything, especially with quantum mechanics, is revealing to us is that
+
+21:33.980 --> 21:41.460
+ most interesting things that I would, as a limited human would think are fundamental
+
+21:41.460 --> 21:48.980
+ can actually be explained as emergent from the more deeper laws.
+
+21:48.980 --> 21:51.140
+ I mean, we don't know, of course.
+
+21:51.140 --> 21:52.480
+ You had to get that on the table.
+
+21:52.480 --> 21:54.620
+ We don't know what is fundamental.
+
+21:54.620 --> 22:00.480
+ We do have reasons to say that certain things are more fundamental than others, right?
+
+22:00.480 --> 22:03.980
+ Atoms and molecules are more fundamental than cells and organs.
+
+22:03.980 --> 22:07.600
+ Quantum fields are more fundamental than atoms and molecules.
+
+22:07.600 --> 22:09.780
+ We don't know if that ever bottoms out.
+
+22:09.780 --> 22:13.860
+ I do think that there's sensible ways to think about this.
+
+22:13.860 --> 22:18.140
+ If you describe something like this table as a table, it has a height and a width and
+
+22:18.140 --> 22:22.580
+ it's made of a certain material and it has a certain solidity and weight and so forth.
+
+22:22.580 --> 22:24.940
+ That's a very useful description as far as it goes.
+
+22:24.940 --> 22:29.380
+ There's a whole other description of this table in terms of a whole collection of atoms
+
+22:29.380 --> 22:31.640
+ strung together in certain ways.
+
+22:31.640 --> 22:36.340
+ The language of the atoms is more comprehensive than the language of the table.
+
+22:36.340 --> 22:41.100
+ You could break apart the table, smash it to pieces, still talk about it as atoms, but
+
+22:41.100 --> 22:43.940
+ you could no longer talk about it as a table, right?
+
+22:43.940 --> 22:48.380
+ So I think that this comprehensiveness, the domain of validity of a theory gets broader
+
+22:48.380 --> 22:52.900
+ and broader as the theory gets more and more fundamental.
+
+22:52.900 --> 22:57.620
+ So what do you think Newton would say?
+
+22:57.620 --> 23:02.140
+ Maybe right in the book review, if you read your latest book on quantum mechanics, something
+
+23:02.140 --> 23:03.140
+ deeply hidden.
+
+23:03.140 --> 23:08.140
+ It would take a long time for him to think that any of this was making any sense.
+
+23:08.140 --> 23:10.260
+ You catch him up pretty quick in the beginning.
+
+23:10.260 --> 23:11.260
+ Yeah.
+
+23:11.260 --> 23:13.220
+ You give him a shout out in the beginning.
+
+23:13.220 --> 23:14.220
+ That's right.
+
+23:14.220 --> 23:15.220
+ He is the man.
+
+23:15.220 --> 23:19.460
+ I'm happy to say that Newton was the greatest scientist who ever lived.
+
+23:19.460 --> 23:22.500
+ He invented calculus in his spare time, which would have made him the greatest mathematician
+
+23:22.500 --> 23:25.620
+ just all by himself, all by that one thing.
+
+23:25.620 --> 23:33.540
+ But of course, it's funny because Newton was in some sense still a pre modern thinker.
+
+23:33.540 --> 23:39.480
+ Rocky Kolb, who is a cosmologist at the University of Chicago said that Galileo, even though
+
+23:39.480 --> 23:43.740
+ he came before Newton, was a more modern thinker than Newton was.
+
+23:43.740 --> 23:46.660
+ If you got Galileo and brought him to the present day, it would take him six months
+
+23:46.660 --> 23:49.580
+ to catch up and then he'd be in your office telling you why your most recent paper was
+
+23:49.580 --> 23:50.740
+ wrong.
+
+23:50.740 --> 23:55.440
+ Whereas Newton just thought in this kind of more mystical way.
+
+23:55.440 --> 24:01.920
+ He wrote a lot more about the Bible and alchemy than he ever did about physics, but he was
+
+24:01.920 --> 24:06.260
+ also more brilliant than anybody else and way more mathematically astute than Galileo.
+
+24:06.260 --> 24:08.420
+ So I really don't know.
+
+24:08.420 --> 24:12.060
+ He might have, he might just, yeah, say like, give me the textbooks, leave me alone for
+
+24:12.060 --> 24:15.200
+ a few months and then be caught up.
+
+24:15.200 --> 24:19.900
+ But he might have had mental blocks against seeing the world in this way.
+
+24:19.900 --> 24:20.900
+ I really don't know.
+
+24:20.900 --> 24:24.780
+ Or perhaps find an interesting mystical interpretation of quantum mechanics.
+
+24:24.780 --> 24:25.780
+ Very possible.
+
+24:25.780 --> 24:26.780
+ Yeah.
+
+24:26.780 --> 24:31.500
+ Is there any other scientists or philosophers through history that you would like to know
+
+24:31.500 --> 24:33.580
+ their opinion of your book?
+
+24:33.580 --> 24:36.420
+ That's a, that's a good question.
+
+24:36.420 --> 24:38.500
+ I mean, Einstein is the obvious one, right?
+
+24:38.500 --> 24:42.100
+ We all, I mean, he was not that long ago, but I even speculated at the end of my book
+
+24:42.100 --> 24:44.140
+ about what his opinion would be.
+
+24:44.140 --> 24:50.140
+ I am curious as to, you know, what about older philosophers like Hume or Kant, right?
+
+24:50.140 --> 24:51.140
+ Like what would they have thought?
+
+24:51.140 --> 24:55.840
+ Or Aristotle, you know, what would they have thought about modern physics?
+
+24:55.840 --> 25:01.980
+ Because they do in philosophy, your predilections end up playing a much bigger role in your
+
+25:01.980 --> 25:07.180
+ ultimate conclusions because you're not as tied down by what the data is in physics.
+
+25:07.180 --> 25:11.060
+ You know, physics is lucky because we can't stray too far off the reservation as long
+
+25:11.060 --> 25:15.820
+ as we're trying to explain the world that we actually see in our telescopes and microscopes.
+
+25:15.820 --> 25:20.900
+ But it's just not fair to play that game because the people we're thinking about didn't know
+
+25:20.900 --> 25:23.580
+ a whole bunch of things that we know, right?
+
+25:23.580 --> 25:26.380
+ Like we lived through a lot that they didn't live through.
+
+25:26.380 --> 25:32.700
+ So by the time we got them caught up, they'd be different people.
+
+25:32.700 --> 25:35.940
+ So let me ask a bunch of basic questions.
+
+25:35.940 --> 25:40.220
+ I think it would be interesting, useful for people who are not familiar, but even for
+
+25:40.220 --> 25:42.940
+ people who are extremely well familiar.
+
+25:42.940 --> 25:47.260
+ Let's start with what is quantum mechanics?
+
+25:47.260 --> 25:51.820
+ Quantum mechanics is the paradigm of physics that came into being in the early part of
+
+25:51.820 --> 25:58.380
+ the 20th century that replaced classical mechanics, and it replaced classical mechanics in a weird
+
+25:58.380 --> 26:00.380
+ way that we're still coming to terms with.
+
+26:00.380 --> 26:05.580
+ So in classical mechanics, you have an object, it has a location, it has a velocity, and
+
+26:05.580 --> 26:08.660
+ if you know the location and velocity of everything in the world, you can say what everything's
+
+26:08.660 --> 26:10.420
+ going to do.
+
+26:10.420 --> 26:15.660
+ Quantum mechanics has an aspect of it that is kind of on the same lines.
+
+26:15.660 --> 26:19.340
+ There's something called the quantum state or the wave function.
+
+26:19.340 --> 26:22.260
+ And there's an equation governing what the quantum state does.
+
+26:22.260 --> 26:23.980
+ So it's very much like classical mechanics.
+
+26:23.980 --> 26:25.660
+ The wave function is different.
+
+26:25.660 --> 26:26.980
+ It's sort of a wave.
+
+26:26.980 --> 26:31.380
+ It's a vector in a huge dimensional vector space rather than a position and a velocity,
+
+26:31.380 --> 26:33.060
+ but okay, that's a detail.
+
+26:33.060 --> 26:37.700
+ The equation is the Schrodinger equation, not Newton's laws, but okay, again, a detail.
+
+26:37.700 --> 26:41.380
+ Where quantum mechanics really becomes weird and different is that there's a whole other
+
+26:41.380 --> 26:46.820
+ set of rules in our textbook formulation of quantum mechanics in addition to saying that
+
+26:46.820 --> 26:49.320
+ there's a quantum state and it evolves in time.
+
+26:49.320 --> 26:52.820
+ And all these new rules have to do with what happens when you look at the system, when
+
+26:52.820 --> 26:55.100
+ you observe it, when you measure it.
+
+26:55.100 --> 26:58.420
+ In classical mechanics, there were no rules about observing.
+
+26:58.420 --> 27:00.260
+ You just look at it and you see what's going on.
+
+27:00.260 --> 27:01.580
+ That was it, right?
+
+27:01.580 --> 27:06.940
+ In quantum mechanics, the way we teach it, there's something profoundly fundamental about
+
+27:06.940 --> 27:12.260
+ the act of measurement or observation, and the system dramatically changes its state.
+
+27:12.260 --> 27:16.780
+ Even though it has a wave function, like the electron in an atom is not orbiting in a circle,
+
+27:16.780 --> 27:21.460
+ it's sort of spread out in a cloud, when you look at it, you don't see that cloud.
+
+27:21.460 --> 27:24.840
+ When you look at it, it looks like a particle with a location.
+
+27:24.840 --> 27:29.380
+ So it dramatically changes its state right away, and the effects of that change can be
+
+27:29.380 --> 27:32.120
+ instantly seen in what the electron does next.
+
+27:32.120 --> 27:39.060
+ So again, we need to be careful because we don't agree on what quantum mechanics says.
+
+27:39.060 --> 27:41.660
+ That's why I need to say like in the textbook view, et cetera, right?
+
+27:41.660 --> 27:48.540
+ But in the textbook view, quantum mechanics, unlike any other theory of physics, gives
+
+27:48.540 --> 27:51.060
+ a fundamental role to the act of measurement.
+
+27:51.060 --> 27:56.980
+ So maybe even more basic, what is an atom and what is an electron?
+
+27:56.980 --> 27:57.980
+ Sure.
+
+27:57.980 --> 28:01.780
+ This all came together in a few years around the turn of the last century, right?
+
+28:01.780 --> 28:05.180
+ Around the year 1900.
+
+28:05.180 --> 28:09.220
+ Atoms predated then, of course, the word atom goes back to the ancient Greeks, but it was
+
+28:09.220 --> 28:15.300
+ the chemists in the 1800s that really first got experimental evidence for atoms.
+
+28:15.300 --> 28:21.020
+ They realized that there were two different types of tin oxide.
+
+28:21.020 --> 28:25.300
+ And in these two different types of tin oxide, there was exactly twice as much oxygen in
+
+28:25.300 --> 28:27.180
+ one type as the other.
+
+28:27.180 --> 28:28.940
+ And like, why is that?
+
+28:28.940 --> 28:31.700
+ Why is it never 1.5 times as much, right?
+
+28:31.700 --> 28:38.280
+ And so Dalton said, well, it's because there are tin atoms and oxygen atoms, and one form
+
+28:38.280 --> 28:42.940
+ of tin oxide is one atom of tin and one atom of oxygen, and the other is one atom of tin
+
+28:42.940 --> 28:44.820
+ and two atoms of oxygen.
+
+28:44.820 --> 28:49.220
+ And on the basis of this, you know, a speculation, a theory, right, a hypothesis, but then on
+
+28:49.220 --> 28:52.900
+ the basis of that, you make other predictions, and the chemists became quickly convinced
+
+28:52.900 --> 28:54.540
+ that atoms were real.
+
+28:54.540 --> 28:58.880
+ The physicists took a lot longer to catch on, but eventually they did.
+
+28:58.880 --> 29:04.380
+ And I mean, Boltzmann, who believed in atoms, had a really tough time his whole life because
+
+29:04.380 --> 29:07.220
+ he worked in Germany where atoms were not popular.
+
+29:07.220 --> 29:09.800
+ They were popular in England, but not in Germany.
+
+29:09.800 --> 29:15.160
+ And there, in general, the idea of atoms is, it's the most, the smallest building block
+
+29:15.160 --> 29:17.080
+ of the universe for them.
+
+29:17.080 --> 29:18.080
+ That's the kind of how they thought it was.
+
+29:18.080 --> 29:22.760
+ That was the Greek idea, but the chemists in the 1800s jumped the gun a little bit.
+
+29:22.760 --> 29:27.860
+ So these days, an atom is the smallest building block of a chemical element, right?
+
+29:27.860 --> 29:33.180
+ Hydrogen, tin, oxygen, carbon, whatever, but we know that atoms can be broken up further
+
+29:33.180 --> 29:34.180
+ than that.
+
+29:34.180 --> 29:40.620
+ That's what physicists discovered in the early 1900s, Rutherford, especially, and his colleagues.
+
+29:40.620 --> 29:46.740
+ So the atom that we think about now, the cartoon, is that picture you've always seen of a little
+
+29:46.740 --> 29:50.260
+ nucleus and then electrons orbiting it like a little solar system.
+
+29:50.260 --> 29:53.180
+ And we now know the nucleus is made of protons and neutrons.
+
+29:53.180 --> 29:58.640
+ So the weight of the atom, the mass, is almost all in its nucleus.
+
+29:58.640 --> 30:03.880
+ Protons and neutrons are something like 1800 times as heavy as electrons are.
+
+30:03.880 --> 30:09.020
+ Protons are much lighter, but because they're lighter, they give all the life to the atoms.
+
+30:09.020 --> 30:13.740
+ So when atoms get together, combine chemically, when electricity flows through a system, it's
+
+30:13.740 --> 30:16.900
+ all the electrons that are doing all the work.
+
+30:16.900 --> 30:21.300
+ And where quantum mechanics steps in, as you mentioned, with the position of velocity with
+
+30:21.300 --> 30:26.900
+ classical mechanics and quantum mechanics is modeling the behavior of the electron.
+
+30:26.900 --> 30:30.620
+ I mean, you can model the behavior of anything, but the electron, because that's where the
+
+30:30.620 --> 30:31.900
+ fun is.
+
+30:31.900 --> 30:34.580
+ The electron was the biggest challenge right from the start.
+
+30:34.580 --> 30:35.580
+ Yeah.
+
+30:35.580 --> 30:36.580
+ So what's a wave function?
+
+30:36.580 --> 30:43.540
+ You said it's an interesting detail, but in any interpretation, what is the wave function
+
+30:43.540 --> 30:44.540
+ in quantum mechanics?
+
+30:44.540 --> 30:50.260
+ Well, you know, we had this idea from Rutherford that atoms look like little solar systems,
+
+30:50.260 --> 30:54.760
+ but people very quickly realize that can't possibly be right because if an electron is
+
+30:54.760 --> 30:57.640
+ orbiting in a circle, it will give off light.
+
+30:57.640 --> 31:01.540
+ All the light that we have in this room comes from electrons zooming up and down and wiggling.
+
+31:01.540 --> 31:03.260
+ That's what electromagnetic waves are.
+
+31:03.260 --> 31:07.660
+ And you can calculate how long would it take for the electron just to spiral into the nucleus?
+
+31:07.660 --> 31:12.180
+ And the answer is 10 to the minus 11 seconds, okay, 100 billionth of a second.
+
+31:12.180 --> 31:14.380
+ So that's not right.
+
+31:14.380 --> 31:21.300
+ Meanwhile, people had realized that light, which we understood from the 1800s was a wave,
+
+31:21.300 --> 31:23.940
+ had properties that were similar to that of particles, right?
+
+31:23.940 --> 31:26.740
+ This is Einstein and Planck and stuff like that.
+
+31:26.740 --> 31:34.020
+ So if something that we agree was a wave had particle like properties, then maybe something
+
+31:34.020 --> 31:38.540
+ we think is a particle, the electron has wave like properties, right?
+
+31:38.540 --> 31:42.900
+ And so a bunch of people eventually came to the conclusion, don't think about the electron
+
+31:42.900 --> 31:47.180
+ as a little point particle orbiting like a solar system.
+
+31:47.180 --> 31:49.780
+ Think of it as a wave that is spread out.
+
+31:49.780 --> 31:53.100
+ They cleverly gave this the name the wave function, which is the dopiest name in the
+
+31:53.100 --> 31:57.420
+ world for one of the most profound things in the universe.
+
+31:57.420 --> 32:03.100
+ There's literally a number at every point in space, which is the value of the electron's
+
+32:03.100 --> 32:04.980
+ wave function at that point.
+
+32:04.980 --> 32:07.580
+ And there's only one wave function.
+
+32:07.580 --> 32:09.600
+ Yeah, they eventually figured that out.
+
+32:09.600 --> 32:10.960
+ That took longer.
+
+32:10.960 --> 32:15.220
+ But when you have two electrons, you do not have a wave function for electron one and
+
+32:15.220 --> 32:17.140
+ a wave function for electron two.
+
+32:17.140 --> 32:20.420
+ You have one combined wave function for both of them.
+
+32:20.420 --> 32:26.980
+ And indeed, as you say, there's only one wave function for the entire universe at once.
+
+32:26.980 --> 32:32.620
+ And that's where this beautiful dance, can you say what is entanglement?
+
+32:32.620 --> 32:35.580
+ It seems one of the most fundamental ideas of quantum mechanics.
+
+32:35.580 --> 32:39.580
+ Well, let's temporarily buy into the textbook interpretation of quantum mechanics.
+
+32:39.580 --> 32:43.820
+ And what that says is that this wave function, so it's very small outside the atom, very
+
+32:43.820 --> 32:48.940
+ big in the atom, basically the wave function, you take it and you square it, you square
+
+32:48.940 --> 32:54.220
+ the number that gives you the probability of observing the system at that location.
+
+32:54.220 --> 32:58.700
+ So if you say that for two electrons, there's only one wave function, and that wave function
+
+32:58.700 --> 33:03.060
+ gives you the probability of observing both electrons at once doing something, okay?
+
+33:03.060 --> 33:07.220
+ So maybe the electron can be here or here, here, here, and the other electron can also
+
+33:07.220 --> 33:08.300
+ be there.
+
+33:08.300 --> 33:12.600
+ But we have a wave function set up where we don't know where either electron is going
+
+33:12.600 --> 33:14.100
+ to be seen.
+
+33:14.100 --> 33:17.800
+ But we know they'll both be seen in the same place, okay?
+
+33:17.800 --> 33:22.100
+ So we don't know exactly what we're going to see for either electron, but there's entanglement
+
+33:22.100 --> 33:23.740
+ between the two of them.
+
+33:23.740 --> 33:25.460
+ There's a sort of conditional statement.
+
+33:25.460 --> 33:29.440
+ If we see one in one location, then we know the other one's going to be doing a certain
+
+33:29.440 --> 33:30.440
+ thing.
+
+33:30.440 --> 33:34.220
+ So that's a feature of quantum mechanics that is nowhere to be found in classical mechanics.
+
+33:34.220 --> 33:37.660
+ In classical mechanics, there's no way I can say, well, I don't know where either one of
+
+33:37.660 --> 33:40.700
+ these particles is, but if I know, if I find out where this one is, then I know where the
+
+33:40.700 --> 33:41.700
+ other one is.
+
+33:41.700 --> 33:42.700
+ That just never happens.
+
+33:42.700 --> 33:43.700
+ They're truly separate.
+
+33:43.700 --> 33:47.980
+ I don't know, it feels like, if you think of a wave function like as a dance floor,
+
+33:47.980 --> 33:53.860
+ it seems like entanglement is strongest between things that are dancing together closest.
+
+33:53.860 --> 33:56.420
+ So there's a closeness that's important.
+
+33:56.420 --> 33:58.340
+ Well, that's another step.
+
+33:58.340 --> 34:02.660
+ We have to be careful here because in principle, if you're talking about the entanglement of
+
+34:02.660 --> 34:08.860
+ two electrons, for example, they can be totally entangled or totally unentangled no matter
+
+34:08.860 --> 34:10.180
+ where they are in the universe.
+
+34:10.180 --> 34:15.180
+ There's no relationship between the amount of entanglement and the distance between two
+
+34:15.180 --> 34:16.180
+ electrons.
+
+34:16.180 --> 34:21.120
+ But we now know that the reality of our best way of understanding the world is through
+
+34:21.120 --> 34:23.860
+ quantum fields, not through particles.
+
+34:23.860 --> 34:28.540
+ So even the electron, not just gravity and electromagnetism, but even the electron and
+
+34:28.540 --> 34:33.160
+ the quarks and so forth are really vibrations in quantum fields.
+
+34:33.160 --> 34:38.340
+ So even empty space is full of vibrating quantum fields.
+
+34:38.340 --> 34:42.840
+ And those quantum fields in empty space are entangled with each other in exactly the way
+
+34:42.840 --> 34:43.840
+ you just said.
+
+34:43.840 --> 34:47.020
+ If they're nearby, if you have like two vibrating quantum fields that are nearby, then they'll
+
+34:47.020 --> 34:48.580
+ be highly entangled.
+
+34:48.580 --> 34:50.540
+ If they're far away, they will not be entangled.
+
+34:50.540 --> 34:52.880
+ So what do quantum fields in a vacuum look like?
+
+34:52.880 --> 34:53.880
+ Empty space?
+
+34:53.880 --> 34:54.880
+ Just like empty space.
+
+34:54.880 --> 34:56.600
+ It's as empty as it can be.
+
+34:56.600 --> 34:57.980
+ But there's still a field.
+
+34:57.980 --> 35:02.420
+ It's just, what does nothing look like?
+
+35:02.420 --> 35:06.340
+ Just like right here, this location in space, there's a gravitational field, which I can
+
+35:06.340 --> 35:07.980
+ detect by dropping something.
+
+35:07.980 --> 35:08.980
+ Yes.
+
+35:08.980 --> 35:12.860
+ I don't see it, but there it is.
+
+35:12.860 --> 35:17.860
+ So we got a little bit of an idea of entanglement.
+
+35:17.860 --> 35:23.980
+ Now, what is Hilbert space and Euclidean space?
+
+35:23.980 --> 35:28.180
+ Yeah, you know, I think that people are very welcome to go through their lives not knowing
+
+35:28.180 --> 35:29.360
+ what Hilbert space is.
+
+35:29.360 --> 35:33.580
+ But if you dig into a little bit more into quantum mechanics, it becomes necessary.
+
+35:33.580 --> 35:39.420
+ You know, the English language was invented long before quantum mechanics, or various
+
+35:39.420 --> 35:41.260
+ forms of higher mathematics were invented.
+
+35:41.260 --> 35:45.020
+ So we use the word space to mean different things.
+
+35:45.020 --> 35:48.700
+ Of course, most of us think of space as this three dimensional world in which we live,
+
+35:48.700 --> 35:49.700
+ right?
+
+35:49.700 --> 35:51.420
+ I mean, some of us just think of it as outer space.
+
+35:51.420 --> 35:56.420
+ Okay, but space around us gives us the three dimensional location of things and objects.
+
+35:56.420 --> 36:05.820
+ But mathematicians use any generic abstract collection of elements as a space, okay?
+
+36:05.820 --> 36:09.940
+ A space of possibilities, you know, momentum space, etc.
+
+36:09.940 --> 36:14.480
+ So Hilbert space is the space of all possible quantum wave functions, either for the universe
+
+36:14.480 --> 36:16.740
+ or for some specific system.
+
+36:16.740 --> 36:21.300
+ And it could be an infinite dimensional space, or it could be just really, really large dimensional
+
+36:21.300 --> 36:22.300
+ but finite.
+
+36:22.300 --> 36:24.960
+ We don't know because we don't know the final theory of everything.
+
+36:24.960 --> 36:29.540
+ But this abstract Hilbert space is really, really, really big and has no immediate connection
+
+36:29.540 --> 36:31.780
+ to the three dimensional space in which we live.
+
+36:31.780 --> 36:35.220
+ What do dimensions in Hilbert space mean?
+
+36:35.220 --> 36:40.020
+ You know, it's just a way of mathematically representing how much information is contained
+
+36:40.020 --> 36:41.660
+ in the state of the system.
+
+36:41.660 --> 36:45.720
+ How many numbers do you have to give me to specify what the thing is doing?
+
+36:45.720 --> 36:51.020
+ So in classical mechanics, I give you the location of something by giving you three
+
+36:51.020 --> 36:52.020
+ numbers, right?
+
+36:52.020 --> 36:54.340
+ Up, down, left, X, Y, Z coordinates.
+
+36:54.340 --> 37:00.100
+ But then I might want to give you its entire state, physical state, which means both its
+
+37:00.100 --> 37:02.680
+ position and also its velocity.
+
+37:02.680 --> 37:04.520
+ The velocity also has three components.
+
+37:04.520 --> 37:09.860
+ So its state lives in something called phase space, which is six dimensional, three dimensions
+
+37:09.860 --> 37:12.540
+ of position, three dimensions of velocity.
+
+37:12.540 --> 37:16.200
+ And then if it also has an orientation in space, that's another three dimensions and
+
+37:16.200 --> 37:17.200
+ so forth.
+
+37:17.200 --> 37:22.620
+ So as you describe more and more information about the system, you have an abstract mathematical
+
+37:22.620 --> 37:26.460
+ space that has more and more numbers that you need to give.
+
+37:26.460 --> 37:29.840
+ And each one of those numbers corresponds to a dimension in that space.
+
+37:29.840 --> 37:34.760
+ So in terms of the amount of information, what is entropy?
+
+37:34.760 --> 37:40.740
+ This mystical word that's overused in math and physics, but has a very specific meaning
+
+37:40.740 --> 37:41.940
+ in this context.
+
+37:41.940 --> 37:44.300
+ Sadly, it has more than one very specific meeting.
+
+37:44.300 --> 37:46.660
+ This is the reason why it is hard.
+
+37:46.660 --> 37:49.200
+ Entropy means different things even to different physicists.
+
+37:49.200 --> 37:54.120
+ But one way of thinking about it is a measure of how much we don't know about the state
+
+37:54.120 --> 37:55.160
+ of a system.
+
+37:55.160 --> 38:00.540
+ So if I have a bottle of water molecules, and I know that, OK, there's a certain number
+
+38:00.540 --> 38:01.540
+ of water molecules.
+
+38:01.540 --> 38:02.940
+ I could weigh it and figure out.
+
+38:02.940 --> 38:06.740
+ I know the volume of it, and I know the temperature and pressure and things like that.
+
+38:06.740 --> 38:12.280
+ I certainly don't know the exact position and velocity of every water molecule.
+
+38:12.280 --> 38:15.600
+ So there's a certain amount of information I know, a certain amount that I don't know
+
+38:15.600 --> 38:18.540
+ that is part of the complete state of the system.
+
+38:18.540 --> 38:23.340
+ And that's what the entropy characterizes, how much unknown information there is, the
+
+38:23.340 --> 38:28.300
+ difference between what I do know about the system and its full exact microscopic state.
+
+38:28.300 --> 38:36.660
+ So when we try to describe a quantum mechanical system, is it infinite or finite but very
+
+38:36.660 --> 38:37.660
+ large?
+
+38:37.660 --> 38:38.660
+ Yeah, we don't know.
+
+38:38.660 --> 38:39.660
+ That depends on the system.
+
+38:39.660 --> 38:44.300
+ You know, it's easy to mathematically write down a system that would have a potentially
+
+38:44.300 --> 38:47.480
+ infinite entropy, an infinite dimensional Hilbert space.
+
+38:47.480 --> 38:50.100
+ So let's go back a little bit.
+
+38:50.100 --> 38:54.340
+ We said that the Hilbert space was the space in which quantum wave functions lived for
+
+38:54.340 --> 38:57.220
+ different systems that will be different sizes.
+
+38:57.220 --> 38:58.420
+ They could be infinite or finite.
+
+38:58.420 --> 39:03.380
+ So that's the number of numbers, the number of pieces of information you could potentially
+
+39:03.380 --> 39:04.620
+ give me about the system.
+
+39:04.620 --> 39:11.100
+ So the bigger Hilbert space is, the bigger the entropy of that system could be, depending
+
+39:11.100 --> 39:12.100
+ on what I know about it.
+
+39:12.100 --> 39:16.260
+ If I don't know anything about it, then it has a huge entropy, right, but only up to
+
+39:16.260 --> 39:18.160
+ the size of its Hilbert space.
+
+39:18.160 --> 39:23.860
+ So we don't know in the real physical world whether or not, you know, this region of space
+
+39:23.860 --> 39:29.140
+ that contains that water bottle has potentially an infinite entropy or just a finite entropy.
+
+39:29.140 --> 39:31.580
+ We have different arguments on different sides.
+
+39:31.580 --> 39:35.640
+ So if it's infinite, how do you think about infinity?
+
+39:35.640 --> 39:42.020
+ Is this something you can, your cognitive abilities are able to process or is it just
+
+39:42.020 --> 39:44.060
+ a mathematical tool?
+
+39:44.060 --> 39:45.060
+ It's somewhere in between, right?
+
+39:45.060 --> 39:46.420
+ I mean, we can say things about it.
+
+39:46.420 --> 39:51.220
+ We can use mathematical tools to manipulate infinity very, very accurately.
+
+39:51.220 --> 39:52.980
+ We can define what we mean.
+
+39:52.980 --> 39:56.180
+ You know, for any number n, there's a number bigger than it.
+
+39:56.180 --> 39:58.180
+ So there's no biggest number, right?
+
+39:58.180 --> 40:00.580
+ So there's something called the total number of all numbers.
+
+40:00.580 --> 40:01.640
+ It's infinite.
+
+40:01.640 --> 40:07.180
+ But it is hard to wrap your brain around that, and I think that gives people pause because
+
+40:07.180 --> 40:11.380
+ we talk about infinity as if it's a number, but it has plenty of properties that real
+
+40:11.380 --> 40:12.380
+ numbers don't have.
+
+40:12.380 --> 40:15.820
+ You know, if you multiply infinity by two, you get infinity again, right?
+
+40:15.820 --> 40:18.500
+ That's a little bit different than what we're used to.
+
+40:18.500 --> 40:19.500
+ Okay.
+
+40:19.500 --> 40:25.780
+ But are you comfortable with the idea that in thinking of what the real world actually
+
+40:25.780 --> 40:28.780
+ is that infinity could be part of that world?
+
+40:28.780 --> 40:31.380
+ Are you comfortable that a world in some dimension, in some aspect?
+
+40:31.380 --> 40:33.020
+ I'm comfortable with lots of things.
+
+40:33.020 --> 40:40.740
+ I mean, you know, I don't want my level of comfort to affect what I think about the world.
+
+40:40.740 --> 40:44.020
+ You know, I'm pretty open minded about what the world could be at the fundamental level.
+
+40:44.020 --> 40:47.900
+ Yeah, but infinity is a tricky one.
+
+40:47.900 --> 40:50.460
+ It's not almost a question of comfort.
+
+40:50.460 --> 40:56.420
+ It's a question of, is it an overreach of our intuition?
+
+40:56.420 --> 41:01.180
+ Sort of, it could be a convenient, almost like when you add a constant to an equation
+
+41:01.180 --> 41:06.860
+ just because it'll help, it just feels like it's useful to at least be able to imagine
+
+41:06.860 --> 41:13.380
+ a concept, not directly, but in some kind of way that this feels like it's a description
+
+41:13.380 --> 41:14.380
+ of the real world.
+
+41:14.380 --> 41:15.940
+ Think of it this way.
+
+41:15.940 --> 41:19.420
+ There's only three numbers that are simple.
+
+41:19.420 --> 41:24.380
+ There's zero, there's one, and there's infinity.
+
+41:24.380 --> 41:29.580
+ A number like 318 is just bizarre.
+
+41:29.580 --> 41:33.220
+ You need a lot of bits to give me what that number is.
+
+41:33.220 --> 41:36.660
+ But zero and one and infinity, like once you have 300 things, you might as well have infinity
+
+41:36.660 --> 41:37.660
+ things, right?
+
+41:37.660 --> 41:40.060
+ Otherwise, you have to say when to stop making the things, right?
+
+41:40.060 --> 41:44.860
+ So there's a sense in which infinity is a very natural number of things to exist.
+
+41:44.860 --> 41:50.420
+ I was never comfortable with infinity because it's just such a, it was too good to be true.
+
+41:50.420 --> 41:55.780
+ Because in math, it just helps make things work out.
+
+41:55.780 --> 42:02.800
+ When things get very large, close to infinity, things seem to work out nicely.
+
+42:02.800 --> 42:07.740
+ It's kind of like, because my deepest passion is probably psychology.
+
+42:07.740 --> 42:18.660
+ And I'm uncomfortable how in the average, the beauty of how much we vary is lost.
+
+42:18.660 --> 42:24.340
+ In that same kind of sense, infinity seems like a convenient way to erase the details.
+
+42:24.340 --> 42:29.320
+ But the thing about infinity is it seems to pop up whether we like it or not, right?
+
+42:29.320 --> 42:33.020
+ Like you're trying to be a computer scientist, you ask yourself, well, how long will it take
+
+42:33.020 --> 42:34.540
+ this program to run?
+
+42:34.540 --> 42:37.440
+ And you realize, well, for some of them, the answer is infinitely long.
+
+42:37.440 --> 42:39.540
+ It's not because you tried to get there.
+
+42:39.540 --> 42:43.420
+ You wrote a five line computer program, it doesn't halt.
+
+42:43.420 --> 42:48.220
+ So coming back to the textbook definition of quantum mechanics, this idea that I don't
+
+42:48.220 --> 42:55.300
+ think we talked about, can you, this one of the most interesting philosophical points,
+
+42:55.300 --> 43:02.100
+ we talked at the human level, but at the physics level, that at least the textbook definition
+
+43:02.100 --> 43:07.660
+ of quantum mechanics separates what is observed and what is real.
+
+43:07.660 --> 43:13.100
+ One, how does that make you feel?
+
+43:13.100 --> 43:19.020
+ And two, what does it then mean to observe something and why is it different than what
+
+43:19.020 --> 43:20.020
+ is real?
+
+43:20.020 --> 43:27.700
+ Yeah, you know, my personal feeling, such as it is, is that things like measurement
+
+43:27.700 --> 43:32.100
+ and observers and stuff like that are not going to play a fundamental role in the ultimate
+
+43:32.100 --> 43:33.100
+ laws of physics.
+
+43:33.100 --> 43:38.500
+ But my feeling that way is because so far, that's where all the evidence has been pointing.
+
+43:38.500 --> 43:39.960
+ I could be wrong.
+
+43:39.960 --> 43:45.920
+ And there's certainly a sense in which it would be infinitely cool if somehow observation
+
+43:45.920 --> 43:52.180
+ or mental cogitation did play a fundamental role in the nature of reality.
+
+43:52.180 --> 43:53.180
+ But I don't think so.
+
+43:53.180 --> 43:54.580
+ And again, I don't see any evidence for it.
+
+43:54.580 --> 43:58.280
+ So I'm not spending a lot of time worrying about that possibility.
+
+43:58.280 --> 44:02.020
+ So what do you do about the fact that in the textbook interpretation of quantum mechanics,
+
+44:02.020 --> 44:07.860
+ this idea of measurement or looking at things seems to play an important role?
+
+44:07.860 --> 44:11.780
+ Well, you come up with better interpretations of quantum mechanics and there are several
+
+44:11.780 --> 44:12.780
+ alternatives.
+
+44:12.780 --> 44:17.180
+ My favorite is the many worlds interpretation, which says two things.
+
+44:17.180 --> 44:22.180
+ Number one, you, the observer, are just a quantum system like anything else.
+
+44:22.180 --> 44:23.660
+ There's nothing special about you.
+
+44:23.660 --> 44:27.260
+ Don't get so proud of yourself, you know, you're just a bunch of atoms.
+
+44:27.260 --> 44:31.300
+ You have a wave function, you obey the Schrodinger equation like everything else.
+
+44:31.300 --> 44:35.940
+ And number two, when you think you're measuring something or observing something, what's really
+
+44:35.940 --> 44:40.480
+ happening is you're becoming entangled with that thing.
+
+44:40.480 --> 44:43.820
+ So when you think there's a wave function for the electron, it's all spread out.
+
+44:43.820 --> 44:46.660
+ But you look at it and you only see it in one location.
+
+44:46.660 --> 44:50.060
+ What's really happening is that there's still the wave function for the electron in all
+
+44:50.060 --> 44:51.060
+ those locations.
+
+44:51.060 --> 44:55.960
+ But now it's entangled with the wave function of you in the following way.
+
+44:55.960 --> 44:59.340
+ There's part of the wave function that says the electron was here and you think you saw
+
+44:59.340 --> 45:00.340
+ it there.
+
+45:00.340 --> 45:02.380
+ The electron was there and you think you saw it there.
+
+45:02.380 --> 45:05.620
+ The electron was over there and you think you saw it there, etc.
+
+45:05.620 --> 45:10.260
+ So in all of those different parts of the wave function, once they come into being,
+
+45:10.260 --> 45:11.600
+ no longer talk to each other.
+
+45:11.600 --> 45:13.820
+ They no longer interact or influence each other.
+
+45:13.820 --> 45:16.380
+ It's as if they are separate worlds.
+
+45:16.380 --> 45:21.620
+ So this was the invention of Hugh Everett III, who was a graduate student at Princeton
+
+45:21.620 --> 45:22.620
+ in the 1950s.
+
+45:22.620 --> 45:28.600
+ And he said, basically, look, you don't need all these extra rules about looking at things.
+
+45:28.600 --> 45:31.020
+ Just listen to what the Schrodinger equation is telling you.
+
+45:31.020 --> 45:35.300
+ It's telling you that you have a wave function, that you become entangled, and that the different
+
+45:35.300 --> 45:37.820
+ versions of you no longer talk to each other.
+
+45:37.820 --> 45:39.420
+ So just accept it.
+
+45:39.420 --> 45:41.540
+ It's just he did therapy more than anything else.
+
+45:41.540 --> 45:42.980
+ He said, like, it's okay.
+
+45:42.980 --> 45:45.060
+ You don't need all these extra rules.
+
+45:45.060 --> 45:47.200
+ All you need to do is believe the Schrodinger equation.
+
+45:47.200 --> 45:50.140
+ The cost is there's a whole bunch of extra worlds out there.
+
+45:50.140 --> 45:57.340
+ So are the worlds being created whether there's an observer or not?
+
+45:57.340 --> 46:01.520
+ The worlds are created any time a quantum system that's in a superposition becomes entangled
+
+46:01.520 --> 46:04.020
+ with the outside world.
+
+46:04.020 --> 46:06.140
+ What's the outside world?
+
+46:06.140 --> 46:07.140
+ It depends.
+
+46:07.140 --> 46:08.700
+ Let's back up.
+
+46:08.700 --> 46:13.980
+ Whatever it really says, what his theory is, is there's a wave function of the universe
+
+46:13.980 --> 46:17.240
+ and it obeys the Schrodinger equation all the time.
+
+46:17.240 --> 46:18.240
+ That's it.
+
+46:18.240 --> 46:20.580
+ That's the full theory right there.
+
+46:20.580 --> 46:27.140
+ The question, all of the work is how in the world do you map that theory onto reality,
+
+46:27.140 --> 46:29.280
+ onto what we observe?
+
+46:29.280 --> 46:33.740
+ So part of it is carving up the wave function into these separate worlds, saying, look,
+
+46:33.740 --> 46:36.180
+ it describes a whole bunch of things that don't interact with each other.
+
+46:36.180 --> 46:38.120
+ Let's call them separate worlds.
+
+46:38.120 --> 46:41.860
+ Another part is distinguishing between systems and their environments.
+
+46:41.860 --> 46:45.660
+ The environment is basically all the degrees of freedom, all the things going on in the
+
+46:45.660 --> 46:48.100
+ world that you don't keep track of.
+
+46:48.100 --> 46:52.980
+ So again, in the bottle of water, I might keep track of the total amount of water and
+
+46:52.980 --> 46:53.980
+ the volume.
+
+46:53.980 --> 46:57.140
+ I don't keep track of the individual positions and velocities.
+
+46:57.140 --> 47:00.700
+ I don't keep track of all the photons or the air molecules in this room.
+
+47:00.700 --> 47:02.120
+ So that's the outside world.
+
+47:02.120 --> 47:06.180
+ The outside world is all the parts of the universe that you're not keeping track of
+
+47:06.180 --> 47:10.840
+ when you're asking about the behavior of subsystem of it.
+
+47:10.840 --> 47:14.220
+ So how many worlds are there?
+
+47:14.220 --> 47:17.100
+ Yeah, we don't know that one either.
+
+47:17.100 --> 47:18.860
+ There could be an infinite number.
+
+47:18.860 --> 47:21.660
+ There could be only a finite number, but it's a big number one way or the other.
+
+47:21.660 --> 47:23.860
+ It's just a very, very big number.
+
+47:23.860 --> 47:32.020
+ In one of the talks, somebody asked, well, if it's finite.
+
+47:32.020 --> 47:38.700
+ So actually I'm not sure exactly the logic you used to derive this, but is there going
+
+47:38.700 --> 47:47.540
+ to be overlap, a duplicate world that you return to?
+
+47:47.540 --> 47:52.020
+ So you've mentioned, and I'd love if you can elaborate on sort of idea that it's possible
+
+47:52.020 --> 47:56.780
+ that there's some kind of equilibrium that these splitting worlds arrive at and then
+
+47:56.780 --> 48:03.700
+ maybe over time, maybe somehow connected to entropy, you get a large number of worlds
+
+48:03.700 --> 48:05.260
+ that are very similar to each other.
+
+48:05.260 --> 48:06.260
+ Yeah.
+
+48:06.260 --> 48:11.860
+ So this question of whether or not Hilbert space is finite or infinite dimensional is
+
+48:11.860 --> 48:16.420
+ actually secretly connected to gravity and cosmology.
+
+48:16.420 --> 48:19.460
+ This is the part that we're still struggling to understand right now, but we discovered
+
+48:19.460 --> 48:25.220
+ back in 1998 that our universe is accelerating and what that means if it continues, which
+
+48:25.220 --> 48:26.940
+ we think it probably will, but we're not sure.
+
+48:26.940 --> 48:31.340
+ But if it does, that means there's a horizon around us.
+
+48:31.340 --> 48:34.820
+ Because the universe is not only expanding, but expanding faster and faster, things can
+
+48:34.820 --> 48:40.220
+ get so far away from us that from our perspective, it looks like they're moving away faster in
+
+48:40.220 --> 48:41.220
+ the speed of light.
+
+48:41.220 --> 48:42.580
+ We will never see them again.
+
+48:42.580 --> 48:47.400
+ So there's literally a horizon around us and that horizon approaches some fixed distance
+
+48:47.400 --> 48:48.780
+ away from us.
+
+48:48.780 --> 48:53.260
+ And you can then argue that within that horizon, there's only a finite number of things that
+
+48:53.260 --> 48:55.980
+ can possibly happen, the finite dimensional Hilbert space.
+
+48:55.980 --> 48:59.500
+ In fact, we even have a guess for what the dimensionality is.
+
+48:59.500 --> 49:04.540
+ It's 10 to the power of 10 to the power of 122.
+
+49:04.540 --> 49:05.540
+ That's a very large number.
+
+49:05.540 --> 49:06.540
+ Yes.
+
+49:06.540 --> 49:11.340
+ Just to compare, the age of the universe is something like 10 to the 14 seconds, 10 to
+
+49:11.340 --> 49:13.340
+ the 17 or 18 seconds maybe.
+
+49:13.340 --> 49:16.300
+ The number of particles in the universe is 10 to the 88th.
+
+49:16.300 --> 49:21.320
+ But the number of dimensions of Hilbert space is 10 to the 10 to the 122.
+
+49:21.320 --> 49:23.340
+ So that's just crazy big.
+
+49:23.340 --> 49:28.020
+ If that story is right, that in our observable horizon, there's only a finite dimensional
+
+49:28.020 --> 49:32.620
+ Hilbert space, then this idea of branching of the wave function of the universe into
+
+49:32.620 --> 49:37.780
+ multiple distinct separate branches has to reach a limit at some time.
+
+49:37.780 --> 49:41.780
+ Once you branch that many times, you've run out of room in Hilbert space.
+
+49:41.780 --> 49:46.620
+ And roughly speaking, that corresponds to the universe just expanding and emptying out
+
+49:46.620 --> 49:53.380
+ and cooling off and entering a phase where it's just empty space, literally forever.
+
+49:53.380 --> 49:58.900
+ What's the difference between splitting and copying, do you think?
+
+49:58.900 --> 50:09.220
+ In terms of, a lot of this is an interpretation that helps us sort of model the world.
+
+50:09.220 --> 50:16.860
+ So perhaps shouldn't be thought of as like, you know, philosophically or metaphysically.
+
+50:16.860 --> 50:24.180
+ But in even at the physics level, do you see a difference between generating new copies
+
+50:24.180 --> 50:26.900
+ of the world or splitting?
+
+50:26.900 --> 50:31.700
+ I think it's better to think of in quantum mechanics in many worlds, the universe splits
+
+50:31.700 --> 50:36.540
+ rather than new copies, because people otherwise worry about things like energy conservation.
+
+50:36.540 --> 50:40.340
+ And no one who understands quantum mechanics worries about energy conservation, because
+
+50:40.340 --> 50:42.340
+ the equation is perfectly clear.
+
+50:42.340 --> 50:45.720
+ But if all you know is that someone told you the universe duplicates, then you have a reasonable
+
+50:45.720 --> 50:48.660
+ worry about where all the energy for that came from.
+
+50:48.660 --> 50:53.620
+ So a pre existing universe splitting into two skinnier universes is a better way of
+
+50:53.620 --> 50:54.620
+ thinking about it.
+
+50:54.620 --> 50:58.380
+ And mathematically, it's just like, you know, if you draw an x and y axis, and you draw
+
+50:58.380 --> 51:04.540
+ a vector of length one, 45 degree angle, you know that you can write that vector of length
+
+51:04.540 --> 51:10.420
+ one as the sum of two vectors pointing along x and y of length one over the square root
+
+51:10.420 --> 51:11.420
+ of two.
+
+51:11.420 --> 51:14.940
+ Okay, so I write one arrow as the sum of two arrows.
+
+51:14.940 --> 51:17.020
+ But there's a conservation of arrowness, right?
+
+51:17.020 --> 51:20.940
+ Like there's now two arrows, but the length is the same, I just I'm describing it in a
+
+51:20.940 --> 51:21.940
+ different way.
+
+51:21.940 --> 51:25.700
+ And that's exactly what happens when the universe branches, the the wave function of the universe
+
+51:25.700 --> 51:27.380
+ is a big old vector.
+
+51:27.380 --> 51:34.020
+ So to somebody who brings up a question of saying, doesn't this violate the conservation
+
+51:34.020 --> 51:35.420
+ of energy?
+
+51:35.420 --> 51:38.060
+ Can you give further elaboration?
+
+51:38.060 --> 51:39.060
+ Right?
+
+51:39.060 --> 51:42.100
+ So let's just be super duper perfectly clear.
+
+51:42.100 --> 51:46.700
+ There's zero question about whether or not many worlds violates conservation of energy.
+
+51:46.700 --> 51:47.700
+ Yes, it does not.
+
+51:47.700 --> 51:48.700
+ Great.
+
+51:48.700 --> 51:51.980
+ And I say this definitively, because there are other questions that I think there's answers
+
+51:51.980 --> 51:55.620
+ to, but they're legitimate questions, right about, you know, where does probability come
+
+51:55.620 --> 51:59.900
+ from and things like that, this conservation of energy question, we know the answer to
+
+51:59.900 --> 52:00.900
+ it.
+
+52:00.900 --> 52:03.020
+ And the answer to it is that energy is conserved.
+
+52:03.020 --> 52:09.220
+ All of the effort goes into how best to translate what the equation unambiguously says into
+
+52:09.220 --> 52:11.040
+ plain English, right?
+
+52:11.040 --> 52:14.480
+ So this idea that there's a universe that has that that the universe comes equipped
+
+52:14.480 --> 52:18.700
+ with a thickness, and it sort of divides up into thinner pieces, but the total amount
+
+52:18.700 --> 52:25.360
+ of universe is is conserved over time, is a reasonably good way of putting English words
+
+52:25.360 --> 52:27.380
+ to the underlying mathematics.
+
+52:27.380 --> 52:33.220
+ So one of my favorite things about many worlds is, I mean, I love that there's something
+
+52:33.220 --> 52:35.400
+ controversial in science.
+
+52:35.400 --> 52:41.780
+ And for some reason, it makes people actually not like upset, but just get excited.
+
+52:41.780 --> 52:45.960
+ Why do you think it is a controversial idea?
+
+52:45.960 --> 52:52.380
+ So there's a lot of, it's actually one of the cleanest ways to think about quantum mechanics.
+
+52:52.380 --> 52:57.380
+ So why do you think there's a discomfort a little bit among certain people?
+
+52:57.380 --> 53:02.740
+ Well, I draw the distinction in my book between two different kinds of simplicity in a physical
+
+53:02.740 --> 53:03.740
+ theory.
+
+53:03.740 --> 53:06.300
+ There's simplicity in the theory itself, right?
+
+53:06.300 --> 53:10.220
+ How we describe what's going on according to the theory by its own rights.
+
+53:10.220 --> 53:13.480
+ But then, you know, theory is just some sort of abstract mathematical formalism, you have
+
+53:13.480 --> 53:16.860
+ to map it onto the world somehow, right?
+
+53:16.860 --> 53:23.000
+ And sometimes, like for Newtonian physics, it's pretty obvious, like, okay, here is a
+
+53:23.000 --> 53:26.260
+ bottle and has a center of mass and things like that.
+
+53:26.260 --> 53:30.660
+ Sometimes it's a little bit harder with general relativity, curvature of space time is a little
+
+53:30.660 --> 53:33.180
+ bit harder to grasp.
+
+53:33.180 --> 53:37.620
+ quantum mechanics is very hard to map what you're the language you're talking in a wave
+
+53:37.620 --> 53:40.460
+ functions and things like that on to reality.
+
+53:40.460 --> 53:45.260
+ And many worlds is the version of quantum mechanics where it is hardest to map on the
+
+53:45.260 --> 53:47.860
+ underlying formalism to reality.
+
+53:47.860 --> 53:53.260
+ So that's where the lack of simplicity comes in, not in the theory, but in how we use the
+
+53:53.260 --> 53:54.660
+ theory to map on to reality.
+
+53:54.660 --> 54:01.740
+ In fact, all of the work in sort of elaborating many worlds quantum mechanics is in the this
+
+54:01.740 --> 54:04.420
+ effort to map it on to the world that we see.
+
+54:04.420 --> 54:08.340
+ So it's perfectly legitimate to be bugged by that, right?
+
+54:08.340 --> 54:15.320
+ To say like, well, no, that's just too far away from my experience, I am therefore intrinsically
+
+54:15.320 --> 54:16.580
+ skeptical of it.
+
+54:16.580 --> 54:19.620
+ Of course, you should give up on that skepticism if there are no alternatives.
+
+54:19.620 --> 54:23.280
+ And this theory always keeps working, then eventually you should overcome your skepticism.
+
+54:23.280 --> 54:28.060
+ But right now there are alternatives that are that, you know, people work to make alternatives
+
+54:28.060 --> 54:31.780
+ that are by their nature closer to what we observe directly.
+
+54:31.780 --> 54:33.180
+ Can you describe the alternatives?
+
+54:33.180 --> 54:40.480
+ I don't think we touched on it, sort of the Copenhagen interpretation and the many worlds.
+
+54:40.480 --> 54:47.260
+ Maybe there's a difference between the Everettian many worlds and many worlds as it is now,
+
+54:47.260 --> 54:50.020
+ like has the idea sort of developed and so on.
+
+54:50.020 --> 54:54.060
+ And just in general, what is the space of promising contenders?
+
+54:54.060 --> 54:57.060
+ We have democratic debates now, there's a bunch of candidates.
+
+54:57.060 --> 54:59.540
+ 12 candidates on stage.
+
+54:59.540 --> 55:02.480
+ What are the quantum mechanical candidates on stage for the debate?
+
+55:02.480 --> 55:08.540
+ So if you had a debate between quantum mechanical contenders, there'd be no problem getting
+
+55:08.540 --> 55:14.220
+ 12 people up there on stage, but there would still be only three front runners.
+
+55:14.220 --> 55:19.460
+ And right now the front runners would be Everett, hidden variable theories are another one.
+
+55:19.460 --> 55:24.180
+ So the hidden variable theories say that the wave function is real, but there's something
+
+55:24.180 --> 55:25.820
+ in addition to the wave function.
+
+55:25.820 --> 55:29.440
+ The wave function is not everything, it's part of reality, but it's not everything.
+
+55:29.440 --> 55:30.880
+ What else is there?
+
+55:30.880 --> 55:36.020
+ We're not sure, but in the simplest version of the theory, there are literally particles.
+
+55:36.020 --> 55:43.100
+ So many worlds says that quantum systems are sometimes are wave like in some ways and particle
+
+55:43.100 --> 55:48.060
+ like in another because they really, really are waves, but under certain observational
+
+55:48.060 --> 55:50.460
+ circumstances they look like particles.
+
+55:50.460 --> 55:54.980
+ Whereas hidden variable says they look like waves and particles because there are both
+
+55:54.980 --> 55:58.760
+ waves and particles involved in the dynamics.
+
+55:58.760 --> 56:03.780
+ And that's easy to do if your particles are just non relativistic Newtonian particles
+
+56:03.780 --> 56:04.780
+ moving around.
+
+56:04.780 --> 56:07.740
+ They get pushed around by the wave function roughly.
+
+56:07.740 --> 56:13.300
+ It becomes much harder when you take quantum field theory or quantum gravity into account.
+
+56:13.300 --> 56:17.820
+ The other big contender are spontaneous collapse theories.
+
+56:17.820 --> 56:22.580
+ So in the conventional textbook interpretation, we say when you look at a quantum system,
+
+56:22.580 --> 56:27.260
+ its wave function collapses and you see it in one location, a spontaneous collapse theory
+
+56:27.260 --> 56:35.340
+ says that every particle has a chance per second of having its wave function spontaneously
+
+56:35.340 --> 56:36.460
+ collapse.
+
+56:36.460 --> 56:39.980
+ The chance is very small for a typical particle, it will take hundreds of millions of years
+
+56:39.980 --> 56:44.380
+ before it happens even once, but in a table or some macroscopic object, there are way
+
+56:44.380 --> 56:48.140
+ more than a hundred million particles and they're all entangled with each other.
+
+56:48.140 --> 56:52.860
+ So when one of them collapses, it brings everything else along with it.
+
+56:52.860 --> 56:54.260
+ There's a slight variation of this.
+
+56:54.260 --> 56:55.620
+ That's a spontaneous collapse theory.
+
+56:55.620 --> 57:00.260
+ There are also induced collapse theories like Roger Penrose thinks that when the gravitational
+
+57:00.260 --> 57:05.500
+ difference between two parts of the wave function becomes too large, the wave function collapses
+
+57:05.500 --> 57:06.860
+ automatically.
+
+57:06.860 --> 57:11.700
+ So those are basically in my mind, the three big alternatives, many worlds, which is just
+
+57:11.700 --> 57:16.060
+ there's a wave function and always obeys the Schrodinger equation, hidden variables.
+
+57:16.060 --> 57:18.820
+ There's a wave function that always obeys the Schrodinger equation, but there are also
+
+57:18.820 --> 57:24.420
+ new variables or collapse theories, which the wave function sometimes obeys the Schrodinger
+
+57:24.420 --> 57:26.220
+ equation and sometimes it collapses.
+
+57:26.220 --> 57:31.380
+ So you can see that the alternatives are more complicated in their formalism than many worlds
+
+57:31.380 --> 57:34.380
+ is, but they are closer to our experience.
+
+57:34.380 --> 57:42.220
+ So just this moment of collapse, do you think of it as a wave function, fundamentally sort
+
+57:42.220 --> 57:49.140
+ of a probabilistic description of the world and this collapse sort of reducing that part
+
+57:49.140 --> 57:53.740
+ of the world into something deterministic, where again, you can now describe the position
+
+57:53.740 --> 57:56.980
+ and the velocity in this simple classical model?
+
+57:56.980 --> 57:57.980
+ Well there is...
+
+57:57.980 --> 57:58.980
+ Is that how you think about collapse?
+
+57:58.980 --> 58:03.140
+ There is a fourth category, there's a fourth contender, there's a mayor Pete of quantum
+
+58:03.140 --> 58:08.140
+ mechanical interpretations, which are called epistemic interpretations.
+
+58:08.140 --> 58:13.220
+ And what they say is all the wave function is, is a way of making predictions for experimental
+
+58:13.220 --> 58:14.220
+ outcomes.
+
+58:14.220 --> 58:18.780
+ It's not mapping onto an element of reality in any real sense.
+
+58:18.780 --> 58:22.300
+ And in fact, two different people might have two different wave functions for the same
+
+58:22.300 --> 58:25.340
+ physical system because they know different things about it, right?
+
+58:25.340 --> 58:28.100
+ The wave function is really just a prediction mechanism.
+
+58:28.100 --> 58:32.980
+ And then the problem with those epistemic interpretations is if you say, okay, but it's
+
+58:32.980 --> 58:37.980
+ predicting about what, like what is the thing that is being predicted?
+
+58:37.980 --> 58:41.460
+ And they say, no, no, no, that's not what we're here for.
+
+58:41.460 --> 58:44.500
+ We're just here to tell you what the observational outcomes are going to be.
+
+58:44.500 --> 58:49.100
+ But the other, the other interpretations kind of think that the wave function is real.
+
+58:49.100 --> 58:50.760
+ Yes, that's right.
+
+58:50.760 --> 58:55.980
+ So that's an ontic interpretation of the wave function, ontology being the study of what
+
+58:55.980 --> 59:01.060
+ is real, what exists, as opposed to an epistemic interpretation of the wave function, epistemology
+
+59:01.060 --> 59:02.060
+ being the study of what we know.
+
+59:02.060 --> 59:06.580
+ That would actually just love to see that debate on stage.
+
+59:06.580 --> 59:10.500
+ There was a version of it on stage at the world science festival a few years ago that
+
+59:10.500 --> 59:11.500
+ you can look up online.
+
+59:11.500 --> 59:12.500
+ On YouTube?
+
+59:12.500 --> 59:13.500
+ Yep.
+
+59:13.500 --> 59:14.500
+ It's on YouTube.
+
+59:14.500 --> 59:15.500
+ Okay, awesome.
+
+59:15.500 --> 59:16.500
+ I'll link it and watch it.
+
+59:16.500 --> 59:17.500
+ Who won?
+
+59:17.500 --> 59:18.500
+ I won.
+
+59:18.500 --> 59:24.700
+ I don't know, there was no vote, there was no vote, but those there's Brian Green was
+
+59:24.700 --> 59:29.420
+ the moderator and David Albert stood up for a spontaneous collapse and Shelley Goldstein
+
+59:29.420 --> 59:34.460
+ was there for hidden variables and Rüdiger Schock was there for epistemic approaches.
+
+59:34.460 --> 59:38.980
+ Why do you, I think you mentioned it, but just to elaborate, why do you find many worlds
+
+59:38.980 --> 59:39.980
+ so compelling?
+
+59:39.980 --> 59:43.460
+ Well, there's two reasons actually.
+
+59:43.460 --> 59:45.540
+ One is, like I said, it is the simplest, right?
+
+59:45.540 --> 59:49.960
+ It's like the most bare bones, austere, pure version of quantum mechanics.
+
+59:49.960 --> 59:55.380
+ And I am someone who is very willing to put a lot of work into mapping the formalism onto
+
+59:55.380 --> 59:56.380
+ reality.
+
+59:56.380 --> 59:59.100
+ I'm less willing to complicate the formalism itself.
+
+59:59.100 --> 1:00:04.180
+ But the other big reason is that there's something called modern physics with quantum fields
+
+1:00:04.180 --> 1:00:09.280
+ and quantum gravity and holography and space time doing things like that.
+
+1:00:09.280 --> 1:00:14.540
+ And when you take any of the other versions of quantum theory, they bring along classical
+
+1:00:14.540 --> 1:00:21.820
+ baggage, all of the other versions of quantum mechanics, prejudice or privilege some version
+
+1:00:21.820 --> 1:00:26.020
+ of classical reality like locations in space, okay?
+
+1:00:26.020 --> 1:00:31.220
+ And I think that that's a barrier to doing better at understanding the theory of everything
+
+1:00:31.220 --> 1:00:34.460
+ and understanding quantum gravity and the emergence of space time.
+
+1:00:34.460 --> 1:00:38.660
+ Whenever if you change your theory from, you know, here's a harmonic oscillator, oh, there's
+
+1:00:38.660 --> 1:00:43.640
+ a spin, here's an electromagnetic field, in hidden variable theories or dynamical collapse
+
+1:00:43.640 --> 1:00:44.640
+ theories.
+
+1:00:44.640 --> 1:00:45.640
+ You have to start from scratch.
+
+1:00:45.640 --> 1:00:48.220
+ You have to say like, well, what are the hidden variables for this theory or how does it collapse
+
+1:00:48.220 --> 1:00:49.220
+ or whatever?
+
+1:00:49.220 --> 1:00:50.900
+ Whereas many worlds is plug and play.
+
+1:00:50.900 --> 1:00:53.900
+ You tell me the theory and I can give you as many worlds version.
+
+1:00:53.900 --> 1:00:58.900
+ So when we have a situation like we have with gravity and space time, where the classical
+
+1:00:58.900 --> 1:01:04.100
+ description seems to break down in a dramatic way, then I think you should start from the
+
+1:01:04.100 --> 1:01:07.160
+ most quantum theory that you have, which is really many worlds.
+
+1:01:07.160 --> 1:01:14.940
+ So start with the quantum theory and try to build up a model of space time, the emergence
+
+1:01:14.940 --> 1:01:15.940
+ of space time.
+
+1:01:15.940 --> 1:01:16.940
+ That's it.
+
+1:01:16.940 --> 1:01:17.940
+ Okay.
+
+1:01:17.940 --> 1:01:21.020
+ So I thought space time was fundamental.
+
+1:01:21.020 --> 1:01:22.360
+ Yeah, I know.
+
+1:01:22.360 --> 1:01:28.860
+ So this sort of dream that Einstein had that everybody had and everybody has of, you know,
+
+1:01:28.860 --> 1:01:30.660
+ the theory of everything.
+
+1:01:30.660 --> 1:01:37.460
+ So how do we build up from many worlds from quantum mechanics, a model of space time model
+
+1:01:37.460 --> 1:01:38.460
+ of gravity?
+
+1:01:38.460 --> 1:01:42.580
+ Well, yeah, I mean, let me first mention very quickly why we think it's necessary.
+
+1:01:42.580 --> 1:01:47.420
+ You know, we've had gravity in the form that Einstein bequeathed it to us for over a hundred
+
+1:01:47.420 --> 1:01:52.600
+ years now, like 1915 or 1916, he put general relativity in the final form.
+
+1:01:52.600 --> 1:01:57.020
+ So gravity is the curvature of space time and there's a field that pervades all the
+
+1:01:57.020 --> 1:02:00.100
+ universe that tells us how curved space time is.
+
+1:02:00.100 --> 1:02:01.980
+ And that's a fundamentally classical.
+
+1:02:01.980 --> 1:02:02.980
+ That's totally classical.
+
+1:02:02.980 --> 1:02:03.980
+ Right.
+
+1:02:03.980 --> 1:02:04.980
+ Exactly.
+
+1:02:04.980 --> 1:02:09.980
+ But we also have a formalism, an algorithm for taking a classical theory and quantizing
+
+1:02:09.980 --> 1:02:10.980
+ it.
+
+1:02:10.980 --> 1:02:13.900
+ This is how we get quantum electrodynamics, for example.
+
+1:02:13.900 --> 1:02:14.900
+ And it could be tricky.
+
+1:02:14.900 --> 1:02:19.500
+ I mean, you think you're quantizing something, so that means taking a classical theory and
+
+1:02:19.500 --> 1:02:22.400
+ promoting it to a quantum mechanical theory.
+
+1:02:22.400 --> 1:02:23.940
+ But you can run into problems.
+
+1:02:23.940 --> 1:02:27.460
+ So they ran into problems and they did that with electromagnetism, namely that certain
+
+1:02:27.460 --> 1:02:30.300
+ quantities were infinity and you don't like infinity, right?
+
+1:02:30.300 --> 1:02:35.200
+ So Feynman and Tominaga and Schwinger won the Nobel Prize for teaching us how to deal
+
+1:02:35.200 --> 1:02:36.200
+ with the infinities.
+
+1:02:36.200 --> 1:02:39.320
+ And then Ken Wilson won another Nobel Prize for saying you shouldn't have been worried
+
+1:02:39.320 --> 1:02:41.380
+ about those infinities after all.
+
+1:02:41.380 --> 1:02:45.400
+ But still, that was the, it's always the thought that that's how you will make a good quantum
+
+1:02:45.400 --> 1:02:46.400
+ theory.
+
+1:02:46.400 --> 1:02:47.860
+ You'll start with a classical theory and quantize it.
+
+1:02:47.860 --> 1:02:51.760
+ So if we have a classical theory, general relativity, we can quantize it or we can try
+
+1:02:51.760 --> 1:02:57.780
+ to, but we run into even bigger problems with gravity than we ran into with electromagnetism.
+
+1:02:57.780 --> 1:03:00.060
+ And so far, those problems are insurmountable.
+
+1:03:00.060 --> 1:03:04.980
+ We've not been able to get a successful theory of gravity, quantum gravity, by starting with
+
+1:03:04.980 --> 1:03:08.020
+ classical general relativity and quantizing it.
+
+1:03:08.020 --> 1:03:12.700
+ And there's evidence that, there's a good reason why this is true, that whatever the
+
+1:03:12.700 --> 1:03:17.020
+ quantum theory of gravity is, it's not a field theory.
+
+1:03:17.020 --> 1:03:22.300
+ It's something that has weird nonlocal features built into it somehow that we don't understand.
+
+1:03:22.300 --> 1:03:27.540
+ We get this idea from black holes and Hawking radiation and information conservation and
+
+1:03:27.540 --> 1:03:30.180
+ a whole bunch of other ideas I talk about in the book.
+
+1:03:30.180 --> 1:03:34.580
+ So if that's true, if the fundamental theory isn't even local in the sense that an ordinary
+
+1:03:34.580 --> 1:03:39.060
+ quantum field theory would be, then we just don't know where to start in terms of getting
+
+1:03:39.060 --> 1:03:42.400
+ a classical precursor and quantizing it.
+
+1:03:42.400 --> 1:03:46.220
+ So the only sensible thing, or at least the next obvious sensible thing to me would be
+
+1:03:46.220 --> 1:03:50.020
+ to say, okay, let's just start intrinsically quantum and work backwards, see if we can
+
+1:03:50.020 --> 1:03:51.020
+ find a classical limit.
+
+1:03:51.020 --> 1:04:03.900
+ So the idea of locality, the fact that locality is not fundamental to the nature of our existence,
+
+1:04:03.900 --> 1:04:07.460
+ I guess in that sense, modeling everything as a field makes sense to me.
+
+1:04:07.460 --> 1:04:12.300
+ Stuff that's close by interacts, stuff that's far away doesn't.
+
+1:04:12.300 --> 1:04:15.580
+ So what's locality and why is it not fundamental?
+
+1:04:15.580 --> 1:04:16.580
+ And how is that even possible?
+
+1:04:16.580 --> 1:04:17.580
+ Yeah.
+
+1:04:17.580 --> 1:04:21.260
+ I mean, locality is the answer to the question that Isaac Newton was worried about back in
+
+1:04:21.260 --> 1:04:22.580
+ the beginning of our conversation, right?
+
+1:04:22.580 --> 1:04:27.300
+ I mean, how can the earth know what the gravitational field of the sun is?
+
+1:04:27.300 --> 1:04:31.340
+ And the answer as spelled out by Laplace and Einstein and others is that there's a field
+
+1:04:31.340 --> 1:04:32.340
+ in between.
+
+1:04:32.340 --> 1:04:38.660
+ And the way a field works is that what's happening to the field at this point in space only depends
+
+1:04:38.660 --> 1:04:41.580
+ directly on what's happening at points right next to it.
+
+1:04:41.580 --> 1:04:45.180
+ But what's happening at those points depends on what's happening right next to those, right?
+
+1:04:45.180 --> 1:04:50.620
+ And so you can build up an influence across space through only local interactions.
+
+1:04:50.620 --> 1:04:51.860
+ That's what locality means.
+
+1:04:51.860 --> 1:04:54.780
+ What happens here is only affected by what's happening right next to it.
+
+1:04:54.780 --> 1:04:57.000
+ That's locality.
+
+1:04:57.000 --> 1:05:01.460
+ The idea of locality is built into every field theory, including general relativity as a
+
+1:05:01.460 --> 1:05:03.100
+ classical theory.
+
+1:05:03.100 --> 1:05:07.340
+ It seems to break down when we talk about black holes and, you know, Hawking taught
+
+1:05:07.340 --> 1:05:12.520
+ us in the 1970s that black holes radiate, they give off, they eventually evaporate away.
+
+1:05:12.520 --> 1:05:17.180
+ They're not completely black once we take quantum mechanics into account.
+
+1:05:17.180 --> 1:05:22.540
+ And we think, we don't know for sure, but most of us think that if you make a black
+
+1:05:22.540 --> 1:05:28.380
+ hole out of certain stuff, then like Laplace's demon taught us, you should be able to predict
+
+1:05:28.380 --> 1:05:32.660
+ what that black hole will turn into if it's just obeying the Schrodinger equation.
+
+1:05:32.660 --> 1:05:37.820
+ And if that's true, there are good arguments that can't happen while preserving locality
+
+1:05:37.820 --> 1:05:38.820
+ at the same time.
+
+1:05:38.820 --> 1:05:44.180
+ It's just that the information seems to be spread out nonlocally in interesting ways.
+
+1:05:44.180 --> 1:05:49.540
+ And people should, you talk about holography with the Leonard Susskind on your Mindscape
+
+1:05:49.540 --> 1:05:50.540
+ podcast.
+
+1:05:50.540 --> 1:05:51.540
+ Oh yes, I have a podcast.
+
+1:05:51.540 --> 1:05:52.540
+ I didn't even mention that.
+
+1:05:52.540 --> 1:05:53.540
+ This is terrible.
+
+1:05:53.540 --> 1:05:57.340
+ No, I'm going to, I'm going to ask you questions about that too, and I've been not shutting
+
+1:05:57.340 --> 1:05:58.340
+ up about it.
+
+1:05:58.340 --> 1:05:59.340
+ It's my favorite science podcast.
+
+1:05:59.340 --> 1:06:02.900
+ So, or not, it's a, it's not even a science podcast.
+
+1:06:02.900 --> 1:06:06.140
+ It's like, it's a scientist doing a podcast.
+
+1:06:06.140 --> 1:06:07.140
+ That's right.
+
+1:06:07.140 --> 1:06:08.140
+ That's what it is.
+
+1:06:08.140 --> 1:06:09.140
+ Yeah.
+
+1:06:09.140 --> 1:06:10.140
+ Anyway.
+
+1:06:10.140 --> 1:06:11.140
+ Yeah.
+
+1:06:11.140 --> 1:06:14.580
+ So holography is this idea when you have a black hole and black hole is a region of space
+
+1:06:14.580 --> 1:06:17.580
+ inside of which gravity is so strong that you can't escape.
+
+1:06:17.580 --> 1:06:21.980
+ And there's this weird feature of black holes that, again, it's totally a thought experiment
+
+1:06:21.980 --> 1:06:24.520
+ feature because we haven't gone and probed any yet.
+
+1:06:24.520 --> 1:06:29.960
+ But there seems to be one way of thinking about what happens inside a black hole as
+
+1:06:29.960 --> 1:06:33.660
+ seen by an observer who's falling in, which is actually pretty normal.
+
+1:06:33.660 --> 1:06:37.020
+ Like everything looks pretty normal until you hit the singularity and you die.
+
+1:06:37.020 --> 1:06:41.380
+ But from the point of view of the outside observer, it seems like all the information
+
+1:06:41.380 --> 1:06:47.460
+ that fell in is actually smeared over the horizon in a nonlocal way.
+
+1:06:47.460 --> 1:06:51.660
+ And that's puzzling and that's, so holography because that's a two dimensional surface that
+
+1:06:51.660 --> 1:06:55.420
+ is encapsulating the whole three dimensional thing inside, right?
+
+1:06:55.420 --> 1:06:56.420
+ Still trying to deal with that.
+
+1:06:56.420 --> 1:06:58.100
+ Still trying to figure out how to get there.
+
+1:06:58.100 --> 1:07:01.340
+ But it's an indication that we need to think a little bit more subtly when we quantize
+
+1:07:01.340 --> 1:07:02.340
+ gravity.
+
+1:07:02.340 --> 1:07:07.460
+ And because you can describe everything that's going on in the three dimensional space by
+
+1:07:07.460 --> 1:07:13.900
+ looking at the two dimensional projection of it, it means that locality doesn't, it's
+
+1:07:13.900 --> 1:07:14.900
+ not necessary.
+
+1:07:14.900 --> 1:07:18.900
+ Well, it means that somehow it's only a good approximation.
+
+1:07:18.900 --> 1:07:20.380
+ It's not really what's going on.
+
+1:07:20.380 --> 1:07:22.020
+ How are we supposed to feel about that?
+
+1:07:22.020 --> 1:07:25.700
+ We're supposed to feel liberated.
+
+1:07:25.700 --> 1:07:29.680
+ You know, space is just a good approximation and this was always going to be true once
+
+1:07:29.680 --> 1:07:31.680
+ you started quantizing gravity.
+
+1:07:31.680 --> 1:07:38.820
+ So we're just beginning now to face up to the dramatic implications of quantizing gravity.
+
+1:07:38.820 --> 1:07:43.780
+ Is there other weird stuff that happens to quantum mechanics in black hole?
+
+1:07:43.780 --> 1:07:47.020
+ I don't think that anything weird has happened with quantum mechanics.
+
+1:07:47.020 --> 1:07:48.620
+ I think weird things happen with space time.
+
+1:07:48.620 --> 1:07:49.620
+ I mean, that's what it is.
+
+1:07:49.620 --> 1:07:53.680
+ Like quantum mechanics is still just quantum mechanics, but our ordinary notions of space
+
+1:07:53.680 --> 1:07:57.620
+ time don't really quite work.
+
+1:07:57.620 --> 1:08:03.940
+ And there's a principle that goes hand in hand with holography called complementarity,
+
+1:08:03.940 --> 1:08:10.540
+ which says that there's no one unique way to describe what's going on inside a black
+
+1:08:10.540 --> 1:08:11.540
+ hole.
+
+1:08:11.540 --> 1:08:17.220
+ Different observers will have different descriptions, both of which are accurate, but sound completely
+
+1:08:17.220 --> 1:08:18.640
+ incompatible with each other.
+
+1:08:18.640 --> 1:08:20.900
+ So depends on how you look at it.
+
+1:08:20.900 --> 1:08:25.060
+ The word complementarity in this context is borrowed from Niels Bohr, who points out you
+
+1:08:25.060 --> 1:08:28.260
+ can measure the position or you can measure the momentum.
+
+1:08:28.260 --> 1:08:30.900
+ You can't measure both at the same time in quantum mechanics.
+
+1:08:30.900 --> 1:08:34.900
+ So a couple of questions on many worlds.
+
+1:08:34.900 --> 1:08:40.740
+ How does many worlds help us understand our particular branch of reality?
+
+1:08:40.740 --> 1:08:45.100
+ So okay, that's fine and good that is everything is splitting, but we're just traveling down
+
+1:08:45.100 --> 1:08:46.220
+ a single branch of it.
+
+1:08:46.220 --> 1:08:50.780
+ So how does it help us understand our little unique branch?
+
+1:08:50.780 --> 1:08:52.840
+ Yeah, I mean, that's a great question.
+
+1:08:52.840 --> 1:08:56.260
+ But that's the point is that we didn't invent many worlds because we thought it was cool
+
+1:08:56.260 --> 1:08:57.820
+ to have a whole bunch of worlds, right?
+
+1:08:57.820 --> 1:09:02.700
+ We invented it because we were trying to account for what we observe here in our world.
+
+1:09:02.700 --> 1:09:07.500
+ And what we observe here in our world are wave functions collapsing, okay?
+
+1:09:07.500 --> 1:09:11.500
+ We do have a position, a situation where the electron seems to be spread out.
+
+1:09:11.500 --> 1:09:13.380
+ But then when we look at it, we don't see it spread out.
+
+1:09:13.380 --> 1:09:15.100
+ We see it located somewhere.
+
+1:09:15.100 --> 1:09:16.160
+ So what's going on?
+
+1:09:16.160 --> 1:09:17.880
+ That's the measurement problem of quantum mechanics.
+
+1:09:17.880 --> 1:09:19.400
+ That's what we have to face up to.
+
+1:09:19.400 --> 1:09:22.900
+ So many worlds is just a proposed solution to that problem.
+
+1:09:22.900 --> 1:09:25.660
+ And the answer is nothing special is happening.
+
+1:09:25.660 --> 1:09:30.080
+ It's still just the Schrodinger equation, but you have a wave function too.
+
+1:09:30.080 --> 1:09:34.380
+ And that's a different answer than would be given in hidden variables or dynamical collapse
+
+1:09:34.380 --> 1:09:36.020
+ theories or whatever.
+
+1:09:36.020 --> 1:09:42.100
+ So the entire point of many worlds is to explain what we observe, but it tries to explain what
+
+1:09:42.100 --> 1:09:44.280
+ we already have observed, right?
+
+1:09:44.280 --> 1:09:48.380
+ It's not trying to be different from what we've observed because that would be something
+
+1:09:48.380 --> 1:09:50.240
+ other than quantum mechanics.
+
+1:09:50.240 --> 1:09:54.220
+ But you know, the idea that there's worlds that we didn't observe that keep branching
+
+1:09:54.220 --> 1:10:00.000
+ off is kind of, it's stimulating to the imagination.
+
+1:10:00.000 --> 1:10:08.040
+ So is it possible to hop from, you mentioned the branches are independent.
+
+1:10:08.040 --> 1:10:10.260
+ Is it possible to hop from one to the other?
+
+1:10:10.260 --> 1:10:11.260
+ No.
+
+1:10:11.260 --> 1:10:14.180
+ So it's a physical limit.
+
+1:10:14.180 --> 1:10:16.260
+ The theory says it's impossible.
+
+1:10:16.260 --> 1:10:18.620
+ There's already a copy of you in the other world, don't worry.
+
+1:10:18.620 --> 1:10:19.620
+ Yes.
+
+1:10:19.620 --> 1:10:20.620
+ Leave them alone.
+
+1:10:20.620 --> 1:10:28.780
+ No, but there's a fear of missing out, FOMO, that I feel like immediately start to wonder
+
+1:10:28.780 --> 1:10:32.900
+ if that other copy is having more or less fun.
+
+1:10:32.900 --> 1:10:38.620
+ Well, the downside to many worlds is that you're missing out on an enormous amount.
+
+1:10:38.620 --> 1:10:40.460
+ And that's always what it's going to be like.
+
+1:10:40.460 --> 1:10:44.380
+ And I mean, there's a certain stage of acceptance in that.
+
+1:10:44.380 --> 1:10:49.980
+ In terms of rewinding, do you think we can rewind the system back, sort of the nice thing
+
+1:10:49.980 --> 1:10:58.800
+ about many worlds, I guess, is it really emphasizes the, maybe you can correct me, but the deterministic
+
+1:10:58.800 --> 1:11:05.700
+ nature of a branch and it feels like it could be rewound back.
+
+1:11:05.700 --> 1:11:11.900
+ Is it, do you see it as something that could be perfectly rewound back, rewinding back?
+
+1:11:11.900 --> 1:11:12.900
+ Yeah.
+
+1:11:12.900 --> 1:11:17.060
+ If you're at a fancy French restaurant and there's a nice linen white tablecloth and
+
+1:11:17.060 --> 1:11:22.620
+ you have your glass of Bordeaux and you knock it over and the wine spills across the tablecloth.
+
+1:11:22.620 --> 1:11:28.440
+ If the world were classical, okay, it would be possible that if you just lifted the wine
+
+1:11:28.440 --> 1:11:33.020
+ glass up, you'd be lucky enough that every molecule of wine would hop back into the glass,
+
+1:11:33.020 --> 1:11:34.020
+ right?
+
+1:11:34.020 --> 1:11:35.020
+ But guess what?
+
+1:11:35.020 --> 1:11:37.100
+ It's not going to happen in the real world.
+
+1:11:37.100 --> 1:11:40.020
+ And the quantum wave function is exactly the same way.
+
+1:11:40.020 --> 1:11:44.540
+ It is possible in principle to rewind everything if you start from perfect knowledge of the
+
+1:11:44.540 --> 1:11:46.820
+ entire wave function of the universe.
+
+1:11:46.820 --> 1:11:49.320
+ In practice, it's never going to happen.
+
+1:11:49.320 --> 1:11:53.020
+ So time travel, not possible.
+
+1:11:53.020 --> 1:11:54.020
+ Nope.
+
+1:11:54.020 --> 1:11:57.760
+ At least quantum mechanics has no help.
+
+1:11:57.760 --> 1:12:00.540
+ What about memory?
+
+1:12:00.540 --> 1:12:07.720
+ Does the universe have a memory of itself where we could, in, in, so not time travel,
+
+1:12:07.720 --> 1:12:13.100
+ but peek back in time and do a little like replay?
+
+1:12:13.100 --> 1:12:18.100
+ Well, it's exactly the same in quantum mechanics as classical mechanics.
+
+1:12:18.100 --> 1:12:22.540
+ So whatever you want to say about that, you know, the fundamental laws of physics in either
+
+1:12:22.540 --> 1:12:28.100
+ many worlds, quantum mechanics or Newtonian physics conserve information.
+
+1:12:28.100 --> 1:12:32.620
+ So if you have all the information about the quantum state of the world right now, your
+
+1:12:32.620 --> 1:12:37.500
+ Laplace is demon like in your knowledge and calculational capacity, you can wind the clock
+
+1:12:37.500 --> 1:12:38.500
+ backward.
+
+1:12:38.500 --> 1:12:39.500
+ But none of us is.
+
+1:12:39.500 --> 1:12:40.500
+ Right?
+
+1:12:40.500 --> 1:12:42.380
+ And, you know, so in practice you can never do that.
+
+1:12:42.380 --> 1:12:46.020
+ You can do experiments over and over again, starting from the same initial conditions
+
+1:12:46.020 --> 1:12:47.860
+ for small systems.
+
+1:12:47.860 --> 1:12:51.780
+ But once things get to be large, Avogadro's number of particles, right?
+
+1:12:51.780 --> 1:12:54.960
+ Bigger than a cell, no chance.
+
+1:12:54.960 --> 1:13:00.780
+ We we've talked a little bit about arrow of time last time, but in many worlds that there
+
+1:13:00.780 --> 1:13:07.520
+ is a kind of implied arrow of time, right?
+
+1:13:07.520 --> 1:13:14.480
+ So you've talked about the arrow of time that has to do with the second law of thermodynamics.
+
+1:13:14.480 --> 1:13:18.340
+ That's the arrow of time that's emergent or fundamental.
+
+1:13:18.340 --> 1:13:19.340
+ We don't know, I guess.
+
+1:13:19.340 --> 1:13:20.340
+ No, it's emergent.
+
+1:13:20.340 --> 1:13:23.340
+ Is that, does everyone agree on that?
+
+1:13:23.340 --> 1:13:25.380
+ Well, nobody agrees with everything.
+
+1:13:25.380 --> 1:13:26.380
+ They should.
+
+1:13:26.380 --> 1:13:28.300
+ They should.
+
+1:13:28.300 --> 1:13:34.000
+ So that arrow of time, is that different than the arrow of time that's implied by many worlds?
+
+1:13:34.000 --> 1:13:35.420
+ It's not different, actually, no.
+
+1:13:35.420 --> 1:13:40.940
+ In both cases, you have fundamental laws of physics that are completely reversible.
+
+1:13:40.940 --> 1:13:45.040
+ If you give me the state of the universe at one moment in time, I can run the clock forward
+
+1:13:45.040 --> 1:13:46.360
+ or backward equally well.
+
+1:13:46.360 --> 1:13:51.360
+ There's no arrow of time built into the laws of physics at the most fundamental level.
+
+1:13:51.360 --> 1:13:57.920
+ But what we do have are special initial conditions 14 billion years ago near the Big Bang.
+
+1:13:57.920 --> 1:14:03.520
+ In thermodynamics, those special initial conditions take the form of things were low entropy and
+
+1:14:03.520 --> 1:14:08.480
+ entropy has been increasing ever since, making the universe more disorganized and chaotic
+
+1:14:08.480 --> 1:14:10.540
+ and that's the arrow of time.
+
+1:14:10.540 --> 1:14:15.080
+ In quantum mechanics, the special initial conditions take the form of there was only
+
+1:14:15.080 --> 1:14:20.140
+ one branch of the wave function and the universe has been branching more and more ever since.
+
+1:14:20.140 --> 1:14:28.540
+ Okay, so if time is emergent, so it seems like our human cognitive capacity likes to
+
+1:14:28.540 --> 1:14:33.200
+ take things that are emergent and assume and feel like they're fundamental.
+
+1:14:33.200 --> 1:14:42.600
+ So what, so if time is emergent and locality, like is space emergent?
+
+1:14:42.600 --> 1:14:43.600
+ Yes.
+
+1:14:43.600 --> 1:14:44.600
+ Okay.
+
+1:14:44.600 --> 1:14:46.820
+ But I didn't say time was emergent, I said the arrow of time was emergent.
+
+1:14:46.820 --> 1:14:47.820
+ Those are different.
+
+1:14:47.820 --> 1:14:52.560
+ What's the difference between the arrow of time and time?
+
+1:14:52.560 --> 1:14:56.920
+ Are you using arrow of time to simply mean this, they're synonymous with the second law
+
+1:14:56.920 --> 1:14:57.920
+ of thermodynamics?
+
+1:14:57.920 --> 1:15:01.520
+ No, but the arrow of time is the difference between the past and future.
+
+1:15:01.520 --> 1:15:04.500
+ So there's space, but there's no arrow of space.
+
+1:15:04.500 --> 1:15:06.920
+ You don't feel that space has to have an arrow, right?
+
+1:15:06.920 --> 1:15:10.700
+ You could live in thermodynamic equilibrium, there'd be no arrow of time, but there'd still
+
+1:15:10.700 --> 1:15:11.700
+ be time.
+
+1:15:11.700 --> 1:15:14.740
+ There'd still be a difference between now and the future or whatever.
+
+1:15:14.740 --> 1:15:19.000
+ So if nothing changes, there's still time.
+
+1:15:19.000 --> 1:15:23.760
+ Well things could even change, like if the whole universe consisted of the earth going
+
+1:15:23.760 --> 1:15:29.440
+ around the sun, it would just go in circles or ellipses, right?
+
+1:15:29.440 --> 1:15:32.560
+ Things would change, but it's not increasing entropy, there's no arrow.
+
+1:15:32.560 --> 1:15:38.900
+ If you took a movie of that and I played you the movie backward, you would never know.
+
+1:15:38.900 --> 1:15:45.680
+ So the arrow of time can theoretically point in the other direction for briefly.
+
+1:15:45.680 --> 1:15:49.000
+ To the extent that it points in different directions, it's not a very good arrow.
+
+1:15:49.000 --> 1:15:53.520
+ I mean, the arrow of time in the macroscopic world is so powerful that there's just no
+
+1:15:53.520 --> 1:15:55.000
+ chance of going back.
+
+1:15:55.000 --> 1:15:58.680
+ When you get down to tiny systems with only three or four moving parts, then entropy can
+
+1:15:58.680 --> 1:16:00.480
+ fluctuate up and down.
+
+1:16:00.480 --> 1:16:03.440
+ What does it mean for space to be an emergent phenomenon?
+
+1:16:03.440 --> 1:16:07.280
+ It means that the fundamental description of the world does not include the word space.
+
+1:16:07.280 --> 1:16:10.920
+ It'll be something like a vector in Hilbert space, right, and you have to say, well why
+
+1:16:10.920 --> 1:16:16.380
+ is there a good approximate description which involves three dimensional space and stuff
+
+1:16:16.380 --> 1:16:17.380
+ inside it?
+
+1:16:17.380 --> 1:16:21.200
+ Okay, so time and space are emergent.
+
+1:16:21.200 --> 1:16:28.620
+ We kind of mentioned in the beginning, can you elaborate, what do you feel hope is fundamental
+
+1:16:28.620 --> 1:16:30.400
+ in our universe?
+
+1:16:30.400 --> 1:16:32.160
+ A wave function living in Hilbert space.
+
+1:16:32.160 --> 1:16:36.960
+ A wave function in Hilbert space that we can't intellectualize or visualize really.
+
+1:16:36.960 --> 1:16:40.160
+ We can't visualize it, we can intellectualize it very easily.
+
+1:16:40.160 --> 1:16:42.240
+ Like how do you think about?
+
+1:16:42.240 --> 1:16:45.560
+ It's a vector in a 10 to the 10 to the 122 dimensional vector space.
+
+1:16:45.560 --> 1:16:50.920
+ It's a complex vector, unit norm, it evolves according to the Schrodinger equation.
+
+1:16:50.920 --> 1:16:52.420
+ Got it.
+
+1:16:52.420 --> 1:16:53.880
+ When you put it that way.
+
+1:16:53.880 --> 1:16:56.880
+ What's so hard, really?
+
+1:16:56.880 --> 1:17:04.440
+ It's like, yep, quantum computers, there's some excitement, actually a lot of excitement
+
+1:17:04.440 --> 1:17:10.640
+ with people that it will allow us to simulate quantum mechanical systems.
+
+1:17:10.640 --> 1:17:14.680
+ What kind of questions do you about quantum mechanics, about the things we've been talking
+
+1:17:14.680 --> 1:17:21.720
+ about, do you think, do you hope we can answer through quantum simulation?
+
+1:17:21.720 --> 1:17:26.340
+ Well I think that there are, there's a whole fascinating frontier of things you can do
+
+1:17:26.340 --> 1:17:27.640
+ with quantum computers.
+
+1:17:27.640 --> 1:17:37.400
+ Both sort of practical things with cryptography or money, privacy eavesdropping, sorting things,
+
+1:17:37.400 --> 1:17:40.280
+ simulating quantum systems, right?
+
+1:17:40.280 --> 1:17:44.800
+ So it's a broader question maybe even outside of quantum computers.
+
+1:17:44.800 --> 1:17:49.960
+ Some of the theories that we've been talking about, what's your hope, what's most promising
+
+1:17:49.960 --> 1:17:52.160
+ to test these theories?
+
+1:17:52.160 --> 1:17:57.620
+ What are kind of experiments we can conduct, whether in simulation or in the physical world
+
+1:17:57.620 --> 1:18:03.160
+ that would validate or disprove or expand these theories?
+
+1:18:03.160 --> 1:18:06.840
+ Well I think for, there's two parts of that question.
+
+1:18:06.840 --> 1:18:10.300
+ One is many worlds and the other one is sort of emergent space time.
+
+1:18:10.300 --> 1:18:14.280
+ For many worlds, you know, there are experiments ongoing to test whether or not wave functions
+
+1:18:14.280 --> 1:18:17.480
+ spontaneously collapse.
+
+1:18:17.480 --> 1:18:21.660
+ And if they do, then that rules out many worlds and that would be falsified.
+
+1:18:21.660 --> 1:18:27.400
+ If there are hidden variables, there's a theorem that seems to indicate that the predictions
+
+1:18:27.400 --> 1:18:29.800
+ will always be the same as many worlds.
+
+1:18:29.800 --> 1:18:31.240
+ I'm a little skeptical of this theorem.
+
+1:18:31.240 --> 1:18:32.240
+ I'm not complete.
+
+1:18:32.240 --> 1:18:33.240
+ I haven't internalized it.
+
+1:18:33.240 --> 1:18:36.680
+ I haven't made it in part of my intuitive view of the world yet, so there might be loopholes
+
+1:18:36.680 --> 1:18:37.680
+ to that theorem.
+
+1:18:37.680 --> 1:18:38.680
+ I'm not sure about that.
+
+1:18:38.680 --> 1:18:42.080
+ Part of me thinks that there should be different experimental predictions if there are hidden
+
+1:18:42.080 --> 1:18:45.180
+ variables, but I'm not sure.
+
+1:18:45.180 --> 1:18:47.320
+ But otherwise, it's just quantum mechanics all the way down.
+
+1:18:47.320 --> 1:18:53.120
+ And so there's this cottage industry in science journalism of writing breathless articles
+
+1:18:53.120 --> 1:18:57.840
+ that say, you know, quantum mechanics shown to be more astonishing than ever before thought.
+
+1:18:57.840 --> 1:19:01.840
+ And really, it's the same quantum mechanics we've been doing since 1926.
+
+1:19:01.840 --> 1:19:06.000
+ Whereas with the emergent space time stuff, we know a lot less about what the theory is.
+
+1:19:06.000 --> 1:19:07.760
+ It's in a very primitive state.
+
+1:19:07.760 --> 1:19:13.880
+ We don't even really have a safely written down, respectable, honest theory yet.
+
+1:19:13.880 --> 1:19:17.460
+ So there could very well be experimental predictions we just don't know about yet.
+
+1:19:17.460 --> 1:19:20.200
+ That is one of the things that we're trying to figure out.
+
+1:19:20.200 --> 1:19:24.320
+ Yeah, for emergent space time, you need really big stuff, right?
+
+1:19:24.320 --> 1:19:27.800
+ Well, or really fast stuff, or really energetic stuff.
+
+1:19:27.800 --> 1:19:28.800
+ We don't know.
+
+1:19:28.800 --> 1:19:29.800
+ That's the thing.
+
+1:19:29.800 --> 1:19:34.440
+ You know, so there could be violations of the speed of light if you have emergent space
+
+1:19:34.440 --> 1:19:35.860
+ time.
+
+1:19:35.860 --> 1:19:39.240
+ Not going faster than the speed of light, but the speed of light could be different
+
+1:19:39.240 --> 1:19:42.320
+ for light of different wavelengths, right?
+
+1:19:42.320 --> 1:19:46.840
+ That would be a dramatic violation of physics as we know it, but it could be possible.
+
+1:19:46.840 --> 1:19:47.840
+ Or not.
+
+1:19:47.840 --> 1:19:48.840
+ I mean, it's not an absolute prediction.
+
+1:19:48.840 --> 1:19:49.840
+ That's the problem.
+
+1:19:49.840 --> 1:19:54.080
+ The theories are just not well developed enough yet to say.
+
+1:19:54.080 --> 1:20:01.120
+ Is there anything that quantum mechanics can teach us about human nature or the human mind?
+
+1:20:01.120 --> 1:20:06.820
+ If you think about sort of consciousness and these kinds of topics, is there...
+
+1:20:06.820 --> 1:20:10.320
+ It's certainly excessively used, as you point out.
+
+1:20:10.320 --> 1:20:15.520
+ The word quantum is used for everything besides quantum mechanics.
+
+1:20:15.520 --> 1:20:23.600
+ But in more seriousness, is there something that goes to the human level and can help
+
+1:20:23.600 --> 1:20:27.280
+ us understand our mind?
+
+1:20:27.280 --> 1:20:29.680
+ Not really is the short answer, you know.
+
+1:20:29.680 --> 1:20:31.400
+ Minds are pretty classical.
+
+1:20:31.400 --> 1:20:32.920
+ I don't think.
+
+1:20:32.920 --> 1:20:36.600
+ We don't know this for sure, but I don't think that phenomena like entanglement are crucial
+
+1:20:36.600 --> 1:20:38.440
+ to how the human mind works.
+
+1:20:38.440 --> 1:20:40.160
+ What about consciousness?
+
+1:20:40.160 --> 1:20:48.920
+ So you mentioned, I think early on in the conversation, you said it would be unlikely,
+
+1:20:48.920 --> 1:20:54.680
+ but incredible if sort of the observer is somehow a fundamental part.
+
+1:20:54.680 --> 1:21:01.900
+ So observer, not to romanticize the notion, but seems interlinked to the idea of consciousness.
+
+1:21:01.900 --> 1:21:09.040
+ So if consciousness, as the panpsychists believe, is fundamental to the universe, is that possible?
+
+1:21:09.040 --> 1:21:10.040
+ Is that weight...
+
+1:21:10.040 --> 1:21:11.040
+ I mean, every...
+
+1:21:11.040 --> 1:21:12.040
+ Everything's possible.
+
+1:21:12.040 --> 1:21:16.920
+ Just like Joe Rogan likes to say, it's entirely possible.
+
+1:21:16.920 --> 1:21:17.920
+ But okay.
+
+1:21:17.920 --> 1:21:22.960
+ But is it on a spectrum of crazy out there?
+
+1:21:22.960 --> 1:21:28.600
+ How the statistically speaking, how often do you ponder the possibility that consciousness
+
+1:21:28.600 --> 1:21:32.120
+ is fundamental or the observer is fundamental to...
+
+1:21:32.120 --> 1:21:33.120
+ Personally don't at all.
+
+1:21:33.120 --> 1:21:34.120
+ There are people who do.
+
+1:21:34.120 --> 1:21:37.160
+ I'm a thorough physicalist when it comes to consciousness.
+
+1:21:37.160 --> 1:21:41.800
+ I do not think that there are any separate mental states or mental properties.
+
+1:21:41.800 --> 1:21:46.000
+ I think they're all emergent, just like space time is and space time is hard enough to understand.
+
+1:21:46.000 --> 1:21:51.320
+ So the fact that we don't yet understand consciousness is not at all surprising to me.
+
+1:21:51.320 --> 1:21:55.280
+ You, as we mentioned, have an amazing podcast called Mindscape.
+
+1:21:55.280 --> 1:22:03.680
+ It's as I said, one of my favorite podcasts sort of both for your explanation of physics,
+
+1:22:03.680 --> 1:22:10.520
+ which a lot of people love, and when you venture out into things that are beyond your expertise,
+
+1:22:10.520 --> 1:22:18.960
+ but it's just a really smart person exploring even questions like morality, for example.
+
+1:22:18.960 --> 1:22:19.960
+ It's very interesting.
+
+1:22:19.960 --> 1:22:21.920
+ I think you did a solo episode and so on.
+
+1:22:21.920 --> 1:22:28.200
+ I mean, there's a lot of really interesting conversations that you have.
+
+1:22:28.200 --> 1:22:34.680
+ What are some from memory, amazing conversations that pop to mind that you've had?
+
+1:22:34.680 --> 1:22:36.320
+ What did you learn from them?
+
+1:22:36.320 --> 1:22:40.360
+ Something that maybe changed your mind or just inspired you or just what did this whole
+
+1:22:40.360 --> 1:22:45.160
+ experience of having conversations, what stands out to you?
+
+1:22:45.160 --> 1:22:46.160
+ It's an unfair question.
+
+1:22:46.160 --> 1:22:47.160
+ Totally unfair.
+
+1:22:47.160 --> 1:22:48.160
+ That's okay.
+
+1:22:48.160 --> 1:22:49.160
+ That's all right.
+
+1:22:49.160 --> 1:22:54.000
+ You know, it's often the ones I feel like the ones I do on physics and closely related
+
+1:22:54.000 --> 1:23:01.160
+ science or even philosophy ones are like, I know this stuff and I'm helping people learn
+
+1:23:01.160 --> 1:23:02.160
+ about it.
+
+1:23:02.160 --> 1:23:05.900
+ But I learn more from the ones that have nothing to do with physics or philosophy, right?
+
+1:23:05.900 --> 1:23:12.160
+ So talking to Wynton Marsalis about jazz or talking to a Master Sommelier about wine,
+
+1:23:12.160 --> 1:23:18.760
+ talking to Will Wilkinson about partisan polarization and the urban rural divide, talking to psychologists
+
+1:23:18.760 --> 1:23:26.320
+ like Carol Tavris about cognitive dissonance and how those things work.
+
+1:23:26.320 --> 1:23:31.160
+ Scott Derrickson who is the director of the movie Dr. Strange, I had a wonderful conversation
+
+1:23:31.160 --> 1:23:36.680
+ with him where we went through the mechanics of making a blockbuster superhero movie, right?
+
+1:23:36.680 --> 1:23:41.440
+ And he's also not a naturalist, he's an evangelical Christian so we talked about the nature of
+
+1:23:41.440 --> 1:23:42.440
+ reality there.
+
+1:23:42.440 --> 1:23:51.360
+ I want to have a couple more, you know, discussions with highly educated theists who know the
+
+1:23:51.360 --> 1:23:56.600
+ theology really well but I haven't quite arranged those yet.
+
+1:23:56.600 --> 1:23:57.600
+ I would love to hear that.
+
+1:23:57.600 --> 1:24:02.520
+ I mean that's, how comfortable are you venturing into questions of religion?
+
+1:24:02.520 --> 1:24:04.960
+ Oh, I'm totally comfortable doing it.
+
+1:24:04.960 --> 1:24:10.320
+ You know, I did talk with Alan Lightman who is also an atheist but he, you know, he is
+
+1:24:10.320 --> 1:24:18.600
+ trying to rescue the sort of spiritual side of things for atheism and I did talk to very
+
+1:24:18.600 --> 1:24:23.280
+ vocal atheists like Alex Rosenberg so I need to talk to some, I've talked to some religious
+
+1:24:23.280 --> 1:24:26.360
+ believers but I need to talk to more.
+
+1:24:26.360 --> 1:24:31.320
+ How have you changed through having all these conversations?
+
+1:24:31.320 --> 1:24:35.360
+ You know, part of the motivation was I had a long stack of books that I hadn't read and
+
+1:24:35.360 --> 1:24:38.880
+ I couldn't find time to read them and I figured if I interviewed their authors, forced me
+
+1:24:38.880 --> 1:24:42.080
+ to read them, right, and that has totally worked by the way.
+
+1:24:42.080 --> 1:24:45.680
+ Now I'm annoyed that people write such long books.
+
+1:24:45.680 --> 1:24:49.360
+ I think I'm still very much learning how to be a good interviewer.
+
+1:24:49.360 --> 1:24:54.520
+ I think that's a skill that, you know, I think I have good questions but, you know, there's
+
+1:24:54.520 --> 1:24:58.920
+ the give and take that is still I think I can be better at.
+
+1:24:58.920 --> 1:25:02.480
+ Like I want to offer something to the conversation but not too much, right?
+
+1:25:02.480 --> 1:25:06.000
+ I've had conversations where I barely talked at all and I have conversations where I talked
+
+1:25:06.000 --> 1:25:09.000
+ half the time and I think there's a happy medium in between there.
+
+1:25:09.000 --> 1:25:13.720
+ So I think I remember listening to, without mentioning names, some of your conversations
+
+1:25:13.720 --> 1:25:16.480
+ where I wish you would have disagreed more.
+
+1:25:16.480 --> 1:25:20.400
+ As a listener, it's more fun sometimes.
+
+1:25:20.400 --> 1:25:24.960
+ Well, that's a very good question because, you know, everyone has an attitude toward
+
+1:25:24.960 --> 1:25:25.960
+ that.
+
+1:25:25.960 --> 1:25:32.720
+ Like some people are really there to basically give their point of view and their guest is
+
+1:25:32.720 --> 1:25:35.480
+ supposed to, you know, respond accordingly.
+
+1:25:35.480 --> 1:25:41.400
+ I want to sort of get my view on the record but I don't want to dwell on it when I'm talking
+
+1:25:41.400 --> 1:25:44.120
+ to someone like David Chalmers who I disagree with a lot.
+
+1:25:44.120 --> 1:25:48.860
+ You know, I want to say like, here's why I disagree with you but, you know, we're here
+
+1:25:48.860 --> 1:25:49.980
+ to listen to you.
+
+1:25:49.980 --> 1:25:53.240
+ Like I have an episode every week and you're only on once a week, right?
+
+1:25:53.240 --> 1:26:00.760
+ So I have an upcoming podcast episode with Philip Goff who is a much more dedicated pan
+
+1:26:00.760 --> 1:26:02.640
+ psychist and so there we really get into it.
+
+1:26:02.640 --> 1:26:06.680
+ I think that I probably have disagreed with him more on that episode than I ever have
+
+1:26:06.680 --> 1:26:10.240
+ with another podcast guest but that's what he wanted so it worked very well.
+
+1:26:10.240 --> 1:26:11.240
+ Yeah, yeah.
+
+1:26:11.240 --> 1:26:15.880
+ That kind of debate structure is beautiful when it's done right.
+
+1:26:15.880 --> 1:26:21.400
+ Like when you're, when you can detect that the intent is that you have fundamental respect
+
+1:26:21.400 --> 1:26:22.400
+ for the person.
+
+1:26:22.400 --> 1:26:23.400
+ Yeah.
+
+1:26:23.400 --> 1:26:29.040
+ That, and that's, for some reason, it's super fun to listen to when two really smart people
+
+1:26:29.040 --> 1:26:32.920
+ are just arguing and sometimes lose their shit a little bit if I may say so.
+
+1:26:32.920 --> 1:26:39.160
+ Well, there's a fine line because I have zero interest in bringing, I mean, like, I mean,
+
+1:26:39.160 --> 1:26:43.280
+ maybe you implied this, I have zero interest in bringing on people for whom I don't have
+
+1:26:43.280 --> 1:26:44.600
+ any intellectual respect.
+
+1:26:44.600 --> 1:26:49.120
+ Like I constantly get requests like, you know, bring on a flat earther or whatever and really
+
+1:26:49.120 --> 1:26:52.800
+ slap them down or a creationist, like I have zero interest.
+
+1:26:52.800 --> 1:26:56.800
+ I'm happy to bring on, you know, a religious person, a believer, but I want someone who's
+
+1:26:56.800 --> 1:27:02.160
+ smart and can act in good faith and can talk, not a charlatan or a lunatic, right?
+
+1:27:02.160 --> 1:27:08.160
+ So I will only, I will happily bring on people with whom I disagree, but only people from
+
+1:27:08.160 --> 1:27:10.320
+ whom I think the audience can learn something interesting.
+
+1:27:10.320 --> 1:27:15.740
+ So let me ask, the idea of charlatan is an interesting idea.
+
+1:27:15.740 --> 1:27:22.920
+ You might be more educated on this topic than me, but there's, there's folks, for example,
+
+1:27:22.920 --> 1:27:31.280
+ who argue various aspects of evolution sort of try to approach and say that evolution
+
+1:27:31.280 --> 1:27:37.440
+ sort of our current theory of evolution has many holes in it, has many flaws.
+
+1:27:37.440 --> 1:27:46.820
+ And they argue that I think like Cambridge, Cambrian explosion, which is like a huge added
+
+1:27:46.820 --> 1:27:52.160
+ variability of species, doesn't make sense under our current description of evolution
+
+1:27:52.160 --> 1:27:57.520
+ and theory of evolution sort of, if you had to, were to have the conversation with people
+
+1:27:57.520 --> 1:28:05.720
+ like that, how do you know that they're the difference in outside the box thinkers and
+
+1:28:05.720 --> 1:28:13.080
+ people who are fundamentally unscientific and even bordering on charlatans?
+
+1:28:13.080 --> 1:28:15.080
+ That's a great question.
+
+1:28:15.080 --> 1:28:19.200
+ And you know, the further you get away from my expertise, the harder it is for me to really
+
+1:28:19.200 --> 1:28:21.040
+ judge exactly those things.
+
+1:28:21.040 --> 1:28:25.520
+ And, you know, yeah, I don't have a satisfying answer for that one because I think the example
+
+1:28:25.520 --> 1:28:30.840
+ you use of someone who, you know, believes in the basic structure of natural selection,
+
+1:28:30.840 --> 1:28:35.240
+ but thinks that, you know, this particular thing cannot be understood in the terms of
+
+1:28:35.240 --> 1:28:38.360
+ our current understanding of Darwinism.
+
+1:28:38.360 --> 1:28:41.560
+ That's a perfect edge case where it's hard to tell, right?
+
+1:28:41.560 --> 1:28:45.680
+ And I would have, I would try to talk to people who I do respect and who do know things and
+
+1:28:45.680 --> 1:28:50.920
+ I would have to, you know, given that I'm a physicist, I know that physicists will sometimes
+
+1:28:50.920 --> 1:28:53.480
+ be too dismissive of alternative points of view.
+
+1:28:53.480 --> 1:28:57.320
+ I have to take into account that biologists can also be too dismissive of alternative points
+
+1:28:57.320 --> 1:28:58.320
+ of view.
+
+1:28:58.320 --> 1:29:00.760
+ So, yeah, that's a tricky one.
+
+1:29:00.760 --> 1:29:02.040
+ Have you gotten heat yet?
+
+1:29:02.040 --> 1:29:03.040
+ I get heat all the time.
+
+1:29:03.040 --> 1:29:09.000
+ Like there's always something, I mean, it's hilarious because I do have, I try very hard
+
+1:29:09.000 --> 1:29:12.080
+ not to like have the same topic several times in a row.
+
+1:29:12.080 --> 1:29:16.320
+ I did have like two climate change episodes, but they were from very different perspectives,
+
+1:29:16.320 --> 1:29:17.320
+ but I like to mix it up.
+
+1:29:17.320 --> 1:29:19.040
+ That's the whole, that's why I'm having fun.
+
+1:29:19.040 --> 1:29:22.720
+ And every time I do an episode, someone says, oh, the person you should really get on to
+
+1:29:22.720 --> 1:29:24.600
+ talk about exactly that is this other person.
+
+1:29:24.600 --> 1:29:26.080
+ I'm like, well, I don't, but I did that now.
+
+1:29:26.080 --> 1:29:28.080
+ I don't want to do that anymore.
+
+1:29:28.080 --> 1:29:30.880
+ Well, I hope you keep doing it.
+
+1:29:30.880 --> 1:29:34.240
+ You're inspiring millions of people, your books, your podcasts.
+
+1:29:34.240 --> 1:29:36.240
+ Sean, it's an honor to talk to you.
+
+1:29:36.240 --> 1:29:37.240
+ Thank you so much.
+
+1:29:37.240 --> 1:29:57.680
+ Thank you very much, Lex.
+

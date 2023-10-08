@@ -1,0 +1,6173 @@
+WEBVTT
+
+00:00.000 --> 00:03.160
+ The following is a conversation with Scott Aaronson,
+
+00:03.160 --> 00:04.920
+ a professor at UT Austin,
+
+00:04.920 --> 00:07.200
+ director of its Quantum Information Center,
+
+00:07.200 --> 00:10.000
+ and previously a professor at MIT.
+
+00:10.000 --> 00:11.720
+ His research interests center
+
+00:11.720 --> 00:14.580
+ around the capabilities and limits of quantum computers
+
+00:14.580 --> 00:17.720
+ and computational complexity theory more generally.
+
+00:17.720 --> 00:19.440
+ He is an excellent writer
+
+00:19.440 --> 00:21.100
+ and one of my favorite communicators
+
+00:21.100 --> 00:23.300
+ of computer science in the world.
+
+00:23.300 --> 00:26.480
+ We only had about an hour and a half of this conversation,
+
+00:26.480 --> 00:29.160
+ so I decided to focus on quantum computing.
+
+00:29.160 --> 00:30.920
+ But I can see us talking again in the future
+
+00:30.920 --> 00:33.240
+ on this podcast at some point
+
+00:33.240 --> 00:35.640
+ about computational complexity theory
+
+00:35.640 --> 00:38.480
+ and all the complexity classes that Scott catalogs
+
+00:38.480 --> 00:41.100
+ in his amazing Complexity Zoo Wiki.
+
+00:42.400 --> 00:43.640
+ As a quick aside,
+
+00:43.640 --> 00:46.020
+ based on questions and comments I've received,
+
+00:46.020 --> 00:48.200
+ my goal with these conversations
+
+00:48.200 --> 00:51.560
+ is to try to be in the background without ego
+
+00:51.560 --> 00:53.400
+ and do three things.
+
+00:53.400 --> 00:55.240
+ One, let the guests shine
+
+00:55.240 --> 00:56.960
+ and try to discover together
+
+00:56.960 --> 00:59.080
+ the most beautiful insights in their work
+
+00:59.080 --> 01:00.760
+ and in their mind.
+
+01:00.760 --> 01:02.960
+ Two, try to play devil's advocate
+
+01:02.960 --> 01:05.560
+ just enough to provide a creative tension
+
+01:05.560 --> 01:08.040
+ in exploring ideas through conversation.
+
+01:08.040 --> 01:11.760
+ And three, to ask very basic questions
+
+01:11.760 --> 01:15.300
+ about terminology, about concepts, about ideas.
+
+01:16.360 --> 01:18.760
+ Many of the topics we talk about in the podcast
+
+01:18.760 --> 01:20.600
+ I've been studying for years
+
+01:20.600 --> 01:22.800
+ as a grad student, as a researcher,
+
+01:22.800 --> 01:26.180
+ and generally as a curious human who loves to read.
+
+01:26.180 --> 01:29.180
+ But frankly, I see myself in these conversations
+
+01:29.180 --> 01:30.360
+ as the main character
+
+01:30.360 --> 01:32.720
+ for one of my favorite novels by Dostoevsky
+
+01:32.720 --> 01:35.160
+ called The Idiot.
+
+01:35.160 --> 01:36.920
+ I enjoy playing dumb.
+
+01:36.920 --> 01:39.080
+ Clearly, it comes naturally.
+
+01:39.080 --> 01:40.200
+ But the basic questions
+
+01:40.200 --> 01:42.440
+ don't come from my ignorance of the subject
+
+01:42.440 --> 01:45.800
+ but from an instinct that the fundamentals are simple.
+
+01:45.800 --> 01:47.060
+ And if we linger on them
+
+01:47.060 --> 01:49.020
+ from almost a naive perspective,
+
+01:49.020 --> 01:50.920
+ we can draw an insightful thread
+
+01:50.920 --> 01:53.400
+ from computer science to neuroscience
+
+01:53.400 --> 01:55.320
+ to physics to philosophy
+
+01:55.320 --> 01:57.920
+ and to artificial intelligence.
+
+01:58.800 --> 02:01.480
+ This is the Artificial Intelligence Podcast.
+
+02:01.480 --> 02:03.680
+ If you enjoy it, subscribe on YouTube,
+
+02:03.680 --> 02:05.660
+ give it five stars on Apple Podcast,
+
+02:05.660 --> 02:07.000
+ support it on Patreon,
+
+02:07.000 --> 02:08.960
+ or simply connect with me on Twitter
+
+02:08.960 --> 02:13.540
+ at Lex Friedman, spelled F R I D M A N.
+
+02:13.540 --> 02:16.440
+ As usual, I'll do one or two minutes of ads now
+
+02:16.440 --> 02:17.880
+ and never any ads in the middle
+
+02:17.880 --> 02:20.120
+ that can break the flow of the conversation.
+
+02:20.120 --> 02:21.520
+ I hope that works for you
+
+02:21.520 --> 02:24.100
+ and doesn't hurt the listening experience.
+
+02:24.100 --> 02:25.560
+ Quick summary of the ads.
+
+02:25.560 --> 02:27.080
+ Two supporters today.
+
+02:27.080 --> 02:31.640
+ First, get Cash App and use the code LEX PODCAST.
+
+02:31.640 --> 02:35.040
+ Second, listen to the Tech Meme Ride Home podcast
+
+02:35.040 --> 02:36.300
+ for tech news.
+
+02:36.300 --> 02:40.420
+ Search Ride Home, two words, in your podcast app.
+
+02:41.280 --> 02:43.440
+ This show is presented by Cash App,
+
+02:43.440 --> 02:45.860
+ the number one finance app in the App Store.
+
+02:45.860 --> 02:49.320
+ When you get it, use code LEX PODCAST.
+
+02:49.320 --> 02:51.600
+ Cash App lets you send money to friends,
+
+02:51.600 --> 02:54.120
+ buy Bitcoin, and invest in the stock market
+
+02:54.120 --> 02:56.000
+ with as little as one dollar.
+
+02:56.000 --> 02:59.040
+ Broker services are provided by Cash App Investing,
+
+02:59.040 --> 03:03.040
+ a subsidiary of Square, a member SIPC.
+
+03:03.040 --> 03:05.360
+ Since Cash App does fractional share trading,
+
+03:05.360 --> 03:08.200
+ let me mention that the order execution algorithm
+
+03:08.200 --> 03:09.760
+ that works behind the scenes
+
+03:09.760 --> 03:12.520
+ to create the abstraction of fractional orders
+
+03:12.520 --> 03:14.640
+ is an algorithmic marvel.
+
+03:14.640 --> 03:16.940
+ So big props to the Cash App engineers
+
+03:16.940 --> 03:19.440
+ for solving a hard problem that in the end
+
+03:19.440 --> 03:22.260
+ provides an easy interface that takes a step up
+
+03:22.260 --> 03:25.140
+ to the next layer of abstraction over the stock market,
+
+03:25.140 --> 03:28.480
+ making trading more accessible for new investors
+
+03:28.480 --> 03:31.720
+ and diversification much easier.
+
+03:31.720 --> 03:34.400
+ So again, if you get Cash App from the App Store
+
+03:34.400 --> 03:37.880
+ or Google Play and use the code LEX PODCAST,
+
+03:37.880 --> 03:42.080
+ you'll get $10 and Cash App will also donate $10 to FIRST,
+
+03:42.080 --> 03:44.120
+ one of my favorite organizations
+
+03:44.120 --> 03:47.360
+ that is helping to advance robotics and STEM education
+
+03:47.360 --> 03:49.600
+ for young people around the world.
+
+03:50.560 --> 03:52.200
+ This episode is also supported
+
+03:52.200 --> 03:55.720
+ by the Tech Meme Ride Home Podcast.
+
+03:55.720 --> 03:57.760
+ It's a technology podcast I've been listening to
+
+03:57.760 --> 04:00.280
+ for a while and really enjoying.
+
+04:00.280 --> 04:01.720
+ It goes straight to the point,
+
+04:01.720 --> 04:03.680
+ gives you the tech news you need to know
+
+04:03.680 --> 04:07.080
+ and provides minimal but essential context.
+
+04:07.080 --> 04:10.080
+ It's released every day by 5 p.m. Eastern
+
+04:10.080 --> 04:12.600
+ and is only about 15 to 20 minutes long.
+
+04:13.460 --> 04:16.240
+ For fun, I like building apps on smartphones,
+
+04:16.240 --> 04:18.800
+ most on Android, so I'm always a little curious
+
+04:18.800 --> 04:21.120
+ about new flagship phones that come out.
+
+04:21.120 --> 04:25.600
+ I saw that Samsung announced the new Galaxy S20
+
+04:25.600 --> 04:29.360
+ and of course, right away, Tech Meme Ride Home
+
+04:29.360 --> 04:33.200
+ has a new episode that summarizes all that I needed to know
+
+04:33.200 --> 04:35.520
+ about this new device.
+
+04:35.520 --> 04:38.560
+ They've also started to do weekend bonus episodes
+
+04:38.560 --> 04:42.020
+ with interviews of people like AWOL founder Steve Case
+
+04:42.020 --> 04:45.600
+ on investing and Gary Marcus on AI,
+
+04:45.600 --> 04:48.680
+ who I've also interviewed on this podcast.
+
+04:48.680 --> 04:51.600
+ You can find the Tech Meme Ride Home Podcast
+
+04:51.600 --> 04:56.600
+ if you search your podcast app for Ride Home, two words.
+
+04:56.680 --> 05:00.160
+ Then subscribe, enjoy, and keep up to date
+
+05:00.160 --> 05:02.560
+ with the latest tech news.
+
+05:02.560 --> 05:06.660
+ And now, here's my conversation with Scott Aaronson.
+
+05:07.680 --> 05:11.640
+ I sometimes get criticism from a listener here and there
+
+05:11.640 --> 05:13.400
+ that while having a conversation
+
+05:13.400 --> 05:16.200
+ with a world class mathematician, physicist,
+
+05:16.200 --> 05:18.200
+ neurobiologist, aerospace engineer,
+
+05:18.200 --> 05:21.740
+ or a theoretical computer scientist like yourself,
+
+05:21.740 --> 05:24.680
+ I waste time by asking philosophical questions
+
+05:24.680 --> 05:28.880
+ about free will, consciousness, mortality, love,
+
+05:28.880 --> 05:31.920
+ nature of truth, super intelligence,
+
+05:31.920 --> 05:33.480
+ whether time travel is possible,
+
+05:33.480 --> 05:35.960
+ whether space time is emergent and fundamental,
+
+05:36.840 --> 05:39.400
+ even the crazier questions like whether aliens exist,
+
+05:39.400 --> 05:40.840
+ what their language might look like,
+
+05:40.840 --> 05:43.020
+ what their math might look like,
+
+05:43.020 --> 05:44.700
+ whether math is invented or discovered,
+
+05:44.700 --> 05:47.960
+ and of course, whether we live in a simulation or not.
+
+05:47.960 --> 05:48.800
+ So I try.
+
+05:48.800 --> 05:49.880
+ Out with it.
+
+05:49.880 --> 05:51.360
+ Out with it.
+
+05:51.360 --> 05:55.460
+ I try to dance back and forth from the deep technical
+
+05:55.460 --> 05:59.040
+ to the philosophical, so I've done that quite a bit.
+
+05:59.040 --> 06:01.680
+ So you're a world class computer scientist,
+
+06:01.680 --> 06:04.120
+ and yet you've written about this very point,
+
+06:04.120 --> 06:06.720
+ the philosophy is important for experts
+
+06:06.720 --> 06:09.040
+ in any technical discipline,
+
+06:09.040 --> 06:11.140
+ though they somehow seem to avoid this.
+
+06:11.140 --> 06:13.460
+ So I thought it'd be really interesting
+
+06:13.460 --> 06:15.100
+ to talk to you about this point.
+
+06:15.100 --> 06:17.740
+ Why should we computer scientists, mathematicians,
+
+06:17.740 --> 06:20.780
+ physicists care about philosophy, do you think?
+
+06:20.780 --> 06:23.020
+ Well, I would reframe the question a little bit.
+
+06:23.020 --> 06:26.760
+ I mean, philosophy almost by definition
+
+06:26.760 --> 06:30.940
+ is the subject that's concerned with the biggest questions
+
+06:30.940 --> 06:33.160
+ that you could possibly ask, right?
+
+06:33.160 --> 06:35.740
+ So the ones you mentioned, right?
+
+06:35.740 --> 06:38.440
+ Are we living in a simulation?
+
+06:38.440 --> 06:41.720
+ Are we alone in the universe?
+
+06:41.720 --> 06:44.360
+ How should we even think about such questions?
+
+06:44.360 --> 06:46.000
+ Is the future determined,
+
+06:46.000 --> 06:49.560
+ and what do we even mean by it being determined?
+
+06:49.560 --> 06:51.760
+ Why are we alive at the time we are
+
+06:51.760 --> 06:53.200
+ and not at some other time?
+
+06:55.320 --> 06:58.020
+ And when you sort of contemplate
+
+06:58.020 --> 06:59.560
+ the enormity of those questions,
+
+06:59.560 --> 07:01.080
+ I think you could ask,
+
+07:01.080 --> 07:04.560
+ well, then why be concerned with anything else, right?
+
+07:04.560 --> 07:08.760
+ Why not spend your whole life on those questions?
+
+07:08.760 --> 07:10.120
+ I think in some sense,
+
+07:10.120 --> 07:13.800
+ that is the right way to phrase the question.
+
+07:13.800 --> 07:18.800
+ And actually, what we learned, I mean, throughout history,
+
+07:19.240 --> 07:21.920
+ but really starting with the scientific revolution
+
+07:21.920 --> 07:24.000
+ with Galileo and so on,
+
+07:24.000 --> 07:26.840
+ is that there is a good reason to focus
+
+07:26.840 --> 07:31.320
+ on narrower questions, more technical,
+
+07:31.320 --> 07:33.600
+ mathematical or empirical questions.
+
+07:33.600 --> 07:36.520
+ And that is that you can actually make progress on them,
+
+07:36.520 --> 07:39.260
+ and you can actually often answer them.
+
+07:39.260 --> 07:41.760
+ And sometimes they actually tell you something
+
+07:41.760 --> 07:43.820
+ about the philosophical questions
+
+07:43.820 --> 07:48.500
+ that sort of maybe motivated your curiosity as a child.
+
+07:48.500 --> 07:51.760
+ They don't necessarily resolve the philosophical questions,
+
+07:51.760 --> 07:53.300
+ but sometimes they reframe
+
+07:53.300 --> 07:55.120
+ your whole understanding of them, right?
+
+07:55.120 --> 07:58.120
+ And so for me, philosophy is just the thing
+
+07:58.120 --> 08:00.920
+ that you have in the background from the very beginning
+
+08:00.920 --> 08:05.480
+ that you want to, these are sort of the reasons
+
+08:05.480 --> 08:08.640
+ why you went into intellectual life in the first place,
+
+08:08.640 --> 08:10.620
+ at least the reasons why I did, right?
+
+08:11.720 --> 08:15.200
+ But math and science are tools that we have
+
+08:15.200 --> 08:17.540
+ for actually making progress.
+
+08:17.540 --> 08:21.480
+ And hopefully even changing our understanding
+
+08:21.480 --> 08:23.280
+ of these philosophical questions,
+
+08:23.280 --> 08:26.400
+ sometimes even more than philosophy itself does.
+
+08:26.400 --> 08:30.560
+ Why do you think computer scientists avoid these questions?
+
+08:30.560 --> 08:31.880
+ We'll run away from them a little bit,
+
+08:31.880 --> 08:34.600
+ at least in a technical scientific discourse.
+
+08:34.600 --> 08:37.000
+ Well, I'm not sure if they do so
+
+08:37.000 --> 08:39.200
+ more than any other scientists do.
+
+08:39.200 --> 08:44.200
+ I mean, Alan Turing was famously interested
+
+08:44.400 --> 08:49.400
+ and his most famous, one of his two most famous papers
+
+08:49.760 --> 08:52.040
+ was in a philosophy journal mind.
+
+08:52.040 --> 08:54.700
+ It was the one where he proposed the Turing test.
+
+08:55.640 --> 08:59.920
+ He took a Wittgenstein's course at Cambridge,
+
+08:59.920 --> 09:01.440
+ argued with him.
+
+09:01.440 --> 09:03.840
+ I just recently learned that little bit
+
+09:03.840 --> 09:05.340
+ and it's actually fascinating.
+
+09:05.340 --> 09:08.440
+ I was trying to look for resources
+
+09:08.440 --> 09:12.400
+ in trying to understand where the sources of disagreement
+
+09:12.400 --> 09:15.720
+ and debates between Wittgenstein and Turing were.
+
+09:15.720 --> 09:17.480
+ That's interesting that these two minds
+
+09:17.480 --> 09:20.200
+ have somehow met in the arc of history.
+
+09:20.200 --> 09:25.200
+ Yeah, well, the transcript of the course,
+
+09:25.200 --> 09:26.880
+ which was in 1939, right,
+
+09:26.880 --> 09:29.960
+ is one of the more fascinating documents that I've ever read
+
+09:29.960 --> 09:33.560
+ because Wittgenstein is trying to say,
+
+09:33.560 --> 09:36.180
+ well, all of these formal systems
+
+09:36.180 --> 09:41.180
+ are just complete irrelevancies, right?
+
+09:41.680 --> 09:44.560
+ If a formal system is irrelevant, who cares?
+
+09:44.560 --> 09:46.880
+ Why does that matter in real life, right?
+
+09:46.880 --> 09:49.000
+ And Turing is saying, well, look,
+
+09:49.000 --> 09:52.640
+ if you use an inconsistent formal system to design a bridge,
+
+09:52.640 --> 09:55.160
+ the bridge may collapse, right?
+
+09:55.160 --> 09:58.900
+ And so Turing, in some sense, is thinking decades ahead,
+
+09:58.900 --> 10:01.640
+ you know, I think, of where Wittgenstein is,
+
+10:01.640 --> 10:05.040
+ to where the formal systems are actually going to be used
+
+10:05.040 --> 10:08.720
+ in computers, right, to actually do things in the world.
+
+10:08.720 --> 10:10.400
+ You know, and it's interesting that Turing
+
+10:10.400 --> 10:13.120
+ actually dropped the course halfway through.
+
+10:13.120 --> 10:13.960
+ Why?
+
+10:13.960 --> 10:15.320
+ Because he had to go to Bletchley Park
+
+10:15.320 --> 10:18.240
+ and work on something of more immediate importance.
+
+10:18.240 --> 10:19.880
+ That's fascinating.
+
+10:19.880 --> 10:22.180
+ Take a step from philosophy to actual,
+
+10:22.180 --> 10:25.020
+ like the biggest possible step to actual engineering
+
+10:25.020 --> 10:26.400
+ with actual real impact.
+
+10:26.400 --> 10:29.160
+ Yeah, and I would say more generally, right,
+
+10:30.360 --> 10:35.100
+ a lot of scientists are interested in philosophy,
+
+10:35.100 --> 10:36.700
+ but they're also busy, right?
+
+10:36.700 --> 10:39.460
+ And they have a lot on their plate,
+
+10:39.460 --> 10:42.760
+ and there are a lot of sort of very concrete questions
+
+10:42.760 --> 10:44.880
+ that are already not answered,
+
+10:44.880 --> 10:47.940
+ but look like they might be answerable, right?
+
+10:47.940 --> 10:52.880
+ And so then you could say, well, then why break your brain
+
+10:52.880 --> 10:55.940
+ over these metaphysically unanswerable questions
+
+10:55.940 --> 10:59.340
+ when there were all of these answerable ones instead?
+
+10:59.340 --> 11:03.240
+ So I think, you know, for me,
+
+11:03.240 --> 11:06.240
+ I enjoy talking about philosophy.
+
+11:06.240 --> 11:09.840
+ I even go to philosophy conferences sometimes,
+
+11:09.840 --> 11:12.040
+ such as the FQXI conferences.
+
+11:12.040 --> 11:14.920
+ I enjoy interacting with philosophers.
+
+11:14.920 --> 11:17.740
+ I would not want to be a professional philosopher
+
+11:17.740 --> 11:20.880
+ because I like being in a field where I feel like,
+
+11:20.880 --> 11:25.400
+ you know, if I get too confused
+
+11:25.400 --> 11:27.100
+ about the sort of eternal questions,
+
+11:27.100 --> 11:30.060
+ then I can actually make progress on something.
+
+11:30.060 --> 11:32.840
+ Can you maybe link on that for just a little longer?
+
+11:32.840 --> 11:34.600
+ What do you think is the difference?
+
+11:34.600 --> 11:37.640
+ So like the corollary of the criticism
+
+11:37.640 --> 11:40.120
+ that I mentioned previously,
+
+11:40.120 --> 11:42.520
+ that why ask the philosophical questions
+
+11:42.520 --> 11:44.960
+ of the mathematician is if you want
+
+11:44.960 --> 11:46.220
+ to ask philosophical questions,
+
+11:46.220 --> 11:49.020
+ then invite a real philosopher on and ask them.
+
+11:49.020 --> 11:51.200
+ So what's the difference between the way
+
+11:51.200 --> 11:52.920
+ a computer scientist or mathematician
+
+11:52.920 --> 11:54.640
+ ponders a philosophical question
+
+11:54.640 --> 11:57.280
+ and a philosopher ponders a philosophical question?
+
+11:57.280 --> 11:59.280
+ Well, I mean, a lot of it just depends
+
+11:59.280 --> 12:01.000
+ on the individual, right?
+
+12:01.000 --> 12:04.760
+ It's hard to make generalizations about entire fields,
+
+12:04.760 --> 12:09.560
+ but, you know, I think if we tried to,
+
+12:09.560 --> 12:11.440
+ if we tried to stereotype, you know,
+
+12:11.440 --> 12:16.440
+ we would say that scientists very often
+
+12:16.440 --> 12:21.440
+ will be less careful in their use of words.
+
+12:21.860 --> 12:24.160
+ You know, I mean, philosophers are really experts
+
+12:24.160 --> 12:27.140
+ in sort of, you know, like when I talk to them,
+
+12:27.140 --> 12:28.820
+ they will just pounce if I, you know,
+
+12:28.820 --> 12:30.780
+ use the wrong phrase for something.
+
+12:30.780 --> 12:32.540
+ Experts is a very nice word.
+
+12:32.540 --> 12:34.060
+ You could say sticklers.
+
+12:34.060 --> 12:35.980
+ Sticklers, yeah, yeah, yeah, or, you know,
+
+12:35.980 --> 12:39.140
+ they will sort of interrogate my word choices,
+
+12:39.140 --> 12:41.360
+ let's say, to a much greater extent
+
+12:41.360 --> 12:42.900
+ than scientists would, right?
+
+12:42.900 --> 12:46.300
+ And scientists, you know, will often,
+
+12:46.300 --> 12:48.940
+ if you ask them about a philosophical problem,
+
+12:48.940 --> 12:51.900
+ like the hard problem of consciousness
+
+12:51.900 --> 12:53.580
+ or free will or whatever,
+
+12:53.580 --> 12:55.740
+ they will try to relate it back to, you know,
+
+12:55.740 --> 13:00.740
+ recent research, you know, research about neurobiology
+
+13:01.200 --> 13:03.880
+ or, you know, the best of all is research
+
+13:03.880 --> 13:06.480
+ that they personally are involved with, right?
+
+13:06.480 --> 13:10.160
+ And, you know, of course they will want to talk about that,
+
+13:10.160 --> 13:12.260
+ you know, and it is what they will think of, you know,
+
+13:12.260 --> 13:14.140
+ and of course you could have an argument
+
+13:14.140 --> 13:17.300
+ that maybe, you know, it's all interesting as it goes,
+
+13:17.300 --> 13:20.100
+ but maybe none of it touches the philosophical question,
+
+13:20.100 --> 13:20.940
+ right?
+
+13:20.940 --> 13:24.300
+ But, you know, but maybe, you know, a science,
+
+13:24.300 --> 13:26.600
+ you know, at least it, as I said,
+
+13:26.600 --> 13:29.020
+ it does tell us concrete things.
+
+13:29.020 --> 13:33.520
+ And, you know, even if like a deep dive into neurobiology
+
+13:33.520 --> 13:36.580
+ will not answer the hard problem of consciousness,
+
+13:36.580 --> 13:40.540
+ you know, maybe it can take us about as far as we can get
+
+13:40.540 --> 13:44.420
+ toward, you know, expanding our minds about it,
+
+13:44.420 --> 13:47.220
+ you know, toward thinking about it in a different way.
+
+13:48.760 --> 13:51.080
+ Well, I mean, I think neurobiology can do that,
+
+13:51.080 --> 13:53.840
+ but, you know, with these profound philosophical questions,
+
+13:53.840 --> 13:56.940
+ I mean, also art and literature do that, right?
+
+13:56.940 --> 13:58.020
+ They're all different ways
+
+13:58.020 --> 14:00.260
+ of trying to approach these questions that, you know,
+
+14:00.260 --> 14:02.220
+ we don't, for which we don't even know really
+
+14:02.220 --> 14:03.700
+ what an answer would look like,
+
+14:03.700 --> 14:06.200
+ but, and yet somehow we can't help,
+
+14:06.200 --> 14:07.820
+ but keep returning to the questions.
+
+14:07.820 --> 14:09.260
+ And you have a kind of mathematical,
+
+14:09.260 --> 14:11.260
+ beautiful mathematical way of discussing this
+
+14:11.260 --> 14:12.740
+ with the idea of Q prime.
+
+14:12.740 --> 14:13.580
+ Oh, right.
+
+14:13.580 --> 14:16.780
+ You write that usually the only way to make progress
+
+14:16.780 --> 14:20.060
+ on the big questions, like the philosophical questions
+
+14:20.060 --> 14:24.340
+ we're talking about now is to pick off smaller sub questions.
+
+14:24.340 --> 14:26.380
+ Ideally sub questions that you can attack
+
+14:26.380 --> 14:29.140
+ using math, empirical observation, or both.
+
+14:29.140 --> 14:31.380
+ You define the idea of a Q prime.
+
+14:31.380 --> 14:36.140
+ So given an unanswerable philosophical riddle Q,
+
+14:36.140 --> 14:39.700
+ replace it with a merely, in quotes, scientific
+
+14:39.700 --> 14:41.900
+ or mathematical question Q prime,
+
+14:41.900 --> 14:44.840
+ which captures part of what people have wanted to know
+
+14:44.840 --> 14:47.300
+ when they first asked Q.
+
+14:47.300 --> 14:49.900
+ Then with luck, one solves Q prime.
+
+14:49.900 --> 14:54.900
+ So you described some examples of such Q prime sub questions
+
+14:55.420 --> 14:59.180
+ in your long essay titled,
+
+14:59.180 --> 15:02.460
+ Why Philosophers Should Care About Computational Complexity.
+
+15:02.460 --> 15:04.560
+ So you catalog the various Q primes
+
+15:04.560 --> 15:07.140
+ on which you think theoretical computer science
+
+15:07.140 --> 15:08.020
+ has made progress.
+
+15:08.020 --> 15:12.260
+ Can you mention a few favorites, if any pop to mind,
+
+15:12.260 --> 15:13.100
+ or do you remember some?
+
+15:13.100 --> 15:13.940
+ Well, yeah.
+
+15:13.940 --> 15:16.940
+ So, I mean, I would say some of the most famous examples
+
+15:16.940 --> 15:20.740
+ in history of that sort of replacement were,
+
+15:20.740 --> 15:23.240
+ I mean, to go back to Alan Turing, right?
+
+15:23.240 --> 15:26.460
+ What he did in his computing machinery
+
+15:26.460 --> 15:29.340
+ and intelligence paper was exactly,
+
+15:29.340 --> 15:32.100
+ he explicitly started with the question,
+
+15:32.100 --> 15:33.820
+ can machines think?
+
+15:33.820 --> 15:35.780
+ And then he said, sorry,
+
+15:35.780 --> 15:38.020
+ I think that question is too meaningless,
+
+15:38.020 --> 15:40.380
+ but here's a different question.
+
+15:40.380 --> 15:42.140
+ Could you program a computer
+
+15:42.140 --> 15:43.620
+ so that you couldn't tell the difference
+
+15:43.620 --> 15:45.220
+ between it and a human, right?
+
+15:45.220 --> 15:46.060
+ And yeah.
+
+15:46.060 --> 15:47.940
+ So in the very first few sentences,
+
+15:47.940 --> 15:50.900
+ he in fact just formulates the Q prime question.
+
+15:50.900 --> 15:52.600
+ He does precisely that.
+
+15:52.600 --> 15:56.140
+ Or we could look at Gödel, right?
+
+15:56.140 --> 16:00.420
+ Where you had these philosophers arguing for centuries
+
+16:00.420 --> 16:03.060
+ about the limits of mathematical reasoning, right?
+
+16:03.060 --> 16:04.660
+ The limits of formal systems.
+
+16:04.660 --> 16:08.740
+ And then by the early 20th century,
+
+16:08.740 --> 16:12.340
+ logicians, starting with Frege, Russell,
+
+16:12.340 --> 16:15.480
+ and then most spectacularly Gödel,
+
+16:15.480 --> 16:18.100
+ managed to reframe those questions as,
+
+16:18.100 --> 16:19.840
+ look, we have these formal systems.
+
+16:19.840 --> 16:21.500
+ They have these definite rules.
+
+16:21.500 --> 16:23.480
+ Are there questions that we can phrase
+
+16:23.480 --> 16:25.740
+ within the rules of these systems
+
+16:25.740 --> 16:28.220
+ that are not provable within the rules of the systems?
+
+16:28.220 --> 16:30.500
+ And can we prove that fact, right?
+
+16:30.500 --> 16:34.740
+ And so that would be another example.
+
+16:34.740 --> 16:36.640
+ You know, I had this essay called
+
+16:36.640 --> 16:38.980
+ The Ghost in the Quantum Turing Machine.
+
+16:38.980 --> 16:41.900
+ That was one of the crazier things I've written,
+
+16:41.900 --> 16:44.740
+ but I tried to do something,
+
+16:44.740 --> 16:48.740
+ or to advocate doing something similar there for free will,
+
+16:48.740 --> 16:53.220
+ where instead of talking about is free will real,
+
+16:53.220 --> 16:55.500
+ where we get hung up on the meaning of,
+
+16:55.500 --> 16:57.500
+ what exactly do we mean by freedom?
+
+16:57.500 --> 16:59.740
+ And can you have, can you be,
+
+16:59.740 --> 17:02.220
+ or do we mean compatibilist free will,
+
+17:02.220 --> 17:03.660
+ libertarian free will?
+
+17:03.660 --> 17:05.100
+ What do these things mean?
+
+17:05.100 --> 17:08.200
+ You know, I suggested just asking the question,
+
+17:08.200 --> 17:12.320
+ how well in principle, consistently with the laws of physics,
+
+17:12.320 --> 17:15.100
+ could a person's behavior be predicted?
+
+17:15.100 --> 17:16.620
+ You know, without, so let's say,
+
+17:16.620 --> 17:18.820
+ destroying the person's brain, you know,
+
+17:18.820 --> 17:22.140
+ taking it apart in the process of trying to predict them.
+
+17:22.140 --> 17:24.620
+ And, you know, and that actually,
+
+17:24.620 --> 17:27.700
+ asking that question gets you into all sorts of meaty
+
+17:27.700 --> 17:31.100
+ and interesting issues, you know, issues of,
+
+17:31.100 --> 17:33.820
+ what is the computational substrate of the brain?
+
+17:33.820 --> 17:37.100
+ You know, or can you understand the brain, you know,
+
+17:37.100 --> 17:39.740
+ just at the sort of level of the neurons, you know,
+
+17:39.740 --> 17:42.380
+ at sort of the abstraction of a neural network,
+
+17:42.380 --> 17:44.940
+ or do you need to go deeper to the, you know,
+
+17:44.940 --> 17:48.060
+ molecular level and ultimately even to the quantum level?
+
+17:48.060 --> 17:48.900
+ Right, and of course,
+
+17:48.900 --> 17:52.700
+ that would put limits on predictability if you did.
+
+17:52.700 --> 17:53.940
+ So you need to reduce,
+
+17:53.940 --> 17:58.580
+ you need to reduce the mind to a computational device,
+
+17:58.580 --> 18:01.180
+ like formalize it so then you can make predictions
+
+18:01.180 --> 18:03.860
+ about what, you know, whether you could predict the behavior
+
+18:03.860 --> 18:04.700
+ of the system. Well, if you were trying
+
+18:04.700 --> 18:06.860
+ to predict a person, yeah, then presumably,
+
+18:06.860 --> 18:09.180
+ you would need some model of their brain, right?
+
+18:09.180 --> 18:11.180
+ And now the question becomes one of,
+
+18:11.180 --> 18:13.780
+ how accurate can such a model become?
+
+18:13.780 --> 18:16.780
+ Can you make a model that will be accurate enough
+
+18:16.780 --> 18:21.060
+ to really seriously threaten people's sense of free will?
+
+18:21.060 --> 18:23.660
+ You know, not just metaphysically, but like really,
+
+18:23.660 --> 18:25.140
+ I have written in this envelope
+
+18:25.140 --> 18:26.780
+ what you were going to say next.
+
+18:26.780 --> 18:28.940
+ Is accuracy the right term here?
+
+18:28.940 --> 18:32.620
+ So it's also a level of abstraction has to be right.
+
+18:32.620 --> 18:37.620
+ So if you're accurate at the, somehow at the quantum level,
+
+18:39.060 --> 18:42.980
+ that may not be convincing to us at the human level.
+
+18:42.980 --> 18:46.100
+ Well, right, but the question is what accuracy
+
+18:46.100 --> 18:49.020
+ at the sort of level of the underlying mechanisms
+
+18:49.020 --> 18:52.180
+ do you need in order to predict the behavior, right?
+
+18:52.180 --> 18:54.300
+ At the end of the day, the test is just,
+
+18:54.300 --> 18:57.860
+ can you, you know, foresee what the person is going to do?
+
+18:57.860 --> 19:02.860
+ Right, I am, you know, and in discussions of free will,
+
+19:03.340 --> 19:06.340
+ you know, it seems like both sides wanna, you know,
+
+19:06.340 --> 19:09.420
+ very quickly dismiss that question as irrelevant.
+
+19:09.420 --> 19:11.420
+ Well, to me, it's totally relevant.
+
+19:11.420 --> 19:14.300
+ Okay, because, you know, if someone says,
+
+19:14.300 --> 19:16.900
+ oh, well, you know, a Laplace demon
+
+19:16.900 --> 19:19.900
+ that knew the complete state of the universe,
+
+19:19.900 --> 19:22.140
+ you know, could predict everything you're going to do,
+
+19:22.140 --> 19:24.100
+ therefore you don't have free will.
+
+19:24.100 --> 19:27.020
+ You know, it doesn't trouble me that much because,
+
+19:27.020 --> 19:29.820
+ well, you know, I've never met such a demon, right?
+
+19:29.820 --> 19:34.140
+ You know, and we, you know, we even have some reasons
+
+19:34.140 --> 19:35.180
+ to think, you know, maybe, you know,
+
+19:35.180 --> 19:37.260
+ it could not exist as part of our world,
+
+19:37.260 --> 19:40.740
+ you know, it's only an abstraction, a thought experiment.
+
+19:40.740 --> 19:42.540
+ On the other hand, if someone said,
+
+19:42.540 --> 19:44.940
+ well, you know, I have this brain scanning machine,
+
+19:44.940 --> 19:47.180
+ you know, you step into it and then, you know,
+
+19:47.180 --> 19:50.220
+ every paper that you will ever write, it will write,
+
+19:50.220 --> 19:52.420
+ you know, every thought that you will have, you know,
+
+19:52.420 --> 19:55.740
+ even right now about the machine itself, it will foresee.
+
+19:55.740 --> 19:58.620
+ You know, well, if you can actually demonstrate that,
+
+19:58.620 --> 20:01.620
+ then I think, you know, that sort of threatens
+
+20:01.620 --> 20:04.380
+ my internal sense of having free will
+
+20:04.380 --> 20:06.340
+ in a much more visceral way.
+
+20:06.340 --> 20:08.980
+ You know, but now you notice that we're asking
+
+20:08.980 --> 20:11.580
+ a much more empirical question.
+
+20:11.580 --> 20:14.700
+ We're asking, is such a machine possible or isn't it?
+
+20:14.700 --> 20:16.260
+ We're asking, if it's not possible,
+
+20:16.260 --> 20:18.380
+ then what in the laws of physics
+
+20:18.380 --> 20:21.180
+ or what about the behavior of the brain,
+
+20:21.180 --> 20:22.980
+ you know, prevents it from existing?
+
+20:22.980 --> 20:25.260
+ So if you could philosophize a little bit
+
+20:25.260 --> 20:27.740
+ within this empirical question,
+
+20:27.740 --> 20:31.420
+ where do you think would enter the,
+
+20:31.420 --> 20:33.820
+ by which mechanism would enter the possibility
+
+20:33.820 --> 20:35.580
+ that we can't predict the outcome?
+
+20:35.580 --> 20:37.220
+ So there would be something
+
+20:37.220 --> 20:38.860
+ that would be akin to a free will.
+
+20:38.860 --> 20:42.460
+ Yeah, well, you could say the sort of obvious possibility,
+
+20:42.460 --> 20:45.660
+ which was, you know, recognized by Eddington
+
+20:45.660 --> 20:48.020
+ and many others about as soon as quantum mechanics
+
+20:48.020 --> 20:52.380
+ was discovered in the 1920s, was that if,
+
+20:53.300 --> 20:56.180
+ you know, let's say a sodium ion channel,
+
+20:56.180 --> 21:00.500
+ you know, in the brain, right?
+
+21:00.500 --> 21:03.980
+ You know, its behavior is chaotic, right?
+
+21:03.980 --> 21:06.340
+ It's sort of, it's governed by these
+
+21:06.340 --> 21:10.940
+ Hodgley–Huckskin equations in neuroscience, right?
+
+21:10.940 --> 21:12.500
+ Which are differential equations
+
+21:12.500 --> 21:14.780
+ that have a stochastic component, right?
+
+21:14.780 --> 21:17.100
+ Now, where does, you know, and this ultimately governs,
+
+21:17.100 --> 21:19.460
+ let's say whether a neuron will fire or not fire, right?
+
+21:19.460 --> 21:21.700
+ So that's the basic chemical process
+
+21:21.700 --> 21:23.860
+ or electrical process by which signals
+
+21:23.860 --> 21:24.780
+ are sent in the brain.
+
+21:24.780 --> 21:25.980
+ Exactly, exactly.
+
+21:25.980 --> 21:28.780
+ And, you know, and so you could ask,
+
+21:28.780 --> 21:31.380
+ well, where does the randomness in the process,
+
+21:31.380 --> 21:34.100
+ you know, that neuroscientists,
+
+21:34.100 --> 21:38.020
+ or what neuroscientists would treat as randomness,
+
+21:38.020 --> 21:39.380
+ where does it come from?
+
+21:39.380 --> 21:41.700
+ You know, ultimately it's thermal noise, right?
+
+21:41.700 --> 21:43.580
+ Where does thermal noise come from?
+
+21:43.580 --> 21:44.860
+ But ultimately, you know,
+
+21:44.860 --> 21:46.780
+ there were some quantum mechanical events
+
+21:46.780 --> 21:48.060
+ at the molecular level
+
+21:48.060 --> 21:50.940
+ that are getting sort of chaotically amplified
+
+21:50.940 --> 21:53.660
+ by, you know, a sort of butterfly effect.
+
+21:53.660 --> 21:57.220
+ And so, you know, even if you knew
+
+21:57.220 --> 22:00.300
+ the complete quantum state of someone's brain,
+
+22:00.300 --> 22:02.780
+ you know, at best you could predict the probabilities
+
+22:02.780 --> 22:05.420
+ that they would do one thing or do another thing, right?
+
+22:05.420 --> 22:08.500
+ I think that part is actually relatively uncontroversial,
+
+22:08.500 --> 22:09.340
+ right?
+
+22:09.340 --> 22:13.340
+ The controversial question is whether any of it matters
+
+22:13.340 --> 22:16.100
+ for the sort of philosophical questions that we care about.
+
+22:16.100 --> 22:18.340
+ Because you could say, if all it's doing
+
+22:18.340 --> 22:20.340
+ is just injecting some randomness
+
+22:20.340 --> 22:23.700
+ into an otherwise completely mechanistic process,
+
+22:23.700 --> 22:25.140
+ well, then who cares, right?
+
+22:25.140 --> 22:28.460
+ And more concretely, if you could build a machine
+
+22:28.460 --> 22:30.980
+ that, you know, could just calculate
+
+22:30.980 --> 22:33.540
+ even just the probabilities
+
+22:33.540 --> 22:35.980
+ of all of the possible things that you would do, right?
+
+22:35.980 --> 22:39.940
+ And, you know, of all the things that said
+
+22:39.940 --> 22:41.860
+ you had a 10% chance of doing,
+
+22:41.860 --> 22:43.980
+ you did exactly a 10th of them, you know,
+
+22:43.980 --> 22:45.580
+ and so on and so on.
+
+22:45.580 --> 22:48.180
+ And that somehow also takes away the feeling of free will.
+
+22:48.180 --> 22:49.020
+ Exactly.
+
+22:49.020 --> 22:51.900
+ I mean, to me, it seems essentially just as bad
+
+22:51.900 --> 22:54.860
+ as if the machine deterministically predicted you.
+
+22:54.860 --> 22:57.340
+ It seems, you know, hardly different from that.
+
+22:57.340 --> 23:02.340
+ So then, but a more subtle question
+
+23:02.420 --> 23:04.060
+ is could you even learn enough
+
+23:04.060 --> 23:06.340
+ about someone's brain to do that, okay?
+
+23:06.340 --> 23:09.540
+ Because, you know, another central fact
+
+23:09.540 --> 23:14.140
+ about quantum mechanics is that making a measurement
+
+23:14.140 --> 23:18.060
+ on a quantum state is an inherently destructive operation.
+
+23:18.060 --> 23:21.660
+ Okay, so, you know, if I want to measure the, you know,
+
+23:21.660 --> 23:23.500
+ position of a particle, right?
+
+23:23.500 --> 23:25.300
+ It was, well, before I measured,
+
+23:25.300 --> 23:28.420
+ it had a superposition over many different positions.
+
+23:28.420 --> 23:30.980
+ As soon as I measure, I localize it, right?
+
+23:30.980 --> 23:32.340
+ So now I know the position,
+
+23:32.340 --> 23:35.260
+ but I've also fundamentally changed the state.
+
+23:35.260 --> 23:39.940
+ And so you could say, well, maybe in trying to build
+
+23:39.940 --> 23:42.780
+ a model of someone's brain that was accurate enough
+
+23:42.780 --> 23:44.700
+ to actually, you know, make, let's say,
+
+23:44.700 --> 23:48.340
+ even well calibrated probabilistic predictions
+
+23:48.340 --> 23:49.980
+ of their future behavior,
+
+23:49.980 --> 23:51.740
+ maybe you would have to make measurements
+
+23:51.740 --> 23:53.140
+ that were just so accurate
+
+23:53.140 --> 23:56.180
+ that you would just fundamentally alter their brain, okay?
+
+23:56.180 --> 23:59.580
+ Or maybe not, maybe you only, you know,
+
+23:59.580 --> 24:02.380
+ it would suffice to just make some nanorobots
+
+24:02.380 --> 24:05.700
+ that just measured some sort of much larger scale,
+
+24:05.700 --> 24:09.300
+ you know, macroscopic behavior, like, you know,
+
+24:09.300 --> 24:10.780
+ what is this neuron doing?
+
+24:10.780 --> 24:12.260
+ What is that neuron doing?
+
+24:12.260 --> 24:13.860
+ Maybe that would be enough.
+
+24:13.860 --> 24:16.940
+ See, but now, you know, what I claim is that
+
+24:16.940 --> 24:19.220
+ we're now asking a question, you know,
+
+24:19.220 --> 24:22.660
+ in which, you know, it is possible to envision
+
+24:22.660 --> 24:24.620
+ what progress on it would look like.
+
+24:24.620 --> 24:25.940
+ Yeah, but just as you said,
+
+24:25.940 --> 24:28.900
+ that question may be slightly detached
+
+24:28.900 --> 24:31.740
+ from the philosophical question in the sense
+
+24:31.740 --> 24:33.860
+ if consciousness somehow has a role
+
+24:33.860 --> 24:36.060
+ to the experience of free will.
+
+24:36.060 --> 24:38.340
+ Because ultimately, when we're talking about free will,
+
+24:38.340 --> 24:42.260
+ we're also talking about not just the predictability
+
+24:42.260 --> 24:44.900
+ of our actions, but somehow the experience
+
+24:44.900 --> 24:46.340
+ of that predictability.
+
+24:46.340 --> 24:49.420
+ Yeah, well, I mean, a lot of philosophical questions
+
+24:49.420 --> 24:52.260
+ ultimately, like, feedback to the hard problem
+
+24:52.260 --> 24:53.540
+ of consciousness, you know,
+
+24:53.540 --> 24:56.660
+ and as much as you can try to sort of talk around it
+
+24:56.660 --> 24:57.500
+ or not, right?
+
+24:57.500 --> 24:59.980
+ And, you know, and there is a reason
+
+24:59.980 --> 25:01.820
+ why people try to talk around it,
+
+25:01.820 --> 25:03.580
+ which is that, you know,
+
+25:03.580 --> 25:07.780
+ Democritus talked about the hard problem of consciousness,
+
+25:07.780 --> 25:11.180
+ you know, in 400 BC in terms that would be
+
+25:11.180 --> 25:13.900
+ totally recognizable to us today, right?
+
+25:13.900 --> 25:16.980
+ And it's really not clear if there's been progress since
+
+25:16.980 --> 25:19.540
+ or what progress could possibly consist of.
+
+25:19.540 --> 25:22.420
+ Is there a Q prime type of subquestion
+
+25:22.420 --> 25:24.380
+ that could help us get at consciousness?
+
+25:24.380 --> 25:25.660
+ It's something about consciousness.
+
+25:25.660 --> 25:27.740
+ Well, I mean, well, I mean, there is the whole question
+
+25:27.740 --> 25:29.620
+ of, you know, of AI, right?
+
+25:29.620 --> 25:33.700
+ Of, you know, can you build a human level
+
+25:33.700 --> 25:35.980
+ or superhuman level AI?
+
+25:35.980 --> 25:39.140
+ And, you know, can it work in a completely different
+
+25:39.140 --> 25:40.380
+ substrate from the brain?
+
+25:40.380 --> 25:41.580
+ I mean, you know, and of course,
+
+25:41.580 --> 25:43.460
+ that was Alan Turing's point.
+
+25:43.460 --> 25:45.500
+ And, you know, and even if that was done,
+
+25:45.500 --> 25:47.660
+ it's, you know, maybe people would still argue
+
+25:47.660 --> 25:49.940
+ about the hard problem of consciousness, right?
+
+25:49.940 --> 25:53.100
+ And yet, you know, my claim is a little different.
+
+25:53.100 --> 25:55.860
+ My claim is that in a world where, you know,
+
+25:55.860 --> 25:58.980
+ there were, you know, human level AIs
+
+25:58.980 --> 26:01.980
+ or we'd been even overtaken by such AIs,
+
+26:01.980 --> 26:05.940
+ the entire discussion of the hard problem of consciousness
+
+26:05.940 --> 26:07.660
+ would have a different character, right?
+
+26:07.660 --> 26:10.420
+ It would take place in different terms in such a world,
+
+26:10.420 --> 26:12.740
+ even if we hadn't answered the question.
+
+26:12.740 --> 26:15.620
+ And my claim about free will would be similar, right?
+
+26:15.620 --> 26:19.060
+ That if this prediction machine that I was talking about
+
+26:19.060 --> 26:21.980
+ could actually be built, well, now the entire discussion
+
+26:21.980 --> 26:24.620
+ of the, you know, of free will is sort of transformed
+
+26:24.620 --> 26:27.380
+ by that, you know, even if in some sense
+
+26:27.380 --> 26:30.180
+ the metaphysical question hasn't been answered.
+
+26:31.780 --> 26:34.180
+ Yeah, exactly, it transforms it fundamentally
+
+26:34.180 --> 26:35.900
+ because say that machine does tell you
+
+26:35.900 --> 26:37.620
+ that it can predict perfectly
+
+26:37.620 --> 26:40.100
+ and yet there is this deep experience of free will
+
+26:40.100 --> 26:43.100
+ and then that changes the question completely.
+
+26:43.100 --> 26:46.220
+ And it starts actually getting to the question
+
+26:46.220 --> 26:51.220
+ of the AGI, the touring questions
+
+26:51.580 --> 26:54.940
+ of the demonstration of free will,
+
+26:54.940 --> 26:56.580
+ the demonstration of intelligence,
+
+26:56.580 --> 26:58.500
+ the demonstration of consciousness,
+
+26:58.500 --> 27:02.300
+ does that equal consciousness, intelligence and free will?
+
+27:02.300 --> 27:07.300
+ But see, Alex, if every time I was contemplating a decision,
+
+27:07.580 --> 27:10.220
+ you know, this machine had printed out an envelope,
+
+27:10.220 --> 27:11.540
+ you know, where I could open it
+
+27:11.540 --> 27:13.220
+ and see that it knew my decision,
+
+27:13.220 --> 27:14.700
+ I think that actually would change
+
+27:14.700 --> 27:18.180
+ my subjective experience of making decisions, right?
+
+27:18.180 --> 27:19.020
+ I mean, it would.
+
+27:19.020 --> 27:20.860
+ Does knowledge change your subjective experience?
+
+27:20.860 --> 27:22.660
+ Well, you know, I mean, the knowledge
+
+27:22.660 --> 27:25.020
+ that this machine had predicted everything I would do,
+
+27:25.020 --> 27:27.780
+ I mean, it might drive me completely insane, right?
+
+27:27.780 --> 27:30.740
+ But at any rate, it would change my experience
+
+27:30.740 --> 27:33.820
+ to act, you know, to not just discuss such a machine
+
+27:33.820 --> 27:36.220
+ as a thought experiment, but to actually see it.
+
+27:37.140 --> 27:37.980
+ Yeah.
+
+27:39.180 --> 27:41.740
+ I mean, you know, you could say at that point,
+
+27:41.740 --> 27:43.380
+ you know, you could say, you know,
+
+27:43.380 --> 27:45.900
+ why not simply call this machine
+
+27:45.900 --> 27:49.180
+ a second instantiation of me and be done with it, right?
+
+27:49.180 --> 27:53.460
+ What, you know, why even privilege the original me
+
+27:53.460 --> 27:56.940
+ over this perfect duplicate that exists in the machine?
+
+27:56.940 --> 28:00.100
+ Yeah, or there could be a religious experience with it too.
+
+28:00.100 --> 28:02.460
+ It's kind of what God throughout the generations
+
+28:02.460 --> 28:03.780
+ is supposed to have.
+
+28:03.780 --> 28:06.860
+ That God kind of represents that perfect machine,
+
+28:06.860 --> 28:09.580
+ is able to, I guess, actually,
+
+28:10.780 --> 28:14.340
+ well, I don't even know what are the religious
+
+28:14.340 --> 28:16.220
+ interpretations of free will.
+
+28:17.660 --> 28:22.580
+ So if God knows perfectly everything in religion,
+
+28:22.580 --> 28:24.700
+ in the various religions,
+
+28:24.700 --> 28:26.580
+ where does free will fit into that?
+
+28:26.580 --> 28:27.420
+ Do you know?
+
+28:27.420 --> 28:30.220
+ That has been one of the big things that theologians
+
+28:30.220 --> 28:32.100
+ have argued about for thousands of years.
+
+28:32.100 --> 28:33.420
+ Yeah.
+
+28:33.420 --> 28:35.260
+ You know, I am not a theologian,
+
+28:35.260 --> 28:36.460
+ so maybe I shouldn't go there.
+
+28:36.460 --> 28:38.940
+ So there's not a clear answer in a book like...
+
+28:38.940 --> 28:41.940
+ I mean, this is, you know, the Calvinists debated this,
+
+28:41.940 --> 28:43.820
+ the, you know, this has been, you know,
+
+28:43.820 --> 28:46.180
+ I mean, different religious movements
+
+28:46.180 --> 28:48.180
+ have taken different positions on that question,
+
+28:48.180 --> 28:50.140
+ but that is how they think about it.
+
+28:50.140 --> 28:51.660
+ You know, meanwhile, you know,
+
+28:51.660 --> 28:54.700
+ a large part of sort of what animates,
+
+28:54.700 --> 28:56.580
+ you know, theoretical computer science,
+
+28:56.580 --> 28:58.500
+ you could say is, you know, we're asking sort of,
+
+28:58.500 --> 29:01.100
+ what are the ultimate limits of, you know,
+
+29:01.100 --> 29:05.540
+ what you can know or, you know, calculate or figure out
+
+29:05.540 --> 29:08.180
+ by, you know, entities that you can actually build
+
+29:08.180 --> 29:09.740
+ in the physical world, right?
+
+29:09.740 --> 29:12.860
+ And if I were trying to explain it to a theologian,
+
+29:12.860 --> 29:15.260
+ maybe I would say, you know, we are studying, you know,
+
+29:15.260 --> 29:16.460
+ to what extent, you know,
+
+29:16.460 --> 29:19.820
+ gods can be made manifest in the physical world.
+
+29:19.820 --> 29:21.620
+ I'm not sure my colleagues would like that.
+
+29:21.620 --> 29:25.660
+ So let's talk about quantum computers for a second.
+
+29:25.660 --> 29:27.340
+ Yeah, sure, sure.
+
+29:27.340 --> 29:29.180
+ As you've said, quantum computing,
+
+29:29.180 --> 29:32.300
+ at least in the 1990s, was a profound story
+
+29:32.300 --> 29:33.940
+ at the intersection of computer science,
+
+29:33.940 --> 29:36.340
+ physics, engineering, math, and philosophy.
+
+29:36.340 --> 29:40.260
+ So there's this broad and deep aspect to quantum computing
+
+29:40.260 --> 29:42.820
+ that represents more than just the quantum computer.
+
+29:42.820 --> 29:45.180
+ But can we start at the very basics?
+
+29:45.180 --> 29:47.700
+ What is quantum computing?
+
+29:47.700 --> 29:52.700
+ Yeah, so it's a proposal for a new type of computation,
+
+29:52.700 --> 29:56.580
+ or let's say a new way to harness nature to do computation
+
+29:56.580 --> 29:59.700
+ that is based on the principles of quantum mechanics.
+
+29:59.700 --> 30:01.980
+ Okay, now the principles of quantum mechanics
+
+30:01.980 --> 30:05.500
+ have been in place since 1926.
+
+30:05.500 --> 30:07.580
+ You know, they haven't changed.
+
+30:07.580 --> 30:10.620
+ You know, what's new is, you know, how we wanna use them.
+
+30:10.620 --> 30:15.140
+ Okay, so what does quantum mechanics say about the world?
+
+30:15.140 --> 30:18.060
+ You know, the physicists, I think, over the generations,
+
+30:18.060 --> 30:19.060
+ you know, convinced people
+
+30:19.060 --> 30:22.180
+ that that is an unbelievably complicated question
+
+30:22.180 --> 30:25.420
+ and, you know, just give up on trying to understand it.
+
+30:25.420 --> 30:28.060
+ I can let you in, not being a physicist,
+
+30:28.060 --> 30:29.460
+ I can let you in on a secret,
+
+30:29.460 --> 30:32.060
+ which is that it becomes a lot simpler
+
+30:32.060 --> 30:35.300
+ if you do what we do in quantum information theory
+
+30:35.300 --> 30:37.460
+ and sort of take the physics out of it.
+
+30:37.460 --> 30:40.780
+ So the way that we think about quantum mechanics
+
+30:40.780 --> 30:42.820
+ is sort of as a generalization
+
+30:42.820 --> 30:45.300
+ of the rules of probability themselves.
+
+30:45.300 --> 30:50.300
+ So, you know, you might say there was a 30% chance
+
+30:50.300 --> 30:52.620
+ that it was going to snow today or something.
+
+30:52.620 --> 30:55.500
+ You would never say that there was a negative 30% chance,
+
+30:55.500 --> 30:57.420
+ right, that would be nonsense.
+
+30:57.420 --> 30:59.260
+ Much less would you say that there was, you know,
+
+30:59.260 --> 31:03.740
+ an I% chance, you know, square root of minus 1% chance.
+
+31:03.740 --> 31:06.100
+ Now, the central discovery
+
+31:06.100 --> 31:09.460
+ that sort of quantum mechanics made
+
+31:09.460 --> 31:14.460
+ is that fundamentally the world is described by,
+
+31:16.420 --> 31:18.780
+ or, you know, the sort of, let's say the possibilities
+
+31:18.780 --> 31:21.860
+ for, you know, what a system could be doing
+
+31:21.860 --> 31:25.540
+ are described using numbers called amplitudes, okay,
+
+31:25.540 --> 31:29.020
+ which are like probabilities in some ways,
+
+31:29.020 --> 31:30.780
+ but they are not probabilities.
+
+31:30.780 --> 31:31.900
+ They can be positive.
+
+31:31.900 --> 31:34.540
+ For one thing, they can be positive or negative.
+
+31:34.540 --> 31:37.140
+ In fact, they can even be complex numbers.
+
+31:37.140 --> 31:39.980
+ Okay, and if you've heard of a quantum superposition,
+
+31:39.980 --> 31:43.180
+ this just means some state of affairs
+
+31:43.180 --> 31:45.380
+ where you assign an amplitude,
+
+31:45.380 --> 31:47.100
+ one of these complex numbers,
+
+31:47.100 --> 31:51.060
+ to every possible configuration
+
+31:51.060 --> 31:53.340
+ that you could see a system in on measuring it.
+
+31:53.340 --> 31:56.700
+ So for example, you might say that an electron
+
+31:56.700 --> 31:59.420
+ has some amplitude for being here
+
+31:59.420 --> 32:02.260
+ and some other amplitude for being there, right?
+
+32:02.260 --> 32:04.740
+ Now, if you look to see where it is,
+
+32:04.740 --> 32:06.460
+ you will localize it, right?
+
+32:06.460 --> 32:09.140
+ You will sort of force the amplitudes
+
+32:09.140 --> 32:12.220
+ to be converted into probabilities.
+
+32:12.220 --> 32:15.300
+ That happens by taking their squared absolute value, okay,
+
+32:15.300 --> 32:19.460
+ and then, you know, you can say
+
+32:19.460 --> 32:22.580
+ either the electron will be here or it will be there.
+
+32:22.580 --> 32:24.180
+ And, you know, knowing the amplitudes,
+
+32:24.180 --> 32:26.540
+ you can predict at least the probabilities
+
+32:26.540 --> 32:29.900
+ that you'll see each possible outcome, okay?
+
+32:29.900 --> 32:32.540
+ But while a system is isolated
+
+32:32.540 --> 32:34.660
+ from the whole rest of the universe,
+
+32:34.660 --> 32:36.380
+ the rest of its environment,
+
+32:36.380 --> 32:38.820
+ the amplitudes can change in time
+
+32:38.820 --> 32:41.380
+ by rules that are different
+
+32:41.380 --> 32:44.420
+ from the normal rules of probability
+
+32:44.420 --> 32:47.540
+ and that are, you know, alien to our everyday experience.
+
+32:47.540 --> 32:50.420
+ So anytime anyone ever tells you anything
+
+32:50.420 --> 32:52.620
+ about the weirdness of the quantum world,
+
+32:52.620 --> 32:55.940
+ you know, or assuming that they're not lying to you, right,
+
+32:55.940 --> 32:57.780
+ they are telling you, you know,
+
+32:57.780 --> 33:00.140
+ yet another consequence of nature
+
+33:00.140 --> 33:03.060
+ being described by these amplitudes.
+
+33:03.060 --> 33:05.860
+ So most famously, what amplitudes can do
+
+33:05.860 --> 33:08.060
+ is that they can interfere with each other, okay?
+
+33:08.060 --> 33:11.300
+ So in the famous double slit experiment,
+
+33:11.300 --> 33:13.580
+ what happens is that you shoot a particle,
+
+33:13.580 --> 33:15.300
+ like an electron, let's say,
+
+33:15.300 --> 33:17.540
+ at a screen with two slits in it,
+
+33:17.540 --> 33:21.020
+ and you find that there are, you know, on a second screen,
+
+33:21.020 --> 33:22.660
+ now there are certain places
+
+33:22.660 --> 33:25.020
+ where that electron will never end up,
+
+33:25.020 --> 33:29.420
+ you know, after it passes through the first screen.
+
+33:29.420 --> 33:32.460
+ And yet, if I close off one of the slits,
+
+33:32.460 --> 33:35.300
+ then the electron can appear in that place, okay?
+
+33:35.300 --> 33:38.020
+ So by decreasing the number of paths
+
+33:38.020 --> 33:40.540
+ that the electron could take to get somewhere,
+
+33:40.540 --> 33:43.260
+ you can increase the chance that it gets there, okay?
+
+33:43.260 --> 33:45.140
+ Now, how is that possible?
+
+33:45.140 --> 33:48.580
+ Well, it's because, you know, as we would say now,
+
+33:48.580 --> 33:51.620
+ the electron has a superposition state, okay?
+
+33:51.620 --> 33:54.860
+ It has some amplitude for reaching this point
+
+33:54.860 --> 33:57.620
+ by going through the first slit.
+
+33:57.620 --> 33:59.660
+ It has some other amplitude for reaching it
+
+33:59.660 --> 34:01.500
+ by going through the second slit.
+
+34:01.500 --> 34:03.820
+ But now, if one amplitude is positive
+
+34:03.820 --> 34:05.540
+ and the other one is negative,
+
+34:05.540 --> 34:07.860
+ then, you know, I have to add them all up, right?
+
+34:07.860 --> 34:10.620
+ I have to add the amplitudes for every path
+
+34:10.620 --> 34:13.620
+ that the electron could have taken to reach this point.
+
+34:13.620 --> 34:15.540
+ And those amplitudes,
+
+34:15.540 --> 34:17.620
+ if they're pointing in different directions,
+
+34:17.620 --> 34:19.540
+ they can cancel each other out.
+
+34:19.540 --> 34:21.940
+ That would mean the total amplitude is zero
+
+34:21.940 --> 34:24.060
+ and the thing never happens at all.
+
+34:24.060 --> 34:26.180
+ I close off one of the possibilities,
+
+34:26.180 --> 34:28.620
+ then the amplitude is positive or it's negative,
+
+34:28.620 --> 34:30.300
+ and now the thing can happen.
+
+34:30.300 --> 34:33.900
+ Okay, so that is sort of the one trick of quantum mechanics.
+
+34:33.900 --> 34:36.620
+ And now I can tell you what a quantum computer is.
+
+34:36.620 --> 34:41.060
+ Okay, a quantum computer is a computer
+
+34:41.060 --> 34:45.460
+ that tries to exploit, you know, exactly these phenomena,
+
+34:45.460 --> 34:48.940
+ superposition, amplitudes, and interference,
+
+34:48.940 --> 34:52.060
+ in order to solve certain problems much faster
+
+34:52.060 --> 34:54.260
+ than we know how to solve them otherwise.
+
+34:54.260 --> 34:56.740
+ So the basic building block of a quantum computer
+
+34:56.740 --> 34:59.940
+ is what we call a quantum bit or a qubit.
+
+34:59.940 --> 35:03.460
+ That just means a bit that has some amplitude for being zero
+
+35:03.460 --> 35:05.860
+ and some other amplitude for being one.
+
+35:05.860 --> 35:09.260
+ So it's a superposition of zero and one states, right?
+
+35:09.260 --> 35:12.300
+ But now the key point is that if I've got,
+
+35:12.300 --> 35:14.740
+ let's say, a thousand qubits,
+
+35:14.740 --> 35:18.060
+ the rules of quantum mechanics are completely unequivocal
+
+35:18.060 --> 35:20.340
+ that I do not just need one ampli...
+
+35:20.340 --> 35:23.540
+ You know, I don't just need amplitudes for each qubit separately.
+
+35:23.540 --> 35:26.100
+ Okay, in general, I need an amplitude
+
+35:26.100 --> 35:30.780
+ for every possible setting of all thousand of those bits, okay?
+
+35:30.780 --> 35:34.900
+ So that what that means is two to the one thousand power amplitudes.
+
+35:34.900 --> 35:37.620
+ Okay, if I had to write those down,
+
+35:37.620 --> 35:40.420
+ or let's say in the memory of a conventional computer,
+
+35:40.420 --> 35:43.740
+ if I had to write down two to the one thousand complex numbers,
+
+35:43.740 --> 35:47.340
+ that would not fit within the entire observable universe.
+
+35:47.340 --> 35:50.860
+ Okay, and yet, you know, quantum mechanics is unequivocal
+
+35:50.860 --> 35:53.860
+ that if these qubits can all interact with each other,
+
+35:53.860 --> 35:58.020
+ and in some sense, I need two to the one thousand parameters,
+
+35:58.020 --> 36:01.180
+ you know, amplitudes to describe what is going on.
+
+36:01.180 --> 36:05.900
+ Now, you know, now I can tell, you know, where all the popular articles,
+
+36:05.900 --> 36:08.380
+ you know, about quantum computing go off the rails
+
+36:08.380 --> 36:11.860
+ is that they say, you know, they sort of say what I just said,
+
+36:11.860 --> 36:14.620
+ and then they say, oh, so the way a quantum computer works
+
+36:14.620 --> 36:17.900
+ is just by trying every possible answer in parallel.
+
+36:17.900 --> 36:21.020
+ You know, that sounds too good to be true,
+
+36:21.020 --> 36:24.620
+ and unfortunately, it kind of is too good to be true.
+
+36:24.620 --> 36:27.980
+ The problem is I could make a superposition
+
+36:27.980 --> 36:31.340
+ over every possible answer to my problem, you know,
+
+36:31.340 --> 36:34.060
+ even if there are two to the one thousand of them, right?
+
+36:34.060 --> 36:35.740
+ I can easily do that.
+
+36:35.740 --> 36:38.140
+ The trouble is for a computer to be useful,
+
+36:38.140 --> 36:40.300
+ you've got to, at some point, you've got to look at it
+
+36:40.300 --> 36:42.380
+ and see an output, right?
+
+36:42.380 --> 36:46.700
+ And if I just measure a superposition over every possible answer,
+
+36:46.700 --> 36:48.620
+ then the rules of quantum mechanics tell me
+
+36:48.620 --> 36:51.340
+ that all I'll see will be a random answer.
+
+36:51.340 --> 36:53.020
+ You know, if I just wanted a random answer,
+
+36:53.020 --> 36:56.300
+ well, I could have picked one myself with a lot less trouble, right?
+
+36:56.300 --> 36:59.980
+ So the entire trick with quantum computing,
+
+36:59.980 --> 37:02.780
+ with every algorithm for a quantum computer,
+
+37:02.780 --> 37:05.740
+ is that you try to choreograph a pattern
+
+37:05.740 --> 37:08.380
+ of interference of amplitudes,
+
+37:08.380 --> 37:11.500
+ and you try to do it so that for each wrong answer,
+
+37:11.500 --> 37:14.060
+ some of the paths leading to that wrong answer
+
+37:14.060 --> 37:17.900
+ have positive amplitudes and others have negative amplitudes.
+
+37:17.900 --> 37:20.540
+ So on the whole, they cancel each other out, okay?
+
+37:20.540 --> 37:23.420
+ Whereas all the paths leading to the right answer
+
+37:23.420 --> 37:26.620
+ should reinforce each other, you know, should have amplitudes
+
+37:26.620 --> 37:28.060
+ pointing the same direction.
+
+37:28.060 --> 37:30.700
+ So the design of algorithms in the space
+
+37:30.700 --> 37:33.100
+ is the choreography of the interferences.
+
+37:33.100 --> 37:35.020
+ Precisely. That's precisely what it is.
+
+37:35.020 --> 37:36.700
+ Can we take a brief step back?
+
+37:36.700 --> 37:39.820
+ And you mentioned information.
+
+37:39.820 --> 37:40.380
+ Yes.
+
+37:40.380 --> 37:43.180
+ So in which part of this beautiful picture
+
+37:43.180 --> 37:46.620
+ that you've painted is information contained?
+
+37:46.620 --> 37:49.500
+ Oh, well, information is at the core of everything
+
+37:49.500 --> 37:51.020
+ that we've been talking about, right?
+
+37:51.020 --> 37:55.260
+ I mean, the bit is, you know, the basic unit of information
+
+37:55.260 --> 37:58.940
+ since, you know, Claude Shannon's paper in 1948.
+
+37:58.940 --> 38:00.140
+ You know, and, you know, of course, you know,
+
+38:00.140 --> 38:02.460
+ people had the concept even before that, you know,
+
+38:02.460 --> 38:05.100
+ he popularized the name, right?
+
+38:05.100 --> 38:05.740
+ But I mean...
+
+38:05.740 --> 38:07.740
+ But a bit is zero or one.
+
+38:07.740 --> 38:08.220
+ That's right.
+
+38:08.220 --> 38:08.940
+ So that's a basic element of information.
+
+38:08.940 --> 38:09.420
+ That's right.
+
+38:09.420 --> 38:11.740
+ And what we would say is that the basic unit
+
+38:11.740 --> 38:14.540
+ of quantum information is the qubit,
+
+38:14.540 --> 38:16.940
+ is, you know, the object, any object
+
+38:16.940 --> 38:20.860
+ that can be maintained in this, or manipulated,
+
+38:20.860 --> 38:23.260
+ in a superposition of zero and one states.
+
+38:24.060 --> 38:26.380
+ Now, you know, sometimes people ask, well,
+
+38:26.380 --> 38:29.020
+ but what is a qubit physically, right?
+
+38:29.020 --> 38:31.260
+ And there are all these different, you know,
+
+38:32.220 --> 38:34.700
+ proposals that are being pursued in parallel
+
+38:34.700 --> 38:36.860
+ for how you implement qubits.
+
+38:36.860 --> 38:39.660
+ There is, you know, superconducting quantum computing
+
+38:39.660 --> 38:41.420
+ that was in the news recently
+
+38:41.420 --> 38:44.940
+ because of Google's quantum supremacy experiment, right?
+
+38:44.940 --> 38:49.500
+ Where you would have some little coils
+
+38:49.500 --> 38:52.220
+ where a current can flow through them
+
+38:52.220 --> 38:54.300
+ in two different energy states,
+
+38:54.300 --> 38:57.500
+ one representing a zero, another representing a one.
+
+38:57.500 --> 38:59.180
+ And if you cool these coils
+
+38:59.180 --> 39:02.060
+ to just slightly above absolute zero,
+
+39:02.060 --> 39:05.500
+ like a hundredth of a degree, then they superconduct.
+
+39:05.500 --> 39:07.260
+ And then the current can actually be
+
+39:07.260 --> 39:09.420
+ in a superposition of the two different states.
+
+39:10.620 --> 39:12.300
+ So that's one kind of qubit.
+
+39:12.300 --> 39:14.460
+ Another kind would be, you know,
+
+39:14.460 --> 39:17.660
+ just an individual atomic nucleus, right?
+
+39:17.660 --> 39:18.940
+ It has a spin.
+
+39:18.940 --> 39:20.940
+ It could be spinning clockwise.
+
+39:20.940 --> 39:23.020
+ It could be spinning counterclockwise,
+
+39:23.020 --> 39:25.980
+ or it could be in a superposition of the two spin states.
+
+39:25.980 --> 39:27.420
+ That is another qubit.
+
+39:27.420 --> 39:30.220
+ But see, just like in the classical world, right?
+
+39:30.220 --> 39:32.780
+ You could be a virtuoso programmer
+
+39:32.780 --> 39:36.300
+ without having any idea of what a transistor is, right?
+
+39:36.300 --> 39:40.380
+ Or how the bits are physically represented inside the machine,
+
+39:40.380 --> 39:43.180
+ even that the machine uses electricity, right?
+
+39:43.180 --> 39:44.940
+ You just care about the logic.
+
+39:44.940 --> 39:47.260
+ It's sort of the same with quantum computing, right?
+
+39:47.260 --> 39:49.420
+ Qubits could be realized by many,
+
+39:49.420 --> 39:51.260
+ many different quantum systems.
+
+39:51.260 --> 39:54.380
+ And yet all of those systems will lead to the same logic,
+
+39:54.380 --> 39:58.540
+ you know, the logic of qubits and how, you know,
+
+39:58.540 --> 40:01.420
+ how you measure them, how you change them over time.
+
+40:01.420 --> 40:03.980
+ And so, you know, the subject of, you know,
+
+40:03.980 --> 40:07.420
+ how qubits behave and what you can do with qubits,
+
+40:07.420 --> 40:09.260
+ that is quantum information.
+
+40:09.260 --> 40:10.940
+ So just to linger on that.
+
+40:10.940 --> 40:11.260
+ Sure.
+
+40:11.260 --> 40:14.380
+ So the physical design implementation of a qubit
+
+40:14.380 --> 40:18.700
+ does not interfere with the,
+
+40:18.700 --> 40:22.380
+ that next level of abstraction that you can program over it.
+
+40:22.380 --> 40:27.020
+ So it truly is, the idea of it is, okay.
+
+40:27.020 --> 40:28.780
+ Well, to be honest with you,
+
+40:28.780 --> 40:30.700
+ today they do interfere with each other.
+
+40:30.700 --> 40:32.860
+ That's because all the quantum computers
+
+40:32.860 --> 40:35.420
+ we can build today are very noisy, right?
+
+40:35.420 --> 40:37.820
+ And so sort of the, you know,
+
+40:37.820 --> 40:40.940
+ the qubits are very far from perfect.
+
+40:40.940 --> 40:43.900
+ And so the lower level sort of does affect the higher levels.
+
+40:43.900 --> 40:46.380
+ And we sort of have to think about all of them at once.
+
+40:46.380 --> 40:49.180
+ Okay, but eventually where we hope to get
+
+40:49.180 --> 40:52.460
+ is to what are called error corrected quantum computers,
+
+40:52.460 --> 40:54.540
+ where the qubits really do behave
+
+40:54.540 --> 40:58.780
+ like perfect abstract qubits for as long as we want them to.
+
+40:58.780 --> 41:00.380
+ And in that future, you know,
+
+41:01.500 --> 41:04.940
+ a future that we can already sort of prove theorems about
+
+41:04.940 --> 41:06.380
+ or think about today.
+
+41:06.380 --> 41:09.500
+ But in that future, the logic of it
+
+41:09.500 --> 41:11.980
+ really does become decoupled from the hardware.
+
+41:11.980 --> 41:15.580
+ So if noise is currently like the biggest problem
+
+41:16.300 --> 41:18.220
+ for quantum computing,
+
+41:18.220 --> 41:23.020
+ and then the dream is error correcting quantum computers,
+
+41:23.020 --> 41:26.620
+ can you just maybe describe what does it mean
+
+41:26.620 --> 41:28.780
+ for there to be noise in the system?
+
+41:28.780 --> 41:31.020
+ Absolutely, so yeah, so the problem
+
+41:31.020 --> 41:33.100
+ is even a little more specific than noise.
+
+41:33.100 --> 41:35.260
+ So the fundamental problem,
+
+41:35.260 --> 41:38.380
+ if you're trying to actually build a quantum computer,
+
+41:38.380 --> 41:41.260
+ you know, of any appreciable size,
+
+41:41.260 --> 41:43.660
+ is something called decoherence.
+
+41:43.660 --> 41:46.220
+ Okay, and this was recognized from the very beginning,
+
+41:46.220 --> 41:48.460
+ you know, when people first started thinking about this
+
+41:48.460 --> 41:49.980
+ in the 1990s.
+
+41:49.980 --> 41:52.620
+ Now, what decoherence means
+
+41:52.620 --> 41:54.780
+ is sort of the unwanted interaction
+
+41:54.780 --> 41:56.860
+ between, you know, your qubits,
+
+41:56.860 --> 41:59.180
+ you know, the state of your quantum computer
+
+41:59.180 --> 42:01.100
+ and the external environment.
+
+42:01.100 --> 42:03.100
+ Okay, and why is that such a problem?
+
+42:03.100 --> 42:05.180
+ Well, I talked before about how, you know,
+
+42:05.180 --> 42:07.660
+ when you measure a quantum system,
+
+42:07.660 --> 42:09.900
+ so let's say if I measure a qubit
+
+42:09.900 --> 42:12.140
+ that's in a superposition of zero and one states
+
+42:12.140 --> 42:14.620
+ to ask it, you know, are you zero or are you one?
+
+42:14.620 --> 42:17.100
+ Well, now I force it to make up its mind, right?
+
+42:17.100 --> 42:20.860
+ And now, probabilistically, it chooses one or the other
+
+42:20.860 --> 42:23.260
+ and now, you know, it's no longer a superposition,
+
+42:23.260 --> 42:25.020
+ there's no longer amplitudes,
+
+42:25.020 --> 42:27.500
+ there's just, there's some probability that I get a zero
+
+42:27.500 --> 42:29.180
+ and there's some that I get a one.
+
+42:29.180 --> 42:35.180
+ And now, the trouble is that it doesn't have to be me
+
+42:35.180 --> 42:36.300
+ who's looking, okay?
+
+42:36.300 --> 42:40.380
+ Or in fact, it doesn't have to be any conscious entity.
+
+42:40.380 --> 42:44.220
+ Any kind of interaction with the external world
+
+42:44.220 --> 42:46.620
+ that leaks out the information
+
+42:46.620 --> 42:49.900
+ about whether this qubit was a zero or a one,
+
+42:49.900 --> 42:52.380
+ sort of that causes the zerowness
+
+42:52.380 --> 42:55.740
+ or the oneness of the qubit to be recorded
+
+42:55.740 --> 42:58.220
+ in, you know, the radiation in the room,
+
+42:58.220 --> 43:00.540
+ in the molecules of the air,
+
+43:00.540 --> 43:03.900
+ in the wires that are connected to my device,
+
+43:03.900 --> 43:07.900
+ any of that, as soon as the information leaks out,
+
+43:07.900 --> 43:11.020
+ it is as if that qubit has been measured, okay?
+
+43:11.020 --> 43:14.460
+ It is, you know, the state has now collapsed.
+
+43:15.020 --> 43:16.220
+ You know, another way to say it
+
+43:16.220 --> 43:19.340
+ is that it's become entangled with its environment, okay?
+
+43:19.340 --> 43:21.740
+ But, you know, from the perspective of someone
+
+43:21.740 --> 43:23.420
+ who's just looking at this qubit,
+
+43:23.420 --> 43:26.700
+ it is as though it has lost its quantum state.
+
+43:26.700 --> 43:28.540
+ And so, what this means is that
+
+43:28.540 --> 43:31.660
+ if I want to do a quantum computation,
+
+43:31.660 --> 43:34.780
+ I have to keep the qubits sort of fanatically
+
+43:34.780 --> 43:37.340
+ well isolated from their environment.
+
+43:37.340 --> 43:38.540
+ But then at the same time,
+
+43:38.540 --> 43:40.300
+ they can't be perfectly isolated
+
+43:40.300 --> 43:42.460
+ because I need to tell them what to do.
+
+43:42.460 --> 43:45.100
+ I need to make them interact with each other,
+
+43:45.100 --> 43:46.940
+ for one thing, and not only that,
+
+43:46.940 --> 43:50.060
+ but in a precisely choreographed way, okay?
+
+43:50.060 --> 43:53.420
+ And, you know, that is such a staggering problem, right?
+
+43:53.420 --> 43:56.300
+ How do I isolate these qubits from the whole universe
+
+43:56.300 --> 43:58.700
+ but then also tell them exactly what to do?
+
+43:58.700 --> 44:01.420
+ I mean, you know, there were distinguished physicists
+
+44:01.420 --> 44:04.620
+ and computer scientists in the 90s who said,
+
+44:04.620 --> 44:07.020
+ this is fundamentally impossible, you know?
+
+44:07.020 --> 44:10.540
+ The laws of physics will just never let you control qubits
+
+44:10.540 --> 44:13.260
+ to the degree of accuracy that you're talking about.
+
+44:14.140 --> 44:17.660
+ Now, what changed the views of most of us
+
+44:17.660 --> 44:22.300
+ was a profound discovery in the mid to late 90s
+
+44:22.300 --> 44:25.340
+ which was called the theory of quantum error correction
+
+44:25.340 --> 44:27.580
+ and quantum fault tolerance, okay?
+
+44:27.580 --> 44:29.980
+ And the upshot of that theory is that
+
+44:29.980 --> 44:33.500
+ if I want to build a reliable quantum computer
+
+44:33.500 --> 44:36.300
+ and scale it up to, you know, an arbitrary number
+
+44:36.300 --> 44:38.540
+ of as many qubits as I want, you know,
+
+44:38.540 --> 44:40.620
+ and doing as much on them as I want,
+
+44:41.180 --> 44:43.580
+ I do not actually have to get the qubits
+
+44:43.580 --> 44:46.060
+ perfectly isolated from their environment.
+
+44:46.060 --> 44:50.060
+ It is enough to get them really, really, really well isolated, okay?
+
+44:50.060 --> 44:54.620
+ And even if every qubit is sort of leaking,
+
+44:54.620 --> 44:57.820
+ you know, its state into the environment at some rate,
+
+44:57.820 --> 45:00.460
+ as long as that rate is low enough, okay,
+
+45:00.460 --> 45:04.380
+ I can sort of encode the information that I care about
+
+45:05.100 --> 45:08.300
+ in very clever ways across the collective states
+
+45:08.300 --> 45:10.140
+ of multiple qubits, okay?
+
+45:10.140 --> 45:12.380
+ In such a way that even if, you know,
+
+45:12.380 --> 45:14.940
+ a small percentage of my qubits leak,
+
+45:14.940 --> 45:16.860
+ well, I'm constantly monitoring them
+
+45:16.860 --> 45:18.380
+ to see if that leak happened.
+
+45:18.380 --> 45:20.940
+ I can detect it and I can correct it.
+
+45:20.940 --> 45:23.340
+ I can recover the information I care about
+
+45:23.340 --> 45:25.500
+ from the remaining qubits, okay?
+
+45:25.500 --> 45:30.300
+ And so, you know, you can build a reliable quantum computer
+
+45:30.300 --> 45:32.700
+ even out of unreliable parts, right?
+
+45:32.700 --> 45:35.740
+ Now, in some sense, you know,
+
+45:35.740 --> 45:39.100
+ that discovery is what set the engineering agenda
+
+45:39.100 --> 45:41.020
+ for quantum computing research
+
+45:41.020 --> 45:43.660
+ from the 1990s until the present, okay?
+
+45:43.660 --> 45:45.420
+ The goal has been, you know,
+
+45:45.420 --> 45:48.940
+ engineer qubits that are not perfectly reliable
+
+45:48.940 --> 45:51.900
+ but reliable enough that you can then use
+
+45:51.900 --> 45:53.820
+ these error correcting codes
+
+45:53.820 --> 45:56.140
+ to have them simulate qubits
+
+45:56.140 --> 45:58.940
+ that are even more reliable than they are, right?
+
+45:58.940 --> 46:01.020
+ The error correction becomes a net win
+
+46:01.020 --> 46:02.860
+ rather than a net loss, right?
+
+46:02.860 --> 46:05.900
+ And then once you reach that sort of crossover point,
+
+46:05.900 --> 46:08.220
+ then, you know, your simulated qubits
+
+46:08.220 --> 46:10.140
+ could in turn simulate qubits
+
+46:10.140 --> 46:12.460
+ that are even more reliable and so on
+
+46:12.460 --> 46:14.540
+ until you've just, you know, effectively,
+
+46:14.540 --> 46:17.020
+ you have arbitrarily reliable qubits.
+
+46:17.020 --> 46:18.140
+ So long story short,
+
+46:18.140 --> 46:20.620
+ we are not at that breakeven point yet.
+
+46:20.620 --> 46:22.540
+ We're a hell of a lot closer than we were
+
+46:22.540 --> 46:24.700
+ when people started doing this in the 90s,
+
+46:24.700 --> 46:26.300
+ like orders of magnitude closer.
+
+46:26.300 --> 46:27.580
+ But the key ingredient there
+
+46:27.580 --> 46:30.300
+ is the more qubits, the better because...
+
+46:30.300 --> 46:32.060
+ Ah, well, the more qubits,
+
+46:32.060 --> 46:35.100
+ the larger the computation you can do, right?
+
+46:35.100 --> 46:38.060
+ I mean, qubits are what constitute
+
+46:38.060 --> 46:40.300
+ the memory of your quantum computer, right?
+
+46:40.300 --> 46:41.580
+ But also for the, sorry,
+
+46:41.580 --> 46:43.100
+ for the error correcting mechanism.
+
+46:43.100 --> 46:43.660
+ Ah, yes.
+
+46:44.540 --> 46:45.980
+ So the way I would say it
+
+46:45.980 --> 46:48.780
+ is that error correction imposes an overhead
+
+46:48.780 --> 46:50.220
+ in the number of qubits.
+
+46:50.220 --> 46:53.260
+ And that is actually one of the biggest practical problems
+
+46:53.260 --> 46:55.500
+ with building a scalable quantum computer.
+
+46:55.500 --> 46:57.900
+ If you look at the error correcting codes,
+
+46:57.900 --> 47:00.380
+ at least the ones that we know about today,
+
+47:00.380 --> 47:01.340
+ and you look at, you know,
+
+47:01.340 --> 47:04.460
+ what would it take to actually use a quantum computer
+
+47:04.460 --> 47:09.100
+ to, you know, hack your credit card number,
+
+47:09.100 --> 47:10.060
+ which is, you know,
+
+47:10.060 --> 47:11.980
+ maybe, you know, the most famous application
+
+47:11.980 --> 47:13.180
+ people talk about, right?
+
+47:13.180 --> 47:15.180
+ Let's say to factor huge numbers
+
+47:15.180 --> 47:17.900
+ and thereby break the RSA cryptosystem.
+
+47:17.900 --> 47:19.420
+ Well, what that would take
+
+47:19.420 --> 47:23.980
+ would be thousands of, several thousand logical qubits.
+
+47:23.980 --> 47:26.460
+ But now with the known error correcting codes,
+
+47:26.460 --> 47:28.220
+ each of those logical qubits
+
+47:28.220 --> 47:29.980
+ would need to be encoded itself
+
+47:29.980 --> 47:32.220
+ using thousands of physical qubits.
+
+47:32.220 --> 47:32.940
+ So at that point,
+
+47:32.940 --> 47:35.740
+ you're talking about millions of physical qubits.
+
+47:35.740 --> 47:36.620
+ And in some sense,
+
+47:36.620 --> 47:38.860
+ that is the reason why quantum computers
+
+47:38.860 --> 47:40.780
+ are not breaking cryptography already.
+
+47:40.780 --> 47:43.740
+ It's because of these immense overheads involved.
+
+47:43.740 --> 47:46.300
+ So that overhead is additive or multiplicative?
+
+47:46.300 --> 47:47.420
+ Well, it's multiplicative.
+
+47:47.420 --> 47:49.580
+ I mean, it's like you take the number
+
+47:49.580 --> 47:52.460
+ of logical qubits that you need
+
+47:52.460 --> 47:54.380
+ in your abstract quantum circuit,
+
+47:54.380 --> 47:56.700
+ you multiply it by a thousand or so.
+
+47:56.700 --> 47:58.220
+ So, you know, there's a lot of work
+
+47:58.220 --> 47:59.900
+ on, you know, inventing better,
+
+47:59.900 --> 48:02.220
+ trying to invent better error correcting codes.
+
+48:02.220 --> 48:04.140
+ Okay, that is the situation right now.
+
+48:04.140 --> 48:06.700
+ In the meantime, we are now in,
+
+48:07.420 --> 48:09.580
+ what the physicist John Preskill called
+
+48:09.580 --> 48:13.420
+ the noisy intermediate scale quantum or NISQ era.
+
+48:13.420 --> 48:14.540
+ And this is the era,
+
+48:14.540 --> 48:16.780
+ you can think of it as sort of like the vacuum,
+
+48:16.780 --> 48:19.020
+ you know, we're now entering the very early
+
+48:19.020 --> 48:21.740
+ vacuum tube era of quantum computers.
+
+48:21.740 --> 48:24.700
+ The quantum computer analog of the transistor
+
+48:24.700 --> 48:26.460
+ has not been invented yet, right?
+
+48:26.460 --> 48:29.020
+ That would be like true error correction, right?
+
+48:29.020 --> 48:31.420
+ Where, you know, we are not or something else
+
+48:31.420 --> 48:33.420
+ that would achieve the same effect, right?
+
+48:33.420 --> 48:34.540
+ We are not there yet.
+
+48:37.020 --> 48:38.300
+ But where we are now,
+
+48:38.300 --> 48:40.140
+ let's say as of a few months ago,
+
+48:40.140 --> 48:41.980
+ you know, as of Google's announcement
+
+48:41.980 --> 48:43.500
+ of quantum supremacy,
+
+48:43.500 --> 48:45.660
+ you know, we are now finally at the point
+
+48:45.660 --> 48:49.260
+ where even with a non error corrected quantum computer,
+
+48:49.260 --> 48:51.260
+ with, you know, these noisy devices,
+
+48:51.260 --> 48:53.740
+ we can do something that is hard
+
+48:53.740 --> 48:56.380
+ for classical computers to simulate, okay?
+
+48:56.380 --> 48:58.620
+ So we can eke out some advantage.
+
+48:58.620 --> 49:00.620
+ Now, will we in this noisy era
+
+49:00.620 --> 49:02.620
+ be able to do something beyond
+
+49:02.620 --> 49:04.140
+ what a classical computer can do
+
+49:04.140 --> 49:06.380
+ that is also useful to someone?
+
+49:06.380 --> 49:07.660
+ That we still don't know.
+
+49:07.660 --> 49:10.460
+ People are going to be racing over the next decade
+
+49:10.460 --> 49:11.420
+ to try to do that.
+
+49:11.420 --> 49:13.580
+ By people, I mean, Google, IBM,
+
+49:13.580 --> 49:16.220
+ you know, a bunch of startup companies.
+
+49:16.220 --> 49:18.540
+ And research labs.
+
+49:18.540 --> 49:21.180
+ Yeah, and research labs and governments.
+
+49:21.180 --> 49:22.460
+ And yeah.
+
+49:22.460 --> 49:23.980
+ You just mentioned a million things.
+
+49:23.980 --> 49:25.580
+ Well, I'll backtrack for a second.
+
+49:25.580 --> 49:26.380
+ Yeah, sure, sure.
+
+49:27.100 --> 49:29.580
+ So we're in these vacuum tube days.
+
+49:29.580 --> 49:31.020
+ Yeah, just entering them.
+
+49:31.020 --> 49:32.860
+ And just entering, wow.
+
+49:32.860 --> 49:36.380
+ Okay, so how do we escape the vacuum?
+
+49:36.380 --> 49:37.580
+ So how do we get to,
+
+49:39.500 --> 49:42.140
+ how do we get to where we are now with the CPU?
+
+49:42.140 --> 49:44.700
+ Is this a fundamental engineering challenge?
+
+49:44.700 --> 49:49.020
+ Is there breakthroughs on the physics side
+
+49:49.020 --> 49:52.220
+ that are needed on the computer science side?
+
+49:53.180 --> 49:56.060
+ Or is it a financial issue
+
+49:56.060 --> 49:59.420
+ where much larger just sheer investment
+
+49:59.420 --> 50:01.020
+ and excitement is needed?
+
+50:01.020 --> 50:03.660
+ So, you know, those are excellent questions.
+
+50:03.660 --> 50:05.740
+ My guess might, well, no, no.
+
+50:05.740 --> 50:09.260
+ My guess would be all of the above.
+
+50:09.260 --> 50:11.020
+ I mean, my guess, you know,
+
+50:11.020 --> 50:13.420
+ I mean, you could say fundamentally
+
+50:13.420 --> 50:15.100
+ it is an engineering issue, right?
+
+50:15.100 --> 50:17.980
+ The theory has been in place since the 90s.
+
+50:17.980 --> 50:21.100
+ You know, at least, you know, this is what,
+
+50:21.100 --> 50:23.340
+ you know, error correction would look like.
+
+50:23.340 --> 50:25.420
+ You know, we do not have the hardware
+
+50:25.420 --> 50:26.780
+ that is at that level.
+
+50:26.780 --> 50:28.380
+ But at the same time, you know,
+
+50:28.380 --> 50:32.220
+ so you could just, you know, try to power through,
+
+50:32.220 --> 50:34.220
+ you know, maybe even like, you know,
+
+50:34.220 --> 50:36.540
+ if someone spent a trillion dollars
+
+50:36.540 --> 50:39.420
+ on some quantum computing Manhattan project, right?
+
+50:39.420 --> 50:43.020
+ Then conceivably they could just, you know,
+
+50:43.020 --> 50:46.540
+ build an error corrected quantum computer
+
+50:46.540 --> 50:49.580
+ as it was envisioned back in the 90s, right?
+
+50:49.580 --> 50:52.460
+ I think the more plausible thing to happen
+
+50:52.460 --> 50:55.420
+ is that there will be further theoretical breakthroughs
+
+50:55.420 --> 50:57.340
+ and there will be further insights
+
+50:57.340 --> 50:59.900
+ that will cut down the cost of doing this.
+
+50:59.900 --> 51:02.940
+ So let's take a brief step to the philosophical.
+
+51:02.940 --> 51:05.420
+ I just recently talked to Jim Keller
+
+51:05.420 --> 51:09.660
+ who's sort of like the famed architect
+
+51:09.660 --> 51:11.660
+ in the microprocessor world.
+
+51:12.220 --> 51:15.820
+ And he's been told for decades,
+
+51:16.380 --> 51:19.820
+ every year that the Moore's law is going to die this year.
+
+51:20.460 --> 51:24.220
+ And he tries to argue that the Moore's law
+
+51:24.220 --> 51:25.580
+ is still alive and well,
+
+51:25.580 --> 51:27.740
+ and it'll be alive for quite a long time to come.
+
+51:28.380 --> 51:29.020
+ How long?
+
+51:29.020 --> 51:30.060
+ How long did he say?
+
+51:30.060 --> 51:33.660
+ Well, the main point is it's still alive,
+
+51:33.660 --> 51:38.140
+ but he thinks there's still a thousand X improvement
+
+51:38.140 --> 51:40.380
+ just on shrinking the transition that's possible.
+
+51:40.940 --> 51:41.420
+ Whatever.
+
+51:41.420 --> 51:44.780
+ The point is that the exponential growth we see
+
+51:45.420 --> 51:49.100
+ is actually a huge number of these S curves,
+
+51:49.740 --> 51:51.100
+ just constant breakthroughs.
+
+51:51.660 --> 51:53.260
+ At the philosophical level,
+
+51:53.820 --> 51:57.980
+ why do you think we as descendants of apes
+
+51:57.980 --> 52:00.540
+ were able to just keep coming up
+
+52:00.540 --> 52:03.500
+ with these new breakthroughs on the CPU side
+
+52:03.500 --> 52:06.940
+ is this something unique to this particular endeavor
+
+52:06.940 --> 52:09.660
+ or will it be possible to replicate
+
+52:09.660 --> 52:11.100
+ in the quantum computer space?
+
+52:11.660 --> 52:11.980
+ Okay.
+
+52:11.980 --> 52:12.780
+ All right.
+
+52:12.780 --> 52:13.660
+ There was a lot there,
+
+52:15.340 --> 52:17.660
+ but to break off something,
+
+52:17.660 --> 52:20.860
+ I mean, I think we are in an extremely special period
+
+52:20.860 --> 52:22.460
+ of human history, right?
+
+52:22.460 --> 52:24.780
+ I mean, it is, you could say,
+
+52:24.780 --> 52:28.220
+ obviously special in many ways, right?
+
+52:28.220 --> 52:31.740
+ There are way more people alive
+
+52:31.740 --> 52:33.420
+ than there have been
+
+52:33.420 --> 52:39.740
+ and the whole future of the planet
+
+52:39.740 --> 52:43.660
+ is in question in a way that it hasn't been
+
+52:44.460 --> 52:46.620
+ for the rest of human history.
+
+52:46.620 --> 52:51.100
+ But in particular, we are in the era
+
+52:51.100 --> 52:53.900
+ where we finally figured out
+
+52:53.900 --> 52:57.580
+ how to build universal machines,
+
+52:57.580 --> 53:00.460
+ you could say, the things that we call computers,
+
+53:00.460 --> 53:04.780
+ machines that you program to simulate the behavior
+
+53:04.780 --> 53:06.460
+ of whatever machine you want.
+
+53:07.020 --> 53:13.420
+ And once you've sort of crossed this threshold
+
+53:13.420 --> 53:15.900
+ of universality, you've built,
+
+53:15.900 --> 53:17.260
+ you could say, touring,
+
+53:17.260 --> 53:19.500
+ you've instantiated touring machines
+
+53:19.500 --> 53:20.780
+ in the physical world.
+
+53:20.780 --> 53:23.900
+ Well, then the main questions are ones of numbers.
+
+53:23.900 --> 53:29.500
+ They are ones of how much memory can you access?
+
+53:29.500 --> 53:31.100
+ How fast does it run?
+
+53:31.100 --> 53:33.260
+ How many parallel processors?
+
+53:33.260 --> 53:34.780
+ At least until quantum computing.
+
+53:34.780 --> 53:36.300
+ Quantum computing is the one thing
+
+53:36.300 --> 53:38.540
+ that changes what I just said, right?
+
+53:38.540 --> 53:42.380
+ But as long as it's classical computing,
+
+53:42.380 --> 53:44.700
+ then it's all questions of numbers.
+
+53:44.700 --> 53:48.700
+ And you could say at a theoretical level,
+
+53:48.700 --> 53:50.380
+ the computers that we have today
+
+53:50.380 --> 53:52.620
+ are the same as the ones in the 50s.
+
+53:52.620 --> 53:55.500
+ They're just millions of times faster
+
+53:55.500 --> 53:57.260
+ and with millions of times more memory.
+
+53:57.260 --> 54:01.500
+ And I think there's been an immense economic pressure
+
+54:01.500 --> 54:04.220
+ to get more and more transistors,
+
+54:04.780 --> 54:06.300
+ get them smaller and smaller,
+
+54:07.100 --> 54:08.460
+ add more and more cores.
+
+54:09.020 --> 54:14.380
+ And in some sense, a huge fraction
+
+54:14.380 --> 54:16.780
+ of all of the technological progress
+
+54:16.780 --> 54:19.260
+ that there is in all of civilization
+
+54:19.260 --> 54:22.300
+ has gotten concentrated just more narrowly
+
+54:22.300 --> 54:24.860
+ into just those problems, right?
+
+54:24.860 --> 54:29.420
+ And so it has been one of the biggest success stories
+
+54:29.420 --> 54:31.260
+ in the history of technology, right?
+
+54:31.260 --> 54:34.620
+ There's, I mean, it is, I am as amazed by it
+
+54:34.620 --> 54:36.620
+ as anyone else is, right?
+
+54:36.620 --> 54:40.700
+ But at the same time, we also know that it,
+
+54:40.700 --> 54:45.340
+ and I really do mean we know
+
+54:45.340 --> 54:48.460
+ that it cannot continue indefinitely, okay?
+
+54:48.460 --> 54:52.220
+ Because you will reach fundamental limits
+
+54:52.220 --> 54:56.780
+ on how small you can possibly make a processor.
+
+54:56.780 --> 54:58.940
+ And if you want a real proof
+
+54:58.940 --> 55:01.340
+ that would justify my use of the word,
+
+55:01.340 --> 55:04.060
+ we know that Moore's law has to end.
+
+55:04.060 --> 55:06.300
+ I mean, ultimately you will reach the limits
+
+55:06.300 --> 55:07.820
+ imposed by quantum gravity.
+
+55:10.780 --> 55:12.540
+ If you tried to build a computer
+
+55:12.540 --> 55:15.580
+ that operated at 10 to the 43 Hertz,
+
+55:15.580 --> 55:18.620
+ so did 10 to the 43 operations per second,
+
+55:18.620 --> 55:20.780
+ that computer would use so much energy
+
+55:20.780 --> 55:24.380
+ that it would simply collapse through a black hole, okay?
+
+55:24.380 --> 55:28.620
+ So in reality, we're going to reach the limits
+
+55:28.620 --> 55:31.900
+ long before that, but that is a sufficient proof.
+
+55:31.900 --> 55:32.700
+ That there's a limit.
+
+55:33.420 --> 55:34.220
+ Yes, yes.
+
+55:35.820 --> 55:38.220
+ But it would be interesting to try to understand
+
+55:38.220 --> 55:40.860
+ the mechanism, the economic pressure that you said,
+
+55:40.860 --> 55:44.380
+ just like the Cold War was a pressure on getting us,
+
+55:44.380 --> 55:49.340
+ getting us, because my us is both the Soviet Union
+
+55:49.340 --> 55:52.380
+ and the United States, but getting us,
+
+55:52.380 --> 55:54.780
+ the two countries to get to hurry up,
+
+55:54.780 --> 55:56.300
+ to get to space, to the moon,
+
+55:56.300 --> 55:58.940
+ there seems to be that same kind of economic pressure
+
+55:58.940 --> 56:03.340
+ that somehow created a chain of engineering breakthroughs
+
+56:03.340 --> 56:05.580
+ that resulted in the Moore's law.
+
+56:05.580 --> 56:07.180
+ And it'd be nice to replicate.
+
+56:07.180 --> 56:09.180
+ Yeah, well, I mean, some people are sort of,
+
+56:10.380 --> 56:11.980
+ get depressed about the fact
+
+56:11.980 --> 56:16.540
+ that technological progress may seem to have slowed down
+
+56:16.540 --> 56:19.900
+ in many, many realms outside of computing, right?
+
+56:19.900 --> 56:22.620
+ And there was this whole thing of we wanted flying cars
+
+56:22.620 --> 56:24.620
+ and we only got Twitter instead, right?
+
+56:24.620 --> 56:27.260
+ Yeah, good old Peter Thiel, yeah.
+
+56:27.260 --> 56:28.700
+ Yeah, yeah, yeah, right, right, right.
+
+56:28.700 --> 56:31.900
+ So then jumping to another really interesting topic
+
+56:31.900 --> 56:37.180
+ that you mentioned, so Google announced with their work
+
+56:37.180 --> 56:40.460
+ in the paper in Nature with quantum supremacy.
+
+56:40.460 --> 56:40.940
+ Yes.
+
+56:40.940 --> 56:43.820
+ Can you describe, again, back to the basic,
+
+56:43.820 --> 56:47.900
+ what is perhaps not so basic, what is quantum supremacy?
+
+56:47.900 --> 56:51.980
+ Absolutely, so quantum supremacy is a term
+
+56:51.980 --> 56:56.300
+ that was coined by, again, by John Preskill in 2012.
+
+56:57.580 --> 57:02.700
+ Not everyone likes the name, but it sort of stuck.
+
+57:04.220 --> 57:07.980
+ We don't, we sort of haven't found a better alternative.
+
+57:07.980 --> 57:10.460
+ It's technically quantum computational supremacy.
+
+57:10.460 --> 57:12.700
+ Yeah, yeah, supremacy, that's right, that's right.
+
+57:12.700 --> 57:16.220
+ But the basic idea is actually one that goes all the way back
+
+57:16.220 --> 57:18.460
+ to the beginnings of quantum computing
+
+57:18.460 --> 57:21.420
+ when Richard Feynman and David Deutsch, people like that,
+
+57:21.420 --> 57:23.260
+ were talking about it in the early 80s.
+
+57:24.940 --> 57:28.540
+ And quantum supremacy just refers to sort of the point
+
+57:28.540 --> 57:32.380
+ in history when you can first use a quantum computer
+
+57:32.380 --> 57:36.380
+ to do some well defined task much faster
+
+57:36.380 --> 57:40.460
+ than any known algorithm running on any of the classical computers
+
+57:40.460 --> 57:42.220
+ that are available, okay?
+
+57:42.220 --> 57:45.820
+ So notice that I did not say a useful task, okay?
+
+57:46.540 --> 57:48.940
+ It could be something completely artificial,
+
+57:48.940 --> 57:51.740
+ but it's important that the task be well defined.
+
+57:51.740 --> 57:55.980
+ So in other words, it is something that has right and wrong answers
+
+57:57.100 --> 58:00.460
+ that are knowable independently of this device, right?
+
+58:00.460 --> 58:04.300
+ And we can then run the device, see if it gets the right answer or not.
+
+58:04.300 --> 58:05.900
+ Can you clarify a small point?
+
+58:05.900 --> 58:08.700
+ You said much faster than a classical implementation.
+
+58:09.420 --> 58:13.580
+ What about sort of what about the space with where the class,
+
+58:13.580 --> 58:16.300
+ there's no, there's not, it doesn't even exist,
+
+58:16.300 --> 58:18.780
+ a classical algorithm to show the power?
+
+58:18.780 --> 58:20.460
+ So maybe I should clarify.
+
+58:20.460 --> 58:22.940
+ Everything that a quantum computer can do,
+
+58:22.940 --> 58:26.700
+ a classical computer can also eventually do, okay?
+
+58:26.700 --> 58:31.340
+ And the reason why we know that is that a classical computer
+
+58:31.340 --> 58:35.500
+ could always, you know, if it had no limits of time and memory,
+
+58:35.500 --> 58:39.180
+ it could always just store the entire quantum state,
+
+58:39.180 --> 58:41.420
+ you know, of your, you know, of the quantum,
+
+58:41.420 --> 58:44.780
+ store a list of all the amplitudes,
+
+58:44.780 --> 58:47.260
+ you know, in the state of the quantum computer,
+
+58:47.260 --> 58:50.060
+ and then just, you know, do some linear algebra
+
+58:50.060 --> 58:52.140
+ to just update that state, right?
+
+58:52.140 --> 58:55.420
+ And so anything that quantum computers can do
+
+58:55.420 --> 58:58.300
+ can also be done by classical computers,
+
+58:58.300 --> 59:00.620
+ albeit exponentially slower in some cases.
+
+59:00.620 --> 59:03.740
+ So quantum computers don't go into some magical place
+
+59:03.740 --> 59:06.620
+ outside of Alan Turing's definition of computation.
+
+59:06.620 --> 59:07.420
+ Precisely.
+
+59:07.420 --> 59:09.900
+ They do not solve the halting problem.
+
+59:09.900 --> 59:12.620
+ They cannot solve anything that is uncomputable
+
+59:12.620 --> 59:14.300
+ in Alan Turing's sense.
+
+59:14.300 --> 59:16.620
+ What we think they do change
+
+59:16.620 --> 59:19.260
+ is what is efficiently computable, okay?
+
+59:19.260 --> 59:22.220
+ And, you know, since the 1960s, you know,
+
+59:22.220 --> 59:23.980
+ the word efficiently, you know,
+
+59:23.980 --> 59:26.780
+ as well has been a central word in computer science,
+
+59:26.780 --> 59:29.900
+ but it's sort of a code word for something technical,
+
+59:29.900 --> 59:33.740
+ which is basically with polynomial scaling, you know,
+
+59:33.740 --> 59:36.700
+ that as you get to larger and larger inputs,
+
+59:36.700 --> 59:39.580
+ you would like an algorithm that uses an amount of time
+
+59:39.580 --> 59:42.220
+ that scales only like the size of the input
+
+59:42.220 --> 59:43.740
+ raised to some power
+
+59:43.740 --> 59:47.180
+ and not exponentially with the size of the input, right?
+
+59:47.180 --> 59:49.740
+ Yeah, so I do hope we get to talk again
+
+59:49.740 --> 59:52.540
+ because one of the many topics
+
+59:52.540 --> 59:55.820
+ that there's probably several hours worth of conversation on
+
+59:55.820 --> 59:56.620
+ is complexity,
+
+59:56.620 --> 1:00:00.300
+ which we probably won't even get a chance to touch today,
+
+1:00:00.300 --> 1:00:02.060
+ but you briefly mentioned it,
+
+1:00:02.620 --> 1:00:05.260
+ but let's maybe try to continue.
+
+1:00:05.260 --> 1:00:08.540
+ So you said the definition of quantum supremacy
+
+1:00:08.540 --> 1:00:12.380
+ is basically achieving a place
+
+1:00:12.380 --> 1:00:14.300
+ where much faster on a formal,
+
+1:00:14.940 --> 1:00:16.460
+ that quantum computer is much faster
+
+1:00:16.460 --> 1:00:18.540
+ on a formal well defined problem
+
+1:00:19.340 --> 1:00:21.100
+ that is or isn't useful.
+
+1:00:21.100 --> 1:00:22.300
+ Yeah, yeah, yeah, right, right.
+
+1:00:22.300 --> 1:00:25.260
+ And I would say that we really want three things, right?
+
+1:00:25.260 --> 1:00:26.860
+ We want, first of all,
+
+1:00:26.860 --> 1:00:29.260
+ the quantum computer to be much faster
+
+1:00:29.260 --> 1:00:31.980
+ just in the literal sense of like number of seconds,
+
+1:00:31.980 --> 1:00:34.540
+ you know, it's a solving this, you know,
+
+1:00:34.540 --> 1:00:36.940
+ well defined, you know, problem.
+
+1:00:36.940 --> 1:00:40.540
+ Secondly, we want it to be sort of, you know,
+
+1:00:40.540 --> 1:00:42.700
+ for a problem where we really believe
+
+1:00:42.700 --> 1:00:45.980
+ that a quantum computer has better scaling behavior, right?
+
+1:00:45.980 --> 1:00:48.780
+ So it's not just an incidental, you know,
+
+1:00:48.780 --> 1:00:50.060
+ matter of hardware,
+
+1:00:50.060 --> 1:00:51.180
+ but it's that, you know,
+
+1:00:51.180 --> 1:00:53.900
+ as you went to larger and larger inputs,
+
+1:00:53.900 --> 1:00:57.180
+ you know, the classical scaling would be exponential
+
+1:00:57.180 --> 1:00:59.660
+ and the scaling for the quantum algorithm
+
+1:00:59.660 --> 1:01:01.500
+ would only be polynomial.
+
+1:01:01.500 --> 1:01:04.060
+ And then thirdly, we want the first thing,
+
+1:01:04.060 --> 1:01:06.220
+ the actual observed speed up
+
+1:01:06.220 --> 1:01:10.620
+ to only be explainable in terms of the scaling behavior, right?
+
+1:01:10.620 --> 1:01:12.700
+ So, you know, I want, you know,
+
+1:01:12.700 --> 1:01:15.740
+ a real world, you know, a real problem to get solved,
+
+1:01:16.460 --> 1:01:20.460
+ let's say by a quantum computer with 50 qubits or so,
+
+1:01:20.460 --> 1:01:23.580
+ and for no one to be able to explain that in any way
+
+1:01:23.580 --> 1:01:30.300
+ other than, well, you know, this computer involved a quantum state
+
+1:01:30.300 --> 1:01:33.180
+ with two to the 50th power amplitudes.
+
+1:01:33.180 --> 1:01:35.180
+ And, you know, a classical simulation,
+
+1:01:35.180 --> 1:01:37.100
+ at least any that we know today,
+
+1:01:37.100 --> 1:01:40.460
+ would require keeping track of two to the 50th numbers.
+
+1:01:40.460 --> 1:01:42.380
+ And this is the reason why it was faster.
+
+1:01:42.380 --> 1:01:46.700
+ So the intuition is that then if you demonstrate on 50 qubits,
+
+1:01:46.700 --> 1:01:48.300
+ then once you get to 100 qubits,
+
+1:01:48.300 --> 1:01:50.780
+ then it'll be even much more faster.
+
+1:01:50.780 --> 1:01:52.460
+ Precisely, precisely.
+
+1:01:52.460 --> 1:01:55.020
+ Yeah, and, you know, and quantum supremacy
+
+1:01:55.020 --> 1:01:57.100
+ does not require error correction, right?
+
+1:01:57.100 --> 1:01:58.860
+ We don't, you know, we don't have, you could say,
+
+1:01:58.860 --> 1:02:04.540
+ true scalability yet or true, you know, error correction yet.
+
+1:02:04.540 --> 1:02:08.860
+ But you could say quantum supremacy is already enough by itself
+
+1:02:08.860 --> 1:02:12.140
+ to refute the skeptics who said a quantum computer
+
+1:02:12.140 --> 1:02:15.260
+ will never outperform a classical computer for anything.
+
+1:02:15.260 --> 1:02:20.460
+ But one, how do you demonstrate quantum supremacy?
+
+1:02:20.460 --> 1:02:23.740
+ And two, what's up with these news articles
+
+1:02:23.740 --> 1:02:25.820
+ I'm reading that Google did so?
+
+1:02:25.820 --> 1:02:28.860
+ Yeah, all right, well, great, great questions,
+
+1:02:28.860 --> 1:02:31.900
+ because now you get into actually, you know,
+
+1:02:31.900 --> 1:02:34.140
+ a lot of the work that I've, you know,
+
+1:02:34.140 --> 1:02:36.940
+ I and my students have been doing for the last decade,
+
+1:02:36.940 --> 1:02:41.020
+ which was precisely about how do you demonstrate
+
+1:02:41.020 --> 1:02:44.220
+ quantum supremacy using technologies that, you know,
+
+1:02:44.220 --> 1:02:47.100
+ we thought would be available in the near future.
+
+1:02:47.100 --> 1:02:53.740
+ And so one of the main things that we realized around 2011,
+
+1:02:53.740 --> 1:02:59.900
+ and this was me and my student, Alex Arkhipov at MIT at the time,
+
+1:02:59.900 --> 1:03:03.180
+ and independently of some others,
+
+1:03:03.180 --> 1:03:06.220
+ including Bremner, Joseph, and Shepherd, okay?
+
+1:03:06.220 --> 1:03:10.940
+ And the realization that we came to was that
+
+1:03:10.940 --> 1:03:14.860
+ if you just want to prove that a quantum computer is faster,
+
+1:03:14.860 --> 1:03:17.260
+ you know, and not do something useful with it,
+
+1:03:17.260 --> 1:03:20.300
+ then there are huge advantages to sort of switching
+
+1:03:20.300 --> 1:03:23.900
+ your attention from problems like factoring numbers
+
+1:03:23.900 --> 1:03:26.060
+ that have a single right answer
+
+1:03:26.060 --> 1:03:28.540
+ to what we call sampling problems.
+
+1:03:28.540 --> 1:03:31.980
+ So these are problems where the goal is just to output
+
+1:03:31.980 --> 1:03:35.420
+ a sample from some probability distribution,
+
+1:03:35.420 --> 1:03:38.060
+ let's say over strings of 50 bits, right?
+
+1:03:38.060 --> 1:03:40.060
+ So there are, you know, many, many,
+
+1:03:40.060 --> 1:03:42.060
+ many possible valid outputs.
+
+1:03:42.060 --> 1:03:44.540
+ You know, your computer will probably never even produce
+
+1:03:44.540 --> 1:03:46.540
+ the same output twice, you know,
+
+1:03:46.540 --> 1:03:50.620
+ if it's running as, even, you know,
+
+1:03:50.620 --> 1:03:52.780
+ assuming it's running perfectly, okay?
+
+1:03:52.780 --> 1:03:55.660
+ But the key is that some outputs are supposed
+
+1:03:55.660 --> 1:03:57.740
+ to be likelier than other ones.
+
+1:03:57.740 --> 1:04:01.980
+ So, sorry, to clarify, is there a set of outputs
+
+1:04:01.980 --> 1:04:03.740
+ that are valid and set they're not,
+
+1:04:03.740 --> 1:04:06.940
+ or is it more that the distribution
+
+1:04:07.980 --> 1:04:11.420
+ of a particular kind of output is more,
+
+1:04:11.420 --> 1:04:13.260
+ is like there's a specific distribution
+
+1:04:13.260 --> 1:04:14.860
+ of a particular kind of output?
+
+1:04:14.860 --> 1:04:16.540
+ Yeah, there's a specific distribution
+
+1:04:16.540 --> 1:04:17.980
+ that you're trying to hit, right?
+
+1:04:17.980 --> 1:04:19.980
+ Or, you know, that you're trying to sample from.
+
+1:04:19.980 --> 1:04:22.460
+ Now, there are a lot of questions about this,
+
+1:04:22.460 --> 1:04:24.540
+ you know, how do you do that, right?
+
+1:04:24.540 --> 1:04:27.660
+ Now, how you do it, you know,
+
+1:04:27.660 --> 1:04:30.220
+ it turns out that with a quantum computer,
+
+1:04:30.220 --> 1:04:32.220
+ even with the noisy quantum computers
+
+1:04:32.220 --> 1:04:34.780
+ that we have now, that we have today,
+
+1:04:34.780 --> 1:04:36.940
+ what you can do is basically just apply
+
+1:04:36.940 --> 1:04:40.220
+ a randomly chosen sequence of operations, right?
+
+1:04:40.220 --> 1:04:42.380
+ So we, you know, in some of the, you know,
+
+1:04:42.380 --> 1:04:44.540
+ that part is almost trivial, right?
+
+1:04:44.540 --> 1:04:47.260
+ We just sort of get the qubits to interact
+
+1:04:47.260 --> 1:04:48.540
+ in some random way,
+
+1:04:48.540 --> 1:04:51.580
+ although a sort of precisely specified random way
+
+1:04:51.580 --> 1:04:54.940
+ so we can repeat the exact same random sequence
+
+1:04:54.940 --> 1:04:57.580
+ of interactions again and get another sample
+
+1:04:57.580 --> 1:04:59.500
+ from that same distribution.
+
+1:04:59.500 --> 1:05:01.820
+ And what this does is it basically,
+
+1:05:01.820 --> 1:05:04.060
+ well, it creates a lot of garbage,
+
+1:05:04.060 --> 1:05:06.620
+ but, you know, very specific garbage, right?
+
+1:05:06.620 --> 1:05:09.100
+ So, you know, of all of the,
+
+1:05:09.100 --> 1:05:11.340
+ so we're gonna talk about Google's device
+
+1:05:11.340 --> 1:05:14.060
+ that were 53 qubits there, okay?
+
+1:05:14.060 --> 1:05:18.060
+ And so there were two to the 53 power possible outputs.
+
+1:05:18.060 --> 1:05:19.980
+ Now, for some of those outputs,
+
+1:05:19.980 --> 1:05:22.540
+ you know, there was a little bit more
+
+1:05:22.540 --> 1:05:25.660
+ destructive interference in their amplitude, okay?
+
+1:05:25.660 --> 1:05:28.060
+ So their amplitudes were a little bit smaller.
+
+1:05:28.060 --> 1:05:29.500
+ And for others, there was a little more
+
+1:05:29.500 --> 1:05:31.180
+ constructive interference.
+
+1:05:31.180 --> 1:05:32.860
+ You know, the amplitudes were a little bit
+
+1:05:32.860 --> 1:05:35.180
+ more aligned with each other, you know,
+
+1:05:35.180 --> 1:05:38.860
+ and so those were a little bit likelier, okay?
+
+1:05:38.860 --> 1:05:42.140
+ All of the outputs are exponentially unlikely,
+
+1:05:42.140 --> 1:05:45.340
+ but some are, let's say, two times or three times,
+
+1:05:45.340 --> 1:05:47.740
+ you know, unlikelier than others, okay?
+
+1:05:47.740 --> 1:05:50.700
+ And so you can define, you know,
+
+1:05:50.700 --> 1:05:53.500
+ this sequence of operations that gives rise
+
+1:05:53.500 --> 1:05:55.660
+ to this probability distribution.
+
+1:05:55.660 --> 1:05:58.700
+ Okay, now the next question would be,
+
+1:05:58.700 --> 1:05:59.660
+ well, how do you, you know,
+
+1:05:59.660 --> 1:06:01.020
+ even if you're sampling from it,
+
+1:06:01.020 --> 1:06:02.460
+ how do you verify that, right?
+
+1:06:02.460 --> 1:06:04.060
+ How do you know?
+
+1:06:04.060 --> 1:06:06.780
+ And so my students and I,
+
+1:06:06.780 --> 1:06:09.260
+ and also the people at Google
+
+1:06:09.260 --> 1:06:10.380
+ were doing the experiment,
+
+1:06:10.380 --> 1:06:12.940
+ came up with statistical tests
+
+1:06:12.940 --> 1:06:14.940
+ that you can apply to the outputs
+
+1:06:15.900 --> 1:06:20.620
+ in order to try to verify, you know,
+
+1:06:20.620 --> 1:06:22.620
+ what is, you know, that at least
+
+1:06:22.620 --> 1:06:25.100
+ that some hard problem is being solved.
+
+1:06:25.900 --> 1:06:27.900
+ The test that Google ended up using
+
+1:06:28.620 --> 1:06:29.820
+ was something that they called
+
+1:06:29.820 --> 1:06:32.780
+ the linear cross entropy benchmark, okay?
+
+1:06:32.780 --> 1:06:34.220
+ And it's basically, you know,
+
+1:06:34.220 --> 1:06:36.300
+ so the drawback of this test
+
+1:06:36.300 --> 1:06:38.140
+ is that it requires, like,
+
+1:06:38.140 --> 1:06:43.020
+ it requires you to do a two to the 53 time calculation
+
+1:06:43.020 --> 1:06:44.860
+ with your classical computer, okay?
+
+1:06:44.860 --> 1:06:47.740
+ So it's very expensive to do the test
+
+1:06:47.740 --> 1:06:49.260
+ on a classical computer.
+
+1:06:49.260 --> 1:06:49.900
+ The good news is...
+
+1:06:49.900 --> 1:06:51.660
+ How big of a number is two to the 53?
+
+1:06:51.660 --> 1:06:53.820
+ It's about nine quadrillion, okay?
+
+1:06:53.820 --> 1:06:54.460
+ That doesn't help.
+
+1:06:55.100 --> 1:06:55.820
+ Well, you know,
+
+1:06:55.820 --> 1:06:58.380
+ it's, you want it in like scientific notation.
+
+1:06:58.380 --> 1:06:59.660
+ No, no, no, what I mean is...
+
+1:06:59.660 --> 1:07:01.020
+ Yeah, it is just...
+
+1:07:01.020 --> 1:07:02.860
+ It's impossible to run on a...
+
+1:07:02.860 --> 1:07:04.780
+ Yeah, so we will come back to that.
+
+1:07:04.780 --> 1:07:07.420
+ It is just barely possible to run,
+
+1:07:07.420 --> 1:07:09.260
+ we think, on the largest supercomputer
+
+1:07:09.260 --> 1:07:10.940
+ that currently exists on Earth,
+
+1:07:10.940 --> 1:07:14.220
+ which is called Summit at Oak Ridge National Lab, okay?
+
+1:07:15.340 --> 1:07:16.780
+ Great, this is exciting.
+
+1:07:16.780 --> 1:07:18.220
+ That's the short answer.
+
+1:07:18.220 --> 1:07:21.900
+ So ironically, for this type of experiment,
+
+1:07:21.900 --> 1:07:24.300
+ we don't want 100 qubits, okay?
+
+1:07:24.300 --> 1:07:26.940
+ Because with 100 qubits, even if it works,
+
+1:07:26.940 --> 1:07:29.580
+ we don't know how to verify the results, okay?
+
+1:07:29.580 --> 1:07:32.060
+ So we want, you know, a number of qubits
+
+1:07:32.060 --> 1:07:33.100
+ that is enough that, you know,
+
+1:07:33.100 --> 1:07:36.300
+ the biggest classical computers on Earth
+
+1:07:36.300 --> 1:07:38.140
+ will have to sweat, you know,
+
+1:07:38.140 --> 1:07:39.980
+ and we'll just barely, you know,
+
+1:07:39.980 --> 1:07:42.700
+ be able to keep up with the quantum computer,
+
+1:07:42.700 --> 1:07:44.460
+ you know, using much more time,
+
+1:07:44.460 --> 1:07:46.540
+ but they will still be able to do it
+
+1:07:46.540 --> 1:07:48.300
+ in order that we can verify the results.
+
+1:07:48.300 --> 1:07:50.540
+ Which is where the 53 comes from for the number of qubits?
+
+1:07:50.540 --> 1:07:53.180
+ Basically, well, I mean, that's also,
+
+1:07:53.180 --> 1:07:54.300
+ that's sort of, you know,
+
+1:07:55.420 --> 1:07:58.780
+ I mean, that's sort of where they are now
+
+1:07:58.780 --> 1:08:00.380
+ in terms of scaling, you know?
+
+1:08:00.380 --> 1:08:03.100
+ And then, you know, soon, you know, that point will be passed.
+
+1:08:03.660 --> 1:08:06.780
+ And then when you get to larger numbers of qubits,
+
+1:08:06.780 --> 1:08:10.060
+ then, you know, these types of sampling experiments
+
+1:08:10.060 --> 1:08:12.140
+ will no longer be so interesting
+
+1:08:12.140 --> 1:08:14.860
+ because we won't even be able to verify the results
+
+1:08:14.860 --> 1:08:17.740
+ and we'll have to switch to other types of computation.
+
+1:08:17.740 --> 1:08:19.660
+ So with the sampling thing,
+
+1:08:19.660 --> 1:08:22.460
+ you know, so the test that Google applied
+
+1:08:22.460 --> 1:08:24.700
+ with this linear cross entropy benchmark
+
+1:08:24.700 --> 1:08:28.460
+ was basically just take the samples that were generated,
+
+1:08:28.460 --> 1:08:30.780
+ which are, you know, a very small subset
+
+1:08:30.780 --> 1:08:32.940
+ of all the possible samples that there are.
+
+1:08:32.940 --> 1:08:36.540
+ But for those, you calculate with your classical computer
+
+1:08:36.540 --> 1:08:38.940
+ the probabilities that they should have been output.
+
+1:08:39.500 --> 1:08:41.500
+ And you see, are those probabilities
+
+1:08:41.500 --> 1:08:43.020
+ like larger than the mean?
+
+1:08:43.020 --> 1:08:45.260
+ You know, so is the quantum computer biased
+
+1:08:45.260 --> 1:08:47.500
+ toward outputting the strings that it's,
+
+1:08:47.500 --> 1:08:50.300
+ you know, that you want it to be biased toward?
+
+1:08:50.300 --> 1:08:51.980
+ Okay, and then finally,
+
+1:08:51.980 --> 1:08:54.220
+ we come to a very crucial question,
+
+1:08:54.220 --> 1:08:56.140
+ which is supposing that it does that.
+
+1:08:56.140 --> 1:08:58.380
+ Well, how do we know that a classical computer
+
+1:08:58.380 --> 1:09:01.260
+ could not have quickly done the same thing, right?
+
+1:09:01.260 --> 1:09:02.380
+ How do we know that, you know,
+
+1:09:02.380 --> 1:09:05.500
+ this couldn't have been spoofed by a classical computer, right?
+
+1:09:05.500 --> 1:09:09.820
+ And so, well, the first answer is we don't know for sure
+
+1:09:09.820 --> 1:09:11.180
+ because, you know, this takes us
+
+1:09:11.180 --> 1:09:13.740
+ into questions of complexity theory.
+
+1:09:13.740 --> 1:09:17.740
+ You know, I mean, questions of the magnitude
+
+1:09:17.740 --> 1:09:20.380
+ of the P versus NP question and things like that, right?
+
+1:09:20.380 --> 1:09:23.500
+ You know, we don't know how to rule out definitively
+
+1:09:23.500 --> 1:09:26.540
+ that there could be fast classical algorithms
+
+1:09:26.540 --> 1:09:28.940
+ for, you know, even simulating quantum mechanics
+
+1:09:28.940 --> 1:09:32.300
+ and for, you know, simulating experiments like these,
+
+1:09:32.300 --> 1:09:36.140
+ but we can give some evidence against that possibility.
+
+1:09:36.140 --> 1:09:37.980
+ And that was sort of the, you know,
+
+1:09:37.980 --> 1:09:40.140
+ the main thrust of a lot of the work
+
+1:09:40.140 --> 1:09:42.540
+ that my colleagues and I did, you know,
+
+1:09:42.540 --> 1:09:43.660
+ over the last decade,
+
+1:09:43.660 --> 1:09:46.780
+ which is then sort of in around 2015 or so,
+
+1:09:46.780 --> 1:09:49.900
+ what led to Google deciding to do this experiment.
+
+1:09:49.900 --> 1:09:52.540
+ So is the kind of evidence here,
+
+1:09:52.540 --> 1:09:55.820
+ first of all, the hard P equals NP problem that you mentioned
+
+1:09:55.820 --> 1:10:00.780
+ and the kind of evidence that you were looking at,
+
+1:10:00.780 --> 1:10:03.740
+ is that something you come to on a sheet of paper
+
+1:10:03.740 --> 1:10:07.420
+ or is this something, are these empirical experiments?
+
+1:10:07.420 --> 1:10:09.500
+ It's math for the most part.
+
+1:10:09.500 --> 1:10:12.700
+ I mean, you know, it's also, you know,
+
+1:10:12.700 --> 1:10:15.740
+ we have a bunch of methods
+
+1:10:15.740 --> 1:10:19.980
+ that are known for simulating quantum circuits
+
+1:10:19.980 --> 1:10:23.500
+ or quantum computations with classical computers.
+
+1:10:23.500 --> 1:10:25.260
+ And so we have to try them all out
+
+1:10:25.260 --> 1:10:27.500
+ and make sure that, you know, they don't work,
+
+1:10:27.500 --> 1:10:30.220
+ you know, make sure that they have exponential scaling
+
+1:10:30.220 --> 1:10:34.140
+ on, you know, these problems and not just theoretically,
+
+1:10:34.140 --> 1:10:36.300
+ but with the actual range of parameters
+
+1:10:36.300 --> 1:10:40.300
+ that are actually, you know, arising in Google's experiment.
+
+1:10:40.300 --> 1:10:43.340
+ Okay, so there is an empirical component to it, right?
+
+1:10:43.340 --> 1:10:47.100
+ But now on the theoretical side,
+
+1:10:47.100 --> 1:10:49.740
+ you know, basically what we know how to do
+
+1:10:49.740 --> 1:10:53.580
+ in theoretical computer science and computational complexity
+
+1:10:53.580 --> 1:10:56.060
+ is, you know, we don't know how to prove
+
+1:10:56.060 --> 1:10:58.780
+ that most of the problems we care about are hard,
+
+1:10:58.780 --> 1:11:01.900
+ but we know how to pass the blame to someone else, okay?
+
+1:11:01.900 --> 1:11:03.980
+ We know how to say, well, look, you know,
+
+1:11:03.980 --> 1:11:06.300
+ I can't prove that this problem is hard,
+
+1:11:06.300 --> 1:11:08.860
+ but if it is easy, then all these other things
+
+1:11:08.860 --> 1:11:13.020
+ that, you know, you probably were much more confident
+
+1:11:13.020 --> 1:11:16.780
+ or were hard, then those would be easy as well, okay?
+
+1:11:16.780 --> 1:11:19.660
+ So we can give what are called reductions.
+
+1:11:19.660 --> 1:11:22.700
+ This has been the basic strategy in, you know,
+
+1:11:22.700 --> 1:11:27.420
+ NP completeness, right, in all of theoretical computer science
+
+1:11:27.420 --> 1:11:31.020
+ and cryptography since the 1970s, really.
+
+1:11:31.020 --> 1:11:34.300
+ And so we were able to give some reduction evidence
+
+1:11:34.300 --> 1:11:40.140
+ for the hardness of simulating these sampling experiments,
+
+1:11:40.140 --> 1:11:43.100
+ these sampling based quantum supremacy experiments.
+
+1:11:43.100 --> 1:11:47.260
+ So reduction evidence is not as satisfactory as it should be.
+
+1:11:47.260 --> 1:11:49.900
+ One of the biggest open problems in this area
+
+1:11:49.900 --> 1:11:51.420
+ is to make it better.
+
+1:11:51.420 --> 1:11:53.260
+ But, you know, we can do something.
+
+1:11:53.260 --> 1:11:56.700
+ You know, certainly we can say that, you know,
+
+1:11:56.700 --> 1:11:59.340
+ if there is a fast classical algorithm
+
+1:11:59.340 --> 1:12:02.220
+ to spoof these experiments, then it has to be very,
+
+1:12:02.220 --> 1:12:04.620
+ very unlike any of the algorithms that we know.
+
+1:12:04.620 --> 1:12:08.940
+ TREVOR Which is kind of in the same kind
+
+1:12:08.940 --> 1:12:12.700
+ of space of reasoning that people say P not equals NP.
+
+1:12:12.700 --> 1:12:17.500
+ BENJAMIN Yeah, it's in the same spirit.
+
+1:12:17.500 --> 1:12:22.220
+ TREVOR Okay, so Andrew Yang, a very intelligent
+
+1:12:22.220 --> 1:12:27.420
+ and a presidential candidate with a lot of interesting ideas
+
+1:12:27.420 --> 1:12:31.980
+ in all kinds of technological fields, tweeted that
+
+1:12:31.980 --> 1:12:35.180
+ because of quantum computing, no code is uncrackable.
+
+1:12:36.060 --> 1:12:37.980
+ Is he wrong or right?
+
+1:12:37.980 --> 1:12:40.860
+ BENJAMIN He was premature, let's say.
+
+1:12:40.860 --> 1:12:42.540
+ So, well, okay, wrong.
+
+1:12:45.020 --> 1:12:49.500
+ Look, I'm actually, you know, I'm a fan of Andrew Yang.
+
+1:12:49.500 --> 1:12:51.580
+ I like his ideas.
+
+1:12:51.580 --> 1:12:52.780
+ I like his candidacy.
+
+1:12:53.820 --> 1:12:58.140
+ I think that, you know, he may be ahead of his time
+
+1:12:58.140 --> 1:13:01.660
+ with, you know, the universal basic income and so forth.
+
+1:13:01.660 --> 1:13:04.700
+ And he may also be ahead of his time in that tweet
+
+1:13:04.700 --> 1:13:05.980
+ that you referenced.
+
+1:13:05.980 --> 1:13:09.420
+ So regarding using quantum computers
+
+1:13:09.420 --> 1:13:13.260
+ to break cryptography, so the situation is this, okay?
+
+1:13:13.260 --> 1:13:18.940
+ So the famous discovery of Peter Shor, you know, 26 years ago
+
+1:13:18.940 --> 1:13:21.340
+ that really started quantum computing, you know,
+
+1:13:21.340 --> 1:13:26.140
+ as an autonomous field was that if you built a full
+
+1:13:26.140 --> 1:13:29.660
+ scalable quantum computer, then you could use it
+
+1:13:29.660 --> 1:13:35.180
+ to efficiently find the prime factors of huge numbers
+
+1:13:35.180 --> 1:13:38.860
+ and calculate discrete logarithms and solve
+
+1:13:38.860 --> 1:13:41.820
+ a few other problems that are very, very special
+
+1:13:41.820 --> 1:13:42.860
+ in character, right?
+
+1:13:42.860 --> 1:13:44.780
+ They're not NP complete problems.
+
+1:13:44.780 --> 1:13:46.460
+ We're pretty sure they're not, okay?
+
+1:13:46.460 --> 1:13:52.060
+ But it so happens that most of the public key cryptography
+
+1:13:52.060 --> 1:13:54.380
+ that we currently use to protect the internet
+
+1:13:54.380 --> 1:13:57.660
+ is based on the belief that these problems are hard.
+
+1:13:57.660 --> 1:13:59.900
+ Okay, what Shor showed is that once you get
+
+1:13:59.900 --> 1:14:03.260
+ scalable quantum computers, then that's no longer true, okay?
+
+1:14:03.260 --> 1:14:06.860
+ But now, you know, before people panic,
+
+1:14:06.860 --> 1:14:09.740
+ there are two important points to understand here.
+
+1:14:09.740 --> 1:14:13.180
+ Okay, the first is that quantum supremacy,
+
+1:14:13.180 --> 1:14:15.740
+ the milestone that Google just achieved,
+
+1:14:15.740 --> 1:14:19.660
+ is very, very far from the kind of scalable quantum computer
+
+1:14:19.660 --> 1:14:21.900
+ that would be needed to actually threaten
+
+1:14:21.900 --> 1:14:23.500
+ public key cryptography.
+
+1:14:23.500 --> 1:14:25.740
+ Okay, so, you know, we touched on this earlier, right?
+
+1:14:25.740 --> 1:14:29.740
+ But Google's device has 53 physical qubits, right?
+
+1:14:29.740 --> 1:14:33.020
+ To threaten cryptography, you're talking, you know,
+
+1:14:33.020 --> 1:14:35.020
+ with any of the known error correction methods,
+
+1:14:35.020 --> 1:14:37.420
+ you're talking millions of physical qubits.
+
+1:14:37.420 --> 1:14:39.660
+ Because error correction would be required
+
+1:14:39.660 --> 1:14:40.860
+ to threaten cryptography.
+
+1:14:40.860 --> 1:14:46.860
+ Yes, yes, yes, it certainly would, right?
+
+1:14:46.860 --> 1:14:51.020
+ And, you know, how much, you know,
+
+1:14:51.020 --> 1:14:53.820
+ how great will the overhead be from the error correction?
+
+1:14:53.820 --> 1:14:55.180
+ That we don't know yet.
+
+1:14:55.180 --> 1:14:58.860
+ But with the known codes, you're talking millions
+
+1:14:58.860 --> 1:15:01.580
+ of physical qubits and of a much higher quality
+
+1:15:01.580 --> 1:15:03.260
+ than any that we have now, okay?
+
+1:15:03.260 --> 1:15:07.900
+ So, you know, I don't think that that is, you know,
+
+1:15:07.900 --> 1:15:12.060
+ coming soon, although people who have secrets
+
+1:15:12.060 --> 1:15:15.420
+ that, you know, need to stay secret for 20 years,
+
+1:15:15.420 --> 1:15:17.740
+ you know, are already worried about this,
+
+1:15:17.740 --> 1:15:19.900
+ you know, for the good reason that, you know,
+
+1:15:19.900 --> 1:15:22.620
+ we presume that intelligence agencies
+
+1:15:22.620 --> 1:15:25.260
+ are already scooping up data, you know,
+
+1:15:25.260 --> 1:15:27.980
+ in the hope that eventually they'll be able to decode it
+
+1:15:27.980 --> 1:15:30.780
+ once quantum computers become available, okay?
+
+1:15:30.780 --> 1:15:35.580
+ So this brings me to the second point I wanted to make,
+
+1:15:35.580 --> 1:15:39.420
+ which is that there are other public key cryptosystems
+
+1:15:39.420 --> 1:15:43.260
+ that are known that we don't know how to break
+
+1:15:43.260 --> 1:15:45.420
+ even with quantum computers, okay?
+
+1:15:45.420 --> 1:15:48.460
+ And so there's a whole field devoted to this now,
+
+1:15:48.460 --> 1:15:51.660
+ which is called post quantum cryptography, okay?
+
+1:15:51.660 --> 1:15:55.580
+ And so there is already, so we have some good candidates now.
+
+1:15:56.300 --> 1:15:58.460
+ The best known being what are called
+
+1:15:58.460 --> 1:16:00.620
+ lattice based cryptosystems.
+
+1:16:00.620 --> 1:16:03.500
+ And there is already some push to try to migrate
+
+1:16:03.500 --> 1:16:04.780
+ to these cryptosystems.
+
+1:16:04.780 --> 1:16:09.900
+ So NIST in the US is holding a competition
+
+1:16:09.900 --> 1:16:13.420
+ to create standards for post quantum cryptography,
+
+1:16:13.980 --> 1:16:16.460
+ which will be the first step in trying to get
+
+1:16:16.460 --> 1:16:20.380
+ every web browser and every router to upgrade,
+
+1:16:20.380 --> 1:16:23.660
+ you know, and use, you know, something like SSL
+
+1:16:23.660 --> 1:16:26.220
+ that would be based on, you know,
+
+1:16:26.220 --> 1:16:29.340
+ what we think is quantum secure cryptography.
+
+1:16:29.340 --> 1:16:31.660
+ But, you know, this will be a long process.
+
+1:16:33.340 --> 1:16:35.180
+ But, you know, it is something that people
+
+1:16:35.180 --> 1:16:36.780
+ are already starting to do.
+
+1:16:36.780 --> 1:16:40.300
+ And so, you know, I'm sure this algorithm
+
+1:16:40.300 --> 1:16:42.780
+ is sort of a dramatic discovery.
+
+1:16:42.780 --> 1:16:44.220
+ You know, it could be a big deal
+
+1:16:44.220 --> 1:16:46.220
+ for whatever intelligence agency
+
+1:16:46.220 --> 1:16:48.780
+ first gets a scalable quantum computer,
+
+1:16:48.780 --> 1:16:51.260
+ if no, at least certainly if no one else
+
+1:16:51.260 --> 1:16:52.860
+ knows that they have it, right?
+
+1:16:53.580 --> 1:16:57.740
+ But eventually we think that we could migrate
+
+1:16:57.740 --> 1:17:00.380
+ the internet to the post quantum cryptography
+
+1:17:00.380 --> 1:17:03.340
+ and then we'd be more or less back where we started.
+
+1:17:03.340 --> 1:17:06.060
+ Okay, so this is sort of not the application
+
+1:17:06.060 --> 1:17:07.180
+ of quantum computing.
+
+1:17:07.180 --> 1:17:09.340
+ I think that's really gonna change the world
+
+1:17:09.340 --> 1:17:10.860
+ in a sustainable way, right?
+
+1:17:10.860 --> 1:17:14.140
+ The big, by the way, the biggest practical application
+
+1:17:14.140 --> 1:17:17.340
+ of quantum computing that we know about by far,
+
+1:17:17.340 --> 1:17:19.420
+ I think is simply the simulation
+
+1:17:19.420 --> 1:17:21.340
+ of quantum mechanics itself.
+
+1:17:21.340 --> 1:17:24.780
+ In order to, you know, learn about chemical reactions,
+
+1:17:24.780 --> 1:17:28.380
+ you know, design maybe new chemical processes,
+
+1:17:28.380 --> 1:17:32.700
+ new materials, new drugs, new solar cells,
+
+1:17:32.700 --> 1:17:35.660
+ new superconductors, all kinds of things like that.
+
+1:17:35.660 --> 1:17:37.660
+ What's the size of a quantum computer
+
+1:17:38.700 --> 1:17:41.820
+ that would be able to simulate the,
+
+1:17:41.820 --> 1:17:43.900
+ you know, quantum mechanical systems themselves
+
+1:17:44.700 --> 1:17:46.780
+ that would be impactful for the real world
+
+1:17:46.780 --> 1:17:49.500
+ for the kind of chemical reactions
+
+1:17:49.500 --> 1:17:50.540
+ and that kind of work?
+
+1:17:50.540 --> 1:17:51.900
+ What scale are we talking about?
+
+1:17:51.900 --> 1:17:55.820
+ Now you're asking a very, very current question,
+
+1:17:55.820 --> 1:17:56.940
+ a very big question.
+
+1:17:57.740 --> 1:18:00.940
+ People are going to be racing over the next decade
+
+1:18:00.940 --> 1:18:04.140
+ to try to do useful quantum simulations
+
+1:18:04.780 --> 1:18:09.100
+ even with, you know, 100 or 200 qubit quantum computers
+
+1:18:09.100 --> 1:18:11.500
+ of the sort that we expect to be able to build
+
+1:18:11.500 --> 1:18:12.860
+ over the next decade.
+
+1:18:12.860 --> 1:18:15.580
+ Okay, so that might be, you know,
+
+1:18:15.580 --> 1:18:18.460
+ the first application of quantum computing
+
+1:18:18.460 --> 1:18:20.380
+ that we're able to realize, you know,
+
+1:18:20.380 --> 1:18:23.100
+ or maybe it will prove to be too difficult
+
+1:18:23.100 --> 1:18:26.060
+ and maybe even that will require fault tolerance
+
+1:18:26.060 --> 1:18:28.300
+ or, you know, will require error correction.
+
+1:18:28.300 --> 1:18:30.460
+ So there's an aggressive race to come up
+
+1:18:30.460 --> 1:18:33.900
+ with the one case study kind of like Peter Schor
+
+1:18:35.500 --> 1:18:37.260
+ with the idea that would just capture
+
+1:18:37.260 --> 1:18:38.860
+ the world's imagination of like,
+
+1:18:38.860 --> 1:18:41.820
+ look, we can actually do something very useful here.
+
+1:18:41.820 --> 1:18:44.140
+ Right, but I think, you know, within the next decade,
+
+1:18:44.140 --> 1:18:46.700
+ the best shot we have is certainly not,
+
+1:18:46.700 --> 1:18:50.860
+ you know, using Schor's algorithm to break cryptography,
+
+1:18:50.860 --> 1:18:53.020
+ you know, just because it requires,
+
+1:18:53.020 --> 1:18:55.740
+ you know, too much in the way of error correction.
+
+1:18:55.740 --> 1:18:59.820
+ The best shot we have is to do some quantum simulation
+
+1:18:59.820 --> 1:19:02.300
+ that tells the material scientists
+
+1:19:02.300 --> 1:19:05.500
+ or chemists or nuclear physicists,
+
+1:19:05.500 --> 1:19:07.340
+ you know, something that is useful to them
+
+1:19:07.340 --> 1:19:08.940
+ and that they didn't already know,
+
+1:19:08.940 --> 1:19:11.580
+ you know, and you might only need one or two successes
+
+1:19:11.580 --> 1:19:12.940
+ in order to change some, you know,
+
+1:19:12.940 --> 1:19:14.620
+ billion dollar industries, right?
+
+1:19:14.620 --> 1:19:18.300
+ Like, you know, the way that people make fertilizer right now
+
+1:19:18.300 --> 1:19:20.700
+ is still based on the Haber Bosch process
+
+1:19:20.700 --> 1:19:22.140
+ from a century ago.
+
+1:19:22.140 --> 1:19:25.420
+ And it is some many body quantum mechanics problem
+
+1:19:25.420 --> 1:19:27.260
+ that no one really understands, right?
+
+1:19:27.260 --> 1:19:30.700
+ If you could design a better way to make fertilizer, right?
+
+1:19:30.700 --> 1:19:33.180
+ That's, you know, billions of dollars right there.
+
+1:19:33.180 --> 1:19:35.980
+ So those are sort of the applications
+
+1:19:35.980 --> 1:19:38.620
+ that people are going to be aggressively racing toward
+
+1:19:38.620 --> 1:19:40.060
+ over the next decade.
+
+1:19:40.060 --> 1:19:42.460
+ Now, I don't know if they're gonna realize it or not,
+
+1:19:42.460 --> 1:19:46.140
+ but, you know, they certainly at least have a shot.
+
+1:19:46.140 --> 1:19:48.780
+ So it's gonna be a very, very interesting next decade.
+
+1:19:48.780 --> 1:19:50.940
+ But just to clarify, what's your intuition?
+
+1:19:51.980 --> 1:19:53.980
+ If a breakthrough like that comes with,
+
+1:19:53.980 --> 1:19:56.620
+ is it possible for that breakthrough to be on 50
+
+1:19:56.620 --> 1:20:01.020
+ to 100 qubits or is scale a fundamental thing
+
+1:20:01.020 --> 1:20:04.220
+ like 500, 1000 plus qubits?
+
+1:20:04.220 --> 1:20:08.460
+ Yeah, so I can tell you what the current studies are saying.
+
+1:20:09.100 --> 1:20:12.060
+ You know, I think probably better to rely on that
+
+1:20:12.060 --> 1:20:13.260
+ than on my intuition.
+
+1:20:13.900 --> 1:20:17.500
+ But, you know, there was a group at Microsoft
+
+1:20:17.500 --> 1:20:20.780
+ had a study a few years ago that said
+
+1:20:20.780 --> 1:20:23.660
+ even with only about 100 qubits,
+
+1:20:23.660 --> 1:20:26.060
+ you know, you could already learn something new
+
+1:20:26.060 --> 1:20:30.780
+ about the chemical reaction that makes fertilizer, for example.
+
+1:20:30.780 --> 1:20:34.460
+ The trouble is they're talking about 100 qubits
+
+1:20:34.460 --> 1:20:38.780
+ and about a million layers of quantum gates.
+
+1:20:38.780 --> 1:20:40.700
+ Okay, so basically they're talking about
+
+1:20:40.700 --> 1:20:42.940
+ 100 nearly perfect qubits.
+
+1:20:42.940 --> 1:20:44.700
+ So the logical qubits, as you mentioned before.
+
+1:20:44.700 --> 1:20:47.500
+ Yeah, exactly, 100 logical qubits.
+
+1:20:47.500 --> 1:20:50.700
+ And now, you know, the hard part for the next decade
+
+1:20:50.700 --> 1:20:52.220
+ is gonna be, well, what can we do
+
+1:20:52.220 --> 1:20:55.020
+ with 100 to 200 noisy qubits?
+
+1:20:56.220 --> 1:20:59.020
+ Yeah, is there error correction breakthroughs
+
+1:20:59.020 --> 1:21:00.860
+ that might come without the need to do
+
+1:21:01.900 --> 1:21:04.940
+ thousands or millions of physical qubits?
+
+1:21:04.940 --> 1:21:07.820
+ Yeah, so people are gonna be pushing simultaneously
+
+1:21:07.820 --> 1:21:09.820
+ on a bunch of different directions.
+
+1:21:09.820 --> 1:21:11.020
+ One direction, of course,
+
+1:21:11.020 --> 1:21:13.180
+ is just making the qubits better, right?
+
+1:21:14.140 --> 1:21:16.940
+ And, you know, there is tremendous progress there.
+
+1:21:16.940 --> 1:21:19.260
+ I mean, you know, the fidelity is like
+
+1:21:19.260 --> 1:21:22.540
+ the accuracy of the qubits has improved
+
+1:21:22.540 --> 1:21:24.540
+ by several orders of magnitude, you know,
+
+1:21:24.540 --> 1:21:28.220
+ in the last decade or two.
+
+1:21:28.220 --> 1:21:31.660
+ Okay, the second thing is designing better error,
+
+1:21:31.660 --> 1:21:36.060
+ you know, let's say lower overhead error correcting codes
+
+1:21:36.060 --> 1:21:40.140
+ and even short of doing the full recursive error correction.
+
+1:21:40.140 --> 1:21:43.340
+ You know, there are these error mitigation strategies
+
+1:21:43.340 --> 1:21:45.660
+ that you can use, you know, that may, you know,
+
+1:21:47.020 --> 1:21:52.300
+ allow you to eke out a useful speed up in the near term.
+
+1:21:52.300 --> 1:21:56.140
+ And then the third thing is just taking the quantum algorithms
+
+1:21:56.140 --> 1:21:59.900
+ for simulating quantum chemistry or materials
+
+1:21:59.900 --> 1:22:01.740
+ and making them more efficient.
+
+1:22:01.740 --> 1:22:03.180
+ You know, and those algorithms
+
+1:22:03.180 --> 1:22:05.580
+ are already dramatically more efficient
+
+1:22:05.580 --> 1:22:07.900
+ than they were, let's say, five years ago.
+
+1:22:07.900 --> 1:22:10.460
+ And so when, you know, I quoted these estimates
+
+1:22:10.460 --> 1:22:13.260
+ like, you know, circuit depth of one million.
+
+1:22:13.260 --> 1:22:16.700
+ And so, you know, I hope that because people will care enough
+
+1:22:16.700 --> 1:22:18.140
+ that these numbers are gonna come down.
+
+1:22:18.860 --> 1:22:24.380
+ So you're one of the world class researchers in this space.
+
+1:22:24.380 --> 1:22:26.060
+ There's a few groups like you mentioned,
+
+1:22:26.060 --> 1:22:27.820
+ Google and IBM working at this.
+
+1:22:27.820 --> 1:22:32.140
+ There's other research labs, but you put also,
+
+1:22:32.140 --> 1:22:35.820
+ you have an amazing blog.
+
+1:22:35.820 --> 1:22:39.980
+ You just, you put a lot, you paid me to say it.
+
+1:22:41.180 --> 1:22:44.060
+ You put a lot of effort sort of to communicating
+
+1:22:44.060 --> 1:22:47.900
+ the science of this and communicating,
+
+1:22:47.900 --> 1:22:52.060
+ exposing some of the BS and sort of the natural,
+
+1:22:52.060 --> 1:22:56.700
+ just like in the AI space, the natural charlatanism,
+
+1:22:56.700 --> 1:23:00.940
+ if that's a word in this, in the quantum mechanics in general,
+
+1:23:00.940 --> 1:23:02.860
+ but quantum computers and so on.
+
+1:23:02.860 --> 1:23:07.260
+ Can you give some notes about people or ideas
+
+1:23:07.900 --> 1:23:10.220
+ that people like me or listeners in general
+
+1:23:10.220 --> 1:23:12.540
+ from outside the field should be cautious of
+
+1:23:12.540 --> 1:23:15.820
+ when they're taking in news headings
+
+1:23:15.820 --> 1:23:18.700
+ that Google achieved quantum supremacy?
+
+1:23:19.340 --> 1:23:21.420
+ So what should we look out for?
+
+1:23:21.420 --> 1:23:23.020
+ Where's the charlatans in the space?
+
+1:23:23.020 --> 1:23:23.980
+ Where's the BS?
+
+1:23:23.980 --> 1:23:26.620
+ Yeah, so good question.
+
+1:23:26.620 --> 1:23:29.900
+ Unfortunately, quantum computing is a little bit like
+
+1:23:29.900 --> 1:23:32.700
+ cryptocurrency or deep learning.
+
+1:23:32.700 --> 1:23:34.220
+ Like there is a core of something
+
+1:23:34.220 --> 1:23:37.260
+ that is genuinely revolutionary and exciting.
+
+1:23:37.260 --> 1:23:40.460
+ And because of that core, it attracts this sort of
+
+1:23:40.460 --> 1:23:47.260
+ vast penumbra of people making just utterly ridiculous claims.
+
+1:23:47.260 --> 1:23:50.860
+ And so with quantum computing, I mean,
+
+1:23:50.860 --> 1:23:54.860
+ I would say that the main way that people go astray
+
+1:23:54.860 --> 1:23:59.100
+ is by not focusing on sort of the question of,
+
+1:23:59.100 --> 1:24:02.860
+ are you getting a speed up over a classical computer or not?
+
+1:24:03.500 --> 1:24:08.860
+ And so people have like dismissed quantum supremacy
+
+1:24:08.860 --> 1:24:10.620
+ because it's not useful, right?
+
+1:24:10.620 --> 1:24:14.860
+ Or it's not itself, let's say, obviously useful for anything.
+
+1:24:14.860 --> 1:24:18.300
+ Okay, but ironically, these are some of the same people
+
+1:24:18.300 --> 1:24:21.900
+ who will go and say, well, we care about useful applications.
+
+1:24:21.900 --> 1:24:25.020
+ We care about solving traffic routing
+
+1:24:25.020 --> 1:24:28.620
+ and financial optimization and all these things.
+
+1:24:28.620 --> 1:24:33.500
+ And that sounds really good, but their entire spiel
+
+1:24:33.500 --> 1:24:37.260
+ is sort of counting on nobody asking the question,
+
+1:24:37.260 --> 1:24:39.900
+ yes, but how well could a classical computer
+
+1:24:39.900 --> 1:24:41.740
+ do the same thing, right?
+
+1:24:42.700 --> 1:24:47.500
+ I really mean the entire thing is they say,
+
+1:24:47.500 --> 1:24:49.180
+ well, a quantum computer can do this,
+
+1:24:49.180 --> 1:24:50.700
+ a quantum computer can do that.
+
+1:24:50.700 --> 1:24:52.380
+ A quantum computer can do that, right?
+
+1:24:52.380 --> 1:24:55.180
+ And they just avoid the question,
+
+1:24:55.180 --> 1:24:58.780
+ are you getting a speed up over a classical computer or not?
+
+1:24:58.780 --> 1:25:01.340
+ And if so, how do you know?
+
+1:25:01.340 --> 1:25:05.420
+ Have you really thought carefully about classical algorithms
+
+1:25:05.420 --> 1:25:07.820
+ to solve the same problem, right?
+
+1:25:07.820 --> 1:25:10.220
+ And a lot of the application areas
+
+1:25:10.220 --> 1:25:15.220
+ that the companies and investors are most excited about
+
+1:25:16.700 --> 1:25:19.900
+ that the popular press is most excited about
+
+1:25:19.900 --> 1:25:21.740
+ where quantum computers have been things
+
+1:25:21.740 --> 1:25:26.740
+ like machine learning, AI, optimization, okay?
+
+1:25:27.380 --> 1:25:31.820
+ And the problem with that is that since the very beginning,
+
+1:25:31.820 --> 1:25:35.980
+ even if you have a perfect fault tolerant,
+
+1:25:35.980 --> 1:25:38.540
+ scalable quantum computer,
+
+1:25:40.300 --> 1:25:43.100
+ we have known of only modest speed ups
+
+1:25:43.100 --> 1:25:46.420
+ that you can get for these problems, okay?
+
+1:25:46.420 --> 1:25:48.780
+ So there is a famous quantum algorithm
+
+1:25:48.780 --> 1:25:50.860
+ called Grover's algorithm, okay?
+
+1:25:50.860 --> 1:25:52.980
+ And what it can do is it can solve many,
+
+1:25:52.980 --> 1:25:56.060
+ many of the problems that arise in AI,
+
+1:25:56.060 --> 1:25:58.180
+ machine learning, optimization,
+
+1:25:58.180 --> 1:26:00.780
+ including NP complete problems, okay?
+
+1:26:00.780 --> 1:26:03.540
+ But it can solve them in about the square root
+
+1:26:03.540 --> 1:26:06.700
+ of the number of steps that a classical computer would need
+
+1:26:06.700 --> 1:26:08.260
+ for the same problems, okay?
+
+1:26:08.260 --> 1:26:12.340
+ Now a square root speed up is important, it's impressive.
+
+1:26:12.340 --> 1:26:15.140
+ It is not an exponential speed up, okay?
+
+1:26:15.140 --> 1:26:17.780
+ So it is not the kind of game changer
+
+1:26:17.780 --> 1:26:20.820
+ that let's say Shor's algorithm for factoring is,
+
+1:26:20.820 --> 1:26:23.700
+ or for that matter that simulation of quantum mechanics is,
+
+1:26:23.700 --> 1:26:26.260
+ okay, it is a more modest speed up.
+
+1:26:26.260 --> 1:26:28.780
+ And let's say roughly, in theory,
+
+1:26:28.780 --> 1:26:30.380
+ it could roughly double the size
+
+1:26:30.380 --> 1:26:33.380
+ of the optimization problems that you could handle, right?
+
+1:26:33.380 --> 1:26:38.380
+ And so because people found that I guess too boring
+
+1:26:39.300 --> 1:26:43.980
+ or too unimpressive, they've gone on to like invent
+
+1:26:43.980 --> 1:26:46.340
+ all of these heuristic algorithms
+
+1:26:46.340 --> 1:26:49.380
+ where because no one really understands them,
+
+1:26:49.380 --> 1:26:52.500
+ you can just project your hopes onto them, right?
+
+1:26:52.500 --> 1:26:55.780
+ That, well, maybe it gets an exponential speed up.
+
+1:26:55.780 --> 1:26:57.740
+ You can't prove that it doesn't,
+
+1:26:57.740 --> 1:26:59.300
+ and the burden is on you to prove
+
+1:26:59.300 --> 1:27:00.820
+ that it doesn't get a speed up, right?
+
+1:27:00.820 --> 1:27:04.860
+ And so they've done an immense amount of that kind of thing.
+
+1:27:04.860 --> 1:27:08.020
+ And a really worrying amount of the case
+
+1:27:08.020 --> 1:27:10.740
+ for building a quantum computer has come to rest
+
+1:27:10.740 --> 1:27:13.620
+ on this stuff that those of us in this field
+
+1:27:13.620 --> 1:27:17.620
+ know perfectly well is on extremely shaky foundations.
+
+1:27:17.620 --> 1:27:20.620
+ So the fundamental question is,
+
+1:27:20.620 --> 1:27:23.500
+ show that there's a speed up over the classical.
+
+1:27:23.500 --> 1:27:24.340
+ Absolutely.
+
+1:27:24.340 --> 1:27:26.500
+ And in this space that you're referring to,
+
+1:27:26.500 --> 1:27:27.660
+ which is actually really interesting,
+
+1:27:27.660 --> 1:27:30.100
+ it's the area that a lot of people excited about
+
+1:27:30.100 --> 1:27:31.340
+ is machine learning.
+
+1:27:31.340 --> 1:27:34.700
+ So your sense is, do you think it will,
+
+1:27:34.700 --> 1:27:37.740
+ I know that there's a lot of smoke currently,
+
+1:27:37.740 --> 1:27:40.300
+ but do you think there actually eventually
+
+1:27:40.300 --> 1:27:45.020
+ might be breakthroughs where you do get exponential speed ups
+
+1:27:45.020 --> 1:27:46.580
+ in the machine learning space?
+
+1:27:46.580 --> 1:27:48.020
+ Absolutely, there might be.
+
+1:27:48.020 --> 1:27:50.700
+ I mean, I think we know of modest speed ups
+
+1:27:50.700 --> 1:27:52.700
+ that you can get for these problems.
+
+1:27:52.700 --> 1:27:55.540
+ I think, you know, whether you can get bigger speed ups
+
+1:27:55.540 --> 1:28:00.380
+ is one of the biggest questions for quantum computing theory,
+
+1:28:00.380 --> 1:28:03.620
+ you know, for people like me to be thinking about.
+
+1:28:03.620 --> 1:28:06.740
+ Now, you know, we had actually recently
+
+1:28:06.740 --> 1:28:11.020
+ a really, you know, a super exciting candidate
+
+1:28:11.020 --> 1:28:13.620
+ for an exponential quantum speed up
+
+1:28:13.620 --> 1:28:15.220
+ for a machine learning problem
+
+1:28:15.220 --> 1:28:16.820
+ that people really care about.
+
+1:28:16.820 --> 1:28:19.140
+ This is basically the Netflix problem,
+
+1:28:19.140 --> 1:28:22.420
+ the problem of recommending products to users
+
+1:28:22.420 --> 1:28:25.580
+ given some sparse data about their preferences.
+
+1:28:25.580 --> 1:28:29.540
+ Karinidis and Prakash in 2016 had an algorithm
+
+1:28:29.540 --> 1:28:33.700
+ for sampling recommendations that was exponentially faster
+
+1:28:33.700 --> 1:28:35.980
+ than any known classical algorithm, right?
+
+1:28:35.980 --> 1:28:37.980
+ And so, you know, a lot of people were excited.
+
+1:28:37.980 --> 1:28:40.100
+ I was excited about it.
+
+1:28:40.100 --> 1:28:44.500
+ I had an 18 year old undergrad by the name of Yilin Tang,
+
+1:28:44.500 --> 1:28:47.140
+ and she was obviously brilliant.
+
+1:28:47.140 --> 1:28:48.780
+ She was looking for a project.
+
+1:28:48.780 --> 1:28:50.340
+ I gave her as a project,
+
+1:28:50.340 --> 1:28:52.860
+ can you prove that this speed up is real?
+
+1:28:52.860 --> 1:28:55.580
+ Can you prove that, you know, any classical algorithm
+
+1:28:55.580 --> 1:28:58.820
+ would need to access exponentially more data, right?
+
+1:28:58.820 --> 1:29:01.660
+ And, you know, this was a case where if that was true,
+
+1:29:01.660 --> 1:29:04.660
+ this was not like a P versus NP type of question, right?
+
+1:29:04.660 --> 1:29:07.060
+ This might well have been provable,
+
+1:29:07.060 --> 1:29:09.100
+ but she worked on it for a year.
+
+1:29:09.100 --> 1:29:10.540
+ She couldn't do it.
+
+1:29:10.540 --> 1:29:13.340
+ Eventually she figured out why she couldn't do it.
+
+1:29:13.340 --> 1:29:15.420
+ And the reason was that that was false.
+
+1:29:15.420 --> 1:29:18.140
+ There is a classical algorithm
+
+1:29:18.140 --> 1:29:20.820
+ with a similar performance to the quantum algorithm.
+
+1:29:20.820 --> 1:29:23.860
+ So Yilin succeeded in dequantizing
+
+1:29:23.860 --> 1:29:25.300
+ that machine learning algorithm.
+
+1:29:25.300 --> 1:29:27.940
+ And then in the last couple of years,
+
+1:29:27.940 --> 1:29:30.180
+ building on Yilin's breakthrough,
+
+1:29:30.180 --> 1:29:32.980
+ a bunch of the other quantum machine learning algorithms
+
+1:29:32.980 --> 1:29:36.180
+ that were proposed have now also been dequantized.
+
+1:29:36.180 --> 1:29:37.020
+ Yeah.
+
+1:29:37.020 --> 1:29:37.860
+ Okay, and so I would say, yeah.
+
+1:29:37.860 --> 1:29:40.100
+ That's a kind of important backwards step.
+
+1:29:40.100 --> 1:29:41.260
+ Yes.
+
+1:29:41.260 --> 1:29:43.580
+ Like a forward step for science,
+
+1:29:43.580 --> 1:29:46.940
+ but a step for quantum machine learning
+
+1:29:46.940 --> 1:29:50.780
+ that precedes the big next forward step.
+
+1:29:50.780 --> 1:29:51.740
+ Right, right, right.
+
+1:29:51.740 --> 1:29:52.580
+ If it's possible.
+
+1:29:52.580 --> 1:29:54.300
+ Right, now some people will say,
+
+1:29:54.300 --> 1:29:57.020
+ well, you know, there's a silver lining in this cloud.
+
+1:29:57.020 --> 1:29:59.260
+ They say, well, thinking about quantum computing
+
+1:29:59.260 --> 1:30:01.020
+ has led to the discovery
+
+1:30:01.020 --> 1:30:03.860
+ of potentially useful new classical algorithms.
+
+1:30:03.860 --> 1:30:04.700
+ That's true.
+
+1:30:04.700 --> 1:30:07.460
+ And so, you know, so you get these spinoff applications,
+
+1:30:07.460 --> 1:30:09.300
+ but if you want a quantum speed up,
+
+1:30:09.300 --> 1:30:11.860
+ you really have to think carefully about that.
+
+1:30:11.860 --> 1:30:15.220
+ You know, Yilin's work was a perfect illustration of why.
+
+1:30:15.220 --> 1:30:18.820
+ Right, and I think that, you know, the challenge,
+
+1:30:18.820 --> 1:30:22.340
+ you know, the field is now open, right?
+
+1:30:22.340 --> 1:30:23.820
+ Find a better example,
+
+1:30:23.820 --> 1:30:26.580
+ find, you know, where quantum computers
+
+1:30:26.580 --> 1:30:29.420
+ are going to deliver big gains for machine learning.
+
+1:30:29.420 --> 1:30:31.820
+ You know, I am, you know,
+
+1:30:31.820 --> 1:30:33.740
+ not only do I ardently support,
+
+1:30:33.740 --> 1:30:35.980
+ you know, people thinking about that,
+
+1:30:35.980 --> 1:30:37.660
+ I'm trying to think about it myself
+
+1:30:37.660 --> 1:30:41.420
+ and have my students and postdocs think about it,
+
+1:30:41.420 --> 1:30:42.980
+ but we should not pretend
+
+1:30:42.980 --> 1:30:45.420
+ that those speed ups are already established.
+
+1:30:45.420 --> 1:30:49.300
+ And the problem comes when so many of the companies
+
+1:30:49.300 --> 1:30:52.380
+ and, you know, and journalists in this space
+
+1:30:52.380 --> 1:30:53.540
+ are pretending that.
+
+1:30:54.700 --> 1:30:57.740
+ Like all good things, like life itself,
+
+1:30:57.740 --> 1:31:00.540
+ this conversation must soon come to an end.
+
+1:31:00.540 --> 1:31:04.620
+ Let me ask the most absurdly philosophical last question.
+
+1:31:04.620 --> 1:31:07.500
+ What is the meaning of life?
+
+1:31:07.500 --> 1:31:11.540
+ What gives your life fulfillment, purpose,
+
+1:31:11.540 --> 1:31:15.500
+ happiness, and yeah, meaning?
+
+1:31:15.500 --> 1:31:18.860
+ I would say, you know, number one,
+
+1:31:18.860 --> 1:31:22.420
+ trying to discover new things about the world
+
+1:31:22.420 --> 1:31:25.380
+ and share them and, you know, communicate
+
+1:31:25.380 --> 1:31:29.380
+ and learn what other people have discovered.
+
+1:31:29.380 --> 1:31:33.540
+ You know, number two, you know, my friends,
+
+1:31:33.540 --> 1:31:38.540
+ my family, my kids, my students,
+
+1:31:40.620 --> 1:31:42.820
+ you know, just the people around me.
+
+1:31:43.780 --> 1:31:46.780
+ Number three, you know, trying, you know,
+
+1:31:46.780 --> 1:31:50.740
+ when I can to, you know, make the world better
+
+1:31:50.740 --> 1:31:52.100
+ in some small ways.
+
+1:31:52.100 --> 1:31:54.500
+ And, you know, it's depressing that I can't do more
+
+1:31:54.500 --> 1:31:58.660
+ and that, you know, the world is, you know,
+
+1:31:58.660 --> 1:32:01.100
+ facing crises over, you know, the climate
+
+1:32:01.100 --> 1:32:04.460
+ and over, you know, sort of resurgent authoritarianism
+
+1:32:04.460 --> 1:32:06.740
+ and all these other things, but, you know,
+
+1:32:06.740 --> 1:32:10.580
+ trying to stand against the things
+
+1:32:10.580 --> 1:32:13.180
+ that I find horrible when I can.
+
+1:32:13.180 --> 1:32:16.060
+ Let me ask you one more absurd question.
+
+1:32:16.060 --> 1:32:17.340
+ What makes you smile?
+
+1:32:18.740 --> 1:32:20.660
+ Well, yeah, I guess your question just did.
+
+1:32:20.660 --> 1:32:21.500
+ I don't know.
+
+1:32:21.500 --> 1:32:25.740
+ I thought I tried that absurd one on you.
+
+1:32:25.740 --> 1:32:28.580
+ Well, it was a huge honor to talk to you.
+
+1:32:28.580 --> 1:32:30.740
+ We'll probably talk to you for many more hours, Scott.
+
+1:32:30.740 --> 1:32:31.660
+ Thank you so much.
+
+1:32:31.660 --> 1:32:32.500
+ Well, thank you.
+
+1:32:32.500 --> 1:32:33.340
+ Thank you.
+
+1:32:33.340 --> 1:32:34.500
+ It was great.
+
+1:32:34.500 --> 1:32:36.220
+ Thank you for listening to this conversation
+
+1:32:36.220 --> 1:32:37.260
+ with Scott Aaronson.
+
+1:32:37.260 --> 1:32:40.340
+ And thank you to our presenting sponsor, Cash App.
+
+1:32:40.340 --> 1:32:42.900
+ Download it, use code LexPodcast,
+
+1:32:42.900 --> 1:32:45.620
+ you'll get $10 and $10 will go to FIRST,
+
+1:32:45.620 --> 1:32:48.620
+ an organization that inspires and educates young minds
+
+1:32:48.620 --> 1:32:51.900
+ to become science and technology innovators of tomorrow.
+
+1:32:51.900 --> 1:32:54.380
+ If you enjoy this podcast, subscribe on YouTube,
+
+1:32:54.380 --> 1:32:56.260
+ give it five stars on Apple Podcast,
+
+1:32:56.260 --> 1:32:57.580
+ support it on Patreon,
+
+1:32:57.580 --> 1:33:00.980
+ or simply connect with me on Twitter at Lex Friedman.
+
+1:33:01.900 --> 1:33:03.860
+ Now, let me leave you with some words
+
+1:33:03.860 --> 1:33:06.220
+ from a funny and insightful blog post
+
+1:33:06.220 --> 1:33:08.500
+ Scott wrote over 10 years ago
+
+1:33:08.500 --> 1:33:12.940
+ on the ever present Malthusianisms in our daily lives.
+
+1:33:12.940 --> 1:33:14.860
+ Quote, again and again,
+
+1:33:14.860 --> 1:33:17.060
+ I've undergone the humbling experience
+
+1:33:17.060 --> 1:33:19.780
+ of first lamenting how badly something sucks,
+
+1:33:19.780 --> 1:33:23.500
+ then only much later having the crucial insight
+
+1:33:23.500 --> 1:33:25.180
+ that it's not sucking
+
+1:33:25.180 --> 1:33:28.100
+ wouldn't have been a Nash equilibrium.
+
+1:33:29.260 --> 1:33:30.580
+ Thank you for listening.
+
+1:33:30.580 --> 1:33:50.580
+ I hope to see you next time.
+

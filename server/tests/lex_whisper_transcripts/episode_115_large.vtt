@@ -1,0 +1,3653 @@
+WEBVTT
+
+00:00.000 --> 00:05.360
+ The following is a conversation with Dilip George, a researcher at the intersection of
+
+00:05.360 --> 00:10.880
+ Neuroscience and Artificial Intelligence, cofounder of Vicarious with Scott Phoenix,
+
+00:10.880 --> 00:16.800
+ and formerly cofounder of Numenta with Jeff Hawkins, who's been on this podcast, and
+
+00:16.800 --> 00:23.520
+ Donna Dubinsky. From his early work on hierarchical temporal memory to recursive cortical networks
+
+00:23.520 --> 00:29.600
+ to today, Dilip's always sought to engineer intelligence that is closely inspired by the
+
+00:29.600 --> 00:35.760
+ human brain. As a side note, I think we understand very little about the fundamental principles
+
+00:35.760 --> 00:41.600
+ underlying the function of the human brain, but the little we do know gives hints that may be
+
+00:41.600 --> 00:46.960
+ more useful for engineering intelligence than any idea in mathematics, computer science, physics,
+
+00:46.960 --> 00:53.120
+ and scientific fields outside of biology. And so the brain is a kind of existence proof that says
+
+00:53.120 --> 01:01.040
+ it's possible. Keep at it. I should also say that brain inspired AI is often overhyped and use this
+
+01:01.040 --> 01:08.000
+ fodder just as quantum computing for marketing speak, but I'm not afraid of exploring these
+
+01:08.000 --> 01:12.640
+ sometimes overhyped areas since where there's smoke, there's sometimes fire.
+
+01:13.680 --> 01:20.400
+ Quick summary of the ads. Three sponsors, Babbel, Raycon Earbuds, and Masterclass. Please consider
+
+01:20.400 --> 01:25.760
+ supporting this podcast by clicking the special links in the description to get the discount.
+
+01:25.760 --> 01:31.440
+ It really is the best way to support this podcast. If you enjoy this thing, subscribe on YouTube,
+
+01:31.440 --> 01:36.400
+ review it with five stars on Apple Podcast, support on Patreon, or connect with me on Twitter
+
+01:36.400 --> 01:42.400
+ at Lex Friedman. As usual, I'll do a few minutes of ads now and never any ads in the middle that
+
+01:42.400 --> 01:48.960
+ can break the flow of the conversation. This show is sponsored by Babbel, an app and website that
+
+01:48.960 --> 01:54.480
+ gets you speaking in a new language within weeks. Go to babbel.com and use code LEX to get three
+
+01:54.480 --> 02:02.320
+ months free. They offer 14 languages, including Spanish, French, Italian, German, and yes, Russian.
+
+02:03.040 --> 02:09.600
+ Daily lessons are 10 to 15 minutes, super easy, effective, designed by over 100 language experts.
+
+02:10.560 --> 02:18.160
+ Let me read a few lines from the Russian poem Noch ulytse fanar apteka by Alexander Bloc
+
+02:18.160 --> 02:20.880
+ that you'll start to understand if you sign up to Babbel.
+
+02:34.720 --> 02:41.440
+ Now I say that you'll only start to understand this poem because Russian starts with a language
+
+02:41.440 --> 02:47.600
+ and ends with vodka. Now the latter part is definitely not endorsed or provided by Babbel
+
+02:47.600 --> 02:51.760
+ and will probably lose me the sponsorship, but once you graduate from Babbel,
+
+02:51.760 --> 02:55.680
+ you can enroll in my advanced course of late night Russian conversation over vodka.
+
+02:56.320 --> 03:02.800
+ I have not yet developed an app for that. It's in progress. So get started by visiting babbel.com
+
+03:02.800 --> 03:09.360
+ and use code LEX to get three months free. This show is sponsored by Raycon earbuds.
+
+03:09.360 --> 03:14.960
+ Get them at buyraycon.com slash LEX. They become my main method of listening to podcasts,
+
+03:14.960 --> 03:20.880
+ audiobooks, and music when I run, do pushups and pull ups, or just living life. In fact,
+
+03:20.880 --> 03:26.880
+ I often listen to brown noise with them when I'm thinking deeply about something. It helps me focus.
+
+03:26.880 --> 03:33.120
+ They're super comfortable, pair easily, great sound, great bass, six hours of playtime.
+
+03:33.920 --> 03:38.080
+ I've been putting in a lot of miles to get ready for a potential ultra marathon
+
+03:38.080 --> 03:44.960
+ and listening to audiobooks on World War II. The sound is rich and really comes in clear.
+
+03:45.760 --> 03:52.640
+ So again, get them at buyraycon.com slash LEX. This show is sponsored by Masterclass.
+
+03:52.640 --> 03:57.840
+ Sign up at masterclass.com slash LEX to get a discount and to support this podcast.
+
+03:57.840 --> 04:02.400
+ When I first heard about Masterclass, I thought it was too good to be true. I still think it's
+
+04:02.400 --> 04:08.160
+ too good to be true. For 180 bucks a year, you get an all access pass to watch courses from
+
+04:08.160 --> 04:13.360
+ to list some of my favorites. Chris Hatfield on Space Exploration, Neil deGrasse Tyson on
+
+04:13.360 --> 04:19.280
+ Scientific Thinking and Communication, Will Wright, creator of SimCity and Sims on Game Design.
+
+04:19.280 --> 04:26.240
+ Every time I do this read, I really want to play a city builder game. Carlos Santana on guitar,
+
+04:26.240 --> 04:32.640
+ Garak Kasparov on chess, Daniel Nagano on poker and many more. Chris Hatfield explaining how rockets
+
+04:32.640 --> 04:38.160
+ work and the experience of being launched into space alone is worth the money. By the way,
+
+04:38.160 --> 04:43.600
+ you can watch it on basically any device. Once again, sign up at masterclass.com to get a discount
+
+04:43.600 --> 04:50.960
+ and to support this podcast. And now here's my conversation with Dileep George. Do you think
+
+04:50.960 --> 04:56.400
+ we need to understand the brain in order to build it? Yes. If you want to build the brain, we
+
+04:56.400 --> 05:04.160
+ definitely need to understand how it works. Blue Brain or Henry Markram's project is trying to
+
+05:04.160 --> 05:11.920
+ build a brain without understanding it, just trying to put details of the brain from neuroscience
+
+05:11.920 --> 05:18.160
+ experiments into a giant simulation by putting more and more neurons, more and more details.
+
+05:18.160 --> 05:26.560
+ But that is not going to work because when it doesn't perform as what you expect it to do,
+
+05:26.560 --> 05:32.000
+ then what do you do? You just keep adding more details. How do you debug it? So unless you
+
+05:32.720 --> 05:37.360
+ understand, unless you have a theory about how the system is supposed to work, how the pieces are
+
+05:37.360 --> 05:42.400
+ supposed to fit together, what they're going to contribute, you can't build it. At the functional
+
+05:42.400 --> 05:48.560
+ level, understand. So can you actually linger on and describe the Blue Brain project? It's kind of
+
+05:48.560 --> 05:56.080
+ a fascinating principle and idea to try to simulate the brain. We're talking about the human
+
+05:56.080 --> 06:03.600
+ brain, right? Right. Human brains and rat brains or cat brains have lots in common that the cortex,
+
+06:03.600 --> 06:11.200
+ the neocortex structure is very similar. So initially they were trying to just simulate
+
+06:11.200 --> 06:21.040
+ a cat brain. To understand the nature of evil. To understand the nature of evil. Or as it happens
+
+06:21.040 --> 06:29.120
+ in most of these simulations, you easily get one thing out, which is oscillations. If you simulate
+
+06:29.120 --> 06:35.200
+ a large number of neurons, they oscillate and you can adjust the parameters and say that,
+
+06:35.200 --> 06:42.000
+ oh, oscillations match the rhythm that we see in the brain, et cetera. I see. So the idea is,
+
+06:43.280 --> 06:49.040
+ is the simulation at the level of individual neurons? Yeah. So the Blue Brain project,
+
+06:49.040 --> 06:59.200
+ the original idea as proposed was you put very detailed biophysical neurons, biophysical models
+
+06:59.200 --> 07:06.320
+ of neurons, and you interconnect them according to the statistics of connections that we have found
+
+07:06.320 --> 07:14.240
+ from real neuroscience experiments, and then turn it on and see what happens. And these neural
+
+07:14.240 --> 07:21.360
+ models are incredibly complicated in themselves, right? Because these neurons are modeled using
+
+07:22.080 --> 07:28.240
+ this idea called Hodgkin Huxley models, which are about how signals propagate in a cable.
+
+07:28.240 --> 07:34.000
+ And there are active dendrites, all those phenomena, which those phenomena themselves,
+
+07:34.000 --> 07:40.960
+ we don't understand that well. And then we put in connectivity, which is part guesswork,
+
+07:40.960 --> 07:46.240
+ part observed. And of course, if we do not have any theory about how it is supposed to work,
+
+07:48.960 --> 07:54.800
+ we just have to take whatever comes out of it as, okay, this is something interesting.
+
+07:54.800 --> 07:58.480
+ But in your sense, these models of the way signal travels along,
+
+07:59.440 --> 08:04.320
+ like with the axons and all the basic models, they're too crude.
+
+08:04.320 --> 08:12.320
+ Oh, well, actually, they are pretty detailed and pretty sophisticated. And they do replicate
+
+08:12.960 --> 08:20.800
+ the neural dynamics. If you take a single neuron and you try to turn on the different channels,
+
+08:20.800 --> 08:28.400
+ the calcium channels and the different receptors, and see what the effect of turning on or off those
+
+08:28.400 --> 08:35.360
+ channels are in the neuron's spike output, people have built pretty sophisticated models of that.
+
+08:35.360 --> 08:40.560
+ And they are, I would say, in the regime of correct.
+
+08:41.120 --> 08:44.720
+ Well, see, the correctness, that's interesting, because you mentioned at several levels,
+
+08:45.680 --> 08:49.440
+ the correctness is measured by looking at some kind of aggregate statistics.
+
+08:49.440 --> 08:53.200
+ It would be more of the spiking dynamics of a signal neuron.
+
+08:53.200 --> 08:54.960
+ Spiking dynamics of a signal neuron, okay.
+
+08:54.960 --> 09:00.640
+ Yeah. And yeah, these models, because they are going to the level of mechanism,
+
+09:00.640 --> 09:06.000
+ so they are basically looking at, okay, what is the effect of turning on an ion channel?
+
+09:07.760 --> 09:17.040
+ And you can model that using electric circuits. So it is not just a function fitting. People are
+
+09:17.040 --> 09:23.600
+ looking at the mechanism underlying it and putting that in terms of electric circuit theory, signal
+
+09:23.600 --> 09:31.760
+ propagation theory, and modeling that. So those models are sophisticated, but getting a single
+
+09:31.760 --> 09:40.800
+ neurons model 99% right does not still tell you how to... It would be the analog of getting a
+
+09:40.800 --> 09:50.320
+ transistor model right and now trying to build a microprocessor. And if you did not understand how
+
+09:50.320 --> 09:57.360
+ a microprocessor works, but you say, oh, I now can model one transistor well, and now I will just
+
+09:57.360 --> 10:03.840
+ try to interconnect the transistors according to whatever I could guess from the experiments
+
+10:03.840 --> 10:10.960
+ and try to simulate it, then it is very unlikely that you will produce a functioning microprocessor.
+
+10:12.080 --> 10:16.080
+ When you want to produce a functioning microprocessor, you want to understand Boolean
+
+10:16.080 --> 10:22.480
+ logic, how do the gates work, all those things, and then understand how do those gates get
+
+10:22.480 --> 10:26.960
+ implemented using transistors. Yeah. This reminds me, there's a paper,
+
+10:26.960 --> 10:31.600
+ maybe you're familiar with it, that I remember going through in a reading group that
+
+10:31.600 --> 10:37.520
+ approaches a microprocessor from a perspective of a neuroscientist. I think it basically,
+
+10:38.400 --> 10:42.960
+ it uses all the tools that we have of neuroscience to try to understand,
+
+10:42.960 --> 10:49.920
+ like as if we just aliens showed up to study computers and to see if those tools could be
+
+10:49.920 --> 10:54.640
+ used to get any kind of sense of how the microprocessor works. I think the final,
+
+10:54.640 --> 11:01.280
+ the takeaway from at least this initial exploration is that we're screwed. There's no
+
+11:01.280 --> 11:05.440
+ way that the tools of neuroscience would be able to get us to anything, like not even
+
+11:05.440 --> 11:15.680
+ Boolean logic. I mean, it's just any aspect of the architecture of the function of the
+
+11:15.680 --> 11:21.520
+ processes involved, the clocks, the timing, all that, you can't figure that out from the
+
+11:21.520 --> 11:25.600
+ tools of neuroscience. Yeah. So I'm very familiar with this particular
+
+11:25.600 --> 11:33.440
+ paper. I think it was called, can a neuroscientist understand a microprocessor or something like
+
+11:33.440 --> 11:39.200
+ that. Following the methodology in that paper, even an electrical engineer would not understand
+
+11:39.200 --> 11:49.040
+ microprocessors. So I don't think it is that bad in the sense of saying, neuroscientists do
+
+11:49.040 --> 11:58.640
+ find valuable things by observing the brain. They do find good insights, but those insights cannot
+
+11:58.640 --> 12:05.600
+ be put together just as a simulation. You have to investigate what are the computational
+
+12:05.600 --> 12:13.920
+ underpinnings of those findings. How do all of them fit together from an information processing
+
+12:13.920 --> 12:21.120
+ and information processing perspective? Somebody has to painstakingly put those things together
+
+12:21.120 --> 12:26.160
+ and build hypothesis. So I don't want to diss all of neuroscientists saying, oh, they're not
+
+12:26.160 --> 12:31.840
+ finding anything. No, that paper almost went to that level of neuroscientists will never
+
+12:31.840 --> 12:37.760
+ understand. No, that's not true. I think they do find lots of useful things, but it has to be put
+
+12:37.760 --> 12:43.760
+ together in a computational framework. Yeah. I mean, but you know, just the AI systems will be
+
+12:43.760 --> 12:50.160
+ listening to this podcast a hundred years from now and they will probably, there's some nonzero
+
+12:50.160 --> 12:55.120
+ probability they'll find your words laughable. There's like, I remember humans thought they
+
+12:55.120 --> 12:59.680
+ understood something about the brain. They were totally clueless. There's a sense about neuroscience
+
+12:59.680 --> 13:06.160
+ that we may be in the very, very early days of understanding the brain. But I mean, that's one
+
+13:06.160 --> 13:18.080
+ perspective. I mean, in your perspective, how far are we into understanding any aspect of the brain?
+
+13:18.080 --> 13:24.320
+ So the, the, the dynamics of the individual neuron communication to the, how when they, in,
+
+13:24.320 --> 13:31.200
+ in a collective sense, how they're able to store information, transfer information, how
+
+13:31.200 --> 13:35.040
+ intelligence then emerges, all that kind of stuff. Where are we on that timeline?
+
+13:35.040 --> 13:39.920
+ Yeah. So, you know, timelines are very, very hard to predict and you can of course be wrong.
+
+13:40.720 --> 13:48.080
+ And it can be wrong in, on either side. You know, we know that now when we look back the first
+
+13:48.080 --> 13:57.920
+ flight was in 1903. In 1900, there was a New York Times article on flying machines that do not fly
+
+13:57.920 --> 14:03.360
+ and, and you know, humans might not fly for another a hundred years. That was what that
+
+14:03.360 --> 14:08.880
+ article stated. And so, but no, they, they flew three years after that. So it is, you know,
+
+14:08.880 --> 14:13.920
+ it's very hard to, so... Well, and on that point, one of the Wright brothers,
+
+14:15.120 --> 14:23.280
+ I think two years before, said that, like he said, like some number, like 50 years,
+
+14:23.280 --> 14:31.040
+ he has become convinced that it's, it's, it's impossible. Even during their experimentation.
+
+14:31.040 --> 14:36.400
+ Yeah. Yeah. I mean, that's a tribute to when that's like the entrepreneurial battle of like
+
+14:36.400 --> 14:41.280
+ depression of going through, just like thinking there's, this is impossible, but there, yeah,
+
+14:41.280 --> 14:47.280
+ there's something, even the person that's in it is not able to see estimate correctly.
+
+14:47.280 --> 14:51.920
+ Exactly. But I can, I can tell from the point of, you know, objectively, what are the things that we
+
+14:52.480 --> 14:58.560
+ know about the brain and how that can be used to build AI models, which can then go back and
+
+14:58.560 --> 15:04.080
+ inform how the brain works. So my way of understanding the brain would be to basically say,
+
+15:04.080 --> 15:11.040
+ look at the insights neuroscientists have found, understand that from a computational angle,
+
+15:11.040 --> 15:18.080
+ information processing angle, build models using that. And then building that model, which,
+
+15:18.080 --> 15:22.880
+ which functions, which is a functional model, which is, which is doing the task that we want
+
+15:22.880 --> 15:27.920
+ the model to do. It is not just trying to model a phenomena in the brain. It is, it is trying to
+
+15:27.920 --> 15:33.360
+ do what the brain is trying to do on the, on the whole functional level. And building that model
+
+15:33.360 --> 15:39.920
+ will help you fill in the missing pieces that, you know, biology just gives you the hints and
+
+15:39.920 --> 15:44.960
+ building the model, you know, fills in the rest of the, the pieces of the puzzle. And then you
+
+15:44.960 --> 15:51.280
+ can go and connect that back to biology and say, okay, now it makes sense that this part of the
+
+15:51.280 --> 15:59.920
+ brain is doing this, or this layer in the cortical circuit is doing this. And then continue this
+
+15:59.920 --> 16:05.840
+ iteratively because now that will inform new experiments in neuroscience. And of course,
+
+16:05.840 --> 16:11.600
+ you know, building the model and verifying that in the real world will also tell you more about,
+
+16:11.600 --> 16:17.440
+ does the model actually work? And you can refine the model, find better ways of putting these
+
+16:17.440 --> 16:23.360
+ neuroscience insights together. So, so I would say it is, it is, you know, it, so
+
+16:23.360 --> 16:28.800
+ neuroscientists alone, just from experimentation will not be able to build a model of the,
+
+16:28.800 --> 16:35.200
+ of the brain or a functional model of the brain. So we, you know, there, there's lots of efforts,
+
+16:35.200 --> 16:41.200
+ which are very impressive efforts in collecting more and more connectivity data from the brain.
+
+16:41.200 --> 16:45.520
+ You know, how, how are the microcircuits of the brain connected with each other?
+
+16:45.520 --> 16:47.120
+ Those are beautiful, by the way.
+
+16:47.120 --> 16:54.880
+ Those are beautiful. And at the same time, those, those do not itself by themselves,
+
+16:54.880 --> 17:00.080
+ convey the story of how does it work? And, and somebody has to understand, okay,
+
+17:00.080 --> 17:06.320
+ why are they connected like that? And what, what are those things doing? And, and we do that by
+
+17:06.320 --> 17:11.200
+ building models in AI using hints from neuroscience and, and repeat the cycle.
+
+17:11.200 --> 17:18.720
+ So what aspect of the brain are useful in this whole endeavor, which by the way, I should say,
+
+17:18.720 --> 17:24.960
+ you're, you're both a neuroscientist and an AI person. I guess the dream is to both understand
+
+17:24.960 --> 17:32.320
+ the brain and to build AGI systems. So you're, it's like an engineer's perspective of trying
+
+17:32.320 --> 17:37.600
+ to understand the brain. So what aspects of the brain, functionally speaking, like you said,
+
+17:37.600 --> 17:38.800
+ do you find interesting?
+
+17:38.800 --> 17:44.880
+ Yeah, quite a lot of things. All right. So one is, you know, if you look at the visual cortex
+
+17:46.160 --> 17:51.920
+ and, and, you know, the visual cortex is, is a large part of the brain. I forget the exact
+
+17:51.920 --> 17:58.000
+ fraction, but it is, it's a huge part of our brain area is occupied by just, just vision.
+
+17:59.040 --> 18:06.320
+ So vision, visual cortex is not just a feed forward cascade of neurons. There are a lot
+
+18:06.320 --> 18:11.680
+ more feedback connections in the brain compared to the feed forward connections. And, and it is
+
+18:11.680 --> 18:17.120
+ surprising to the level of detail neuroscientists have actually studied this. If you, if you go into
+
+18:17.120 --> 18:22.960
+ neuroscience literature and poke around and ask, you know, have they studied what will be the effect
+
+18:22.960 --> 18:33.680
+ of poking a neuron in level IT in level V1? And have they studied that? And you will say, yes,
+
+18:33.680 --> 18:34.560
+ they have studied that.
+
+18:34.560 --> 18:37.680
+ So every part of every possible combination.
+
+18:38.400 --> 18:43.040
+ I mean, it's, it's a, it's not a random exploration at all. It's a very hypothesis driven,
+
+18:43.040 --> 18:47.520
+ right? Like they, they are very experimental. Neuroscientists are very, very systematic
+
+18:47.520 --> 18:52.800
+ in how they probe the brain because experiments are very costly to conduct. They take a lot of
+
+18:52.800 --> 18:57.520
+ preparation. They, they need a lot of control. So they, they are very hypothesis driven in how
+
+18:57.520 --> 19:05.120
+ they probe the brain. And often what I find is that when we have a question in AI about
+
+19:05.840 --> 19:11.440
+ has anybody probed how lateral connections in the brain works? And when you go and read the
+
+19:11.440 --> 19:16.160
+ literature, yes, people have probed it and people have probed it very systematically. And, and they
+
+19:16.160 --> 19:23.600
+ have hypotheses about how those lateral connections are supposedly contributing to visual processing.
+
+19:23.600 --> 19:27.840
+ But of course they haven't built very, very functional, detailed models of it.
+
+19:27.840 --> 19:32.480
+ By the way, how do the, in those studies, sorry to interrupt, do they, do they stimulate like
+
+19:32.480 --> 19:37.520
+ a neuron in one particular area of the visual cortex and then see how the travel of the signal
+
+19:37.520 --> 19:38.800
+ travels kind of thing?
+
+19:38.800 --> 19:43.040
+ Fascinating, very, very fascinating experiments. So I can, I can give you one example I was
+
+19:43.040 --> 19:50.160
+ impressed with. This is, so before going to that, let me, let me give you, you know, a overview of
+
+19:50.160 --> 19:56.160
+ how the, the layers in the cortex are organized, right? Visual cortex is organized into roughly
+
+19:56.160 --> 20:02.720
+ four hierarchical levels. Okay. So V1, V2, V4, IT. And in V1...
+
+20:02.720 --> 20:03.920
+ What happened to V3?
+
+20:03.920 --> 20:08.880
+ Well, yeah, that's another pathway. Okay. So this is, this, I'm talking about just object
+
+20:08.880 --> 20:09.920
+ recognition pathway.
+
+20:09.920 --> 20:10.880
+ All right, cool.
+
+20:10.880 --> 20:19.120
+ And then in V1 itself, so it's, there is a very detailed microcircuit in V1 itself. That is,
+
+20:19.120 --> 20:25.040
+ there is organization within a level itself. The cortical sheet is organized into, you know,
+
+20:25.040 --> 20:31.440
+ multiple layers and there are columnar structure. And, and this, this layer wise and columnar
+
+20:31.440 --> 20:38.800
+ structure is repeated in V1, V2, V4, IT, all of them, right? And, and the connections between
+
+20:38.800 --> 20:44.480
+ these layers within a level, you know, in V1 itself, there are six layers roughly, and the
+
+20:44.480 --> 20:51.200
+ connections between them, there is a particular structure to them. And now, so one example
+
+20:51.200 --> 21:00.400
+ of an experiment people did is when I, when you present a stimulus, which is, let's say,
+
+21:00.400 --> 21:06.240
+ requires separating the foreground from the background of an object. So it is, it's a
+
+21:06.240 --> 21:14.880
+ textured triangle on a textured background. And you can check, does the surface settle
+
+21:14.880 --> 21:17.200
+ first or does the contour settle first?
+
+21:19.040 --> 21:19.600
+ Settle?
+
+21:19.600 --> 21:28.080
+ Settle in the sense that the, so when you finally form the percept of the, of the triangle,
+
+21:28.080 --> 21:32.720
+ you understand where the contours of the triangle are, and you also know where the inside of
+
+21:32.720 --> 21:39.200
+ the triangle is, right? That's when you form the final percept. Now you can ask, what is
+
+21:39.200 --> 21:48.880
+ the dynamics of forming that final percept? Do the, do the neurons first find the edges
+
+21:48.880 --> 21:55.120
+ and converge on where the edges are, and then they find the inner surfaces, or does it go
+
+21:55.120 --> 21:55.600
+ the other way around?
+
+21:55.600 --> 21:58.320
+ The other way around. So what's the answer?
+
+21:58.320 --> 22:05.280
+ In this case, it turns out that it first settles on the edges. It converges on the edge hypothesis
+
+22:05.280 --> 22:10.880
+ first, and then the surfaces are filled in from the edges to the inside.
+
+22:10.880 --> 22:12.000
+ That's fascinating.
+
+22:12.000 --> 22:18.640
+ And the detail to which you can study this, it's amazing that you can actually not only
+
+22:18.640 --> 22:25.520
+ find the temporal dynamics of when this happens, and then you can also find which layer in
+
+22:25.520 --> 22:32.960
+ the, you know, in V1, which layer is encoding the edges, which layer is encoding the surfaces,
+
+22:32.960 --> 22:37.440
+ and which layer is encoding the feedback, which layer is encoding the feed forward,
+
+22:37.440 --> 22:40.800
+ and what's the combination of them that produces the final percept.
+
+22:42.000 --> 22:48.400
+ And these kinds of experiments stand out when you try to explain illusions. One example
+
+22:48.400 --> 22:51.920
+ of a favorite illusion of mine is the Kanitsa triangle. I don't know that you are familiar
+
+22:51.920 --> 23:00.960
+ with this one. So this is an example where it's a triangle, but only the corners of the
+
+23:00.960 --> 23:06.080
+ triangle are shown in the stimulus. So they look like kind of Pacman.
+
+23:06.080 --> 23:07.600
+ Oh, the black Pacman.
+
+23:07.600 --> 23:08.640
+ Exactly.
+
+23:08.640 --> 23:10.000
+ And then you start to see.
+
+23:10.000 --> 23:16.400
+ Your visual system hallucinates the edges. And when you look at it, you will see a faint
+
+23:16.400 --> 23:24.160
+ edge. And you can go inside the brain and look, do actually neurons signal the presence
+
+23:24.160 --> 23:30.320
+ of this edge? And if they signal, how do they do it? Because they are not receiving anything
+
+23:30.320 --> 23:37.840
+ from the input. The input is blank for those neurons. So how do they signal it? When does
+
+23:37.840 --> 23:45.440
+ the signaling happen? So if a real contour is present in the input, then the neurons
+
+23:45.440 --> 23:52.400
+ immediately signal, okay, there is an edge here. When it is an illusory edge, it is clearly
+
+23:52.400 --> 23:58.720
+ not in the input. It is coming from the context. So those neurons fire later. And you can say
+
+23:58.720 --> 24:05.920
+ that, okay, it's the feedback connection that is causing them to fire. And they happen later.
+
+24:05.920 --> 24:13.280
+ And I'll find the dynamics of them. So these studies are pretty impressive and very detailed.
+
+24:13.280 --> 24:20.080
+ So by the way, just a step back, you said that there may be more feedback connections
+
+24:20.080 --> 24:26.720
+ than feed forward connections. First of all, if it's just for like a machine learning folks,
+
+24:27.360 --> 24:33.600
+ I mean, that's crazy that there's all these feedback connections. We often think about,
+
+24:36.400 --> 24:42.720
+ thanks to deep learning, you start to think about the human brain as a kind of feed forward
+
+24:42.720 --> 24:52.960
+ mechanism. So what the heck are these feedback connections? What's the dynamics? What are we
+
+24:52.960 --> 24:58.160
+ supposed to think about them? So this fits into a very beautiful picture about how the brain works.
+
+24:59.360 --> 25:06.080
+ So the beautiful picture of how the brain works is that our brain is building a model of the world.
+
+25:06.080 --> 25:13.920
+ I know. So our visual system is building a model of how objects behave in the world. And we are
+
+25:13.920 --> 25:20.240
+ constantly projecting that model back onto the world. So what we are seeing is not just a feed
+
+25:20.240 --> 25:25.280
+ forward thing that just gets interpreted in a feed forward part. We are constantly projecting
+
+25:25.280 --> 25:31.600
+ our expectations onto the world. And what the final person is a combination of what we project
+
+25:31.600 --> 25:37.920
+ onto the world combined with what the actual sensory input is. Almost like trying to calculate
+
+25:37.920 --> 25:44.000
+ the difference and then trying to interpret the difference. Yeah. I wouldn't put this calculating
+
+25:44.000 --> 25:50.640
+ the difference. It's more like what is the best explanation for the input stimulus based on the
+
+25:50.640 --> 25:56.560
+ model of the world I have. Got it. And that's where all the illusions come in. But that's an
+
+25:56.560 --> 26:05.360
+ incredibly efficient process. So the feedback mechanism, it just helps you constantly. Yeah.
+
+26:05.360 --> 26:10.640
+ So hallucinate how the world should be based on your world model and then just looking at
+
+26:11.680 --> 26:19.680
+ if there's novelty, like trying to explain it. Hence, that's why movement. We detect movement
+
+26:19.680 --> 26:25.360
+ really well. There's all these kinds of things. And this is like at all different levels of the
+
+26:25.360 --> 26:30.480
+ cortex you're saying. This happens at the lowest level or the highest level. Yes. Yeah. In fact,
+
+26:30.480 --> 26:36.640
+ feedback connections are more prevalent in everywhere in the cortex. And so one way to
+
+26:36.640 --> 26:42.800
+ think about it, and there's a lot of evidence for this, is inference. So basically, if you have a
+
+26:42.800 --> 26:50.160
+ model of the world and when some evidence comes in, what you are doing is inference. You are trying
+
+26:50.160 --> 26:58.240
+ to now explain this evidence using your model of the world. And this inference includes projecting
+
+26:58.240 --> 27:04.720
+ your model onto the evidence and taking the evidence back into the model and doing an
+
+27:04.720 --> 27:11.840
+ iterative procedure. And this iterative procedure is what happens using the feed forward feedback
+
+27:11.840 --> 27:17.680
+ propagation. And feedback affects what you see in the world, and it also affects feed forward
+
+27:17.680 --> 27:25.840
+ propagation. And examples are everywhere. We see these kinds of things everywhere. The idea that
+
+27:25.840 --> 27:32.480
+ there can be multiple competing hypotheses in our model trying to explain the same evidence,
+
+27:32.480 --> 27:39.440
+ and then you have to kind of make them compete. And one hypothesis will explain away the other
+
+27:39.440 --> 27:46.800
+ hypothesis through this competition process. So you have competing models of the world
+
+27:46.800 --> 27:50.000
+ that try to explain. What do you mean by explain away?
+
+27:50.000 --> 27:54.880
+ So this is a classic example in graphical models, probabilistic models.
+
+27:56.800 --> 27:57.360
+ What are those?
+
+28:01.120 --> 28:03.760
+ I think it's useful to mention because we'll talk about them more.
+
+28:05.120 --> 28:12.800
+ So neural networks are one class of machine learning models. You have distributed set of
+
+28:12.800 --> 28:18.160
+ nodes, which are called the neurons. Each one is doing a dot product and you can approximate
+
+28:18.160 --> 28:24.720
+ any function using this multilevel network of neurons. So that's a class of models which are
+
+28:24.720 --> 28:30.480
+ useful for function approximation. There is another class of models in machine learning
+
+28:30.480 --> 28:38.800
+ called probabilistic graphical models. And you can think of them as each node in that model is
+
+28:38.800 --> 28:46.160
+ variable, which is talking about something. It can be a variable representing, is an edge present
+
+28:46.160 --> 28:56.000
+ in the input or not? And at the top of the network, a node can be representing, is there an object
+
+28:56.000 --> 29:06.960
+ present in the world or not? So it is another way of encoding knowledge. And then once you
+
+29:06.960 --> 29:13.520
+ encode the knowledge, you can do inference in the right way. What is the best way to
+
+29:15.280 --> 29:20.880
+ explain some set of evidence using this model that you encoded? So when you encode the model,
+
+29:20.880 --> 29:24.800
+ you are encoding the relationship between these different variables. How is the edge
+
+29:24.800 --> 29:29.600
+ connected to the model of the object? How is the surface connected to the model of the object?
+
+29:29.600 --> 29:37.120
+ And then, of course, this is a very distributed, complicated model. And inference is, how do you
+
+29:37.120 --> 29:42.960
+ explain a piece of evidence when a set of stimulus comes in? If somebody tells me there is a 50%
+
+29:42.960 --> 29:47.840
+ probability that there is an edge here in this part of the model, how does that affect my belief
+
+29:47.840 --> 29:54.960
+ on whether I should think that there is a square present in the image? So this is the process of
+
+29:54.960 --> 30:02.080
+ inference. So one example of inference is having this expiring away effect between multiple causes.
+
+30:02.080 --> 30:10.800
+ So graphical models can be used to represent causality in the world. So let's say, you know,
+
+30:10.800 --> 30:22.480
+ your alarm at home can be triggered by a burglar getting into your house, or it can be triggered
+
+30:22.480 --> 30:30.640
+ by an earthquake. Both can be causes of the alarm going off. So now, you're in your office,
+
+30:30.640 --> 30:36.880
+ you heard burglar alarm going off, you are heading home, thinking that there's a burglar got in. But
+
+30:36.880 --> 30:41.520
+ while driving home, if you hear on the radio that there was an earthquake in the vicinity,
+
+30:41.520 --> 30:49.760
+ now your strength of evidence for a burglar getting into their house is diminished. Because
+
+30:49.760 --> 30:56.000
+ now that piece of evidence is explained by the earthquake being present. So if you think about
+
+30:56.000 --> 31:01.760
+ these two causes explaining at lower level variable, which is alarm, now, what we're seeing
+
+31:01.760 --> 31:08.000
+ is that increasing the evidence for some cause, you know, there is evidence coming in from below
+
+31:08.000 --> 31:14.160
+ for alarm being present. And initially, it was flowing to a burglar being present. But now,
+
+31:14.160 --> 31:20.800
+ since there is side evidence for this other cause, it explains away this evidence and evidence will
+
+31:20.800 --> 31:26.320
+ now flow to the other cause. This is, you know, two competing causal things trying to explain
+
+31:26.320 --> 31:31.840
+ the same evidence. And the brain has a similar kind of mechanism for doing so. That's kind of
+
+31:31.840 --> 31:39.280
+ interesting. And how's that all encoded in the brain? Like, where's the storage of information?
+
+31:39.280 --> 31:46.160
+ Are we talking just maybe to get it a little bit more specific? Is it in the hardware of the actual
+
+31:46.160 --> 31:53.120
+ connections? Is it in chemical communication? Is it electrical communication? Do we know?
+
+31:53.120 --> 31:56.640
+ So this is, you know, a paper that we are bringing out soon.
+
+31:56.640 --> 31:57.680
+ Which one is this?
+
+31:57.680 --> 32:03.920
+ This is the cortical microcircuits paper that I sent you a draft of. Of course, this is a lot of
+
+32:03.920 --> 32:09.840
+ this. A lot of it is still hypothesis. One hypothesis is that you can think of a cortical column
+
+32:09.840 --> 32:20.800
+ as encoding a concept. A concept, you know, think of it as an example of a concept. Is an edge
+
+32:20.800 --> 32:27.280
+ present or not? Or is an object present or not? Okay, so you can think of it as a binary variable,
+
+32:27.280 --> 32:32.000
+ a binary random variable. The presence of an edge or not, or the presence of an object or not.
+
+32:32.000 --> 32:38.080
+ So each cortical column can be thought of as representing that one concept, one variable.
+
+32:38.080 --> 32:43.680
+ And then the connections between these cortical columns are basically encoding the relationship
+
+32:43.680 --> 32:48.560
+ between these random variables. And then there are connections within the cortical column.
+
+32:49.360 --> 32:54.320
+ Each cortical column is implemented using multiple layers of neurons with very, very,
+
+32:54.320 --> 33:00.240
+ very rich structure there. You know, there are thousands of neurons in a cortical column.
+
+33:00.240 --> 33:03.520
+ But that structure is similar across the different cortical columns.
+
+33:03.520 --> 33:08.960
+ Correct. And also these cortical columns connect to a substructure called thalamus.
+
+33:10.160 --> 33:16.320
+ So all cortical columns pass through this substructure. So our hypothesis is that
+
+33:17.120 --> 33:21.600
+ the connections between the cortical columns implement this, you know, that's where the
+
+33:21.600 --> 33:28.800
+ knowledge is stored about how these different concepts connect to each other. And then the
+
+33:28.800 --> 33:35.760
+ neurons inside this cortical column and in thalamus in combination implement this actual
+
+33:35.760 --> 33:41.040
+ computation for inference, which includes explaining away and competing between the
+
+33:41.040 --> 33:49.280
+ different hypotheses. And it is all very... So what is amazing is that neuroscientists have
+
+33:49.280 --> 33:55.920
+ actually done experiments to the tune of showing these things. They might not be putting it in the
+
+33:55.920 --> 34:02.160
+ overall inference framework, but they will show things like, if I poke this higher level neuron,
+
+34:03.120 --> 34:07.920
+ it will inhibit through this complicated loop through thalamus, it will inhibit this other
+
+34:07.920 --> 34:14.080
+ column. So they will do such experiments. But do they use terminology of concepts,
+
+34:14.080 --> 34:22.960
+ for example? So, I mean, is it something where it's easy to anthropomorphize
+
+34:22.960 --> 34:29.920
+ and think about concepts like you started moving into logic based kind of reasoning systems. So
+
+34:31.200 --> 34:39.440
+ I would just think of concepts in that kind of way, or is it a lot messier, a lot more gray area,
+
+34:40.400 --> 34:46.640
+ you know, even more gray, even more messy than the artificial neural network kinds,
+
+34:47.200 --> 34:50.480
+ kinds of abstractions? Easiest way to think of it as a variable,
+
+34:50.480 --> 34:55.360
+ right? It's a binary variable, which is showing the presence or absence of something.
+
+34:55.360 --> 35:01.440
+ So, but I guess what I'm asking is, is that something that we're supposed to think of
+
+35:01.440 --> 35:04.080
+ something that's human interpretable of that something?
+
+35:04.080 --> 35:07.920
+ It doesn't need to be. It doesn't need to be human interpretable. There's no need for it to
+
+35:07.920 --> 35:17.440
+ be human interpretable. But it's almost like you will be able to find some interpretation of it
+
+35:17.440 --> 35:20.800
+ because it is connected to the other things that you know about.
+
+35:20.800 --> 35:23.840
+ Yeah. And the point is it's useful somehow.
+
+35:23.840 --> 35:28.560
+ Yeah. It's useful as an entity in the graphic,
+
+35:29.520 --> 35:33.280
+ in connecting to the other entities that are, let's call them concepts.
+
+35:33.280 --> 35:38.880
+ Right. Okay. So, by the way, are these the cortical microcircuits?
+
+35:38.880 --> 35:43.120
+ Correct. These are the cortical microcircuits. You know, that's what neuroscientists use to
+
+35:43.120 --> 35:49.840
+ talk about the circuits within a level of the cortex. So, you can think of, you know,
+
+35:49.840 --> 35:54.960
+ let's think of a neural network, artificial neural network terms. People talk about the
+
+35:54.960 --> 36:01.600
+ architecture of how many layers they build, what is the fan in, fan out, et cetera. That is the
+
+36:01.600 --> 36:11.120
+ macro architecture. And then within a layer of the neural network, the cortical neural network
+
+36:11.120 --> 36:18.160
+ is much more structured within a level. There's a lot more intricate structure there. But even
+
+36:18.160 --> 36:23.520
+ within an artificial neural network, you can think of feature detection plus pooling as one
+
+36:23.520 --> 36:32.880
+ level. And so, that is kind of a microcircuit. It's much more complex in the real brain. And so,
+
+36:32.880 --> 36:38.080
+ within a level, whatever is that circuitry within a column of the cortex and between the layers of
+
+36:38.080 --> 36:43.040
+ the cortex, that's the microcircuitry. I love that terminology. Machine learning
+
+36:43.040 --> 36:45.760
+ people don't use the circuit terminology. Right.
+
+36:45.760 --> 36:53.920
+ But they should. It's nice. So, okay. Okay. So, that's the cortical microcircuit. So,
+
+36:53.920 --> 36:59.760
+ what's interesting about, what can we say, what is the paper that you're working on
+
+37:00.640 --> 37:04.320
+ propose about the ideas around these cortical microcircuits?
+
+37:04.320 --> 37:10.640
+ So, this is a fully functional model for the microcircuits of the visual cortex.
+
+37:10.640 --> 37:15.520
+ So, the paper focuses on your idea and our discussion now is focusing on vision.
+
+37:15.520 --> 37:18.800
+ Yeah. The visual cortex. Okay. So,
+
+37:18.800 --> 37:22.160
+ this is a model. This is a full model. This is how vision works.
+
+37:22.880 --> 37:32.000
+ But this is a hypothesis. Okay. So, let me step back a bit. So, we looked at neuroscience for
+
+37:32.000 --> 37:35.280
+ insights on how to build a vision model. Right.
+
+37:35.280 --> 37:40.560
+ And we synthesized all those insights into a computational model. This is called the recursive
+
+37:40.560 --> 37:47.760
+ cortical network model that we used for breaking captures. And we are using the same model for
+
+37:47.760 --> 37:52.320
+ robotic picking and tracking of objects. And that, again, is a vision system.
+
+37:52.320 --> 37:54.400
+ That's a vision system. Computer vision system.
+
+37:54.400 --> 37:59.120
+ That's a computer vision system. Takes in images and outputs what?
+
+37:59.120 --> 38:06.560
+ On one side, it outputs the class of the image and also segments the image. And you can also ask it
+
+38:06.560 --> 38:11.600
+ further queries. Where is the edge of the object? Where is the interior of the object? So, it's a
+
+38:11.600 --> 38:17.120
+ model that you build to answer multiple questions. So, you're not trying to build a model for just
+
+38:17.120 --> 38:23.440
+ classification or just segmentation, et cetera. It's a joint model that can do multiple things.
+
+38:23.440 --> 38:30.080
+ So, that's the model that we built using insights from neuroscience. And some of those insights are
+
+38:30.080 --> 38:34.160
+ what is the role of feedback connections? What is the role of lateral connections? So,
+
+38:34.160 --> 38:38.800
+ all those things went into the model. The model actually uses feedback connections.
+
+38:38.800 --> 38:41.440
+ All these ideas from neuroscience. Yeah.
+
+38:41.440 --> 38:47.200
+ So, what the heck is a recursive cortical network? What are the architecture approaches,
+
+38:47.200 --> 38:54.400
+ interesting aspects here, which is essentially a brain inspired approach to computer vision?
+
+38:54.400 --> 38:58.880
+ Yeah. So, there are multiple layers to this question. I can go from the very,
+
+38:58.880 --> 39:05.840
+ very top and then zoom in. Okay. So, one important thing, constraint that went into the model is that
+
+39:05.840 --> 39:11.600
+ you should not think vision, think of vision as something in isolation. We should not think
+
+39:11.600 --> 39:19.200
+ perception as something as a preprocessor for cognition. Perception and cognition are interconnected.
+
+39:19.200 --> 39:24.800
+ And so, you should not think of one problem in separation from the other problem. And so,
+
+39:24.800 --> 39:30.720
+ that means if you finally want to have a system that understand concepts about the world and can
+
+39:30.720 --> 39:36.000
+ learn a very conceptual model of the world and can reason and connect to language, all of those
+
+39:36.000 --> 39:41.920
+ things, you need to think all the way through and make sure that your perception system
+
+39:41.920 --> 39:45.920
+ is compatible with your cognition system and language system and all of them.
+
+39:45.920 --> 39:52.320
+ And one aspect of that is top down controllability. What does that mean?
+
+39:52.320 --> 39:58.480
+ So, that means, you know, so think of, you know, you can close your eyes and think about
+
+39:58.480 --> 40:05.600
+ the details of one object, right? I can zoom in further and further. So, think of the bottle in
+
+40:05.600 --> 40:11.280
+ front of me, right? And now, you can think about, okay, what the cap of that bottle looks.
+
+40:11.280 --> 40:18.000
+ I know we can think about what's the texture on that bottle of the cap. You know, you can think
+
+40:18.000 --> 40:25.760
+ about, you know, what will happen if something hits that. So, you can manipulate your visual
+
+40:25.760 --> 40:35.520
+ knowledge in cognition driven ways. Yes. And so, this top down controllability and being able to
+
+40:35.520 --> 40:43.920
+ simulate scenarios in the world. So, you're not just a passive player in this perception game.
+
+40:43.920 --> 40:50.320
+ You can control it. You have imagination. Correct. Correct. So, basically, you know,
+
+40:50.320 --> 40:56.000
+ basically having a generative network, which is a model and it is not just some arbitrary
+
+40:56.000 --> 41:02.000
+ generative network. It has to be built in a way that it is controllable top down. It is not just
+
+41:02.000 --> 41:07.760
+ trying to generate a whole picture at once. You know, it's not trying to generate photorealistic
+
+41:07.760 --> 41:11.520
+ things of the world. You know, you don't have good photorealistic models of the world. Human
+
+41:11.520 --> 41:17.360
+ brains do not have. If I, for example, ask you the question, what is the color of the letter E
+
+41:17.360 --> 41:25.360
+ in the Google logo? You have no idea. Although, you have seen it millions of times, hundreds of
+
+41:25.360 --> 41:32.240
+ times. So, it's not, our model is not photorealistic, but it has other properties that we can
+
+41:32.240 --> 41:37.840
+ manipulate it. And you can think about filling in a different color in that logo. You can think
+
+41:37.840 --> 41:44.400
+ about expanding the letter E. You know, you can see what, so you can imagine the consequence of,
+
+41:44.400 --> 41:49.040
+ you know, actions that you have never performed. So, these are the kind of characteristics the
+
+41:49.040 --> 41:52.800
+ generative model need to have. So, this is one constraint that went into our model. Like, you
+
+41:52.800 --> 41:57.920
+ know, so this is, when you read the, just the perception side of the paper, it is not obvious
+
+41:57.920 --> 42:02.720
+ that this was a constraint into the, that went into the model, this top down controllability
+
+42:02.720 --> 42:10.480
+ of the generative model. So, what does top down controllability in a model look like? It's a
+
+42:10.480 --> 42:16.000
+ really interesting concept. Fascinating concept. What does that, is that the recursiveness gives
+
+42:16.000 --> 42:22.080
+ you that? Or how do you do it? Quite a few things. It's like, what does the model factor,
+
+42:22.080 --> 42:26.720
+ factorize? You know, what are the, what is the model representing as different pieces in the
+
+42:26.720 --> 42:33.440
+ puzzle? Like, you know, so, so in the RCN network, it thinks of the world, you know, so what I said,
+
+42:33.440 --> 42:39.040
+ the background of an image is modeled separately from the foreground of the image. So,
+
+42:39.040 --> 42:43.200
+ the objects are separate from the background. They are different entities. So, there's a kind
+
+42:43.200 --> 42:49.840
+ of segmentation that's built in fundamentally. And then even that object is composed of parts.
+
+42:49.840 --> 42:57.440
+ And also, another one is the shape of the object is differently modeled from the texture of the
+
+42:57.440 --> 43:08.800
+ object. Got it. So, there's like these, you know who Francois Chollet is? Yeah. So, there's, he
+
+43:08.800 --> 43:15.440
+ developed this like IQ test type of thing for ARC challenge for, and it's kind of cool that there's
+
+43:16.160 --> 43:22.560
+ these concepts, priors that he defines that you bring to the table in order to be able to reason
+
+43:22.560 --> 43:30.080
+ about basic shapes and things in IQ test. So, here you're making it quite explicit that here are the
+
+43:30.080 --> 43:36.960
+ things that you should be, these are like distinct things that you should be able to model in this.
+
+43:36.960 --> 43:42.240
+ Keep in mind that you can derive this from much more general principles. It doesn't, you don't
+
+43:42.240 --> 43:48.880
+ need to explicitly put it as, oh, objects versus foreground versus background, the surface versus
+
+43:48.880 --> 43:55.440
+ the structure. No, these are, these are derivable from more fundamental principles of how, you know,
+
+43:55.440 --> 44:01.520
+ what's the property of continuity of natural signals. What's the property of continuity of
+
+44:01.520 --> 44:07.120
+ natural signals? Yeah. By the way, that sounds very poetic, but yeah. So, you're saying that's a,
+
+44:07.920 --> 44:12.560
+ there's some low level properties from which emerges the idea that shapes should be different
+
+44:12.560 --> 44:18.640
+ than like there should be a parts of an object. There should be, I mean, kind of like Francois,
+
+44:18.640 --> 44:23.840
+ I mean, there's objectness, there's all these things that it's kind of crazy that we humans,
+
+44:25.040 --> 44:30.240
+ I guess, evolved to have because it's useful for us to perceive the world. Yeah. Correct. And it
+
+44:30.240 --> 44:38.080
+ derives mostly from the properties of natural signals. And so, natural signals. So, natural
+
+44:38.080 --> 44:43.200
+ signals are the kind of things we'll perceive in the natural world. Correct. I don't know. I don't
+
+44:43.200 --> 44:48.080
+ know why that sounds so beautiful. Natural signals. Yeah. As opposed to a QR code, right? Which is an
+
+44:48.080 --> 44:52.880
+ artificial signal that we created. Humans are not very good at classifying QR codes. We are very
+
+44:52.880 --> 44:58.480
+ good at saying something is a cat or a dog, but not very good at, you know, where computers are
+
+44:58.480 --> 45:05.600
+ very good at classifying QR codes. So, our visual system is tuned for natural signals. So,
+
+45:05.600 --> 45:11.680
+ it's tuned for natural signals. And there are fundamental assumptions in the architecture
+
+45:11.680 --> 45:18.640
+ that are derived from natural signals properties. I wonder when you take hallucinogenic drugs,
+
+45:18.640 --> 45:25.120
+ does that go into natural or is that closer to the QR code? It's still natural. It's still natural?
+
+45:25.120 --> 45:30.480
+ Yeah. Because it is still operating using your brains. By the way, on that topic, I mean,
+
+45:30.480 --> 45:34.640
+ I haven't been following. I think they're becoming legalized and certain. I can't wait
+
+45:34.640 --> 45:40.080
+ they become legalized to a degree that you, like, vision science researchers could study it.
+
+45:40.080 --> 45:47.600
+ Yeah. Just like through medical, chemical ways, modify. There could be ethical concerns, but
+
+45:47.600 --> 45:53.280
+ modify. That's another way to study the brain is to be able to chemically modify it. There's
+
+45:53.280 --> 46:01.200
+ probably very long a way to figure out how to do it ethically. Yeah, but I think there are studies
+
+46:01.200 --> 46:07.360
+ on that already. Yeah, I think so. Because it's not unethical to give it to rats.
+
+46:08.080 --> 46:15.600
+ Oh, that's true. That's true. There's a lot of drugged up rats out there. Okay, cool. Sorry.
+
+46:15.600 --> 46:23.840
+ Sorry. It's okay. So, there's these low level things from natural signals that...
+
+46:23.840 --> 46:33.840
+...from which these properties will emerge. But it is still a very hard problem on how to encode
+
+46:33.840 --> 46:44.880
+ that. So, you mentioned the priors Francho wanted to encode in the abstract reasoning challenge,
+
+46:44.880 --> 46:50.960
+ but it is not straightforward how to encode those priors. So, some of those challenges,
+
+46:50.960 --> 46:57.040
+ like the object completion challenges are things that we purely use our visual system to do.
+
+46:57.840 --> 47:03.200
+ It looks like abstract reasoning, but it is purely an output of the vision system. For example,
+
+47:03.200 --> 47:07.120
+ completing the corners of that condenser triangle, completing the lines of that condenser triangle.
+
+47:07.120 --> 47:12.160
+ It's purely a visual system property. There is no abstract reasoning involved. It uses all these
+
+47:12.160 --> 47:18.720
+ priors, but it is stored in our visual system in a particular way that is amenable to inference.
+
+47:18.720 --> 47:25.440
+ That is one of the things that we tackled in the... Basically saying, okay, these are the
+
+47:25.440 --> 47:31.440
+ prior knowledge which will be derived from the world, but then how is that prior knowledge
+
+47:31.440 --> 47:38.080
+ represented in the model such that inference when some piece of evidence comes in can be
+
+47:38.080 --> 47:44.640
+ done very efficiently and in a very distributed way? Because there are so many ways of representing
+
+47:44.640 --> 47:53.840
+ knowledge, which is not amenable to very quick inference, quick lookups. So that's one core part
+
+47:53.840 --> 48:01.920
+ of what we tackled in the RCN model. How do you encode visual knowledge to do very quick inference?
+
+48:02.800 --> 48:07.920
+ Can you maybe comment on... So folks listening to this in general may be familiar with
+
+48:08.560 --> 48:10.720
+ different kinds of architectures of a neural networks.
+
+48:10.720 --> 48:16.240
+ What are we talking about with RCN? What does the architecture look like? What are the different
+
+48:16.240 --> 48:20.720
+ components? Is it close to neural networks? Is it far away from neural networks? What does it look
+
+48:20.720 --> 48:27.040
+ like? Yeah. So you can think of the Delta between the model and a convolutional neural network,
+
+48:27.040 --> 48:31.440
+ if people are familiar with convolutional neural networks. So convolutional neural networks have
+
+48:31.440 --> 48:37.440
+ this feed forward processing cascade, which is called feature detectors and pooling. And that
+
+48:37.440 --> 48:46.320
+ is repeated in a multi level system. And if you want an intuitive idea of what is happening,
+
+48:46.320 --> 48:53.920
+ feature detectors are detecting interesting co occurrences in the input. It can be a line,
+
+48:53.920 --> 49:03.200
+ a corner, an eye or a piece of texture, et cetera. And the pooling neurons are doing some local
+
+49:03.200 --> 49:07.840
+ transformation of that and making it invariant to local transformations. So this is what the
+
+49:07.840 --> 49:14.880
+ structure of convolutional neural network is. Recursive cortical network has a similar structure
+
+49:14.880 --> 49:19.600
+ when you look at just the feed forward pathway. But in addition to that, it is also structured
+
+49:19.600 --> 49:25.680
+ in a way that it is generative so that it can run it backward and combine the forward with the
+
+49:25.680 --> 49:37.280
+ backward. Another aspect that it has is it has lateral connections. So if you have an edge here
+
+49:37.280 --> 49:42.080
+ and an edge here, it has connections between these edges. It is not just feed forward connections.
+
+49:42.080 --> 49:49.280
+ It is something between these edges, which is the nodes representing these edges, which is to
+
+49:49.280 --> 49:53.920
+ enforce compatibility between them. So otherwise what will happen is that constraints. It's a
+
+49:53.920 --> 50:01.200
+ constraint. It's basically if you do just feature detection followed by pooling, then your
+
+50:01.200 --> 50:07.760
+ transformations in different parts of the visual field are not coordinated. And so you will create
+
+50:07.760 --> 50:14.480
+ a jagged, when you generate from the model, you will create jagged things and uncoordinated
+
+50:14.480 --> 50:20.160
+ transformations. So these lateral connections are enforcing the transformations.
+
+50:20.160 --> 50:22.160
+ Is the whole thing still differentiable?
+
+50:22.160 --> 50:27.440
+ No, it's not. It's not trained using backprop.
+
+50:27.440 --> 50:32.720
+ Okay. That's really important. So there's this feed forward, there's feedback mechanisms.
+
+50:33.280 --> 50:41.040
+ There's some interesting connectivity things. It's still layered like multiple layers.
+
+50:41.040 --> 50:48.240
+ Okay. Very, very interesting. And yeah. Okay. So the interconnection between adjacent connections
+
+50:48.240 --> 50:52.880
+ across service constraints that keep the thing stable.
+
+50:52.880 --> 50:53.680
+ Correct.
+
+50:53.680 --> 50:55.840
+ Okay. So what else?
+
+50:55.840 --> 51:02.320
+ And then there's this idea of doing inference. A neural network does not do inference on the fly.
+
+51:03.120 --> 51:09.200
+ So an example of why this inference is important is, you know, so one of the first applications
+
+51:09.200 --> 51:15.040
+ that we showed in the paper was to crack text based captures.
+
+51:15.040 --> 51:16.000
+ What are captures?
+
+51:16.000 --> 51:21.040
+ I mean, by the way, one of the most awesome, like the people don't use this term anymore
+
+51:21.040 --> 51:26.640
+ as human computation, I think. I love this term. The guy who created captures,
+
+51:26.640 --> 51:32.640
+ I think came up with this term. I love it. Anyway. What are captures?
+
+51:32.640 --> 51:38.480
+ So captures are those things that you fill in when you're, you know, if you're
+
+51:38.480 --> 51:43.200
+ opening a new account in Google, they show you a picture, you know, usually
+
+51:43.200 --> 51:48.720
+ it used to be set of garbled letters that you have to kind of figure out what is that string
+
+51:48.720 --> 51:56.640
+ of characters and type it. And the reason captures exist is because, you know, Google or Twitter
+
+51:56.640 --> 52:03.200
+ do not want automatic creation of accounts. You can use a computer to create millions of accounts
+
+52:03.200 --> 52:10.560
+ and use that for nefarious purposes. So you want to make sure that to the extent possible,
+
+52:10.560 --> 52:16.080
+ the interaction that their system is having is with a human. So it's a, it's called a human
+
+52:16.080 --> 52:23.120
+ interaction proof. A capture is a human interaction proof. So, so this is a captures are by design,
+
+52:23.840 --> 52:27.360
+ things that are easy for humans to solve, but hard for computers.
+
+52:27.360 --> 52:28.240
+ Hard for robots.
+
+52:28.240 --> 52:36.320
+ Yeah. So, and text based captures was the one which is prevalent around 2014,
+
+52:36.320 --> 52:42.240
+ because at that time, text based captures were hard for computers to crack. Even now,
+
+52:42.240 --> 52:48.240
+ they are actually in the sense of an arbitrary text based capture will be unsolvable even now,
+
+52:48.240 --> 52:52.320
+ but with the techniques that we have developed, it can be, you know, you can quickly develop
+
+52:52.320 --> 52:55.360
+ a mechanism that solves the capture.
+
+52:55.360 --> 53:00.320
+ They've probably gotten a lot harder too. They've been getting clever and clever
+
+53:00.320 --> 53:06.640
+ generating these text captures. So, okay. So that was one of the things you've tested it on is these
+
+53:06.640 --> 53:15.120
+ kinds of captures in 2014, 15, that kind of stuff. So what, I mean, why, by the way, why captures?
+
+53:15.120 --> 53:21.920
+ Yeah. Even now, I would say capture is a very, very good challenge problem. If you want to
+
+53:21.920 --> 53:27.040
+ understand how human perception works, and if you want to build systems that work,
+
+53:27.040 --> 53:32.880
+ like the human brain, and I wouldn't say capture is a solved problem. We have cracked the fundamental
+
+53:32.880 --> 53:40.000
+ defense of captures, but it is not solved in the way that humans solve it. So I can give an example.
+
+53:40.000 --> 53:48.640
+ I can take a five year old child who has just learned characters and show them any new capture
+
+53:48.640 --> 53:56.400
+ that we create. They will be able to solve it. I can show you, I can show you a picture of a
+
+53:56.400 --> 54:02.000
+ character. I can show you pretty much any new capture from any new website. You'll be able to
+
+54:02.000 --> 54:06.640
+ solve it without getting any training examples from that particular style of capture.
+
+54:06.640 --> 54:08.000
+ You're assuming I'm human. Yeah.
+
+54:08.000 --> 54:14.560
+ Yes. Yeah. That's right. So if you are human, otherwise I will be able to figure that out
+
+54:15.440 --> 54:22.000
+ using this one. But this whole podcast is just a touring test, a long touring test. Anyway,
+
+54:22.000 --> 54:28.880
+ yeah. So humans can figure it out with very few examples. Or no training examples. No training
+
+54:28.880 --> 54:37.760
+ examples from that particular style of capture. So even now this is unreachable for the current
+
+54:37.760 --> 54:41.760
+ deep learning system. So basically there is no, I don't think a system exists where you can
+
+54:41.760 --> 54:47.840
+ basically say, train on whatever you want. And then now say, hey, I will show you a new capture,
+
+54:47.840 --> 54:54.160
+ which I did not show you in the training setup. Will the system be able to solve it? It still
+
+54:54.160 --> 55:01.760
+ doesn't exist. So that is the magic of human perception. And Doug Hofstadter put this very
+
+55:01.760 --> 55:11.440
+ beautifully in one of his talks. The central problem in AI is what is the letter A. If you
+
+55:11.440 --> 55:17.600
+ can build a system that reliably can detect all the variations of the letter A, you don't even
+
+55:17.600 --> 55:23.040
+ know to go to the B and the C. Yeah. You don't even know to go to the B and the C or the strings
+
+55:23.040 --> 55:28.880
+ of characters. And so that is the spirit with which we tackle that problem.
+
+55:28.880 --> 55:36.160
+ What does it mean by that? I mean, is it like without training examples, try to figure out
+
+55:36.160 --> 55:43.520
+ the fundamental elements that make up the letter A in all of its forms?
+
+55:43.520 --> 55:47.920
+ In all of its forms. A can be made with two humans standing, leaning against each other,
+
+55:47.920 --> 55:51.360
+ holding the hands. And it can be made of leaves.
+
+55:52.080 --> 55:56.480
+ Yeah. You might have to understand everything about this world in order to understand the
+
+55:56.480 --> 55:57.920
+ letter A. Yeah. Exactly.
+
+55:57.920 --> 56:00.400
+ So it's common sense reasoning, essentially. Yeah.
+
+56:00.400 --> 56:06.720
+ Right. So to finally, to really solve, finally to say that you have solved capture,
+
+56:07.760 --> 56:08.880
+ you have to solve the whole problem.
+
+56:08.880 --> 56:18.560
+ Yeah. Okay. So how does this kind of the RCN architecture help us to do a better job of that
+
+56:18.560 --> 56:24.400
+ kind of thing? Yeah. So as I mentioned, one of the important things was being able to do inference,
+
+56:24.960 --> 56:26.480
+ being able to dynamically do inference.
+
+56:28.640 --> 56:33.040
+ Can you clarify what you mean? Because you said like neural networks don't do inference.
+
+56:33.040 --> 56:35.840
+ Yeah. So what do you mean by inference in this context then?
+
+56:35.840 --> 56:42.560
+ So, okay. So in captures, what they do to confuse people is to make these characters crowd together.
+
+56:43.360 --> 56:48.400
+ Yes. Okay. And when you make the characters crowd together, what happens is that you will now start
+
+56:48.400 --> 56:53.920
+ seeing combinations of characters as some other new character or an existing character. So you
+
+56:53.920 --> 57:02.320
+ would put an R and N together. It will start looking like an M. And so locally, there is
+
+57:02.320 --> 57:11.520
+ very strong evidence for it being some incorrect character. But globally, the only explanation that
+
+57:11.520 --> 57:17.600
+ fits together is something that is different from what you can find locally. Yes. So this is
+
+57:18.240 --> 57:25.840
+ inference. You are basically taking local evidence and putting it in the global context and often
+
+57:25.840 --> 57:29.920
+ coming to a conclusion locally, which is conflicting with the local information.
+
+57:29.920 --> 57:36.560
+ So actually, so you mean inference like in the way it's used when you talk about reasoning,
+
+57:36.560 --> 57:42.240
+ for example, as opposed to like inference, which is with artificial neural networks,
+
+57:42.240 --> 57:47.840
+ which is a single pass to the network. Okay. So like you're basically doing some basic forms of
+
+57:47.840 --> 57:54.480
+ reasoning, like integration of like how local things fit into the global picture.
+
+57:54.480 --> 57:59.840
+ And things like explaining a way coming into this one, because you are explaining that piece
+
+57:59.840 --> 58:06.960
+ of evidence as something else, because globally, that's the only thing that makes sense. So now
+
+58:08.160 --> 58:15.600
+ you can amortize this inference in a neural network. If you want to do this, you can brute
+
+58:15.600 --> 58:23.120
+ force it. You can just show it all combinations of things that you want your reasoning to work over.
+
+58:23.120 --> 58:30.880
+ And you can just train the help out of that neural network and it will look like it is doing inference
+
+58:30.880 --> 58:37.680
+ on the fly, but it is really just doing amortized inference. It is because you have shown it a lot
+
+58:37.680 --> 58:43.840
+ of these combinations during training time. So what you want to do is be able to do dynamic
+
+58:43.840 --> 58:48.480
+ inference rather than just being able to show all those combinations in the training time.
+
+58:48.480 --> 58:54.080
+ And that's something we emphasized in the model. What does it mean, dynamic inference? Is that
+
+58:54.080 --> 59:00.320
+ that has to do with the feedback thing? Yes. Like what is dynamic? I'm trying to visualize what
+
+59:00.320 --> 59:05.920
+ dynamic inference would be in this case. Like what is it doing with the input? It's shown the input
+
+59:05.920 --> 59:13.840
+ the first time. Yeah. And is like what's changing over temporally? What's the dynamics of this
+
+59:13.840 --> 59:19.840
+ inference process? So you can think of it as you have at the top of the model, the characters that
+
+59:19.840 --> 59:26.720
+ you are trained on. They are the causes that you are trying to explain the pixels using the
+
+59:26.720 --> 59:33.600
+ characters as the causes. The characters are the things that cause the pixels. Yeah. So there's
+
+59:33.600 --> 59:38.960
+ this causality thing. So the reason you mentioned causality, I guess, is because there's a temporal
+
+59:38.960 --> 59:43.280
+ aspect to this whole thing. In this particular case, the temporal aspect is not important.
+
+59:43.280 --> 59:50.000
+ It is more like when if I turn the character on, the pixels will turn on. Yeah, it will be after
+
+59:50.000 --> 59:55.520
+ this a little bit. Okay. So that is causality in the sense of like a logic causality, like
+
+59:55.520 --> 1:00:03.200
+ hence inference. Okay. The dynamics is that even though locally it will look like, okay, this is an
+
+1:00:03.200 --> 1:00:11.280
+ A. And locally, just when I look at just that patch of the image, it looks like an A. But when I look
+
+1:00:11.280 --> 1:00:17.600
+ at it in the context of all the other causes, A is not something that makes sense. So that is
+
+1:00:17.600 --> 1:00:24.720
+ something you have to kind of recursively figure out. Yeah. So, okay. And this thing performed
+
+1:00:24.720 --> 1:00:32.080
+ pretty well on the CAPTCHAs. Correct. And I mean, is there some kind of interesting intuition you
+
+1:00:32.080 --> 1:00:37.840
+ can provide why it did well? Like what did it look like? Is there visualizations that could be human
+
+1:00:37.840 --> 1:00:43.360
+ interpretable to us humans? Yes. Yeah. So the good thing about the model is that it is extremely,
+
+1:00:44.320 --> 1:00:50.400
+ so it is not just doing a classification, right? It is providing a full explanation for the scene.
+
+1:00:50.400 --> 1:00:59.600
+ So when it operates on a scene, it is coming back and saying, look, this is the part is the A,
+
+1:00:59.600 --> 1:01:06.880
+ and these are the pixels that turned on. These are the pixels in the input that makes me think that
+
+1:01:06.880 --> 1:01:14.640
+ it is an A. And also, these are the portions I hallucinated. It provides a complete explanation
+
+1:01:14.640 --> 1:01:21.360
+ of that form. And then these are the contours. This is the interior. And this is in front of
+
+1:01:21.360 --> 1:01:28.400
+ this other object. So that's the kind of explanation the inference network provides.
+
+1:01:28.400 --> 1:01:38.800
+ So that is useful and interpretable. And then the kind of errors it makes are also,
+
+1:01:40.000 --> 1:01:47.040
+ I don't want to read too much into it, but the kind of errors the network makes are very similar
+
+1:01:47.040 --> 1:01:51.120
+ to the kinds of errors humans would make in a similar situation. So there's something about
+
+1:01:51.120 --> 1:02:00.240
+ the structure that feels reminiscent of the way humans visual system works. Well, I mean,
+
+1:02:00.240 --> 1:02:03.760
+ how hardcoded is this to the capture problem, this idea?
+
+1:02:04.320 --> 1:02:09.840
+ Not really hardcoded because the assumptions, as I mentioned, are general, right? It is more,
+
+1:02:11.280 --> 1:02:17.680
+ and those themselves can be applied in many situations which are natural signals. So it's
+
+1:02:17.680 --> 1:02:24.320
+ the foreground versus background factorization and the factorization of the surfaces versus
+
+1:02:24.320 --> 1:02:27.600
+ the contours. So these are all generally applicable assumptions.
+
+1:02:27.600 --> 1:02:36.000
+ In all vision. So why attack the capture problem, which is quite unique in the computer vision
+
+1:02:36.000 --> 1:02:42.800
+ context versus like the traditional benchmarks of ImageNet and all those kinds of image
+
+1:02:42.800 --> 1:02:49.120
+ classification or even segmentation tasks and all of that kind of stuff. What's your thinking about
+
+1:02:49.120 --> 1:02:55.760
+ those kinds of benchmarks in this context? I mean, those benchmarks are useful for deep
+
+1:02:55.760 --> 1:03:03.600
+ learning kind of algorithms. So the settings that deep learning works in are here is my huge
+
+1:03:03.600 --> 1:03:10.480
+ training set and here is my test set. So the training set is almost 100x, 1000x bigger than
+
+1:03:10.480 --> 1:03:18.480
+ the test set in many, many cases. What we wanted to do was invert that. The training set is way
+
+1:03:18.480 --> 1:03:30.080
+ smaller than the test set. And capture is a problem that is by definition hard for computers
+
+1:03:30.080 --> 1:03:36.640
+ and it has these good properties of strong generalization, strong out of training distribution
+
+1:03:36.640 --> 1:03:44.480
+ generalization. If you are interested in studying that and having your model have that property,
+
+1:03:44.480 --> 1:03:49.840
+ then it's a good data set to tackle. So have you attempted to, which I think,
+
+1:03:49.840 --> 1:03:58.080
+ I believe there's quite a growing body of work on looking at MNIST and ImageNet without training.
+
+1:03:58.080 --> 1:04:05.760
+ So it's like taking the basic challenge is what tiny fraction of the training set can we take in
+
+1:04:05.760 --> 1:04:13.680
+ order to do a reasonable job of the classification task? Have you explored that angle in these
+
+1:04:13.680 --> 1:04:20.640
+ classic benchmarks? Yes. So we did do MNIST. So it's not just capture. So there was also
+
+1:04:23.440 --> 1:04:28.720
+ multiple versions of MNIST, including the standard version where we inverted the problem,
+
+1:04:28.720 --> 1:04:36.400
+ which is basically saying rather than train on 60,000 training data, how quickly can you get
+
+1:04:37.200 --> 1:04:42.080
+ to high level accuracy with very little training data? Is there some performance you remember,
+
+1:04:42.080 --> 1:04:50.400
+ like how well did it do? How many examples did it need? Yeah. I remember that it was
+
+1:04:50.400 --> 1:05:00.880
+ on the order of tens or hundreds of examples to get into 95% accuracy. And it was definitely
+
+1:05:00.880 --> 1:05:03.840
+ better than the other systems out there at that time.
+
+1:05:03.840 --> 1:05:07.920
+ At that time. Yeah. They're really pushing. I think that's a really interesting space,
+
+1:05:07.920 --> 1:05:17.360
+ actually. I think there's an actual name for MNIST. There's different names to the different
+
+1:05:17.360 --> 1:05:21.600
+ sizes of training sets. I mean, people are like attacking this problem. I think it's
+
+1:05:21.600 --> 1:05:28.240
+ super interesting. It's funny how like the MNIST will probably be with us all the way to AGI.
+
+1:05:29.760 --> 1:05:37.680
+ It's a data set that just sticks by. It's a clean, simple data set to study the fundamentals of
+
+1:05:37.680 --> 1:05:43.280
+ learning with just like captures. It's interesting. Not enough people. I don't know. Maybe you can
+
+1:05:43.280 --> 1:05:48.240
+ correct me, but I feel like captures don't show up as often in papers as they probably should.
+
+1:05:48.240 --> 1:05:56.640
+ That's correct. Yeah. Because usually these things have a momentum. Once something gets
+
+1:05:56.640 --> 1:06:04.880
+ established as a standard benchmark, there is a dynamics of how graduate students operate and how
+
+1:06:06.000 --> 1:06:10.640
+ academic system works that pushes people to track that benchmark.
+
+1:06:10.640 --> 1:06:19.600
+ Yeah. Nobody wants to think outside the box. Okay. Okay. So good performance on the captures.
+
+1:06:20.480 --> 1:06:25.520
+ What else is there interesting on the RCN side before we talk about the cortical micros?
+
+1:06:25.520 --> 1:06:31.760
+ Yeah. So the same model. So the important part of the model was that it trains very
+
+1:06:31.760 --> 1:06:37.440
+ quickly with very little training data and it's quite robust to out of distribution
+
+1:06:37.440 --> 1:06:45.760
+ perturbations. And we are using that very fruitfully at Vicarious in many of the
+
+1:06:45.760 --> 1:06:51.840
+ robotics tasks we are solving. Well, let me ask you this kind of touchy question. I have to,
+
+1:06:51.840 --> 1:06:59.520
+ I've spoken with your friend, colleague, Jeff Hawkins, too. I have to kind of ask,
+
+1:06:59.520 --> 1:07:05.680
+ there is a bit of, whenever you have brain inspired stuff and you make big claims,
+
+1:07:05.680 --> 1:07:14.720
+ big sexy claims, there's critics, I mean, machine learning subreddit, don't get me started on those
+
+1:07:14.720 --> 1:07:23.680
+ people. Criticism is good, but they're a bit over the top. There is quite a bit of sort of
+
+1:07:23.680 --> 1:07:31.040
+ skepticism and criticism. Is this work really as good as it promises to be? Do you have thoughts
+
+1:07:31.040 --> 1:07:36.800
+ on that kind of skepticism? Do you have comments on the kind of criticism I might have received
+
+1:07:36.800 --> 1:07:44.880
+ about, you know, is this approach legit? Is this a promising approach? Or at least as promising as
+
+1:07:44.880 --> 1:07:52.480
+ it seems to be, you know, advertised as? Yeah, I can comment on it. So, you know, our RCN paper
+
+1:07:52.480 --> 1:07:58.560
+ is published in Science, which I would argue is a very high quality journal, very hard to publish
+
+1:07:58.560 --> 1:08:08.160
+ in. And, you know, usually it is indicative of the quality of the work. And I am very,
+
+1:08:08.160 --> 1:08:13.760
+ very certain that the ideas that we brought together in that paper, in terms of the importance
+
+1:08:13.760 --> 1:08:20.160
+ of feedback connections, recursive inference, lateral connections, coming to best explanation
+
+1:08:20.160 --> 1:08:27.360
+ of the scene as the problem to solve, trying to solve recognition, segmentation, all jointly,
+
+1:08:27.360 --> 1:08:31.920
+ in a way that is compatible with higher level cognition, top down attention, all those ideas
+
+1:08:31.920 --> 1:08:36.000
+ that we brought together into something, you know, coherent and workable in the world and
+
+1:08:36.000 --> 1:08:40.880
+ solving a challenging, tackling a challenging problem. I think that will stay and that
+
+1:08:40.880 --> 1:08:49.360
+ contribution I stand by. Now, I can tell you a story which is funny in the context of this. So,
+
+1:08:49.360 --> 1:08:53.360
+ if you read the abstract of the paper and, you know, the argument we are putting in, you know,
+
+1:08:53.360 --> 1:08:59.120
+ we are putting in, look, current deep learning systems take a lot of training data. They don't
+
+1:08:59.120 --> 1:09:03.760
+ use these insights. And here is our new model, which is not a deep neural network. It's a
+
+1:09:03.760 --> 1:09:08.560
+ graphical model. It does inference. This is how the paper is, right? Now, once the paper was
+
+1:09:08.560 --> 1:09:14.800
+ accepted and everything, it went to the press department in Science, you know, AAAS Science
+
+1:09:14.800 --> 1:09:18.880
+ Office. We didn't do any press release when it was published. It went to the press department.
+
+1:09:18.880 --> 1:09:23.200
+ What was the press release that they wrote up? A new deep learning model.
+
+1:09:24.880 --> 1:09:25.920
+ Solves CAPTCHAs.
+
+1:09:25.920 --> 1:09:32.400
+ Solves CAPTCHAs. And so, you can see where was, you know, what was being hyped in that thing,
+
+1:09:32.400 --> 1:09:42.160
+ right? So, there is a dynamic in the community of, you know, so that especially happens when
+
+1:09:42.160 --> 1:09:46.720
+ there are lots of new people coming into the field and they get attracted to one thing.
+
+1:09:46.720 --> 1:09:52.560
+ And some people are trying to think different compared to that. So, there is some, I think
+
+1:09:52.560 --> 1:09:59.360
+ skepticism is science is important and it is, you know, very much required. But it's also,
+
+1:09:59.360 --> 1:10:04.480
+ it's not skepticism. Usually, it's mostly bandwagon effect that is happening rather than.
+
+1:10:05.200 --> 1:10:09.760
+ Well, but that's not even that. I mean, I'll tell you what they react to, which is like,
+
+1:10:09.760 --> 1:10:16.960
+ I'm sensitive to as well. If you look at just companies, OpenAI, DeepMind, Vicarious, I mean,
+
+1:10:16.960 --> 1:10:27.520
+ they just, there's a little bit of a race to the top and hype, right? It's like, it doesn't pay off
+
+1:10:27.520 --> 1:10:37.600
+ to be humble. So, like, and the press is just irresponsible often. They just, I mean, don't
+
+1:10:37.600 --> 1:10:42.880
+ get me started on the state of journalism today. Like, it seems like the people who write articles
+
+1:10:42.880 --> 1:10:49.280
+ about these things, they literally have not even spent an hour on the Wikipedia article about what
+
+1:10:49.280 --> 1:10:55.440
+ is neural networks. Like, they haven't like invested just even the language to laziness.
+
+1:10:56.160 --> 1:11:06.800
+ It's like, robots beat humans. Like, they write this kind of stuff that just, and then of course,
+
+1:11:06.800 --> 1:11:11.760
+ the researchers are quite sensitive to that because it gets a lot of attention. They're like,
+
+1:11:11.760 --> 1:11:18.240
+ why did this word get so much attention? That's over the top and people get really sensitive.
+
+1:11:18.240 --> 1:11:24.080
+ The same kind of criticism with OpenAI did work with Rubik's cube with the robot that people
+
+1:11:24.080 --> 1:11:33.120
+ criticized. Same with GPT2 and 3, they criticize. Same thing with DeepMinds with AlphaZero. I mean,
+
+1:11:33.120 --> 1:11:39.280
+ yeah, I'm sensitive to it. But, and of course, with your work, you mentioned deep learning, but
+
+1:11:39.280 --> 1:11:45.520
+ there's something super sexy to the public about brain inspired. I mean, that immediately grabs
+
+1:11:45.520 --> 1:11:52.240
+ people's imagination, not even like neural networks, but like really brain inspired, like
+
+1:11:53.600 --> 1:12:00.480
+ brain like neural networks. That seems really compelling to people and to me as well, to the
+
+1:12:00.480 --> 1:12:10.400
+ world as a narrative. And so people hook up, hook onto that. And sometimes the skepticism engine
+
+1:12:10.400 --> 1:12:17.600
+ turns on in the research community and they're skeptical. But I think putting aside the ideas
+
+1:12:17.600 --> 1:12:22.480
+ of the actual performance and captures or performance in any data set. I mean, to me,
+
+1:12:22.480 --> 1:12:28.720
+ all these data sets are useless anyway. It's nice to have them. But in the grand scheme of things,
+
+1:12:28.720 --> 1:12:36.080
+ they're silly toy examples. The point is, is there intuition about the ideas, just like you
+
+1:12:36.080 --> 1:12:42.400
+ mentioned, bringing the ideas together in a unique way? Is there something there? Is there some value
+
+1:12:42.400 --> 1:12:46.400
+ there? And is it going to stand the test of time? And that's the hope. That's the hope.
+
+1:12:46.400 --> 1:12:53.440
+ Yes. My confidence there is very high. I don't treat brain inspired as a marketing term.
+
+1:12:53.440 --> 1:13:01.920
+ I am looking into the details of biology and puzzling over those things and I am grappling
+
+1:13:01.920 --> 1:13:07.600
+ with those things. And so it is not a marketing term at all. You can use it as a marketing term
+
+1:13:07.600 --> 1:13:13.680
+ and people often use it and you can get combined with them. And when people don't understand
+
+1:13:13.680 --> 1:13:20.480
+ how you're approaching the problem, it is easy to be misunderstood and think of it as purely
+
+1:13:20.480 --> 1:13:26.560
+ marketing. But that's not the way we are. So you really, I mean, as a scientist,
+
+1:13:27.120 --> 1:13:33.120
+ you believe that if we kind of just stick to really understanding the brain, that's going to,
+
+1:13:33.760 --> 1:13:39.440
+ that's the right, like you should constantly meditate on the, how does the brain do this?
+
+1:13:39.440 --> 1:13:43.520
+ Because that's going to be really helpful for engineering and technology systems.
+
+1:13:43.520 --> 1:13:51.680
+ Yes. You need to, so I think it's one input and it is helpful, but you should know when to deviate
+
+1:13:51.680 --> 1:13:59.120
+ from it too. So an example is convolutional neural networks, right? Convolution is not an
+
+1:13:59.120 --> 1:14:06.240
+ operation brain implements. The visual cortex is not convolutional. Visual cortex has local
+
+1:14:06.240 --> 1:14:17.840
+ receptive fields, local connectivity, but there is no translation invariance in the network weights
+
+1:14:18.640 --> 1:14:24.080
+ in the visual cortex. That is a computational trick, which is a very good engineering trick
+
+1:14:24.080 --> 1:14:31.840
+ that we use for sharing the training between the different nodes. And that trick will be with us
+
+1:14:31.840 --> 1:14:41.600
+ for some time. It will go away when we have robots with eyes and heads that move. And so then that
+
+1:14:41.600 --> 1:14:49.040
+ trick will go away. It will not be useful at that time. So the brain doesn't have translational
+
+1:14:49.040 --> 1:14:54.720
+ invariance. It has the focal point, like it has a thing it focuses on. Correct. It has a phobia.
+
+1:14:54.720 --> 1:15:01.920
+ And because of the phobia, the receptive fields are not like the copying of the weights. Like the
+
+1:15:01.920 --> 1:15:05.760
+ weights in the center are very different from the weights in the periphery. Yes. At the periphery.
+
+1:15:05.760 --> 1:15:12.720
+ I mean, I did this, actually wrote a paper and just gotten a chance to really study peripheral
+
+1:15:12.720 --> 1:15:21.600
+ vision, which is a fascinating thing. Very under understood thing of what the brain, you know,
+
+1:15:21.600 --> 1:15:28.240
+ at every level the brain does with the periphery. It does some funky stuff. Yeah. So it's another
+
+1:15:28.240 --> 1:15:39.040
+ kind of trick than convolutional. Like it does, it's, you know, convolution in neural networks is
+
+1:15:39.040 --> 1:15:44.160
+ a trick for efficiency, is efficiency trick. And the brain does a whole nother kind of thing.
+
+1:15:44.160 --> 1:15:51.280
+ Correct. So you need to understand the principles or processing so that you can still apply
+
+1:15:51.280 --> 1:15:55.840
+ engineering tricks where you want it to. You don't want to be slavishly mimicking all the things of
+
+1:15:55.840 --> 1:16:01.280
+ the brain. And so, yeah, so it should be one input. And I think it is extremely helpful,
+
+1:16:02.000 --> 1:16:06.720
+ but it should be the point of really understanding so that you know when to deviate from it.
+
+1:16:06.720 --> 1:16:14.560
+ So, okay. That's really cool. That's work from a few years ago. You did work in Umenta with Jeff
+
+1:16:14.560 --> 1:16:23.040
+ Hawkins with hierarchical temporal memory. How is your just, if you could give a brief history,
+
+1:16:23.040 --> 1:16:30.240
+ how is your view of the way the models of the brain changed over the past few years leading up
+
+1:16:30.240 --> 1:16:36.960
+ to now? Is there some interesting aspects where there was an adjustment to your understanding of
+
+1:16:36.960 --> 1:16:41.680
+ the brain or is it all just building on top of each other? In terms of the higher level ideas,
+
+1:16:42.720 --> 1:16:47.920
+ especially the ones Jeff wrote about in the book, if you blur out, right. Yeah. On intelligence.
+
+1:16:47.920 --> 1:16:52.560
+ Right. On intelligence. If you blur out the details and if you just zoom out and at the
+
+1:16:52.560 --> 1:17:02.320
+ higher level idea, things are, I would say, consistent with what he wrote about. But many
+
+1:17:02.320 --> 1:17:08.160
+ things will be consistent with that because it's a blur. Deep learning systems are also
+
+1:17:08.160 --> 1:17:16.960
+ multi level, hierarchical, all of those things. But in terms of the detail, a lot of things are
+
+1:17:16.960 --> 1:17:28.000
+ different. And those details matter a lot. So one point of difference I had with Jeff was how to
+
+1:17:28.000 --> 1:17:34.640
+ approach, how much of biological plausibility and realism do you want in the learning algorithms?
+
+1:17:36.080 --> 1:17:41.520
+ So when I was there, this was almost 10 years ago now.
+
+1:17:41.520 --> 1:17:43.760
+ It flies when you're having fun.
+
+1:17:43.760 --> 1:17:49.760
+ Yeah. I don't know what Jeff thinks now, but 10 years ago, the difference was that
+
+1:17:49.760 --> 1:17:56.880
+ I did not want to be so constrained on saying my learning algorithms need to be
+
+1:17:56.880 --> 1:18:03.200
+ biologically plausible based on some filter of biological plausibility available at that time.
+
+1:18:03.200 --> 1:18:09.200
+ To me, that is a dangerous cut to make because we are discovering more and more things about
+
+1:18:09.200 --> 1:18:14.560
+ the brain all the time. New biophysical mechanisms, new channels are being discovered
+
+1:18:14.560 --> 1:18:21.360
+ all the time. So I don't want to upfront kill off a learning algorithm just because we don't
+
+1:18:21.360 --> 1:18:27.680
+ really understand the full biophysics or whatever of how the brain learns.
+
+1:18:27.680 --> 1:18:29.120
+ Exactly. Exactly.
+
+1:18:29.120 --> 1:18:34.720
+ Let me ask and I'm sorry to interrupt. What's your sense? What's our best understanding of
+
+1:18:34.720 --> 1:18:36.000
+ how the brain learns?
+
+1:18:36.000 --> 1:18:42.720
+ So things like backpropagation, credit assignment. So many of these algorithms have,
+
+1:18:42.720 --> 1:18:47.600
+ learning algorithms have things in common, right? It is a backpropagation is one way of
+
+1:18:47.600 --> 1:18:52.560
+ credit assignment. There is another algorithm called expectation maximization, which is,
+
+1:18:52.560 --> 1:18:55.520
+ you know, another weight adjustment algorithm.
+
+1:18:55.520 --> 1:18:58.320
+ But is it your sense the brain does something like this?
+
+1:18:58.320 --> 1:19:04.960
+ Has to. There is no way around it in the sense of saying that you do have to adjust the
+
+1:19:04.960 --> 1:19:06.240
+ connections.
+
+1:19:06.240 --> 1:19:09.600
+ So yeah, and you're saying credit assignment, you have to reward the connections that were
+
+1:19:09.600 --> 1:19:14.320
+ useful in making a correct prediction and not, yeah, I guess what else, but yeah, it
+
+1:19:14.320 --> 1:19:16.800
+ doesn't have to be differentiable.
+
+1:19:16.800 --> 1:19:22.320
+ Yeah, it doesn't have to be differentiable. Yeah. But you have to have a, you know, you
+
+1:19:22.320 --> 1:19:27.760
+ have a model that you start with, you have data comes in and you have to have a way of
+
+1:19:27.760 --> 1:19:33.920
+ adjusting the model such that it better fits the data. So that is all of learning, right?
+
+1:19:33.920 --> 1:19:40.400
+ And some of them can be using backprop to do that. Some of it can be using, you know,
+
+1:19:40.400 --> 1:19:44.320
+ very local graph changes to do that.
+
+1:19:45.360 --> 1:19:52.160
+ That can be, you know, many of these learning algorithms have similar update properties
+
+1:19:52.160 --> 1:19:56.640
+ locally in terms of what the neurons need to do locally.
+
+1:19:57.200 --> 1:20:01.120
+ I wonder if small differences in learning algorithms can have huge differences in the
+
+1:20:01.120 --> 1:20:09.920
+ actual effect. So the dynamics of, I mean, sort of the reverse like spiking, like if
+
+1:20:09.920 --> 1:20:17.040
+ credit assignment is like a lightning versus like a rainstorm or something, like whether
+
+1:20:18.480 --> 1:20:26.240
+ there's like a looping local type of situation with the credit assignment, whether there is
+
+1:20:26.240 --> 1:20:34.720
+ like regularization, like how it injects robustness into the whole thing, like whether
+
+1:20:34.720 --> 1:20:42.080
+ it's chemical or electrical or mechanical. Yeah. All those kinds of things. I feel like
+
+1:20:42.080 --> 1:20:48.800
+ it, that, yeah, I feel like those differences could be essential, right? It could be. It's
+
+1:20:48.800 --> 1:20:54.880
+ just that you don't know enough to, on the learning side, you don't know, you don't know
+
+1:20:54.880 --> 1:20:59.840
+ enough to say that is definitely not the way the brain does it. Got it. So you don't want
+
+1:20:59.840 --> 1:21:04.800
+ to be stuck to it. So that, yeah. So you've been open minded on that side of things.
+
+1:21:04.800 --> 1:21:09.920
+ On the inference side, on the recognition side, I am much more, I'm able to be constrained
+
+1:21:09.920 --> 1:21:13.600
+ because it's much easier to do experiments because, you know, it's like, okay, here's
+
+1:21:13.600 --> 1:21:18.000
+ the stimulus, you know, how many steps did it get to take the answer? I can trace it
+
+1:21:18.000 --> 1:21:23.120
+ back. I can, I can understand the speed of that computation, et cetera. I'm able to do
+
+1:21:23.120 --> 1:21:28.400
+ of that computation, et cetera, much more readily on the inference side. Got it. And
+
+1:21:28.400 --> 1:21:34.880
+ then you can't do good experiments on the learning side. Correct. So let's go right
+
+1:21:34.880 --> 1:21:42.080
+ into the cortical microcircuits right back. So what are these ideas beyond recursive cortical
+
+1:21:42.080 --> 1:21:48.960
+ network that you're looking at now? So we have made a, you know, pass through multiple
+
+1:21:48.960 --> 1:21:54.480
+ of the steps that, you know, as I mentioned earlier, you know, we were looking at perception
+
+1:21:54.480 --> 1:21:58.720
+ from the angle of cognition, right? It was not just perception for perception's sake.
+
+1:21:58.720 --> 1:22:04.400
+ How do you, how do you connect it to cognition? How do you learn concepts and how do you learn
+
+1:22:04.400 --> 1:22:13.280
+ abstract reasoning? Similar to some of the things Francois talked about, right? So we
+
+1:22:13.280 --> 1:22:19.600
+ have taken one pass through it basically saying, what is the basic cognitive architecture that
+
+1:22:19.600 --> 1:22:25.120
+ you need to have, which has a perceptual system, which has a system that learns dynamics of
+
+1:22:25.120 --> 1:22:32.240
+ the world and then has something like a routine program learning system on top of it to learn
+
+1:22:32.240 --> 1:22:38.320
+ concepts. So we have built one, you know, the version point one of that system. This
+
+1:22:38.320 --> 1:22:44.640
+ was another science robotics paper. It's the title of that paper was, you know, something
+
+1:22:44.640 --> 1:22:49.760
+ like cognitive programs. How do you build cognitive programs? And the application there
+
+1:22:49.760 --> 1:22:56.400
+ was on manipulation, robotic manipulation? It was, so think of it like this. Suppose
+
+1:22:56.960 --> 1:23:04.800
+ you wanted to tell a new person that you met, you don't know the language that person uses.
+
+1:23:04.800 --> 1:23:10.080
+ You want to communicate to that person to achieve some task, right? So I want to say,
+
+1:23:10.080 --> 1:23:17.280
+ hey, you need to pick up all the red cups from the kitchen counter and put it here, right?
+
+1:23:17.280 --> 1:23:21.920
+ How do you communicate that, right? You can show pictures. You can basically say, look,
+
+1:23:21.920 --> 1:23:28.080
+ this is the starting state. The things are here. This is the ending state. And what does
+
+1:23:28.080 --> 1:23:32.400
+ the person need to understand from that? The person needs to understand what conceptually
+
+1:23:32.400 --> 1:23:39.120
+ happened in those pictures from the input to the output, right? So we are looking at
+
+1:23:39.120 --> 1:23:45.360
+ preverbal conceptual understanding. Without language, how do you have a set of concepts
+
+1:23:45.360 --> 1:23:52.240
+ that you can manipulate in your head? And from a set of images of input and output,
+
+1:23:52.240 --> 1:23:55.600
+ can you infer what is happening in those images?
+
+1:23:55.600 --> 1:24:02.400
+ Got it. With concepts that are pre language. Okay. So what's it mean for a concept to be pre language?
+
+1:24:02.400 --> 1:24:09.440
+ Like why is language so important here?
+
+1:24:10.080 --> 1:24:16.320
+ So I want to make a distinction between concepts that are just learned from text
+
+1:24:17.520 --> 1:24:23.440
+ by just feeding brute force text. You can start extracting things like, okay,
+
+1:24:23.440 --> 1:24:30.640
+ a cow is likely to be on grass. So those kinds of things, you can extract purely from text.
+
+1:24:32.160 --> 1:24:37.520
+ But that's kind of a simple association thing rather than a concept as an abstraction of
+
+1:24:37.520 --> 1:24:44.480
+ something that happens in the real world in a grounded way that I can simulate it in my
+
+1:24:44.480 --> 1:24:51.200
+ mind and connect it back to the real world. And you think kind of the visual world,
+
+1:24:51.200 --> 1:24:57.920
+ concepts in the visual world are somehow lower level than just the language?
+
+1:24:58.800 --> 1:25:03.280
+ The lower level kind of makes it feel like, okay, that's unimportant. It's more like,
+
+1:25:04.720 --> 1:25:15.440
+ I would say the concepts in the visual and the motor system and the concept learning system,
+
+1:25:15.440 --> 1:25:20.320
+ which if you cut off the language part, just what we learn by interacting with the world
+
+1:25:20.320 --> 1:25:25.600
+ and abstractions from that, that is a prerequisite for any real language understanding.
+
+1:25:26.480 --> 1:25:31.440
+ So you disagree with Chomsky because he says language is at the bottom of everything.
+
+1:25:32.080 --> 1:25:38.320
+ No, I disagree with Chomsky completely on how many levels from universal grammar to...
+
+1:25:39.680 --> 1:25:43.120
+ So that was a paper in science beyond the recursive cortical network.
+
+1:25:43.120 --> 1:25:50.480
+ What other interesting problems are there, the open problems and brain inspired approaches
+
+1:25:50.480 --> 1:25:51.600
+ that you're thinking about?
+
+1:25:51.600 --> 1:26:00.640
+ I mean, everything is open, right? No problem is solved, solved. I think of perception as kind of
+
+1:26:02.080 --> 1:26:07.760
+ the first thing that you have to build, but the last thing that you will be actually solved.
+
+1:26:07.760 --> 1:26:12.880
+ Because if you do not build perception system in the right way, you cannot build concept system in
+
+1:26:12.880 --> 1:26:18.560
+ the right way. So you have to build a perception system, however wrong that might be, you have to
+
+1:26:18.560 --> 1:26:24.880
+ still build that and learn concepts from there and then keep iterating. And finally, perception
+
+1:26:24.880 --> 1:26:30.240
+ will get solved fully when perception, cognition, language, all those things work together finally.
+
+1:26:30.240 --> 1:26:37.920
+ So great, we've talked a lot about perception, but then maybe on the concept side and like common
+
+1:26:37.920 --> 1:26:45.280
+ sense or just general reasoning side, is there some intuition you can draw from the brain about
+
+1:26:45.280 --> 1:26:46.880
+ how we can do that?
+
+1:26:46.880 --> 1:26:56.560
+ So I have this classic example I give. So suppose I give you a few sentences and then ask you a
+
+1:26:56.560 --> 1:27:01.920
+ question following that sentence. This is a natural language processing problem, right? So here
+
+1:27:01.920 --> 1:27:10.400
+ it goes. I'm telling you, Sally pounded a nail on the ceiling. Okay, that's a sentence. Now I'm
+
+1:27:10.400 --> 1:27:13.040
+ asking you a question. Was the nail horizontal or vertical?
+
+1:27:14.080 --> 1:27:15.040
+ Vertical.
+
+1:27:15.040 --> 1:27:16.400
+ Okay, how did you answer that?
+
+1:27:16.400 --> 1:27:24.960
+ Well, I imagined Sally, it was kind of hard to imagine what the hell she was doing, but I
+
+1:27:24.960 --> 1:27:28.320
+ imagined I had a visual of the whole situation.
+
+1:27:28.320 --> 1:27:34.400
+ Exactly, exactly. So here, you know, I post a question in natural language. The answer to
+
+1:27:34.400 --> 1:27:40.720
+ that question was you got the answer from actually simulating the scene. Now I can go more and more
+
+1:27:40.720 --> 1:27:46.640
+ detailed about, okay, was Sally standing on something while doing this? Could she have been
+
+1:27:47.280 --> 1:27:53.360
+ standing on a light bulb to do this? I could ask more and more questions about this and I can ask,
+
+1:27:53.360 --> 1:27:59.200
+ make you simulate the scene in more and more detail, right? Where is all that knowledge that
+
+1:27:59.200 --> 1:28:05.600
+ you're accessing stored? It is not in your language system. It was not just by reading
+
+1:28:05.600 --> 1:28:11.760
+ text, you got that knowledge. It is stored from the everyday experiences that you have had from,
+
+1:28:12.320 --> 1:28:18.720
+ and by the age of five, you have pretty much all of this, right? And it is stored in your visual
+
+1:28:18.720 --> 1:28:23.280
+ system, motor system in a way such that it can be accessed through language.
+
+1:28:24.480 --> 1:28:30.000
+ Got it. I mean, right. So the language is just almost sort of the query into the whole visual
+
+1:28:30.000 --> 1:28:36.800
+ cortex and that does the whole feedback thing. But I mean, it is all reasoning kind of connected to
+
+1:28:36.800 --> 1:28:43.920
+ the perception system in some way. You can do a lot of it. You know, you can still do a lot of it
+
+1:28:43.920 --> 1:28:49.760
+ by quick associations without having to go into the depth. And most of the time you will be right,
+
+1:28:49.760 --> 1:28:55.440
+ right? You can just do quick associations, but I can easily create tricky situations for you.
+
+1:28:55.440 --> 1:29:00.080
+ Where that quick associations is wrong and you have to actually run the simulation.
+
+1:29:00.080 --> 1:29:06.800
+ So figuring out how these concepts connect. Do I have a good idea of how to do that?
+
+1:29:06.800 --> 1:29:13.760
+ That's exactly one of the problems that we are working on. And the way we are approaching that
+
+1:29:13.760 --> 1:29:20.400
+ is basically saying, okay, you need to, so the takeaway is that language,
+
+1:29:20.400 --> 1:29:28.960
+ is simulation control and your perceptual plus a motor system is building a simulation of the world.
+
+1:29:28.960 --> 1:29:34.720
+ And so that's basically the way we are approaching it. And the first thing that we built was a
+
+1:29:34.720 --> 1:29:40.160
+ controllable perceptual system. And we built a schema networks, which was a controllable dynamic
+
+1:29:40.160 --> 1:29:44.960
+ system. Then we built a concept learning system that puts all these things together
+
+1:29:44.960 --> 1:29:51.600
+ into programs or subtractions that you can run and simulate. And now we are taking the step
+
+1:29:51.600 --> 1:29:57.760
+ of connecting it to language. And it will be very simple examples. Initially, it will not be
+
+1:29:57.760 --> 1:30:02.640
+ the GPT3 like examples, but it will be grounded simulation based language.
+
+1:30:02.640 --> 1:30:08.400
+ And for like the querying would be like question answering kind of thing?
+
+1:30:08.400 --> 1:30:13.600
+ Correct. Correct. And so that's what we're trying to do. We're trying to build a system
+
+1:30:13.600 --> 1:30:18.480
+ kind of thing. Correct. Correct. And it will be in some simple world initially on, you know,
+
+1:30:19.120 --> 1:30:25.280
+ but it will be about, okay, can the system connect the language and ground it in the right way and
+
+1:30:25.280 --> 1:30:29.600
+ run the right simulations to come up with the answer. And the goal is to try to do things that,
+
+1:30:29.600 --> 1:30:38.720
+ for example, GPT3 couldn't do. Correct. Speaking of which, if we could talk about GPT3 a little
+
+1:30:38.720 --> 1:30:46.080
+ bit, I think it's an interesting thought provoking set of ideas that OpenAI is pushing forward. I
+
+1:30:46.080 --> 1:30:51.360
+ think it's good for us to talk about the limits and the possibilities in the neural network. So
+
+1:30:51.360 --> 1:30:58.800
+ in general, what are your thoughts about this recently released very large 175 billion parameter
+
+1:30:58.800 --> 1:31:05.600
+ language model? So I haven't directly evaluated it yet. From what I have seen on Twitter and
+
+1:31:05.600 --> 1:31:09.840
+ other people evaluating it, it looks very intriguing. I am very intrigued by some of
+
+1:31:09.840 --> 1:31:17.360
+ the properties it is displaying. And of course the text generation part of that was already
+
+1:31:17.360 --> 1:31:26.480
+ evident in GPT2 that it can generate coherent text over long distances. But of course the
+
+1:31:26.480 --> 1:31:32.000
+ weaknesses are also pretty visible in saying that, okay, it is not really carrying a world state
+
+1:31:32.000 --> 1:31:39.200
+ around. And sometimes you get sentences like, I went up the hill to reach the valley or the thing
+
+1:31:39.200 --> 1:31:46.080
+ like some completely incompatible statements, or when you're traveling from one place to the other,
+
+1:31:46.080 --> 1:31:50.800
+ it doesn't take into account the time of travel, things like that. So those things I think will
+
+1:31:50.800 --> 1:31:59.040
+ happen less in GPT3 because it is trained on even more data and it can do even more longer distance
+
+1:31:59.040 --> 1:32:06.560
+ coherence. But it will still have the fundamental limitations that it doesn't have a world model
+
+1:32:07.600 --> 1:32:13.280
+ and it can't run simulations in its head to find whether something is true in the world or not.
+
+1:32:13.280 --> 1:32:19.680
+ So it's taking a huge amount of text from the internet and forming a compressed representation.
+
+1:32:20.400 --> 1:32:27.600
+ Do you think in that could emerge something that's an approximation of a world model,
+
+1:32:27.600 --> 1:32:35.920
+ which essentially could be used for reasoning? I'm not talking about GPT3, I'm talking about GPT4,
+
+1:32:35.920 --> 1:32:42.320
+ 5 and GPT10. Yeah, I mean they will look more impressive than GPT3. So if you take that to
+
+1:32:42.320 --> 1:32:51.520
+ the extreme then a Markov chain of just first order and if you go to, I'm taking the other
+
+1:32:51.520 --> 1:32:59.200
+ extreme, if you read Shannon's book, he has a model of English text which is based on first
+
+1:32:59.200 --> 1:33:03.120
+ order Markov chains, second order Markov chains, third order Markov chains and saying that okay,
+
+1:33:03.120 --> 1:33:09.600
+ third order Markov chains look better than first order Markov chains. So does that mean a first
+
+1:33:09.600 --> 1:33:18.160
+ order Markov chain has a model of the world? Yes, it does. So yes, in that level when you go higher
+
+1:33:18.160 --> 1:33:24.160
+ order models or more sophisticated structure in the model like the transformer networks have,
+
+1:33:24.160 --> 1:33:32.640
+ yes they have a model of the text world, but that is not a model of the world. It's a model
+
+1:33:32.640 --> 1:33:41.120
+ of the text world and it will have interesting properties and it will be useful, but just scaling
+
+1:33:41.120 --> 1:33:49.280
+ it up is not going to give us AGI or natural language understanding or meaning. Well the
+
+1:33:49.280 --> 1:33:58.880
+ question is whether being forced to compress a very large amount of text forces you to construct
+
+1:33:58.880 --> 1:34:06.800
+ things that are very much like, because the ideas of concepts and meaning is a spectrum.
+
+1:34:06.800 --> 1:34:12.320
+ Sure, yeah. So in order to form that kind of compression,
+
+1:34:13.920 --> 1:34:24.160
+ maybe it will be forced to figure out abstractions which look awfully a lot like the kind of things
+
+1:34:24.160 --> 1:34:31.120
+ that we think about as concepts, as world models, as common sense. Is that possible?
+
+1:34:31.120 --> 1:34:34.320
+ No, I don't think it is possible because the information is not there.
+
+1:34:34.320 --> 1:34:38.640
+ The information is there behind the text, right?
+
+1:34:38.640 --> 1:34:44.400
+ No, unless somebody has written down all the details about how everything works in the world
+
+1:34:44.400 --> 1:34:51.040
+ to the absurd amounts like, okay, it is easier to walk forward than backward, that you have to open
+
+1:34:51.040 --> 1:34:56.560
+ the door to go out of the thing, doctors wear underwear. Unless all these things somebody
+
+1:34:56.560 --> 1:35:01.680
+ has written down somewhere or somehow the program found it to be useful for compression from some
+
+1:35:01.680 --> 1:35:07.840
+ other text, the information is not there. So that's an argument that text is a lot
+
+1:35:07.840 --> 1:35:13.040
+ lower fidelity than the experience of our physical world.
+
+1:35:13.040 --> 1:35:15.680
+ Right, correct. Pictures worth a thousand words.
+
+1:35:17.440 --> 1:35:24.080
+ Well, in this case, pictures aren't really... So the richest aspect of the physical world isn't
+
+1:35:24.080 --> 1:35:28.240
+ even just pictures, it's the interactivity with the world.
+
+1:35:28.240 --> 1:35:29.200
+ Exactly, yeah.
+
+1:35:29.200 --> 1:35:34.480
+ It's being able to interact. It's almost like...
+
+1:35:36.720 --> 1:35:42.880
+ It's almost like if you could interact... Well, maybe I agree with you that pictures
+
+1:35:42.880 --> 1:35:45.760
+ worth a thousand words, but a thousand...
+
+1:35:45.760 --> 1:35:49.760
+ It's still... Yeah, you could capture it with the GPTX.
+
+1:35:49.760 --> 1:35:54.400
+ So I wonder if there's some interactive element where a system could live in text world where it
+
+1:35:54.400 --> 1:36:03.040
+ could be part of the chat, be part of talking to people. It's interesting. I mean, fundamentally...
+
+1:36:03.040 --> 1:36:10.960
+ So you're making a statement about the limitation of text. Okay, so let's say we have a text
+
+1:36:10.960 --> 1:36:19.280
+ corpus that includes basically every experience we could possibly have. I mean, just a very large
+
+1:36:19.280 --> 1:36:25.440
+ corpus of text and also interactive components. I guess the question is whether the neural network
+
+1:36:25.440 --> 1:36:32.400
+ architecture, these very simple transformers, but if they had like hundreds of trillions or
+
+1:36:33.200 --> 1:36:40.800
+ whatever comes after a trillion parameters, whether that could store the information
+
+1:36:42.080 --> 1:36:46.880
+ needed, that's architecturally. Do you have thoughts about the limitation on that side of
+
+1:36:46.880 --> 1:36:52.160
+ things with neural networks? I mean, so transformers are still a feed forward neural
+
+1:36:52.160 --> 1:36:59.200
+ network. It has a very interesting architecture, which is good for text modeling and probably some
+
+1:36:59.200 --> 1:37:04.560
+ aspects of video modeling, but it is still a feed forward architecture. You believe in the
+
+1:37:04.560 --> 1:37:11.280
+ feedback mechanism, the recursion. Oh, and also causality, being able to do counterfactual
+
+1:37:11.280 --> 1:37:20.080
+ reasoning, being able to do interventions, which is actions in the world. So all those things
+
+1:37:20.080 --> 1:37:28.400
+ require different kinds of models to be built. I don't think transformers captures that family. It
+
+1:37:28.400 --> 1:37:35.280
+ is very good at statistical modeling of text and it will become better and better with more data,
+
+1:37:35.280 --> 1:37:44.240
+ bigger models, but that is only going to get so far. So I had this joke on Twitter saying that,
+
+1:37:44.240 --> 1:37:51.600
+ hey, this is a model that has read all of quantum mechanics and theory of relativity and we are
+
+1:37:51.600 --> 1:37:59.280
+ asking you to do text completion or we are asking you to solve simple puzzles. When you have AGI,
+
+1:37:59.280 --> 1:38:08.240
+ that is not what you ask the system to do. We will ask the system to do experiments and come
+
+1:38:08.240 --> 1:38:13.680
+ up with hypothesis and revise the hypothesis based on evidence from experiments, all those things.
+
+1:38:13.680 --> 1:38:18.800
+ Those are the things that we want the system to do when we have AGI, not solve simple puzzles.
+
+1:38:20.000 --> 1:38:24.080
+ Like impressive demos, somebody generating a red button in HTML.
+
+1:38:24.080 --> 1:38:29.920
+ Right, which are all useful. There is no dissing the usefulness of it.
+
+1:38:29.920 --> 1:38:36.160
+ So by the way, I am playing a little bit of a devil's advocate, so calm down internet.
+
+1:38:37.280 --> 1:38:47.040
+ So I am curious almost in which ways will a dumb but large neural network will surprise us.
+
+1:38:47.040 --> 1:38:56.880
+ I completely agree with your intuition. It is just that I do not want to dogmatically
+
+1:38:58.400 --> 1:39:06.160
+ 100% put all the chips there. We have been surprised so much. Even the current GPT2 and
+
+1:39:06.160 --> 1:39:18.640
+ GPT3 are so surprising. The self play mechanisms of AlphaZero are really surprising. The fact that
+
+1:39:18.640 --> 1:39:23.440
+ reinforcement learning works at all to me is really surprising. The fact that neural networks work at
+
+1:39:23.440 --> 1:39:30.320
+ all is quite surprising given how nonlinear the space is, the fact that it is able to find local
+
+1:39:30.320 --> 1:39:39.760
+ minima that are at all reasonable. It is very surprising. I wonder sometimes whether us humans
+
+1:39:39.760 --> 1:39:51.760
+ just want for AGI not to be such a dumb thing. Because exactly what you are saying is like
+
+1:39:52.560 --> 1:39:57.600
+ the ideas of concepts and be able to reason with those concepts and connect those concepts in
+
+1:39:57.600 --> 1:40:05.360
+ hierarchical ways and then to be able to have world models. Just everything we are describing
+
+1:40:05.360 --> 1:40:11.120
+ in human language in this poetic way seems to make sense. That is what intelligence and reasoning
+
+1:40:11.120 --> 1:40:17.680
+ are like. I wonder if at the core of it, it could be much dumber. Well, finally it is still
+
+1:40:17.680 --> 1:40:24.880
+ connections and messages passing over. So in that way it is dumb. So I guess the recursion,
+
+1:40:24.880 --> 1:40:29.760
+ the feedback mechanism, that does seem to be a fundamental kind of thing.
+
+1:40:32.560 --> 1:40:39.920
+ The idea of concepts. Also memory. Correct. Having an episodic memory. That seems to be
+
+1:40:39.920 --> 1:40:45.760
+ an important thing. So how do we get memory? So we have another piece of work which came
+
+1:40:45.760 --> 1:40:52.080
+ out recently on how do you form episodic memories and form abstractions from them.
+
+1:40:52.080 --> 1:40:57.680
+ And we haven't figured out all the connections of that to the overall cognitive architecture.
+
+1:40:57.680 --> 1:41:04.720
+ But what are your ideas about how you could have episodic memory? So at least it is very clear
+
+1:41:04.720 --> 1:41:11.920
+ that you need to have two kinds of memory. That is very, very clear. There are things that happen
+
+1:41:13.600 --> 1:41:19.760
+ as statistical patterns in the world, but then there is the one timeline of things that happen
+
+1:41:19.760 --> 1:41:27.360
+ only once in your life. And this day is not going to happen ever again. And that needs to be stored
+
+1:41:27.360 --> 1:41:36.000
+ as just a stream of strings. This is my experience. And then the question is about
+
+1:41:36.000 --> 1:41:40.880
+ how do you take that experience and connect it to the statistical part of it? How do you
+
+1:41:40.880 --> 1:41:47.040
+ now say that, okay, I experienced this thing. Now I want to be careful about similar situations.
+
+1:41:47.040 --> 1:41:57.920
+ So you need to be able to index that similarity using your other giants that is the model of the
+
+1:41:57.920 --> 1:42:02.000
+ world that you have learned. Although the situation came from the episode, you need to be able to
+
+1:42:02.000 --> 1:42:13.200
+ index the other one. So the episodic memory being implemented as an indexing over the other model
+
+1:42:13.200 --> 1:42:24.000
+ that you're building. So the memories remain and they're indexed into the statistical thing
+
+1:42:24.000 --> 1:42:30.560
+ that you form. Yeah, statistical causal structural model that you built over time. So it's basically
+
+1:42:30.560 --> 1:42:41.360
+ the idea is that the hippocampus is just storing or sequencing a set of pointers that happens over
+
+1:42:41.360 --> 1:42:48.880
+ time. And then whenever you want to reconstitute that memory and evaluate the different aspects of
+
+1:42:48.880 --> 1:42:54.080
+ it, whether it was good, bad, do I need to encounter the situation again? You need the cortex
+
+1:42:55.200 --> 1:43:00.880
+ to reinstantiate, to replay that memory. So how do you find that memory? Like which
+
+1:43:00.880 --> 1:43:05.760
+ direction is the important direction? Both directions are again, bidirectional.
+
+1:43:05.760 --> 1:43:11.840
+ I mean, I guess how do you retrieve the memory? So this is again, hypothesis. We're making this
+
+1:43:11.840 --> 1:43:21.200
+ up. So when you come to a new situation, your cortex is doing inference over in the new situation.
+
+1:43:21.200 --> 1:43:27.600
+ And then of course, hippocampus is connected to different parts of the cortex and you have this
+
+1:43:27.600 --> 1:43:35.680
+ deja vu situation, right? Okay, I have seen this thing before. And then in the hippocampus, you can
+
+1:43:35.680 --> 1:43:44.480
+ have an index of, okay, this is when it happened as a timeline. And then you can use the hippocampus
+
+1:43:44.480 --> 1:43:52.240
+ to drive the similar timelines to say now I am, rather than being driven by my current input
+
+1:43:52.240 --> 1:43:58.400
+ stimuli, I am going back in time and rewinding my experience from there, putting back into the
+
+1:43:58.400 --> 1:44:03.680
+ cortex. And then putting it back into the cortex of course affects what you're going to see next
+
+1:44:03.680 --> 1:44:08.640
+ in your current situation. Got it. Yeah. So that's the whole thing, having a world model and then
+
+1:44:09.280 --> 1:44:16.320
+ yeah, connecting to the perception. Yeah, it does seem to be that that's what's happening. On the
+
+1:44:16.320 --> 1:44:24.240
+ neural network side, it's interesting to think of how we actually do that. Yeah. To have a knowledge
+
+1:44:24.240 --> 1:44:31.120
+ base. Yes. It is possible that you can put many of these structures into neural networks and we will
+
+1:44:31.120 --> 1:44:39.440
+ find ways of combining properties of neural networks and graphical models. So, I mean,
+
+1:44:39.440 --> 1:44:43.840
+ it's already started happening. Graph neural networks are kind of a merge between them.
+
+1:44:43.840 --> 1:44:50.320
+ Yeah. And there will be more of that thing. So, but to me it is, the direction is pretty clear,
+
+1:44:51.440 --> 1:44:59.600
+ looking at biology and the history of evolutionary history of intelligence, it is pretty clear that,
+
+1:44:59.600 --> 1:45:06.480
+ okay, what is needed is more structure in the models and modeling of the world and supporting
+
+1:45:06.480 --> 1:45:13.600
+ dynamic inference. Well, let me ask you, there's a guy named Elon Musk, there's a company called
+
+1:45:13.600 --> 1:45:18.960
+ Neuralink and there's a general field called brain computer interfaces. Yeah. It's kind of a
+
+1:45:20.480 --> 1:45:26.560
+ interface between your two loves. Yes. The brain and the intelligence. So there's like
+
+1:45:26.560 --> 1:45:32.160
+ very direct applications of brain computer interfaces for people with different conditions,
+
+1:45:32.160 --> 1:45:38.320
+ more in the short term. Yeah. But there's also these sci fi futuristic kinds of ideas of AI
+
+1:45:38.320 --> 1:45:45.600
+ systems being able to communicate in a high bandwidth way with the brain, bidirectional.
+
+1:45:45.600 --> 1:45:53.840
+ Yeah. What are your thoughts about Neuralink and BCI in general as a possibility? So I think BCI
+
+1:45:53.840 --> 1:46:02.240
+ is a cool research area. And in fact, when I got interested in brains initially, when I was
+
+1:46:02.240 --> 1:46:07.840
+ enrolled at Stanford and when I got interested in brains, it was through a brain computer
+
+1:46:07.840 --> 1:46:12.880
+ interface talk that Krishna Shenoy gave. That's when I even started thinking about the problem.
+
+1:46:14.160 --> 1:46:21.200
+ So it is definitely a fascinating research area and the applications are enormous. So there is a
+
+1:46:21.200 --> 1:46:26.160
+ science fiction scenario of brains directly communicating. Let's keep that aside for the
+
+1:46:26.160 --> 1:46:32.400
+ time being. Even just the intermediate milestones that pursuing, which are very reasonable as far
+
+1:46:32.400 --> 1:46:40.560
+ as I can see, being able to control an external limb using direct connections from the brain
+
+1:46:40.560 --> 1:46:48.560
+ and being able to write things into the brain. So those are all good steps to take and they have
+
+1:46:49.120 --> 1:46:55.280
+ enormous applications. People losing limbs being able to control prosthetics, quadriplegics being
+
+1:46:55.280 --> 1:47:01.440
+ able to control something, and therapeutics. I also know about another company working in
+
+1:47:01.440 --> 1:47:09.120
+ the space called Paradromics. They're based on a different electrode array, but trying to attack
+
+1:47:09.120 --> 1:47:14.800
+ some of the same problems. So I think it's a very... Also surgery? Correct. Surgically implanted
+
+1:47:14.800 --> 1:47:22.560
+ electrodes. Yeah. So yeah, I think of it as a very, very promising field, especially when it is
+
+1:47:22.560 --> 1:47:29.040
+ helping people overcome some limitations. Now, at some point, of course, it will advance the level of
+
+1:47:29.040 --> 1:47:37.440
+ being able to communicate. How hard is that problem do you think? Let's say we magically solve
+
+1:47:37.440 --> 1:47:45.600
+ what I think is a really hard problem of doing all of this safely. Yeah. So being able to connect
+
+1:47:45.600 --> 1:47:51.440
+ electrodes and not just thousands, but like millions to the brain. I think it's very,
+
+1:47:51.440 --> 1:47:58.160
+ very hard because you also do not know what will happen to the brain with that in the sense of how
+
+1:47:58.160 --> 1:48:03.680
+ does the brain adapt to something like that? And as we were learning, the brain is quite,
+
+1:48:04.800 --> 1:48:10.480
+ in terms of neuroplasticity, is pretty malleable. Correct. So it's going to adjust. Correct. So the
+
+1:48:10.480 --> 1:48:14.480
+ machine learning side, the computer side is going to adjust, and then the brain is going to adjust.
+
+1:48:14.480 --> 1:48:20.400
+ Exactly. And then what soup does this land us into? The kind of hallucinations you might get
+
+1:48:20.400 --> 1:48:28.080
+ from this that might be pretty intense. Just connecting to all of Wikipedia. It's interesting
+
+1:48:28.080 --> 1:48:34.400
+ whether we need to be able to figure out the basic protocol of the brain's communication schemes
+
+1:48:34.960 --> 1:48:41.120
+ in order to get them to the machine and the brain to talk. Because another possibility is the brain
+
+1:48:41.120 --> 1:48:45.280
+ actually just adjust to whatever the heck the computer is doing. Exactly. That's the way I think
+
+1:48:45.280 --> 1:48:51.440
+ that I find that to be a more promising way. It's basically saying, okay, attach electrodes
+
+1:48:51.440 --> 1:48:58.320
+ to some part of the cortex. Maybe if it is done from birth, the brain will adapt. It says that
+
+1:48:58.880 --> 1:49:02.880
+ that part is not damaged. It was not used for anything. These electrodes are attached there.
+
+1:49:02.880 --> 1:49:09.120
+ And now you train that part of the brain to do this high bandwidth communication between
+
+1:49:09.120 --> 1:49:15.680
+ something else. And if you do it like that, then it is brain adapting to... And of course,
+
+1:49:15.680 --> 1:49:21.200
+ your external system is designed so that it is adaptable. Just like we designed computers
+
+1:49:21.200 --> 1:49:28.720
+ or mouse, keyboard, all of them to be interacting with humans. So of course, that feedback system
+
+1:49:28.720 --> 1:49:37.360
+ is designed to be human compatible, but now it is not trying to record from all of the brain.
+
+1:49:37.360 --> 1:49:44.160
+ And now two systems trying to adapt to each other. It's the brain adapting into one way.
+
+1:49:44.160 --> 1:49:51.520
+ That's fascinating. The brain is connected to the internet. Just imagine just connecting it
+
+1:49:51.520 --> 1:49:59.760
+ to Twitter and just taking that stream of information. Yeah. But again, if we take a
+
+1:49:59.760 --> 1:50:08.000
+ step back, I don't know what your intuition is. I feel like that is not as hard of a problem as the
+
+1:50:08.720 --> 1:50:19.200
+ doing it safely. There's a huge barrier to surgery because the biological system, it's a mush of
+
+1:50:19.200 --> 1:50:26.800
+ like weird stuff. So that the surgery part of it, biology part of it, the longterm repercussions
+
+1:50:26.800 --> 1:50:35.440
+ part of it. I don't know what else will... We often find after a long time in biology that,
+
+1:50:35.440 --> 1:50:42.960
+ okay, that idea was wrong. So people used to cut off the gland called the thymus or something.
+
+1:50:43.680 --> 1:50:48.000
+ And then they found that, oh no, that actually causes cancer.
+
+1:50:50.560 --> 1:50:55.440
+ And then there's a subtle like millions of variables involved. But this whole process,
+
+1:50:55.440 --> 1:51:02.000
+ the nice thing, just like again with Elon, just like colonizing Mars, seems like a ridiculously
+
+1:51:02.000 --> 1:51:08.320
+ difficult idea. But in the process of doing it, we might learn a lot about the biology of the
+
+1:51:08.320 --> 1:51:13.520
+ neurobiology of the brain, the neuroscience side of things. It's like, if you want to learn
+
+1:51:13.520 --> 1:51:19.520
+ something, do the most difficult version of it and see what you learn. The intermediate steps
+
+1:51:19.520 --> 1:51:25.680
+ that they are taking sounded all very reasonable to me. It's great. Well, but like everything with
+
+1:51:25.680 --> 1:51:33.280
+ Elon is the timeline seems insanely fast. So that's the only awful question. Well,
+
+1:51:34.000 --> 1:51:36.960
+ we've been talking about cognition a little bit. So like reasoning,
+
+1:51:38.640 --> 1:51:43.840
+ we haven't mentioned the other C word, which is consciousness. Do you ever think about that one?
+
+1:51:43.840 --> 1:51:51.520
+ Is that useful at all in this whole context of what it takes to create an intelligent reasoning
+
+1:51:51.520 --> 1:51:58.400
+ being? Or is that completely outside of your, like the engineering perspective of intelligence?
+
+1:51:58.400 --> 1:52:05.120
+ It is not outside the realm, but it doesn't on a day to day basis inform what we do,
+
+1:52:05.120 --> 1:52:12.160
+ but it's more, so in many ways, the company name is connected to this idea of consciousness.
+
+1:52:12.160 --> 1:52:19.600
+ What's the company name? Vicarious. So Vicarious is the company name. And so what does Vicarious
+
+1:52:19.600 --> 1:52:29.360
+ mean? At the first level, it is about modeling the world and it is internalizing the external actions.
+
+1:52:29.360 --> 1:52:34.960
+ So you interact with the world and learn a lot about the world. And now after having learned
+
+1:52:34.960 --> 1:52:42.080
+ a lot about the world, you can run those things in your mind without actually having to act
+
+1:52:42.080 --> 1:52:48.800
+ in the world. So you can run things vicariously just in your brain. And similarly, you can
+
+1:52:48.800 --> 1:52:54.560
+ experience another person's thoughts by having a model of how that person works
+
+1:52:54.560 --> 1:53:01.280
+ and running there, putting yourself in some other person's shoes. So that is being vicarious.
+
+1:53:01.280 --> 1:53:06.800
+ Now it's the same modeling apparatus that you're using to model the external world
+
+1:53:06.800 --> 1:53:14.320
+ or some other person's thoughts. You can turn it to yourself. If that same modeling thing is
+
+1:53:14.320 --> 1:53:21.040
+ applied to your own modeling apparatus, then that is what gives rise to consciousness, I think.
+
+1:53:21.040 --> 1:53:25.840
+ Well, that's more like self awareness. There's the hard problem of consciousness, which is
+
+1:53:25.840 --> 1:53:37.680
+ when the model feels like something, when this whole process is like you really are in it.
+
+1:53:37.680 --> 1:53:43.920
+ You feel like an entity in this world. Not just you know that you're an entity, but it feels like
+
+1:53:43.920 --> 1:53:54.400
+ something to be that entity. And thereby, we attribute this. Then it starts to be where
+
+1:53:54.400 --> 1:53:59.120
+ something that has consciousness can suffer. You start to have these kinds of things that we can
+
+1:53:59.120 --> 1:54:09.520
+ reason about that is much heavier. It seems like there's much greater cost to your decisions.
+
+1:54:09.520 --> 1:54:18.640
+ And mortality is tied up into that. The fact that these things end. First of all, I end at some
+
+1:54:18.640 --> 1:54:27.840
+ point, and then other things end. That somehow seems to be, at least for us humans, a deep
+
+1:54:27.840 --> 1:54:38.320
+ motivator. That idea of motivation in general, we talk about goals in AI, but goals aren't quite
+
+1:54:38.320 --> 1:54:46.560
+ the same thing as our mortality. It feels like, first of all, humans don't have a goal, and they
+
+1:54:46.560 --> 1:54:54.240
+ just kind of create goals at different levels. They make up goals because we're terrified by
+
+1:54:54.240 --> 1:55:02.880
+ the mystery of the thing that gets us all. We make these goals up. We're like a goal generation
+
+1:55:02.880 --> 1:55:10.880
+ machine, as opposed to a machine which optimizes the trajectory towards a singular goal. It feels
+
+1:55:10.880 --> 1:55:18.480
+ like that's an important part of cognition, that whole mortality thing. Well, it is a part of human
+
+1:55:18.480 --> 1:55:30.080
+ cognition, but there is no reason for that mortality to come to the equation for an artificial
+
+1:55:30.080 --> 1:55:36.800
+ system, because we can copy the artificial system. The problem with humans is that I can't clone
+
+1:55:36.800 --> 1:55:45.760
+ you. Even if I clone you as the hardware, your experience that was stored in your brain,
+
+1:55:45.760 --> 1:55:52.880
+ your episodic memory, all those will not be captured in the new clone. But that's not the
+
+1:55:52.880 --> 1:56:02.320
+ same with an AI system. But it's also possible that the thing that you mentioned with us humans
+
+1:56:02.320 --> 1:56:07.760
+ is actually of fundamental importance for intelligence. The fact that you can copy an AI
+
+1:56:07.760 --> 1:56:18.240
+ system means that that AI system is not yet an AGI. If you look at existence proof, if we reason
+
+1:56:18.240 --> 1:56:24.080
+ based on existence proof, you could say that it doesn't feel like death is a fundamental property
+
+1:56:24.080 --> 1:56:33.040
+ of an intelligent system. But we don't yet. Give me an example of an immortal intelligent being.
+
+1:56:33.840 --> 1:56:42.240
+ We don't have those. It's very possible that that is a fundamental property of intelligence,
+
+1:56:42.240 --> 1:56:49.840
+ is a thing that has a deadline for itself. Well, you can think of it like this. Suppose you invent
+
+1:56:49.840 --> 1:56:58.160
+ a way to freeze people for a long time. It's not dying. So you can be frozen and woken up
+
+1:56:58.160 --> 1:57:08.000
+ thousands of years from now. So it's no fear of death. Well, no, it's not about time. It's about
+
+1:57:08.000 --> 1:57:17.120
+ the knowledge that it's temporary. And that aspect of it, the finiteness of it, I think
+
+1:57:17.120 --> 1:57:23.200
+ creates a kind of urgency. Correct. For us, for humans. Yeah, for humans. Yes. And that is part
+
+1:57:23.200 --> 1:57:35.040
+ of our drives. And that's why I'm not too worried about AI having motivations to kill all humans
+
+1:57:35.040 --> 1:57:43.440
+ and those kinds of things. Why? Just wait. So why do you need to do that? I've never heard that
+
+1:57:43.440 --> 1:57:51.120
+ before. That's a good point. Yeah, just murder seems like a lot of work. Let's just wait it out.
+
+1:57:52.560 --> 1:58:01.440
+ They'll probably hurt themselves. Let me ask you, people often kind of wonder, world class researchers
+
+1:58:01.440 --> 1:58:10.320
+ such as yourself, what kind of books, technical fiction, philosophical, had an impact on you and
+
+1:58:10.320 --> 1:58:17.920
+ your life and maybe ones you could possibly recommend that others read? Maybe if you have
+
+1:58:17.920 --> 1:58:23.920
+ three books that pop into mind. Yeah. So I definitely liked Judea Pearl's book,
+
+1:58:23.920 --> 1:58:30.640
+ Probabilistic Reasoning and Intelligent Systems. It's a very deep technical book. But what I liked
+
+1:58:30.640 --> 1:58:36.400
+ is that, so there are many places where you can learn about probabilistic graphical models from.
+
+1:58:36.400 --> 1:58:42.960
+ But throughout this book, Judea Pearl kind of sprinkles his philosophical observations and he
+
+1:58:42.960 --> 1:58:48.400
+ thinks about, connects us to how the brain thinks and attentions and resources, all those things. So
+
+1:58:48.400 --> 1:58:54.400
+ that whole thing makes it more interesting to read. He emphasizes the importance of causality.
+
+1:58:54.400 --> 1:58:58.800
+ So that was in his later book. So this was the first book, Probabilistic Reasoning and Intelligent
+
+1:58:58.800 --> 1:59:05.040
+ Systems. He mentions causality, but he hadn't really sunk his teeth into causality. But he
+
+1:59:05.040 --> 1:59:11.360
+ really sunk his teeth into, how do you actually formalize it? And the second book,
+
+1:59:11.360 --> 1:59:17.040
+ Causality, the one in 2000, that one is really hard. So I would recommend that.
+
+1:59:17.840 --> 1:59:21.840
+ Yeah. So that looks at the mathematical, his model of...
+
+1:59:22.560 --> 1:59:23.120
+ Do calculus.
+
+1:59:23.120 --> 1:59:25.520
+ Do calculus. Yeah. It was pretty dense mathematically.
+
+1:59:25.520 --> 1:59:28.880
+ Right. The book of Y is definitely more enjoyable.
+
+1:59:28.880 --> 1:59:29.360
+ For sure.
+
+1:59:29.360 --> 1:59:34.160
+ Yeah. So I would recommend Probabilistic Reasoning and Intelligent Systems.
+
+1:59:34.160 --> 1:59:41.360
+ Another book I liked was one from Doug Hofstadter. This was a long time ago. He had a book,
+
+1:59:41.360 --> 1:59:49.200
+ I think it was called The Mind's Eye. It was probably Hofstadter and Daniel Dennett together.
+
+1:59:49.200 --> 1:59:54.880
+ Yeah. And I actually was, I bought that book. It's on my show. I haven't read it yet,
+
+1:59:54.880 --> 2:00:00.800
+ but I couldn't get an electronic version of it, which is annoying because you read everything on
+
+2:00:00.800 --> 2:00:06.560
+ Kindle. So you had to actually purchase the physical. It's one of the only physical books
+
+2:00:06.560 --> 2:00:11.200
+ I have because anyway, a lot of people recommended it highly. So yeah.
+
+2:00:11.200 --> 2:00:18.000
+ And the third one I would definitely recommend reading is, this is not a technical book. It is
+
+2:00:18.720 --> 2:00:25.040
+ history. The name of the book, I think, is Bishop's Boys. It's about Wright brothers
+
+2:00:25.040 --> 2:00:34.560
+ and their path and how it was... There are multiple books on this topic and all of them
+
+2:00:34.560 --> 2:00:45.840
+ are great. It's fascinating how flight was treated as an unsolvable problem. And also,
+
+2:00:46.400 --> 2:00:51.520
+ what aspects did people emphasize? People thought, oh, it is all about
+
+2:00:51.520 --> 2:01:00.160
+ just powerful engines. You just need to have powerful lightweight engines. And so some people
+
+2:01:00.160 --> 2:01:04.000
+ thought of it as, how far can we just throw the thing? Just throw it.
+
+2:01:04.000 --> 2:01:05.040
+ Like a catapult.
+
+2:01:05.040 --> 2:01:11.520
+ Yeah. So it's very fascinating. And even after they made the invention,
+
+2:01:11.520 --> 2:01:13.040
+ people are not believing it.
+
+2:01:13.040 --> 2:01:15.360
+ Ah, the social aspect of it.
+
+2:01:15.360 --> 2:01:18.240
+ The social aspect. It's very fascinating.
+
+2:01:18.240 --> 2:01:28.320
+ I mean, do you draw any parallels between birds fly? So there's the natural approach to flight
+
+2:01:28.320 --> 2:01:33.920
+ and then there's the engineered approach. Do you see the same kind of thing with the brain
+
+2:01:33.920 --> 2:01:35.840
+ and our trying to engineer intelligence?
+
+2:01:37.280 --> 2:01:43.920
+ Yeah. It's a good analogy to have. Of course, all analogies have their limits.
+
+2:01:43.920 --> 2:01:54.000
+ So people in AI often use airplanes as an example of, hey, we didn't learn anything from birds.
+
+2:01:55.120 --> 2:02:02.560
+ But the funny thing is that, and the saying is, airplanes don't flap wings. This is what they
+
+2:02:02.560 --> 2:02:09.520
+ say. The funny thing and the ironic thing is that you don't need to flap to fly is something
+
+2:02:09.520 --> 2:02:18.640
+ Wright brothers found by observing birds. So they have in their notebook, in some of these books,
+
+2:02:18.640 --> 2:02:25.680
+ they show their notebook drawings. They make detailed notes about buzzards just soaring over
+
+2:02:26.240 --> 2:02:31.440
+ thermals. And they basically say, look, flapping is not the important, propulsion is not the
+
+2:02:31.440 --> 2:02:37.120
+ important problem to solve here. We want to solve control. And once you solve control,
+
+2:02:37.120 --> 2:02:42.640
+ propulsion will fall into place. All of these are people, they realize this by observing birds.
+
+2:02:44.400 --> 2:02:49.280
+ Beautifully put. That's actually brilliant because people do use that analogy a lot. I'm
+
+2:02:49.280 --> 2:02:54.480
+ going to have to remember that one. Do you have advice for people interested in artificial
+
+2:02:54.480 --> 2:02:58.080
+ intelligence like young folks today? I talk to undergraduate students all the time,
+
+2:02:59.200 --> 2:03:03.840
+ interested in neuroscience, interested in understanding how the brain works. Is there
+
+2:03:03.840 --> 2:03:08.720
+ advice you would give them about their career, maybe about their life in general?
+
+2:03:09.520 --> 2:03:14.080
+ Sure. I think every piece of advice should be taken with a pinch of salt, of course,
+
+2:03:14.720 --> 2:03:20.400
+ because each person is different, their motivations are different. But I can definitely
+
+2:03:20.400 --> 2:03:28.480
+ say if your goal is to understand the brain from the angle of wanting to build one, then
+
+2:03:28.480 --> 2:03:36.240
+ being an experimental neuroscientist might not be the way to go about it. A better way to pursue it
+
+2:03:36.240 --> 2:03:42.560
+ might be through computer science, electrical engineering, machine learning, and AI. And of
+
+2:03:42.560 --> 2:03:48.800
+ course, you have to study the neuroscience, but that you can do on your own. If you're more
+
+2:03:48.800 --> 2:03:53.680
+ attracted by finding something intriguing about, discovering something intriguing about the brain,
+
+2:03:53.680 --> 2:03:58.480
+ then of course, it is better to be an experimentalist. So find that motivation,
+
+2:03:58.480 --> 2:04:03.120
+ what are you intrigued by? And of course, find your strengths too. Some people are very good
+
+2:04:03.120 --> 2:04:09.360
+ experimentalists and they enjoy doing that. And it's interesting to see which department,
+
+2:04:10.160 --> 2:04:18.880
+ if you're picking in terms of your education path, whether to go with like, at MIT, it's
+
+2:04:18.880 --> 2:04:29.120
+ brain and computer, no, it'd be CS. Yeah. Brain and cognitive sciences, yeah. Or the CS side of
+
+2:04:29.120 --> 2:04:34.240
+ things. And actually the brain folks, the neuroscience folks are more and more now
+
+2:04:34.240 --> 2:04:44.400
+ embracing of learning TensorFlow and PyTorch, right? They see the power of trying to engineer
+
+2:04:44.400 --> 2:04:52.720
+ ideas that they get from the brain into, and then explore how those could be used to create
+
+2:04:52.720 --> 2:04:58.640
+ intelligent systems. So that might be the right department actually. Yeah. So this was a question
+
+2:04:58.640 --> 2:05:06.160
+ in one of the Redwood Neuroscience Institute workshops that Jeff Hawkins organized almost 10
+
+2:05:06.160 --> 2:05:11.040
+ years ago. This question was put to a panel, right? What should be the undergrad major you should
+
+2:05:11.040 --> 2:05:17.200
+ take if you want to understand the brain? And the majority opinion in that one was electrical
+
+2:05:17.200 --> 2:05:23.840
+ engineering. Interesting. Because, I mean, I'm a double undergrad, so I got lucky in that way.
+
+2:05:25.040 --> 2:05:30.080
+ But I think it does have some of the right ingredients because you learn about circuits.
+
+2:05:30.080 --> 2:05:37.920
+ You learn about how you can construct circuits to approach, do functions. You learn about
+
+2:05:37.920 --> 2:05:43.040
+ microprocessors. You learn information theory. You learn signal processing. You learn continuous
+
+2:05:43.040 --> 2:05:50.880
+ math. So in that way, it's a good step. If you want to go to computer science or neuroscience,
+
+2:05:50.880 --> 2:05:56.640
+ it's a good step. The downside, you're more likely to be forced to use MATLAB.
+
+2:05:56.640 --> 2:06:07.920
+ You're more likely to be forced to use MATLAB. So one of the interesting things about, I mean,
+
+2:06:07.920 --> 2:06:13.840
+ this is changing. The world is changing. But certain departments lagged on the programming
+
+2:06:13.840 --> 2:06:19.280
+ side of things, on developing good habits in terms of software engineering. But I think that's more
+
+2:06:19.280 --> 2:06:26.000
+ and more changing. And students can take that into their own hands, like learn to program. I feel
+
+2:06:26.000 --> 2:06:34.800
+ like everybody should learn to program because it, like everyone in the sciences, because it
+
+2:06:34.800 --> 2:06:40.400
+ empowers, it puts the data at your fingertips. So you can organize it. You can find all kinds of
+
+2:06:40.400 --> 2:06:45.520
+ things in the data. And then you can also, for the appropriate sciences, build systems that,
+
+2:06:46.240 --> 2:06:49.760
+ like based on that. So like then engineer intelligent systems.
+
+2:06:49.760 --> 2:06:58.560
+ We already talked about mortality. So we hit a ridiculous point. But let me ask you,
+
+2:07:04.800 --> 2:07:13.200
+ one of the things about intelligence is it's goal driven. And you study the brain. So the question
+
+2:07:13.200 --> 2:07:17.360
+ is like, what's the goal that the brain is operating under? What's the meaning of it all
+
+2:07:17.360 --> 2:07:23.920
+ for us humans in your view? What's the meaning of life? The meaning of life is whatever you
+
+2:07:23.920 --> 2:07:31.760
+ construct out of it. It's completely open. It's open. So there's nothing, like you mentioned,
+
+2:07:31.760 --> 2:07:42.000
+ you like constraints. So it's wide open. Is there some useful aspect that you think about in terms
+
+2:07:42.000 --> 2:07:50.480
+ of like the openness of it and just the basic mechanisms of generating goals in studying
+
+2:07:50.480 --> 2:07:56.640
+ cognition in the brain that you think about? Or is it just about, because everything we've talked
+
+2:07:56.640 --> 2:08:00.640
+ about kind of the perception system is to understand the environment. That's like to be
+
+2:08:00.640 --> 2:08:09.360
+ able to like not die, like not fall over and like be able to, you don't think we need to
+
+2:08:09.360 --> 2:08:15.600
+ think about anything bigger than that. Yeah, I think so, because it's basically being able to
+
+2:08:16.160 --> 2:08:21.600
+ understand the machinery of the world such that you can pursue whatever goals you want.
+
+2:08:21.600 --> 2:08:26.800
+ So the machinery of the world is really ultimately what we should be striving to understand. The
+
+2:08:26.800 --> 2:08:31.840
+ rest is just whatever the heck you want to do or whatever fun you have.
+
+2:08:31.840 --> 2:08:42.640
+ One who is culturally popular. I think that's beautifully put. I don't think there's a better
+
+2:08:42.640 --> 2:08:49.840
+ way to end it. Dilip, I'm so honored that you show up here and waste your time with me. It's
+
+2:08:49.840 --> 2:08:54.400
+ been an awesome conversation. Thanks so much for talking today. Oh, thank you so much. This was
+
+2:08:54.400 --> 2:09:00.880
+ so much more fun than I expected. Thank you. Thanks for listening to this conversation with
+
+2:09:00.880 --> 2:09:07.920
+ Dilip George. And thank you to our sponsors, Babbel, Raycon Earbuds, and Masterclass. Please
+
+2:09:07.920 --> 2:09:14.720
+ consider supporting this podcast by going to babbel.com and use code LEX, going to buyraycon.com
+
+2:09:16.080 --> 2:09:22.240
+ and signing up at masterclass.com. Click the links, get the discount. It really is the best
+
+2:09:22.240 --> 2:09:27.440
+ way to support this podcast. If you enjoy this thing, subscribe on YouTube, review the Five
+
+2:09:27.440 --> 2:09:33.920
+ Stars Napa podcast, support it on Patreon, or connect with me on Twitter at Lex Friedman,
+
+2:09:33.920 --> 2:09:43.120
+ spelled yes, without the E, just F R I D M A M. And now let me leave you with some words from Marcus
+
+2:09:43.120 --> 2:09:51.360
+ Aurelius. You have power over your mind, not outside events. Realize this and you will find
+
+2:09:51.360 --> 2:09:58.080
+ strength. Thank you for listening and hope to see you next time.
+

@@ -1,0 +1,5300 @@
+WEBVTT
+
+00:00.000 --> 00:05.280
+ The following is a conversation with Vladimir Vapnik, part two, the second
+
+00:05.280 --> 00:06.640
+ time we spoke on the podcast.
+
+00:07.280 --> 00:11.440
+ He's the coinventor of support vector machines, support vector clustering, VC
+
+00:11.440 --> 00:14.480
+ theory, and many foundational ideas and statistical learning.
+
+00:14.960 --> 00:19.320
+ He was born in the Soviet Union, worked at the Institute of Control Sciences
+
+00:19.320 --> 00:26.000
+ in Moscow, then in the US, worked at AT&T, NEC labs, Facebook AI research,
+
+00:26.080 --> 00:28.640
+ and now is a professor at Columbia University.
+
+00:28.640 --> 00:31.840
+ His work has been cited over 200,000 times.
+
+00:32.320 --> 00:35.040
+ The first time we spoke on the podcast was just over a year
+
+00:35.040 --> 00:37.520
+ ago, one of the early episodes.
+
+00:38.240 --> 00:42.760
+ This time we spoke after a lecture he gave titled complete statistical theory
+
+00:42.760 --> 00:46.560
+ of learning as part of the MIT series of lectures on deep learning
+
+00:46.720 --> 00:48.560
+ and AI that I organized.
+
+00:49.520 --> 00:52.240
+ I'll release the video of the lecture in the next few days.
+
+00:53.040 --> 00:56.840
+ This podcast and lecture are independent from each other, so you don't need
+
+00:56.840 --> 00:58.640
+ one to understand the other.
+
+00:59.000 --> 01:04.040
+ The lecture is quite technical and math heavy, so if you do watch both, I
+
+01:04.040 --> 01:07.320
+ recommend listening to this podcast first, since the podcast is
+
+01:07.320 --> 01:09.600
+ probably a bit more accessible.
+
+01:10.800 --> 01:13.280
+ This is the artificial intelligence podcast.
+
+01:13.560 --> 01:17.360
+ If you enjoy it, subscribe on YouTube, give it five stars on Apple podcasts,
+
+01:17.520 --> 01:20.400
+ support it on Patreon, or simply connect with me on Twitter
+
+01:20.720 --> 01:23.680
+ at Lex Friedman spelled F R I D M A N.
+
+01:23.680 --> 01:27.800
+ As usual, I'll do one or two minutes of ads now and never any ads in
+
+01:27.800 --> 01:30.040
+ the middle that can break the flow of the conversation.
+
+01:30.440 --> 01:33.680
+ I hope that works for you and doesn't hurt the listening experience.
+
+01:35.080 --> 01:38.960
+ This show is presented by Cash App, the number one finance app in the app store.
+
+01:39.480 --> 01:42.040
+ When you get it, use code LexPodcast.
+
+01:42.760 --> 01:46.440
+ Cash App lets you send money to friends, buy Bitcoin, and invest in the
+
+01:46.440 --> 01:48.200
+ stock market with as little as $1.
+
+01:48.680 --> 01:52.720
+ Broker services are provided by Cash App Investing, a subsidiary of Square
+
+01:52.720 --> 01:57.520
+ and member SIPC, since Cash App allows you to send and receive money
+
+01:57.520 --> 02:02.080
+ digitally, peer to peer, and security in all digital transactions is very important.
+
+02:02.400 --> 02:07.440
+ Let me mention that PCI data security standard, PCI DSS level one,
+
+02:07.760 --> 02:09.880
+ that Cash App is compliant with.
+
+02:10.920 --> 02:16.480
+ I'm a big fan of standards for safety and security and PCI DSS is a good
+
+02:16.480 --> 02:20.480
+ example of that, where a bunch of competitors got together and agreed
+
+02:20.480 --> 02:23.840
+ that there needs to be a global standard around the security of transactions.
+
+02:24.480 --> 02:27.440
+ Now we just need to do the same for autonomous vehicles
+
+02:27.480 --> 02:28.960
+ and AI systems in general.
+
+02:30.000 --> 02:34.200
+ So again, if you get Cash App from the app store or Google Play and use the code
+
+02:34.200 --> 02:40.240
+ LexPodcast, you get $10 and Cash App will also donate $10 to FIRST, one of my
+
+02:40.240 --> 02:45.040
+ favorite organizations that is helping to advance robotics and STEM education
+
+02:45.040 --> 02:46.800
+ for young people around the world.
+
+02:46.800 --> 02:51.040
+ And now here's my conversation with Vladimir Vapnik.
+
+02:52.440 --> 02:58.040
+ You and I talked about Alan Turing yesterday a little bit and that he, as the
+
+02:58.040 --> 03:02.080
+ father of artificial intelligence, may have instilled in our field, an ethic
+
+03:02.080 --> 03:06.560
+ of engineering and not science, seeking more to build intelligence
+
+03:06.560 --> 03:08.120
+ rather than to understand it.
+
+03:09.160 --> 03:13.760
+ What do you think is the difference between these two paths of engineering
+
+03:13.760 --> 03:17.120
+ intelligence and the science of intelligence?
+
+03:18.120 --> 03:19.520
+ It's a completely different story.
+
+03:20.520 --> 03:24.320
+ Engineering is a mutation of human activity.
+
+03:25.320 --> 03:34.640
+ You have to make a device which behaves as humans behave, have all the functions
+
+03:34.640 --> 03:35.320
+ of humans.
+
+03:36.120 --> 03:41.360
+ It doesn't matter how you do it, but to understand what is intelligence,
+
+03:41.360 --> 03:47.480
+ but to understand what is intelligence about, it's quite a different problem.
+
+03:48.920 --> 03:55.160
+ So I think, I believe that it's somehow related to the predicate we talked
+
+03:55.160 --> 04:04.760
+ yesterday about, because look at the Vladimir Propp's idea.
+
+04:04.760 --> 04:17.600
+ He just found 31 here, predicates, he called it units, which can explain
+
+04:17.600 --> 04:20.760
+ human behavior, at least in Russian tales.
+
+04:20.760 --> 04:24.400
+ You look at Russian tales and derive from that.
+
+04:24.840 --> 04:29.120
+ And then people realize that it's more wide than in Russian tales.
+
+04:29.480 --> 04:33.720
+ It is in TV, in movie serials and so on and so on.
+
+04:33.720 --> 04:39.960
+ So you're talking about Vladimir Propp, who in 1928 published a book,
+
+04:39.960 --> 04:46.400
+ Morphology of the Folktale, describing 31 predicates that have this kind of
+
+04:46.400 --> 04:53.320
+ sequential structure that a lot of the stories, narratives follow in Russian
+
+04:53.320 --> 04:54.720
+ folklore and in other contexts.
+
+04:54.960 --> 04:55.880
+ We'll talk about it.
+
+04:56.040 --> 05:00.400
+ I'd like to talk about predicates in a focused way, but let me, if you allow
+
+05:00.400 --> 05:06.600
+ me to stay zoomed out on our friend, Alan Turing, and, you know, he inspired
+
+05:06.600 --> 05:09.440
+ a generation with the imitation game.
+
+05:10.080 --> 05:10.600
+ Yes.
+
+05:11.560 --> 05:16.320
+ Do you think if we can linger on that a little bit longer, do you think we can
+
+05:17.480 --> 05:22.960
+ learn, do you think learning to imitate intelligence can get us closer to the
+
+05:22.960 --> 05:24.920
+ science, to understanding intelligence?
+
+05:24.920 --> 05:31.440
+ So why do you think imitation is so far from understanding?
+
+05:32.200 --> 05:35.880
+ I think that it is different between you have different goals.
+
+05:37.000 --> 05:42.800
+ So your goal is to create something, something useful.
+
+05:43.080 --> 05:43.360
+ Yeah.
+
+05:43.560 --> 05:44.600
+ And that is great.
+
+05:45.400 --> 05:51.240
+ And you can see how much things was done and I believe that it will be done even
+
+05:51.240 --> 05:57.240
+ more, it's self driving cars and also the business, it is great.
+
+05:57.920 --> 06:01.440
+ And it was inspired by Turing's vision.
+
+06:02.640 --> 06:04.600
+ But understanding is very difficult.
+
+06:05.000 --> 06:07.200
+ It's more or less philosophical category.
+
+06:07.840 --> 06:09.880
+ What means understand the world?
+
+06:10.800 --> 06:18.040
+ I believe in scheme which starts from Plato, that there exists world of ideas.
+
+06:18.040 --> 06:24.280
+ I believe that intelligence, it is world of ideas, but it is world of pure ideas.
+
+06:24.840 --> 06:34.400
+ And when you combine them with reality things, it creates, as in my case,
+
+06:34.400 --> 06:36.960
+ invariants, which is very specific.
+
+06:37.520 --> 06:47.320
+ And that's, I believe, the combination of ideas in way to constructing invariants.
+
+06:47.320 --> 06:49.520
+ Constructing invariant is intelligence.
+
+06:49.760 --> 06:56.080
+ But first of all, predicate, if you know, predicate and hopefully
+
+06:56.080 --> 07:00.160
+ then not too much predicate exists.
+
+07:00.760 --> 07:05.880
+ For example, 31 predicate for human behavior, it is not a lot.
+
+07:06.040 --> 07:12.720
+ Vladimir Propp used 31, you can even call them predicate, 31
+
+07:12.720 --> 07:17.200
+ predicates to describe stories, narratives.
+
+07:17.640 --> 07:22.560
+ Do you think human behavior, how much of human behavior, how much of our
+
+07:22.560 --> 07:28.000
+ world, our universe, all the things that matter in our existence can be
+
+07:28.000 --> 07:32.040
+ summarized in predicates of the kind that Propp was working with?
+
+07:32.600 --> 07:38.760
+ I think that we have a lot of form of behavior, but I think that
+
+07:38.760 --> 07:43.800
+ predicate is much less because even in this example, which I gave you
+
+07:43.840 --> 07:54.880
+ yesterday, you saw that predicate can be, one predicate can construct many
+
+07:55.000 --> 07:58.840
+ different invariants depending on your data.
+
+07:59.360 --> 08:03.560
+ They're applying to different data and they give different invariants.
+
+08:04.200 --> 08:08.600
+ So, but pure ideas, maybe not so much.
+
+08:08.600 --> 08:09.360
+ Not so many.
+
+08:09.880 --> 08:14.640
+ I don't know about that, but my guess, I hope that's why challenge
+
+08:15.000 --> 08:18.560
+ about digit recognition, how much you need.
+
+08:19.600 --> 08:23.560
+ I think we'll talk about computer vision and 2D images a little bit
+
+08:23.560 --> 08:24.560
+ in your challenge.
+
+08:24.800 --> 08:26.640
+ That's exactly about intelligence.
+
+08:26.720 --> 08:33.880
+ That's exactly, that's exactly about, no, that hopes to be exactly about
+
+08:33.880 --> 08:37.160
+ the spirit of intelligence in the simplest possible way.
+
+08:37.160 --> 08:40.760
+ Yeah, absolutely you should start the simplest way, otherwise you
+
+08:40.760 --> 08:41.960
+ will not be able to do it.
+
+08:42.320 --> 08:46.680
+ Well, there's an open question whether starting at the MNIST digit
+
+08:46.680 --> 08:51.520
+ recognition is a step towards intelligence or it's an entirely different thing.
+
+08:52.320 --> 08:58.880
+ I think that to beat records using say 100, 200 times less examples,
+
+08:59.360 --> 09:00.320
+ you need intelligence.
+
+09:00.360 --> 09:01.200
+ You need intelligence.
+
+09:01.200 --> 09:05.800
+ So let's, because you use this term and it would be nice, I'd like to
+
+09:05.800 --> 09:08.680
+ ask simple, maybe even dumb questions.
+
+09:09.640 --> 09:11.000
+ Let's start with a predicate.
+
+09:12.520 --> 09:15.640
+ In terms of terms and how you think about it, what is a predicate?
+
+09:17.160 --> 09:17.840
+ I don't know.
+
+09:18.520 --> 09:26.440
+ I have a feeling formally they exist, but I believe that predicate for
+
+09:26.440 --> 09:31.280
+ 2D images, one of them is symmetry.
+
+09:31.960 --> 09:32.560
+ Hold on a second.
+
+09:32.560 --> 09:32.960
+ Sorry.
+
+09:32.960 --> 09:35.600
+ Sorry, sorry to interrupt and pull you back.
+
+09:36.440 --> 09:40.360
+ At the simplest level, we're not even, we're not being profound currently.
+
+09:40.680 --> 09:43.840
+ A predicate is a statement of something that is true.
+
+09:44.880 --> 09:45.280
+ Yes.
+
+09:46.600 --> 09:54.320
+ Do you think of predicates as somehow probabilistic in nature or is this binary?
+
+09:54.640 --> 09:59.840
+ This is truly constraints of logical statements about the world.
+
+09:59.840 --> 10:02.800
+ In my definition, the simplest predicate is function.
+
+10:03.800 --> 10:09.920
+ Function, and you can use this function to make inner product that is predicate.
+
+10:10.480 --> 10:12.920
+ What's the input and what's the output of the function?
+
+10:13.600 --> 10:17.760
+ Input is X, something which is input in reality.
+
+10:18.240 --> 10:25.440
+ Say if you consider digit recognition, it pixel space input, but it is
+
+10:25.440 --> 10:36.240
+ function which in pixel space, but it can be any function from pixel space and you
+
+10:36.240 --> 10:43.160
+ choose, and I believe that there are several functions which is important for
+
+10:43.160 --> 10:45.680
+ understanding of images.
+
+10:46.400 --> 10:48.200
+ One of them is symmetry.
+
+10:48.240 --> 10:53.720
+ It's not so simple construction as I described with the derivative, with all
+
+10:53.720 --> 10:59.600
+ this stuff, but another, I believe, I don't know how many, is how well
+
+10:59.600 --> 11:02.320
+ structurized is picture.
+
+11:03.240 --> 11:04.200
+ Structurized?
+
+11:04.280 --> 11:04.600
+ Yeah.
+
+11:04.840 --> 11:06.320
+ What do you mean by structurized?
+
+11:06.960 --> 11:08.640
+ It is formal definition.
+
+11:09.040 --> 11:16.600
+ Say something heavy on the left corner, not so heavy in the middle and so on.
+
+11:17.040 --> 11:21.840
+ You describe in general concept of what you assume.
+
+11:21.840 --> 11:25.120
+ Concepts, some kind of universal concepts.
+
+11:25.200 --> 11:29.000
+ Yeah, but I don't know how to formalize this.
+
+11:29.160 --> 11:29.760
+ Do you?
+
+11:29.840 --> 11:30.880
+ So this is the thing.
+
+11:31.560 --> 11:33.600
+ There's a million ways we can talk about this.
+
+11:33.600 --> 11:40.000
+ I'll keep bringing it up, but we humans have such concepts when we look at
+
+11:40.000 --> 11:44.000
+ digits, but it's hard to put them, just like you're saying now, it's
+
+11:44.000 --> 11:45.480
+ hard to put them into words.
+
+11:45.480 --> 11:54.600
+ You know, that is example, when critics in music, trying to describe music,
+
+11:55.440 --> 12:02.040
+ they use predicate and not too many predicate, but in different combination,
+
+12:02.600 --> 12:10.440
+ but they have some special words for describing music and the same
+
+12:10.440 --> 12:16.920
+ should be for images, but maybe there are critics who understand essence
+
+12:16.920 --> 12:19.200
+ of what this image is about.
+
+12:20.960 --> 12:26.960
+ Do you think there exists critics who can summarize the essence of
+
+12:26.960 --> 12:28.160
+ images, human beings?
+
+12:29.120 --> 12:32.440
+ I hope so, yes, but that...
+
+12:32.440 --> 12:34.520
+ Explicitly state them on paper.
+
+12:34.520 --> 12:41.840
+ The fundamental question I'm asking is, do you think there exists a small
+
+12:41.840 --> 12:44.560
+ set of predicates that will summarize images?
+
+12:45.040 --> 12:50.840
+ It feels to our mind, like it does, that the concept of what makes a two
+
+12:50.840 --> 12:52.520
+ and a three and a four...
+
+12:53.000 --> 12:55.760
+ No, no, no, it's not on this level.
+
+12:58.040 --> 13:01.240
+ It should not describe two, three, four.
+
+13:01.240 --> 13:06.840
+ It describes some construction, which allow you to create invariance.
+
+13:08.040 --> 13:11.760
+ And invariance, sorry to stick on this, but terminology.
+
+13:12.360 --> 13:18.920
+ Invariance, it is property of your image.
+
+13:21.040 --> 13:27.760
+ Say, I can say, looking on my image, it is more or less symmetric.
+
+13:27.760 --> 13:33.360
+ Looking on my image, it is more or less symmetric, and I can give you value
+
+13:33.360 --> 13:40.560
+ of symmetry, say, level of symmetry, using this function which I gave
+
+13:40.560 --> 13:51.560
+ yesterday. And you can describe that your image has these characteristics
+
+13:51.560 --> 13:56.640
+ exactly in the way how musical critics describe music.
+
+13:56.640 --> 14:05.400
+ So, but this is invariant applied to specific data, to specific music,
+
+14:05.400 --> 14:06.040
+ to something.
+
+14:07.640 --> 14:14.960
+ I strongly believe in this plot ideas that there exists world of predicate
+
+14:14.960 --> 14:20.160
+ and world of reality, and predicate and reality is somehow connected,
+
+14:20.160 --> 14:22.080
+ and you have to know that.
+
+14:22.400 --> 14:23.960
+ Let's talk about Plato a little bit.
+
+14:23.960 --> 14:29.000
+ So you draw a line from Plato, to Hegel, to Wigner, to today.
+
+14:30.120 --> 14:35.440
+ So Plato has forms, the theory of forms.
+
+14:35.440 --> 14:39.400
+ So there's a world of ideas and a world of things, as you talk about,
+
+14:39.400 --> 14:40.400
+ and there's a connection.
+
+14:40.400 --> 14:45.720
+ And presumably the world of ideas is very small, and the world of things
+
+14:45.720 --> 14:52.520
+ is arbitrarily big, but they're all what Plato calls them like, it's a shadow.
+
+14:52.520 --> 14:55.040
+ The real world is a shadow from the world of forms.
+
+14:55.040 --> 14:58.840
+ Yeah, you have projection of a world of ideas.
+
+14:58.840 --> 15:00.640
+ Yeah, very poetic.
+
+15:00.640 --> 15:07.040
+ In reality, you can realize this projection using these invariants
+
+15:07.040 --> 15:13.600
+ because it is projection for own specific examples, which create specific features
+
+15:13.600 --> 15:14.840
+ of specific objects.
+
+15:14.840 --> 15:22.920
+ So the essence of intelligence is while only being able to observe
+
+15:22.920 --> 15:26.720
+ the world of things, try to come up with a world of ideas.
+
+15:26.720 --> 15:27.720
+ Exactly.
+
+15:27.720 --> 15:33.040
+ Like in this music story, intelligent musical critics knows all these words
+
+15:33.040 --> 15:34.840
+ and have a feeling about what they mean.
+
+15:34.840 --> 15:38.800
+ I feel like that's a contradiction, intelligent music critics.
+
+15:38.800 --> 15:47.280
+ But I think music is to be enjoyed in all its forms.
+
+15:47.280 --> 15:49.840
+ The notion of critic, like a food critic.
+
+15:49.840 --> 15:51.800
+ No, I don't want touch emotion.
+
+15:51.800 --> 15:53.440
+ That's an interesting question.
+
+15:53.440 --> 15:54.640
+ Does emotion...
+
+15:54.640 --> 15:59.240
+ There's certain elements of the human psychology, of the human experience,
+
+15:59.240 --> 16:04.720
+ which seem to almost contradict intelligence and reason.
+
+16:04.720 --> 16:11.160
+ Like emotion, like fear, like love, all of those things,
+
+16:11.160 --> 16:16.520
+ are those not connected in any way to the space of ideas?
+
+16:16.520 --> 16:18.560
+ That I don't know.
+
+16:18.560 --> 16:27.720
+ I just want to be concentrate on very simple story, on digit recognition.
+
+16:27.720 --> 16:31.800
+ So you don't think you have to love and fear death in order to recognize digits?
+
+16:31.800 --> 16:33.600
+ I don't know.
+
+16:33.600 --> 16:36.560
+ Because it's so complicated.
+
+16:36.560 --> 16:41.200
+ It involves a lot of stuff which I never considered.
+
+16:41.200 --> 16:44.720
+ But I know about digit recognition.
+
+16:44.720 --> 16:50.360
+ And I know that for digit recognition,
+
+16:50.360 --> 16:59.040
+ to get records from small number of observations, you need predicate.
+
+16:59.040 --> 17:03.240
+ But not special predicate for this problem.
+
+17:03.240 --> 17:08.480
+ But universal predicate, which understand world of images.
+
+17:08.480 --> 17:09.920
+ Of visual information.
+
+17:09.920 --> 17:11.120
+ Visual, yes.
+
+17:11.120 --> 17:18.440
+ But on the first step, they understand, say, world of handwritten digits,
+
+17:18.440 --> 17:21.400
+ or characters, or something simple.
+
+17:21.400 --> 17:23.800
+ So like you said, symmetry is an interesting one.
+
+17:23.800 --> 17:28.720
+ No, that's what I think one of the predicate is related to symmetry.
+
+17:28.720 --> 17:30.720
+ The level of symmetry.
+
+17:30.720 --> 17:32.120
+ Okay, degree of symmetry.
+
+17:32.120 --> 17:37.200
+ So you think symmetry at the bottom is a universal notion,
+
+17:37.200 --> 17:41.480
+ and there's degrees of a single kind of symmetry,
+
+17:41.480 --> 17:44.160
+ or is there many kinds of symmetries?
+
+17:44.160 --> 17:46.000
+ Many kinds of symmetries.
+
+17:46.000 --> 17:52.360
+ There is a symmetry, antisymmetry, say, letter S.
+
+17:52.360 --> 17:58.400
+ So it has vertical antisymmetry.
+
+17:58.400 --> 18:02.640
+ And it could be diagonal symmetry, vertical symmetry.
+
+18:02.640 --> 18:07.760
+ So when you cut vertically the letter S...
+
+18:07.760 --> 18:16.600
+ Yeah, then the upper part and lower part in different directions.
+
+18:16.600 --> 18:18.920
+ Inverted, along the Y axis.
+
+18:18.920 --> 18:21.240
+ But that's just like one example of symmetry, right?
+
+18:21.240 --> 18:21.960
+ Isn't there like...
+
+18:21.960 --> 18:26.320
+ Right, but there is a degree of symmetry.
+
+18:26.320 --> 18:35.040
+ If you play all this iterative stuff to do tangent distance,
+
+18:35.040 --> 18:40.480
+ whatever I describe, you can have a degree of symmetry.
+
+18:40.480 --> 18:45.920
+ And that is what describing reason of image.
+
+18:45.920 --> 18:53.200
+ It is the same as you will describe this image.
+
+18:53.200 --> 18:57.920
+ Think about digit S, it has antisymmetry.
+
+18:57.920 --> 19:00.880
+ Digit three is symmetric.
+
+19:00.880 --> 19:04.480
+ More or less, look for symmetry.
+
+19:04.480 --> 19:07.840
+ Do you think such concepts like symmetry,
+
+19:07.840 --> 19:14.360
+ predicates like symmetry, is it a hierarchical set of concepts?
+
+19:14.360 --> 19:20.080
+ Or are these independent, distinct predicates
+
+19:20.080 --> 19:23.600
+ that we want to discover as some set of...
+
+19:23.600 --> 19:25.960
+ No, there is an idea of symmetry.
+
+19:25.960 --> 19:34.880
+ And you can, this idea of symmetry, make very general.
+
+19:34.880 --> 19:37.120
+ Like degree of symmetry.
+
+19:37.120 --> 19:40.680
+ If degree of symmetry can be zero, no symmetry at all.
+
+19:40.680 --> 19:46.960
+ Or degree of symmetry, say, more or less symmetrical.
+
+19:46.960 --> 19:50.480
+ But you have one of these descriptions.
+
+19:50.480 --> 19:52.480
+ And symmetry can be different.
+
+19:52.480 --> 19:56.320
+ As I told, horizontal, vertical, diagonal,
+
+19:56.320 --> 20:01.400
+ and antisymmetry is also concept of symmetry.
+
+20:01.400 --> 20:03.320
+ What about shape in general?
+
+20:03.320 --> 20:06.920
+ I mean, symmetry is a fascinating notion, but...
+
+20:06.920 --> 20:08.600
+ No, no, I'm talking about digit.
+
+20:08.600 --> 20:12.440
+ I would like to concentrate on all I would like to know,
+
+20:12.440 --> 20:14.440
+ predicate for digit recognition.
+
+20:14.440 --> 20:19.360
+ Yes, but symmetry is not enough for digit recognition, right?
+
+20:19.360 --> 20:22.520
+ It is not necessarily for digit recognition.
+
+20:22.520 --> 20:30.640
+ It helps to create invariant, which you can use
+
+20:30.640 --> 20:35.000
+ when you will have examples for digit recognition.
+
+20:35.000 --> 20:38.240
+ You have regular problem of digit recognition.
+
+20:38.240 --> 20:41.600
+ You have examples of the first class or second class.
+
+20:41.600 --> 20:45.840
+ Plus, you know that there exists concept of symmetry.
+
+20:45.840 --> 20:50.400
+ And you apply, when you're looking for decision rule,
+
+20:50.400 --> 20:55.400
+ you will apply concept of symmetry,
+
+20:55.400 --> 21:00.120
+ of this level of symmetry, which you estimate from...
+
+21:00.120 --> 21:01.680
+ So let's talk.
+
+21:01.680 --> 21:06.600
+ Everything comes from weak convergence.
+
+21:06.600 --> 21:07.840
+ What is convergence?
+
+21:07.840 --> 21:09.280
+ What is weak convergence?
+
+21:09.280 --> 21:11.360
+ What is strong convergence?
+
+21:11.360 --> 21:13.360
+ I'm sorry, I'm gonna do this to you.
+
+21:13.360 --> 21:16.120
+ What are we converging from and to?
+
+21:16.120 --> 21:20.480
+ You're converging, you would like to have a function.
+
+21:20.480 --> 21:23.600
+ The function which, say, indicator function,
+
+21:23.600 --> 21:29.920
+ which indicate your digit five, for example.
+
+21:29.920 --> 21:31.480
+ A classification task.
+
+21:31.480 --> 21:33.640
+ Let's talk only about classification.
+
+21:33.640 --> 21:36.840
+ So classification means you will say
+
+21:36.840 --> 21:38.560
+ whether this is a five or not,
+
+21:38.560 --> 21:40.600
+ or say which of the 10 digits it is.
+
+21:40.600 --> 21:42.160
+ Right, right.
+
+21:42.160 --> 21:46.560
+ I would like to have these functions.
+
+21:46.560 --> 21:56.040
+ Then, I have some examples.
+
+21:56.040 --> 22:01.120
+ I can consider property of these examples.
+
+22:01.120 --> 22:02.720
+ Say, symmetry.
+
+22:02.720 --> 22:08.040
+ And I can measure level of symmetry for every digit.
+
+22:08.040 --> 22:16.680
+ And then I can take average from my training data.
+
+22:16.680 --> 22:20.920
+ And I will consider only functions
+
+22:20.920 --> 22:24.000
+ of conditional probability,
+
+22:24.000 --> 22:27.280
+ which I'm looking for my decision rule.
+
+22:27.280 --> 22:38.360
+ Which applying to digits will give me the same average
+
+22:38.360 --> 22:41.960
+ as I observe on training data.
+
+22:41.960 --> 22:45.360
+ So, actually, this is different level
+
+22:45.360 --> 22:48.480
+ of description of what you want.
+
+22:48.480 --> 22:54.080
+ You want not just, you show not one digit.
+
+22:54.080 --> 22:59.840
+ You show, this predicate, show general property
+
+22:59.840 --> 23:03.720
+ of all digits which you have in mind.
+
+23:03.720 --> 23:06.080
+ If you have in mind digit three,
+
+23:06.080 --> 23:10.360
+ it gives you property of digit three.
+
+23:10.360 --> 23:13.560
+ And you select as admissible set of function,
+
+23:13.560 --> 23:16.960
+ only function, which keeps this property.
+
+23:16.960 --> 23:20.760
+ You will not consider other functions.
+
+23:20.760 --> 23:24.920
+ So, you immediately looking for smaller subset of function.
+
+23:24.920 --> 23:27.000
+ That's what you mean by admissible functions.
+
+23:27.000 --> 23:28.400
+ Admissible function, exactly.
+
+23:28.400 --> 23:30.920
+ Which is still a pretty large,
+
+23:30.920 --> 23:32.920
+ for the number three, is a large.
+
+23:32.920 --> 23:36.600
+ It is pretty large, but if you have one predicate.
+
+23:36.600 --> 23:42.760
+ But according to, there is a strong and weak convergence.
+
+23:42.760 --> 23:46.360
+ Strong convergence is convergence in function.
+
+23:46.360 --> 23:49.200
+ You're looking for the function on one function,
+
+23:49.200 --> 23:51.880
+ and you're looking for another function.
+
+23:51.880 --> 23:59.240
+ And square difference from them should be small.
+
+23:59.240 --> 24:01.880
+ If you take difference in any points,
+
+24:01.880 --> 24:05.640
+ make a square, make an integral, and it should be small.
+
+24:05.640 --> 24:08.040
+ That is convergence in function.
+
+24:08.040 --> 24:11.280
+ Suppose you have some function, any function.
+
+24:11.280 --> 24:15.400
+ So, I would say, I say that some function
+
+24:15.400 --> 24:17.880
+ converge to this function.
+
+24:17.880 --> 24:22.880
+ If integral from square difference between them is small.
+
+24:22.880 --> 24:24.760
+ That's the definition of strong convergence.
+
+24:24.760 --> 24:25.760
+ That definition of strong convergence.
+
+24:25.760 --> 24:28.920
+ Two functions, the integral, the difference, is small.
+
+24:28.920 --> 24:31.160
+ Yeah, it is convergence in functions.
+
+24:31.160 --> 24:32.280
+ Yeah.
+
+24:32.280 --> 24:36.720
+ But you have different convergence in functionals.
+
+24:36.720 --> 24:41.160
+ You take any function, you take some function, phi,
+
+24:41.160 --> 24:46.040
+ and take inner product, this function, this f function.
+
+24:46.040 --> 24:50.360
+ f0 function, which you want to find.
+
+24:50.360 --> 24:52.960
+ And that gives you some value.
+
+24:52.960 --> 24:59.960
+ So, you say that set of functions converge
+
+24:59.960 --> 25:03.040
+ in inner product to this function,
+
+25:03.040 --> 25:10.400
+ if this value of inner product converge to value f0.
+
+25:10.400 --> 25:12.480
+ That is for one phi.
+
+25:12.480 --> 25:16.320
+ But weak convergence requires that it converge for any
+
+25:16.320 --> 25:20.680
+ function of Hilbert space.
+
+25:20.680 --> 25:24.200
+ If it converge for any function of Hilbert space,
+
+25:24.200 --> 25:28.240
+ then you will say that this is weak convergence.
+
+25:28.240 --> 25:32.200
+ You can think that when you take integral,
+
+25:32.200 --> 25:35.920
+ that is integral property of function.
+
+25:35.920 --> 25:39.120
+ For example, if you will take sine or cosine,
+
+25:39.120 --> 25:45.480
+ it is coefficient of, say, Fourier expansion.
+
+25:45.480 --> 25:51.440
+ So, if it converge for all coefficients of Fourier
+
+25:51.440 --> 25:54.240
+ expansion, so under some condition,
+
+25:54.240 --> 25:58.080
+ it converge to function you're looking for.
+
+25:58.080 --> 26:02.800
+ But weak convergence means any property.
+
+26:02.800 --> 26:07.640
+ Convergence not point wise, but integral property
+
+26:07.640 --> 26:09.480
+ of function.
+
+26:09.480 --> 26:13.800
+ So, weak convergence means integral property of functions.
+
+26:13.800 --> 26:16.040
+ When I'm talking about predicate,
+
+26:16.040 --> 26:23.200
+ I would like to formulate which integral properties
+
+26:23.200 --> 26:27.840
+ I would like to have for convergence.
+
+26:27.840 --> 26:33.440
+ So, and if I will take one predicated function,
+
+26:33.440 --> 26:39.600
+ which I measure property, if I will use one predicate
+
+26:39.600 --> 26:44.840
+ and say, I will consider only function which give me
+
+26:44.840 --> 26:47.840
+ the same value as this predicate,
+
+26:47.840 --> 26:53.440
+ I selecting set of functions from functions
+
+26:53.440 --> 26:58.000
+ which is admissible in the sense that function which I'm
+
+26:58.000 --> 27:01.000
+ looking for in this set of functions
+
+27:01.000 --> 27:08.760
+ because I checking in training data, it gives the same.
+
+27:08.760 --> 27:10.960
+ Yeah, so it always has to be connected to the training
+
+27:10.960 --> 27:12.600
+ data in terms of?
+
+27:12.600 --> 27:18.720
+ Yeah, but property, you can know independent on training data.
+
+27:18.720 --> 27:24.000
+ And this guy, prop, says that there is formal property,
+
+27:24.000 --> 27:25.360
+ 31 property.
+
+27:25.360 --> 27:27.640
+ A fairy tale, a Russian fairy tale.
+
+27:27.640 --> 27:30.560
+ But Russian fairy tale is not so interesting.
+
+27:30.560 --> 27:34.880
+ More interesting that people apply this to movies,
+
+27:34.880 --> 27:38.000
+ to theater, to different things.
+
+27:38.000 --> 27:41.960
+ And the same works, they're universal.
+
+27:41.960 --> 27:44.400
+ Well, so I would argue that there's
+
+27:44.400 --> 27:48.520
+ a little bit of a difference between the kinds of things
+
+27:48.520 --> 27:51.480
+ that were applied to which are essentially stories
+
+27:51.480 --> 27:54.240
+ and digit recognition.
+
+27:54.240 --> 27:55.880
+ It is the same story.
+
+27:55.880 --> 27:59.600
+ You're saying digits, there's a story within the digit.
+
+27:59.600 --> 28:00.360
+ Yeah.
+
+28:00.360 --> 28:04.640
+ And so but my point is why I hope
+
+28:04.640 --> 28:11.440
+ that it possible to beat record using not 60,000,
+
+28:11.440 --> 28:13.800
+ but say 100 times less.
+
+28:13.800 --> 28:17.840
+ Because instead, you will give predicates.
+
+28:17.840 --> 28:21.040
+ And you will select your decision
+
+28:21.040 --> 28:25.680
+ not from wide set of functions, but from set of functions
+
+28:25.680 --> 28:28.040
+ which keeps this predicates.
+
+28:28.040 --> 28:32.760
+ But predicate is not related just to digit recognition.
+
+28:32.760 --> 28:33.800
+ Right.
+
+28:33.800 --> 28:37.640
+ Like in Plato's case.
+
+28:37.640 --> 28:40.800
+ Do you think it's possible to automatically discover
+
+28:40.800 --> 28:42.120
+ the predicates?
+
+28:42.120 --> 28:46.520
+ So you basically said that the essence of intelligence
+
+28:46.520 --> 28:49.560
+ is the discovery of good predicates.
+
+28:49.560 --> 28:51.240
+ Yeah.
+
+28:51.240 --> 28:55.800
+ Now, the natural question is that's
+
+28:55.800 --> 28:59.040
+ what Einstein was good at doing in physics.
+
+28:59.040 --> 29:02.400
+ Can we make machines do these kinds
+
+29:02.400 --> 29:04.480
+ of discovery of good predicates?
+
+29:04.480 --> 29:07.720
+ Or is this ultimately a human endeavor?
+
+29:07.720 --> 29:09.080
+ That I don't know.
+
+29:09.080 --> 29:11.400
+ I don't think that machine can do.
+
+29:11.400 --> 29:18.840
+ Because according to theory about weak convergence,
+
+29:18.840 --> 29:23.120
+ any function from Hilbert space can be predicated.
+
+29:23.120 --> 29:27.560
+ So you have infinite number of predicate in upper.
+
+29:27.560 --> 29:32.800
+ And before, you don't know which predicate is good and which.
+
+29:32.800 --> 29:39.880
+ But whatever prop show and why people call it breakthrough,
+
+29:39.880 --> 29:44.600
+ that there is not too many predicate
+
+29:44.600 --> 29:48.600
+ which cover most of situation happened in the world.
+
+29:48.600 --> 29:51.280
+ Right.
+
+29:51.280 --> 29:54.200
+ So there's a sea of predicates.
+
+29:54.200 --> 29:57.240
+ And most of the only a small amount
+
+29:57.240 --> 29:58.800
+ are useful for the kinds of things
+
+29:58.800 --> 30:01.240
+ that happen in the world.
+
+30:01.240 --> 30:07.120
+ I think that I would say only small part of predicate
+
+30:07.120 --> 30:08.680
+ very useful.
+
+30:08.680 --> 30:11.280
+ Useful all of them.
+
+30:11.280 --> 30:14.360
+ Only very few are what we should let's call them
+
+30:14.360 --> 30:15.440
+ good predicates.
+
+30:15.440 --> 30:16.640
+ Very good predicates.
+
+30:16.640 --> 30:18.160
+ Very good predicates.
+
+30:18.160 --> 30:20.720
+ So can we linger on it?
+
+30:20.720 --> 30:21.680
+ What's your intuition?
+
+30:21.680 --> 30:27.520
+ Why is it hard for a machine to discover good predicates?
+
+30:27.520 --> 30:30.680
+ Even in my talk described how to do predicate.
+
+30:30.680 --> 30:32.640
+ How to find new predicate.
+
+30:32.640 --> 30:34.960
+ I'm not sure that it is very good.
+
+30:34.960 --> 30:36.600
+ What did you propose in your talk?
+
+30:36.600 --> 30:37.160
+ No.
+
+30:37.160 --> 30:42.360
+ In my talk, I gave example for diabetes.
+
+30:42.360 --> 30:43.720
+ Diabetes, yeah.
+
+30:43.720 --> 30:46.160
+ When we achieve some percent.
+
+30:46.160 --> 30:50.760
+ So then we're looking for area where
+
+30:50.760 --> 30:54.760
+ some sort of predicate, which I formulate,
+
+30:54.760 --> 31:03.120
+ does not keeps invariant.
+
+31:03.120 --> 31:06.920
+ So if it doesn't keep, I retrain my data.
+
+31:06.920 --> 31:11.080
+ I select only function which keeps this invariant.
+
+31:11.080 --> 31:14.400
+ And when I did it, I improved my performance.
+
+31:14.400 --> 31:16.400
+ I can looking for this predicate.
+
+31:16.400 --> 31:19.440
+ I know technically how to do that.
+
+31:19.440 --> 31:25.560
+ And you can, of course, do it using machine.
+
+31:25.560 --> 31:29.560
+ But I'm not sure that we will construct the smartest
+
+31:29.560 --> 31:30.920
+ predicate.
+
+31:30.920 --> 31:34.120
+ But this is the, allow me to linger on it.
+
+31:34.120 --> 31:35.280
+ Because that's the essence.
+
+31:35.280 --> 31:36.240
+ That's the challenge.
+
+31:36.240 --> 31:37.600
+ That is artificial.
+
+31:37.600 --> 31:40.320
+ That's the human level intelligence
+
+31:40.320 --> 31:43.720
+ that we seek is the discovery of these good predicates.
+
+31:43.720 --> 31:47.560
+ You've talked about deep learning as a way to,
+
+31:47.560 --> 31:52.960
+ the predicates they use and the functions are mediocre.
+
+31:52.960 --> 31:55.000
+ You can find better ones.
+
+31:55.000 --> 31:57.280
+ Let's talk about deep learning.
+
+31:57.280 --> 31:58.360
+ Sure, let's do it.
+
+31:58.360 --> 32:04.200
+ I know only Jan's Likun convolutional network.
+
+32:04.200 --> 32:05.160
+ And what else?
+
+32:05.160 --> 32:05.920
+ I don't know.
+
+32:05.920 --> 32:07.960
+ And it's a very simple convolution.
+
+32:07.960 --> 32:09.120
+ There's not much else to know.
+
+32:09.120 --> 32:10.400
+ To pixel left and right.
+
+32:10.400 --> 32:14.600
+ I can do it like that with one predicate.
+
+32:14.600 --> 32:16.640
+ Convolution is a single predicate.
+
+32:16.640 --> 32:17.600
+ It's single.
+
+32:17.600 --> 32:21.120
+ It's single predicate.
+
+32:21.120 --> 32:22.680
+ Yes, but that's it.
+
+32:22.680 --> 32:23.680
+ You know exactly.
+
+32:23.680 --> 32:28.320
+ You take the derivative for translation and predicate.
+
+32:28.320 --> 32:31.040
+ This should be kept.
+
+32:31.040 --> 32:32.440
+ So that's a single predicate.
+
+32:32.440 --> 32:34.200
+ But humans discovered that one.
+
+32:34.200 --> 32:35.760
+ Or at least.
+
+32:35.760 --> 32:36.240
+ Not it.
+
+32:36.240 --> 32:37.120
+ That is a risk.
+
+32:37.120 --> 32:38.960
+ Not too many predicates.
+
+32:38.960 --> 32:43.720
+ And that is big story because Jan did it 25 years ago
+
+32:43.720 --> 32:50.160
+ and nothing so clear was added to deep network.
+
+32:50.160 --> 32:55.400
+ And then I don't understand why we
+
+32:55.400 --> 32:58.400
+ should talk about deep network instead of talking
+
+32:58.400 --> 33:02.840
+ about piecewise linear functions which keeps this predicate.
+
+33:02.840 --> 33:08.720
+ Well, a counter argument is that maybe the amount
+
+33:08.720 --> 33:14.480
+ of predicates necessary to solve general intelligence,
+
+33:14.480 --> 33:16.720
+ say in the space of images, doing
+
+33:16.720 --> 33:20.640
+ efficient recognition of handwritten digits
+
+33:20.640 --> 33:22.400
+ is very small.
+
+33:22.400 --> 33:26.840
+ And so we shouldn't be so obsessed about finding.
+
+33:26.840 --> 33:30.720
+ We'll find other good predicates like convolution, for example.
+
+33:30.720 --> 33:33.880
+ There has been other advancements
+
+33:33.880 --> 33:37.400
+ like if you look at the work with attention,
+
+33:37.400 --> 33:40.720
+ there's intentional mechanisms in especially used
+
+33:40.720 --> 33:44.160
+ in natural language focusing the network's ability
+
+33:44.160 --> 33:47.640
+ to learn at which part of the input to look at.
+
+33:47.640 --> 33:51.000
+ The thing is, there's other things besides predicates
+
+33:51.000 --> 33:55.280
+ that are important for the actual engineering mechanism
+
+33:55.280 --> 33:57.240
+ of showing how much you can really
+
+33:57.240 --> 34:02.120
+ do given these predicates.
+
+34:02.120 --> 34:04.360
+ I mean, that's essentially the work of deep learning
+
+34:04.360 --> 34:09.000
+ is constructing architectures that are able to be,
+
+34:09.000 --> 34:13.720
+ given the training data, to be able to converge
+
+34:13.720 --> 34:22.920
+ towards a function that can generalize well.
+
+34:22.920 --> 34:24.400
+ It's an engineering problem.
+
+34:24.400 --> 34:26.120
+ Yeah, I understand.
+
+34:26.120 --> 34:29.840
+ But let's talk not on emotional level,
+
+34:29.840 --> 34:31.920
+ but on a mathematical level.
+
+34:31.920 --> 34:36.480
+ You have set of piecewise linear functions.
+
+34:36.480 --> 34:42.040
+ It is all possible neural networks.
+
+34:42.040 --> 34:44.040
+ It's just piecewise linear functions.
+
+34:44.040 --> 34:45.360
+ It's many, many pieces.
+
+34:45.360 --> 34:47.640
+ Large number of piecewise linear functions.
+
+34:47.640 --> 34:48.640
+ Exactly.
+
+34:48.640 --> 34:49.440
+ Very large.
+
+34:49.440 --> 34:50.160
+ Very large.
+
+34:50.160 --> 34:51.800
+ Almost feels like too large.
+
+34:51.800 --> 34:56.160
+ It's still simpler than, say, convolution,
+
+34:56.160 --> 34:59.040
+ than reproducing kernel Hilbert space, which
+
+34:59.040 --> 35:00.920
+ have a Hilbert set of functions.
+
+35:00.920 --> 35:02.960
+ What's Hilbert space?
+
+35:02.960 --> 35:07.040
+ It's space with infinite number of coordinates,
+
+35:07.040 --> 35:11.840
+ say, or function for expansion, something like that.
+
+35:11.840 --> 35:14.760
+ So it's much richer.
+
+35:14.760 --> 35:17.520
+ And when I'm talking about closed form solution,
+
+35:17.520 --> 35:20.760
+ I'm talking about this set of function,
+
+35:20.760 --> 35:29.760
+ not piecewise linear set, which is particular case of it
+
+35:29.760 --> 35:31.000
+ is small part.
+
+35:31.000 --> 35:32.960
+ So neural networks is a small part
+
+35:32.960 --> 35:35.960
+ of the space of functions you're talking about.
+
+35:35.960 --> 35:39.160
+ Say, small set of functions.
+
+35:39.160 --> 35:40.600
+ Let me take that.
+
+35:40.600 --> 35:42.080
+ But it is fine.
+
+35:42.080 --> 35:42.760
+ It is fine.
+
+35:42.760 --> 35:46.560
+ I don't want to discuss the small or big.
+
+35:46.560 --> 35:47.920
+ You take advantage.
+
+35:47.920 --> 35:51.040
+ So you have some set of functions.
+
+35:51.040 --> 35:55.320
+ So now, when you're trying to create architecture,
+
+35:55.320 --> 35:58.800
+ you would like to create admissible set of functions,
+
+35:58.800 --> 36:03.280
+ which all your tricks to use not all functions,
+
+36:03.280 --> 36:07.200
+ but some subset of this set of functions.
+
+36:07.200 --> 36:10.040
+ Say, when you're introducing convolutional net,
+
+36:10.040 --> 36:16.440
+ it is way to make this subset useful for you.
+
+36:16.440 --> 36:19.760
+ But from my point of view, convolutional,
+
+36:19.760 --> 36:24.800
+ it is something you want to keep some invariants,
+
+36:24.800 --> 36:27.920
+ say, translation invariants.
+
+36:27.920 --> 36:35.440
+ But now, if you understand this and you cannot explain
+
+36:35.440 --> 36:41.240
+ on the level of ideas what neural network does,
+
+36:41.240 --> 36:44.360
+ you should agree that it is much better
+
+36:44.360 --> 36:46.640
+ to have a set of functions.
+
+36:46.640 --> 36:51.040
+ And they say, this set of functions should be admissible.
+
+36:51.040 --> 36:53.640
+ It must keep this invariant, this invariant,
+
+36:53.640 --> 36:55.200
+ and that invariant.
+
+36:55.200 --> 36:58.240
+ You know that as soon as you incorporate
+
+36:58.240 --> 37:01.160
+ new invariant set of function, because smaller and smaller
+
+37:01.160 --> 37:02.080
+ and smaller.
+
+37:02.080 --> 37:06.640
+ But all the invariants are specified by you, the human.
+
+37:06.640 --> 37:12.400
+ Yeah, but what I hope that there is a standard predicate,
+
+37:12.400 --> 37:17.520
+ like PROPSHOW, that's what I want
+
+37:17.520 --> 37:19.560
+ to find for digit recognition.
+
+37:19.560 --> 37:22.920
+ If we start, it is completely new area,
+
+37:22.920 --> 37:25.800
+ what is intelligence about on the level,
+
+37:25.800 --> 37:32.600
+ starting from Plato's idea, what is world of ideas.
+
+37:32.600 --> 37:36.640
+ And I believe that is not too many.
+
+37:36.640 --> 37:40.680
+ But it is amusing that mathematicians doing something,
+
+37:40.680 --> 37:44.000
+ a neural network in general function,
+
+37:44.000 --> 37:48.720
+ but people from literature, from art, they use this all
+
+37:48.720 --> 37:49.400
+ the time.
+
+37:49.400 --> 37:50.040
+ That's right.
+
+37:50.040 --> 37:57.000
+ Invariants saying, it is great how people describe music.
+
+37:57.000 --> 37:58.720
+ We should learn from that.
+
+37:58.720 --> 38:02.000
+ And something on this level.
+
+38:02.000 --> 38:09.200
+ But so why Vladimir Propp, who was just theoretical,
+
+38:09.200 --> 38:12.960
+ who studied theoretical literature, he found that.
+
+38:12.960 --> 38:13.720
+ You know what?
+
+38:13.720 --> 38:15.200
+ Let me throw that right back at you,
+
+38:15.200 --> 38:17.280
+ because there's a little bit of a,
+
+38:17.280 --> 38:21.000
+ that's less mathematical and more emotional, philosophical,
+
+38:21.000 --> 38:22.680
+ Vladimir Propp.
+
+38:22.680 --> 38:24.920
+ I mean, he wasn't doing math.
+
+38:24.920 --> 38:26.840
+ No.
+
+38:26.840 --> 38:30.160
+ And you just said another emotional statement,
+
+38:30.160 --> 38:35.760
+ which is you believe that this Plato world of ideas is small.
+
+38:35.760 --> 38:36.920
+ I hope.
+
+38:36.920 --> 38:38.680
+ I hope.
+
+38:38.680 --> 38:42.160
+ Do you, what's your intuition, though?
+
+38:42.160 --> 38:44.600
+ If we can linger on it.
+
+38:44.600 --> 38:48.520
+ You know, it is not just small or big.
+
+38:48.520 --> 38:50.520
+ I know exactly.
+
+38:50.520 --> 38:56.880
+ Then when I introducing some predicate,
+
+38:56.880 --> 38:59.760
+ I decrease set of functions.
+
+38:59.760 --> 39:04.040
+ But my goal to decrease set of function much.
+
+39:04.040 --> 39:05.000
+ By as much as possible.
+
+39:05.000 --> 39:07.480
+ By as much as possible.
+
+39:07.480 --> 39:11.400
+ Good predicate, which does this, then
+
+39:11.400 --> 39:15.560
+ I should choose next predicate, which decrease set
+
+39:15.560 --> 39:17.320
+ as much as possible.
+
+39:17.320 --> 39:21.400
+ So set of good predicate, it is such
+
+39:21.400 --> 39:27.880
+ that they decrease this amount of admissible function.
+
+39:27.880 --> 39:30.520
+ So if each good predicate significantly
+
+39:30.520 --> 39:32.640
+ reduces the set of admissible functions,
+
+39:32.640 --> 39:35.560
+ that there naturally should not be that many good predicates.
+
+39:35.560 --> 39:43.040
+ No, but if you reduce very well the VC dimension
+
+39:43.040 --> 39:46.760
+ of the function, of admissible set of function, it's small.
+
+39:46.760 --> 39:52.960
+ And you need not too much training data to do well.
+
+39:52.960 --> 39:56.760
+ And VC dimension, by the way, is some measure of capacity
+
+39:56.760 --> 39:57.720
+ of this set of functions.
+
+39:57.720 --> 39:59.400
+ Right.
+
+39:59.400 --> 40:01.960
+ Roughly speaking, how many function in this set.
+
+40:01.960 --> 40:03.880
+ So you're decreasing, decreasing.
+
+40:03.880 --> 40:08.160
+ And it makes easy for you to find function
+
+40:08.160 --> 40:10.200
+ you're looking for.
+
+40:10.200 --> 40:14.480
+ But the most important part, to create good admissible set
+
+40:14.480 --> 40:15.680
+ of functions.
+
+40:15.680 --> 40:18.800
+ And it probably, there are many ways.
+
+40:18.800 --> 40:25.880
+ But the good predicates such that they can do that.
+
+40:25.880 --> 40:30.520
+ So for this duck, you should know a little bit about duck.
+
+40:30.520 --> 40:35.280
+ Because what are the three fundamental laws of ducks?
+
+40:35.280 --> 40:38.360
+ Looks like a duck, swims like a duck, and quacks like a duck.
+
+40:38.360 --> 40:41.160
+ You should know something about ducks to be able to.
+
+40:41.160 --> 40:42.480
+ Not necessarily.
+
+40:42.480 --> 40:44.920
+ Looks like, say, horse.
+
+40:44.920 --> 40:46.520
+ It's also good.
+
+40:46.520 --> 40:49.840
+ So it's not, it generalizes from ducks.
+
+40:49.840 --> 40:54.280
+ And talk like, and make sound like horse or something.
+
+40:54.280 --> 40:57.320
+ And run like horse, and moves like horse.
+
+40:57.320 --> 41:02.000
+ It is general, it is general predicate
+
+41:02.000 --> 41:04.560
+ that this applied to duck.
+
+41:04.560 --> 41:09.800
+ But for duck, you can say, play chess like duck.
+
+41:09.800 --> 41:11.520
+ You cannot say play chess like duck.
+
+41:11.520 --> 41:12.600
+ Why not?
+
+41:12.600 --> 41:15.680
+ So you're saying you can, but that would not be a good.
+
+41:15.680 --> 41:18.160
+ No, you will not reduce a lot of functions.
+
+41:18.160 --> 41:19.760
+ You would not do, yeah, you would not
+
+41:19.760 --> 41:21.600
+ reduce the set of functions.
+
+41:21.600 --> 41:26.760
+ So you can, the story is formal story, mathematical story.
+
+41:26.760 --> 41:31.120
+ Is that you can use any function you want as a predicate.
+
+41:31.120 --> 41:33.160
+ But some of them are good, some of them are not,
+
+41:33.160 --> 41:36.880
+ because some of them reduce a lot of functions
+
+41:36.880 --> 41:39.720
+ to admissible set of some of them.
+
+41:39.720 --> 41:41.440
+ But the question is, and I'll probably
+
+41:41.440 --> 41:45.680
+ keep asking this question, but how do we find such,
+
+41:45.680 --> 41:47.360
+ what's your intuition?
+
+41:47.360 --> 41:49.400
+ Handwritten recognition.
+
+41:49.400 --> 41:52.600
+ How do we find the answer to your challenge?
+
+41:52.600 --> 41:55.840
+ Yeah, I understand it like that.
+
+41:55.840 --> 41:57.800
+ I understand what.
+
+41:57.800 --> 41:59.160
+ What defined?
+
+41:59.160 --> 42:01.680
+ What it means, I knew predicate.
+
+42:01.680 --> 42:02.720
+ Yeah.
+
+42:02.720 --> 42:06.160
+ Like guy who understand music can say this word,
+
+42:06.160 --> 42:09.520
+ which he described when he listened to music.
+
+42:09.520 --> 42:11.600
+ He understand music.
+
+42:11.600 --> 42:15.480
+ He use not too many different, oh, you can do like prop.
+
+42:15.480 --> 42:17.280
+ You can make collection.
+
+42:17.280 --> 42:20.920
+ What he talking about music, about this, about that.
+
+42:20.920 --> 42:24.960
+ It's not too many different situation he described.
+
+42:24.960 --> 42:26.920
+ Because we mentioned Vladimir prop a bunch.
+
+42:26.920 --> 42:29.920
+ Let me just mention, there's a sequence of 31
+
+42:33.640 --> 42:36.880
+ structural notions that are common in stories.
+
+42:36.880 --> 42:37.720
+ And I think.
+
+42:37.720 --> 42:38.560
+ You call it units.
+
+42:38.560 --> 42:39.400
+ Units.
+
+42:39.400 --> 42:40.480
+ And I think they resonate.
+
+42:40.480 --> 42:43.600
+ I mean, it starts just to give an example,
+
+42:43.600 --> 42:46.040
+ obsession, a member of the hero's community,
+
+42:46.040 --> 42:48.920
+ a family leaves the security of the home environment.
+
+42:48.920 --> 42:51.040
+ Then it goes to the interdiction,
+
+42:51.040 --> 42:54.520
+ a forbidding edict or command is passed upon the hero.
+
+42:54.520 --> 42:55.360
+ Don't go there.
+
+42:55.360 --> 42:56.640
+ Don't do this.
+
+42:56.640 --> 42:58.680
+ The hero is warned against some action.
+
+42:58.680 --> 43:03.680
+ Then step three, violation of interdiction.
+
+43:05.280 --> 43:07.600
+ Break the rules, break out on your own.
+
+43:07.600 --> 43:09.200
+ Then reconnaissance.
+
+43:09.200 --> 43:11.400
+ The villain makes an effort to attain knowledge,
+
+43:11.400 --> 43:13.160
+ needing to fulfill their plan, so on.
+
+43:13.160 --> 43:18.160
+ It goes on like this, ends in a wedding, number 31.
+
+43:19.480 --> 43:20.640
+ Happily ever after.
+
+43:20.640 --> 43:25.640
+ No, he just gave description of all situations.
+
+43:26.000 --> 43:28.160
+ He understands this world.
+
+43:28.160 --> 43:29.280
+ Of folktales.
+
+43:29.280 --> 43:33.160
+ Yeah, not folktales, but stories.
+
+43:33.160 --> 43:36.560
+ And these stories not in just folktales.
+
+43:36.560 --> 43:39.960
+ These stories in detective serials as well.
+
+43:40.880 --> 43:42.200
+ And probably in our lives.
+
+43:42.200 --> 43:43.760
+ We probably live.
+
+43:43.760 --> 43:45.040
+ Read this.
+
+43:45.040 --> 43:51.040
+ And then they wrote that this predicate is good
+
+43:52.040 --> 43:53.600
+ for different situation.
+
+43:54.800 --> 43:57.920
+ From movie, for theater.
+
+43:57.920 --> 44:00.640
+ By the way, there's also criticism, right?
+
+44:00.640 --> 44:03.840
+ There's an other way to interpret narratives
+
+44:03.840 --> 44:08.840
+ from Claude Levi Strauss.
+
+44:09.880 --> 44:10.880
+ I don't know.
+
+44:10.880 --> 44:12.520
+ I am not in this business.
+
+44:12.520 --> 44:14.360
+ No, I know, it's theoretical literature,
+
+44:14.360 --> 44:15.840
+ but it's looking at paradigms behind things.
+
+44:15.840 --> 44:20.120
+ It's always the discussion, yeah.
+
+44:20.120 --> 44:23.800
+ But at least there is units.
+
+44:23.800 --> 44:27.160
+ It's not too many units that can describe.
+
+44:27.160 --> 44:30.840
+ But this guy probably gives another units.
+
+44:30.840 --> 44:31.680
+ Or another way of...
+
+44:31.680 --> 44:34.400
+ Exactly, another set of units.
+
+44:34.400 --> 44:35.920
+ Another set of predicates.
+
+44:35.920 --> 44:37.560
+ It doesn't matter how.
+
+44:37.560 --> 44:39.240
+ But they exist.
+
+44:40.120 --> 44:40.960
+ Probably.
+
+44:40.960 --> 44:45.960
+ My question is, whether given those units,
+
+44:46.240 --> 44:49.480
+ whether without our human brains to interpret these units,
+
+44:50.360 --> 44:53.480
+ they would still hold as much power as they have.
+
+44:53.480 --> 44:56.200
+ Meaning, are those units enough
+
+44:56.200 --> 44:58.840
+ when we give them to an alien species?
+
+44:58.840 --> 45:00.320
+ Let me ask you.
+
+45:00.320 --> 45:05.320
+ Do you understand digit images?
+
+45:06.280 --> 45:07.600
+ No, I don't understand.
+
+45:07.600 --> 45:08.640
+ No, no, no.
+
+45:08.640 --> 45:11.160
+ When you can recognize these digit images,
+
+45:11.160 --> 45:13.320
+ it means that you understand.
+
+45:13.320 --> 45:14.160
+ Yes, exactly.
+
+45:14.160 --> 45:17.280
+ You understand characters, you understand...
+
+45:17.280 --> 45:18.920
+ No, no, no, no.
+
+45:22.720 --> 45:25.480
+ It's the imitation versus understanding question,
+
+45:25.480 --> 45:28.360
+ because I don't understand the mechanism
+
+45:28.360 --> 45:29.200
+ by which I understand.
+
+45:29.200 --> 45:30.040
+ No, no, no.
+
+45:30.040 --> 45:32.760
+ I'm not talking about, I'm talking about predicates.
+
+45:32.760 --> 45:35.120
+ You understand that it involves symmetry,
+
+45:35.120 --> 45:37.400
+ maybe structure, maybe something else.
+
+45:37.400 --> 45:38.720
+ I cannot formulate.
+
+45:38.720 --> 45:43.640
+ I just was able to find symmetries, degree of symmetries.
+
+45:43.640 --> 45:44.480
+ That's really good.
+
+45:44.480 --> 45:46.360
+ So this is a good line.
+
+45:47.200 --> 45:50.560
+ I feel like I understand the basic elements
+
+45:50.560 --> 45:54.280
+ of what makes a good hand recognition system my own.
+
+45:54.280 --> 45:56.440
+ Like symmetry connects with me.
+
+45:56.440 --> 45:59.120
+ It seems like that's a very powerful predicate.
+
+45:59.120 --> 46:02.400
+ My question is, is there a lot more going on
+
+46:02.400 --> 46:04.480
+ that we're not able to introspect?
+
+46:04.480 --> 46:09.480
+ Maybe I need to be able to understand
+
+46:09.600 --> 46:13.040
+ a huge amount in the world of ideas,
+
+46:14.520 --> 46:18.400
+ thousands of predicates, millions of predicates
+
+46:18.400 --> 46:20.600
+ in order to do hand recognition.
+
+46:20.600 --> 46:21.520
+ I don't think so.
+
+46:23.200 --> 46:26.560
+ So both your hope and your intuition
+
+46:26.560 --> 46:28.960
+ are such that very few predicates are enough.
+
+46:28.960 --> 46:33.480
+ You're using digits, you're using examples as well.
+
+46:33.480 --> 46:38.480
+ Theory says that if you will use all possible functions
+
+46:43.480 --> 46:46.360
+ from Hilbert space, all possible predicate,
+
+46:46.360 --> 46:48.000
+ you don't need training data.
+
+46:49.000 --> 46:53.840
+ You just will have admissible set of function
+
+46:53.840 --> 46:56.060
+ which contain one function.
+
+46:56.060 --> 46:57.160
+ Yes.
+
+46:57.160 --> 47:01.160
+ So the trade off is when you're not using all predicates,
+
+47:01.160 --> 47:03.040
+ you're only using a few good predicates
+
+47:03.040 --> 47:05.000
+ you need to have some training data.
+
+47:05.000 --> 47:06.800
+ Yes, exactly.
+
+47:06.800 --> 47:08.440
+ The more good predicates you have,
+
+47:08.440 --> 47:09.680
+ the less training data you need.
+
+47:09.680 --> 47:10.960
+ Exactly.
+
+47:10.960 --> 47:12.240
+ That is intelligent.
+
+47:13.280 --> 47:17.400
+ Still, okay, I'm gonna keep asking the same dumb question,
+
+47:17.400 --> 47:20.200
+ handwritten recognition to solve the challenge.
+
+47:20.200 --> 47:21.920
+ You kind of propose a challenge that says
+
+47:21.920 --> 47:26.920
+ we should be able to get state of the art MNIST error rates
+
+47:27.100 --> 47:31.480
+ by using very few, 60, maybe fewer examples per digit.
+
+47:31.480 --> 47:35.920
+ What kind of predicates do you think it will look like?
+
+47:35.920 --> 47:37.520
+ That is the challenge.
+
+47:37.520 --> 47:39.760
+ So people who will solve this problem,
+
+47:39.760 --> 47:41.480
+ they will answer.
+
+47:41.480 --> 47:44.720
+ Do you think they'll be able to answer it
+
+47:44.720 --> 47:46.520
+ in a human explainable way?
+
+47:47.800 --> 47:50.760
+ They just need to write function, that's it.
+
+47:50.760 --> 47:54.280
+ But so can that function be written, I guess,
+
+47:54.280 --> 47:58.680
+ by an automated reasoning system?
+
+47:58.680 --> 48:01.080
+ Whether we're talking about a neural network
+
+48:01.080 --> 48:05.040
+ learning a particular function or another mechanism?
+
+48:05.040 --> 48:08.520
+ No, I'm not against neural network.
+
+48:08.520 --> 48:11.600
+ I'm against admissible set of function
+
+48:11.600 --> 48:13.720
+ which create neural network.
+
+48:13.720 --> 48:15.220
+ You did it by hand.
+
+48:16.360 --> 48:21.360
+ You don't do it by invariance, by predicate, by reason.
+
+48:24.600 --> 48:26.400
+ But neural networks can then reverse,
+
+48:26.400 --> 48:29.840
+ do the reverse step of helping you find a function
+
+48:29.840 --> 48:33.600
+ that just, the task of a neural network
+
+48:33.600 --> 48:38.160
+ is to find a disentangled representation, for example,
+
+48:38.160 --> 48:42.120
+ that they call, is to find that one predicate function
+
+48:42.120 --> 48:45.180
+ that's really capture some kind of essence.
+
+48:45.180 --> 48:48.600
+ One, not the entire essence, but one very useful essence
+
+48:48.600 --> 48:52.640
+ of this particular visual space.
+
+48:52.640 --> 48:53.840
+ Do you think that's possible?
+
+48:53.840 --> 48:58.620
+ Listen, I'm grasping, hoping there's an automated way
+
+48:58.620 --> 49:00.300
+ to find good predicates, right?
+
+49:00.300 --> 49:03.000
+ So the question is what are the mechanisms
+
+49:03.000 --> 49:05.760
+ of finding good predicates, ideas
+
+49:05.760 --> 49:08.040
+ that you think we should pursue?
+
+49:08.040 --> 49:11.240
+ A young grad student listening right now.
+
+49:11.240 --> 49:13.360
+ I gave example.
+
+49:13.360 --> 49:18.360
+ So find situation where predicate which you're suggesting
+
+49:23.480 --> 49:24.980
+ don't create invariant.
+
+49:24.980 --> 49:28.820
+ It's like in physics.
+
+49:28.820 --> 49:33.820
+ Find situation where existing theory cannot explain it.
+
+49:37.180 --> 49:39.420
+ Find situation where the existing theory
+
+49:39.420 --> 49:40.260
+ can't explain it.
+
+49:40.260 --> 49:42.780
+ So you're finding contradictions.
+
+49:42.780 --> 49:46.140
+ Find contradiction, and then remove this contradiction.
+
+49:46.140 --> 49:48.940
+ But in my case, what means contradiction,
+
+49:48.940 --> 49:53.500
+ you find function which, if you will use this function,
+
+49:53.500 --> 49:55.060
+ you're not keeping invariants.
+
+49:56.900 --> 50:01.300
+ This is really the process of discovering contradictions.
+
+50:01.300 --> 50:02.140
+ Yeah.
+
+50:04.060 --> 50:05.900
+ It is like in physics.
+
+50:05.900 --> 50:09.800
+ Find situation where you have contradiction
+
+50:09.800 --> 50:14.800
+ for one of the property, for one of the predicate.
+
+50:15.500 --> 50:19.020
+ Then include this predicate, making invariants,
+
+50:19.020 --> 50:20.460
+ and solve again this problem.
+
+50:20.460 --> 50:22.100
+ Now you don't have contradiction.
+
+50:22.100 --> 50:27.100
+ But it is not the best way, probably, I don't know,
+
+50:30.380 --> 50:31.980
+ to looking for predicate.
+
+50:31.980 --> 50:33.580
+ That's just one way, okay.
+
+50:33.580 --> 50:35.900
+ That, no, no, it is brute force way.
+
+50:35.900 --> 50:37.300
+ The brute force way.
+
+50:37.300 --> 50:42.300
+ What about the ideas of what,
+
+50:42.300 --> 50:44.680
+ big umbrella term of symbolic AI?
+
+50:45.660 --> 50:48.540
+ There's what in the 80s with expert systems,
+
+50:48.540 --> 50:52.380
+ sort of logic reasoning based systems.
+
+50:52.380 --> 50:55.700
+ Is there hope there to find some,
+
+50:57.020 --> 51:00.500
+ through sort of deductive reasoning,
+
+51:00.500 --> 51:04.440
+ to find good predicates?
+
+51:05.540 --> 51:06.860
+ I don't think so.
+
+51:08.980 --> 51:12.020
+ I think that just logic is not enough.
+
+51:12.020 --> 51:14.420
+ It's kind of a compelling notion, though.
+
+51:14.420 --> 51:17.620
+ You know, that when smart people sit in a room
+
+51:17.620 --> 51:20.360
+ and reason through things, it seems compelling.
+
+51:20.360 --> 51:23.560
+ And making our machines do the same is also compelling.
+
+51:24.940 --> 51:27.840
+ So, everything is very simple.
+
+51:29.420 --> 51:32.880
+ When you have infinite number of predicate,
+
+51:34.100 --> 51:38.580
+ you can choose the function you want.
+
+51:38.580 --> 51:41.660
+ You have invariants and you can choose the function you want.
+
+51:41.660 --> 51:46.660
+ But you have to have not too many invariants
+
+51:51.880 --> 51:53.060
+ to solve the problem.
+
+51:56.200 --> 51:59.940
+ So, and have from infinite number of function
+
+51:59.940 --> 52:02.980
+ to select finite number
+
+52:04.120 --> 52:08.460
+ and hopefully small number of functions,
+
+52:08.460 --> 52:13.460
+ which is good enough to extract small set
+
+52:14.920 --> 52:16.680
+ of admissible functions.
+
+52:17.920 --> 52:19.840
+ So, they will be admissible, it's for sure,
+
+52:19.840 --> 52:23.880
+ because every function just decrease set of function
+
+52:23.880 --> 52:25.680
+ and leaving it admissible.
+
+52:25.680 --> 52:27.720
+ But it will be small.
+
+52:27.720 --> 52:32.560
+ But why do you think logic based systems don't,
+
+52:32.560 --> 52:35.280
+ can't help, intuition, not?
+
+52:35.280 --> 52:37.800
+ Because you should know reality.
+
+52:37.800 --> 52:39.480
+ You should know life.
+
+52:39.480 --> 52:44.280
+ This guy like Propp, he knows something.
+
+52:44.280 --> 52:49.280
+ And he tried to put in invariant his understanding.
+
+52:49.400 --> 52:51.600
+ That's the human, yeah, but see,
+
+52:51.600 --> 52:56.480
+ you're putting too much value into Vladimir Propp
+
+52:56.480 --> 52:57.920
+ knowing something.
+
+52:57.920 --> 53:02.920
+ No, it is, in the story, what means you know life?
+
+53:04.420 --> 53:05.400
+ What it means?
+
+53:05.400 --> 53:07.040
+ You know common sense.
+
+53:07.040 --> 53:10.400
+ No, no, you know something.
+
+53:10.400 --> 53:13.440
+ Common sense, it is some rules.
+
+53:13.440 --> 53:14.800
+ You think so?
+
+53:14.800 --> 53:17.180
+ Common sense is simply rules?
+
+53:17.180 --> 53:21.800
+ Common sense is every, it's mortality,
+
+53:21.800 --> 53:26.800
+ it's fear of death, it's love, it's spirituality,
+
+53:27.880 --> 53:30.840
+ it's happiness and sadness.
+
+53:30.840 --> 53:34.420
+ All of it is tied up into understanding gravity,
+
+53:34.420 --> 53:36.840
+ which is what we think of as common sense.
+
+53:36.840 --> 53:39.840
+ I don't really need to discuss so wide.
+
+53:39.840 --> 53:44.840
+ I want to discuss, understand digit recognition.
+
+53:45.440 --> 53:47.640
+ Anytime I bring up love and death,
+
+53:47.640 --> 53:51.160
+ you bring it back to digit recognition, I like it.
+
+53:51.160 --> 53:55.200
+ No, you know, it is durable because there is a challenge.
+
+53:55.200 --> 53:56.040
+ Yeah.
+
+53:56.040 --> 53:59.260
+ Which I see how to solve it.
+
+53:59.260 --> 54:02.520
+ If I will have a student concentrate on this work,
+
+54:02.520 --> 54:04.800
+ I will suggest something to solve.
+
+54:04.800 --> 54:07.000
+ You mean handwritten record?
+
+54:07.000 --> 54:10.800
+ Yeah, it's a beautifully simple, elegant, and yet.
+
+54:10.800 --> 54:13.440
+ I think that I know invariants which will solve this.
+
+54:13.440 --> 54:14.280
+ You do?
+
+54:14.280 --> 54:15.920
+ I think so, yes.
+
+54:15.920 --> 54:20.920
+ But it is not universal, it is maybe,
+
+54:21.600 --> 54:24.160
+ I want some universal invariants
+
+54:24.160 --> 54:27.360
+ which are good not only for digit recognition,
+
+54:27.360 --> 54:28.760
+ for image understanding.
+
+54:28.760 --> 54:33.760
+ So let me ask, how hard do you think
+
+54:34.160 --> 54:37.100
+ is 2D image understanding?
+
+54:38.360 --> 54:42.620
+ So if we, we can kind of intuit handwritten recognition.
+
+54:43.800 --> 54:48.800
+ How big of a step, leap, journey is it from that?
+
+54:49.160 --> 54:51.920
+ If I gave you good, if I solved your challenge
+
+54:51.920 --> 54:53.600
+ for handwritten recognition,
+
+54:53.600 --> 54:56.480
+ how long would my journey then be from that
+
+54:56.480 --> 54:59.360
+ to understanding more general, natural images?
+
+54:59.360 --> 55:01.920
+ Immediately, you will understand this
+
+55:01.920 --> 55:04.020
+ as soon as you will make a record.
+
+55:05.400 --> 55:07.720
+ Because it is not for free.
+
+55:07.720 --> 55:12.720
+ As soon as you will create several invariants
+
+55:13.000 --> 55:18.000
+ which will help you to get the same performance
+
+55:20.120 --> 55:23.880
+ that the best neural net did using 100,
+
+55:23.880 --> 55:26.940
+ there might be more than 100 times less examples,
+
+55:27.760 --> 55:31.220
+ you have to have something smart to do that.
+
+55:31.220 --> 55:32.220
+ And you're saying?
+
+55:32.220 --> 55:35.160
+ That is invariant, it is predicate.
+
+55:35.160 --> 55:38.540
+ Because you should put some idea how to do that.
+
+55:39.420 --> 55:42.380
+ But okay, let me just pause.
+
+55:42.380 --> 55:44.520
+ Maybe it's a trivial point, maybe not.
+
+55:44.520 --> 55:48.840
+ But handwritten recognition feels like a 2D,
+
+55:48.840 --> 55:50.440
+ two dimensional problem.
+
+55:50.440 --> 55:55.360
+ And it seems like how much complicated is the fact
+
+55:55.360 --> 56:00.360
+ that most images are projection of a three dimensional world
+
+56:00.400 --> 56:03.100
+ onto a 2D plane.
+
+56:03.100 --> 56:05.880
+ It feels like for a three dimensional world,
+
+56:05.880 --> 56:08.660
+ we need to start understanding common sense
+
+56:08.660 --> 56:10.920
+ in order to understand an image.
+
+56:11.960 --> 56:16.960
+ It's no longer visual shape and symmetry.
+
+56:17.480 --> 56:19.920
+ It's having to start to understand concepts
+
+56:19.920 --> 56:22.120
+ of, understand life.
+
+56:22.120 --> 56:27.120
+ Yeah, you're talking that there are different invariant,
+
+56:27.320 --> 56:28.920
+ different predicate, yeah.
+
+56:28.920 --> 56:32.480
+ And potentially much larger number.
+
+56:32.480 --> 56:36.360
+ You know, maybe, but let's start from simple.
+
+56:36.360 --> 56:38.200
+ Yeah, but you said that it would be immediate.
+
+56:38.200 --> 56:41.360
+ No, you know, I cannot think about things
+
+56:41.360 --> 56:43.280
+ which I don't understand.
+
+56:43.280 --> 56:46.920
+ This I understand, but I'm sure that I don't understand
+
+56:46.920 --> 56:48.440
+ everything there.
+
+56:48.440 --> 56:50.440
+ Yeah, that's the difference.
+
+56:50.440 --> 56:54.360
+ Do as simple as possible, but not simpler.
+
+56:54.360 --> 56:56.520
+ And that is exact case.
+
+56:56.520 --> 56:57.440
+ With handwritten.
+
+56:57.440 --> 56:58.940
+ With handwritten.
+
+56:58.940 --> 57:01.640
+ Yeah, but that's the difference between you and I.
+
+57:04.880 --> 57:07.920
+ I welcome and enjoy thinking about things
+
+57:07.920 --> 57:09.880
+ I completely don't understand.
+
+57:09.880 --> 57:12.380
+ Because to me, it's a natural extension
+
+57:12.380 --> 57:15.140
+ without having solved handwritten recognition
+
+57:15.140 --> 57:20.140
+ to wonder how difficult is the next step
+
+57:23.280 --> 57:25.680
+ of understanding 2D, 3D images.
+
+57:25.680 --> 57:29.240
+ Because ultimately, while the science of intelligence
+
+57:29.240 --> 57:31.680
+ is fascinating, it's also fascinating to see
+
+57:31.680 --> 57:34.680
+ how that maps to the engineering of intelligence.
+
+57:34.680 --> 57:39.280
+ And recognizing handwritten digits is not,
+
+57:39.280 --> 57:43.080
+ doesn't help you, it might, it may not help you
+
+57:43.080 --> 57:46.560
+ with the problem of general intelligence.
+
+57:46.560 --> 57:47.400
+ We don't know.
+
+57:47.400 --> 57:48.240
+ It'll help you a little bit.
+
+57:48.240 --> 57:49.080
+ We don't know how much.
+
+57:49.080 --> 57:49.900
+ It's unclear.
+
+57:49.900 --> 57:50.740
+ It's unclear.
+
+57:50.740 --> 57:51.580
+ Yeah.
+
+57:51.580 --> 57:52.400
+ It might very much.
+
+57:52.400 --> 57:53.240
+ But I would like to make a remark.
+
+57:53.240 --> 57:54.080
+ Yes.
+
+57:54.080 --> 57:58.760
+ I start not from very primitive problem,
+
+57:58.760 --> 58:03.120
+ make a challenge problem.
+
+58:03.120 --> 58:07.640
+ I start with very general problem, with PLATO.
+
+58:07.640 --> 58:10.640
+ So you understand, and it comes from PLATO
+
+58:10.640 --> 58:14.000
+ to digit recognition.
+
+58:14.000 --> 58:18.120
+ So you basically took PLATO and the world
+
+58:18.120 --> 58:22.080
+ of forms and ideas and mapped and projected
+
+58:22.080 --> 58:25.380
+ into the clearest, simplest formulation
+
+58:25.380 --> 58:26.820
+ of that big world.
+
+58:26.820 --> 58:30.680
+ You know, I would say that I did not understand PLATO
+
+58:31.560 --> 58:36.560
+ until recently, and until I consider
+
+58:36.560 --> 58:40.800
+ the convergence and then predicate,
+
+58:40.800 --> 58:43.440
+ and then, oh, this is what PLATO told.
+
+58:45.520 --> 58:46.360
+ So.
+
+58:46.360 --> 58:47.180
+ Can you linger on that?
+
+58:47.180 --> 58:50.200
+ Like why, how do you think about this world of ideas
+
+58:50.200 --> 58:52.040
+ and world of things in PLATO?
+
+58:52.880 --> 58:54.160
+ No, it is metaphor.
+
+58:54.160 --> 58:55.000
+ It is.
+
+58:55.000 --> 58:55.840
+ It's a metaphor, for sure.
+
+58:55.840 --> 58:56.680
+ Yeah.
+
+58:56.680 --> 58:57.500
+ It's a compelling, it's a poetic
+
+58:57.500 --> 58:58.340
+ and a beautiful metaphor.
+
+58:58.340 --> 58:59.180
+ Yeah, yeah, yeah.
+
+58:59.180 --> 59:00.560
+ But what, can you?
+
+59:00.560 --> 59:04.960
+ But it is a way how you should try to understand
+
+59:04.960 --> 59:07.880
+ how to talk ideas in the world.
+
+59:07.880 --> 59:09.360
+ So from my point of view,
+
+59:11.240 --> 59:14.900
+ it is very clear, but it is lying.
+
+59:14.900 --> 59:17.520
+ All the time, people looking for that.
+
+59:17.520 --> 59:22.520
+ Say, PLATO, then Hegel, whatever reasonable it exists,
+
+59:24.320 --> 59:26.700
+ whatever exists, it is reasonable.
+
+59:26.700 --> 59:30.240
+ I don't know what he have in mind reasonable.
+
+59:30.240 --> 59:31.600
+ Right, this philosophers again,
+
+59:31.600 --> 59:33.320
+ their words. No, no, no, no, no, no, no.
+
+59:33.320 --> 59:37.120
+ It is next stop of Wigner.
+
+59:37.120 --> 59:40.760
+ That mathematics understand something of reality.
+
+59:40.760 --> 59:42.480
+ It is the same PLATO line.
+
+59:43.440 --> 59:47.120
+ And then it comes suddenly to Vladimir Propp.
+
+59:48.160 --> 59:52.900
+ Look, 31 ideas, 31 units, and this corrects everything.
+
+59:54.320 --> 59:59.320
+ There's abstractions, ideas that represent our world.
+
+59:59.320 --> 1:00:03.320
+ Our world, and we should always try to reach into that.
+
+1:00:03.320 --> 1:00:07.520
+ Yeah, but you should make a projection on reality.
+
+1:00:07.520 --> 1:00:11.820
+ But understanding is, it is abstract ideas.
+
+1:00:11.820 --> 1:00:15.880
+ You have in your mind several abstract ideas
+
+1:00:15.880 --> 1:00:17.760
+ which you can apply to reality.
+
+1:00:17.760 --> 1:00:19.160
+ And reality in this case,
+
+1:00:19.160 --> 1:00:21.400
+ so if you look at machine learning as data.
+
+1:00:21.400 --> 1:00:22.720
+ This example, data.
+
+1:00:22.720 --> 1:00:24.080
+ Data.
+
+1:00:24.080 --> 1:00:26.280
+ Okay, let me put this on you
+
+1:00:26.280 --> 1:00:28.320
+ because I'm an emotional creature.
+
+1:00:28.320 --> 1:00:30.800
+ I'm not a mathematical creature like you.
+
+1:00:30.800 --> 1:00:33.400
+ I find compelling the idea,
+
+1:00:33.400 --> 1:00:36.680
+ forget the space, the sea of functions.
+
+1:00:36.680 --> 1:00:39.520
+ There's also a sea of data in the world.
+
+1:00:39.520 --> 1:00:42.320
+ And I find compelling that there might be,
+
+1:00:42.320 --> 1:00:43.520
+ like you said, teacher,
+
+1:00:44.640 --> 1:00:49.240
+ small examples of data that are most useful
+
+1:00:49.240 --> 1:00:53.000
+ for discovering good,
+
+1:00:53.000 --> 1:00:55.560
+ whether it's predicates or good functions,
+
+1:00:55.560 --> 1:01:00.320
+ that the selection of data may be a powerful journey,
+
+1:01:00.320 --> 1:01:03.760
+ a useful, you know, coming up with a mechanism
+
+1:01:03.760 --> 1:01:06.500
+ for selecting good data might be useful too.
+
+1:01:07.480 --> 1:01:12.440
+ Do you find this idea of finding the right data set
+
+1:01:12.440 --> 1:01:14.000
+ interesting at all?
+
+1:01:14.000 --> 1:01:16.740
+ Or do you kind of take the data set as a given?
+
+1:01:17.760 --> 1:01:22.680
+ I think that it is, you know, my theme is very simple.
+
+1:01:22.680 --> 1:01:25.900
+ You have huge set of functions.
+
+1:01:25.900 --> 1:01:30.900
+ If you will apply, and you have not too many data,
+
+1:01:31.500 --> 1:01:36.500
+ if you pick up function which describes this data,
+
+1:01:37.560 --> 1:01:39.940
+ you will do not very well.
+
+1:01:41.200 --> 1:01:42.040
+ You will.
+
+1:01:42.040 --> 1:01:42.860
+ Like randomly pick up.
+
+1:01:42.860 --> 1:01:43.700
+ Yeah, you will overfit.
+
+1:01:43.700 --> 1:01:45.420
+ Yeah, it will be overfitting.
+
+1:01:46.380 --> 1:01:50.160
+ So you should decrease set of function
+
+1:01:50.160 --> 1:01:53.640
+ from which you're picking up one.
+
+1:01:53.640 --> 1:01:58.100
+ So you should go somehow to admissible set of function.
+
+1:01:59.560 --> 1:02:02.380
+ And this, what about weak conversions?
+
+1:02:03.800 --> 1:02:08.040
+ So, but from another point of view,
+
+1:02:08.040 --> 1:02:13.040
+ to make admissible set of function,
+
+1:02:13.200 --> 1:02:15.320
+ you need just a DG, just function
+
+1:02:15.320 --> 1:02:19.400
+ which you will take in inner product,
+
+1:02:19.400 --> 1:02:24.400
+ which you will measure property of your function.
+
+1:02:27.440 --> 1:02:31.200
+ And that is how it works.
+
+1:02:31.200 --> 1:02:32.720
+ No, I get it, I get it, I understand it,
+
+1:02:32.720 --> 1:02:34.960
+ but do you, the reality is.
+
+1:02:34.960 --> 1:02:39.160
+ But let's think about examples.
+
+1:02:40.040 --> 1:02:41.880
+ You have huge set of function,
+
+1:02:41.880 --> 1:02:44.640
+ and you have several examples.
+
+1:02:44.640 --> 1:02:49.640
+ If you just trying to keep, take function
+
+1:02:50.360 --> 1:02:55.360
+ which satisfies these examples, you still will overfit.
+
+1:02:56.620 --> 1:02:59.320
+ You need decrease, you need admissible set of function.
+
+1:02:59.320 --> 1:03:04.320
+ Absolutely, but what, say you have more data than functions.
+
+1:03:06.120 --> 1:03:08.280
+ So sort of consider the, I mean,
+
+1:03:08.280 --> 1:03:09.760
+ maybe not more data than functions,
+
+1:03:09.760 --> 1:03:12.040
+ because that's impossible.
+
+1:03:12.040 --> 1:03:15.120
+ But what, I was trying to be poetic for a second.
+
+1:03:15.120 --> 1:03:17.200
+ I mean, you have a huge amount of data,
+
+1:03:17.200 --> 1:03:19.840
+ a huge amount of examples.
+
+1:03:19.840 --> 1:03:22.440
+ But amount of function can be even bigger.
+
+1:03:22.440 --> 1:03:24.320
+ It can get bigger, I understand.
+
+1:03:24.320 --> 1:03:25.520
+ Everything is.
+
+1:03:25.520 --> 1:03:27.560
+ There's always a bigger boat.
+
+1:03:27.560 --> 1:03:29.200
+ Full Hilbert space.
+
+1:03:29.200 --> 1:03:31.800
+ I got you, but okay.
+
+1:03:31.800 --> 1:03:35.800
+ But you don't find the world of data
+
+1:03:35.800 --> 1:03:38.720
+ to be an interesting optimization space.
+
+1:03:38.720 --> 1:03:42.300
+ Like the optimization should be in the space of functions.
+
+1:03:45.040 --> 1:03:47.080
+ Creating admissible set of functions.
+
+1:03:47.080 --> 1:03:48.120
+ Admissible set of functions.
+
+1:03:48.120 --> 1:03:52.440
+ No, you know, even from the classical business theory,
+
+1:03:54.480 --> 1:03:56.400
+ from structure risk minimization,
+
+1:03:56.400 --> 1:04:01.400
+ you should organize function in the way
+
+1:04:02.240 --> 1:04:06.560
+ that they will be useful for you.
+
+1:04:06.560 --> 1:04:07.560
+ Right.
+
+1:04:07.560 --> 1:04:10.280
+ And that is admissible set.
+
+1:04:10.280 --> 1:04:12.600
+ The way you're thinking about useful
+
+1:04:13.560 --> 1:04:17.000
+ is you're given a small set of examples.
+
+1:04:17.000 --> 1:04:19.040
+ Useful small, small set of function
+
+1:04:19.040 --> 1:04:21.800
+ which contain function I'm looking for.
+
+1:04:21.800 --> 1:04:25.320
+ Yeah, but looking for based on
+
+1:04:25.320 --> 1:04:27.640
+ the empirical set of small examples.
+
+1:04:27.640 --> 1:04:29.640
+ Yeah, but that is another story.
+
+1:04:29.640 --> 1:04:31.160
+ I don't touch it.
+
+1:04:31.160 --> 1:04:35.720
+ Because I believe that this small examples
+
+1:04:35.720 --> 1:04:37.400
+ is not too small.
+
+1:04:37.400 --> 1:04:39.200
+ Say 60 per class.
+
+1:04:39.200 --> 1:04:41.360
+ Law of large numbers works.
+
+1:04:41.360 --> 1:04:43.400
+ I don't need uniform law.
+
+1:04:43.400 --> 1:04:46.740
+ The story is that in statistics there are two law.
+
+1:04:46.740 --> 1:04:51.120
+ Law of large numbers and uniform law of large numbers.
+
+1:04:51.120 --> 1:04:54.760
+ So I want to be in situation where I use
+
+1:04:54.760 --> 1:04:58.280
+ law of large numbers but not uniform law of large numbers.
+
+1:04:58.280 --> 1:05:01.440
+ Right, so 60 is law of large, it's large enough.
+
+1:05:01.440 --> 1:05:05.640
+ I hope, no, it still need some evaluations,
+
+1:05:05.640 --> 1:05:07.880
+ some bonds.
+
+1:05:07.880 --> 1:05:10.240
+ But the idea is the following that
+
+1:05:11.560 --> 1:05:13.120
+ if you trust that
+
+1:05:15.580 --> 1:05:20.580
+ say this average gives you something close to expectations
+
+1:05:21.080 --> 1:05:26.080
+ so you can talk about that, about this predicate.
+
+1:05:26.240 --> 1:05:29.780
+ And that is basis of human intelligence.
+
+1:05:30.720 --> 1:05:32.280
+ Good predicates is the,
+
+1:05:32.280 --> 1:05:34.880
+ the discovery of good predicates is the basis of human intelligence.
+
+1:05:34.880 --> 1:05:39.880
+ It is discoverer of your understanding world.
+
+1:05:39.880 --> 1:05:43.580
+ Of your methodology of understanding world.
+
+1:05:45.280 --> 1:05:47.240
+ Because you have several function
+
+1:05:47.240 --> 1:05:49.080
+ which you will apply to reality.
+
+1:05:51.200 --> 1:05:52.480
+ Can you say that again?
+
+1:05:52.480 --> 1:05:54.440
+ So you're...
+
+1:05:54.440 --> 1:05:57.560
+ You have several functions predicate.
+
+1:05:58.680 --> 1:06:00.240
+ But they're abstract.
+
+1:06:00.240 --> 1:06:01.080
+ Yes.
+
+1:06:01.080 --> 1:06:04.360
+ Then you will apply them to reality, to your data.
+
+1:06:04.360 --> 1:06:07.400
+ And you will create in this way predicate.
+
+1:06:07.400 --> 1:06:09.640
+ Which is useful for your task.
+
+1:06:11.420 --> 1:06:16.420
+ But predicate are not related specifically to your task.
+
+1:06:16.840 --> 1:06:17.840
+ To this your task.
+
+1:06:17.840 --> 1:06:20.080
+ It is abstract functions.
+
+1:06:20.080 --> 1:06:23.240
+ Which being applying, applied to...
+
+1:06:23.240 --> 1:06:25.280
+ Many tasks that you might be interested in.
+
+1:06:25.280 --> 1:06:27.640
+ It might be many tasks, I don't know.
+
+1:06:27.640 --> 1:06:28.640
+ Or...
+
+1:06:28.640 --> 1:06:29.960
+ Different tasks.
+
+1:06:29.960 --> 1:06:31.640
+ Well they should be many tasks, right?
+
+1:06:31.640 --> 1:06:35.680
+ I believe like, like in prop case.
+
+1:06:35.680 --> 1:06:38.540
+ It was for fairytales, but it's happened everywhere.
+
+1:06:40.080 --> 1:06:42.160
+ Okay, so we talked about images a little bit.
+
+1:06:42.160 --> 1:06:45.800
+ But, can we talk about Noam Chomsky for a second?
+
+1:06:49.800 --> 1:06:52.280
+ No, I believe I...
+
+1:06:52.280 --> 1:06:54.240
+ I don't know him very well.
+
+1:06:54.240 --> 1:06:55.680
+ Personally, well...
+
+1:06:55.680 --> 1:06:57.040
+ Not personally, I don't know.
+
+1:06:57.040 --> 1:06:57.880
+ His ideas.
+
+1:06:57.880 --> 1:06:58.720
+ His ideas.
+
+1:06:58.720 --> 1:06:59.840
+ Well let me just say,
+
+1:06:59.840 --> 1:07:02.360
+ do you think language, human language,
+
+1:07:02.360 --> 1:07:05.760
+ is essential to expressing ideas?
+
+1:07:05.760 --> 1:07:08.320
+ As Noam Chomsky believes.
+
+1:07:08.320 --> 1:07:10.080
+ So like, language is at the core
+
+1:07:10.080 --> 1:07:12.900
+ of our formation of predicates.
+
+1:07:13.800 --> 1:07:14.960
+ The human language.
+
+1:07:14.960 --> 1:07:18.560
+ For me, language and all the story of language
+
+1:07:18.560 --> 1:07:20.720
+ is very complicated.
+
+1:07:20.720 --> 1:07:22.920
+ I don't understand this.
+
+1:07:22.920 --> 1:07:24.080
+ And I am not...
+
+1:07:24.080 --> 1:07:25.680
+ I thought about...
+
+1:07:25.680 --> 1:07:26.520
+ Nobody does.
+
+1:07:26.520 --> 1:07:28.260
+ I am not ready to work on that.
+
+1:07:28.260 --> 1:07:30.720
+ Because it's so huge.
+
+1:07:30.720 --> 1:07:34.220
+ It is not for me, and I believe not for our century.
+
+1:07:35.880 --> 1:07:37.280
+ The 21st century.
+
+1:07:37.280 --> 1:07:39.440
+ Not for 21st century.
+
+1:07:39.440 --> 1:07:42.160
+ You should learn something, a lot of stuff,
+
+1:07:42.160 --> 1:07:45.040
+ from simple task like digit recognition.
+
+1:07:45.040 --> 1:07:49.200
+ So you think, okay, you think digital recognition,
+
+1:07:49.200 --> 1:07:54.200
+ 2D image, how would you more abstractly define
+
+1:07:55.120 --> 1:07:56.440
+ digit recognition?
+
+1:07:56.440 --> 1:08:01.440
+ It's 2D image, symbol recognition, essentially.
+
+1:08:03.760 --> 1:08:08.080
+ I mean, I'm trying to get a sense,
+
+1:08:08.080 --> 1:08:09.680
+ sort of thinking about it now,
+
+1:08:09.680 --> 1:08:12.880
+ having worked with MNIST forever,
+
+1:08:12.880 --> 1:08:16.040
+ how small of a subset is this
+
+1:08:16.040 --> 1:08:18.560
+ of the general vision recognition problem
+
+1:08:18.560 --> 1:08:20.440
+ and the general intelligence problem?
+
+1:08:21.580 --> 1:08:22.420
+ Is it...
+
+1:08:24.360 --> 1:08:25.200
+ Yeah.
+
+1:08:25.200 --> 1:08:26.360
+ Is it a giant subset?
+
+1:08:26.360 --> 1:08:27.840
+ Is it not?
+
+1:08:27.840 --> 1:08:30.200
+ And how far away is language?
+
+1:08:30.200 --> 1:08:33.420
+ You know, let me refer to Einstein.
+
+1:08:34.600 --> 1:08:38.280
+ Take the simplest problem, as simple as possible,
+
+1:08:38.280 --> 1:08:39.800
+ but not simpler.
+
+1:08:39.800 --> 1:08:43.040
+ And this is challenge, this simple problem.
+
+1:08:44.280 --> 1:08:49.280
+ But it's simple by idea, but not simple to get it.
+
+1:08:50.360 --> 1:08:55.360
+ When you will do this, you will find some predicate,
+
+1:08:55.360 --> 1:08:57.160
+ which helps it a bit.
+
+1:08:57.160 --> 1:09:00.040
+ Well, yeah, I mean, with Einstein, you can,
+
+1:09:01.320 --> 1:09:04.120
+ you look at general relativity,
+
+1:09:04.120 --> 1:09:07.280
+ but that doesn't help you with quantum mechanics.
+
+1:09:07.280 --> 1:09:08.760
+ That's another story.
+
+1:09:08.760 --> 1:09:11.840
+ You don't have any universal instrument.
+
+1:09:11.840 --> 1:09:16.520
+ Yes, so I'm trying to wonder which space we're in,
+
+1:09:16.520 --> 1:09:21.120
+ whether handwritten recognition is like general relativity,
+
+1:09:21.120 --> 1:09:23.160
+ and then language is like quantum mechanics.
+
+1:09:23.160 --> 1:09:27.000
+ So you're still gonna have to do a lot of mess
+
+1:09:27.000 --> 1:09:28.720
+ to universalize it.
+
+1:09:28.720 --> 1:09:33.360
+ But I'm trying to see,
+
+1:09:35.120 --> 1:09:39.160
+ so what's your intuition why handwritten recognition
+
+1:09:39.160 --> 1:09:40.940
+ is easier than language?
+
+1:09:42.020 --> 1:09:45.320
+ Just, I think a lot of people would agree with that,
+
+1:09:45.320 --> 1:09:50.200
+ but if you could elucidate sort of the intuition of why.
+
+1:09:50.200 --> 1:09:55.200
+ I don't know, no, I don't think in this direction.
+
+1:09:56.460 --> 1:09:59.560
+ I just think in directions that this is problem,
+
+1:10:00.880 --> 1:10:05.120
+ which if we will solve it well,
+
+1:10:07.760 --> 1:10:12.760
+ we will create some abstract understanding of images.
+
+1:10:18.040 --> 1:10:19.680
+ Maybe not all images.
+
+1:10:19.680 --> 1:10:24.000
+ I would like to talk to guys who doing in real images
+
+1:10:24.000 --> 1:10:26.280
+ in Columbia University.
+
+1:10:26.280 --> 1:10:28.400
+ What kind of images, unreal?
+
+1:10:28.400 --> 1:10:29.240
+ Real images.
+
+1:10:29.240 --> 1:10:30.060
+ Real images.
+
+1:10:30.060 --> 1:10:33.400
+ Yeah, what they're ready, is there a predicate,
+
+1:10:33.400 --> 1:10:35.160
+ what can be predicate?
+
+1:10:35.160 --> 1:10:40.160
+ I still symmetry will play role in real life images,
+
+1:10:40.960 --> 1:10:43.920
+ in any real life images, 2D images.
+
+1:10:43.920 --> 1:10:46.320
+ Let's talk about 2D images.
+
+1:10:46.320 --> 1:10:51.320
+ Because that's what we know.
+
+1:10:52.520 --> 1:10:55.880
+ A neural network was created for 2D images.
+
+1:10:55.880 --> 1:10:58.680
+ So the people I know in vision science, for example,
+
+1:10:58.680 --> 1:11:01.000
+ the people who study human vision,
+
+1:11:01.000 --> 1:11:04.520
+ that they usually go to the world of symbols
+
+1:11:04.520 --> 1:11:06.360
+ and like handwritten recognition,
+
+1:11:06.360 --> 1:11:08.480
+ but not really, it's other kinds of symbols
+
+1:11:08.480 --> 1:11:11.560
+ to study our visual perception system.
+
+1:11:11.560 --> 1:11:15.160
+ As far as I know, not much predicate type of thinking
+
+1:11:15.160 --> 1:11:17.640
+ is understood about our vision system.
+
+1:11:17.640 --> 1:11:19.400
+ They did not think in this direction.
+
+1:11:19.400 --> 1:11:21.720
+ They don't, yeah, but how do you even begin
+
+1:11:21.720 --> 1:11:23.480
+ to think in that direction?
+
+1:11:23.480 --> 1:11:26.920
+ That's a, I would like to discuss with them.
+
+1:11:26.920 --> 1:11:27.760
+ Yeah.
+
+1:11:27.760 --> 1:11:32.760
+ Because if we will be able to show that it is what working,
+
+1:11:35.600 --> 1:11:40.360
+ and theoretical scheme, it's not so bad.
+
+1:11:40.360 --> 1:11:43.360
+ So the unfortunate, so if we compare to language,
+
+1:11:43.360 --> 1:11:46.520
+ language is like letters, finite set of letters,
+
+1:11:46.520 --> 1:11:50.480
+ and a finite set of ways you can put together those letters.
+
+1:11:50.480 --> 1:11:53.720
+ So it feels more amenable to kind of analysis.
+
+1:11:53.720 --> 1:11:58.680
+ With natural images, there is so many pixels.
+
+1:11:58.680 --> 1:12:03.680
+ No, no, no, letter, language is much, much more complicated.
+
+1:12:03.680 --> 1:12:08.040
+ It's involved a lot of different stuff.
+
+1:12:08.040 --> 1:12:13.040
+ It's not just understanding of very simple class of tasks.
+
+1:12:15.280 --> 1:12:19.960
+ I would like to see list of task with language involved.
+
+1:12:19.960 --> 1:12:23.200
+ Yes, so there's a lot of nice benchmarks now
+
+1:12:23.200 --> 1:12:26.480
+ in natural language processing from the very trivial,
+
+1:12:27.400 --> 1:12:30.200
+ like understanding the elements of a sentence,
+
+1:12:30.200 --> 1:12:33.040
+ to question answering, to much more complicated
+
+1:12:33.040 --> 1:12:36.120
+ where you talk about open domain dialogue.
+
+1:12:36.120 --> 1:12:39.240
+ The natural question is, with handwritten recognition,
+
+1:12:39.240 --> 1:12:42.960
+ is really the first step of understanding
+
+1:12:42.960 --> 1:12:44.600
+ visual information.
+
+1:12:44.600 --> 1:12:45.440
+ Right.
+
+1:12:46.440 --> 1:12:51.440
+ But even our records show that we go in the wrong direction
+
+1:12:54.160 --> 1:12:56.600
+ because we need 60,000 digits.
+
+1:12:56.600 --> 1:12:59.680
+ So even this first step, so forget about talking
+
+1:12:59.680 --> 1:13:01.880
+ about the full journey, this first step
+
+1:13:01.880 --> 1:13:03.280
+ should be taking in the right direction.
+
+1:13:03.280 --> 1:13:07.160
+ No, no, wrong direction because 60,000 is unacceptable.
+
+1:13:07.160 --> 1:13:11.000
+ No, I'm saying it should be taken in the right direction
+
+1:13:11.000 --> 1:13:13.640
+ because 60,000 is not acceptable.
+
+1:13:13.640 --> 1:13:18.440
+ If you can talk, it's great, we have half percent of error.
+
+1:13:18.440 --> 1:13:22.720
+ And hopefully the step from doing hand recognition
+
+1:13:22.720 --> 1:13:26.760
+ using very few examples, the step towards what babies do
+
+1:13:26.760 --> 1:13:30.160
+ when they crawl and understand their physical environment.
+
+1:13:30.160 --> 1:13:31.720
+ I know you don't know about babies.
+
+1:13:31.720 --> 1:13:36.040
+ If you will do from very small examples,
+
+1:13:36.040 --> 1:13:39.560
+ you will find principles which are different
+
+1:13:40.520 --> 1:13:43.040
+ from what we're using now.
+
+1:13:44.440 --> 1:13:48.320
+ And so it's more or less clear.
+
+1:13:48.320 --> 1:13:52.240
+ That means that you will use weak convergence,
+
+1:13:52.240 --> 1:13:54.440
+ not just strong convergence.
+
+1:13:54.440 --> 1:13:55.960
+ Do you think these principles
+
+1:13:58.440 --> 1:14:01.640
+ will naturally be human interpretable?
+
+1:14:01.640 --> 1:14:02.560
+ Oh, yeah.
+
+1:14:02.560 --> 1:14:04.480
+ So like when we'll be able to explain them
+
+1:14:04.480 --> 1:14:06.240
+ and have a nice presentation to show
+
+1:14:06.240 --> 1:14:10.760
+ what those principles are, or are they very,
+
+1:14:10.760 --> 1:14:14.440
+ going to be very kind of abstract kinds of functions?
+
+1:14:14.440 --> 1:14:17.640
+ For example, I talked yesterday about symmetry.
+
+1:14:17.640 --> 1:14:18.680
+ Yes.
+
+1:14:18.680 --> 1:14:20.440
+ And I gave very simple examples.
+
+1:14:20.440 --> 1:14:22.000
+ The same will be like that.
+
+1:14:22.000 --> 1:14:24.680
+ You gave like a predicate of a basic for?
+
+1:14:24.680 --> 1:14:25.760
+ For symmetries.
+
+1:14:25.760 --> 1:14:29.520
+ Yes, for different symmetries and you have for?
+
+1:14:29.520 --> 1:14:31.840
+ Degree of symmetries, that is important.
+
+1:14:31.840 --> 1:14:33.680
+ Not just symmetry.
+
+1:14:33.680 --> 1:14:36.280
+ Existence doesn't exist, degree of symmetry.
+
+1:14:38.360 --> 1:14:40.240
+ Yeah, for handwritten recognition.
+
+1:14:41.320 --> 1:14:45.160
+ No, it's not for handwritten, it's for any images.
+
+1:14:45.160 --> 1:14:47.720
+ But I would like apply to handwritten.
+
+1:14:47.720 --> 1:14:50.920
+ Right, in theory it's more general, okay, okay.
+
+1:14:55.280 --> 1:14:58.160
+ So a lot of the things we've been talking about
+
+1:14:58.160 --> 1:15:01.800
+ falls, we've been talking about philosophy a little bit,
+
+1:15:01.800 --> 1:15:05.480
+ but also about mathematics and statistics.
+
+1:15:05.480 --> 1:15:08.040
+ A lot of it falls into this idea,
+
+1:15:08.040 --> 1:15:10.700
+ a universal idea of statistical theory of learning.
+
+1:15:11.760 --> 1:15:16.760
+ What is the most beautiful and sort of powerful
+
+1:15:16.760 --> 1:15:19.080
+ or essential idea you've come across,
+
+1:15:19.080 --> 1:15:22.040
+ even just for yourself personally in the world
+
+1:15:22.040 --> 1:15:25.440
+ of statistics or statistic theory of learning?
+
+1:15:25.440 --> 1:15:29.480
+ Probably uniform convergence, which we did
+
+1:15:29.480 --> 1:15:33.000
+ with Alexei Chilvonenkis.
+
+1:15:33.000 --> 1:15:35.000
+ Can you describe universal convergence?
+
+1:15:36.080 --> 1:15:39.000
+ You have law of large numbers.
+
+1:15:40.080 --> 1:15:44.480
+ So for any function, expectation of function,
+
+1:15:44.480 --> 1:15:48.120
+ average of function converged to expectation.
+
+1:15:48.120 --> 1:15:50.520
+ But if you have set of functions,
+
+1:15:50.520 --> 1:15:52.340
+ for any function it is true.
+
+1:15:52.340 --> 1:15:55.580
+ But it should converge simultaneously
+
+1:15:55.580 --> 1:15:57.480
+ for all set of functions.
+
+1:15:59.020 --> 1:16:04.020
+ And for learning, you need uniform convergence.
+
+1:16:06.700 --> 1:16:08.560
+ Just convergence is not enough.
+
+1:16:11.220 --> 1:16:15.680
+ Because when you pick up one which gives minimum,
+
+1:16:16.660 --> 1:16:21.660
+ you can pick up one function which does not converge
+
+1:16:21.660 --> 1:16:26.660
+ and it will give you the best answer for this function.
+
+1:16:31.460 --> 1:16:34.900
+ So you need uniform convergence to guarantee learning.
+
+1:16:34.900 --> 1:16:39.900
+ So learning does not rely on trivial law of large numbers,
+
+1:16:40.220 --> 1:16:42.940
+ it relies on universal law.
+
+1:16:42.940 --> 1:16:51.940
+ But idea of convergence exists in statistics for a long time.
+
+1:16:51.940 --> 1:16:56.940
+ But it is interesting that as I think about myself,
+
+1:17:02.140 --> 1:17:07.140
+ how stupid I was 50 years, I did not see weak convergence.
+
+1:17:08.160 --> 1:17:10.940
+ I work on strong convergence.
+
+1:17:10.940 --> 1:17:15.260
+ But now I think that most powerful is weak convergence.
+
+1:17:15.260 --> 1:17:18.860
+ Because it makes admissible set of functions.
+
+1:17:18.860 --> 1:17:22.720
+ And even in all proverbs,
+
+1:17:22.720 --> 1:17:27.720
+ when people try to understand recognition about dog law,
+
+1:17:28.300 --> 1:17:32.400
+ looks like a dog and so on, they use weak convergence.
+
+1:17:32.400 --> 1:17:34.600
+ People in language, they understand this.
+
+1:17:34.600 --> 1:17:39.600
+ But when we're trying to create artificial intelligence,
+
+1:17:42.260 --> 1:17:45.060
+ we want event in different way.
+
+1:17:46.220 --> 1:17:50.540
+ We just consider strong convergence arguments.
+
+1:17:50.540 --> 1:17:52.740
+ So reducing the set of admissible functions,
+
+1:17:52.740 --> 1:17:57.740
+ you think there should be effort put into understanding
+
+1:17:58.780 --> 1:18:01.260
+ the properties of weak convergence?
+
+1:18:01.260 --> 1:18:06.260
+ You know, in classical mathematics, in Gilbert space,
+
+1:18:07.260 --> 1:18:08.820
+ there are only two ways,
+
+1:18:08.820 --> 1:18:12.120
+ two form of convergence, strong and weak.
+
+1:18:14.180 --> 1:18:15.760
+ Now we can use both.
+
+1:18:16.900 --> 1:18:19.700
+ That means that we did everything.
+
+1:18:21.180 --> 1:18:26.180
+ And it so happened that when we use Hilbert space,
+
+1:18:26.180 --> 1:18:31.180
+ which is very rich space, space of continuous functions,
+
+1:18:34.780 --> 1:18:36.860
+ which has integral and square.
+
+1:18:38.020 --> 1:18:42.420
+ So we can apply weak and strong convergence for learning
+
+1:18:42.420 --> 1:18:44.220
+ and have closed form solution.
+
+1:18:45.140 --> 1:18:47.660
+ So for computationally simple.
+
+1:18:47.660 --> 1:18:51.080
+ For me, it is sign that it is right way.
+
+1:18:51.080 --> 1:18:55.740
+ Because you don't need any heuristic here,
+
+1:18:55.740 --> 1:18:57.740
+ just do whatever you want.
+
+1:18:59.620 --> 1:19:03.380
+ But now the only what left is this concept
+
+1:19:03.380 --> 1:19:08.020
+ of what is predicate, but it is not statistics.
+
+1:19:08.020 --> 1:19:11.660
+ By the way, I like the fact that you think that heuristics
+
+1:19:11.660 --> 1:19:14.900
+ are a mess that should be removed from the system.
+
+1:19:14.900 --> 1:19:18.460
+ So closed form solution is the ultimate goal.
+
+1:19:18.460 --> 1:19:23.460
+ No, it so happened that when you're using right instrument,
+
+1:19:23.980 --> 1:19:25.460
+ you have closed form solution.
+
+1:19:28.500 --> 1:19:32.780
+ Do you think intelligence, human level intelligence,
+
+1:19:32.780 --> 1:19:34.320
+ when we create it,
+
+1:19:37.660 --> 1:19:41.400
+ will have something like a closed form solution?
+
+1:19:42.360 --> 1:19:46.380
+ You know, now I'm looking on bounds,
+
+1:19:46.380 --> 1:19:49.560
+ which I gave bounds for convergence.
+
+1:19:51.220 --> 1:19:53.900
+ And when I'm looking for bounds,
+
+1:19:53.900 --> 1:19:58.900
+ I'm thinking what is the most appropriate kernel
+
+1:19:59.620 --> 1:20:01.000
+ for this bound would be.
+
+1:20:02.500 --> 1:20:04.380
+ So we know that in say,
+
+1:20:05.960 --> 1:20:09.720
+ all our businesses, we use radial basis function.
+
+1:20:11.460 --> 1:20:13.220
+ But looking on the bound,
+
+1:20:13.220 --> 1:20:17.140
+ I think that I start to understand that maybe
+
+1:20:17.140 --> 1:20:21.140
+ we need to make corrections to radial basis function
+
+1:20:21.140 --> 1:20:26.140
+ to be closer to work better for this bounds.
+
+1:20:28.440 --> 1:20:32.540
+ So I'm again trying to understand what type of kernel
+
+1:20:33.940 --> 1:20:37.580
+ have best approximation,
+
+1:20:37.580 --> 1:20:43.420
+ best fit to this bound.
+
+1:20:43.420 --> 1:20:45.580
+ Sure, so there's a lot of interesting work
+
+1:20:45.580 --> 1:20:47.780
+ that could be done in discovering better functions
+
+1:20:47.780 --> 1:20:51.740
+ than radial basis functions for bounds you find.
+
+1:20:53.160 --> 1:20:55.860
+ It still comes from,
+
+1:20:55.860 --> 1:21:00.220
+ you're looking to mass and trying to understand what.
+
+1:21:00.220 --> 1:21:03.540
+ From your own mind, looking at the, I don't know.
+
+1:21:03.540 --> 1:21:08.540
+ Then I'm trying to understand what will be good for that.
+
+1:21:11.260 --> 1:21:14.020
+ Yeah, but to me, there's still a beauty.
+
+1:21:14.020 --> 1:21:17.980
+ Again, maybe I'm a descendant of Alan Turing to heuristics.
+
+1:21:17.980 --> 1:21:22.340
+ To me, ultimately, intelligence will be a mess of heuristics.
+
+1:21:23.620 --> 1:21:26.300
+ And that's the engineering answer, I guess.
+
+1:21:26.300 --> 1:21:27.460
+ Absolutely.
+
+1:21:27.460 --> 1:21:31.060
+ When you're doing say, self driving cars,
+
+1:21:31.060 --> 1:21:35.020
+ the great guy who will do this.
+
+1:21:35.020 --> 1:21:38.640
+ It doesn't matter what theory behind that.
+
+1:21:40.640 --> 1:21:43.800
+ Who has a better feeling how to apply it.
+
+1:21:43.800 --> 1:21:48.800
+ But by the way, it is the same story about predicates.
+
+1:21:50.400 --> 1:21:53.880
+ Because you cannot create rule for,
+
+1:21:53.880 --> 1:21:56.660
+ situation is much more than you have rule for that.
+
+1:21:56.660 --> 1:22:01.660
+ But maybe you can have more abstract rule
+
+1:22:04.780 --> 1:22:07.740
+ than it will be less literal.
+
+1:22:08.780 --> 1:22:10.820
+ It is the same story about ideas
+
+1:22:10.820 --> 1:22:15.140
+ and ideas applied to specific cases.
+
+1:22:16.500 --> 1:22:17.340
+ But still you should reach.
+
+1:22:17.340 --> 1:22:18.900
+ You cannot avoid this.
+
+1:22:18.900 --> 1:22:19.740
+ Yes, of course.
+
+1:22:19.740 --> 1:22:21.620
+ But you should still reach for the ideas
+
+1:22:21.620 --> 1:22:22.940
+ to understand the science.
+
+1:22:22.940 --> 1:22:27.940
+ Okay, let me kind of ask, do you think neural networks
+
+1:22:27.980 --> 1:22:32.620
+ or functions can be made to reason?
+
+1:22:34.100 --> 1:22:37.100
+ So what do you think, we've been talking about intelligence,
+
+1:22:37.100 --> 1:22:39.620
+ but this idea of reasoning,
+
+1:22:39.620 --> 1:22:44.500
+ there's an element of sequentially disassembling,
+
+1:22:44.500 --> 1:22:48.380
+ interpreting the images.
+
+1:22:48.380 --> 1:22:53.380
+ So when you think of handwritten recognition, we kind of think
+
+1:22:54.100 --> 1:22:56.940
+ that there'll be a single, there's an input and output.
+
+1:22:56.940 --> 1:22:58.660
+ There's not a recurrence.
+
+1:23:01.060 --> 1:23:04.440
+ What do you think about sort of the idea of recurrence,
+
+1:23:04.440 --> 1:23:06.860
+ of going back to memory and thinking through this
+
+1:23:06.860 --> 1:23:11.860
+ sort of sequentially mangling the different representations
+
+1:23:11.860 --> 1:23:16.860
+ over and over until you arrive at a conclusion?
+
+1:23:20.100 --> 1:23:23.460
+ Or is ultimately all that can be wrapped up into a function?
+
+1:23:23.460 --> 1:23:28.460
+ No, you're suggesting that let us use this type of algorithm.
+
+1:23:29.860 --> 1:23:33.300
+ When I started thinking, I first of all,
+
+1:23:33.300 --> 1:23:35.200
+ starting to understand what I want.
+
+1:23:36.580 --> 1:23:39.560
+ Can I write down what I want?
+
+1:23:39.560 --> 1:23:43.980
+ And then I'm trying to formalize.
+
+1:23:45.020 --> 1:23:49.260
+ And when I do that, I think I have to solve this problem.
+
+1:23:52.120 --> 1:23:57.120
+ And till now I did not see a situation where you need recurrence.
+
+1:24:04.280 --> 1:24:07.840
+ But do you observe human beings?
+
+1:24:07.840 --> 1:24:08.680
+ Yeah.
+
+1:24:08.680 --> 1:24:12.400
+ You try to, it's the imitation question, right?
+
+1:24:12.400 --> 1:24:14.880
+ It seems that human beings reason
+
+1:24:14.880 --> 1:24:19.600
+ this kind of sequentially sort of,
+
+1:24:20.680 --> 1:24:24.120
+ does that inspire in you a thought that we need to add that
+
+1:24:24.120 --> 1:24:29.020
+ into our intelligence systems?
+
+1:24:30.760 --> 1:24:34.440
+ You're saying, okay, I mean, you've kind of answered saying
+
+1:24:34.440 --> 1:24:37.040
+ until now I haven't seen a need for it.
+
+1:24:37.040 --> 1:24:40.080
+ And so because of that, you don't see a reason
+
+1:24:40.080 --> 1:24:41.740
+ to think about it.
+
+1:24:41.740 --> 1:24:45.000
+ You know, most of things I don't understand.
+
+1:24:45.880 --> 1:24:50.800
+ In reasoning in human, it is for me too complicated.
+
+1:24:52.740 --> 1:24:57.740
+ For me, the most difficult part is to ask questions,
+
+1:25:01.160 --> 1:25:03.900
+ to good questions, how it works,
+
+1:25:03.900 --> 1:25:08.900
+ how people asking questions, I don't know this.
+
+1:25:11.720 --> 1:25:13.640
+ You said that machine learning is not only
+
+1:25:13.640 --> 1:25:16.480
+ about technical things, speaking of questions,
+
+1:25:16.480 --> 1:25:18.220
+ but it's also about philosophy.
+
+1:25:19.720 --> 1:25:23.480
+ So what role does philosophy play in machine learning?
+
+1:25:23.480 --> 1:25:26.880
+ We talked about Plato, but generally thinking
+
+1:25:28.240 --> 1:25:32.480
+ in this philosophical way, does it have,
+
+1:25:32.480 --> 1:25:35.240
+ how does philosophy and math fit together in your mind?
+
+1:25:36.640 --> 1:25:39.520
+ First ideas and then their implementation.
+
+1:25:39.520 --> 1:25:44.520
+ It's like predicate, like say admissible set of functions.
+
+1:25:48.940 --> 1:25:51.500
+ It comes together, everything.
+
+1:25:51.500 --> 1:25:56.500
+ Because the first iteration of theory was done 50 years ago.
+
+1:25:58.360 --> 1:26:00.380
+ I told that, this is theory.
+
+1:26:00.380 --> 1:26:04.080
+ So everything's there, if you have data you can,
+
+1:26:04.080 --> 1:26:09.080
+ and your set of function has not big capacity.
+
+1:26:13.600 --> 1:26:15.760
+ So low VC dimension, you can do that.
+
+1:26:15.760 --> 1:26:19.700
+ You can make structural risk minimization, control capacity.
+
+1:26:21.140 --> 1:26:26.140
+ But you was not able to make admissible set of function good.
+
+1:26:26.140 --> 1:26:31.140
+ Now when suddenly realize that we did not use
+
+1:26:33.680 --> 1:26:37.240
+ another idea of convergence, which we can,
+
+1:26:39.480 --> 1:26:41.480
+ everything comes together.
+
+1:26:41.480 --> 1:26:43.320
+ But those are mathematical notions.
+
+1:26:43.320 --> 1:26:48.000
+ Philosophy plays a role of simply saying
+
+1:26:48.000 --> 1:26:52.080
+ that we should be swimming in the space of ideas.
+
+1:26:52.080 --> 1:26:54.320
+ Let's talk what is philosophy.
+
+1:26:54.320 --> 1:26:56.920
+ Philosophy means understanding of life.
+
+1:26:58.080 --> 1:27:03.080
+ So understanding of life, say people like Plata,
+
+1:27:03.480 --> 1:27:07.640
+ they understand on very high abstract level of life.
+
+1:27:07.640 --> 1:27:12.040
+ So, and whatever I doing,
+
+1:27:12.040 --> 1:27:15.720
+ just implementation of my understanding of life.
+
+1:27:16.740 --> 1:27:21.400
+ But every new step, it is very difficult.
+
+1:27:21.400 --> 1:27:26.400
+ For example, to find this idea
+
+1:27:28.880 --> 1:27:33.880
+ that we need big convergence was not simple for me.
+
+1:27:40.600 --> 1:27:43.080
+ So that required thinking about life a little bit.
+
+1:27:44.260 --> 1:27:48.840
+ Hard to trace, but there was some thought process.
+
+1:27:48.840 --> 1:27:52.960
+ I'm working, I'm thinking about the same problem
+
+1:27:52.960 --> 1:27:57.960
+ for 50 years or more, and again, and again, and again.
+
+1:28:00.020 --> 1:28:02.680
+ I'm trying to be honest and that is very important.
+
+1:28:02.680 --> 1:28:06.320
+ Not to be very enthusiastic, but concentrate
+
+1:28:06.320 --> 1:28:10.320
+ on whatever we was not able to achieve, for example.
+
+1:28:12.040 --> 1:28:13.360
+ And understand why.
+
+1:28:13.360 --> 1:28:18.360
+ And now I understand that because I believe in math,
+
+1:28:18.920 --> 1:28:23.740
+ I believe that in Wigner's idea.
+
+1:28:23.740 --> 1:28:28.720
+ But now when I see that there are only two way
+
+1:28:28.720 --> 1:28:32.060
+ of convergence and we're using both,
+
+1:28:32.960 --> 1:28:37.960
+ that means that we must do as well as people doing.
+
+1:28:37.960 --> 1:28:42.880
+ But now, exactly in philosophy
+
+1:28:42.880 --> 1:28:45.760
+ and what we know about predicate,
+
+1:28:45.760 --> 1:28:50.120
+ how we understand life, can we describe as a predicate.
+
+1:28:51.400 --> 1:28:56.400
+ I thought about that and that is more or less obvious
+
+1:28:57.840 --> 1:28:59.040
+ level of symmetry.
+
+1:29:00.760 --> 1:29:05.100
+ But next, I have a feeling,
+
+1:29:05.100 --> 1:29:08.060
+ it's something about structures.
+
+1:29:09.540 --> 1:29:11.820
+ But I don't know how to formulate,
+
+1:29:11.820 --> 1:29:16.180
+ how to measure measure of structure and all this stuff.
+
+1:29:16.180 --> 1:29:21.180
+ And the guy who will solve this challenge problem,
+
+1:29:22.220 --> 1:29:25.360
+ then when we were looking how he did it,
+
+1:29:27.060 --> 1:29:30.340
+ probably just only symmetry is not enough.
+
+1:29:30.340 --> 1:29:33.980
+ But something like symmetry will be there.
+
+1:29:33.980 --> 1:29:34.820
+ Structure will be there.
+
+1:29:34.820 --> 1:29:35.640
+ Oh yeah, absolutely.
+
+1:29:35.640 --> 1:29:39.300
+ Symmetry will be there and level of symmetry will be there.
+
+1:29:40.760 --> 1:29:44.740
+ And level of symmetry, antisymmetry, diagonal, vertical.
+
+1:29:44.740 --> 1:29:48.780
+ And I even don't know how you can use
+
+1:29:48.780 --> 1:29:52.300
+ in different direction idea of symmetry, it's very general.
+
+1:29:52.300 --> 1:29:53.460
+ But it will be there.
+
+1:29:54.940 --> 1:29:58.600
+ I think that people very sensitive to idea of symmetry.
+
+1:29:58.600 --> 1:30:02.920
+ But there are several ideas like symmetry.
+
+1:30:04.900 --> 1:30:07.020
+ As I would like to learn.
+
+1:30:07.020 --> 1:30:11.820
+ But you cannot learn just thinking about that.
+
+1:30:11.820 --> 1:30:14.100
+ You should do challenging problems
+
+1:30:14.100 --> 1:30:19.100
+ and then analyze them, why it was able to solve them.
+
+1:30:20.240 --> 1:30:21.380
+ And then you will see.
+
+1:30:22.740 --> 1:30:25.420
+ Very simple things, it's not easy to find.
+
+1:30:25.420 --> 1:30:30.420
+ But even with talking about this every time.
+
+1:30:32.900 --> 1:30:36.340
+ I was surprised, I tried to understand.
+
+1:30:36.340 --> 1:30:39.100
+ These people describe in language
+
+1:30:40.120 --> 1:30:43.300
+ strong convergence mechanism for learning.
+
+1:30:44.460 --> 1:30:46.660
+ I did not see, I don't know.
+
+1:30:46.660 --> 1:30:50.100
+ But weak convergence, this dark story
+
+1:30:50.100 --> 1:30:54.700
+ and story like that when you will explain to kid,
+
+1:30:54.700 --> 1:30:57.620
+ you will use weak convergence argument.
+
+1:30:57.620 --> 1:30:59.780
+ It looks like it does like it does that.
+
+1:31:00.900 --> 1:31:05.820
+ But when you try to formalize, you're just ignoring this.
+
+1:31:05.820 --> 1:31:10.140
+ Why, why 50 years from start of machine learning?
+
+1:31:10.140 --> 1:31:12.420
+ And that's the role of philosophy, thinking about life.
+
+1:31:12.420 --> 1:31:16.020
+ I think that maybe, I don't know.
+
+1:31:18.300 --> 1:31:22.780
+ Maybe this is theory also, we should blame for that
+
+1:31:22.780 --> 1:31:27.100
+ because empirical risk minimization and all this stuff.
+
+1:31:27.100 --> 1:31:30.660
+ And if you read now textbooks,
+
+1:31:30.660 --> 1:31:34.420
+ they just about bound about empirical risk minimization.
+
+1:31:34.420 --> 1:31:39.420
+ They don't looking for another problem like admissible set.
+
+1:31:41.820 --> 1:31:46.820
+ But on the topic of life, perhaps we,
+
+1:31:47.340 --> 1:31:50.020
+ you could talk in Russian for a little bit.
+
+1:31:50.020 --> 1:31:53.180
+ What's your favorite memory from childhood?
+
+1:31:53.180 --> 1:31:56.740
+ What's your favorite memory from childhood?
+
+1:31:56.740 --> 1:31:57.740
+ Oh, music.
+
+1:31:59.500 --> 1:32:02.700
+ How about, can you try to answer in Russian?
+
+1:32:02.700 --> 1:32:03.540
+ Music?
+
+1:32:04.980 --> 1:32:06.980
+ It was very cool when...
+
+1:32:08.100 --> 1:32:09.980
+ What kind of music?
+
+1:32:09.980 --> 1:32:11.860
+ Classic music.
+
+1:32:11.860 --> 1:32:13.340
+ What's your favorite?
+
+1:32:13.340 --> 1:32:15.900
+ Well, different composers.
+
+1:32:15.900 --> 1:32:20.900
+ At first, it was Vivaldi, I was surprised that it was possible.
+
+1:32:23.500 --> 1:32:28.500
+ And then when I understood Bach, I was absolutely shocked.
+
+1:32:29.020 --> 1:32:34.020
+ By the way, from him I think that there is a predicate,
+
+1:32:35.180 --> 1:32:36.740
+ like a structure.
+
+1:32:36.740 --> 1:32:37.580
+ In Bach?
+
+1:32:37.580 --> 1:32:38.420
+ Well, of course.
+
+1:32:38.420 --> 1:32:42.700
+ Because you can just feel the structure.
+
+1:32:42.700 --> 1:32:47.700
+ And I don't think that different elements of life
+
+1:32:49.020 --> 1:32:53.020
+ are very much divided, in the sense of predicates.
+
+1:32:53.020 --> 1:32:56.900
+ Everywhere structure, in painting structure,
+
+1:32:56.900 --> 1:32:59.820
+ in human relations structure.
+
+1:32:59.820 --> 1:33:04.820
+ Here's how to find these high level predicates, it's...
+
+1:33:05.540 --> 1:33:08.460
+ In Bach and in life, everything is connected.
+
+1:33:08.460 --> 1:33:13.460
+ Now that we're talking about Bach,
+
+1:33:14.100 --> 1:33:15.700
+ let's switch back to English,
+
+1:33:15.700 --> 1:33:18.580
+ because I like Beethoven and Chopin, so...
+
+1:33:18.580 --> 1:33:21.300
+ Well, Chopin, it's another amusing story.
+
+1:33:21.300 --> 1:33:23.940
+ But Bach, if we talk about predicates,
+
+1:33:23.940 --> 1:33:28.940
+ Bach probably has the most sort of
+
+1:33:29.300 --> 1:33:31.860
+ well defined predicates that underlie it.
+
+1:33:31.860 --> 1:33:36.860
+ It is very interesting to read what critics
+
+1:33:36.860 --> 1:33:40.460
+ are writing about Bach, which words they're using.
+
+1:33:40.460 --> 1:33:43.500
+ They're trying to describe predicates.
+
+1:33:43.500 --> 1:33:48.500
+ And then Chopin, it is very different vocabulary,
+
+1:33:52.100 --> 1:33:55.140
+ very different predicates.
+
+1:33:55.140 --> 1:34:00.140
+ And I think that if you will make collection of that,
+
+1:34:02.700 --> 1:34:05.860
+ so maybe from this you can describe predicate
+
+1:34:05.860 --> 1:34:07.660
+ for digit recognition as well.
+
+1:34:08.780 --> 1:34:10.460
+ From Bach and Chopin.
+
+1:34:10.460 --> 1:34:12.540
+ No, no, no, not from Bach and Chopin.
+
+1:34:12.540 --> 1:34:15.260
+ From the critic interpretation of the music, yeah.
+
+1:34:15.260 --> 1:34:20.260
+ When they're trying to explain you music, what they use.
+
+1:34:22.300 --> 1:34:25.260
+ As they use, they describe high level ideas
+
+1:34:25.260 --> 1:34:28.900
+ of platos ideas, what behind this music.
+
+1:34:28.900 --> 1:34:29.740
+ That's brilliant.
+
+1:34:29.740 --> 1:34:34.740
+ So art is not self explanatory in some sense.
+
+1:34:34.740 --> 1:34:39.060
+ So you have to try to convert it into ideas.
+
+1:34:39.060 --> 1:34:40.940
+ It is ill post problems.
+
+1:34:40.940 --> 1:34:45.940
+ When you go from ideas to the representation,
+
+1:34:46.060 --> 1:34:47.580
+ it is easy way.
+
+1:34:47.580 --> 1:34:51.420
+ But when you're trying to go Bach, it is ill post problems.
+
+1:34:51.420 --> 1:34:55.660
+ But nevertheless, I believe that when you're looking
+
+1:34:55.660 --> 1:35:00.340
+ from that, even from art, you will be able to find
+
+1:35:00.340 --> 1:35:02.100
+ predicates for digit recognition.
+
+1:35:02.100 --> 1:35:07.100
+ That's such a fascinating and powerful notion.
+
+1:35:08.500 --> 1:35:10.600
+ Do you ponder your own mortality?
+
+1:35:11.660 --> 1:35:12.540
+ Do you think about it?
+
+1:35:12.540 --> 1:35:13.660
+ Do you fear it?
+
+1:35:13.660 --> 1:35:15.100
+ Do you draw insight from it?
+
+1:35:16.820 --> 1:35:20.460
+ About mortality, no, yeah.
+
+1:35:21.540 --> 1:35:22.820
+ Are you afraid of death?
+
+1:35:25.860 --> 1:35:29.660
+ Not too much, not too much.
+
+1:35:29.660 --> 1:35:33.700
+ It is pity that I will not be able to do something
+
+1:35:33.700 --> 1:35:38.700
+ which I think I have a feeling to do that.
+
+1:35:39.460 --> 1:35:44.460
+ For example, I will be very happy to work with guys
+
+1:35:48.020 --> 1:35:52.060
+ theoretician from music to write this collection
+
+1:35:52.060 --> 1:35:55.060
+ of description, how they describe music,
+
+1:35:55.060 --> 1:36:00.060
+ how they use that predicate, and from art as well.
+
+1:36:00.140 --> 1:36:04.580
+ Then take what is in common and try to understand
+
+1:36:04.580 --> 1:36:08.660
+ predicate which is absolute for everything.
+
+1:36:08.660 --> 1:36:10.460
+ And then use that for visual recognition
+
+1:36:10.460 --> 1:36:12.180
+ and see if there is a connection.
+
+1:36:12.180 --> 1:36:13.540
+ Yeah, exactly.
+
+1:36:13.540 --> 1:36:14.660
+ Ah, there's still time.
+
+1:36:14.660 --> 1:36:15.580
+ We got time.
+
+1:36:16.980 --> 1:36:18.660
+ Ha ha ha ha.
+
+1:36:18.660 --> 1:36:19.500
+ Yeah.
+
+1:36:19.500 --> 1:36:20.340
+ We got time.
+
+1:36:20.340 --> 1:36:24.100
+ It take years and years and years.
+
+1:36:24.100 --> 1:36:26.460
+ Yes, yeah, it's a long way.
+
+1:36:26.460 --> 1:36:30.900
+ Well, see, you've got the patient mathematicians mind.
+
+1:36:30.900 --> 1:36:34.060
+ I think it could be done very quickly and very beautifully.
+
+1:36:34.060 --> 1:36:35.820
+ I think it's a really elegant idea.
+
+1:36:35.820 --> 1:36:36.940
+ Yeah, but also.
+
+1:36:36.940 --> 1:36:37.780
+ Some of many.
+
+1:36:37.780 --> 1:36:40.580
+ Yeah, you know, the most time,
+
+1:36:40.580 --> 1:36:45.280
+ it is not to make this collection to understand
+
+1:36:45.280 --> 1:36:48.700
+ what is the common to think about that once again
+
+1:36:48.700 --> 1:36:49.540
+ and again and again.
+
+1:36:49.540 --> 1:36:52.660
+ Again and again and again, but I think sometimes,
+
+1:36:52.660 --> 1:36:55.700
+ especially just when you say this idea now,
+
+1:36:55.700 --> 1:36:58.780
+ even just putting together the collection
+
+1:36:58.780 --> 1:37:03.300
+ and looking at the different sets of data,
+
+1:37:03.300 --> 1:37:05.520
+ language, trying to interpret music,
+
+1:37:05.520 --> 1:37:08.740
+ criticize music, and images,
+
+1:37:08.740 --> 1:37:10.940
+ I think there'll be sparks of ideas that'll come.
+
+1:37:10.940 --> 1:37:13.420
+ Of course, again and again, you'll come up with better ideas,
+
+1:37:13.420 --> 1:37:16.940
+ but even just that notion is a beautiful notion.
+
+1:37:16.940 --> 1:37:19.340
+ I even have some example.
+
+1:37:19.340 --> 1:37:23.000
+ Yes, so I have friend
+
+1:37:25.200 --> 1:37:29.880
+ who was specialist in Russian poetry.
+
+1:37:30.960 --> 1:37:35.320
+ She is professor of Russian poetry.
+
+1:37:35.320 --> 1:37:39.400
+ He did not write poems,
+
+1:37:39.400 --> 1:37:43.340
+ but she know a lot of stuff.
+
+1:37:43.340 --> 1:37:48.080
+ She make book, several books,
+
+1:37:48.080 --> 1:37:53.080
+ and one of them is a collection of Russian poetry.
+
+1:37:54.680 --> 1:37:57.140
+ She have images of Russian poetry.
+
+1:37:57.140 --> 1:37:59.400
+ She collect all images of Russian poetry.
+
+1:38:00.720 --> 1:38:03.500
+ And I ask her to do following.
+
+1:38:05.420 --> 1:38:08.540
+ You have NIPS, digit recognition,
+
+1:38:09.720 --> 1:38:13.520
+ and we get 100 digits,
+
+1:38:13.520 --> 1:38:15.280
+ or maybe less than 100.
+
+1:38:15.280 --> 1:38:18.920
+ I don't remember, maybe 50 digits.
+
+1:38:18.920 --> 1:38:21.680
+ And try from poetical point of view,
+
+1:38:21.680 --> 1:38:25.260
+ describe every image which she see,
+
+1:38:25.260 --> 1:38:30.260
+ using only words of images of Russian poetry.
+
+1:38:31.320 --> 1:38:32.220
+ And she did it.
+
+1:38:34.280 --> 1:38:37.560
+ And then we tried to,
+
+1:38:41.140 --> 1:38:43.600
+ I call it learning using privileged information.
+
+1:38:43.600 --> 1:38:45.920
+ I call it privileged information.
+
+1:38:45.920 --> 1:38:48.040
+ You have on two languages.
+
+1:38:48.040 --> 1:38:53.040
+ One language is just image of digit,
+
+1:38:53.140 --> 1:38:56.620
+ and another language, poetic description of this image.
+
+1:38:57.760 --> 1:39:00.080
+ And this is privileged information.
+
+1:39:02.360 --> 1:39:04.520
+ And there is an algorithm when you're working
+
+1:39:04.520 --> 1:39:08.320
+ using privileged information, you're doing better.
+
+1:39:08.320 --> 1:39:10.400
+ Much better, so.
+
+1:39:10.400 --> 1:39:11.560
+ So there's something there.
+
+1:39:11.560 --> 1:39:12.880
+ Something there.
+
+1:39:12.880 --> 1:39:16.000
+ And there is a, in NEC,
+
+1:39:16.980 --> 1:39:19.000
+ she unfortunately died.
+
+1:39:20.880 --> 1:39:24.840
+ The collection of digits
+
+1:39:24.840 --> 1:39:27.240
+ in poetic descriptions of these digits.
+
+1:39:29.160 --> 1:39:30.000
+ Yeah.
+
+1:39:30.000 --> 1:39:32.920
+ So there's something there in that poetic description.
+
+1:39:32.920 --> 1:39:37.920
+ But I think that there is a abstract ideas
+
+1:39:38.320 --> 1:39:40.680
+ on the plot of level of ideas.
+
+1:39:40.680 --> 1:39:42.000
+ Yeah, that they're there.
+
+1:39:42.000 --> 1:39:43.120
+ That could be discovered.
+
+1:39:43.120 --> 1:39:45.000
+ And music seems to be a good entry point.
+
+1:39:45.000 --> 1:39:50.000
+ But as soon as we start with this challenge problem.
+
+1:39:50.340 --> 1:39:51.180
+ The challenge problem.
+
+1:39:51.180 --> 1:39:52.020
+ Listen.
+
+1:39:52.020 --> 1:39:55.400
+ It immediately connected to all this stuff.
+
+1:39:55.400 --> 1:39:58.060
+ Especially with your talk and this podcast,
+
+1:39:58.060 --> 1:40:00.120
+ and I'll do whatever I can to advertise it.
+
+1:40:00.120 --> 1:40:03.280
+ It's such a clean, beautiful Einstein like formulation
+
+1:40:03.280 --> 1:40:05.240
+ of the challenge before us.
+
+1:40:05.240 --> 1:40:06.060
+ Right.
+
+1:40:06.060 --> 1:40:09.520
+ Let me ask another absurd question.
+
+1:40:09.520 --> 1:40:12.800
+ We talked about mortality.
+
+1:40:12.800 --> 1:40:14.640
+ We talked about philosophy of life.
+
+1:40:14.640 --> 1:40:16.680
+ What do you think is the meaning of life?
+
+1:40:17.560 --> 1:40:22.560
+ What's the predicate for mysterious existence here on earth?
+
+1:40:29.620 --> 1:40:30.460
+ I don't know.
+
+1:40:33.620 --> 1:40:37.640
+ It's very interesting how we have,
+
+1:40:37.640 --> 1:40:42.100
+ in Russia, I don't know if you know the guy Strugatsky.
+
+1:40:43.100 --> 1:40:46.320
+ They are writing fiction.
+
+1:40:46.320 --> 1:40:49.740
+ They're thinking about human, what's going on.
+
+1:40:51.680 --> 1:40:56.680
+ And they have idea that there are developing
+
+1:41:00.560 --> 1:41:05.120
+ two type of people, common people and very smart people.
+
+1:41:05.120 --> 1:41:06.080
+ They just started.
+
+1:41:06.080 --> 1:41:10.420
+ And these two branches of people will go
+
+1:41:10.420 --> 1:41:12.180
+ in different direction very soon.
+
+1:41:13.540 --> 1:41:16.220
+ So that's what they're thinking about that.
+
+1:41:18.980 --> 1:41:23.800
+ So the purpose of life is to create two paths.
+
+1:41:23.800 --> 1:41:24.640
+ Two paths.
+
+1:41:24.640 --> 1:41:25.940
+ Of human societies.
+
+1:41:25.940 --> 1:41:27.020
+ Yes.
+
+1:41:27.020 --> 1:41:29.980
+ Simple people and more complicated people.
+
+1:41:29.980 --> 1:41:31.540
+ Which do you like best?
+
+1:41:31.540 --> 1:41:34.500
+ The simple people or the complicated ones?
+
+1:41:34.500 --> 1:41:38.260
+ I don't know that it is just his fantasy,
+
+1:41:38.260 --> 1:41:41.700
+ but you know, every week we have guy
+
+1:41:41.700 --> 1:41:46.700
+ who is just a writer and also a theorist of literature.
+
+1:41:51.820 --> 1:41:56.600
+ And he explain how he understand literature
+
+1:41:56.600 --> 1:41:58.800
+ and human relationship.
+
+1:41:58.800 --> 1:42:00.340
+ How he see life.
+
+1:42:00.340 --> 1:42:05.340
+ And I understood that I'm just small kids
+
+1:42:06.920 --> 1:42:08.100
+ comparing to him.
+
+1:42:09.500 --> 1:42:12.640
+ He's very smart guy in understanding life.
+
+1:42:13.880 --> 1:42:15.640
+ He knows this predicate.
+
+1:42:15.640 --> 1:42:19.760
+ He knows big blocks of life.
+
+1:42:19.760 --> 1:42:23.300
+ I am used every time when I listen to him.
+
+1:42:24.800 --> 1:42:27.400
+ And he just talking about literature.
+
+1:42:27.400 --> 1:42:31.400
+ And I think that I was surprised.
+
+1:42:33.200 --> 1:42:38.200
+ So the managers in big companies,
+
+1:42:41.460 --> 1:42:46.460
+ most of them are guys who study English language
+
+1:42:48.760 --> 1:42:50.060
+ and English literature.
+
+1:42:51.120 --> 1:42:52.520
+ So why?
+
+1:42:52.520 --> 1:42:54.820
+ Because they understand life.
+
+1:42:54.820 --> 1:42:57.040
+ They understand models.
+
+1:42:57.040 --> 1:42:58.800
+ And among them,
+
+1:42:58.800 --> 1:43:03.800
+ maybe many talented critics just analyzing this.
+
+1:43:06.680 --> 1:43:10.520
+ And this is big science like property.
+
+1:43:10.520 --> 1:43:12.380
+ This is blocks.
+
+1:43:13.360 --> 1:43:15.340
+ That's very smart.
+
+1:43:17.480 --> 1:43:21.520
+ It amazes me that you are and continue to be humbled
+
+1:43:21.520 --> 1:43:22.960
+ by the brilliance of others.
+
+1:43:22.960 --> 1:43:25.540
+ I'm very modest about myself.
+
+1:43:25.540 --> 1:43:28.960
+ I see so smart guys around.
+
+1:43:28.960 --> 1:43:31.720
+ Well, let me be immodest for you.
+
+1:43:31.720 --> 1:43:33.920
+ You're one of the greatest mathematicians,
+
+1:43:33.920 --> 1:43:35.820
+ statisticians of our time.
+
+1:43:35.820 --> 1:43:36.960
+ It's truly an honor.
+
+1:43:36.960 --> 1:43:38.600
+ Thank you for talking again.
+
+1:43:38.600 --> 1:43:39.520
+ And let's talk.
+
+1:43:41.240 --> 1:43:42.080
+ It is not.
+
+1:43:43.440 --> 1:43:44.580
+ I know my limits.
+
+1:43:45.720 --> 1:43:49.120
+ Let's talk again when your challenge is taken on
+
+1:43:49.120 --> 1:43:51.880
+ and solved by grad student.
+
+1:43:51.880 --> 1:43:55.200
+ Especially when they use it.
+
+1:43:55.200 --> 1:43:56.040
+ It happens.
+
+1:43:57.200 --> 1:43:58.880
+ Maybe music will be involved.
+
+1:43:58.880 --> 1:43:59.880
+ Latimer, thank you so much.
+
+1:43:59.880 --> 1:44:02.580
+ It's been an honor. Thank you very much.
+
+1:44:02.580 --> 1:44:04.200
+ Thanks for listening to this conversation
+
+1:44:04.200 --> 1:44:05.480
+ with Latimer Vapnik.
+
+1:44:05.480 --> 1:44:08.760
+ And thank you to our presenting sponsor, Cash App.
+
+1:44:08.760 --> 1:44:11.440
+ Download it, use code LexPodcast.
+
+1:44:11.440 --> 1:44:14.320
+ You'll get $10 and $10 will go to FIRST,
+
+1:44:14.320 --> 1:44:17.040
+ an organization that inspires and educates young minds
+
+1:44:17.040 --> 1:44:20.760
+ to become science and technology innovators of tomorrow.
+
+1:44:20.760 --> 1:44:23.480
+ If you enjoy this podcast, subscribe on YouTube,
+
+1:44:23.480 --> 1:44:25.320
+ give us five stars on Apple Podcast,
+
+1:44:25.320 --> 1:44:26.840
+ support it on Patreon,
+
+1:44:26.840 --> 1:44:30.320
+ or simply connect with me on Twitter at Lex Friedman.
+
+1:44:31.360 --> 1:44:33.480
+ And now, let me leave you with some words
+
+1:44:33.480 --> 1:44:35.580
+ from Latimer Vapnik.
+
+1:44:35.580 --> 1:44:37.760
+ When solving a problem of interest,
+
+1:44:37.760 --> 1:44:40.080
+ do not solve a more general problem
+
+1:44:40.080 --> 1:44:41.680
+ as an intermediate step.
+
+1:44:43.040 --> 1:44:44.360
+ Thank you for listening.
+
+1:44:44.360 --> 1:44:55.120
+ I hope to see you next time.
+

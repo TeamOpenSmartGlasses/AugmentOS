@@ -1,0 +1,4382 @@
+WEBVTT
+
+00:00.000 --> 00:03.440
+ The following is a conversation with Thomas Sanholm.
+
+00:03.440 --> 00:06.880
+ He's a professor at CMU and co creator of Labratus,
+
+00:06.880 --> 00:09.880
+ which is the first AI system to beat top human players
+
+00:09.880 --> 00:13.000
+ in the game of Heads Up No Limit Texas Holdem.
+
+00:13.000 --> 00:15.600
+ He has published over 450 papers
+
+00:15.600 --> 00:17.320
+ on game theory and machine learning,
+
+00:17.320 --> 00:21.120
+ including a best paper in 2017 at NIPS,
+
+00:21.120 --> 00:23.560
+ now renamed to Newrips,
+
+00:23.560 --> 00:27.040
+ which is where I caught up with him for this conversation.
+
+00:27.040 --> 00:30.680
+ His research and companies have had wide reaching impact
+
+00:30.680 --> 00:32.160
+ in the real world,
+
+00:32.160 --> 00:34.400
+ especially because he and his group
+
+00:34.400 --> 00:36.640
+ not only propose new ideas,
+
+00:36.640 --> 00:40.440
+ but also build systems to prove that these ideas work
+
+00:40.440 --> 00:42.120
+ in the real world.
+
+00:42.120 --> 00:44.640
+ This conversation is part of the MIT course
+
+00:44.640 --> 00:46.440
+ on artificial general intelligence
+
+00:46.440 --> 00:49.040
+ and the artificial intelligence podcast.
+
+00:49.040 --> 00:52.400
+ If you enjoy it, subscribe on YouTube, iTunes,
+
+00:52.400 --> 00:54.320
+ or simply connect with me on Twitter
+
+00:54.320 --> 00:58.080
+ at Lex Friedman, spelled F R I D.
+
+00:58.080 --> 01:02.120
+ And now here's my conversation with Thomas Sanholm.
+
+01:03.080 --> 01:06.120
+ Can you describe at the high level
+
+01:06.120 --> 01:09.320
+ the game of poker, Texas Holdem, Heads Up Texas Holdem
+
+01:09.320 --> 01:13.280
+ for people who might not be familiar with this card game?
+
+01:13.280 --> 01:14.440
+ Yeah, happy to.
+
+01:14.440 --> 01:16.520
+ So Heads Up No Limit Texas Holdem
+
+01:16.520 --> 01:18.840
+ has really emerged in the AI community
+
+01:18.840 --> 01:21.360
+ as a main benchmark for testing these
+
+01:21.360 --> 01:23.560
+ application independent algorithms
+
+01:23.560 --> 01:26.440
+ for imperfect information game solving.
+
+01:26.440 --> 01:30.960
+ And this is a game that's actually played by humans.
+
+01:30.960 --> 01:33.960
+ You don't see that much on TV or casinos
+
+01:33.960 --> 01:36.160
+ because well, for various reasons,
+
+01:36.160 --> 01:40.240
+ but you do see it in some expert level casinos
+
+01:40.240 --> 01:43.080
+ and you see it in the best poker movies of all time.
+
+01:43.080 --> 01:45.720
+ It's actually an event in the World Series of Poker,
+
+01:45.720 --> 01:48.200
+ but mostly it's played online
+
+01:48.200 --> 01:50.880
+ and typically for pretty big sums of money.
+
+01:50.880 --> 01:54.560
+ And this is a game that usually only experts play.
+
+01:54.560 --> 01:58.720
+ So if you go to your home game on a Friday night,
+
+01:58.720 --> 02:01.280
+ it probably is not gonna be Heads Up No Limit Texas Holdem.
+
+02:01.280 --> 02:04.640
+ It might be No Limit Texas Holdem in some cases,
+
+02:04.640 --> 02:08.720
+ but typically for a big group and it's not as competitive.
+
+02:08.720 --> 02:10.520
+ While Heads Up means it's two players.
+
+02:10.520 --> 02:13.360
+ So it's really like me against you.
+
+02:13.360 --> 02:14.680
+ Am I better or are you better?
+
+02:14.680 --> 02:17.520
+ Much like chess or go in that sense,
+
+02:17.520 --> 02:19.520
+ but an imperfect information game,
+
+02:19.520 --> 02:21.520
+ which makes it much harder because I have to deal
+
+02:21.520 --> 02:25.560
+ with issues of you knowing things that I don't know
+
+02:25.560 --> 02:27.200
+ and I know things that you don't know
+
+02:27.200 --> 02:29.720
+ instead of pieces being nicely laid on the board
+
+02:29.720 --> 02:31.120
+ for both of us to see.
+
+02:31.120 --> 02:34.840
+ So in Texas Holdem, there's two cards
+
+02:34.840 --> 02:37.440
+ that you only see that belong to you.
+
+02:37.440 --> 02:38.520
+ Yeah. And there is,
+
+02:38.520 --> 02:40.400
+ they gradually lay out some cards
+
+02:40.400 --> 02:44.080
+ that add up overall to five cards that everybody can see.
+
+02:44.080 --> 02:45.720
+ Yeah. So the imperfect nature
+
+02:45.720 --> 02:47.560
+ of the information is the two cards
+
+02:47.560 --> 02:48.400
+ that you're holding in your hand.
+
+02:48.400 --> 02:49.380
+ Up front, yeah.
+
+02:49.380 --> 02:51.840
+ So as you said, you first get two cards
+
+02:51.840 --> 02:55.200
+ in private each and then there's a betting round.
+
+02:55.200 --> 02:58.320
+ Then you get three cards in public on the table.
+
+02:58.320 --> 02:59.240
+ Then there's a betting round.
+
+02:59.240 --> 03:01.680
+ Then you get the fourth card in public on the table.
+
+03:01.680 --> 03:02.580
+ There's a betting round.
+
+03:02.580 --> 03:04.920
+ Then you get the 5th card on the table.
+
+03:04.920 --> 03:05.760
+ There's a betting round.
+
+03:05.760 --> 03:07.480
+ So there's a total of four betting rounds
+
+03:07.480 --> 03:11.140
+ and four tranches of information revelation if you will.
+
+03:11.140 --> 03:14.120
+ The only the first tranche is private
+
+03:14.120 --> 03:16.520
+ and then it's public from there.
+
+03:16.520 --> 03:21.520
+ And this is probably by far the most popular game in AI
+
+03:24.040 --> 03:26.380
+ and just the general public
+
+03:26.380 --> 03:28.400
+ in terms of imperfect information.
+
+03:28.400 --> 03:32.520
+ So that's probably the most popular spectator game
+
+03:32.520 --> 03:33.400
+ to watch, right?
+
+03:33.400 --> 03:37.260
+ So, which is why it's a super exciting game to tackle.
+
+03:37.260 --> 03:40.480
+ So it's on the order of chess, I would say,
+
+03:40.480 --> 03:43.680
+ in terms of popularity, in terms of AI setting it
+
+03:43.680 --> 03:46.360
+ as the bar of what is intelligence.
+
+03:46.360 --> 03:50.400
+ So in 2017, Labratus, how do you pronounce it?
+
+03:50.400 --> 03:51.220
+ Labratus.
+
+03:51.220 --> 03:52.060
+ Labratus.
+
+03:52.060 --> 03:52.900
+ Labratus beats.
+
+03:52.900 --> 03:54.080
+ A little Latin there.
+
+03:54.080 --> 03:55.520
+ A little bit of Latin.
+
+03:55.520 --> 04:00.520
+ Labratus beats a few, four expert human players.
+
+04:01.040 --> 04:03.080
+ Can you describe that event?
+
+04:03.080 --> 04:04.060
+ What you learned from it?
+
+04:04.060 --> 04:04.900
+ What was it like?
+
+04:04.900 --> 04:06.860
+ What was the process in general
+
+04:06.860 --> 04:09.960
+ for people who have not read the papers and the study?
+
+04:09.960 --> 04:12.920
+ Yeah, so the event was that we invited
+
+04:12.920 --> 04:14.840
+ four of the top 10 players,
+
+04:14.840 --> 04:17.080
+ with these specialist players in Heads Up No Limit,
+
+04:17.080 --> 04:19.080
+ Texas Holden, which is very important
+
+04:19.080 --> 04:21.400
+ because this game is actually quite different
+
+04:21.400 --> 04:23.900
+ than the multiplayer version.
+
+04:23.900 --> 04:25.680
+ We brought them in to Pittsburgh
+
+04:25.680 --> 04:28.920
+ to play at the Reverse Casino for 20 days.
+
+04:28.920 --> 04:31.840
+ We wanted to get 120,000 hands in
+
+04:31.840 --> 04:36.160
+ because we wanted to get statistical significance.
+
+04:36.160 --> 04:39.040
+ So it's a lot of hands for humans to play,
+
+04:39.040 --> 04:42.840
+ even for these top pros who play fairly quickly normally.
+
+04:42.840 --> 04:46.400
+ So we couldn't just have one of them play so many hands.
+
+04:46.400 --> 04:50.400
+ 20 days, they were playing basically morning to evening.
+
+04:50.400 --> 04:55.400
+ And I raised 200,000 as a little incentive for them to play.
+
+04:55.660 --> 05:00.060
+ And the setting was so that they didn't all get 50,000.
+
+05:01.080 --> 05:02.640
+ We actually paid them out
+
+05:02.640 --> 05:05.480
+ based on how they did against the AI each.
+
+05:05.480 --> 05:09.440
+ So they had an incentive to play as hard as they could,
+
+05:09.440 --> 05:11.160
+ whether they're way ahead or way behind
+
+05:11.160 --> 05:13.760
+ or right at the mark of beating the AI.
+
+05:13.760 --> 05:16.000
+ And you don't make any money, unfortunately.
+
+05:16.000 --> 05:17.920
+ Right, no, we can't make any money.
+
+05:17.920 --> 05:20.320
+ So originally, a couple of years earlier,
+
+05:20.320 --> 05:24.080
+ I actually explored whether we could actually play for money
+
+05:24.080 --> 05:28.000
+ because that would be, of course, interesting as well,
+
+05:28.000 --> 05:29.520
+ to play against the top people for money.
+
+05:29.520 --> 05:33.040
+ But the Pennsylvania Gaming Board said no, so we couldn't.
+
+05:33.040 --> 05:35.520
+ So this is much like an exhibit,
+
+05:36.400 --> 05:39.760
+ like for a musician or a boxer or something like that.
+
+05:39.760 --> 05:41.600
+ Nevertheless, they were keeping track of the money
+
+05:41.600 --> 05:46.600
+ and brought us close to $2 million, I think.
+
+05:48.200 --> 05:51.840
+ So if it was for real money, if you were able to earn money,
+
+05:51.840 --> 05:55.360
+ that was a quite impressive and inspiring achievement.
+
+05:55.360 --> 05:59.280
+ Just a few details, what were the players looking at?
+
+05:59.280 --> 06:00.460
+ Were they behind a computer?
+
+06:00.460 --> 06:02.080
+ What was the interface like?
+
+06:02.080 --> 06:05.240
+ Yes, they were playing much like they normally do.
+
+06:05.240 --> 06:07.200
+ These top players, when they play this game,
+
+06:07.200 --> 06:08.680
+ they play mostly online.
+
+06:08.680 --> 06:11.640
+ So they're used to playing through a UI.
+
+06:11.640 --> 06:13.280
+ And they did the same thing here.
+
+06:13.280 --> 06:14.520
+ So there was this layout.
+
+06:14.520 --> 06:17.920
+ You could imagine there's a table on a screen.
+
+06:17.920 --> 06:20.080
+ There's the human sitting there,
+
+06:20.080 --> 06:21.720
+ and then there's the AI sitting there.
+
+06:21.720 --> 06:24.560
+ And the screen shows everything that's happening.
+
+06:24.560 --> 06:27.480
+ The cards coming out and shows the bets being made.
+
+06:27.480 --> 06:29.940
+ And we also had the betting history for the human.
+
+06:29.940 --> 06:33.320
+ So if the human forgot what had happened in the hand so far,
+
+06:33.320 --> 06:37.240
+ they could actually reference back and so forth.
+
+06:37.240 --> 06:39.480
+ Is there a reason they were given access
+
+06:39.480 --> 06:41.200
+ to the betting history for?
+
+06:41.200 --> 06:45.860
+ Well, we just, it didn't really matter.
+
+06:45.860 --> 06:47.360
+ They wouldn't have forgotten anyway.
+
+06:47.360 --> 06:48.800
+ These are top quality people.
+
+06:48.800 --> 06:51.300
+ But we just wanted to put out there
+
+06:51.300 --> 06:53.460
+ so it's not a question of the human forgetting
+
+06:53.460 --> 06:55.320
+ and the AI somehow trying to get advantage
+
+06:55.320 --> 06:56.760
+ of better memory.
+
+06:56.760 --> 06:57.640
+ So what was that like?
+
+06:57.640 --> 06:59.720
+ I mean, that was an incredible accomplishment.
+
+06:59.720 --> 07:02.760
+ So what did it feel like before the event?
+
+07:02.760 --> 07:05.640
+ Did you have doubt, hope?
+
+07:05.640 --> 07:08.160
+ Where was your confidence at?
+
+07:08.160 --> 07:09.240
+ Yeah, that's great.
+
+07:09.240 --> 07:10.160
+ So great question.
+
+07:10.160 --> 07:14.200
+ So 18 months earlier, I had organized a similar brains
+
+07:14.200 --> 07:17.840
+ versus AI competition with a previous AI called Cloudyco
+
+07:17.840 --> 07:20.560
+ and we couldn't beat the humans.
+
+07:20.560 --> 07:23.800
+ So this time around, it was only 18 months later.
+
+07:23.800 --> 07:27.820
+ And I knew that this new AI, Libratus, was way stronger,
+
+07:27.820 --> 07:31.360
+ but it's hard to say how you'll do against the top humans
+
+07:31.360 --> 07:32.440
+ before you try.
+
+07:32.440 --> 07:35.160
+ So I thought we had about a 50, 50 shot.
+
+07:35.160 --> 07:38.880
+ And the international betting sites put us
+
+07:38.880 --> 07:41.800
+ as a four to one or five to one underdog.
+
+07:41.800 --> 07:44.700
+ So it's kind of interesting that people really believe
+
+07:44.700 --> 07:48.440
+ in people and over AI, not just people.
+
+07:48.440 --> 07:50.720
+ People don't just over believe in themselves,
+
+07:50.720 --> 07:53.280
+ but they have overconfidence in other people as well
+
+07:53.280 --> 07:55.440
+ compared to the performance of AI.
+
+07:55.440 --> 07:59.120
+ And yeah, so we were a four to one or five to one underdog.
+
+07:59.120 --> 08:02.880
+ And even after three days of beating the humans in a row,
+
+08:02.880 --> 08:06.520
+ we were still 50, 50 on the international betting sites.
+
+08:06.520 --> 08:09.040
+ Do you think there's something special and magical
+
+08:09.040 --> 08:12.160
+ about poker and the way people think about it,
+
+08:12.160 --> 08:14.600
+ in the sense you have,
+
+08:14.600 --> 08:17.320
+ I mean, even in chess, there's no Hollywood movies.
+
+08:17.320 --> 08:21.200
+ Poker is the star of many movies.
+
+08:21.200 --> 08:26.200
+ And there's this feeling that certain human facial
+
+08:26.640 --> 08:30.760
+ expressions and body language, eye movement,
+
+08:30.760 --> 08:33.360
+ all these tells are critical to poker.
+
+08:33.360 --> 08:35.000
+ Like you can look into somebody's soul
+
+08:35.000 --> 08:37.880
+ and understand their betting strategy and so on.
+
+08:37.880 --> 08:41.520
+ So that's probably why, possibly,
+
+08:41.520 --> 08:43.640
+ do you think that is why people have a confidence
+
+08:43.640 --> 08:45.640
+ that humans will outperform?
+
+08:45.640 --> 08:48.920
+ Because AI systems cannot, in this construct,
+
+08:48.920 --> 08:51.040
+ perceive these kinds of tells.
+
+08:51.040 --> 08:53.200
+ They're only looking at betting patterns
+
+08:53.200 --> 08:58.200
+ and nothing else, betting patterns and statistics.
+
+08:58.200 --> 09:02.200
+ So what's more important to you
+
+09:02.200 --> 09:06.120
+ if you step back on human players, human versus human?
+
+09:06.120 --> 09:08.600
+ What's the role of these tells,
+
+09:08.600 --> 09:11.880
+ of these ideas that we romanticize?
+
+09:11.880 --> 09:15.480
+ Yeah, so I'll split it into two parts.
+
+09:15.480 --> 09:20.480
+ So one is why do humans trust humans more than AI
+
+09:20.480 --> 09:22.600
+ and have overconfidence in humans?
+
+09:22.600 --> 09:25.920
+ I think that's not really related to the tell question.
+
+09:25.920 --> 09:28.600
+ It's just that they've seen these top players,
+
+09:28.600 --> 09:31.040
+ how good they are, and they're really fantastic.
+
+09:31.040 --> 09:36.040
+ So it's just hard to believe that an AI could beat them.
+
+09:36.040 --> 09:37.680
+ So I think that's where that comes from.
+
+09:37.680 --> 09:40.600
+ And that's actually maybe a more general lesson about AI.
+
+09:40.600 --> 09:43.200
+ That until you've seen it overperform a human,
+
+09:43.200 --> 09:45.080
+ it's hard to believe that it could.
+
+09:45.080 --> 09:50.080
+ But then the tells, a lot of these top players,
+
+09:50.560 --> 09:52.760
+ they're so good at hiding tells
+
+09:52.760 --> 09:56.240
+ that among the top players,
+
+09:56.240 --> 09:59.480
+ it's actually not really worth it
+
+09:59.480 --> 10:01.200
+ for them to invest a lot of effort
+
+10:01.200 --> 10:03.160
+ trying to find tells in each other
+
+10:03.160 --> 10:05.640
+ because they're so good at hiding them.
+
+10:05.640 --> 10:09.840
+ So yes, at the kind of Friday evening game,
+
+10:09.840 --> 10:11.800
+ tells are gonna be a huge thing.
+
+10:11.800 --> 10:13.160
+ You can read other people.
+
+10:13.160 --> 10:14.120
+ And if you're a good reader,
+
+10:14.120 --> 10:16.440
+ you'll read them like an open book.
+
+10:16.440 --> 10:18.280
+ But at the top levels of poker now,
+
+10:18.280 --> 10:21.960
+ the tells become a much smaller and smaller aspect
+
+10:21.960 --> 10:24.480
+ of the game as you go to the top levels.
+
+10:24.480 --> 10:28.120
+ The amount of strategies, the amount of possible actions
+
+10:28.120 --> 10:33.120
+ is very large, 10 to the power of 100 plus.
+
+10:35.400 --> 10:37.880
+ So there has to be some, I've read a few of the papers
+
+10:37.880 --> 10:42.080
+ related, it has to form some abstractions
+
+10:42.080 --> 10:44.040
+ of various hands and actions.
+
+10:44.040 --> 10:47.560
+ So what kind of abstractions are effective
+
+10:47.560 --> 10:49.200
+ for the game of poker?
+
+10:49.200 --> 10:50.880
+ Yeah, so you're exactly right.
+
+10:50.880 --> 10:55.360
+ So when you go from a game tree that's 10 to the 161,
+
+10:55.360 --> 10:58.000
+ especially in an imperfect information game,
+
+10:58.000 --> 11:00.200
+ it's way too large to solve directly,
+
+11:00.200 --> 11:03.280
+ even with our fastest equilibrium finding algorithms.
+
+11:03.280 --> 11:07.200
+ So you wanna abstract it first.
+
+11:07.200 --> 11:10.920
+ And abstraction in games is much trickier
+
+11:10.920 --> 11:15.440
+ than abstraction in MDPs or other single agent settings.
+
+11:15.440 --> 11:17.760
+ Because you have these abstraction pathologies
+
+11:17.760 --> 11:19.880
+ that if I have a finer grained abstraction,
+
+11:19.880 --> 11:23.240
+ the strategy that I can get from that for the real game
+
+11:23.240 --> 11:25.240
+ might actually be worse than the strategy
+
+11:25.240 --> 11:27.160
+ I can get from the coarse grained abstraction.
+
+11:27.160 --> 11:28.760
+ So you have to be very careful.
+
+11:28.760 --> 11:31.080
+ Now the kinds of abstractions, just to zoom out,
+
+11:31.080 --> 11:34.480
+ we're talking about, there's the hands abstractions
+
+11:34.480 --> 11:37.280
+ and then there's betting strategies.
+
+11:37.280 --> 11:38.600
+ Yeah, betting actions, yeah.
+
+11:38.600 --> 11:39.440
+ Baiting actions.
+
+11:39.440 --> 11:41.640
+ So there's information abstraction,
+
+11:41.640 --> 11:44.720
+ don't talk about general games, information abstraction,
+
+11:44.720 --> 11:47.560
+ which is the abstraction of what chance does.
+
+11:47.560 --> 11:50.080
+ And this would be the cards in the case of poker.
+
+11:50.080 --> 11:52.480
+ And then there's action abstraction,
+
+11:52.480 --> 11:57.000
+ which is abstracting the actions of the actual players,
+
+11:57.000 --> 11:59.560
+ which would be bets in the case of poker.
+
+11:59.560 --> 12:01.320
+ Yourself and the other players?
+
+12:01.320 --> 12:03.680
+ Yes, yourself and other players.
+
+12:03.680 --> 12:08.280
+ And for information abstraction,
+
+12:08.280 --> 12:11.160
+ we were completely automated.
+
+12:11.160 --> 12:13.840
+ So these are algorithms,
+
+12:13.840 --> 12:16.760
+ but they do what we call potential aware abstraction,
+
+12:16.760 --> 12:19.000
+ where we don't just look at the value of the hand,
+
+12:19.000 --> 12:20.840
+ but also how it might materialize
+
+12:20.840 --> 12:22.560
+ into good or bad hands over time.
+
+12:22.560 --> 12:25.280
+ And it's a certain kind of bottom up process
+
+12:25.280 --> 12:27.640
+ with integer programming there and clustering
+
+12:27.640 --> 12:31.480
+ and various aspects, how do you build this abstraction?
+
+12:31.480 --> 12:34.400
+ And then in the action abstraction,
+
+12:34.400 --> 12:39.400
+ there it's largely based on how humans and other AIs
+
+12:40.520 --> 12:42.320
+ have played this game in the past.
+
+12:42.320 --> 12:43.880
+ But in the beginning,
+
+12:43.880 --> 12:47.680
+ we actually used an automated action abstraction technology,
+
+12:47.680 --> 12:50.240
+ which is provably convergent
+
+12:51.240 --> 12:54.040
+ that it finds the optimal combination of bet sizes,
+
+12:54.040 --> 12:55.480
+ but it's not very scalable.
+
+12:55.480 --> 12:57.280
+ So we couldn't use it for the whole game,
+
+12:57.280 --> 12:59.880
+ but we use it for the first couple of betting actions.
+
+12:59.880 --> 13:03.080
+ So what's more important, the strength of the hand,
+
+13:03.080 --> 13:08.080
+ so the information abstraction or the how you play them,
+
+13:09.320 --> 13:11.640
+ the actions, does it, you know,
+
+13:11.640 --> 13:13.200
+ the romanticized notion again,
+
+13:13.200 --> 13:15.600
+ is that it doesn't matter what hands you have,
+
+13:15.600 --> 13:19.240
+ that the actions, the betting may be the way you win
+
+13:19.240 --> 13:20.320
+ no matter what hands you have.
+
+13:20.320 --> 13:23.280
+ Yeah, so that's why you have to play a lot of hands
+
+13:23.280 --> 13:26.800
+ so that the role of luck gets smaller.
+
+13:26.800 --> 13:29.920
+ So you could otherwise get lucky and get some good hands
+
+13:29.920 --> 13:31.480
+ and then you're gonna win the match.
+
+13:31.480 --> 13:34.400
+ Even with thousands of hands, you can get lucky
+
+13:35.280 --> 13:36.720
+ because there's so much variance
+
+13:36.720 --> 13:40.880
+ in No Limit Texas Holden because if we both go all in,
+
+13:40.880 --> 13:43.640
+ it's a huge stack of variance, so there are these
+
+13:43.640 --> 13:47.800
+ massive swings in No Limit Texas Holden.
+
+13:47.800 --> 13:50.240
+ So that's why you have to play not just thousands,
+
+13:50.240 --> 13:55.000
+ but over 100,000 hands to get statistical significance.
+
+13:55.000 --> 13:57.880
+ So let me ask another way this question.
+
+13:57.880 --> 14:00.880
+ If you didn't even look at your hands,
+
+14:02.000 --> 14:04.560
+ but they didn't know that, the opponents didn't know that,
+
+14:04.560 --> 14:06.680
+ how well would you be able to do?
+
+14:06.680 --> 14:07.760
+ Oh, that's a good question.
+
+14:07.760 --> 14:09.600
+ There's actually, I heard this story
+
+14:09.600 --> 14:11.800
+ that there's this Norwegian female poker player
+
+14:11.800 --> 14:15.240
+ called Annette Oberstad who's actually won a tournament
+
+14:15.240 --> 14:18.640
+ by doing exactly that, but that would be extremely rare.
+
+14:18.640 --> 14:23.440
+ So you cannot really play well that way.
+
+14:23.440 --> 14:27.840
+ Okay, so the hands do have some role to play, okay.
+
+14:27.840 --> 14:32.840
+ So Labradus does not use, as far as I understand,
+
+14:33.120 --> 14:35.320
+ they use learning methods, deep learning.
+
+14:35.320 --> 14:40.320
+ Is there room for learning in,
+
+14:40.600 --> 14:44.120
+ there's no reason why Labradus doesn't combine
+
+14:44.120 --> 14:46.400
+ with an AlphaGo type approach for estimating
+
+14:46.400 --> 14:49.200
+ the quality for function estimator.
+
+14:49.200 --> 14:52.040
+ What are your thoughts on this,
+
+14:52.040 --> 14:54.760
+ maybe as compared to another algorithm
+
+14:54.760 --> 14:56.720
+ which I'm not that familiar with, DeepStack,
+
+14:56.720 --> 14:59.280
+ the engine that does use deep learning,
+
+14:59.280 --> 15:01.560
+ that it's unclear how well it does,
+
+15:01.560 --> 15:03.480
+ but nevertheless uses deep learning.
+
+15:03.480 --> 15:05.400
+ So what are your thoughts about learning methods
+
+15:05.400 --> 15:09.280
+ to aid in the way that Labradus plays in the game of poker?
+
+15:09.280 --> 15:10.640
+ Yeah, so as you said,
+
+15:10.640 --> 15:13.080
+ Labradus did not use learning methods
+
+15:13.080 --> 15:15.680
+ and played very well without them.
+
+15:15.680 --> 15:17.840
+ Since then, we have actually, actually here,
+
+15:17.840 --> 15:20.000
+ we have a couple of papers on things
+
+15:20.000 --> 15:22.360
+ that do use learning techniques.
+
+15:22.360 --> 15:23.200
+ Excellent.
+
+15:24.440 --> 15:26.360
+ And deep learning in particular.
+
+15:26.360 --> 15:29.920
+ And sort of the way you're talking about
+
+15:29.920 --> 15:33.360
+ where it's learning an evaluation function,
+
+15:33.360 --> 15:37.400
+ but in imperfect information games,
+
+15:37.400 --> 15:42.400
+ unlike let's say in Go or now also in chess and shogi,
+
+15:42.440 --> 15:47.400
+ it's not sufficient to learn an evaluation for a state
+
+15:47.400 --> 15:52.400
+ because the value of an information set
+
+15:52.920 --> 15:55.400
+ depends not only on the exact state,
+
+15:55.400 --> 15:59.200
+ but it also depends on both players beliefs.
+
+15:59.200 --> 16:01.240
+ Like if I have a bad hand,
+
+16:01.240 --> 16:04.720
+ I'm much better off if the opponent thinks I have a good hand
+
+16:04.720 --> 16:05.560
+ and vice versa.
+
+16:05.560 --> 16:06.480
+ If I have a good hand,
+
+16:06.480 --> 16:09.360
+ I'm much better off if the opponent believes
+
+16:09.360 --> 16:10.280
+ I have a bad hand.
+
+16:11.360 --> 16:15.640
+ So the value of a state is not just a function of the cards.
+
+16:15.640 --> 16:19.600
+ It depends on, if you will, the path of play,
+
+16:19.600 --> 16:22.040
+ but only to the extent that it's captured
+
+16:22.040 --> 16:23.720
+ in the belief distributions.
+
+16:23.720 --> 16:26.240
+ So that's why it's not as simple
+
+16:26.240 --> 16:29.320
+ as it is in perfect information games.
+
+16:29.320 --> 16:31.080
+ And I don't wanna say it's simple there either.
+
+16:31.080 --> 16:34.200
+ It's of course very complicated computationally there too,
+
+16:34.200 --> 16:36.520
+ but at least conceptually, it's very straightforward.
+
+16:36.520 --> 16:38.760
+ There's a state, there's an evaluation function.
+
+16:38.760 --> 16:39.800
+ You can try to learn it.
+
+16:39.800 --> 16:43.280
+ Here, you have to do something more.
+
+16:43.280 --> 16:47.160
+ And what we do is in one of these papers,
+
+16:47.160 --> 16:50.800
+ we're looking at where we allow the opponent
+
+16:50.800 --> 16:53.000
+ to actually take different strategies
+
+16:53.000 --> 16:56.440
+ at the leaf of the search tree, if you will.
+
+16:56.440 --> 16:59.840
+ And that is a different way of doing it.
+
+16:59.840 --> 17:02.560
+ And it doesn't assume therefore a particular way
+
+17:02.560 --> 17:04.040
+ that the opponent plays,
+
+17:04.040 --> 17:05.840
+ but it allows the opponent to choose
+
+17:05.840 --> 17:09.800
+ from a set of different continuation strategies.
+
+17:09.800 --> 17:13.400
+ And that forces us to not be too optimistic
+
+17:13.400 --> 17:15.520
+ in a look ahead search.
+
+17:15.520 --> 17:19.040
+ And that's one way you can do sound look ahead search
+
+17:19.040 --> 17:21.480
+ in imperfect information games,
+
+17:21.480 --> 17:23.360
+ which is very difficult.
+
+17:23.360 --> 17:26.080
+ And you were asking about DeepStack.
+
+17:26.080 --> 17:29.280
+ What they did, it was very different than what we do,
+
+17:29.280 --> 17:32.000
+ either in Libratus or in this new work.
+
+17:32.000 --> 17:35.440
+ They were randomly generating various situations
+
+17:35.440 --> 17:36.440
+ in the game.
+
+17:36.440 --> 17:38.080
+ Then they were doing the look ahead
+
+17:38.080 --> 17:39.840
+ from there to the end of the game,
+
+17:39.840 --> 17:42.960
+ as if that was the start of a different game.
+
+17:42.960 --> 17:44.920
+ And then they were using deep learning
+
+17:44.920 --> 17:47.960
+ to learn those values of those states,
+
+17:47.960 --> 17:50.280
+ but the states were not just the physical states.
+
+17:50.280 --> 17:52.560
+ They include belief distributions.
+
+17:52.560 --> 17:56.800
+ When you talk about look ahead for DeepStack
+
+17:56.800 --> 17:59.480
+ or with Libratus, does it mean,
+
+17:59.480 --> 18:02.680
+ considering every possibility that the game can evolve,
+
+18:02.680 --> 18:04.280
+ are we talking about extremely,
+
+18:04.280 --> 18:06.880
+ sort of this exponentially growth of a tree?
+
+18:06.880 --> 18:09.720
+ Yes, so we're talking about exactly that.
+
+18:11.280 --> 18:14.280
+ Much like you do in alpha beta search
+
+18:14.280 --> 18:17.480
+ or Monte Carlo tree search, but with different techniques.
+
+18:17.480 --> 18:19.280
+ So there's a different search algorithm.
+
+18:19.280 --> 18:21.920
+ And then we have to deal with the leaves differently.
+
+18:21.920 --> 18:24.000
+ So if you think about what Libratus did,
+
+18:24.000 --> 18:25.520
+ we didn't have to worry about this
+
+18:25.520 --> 18:28.560
+ because we only did it at the end of the game.
+
+18:28.560 --> 18:32.280
+ So we would always terminate into a real situation
+
+18:32.280 --> 18:34.000
+ and we would know what the payout is.
+
+18:34.000 --> 18:36.880
+ It didn't do these depth limited lookaheads,
+
+18:36.880 --> 18:40.680
+ but now in this new paper, which is called depth limited,
+
+18:40.680 --> 18:42.120
+ I think it's called depth limited search
+
+18:42.120 --> 18:43.880
+ for imperfect information games,
+
+18:43.880 --> 18:47.040
+ we can actually do sound depth limited lookahead.
+
+18:47.040 --> 18:49.240
+ So we can actually start to do the look ahead
+
+18:49.240 --> 18:51.080
+ from the beginning of the game on,
+
+18:51.080 --> 18:53.400
+ because that's too complicated to do
+
+18:53.400 --> 18:54.920
+ for this whole long game.
+
+18:54.920 --> 18:57.680
+ So in Libratus, we were just doing it for the end.
+
+18:57.680 --> 19:00.720
+ So, and then the other side, this belief distribution,
+
+19:00.720 --> 19:05.320
+ so is it explicitly modeled what kind of beliefs
+
+19:05.320 --> 19:07.400
+ that the opponent might have?
+
+19:07.400 --> 19:11.840
+ Yeah, it is explicitly modeled, but it's not assumed.
+
+19:11.840 --> 19:15.400
+ The beliefs are actually output, not input.
+
+19:15.400 --> 19:18.840
+ Of course, the starting beliefs are input,
+
+19:18.840 --> 19:20.640
+ but they just fall from the rules of the game
+
+19:20.640 --> 19:23.520
+ because we know that the dealer deals uniformly
+
+19:23.520 --> 19:27.720
+ from the deck, so I know that every pair of cards
+
+19:27.720 --> 19:30.440
+ that you might have is equally likely.
+
+19:30.440 --> 19:32.200
+ I know that for a fact, that just follows
+
+19:32.200 --> 19:33.160
+ from the rules of the game.
+
+19:33.160 --> 19:35.200
+ Of course, except the two cards that I have,
+
+19:35.200 --> 19:36.560
+ I know you don't have those.
+
+19:36.560 --> 19:37.560
+ Yeah.
+
+19:37.560 --> 19:38.720
+ You have to take that into account.
+
+19:38.720 --> 19:40.920
+ That's called card removal and that's very important.
+
+19:40.920 --> 19:43.760
+ Is the dealing always coming from a single deck
+
+19:43.760 --> 19:45.880
+ in Heads Up, so you can assume.
+
+19:45.880 --> 19:50.880
+ Single deck, so you know that if I have the ace of spades,
+
+19:50.880 --> 19:53.560
+ I know you don't have an ace of spades.
+
+19:53.560 --> 19:56.880
+ Great, so in the beginning, your belief is basically
+
+19:56.880 --> 19:59.320
+ the fact that it's a fair dealing of hands,
+
+19:59.320 --> 20:02.800
+ but how do you start to adjust that belief?
+
+20:02.800 --> 20:06.800
+ Well, that's where this beauty of game theory comes.
+
+20:06.800 --> 20:10.920
+ So Nash equilibrium, which John Nash introduced in 1950,
+
+20:10.920 --> 20:13.800
+ introduces what rational play is
+
+20:13.800 --> 20:16.040
+ when you have more than one player.
+
+20:16.040 --> 20:18.440
+ And these are pairs of strategies
+
+20:18.440 --> 20:20.360
+ where strategies are contingency plans,
+
+20:20.360 --> 20:21.600
+ one for each player.
+
+20:22.880 --> 20:25.720
+ So that neither player wants to deviate
+
+20:25.720 --> 20:26.960
+ to a different strategy,
+
+20:26.960 --> 20:29.160
+ given that the other doesn't deviate.
+
+20:29.160 --> 20:33.840
+ But as a side effect, you get the beliefs from base roll.
+
+20:33.840 --> 20:36.440
+ So Nash equilibrium really isn't just deriving
+
+20:36.440 --> 20:38.360
+ in these imperfect information games,
+
+20:38.360 --> 20:41.920
+ Nash equilibrium, it doesn't just define strategies.
+
+20:41.920 --> 20:44.960
+ It also defines beliefs for both of us
+
+20:44.960 --> 20:48.840
+ and defines beliefs for each state.
+
+20:48.840 --> 20:53.280
+ So at each state, it's called information sets.
+
+20:53.280 --> 20:55.560
+ At each information set in the game,
+
+20:55.560 --> 20:59.000
+ there's a set of different states that we might be in,
+
+20:59.000 --> 21:00.880
+ but I don't know which one we're in.
+
+21:01.760 --> 21:03.400
+ Nash equilibrium tells me exactly
+
+21:03.400 --> 21:05.000
+ what is the probability distribution
+
+21:05.000 --> 21:08.280
+ over those real world states in my mind.
+
+21:08.280 --> 21:11.440
+ How does Nash equilibrium give you that distribution?
+
+21:11.440 --> 21:12.280
+ So why?
+
+21:12.280 --> 21:13.320
+ I'll do a simple example.
+
+21:13.320 --> 21:16.760
+ So you know the game Rock, Paper, Scissors?
+
+21:16.760 --> 21:20.000
+ So we can draw it as player one moves first
+
+21:20.000 --> 21:21.600
+ and then player two moves.
+
+21:21.600 --> 21:24.520
+ But of course, it's important that player two
+
+21:24.520 --> 21:26.400
+ doesn't know what player one moved,
+
+21:26.400 --> 21:28.600
+ otherwise player two would win every time.
+
+21:28.600 --> 21:30.480
+ So we can draw that as an information set
+
+21:30.480 --> 21:33.280
+ where player one makes one of three moves first,
+
+21:33.280 --> 21:36.200
+ and then there's an information set for player two.
+
+21:36.200 --> 21:39.920
+ So player two doesn't know which of those nodes
+
+21:39.920 --> 21:41.800
+ the world is in.
+
+21:41.800 --> 21:44.920
+ But once we know the strategy for player one,
+
+21:44.920 --> 21:47.320
+ Nash equilibrium will say that you play 1 3rd Rock,
+
+21:47.320 --> 21:49.400
+ 1 3rd Paper, 1 3rd Scissors.
+
+21:49.400 --> 21:52.600
+ From that, I can derive my beliefs on the information set
+
+21:52.600 --> 21:54.480
+ that they're 1 3rd, 1 3rd, 1 3rd.
+
+21:54.480 --> 21:56.280
+ So Bayes gives you that.
+
+21:56.280 --> 21:57.560
+ Bayes gives you.
+
+21:57.560 --> 21:59.760
+ But is that specific to a particular player,
+
+21:59.760 --> 22:03.960
+ or is it something you quickly update
+
+22:03.960 --> 22:05.040
+ with the specific player?
+
+22:05.040 --> 22:08.800
+ No, the game theory isn't really player specific.
+
+22:08.800 --> 22:11.720
+ So that's also why we don't need any data.
+
+22:11.720 --> 22:12.760
+ We don't need any history
+
+22:12.760 --> 22:14.800
+ how these particular humans played in the past
+
+22:14.800 --> 22:17.400
+ or how any AI or human had played before.
+
+22:17.400 --> 22:20.240
+ It's all about rationality.
+
+22:20.240 --> 22:22.720
+ So the AI just thinks about
+
+22:22.720 --> 22:24.880
+ what would a rational opponent do?
+
+22:24.880 --> 22:28.000
+ And what would I do if I am rational?
+
+22:28.000 --> 22:31.080
+ And that's the idea of game theory.
+
+22:31.080 --> 22:35.560
+ So it's really a data free, opponent free approach.
+
+22:35.560 --> 22:37.680
+ So it comes from the design of the game
+
+22:37.680 --> 22:40.040
+ as opposed to the design of the player.
+
+22:40.040 --> 22:43.080
+ Exactly, there's no opponent modeling per se.
+
+22:43.080 --> 22:45.600
+ I mean, we've done some work on combining opponent modeling
+
+22:45.600 --> 22:48.840
+ with game theory so you can exploit weak players even more,
+
+22:48.840 --> 22:50.280
+ but that's another strand.
+
+22:50.280 --> 22:52.320
+ And in Librarus, we didn't turn that on.
+
+22:52.320 --> 22:55.000
+ So I decided that these players are too good.
+
+22:55.000 --> 22:58.080
+ And when you start to exploit an opponent,
+
+22:58.080 --> 23:01.800
+ you typically open yourself up to exploitation.
+
+23:01.800 --> 23:04.000
+ And these guys have so few holes to exploit
+
+23:04.000 --> 23:06.760
+ and they're world's leading experts in counter exploitation.
+
+23:06.760 --> 23:09.200
+ So I decided that we're not gonna turn that stuff on.
+
+23:09.200 --> 23:12.160
+ Actually, I saw a few of your papers exploiting opponents.
+
+23:12.160 --> 23:14.800
+ It sounded very interesting to explore.
+
+23:15.720 --> 23:17.880
+ Do you think there's room for exploitation
+
+23:17.880 --> 23:19.920
+ generally outside of Librarus?
+
+23:19.920 --> 23:24.080
+ Is there a subject or people differences
+
+23:24.080 --> 23:27.920
+ that could be exploited, maybe not just in poker,
+
+23:27.920 --> 23:30.440
+ but in general interactions and negotiations,
+
+23:30.440 --> 23:33.480
+ all these other domains that you're considering?
+
+23:33.480 --> 23:34.680
+ Yeah, definitely.
+
+23:34.680 --> 23:35.920
+ We've done some work on that.
+
+23:35.920 --> 23:39.880
+ And I really like the work at hybrid digested too.
+
+23:39.880 --> 23:43.440
+ So you figure out what would a rational opponent do.
+
+23:43.440 --> 23:46.280
+ And by the way, that's safe in these zero sum games,
+
+23:46.280 --> 23:47.480
+ two player zero sum games,
+
+23:47.480 --> 23:49.560
+ because if the opponent does something irrational,
+
+23:49.560 --> 23:52.200
+ yes, it might throw off my beliefs,
+
+23:53.080 --> 23:55.760
+ but the amount that the player can gain
+
+23:55.760 --> 23:59.160
+ by throwing off my belief is always less
+
+23:59.160 --> 24:01.800
+ than they lose by playing poorly.
+
+24:01.800 --> 24:03.080
+ So it's safe.
+
+24:03.080 --> 24:06.720
+ But still, if somebody's weak as a player,
+
+24:06.720 --> 24:10.240
+ you might wanna play differently to exploit them more.
+
+24:10.240 --> 24:12.040
+ So you can think about it this way,
+
+24:12.040 --> 24:15.600
+ a game theoretic strategy is unbeatable,
+
+24:15.600 --> 24:19.600
+ but it doesn't maximally beat the other opponent.
+
+24:19.600 --> 24:22.800
+ So the winnings per hand might be better
+
+24:22.800 --> 24:24.240
+ with a different strategy.
+
+24:24.240 --> 24:25.720
+ And the hybrid is that you start
+
+24:25.720 --> 24:27.080
+ from a game theoretic approach.
+
+24:27.080 --> 24:30.840
+ And then as you gain data about the opponent
+
+24:30.840 --> 24:32.600
+ in certain parts of the game tree,
+
+24:32.600 --> 24:34.360
+ then in those parts of the game tree,
+
+24:34.360 --> 24:37.800
+ you start to tweak your strategy more and more
+
+24:37.800 --> 24:40.960
+ towards exploitation while still staying fairly close
+
+24:40.960 --> 24:42.160
+ to the game theoretic strategy
+
+24:42.160 --> 24:46.840
+ so as to not open yourself up to exploitation too much.
+
+24:46.840 --> 24:48.320
+ How do you do that?
+
+24:48.320 --> 24:53.320
+ Do you try to vary up strategies, make it unpredictable?
+
+24:53.640 --> 24:57.520
+ It's like, what is it, tit for tat strategies
+
+24:57.520 --> 25:00.720
+ in Prisoner's Dilemma or?
+
+25:00.720 --> 25:03.240
+ Well, that's a repeated game.
+
+25:03.240 --> 25:04.080
+ Repeated games.
+
+25:04.080 --> 25:06.520
+ Simple Prisoner's Dilemma, repeated games.
+
+25:06.520 --> 25:08.760
+ But even there, there's no proof that says
+
+25:08.760 --> 25:10.080
+ that that's the best thing.
+
+25:10.080 --> 25:13.280
+ But experimentally, it actually does well.
+
+25:13.280 --> 25:15.320
+ So what kind of games are there, first of all?
+
+25:15.320 --> 25:17.040
+ I don't know if this is something
+
+25:17.040 --> 25:18.600
+ that you could just summarize.
+
+25:18.600 --> 25:20.360
+ There's perfect information games
+
+25:20.360 --> 25:22.400
+ where all the information's on the table.
+
+25:22.400 --> 25:25.480
+ There is imperfect information games.
+
+25:25.480 --> 25:28.560
+ There's repeated games that you play over and over.
+
+25:28.560 --> 25:31.320
+ There's zero sum games.
+
+25:31.320 --> 25:34.440
+ There's non zero sum games.
+
+25:34.440 --> 25:37.520
+ And then there's a really important distinction
+
+25:37.520 --> 25:40.720
+ you're making, two player versus more players.
+
+25:40.720 --> 25:44.760
+ So what are, what other games are there?
+
+25:44.760 --> 25:46.160
+ And what's the difference, for example,
+
+25:46.160 --> 25:50.040
+ with this two player game versus more players?
+
+25:50.040 --> 25:51.680
+ What are the key differences in your view?
+
+25:51.680 --> 25:54.600
+ So let me start from the basics.
+
+25:54.600 --> 25:59.600
+ So a repeated game is a game where the same exact game
+
+25:59.600 --> 26:01.800
+ is played over and over.
+
+26:01.800 --> 26:05.800
+ In these extensive form games, where it's,
+
+26:05.800 --> 26:08.480
+ think about three form, maybe with these information sets
+
+26:08.480 --> 26:11.400
+ to represent incomplete information,
+
+26:11.400 --> 26:14.840
+ you can have kind of repetitive interactions.
+
+26:14.840 --> 26:17.760
+ Even repeated games are a special case of that, by the way.
+
+26:17.760 --> 26:21.520
+ But the game doesn't have to be exactly the same.
+
+26:21.520 --> 26:23.040
+ It's like in sourcing auctions.
+
+26:23.040 --> 26:26.320
+ Yes, we're gonna see the same supply base year to year,
+
+26:26.320 --> 26:28.800
+ but what I'm buying is a little different every time.
+
+26:28.800 --> 26:31.000
+ And the supply base is a little different every time
+
+26:31.000 --> 26:31.840
+ and so on.
+
+26:31.840 --> 26:33.400
+ So it's not really repeated.
+
+26:33.400 --> 26:35.680
+ So to find a purely repeated game
+
+26:35.680 --> 26:37.840
+ is actually very rare in the world.
+
+26:37.840 --> 26:42.840
+ So they're really a very course model of what's going on.
+
+26:42.840 --> 26:46.360
+ Then if you move up from just repeated,
+
+26:46.360 --> 26:49.040
+ simple repeated matrix games,
+
+26:49.040 --> 26:50.800
+ not all the way to extensive form games,
+
+26:50.800 --> 26:53.600
+ but in between, they're stochastic games,
+
+26:53.600 --> 26:57.000
+ where, you know, there's these,
+
+26:57.000 --> 27:00.520
+ you think about it like these little matrix games.
+
+27:00.520 --> 27:04.200
+ And when you take an action and your opponent takes an action,
+
+27:04.200 --> 27:07.680
+ they determine not which next state I'm going to,
+
+27:07.680 --> 27:09.120
+ next game I'm going to,
+
+27:09.120 --> 27:11.440
+ but the distribution over next games
+
+27:11.440 --> 27:13.360
+ where I might be going to.
+
+27:13.360 --> 27:15.360
+ So that's the stochastic game.
+
+27:15.360 --> 27:19.000
+ But it's like matrix games, repeated stochastic games,
+
+27:19.000 --> 27:20.400
+ extensive form games.
+
+27:20.400 --> 27:23.040
+ That is from less to more general.
+
+27:23.040 --> 27:26.280
+ And poker is an example of the last one.
+
+27:26.280 --> 27:28.400
+ So it's really in the most general setting.
+
+27:29.560 --> 27:30.640
+ Extensive form games.
+
+27:30.640 --> 27:34.520
+ And that's kind of what the AI community has been working on
+
+27:34.520 --> 27:36.280
+ and being benchmarked on
+
+27:36.280 --> 27:38.040
+ with this Heads Up No Limit Texas Holdem.
+
+27:38.040 --> 27:39.760
+ Can you describe extensive form games?
+
+27:39.760 --> 27:41.560
+ What's the model here?
+
+27:41.560 --> 27:44.320
+ Yeah, so if you're familiar with the tree form,
+
+27:44.320 --> 27:45.760
+ so it's really the tree form.
+
+27:45.760 --> 27:47.560
+ Like in chess, there's a search tree.
+
+27:47.560 --> 27:48.720
+ Versus a matrix.
+
+27:48.720 --> 27:50.080
+ Versus a matrix, yeah.
+
+27:50.080 --> 27:53.000
+ And the matrix is called the matrix form
+
+27:53.000 --> 27:55.320
+ or bi matrix form or normal form game.
+
+27:55.320 --> 27:57.080
+ And here you have the tree form.
+
+27:57.080 --> 28:00.000
+ So you can actually do certain types of reasoning there
+
+28:00.000 --> 28:04.680
+ that you lose the information when you go to normal form.
+
+28:04.680 --> 28:07.000
+ There's a certain form of equivalence.
+
+28:07.000 --> 28:08.880
+ Like if you go from tree form and you say it,
+
+28:08.880 --> 28:12.720
+ every possible contingency plan is a strategy.
+
+28:12.720 --> 28:15.080
+ Then I can actually go back to the normal form,
+
+28:15.080 --> 28:18.600
+ but I lose some information from the lack of sequentiality.
+
+28:18.600 --> 28:21.280
+ Then the multiplayer versus two player distinction
+
+28:21.280 --> 28:22.880
+ is an important one.
+
+28:22.880 --> 28:27.320
+ So two player games in zero sum
+
+28:27.320 --> 28:32.320
+ are conceptually easier and computationally easier.
+
+28:32.840 --> 28:36.000
+ They're still huge like this one,
+
+28:36.000 --> 28:39.680
+ but they're conceptually easier and computationally easier
+
+28:39.680 --> 28:42.920
+ in that conceptually, you don't have to worry about
+
+28:42.920 --> 28:45.360
+ which equilibrium is the other guy going to play
+
+28:45.360 --> 28:46.640
+ when there are multiple,
+
+28:46.640 --> 28:49.920
+ because any equilibrium strategy is a best response
+
+28:49.920 --> 28:52.000
+ to any other equilibrium strategy.
+
+28:52.000 --> 28:54.360
+ So I can play a different equilibrium from you
+
+28:54.360 --> 28:57.320
+ and we'll still get the right values of the game.
+
+28:57.320 --> 28:59.240
+ That falls apart even with two players
+
+28:59.240 --> 29:01.360
+ when you have general sum games.
+
+29:01.360 --> 29:03.120
+ Even without cooperation just in general.
+
+29:03.120 --> 29:04.800
+ Even without cooperation.
+
+29:04.800 --> 29:07.640
+ So there's a big gap from two player zero sum
+
+29:07.640 --> 29:11.160
+ to two player general sum or even to three player zero sum.
+
+29:11.160 --> 29:14.280
+ That's a big gap, at least in theory.
+
+29:14.280 --> 29:18.920
+ Can you maybe non mathematically provide the intuition
+
+29:18.920 --> 29:22.120
+ why it all falls apart with three or more players?
+
+29:22.120 --> 29:24.400
+ It seems like you should still be able to have
+
+29:24.400 --> 29:29.400
+ a Nash equilibrium that's instructive, that holds.
+
+29:31.280 --> 29:36.000
+ Okay, so it is true that all finite games
+
+29:36.000 --> 29:38.200
+ have a Nash equilibrium.
+
+29:38.200 --> 29:41.080
+ So this is what John Nash actually proved.
+
+29:41.080 --> 29:42.920
+ So they do have a Nash equilibrium.
+
+29:42.920 --> 29:43.840
+ That's not the problem.
+
+29:43.840 --> 29:46.600
+ The problem is that there can be many.
+
+29:46.600 --> 29:50.400
+ And then there's a question of which equilibrium to select.
+
+29:50.400 --> 29:52.200
+ So, and if you select your strategy
+
+29:52.200 --> 29:54.640
+ from a different equilibrium and I select mine,
+
+29:57.920 --> 29:59.920
+ then what does that mean?
+
+29:59.920 --> 30:02.080
+ And in these non zero sum games,
+
+30:02.080 --> 30:05.720
+ we may lose some joint benefit
+
+30:05.720 --> 30:07.040
+ by being just simply stupid.
+
+30:07.040 --> 30:08.400
+ We could actually both be better off
+
+30:08.400 --> 30:09.920
+ if we did something else.
+
+30:09.920 --> 30:11.760
+ And in three player, you get other problems
+
+30:11.760 --> 30:13.200
+ also like collusion.
+
+30:13.200 --> 30:16.560
+ Like maybe you and I can gang up on a third player
+
+30:16.560 --> 30:19.800
+ and we can do radically better by colluding.
+
+30:19.800 --> 30:22.200
+ So there are lots of issues that come up there.
+
+30:22.200 --> 30:25.640
+ So Noah Brown, the student you work with on this
+
+30:25.640 --> 30:29.360
+ has mentioned, I looked through the AMA on Reddit.
+
+30:29.360 --> 30:31.280
+ He mentioned that the ability of poker players
+
+30:31.280 --> 30:33.800
+ to collaborate will make the game.
+
+30:33.800 --> 30:35.200
+ He was asked the question of,
+
+30:35.200 --> 30:37.920
+ how would you make the game of poker,
+
+30:37.920 --> 30:39.280
+ or both of you were asked the question,
+
+30:39.280 --> 30:41.560
+ how would you make the game of poker
+
+30:41.560 --> 30:46.560
+ beyond being solvable by current AI methods?
+
+30:47.000 --> 30:50.560
+ And he said that there's not many ways
+
+30:50.560 --> 30:53.120
+ of making poker more difficult,
+
+30:53.120 --> 30:57.760
+ but a collaboration or cooperation between players
+
+30:57.760 --> 30:59.760
+ would make it extremely difficult.
+
+30:59.760 --> 31:03.320
+ So can you provide the intuition behind why that is,
+
+31:03.320 --> 31:05.280
+ if you agree with that idea?
+
+31:05.280 --> 31:10.200
+ Yeah, so I've done a lot of work on coalitional games
+
+31:10.200 --> 31:11.680
+ and we actually have a paper here
+
+31:11.680 --> 31:13.680
+ with my other student Gabriele Farina
+
+31:13.680 --> 31:16.640
+ and some other collaborators at NIPS on that.
+
+31:16.640 --> 31:18.520
+ Actually just came back from the poster session
+
+31:18.520 --> 31:19.760
+ where we presented this.
+
+31:19.760 --> 31:23.800
+ But so when you have a collusion, it's a different problem.
+
+31:23.800 --> 31:26.120
+ And it typically gets even harder then.
+
+31:27.520 --> 31:29.600
+ Even the game representations,
+
+31:29.600 --> 31:32.320
+ some of the game representations don't really allow
+
+31:33.600 --> 31:34.480
+ good computation.
+
+31:34.480 --> 31:37.600
+ So we actually introduced a new game representation
+
+31:37.600 --> 31:38.720
+ for that.
+
+31:38.720 --> 31:42.040
+ Is that kind of cooperation part of the model?
+
+31:42.040 --> 31:44.560
+ Are you, do you have, do you have information
+
+31:44.560 --> 31:47.040
+ about the fact that other players are cooperating
+
+31:47.040 --> 31:50.000
+ or is it just this chaos that where nothing is known?
+
+31:50.000 --> 31:52.360
+ So there's some things unknown.
+
+31:52.360 --> 31:55.840
+ Can you give an example of a collusion type game
+
+31:55.840 --> 31:56.680
+ or is it usually?
+
+31:56.680 --> 31:58.360
+ So like bridge.
+
+31:58.360 --> 31:59.640
+ So think about bridge.
+
+31:59.640 --> 32:02.320
+ It's like when you and I are on a team,
+
+32:02.320 --> 32:04.480
+ our payoffs are the same.
+
+32:04.480 --> 32:06.400
+ The problem is that we can't talk.
+
+32:06.400 --> 32:09.000
+ So when I get my cards, I can't whisper to you
+
+32:09.000 --> 32:10.320
+ what my cards are.
+
+32:10.320 --> 32:12.480
+ That would not be allowed.
+
+32:12.480 --> 32:16.080
+ So we have to somehow coordinate our strategies
+
+32:16.080 --> 32:19.920
+ ahead of time and only ahead of time.
+
+32:19.920 --> 32:22.760
+ And then there's certain signals we can talk about,
+
+32:22.760 --> 32:25.240
+ but they have to be such that the other team
+
+32:25.240 --> 32:26.840
+ also understands them.
+
+32:26.840 --> 32:30.440
+ So that's an example where the coordination
+
+32:30.440 --> 32:33.000
+ is already built into the rules of the game.
+
+32:33.000 --> 32:35.640
+ But in many other situations like auctions
+
+32:35.640 --> 32:40.640
+ or negotiations or diplomatic relationships, poker,
+
+32:40.880 --> 32:44.160
+ it's not really built in, but it still can be very helpful
+
+32:44.160 --> 32:45.280
+ for the colluders.
+
+32:45.280 --> 32:48.240
+ I've read you write somewhere,
+
+32:48.240 --> 32:52.800
+ the negotiations you come to the table with prior,
+
+32:52.800 --> 32:56.080
+ like a strategy that you're willing to do
+
+32:56.080 --> 32:58.320
+ and not willing to do those kinds of things.
+
+32:58.320 --> 33:01.960
+ So how do you start to now moving away from poker,
+
+33:01.960 --> 33:04.520
+ moving beyond poker into other applications
+
+33:04.520 --> 33:07.000
+ like negotiations, how do you start applying this
+
+33:07.000 --> 33:11.640
+ to other domains, even real world domains
+
+33:11.640 --> 33:12.520
+ that you've worked on?
+
+33:12.520 --> 33:14.440
+ Yeah, I actually have two startup companies
+
+33:14.440 --> 33:15.480
+ doing exactly that.
+
+33:15.480 --> 33:17.800
+ One is called Strategic Machine,
+
+33:17.800 --> 33:20.000
+ and that's for kind of business applications,
+
+33:20.000 --> 33:22.880
+ gaming, sports, all sorts of things like that.
+
+33:22.880 --> 33:27.200
+ Any applications of this to business and to sports
+
+33:27.200 --> 33:32.120
+ and to gaming, to various types of things
+
+33:32.120 --> 33:34.240
+ in finance, electricity markets and so on.
+
+33:34.240 --> 33:36.600
+ And the other is called Strategy Robot,
+
+33:36.600 --> 33:40.640
+ where we are taking these to military security,
+
+33:40.640 --> 33:43.520
+ cyber security and intelligence applications.
+
+33:43.520 --> 33:46.240
+ I think you worked a little bit in,
+
+33:48.000 --> 33:51.000
+ how do you put it, advertisement,
+
+33:51.000 --> 33:55.360
+ sort of suggesting ads kind of thing, auction.
+
+33:55.360 --> 33:57.800
+ That's another company, optimized markets.
+
+33:57.800 --> 34:00.880
+ But that's much more about a combinatorial market
+
+34:00.880 --> 34:02.840
+ and optimization based technology.
+
+34:02.840 --> 34:06.840
+ That's not using these game theoretic reasoning technologies.
+
+34:06.840 --> 34:11.600
+ I see, okay, so what sort of high level
+
+34:11.600 --> 34:15.280
+ do you think about our ability to use
+
+34:15.280 --> 34:18.040
+ game theoretic concepts to model human behavior?
+
+34:18.040 --> 34:21.640
+ Do you think human behavior is amenable
+
+34:21.640 --> 34:24.720
+ to this kind of modeling outside of the poker games,
+
+34:24.720 --> 34:27.520
+ and where have you seen it done successfully in your work?
+
+34:27.520 --> 34:32.520
+ I'm not sure the goal really is modeling humans.
+
+34:33.640 --> 34:36.480
+ Like for example, if I'm playing a zero sum game,
+
+34:36.480 --> 34:39.840
+ I don't really care that the opponent
+
+34:39.840 --> 34:42.960
+ is actually following my model of rational behavior,
+
+34:42.960 --> 34:46.400
+ because if they're not, that's even better for me.
+
+34:46.400 --> 34:50.200
+ Right, so see with the opponents in games,
+
+34:51.120 --> 34:56.120
+ the prerequisite is that you formalize
+
+34:56.120 --> 34:57.800
+ the interaction in some way
+
+34:57.800 --> 35:01.000
+ that can be amenable to analysis.
+
+35:01.000 --> 35:04.160
+ And you've done this amazing work with mechanism design,
+
+35:04.160 --> 35:08.160
+ designing games that have certain outcomes.
+
+35:10.040 --> 35:12.320
+ But, so I'll tell you an example
+
+35:12.320 --> 35:15.460
+ from my world of autonomous vehicles, right?
+
+35:15.460 --> 35:17.040
+ We're studying pedestrians,
+
+35:17.040 --> 35:20.200
+ and pedestrians and cars negotiate
+
+35:20.200 --> 35:22.160
+ in this nonverbal communication.
+
+35:22.160 --> 35:25.040
+ There's this weird game dance of tension
+
+35:25.040 --> 35:27.280
+ where pedestrians are basically saying,
+
+35:27.280 --> 35:28.800
+ I trust that you won't kill me,
+
+35:28.800 --> 35:31.840
+ and so as a jaywalker, I will step onto the road
+
+35:31.840 --> 35:34.720
+ even though I'm breaking the law, and there's this tension.
+
+35:34.720 --> 35:36.640
+ And the question is, we really don't know
+
+35:36.640 --> 35:40.720
+ how to model that well in trying to model intent.
+
+35:40.720 --> 35:43.080
+ And so people sometimes bring up ideas
+
+35:43.080 --> 35:44.880
+ of game theory and so on.
+
+35:44.880 --> 35:49.120
+ Do you think that aspect of human behavior
+
+35:49.120 --> 35:53.080
+ can use these kinds of imperfect information approaches,
+
+35:53.080 --> 35:57.860
+ modeling, how do you start to attack a problem like that
+
+35:57.860 --> 36:00.940
+ when you don't even know how to design the game
+
+36:00.940 --> 36:04.280
+ to describe the situation in order to solve it?
+
+36:04.280 --> 36:06.800
+ Okay, so I haven't really thought about jaywalking,
+
+36:06.800 --> 36:10.120
+ but one thing that I think could be a good application
+
+36:10.120 --> 36:13.000
+ in autonomous vehicles is the following.
+
+36:13.000 --> 36:16.320
+ So let's say that you have fleets of autonomous cars
+
+36:16.320 --> 36:18.340
+ operating by different companies.
+
+36:18.340 --> 36:22.120
+ So maybe here's the Waymo fleet and here's the Uber fleet.
+
+36:22.120 --> 36:24.320
+ If you think about the rules of the road,
+
+36:24.320 --> 36:26.560
+ they define certain legal rules,
+
+36:26.560 --> 36:30.080
+ but that still leaves a huge strategy space open.
+
+36:30.080 --> 36:32.840
+ Like as a simple example, when cars merge,
+
+36:32.840 --> 36:36.000
+ how humans merge, they slow down and look at each other
+
+36:36.000 --> 36:39.240
+ and try to merge.
+
+36:39.240 --> 36:40.920
+ Wouldn't it be better if these situations
+
+36:40.920 --> 36:43.480
+ would already be prenegotiated
+
+36:43.480 --> 36:45.200
+ so we can actually merge at full speed
+
+36:45.200 --> 36:47.440
+ and we know that this is the situation,
+
+36:47.440 --> 36:50.540
+ this is how we do it, and it's all gonna be faster.
+
+36:50.540 --> 36:54.120
+ But there are way too many situations to negotiate manually.
+
+36:54.120 --> 36:56.400
+ So you could use automated negotiation,
+
+36:56.400 --> 36:57.780
+ this is the idea at least,
+
+36:57.780 --> 36:59.840
+ you could use automated negotiation
+
+36:59.840 --> 37:02.060
+ to negotiate all of these situations
+
+37:02.060 --> 37:04.320
+ or many of them in advance.
+
+37:04.320 --> 37:05.460
+ And of course it might be that,
+
+37:05.460 --> 37:09.180
+ hey, maybe you're not gonna always let me go first.
+
+37:09.180 --> 37:11.280
+ Maybe you said, okay, well, in these situations,
+
+37:11.280 --> 37:13.560
+ I'll let you go first, but in exchange,
+
+37:13.560 --> 37:14.520
+ you're gonna give me too much,
+
+37:14.520 --> 37:17.260
+ you're gonna let me go first in this situation.
+
+37:17.260 --> 37:20.680
+ So it's this huge combinatorial negotiation.
+
+37:20.680 --> 37:24.080
+ And do you think there's room in that example of merging
+
+37:24.080 --> 37:25.600
+ to model this whole situation
+
+37:25.600 --> 37:27.160
+ as an imperfect information game
+
+37:27.160 --> 37:30.120
+ or do you really want to consider it to be a perfect?
+
+37:30.120 --> 37:32.240
+ No, that's a good question, yeah.
+
+37:32.240 --> 37:33.080
+ That's a good question.
+
+37:33.080 --> 37:37.080
+ Do you pay the price of assuming
+
+37:37.080 --> 37:38.640
+ that you don't know everything?
+
+37:39.800 --> 37:40.760
+ Yeah, I don't know.
+
+37:40.760 --> 37:42.120
+ It's certainly much easier.
+
+37:42.120 --> 37:45.060
+ Games with perfect information are much easier.
+
+37:45.060 --> 37:49.280
+ So if you can't get away with it, you should.
+
+37:49.280 --> 37:52.640
+ But if the real situation is of imperfect information,
+
+37:52.640 --> 37:55.160
+ then you're gonna have to deal with imperfect information.
+
+37:55.160 --> 37:58.080
+ Great, so what lessons have you learned
+
+37:58.080 --> 38:00.680
+ the Annual Computer Poker Competition?
+
+38:00.680 --> 38:03.440
+ An incredible accomplishment of AI.
+
+38:03.440 --> 38:07.000
+ You look at the history of Deep Blue, AlphaGo,
+
+38:07.000 --> 38:10.400
+ these kind of moments when AI stepped up
+
+38:10.400 --> 38:13.960
+ in an engineering effort and a scientific effort combined
+
+38:13.960 --> 38:16.400
+ to beat the best of human players.
+
+38:16.400 --> 38:19.480
+ So what do you take away from this whole experience?
+
+38:19.480 --> 38:22.440
+ What have you learned about designing AI systems
+
+38:22.440 --> 38:23.960
+ that play these kinds of games?
+
+38:23.960 --> 38:28.280
+ And what does that mean for AI in general,
+
+38:28.280 --> 38:30.760
+ for the future of AI development?
+
+38:30.760 --> 38:32.800
+ Yeah, so that's a good question.
+
+38:32.800 --> 38:34.560
+ So there's so much to say about it.
+
+38:35.440 --> 38:39.120
+ I do like this type of performance oriented research.
+
+38:39.120 --> 38:42.000
+ Although in my group, we go all the way from like idea
+
+38:42.000 --> 38:44.880
+ to theory, to experiments, to big system building,
+
+38:44.880 --> 38:47.960
+ to commercialization, so we span that spectrum.
+
+38:47.960 --> 38:51.080
+ But I think that in a lot of situations in AI,
+
+38:51.080 --> 38:53.440
+ you really have to build the big systems
+
+38:53.440 --> 38:55.640
+ and evaluate them at scale
+
+38:55.640 --> 38:57.520
+ before you know what works and doesn't.
+
+38:57.520 --> 39:00.080
+ And we've seen that in the computational
+
+39:00.080 --> 39:02.880
+ game theory community, that there are a lot of techniques
+
+39:02.880 --> 39:04.280
+ that look good in the small,
+
+39:05.200 --> 39:07.120
+ but then they cease to look good in the large.
+
+39:07.120 --> 39:10.160
+ And we've also seen that there are a lot of techniques
+
+39:10.160 --> 39:13.280
+ that look superior in theory.
+
+39:13.280 --> 39:16.200
+ And I really mean in terms of convergence rates,
+
+39:16.200 --> 39:18.440
+ like first order methods, better convergence rates,
+
+39:18.440 --> 39:20.880
+ like the CFR based algorithms,
+
+39:20.880 --> 39:24.880
+ yet the CFR based algorithms are the fastest in practice.
+
+39:24.880 --> 39:28.240
+ So it really tells me that you have to test this in reality.
+
+39:28.240 --> 39:30.880
+ The theory isn't tight enough, if you will,
+
+39:30.880 --> 39:34.360
+ to tell you which algorithms are better than the others.
+
+39:34.360 --> 39:38.600
+ And you have to look at these things in the large,
+
+39:38.600 --> 39:41.480
+ because any sort of projections you do from the small
+
+39:41.480 --> 39:43.800
+ can at least in this domain be very misleading.
+
+39:43.800 --> 39:46.240
+ So that's kind of from a kind of a science
+
+39:46.240 --> 39:49.120
+ and engineering perspective, from a personal perspective,
+
+39:49.120 --> 39:51.280
+ it's been just a wild experience
+
+39:51.280 --> 39:54.160
+ in that with the first poker competition,
+
+39:54.160 --> 39:57.200
+ the first brains versus AI,
+
+39:57.200 --> 39:59.840
+ man machine poker competition that we organized.
+
+39:59.840 --> 40:01.760
+ There had been, by the way, for other poker games,
+
+40:01.760 --> 40:03.240
+ there had been previous competitions,
+
+40:03.240 --> 40:06.360
+ but this was for Heads Up No Limit, this was the first.
+
+40:06.360 --> 40:09.560
+ And I probably became the most hated person
+
+40:09.560 --> 40:10.880
+ in the world of poker.
+
+40:10.880 --> 40:12.880
+ And I didn't mean to, I just saw.
+
+40:12.880 --> 40:13.720
+ Why is that?
+
+40:13.720 --> 40:15.840
+ For cracking the game, for something.
+
+40:15.840 --> 40:20.000
+ Yeah, a lot of people felt that it was a real threat
+
+40:20.000 --> 40:22.760
+ to the whole game, the whole existence of the game.
+
+40:22.760 --> 40:26.080
+ If AI becomes better than humans,
+
+40:26.080 --> 40:28.520
+ people would be scared to play poker
+
+40:28.520 --> 40:30.680
+ because there are these superhuman AIs running around
+
+40:30.680 --> 40:32.760
+ taking their money and all of that.
+
+40:32.760 --> 40:36.200
+ So I just, it's just really aggressive.
+
+40:36.200 --> 40:37.880
+ The comments were super aggressive.
+
+40:37.880 --> 40:40.920
+ I got everything just short of death threats.
+
+40:40.920 --> 40:44.000
+ Do you think the same was true for chess?
+
+40:44.000 --> 40:45.760
+ Because right now they just completed
+
+40:45.760 --> 40:47.720
+ the world championships in chess,
+
+40:47.720 --> 40:49.560
+ and humans just started ignoring the fact
+
+40:49.560 --> 40:52.920
+ that there's AI systems now that outperform humans
+
+40:52.920 --> 40:55.520
+ and they still enjoy the game, it's still a beautiful game.
+
+40:55.520 --> 40:56.360
+ That's what I think.
+
+40:56.360 --> 40:58.800
+ And I think the same thing happens in poker.
+
+40:58.800 --> 41:01.040
+ And so I didn't think of myself
+
+41:01.040 --> 41:02.360
+ as somebody who was gonna kill the game,
+
+41:02.360 --> 41:03.800
+ and I don't think I did.
+
+41:03.800 --> 41:05.600
+ I've really learned to love this game.
+
+41:05.600 --> 41:06.960
+ I wasn't a poker player before,
+
+41:06.960 --> 41:10.520
+ but learned so many nuances about it from these AIs,
+
+41:10.520 --> 41:12.480
+ and they've really changed how the game is played,
+
+41:12.480 --> 41:13.320
+ by the way.
+
+41:13.320 --> 41:16.240
+ So they have these very Martian ways of playing poker,
+
+41:16.240 --> 41:18.400
+ and the top humans are now incorporating
+
+41:18.400 --> 41:21.400
+ those types of strategies into their own play.
+
+41:21.400 --> 41:26.400
+ So if anything, to me, our work has made poker
+
+41:26.560 --> 41:29.800
+ a richer, more interesting game for humans to play,
+
+41:29.800 --> 41:32.160
+ not something that is gonna steer humans
+
+41:32.160 --> 41:34.200
+ away from it entirely.
+
+41:34.200 --> 41:35.960
+ Just a quick comment on something you said,
+
+41:35.960 --> 41:39.400
+ which is, if I may say so,
+
+41:39.400 --> 41:42.400
+ in academia is a little bit rare sometimes.
+
+41:42.400 --> 41:45.520
+ It's pretty brave to put your ideas to the test
+
+41:45.520 --> 41:47.200
+ in the way you described,
+
+41:47.200 --> 41:49.360
+ saying that sometimes good ideas don't work
+
+41:49.360 --> 41:52.760
+ when you actually try to apply them at scale.
+
+41:52.760 --> 41:54.200
+ So where does that come from?
+
+41:54.200 --> 41:58.880
+ I mean, if you could do advice for people,
+
+41:58.880 --> 42:00.760
+ what drives you in that sense?
+
+42:00.760 --> 42:02.360
+ Were you always this way?
+
+42:02.360 --> 42:04.080
+ I mean, it takes a brave person.
+
+42:04.080 --> 42:06.760
+ I guess is what I'm saying, to test their ideas
+
+42:06.760 --> 42:08.640
+ and to see if this thing actually works
+
+42:08.640 --> 42:11.680
+ against human top human players and so on.
+
+42:11.680 --> 42:12.960
+ Yeah, I don't know about brave,
+
+42:12.960 --> 42:15.000
+ but it takes a lot of work.
+
+42:15.000 --> 42:17.320
+ It takes a lot of work and a lot of time
+
+42:18.400 --> 42:20.360
+ to organize, to make something big
+
+42:20.360 --> 42:22.920
+ and to organize an event and stuff like that.
+
+42:22.920 --> 42:24.760
+ And what drives you in that effort?
+
+42:24.760 --> 42:26.880
+ Because you could still, I would argue,
+
+42:26.880 --> 42:30.280
+ get a best paper award at NIPS as you did in 17
+
+42:30.280 --> 42:31.440
+ without doing this.
+
+42:31.440 --> 42:32.960
+ That's right, yes.
+
+42:32.960 --> 42:37.640
+ And so in general, I believe it's very important
+
+42:37.640 --> 42:41.480
+ to do things in the real world and at scale.
+
+42:41.480 --> 42:46.160
+ And that's really where the pudding, if you will,
+
+42:46.160 --> 42:48.400
+ proof is in the pudding, that's where it is.
+
+42:48.400 --> 42:50.080
+ In this particular case,
+
+42:50.080 --> 42:55.080
+ it was kind of a competition between different groups
+
+42:55.160 --> 42:59.080
+ and for many years as to who can be the first one
+
+42:59.080 --> 43:02.040
+ to beat the top humans at Heads Up No Limit, Texas Holdem.
+
+43:02.040 --> 43:07.040
+ So it became kind of like a competition who can get there.
+
+43:09.560 --> 43:11.800
+ Yeah, so a little friendly competition
+
+43:11.800 --> 43:14.040
+ could do wonders for progress.
+
+43:14.040 --> 43:15.040
+ Yes, absolutely.
+
+43:16.400 --> 43:19.040
+ So the topic of mechanism design,
+
+43:19.040 --> 43:22.280
+ which is really interesting, also kind of new to me,
+
+43:22.280 --> 43:25.680
+ except as an observer of, I don't know, politics and any,
+
+43:25.680 --> 43:27.600
+ I'm an observer of mechanisms,
+
+43:27.600 --> 43:31.440
+ but you write in your paper an automated mechanism design
+
+43:31.440 --> 43:34.000
+ that I quickly read.
+
+43:34.000 --> 43:37.880
+ So mechanism design is designing the rules of the game
+
+43:37.880 --> 43:40.200
+ so you get a certain desirable outcome.
+
+43:40.200 --> 43:44.920
+ And you have this work on doing so in an automatic fashion
+
+43:44.920 --> 43:46.720
+ as opposed to fine tuning it.
+
+43:46.720 --> 43:50.680
+ So what have you learned from those efforts?
+
+43:50.680 --> 43:52.280
+ If you look, say, I don't know,
+
+43:52.280 --> 43:56.200
+ at complexes like our political system,
+
+43:56.200 --> 43:58.560
+ can we design our political system
+
+43:58.560 --> 44:01.800
+ to have, in an automated fashion,
+
+44:01.800 --> 44:03.360
+ to have outcomes that we want?
+
+44:03.360 --> 44:08.360
+ Can we design something like traffic lights to be smart
+
+44:09.000 --> 44:11.800
+ where it gets outcomes that we want?
+
+44:11.800 --> 44:14.840
+ So what are the lessons that you draw from that work?
+
+44:14.840 --> 44:17.240
+ Yeah, so I still very much believe
+
+44:17.240 --> 44:19.400
+ in the automated mechanism design direction.
+
+44:19.400 --> 44:20.840
+ Yes.
+
+44:20.840 --> 44:23.000
+ But it's not a panacea.
+
+44:23.000 --> 44:26.520
+ There are impossibility results in mechanism design
+
+44:26.520 --> 44:30.240
+ saying that there is no mechanism that accomplishes
+
+44:30.240 --> 44:33.920
+ objective X in class C.
+
+44:33.920 --> 44:36.120
+ So it's not going to,
+
+44:36.120 --> 44:39.000
+ there's no way using any mechanism design tools,
+
+44:39.000 --> 44:41.000
+ manual or automated,
+
+44:41.000 --> 44:42.800
+ to do certain things in mechanism design.
+
+44:42.800 --> 44:43.800
+ Can you describe that again?
+
+44:43.800 --> 44:47.480
+ So meaning it's impossible to achieve that?
+
+44:47.480 --> 44:48.320
+ Yeah, yeah.
+
+44:48.320 --> 44:50.440
+ And it's unlikely.
+
+44:50.440 --> 44:51.280
+ Impossible.
+
+44:51.280 --> 44:52.120
+ Impossible.
+
+44:52.120 --> 44:55.240
+ So these are not statements about human ingenuity
+
+44:55.240 --> 44:57.120
+ who might come up with something smart.
+
+44:57.120 --> 44:59.880
+ These are proofs that if you want to accomplish
+
+44:59.880 --> 45:02.480
+ properties X in class C,
+
+45:02.480 --> 45:04.880
+ that is not doable with any mechanism.
+
+45:04.880 --> 45:07.080
+ The good thing about automated mechanism design
+
+45:07.080 --> 45:10.840
+ is that we're not really designing for a class.
+
+45:10.840 --> 45:14.160
+ We're designing for specific settings at a time.
+
+45:14.160 --> 45:16.720
+ So even if there's an impossibility result
+
+45:16.720 --> 45:18.240
+ for the whole class,
+
+45:18.240 --> 45:21.360
+ it just doesn't mean that all of the cases
+
+45:21.360 --> 45:22.560
+ in the class are impossible.
+
+45:22.560 --> 45:25.080
+ It just means that some of the cases are impossible.
+
+45:25.080 --> 45:28.240
+ So we can actually carve these islands of possibility
+
+45:28.240 --> 45:30.920
+ within these known impossible classes.
+
+45:30.920 --> 45:31.960
+ And we've actually done that.
+
+45:31.960 --> 45:35.160
+ So one of the famous results in mechanism design
+
+45:35.160 --> 45:37.360
+ is the Meyerson Satethweight theorem
+
+45:37.360 --> 45:41.000
+ by Roger Meyerson and Mark Satethweight from 1983.
+
+45:41.000 --> 45:43.480
+ It's an impossibility of efficient trade
+
+45:43.480 --> 45:45.200
+ under imperfect information.
+
+45:45.200 --> 45:48.560
+ We show that you can, in many settings,
+
+45:48.560 --> 45:51.480
+ avoid that and get efficient trade anyway.
+
+45:51.480 --> 45:54.160
+ Depending on how they design the game, okay.
+
+45:54.160 --> 45:55.880
+ Depending how you design the game.
+
+45:55.880 --> 46:00.240
+ And of course, it doesn't in any way
+
+46:00.240 --> 46:01.800
+ contradict the impossibility result.
+
+46:01.800 --> 46:03.920
+ The impossibility result is still there,
+
+46:03.920 --> 46:08.000
+ but it just finds spots within this impossible class
+
+46:08.920 --> 46:12.440
+ where in those spots, you don't have the impossibility.
+
+46:12.440 --> 46:14.760
+ Sorry if I'm going a bit philosophical,
+
+46:14.760 --> 46:17.480
+ but what lessons do you draw towards,
+
+46:17.480 --> 46:20.160
+ like I mentioned, politics or human interaction
+
+46:20.160 --> 46:24.880
+ and designing mechanisms for outside of just
+
+46:24.880 --> 46:26.960
+ these kinds of trading or auctioning
+
+46:26.960 --> 46:31.960
+ or purely formal games or human interaction,
+
+46:33.480 --> 46:34.920
+ like a political system?
+
+46:34.920 --> 46:39.160
+ How, do you think it's applicable to, yeah, politics
+
+46:39.160 --> 46:44.160
+ or to business, to negotiations, these kinds of things,
+
+46:46.280 --> 46:49.040
+ designing rules that have certain outcomes?
+
+46:49.040 --> 46:51.360
+ Yeah, yeah, I do think so.
+
+46:51.360 --> 46:54.200
+ Have you seen that successfully done?
+
+46:54.200 --> 46:56.440
+ They haven't really, oh, you mean mechanism design
+
+46:56.440 --> 46:57.280
+ or automated mechanism design?
+
+46:57.280 --> 46:59.000
+ Automated mechanism design.
+
+46:59.000 --> 47:01.520
+ So mechanism design itself
+
+47:01.520 --> 47:06.440
+ has had fairly limited success so far.
+
+47:06.440 --> 47:07.600
+ There are certain cases,
+
+47:07.600 --> 47:10.200
+ but most of the real world situations
+
+47:10.200 --> 47:14.680
+ are actually not sound from a mechanism design perspective,
+
+47:14.680 --> 47:16.920
+ even in those cases where they've been designed
+
+47:16.920 --> 47:20.000
+ by very knowledgeable mechanism design people,
+
+47:20.000 --> 47:22.760
+ the people are typically just taking some insights
+
+47:22.760 --> 47:25.040
+ from the theory and applying those insights
+
+47:25.040 --> 47:26.280
+ into the real world,
+
+47:26.280 --> 47:29.280
+ rather than applying the mechanisms directly.
+
+47:29.280 --> 47:33.520
+ So one famous example of is the FCC spectrum auctions.
+
+47:33.520 --> 47:36.880
+ So I've also had a small role in that
+
+47:36.880 --> 47:40.600
+ and very good economists have been working,
+
+47:40.600 --> 47:42.560
+ excellent economists have been working on that
+
+47:42.560 --> 47:44.040
+ with no game theory,
+
+47:44.040 --> 47:47.440
+ yet the rules that are designed in practice there,
+
+47:47.440 --> 47:49.840
+ they're such that bidding truthfully
+
+47:49.840 --> 47:51.800
+ is not the best strategy.
+
+47:51.800 --> 47:52.960
+ Usually mechanism design,
+
+47:52.960 --> 47:56.160
+ we try to make things easy for the participants.
+
+47:56.160 --> 47:58.560
+ So telling the truth is the best strategy,
+
+47:58.560 --> 48:01.480
+ but even in those very high stakes auctions
+
+48:01.480 --> 48:03.080
+ where you have tens of billions of dollars
+
+48:03.080 --> 48:05.200
+ worth of spectrum being auctioned,
+
+48:06.360 --> 48:08.280
+ truth telling is not the best strategy.
+
+48:08.280 --> 48:10.040
+ And by the way,
+
+48:10.040 --> 48:12.920
+ nobody knows even a single optimal bidding strategy
+
+48:12.920 --> 48:14.120
+ for those auctions.
+
+48:14.120 --> 48:15.960
+ What's the challenge of coming up with an optimal,
+
+48:15.960 --> 48:18.160
+ because there's a lot of players and there's imperfect.
+
+48:18.160 --> 48:20.040
+ It's not so much that a lot of players,
+
+48:20.040 --> 48:22.320
+ but many items for sale,
+
+48:22.320 --> 48:26.000
+ and these mechanisms are such that even with just two items
+
+48:26.000 --> 48:28.400
+ or one item, bidding truthfully
+
+48:28.400 --> 48:30.400
+ wouldn't be the best strategy.
+
+48:31.400 --> 48:34.560
+ If you look at the history of AI,
+
+48:34.560 --> 48:37.160
+ it's marked by seminal events.
+
+48:37.160 --> 48:40.160
+ AlphaGo beating a world champion human Go player,
+
+48:40.160 --> 48:43.680
+ I would put Liberatus winning the Heads Up No Limit Holdem
+
+48:43.680 --> 48:45.000
+ as one of such event.
+
+48:45.000 --> 48:46.040
+ Thank you.
+
+48:46.040 --> 48:51.040
+ And what do you think is the next such event,
+
+48:52.560 --> 48:56.640
+ whether it's in your life or in the broadly AI community
+
+48:56.640 --> 48:59.040
+ that you think might be out there
+
+48:59.040 --> 49:01.640
+ that would surprise the world?
+
+49:01.640 --> 49:02.800
+ So that's a great question,
+
+49:02.800 --> 49:04.520
+ and I don't really know the answer.
+
+49:04.520 --> 49:06.160
+ In terms of game solving,
+
+49:07.360 --> 49:08.920
+ Heads Up No Limit Texas Holdem
+
+49:08.920 --> 49:13.920
+ really was the one remaining widely agreed upon benchmark.
+
+49:14.400 --> 49:15.880
+ So that was the big milestone.
+
+49:15.880 --> 49:17.800
+ Now, are there other things?
+
+49:17.800 --> 49:18.920
+ Yeah, certainly there are,
+
+49:18.920 --> 49:21.080
+ but there's not one that the community
+
+49:21.080 --> 49:22.920
+ has kind of focused on.
+
+49:22.920 --> 49:25.240
+ So what could be other things?
+
+49:25.240 --> 49:27.640
+ There are groups working on StarCraft.
+
+49:27.640 --> 49:29.840
+ There are groups working on Dota 2.
+
+49:29.840 --> 49:31.560
+ These are video games.
+
+49:31.560 --> 49:36.240
+ Or you could have like Diplomacy or Hanabi,
+
+49:36.240 --> 49:37.080
+ things like that.
+
+49:37.080 --> 49:38.640
+ These are like recreational games,
+
+49:38.640 --> 49:42.040
+ but none of them are really acknowledged
+
+49:42.040 --> 49:45.840
+ as kind of the main next challenge problem,
+
+49:45.840 --> 49:50.000
+ like chess or Go or Heads Up No Limit Texas Holdem was.
+
+49:50.000 --> 49:52.360
+ So I don't really know in the game solving space
+
+49:52.360 --> 49:55.400
+ what is or what will be the next benchmark.
+
+49:55.400 --> 49:57.840
+ I kind of hope that there will be a next benchmark
+
+49:57.840 --> 49:59.560
+ because really the different groups
+
+49:59.560 --> 50:01.120
+ working on the same problem
+
+50:01.120 --> 50:05.120
+ really drove these application independent techniques
+
+50:05.120 --> 50:07.480
+ forward very quickly over 10 years.
+
+50:07.480 --> 50:09.120
+ Do you think there's an open problem
+
+50:09.120 --> 50:11.480
+ that excites you that you start moving away
+
+50:11.480 --> 50:15.000
+ from games into real world games,
+
+50:15.000 --> 50:17.200
+ like say the stock market trading?
+
+50:17.200 --> 50:19.320
+ Yeah, so that's kind of how I am.
+
+50:19.320 --> 50:23.120
+ So I am probably not going to work
+
+50:23.120 --> 50:27.640
+ as hard on these recreational benchmarks.
+
+50:27.640 --> 50:30.200
+ I'm doing two startups on game solving technology,
+
+50:30.200 --> 50:32.320
+ Strategic Machine and Strategy Robot,
+
+50:32.320 --> 50:34.160
+ and we're really interested
+
+50:34.160 --> 50:36.560
+ in pushing this stuff into practice.
+
+50:36.560 --> 50:40.080
+ What do you think would be really
+
+50:43.160 --> 50:45.920
+ a powerful result that would be surprising
+
+50:45.920 --> 50:49.960
+ that would be, if you can say,
+
+50:49.960 --> 50:53.280
+ I mean, five years, 10 years from now,
+
+50:53.280 --> 50:56.480
+ something that statistically you would say
+
+50:56.480 --> 50:57.920
+ is not very likely,
+
+50:57.920 --> 51:01.480
+ but if there's a breakthrough, would achieve?
+
+51:01.480 --> 51:03.800
+ Yeah, so I think that overall,
+
+51:03.800 --> 51:08.800
+ we're in a very different situation in game theory
+
+51:09.000 --> 51:11.760
+ than we are in, let's say, machine learning.
+
+51:11.760 --> 51:14.360
+ So in machine learning, it's a fairly mature technology
+
+51:14.360 --> 51:16.480
+ and it's very broadly applied
+
+51:16.480 --> 51:19.680
+ and proven success in the real world.
+
+51:19.680 --> 51:22.840
+ In game solving, there are almost no applications yet.
+
+51:24.320 --> 51:26.680
+ We have just become superhuman,
+
+51:26.680 --> 51:29.600
+ which machine learning you could argue happened in the 90s,
+
+51:29.600 --> 51:30.640
+ if not earlier,
+
+51:30.640 --> 51:32.960
+ and at least on supervised learning,
+
+51:32.960 --> 51:35.400
+ certain complex supervised learning applications.
+
+51:36.960 --> 51:39.000
+ Now, I think the next challenge problem,
+
+51:39.000 --> 51:40.560
+ I know you're not asking about it this way,
+
+51:40.560 --> 51:42.640
+ you're asking about the technology breakthrough,
+
+51:42.640 --> 51:44.240
+ but I think that big, big breakthrough
+
+51:44.240 --> 51:46.120
+ is to be able to show that, hey,
+
+51:46.120 --> 51:48.280
+ maybe most of, let's say, military planning
+
+51:48.280 --> 51:50.080
+ or most of business strategy
+
+51:50.080 --> 51:52.200
+ will actually be done strategically
+
+51:52.200 --> 51:54.120
+ using computational game theory.
+
+51:54.120 --> 51:55.800
+ That's what I would like to see
+
+51:55.800 --> 51:57.640
+ as the next five or 10 year goal.
+
+51:57.640 --> 51:59.520
+ Maybe you can explain to me again,
+
+51:59.520 --> 52:01.920
+ forgive me if this is an obvious question,
+
+52:01.920 --> 52:04.000
+ but machine learning methods,
+
+52:04.000 --> 52:07.840
+ neural networks suffer from not being transparent,
+
+52:07.840 --> 52:09.280
+ not being explainable.
+
+52:09.280 --> 52:12.400
+ Game theoretic methods, Nash equilibria,
+
+52:12.400 --> 52:15.280
+ do they generally, when you see the different solutions,
+
+52:15.280 --> 52:19.640
+ are they, when you talk about military operations,
+
+52:19.640 --> 52:21.800
+ are they, once you see the strategies,
+
+52:21.800 --> 52:23.880
+ do they make sense, are they explainable,
+
+52:23.880 --> 52:25.840
+ or do they suffer from the same problems
+
+52:25.840 --> 52:27.120
+ as neural networks do?
+
+52:27.120 --> 52:28.720
+ So that's a good question.
+
+52:28.720 --> 52:31.240
+ I would say a little bit yes and no.
+
+52:31.240 --> 52:34.560
+ And what I mean by that is that
+
+52:34.560 --> 52:36.160
+ these game theoretic strategies,
+
+52:36.160 --> 52:38.520
+ let's say, Nash equilibrium,
+
+52:38.520 --> 52:40.320
+ it has provable properties.
+
+52:40.320 --> 52:42.360
+ So it's unlike, let's say, deep learning
+
+52:42.360 --> 52:44.440
+ where you kind of cross your fingers,
+
+52:44.440 --> 52:45.680
+ hopefully it'll work.
+
+52:45.680 --> 52:47.880
+ And then after the fact, when you have the weights,
+
+52:47.880 --> 52:48.920
+ you're still crossing your fingers,
+
+52:48.920 --> 52:50.160
+ and I hope it will work.
+
+52:51.160 --> 52:55.400
+ Here, you know that the solution quality is there.
+
+52:55.400 --> 52:58.040
+ There's provable solution quality guarantees.
+
+52:58.040 --> 53:00.920
+ Now, that doesn't necessarily mean
+
+53:00.920 --> 53:03.480
+ that the strategies are human understandable.
+
+53:03.480 --> 53:04.720
+ That's a whole other problem.
+
+53:04.720 --> 53:08.680
+ So I think that deep learning and computational game theory
+
+53:08.680 --> 53:10.720
+ are in the same boat in that sense,
+
+53:10.720 --> 53:12.680
+ that both are difficult to understand.
+
+53:13.760 --> 53:15.680
+ But at least the game theoretic techniques,
+
+53:15.680 --> 53:19.840
+ they have these guarantees of solution quality.
+
+53:19.840 --> 53:22.880
+ So do you see business operations, strategic operations,
+
+53:22.880 --> 53:26.040
+ or even military in the future being
+
+53:26.040 --> 53:28.320
+ at least the strong candidates
+
+53:28.320 --> 53:32.760
+ being proposed by automated systems?
+
+53:32.760 --> 53:34.000
+ Do you see that?
+
+53:34.000 --> 53:35.040
+ Yeah, I do, I do.
+
+53:35.040 --> 53:39.640
+ But that's more of a belief than a substantiated fact.
+
+53:39.640 --> 53:42.320
+ Depending on where you land in optimism or pessimism,
+
+53:42.320 --> 53:45.720
+ that's a really, to me, that's an exciting future,
+
+53:45.720 --> 53:48.760
+ especially if there's provable things
+
+53:48.760 --> 53:50.560
+ in terms of optimality.
+
+53:50.560 --> 53:54.040
+ So looking into the future,
+
+53:54.040 --> 53:58.760
+ there's a few folks worried about the,
+
+53:58.760 --> 54:01.200
+ especially you look at the game of poker,
+
+54:01.200 --> 54:03.360
+ which is probably one of the last benchmarks
+
+54:03.360 --> 54:05.480
+ in terms of games being solved.
+
+54:05.480 --> 54:07.520
+ They worry about the future
+
+54:07.520 --> 54:10.520
+ and the existential threats of artificial intelligence.
+
+54:10.520 --> 54:13.840
+ So the negative impact in whatever form on society.
+
+54:13.840 --> 54:17.440
+ Is that something that concerns you as much,
+
+54:17.440 --> 54:21.600
+ or are you more optimistic about the positive impacts of AI?
+
+54:21.600 --> 54:24.720
+ Oh, I am much more optimistic about the positive impacts.
+
+54:24.720 --> 54:27.560
+ So just in my own work, what we've done so far,
+
+54:27.560 --> 54:29.920
+ we run the nationwide kidney exchange.
+
+54:29.920 --> 54:32.960
+ Hundreds of people are walking around alive today,
+
+54:32.960 --> 54:34.080
+ who would it be?
+
+54:34.080 --> 54:36.120
+ And it's increased employment.
+
+54:36.120 --> 54:39.920
+ You have a lot of people now running kidney exchanges
+
+54:39.920 --> 54:42.200
+ and at the transplant centers,
+
+54:42.200 --> 54:45.560
+ interacting with the kidney exchange.
+
+54:45.560 --> 54:49.440
+ You have extra surgeons, nurses, anesthesiologists,
+
+54:49.440 --> 54:51.400
+ hospitals, all of that.
+
+54:51.400 --> 54:53.560
+ So employment is increasing from that
+
+54:53.560 --> 54:55.320
+ and the world is becoming a better place.
+
+54:55.320 --> 54:59.040
+ Another example is combinatorial sourcing auctions.
+
+54:59.040 --> 55:04.040
+ We did 800 large scale combinatorial sourcing auctions
+
+55:04.040 --> 55:08.240
+ from 2001 to 2010 in a previous startup of mine
+
+55:08.240 --> 55:09.400
+ called CombineNet.
+
+55:09.400 --> 55:13.080
+ And we increased the supply chain efficiency
+
+55:13.080 --> 55:18.080
+ on that $60 billion of spend by 12.6%.
+
+55:18.080 --> 55:21.440
+ So that's over $6 billion of efficiency improvement
+
+55:21.440 --> 55:22.240
+ in the world.
+
+55:22.240 --> 55:23.760
+ And this is not like shifting value
+
+55:23.760 --> 55:25.240
+ from somebody to somebody else,
+
+55:25.240 --> 55:28.200
+ just efficiency improvement, like in trucking,
+
+55:28.200 --> 55:31.120
+ less empty driving, so there's less waste,
+
+55:31.120 --> 55:33.440
+ less carbon footprint and so on.
+
+55:33.440 --> 55:36.720
+ So a huge positive impact in the near term,
+
+55:36.720 --> 55:40.680
+ but sort of to stay in it for a little longer,
+
+55:40.680 --> 55:43.080
+ because I think game theory has a role to play here.
+
+55:43.080 --> 55:45.320
+ Oh, let me actually come back on that as one thing.
+
+55:45.320 --> 55:49.400
+ I think AI is also going to make the world much safer.
+
+55:49.400 --> 55:53.760
+ So that's another aspect that often gets overlooked.
+
+55:53.760 --> 55:54.920
+ Well, let me ask this question.
+
+55:54.920 --> 55:56.960
+ Maybe you can speak to the safer.
+
+55:56.960 --> 55:59.960
+ So I talked to Max Tegmark and Stuart Russell,
+
+55:59.960 --> 56:02.680
+ who are very concerned about existential threats of AI.
+
+56:02.680 --> 56:06.240
+ And often the concern is about value misalignment.
+
+56:06.240 --> 56:10.240
+ So AI systems basically working,
+
+56:11.880 --> 56:14.680
+ operating towards goals that are not the same
+
+56:14.680 --> 56:17.920
+ as human civilization, human beings.
+
+56:17.920 --> 56:21.160
+ So it seems like game theory has a role to play there
+
+56:24.200 --> 56:27.880
+ to make sure the values are aligned with human beings.
+
+56:27.880 --> 56:29.960
+ I don't know if that's how you think about it.
+
+56:29.960 --> 56:34.960
+ If not, how do you think AI might help with this problem?
+
+56:35.280 --> 56:39.240
+ How do you think AI might make the world safer?
+
+56:39.240 --> 56:43.000
+ Yeah, I think this value misalignment
+
+56:43.000 --> 56:46.480
+ is a fairly theoretical worry.
+
+56:46.480 --> 56:49.960
+ And I haven't really seen it in,
+
+56:49.960 --> 56:51.840
+ because I do a lot of real applications.
+
+56:51.840 --> 56:53.920
+ I don't see it anywhere.
+
+56:53.920 --> 56:55.240
+ The closest I've seen it
+
+56:55.240 --> 56:57.920
+ was the following type of mental exercise really,
+
+56:57.920 --> 57:00.720
+ where I had this argument in the late eighties
+
+57:00.720 --> 57:01.560
+ when we were building
+
+57:01.560 --> 57:03.560
+ these transportation optimization systems.
+
+57:03.560 --> 57:05.360
+ And somebody had heard that it's a good idea
+
+57:05.360 --> 57:08.160
+ to have high utilization of assets.
+
+57:08.160 --> 57:11.400
+ So they told me, hey, why don't you put that as objective?
+
+57:11.400 --> 57:14.720
+ And we didn't even put it as an objective
+
+57:14.720 --> 57:16.480
+ because I just showed him that,
+
+57:16.480 --> 57:18.480
+ if you had that as your objective,
+
+57:18.480 --> 57:20.320
+ the solution would be to load your trucks full
+
+57:20.320 --> 57:21.840
+ and drive in circles.
+
+57:21.840 --> 57:23.000
+ Nothing would ever get delivered.
+
+57:23.000 --> 57:25.120
+ You'd have a hundred percent utilization.
+
+57:25.120 --> 57:27.240
+ So yeah, I know this phenomenon.
+
+57:27.240 --> 57:29.680
+ I've known this for over 30 years,
+
+57:29.680 --> 57:33.360
+ but I've never seen it actually be a problem in reality.
+
+57:33.360 --> 57:35.240
+ And yes, if you have the wrong objective,
+
+57:35.240 --> 57:37.800
+ the AI will optimize that to the hilt
+
+57:37.800 --> 57:39.800
+ and it's gonna hurt more than some human
+
+57:39.800 --> 57:43.800
+ who's kind of trying to solve it in a half baked way
+
+57:43.800 --> 57:45.480
+ with some human insight too.
+
+57:45.480 --> 57:49.160
+ But I just haven't seen that materialize in practice.
+
+57:49.160 --> 57:52.720
+ There's this gap that you've actually put your finger on
+
+57:52.720 --> 57:57.080
+ very clearly just now between theory and reality.
+
+57:57.080 --> 57:59.680
+ That's very difficult to put into words, I think.
+
+57:59.680 --> 58:02.240
+ It's what you can theoretically imagine,
+
+58:03.240 --> 58:08.000
+ the worst possible case or even, yeah, I mean bad cases.
+
+58:08.000 --> 58:10.520
+ And what usually happens in reality.
+
+58:10.520 --> 58:11.960
+ So for example, to me,
+
+58:11.960 --> 58:15.720
+ maybe it's something you can comment on having grown up
+
+58:15.720 --> 58:17.680
+ and I grew up in the Soviet Union.
+
+58:19.120 --> 58:22.120
+ There's currently 10,000 nuclear weapons in the world.
+
+58:22.120 --> 58:24.200
+ And for many decades,
+
+58:24.200 --> 58:28.360
+ it's theoretically surprising to me
+
+58:28.360 --> 58:30.880
+ that the nuclear war is not broken out.
+
+58:30.880 --> 58:33.760
+ Do you think about this aspect
+
+58:33.760 --> 58:36.080
+ from a game theoretic perspective in general,
+
+58:36.080 --> 58:38.440
+ why is that true?
+
+58:38.440 --> 58:40.720
+ Why in theory you could see
+
+58:40.720 --> 58:42.600
+ how things would go terribly wrong
+
+58:42.600 --> 58:44.280
+ and somehow yet they have not?
+
+58:44.280 --> 58:45.600
+ Yeah, how do you think about it?
+
+58:45.600 --> 58:47.240
+ So I do think about that a lot.
+
+58:47.240 --> 58:50.320
+ I think the biggest two threats that we're facing as mankind,
+
+58:50.320 --> 58:53.320
+ one is climate change and the other is nuclear war.
+
+58:53.320 --> 58:57.200
+ So those are my main two worries that I worry about.
+
+58:57.200 --> 58:59.920
+ And I've tried to do something about climate,
+
+58:59.920 --> 59:01.320
+ thought about trying to do something
+
+59:01.320 --> 59:02.880
+ for climate change twice.
+
+59:02.880 --> 59:05.040
+ Actually, for two of my startups,
+
+59:05.040 --> 59:06.760
+ I've actually commissioned studies
+
+59:06.760 --> 59:09.480
+ of what we could do on those things.
+
+59:09.480 --> 59:11.040
+ And we didn't really find a sweet spot,
+
+59:11.040 --> 59:12.680
+ but I'm still keeping an eye out on that.
+
+59:12.680 --> 59:15.160
+ If there's something where we could actually
+
+59:15.160 --> 59:17.800
+ provide a market solution or optimizations solution
+
+59:17.800 --> 59:20.960
+ or some other technology solution to problems.
+
+59:20.960 --> 59:23.360
+ Right now, like for example,
+
+59:23.360 --> 59:26.760
+ pollution critic markets was what we were looking at then.
+
+59:26.760 --> 59:30.040
+ And it was much more the lack of political will
+
+59:30.040 --> 59:32.840
+ by those markets were not so successful
+
+59:32.840 --> 59:34.640
+ rather than bad market design.
+
+59:34.640 --> 59:37.080
+ So I could go in and make a better market design,
+
+59:37.080 --> 59:38.600
+ but that wouldn't really move the needle
+
+59:38.600 --> 59:41.160
+ on the world very much if there's no political will.
+
+59:41.160 --> 59:43.600
+ And in the US, the market,
+
+59:43.600 --> 59:47.520
+ at least the Chicago market was just shut down and so on.
+
+59:47.520 --> 59:48.760
+ So then it doesn't really help
+
+59:48.760 --> 59:51.040
+ how great your market design was.
+
+59:51.040 --> 59:53.560
+ And then the nuclear side, it's more,
+
+59:53.560 --> 59:57.560
+ so global warming is a more encroaching problem.
+
+1:00:00.840 --> 1:00:03.280
+ Nuclear weapons have been here.
+
+1:00:03.280 --> 1:00:05.720
+ It's an obvious problem that's just been sitting there.
+
+1:00:05.720 --> 1:00:07.480
+ So how do you think about,
+
+1:00:07.480 --> 1:00:09.240
+ what is the mechanism design there
+
+1:00:09.240 --> 1:00:12.280
+ that just made everything seem stable?
+
+1:00:12.280 --> 1:00:14.800
+ And are you still extremely worried?
+
+1:00:14.800 --> 1:00:16.640
+ I am still extremely worried.
+
+1:00:16.640 --> 1:00:20.040
+ So you probably know the simple game theory of mad.
+
+1:00:20.040 --> 1:00:23.760
+ So this was a mutually assured destruction
+
+1:00:23.760 --> 1:00:27.360
+ and it doesn't require any computation with small matrices.
+
+1:00:27.360 --> 1:00:28.600
+ You can actually convince yourself
+
+1:00:28.600 --> 1:00:31.480
+ that the game is such that nobody wants to initiate.
+
+1:00:31.480 --> 1:00:34.600
+ Yeah, that's a very coarse grained analysis.
+
+1:00:34.600 --> 1:00:36.880
+ And it really works in a situational way.
+
+1:00:36.880 --> 1:00:40.400
+ You have two superpowers or small number of superpowers.
+
+1:00:40.400 --> 1:00:41.960
+ Now things are very different.
+
+1:00:41.960 --> 1:00:43.080
+ You have a smaller nuke.
+
+1:00:43.080 --> 1:00:47.240
+ So the threshold of initiating is smaller
+
+1:00:47.240 --> 1:00:51.520
+ and you have smaller countries and non nation actors
+
+1:00:51.520 --> 1:00:53.760
+ who may get a nuke and so on.
+
+1:00:53.760 --> 1:00:58.320
+ So I think it's riskier now than it was maybe ever before.
+
+1:00:58.320 --> 1:01:03.320
+ And what idea, application of AI,
+
+1:01:03.640 --> 1:01:04.640
+ you've talked about a little bit,
+
+1:01:04.640 --> 1:01:07.560
+ but what is the most exciting to you right now?
+
+1:01:07.560 --> 1:01:10.160
+ I mean, you're here at NIPS, NeurIPS.
+
+1:01:10.160 --> 1:01:14.920
+ Now you have a few excellent pieces of work,
+
+1:01:14.920 --> 1:01:16.680
+ but what are you thinking into the future
+
+1:01:16.680 --> 1:01:17.840
+ with several companies you're doing?
+
+1:01:17.840 --> 1:01:21.120
+ What's the most exciting thing or one of the exciting things?
+
+1:01:21.120 --> 1:01:23.160
+ The number one thing for me right now
+
+1:01:23.160 --> 1:01:26.360
+ is coming up with these scalable techniques
+
+1:01:26.360 --> 1:01:30.440
+ for game solving and applying them into the real world.
+
+1:01:30.440 --> 1:01:33.160
+ I'm still very interested in market design as well.
+
+1:01:33.160 --> 1:01:35.400
+ And we're doing that in the optimized markets,
+
+1:01:35.400 --> 1:01:37.560
+ but I'm most interested if number one right now
+
+1:01:37.560 --> 1:01:40.000
+ is strategic machine strategy robot,
+
+1:01:40.000 --> 1:01:41.440
+ getting that technology out there
+
+1:01:41.440 --> 1:01:45.560
+ and seeing as you were in the trenches doing applications,
+
+1:01:45.560 --> 1:01:47.120
+ what needs to be actually filled,
+
+1:01:47.120 --> 1:01:49.800
+ what technology gaps still need to be filled.
+
+1:01:49.800 --> 1:01:52.040
+ So it's so hard to just put your feet on the table
+
+1:01:52.040 --> 1:01:53.800
+ and imagine what needs to be done.
+
+1:01:53.800 --> 1:01:56.280
+ But when you're actually doing real applications,
+
+1:01:56.280 --> 1:01:59.120
+ the applications tell you what needs to be done.
+
+1:01:59.120 --> 1:02:00.840
+ And I really enjoy that interaction.
+
+1:02:00.840 --> 1:02:04.480
+ Is it a challenging process to apply
+
+1:02:04.480 --> 1:02:07.760
+ some of the state of the art techniques you're working on
+
+1:02:07.760 --> 1:02:12.760
+ and having the various players in industry
+
+1:02:14.080 --> 1:02:17.720
+ or the military or people who could really benefit from it
+
+1:02:17.720 --> 1:02:19.040
+ actually use it?
+
+1:02:19.040 --> 1:02:21.400
+ What's that process like of,
+
+1:02:21.400 --> 1:02:23.680
+ autonomous vehicles work with automotive companies
+
+1:02:23.680 --> 1:02:28.200
+ and they're in many ways are a little bit old fashioned.
+
+1:02:28.200 --> 1:02:29.240
+ It's difficult.
+
+1:02:29.240 --> 1:02:31.840
+ They really want to use this technology.
+
+1:02:31.840 --> 1:02:34.640
+ There's clearly will have a significant benefit,
+
+1:02:34.640 --> 1:02:37.480
+ but the systems aren't quite in place
+
+1:02:37.480 --> 1:02:41.080
+ to easily have them integrated in terms of data,
+
+1:02:41.080 --> 1:02:43.760
+ in terms of compute, in terms of all these kinds of things.
+
+1:02:43.760 --> 1:02:48.680
+ So is that one of the bigger challenges that you're facing
+
+1:02:48.680 --> 1:02:50.000
+ and how do you tackle that challenge?
+
+1:02:50.000 --> 1:02:52.360
+ Yeah, I think that's always a challenge.
+
+1:02:52.360 --> 1:02:54.520
+ That's kind of slowness and inertia really
+
+1:02:55.560 --> 1:02:57.920
+ of let's do things the way we've always done it.
+
+1:02:57.920 --> 1:03:00.120
+ You just have to find the internal champions
+
+1:03:00.120 --> 1:03:02.120
+ at the customer who understand that,
+
+1:03:02.120 --> 1:03:04.680
+ hey, things can't be the same way in the future.
+
+1:03:04.680 --> 1:03:06.960
+ Otherwise bad things are going to happen.
+
+1:03:06.960 --> 1:03:08.600
+ And it's in autonomous vehicles.
+
+1:03:08.600 --> 1:03:09.680
+ It's actually very interesting
+
+1:03:09.680 --> 1:03:11.120
+ that the car makers are doing that
+
+1:03:11.120 --> 1:03:12.440
+ and they're very traditional,
+
+1:03:12.440 --> 1:03:14.360
+ but at the same time you have tech companies
+
+1:03:14.360 --> 1:03:17.120
+ who have nothing to do with cars or transportation
+
+1:03:17.120 --> 1:03:21.880
+ like Google and Baidu really pushing on autonomous cars.
+
+1:03:21.880 --> 1:03:23.240
+ I find that fascinating.
+
+1:03:23.240 --> 1:03:25.160
+ Clearly you're super excited
+
+1:03:25.160 --> 1:03:29.320
+ about actually these ideas having an impact in the world.
+
+1:03:29.320 --> 1:03:32.680
+ In terms of the technology, in terms of ideas and research,
+
+1:03:32.680 --> 1:03:36.600
+ are there directions that you're also excited about?
+
+1:03:36.600 --> 1:03:40.840
+ Whether that's on some of the approaches you talked about
+
+1:03:40.840 --> 1:03:42.760
+ for the imperfect information games,
+
+1:03:42.760 --> 1:03:44.000
+ whether it's applying deep learning
+
+1:03:44.000 --> 1:03:45.120
+ to some of these problems,
+
+1:03:45.120 --> 1:03:46.520
+ is there something that you're excited
+
+1:03:46.520 --> 1:03:48.840
+ in the research side of things?
+
+1:03:48.840 --> 1:03:51.120
+ Yeah, yeah, lots of different things
+
+1:03:51.120 --> 1:03:53.240
+ in the game solving.
+
+1:03:53.240 --> 1:03:56.400
+ So solving even bigger games,
+
+1:03:56.400 --> 1:03:59.760
+ games where you have more hidden action
+
+1:03:59.760 --> 1:04:02.040
+ of the player actions as well.
+
+1:04:02.040 --> 1:04:05.880
+ Poker is a game where really the chance actions are hidden
+
+1:04:05.880 --> 1:04:07.080
+ or some of them are hidden,
+
+1:04:07.080 --> 1:04:08.720
+ but the player actions are public.
+
+1:04:11.440 --> 1:04:14.000
+ Multiplayer games of various sorts,
+
+1:04:14.000 --> 1:04:18.080
+ collusion, opponent exploitation,
+
+1:04:18.080 --> 1:04:21.280
+ all and even longer games.
+
+1:04:21.280 --> 1:04:23.160
+ So games that basically go forever,
+
+1:04:23.160 --> 1:04:24.680
+ but they're not repeated.
+
+1:04:24.680 --> 1:04:27.880
+ So see extensive fun games that go forever.
+
+1:04:27.880 --> 1:04:30.080
+ What would that even look like?
+
+1:04:30.080 --> 1:04:31.040
+ How do you represent that?
+
+1:04:31.040 --> 1:04:32.040
+ How do you solve that?
+
+1:04:32.040 --> 1:04:33.440
+ What's an example of a game like that?
+
+1:04:33.440 --> 1:04:35.600
+ Or is this some of the stochastic games
+
+1:04:35.600 --> 1:04:36.440
+ that you mentioned?
+
+1:04:36.440 --> 1:04:37.320
+ Let's say business strategy.
+
+1:04:37.320 --> 1:04:40.840
+ So it's not just modeling like a particular interaction,
+
+1:04:40.840 --> 1:04:44.440
+ but thinking about the business from here to eternity.
+
+1:04:44.440 --> 1:04:49.040
+ Or let's say military strategy.
+
+1:04:49.040 --> 1:04:51.000
+ So it's not like war is gonna go away.
+
+1:04:51.000 --> 1:04:54.280
+ How do you think about military strategy
+
+1:04:54.280 --> 1:04:55.520
+ that's gonna go forever?
+
+1:04:56.680 --> 1:04:58.080
+ How do you even model that?
+
+1:04:58.080 --> 1:05:01.000
+ How do you know whether a move was good
+
+1:05:01.000 --> 1:05:05.200
+ that somebody made and so on?
+
+1:05:05.200 --> 1:05:06.960
+ So that's kind of one direction.
+
+1:05:06.960 --> 1:05:09.800
+ I'm also very interested in learning
+
+1:05:09.800 --> 1:05:13.440
+ much more scalable techniques for integer programming.
+
+1:05:13.440 --> 1:05:16.560
+ So we had an ICML paper this summer on that.
+
+1:05:16.560 --> 1:05:20.280
+ The first automated algorithm configuration paper
+
+1:05:20.280 --> 1:05:23.560
+ that has theoretical generalization guarantees.
+
+1:05:23.560 --> 1:05:26.200
+ So if I see this many training examples
+
+1:05:26.200 --> 1:05:28.560
+ and I told my algorithm in this way,
+
+1:05:28.560 --> 1:05:30.560
+ it's going to have good performance
+
+1:05:30.560 --> 1:05:33.200
+ on the real distribution, which I've not seen.
+
+1:05:33.200 --> 1:05:34.840
+ So, which is kind of interesting
+
+1:05:34.840 --> 1:05:37.680
+ that algorithm configuration has been going on now
+
+1:05:37.680 --> 1:05:41.200
+ for at least 17 years seriously.
+
+1:05:41.200 --> 1:05:45.000
+ And there has not been any generalization theory before.
+
+1:05:45.960 --> 1:05:47.200
+ Well, this is really exciting
+
+1:05:47.200 --> 1:05:49.840
+ and it's a huge honor to talk to you.
+
+1:05:49.840 --> 1:05:51.160
+ Thank you so much, Tomas.
+
+1:05:51.160 --> 1:05:52.880
+ Thank you for bringing Labradus to the world
+
+1:05:52.880 --> 1:05:54.160
+ and all the great work you're doing.
+
+1:05:54.160 --> 1:05:55.000
+ Well, thank you very much.
+
+1:05:55.000 --> 1:05:55.840
+ It's been fun.
+
+1:05:55.840 --> 1:06:16.840
+ No more questions.
+

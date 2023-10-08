@@ -1,0 +1,7169 @@
+WEBVTT
+
+00:00.000 --> 00:02.400
+ The following is a conversation with Jeff Atwood.
+
+00:02.400 --> 00:05.840
+ He is the cofounder of Stack Overflow and Stack Exchange,
+
+00:05.840 --> 00:08.280
+ websites that are visited by millions of people
+
+00:08.280 --> 00:09.560
+ every single day.
+
+00:09.560 --> 00:13.880
+ Much like with Wikipedia, it is difficult to understate
+
+00:13.880 --> 00:16.680
+ the impact on global knowledge and productivity
+
+00:16.680 --> 00:19.520
+ that these networks of sites have created.
+
+00:19.520 --> 00:24.000
+ Jeff is also the author of the famed blog Coding Horror
+
+00:24.000 --> 00:27.160
+ and the founder of Discourse, an open source software
+
+00:27.160 --> 00:31.160
+ project that seeks to improve the quality of our online
+
+00:31.160 --> 00:33.440
+ community discussions.
+
+00:33.440 --> 00:36.640
+ This conversation is part of the MIT course
+
+00:36.640 --> 00:38.480
+ on artificial general intelligence
+
+00:38.480 --> 00:40.840
+ and the artificial intelligence podcast.
+
+00:40.840 --> 00:43.720
+ If you enjoy it, subscribe on YouTube, iTunes,
+
+00:43.720 --> 00:45.620
+ or your podcast provider of choice,
+
+00:45.620 --> 00:48.720
+ or simply connect with me on Twitter at Lex Friedman,
+
+00:48.720 --> 00:51.000
+ spelled F R I D.
+
+00:51.000 --> 00:56.200
+ And now, here's my conversation with Jeff Atwood.
+
+00:56.200 --> 00:59.120
+ Having co created and managed for a few years
+
+00:59.120 --> 01:02.960
+ the world's largest community of programmers in Stack Overflow
+
+01:02.960 --> 01:08.600
+ 10 years ago, what do you think motivates most programmers?
+
+01:08.600 --> 01:13.320
+ Is it fame, fortune, glory, process of programming itself,
+
+01:13.320 --> 01:16.440
+ or is it the sense of belonging to a community?
+
+01:16.440 --> 01:17.960
+ It's puzzles, really.
+
+01:17.960 --> 01:22.320
+ I think it's this idea of working on puzzles
+
+01:22.320 --> 01:25.800
+ independently of other people and just solving a problem,
+
+01:25.800 --> 01:28.360
+ sort of like on your own almost.
+
+01:28.360 --> 01:32.280
+ Although, nobody really works alone in programming anymore.
+
+01:32.280 --> 01:36.480
+ But I will say there's an aspect of hiding yourself away
+
+01:36.480 --> 01:39.560
+ and just beating on a problem until you solve it,
+
+01:39.560 --> 01:41.120
+ like brute force basically to me is
+
+01:41.120 --> 01:43.000
+ what a lot of programming is.
+
+01:43.000 --> 01:44.560
+ The computer's so fast that you can
+
+01:44.560 --> 01:46.560
+ do things that would take forever for a human,
+
+01:46.560 --> 01:49.200
+ but you can just do them so many times and so often
+
+01:49.200 --> 01:52.040
+ that you get the answer.
+
+01:52.040 --> 01:55.520
+ You're saying just the pure act of tinkering with the code
+
+01:55.520 --> 01:58.680
+ is the thing that drives most problems.
+
+01:58.680 --> 02:03.000
+ The struggle balance within the joy of overcoming,
+
+02:03.000 --> 02:05.960
+ the brute force process of pain and suffering
+
+02:05.960 --> 02:09.240
+ that eventually leads to something that actually works.
+
+02:09.240 --> 02:10.200
+ Well, data's fun, too.
+
+02:10.200 --> 02:12.360
+ There's this thing called the shuffling problem.
+
+02:12.360 --> 02:14.960
+ The naive shuffle that most programmers write
+
+02:14.960 --> 02:16.920
+ has a huge flaw, and there's a lot of articles
+
+02:16.920 --> 02:18.920
+ online about this because it can be really bad
+
+02:18.920 --> 02:22.040
+ if you're a casino and you have an unsophisticated programmer
+
+02:22.040 --> 02:23.480
+ writing your shuffle algorithm.
+
+02:23.480 --> 02:25.240
+ There's surprising ways to get this wrong,
+
+02:25.240 --> 02:27.240
+ but the neat thing is the way to figure that out
+
+02:27.240 --> 02:29.040
+ is just to run your shuffle a bunch of times
+
+02:29.040 --> 02:32.200
+ and see how many orientations of cards you get.
+
+02:32.200 --> 02:34.680
+ You should get an equal distribution of all the cards.
+
+02:34.680 --> 02:36.360
+ And with the naive method of shuffling,
+
+02:36.360 --> 02:38.560
+ if you just look at the data, if you just brute force it
+
+02:38.560 --> 02:40.880
+ and say, OK, I don't know what's going to happen,
+
+02:40.880 --> 02:43.320
+ you just write a program that does it a billion times
+
+02:43.320 --> 02:46.040
+ and then see what the buckets look like of the data.
+
+02:46.040 --> 02:48.200
+ And the Monty Hall problem is another example of that,
+
+02:48.200 --> 02:50.600
+ where you have three doors and somebody gives you
+
+02:50.600 --> 02:52.680
+ information about another door.
+
+02:52.680 --> 02:54.480
+ So the correct answer is you should always
+
+02:54.480 --> 02:56.400
+ switch in the Monty Hall problem, which is not intuitive,
+
+02:56.400 --> 02:58.040
+ and it freaks people out all the time.
+
+02:58.040 --> 02:59.760
+ But you can solve it with data.
+
+02:59.760 --> 03:04.360
+ If you write a program that does the Monty Hall game
+
+03:04.360 --> 03:06.840
+ and then never switches, then always switches, just compare,
+
+03:06.840 --> 03:09.640
+ you would immediately see that you don't have to be smart.
+
+03:09.640 --> 03:11.560
+ You don't have to figure out the answer algorithmically.
+
+03:11.560 --> 03:13.360
+ You can just brute force it out with data and say, well,
+
+03:13.360 --> 03:15.440
+ I know the answer is this because I ran the program
+
+03:15.440 --> 03:17.440
+ a billion times, and these are the data buckets
+
+03:17.440 --> 03:18.920
+ that I got from it.
+
+03:18.920 --> 03:20.280
+ So empirically find it.
+
+03:20.280 --> 03:22.280
+ But what's the joy of that?
+
+03:22.280 --> 03:26.320
+ So for you, for you personally, outside of family,
+
+03:26.320 --> 03:29.400
+ what motivates you in this process?
+
+03:29.400 --> 03:30.960
+ Well, to be honest, I don't really
+
+03:30.960 --> 03:32.520
+ write a lot of code anymore.
+
+03:32.520 --> 03:35.040
+ What I do at Discourse is managery stuff,
+
+03:35.040 --> 03:37.800
+ which I always despised.
+
+03:37.800 --> 03:39.200
+ As a programmer, you think of managers
+
+03:39.200 --> 03:42.320
+ as people who don't really do anything themselves.
+
+03:42.320 --> 03:43.960
+ But the weird thing about code is you
+
+03:43.960 --> 03:45.880
+ realize that language is code.
+
+03:45.880 --> 03:48.280
+ The ability to direct other people
+
+03:48.280 --> 03:50.560
+ lets you get more stuff done than you
+
+03:50.560 --> 03:52.240
+ could by yourself anyway.
+
+03:52.240 --> 03:53.600
+ You said language is code?
+
+03:53.600 --> 03:54.360
+ Language is code.
+
+03:54.360 --> 03:56.040
+ Meaning communication with other humans?
+
+03:56.040 --> 03:56.840
+ Yes, it is.
+
+03:56.840 --> 03:58.480
+ You can think of it as a systematic.
+
+03:58.480 --> 04:01.760
+ So what is it like to be, what makes,
+
+04:01.760 --> 04:04.280
+ before we get into programming, what makes a good manager?
+
+04:04.280 --> 04:05.800
+ What makes a good leader?
+
+04:05.800 --> 04:08.280
+ Well, I think a leader, it's all about leading by example,
+
+04:08.280 --> 04:11.400
+ first of all, sort of doing and being the things
+
+04:11.400 --> 04:12.440
+ that you want to be.
+
+04:12.440 --> 04:13.600
+ Now, this can be kind of exhausting,
+
+04:13.600 --> 04:14.760
+ particularly when you have kids, because you
+
+04:14.760 --> 04:17.760
+ realize that your kids are watching you all the time,
+
+04:17.760 --> 04:20.720
+ even in ways that you've stopped seeing yourself.
+
+04:20.720 --> 04:23.560
+ The hardest person to see on the planet is really yourself.
+
+04:23.560 --> 04:24.560
+ It's a lot easier to see other people
+
+04:24.560 --> 04:26.240
+ and make judgments about them.
+
+04:26.240 --> 04:28.360
+ But yourself, you're super biased.
+
+04:28.360 --> 04:30.840
+ You don't actually see yourself the way other people see you.
+
+04:30.840 --> 04:33.000
+ Often, you're very, very hard on yourself in a way
+
+04:33.000 --> 04:34.760
+ that other people really aren't going to be.
+
+04:34.760 --> 04:37.880
+ So that's one of the insights is you've
+
+04:37.880 --> 04:40.200
+ got to be really diligent about thinking,
+
+04:40.200 --> 04:42.360
+ am I behaving in a way that represents
+
+04:42.360 --> 04:44.720
+ how I want other people to behave,
+
+04:44.720 --> 04:46.120
+ like leading through example?
+
+04:46.120 --> 04:47.960
+ There's a lot of examples of leaders
+
+04:47.960 --> 04:50.280
+ that really mess this up, like they make decisions that
+
+04:50.280 --> 04:54.960
+ are like, wow, it's a bad example for other people.
+
+04:54.960 --> 04:57.440
+ So I think leading by example is one.
+
+04:57.440 --> 04:59.640
+ The other one I believe is working really hard.
+
+04:59.640 --> 05:01.520
+ And I don't mean working exhaustively,
+
+05:01.520 --> 05:07.200
+ but showing a real passion for the problem,
+
+05:07.200 --> 05:09.000
+ not necessarily your solution to the problem,
+
+05:09.000 --> 05:11.040
+ but the problem itself is just one that you really believe in.
+
+05:11.040 --> 05:12.480
+ Like with discourse, for example,
+
+05:12.480 --> 05:13.960
+ the problem that we're looking at,
+
+05:13.960 --> 05:17.360
+ which is my current project, is how do you get people
+
+05:17.360 --> 05:20.040
+ in groups to communicate in a way that doesn't break down
+
+05:20.040 --> 05:21.920
+ into the howling of wolves?
+
+05:21.920 --> 05:23.600
+ How do you deal with trolling?
+
+05:23.600 --> 05:24.920
+ Not like technical problems.
+
+05:24.920 --> 05:26.440
+ How do I get people to post paragraphs?
+
+05:26.440 --> 05:27.480
+ How do I get people to use bold?
+
+05:27.480 --> 05:29.480
+ How do I get people to use complete sentences,
+
+05:29.480 --> 05:30.840
+ although those are problems as well?
+
+05:30.840 --> 05:33.560
+ But how do I get people to get along with each other
+
+05:33.560 --> 05:36.120
+ and then solve whatever problem it is they set out to solve,
+
+05:36.120 --> 05:38.280
+ or reach some consensus on discussion,
+
+05:38.280 --> 05:39.920
+ or just not hurt each other even?
+
+05:39.920 --> 05:41.920
+ Maybe it's a discussion that doesn't really matter,
+
+05:41.920 --> 05:43.560
+ but are people yelling at each other?
+
+05:43.560 --> 05:44.400
+ And why?
+
+05:44.400 --> 05:46.720
+ Like that's not the purpose of this kind of communication.
+
+05:46.720 --> 05:51.720
+ So I would say leadership is about setting an example,
+
+05:52.960 --> 05:54.880
+ doing the things that represent what you want to be,
+
+05:54.880 --> 05:56.760
+ and making sure that you're actually doing those things.
+
+05:56.760 --> 05:58.120
+ And there's a trick to that too,
+
+05:58.120 --> 05:59.720
+ because the things you don't do
+
+05:59.720 --> 06:01.520
+ also say a lot about what you are.
+
+06:02.400 --> 06:03.960
+ Yeah, so let's pause on that one.
+
+06:03.960 --> 06:05.160
+ So those two things are fascinating.
+
+06:05.160 --> 06:08.080
+ So how do you have as a leader that self awareness?
+
+06:08.080 --> 06:10.200
+ So you just said it's really hard to be self aware.
+
+06:10.200 --> 06:12.880
+ So for you personally, or maybe for other leaders
+
+06:12.880 --> 06:14.160
+ you've seen or look up to,
+
+06:14.160 --> 06:18.600
+ how do you know both that the things you're doing
+
+06:18.600 --> 06:20.000
+ are the wrong things to be doing,
+
+06:20.000 --> 06:22.280
+ the way you speak to others, the way you behave,
+
+06:22.280 --> 06:23.600
+ and the things you're not doing?
+
+06:23.600 --> 06:24.440
+ How do you get that signal?
+
+06:24.440 --> 06:26.360
+ I think there's two aspects to that.
+
+06:26.360 --> 06:29.400
+ One is like processing feedback that you're getting, so.
+
+06:29.400 --> 06:30.240
+ How do you get feedback?
+
+06:30.240 --> 06:32.280
+ Well, right, so are you getting feedback, right?
+
+06:32.280 --> 06:33.640
+ So one way we do it, for example, with discourse,
+
+06:33.640 --> 06:34.800
+ we have three cofounders,
+
+06:34.800 --> 06:37.280
+ and we periodically talk about decisions
+
+06:37.280 --> 06:38.120
+ before we make them.
+
+06:38.120 --> 06:40.720
+ So it's not like one person can make a mistake,
+
+06:40.720 --> 06:43.160
+ or like, wow, there can be misunderstandings, things like that.
+
+06:43.160 --> 06:45.520
+ So it's part of like group consensus of leadership
+
+06:45.520 --> 06:47.000
+ is like it's good to have,
+
+06:47.000 --> 06:49.320
+ I think systems where there's one leader,
+
+06:49.320 --> 06:50.920
+ and that leader has the rule of absolute law
+
+06:50.920 --> 06:53.480
+ are just really dangerous in my experience.
+
+06:53.480 --> 06:54.560
+ For communities, for example,
+
+06:54.560 --> 06:56.120
+ like if you have a community that's run by one person,
+
+06:56.120 --> 06:57.480
+ that one person makes all the decisions,
+
+06:57.480 --> 06:59.320
+ that person's gonna have a bad day.
+
+06:59.320 --> 07:02.480
+ Something could happen to that person, something,
+
+07:02.480 --> 07:03.320
+ there's a lot of variables.
+
+07:03.320 --> 07:05.240
+ So like first, when you think about leadership,
+
+07:05.240 --> 07:07.000
+ have multiple people doing leadership
+
+07:07.000 --> 07:08.880
+ and have them talk amongst each other.
+
+07:08.880 --> 07:11.320
+ So giving each other feedback about the decisions
+
+07:11.320 --> 07:12.160
+ that they're making.
+
+07:12.160 --> 07:13.640
+ And then when you do get feedback,
+
+07:13.640 --> 07:16.240
+ I think there's that little voice in your head, right?
+
+07:16.240 --> 07:19.040
+ Or your gut or wherever you wanna put it in your body.
+
+07:19.040 --> 07:22.320
+ I think that voice is really important.
+
+07:22.320 --> 07:25.120
+ Like I think most people who have any kind of moral compass
+
+07:25.120 --> 07:25.960
+ or like want to do,
+
+07:25.960 --> 07:27.280
+ most people want to do the right thing.
+
+07:27.280 --> 07:28.360
+ I do believe that.
+
+07:28.360 --> 07:30.640
+ I mean, there might be a handful of sociopaths
+
+07:30.640 --> 07:32.520
+ out there that don't, but most people,
+
+07:32.520 --> 07:34.640
+ they want other people to think of them as a good person.
+
+07:34.640 --> 07:35.560
+ And why wouldn't you, right?
+
+07:35.560 --> 07:36.800
+ Like, do you want people to despise you?
+
+07:36.800 --> 07:38.040
+ I mean, that's just weird, right?
+
+07:38.040 --> 07:39.160
+ So you have that little voice
+
+07:39.160 --> 07:40.960
+ that sort of the angel and devil on your shoulder
+
+07:40.960 --> 07:43.000
+ sort of talking to you about like what you're doing,
+
+07:43.000 --> 07:44.520
+ how you're doing, how does it make you feel
+
+07:44.520 --> 07:46.240
+ to make these decisions, right?
+
+07:46.240 --> 07:49.200
+ And I think having some attunement to that voice
+
+07:49.200 --> 07:50.160
+ is important.
+
+07:50.160 --> 07:52.280
+ But you said that voice also for,
+
+07:52.280 --> 07:55.080
+ I think this is a programmer situation too,
+
+07:55.080 --> 07:57.080
+ where sometimes the devil on the shoulder
+
+07:57.080 --> 07:59.680
+ is a little too loud.
+
+07:59.680 --> 08:02.000
+ So you're a little too self critical
+
+08:02.000 --> 08:03.320
+ for a lot of developers,
+
+08:03.320 --> 08:05.520
+ and especially when you have introverted personality.
+
+08:05.520 --> 08:07.520
+ How do you struggle with a self criticism
+
+08:07.520 --> 08:09.720
+ or the criticism of others?
+
+08:09.720 --> 08:11.720
+ So one of the things of leadership
+
+08:11.720 --> 08:14.360
+ is to do something that's potentially unpopular
+
+08:14.360 --> 08:15.720
+ or where people doubt you
+
+08:15.720 --> 08:18.200
+ and you still go through with the decision.
+
+08:18.200 --> 08:21.040
+ So what's that balance like?
+
+08:21.040 --> 08:22.080
+ I think you have to walk people
+
+08:22.080 --> 08:23.160
+ through your decision making, right?
+
+08:23.160 --> 08:24.360
+ Like you have to, this is where blogging
+
+08:24.360 --> 08:26.000
+ is really important and communication is so important.
+
+08:26.000 --> 08:27.800
+ Again, code language is just another kind of code.
+
+08:27.800 --> 08:29.600
+ It's like, here is the program
+
+08:29.600 --> 08:31.640
+ by which I arrived at the conclusion
+
+08:31.640 --> 08:33.200
+ that I'm gonna reach, right?
+
+08:33.200 --> 08:34.040
+ It's one thing to say like,
+
+08:34.040 --> 08:36.680
+ this is a decision, it's final, deal with it, right?
+
+08:36.680 --> 08:38.720
+ That's not usually satisfying to people.
+
+08:38.720 --> 08:39.920
+ But if you say, look,
+
+08:39.920 --> 08:41.240
+ we've been thinking about this problem for a while.
+
+08:41.240 --> 08:42.480
+ Here's some stuff that's happened.
+
+08:42.480 --> 08:43.880
+ Here's what we think is right.
+
+08:43.880 --> 08:44.800
+ Here's our goals.
+
+08:44.800 --> 08:45.840
+ Here's what we wanna achieve.
+
+08:45.840 --> 08:47.760
+ And we've looked at these options
+
+08:47.760 --> 08:50.440
+ and we think this available options is the best option.
+
+08:50.440 --> 08:52.000
+ People will be like, oh, okay, right?
+
+08:52.000 --> 08:52.960
+ Maybe I don't totally agree with you,
+
+08:52.960 --> 08:54.240
+ but I can kind of see where you're coming from
+
+08:54.240 --> 08:56.760
+ and I see it's not just arbitrary decision
+
+08:56.760 --> 09:00.160
+ delivered from a cloud of flames in the sky, right?
+
+09:00.160 --> 09:02.280
+ It's like a human trying to reach
+
+09:02.280 --> 09:04.240
+ some kind of consensus about goals.
+
+09:04.240 --> 09:05.640
+ And their goals might be different than yours.
+
+09:05.640 --> 09:06.680
+ That's completely legit, right?
+
+09:06.680 --> 09:08.760
+ But if you're making that clear, it's like,
+
+09:08.760 --> 09:09.880
+ oh, well, the reason we don't agree
+
+09:09.880 --> 09:11.600
+ is because we have totally different goals, right?
+
+09:11.600 --> 09:12.840
+ Like, how could we agree?
+
+09:12.840 --> 09:14.040
+ It's not that you're a bad person.
+
+09:14.040 --> 09:16.640
+ It's that we have radically different goals in mind
+
+09:16.640 --> 09:18.040
+ when we started looking at this problem.
+
+09:18.040 --> 09:19.640
+ And the other one you said is passion.
+
+09:19.640 --> 09:22.280
+ So, or hard work, sorry.
+
+09:22.280 --> 09:24.040
+ Well, those are tied together in my mind.
+
+09:24.040 --> 09:24.960
+ Let's say hard work and passion.
+
+09:24.960 --> 09:26.680
+ Like for me, like I just really love
+
+09:26.680 --> 09:28.280
+ the problem discourse is setting out to solve
+
+09:28.280 --> 09:30.520
+ because in a way it's like,
+
+09:30.520 --> 09:32.080
+ there's a vision of the world
+
+09:32.080 --> 09:33.600
+ where it all devolves into Facebook
+
+09:33.600 --> 09:35.920
+ basically owning everything and every aspect
+
+09:35.920 --> 09:37.000
+ of human communication, right?
+
+09:37.000 --> 09:39.880
+ And this has always been kind of a scary world for me.
+
+09:39.880 --> 09:40.800
+ First, cause I don't,
+
+09:40.800 --> 09:42.360
+ I think Facebook is really good at execution.
+
+09:42.360 --> 09:43.200
+ I got to compliment them.
+
+09:43.200 --> 09:45.360
+ They're very competent in terms of what they're doing,
+
+09:45.360 --> 09:48.120
+ but Facebook has not much of a moral compass
+
+09:48.120 --> 09:50.960
+ in terms of Facebook cares about Facebook, really.
+
+09:50.960 --> 09:53.480
+ They don't really care about you and your problems.
+
+09:53.480 --> 09:56.120
+ What they care about is how big they can make Facebook,
+
+09:56.120 --> 09:56.960
+ right?
+
+09:56.960 --> 09:57.800
+ Is that you talking about the company
+
+09:57.800 --> 09:59.880
+ or just the mechanism of how Facebook works?
+
+09:59.880 --> 10:01.000
+ Kind of both really, right?
+
+10:01.000 --> 10:02.680
+ Like, and the idea with discourse,
+
+10:02.680 --> 10:03.840
+ the reason I'm so passionate about it
+
+10:03.840 --> 10:05.320
+ is cause I believe every community
+
+10:05.320 --> 10:07.000
+ should have the right to own themselves, right?
+
+10:07.000 --> 10:09.560
+ Like they should have their own software that they can run
+
+10:09.560 --> 10:10.960
+ that belongs to them.
+
+10:10.960 --> 10:12.840
+ That's their space where they can set the rules.
+
+10:12.840 --> 10:13.680
+ And if they don't like it,
+
+10:13.680 --> 10:15.320
+ they can move to different hosting or,
+
+10:15.320 --> 10:18.040
+ you know, whatever they need to happen can happen.
+
+10:18.040 --> 10:20.560
+ But like this idea of a company town
+
+10:20.560 --> 10:22.640
+ where all human communication is implicitly owned
+
+10:22.640 --> 10:25.240
+ by WhatsApp, Instagram, and Facebook.
+
+10:25.240 --> 10:26.160
+ And it's really disturbing too,
+
+10:26.160 --> 10:27.720
+ cause Facebook is really smart.
+
+10:27.720 --> 10:28.880
+ Like I said, they're great at execution.
+
+10:28.880 --> 10:30.600
+ Buying in WhatsApp and buying Instagram
+
+10:30.600 --> 10:33.160
+ were incredibly smart decisions.
+
+10:33.160 --> 10:34.720
+ And they also do this thing, I don't know if you know,
+
+10:34.720 --> 10:36.240
+ but they have this VPN software
+
+10:36.240 --> 10:38.760
+ that they give away for free on smartphones
+
+10:38.760 --> 10:40.960
+ and it indirectly feeds all the data
+
+10:40.960 --> 10:42.760
+ about the traffic back to Facebook.
+
+10:42.760 --> 10:44.560
+ So they can see what's actually getting popular
+
+10:44.560 --> 10:45.880
+ through the VPNs, right?
+
+10:45.880 --> 10:48.320
+ They have low level access to the network data
+
+10:48.320 --> 10:50.360
+ because users have let them have that.
+
+10:50.360 --> 10:51.360
+ So.
+
+10:51.360 --> 10:54.040
+ So let's take a small pause here.
+
+10:54.040 --> 10:55.280
+ First of all, discourse.
+
+10:55.280 --> 10:59.000
+ Can you talk about, can you lay out the land
+
+10:59.000 --> 11:01.800
+ of all the different ways you can have communities?
+
+11:01.800 --> 11:03.760
+ So there's Stack Overflow that you've built.
+
+11:03.760 --> 11:05.200
+ There's discourse.
+
+11:05.200 --> 11:07.200
+ So Stack Overflow is kind of like a Wiki,
+
+11:07.200 --> 11:09.120
+ Wikipedia you talk about.
+
+11:09.120 --> 11:11.880
+ And it's a very specific scalpel, very focused.
+
+11:11.880 --> 11:13.440
+ So what is the purpose of discourse
+
+11:13.440 --> 11:16.000
+ and maybe contrast that with Facebook?
+
+11:16.000 --> 11:17.960
+ First of all, say, what is discourse?
+
+11:17.960 --> 11:18.800
+ Yeah.
+
+11:18.800 --> 11:19.640
+ Start from the beginning.
+
+11:19.640 --> 11:20.480
+ Well, let me start from the very beginning.
+
+11:20.480 --> 11:21.920
+ So Stack Overflow is a very structured
+
+11:21.920 --> 11:24.600
+ Wiki style Q and A for programmers, right?
+
+11:24.600 --> 11:26.680
+ And that was the problem we first worked on.
+
+11:26.680 --> 11:28.840
+ And when we started, we thought it was discussions
+
+11:28.840 --> 11:30.760
+ because we looked at like programming forums
+
+11:30.760 --> 11:32.640
+ and other things, but we quickly realized
+
+11:32.640 --> 11:35.400
+ we were doing Q and A, which is a very narrow subset
+
+11:35.400 --> 11:36.880
+ of human communication, right?
+
+11:36.880 --> 11:38.760
+ Sorry, so when you started Stack Overflow,
+
+11:38.760 --> 11:41.760
+ you thought you didn't even know the Q and A.
+
+11:41.760 --> 11:42.600
+ Not really.
+
+11:42.600 --> 11:43.440
+ You didn't know it would be Q and A.
+
+11:43.440 --> 11:44.280
+ Well, we didn't know.
+
+11:44.280 --> 11:45.720
+ We had an idea of like, okay, these are things
+
+11:45.720 --> 11:46.840
+ that we see working online.
+
+11:46.840 --> 11:47.680
+ We had a goal, right?
+
+11:47.680 --> 11:50.960
+ Our goal was there was this site, Experts Exchange,
+
+11:50.960 --> 11:52.560
+ with a very unfortunate name.
+
+11:52.560 --> 11:53.800
+ Thank you for killing that site.
+
+11:53.800 --> 11:54.680
+ Yeah, I know, right?
+
+11:54.680 --> 11:56.400
+ Like a lot of people don't remember it anymore,
+
+11:56.400 --> 11:57.240
+ which is great.
+
+11:57.240 --> 11:58.080
+ Like that's the measure of success
+
+11:58.080 --> 11:59.280
+ when people don't remember the thing
+
+11:59.280 --> 12:02.600
+ that you were trying to replace, then you've totally won.
+
+12:02.600 --> 12:05.600
+ So it was a place to get answers to programming questions,
+
+12:05.600 --> 12:07.440
+ but it wasn't clear if it was like focused Q and A,
+
+12:07.440 --> 12:08.760
+ if it was a discussion.
+
+12:08.760 --> 12:10.320
+ There were plenty of programming forums.
+
+12:10.320 --> 12:11.320
+ So we weren't really sure.
+
+12:11.320 --> 12:13.440
+ We were like, okay, we'll take aspects of dig and Reddit,
+
+12:13.440 --> 12:15.720
+ like voting were very important.
+
+12:15.720 --> 12:17.400
+ Reordering answers based on votes.
+
+12:17.400 --> 12:19.560
+ Wiki style stuff of like being able to edit posts,
+
+12:19.560 --> 12:21.240
+ not just your posts, but other people's posts
+
+12:21.240 --> 12:23.840
+ to make them better and keep them more up to date.
+
+12:23.840 --> 12:26.160
+ Ownership of blogging of like, okay, this is me.
+
+12:26.160 --> 12:29.800
+ I'm saying this in my voice, this is the stuff that I know.
+
+12:29.800 --> 12:33.360
+ And your reputation accrues to you
+
+12:33.360 --> 12:34.880
+ and it's peer recognition.
+
+12:34.880 --> 12:37.040
+ So you asked earlier, like what motivates programmers?
+
+12:37.040 --> 12:40.040
+ I think peer recognition motivates them a lot.
+
+12:40.040 --> 12:41.840
+ That was one of the key insights of Stack Overflow
+
+12:41.840 --> 12:44.960
+ was like recognition from your peers is why things get done.
+
+12:44.960 --> 12:46.400
+ Not necessarily money, not necessarily your boss,
+
+12:46.400 --> 12:47.840
+ but like your peers saying, wow,
+
+12:47.840 --> 12:50.360
+ this person really knows their stuff, has a lot of value.
+
+12:50.360 --> 12:53.280
+ So the reputation system came from that.
+
+12:53.280 --> 12:56.320
+ So we were sort of Frankensteining a bunch of stuff together
+
+12:56.320 --> 12:58.680
+ in Stack Overflow, like stuff we had seen working
+
+12:58.680 --> 13:03.680
+ and we knew worked and that became Stack Overflow.
+
+13:04.400 --> 13:06.520
+ Over time, we realized it wasn't really discussion.
+
+13:06.520 --> 13:08.760
+ It was very focused questions and answers.
+
+13:08.760 --> 13:10.040
+ There wasn't a lot of room on the page
+
+13:10.040 --> 13:12.520
+ for let me talk about this tangential thing.
+
+13:12.520 --> 13:14.760
+ It was more like, okay, is it answering the question?
+
+13:14.760 --> 13:16.160
+ Is it clarifying the question?
+
+13:16.160 --> 13:18.720
+ Or could it be an alternative answer to the same question?
+
+13:18.720 --> 13:20.560
+ Because there's usually more than one way to do it
+
+13:20.560 --> 13:22.640
+ in programming, there's like say five to 10 ways.
+
+13:22.640 --> 13:24.400
+ And one of the patterns we got into early on
+
+13:24.400 --> 13:26.440
+ with Stack Overflow was there were questions
+
+13:26.440 --> 13:28.440
+ where there would be like hundreds of answers.
+
+13:28.440 --> 13:31.800
+ And we're like, wow, how can there be a programming question
+
+13:31.800 --> 13:34.720
+ with 500, 200, 500 answers?
+
+13:34.720 --> 13:36.160
+ And we looked at those and we realized
+
+13:36.160 --> 13:38.840
+ those were not really questions in the traditional sense.
+
+13:38.840 --> 13:39.800
+ They were discussions.
+
+13:39.800 --> 13:42.280
+ It was stuff that we allowed early on
+
+13:42.280 --> 13:44.640
+ that we eventually decided wasn't allowed such as
+
+13:44.640 --> 13:46.760
+ what's your favorite programming food?
+
+13:46.760 --> 13:49.560
+ What's the funniest programming cartoon you've seen?
+
+13:49.560 --> 13:51.320
+ And we had to sort of backfill a bunch of rules
+
+13:51.320 --> 13:53.080
+ about like, why isn't this allowed?
+
+13:53.080 --> 13:55.160
+ Such as, is this a real problem you're facing?
+
+13:55.160 --> 13:57.200
+ Like nobody goes to work and says, wow, I can't work
+
+13:57.200 --> 13:59.080
+ cause I don't know what the funniest programming cartoon is.
+
+13:59.080 --> 14:02.040
+ So sorry, can't compile this code now, right?
+
+14:02.040 --> 14:04.600
+ It's not a real problem you're facing in your job.
+
+14:04.600 --> 14:05.440
+ So that was run rule.
+
+14:05.440 --> 14:07.320
+ And the second, like, what can you really learn from that?
+
+14:07.320 --> 14:08.760
+ It's like what I call accidental learning
+
+14:08.760 --> 14:10.200
+ or Reddit style learning.
+
+14:10.200 --> 14:11.640
+ Where you're just like, oh, I'll just browse some things
+
+14:11.640 --> 14:13.360
+ and oh, wow, you know, did you know
+
+14:13.360 --> 14:14.960
+ tree frogs only live three years?
+
+14:14.960 --> 14:16.000
+ I mean, I just made that up.
+
+14:16.000 --> 14:16.920
+ I don't know if that's true.
+
+14:16.920 --> 14:18.920
+ But I didn't really set out to learn that.
+
+14:18.920 --> 14:20.280
+ I don't need to know that, right?
+
+14:20.280 --> 14:21.760
+ It's accidental learning.
+
+14:21.760 --> 14:23.840
+ It was more intentional learning where you're like,
+
+14:23.840 --> 14:24.660
+ okay, I have a problem.
+
+14:24.660 --> 14:25.500
+ And I want to learn about stuff
+
+14:25.500 --> 14:27.160
+ around this problem having, right?
+
+14:27.160 --> 14:29.160
+ And it could be theory, it could be compiler theory,
+
+14:29.160 --> 14:31.840
+ it could be other stuff, but I'm having a compiler problem.
+
+14:31.840 --> 14:34.320
+ Hence, I need to know the compiler theory,
+
+14:34.320 --> 14:38.160
+ that aspect of it that gets me to my answer, right?
+
+14:38.160 --> 14:39.400
+ So kind of a directed learning.
+
+14:39.400 --> 14:40.960
+ So we had to backfill all these rules
+
+14:40.960 --> 14:43.680
+ as we sort of figured out what the heck it was we were doing.
+
+14:43.680 --> 14:45.420
+ And the system came very strict over time.
+
+14:45.420 --> 14:46.880
+ And a lot of people still complain about that.
+
+14:46.880 --> 14:49.040
+ And I wrote my latest blog entry,
+
+14:49.040 --> 14:52.360
+ what does Stack Overflow want to be when it grows up?
+
+14:52.360 --> 14:54.200
+ Celebrating the 10 year anniversary, yeah.
+
+14:54.200 --> 14:55.240
+ Yeah, so 10 years.
+
+14:55.240 --> 14:57.680
+ And the system has trended towards strictness.
+
+14:57.680 --> 14:58.900
+ There's a variety of reasons for this.
+
+14:58.900 --> 15:01.320
+ One is people don't like to see other people
+
+15:01.320 --> 15:03.960
+ get reputation for stuff as they view as frivolous,
+
+15:03.960 --> 15:05.080
+ which I can actually understand.
+
+15:05.080 --> 15:07.880
+ Because if you saw a programmer got like 500 upvotes
+
+15:07.880 --> 15:10.360
+ for funniest programming cartoon
+
+15:10.360 --> 15:11.800
+ or funniest comment they had seen in code,
+
+15:11.800 --> 15:13.820
+ it's like, well, why do they have that reputation?
+
+15:13.820 --> 15:15.040
+ Is it because they wrote the joke?
+
+15:15.040 --> 15:15.880
+ Probably not.
+
+15:15.880 --> 15:18.240
+ I mean, if they did, maybe, or the cartoon, right?
+
+15:18.240 --> 15:19.440
+ They're getting a bunch of reputation
+
+15:19.440 --> 15:22.640
+ based on someone else's work that's not even programming.
+
+15:22.640 --> 15:23.600
+ It's just a joke, right?
+
+15:23.600 --> 15:24.800
+ It's related to programming.
+
+15:24.800 --> 15:26.440
+ So you begin to resent that.
+
+15:26.440 --> 15:27.520
+ You're like, well, that's not fair.
+
+15:27.520 --> 15:28.000
+ And it isn't.
+
+15:28.000 --> 15:29.080
+ At some level, they're correct.
+
+15:29.080 --> 15:30.000
+ I mean, I empathize.
+
+15:30.000 --> 15:32.200
+ Because it's not correct to get reputation for that.
+
+15:32.200 --> 15:36.040
+ Versus here's a really gnarly regular expression problem.
+
+15:36.040 --> 15:40.040
+ And here's a really clever, insightful, detailed answer
+
+15:40.040 --> 15:41.640
+ laying out, oh, here's why you're
+
+15:41.640 --> 15:42.560
+ seeing the behavior that you're seeing.
+
+15:42.560 --> 15:43.880
+ Here, let me teach you some things about how
+
+15:43.880 --> 15:44.920
+ to avoid that in the future.
+
+15:44.920 --> 15:45.680
+ That's great.
+
+15:45.680 --> 15:46.560
+ That's gold, right?
+
+15:46.560 --> 15:47.920
+ You want people to get reputation for that,
+
+15:47.920 --> 15:50.960
+ not so much for, wow, look at this funny thing I saw, right?
+
+15:50.960 --> 15:51.480
+ Great.
+
+15:51.480 --> 15:54.320
+ So there's this very specific Q&A format.
+
+15:54.320 --> 15:57.440
+ And then take me through the journey towards discourse
+
+15:57.440 --> 15:58.600
+ and Facebook and Twitter.
+
+15:58.600 --> 16:01.440
+ So you started at the beginning that Stack Overflow
+
+16:01.440 --> 16:02.960
+ evolved to have a purpose.
+
+16:02.960 --> 16:06.320
+ So what is discourse, this passion
+
+16:06.320 --> 16:10.800
+ you have for creating community for discussion?
+
+16:10.800 --> 16:12.160
+ When was that born and how?
+
+16:12.160 --> 16:13.560
+ Well, part of it is based on the realization
+
+16:13.560 --> 16:16.560
+ that Stack Overflow is only good for very specific subjects
+
+16:16.560 --> 16:19.680
+ where it's based on data, facts, and science,
+
+16:19.680 --> 16:22.480
+ where answers can be kind of verified to be true.
+
+16:22.480 --> 16:24.840
+ Another form of that is there's the book of knowledge,
+
+16:24.840 --> 16:28.440
+ like the tome of knowledge that defines whatever it is.
+
+16:28.440 --> 16:30.840
+ You can refer to that book and it'll give you the answer.
+
+16:30.840 --> 16:33.080
+ There has to be, it only works on subjects
+
+16:33.080 --> 16:35.320
+ where there's like semi clear answers to things
+
+16:35.320 --> 16:37.520
+ that can be verified in some form.
+
+16:37.520 --> 16:39.760
+ Now again, there's always more than one way to do it.
+
+16:39.760 --> 16:41.880
+ There's complete flexibility and system around that.
+
+16:41.880 --> 16:45.280
+ But where it falls down is stuff like poker and LEGO.
+
+16:45.280 --> 16:48.720
+ Like we had, if you go to stackexchange.com,
+
+16:48.720 --> 16:50.400
+ we have an engine that tries to launch
+
+16:50.400 --> 16:52.280
+ different Q&A topics, right?
+
+16:52.280 --> 16:56.960
+ And people can propose Q&A topics, sample questions,
+
+16:56.960 --> 16:59.040
+ and if it gets enough support within the network,
+
+16:59.040 --> 17:00.080
+ we launched that Q&A site.
+
+17:00.080 --> 17:02.280
+ So some of the ones we launched were poker and LEGO
+
+17:02.280 --> 17:03.360
+ and they did horribly, right?
+
+17:03.360 --> 17:06.200
+ Because I mean, they might still be there lingering on
+
+17:06.200 --> 17:07.800
+ in some form, but it was an experiment.
+
+17:07.800 --> 17:09.000
+ This is like a test, right?
+
+17:09.000 --> 17:11.680
+ And some subjects work super well on the stack engine
+
+17:11.680 --> 17:12.720
+ and some don't.
+
+17:12.720 --> 17:14.600
+ But the reason LEGO and poker don't work
+
+17:14.600 --> 17:16.040
+ is because they're so social, really.
+
+17:16.040 --> 17:19.080
+ It's not about what's the rule here in poker.
+
+17:19.080 --> 17:21.440
+ It's like, well, what kind of cigars
+
+17:21.440 --> 17:23.480
+ do we like to smoke while playing poker?
+
+17:23.480 --> 17:26.920
+ Or what's a cool set of cards to use when I'm playing poker?
+
+17:26.920 --> 17:28.680
+ Or what's some strategies?
+
+17:28.680 --> 17:30.760
+ Say I have this hand come up with some strategies
+
+17:30.760 --> 17:31.200
+ I could use.
+
+17:31.200 --> 17:34.200
+ It's more of a discussion around what's happening with LEGO.
+
+17:34.200 --> 17:36.000
+ Same thing, here's this cool LEGO set I found.
+
+17:36.000 --> 17:36.880
+ Look how awesome this is.
+
+17:36.880 --> 17:38.520
+ And I'm like, yeah, that's freaking awesome, right?
+
+17:38.520 --> 17:39.880
+ It's not a question, right?
+
+17:39.880 --> 17:41.960
+ There's all these social components and discussions
+
+17:41.960 --> 17:43.200
+ that don't fit at all.
+
+17:43.200 --> 17:45.280
+ We literally have to disallow those in Stack Overflow
+
+17:45.280 --> 17:46.780
+ because it's not about being social.
+
+17:46.780 --> 17:49.360
+ It's about problems that you're facing in your work
+
+17:49.360 --> 17:51.000
+ that you need concrete answers for.
+
+17:51.000 --> 17:52.880
+ You have a real demonstrated problem that's
+
+17:52.880 --> 17:54.040
+ blocking you in something.
+
+17:54.040 --> 17:56.200
+ Nobody's blocked by, what should I
+
+17:56.200 --> 17:58.200
+ do when I have a straight flush?
+
+17:58.200 --> 18:00.400
+ It's not a blocking problem in the world.
+
+18:00.400 --> 18:02.320
+ It's just an opportunity to hang out and discuss.
+
+18:02.320 --> 18:07.680
+ So discourse was a way to address that and say, look,
+
+18:07.680 --> 18:10.680
+ discussion forum software was very, very bad.
+
+18:10.680 --> 18:18.400
+ And when I came out of Stack Overflow in early 2012,
+
+18:18.400 --> 18:19.800
+ it was still very, very bad.
+
+18:19.800 --> 18:22.800
+ I expected it improved in the four years since I last looked,
+
+18:22.800 --> 18:24.160
+ but it had not improved at all.
+
+18:24.160 --> 18:26.000
+ And I was like, well, that's kind of terrible
+
+18:26.000 --> 18:29.880
+ because I love these communities of people talking about things
+
+18:29.880 --> 18:31.120
+ that they love.
+
+18:31.120 --> 18:32.920
+ They're just communities of interest, right?
+
+18:32.920 --> 18:35.320
+ And there's no good software for them.
+
+18:35.320 --> 18:37.360
+ Startups would come to me and say, hey, Jeff,
+
+18:37.360 --> 18:39.720
+ I want to have this startup.
+
+18:39.720 --> 18:40.880
+ Here's my idea.
+
+18:40.880 --> 18:42.460
+ And the first thing I would say to them
+
+18:42.460 --> 18:44.160
+ is, well, first, why are you asking me?
+
+18:44.160 --> 18:47.440
+ I don't really know your field necessarily.
+
+18:47.440 --> 18:49.120
+ Why aren't you asking the community,
+
+18:49.120 --> 18:51.240
+ the people that are interested in this problem,
+
+18:51.240 --> 18:52.440
+ the people that are using your product,
+
+18:52.440 --> 18:53.960
+ why aren't you talking to them?
+
+18:53.960 --> 18:55.320
+ And then they'd say, oh, great idea.
+
+18:55.320 --> 18:56.080
+ How do I do that?
+
+18:56.080 --> 18:58.080
+ And then that's when I started playing sad trombone
+
+18:58.080 --> 19:00.040
+ because I realized all the software involving
+
+19:00.040 --> 19:03.240
+ talking to your users, customers, audience, patrons,
+
+19:03.240 --> 19:04.880
+ whatever it is, it was all really bad.
+
+19:04.880 --> 19:06.640
+ It was stuff that I would be embarrassed
+
+19:06.640 --> 19:08.320
+ to recommend to other people.
+
+19:08.320 --> 19:10.800
+ And yet, that's where I felt they could get the biggest
+
+19:10.800 --> 19:12.760
+ and strongest, most effective input
+
+19:12.760 --> 19:15.560
+ for what they should be doing with their product, right?
+
+19:15.560 --> 19:17.480
+ It's from their users, from their community, right?
+
+19:17.480 --> 19:18.840
+ That's what we did on Stack Overflow.
+
+19:18.840 --> 19:21.320
+ So what we're talking about with forums,
+
+19:21.320 --> 19:25.440
+ the, what is it, the dark matter of the internet,
+
+19:25.440 --> 19:26.800
+ it's still, I don't know if it's still,
+
+19:26.800 --> 19:28.720
+ but for the longest time,
+
+19:28.720 --> 19:31.480
+ it has some of the most passionate
+
+19:31.480 --> 19:32.760
+ and fascinating discussions.
+
+19:32.760 --> 19:34.600
+ And what's the usual structure?
+
+19:34.600 --> 19:38.160
+ There's usually, it's linear, so it's sequential.
+
+19:38.160 --> 19:39.600
+ So you're posting one after the other
+
+19:39.600 --> 19:42.760
+ and there's pagination, so it's every,
+
+19:42.760 --> 19:45.000
+ there's 10 posts and then you go to the next page.
+
+19:45.000 --> 19:48.040
+ And that format still is used by,
+
+19:48.040 --> 19:50.040
+ like I'm, we're doing a lot of research
+
+19:50.040 --> 19:53.560
+ with Tesla vehicles and there's a Tesla Motors Club forum,
+
+19:53.560 --> 19:54.400
+ which is extremely.
+
+19:54.400 --> 19:56.240
+ We really wanted to run that actually.
+
+19:56.240 --> 19:57.680
+ They pinged us about it, I don't think we got it,
+
+19:57.680 --> 19:59.200
+ but I really would have liked to gotten that one.
+
+19:59.200 --> 20:02.560
+ But they've started before even 2012, I believe.
+
+20:02.560 --> 20:04.160
+ I mean, they've been running for a long time.
+
+20:04.160 --> 20:06.800
+ It's still an extremely rich source of information.
+
+20:06.800 --> 20:09.680
+ So what's broken about that system
+
+20:09.680 --> 20:12.120
+ and how are you trying to fix it?
+
+20:12.120 --> 20:15.840
+ I think there's a lot of power in connecting people
+
+20:15.840 --> 20:19.120
+ that love the same stuff around that specific topic.
+
+20:19.120 --> 20:22.120
+ Meaning Facebook's idea of connection is
+
+20:22.120 --> 20:24.520
+ just any human that's related to another human, right?
+
+20:24.520 --> 20:27.440
+ Like through friendship or any other reason.
+
+20:27.440 --> 20:28.720
+ Facebook's idea of the world
+
+20:28.720 --> 20:30.400
+ is sort of the status update, right?
+
+20:30.400 --> 20:32.440
+ Like a friend of yours did something,
+
+20:32.440 --> 20:34.960
+ ate at a restaurant, right?
+
+20:34.960 --> 20:37.200
+ Whereas discussion forums were traditionally
+
+20:37.200 --> 20:38.240
+ around the interest graph.
+
+20:38.240 --> 20:40.280
+ Like I love electric cars,
+
+20:40.280 --> 20:41.920
+ specifically I love Tesla, right?
+
+20:41.920 --> 20:44.240
+ Like I love the way they approach the problem.
+
+20:44.240 --> 20:45.840
+ I love the style of the founder.
+
+20:45.840 --> 20:48.120
+ I just love the design ethic.
+
+20:48.120 --> 20:49.200
+ And there's a lot to like about Tesla.
+
+20:49.200 --> 20:50.160
+ I don't know if you saw the oatmeal,
+
+20:50.160 --> 20:53.040
+ he did a whole love comic to Tesla.
+
+20:53.040 --> 20:53.880
+ And it was actually kind of cool
+
+20:53.880 --> 20:54.720
+ because I learned some stuff.
+
+20:54.720 --> 20:56.960
+ He was talking about how great Tesla cars were specifically,
+
+20:56.960 --> 20:58.280
+ like how they were built differently.
+
+20:58.280 --> 20:59.800
+ And he went into a lot of great detail
+
+20:59.800 --> 21:00.640
+ that was really interesting.
+
+21:00.640 --> 21:02.600
+ And to me, that oatmeal post, if you read it,
+
+21:02.600 --> 21:05.720
+ is the genesis of pretty much all interest communities.
+
+21:05.720 --> 21:06.960
+ I just really love this stuff.
+
+21:06.960 --> 21:08.400
+ So like for me, for example, there's yo yos, right?
+
+21:08.400 --> 21:09.680
+ Like I'm into the yo yo communities.
+
+21:09.680 --> 21:11.720
+ And these interest communities
+
+21:11.720 --> 21:12.920
+ are just really fascinating to me.
+
+21:12.920 --> 21:15.200
+ And I feel more connected to the yo yo communities
+
+21:15.200 --> 21:18.600
+ than I do to friends that I don't see that often, right?
+
+21:18.600 --> 21:21.720
+ Like to me, the powerful thing is the interest graph.
+
+21:21.720 --> 21:25.000
+ And Facebook kind of dabbles in the interest graph.
+
+21:25.000 --> 21:25.920
+ I mean, they have groups,
+
+21:25.920 --> 21:26.960
+ you can sign up for groups and stuff,
+
+21:26.960 --> 21:29.440
+ but it's really about the relationship graph.
+
+21:29.440 --> 21:32.080
+ Like this is my coworker, this is my relative,
+
+21:32.080 --> 21:35.280
+ this is my friend, but not so much about the interest.
+
+21:35.280 --> 21:36.920
+ So I think that's the linchpin
+
+21:36.920 --> 21:39.200
+ of which forums and communities are built on
+
+21:39.200 --> 21:40.320
+ that I personally love.
+
+21:40.320 --> 21:44.240
+ Like I said, leadership is about passion, right?
+
+21:44.240 --> 21:45.520
+ And being passionate about stuff
+
+21:45.520 --> 21:47.520
+ is a really valid way to look at the world.
+
+21:47.520 --> 21:50.560
+ And I think it's a way a lot of stuff in the world
+
+21:50.560 --> 21:51.400
+ gets done.
+
+21:51.400 --> 21:52.880
+ Like I once had someone describe me as,
+
+21:52.880 --> 21:54.640
+ he's like, Jeff, you're a guy who,
+
+21:54.640 --> 21:57.560
+ you just get super passionate about a few things at a time,
+
+21:57.560 --> 21:59.760
+ and you just go super deep in those things.
+
+21:59.760 --> 22:00.720
+ And I was like, oh, that's kind of right.
+
+22:00.720 --> 22:01.560
+ That's kind of what I do.
+
+22:01.560 --> 22:03.400
+ I get into something and just be super into that
+
+22:03.400 --> 22:04.560
+ for a couple of years or whatever,
+
+22:04.560 --> 22:05.960
+ and just learn all I can about it,
+
+22:05.960 --> 22:07.800
+ and go super deep in it.
+
+22:07.800 --> 22:11.000
+ And that's how I enjoy experiencing the world, right?
+
+22:11.000 --> 22:12.400
+ Like not being shallow on a bunch of things,
+
+22:12.400 --> 22:14.320
+ but being really deep on a few things
+
+22:14.320 --> 22:15.360
+ that I'm interested in.
+
+22:15.360 --> 22:17.200
+ So forums kind of unlock that, right?
+
+22:17.200 --> 22:18.920
+ And you don't want a world
+
+22:18.920 --> 22:20.920
+ where everything belongs to Facebook, at least I don't.
+
+22:20.920 --> 22:22.760
+ I want a world where communities can kind of own themselves,
+
+22:22.760 --> 22:25.120
+ set their own norms, set their own rules,
+
+22:25.120 --> 22:26.320
+ control the experience.
+
+22:26.320 --> 22:28.720
+ Because community is also about ownership, right?
+
+22:28.720 --> 22:32.160
+ Like if you're meeting at the Barnes and Noble every Thursday
+
+22:32.160 --> 22:33.440
+ and Barnes and Noble says, get out of here,
+
+22:33.440 --> 22:34.600
+ you guys don't buy enough books.
+
+22:34.600 --> 22:36.640
+ Well, you know, you're kind of hosed, right?
+
+22:36.640 --> 22:37.880
+ Barnes and Noble owns you, right?
+
+22:37.880 --> 22:38.880
+ Like you can't.
+
+22:38.880 --> 22:40.320
+ But if you have your own meeting space,
+
+22:40.320 --> 22:41.440
+ you know, your own clubhouse,
+
+22:41.440 --> 22:43.040
+ you can set your own rules,
+
+22:43.040 --> 22:44.560
+ decide what you want to talk about there,
+
+22:44.560 --> 22:47.800
+ and just really generate a lot better information
+
+22:47.800 --> 22:49.520
+ than you could like hanging out at Barnes and Noble
+
+22:49.520 --> 22:51.920
+ every Thursday at 3 p.m., right?
+
+22:51.920 --> 22:53.840
+ So that's kind of the vision of Discourse,
+
+22:53.840 --> 22:57.160
+ is a place where it's fully open source.
+
+22:57.160 --> 22:59.160
+ You can take the software, you can install it anywhere,
+
+22:59.160 --> 23:00.920
+ and, you know, you and a group of people
+
+23:00.920 --> 23:02.880
+ can go deep on whatever it is that you're into.
+
+23:02.880 --> 23:04.440
+ And this works for startups, right?
+
+23:04.440 --> 23:05.960
+ Startups are a group of people
+
+23:05.960 --> 23:08.440
+ who go super deep on a specific problem, right?
+
+23:08.440 --> 23:09.600
+ And they want to talk to the community.
+
+23:09.600 --> 23:11.040
+ It's like, well, install Discourse, right?
+
+23:11.040 --> 23:12.040
+ That's what we do at Discourse.
+
+23:12.040 --> 23:13.560
+ That's what I did at Stack Overflow.
+
+23:13.560 --> 23:15.520
+ I spent a lot of time on Meta Stack Overflow,
+
+23:15.520 --> 23:20.200
+ which is our internal, well, public community feedback site,
+
+23:20.200 --> 23:24.000
+ and just experiencing what the users were experiencing,
+
+23:24.000 --> 23:24.840
+ right, because they're the ones
+
+23:24.840 --> 23:26.080
+ doing all the work in the system.
+
+23:26.080 --> 23:27.600
+ And they had a lot of interesting feedback.
+
+23:27.600 --> 23:29.240
+ And there's that 90, 10 rule of, like,
+
+23:29.240 --> 23:31.640
+ 90% of the feedback you get is not really actionable
+
+23:31.640 --> 23:32.480
+ for a variety of reasons.
+
+23:32.480 --> 23:34.640
+ It might be bad feedback, it might be crazy feedback,
+
+23:34.640 --> 23:36.400
+ it might be feedback you just can't act on right now.
+
+23:36.400 --> 23:38.320
+ But there's 10% of it that's like gold.
+
+23:38.320 --> 23:39.760
+ It's like literally gold and diamonds,
+
+23:39.760 --> 23:42.440
+ where it's like feedback of really good improvements
+
+23:42.440 --> 23:44.800
+ to your core product that are not super hard to get to
+
+23:44.800 --> 23:45.800
+ and actually make a lot of sense.
+
+23:45.800 --> 23:47.800
+ And my favorite is about 5% of those stuff
+
+23:47.800 --> 23:48.680
+ I didn't even see coming.
+
+23:48.680 --> 23:50.480
+ It's like, oh my God, I never even thought of that.
+
+23:50.480 --> 23:52.560
+ But that's a brilliant idea, right?
+
+23:52.560 --> 23:54.560
+ And I can point to so many features of Stack Overflow
+
+23:54.560 --> 23:56.680
+ that we derive from Meta Stack Overflow feedback
+
+23:56.680 --> 23:58.000
+ and Meta discourse, right?
+
+23:58.000 --> 24:01.220
+ Same exact principle of discourse, you know?
+
+24:01.220 --> 24:02.060
+ We're getting ideas from the community.
+
+24:02.060 --> 24:03.440
+ I was like, oh my God, I never thought of that,
+
+24:03.440 --> 24:04.640
+ but that's fantastic, right?
+
+24:04.640 --> 24:06.920
+ Like, I love that relationship with the community.
+
+24:06.920 --> 24:08.680
+ From having built these communities,
+
+24:08.680 --> 24:11.080
+ what have you learned about?
+
+24:11.080 --> 24:13.320
+ What's the process of getting a critical mass of members
+
+24:13.320 --> 24:14.160
+ in a community?
+
+24:14.160 --> 24:17.000
+ Is it luck, skill, timing, persistence?
+
+24:17.000 --> 24:20.340
+ What is, is it the tools, like discourse,
+
+24:20.340 --> 24:21.840
+ that empower that community?
+
+24:21.840 --> 24:25.840
+ What's the key aspect of starting for one guy or gal
+
+24:25.840 --> 24:27.720
+ and then building it to two and then 10
+
+24:27.720 --> 24:29.960
+ and a hundred and a thousand and so on?
+
+24:29.960 --> 24:32.280
+ I think when you're starting with an N of one,
+
+24:32.280 --> 24:33.880
+ I mean, I think it's persistence
+
+24:33.880 --> 24:37.000
+ and also you have to be interesting.
+
+24:37.000 --> 24:39.040
+ Like somebody I really admire once said something
+
+24:39.040 --> 24:40.160
+ that I always liked about blogging.
+
+24:40.160 --> 24:41.800
+ He's like, here's how you blog.
+
+24:41.800 --> 24:44.400
+ You have to have something interesting to say
+
+24:44.400 --> 24:46.920
+ and have an interesting way of saying it, right?
+
+24:46.920 --> 24:48.960
+ And then do that for like 10 years.
+
+24:49.880 --> 24:50.920
+ So that's the genesis,
+
+24:50.920 --> 24:53.280
+ is like you have to have sort of something interesting
+
+24:53.280 --> 24:55.260
+ to say that's not exactly what everybody else is saying
+
+24:55.260 --> 24:56.360
+ and an interesting way of saying it,
+
+24:56.360 --> 24:57.260
+ which is another way of saying,
+
+24:57.260 --> 24:59.240
+ kind of entertaining way of saying it.
+
+24:59.240 --> 25:01.920
+ And then as far as growing it, it's like ritual.
+
+25:01.920 --> 25:04.240
+ You know, like you have to, like say you're starting a blog,
+
+25:04.240 --> 25:06.680
+ you have to say, look, I'm gonna blog every week,
+
+25:06.680 --> 25:07.960
+ three times a week,
+
+25:07.960 --> 25:09.940
+ and you have to stick to that schedule, right?
+
+25:09.940 --> 25:12.840
+ Because until you do that for like several years,
+
+25:12.840 --> 25:14.360
+ you're never gonna get anywhere.
+
+25:14.360 --> 25:16.680
+ Like it just takes years to get to where you need to get to.
+
+25:16.680 --> 25:18.680
+ And part of that is having the discipline
+
+25:18.680 --> 25:19.720
+ to stick with the schedule.
+
+25:19.720 --> 25:21.440
+ And it helps, again, if it's something you're passionate
+
+25:21.440 --> 25:22.720
+ about, this won't feel like work.
+
+25:22.720 --> 25:23.560
+ You're like, I love this.
+
+25:23.560 --> 25:25.640
+ I could talk about this all day, every day, right?
+
+25:26.840 --> 25:27.680
+ You just have to do it in a way
+
+25:27.680 --> 25:28.640
+ that's interesting to other people.
+
+25:28.640 --> 25:30.640
+ And then as you're growing the community,
+
+25:30.640 --> 25:32.480
+ that pattern of participation within the community
+
+25:32.480 --> 25:34.320
+ of like generating these artifacts
+
+25:34.320 --> 25:35.720
+ and inviting other people to help you
+
+25:35.720 --> 25:36.960
+ like collaborate on these artifacts,
+
+25:36.960 --> 25:38.280
+ like even in the case of blogging,
+
+25:38.280 --> 25:40.880
+ like I felt in the early days of my blog,
+
+25:40.880 --> 25:41.960
+ which I started in 2004,
+
+25:41.960 --> 25:43.760
+ which is really the genesis of Stack Overflow.
+
+25:43.760 --> 25:46.280
+ If you look at all my blog, it leads up to Stack Overflow,
+
+25:46.280 --> 25:48.440
+ which was, I have all this energy in my blog,
+
+25:48.440 --> 25:51.320
+ but I don't, like 40,000 people were subscribing to me.
+
+25:51.320 --> 25:52.440
+ And I was like, I wanna do something.
+
+25:52.440 --> 25:54.160
+ And then I met Joel and said, hey, Joel,
+
+25:54.160 --> 25:55.320
+ I wanna do something,
+
+25:55.320 --> 25:57.360
+ take this ball of energy from my blog and do something.
+
+25:57.360 --> 25:58.800
+ And all the people reading my blog saw that.
+
+25:58.800 --> 25:59.800
+ It's like, oh, cool.
+
+25:59.800 --> 26:00.640
+ You're involving us.
+
+26:00.640 --> 26:03.360
+ You're saying, look, you're part of this community.
+
+26:03.360 --> 26:04.560
+ Let's build this thing together.
+
+26:04.560 --> 26:05.520
+ Like they pick the name.
+
+26:05.520 --> 26:08.040
+ Like we voted on the name for Stack Overflow on my blog.
+
+26:08.040 --> 26:09.960
+ Like we came up, and naming is super hard.
+
+26:09.960 --> 26:12.240
+ First of all, the hardest problem in computer science
+
+26:12.240 --> 26:14.520
+ is coming up with a good name for stuff, right?
+
+26:14.520 --> 26:15.880
+ But you can go back to my blog.
+
+26:15.880 --> 26:17.640
+ There's the poll where we voted
+
+26:17.640 --> 26:19.240
+ and Stack Overflow became the name of the site.
+
+26:19.240 --> 26:21.160
+ And all the early beta users of Stack Overflow
+
+26:21.160 --> 26:24.600
+ were audience of my blog plus Joel's blog, right?
+
+26:24.600 --> 26:26.520
+ So we started from, like, if you look at the genesis,
+
+26:26.520 --> 26:28.160
+ okay, I was just a programmer who said,
+
+26:28.160 --> 26:29.680
+ hey, I love programming,
+
+26:29.680 --> 26:31.000
+ but I have no outlet to talk about it.
+
+26:31.000 --> 26:31.920
+ So I'm just gonna blog about it,
+
+26:31.920 --> 26:33.320
+ because I don't have enough people to work
+
+26:33.320 --> 26:34.360
+ to talk to about it.
+
+26:34.360 --> 26:36.440
+ Because at the time I worked a place where,
+
+26:36.440 --> 26:37.960
+ you know, programming wasn't the core output
+
+26:37.960 --> 26:40.840
+ of the company, it was a pharmaceutical company.
+
+26:40.840 --> 26:43.560
+ And I just love this stuff, you know, to an absurd degree.
+
+26:43.560 --> 26:44.960
+ So I was like, I'll just blog about it.
+
+26:44.960 --> 26:45.960
+ And then I'll find an audience
+
+26:45.960 --> 26:47.720
+ and eventually found an audience,
+
+26:47.720 --> 26:49.000
+ eventually found Joel,
+
+26:49.000 --> 26:50.480
+ and eventually built Stack Overflow
+
+26:50.480 --> 26:52.880
+ from that one core of activity, right?
+
+26:52.880 --> 26:55.880
+ But it was that repetition of feeding back in feedback
+
+26:55.880 --> 26:58.080
+ from my blog comments, feedback from Joel,
+
+26:58.080 --> 27:01.480
+ feedback from the early Stack Overflow community.
+
+27:01.480 --> 27:02.880
+ When people see that you're doing that,
+
+27:02.880 --> 27:04.160
+ they will follow along with you, right?
+
+27:04.160 --> 27:05.520
+ They'll say, cool, you're here in good faith.
+
+27:05.520 --> 27:07.280
+ You're actually, you know, not listening to everything
+
+27:07.280 --> 27:09.320
+ because that's impossible, that's impossible.
+
+27:09.320 --> 27:11.720
+ But you're actually, you know,
+
+27:11.720 --> 27:14.120
+ waiting our feedback and what you're doing.
+
+27:14.120 --> 27:14.960
+ And why wouldn't I?
+
+27:14.960 --> 27:16.720
+ Because who does all the work on Stack Overflow?
+
+27:16.720 --> 27:17.960
+ Me, Joel?
+
+27:17.960 --> 27:19.680
+ No, it's the other programmers
+
+27:19.680 --> 27:20.560
+ that are doing all the work.
+
+27:20.560 --> 27:22.400
+ So you gotta have some respect for that.
+
+27:22.400 --> 27:24.920
+ And then, you know, discipline around,
+
+27:24.920 --> 27:26.480
+ look, you know, we're trying to do a very specific thing
+
+27:26.480 --> 27:27.320
+ here on Stack Overflow.
+
+27:27.320 --> 27:29.160
+ We're not trying to solve all the world's problems.
+
+27:29.160 --> 27:31.000
+ We're trying to solve this very specific Q and A problem
+
+27:31.000 --> 27:32.400
+ in a very specific way.
+
+27:32.400 --> 27:33.640
+ Not cause we're jerks about it,
+
+27:33.640 --> 27:36.040
+ but because these strict set of rules
+
+27:36.040 --> 27:39.440
+ help us get really good results, right?
+
+27:39.440 --> 27:41.520
+ And programmers, that's an easy sell for the most part
+
+27:41.520 --> 27:42.600
+ because programmers are used to dealing
+
+27:42.600 --> 27:45.120
+ with ridiculous systems of rules like constantly.
+
+27:45.120 --> 27:46.840
+ That's basically their job.
+
+27:46.840 --> 27:49.520
+ So they're very, oh yeah, super strict system of rules
+
+27:49.520 --> 27:50.440
+ that lets me get what I want.
+
+27:50.440 --> 27:51.620
+ That's programming, right?
+
+27:51.620 --> 27:53.680
+ That's what Stack Overflow is, so.
+
+27:53.680 --> 27:54.920
+ So you're making it sound easy,
+
+27:54.920 --> 27:58.000
+ but in 2004, let's go back there.
+
+27:58.000 --> 28:01.520
+ In 2004, you started the blog, Coding Horror.
+
+28:01.520 --> 28:03.600
+ Was it called that at the very beginning?
+
+28:03.600 --> 28:04.440
+ It was.
+
+28:04.440 --> 28:05.280
+ One of the smart things I did,
+
+28:05.280 --> 28:06.720
+ it's from a book by Steve McConnell, Code Complete,
+
+28:06.720 --> 28:08.240
+ which is one of my favorite programming books,
+
+28:08.240 --> 28:09.800
+ still probably my number one programming book
+
+28:09.800 --> 28:10.800
+ for anyone to read.
+
+28:10.800 --> 28:13.840
+ So one of the smart things I did back then,
+
+28:13.840 --> 28:16.080
+ I don't always do smart things when I start stuff.
+
+28:16.080 --> 28:18.400
+ I contacted Steve and said, hey, I really like this.
+
+28:18.400 --> 28:19.640
+ It was a sidebar illustration
+
+28:19.640 --> 28:21.820
+ indicating danger in code, right?
+
+28:21.820 --> 28:23.880
+ Coding Horror was like, watch out.
+
+28:25.320 --> 28:27.360
+ And I love that illustration because it spoke to me.
+
+28:27.360 --> 28:29.520
+ Because I saw that illustration go, oh my God, that's me.
+
+28:29.520 --> 28:31.080
+ Like I'm always my own worst enemy.
+
+28:31.080 --> 28:33.360
+ Like that's the key insight in programming is
+
+28:33.360 --> 28:34.320
+ every time you write something,
+
+28:34.320 --> 28:36.600
+ think how am I gonna screw myself?
+
+28:36.600 --> 28:39.280
+ Because you will, constantly, right?
+
+28:39.280 --> 28:41.280
+ So that icon was like, oh yeah,
+
+28:41.280 --> 28:43.200
+ I need to constantly hold that mirror up and look,
+
+28:43.200 --> 28:45.440
+ and say, look, you're very fallible.
+
+28:45.440 --> 28:46.400
+ You're gonna screw this up.
+
+28:46.400 --> 28:48.040
+ Like how can you build this in such a way
+
+28:48.040 --> 28:50.380
+ that you're not gonna screw it up later?
+
+28:50.380 --> 28:53.040
+ Like how can you get that discipline around
+
+28:53.040 --> 28:54.920
+ making sure at every step I'm thinking through
+
+28:54.920 --> 28:56.200
+ all the things that I could do wrong
+
+28:56.200 --> 28:57.280
+ or that other people could do wrong?
+
+28:57.280 --> 28:58.920
+ Because that is actually how you get to be
+
+28:58.920 --> 29:00.600
+ a better programmer a lot of times, right?
+
+29:00.600 --> 29:03.400
+ So that sidebar illustration, I loved it so much.
+
+29:03.400 --> 29:05.640
+ And I wrote Steve before I started my blog and said,
+
+29:05.640 --> 29:06.800
+ hey, can I have permission to use this
+
+29:06.800 --> 29:08.460
+ because I just really like this illustration?
+
+29:08.460 --> 29:11.280
+ And Steve was kind enough to give me permission to do that
+
+29:11.280 --> 29:13.280
+ and just continues to give me permission, so yeah.
+
+29:13.280 --> 29:15.080
+ Really, that's awesome.
+
+29:15.080 --> 29:18.880
+ But in 2004, you started this blog.
+
+29:18.880 --> 29:22.600
+ You know, you look at Stephen King, his book on writing,
+
+29:22.600 --> 29:26.460
+ or Stephen Pressfield, War of Art book.
+
+29:26.460 --> 29:30.040
+ I mean, it seems like writers suffer.
+
+29:30.040 --> 29:32.080
+ I mean, it's a hard process of writing, right?
+
+29:32.080 --> 29:34.200
+ There's gonna be suffering.
+
+29:34.200 --> 29:35.200
+ I mean, I won't kid you.
+
+29:35.200 --> 29:36.400
+ Well, the work is suffering, right?
+
+29:36.400 --> 29:38.680
+ Like doing the work, like even when you're every week,
+
+29:38.680 --> 29:40.280
+ you're like, okay, that blog post wasn't very good
+
+29:40.280 --> 29:43.360
+ or people didn't like it or people said disparaging things
+
+29:43.360 --> 29:44.200
+ about it.
+
+29:44.200 --> 29:47.440
+ You have to like have the attitude like, you know,
+
+29:47.440 --> 29:49.480
+ no matter what happens, I wanna do this for me, right?
+
+29:49.480 --> 29:51.220
+ It's not about you, it's about me.
+
+29:51.220 --> 29:53.320
+ I mean, in the end, it is about everyone
+
+29:53.320 --> 29:55.840
+ because this is how good work gets out into the world.
+
+29:55.840 --> 29:59.780
+ But you have to be pretty strict about saying like,
+
+29:59.780 --> 30:01.640
+ you know, I'm selfish in the sense
+
+30:01.640 --> 30:03.260
+ that I have to do this for me.
+
+30:03.260 --> 30:04.360
+ You know, you mentioned Stephen King,
+
+30:04.360 --> 30:05.460
+ like his book on writing.
+
+30:05.460 --> 30:06.840
+ But like one of the things I do, for example,
+
+30:06.840 --> 30:08.680
+ when writing is like, I read it out loud.
+
+30:08.680 --> 30:10.640
+ One of the best pieces of advice for writing anything
+
+30:10.640 --> 30:13.880
+ is read it out loud, like multiple times
+
+30:13.880 --> 30:15.800
+ and make it sound like you're talking
+
+30:15.800 --> 30:17.840
+ because that is the goal of good writing.
+
+30:17.840 --> 30:19.200
+ It should sound like you said it
+
+30:19.200 --> 30:20.840
+ with slightly better phrasing
+
+30:20.840 --> 30:22.080
+ because you have more time to think about what you're saying
+
+30:22.080 --> 30:24.360
+ but like, it should sound natural when you say it.
+
+30:24.360 --> 30:26.560
+ And I think that's probably the single best
+
+30:26.560 --> 30:27.560
+ writing advice I can give anyone.
+
+30:27.560 --> 30:29.760
+ Just read it over and over out loud,
+
+30:29.760 --> 30:32.600
+ make sure it sounds like something you would normally say
+
+30:32.600 --> 30:33.680
+ and it sounds good.
+
+30:33.680 --> 30:35.600
+ And what's your process of writing?
+
+30:35.600 --> 30:37.800
+ See, there's usually a pretty good idea
+
+30:37.800 --> 30:39.360
+ behind the blog post.
+
+30:39.360 --> 30:40.200
+ So ideas, right.
+
+30:40.200 --> 30:43.300
+ So I think you gotta have the concept
+
+30:43.300 --> 30:46.180
+ that there's so many interesting things in the world.
+
+30:46.180 --> 30:48.800
+ Like, I mean, my God, the world is amazing, right?
+
+30:48.800 --> 30:51.960
+ Like you can never write about everything that's going on
+
+30:51.960 --> 30:52.800
+ because it's so incredible.
+
+30:52.800 --> 30:54.180
+ But if you can't come up with like,
+
+30:54.180 --> 30:57.100
+ let's say one interesting thing per day to talk about,
+
+30:57.100 --> 30:58.360
+ then you're not trying hard enough
+
+30:58.360 --> 31:00.720
+ because the world is full of just super interesting stuff.
+
+31:00.720 --> 31:03.120
+ And one great way to like mine stuff
+
+31:03.120 --> 31:04.240
+ is go back to old books
+
+31:04.240 --> 31:07.200
+ cause they bring up old stuff that's still super relevant.
+
+31:07.200 --> 31:08.160
+ And I did that a lot
+
+31:08.160 --> 31:09.880
+ cause I was like reading classic programming books
+
+31:09.880 --> 31:11.260
+ and a lot of the early blog posts were like,
+
+31:11.260 --> 31:12.280
+ oh, I was reading this programming book
+
+31:12.280 --> 31:13.760
+ and they brought this really cool concept
+
+31:13.760 --> 31:15.000
+ and I wanna talk about it some more.
+
+31:15.000 --> 31:16.080
+ And you get the, I mean,
+
+31:16.080 --> 31:17.280
+ you're not claiming credit for the idea
+
+31:17.280 --> 31:18.660
+ but it gives you something interesting to talk about
+
+31:18.660 --> 31:19.880
+ that's kind of evergreen, right?
+
+31:19.880 --> 31:21.960
+ Like you don't have to go, what should I talk about?
+
+31:21.960 --> 31:24.600
+ So we'll just go dig up some old classic programming books
+
+31:24.600 --> 31:26.980
+ and find something that, oh, wow, that's interesting.
+
+31:26.980 --> 31:28.160
+ Or how does that apply today?
+
+31:28.160 --> 31:30.960
+ Or what about X and Y or compare these two concepts.
+
+31:30.960 --> 31:33.200
+ So pull a couple of sentences from that book
+
+31:33.200 --> 31:34.720
+ and then sort of play off of it,
+
+31:34.720 --> 31:36.160
+ almost agree or disagree.
+
+31:36.160 --> 31:41.160
+ So in 2007, you wrote that you were offered
+
+31:41.880 --> 31:44.440
+ a significant amount of money to sell the blog.
+
+31:44.440 --> 31:45.960
+ You chose not to.
+
+31:45.960 --> 31:48.960
+ What were all the elements you were thinking about?
+
+31:48.960 --> 31:50.520
+ Cause I'd like to take you back.
+
+31:50.520 --> 31:52.520
+ It seems like there's a lot of nonlinear decisions
+
+31:52.520 --> 31:54.320
+ you made through life.
+
+31:54.320 --> 31:56.040
+ So what was that decision like?
+
+31:56.040 --> 31:57.840
+ Right, so one of the things I love
+
+31:57.840 --> 31:59.360
+ is the Choose Your Own Adventure books,
+
+31:59.360 --> 32:00.280
+ which I loved as a kid
+
+32:00.280 --> 32:01.720
+ and I feel like they're early programmer books
+
+32:01.720 --> 32:04.040
+ cause they're all about if then statements, right?
+
+32:04.040 --> 32:05.080
+ If this, then this.
+
+32:05.080 --> 32:07.240
+ And they're also very, very unforgiving.
+
+32:07.240 --> 32:08.920
+ Like there's all these sites that map
+
+32:08.920 --> 32:11.040
+ the classic Choose Your Own Adventure books
+
+32:11.040 --> 32:13.940
+ and how many outcomes are bad, a lot of bad outcomes.
+
+32:13.940 --> 32:16.080
+ So part of the game is like, oh, I got a bad outcome.
+
+32:16.080 --> 32:17.840
+ Go back one step, go back one further step.
+
+32:17.840 --> 32:19.160
+ It's like, how did I get here, right?
+
+32:19.160 --> 32:21.900
+ Like it's a sequence of decisions.
+
+32:21.900 --> 32:23.160
+ And this is true of life, right?
+
+32:23.160 --> 32:24.960
+ Like every decision is a sequence, right?
+
+32:24.960 --> 32:28.320
+ Individually, any individual decision
+
+32:28.320 --> 32:29.240
+ is not necessarily right or wrong,
+
+32:29.240 --> 32:31.040
+ but they lead you down a path, right?
+
+32:31.040 --> 32:32.760
+ So I do think there's some truth to that.
+
+32:32.760 --> 32:34.740
+ So this particular decision,
+
+32:34.740 --> 32:36.320
+ the blog had gotten fairly popular.
+
+32:36.320 --> 32:39.080
+ There's a lot of RSS readers that I had discovered.
+
+32:39.080 --> 32:40.980
+ And this guy contacted me out of the blue
+
+32:40.980 --> 32:42.440
+ from this like bug tracking company.
+
+32:42.440 --> 32:43.840
+ He's like, oh, I really wanna buy your blog
+
+32:43.840 --> 32:46.040
+ for like, I think it was around,
+
+32:46.040 --> 32:47.920
+ it was $100,000, it might have been like 80,000,
+
+32:47.920 --> 32:49.240
+ but it was a lot, right?
+
+32:49.240 --> 32:51.120
+ Like, and that's, you know, at the time,
+
+32:51.120 --> 32:54.420
+ like I would have a year's worth of salary all at once.
+
+32:54.420 --> 32:57.720
+ So I didn't really think about like, well, you know,
+
+32:57.720 --> 32:58.560
+ and I remember talking to people at the time,
+
+32:58.560 --> 32:59.840
+ I was like, wow, that's a lot of money.
+
+32:59.840 --> 33:02.000
+ But then I'm like, I really like my blog, right?
+
+33:02.000 --> 33:03.720
+ Like, do I wanna sell my blog?
+
+33:03.720 --> 33:05.940
+ Cause it wouldn't really belong to me anymore at that point.
+
+33:05.940 --> 33:09.360
+ And one of the guidelines that I like to,
+
+33:09.360 --> 33:11.040
+ I don't like to give advice to people a lot,
+
+33:11.040 --> 33:12.520
+ but one of the pieces of advice I do give,
+
+33:12.520 --> 33:15.560
+ cause I do think it's really true and it's generally helpful
+
+33:15.560 --> 33:17.600
+ is whenever you're looking at a set of decisions,
+
+33:17.600 --> 33:19.860
+ like, oh gosh, should I do A, B or C,
+
+33:19.860 --> 33:22.500
+ you gotta pick the thing that's a little scarier
+
+33:22.500 --> 33:24.540
+ in that list because not, you know,
+
+33:24.540 --> 33:25.680
+ not like jump off a cliff scary,
+
+33:25.680 --> 33:27.000
+ but the thing that makes you nervous.
+
+33:27.000 --> 33:29.000
+ Cause if you pick the safe choice,
+
+33:29.000 --> 33:30.380
+ it's usually, you're not really pushing.
+
+33:30.380 --> 33:31.400
+ You're not pushing yourself.
+
+33:31.400 --> 33:33.940
+ You're not choosing the thing that's gonna help you grow.
+
+33:33.940 --> 33:36.160
+ So for me, the scarier choice was to say no.
+
+33:36.160 --> 33:38.040
+ I was like, well, no, let's just see where this is going.
+
+33:38.040 --> 33:38.880
+ Right?
+
+33:38.880 --> 33:39.700
+ Because then I own it.
+
+33:39.700 --> 33:40.540
+ I mean, it belongs to me.
+
+33:40.540 --> 33:42.000
+ It's my thing.
+
+33:42.000 --> 33:43.120
+ And I can just take it
+
+33:43.120 --> 33:45.360
+ and tell some other logical conclusion, right?
+
+33:45.360 --> 33:46.880
+ Because imagine how different the world would have been
+
+33:46.880 --> 33:49.040
+ had I said yes and sold the blog.
+
+33:49.040 --> 33:51.560
+ It's like, there probably wouldn't be Stack Overflow.
+
+33:51.560 --> 33:53.640
+ You know, a lot of other stuff would have changed.
+
+33:53.640 --> 33:55.360
+ So for that particular decision,
+
+33:55.360 --> 33:56.280
+ I think it was that same rule.
+
+33:56.280 --> 33:57.920
+ Like what scares me a little bit more.
+
+33:57.920 --> 33:59.200
+ Do the thing that scares you.
+
+33:59.200 --> 34:00.040
+ Yeah.
+
+34:00.040 --> 34:01.740
+ So speaking of which, startups.
+
+34:01.740 --> 34:05.000
+ I think there's a specific, some more general questions
+
+34:05.000 --> 34:07.560
+ that a lot of people would be interested in.
+
+34:07.560 --> 34:10.320
+ You've started Stack Overflow.
+
+34:10.320 --> 34:12.080
+ You started this course.
+
+34:12.080 --> 34:15.320
+ So what's the, it was one, two, three guys,
+
+34:15.320 --> 34:17.200
+ whatever it is in the beginning.
+
+34:17.200 --> 34:19.360
+ What was that process like?
+
+34:19.360 --> 34:20.680
+ Do you start talking about it?
+
+34:20.680 --> 34:21.800
+ Do you start programming?
+
+34:21.800 --> 34:24.560
+ Do you start, like, where's the birth
+
+34:24.560 --> 34:25.880
+ and the catalyst that actually.
+
+34:25.880 --> 34:27.040
+ Well, I can talk about it in the context
+
+34:27.040 --> 34:28.120
+ of both Stack Overflow and Discourse.
+
+34:28.120 --> 34:31.080
+ So I think the key thing initially is there is a problem.
+
+34:31.080 --> 34:32.440
+ Something, there's some state of the world
+
+34:32.440 --> 34:34.400
+ that's unsatisfactory to the point that, like,
+
+34:34.400 --> 34:35.960
+ you're upset about it, right?
+
+34:35.960 --> 34:37.840
+ Like, in that case, it was experts exchange.
+
+34:37.840 --> 34:38.960
+ I mean, Joel's original idea,
+
+34:38.960 --> 34:40.200
+ because I approached Joel as like,
+
+34:40.200 --> 34:41.760
+ look, Joel, I have all this energy behind my blog.
+
+34:41.760 --> 34:42.600
+ I want to do something.
+
+34:42.600 --> 34:43.440
+ I want to build something.
+
+34:43.440 --> 34:44.260
+ But I don't know what it is,
+
+34:44.260 --> 34:45.720
+ because I'm honestly not a good idea person.
+
+34:45.720 --> 34:46.560
+ I'm really not.
+
+34:46.560 --> 34:47.760
+ I'm like the execution guy.
+
+34:47.760 --> 34:48.680
+ I'm really good at execution,
+
+34:48.680 --> 34:51.000
+ but I'm not good at, like, blue skying ideas.
+
+34:51.000 --> 34:52.080
+ Not my forte.
+
+34:52.080 --> 34:54.080
+ Which is another reason why I like the community feedback,
+
+34:54.080 --> 34:56.320
+ because they blue sky all day long for you, right?
+
+34:56.320 --> 34:57.760
+ So when I can just go in and cherry pick
+
+34:57.760 --> 34:59.320
+ a blue sky idea from community,
+
+34:59.320 --> 35:00.800
+ even if I have to spend three hours reading
+
+35:00.800 --> 35:02.720
+ to get one good idea, it's worth it, man.
+
+35:02.720 --> 35:04.680
+ But anyway, so the idea from Joel was,
+
+35:04.680 --> 35:07.400
+ hey, experts exchange, it's got great data,
+
+35:07.400 --> 35:09.040
+ but the experience is hideous, right?
+
+35:09.040 --> 35:09.920
+ It's trying to trick you.
+
+35:09.920 --> 35:11.040
+ It feels like used car salesman.
+
+35:11.040 --> 35:12.040
+ It's just bad.
+
+35:12.040 --> 35:13.080
+ So I was like, oh, that's awesome.
+
+35:13.080 --> 35:14.280
+ It feeds into community.
+
+35:14.280 --> 35:15.120
+ It feeds into, like, you know,
+
+35:15.120 --> 35:16.680
+ we can make creative comments.
+
+35:16.680 --> 35:18.520
+ So I think the core is to have a really good idea
+
+35:18.520 --> 35:20.280
+ that you feel very strongly about in the beginning,
+
+35:20.280 --> 35:22.000
+ that, like, there's a wrong in the world,
+
+35:22.000 --> 35:24.240
+ an injustice that we will write
+
+35:24.240 --> 35:26.080
+ through the process of building this thing.
+
+35:26.080 --> 35:27.480
+ For Discourse, it was like, look,
+
+35:27.480 --> 35:30.160
+ there's no good software for communities
+
+35:30.160 --> 35:32.920
+ to just hang out and, like, do stuff, right?
+
+35:32.920 --> 35:35.440
+ Like, whether it's problem solving, startup, whatever.
+
+35:35.440 --> 35:37.600
+ Forums are such a great building block of online community,
+
+35:37.600 --> 35:38.560
+ and they're hideous.
+
+35:38.560 --> 35:39.720
+ They were so bad, right?
+
+35:39.720 --> 35:40.720
+ It was embarrassing.
+
+35:40.720 --> 35:42.000
+ Like, I literally was embarrassed
+
+35:42.000 --> 35:43.920
+ to be associated with this software, right?
+
+35:43.920 --> 35:45.680
+ I was like, we have to have software that you can be proud of.
+
+35:45.680 --> 35:47.080
+ It's like, this is competitive with Reddit.
+
+35:47.080 --> 35:48.320
+ This is competitive with Twitter.
+
+35:48.320 --> 35:50.320
+ This is competitive with Facebook, right?
+
+35:50.320 --> 35:53.440
+ I would be proud to have the software on my site.
+
+35:53.440 --> 35:54.840
+ So that was the genesis of Discourse,
+
+35:54.840 --> 35:59.840
+ was feeling very strongly about there needs to be
+
+35:59.840 --> 36:01.680
+ a good solution for communities.
+
+36:01.680 --> 36:02.640
+ So that's step one.
+
+36:02.640 --> 36:04.520
+ Genesis of an idea you feel super strongly about, right?
+
+36:04.520 --> 36:06.600
+ And then people galvanize around the idea.
+
+36:06.600 --> 36:08.480
+ Like, Joel was already super excited about the idea.
+
+36:08.480 --> 36:09.920
+ I was excited about the idea.
+
+36:09.920 --> 36:13.240
+ So with the forum software, I was posting on Twitter.
+
+36:13.240 --> 36:15.000
+ I had researched, as part of my research,
+
+36:15.000 --> 36:16.600
+ I start researching the problem, right?
+
+36:16.600 --> 36:19.480
+ And I found a game called Forum Wars,
+
+36:19.480 --> 36:21.480
+ which was a parody of forum.
+
+36:21.480 --> 36:23.680
+ It's still very, very funny, of forum behavior,
+
+36:23.680 --> 36:26.120
+ circa, I would say, 2003.
+
+36:26.120 --> 36:27.720
+ It's aged some, right?
+
+36:27.720 --> 36:29.880
+ Like, the behavior's a little different in there of Twitter.
+
+36:29.880 --> 36:30.920
+ But it was awesome.
+
+36:30.920 --> 36:31.920
+ It was very funny.
+
+36:31.920 --> 36:32.800
+ And it was like a game.
+
+36:32.800 --> 36:33.520
+ It was like an RPG.
+
+36:33.520 --> 36:34.960
+ And it had a forum attached to it.
+
+36:34.960 --> 36:37.520
+ So it was like a game about forums with a forum attached.
+
+36:37.520 --> 36:38.520
+ I was like, this is awesome, right?
+
+36:38.520 --> 36:39.520
+ This is so cool.
+
+36:39.520 --> 36:41.920
+ And the founder of that company, or that project,
+
+36:41.920 --> 36:43.720
+ it wasn't really a company, contacted me,
+
+36:43.720 --> 36:45.440
+ this guy Robin Ward from Toronto.
+
+36:45.440 --> 36:47.400
+ He said, hey, I saw you've been talking about forums.
+
+36:47.400 --> 36:49.120
+ And I really love that problem space.
+
+36:49.120 --> 36:51.280
+ He was like, I'd still love to build really good forum
+
+36:51.280 --> 36:53.440
+ software, because I don't think anything out there's any good.
+
+36:53.440 --> 36:54.200
+ And I was like, awesome.
+
+36:54.200 --> 36:55.880
+ At that point, I was like, we're starting a company.
+
+36:55.880 --> 36:58.600
+ Because I couldn't have whooshed for a better person
+
+36:58.600 --> 37:01.000
+ to walk through the door and say, I'm excited about this,
+
+37:01.000 --> 37:01.560
+ too.
+
+37:01.560 --> 37:02.360
+ Same thing with Joel, right?
+
+37:02.360 --> 37:04.000
+ I mean, Joel is a legend in the industry, right?
+
+37:04.000 --> 37:04.760
+ So when he walked through and said,
+
+37:04.760 --> 37:06.960
+ I'm excited about this problem, I was like, me too, man.
+
+37:06.960 --> 37:08.200
+ We can do this, right?
+
+37:08.200 --> 37:10.600
+ So that, to me, is the most important step.
+
+37:10.600 --> 37:12.840
+ It's like, having an idea you're super excited about,
+
+37:12.840 --> 37:14.640
+ and another person, a cofounder, right?
+
+37:14.640 --> 37:16.760
+ Because again, you get that dual leadership, right?
+
+37:16.760 --> 37:19.120
+ Am I making a bad decision?
+
+37:19.120 --> 37:21.500
+ Sometimes it's nice to have checks of like,
+
+37:21.500 --> 37:22.440
+ is this a good idea?
+
+37:22.440 --> 37:23.680
+ I don't know, right?
+
+37:23.680 --> 37:25.600
+ So those are the crucial seeds.
+
+37:25.600 --> 37:27.520
+ But then starting to build stuff,
+
+37:27.520 --> 37:28.360
+ whether it's you programming or somebody else's.
+
+37:28.360 --> 37:29.360
+ There is prototyping.
+
+37:29.360 --> 37:30.600
+ So there's tons of research.
+
+37:30.600 --> 37:32.880
+ There's tons of research, like, what's out there that failed?
+
+37:32.880 --> 37:34.360
+ Because a lot of people look at the successes.
+
+37:34.360 --> 37:36.080
+ Oh, look at how successful X is.
+
+37:36.080 --> 37:37.360
+ Everybody looks at the successes.
+
+37:37.360 --> 37:38.360
+ Those are boring.
+
+37:38.360 --> 37:40.860
+ Show me the failures, because that is what's interesting.
+
+37:40.860 --> 37:42.080
+ That's where people were experimenting.
+
+37:42.080 --> 37:43.960
+ That's where people were pushing.
+
+37:43.960 --> 37:45.560
+ And they failed, but they probably
+
+37:45.560 --> 37:47.480
+ failed for reasons that weren't directly
+
+37:47.480 --> 37:50.040
+ about the quality of their idea, right?
+
+37:50.040 --> 37:51.400
+ So look at all the failures.
+
+37:51.400 --> 37:53.200
+ Don't just look what everybody looks at, which is like, oh,
+
+37:53.200 --> 37:54.620
+ gosh, look at all these successful people.
+
+37:54.620 --> 37:55.920
+ Look at the failures.
+
+37:55.920 --> 37:57.240
+ Look at the things that didn't work.
+
+37:57.240 --> 37:59.040
+ Research the entire field.
+
+37:59.040 --> 38:01.440
+ And so that's the research that I was doing
+
+38:01.440 --> 38:02.720
+ that led me to Robin, right?
+
+38:02.720 --> 38:03.560
+ Was that.
+
+38:03.560 --> 38:07.520
+ And then when we, for example, when we did Stack Overflow,
+
+38:07.520 --> 38:08.960
+ we're like, okay, well, I really like elements
+
+38:08.960 --> 38:10.000
+ of voting and dig and read it.
+
+38:10.000 --> 38:12.760
+ I like the Wikipedia, everything's up to date.
+
+38:12.760 --> 38:14.280
+ Nothing is like an old tombstone
+
+38:14.280 --> 38:16.940
+ that has horrible out of date information.
+
+38:16.940 --> 38:17.780
+ We know that works.
+
+38:17.780 --> 38:19.360
+ Wikipedia is an amazing resource.
+
+38:19.360 --> 38:22.360
+ Blogging, the idea of ownership is so powerful, right?
+
+38:22.360 --> 38:23.960
+ Like, oh, I, Joe wrote this,
+
+38:23.960 --> 38:26.200
+ and look how good Joe's answer is, right?
+
+38:26.200 --> 38:27.720
+ All these concepts were rolling together.
+
+38:27.720 --> 38:29.040
+ Researching all the things that were out there
+
+38:29.040 --> 38:30.600
+ that were working and why they were working
+
+38:30.600 --> 38:32.360
+ and trying to fold them into, again,
+
+38:32.360 --> 38:35.280
+ that Frankenstein's monster of what Stack Overflow is.
+
+38:35.280 --> 38:37.040
+ And by the way, that wasn't a free decision
+
+38:37.040 --> 38:38.720
+ because there's still a ton of tension
+
+38:38.720 --> 38:40.000
+ in the Stack Overflow system.
+
+38:40.000 --> 38:42.560
+ There's reasons people complain about Stack Overflow
+
+38:42.560 --> 38:43.640
+ because it's so strict, right?
+
+38:43.640 --> 38:44.640
+ Why is it so strict?
+
+38:44.640 --> 38:46.480
+ Why are you guys always closing my questions?
+
+38:46.480 --> 38:47.880
+ It's because there's so much tension
+
+38:47.880 --> 38:49.120
+ that we built into the system
+
+38:49.120 --> 38:51.880
+ around trying to get good, good results out of the system.
+
+38:51.880 --> 38:56.000
+ And it's not a free.
+
+38:56.000 --> 38:57.520
+ That stuff doesn't come for free, right?
+
+38:57.520 --> 38:59.800
+ It's not like we, we all have perfect answers
+
+38:59.800 --> 39:02.280
+ and nobody will have to get their feelings heard
+
+39:02.280 --> 39:04.560
+ or nobody will have to get downvoted.
+
+39:04.560 --> 39:06.640
+ It doesn't work that way, right?
+
+39:06.640 --> 39:09.400
+ So this is an interesting point and a small tangent.
+
+39:09.400 --> 39:12.000
+ You write about anxiety.
+
+39:12.000 --> 39:14.040
+ So I've posted a lot of questions
+
+39:14.040 --> 39:16.040
+ and written answers on Stack Overflow.
+
+39:16.040 --> 39:18.320
+ On the question side, you usually go to
+
+39:18.320 --> 39:21.160
+ something very specific to something I'm working on.
+
+39:21.160 --> 39:22.280
+ And this is something you talk about
+
+39:22.280 --> 39:26.120
+ that really the goal of Stack Overflow isn't about,
+
+39:26.120 --> 39:29.360
+ is to write a question that's not about you,
+
+39:29.360 --> 39:33.480
+ it's about the question that will help
+
+39:33.480 --> 39:35.800
+ the community in the future.
+
+39:35.800 --> 39:37.520
+ Right, but that's a tough sell, right?
+
+39:37.520 --> 39:39.160
+ Because people are like, well,
+
+39:39.160 --> 39:40.280
+ I don't really care about the community.
+
+39:40.280 --> 39:41.520
+ What I care about is my problem.
+
+39:41.520 --> 39:43.400
+ And that's fair, right?
+
+39:43.400 --> 39:44.880
+ It's sort of that, again, that tension,
+
+39:44.880 --> 39:46.680
+ that balancing act of we wanna help you,
+
+39:46.680 --> 39:48.640
+ but we also wanna help everybody that comes behind you.
+
+39:48.640 --> 39:49.880
+ The long line of people are gonna come up and say,
+
+39:49.880 --> 39:52.240
+ oh, I kinda have that problem too, right?
+
+39:52.240 --> 39:54.040
+ And if nobody's ever gonna come up and say,
+
+39:54.040 --> 39:54.880
+ I have this problem too,
+
+39:54.880 --> 39:57.000
+ then that question shouldn't exist on Stack Overflow
+
+39:57.000 --> 39:58.840
+ because the question is too specific.
+
+39:58.840 --> 40:00.040
+ And even that's tension, right?
+
+40:00.040 --> 40:00.880
+ How do you judge that?
+
+40:00.880 --> 40:02.600
+ How do you know that nobody's ever gonna have
+
+40:02.600 --> 40:04.680
+ this particular question again?
+
+40:04.680 --> 40:06.800
+ So there's a lot of tension in the system.
+
+40:06.800 --> 40:09.560
+ Do you think that anxiety of asking the question,
+
+40:09.560 --> 40:11.560
+ the anxiety of answering,
+
+40:11.560 --> 40:14.200
+ that tension is inherent to programmers,
+
+40:14.200 --> 40:16.960
+ is inherent to this kind of process?
+
+40:16.960 --> 40:20.320
+ Or can it be improved?
+
+40:20.320 --> 40:22.440
+ Can it be happy land
+
+40:22.440 --> 40:25.820
+ where that tension is not quite so harsh?
+
+40:26.880 --> 40:28.120
+ I don't think Stack Overflow
+
+40:28.120 --> 40:30.040
+ can totally change the way it works.
+
+40:30.040 --> 40:31.800
+ One thing they are working on finally
+
+40:31.800 --> 40:35.200
+ is the ask page had not changed since 2011.
+
+40:35.200 --> 40:36.760
+ I'm still kind of bitter about this
+
+40:36.760 --> 40:39.360
+ because I feel like you have a Q&A system
+
+40:39.360 --> 40:41.400
+ and what are the core pages in a Q&A system?
+
+40:41.400 --> 40:42.240
+ Well, first of all, the question,
+
+40:42.240 --> 40:43.760
+ all the answers and also the ask page,
+
+40:43.760 --> 40:45.120
+ particularly when you're a new user
+
+40:45.120 --> 40:46.520
+ or someone trying to ask a question,
+
+40:46.520 --> 40:48.400
+ that's the point at which you need the most help.
+
+40:48.400 --> 40:50.760
+ And we just didn't adapt with the times.
+
+40:50.760 --> 40:52.320
+ But the good news is they're working on this,
+
+40:52.320 --> 40:53.200
+ from what I understand,
+
+40:53.200 --> 40:55.180
+ and it's gonna be a more wizard based format.
+
+40:55.180 --> 40:56.820
+ And you could envision a world
+
+40:56.820 --> 40:58.420
+ where as part of this wizard based program,
+
+40:58.420 --> 40:59.360
+ when you're asking questions,
+
+40:59.360 --> 41:01.080
+ okay, come up with a good title,
+
+41:01.080 --> 41:02.560
+ what are good words to put in the title?
+
+41:02.560 --> 41:04.280
+ One word that's not good to put in the title
+
+41:04.280 --> 41:05.880
+ is problem, for example.
+
+41:05.880 --> 41:06.700
+ I have a problem.
+
+41:06.700 --> 41:07.760
+ Oh, you have a problem.
+
+41:07.760 --> 41:10.400
+ Okay, a problem, that's great.
+
+41:10.400 --> 41:11.400
+ You need specifics.
+
+41:11.400 --> 41:13.440
+ So it's trying to help you make a good question title,
+
+41:13.440 --> 41:17.280
+ for example, that step will be broken out, all that stuff.
+
+41:17.280 --> 41:19.560
+ But one of those steps in that wizard of asking
+
+41:19.560 --> 41:21.600
+ could say, hey, I'm a little nervous.
+
+41:21.600 --> 41:22.660
+ I've never done this before.
+
+41:22.660 --> 41:26.080
+ Can you put me in a queue for special mentoring?
+
+41:26.080 --> 41:27.560
+ You could opt in to a special mentor.
+
+41:27.560 --> 41:28.960
+ I think that would be fantastic.
+
+41:28.960 --> 41:31.360
+ I don't have any objection to that at all
+
+41:31.360 --> 41:32.600
+ in terms of being an opt in system.
+
+41:32.600 --> 41:33.920
+ Because there are people that are like,
+
+41:33.920 --> 41:35.480
+ I just wanna help them.
+
+41:35.480 --> 41:36.720
+ I wanna help a person no matter what.
+
+41:36.720 --> 41:37.920
+ I wanna go above and beyond.
+
+41:37.920 --> 41:40.160
+ I wanna spend hours with this person.
+
+41:41.320 --> 41:42.960
+ It depends what their goals are.
+
+41:42.960 --> 41:43.780
+ It's a great idea.
+
+41:43.780 --> 41:44.620
+ Who am I to judge?
+
+41:44.620 --> 41:45.460
+ So that's fine.
+
+41:45.460 --> 41:47.320
+ It's not precluded from happening.
+
+41:47.320 --> 41:49.000
+ But there's a certain big city ethos
+
+41:49.000 --> 41:49.840
+ that we started with.
+
+41:49.840 --> 41:51.080
+ Like, look, we're in New York City.
+
+41:51.080 --> 41:52.040
+ You don't come to New York City
+
+41:52.040 --> 41:54.360
+ and expect them to be, oh, welcome to the city, Joe.
+
+41:54.360 --> 41:55.200
+ How's it going?
+
+41:55.200 --> 41:56.020
+ Come on in.
+
+41:56.020 --> 41:57.120
+ Let me show you around.
+
+41:57.120 --> 41:58.920
+ That's not how New York City works.
+
+42:01.480 --> 42:03.060
+ Again, New York City has a reputation for being rude,
+
+42:03.060 --> 42:04.080
+ which I actually don't think it is,
+
+42:04.080 --> 42:05.240
+ having been there fairly recently.
+
+42:05.240 --> 42:06.080
+ It's not rude.
+
+42:06.080 --> 42:07.240
+ It's just like going about their business.
+
+42:07.240 --> 42:08.980
+ Like, look, I have things to do.
+
+42:08.980 --> 42:09.820
+ I'm busy.
+
+42:09.820 --> 42:11.840
+ I'm a busy professional, as are you.
+
+42:11.840 --> 42:13.440
+ And since you're a busy professional,
+
+42:13.440 --> 42:14.680
+ certainly when you ask a question,
+
+42:14.680 --> 42:16.440
+ you're gonna ask the best possible question.
+
+42:16.440 --> 42:18.220
+ Because you're a busy professional
+
+42:18.220 --> 42:20.160
+ and you would not accept anything less
+
+42:20.160 --> 42:21.420
+ than a very well written question
+
+42:21.420 --> 42:23.280
+ with a lot of detail about why you're doing it,
+
+42:23.280 --> 42:25.060
+ what you're doing, what you researched,
+
+42:25.060 --> 42:26.200
+ what you found,
+
+42:26.200 --> 42:28.600
+ because you're a professional like me.
+
+42:28.600 --> 42:31.000
+ And this rubs people sometimes the wrong way.
+
+42:31.000 --> 42:32.320
+ And I don't think it's wrong to say,
+
+42:32.320 --> 42:33.680
+ look, I don't want that experience.
+
+42:33.680 --> 42:37.600
+ I want just a more chill place for beginners.
+
+42:37.600 --> 42:39.160
+ And I still think Stack Overflow
+
+42:39.160 --> 42:41.960
+ is not, was never designed for beginners, right?
+
+42:41.960 --> 42:43.840
+ There's this misconception that,
+
+42:43.840 --> 42:44.800
+ even Joel says sometimes,
+
+42:44.800 --> 42:46.120
+ oh yeah, Stack Overflow for beginners.
+
+42:46.120 --> 42:48.840
+ And I think if you're a prodigy, it can be.
+
+42:48.840 --> 42:49.660
+ Right.
+
+42:49.660 --> 42:50.500
+ But for the most part, not.
+
+42:50.500 --> 42:51.760
+ But that's not really representative, right?
+
+42:51.760 --> 42:53.060
+ Like, I think as a beginner,
+
+42:53.060 --> 42:55.120
+ you want a totally different set of tools.
+
+42:55.120 --> 42:58.060
+ You want like live screen sharing, live chat.
+
+42:58.060 --> 42:59.220
+ You want access to resources.
+
+42:59.220 --> 43:00.260
+ You want a playground,
+
+43:00.260 --> 43:02.360
+ like a playground you can experiment in
+
+43:02.360 --> 43:04.480
+ and like test and all this stuff
+
+43:04.480 --> 43:05.640
+ that we just don't give people
+
+43:05.640 --> 43:07.780
+ because that was never really the audience
+
+43:07.780 --> 43:09.280
+ that we were designing Stack Overflow for.
+
+43:09.280 --> 43:10.680
+ That doesn't mean it's wrong.
+
+43:10.680 --> 43:11.800
+ And I think it would be awesome
+
+43:11.800 --> 43:13.280
+ if there was a site like that on the internet,
+
+43:13.280 --> 43:14.320
+ or if Stack Overflow said,
+
+43:14.320 --> 43:15.800
+ hey, you know, we're gonna start doing this.
+
+43:15.800 --> 43:16.960
+ That's fine too.
+
+43:16.960 --> 43:17.800
+ You know, I'm not there.
+
+43:17.800 --> 43:18.680
+ I'm not making those decisions.
+
+43:18.680 --> 43:20.640
+ But I do think the pressure,
+
+43:20.640 --> 43:22.800
+ the tension that you described is there for people to be,
+
+43:22.800 --> 43:24.480
+ look, I'm a little nervous
+
+43:24.480 --> 43:26.400
+ because I know I gotta do my best work, right?
+
+43:26.400 --> 43:28.040
+ The other one is something you talk about,
+
+43:28.040 --> 43:30.320
+ which is also really interesting to me,
+
+43:30.320 --> 43:35.320
+ is duplicate questions or it's a really difficult problem
+
+43:37.160 --> 43:38.080
+ that you highlight.
+
+43:38.080 --> 43:39.480
+ It's super hard.
+
+43:39.480 --> 43:41.720
+ Like you could take one little topic
+
+43:41.720 --> 43:44.960
+ and you could probably write 10, 20, 30 ways
+
+43:44.960 --> 43:46.640
+ of asking about that topic
+
+43:46.640 --> 43:48.220
+ and there will be all different.
+
+43:48.220 --> 43:50.200
+ I don't know if there should be one page
+
+43:50.200 --> 43:51.880
+ that answers all of it.
+
+43:51.880 --> 43:56.880
+ Is there a way that Stack Overflow can help disambiguate,
+
+43:56.880 --> 44:01.160
+ like separate these duplicate questions
+
+44:01.160 --> 44:02.820
+ or connect them together?
+
+44:02.820 --> 44:06.220
+ Or is it a totally hopeless, difficult, impossible task?
+
+44:06.220 --> 44:08.480
+ I think it's a very, very hard computer science problem.
+
+44:08.480 --> 44:10.280
+ And partly because people are very good
+
+44:10.280 --> 44:11.760
+ at using completely different words.
+
+44:11.760 --> 44:13.160
+ It always amazed me on Stack Overflow.
+
+44:13.160 --> 44:15.440
+ You'd have two questions that were functionally identical
+
+44:15.440 --> 44:17.520
+ and one question had like zero words in common
+
+44:17.520 --> 44:18.360
+ with the other question.
+
+44:18.360 --> 44:20.920
+ Like, oh my God, from a computer science perspective,
+
+44:20.920 --> 44:22.960
+ how do you even begin to solve that?
+
+44:22.960 --> 44:24.480
+ And it happens all the time.
+
+44:24.480 --> 44:26.280
+ People are super good at this, right?
+
+44:26.280 --> 44:28.360
+ Accidentally at asking the same thing
+
+44:28.360 --> 44:31.200
+ in like 10, 20 different ways.
+
+44:31.200 --> 44:32.760
+ And the other complexity is we want some
+
+44:32.760 --> 44:33.900
+ of those duplicates to exist
+
+44:33.900 --> 44:36.000
+ because if there's five versions with different words,
+
+44:36.000 --> 44:37.280
+ have those five versions point
+
+44:37.280 --> 44:39.560
+ to the one centralized answer, right?
+
+44:39.560 --> 44:41.880
+ It's like, okay, this is a duplicate, no worries.
+
+44:41.880 --> 44:43.460
+ Here's the answer that you wanted over here
+
+44:43.460 --> 44:48.000
+ on the prime example that we want to have,
+
+44:48.000 --> 44:50.680
+ rather than having 10 copies of the question and the answer.
+
+44:50.680 --> 44:52.400
+ Because if you have 10 copies of the question and answer,
+
+44:52.400 --> 44:54.120
+ this also devalues the reputation system,
+
+44:54.120 --> 44:56.880
+ which programmers hate, as I previously mentioned.
+
+44:56.880 --> 44:58.320
+ You're getting reputation for an answer
+
+44:58.320 --> 44:59.320
+ that somebody else already gave.
+
+44:59.320 --> 45:00.440
+ It's like, well, it's an answer,
+
+45:00.440 --> 45:02.200
+ but somebody else already gave that answer.
+
+45:02.200 --> 45:04.560
+ So why are you getting reputation for the same answer
+
+45:04.560 --> 45:06.480
+ as the other guy who gave it four years ago?
+
+45:06.480 --> 45:07.760
+ People get offended by that, right?
+
+45:07.760 --> 45:11.920
+ So the reputation system itself adds tension to the system
+
+45:11.920 --> 45:14.040
+ in that the people who have a lot of reputation
+
+45:14.040 --> 45:17.600
+ become very incentivized to enforce the reputation system.
+
+45:17.600 --> 45:18.920
+ And for the most part, that's good.
+
+45:18.920 --> 45:20.520
+ I know it sounds weird, but for most parts,
+
+45:20.520 --> 45:23.880
+ like look, strict systems, I think to use Stack Overflow,
+
+45:23.880 --> 45:26.000
+ you have to have the idea that, OK, strict systems ultimately
+
+45:26.000 --> 45:26.720
+ work better.
+
+45:26.720 --> 45:28.440
+ And I do think in programming, you're
+
+45:28.440 --> 45:31.320
+ familiar with loose typing versus strict typing, right?
+
+45:31.320 --> 45:33.000
+ The idea that you can declare a variable,
+
+45:33.000 --> 45:34.840
+ not declare a variable, rather, just start using a variable.
+
+45:34.840 --> 45:36.280
+ And OK, I see it's implicitly an integer.
+
+45:36.280 --> 45:37.200
+ Bam, awesome.
+
+45:37.200 --> 45:38.120
+ Duck equals 5.
+
+45:38.120 --> 45:40.360
+ Well, duck is now an integer of 5, right?
+
+45:40.360 --> 45:42.320
+ And you're like, cool, awesome, simpler, right?
+
+45:42.320 --> 45:43.840
+ Why would I want to worry about typing?
+
+45:43.840 --> 45:45.800
+ And for a long time, in the Ruby community,
+
+45:45.800 --> 45:46.920
+ they're like, yeah, this is awesome.
+
+45:46.920 --> 45:48.320
+ You just do a bunch of unit testing,
+
+45:48.320 --> 45:50.960
+ which is testing your program's validity after the fact
+
+45:50.960 --> 45:54.160
+ to catch any bugs that strict typing of variables
+
+45:54.160 --> 45:55.040
+ would have caught.
+
+45:55.040 --> 45:56.080
+ And now you have this thing called
+
+45:56.080 --> 45:58.080
+ TypeScript for Microsoft from the guy who
+
+45:58.080 --> 46:01.120
+ built C Sharp Anders, who's one of the greatest
+
+46:01.120 --> 46:02.840
+ minds in software development, right,
+
+46:02.840 --> 46:04.480
+ like in terms of language design.
+
+46:04.480 --> 46:06.560
+ And says, no, no, no, we want to bolt on a strict type
+
+46:06.560 --> 46:08.200
+ system to JavaScript because it makes things better.
+
+46:08.200 --> 46:11.480
+ And now everybody's like, oh my god, we deployed TypeScript
+
+46:11.480 --> 46:14.480
+ and found 50 latent bugs that we didn't know about, right?
+
+46:14.480 --> 46:15.840
+ Like, this is super common.
+
+46:15.840 --> 46:19.960
+ So I think there is a truth in programming
+
+46:19.960 --> 46:22.280
+ that strictness, it's not the goal.
+
+46:22.280 --> 46:25.720
+ We're not saying be super strict because strictness is correct.
+
+46:25.720 --> 46:26.600
+ No, it's no, no.
+
+46:26.600 --> 46:28.640
+ Strictness produces better results.
+
+46:28.640 --> 46:29.880
+ That's what I'm saying, right?
+
+46:29.880 --> 46:32.000
+ So strict typing of variables, I would
+
+46:32.000 --> 46:33.920
+ say you almost universally have consensus now
+
+46:33.920 --> 46:35.440
+ is basically correct.
+
+46:35.440 --> 46:37.720
+ Should be that way in every language, right?
+
+46:37.720 --> 46:39.480
+ Duck equals five should generate an error
+
+46:39.480 --> 46:40.720
+ because no, you didn't declare.
+
+46:40.720 --> 46:42.960
+ You didn't tell me that duck was an integer, right?
+
+46:42.960 --> 46:43.840
+ That's a bug, right?
+
+46:43.840 --> 46:44.720
+ Or maybe you mistyped.
+
+46:44.720 --> 46:46.480
+ You typed deck instead of duck, right?
+
+46:46.480 --> 46:47.120
+ You never know.
+
+46:47.120 --> 46:48.840
+ This happens all the time, right?
+
+46:48.840 --> 46:51.600
+ So with that in mind, I will say that the strictness
+
+46:51.600 --> 46:52.720
+ of the system is correct.
+
+46:52.720 --> 46:53.960
+ Now, that doesn't mean cruel.
+
+46:53.960 --> 46:55.040
+ That doesn't mean mean.
+
+46:55.040 --> 46:56.080
+ That doesn't mean angry.
+
+46:56.080 --> 46:57.560
+ It just means strict, OK?
+
+46:57.560 --> 46:59.280
+ So I think where there's misunderstanding
+
+46:59.280 --> 47:00.720
+ is people get cranky, right?
+
+47:00.720 --> 47:03.920
+ Like, another question you asked is like, why are programmers
+
+47:03.920 --> 47:05.160
+ kind of mean sometimes?
+
+47:05.160 --> 47:07.480
+ Well, who do programmers work with all day long?
+
+47:07.480 --> 47:10.080
+ So I have a theory that if you're at a job
+
+47:10.080 --> 47:12.440
+ and you work with assholes all day long,
+
+47:12.440 --> 47:14.400
+ what do you eventually become?
+
+47:14.400 --> 47:15.000
+ An asshole.
+
+47:15.000 --> 47:15.800
+ An asshole.
+
+47:15.800 --> 47:19.280
+ And what is the computer except the world's biggest asshole?
+
+47:19.280 --> 47:21.800
+ Because the computer has no time for your bullshit.
+
+47:21.800 --> 47:24.040
+ The computer, the minute you make a mistake,
+
+47:24.040 --> 47:25.480
+ everything is crashing down, right?
+
+47:25.480 --> 47:28.160
+ One semicolon has crashed space missions, right?
+
+47:28.160 --> 47:29.040
+ So that's normal.
+
+47:29.040 --> 47:30.640
+ So you begin to internalize that.
+
+47:30.640 --> 47:34.640
+ You begin to think, oh, my coworker, the computer,
+
+47:34.640 --> 47:37.520
+ is super strict and kind of a jerk about everything.
+
+47:37.520 --> 47:40.000
+ So that's kind of how I'm going to be.
+
+47:40.000 --> 47:41.840
+ Because I work with this computer,
+
+47:41.840 --> 47:44.600
+ and I have to exceed to its terms on everything.
+
+47:44.600 --> 47:46.400
+ So therefore, you start to absorb that.
+
+47:46.400 --> 47:49.400
+ You start to think, oh, well, being really strict arbitrarily
+
+47:49.400 --> 47:50.440
+ is really good.
+
+47:50.440 --> 47:54.120
+ An error of error code 56249 is a completely good error message
+
+47:54.120 --> 47:56.120
+ because that's what the computer gave me, right?
+
+47:56.120 --> 47:59.440
+ So you kind of forget to be a person at some level.
+
+47:59.440 --> 48:02.200
+ And you know how they say great detectives internalize
+
+48:02.200 --> 48:04.200
+ criminals and kind of are criminals themselves,
+
+48:04.200 --> 48:06.700
+ like this trope of the master detective
+
+48:06.700 --> 48:08.720
+ is good because he can think like the criminal.
+
+48:08.720 --> 48:10.520
+ Well, I do think that's true of programmers.
+
+48:10.520 --> 48:12.720
+ Really good programmers think like the computer
+
+48:12.720 --> 48:14.200
+ because that's their job.
+
+48:14.200 --> 48:17.080
+ But if you internalize it too much, you become the computer.
+
+48:17.080 --> 48:19.560
+ You kind of become a jerk to everybody
+
+48:19.560 --> 48:21.720
+ because that's what you've internalized.
+
+48:21.720 --> 48:24.240
+ You're almost not a jerk, but you have no patience
+
+48:24.240 --> 48:26.240
+ for a lack of strictness, as you said.
+
+48:26.240 --> 48:27.840
+ It's not out of a sense of meanness.
+
+48:27.840 --> 48:28.640
+ It's accidental.
+
+48:28.640 --> 48:30.400
+ But I do believe it's an occupational hazard
+
+48:30.400 --> 48:32.000
+ of being a programmer is you start
+
+48:32.000 --> 48:33.760
+ to behave like the computer.
+
+48:33.760 --> 48:34.800
+ You're very unforgiving.
+
+48:34.800 --> 48:35.920
+ You're very terse.
+
+48:35.920 --> 48:38.400
+ You're very, oh, wrong, incorrect, move on.
+
+48:38.400 --> 48:40.040
+ It's like, well, can you help me?
+
+48:40.040 --> 48:41.240
+ What could I do to fix?
+
+48:41.240 --> 48:44.000
+ No, wrong, next question.
+
+48:44.000 --> 48:46.440
+ Like, that's normal for the computer.
+
+48:46.440 --> 48:49.280
+ Just fail, next.
+
+48:49.280 --> 48:51.600
+ I don't know if you remember in Saturday Night Live,
+
+48:51.600 --> 48:54.640
+ in the 90s, they had this character who was an IT guy.
+
+48:54.640 --> 48:55.520
+ The move guy.
+
+48:55.520 --> 48:56.040
+ Move.
+
+48:56.040 --> 48:56.720
+ Move.
+
+48:56.720 --> 48:58.080
+ Was that Jimmy Fallon?
+
+48:58.080 --> 48:58.640
+ No.
+
+48:58.640 --> 48:59.760
+ No.
+
+48:59.760 --> 49:01.160
+ Who played him?
+
+49:01.160 --> 49:02.120
+ OK, yeah, I remember.
+
+49:02.120 --> 49:02.620
+ Move.
+
+49:02.620 --> 49:03.120
+ Right.
+
+49:03.120 --> 49:04.160
+ He had no patience for it.
+
+49:04.160 --> 49:05.720
+ Might have been Mad TV, actually.
+
+49:05.720 --> 49:06.680
+ Wasn't it Mad TV?
+
+49:06.680 --> 49:07.600
+ Might have been.
+
+49:07.600 --> 49:10.940
+ But anyway, that's always been the perception.
+
+49:10.940 --> 49:12.560
+ You start to behave like the computer.
+
+49:12.560 --> 49:14.880
+ It's like, oh, you're wrong, out of the way, you know?
+
+49:14.880 --> 49:17.560
+ You've written so many blog posts about programming,
+
+49:17.560 --> 49:22.720
+ about programs, programming, programmers.
+
+49:22.720 --> 49:26.920
+ What do you think makes a good, let's start with,
+
+49:26.920 --> 49:29.360
+ what makes a good solo programmer?
+
+49:29.360 --> 49:31.600
+ Well, I don't think you should be a solo programmer.
+
+49:31.600 --> 49:33.400
+ I think to be a good solo programmer,
+
+49:33.400 --> 49:35.800
+ it's kind of like what I talked about, well, not on Mike,
+
+49:35.800 --> 49:39.240
+ but one of the things John Carmack, one of the best
+
+49:39.240 --> 49:41.120
+ points he makes in the book Masters of Doom, which
+
+49:41.120 --> 49:43.200
+ is a fantastic book, and anybody listening to this
+
+49:43.200 --> 49:44.700
+ who hasn't read it, please read it.
+
+49:44.700 --> 49:47.400
+ It's such a great book, is that at the time,
+
+49:47.400 --> 49:50.720
+ they were working on stuff like Wolfenstein and Doom.
+
+49:50.720 --> 49:52.780
+ They didn't have the resources that we have today.
+
+49:52.780 --> 49:53.940
+ They didn't have Stack Overflow.
+
+49:53.940 --> 49:54.860
+ They didn't have Wikipedia.
+
+49:54.860 --> 49:56.680
+ They didn't have discourse forums.
+
+49:56.680 --> 50:00.200
+ They didn't have places to go to get people to help them.
+
+50:00.200 --> 50:01.880
+ They had to work on their own.
+
+50:01.880 --> 50:03.760
+ And that's why it took a genius like Carmack
+
+50:03.760 --> 50:05.120
+ to do this stuff, because you had
+
+50:05.120 --> 50:07.160
+ to be a genius to invent from first principles.
+
+50:07.160 --> 50:09.560
+ A lot of the stuff he was like, the hacks he was coming up
+
+50:09.560 --> 50:11.900
+ with were genius, genius level stuff.
+
+50:11.900 --> 50:13.880
+ But you don't need to be a genius anymore,
+
+50:13.880 --> 50:15.540
+ and that means not working by yourself.
+
+50:15.540 --> 50:17.420
+ You have to be good at researching stuff online.
+
+50:17.420 --> 50:19.680
+ You have to be good at asking questions, really good
+
+50:19.680 --> 50:21.440
+ questions that are really well researched, which implies,
+
+50:21.440 --> 50:23.080
+ oh, I went out and researched for three hours
+
+50:23.080 --> 50:24.240
+ before I wrote these questions.
+
+50:24.240 --> 50:26.200
+ That's what you should be doing, because that's
+
+50:26.200 --> 50:28.160
+ what's going to make you good.
+
+50:28.160 --> 50:29.360
+ To me, this is the big difference
+
+50:29.360 --> 50:32.120
+ between programming in the 80s versus programming today,
+
+50:32.120 --> 50:35.040
+ is you kind of had to be by yourself back then.
+
+50:35.040 --> 50:36.560
+ Where would you go for answers?
+
+50:36.560 --> 50:38.060
+ I remember in the early days when
+
+50:38.060 --> 50:41.320
+ I was learning Visual Basic for Windows,
+
+50:41.320 --> 50:44.600
+ I would call the Microsoft Helpline on the phone
+
+50:44.600 --> 50:45.680
+ when I had programming.
+
+50:45.680 --> 50:47.040
+ Because I was like, I don't know what to do.
+
+50:47.040 --> 50:49.640
+ So I would go and call, and they had these huge phone banks.
+
+50:49.640 --> 50:51.480
+ And I'm like, can you imagine how alien that is now?
+
+50:51.480 --> 50:52.480
+ Who would do that?
+
+50:52.480 --> 50:53.560
+ That's crazy.
+
+50:53.560 --> 50:57.720
+ So there was just nowhere else to go when you got stuck.
+
+50:57.720 --> 50:59.560
+ I had the books that came with it.
+
+50:59.560 --> 51:01.320
+ I read those, studied those religiously.
+
+51:01.320 --> 51:03.320
+ I just saw a post from Steve Sanofsky
+
+51:03.320 --> 51:08.880
+ that said the C++ version 7 came with 10,000 pages
+
+51:08.880 --> 51:10.640
+ of written material.
+
+51:10.640 --> 51:13.600
+ Because where else were you going to figure that stuff out?
+
+51:13.600 --> 51:14.640
+ Go to the library?
+
+51:14.640 --> 51:16.100
+ I mean, you didn't have Wikipedia.
+
+51:16.100 --> 51:17.880
+ You didn't have Reddit.
+
+51:17.880 --> 51:20.760
+ You didn't have anywhere to go to answer these questions.
+
+51:20.760 --> 51:24.160
+ So you've talked about, through the years,
+
+51:24.160 --> 51:26.200
+ basically not having an ego and not
+
+51:26.200 --> 51:29.920
+ thinking that you're the best programmer in the world.
+
+51:29.920 --> 51:34.040
+ So always kind of just looking to improve,
+
+51:34.040 --> 51:36.520
+ to become a better programmer than you were yesterday.
+
+51:36.520 --> 51:39.160
+ So how have you changed as a programmer
+
+51:39.160 --> 51:43.280
+ and as a thinker, designer around programming
+
+51:43.280 --> 51:47.600
+ over the past, what is it, 15 years, really,
+
+51:47.600 --> 51:48.960
+ of being a public figure?
+
+51:48.960 --> 51:51.960
+ I would say the big insight that I had is, eventually,
+
+51:51.960 --> 51:54.000
+ as a programmer, you have to stop writing code
+
+51:54.000 --> 51:56.880
+ to be effective, which is kind of disturbing.
+
+51:56.880 --> 51:58.240
+ Because you really love it.
+
+51:58.240 --> 52:01.600
+ But you realize being effective at programming,
+
+52:01.600 --> 52:03.960
+ at programming in the general sense,
+
+52:03.960 --> 52:05.120
+ doesn't mean writing code.
+
+52:05.120 --> 52:07.000
+ And a lot of times, you can be much more successful by not
+
+52:07.000 --> 52:09.840
+ writing code and writing code in terms of just solving
+
+52:09.840 --> 52:11.680
+ the problems you have, essentially hiring people
+
+52:11.680 --> 52:13.780
+ that are really good and setting them free
+
+52:13.780 --> 52:18.000
+ and giving them basic direction on strategy and stuff.
+
+52:18.000 --> 52:19.680
+ Because a lot of the problems you encounter
+
+52:19.680 --> 52:22.360
+ aren't necessarily solved through really gnarly code.
+
+52:22.360 --> 52:25.720
+ They're solved by conceptual solutions, which can then
+
+52:25.720 --> 52:26.520
+ be turned into code.
+
+52:26.520 --> 52:29.720
+ But are you even solving the right problem?
+
+52:29.720 --> 52:32.880
+ So I would say, for me, the main insight I have
+
+52:32.880 --> 52:36.080
+ is, to succeed as a programmer, you eventually
+
+52:36.080 --> 52:37.560
+ kind of stop writing code.
+
+52:37.560 --> 52:39.160
+ That's going to sound discouraging, probably,
+
+52:39.160 --> 52:39.680
+ to people hearing.
+
+52:39.680 --> 52:40.760
+ But I don't mean it that way.
+
+52:40.760 --> 52:42.120
+ What I mean is that you're coding
+
+52:42.120 --> 52:43.360
+ at a higher level language.
+
+52:43.360 --> 52:45.600
+ Eventually, like, OK, so we're coding in assembly language.
+
+52:45.600 --> 52:46.800
+ That's the beginning, right?
+
+52:46.800 --> 52:48.960
+ You're hardcoded to the architecture.
+
+52:48.960 --> 52:50.280
+ Then you have stuff like C, where it's like, wow,
+
+52:50.280 --> 52:52.080
+ we can abstract across the architecture.
+
+52:52.080 --> 52:52.880
+ We can write code.
+
+52:52.880 --> 52:54.640
+ I can then compile that code for ARM
+
+52:54.640 --> 52:58.400
+ or whatever x86 or whatever else is out there.
+
+52:58.400 --> 53:00.600
+ And then even higher level than that,
+
+53:00.600 --> 53:03.160
+ you're looking at Python, Ruby, interpreted languages.
+
+53:03.160 --> 53:04.680
+ And then, to me, as a programmer,
+
+53:04.680 --> 53:06.000
+ I'm like, OK, I want to go even higher.
+
+53:06.000 --> 53:07.200
+ I want to go higher than that.
+
+53:07.200 --> 53:08.560
+ How do I abstract higher than the language?
+
+53:08.560 --> 53:11.120
+ It's like, well, you abstract in spoken language
+
+53:11.120 --> 53:12.560
+ and written language, right?
+
+53:12.560 --> 53:14.640
+ You're sort of inspiring people to get things done,
+
+53:14.640 --> 53:16.080
+ giving them guidance, like, what if we did this?
+
+53:16.080 --> 53:17.240
+ What if we did this?
+
+53:17.240 --> 53:19.120
+ You're writing in the highest level language
+
+53:19.120 --> 53:21.360
+ that there is, which is, for me, English,
+
+53:21.360 --> 53:23.120
+ whatever your spoken language is.
+
+53:23.120 --> 53:25.960
+ So it's all about being effective, right?
+
+53:25.960 --> 53:31.000
+ And I think Patrick McKenzie, patio11 on Hacker News
+
+53:31.000 --> 53:33.600
+ and works at Stripe, has a great post about this,
+
+53:33.600 --> 53:35.880
+ of how calling yourself a programmer
+
+53:35.880 --> 53:38.160
+ is a career limiting move at some level
+
+53:38.160 --> 53:39.800
+ once you get far enough from your career.
+
+53:39.800 --> 53:40.800
+ And I really believe that.
+
+53:40.800 --> 53:41.840
+ And again, I apologize.
+
+53:41.840 --> 53:43.080
+ This is sound discouraging.
+
+53:43.080 --> 53:45.240
+ I don't mean it to be, but he's so right.
+
+53:45.240 --> 53:47.720
+ Because all the stuff that goes on around the code,
+
+53:47.720 --> 53:49.760
+ like the people, that's another thing,
+
+53:49.760 --> 53:52.200
+ if you look at my early blog entries, is about, wow,
+
+53:52.200 --> 53:54.720
+ programming is about people more than it's
+
+53:54.720 --> 53:56.680
+ about code, which doesn't really make sense.
+
+53:56.680 --> 53:59.160
+ But it's about, can these people even get along together?
+
+53:59.160 --> 54:00.720
+ Can they understand each other?
+
+54:00.720 --> 54:03.000
+ Can you even explain to me what it is you're working on?
+
+54:03.000 --> 54:04.560
+ Are you solving the right problem?
+
+54:04.560 --> 54:06.600
+ PeopleWare, another classic programming book,
+
+54:06.600 --> 54:08.480
+ which, again, up there with Code Complete,
+
+54:08.480 --> 54:09.960
+ please read PeopleWare.
+
+54:09.960 --> 54:11.560
+ It's that software is people.
+
+54:11.560 --> 54:13.440
+ People are the software, first and foremost.
+
+54:13.440 --> 54:15.860
+ So a lot of the skills that I was working on early
+
+54:15.860 --> 54:18.560
+ in the blog were about figuring out the people
+
+54:18.560 --> 54:20.680
+ parts of programming, which were the harder parts.
+
+54:20.680 --> 54:21.880
+ The hard part of programming, once you
+
+54:21.880 --> 54:23.040
+ get a certain skill level in programming,
+
+54:23.040 --> 54:25.360
+ you can pretty much solve any reasonable problem that's
+
+54:25.360 --> 54:26.320
+ put in front of you.
+
+54:26.320 --> 54:28.120
+ You're not writing algorithms from scratch.
+
+54:28.120 --> 54:29.280
+ That just doesn't happen.
+
+54:29.280 --> 54:31.360
+ So any sort of reasonable problem put in front of you,
+
+54:31.360 --> 54:32.760
+ you're going to be able to solve.
+
+54:32.760 --> 54:36.920
+ But what you can't solve is, our manager is a total jerk.
+
+54:36.920 --> 54:38.600
+ You cannot solve that with code.
+
+54:38.600 --> 54:40.800
+ That is not a code solvable problem.
+
+54:40.800 --> 54:44.040
+ And yet, that will cripple you way more than, oh, we
+
+54:44.040 --> 54:45.800
+ had to use this stupid framework I don't like,
+
+54:45.800 --> 54:49.320
+ or Sam keeps writing bad code that I hate,
+
+54:49.320 --> 54:52.440
+ or Dave is off there in the wilderness writing
+
+54:52.440 --> 54:53.280
+ God knows what.
+
+54:53.280 --> 54:54.440
+ These are not your problems.
+
+54:54.440 --> 54:56.800
+ Your problem is your manager or a co worker
+
+54:56.800 --> 54:58.760
+ is so toxic to everybody else in your team
+
+54:58.760 --> 55:00.080
+ that nobody can get anything done,
+
+55:00.080 --> 55:02.320
+ because everybody's so stressed out and freaked out.
+
+55:02.320 --> 55:04.520
+ These are the problems that you have to attack.
+
+55:04.520 --> 55:05.040
+ Absolutely.
+
+55:05.040 --> 55:07.360
+ And so as you go to these higher level abstractions,
+
+55:07.360 --> 55:09.060
+ as you've developed as a programmer
+
+55:09.060 --> 55:10.600
+ to higher and higher level abstractions
+
+55:10.600 --> 55:12.680
+ and go into natural language, you're
+
+55:12.680 --> 55:17.560
+ also the guy who preached building it, diving in
+
+55:17.560 --> 55:21.720
+ and doing it, and learn by doing.
+
+55:21.720 --> 55:22.840
+ Yes.
+
+55:22.840 --> 55:29.120
+ Do you worry that as you get to higher and higher level
+
+55:29.120 --> 55:34.320
+ abstractions, you lose track of the lower level of just
+
+55:34.320 --> 55:35.880
+ building?
+
+55:35.880 --> 55:38.560
+ Do you worry about that, even not maybe now,
+
+55:38.560 --> 55:41.560
+ but 10 years from now, 20 years from now?
+
+55:41.560 --> 55:42.480
+ Well, no.
+
+55:42.480 --> 55:44.360
+ I mean, there is always that paranoia around, oh, gosh,
+
+55:44.360 --> 55:46.240
+ I don't feel it's valuable since I'm not writing code.
+
+55:46.240 --> 55:48.280
+ But for me, when we started the discourse project,
+
+55:48.280 --> 55:50.280
+ it was Ruby, which I didn't really know Ruby.
+
+55:50.280 --> 55:51.840
+ I mean, as you pointed out, and this
+
+55:51.840 --> 55:53.840
+ is another valuable observation in Stack Overflow,
+
+55:53.840 --> 55:56.040
+ you can be super proficient in, for example, C Sharp,
+
+55:56.040 --> 55:56.760
+ which I was working in.
+
+55:56.760 --> 55:58.400
+ That's what we built Stack Overflow in and still
+
+55:58.400 --> 55:59.360
+ is written in.
+
+55:59.360 --> 56:01.920
+ And then switch to Ruby, and you're a newbie again.
+
+56:01.920 --> 56:03.240
+ But you have the framework.
+
+56:03.240 --> 56:04.440
+ I know what a for loop is.
+
+56:04.440 --> 56:05.800
+ I know what recursion is.
+
+56:05.800 --> 56:10.040
+ I know what a stack trace is.
+
+56:10.040 --> 56:12.040
+ I have all the fundamental concepts to be a programmer.
+
+56:12.040 --> 56:13.040
+ I just don't know Ruby.
+
+56:13.040 --> 56:14.800
+ So I'm still on a higher level.
+
+56:14.800 --> 56:16.600
+ I'm not like a beginner beginner, like you're saying.
+
+56:16.600 --> 56:19.140
+ I'm just like, I need to apply my programming concepts I already
+
+56:19.140 --> 56:20.360
+ know to Ruby.
+
+56:20.360 --> 56:23.280
+ Well, so there's a question that's really interesting.
+
+56:23.280 --> 56:26.840
+ So looking at Ruby, how do you go about learning enough
+
+56:26.840 --> 56:29.640
+ that your intuition can be applied, carried over?
+
+56:29.640 --> 56:30.360
+ That's what I was trying to get to.
+
+56:30.360 --> 56:31.600
+ It's like what I realized, particularly when I started
+
+56:31.600 --> 56:34.840
+ with just me and Robin, I realized if I bother Robin,
+
+56:34.840 --> 56:37.120
+ I am now costing us productivity.
+
+56:37.120 --> 56:42.160
+ Every time I go to Robin, rather than building our first alpha
+
+56:42.160 --> 56:45.540
+ version of discourse, he's now answering my stupid questions
+
+56:45.540 --> 56:46.040
+ about Ruby.
+
+56:46.040 --> 56:47.600
+ Is that a good use of his time?
+
+56:47.600 --> 56:49.160
+ Is that a good use of my time?
+
+56:49.160 --> 56:53.080
+ And the answer to both of those was resoundingly no.
+
+56:53.080 --> 56:55.080
+ We were getting to an alpha, and it was pretty much just,
+
+56:55.080 --> 56:56.880
+ OK, we'll hire more programmers.
+
+56:56.880 --> 57:00.240
+ We eventually hired Neil, and then eventually Sam,
+
+57:00.240 --> 57:02.920
+ who came in as a cofounder.
+
+57:02.920 --> 57:05.000
+ Actually, it was Sam first, then Neil later.
+
+57:05.000 --> 57:06.400
+ But the answer to the problem is just
+
+57:06.400 --> 57:08.200
+ hire other competent programmers.
+
+57:08.200 --> 57:11.080
+ Now I shall pull myself up by my bootstraps
+
+57:11.080 --> 57:12.320
+ and learn Ruby.
+
+57:12.320 --> 57:15.960
+ But at some point, writing code becomes a liability to you
+
+57:15.960 --> 57:17.360
+ in terms of getting things done.
+
+57:17.360 --> 57:18.460
+ There's so many other things that
+
+57:18.460 --> 57:20.800
+ go on in the project, like building the prototype.
+
+57:20.800 --> 57:23.120
+ You mentioned, well, how do you, if you're not writing code,
+
+57:23.120 --> 57:25.680
+ how does everybody keep focus on what are we building?
+
+57:25.680 --> 57:28.440
+ Well, first, basic mockups and research.
+
+57:28.440 --> 57:30.160
+ What do we even want to build?
+
+57:30.160 --> 57:31.240
+ There's a little bit of that that goes on.
+
+57:31.240 --> 57:32.800
+ But then very quickly, you get to the prototype stage.
+
+57:32.800 --> 57:33.760
+ Like, build a prototype.
+
+57:33.760 --> 57:35.920
+ Let's iterate on the prototype really, really rapidly.
+
+57:35.920 --> 57:36.840
+ And that's what we do with discourse.
+
+57:36.840 --> 57:38.960
+ And that's what we demoed to get our seed funding
+
+57:38.960 --> 57:42.320
+ for discourse was the alpha version of discourse
+
+57:42.320 --> 57:43.800
+ that we had running and ready to go.
+
+57:43.800 --> 57:45.160
+ And it was very, it was bad.
+
+57:45.160 --> 57:47.360
+ I mean, it was, I'll just tell you it was bad.
+
+57:47.360 --> 57:48.440
+ We have screenshots of it.
+
+57:48.440 --> 57:50.280
+ I'm just embarrassed to look at it now.
+
+57:50.280 --> 57:51.320
+ But it was the prototype.
+
+57:51.320 --> 57:53.740
+ We were figuring out what's working, what's not working.
+
+57:53.740 --> 57:58.040
+ Because there's such a broad gap between the way
+
+57:58.040 --> 58:00.400
+ you think things will work in your mind or even on paper
+
+58:00.400 --> 58:03.040
+ and the way they work once you sit and live in the software,
+
+58:03.040 --> 58:05.560
+ like actually spend time living and breathing in software,
+
+58:05.560 --> 58:06.720
+ so different.
+
+58:06.720 --> 58:10.800
+ So my philosophy is get to a prototype.
+
+58:10.800 --> 58:12.380
+ And then what you're really optimizing
+
+58:12.380 --> 58:14.800
+ for is speed of iteration, like how you can turn the crank.
+
+58:14.800 --> 58:16.120
+ How quickly can we iterate?
+
+58:16.120 --> 58:18.000
+ That's the absolutely critical metric
+
+58:18.000 --> 58:19.160
+ of any software project.
+
+58:19.160 --> 58:20.920
+ And I had a tweet recently that people liked.
+
+58:20.920 --> 58:23.160
+ And I totally, this is so fundamental to what I do,
+
+58:23.160 --> 58:26.160
+ is like if you want to measure the core competency of any
+
+58:26.160 --> 58:28.960
+ software tech company, it's the speed at which somebody
+
+58:28.960 --> 58:31.200
+ can say, hey, we really need this word in the product.
+
+58:31.200 --> 58:32.280
+ Change this word, right?
+
+58:32.280 --> 58:34.280
+ Because it will be more clear to the user.
+
+58:34.280 --> 58:36.400
+ Like, instead of respond, it's reply or something.
+
+58:36.400 --> 58:39.760
+ But there's some, from the conception of that idea
+
+58:39.760 --> 58:42.640
+ to how quickly that single word can be changed in your software
+
+58:42.640 --> 58:44.920
+ and rolled out to users, that is your life cycle.
+
+58:44.920 --> 58:47.320
+ That's your health, your heartbeat.
+
+58:47.320 --> 58:51.640
+ If your heartbeat is like super slow, you're basically dead.
+
+58:51.640 --> 58:52.200
+ No, seriously.
+
+58:52.200 --> 58:54.880
+ Like, if it takes two weeks or even a month
+
+58:54.880 --> 58:56.840
+ to get that single word changed, everybody's like, oh my god,
+
+58:56.840 --> 58:57.760
+ this is a great idea.
+
+58:57.760 --> 58:59.000
+ That word is so much clearer.
+
+58:59.000 --> 59:00.700
+ I'm talking about like a super, like everybody's
+
+59:00.700 --> 59:01.660
+ on board for this change.
+
+59:01.660 --> 59:03.500
+ It's not like, let's just change a word because we're bored.
+
+59:03.500 --> 59:05.600
+ It's like, this is an awesome change.
+
+59:05.600 --> 59:07.000
+ And then it takes months to roll out.
+
+59:07.000 --> 59:08.120
+ It's like, well, you're dead.
+
+59:08.120 --> 59:09.200
+ You can't iterate.
+
+59:09.200 --> 59:12.360
+ You can't, how are you going to do anything, right?
+
+59:12.360 --> 59:13.800
+ So anyway, about the heartbeat, it's
+
+59:13.800 --> 59:15.960
+ like, get the prototype and then iterate on it.
+
+59:15.960 --> 59:19.880
+ That's what I view as the central tenet of modern software
+
+59:19.880 --> 59:20.480
+ development.
+
+59:20.480 --> 59:22.480
+ That's fascinating that you put it that way.
+
+59:22.480 --> 59:24.440
+ So I work and I build autonomous vehicles.
+
+59:24.440 --> 59:28.160
+ And when you look at what, maybe compare Tesla
+
+59:28.160 --> 59:34.120
+ to most other automakers, the heart beat for Tesla
+
+59:34.120 --> 59:38.120
+ is literally days now in terms of they can over the air
+
+59:38.120 --> 59:41.360
+ deploy software updates to all their vehicles, which
+
+59:41.360 --> 59:46.040
+ is markedly different than every other automaker, which takes
+
+59:46.040 --> 59:49.160
+ years to update a piece of software.
+
+59:49.160 --> 59:52.120
+ And that's reflected in everything
+
+59:52.120 --> 59:54.840
+ that's the final product.
+
+59:54.840 --> 59:57.280
+ That's reflected in really how slowly they
+
+59:57.280 --> 59:58.200
+ adapt to the times.
+
+59:58.200 --> 59:59.900
+ And to be clear, I'm not saying being a hummingbird
+
+59:59.900 --> 1:00:00.680
+ is the goal either.
+
+1:00:00.680 --> 1:00:02.400
+ It's like, you don't want a heartbeat that's like so fast.
+
+1:00:02.400 --> 1:00:04.440
+ It's like you're just freaking out.
+
+1:00:04.440 --> 1:00:05.720
+ But it is a measure of health.
+
+1:00:05.720 --> 1:00:07.320
+ You should have a healthy heartbeat.
+
+1:00:07.320 --> 1:00:09.560
+ It's up to people listening to decide what that means.
+
+1:00:09.560 --> 1:00:10.880
+ But it has to be healthy.
+
+1:00:10.880 --> 1:00:11.680
+ It has to be reasonable.
+
+1:00:11.680 --> 1:00:12.840
+ Because otherwise, you're just going
+
+1:00:12.840 --> 1:00:15.140
+ to be frustrated because that's how you build software.
+
+1:00:15.140 --> 1:00:15.940
+ You make mistakes.
+
+1:00:15.940 --> 1:00:16.600
+ You roll it out.
+
+1:00:16.600 --> 1:00:17.760
+ You live with it.
+
+1:00:17.760 --> 1:00:19.160
+ You see what it feels like and say, oh, God,
+
+1:00:19.160 --> 1:00:20.160
+ that was a terrible idea.
+
+1:00:20.160 --> 1:00:22.720
+ Oh, my gosh, this could be even better if we did Y, right?
+
+1:00:22.720 --> 1:00:23.480
+ You turn the crank.
+
+1:00:23.480 --> 1:00:25.920
+ And then the more you do that, the faster
+
+1:00:25.920 --> 1:00:28.640
+ you get ahead of your competitors ultimately.
+
+1:00:28.640 --> 1:00:29.680
+ It's rate of change, right?
+
+1:00:29.680 --> 1:00:30.920
+ Delta V, right?
+
+1:00:30.920 --> 1:00:32.660
+ How fast are you moving?
+
+1:00:32.660 --> 1:00:34.760
+ Well, within a year, you're going to be miles away
+
+1:00:34.760 --> 1:00:36.760
+ by the time they catch up with you, right?
+
+1:00:36.760 --> 1:00:37.880
+ That's the way it works.
+
+1:00:37.880 --> 1:00:40.800
+ And plus, as a software developer and user,
+
+1:00:40.800 --> 1:00:42.800
+ I love software that's constantly changing.
+
+1:00:42.800 --> 1:00:45.600
+ Because I don't understand people who get super pissed off
+
+1:00:45.600 --> 1:00:47.180
+ when like, oh, they changed the software on me.
+
+1:00:47.180 --> 1:00:47.720
+ How dare they?
+
+1:00:47.720 --> 1:00:49.520
+ I'm like, yes, change the software.
+
+1:00:49.520 --> 1:00:51.280
+ Change it all the time, man.
+
+1:00:51.280 --> 1:00:52.720
+ That's what makes this stuff great
+
+1:00:52.720 --> 1:00:55.320
+ is that it can be changed so rapidly
+
+1:00:55.320 --> 1:00:58.120
+ and become something that is greater than it is now.
+
+1:00:58.120 --> 1:01:00.040
+ Now, granted, there are some changes that suck.
+
+1:01:00.040 --> 1:01:01.160
+ I admit.
+
+1:01:01.160 --> 1:01:02.240
+ I've seen it many times.
+
+1:01:02.240 --> 1:01:05.040
+ But in general, that's what makes software cool, right?
+
+1:01:05.040 --> 1:01:06.640
+ It's that it is so malleable.
+
+1:01:06.640 --> 1:01:08.440
+ Fighting that is weird to me.
+
+1:01:08.440 --> 1:01:10.120
+ Because it's like, well, you're fighting
+
+1:01:10.120 --> 1:01:12.200
+ the essence of the thing that you're building.
+
+1:01:12.200 --> 1:01:13.000
+ That doesn't make sense.
+
+1:01:13.000 --> 1:01:14.200
+ You want to really embrace that.
+
+1:01:14.200 --> 1:01:16.280
+ Not to be a hummingbird, but embrace it
+
+1:01:16.280 --> 1:01:18.200
+ to a healthy cycle of your heartbeat, right?
+
+1:01:18.200 --> 1:01:21.040
+ So you talk about that people really don't change.
+
+1:01:21.040 --> 1:01:22.520
+ It's true.
+
+1:01:22.520 --> 1:01:25.720
+ That's why probably a lot of the stuff you write about in your blog
+
+1:01:25.720 --> 1:01:27.200
+ probably will remain true.
+
+1:01:27.200 --> 1:01:28.780
+ Well, there's a flip side of the coin.
+
+1:01:28.780 --> 1:01:29.580
+ People don't change.
+
+1:01:29.580 --> 1:01:31.640
+ Like, investing and understanding people
+
+1:01:31.640 --> 1:01:34.840
+ is like learning Unix in 1970.
+
+1:01:34.840 --> 1:01:36.960
+ Because nothing has changed, right?
+
+1:01:36.960 --> 1:01:38.880
+ All those things you've learned about people
+
+1:01:38.880 --> 1:01:40.680
+ will still be valid 34 years from now.
+
+1:01:40.680 --> 1:01:43.180
+ Whereas if you learn the latest JavaScript framework,
+
+1:01:43.180 --> 1:01:45.360
+ that's going to be good for like two years, right?
+
+1:01:45.360 --> 1:01:46.720
+ Exactly.
+
+1:01:46.720 --> 1:01:49.800
+ But if you look at the future of programming,
+
+1:01:49.800 --> 1:01:52.980
+ so there's a people component, but there's also
+
+1:01:52.980 --> 1:01:55.040
+ the technology itself.
+
+1:01:55.040 --> 1:01:57.320
+ What do you see as the future of programming?
+
+1:01:57.320 --> 1:02:01.840
+ Will it change significantly, or as far as you can tell,
+
+1:02:01.840 --> 1:02:04.800
+ people are ultimately programming,
+
+1:02:04.800 --> 1:02:08.720
+ and so it's not something that you foresee changing
+
+1:02:08.720 --> 1:02:10.040
+ in any fundamental way?
+
+1:02:10.040 --> 1:02:12.880
+ Well, you've got to go look back on sort
+
+1:02:12.880 --> 1:02:14.440
+ of the basics of programming.
+
+1:02:14.440 --> 1:02:15.520
+ And one of things that always shocked me
+
+1:02:15.520 --> 1:02:16.400
+ is like source control.
+
+1:02:16.400 --> 1:02:18.680
+ Like, I didn't learn anything about source control.
+
+1:02:18.680 --> 1:02:22.400
+ Granted, I graduated from college in 1992.
+
+1:02:22.400 --> 1:02:25.800
+ But I remember hearing from people as late as like 1998,
+
+1:02:25.800 --> 1:02:27.760
+ 1999, like even maybe today, they're
+
+1:02:27.760 --> 1:02:28.960
+ not learning source control.
+
+1:02:28.960 --> 1:02:30.240
+ And to me, it's like, well, how can you not
+
+1:02:30.240 --> 1:02:31.600
+ learn source control?
+
+1:02:31.600 --> 1:02:34.320
+ That is so fundamental to working with other programmers,
+
+1:02:34.320 --> 1:02:36.280
+ working in a way that you don't lose your work.
+
+1:02:36.280 --> 1:02:39.720
+ Just basic software, the literal bedrock of software
+
+1:02:39.720 --> 1:02:41.280
+ development is source control.
+
+1:02:41.280 --> 1:02:42.840
+ Now, you compare it today, like GitHub, right?
+
+1:02:42.840 --> 1:02:44.080
+ Like Microsoft bought GitHub, which
+
+1:02:44.080 --> 1:02:46.000
+ I think was an incredibly smart acquisition move
+
+1:02:46.000 --> 1:02:47.000
+ on their part.
+
+1:02:47.000 --> 1:02:49.880
+ Now they have anybody who wants reasonable source control
+
+1:02:49.880 --> 1:02:50.960
+ to go sign up on GitHub.
+
+1:02:50.960 --> 1:02:52.440
+ It's all set up for you, right?
+
+1:02:52.440 --> 1:02:55.360
+ There's tons of walkthroughs, tons of tutorials.
+
+1:02:55.360 --> 1:02:57.320
+ So from the concept of like, has programming
+
+1:02:57.320 --> 1:03:00.320
+ advanced from, say, 1999, it's like, well, hell, we have GitHub.
+
+1:03:00.320 --> 1:03:01.600
+ I mean, my god, yes, right?
+
+1:03:01.600 --> 1:03:04.880
+ Like, it's massively advanced over what it was.
+
+1:03:04.880 --> 1:03:08.880
+ Now, as to whether programming is significantly different,
+
+1:03:08.880 --> 1:03:09.720
+ I'm going to say no.
+
+1:03:09.720 --> 1:03:14.560
+ But I think the baseline of what we view as fundamentals
+
+1:03:14.560 --> 1:03:16.560
+ will continue to go up and actually get better,
+
+1:03:16.560 --> 1:03:17.520
+ like source control.
+
+1:03:17.520 --> 1:03:20.880
+ That's one of the fundamentals that has gotten hundreds
+
+1:03:20.880 --> 1:03:23.800
+ of orders of magnitude better than it was 10, 20 years ago.
+
+1:03:23.800 --> 1:03:25.000
+ So those are the fundamentals.
+
+1:03:25.000 --> 1:03:28.320
+ Let me introduce two things that maybe you can comment on.
+
+1:03:28.320 --> 1:03:31.080
+ So one is mobile phones.
+
+1:03:31.080 --> 1:03:37.160
+ So that could fundamentally transform what programming is,
+
+1:03:37.160 --> 1:03:38.000
+ or maybe not.
+
+1:03:38.000 --> 1:03:39.320
+ Maybe you can comment on that.
+
+1:03:39.320 --> 1:03:41.560
+ And the other one is artificial intelligence,
+
+1:03:41.560 --> 1:03:46.560
+ which promises to, in some ways, to do
+
+1:03:46.560 --> 1:03:49.600
+ some of the programming for you is one way to think about it.
+
+1:03:49.600 --> 1:03:52.360
+ So it's really what a programmer is,
+
+1:03:52.360 --> 1:03:55.720
+ is using the intelligence that's inside your skull
+
+1:03:55.720 --> 1:03:57.880
+ to do something useful.
+
+1:03:57.880 --> 1:03:59.520
+ The hope with artificial intelligence
+
+1:03:59.520 --> 1:04:02.080
+ is that it does some of the useful parts for you
+
+1:04:02.080 --> 1:04:03.720
+ where you don't have to think about it.
+
+1:04:03.720 --> 1:04:07.720
+ So do you see smartphones, the fact that everybody has one,
+
+1:04:07.720 --> 1:04:10.080
+ and they're getting more and more powerful as potentially
+
+1:04:10.080 --> 1:04:11.640
+ changing programming?
+
+1:04:11.640 --> 1:04:14.360
+ And do you see AI as potentially changing programming?
+
+1:04:14.360 --> 1:04:15.640
+ OK, so that's good.
+
+1:04:15.640 --> 1:04:17.560
+ So smartphones have definitely changed.
+
+1:04:17.560 --> 1:04:20.020
+ I mean, since, I guess, 2010 is when they really
+
+1:04:20.020 --> 1:04:21.840
+ started getting super popular.
+
+1:04:21.840 --> 1:04:24.760
+ I mean, in the last eight years, the world
+
+1:04:24.760 --> 1:04:25.920
+ has literally changed, right?
+
+1:04:25.920 --> 1:04:28.520
+ Everybody carries a computer around, and that's normal.
+
+1:04:28.520 --> 1:04:30.920
+ I mean, that is such a huge change in society.
+
+1:04:30.920 --> 1:04:32.460
+ I think we're still dealing with a lot
+
+1:04:32.460 --> 1:04:35.260
+ of the positive and negative ramifications of that, right?
+
+1:04:35.260 --> 1:04:36.280
+ Everybody's connected all the time.
+
+1:04:36.280 --> 1:04:37.980
+ Everybody's on the computer all the time.
+
+1:04:37.980 --> 1:04:40.360
+ That was my dream world as a geek, right?
+
+1:04:40.360 --> 1:04:42.560
+ But it's like, be careful what you ask for, right?
+
+1:04:42.560 --> 1:04:44.200
+ Like, wow, now everybody has a computer.
+
+1:04:44.200 --> 1:04:47.040
+ It's not quite the utopia that we thought it would be, right?
+
+1:04:47.040 --> 1:04:49.720
+ Computers can be used for a lot of stuff that's not necessarily
+
+1:04:49.720 --> 1:04:51.200
+ great.
+
+1:04:51.200 --> 1:04:53.160
+ So to me, that's the central focus of the smartphone,
+
+1:04:53.160 --> 1:04:55.720
+ is just that it puts a computer in front of everyone.
+
+1:04:55.720 --> 1:04:57.800
+ Granted, a small, touch screen, smallish,
+
+1:04:57.800 --> 1:04:59.080
+ touch screen computer.
+
+1:04:59.080 --> 1:05:00.560
+ But as for programming, I don't know.
+
+1:05:00.560 --> 1:05:03.080
+ I don't think that I've kind of, over time,
+
+1:05:03.080 --> 1:05:05.360
+ come to subscribe to the Unix view of the world
+
+1:05:05.360 --> 1:05:06.600
+ when it comes to programming.
+
+1:05:06.600 --> 1:05:09.960
+ You want to teach these basic command line things,
+
+1:05:09.960 --> 1:05:11.280
+ and that is just what programming
+
+1:05:11.280 --> 1:05:14.440
+ is going to be for, I think, a long, long time.
+
+1:05:14.440 --> 1:05:17.120
+ I don't think there's any magical visual programming
+
+1:05:17.120 --> 1:05:20.160
+ that's going to happen.
+
+1:05:20.160 --> 1:05:20.680
+ I don't know.
+
+1:05:20.680 --> 1:05:23.180
+ I've, over time, have become a believer in that Unix
+
+1:05:23.180 --> 1:05:25.120
+ philosophy of just, you know, they kind of had
+
+1:05:25.120 --> 1:05:26.440
+ to write with Unix.
+
+1:05:26.440 --> 1:05:28.960
+ That's going to be the way it is for a long, long time.
+
+1:05:28.960 --> 1:05:31.640
+ And we'll continue to, like I said, raise the baseline.
+
+1:05:31.640 --> 1:05:32.440
+ The tools will get better.
+
+1:05:32.440 --> 1:05:33.020
+ It'll get simpler.
+
+1:05:33.020 --> 1:05:34.440
+ But it's still fundamentally going
+
+1:05:34.440 --> 1:05:37.200
+ to be command line tools, fancy IDEs.
+
+1:05:37.200 --> 1:05:39.240
+ That's kind of it for the foreseeable future.
+
+1:05:39.240 --> 1:05:41.440
+ I'm not seeing any visual programming stuff
+
+1:05:41.440 --> 1:05:42.240
+ on the horizon.
+
+1:05:42.240 --> 1:05:43.200
+ Because you kind of think, like, what
+
+1:05:43.200 --> 1:05:45.200
+ do you do on a smartphone that will be directly
+
+1:05:45.200 --> 1:05:46.480
+ analogous to programming?
+
+1:05:46.480 --> 1:05:48.240
+ Like, I'm trying to think, right?
+
+1:05:48.240 --> 1:05:52.200
+ And there's really not much.
+
+1:05:52.200 --> 1:05:55.160
+ So not necessarily analogous to programming,
+
+1:05:55.160 --> 1:06:01.680
+ but the kind of things that, the kind of programs
+
+1:06:01.680 --> 1:06:07.360
+ you would need to write might need to be very different.
+
+1:06:07.360 --> 1:06:08.040
+ Yeah.
+
+1:06:08.040 --> 1:06:09.480
+ And the kind of languages.
+
+1:06:09.480 --> 1:06:12.400
+ I mean, but I probably also subscribe to the same,
+
+1:06:12.400 --> 1:06:14.260
+ just because everything in this world
+
+1:06:14.260 --> 1:06:16.200
+ might be written in JavaScript.
+
+1:06:16.200 --> 1:06:16.720
+ Oh, yeah.
+
+1:06:16.720 --> 1:06:17.760
+ That's already happening.
+
+1:06:17.760 --> 1:06:18.960
+ I mean, discourse is a bet.
+
+1:06:18.960 --> 1:06:20.840
+ Discourse itself, JavaScript, is another bet
+
+1:06:20.840 --> 1:06:21.920
+ on that side of the table.
+
+1:06:21.920 --> 1:06:23.680
+ And I still try and believe in that.
+
+1:06:23.680 --> 1:06:26.220
+ So I would say smartphones have mostly a cultural shift more
+
+1:06:26.220 --> 1:06:27.720
+ than a programming shift.
+
+1:06:27.720 --> 1:06:30.080
+ Now, your other question was about artificial intelligence
+
+1:06:30.080 --> 1:06:32.760
+ and sort of devices predicting what you're going to do.
+
+1:06:32.760 --> 1:06:34.640
+ And I do think there's some strength to that.
+
+1:06:34.640 --> 1:06:37.040
+ I think artificial intelligence is kind of overselling it
+
+1:06:37.040 --> 1:06:37.680
+ in terms of what it's doing.
+
+1:06:37.680 --> 1:06:39.720
+ It's more like, people are predictable, right?
+
+1:06:39.720 --> 1:06:41.120
+ People do the same things.
+
+1:06:41.120 --> 1:06:43.120
+ Let me give you an example.
+
+1:06:43.120 --> 1:06:44.720
+ One check we put in a discourse that's
+
+1:06:44.720 --> 1:06:48.280
+ been a lot of big commercial websites is,
+
+1:06:48.280 --> 1:06:51.160
+ say you log in from New York City now.
+
+1:06:51.160 --> 1:06:54.200
+ And then an hour later, you log in from San Francisco.
+
+1:06:54.200 --> 1:06:56.600
+ It's like, well, hmm, that's interesting.
+
+1:06:56.600 --> 1:06:59.560
+ How did you get from New York to San Francisco in one hour?
+
+1:06:59.560 --> 1:07:01.220
+ So at that point, you're like, OK, this
+
+1:07:01.220 --> 1:07:02.680
+ is a suspicious login at that point.
+
+1:07:02.680 --> 1:07:03.520
+ So we would alert you.
+
+1:07:03.520 --> 1:07:04.200
+ It's like, OK.
+
+1:07:04.200 --> 1:07:05.360
+ But that's not AI, right?
+
+1:07:05.360 --> 1:07:09.080
+ That's just a heuristic of like, how did you, in one hour,
+
+1:07:09.080 --> 1:07:10.880
+ get 2,000 miles, right?
+
+1:07:10.880 --> 1:07:11.440
+ That doesn't.
+
+1:07:11.440 --> 1:07:12.040
+ I mean, you're grand.
+
+1:07:12.040 --> 1:07:12.680
+ Maybe you're on a VPN.
+
+1:07:12.680 --> 1:07:14.040
+ There's other ways to happen.
+
+1:07:14.040 --> 1:07:16.040
+ That's just a basic prediction based on the idea
+
+1:07:16.040 --> 1:07:19.440
+ that people pretty much don't move around that much.
+
+1:07:19.440 --> 1:07:20.920
+ They may travel occasionally.
+
+1:07:20.920 --> 1:07:23.160
+ But nobody, unless you're a traveling salesman that's
+
+1:07:23.160 --> 1:07:26.280
+ literally traveling the world every day,
+
+1:07:26.280 --> 1:07:28.280
+ there's so much repetition and predictability
+
+1:07:28.280 --> 1:07:29.740
+ in terms of things you're going to do.
+
+1:07:29.740 --> 1:07:32.240
+ And I think good software anticipates your needs.
+
+1:07:32.240 --> 1:07:33.560
+ For example, Google, I think it's
+
+1:07:33.560 --> 1:07:35.320
+ called Google Now or whatever that Google thing is
+
+1:07:35.320 --> 1:07:36.800
+ that predicts your commute and predicts,
+
+1:07:36.800 --> 1:07:39.200
+ based on your phone location, where are you every day?
+
+1:07:39.200 --> 1:07:41.840
+ Well, that's probably where you work, that kind of stuff.
+
+1:07:41.840 --> 1:07:43.920
+ I do think computers can get a lot better at that.
+
+1:07:43.920 --> 1:07:46.320
+ I hesitate to call it full blown AI.
+
+1:07:46.320 --> 1:07:48.880
+ It's just computers getting better at like, first of all,
+
+1:07:48.880 --> 1:07:50.560
+ they have a ton of data because everybody has a smartphone.
+
+1:07:50.560 --> 1:07:52.080
+ Now, all of a sudden, we have all this data
+
+1:07:52.080 --> 1:07:53.880
+ that we didn't have before about location,
+
+1:07:53.880 --> 1:07:59.240
+ about communication, and feeding that into some basic heuristics
+
+1:07:59.240 --> 1:08:01.080
+ and maybe some fancy algorithms that turn it
+
+1:08:01.080 --> 1:08:03.160
+ into predictions of anticipating your needs,
+
+1:08:03.160 --> 1:08:04.520
+ like a friend would, right?
+
+1:08:04.520 --> 1:08:06.160
+ Like, oh, hey, I see your home.
+
+1:08:06.160 --> 1:08:07.540
+ Would you like some dinner, right?
+
+1:08:07.540 --> 1:08:09.320
+ Like, let's go get some food, because that's usually
+
+1:08:09.320 --> 1:08:10.840
+ what we do at this time of day, right?
+
+1:08:10.840 --> 1:08:13.680
+ In the context of actually the act of programming,
+
+1:08:13.680 --> 1:08:15.680
+ do you see IDEs improving and making
+
+1:08:15.680 --> 1:08:17.400
+ the life of programming as better?
+
+1:08:17.400 --> 1:08:19.160
+ I do think that is possible, because there's
+
+1:08:19.160 --> 1:08:20.760
+ a lot of repetition in programming, right?
+
+1:08:20.760 --> 1:08:23.680
+ Oh, you know, Clippy would be the bad example of, oh, I see.
+
+1:08:23.680 --> 1:08:25.960
+ It looks like you're writing a for loop.
+
+1:08:25.960 --> 1:08:28.400
+ But there are patterns in code, right?
+
+1:08:28.400 --> 1:08:30.880
+ And actually, libraries are kind of like that, right?
+
+1:08:30.880 --> 1:08:35.440
+ Rather than go code up your own HTTP request library,
+
+1:08:35.440 --> 1:08:37.560
+ it's like, well, you'd use one of the existing ones
+
+1:08:37.560 --> 1:08:38.400
+ that we have.
+
+1:08:38.400 --> 1:08:39.800
+ That's already a troubleshot, right?
+
+1:08:39.800 --> 1:08:41.440
+ It's not AI, per se.
+
+1:08:41.440 --> 1:08:46.180
+ It's just building better LEGO bricks, bigger LEGO bricks,
+
+1:08:46.180 --> 1:08:47.760
+ that have more functionality in them,
+
+1:08:47.760 --> 1:08:49.460
+ so people don't have to worry about the low level
+
+1:08:49.460 --> 1:08:50.560
+ stuff as much anymore.
+
+1:08:50.560 --> 1:08:52.040
+ Like, WordPress, for example, to me,
+
+1:08:52.040 --> 1:08:54.160
+ is like a tool for somebody who isn't a programmer
+
+1:08:54.160 --> 1:08:55.800
+ to do something.
+
+1:08:55.800 --> 1:08:57.680
+ I mean, you can turn WordPress into anything.
+
+1:08:57.680 --> 1:08:59.800
+ It's kind of crazy, actually, through plugins, right?
+
+1:08:59.800 --> 1:09:01.400
+ And that's not programming, per se.
+
+1:09:01.400 --> 1:09:04.560
+ It's just LEGO bricks stacking WordPress elements, right?
+
+1:09:04.560 --> 1:09:06.620
+ And a little bit of configuration glue.
+
+1:09:06.620 --> 1:09:09.040
+ So I would say, maybe in a broader sense, what I'm seeing,
+
+1:09:09.040 --> 1:09:14.040
+ like, there'll be more gluing and less actual programming.
+
+1:09:14.200 --> 1:09:15.600
+ And that's a good thing, right?
+
+1:09:15.600 --> 1:09:16.720
+ Because most of the stuff you need
+
+1:09:16.720 --> 1:09:17.960
+ is kind of out there already.
+
+1:09:17.960 --> 1:09:20.120
+ You said 1970s, Unix.
+
+1:09:20.120 --> 1:09:25.120
+ Do you see PHP and these kind of old remnants
+
+1:09:28.240 --> 1:09:31.760
+ of the early birth of programming
+
+1:09:31.760 --> 1:09:33.760
+ remaining with us for a long time?
+
+1:09:33.760 --> 1:09:35.640
+ Like you said, Unix in itself.
+
+1:09:35.640 --> 1:09:40.640
+ Do you see, ultimately, this stuff just being there
+
+1:09:41.120 --> 1:09:42.940
+ out of momentum?
+
+1:09:42.940 --> 1:09:44.160
+ I kind of do.
+
+1:09:44.160 --> 1:09:46.200
+ I mean, I was a big believer in Windows early on.
+
+1:09:46.200 --> 1:09:47.400
+ And I was a big, you know, I was like,
+
+1:09:47.400 --> 1:09:48.780
+ Unix, what a waste of time.
+
+1:09:48.780 --> 1:09:50.120
+ But over time, I've completely flipped on that,
+
+1:09:50.120 --> 1:09:51.720
+ where I was like, okay, the Unix guys were right.
+
+1:09:51.720 --> 1:09:54.640
+ And pretty much Microsoft and Windows were kind of wrong,
+
+1:09:54.640 --> 1:09:55.760
+ at least on the server side.
+
+1:09:55.760 --> 1:09:57.400
+ Now, on the desktop, right, you need a GUI,
+
+1:09:57.400 --> 1:09:58.240
+ you need all that stuff.
+
+1:09:58.240 --> 1:09:59.200
+ And you have the two philosophies,
+
+1:09:59.200 --> 1:10:02.680
+ like Apple built on Unix, effectively, Darwin.
+
+1:10:02.680 --> 1:10:04.600
+ And on the desktop, it's a slightly different story.
+
+1:10:04.600 --> 1:10:07.000
+ But on the server side, where you're gonna be programming.
+
+1:10:07.000 --> 1:10:08.480
+ Now, it's a question of where the programming's gonna be.
+
+1:10:08.480 --> 1:10:10.760
+ There's gonna be a lot more like client side programming,
+
+1:10:10.760 --> 1:10:13.620
+ because technically, discourse is client side programming.
+
+1:10:13.620 --> 1:10:14.520
+ The way you get discourse,
+
+1:10:14.520 --> 1:10:16.200
+ we deliver a big ball of JavaScript,
+
+1:10:16.200 --> 1:10:18.260
+ which is then executed locally.
+
+1:10:18.260 --> 1:10:20.980
+ So we're really using a lot more local computing power.
+
+1:10:20.980 --> 1:10:22.360
+ We'll still retrieve the data, obviously,
+
+1:10:22.360 --> 1:10:24.320
+ we have to display the posts on the screen and so forth.
+
+1:10:24.320 --> 1:10:27.040
+ But in terms of like sorting and a lot of the basic stuff,
+
+1:10:27.040 --> 1:10:29.480
+ we're using the host processor.
+
+1:10:29.480 --> 1:10:31.280
+ But to the extent that a lot of programming
+
+1:10:31.280 --> 1:10:33.680
+ is still gonna be server side, I would say, yeah,
+
+1:10:33.680 --> 1:10:35.320
+ the Unix philosophy definitely won.
+
+1:10:35.320 --> 1:10:38.640
+ And there'll be different veneers over Unix,
+
+1:10:38.640 --> 1:10:40.800
+ but it's still, if you peel away one or two layers,
+
+1:10:40.800 --> 1:10:44.340
+ it's gonna be Unixy for a long, I think Unix won.
+
+1:10:44.340 --> 1:10:45.520
+ I mean, so definitively.
+
+1:10:45.520 --> 1:10:47.440
+ It's interesting to hear you say that,
+
+1:10:47.440 --> 1:10:49.080
+ because you've done so much excellent work
+
+1:10:49.080 --> 1:10:52.840
+ on the Microsoft side in terms of backend development.
+
+1:10:52.840 --> 1:10:53.680
+ Cool.
+
+1:10:53.680 --> 1:10:56.960
+ So what's the future hold for Jeff Atwood?
+
+1:10:56.960 --> 1:11:01.820
+ I mean, the discourse, continuing the discourse
+
+1:11:01.820 --> 1:11:03.960
+ in trying to improve conversation on the web?
+
+1:11:03.960 --> 1:11:05.640
+ Well, discourse is what I've viewed as a,
+
+1:11:05.640 --> 1:11:07.040
+ and originally I called it a five year project,
+
+1:11:07.040 --> 1:11:08.800
+ then really quickly revised that to a 10 year project.
+
+1:11:08.800 --> 1:11:12.280
+ So we started in early 2013,
+
+1:11:12.280 --> 1:11:13.640
+ that's when we launched the first version.
+
+1:11:13.640 --> 1:11:16.120
+ So we're still five years in.
+
+1:11:16.120 --> 1:11:17.400
+ This is the part where it starts getting good.
+
+1:11:17.400 --> 1:11:18.540
+ Like we have a good product now.
+
+1:11:18.540 --> 1:11:21.760
+ Discourse, there's any project you build in software,
+
+1:11:21.760 --> 1:11:23.280
+ it takes three years to build what you want it
+
+1:11:23.280 --> 1:11:24.100
+ to build anyway.
+
+1:11:24.100 --> 1:11:26.560
+ Like V1 is gonna be terrible, which it was.
+
+1:11:26.560 --> 1:11:27.400
+ But you ship it anyway,
+
+1:11:27.400 --> 1:11:29.000
+ because that's how you get better at stuff.
+
+1:11:29.000 --> 1:11:29.920
+ It's about turning the crank.
+
+1:11:29.920 --> 1:11:31.400
+ It's not about V1 being perfect,
+
+1:11:31.400 --> 1:11:32.800
+ because that's ridiculous.
+
+1:11:32.800 --> 1:11:35.560
+ It's about V1, then let's get really good at V1.1,
+
+1:11:35.560 --> 1:11:38.000
+ 1.2, 1.3, like how fast can we iterate?
+
+1:11:38.000 --> 1:11:40.120
+ And I think we're iterating like crazy on discourse,
+
+1:11:40.120 --> 1:11:41.920
+ to the point that like, it's a really good product now.
+
+1:11:41.920 --> 1:11:43.600
+ We have serious momentum.
+
+1:11:44.640 --> 1:11:46.240
+ And my original vision was,
+
+1:11:46.240 --> 1:11:48.120
+ I wanna be the WordPress of discussion.
+
+1:11:48.120 --> 1:11:49.860
+ Meaning someone came to you and said,
+
+1:11:49.860 --> 1:11:50.760
+ I wanna start a blog.
+
+1:11:50.760 --> 1:11:53.000
+ Although the very question is kind of archaic now.
+
+1:11:53.000 --> 1:11:55.320
+ It's like, who actually blogs anymore?
+
+1:11:55.320 --> 1:11:59.000
+ But I wanted the answer to that to be,
+
+1:11:59.000 --> 1:12:01.360
+ it would be WordPress normally,
+
+1:12:01.360 --> 1:12:02.240
+ because that's the obvious choice
+
+1:12:02.240 --> 1:12:04.200
+ for blogging most of the time.
+
+1:12:04.200 --> 1:12:06.960
+ But if someone said, hey, I need a group of people
+
+1:12:06.960 --> 1:12:08.760
+ to get together and do something,
+
+1:12:08.760 --> 1:12:10.400
+ the answer should be discourse, right?
+
+1:12:10.400 --> 1:12:11.800
+ That should be the default answer for people.
+
+1:12:11.800 --> 1:12:13.360
+ Because it's open source, it's free,
+
+1:12:13.360 --> 1:12:14.200
+ doesn't cost you anything.
+
+1:12:14.200 --> 1:12:15.960
+ You control it, you can run it.
+
+1:12:15.960 --> 1:12:17.400
+ Your minimum server cost for discourse
+
+1:12:17.400 --> 1:12:19.560
+ is five bucks a month at this point.
+
+1:12:19.560 --> 1:12:21.560
+ They actually got the VPS prices down.
+
+1:12:21.560 --> 1:12:23.860
+ It used to be $10 a month for one gigabyte of RAM,
+
+1:12:23.860 --> 1:12:28.400
+ which we have a kind of heavy stack.
+
+1:12:28.400 --> 1:12:30.280
+ Like there's a lot of stuff in discourse.
+
+1:12:30.280 --> 1:12:32.520
+ You need Postgres, you need Redis, you need Ruby,
+
+1:12:32.520 --> 1:12:35.760
+ and Rails, you need a sidekick for scheduling.
+
+1:12:35.760 --> 1:12:36.960
+ It's not a trivial amount of stuff
+
+1:12:36.960 --> 1:12:38.040
+ because we were architected for like,
+
+1:12:38.040 --> 1:12:39.460
+ look, we're building for the next 10 years.
+
+1:12:39.460 --> 1:12:41.960
+ I don't care about shared PHP hosting.
+
+1:12:41.960 --> 1:12:44.160
+ That's not my model.
+
+1:12:44.160 --> 1:12:45.880
+ My idea is like, hey, eventually,
+
+1:12:45.880 --> 1:12:47.480
+ this is gonna be very cheap for everybody
+
+1:12:47.480 --> 1:12:49.120
+ and I wanna build it right.
+
+1:12:49.120 --> 1:12:53.460
+ Using again, higher, bigger building block levels, right?
+
+1:12:53.460 --> 1:12:54.440
+ That have more requirements.
+
+1:12:54.440 --> 1:12:56.600
+ And there's a WordPress model of WordPress.org,
+
+1:12:56.600 --> 1:12:57.680
+ WordPress.com.
+
+1:12:57.680 --> 1:13:00.960
+ Is there a central hosting for discourse or no?
+
+1:13:00.960 --> 1:13:01.800
+ There is.
+
+1:13:01.800 --> 1:13:03.600
+ We're not strictly segmenting into the open source
+
+1:13:03.600 --> 1:13:05.080
+ versus the commercial side.
+
+1:13:05.080 --> 1:13:06.000
+ We have a hosting business.
+
+1:13:06.000 --> 1:13:07.080
+ That's how discourse makes money
+
+1:13:07.080 --> 1:13:08.840
+ is we host discourse instances
+
+1:13:08.840 --> 1:13:10.640
+ and we have really close relationship with our customers
+
+1:13:10.640 --> 1:13:14.640
+ of the symbiosis of them giving us feedback on the product.
+
+1:13:14.640 --> 1:13:16.440
+ We definitely wait feedback from customers
+
+1:13:16.440 --> 1:13:18.360
+ a lot heavier than feedback from somebody
+
+1:13:18.360 --> 1:13:20.880
+ who just wanders by and gives feedback.
+
+1:13:20.880 --> 1:13:22.440
+ But that's where we make all our money.
+
+1:13:22.440 --> 1:13:24.600
+ But we don't have a strict division.
+
+1:13:24.600 --> 1:13:26.600
+ We encourage people to use discourse.
+
+1:13:26.600 --> 1:13:29.040
+ Like the whole point is that it's free, right?
+
+1:13:29.040 --> 1:13:29.960
+ Anybody can set it up.
+
+1:13:29.960 --> 1:13:32.600
+ I don't wanna be the only person that hosts discourse.
+
+1:13:32.600 --> 1:13:34.200
+ That's absolutely not the goal.
+
+1:13:34.200 --> 1:13:36.280
+ But it is a primary way for us to build a business
+
+1:13:36.280 --> 1:13:37.600
+ and it's actually kind of a great business.
+
+1:13:37.600 --> 1:13:40.280
+ I mean, the business is going really, really well
+
+1:13:40.280 --> 1:13:41.340
+ in terms of hosting.
+
+1:13:41.340 --> 1:13:44.280
+ So I used to work at Google Research.
+
+1:13:44.280 --> 1:13:47.040
+ It's a company that's basically funded on advertisements.
+
+1:13:47.040 --> 1:13:48.120
+ So it's Facebook.
+
+1:13:48.120 --> 1:13:50.360
+ Let me ask if you can comment on it.
+
+1:13:50.360 --> 1:13:53.500
+ I think advertisement is best.
+
+1:13:53.500 --> 1:13:56.580
+ So you'd be extremely critical on what ads are
+
+1:13:56.580 --> 1:13:59.700
+ but at its best, it's actually serving you.
+
+1:13:59.700 --> 1:14:02.000
+ In a sense, it's giving you, it's connecting you
+
+1:14:02.000 --> 1:14:05.640
+ to what you would want to explore.
+
+1:14:05.640 --> 1:14:08.040
+ So it's like related posts or related content.
+
+1:14:08.040 --> 1:14:10.200
+ It's the same, that's the best of advertisement.
+
+1:14:10.200 --> 1:14:15.200
+ So discourse is connecting people based on their interests.
+
+1:14:16.040 --> 1:14:20.080
+ It seems like a place where advertisement at its best
+
+1:14:20.080 --> 1:14:21.740
+ could actually serve the users.
+
+1:14:21.740 --> 1:14:24.880
+ Is that something that you're considering thinking about
+
+1:14:24.880 --> 1:14:29.440
+ as a way to bring, to financially support the platform?
+
+1:14:29.440 --> 1:14:31.360
+ That's interesting because I actually have
+
+1:14:31.360 --> 1:14:32.560
+ a contrarian view of advertising,
+
+1:14:32.560 --> 1:14:33.760
+ which I kind of agree with you.
+
+1:14:33.760 --> 1:14:36.800
+ I recently installed AdBlocker reluctantly
+
+1:14:36.800 --> 1:14:38.280
+ because I don't like to do that.
+
+1:14:38.280 --> 1:14:40.580
+ But the performance of the ads, man,
+
+1:14:40.580 --> 1:14:43.280
+ they're so heavy now and it's just crazy.
+
+1:14:43.280 --> 1:14:45.040
+ So it's almost like a performance argument
+
+1:14:45.040 --> 1:14:47.200
+ more than like, I actually am pro ads
+
+1:14:47.200 --> 1:14:49.480
+ and I have a contrarian viewpoint.
+
+1:14:49.480 --> 1:14:50.320
+ I agree with you.
+
+1:14:50.320 --> 1:14:51.960
+ If you do ads right, it's serving you stuff
+
+1:14:51.960 --> 1:14:53.300
+ you would be interested in anyway.
+
+1:14:53.300 --> 1:14:56.520
+ I don't mind that, that actually is kind of a good thing.
+
+1:14:56.520 --> 1:15:00.000
+ So plus I think it's rational to wanna support
+
+1:15:00.000 --> 1:15:01.680
+ the people that are doing this work
+
+1:15:01.680 --> 1:15:02.600
+ through seeing their ads.
+
+1:15:02.600 --> 1:15:04.040
+ But that said, I run AdBlock now,
+
+1:15:04.040 --> 1:15:07.520
+ which I didn't wanna do, but I was convinced
+
+1:15:07.520 --> 1:15:10.080
+ by all these articles, like 30, 40 megabytes of stuff
+
+1:15:10.080 --> 1:15:11.600
+ just to serve you ads.
+
+1:15:12.480 --> 1:15:15.980
+ Yeah, it feels like ads now are like the experts exchange
+
+1:15:15.980 --> 1:15:18.240
+ of whenever you start a stock overflow.
+
+1:15:18.240 --> 1:15:19.440
+ It's a little bit, it's overwhelming.
+
+1:15:19.440 --> 1:15:21.040
+ Oh, there's so many companies in ad tech
+
+1:15:21.040 --> 1:15:21.880
+ that it's embarrassing.
+
+1:15:21.880 --> 1:15:23.180
+ Like you can do that, have you seen those logo charts
+
+1:15:23.180 --> 1:15:24.280
+ of like just the whole page?
+
+1:15:24.280 --> 1:15:26.200
+ It's like you can't even see them, they're so small.
+
+1:15:26.200 --> 1:15:27.800
+ There's so many companies in the space.
+
+1:15:27.800 --> 1:15:29.640
+ But since you brought it up, I do wanna point out
+
+1:15:29.640 --> 1:15:31.840
+ that very, very few discourse sites actually run
+
+1:15:31.840 --> 1:15:33.080
+ using an ad supported model.
+
+1:15:33.080 --> 1:15:34.680
+ It's not effective.
+
+1:15:34.680 --> 1:15:37.600
+ Like it's too diluted, it's too weird,
+
+1:15:37.600 --> 1:15:40.560
+ it doesn't pay well, and like users hate it.
+
+1:15:40.560 --> 1:15:42.800
+ So it's a combination of like users hate it,
+
+1:15:42.800 --> 1:15:44.440
+ it doesn't actually work that well in practice.
+
+1:15:44.440 --> 1:15:45.760
+ Like in theory, yes, I agree with you.
+
+1:15:45.760 --> 1:15:48.400
+ If you had clean, fast ads that were exactly
+
+1:15:48.400 --> 1:15:50.320
+ the stuff you would be interested in, awesome.
+
+1:15:50.320 --> 1:15:52.440
+ We're so far from that though, right?
+
+1:15:52.440 --> 1:15:53.800
+ Like, and Google does an okay job.
+
+1:15:53.800 --> 1:15:55.380
+ They do retargeting and stuff like that,
+
+1:15:55.380 --> 1:15:59.280
+ but in the real world, discourse sites
+
+1:15:59.280 --> 1:16:01.020
+ rarely can make ads work.
+
+1:16:01.020 --> 1:16:03.020
+ It just doesn't work for so many reasons.
+
+1:16:03.020 --> 1:16:05.600
+ But you know what does work is subscriptions,
+
+1:16:05.600 --> 1:16:10.600
+ Patreon, affiliate codes for like Amazon,
+
+1:16:10.660 --> 1:16:13.080
+ of like just, oh, here's a cool yo yo, click,
+
+1:16:13.080 --> 1:16:14.360
+ and then you click and go to Amazon,
+
+1:16:14.360 --> 1:16:15.680
+ they get a small percentage of that,
+
+1:16:15.680 --> 1:16:17.120
+ which is fair, I think.
+
+1:16:17.120 --> 1:16:19.120
+ I mean, because you saw the yo yo on that site
+
+1:16:19.120 --> 1:16:21.080
+ and you clicked through and you bought it, right?
+
+1:16:21.080 --> 1:16:22.560
+ That's fair for them to get 5% of that
+
+1:16:22.560 --> 1:16:24.200
+ or 2% of that, whatever it is.
+
+1:16:24.200 --> 1:16:25.960
+ Those things definitely work.
+
+1:16:25.960 --> 1:16:28.580
+ In fact, a site that I used to participate on a lot,
+
+1:16:28.580 --> 1:16:29.880
+ I helped the owner.
+
+1:16:29.880 --> 1:16:32.440
+ One of the things, I got them to switch to discourse.
+
+1:16:32.440 --> 1:16:34.200
+ I basically paid them to switch to discourse
+
+1:16:34.200 --> 1:16:35.320
+ because I was like, look, you guys got to switch.
+
+1:16:35.320 --> 1:16:38.520
+ I can't come here anymore on this terrible software.
+
+1:16:38.520 --> 1:16:40.120
+ But I was like, look, and on top of that,
+
+1:16:40.120 --> 1:16:42.280
+ like you're serving people ads that they hate.
+
+1:16:42.280 --> 1:16:43.920
+ Like you should just go full on Patreon
+
+1:16:43.920 --> 1:16:45.320
+ because he had a little bit of Patreon.
+
+1:16:45.320 --> 1:16:49.720
+ Go full on Patreon, do the Amazon affiliates thing
+
+1:16:49.720 --> 1:16:51.960
+ for any Amazon links that get posted and just do that
+
+1:16:51.960 --> 1:16:53.600
+ and just triple down on that stuff.
+
+1:16:53.600 --> 1:16:55.320
+ And that's worked really well for them
+
+1:16:55.320 --> 1:16:56.780
+ and this creator in particular.
+
+1:16:56.780 --> 1:16:59.480
+ So that stuff works, but traditional ads,
+
+1:16:59.480 --> 1:17:01.720
+ I mean, definitely not working, at least on discourse.
+
+1:17:01.720 --> 1:17:03.400
+ So last question.
+
+1:17:03.400 --> 1:17:05.920
+ You've created the code keyboard.
+
+1:17:05.920 --> 1:17:09.860
+ I've programmed most of my adult life on a Kinesis keyboard.
+
+1:17:09.860 --> 1:17:12.080
+ I have one upstairs now.
+
+1:17:12.080 --> 1:17:14.520
+ Can you describe what a mechanical keyboard is
+
+1:17:14.520 --> 1:17:16.720
+ and why is it something that makes you happy?
+
+1:17:16.720 --> 1:17:18.800
+ Well, you know, this is another fetish item, really.
+
+1:17:18.800 --> 1:17:20.160
+ Like, it's not required.
+
+1:17:20.160 --> 1:17:22.240
+ You can do programming on any kind of keyboard,
+
+1:17:22.240 --> 1:17:23.880
+ even like an onscreen keyboard.
+
+1:17:23.880 --> 1:17:25.960
+ Oh, god, that's terrifying.
+
+1:17:25.960 --> 1:17:27.000
+ But you could.
+
+1:17:27.000 --> 1:17:28.760
+ I mean, if you look back at the early days of computing,
+
+1:17:28.760 --> 1:17:31.400
+ there were chiclet keyboards, which are awful.
+
+1:17:31.400 --> 1:17:32.520
+ But what's a chiclet keyboard?
+
+1:17:32.520 --> 1:17:33.120
+ Oh, god.
+
+1:17:33.120 --> 1:17:36.200
+ OK, well, it's just like thin rubber membranes.
+
+1:17:36.200 --> 1:17:37.680
+ Oh, the rubber ones, oh, no.
+
+1:17:37.680 --> 1:17:38.840
+ Super bad, right?
+
+1:17:38.840 --> 1:17:40.360
+ So it's a fetish item.
+
+1:17:40.360 --> 1:17:43.280
+ All that really says is, look, I care really about keyboards
+
+1:17:43.280 --> 1:17:45.080
+ because the keyboard is the primary method of communication
+
+1:17:45.080 --> 1:17:46.240
+ with the computer.
+
+1:17:46.240 --> 1:17:49.320
+ So it's just like having a nice mic for this podcast.
+
+1:17:49.320 --> 1:17:50.600
+ You want a nice keyboard, right?
+
+1:17:50.600 --> 1:17:52.200
+ Because it has a very tactile feel.
+
+1:17:52.200 --> 1:17:54.040
+ I can tell exactly when I press the key.
+
+1:17:54.040 --> 1:17:55.080
+ I get that little click.
+
+1:17:55.080 --> 1:17:56.480
+ So, oh, and it feels good.
+
+1:17:56.480 --> 1:17:57.980
+ And it's also kind of a fetish item.
+
+1:17:57.980 --> 1:18:00.320
+ It's like, wow, I care enough about programming
+
+1:18:00.320 --> 1:18:02.440
+ that I care about the tool, the primary tool,
+
+1:18:02.440 --> 1:18:03.320
+ that I use to communicate with the computer,
+
+1:18:03.320 --> 1:18:06.440
+ make sure it's as good as it feels good to use for me.
+
+1:18:06.440 --> 1:18:08.360
+ And I can be very productive with it.
+
+1:18:08.360 --> 1:18:10.720
+ So to be honest, it's a little bit of a fetish item,
+
+1:18:10.720 --> 1:18:11.320
+ but a good one.
+
+1:18:11.320 --> 1:18:12.560
+ It indicates that you're serious.
+
+1:18:12.560 --> 1:18:13.640
+ It indicates you're interested.
+
+1:18:13.640 --> 1:18:15.280
+ It indicates that you care about the fundamentals.
+
+1:18:15.280 --> 1:18:17.520
+ Because you know what makes you a good programmer?
+
+1:18:17.520 --> 1:18:19.360
+ Being able to type really fast, right?
+
+1:18:19.360 --> 1:18:20.600
+ This is true, right?
+
+1:18:20.600 --> 1:18:23.480
+ So a core skill is just being able to type fast enough
+
+1:18:23.480 --> 1:18:26.120
+ to get your ideas out of your head into the code base.
+
+1:18:26.120 --> 1:18:28.400
+ So just practicing your typing can make you
+
+1:18:28.400 --> 1:18:29.760
+ a better programmer.
+
+1:18:29.760 --> 1:18:33.720
+ It is also something that makes you,
+
+1:18:33.720 --> 1:18:36.640
+ well, makes you enjoy typing, correct?
+
+1:18:36.640 --> 1:18:39.940
+ The actual act, something about the process.
+
+1:18:39.940 --> 1:18:41.220
+ Like I play piano.
+
+1:18:41.220 --> 1:18:42.060
+ It's tactile.
+
+1:18:42.060 --> 1:18:46.200
+ There's a tactile feel that ultimately feeds the passion,
+
+1:18:46.200 --> 1:18:47.000
+ makes you happy.
+
+1:18:47.000 --> 1:18:47.400
+ Right.
+
+1:18:47.400 --> 1:18:47.840
+ No, totally.
+
+1:18:47.840 --> 1:18:48.160
+ That's it.
+
+1:18:48.160 --> 1:18:50.000
+ I mean, and it's funny because artisanal keyboards have
+
+1:18:50.000 --> 1:18:50.640
+ exploded.
+
+1:18:50.640 --> 1:18:53.400
+ Like Massdrop has gone ballistic with this stuff.
+
+1:18:53.400 --> 1:18:55.560
+ There's probably like 500 keyboard projects
+
+1:18:55.560 --> 1:18:56.520
+ on Massdrop alone.
+
+1:18:56.520 --> 1:18:58.120
+ And there's some other guy I follow on Twitter.
+
+1:18:58.120 --> 1:19:00.400
+ I used to write for the site The Tech Report way
+
+1:19:00.400 --> 1:19:01.360
+ back in the day.
+
+1:19:01.360 --> 1:19:02.440
+ And he's like, every week he's just
+
+1:19:02.440 --> 1:19:05.000
+ posting what I call keyboard porn of just cool keyboards.
+
+1:19:05.000 --> 1:19:07.160
+ Like, oh my god, those look really cool, right?
+
+1:19:07.160 --> 1:19:09.760
+ It's like, how many keyboards does this guy have, right?
+
+1:19:09.760 --> 1:19:10.680
+ It's kind of like me with yo yos.
+
+1:19:10.680 --> 1:19:11.480
+ How many yo yos do you have?
+
+1:19:11.480 --> 1:19:12.320
+ How many do you need?
+
+1:19:12.320 --> 1:19:14.880
+ Well, technically one, but I like a lot.
+
+1:19:14.880 --> 1:19:15.800
+ I don't know why.
+
+1:19:15.800 --> 1:19:17.200
+ So same thing with keyboards.
+
+1:19:17.200 --> 1:19:18.880
+ So yeah, they're awesome.
+
+1:19:18.880 --> 1:19:20.720
+ Like, I highly recommend anybody that
+
+1:19:20.720 --> 1:19:23.040
+ doesn't have a mechanical to research it, look into it,
+
+1:19:23.040 --> 1:19:24.360
+ and see what you like.
+
+1:19:24.360 --> 1:19:26.260
+ And it's ultimately a fetish item.
+
+1:19:26.260 --> 1:19:30.120
+ But I think these sort of items, these religious artifacts
+
+1:19:30.120 --> 1:19:32.160
+ that we have, are part of what make us human.
+
+1:19:32.160 --> 1:19:33.800
+ Like, that part's important, right?
+
+1:19:33.800 --> 1:19:35.720
+ It's kind of what makes life worth living.
+
+1:19:35.720 --> 1:19:37.000
+ Yeah.
+
+1:19:37.000 --> 1:19:38.840
+ It's not necessary in the strictest sense,
+
+1:19:38.840 --> 1:19:42.280
+ but ain't nothing necessary if you think about it, right?
+
+1:19:42.280 --> 1:19:44.240
+ Like, so yeah, why not?
+
+1:19:44.240 --> 1:19:45.320
+ So sure.
+
+1:19:45.320 --> 1:19:47.440
+ Jeff, thank you so much for talking today.
+
+1:19:47.440 --> 1:19:48.280
+ Yeah, you're welcome.
+
+1:19:48.280 --> 1:20:09.400
+ Thanks for having me.
+

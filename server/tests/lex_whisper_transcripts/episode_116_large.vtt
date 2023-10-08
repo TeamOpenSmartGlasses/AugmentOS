@@ -1,0 +1,5126 @@
+WEBVTT
+
+00:00.000 --> 00:06.320
+ The following is a conversation with Sarah Seager, a planetary scientist at MIT known
+
+00:06.320 --> 00:12.120
+ for her work on the search for exoplanets, which are planets outside of our solar system.
+
+00:12.120 --> 00:18.440
+ She's an author of two books on this fascinating topic, plus in a couple days, August 18th,
+
+00:18.440 --> 00:23.680
+ her new book, a memoir called The Smallest Lights in the Universe, is coming out.
+
+00:23.680 --> 00:29.720
+ I read it and I can recommend it highly, especially if you love space and are a bit of a romantic
+
+00:29.720 --> 00:30.720
+ like me.
+
+00:30.720 --> 00:32.400
+ It's beautifully written.
+
+00:32.400 --> 00:36.860
+ She weaves the stories of the tragedies and the triumphs of her life with the stories
+
+00:36.860 --> 00:43.440
+ of her love for and research on exoplanets, which represent our hope to find life out
+
+00:43.440 --> 00:45.440
+ there in the universe.
+
+00:45.440 --> 00:46.760
+ Quick summary of the ads.
+
+00:46.760 --> 00:52.640
+ Three sponsors, Public Goods, that's a new one, PowerDot, and Cash App.
+
+00:52.640 --> 00:55.080
+ Click the links in the description to get a discount.
+
+00:55.080 --> 00:58.920
+ It really is the best way to support this podcast.
+
+00:58.920 --> 00:59.920
+ Just a quick side note.
+
+00:59.920 --> 01:06.640
+ Let me say that extraterrestrial life, aliens, I think represent our civilization longing
+
+01:06.640 --> 01:12.320
+ to make contact with the unknown, with others like us, or maybe others that are very different
+
+01:12.320 --> 01:18.860
+ from us, entities that might reveal something profound about why we're here.
+
+01:18.860 --> 01:25.080
+ The possibility of this is both exciting and, at least to me, terrifying, which is exactly
+
+01:25.080 --> 01:28.480
+ where we humans do our best work.
+
+01:28.480 --> 01:33.200
+ If you enjoy this thing, subscribe on YouTube, review it with 5 stars on Apple Podcast, support
+
+01:33.200 --> 01:37.360
+ on Patreon, or connect with me on Twitter at Lex Friedman.
+
+01:37.360 --> 01:41.000
+ As usual, I'll do a few minutes of ads now, and never any ads in the middle that could
+
+01:41.000 --> 01:43.040
+ break the flow of the conversation.
+
+01:43.040 --> 01:47.400
+ I try to make these ad reads interesting if you do listen, but if you like, I give you
+
+01:47.400 --> 01:53.080
+ timestamps so you can skip to the conversation, but still, please do check out the sponsors
+
+01:53.080 --> 01:55.800
+ by clicking the special links in the description.
+
+01:55.800 --> 01:58.800
+ That's the best way to support this podcast.
+
+01:58.800 --> 02:04.800
+ This show is sponsored by Public Goods, the one stop shop for affordable, sustainable,
+
+02:04.800 --> 02:06.840
+ healthy household products.
+
+02:06.840 --> 02:11.160
+ Their products have a minimalist black and white design that I find to be just clean,
+
+02:11.160 --> 02:13.160
+ elegant, and beautiful.
+
+02:13.160 --> 02:16.360
+ It's a style that makes me feel like I'm living in the future.
+
+02:16.360 --> 02:21.440
+ I imagine we'll all be using Public Goods products once we colonize Mars.
+
+02:21.440 --> 02:27.300
+ They got all the basics you need from healthy snacks like almonds to my favorite, the bamboo
+
+02:27.300 --> 02:33.520
+ toothbrush, and other stuff for personal care, home essentials, healthy food, and vitamins
+
+02:33.520 --> 02:34.520
+ and supplements.
+
+02:34.520 --> 02:39.060
+ I take their fish oil, for example, which I recommend highly for everyone.
+
+02:39.060 --> 02:44.800
+ They use a membership model to keep costs low and pass on the savings to us, the people.
+
+02:44.800 --> 02:50.920
+ They plant one tree for every order placed and have planted over 100,000 trees since
+
+02:50.920 --> 02:53.160
+ September 2019.
+
+02:53.160 --> 02:58.920
+ Visit publicgoods.com slash lex or use code lex at checkout to get 15 bucks off your first
+
+02:58.920 --> 03:00.080
+ order.
+
+03:00.080 --> 03:02.480
+ This show is sponsored by Power Dot.
+
+03:02.480 --> 03:08.720
+ Get it at powerdot.com slash lex and use code lex at checkout to get 20% off and to support
+
+03:08.720 --> 03:10.280
+ this podcast.
+
+03:10.280 --> 03:15.960
+ It's an Eastim electrical stimulation device that I've been using a lot for muscle recovery,
+
+03:15.960 --> 03:20.880
+ mostly for my shoulders and legs as I've been doing the crazy amounts of body weight reps
+
+03:20.880 --> 03:24.200
+ and 6 miles every other day now after the challenge.
+
+03:24.200 --> 03:26.540
+ Yes, I'm still doing it.
+
+03:26.540 --> 03:31.980
+ They call it the smart muscle stimulator since the app that goes with it is amazing.
+
+03:31.980 --> 03:35.360
+ It has 15 programs for different body parts and guides you through everything you need
+
+03:35.360 --> 03:36.360
+ to do.
+
+03:36.360 --> 03:41.380
+ I take recovery really seriously these days and Power Dot has been a powerful addition
+
+03:41.380 --> 03:45.960
+ to stretching, ice, massage, and sleep and diet.
+
+03:45.960 --> 03:51.120
+ It's used by professional athletes and by slightly insane, but mostly normal people
+
+03:51.120 --> 03:52.280
+ like me.
+
+03:52.280 --> 03:55.560
+ It's portable so you can throw it in a bag and bring it anywhere.
+
+03:55.560 --> 04:02.240
+ Get it at powerdot.com slash lex and use code lex at checkout to get 20% off on top of the
+
+04:02.240 --> 04:07.480
+ 30 day free trial and of course to support this podcast.
+
+04:07.480 --> 04:14.400
+ This show is presented by a sponsor that arguably made this whole podcast even possible.
+
+04:14.400 --> 04:19.200
+ Our first sponsor, the great, the powerful Cash App, the number one finance app in the
+
+04:19.200 --> 04:20.200
+ App Store.
+
+04:20.200 --> 04:24.600
+ I will forever be grateful to them for sponsoring this podcast.
+
+04:24.600 --> 04:27.800
+ They're awesome people, awesome company, awesome product.
+
+04:27.800 --> 04:29.360
+ Okay, back to the read.
+
+04:29.360 --> 04:32.560
+ When you get it, use code LEX PODCAST.
+
+04:32.560 --> 04:36.520
+ Cash App lets you send money to friends, buy Bitcoin, and invest in the stock market with
+
+04:36.520 --> 04:38.580
+ as little as one dollar.
+
+04:38.580 --> 04:42.880
+ Since Cash App allows you to buy Bitcoin, let me mention that cryptocurrency in the
+
+04:42.880 --> 04:45.360
+ context of the history of money is fascinating.
+
+04:45.360 --> 04:48.840
+ I recommend Ascent of Money as a great book on this history.
+
+04:48.840 --> 04:53.560
+ Debits and credits on ledgers started around 30,000 years ago.
+
+04:53.560 --> 04:54.560
+ Time flies.
+
+04:54.560 --> 04:59.560
+ The US dollar created over 200 years ago and the first decentralized cryptocurrency released
+
+04:59.560 --> 05:01.560
+ just over 10 years ago.
+
+05:01.560 --> 05:06.680
+ So given that history, cryptocurrency is still very much in its early days of development,
+
+05:06.680 --> 05:11.920
+ but it's still aiming to and just might redefine the nature of money.
+
+05:11.920 --> 05:17.200
+ So again, if you get Cash App from the App Store or Google Play and use code LEX PODCAST,
+
+05:17.200 --> 05:22.640
+ you get $10 and Cash App will also donate $10 to FIRST, an organization that is helping
+
+05:22.640 --> 05:27.520
+ to advance robotics and STEM education for young people around the world.
+
+05:27.520 --> 05:32.360
+ And now here's my conversation with Sarah Seeger.
+
+05:32.360 --> 05:34.940
+ When did you first fall in love with the stars?
+
+05:34.940 --> 05:37.240
+ I think I've always loved the stars.
+
+05:37.240 --> 05:39.320
+ One of my first memory is of the moon.
+
+05:39.320 --> 05:44.000
+ I remember watching the moon and I was in the car with my dad who my parents were divorced
+
+05:44.000 --> 05:47.920
+ and he was driving me and my siblings to his house for the weekend and the moon was just
+
+05:47.920 --> 05:49.200
+ following me.
+
+05:49.200 --> 05:51.400
+ Just had no idea why that was.
+
+05:51.400 --> 05:55.340
+ So like looking up at the sky and there's this glowing thing, how do you make sense
+
+05:55.340 --> 05:57.840
+ of the moon at that age?
+
+05:57.840 --> 05:58.840
+ Like age five.
+
+05:58.840 --> 05:59.840
+ There's just no way you can.
+
+05:59.840 --> 06:03.640
+ I think it's one of the great things about being a kid is just that curiosity that all
+
+06:03.640 --> 06:04.640
+ kids have.
+
+06:04.640 --> 06:11.160
+ You know, I was thinking because there's these almost out there ideas of that our earth is
+
+06:11.160 --> 06:14.440
+ flat, floating about on the internet.
+
+06:14.440 --> 06:21.120
+ And it made me think, you know, when did I first realize that the earth is like this
+
+06:21.120 --> 06:25.780
+ ball that's flying through empty space?
+
+06:25.780 --> 06:27.520
+ I mean, it's terrifying.
+
+06:27.520 --> 06:28.520
+ It's awe inspiring.
+
+06:28.520 --> 06:31.280
+ I don't know how to make sense of it.
+
+06:31.280 --> 06:34.840
+ It's hard because we live in our frame of reference here on this planet.
+
+06:34.840 --> 06:35.840
+ It's nearly impossible.
+
+06:35.840 --> 06:38.240
+ None of us are lucky to go to see the curvature of earth.
+
+06:38.240 --> 06:43.360
+ I mean, do you remember when you realized, understood like the physics, like the layout
+
+06:43.360 --> 06:45.880
+ of the solar system?
+
+06:45.880 --> 06:51.120
+ Was it like, did you first have to take physics to really, like high school physics to really
+
+06:51.120 --> 06:52.420
+ take that in?
+
+06:52.420 --> 06:53.480
+ I think it's hard to say.
+
+06:53.480 --> 06:55.220
+ I had this book when I was a child.
+
+06:55.220 --> 06:56.220
+ It was in French.
+
+06:56.220 --> 07:01.800
+ I grew up in Canada, where French is supposedly taught to all of us English speaking Canadians.
+
+07:01.800 --> 07:05.240
+ And it was this book in French was about the solar system, and I just love flipping through
+
+07:05.240 --> 07:06.240
+ it.
+
+07:06.240 --> 07:10.120
+ It's hard to say how much, you know, you or I understand when we're kids, but it was
+
+07:10.120 --> 07:11.560
+ really great book.
+
+07:11.560 --> 07:12.560
+ What about the stars?
+
+07:12.560 --> 07:14.920
+ When did you first learn about the stars?
+
+07:14.920 --> 07:17.880
+ Like I do have this very incredible distinctive memory.
+
+07:17.880 --> 07:19.120
+ And again, it had to do with my dad.
+
+07:19.120 --> 07:20.120
+ He took us camping.
+
+07:20.120 --> 07:26.040
+ Now, my dad was from the UK, and he was the type who you'd find wearing a tie on weekends.
+
+07:26.040 --> 07:29.280
+ So camping was not in his sphere, his comfort zone.
+
+07:29.280 --> 07:31.680
+ We had a babysitter.
+
+07:31.680 --> 07:34.600
+ Every summer we had a babysitter, and one summer we had Tom.
+
+07:34.600 --> 07:36.400
+ He was barely older than we were.
+
+07:36.400 --> 07:37.400
+ He was 14.
+
+07:37.400 --> 07:38.400
+ My brother was 12.
+
+07:38.400 --> 07:40.480
+ I would have been 11 or 10 maybe.
+
+07:40.480 --> 07:42.920
+ And we went camping because Tom said camping is the thing.
+
+07:42.920 --> 07:43.920
+ We should try it.
+
+07:43.920 --> 07:48.200
+ And I just remember I didn't aim to see the stars, but I walked out of my tent in the
+
+07:48.200 --> 07:55.360
+ middle of the night, and I looked up, and wow, so many stars.
+
+07:55.360 --> 07:59.000
+ The dark night sky and all those stars just screaming at me.
+
+07:59.000 --> 08:00.560
+ I just couldn't believe that.
+
+08:00.560 --> 08:04.820
+ Honestly, my first thought was, this is so incredible, mind blowing.
+
+08:04.820 --> 08:07.320
+ Why wouldn't anyone have told me this existed?
+
+08:07.320 --> 08:08.880
+ Can anyone else see this?
+
+08:08.880 --> 08:12.680
+ Have you had an experience like that with anything?
+
+08:12.680 --> 08:13.680
+ Yeah.
+
+08:13.680 --> 08:14.680
+ I've had that.
+
+08:14.680 --> 08:17.560
+ I mean, I don't know if maybe you can tell me if it's the same.
+
+08:17.560 --> 08:20.000
+ I've had that with robots.
+
+08:20.000 --> 08:23.240
+ There's a few robots I've met where I just fell in love with this.
+
+08:23.240 --> 08:25.160
+ Is anyone else seeing this?
+
+08:25.160 --> 08:34.720
+ Is anyone else seeing that here in a robot is our ability to engineer some intelligent
+
+08:34.720 --> 08:39.960
+ beings, intelligent beings that we could love, that could love us, that we can interact with
+
+08:39.960 --> 08:44.440
+ in some rich ways that we haven't yet discovered?
+
+08:44.440 --> 08:49.540
+ Almost like when you get a puppy, instead of a dog, and there's this immediate bond
+
+08:49.540 --> 08:58.800
+ and love, and on top of that, ability to engineer it, I had to just pause and hold myself.
+
+08:58.800 --> 09:03.160
+ I imagine, I don't have kids, I imagine there's a magic to that as well, where it's a totally
+
+09:03.160 --> 09:04.160
+ new experience.
+
+09:04.160 --> 09:05.160
+ It's like, what?
+
+09:05.160 --> 09:13.520
+ Well, yeah, the stars though, unlike kids or the puppy, it's only a good thing.
+
+09:13.520 --> 09:15.960
+ So you felt, you weren't terrified?
+
+09:15.960 --> 09:23.420
+ Like to me, when I look at the stars, it's almost paralyzingly scary how little we know
+
+09:23.420 --> 09:26.200
+ about the universe, how alone we are.
+
+09:26.200 --> 09:28.120
+ I mean, somehow it feels alone.
+
+09:28.120 --> 09:34.800
+ I'm not sure if it's just a matter of perspective, but it feels like, wow, there's billions
+
+09:34.800 --> 09:39.360
+ of them out there and we know nothing about them.
+
+09:39.360 --> 09:42.680
+ And then also immediately to me, somehow mortality comes into it.
+
+09:42.680 --> 09:45.200
+ I mean, how did that make you feel at that time?
+
+09:45.200 --> 09:48.880
+ I think as a child without articulating it, I felt that same way.
+
+09:48.880 --> 09:50.600
+ Just like, wow, this is terrifying.
+
+09:50.600 --> 09:51.600
+ What's out there?
+
+09:51.600 --> 09:52.600
+ Like, what is this?
+
+09:52.600 --> 09:55.720
+ What does it mean about us here?
+
+09:55.720 --> 10:02.200
+ You're a scientist, an exo world class scientist, planetary scientist, astronomer.
+
+10:02.200 --> 10:06.960
+ Now I'm a bit of an idiot who likes to ask silly questions.
+
+10:06.960 --> 10:12.400
+ So some questions are a little bit in the realm of speculation, almost philosophical
+
+10:12.400 --> 10:17.240
+ because we know so little and one of the awesome things about your work is you've actually
+
+10:17.240 --> 10:20.840
+ put data and real science behind some of the biggest questions that we're all curious
+
+10:20.840 --> 10:21.840
+ about.
+
+10:21.840 --> 10:25.640
+ But nevertheless, many of the questions might be a little bit speculative.
+
+10:25.640 --> 10:33.120
+ So on that topic, just in your sense, do you think we're alone in the universe, human
+
+10:33.120 --> 10:34.120
+ beings?
+
+10:34.120 --> 10:36.280
+ Do you think there's life out there?
+
+10:36.280 --> 10:40.520
+ Well, Lex, the funny thing is, is that as a scientist, I so don't even want to answer
+
+10:40.520 --> 10:41.520
+ that.
+
+10:41.520 --> 10:46.160
+ I will answer it though, but I just love to say, yeah, we naturally resist that because
+
+10:46.160 --> 10:49.800
+ we want numbers and hard facts and not speculation.
+
+10:49.800 --> 10:51.200
+ But I do love that question.
+
+10:51.200 --> 10:55.100
+ It's a great question and it's one we all wonder about, but I have to give you the scientist
+
+10:55.100 --> 11:01.280
+ answer first, which is we'll have the capability to answer that question soon, even starting
+
+11:01.280 --> 11:02.280
+ soon.
+
+11:02.280 --> 11:03.840
+ How do you define soon?
+
+11:03.840 --> 11:05.200
+ How do I define soon?
+
+11:05.200 --> 11:07.000
+ So much happened in the last hundred years.
+
+11:07.000 --> 11:08.000
+ Right, right.
+
+11:08.000 --> 11:11.800
+ And there's a difference, right, if it's 10 years or 20 years or a hundred years.
+
+11:11.800 --> 11:14.000
+ Yeah, there's a difference in that.
+
+11:14.000 --> 11:18.920
+ Well, soon could be a decade or two decades.
+
+11:18.920 --> 11:23.200
+ Journalists usually don't like that or the people want like tomorrow, they want the news.
+
+11:23.200 --> 11:28.680
+ But what it's going to take is telescopes, space telescopes, or very sophisticated ground
+
+11:28.680 --> 11:35.160
+ or space telescopes to let us study the atmospheres of other planets far away and to look what's
+
+11:35.160 --> 11:38.640
+ in the atmospheres and to look for water, which is needed for life as we know it, to
+
+11:38.640 --> 11:42.080
+ look for gases that don't belong that we might attribute to life.
+
+11:42.080 --> 11:45.680
+ So we have to do some really nitty gritty astronomy.
+
+11:45.680 --> 11:51.480
+ So the promising way to answer this question scientifically is to look for hints of life.
+
+11:51.480 --> 11:55.960
+ That's where like many of your ideas come in of what kind of hints might we actually
+
+11:55.960 --> 11:57.200
+ see about this life.
+
+11:57.200 --> 11:58.200
+ Right, right.
+
+11:58.200 --> 11:59.200
+ That's exactly what we need to do.
+
+11:59.200 --> 12:02.600
+ And I like the word you chose, hint, because it's going to be a hint.
+
+12:02.600 --> 12:05.600
+ It's not going to be a 100% yay, we found it.
+
+12:05.600 --> 12:12.200
+ And then it will take future generations to do more careful work to hopefully even find
+
+12:12.200 --> 12:17.640
+ a way to send a probe to these distant exoplanets and to really figure this out for us.
+
+12:17.640 --> 12:19.320
+ I mean, we'll talk about the details.
+
+12:19.320 --> 12:26.480
+ Those are fun, but like the back to the speculation, the zoomed out big picture is, yes, I believe
+
+12:26.480 --> 12:30.020
+ absolutely there is life out there somewhere.
+
+12:30.020 --> 12:33.760
+ Because the vastness of the universe is incredible.
+
+12:33.760 --> 12:35.780
+ It's so breathtaking.
+
+12:35.780 --> 12:40.040
+ When we look at the night sky, if you can go to that dark sky, you can see many, many
+
+12:40.040 --> 12:43.480
+ hundred or even if you have good eyesight and you're somewhere very dark, you could
+
+12:43.480 --> 12:44.880
+ see thousands of stars.
+
+12:44.880 --> 12:51.240
+ But in our galaxy, we have hundreds of billions of stars and our universe has hundreds of
+
+12:51.240 --> 12:53.820
+ billions of galaxies.
+
+12:53.820 --> 12:57.760
+ So think about all those stars out there.
+
+12:57.760 --> 13:02.120
+ And even if planets are rare, even if life is rare, just because the number of stars
+
+13:02.120 --> 13:06.800
+ is so huge, things have to come together somewhere, someplace in our universe.
+
+13:06.800 --> 13:07.800
+ Yeah.
+
+13:07.800 --> 13:14.120
+ So amazing to think that somebody might be looking up on another planet in a distant
+
+13:14.120 --> 13:15.120
+ galaxy.
+
+13:15.120 --> 13:22.120
+ I have to interrupt your reverie and get back to, in our lifetime at least, the short term.
+
+13:22.120 --> 13:24.800
+ We only have the nearest stars to look at.
+
+13:24.800 --> 13:29.480
+ It's true that there are so many stars, so many hosts for planets that might have life.
+
+13:29.480 --> 13:36.080
+ But in the practical question of will we find it, it has to be a star quite close to Earth,
+
+13:36.080 --> 13:40.080
+ like a few light years, tens of light years, maybe hundreds of light years.
+
+13:40.080 --> 13:46.800
+ And by the way, you've introduced me to a tool of Eyes on Exoplanets, I think that NASA
+
+13:46.800 --> 13:47.800
+ has put together.
+
+13:47.800 --> 13:48.800
+ Eyes on Exoplanets.
+
+13:48.800 --> 13:49.800
+ It's a great software.
+
+13:49.800 --> 13:50.800
+ You can download it.
+
+13:50.800 --> 13:51.800
+ It's so cool.
+
+13:51.800 --> 13:56.800
+ But anyway, can you give a sense of who our neighbors are?
+
+13:56.800 --> 14:00.120
+ You said hundreds of light years.
+
+14:00.120 --> 14:04.600
+ How many stars are close by?
+
+14:04.600 --> 14:05.600
+ What's our neighborhood like?
+
+14:05.600 --> 14:12.640
+ Are we talking about five, 10 stars that we might actually have a chance to zoom in on?
+
+14:12.640 --> 14:16.680
+ I'm talking about maybe a dozen or two dozen stars.
+
+14:16.680 --> 14:22.960
+ And those with planets that look suitable for us to follow up in detail.
+
+14:22.960 --> 14:23.960
+ For life.
+
+14:23.960 --> 14:24.960
+ Right.
+
+14:24.960 --> 14:29.920
+ But one thing that's really exciting in this field is that the very nearest star to Earth
+
+14:29.920 --> 14:34.240
+ called Proxima Centauri, it's part of the Alpha Centauri star system.
+
+14:34.240 --> 14:35.240
+ Cool name, by the way.
+
+14:35.240 --> 14:36.240
+ Yeah, Proxima.
+
+14:36.240 --> 14:37.240
+ Whoever names them.
+
+14:37.240 --> 14:38.240
+ Nearby.
+
+14:38.240 --> 14:40.520
+ Okay, but it sounds cooler than Proxima.
+
+14:40.520 --> 14:44.120
+ Proxima Centauri appears to have a planet around it.
+
+14:44.120 --> 14:49.560
+ It's about an Earth mass planet in the so called habitable zone or the Goldilocks zone
+
+14:49.560 --> 14:50.560
+ of the host star.
+
+14:50.560 --> 14:52.520
+ So think about how incredible that is.
+
+14:52.520 --> 14:56.880
+ Like out of all the stars out there, even the very nearest star has planets and has
+
+14:56.880 --> 14:58.880
+ a planet of huge interest to us.
+
+14:58.880 --> 14:59.880
+ Yeah.
+
+14:59.880 --> 15:00.880
+ Okay.
+
+15:00.880 --> 15:04.600
+ So can we talk about that planet?
+
+15:04.600 --> 15:12.960
+ What does it mean to be maybe possibly habitable?
+
+15:12.960 --> 15:14.960
+ How does size come into play?
+
+15:14.960 --> 15:21.640
+ How does you know what we know about gases and what kind of things are necessary for
+
+15:21.640 --> 15:22.640
+ life?
+
+15:22.640 --> 15:26.800
+ You know, what are the factors that you make you think that it's habitable?
+
+15:26.800 --> 15:31.280
+ And by the way, I mean, maybe one way to talk about that is people know about the Drake
+
+15:31.280 --> 15:39.400
+ equation, which is a very high level, almost framework to think about what is the probability
+
+15:39.400 --> 15:46.240
+ that, correct me if I'm wrong, that there's life out there and intelligent life, I think.
+
+15:46.240 --> 15:47.240
+ I don't know.
+
+15:47.240 --> 15:54.040
+ But then you have a equation named after you now, which I think nicely focuses in on the
+
+15:54.040 --> 16:01.760
+ more achievable and interesting part of that question, which is on whether there is habitable
+
+16:01.760 --> 16:04.440
+ planets out there or how many, I guess.
+
+16:04.440 --> 16:05.440
+ Right, right.
+
+16:05.440 --> 16:11.000
+ So the funny thing is, was one time I met Frank Drake and I asked if he minded if I
+
+16:11.000 --> 16:17.360
+ took his equation and kind of revamped it for this new field of exoplanet astronomy.
+
+16:17.360 --> 16:18.360
+ He was totally cool with it.
+
+16:18.360 --> 16:19.360
+ He's totally cool.
+
+16:19.360 --> 16:20.360
+ He got total approval.
+
+16:20.360 --> 16:21.360
+ Well, maybe.
+
+16:21.360 --> 16:22.360
+ Okay.
+
+16:22.360 --> 16:23.360
+ So sorry.
+
+16:23.360 --> 16:26.000
+ I'm not sure if he'd actually read the stuff about my equation, but he was cool with it.
+
+16:26.000 --> 16:27.000
+ He was cool.
+
+16:27.000 --> 16:28.000
+ He was cool.
+
+16:28.000 --> 16:29.000
+ Okay.
+
+16:29.000 --> 16:33.880
+ So I just said like 15 different things, but maybe can you tell from your perspective,
+
+16:33.880 --> 16:37.400
+ what is the Drake equation and what is, sorry, the Seager equation?
+
+16:37.400 --> 16:38.400
+ Sure.
+
+16:38.400 --> 16:41.800
+ Well, the Drake equation, as you said, it's a framework.
+
+16:41.800 --> 16:48.440
+ It's a description of the number of civilizations out there of intelligent beings that are able
+
+16:48.440 --> 16:53.040
+ to communicate with us by radio waves.
+
+16:53.040 --> 16:58.040
+ So if you think of the movie Contact, you've seen Contact, right?
+
+16:58.040 --> 16:59.040
+ We're listening in, actually.
+
+16:59.040 --> 17:03.320
+ It's an active field of research, listening to other stars at radio wavelengths, hoping
+
+17:03.320 --> 17:07.240
+ that some intelligent civilizations are sending us a message.
+
+17:07.240 --> 17:12.920
+ And the Drake equation came like at the start of that whole field to put the factors down
+
+17:12.920 --> 17:18.020
+ on paper to sort of illustrate what is involved to kind of estimating.
+
+17:18.020 --> 17:21.520
+ And there's no real estimate or prediction of how many civilizations are out there, but
+
+17:21.520 --> 17:25.680
+ it's a way to frame the question and show you each term that's involved.
+
+17:25.680 --> 17:32.140
+ So I took the Drake equation and I called it a revised Drake equation and I recast it
+
+17:32.140 --> 17:37.920
+ for the search for planets by more traditional astronomy means.
+
+17:37.920 --> 17:42.680
+ We're looking at stars, looking for planets, looking for rocky planets, looking for planets
+
+17:42.680 --> 17:49.520
+ that are the right temperature for life, looking for planets that might have life that outputs
+
+17:49.520 --> 17:52.100
+ gases that we might detect in the future.
+
+17:52.100 --> 17:53.840
+ It's the same spirit of the Drake equation.
+
+17:53.840 --> 17:55.480
+ It's not going to give us any magic numbers.
+
+17:55.480 --> 17:58.680
+ So I'm going to say, hey, here's exactly what's out there.
+
+17:58.680 --> 18:01.360
+ It's meant to kind of guide, guide of where we're going.
+
+18:01.360 --> 18:06.480
+ So the Drake equation did, I mean the initial equation proposed actual numbers for those
+
+18:06.480 --> 18:07.480
+ variables, right?
+
+18:07.480 --> 18:08.480
+ Oh yes.
+
+18:08.480 --> 18:12.240
+ The equation proposed numbers and you can still plug your own numbers in.
+
+18:12.240 --> 18:15.960
+ And there's this really cute website that lets you for both the Drake and my revised
+
+18:15.960 --> 18:19.280
+ equation plug in some numbers and see what you got.
+
+18:19.280 --> 18:20.280
+ So yeah.
+
+18:20.280 --> 18:21.280
+ Okay.
+
+18:21.280 --> 18:24.600
+ So what are, I mean, what are the variables, but maybe also what are like the critical
+
+18:24.600 --> 18:26.320
+ variables?
+
+18:26.320 --> 18:33.640
+ So in my equation, I set out to what are the numbers of inhabited planets that show signs
+
+18:33.640 --> 18:37.520
+ of life by way of gases in the atmosphere that can be attributed to life.
+
+18:37.520 --> 18:39.520
+ I could just walk through the terms as far as I'm aware.
+
+18:39.520 --> 18:43.200
+ So the first thing I say is what are the number of stars available?
+
+18:43.200 --> 18:47.760
+ And it's not that those trillions and trillions of stars everywhere.
+
+18:47.760 --> 18:51.320
+ It's what are available to like a specific search.
+
+18:51.320 --> 18:57.540
+ And so for example, the MIT led NASA mission TESS is surveying the sky, looking for all
+
+18:57.540 --> 19:01.600
+ kinds of planets, but it can also, it also has stars.
+
+19:01.600 --> 19:04.780
+ It has about 30,000 red dwarf stars.
+
+19:04.780 --> 19:08.920
+ So we just take a number of stars that a given survey can access.
+
+19:08.920 --> 19:11.160
+ So that's what the number of stars is.
+
+19:11.160 --> 19:16.000
+ Then I wanted to know what kind of stars are quiet.
+
+19:16.000 --> 19:19.120
+ I called it fraction of those stars that is quiet.
+
+19:19.120 --> 19:23.680
+ In the case of TESS, the way it's looking for planets is planets that transit the star.
+
+19:23.680 --> 19:27.600
+ They go in front of the star as seen from the telescope, but it turns out that some
+
+19:27.600 --> 19:32.580
+ stars are very active, they're variable and they brighten and dim with time and that interferes
+
+19:32.580 --> 19:33.580
+ with our observation.
+
+19:33.580 --> 19:35.440
+ I apologize to interrupt.
+
+19:35.440 --> 19:37.280
+ So it's a transiting planet.
+
+19:37.280 --> 19:42.000
+ So you're really looking for a black blob, essentially that blocks the light.
+
+19:42.000 --> 19:45.560
+ We're looking for a black blob that blocks the light and then trying to say something
+
+19:45.560 --> 19:51.920
+ about the size of the planet from the frequency of that black blobs appearance and the size
+
+19:51.920 --> 19:53.560
+ of that black blob, that kind of thing.
+
+19:53.560 --> 19:54.560
+ Yeah.
+
+19:54.560 --> 19:58.560
+ But let's just say that out of all the stars there are accessible to whatever telescope,
+
+19:58.560 --> 20:00.520
+ some of them are just bad for whatever reason.
+
+20:00.520 --> 20:02.640
+ You're not going to be able to find planets around them.
+
+20:02.640 --> 20:05.960
+ So I need to know the fraction of those that are, that are good.
+
+20:05.960 --> 20:09.200
+ So again, we have the number of stars, the fraction of them that we can actually find
+
+20:09.200 --> 20:10.200
+ planets around.
+
+20:10.200 --> 20:16.520
+ And by the way, is our sun one such, is our sun quiet?
+
+20:16.520 --> 20:17.520
+ Our sun is quiet.
+
+20:17.520 --> 20:18.520
+ Okay.
+
+20:18.520 --> 20:20.280
+ So I have actually two terms.
+
+20:20.280 --> 20:25.580
+ One describes how quiet they are and one is if we can find a planet around that star.
+
+20:25.580 --> 20:30.180
+ These transiting planets, for example, not all planets transit because the planet would
+
+20:30.180 --> 20:36.360
+ have to be orbiting that star in this kind of plane as viewed from you.
+
+20:36.360 --> 20:40.360
+ But if a star is, for example, orbiting in the plane of the sky, it will never transit.
+
+20:40.360 --> 20:43.000
+ It will never go in front of the star.
+
+20:43.000 --> 20:47.560
+ So in that case, we have to have a fraction that takes into account of that kind of geometric
+
+20:47.560 --> 20:48.640
+ factor.
+
+20:48.640 --> 20:52.840
+ And hopefully, I mean, you can assume that it's uniformly distributed, hopefully.
+
+20:52.840 --> 20:56.980
+ Yes, we can assume and there's evidence that it's uniformly distributed, yes.
+
+20:56.980 --> 21:01.600
+ So then the next, so all of these factors so far, number of stars accessible to whatever
+
+21:01.600 --> 21:06.520
+ telescope you're thinking about, how many stars are quiet, fraction of stars that are
+
+21:06.520 --> 21:10.380
+ quiet, fraction that are observable, in this case for the geometric factor, those are all
+
+21:10.380 --> 21:11.380
+ things we can measure.
+
+21:11.380 --> 21:14.920
+ And there's one more term in the secret equation we can measure.
+
+21:14.920 --> 21:18.540
+ I call it fraction of planets in the habitable zone.
+
+21:18.540 --> 21:23.760
+ Because believe it or not, we have a handle on that for a certain set of stars.
+
+21:23.760 --> 21:28.520
+ We know from our, the Kepler Space Telescope that operated for a number of years, we have
+
+21:28.520 --> 21:31.840
+ estimates for how many planets are in the so called habitable zone of the host star
+
+21:31.840 --> 21:33.420
+ for a certain type of star.
+
+21:33.420 --> 21:34.960
+ So all those we have measurable.
+
+21:34.960 --> 21:39.280
+ And then like the Drake equation itself, there are some terms we can not measure.
+
+21:39.280 --> 21:46.280
+ And those ones, I call them FL, fraction of all those planets that have life on them.
+
+21:46.280 --> 21:47.400
+ Because we don't know what that is.
+
+21:47.400 --> 21:55.300
+ And FS, I called for spectroscopy, the fraction that have, we can use our telescope and instrument
+
+21:55.300 --> 21:58.080
+ tools to look for light.
+
+21:58.080 --> 22:03.880
+ The FS was the ones that, the planets that have life that actually gives off a gas, a
+
+22:03.880 --> 22:10.160
+ useful gas that might accumulate in the atmosphere, so we could eventually observe it.
+
+22:10.160 --> 22:12.280
+ How do the FL and FS interplay?
+
+22:12.280 --> 22:14.320
+ So these are separate terms?
+
+22:14.320 --> 22:15.560
+ Separate terms.
+
+22:15.560 --> 22:16.560
+ And so?
+
+22:16.560 --> 22:23.720
+ So for example, you could imagine, so for example, you could imagine life, like us humans,
+
+22:23.720 --> 22:26.680
+ we breathe out carbon dioxide.
+
+22:26.680 --> 22:29.560
+ And our planet Earth, we already have a lot of carbon dioxide on it.
+
+22:29.560 --> 22:33.600
+ Well, we have hundreds of parts per million, but it has a really strong signal.
+
+22:33.600 --> 22:37.500
+ So us humans breathing out carbon dioxide, it's not helpful for any intelligent beings
+
+22:37.500 --> 22:41.120
+ that are looking back at Earth, because there's already a lot of, there's already enough carbon
+
+22:41.120 --> 22:43.060
+ dioxide, we're not adding to it.
+
+22:43.060 --> 22:47.320
+ So if there is life on a planet, and it's outputting a boring gas that's not helpful
+
+22:47.320 --> 22:54.440
+ for us to uniquely identify as being made by life versus just being there anyway, then
+
+22:54.440 --> 22:55.440
+ it's not helpful.
+
+22:55.440 --> 22:57.960
+ So I separated those two terms out.
+
+22:57.960 --> 23:04.320
+ Soon I think we'll have evidence that planets that can support life at least are common.
+
+23:04.320 --> 23:11.080
+ So okay, this is such an awesome topic, I have a million questions.
+
+23:11.080 --> 23:16.080
+ What okay, I know this is a little bit of speculation, but what's your sense about that,
+
+23:16.080 --> 23:23.760
+ I think FS, which is like, that life would produce interesting gases that would be able
+
+23:23.760 --> 23:30.480
+ to detect, like, is there, one, is there scientific evidence and, and second, is there some intuition
+
+23:30.480 --> 23:36.820
+ around life producing gases with detectable hints in terms of chemistry?
+
+23:36.820 --> 23:43.160
+ So interestingly enough, that entire question relates to, I'm going to say almost my life's
+
+23:43.160 --> 23:46.520
+ work, the work I'm doing now and the work I'm doing for the next 20 years, and I wish
+
+23:46.520 --> 23:51.440
+ I could give you a concrete number, like 1%, like on the worst days, it's 1%, let's say
+
+23:51.440 --> 23:52.440
+ in my mind.
+
+23:52.440 --> 23:54.480
+ You know, in the best days, it's like 80%.
+
+23:54.480 --> 23:58.400
+ And I could actually go into a lot of detail here, but I'll just give you the simplest
+
+23:58.400 --> 23:59.920
+ things.
+
+23:59.920 --> 24:05.800
+ So first of all, we make an assumption that like us, and our life here on Earth, life
+
+24:05.800 --> 24:07.700
+ uses chemistry.
+
+24:07.700 --> 24:13.120
+ So we use chemistry because we eat food, we breathe air, and we have metabolism that to
+
+24:13.120 --> 24:18.820
+ break down food to get energy to store energy, and then ultimately to use it.
+
+24:18.820 --> 24:22.560
+ And all life here has some kind of byproduct in doing all that, some kind of waste product
+
+24:22.560 --> 24:24.400
+ that goes into the atmosphere.
+
+24:24.400 --> 24:28.700
+ So I like to think that life everywhere uses chemistry.
+
+24:28.700 --> 24:34.280
+ Some people have imagined, like, let's imagine like a windmill, like mechanical energy, just
+
+24:34.280 --> 24:37.120
+ getting energy and using it without storing it.
+
+24:37.120 --> 24:40.840
+ And if there was life like that, it might not need to output a gas.
+
+24:40.840 --> 24:44.040
+ So we make this basic assumption of chemistry, that's the first thing.
+
+24:44.040 --> 24:47.960
+ The second more complicated thing that I and my team work on is what happens to the gas
+
+24:47.960 --> 24:51.980
+ once it is produced by life, it goes into the atmosphere.
+
+24:51.980 --> 24:59.600
+ And a lot of gas is just destroyed immediately, actually, by ultraviolet radiation or by oxygen.
+
+24:59.600 --> 25:03.540
+ Oxygen is incredibly destructive to a lot of gases.
+
+25:03.540 --> 25:07.280
+ So the gas can be produced by life, but it could be just completely destroyed by its
+
+25:07.280 --> 25:08.280
+ environment.
+
+25:08.280 --> 25:13.800
+ I guess we should pause on that, that you mentioned your life's work.
+
+25:13.800 --> 25:19.280
+ This is just the beautiful idea that it's kind of paralyzing when you look out there
+
+25:19.280 --> 25:22.720
+ and you wonder, is there a life out there?
+
+25:22.720 --> 25:27.360
+ It's the first paralyzing, actually, before I encountered your work, I feel like an idiot.
+
+25:27.360 --> 25:32.860
+ But you know, it feels like there's no tool to answer that question.
+
+25:32.860 --> 25:40.000
+ And then what you kind of provided is this cool idea that it might be possible to answer
+
+25:40.000 --> 25:41.240
+ that by looking at the gases.
+
+25:41.240 --> 25:45.720
+ I mean, that's a really interesting, that's a beautiful idea.
+
+25:45.720 --> 25:55.280
+ And yeah, so we could just pause on like, that's a powerful tool, I think, to build
+
+25:55.280 --> 25:57.800
+ the intuition around, because I was totally clueless about it.
+
+25:57.800 --> 25:59.440
+ And that was kind of exciting.
+
+25:59.440 --> 26:05.760
+ I mean, I'm sure there's folks probably early on in your life who were very skeptical about
+
+26:05.760 --> 26:06.760
+ this notion.
+
+26:06.760 --> 26:13.320
+ Well, maybe I'm not sure, but generally you would want to be skeptical, it's like, well,
+
+26:13.320 --> 26:17.000
+ all these kinds of other things could generate gases, you know, all those kinds of things.
+
+26:17.000 --> 26:18.000
+ Oh, that's so true.
+
+26:18.000 --> 26:23.240
+ And that's a big part of this growing field is how to make sure that this gas isn't produced
+
+26:23.240 --> 26:24.240
+ by another effect.
+
+26:24.240 --> 26:29.000
+ But I do want to, you know, again, pausing on that and going back a bit.
+
+26:29.000 --> 26:33.100
+ It's incredible to think, but like, at least almost 100 years ago, there's a record of
+
+26:33.100 --> 26:38.720
+ someone talking about the idea of a gas being an indicator of life elsewhere.
+
+26:38.720 --> 26:40.240
+ That idea was floating about somewhere.
+
+26:40.240 --> 26:42.040
+ Yes, it was totally floating about.
+
+26:42.040 --> 26:48.440
+ And it comes down to oxygen, which on our planet fills our atmosphere to 20% by volume.
+
+26:48.440 --> 26:50.600
+ And you know, we rely on oxygen to breathe.
+
+26:50.600 --> 26:54.280
+ You know, when you hear about the people in Mount Everest running out of air, they're
+
+26:54.280 --> 26:57.660
+ really running out of oxygen, well, they're running out of oxygen because the air is getting
+
+26:57.660 --> 27:01.680
+ thinner as they climb up the mountain.
+
+27:01.680 --> 27:08.680
+ But without plants and bacteria, there's bacteria that also photosynthesizes and produces oxygen
+
+27:08.680 --> 27:09.680
+ as a waste product.
+
+27:09.680 --> 27:13.040
+ Without those, we would have virtually no oxygen.
+
+27:13.040 --> 27:15.480
+ Our atmosphere would be devoid of oxygen.
+
+27:15.480 --> 27:21.900
+ So yeah, if you were to analyze Earth, is oxygen the strong indicator here?
+
+27:21.900 --> 27:22.900
+ Oxygen is a huge indicator.
+
+27:22.900 --> 27:26.720
+ And that's what we're hoping, that there is an intelligent civilization not too far from
+
+27:26.720 --> 27:31.440
+ here around a planet orbiting a nearby star with the kind of telescopes we're trying to
+
+27:31.440 --> 27:32.440
+ build.
+
+27:32.440 --> 27:36.740
+ And they're looking back at our sun and they've seen our Earth and they see oxygen.
+
+27:36.740 --> 27:41.620
+ And they probably won't be like 100.0% sure that there's life making it.
+
+27:41.620 --> 27:45.820
+ But if they go through all the possible scenarios, they'll be left with a pretty strong hint
+
+27:45.820 --> 27:46.820
+ that there's life here.
+
+27:46.820 --> 27:47.820
+ Yeah.
+
+27:47.820 --> 27:55.360
+ Okay, but how do you detect that type of gases that are on the planet from a distance?
+
+27:55.360 --> 28:00.160
+ And that's going back to that, that's what people were skeptical about.
+
+28:00.160 --> 28:04.800
+ When I first started working on exoplanets a long time ago, people didn't believe we
+
+28:04.800 --> 28:09.500
+ would ever, ever, ever study an exoplanet atmosphere of any kind.
+
+28:09.500 --> 28:11.320
+ And now dozens of them are studied.
+
+28:11.320 --> 28:14.520
+ There's a whole field of people, hundreds of people working on exoplanet atmospheres
+
+28:14.520 --> 28:15.520
+ actually.
+
+28:15.520 --> 28:16.520
+ Wow.
+
+28:16.520 --> 28:20.240
+ But first there was a point where people didn't even know there was exoplanets, right?
+
+28:20.240 --> 28:23.100
+ When was the first exoplanet detected?
+
+28:23.100 --> 28:27.200
+ The first exoplanet around a sun like star anyway was detected in the mid 1990s.
+
+28:27.200 --> 28:29.600
+ That was a big deal.
+
+28:29.600 --> 28:30.600
+ Kind of vaguely remember that.
+
+28:30.600 --> 28:34.840
+ Well, at the time it was a big deal, but it was also incredibly controversial.
+
+28:34.840 --> 28:41.280
+ Because in exoplanets, we only had one example of a planetary system, our own solar system.
+
+28:41.280 --> 28:48.000
+ And in our solar system, Jupiter, our big massive planet, is really far from our star.
+
+28:48.000 --> 28:53.000
+ And this first exoplanet around a sun like star was incredibly close to its star, so
+
+28:53.000 --> 28:56.180
+ close that people just couldn't believe it was a planet actually.
+
+28:56.180 --> 29:00.080
+ So maybe zoom out, what the heck is an exoplanet?
+
+29:00.080 --> 29:05.500
+ An exoplanet is our name, like is the name that we call a planet orbiting a star other
+
+29:05.500 --> 29:07.000
+ than our sun.
+
+29:07.000 --> 29:08.000
+ Right.
+
+29:08.000 --> 29:09.000
+ Extrasolar, I guess is another.
+
+29:09.000 --> 29:10.000
+ You can call it extrasolar.
+
+29:10.000 --> 29:11.000
+ Okay.
+
+29:11.000 --> 29:12.000
+ Exoplanet is simpler.
+
+29:12.000 --> 29:17.140
+ But I think it's worth pausing to remember that each one of those stars out there in
+
+29:17.140 --> 29:18.800
+ our night sky is a sun.
+
+29:18.800 --> 29:23.440
+ And you know, our sun has planets, Mercury, Venus, Earth, Mars, etc.
+
+29:23.440 --> 29:29.160
+ And so for a long time, people have wondered, do those other stars or other suns have planets?
+
+29:29.160 --> 29:30.160
+ And they do.
+
+29:30.160 --> 29:34.040
+ And it appears that nearly every star has a planet, has a planet we call exoplanet.
+
+29:34.040 --> 29:37.000
+ And there are thousands of known exoplanets already.
+
+29:37.000 --> 29:42.120
+ So there's already, yeah, like, there's so many things about space that it's hard to
+
+29:42.120 --> 29:47.520
+ put into one's brain, because it starts filling it with awe.
+
+29:47.520 --> 29:54.920
+ So yeah, if you visualize the fact that the stars that we see in the sky aren't just stars,
+
+29:54.920 --> 29:57.160
+ they're like, they're suns.
+
+29:57.160 --> 30:03.520
+ And they very likely, as you're saying, would have planets around them.
+
+30:03.520 --> 30:11.240
+ There's all these planets roaming about in this like, dimly lit darkness, with potentially
+
+30:11.240 --> 30:12.240
+ life.
+
+30:12.240 --> 30:14.920
+ I mean, it's just mind blowing.
+
+30:14.920 --> 30:23.120
+ But maybe can you give a brief, like, history of discovering all the exoplanets?
+
+30:23.120 --> 30:26.320
+ So there's no exoplanets in the 90s.
+
+30:26.320 --> 30:28.500
+ And then there's a lot of exoplanets now.
+
+30:28.500 --> 30:29.600
+ So how did that come about?
+
+30:29.600 --> 30:31.520
+ So many planets.
+
+30:31.520 --> 30:32.520
+ How did it come about?
+
+30:32.520 --> 30:37.120
+ Well, maybe another way to ask is, what is the methodology that was used to discover
+
+30:37.120 --> 30:38.120
+ them?
+
+30:38.120 --> 30:39.120
+ I can say that.
+
+30:39.120 --> 30:43.680
+ But I'd like to just say something else first where, so exoplanets, you know, the line
+
+30:43.680 --> 30:47.160
+ between what is considered completely crazy.
+
+30:47.160 --> 30:51.600
+ And what is considered mainstream research, legit, is constantly shifting.
+
+30:51.600 --> 30:52.600
+ This is awesome.
+
+30:52.600 --> 30:53.600
+ Yeah.
+
+30:53.600 --> 30:56.040
+ So before, when I started on exoplanets, it was still sketchy.
+
+30:56.040 --> 31:01.280
+ Like, it wasn't considered a career, a thing, a place where you should be investing.
+
+31:01.280 --> 31:06.840
+ And right now, now, today, it's so many people are working in this field, a good, I don't
+
+31:06.840 --> 31:08.480
+ know, at least 1000, probably more.
+
+31:08.480 --> 31:10.840
+ I don't know if that sounds like a lot to you, but it's a lot.
+
+31:10.840 --> 31:13.800
+ No, it's a legitimate field of inquiry.
+
+31:13.800 --> 31:14.800
+ Yeah.
+
+31:14.800 --> 31:15.800
+ Legitimate field of inquiry.
+
+31:15.800 --> 31:18.000
+ And what's helped us is everything that's helped everyone else.
+
+31:18.000 --> 31:21.720
+ It's software, it's computers, it's hardware.
+
+31:21.720 --> 31:22.720
+ It's like our phones.
+
+31:22.720 --> 31:23.960
+ You have a fantastic detector in there.
+
+31:23.960 --> 31:25.120
+ Like, they didn't always have that.
+
+31:25.120 --> 31:28.080
+ I don't know if you remember the so called olden days.
+
+31:28.080 --> 31:29.300
+ We didn't have digital cameras.
+
+31:29.300 --> 31:30.580
+ We had film.
+
+31:30.580 --> 31:33.680
+ You take a film camera, you send the film away, and eventually it comes back, and then
+
+31:33.680 --> 31:34.680
+ you see your pictures.
+
+31:34.680 --> 31:35.680
+ And they could all be horrible.
+
+31:35.680 --> 31:36.680
+ Yeah.
+
+31:36.680 --> 31:37.680
+ So yeah, I mean, digital.
+
+31:37.680 --> 31:38.680
+ It just changed everything.
+
+31:38.680 --> 31:39.680
+ Data changed everything.
+
+31:39.680 --> 31:45.920
+ Yeah, and so one thing that really helped exoplanets were detectors that were very sensitive.
+
+31:45.920 --> 31:51.100
+ Because when we're looking for the transiting planets, what we're doing is we're monitoring
+
+31:51.100 --> 31:53.840
+ a star's brightness as a function of time.
+
+31:53.840 --> 31:58.840
+ It's like click, taking a picture of the stars every few seconds or minutes.
+
+31:58.840 --> 32:02.960
+ And we're measuring the brightness of a star, like every frame.
+
+32:02.960 --> 32:06.700
+ And we're looking for a drop in brightness that's characteristic of a planet going in
+
+32:06.700 --> 32:11.680
+ front of the star, and then finishing its so called transit.
+
+32:11.680 --> 32:15.960
+ And to make that measurement, we have to have precise detectors.
+
+32:15.960 --> 32:22.080
+ And the detectors that are making the measurement, can you do it from Earth?
+
+32:22.080 --> 32:25.920
+ Are they floating about in space, like what kind of telescope?
+
+32:25.920 --> 32:30.260
+ So on the ground, people are using telescopes, small telescopes that are almost just like
+
+32:30.260 --> 32:32.520
+ a glorified telephoto lens.
+
+32:32.520 --> 32:35.140
+ And they're looking at big swaths of the sky.
+
+32:35.140 --> 32:38.820
+ And from the ground, people can find giant planets like the size of Jupiter.
+
+32:38.820 --> 32:41.700
+ So it's about 10 to 12 times the size of Earth.
+
+32:41.700 --> 32:46.320
+ We can find big planets, because we can reach about 1% precision.
+
+32:46.320 --> 32:48.680
+ So not sure how technical you want to get.
+
+32:48.680 --> 32:53.080
+ Well, how many pixels are we talking about?
+
+32:53.080 --> 32:56.820
+ You mentioned phones, there's a bunch of megapixels, I think.
+
+32:56.820 --> 33:01.240
+ So for exoplanets, you want to think about it as like a pixel or less than a pixel, we're
+
+33:01.240 --> 33:03.940
+ not getting any information.
+
+33:03.940 --> 33:08.040
+ But to be more technical, our telescope spreads the light out over many pixels, but we're
+
+33:08.040 --> 33:09.300
+ not getting information.
+
+33:09.300 --> 33:12.300
+ We're not tiling the planet with pixels.
+
+33:12.300 --> 33:16.320
+ It's just like a point of light, or in most cases, we don't even see the planet itself,
+
+33:16.320 --> 33:17.920
+ just the planet's effect on the star.
+
+33:17.920 --> 33:22.640
+ But another thing that really helped was computers, because transiting planets are actually quite
+
+33:22.640 --> 33:23.640
+ rare.
+
+33:23.640 --> 33:25.560
+ I mean, they don't all go in front of their star.
+
+33:25.560 --> 33:29.880
+ And so to find transiting planets, we look at a big part of the sky at once, or we look
+
+33:29.880 --> 33:34.100
+ at tens of thousands or hundreds of thousands, or even in some cases, millions of stars at
+
+33:34.100 --> 33:35.520
+ one time.
+
+33:35.520 --> 33:39.400
+ And so you're not going to do this by hand, going through a million stars, counting up
+
+33:39.400 --> 33:40.400
+ the brightness.
+
+33:40.400 --> 33:47.600
+ So we have computer software and computer code that does the job for us and counts the
+
+33:47.600 --> 33:51.880
+ brightness and looks for a signal that could be due to a transiting planet.
+
+33:51.880 --> 33:59.440
+ And I just finished a job called Deputy Science Director for the MIT led NASA mission test.
+
+33:59.440 --> 34:05.880
+ And it was my purview to make sure that we got the planet candidates, the transiting
+
+34:05.880 --> 34:10.280
+ light curves, out to the community so people could follow them up and figure out if they're
+
+34:10.280 --> 34:13.360
+ actual planets or false positives.
+
+34:13.360 --> 34:19.260
+ So publish the data so that people could just, all the data scientists out there could crunch
+
+34:19.260 --> 34:21.080
+ and see if they can discover something.
+
+34:21.080 --> 34:22.080
+ They can discover something.
+
+34:22.080 --> 34:26.760
+ And in fact, the NASA policy for this mission is that all the data becomes public as soon
+
+34:26.760 --> 34:28.360
+ as possible.
+
+34:28.360 --> 34:33.680
+ It's not as easy as it sounds, though, to download the data and look for planets.
+
+34:33.680 --> 34:38.600
+ But there is a group called PlanetHunters.org, and they take the data and they actually crowdsource
+
+34:38.600 --> 34:40.200
+ it out to people to look for planets.
+
+34:40.200 --> 34:41.200
+ Yeah.
+
+34:41.200 --> 34:44.940
+ And they often find signals that our computers and our team missed.
+
+34:44.940 --> 34:46.880
+ So we mentioned exoplanets.
+
+34:46.880 --> 34:51.920
+ What about Earth like, or I don't know what the right distinction is, is it habitable
+
+34:51.920 --> 34:55.940
+ or is it Earth like planets, but what are those different categories and how can we
+
+34:55.940 --> 34:57.840
+ tell the difference and detect each?
+
+34:57.840 --> 34:58.840
+ Right, right.
+
+34:58.840 --> 35:01.360
+ So we're not at Earth like planets yet.
+
+35:01.360 --> 35:06.680
+ All the planets we're finding are so different from what we have in our solar system.
+
+35:06.680 --> 35:08.640
+ They're just easier planets to find, but like...
+
+35:08.640 --> 35:09.640
+ In which way?
+
+35:09.640 --> 35:14.740
+ For example, there could be a Jupiter sized planet where an Earth should be.
+
+35:14.740 --> 35:20.720
+ We find planets that are the same size as Earth, but are orbiting way closer to their
+
+35:20.720 --> 35:24.080
+ star than Mercury is to our sun.
+
+35:24.080 --> 35:29.160
+ They're so close that, because close to a star means they also orbit faster.
+
+35:29.160 --> 35:33.860
+ And some of these hot super Earths we call them, their year, their time to go around
+
+35:33.860 --> 35:36.940
+ their star is less than a day.
+
+35:36.940 --> 35:40.480
+ And they're heated so much by their star, they're heated so much by the star.
+
+35:40.480 --> 35:42.920
+ We think the surface is hot enough to melt rock.
+
+35:42.920 --> 35:47.520
+ So instead of running out by the bay or the river, you'll have like liquid lava.
+
+35:47.520 --> 35:51.480
+ There'll be liquid lava lakes on these planets, we think.
+
+35:51.480 --> 35:53.520
+ And life can't survive.
+
+35:53.520 --> 35:54.520
+ Way too hot.
+
+35:54.520 --> 35:59.760
+ The molecules needed for life just wouldn't be able to survive those temperatures.
+
+35:59.760 --> 36:00.760
+ We have some other planets.
+
+36:00.760 --> 36:07.000
+ One of the most mysterious things out there, factoid, if you will, is that the most common
+
+36:07.000 --> 36:12.920
+ type of planet we know about so far is a planet that's in between Earth and Neptune size.
+
+36:12.920 --> 36:15.680
+ It's two to three times the size of Earth.
+
+36:15.680 --> 36:19.840
+ And we have no solar system counterpart of that planet.
+
+36:19.840 --> 36:24.000
+ That is like going outside to the forest and finding some kind of creature or animal that
+
+36:24.000 --> 36:27.360
+ just no one has ever seen before and then discovering that is the most common thing
+
+36:27.360 --> 36:29.320
+ out there.
+
+36:29.320 --> 36:30.560
+ And so we're not even sure what they are.
+
+36:30.560 --> 36:34.300
+ We have a lot of thoughts as to the different types of planet it could be, but people don't
+
+36:34.300 --> 36:35.300
+ really know.
+
+36:35.300 --> 36:37.560
+ I mean, what are your thoughts about what it could be?
+
+36:37.560 --> 36:43.260
+ Well, one thought, and this is more when we want to be rather than might be, is that these
+
+36:43.260 --> 36:48.540
+ so called mini Neptunes, we call them, that they are water worlds, that they could be
+
+36:48.540 --> 36:54.360
+ scaled up versions of Jupiter's icy moons, such that they are planets that are made of
+
+36:54.360 --> 36:57.400
+ more than half of water by mass.
+
+36:57.400 --> 37:02.040
+ And what's the connection between water and life and the possibility of seeing that from
+
+37:02.040 --> 37:03.600
+ a gas perspective?
+
+37:03.600 --> 37:07.580
+ Okay, so all life on Earth needs liquid water.
+
+37:07.580 --> 37:12.400
+ And so there's been this idea in astronomy or astrobiology for a long time called follow
+
+37:12.400 --> 37:16.960
+ the water, find water, that will give you a chance of finding life, but we could still
+
+37:16.960 --> 37:24.680
+ zoom out and the community consensus is that we need some kind of liquid for life to originate
+
+37:24.680 --> 37:28.360
+ and to survive because molecules have to react.
+
+37:28.360 --> 37:31.560
+ You don't have a way that molecules can interact with each other.
+
+37:31.560 --> 37:32.800
+ You can't really make anything.
+
+37:32.800 --> 37:38.100
+ And so when we think of all the liquids out there, water is the most abundant liquid in
+
+37:38.100 --> 37:39.640
+ terms of planetary materials.
+
+37:39.640 --> 37:40.920
+ There really aren't that many liquids.
+
+37:40.920 --> 37:44.640
+ Like I mentioned, liquid rock, way too hot for life.
+
+37:44.640 --> 37:49.600
+ We have some really cold liquids, like almost gasoline, like ethane and methane lakes that
+
+37:49.600 --> 37:52.880
+ have been found on one of Saturn's moons, Titan.
+
+37:52.880 --> 37:53.920
+ That's so cold though.
+
+37:53.920 --> 37:57.420
+ And for exoplanets, we can't study really cold planets because they're just simply too
+
+37:57.420 --> 38:00.480
+ dark and too cold.
+
+38:00.480 --> 38:05.040
+ So we usually are just left with looking for planets with liquid water.
+
+38:05.040 --> 38:12.920
+ And to your point, remember as we talked about how planets are less than a pixel in that
+
+38:12.920 --> 38:15.440
+ way to say, so we can't see oceans on planet.
+
+38:15.440 --> 38:19.520
+ We're not going to see continents and oceans, not yet anyway, but we can see gases in the
+
+38:19.520 --> 38:20.520
+ atmosphere.
+
+38:20.520 --> 38:26.840
+ And if it's a small rocky planet, and this is going into some more detail, if we see
+
+38:26.840 --> 38:31.200
+ a small rocky planet with water vapor in the atmosphere, we're pretty sure that means there
+
+38:31.200 --> 38:37.480
+ has to be a liquid water reservoir because it's not intuitive in any way, but water is
+
+38:37.480 --> 38:42.360
+ broken up by ultraviolet radiation from the star or from the sun.
+
+38:42.360 --> 38:47.600
+ And on most planets when water is broken up into H and O, the H, the hydrogen will escape
+
+38:47.600 --> 38:48.600
+ to space.
+
+38:48.600 --> 38:53.440
+ Because just like when you think of a child letting go of a helium filled balloon, it
+
+38:53.440 --> 38:58.860
+ floats upwards and hydrogen is a light gas and will leave from the planet.
+
+38:58.860 --> 39:03.220
+ So ultimately if you have water, unless there's an ocean, like a way to keep replenishing
+
+39:03.220 --> 39:08.480
+ water vapor in the atmosphere, that water vapor should be destroyed by ultraviolet radiation.
+
+39:08.480 --> 39:16.400
+ Got it, so there's a, okay, so there's a need for liquid, I mean, I guess it was water.
+
+39:16.400 --> 39:21.080
+ Is water essential or are the liquids, I mean, the chemistry here is probably super complicated.
+
+39:21.080 --> 39:24.160
+ It does, but you know, there's not an infinite number of liquids.
+
+39:24.160 --> 39:28.680
+ There's maybe like five liquids that can exist inside or on the surface of a planet.
+
+39:28.680 --> 39:32.440
+ And water is the one that exists for the largest range of temperatures and pressures.
+
+39:32.440 --> 39:37.360
+ And it's also the easiest type of planet for us to find and study is one with water vapor
+
+39:37.360 --> 39:41.360
+ rather than a cold planet that has ethane and methane lakes.
+
+39:41.360 --> 39:48.760
+ What's your personal, in terms of solar systems and planets that you're most hopeful about
+
+39:48.760 --> 39:57.320
+ in terms of our closest neighbors that you kind of have a sense that there might be somebody
+
+39:57.320 --> 40:02.840
+ living over there, whether it's bacteria or somebody that looks like us.
+
+40:02.840 --> 40:06.520
+ I'm hopeful that every star nearby has a planet.
+
+40:06.520 --> 40:07.520
+ That has some life.
+
+40:07.520 --> 40:09.840
+ Because it almost has to for us to make progress.
+
+40:09.840 --> 40:12.560
+ We have to have that dream condition.
+
+40:12.560 --> 40:16.760
+ So the dream condition is like life is just super abundant out there.
+
+40:16.760 --> 40:21.280
+ Yeah, the dream, yes, the dream condition is that life is super abundant and it's based
+
+40:21.280 --> 40:27.480
+ on the thought that if there is a planet with water and continents, that it also has the
+
+40:27.480 --> 40:36.300
+ ingredients for life and that the kind of base kernel thought is that if the ingredients
+
+40:36.300 --> 40:37.680
+ for life is there, life will form.
+
+40:37.680 --> 40:38.680
+ Life will form.
+
+40:38.680 --> 40:39.680
+ That's what we're holding on to.
+
+40:39.680 --> 40:41.880
+ With a relatively high probability.
+
+40:41.880 --> 40:43.520
+ Yes, that's it.
+
+40:43.520 --> 40:46.740
+ Okay, let's go into land of speculation.
+
+40:46.740 --> 40:49.600
+ What about intelligent life?
+
+40:49.600 --> 40:56.320
+ Us humans consider ourselves intelligent, surprisingly or unsurprisingly.
+
+40:56.320 --> 41:02.560
+ Do you think about from your perspective of looking at planets from a gas composition
+
+41:02.560 --> 41:10.400
+ perspective and in general of how we might see intelligent life and your intuition about
+
+41:10.400 --> 41:12.400
+ whether that life is even out there?
+
+41:12.400 --> 41:14.760
+ I think the life is out there somewhere.
+
+41:14.760 --> 41:17.520
+ The huge numbers of stars and planets.
+
+41:17.520 --> 41:21.480
+ I like to think that life had a chance to evolve to be intelligent.
+
+41:21.480 --> 41:26.620
+ I'm not convinced the life is anywhere near here, only because if it's hard for intelligent
+
+41:26.620 --> 41:29.720
+ life to evolve, then it will be far away by definition.
+
+41:29.720 --> 41:36.080
+ Well, the sad thing is maybe from the artificial intelligence perspective is it makes me sad
+
+41:36.080 --> 41:43.160
+ there might be intelligent life out there that we're just not like the pathways of evolution
+
+41:43.160 --> 41:47.440
+ can go in all these different directions where we might not be able to communicate with it
+
+41:47.440 --> 41:52.720
+ or even know that or even detect its intelligence or even comprehend its intelligence.
+
+41:52.720 --> 41:59.480
+ I'm convinced cats are more intelligent than humans that we're just not able to comprehend
+
+41:59.480 --> 42:04.980
+ the measures, the proper measures of their intelligence.
+
+42:04.980 --> 42:06.200
+ My dog is so funny.
+
+42:06.200 --> 42:07.200
+ He's a golden doodle.
+
+42:07.200 --> 42:08.280
+ His name's Leo.
+
+42:08.280 --> 42:12.420
+ We joke that he's either a really dumb dog and sorry, he's not here to defend himself,
+
+42:12.420 --> 42:16.280
+ but he's either really dumb or he's a super genius just pretending to be dumb.
+
+42:16.280 --> 42:17.280
+ Yeah.
+
+42:17.280 --> 42:25.400
+ And it's possible he's a multidimensional projection of alien life here monitoring one
+
+42:25.400 --> 42:33.480
+ of the top scientists in the world trying to find aliens just to make sure that humans
+
+42:33.480 --> 42:34.480
+ don't get out of hand.
+
+42:34.480 --> 42:35.480
+ That's funny.
+
+42:35.480 --> 42:39.960
+ Oh, I'm definitely going to go in and ask him about that when I get home.
+
+42:39.960 --> 42:40.960
+ She's onto something.
+
+42:40.960 --> 42:41.960
+ Yeah.
+
+42:41.960 --> 42:46.580
+ What might we look for in terms of signs of intelligent life?
+
+42:46.580 --> 42:54.240
+ From your toolkit, do you think there are things that we might be able to use or maybe
+
+42:54.240 --> 43:00.960
+ in the next couple of decades discover that would be different than life that's like bacteria,
+
+43:00.960 --> 43:03.080
+ that's primitive life?
+
+43:03.080 --> 43:06.320
+ I still love SETI, Search for Extraterrestrial Intelligence.
+
+43:06.320 --> 43:10.880
+ I like to hope that if there is a civilization out there, they're trying to send us a message.
+
+43:10.880 --> 43:13.040
+ I think, like, think about it, I don't know.
+
+43:13.040 --> 43:14.040
+ What are your thoughts?
+
+43:14.040 --> 43:18.720
+ Like, if you think about our Earth, there's no structure we've built that intelligent
+
+43:18.720 --> 43:20.680
+ civilizations could see from far away.
+
+43:20.680 --> 43:23.640
+ There's literally nothing, not even the Great Wall of China.
+
+43:23.640 --> 43:27.700
+ And so to think, like, why would this other civilization build a giant structure that
+
+43:27.700 --> 43:28.700
+ we could see?
+
+43:28.700 --> 43:33.760
+ Yeah, so with SETI, the idea is that we're both trying to hear signals and send signals,
+
+43:33.760 --> 43:34.760
+ right?
+
+43:34.760 --> 43:35.760
+ Well, we haven't sent one.
+
+43:35.760 --> 43:37.240
+ They call that METI, messaging.
+
+43:37.240 --> 43:42.880
+ And there's a big kind of fear over METI, because do you want to tell them you're here?
+
+43:42.880 --> 43:45.040
+ It's kind of this, like, let's wait till they call us.
+
+43:45.040 --> 43:46.040
+ Yeah.
+
+43:46.040 --> 43:51.960
+ It's like a dating game, you have to, like, how many days do I wait before I call, kind
+
+43:51.960 --> 43:52.960
+ of thing.
+
+43:52.960 --> 43:53.960
+ Yeah.
+
+43:53.960 --> 43:57.360
+ But the funny thing is, if no one's sending us a message, if everybody's only listening,
+
+43:57.360 --> 43:59.920
+ how do you make progress?
+
+43:59.920 --> 44:00.920
+ That's right.
+
+44:00.920 --> 44:04.960
+ And, I mean, but there's also, there's the Voyager spacecraft that we have these little
+
+44:04.960 --> 44:09.960
+ pixels of robots flying out all over the place.
+
+44:09.960 --> 44:13.320
+ Some of them, like the Voyager, reach out really far.
+
+44:13.320 --> 44:15.200
+ And they have some stuff on them.
+
+44:15.200 --> 44:16.200
+ Okay, I just...
+
+44:16.200 --> 44:19.160
+ We do, we have the Voyager, but they're not really going anywhere in particular.
+
+44:19.160 --> 44:21.960
+ And they're moving very, very slowly on a cosmic scale.
+
+44:21.960 --> 44:22.960
+ Yeah.
+
+44:22.960 --> 44:24.760
+ And me saying they're far is kind of silly.
+
+44:24.760 --> 44:25.760
+ Yeah.
+
+44:25.760 --> 44:26.760
+ It's all relative in astronomy.
+
+44:26.760 --> 44:27.760
+ It's all relative.
+
+44:27.760 --> 44:28.760
+ Yeah.
+
+44:28.760 --> 44:29.760
+ Yeah.
+
+44:29.760 --> 44:30.760
+ I just...
+
+44:30.760 --> 44:36.320
+ So from the, if you look at Earth from an alien perspective, from visually and from
+
+44:36.320 --> 44:44.880
+ gas composition, I wonder if it's possible to determine the degree of maybe productive
+
+44:44.880 --> 44:45.880
+ energy use.
+
+44:45.880 --> 44:51.240
+ I wonder if it's possible to tell, like, how busy these Earthlings are.
+
+44:51.240 --> 44:55.720
+ Well, let's zoom out again and think about oxygen.
+
+44:55.720 --> 45:00.200
+ So when cyanobacteria arose like billions of years ago and figured out how to harness
+
+45:00.200 --> 45:05.240
+ the energy of the sun for photosynthesis, they reengineered the entire atmosphere.
+
+45:05.240 --> 45:09.080
+ 20% of the atmosphere has oxygen now.
+
+45:09.080 --> 45:11.040
+ Like that is a huge scale.
+
+45:11.040 --> 45:15.080
+ You know, they almost poisoned everything else by making this, what was apparently very
+
+45:15.080 --> 45:17.400
+ poisonous to everything that was alive.
+
+45:17.400 --> 45:18.400
+ But imagine...
+
+45:18.400 --> 45:19.400
+ So are we doing anything at that scale?
+
+45:19.400 --> 45:23.600
+ Like, are we changing anything at like 20% of the Earth with a giant structure or 20%
+
+45:23.600 --> 45:24.840
+ of this or 20% of that?
+
+45:24.840 --> 45:26.200
+ Like we aren't actually.
+
+45:26.200 --> 45:27.200
+ Yeah.
+
+45:27.200 --> 45:28.200
+ Yeah.
+
+45:28.200 --> 45:32.400
+ That's humbling to think that we're not actually having that much of an impact.
+
+45:32.400 --> 45:33.400
+ I know.
+
+45:33.400 --> 45:35.440
+ But we are because in a way we're destroying our entire planet.
+
+45:35.440 --> 45:40.520
+ But it's humbling to think that from far away, people probably can't even tell.
+
+45:40.520 --> 45:45.000
+ But from the perspective of the planet, when we say we're destroying, you know, global
+
+45:45.000 --> 45:51.320
+ warming, all that kind of stuff, what we really mean is we're destroying it for a bunch of
+
+45:51.320 --> 45:54.040
+ different species, including humans.
+
+45:54.040 --> 45:55.640
+ But like, I think the Earth will be okay.
+
+45:55.640 --> 46:00.840
+ Oh, the Earth will be, the Earth will remain, whatever happens to us, the Earth will still
+
+46:00.840 --> 46:01.840
+ be here.
+
+46:01.840 --> 46:03.800
+ And it'll still be difficult to detect any difference.
+
+46:03.800 --> 46:09.560
+ Like it's sad to think that if humans destroy ourselves, except potentially with nuclear
+
+46:09.560 --> 46:12.280
+ war, it'd be hard to tell that anything even happened.
+
+46:12.280 --> 46:13.280
+ Yeah.
+
+46:13.280 --> 46:15.800
+ It's hard to tell from far away that anything happened.
+
+46:15.800 --> 46:17.680
+ What about, what are your thoughts now?
+
+46:17.680 --> 46:21.760
+ This is really getting into speculation land.
+
+46:21.760 --> 46:28.220
+ You've mentioned exoplanets were in the realm of, you know, this is beautiful edge between
+
+46:28.220 --> 46:31.600
+ science and science fiction.
+
+46:31.600 --> 46:37.940
+ That some of us, a rare few are brave enough to walk, I think in academia, you were brave
+
+46:37.940 --> 46:39.880
+ enough to do that.
+
+46:39.880 --> 46:47.360
+ I think in some sense, artificial intelligence sometimes walks that line a little bit.
+
+46:47.360 --> 46:52.760
+ There is so much excitement about extraterrestrial life and aliens in this world.
+
+46:52.760 --> 46:59.600
+ I mean, I don't know what, how to comprehend that excitement, but to me, it's great to
+
+46:59.600 --> 47:06.800
+ see people curious because to me, extraterrestrial life and aliens is at the core, a scientific
+
+47:06.800 --> 47:08.400
+ question.
+
+47:08.400 --> 47:11.240
+ And it's almost looks like people are excited about science.
+
+47:11.240 --> 47:16.020
+ They're excited by discovery, discovery, right?
+
+47:16.020 --> 47:21.360
+ And then the possibility that there's alien life that visited earth or is here on earth
+
+47:21.360 --> 47:29.040
+ now is, is a excitement about discovery in your lifetime, essentially.
+
+47:29.040 --> 47:33.180
+ I mean, what do you make, what do you make of that?
+
+47:33.180 --> 47:44.280
+ There's recent events where DARPA or DOD released footage of these unmanned aerial phenomena.
+
+47:44.280 --> 47:46.240
+ They're calling them now UAP.
+
+47:46.240 --> 47:48.160
+ They got everybody like super excited.
+
+47:48.160 --> 47:52.220
+ Like maybe there is like what, what, what's, what's here on earth.
+
+47:52.220 --> 47:58.880
+ Do you follow the, this world of people who are thinking about aliens that are already
+
+47:58.880 --> 48:00.360
+ here or have visited?
+
+48:00.360 --> 48:01.360
+ I don't really follow it.
+
+48:01.360 --> 48:02.360
+ They follow me.
+
+48:02.360 --> 48:11.080
+ Because in this field, if you're a scientist of any kind, you get, people contact us, me.
+
+48:11.080 --> 48:15.680
+ There's a lot of them about, Hey, I have stuff you should see, Hey, the aliens are already
+
+48:15.680 --> 48:16.680
+ here.
+
+48:16.680 --> 48:17.680
+ I need to tell you about it.
+
+48:17.680 --> 48:22.640
+ And I know there are people out there who really believe there's a psychology to it.
+
+48:22.640 --> 48:25.800
+ There's a psychology to it and it's fascinating, but okay.
+
+48:25.800 --> 48:29.200
+ So it's similar to artificial intelligence, but I still, but like you, I'm still enamored
+
+48:29.200 --> 48:32.560
+ with the point that it is out there and that people believe so strongly.
+
+48:32.560 --> 48:37.600
+ And that's so many people out there believe, believe.
+
+48:37.600 --> 48:44.400
+ And I don't know, I I'm not as allergic to it as some scientists are because ultimately
+
+48:44.400 --> 48:50.360
+ if aliens showed up or do show up or have showed up you know, these are going to be
+
+48:50.360 --> 48:55.320
+ very difficult to study scientific phenomena.
+
+48:55.320 --> 49:01.320
+ Like in, in fact, like going back to cats and dogs, like I just, I think we should be
+
+49:01.320 --> 49:08.440
+ more open minded about developing new tools and looking for intelligent life on earth
+
+49:08.440 --> 49:10.360
+ that we haven't yet found.
+
+49:10.360 --> 49:15.160
+ Or even understanding the nature of our own intelligence because it kind of is an alien
+
+49:15.160 --> 49:19.040
+ life form, the thing that's living, you know, in our skull.
+
+49:19.040 --> 49:20.040
+ It's so true.
+
+49:20.040 --> 49:21.040
+ And we don't understand consciousness.
+
+49:21.040 --> 49:22.040
+ Yeah.
+
+49:22.040 --> 49:23.040
+ It's true.
+
+49:23.040 --> 49:28.480
+ We don't understand how biology is hard, you know, unpacking it and working it all out.
+
+49:28.480 --> 49:29.480
+ It's a stretch.
+
+49:29.480 --> 49:34.120
+ And they say too that our thinking mind is like the tip of a pyramid and that everything
+
+49:34.120 --> 49:37.640
+ else is happening under the hood and, but what is happening?
+
+49:37.640 --> 49:42.560
+ But the thing with, so the typical scientist response to, you know, are there aliens here
+
+49:42.560 --> 49:50.000
+ is that we need to see major evidence, not like a sketchy picture of something.
+
+49:50.000 --> 49:53.600
+ We need some cold hard evidence and we just don't have that.
+
+49:53.600 --> 49:54.600
+ That's exactly right.
+
+49:54.600 --> 49:55.600
+ Yeah.
+
+49:55.600 --> 50:00.080
+ But from my perspective, I admire people that dream and I think that's beautiful.
+
+50:00.080 --> 50:05.200
+ The thing I don't like, there's two sides of the, of the folks that probably listened
+
+50:05.200 --> 50:12.160
+ to this, this podcast is, oh, those that dream, I think is beautiful, that, that wander what's
+
+50:12.160 --> 50:14.140
+ out there, what's here on earth.
+
+50:14.140 --> 50:19.520
+ And then the other ones who are very conspiratorial and thinking that stuff is being hidden and
+
+50:19.520 --> 50:20.840
+ it becomes about institutions.
+
+50:20.840 --> 50:21.840
+ Right, right, right.
+
+50:21.840 --> 50:22.840
+ Okay.
+
+50:22.840 --> 50:23.840
+ I got it.
+
+50:23.840 --> 50:24.840
+ I have a funny thing to talk about that.
+
+50:24.840 --> 50:28.600
+ So one of my colleagues had a really good answer to that and it's not me saying this,
+
+50:28.600 --> 50:32.360
+ so I can say this, but he said, look, he works with NASA, not at NASA.
+
+50:32.360 --> 50:35.140
+ He works with government, not in the government.
+
+50:35.140 --> 50:37.640
+ It's kind of mean, but he'd say, trust me, they couldn't hide it if they tried.
+
+50:37.640 --> 50:39.640
+ Do you know what I'm saying?
+
+50:39.640 --> 50:42.360
+ Like, we're not smart enough or good enough.
+
+50:42.360 --> 50:45.280
+ Not we or not me or not you, but whoever to cover it up.
+
+50:45.280 --> 50:47.960
+ It just, it's sort of a myth.
+
+50:47.960 --> 50:48.960
+ Yeah.
+
+50:48.960 --> 50:57.040
+ It makes it sad because the people at NASA, the people at MIT, the people in academia,
+
+50:57.040 --> 51:03.560
+ the people in these institutions and yes, even in government are often trying, they're
+
+51:03.560 --> 51:06.280
+ like just curious descendants of apes.
+
+51:06.280 --> 51:08.800
+ They're just, they, they want to do good.
+
+51:08.800 --> 51:09.960
+ They want to discover stuff.
+
+51:09.960 --> 51:11.480
+ They're not trying to hide stuff.
+
+51:11.480 --> 51:18.520
+ In fact, most of them would, in terms of leaks, would love to discover this and release this
+
+51:18.520 --> 51:19.520
+ kind of stuff.
+
+51:19.520 --> 51:23.160
+ There's a, did you ever watch the show called The X Files?
+
+51:23.160 --> 51:24.160
+ Yeah.
+
+51:24.160 --> 51:25.160
+ Scully and Mulder.
+
+51:25.160 --> 51:26.160
+ Yeah.
+
+51:26.160 --> 51:29.920
+ And what I love actually, I used to put it up during my talks, my public talks.
+
+51:29.920 --> 51:35.360
+ There's a picture of a UFO or what looks like UFO and it says, I want to believe.
+
+51:35.360 --> 51:38.040
+ So that's, that's where I think a lot of us are coming from.
+
+51:38.040 --> 51:40.400
+ I want to believe.
+
+51:40.400 --> 51:41.400
+ And it's so great.
+
+51:41.400 --> 51:46.040
+ And one time I put that up and this very, very nice couple approached me really nervous
+
+51:46.040 --> 51:49.720
+ afterwards and they said, Hey, can we take you out for lunch sometime?
+
+51:49.720 --> 51:50.720
+ And I said, sure.
+
+51:50.720 --> 51:52.740
+ And they were like the nicest people.
+
+51:52.740 --> 51:59.000
+ And just one of many who has an alien, alien abduction story and the woman, um, could never
+
+51:59.000 --> 52:00.000
+ have kids.
+
+52:00.000 --> 52:02.980
+ They were older, but they didn't have kids, which for them was a real source of regret.
+
+52:02.980 --> 52:06.560
+ But it was because the aliens who had abducted her had made it so that she couldn't have
+
+52:06.560 --> 52:07.560
+ kids.
+
+52:07.560 --> 52:12.280
+ And she had apparently something implanted behind her ear, which was somehow unimplanted
+
+52:12.280 --> 52:13.280
+ later.
+
+52:13.280 --> 52:18.480
+ And they're just so sincere and they're such a lovely couple and they just wanted to share
+
+52:18.480 --> 52:19.480
+ their story.
+
+52:19.480 --> 52:23.640
+ That's a, that's a real, whatever that is, that's the real thing.
+
+52:23.640 --> 52:30.720
+ The mystery of the human mind is more powerful than any alien or, I mean, it's as interesting
+
+52:30.720 --> 52:32.000
+ I think as the universe.
+
+52:32.000 --> 52:38.840
+ And I think they're somehow intricately linked, maybe getting a sense of numbers.
+
+52:38.840 --> 52:46.880
+ How many stars are there in, um, maybe, I don't know what the radius that's reasonable
+
+52:46.880 --> 52:47.880
+ to think about.
+
+52:47.880 --> 52:52.360
+ I don't know if the observable universe is like way too big to think about, but in terms
+
+52:52.360 --> 52:56.600
+ of when we think about how many habitable planets there are, what are the numbers we're
+
+52:56.600 --> 52:58.960
+ working with in your sense?
+
+52:58.960 --> 52:59.960
+ What are the scale?
+
+52:59.960 --> 53:03.760
+ Honestly, the numbers are probably like billions of trillions of stars.
+
+53:03.760 --> 53:04.760
+ Yeah.
+
+53:04.760 --> 53:07.720
+ You know, in the UK, I think, I don't know if we do that here, but they will call a billion
+
+53:07.720 --> 53:10.880
+ trillion where you put like one billion followed by a trillion.
+
+53:10.880 --> 53:11.880
+ Yeah.
+
+53:11.880 --> 53:14.960
+ It's kind of weird, but here, I don't even know how to say the number 10 to the 20.
+
+53:14.960 --> 53:17.600
+ Like if you know what that is, that's one followed by 20 zeros.
+
+53:17.600 --> 53:18.600
+ That's a big number.
+
+53:18.600 --> 53:20.220
+ We don't have a name for that number.
+
+53:20.220 --> 53:22.640
+ There's so many per star.
+
+53:22.640 --> 53:23.840
+ I think we kind of mentioned this.
+
+53:23.840 --> 53:30.320
+ Is there a good sense, there's probably argument about this, but per star, how many planets
+
+53:30.320 --> 53:31.320
+ are there?
+
+53:31.320 --> 53:35.640
+ We don't have that number yet per se, you know, we're not really there, but some people
+
+53:35.640 --> 53:38.240
+ think that there's many planets per star.
+
+53:38.240 --> 53:43.840
+ There's this analogy of filling the coffee cup, like, you know, you don't usually just
+
+53:43.840 --> 53:45.360
+ pour one drop, you fill it.
+
+53:45.360 --> 53:51.160
+ And that planetary systems, we see stars being born that have a disc of gas and dust and
+
+53:51.160 --> 53:53.280
+ that ultimately forms planets.
+
+53:53.280 --> 53:58.940
+ So the idea, this kind of concept is that planets, so many planets form too many.
+
+53:58.940 --> 54:02.680
+ And eventually some get kicked out and you're left with like a full planetary system, a
+
+54:02.680 --> 54:04.000
+ dynamically full system.
+
+54:04.000 --> 54:08.080
+ And so there have to be a lot because so many form and a bunch survive.
+
+54:08.080 --> 54:11.080
+ I mean, that makes perfect intuitive sense, right?
+
+54:11.080 --> 54:12.880
+ Like why wouldn't that happen?
+
+54:12.880 --> 54:13.880
+ Right.
+
+54:13.880 --> 54:16.340
+ Well, there's other thoughts too, though.
+
+54:16.340 --> 54:20.720
+ These big planets that are really close to the star, we think they formed far away from
+
+54:20.720 --> 54:25.220
+ the star where there's enough material to form and they migrated inwards.
+
+54:25.220 --> 54:28.600
+ And some of these planets migrating inwards due to interaction with other planets or with
+
+54:28.600 --> 54:32.120
+ the disc itself, they may have cleared it out.
+
+54:32.120 --> 54:34.700
+ And kicked other planets out of the system.
+
+54:34.700 --> 54:36.540
+ So there's a lot of ideas floating around.
+
+54:36.540 --> 54:39.120
+ We're not entirely sure.
+
+54:39.120 --> 54:41.440
+ And what about Earth like planets?
+
+54:41.440 --> 54:43.680
+ That's another level of uncertainty.
+
+54:43.680 --> 54:44.760
+ It's a level of uncertainty.
+
+54:44.760 --> 54:51.440
+ If we think of an Earth like planet being an Earth around a sun in the same orbit, an
+
+54:51.440 --> 54:55.800
+ Earth like planet being an Earth sized planet in an Earth like orbit about a sun like star,
+
+54:55.800 --> 54:56.800
+ we're not there yet.
+
+54:56.800 --> 55:00.760
+ You know, we're not able to detect enough of those to give you a hard number.
+
+55:00.760 --> 55:03.080
+ Some people have extrapolated.
+
+55:03.080 --> 55:08.560
+ And they will say as many as one in five stars like our sun could be hosting a true Earth
+
+55:08.560 --> 55:09.560
+ like planet.
+
+55:09.560 --> 55:10.560
+ Wow.
+
+55:10.560 --> 55:15.280
+ On the topic of space exploration, there's been a lot of exciting developments with NASA,
+
+55:15.280 --> 55:23.680
+ with SpaceX, with other companies successfully getting rockets into space with humans and
+
+55:23.680 --> 55:27.920
+ getting them to land back, especially with SpaceX.
+
+55:27.920 --> 55:33.920
+ What are your thoughts about Elon Musk and SpaceX, Crew Dragon, while working with NASA
+
+55:33.920 --> 55:35.680
+ to launch astronauts?
+
+55:35.680 --> 55:39.720
+ What's your sense about these exciting new developments?
+
+55:39.720 --> 55:46.200
+ Well, SpaceX and other so called commercial companies are only good news for my field,
+
+55:46.200 --> 55:50.600
+ because they're lowering the cost of getting to space by having reusable rockets.
+
+55:50.600 --> 55:52.200
+ It's just been it's incredible.
+
+55:52.200 --> 55:53.840
+ And we need cheaper access to space.
+
+55:53.840 --> 55:56.760
+ So from a very practical viewpoint, it's all good.
+
+55:56.760 --> 56:01.520
+ Without getting people, there's this dream that we have to go to Mars, boots on Mars.
+
+56:01.520 --> 56:03.960
+ Boots on Mars.
+
+56:03.960 --> 56:04.960
+ What do you think about that?
+
+56:04.960 --> 56:06.080
+ You mentioned probes.
+
+56:06.080 --> 56:08.560
+ What's the value of humans?
+
+56:08.560 --> 56:13.880
+ Is that interesting to you from both scientific and a human perspective?
+
+56:13.880 --> 56:14.880
+ Human mostly.
+
+56:14.880 --> 56:19.400
+ I think it's such in our desire to explore because part of what it means to be human.
+
+56:19.400 --> 56:23.440
+ So wanting to go to another planet and be able to live there for some time.
+
+56:23.440 --> 56:26.520
+ It's just just what it means to be human.
+
+56:26.520 --> 56:32.160
+ You know, oftentimes in science and engineering, big, huge discoveries are made when we didn't
+
+56:32.160 --> 56:33.680
+ intend to.
+
+56:33.680 --> 56:37.720
+ So often this kind of pure exploratory type of research or this pure exploration research,
+
+56:37.720 --> 56:41.060
+ it can lead to something really important like the laser, we couldn't really live without
+
+56:41.060 --> 56:42.060
+ that now.
+
+56:42.060 --> 56:46.860
+ At the grocery, you scan your foods, there's surgery that involves lasers, GPS, we all
+
+56:46.860 --> 56:47.860
+ use our GPS.
+
+56:47.860 --> 56:53.120
+ We don't have GPS because someone thought, hey, it'd be great to have a navigation system.
+
+56:53.120 --> 56:58.480
+ And so I do support, I do, I just, but I really think it comes primarily just from the desire
+
+56:58.480 --> 56:59.480
+ to explore.
+
+56:59.480 --> 57:06.380
+ Do you think something, there's a lot of criticism and a lot of excitement about Mars.
+
+57:06.380 --> 57:12.880
+ Do you think there's value in trying to go to put humans on Mars, first of all, and second
+
+57:12.880 --> 57:15.680
+ of all, colonize Mars?
+
+57:15.680 --> 57:18.920
+ Do you think there's something interesting that might come from there?
+
+57:18.920 --> 57:20.680
+ I'm convinced there will be something interesting.
+
+57:20.680 --> 57:24.880
+ I just don't know what it is yet, but I don't think, I don't think having some commercial
+
+57:24.880 --> 57:29.480
+ value or value in the metric of something useful is really what's motivating us.
+
+57:29.480 --> 57:33.640
+ So really, you see, exploration is a long term investment into something awesome that
+
+57:33.640 --> 57:35.560
+ eventually will be commercial value.
+
+57:35.560 --> 57:36.560
+ I do actually.
+
+57:36.560 --> 57:37.560
+ Yeah.
+
+57:37.560 --> 57:38.560
+ I do.
+
+57:38.560 --> 57:48.640
+ So what about visiting, okay, I apologize, but Amy, there's an exciting longing to visit
+
+57:48.640 --> 57:51.140
+ Earth like planets elsewhere.
+
+57:51.140 --> 57:59.200
+ So what's the closest Earth like planet you think is worth visiting and how hard is it?
+
+57:59.200 --> 58:01.560
+ Wow, it is very hard.
+
+58:01.560 --> 58:05.640
+ I mean, our nearest, call it Earth mass planet, it's orbiting a star very different from
+
+58:05.640 --> 58:10.460
+ our own sun, an M Dwarf star, a small red star, Proxima Centauri.
+
+58:10.460 --> 58:15.340
+ It's over four light years away and we can't travel at the speed of light.
+
+58:15.340 --> 58:18.640
+ We can't even travel, I mean, it would take tens of thousands of years to get there with
+
+58:18.640 --> 58:19.640
+ conventional methods.
+
+58:19.640 --> 58:23.920
+ So, you know, the movies like multigenerational, yeah, this movie Passenger, have you seen
+
+58:23.920 --> 58:24.920
+ that movie?
+
+58:24.920 --> 58:25.920
+ Passenger.
+
+58:25.920 --> 58:26.920
+ No.
+
+58:26.920 --> 58:30.400
+ It's about a big spaceship that is traveling to another planet and everyone's hibernating.
+
+58:30.400 --> 58:33.320
+ I won't give you the spoiler alert because one person wakes up and then it's kind of
+
+58:33.320 --> 58:34.320
+ a problem.
+
+58:34.320 --> 58:35.320
+ Okay, got it.
+
+58:35.320 --> 58:40.940
+ But yeah, the multigenerational ships, I mean, when you think about where we're headed as
+
+58:40.940 --> 58:48.200
+ a species, maybe we don't send people, maybe we end up sending raw biological materials
+
+58:48.200 --> 58:54.640
+ and instructions to print out humans, it sounds kind of farfetched, but already we're printing
+
+58:54.640 --> 59:01.360
+ like liver cells in the lab and beating heart cells, we're starting to reconstruct body
+
+59:01.360 --> 59:02.360
+ parts.
+
+59:02.360 --> 59:06.080
+ I mean, the thing is, it is so hard to get to another planet that this thought of printing
+
+59:06.080 --> 59:09.080
+ humans or printing life forms actually could be easier.
+
+59:09.080 --> 59:16.680
+ Yeah, that's somehow so sad to think, to think of the idea that we would launch a successful
+
+59:16.680 --> 59:23.520
+ spaceship that has multigenerational, like non human life and it's going to reach other
+
+59:23.520 --> 59:30.120
+ intelligent life and by the time they figure out where it came from, human civilization
+
+59:30.120 --> 59:31.120
+ will be extinct.
+
+59:31.120 --> 59:32.120
+ Wow.
+
+59:32.120 --> 59:36.480
+ Yeah, that is really, I mean, that's, so that's one, there's a, there's a tempting thing to
+
+59:36.480 --> 59:37.480
+ think about.
+
+59:37.480 --> 59:38.480
+ What are the possible trajectories?
+
+59:38.480 --> 59:47.040
+ So, you know, Elon keeps talking about multi planetary, us becoming multi planetary species.
+
+59:47.040 --> 59:55.000
+ I mean, sure, Mars is a part of that, but like the dream is to really expand outside
+
+59:55.000 --> 59:57.080
+ the solar system.
+
+59:57.080 --> 1:00:02.240
+ And it's, it's not clear, just like, as you said, like what the actual scientific engineering
+
+1:00:02.240 --> 1:00:08.420
+ steps that are required to take, it seems like so daunting, so daunting.
+
+1:00:08.420 --> 1:00:15.360
+ So like this, the smart thing seems to be to do the most achievable near daunting task,
+
+1:00:15.360 --> 1:00:20.680
+ even if there doesn't seem to be a commercial application, which I think is colonizing
+
+1:00:20.680 --> 1:00:21.680
+ Mars.
+
+1:00:21.680 --> 1:00:30.600
+ But like from your perspective, is there some Manhattan project style, huge project in space
+
+1:00:30.600 --> 1:00:34.920
+ that we might want to take on and you've had roles.
+
+1:00:34.920 --> 1:00:39.600
+ You had scientists hat roles and then you also had roles in terms of being on like committees
+
+1:00:39.600 --> 1:00:42.680
+ and stuff, determining where funding goes and so on.
+
+1:00:42.680 --> 1:00:48.840
+ So like, is there a huge like multi trillion, we've been throwing the T word around recently
+
+1:00:48.840 --> 1:00:52.200
+ a lot, but these huge projects that we might want to take on?
+
+1:00:52.200 --> 1:00:56.220
+ Well, first of all, we want to find the planets like earth first, like just even finding those
+
+1:00:56.220 --> 1:01:01.200
+ earth like planets is a billion dollar endeavor, billions of dollars endeavor.
+
+1:01:01.200 --> 1:01:06.560
+ And that's so hard because an earth is so small, so less massive, and so faint compared
+
+1:01:06.560 --> 1:01:08.100
+ to our sun.
+
+1:01:08.100 --> 1:01:10.920
+ It's the proverbial needle in a haystack, but worse.
+
+1:01:10.920 --> 1:01:15.560
+ And we need very sophisticated space based telescopes to be able to find these planets
+
+1:01:15.560 --> 1:01:19.800
+ and to look, look at them and see which ones have water and which ones have signs of life
+
+1:01:19.800 --> 1:01:20.800
+ on them.
+
+1:01:20.800 --> 1:01:24.720
+ Yeah, the, the star shade project that you're part of, star shade, star shade, yeah, this
+
+1:01:24.720 --> 1:01:26.680
+ is probably the most badass thing I've ever seen.
+
+1:01:26.680 --> 1:01:27.680
+ Right.
+
+1:01:27.680 --> 1:01:28.680
+ You know what's interesting?
+
+1:01:28.680 --> 1:01:29.680
+ Can you describe what it is?
+
+1:01:29.680 --> 1:01:34.920
+ So what's amazing about star shade is it was first conceived of in the 1960s.
+
+1:01:34.920 --> 1:01:38.640
+ Imagine that and revisited every decade until now when we think we can actually build it
+
+1:01:38.640 --> 1:01:42.880
+ and star shade is a giant specially shaped screen.
+
+1:01:42.880 --> 1:01:47.120
+ It is about, there's different versions of it, but think about 30 meters in diameter.
+
+1:01:47.120 --> 1:01:49.700
+ So you're blocking out the sun.
+
+1:01:49.700 --> 1:01:54.240
+ You're effectively blocking out the star so that you can see the planet directly and star
+
+1:01:54.240 --> 1:01:58.800
+ shade would have a spacecraft attached to it and it would fly in space far away from
+
+1:01:58.800 --> 1:02:03.660
+ Earth's gravity and it would have to formation fly with a space telescope.
+
+1:02:03.660 --> 1:02:08.200
+ So the idea is that star shade blocks out the starlight in a very careful way and it
+
+1:02:08.200 --> 1:02:13.360
+ has to block that starlight out so that the planet that is 10 billion times fainter than
+
+1:02:13.360 --> 1:02:17.640
+ the star, that only the planet light goes to the telescope.
+
+1:02:17.640 --> 1:02:19.020
+ Yeah.
+
+1:02:19.020 --> 1:02:24.840
+ So in formation, meaning the telescope flies in, you gave a presentation on this, but like
+
+1:02:24.840 --> 1:02:30.960
+ it, it would fly like in, um, this is extremely high precision endeavor.
+
+1:02:30.960 --> 1:02:31.960
+ Yeah.
+
+1:02:31.960 --> 1:02:37.040
+ We had this analogy like asking a friend to hold up a dime five miles away perfectly.
+
+1:02:37.040 --> 1:02:40.460
+ Like at the perfect line of sight with you.
+
+1:02:40.460 --> 1:02:41.720
+ And the shape of it is pretty cool.
+
+1:02:41.720 --> 1:02:45.780
+ I mean, uh, I don't know exactly what the physics of that, like what the optics are
+
+1:02:45.780 --> 1:02:47.240
+ that require that shape.
+
+1:02:47.240 --> 1:02:51.280
+ I can tell you, it turns out that if you block out a star, imagine blocking out a star with
+
+1:02:51.280 --> 1:02:57.240
+ a circle circularly or a square shaped screen, you wouldn't actually be blocking it because
+
+1:02:57.240 --> 1:02:58.840
+ the star acts like a wave.
+
+1:02:58.840 --> 1:03:03.840
+ The starlight can act like a wave and it would actually bend around the edges of the screen.
+
+1:03:03.840 --> 1:03:06.360
+ And so instead of blocking out the light, you're expecting to see nothing.
+
+1:03:06.360 --> 1:03:11.120
+ You would see ripples and the analogy that I love to give, it's like throwing a pebble
+
+1:03:11.120 --> 1:03:12.120
+ in a pond.
+
+1:03:12.120 --> 1:03:16.480
+ You know, you get those ripples, you get these concentric ripples and they go out and light
+
+1:03:16.480 --> 1:03:18.640
+ would do something quite similar.
+
+1:03:18.640 --> 1:03:23.800
+ You'd actually see ripples of light and those ripples of light, they're actually way brighter
+
+1:03:23.800 --> 1:03:26.380
+ than the planet we'd be looking for.
+
+1:03:26.380 --> 1:03:29.360
+ So they would introduce this noise that's a noise.
+
+1:03:29.360 --> 1:03:33.900
+ And so the star shade, it's like a mathematical solution to the problem of diffraction it's
+
+1:03:33.900 --> 1:03:35.240
+ called.
+
+1:03:35.240 --> 1:03:39.820
+ And this is what the first person who thought about star shape in the 1960s worked out the
+
+1:03:39.820 --> 1:03:43.860
+ mathematical shape or one salute, one family of solutions.
+
+1:03:43.860 --> 1:03:48.320
+ And the idea is that when the star shade, this very special shape, like a giant flower
+
+1:03:48.320 --> 1:03:53.680
+ with petals, when it blocks out the light, the light bends around the edges, but interacts
+
+1:03:53.680 --> 1:03:57.220
+ with itself in a way to give you a very, very dark image.
+
+1:03:57.220 --> 1:04:02.240
+ It would be like throwing a pebble in a pond and instead of getting ripples, the pond would
+
+1:04:02.240 --> 1:04:06.760
+ be perfectly smooth, like incredibly smooth to one part in 10 billion.
+
+1:04:06.760 --> 1:04:11.980
+ And all the waves would be on the outer edges, far away from where you drop that pebble.
+
+1:04:11.980 --> 1:04:19.640
+ And so this camera would be able to get some signal from the planet then.
+
+1:04:19.640 --> 1:04:22.020
+ Yes, and it would be hard because the planet is so faint.
+
+1:04:22.020 --> 1:04:25.840
+ But with the star out of the way, the glare of that bright, bright, bright star, with
+
+1:04:25.840 --> 1:04:30.500
+ that out of the way, then it becomes a much more manageable task.
+
+1:04:30.500 --> 1:04:32.520
+ So how do we get that thing out there?
+
+1:04:32.520 --> 1:04:34.040
+ We're working with unlimited money.
+
+1:04:34.040 --> 1:04:35.800
+ Okay, we're working with unlimited money.
+
+1:04:35.800 --> 1:04:39.160
+ We have some more engineering problems to solve, but not too many more.
+
+1:04:39.160 --> 1:04:43.000
+ We've been burning down our so called tall pole list.
+
+1:04:43.000 --> 1:04:44.000
+ What kind of list?
+
+1:04:44.000 --> 1:04:47.360
+ We call it technology tall pole.
+
+1:04:47.360 --> 1:04:51.860
+ It's the phrase where you have to figure out what are your hardest problems and then break
+
+1:04:51.860 --> 1:04:53.080
+ those down to solve.
+
+1:04:53.080 --> 1:04:57.760
+ So the star shade, one of the really hard problems was how to formation fly at tens
+
+1:04:57.760 --> 1:04:59.800
+ of thousands of kilometers.
+
+1:04:59.800 --> 1:05:02.120
+ It's like, wow, that is insane.
+
+1:05:02.120 --> 1:05:06.760
+ And the team broke that down actually into a sensing problem because of the star shade.
+
+1:05:06.760 --> 1:05:10.200
+ How do you see the star shade precisely enough to control it?
+
+1:05:10.200 --> 1:05:13.720
+ Because if you're shining a flashlight, you know the beam spreads out.
+
+1:05:13.720 --> 1:05:17.800
+ So the star shade has a beacon, an LED or a laser, it's going to spread out so much
+
+1:05:17.800 --> 1:05:19.940
+ by the time it gets to the telescope.
+
+1:05:19.940 --> 1:05:23.240
+ The problem wasn't how do you tell the star shade how to move around fast enough to stay
+
+1:05:23.240 --> 1:05:24.560
+ in a straight line.
+
+1:05:24.560 --> 1:05:27.720
+ The problem was how are you able to sense it well enough?
+
+1:05:27.720 --> 1:05:32.540
+ So problems like that were broken down and money that came from NASA to solve problems
+
+1:05:32.540 --> 1:05:34.460
+ is put towards solving it.
+
+1:05:34.460 --> 1:05:37.020
+ So we've got through most of the hard problems right now.
+
+1:05:37.020 --> 1:05:41.500
+ Another one was that star shade, even though it's looking at a star, light from our own
+
+1:05:41.500 --> 1:05:46.880
+ sun could hit the edges of the star shade and bounce off into the telescope, believe
+
+1:05:46.880 --> 1:05:48.720
+ it or not.
+
+1:05:48.720 --> 1:05:52.960
+ And that would actually ruin it because we're trying to see this tiny, tiny signal.
+
+1:05:52.960 --> 1:05:55.760
+ So then the question is how do you make a razor thin edge?
+
+1:05:55.760 --> 1:05:58.640
+ Those pedal edges would have to be like a razor.
+
+1:05:58.640 --> 1:05:59.640
+ What materials can you use?
+
+1:05:59.640 --> 1:06:01.640
+ So there's a series of problems like that.
+
+1:06:01.640 --> 1:06:02.640
+ Wow.
+
+1:06:02.640 --> 1:06:03.880
+ So there's a materials problem in there?
+
+1:06:03.880 --> 1:06:04.880
+ Some of them.
+
+1:06:04.880 --> 1:06:05.880
+ Mm hmm.
+
+1:06:05.880 --> 1:06:06.880
+ Wow.
+
+1:06:06.880 --> 1:06:07.880
+ And there's one.
+
+1:06:07.880 --> 1:06:12.820
+ So we almost finished solving all those problems and then it's just a matter of building one
+
+1:06:12.820 --> 1:06:18.060
+ and testing it in a full scale size facility and then building the telescope.
+
+1:06:18.060 --> 1:06:22.220
+ It's just a matter of time to build everything and get it, get it up for launch.
+
+1:06:22.220 --> 1:06:26.520
+ So this is an engineering close engineering project.
+
+1:06:26.520 --> 1:06:28.240
+ It's a real engineering project.
+
+1:06:28.240 --> 1:06:32.320
+ I actually can tell you about two other projects that are not mine.
+
+1:06:32.320 --> 1:06:38.900
+ I like to call, call star shade mine because it was my project that I helped make it mainstream
+
+1:06:38.900 --> 1:06:40.840
+ without line is constantly shifting.
+
+1:06:40.840 --> 1:06:44.480
+ When I started, when I got this leadership role on star shade, I remember telling people
+
+1:06:44.480 --> 1:06:47.860
+ about it and it was definitely not on the mainstream okay line.
+
+1:06:47.860 --> 1:06:52.420
+ It was on the giggle factor side of the line and people would just laugh like that's dead.
+
+1:06:52.420 --> 1:06:55.800
+ Like you can never formation fly or they'd say, why are you working on that?
+
+1:06:55.800 --> 1:06:58.280
+ That's just so not, it's not so awesome.
+
+1:06:58.280 --> 1:07:01.820
+ There's a, there's a few things you've done in your life and that's when I first saw star
+
+1:07:01.820 --> 1:07:04.700
+ shade, I was like, what, really?
+
+1:07:04.700 --> 1:07:07.060
+ And then like it sinks in.
+
+1:07:07.060 --> 1:07:11.940
+ I mean, it's the same thing I felt with like Elon Musk or certain people who do crazy stuff
+
+1:07:11.940 --> 1:07:15.820
+ and like, and then, and they get, they actually make it work.
+
+1:07:15.820 --> 1:07:22.860
+ I mean, if you get star shade information flying to like together, I mean, how awesome
+
+1:07:22.860 --> 1:07:27.520
+ is that if you actually make that happen, even like from a robot, I'm sorry, from the
+
+1:07:27.520 --> 1:07:31.600
+ robotics perspective, even if it doesn't give us good data, that's just like a cool
+
+1:07:31.600 --> 1:07:33.180
+ thing to get out there.
+
+1:07:33.180 --> 1:07:34.600
+ I mean, it's really exciting.
+
+1:07:34.600 --> 1:07:35.600
+ Really cool.
+
+1:07:35.600 --> 1:07:39.340
+ So there's two other topics that aren't mine, but I still love them.
+
+1:07:39.340 --> 1:07:43.160
+ One of them, let's just talk about it briefly because it's not a probe, but it's the idea
+
+1:07:43.160 --> 1:07:47.820
+ to send a telescope very far away to 500 times the earth sun distance.
+
+1:07:47.820 --> 1:07:51.160
+ And this is way farther than the Voyager spacecrafts are right now.
+
+1:07:51.160 --> 1:07:56.740
+ And to use our sun as a gravitational lens, to use our sun to magnify something that's
+
+1:07:56.740 --> 1:07:59.200
+ behind it.
+
+1:07:59.200 --> 1:08:00.980
+ It's got to sink in for a minute.
+
+1:08:00.980 --> 1:08:01.980
+ Exactly.
+
+1:08:01.980 --> 1:08:05.400
+ But I mean, I don't know what the physics of that is, like how to use the sun.
+
+1:08:05.400 --> 1:08:11.000
+ In astronomy, and Einstein thought about this initially, we can use a massive objects, bend
+
+1:08:11.000 --> 1:08:12.120
+ space.
+
+1:08:12.120 --> 1:08:16.900
+ And so light that should be traveling like straight, it actually travels around the warped
+
+1:08:16.900 --> 1:08:18.440
+ space.
+
+1:08:18.440 --> 1:08:23.060
+ And somehow you figure out a way to use that for magnification.
+
+1:08:23.060 --> 1:08:25.220
+ You have a way to use that for magnification.
+
+1:08:25.220 --> 1:08:26.220
+ That's right.
+
+1:08:26.220 --> 1:08:33.060
+ There are galaxies that are lensed, so called gravitational lens by intervening galaxy clusters
+
+1:08:33.060 --> 1:08:34.660
+ actually.
+
+1:08:34.660 --> 1:08:40.740
+ And there are microlensing events where stars get magnified as an unseen gravitational lens
+
+1:08:40.740 --> 1:08:43.600
+ star passes in between us and that very distant star.
+
+1:08:43.600 --> 1:08:45.540
+ It's actually a real tool in astronomy.
+
+1:08:45.540 --> 1:08:49.940
+ Yeah, using gravitational lensing to magnify because it bends more rays towards you than
+
+1:08:49.940 --> 1:08:52.060
+ normally you'd normally see.
+
+1:08:52.060 --> 1:08:58.740
+ And again, we're trying to get more higher resolution images that are basically boiled
+
+1:08:58.740 --> 1:08:59.740
+ down to light.
+
+1:08:59.740 --> 1:09:01.700
+ Well, it boils down to light.
+
+1:09:01.700 --> 1:09:04.780
+ And then you can maybe get more information about.
+
+1:09:04.780 --> 1:09:10.500
+ Well, in this case, you would ask me, let's say, if this thing could get built, it would
+
+1:09:10.500 --> 1:09:15.780
+ take like something like they like to say 25 years to get from here to there, 25 years
+
+1:09:15.780 --> 1:09:18.300
+ and then it could send some information back to us.
+
+1:09:18.300 --> 1:09:20.540
+ And then you'd say, so Sarah, how many pixels?
+
+1:09:20.540 --> 1:09:21.900
+ And I wouldn't say one or less than one.
+
+1:09:21.900 --> 1:09:26.300
+ I'd say, you know, it could be like 10 by 10 pixels, it could be 100 pixels, which would
+
+1:09:26.300 --> 1:09:27.300
+ be awesome.
+
+1:09:27.300 --> 1:09:30.500
+ I mean, that's still crazy that we can get a lot of information from that.
+
+1:09:30.500 --> 1:09:31.500
+ Crazy, right.
+
+1:09:31.500 --> 1:09:34.340
+ And it's crazy for a lot of other reasons, because again, you have to line up the sun
+
+1:09:34.340 --> 1:09:35.340
+ and your target.
+
+1:09:35.340 --> 1:09:39.980
+ You'd only have one telescope per target, because every star is behind the sun in a
+
+1:09:39.980 --> 1:09:42.460
+ different way.
+
+1:09:42.460 --> 1:09:43.980
+ So it's a lot of complicated things.
+
+1:09:43.980 --> 1:09:44.980
+ What about the second?
+
+1:09:44.980 --> 1:09:48.580
+ The second one, it's called star shot.
+
+1:09:48.580 --> 1:09:53.540
+ You know, star shot means like big dreams and it's an initiative by the Breakthrough
+
+1:09:53.540 --> 1:09:55.740
+ Foundation.
+
+1:09:55.740 --> 1:10:02.700
+ And star shot is the concept to send thousands of little tiny spacecraft, which they now
+
+1:10:02.700 --> 1:10:03.700
+ call star chip.
+
+1:10:03.700 --> 1:10:06.580
+ So instead of star ship, it's star chip.
+
+1:10:06.580 --> 1:10:13.520
+ And there's a little chip and the star chip, so like sending like thousands of little turtles
+
+1:10:13.520 --> 1:10:15.100
+ being born, they're not all going to make it.
+
+1:10:15.100 --> 1:10:20.700
+ The idea is to send lots of them, and each of these star chips, once they're launched
+
+1:10:20.700 --> 1:10:26.420
+ into, I guess, low Earth orbit, they will deploy a solar sail that's a few meters in
+
+1:10:26.420 --> 1:10:27.940
+ diameter.
+
+1:10:27.940 --> 1:10:34.040
+ And the idea is that on Earth, we would have a bank of, this one is still a bit on the
+
+1:10:34.040 --> 1:10:40.420
+ other side of the line, but we'd have a bank of telescopes with lasers that would be like
+
+1:10:40.420 --> 1:10:48.660
+ a gigawatt power and these lasers would momentarily shine upwards and accelerate, they'd hit these
+
+1:10:48.660 --> 1:10:49.660
+ sails.
+
+1:10:49.660 --> 1:10:54.500
+ They'd be like a power source for the sail and would accelerate the sails to travel at
+
+1:10:54.500 --> 1:10:57.700
+ about a 20th the speed of light.
+
+1:10:57.700 --> 1:10:59.940
+ Is that as crazy as it sounds?
+
+1:10:59.940 --> 1:11:05.720
+ Well, like any good engineering project, it has to be broken down into the crazy parts.
+
+1:11:05.720 --> 1:11:11.500
+ And the Breakthrough Initiative, like to their huge credit, is sponsoring, you know, getting
+
+1:11:11.500 --> 1:11:16.260
+ over these, actually, they've listed initially, they listed 19 challenges, so it's broken
+
+1:11:16.260 --> 1:11:17.940
+ down to concrete things.
+
+1:11:17.940 --> 1:11:21.340
+ Like one of them is, well, you have to buy the land and make sure the airspace is okay
+
+1:11:21.340 --> 1:11:24.980
+ with you sending up that much power overhead.
+
+1:11:24.980 --> 1:11:29.100
+ Another one is you have to have material on the sail where the lasers won't just vaporize
+
+1:11:29.100 --> 1:11:30.100
+ it.
+
+1:11:30.100 --> 1:11:33.580
+ So there's a lot of issues, but anyway, these sails would be accelerated to 20th the speed
+
+1:11:33.580 --> 1:11:38.460
+ of light and their journey to the nearest star would no longer be tens of thousands
+
+1:11:38.460 --> 1:11:45.860
+ of years, but could be 20 years, okay, 20, so it's not as bad as tens of thousands.
+
+1:11:45.860 --> 1:11:52.060
+ And these thousands or whatever, however many make it, they'll go by the nearest star system
+
+1:11:52.060 --> 1:11:57.220
+ and snap some images and radio the information back to Earth because they're traveling so
+
+1:11:57.220 --> 1:12:01.340
+ fast they can't slow down, but they'll zoom by, take some photos, send it back.
+
+1:12:01.340 --> 1:12:02.340
+ Hi, Rez.
+
+1:12:02.340 --> 1:12:06.180
+ See, just what I want you to pause on for a second is that just by making that a real
+
+1:12:06.180 --> 1:12:11.220
+ concept and the money given won't make it happen, but what it's done is it's planted
+
+1:12:11.220 --> 1:12:15.980
+ the seed and it's shifted that line from what is crazy to what is a real project.
+
+1:12:15.980 --> 1:12:20.020
+ It's shifted it just ever so slightly enough, I think, to plant the seed that we have to
+
+1:12:20.020 --> 1:12:23.300
+ find a way to somehow find a way to get there.
+
+1:12:23.300 --> 1:12:26.380
+ That is, again, to stay on that, that is so powerful.
+
+1:12:26.380 --> 1:12:34.620
+ Make a big, crazy idea and break it down into smaller, crazy ideas, order it in a list,
+
+1:12:34.620 --> 1:12:38.820
+ and knock it out one at a time.
+
+1:12:38.820 --> 1:12:43.260
+ I don't know, I've never heard anything more inspiring from an engineering perspective
+
+1:12:43.260 --> 1:12:46.060
+ because that's how you solve the impossible things.
+
+1:12:46.060 --> 1:12:55.300
+ So you open your new book discussing Rogue Planet, PSO, J318, I never said this out loud,
+
+1:12:55.300 --> 1:13:03.180
+ PSO 1.522, so a Rogue Planet, which is just this poetic, beautiful vision of a planet
+
+1:13:03.180 --> 1:13:10.780
+ that, as you write, lurches across the galaxy like a rudderless ship wrapped in perpetual
+
+1:13:10.780 --> 1:13:18.500
+ darkness, its surface swept by constant storms, its black skies raining molten iron.
+
+1:13:18.500 --> 1:13:27.340
+ Just like the vision of that, the scary, the darkness, just how not pleasant it is for
+
+1:13:27.340 --> 1:13:32.900
+ human life, just the intensity of that metaphor, I don't know.
+
+1:13:32.900 --> 1:13:43.700
+ And the reason you use that is to paint in a feeling of loneliness, I think, and despair.
+
+1:13:43.700 --> 1:13:53.860
+ And why, maybe on the planet side, why does it feel, maybe it's just me, why does it feel
+
+1:13:53.860 --> 1:13:57.860
+ so profoundly lonely on that kind of planet?
+
+1:13:57.860 --> 1:13:59.420
+ Like what...
+
+1:13:59.420 --> 1:14:06.260
+ I think it's because we all want to be a part of something, a part of a family, or a part
+
+1:14:06.260 --> 1:14:10.540
+ of a community, or a part of something.
+
+1:14:10.540 --> 1:14:16.980
+ And so, our solar system, and by the way, I only, it's sort of like when you treat yourself
+
+1:14:16.980 --> 1:14:21.980
+ to like eating an entire tub of ice cream, like I sometimes treat myself to imagine things
+
+1:14:21.980 --> 1:14:25.140
+ like this and not just be so cut and dried.
+
+1:14:25.140 --> 1:14:28.380
+ But when you imagine that, this planet's not part, because I don't want to give emotions
+
+1:14:28.380 --> 1:14:31.460
+ to a planet per se, but the planet's not part of anything.
+
+1:14:31.460 --> 1:14:37.140
+ It's somehow, it's just all on its own, just kind of out there without that warm energy
+
+1:14:37.140 --> 1:14:40.980
+ from its sun, it's just all alone out there.
+
+1:14:40.980 --> 1:14:45.980
+ To me, it was this little discovery that I actually feel pretty good being part of this
+
+1:14:45.980 --> 1:14:47.580
+ solar system.
+
+1:14:47.580 --> 1:14:52.540
+ It felt like we have a sun, we have like a little family, and it felt like it sucked
+
+1:14:52.540 --> 1:14:59.900
+ for the rogue planet to just floating about, not floating, flying rudderless.
+
+1:14:59.900 --> 1:15:04.620
+ By the way, how many rogue planets are there in your sense?
+
+1:15:04.620 --> 1:15:05.620
+ We don't know totally.
+
+1:15:05.620 --> 1:15:08.540
+ I mean, there's some rogue planets that are just born on their own.
+
+1:15:08.540 --> 1:15:11.900
+ I know that sounds really weird to be, how can you be born an orphan?
+
+1:15:11.900 --> 1:15:17.660
+ But they just are, because most planets are born out of a disc of gas and dust around
+
+1:15:17.660 --> 1:15:18.660
+ a star.
+
+1:15:18.660 --> 1:15:21.580
+ But some of these small planets are like totally failed stars.
+
+1:15:21.580 --> 1:15:24.580
+ They're so failed, they're just small planets on their own.
+
+1:15:24.580 --> 1:15:29.060
+ But we think that there's probably, honestly, there's another path to a rogue planet.
+
+1:15:29.060 --> 1:15:33.060
+ That's one that's been kicked out of its star system by other planets, like a game of billiard
+
+1:15:33.060 --> 1:15:34.060
+ balls.
+
+1:15:34.060 --> 1:15:35.660
+ It just gets kicked out.
+
+1:15:35.660 --> 1:15:39.780
+ We actually think there's probably as many rogue planets as stars.
+
+1:15:39.780 --> 1:15:44.620
+ No flying out there, fundamentally alone.
+
+1:15:44.620 --> 1:15:56.740
+ So the book is a memoir, is about your life, and it weaves both your fascination with planets
+
+1:15:56.740 --> 1:16:05.780
+ outside the solar system and the path of your life, and you lost your husband, which is
+
+1:16:05.780 --> 1:16:15.620
+ a kind of central part of the book that created a feeling of the rogue planet.
+
+1:16:15.620 --> 1:16:17.380
+ By the way, what's the name of the book?
+
+1:16:17.380 --> 1:16:21.740
+ The name of the book is The Smallest Lights in the Universe.
+
+1:16:21.740 --> 1:16:22.740
+ What's up with the title?
+
+1:16:22.740 --> 1:16:23.740
+ What's the meaning?
+
+1:16:23.740 --> 1:16:25.100
+ The title has a double meaning.
+
+1:16:25.100 --> 1:16:27.700
+ On the face of it, it's the search for other Earths.
+
+1:16:27.700 --> 1:16:32.900
+ Earths are so dim compared to the big, bright, massive star beside them.
+
+1:16:32.900 --> 1:16:38.700
+ Searching for the Earths is like searching for the smallest lights in the universe.
+
+1:16:38.700 --> 1:16:42.300
+ It has this other meaning, too.
+
+1:16:42.300 --> 1:16:49.060
+ I really hope that you or the other people listening never get to the place where you've
+
+1:16:49.060 --> 1:16:56.500
+ fallen off the cliff into this horrible place of huge despair.
+
+1:16:56.500 --> 1:17:01.060
+ And once in a while, you get a glimmer of a better life, of some kind of hope.
+
+1:17:01.060 --> 1:17:03.420
+ And those are also the smallest lights in the universe.
+
+1:17:03.420 --> 1:17:11.720
+ Well, maybe we can tell the full story before we talk about the glimmer of hope.
+
+1:17:11.720 --> 1:17:17.620
+ What did it feel like to first find out that your husband, Mike, was sick?
+
+1:17:17.620 --> 1:17:19.540
+ It was incredibly frustrating.
+
+1:17:19.540 --> 1:17:25.100
+ Like, lots of us have had some kind of problem that the doctors completely ignore.
+
+1:17:25.100 --> 1:17:27.340
+ Just that they kept blowing him off.
+
+1:17:27.340 --> 1:17:28.340
+ It's nothing.
+
+1:17:28.340 --> 1:17:30.740
+ Are they paid to just say it's nothing?
+
+1:17:30.740 --> 1:17:32.060
+ I mean, it's just insane.
+
+1:17:32.060 --> 1:17:34.580
+ I was just so angry.
+
+1:17:34.580 --> 1:17:37.140
+ And we finally got to a point where he was really sick.
+
+1:17:37.140 --> 1:17:41.680
+ He was like in bed, not able to move, basically.
+
+1:17:41.680 --> 1:17:47.460
+ And it turned out all the things they ignored and not done any tests, he had like a 100%
+
+1:17:47.460 --> 1:17:48.940
+ blockage in his intestine.
+
+1:17:48.940 --> 1:17:49.940
+ Like 100%.
+
+1:17:49.940 --> 1:17:53.900
+ Like nothing could get out, nothing could get in.
+
+1:17:53.900 --> 1:17:58.580
+ And it was pretty, pretty shocking to even hear then that it could be nothing.
+
+1:17:58.580 --> 1:18:03.140
+ What was the progression of it in the context of the maybe the medical system, the doctors?
+
+1:18:03.140 --> 1:18:05.340
+ I mean, what did it feel like?
+
+1:18:05.340 --> 1:18:08.940
+ Did you feel like a human being?
+
+1:18:08.940 --> 1:18:11.180
+ I felt like a child.
+
+1:18:11.180 --> 1:18:19.260
+ Like the doctors were trying to water down the real diagnosis or treat us like we couldn't
+
+1:18:19.260 --> 1:18:21.060
+ know the truth or they didn't know.
+
+1:18:21.060 --> 1:18:24.920
+ You know, I felt mixed like, it's not a good situation if you think the doctor either has
+
+1:18:24.920 --> 1:18:29.780
+ no idea what he or she is doing, or if the doctors purposely, let's just say lying to
+
+1:18:29.780 --> 1:18:30.780
+ you to sugarcoat it.
+
+1:18:30.780 --> 1:18:34.140
+ Like, I didn't know which one of it was, but I knew it was one of those.
+
+1:18:34.140 --> 1:18:37.660
+ What were the things he was suffering from?
+
+1:18:37.660 --> 1:18:39.860
+ Well, initially, he just had a random stomach ache.
+
+1:18:39.860 --> 1:18:43.380
+ I hate to say that out loud because I know a lot of people will have a random stomach
+
+1:18:43.380 --> 1:18:44.380
+ ache.
+
+1:18:44.380 --> 1:18:47.420
+ But so he just had a bad stomach ache and then, hmm, this is weird.
+
+1:18:47.420 --> 1:18:50.420
+ A few days later, another bad stomach ache, kind of gets worse.
+
+1:18:50.420 --> 1:18:52.940
+ Might go away for a few weeks, might come back.
+
+1:18:52.940 --> 1:18:56.700
+ And at the time, all I knew was my dad had had that same thing.
+
+1:18:56.700 --> 1:19:01.820
+ Not the same identical system, but he had these really weird pains and he ended up having
+
+1:19:01.820 --> 1:19:03.620
+ the worst diagnosis.
+
+1:19:03.620 --> 1:19:07.900
+ One of the worst diagnoses you can get from a random stomach ache is pancreatic cancer
+
+1:19:07.900 --> 1:19:12.380
+ because the time, the pancreas, like you can't feel anything, so by the time you feel pain,
+
+1:19:12.380 --> 1:19:13.380
+ it's too late.
+
+1:19:13.380 --> 1:19:14.380
+ It's spread already.
+
+1:19:14.380 --> 1:19:19.220
+ So I was just like, beside myself, I'm like, this is like, wow, this guy, he's got a random
+
+1:19:19.220 --> 1:19:20.220
+ stomach ache.
+
+1:19:20.220 --> 1:19:24.100
+ All I know is another man I loved had a random stomach ache and it didn't end well.
+
+1:19:24.100 --> 1:19:30.380
+ How did you deal with it emotionally, psychologically, intellectually, as a scientist?
+
+1:19:30.380 --> 1:19:34.060
+ What was that like, that whole, because it's not immediate.
+
+1:19:34.060 --> 1:19:35.060
+ It's a long journey.
+
+1:19:35.060 --> 1:19:38.960
+ It's a long journey and you don't know where the diagnosis is going.
+
+1:19:38.960 --> 1:19:44.120
+ So anyone who's suffered from a major illness, there's like always branches in the road.
+
+1:19:44.120 --> 1:19:47.140
+ So he had this intestinal blockage.
+
+1:19:47.140 --> 1:19:50.660
+ I can't imagine someone in their 40s having that and that be normal.
+
+1:19:50.660 --> 1:19:54.540
+ But the doctor is like, it could be nothing, could just cut it out.
+
+1:19:54.540 --> 1:19:56.740
+ You don't need most of your intestine, it's a repeating pattern.
+
+1:19:56.740 --> 1:19:57.900
+ Just cut that out, it could be fine.
+
+1:19:57.900 --> 1:20:01.300
+ But it ended up not being fine and he was diagnosed as being terminally ill.
+
+1:20:01.300 --> 1:20:04.060
+ Well, it really changed my life in a huge way.
+
+1:20:04.060 --> 1:20:09.780
+ First of all, I remember immediately one summer, the summer when this happened, I started asking
+
+1:20:09.780 --> 1:20:10.780
+ everyone I knew.
+
+1:20:10.780 --> 1:20:15.300
+ I would ask you, I don't know if it's smart of my job to put you on the spot, I'd say,
+
+1:20:15.300 --> 1:20:19.620
+ you have one year to live or two or three, what will you do differently about your life
+
+1:20:19.620 --> 1:20:20.620
+ now?
+
+1:20:20.620 --> 1:20:26.580
+ Lex, you have one year to live, what would you do?
+
+1:20:26.580 --> 1:20:27.580
+ I mean, it's hard.
+
+1:20:27.580 --> 1:20:28.580
+ I don't know if you want to answer that.
+
+1:20:28.580 --> 1:20:29.580
+ No, no, no.
+
+1:20:29.580 --> 1:20:30.580
+ I think about it a lot.
+
+1:20:30.580 --> 1:20:33.540
+ I mean, that's a really good thing to meditate on.
+
+1:20:33.540 --> 1:20:41.300
+ We can talk about maybe why you bring that up, if it is or not a heavy question.
+
+1:20:41.300 --> 1:20:52.820
+ But I get, I think about mortality a lot and for me, it feels like a really good way to
+
+1:20:52.820 --> 1:20:57.820
+ focus in on is what you're doing today, the people you have around you, the family you
+
+1:20:57.820 --> 1:21:04.020
+ have, does it bring you joy?
+
+1:21:04.020 --> 1:21:07.180
+ Does it bring you fulfillment?
+
+1:21:07.180 --> 1:21:19.460
+ And basically, for me, long ago, try to be ready to die any day.
+
+1:21:19.460 --> 1:21:27.340
+ So like today, I kind of woke up, look, if I was nervous about talking to you, I really
+
+1:21:27.340 --> 1:21:33.580
+ admire your work and the book is very good and it's super exciting topic.
+
+1:21:33.580 --> 1:21:37.780
+ But then, you know, there's this also feeling like, if this is the last conversation I have
+
+1:21:37.780 --> 1:21:43.580
+ in my life, you know, if I die today, will this be, will this be the right, like am I
+
+1:21:43.580 --> 1:21:48.620
+ glad today happened and it is, and I am glad today happened.
+
+1:21:48.620 --> 1:21:49.620
+ So that's the way.
+
+1:21:49.620 --> 1:21:50.620
+ And that's so unique.
+
+1:21:50.620 --> 1:21:54.620
+ I never got that answer from a single person.
+
+1:21:54.620 --> 1:22:00.340
+ The busyness of life, there's goals, there's dreams, there's like planning, plans.
+
+1:22:00.340 --> 1:22:02.860
+ Very few people make it happen.
+
+1:22:02.860 --> 1:22:04.280
+ That's what I learned.
+
+1:22:04.280 --> 1:22:05.280
+ And so a lot of these people.
+
+1:22:05.280 --> 1:22:07.380
+ Oh, like you run out of time.
+
+1:22:07.380 --> 1:22:09.860
+ It's not so much you run out of time, but I'd come back later and be like, okay, why
+
+1:22:09.860 --> 1:22:10.860
+ don't you do that?
+
+1:22:10.860 --> 1:22:14.340
+ And if that's what you would do, if you're going to die a year from now, why don't you,
+
+1:22:14.340 --> 1:22:16.640
+ why don't you make it real?
+
+1:22:16.640 --> 1:22:17.640
+ Simple things.
+
+1:22:17.640 --> 1:22:18.640
+ Spend more time with family.
+
+1:22:18.640 --> 1:22:19.640
+ Yeah.
+
+1:22:19.640 --> 1:22:20.640
+ Like why, why don't you do that?
+
+1:22:20.640 --> 1:22:24.640
+ And that's what I had an answer, it turns out, unless you usually, unless you have,
+
+1:22:24.640 --> 1:22:29.120
+ you really do have a pressing end of life, people don't do their bucket lists or try
+
+1:22:29.120 --> 1:22:30.360
+ to change their career.
+
+1:22:30.360 --> 1:22:31.360
+ And some people can't.
+
+1:22:31.360 --> 1:22:33.900
+ So we can't, like for a lot of people, they can't do anything about it.
+
+1:22:33.900 --> 1:22:34.900
+ And that's, that's fine.
+
+1:22:34.900 --> 1:22:38.100
+ But the ones who can take action for some reason, never do.
+
+1:22:38.100 --> 1:22:44.140
+ And that was one of the ways that Mike's death or at the time his impending death really,
+
+1:22:44.140 --> 1:22:45.140
+ really affected me.
+
+1:22:45.140 --> 1:22:48.980
+ Cause you know, for these sick people, what I learned, he had a bucket list and he was
+
+1:22:48.980 --> 1:22:50.300
+ able to do some of the bucket lists.
+
+1:22:50.300 --> 1:22:51.980
+ It was awesome.
+
+1:22:51.980 --> 1:22:54.320
+ But he got sick pretty quickly.
+
+1:22:54.320 --> 1:22:58.240
+ So if you do only have a year to live, it's ironic cause you can't do, you can't do the
+
+1:22:58.240 --> 1:23:01.420
+ things you wanted to do because you get too sick too fast.
+
+1:23:01.420 --> 1:23:05.980
+ What were the bucket list things for you that you realized like, what am I doing with my
+
+1:23:05.980 --> 1:23:06.980
+ life?
+
+1:23:06.980 --> 1:23:08.540
+ That was the major concept of him.
+
+1:23:08.540 --> 1:23:09.860
+ After he died, I didn't know.
+
+1:23:09.860 --> 1:23:16.040
+ Like I, I was just lost because when something that profound happens, all the things I was
+
+1:23:16.040 --> 1:23:20.020
+ doing, most of the things I was doing were just meaningless.
+
+1:23:20.020 --> 1:23:23.940
+ It was so tough to, to find an answer for that.
+
+1:23:23.940 --> 1:23:28.780
+ And that's when I settled on, I'm going to devote the rest of my life to trying to find
+
+1:23:28.780 --> 1:23:37.420
+ another earth and to find out, to find that we're not alone.
+
+1:23:37.420 --> 1:23:42.100
+ What is that longing for connection with others?
+
+1:23:42.100 --> 1:23:43.100
+ What's that about?
+
+1:23:43.100 --> 1:23:44.100
+ What do you think?
+
+1:23:44.100 --> 1:23:45.460
+ Why is that so full of meaning?
+
+1:23:45.460 --> 1:23:46.460
+ I don't know why.
+
+1:23:46.460 --> 1:23:48.300
+ I mean, I think it's how we're hardwired.
+
+1:23:48.300 --> 1:23:54.120
+ Like one of my friends some time ago, actually when my dad died, he never heard someone say
+
+1:23:54.120 --> 1:24:01.860
+ this before, but he's like, Sarah, you know, why are we evolved to take death so harshly?
+
+1:24:01.860 --> 1:24:05.860
+ Like what kind of society would we be if we just didn't care people died?
+
+1:24:05.860 --> 1:24:07.300
+ That would be a very different type of world.
+
+1:24:07.300 --> 1:24:11.560
+ How would we as a species have got to where we are?
+
+1:24:11.560 --> 1:24:16.140
+ So I think that is tied hand in hand with why do we, why do we seek connection?
+
+1:24:16.140 --> 1:24:20.060
+ It's just that what we were talking about before, that subconsciousness that we don't
+
+1:24:20.060 --> 1:24:21.060
+ understand.
+
+1:24:21.060 --> 1:24:22.060
+ Yeah.
+
+1:24:22.060 --> 1:24:28.620
+ A couple, you know, the other side, the flip side of the coin of connection and love is
+
+1:24:28.620 --> 1:24:31.000
+ a fear of loss.
+
+1:24:31.000 --> 1:24:36.700
+ It's like that was, again, I don't know, that's what makes you appreciate the moment is that
+
+1:24:36.700 --> 1:24:37.700
+ the thing ends.
+
+1:24:37.700 --> 1:24:38.700
+ Yeah.
+
+1:24:38.700 --> 1:24:40.020
+ It's definitely a hard one.
+
+1:24:40.020 --> 1:24:45.300
+ The thing ends, but, and it's hard to not, you wouldn't want to limit.
+
+1:24:45.300 --> 1:24:49.220
+ Like it's like my dog who I love so much, I'll start to cry.
+
+1:24:49.220 --> 1:24:50.420
+ Like I can't think about the end.
+
+1:24:50.420 --> 1:24:52.740
+ I know he'll age much faster than I will.
+
+1:24:52.740 --> 1:24:53.740
+ And someday it will end.
+
+1:24:53.740 --> 1:24:54.740
+ Right.
+
+1:24:54.740 --> 1:24:57.420
+ But it's too sad to think of, but should I not have got a dog?
+
+1:24:57.420 --> 1:24:58.420
+ Right.
+
+1:24:58.420 --> 1:25:02.380
+ Should I have not brought this sort of joy into my life because I know it won't be forever.
+
+1:25:02.380 --> 1:25:03.380
+ It's
+
+1:25:03.380 --> 1:25:08.940
+ well, there's a, there's a philosopher and his Becker who wrote a book, Denial of Death
+
+1:25:08.940 --> 1:25:11.780
+ and just, and warm with the cores.
+
+1:25:11.780 --> 1:25:16.020
+ And there's another book talks about terror management theory, Sheldon Solomon.
+
+1:25:16.020 --> 1:25:18.820
+ I just talked to him a few weeks ago.
+
+1:25:18.820 --> 1:25:24.900
+ It's a brilliant philosopher, psychologist that their theory, whatever you make of it
+
+1:25:24.900 --> 1:25:32.060
+ is that the fear of death is at the core of everything, everything we do.
+
+1:25:32.060 --> 1:25:40.180
+ So like you're that you think you don't think about the mortality of your dog, but you do.
+
+1:25:40.180 --> 1:25:42.340
+ And that's what makes the experience rich.
+
+1:25:42.340 --> 1:25:49.900
+ Like there's this kind of like in the shadows lurks the, the knowledge that this won't
+
+1:25:49.900 --> 1:25:51.500
+ last forever.
+
+1:25:51.500 --> 1:25:58.740
+ And that makes every moment just special in some kind of a weird way that the moments
+
+1:25:58.740 --> 1:26:01.100
+ are special for us humans.
+
+1:26:01.100 --> 1:26:12.500
+ I mean, sorry to use romantic terms like love, but what do you make, what did you learn about
+
+1:26:12.500 --> 1:26:18.820
+ love from, from losing it, from losing your husband?
+
+1:26:18.820 --> 1:26:21.980
+ Well I learned to love the things I have more.
+
+1:26:21.980 --> 1:26:28.740
+ I learned to love the people that I have more and to not let the little things bother me
+
+1:26:28.740 --> 1:26:30.780
+ as much.
+
+1:26:30.780 --> 1:26:41.700
+ What about the rediscovery or like the discovery of the little lights in the darkness?
+
+1:26:41.700 --> 1:26:52.500
+ So you, the book, I think you've brilliantly described the dark parts of your journey.
+
+1:26:52.500 --> 1:27:00.420
+ But maybe can you talk about how you were able to rediscover the lights?
+
+1:27:00.420 --> 1:27:02.340
+ They came in many ways.
+
+1:27:02.340 --> 1:27:09.040
+ And the way like to think about it is like grief is an ocean, you know, with tiny islands
+
+1:27:09.040 --> 1:27:10.980
+ of the little, like, like the little lights.
+
+1:27:10.980 --> 1:27:15.380
+ And eventually that ocean gets smaller and smaller and the islands like become continents
+
+1:27:15.380 --> 1:27:17.180
+ with lakes.
+
+1:27:17.180 --> 1:27:22.320
+ So initially it'd be like the children laughing one day or my colleagues at work who rallied
+
+1:27:22.320 --> 1:27:28.580
+ around me and would take me away from my darkness to work on a project.
+
+1:27:28.580 --> 1:27:33.580
+ Later on it turned out to be a group of women my age, all widows, all with children in my
+
+1:27:33.580 --> 1:27:35.360
+ town.
+
+1:27:35.360 --> 1:27:40.060
+ And it would be, even though it was a bit morose getting together, still very joyful
+
+1:27:40.060 --> 1:27:42.420
+ at the same time.
+
+1:27:42.420 --> 1:27:47.260
+ What was the journey of rediscovering love like for you?
+
+1:27:47.260 --> 1:27:57.940
+ So refinding, I mean, is there some, by way of advice or insight about how to, how to
+
+1:27:57.940 --> 1:28:00.300
+ rediscover the beauty of life?
+
+1:28:00.300 --> 1:28:01.300
+ Of life.
+
+1:28:01.300 --> 1:28:02.300
+ It's a hard one.
+
+1:28:02.300 --> 1:28:09.820
+ I think you just have to stay open to being positive and just to get out there.
+
+1:28:09.820 --> 1:28:13.180
+ Do you still think, do you still think about your own mortality?
+
+1:28:13.180 --> 1:28:19.960
+ So you mentioned that that was a thing that you meditate on as a question when it was
+
+1:28:19.960 --> 1:28:22.420
+ right there in front of you.
+
+1:28:22.420 --> 1:28:23.980
+ But do you still think about it?
+
+1:28:23.980 --> 1:28:26.260
+ I think I will after talking to you.
+
+1:28:26.260 --> 1:28:28.660
+ But no, it's not really something I think about.
+
+1:28:28.660 --> 1:28:33.660
+ I mean, I do think about the search for another earth and will, will I get there?
+
+1:28:33.660 --> 1:28:38.860
+ Will I be able to conclude my search and is there one?
+
+1:28:38.860 --> 1:28:45.380
+ Like as time goes by, you know, that window to solve that problem gets smaller.
+
+1:28:45.380 --> 1:28:51.500
+ What would bring you, again, I apologize if this makes concrete the fact that life is
+
+1:28:51.500 --> 1:28:58.020
+ finite, but what, what would bring you joy if we discovered while you're still here?
+
+1:28:58.020 --> 1:28:59.380
+ What would bring me joy?
+
+1:28:59.380 --> 1:29:04.280
+ Finding another earth, an earth like planet around a sun like star, knowing that there's
+
+1:29:04.280 --> 1:29:09.860
+ at least one or more out there, being able to see water, that it has signs of water and
+
+1:29:09.860 --> 1:29:12.480
+ being able to see some gases that don't belong.
+
+1:29:12.480 --> 1:29:18.500
+ So I know that the search will continue after I'm gone enough to fuel the next generation.
+
+1:29:18.500 --> 1:29:24.140
+ So just like opening the door and there's like this glimmer of hope.
+
+1:29:24.140 --> 1:29:25.820
+ What do you think it will take to realize that?
+
+1:29:25.820 --> 1:29:29.760
+ I mean, we've talked about all these interesting projects, star shade, especially, but is there
+
+1:29:29.760 --> 1:29:36.480
+ something that you're particularly kind of hopeful about in the next 10, 20 years that
+
+1:29:36.480 --> 1:29:43.780
+ might give us that, that exact glimmer of hope that there's earth like planets out there?
+
+1:29:43.780 --> 1:29:48.900
+ I have to, I stand behind star shade in all cases, so, but there is this other kind of
+
+1:29:48.900 --> 1:29:53.220
+ field that I, that everyone is involved in because star shade is hard.
+
+1:29:53.220 --> 1:29:58.900
+ Earths are hard, but there are, there's another category of planet star type that's easier.
+
+1:29:58.900 --> 1:30:02.780
+ And these are planets orbiting small red dwarf stars.
+
+1:30:02.780 --> 1:30:04.160
+ They're not earth like at all.
+
+1:30:04.160 --> 1:30:08.060
+ Think like earth cousin instead of earth twin, but there's a chance that we might establish
+
+1:30:08.060 --> 1:30:11.500
+ that some of those have water and signs of life on them.
+
+1:30:11.500 --> 1:30:15.500
+ It's nearer term than star shade and we're all working hard on that too.
+
+1:30:15.500 --> 1:30:20.220
+ Let me ask by way of recommendations, I think a lot of people are curious about this kind
+
+1:30:20.220 --> 1:30:21.220
+ of stuff.
+
+1:30:21.220 --> 1:30:27.400
+ What three books, technical or fiction or philosophical or anything really had an impact
+
+1:30:27.400 --> 1:30:35.860
+ on your life and, and or you would recommend besides of course your book.
+
+1:30:35.860 --> 1:30:38.660
+ There's one book I wish everyone could read.
+
+1:30:38.660 --> 1:30:39.780
+ I'm not sure if you've read it.
+
+1:30:39.780 --> 1:30:42.300
+ It's actually a children's book, like a young adult book.
+
+1:30:42.300 --> 1:30:43.780
+ It's called the giver.
+
+1:30:43.780 --> 1:30:44.780
+ Yes.
+
+1:30:44.780 --> 1:30:48.660
+ And it is the book that kids in school read now.
+
+1:30:48.660 --> 1:30:52.820
+ And I only, sorry, that's not, that's wow.
+
+1:30:52.820 --> 1:30:57.300
+ Sorry, that, that caught me off guard.
+
+1:30:57.300 --> 1:30:59.620
+ So when I first came to this country, I didn't speak much.
+
+1:30:59.620 --> 1:31:05.980
+ It's really what made me, it had a profound impact on my life and a really important moment
+
+1:31:05.980 --> 1:31:07.660
+ because they give it to kids.
+
+1:31:07.660 --> 1:31:10.580
+ Like I think middle school, I think, or maybe elementary, something like that.
+
+1:31:10.580 --> 1:31:12.580
+ I'm so surprised you've even heard of this book.
+
+1:31:12.580 --> 1:31:13.580
+ Yeah.
+
+1:31:13.580 --> 1:31:17.140
+ So they give it, but like it's the value of giving the right book to a person at the right
+
+1:31:17.140 --> 1:31:18.140
+ time.
+
+1:31:18.140 --> 1:31:19.140
+ Wow.
+
+1:31:19.140 --> 1:31:22.300
+ I was, I was, cause it's very accessible.
+
+1:31:22.300 --> 1:31:25.140
+ Do we want to share what the story is without spoiling it?
+
+1:31:25.140 --> 1:31:28.100
+ Oh yeah, you can without spoiling, right?
+
+1:31:28.100 --> 1:31:32.200
+ It follows this boy in this very utopic society.
+
+1:31:32.200 --> 1:31:33.200
+ That's like perfect.
+
+1:31:33.200 --> 1:31:35.140
+ It's been all clean cut and made perfect actually.
+
+1:31:35.140 --> 1:31:41.340
+ And as he kind of comes of age, he starts realizing something's wrong with his world.
+
+1:31:41.340 --> 1:31:42.600
+ And so it's part of that question.
+
+1:31:42.600 --> 1:31:45.700
+ Are we going to evolve as, I mean, this isn't what's there, but it made me wonder, you know,
+
+1:31:45.700 --> 1:31:47.660
+ are we evolving to a better place?
+
+1:31:47.660 --> 1:31:52.980
+ Is there a day when we can eliminate, you know, poverty and hunger and crime and sickness
+
+1:31:52.980 --> 1:31:58.260
+ in this book, they pretty much have in a society that the boys in and sort of follows him.
+
+1:31:58.260 --> 1:32:01.800
+ And he becomes a chosen one to be like a receiver.
+
+1:32:01.800 --> 1:32:06.820
+ The givers, the old wise man who retains some of the harshness of the outside world so that
+
+1:32:06.820 --> 1:32:11.140
+ he can advise the people as a sort of boy comes of age and is chosen for the special
+
+1:32:11.140 --> 1:32:12.140
+ role.
+
+1:32:12.140 --> 1:32:13.840
+ He finds the world isn't what he expects.
+
+1:32:13.840 --> 1:32:17.820
+ And I don't know about you, but it was so profound for me because it jolts you out of
+
+1:32:17.820 --> 1:32:18.820
+ reality.
+
+1:32:18.820 --> 1:32:19.940
+ It's like, Oh my God, what am I doing here?
+
+1:32:19.940 --> 1:32:22.860
+ I'm just going with the flow with my society.
+
+1:32:22.860 --> 1:32:26.820
+ How do I think outside the box and the confines of my society, which surely carries negative
+
+1:32:26.820 --> 1:32:28.860
+ things with it that we don't realize today.
+
+1:32:28.860 --> 1:32:36.540
+ Yeah, and also in the flip side of that is if you do take a step outside the box on occasion,
+
+1:32:36.540 --> 1:32:39.300
+ what's the psychological burden of that?
+
+1:32:39.300 --> 1:32:42.340
+ Like is that, is that a step you want to take?
+
+1:32:42.340 --> 1:32:44.980
+ Is that the journey you want to take?
+
+1:32:44.980 --> 1:32:45.980
+ What is that life like?
+
+1:32:45.980 --> 1:32:46.980
+ I don't know.
+
+1:32:46.980 --> 1:32:48.180
+ I felt like from the book, you have to take it.
+
+1:32:48.180 --> 1:32:52.540
+ I found from the book, I never thought like now that you're saying it, I see what you're
+
+1:32:52.540 --> 1:32:53.540
+ saying.
+
+1:32:53.540 --> 1:32:56.340
+ The burden is huge, but I always felt like the answer is yes, you absolutely want to
+
+1:32:56.340 --> 1:32:57.340
+ know what's outside.
+
+1:32:57.340 --> 1:33:01.860
+ But you can't do that if you're very, it's hard to be objective about your own reality.
+
+1:33:01.860 --> 1:33:02.860
+ Yeah.
+
+1:33:02.860 --> 1:33:08.620
+ I mean, it's a very human instinct, but, uh, it also, the book kind of shows that, uh,
+
+1:33:08.620 --> 1:33:14.060
+ it has an effect on you and this, it's a really interesting question about our society and
+
+1:33:14.060 --> 1:33:16.320
+ taking a step out.
+
+1:33:16.320 --> 1:33:20.580
+ It's by, uh, Lois Lowry, I think is how you pronounce it.
+
+1:33:20.580 --> 1:33:24.160
+ I really do hope everyone created it and it is a young adult book, but it's still, it's
+
+1:33:24.160 --> 1:33:27.300
+ incredibly, I'm really glad I only read it cause my kids got it for school.
+
+1:33:27.300 --> 1:33:29.780
+ I just thought, okay, well, why don't I just see what this is about?
+
+1:33:29.780 --> 1:33:31.780
+ And I just, wow.
+
+1:33:31.780 --> 1:33:32.780
+ Yeah.
+
+1:33:32.780 --> 1:33:33.780
+ Yeah.
+
+1:33:33.780 --> 1:33:35.180
+ I think it's also the value of education.
+
+1:33:35.180 --> 1:33:38.860
+ I think I'm surprised you mentioned, I've never really mentioned to anybody.
+
+1:33:38.860 --> 1:33:44.020
+ I'm sure a lot of people had the similar experience like me and maybe it's a generational thing
+
+1:33:44.020 --> 1:33:46.340
+ though, because like the book came out, I think in the nineties.
+
+1:33:46.340 --> 1:33:50.980
+ So if you're older than like me, that book didn't exist when we were in middle school.
+
+1:33:50.980 --> 1:33:54.700
+ So I just do think a lot of people won't have heard of it, but it's an interesting question
+
+1:33:54.700 --> 1:33:58.260
+ of like those books.
+
+1:33:58.260 --> 1:34:03.060
+ I mean, I'm reminded often, I suppose the same is true with other subjects, but books
+
+1:34:03.060 --> 1:34:09.260
+ are special at the early age, like middle school, maybe early high school, those can
+
+1:34:09.260 --> 1:34:11.980
+ change like the direction of your life.
+
+1:34:11.980 --> 1:34:17.940
+ And also certainly teachers, they can change completely the direction of your life.
+
+1:34:17.940 --> 1:34:24.140
+ There's so many stories about teachers of mathematics, teachers of physics, of any kind
+
+1:34:24.140 --> 1:34:27.580
+ of subjects basically changing the direction of a human's life.
+
+1:34:27.580 --> 1:34:36.220
+ That's like not to get on the whole, almost like a political thing, but you know, we,
+
+1:34:36.220 --> 1:34:38.860
+ we undervalue teachers.
+
+1:34:38.860 --> 1:34:42.060
+ It's a special, it's a special position that they hold.
+
+1:34:42.060 --> 1:34:43.060
+ That's so true.
+
+1:34:43.060 --> 1:34:44.060
+ Yeah.
+
+1:34:44.060 --> 1:34:46.740
+ Well, I do have two other books or two other things.
+
+1:34:46.740 --> 1:34:50.100
+ One is something I came across just a few days ago, actually.
+
+1:34:50.100 --> 1:34:54.820
+ It's actually a film called Picture a Scientist.
+
+1:34:54.820 --> 1:34:59.680
+ And when you picture a scientist, you probably don't picture the women and women of color
+
+1:34:59.680 --> 1:35:01.140
+ in this film.
+
+1:35:01.140 --> 1:35:03.860
+ And it is a way to get outside your box.
+
+1:35:03.860 --> 1:35:09.020
+ I really think everyone interested in science, even just peripherally should watch this because
+
+1:35:09.020 --> 1:35:12.580
+ it is shocking and sobering at the same time.
+
+1:35:12.580 --> 1:35:17.820
+ And it talks about how, well, I think one of the messages across is, you know, we really
+
+1:35:17.820 --> 1:35:22.580
+ are like, I don't know if we're hardwired to just like people like ourselves, but we're
+
+1:35:22.580 --> 1:35:27.020
+ excluding a lot of people and therefore a lot of great ideas by not being able to think
+
+1:35:27.020 --> 1:35:30.780
+ outside of how we're all stereotyping each other.
+
+1:35:30.780 --> 1:35:34.060
+ So it's, it's, it's hard to kind of convey that and you can just say, oh yeah, I want
+
+1:35:34.060 --> 1:35:35.060
+ to be more diverse.
+
+1:35:35.060 --> 1:35:38.860
+ I want to be more open, but it's a nearly impossible problem to solve and the movie
+
+1:35:38.860 --> 1:35:42.420
+ really helps open people's eyes to it.
+
+1:35:42.420 --> 1:35:46.780
+ This book I put third because unlike The Giver, people may not want to read it.
+
+1:35:46.780 --> 1:35:47.780
+ It's not as relevant.
+
+1:35:47.780 --> 1:35:56.180
+ But when I was in my early twenties, I went to this big, this like 800 people large conference
+
+1:35:56.180 --> 1:36:00.340
+ run by the Wilderness Canoe Association in my hometown of Toronto.
+
+1:36:00.340 --> 1:36:04.780
+ And there was a family friend there who I met and he said, read this book, it'll change
+
+1:36:04.780 --> 1:36:06.060
+ your life.
+
+1:36:06.060 --> 1:36:08.220
+ And it actually changed my life.
+
+1:36:08.220 --> 1:36:13.820
+ And it was a book called Sleeping Island by an author, PG Downs, who just coincidentally
+
+1:36:13.820 --> 1:36:17.820
+ lived in this area, lived in the Boston area and he was a teacher, I think at a private
+
+1:36:17.820 --> 1:36:23.580
+ school and every summer he would go to Canada with a canoe often by himself.
+
+1:36:23.580 --> 1:36:27.380
+ And he wrote this book maybe in the forties or fifties about a trip he took in the late
+
+1:36:27.380 --> 1:36:28.380
+ 1930s.
+
+1:36:28.380 --> 1:36:32.700
+ And it was, I was just shocked that even at that time, although that was a long time ago,
+
+1:36:32.700 --> 1:36:37.580
+ there were large parts of Canada that were untouched by white people.
+
+1:36:37.580 --> 1:36:40.480
+ And he went up there and interacted like with the natives.
+
+1:36:40.480 --> 1:36:45.560
+ He called the book and had a subtitle that was called, there's something like Journey
+
+1:36:45.560 --> 1:36:47.400
+ in the Barren Lands.
+
+1:36:47.400 --> 1:36:50.740
+ And when you go up North in Canada, you pass the tree line, just like on a mountain, if
+
+1:36:50.740 --> 1:36:53.580
+ you hike up a mountain, you get so far North there aren't any trees.
+
+1:36:53.580 --> 1:36:56.300
+ And he wrote eloquently about the land and about being out there.
+
+1:36:56.300 --> 1:37:00.520
+ There weren't even any maps of the region, like in that time.
+
+1:37:00.520 --> 1:37:04.540
+ And I just thought to myself, wow, like that you could just take the summer off and explore
+
+1:37:04.540 --> 1:37:07.540
+ by canoe and go and see what's out there.
+
+1:37:07.540 --> 1:37:10.620
+ And it led to me just doing that, that very thing.
+
+1:37:10.620 --> 1:37:14.980
+ Of course it's different now, but going out to where the road ends and putting the canoe
+
+1:37:14.980 --> 1:37:16.740
+ in the water and just, well, we had to have a plan.
+
+1:37:16.740 --> 1:37:21.780
+ We didn't just explore, but go down this river, rivers with rapids and travel over lakes and
+
+1:37:21.780 --> 1:37:25.540
+ portages and just really live.
+
+1:37:25.540 --> 1:37:27.540
+ So just really explore, screw it.
+
+1:37:27.540 --> 1:37:31.540
+ That doesn't like, it doesn't explore just use from a topo map, from a topographical
+
+1:37:31.540 --> 1:37:33.540
+ map from the library.
+
+1:37:33.540 --> 1:37:41.100
+ There were scary elements about it, out of it, but part of the excitement or the joy
+
+1:37:41.100 --> 1:37:45.900
+ or the desire was to be scared, like it was to go out there and have live on the edge.
+
+1:37:45.900 --> 1:37:46.900
+ And persevere.
+
+1:37:46.900 --> 1:37:47.900
+ Yeah.
+
+1:37:47.900 --> 1:37:48.900
+ And persevere.
+
+1:37:48.900 --> 1:37:49.900
+ Yeah.
+
+1:37:49.900 --> 1:37:56.540
+ Do you have a advice that you would give to a young person today that would like to help
+
+1:37:56.540 --> 1:38:03.140
+ you maybe on the planetary science side, discover exoplanets or maybe bigger picture, just
+
+1:38:03.140 --> 1:38:04.140
+ succeed in life?
+
+1:38:04.140 --> 1:38:06.380
+ I do have some advice just to succeed.
+
+1:38:06.380 --> 1:38:11.260
+ It's tough advice in a way, but it is to find something that you love doing that you're
+
+1:38:11.260 --> 1:38:13.060
+ also very good at.
+
+1:38:13.060 --> 1:38:17.500
+ And in some ways the stars have to align because you've got to find that thing you're good
+
+1:38:17.500 --> 1:38:21.780
+ at or the range of things, and it actually has to overlap with something that actually
+
+1:38:21.780 --> 1:38:23.340
+ you love doing every day.
+
+1:38:23.340 --> 1:38:26.140
+ So it's not a tedious job.
+
+1:38:26.140 --> 1:38:27.500
+ That's the best way to succeed.
+
+1:38:27.500 --> 1:38:33.060
+ What were the signals that in your own life were there to make you realize you're good
+
+1:38:33.060 --> 1:38:35.780
+ at something?
+
+1:38:35.780 --> 1:38:44.180
+ What were you good at that made you pursue a PhD and it made you pursue the search?
+
+1:38:44.180 --> 1:38:46.980
+ I mean, that was the one sentence version.
+
+1:38:46.980 --> 1:38:51.220
+ In my case, it was a long slog and there were a lot of things I wasn't good at initially.
+
+1:38:51.220 --> 1:38:53.180
+ But so initially, I was good at high school math.
+
+1:38:53.180 --> 1:38:55.140
+ I was good at high school science.
+
+1:38:55.140 --> 1:38:58.580
+ I loved astronomy and I realized those could all fit together.
+
+1:38:58.580 --> 1:39:02.740
+ Like the day I realized you could be an astronomer for a job, it has to be one of my top days
+
+1:39:02.740 --> 1:39:03.740
+ of my life.
+
+1:39:03.740 --> 1:39:08.020
+ I didn't know that you could be that for a job and I was good at all those things.
+
+1:39:08.020 --> 1:39:11.540
+ And although my dad wanted me to do something more practical where he could be guaranteed
+
+1:39:11.540 --> 1:39:16.860
+ I could support myself was another option, but initially I wasn't that good at physics.
+
+1:39:16.860 --> 1:39:21.140
+ It was a slog to just get through school and grad school is a very, very long time.
+
+1:39:21.140 --> 1:39:26.220
+ And ultimately, when faced with a choice and I had the luxury of choosing, knowing that
+
+1:39:26.220 --> 1:39:29.060
+ I was good at something and also loved it, it really carried me through.
+
+1:39:29.060 --> 1:39:34.380
+ Now, I asked some of the smartest people in the world the most ridiculous question.
+
+1:39:34.380 --> 1:39:42.140
+ We already talked about it a little bit, but let me ask again, why are we here?
+
+1:39:42.140 --> 1:39:47.020
+ I think you've raised this question in one of your presentations as like one of the things
+
+1:39:47.020 --> 1:39:52.940
+ that we kind of as humans long to answer and the search for exoplanets is kind of part
+
+1:39:52.940 --> 1:39:53.940
+ of that.
+
+1:39:53.940 --> 1:39:57.220
+ But what do you think is the meaning of it all, of life?
+
+1:39:57.220 --> 1:40:02.980
+ I wish I had a good answer for you.
+
+1:40:02.980 --> 1:40:07.140
+ I think you're the first person ever who refused to answer the question.
+
+1:40:07.140 --> 1:40:11.540
+ It's not so much refusing, I just, yeah, I mean, I wish I had a better answer.
+
+1:40:11.540 --> 1:40:12.860
+ It's why we're here.
+
+1:40:12.860 --> 1:40:20.540
+ It's almost like the meaning is wishing there was a meaning, wishing we knew.
+
+1:40:20.540 --> 1:40:21.540
+ I love that.
+
+1:40:21.540 --> 1:40:24.460
+ That's a great way to say it.
+
+1:40:24.460 --> 1:40:27.140
+ Sarah, like I said, the book is excellent.
+
+1:40:27.140 --> 1:40:33.620
+ I admired your work from afar for a while and I think you're one of the great stars
+
+1:40:33.620 --> 1:40:34.620
+ at MIT.
+
+1:40:34.620 --> 1:40:37.340
+ It makes me proud to be part of the community.
+
+1:40:37.340 --> 1:40:40.260
+ So thank you so much for your work.
+
+1:40:40.260 --> 1:40:41.500
+ Thank you for inspiring all of us.
+
+1:40:41.500 --> 1:40:42.500
+ Thanks for talking today.
+
+1:40:42.500 --> 1:40:45.060
+ Thank you so much, Lynx.
+
+1:40:45.060 --> 1:40:47.500
+ Thanks for listening to this conversation with Sarah Seager.
+
+1:40:47.500 --> 1:40:53.040
+ And thank you to our sponsors, Public Goods, Power Dot, and Cash App.
+
+1:40:53.040 --> 1:40:55.700
+ Click the links in the description to get a discount.
+
+1:40:55.700 --> 1:40:57.820
+ It's the best way to support this podcast.
+
+1:40:57.820 --> 1:41:02.700
+ If you enjoy this thing, subscribe on YouTube, review it with five stars on Apple Podcast,
+
+1:41:02.700 --> 1:41:07.700
+ support it on Patreon, or connect with me on Twitter at Lex Friedman, spelled I'm not
+
+1:41:07.700 --> 1:41:08.980
+ sure how.
+
+1:41:08.980 --> 1:41:14.740
+ Just keep typing stuff in until you get to the guy with the tie and the thumbnail.
+
+1:41:14.740 --> 1:41:20.500
+ And now let me leave you with some words from Carl Sagan, somewhere something incredible
+
+1:41:20.500 --> 1:41:23.000
+ is waiting to be known.
+
+1:41:23.000 --> 1:41:39.820
+ Thank you for listening and hope to see you next time.
+

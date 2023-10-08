@@ -1,0 +1,2081 @@
+WEBVTT
+
+00:00.000 --> 00:03.800
+ The following is a conversation with Noam Chomsky.
+
+00:03.800 --> 00:06.760
+ He's truly one of the great minds of our time
+
+00:06.760 --> 00:08.400
+ and is one of the most cited scholars
+
+00:08.400 --> 00:10.760
+ in the history of our civilization.
+
+00:10.760 --> 00:13.400
+ He has spent over 60 years at MIT
+
+00:13.400 --> 00:16.320
+ and recently also joined the University of Arizona,
+
+00:16.320 --> 00:18.640
+ where we met for this conversation.
+
+00:18.640 --> 00:21.760
+ But it was at MIT about four and a half years ago
+
+00:21.760 --> 00:23.440
+ when I first met Noam.
+
+00:23.440 --> 00:24.760
+ My first few days there,
+
+00:24.760 --> 00:27.400
+ I remember getting into an elevator at Stata Center,
+
+00:27.400 --> 00:29.480
+ pressing the button for whatever floor,
+
+00:29.480 --> 00:33.560
+ looking up and realizing it was just me and Noam Chomsky
+
+00:33.560 --> 00:35.480
+ riding the elevator,
+
+00:35.480 --> 00:38.400
+ just me and one of the seminal figures of linguistics,
+
+00:38.400 --> 00:40.000
+ cognitive science, philosophy,
+
+00:40.000 --> 00:43.920
+ and political thought in the past century, if not ever.
+
+00:43.920 --> 00:47.320
+ I tell that silly story because I think life is made up
+
+00:47.320 --> 00:50.740
+ of funny little defining moments that you never forget
+
+00:50.740 --> 00:54.880
+ for reasons that may be too poetic to try and explain.
+
+00:54.880 --> 00:56.140
+ That was one of mine.
+
+00:56.140 --> 00:59.940
+ Noam has been an inspiration to me and millions of others.
+
+00:59.940 --> 01:01.500
+ It was truly an honor for me
+
+01:01.500 --> 01:03.580
+ to sit down with him in Arizona.
+
+01:03.580 --> 01:06.500
+ I traveled there just for this conversation.
+
+01:06.500 --> 01:09.140
+ And in a rare, heartbreaking moment,
+
+01:09.140 --> 01:11.740
+ after everything was set up and tested,
+
+01:11.740 --> 01:13.500
+ the camera was moved and accidentally,
+
+01:13.500 --> 01:16.500
+ the recording button was pressed, stopping the recording.
+
+01:17.540 --> 01:21.140
+ So I have good audio of both of us, but no video of Noam.
+
+01:21.140 --> 01:25.340
+ Just the video of me and my sleep deprived but excited face
+
+01:25.340 --> 01:29.620
+ that I get to keep as a reminder of my failures.
+
+01:29.620 --> 01:31.500
+ Most people just listen to this audio version
+
+01:31.500 --> 01:34.860
+ for the podcast as opposed to watching it on YouTube.
+
+01:34.860 --> 01:38.140
+ But still, it's heartbreaking for me.
+
+01:38.140 --> 01:40.900
+ I hope you understand and still enjoy this conversation
+
+01:40.900 --> 01:42.220
+ as much as I did.
+
+01:42.220 --> 01:44.460
+ The depth of intellect that Noam showed
+
+01:44.460 --> 01:47.460
+ and his willingness to truly listen to me,
+
+01:47.460 --> 01:50.300
+ a silly looking Russian in a suit.
+
+01:50.300 --> 01:55.300
+ It was humbling and something I'm deeply grateful for.
+
+01:55.580 --> 01:59.660
+ As some of you know, this podcast is a side project for me,
+
+01:59.660 --> 02:03.580
+ where my main journey and dream is to build AI systems
+
+02:03.580 --> 02:05.480
+ that do some good for the world.
+
+02:05.480 --> 02:07.820
+ This latter effort takes up most of my time,
+
+02:07.820 --> 02:10.540
+ but for the moment has been mostly private.
+
+02:10.540 --> 02:12.820
+ But the former, the podcast,
+
+02:12.820 --> 02:15.380
+ is something I put my heart and soul into.
+
+02:15.380 --> 02:18.600
+ And I hope you feel that, even when I screw things up.
+
+02:18.600 --> 02:21.120
+ I recently started doing ads
+
+02:21.120 --> 02:22.840
+ at the end of the introduction.
+
+02:22.840 --> 02:25.640
+ I'll do one or two minutes after introducing the episode
+
+02:25.640 --> 02:27.400
+ and never any ads in the middle
+
+02:27.400 --> 02:29.720
+ that break the flow of the conversation.
+
+02:29.720 --> 02:31.160
+ I hope that works for you
+
+02:31.160 --> 02:33.960
+ and doesn't hurt the listening experience.
+
+02:33.960 --> 02:37.200
+ This is the Artificial Intelligence Podcast.
+
+02:37.200 --> 02:39.800
+ If you enjoy it, subscribe on YouTube,
+
+02:39.800 --> 02:41.840
+ give it five stars on Apple Podcast,
+
+02:41.840 --> 02:43.240
+ support it on Patreon,
+
+02:43.240 --> 02:45.400
+ or simply connect with me on Twitter,
+
+02:45.400 --> 02:49.440
+ at Lex Friedman, spelled F R I D M A N.
+
+02:49.440 --> 02:51.720
+ This show is presented by Cash App,
+
+02:51.720 --> 02:54.240
+ the number one finance app in the App Store.
+
+02:54.240 --> 02:56.800
+ I personally use Cash App to send money to friends,
+
+02:56.800 --> 02:58.760
+ but you can also use it to buy, sell,
+
+02:58.760 --> 03:01.320
+ and deposit Bitcoin in just seconds.
+
+03:01.320 --> 03:04.160
+ Cash App also has a new investing feature.
+
+03:04.160 --> 03:07.120
+ You can buy fractions of a stock, say $1 worth,
+
+03:07.120 --> 03:09.200
+ no matter what the stock price is.
+
+03:09.200 --> 03:11.960
+ Broker services are provided by Cash App Investing,
+
+03:11.960 --> 03:15.560
+ a subsidiary of Square and member SIPC.
+
+03:15.560 --> 03:17.680
+ I'm excited to be working with Cash App
+
+03:17.680 --> 03:20.920
+ to support one of my favorite organizations called The First,
+
+03:20.920 --> 03:24.360
+ best known for their FIRST Robotics and Lego competitions.
+
+03:24.360 --> 03:27.720
+ They educate and inspire hundreds of thousands of students
+
+03:27.720 --> 03:29.640
+ in over 110 countries
+
+03:29.640 --> 03:31.840
+ and have a perfect rating on Charity Navigator,
+
+03:31.840 --> 03:33.840
+ which means the donated money
+
+03:33.840 --> 03:36.560
+ is used to maximum effectiveness.
+
+03:36.560 --> 03:38.680
+ When you get Cash App from the App Store,
+
+03:38.680 --> 03:42.800
+ Google Play and use code LexPodcast,
+
+03:42.800 --> 03:47.120
+ you'll get $10 and Cash App will also donate $10 to FIRST,
+
+03:47.120 --> 03:49.800
+ which again is an organization that I've personally seen
+
+03:49.800 --> 03:54.520
+ inspire girls and boys to dream of engineering a better world.
+
+03:54.520 --> 03:58.940
+ And now here's my conversation with Noam Chomsky.
+
+03:59.840 --> 04:04.160
+ I apologize for the absurd philosophical question,
+
+04:04.160 --> 04:07.120
+ but if an alien species were to visit Earth,
+
+04:07.120 --> 04:10.920
+ do you think we would be able to find a common language
+
+04:10.920 --> 04:13.680
+ or protocol of communication with them?
+
+04:13.680 --> 04:18.320
+ There are arguments to the effect that we could.
+
+04:18.320 --> 04:22.440
+ In fact, one of them was Marv Minsky's.
+
+04:22.440 --> 04:24.760
+ Back about 20 or 30 years ago,
+
+04:24.760 --> 04:29.760
+ he performed a brief experiment with a student of his,
+
+04:30.040 --> 04:33.760
+ Dan Bobrow, they essentially ran
+
+04:33.760 --> 04:36.720
+ the simplest possible touring machines,
+
+04:36.720 --> 04:39.560
+ just free to see what would happen.
+
+04:39.560 --> 04:42.560
+ And most of them crashed,
+
+04:42.560 --> 04:47.560
+ either got into an infinite loop or stopped.
+
+04:47.800 --> 04:51.000
+ The few that persisted,
+
+04:51.000 --> 04:54.900
+ essentially gave something like arithmetic.
+
+04:55.960 --> 04:58.800
+ And his conclusion from that was that
+
+04:59.980 --> 05:04.980
+ if some alien species developed higher intelligence,
+
+05:04.980 --> 05:07.440
+ they would at least have arithmetic,
+
+05:07.440 --> 05:12.440
+ they would at least have what the simplest computer would do.
+
+05:12.940 --> 05:16.040
+ And in fact, he didn't know that at the time,
+
+05:16.040 --> 05:20.760
+ but the core principles of natural language
+
+05:20.760 --> 05:25.220
+ are based on operations which yield something
+
+05:25.220 --> 05:29.360
+ like arithmetic in the limiting case, in the minimal case.
+
+05:29.360 --> 05:34.040
+ So it's conceivable that a mode of communication
+
+05:34.040 --> 05:38.560
+ could be established based on the core properties
+
+05:38.560 --> 05:41.460
+ of human language and the core properties of arithmetic,
+
+05:41.460 --> 05:43.620
+ which maybe are universally shared.
+
+05:44.920 --> 05:46.680
+ So it's conceivable.
+
+05:46.680 --> 05:50.800
+ What is the structure of that language,
+
+05:50.800 --> 05:55.160
+ of language as an internal system inside our mind
+
+05:55.160 --> 05:58.920
+ versus an external system as it's expressed?
+
+05:58.920 --> 06:00.880
+ It's not an alternative,
+
+06:00.880 --> 06:02.960
+ it's two different concepts of language.
+
+06:02.960 --> 06:03.780
+ Different.
+
+06:03.780 --> 06:07.280
+ It's a simple fact that there's something about you,
+
+06:07.280 --> 06:11.640
+ a trait of yours, part of the organism, you,
+
+06:11.640 --> 06:14.600
+ that determines that you're talking English
+
+06:14.600 --> 06:16.980
+ and not Tagalog, let's say.
+
+06:16.980 --> 06:18.640
+ So there is an inner system.
+
+06:19.480 --> 06:22.960
+ It determines the sound and meaning
+
+06:22.960 --> 06:27.120
+ of the infinite number of expressions of your language.
+
+06:27.120 --> 06:28.720
+ It's localized.
+
+06:28.720 --> 06:31.760
+ It's not on your foot, obviously, it's in your brain.
+
+06:31.760 --> 06:35.240
+ If you look more closely, it's in specific configurations
+
+06:35.240 --> 06:36.480
+ of your brain.
+
+06:36.480 --> 06:40.600
+ And that's essentially like the internal structure
+
+06:40.600 --> 06:44.960
+ of your laptop, whatever programs it has are in there.
+
+06:44.960 --> 06:47.840
+ Now, one of the things you can do with language,
+
+06:47.840 --> 06:50.040
+ it's a marginal thing, in fact,
+
+06:50.040 --> 06:54.800
+ is use it to externalize what's in your head.
+
+06:54.800 --> 06:56.660
+ Actually, most of your use of language
+
+06:56.660 --> 06:58.820
+ is thought, internal thought.
+
+06:58.820 --> 07:00.920
+ But you can do what you and I are now doing.
+
+07:00.920 --> 07:02.640
+ We can externalize it.
+
+07:02.640 --> 07:05.640
+ Well, the set of things that we're externalizing
+
+07:05.640 --> 07:07.680
+ are an external system.
+
+07:07.680 --> 07:11.160
+ They're noises in the atmosphere.
+
+07:11.160 --> 07:12.920
+ And you can call that language
+
+07:12.920 --> 07:14.360
+ in some other sense of the word.
+
+07:14.360 --> 07:16.800
+ But it's not a set of alternatives.
+
+07:16.800 --> 07:18.980
+ These are just different concepts.
+
+07:18.980 --> 07:22.200
+ So how deep do the roots of language go in our brain?
+
+07:23.500 --> 07:26.780
+ Our mind, is it yet another feature like vision,
+
+07:26.780 --> 07:28.480
+ or is it something more fundamental
+
+07:28.480 --> 07:31.520
+ from which everything else springs in the human mind?
+
+07:31.520 --> 07:33.720
+ Well, in a way, it's like vision.
+
+07:33.720 --> 07:38.580
+ There's something about our genetic endowment
+
+07:38.580 --> 07:41.600
+ that determines that we have a mammalian
+
+07:41.600 --> 07:44.720
+ rather than an insect visual system.
+
+07:44.720 --> 07:47.440
+ And there's something in our genetic endowment
+
+07:47.440 --> 07:51.440
+ that determines that we have a human language faculty.
+
+07:51.440 --> 07:55.200
+ No other organism has anything remotely similar.
+
+07:55.200 --> 07:58.280
+ So in that sense, it's internal.
+
+07:58.280 --> 07:59.720
+ Now there is a long tradition,
+
+07:59.720 --> 08:03.600
+ which I think is valid going back centuries
+
+08:03.600 --> 08:05.500
+ to the early scientific revolution,
+
+08:05.500 --> 08:09.340
+ at least that holds that language
+
+08:09.340 --> 08:13.620
+ is the sort of the core of human cognitive nature.
+
+08:13.620 --> 08:18.080
+ It's the source, it's the mode for constructing thoughts
+
+08:18.080 --> 08:19.640
+ and expressing them.
+
+08:19.640 --> 08:22.760
+ That is what forms thought.
+
+08:22.760 --> 08:27.200
+ And it's got fundamental creative capacities.
+
+08:27.200 --> 08:31.320
+ It's free, independent, unbounded, and so on.
+
+08:31.320 --> 08:34.860
+ And undoubtedly, I think the basis
+
+08:34.860 --> 08:38.480
+ for our creative capacities
+
+08:38.480 --> 08:43.480
+ and the other remarkable human capacities
+
+08:43.840 --> 08:47.500
+ that lead to the unique achievements
+
+08:47.500 --> 08:51.300
+ and not so great achievements of the species.
+
+08:51.300 --> 08:53.620
+ The capacity to think and reason,
+
+08:53.620 --> 08:56.240
+ do you think that's deeply linked with language?
+
+08:56.240 --> 08:58.200
+ Do you think the way we,
+
+08:58.200 --> 09:01.560
+ the internal language system is essentially the mechanism
+
+09:01.560 --> 09:04.120
+ by which we also reason internally?
+
+09:04.120 --> 09:06.920
+ It is undoubtedly the mechanism by which we reason.
+
+09:06.920 --> 09:09.320
+ There may also be other fact,
+
+09:09.320 --> 09:13.220
+ there are undoubtedly other faculties involved in reasoning.
+
+09:14.720 --> 09:17.520
+ We have a kind of scientific faculty,
+
+09:17.520 --> 09:18.840
+ nobody knows what it is,
+
+09:18.840 --> 09:20.920
+ but whatever it is that enables us
+
+09:20.920 --> 09:25.440
+ to pursue certain lines of endeavor and inquiry
+
+09:25.440 --> 09:29.760
+ and to decide what makes sense and doesn't make sense
+
+09:29.760 --> 09:32.200
+ and to achieve a certain degree
+
+09:32.200 --> 09:33.640
+ of understanding of the world,
+
+09:33.640 --> 09:36.480
+ that uses language, but goes beyond it.
+
+09:37.440 --> 09:42.000
+ Just as using our capacity for arithmetic
+
+09:42.000 --> 09:44.880
+ is not the same as having the capacity.
+
+09:44.880 --> 09:49.360
+ The idea of capacity, our biology, evolution,
+
+09:49.360 --> 09:52.520
+ you've talked about it defining essentially our capacity,
+
+09:52.520 --> 09:55.200
+ our limit and our scope.
+
+09:55.200 --> 09:58.840
+ Can you try to define what limit and scope are?
+
+09:58.840 --> 10:01.160
+ And the bigger question,
+
+10:01.160 --> 10:04.800
+ do you think it's possible to find the limit
+
+10:04.800 --> 10:06.220
+ of human cognition?
+
+10:07.560 --> 10:09.880
+ Well, that's an interesting question.
+
+10:09.880 --> 10:13.080
+ It's commonly believed, most scientists believe
+
+10:13.080 --> 10:17.640
+ that human intelligence can answer any question
+
+10:17.640 --> 10:19.340
+ in principle.
+
+10:19.340 --> 10:21.800
+ I think that's a very strange belief.
+
+10:21.800 --> 10:24.280
+ If we're biological organisms,
+
+10:24.280 --> 10:26.160
+ which are not angels,
+
+10:26.160 --> 10:31.160
+ then our capacities ought to have scope
+
+10:31.800 --> 10:34.920
+ and limits which are interrelated.
+
+10:34.920 --> 10:36.620
+ Can you define those two terms?
+
+10:36.620 --> 10:40.740
+ Well, let's take a concrete example.
+
+10:40.740 --> 10:44.040
+ Your genetic endowment determines
+
+10:44.040 --> 10:46.840
+ that you can have a male in visual system,
+
+10:46.840 --> 10:49.260
+ arms and legs and so on,
+
+10:49.260 --> 10:53.440
+ but it therefore become a rich, complex organism.
+
+10:53.440 --> 10:56.240
+ But if you look at that same genetic endowment,
+
+10:56.240 --> 10:59.980
+ it prevents you from developing in other directions.
+
+10:59.980 --> 11:01.720
+ There's no kind of experience
+
+11:01.720 --> 11:05.760
+ which would yield the embryo
+
+11:05.760 --> 11:08.760
+ to develop an insect visual system
+
+11:08.760 --> 11:11.960
+ or to develop wings instead of arms.
+
+11:11.960 --> 11:16.960
+ So the very endowment that confers richness and complexity
+
+11:16.960 --> 11:21.960
+ also sets bounds on what can be attained.
+
+11:23.600 --> 11:27.440
+ Now, I assume that our cognitive capacities
+
+11:27.440 --> 11:29.640
+ are part of the organic world.
+
+11:29.640 --> 11:32.260
+ Therefore, they should have the same properties.
+
+11:32.260 --> 11:35.700
+ If they had no built in capacity
+
+11:35.700 --> 11:39.180
+ to develop a rich and complex structure,
+
+11:39.180 --> 11:41.920
+ we would understand nothing.
+
+11:41.920 --> 11:46.080
+ Just as if your genetic endowment
+
+11:46.080 --> 11:50.320
+ did not compel you to develop arms and legs,
+
+11:50.320 --> 11:54.000
+ you would just be some kind of random amoeboid creature
+
+11:54.000 --> 11:56.080
+ with no structure at all.
+
+11:56.080 --> 12:00.240
+ So I think it's plausible to assume that there are limits
+
+12:00.240 --> 12:03.680
+ and I think we even have some evidence as to what they are.
+
+12:03.680 --> 12:06.660
+ So for example, there's a classic moment
+
+12:06.660 --> 12:10.660
+ in the history of science at the time of Newton.
+
+12:11.620 --> 12:15.360
+ There was a from Galileo to Newton modern science
+
+12:15.360 --> 12:17.920
+ developed on a fundamental assumption
+
+12:17.920 --> 12:20.120
+ which Newton also accepted.
+
+12:20.120 --> 12:24.100
+ Namely that the world is an entire universe
+
+12:24.100 --> 12:26.340
+ is a mechanical object.
+
+12:26.340 --> 12:29.260
+ And by mechanical, they meant something like
+
+12:29.260 --> 12:31.640
+ the kinds of artifacts that were being developed
+
+12:31.640 --> 12:34.260
+ by skilled artisans all over Europe,
+
+12:34.260 --> 12:37.120
+ the gears, levers and so on.
+
+12:37.120 --> 12:39.320
+ And their belief was well,
+
+12:39.320 --> 12:42.000
+ the world is just a more complex variant of this.
+
+12:42.000 --> 12:47.000
+ Newton, to his astonishment and distress,
+
+12:48.400 --> 12:50.960
+ proved that there are no machines,
+
+12:50.960 --> 12:53.440
+ that there's interaction without contact.
+
+12:54.300 --> 12:57.640
+ His contemporaries like Leibniz and Huygens
+
+12:57.640 --> 13:02.560
+ just dismissed this as returning to the mysticism
+
+13:02.560 --> 13:03.960
+ of the neo scholastics.
+
+13:03.960 --> 13:05.840
+ And Newton agreed.
+
+13:05.840 --> 13:08.240
+ He said it is totally absurd.
+
+13:08.240 --> 13:11.120
+ No person of any scientific intelligence
+
+13:11.120 --> 13:13.760
+ could ever accept this for a moment.
+
+13:13.760 --> 13:15.280
+ In fact, he spent the rest of his life
+
+13:15.280 --> 13:17.720
+ trying to get around it somehow,
+
+13:17.720 --> 13:20.320
+ as did many other scientists.
+
+13:20.320 --> 13:24.040
+ That was the very criterion of intelligibility
+
+13:24.040 --> 13:26.520
+ for say Galileo or Newton.
+
+13:27.640 --> 13:31.260
+ Theory did not produce an intelligible world
+
+13:31.260 --> 13:34.040
+ unless you could duplicate it in a machine.
+
+13:34.040 --> 13:37.520
+ He showed you can't, there are no machines, any.
+
+13:37.520 --> 13:41.240
+ Finally, after a long struggle, took a long time,
+
+13:41.240 --> 13:45.240
+ scientists just accepted this as common sense.
+
+13:45.240 --> 13:47.400
+ But that's a significant moment.
+
+13:47.400 --> 13:49.360
+ That means they abandoned the search
+
+13:49.360 --> 13:51.780
+ for an intelligible world.
+
+13:51.780 --> 13:54.800
+ And the great philosophers of the time
+
+13:54.800 --> 13:57.000
+ understood that very well.
+
+13:57.000 --> 14:02.000
+ So for example, David Hume in his encomium to Newton
+
+14:02.320 --> 14:05.560
+ wrote that who was the greatest thinker ever and so on.
+
+14:05.560 --> 14:10.520
+ He said that he unveiled many of the secrets of nature,
+
+14:10.520 --> 14:13.320
+ but by showing the imperfections
+
+14:13.320 --> 14:17.520
+ of the mechanical philosophy, mechanical science,
+
+14:17.520 --> 14:21.240
+ he left us with, he showed that there are mysteries
+
+14:21.240 --> 14:23.560
+ which ever will remain.
+
+14:23.560 --> 14:26.760
+ And science just changed its goals.
+
+14:26.760 --> 14:28.720
+ It abandoned the mysteries.
+
+14:28.720 --> 14:31.480
+ It can't solve it, we'll put it aside.
+
+14:31.480 --> 14:34.740
+ We only look for intelligible theories.
+
+14:34.740 --> 14:36.680
+ Newton's theories were intelligible.
+
+14:36.680 --> 14:39.080
+ It's just what they described wasn't.
+
+14:39.080 --> 14:42.780
+ Well, Locke said the same thing.
+
+14:42.780 --> 14:44.800
+ I think they're basically right.
+
+14:44.800 --> 14:47.000
+ And if so, that showed something
+
+14:47.000 --> 14:49.680
+ about the limits of human cognition.
+
+14:49.680 --> 14:54.680
+ We cannot attain the goal of understanding the world,
+
+14:55.680 --> 14:58.400
+ of finding an intelligible world.
+
+14:58.400 --> 15:02.540
+ This mechanical philosophy Galileo to Newton,
+
+15:02.540 --> 15:05.260
+ there's a good case that can be made
+
+15:05.260 --> 15:10.260
+ that that's our instinctive conception of how things work.
+
+15:10.980 --> 15:15.980
+ So if say infants are tested with things that,
+
+15:16.220 --> 15:18.660
+ if this moves and then this moves,
+
+15:18.660 --> 15:22.060
+ they kind of invent something that must be invisible
+
+15:22.060 --> 15:24.940
+ that's in between them that's making them move and so on.
+
+15:24.940 --> 15:26.500
+ Yeah, we like physical contact.
+
+15:26.500 --> 15:28.940
+ Something about our brain seeks.
+
+15:28.940 --> 15:31.540
+ Makes us want a world like that.
+
+15:31.540 --> 15:32.940
+ Just like it wants a world
+
+15:32.940 --> 15:36.620
+ that has regular geometric figures.
+
+15:36.620 --> 15:38.900
+ So for example, Descartes pointed this out
+
+15:38.900 --> 15:41.820
+ that if you have an infant
+
+15:41.820 --> 15:46.820
+ who's never seen a triangle before and you draw a triangle,
+
+15:47.660 --> 15:52.220
+ the infant will see a distorted triangle,
+
+15:52.220 --> 15:56.340
+ not whatever crazy figure it actually is.
+
+15:56.340 --> 15:58.420
+ Three lines not coming quite together,
+
+15:58.420 --> 16:00.300
+ one of them a little bit curved and so on.
+
+16:00.300 --> 16:04.500
+ We just impose a conception of the world
+
+16:04.500 --> 16:09.340
+ in terms of geometric, perfect geometric objects.
+
+16:09.340 --> 16:12.140
+ It's now been shown that goes way beyond that.
+
+16:12.140 --> 16:15.420
+ That if you show on a tachistoscope,
+
+16:15.420 --> 16:18.540
+ let's say a couple of lights shining,
+
+16:18.540 --> 16:20.860
+ you do it three or four times in a row.
+
+16:20.860 --> 16:25.240
+ What people actually see is a rigid object in motion,
+
+16:25.240 --> 16:26.900
+ not whatever's there.
+
+16:26.900 --> 16:31.900
+ We all know that from a television set basically.
+
+16:31.900 --> 16:34.660
+ So that gives us hints of potential limits
+
+16:34.660 --> 16:35.980
+ to our cognition.
+
+16:35.980 --> 16:39.420
+ I think it does, but it's a very contested view.
+
+16:39.420 --> 16:42.300
+ If you do a poll among scientists,
+
+16:42.300 --> 16:45.460
+ it's impossible we can understand anything.
+
+16:46.360 --> 16:48.620
+ Let me ask and give me a chance with this.
+
+16:48.620 --> 16:52.540
+ So I just spent a day at a company called Neuralink
+
+16:52.540 --> 16:56.380
+ and what they do is try to design
+
+16:56.380 --> 16:59.580
+ what's called the brain machine, brain computer interface.
+
+16:59.580 --> 17:03.300
+ So they try to do thousands readings in the brain,
+
+17:03.300 --> 17:05.580
+ be able to read what the neurons are firing
+
+17:05.580 --> 17:08.540
+ and then stimulate back, so two way.
+
+17:08.540 --> 17:12.780
+ Do you think their dream is to expand the capacity
+
+17:12.780 --> 17:16.660
+ of the brain to attain information,
+
+17:16.660 --> 17:18.180
+ sort of increase the bandwidth
+
+17:18.180 --> 17:22.460
+ of which we can search Google kind of thing?
+
+17:22.460 --> 17:26.260
+ Do you think our cognitive capacity might be expanded
+
+17:26.260 --> 17:29.340
+ our linguistic capacity, our ability to reason
+
+17:29.340 --> 17:33.180
+ might be expanded by adding a machine into the picture?
+
+17:33.180 --> 17:35.620
+ Can be expanded in a certain sense,
+
+17:35.620 --> 17:39.860
+ but a sense that was known thousands of years ago.
+
+17:39.860 --> 17:43.700
+ A book expands your cognitive capacity.
+
+17:43.700 --> 17:46.060
+ Okay, so this could expand it too.
+
+17:46.060 --> 17:47.940
+ But it's not a fundamental expansion.
+
+17:47.940 --> 17:50.940
+ It's not totally new things could be understood.
+
+17:50.940 --> 17:53.060
+ Well, nothing that goes beyond
+
+17:53.060 --> 17:56.500
+ their native cognitive capacities.
+
+17:56.500 --> 17:58.620
+ Just like you can't turn the visual system
+
+17:58.620 --> 18:00.660
+ into an insect system.
+
+18:00.660 --> 18:03.300
+ Well, I mean, the thought is,
+
+18:04.220 --> 18:06.820
+ the thought is perhaps you can't directly,
+
+18:06.820 --> 18:08.660
+ but you can map sort of.
+
+18:08.660 --> 18:10.060
+ You couldn't, but we already,
+
+18:10.060 --> 18:12.380
+ we know that without this experiment.
+
+18:12.380 --> 18:16.740
+ You could map what a bee sees and present it in a form
+
+18:16.740 --> 18:17.980
+ so that we could follow it.
+
+18:17.980 --> 18:19.940
+ In fact, every bee scientist does that.
+
+18:19.940 --> 18:24.420
+ But you don't think there's something greater than bees
+
+18:25.380 --> 18:29.700
+ that we can map and then all of a sudden discover something,
+
+18:29.700 --> 18:33.780
+ be able to understand a quantum world, quantum mechanics,
+
+18:33.780 --> 18:35.980
+ be able to start to be able to make sense.
+
+18:35.980 --> 18:40.460
+ Students at MIT study and understand quantum mechanics.
+
+18:41.660 --> 18:45.100
+ But they always reduce it to the infant, the physical.
+
+18:45.100 --> 18:46.900
+ I mean, they don't really understand.
+
+18:46.900 --> 18:50.260
+ Oh, you don't, there's thing, that may be another area
+
+18:50.260 --> 18:52.740
+ where there's just a limit to understanding.
+
+18:52.740 --> 18:54.500
+ We understand the theories,
+
+18:54.500 --> 18:58.420
+ but the world that it describes doesn't make any sense.
+
+18:58.420 --> 19:01.460
+ So, you know, the experiment, Schrodinger's cat,
+
+19:01.460 --> 19:03.700
+ for example, can understand the theory,
+
+19:03.700 --> 19:05.780
+ but as Schrodinger pointed out,
+
+19:05.780 --> 19:07.500
+ it's an unintelligible world.
+
+19:09.300 --> 19:11.140
+ One of the reasons why Einstein
+
+19:11.140 --> 19:14.420
+ was always very skeptical about quantum theory,
+
+19:14.420 --> 19:19.340
+ was that he described himself as a classical realist,
+
+19:19.340 --> 19:23.060
+ in one's intelligibility.
+
+19:23.060 --> 19:26.020
+ He has something in common with infants in that way.
+
+19:27.460 --> 19:29.980
+ So, back to linguistics.
+
+19:30.940 --> 19:34.020
+ If you could humor me, what are the most beautiful
+
+19:34.020 --> 19:36.100
+ or fascinating aspects of language
+
+19:36.100 --> 19:38.740
+ or ideas in linguistics or cognitive science
+
+19:38.740 --> 19:42.060
+ that you've seen in a lifetime of studying language
+
+19:42.060 --> 19:44.180
+ and studying the human mind?
+
+19:44.180 --> 19:49.180
+ Well, I think the deepest property of language
+
+19:50.140 --> 19:52.820
+ and puzzling property that's been discovered
+
+19:52.820 --> 19:57.180
+ is what is sometimes called structure dependence.
+
+19:57.180 --> 19:59.580
+ We now understand it pretty well,
+
+19:59.580 --> 20:01.940
+ but it was puzzling for a long time.
+
+20:01.940 --> 20:03.620
+ I'll give you a concrete example.
+
+20:03.620 --> 20:08.620
+ So, suppose you say the guy who fixed the car
+
+20:09.420 --> 20:13.100
+ carefully packed his tools, it's ambiguous.
+
+20:13.100 --> 20:17.940
+ He could fix the car carefully or carefully pack his tools.
+
+20:17.940 --> 20:21.060
+ Suppose you put carefully in front,
+
+20:21.060 --> 20:25.860
+ carefully the guy who fixed the car packed his tools,
+
+20:25.860 --> 20:29.380
+ then it's carefully packed, not carefully fixed.
+
+20:29.380 --> 20:32.300
+ And in fact, you do that even if it makes no sense.
+
+20:32.300 --> 20:34.620
+ So, suppose you say carefully,
+
+20:34.620 --> 20:38.140
+ the guy who fixed the car is tall.
+
+20:39.340 --> 20:41.860
+ You have to interpret it as carefully he's tall,
+
+20:41.860 --> 20:44.300
+ even though that doesn't make any sense.
+
+20:44.300 --> 20:47.180
+ And notice that that's a very puzzling fact
+
+20:47.180 --> 20:50.060
+ because you're relating carefully
+
+20:50.060 --> 20:53.620
+ not to the linearly closest verb,
+
+20:53.620 --> 20:57.300
+ but to the linearly more remote verb.
+
+20:57.300 --> 21:02.300
+ A linear closeness is an easy computation,
+
+21:02.340 --> 21:03.700
+ but here you're doing a much more,
+
+21:03.700 --> 21:06.780
+ what looks like a more complex computation.
+
+21:06.780 --> 21:10.180
+ You're doing something that's taking you essentially
+
+21:10.180 --> 21:11.860
+ to the more remote thing.
+
+21:13.580 --> 21:16.620
+ It's now, if you look at the actual structure
+
+21:16.620 --> 21:20.140
+ of the sentence, where the phrases are and so on,
+
+21:20.140 --> 21:24.180
+ turns out you're picking out the structurally closest thing,
+
+21:24.180 --> 21:27.940
+ but the linearly more remote thing.
+
+21:27.940 --> 21:32.500
+ But notice that what's linear is 100% of what you hear.
+
+21:32.500 --> 21:35.140
+ You never hear structure, can't.
+
+21:35.140 --> 21:37.300
+ So, what you're doing is,
+
+21:37.300 --> 21:40.660
+ and certainly this is universal, all constructions,
+
+21:40.660 --> 21:44.660
+ all languages, and what we're compelled to do
+
+21:44.660 --> 21:48.660
+ is carry out what looks like the more complex computation
+
+21:48.660 --> 21:52.260
+ on material that we never hear,
+
+21:52.260 --> 21:55.380
+ and we ignore 100% of what we hear
+
+21:55.380 --> 21:57.500
+ and the simplest computation.
+
+21:57.500 --> 22:00.700
+ By now, there's even a neural basis for this
+
+22:00.700 --> 22:02.860
+ that's somewhat understood,
+
+22:02.860 --> 22:04.380
+ and there's good theories by now
+
+22:04.380 --> 22:06.620
+ that explain why it's true.
+
+22:06.620 --> 22:11.580
+ That's a deep insight into the surprising nature of language
+
+22:11.580 --> 22:13.140
+ with many consequences.
+
+22:14.100 --> 22:17.540
+ Let me ask you about a field of machine learning,
+
+22:17.540 --> 22:18.940
+ deep learning.
+
+22:18.940 --> 22:22.060
+ There's been a lot of progress in neural networks based,
+
+22:22.060 --> 22:26.380
+ neural network based machine learning in the recent decade.
+
+22:26.380 --> 22:29.940
+ Of course, neural network research goes back many decades.
+
+22:30.780 --> 22:35.580
+ What do you think are the limits of deep learning,
+
+22:35.580 --> 22:38.500
+ of neural network based machine learning?
+
+22:38.500 --> 22:41.140
+ Well, to give a real answer to that,
+
+22:41.140 --> 22:44.940
+ you'd have to understand the exact processes
+
+22:44.940 --> 22:47.940
+ that are taking place, and those are pretty opaque.
+
+22:47.940 --> 22:50.260
+ So, it's pretty hard to prove a theorem
+
+22:50.260 --> 22:54.060
+ about what can be done and what can't be done,
+
+22:54.060 --> 22:56.820
+ but I think it's reasonably clear.
+
+22:56.820 --> 22:59.180
+ I mean, putting technicalities aside,
+
+22:59.180 --> 23:01.940
+ what deep learning is doing
+
+23:01.940 --> 23:05.340
+ is taking huge numbers of examples
+
+23:05.340 --> 23:07.740
+ and finding some patterns.
+
+23:07.740 --> 23:11.980
+ Okay, that could be interesting in some areas it is,
+
+23:11.980 --> 23:15.060
+ but we have to ask here a certain question.
+
+23:15.060 --> 23:18.220
+ Is it engineering or is it science?
+
+23:18.220 --> 23:20.580
+ Engineering in the sense of just trying
+
+23:20.580 --> 23:22.820
+ to build something that's useful,
+
+23:22.820 --> 23:24.780
+ or science in the sense that it's trying
+
+23:24.780 --> 23:28.740
+ to understand something about elements of the world.
+
+23:28.740 --> 23:31.820
+ So, take, say, a Google parser.
+
+23:31.820 --> 23:33.860
+ We can ask that question.
+
+23:33.860 --> 23:36.860
+ Is it useful, yeah, it's pretty useful.
+
+23:36.860 --> 23:41.860
+ I use a Google translator, so on engineering grounds,
+
+23:41.860 --> 23:45.740
+ it's kind of worth having, like a bulldozer.
+
+23:45.740 --> 23:48.900
+ Does it tell you anything about human language?
+
+23:48.900 --> 23:53.900
+ Zero, nothing, and in fact, it's very striking.
+
+23:54.940 --> 23:56.780
+ From the very beginning,
+
+23:56.780 --> 24:00.300
+ it's just totally remote from science.
+
+24:00.300 --> 24:02.580
+ So, what is a Google parser doing?
+
+24:02.580 --> 24:05.140
+ It's taking an enormous text,
+
+24:05.140 --> 24:07.700
+ let's say the Wall Street Journal corpus,
+
+24:07.700 --> 24:10.540
+ and asking how close can we come
+
+24:10.540 --> 24:14.100
+ to getting the right description
+
+24:14.100 --> 24:16.380
+ of every sentence in the corpus.
+
+24:16.380 --> 24:18.500
+ Well, every sentence in the corpus
+
+24:18.500 --> 24:21.540
+ is essentially an experiment.
+
+24:21.540 --> 24:24.740
+ Each sentence that you produce is an experiment
+
+24:24.740 --> 24:27.700
+ which says, am I a grammatical sentence?
+
+24:27.700 --> 24:29.620
+ The answer is usually yes.
+
+24:29.620 --> 24:31.300
+ So, most of the stuff in the corpus
+
+24:31.300 --> 24:33.220
+ is grammatical sentences.
+
+24:33.220 --> 24:36.820
+ But now, ask yourself, is there any science
+
+24:36.820 --> 24:40.140
+ which takes random experiments
+
+24:40.140 --> 24:43.700
+ which are carried out for no reason whatsoever
+
+24:43.700 --> 24:46.500
+ and tries to find out something from them?
+
+24:46.500 --> 24:49.660
+ Like if you're, say, a chemistry PhD student,
+
+24:49.660 --> 24:51.180
+ you wanna get a thesis, can you say,
+
+24:51.180 --> 24:55.380
+ well, I'm just gonna mix a lot of things together,
+
+24:55.380 --> 24:59.660
+ no purpose, and maybe I'll find something.
+
+24:59.660 --> 25:02.420
+ You'd be laughed out of the department.
+
+25:02.420 --> 25:06.180
+ Science tries to find critical experiments,
+
+25:06.180 --> 25:09.100
+ ones that answer some theoretical question.
+
+25:09.100 --> 25:12.940
+ Doesn't care about coverage of millions of experiments.
+
+25:12.940 --> 25:16.220
+ So, it just begins by being very remote from science
+
+25:16.220 --> 25:18.220
+ and it continues like that.
+
+25:18.220 --> 25:21.620
+ So, the usual question that's asked about,
+
+25:21.620 --> 25:25.180
+ say, a Google parser is how well does it do,
+
+25:25.180 --> 25:28.300
+ or some parser, how well does it do on a corpus?
+
+25:28.300 --> 25:31.100
+ But there's another question that's never asked.
+
+25:31.100 --> 25:32.900
+ How well does it do on something
+
+25:32.900 --> 25:36.060
+ that violates all the rules of language?
+
+25:36.060 --> 25:38.700
+ So, for example, take the structure dependence case
+
+25:38.700 --> 25:39.660
+ that I mentioned.
+
+25:39.660 --> 25:41.580
+ Suppose there was a language
+
+25:41.580 --> 25:45.780
+ in which you used linear proximity
+
+25:45.780 --> 25:49.020
+ as the mode of interpretation.
+
+25:49.020 --> 25:51.700
+ These deep learning would work very easily on that.
+
+25:51.700 --> 25:54.740
+ In fact, much more easily on an actual language.
+
+25:54.740 --> 25:55.900
+ Is that a success?
+
+25:55.900 --> 25:59.020
+ No, that's a failure from a scientific point of view.
+
+25:59.020 --> 26:00.340
+ It's a failure.
+
+26:00.340 --> 26:03.460
+ It shows that we're not discovering
+
+26:03.460 --> 26:05.780
+ the nature of the system at all,
+
+26:05.780 --> 26:07.700
+ because it does just as well or even better
+
+26:07.700 --> 26:10.820
+ on things that violate the structure of the system.
+
+26:10.820 --> 26:12.660
+ And it goes on from there.
+
+26:12.660 --> 26:14.740
+ It's not an argument against doing it.
+
+26:14.740 --> 26:17.140
+ It is useful to have devices like this.
+
+26:17.140 --> 26:20.620
+ So, yes, so neural networks are kind of approximators
+
+26:20.620 --> 26:24.340
+ that look, there's echoes of the behavioral debates, right?
+
+26:24.340 --> 26:26.140
+ Behavioralism.
+
+26:26.140 --> 26:27.580
+ More than echoes.
+
+26:27.580 --> 26:30.060
+ Many of the people in deep learning
+
+26:30.060 --> 26:34.540
+ say they've vindicated Terry Sanyosky, for example,
+
+26:34.540 --> 26:35.700
+ in his recent books,
+
+26:35.700 --> 26:39.500
+ as this vindicates Skinnerian behaviors.
+
+26:39.500 --> 26:41.420
+ It doesn't have anything to do with it.
+
+26:41.420 --> 26:43.780
+ Yes, but I think there's something
+
+26:44.620 --> 26:46.140
+ actually fundamentally different
+
+26:46.140 --> 26:48.260
+ when the data set is huge.
+
+26:48.260 --> 26:51.140
+ But your point is extremely well taken.
+
+26:51.140 --> 26:55.380
+ But do you think we can learn, approximate
+
+26:55.380 --> 26:58.780
+ that interesting complex structure of language
+
+26:58.780 --> 27:00.100
+ with neural networks
+
+27:00.100 --> 27:02.740
+ that will somehow help us understand the science?
+
+27:03.620 --> 27:04.460
+ It's possible.
+
+27:04.460 --> 27:07.220
+ I mean, you find patterns that you hadn't noticed,
+
+27:07.220 --> 27:09.700
+ let's say, could be.
+
+27:09.700 --> 27:13.580
+ In fact, it's very much like a kind of linguistics
+
+27:13.580 --> 27:18.060
+ that's done, what's called corpus linguistics.
+
+27:18.060 --> 27:21.060
+ When you, suppose you have some language
+
+27:21.060 --> 27:23.420
+ where all the speakers have died out,
+
+27:23.420 --> 27:25.100
+ but you have records.
+
+27:25.100 --> 27:28.060
+ So you just look at the records
+
+27:28.060 --> 27:30.580
+ and see what you can figure out from that.
+
+27:30.580 --> 27:31.900
+ It's much better than,
+
+27:31.900 --> 27:33.660
+ it's much better to have actual speakers
+
+27:33.660 --> 27:36.060
+ where you can do critical experiments.
+
+27:36.060 --> 27:38.500
+ But if they're all dead, you can't do them.
+
+27:38.500 --> 27:40.780
+ So you have to try to see what you can find out
+
+27:40.780 --> 27:43.860
+ from just looking at the data that's around.
+
+27:43.860 --> 27:45.020
+ You can learn things.
+
+27:45.020 --> 27:48.380
+ Actually, paleoanthropology is very much like that.
+
+27:48.380 --> 27:51.220
+ You can't do a critical experiment on
+
+27:51.220 --> 27:53.500
+ what happened two million years ago.
+
+27:53.500 --> 27:56.540
+ So you're kind of forced just to take what data's around
+
+27:56.540 --> 27:59.220
+ and see what you can figure out from it.
+
+27:59.220 --> 28:01.420
+ Okay, it's a serious study.
+
+28:01.420 --> 28:05.580
+ So let me venture into another whole body of work
+
+28:05.580 --> 28:07.400
+ and philosophical question.
+
+28:08.380 --> 28:13.060
+ You've said that evil in society arises from institutions,
+
+28:13.060 --> 28:15.540
+ not inherently from our nature.
+
+28:15.540 --> 28:17.780
+ Do you think most human beings are good,
+
+28:17.780 --> 28:19.580
+ they have good intent?
+
+28:19.580 --> 28:22.860
+ Or do most have the capacity for intentional evil
+
+28:22.860 --> 28:24.620
+ that depends on their upbringing,
+
+28:24.620 --> 28:27.180
+ depends on their environment, on context?
+
+28:27.180 --> 28:30.960
+ I wouldn't say that they don't arise from our nature.
+
+28:30.960 --> 28:34.020
+ Anything we do arises from our nature.
+
+28:34.020 --> 28:38.100
+ And the fact that we have certain institutions, not others,
+
+28:38.100 --> 28:43.100
+ is one mode in which human nature has expressed itself.
+
+28:43.700 --> 28:45.420
+ But as far as we know,
+
+28:45.420 --> 28:48.500
+ human nature could yield many different kinds
+
+28:48.500 --> 28:50.220
+ of institutions.
+
+28:50.220 --> 28:53.140
+ The particular ones that have developed
+
+28:53.140 --> 28:56.940
+ have to do with historical contingency,
+
+28:56.940 --> 28:59.140
+ who conquered whom, and that sort of thing.
+
+29:00.560 --> 29:03.840
+ They're not rooted in our nature
+
+29:03.840 --> 29:06.740
+ in the sense that they're essential to our nature.
+
+29:06.740 --> 29:10.140
+ So it's commonly argued that these days
+
+29:10.140 --> 29:12.920
+ that something like market systems
+
+29:12.920 --> 29:15.580
+ is just part of our nature.
+
+29:15.580 --> 29:18.660
+ But we know from a huge amount of evidence
+
+29:18.660 --> 29:19.500
+ that that's not true.
+
+29:19.500 --> 29:21.740
+ There's all kinds of other structures.
+
+29:21.740 --> 29:26.220
+ It's a particular fact of a moment of modern history.
+
+29:26.220 --> 29:30.740
+ Others have argued that the roots of classical liberalism
+
+29:30.740 --> 29:34.420
+ actually argue that what's called sometimes
+
+29:34.420 --> 29:36.460
+ an instinct for freedom,
+
+29:36.460 --> 29:39.920
+ the instinct to be free of domination
+
+29:39.920 --> 29:43.660
+ by illegitimate authority is the core of our nature.
+
+29:43.660 --> 29:45.620
+ That would be the opposite of this.
+
+29:45.620 --> 29:47.500
+ And we don't know.
+
+29:47.500 --> 29:50.720
+ We just know that human nature can accommodate both kinds.
+
+29:52.220 --> 29:53.900
+ If you look back at your life,
+
+29:54.900 --> 29:58.100
+ is there a moment in your intellectual life
+
+29:58.100 --> 30:00.180
+ or life in general that jumps from memory
+
+30:00.180 --> 30:02.100
+ that brought you happiness
+
+30:02.100 --> 30:04.020
+ that you would love to relive again?
+
+30:05.100 --> 30:06.460
+ Sure.
+
+30:06.460 --> 30:10.100
+ Falling in love, having children.
+
+30:10.100 --> 30:13.860
+ What about, so you have put forward into the world
+
+30:13.860 --> 30:17.660
+ a lot of incredible ideas in linguistics,
+
+30:17.660 --> 30:22.300
+ in cognitive science, in terms of ideas
+
+30:22.300 --> 30:26.060
+ that just excites you when it first came to you
+
+30:26.060 --> 30:28.940
+ that you would love to relive those moments.
+
+30:28.940 --> 30:32.140
+ Well, I mean, when you make a discovery
+
+30:32.140 --> 30:34.100
+ about something that's exciting,
+
+30:34.100 --> 30:39.100
+ like, say, even the observation of structure dependence
+
+30:40.500 --> 30:44.440
+ and on from that, the explanation for it.
+
+30:44.440 --> 30:49.440
+ But the major things just seem like common sense.
+
+30:49.460 --> 30:53.160
+ So if you go back to take your question
+
+30:53.160 --> 30:55.820
+ about external and internal language,
+
+30:55.820 --> 30:58.120
+ you go back to, say, the 1950s,
+
+30:59.140 --> 31:03.900
+ almost entirely languages regarded an external object,
+
+31:03.900 --> 31:06.260
+ something outside the mind.
+
+31:06.260 --> 31:09.380
+ It just seemed obvious that that can't be true.
+
+31:10.700 --> 31:13.220
+ Like I said, there's something about you
+
+31:13.220 --> 31:15.340
+ that determines you're talking English,
+
+31:15.340 --> 31:18.640
+ not Swahili or something.
+
+31:18.640 --> 31:20.280
+ But that's not really a discovery.
+
+31:20.280 --> 31:24.100
+ That's just an observation, what's transparent.
+
+31:24.100 --> 31:29.100
+ You might say it's kind of like the 17th century,
+
+31:30.660 --> 31:33.460
+ the beginnings of modern science, 17th century.
+
+31:33.460 --> 31:37.980
+ They came from being willing to be puzzled
+
+31:37.980 --> 31:40.400
+ about things that seemed obvious.
+
+31:40.400 --> 31:44.280
+ So it seems obvious that a heavy ball of lead
+
+31:44.280 --> 31:47.580
+ will fall faster than a light ball of lead.
+
+31:47.580 --> 31:50.900
+ But Galileo was not impressed by the fact
+
+31:50.900 --> 31:52.680
+ that it seemed obvious.
+
+31:52.680 --> 31:54.900
+ So he wanted to know if it's true.
+
+31:54.900 --> 31:59.140
+ They carried out experiments, actually thought experiments,
+
+31:59.140 --> 32:01.180
+ never actually carried them out,
+
+32:01.180 --> 32:04.460
+ which that can't be true.
+
+32:04.460 --> 32:09.460
+ And out of things like that, observations of that kind,
+
+32:11.600 --> 32:15.740
+ why does a ball fall to the ground instead of rising,
+
+32:15.740 --> 32:20.060
+ let's say, seems obvious, till you start thinking about it,
+
+32:20.060 --> 32:23.900
+ because why does steam rise, let's say.
+
+32:23.900 --> 32:27.260
+ And I think the beginnings of modern linguistics,
+
+32:27.260 --> 32:30.060
+ roughly in the 50s, are kind of like that,
+
+32:30.060 --> 32:33.620
+ just being willing to be puzzled about phenomena
+
+32:33.620 --> 32:38.020
+ that looked, from some point of view, obvious.
+
+32:38.020 --> 32:41.340
+ And for example, a kind of doctrine,
+
+32:41.340 --> 32:44.960
+ almost official doctrine of structural linguistics
+
+32:44.960 --> 32:49.620
+ in the 50s was that languages can differ
+
+32:49.620 --> 32:52.660
+ from one another in arbitrary ways,
+
+32:52.660 --> 32:56.460
+ and each one has to be studied on its own
+
+32:56.460 --> 32:58.900
+ without any presuppositions.
+
+32:58.900 --> 33:02.380
+ In fact, there were similar views among biologists
+
+33:02.380 --> 33:05.880
+ about the nature of organisms, that each one's,
+
+33:05.880 --> 33:07.780
+ they're so different when you look at them
+
+33:07.780 --> 33:10.980
+ that almost anything, you could be almost anything.
+
+33:10.980 --> 33:13.140
+ Well, in both domains, it's been learned
+
+33:13.140 --> 33:15.500
+ that that's very far from true.
+
+33:15.500 --> 33:18.860
+ There are narrow constraints on what could be an organism
+
+33:18.860 --> 33:20.620
+ or what could be a language.
+
+33:21.580 --> 33:25.540
+ But these are, that's just the nature of inquiry.
+
+33:25.540 --> 33:29.380
+ Inquiry. Science in general, yeah, inquiry.
+
+33:29.380 --> 33:33.420
+ So one of the peculiar things about us human beings
+
+33:33.420 --> 33:35.300
+ is our mortality.
+
+33:35.300 --> 33:38.220
+ Ernest Becker explored it in general.
+
+33:38.220 --> 33:40.460
+ Do you ponder the value of mortality?
+
+33:40.460 --> 33:42.460
+ Do you think about your own mortality?
+
+33:43.460 --> 33:46.820
+ I used to when I was about 12 years old.
+
+33:48.100 --> 33:51.940
+ I wondered, I didn't care much about my own mortality,
+
+33:51.940 --> 33:54.540
+ but I was worried about the fact that
+
+33:54.540 --> 33:57.700
+ if my consciousness disappeared,
+
+33:57.700 --> 34:00.300
+ would the entire universe disappear?
+
+34:00.300 --> 34:01.580
+ That was frightening.
+
+34:01.580 --> 34:03.740
+ Did you ever find an answer to that question?
+
+34:03.740 --> 34:05.900
+ No, nobody's ever found an answer,
+
+34:05.900 --> 34:07.900
+ but I stopped being bothered by it.
+
+34:07.900 --> 34:10.380
+ It's kind of like Woody Allen in one of his films,
+
+34:10.380 --> 34:14.100
+ you may recall, he starts, he goes to a shrink
+
+34:14.100 --> 34:16.460
+ when he's a child and the shrink asks him,
+
+34:16.460 --> 34:17.500
+ what's your problem?
+
+34:17.500 --> 34:21.700
+ He says, I just learned that the universe is expanding.
+
+34:21.700 --> 34:22.740
+ I can't handle that.
+
+34:22.740 --> 34:27.220
+ And then another absurd question is,
+
+34:27.220 --> 34:32.220
+ what do you think is the meaning of our existence here,
+
+34:32.620 --> 34:35.980
+ our life on Earth, our brief little moment in time?
+
+34:35.980 --> 34:38.580
+ That's something we answer by our own activities.
+
+34:40.620 --> 34:42.340
+ There's no general answer.
+
+34:42.340 --> 34:44.620
+ We determine what the meaning of it is.
+
+34:46.620 --> 34:48.700
+ The action determine the meaning.
+
+34:48.700 --> 34:50.580
+ Meaning in the sense of significance,
+
+34:50.580 --> 34:54.500
+ not meaning in the sense that chair means this.
+
+34:55.420 --> 34:58.820
+ But the significance of your life is something you create.
+
+35:01.060 --> 35:02.540
+ No, thank you so much for talking to me today.
+
+35:02.540 --> 35:04.140
+ It was a huge honor.
+
+35:04.140 --> 35:05.060
+ Thank you so much.
+
+35:05.940 --> 35:08.660
+ Thanks for listening to this conversation with Noah Chomsky
+
+35:08.660 --> 35:11.980
+ and thank you to our presenting sponsor, Cash App.
+
+35:11.980 --> 35:16.180
+ Download it, use code LexPodcast, you'll get $10
+
+35:16.180 --> 35:19.660
+ and $10 will go to FIRST, a STEM education nonprofit
+
+35:19.660 --> 35:22.340
+ that inspires hundreds of thousands of young minds
+
+35:22.340 --> 35:25.980
+ to learn and to dream of engineering our future.
+
+35:25.980 --> 35:28.620
+ If you enjoy this podcast, subscribe on YouTube,
+
+35:28.620 --> 35:32.060
+ give it five stars on Apple Podcast, support on Patreon,
+
+35:32.060 --> 35:34.260
+ or connect with me on Twitter.
+
+35:34.260 --> 35:50.260
+ Thank you for listening and hope to see you next time.
+

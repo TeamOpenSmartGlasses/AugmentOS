@@ -1,0 +1,7235 @@
+WEBVTT
+
+00:00.000 --> 00:03.200
+ The following is a conversation with Erik Brynjolfsson.
+
+00:03.200 --> 00:05.800
+ He's an economics professor at Stanford
+
+00:05.800 --> 00:09.360
+ and the director of Stanford's Digital Economy Lab.
+
+00:09.360 --> 00:13.440
+ Previously, he was a long, long time professor at MIT
+
+00:13.440 --> 00:15.160
+ where he did groundbreaking work
+
+00:15.160 --> 00:17.720
+ on the economics of information.
+
+00:17.720 --> 00:19.760
+ He's the author of many books,
+
+00:19.760 --> 00:21.960
+ including The Second Machine Age
+
+00:21.960 --> 00:24.520
+ and Machine Platform Crowd,
+
+00:24.520 --> 00:27.520
+ coauthored with Andrew McAfee.
+
+00:27.520 --> 00:29.080
+ Quick mention of each sponsor,
+
+00:29.080 --> 00:31.560
+ followed by some thoughts related to the episode.
+
+00:31.560 --> 00:34.040
+ Ventura Watches, the maker of classy,
+
+00:34.040 --> 00:35.960
+ well performing watches.
+
+00:35.960 --> 00:39.720
+ Four Sigmatic, the maker of delicious mushroom coffee.
+
+00:39.720 --> 00:42.760
+ ExpressVPN, the VPN I've used for many years
+
+00:42.760 --> 00:44.920
+ to protect my privacy on the internet.
+
+00:44.920 --> 00:48.920
+ And CashApp, the app I use to send money to friends.
+
+00:48.920 --> 00:50.840
+ Please check out these sponsors in the description
+
+00:50.840 --> 00:54.480
+ to get a discount and to support this podcast.
+
+00:54.480 --> 00:56.800
+ As a side note, let me say that the impact
+
+00:56.800 --> 00:59.120
+ of artificial intelligence and automation
+
+00:59.120 --> 01:01.640
+ on our economy and our world
+
+01:01.640 --> 01:04.360
+ is something worth thinking deeply about.
+
+01:04.360 --> 01:06.280
+ Like with many topics that are linked
+
+01:06.280 --> 01:09.040
+ to predicting the future evolution of technology,
+
+01:09.040 --> 01:12.560
+ it is often too easy to fall into one of two camps.
+
+01:12.560 --> 01:14.680
+ The fear mongering camp
+
+01:14.680 --> 01:18.160
+ or the technological utopianism camp.
+
+01:18.160 --> 01:21.480
+ As always, the future will land us somewhere in between.
+
+01:21.480 --> 01:24.240
+ I prefer to wear two hats in these discussions
+
+01:24.240 --> 01:26.400
+ and alternate between them often.
+
+01:26.400 --> 01:29.360
+ The hat of a pragmatic engineer
+
+01:29.360 --> 01:31.760
+ and the hat of a futurist.
+
+01:31.760 --> 01:34.920
+ This is probably a good time to mention Andrew Yang,
+
+01:34.920 --> 01:37.920
+ the presidential candidate who has been
+
+01:37.920 --> 01:41.040
+ one of the high profile thinkers on this topic.
+
+01:41.040 --> 01:42.680
+ And I'm sure I will speak with him
+
+01:42.680 --> 01:44.600
+ on this podcast eventually.
+
+01:44.600 --> 01:48.520
+ A conversation with Andrew has been on the table many times.
+
+01:48.520 --> 01:50.440
+ Our schedules just haven't aligned,
+
+01:50.440 --> 01:54.280
+ especially because I have a strongly held to preference
+
+01:54.280 --> 01:58.040
+ for long form, two, three, four hours or more,
+
+01:58.040 --> 02:00.000
+ and in person.
+
+02:00.000 --> 02:02.880
+ I work hard to not compromise on this.
+
+02:02.880 --> 02:04.800
+ Trust me, it's not easy.
+
+02:04.800 --> 02:07.080
+ Even more so in the times of COVID,
+
+02:07.080 --> 02:09.640
+ which requires getting tested nonstop,
+
+02:09.640 --> 02:12.440
+ staying isolated and doing a lot of costly
+
+02:12.440 --> 02:15.760
+ and uncomfortable things that minimize risk for the guest.
+
+02:15.760 --> 02:17.760
+ The reason I do this is because to me,
+
+02:17.760 --> 02:20.720
+ something is lost in remote conversation.
+
+02:20.720 --> 02:23.360
+ That something, that magic,
+
+02:23.360 --> 02:25.120
+ I think is worth the effort,
+
+02:25.120 --> 02:29.360
+ even if it ultimately leads to a failed conversation.
+
+02:29.360 --> 02:31.280
+ This is how I approach life,
+
+02:31.280 --> 02:35.840
+ treasuring the possibility of a rare moment of magic.
+
+02:35.840 --> 02:38.240
+ I'm willing to go to the ends of the world
+
+02:38.240 --> 02:39.640
+ for just such a moment.
+
+02:40.680 --> 02:43.080
+ If you enjoy this thing, subscribe on YouTube,
+
+02:43.080 --> 02:45.320
+ review it with five stars on Apple Podcast,
+
+02:45.320 --> 02:47.960
+ follow on Spotify, support on Patreon,
+
+02:47.960 --> 02:51.080
+ connect with me on Twitter at Lex Friedman.
+
+02:51.080 --> 02:55.120
+ And now here's my conversation with Erik Brynjolfsson.
+
+02:56.080 --> 02:59.800
+ You posted a quote on Twitter by Albert Bartlett
+
+02:59.800 --> 03:03.240
+ saying that the greatest shortcoming of the human race
+
+03:03.240 --> 03:06.320
+ is our inability to understand the exponential function.
+
+03:07.760 --> 03:09.680
+ Why would you say the exponential growth
+
+03:09.680 --> 03:11.080
+ is important to understand?
+
+03:12.120 --> 03:15.040
+ Yeah, that quote, I remember posting that.
+
+03:15.040 --> 03:17.720
+ It's actually a reprise of something Andy McAfee and I said
+
+03:17.720 --> 03:19.240
+ in the second machine age,
+
+03:19.240 --> 03:21.240
+ but I posted it in early March
+
+03:21.240 --> 03:23.680
+ when COVID was really just beginning to take off
+
+03:23.680 --> 03:25.600
+ and I was really scared.
+
+03:25.600 --> 03:28.080
+ There were actually only a couple dozen cases,
+
+03:28.080 --> 03:29.800
+ maybe less at that time,
+
+03:29.800 --> 03:32.040
+ but they were doubling every like two or three days
+
+03:32.040 --> 03:35.280
+ and I could see, oh my God, this is gonna be a catastrophe
+
+03:35.280 --> 03:36.840
+ and it's gonna happen soon,
+
+03:36.840 --> 03:38.760
+ but nobody was taking it very seriously
+
+03:38.760 --> 03:40.760
+ or not a lot of people were taking it very seriously.
+
+03:40.760 --> 03:45.000
+ In fact, I remember I did my last in person conference
+
+03:45.000 --> 03:47.680
+ that week, I was flying back from Las Vegas
+
+03:47.680 --> 03:50.640
+ and I was the only person on the plane wearing a mask
+
+03:50.640 --> 03:52.160
+ and the flight attendant came over to me.
+
+03:52.160 --> 03:53.080
+ She looked very concerned.
+
+03:53.080 --> 03:54.240
+ She kind of put her hands on my shoulder.
+
+03:54.240 --> 03:56.440
+ She was touching me all over, which I wasn't thrilled about
+
+03:56.440 --> 03:59.280
+ and she goes, do you have some kind of anxiety disorder?
+
+03:59.280 --> 04:00.360
+ Are you okay?
+
+04:00.360 --> 04:02.760
+ And I was like, no, it's because of COVID.
+
+04:02.760 --> 04:03.920
+ This is early March.
+
+04:03.920 --> 04:06.720
+ Early March, but I was worried
+
+04:06.720 --> 04:10.680
+ because I knew I could see or I suspected, I guess,
+
+04:10.680 --> 04:13.200
+ that that doubling would continue and it did
+
+04:13.200 --> 04:17.000
+ and pretty soon we had thousands of times more cases.
+
+04:17.000 --> 04:18.480
+ Most of the time when I use that quote,
+
+04:18.480 --> 04:21.120
+ I try to, it's motivated by more optimistic things
+
+04:21.120 --> 04:23.040
+ like Moore's law and the wonders
+
+04:23.040 --> 04:25.400
+ of having more computer power,
+
+04:25.400 --> 04:28.480
+ but in either case, it can be very counterintuitive.
+
+04:28.480 --> 04:31.440
+ I mean, if you walk for 10 minutes,
+
+04:31.440 --> 04:32.920
+ you get about 10 times as far away
+
+04:32.920 --> 04:34.720
+ as if you walk for one minute.
+
+04:34.720 --> 04:35.920
+ That's the way our physical world works.
+
+04:35.920 --> 04:38.040
+ That's the way our brains are wired,
+
+04:38.040 --> 04:41.480
+ but if something doubles for 10 times as long,
+
+04:41.480 --> 04:43.080
+ you don't get 10 times as much.
+
+04:43.080 --> 04:45.240
+ You get a thousand times as much
+
+04:45.240 --> 04:47.080
+ and after 20, it's a billion.
+
+04:47.080 --> 04:50.720
+ After 30, it's a, no, sorry, after 20, it's a million.
+
+04:50.720 --> 04:53.400
+ After 30, it's a billion.
+
+04:53.400 --> 04:54.480
+ And pretty soon after that,
+
+04:54.480 --> 04:57.600
+ it just gets to these numbers that you can barely grasp.
+
+04:57.600 --> 05:00.640
+ Our world is becoming more and more exponential,
+
+05:00.640 --> 05:03.440
+ mainly because of digital technologies.
+
+05:03.440 --> 05:06.200
+ So more and more often our intuitions are out of whack
+
+05:06.200 --> 05:10.760
+ and that can be good in the case of things creating wonders,
+
+05:10.760 --> 05:13.520
+ but it can be dangerous in the case of viruses
+
+05:13.520 --> 05:14.440
+ and other things.
+
+05:14.440 --> 05:16.280
+ Do you think it generally applies,
+
+05:16.280 --> 05:18.120
+ like is there spaces where it does apply
+
+05:18.120 --> 05:19.320
+ and where it doesn't?
+
+05:19.320 --> 05:21.600
+ How are we supposed to build an intuition
+
+05:21.600 --> 05:25.160
+ about in which aspects of our society
+
+05:25.160 --> 05:27.280
+ does exponential growth apply?
+
+05:27.280 --> 05:29.480
+ Well, you can learn the math,
+
+05:29.480 --> 05:32.000
+ but the truth is our brains, I think,
+
+05:32.000 --> 05:35.280
+ tend to learn more from experiences.
+
+05:35.280 --> 05:37.440
+ So we just start seeing it more and more often.
+
+05:37.440 --> 05:39.320
+ So hanging around Silicon Valley,
+
+05:39.320 --> 05:41.560
+ hanging around AI and computer researchers,
+
+05:41.560 --> 05:44.800
+ I see this kind of exponential growth a lot more frequently
+
+05:44.800 --> 05:46.760
+ and I'm getting used to it, but I still make mistakes.
+
+05:46.760 --> 05:48.680
+ I still underestimate some of the progress
+
+05:48.680 --> 05:50.920
+ in just talking to someone about GPT3
+
+05:50.920 --> 05:54.040
+ and how rapidly natural language has improved.
+
+05:54.040 --> 05:58.280
+ But I think that as the world becomes more exponential,
+
+05:58.280 --> 06:01.760
+ we'll all start experiencing it more frequently.
+
+06:01.760 --> 06:05.360
+ The danger is that we may make some mistakes in the meantime
+
+06:05.360 --> 06:07.680
+ using our old kind of caveman intuitions
+
+06:07.680 --> 06:09.280
+ about how the world works.
+
+06:09.280 --> 06:11.760
+ Well, the weird thing is it always kind of looks linear
+
+06:11.760 --> 06:12.640
+ in the moment.
+
+06:12.640 --> 06:16.920
+ Like it's hard to feel,
+
+06:16.920 --> 06:19.920
+ it's hard to like introspect
+
+06:19.920 --> 06:22.960
+ and really acknowledge how much has changed
+
+06:22.960 --> 06:26.320
+ in just a couple of years or five years or 10 years
+
+06:26.320 --> 06:27.200
+ with the internet.
+
+06:27.200 --> 06:29.600
+ If we just look at advancements of AI
+
+06:29.600 --> 06:31.680
+ or even just social media,
+
+06:31.680 --> 06:33.680
+ all the various technologies
+
+06:33.680 --> 06:36.240
+ that go into the digital umbrella,
+
+06:36.240 --> 06:39.440
+ it feels pretty calm and normal and gradual.
+
+06:39.440 --> 06:40.760
+ Well, a lot of stuff,
+
+06:40.760 --> 06:42.000
+ I think there are parts of the world,
+
+06:42.000 --> 06:44.240
+ most of the world that is not exponential.
+
+06:45.600 --> 06:47.000
+ The way humans learn,
+
+06:47.000 --> 06:49.200
+ the way organizations change,
+
+06:49.200 --> 06:52.000
+ the way our whole institutions adapt and evolve,
+
+06:52.000 --> 06:54.520
+ those don't improve at exponential paces.
+
+06:54.520 --> 06:56.320
+ And that leads to a mismatch oftentimes
+
+06:56.320 --> 06:58.920
+ between these exponentially improving technologies
+
+06:58.920 --> 07:00.440
+ or let's say changing technologies
+
+07:00.440 --> 07:03.040
+ because some of them are exponentially more dangerous
+
+07:03.040 --> 07:06.720
+ and our intuitions and our human skills
+
+07:06.720 --> 07:11.720
+ and our institutions that just don't change very fast at all.
+
+07:11.720 --> 07:13.760
+ And that mismatch I think is at the root
+
+07:13.760 --> 07:15.520
+ of a lot of the problems in our society,
+
+07:15.520 --> 07:18.160
+ the growing inequality
+
+07:18.160 --> 07:22.560
+ and other dysfunctions in our political
+
+07:22.560 --> 07:24.240
+ and economic systems.
+
+07:24.240 --> 07:28.240
+ So one guy that talks about exponential functions
+
+07:28.240 --> 07:29.440
+ a lot is Elon Musk.
+
+07:29.440 --> 07:32.040
+ He seems to internalize this kind of way
+
+07:32.040 --> 07:34.680
+ of exponential thinking.
+
+07:34.680 --> 07:36.320
+ He calls it first principles thinking,
+
+07:36.320 --> 07:39.480
+ sort of the kind of going to the basics,
+
+07:39.480 --> 07:41.560
+ asking the question,
+
+07:41.560 --> 07:43.800
+ like what were the assumptions of the past?
+
+07:43.800 --> 07:46.720
+ How can we throw them out the window?
+
+07:46.720 --> 07:49.160
+ How can we do this 10X much more efficiently
+
+07:49.160 --> 07:51.360
+ and constantly practicing that process?
+
+07:51.360 --> 07:54.200
+ And also using that kind of thinking
+
+07:54.200 --> 08:01.200
+ to estimate sort of when, you know, create deadlines
+
+08:01.200 --> 08:04.040
+ and estimate when you'll be able to deliver
+
+08:04.040 --> 08:06.520
+ on some of these technologies.
+
+08:06.520 --> 08:09.560
+ Now, it often gets him in trouble
+
+08:09.560 --> 08:12.520
+ because he overestimates,
+
+08:12.520 --> 08:17.360
+ like he doesn't meet the initial estimates of the deadlines,
+
+08:17.360 --> 08:22.360
+ but he seems to deliver late but deliver.
+
+08:22.360 --> 08:25.080
+ And which is kind of interesting.
+
+08:25.080 --> 08:26.920
+ Like, what are your thoughts about this whole thing?
+
+08:26.920 --> 08:28.840
+ I think we can all learn from Elon.
+
+08:28.840 --> 08:30.120
+ I think going to first principles,
+
+08:30.120 --> 08:32.840
+ I talked about two ways of getting more of a grip
+
+08:32.840 --> 08:34.560
+ on the exponential function.
+
+08:34.560 --> 08:36.280
+ And one of them just comes from first principles.
+
+08:36.280 --> 08:37.800
+ You know, if you understand the math of it,
+
+08:37.800 --> 08:39.040
+ you can see what's gonna happen.
+
+08:39.040 --> 08:41.040
+ And even if it seems counterintuitive
+
+08:41.040 --> 08:42.960
+ that a couple of dozen of COVID cases
+
+08:42.960 --> 08:46.200
+ can become thousands or tens or hundreds of thousands
+
+08:46.200 --> 08:48.080
+ of them in a month,
+
+08:48.080 --> 08:51.200
+ it makes sense once you just do the math.
+
+08:51.200 --> 08:53.680
+ And I think Elon tries to do that a lot.
+
+08:53.680 --> 08:55.120
+ You know, in fairness, I think he also benefits
+
+08:55.120 --> 08:56.960
+ from hanging out in Silicon Valley
+
+08:56.960 --> 09:00.600
+ and he's experienced it in a lot of different applications.
+
+09:00.600 --> 09:04.080
+ So, you know, it's not as much of a shock to him anymore,
+
+09:04.080 --> 09:06.280
+ but that's something we can all learn from.
+
+09:07.160 --> 09:10.400
+ In my own life, I remember one of my first experiences
+
+09:10.400 --> 09:12.960
+ really seeing it was when I was a grad student
+
+09:12.960 --> 09:17.560
+ and my advisor asked me to plot the growth of computer power
+
+09:17.560 --> 09:20.000
+ in the US economy in different industries.
+
+09:20.000 --> 09:21.560
+ And there are all these, you know,
+
+09:21.560 --> 09:23.000
+ exponentially growing curves.
+
+09:23.000 --> 09:24.560
+ And I was like, holy shit, look at this.
+
+09:24.560 --> 09:26.880
+ In each industry, it was just taking off.
+
+09:26.880 --> 09:29.240
+ And, you know, you didn't have to be a rocket scientist
+
+09:29.240 --> 09:30.640
+ to extend that and say, wow,
+
+09:30.640 --> 09:33.600
+ this means that this was in the late 80s and early 90s
+
+09:33.600 --> 09:35.880
+ that, you know, if it goes anything like that,
+
+09:35.880 --> 09:38.160
+ we're gonna have orders of magnitude more computer power
+
+09:38.160 --> 09:39.480
+ than we did at that time.
+
+09:39.480 --> 09:41.320
+ And of course we do.
+
+09:41.320 --> 09:43.680
+ So, you know, when people look at Moore's law,
+
+09:45.040 --> 09:46.880
+ they often talk about it as just,
+
+09:46.880 --> 09:49.240
+ so the exponential function is actually
+
+09:49.240 --> 09:51.360
+ a stack of S curves.
+
+09:51.360 --> 09:56.360
+ So basically it's you milk or whatever,
+
+09:57.240 --> 10:01.240
+ take the most advantage of a particular little revolution
+
+10:01.240 --> 10:03.000
+ and then you search for another revolution.
+
+10:03.000 --> 10:06.720
+ And it's basically revolutions stack on top of revolutions.
+
+10:06.720 --> 10:08.960
+ Do you have any intuition about how the head humans
+
+10:08.960 --> 10:12.280
+ keep finding ways to revolutionize things?
+
+10:12.280 --> 10:14.200
+ Well, first, let me just unpack that first point
+
+10:14.200 --> 10:17.160
+ that I talked about exponential curves,
+
+10:17.160 --> 10:20.280
+ but no exponential curve continues forever.
+
+10:21.480 --> 10:24.960
+ It's been said that if anything can't go on forever,
+
+10:24.960 --> 10:26.680
+ eventually it will stop.
+
+10:26.680 --> 10:29.840
+ And, and it's very profound, but it's,
+
+10:29.840 --> 10:32.440
+ it seems that a lot of people don't appreciate
+
+10:32.440 --> 10:33.960
+ that half of it as well either.
+
+10:33.960 --> 10:36.560
+ And that's why all exponential functions eventually turn
+
+10:36.560 --> 10:39.800
+ into some kind of S curve or stop in some other way,
+
+10:39.800 --> 10:41.240
+ maybe catastrophically.
+
+10:41.240 --> 10:42.800
+ And that's a cap with COVID as well.
+
+10:42.800 --> 10:44.560
+ I mean, it was, it went up and then it sort of, you know,
+
+10:44.560 --> 10:47.640
+ at some point it starts saturating the pool of people
+
+10:47.640 --> 10:49.040
+ to be infected.
+
+10:49.040 --> 10:51.320
+ There's a standard epidemiological model
+
+10:51.320 --> 10:52.960
+ that's based on that.
+
+10:52.960 --> 10:55.040
+ And it's beginning to happen with Moore's law
+
+10:55.040 --> 10:56.920
+ or different generations of computer power.
+
+10:56.920 --> 10:59.280
+ It happens with all exponential curves.
+
+10:59.280 --> 11:01.040
+ The remarkable thing is you elude,
+
+11:01.040 --> 11:03.560
+ the second part of your question is that we've been able
+
+11:03.560 --> 11:06.840
+ to come up with a new S curve on top of the previous one
+
+11:06.840 --> 11:10.640
+ and do that generation after generation with new materials,
+
+11:10.640 --> 11:14.520
+ new processes, and just extend it further and further.
+
+11:15.680 --> 11:17.400
+ I don't think anyone has a really good theory
+
+11:17.400 --> 11:21.400
+ about why we've been so successful in doing that.
+
+11:21.400 --> 11:23.160
+ It's great that we have been,
+
+11:23.160 --> 11:26.400
+ and I hope it continues for some time,
+
+11:26.400 --> 11:31.400
+ but it's, you know, one beginning of a theory
+
+11:31.480 --> 11:34.440
+ is that there's huge incentives when other parts
+
+11:34.440 --> 11:36.880
+ of the system are going on that clock speed
+
+11:36.880 --> 11:39.280
+ of doubling every two to three years.
+
+11:39.280 --> 11:42.120
+ If there's one component of it that's not keeping up,
+
+11:42.120 --> 11:44.800
+ then the economic incentives become really large
+
+11:44.800 --> 11:46.200
+ to improve that one part.
+
+11:46.200 --> 11:49.720
+ It becomes a bottleneck and anyone who can do improvements
+
+11:49.720 --> 11:51.640
+ in that part can reap huge returns
+
+11:51.640 --> 11:54.000
+ so that the resources automatically get focused
+
+11:54.000 --> 11:56.560
+ on whatever part of the system isn't keeping up.
+
+11:56.560 --> 11:59.680
+ Do you think some version of the Moore's law will continue?
+
+11:59.680 --> 12:01.360
+ Some version, yes, it is.
+
+12:01.360 --> 12:04.560
+ I mean, one version that has become more important
+
+12:04.560 --> 12:06.280
+ is something I call Coomey's law,
+
+12:06.280 --> 12:08.440
+ which is named after John Coomey,
+
+12:08.440 --> 12:10.280
+ who I should mention was also my college roommate,
+
+12:10.280 --> 12:14.360
+ but he identified the fact that energy consumption
+
+12:14.360 --> 12:17.280
+ has been declining by a factor of two.
+
+12:17.280 --> 12:18.960
+ And for most of us, that's more important.
+
+12:18.960 --> 12:21.320
+ The new iPhones came out today as we're recording this.
+
+12:21.320 --> 12:23.120
+ I'm not sure when you're gonna make it available.
+
+12:23.120 --> 12:24.920
+ Very soon after this, yeah.
+
+12:24.920 --> 12:29.920
+ And for most of us, having the iPhone be twice as fast,
+
+12:30.000 --> 12:33.160
+ it's nice, but having the battery lifelonger,
+
+12:33.160 --> 12:35.440
+ that would be much more valuable.
+
+12:35.440 --> 12:38.200
+ And the fact that a lot of the progress in chips now
+
+12:38.200 --> 12:42.800
+ is reducing energy consumption is probably more important
+
+12:42.800 --> 12:46.040
+ for many applications than just the raw speed.
+
+12:46.040 --> 12:47.480
+ Other dimensions of Moore's law
+
+12:47.480 --> 12:50.120
+ are in AI and machine learning.
+
+12:51.560 --> 12:55.160
+ Those tend to be very parallelizable functions,
+
+12:55.160 --> 12:58.440
+ especially deep neural nets.
+
+12:58.440 --> 13:01.280
+ And so instead of having one chip,
+
+13:01.280 --> 13:05.000
+ you can have multiple chips or you can have a GPU,
+
+13:05.000 --> 13:07.000
+ graphic processing unit that goes faster.
+
+13:07.000 --> 13:09.600
+ Now, special chips designed for machine learning
+
+13:09.600 --> 13:11.160
+ like tensor processing units,
+
+13:11.160 --> 13:13.000
+ each time you switch, there's another 10X
+
+13:13.000 --> 13:16.720
+ or 100X improvement above and beyond Moore's law.
+
+13:16.720 --> 13:18.800
+ So I think that the raw silicon
+
+13:18.800 --> 13:20.720
+ isn't improving as much as it used to,
+
+13:20.720 --> 13:23.880
+ but these other dimensions are becoming important,
+
+13:23.880 --> 13:26.240
+ more important, and we're seeing progress in them.
+
+13:26.240 --> 13:28.200
+ I don't know if you've seen the work by OpenAI
+
+13:28.200 --> 13:31.880
+ where they show the exponential improvement
+
+13:31.880 --> 13:34.320
+ of the training of neural networks
+
+13:34.320 --> 13:36.920
+ just literally in the techniques used.
+
+13:36.920 --> 13:40.520
+ So that's almost like the algorithm.
+
+13:40.520 --> 13:43.640
+ It's fascinating to think like, can I actually continue?
+
+13:43.640 --> 13:45.160
+ I was figuring out more and more tricks
+
+13:45.160 --> 13:47.000
+ on how to train networks faster and faster.
+
+13:47.000 --> 13:49.520
+ The progress has been staggering.
+
+13:49.520 --> 13:51.720
+ If you look at image recognition, as you mentioned,
+
+13:51.720 --> 13:53.440
+ I think it's a function of at least three things
+
+13:53.440 --> 13:54.520
+ that are coming together.
+
+13:54.520 --> 13:56.560
+ One, we just talked about faster chips,
+
+13:56.560 --> 14:00.400
+ not just Moore's law, but GPUs, TPUs and other technologies.
+
+14:00.400 --> 14:02.760
+ The second is just a lot more data.
+
+14:02.760 --> 14:05.600
+ I mean, we are awash in digital data today
+
+14:05.600 --> 14:08.080
+ in a way we weren't 20 years ago.
+
+14:08.080 --> 14:09.960
+ Photography, I'm old enough to remember,
+
+14:09.960 --> 14:12.800
+ it used to be chemical, and now everything is digital.
+
+14:12.800 --> 14:16.440
+ I took probably 50 digital photos yesterday.
+
+14:16.440 --> 14:17.880
+ I wouldn't have done that if it was chemical.
+
+14:17.880 --> 14:20.680
+ And we have the internet of things
+
+14:20.680 --> 14:22.920
+ and all sorts of other types of data.
+
+14:22.920 --> 14:24.120
+ When we walk around with our phone,
+
+14:24.120 --> 14:27.240
+ it's just broadcasting a huge amounts of digital data
+
+14:27.240 --> 14:29.240
+ that can be used as training sets.
+
+14:29.240 --> 14:34.240
+ And then last but not least, as they mentioned at OpenAI,
+
+14:34.240 --> 14:37.160
+ there've been significant improvements in the techniques.
+
+14:37.160 --> 14:39.240
+ The core idea of deep neural nets
+
+14:39.240 --> 14:41.160
+ has been around for a few decades,
+
+14:41.160 --> 14:44.200
+ but the advances in making it work more efficiently
+
+14:44.200 --> 14:48.160
+ have also improved a couple of orders of magnitude or more.
+
+14:48.160 --> 14:49.640
+ So you multiply together,
+
+14:49.640 --> 14:52.480
+ a hundred fold improvement in computer power,
+
+14:52.480 --> 14:55.320
+ a hundred fold or more improvement in data,
+
+14:55.320 --> 14:59.000
+ a hundred fold improvement in techniques
+
+14:59.000 --> 15:00.560
+ of software and algorithms,
+
+15:00.560 --> 15:03.840
+ and soon you're getting into a million fold improvements.
+
+15:03.840 --> 15:07.280
+ So somebody brought this up, this idea with GPT3 that,
+
+15:09.920 --> 15:11.960
+ so it's trained in a self supervised way
+
+15:11.960 --> 15:13.960
+ on basically internet data.
+
+15:15.080 --> 15:18.920
+ And that's one of the, I've seen arguments made
+
+15:18.920 --> 15:21.120
+ and they seem to be pretty convincing
+
+15:21.120 --> 15:23.440
+ that the bottleneck there is going to be
+
+15:23.440 --> 15:25.640
+ how much data there is on the internet,
+
+15:25.640 --> 15:29.120
+ which is a fascinating idea that it literally
+
+15:29.120 --> 15:33.280
+ will just run out of human generated data to train on.
+
+15:33.280 --> 15:35.720
+ Right, I know we make it to the point where it's consumed
+
+15:35.720 --> 15:37.480
+ basically all of human knowledge
+
+15:37.480 --> 15:39.120
+ or all digitized human knowledge, yeah.
+
+15:39.120 --> 15:40.880
+ And that will be the bottleneck.
+
+15:40.880 --> 15:44.520
+ But the interesting thing with bottlenecks
+
+15:44.520 --> 15:47.360
+ is people often use bottlenecks
+
+15:47.360 --> 15:49.920
+ as a way to argue against exponential growth.
+
+15:49.920 --> 15:51.400
+ They say, well, there's no way
+
+15:51.400 --> 15:53.840
+ you can overcome this bottleneck,
+
+15:53.840 --> 15:56.960
+ but we seem to somehow keep coming up in new ways
+
+15:56.960 --> 15:59.200
+ to like overcome whatever bottlenecks
+
+15:59.200 --> 16:01.920
+ the critics come up with, which is fascinating.
+
+16:01.920 --> 16:04.600
+ I don't know how you overcome the data bottleneck,
+
+16:04.600 --> 16:07.000
+ but probably more efficient training algorithms.
+
+16:07.000 --> 16:08.240
+ Yeah, well, you already mentioned that,
+
+16:08.240 --> 16:10.240
+ that these training algorithms are getting much better
+
+16:10.240 --> 16:12.440
+ at using smaller amounts of data.
+
+16:12.440 --> 16:15.880
+ We also are just capturing a lot more data than we used to,
+
+16:15.880 --> 16:18.880
+ especially in China, but all around us.
+
+16:18.880 --> 16:20.680
+ So those are both important.
+
+16:20.680 --> 16:24.160
+ In some applications, you can simulate the data,
+
+16:24.160 --> 16:28.920
+ video games, some of the self driving car systems
+
+16:28.920 --> 16:32.520
+ are simulating driving, and of course,
+
+16:32.520 --> 16:34.240
+ that has some risks and weaknesses,
+
+16:34.240 --> 16:38.080
+ but you can also, if you want to exhaust
+
+16:38.080 --> 16:39.840
+ all the different ways you could beat a video game,
+
+16:39.840 --> 16:42.280
+ you could just simulate all the options.
+
+16:42.280 --> 16:44.920
+ Can we take a step in that direction of autonomous vehicles?
+
+16:44.920 --> 16:47.720
+ Next, you're talking to the CTO of Waymo tomorrow.
+
+16:48.640 --> 16:52.400
+ And obviously, I'm talking to Elon again in a couple of weeks.
+
+16:53.920 --> 16:57.040
+ What's your thoughts on autonomous vehicles?
+
+16:57.040 --> 17:01.800
+ Like where do we stand as a problem
+
+17:01.800 --> 17:04.480
+ that has the potential of revolutionizing the world?
+
+17:04.480 --> 17:06.760
+ Well, I'm really excited about that,
+
+17:06.760 --> 17:09.000
+ but it's become much clearer
+
+17:09.000 --> 17:10.680
+ that the original way that I thought about it,
+
+17:10.680 --> 17:11.520
+ most people thought about like,
+
+17:11.520 --> 17:13.440
+ you know, will we have a self driving car or not
+
+17:13.440 --> 17:15.640
+ is way too simple.
+
+17:15.640 --> 17:17.400
+ The better way to think about it
+
+17:17.400 --> 17:19.360
+ is that there's a whole continuum
+
+17:19.360 --> 17:22.320
+ of how much driving and assisting the car can do.
+
+17:22.320 --> 17:24.760
+ I noticed that you're right next door
+
+17:24.760 --> 17:25.960
+ to the Toyota Research Institute.
+
+17:25.960 --> 17:27.600
+ That is a total accident.
+
+17:27.600 --> 17:29.320
+ I love the TRI folks, but yeah.
+
+17:29.320 --> 17:30.800
+ Have you talked to Gil Pratt?
+
+17:30.800 --> 17:34.080
+ Yeah, we're supposed to talk.
+
+17:34.080 --> 17:34.960
+ It's kind of hilarious.
+
+17:34.960 --> 17:35.800
+ So there's kind of the,
+
+17:35.800 --> 17:38.720
+ I think it's a good counterpart to say what Elon is doing.
+
+17:38.720 --> 17:40.040
+ And hopefully they can be frank
+
+17:40.040 --> 17:41.440
+ in what they think about each other,
+
+17:41.440 --> 17:43.920
+ because I've heard both of them talk about it.
+
+17:43.920 --> 17:45.400
+ But they're much more, you know,
+
+17:45.400 --> 17:47.440
+ this is an assistive, a guardian angel
+
+17:47.440 --> 17:50.440
+ that watches over you as opposed to try to do everything.
+
+17:50.440 --> 17:53.320
+ I think there's some things like driving on a highway,
+
+17:53.320 --> 17:55.320
+ you know, from LA to Phoenix,
+
+17:55.320 --> 17:58.120
+ where it's mostly good weather, straight roads.
+
+17:58.120 --> 18:01.240
+ That's close to a solved problem, let's face it.
+
+18:01.240 --> 18:02.560
+ In other situations, you know,
+
+18:02.560 --> 18:04.640
+ driving through the snow in Boston
+
+18:04.640 --> 18:06.160
+ where the roads are kind of crazy.
+
+18:06.160 --> 18:08.200
+ And most importantly, you have to make a lot of judgments
+
+18:08.200 --> 18:09.440
+ about what the other driver is gonna do
+
+18:09.440 --> 18:11.680
+ at these intersections that aren't really right angles
+
+18:11.680 --> 18:13.400
+ and aren't very well described.
+
+18:13.400 --> 18:15.320
+ It's more like game theory.
+
+18:15.320 --> 18:17.080
+ That's a much harder problem
+
+18:17.080 --> 18:20.600
+ and requires understanding human motivations.
+
+18:22.080 --> 18:24.320
+ So there's a continuum there of some places
+
+18:24.320 --> 18:27.560
+ where the cars will work very well
+
+18:27.560 --> 18:30.920
+ and others where it could probably take decades.
+
+18:30.920 --> 18:33.480
+ What do you think about the Waymo?
+
+18:33.480 --> 18:36.000
+ So you mentioned two companies
+
+18:36.000 --> 18:38.040
+ that actually have cars on the road.
+
+18:38.040 --> 18:40.640
+ There's the Waymo approach that it's more like
+
+18:40.640 --> 18:42.800
+ we're not going to release anything until it's perfect
+
+18:42.800 --> 18:45.320
+ and we're gonna be very strict
+
+18:45.320 --> 18:47.680
+ about the streets that we travel on,
+
+18:47.680 --> 18:49.160
+ but it better be perfect.
+
+18:49.160 --> 18:50.200
+ Yeah.
+
+18:50.200 --> 18:53.920
+ Well, I'm smart enough to be humble
+
+18:53.920 --> 18:55.000
+ and not try to get between.
+
+18:55.000 --> 18:56.600
+ I know there's very bright people
+
+18:56.600 --> 18:57.440
+ on both sides of the argument.
+
+18:57.440 --> 19:00.000
+ I've talked to them and they make convincing arguments to me
+
+19:00.000 --> 19:04.000
+ about how careful they need to be and the social acceptance.
+
+19:04.000 --> 19:07.400
+ Some people thought that when the first few people died
+
+19:07.400 --> 19:09.840
+ from self driving cars, that would shut down the industry,
+
+19:09.840 --> 19:11.800
+ but it was more of a blip actually.
+
+19:11.800 --> 19:14.440
+ And, you know, so that was interesting.
+
+19:14.440 --> 19:16.040
+ Of course, there's still a concern
+
+19:16.040 --> 19:20.560
+ that if there could be setbacks, if we do this wrong,
+
+19:20.560 --> 19:22.600
+ you know, your listeners may be familiar
+
+19:22.600 --> 19:24.160
+ with the different levels of self driving,
+
+19:24.160 --> 19:26.800
+ you know, level one, two, three, four, five.
+
+19:26.800 --> 19:29.640
+ I think Andrew Ng has convinced me that this idea
+
+19:29.640 --> 19:32.600
+ of really focusing on level four,
+
+19:32.600 --> 19:35.000
+ where you only go in areas that are well mapped
+
+19:35.000 --> 19:37.480
+ rather than just going out in the wild
+
+19:37.480 --> 19:39.720
+ is the way things are gonna evolve.
+
+19:39.720 --> 19:42.600
+ But you can just keep expanding those areas
+
+19:42.600 --> 19:44.040
+ where you've mapped things really well,
+
+19:44.040 --> 19:45.040
+ where you really understand them
+
+19:45.040 --> 19:47.960
+ and eventually all become kind of interconnected.
+
+19:47.960 --> 19:51.160
+ And that could be a kind of another way of progressing
+
+19:51.160 --> 19:55.240
+ to make it more feasible over time.
+
+19:55.240 --> 19:57.400
+ I mean, that's kind of like the Waymo approach,
+
+19:57.400 --> 19:59.520
+ which is they just now released,
+
+19:59.520 --> 20:01.960
+ I think just like a day or two ago,
+
+20:01.960 --> 20:05.480
+ a public, like anyone from the public
+
+20:05.480 --> 20:10.480
+ in the Phoenix, Arizona to, you know,
+
+20:12.160 --> 20:14.360
+ you can get a ride in a Waymo car
+
+20:14.360 --> 20:16.120
+ with no person, no driver.
+
+20:16.120 --> 20:17.640
+ Oh, they've taken away the safety driver?
+
+20:17.640 --> 20:21.080
+ Oh yeah, for a while now there's been no safety driver.
+
+20:21.080 --> 20:22.760
+ Okay, because I mean, I've been following that one
+
+20:22.760 --> 20:24.840
+ in particular, but I thought it was kind of funny
+
+20:24.840 --> 20:26.960
+ about a year ago when they had the safety driver
+
+20:26.960 --> 20:28.400
+ and then they added a second safety driver
+
+20:28.400 --> 20:30.880
+ because the first safety driver would fall asleep.
+
+20:30.880 --> 20:32.120
+ It's like, I'm not sure they're going
+
+20:32.120 --> 20:33.400
+ in the right direction with that.
+
+20:33.400 --> 20:38.200
+ No, they've Waymo in particular
+
+20:38.200 --> 20:39.480
+ done a really good job of that.
+
+20:39.480 --> 20:44.360
+ They actually have a very interesting infrastructure
+
+20:44.360 --> 20:47.480
+ of remote like observation.
+
+20:47.480 --> 20:49.840
+ So they're not controlling the vehicles remotely,
+
+20:49.840 --> 20:52.440
+ but they're able to, it's like a customer service.
+
+20:52.440 --> 20:55.160
+ They can anytime tune into the car.
+
+20:55.160 --> 20:58.160
+ I bet they can probably remotely control it as well,
+
+20:58.160 --> 21:00.920
+ but that's officially not the function that they use.
+
+21:00.920 --> 21:02.760
+ Yeah, I can see that being really,
+
+21:02.760 --> 21:06.280
+ because I think the thing that's proven harder
+
+21:06.280 --> 21:08.040
+ than maybe some of the early people expected
+
+21:08.040 --> 21:10.840
+ was there's a long tail of weird exceptions.
+
+21:10.840 --> 21:15.440
+ So you can deal with 90, 99, 99.99% of the cases,
+
+21:15.440 --> 21:17.720
+ but then there's something that just never been seen before
+
+21:17.720 --> 21:18.840
+ in the training data.
+
+21:18.840 --> 21:21.080
+ And humans more or less can work around that.
+
+21:21.080 --> 21:22.840
+ Although let me be clear and note,
+
+21:22.840 --> 21:25.640
+ there are about 30,000 human fatalities
+
+21:25.640 --> 21:28.360
+ just in the United States and maybe a million worldwide.
+
+21:28.360 --> 21:30.000
+ So they're far from perfect.
+
+21:30.000 --> 21:33.440
+ But I think people have higher expectations of machines.
+
+21:33.440 --> 21:36.280
+ They wouldn't tolerate that level of death
+
+21:36.280 --> 21:40.000
+ and damage from a machine.
+
+21:40.000 --> 21:41.800
+ And so we have to do a lot better
+
+21:41.800 --> 21:43.480
+ at dealing with those edge cases.
+
+21:43.480 --> 21:46.960
+ And also the tricky thing that if I have a criticism
+
+21:46.960 --> 21:50.520
+ for the Waymo folks, there's such a huge focus on safety
+
+21:51.800 --> 21:55.160
+ where people don't talk enough about creating products
+
+21:55.160 --> 21:57.240
+ that people, that customers love,
+
+21:57.240 --> 21:59.800
+ that human beings love using.
+
+22:00.680 --> 22:03.320
+ It's very easy to create a thing that's safe
+
+22:03.320 --> 22:06.880
+ at the extremes, but then nobody wants to get into it.
+
+22:06.880 --> 22:09.640
+ Yeah, well, back to Elon, I think one of,
+
+22:09.640 --> 22:11.440
+ part of his genius was with the electric cars.
+
+22:11.440 --> 22:13.960
+ Before he came along, electric cars were all kind of
+
+22:13.960 --> 22:15.680
+ underpowered, really light,
+
+22:15.680 --> 22:20.680
+ and there were sort of wimpy cars that weren't fun.
+
+22:20.680 --> 22:23.640
+ And the first thing he did was he made a roadster
+
+22:23.640 --> 22:27.440
+ that went zero to 60 faster than just about any other car
+
+22:27.440 --> 22:28.480
+ and went the other end.
+
+22:28.480 --> 22:30.800
+ And I think that was a really wise marketing move
+
+22:30.800 --> 22:33.160
+ as well as a wise technology move.
+
+22:33.160 --> 22:34.840
+ Yeah, it's difficult to figure out
+
+22:34.840 --> 22:37.960
+ what the right marketing move is for AI systems.
+
+22:37.960 --> 22:42.960
+ That's always been, I think it requires guts and risk taking
+
+22:42.960 --> 22:46.320
+ which is what Elon practices.
+
+22:46.320 --> 22:50.480
+ I mean, to the chagrin of perhaps investors or whatever,
+
+22:50.480 --> 22:54.320
+ but it also requires rethinking what you're doing.
+
+22:54.320 --> 22:57.520
+ I think way too many people are unimaginative,
+
+22:57.520 --> 22:59.760
+ intellectually lazy, and when they take AI,
+
+22:59.760 --> 23:01.640
+ they basically say, what are we doing now?
+
+23:01.640 --> 23:04.000
+ How can we make a machine do the same thing?
+
+23:04.000 --> 23:06.720
+ Maybe we'll save some costs, we'll have less labor.
+
+23:06.720 --> 23:08.560
+ And yeah, it's not necessarily the worst thing
+
+23:08.560 --> 23:10.640
+ in the world to do, but it's really not leading
+
+23:10.640 --> 23:12.840
+ to a quantum change in the way you do things.
+
+23:12.840 --> 23:16.640
+ When Jeff Bezos said, hey, we're gonna use the internet
+
+23:16.640 --> 23:19.320
+ to change how bookstores work and we're gonna use technology,
+
+23:19.320 --> 23:22.680
+ he didn't go and say, okay, let's put a robot cashier
+
+23:22.680 --> 23:25.640
+ where the human cashier is and leave everything else alone.
+
+23:25.640 --> 23:28.360
+ That would have been a very lame way to automate a bookstore.
+
+23:28.360 --> 23:31.400
+ He's like went from soup to nuts and let's just rethink it.
+
+23:31.400 --> 23:33.040
+ We get rid of the physical bookstore.
+
+23:33.040 --> 23:34.520
+ We have a warehouse, we have delivery,
+
+23:34.520 --> 23:36.360
+ we have people order on a screen
+
+23:36.360 --> 23:38.480
+ and everything was reinvented.
+
+23:38.480 --> 23:39.720
+ And that's been the story
+
+23:39.720 --> 23:43.560
+ of these general purpose technologies all through history.
+
+23:43.560 --> 23:46.320
+ And in my books, I write about like electricity
+
+23:46.320 --> 23:50.360
+ and how for 30 years, there was almost no productivity gain
+
+23:50.360 --> 23:53.040
+ from the electrification of factories a century ago.
+
+23:53.040 --> 23:54.160
+ Now it's not because electricity
+
+23:54.160 --> 23:55.800
+ is a wimpy useless technology.
+
+23:55.800 --> 23:57.560
+ We all know how awesome electricity is.
+
+23:57.560 --> 23:58.400
+ It's cause at first,
+
+23:58.400 --> 24:00.560
+ they really didn't rethink the factories.
+
+24:00.560 --> 24:02.160
+ It was only after they reinvented them
+
+24:02.160 --> 24:04.040
+ and we describe how in the book,
+
+24:04.040 --> 24:05.920
+ then you suddenly got a doubling and tripling
+
+24:05.920 --> 24:07.560
+ of productivity growth.
+
+24:07.560 --> 24:09.920
+ But it's the combination of the technology
+
+24:09.920 --> 24:12.960
+ with the new business models, new business organization.
+
+24:12.960 --> 24:14.000
+ That just takes a long time
+
+24:14.000 --> 24:16.920
+ and it takes more creativity than most people have.
+
+24:16.920 --> 24:19.000
+ Can you maybe linger on electricity?
+
+24:19.000 --> 24:20.080
+ Cause that's a fun one.
+
+24:20.080 --> 24:22.480
+ Yeah, well, sure, I'll tell you what happened.
+
+24:22.480 --> 24:25.760
+ Before electricity, there were basically steam engines
+
+24:25.760 --> 24:28.400
+ or sometimes water wheels and to power the machinery,
+
+24:28.400 --> 24:30.560
+ you had to have pulleys and crankshafts
+
+24:30.560 --> 24:32.120
+ and you really can't make them too long
+
+24:32.120 --> 24:34.040
+ cause they'll break the torsion.
+
+24:34.040 --> 24:35.960
+ So all the equipment was kind of clustered
+
+24:35.960 --> 24:37.960
+ around this one giant steam engine.
+
+24:37.960 --> 24:39.480
+ You can't make small steam engines either
+
+24:39.480 --> 24:40.800
+ cause of thermodynamics.
+
+24:40.800 --> 24:42.360
+ So you have one giant steam engine,
+
+24:42.360 --> 24:44.320
+ all the equipment clustered around it, multi story.
+
+24:44.320 --> 24:46.080
+ They have it vertical to minimize the distance
+
+24:46.080 --> 24:47.760
+ as well as horizontal.
+
+24:47.760 --> 24:48.960
+ And then when they did electricity,
+
+24:48.960 --> 24:50.080
+ they took out the steam engine.
+
+24:50.080 --> 24:51.360
+ They got the biggest electric motor
+
+24:51.360 --> 24:54.200
+ they could buy from General Electric or someone like that.
+
+24:54.200 --> 24:56.400
+ And nothing much else changed.
+
+24:57.920 --> 25:00.760
+ It took until a generation of managers retired
+
+25:00.760 --> 25:03.200
+ or died three years later,
+
+25:03.200 --> 25:04.440
+ that people started thinking,
+
+25:04.440 --> 25:05.840
+ wait, we don't have to do it that way.
+
+25:05.840 --> 25:09.480
+ You can make electric motors, big, small, medium.
+
+25:09.480 --> 25:11.480
+ You can put one with each piece of equipment.
+
+25:11.480 --> 25:12.320
+ There's this big debate
+
+25:12.320 --> 25:13.360
+ if you read the management literature
+
+25:13.360 --> 25:16.160
+ between what they call a group drive versus unit drive
+
+25:16.160 --> 25:18.960
+ where every machine would have its own motor.
+
+25:18.960 --> 25:21.040
+ Well, once they did that, once they went to unit drive,
+
+25:21.040 --> 25:23.040
+ those guys won the debate.
+
+25:23.040 --> 25:25.080
+ Then you started having a new kind of factory
+
+25:25.080 --> 25:29.400
+ which is sometimes spread out over acres, single story
+
+25:29.400 --> 25:31.360
+ and each piece of equipment has its own motor.
+
+25:31.360 --> 25:33.360
+ And most importantly, they weren't laid out based on
+
+25:33.360 --> 25:35.000
+ who needed the most power.
+
+25:35.000 --> 25:37.600
+ They were laid out based on
+
+25:37.600 --> 25:40.000
+ what is the workflow of materials?
+
+25:40.000 --> 25:41.720
+ Assembly line, let's have it go from this machine
+
+25:41.720 --> 25:43.240
+ to that machine, to that machine.
+
+25:43.240 --> 25:46.040
+ Once they rethought the factory that way,
+
+25:46.040 --> 25:47.680
+ huge increases in productivity.
+
+25:47.680 --> 25:48.520
+ It was just staggering.
+
+25:48.520 --> 25:50.080
+ People like Paul David have documented this
+
+25:50.080 --> 25:51.760
+ in their research papers.
+
+25:51.760 --> 25:55.920
+ And I think that that is a lesson you see over and over.
+
+25:55.920 --> 25:58.560
+ It happened when the steam engine changed manual production.
+
+25:58.560 --> 26:00.240
+ It's happened with the computerization.
+
+26:00.240 --> 26:03.600
+ People like Michael Hammer said, don't automate, obliterate.
+
+26:03.600 --> 26:08.440
+ In each case, the big gains only came once
+
+26:08.440 --> 26:10.400
+ smart entrepreneurs and managers
+
+26:10.400 --> 26:13.040
+ basically reinvented their industries.
+
+26:13.040 --> 26:14.680
+ I mean, one other interesting point about all that
+
+26:14.680 --> 26:17.920
+ is that during that reinvention period,
+
+26:18.920 --> 26:22.200
+ you often actually not only don't see productivity growth,
+
+26:22.200 --> 26:24.320
+ you can actually see a slipping back.
+
+26:24.320 --> 26:26.560
+ Measured productivity actually falls.
+
+26:26.560 --> 26:29.040
+ I just wrote a paper with Chad Severson and Daniel Rock
+
+26:29.040 --> 26:31.520
+ called the productivity J curve,
+
+26:31.520 --> 26:33.840
+ which basically shows that in a lot of these cases,
+
+26:33.840 --> 26:36.520
+ you have a downward dip before it goes up.
+
+26:36.520 --> 26:38.320
+ And that downward dip is when everyone's trying
+
+26:38.320 --> 26:40.400
+ to like reinvent things.
+
+26:40.400 --> 26:43.120
+ And you could say that they're creating knowledge
+
+26:43.120 --> 26:44.640
+ and intangible assets,
+
+26:44.640 --> 26:46.760
+ but that doesn't show up on anyone's balance sheet.
+
+26:46.760 --> 26:48.320
+ It doesn't show up in GDP.
+
+26:48.320 --> 26:50.080
+ So it's as if they're doing nothing.
+
+26:50.080 --> 26:52.480
+ Like take self driving cars, we were just talking about it.
+
+26:52.480 --> 26:55.040
+ There have been hundreds of billions of dollars
+
+26:55.040 --> 26:57.880
+ spent developing self driving cars.
+
+26:57.880 --> 27:02.360
+ And basically no chauffeur has lost his job, no taxi driver.
+
+27:02.360 --> 27:03.200
+ I guess I got to check out the ones that.
+
+27:03.200 --> 27:04.440
+ It's a big J curve.
+
+27:04.440 --> 27:06.080
+ Yeah, so there's a bunch of spending
+
+27:06.080 --> 27:08.120
+ and no real consumer benefit.
+
+27:08.120 --> 27:11.440
+ Now they're doing that in the belief,
+
+27:11.440 --> 27:13.240
+ I think the justified belief
+
+27:13.240 --> 27:15.160
+ that they will get the upward part of the J curve
+
+27:15.160 --> 27:16.920
+ and there will be some big returns,
+
+27:16.920 --> 27:19.320
+ but in the short run, you're not seeing it.
+
+27:19.320 --> 27:21.840
+ That's happening with a lot of other AI technologies,
+
+27:21.840 --> 27:22.680
+ just as it happened
+
+27:22.680 --> 27:25.040
+ with earlier general purpose technologies.
+
+27:25.040 --> 27:25.880
+ And it's one of the reasons
+
+27:25.880 --> 27:29.280
+ we're having relatively low productivity growth lately.
+
+27:29.280 --> 27:31.400
+ As an economist, one of the things that disappoints me
+
+27:31.400 --> 27:34.440
+ is that as eye popping as these technologies are,
+
+27:34.440 --> 27:35.360
+ you and I are both excited
+
+27:35.360 --> 27:36.880
+ about some of the things they can do.
+
+27:36.880 --> 27:40.280
+ The economic productivity statistics are kind of dismal.
+
+27:40.280 --> 27:42.200
+ We actually, believe it or not,
+
+27:42.200 --> 27:44.560
+ have had lower productivity growth
+
+27:44.560 --> 27:47.000
+ in the past about 15 years
+
+27:47.000 --> 27:48.840
+ than we did in the previous 15 years,
+
+27:48.840 --> 27:51.360
+ in the 90s and early 2000s.
+
+27:51.360 --> 27:53.200
+ And so that's not what you would have expected
+
+27:53.200 --> 27:55.520
+ if these technologies were that much better.
+
+27:55.520 --> 27:59.400
+ But I think we're in kind of a long J curve there.
+
+27:59.400 --> 28:00.560
+ Personally, I'm optimistic.
+
+28:00.560 --> 28:02.120
+ We'll start seeing the upward tick,
+
+28:02.120 --> 28:04.520
+ maybe as soon as next year.
+
+28:04.520 --> 28:08.520
+ But the past decade has been a bit disappointing
+
+28:08.520 --> 28:10.000
+ if you thought there's a one to one relationship
+
+28:10.000 --> 28:12.760
+ between cool technology and higher productivity.
+
+28:12.760 --> 28:15.240
+ Well, what would you place your biggest hope
+
+28:15.240 --> 28:17.240
+ for productivity increases on?
+
+28:17.240 --> 28:19.880
+ Because you kind of said at a high level AI,
+
+28:19.880 --> 28:22.840
+ but if I were to think about
+
+28:22.840 --> 28:27.840
+ what has been so revolutionary in the last 10 years,
+
+28:28.200 --> 28:32.240
+ I would 15 years and thinking about the internet,
+
+28:32.240 --> 28:34.320
+ I would say things like,
+
+28:35.800 --> 28:37.160
+ hopefully I'm not saying anything ridiculous,
+
+28:37.160 --> 28:41.040
+ but everything from Wikipedia to Twitter.
+
+28:41.040 --> 28:43.600
+ So like these kind of websites,
+
+28:43.600 --> 28:46.080
+ not so much AI,
+
+28:46.080 --> 28:48.160
+ but like I would expect to see some kind
+
+28:48.160 --> 28:50.520
+ of big productivity increases
+
+28:50.520 --> 28:54.160
+ from just the connectivity between people
+
+28:54.160 --> 28:58.040
+ and the access to more information.
+
+28:58.040 --> 29:00.040
+ Yeah, well, so that's another area
+
+29:00.040 --> 29:01.840
+ I've done quite a bit of research on actually,
+
+29:01.840 --> 29:06.840
+ is these free goods like Wikipedia, Facebook, Twitter, Zoom.
+
+29:06.840 --> 29:08.120
+ We're actually doing this in person,
+
+29:08.120 --> 29:11.120
+ but almost everything else I do these days is online.
+
+29:12.400 --> 29:13.760
+ The interesting thing about all those
+
+29:13.760 --> 29:17.720
+ is most of them have a price of zero.
+
+29:18.880 --> 29:19.960
+ What do you pay for Wikipedia?
+
+29:19.960 --> 29:21.680
+ Maybe like a little bit for the electrons
+
+29:21.680 --> 29:22.960
+ to come to your house.
+
+29:22.960 --> 29:24.080
+ Basically zero, right?
+
+29:25.600 --> 29:28.040
+ Take a small pause and say, I donate to Wikipedia.
+
+29:28.040 --> 29:28.880
+ Often you should too.
+
+29:28.880 --> 29:30.080
+ It's good for you, yeah.
+
+29:30.080 --> 29:32.480
+ So, but what does that do mean for GDP?
+
+29:32.480 --> 29:36.120
+ GDP is based on the price and quantity
+
+29:36.120 --> 29:37.760
+ of all the goods, things bought and sold.
+
+29:37.760 --> 29:39.560
+ If something has zero price,
+
+29:39.560 --> 29:42.280
+ you know how much it contributes to GDP?
+
+29:42.280 --> 29:44.520
+ To a first approximation, zero.
+
+29:44.520 --> 29:47.560
+ So these digital goods that we're getting more and more of,
+
+29:47.560 --> 29:50.240
+ we're spending more and more hours a day
+
+29:50.240 --> 29:52.080
+ consuming stuff off of screens,
+
+29:52.080 --> 29:53.440
+ little screens, big screens,
+
+29:54.520 --> 29:56.160
+ that doesn't get priced into GDP.
+
+29:56.160 --> 29:58.640
+ It's like they don't exist.
+
+29:58.640 --> 30:00.000
+ That doesn't mean they don't create value.
+
+30:00.000 --> 30:03.360
+ I get a lot of value from watching cat videos
+
+30:03.360 --> 30:06.160
+ and reading Wikipedia articles and listening to podcasts,
+
+30:06.160 --> 30:08.440
+ even if I don't pay for them.
+
+30:08.440 --> 30:10.440
+ So we've got a mismatch there.
+
+30:10.440 --> 30:12.520
+ Now, in fairness, economists,
+
+30:12.520 --> 30:15.320
+ since Simon Kuznets invented GDP and productivity,
+
+30:15.320 --> 30:17.760
+ all those statistics back in the 1930s,
+
+30:17.760 --> 30:19.680
+ he recognized, he in fact said,
+
+30:19.680 --> 30:21.520
+ this is not a measure of wellbeing.
+
+30:21.520 --> 30:23.200
+ This is not a measure of welfare.
+
+30:23.200 --> 30:25.120
+ It's a measure of production.
+
+30:25.120 --> 30:28.960
+ But almost everybody has kind of forgotten
+
+30:28.960 --> 30:31.000
+ that he said that and they just use it.
+
+30:31.000 --> 30:32.200
+ It's like, how well off are we?
+
+30:32.200 --> 30:33.240
+ What was GDP last year?
+
+30:33.240 --> 30:35.800
+ It was 2.3% growth or whatever.
+
+30:35.800 --> 30:39.440
+ That is how much physical production,
+
+30:39.440 --> 30:42.360
+ but it's not the value we're getting.
+
+30:42.360 --> 30:43.840
+ We need a new set of statistics
+
+30:43.840 --> 30:45.280
+ and I'm working with some colleagues.
+
+30:45.280 --> 30:48.360
+ Avi Collis and others to develop something
+
+30:48.360 --> 30:50.440
+ we call GDP dash B.
+
+30:50.440 --> 30:55.440
+ GDP B measures the benefits you get, not the cost.
+
+30:55.440 --> 31:00.360
+ If you get benefit from Zoom or Wikipedia or Facebook,
+
+31:00.360 --> 31:02.520
+ then that gets counted in GDP B,
+
+31:02.520 --> 31:04.560
+ even if you pay zero for it.
+
+31:04.560 --> 31:07.360
+ So, you know, back to your original point,
+
+31:07.360 --> 31:10.480
+ I think there is a lot of gain over the past decade
+
+31:10.480 --> 31:15.280
+ in these digital goods that doesn't show up in GDP,
+
+31:15.280 --> 31:16.440
+ doesn't show up in productivity.
+
+31:16.440 --> 31:17.920
+ By the way, productivity is just defined
+
+31:17.920 --> 31:20.080
+ as GDP divided by hours worked.
+
+31:20.080 --> 31:22.080
+ So if you mismeasure GDP,
+
+31:22.080 --> 31:25.360
+ you mismeasure productivity by the exact same amount.
+
+31:25.360 --> 31:26.480
+ That's something we need to fix.
+
+31:26.480 --> 31:28.440
+ I'm working with the statistical agencies
+
+31:28.440 --> 31:30.200
+ to come up with a new set of metrics.
+
+31:30.200 --> 31:32.200
+ And, you know, over the coming years,
+
+31:32.200 --> 31:34.480
+ I think we'll see, we're not gonna do away with GDP.
+
+31:34.480 --> 31:37.240
+ It's very useful, but we'll see a parallel set of accounts
+
+31:37.240 --> 31:38.400
+ that measure the benefits.
+
+31:38.400 --> 31:41.080
+ How difficult is it to get that B in the GDP B?
+
+31:41.080 --> 31:41.920
+ It's pretty hard.
+
+31:41.920 --> 31:44.360
+ I mean, one of the reasons it hasn't been done before
+
+31:44.360 --> 31:46.720
+ is that, you know, you can measure it,
+
+31:46.720 --> 31:49.000
+ the cash register, what people pay for stuff,
+
+31:49.000 --> 31:51.040
+ but how do you measure what they would have paid,
+
+31:51.040 --> 31:52.040
+ like what the value is?
+
+31:52.040 --> 31:54.040
+ That's a lot harder, you know?
+
+31:54.040 --> 31:56.040
+ How much is Wikipedia worth to you?
+
+31:56.040 --> 31:57.480
+ That's what we have to answer.
+
+31:57.480 --> 32:00.720
+ And to do that, what we do is we can use online experiments.
+
+32:00.720 --> 32:03.120
+ We do massive online choice experiments.
+
+32:03.120 --> 32:05.720
+ We ask hundreds of thousands, now millions of people
+
+32:05.720 --> 32:07.760
+ to do lots of sort of A, B tests.
+
+32:07.760 --> 32:09.080
+ How much would I have to pay you
+
+32:09.080 --> 32:10.840
+ to give up Wikipedia for a month?
+
+32:10.840 --> 32:14.120
+ How much would I have to pay you to stop using your phone?
+
+32:14.120 --> 32:15.960
+ And in some cases, it's hypothetical.
+
+32:15.960 --> 32:17.520
+ In other cases, we actually enforce it,
+
+32:17.520 --> 32:18.920
+ which is kind of expensive.
+
+32:18.920 --> 32:22.440
+ Like we pay somebody $30 to stop using Facebook
+
+32:22.440 --> 32:23.440
+ and we see if they'll do it.
+
+32:23.440 --> 32:26.280
+ And some people will give it up for $10.
+
+32:26.280 --> 32:28.880
+ Some people won't give it up even if you give them $100.
+
+32:28.880 --> 32:31.080
+ And then you get a whole demand curve.
+
+32:31.080 --> 32:33.600
+ You get to see what all the different prices are
+
+32:33.600 --> 32:36.000
+ and how much value different people get.
+
+32:36.000 --> 32:36.880
+ And not surprisingly,
+
+32:36.880 --> 32:38.240
+ different people have different values.
+
+32:38.240 --> 32:41.520
+ We find that women tend to value Facebook more than men.
+
+32:41.520 --> 32:43.200
+ Old people tend to value it a little bit more
+
+32:43.200 --> 32:44.040
+ than young people.
+
+32:44.040 --> 32:44.880
+ That was interesting.
+
+32:44.880 --> 32:46.600
+ I think young people maybe know about other networks
+
+32:46.600 --> 32:50.280
+ that I don't know the name of that are better than Facebook.
+
+32:50.280 --> 32:53.480
+ And so you get to see these patterns,
+
+32:53.480 --> 32:55.440
+ but every person's individual.
+
+32:55.440 --> 32:57.280
+ And then if you add up all those numbers,
+
+32:57.280 --> 33:00.040
+ you start getting an estimate of the value.
+
+33:00.040 --> 33:01.240
+ Okay, first of all, that's brilliant.
+
+33:01.240 --> 33:05.720
+ Is this a work that will soon eventually be published?
+
+33:05.720 --> 33:07.040
+ Yeah, well, there's a version of it
+
+33:07.040 --> 33:09.520
+ in the Proceedings of the National Academy of Sciences
+
+33:09.520 --> 33:11.880
+ about I think we call it massive online choice experiments.
+
+33:11.880 --> 33:14.920
+ I should remember the title, but it's on my website.
+
+33:14.920 --> 33:17.520
+ So yeah, we have some more papers coming out on it,
+
+33:17.520 --> 33:20.160
+ but the first one is already out.
+
+33:20.160 --> 33:22.320
+ You know, it's kind of a fascinating mystery
+
+33:22.320 --> 33:24.360
+ that Twitter, Facebook,
+
+33:24.360 --> 33:26.800
+ like all these social networks are free.
+
+33:26.800 --> 33:31.440
+ And it seems like almost none of them except for YouTube
+
+33:31.440 --> 33:35.200
+ have experimented with removing ads for money.
+
+33:35.200 --> 33:37.160
+ Can you like, do you understand that
+
+33:37.160 --> 33:39.800
+ from both economics and the product perspective?
+
+33:39.800 --> 33:41.000
+ Yeah, it's something that, you know,
+
+33:41.000 --> 33:43.240
+ so I teach a course on digital business models.
+
+33:43.240 --> 33:45.800
+ So I used to at MIT, at Stanford, I'm not quite sure.
+
+33:45.800 --> 33:47.360
+ I'm not teaching until next spring.
+
+33:47.360 --> 33:50.040
+ I'm still thinking what my course is gonna be.
+
+33:50.040 --> 33:52.200
+ But there are a lot of different business models.
+
+33:52.200 --> 33:54.880
+ And when you have something that has zero marginal cost,
+
+33:54.880 --> 33:56.400
+ there's a lot of forces,
+
+33:56.400 --> 33:57.880
+ especially if there's any kind of competition
+
+33:57.880 --> 33:59.960
+ that push prices down to zero.
+
+33:59.960 --> 34:03.360
+ But you can have ad supported systems,
+
+34:03.360 --> 34:05.520
+ you can bundle things together.
+
+34:05.520 --> 34:07.360
+ You can have volunteer, you mentioned Wikipedia,
+
+34:07.360 --> 34:08.760
+ there's donations.
+
+34:08.760 --> 34:11.120
+ And I think economists underestimate
+
+34:11.120 --> 34:14.560
+ the power of volunteerism and donations.
+
+34:14.560 --> 34:16.040
+ Your national public radio.
+
+34:16.040 --> 34:18.560
+ Actually, how do you, this podcast, how is this,
+
+34:18.560 --> 34:19.480
+ what's the revenue model?
+
+34:19.480 --> 34:22.240
+ There's sponsors at the beginning.
+
+34:22.240 --> 34:24.640
+ And then, and people, the funny thing is,
+
+34:24.640 --> 34:26.640
+ I tell people they can, it's very,
+
+34:26.640 --> 34:27.880
+ I tell them the timestamp.
+
+34:27.880 --> 34:30.960
+ So if you wanna skip the sponsors, you're free.
+
+34:30.960 --> 34:33.560
+ But it's funny that a bunch of people,
+
+34:33.560 --> 34:36.200
+ so I read the advertisement
+
+34:36.200 --> 34:38.400
+ and then a bunch of people enjoy reading it.
+
+34:38.400 --> 34:39.240
+ And it's.
+
+34:39.240 --> 34:40.080
+ Well, they may learn something from it.
+
+34:40.080 --> 34:42.920
+ And also from the advertiser's perspective,
+
+34:42.920 --> 34:45.400
+ those are people who are actually interested.
+
+34:45.400 --> 34:46.960
+ I mean, the example I sometimes get is like,
+
+34:46.960 --> 34:49.840
+ I bought a car recently and all of a sudden,
+
+34:49.840 --> 34:52.400
+ all the car ads were like interesting to me.
+
+34:52.400 --> 34:53.240
+ Exactly.
+
+34:53.240 --> 34:54.360
+ And then like, now that I have the car,
+
+34:54.360 --> 34:56.280
+ like I sort of zone out on, but that's fine.
+
+34:56.280 --> 34:58.720
+ The car companies, they don't really wanna be advertising
+
+34:58.720 --> 35:01.320
+ to me if I'm not gonna buy their product.
+
+35:01.320 --> 35:03.560
+ So there are a lot of these different revenue models
+
+35:03.560 --> 35:06.880
+ and it's a little complicated,
+
+35:06.880 --> 35:08.000
+ but the economic theory has to do
+
+35:08.000 --> 35:09.480
+ with what the shape of the demand curve is,
+
+35:09.480 --> 35:13.160
+ when it's better to monetize it with charging people
+
+35:13.160 --> 35:15.640
+ versus when you're better off doing advertising.
+
+35:15.640 --> 35:18.280
+ I mean, in short, when the demand curve
+
+35:18.280 --> 35:20.600
+ is relatively flat and wide,
+
+35:20.600 --> 35:22.760
+ like generic news and things like that,
+
+35:22.760 --> 35:25.920
+ then you tend to do better with advertising.
+
+35:25.920 --> 35:28.840
+ If it's a good that's only useful to a small number
+
+35:28.840 --> 35:30.320
+ of people, but they're willing to pay a lot,
+
+35:30.320 --> 35:32.720
+ they have a very high value for it,
+
+35:32.720 --> 35:34.560
+ then advertising isn't gonna work as well
+
+35:34.560 --> 35:36.080
+ and you're better off charging for it.
+
+35:36.080 --> 35:38.080
+ Both of them have some inefficiencies.
+
+35:38.080 --> 35:39.480
+ And then when you get into targeting
+
+35:39.480 --> 35:40.600
+ and you get into these other revenue models,
+
+35:40.600 --> 35:41.960
+ it gets more complicated,
+
+35:41.960 --> 35:45.320
+ but there's some economic theory on it.
+
+35:45.320 --> 35:47.560
+ I also think to be frank,
+
+35:47.560 --> 35:49.560
+ there's just a lot of experimentation that's needed
+
+35:49.560 --> 35:53.200
+ because sometimes things are a little counterintuitive,
+
+35:53.200 --> 35:55.160
+ especially when you get into what are called
+
+35:55.160 --> 35:57.640
+ two sided networks or platform effects,
+
+35:57.640 --> 36:01.840
+ where you may grow the market on one side
+
+36:01.840 --> 36:04.120
+ and harvest the revenue on the other side.
+
+36:04.120 --> 36:06.080
+ Facebook tries to get more and more users
+
+36:06.080 --> 36:08.960
+ and then they harvest the revenue from advertising.
+
+36:08.960 --> 36:12.040
+ So that's another way of kind of thinking about it.
+
+36:12.040 --> 36:14.400
+ Is it strange to you that they haven't experimented?
+
+36:14.400 --> 36:15.360
+ Well, they are experimenting.
+
+36:15.360 --> 36:17.600
+ So they are doing some experiments
+
+36:17.600 --> 36:20.360
+ about what the willingness is for people to pay.
+
+36:22.040 --> 36:23.560
+ I think that when they do the math,
+
+36:23.560 --> 36:26.400
+ it's gonna work out that they still are better off
+
+36:26.400 --> 36:29.440
+ with an advertising driven model, but...
+
+36:29.440 --> 36:30.400
+ What about a mix?
+
+36:30.400 --> 36:32.400
+ Like this is what YouTube is, right?
+
+36:32.400 --> 36:36.360
+ It's you allow the person to decide,
+
+36:36.360 --> 36:39.360
+ the customer to decide exactly which model they prefer.
+
+36:39.360 --> 36:40.920
+ No, that can work really well.
+
+36:40.920 --> 36:41.760
+ And newspapers, of course,
+
+36:41.760 --> 36:42.760
+ have known this for a long time.
+
+36:42.760 --> 36:44.560
+ The Wall Street Journal, the New York Times,
+
+36:44.560 --> 36:45.840
+ they have subscription revenue.
+
+36:45.840 --> 36:48.080
+ They also have advertising revenue.
+
+36:48.080 --> 36:52.200
+ And that can definitely work.
+
+36:52.200 --> 36:54.080
+ Online, it's a lot easier to have a dial
+
+36:54.080 --> 36:55.240
+ that's much more personalized
+
+36:55.240 --> 36:57.720
+ and everybody can kind of roll their own mix.
+
+36:57.720 --> 37:00.320
+ And I could imagine having a little slider
+
+37:00.320 --> 37:05.040
+ about how much advertising you want or are willing to take.
+
+37:05.040 --> 37:07.400
+ And if it's done right and it's incentive compatible,
+
+37:07.400 --> 37:10.960
+ it could be a win win where both the content provider
+
+37:10.960 --> 37:12.560
+ and the consumer are better off
+
+37:12.560 --> 37:14.480
+ than they would have been before.
+
+37:14.480 --> 37:17.960
+ Yeah, the done right part is a really good point.
+
+37:17.960 --> 37:19.600
+ Like with the Jeff Bezos
+
+37:19.600 --> 37:22.000
+ and the single click purchase on Amazon,
+
+37:22.000 --> 37:23.880
+ the frictionless effort there,
+
+37:23.880 --> 37:25.760
+ if I could just rant for a second
+
+37:25.760 --> 37:27.240
+ about the Wall Street Journal,
+
+37:27.240 --> 37:29.280
+ all the newspapers you mentioned,
+
+37:29.280 --> 37:34.280
+ is I have to click so many times to subscribe to them
+
+37:34.800 --> 37:37.400
+ that I literally don't subscribe
+
+37:37.400 --> 37:39.520
+ just because of the number of times I have to click.
+
+37:39.520 --> 37:40.360
+ I'm totally with you.
+
+37:40.360 --> 37:44.560
+ I don't understand why so many companies make it so hard.
+
+37:44.560 --> 37:47.240
+ I mean, another example is when you buy a new iPhone
+
+37:47.240 --> 37:48.900
+ or a new computer, whatever,
+
+37:48.900 --> 37:51.440
+ I feel like, okay, I'm gonna lose an afternoon
+
+37:51.440 --> 37:53.800
+ just like loading up and getting all my stuff back.
+
+37:53.800 --> 37:56.080
+ And for a lot of us,
+
+37:56.080 --> 37:58.600
+ that's more of a deterrent than the price.
+
+37:58.600 --> 38:01.800
+ And if they could make it painless,
+
+38:01.800 --> 38:03.680
+ we'd give them a lot more money.
+
+38:03.680 --> 38:06.440
+ So I'm hoping somebody listening is working
+
+38:06.440 --> 38:10.000
+ on making it more painless for us to buy your products.
+
+38:10.000 --> 38:12.280
+ If we could just like linger a little bit
+
+38:12.280 --> 38:13.680
+ on the social network thing,
+
+38:13.680 --> 38:18.200
+ because there's this Netflix social dilemma.
+
+38:18.200 --> 38:19.280
+ Yeah, no, I saw that.
+
+38:19.280 --> 38:22.620
+ And Tristan Harris and company, yeah.
+
+38:24.000 --> 38:27.100
+ And people's data,
+
+38:29.500 --> 38:31.560
+ it's really sensitive and social networks
+
+38:31.560 --> 38:36.560
+ are at the core arguably of many of societal like tension
+
+38:37.440 --> 38:39.640
+ and some of the most important things happening in society.
+
+38:39.640 --> 38:42.040
+ So it feels like it's important to get this right,
+
+38:42.040 --> 38:43.960
+ both from a business model perspective
+
+38:43.960 --> 38:46.340
+ and just like a trust perspective.
+
+38:46.340 --> 38:49.840
+ I still gotta, I mean, it just still feels like,
+
+38:49.840 --> 38:52.140
+ I know there's experimentation going on.
+
+38:52.140 --> 38:54.740
+ It still feels like everyone is afraid
+
+38:54.740 --> 38:57.520
+ to try different business models, like really try.
+
+38:57.520 --> 38:59.600
+ Well, I'm worried that people are afraid
+
+38:59.600 --> 39:01.220
+ to try different business models.
+
+39:01.220 --> 39:03.480
+ I'm also worried that some of the business models
+
+39:03.480 --> 39:06.280
+ may lead them to bad choices.
+
+39:06.280 --> 39:10.980
+ And Danny Kahneman talks about system one and system two,
+
+39:10.980 --> 39:12.280
+ sort of like a reptilian brain
+
+39:12.280 --> 39:14.360
+ that reacts quickly to what we see,
+
+39:14.360 --> 39:16.160
+ see something interesting, we click on it,
+
+39:16.160 --> 39:20.800
+ we retweet it versus our system two,
+
+39:20.800 --> 39:24.080
+ our frontal cortex that's supposed to be more careful
+
+39:24.080 --> 39:26.240
+ and rational that really doesn't make
+
+39:26.240 --> 39:27.800
+ as many decisions as it should.
+
+39:28.840 --> 39:32.680
+ I think there's a tendency for a lot of these social networks
+
+39:32.680 --> 39:37.680
+ to really exploit system one, our quick instant reaction,
+
+39:37.680 --> 39:40.960
+ make it so we just click on stuff and pass it on
+
+39:40.960 --> 39:42.320
+ and not really think carefully about it.
+
+39:42.320 --> 39:45.160
+ And that system, it tends to be driven
+
+39:45.160 --> 39:50.160
+ by sex, violence, disgust, anger, fear,
+
+39:51.320 --> 39:53.800
+ these relatively primitive kinds of emotions.
+
+39:53.800 --> 39:55.960
+ Maybe they're important for a lot of purposes,
+
+39:55.960 --> 39:58.920
+ but they're not a great way to organize a society.
+
+39:58.920 --> 40:01.920
+ And most importantly, when you think about this huge,
+
+40:01.920 --> 40:04.320
+ amazing information infrastructure we've had
+
+40:04.320 --> 40:08.000
+ that's connected billions of brains across the globe,
+
+40:08.000 --> 40:09.640
+ not just so we can all access information,
+
+40:09.640 --> 40:12.640
+ but we can all contribute to it and share it.
+
+40:12.640 --> 40:14.100
+ Arguably the most important thing
+
+40:14.100 --> 40:19.100
+ that that network should do is favor truth over falsehoods.
+
+40:19.360 --> 40:21.640
+ And the way it's been designed,
+
+40:21.640 --> 40:24.660
+ not necessarily intentionally, is exactly the opposite.
+
+40:24.660 --> 40:29.440
+ My MIT colleagues are all, and Deb Roy and others at MIT,
+
+40:29.440 --> 40:31.760
+ did a terrific paper in the cover of Science.
+
+40:31.760 --> 40:33.460
+ And they documented what we all feared,
+
+40:33.460 --> 40:37.740
+ which is that lies spread faster than truth
+
+40:37.740 --> 40:39.760
+ on social networks.
+
+40:39.760 --> 40:42.760
+ They looked at a bunch of tweets and retweets,
+
+40:42.760 --> 40:44.560
+ and they found that false information
+
+40:44.560 --> 40:48.960
+ was more likely to spread further, faster, to more people.
+
+40:48.960 --> 40:49.920
+ And why was that?
+
+40:49.920 --> 40:53.360
+ It's not because people like lies.
+
+40:53.360 --> 40:55.880
+ It's because people like things that are shocking,
+
+40:55.880 --> 40:57.840
+ amazing, can you believe this?
+
+40:57.840 --> 41:00.280
+ Something that is not mundane,
+
+41:00.280 --> 41:02.460
+ not something that everybody else already knew.
+
+41:02.460 --> 41:05.400
+ And what are the most unbelievable things?
+
+41:05.400 --> 41:07.320
+ Well, lies.
+
+41:07.320 --> 41:09.820
+ And so if you wanna find something unbelievable,
+
+41:09.820 --> 41:10.660
+ it's a lot easier to do that
+
+41:10.660 --> 41:12.440
+ if you're not constrained by the truth.
+
+41:12.440 --> 41:15.640
+ So they found that the emotional valence
+
+41:15.640 --> 41:17.960
+ of false information was just much higher.
+
+41:17.960 --> 41:19.680
+ It was more likely to be shocking,
+
+41:19.680 --> 41:21.680
+ and therefore more likely to be spread.
+
+41:22.880 --> 41:24.040
+ Another interesting thing was that
+
+41:24.040 --> 41:26.560
+ that wasn't necessarily driven by the algorithms.
+
+41:27.580 --> 41:29.680
+ I know that there is some evidence,
+
+41:29.680 --> 41:32.400
+ Zeynep Tufekci and others have pointed out on YouTube,
+
+41:32.400 --> 41:34.680
+ some of the algorithms unintentionally were tuned
+
+41:34.680 --> 41:37.840
+ to amplify more extremist content.
+
+41:37.840 --> 41:42.420
+ But in the study of Twitter that Sinan and Deb and others did,
+
+41:42.420 --> 41:44.480
+ they found that even if you took out all the bots
+
+41:44.480 --> 41:47.880
+ and all the automated tweets,
+
+41:47.880 --> 41:50.760
+ you still had lies spreading significantly faster.
+
+41:50.760 --> 41:52.560
+ It's just the problems with ourselves
+
+41:52.560 --> 41:57.080
+ that we just can't resist passing on the salacious content.
+
+41:58.480 --> 41:59.920
+ But I also blame the platforms
+
+41:59.920 --> 42:03.160
+ because there's different ways you can design a platform.
+
+42:03.160 --> 42:05.400
+ You can design a platform in a way
+
+42:05.400 --> 42:07.280
+ that makes it easy to spread lies
+
+42:07.280 --> 42:09.520
+ and to retweet and spread things on,
+
+42:09.520 --> 42:11.520
+ or you can kind of put some friction on that
+
+42:11.520 --> 42:13.960
+ and try to favor truth.
+
+42:13.960 --> 42:15.520
+ I had dinner with Jimmy Wales once,
+
+42:15.520 --> 42:19.720
+ the guy who helped found Wikipedia.
+
+42:19.720 --> 42:22.580
+ And he convinced me that, look,
+
+42:22.580 --> 42:24.500
+ you can make some design choices,
+
+42:24.500 --> 42:26.360
+ whether it's at Facebook, at Twitter,
+
+42:26.360 --> 42:29.240
+ at Wikipedia, or Reddit, whatever,
+
+42:29.240 --> 42:31.440
+ and depending on how you make those choices,
+
+42:32.340 --> 42:35.080
+ you're more likely or less likely to have false news.
+
+42:35.080 --> 42:37.160
+ Create a little bit of friction, like you said.
+
+42:37.160 --> 42:38.000
+ Yeah.
+
+42:38.000 --> 42:39.560
+ You know, that's the, and so if I'm...
+
+42:39.560 --> 42:41.560
+ It could be friction, it could be speeding the truth,
+
+42:41.560 --> 42:44.400
+ either way, but, and I don't totally understand...
+
+42:44.400 --> 42:45.520
+ Speeding the truth, I love it.
+
+42:45.520 --> 42:47.040
+ Yeah, yeah.
+
+42:47.040 --> 42:48.900
+ Amplifying it and giving it more credit.
+
+42:48.900 --> 42:52.520
+ And in academia, which is far, far from perfect,
+
+42:52.520 --> 42:55.640
+ but when someone has an important discovery,
+
+42:55.640 --> 42:56.880
+ it tends to get more cited
+
+42:56.880 --> 42:58.160
+ and people kind of look to it more
+
+42:58.160 --> 43:00.760
+ and sort of, it tends to get amplified a little bit.
+
+43:00.760 --> 43:03.320
+ So you could try to do that too.
+
+43:03.320 --> 43:04.680
+ I don't know what the silver bullet is,
+
+43:04.680 --> 43:07.440
+ but the meta point is that if we spend time
+
+43:07.440 --> 43:10.800
+ thinking about it, we can amplify truth over falsehoods.
+
+43:10.800 --> 43:14.920
+ And I'm disappointed in the heads of these social networks
+
+43:14.920 --> 43:16.680
+ that they haven't been as successful
+
+43:16.680 --> 43:19.540
+ or maybe haven't tried as hard to amplify truth.
+
+43:19.540 --> 43:21.560
+ And part of it, going back to what we said earlier,
+
+43:21.560 --> 43:25.140
+ is these revenue models may push them
+
+43:25.140 --> 43:29.880
+ more towards growing fast, spreading information rapidly,
+
+43:29.880 --> 43:31.440
+ getting lots of users,
+
+43:31.440 --> 43:34.560
+ which isn't the same thing as finding truth.
+
+43:34.560 --> 43:38.840
+ Yeah, I mean, implicit in what you're saying now
+
+43:38.840 --> 43:42.240
+ is a hopeful message that with platforms,
+
+43:42.240 --> 43:47.240
+ we can take a step towards a greater
+
+43:47.440 --> 43:51.120
+ and greater popularity of truth.
+
+43:51.120 --> 43:54.000
+ But the more cynical view is that
+
+43:54.000 --> 43:56.800
+ what the last few years have revealed
+
+43:56.800 --> 43:59.020
+ is that there's a lot of money to be made
+
+43:59.020 --> 44:03.120
+ in dismantling even the idea of truth,
+
+44:03.120 --> 44:05.000
+ that nothing is true.
+
+44:05.000 --> 44:07.020
+ And as a thought experiment,
+
+44:07.020 --> 44:09.320
+ I've been thinking about if it's possible
+
+44:09.320 --> 44:11.200
+ that our future will have,
+
+44:11.200 --> 44:14.360
+ like the idea of truth is something we won't even have.
+
+44:14.360 --> 44:17.800
+ Do you think it's possible in the future
+
+44:17.800 --> 44:20.980
+ that everything is on the table in terms of truth,
+
+44:20.980 --> 44:24.720
+ and we're just swimming in this kind of digital economy
+
+44:24.720 --> 44:29.720
+ where ideas are just little toys
+
+44:29.720 --> 44:33.080
+ that are not at all connected to reality?
+
+44:33.080 --> 44:35.760
+ Yeah, I think that's definitely possible.
+
+44:35.760 --> 44:37.960
+ I'm not a technological determinist,
+
+44:37.960 --> 44:40.280
+ so I don't think that's inevitable.
+
+44:40.280 --> 44:42.300
+ I don't think it's inevitable that it doesn't happen.
+
+44:42.300 --> 44:43.960
+ I mean, the thing that I've come away with
+
+44:43.960 --> 44:45.320
+ every time I do these studies,
+
+44:45.320 --> 44:47.200
+ and I emphasize it in my books and elsewhere,
+
+44:47.200 --> 44:50.040
+ is that technology doesn't shape our destiny,
+
+44:50.040 --> 44:51.680
+ we shape our destiny.
+
+44:51.680 --> 44:54.640
+ So just by us having this conversation,
+
+44:54.640 --> 44:58.440
+ I hope that your audience is gonna take it upon themselves
+
+44:58.440 --> 44:59.880
+ as they design their products,
+
+44:59.880 --> 45:01.280
+ and they think about, they use products,
+
+45:01.280 --> 45:02.760
+ as they manage companies,
+
+45:02.760 --> 45:05.300
+ how can they make conscious decisions
+
+45:05.300 --> 45:08.840
+ to favor truth over falsehoods,
+
+45:08.840 --> 45:10.880
+ favor the better kinds of societies,
+
+45:10.880 --> 45:13.720
+ and not abdicate and say, well, we just build the tools.
+
+45:13.720 --> 45:15.600
+ I think there was a saying that,
+
+45:16.940 --> 45:18.300
+ was it the German scientist
+
+45:18.300 --> 45:23.000
+ when they were working on the missiles in late World War II?
+
+45:23.000 --> 45:25.680
+ They said, well, our job is to make the missiles go up.
+
+45:25.680 --> 45:28.400
+ Where they come down, that's someone else's department.
+
+45:28.400 --> 45:31.840
+ And that's obviously not the, I think it's obvious,
+
+45:31.840 --> 45:32.840
+ that's not the right attitude
+
+45:32.840 --> 45:33.980
+ that technologists should have,
+
+45:33.980 --> 45:35.680
+ that engineers should have.
+
+45:35.680 --> 45:36.920
+ They should be very conscious
+
+45:36.920 --> 45:38.800
+ about what the implications are.
+
+45:38.800 --> 45:40.600
+ And if we think carefully about it,
+
+45:40.600 --> 45:42.920
+ we can avoid the kind of world that you just described,
+
+45:42.920 --> 45:45.040
+ where truth is all relative.
+
+45:45.040 --> 45:47.840
+ There are going to be people who benefit from a world
+
+45:47.840 --> 45:51.320
+ of where people don't check facts,
+
+45:51.320 --> 45:52.680
+ and where truth is relative,
+
+45:52.680 --> 45:57.680
+ and popularity or fame or money is orthogonal to truth.
+
+45:59.880 --> 46:01.880
+ But one of the reasons I suspect
+
+46:01.880 --> 46:04.540
+ that we've had so much progress over the past few hundred
+
+46:04.540 --> 46:07.600
+ years is the invention of the scientific method,
+
+46:07.600 --> 46:10.200
+ which is a really powerful tool or meta tool
+
+46:10.200 --> 46:15.200
+ for finding truth and favoring things that are true
+
+46:15.400 --> 46:16.600
+ versus things that are false.
+
+46:16.600 --> 46:18.560
+ If they don't pass the scientific method,
+
+46:18.560 --> 46:20.640
+ they're less likely to be true.
+
+46:20.640 --> 46:25.560
+ And that has, the societies and the people
+
+46:25.560 --> 46:27.760
+ and the organizations that embrace that
+
+46:27.760 --> 46:30.520
+ have done a lot better than the ones who haven't.
+
+46:30.520 --> 46:32.800
+ And so I'm hoping that people keep that in mind
+
+46:32.800 --> 46:35.460
+ and continue to try to embrace not just the truth,
+
+46:35.460 --> 46:37.640
+ but methods that lead to the truth.
+
+46:37.640 --> 46:40.520
+ So maybe on a more personal question,
+
+46:41.400 --> 46:45.480
+ if one were to try to build a competitor to Twitter,
+
+46:45.480 --> 46:47.360
+ what would you advise?
+
+46:47.360 --> 46:52.360
+ Is there, I mean, the bigger, the meta question,
+
+46:53.360 --> 46:55.680
+ is that the right way to improve systems?
+
+46:55.680 --> 46:59.380
+ Yeah, no, I think that the underlying premise
+
+46:59.380 --> 47:01.380
+ behind Twitter and all these networks is amazing,
+
+47:01.380 --> 47:02.800
+ that we can communicate with each other.
+
+47:02.800 --> 47:04.000
+ And I use it a lot.
+
+47:04.000 --> 47:05.920
+ There's a subpart of Twitter called Econ Twitter,
+
+47:05.920 --> 47:08.640
+ where we economists tweet to each other
+
+47:08.640 --> 47:10.560
+ and talk about new papers.
+
+47:10.560 --> 47:11.960
+ Something came out in the NBER,
+
+47:11.960 --> 47:13.320
+ the National Bureau of Economic Research,
+
+47:13.320 --> 47:14.160
+ and we share about it.
+
+47:14.160 --> 47:15.360
+ People critique it.
+
+47:15.360 --> 47:16.880
+ I think it's been a godsend
+
+47:16.880 --> 47:20.040
+ because it's really sped up the scientific process,
+
+47:20.040 --> 47:21.880
+ if you can call economic scientific.
+
+47:21.880 --> 47:23.560
+ Does it get divisive in that little?
+
+47:23.560 --> 47:24.500
+ Sometimes, yeah, sure.
+
+47:24.500 --> 47:25.340
+ Sometimes it does.
+
+47:25.340 --> 47:28.360
+ It can also be done in nasty ways and there's the bad parts.
+
+47:28.360 --> 47:29.680
+ But the good parts are great
+
+47:29.680 --> 47:31.640
+ because you just speed up that clock speed
+
+47:31.640 --> 47:33.320
+ of learning about things.
+
+47:33.320 --> 47:35.480
+ Instead of like in the old, old days,
+
+47:35.480 --> 47:36.800
+ waiting to read it in a journal,
+
+47:36.800 --> 47:39.520
+ or the not so old days when you'd see it posted
+
+47:39.520 --> 47:41.600
+ on a website and you'd read it.
+
+47:41.600 --> 47:44.000
+ Now on Twitter, people will distill it down
+
+47:44.000 --> 47:47.160
+ and it's a real art to getting to the essence of things.
+
+47:47.160 --> 47:49.080
+ So that's been great.
+
+47:49.080 --> 47:52.320
+ But it certainly, we all know that Twitter
+
+47:52.320 --> 47:55.560
+ can be a cesspool of misinformation.
+
+47:55.560 --> 47:57.360
+ And like I just said,
+
+47:57.360 --> 48:00.240
+ unfortunately misinformation tends to spread faster
+
+48:00.240 --> 48:02.320
+ on Twitter than truth.
+
+48:02.320 --> 48:03.160
+ And there are a lot of people
+
+48:03.160 --> 48:04.200
+ who are very vulnerable to it.
+
+48:04.200 --> 48:06.000
+ I'm sure I've been fooled at times.
+
+48:06.000 --> 48:09.120
+ There are agents, whether from Russia
+
+48:09.120 --> 48:11.680
+ or from political groups or others
+
+48:11.680 --> 48:15.640
+ that explicitly create efforts at misinformation
+
+48:15.640 --> 48:17.900
+ and efforts at getting people to hate each other.
+
+48:17.900 --> 48:19.720
+ Or even more important lately I've discovered
+
+48:19.720 --> 48:21.200
+ is nut picking.
+
+48:21.200 --> 48:22.320
+ You know the idea of nut picking?
+
+48:22.320 --> 48:23.160
+ No, what's that?
+
+48:23.160 --> 48:24.320
+ It's a good term.
+
+48:24.320 --> 48:27.800
+ Nut picking is when you find like an extreme nut case
+
+48:27.800 --> 48:30.700
+ on the other side and then you amplify them
+
+48:30.700 --> 48:34.000
+ and make it seem like that's typical of the other side.
+
+48:34.000 --> 48:35.480
+ So you're not literally lying.
+
+48:35.480 --> 48:37.760
+ You're taking some idiot, you know,
+
+48:37.760 --> 48:39.920
+ renting on the subway or just, you know,
+
+48:39.920 --> 48:42.800
+ whether they're in the KKK or Antifa or whatever,
+
+48:42.800 --> 48:44.360
+ they're just, and you,
+
+48:44.360 --> 48:46.040
+ normally nobody would pay attention to this guy.
+
+48:46.040 --> 48:48.080
+ Like 12 people would see him and it'd be the end.
+
+48:48.080 --> 48:51.120
+ Instead with video or whatever,
+
+48:51.120 --> 48:54.520
+ you get tens of millions of people say it.
+
+48:54.520 --> 48:56.320
+ And I've seen this, you know, I look at it,
+
+48:56.320 --> 48:57.160
+ I'm like, I get angry.
+
+48:57.160 --> 48:58.280
+ I'm like, I can't believe that person
+
+48:58.280 --> 48:59.720
+ did something so terrible.
+
+48:59.720 --> 49:02.880
+ Let me tell all my friends about this terrible person.
+
+49:02.880 --> 49:06.640
+ And it's a great way to generate division.
+
+49:06.640 --> 49:10.520
+ I talked to a friend who studied Russian misinformation
+
+49:10.520 --> 49:13.840
+ campaigns, and they're very clever about literally
+
+49:13.840 --> 49:15.880
+ being on both sides of some of these debates.
+
+49:15.880 --> 49:18.620
+ They would have some people pretend to be part of BLM.
+
+49:18.620 --> 49:21.040
+ Some people pretend to be white nationalists
+
+49:21.040 --> 49:22.960
+ and they would be throwing epithets at each other,
+
+49:22.960 --> 49:25.100
+ saying crazy things at each other.
+
+49:25.100 --> 49:26.600
+ And they're literally playing both sides of it,
+
+49:26.600 --> 49:28.600
+ but their goal wasn't for one or the other to win.
+
+49:28.600 --> 49:30.120
+ It was for everybody to get behaving
+
+49:30.120 --> 49:32.000
+ and distrusting everyone else.
+
+49:32.000 --> 49:34.500
+ So these tools can definitely be used for that.
+
+49:34.500 --> 49:36.580
+ And they are being used for that.
+
+49:36.580 --> 49:39.680
+ It's been super destructive for our democracy
+
+49:39.680 --> 49:41.080
+ and our society.
+
+49:41.080 --> 49:43.540
+ And the people who run these platforms,
+
+49:43.540 --> 49:46.100
+ I think have a social responsibility,
+
+49:46.100 --> 49:48.680
+ a moral and ethical, personal responsibility
+
+49:48.680 --> 49:51.800
+ to do a better job and to shut that stuff down.
+
+49:51.800 --> 49:52.960
+ Well, I don't know if you can shut it down,
+
+49:52.960 --> 49:55.800
+ but to design them in a way that, you know,
+
+49:55.800 --> 49:58.620
+ as I said earlier, favors truth over falsehoods
+
+49:58.620 --> 50:01.320
+ and favors positive types of
+
+50:03.200 --> 50:06.060
+ communication versus destructive ones.
+
+50:06.060 --> 50:09.600
+ And just like you said, it's also on us.
+
+50:09.600 --> 50:12.400
+ I try to be all about love and compassion,
+
+50:12.400 --> 50:13.280
+ empathy on Twitter.
+
+50:13.280 --> 50:14.820
+ I mean, one of the things,
+
+50:14.820 --> 50:16.600
+ nut picking is a fascinating term.
+
+50:16.600 --> 50:18.940
+ One of the things that people do,
+
+50:18.940 --> 50:21.800
+ that's I think even more dangerous
+
+50:21.800 --> 50:26.760
+ is nut picking applied to individual statements
+
+50:26.760 --> 50:28.440
+ of good people.
+
+50:28.440 --> 50:32.180
+ So basically worst case analysis in computer science
+
+50:32.180 --> 50:35.360
+ is taking sometimes out of context,
+
+50:35.360 --> 50:37.040
+ but sometimes in context,
+
+50:38.480 --> 50:42.320
+ a statement, one statement by a person,
+
+50:42.320 --> 50:43.740
+ like I've been, because I've been reading
+
+50:43.740 --> 50:45.360
+ The Rise and Fall of the Third Reich,
+
+50:45.360 --> 50:48.960
+ I often talk about Hitler on this podcast with folks
+
+50:48.960 --> 50:50.640
+ and it is so easy.
+
+50:50.640 --> 50:52.060
+ That's really dangerous.
+
+50:52.060 --> 50:54.560
+ But I'm all leaning in, I'm 100%.
+
+50:54.560 --> 50:56.960
+ Because, well, it's actually a safer place
+
+50:56.960 --> 50:59.200
+ than people realize because it's history
+
+50:59.200 --> 51:04.120
+ and history in long form is actually very fascinating
+
+51:04.120 --> 51:06.300
+ to think about and it's,
+
+51:06.300 --> 51:09.600
+ but I could see how that could be taken
+
+51:09.600 --> 51:11.320
+ totally out of context and it's very worrying.
+
+51:11.320 --> 51:12.800
+ You know, these digital infrastructures,
+
+51:12.800 --> 51:14.040
+ not just they disseminate things,
+
+51:14.040 --> 51:14.880
+ but they're sort of permanent.
+
+51:14.880 --> 51:16.540
+ So anything you say at some point,
+
+51:16.540 --> 51:18.160
+ someone can go back and find something you said
+
+51:18.160 --> 51:21.080
+ three years ago, perhaps jokingly, perhaps not,
+
+51:21.080 --> 51:22.800
+ maybe you're just wrong and you made them, you know,
+
+51:22.800 --> 51:25.600
+ and like that becomes, they can use that to define you
+
+51:25.600 --> 51:26.840
+ if they have ill intent.
+
+51:26.840 --> 51:29.080
+ And we all need to be a little more forgiving.
+
+51:29.080 --> 51:32.240
+ I mean, somewhere in my 20s, I told myself,
+
+51:32.240 --> 51:33.820
+ I was going through all my different friends
+
+51:33.820 --> 51:37.300
+ and I was like, you know, every one of them
+
+51:37.300 --> 51:39.400
+ has at least like one nutty opinion.
+
+51:39.400 --> 51:42.040
+ And I was like, there's like nobody
+
+51:42.040 --> 51:44.160
+ who's like completely, except me, of course,
+
+51:44.160 --> 51:45.700
+ but I'm sure they thought that about me too.
+
+51:45.700 --> 51:47.760
+ And so you just kind of like learned
+
+51:47.760 --> 51:49.420
+ to be a little bit tolerant that like, okay,
+
+51:49.420 --> 51:51.140
+ there's just, you know.
+
+51:51.140 --> 51:55.240
+ Yeah, I wonder who the responsibility lays on there.
+
+51:55.240 --> 51:59.680
+ Like, I think ultimately it's about leadership.
+
+51:59.680 --> 52:02.760
+ Like the previous president, Barack Obama,
+
+52:02.760 --> 52:06.040
+ has been, I think, quite eloquent
+
+52:06.040 --> 52:07.680
+ at walking this very difficult line
+
+52:07.680 --> 52:10.640
+ of talking about cancel culture, but it's a difficult,
+
+52:10.640 --> 52:12.160
+ it takes skill.
+
+52:12.160 --> 52:13.800
+ Because you say the wrong thing
+
+52:13.800 --> 52:15.320
+ and you piss off a lot of people.
+
+52:15.320 --> 52:17.440
+ And so you have to do it well.
+
+52:17.440 --> 52:20.000
+ But then also the platform of the technology is,
+
+52:21.220 --> 52:23.600
+ should slow down, create friction,
+
+52:23.600 --> 52:26.440
+ and spreading this kind of nut picking in all its forms.
+
+52:26.440 --> 52:27.280
+ Absolutely.
+
+52:27.280 --> 52:29.780
+ No, and your point that we have to like learn over time,
+
+52:29.780 --> 52:30.620
+ how to manage it.
+
+52:30.620 --> 52:31.800
+ I mean, we can't put it all on the platform
+
+52:31.800 --> 52:33.240
+ and say, you guys design it.
+
+52:33.240 --> 52:35.200
+ Because if we're idiots about using it,
+
+52:35.200 --> 52:38.480
+ nobody can design a platform that withstands that.
+
+52:38.480 --> 52:41.720
+ And every new technology people learn its dangers.
+
+52:41.720 --> 52:43.960
+ You know, when someone invented fire,
+
+52:43.960 --> 52:44.960
+ it's great cooking and everything,
+
+52:44.960 --> 52:46.160
+ but then somebody burned themself.
+
+52:46.160 --> 52:48.200
+ And then you had to like learn how to like avoid,
+
+52:48.200 --> 52:50.640
+ maybe somebody invented a fire extinguisher later.
+
+52:50.640 --> 52:52.840
+ So you kind of like figure out ways
+
+52:52.840 --> 52:54.640
+ of working around these technologies.
+
+52:54.640 --> 52:57.440
+ Someone invented seat belts, et cetera.
+
+52:57.440 --> 52:58.640
+ And that's certainly true
+
+52:58.640 --> 53:00.620
+ with all the new digital technologies
+
+53:00.620 --> 53:02.320
+ that we have to figure out,
+
+53:02.320 --> 53:05.280
+ not just technologies that protect us,
+
+53:05.280 --> 53:08.640
+ but ways of using them that emphasize
+
+53:08.640 --> 53:11.520
+ that are more likely to be successful than dangerous.
+
+53:11.520 --> 53:12.560
+ So you've written quite a bit
+
+53:12.560 --> 53:16.020
+ about how artificial intelligence might change our world.
+
+53:19.000 --> 53:21.240
+ How do you think if we look forward,
+
+53:21.240 --> 53:23.200
+ again, it's impossible to predict the future,
+
+53:23.200 --> 53:26.440
+ but if we look at trends from the past
+
+53:26.440 --> 53:28.200
+ and we tried to predict what's gonna happen
+
+53:28.200 --> 53:29.720
+ in the rest of the 21st century,
+
+53:29.720 --> 53:31.840
+ how do you think AI will change our world?
+
+53:33.080 --> 53:34.200
+ That's a big question.
+
+53:34.200 --> 53:37.440
+ You know, I'm mostly a techno optimist.
+
+53:37.440 --> 53:38.660
+ I'm not at the extreme, you know,
+
+53:38.660 --> 53:41.080
+ the singularity is near end of the spectrum,
+
+53:41.080 --> 53:44.560
+ but I do think that we're likely in
+
+53:44.560 --> 53:47.480
+ for some significantly improved living standards,
+
+53:47.480 --> 53:49.260
+ some really important progress,
+
+53:49.260 --> 53:51.240
+ even just the technologies that are already kind of like
+
+53:51.240 --> 53:53.080
+ in the can that haven't diffused.
+
+53:53.080 --> 53:54.880
+ You know, when I talked earlier about the J curve,
+
+53:54.880 --> 53:58.760
+ it could take 10, 20, 30 years for an existing technology
+
+53:58.760 --> 54:00.780
+ to have the kind of profound effects.
+
+54:00.780 --> 54:03.760
+ And when I look at whether it's, you know,
+
+54:03.760 --> 54:07.840
+ vision systems, voice recognition, problem solving systems,
+
+54:07.840 --> 54:09.400
+ even if nothing new got invented,
+
+54:09.400 --> 54:11.800
+ we would have a few decades of progress.
+
+54:11.800 --> 54:13.440
+ So I'm excited about that.
+
+54:13.440 --> 54:16.840
+ And I think that's gonna lead to us being wealthier,
+
+54:16.840 --> 54:17.800
+ healthier, I mean,
+
+54:17.800 --> 54:19.520
+ the healthcare is probably one of the applications
+
+54:19.520 --> 54:21.320
+ that I'm most excited about.
+
+54:22.520 --> 54:23.760
+ So that's good news.
+
+54:23.760 --> 54:26.760
+ I don't think we're gonna have the end of work anytime soon.
+
+54:26.760 --> 54:30.960
+ There's just too many things that machines still can't do.
+
+54:30.960 --> 54:32.000
+ When I look around the world
+
+54:32.000 --> 54:34.640
+ and think of whether it's childcare or healthcare,
+
+54:34.640 --> 54:37.740
+ cleaning the environment, interacting with people,
+
+54:37.740 --> 54:40.900
+ scientific work, artistic creativity,
+
+54:40.900 --> 54:42.560
+ these are things that for now,
+
+54:42.560 --> 54:45.640
+ machines aren't able to do nearly as well as humans,
+
+54:45.640 --> 54:47.160
+ even just something as mundane as, you know,
+
+54:47.160 --> 54:48.720
+ folding laundry or whatever.
+
+54:48.720 --> 54:52.920
+ And many of these, I think are gonna be years or decades
+
+54:52.920 --> 54:54.720
+ before machines catch up.
+
+54:54.720 --> 54:56.120
+ You know, I may be surprised on some of them,
+
+54:56.120 --> 54:58.760
+ but overall, I think there's plenty of work
+
+54:58.760 --> 54:59.760
+ for humans to do.
+
+54:59.760 --> 55:01.320
+ There's plenty of problems in society
+
+55:01.320 --> 55:02.560
+ that need the human touch.
+
+55:02.560 --> 55:04.180
+ So we'll have to repurpose.
+
+55:04.180 --> 55:07.880
+ We'll have to, as machines are able to do some tasks,
+
+55:07.880 --> 55:11.040
+ people are gonna have to reskill and move into other areas.
+
+55:11.040 --> 55:12.740
+ And that's probably what's gonna be going on
+
+55:12.740 --> 55:16.240
+ for the next, you know, 10, 20, 30 years or more,
+
+55:16.240 --> 55:18.920
+ kind of big restructuring of society.
+
+55:18.920 --> 55:22.420
+ We'll get wealthier and people will have to do new skills.
+
+55:22.420 --> 55:24.360
+ Now, if you turn the dial further, I don't know,
+
+55:24.360 --> 55:26.960
+ 50 or a hundred years into the future,
+
+55:26.960 --> 55:29.640
+ then, you know, maybe all bets are off.
+
+55:29.640 --> 55:32.880
+ Then it's possible that machines will be able to do
+
+55:32.880 --> 55:34.240
+ most of what people do.
+
+55:34.240 --> 55:37.360
+ You know, say one or 200 years, I think it's even likely.
+
+55:37.360 --> 55:38.400
+ And at that point,
+
+55:38.400 --> 55:41.040
+ then we're more in the sort of abundance economy.
+
+55:41.040 --> 55:44.040
+ Then we're in a world where there's really little
+
+55:44.040 --> 55:48.000
+ for the humans can do economically better than machines,
+
+55:48.000 --> 55:49.900
+ other than be human.
+
+55:49.900 --> 55:53.640
+ And, you know, that will take a transition as well,
+
+55:53.640 --> 55:56.480
+ kind of more of a transition of how we get meaning in life
+
+55:56.480 --> 55:58.220
+ and what our values are.
+
+55:58.220 --> 56:00.400
+ But shame on us if we screw that up.
+
+56:00.400 --> 56:02.720
+ I mean, that should be like great, great news.
+
+56:02.720 --> 56:04.520
+ And it kind of saddens me that some people see that
+
+56:04.520 --> 56:05.540
+ as like a big problem.
+
+56:05.540 --> 56:07.640
+ I think that would be, should be wonderful
+
+56:07.640 --> 56:10.420
+ if people have all the health and material things
+
+56:10.420 --> 56:14.180
+ that they need and can focus on loving each other
+
+56:14.180 --> 56:16.840
+ and discussing philosophy and playing
+
+56:16.840 --> 56:19.440
+ and doing all the other things that don't require work.
+
+56:19.440 --> 56:23.960
+ Do you think you'd be surprised to see what the 20,
+
+56:23.960 --> 56:27.420
+ if we were to travel in time, 100 years into the future,
+
+56:27.420 --> 56:29.560
+ do you think you'll be able to,
+
+56:29.560 --> 56:32.300
+ like if I gave you a month to like talk to people,
+
+56:32.300 --> 56:34.120
+ no, like let's say a week,
+
+56:34.120 --> 56:37.800
+ would you be able to understand what the hell's going on?
+
+56:37.800 --> 56:39.200
+ You mean if I was there for a week?
+
+56:39.200 --> 56:40.840
+ Yeah, if you were there for a week.
+
+56:40.840 --> 56:42.120
+ A hundred years in the future?
+
+56:42.120 --> 56:43.000
+ Yeah.
+
+56:43.000 --> 56:46.600
+ So like, so I'll give you one thought experiment is like,
+
+56:46.600 --> 56:49.640
+ isn't it possible that we're all living in virtual reality
+
+56:49.640 --> 56:50.480
+ by then?
+
+56:50.480 --> 56:52.620
+ Yeah, no, I think that's very possible.
+
+56:52.620 --> 56:54.640
+ I've played around with some of those VR headsets
+
+56:54.640 --> 56:55.480
+ and they're not great,
+
+56:55.480 --> 57:00.480
+ but I mean the average person spends many waking hours
+
+57:00.960 --> 57:03.320
+ staring at screens right now.
+
+57:03.320 --> 57:05.720
+ They're kind of low res compared to what they could be
+
+57:05.720 --> 57:10.680
+ in 30 or 50 years, but certainly games
+
+57:10.680 --> 57:15.360
+ and why not any other interactions could be done with VR?
+
+57:15.360 --> 57:16.320
+ And that would be a pretty different world
+
+57:16.320 --> 57:19.520
+ and we'd all, in some ways be as rich as we wanted.
+
+57:19.520 --> 57:21.360
+ We could have castles and we could be traveling
+
+57:21.360 --> 57:25.960
+ anywhere we want and it could obviously be multisensory.
+
+57:25.960 --> 57:29.560
+ So that would be possible and of course there's people,
+
+57:30.880 --> 57:33.360
+ you've had Elon Musk on and others, there are people,
+
+57:33.360 --> 57:35.380
+ Nick Bostrom makes the simulation argument
+
+57:35.380 --> 57:36.760
+ that maybe we're already there.
+
+57:36.760 --> 57:37.720
+ We're already there.
+
+57:37.720 --> 57:41.200
+ So, but in general, or do you not even think about
+
+57:41.200 --> 57:45.080
+ in this kind of way, you're self critically thinking,
+
+57:45.080 --> 57:48.560
+ how good are you as an economist at predicting
+
+57:48.560 --> 57:50.340
+ what the future looks like?
+
+57:50.340 --> 57:51.180
+ Do you have a?
+
+57:51.180 --> 57:52.000
+ Well, it starts getting, I mean,
+
+57:52.000 --> 57:55.960
+ I feel reasonably comfortable the next five, 10, 20 years
+
+57:55.960 --> 57:58.720
+ in terms of that path.
+
+57:58.720 --> 58:01.720
+ When you start getting truly superhuman
+
+58:01.720 --> 58:06.000
+ artificial intelligence, kind of by definition,
+
+58:06.000 --> 58:07.040
+ be able to think of a lot of things
+
+58:07.040 --> 58:09.080
+ that I couldn't have thought of and create a world
+
+58:09.080 --> 58:10.960
+ that I couldn't even imagine.
+
+58:10.960 --> 58:15.240
+ And so I'm not sure I can predict what that world
+
+58:15.240 --> 58:16.520
+ is going to be like.
+
+58:16.520 --> 58:19.840
+ One thing that AI researchers, AI safety researchers
+
+58:19.840 --> 58:22.540
+ worry about is what's called the alignment problem.
+
+58:22.540 --> 58:25.080
+ When an AI is that powerful,
+
+58:25.080 --> 58:27.960
+ then they can do all sorts of things.
+
+58:27.960 --> 58:30.560
+ And you really hope that their values
+
+58:30.560 --> 58:32.440
+ are aligned with our values.
+
+58:32.440 --> 58:34.480
+ And it's even tricky to finding what our values are.
+
+58:34.480 --> 58:37.220
+ I mean, first off, we all have different values.
+
+58:37.220 --> 58:40.440
+ And secondly, maybe if we were smarter,
+
+58:40.440 --> 58:41.620
+ we would have better values.
+
+58:41.620 --> 58:44.200
+ Like, I like to think that we have better values
+
+58:44.200 --> 58:49.200
+ than we did in 1860 and, or in the year 200 BC
+
+58:50.320 --> 58:51.360
+ on a lot of dimensions,
+
+58:51.360 --> 58:53.440
+ things that we consider barbaric today.
+
+58:53.440 --> 58:56.080
+ And it may be that if I thought about it more deeply,
+
+58:56.080 --> 58:57.400
+ I would also be morally evolved.
+
+58:57.400 --> 59:00.120
+ Maybe I'd be a vegetarian or do other things
+
+59:00.120 --> 59:02.980
+ that right now, whether my future self
+
+59:02.980 --> 59:05.240
+ would consider kind of immoral.
+
+59:05.240 --> 59:07.740
+ So that's a tricky problem,
+
+59:07.740 --> 59:11.120
+ getting the AI to do what we want,
+
+59:11.120 --> 59:12.960
+ assuming it's even a friendly AI.
+
+59:12.960 --> 59:14.780
+ I mean, I should probably mention
+
+59:14.780 --> 59:17.100
+ there's a nontrivial other branch
+
+59:17.100 --> 59:18.720
+ where we destroy ourselves, right?
+
+59:18.720 --> 59:22.040
+ I mean, there's a lot of exponentially improving
+
+59:22.040 --> 59:26.640
+ technologies that could be ferociously destructive,
+
+59:26.640 --> 59:29.480
+ whether it's in nanotechnology or biotech
+
+59:29.480 --> 59:34.280
+ and weaponized viruses, AI and other things that.
+
+59:34.280 --> 59:35.120
+ nuclear weapons.
+
+59:35.120 --> 59:36.240
+ Nuclear weapons, of course.
+
+59:36.240 --> 59:37.320
+ The old school technology.
+
+59:37.320 --> 59:42.040
+ Yeah, good old nuclear weapons that could be devastating
+
+59:42.040 --> 59:45.240
+ or even existential and new things yet to be invented.
+
+59:45.240 --> 59:50.240
+ So that's a branch that I think is pretty significant.
+
+59:52.200 --> 59:54.260
+ And there are those who think that one of the reasons
+
+59:54.260 --> 59:57.480
+ we haven't been contacted by other civilizations, right?
+
+59:57.480 --> 1:00:01.560
+ Is that once you get to a certain level of complexity
+
+1:00:01.560 --> 1:00:04.640
+ in technology, there's just too many ways to go wrong.
+
+1:00:04.640 --> 1:00:06.200
+ There's a lot of ways to blow yourself up.
+
+1:00:06.200 --> 1:00:09.640
+ And people, or I should say species,
+
+1:00:09.640 --> 1:00:12.520
+ end up falling into one of those traps.
+
+1:00:12.520 --> 1:00:13.580
+ The great filter.
+
+1:00:13.580 --> 1:00:14.960
+ The great filter.
+
+1:00:14.960 --> 1:00:16.720
+ I mean, there's an optimistic view of that.
+
+1:00:16.720 --> 1:00:19.380
+ If there is literally no intelligent life out there
+
+1:00:19.380 --> 1:00:22.340
+ in the universe, or at least in our galaxy,
+
+1:00:22.340 --> 1:00:25.140
+ that means that we've passed at least one
+
+1:00:25.140 --> 1:00:27.840
+ of the great filters or some of the great filters
+
+1:00:27.840 --> 1:00:30.040
+ that we survived.
+
+1:00:30.040 --> 1:00:32.240
+ Yeah, no, I think Robin Hansen has a good way of,
+
+1:00:32.240 --> 1:00:33.920
+ maybe others have a good way of thinking about this,
+
+1:00:33.920 --> 1:00:38.920
+ that if there are no other intelligence creatures out there
+
+1:00:38.920 --> 1:00:40.640
+ that we've been able to detect,
+
+1:00:40.640 --> 1:00:43.440
+ one possibility is that there's a filter ahead of us.
+
+1:00:43.440 --> 1:00:44.780
+ And when you get a little more advanced,
+
+1:00:44.780 --> 1:00:47.600
+ maybe in a hundred or a thousand or 10,000 years,
+
+1:00:47.600 --> 1:00:50.560
+ things just get destroyed for some reason.
+
+1:00:50.560 --> 1:00:53.000
+ The other one is the great filters behind us.
+
+1:00:53.000 --> 1:00:57.700
+ That'll be good, is that most planets don't even evolve life
+
+1:00:57.700 --> 1:00:58.920
+ or if they don't evolve life,
+
+1:00:58.920 --> 1:01:00.280
+ they don't evolve intelligent life.
+
+1:01:00.280 --> 1:01:02.040
+ Maybe we've gotten past that.
+
+1:01:02.040 --> 1:01:03.960
+ And so now maybe we're on the good side
+
+1:01:03.960 --> 1:01:05.680
+ of the great filter.
+
+1:01:05.680 --> 1:01:10.480
+ So if we sort of rewind back and look at the thing
+
+1:01:10.480 --> 1:01:12.760
+ where we could say something a little bit more comfortably
+
+1:01:12.760 --> 1:01:14.460
+ at five years and 10 years out,
+
+1:01:15.860 --> 1:01:20.200
+ you've written about jobs
+
+1:01:20.200 --> 1:01:24.680
+ and the impact on sort of our economy and the jobs
+
+1:01:24.680 --> 1:01:28.240
+ in terms of artificial intelligence that it might have.
+
+1:01:28.240 --> 1:01:30.560
+ It's a fascinating question of what kind of jobs are safe,
+
+1:01:30.560 --> 1:01:32.520
+ what kind of jobs are not.
+
+1:01:32.520 --> 1:01:34.560
+ Can you maybe speak to your intuition
+
+1:01:34.560 --> 1:01:38.320
+ about how we should think about AI changing
+
+1:01:38.320 --> 1:01:39.940
+ the landscape of work?
+
+1:01:39.940 --> 1:01:40.880
+ Sure, absolutely.
+
+1:01:40.880 --> 1:01:42.600
+ Well, this is a really important question
+
+1:01:42.600 --> 1:01:43.900
+ because I think we're very far
+
+1:01:43.900 --> 1:01:45.720
+ from artificial general intelligence,
+
+1:01:45.720 --> 1:01:48.120
+ which is AI that can just do the full breadth
+
+1:01:48.120 --> 1:01:49.520
+ of what humans can do.
+
+1:01:49.520 --> 1:01:52.980
+ But we do have human level or superhuman level
+
+1:01:52.980 --> 1:01:56.800
+ narrow intelligence, narrow artificial intelligence.
+
+1:01:56.800 --> 1:01:59.880
+ And obviously my calculator can do math a lot better
+
+1:01:59.880 --> 1:02:00.720
+ than I can.
+
+1:02:00.720 --> 1:02:01.560
+ And there's a lot of other things
+
+1:02:01.560 --> 1:02:03.160
+ that machines can do better than I can.
+
+1:02:03.160 --> 1:02:04.440
+ So which is which?
+
+1:02:04.440 --> 1:02:06.860
+ We actually set out to address that question
+
+1:02:06.860 --> 1:02:08.160
+ with Tom Mitchell.
+
+1:02:08.160 --> 1:02:12.160
+ I wrote a paper called what can machine learning do
+
+1:02:12.160 --> 1:02:13.440
+ that was in science.
+
+1:02:13.440 --> 1:02:16.840
+ And we went and interviewed a whole bunch of AI experts
+
+1:02:16.840 --> 1:02:20.440
+ and kind of synthesized what they thought machine learning
+
+1:02:20.440 --> 1:02:22.220
+ was good at and wasn't good at.
+
+1:02:22.220 --> 1:02:25.540
+ And we came up with what we called a rubric,
+
+1:02:25.540 --> 1:02:28.160
+ basically a set of questions you can ask about any task
+
+1:02:28.160 --> 1:02:30.960
+ that will tell you whether it's likely to score high or low
+
+1:02:30.960 --> 1:02:33.720
+ on suitability for machine learning.
+
+1:02:33.720 --> 1:02:34.760
+ And then we've applied that
+
+1:02:34.760 --> 1:02:36.940
+ to a bunch of tasks in the economy.
+
+1:02:36.940 --> 1:02:39.080
+ In fact, there's a data set of all the tasks
+
+1:02:39.080 --> 1:02:41.600
+ in the US economy, believe it or not, it's called ONET.
+
+1:02:41.600 --> 1:02:43.120
+ The US government put it together,
+
+1:02:43.120 --> 1:02:45.000
+ part of the Bureau of Labor Statistics.
+
+1:02:45.000 --> 1:02:48.680
+ They divide the economy into about 970 occupations
+
+1:02:48.680 --> 1:02:52.140
+ like bus driver, economist, primary school teacher,
+
+1:02:52.140 --> 1:02:54.800
+ radiologist, and then for each one of them,
+
+1:02:54.800 --> 1:02:57.580
+ they describe which tasks need to be done.
+
+1:02:57.580 --> 1:03:00.720
+ Like for radiologists, there are 27 distinct tasks.
+
+1:03:00.720 --> 1:03:02.160
+ So we went through all those tasks
+
+1:03:02.160 --> 1:03:04.960
+ to see whether or not a machine could do them.
+
+1:03:04.960 --> 1:03:06.680
+ And what we found interestingly was...
+
+1:03:06.680 --> 1:03:08.880
+ Brilliant study by the way, that's so awesome.
+
+1:03:08.880 --> 1:03:10.240
+ Yeah, thank you.
+
+1:03:10.240 --> 1:03:13.760
+ So what we found was that there was no occupation
+
+1:03:13.760 --> 1:03:16.240
+ in our data set where machine learning just ran the table
+
+1:03:16.240 --> 1:03:17.520
+ and did everything.
+
+1:03:17.520 --> 1:03:18.980
+ And there was almost no occupation
+
+1:03:18.980 --> 1:03:19.900
+ where machine learning didn't have
+
+1:03:19.900 --> 1:03:22.120
+ like a significant ability to do things.
+
+1:03:22.120 --> 1:03:24.360
+ Like take radiology, a lot of people I hear saying,
+
+1:03:24.360 --> 1:03:26.680
+ you know, it's the end of radiology.
+
+1:03:26.680 --> 1:03:29.880
+ And one of the 27 tasks is read medical images.
+
+1:03:29.880 --> 1:03:31.960
+ Really important one, like it's kind of a core job.
+
+1:03:31.960 --> 1:03:34.640
+ And machines have basically gotten as good
+
+1:03:34.640 --> 1:03:35.880
+ or better than radiologists.
+
+1:03:35.880 --> 1:03:38.360
+ There was just an article in Nature last week,
+
+1:03:38.360 --> 1:03:41.160
+ but they've been publishing them for the past few years
+
+1:03:42.440 --> 1:03:46.480
+ showing that machine learning can do as well as humans
+
+1:03:46.480 --> 1:03:49.600
+ on many kinds of diagnostic imaging tasks.
+
+1:03:49.600 --> 1:03:51.120
+ But other things that radiologists do,
+
+1:03:51.120 --> 1:03:54.440
+ they sometimes administer conscious sedation.
+
+1:03:54.440 --> 1:03:55.940
+ They sometimes do physical exams.
+
+1:03:55.940 --> 1:03:57.320
+ They have to synthesize the results
+
+1:03:57.320 --> 1:04:01.680
+ and explain it to the other doctors or to the patients.
+
+1:04:01.680 --> 1:04:02.520
+ In all those categories,
+
+1:04:02.520 --> 1:04:05.560
+ machine learning isn't really up to snuff yet.
+
+1:04:05.560 --> 1:04:09.300
+ So that job, we're gonna see a lot of restructuring.
+
+1:04:09.300 --> 1:04:11.400
+ Parts of the job, they'll hand over to machines.
+
+1:04:11.400 --> 1:04:13.160
+ Others, humans will do more of.
+
+1:04:13.160 --> 1:04:15.080
+ That's been more or less the pattern all of them.
+
+1:04:15.080 --> 1:04:17.080
+ So, you know, to oversimplify a bit,
+
+1:04:17.080 --> 1:04:19.080
+ we're gonna see a lot of restructuring,
+
+1:04:19.080 --> 1:04:20.400
+ reorganization of work.
+
+1:04:20.400 --> 1:04:22.300
+ And it's real gonna be a great time.
+
+1:04:22.300 --> 1:04:24.720
+ It is a great time for smart entrepreneurs and managers
+
+1:04:24.720 --> 1:04:27.280
+ to do that reinvention of work.
+
+1:04:27.280 --> 1:04:29.420
+ I'm not gonna see mass unemployment.
+
+1:04:30.600 --> 1:04:33.120
+ To get more specifically to your question,
+
+1:04:33.120 --> 1:04:36.560
+ the kinds of tasks that machines tend to be good at
+
+1:04:36.560 --> 1:04:39.040
+ are a lot of routine problem solving,
+
+1:04:39.040 --> 1:04:42.560
+ mapping inputs X into outputs Y.
+
+1:04:42.560 --> 1:04:44.840
+ If you have a lot of data on the Xs and the Ys,
+
+1:04:44.840 --> 1:04:45.680
+ the inputs and the outputs,
+
+1:04:45.680 --> 1:04:48.520
+ you can do that kind of mapping and find the relationships.
+
+1:04:48.520 --> 1:04:50.660
+ They tend to not be very good at,
+
+1:04:50.660 --> 1:04:53.680
+ even now, fine motor control and dexterity.
+
+1:04:53.680 --> 1:04:58.680
+ Emotional intelligence and human interactions
+
+1:04:58.960 --> 1:05:01.700
+ and thinking outside the box, creative work.
+
+1:05:01.700 --> 1:05:03.220
+ If you give it a well structured task,
+
+1:05:03.220 --> 1:05:05.040
+ machines can be very good at it.
+
+1:05:05.040 --> 1:05:08.680
+ But even asking the right questions, that's hard.
+
+1:05:08.680 --> 1:05:10.680
+ There's a quote that Andrew McAfee and I use
+
+1:05:10.680 --> 1:05:12.980
+ in our book, Second Machine Age.
+
+1:05:12.980 --> 1:05:16.840
+ Apparently Pablo Picasso was shown an early computer
+
+1:05:16.840 --> 1:05:18.460
+ and he came away kind of unimpressed.
+
+1:05:18.460 --> 1:05:20.660
+ He goes, well, I don't see all the fusses.
+
+1:05:20.660 --> 1:05:23.900
+ All that does is answer questions.
+
+1:05:23.900 --> 1:05:26.740
+ And to him, the interesting thing was asking the questions.
+
+1:05:26.740 --> 1:05:31.260
+ Yeah, try to replace me, GPT3, I dare you.
+
+1:05:31.260 --> 1:05:33.160
+ Although some people think I'm a robot.
+
+1:05:33.160 --> 1:05:35.360
+ You have this cool plot that shows,
+
+1:05:37.020 --> 1:05:39.640
+ I just remember where economists land,
+
+1:05:39.640 --> 1:05:43.380
+ where I think the X axis is the income.
+
+1:05:43.380 --> 1:05:46.220
+ And then the Y axis is, I guess,
+
+1:05:46.220 --> 1:05:49.380
+ aggregating the information of how replaceable the job is.
+
+1:05:49.380 --> 1:05:50.780
+ Or I think there's an index.
+
+1:05:50.780 --> 1:05:51.620
+ There's a suitability for machine learning index.
+
+1:05:51.620 --> 1:05:52.460
+ Exactly.
+
+1:05:52.460 --> 1:05:55.300
+ So we have all 970 occupations on that chart.
+
+1:05:55.300 --> 1:05:56.500
+ It's a cool plot.
+
+1:05:56.500 --> 1:05:59.200
+ And there's scatters in all four corners
+
+1:05:59.200 --> 1:06:01.040
+ have some occupations.
+
+1:06:01.040 --> 1:06:02.700
+ But there is a definite pattern,
+
+1:06:02.700 --> 1:06:05.660
+ which is the lower wage occupations tend to have more tasks
+
+1:06:05.660 --> 1:06:07.960
+ that are suitable for machine learning, like cashiers.
+
+1:06:07.960 --> 1:06:10.400
+ I mean, anyone who's gone to a supermarket or CVS
+
+1:06:10.400 --> 1:06:12.380
+ knows that they not only read barcodes,
+
+1:06:12.380 --> 1:06:14.520
+ but they can recognize an apple and an orange
+
+1:06:14.520 --> 1:06:19.520
+ and a lot of things cashiers, humans used to be needed for.
+
+1:06:19.520 --> 1:06:21.020
+ At the other end of the spectrum,
+
+1:06:21.020 --> 1:06:23.580
+ there are some jobs like airline pilot
+
+1:06:23.580 --> 1:06:26.640
+ that are among the highest paid in our economy,
+
+1:06:26.640 --> 1:06:28.780
+ but also a lot of them are suitable for machine learning.
+
+1:06:28.780 --> 1:06:30.940
+ A lot of those tasks are.
+
+1:06:30.940 --> 1:06:32.500
+ And then, yeah, you mentioned economists.
+
+1:06:32.500 --> 1:06:33.820
+ I couldn't help peeking at those
+
+1:06:33.820 --> 1:06:36.100
+ and they're paid a fair amount,
+
+1:06:36.100 --> 1:06:39.120
+ maybe not as much as some of us think they should be.
+
+1:06:39.120 --> 1:06:43.620
+ But they have some tasks that are suitable
+
+1:06:43.620 --> 1:06:45.540
+ for machine learning, but for now at least,
+
+1:06:45.540 --> 1:06:47.180
+ most of the tasks of economists
+
+1:06:47.180 --> 1:06:48.540
+ didn't end up being in that category.
+
+1:06:48.540 --> 1:06:50.640
+ And I should say, I didn't like create that data.
+
+1:06:50.640 --> 1:06:54.480
+ We just took the analysis and that's what came out of it.
+
+1:06:54.480 --> 1:06:57.320
+ And over time, that scatter plot will be updated
+
+1:06:57.320 --> 1:06:59.940
+ as the technology improves.
+
+1:06:59.940 --> 1:07:02.860
+ But it was just interesting to see the pattern there.
+
+1:07:02.860 --> 1:07:05.140
+ And it is a little troubling in so far
+
+1:07:05.140 --> 1:07:08.100
+ as if you just take the technology as it is today,
+
+1:07:08.100 --> 1:07:10.520
+ it's likely to worsen income inequality
+
+1:07:10.520 --> 1:07:12.260
+ on a lot of dimensions.
+
+1:07:12.260 --> 1:07:16.480
+ So on this topic of the effect of AI
+
+1:07:16.480 --> 1:07:21.060
+ on our landscape of work,
+
+1:07:21.060 --> 1:07:23.660
+ one of the people that have been speaking about it
+
+1:07:23.660 --> 1:07:25.800
+ in the public domain, public discourse
+
+1:07:25.800 --> 1:07:28.100
+ is the presidential candidate, Andrew Yang.
+
+1:07:28.100 --> 1:07:29.040
+ Yeah.
+
+1:07:29.040 --> 1:07:31.900
+ What are your thoughts about Andrew?
+
+1:07:31.900 --> 1:07:34.340
+ What are your thoughts about UBI,
+
+1:07:34.340 --> 1:07:36.700
+ that universal basic income
+
+1:07:36.700 --> 1:07:39.100
+ that he made one of the core ideas,
+
+1:07:39.100 --> 1:07:40.780
+ by the way, he has like hundreds of ideas
+
+1:07:40.780 --> 1:07:44.020
+ about like everything, it's kind of interesting.
+
+1:07:44.020 --> 1:07:45.380
+ But what are your thoughts about him
+
+1:07:45.380 --> 1:07:46.740
+ and what are your thoughts about UBI?
+
+1:07:46.740 --> 1:07:51.740
+ Let me answer the question about his broader approach first.
+
+1:07:52.060 --> 1:07:52.900
+ I mean, I just love that.
+
+1:07:52.900 --> 1:07:56.460
+ He's really thoughtful, analytical.
+
+1:07:56.460 --> 1:07:58.220
+ I agree with his values.
+
+1:07:58.220 --> 1:07:59.420
+ So that's awesome.
+
+1:07:59.420 --> 1:08:02.220
+ And he read my book and mentions it sometimes,
+
+1:08:02.220 --> 1:08:03.820
+ so it makes me even more excited.
+
+1:08:04.820 --> 1:08:07.660
+ And the thing that he really made the centerpiece
+
+1:08:07.660 --> 1:08:09.940
+ of his campaign was UBI.
+
+1:08:09.940 --> 1:08:13.260
+ And I was originally kind of a fan of it.
+
+1:08:13.260 --> 1:08:15.980
+ And then as I studied it more, I became less of a fan,
+
+1:08:15.980 --> 1:08:17.420
+ although I'm beginning to come back a little bit.
+
+1:08:17.420 --> 1:08:19.300
+ So let me tell you a little bit of my evolution.
+
+1:08:19.300 --> 1:08:23.060
+ As an economist, we have, by looking at the problem
+
+1:08:23.060 --> 1:08:25.180
+ of people not having enough income and the simplest thing
+
+1:08:25.180 --> 1:08:26.860
+ is, well, why don't we write them a check?
+
+1:08:26.860 --> 1:08:28.040
+ Problem solved.
+
+1:08:28.040 --> 1:08:30.460
+ But then I talked to my sociologist friends
+
+1:08:30.460 --> 1:08:34.420
+ and they really convinced me that just writing a check
+
+1:08:34.420 --> 1:08:36.940
+ doesn't really get at the core values.
+
+1:08:36.940 --> 1:08:40.660
+ Voltaire once said that work solves three great ills,
+
+1:08:40.660 --> 1:08:43.380
+ boredom, vice, and need.
+
+1:08:43.380 --> 1:08:46.680
+ And you can deal with the need thing by writing a check,
+
+1:08:46.680 --> 1:08:49.300
+ but people need a sense of meaning,
+
+1:08:49.300 --> 1:08:50.820
+ they need something to do.
+
+1:08:50.820 --> 1:08:55.820
+ And when, say, steel workers or coal miners lost their jobs
+
+1:08:57.980 --> 1:09:02.980
+ and were just given checks, alcoholism, depression, divorce,
+
+1:09:03.820 --> 1:09:06.540
+ all those social indicators, drug use, all went way up.
+
+1:09:06.540 --> 1:09:08.020
+ People just weren't happy
+
+1:09:08.020 --> 1:09:10.420
+ just sitting around collecting a check.
+
+1:09:11.380 --> 1:09:13.220
+ Maybe it's part of the way they were raised.
+
+1:09:13.220 --> 1:09:14.740
+ Maybe it's something innate in people
+
+1:09:14.740 --> 1:09:17.220
+ that they need to feel wanted and needed.
+
+1:09:17.220 --> 1:09:19.540
+ So it's not as simple as just writing people a check.
+
+1:09:19.540 --> 1:09:23.980
+ You need to also give them a way to have a sense of purpose.
+
+1:09:23.980 --> 1:09:25.380
+ And that was important to me.
+
+1:09:25.380 --> 1:09:28.740
+ And the second thing is that, as I mentioned earlier,
+
+1:09:28.740 --> 1:09:31.160
+ we are far from the end of work.
+
+1:09:31.160 --> 1:09:32.800
+ I don't buy the idea that there's just like
+
+1:09:32.800 --> 1:09:34.140
+ not enough work to be done.
+
+1:09:34.140 --> 1:09:37.100
+ I see like our cities need to be cleaned up.
+
+1:09:37.100 --> 1:09:39.580
+ And robots can't do most of that.
+
+1:09:39.580 --> 1:09:40.780
+ We need to have better childcare.
+
+1:09:40.780 --> 1:09:41.640
+ We need better healthcare.
+
+1:09:41.640 --> 1:09:44.940
+ We need to take care of people who are mentally ill or older.
+
+1:09:44.940 --> 1:09:46.500
+ We need to repair our roads.
+
+1:09:46.500 --> 1:09:49.940
+ There's so much work that require at least partly,
+
+1:09:49.940 --> 1:09:52.300
+ maybe entirely a human component.
+
+1:09:52.300 --> 1:09:54.660
+ So rather than like write all these people off,
+
+1:09:54.660 --> 1:09:58.240
+ let's find a way to repurpose them and keep them engaged.
+
+1:09:58.240 --> 1:10:03.240
+ Now that said, I would like to see more buying power
+
+1:10:04.640 --> 1:10:06.400
+ from people who are sort of at the bottom end
+
+1:10:06.400 --> 1:10:07.320
+ of the spectrum.
+
+1:10:07.320 --> 1:10:12.320
+ The economy has been designed and evolved in a way
+
+1:10:12.540 --> 1:10:15.600
+ that's I think very unfair to a lot of hardworking people.
+
+1:10:15.600 --> 1:10:18.100
+ I see super hardworking people who aren't really seeing
+
+1:10:18.100 --> 1:10:20.720
+ their wages grow over the past 20, 30 years,
+
+1:10:20.720 --> 1:10:24.080
+ while some other people who have been super smart
+
+1:10:24.080 --> 1:10:29.080
+ and or super lucky have made billions
+
+1:10:29.480 --> 1:10:30.920
+ or hundreds of billions.
+
+1:10:30.920 --> 1:10:33.800
+ And I don't think they need those hundreds of billions
+
+1:10:33.800 --> 1:10:35.740
+ to have the right incentives to invent things.
+
+1:10:35.740 --> 1:10:38.560
+ I think if you talk to almost any of them as I have,
+
+1:10:39.440 --> 1:10:42.440
+ they don't think that they need an extra $10 billion
+
+1:10:42.440 --> 1:10:43.560
+ to do what they're doing.
+
+1:10:43.560 --> 1:10:48.120
+ Most of them probably would love to do it for only a billion
+
+1:10:48.120 --> 1:10:49.360
+ or maybe for nothing.
+
+1:10:49.360 --> 1:10:50.800
+ For nothing, many of them, yeah.
+
+1:10:50.800 --> 1:10:54.200
+ I mean, an interesting point to make is,
+
+1:10:54.200 --> 1:10:56.640
+ do we think that Bill Gates would have founded Microsoft
+
+1:10:56.640 --> 1:10:58.720
+ if tax rates were 70%?
+
+1:10:58.720 --> 1:11:01.380
+ Well, we know he would have because they were tax rates
+
+1:11:01.380 --> 1:11:03.680
+ of 70% when he founded it.
+
+1:11:03.680 --> 1:11:06.200
+ So I don't think that's as big a deterrent
+
+1:11:06.200 --> 1:11:09.100
+ and we could provide more buying power to people.
+
+1:11:09.100 --> 1:11:12.800
+ My own favorite tool is the Earned Income Tax Credit,
+
+1:11:12.800 --> 1:11:16.240
+ which is basically a way of supplementing income
+
+1:11:16.240 --> 1:11:18.160
+ of people who have jobs and giving employers
+
+1:11:18.160 --> 1:11:20.300
+ an incentive to hire even more people.
+
+1:11:20.300 --> 1:11:22.400
+ The minimum wage can discourage employment,
+
+1:11:22.400 --> 1:11:25.160
+ but the Earned Income Tax Credit encourages employment
+
+1:11:25.160 --> 1:11:27.960
+ by supplementing people's wages.
+
+1:11:27.960 --> 1:11:31.760
+ If the employer can only afford to pay them $10 for a task,
+
+1:11:32.680 --> 1:11:35.200
+ the rest of us kick in another five or $10
+
+1:11:35.200 --> 1:11:37.640
+ and bring their wages up to 15 or 20 total.
+
+1:11:37.640 --> 1:11:39.360
+ And then they have more buying power.
+
+1:11:39.360 --> 1:11:42.320
+ Then entrepreneurs are thinking, how can we cater to them?
+
+1:11:42.320 --> 1:11:44.080
+ How can we make products for them?
+
+1:11:44.080 --> 1:11:47.220
+ And it becomes a self reinforcing system
+
+1:11:47.220 --> 1:11:49.840
+ where people are better off.
+
+1:11:49.840 --> 1:11:51.840
+ Ian Drang and I had a good discussion
+
+1:11:51.840 --> 1:11:55.940
+ where he suggested instead of a universal basic income,
+
+1:11:55.940 --> 1:11:59.080
+ he suggested, or instead of an unconditional basic income,
+
+1:11:59.080 --> 1:12:00.600
+ how about a conditional basic income
+
+1:12:00.600 --> 1:12:03.040
+ where the condition is you learn some new skills,
+
+1:12:03.040 --> 1:12:05.040
+ we need to reskill our workforce.
+
+1:12:05.040 --> 1:12:09.120
+ So let's make it easier for people to find ways
+
+1:12:09.120 --> 1:12:11.280
+ to get those skills and get rewarded for doing them.
+
+1:12:11.280 --> 1:12:13.080
+ And that's kind of a neat idea as well.
+
+1:12:13.080 --> 1:12:13.900
+ That's really interesting.
+
+1:12:13.900 --> 1:12:16.160
+ So, I mean, one of the questions,
+
+1:12:16.160 --> 1:12:19.680
+ one of the dreams of UBI is that you provide
+
+1:12:19.680 --> 1:12:24.280
+ some little safety net while you retrain,
+
+1:12:24.280 --> 1:12:26.040
+ while you learn a new skill.
+
+1:12:26.040 --> 1:12:28.360
+ But like, I think, I guess you're speaking
+
+1:12:28.360 --> 1:12:31.280
+ to the intuition that that doesn't always,
+
+1:12:31.280 --> 1:12:33.760
+ like there needs to be some incentive to reskill,
+
+1:12:33.760 --> 1:12:35.280
+ to train, to learn a new thing.
+
+1:12:35.280 --> 1:12:36.120
+ I think it helps.
+
+1:12:36.120 --> 1:12:37.960
+ I mean, there are lots of self motivated people,
+
+1:12:37.960 --> 1:12:40.600
+ but there are also people that maybe need a little guidance
+
+1:12:40.600 --> 1:12:44.960
+ or help and I think it's a really hard question
+
+1:12:44.960 --> 1:12:48.280
+ for someone who is losing a job in one area to know
+
+1:12:48.280 --> 1:12:50.600
+ what is the new area I should be learning skills in.
+
+1:12:50.600 --> 1:12:52.600
+ And we could provide a much better set of tools
+
+1:12:52.600 --> 1:12:54.480
+ and platforms that maps it.
+
+1:12:54.480 --> 1:12:56.400
+ Okay, here's a set of skills you already have.
+
+1:12:56.400 --> 1:12:58.120
+ Here's something that's in demand.
+
+1:12:58.120 --> 1:13:00.440
+ Let's create a path for you to go from where you are
+
+1:13:00.440 --> 1:13:02.240
+ to where you need to be.
+
+1:13:03.120 --> 1:13:07.080
+ So I'm a total, how do I put it nicely about myself?
+
+1:13:07.080 --> 1:13:09.640
+ I'm totally clueless about the economy.
+
+1:13:09.640 --> 1:13:12.760
+ It's not totally true, but pretty good approximation.
+
+1:13:12.760 --> 1:13:17.160
+ If you were to try to fix our tax system
+
+1:13:20.480 --> 1:13:23.240
+ and, or maybe from another side,
+
+1:13:23.240 --> 1:13:26.680
+ if there's fundamental problems in taxation
+
+1:13:26.680 --> 1:13:29.720
+ or some fundamental problems about our economy,
+
+1:13:29.720 --> 1:13:31.320
+ what would you try to fix?
+
+1:13:31.320 --> 1:13:33.440
+ What would you try to speak to?
+
+1:13:33.440 --> 1:13:36.320
+ You know, I definitely think our whole tax system,
+
+1:13:36.320 --> 1:13:40.080
+ our political and economic system has gotten more
+
+1:13:40.080 --> 1:13:43.520
+ and more screwed up over the past 20, 30 years.
+
+1:13:43.520 --> 1:13:46.520
+ I don't think it's that hard to make headway
+
+1:13:46.520 --> 1:13:47.360
+ in improving it.
+
+1:13:47.360 --> 1:13:49.880
+ I don't think we need to totally reinvent stuff.
+
+1:13:49.880 --> 1:13:52.400
+ A lot of it is what I've been elsewhere with Andy
+
+1:13:52.400 --> 1:13:54.680
+ and others called economics 101.
+
+1:13:54.680 --> 1:13:56.400
+ You know, there's just some basic principles
+
+1:13:56.400 --> 1:14:00.640
+ that have worked really well in the 20th century
+
+1:14:00.640 --> 1:14:01.880
+ that we sort of forgot, you know,
+
+1:14:01.880 --> 1:14:03.960
+ in terms of investing in education,
+
+1:14:03.960 --> 1:14:07.560
+ investing in infrastructure, welcoming immigrants,
+
+1:14:07.560 --> 1:14:12.560
+ having a tax system that was more progressive and fair.
+
+1:14:13.280 --> 1:14:16.560
+ At one point, tax rates were on top incomes
+
+1:14:16.560 --> 1:14:18.080
+ were significantly higher.
+
+1:14:18.080 --> 1:14:19.880
+ And they've come down a lot to the point where
+
+1:14:19.880 --> 1:14:21.440
+ in many cases they're lower now
+
+1:14:21.440 --> 1:14:23.440
+ than they are for poorer people.
+
+1:14:24.760 --> 1:14:27.960
+ So, and we could do things like earned income tax credit
+
+1:14:27.960 --> 1:14:29.240
+ to get a little more wonky.
+
+1:14:29.240 --> 1:14:31.440
+ I'd like to see more Pigouvian taxes.
+
+1:14:31.440 --> 1:14:35.720
+ What that means is you tax things that are bad
+
+1:14:35.720 --> 1:14:36.960
+ instead of things that are good.
+
+1:14:36.960 --> 1:14:40.640
+ So right now we tax labor, we tax capital
+
+1:14:40.640 --> 1:14:42.200
+ and which is unfortunate
+
+1:14:42.200 --> 1:14:44.080
+ because one of the basic principles of economics
+
+1:14:44.080 --> 1:14:46.400
+ if you tax something, you tend to get less of it.
+
+1:14:46.400 --> 1:14:48.800
+ So, you know, right now there's still work to be done
+
+1:14:48.800 --> 1:14:51.220
+ and still capital to be invested in.
+
+1:14:51.220 --> 1:14:54.600
+ But instead we should be taxing things like pollution
+
+1:14:54.600 --> 1:14:55.980
+ and congestion.
+
+1:14:57.200 --> 1:15:00.000
+ And if we did that, we would have less pollution.
+
+1:15:00.000 --> 1:15:02.120
+ So a carbon tax is, you know,
+
+1:15:02.120 --> 1:15:04.120
+ almost every economist would say it's a no brainer
+
+1:15:04.120 --> 1:15:07.560
+ whether they're Republican or Democrat,
+
+1:15:07.560 --> 1:15:09.680
+ Greg Mankiw who is head of George Bush's
+
+1:15:09.680 --> 1:15:13.000
+ Council of Economic Advisers or Dick Schmollensie
+
+1:15:13.000 --> 1:15:16.080
+ who is another Republican economist agree.
+
+1:15:16.080 --> 1:15:21.080
+ And of course a lot of Democratic economists agree as well.
+
+1:15:21.600 --> 1:15:22.800
+ If we taxed carbon,
+
+1:15:22.800 --> 1:15:26.040
+ we could raise hundreds of billions of dollars.
+
+1:15:26.040 --> 1:15:28.600
+ We could take that money and redistribute it
+
+1:15:28.600 --> 1:15:31.200
+ through an earned income tax credit or other things
+
+1:15:31.200 --> 1:15:35.280
+ so that overall our tax system would become more progressive.
+
+1:15:35.280 --> 1:15:36.960
+ We could tax congestion.
+
+1:15:36.960 --> 1:15:39.040
+ One of the things that kills me as an economist
+
+1:15:39.040 --> 1:15:41.080
+ is every time I sit in a traffic jam,
+
+1:15:41.080 --> 1:15:43.280
+ I know that it's completely unnecessary.
+
+1:15:43.280 --> 1:15:44.840
+ This is complete wasted time.
+
+1:15:44.840 --> 1:15:47.560
+ You just visualize the cost and productivity.
+
+1:15:47.560 --> 1:15:51.260
+ Exactly, because they are taking costs for me
+
+1:15:51.260 --> 1:15:52.700
+ and all the people around me.
+
+1:15:52.700 --> 1:15:54.840
+ And if they charged a congestion tax,
+
+1:15:54.840 --> 1:15:57.080
+ they would take that same amount of money
+
+1:15:57.080 --> 1:15:59.720
+ and people would, it would streamline the roads.
+
+1:15:59.720 --> 1:16:01.640
+ Like when you're in Singapore, the traffic just flows
+
+1:16:01.640 --> 1:16:02.640
+ because they have a congestion tax.
+
+1:16:02.640 --> 1:16:03.640
+ They listened to economists.
+
+1:16:03.640 --> 1:16:06.480
+ They invited me and others to go talk to them.
+
+1:16:06.480 --> 1:16:09.240
+ And then I'd still be paying,
+
+1:16:09.240 --> 1:16:11.740
+ I'd be paying a congestion tax instead of paying in my time,
+
+1:16:11.740 --> 1:16:14.240
+ but that money would now be available for healthcare,
+
+1:16:14.240 --> 1:16:15.520
+ be available for infrastructure,
+
+1:16:15.520 --> 1:16:16.880
+ or be available just to give to people
+
+1:16:16.880 --> 1:16:18.660
+ so they could buy food or whatever.
+
+1:16:18.660 --> 1:16:22.280
+ So it's just, it saddens me when you sit,
+
+1:16:22.280 --> 1:16:23.320
+ when you're sitting in a traffic jam,
+
+1:16:23.320 --> 1:16:25.060
+ it's like taxing me and then taking that money
+
+1:16:25.060 --> 1:16:27.820
+ and dumping it in the ocean, just like destroying it.
+
+1:16:27.820 --> 1:16:29.500
+ So there are a lot of things like that
+
+1:16:29.500 --> 1:16:32.520
+ that economists, and I'm not,
+
+1:16:32.520 --> 1:16:33.940
+ I'm not like doing anything radical here.
+
+1:16:33.940 --> 1:16:36.680
+ Most, you know, good economists would,
+
+1:16:36.680 --> 1:16:39.440
+ I probably agree with me point by point on these things.
+
+1:16:39.440 --> 1:16:41.000
+ And we could do those things
+
+1:16:41.000 --> 1:16:43.760
+ and our whole economy would become much more efficient.
+
+1:16:43.760 --> 1:16:47.000
+ It'd become fairer, invest in R&D and research,
+
+1:16:47.000 --> 1:16:50.060
+ which is close to a free lunch is what we have.
+
+1:16:50.060 --> 1:16:53.160
+ My erstwhile MIT colleague, Bob Solla,
+
+1:16:53.160 --> 1:16:57.360
+ got the Nobel Prize, not yesterday, but 30 years ago,
+
+1:16:57.360 --> 1:17:00.560
+ for describing that most improvements
+
+1:17:00.560 --> 1:17:02.880
+ in living standards come from tech progress.
+
+1:17:02.880 --> 1:17:04.560
+ And Paul Romer later got a Nobel Prize
+
+1:17:04.560 --> 1:17:08.040
+ for noting that investments in R&D and human capital
+
+1:17:08.040 --> 1:17:11.040
+ can speed the rate of tech progress.
+
+1:17:11.040 --> 1:17:14.680
+ So if we do that, then we'll be healthier and wealthier.
+
+1:17:14.680 --> 1:17:16.200
+ Yeah, from an economics perspective,
+
+1:17:16.200 --> 1:17:18.440
+ I remember taking an undergrad econ,
+
+1:17:18.440 --> 1:17:20.380
+ you mentioned econ 101.
+
+1:17:20.380 --> 1:17:23.660
+ It seemed from all the plots I saw
+
+1:17:23.660 --> 1:17:28.660
+ that R&D is an obvious, as close to free lunch as we have,
+
+1:17:29.040 --> 1:17:32.340
+ it seemed like obvious that we should do more research.
+
+1:17:32.340 --> 1:17:33.180
+ It is.
+
+1:17:33.180 --> 1:17:36.620
+ Like what, what, like, there's no.
+
+1:17:36.620 --> 1:17:38.000
+ Well, we should do basic research.
+
+1:17:38.000 --> 1:17:39.440
+ I mean, so let me just be clear.
+
+1:17:39.440 --> 1:17:41.420
+ It'd be great if everybody did more research
+
+1:17:41.420 --> 1:17:42.260
+ and I would make this issue
+
+1:17:42.260 --> 1:17:46.080
+ between applied development versus basic research.
+
+1:17:46.080 --> 1:17:48.120
+ So applied development, like, you know,
+
+1:17:48.120 --> 1:17:52.120
+ how do we get this self driving car, you know,
+
+1:17:52.120 --> 1:17:53.960
+ feature to work better in the Tesla?
+
+1:17:53.960 --> 1:17:55.240
+ That's great for private companies
+
+1:17:55.240 --> 1:17:57.080
+ because they can capture the value from that.
+
+1:17:57.080 --> 1:17:59.700
+ If they make a better self driving car system,
+
+1:17:59.700 --> 1:18:02.240
+ they can sell cars that are more valuable
+
+1:18:02.240 --> 1:18:03.080
+ and then make money.
+
+1:18:03.080 --> 1:18:05.720
+ So there's an incentive that there's not a big problem there
+
+1:18:05.720 --> 1:18:08.200
+ and smart companies, Amazon, Tesla,
+
+1:18:08.200 --> 1:18:09.440
+ and others are investing in it.
+
+1:18:09.440 --> 1:18:11.260
+ The problem is with basic research,
+
+1:18:11.260 --> 1:18:14.420
+ like coming up with core basic ideas,
+
+1:18:14.420 --> 1:18:16.120
+ whether it's in nuclear fusion
+
+1:18:16.120 --> 1:18:19.000
+ or artificial intelligence or biotech.
+
+1:18:19.000 --> 1:18:21.640
+ There, if someone invents something,
+
+1:18:21.640 --> 1:18:23.920
+ it's very hard for them to capture the benefits from it.
+
+1:18:23.920 --> 1:18:26.740
+ It's shared by everybody, which is great in a way,
+
+1:18:26.740 --> 1:18:28.640
+ but it means that they're not gonna have the incentives
+
+1:18:28.640 --> 1:18:30.680
+ to put as much effort into it.
+
+1:18:30.680 --> 1:18:32.960
+ There you need, it's a classic public good.
+
+1:18:32.960 --> 1:18:35.120
+ There you need the government to be involved in it.
+
+1:18:35.120 --> 1:18:39.360
+ And the US government used to be investing much more in R&D,
+
+1:18:39.360 --> 1:18:42.940
+ but we have slashed that part of the government
+
+1:18:42.940 --> 1:18:46.900
+ really foolishly and we're all poorer,
+
+1:18:46.900 --> 1:18:48.440
+ significantly poorer as a result.
+
+1:18:48.440 --> 1:18:50.000
+ Growth rates are down.
+
+1:18:50.000 --> 1:18:51.680
+ We're not having the kind of scientific progress
+
+1:18:51.680 --> 1:18:53.260
+ we used to have.
+
+1:18:53.260 --> 1:18:57.800
+ It's been sort of a short term eating the seed corn,
+
+1:18:57.800 --> 1:19:00.120
+ whatever metaphor you wanna use
+
+1:19:00.120 --> 1:19:03.320
+ where people grab some money, put it in their pockets today,
+
+1:19:03.320 --> 1:19:07.120
+ but five, 10, 20 years later,
+
+1:19:07.120 --> 1:19:10.140
+ they're a lot poorer than they otherwise would have been.
+
+1:19:10.140 --> 1:19:12.320
+ So we're living through a pandemic right now,
+
+1:19:12.320 --> 1:19:14.800
+ globally in the United States.
+
+1:19:16.580 --> 1:19:18.840
+ From an economics perspective,
+
+1:19:18.840 --> 1:19:23.040
+ how do you think this pandemic will change the world?
+
+1:19:23.040 --> 1:19:24.640
+ It's been remarkable.
+
+1:19:24.640 --> 1:19:27.760
+ And it's horrible how many people have suffered,
+
+1:19:27.760 --> 1:19:31.240
+ the amount of death, the economic destruction.
+
+1:19:31.240 --> 1:19:34.300
+ It's also striking just the amount of change in work
+
+1:19:34.300 --> 1:19:35.840
+ that I've seen.
+
+1:19:35.840 --> 1:19:38.440
+ In the last 20 weeks, I've seen more change
+
+1:19:38.440 --> 1:19:41.200
+ than there were in the previous 20 years.
+
+1:19:41.200 --> 1:19:42.400
+ There's been nothing like it
+
+1:19:42.400 --> 1:19:44.700
+ since probably the World War II mobilization
+
+1:19:44.700 --> 1:19:47.040
+ in terms of reorganizing our economy.
+
+1:19:47.040 --> 1:19:50.200
+ The most obvious one is the shift to remote work.
+
+1:19:50.200 --> 1:19:54.280
+ And I and many other people stopped going into the office
+
+1:19:54.280 --> 1:19:56.160
+ and teaching my students in person.
+
+1:19:56.160 --> 1:19:57.760
+ I did a study on this with a bunch of colleagues
+
+1:19:57.760 --> 1:19:59.180
+ at MIT and elsewhere.
+
+1:19:59.180 --> 1:20:02.440
+ And what we found was that before the pandemic,
+
+1:20:02.440 --> 1:20:05.400
+ in the beginning of 2020, about one in six,
+
+1:20:05.400 --> 1:20:08.660
+ a little over 15% of Americans were working remotely.
+
+1:20:09.840 --> 1:20:13.560
+ When the pandemic hit, that grew steadily and hit 50%,
+
+1:20:13.560 --> 1:20:16.080
+ roughly half of Americans working at home.
+
+1:20:16.080 --> 1:20:17.840
+ So a complete transformation.
+
+1:20:17.840 --> 1:20:19.160
+ And of course, it wasn't even,
+
+1:20:19.160 --> 1:20:20.520
+ it wasn't like everybody did it.
+
+1:20:20.520 --> 1:20:22.760
+ If you're an information worker, professional,
+
+1:20:22.760 --> 1:20:24.400
+ if you work mainly with data,
+
+1:20:24.400 --> 1:20:26.880
+ then you're much more likely to work at home.
+
+1:20:26.880 --> 1:20:28.800
+ If you're a manufacturing worker,
+
+1:20:28.800 --> 1:20:32.320
+ working with other people or physical things,
+
+1:20:32.320 --> 1:20:34.520
+ then it wasn't so easy to work at home.
+
+1:20:34.520 --> 1:20:36.480
+ And instead, those people were much more likely
+
+1:20:36.480 --> 1:20:39.280
+ to become laid off or unemployed.
+
+1:20:39.280 --> 1:20:41.840
+ So it's been something that's had very disparate effects
+
+1:20:41.840 --> 1:20:44.520
+ on different parts of the workforce.
+
+1:20:44.520 --> 1:20:46.720
+ Do you think it's gonna be sticky in a sense
+
+1:20:46.720 --> 1:20:51.060
+ that after vaccine comes out and the economy reopens,
+
+1:20:51.060 --> 1:20:54.300
+ do you think remote work will continue?
+
+1:20:55.180 --> 1:20:57.080
+ That's a great question.
+
+1:20:57.080 --> 1:20:59.360
+ My hypothesis is yes, a lot of it will.
+
+1:20:59.360 --> 1:21:00.800
+ Of course, some of it will go back,
+
+1:21:00.800 --> 1:21:03.480
+ but a surprising amount of it will stay.
+
+1:21:03.480 --> 1:21:06.620
+ I personally, for instance, I moved my seminars,
+
+1:21:06.620 --> 1:21:08.840
+ my academic seminars to Zoom,
+
+1:21:08.840 --> 1:21:10.800
+ and I was surprised how well it worked.
+
+1:21:10.800 --> 1:21:11.640
+ So it works?
+
+1:21:11.640 --> 1:21:13.600
+ Yeah, I mean, obviously we were able to reach
+
+1:21:13.600 --> 1:21:14.760
+ a much broader audience.
+
+1:21:14.760 --> 1:21:16.600
+ So we have people tuning in from Europe
+
+1:21:16.600 --> 1:21:18.520
+ and other countries,
+
+1:21:18.520 --> 1:21:20.320
+ just all over the United States for that matter.
+
+1:21:20.320 --> 1:21:21.760
+ I also actually found that it would,
+
+1:21:21.760 --> 1:21:23.520
+ in many ways, is more egalitarian.
+
+1:21:23.520 --> 1:21:25.920
+ We use the chat feature and other tools,
+
+1:21:25.920 --> 1:21:27.600
+ and grad students and others who might've been
+
+1:21:27.600 --> 1:21:29.400
+ a little shy about speaking up,
+
+1:21:29.400 --> 1:21:32.680
+ we now kind of have more of ability for lots of voices.
+
+1:21:32.680 --> 1:21:34.360
+ And they're answering each other's questions,
+
+1:21:34.360 --> 1:21:35.960
+ so you kind of get parallel.
+
+1:21:35.960 --> 1:21:39.040
+ Like if someone had some question about some of the data
+
+1:21:39.040 --> 1:21:40.660
+ or a reference or whatever,
+
+1:21:40.660 --> 1:21:42.480
+ then someone else in the chat would answer it.
+
+1:21:42.480 --> 1:21:44.480
+ And the whole thing just became like a higher bandwidth,
+
+1:21:44.480 --> 1:21:46.600
+ higher quality thing.
+
+1:21:46.600 --> 1:21:48.440
+ So I thought that was kind of interesting.
+
+1:21:48.440 --> 1:21:51.280
+ I think a lot of people are discovering that these tools
+
+1:21:51.280 --> 1:21:54.480
+ that thanks to technologists have been developed
+
+1:21:54.480 --> 1:21:56.440
+ over the past decade,
+
+1:21:56.440 --> 1:21:57.920
+ they're a lot more powerful than we thought.
+
+1:21:57.920 --> 1:22:00.120
+ I mean, all the terrible things we've seen with COVID
+
+1:22:00.120 --> 1:22:03.400
+ and the real failure of many of our institutions
+
+1:22:03.400 --> 1:22:04.960
+ that I thought would work better.
+
+1:22:04.960 --> 1:22:09.420
+ One area that's been a bright spot is our technologies.
+
+1:22:09.420 --> 1:22:11.840
+ Bandwidth has held up pretty well,
+
+1:22:11.840 --> 1:22:14.200
+ and all of our email and other tools
+
+1:22:14.200 --> 1:22:18.000
+ have just scaled up kind of gracefully.
+
+1:22:18.000 --> 1:22:20.280
+ So that's been a plus.
+
+1:22:20.280 --> 1:22:21.680
+ Economists call this question
+
+1:22:21.680 --> 1:22:23.920
+ of whether it'll go back a hysteresis.
+
+1:22:23.920 --> 1:22:25.880
+ The question is like when you boil an egg
+
+1:22:25.880 --> 1:22:29.020
+ after it gets cold again, it stays hard.
+
+1:22:29.020 --> 1:22:30.860
+ And I think that we're gonna have a fair amount
+
+1:22:30.860 --> 1:22:32.160
+ of hysteresis in the economy.
+
+1:22:32.160 --> 1:22:33.440
+ We're gonna move to this new,
+
+1:22:33.440 --> 1:22:35.520
+ we have moved to a new remote work system,
+
+1:22:35.520 --> 1:22:37.260
+ and it's not gonna snap all the way back
+
+1:22:37.260 --> 1:22:38.720
+ to where it was before.
+
+1:22:38.720 --> 1:22:43.720
+ One of the things that worries me is that the people
+
+1:22:44.160 --> 1:22:49.160
+ with lots of followers on Twitter and people with voices,
+
+1:22:51.380 --> 1:22:56.380
+ people that can, voices that can be magnified by reporters
+
+1:22:56.380 --> 1:22:57.900
+ and all that kind of stuff are the people
+
+1:22:57.900 --> 1:22:59.240
+ that fall into this category
+
+1:22:59.240 --> 1:23:01.600
+ that we were referring to just now
+
+1:23:01.600 --> 1:23:03.000
+ where they can still function
+
+1:23:03.000 --> 1:23:06.240
+ and be successful with remote work.
+
+1:23:06.240 --> 1:23:11.240
+ And then there is a kind of quiet suffering
+
+1:23:11.240 --> 1:23:14.800
+ of what feels like millions of people
+
+1:23:14.800 --> 1:23:19.800
+ whose jobs are disturbed profoundly by this pandemic,
+
+1:23:21.200 --> 1:23:23.400
+ but they don't have many followers on Twitter.
+
+1:23:26.320 --> 1:23:31.320
+ What do we, and again, I apologize,
+
+1:23:31.840 --> 1:23:35.840
+ but I've been reading the rise and fall of the Third Reich
+
+1:23:35.840 --> 1:23:38.080
+ and there's a connection to the depression
+
+1:23:38.080 --> 1:23:39.580
+ on the American side.
+
+1:23:39.580 --> 1:23:42.320
+ There's a deep, complicated connection
+
+1:23:42.320 --> 1:23:46.400
+ to how suffering can turn into forces
+
+1:23:46.400 --> 1:23:51.400
+ that potentially change the world in destructive ways.
+
+1:23:51.960 --> 1:23:53.840
+ So like it's something I worry about is like,
+
+1:23:53.840 --> 1:23:56.600
+ what is this suffering going to materialize itself
+
+1:23:56.600 --> 1:23:58.080
+ in five, 10 years?
+
+1:23:58.080 --> 1:24:01.020
+ Is that something you worry about, think about?
+
+1:24:01.020 --> 1:24:03.320
+ It's like the center of what I worry about.
+
+1:24:03.320 --> 1:24:05.400
+ And let me break it down to two parts.
+
+1:24:05.400 --> 1:24:07.280
+ There's a moral and ethical aspect to it.
+
+1:24:07.280 --> 1:24:09.340
+ We need to relieve this suffering.
+
+1:24:09.340 --> 1:24:13.280
+ I mean, I'm sure the values of, I think most Americans,
+
+1:24:13.280 --> 1:24:15.000
+ we like to see shared prosperity
+
+1:24:15.000 --> 1:24:16.620
+ or most people on the planet.
+
+1:24:16.620 --> 1:24:20.220
+ And we would like to see people not falling behind
+
+1:24:20.220 --> 1:24:23.080
+ and they have fallen behind, not just due to COVID,
+
+1:24:23.080 --> 1:24:25.760
+ but in the previous couple of decades,
+
+1:24:25.760 --> 1:24:27.920
+ median income has barely moved,
+
+1:24:27.920 --> 1:24:29.900
+ depending on how you measure it.
+
+1:24:29.900 --> 1:24:33.360
+ And the incomes of the top 1% have skyrocketed.
+
+1:24:33.360 --> 1:24:36.460
+ And part of that is due to the ways technology has been used.
+
+1:24:36.460 --> 1:24:38.840
+ Part of this been due to, frankly, our political system
+
+1:24:38.840 --> 1:24:43.680
+ has continually shifted more wealth into those people
+
+1:24:43.680 --> 1:24:45.120
+ who have the powerful interest.
+
+1:24:45.120 --> 1:24:48.720
+ So there's just, I think, a moral imperative
+
+1:24:48.720 --> 1:24:49.800
+ to do a better job.
+
+1:24:49.800 --> 1:24:51.900
+ And ultimately, we're all gonna be wealthier
+
+1:24:51.900 --> 1:24:53.320
+ if more people can contribute,
+
+1:24:53.320 --> 1:24:55.040
+ more people have the wherewithal.
+
+1:24:55.040 --> 1:24:58.640
+ But the second thing is that there's a real political risk.
+
+1:24:58.640 --> 1:24:59.960
+ I'm not a political scientist,
+
+1:24:59.960 --> 1:25:02.560
+ but you don't have to be one, I think,
+
+1:25:02.560 --> 1:25:05.660
+ to see how a lot of people are really upset
+
+1:25:05.660 --> 1:25:07.380
+ with they're getting a raw deal
+
+1:25:07.380 --> 1:25:12.380
+ and they want to smash the system in different ways,
+
+1:25:13.680 --> 1:25:15.960
+ in 2016 and 2018.
+
+1:25:15.960 --> 1:25:18.280
+ And now I think there are a lot of people
+
+1:25:18.280 --> 1:25:19.600
+ who are looking at the political system
+
+1:25:19.600 --> 1:25:21.120
+ and they feel like it's not working for them
+
+1:25:21.120 --> 1:25:23.740
+ and they just wanna do something radical.
+
+1:25:24.720 --> 1:25:28.140
+ Unfortunately, demagogues have harnessed that
+
+1:25:28.140 --> 1:25:33.140
+ in a way that is pretty destructive to the country.
+
+1:25:33.140 --> 1:25:36.260
+ And an analogy I see is what happened with trade.
+
+1:25:37.240 --> 1:25:39.440
+ Almost every economist thinks that free trade
+
+1:25:39.440 --> 1:25:42.440
+ is a good thing, that when two people voluntarily exchange
+
+1:25:42.440 --> 1:25:44.940
+ almost by definition, they're both better off
+
+1:25:44.940 --> 1:25:45.920
+ if it's voluntary.
+
+1:25:47.320 --> 1:25:49.800
+ And so generally, trade is a good thing.
+
+1:25:49.800 --> 1:25:52.480
+ But they also recognize that trade can lead
+
+1:25:52.480 --> 1:25:56.260
+ to uneven effects, that there can be winners and losers
+
+1:25:56.260 --> 1:25:59.280
+ in some of the people who didn't have the skills
+
+1:25:59.280 --> 1:26:02.880
+ to compete with somebody else or didn't have other assets.
+
+1:26:02.880 --> 1:26:04.920
+ And so trade can shift prices
+
+1:26:04.920 --> 1:26:07.500
+ in ways that are averse to some people.
+
+1:26:08.460 --> 1:26:11.340
+ So there's a formula that economists have,
+
+1:26:11.340 --> 1:26:13.440
+ which is that you have free trade,
+
+1:26:13.440 --> 1:26:15.920
+ but then you compensate the people who are hurt
+
+1:26:15.920 --> 1:26:18.400
+ and free trade makes the pie bigger.
+
+1:26:18.400 --> 1:26:19.460
+ And since the pie is bigger,
+
+1:26:19.460 --> 1:26:21.920
+ it's possible for everyone to be better off.
+
+1:26:21.920 --> 1:26:23.200
+ You can make the winners better off,
+
+1:26:23.200 --> 1:26:25.440
+ but you can also compensate those who don't win.
+
+1:26:25.440 --> 1:26:28.460
+ And so they end up being better off as well.
+
+1:26:28.460 --> 1:26:33.160
+ What happened was that we didn't fulfill that promise.
+
+1:26:33.160 --> 1:26:36.040
+ We did have some more increased free trade
+
+1:26:36.040 --> 1:26:39.480
+ in the 80s and 90s, but we didn't compensate the people
+
+1:26:39.480 --> 1:26:40.640
+ who were hurt.
+
+1:26:40.640 --> 1:26:43.800
+ And so they felt like the people in power
+
+1:26:43.800 --> 1:26:45.900
+ reneged on the bargain, and I think they did.
+
+1:26:45.900 --> 1:26:48.760
+ And so then there's a backlash against trade.
+
+1:26:48.760 --> 1:26:50.840
+ And now both political parties,
+
+1:26:50.840 --> 1:26:53.640
+ but especially Trump and company,
+
+1:26:53.640 --> 1:26:58.200
+ have really pushed back against free trade.
+
+1:26:58.200 --> 1:27:00.680
+ Ultimately, that's bad for the country.
+
+1:27:00.680 --> 1:27:02.720
+ Ultimately, that's bad for living standards.
+
+1:27:02.720 --> 1:27:04.400
+ But in a way I can understand
+
+1:27:04.400 --> 1:27:06.200
+ that people felt they were betrayed.
+
+1:27:07.080 --> 1:27:10.680
+ Technology has a lot of similar characteristics.
+
+1:27:10.680 --> 1:27:14.920
+ Technology can make us all better off.
+
+1:27:14.920 --> 1:27:16.120
+ It makes the pie bigger.
+
+1:27:16.120 --> 1:27:18.920
+ It creates wealth and health, but it can also be uneven.
+
+1:27:18.920 --> 1:27:21.280
+ Not everyone automatically benefits.
+
+1:27:21.280 --> 1:27:22.880
+ It's possible for some people,
+
+1:27:22.880 --> 1:27:25.080
+ even a majority of people to get left behind
+
+1:27:25.080 --> 1:27:27.200
+ while a small group benefits.
+
+1:27:28.200 --> 1:27:29.560
+ What most economists would say,
+
+1:27:29.560 --> 1:27:30.880
+ well, let's make the pie bigger,
+
+1:27:30.880 --> 1:27:33.000
+ but let's make sure we adjust the system
+
+1:27:33.000 --> 1:27:35.200
+ so we compensate the people who are hurt.
+
+1:27:35.200 --> 1:27:36.920
+ And since the pie is bigger,
+
+1:27:36.920 --> 1:27:38.000
+ we can make the rich richer,
+
+1:27:38.000 --> 1:27:39.200
+ we can make the middle class richer,
+
+1:27:39.200 --> 1:27:40.980
+ we can make the poor richer.
+
+1:27:40.980 --> 1:27:43.640
+ Mathematically, everyone could be better off.
+
+1:27:43.640 --> 1:27:45.400
+ But again, we're not doing that.
+
+1:27:45.400 --> 1:27:48.940
+ And again, people are saying this isn't working for us.
+
+1:27:48.940 --> 1:27:52.540
+ And again, instead of fixing the distribution,
+
+1:27:52.540 --> 1:27:54.280
+ a lot of people are beginning to say,
+
+1:27:54.280 --> 1:27:57.280
+ hey, technology sucks, we've got to stop it.
+
+1:27:57.280 --> 1:27:59.040
+ Let's throw rocks at the Google bus.
+
+1:27:59.040 --> 1:27:59.980
+ Let's blow it up.
+
+1:27:59.980 --> 1:28:01.240
+ Let's blow it up.
+
+1:28:01.240 --> 1:28:04.760
+ And there were the Luddites almost exactly 200 years ago
+
+1:28:04.760 --> 1:28:08.040
+ who smashed the looms and the spinning machines
+
+1:28:08.040 --> 1:28:11.320
+ because they felt like those machines weren't helping them.
+
+1:28:11.320 --> 1:28:12.720
+ We have a real imperative,
+
+1:28:12.720 --> 1:28:14.700
+ not just to do the morally right thing,
+
+1:28:14.700 --> 1:28:17.520
+ but to do the thing that is gonna save the country,
+
+1:28:17.520 --> 1:28:19.440
+ which is make sure that we create
+
+1:28:19.440 --> 1:28:22.680
+ not just prosperity, but shared prosperity.
+
+1:28:22.680 --> 1:28:27.600
+ So you've been at MIT for over 30 years, I think.
+
+1:28:27.600 --> 1:28:28.440
+ Don't tell anyone how old I am.
+
+1:28:28.440 --> 1:28:30.280
+ Yeah, no, that's true, that's true.
+
+1:28:30.280 --> 1:28:34.000
+ And you're now moved to Stanford.
+
+1:28:34.000 --> 1:28:35.680
+ I'm gonna try not to say anything
+
+1:28:37.240 --> 1:28:38.880
+ about how great MIT is.
+
+1:28:39.760 --> 1:28:41.520
+ What's that move been like?
+
+1:28:41.520 --> 1:28:44.960
+ What, it's East Coast to West Coast?
+
+1:28:44.960 --> 1:28:46.160
+ Well, MIT is great.
+
+1:28:46.160 --> 1:28:48.080
+ MIT has been very good to me.
+
+1:28:48.080 --> 1:28:49.560
+ It continues to be very good to me.
+
+1:28:49.560 --> 1:28:51.440
+ It's an amazing place.
+
+1:28:51.440 --> 1:28:53.200
+ I continue to have so many amazing friends
+
+1:28:53.200 --> 1:28:54.600
+ and colleagues there.
+
+1:28:54.600 --> 1:28:56.120
+ I'm very fortunate to have been able
+
+1:28:56.120 --> 1:28:58.480
+ to spend a lot of time at MIT.
+
+1:28:58.480 --> 1:29:00.200
+ Stanford's also amazing.
+
+1:29:00.200 --> 1:29:01.980
+ And part of what attracted me out here
+
+1:29:01.980 --> 1:29:04.960
+ was not just the weather, but also Silicon Valley,
+
+1:29:04.960 --> 1:29:07.360
+ let's face it, is really more of the epicenter
+
+1:29:07.360 --> 1:29:09.000
+ of the technological revolution.
+
+1:29:09.000 --> 1:29:10.400
+ And I wanna be close to the people
+
+1:29:10.400 --> 1:29:12.320
+ who are inventing AI and elsewhere.
+
+1:29:12.320 --> 1:29:14.920
+ A lot of it is being invested at MIT for that matter
+
+1:29:14.920 --> 1:29:18.940
+ in Europe and China and elsewhere, in Nia.
+
+1:29:18.940 --> 1:29:23.800
+ But being a little closer to some of the key technologists
+
+1:29:23.800 --> 1:29:25.920
+ was something that was important to me.
+
+1:29:25.920 --> 1:29:28.600
+ And it may be shallow,
+
+1:29:28.600 --> 1:29:30.180
+ but I also do enjoy the good weather.
+
+1:29:30.180 --> 1:29:33.120
+ And I felt a little ripped off
+
+1:29:33.120 --> 1:29:35.040
+ when I came here a couple of months ago.
+
+1:29:35.040 --> 1:29:36.640
+ And immediately there are the fires
+
+1:29:36.640 --> 1:29:39.840
+ and my eyes were burning, the sky was orange
+
+1:29:39.840 --> 1:29:41.320
+ and there's the heat waves.
+
+1:29:41.320 --> 1:29:44.460
+ And so it wasn't exactly what I've been promised,
+
+1:29:44.460 --> 1:29:47.960
+ but fingers crossed it'll get back to better.
+
+1:29:47.960 --> 1:29:50.720
+ But maybe on a brief aside,
+
+1:29:50.720 --> 1:29:52.720
+ there's been some criticism of academia
+
+1:29:52.720 --> 1:29:55.760
+ and universities and different avenues.
+
+1:29:55.760 --> 1:30:00.760
+ And I, as a person who's gotten to enjoy universities
+
+1:30:00.760 --> 1:30:04.380
+ from the pure playground of ideas that it can be,
+
+1:30:06.380 --> 1:30:08.840
+ always kind of try to find the words
+
+1:30:08.840 --> 1:30:13.160
+ to tell people that these are magical places.
+
+1:30:13.160 --> 1:30:17.000
+ Is there something that you can speak to
+
+1:30:17.000 --> 1:30:22.000
+ that is beautiful or powerful about universities?
+
+1:30:22.440 --> 1:30:23.280
+ Well, sure.
+
+1:30:23.280 --> 1:30:24.500
+ I mean, first off, I mean,
+
+1:30:24.500 --> 1:30:26.660
+ economists have this concept called revealed preference.
+
+1:30:26.660 --> 1:30:28.300
+ You can ask people what they say
+
+1:30:28.300 --> 1:30:29.940
+ or you can watch what they do.
+
+1:30:29.940 --> 1:30:33.960
+ And so obviously by reveal preferences, I love academia.
+
+1:30:33.960 --> 1:30:35.540
+ I could be doing lots of other things,
+
+1:30:35.540 --> 1:30:37.600
+ but it's something I enjoy a lot.
+
+1:30:37.600 --> 1:30:39.640
+ And I think the word magical is exactly right.
+
+1:30:39.640 --> 1:30:41.480
+ At least it is for me.
+
+1:30:41.480 --> 1:30:43.120
+ I do what I love, you know,
+
+1:30:43.120 --> 1:30:44.320
+ hopefully my Dean won't be listening,
+
+1:30:44.320 --> 1:30:45.640
+ but I would do this for free.
+
+1:30:45.640 --> 1:30:49.060
+ You know, it's just what I like to do.
+
+1:30:49.060 --> 1:30:50.160
+ I like to do research.
+
+1:30:50.160 --> 1:30:51.840
+ I love to have conversations like this with you
+
+1:30:51.840 --> 1:30:53.740
+ and with my students, with my fellow colleagues.
+
+1:30:53.740 --> 1:30:55.760
+ I love being around the smartest people I can find
+
+1:30:55.760 --> 1:30:57.220
+ and learning something from them
+
+1:30:57.220 --> 1:30:58.640
+ and having them challenge me.
+
+1:30:58.640 --> 1:31:02.480
+ And that just gives me joy.
+
+1:31:02.480 --> 1:31:05.500
+ And every day I find something new and exciting to work on.
+
+1:31:05.500 --> 1:31:08.040
+ And a university environment is really filled
+
+1:31:08.040 --> 1:31:09.820
+ with other people who feel that way.
+
+1:31:09.820 --> 1:31:12.960
+ And so I feel very fortunate to be part of it.
+
+1:31:12.960 --> 1:31:14.840
+ And I'm lucky that I'm in a society
+
+1:31:14.840 --> 1:31:16.200
+ where I can actually get paid for it
+
+1:31:16.200 --> 1:31:17.240
+ and put food on the table
+
+1:31:17.240 --> 1:31:19.260
+ while doing the stuff that I really love.
+
+1:31:19.260 --> 1:31:21.560
+ And I hope someday everybody can have jobs
+
+1:31:21.560 --> 1:31:22.800
+ that are like that.
+
+1:31:22.800 --> 1:31:25.340
+ And I appreciate that it's not necessarily easy
+
+1:31:25.340 --> 1:31:27.400
+ for everybody to have a job that they both love
+
+1:31:27.400 --> 1:31:29.400
+ and also they get paid for.
+
+1:31:30.660 --> 1:31:34.000
+ So there are things that don't go well in academia,
+
+1:31:34.000 --> 1:31:36.000
+ but by and large, I think it's a kind of, you know,
+
+1:31:36.000 --> 1:31:37.960
+ kinder, gentler version of a lot of the world.
+
+1:31:37.960 --> 1:31:41.280
+ You know, we sort of cut each other a little slack
+
+1:31:41.280 --> 1:31:45.800
+ on things like, you know, on just a lot of things.
+
+1:31:45.800 --> 1:31:48.320
+ You know, of course there's harsh debates
+
+1:31:48.320 --> 1:31:49.900
+ and discussions about things
+
+1:31:49.900 --> 1:31:52.060
+ and some petty politics here and there.
+
+1:31:52.060 --> 1:31:53.520
+ I personally, I try to stay away
+
+1:31:53.520 --> 1:31:55.600
+ from most of that sort of politics.
+
+1:31:55.600 --> 1:31:56.560
+ It's not my thing.
+
+1:31:56.560 --> 1:31:58.320
+ And so it doesn't affect me most of the time,
+
+1:31:58.320 --> 1:32:00.480
+ sometimes a little bit, maybe.
+
+1:32:00.480 --> 1:32:03.200
+ But, you know, being able to pull together something,
+
+1:32:03.200 --> 1:32:04.860
+ we have the digital economy lab.
+
+1:32:04.860 --> 1:32:07.480
+ We've got all these brilliant grad students
+
+1:32:07.480 --> 1:32:09.280
+ and undergraduates and postdocs
+
+1:32:09.280 --> 1:32:12.320
+ that are just doing stuff that I learned from.
+
+1:32:12.320 --> 1:32:14.760
+ And every one of them has some aspect
+
+1:32:14.760 --> 1:32:16.640
+ of what they're doing that's just,
+
+1:32:16.640 --> 1:32:17.600
+ I couldn't even understand.
+
+1:32:17.600 --> 1:32:19.340
+ It's like way, way more brilliant.
+
+1:32:19.340 --> 1:32:23.040
+ And that's really, to me, actually I really enjoy that,
+
+1:32:23.040 --> 1:32:25.120
+ being in a room with lots of other smart people.
+
+1:32:25.120 --> 1:32:29.440
+ And Stanford has made it very easy to attract,
+
+1:32:29.440 --> 1:32:31.260
+ you know, those people.
+
+1:32:31.260 --> 1:32:33.680
+ I just, you know, say I'm gonna do a seminar, whatever,
+
+1:32:33.680 --> 1:32:36.820
+ and the people come, they come and wanna work with me.
+
+1:32:36.820 --> 1:32:38.880
+ We get funding, we get data sets,
+
+1:32:38.880 --> 1:32:41.440
+ and it's come together real nicely.
+
+1:32:41.440 --> 1:32:44.220
+ And the rest is just fun.
+
+1:32:44.220 --> 1:32:45.840
+ It's fun, yeah.
+
+1:32:45.840 --> 1:32:47.480
+ And we feel like we're working on important problems,
+
+1:32:47.480 --> 1:32:50.320
+ you know, and we're doing things that, you know,
+
+1:32:50.320 --> 1:32:53.680
+ I think are first order in terms of what's important
+
+1:32:53.680 --> 1:32:56.320
+ in the world, and that's very satisfying to me.
+
+1:32:56.320 --> 1:32:58.080
+ Maybe a bit of a fun question.
+
+1:32:58.080 --> 1:33:02.180
+ What three books, technical, fiction, philosophical,
+
+1:33:02.180 --> 1:33:07.180
+ you've enjoyed, had a big, big impact in your life?
+
+1:33:07.380 --> 1:33:09.980
+ Well, I guess I go back to like my teen years,
+
+1:33:09.980 --> 1:33:12.300
+ and, you know, I read Sid Arthur,
+
+1:33:12.300 --> 1:33:13.420
+ which is a philosophical book,
+
+1:33:13.420 --> 1:33:15.260
+ and kind of helps keep me centered.
+
+1:33:15.260 --> 1:33:16.180
+ By Herman Hesse.
+
+1:33:16.180 --> 1:33:17.340
+ Yeah, by Herman Hesse, exactly.
+
+1:33:17.340 --> 1:33:20.380
+ Don't get too wrapped up in material things
+
+1:33:20.380 --> 1:33:21.980
+ or other things, and just sort of, you know,
+
+1:33:21.980 --> 1:33:24.780
+ try to find peace on things.
+
+1:33:24.780 --> 1:33:26.340
+ A book that actually influenced me a lot
+
+1:33:26.340 --> 1:33:27.620
+ in terms of my career was called
+
+1:33:27.620 --> 1:33:30.460
+ The Worldly Philosophers by Robert Halbrenner.
+
+1:33:30.460 --> 1:33:31.660
+ It's actually about economists.
+
+1:33:31.660 --> 1:33:33.500
+ It goes through a series of different,
+
+1:33:33.500 --> 1:33:34.900
+ it's written in a very lively form,
+
+1:33:34.900 --> 1:33:36.220
+ and it probably sounds boring,
+
+1:33:36.220 --> 1:33:38.820
+ but it did describe whether it's Adam Smith
+
+1:33:38.820 --> 1:33:40.820
+ or Karl Marx or John Maynard Keynes,
+
+1:33:40.820 --> 1:33:43.340
+ and each of them sort of what their key insights were,
+
+1:33:43.340 --> 1:33:45.340
+ but also kind of their personalities,
+
+1:33:45.340 --> 1:33:46.520
+ and I think that's one of the reasons
+
+1:33:46.520 --> 1:33:50.600
+ I became an economist was just understanding
+
+1:33:50.600 --> 1:33:53.100
+ how they grapple with the big questions of the world.
+
+1:33:53.100 --> 1:33:56.340
+ So would you recommend it as a good whirlwind overview
+
+1:33:56.340 --> 1:33:57.540
+ of the history of economics?
+
+1:33:57.540 --> 1:33:59.060
+ Yeah, yeah, I think that's exactly right.
+
+1:33:59.060 --> 1:34:00.940
+ It kind of takes you through the different things,
+
+1:34:00.940 --> 1:34:04.020
+ and so you can understand how they reach,
+
+1:34:04.020 --> 1:34:06.380
+ thinking some of the strengths and weaknesses.
+
+1:34:06.380 --> 1:34:07.900
+ I mean, it probably is a little out of date now.
+
+1:34:07.900 --> 1:34:08.980
+ It needs to be updated a bit,
+
+1:34:08.980 --> 1:34:10.380
+ but you could at least look through
+
+1:34:10.380 --> 1:34:12.940
+ the first couple hundred years of economics,
+
+1:34:12.940 --> 1:34:15.020
+ which is not a bad place to start.
+
+1:34:15.020 --> 1:34:17.580
+ More recently, I mean, a book I really enjoyed
+
+1:34:17.580 --> 1:34:20.260
+ is by my friend and colleague, Max Tegmark,
+
+1:34:20.260 --> 1:34:21.340
+ called Life 3.0.
+
+1:34:21.340 --> 1:34:23.260
+ You should have him on your podcast if you haven't already.
+
+1:34:23.260 --> 1:34:25.460
+ He was episode number one.
+
+1:34:25.460 --> 1:34:26.500
+ Oh my God.
+
+1:34:26.500 --> 1:34:30.220
+ And he's back, he'll be back, he'll be back soon.
+
+1:34:30.220 --> 1:34:31.460
+ Yeah, no, he's terrific.
+
+1:34:31.460 --> 1:34:33.460
+ I love the way his brain works,
+
+1:34:33.460 --> 1:34:35.780
+ and he makes you think about profound things.
+
+1:34:35.780 --> 1:34:38.540
+ He's got such a joyful approach to life,
+
+1:34:38.540 --> 1:34:41.060
+ and so that's been a great book,
+
+1:34:41.060 --> 1:34:43.180
+ and I learn a lot from it, I think everybody,
+
+1:34:43.180 --> 1:34:45.580
+ but he explains it in a way, even though he's so brilliant,
+
+1:34:45.580 --> 1:34:48.280
+ that everyone can understand, that I can understand.
+
+1:34:50.020 --> 1:34:52.920
+ That's three, but let me mention maybe one or two others.
+
+1:34:52.920 --> 1:34:55.340
+ I mean, I recently read More From Less
+
+1:34:55.340 --> 1:34:58.620
+ by my sometimes coauthor, Andrew McAfee.
+
+1:34:58.620 --> 1:35:01.940
+ It made me optimistic about how we can continue
+
+1:35:01.940 --> 1:35:04.580
+ to have rising living standards
+
+1:35:04.580 --> 1:35:06.140
+ while living more lightly on the planet.
+
+1:35:06.140 --> 1:35:07.860
+ In fact, because of higher living standards,
+
+1:35:07.860 --> 1:35:09.140
+ because of technology,
+
+1:35:09.140 --> 1:35:11.500
+ because of digitization that I mentioned,
+
+1:35:11.500 --> 1:35:13.580
+ we don't have to have as big an impact on the planet,
+
+1:35:13.580 --> 1:35:15.740
+ and that's a great story to tell,
+
+1:35:15.740 --> 1:35:17.440
+ and he documents it very carefully.
+
+1:35:19.740 --> 1:35:21.380
+ You know, a personal kind of self help book
+
+1:35:21.380 --> 1:35:24.140
+ that I found kind of useful, People, is Atomic Habits.
+
+1:35:24.140 --> 1:35:26.180
+ I think it's, what's his name, James Clear.
+
+1:35:26.180 --> 1:35:27.540
+ Yeah, James Clear.
+
+1:35:27.540 --> 1:35:29.100
+ He's just, yeah, it's a good name,
+
+1:35:29.100 --> 1:35:30.460
+ because he writes very clearly,
+
+1:35:30.460 --> 1:35:33.620
+ and you know, most of the sentences I read in that book,
+
+1:35:33.620 --> 1:35:34.500
+ I was like, yeah, I know that,
+
+1:35:34.500 --> 1:35:37.220
+ but it just really helps to have somebody like remind you
+
+1:35:37.220 --> 1:35:40.860
+ and tell you and kind of just reinforce it, and it's helpful.
+
+1:35:40.860 --> 1:35:45.020
+ So build habits in your life that you hope to have,
+
+1:35:45.020 --> 1:35:46.140
+ that have a positive impact,
+
+1:35:46.140 --> 1:35:48.100
+ and don't have to make it big things.
+
+1:35:48.100 --> 1:35:49.220
+ It could be just tiny little.
+
+1:35:49.220 --> 1:35:50.720
+ Exactly, I mean, the word atomic,
+
+1:35:50.720 --> 1:35:52.540
+ it's a little bit of a pun, I think he says.
+
+1:35:52.540 --> 1:35:54.020
+ You know, one, atomic means they're really small.
+
+1:35:54.020 --> 1:35:56.860
+ You take these little things, but also like atomic power,
+
+1:35:56.860 --> 1:35:59.460
+ can have like, you know, big impact.
+
+1:35:59.460 --> 1:36:00.460
+ That's funny, yeah.
+
+1:36:01.460 --> 1:36:04.180
+ The biggest ridiculous question,
+
+1:36:04.180 --> 1:36:06.860
+ especially to ask an economist, but also a human being,
+
+1:36:06.860 --> 1:36:08.260
+ what's the meaning of life?
+
+1:36:08.260 --> 1:36:11.460
+ I hope you've gotten the answer to that from somebody else.
+
+1:36:11.460 --> 1:36:14.740
+ I think we're all still working on that one, but what is it?
+
+1:36:14.740 --> 1:36:18.120
+ You know, I actually learned a lot from my son, Luke,
+
+1:36:18.120 --> 1:36:22.100
+ and he's 19 now, but he's always loved philosophy,
+
+1:36:22.100 --> 1:36:24.900
+ and he reads way more sophisticated philosophy than I do.
+
+1:36:24.900 --> 1:36:25.860
+ I went and took him to Oxford,
+
+1:36:25.860 --> 1:36:27.060
+ and he spent the whole time like pulling
+
+1:36:27.060 --> 1:36:29.020
+ all these obscure books down and reading them.
+
+1:36:29.020 --> 1:36:32.600
+ And a couple of years ago, we had this argument,
+
+1:36:32.600 --> 1:36:34.500
+ and he was trying to convince me that hedonism
+
+1:36:34.500 --> 1:36:37.480
+ was the ultimate, you know, meaning of life,
+
+1:36:37.480 --> 1:36:40.380
+ just pleasure seeking, and...
+
+1:36:40.380 --> 1:36:41.580
+ Well, how old was he at the time?
+
+1:36:41.580 --> 1:36:42.420
+ 17, so...
+
+1:36:42.420 --> 1:36:43.260
+ Okay.
+
+1:36:43.260 --> 1:36:46.700
+ But he made a really good like intellectual argument
+
+1:36:46.700 --> 1:36:47.540
+ for it too, and you know,
+
+1:36:47.540 --> 1:36:50.180
+ but you know, it just didn't strike me as right.
+
+1:36:50.180 --> 1:36:54.540
+ And I think that, you know, while I am kind of a utilitarian,
+
+1:36:54.540 --> 1:36:55.940
+ like, you know, I do think we should do the grace,
+
+1:36:55.940 --> 1:36:58.740
+ good for the grace number, that's just too shallow.
+
+1:36:58.740 --> 1:37:02.820
+ And I think I've convinced myself that real happiness
+
+1:37:02.820 --> 1:37:04.260
+ doesn't come from seeking pleasure.
+
+1:37:04.260 --> 1:37:05.700
+ It's kind of a little, it's ironic.
+
+1:37:05.700 --> 1:37:07.700
+ Like if you really focus on being happy,
+
+1:37:07.700 --> 1:37:09.740
+ I think it doesn't work.
+
+1:37:09.740 --> 1:37:12.420
+ You gotta like be doing something bigger.
+
+1:37:12.420 --> 1:37:14.900
+ I think the analogy I sometimes use is, you know,
+
+1:37:14.900 --> 1:37:17.580
+ when you look at a dim star in the sky,
+
+1:37:17.580 --> 1:37:19.460
+ if you look right at it, it kind of disappears,
+
+1:37:19.460 --> 1:37:20.740
+ but you have to look a little to the side,
+
+1:37:20.740 --> 1:37:23.180
+ and then the parts of your retina
+
+1:37:23.180 --> 1:37:24.940
+ that are better at absorbing light,
+
+1:37:24.940 --> 1:37:26.340
+ you know, can pick it up better.
+
+1:37:26.340 --> 1:37:27.420
+ It's the same thing with happiness.
+
+1:37:27.420 --> 1:37:32.420
+ I think you need to sort of find something, other goal,
+
+1:37:32.500 --> 1:37:33.980
+ something, some meaning in life,
+
+1:37:33.980 --> 1:37:36.180
+ and that ultimately makes you happier
+
+1:37:36.180 --> 1:37:39.060
+ than if you go squarely at just pleasure.
+
+1:37:39.060 --> 1:37:42.260
+ And so for me, you know, the kind of research I do
+
+1:37:42.260 --> 1:37:44.220
+ that I think is trying to change the world,
+
+1:37:44.220 --> 1:37:46.140
+ make the world a better place,
+
+1:37:46.140 --> 1:37:47.980
+ and I'm not like an evolutionary psychologist,
+
+1:37:47.980 --> 1:37:50.860
+ but my guess is that our brains are wired,
+
+1:37:50.860 --> 1:37:53.860
+ not just for pleasure, but we're social animals,
+
+1:37:53.860 --> 1:37:57.220
+ and we're wired to like help others.
+
+1:37:57.220 --> 1:37:58.860
+ And ultimately, you know,
+
+1:37:58.860 --> 1:38:02.060
+ that's something that's really deeply rooted in our psyche.
+
+1:38:02.060 --> 1:38:04.500
+ And if we do help others, if we do,
+
+1:38:04.500 --> 1:38:06.660
+ or at least feel like we're helping others,
+
+1:38:06.660 --> 1:38:08.220
+ you know, our reward systems kick in,
+
+1:38:08.220 --> 1:38:10.460
+ and we end up being more deeply satisfied
+
+1:38:10.460 --> 1:38:13.620
+ than if we just do something selfish and shallow.
+
+1:38:13.620 --> 1:38:14.460
+ Beautifully put.
+
+1:38:14.460 --> 1:38:16.980
+ I don't think there's a better way to end it, Eric.
+
+1:38:16.980 --> 1:38:20.500
+ You were one of the people when I first showed up at MIT,
+
+1:38:20.500 --> 1:38:22.420
+ that made me proud to be at MIT.
+
+1:38:22.420 --> 1:38:24.540
+ So it's so sad that you're now at Stanford,
+
+1:38:24.540 --> 1:38:28.980
+ but I'm sure you'll do wonderful things at Stanford as well.
+
+1:38:28.980 --> 1:38:30.900
+ I can't wait till future books,
+
+1:38:30.900 --> 1:38:32.260
+ and people should definitely read your other books.
+
+1:38:32.260 --> 1:38:33.180
+ Well, thank you so much.
+
+1:38:33.180 --> 1:38:35.580
+ And I think we're all part of the invisible college,
+
+1:38:35.580 --> 1:38:36.420
+ as we call it.
+
+1:38:36.420 --> 1:38:38.700
+ You know, we're all part of this intellectual
+
+1:38:38.700 --> 1:38:41.660
+ and human community where we all can learn from each other.
+
+1:38:41.660 --> 1:38:43.100
+ It doesn't really matter physically
+
+1:38:43.100 --> 1:38:44.860
+ where we are so much anymore.
+
+1:38:44.860 --> 1:38:45.700
+ Beautiful.
+
+1:38:45.700 --> 1:38:46.540
+ Thanks for talking today.
+
+1:38:46.540 --> 1:38:48.060
+ My pleasure.
+
+1:38:48.060 --> 1:38:49.460
+ Thanks for listening to this conversation
+
+1:38:49.460 --> 1:38:50.860
+ with Eric Brynjolfsson.
+
+1:38:50.860 --> 1:38:52.620
+ And thank you to our sponsors.
+
+1:38:52.620 --> 1:38:55.060
+ Vincero Watches, the maker of classy,
+
+1:38:55.060 --> 1:38:56.860
+ well performing watches.
+
+1:38:56.860 --> 1:39:00.060
+ Fort Sigmatic, the maker of delicious mushroom coffee.
+
+1:39:00.060 --> 1:39:03.140
+ ExpressVPN, the VPN I've used for many years
+
+1:39:03.140 --> 1:39:05.260
+ to protect my privacy on the internet.
+
+1:39:05.260 --> 1:39:09.140
+ And CashApp, the app I use to send money to friends.
+
+1:39:09.140 --> 1:39:11.180
+ Please check out these sponsors in the description
+
+1:39:11.180 --> 1:39:14.900
+ to get a discount and to support this podcast.
+
+1:39:14.900 --> 1:39:17.280
+ If you enjoy this thing, subscribe on YouTube.
+
+1:39:17.280 --> 1:39:19.500
+ Review it with five stars on Apple Podcast,
+
+1:39:19.500 --> 1:39:22.100
+ follow on Spotify, support on Patreon,
+
+1:39:22.100 --> 1:39:25.380
+ or connect with me on Twitter at Lex Friedman.
+
+1:39:25.380 --> 1:39:27.700
+ And now, let me leave you with some words
+
+1:39:27.700 --> 1:39:29.980
+ from Albert Einstein.
+
+1:39:29.980 --> 1:39:32.860
+ It has become appallingly obvious
+
+1:39:32.860 --> 1:39:36.600
+ that our technology has exceeded our humanity.
+
+1:39:36.600 --> 1:39:49.100
+ Thank you for listening and hope to see you next time.
+

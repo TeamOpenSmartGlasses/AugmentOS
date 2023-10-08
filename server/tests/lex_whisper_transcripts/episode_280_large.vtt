@@ -1,0 +1,4529 @@
+WEBVTT
+
+00:00.000 --> 00:03.420
+ Talking about an exciting thing for an engineer,
+
+00:03.420 --> 00:05.760
+ the same Snapdragon that goes to a phone
+
+00:05.760 --> 00:08.380
+ and it can go to a Galaxy phone, for example, Samsung,
+
+00:08.380 --> 00:12.600
+ the same, not a special one, went all the way to Mars.
+
+00:12.600 --> 00:17.000
+ You expect to have a full day of battery life,
+
+00:17.000 --> 00:20.320
+ but then you want it to not be sending data
+
+00:20.320 --> 00:23.240
+ into 10 or 100 megabits.
+
+00:23.240 --> 00:24.800
+ You want gigabits.
+
+00:24.800 --> 00:28.080
+ You want it to be able to have eight core processors.
+
+00:28.080 --> 00:30.720
+ You want to have a GPU with ray tracing.
+
+00:30.720 --> 00:32.600
+ You want to have all of those things
+
+00:32.600 --> 00:37.600
+ that you can only get into sometimes a desktop PC.
+
+00:37.880 --> 00:41.160
+ To do all of that in your phone is an incredible thing.
+
+00:41.160 --> 00:44.060
+ Some people raise concerns about there not being enough
+
+00:44.060 --> 00:47.560
+ studies about the effects of 5G on the human body.
+
+00:47.560 --> 00:48.960
+ Is 5G safe?
+
+00:51.920 --> 00:55.040
+ The following is a conversation with Cristiano Aman,
+
+00:55.040 --> 00:57.200
+ the CEO of Qualcomm.
+
+00:57.200 --> 00:59.780
+ The company that's one of the leaders in the world
+
+00:59.780 --> 01:03.120
+ in the space of mobile communication and computation.
+
+01:03.120 --> 01:08.120
+ That's 2G, 3G, 4G, and 5G that connects billions of phones,
+
+01:08.300 --> 01:12.280
+ and the Snapdragon processor and system on a chip
+
+01:12.280 --> 01:15.320
+ that is the brain of most of the premium Android phones
+
+01:15.320 --> 01:16.700
+ in the world.
+
+01:16.700 --> 01:18.720
+ This is the Lex Friedman podcast.
+
+01:18.720 --> 01:20.600
+ To support it, please check out our sponsors
+
+01:20.600 --> 01:21.800
+ in the description.
+
+01:21.800 --> 01:25.780
+ And now, dear friends, here's Cristiano Aman.
+
+01:25.780 --> 01:28.540
+ You are originally from Brazil,
+
+01:28.540 --> 01:31.340
+ so let me ask the most important question,
+
+01:31.340 --> 01:33.260
+ the most profound question, the biggest question.
+
+01:33.260 --> 01:36.620
+ Who's the greatest football soccer player of all time?
+
+01:36.620 --> 01:38.540
+ Look, everybody's gonna say Pele,
+
+01:38.540 --> 01:42.500
+ and actually I was born during the game
+
+01:42.500 --> 01:47.500
+ of Brazil and Italy that Pele gave Brazil the championship.
+
+01:47.940 --> 01:52.060
+ Actually it was, my dad tells me that the doctor
+
+01:52.060 --> 01:54.980
+ had a TV on at the delivery room.
+
+01:54.980 --> 01:56.660
+ But, so everybody will say Pele,
+
+01:56.660 --> 01:58.600
+ but I really like Ronaldo.
+
+01:58.600 --> 02:01.780
+ The first, not Ronaldinho, the first Ronaldo.
+
+02:01.780 --> 02:02.900
+ I really like him.
+
+02:02.900 --> 02:04.460
+ That's my favorite player.
+
+02:04.460 --> 02:07.220
+ By the way, not everybody would say Pele.
+
+02:07.220 --> 02:09.700
+ But we shall leave that on the table
+
+02:09.700 --> 02:11.460
+ and agree to disagree.
+
+02:11.460 --> 02:12.700
+ Brazilians will say Pele.
+
+02:12.700 --> 02:13.540
+ Yes.
+
+02:14.420 --> 02:17.740
+ There's other countries around that region
+
+02:17.740 --> 02:19.140
+ that may disagree a little bit.
+
+02:19.140 --> 02:19.980
+ I'm very aware.
+
+02:19.980 --> 02:24.980
+ Qualcomm is largely responsible for 5G
+
+02:25.300 --> 02:28.060
+ and some of the greatest processors
+
+02:28.060 --> 02:29.780
+ in our smartphones ever built.
+
+02:29.780 --> 02:33.420
+ So we got communication and computation tech
+
+02:33.420 --> 02:36.800
+ that impacts probably billions of people.
+
+02:36.800 --> 02:39.420
+ So if you zoom out, you as a human,
+
+02:39.420 --> 02:41.420
+ we'll look at humans on Earth in general,
+
+02:42.940 --> 02:47.580
+ does it blow your mind that we have these billions
+
+02:47.580 --> 02:50.980
+ of smartphones communicating and each of them
+
+02:50.980 --> 02:53.260
+ have the computational power?
+
+02:53.260 --> 02:56.100
+ You know, you talk about 10 billion transistors.
+
+02:56.100 --> 02:59.780
+ That's a million times more than 50 years ago
+
+02:59.780 --> 03:01.380
+ in the best computers in the world.
+
+03:01.380 --> 03:04.400
+ Like if you just zoom out as a human,
+
+03:05.260 --> 03:06.300
+ does that blow your mind?
+
+03:06.300 --> 03:07.420
+ Absolutely.
+
+03:07.420 --> 03:10.340
+ Look, one of the reasons I think I love this company
+
+03:10.340 --> 03:13.660
+ is we know that the technology we develop
+
+03:13.660 --> 03:14.500
+ can change the world.
+
+03:14.500 --> 03:15.740
+ And I'll tell you one more thing.
+
+03:15.740 --> 03:18.260
+ Beyond the amount of processing power
+
+03:18.260 --> 03:20.260
+ that you have now in the palm of your hands
+
+03:20.260 --> 03:22.580
+ and being every one of the world is connected
+
+03:22.580 --> 03:24.460
+ with broadband technology,
+
+03:24.460 --> 03:28.020
+ the smartphone is also mankind largest development platform.
+
+03:28.020 --> 03:29.620
+ There's nothing like it.
+
+03:29.620 --> 03:31.980
+ So you respect both the hardware and the software?
+
+03:31.980 --> 03:33.020
+ Both.
+
+03:33.020 --> 03:33.840
+ Both.
+
+03:33.840 --> 03:36.900
+ If aliens were observing Earth over the past 50 to 70 years,
+
+03:36.900 --> 03:38.540
+ how do you think they would describe
+
+03:38.540 --> 03:43.540
+ this particular turmoil, fun things going on
+
+03:43.540 --> 03:47.900
+ on the surface of this particular little planet?
+
+03:47.900 --> 03:49.540
+ We live in interesting times.
+
+03:50.820 --> 03:55.460
+ In one time, we see incredible development of technology
+
+03:55.460 --> 03:59.340
+ for mankind just what happened in the last century.
+
+03:59.340 --> 04:04.340
+ You know, from 1900 to 2000, it was incredible development.
+
+04:04.420 --> 04:07.700
+ Just look, 2000 was 22 years ago,
+
+04:07.700 --> 04:10.580
+ how far we're coming and where we're going with technology.
+
+04:10.580 --> 04:11.900
+ It's incredible.
+
+04:11.900 --> 04:13.540
+ What do you think they would notice?
+
+04:13.540 --> 04:16.540
+ So there's road networks, there's all kinds of networks.
+
+04:16.540 --> 04:19.300
+ There's lights that keep popping up,
+
+04:19.300 --> 04:21.860
+ cities springing up, like from an alien perspective,
+
+04:21.860 --> 04:22.700
+ you're observing.
+
+04:22.700 --> 04:24.900
+ Well, what I'm gonna tell you is you have this contrast
+
+04:24.900 --> 04:27.620
+ of incredible development of technology,
+
+04:27.620 --> 04:28.940
+ but then you see some of the things
+
+04:28.940 --> 04:30.420
+ that are happening right now,
+
+04:30.420 --> 04:33.660
+ which is probably you would not expect them to happen
+
+04:33.660 --> 04:36.860
+ on the 21st century, just what happened in Ukraine.
+
+04:36.860 --> 04:40.300
+ So I think that will be a more puzzling question
+
+04:40.300 --> 04:42.500
+ for the aliens, I would imagine.
+
+04:42.500 --> 04:44.900
+ The new technology is kind of impressive.
+
+04:44.900 --> 04:46.460
+ Actually, that might not be so puzzling
+
+04:46.460 --> 04:49.020
+ because that's just human nature revealing itself
+
+04:49.020 --> 04:50.620
+ as it has throughout human history.
+
+04:50.620 --> 04:51.460
+ That's correct.
+
+04:52.780 --> 04:54.860
+ Let's talk about wireless communication.
+
+04:54.860 --> 04:58.540
+ So Qualcomm was instrumental in developing 5G.
+
+04:58.540 --> 05:01.100
+ Now you were with Qualcomm since the early days,
+
+05:01.100 --> 05:05.580
+ the good old 90s with the 2G, but what is 5G,
+
+05:05.580 --> 05:10.100
+ including sub six gigahertz 5G and millimeter wave 5G?
+
+05:10.100 --> 05:10.940
+ How does it work?
+
+05:10.940 --> 05:13.340
+ And maybe the most important question is
+
+05:13.340 --> 05:15.900
+ how will it change the world in the coming years?
+
+05:15.900 --> 05:18.300
+ When we set ourselves to develop 5G,
+
+05:18.300 --> 05:21.980
+ and we look at this, every generation of technology
+
+05:21.980 --> 05:24.180
+ had a problem to be solved, right?
+
+05:24.180 --> 05:26.580
+ So you mentioned 2G, 2G challenge,
+
+05:26.580 --> 05:29.340
+ the challenge of CDMA was can we give every person
+
+05:29.340 --> 05:30.900
+ on earth a cell phone?
+
+05:30.900 --> 05:33.060
+ That was, can you get to a technology
+
+05:33.060 --> 05:36.100
+ that you can basically allow everyone
+
+05:36.100 --> 05:37.660
+ to have a mobile phone?
+
+05:37.660 --> 05:41.100
+ 3G was about the ability to connect that to the internet.
+
+05:41.100 --> 05:45.140
+ I think 4G was broadband and with 4G was about
+
+05:45.140 --> 05:46.780
+ have the ability for you to have a computer
+
+05:46.780 --> 05:48.020
+ in the palm of your hand.
+
+05:48.020 --> 05:49.540
+ We'll just talk about that.
+
+05:49.540 --> 05:52.180
+ 5G, the challenge was a little bit different.
+
+05:52.180 --> 05:55.140
+ It's how do we build a technology for a society
+
+05:55.140 --> 05:57.980
+ that is gonna be 100% connected to the cloud?
+
+05:57.980 --> 06:00.900
+ How do we provide a technology that is going to be
+
+06:00.900 --> 06:04.260
+ the last mile connectivity for everything?
+
+06:04.260 --> 06:07.980
+ So 5G has basically been designed,
+
+06:07.980 --> 06:10.300
+ eliminate all issues with data congestion,
+
+06:10.300 --> 06:14.500
+ whether you are in stadium, we talk about soccer,
+
+06:14.500 --> 06:16.900
+ you were in a stadium and everyone should be
+
+06:16.900 --> 06:19.340
+ ability to have access to broadband.
+
+06:19.340 --> 06:20.900
+ So deal with congestion.
+
+06:20.900 --> 06:22.900
+ Deal with the fact that not only people,
+
+06:22.900 --> 06:25.980
+ but billions of things need to be connected.
+
+06:25.980 --> 06:29.780
+ Create a technology that for the first time in wireless,
+
+06:29.780 --> 06:32.980
+ you could deliver mission critical services.
+
+06:32.980 --> 06:37.180
+ Wireless used to up to 4G is its best effort.
+
+06:37.180 --> 06:40.500
+ In 5G, it can guarantee that you are connected
+
+06:40.500 --> 06:41.340
+ with the cloud.
+
+06:41.340 --> 06:46.340
+ And then the last point of that is provide this fabric
+
+06:47.260 --> 06:50.660
+ that will allow us as a society to look at things
+
+06:50.660 --> 06:53.260
+ that are not connected and say, that's the exception.
+
+06:53.260 --> 06:57.100
+ That's why we made a comparison in the early days of 5G
+
+06:57.100 --> 06:58.580
+ that that's gonna be like electricity.
+
+06:58.580 --> 07:00.940
+ Right now, you don't have a discussion
+
+07:00.940 --> 07:03.300
+ about what is the use cases for electricity.
+
+07:03.300 --> 07:04.700
+ You don't talk about that anymore.
+
+07:04.700 --> 07:05.860
+ You just assume it's there.
+
+07:05.860 --> 07:08.100
+ And that's how we think about everything
+
+07:08.100 --> 07:09.420
+ connected to the cloud.
+
+07:09.420 --> 07:12.260
+ That's what 5G is and that's the role of 5G.
+
+07:13.100 --> 07:15.380
+ So first of all, everything connected to the cloud
+
+07:15.380 --> 07:17.540
+ is interesting because the space of everything
+
+07:17.540 --> 07:19.020
+ is constantly increasing.
+
+07:19.020 --> 07:20.540
+ That is correct.
+
+07:20.540 --> 07:22.700
+ I don't think the refrigerator over there,
+
+07:22.700 --> 07:23.540
+ it looks kind of smart,
+
+07:23.540 --> 07:27.020
+ but I don't think it's connected yet to the cloud.
+
+07:27.020 --> 07:29.500
+ So this includes internet of things.
+
+07:29.500 --> 07:31.620
+ What is the full space of everything?
+
+07:31.620 --> 07:33.860
+ The full space of everything is,
+
+07:33.860 --> 07:38.500
+ it's maybe going back to where you start defining Qualcomm.
+
+07:38.500 --> 07:41.900
+ Qualcomm is about communications and advanced computers
+
+07:41.900 --> 07:43.820
+ for low power devices.
+
+07:43.820 --> 07:46.620
+ And can we make everything smart?
+
+07:46.620 --> 07:51.140
+ It can range from the robot you have right now on the floor
+
+07:51.140 --> 07:54.740
+ to your refrigerator, to a camera,
+
+07:54.740 --> 07:59.740
+ to machines in manufacturing,
+
+08:00.980 --> 08:03.500
+ to retail, et cetera.
+
+08:03.500 --> 08:05.460
+ I can give you some examples.
+
+08:05.460 --> 08:08.260
+ When we think of something as simple
+
+08:08.260 --> 08:11.260
+ as going to the grocery shop,
+
+08:11.260 --> 08:14.540
+ we see technology now with something,
+
+08:14.540 --> 08:17.620
+ the stuff we've been working with companies like Walmart.
+
+08:17.620 --> 08:19.540
+ Electronic shelf labels.
+
+08:19.540 --> 08:21.620
+ The ability for you to have smart cameras,
+
+08:21.620 --> 08:24.380
+ they can look at shelves and the camera is smart enough
+
+08:24.380 --> 08:27.020
+ to say some product needs to be replenished.
+
+08:27.020 --> 08:28.220
+ Ability to see what's trashed.
+
+08:28.220 --> 08:32.580
+ So it's about really providing processor connectivity,
+
+08:32.580 --> 08:35.300
+ artificial intelligence to everything.
+
+08:35.300 --> 08:40.180
+ And I think that's one of the largest addressable markets
+
+08:40.180 --> 08:41.180
+ we have for technology
+
+08:41.180 --> 08:43.340
+ because you can't really define everything.
+
+08:43.340 --> 08:44.260
+ Right, exactly.
+
+08:44.260 --> 08:45.100
+ It's a nice market
+
+08:45.100 --> 08:48.020
+ because it keeps growing potentially exponentially in speed.
+
+08:49.660 --> 08:51.100
+ What about coverage?
+
+08:51.100 --> 08:53.180
+ So how are we doing on the everything part?
+
+08:53.180 --> 08:57.620
+ So there is, like I mentioned, sub six gigahertz 5G
+
+08:57.620 --> 09:00.100
+ and there's a millimeter wave 5G.
+
+09:00.100 --> 09:02.780
+ So not all 5G is made the same.
+
+09:02.780 --> 09:05.460
+ So there's a speed, there's a bandwidth thing.
+
+09:05.460 --> 09:06.780
+ And then there's coverage.
+
+09:06.780 --> 09:10.220
+ How many people get to enjoy today
+
+09:10.220 --> 09:13.420
+ and how does the progress in the next five, 10, 20, 30,
+
+09:13.420 --> 09:15.820
+ 50 years you think looks like in terms of coverage?
+
+09:15.820 --> 09:17.060
+ Great topic of conversation.
+
+09:17.060 --> 09:18.300
+ So let's talk about this.
+
+09:19.180 --> 09:23.020
+ When I meet with regulators across the globe,
+
+09:23.020 --> 09:26.140
+ I tell them resistance is futile.
+
+09:26.140 --> 09:29.020
+ Allocate every spectrum to wireless.
+
+09:29.020 --> 09:31.660
+ Every spectrum needs to be allocated to wireless.
+
+09:31.660 --> 09:36.660
+ The reality is when we start moving from CDMA to OFDMA,
+
+09:37.500 --> 09:41.820
+ we knew that this industry has done a lot
+
+09:41.820 --> 09:44.020
+ to get more bits per Hertz.
+
+09:44.020 --> 09:49.020
+ But the reality is the massive amount of improvements
+
+09:49.020 --> 09:53.700
+ that is required in capacity and in speed,
+
+09:53.700 --> 09:55.380
+ you need more spectrum.
+
+09:55.380 --> 10:00.100
+ There's not so much we can rely on more bits per Hertz.
+
+10:00.100 --> 10:01.620
+ You just need more spectrum.
+
+10:01.620 --> 10:04.300
+ And if you look, for example,
+
+10:04.300 --> 10:07.780
+ what carriers since the 2G era,
+
+10:07.780 --> 10:10.740
+ they participate in different license and auctions
+
+10:10.740 --> 10:15.740
+ and every spectrum they accumulated from 2G or 3G or 4G,
+
+10:15.740 --> 10:20.740
+ all of that, you may be able to get one or two channels max
+
+10:20.980 --> 10:24.380
+ of sub six, which is a channel is about 100 megahertz
+
+10:24.380 --> 10:26.740
+ or 200 megahertz, and that's it.
+
+10:26.740 --> 10:28.740
+ So we need more spectrum.
+
+10:28.740 --> 10:32.340
+ So 5G has been designed to work across every spectrum
+
+10:32.340 --> 10:36.980
+ from the low frequency bands, that's what we call the sub six,
+
+10:36.980 --> 10:40.340
+ but you needed more, you needed to go to the millimeter wave.
+
+10:40.340 --> 10:43.820
+ So that's why 5G is a technology that you can deploy
+
+10:43.820 --> 10:48.820
+ from 450 megahertz as an example, or 600 or 700,
+
+10:48.820 --> 10:53.820
+ all the way to in the 42 gigahertz.
+
+10:54.100 --> 10:57.180
+ And that's where millimeter wave comes into the picture.
+
+10:57.180 --> 11:00.620
+ Now, let's now connect this to your question
+
+11:00.620 --> 11:03.580
+ about coverage of 5G.
+
+11:03.580 --> 11:08.420
+ The easiest thing to do is to deploy 5G
+
+11:08.420 --> 11:10.620
+ in the new spectrum you can get,
+
+11:10.620 --> 11:14.180
+ which is in the sub six, you see bands being auctioned
+
+11:14.180 --> 11:17.500
+ across the globe into 3.5 gigahertz.
+
+11:17.500 --> 11:18.820
+ There's nothing special about the band,
+
+11:18.820 --> 11:20.260
+ it's just the only one that was available
+
+11:20.260 --> 11:22.620
+ because everything else has been useful for 4G.
+
+11:22.620 --> 11:26.620
+ And you can deploy on that, go into existing cell towers
+
+11:26.620 --> 11:27.940
+ and just put a new equipment
+
+11:27.940 --> 11:29.460
+ without having to build new towers.
+
+11:29.460 --> 11:32.700
+ But when we go to technologies such as millimeter wave,
+
+11:32.700 --> 11:35.260
+ then you have to build more dense networks.
+
+11:35.260 --> 11:37.140
+ You need to build more stations
+
+11:37.140 --> 11:38.700
+ because a deployment in that case
+
+11:38.700 --> 11:40.500
+ look like a wifi deployment,
+
+11:40.500 --> 11:42.900
+ it's almost like wifi access points.
+
+11:42.900 --> 11:45.940
+ When you need to build more stations, you need permits,
+
+11:45.940 --> 11:50.580
+ you need to build fiber, so it takes more time to densify.
+
+11:50.580 --> 11:54.260
+ So what you see happening is coverage has been built fast
+
+11:54.260 --> 11:56.620
+ with sub six across the globe,
+
+11:56.620 --> 11:59.860
+ but now the United States also have the sub six.
+
+11:59.860 --> 12:02.940
+ So that gets you to coverage very fast.
+
+12:02.940 --> 12:05.620
+ But millimeter wave, it's moving.
+
+12:05.620 --> 12:08.780
+ And if I will say, for example, Verizon,
+
+12:08.780 --> 12:11.220
+ United States has had a leadership
+
+12:11.220 --> 12:13.060
+ in building millimeter wave, it takes time.
+
+12:13.060 --> 12:17.020
+ I'll say cities like Chicago, Manhattan
+
+12:17.020 --> 12:18.780
+ starting to get coverage.
+
+12:18.780 --> 12:21.540
+ It will be a process over a number of years
+
+12:21.540 --> 12:26.220
+ as you build those different access points type networks,
+
+12:26.220 --> 12:28.500
+ but it's inevitable.
+
+12:28.500 --> 12:30.020
+ There's not enough spectrum.
+
+12:30.020 --> 12:33.220
+ So every 5G operators just a matter of time
+
+12:33.220 --> 12:35.020
+ will have millimeter wave as well.
+
+12:35.020 --> 12:36.740
+ Resistance is futile.
+
+12:36.740 --> 12:39.300
+ Okay, so for millimeter wave,
+
+12:39.300 --> 12:42.140
+ we need density of access points.
+
+12:42.140 --> 12:47.140
+ And what's the biggest resistance for Qualcomm
+
+12:47.620 --> 12:49.660
+ for human civilization?
+
+12:49.660 --> 12:54.500
+ Is it politicians, regulators, federal regulators?
+
+12:54.500 --> 12:57.700
+ Is it individual humans?
+
+12:57.700 --> 13:00.620
+ Is it not enough money from the consumer perspective?
+
+13:00.620 --> 13:03.340
+ Like who is the biggest pain in the butt?
+
+13:03.340 --> 13:05.700
+ From a Qualcomm standpoint, but answering the question
+
+13:05.700 --> 13:09.420
+ about what it takes to build all this technology.
+
+13:09.420 --> 13:11.740
+ I think regulators across the board
+
+13:11.740 --> 13:13.660
+ understood the importance of 5G.
+
+13:13.660 --> 13:15.940
+ I have not met a regulator that said,
+
+13:15.940 --> 13:18.100
+ it's really important to be late on 5G.
+
+13:18.100 --> 13:20.140
+ I don't think anybody wants to be late on 5G.
+
+13:20.140 --> 13:22.980
+ And as a result, we've seen enormous amount of progress
+
+13:22.980 --> 13:26.300
+ in getting spectrum allocated to 5G.
+
+13:26.300 --> 13:29.380
+ I think the real issue is the time that it takes
+
+13:29.380 --> 13:31.660
+ to build infrastructure.
+
+13:31.660 --> 13:34.220
+ You know, investment in 5G infrastructure,
+
+13:34.220 --> 13:37.060
+ special millimeter wave is like building roads and ports.
+
+13:37.060 --> 13:38.820
+ It's critical infrastructure.
+
+13:38.820 --> 13:40.060
+ And those things take time.
+
+13:40.060 --> 13:41.660
+ Like one of the number one obstacle
+
+13:41.660 --> 13:45.020
+ you're gonna hear from operators is site permit.
+
+13:45.020 --> 13:47.780
+ You know, sometimes they have to negotiate municipality
+
+13:47.780 --> 13:51.740
+ by municipality about permits to get new cell sites.
+
+13:51.740 --> 13:54.220
+ But you know, the networks will be densified
+
+13:54.220 --> 13:56.740
+ and you're gonna need all of that capacity
+
+13:56.740 --> 14:01.100
+ for the promise of the fully immersive augmented reality
+
+14:01.100 --> 14:03.940
+ that will replace phones and everything being connected
+
+14:03.940 --> 14:05.580
+ 100% of the time.
+
+14:05.580 --> 14:07.940
+ This would not be a conversation with the CEO
+
+14:07.940 --> 14:12.060
+ if I did not ask questions that make you nervous.
+
+14:12.980 --> 14:15.900
+ Some people raise concerns about there not being enough
+
+14:15.900 --> 14:19.380
+ studies about the effects of 5G on the human body.
+
+14:19.380 --> 14:21.380
+ Is 5G safe?
+
+14:21.380 --> 14:26.380
+ Look, I have a very simple answer to this question.
+
+14:26.380 --> 14:31.380
+ As we build new capabilities, such as 5G,
+
+14:31.380 --> 14:34.700
+ power is going down, especially when you think
+
+14:34.700 --> 14:37.940
+ about reducing the number of base stations,
+
+14:37.940 --> 14:40.420
+ the network's becoming more dense.
+
+14:40.420 --> 14:45.420
+ So as you do that, the power becomes lower.
+
+14:45.420 --> 14:49.420
+ If your phone radiated from the phone and from the tower,
+
+14:49.420 --> 14:51.220
+ as you get closer to the tower,
+
+14:51.220 --> 14:53.460
+ you don't need that much power to reach the tower.
+
+14:53.460 --> 14:56.860
+ So as we move from 4G to 5G,
+
+14:56.860 --> 15:00.100
+ I think we see a reduction in the amount of power
+
+15:00.100 --> 15:02.860
+ is required to close the radio link.
+
+15:02.860 --> 15:05.860
+ Now, also you have a number of organizations,
+
+15:05.860 --> 15:09.460
+ the FCC, for example, has rigorous programs,
+
+15:09.460 --> 15:14.460
+ which they do a lot of tests to validate, you know,
+
+15:14.460 --> 15:16.780
+ the safety of those devices.
+
+15:16.780 --> 15:20.300
+ And I think we have, has been a model for other countries
+
+15:20.300 --> 15:24.060
+ to also to adopt the same things.
+
+15:24.060 --> 15:27.540
+ Cellular has been around for a number of decades now.
+
+15:27.540 --> 15:32.540
+ I think smartphone is our most beloved device today.
+
+15:32.540 --> 15:35.980
+ And I would argue how it's difficult
+
+15:35.980 --> 15:37.780
+ to answer those questions,
+
+15:37.780 --> 15:41.380
+ but I'll argue that the data to date
+
+15:41.380 --> 15:45.580
+ have we seen in 3G and 4G, you know,
+
+15:45.580 --> 15:50.580
+ has shown that a lot of the initial concerns
+
+15:53.500 --> 15:55.060
+ were not valid.
+
+15:55.060 --> 15:58.620
+ We look at 5G, even though it's new, it's just less power.
+
+15:58.620 --> 16:01.900
+ So we look at it from a physics standpoint.
+
+16:01.900 --> 16:05.180
+ So from a physics, from a biology perspective,
+
+16:05.180 --> 16:08.740
+ there's a lot of evidence, there's studies
+
+16:08.740 --> 16:13.060
+ that show that it's not dangerous, that it is in fact safe.
+
+16:13.060 --> 16:14.640
+ However, the concern that people have
+
+16:14.640 --> 16:17.140
+ is when you scale technology exponentially,
+
+16:18.620 --> 16:20.740
+ how will that change human civilization?
+
+16:20.740 --> 16:22.340
+ I mean, that doesn't apply to 5G,
+
+16:22.340 --> 16:23.980
+ that applies to every technology.
+
+16:23.980 --> 16:27.300
+ How, you said smartphone is the most beloved device,
+
+16:27.300 --> 16:29.940
+ but love sometimes hurts.
+
+16:29.940 --> 16:33.380
+ That's the impact on society we don't know.
+
+16:33.380 --> 16:34.700
+ And there's a little bit of fear,
+
+16:34.700 --> 16:36.740
+ there's both excitement and fear.
+
+16:36.740 --> 16:39.180
+ It's a great topic of conversation actually.
+
+16:39.180 --> 16:41.160
+ So let me give you my perspective on this.
+
+16:41.160 --> 16:42.500
+ And you started to see some things
+
+16:42.500 --> 16:43.700
+ actually happening right now.
+
+16:43.700 --> 16:47.140
+ So let me step back and let's talk about the fact
+
+16:47.140 --> 16:51.020
+ that we are in a fully interconnected society.
+
+16:51.020 --> 16:56.020
+ That when you look of the situation today,
+
+16:56.060 --> 17:01.060
+ we talk about smartphones, largest development platform,
+
+17:01.700 --> 17:06.700
+ so much now of our life, we are connected to the smartphone.
+
+17:08.500 --> 17:11.580
+ And we are all connected and we're connected.
+
+17:11.580 --> 17:15.460
+ And then we're building digital twins of everything, right?
+
+17:15.460 --> 17:17.340
+ So when you look at that picture,
+
+17:17.340 --> 17:20.140
+ when you look at the picture of this connected society,
+
+17:21.460 --> 17:25.140
+ you started to have the following thoughts,
+
+17:25.140 --> 17:26.780
+ which I think are very healthy,
+
+17:26.780 --> 17:30.220
+ which means in the same way that in the physical world,
+
+17:30.220 --> 17:33.720
+ you're entitled to some rights, you have obligations,
+
+17:33.720 --> 17:38.720
+ and there's a lot of things that protect your integrity.
+
+17:38.720 --> 17:43.580
+ I think as a rule, we're gonna see the society evolving.
+
+17:43.580 --> 17:46.740
+ So those things extend to your digital being
+
+17:47.680 --> 17:49.340
+ of people and things.
+
+17:49.340 --> 17:50.720
+ And I think it's just natural.
+
+17:50.720 --> 17:52.140
+ It's just natural.
+
+17:52.140 --> 17:54.020
+ It's just a natural path.
+
+17:54.020 --> 17:55.540
+ And you started to see things like that.
+
+17:55.540 --> 18:00.020
+ For example, the Europeans has done a lot in this area.
+
+18:00.020 --> 18:03.940
+ I'll say the Europeans probably ahead in the United States
+
+18:03.940 --> 18:06.940
+ thinking about privacy laws, digital privacy laws.
+
+18:06.940 --> 18:09.860
+ Most recently, the DMA, the Digital Markets Act,
+
+18:09.860 --> 18:11.860
+ which I think is a great thing.
+
+18:11.860 --> 18:15.900
+ I think we believe there's incredible thought
+
+18:15.900 --> 18:19.260
+ into enable ability to regulate the digital markets
+
+18:19.260 --> 18:21.100
+ so that there's innovation and competitions
+
+18:21.100 --> 18:24.860
+ and not a single company can control all the data
+
+18:24.860 --> 18:28.620
+ and then decide how things are gonna be work
+
+18:28.620 --> 18:29.740
+ on the digital realm.
+
+18:29.740 --> 18:32.060
+ And even if we think about the potential things
+
+18:32.060 --> 18:32.900
+ like the metaverse,
+
+18:32.900 --> 18:35.480
+ as we're connecting physical and digital spaces.
+
+18:35.480 --> 18:37.500
+ So I think it's a natural evolution.
+
+18:37.500 --> 18:42.500
+ Of course, regulation and laws always follow technology.
+
+18:43.000 --> 18:45.620
+ But the fact that we're moving
+
+18:45.620 --> 18:49.440
+ to an interconnected society, there's no going back.
+
+18:49.440 --> 18:52.040
+ We are a fully interconnected society.
+
+18:52.040 --> 18:55.180
+ But there is opportunity to think about
+
+18:55.180 --> 18:58.980
+ how the digital twin should,
+
+18:58.980 --> 19:00.860
+ people and government should think about it
+
+19:00.860 --> 19:03.380
+ so that we get the best of a technology
+
+19:03.380 --> 19:05.280
+ without any downside.
+
+19:05.280 --> 19:06.900
+ Yeah, so when you say digital twin,
+
+19:06.900 --> 19:08.500
+ that's one of the other things you're excited about,
+
+19:08.500 --> 19:09.780
+ which is the metaverse,
+
+19:09.780 --> 19:13.380
+ or basically building worlds in the digital space.
+
+19:13.380 --> 19:14.700
+ And you have to start to think about
+
+19:14.700 --> 19:18.500
+ all the basic human rights that transfer
+
+19:18.500 --> 19:20.520
+ from our physical meat vehicles
+
+19:20.520 --> 19:22.940
+ out to the digital copies of ourselves,
+
+19:22.940 --> 19:24.220
+ representations of ourselves.
+
+19:24.220 --> 19:25.740
+ It's really important to think about.
+
+19:25.740 --> 19:27.820
+ The thing you mentioned about regulators that has been,
+
+19:27.820 --> 19:29.740
+ this is me speaking frustrating,
+
+19:29.740 --> 19:32.820
+ is like you said, they follow technology.
+
+19:32.820 --> 19:36.940
+ So sometimes they don't get the technology at all.
+
+19:36.940 --> 19:40.220
+ So they're very clumsy in writing laws
+
+19:40.220 --> 19:43.760
+ that censor that technology in interesting ways.
+
+19:43.760 --> 19:47.360
+ They mean good, but they can do a lot of unintended damage.
+
+19:47.360 --> 19:49.500
+ Now, both, it's a dance.
+
+19:49.500 --> 19:50.660
+ It's a beautiful dance,
+
+19:50.660 --> 19:54.120
+ but I just wish governments were better dance partners.
+
+19:54.120 --> 19:55.860
+ I just see what they're kind of writing now
+
+19:55.860 --> 20:00.380
+ about regulating social media and platforms like YouTube,
+
+20:00.380 --> 20:02.460
+ and it's just really, really clumsy.
+
+20:02.460 --> 20:04.620
+ They don't understand how machine learning works.
+
+20:04.620 --> 20:06.260
+ I recommend their systems work.
+
+20:06.260 --> 20:08.960
+ And I just wish they kind of caught up a little more
+
+20:08.960 --> 20:12.900
+ because it's really important to be great at regulation,
+
+20:12.900 --> 20:15.540
+ but also it's important to let companies flourish
+
+20:15.540 --> 20:17.500
+ and embrace this new wave of technology.
+
+20:17.500 --> 20:20.420
+ That weird dance, I am more and more learning
+
+20:20.420 --> 20:22.620
+ looking at public policy,
+
+20:22.620 --> 20:25.620
+ how much positive government can do
+
+20:25.620 --> 20:28.060
+ and how much clumsy negative it can do,
+
+20:28.060 --> 20:31.240
+ unintentionally, just out of sheer incompetence
+
+20:31.240 --> 20:33.120
+ or lack of curiosity about tech.
+
+20:34.180 --> 20:36.900
+ That's my rant about regulators.
+
+20:36.900 --> 20:38.380
+ I think it's a valid point.
+
+20:39.280 --> 20:41.300
+ As I said before, I think the Europeans
+
+20:41.300 --> 20:43.460
+ probably have a very good framework,
+
+20:43.460 --> 20:46.220
+ but the way I'll think about it,
+
+20:46.220 --> 20:50.260
+ we depend on having the ability to innovate.
+
+20:50.260 --> 20:51.580
+ We depend on the free markets.
+
+20:51.580 --> 20:56.580
+ We depend on the ability to create technology
+
+20:56.700 --> 20:59.300
+ that will be disruptive.
+
+20:59.300 --> 21:01.140
+ But at the same time, I think the tech companies
+
+21:01.140 --> 21:04.860
+ probably should spend time helping governments understand,
+
+21:04.860 --> 21:06.980
+ helping understand ahead of time
+
+21:06.980 --> 21:08.880
+ so that they can be better prepared.
+
+21:09.980 --> 21:13.780
+ Let's talk about one of my favorite topics, Snapdragon.
+
+21:14.840 --> 21:17.380
+ So Snapdragon is a system on a chip.
+
+21:17.380 --> 21:20.540
+ This processor has probably powered billions of smartphones
+
+21:21.420 --> 21:23.940
+ over its pretty long history now,
+
+21:23.940 --> 21:26.120
+ a decade and a half maybe.
+
+21:26.120 --> 21:27.320
+ So it's constantly iterating.
+
+21:27.320 --> 21:29.540
+ There's constantly just like a turmoil of beautiful
+
+21:29.540 --> 21:30.660
+ innovations happening.
+
+21:30.660 --> 21:34.220
+ So last year it was Snapdragon 888 was the main one
+
+21:34.220 --> 21:35.700
+ with the five nanometer,
+
+21:35.700 --> 21:40.100
+ and this year it's Snapdragon 8Gen1.
+
+21:40.100 --> 21:41.700
+ It's a new naming scheme.
+
+21:41.700 --> 21:44.820
+ Okay, what's the sexiest, most beautiful idea
+
+21:44.820 --> 21:47.060
+ or concept to you about Snapdragon?
+
+21:47.060 --> 21:47.980
+ Start there.
+
+21:47.980 --> 21:49.100
+ The way I would describe it,
+
+21:49.100 --> 21:53.340
+ and I think the reason we have been successful with it,
+
+21:53.340 --> 21:58.340
+ is to really understand how to build a platform,
+
+21:59.380 --> 22:01.620
+ a single chip, like a single chip,
+
+22:02.780 --> 22:06.300
+ that will have every single capability
+
+22:06.300 --> 22:08.860
+ if you wanna make this smartphone
+
+22:08.860 --> 22:10.140
+ in the palm of your hand,
+
+22:11.360 --> 22:13.540
+ something that has all of your computing needs.
+
+22:13.540 --> 22:15.220
+ And it was the ability to get,
+
+22:15.220 --> 22:17.340
+ from an engineering standpoint,
+
+22:17.340 --> 22:20.140
+ ability to get into a single chip
+
+22:20.140 --> 22:24.260
+ of not only all possible connectivity technology,
+
+22:24.260 --> 22:26.700
+ from cellular to wifi to Bluetooth
+
+22:26.700 --> 22:29.980
+ to every single constellation of satellites
+
+22:29.980 --> 22:31.540
+ for position location.
+
+22:31.540 --> 22:33.580
+ But at the same time,
+
+22:33.580 --> 22:38.580
+ a very power efficient single thread and multi threaded CPU.
+
+22:39.540 --> 22:44.500
+ A GPU for all of your graphic demands,
+
+22:44.500 --> 22:47.620
+ gaming, fastest growing segment for gaming,
+
+22:47.620 --> 22:50.100
+ is mobile gaming.
+
+22:50.100 --> 22:52.180
+ An artificial intelligence processor,
+
+22:52.180 --> 22:55.140
+ which we call the neuro processor unit.
+
+22:55.140 --> 22:58.040
+ And then a video engine,
+
+22:58.040 --> 23:01.660
+ and a multimedia engine for every single application,
+
+23:01.660 --> 23:03.780
+ audio, everything.
+
+23:03.780 --> 23:06.460
+ So it's a single chip
+
+23:06.460 --> 23:09.380
+ that has every single computing technology
+
+23:09.380 --> 23:10.620
+ you need in the phone.
+
+23:10.620 --> 23:14.340
+ And what's exciting about it is what we already knew.
+
+23:14.340 --> 23:17.340
+ For example, when you think about camera or computer vision,
+
+23:17.340 --> 23:20.720
+ you see that the advancements in the technology
+
+23:20.720 --> 23:25.120
+ now happens in the smartphone first
+
+23:25.120 --> 23:26.360
+ versus additional camera.
+
+23:26.360 --> 23:29.160
+ So the beauty about the Snapdragon is
+
+23:29.160 --> 23:33.000
+ we always have this thing within Qualcomm.
+
+23:33.000 --> 23:35.840
+ The phone, it's small.
+
+23:35.840 --> 23:37.240
+ You have to be able to hold it.
+
+23:37.240 --> 23:40.600
+ You're gonna touch your face so you cannot be hot.
+
+23:40.600 --> 23:43.240
+ You have to manage thermals.
+
+23:43.240 --> 23:47.660
+ You expect to have a full day of battery life.
+
+23:47.660 --> 23:51.000
+ But then you want it to not be sending data
+
+23:51.000 --> 23:53.900
+ into 10 or 100 megabits.
+
+23:53.900 --> 23:55.480
+ You want gigabits.
+
+23:55.480 --> 23:58.760
+ You want it to be able to have eight core processors.
+
+23:58.760 --> 24:01.400
+ You want to have a GPU with ray tracing.
+
+24:01.400 --> 24:03.280
+ You want to have all of the things
+
+24:03.280 --> 24:08.280
+ that you can only get into sometimes a desktop PC.
+
+24:08.520 --> 24:11.340
+ And to do all of that in your phone
+
+24:11.340 --> 24:14.140
+ and be able to be in the leadership position
+
+24:14.140 --> 24:17.000
+ generation after generation is an incredible thing.
+
+24:17.000 --> 24:18.980
+ And we're very proud of that at Qualcomm.
+
+24:18.980 --> 24:22.320
+ Yeah, so you have to do the WiFi, 5G, all of the...
+
+24:22.320 --> 24:24.960
+ And you have to be good to everyone of those technologies.
+
+24:24.960 --> 24:26.280
+ And pack it all in.
+
+24:26.280 --> 24:28.760
+ And there's also pressure to make the thing
+
+24:28.760 --> 24:30.680
+ faster and faster and faster.
+
+24:30.680 --> 24:32.440
+ And then there's more and more applications
+
+24:32.440 --> 24:34.800
+ you're supposed to be effortlessly using.
+
+24:34.800 --> 24:37.560
+ And then you mentioned the NPU, GPU, CPU.
+
+24:37.560 --> 24:40.440
+ They have to also dance together somehow.
+
+24:40.440 --> 24:42.800
+ They have to communicate well, share memory or not,
+
+24:42.800 --> 24:44.400
+ depending on what the application is.
+
+24:44.400 --> 24:46.360
+ And your battery has to last all day.
+
+24:48.240 --> 24:49.080
+ So think about that.
+
+24:49.080 --> 24:51.840
+ From a company like Qualcomm, we have to be good
+
+24:51.840 --> 24:53.760
+ in each and every one of those technologies.
+
+24:53.760 --> 24:55.400
+ We can't just say, oh, we're a CPU company
+
+24:55.400 --> 24:57.920
+ or a GPU company or we're AI company.
+
+24:57.920 --> 24:59.840
+ We have to do everything.
+
+24:59.840 --> 25:02.920
+ What does it take to design a great processor?
+
+25:02.920 --> 25:06.160
+ So design this system on a chip that you mentioned.
+
+25:06.160 --> 25:08.120
+ Is there some insight you can provide
+
+25:08.120 --> 25:13.120
+ in this chaos of engineers, designers, leaders,
+
+25:15.520 --> 25:16.840
+ the people that think about how much
+
+25:16.840 --> 25:19.760
+ this is all gonna cost, the whole mess of it?
+
+25:19.760 --> 25:21.760
+ I'm, of course, very partial about it.
+
+25:21.760 --> 25:25.000
+ I've been in this company for probably more than 26 years.
+
+25:25.000 --> 25:28.500
+ But I will argue that there are a couple things
+
+25:28.500 --> 25:31.880
+ that are ingredients for success.
+
+25:31.880 --> 25:33.400
+ So we talk about the fact that they have
+
+25:33.400 --> 25:34.640
+ all those different technologies.
+
+25:34.640 --> 25:36.240
+ They evolve at their own pace.
+
+25:36.240 --> 25:38.880
+ And you have to be good in each one of them.
+
+25:38.880 --> 25:41.040
+ And you need to then to make them working together.
+
+25:41.040 --> 25:44.900
+ So you need to have an engineering organization
+
+25:44.900 --> 25:49.900
+ that's with an incredible collaboration culture
+
+25:50.560 --> 25:52.600
+ because everybody has to be working.
+
+25:52.600 --> 25:54.280
+ The train's gonna leave the station.
+
+25:54.280 --> 25:57.720
+ Every cart needs to be there when it leaves the station.
+
+25:57.720 --> 25:58.720
+ It needs to leave on time,
+
+25:58.720 --> 26:00.280
+ especially in the phone business.
+
+26:00.280 --> 26:02.220
+ You can't change Christmas.
+
+26:02.220 --> 26:04.060
+ You cannot change Black Friday.
+
+26:04.060 --> 26:06.480
+ You cannot change all of the selling seasons.
+
+26:06.480 --> 26:08.960
+ So the phones are gonna launch on time.
+
+26:08.960 --> 26:10.280
+ And every technology needs to be there.
+
+26:10.280 --> 26:12.760
+ The engineer needs to work as one.
+
+26:12.760 --> 26:14.620
+ And we do have that at Qualcomm.
+
+26:14.620 --> 26:18.440
+ The other thing, you have to have incredible discipline
+
+26:18.440 --> 26:22.680
+ because those are very complex systems.
+
+26:22.680 --> 26:26.960
+ So in one way, you have to design with quality
+
+26:28.320 --> 26:32.080
+ because in many cases, we're gonna be ramping production.
+
+26:32.080 --> 26:34.760
+ And even before we have the silicon back
+
+26:34.760 --> 26:38.400
+ and you have to rely on our simulation models
+
+26:38.400 --> 26:41.480
+ and you have to rely on the fact
+
+26:41.480 --> 26:45.060
+ that you design for commercial applications.
+
+26:45.060 --> 26:48.200
+ That takes a while to build.
+
+26:48.200 --> 26:52.120
+ And it's probably been the history
+
+26:52.120 --> 26:54.140
+ of a semiconductor business at Qualcomm.
+
+26:54.140 --> 26:55.480
+ So you mean like the framework
+
+26:55.480 --> 26:57.680
+ of how many people can use simulation software
+
+26:57.680 --> 26:59.960
+ and all that kind of stuff to build the thing
+
+26:59.960 --> 27:02.840
+ with a hard deadline that you might not even get back
+
+27:02.840 --> 27:05.720
+ from like manufacturer before.
+
+27:06.760 --> 27:08.200
+ You're not allowed to have any mistakes.
+
+27:08.200 --> 27:11.080
+ No wonder our name is quality communications.
+
+27:11.080 --> 27:13.440
+ Oh, I never even thought about the qual part.
+
+27:13.440 --> 27:14.600
+ Quality.
+
+27:14.600 --> 27:17.400
+ So quality and there's a bar that's high
+
+27:17.400 --> 27:19.040
+ and you're not allowed to mess up.
+
+27:19.040 --> 27:21.000
+ I mean, to me as an engineer, that's exciting.
+
+27:21.000 --> 27:25.800
+ Hard deadlines, no room for mistakes.
+
+27:25.800 --> 27:26.640
+ I love it.
+
+27:26.640 --> 27:27.960
+ Super stressful, but I love it.
+
+27:27.960 --> 27:31.960
+ So there's a couple of other small companies
+
+27:33.760 --> 27:36.200
+ called Google and Apple.
+
+27:36.200 --> 27:39.440
+ So Google is now using its own chip for the Pixel 6.
+
+27:39.440 --> 27:41.560
+ Apple using its own.
+
+27:41.560 --> 27:45.680
+ How does Qualcomm out compete Google and Apple?
+
+27:45.680 --> 27:46.840
+ How does it beat them?
+
+27:46.840 --> 27:48.520
+ We don't have to out compete Google.
+
+27:48.520 --> 27:51.240
+ Actually, if you look at our mobile strategy today,
+
+27:51.240 --> 27:53.640
+ and then one thing I was very clear when I became CEO,
+
+27:53.640 --> 27:55.240
+ I think there's a lot of confusion in the market.
+
+27:55.240 --> 27:58.080
+ Our mobile strategy is very clear.
+
+27:58.080 --> 28:02.000
+ We are focused of making Snapdragon synonymous
+
+28:02.000 --> 28:04.840
+ with premium Android experience.
+
+28:04.840 --> 28:06.160
+ That's what Snapdragon is.
+
+28:06.160 --> 28:08.400
+ Android, the phone of the people.
+
+28:08.400 --> 28:09.240
+ Yes.
+
+28:10.680 --> 28:12.120
+ I just have a love for Android.
+
+28:12.120 --> 28:13.920
+ I'm constantly talking trash to iPhone people.
+
+28:13.920 --> 28:14.760
+ Sorry, go ahead.
+
+28:14.760 --> 28:16.640
+ Premium Android experiences.
+
+28:16.640 --> 28:20.680
+ So we do produce Snapdragon in multiple tier
+
+28:20.680 --> 28:23.640
+ for every price point, but every year,
+
+28:23.640 --> 28:26.120
+ you mentioned the HN1,
+
+28:26.120 --> 28:29.720
+ and every year we'll provide the flagship product.
+
+28:29.720 --> 28:33.960
+ And then the other series that is trying to get the best
+
+28:33.960 --> 28:36.680
+ of every possible technology at that time.
+
+28:36.680 --> 28:41.520
+ And it's really focused on enabling the Android ecosystem.
+
+28:41.520 --> 28:42.920
+ So I'll give an example.
+
+28:42.920 --> 28:45.400
+ So you asked me the question, how to compete with Google.
+
+28:45.400 --> 28:46.640
+ It's not about competing with Google.
+
+28:46.640 --> 28:48.600
+ We're the number one enabler
+
+28:48.600 --> 28:51.840
+ of the Google Android ecosystem.
+
+28:51.840 --> 28:56.320
+ And the largest, the number one customer there
+
+28:56.320 --> 28:58.200
+ is actually Samsung.
+
+28:58.200 --> 29:00.760
+ And if you look what happened to Samsung,
+
+29:00.760 --> 29:04.040
+ Samsung, I always said,
+
+29:05.440 --> 29:08.800
+ since I began my relationship with them,
+
+29:08.800 --> 29:10.440
+ that cause they always had their own chip.
+
+29:10.440 --> 29:12.120
+ They always had their own chip.
+
+29:12.120 --> 29:14.800
+ And if you'll just look at what happened right now
+
+29:14.800 --> 29:17.960
+ with the Galaxy S22 that just launched,
+
+29:17.960 --> 29:21.600
+ they used to balance their business about 50% Qualcomm.
+
+29:21.600 --> 29:23.640
+ They will get the most advanced markets
+
+29:23.640 --> 29:27.000
+ like the United States and China and Japan and Korea,
+
+29:27.000 --> 29:28.440
+ they will assign to Qualcomm.
+
+29:28.440 --> 29:31.320
+ And then they'll have their own chip for the markets
+
+29:31.320 --> 29:34.040
+ that they would be like more emerging markets,
+
+29:34.040 --> 29:35.920
+ open markets, markets that they have a control
+
+29:35.920 --> 29:38.440
+ on the channel because they sell a lot of appliances
+
+29:38.440 --> 29:39.840
+ and other things.
+
+29:39.840 --> 29:42.360
+ If you look what happened right now, GS22,
+
+29:42.360 --> 29:46.480
+ 75% is Qualcomm.
+
+29:46.480 --> 29:51.480
+ And then the next large OEMs and Android ecosystem
+
+29:51.680 --> 29:52.920
+ are the Chinese ones.
+
+29:52.920 --> 29:56.600
+ Companies like Xiaomi, one of the fastest growing.
+
+29:56.600 --> 30:00.320
+ It was number one in Europe at some point last year,
+
+30:00.320 --> 30:03.720
+ then followed by Oppo and OnePlus and Vivo.
+
+30:03.720 --> 30:06.640
+ So those are some of the largest Qualcomm customers.
+
+30:06.640 --> 30:11.640
+ And they actually drive the Android ecosystem.
+
+30:12.640 --> 30:14.200
+ And that's our mobile strategy
+
+30:14.200 --> 30:18.720
+ and fully aligned with Google and it's working.
+
+30:18.720 --> 30:23.720
+ And not to get into a lot of the investor conversation,
+
+30:24.000 --> 30:29.000
+ but we're also happy we became a beneficiary
+
+30:29.440 --> 30:31.920
+ of the shifts that we saw in the marketplace.
+
+30:31.920 --> 30:35.120
+ As Huawei became a smaller OEM
+
+30:35.120 --> 30:37.400
+ as a result of the sanctions,
+
+30:37.400 --> 30:42.200
+ we saw the rise of a lot of the other OEMs from China,
+
+30:42.200 --> 30:46.160
+ especially for China domestic market, Xiaomi, Oppo, Vivo.
+
+30:46.160 --> 30:47.960
+ They moved to the premium category
+
+30:47.960 --> 30:49.600
+ and they're all doing that with Qualcomm.
+
+30:49.600 --> 30:53.120
+ So we're actually very fortunate and happy
+
+30:53.120 --> 30:55.760
+ with the position we are in mobile business.
+
+30:55.760 --> 30:57.680
+ We do have an Apple relationship.
+
+30:57.680 --> 31:01.000
+ We provide modem technology to Apple.
+
+31:02.480 --> 31:03.720
+ It's a multi year relationship.
+
+31:03.720 --> 31:07.160
+ Apple has been very public that they are investing
+
+31:07.160 --> 31:09.480
+ to develop their own modem.
+
+31:09.480 --> 31:12.840
+ But the Qualcomm strategy has been clear.
+
+31:12.840 --> 31:15.360
+ We're really focused on Snapdragon.
+
+31:16.360 --> 31:18.480
+ Our mobile strategy is not defined
+
+31:18.480 --> 31:20.840
+ by providing a cellular modem to Apple.
+
+31:20.840 --> 31:23.120
+ Our mobile strategy is this that we just talked about it.
+
+31:23.120 --> 31:25.200
+ It's about the unique thing of Snapdragon
+
+31:25.200 --> 31:27.360
+ that has every single technology
+
+31:27.360 --> 31:29.700
+ integrated into a single SOC.
+
+31:29.700 --> 31:32.160
+ And provides a premium experience.
+
+31:32.160 --> 31:33.400
+ And that's what we're doing
+
+31:33.400 --> 31:37.000
+ and focusing on the Android ecosystem.
+
+31:37.000 --> 31:39.720
+ I don't know if I can ask you this kind of question.
+
+31:39.720 --> 31:42.240
+ It's like picking your children or something like this.
+
+31:42.240 --> 31:45.640
+ But what smartphone with a Snapdragon?
+
+31:45.640 --> 31:49.240
+ You mentioned Samsung Galaxy S22, OnePlus.
+
+31:49.240 --> 31:52.560
+ Those are phones I personally really enjoy.
+
+31:52.560 --> 31:54.380
+ What phone do you currently use?
+
+31:54.380 --> 31:55.720
+ Or do you have multiple phones?
+
+31:55.720 --> 31:59.720
+ I do have multiple phones but I do use Galaxy S22.
+
+31:59.720 --> 32:01.020
+ That's your favorite one?
+
+32:01.020 --> 32:03.440
+ All right, well you heard it here first folks.
+
+32:03.440 --> 32:04.860
+ Okay, so excellent.
+
+32:04.860 --> 32:09.860
+ Can Qualcomm also, let's take a brief step away from mobile.
+
+32:09.920 --> 32:13.560
+ And take on Intel and Apple and other such companies
+
+32:13.560 --> 32:15.240
+ in the laptop and desktop space.
+
+32:15.240 --> 32:18.700
+ So the nature of what a computer is seems to be changing.
+
+32:18.700 --> 32:21.320
+ It's like smartphones like merging.
+
+32:21.320 --> 32:23.840
+ It's all being a smartphone just with the biggest screen
+
+32:23.840 --> 32:24.680
+ or something like this.
+
+32:24.680 --> 32:26.740
+ So what does the future of that look like?
+
+32:26.740 --> 32:28.400
+ Before I answer that question,
+
+32:28.400 --> 32:30.440
+ let me just step back a little bit.
+
+32:30.440 --> 32:33.560
+ Because, and I'm sure we can talk more about those things.
+
+32:33.560 --> 32:37.920
+ But the reality is Qualcomm is changing a lot.
+
+32:37.920 --> 32:40.120
+ And we use, I know we spend a lot of time
+
+32:40.120 --> 32:42.760
+ talking about 5G and smartphone and Snapdragon.
+
+32:42.760 --> 32:45.480
+ And I think that has been what had defined Qualcomm
+
+32:45.480 --> 32:46.320
+ for many years.
+
+32:46.320 --> 32:48.720
+ But the reality is, even consistent
+
+32:48.720 --> 32:51.580
+ with that 5G conversation, which is a technology
+
+32:51.580 --> 32:56.400
+ to connect everything, Qualcomm is also changing.
+
+32:56.400 --> 33:00.820
+ Our technology that was in many cases designed for phones.
+
+33:00.820 --> 33:05.360
+ And we said at the beginning, connectivity and processing.
+
+33:05.360 --> 33:07.880
+ It's going to virtually every industry.
+
+33:07.880 --> 33:12.040
+ And as a result, Qualcomm is really changing with it
+
+33:12.040 --> 33:15.760
+ and expanding to a number of different addressable markets.
+
+33:15.760 --> 33:20.760
+ Some of those markets is the PC, as you talk about it.
+
+33:21.060 --> 33:24.580
+ The conversions of mobile and PC.
+
+33:24.580 --> 33:27.000
+ And the reason I'm excited about this,
+
+33:27.000 --> 33:28.840
+ because you see a lot of things happening
+
+33:28.840 --> 33:31.680
+ that bring this right front and center
+
+33:31.680 --> 33:33.440
+ when you think about the future technology.
+
+33:33.440 --> 33:37.560
+ So what we learn with the pandemic
+
+33:37.560 --> 33:42.020
+ is that the number one use case of personal computers
+
+33:42.020 --> 33:43.780
+ is communications.
+
+33:45.040 --> 33:46.480
+ It is interesting when you think about that.
+
+33:46.480 --> 33:49.400
+ That's the number one use case on a PC today
+
+33:49.400 --> 33:50.720
+ is communications.
+
+33:50.720 --> 33:53.600
+ It's actually funny because in the cellular industry,
+
+33:53.600 --> 33:55.240
+ actually I'll say, let me step back.
+
+33:55.240 --> 33:59.240
+ In the telecom industry, we've been chasing
+
+33:59.240 --> 34:03.720
+ this killer application of video telephony for decades.
+
+34:03.720 --> 34:08.060
+ I remember back then in the wire line,
+
+34:08.060 --> 34:11.440
+ even before the internet and IP, ISDN,
+
+34:11.440 --> 34:15.480
+ you remember those AT&T desk phones with a little screen
+
+34:15.480 --> 34:17.200
+ and they said, you can do video telephony.
+
+34:17.200 --> 34:21.340
+ We don't watch that in Back to the Future 2.
+
+34:21.340 --> 34:23.520
+ Then when we started developing 3G,
+
+34:23.520 --> 34:25.680
+ people said, what's the application for having data
+
+34:25.680 --> 34:26.520
+ to a cell phone?
+
+34:26.520 --> 34:27.600
+ All video telephony.
+
+34:27.600 --> 34:29.340
+ Then we started doing 4G.
+
+34:30.320 --> 34:32.120
+ And in the beginning, people said,
+
+34:32.120 --> 34:33.700
+ well, why do you need all of this broadband?
+
+34:33.700 --> 34:35.440
+ All video telephony.
+
+34:35.440 --> 34:39.120
+ But it took a pandemic to make video telephony
+
+34:39.120 --> 34:40.600
+ the killer application.
+
+34:40.600 --> 34:44.860
+ And that's now the number one use case on a PC.
+
+34:44.860 --> 34:47.280
+ So now think about that for a second.
+
+34:47.280 --> 34:49.440
+ Personal computers now, they're technologies
+
+34:49.440 --> 34:50.900
+ that people when they were gonna buy a PC,
+
+34:50.900 --> 34:51.880
+ they didn't care much about it.
+
+34:51.880 --> 34:53.880
+ Now they do, camera.
+
+34:53.880 --> 34:55.760
+ Camera, how good is the camera?
+
+34:55.760 --> 34:57.900
+ The audio, is that connected?
+
+34:57.900 --> 34:58.920
+ How good is the connectivity?
+
+34:58.920 --> 35:01.960
+ Do you have the latest and greatest wifi and cellular?
+
+35:01.960 --> 35:03.360
+ What's the battery life?
+
+35:03.360 --> 35:04.940
+ Because you're gonna be working from anywhere.
+
+35:04.940 --> 35:07.260
+ Sometimes you know that, sometimes you're not.
+
+35:07.260 --> 35:09.720
+ So all those things, what's the portability like?
+
+35:09.720 --> 35:11.640
+ So those things started to change
+
+35:11.640 --> 35:13.720
+ how we should think about the PC.
+
+35:13.720 --> 35:15.360
+ But I won't stop there.
+
+35:15.360 --> 35:17.080
+ Let me talk about another trend.
+
+35:17.080 --> 35:21.800
+ So, and all come as a result of what we saw the pandemic.
+
+35:21.800 --> 35:23.440
+ Let's say that you are,
+
+35:23.440 --> 35:25.720
+ you're an engineer, you do computer aided design.
+
+35:25.720 --> 35:30.340
+ You have an advanced desktop computer
+
+35:30.340 --> 35:33.080
+ or workstation in your office.
+
+35:33.080 --> 35:35.160
+ But you wanna work from home someday.
+
+35:35.160 --> 35:37.240
+ So you're not gonna move that to your home.
+
+35:37.240 --> 35:38.120
+ So what do you need to do?
+
+35:38.120 --> 35:40.280
+ You're gonna have to rely on that.
+
+35:40.280 --> 35:41.840
+ You're gonna run that on the cloud.
+
+35:41.840 --> 35:43.120
+ And you're gonna run it on the cloud.
+
+35:43.120 --> 35:44.800
+ You need high bandwidth
+
+35:44.800 --> 35:46.720
+ because you almost wanted the cloud
+
+35:46.720 --> 35:50.360
+ to be the same as your computer for that use case.
+
+35:50.360 --> 35:53.600
+ That's the 5G on demand computing use case.
+
+35:53.600 --> 35:57.220
+ The use 5G is almost a link between two computers.
+
+35:57.220 --> 35:59.640
+ But then, you know, CIOs are saying,
+
+35:59.640 --> 36:02.320
+ well, my workforce is going home for certain days.
+
+36:02.320 --> 36:04.560
+ I want all the data to be in the cloud.
+
+36:04.560 --> 36:07.040
+ You look at, for example, Microsoft OneDrive
+
+36:07.040 --> 36:10.320
+ or the ability to collaborate, you need the bandwidth.
+
+36:10.320 --> 36:13.840
+ So when you put all of those things together,
+
+36:13.840 --> 36:17.240
+ you start thinking about what is the next generation PC?
+
+36:17.240 --> 36:19.120
+ And that's the opportunity for Qualcomm.
+
+36:19.120 --> 36:21.120
+ I'll just give an example.
+
+36:21.120 --> 36:26.120
+ Back in Mobile World Congress recently, Lenovo,
+
+36:26.880 --> 36:31.880
+ they have a line of enterprise laptops called the ThinkPad.
+
+36:32.560 --> 36:34.040
+ I'm sure you're familiar with it.
+
+36:34.040 --> 36:38.280
+ So they announced the ThinkPad based on Snapdragon.
+
+36:38.280 --> 36:42.960
+ With 5G on, 28 hours of battery life.
+
+36:42.960 --> 36:45.800
+ So that's next generation.
+
+36:45.800 --> 36:49.160
+ It's just a nice screen with extremely high, nice screen
+
+36:49.160 --> 36:52.360
+ and keyboard, and extremely high connectivity
+
+36:52.360 --> 36:54.920
+ to maybe an even more, like a more powerful machine
+
+36:54.920 --> 36:55.760
+ in the cloud.
+
+36:55.760 --> 36:57.920
+ Something more, the data, connecting to the data,
+
+36:57.920 --> 36:59.600
+ connecting to compute, all that kind of stuff.
+
+36:59.600 --> 37:01.560
+ You have the camera capabilities,
+
+37:01.560 --> 37:03.240
+ and let me go one step more.
+
+37:03.240 --> 37:05.720
+ Microsoft talking about some of the other features
+
+37:05.720 --> 37:10.720
+ they're doing now using, on Windows 11, using Snapdragon.
+
+37:10.980 --> 37:12.000
+ Remember, we talk about it,
+
+37:12.000 --> 37:15.620
+ Snapdragon has an AI processor inside there.
+
+37:15.620 --> 37:19.120
+ So one of the cool features Microsoft's talking about it is
+
+37:19.120 --> 37:22.000
+ you can be on a Teams call, and you can make sure
+
+37:22.000 --> 37:25.760
+ your eyes are looking at the camera 100% of the time.
+
+37:25.760 --> 37:27.160
+ Well, that's an interesting,
+
+37:27.160 --> 37:28.000
+ so they can be talking about that.
+
+37:28.000 --> 37:29.320
+ And you do that with AI.
+
+37:29.320 --> 37:32.160
+ Yes, that's really tricky to pull off.
+
+37:32.160 --> 37:34.080
+ For example, the reason I'm a huge stickler
+
+37:34.080 --> 37:36.640
+ for doing these in person, these conversations in person,
+
+37:36.640 --> 37:38.280
+ it's really tough to get right.
+
+37:38.280 --> 37:39.960
+ But it's a worthy challenge.
+
+37:39.960 --> 37:41.820
+ So that's where the metaverse hopes to,
+
+37:41.820 --> 37:43.900
+ so like, I just, because you said the importance
+
+37:43.900 --> 37:46.320
+ of this telephony of humans connecting,
+
+37:46.320 --> 37:48.760
+ teleporting themselves, getting that right
+
+37:48.760 --> 37:49.920
+ is really difficult.
+
+37:49.920 --> 37:52.120
+ There's a lot of people hate Zoom meetings,
+
+37:52.120 --> 37:55.480
+ but that doesn't mean you can't improve that experience
+
+37:55.480 --> 37:57.240
+ and get rid of the hate.
+
+37:57.240 --> 37:59.120
+ A lot of people hate talking to their car too,
+
+37:59.120 --> 38:02.060
+ because the voice, the natural language processing
+
+38:02.060 --> 38:04.920
+ is terrible, but when it's not, it's a beautiful thing.
+
+38:04.920 --> 38:06.120
+ So getting that right is.
+
+38:06.120 --> 38:08.400
+ This is an opportunity, this is an opportunity.
+
+38:08.400 --> 38:10.520
+ Think about it, it starts with the PC,
+
+38:10.520 --> 38:14.320
+ making the PC giving you a better experience for teams,
+
+38:14.320 --> 38:18.200
+ but then it goes right back into this trend
+
+38:18.200 --> 38:20.520
+ of connecting physical and digital spaces.
+
+38:20.520 --> 38:23.240
+ And all the work we're doing with the metaverse
+
+38:23.240 --> 38:25.280
+ and virtual reality and metareality in the future
+
+38:25.280 --> 38:28.680
+ is why not call somebody or connect with somebody
+
+38:28.680 --> 38:30.420
+ with a hologram, it's possible.
+
+38:30.420 --> 38:33.840
+ And also to mention some increasing amount
+
+38:33.840 --> 38:36.080
+ of intelligence in our cars.
+
+38:36.080 --> 38:38.080
+ So semi autonomous, autonomous cars,
+
+38:38.080 --> 38:41.840
+ and the interactivity between human and car,
+
+38:41.840 --> 38:44.920
+ which for me, things are really exciting.
+
+38:44.920 --> 38:46.080
+ Let me ask you a big question.
+
+38:46.080 --> 38:49.600
+ So when aliens again now on the other side, right,
+
+38:49.600 --> 38:51.720
+ and humans destroy themselves through nuclear war
+
+38:51.720 --> 38:52.760
+ centuries from now.
+
+38:52.760 --> 38:53.600
+ Let's hope not.
+
+38:53.600 --> 38:54.420
+ Let's hope not.
+
+38:54.420 --> 38:56.200
+ But in case, you know, let's just hypothetical
+
+38:56.200 --> 38:57.040
+ thought experiment.
+
+38:57.040 --> 39:00.400
+ And they write a history of humanity in the 21st century.
+
+39:01.720 --> 39:05.560
+ What would they remember Qualcomm in the 21st century
+
+39:05.560 --> 39:06.400
+ as a company?
+
+39:06.400 --> 39:08.160
+ Would it be a car company?
+
+39:08.160 --> 39:10.720
+ Like think of all the crazy pivots that might happen
+
+39:10.720 --> 39:13.240
+ in the next like 50 years.
+
+39:13.240 --> 39:15.840
+ Because you're thinking, you said Qualcomm enables
+
+39:15.840 --> 39:18.680
+ all of these things with 5G and there'll be probably
+
+39:18.680 --> 39:20.920
+ other Gs, it keeps increasing.
+
+39:20.920 --> 39:23.640
+ So basically connectivity and computation
+
+39:23.640 --> 39:25.800
+ and everything becomes connected and everything
+
+39:25.800 --> 39:27.720
+ is capable of computation.
+
+39:27.720 --> 39:30.920
+ Might you become a robotics and car company?
+
+39:30.920 --> 39:35.920
+ I will argue we're already an automotive company today.
+
+39:36.600 --> 39:40.420
+ But let me tell you what I would like Qualcomm to be,
+
+39:40.420 --> 39:42.040
+ remember and recognize for.
+
+39:43.040 --> 39:47.040
+ I think everyone that knows Qualcomm immediately,
+
+39:47.040 --> 39:49.920
+ you know, connect us, pun intended,
+
+39:49.920 --> 39:52.040
+ to connectivity and wireless.
+
+39:52.040 --> 39:54.840
+ But the reality is we're being actually the company
+
+39:54.840 --> 39:58.760
+ providing intelligence and processing to everything
+
+39:58.760 --> 40:01.960
+ on the edge, everything outside the data center
+
+40:01.960 --> 40:02.920
+ that we're doing.
+
+40:02.920 --> 40:05.820
+ Those billions of devices that are gonna be connected.
+
+40:05.820 --> 40:08.780
+ And that's kind of explained when we talk about
+
+40:08.780 --> 40:11.580
+ the connected intelligent edge, the beyond phones,
+
+40:11.580 --> 40:13.960
+ cars, species, and all of those.
+
+40:13.960 --> 40:16.520
+ And the broader IOTs, we talk about everything
+
+40:16.520 --> 40:18.040
+ will be connected and intelligent.
+
+40:18.040 --> 40:20.880
+ And that's what we want Qualcomm to be recognized for.
+
+40:20.880 --> 40:23.120
+ So by the way, for people who are not familiar,
+
+40:23.120 --> 40:25.000
+ there's some technical jargon.
+
+40:25.000 --> 40:28.520
+ People use the word edge, like edge computing.
+
+40:28.520 --> 40:30.720
+ It's, by the way, that's probably changing
+
+40:30.720 --> 40:31.960
+ what that even means.
+
+40:31.960 --> 40:34.040
+ But it's basically everything that's not a giant thing
+
+40:34.040 --> 40:36.280
+ that's making a lot of noise in a building somewhere.
+
+40:36.280 --> 40:39.940
+ So it's mobile devices and the mobile devices
+
+40:39.940 --> 40:42.440
+ of all kinds, well, a refrigerator's not mobile,
+
+40:42.440 --> 40:43.720
+ but it would be edge.
+
+40:43.720 --> 40:46.740
+ So it's like what's a sandwich, that kind of discussion.
+
+40:48.640 --> 40:53.160
+ But basically edge computing is the edge
+
+40:53.160 --> 40:56.300
+ of that expanding space that you mentioned
+
+40:56.300 --> 40:59.240
+ that Qualcomm is trying to connect
+
+40:59.240 --> 41:00.680
+ and enable with computation.
+
+41:00.680 --> 41:04.000
+ Here's a simple way to describe what the edge is
+
+41:04.000 --> 41:05.520
+ and edge computing is.
+
+41:05.520 --> 41:08.520
+ I think as we think about the evolution of the data center,
+
+41:09.560 --> 41:12.400
+ you need to bring the computational closer
+
+41:12.400 --> 41:14.040
+ to where the device is.
+
+41:14.040 --> 41:17.000
+ Also, when you put the computation together
+
+41:17.000 --> 41:19.720
+ with the connectivity at the same time,
+
+41:19.720 --> 41:22.000
+ you're gonna see a lot of advancement
+
+41:22.000 --> 41:25.120
+ of artificial intelligence happening closer
+
+41:25.120 --> 41:26.760
+ or at the device.
+
+41:26.760 --> 41:29.480
+ Look, it's a very, I have a simple way to describe it.
+
+41:29.480 --> 41:31.940
+ Remember in the beginning of this conversation,
+
+41:31.940 --> 41:35.720
+ we talk about in the 4G era, broadband
+
+41:35.720 --> 41:38.920
+ and mobile computing evolved side by side.
+
+41:38.920 --> 41:40.000
+ If you're gonna have broadband,
+
+41:40.000 --> 41:41.920
+ you might as well have a computer in the palm of your hand.
+
+41:41.920 --> 41:45.160
+ So we needed to invest in those two technologies.
+
+41:45.160 --> 41:49.840
+ In 5G, AI develops side by side.
+
+41:49.840 --> 41:52.480
+ You're connected to the cloud 100% of the time.
+
+41:52.480 --> 41:54.400
+ You have a high bandwidth and you have now
+
+41:54.400 --> 41:56.880
+ a smart and intelligent thing that can make decision
+
+41:56.880 --> 42:00.720
+ in real time, provide context information to the cloud
+
+42:00.720 --> 42:02.480
+ to make the models more accurate
+
+42:02.480 --> 42:05.240
+ and as well compare and contrast to the cloud.
+
+42:05.240 --> 42:08.520
+ So there's gonna be an exponential development of AI
+
+42:08.520 --> 42:11.840
+ happening with all the edge devices,
+
+42:11.840 --> 42:14.240
+ the devices that are outside the data center
+
+42:14.240 --> 42:16.880
+ and computation is gonna go alongside that.
+
+42:16.880 --> 42:19.600
+ And a great example of that is the car.
+
+42:19.600 --> 42:22.880
+ The car, we haven't talked much about the car,
+
+42:22.880 --> 42:26.600
+ but Qualcomm is now, you could argue was as much
+
+42:26.600 --> 42:28.680
+ as an automotive company as wireless company,
+
+42:28.680 --> 42:32.000
+ working 26 global brands.
+
+42:32.000 --> 42:36.440
+ And it's easy to see, if you look at our mobile heritage
+
+42:36.440 --> 42:40.900
+ and we talk about form factors, thermal, battery life,
+
+42:40.900 --> 42:43.440
+ you're not gonna put a server in a trunk of a car,
+
+42:43.440 --> 42:46.520
+ but you need as much computational capabilities.
+
+42:46.520 --> 42:49.760
+ And that's we see Qualcomm providing,
+
+42:49.760 --> 42:53.120
+ as the car become a connected computer on wheels,
+
+42:53.120 --> 42:56.120
+ we provide the computational and all the sensors
+
+42:56.120 --> 42:57.680
+ for you to do assisted driving
+
+42:57.680 --> 42:59.800
+ for the new digital cockpit experience
+
+42:59.800 --> 43:01.560
+ connecting the car to the cloud
+
+43:01.560 --> 43:03.960
+ and it's all of that's happening at the edge.
+
+43:03.960 --> 43:05.920
+ Does Qualcomm want to be the brain
+
+43:05.920 --> 43:07.800
+ of a lot of autonomous vehicles in the future
+
+43:07.800 --> 43:10.480
+ of different, you said brands, like Mercedes,
+
+43:10.480 --> 43:13.320
+ BMW, I don't know, whatever, just whatever car.
+
+43:13.320 --> 43:15.760
+ Cars have the sexy thing they do
+
+43:15.760 --> 43:18.520
+ and then it defines their brand and so on.
+
+43:18.520 --> 43:19.840
+ And then there's the brain
+
+43:19.840 --> 43:22.480
+ that doesn't need to have branding supposedly.
+
+43:22.480 --> 43:23.860
+ So does Qualcomm see that
+
+43:23.860 --> 43:26.480
+ or will I be able to buy a Qualcomm car?
+
+43:26.480 --> 43:27.480
+ Like literally it'll be Qualcomm.
+
+43:27.480 --> 43:29.280
+ No, you're not gonna be able to buy a Qualcomm car,
+
+43:29.280 --> 43:34.280
+ but we are ready on our way to become the brains of the car.
+
+43:35.920 --> 43:38.640
+ The way you should think about Qualcomm automotive strategy
+
+43:38.640 --> 43:42.160
+ is the car companies realize
+
+43:42.160 --> 43:44.160
+ they need to become technology companies.
+
+43:44.160 --> 43:47.120
+ You just look, for example, of the market cap
+
+43:47.120 --> 43:50.760
+ of some of the new electrical commerce
+
+43:50.760 --> 43:55.680
+ and compare them with the legacy car companies.
+
+43:55.680 --> 43:56.520
+ Which one is that?
+
+43:56.520 --> 44:00.640
+ I heard of, one of them lives in Austin.
+
+44:00.640 --> 44:02.200
+ Let's say Rivian, right?
+
+44:02.200 --> 44:03.040
+ Rivian.
+
+44:03.040 --> 44:03.880
+ Oh, that one too, yes.
+
+44:03.880 --> 44:05.680
+ You know, the car companies are not going away.
+
+44:05.680 --> 44:09.640
+ It's actually a mistake not to bet in the car companies.
+
+44:09.640 --> 44:12.640
+ The car companies need a technology partner.
+
+44:12.640 --> 44:16.680
+ They will provide the digital chassis for them.
+
+44:16.680 --> 44:18.120
+ And that's what we're doing.
+
+44:18.120 --> 44:19.240
+ So if you look at Qualcomm,
+
+44:19.240 --> 44:22.320
+ we talk about a Snapdragon digital chassis.
+
+44:22.320 --> 44:27.320
+ So we want to be the preferred technology partner
+
+44:27.680 --> 44:30.680
+ of the car companies, and I think it's working.
+
+44:30.680 --> 44:32.000
+ Strategy is working right now.
+
+44:32.000 --> 44:34.680
+ So basically helping the car companies
+
+44:34.680 --> 44:37.680
+ accelerate into becoming technology companies.
+
+44:37.680 --> 44:39.380
+ Connecting the car to the cloud,
+
+44:39.380 --> 44:42.920
+ redesign the interior of the digital cockpit experience,
+
+44:42.920 --> 44:45.520
+ and provide the computation and sensor capabilities
+
+44:45.520 --> 44:47.400
+ for autonomy and assisted driving.
+
+44:48.280 --> 44:50.800
+ On the topic of robots, when millions or billions
+
+44:50.800 --> 44:54.320
+ of robots roam the earth in the future among us humans,
+
+44:54.320 --> 44:59.320
+ and I am for one concerned in a small percentage,
+
+44:59.560 --> 45:02.200
+ but largely I'm excited about that future,
+
+45:02.200 --> 45:07.200
+ will Qualcomm be the thing that powers their brain?
+
+45:08.520 --> 45:10.840
+ We have in our IoT business,
+
+45:10.840 --> 45:13.860
+ which has been one of the fastest growing business for us,
+
+45:13.860 --> 45:16.860
+ a number of robotics engagement.
+
+45:16.860 --> 45:18.980
+ So I'll give you some example.
+
+45:18.980 --> 45:23.180
+ If you look of the Amazon Astro,
+
+45:23.180 --> 45:24.220
+ you familiar with that?
+
+45:24.220 --> 45:27.840
+ There's two Snapdragon in there.
+
+45:28.860 --> 45:29.700
+ There is?
+
+45:29.700 --> 45:30.540
+ This is really exciting.
+
+45:30.540 --> 45:31.460
+ They're supposed to ship it to me.
+
+45:31.460 --> 45:32.340
+ Where is it?
+
+45:32.340 --> 45:33.880
+ Okay, but anyway, that's really cool.
+
+45:33.880 --> 45:35.100
+ I didn't know it was Snapdragon.
+
+45:35.100 --> 45:39.720
+ Yeah, we're working with robotics in industrial.
+
+45:39.720 --> 45:41.300
+ Of course, drones.
+
+45:41.300 --> 45:44.900
+ We're getting more and more traction for robotics.
+
+45:44.900 --> 45:45.740
+ Sorry to interrupt.
+
+45:45.740 --> 45:47.260
+ Industrial robotics, too, you said?
+
+45:47.260 --> 45:50.380
+ Industrial, especially when you think about
+
+45:51.940 --> 45:55.760
+ what's gonna happen with the factory of the future,
+
+45:55.760 --> 45:57.060
+ the industrial side of the future,
+
+45:57.060 --> 45:58.200
+ the warehouse of the future,
+
+45:58.200 --> 46:01.520
+ when you bring 5G, for example, to it,
+
+46:01.520 --> 46:04.540
+ and you have a number of different use cases,
+
+46:04.540 --> 46:09.120
+ and then you see a lot of robotics application.
+
+46:09.120 --> 46:11.820
+ And of course, drones.
+
+46:11.820 --> 46:16.500
+ And the most famous, I will consider that a robot,
+
+46:16.500 --> 46:19.960
+ the most famous robot in the world right now,
+
+46:19.960 --> 46:21.300
+ it's powered by Snapdragon,
+
+46:21.300 --> 46:24.500
+ which is the Mars Ingenuity helicopter.
+
+46:24.500 --> 46:27.360
+ The whole helicopter, the cameras and everything,
+
+46:27.360 --> 46:28.780
+ it's powered by Snapdragon.
+
+46:28.780 --> 46:32.780
+ And talking about exciting thing for an engineer,
+
+46:32.780 --> 46:35.140
+ the same Snapdragon that goes to a phone,
+
+46:35.140 --> 46:37.740
+ and it can go to a Galaxy phone, for example, Samsung,
+
+46:37.740 --> 46:41.380
+ the same, not a special one, went all the way to Mars.
+
+46:42.260 --> 46:45.020
+ Is exploring other planets, looking for alien life,
+
+46:45.020 --> 46:46.120
+ and maybe gets to meet them.
+
+46:46.120 --> 46:47.100
+ Wouldn't that be interesting,
+
+46:47.100 --> 46:49.720
+ if a Snapdragon is the thing that first sees an alien?
+
+46:49.720 --> 46:50.640
+ It's like, what the hell?
+
+46:50.640 --> 46:52.340
+ We did not program this in the computer vision.
+
+46:52.340 --> 46:53.980
+ I once used the example to go back
+
+46:53.980 --> 46:57.140
+ to the conversation we had about quality.
+
+46:57.140 --> 46:59.580
+ As an engineer, you need to make sure it works.
+
+46:59.580 --> 47:01.260
+ Can you imagine if it gets over there on Mars
+
+47:01.260 --> 47:02.100
+ and it doesn't work?
+
+47:02.100 --> 47:04.060
+ Listen, this is very stressful.
+
+47:04.060 --> 47:07.020
+ What NASA, what SpaceX, what all those companies are doing
+
+47:07.020 --> 47:08.100
+ is extremely stressful.
+
+47:08.100 --> 47:10.580
+ The room for mistakes is tiny.
+
+47:10.580 --> 47:13.280
+ But that's super exciting for an engineer, once again.
+
+47:14.920 --> 47:17.340
+ There's been a global semiconductor chip shortage.
+
+47:17.340 --> 47:19.720
+ So from your perspective, just it'd be interesting
+
+47:19.720 --> 47:23.380
+ to get your expert analysis of the situation.
+
+47:23.380 --> 47:24.780
+ What do you think are the main reasons
+
+47:24.780 --> 47:28.580
+ and how has Qualcomm been affected and how can it help?
+
+47:28.580 --> 47:31.380
+ In this, in the future, things like it.
+
+47:31.380 --> 47:36.380
+ Okay, that's a big topic of conversation.
+
+47:36.380 --> 47:38.060
+ And we only have five minutes.
+
+47:38.060 --> 47:41.880
+ So I'll try to be as objective as I can.
+
+47:41.880 --> 47:43.780
+ So first, let's talk about what caused it.
+
+47:43.780 --> 47:46.460
+ And you hear a lot of different things.
+
+47:46.460 --> 47:48.820
+ I will try to put it within the right context.
+
+47:48.820 --> 47:51.320
+ The first thing that caused it, really,
+
+47:51.320 --> 47:54.900
+ is the acceleration of digital transformation
+
+47:54.900 --> 47:59.180
+ of pretty much everything in every industry.
+
+47:59.180 --> 48:01.340
+ Every industry has been digitally transformed.
+
+48:01.340 --> 48:04.940
+ And as such, the amount of semiconductors
+
+48:04.940 --> 48:07.420
+ that are required is much larger.
+
+48:07.420 --> 48:09.020
+ Just to give you a practical example,
+
+48:09.020 --> 48:11.660
+ if you think about the automotive as an example,
+
+48:11.660 --> 48:15.100
+ the cars that are, there's cars that are launched,
+
+48:15.100 --> 48:17.180
+ a new model launching today.
+
+48:17.180 --> 48:20.700
+ The new model launching today most likely has 10X
+
+48:20.700 --> 48:23.940
+ the amount of chips of the prior model.
+
+48:23.940 --> 48:25.700
+ And the model that people are working on
+
+48:25.700 --> 48:28.460
+ that's coming in next, probably 10X that one.
+
+48:28.460 --> 48:30.140
+ So you see the amount of silicon
+
+48:30.140 --> 48:32.580
+ and then billions of things become smart.
+
+48:32.580 --> 48:34.420
+ More and more data goes to the cloud.
+
+48:34.420 --> 48:35.820
+ The data center grows.
+
+48:35.820 --> 48:40.500
+ So the floor for semiconductor consumptions went up by a lot.
+
+48:40.500 --> 48:43.180
+ Then you have things that aggravated this.
+
+48:43.180 --> 48:45.100
+ The pandemic aggravated this.
+
+48:45.100 --> 48:47.820
+ There is a couple of trends from the pandemic.
+
+48:47.820 --> 48:50.100
+ The enterprise transformation of the home.
+
+48:50.100 --> 48:51.540
+ The home became an enterprise.
+
+48:51.540 --> 48:56.540
+ Massive amounts of upgrades on broadband and IoT.
+
+48:57.540 --> 49:02.700
+ The office has changed to the way we work now,
+
+49:02.700 --> 49:05.300
+ including the ability to support collaboration tools
+
+49:05.300 --> 49:06.780
+ and video.
+
+49:06.780 --> 49:11.780
+ Then you have the higher demand for products
+
+49:14.140 --> 49:17.700
+ during the pandemic because people wanted to be connected.
+
+49:17.700 --> 49:19.340
+ People bought new phones and new tablets
+
+49:19.340 --> 49:22.140
+ and new computers, new gaming.
+
+49:22.140 --> 49:24.780
+ So all of those things came on top of that
+
+49:24.780 --> 49:28.580
+ as the aggravated issue, but they're not the main issue.
+
+49:28.580 --> 49:33.580
+ The main issue is it's actually a long term growth
+
+49:34.020 --> 49:35.180
+ of digital.
+
+49:35.180 --> 49:38.380
+ So what I'm hearing you say is the pandemic
+
+49:38.380 --> 49:40.780
+ was not the cause, it was an aggravation.
+
+49:40.780 --> 49:41.620
+ It was an aggravation.
+
+49:41.620 --> 49:46.620
+ So is there a way we can support as a human civilization
+
+49:48.260 --> 49:51.420
+ in terms of manufacture, in terms of supply,
+
+49:51.420 --> 49:53.900
+ the kind of growth that you're talking about
+
+49:53.900 --> 49:55.620
+ in devices and so on?
+
+49:55.620 --> 49:58.060
+ Is there high level ideas you can say
+
+49:58.060 --> 49:59.940
+ of what that's required there?
+
+49:59.940 --> 50:02.500
+ Yes, and I think that's the second part of the answer.
+
+50:02.500 --> 50:03.860
+ So what's happening now?
+
+50:03.860 --> 50:05.540
+ How are we gonna get out of this?
+
+50:05.540 --> 50:10.140
+ So we see a lot of capacity investments
+
+50:10.140 --> 50:12.900
+ put into place by the industry.
+
+50:12.900 --> 50:15.740
+ We had invested a lot with our suppliers.
+
+50:15.740 --> 50:19.500
+ A lot of the suppliers had made plans
+
+50:19.500 --> 50:22.140
+ about increasing the capacity.
+
+50:22.140 --> 50:24.380
+ The industry is planning to double
+
+50:24.380 --> 50:27.180
+ its total semiconductor manufacturing capacity
+
+50:27.180 --> 50:30.140
+ within the next five years, an example.
+
+50:30.140 --> 50:31.460
+ So that's already happening.
+
+50:31.460 --> 50:33.900
+ And then you see things which are actually good.
+
+50:33.900 --> 50:35.300
+ They're good.
+
+50:35.300 --> 50:38.140
+ The initiative such as the United States CHIPS Act
+
+50:38.140 --> 50:40.620
+ and now the European CHIPS Act.
+
+50:40.620 --> 50:43.700
+ The United States CHIPS Act's about $52 billion.
+
+50:43.700 --> 50:45.900
+ The European's about 43.
+
+50:45.900 --> 50:49.900
+ Their goal combined is to get at least 50%
+
+50:49.900 --> 50:54.340
+ of the consumption with manufacturing installed
+
+50:54.340 --> 50:57.260
+ within the US and European geographies.
+
+50:57.260 --> 50:58.340
+ And that's also very good.
+
+50:58.340 --> 51:03.180
+ That's yet another incentive for more manufacturing capacity
+
+51:03.180 --> 51:05.300
+ to be built and to be built
+
+51:05.300 --> 51:08.300
+ with a geographic distributed way,
+
+51:08.300 --> 51:09.980
+ which that's how you plan supply chain.
+
+51:09.980 --> 51:12.420
+ So those I think are good things.
+
+51:12.420 --> 51:16.060
+ So if anything we learn through the crisis
+
+51:16.060 --> 51:19.420
+ is that semiconductor is important.
+
+51:19.420 --> 51:21.380
+ Semiconductor companies are important
+
+51:21.380 --> 51:23.860
+ and we need to invest in semiconductors.
+
+51:23.860 --> 51:26.140
+ We're turning to the grilling of the CEO
+
+51:26.140 --> 51:28.140
+ with the hard questions.
+
+51:28.140 --> 51:30.580
+ This is almost from my own education of the space.
+
+51:30.580 --> 51:32.220
+ You mentioned regulators.
+
+51:32.220 --> 51:34.300
+ Qualcomm paid out and received payment
+
+51:34.300 --> 51:37.020
+ of billions of dollars in settlement and fines.
+
+51:38.060 --> 51:40.620
+ There seems to be a lot of huge lawsuits in this space.
+
+51:40.620 --> 51:42.260
+ How do you explain that?
+
+51:42.260 --> 51:45.260
+ Does this get in the way of innovation
+
+51:45.260 --> 51:46.860
+ or does it promote it?
+
+51:46.860 --> 51:50.620
+ I will rephrase it by saying there used to be a lot
+
+51:50.620 --> 51:51.940
+ of lawsuits in this space.
+
+51:51.940 --> 51:56.940
+ In addition of what we do in semiconductors,
+
+51:56.940 --> 52:00.980
+ our processors and our modems, the Snapdragon platform,
+
+52:02.780 --> 52:04.660
+ we also have a licensing business,
+
+52:04.660 --> 52:08.060
+ which has been a part of the company since the beginning.
+
+52:08.060 --> 52:13.060
+ As the largest inventors of the essential technology
+
+52:14.020 --> 52:18.340
+ in 2G, CDMA, 3G, 4G and 5G,
+
+52:19.620 --> 52:21.820
+ and Qualcomm contribute that to the standards.
+
+52:21.820 --> 52:25.740
+ So we always had this model that rather than invent
+
+52:25.740 --> 52:27.980
+ the technology and be the only one producing the products,
+
+52:27.980 --> 52:30.300
+ we license so everyone can produce it.
+
+52:31.940 --> 52:35.060
+ And as such, we receive intellectual property
+
+52:35.940 --> 52:38.340
+ for the standard essential patents.
+
+52:40.580 --> 52:44.420
+ As part of our past dispute with Apple,
+
+52:44.420 --> 52:46.220
+ that's behind us now.
+
+52:46.220 --> 52:47.260
+ Your friends now.
+
+52:47.260 --> 52:49.620
+ They're my customers.
+
+52:49.620 --> 52:54.580
+ And as part of that, I think the licensing model
+
+52:54.580 --> 52:58.580
+ got tested, I think, in every geography.
+
+52:58.580 --> 53:02.100
+ And we succeeded in every single geography
+
+53:02.100 --> 53:06.780
+ to validate the pro competitiveness of this model.
+
+53:06.780 --> 53:09.540
+ I think the fair, reasonable,
+
+53:09.540 --> 53:12.260
+ non discriminatory aspect of this model.
+
+53:12.260 --> 53:16.420
+ And I would argue that besides being the most successful
+
+53:16.420 --> 53:19.860
+ licensing business to date in the industry,
+
+53:19.860 --> 53:21.980
+ probably the one that's been battle tested
+
+53:21.980 --> 53:25.020
+ and is most stable because there's not a single
+
+53:25.020 --> 53:29.060
+ jurisdiction that we have not had to validate that model.
+
+53:29.060 --> 53:32.180
+ So it's part of our past and what it creates
+
+53:32.180 --> 53:34.220
+ is probably create a lot of stability
+
+53:34.220 --> 53:35.220
+ in our licensing business.
+
+53:35.220 --> 53:38.300
+ But having said that, the growth of the company
+
+53:38.300 --> 53:40.260
+ is in the semiconductor space.
+
+53:40.260 --> 53:43.300
+ And the semiconductor, so licensing is,
+
+53:43.300 --> 53:44.860
+ you come up with a pretty good idea,
+
+53:44.860 --> 53:48.100
+ you have a bunch of smart people coming up with cool ideas,
+
+53:48.100 --> 53:49.900
+ and then once you come up with that idea,
+
+53:49.900 --> 53:52.340
+ you sell that idea to others, they get to use it.
+
+53:52.340 --> 53:53.900
+ That's essentially what a license.
+
+53:53.900 --> 53:58.060
+ The license revenue we have is for the,
+
+53:58.060 --> 54:02.180
+ what we call the SCP, standard essential patents,
+
+54:02.180 --> 54:07.180
+ that are part of the 2G, 3G, 4G, and 5G standards.
+
+54:07.620 --> 54:10.860
+ So if you want to build anything with 5G,
+
+54:10.860 --> 54:13.500
+ you need to get a license from Qualcomm
+
+54:13.500 --> 54:16.860
+ because it uses Qualcomm essential technology
+
+54:16.860 --> 54:17.940
+ as part of the standard.
+
+54:17.940 --> 54:19.580
+ And a slightly different model,
+
+54:19.580 --> 54:22.100
+ or a lot different model with the semiconductor
+
+54:22.100 --> 54:25.820
+ is you design, you inject a bunch of fascinating ideas,
+
+54:25.820 --> 54:28.220
+ how to build the Snapdragon, and then there's,
+
+54:28.220 --> 54:29.820
+ because it's a fabulous company,
+
+54:29.820 --> 54:33.580
+ you have somebody build the chip
+
+54:33.580 --> 54:35.460
+ and then goes into a phone with the branding
+
+54:35.460 --> 54:36.740
+ and all that kind of stuff.
+
+54:36.740 --> 54:40.100
+ And that has less kind of players involved,
+
+54:40.100 --> 54:40.940
+ it's not a license.
+
+54:40.940 --> 54:42.340
+ We sell the product.
+
+54:42.340 --> 54:45.420
+ We don't license semiconductor technology,
+
+54:45.420 --> 54:47.660
+ we build products and we sell products.
+
+54:49.460 --> 54:51.620
+ This is your first year as a CEO.
+
+54:51.620 --> 54:52.940
+ Not one year yet.
+
+54:52.940 --> 54:54.060
+ Not one year yet.
+
+54:56.100 --> 54:58.300
+ Let's hope it'll be in June, it'll be one year.
+
+54:58.300 --> 54:59.140
+ Okay.
+
+55:00.100 --> 55:04.060
+ This is a company that's involved
+
+55:04.060 --> 55:06.220
+ with a lot of fascinating technologies
+
+55:06.220 --> 55:09.540
+ and it's touching the lives of billions of people.
+
+55:09.540 --> 55:11.260
+ A lot of complicated stuff.
+
+55:11.260 --> 55:13.460
+ Like I said, licensing technologies.
+
+55:13.460 --> 55:17.460
+ You have to collaborate with manufacturers.
+
+55:17.460 --> 55:20.020
+ You have to then work with, however many you said,
+
+55:20.020 --> 55:23.460
+ car companies and all these clients and so on.
+
+55:23.460 --> 55:28.460
+ And you have to, with tech companies, Apple and so on.
+
+55:29.500 --> 55:30.460
+ What's that like?
+
+55:30.460 --> 55:33.060
+ What lessons have you learned about leadership
+
+55:33.060 --> 55:35.100
+ and maybe about yourself as a human being
+
+55:35.100 --> 55:39.460
+ from this first, almost a year, soon to be a year
+
+55:39.460 --> 55:42.060
+ as a CEO of this incredible, this complex,
+
+55:42.060 --> 55:43.500
+ this large company?
+
+55:43.500 --> 55:44.540
+ That's a loaded question.
+
+55:44.540 --> 55:47.820
+ Let me answer in reverse order.
+
+55:47.820 --> 55:51.260
+ First thing that I learned, and I think it's probably common
+
+55:52.380 --> 55:55.380
+ across CEOs, especially in our industry,
+
+55:55.380 --> 55:58.220
+ is it will be great if I had more time.
+
+55:59.300 --> 56:01.860
+ I think there's, especially because we grow
+
+56:01.860 --> 56:04.180
+ in so many areas and there's so many things to learn,
+
+56:04.180 --> 56:08.420
+ so many relationships to build, time to spend
+
+56:08.420 --> 56:10.380
+ with a number of different technologies.
+
+56:11.700 --> 56:14.100
+ But it kind of reflects really the size
+
+56:14.100 --> 56:16.180
+ of the opportunity that exists for Qualcomm.
+
+56:16.180 --> 56:19.060
+ Qualcomm, it is really growing in a number
+
+56:19.060 --> 56:22.060
+ of different directions all at the same time.
+
+56:22.060 --> 56:25.860
+ And so it did got busier.
+
+56:25.860 --> 56:29.820
+ And part of this is because I'm spending a lot of time
+
+56:29.820 --> 56:32.740
+ understanding the new industries we're going in
+
+56:32.740 --> 56:35.620
+ and building relationships.
+
+56:35.620 --> 56:37.380
+ Second thing, which is a lot to do
+
+56:37.380 --> 56:39.340
+ with how I think about things
+
+56:39.340 --> 56:41.580
+ and a little bit of my personality.
+
+56:41.580 --> 56:44.460
+ At the end of the day, business partnerships
+
+56:44.460 --> 56:46.940
+ are really done by people.
+
+56:46.940 --> 56:51.380
+ And I think the importance of having trusted relationships
+
+56:51.380 --> 56:54.860
+ for the long term is extremely important.
+
+56:54.860 --> 56:57.380
+ And I've been dedicated to do that as CEO.
+
+56:57.380 --> 57:01.020
+ We're not a company that plays for the short term.
+
+57:01.020 --> 57:01.860
+ We don't.
+
+57:01.860 --> 57:03.780
+ And when we build new partnerships,
+
+57:03.780 --> 57:05.980
+ we expect that to be for decades.
+
+57:05.980 --> 57:09.420
+ And so I spend time doing that
+
+57:09.420 --> 57:11.260
+ and think that's important for Qualcomm.
+
+57:11.260 --> 57:15.100
+ The other part of your question is,
+
+57:15.100 --> 57:18.900
+ we do have a lot of opportunities in all different areas.
+
+57:18.900 --> 57:21.540
+ What we like, and I've been fortunate enough
+
+57:21.540 --> 57:23.780
+ to become CEO at a time,
+
+57:23.780 --> 57:27.180
+ that a lot of the trends are pointing to our technology.
+
+57:27.180 --> 57:28.220
+ We talk about some of them.
+
+57:28.220 --> 57:31.300
+ We talk about merger of physical and digital spaces.
+
+57:31.300 --> 57:33.500
+ We talk about the transformation of the automobile.
+
+57:33.500 --> 57:38.500
+ We talk about the merge of computing and mobile,
+
+57:38.820 --> 57:40.580
+ the enterprise transformation of the home.
+
+57:40.580 --> 57:42.380
+ There are many of those trends.
+
+57:42.380 --> 57:46.140
+ And those trends create opportunities for Qualcomm
+
+57:46.140 --> 57:50.820
+ to be providing technology first.
+
+57:50.820 --> 57:53.660
+ And as such, we're in a hurry.
+
+57:53.660 --> 57:55.420
+ So I'm in a little bit of a hurry
+
+57:55.420 --> 57:57.700
+ because I think the opportunity is incredible
+
+57:57.700 --> 58:02.620
+ for technology, but having fun and enjoying the job.
+
+58:02.620 --> 58:04.780
+ Is there a burden because of so much
+
+58:04.780 --> 58:07.300
+ of what you said is partnerships
+
+58:07.300 --> 58:09.820
+ and almost like friendships,
+
+58:09.820 --> 58:12.300
+ connections with other human beings?
+
+58:12.300 --> 58:15.620
+ Me as an introvert that has a lot of social anxiety,
+
+58:15.620 --> 58:17.180
+ that seems extremely stressful.
+
+58:17.180 --> 58:19.340
+ So is there that burden on your shoulders?
+
+58:19.340 --> 58:21.180
+ You have to wake up every day
+
+58:21.180 --> 58:25.940
+ and talk to friends you've had for many years.
+
+58:25.940 --> 58:28.660
+ It can be, and then convince them
+
+58:28.660 --> 58:31.060
+ and make partnerships with them,
+
+58:31.060 --> 58:33.700
+ talk with them, describe to them the future,
+
+58:33.700 --> 58:36.100
+ sell them an idea, and then yourself grow
+
+58:36.100 --> 58:37.360
+ because you don't know what the heck
+
+58:37.360 --> 58:38.500
+ the future is gonna be like.
+
+58:38.500 --> 58:41.000
+ And you have to project both confidence and humility,
+
+58:41.000 --> 58:42.220
+ all those kinds of things.
+
+58:42.220 --> 58:43.240
+ Is that exhausting?
+
+58:45.100 --> 58:48.680
+ It is exhausting, but it's something I do like to do.
+
+58:48.680 --> 58:50.540
+ And it's not only with partners, really.
+
+58:50.540 --> 58:54.100
+ It's also internally to your employees, I think,
+
+58:54.100 --> 58:55.440
+ to get alignment on the vision
+
+58:55.440 --> 58:57.680
+ and faith in the vision and execute.
+
+58:57.680 --> 58:59.100
+ And at the end of the day, we're very fortunate.
+
+58:59.100 --> 59:00.200
+ We have a lot of smart people.
+
+59:00.200 --> 59:02.100
+ So people, if they're aligned with the vision,
+
+59:02.100 --> 59:03.460
+ they know what to do.
+
+59:03.460 --> 59:05.300
+ And then, of course, as CEO,
+
+59:05.300 --> 59:06.860
+ you have to convince your investors
+
+59:06.860 --> 59:09.060
+ that that's the right idea as well.
+
+59:09.940 --> 59:13.980
+ If you can put on your wise sage hat,
+
+59:13.980 --> 59:16.100
+ do you have a device for young people
+
+59:16.100 --> 59:18.540
+ in high school and college?
+
+59:18.540 --> 59:23.300
+ You yourself started from the humble beginnings in Brazil,
+
+59:24.780 --> 59:28.860
+ maybe a bit of a wild, risky decision to go to Japan,
+
+59:28.860 --> 59:30.820
+ and now are the head of one of the biggest,
+
+59:30.820 --> 59:34.100
+ most successful, most impactful companies in the world.
+
+59:34.100 --> 59:37.980
+ Given that story, can you give advice to young people today
+
+59:37.980 --> 59:41.180
+ that they can have a career
+
+59:41.180 --> 59:43.020
+ or just a life they can be proud of?
+
+59:43.980 --> 59:45.420
+ I think the first thing,
+
+59:45.420 --> 59:47.740
+ and of course, all of those answers
+
+59:47.740 --> 59:52.140
+ are gonna relate to my own experience, right?
+
+59:52.140 --> 59:56.940
+ The first thing is it always worked for me
+
+59:56.940 --> 1:00:00.980
+ to have a plan, even if the plan
+
+1:00:00.980 --> 1:00:02.760
+ is just what I'm gonna do in the next two years,
+
+1:00:02.760 --> 1:00:04.260
+ but what do I want to do?
+
+1:00:04.260 --> 1:00:05.960
+ Where do I wanna go?
+
+1:00:05.960 --> 1:00:08.480
+ And I think it's important for people,
+
+1:00:08.480 --> 1:00:09.780
+ especially young people,
+
+1:00:10.780 --> 1:00:15.140
+ is to really have a dream and go pursue it.
+
+1:00:15.140 --> 1:00:17.560
+ I mean, have a dream does not go back to bed to sleep.
+
+1:00:17.560 --> 1:00:20.720
+ It's really what do you want to accomplish
+
+1:00:20.720 --> 1:00:22.300
+ and then what it's gonna take to do that.
+
+1:00:22.300 --> 1:00:24.200
+ And then believe in yourself.
+
+1:00:24.200 --> 1:00:27.600
+ Like I said, I joined Qualcomm as an engineer
+
+1:00:28.440 --> 1:00:33.140
+ and I didn't have any plans when I joined to be CEO,
+
+1:00:33.140 --> 1:00:34.680
+ but I do want, as an engineer,
+
+1:00:34.680 --> 1:00:38.240
+ what I wanted to do, where I wanna contribute,
+
+1:00:38.240 --> 1:00:39.320
+ what I wanted to work on,
+
+1:00:39.320 --> 1:00:43.800
+ and then keep evolving from that point in time.
+
+1:00:43.800 --> 1:00:46.200
+ The other thing is, this is an advice,
+
+1:00:46.200 --> 1:00:51.200
+ it's more of like career advice that I got early in my career
+
+1:00:51.360 --> 1:00:54.020
+ was extremely helpful for me
+
+1:00:54.020 --> 1:00:55.160
+ and I will give that advice
+
+1:00:55.160 --> 1:00:56.760
+ to everyone that is interested.
+
+1:00:58.740 --> 1:01:02.540
+ Spend time understanding what are the things you're good at
+
+1:01:02.540 --> 1:01:04.280
+ and what are the things you're not.
+
+1:01:04.280 --> 1:01:08.680
+ Like what is the real border between your area of competence
+
+1:01:08.680 --> 1:01:10.580
+ and your area of incompetence?
+
+1:01:10.580 --> 1:01:12.320
+ And once you see that,
+
+1:01:12.320 --> 1:01:15.680
+ once you see that you know exactly what you have to work on
+
+1:01:15.680 --> 1:01:18.880
+ and you can say, that's where I wanna go next,
+
+1:01:18.880 --> 1:01:21.160
+ this is the gap, I need to do it.
+
+1:01:21.160 --> 1:01:24.760
+ And it's faster when you can identify yourself
+
+1:01:24.760 --> 1:01:27.240
+ before other people can tell you.
+
+1:01:27.240 --> 1:01:31.480
+ Then it leads to automatically the next step.
+
+1:01:31.480 --> 1:01:34.080
+ Surround yourself, the people that are very good
+
+1:01:34.080 --> 1:01:35.480
+ at the things that you're not.
+
+1:01:35.480 --> 1:01:38.780
+ So you have to be radically honest
+
+1:01:38.780 --> 1:01:41.120
+ about the things that you're not good at,
+
+1:01:41.120 --> 1:01:42.960
+ but given what you're passionate about,
+
+1:01:42.960 --> 1:01:44.160
+ you need to get good at,
+
+1:01:44.160 --> 1:01:45.720
+ or you would like to get good at,
+
+1:01:45.720 --> 1:01:47.680
+ and surround yourself by those people.
+
+1:01:47.680 --> 1:01:50.640
+ How often did the plans you make actually work out?
+
+1:01:50.640 --> 1:01:52.520
+ So you said it's important to make plans.
+
+1:01:52.520 --> 1:01:54.480
+ You didn't say anything about
+
+1:01:54.480 --> 1:01:56.240
+ it's important to execute on those plans.
+
+1:01:56.240 --> 1:01:58.600
+ More than 50% success rate.
+
+1:01:58.600 --> 1:01:59.960
+ Try to keep it above 50.
+
+1:01:59.960 --> 1:02:01.840
+ Try to keep it above 50.
+
+1:02:01.840 --> 1:02:05.440
+ What was the whole, why did you end up in Japan?
+
+1:02:05.440 --> 1:02:09.560
+ I've been fortunate enough to work in cellular and wireless
+
+1:02:09.560 --> 1:02:10.720
+ my entire career.
+
+1:02:10.720 --> 1:02:13.880
+ So I always liked communications.
+
+1:02:13.880 --> 1:02:15.680
+ When I entered engineering school,
+
+1:02:15.680 --> 1:02:17.320
+ my dad was electrical engineer,
+
+1:02:17.320 --> 1:02:19.120
+ but he worked with the utility company.
+
+1:02:19.120 --> 1:02:21.480
+ He wanted me to graduate
+
+1:02:21.480 --> 1:02:23.040
+ in traditional electrical engineering,
+
+1:02:23.040 --> 1:02:26.020
+ like energy generation, distribution.
+
+1:02:27.920 --> 1:02:29.520
+ But I like electronics communication,
+
+1:02:29.520 --> 1:02:31.720
+ so I ended up doing both.
+
+1:02:31.720 --> 1:02:35.280
+ And I always liked communication.
+
+1:02:35.280 --> 1:02:37.160
+ I was fascinated by wireless communication.
+
+1:02:37.160 --> 1:02:38.680
+ So my first job at a college,
+
+1:02:38.680 --> 1:02:42.000
+ I started working for a Japanese company down in Brazil,
+
+1:02:42.000 --> 1:02:44.240
+ was NEC, and within about a year in,
+
+1:02:44.240 --> 1:02:46.560
+ they transferred me to Tokyo.
+
+1:02:46.560 --> 1:02:48.060
+ They asked me to go to their headquarters,
+
+1:02:48.060 --> 1:02:51.440
+ and it was the first time I left Brazil.
+
+1:02:51.440 --> 1:02:53.400
+ A little bit different from Brazil.
+
+1:02:53.400 --> 1:02:54.920
+ Culturally. Very different.
+
+1:02:54.920 --> 1:02:57.120
+ It is in the other side of the planet.
+
+1:02:58.080 --> 1:03:00.540
+ And that's how I started.
+
+1:03:00.540 --> 1:03:02.840
+ You said your father's an electrical engineer.
+
+1:03:03.840 --> 1:03:07.580
+ Do you think what you're doing now makes your father proud?
+
+1:03:07.580 --> 1:03:08.680
+ I think he's very proud.
+
+1:03:08.680 --> 1:03:11.420
+ I think especially, you know,
+
+1:03:12.580 --> 1:03:15.760
+ he tells me that I'm still the same person
+
+1:03:15.760 --> 1:03:17.480
+ that never changed.
+
+1:03:17.480 --> 1:03:19.160
+ Does he give you advice?
+
+1:03:19.160 --> 1:03:20.720
+ Does he criticize what you're doing?
+
+1:03:20.720 --> 1:03:22.360
+ Tell you how to improve?
+
+1:03:22.360 --> 1:03:24.080
+ My mom and dad still give me advice today.
+
+1:03:24.080 --> 1:03:25.280
+ I'm very fortunate for that.
+
+1:03:25.280 --> 1:03:29.560
+ But he's proud.
+
+1:03:29.560 --> 1:03:32.240
+ I'm also proud because there are very few Brazilians
+
+1:03:33.720 --> 1:03:36.320
+ that have achieved a position as CEO
+
+1:03:36.320 --> 1:03:39.360
+ of a company the size of Qualcomm.
+
+1:03:39.360 --> 1:03:43.260
+ And I do know that also I carry a burden,
+
+1:03:43.260 --> 1:03:47.720
+ especially for the Latino community,
+
+1:03:47.720 --> 1:03:49.220
+ to be an inspiration for them
+
+1:03:49.220 --> 1:03:51.940
+ and make sure I set a good example.
+
+1:03:51.940 --> 1:03:54.380
+ So not just your mom and dad,
+
+1:03:54.380 --> 1:03:59.380
+ but the culture, the people that were originally your home.
+
+1:04:01.540 --> 1:04:03.860
+ Do you, you know, life is finite.
+
+1:04:04.780 --> 1:04:06.680
+ Do you think about your own mortality?
+
+1:04:07.860 --> 1:04:10.980
+ Look, I'm a devout Christian,
+
+1:04:10.980 --> 1:04:14.580
+ and so I'm a big believer that there's,
+
+1:04:15.460 --> 1:04:16.920
+ this is just a transition.
+
+1:04:18.700 --> 1:04:22.140
+ But don't spend a lot of time thinking about that.
+
+1:04:22.140 --> 1:04:25.820
+ I am somebody good, better, and different
+
+1:04:25.820 --> 1:04:29.340
+ that try as much as possible to leave the present,
+
+1:04:29.340 --> 1:04:30.380
+ and that's what I do.
+
+1:04:31.660 --> 1:04:33.240
+ And try to make the present better
+
+1:04:33.240 --> 1:04:35.860
+ on this place here on Earth.
+
+1:04:35.860 --> 1:04:36.700
+ Absolutely.
+
+1:04:36.700 --> 1:04:38.060
+ And that some of these technologies,
+
+1:04:38.060 --> 1:04:40.980
+ some of these ideas are kind of a different kind
+
+1:04:40.980 --> 1:04:42.540
+ of immortality as well,
+
+1:04:42.540 --> 1:04:44.500
+ because they propagate through time
+
+1:04:44.500 --> 1:04:47.700
+ and have impact on people in the best possible way.
+
+1:04:47.700 --> 1:04:49.880
+ So technology can be scary,
+
+1:04:49.880 --> 1:04:51.280
+ technology can be destructive,
+
+1:04:51.280 --> 1:04:56.280
+ but it seems like in the end it can do a lot of good.
+
+1:04:56.460 --> 1:04:59.300
+ More good, there's more good than bad.
+
+1:04:59.300 --> 1:05:01.100
+ What do you think is the meaning of this whole thing?
+
+1:05:01.100 --> 1:05:03.620
+ I asked you about aliens observing us.
+
+1:05:03.620 --> 1:05:05.640
+ What's the meaning of life?
+
+1:05:05.640 --> 1:05:09.640
+ Cristiano, what's the meaning of life?
+
+1:05:09.640 --> 1:05:10.920
+ Easy questions.
+
+1:05:10.920 --> 1:05:13.120
+ That's not an easy question at all.
+
+1:05:13.120 --> 1:05:15.240
+ I think that's a question,
+
+1:05:15.240 --> 1:05:17.640
+ at least for me, you have to answer individually.
+
+1:05:18.720 --> 1:05:21.860
+ But I do believe we're all here for a purpose.
+
+1:05:24.440 --> 1:05:28.960
+ In my prayers I always ask that I stay on track
+
+1:05:28.960 --> 1:05:30.960
+ to whatever my purpose is,
+
+1:05:30.960 --> 1:05:33.160
+ but I do believe we're here for a purpose,
+
+1:05:33.160 --> 1:05:34.840
+ and we need to do the best we can
+
+1:05:34.840 --> 1:05:36.920
+ during the time we have on this Earth.
+
+1:05:36.920 --> 1:05:41.040
+ So that means create beautiful things for you
+
+1:05:41.040 --> 1:05:42.000
+ as an engineer?
+
+1:05:42.000 --> 1:05:44.640
+ Yes, and create beautiful things, yes.
+
+1:05:44.640 --> 1:05:46.280
+ What about love?
+
+1:05:46.280 --> 1:05:48.780
+ What's the role of love in the human condition?
+
+1:05:49.960 --> 1:05:50.960
+ Love's very important,
+
+1:05:50.960 --> 1:05:54.740
+ and it's an essential part of being human.
+
+1:05:54.740 --> 1:05:56.880
+ It comes in the package.
+
+1:05:56.880 --> 1:06:00.100
+ And I think if you look at the situation,
+
+1:06:00.100 --> 1:06:01.480
+ what's happening right now,
+
+1:06:01.480 --> 1:06:03.680
+ I think if you look at the situation
+
+1:06:03.680 --> 1:06:06.280
+ with some of the underprivileged communities,
+
+1:06:06.280 --> 1:06:08.180
+ you look at the homeless situation,
+
+1:06:08.180 --> 1:06:10.200
+ I think we all need more love.
+
+1:06:10.200 --> 1:06:12.680
+ Yeah, and I think people that build incredible technology
+
+1:06:12.680 --> 1:06:14.880
+ sometimes forget the love part.
+
+1:06:14.880 --> 1:06:17.280
+ Those are all, it's all integrated.
+
+1:06:17.280 --> 1:06:21.720
+ There's no, thinking about humanity is really important
+
+1:06:21.720 --> 1:06:24.980
+ when you build tools that empower that humanity.
+
+1:06:24.980 --> 1:06:27.360
+ Because there's, I think, at least I personally believe
+
+1:06:27.360 --> 1:06:30.200
+ we're all capable of both evil and good.
+
+1:06:30.200 --> 1:06:33.400
+ And we have to build technology, build societies,
+
+1:06:33.400 --> 1:06:35.200
+ build governments, build communities
+
+1:06:35.200 --> 1:06:40.000
+ that inspire us to connect with the good part
+
+1:06:40.000 --> 1:06:40.940
+ within all of us.
+
+1:06:40.940 --> 1:06:43.760
+ I'm a big believer that technology is, at the end,
+
+1:06:43.760 --> 1:06:44.720
+ the force for good.
+
+1:06:44.720 --> 1:06:47.560
+ And if you just look, you know,
+
+1:06:47.560 --> 1:06:50.880
+ not trying to move away from a deep discussion
+
+1:06:50.880 --> 1:06:54.180
+ to a more specific, technical one.
+
+1:06:54.180 --> 1:06:58.640
+ But we started a conversation talking about smartphones.
+
+1:06:58.640 --> 1:07:03.240
+ And smartphones really, the first time
+
+1:07:03.240 --> 1:07:05.240
+ that you could say that everybody in the world
+
+1:07:05.240 --> 1:07:06.960
+ was able to connect to the internet
+
+1:07:06.960 --> 1:07:07.880
+ and connect to each other.
+
+1:07:07.880 --> 1:07:11.400
+ And I think what that empowerment that that provided,
+
+1:07:11.400 --> 1:07:13.240
+ it's an incredible force for good.
+
+1:07:14.400 --> 1:07:18.660
+ Well, the company you lead, the technology you've created,
+
+1:07:18.660 --> 1:07:21.120
+ one of them that I'm especially excited about,
+
+1:07:21.120 --> 1:07:23.840
+ which is Snapdragon, the whole line of processors there.
+
+1:07:23.840 --> 1:07:27.600
+ Currently, I would say at about 10 billion transistors.
+
+1:07:27.600 --> 1:07:29.200
+ If you think about the human brain,
+
+1:07:29.200 --> 1:07:31.560
+ it's about 100 billion neurons.
+
+1:07:31.560 --> 1:07:36.440
+ So I think 11 Samsung Galaxy S22s
+
+1:07:36.440 --> 1:07:37.720
+ are already smarter than me.
+
+1:07:37.720 --> 1:07:41.040
+ And that's being nice to me.
+
+1:07:41.040 --> 1:07:42.240
+ I'm really honored that you spent
+
+1:07:42.240 --> 1:07:44.680
+ your extremely valuable time with me,
+
+1:07:44.680 --> 1:07:47.120
+ even though you said Pele is the favorite player.
+
+1:07:48.040 --> 1:07:51.360
+ Beyond all of that, I think you're an incredible person,
+
+1:07:51.360 --> 1:07:53.240
+ incredible leader, and you lead
+
+1:07:53.240 --> 1:07:54.860
+ an incredible engineering company.
+
+1:07:54.860 --> 1:07:55.980
+ So thank you for doing that.
+
+1:07:55.980 --> 1:07:56.820
+ Oh, thank you so much.
+
+1:07:56.820 --> 1:07:58.020
+ Thanks for the kind words.
+
+1:07:58.020 --> 1:07:59.920
+ Really a pleasure having this conversation.
+
+1:07:59.920 --> 1:08:01.340
+ I really had a lot of fun doing it.
+
+1:08:01.340 --> 1:08:03.900
+ And thank you for having me in your podcast.
+
+1:08:04.800 --> 1:08:06.280
+ Thanks for listening to this conversation
+
+1:08:06.280 --> 1:08:07.960
+ with Christiano Aman.
+
+1:08:07.960 --> 1:08:09.640
+ To support this podcast, please check out
+
+1:08:09.640 --> 1:08:11.760
+ our sponsors in the description.
+
+1:08:11.760 --> 1:08:13.920
+ And now, let me leave you with some words
+
+1:08:13.920 --> 1:08:15.100
+ from Stephen Hawking.
+
+1:08:15.960 --> 1:08:20.420
+ For millions of years, mankind lived just like the animals.
+
+1:08:20.420 --> 1:08:22.480
+ Then something happened, which unleashed
+
+1:08:22.480 --> 1:08:24.760
+ the power of our imagination.
+
+1:08:24.760 --> 1:08:28.120
+ We learned to talk, and we learned to listen.
+
+1:08:28.120 --> 1:08:31.360
+ Speech has allowed the communication of ideas,
+
+1:08:31.360 --> 1:08:33.440
+ enabling human beings to work together
+
+1:08:33.440 --> 1:08:35.400
+ to build the impossible.
+
+1:08:35.400 --> 1:08:40.080
+ Mankind's greatest achievements have come about by talking,
+
+1:08:40.080 --> 1:08:43.080
+ and its greatest failures by not talking.
+
+1:08:44.160 --> 1:08:46.040
+ It doesn't have to be like this.
+
+1:08:46.040 --> 1:08:49.280
+ Our greatest hopes could become reality in the future.
+
+1:08:49.280 --> 1:08:51.280
+ With the technology at our disposal,
+
+1:08:51.280 --> 1:08:54.200
+ the possibilities are unbounded.
+
+1:08:54.200 --> 1:08:58.440
+ All we need to do is make sure we keep talking.
+
+1:08:58.440 --> 1:09:25.440
+ Thank you for listening, and hope to see you next time.
+

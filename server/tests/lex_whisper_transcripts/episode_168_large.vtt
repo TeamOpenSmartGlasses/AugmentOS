@@ -1,0 +1,2990 @@
+WEBVTT
+
+00:00.000 --> 00:04.800
+ The following is a conversation with Silvio McCauley, a computer scientist at MIT,
+
+00:04.800 --> 00:10.320
+ winner of the Turing Award, and one of the leading minds in the fields of cryptography,
+
+00:10.320 --> 00:16.320
+ information security, game theory, and most recently, cryptocurrency and the theoretical
+
+00:16.320 --> 00:23.600
+ foundations of a fully decentralized, secure, and scalable blockchain at Algorand, a company
+
+00:23.600 --> 00:28.480
+ of cryptographers, engineers, and mathematicians that he founded in 2017.
+
+00:28.480 --> 00:35.360
+ Quick mention of our sponsors. Athletic Greens Nutrition Drink, the Information In Depth Tech
+
+00:35.360 --> 00:42.480
+ Journalism website, Four Sigmatic Mushroom Coffee, and BetterHelp Online Therapy. Click the sponsor
+
+00:42.480 --> 00:47.280
+ links to get a discount and to support this podcast. As a side note, let me say that I will
+
+00:47.280 --> 00:53.280
+ be having many conversations this year on the topic of cryptocurrency. I'm reading and thinking
+
+00:53.280 --> 00:59.520
+ and thinking a lot on this topic. I just recently finished reading The Bitcoin Standard, a book I
+
+00:59.520 --> 01:04.960
+ highly recommend. As always, with this podcast, I'm approaching it with an open mind, with
+
+01:04.960 --> 01:12.480
+ compassion, with as little ego as possible, and yes, with love. I hope you go along with me on
+
+01:12.480 --> 01:20.160
+ this journey and don't judge me too harshly on any likely missteps. As usual, I will play devil's
+
+01:20.160 --> 01:27.840
+ advocate. I will, on purpose, sometimes ask simple, even dumb questions, all to try and explore the
+
+01:27.840 --> 01:33.840
+ space of ideas here with as much grace as I can muster. I have no financial interests here. I
+
+01:33.840 --> 01:39.680
+ only have a simple curiosity and a love for knowledge, especially about a set of technologies
+
+01:39.680 --> 01:45.680
+ that may very well transform the fabric of human civilization. If you enjoy this thing,
+
+01:45.680 --> 01:51.520
+ subscribe on YouTube, review it on Apple Podcasts, follow on Spotify, support it on Patreon, or
+
+01:51.520 --> 01:58.080
+ connect with me on Twitter at Lex Friedman. And now here's my conversation with Silvio McCauley.
+
+01:59.200 --> 02:05.520
+ Let's start with the big and the basic question. What is a blockchain? And why is it interesting?
+
+02:05.520 --> 02:11.920
+ Why is it fascinating? Why is it powerful? All right. So a blockchain, think of it, is really
+
+02:11.920 --> 02:19.600
+ a common database distributed. Think about it as a ledger in which everybody can write an entry
+
+02:19.600 --> 02:26.640
+ in a page. You can write, I can write, and everybody can read, and you have a guarantee
+
+02:26.640 --> 02:32.000
+ that everybody has the same copy of the ledger that is in front of you. So whatever you see on
+
+02:32.000 --> 02:40.560
+ page seven, anyone else sees on page seven. So what is extraordinary about this is this common
+
+02:40.560 --> 02:48.160
+ knowledge thing that I think is really a first for humanity. I mean, if you look at communication,
+
+02:48.880 --> 02:57.520
+ like right now, you can communicate very quickly images, photos, but do you have a certainty that
+
+02:57.520 --> 03:02.880
+ whatever you have received has been received by everybody else? Not really. And so there's a
+
+03:02.880 --> 03:09.280
+ commonality of knowledge and the certainty that everybody can write, nobody has been prevented
+
+03:09.280 --> 03:14.320
+ from writing whatever they want. Nobody can erase. Nobody can tear a page of a ledger.
+
+03:14.320 --> 03:20.960
+ Nobody can swap page. Nobody can change anything. And that is immutable common record is
+
+03:21.920 --> 03:27.920
+ extremely powerful. And there's something fundamental that is decentralized about it.
+
+03:27.920 --> 03:33.600
+ So at least in spirit, some degree against maybe a resistance to centralization.
+
+03:33.600 --> 03:41.520
+ Absolutely. If it is not decentralized, how can it be common knowledge? If only one person or a
+
+03:41.520 --> 03:47.680
+ few people have a ledger, you don't have a ledger, you have to ask, you know, what is on page seven?
+
+03:47.680 --> 03:52.400
+ And how do you know that whatever they tell you is on page seven, they tell the same thing to
+
+03:52.400 --> 04:02.000
+ everybody else. And so this commonality is extremely powerful. Just to give you an example,
+
+04:02.000 --> 04:08.080
+ assume that you do an auction, okay? You have worked very hard, you build a building,
+
+04:08.880 --> 04:14.800
+ and now you want to auction it off. Makes sense because you want to auction worldwide,
+
+04:14.800 --> 04:18.720
+ better yet, you want to tokenize the building and sell it in all in parcels.
+
+04:20.320 --> 04:26.400
+ Now, everybody sees the bids. And you know that everybody sees the bids. You and I see the same
+
+04:26.400 --> 04:32.000
+ bids, and so does everybody else. So you know that a fair price has reached, and you know who owns
+
+04:32.000 --> 04:39.440
+ what and who has spent how much. And if you do it instead of, otherwise, in a centralized system,
+
+04:39.440 --> 04:46.400
+ I put a bid saying, oh, congratulations, Alex, you won, and your price is $12,570. How do you know?
+
+04:47.840 --> 04:56.000
+ So if instead of this common knowledge is a very powerful tool for humanity.
+
+04:56.000 --> 05:00.320
+ So we return to it from a bunch of different perspectives, including like a technical
+
+05:00.320 --> 05:09.040
+ perspective. But you often talk about blockchain and some of these concepts of decentralization,
+
+05:09.040 --> 05:16.960
+ scalability, security, all those kinds of things. But one of the most maybe impactful, exciting
+
+05:17.760 --> 05:25.280
+ things that leverage the blockchain, this kind of ledger idea of common knowledge is cryptocurrency.
+
+05:25.280 --> 05:31.440
+ So in the financial space. So is there, can you say in the same kind of basic way,
+
+05:31.440 --> 05:36.320
+ what is cryptocurrency in the context of this common knowledge and in the context of the blockchain?
+
+05:37.040 --> 05:44.320
+ Great. Cryptocurrency is a currency that is on such a ledger. So imagine that on the ledger,
+
+05:45.280 --> 05:52.000
+ initially, you know that somehow, say you and I are the only owner, each one, let's give it
+
+05:52.000 --> 06:01.040
+ ourselves a billion each of whatever this unit. Then I start writing on the ledger,
+
+06:01.040 --> 06:08.240
+ I give 100 of these units to my sister, I give this much to my aunt. And then now,
+
+06:08.240 --> 06:13.440
+ because it's written on the ledger and everybody can see, my sister can give 57 of these units
+
+06:13.440 --> 06:19.520
+ that she received from me to somebody else. And that is money. And that is money because
+
+06:19.520 --> 06:26.400
+ you can see that somebody who tenders your payment has really the money there. You don't
+
+06:26.400 --> 06:31.280
+ have any more of a doubt when you want to sell an item. If I write you a check, is the check covered?
+
+06:33.680 --> 06:38.800
+ Or do I have the money at the moment of a transaction? You really see because the ledger
+
+06:38.800 --> 06:44.560
+ is always updated. What you see is what I see, what the merchant sees. You know that the money,
+
+06:44.560 --> 06:52.640
+ the money is the most powerful money system there is because it is totally transparent. And so you
+
+06:52.640 --> 06:58.000
+ know that you have been paid, and you know that the money is there, you have not to second guess
+
+06:58.000 --> 07:04.000
+ anything else. So the common knowledge applied there is you're basically mimicking the same kind
+
+07:04.000 --> 07:10.320
+ of thing you would get in the physical space, which is if you give 100 bucks or 100 of that
+
+07:10.320 --> 07:18.480
+ thing, whatever of that cryptocurrency to your sister, the actual transfer is as real as you
+
+07:18.480 --> 07:28.880
+ giving like a basket of apples to your sister. So in the case in the physical space, the common
+
+07:28.880 --> 07:35.280
+ knowledge is in the physics of the atoms. And then it's digital space, the common knowledge
+
+07:35.280 --> 07:43.440
+ is in this ledger. And so that transfer holds the same kind of power, but now it's operating
+
+07:43.440 --> 07:52.000
+ in the digital space. Again, I apologize for a set of ridiculous questions, but you mentioned
+
+07:52.960 --> 08:00.320
+ cryptocurrencies and money. What is money? Why do we have money? Do you think about this
+
+08:00.320 --> 08:08.720
+ kind of from this high philosophical level at times of this tool, this idea that we humans
+
+08:08.720 --> 08:13.120
+ have all kind of came up with and seem to be using effectively to do stuff?
+
+08:15.360 --> 08:22.720
+ Money is a social construct, okay, in my opinion. And this has been somehow people always felt
+
+08:22.720 --> 08:30.400
+ that somehow money is a way to allow us to transact, even though we want different things. So
+
+08:30.400 --> 08:39.760
+ I have two sheep, and then you have one cow, and I want the cow, but you are looking for
+
+08:39.760 --> 08:44.880
+ blankets instead, you know, so to have money is really simplifies this. But at the end of
+
+08:44.880 --> 08:49.600
+ it, that's why a bit was invented. And you started with gold, you started with
+
+08:49.600 --> 08:56.080
+ the coinage, then you started with the check. But at the end of the day, money is essentially
+
+08:56.080 --> 09:01.680
+ a social construct because you know that what you receive, you can actually spend with somebody
+
+09:01.680 --> 09:08.880
+ else. And so there is a kind of a social pact and social belief that you have. At the end of the day,
+
+09:09.600 --> 09:17.920
+ even barter requires these beliefs that other people are going to accept
+
+09:17.920 --> 09:24.480
+ the quote unquote currency you offer them. Because if I'm a mason, and you ask me to build a wall
+
+09:25.600 --> 09:31.760
+ in your field, and I did, and you, in exchange, you give me a thousand sheep,
+
+09:32.480 --> 09:37.440
+ what am I going to do? Eat them all? No, I have to feed them. And if I don't feed them, they die,
+
+09:37.440 --> 09:45.120
+ and my value is zero. So in receiving this livestock, I must believe that somebody else
+
+09:45.120 --> 09:53.200
+ will accept them in return for something else. So money is a social belief, social shared belief
+
+09:53.200 --> 09:58.960
+ system that makes people transact. That's fascinating. I didn't even think about that,
+
+09:58.960 --> 10:06.800
+ that you're actually, you have a deep like network of beliefs about how society operates.
+
+10:06.800 --> 10:12.240
+ So the value is assigned even to sheep, based on that everyone will continue operating how they
+
+10:12.240 --> 10:19.680
+ were previously operating. Somebody will feed the sheep. I didn't even think about that. That's
+
+10:19.680 --> 10:26.480
+ fascinating. So that directly transfers to the space of money and then to the space of digital
+
+10:26.480 --> 10:33.600
+ money, cryptocurrency. Okay. Does it bother you sort of intellectually when this money that is
+
+10:33.600 --> 10:40.400
+ a social construct is not directly tied to physical goods like gold, for example?
+
+10:40.400 --> 10:49.280
+ Not at all, because after all, gold has some industrial value. Nobody delights it. It's a
+
+10:49.280 --> 10:55.760
+ metal. It doesn't oxidate. It has some good things about it. But does this industrial value
+
+10:55.760 --> 11:01.920
+ really represent the value to which it now is traded? No. So gold is another way to express
+
+11:01.920 --> 11:07.200
+ our belief. I give you an ounce of gold, you treat it like, oh, somebody else will want this
+
+11:07.200 --> 11:14.480
+ for doing something else. So it is really this notion of this. Money is a mental construct,
+
+11:14.480 --> 11:21.200
+ is really, and is shared, is a social construct, I really believe. And so some people feel that
+
+11:21.200 --> 11:28.960
+ it's physical, so therefore gold exists. Then, as you know now, countries, most sophisticated
+
+11:30.160 --> 11:35.360
+ country right now, they print their own money and you believe that they are not going to
+
+11:35.360 --> 11:42.560
+ exaggerate it with inflation. Not everybody believes it, but at least they are not going
+
+11:42.560 --> 11:49.680
+ to exaggerate it blatantly. And therefore you receive it because you know that somebody else
+
+11:49.680 --> 11:54.080
+ will accept it, will have faith in the currency and so on and so forth. But whether it's gold,
+
+11:54.080 --> 11:59.600
+ whether it's livestock, whatever it is, money is really a shared belief.
+
+11:59.600 --> 12:07.200
+ So there is something, you know, and I've been reading more and more about different cryptocurrencies.
+
+12:07.200 --> 12:14.880
+ There is a kind of belief that the scarcity of a particular resource like Bitcoin has a
+
+12:14.880 --> 12:23.040
+ limited amount and it's tied to physical, you know, to proof of work. So it's tied to physical
+
+12:23.040 --> 12:28.880
+ reality in terms of how much you can mine effectively and so on. That that's an
+
+12:28.880 --> 12:34.880
+ important feature of money. Do you think that's an important feature to be a part of whatever
+
+12:34.880 --> 12:40.800
+ the money is? That is certainly a very useful part. So at some point in time, you know,
+
+12:40.800 --> 12:46.320
+ assume that money is something that all of a sudden we say, daisies are money, are the currency.
+
+12:46.880 --> 12:52.480
+ Then, you know, I offer you 10 daisies in payment of whatever goods and services you want to
+
+12:52.480 --> 12:59.520
+ provide. But at the end of the day, if you know that you can cultivate it and generate them at
+
+12:59.520 --> 13:07.440
+ will, then perhaps, you know, you should not accept my payment. Here is a bouquet of daisies.
+
+13:08.320 --> 13:14.400
+ So you need some kind of a scarcity. The inability to create it suddenly out of nothing
+
+13:14.400 --> 13:24.560
+ is unimportant. And it's not an intrinsic necessity, but it's much easier to accept
+
+13:24.560 --> 13:30.480
+ once you know that there is a fixed number of units of whatever currency there is and therefore
+
+13:30.480 --> 13:37.040
+ you can mentally understand I'm getting, you know, this much of this piece of a pie and therefore
+
+13:37.040 --> 13:43.600
+ I consider myself paid. I understand what I'm receiving. You described the goals of a blockchain.
+
+13:43.600 --> 13:48.720
+ You have a nice presentation on this as scalability, security, and decentralization.
+
+13:49.680 --> 13:54.960
+ And you challenged the blockchain trilemma that claims you can only have two of the three.
+
+13:55.600 --> 14:02.000
+ So let's talk about each. What is scalability in the context of blockchain and cryptocurrency?
+
+14:02.000 --> 14:09.760
+ What does scalability mean? So remember, we said that the blockchain is a ledger and each page
+
+14:09.760 --> 14:16.320
+ receives a, gets some transaction and everybody can write in these pages of the ledger. Nobody
+
+14:16.320 --> 14:21.760
+ can be stopped from writing and everybody can read them. Okay. Scalability means how fast can
+
+14:21.760 --> 14:28.640
+ you write? Just imagine that you can write an entry in this special shared ledger once every
+
+14:28.640 --> 14:32.800
+ hour. Well, you know, what are you going to do if you have no one transaction of an hour,
+
+14:33.440 --> 14:38.880
+ the world doesn't go around. So you need to have scalability means here that you can
+
+14:38.880 --> 14:47.040
+ then somehow write a lot of transaction and then you can read them and everybody can validate them.
+
+14:47.040 --> 14:54.080
+ And that is the speed and the number of transactions per second and the fact that
+
+14:54.080 --> 15:01.040
+ they are shared. So you want to have this speed not only in writing, but in sharing and
+
+15:01.040 --> 15:09.120
+ in inspection for validity. This is scalability. The world is big. The world wants to interact,
+
+15:09.120 --> 15:13.520
+ the people want to interact with each other and you better be prepared to have a ledger
+
+15:13.520 --> 15:17.520
+ in which you can write lots and lots and lots of transactions in this special way very,
+
+15:17.520 --> 15:22.800
+ very, very quickly. So maybe from a more mathematical perspective or can we say
+
+15:22.800 --> 15:27.760
+ something about how much scalability is needed for a world that is big?
+
+15:27.760 --> 15:36.400
+ Well, it really depends how many transactions you want, but remember that I think right now
+
+15:36.400 --> 15:45.120
+ yet to go into at least 1000s of transactions per second, even if you look at credit cards,
+
+15:46.480 --> 15:54.320
+ we are going to go from an average of 1600 to peaks of 20,000 or 40,000, something like this.
+
+15:54.320 --> 16:01.200
+ But remember, it's not only a question of a transaction per se, but the value is that the
+
+16:01.200 --> 16:08.400
+ transaction is actually being shared and visible to everybody and the certainty that that is the
+
+16:08.400 --> 16:15.600
+ case. I can print on my own printer way more transactions, but nobody has the time to see
+
+16:15.600 --> 16:22.480
+ or to inspect. That doesn't count. So you want scalability at this common knowledge level.
+
+16:22.480 --> 16:28.320
+ That is the challenge. I also meant from a perspective of like a complexity analysis.
+
+16:28.320 --> 16:35.200
+ So when you get more and more people involved, doesn't need to scale in some kind of way that
+
+16:38.240 --> 16:41.760
+ do you like to see certain kind of properties in order to say something is scalable?
+
+16:42.560 --> 16:48.320
+ Oh, absolutely. I took a little bit implicitly that the people transacting are actually very
+
+16:48.320 --> 16:54.080
+ different. So if there is a two people who can do thousands of transactions per second with each
+
+16:54.080 --> 16:58.320
+ other, this is not so interesting. What do we really need is to say there are billions of
+
+16:58.320 --> 17:03.760
+ people at any point in time, you know, thousands and thousands of them want to transact with each
+
+17:03.760 --> 17:12.160
+ other and you want to support to that. So Algorand, it solves, so that's the company,
+
+17:12.160 --> 17:17.280
+ the team of cryptographers and mathematicians, engineers, so on, that challenged the blockchain
+
+17:17.280 --> 17:24.800
+ trilemma. So let's break it down in terms of achieving scalability. How do we achieve scalability
+
+17:25.600 --> 17:31.120
+ in the space of blockchain, in the space of cryptocurrency? Okay. So scalability, security,
+
+17:31.680 --> 17:36.480
+ remember, and decentralization, right? So that's what they want. What's the best way to approach?
+
+17:36.480 --> 17:41.520
+ Can we break it down? Let's start with scalability and think about how do we achieve it? Well,
+
+17:41.520 --> 17:48.560
+ to achieve it one at a time is perhaps easy, even security. If nobody transacts,
+
+17:48.560 --> 17:56.160
+ nobody loses money. So that is secure, but it's not scalable. So let me tell you, I'm a cryptographer,
+
+17:56.160 --> 18:04.240
+ so I try to fight the bad guys. And what you want is that the vesselager that we discussed before
+
+18:04.240 --> 18:12.080
+ cannot be tampered with. So you must think of it as a special link that nobody can erase. Then
+
+18:12.080 --> 18:22.320
+ it has to be, everybody should be able to read and not to alter the pages or the content of the pages.
+
+18:22.320 --> 18:28.640
+ That's okay. But you know what? That is actually easy cryptographically. Easy cryptographically
+
+18:28.640 --> 18:35.120
+ means you can use tools invented 50 years ago, which in cryptographic time is prehistory, okay?
+
+18:35.120 --> 18:42.320
+ We cavemen working around and solve the problem in cryptography land. But there is really a
+
+18:42.320 --> 18:46.720
+ fundamental problem, which is really almost a social, seems a political problem, is to say,
+
+18:48.480 --> 18:58.080
+ who the hell chooses or publishes the next page of the ledger? I mean, that is really the challenge.
+
+18:58.080 --> 19:03.120
+ This ledger, you can always add a page because more and more transaction had to be written on
+
+19:03.120 --> 19:08.880
+ there. And somebody has to assemble this transaction, put them on a page and add the
+
+19:08.880 --> 19:14.640
+ next page. Who is the somebody who chooses the page and adds it on? Who can be trusted to do it?
+
+19:14.640 --> 19:19.680
+ Exactly. Assume it is me for what I'm being, not that I want to volunteer for the job, but
+
+19:20.320 --> 19:25.520
+ then I would have more power than any absolute monarch in history, because I would have a
+
+19:25.520 --> 19:32.080
+ tremendous power to say, these are the transactions that the entire world should see. And whatever I
+
+19:32.080 --> 19:38.960
+ don't write, this transaction will never see the light of day. I mean, no one had any such a power
+
+19:38.960 --> 19:47.200
+ in history. So it's very important to do that. And that is the quintessential problem in a blockchain.
+
+19:47.200 --> 19:52.000
+ And people have thought about it to say, it's not me, it's not you. But for instance,
+
+19:52.000 --> 19:57.200
+ in proof of work, what people say is, okay, it's not me, it's not you, you know what it is?
+
+19:58.000 --> 20:04.320
+ We make a very difficult, we invented a cryptographic puzzle, very hard to solve.
+
+20:04.320 --> 20:10.800
+ The first one to solve it has the right to add one page to the ledger on behalf of everybody else.
+
+20:12.240 --> 20:19.120
+ That now seems okay, because sometimes I solve a puzzle before you do, sometimes you solve
+
+20:19.120 --> 20:22.640
+ before I do, or before somebody else solves it, it's okay.
+
+20:22.640 --> 20:28.320
+ And presumably, the effort you put in is somehow correlated with how much trust
+
+20:29.520 --> 20:32.640
+ you should be given to add to the ledger.
+
+20:33.440 --> 20:38.400
+ Yeah, so somehow you want to make sure that you need to work because you want to prevent,
+
+20:39.360 --> 20:46.080
+ you want to make sure that you get one solution every 10 minutes, say, like in a particular
+
+20:46.080 --> 20:51.600
+ example of Bitcoin, so that it is very rare that two pages are added at the same time.
+
+20:51.600 --> 20:58.560
+ Because if I solve a puzzle at the same time you do, it could happen that if it happens once or
+
+20:58.560 --> 21:06.000
+ twice, we can survive it. But if it happens every other page is a double page, then which of the two
+
+21:06.000 --> 21:13.040
+ is the real page, it becomes a problem. So that's why in Bitcoin, it is important to have a substantial
+
+21:13.040 --> 21:19.680
+ amount of work so that no matter how many people try on Earth to solve a puzzle, you have one
+
+21:19.680 --> 21:26.080
+ solution out of how many people are trying every 10 minutes. So that you have, you distance these
+
+21:26.080 --> 21:31.600
+ pages, and you have the time to propagate through the network a solution and the page attached to
+
+21:31.600 --> 21:38.000
+ it. And therefore, there is one page at a time that is added. And you say, well, why don't we
+
+21:38.000 --> 21:46.160
+ do it? We have a solution. Well, first of all, a page every 10 minutes is not fast enough. It's a
+
+21:46.160 --> 21:53.280
+ question of scalability. And second of all, to ensure that no matter how many people try, you
+
+21:53.280 --> 22:00.720
+ get one page every 10 minutes, one solution to the riddle every 10 minutes. This means that the riddle
+
+22:00.720 --> 22:09.040
+ becomes very, very hard. And to have a chance to solve it within 10 minutes, you must have such an
+
+22:09.040 --> 22:15.040
+ expensive apparatus in terms of specialized computers, not one, not two, but thousands and
+
+22:15.040 --> 22:20.320
+ thousands of them. And they produce tons of heat, okay? They dissipate heat like maniac. And then
+
+22:20.320 --> 22:26.400
+ you have to refrigerate them too. And so then now you have air conditioning galore to add to the
+
+22:26.400 --> 22:33.680
+ thing. It becomes so expensive that fewer and fewer and fewer people can actually compete in
+
+22:33.680 --> 22:46.000
+ order to add to the page. And the problem becomes so crucial that in Bitcoin, depending on which
+
+22:46.000 --> 22:51.760
+ day of the week you look at it, you are going to have two or three mining pools that are really
+
+22:51.760 --> 22:58.480
+ the ones that are capable of controlling the chain. So you're saying that's almost like
+
+22:58.480 --> 23:07.520
+ at least a centralization. Right. It started being decentralized, but the expenses became
+
+23:07.520 --> 23:11.600
+ higher and higher and higher. When the cost becomes higher and higher, fewer and fewer
+
+23:11.600 --> 23:19.760
+ people can afford them. And then it becomes de facto centralized, right? Yeah. And a different
+
+23:19.760 --> 23:26.160
+ type of approach is instead, for instance, a delegated proof of stake, which is also
+
+23:26.880 --> 23:34.480
+ very easy to explain, essentially boils down to say, well, look at these 21 people, say, okay?
+
+23:35.600 --> 23:40.960
+ Don't they look honest? Yes, they do. In fact, I believe that they're going to remain honest
+
+23:40.960 --> 23:46.000
+ for the foreseeable future. So why don't we do ourselves a favor? Let's entrust them
+
+23:46.000 --> 23:54.000
+ to add the page on behalf of all of us to the ledger. Okay. Okay. But now we are going to say,
+
+23:54.000 --> 23:59.840
+ is this centralized or decentralized? Well, 21 is better than one, but to say is very little.
+
+23:59.840 --> 24:04.720
+ So if you look at when people rebelled to centralize power, I don't know, the French
+
+24:04.720 --> 24:11.600
+ revolutions, okay? There was a monarch and the nobles. Were there 21 nobles? No, there were
+
+24:11.600 --> 24:18.240
+ thousands of them, but there were millions and millions of disempowered citizens. So one is
+
+24:18.240 --> 24:23.760
+ centralized, 21 is also centralized, right? So that's delegated proof of stake. Delegated. It's
+
+24:23.760 --> 24:29.760
+ kind of like representative democracy, I guess. Yes, which is good. It's working great, right?
+
+24:29.760 --> 24:39.440
+ It's working great. Well, it's better than the single monarch, right? There's problems.
+
+24:39.440 --> 24:49.440
+ There are problems. And so we were looking for a different, when thinking about Algorand,
+
+24:49.440 --> 24:56.640
+ for a different approach. And so we have an approach that is really, really decentralized
+
+24:56.640 --> 25:04.560
+ because essentially it works as follows. You have a bunch of tokens, right? These are the tokens
+
+25:04.560 --> 25:12.080
+ that have equal power. And you have say 10 billions of tokens distributed to the entire
+
+25:12.080 --> 25:21.280
+ world. And the owners, each token has a chance to add the ledger, equal probability to everybody
+
+25:21.280 --> 25:29.760
+ else. In fact, actually, if you want, here is how it works. So think about by some magic
+
+25:29.760 --> 25:35.360
+ cryptographic process, which is not magic, it's mathematics, but think of it as magic. Assume that
+
+25:36.240 --> 25:43.920
+ you select a thousand tokens and so sometimes a random, okay? And you have a guarantee that the
+
+25:43.920 --> 25:51.680
+ random selected. And then the owners of these 1000 tokens somehow agree on the next page,
+
+25:51.680 --> 25:59.680
+ they all sign it, and that is the next page. Okay? So it is clear that nobody has the power
+
+25:59.680 --> 26:09.280
+ but in a while, one of your tokens is selected and you are in charge of this committee to select
+
+26:09.280 --> 26:16.560
+ the next page. But this goes around very quickly. So, and if you look at this, the equation really
+
+26:16.560 --> 26:23.760
+ is that it's not really centralized. And because for agreeing on the same page, it is important
+
+26:23.760 --> 26:31.440
+ that the 1000 tokens that you randomly selected are in honest ends, the majority of them.
+
+26:32.160 --> 26:37.920
+ So which, if the majority of the tokens are in honest ends, that is essentially true because
+
+26:37.920 --> 26:44.560
+ if the majority of the tokens are in honest ends, if you select, say 90% of the people are,
+
+26:46.000 --> 26:51.040
+ 90% of the tokens are in honest ends. So can you randomly select a thousand,
+
+26:51.040 --> 26:58.160
+ in this thousand you find the 501 tokens in bad ends. Very, very improbable.
+
+26:58.160 --> 27:05.680
+ So basically, when a large fraction of people are honest, then you can use randomness as a powerful
+
+27:05.680 --> 27:13.120
+ tool to get decentralization. So what does honesty mean? And now we're into the social
+
+27:13.120 --> 27:23.040
+ side of things, which is how do we know that like the fraction, a large fraction of people
+
+27:23.040 --> 27:28.000
+ or participating parties are honest? That is an excellent question. So by the way,
+
+27:28.000 --> 27:33.360
+ first of all, we should realize that the same thing is for every other system. When you look
+
+27:33.360 --> 27:41.040
+ at proof of work, you rely that the majority of the mining power is in honest ends. When you look
+
+27:41.040 --> 27:47.920
+ at delegated proof of stake, you rely that the majority of these 21 people are honest. What is
+
+27:47.920 --> 27:54.960
+ the difference? The difference is that in these other systems, you should say the whole economy
+
+27:54.960 --> 28:04.400
+ is secure if the majority of this small piece of economy are honest. And that is a big question.
+
+28:04.400 --> 28:12.960
+ But instead, in Algorand, in our approach, we say the whole economy is secure if the majority
+
+28:12.960 --> 28:18.640
+ of the economy is honest. In other words, who can subvert Algorand is not a majority of a small
+
+28:18.640 --> 28:24.400
+ group, but is a majority of the token holders had to conspire with each other in order to sink the
+
+28:24.400 --> 28:29.600
+ very economy for which they own the majority of. That I think it is a bit harder to...
+
+28:29.600 --> 28:36.000
+ Like a self destructive majority, essentially. And you're also making me realize that basically
+
+28:36.800 --> 28:43.520
+ every system that we have in the world today assumes that the majority of participants is
+
+28:43.520 --> 28:50.400
+ honest. Yes. The only difference is the majority of whom. And in some cases, the majority of a club
+
+28:51.040 --> 28:53.600
+ and in our case is the majority of the whole system.
+
+28:53.600 --> 29:02.400
+ The whole system. Okay. So that's... So through that kind of random sampling,
+
+29:02.400 --> 29:09.520
+ you can achieve decentralization. You can achieve... So the scalability, I understand.
+
+29:10.080 --> 29:16.160
+ And then the security that you're referring to, basically the security comes from the fact that
+
+29:16.160 --> 29:23.120
+ the sample selected would likely include honest people. So it's very difficult to... So by the way,
+
+29:23.120 --> 29:30.240
+ the security, as you mentioned, you're referring to is basically security against dishonesty,
+
+29:31.360 --> 29:37.280
+ right? Or manipulation or whatever. Yes. Yes. So essentially when what you're going to do is to
+
+29:37.280 --> 29:42.320
+ the following and say, well, Silvio, I understood what you're saying, but somebody has to randomly
+
+29:42.320 --> 29:46.560
+ randomly selected these tokens, then I believe you. So then who does this random selection?
+
+29:46.560 --> 29:52.000
+ That's a good point. And in Algorand, we do something a little bit unorthodox.
+
+29:52.800 --> 30:00.480
+ Essentially is the token choose themselves at random. And you say, if you think about it,
+
+30:00.480 --> 30:05.200
+ that seems to be a terrible idea. Because if you want to say, choose yourself at random,
+
+30:05.200 --> 30:11.360
+ and whoever chooses himself is a thousand people committee, you choose the page for the rest of us.
+
+30:11.360 --> 30:16.240
+ Mm hmm. And because if I'm a bad person, I'm going to select myself over and over again,
+
+30:16.240 --> 30:22.080
+ because I want to be part of the committee every single time. But not so fast. So what do we do
+
+30:22.640 --> 30:26.240
+ in Algorand? What does it mean that I select myself? That each one of us,
+
+30:26.960 --> 30:34.080
+ in the privacy of our own computer, actually a laptop, what you do is that you execute your own
+
+30:34.080 --> 30:42.480
+ individual lottery. And think about that you pull a lever of a slot machine, you can only pull the
+
+30:42.480 --> 30:48.560
+ lever once, not until you win, not enough times until you win. And when you pull the lever, case
+
+30:48.560 --> 30:54.640
+ one, either you win, in such a case, you have a winning ticket. Or you lose, you don't get any
+
+30:54.640 --> 31:00.480
+ winning ticket. So if you don't have a winning ticket, you can say anything you want about the
+
+31:00.480 --> 31:07.760
+ next page in the ledger, nobody pays attention. But if you ever win a ticket, people say, Oh,
+
+31:07.760 --> 31:12.720
+ wow, this is one of the 1000 winning tickets, we better pay attention to what he or she says.
+
+31:13.280 --> 31:20.400
+ And that's how it works. And the lottery is a cryptographic lottery, which means that even if I
+
+31:20.400 --> 31:27.040
+ am an entire nation, extremely powerful, with incredible computing powers, I don't have the
+
+31:27.040 --> 31:33.920
+ ability to improve even minimally my probability of one of my token winning the lottery. And
+
+31:33.920 --> 31:41.200
+ that's how it happens. So everybody pulls the lever, the 1000 random winners say, Oh, here is
+
+31:41.200 --> 31:46.800
+ my winning ticket. And here is my opinion up or down about the block. These are the ones that
+
+31:46.800 --> 31:53.440
+ count. And if you think about it, while this is distributed, because there is, in the case of
+
+31:53.440 --> 31:59.120
+ Algon, there is 10 billion tokens and you selected 1000 of them more distributed than this, you
+
+31:59.120 --> 32:06.480
+ cannot get. And then why is this scalable? Because what do you have to do? Okay, you have to do the
+
+32:06.480 --> 32:13.280
+ lottery. How long the lottery takes? It takes actually one microsecond. Whether you have one
+
+32:13.280 --> 32:19.520
+ token or two tokens or a billion tokens is always one microsecond of computation, which is very
+
+32:19.520 --> 32:26.160
+ fast. We don't hit the planet with a microsecond of computation. And finally, why is this secure?
+
+32:27.120 --> 32:35.600
+ Because even if I were a very evil and very, very powerful individual, I'm so powerful that I can
+
+32:35.600 --> 32:42.880
+ corrupt anybody I want instantaneously in the world, whom would I want to corrupt? The people
+
+32:42.880 --> 32:49.360
+ in the committee so that I can choose the page of the ledger. But I do have a problem. I do not
+
+32:49.360 --> 32:55.840
+ know whom I should corrupt. Should I corrupt this lady in Shanghai, this other guy in Paris?
+
+32:56.400 --> 33:00.640
+ Because I don't know. The winners are random, so I don't know whom I should corrupt.
+
+33:01.360 --> 33:06.640
+ But once the winner comes forward and says, here is my winning ticket, and you propagate
+
+33:06.640 --> 33:11.360
+ your winning ticket across the network, together with your opinion about the block,
+
+33:11.920 --> 33:18.480
+ now I know who they are. For sure, I can corrupt all 1000 of them given to my incredible powers.
+
+33:18.480 --> 33:25.040
+ But so what? Whatever they said, they already said, and their winning tickets and their opinions
+
+33:25.040 --> 33:31.200
+ are virally propagated across the network. And I do not have the power, no more than the US
+
+33:31.200 --> 33:37.120
+ government or any government has the power, to put back in the bottle a message virally
+
+33:37.120 --> 33:44.560
+ propagated by WikiLeaks. So everything you just described is kind of is fascinating,
+
+33:44.560 --> 33:50.080
+ a set of ideas. And, you know, online I've been reading quite a bit, and people are really excited
+
+33:50.080 --> 33:58.560
+ about the set of ideas. Nevertheless, it is not the dominating technology today. So Bitcoin,
+
+33:58.560 --> 34:05.920
+ in terms of cryptocurrency, is the most popular cryptocurrency, and then Ethereum, and so on.
+
+34:05.920 --> 34:09.920
+ So it's useful to kind of comment. We already talked about proof of work a little bit.
+
+34:09.920 --> 34:15.840
+ But what, in your sense, does Bitcoin get right? And where is it lacking?
+
+34:16.560 --> 34:22.000
+ Okay, so the first thing that Bitcoin got right is to understand that there was the need
+
+34:22.800 --> 34:29.840
+ of a cryptocurrency. And that, in my opinion, they deserve all the success because they said
+
+34:29.840 --> 34:34.400
+ the time is right for this idea. Because very often, it's not enough to be right here to be
+
+34:34.400 --> 34:40.720
+ right at the right time. And somebody got it right there. So hat off to Bitcoin for that.
+
+34:42.640 --> 34:52.800
+ And so what they got right is that it is hard to subvert and change the ledger, to cancel a
+
+34:52.800 --> 35:00.160
+ transaction. It's not impossible. That is very hard. What they did not get right is somehow that
+
+35:00.160 --> 35:07.680
+ it is a great store of value, currency wise. But money is not only a question that you store it
+
+35:07.680 --> 35:13.760
+ and you put under the mattress. Money wants to be transacted. And the transaction bitcoins are very
+
+35:13.760 --> 35:19.920
+ little. So if you want to store value, everybody needs a store of value. Might as well use Bitcoin.
+
+35:19.920 --> 35:27.360
+ I mean, it's the plan. But if you don't look at that for a moment, at least it's a great store
+
+35:27.360 --> 35:32.480
+ of value. And everybody needs a store of value. But most of the time, we want to transact. We
+
+35:32.480 --> 35:38.080
+ want to interact. We don't put the money under the mattress. So we wanted to embed. They didn't get
+
+35:38.080 --> 35:44.960
+ it right. That is too slow to transact. Too few transactions. There's a scalability issue.
+
+35:45.520 --> 35:52.720
+ Is it possible to build stuff on top of Bitcoin that sort of fixes the scalability? I mean,
+
+35:52.720 --> 35:58.480
+ this is the thing you look at. There's a bunch of technologies that kind of hit the right
+
+36:00.240 --> 36:07.200
+ need at the right time and they have flaws, but we kind of build infrastructures on top of them
+
+36:07.200 --> 36:14.880
+ over time to fix it as opposed to getting it right from the beginning. Or is it difficult to do?
+
+36:14.880 --> 36:21.120
+ Well, that is difficult to do. So you're talking to somebody that when I decided to throw my heart
+
+36:21.120 --> 36:27.680
+ in the arena and I decided, first of all, as I said before, I much admire my predecessors. I
+
+36:27.680 --> 36:36.000
+ mean, they got it right, a lot of things. And I really admire for that. But I had a choice to
+
+36:36.000 --> 36:41.120
+ make. Either I patch something that has holes all over the place or I start from scratch. I decided
+
+36:41.120 --> 36:46.640
+ to start from scratch because sometimes it's a better way. So what about Ethereum, which looks
+
+36:46.640 --> 36:52.320
+ like proof of stake and a lot of different innovative ideas that kind of improve or seek
+
+36:52.320 --> 36:57.200
+ to improve on some of the flaws of Bitcoin. Ethereum made another great idea. So they
+
+36:57.200 --> 37:05.760
+ figured out that money and payments are important as they are. They are only the first level, the
+
+37:05.760 --> 37:12.480
+ first stepping stone. The next level are smart contracts. And they were at the vision to say
+
+37:12.480 --> 37:20.640
+ the people will need smart contract, which allow me and you to somehow to transact securely without
+
+37:20.640 --> 37:26.080
+ being shopped around by a trusted third party, by a mediator. By the way, because mediators are hard
+
+37:26.080 --> 37:32.960
+ to find. And in fact, maybe even impossible to find if you live in Thailand and I live in New
+
+37:32.960 --> 37:39.280
+ Zealand, maybe we don't have a common person that we know and trust. And even if we find them,
+
+37:39.280 --> 37:48.560
+ guess what? They want to be paid. So much so that 6% of the world GDP goes into financial friction,
+
+37:48.560 --> 37:52.880
+ which is essentially third party. So the head of right of the world needed that.
+
+37:53.920 --> 38:04.400
+ But again, the scalability is not there. And the system of smart contracts in Ethereum is slow
+
+38:04.400 --> 38:12.720
+ and expensive. And I believe that is not enough to satisfy the appetite and the need that we have
+
+38:12.720 --> 38:19.040
+ for smart contracts. Well, what do you make of just as a small sort of aside in human history,
+
+38:19.040 --> 38:24.560
+ perhaps it's a big one is NFT, the non fungible tokens. Do you find those interesting technically,
+
+38:24.560 --> 38:32.800
+ or is it more interesting on the social side of things? Well, both. I think NFTs are actually
+
+38:32.800 --> 38:46.000
+ great. So you are an artist to create a song or it could be a piece of art. He has many unique
+
+38:46.000 --> 38:54.560
+ representations of a unique piece where there is an artifact of something dreamed up by you and
+
+38:55.360 --> 39:01.280
+ has unique representations that now you can trade. And the important part is that now you have this
+
+39:01.280 --> 39:10.640
+ is not only the NFTs themselves, but the ability to trade them quickly, fast, securely, knowing
+
+39:11.520 --> 39:18.400
+ who owns which rights. And that gives a totally new opportunity for content creators to be
+
+39:18.400 --> 39:25.040
+ remunerated for what they do. But ultimately, you still have to have that scalability, security
+
+39:25.040 --> 39:33.680
+ and decentralization to make it, you know, to make it work for bigger and bigger applications.
+
+39:33.680 --> 39:37.680
+ Correct. Yeah. Yeah. I still wonder what kind of applications are yet to be
+
+39:38.800 --> 39:44.880
+ like enabled by it because so much. The interesting thing about NFTs, you know,
+
+39:44.880 --> 39:51.760
+ if you look outside of art is just like money, you can start playing with different social
+
+39:51.760 --> 40:01.920
+ constructs, is you can start playing with the ideas. You can start playing with even like
+
+40:01.920 --> 40:10.320
+ investing. Somebody was talking about almost creating an economy out of like creative people
+
+40:10.320 --> 40:15.520
+ or influencers. Like if you start a YouTube channel or something like that, you can invest
+
+40:15.520 --> 40:21.680
+ in that person and you can start trading their creations. And then almost like create a market
+
+40:22.240 --> 40:29.440
+ out of people's ideas, out of people's creations, out of the people themselves that generate those
+
+40:29.440 --> 40:33.200
+ creations. And there's a lot of interesting possibilities of what you can do with that.
+
+40:33.200 --> 40:40.880
+ I mean, it seems ridiculous, but you're basically creating a hierarchy of value, maybe artificial
+
+40:40.880 --> 40:47.680
+ in the digital world and are trading that. But in so doing are inspiring people to create.
+
+40:48.880 --> 40:55.600
+ So maybe as a sort of our economy gets better and better and better where actual work in the
+
+40:55.600 --> 41:01.760
+ physical space becomes less and less in terms of its importance, maybe we'll completely be operating
+
+41:01.760 --> 41:09.120
+ in the digital space where these kinds of economies have more and more power. And then
+
+41:09.120 --> 41:15.600
+ you have to have this kind of blockchains to the scalability, security, and decentralization.
+
+41:15.600 --> 41:22.400
+ And then decentralization is of course the tricky one because people in power start to get nervous.
+
+41:23.200 --> 41:29.600
+ Absolutely. Once in power, you're always nervous that you'll be supplanted by somebody else.
+
+41:29.600 --> 41:34.880
+ But this is your job. Congratulations, you got the job, the top job, and now everybody wants it.
+
+41:34.880 --> 41:41.600
+ Well, what is your sense about our time and the future hope about the decentralization
+
+41:42.560 --> 41:50.800
+ of power? Do you think that's something that we can actually achieve given that power corrupts
+
+41:50.800 --> 41:56.000
+ and absolute power corrupts absolutely, and it's so wonderful to be absolutely powerful?
+
+41:57.520 --> 42:02.720
+ Well, good question. So first of all, I believe that by the way, there is a
+
+42:02.720 --> 42:09.040
+ complex question, Lex, and like all the rest of your questions.
+
+42:10.720 --> 42:12.160
+ I'm so very sorry.
+
+42:13.920 --> 42:18.800
+ It's okay. I am enjoying it. So there are two things. First of all,
+
+42:19.360 --> 42:24.560
+ power has been centralized for a variety of reasons. When you want to get it, it's easier
+
+42:24.560 --> 42:32.400
+ for somebody, even a single person, to grab power. But there is also some kind of a technology,
+
+42:33.360 --> 42:40.480
+ lack thereof, that justified having power. Because in a society in which even communication,
+
+42:40.480 --> 42:46.960
+ never mind blockchain, which is common knowledge, but even simple unilateral communication is hard,
+
+42:46.960 --> 42:59.680
+ it is much easier to say, you do as I say. So there is a little bit of a technology barrier.
+
+42:59.680 --> 43:04.720
+ But I think that now to get to this common knowledge, it is a totally different story.
+
+43:04.720 --> 43:09.840
+ Now we have finally the technology for doing this. So that is one part. But I really believe
+
+43:09.840 --> 43:18.960
+ that by having a distributed system, you have actually a much more stable and durable system.
+
+43:19.840 --> 43:24.720
+ Because not only for corruption, but even for things that go astray, and given a long enough
+
+43:24.720 --> 43:33.680
+ time by a strange version of Murphy's law, whatever goes wrong, goes wrong. And if the
+
+43:33.680 --> 43:43.520
+ power is diffused, you actually are much more stable. If you look at any complex living being,
+
+43:43.520 --> 43:49.760
+ it's distributed. I mean, I don't have somebody who says, okay, tell Silvio now it's time to eat.
+
+43:50.560 --> 43:54.400
+ You have millions of cells in your body. You have billions of bacteria.
+
+43:54.400 --> 43:59.840
+ Exactly. Help me in the guts. We are in a soup that somehow keeps us alive.
+
+43:59.840 --> 44:09.200
+ So strange enough, however, when we design systems, we design them centralized. We ourselves
+
+44:09.200 --> 44:15.760
+ are distributed beings. And when we plan to say, okay, I want to create an architecture,
+
+44:15.760 --> 44:24.320
+ how about I make a pyramid, I put this on the top and the power flows down. And so again,
+
+44:24.320 --> 44:29.200
+ it's a little bit perhaps of a technology problem. But now the technology is there.
+
+44:29.200 --> 44:36.080
+ So that is a big challenge to rethink how we want to organize power in a very large system and
+
+44:37.840 --> 44:42.800
+ distribute a system, in my opinion, much more resilient. Let's put it this way. There was
+
+44:45.920 --> 44:53.680
+ Italian compatriots, Machiavelli, who looked at the time, there was a bunch of small state
+
+44:53.680 --> 44:58.560
+ democratic Republic of Florence and Venice and the other thing. And there was the Ottoman Empire
+
+44:58.560 --> 45:04.160
+ that at the time was an empire and the Sultan was very centralized. And he made a political
+
+45:04.160 --> 45:09.840
+ observation that goes roughly to say, whenever you have such a centralized thing, it's very hard
+
+45:09.840 --> 45:16.960
+ to overtake that former government is centralized. But if you get it, it's so easy to keep
+
+45:17.840 --> 45:26.400
+ the population. While instead these other things are much more resilient. When the power is
+
+45:26.400 --> 45:33.280
+ distributed, it's going to be lasting for a much longer time. And ultimately maybe the human spirit
+
+45:33.280 --> 45:36.960
+ wants that kind of resilience, wants that kind of distribution. It's just that we didn't have
+
+45:36.960 --> 45:41.440
+ technology throughout history. Machiavelli didn't have the computer, the internet.
+
+45:43.040 --> 45:48.720
+ That is certainly part of a reason. Yes. You've written an interesting blog post. If we
+
+45:48.720 --> 45:56.960
+ just take a step out of the realm of bits and into the realm of governance, you wrote a blog
+
+45:56.960 --> 46:03.120
+ post about making Algorand governance decentralized. Can you explain what that means, the philosophy
+
+46:03.120 --> 46:09.600
+ behind that? How you decentralized basically all aspects of this kind of system?
+
+46:09.600 --> 46:20.480
+ Let's start with the philosophy. I really believe that nothing fixed lasts very long.
+
+46:21.760 --> 46:30.240
+ So I really believe that life is about intelligent adaptation. Things change, and we have to be
+
+46:30.240 --> 46:42.400
+ nimble and adjust to change. When I see a lot of a crypto project, I'm actually very proud to say
+
+46:42.400 --> 46:50.400
+ it's fixed in stone. Code is law. Law is code. I verify the code. It will never change. You go,
+
+46:50.400 --> 46:56.320
+ wow. When I'm saying this is a recipe to me of disaster, not immediately, but soon. Just imagine
+
+46:56.320 --> 47:04.880
+ you take an ocean liner, and you want to go, I don't know, from Lisbon to New York, and you set
+
+47:04.880 --> 47:15.200
+ a course, iceberg, no iceberg, tempest, no tempest. It doesn't matter. You need a teal. You need to
+
+47:15.200 --> 47:25.920
+ correct. You need to adjust. By the way, you would design Algorand with the idea that the code was
+
+47:25.920 --> 47:32.880
+ evolving as the needs. Of course, there is a system in which every time there is an adjustment,
+
+47:32.880 --> 47:39.920
+ you must have essentially a vote that right now is orchestrated at 90% of the stake. They say,
+
+47:39.920 --> 47:45.680
+ okay, we are ready. We agree on the next version, and we pick up this version. So we are able to
+
+47:45.680 --> 47:51.840
+ evolve without losing too many components left and right. But I think without evolving, any system
+
+47:51.840 --> 47:59.760
+ essentially becomes aesthetic and is going to shrivel and die sooner or later. That is needed.
+
+48:01.200 --> 48:06.960
+ What you want to do on the blockchain, you have a perfect platform in which you can log
+
+48:08.480 --> 48:14.080
+ your wishes, your votes, your things, so that you have a guarantee that whatever vote you express
+
+48:14.080 --> 48:20.480
+ is actually seen by everybody else. Everybody sees really the outcome, call it a referendum,
+
+48:20.480 --> 48:27.280
+ of a change. And Vete is, in my opinion, a system that wants to live long as to adapt.
+
+48:28.640 --> 48:33.040
+ There is an interesting question about leaders. I've talked to Vitalik Buterin. I'll probably
+
+48:33.040 --> 48:40.720
+ talk to him again soon. He's one of the leaders, maybe one of the faces of the Ethereum project.
+
+48:40.720 --> 48:47.760
+ And it's interesting. You have Satoshi Nakamoto, who's the face of Bitcoin, I guess. But he's
+
+48:47.760 --> 48:56.800
+ faceless. He, she, they. It does seem like in our whatever it is, maybe it's 20th century,
+
+48:57.360 --> 49:04.400
+ maybe it's Machiavellian thinking, but we seek leaders. Leaders have value. Linus Torvalds,
+
+49:04.400 --> 49:14.240
+ the leader of Linux, the open source development a lot. It's not that the leadership is sort of
+
+49:14.240 --> 49:24.400
+ dogmatic, but it's inspiring. And it's also powerful in that through leaders, we propagate
+
+49:24.400 --> 49:30.080
+ the vision. Like the vision of the project is more stable. Maybe not the details, but the vision.
+
+49:30.640 --> 49:36.640
+ And so do you think there's value to, because there's a tension between decentralization
+
+49:36.640 --> 49:41.760
+ and leadership, like in visionaries. What do you make of that tension?
+
+49:41.760 --> 49:46.240
+ SL. Okay. So I really believe that, that's another great question. I think of it,
+
+49:47.680 --> 49:52.720
+ I really believe in the power of emotions. I think the emotion are of a creative impulse
+
+49:52.720 --> 49:59.760
+ of everybody else. And therefore it's very easy for a leader to be a physical person, a real
+
+49:59.760 --> 50:07.040
+ being, and that interprets our emotions. And by the way, these emotions have to resonate.
+
+50:07.040 --> 50:13.200
+ And what is good is that the more intimate our emotions are, the more universal they are,
+
+50:13.200 --> 50:19.360
+ paradoxically. The more personal, the more everybody else somehow magically agrees and
+
+50:19.360 --> 50:25.600
+ feels a bit of the same. And it's very important to have a leader in the initial phase that
+
+50:26.480 --> 50:31.520
+ generates out of nothing something. That is important leadership. But then the true tested
+
+50:31.520 --> 50:37.680
+ leadership is to disappear after you lead the community. So in my opinion, the quintessential
+
+50:37.680 --> 50:48.000
+ leader according to my vision is George Washington. He served for one term, he served for another
+
+50:48.000 --> 50:54.080
+ term, and then all of a sudden he retired and became a private citizen. And two hundred and
+
+50:54.080 --> 51:00.640
+ change years later, we still are, with some defects, but we have done a lot of things right.
+
+51:00.640 --> 51:04.640
+ And we have been able to evolve. That to me is success in leadership.
+
+51:05.280 --> 51:10.800
+ While instead you contrast our experiment with a lot of our experiment. I've done so much so well
+
+51:10.800 --> 51:16.080
+ that I want another four years. And why shouldn't I be only a four and I have another eight?
+
+51:16.640 --> 51:21.920
+ Why should it be another eight? Give me 16 and I will fix all your problems. And then is the type,
+
+51:21.920 --> 51:29.200
+ in my opinion, of failed leadership. Leadership ought to be really lead, ignite, and disappear.
+
+51:29.200 --> 51:34.800
+ And if you don't disappear, the system is going to die with you. It is not a good idea for everybody
+
+51:34.800 --> 51:40.080
+ else. So we've been talking a little bit about cryptocurrency, but is there spaces where
+
+51:40.720 --> 51:45.680
+ this kind of blockchain ideas that you're describing, which I find fascinating,
+
+51:47.040 --> 51:52.320
+ do you think they can revolutionize some other aspects of our world that's not just money?
+
+51:52.320 --> 51:59.920
+ A lot of things are going to be revolutionized is independent of finance. By the way,
+
+51:59.920 --> 52:07.600
+ I really believe that finance is an incredible form of freedom. I mean,
+
+52:07.600 --> 52:11.760
+ if I'm free to do everything I want, but I don't have the means to do anything, that's a bad idea.
+
+52:11.760 --> 52:18.720
+ So I really think financial freedom is very, very important. But you just can say that against
+
+52:18.720 --> 52:24.080
+ you know, censorship, you write something on the chain and now nobody can take it out.
+
+52:24.080 --> 52:35.120
+ That is a very important way to express our view. And then the transparency that you give,
+
+52:35.120 --> 52:41.520
+ because everybody can see what's happening on the blockchain. So transparency is not money.
+
+52:41.520 --> 52:49.520
+ But I believe that transparency actually is a very important ingredient also of finance. Let's put
+
+52:49.520 --> 52:57.760
+ this way, as much as I'm enthusiastic about blockchain and decentralized finance, and we have
+
+52:57.760 --> 53:03.280
+ actually our expression, we're creating this future five, because as much as we want to do,
+
+53:03.280 --> 53:11.680
+ we must agree that the first guarantee of financial growth and prosperity are really
+
+53:11.680 --> 53:16.720
+ the legal system, the courts. Because we may not think about them and say, oh, the courts
+
+53:16.720 --> 53:22.640
+ are a bunch of boring lawyers. But without them, I'm saying there is no certainty. There is no
+
+53:24.160 --> 53:29.600
+ notion of equality. There is no notion that you can resolve your disputes thing. That's
+
+53:29.600 --> 53:35.040
+ what thrives commerce and things. And so what I really believe that the blockchain actually
+
+53:35.040 --> 53:41.440
+ makes a lot of this trust essentially automatic, but make it impossible to cheat in very way. You
+
+53:41.440 --> 53:49.040
+ don't even need to go to court if nobody can change the ledger. So essentially it's a way of
+
+53:50.880 --> 53:55.680
+ you cannot solve an illegal system that reduces to a blockchain. But what I'm saying, a big chunk
+
+53:55.680 --> 54:01.920
+ of it can actually be guaranteed. And there is no reason why technology should be antagonistic
+
+54:03.680 --> 54:09.120
+ to legal scholarship. It could be actually coexisting and one should start to doing the
+
+54:09.120 --> 54:15.280
+ interest things that the technology alone cannot do. And then you go from there. But I think that
+
+54:16.160 --> 54:23.920
+ essentially blockchain can affect all kinds of our behavior.
+
+54:23.920 --> 54:30.400
+ Yeah. So in some sense, the transparency, the required transparency ensures honesty,
+
+54:30.400 --> 54:34.320
+ prevents corruption. So there's a lot of systems that could use that. And the legal system is one
+
+54:34.320 --> 54:40.880
+ of them. There's a little bit of attention that I wonder if you can speak to where this kind of
+
+54:40.880 --> 54:49.440
+ transparency, there's a tension with privacy. Is it possible to achieve privacy if wanted
+
+54:49.440 --> 54:55.440
+ on a blockchain? Do you have ideas about different technologies that can do that? People have been
+
+54:55.440 --> 55:04.000
+ playing with different ideas. So absolutely. The answer is yes. And by the way, I'm a cryptographer.
+
+55:04.000 --> 55:13.200
+ Right. Okay. So I really believe in privacy and I believe in and I've devoted a big chunk of my
+
+55:13.200 --> 55:20.320
+ life to guarantee privacy, even when it seems almost impossible to have it. And it is possible
+
+55:20.320 --> 55:28.560
+ to have it also in the blockchain too. However, I believe in timing as well. And I believe that
+
+55:28.560 --> 55:41.200
+ the people have the right to understand their system they live in. And right now people can
+
+55:41.200 --> 55:50.560
+ understand the blockchain to be something that cannot be altered and is transparent. And that
+
+55:50.560 --> 55:59.520
+ is good enough. And there is a pseudo privacy for the fact that who knows if this public key belongs
+
+55:59.520 --> 56:05.440
+ to me or to you. And I can, when I want to change my money from one public key, I split it to other
+
+56:05.440 --> 56:09.520
+ public keys, going to figure out which one is Silvio or all of them are Silvio or only one of
+
+56:09.520 --> 56:15.600
+ Silvio. Who knows? So you get some vanilla privacy, not the one I could talk. And I think it's good
+
+56:15.600 --> 56:21.680
+ enough because, and it's important for now that we absorb this stage. Because in the next stage,
+
+56:21.680 --> 56:27.040
+ we must understand the privacy tool rather than taking on faith. When the public starts saying,
+
+56:27.040 --> 56:31.120
+ I believe in the scientists and whatever they say, I swear by them. And therefore,
+
+56:31.120 --> 56:35.520
+ the term is private is private and nobody understands it very well. We need a much more
+
+56:35.520 --> 56:44.400
+ educated about the tools we are using. And so I look forward to deploying more and more privacy
+
+56:44.400 --> 56:53.680
+ on the blockchain, but we are not, I will not rush to it until the people understand and are behind
+
+56:53.680 --> 56:59.760
+ whatever we have right now. So you build privacy on top of the power of the blockchain. You have
+
+56:59.760 --> 57:06.320
+ to first understand the power of the blockchain. Yes. So Algorand is like one of the most exciting,
+
+57:06.320 --> 57:11.520
+ technically at least from my perspective, technologies, ideas in this whole space.
+
+57:12.160 --> 57:16.960
+ What's the future of Algorand look like? Is it possible for it to dominate the world?
+
+57:17.760 --> 57:26.320
+ Let's put it this way. I certainly working very hard with a great team to give the best blockchain
+
+57:26.320 --> 57:34.640
+ that one can demand and enjoy. And they said, I really believe that there is going to be,
+
+57:35.680 --> 57:42.080
+ it's not a winner takes them all. So it's going to be a few blockchains and each one is going to
+
+57:42.080 --> 57:49.600
+ have its own brand and it's going to be great at something. And sometimes it's scalability,
+
+57:49.600 --> 57:56.320
+ sometimes it's your views, sometimes it's a thing. And it's important to have a dialogue between
+
+57:56.320 --> 58:01.440
+ these things. And I'm sure, and I'm working very hard to make sure that Algorand is one of them,
+
+58:01.440 --> 58:11.920
+ but I don't believe that it's even desirable to have a winner takes all because we need to express
+
+58:11.920 --> 58:16.400
+ different things. But the important thing is going to have enough interoperability with
+
+58:16.400 --> 58:23.520
+ various systems so that you can transfer your assets where you have the best tool to service
+
+58:23.520 --> 58:28.560
+ them, whatever your needs are at the time. So there's an idea, I don't know, they call
+
+58:28.560 --> 58:35.600
+ themselves Bitcoin maximalists, which is essentially the bet that the philosophy that
+
+58:36.400 --> 58:42.560
+ Bitcoin will eat the world. So you're talking about, it's good to have variety.
+
+58:42.560 --> 58:50.640
+ Their claim is it's good to have the best technology dominate the medium of exchange,
+
+58:50.640 --> 58:57.040
+ the medium of store of value, the money, the digital currency space.
+
+58:58.160 --> 59:01.840
+ What's your sense of the positives and the negatives of that?
+
+59:03.360 --> 59:12.400
+ So I feel people are smart and it's going to be very hard for anybody to win. And because
+
+59:12.400 --> 59:19.840
+ people want more and more things. There is an Italian saying that translates well, I think.
+
+59:20.640 --> 59:27.040
+ It goes, the appetite grows while eating. I think you understand what he means. So I say,
+
+59:27.040 --> 59:33.520
+ I'm not hungry. Okay, food. Let me try this. So we want more and more and more. And when you find
+
+59:33.520 --> 59:39.360
+ something like Bitcoin, which are already very good things to say, but it does something very
+
+59:39.360 --> 59:47.680
+ well, but it's a static, I mean, store of value. Yes, I think it's a great way for the rest. You
+
+59:47.680 --> 59:53.920
+ know, it would be a sad world if the world in which we are so anchoring down, so defensive
+
+59:53.920 --> 59:59.840
+ that we want to store value and hide it under the mattress. I long for a world in which is open.
+
+59:59.840 --> 1:00:05.600
+ People want to transact, interact with each other. And therefore, when you want to store value,
+
+1:00:05.600 --> 1:00:12.320
+ one, perhaps one chain, where you want to have to transact, maybe is another. I'm not saying that,
+
+1:00:12.320 --> 1:00:17.200
+ you know, one chain cannot be store of value or another thing, but I really believe,
+
+1:00:19.120 --> 1:00:25.120
+ I believe in the ingenuity of people and in the innovation that is intrinsic to the human nature.
+
+1:00:25.120 --> 1:00:28.880
+ We want always different things. So how can it be something invented,
+
+1:00:28.880 --> 1:00:33.200
+ whatever it is decades ago, is going to fulfill the needs of our future generations.
+
+1:00:33.200 --> 1:00:43.200
+ I'm not going to fulfill my needs, let alone my kids or their kids. We are going to have a
+
+1:00:43.200 --> 1:00:50.240
+ different world and things will evolve. So you believe that life, intelligent life,
+
+1:00:50.240 --> 1:00:58.800
+ is ultimately about adaptability and evolving. So static loses in the end.
+
+1:00:58.800 --> 1:01:05.680
+ Yes. Let me ask the, well, first the ridiculous question. Do you have any
+
+1:01:05.680 --> 1:01:10.880
+ clue who Satoshi Nakamoto is? Is that even an interesting question?
+
+1:01:12.560 --> 1:01:19.920
+ Well, your questions are very interesting. So, and I think, so I would say, first of all,
+
+1:01:19.920 --> 1:01:25.360
+ it's not me. Okay. And I can prove it because, you know, if I were Satoshi Nakamoto, I would
+
+1:01:25.360 --> 1:01:31.680
+ have not found an algorithm. It takes a totally different principle to approach to the system.
+
+1:01:31.680 --> 1:01:36.800
+ But the other thing, who is Satoshi Nakamoto? You know what the right answer is? It's not him
+
+1:01:36.800 --> 1:01:46.080
+ or her or them. Satoshi Nakamoto is Bitcoin. Because to me, it's such a coherent proof of
+
+1:01:46.080 --> 1:01:52.640
+ work that at the end, the creator and the creation identify themselves. So you say,
+
+1:01:52.640 --> 1:01:57.280
+ okay, I understand Michelangelo. Okay. He did the Sistine Chapel. Fine. He did the
+
+1:01:57.280 --> 1:02:04.480
+ St. Peter's Dome. Fine. He did the Moses of the Pieta statue. Fine. But besides this,
+
+1:02:04.480 --> 1:02:10.160
+ who was Michelangelo? That's the wrong question. It's his own work. That is Michelangelo.
+
+1:02:10.160 --> 1:02:18.640
+ So I think that when you look at the Bitcoin is a piece of work that as it defects, yes,
+
+1:02:18.640 --> 1:02:26.160
+ like anything human, but it was captivated the imaginations of millions of people as subverted
+
+1:02:26.160 --> 1:02:34.720
+ the status quo. And I'm saying, you know, whoever this person of people are, he's living in this
+
+1:02:34.720 --> 1:02:43.360
+ piece of work. I mean, it is Bitcoin. The idea of the work is bigger. We forget that sometimes.
+
+1:02:43.360 --> 1:02:49.200
+ It's something about our biology likes to see a face and attach a face to the idea when really
+
+1:02:49.200 --> 1:02:54.320
+ the idea is the thing we love. The idea is the thing that impact the idea is the thing that
+
+1:02:54.320 --> 1:03:00.080
+ ultimately we, you know, Steve Jobs or somebody like that, we associate with the Mac or the iPhone
+
+1:03:00.080 --> 1:03:05.920
+ with just everything he did at Apple. Apple, actually the company is Steve Jobs. Steve Jobs,
+
+1:03:05.920 --> 1:03:13.520
+ the man is a pales in comparison to the creation. Correct. And the sense of aesthetics that has
+
+1:03:13.520 --> 1:03:19.680
+ brought to the daily lives and very often aesthetic wins in the long, in the long,
+
+1:03:19.680 --> 1:03:25.440
+ in the long game. And these are very elegant design product. And when you say, Oh,
+
+1:03:25.440 --> 1:03:31.360
+ elegance, very few people care about it. Apparently millions and millions and millions
+
+1:03:31.360 --> 1:03:36.320
+ and millions of people do because we are attacked by beauty and these are beautifully designed
+
+1:03:36.320 --> 1:03:44.400
+ products. And, and, and, you know, and they've in addition to ever the technological aspect
+
+1:03:44.400 --> 1:03:50.400
+ of the other thing. And I think, yes, that is, yeah, as the Stajewski said, beauty will save
+
+1:03:50.400 --> 1:03:57.760
+ the world. So I'm, I'm with you on that one. Right. It currently seems like cryptocurrency,
+
+1:03:57.760 --> 1:04:07.120
+ all these different technologies are gathering a lot of excitement, not just in our discourse,
+
+1:04:07.120 --> 1:04:13.600
+ but in their like scale of financial impact. A lot of companies are starting to invest in Bitcoin.
+
+1:04:14.640 --> 1:04:25.760
+ Do you think that the main method of store value and exchange of value, basically money will soon
+
+1:04:25.760 --> 1:04:28.640
+ or at some point in the century will become cryptocurrency?
+
+1:04:29.840 --> 1:04:36.240
+ Yes. So mind you, as I said, that the notion of cryptocurrency, like any other fundamental human
+
+1:04:36.240 --> 1:04:44.960
+ notion has to evolve, but yes. So I think of it, uh, he has a lot of momentum behind it.
+
+1:04:45.520 --> 1:04:55.120
+ Um, it's not only static as a visa programmable money as a smart contract. It allows a peer to
+
+1:04:55.120 --> 1:05:01.520
+ peer interaction among people who don't even know each other. Right. Uh, and they don't even,
+
+1:05:01.520 --> 1:05:06.400
+ therefore I cannot even trust each other just because they never saw each other.
+
+1:05:06.400 --> 1:05:12.400
+ So I think it's so powerful that, uh, uh, is going to do this said again,
+
+1:05:13.680 --> 1:05:20.080
+ a particular cryptocurrency should develop and cryptocurrency will all develop. But the answer
+
+1:05:20.080 --> 1:05:28.000
+ is yes, we are going towards a much more, uh, unless we have a society, a sudden crisis for
+
+1:05:28.000 --> 1:05:34.080
+ different reasons, which nobody hopes there's always an asteroid. There's always something,
+
+1:05:34.080 --> 1:05:38.640
+ uh, nuclear war and all the existential crisis that we kind of think about,
+
+1:05:38.640 --> 1:05:44.560
+ including artificial intelligence. Uh, okay. It's funny. You mentioned that, um,
+
+1:05:44.560 --> 1:05:50.400
+ um, Michelangelo and Steve jobs, you know, set of ideas represents the person's work.
+
+1:05:50.400 --> 1:05:55.440
+ So we talked about Algorand, which is a super interesting set of technologies, but,
+
+1:05:56.240 --> 1:06:05.520
+ you know, he did also win the touring award. You have a bunch of, you have a bunch of ideas that
+
+1:06:05.520 --> 1:06:12.800
+ are, you know, seminal ideas. So can we talk about cryptography for a little bit? What is the most
+
+1:06:12.800 --> 1:06:19.520
+ beautiful idea in cryptography or computer science or mathematics in general asking somebody who has
+
+1:06:19.520 --> 1:06:26.400
+ explored the depths of all? Well, there are a few contenders
+
+1:06:29.920 --> 1:06:38.880
+ and, uh, either your work or, uh, or other words, uh, let's leave my work aside and, uh, and, uh,
+
+1:06:38.880 --> 1:06:49.120
+ so, but one powerful idea and is, uh, both an old idea in some sense and a very, very modern one.
+
+1:06:49.120 --> 1:06:57.520
+ And, uh, in my opinion is this idea of a one way function. So a function that easy to evaluate.
+
+1:06:57.520 --> 1:07:06.480
+ So given X, you can compute F of X easily, but given F of X is very hard to go back to X. Okay.
+
+1:07:06.480 --> 1:07:17.120
+ Think like breaking a glass, easy. Reconstruct the glass harder. Frying an egg, easy. From the
+
+1:07:17.120 --> 1:07:23.920
+ fried egg to go back to the original egg, harder. If you want to be extreme, killing a living being,
+
+1:07:24.560 --> 1:07:31.840
+ unfortunately, easy. The other way around, very hard. And so the fact that the notion of a function,
+
+1:07:31.840 --> 1:07:37.520
+ whichever a recipe that is in front of your eyes to transform an X into F of X,
+
+1:07:37.520 --> 1:07:43.200
+ and then from F of X, even though you see the recipe to transform it, you cannot go back to X.
+
+1:07:43.760 --> 1:07:53.440
+ That in my opinion is one of the most elegant and momentous notions that there are. And it is a
+
+1:07:53.440 --> 1:07:58.960
+ computational notion because of the difficulties in a computational sense. And it's a mathematical
+
+1:07:58.960 --> 1:08:05.360
+ notion because we were talking about function. And it's so fruitful because that is actually
+
+1:08:05.360 --> 1:08:10.320
+ the foundation of all cryptography. And let me tell you, it's an old notion
+
+1:08:11.600 --> 1:08:19.600
+ because very often in any mythology that we think of, the most powerful gods or goddesses are the
+
+1:08:19.600 --> 1:08:27.040
+ ones of X and the opposite of X, the gods of love and death. And when you take opposites,
+
+1:08:27.040 --> 1:08:32.960
+ they don't just erase one another, you create something way more powerful. And this one,
+
+1:08:32.960 --> 1:08:40.480
+ the function is extremely powerful because essentially becomes something that is easy
+
+1:08:40.480 --> 1:08:48.400
+ for the good guys and hard for the bad guys. So for instance, in pseudo random number generation,
+
+1:08:49.280 --> 1:08:54.880
+ the easy part of the function corresponds, you want to generate bits very quickly. And hard is
+
+1:08:54.880 --> 1:09:02.160
+ predicting what the next bit is. It doesn't look the same. One is X f of X going from X f of X to
+
+1:09:02.160 --> 1:09:12.080
+ X. What does it do? Predicting bits. By a magic of reductions in mathematical apparatus, this simple
+
+1:09:12.080 --> 1:09:18.240
+ function morphs itself into pseudo random generation. This simple function morphs itself in
+
+1:09:18.240 --> 1:09:23.920
+ digital signature scheme in which digitally signing should be easy and forging should be
+
+1:09:23.920 --> 1:09:28.800
+ and forging should be hard. Again, a digital signature is not going from X to f of X,
+
+1:09:29.840 --> 1:09:37.440
+ but the magic and the richness of this notion is that it is so powerful that it morphs in all
+
+1:09:37.440 --> 1:09:44.720
+ kinds of incredible constructs. And in both these two opposites coexist, the easy and the hard,
+
+1:09:44.720 --> 1:09:52.160
+ and in my opinion is a very, very elegant notion. That simple notion ties together cryptography,
+
+1:09:52.160 --> 1:09:59.520
+ and like you said, pseudo random number generation. You have work on pseudo random functions.
+
+1:10:00.080 --> 1:10:08.240
+ What are those? What's the difference in those and the generators, the pseudo random number
+
+1:10:08.240 --> 1:10:16.000
+ generators? How do they work? Let's go back to pseudo random number generation. First of all,
+
+1:10:16.000 --> 1:10:19.600
+ people think that the pseudo random number generation generates a random number. Not true,
+
+1:10:19.600 --> 1:10:28.320
+ because I don't believe that from nothing you can get something. So nothing from nothing.
+
+1:10:29.680 --> 1:10:34.080
+ But randomness, you cannot create it out of nothing, but what you could do
+
+1:10:35.120 --> 1:10:41.840
+ is that it can be expanded. In other words, if you give me somehow 300 random bits,
+
+1:10:41.840 --> 1:10:48.560
+ truly random bits, then I can give you 300,000, 300 million, 300 trillions, 300 quadrillions,
+
+1:10:48.560 --> 1:10:55.840
+ as many as you want random bits, so that even though I tell you the recipe by which I produce
+
+1:10:55.840 --> 1:11:02.320
+ these bits, but I don't tell you the initial 300 random numbers, I keep them secret, and you see
+
+1:11:02.320 --> 1:11:09.200
+ all the bits I produced so far, if you were to bet, given all the bits produced so far,
+
+1:11:09.200 --> 1:11:15.120
+ what is the next bit in my sequence? Better than 50, 50. Of course, 50, 50, anybody can guess.
+
+1:11:15.120 --> 1:11:23.200
+ But to be inferring something, you have to be a bit better. Then the effort to do this extra bit
+
+1:11:23.200 --> 1:11:29.360
+ is so enormous that is de facto random. So that is a pseudo random generator, are these
+
+1:11:29.360 --> 1:11:37.200
+ expanders of secret randomness, which goes extremely fast. Okay, that said, what is that?
+
+1:11:37.200 --> 1:11:43.600
+ Expanders of secret randomness, beautifully put. Okay, so every time somebody, if you're a
+
+1:11:43.600 --> 1:11:49.120
+ programmer, is using a function that's not called pseudo random, it's called random usually,
+
+1:11:49.120 --> 1:11:54.320
+ you know, these programming languages, and it's generating different, that's essentially
+
+1:11:54.320 --> 1:12:00.480
+ expanding the secret randomness. But they should. In the past, actually, most of the library,
+
+1:12:00.480 --> 1:12:07.920
+ they used something pre modern cryptography, unfortunately. They would be better served
+
+1:12:07.920 --> 1:12:17.040
+ with 300 real seed random number, and then expand them properly, as we know now.
+
+1:12:18.400 --> 1:12:25.520
+ But that has been a very old idea. In fact, one of the best philosophers have debated
+
+1:12:27.360 --> 1:12:31.680
+ whether the world was deterministic or probabilistic. Very big questions, right?
+
+1:12:32.240 --> 1:12:33.520
+ Does God play dice?
+
+1:12:33.520 --> 1:12:40.720
+ Exactly. Einstein says it does, it doesn't. But in fact, now we have a language that even
+
+1:12:40.720 --> 1:12:45.280
+ at the Albert time was not around, but it was this complex theory of modern
+
+1:12:45.280 --> 1:12:52.480
+ complexity based cryptography. And now we know that if the universe has 300 random bits,
+
+1:12:53.040 --> 1:12:58.000
+ whether where is random or probabilistic or deterministic, it doesn't matter,
+
+1:12:58.000 --> 1:13:04.560
+ because you can expand this initial seed of randomness forever in which all the experiments
+
+1:13:04.560 --> 1:13:08.720
+ you could do, all the inferences you could do, all the things you could do, they are,
+
+1:13:08.720 --> 1:13:13.680
+ you are not be able to distinguish them from truly random. So if you are not able to distinguish
+
+1:13:14.320 --> 1:13:21.120
+ truly random from this super duper pseudo randomness, are they really different things?
+
+1:13:22.480 --> 1:13:27.200
+ So many to become really philosophical. So for things to be different, but I don't have
+
+1:13:27.200 --> 1:13:32.480
+ in my lifetime, in the lifetime of the universe, any method to set them aside,
+
+1:13:32.480 --> 1:13:38.480
+ well, I should be intellectually honest, say, well, pseudo random in this special
+
+1:13:38.480 --> 1:13:40.400
+ fraction is as good as random.
+
+1:13:41.040 --> 1:13:46.560
+ Do you think true randomness is possible? And what does that mean?
+
+1:13:48.160 --> 1:13:52.320
+ So practically speaking, exactly as you said, if you're being honest,
+
+1:13:52.320 --> 1:13:57.680
+ that the pseudo randomness approaches true randomness pretty quickly.
+
+1:13:58.800 --> 1:14:03.840
+ But is it, maybe this is a philosophical question. Is there such a thing as true randomness?
+
+1:14:05.760 --> 1:14:13.680
+ Well, the answer is actually maybe, but if it exists, most probably it's expensive to get.
+
+1:14:14.800 --> 1:14:19.040
+ And in any case, if I give you one of mine,
+
+1:14:19.040 --> 1:14:26.560
+ you will never tell them apart by any other shape, no matter how much you work on it.
+
+1:14:26.560 --> 1:14:32.640
+ So in some sense, if it exists or not, it really is a quote philosophical sense in the
+
+1:14:33.600 --> 1:14:38.240
+ colloquial way to say that we cannot somehow pin it down.
+
+1:14:38.240 --> 1:14:43.360
+ Do you ever, again, just to stay unphilosophical for a bit, for a brief moment,
+
+1:14:43.360 --> 1:14:52.640
+ do you ever think about free will and whether that exists because ultimately free will sort of
+
+1:14:52.640 --> 1:14:59.680
+ is this experience that we have, like we're making choices, even though it appears that,
+
+1:15:00.240 --> 1:15:05.520
+ you know, the world is deterministic at the core. I mean, that's against the debate,
+
+1:15:05.520 --> 1:15:13.520
+ but if it is in fact deterministic at the lowest possible level, at the physics level,
+
+1:15:14.560 --> 1:15:20.240
+ how do you make, if it is deterministic, how do you make sense of the difference between the
+
+1:15:20.240 --> 1:15:24.640
+ experience of us feeling like we're making a choice and the whole thing being deterministic?
+
+1:15:25.200 --> 1:15:30.640
+ So first of all, let me give you a gut reaction to the question. And the gut reaction is that
+
+1:15:30.640 --> 1:15:39.920
+ it is important that we believe that there exists free will. And second of all, almost
+
+1:15:41.360 --> 1:15:48.960
+ by weird logic, if we believe it exists, then it does exist. Okay. So it's very important for our
+
+1:15:48.960 --> 1:15:55.840
+ social apparatus, for our sense of ourselves that it exists. And the moment in which, you know,
+
+1:15:55.840 --> 1:16:02.080
+ we so want to, we almost conjure it up in existence. But again, I really feel that if
+
+1:16:02.080 --> 1:16:11.280
+ you look at some point, the space of free will seems to shrink. We realize how more and more,
+
+1:16:11.280 --> 1:16:17.680
+ how much of our, say, genetic apparatus dictates who we are, why we prefer certain things than
+
+1:16:17.680 --> 1:16:23.760
+ others, right, and why we react to noises of music. We really prefer poetry and everything
+
+1:16:23.760 --> 1:16:31.040
+ else. We may explain even all this. But at the end of the day, whether it exists in a
+
+1:16:31.040 --> 1:16:38.720
+ philosophical sense or not, it's like randomness. If pseudo random is as good as random vis a vis
+
+1:16:38.720 --> 1:16:42.560
+ lifetime of the universe, our experience, then it doesn't really matter.
+
+1:16:42.560 --> 1:16:48.400
+ Yeah. So, you know, we're talking about randomness. I wonder if I can weave in
+
+1:16:48.400 --> 1:16:55.280
+ quantum mechanics for a brief moment. There's a, you know, a lot of advancements on the quantum
+
+1:16:55.280 --> 1:17:02.640
+ computing side. So leveraging quantum mechanics to perform a new kind of computation, and there's
+
+1:17:02.640 --> 1:17:08.880
+ concern of that being a threat to a lot of the basic assumptions that underlie cryptography.
+
+1:17:10.000 --> 1:17:16.800
+ What do you think? Do you think quantum computing will challenge a lot of cryptography? Will
+
+1:17:16.800 --> 1:17:20.640
+ cryptography be able to defend all those kinds of things?
+
+1:17:20.640 --> 1:17:25.440
+ Okay, great. So first of all, for the record, and not because I think it matters, but it's
+
+1:17:25.440 --> 1:17:32.400
+ important to set the record, there are people who continue to contend that quantum mechanics exist,
+
+1:17:32.400 --> 1:17:37.840
+ but that's nothing to do with computing. It's not going to accelerate it, at least, you know,
+
+1:17:37.840 --> 1:17:45.600
+ very basic, you know, hard computation. That is a belief that you cannot take it out. I'm a little
+
+1:17:45.600 --> 1:17:52.320
+ bit more agnostic about it, but I really believe, going back to whatever I said about the one way
+
+1:17:52.320 --> 1:17:58.960
+ function. So one way function, what is it? That is a cryptography. So does quantum computing
+
+1:17:58.960 --> 1:18:04.160
+ challenge the one way function? Essentially, you can boil it down to does quantum computing
+
+1:18:04.160 --> 1:18:08.720
+ challenge the one way function. What is one way function? Easy in one direction, hard in the other.
+
+1:18:09.360 --> 1:18:16.560
+ Okay, but if quantum computing exists, when you define what it is easy, it's not easy by a classical
+
+1:18:16.560 --> 1:18:22.640
+ computer and hard by a classical computer, but easy for a quantum computer, that's a bad idea.
+
+1:18:22.640 --> 1:18:30.720
+ But once easy means it should be easy for a quantum and hard for also quantum. Then you can
+
+1:18:30.720 --> 1:18:36.720
+ see that you are, yes, it's a challenge, but you have hope because you can absorb if one computing
+
+1:18:36.720 --> 1:18:44.000
+ really realizes and becomes available according to the promises, then you can use them also for the
+
+1:18:44.000 --> 1:18:50.720
+ easy part. And once you use it from the easy part, the choices that you have a one way function,
+
+1:18:50.720 --> 1:18:57.680
+ they multiply. So, okay, so they particularly candidates of one way function, they not only
+
+1:18:57.680 --> 1:19:06.080
+ candidates of one way function, they not be one way anymore, but quantum one way function may
+
+1:19:06.080 --> 1:19:18.480
+ continue to exist. And so I really believe that for life to be meaningful, this one way function
+
+1:19:18.480 --> 1:19:28.240
+ had to exist. Because just imagine that anything that is becomes easy to do. I mean, what kind of
+
+1:19:28.240 --> 1:19:35.120
+ life is it? I mean, so you need that. And if something is hard, but it's so hard to generate,
+
+1:19:35.120 --> 1:19:39.920
+ you'll never find something which is hard for you. You want to that there is abundance,
+
+1:19:39.920 --> 1:19:44.960
+ that is easy to produce hard problem. That's my opinion is why life is interesting,
+
+1:19:44.960 --> 1:19:54.080
+ because pop up really, really speed. So in some sense, I almost think that I do hope they exist
+
+1:19:54.080 --> 1:19:59.440
+ if they don't exist, somehow life is way less interesting than it actually is.
+
+1:19:59.440 --> 1:20:05.920
+ Yeah, it does. That's funny. It does seem like the one way function is fundamental to all of life,
+
+1:20:05.920 --> 1:20:12.720
+ which is the emergence of the complexity that we see around us seem to require the one way function.
+
+1:20:12.720 --> 1:20:18.960
+ I don't know if you play with cellular automata. That's just another formulation of.
+
+1:20:18.960 --> 1:20:22.000
+ I know, but it's very simple.
+
+1:20:22.000 --> 1:20:28.640
+ It's almost a very simple illustration of starting out with simple rules in one way,
+
+1:20:29.280 --> 1:20:34.080
+ being able to generate incredible amounts of complexity. But then you ask the question,
+
+1:20:34.080 --> 1:20:44.160
+ can I reverse that? And it's just surprising how difficult it is to reverse that. It's surprising,
+
+1:20:44.160 --> 1:20:52.240
+ even in constrained situations, it's very difficult to prove anything that it almost,
+
+1:20:52.240 --> 1:20:58.160
+ I mean, the sad thing about it. Well, I don't know if it's sad, but it seems like we don't
+
+1:20:58.160 --> 1:21:04.960
+ even have the mathematical tools to reverse engineer stuff. I don't know if they exist or not,
+
+1:21:04.960 --> 1:21:08.640
+ but in the space of cellular automata, where you start with something simple and you create
+
+1:21:08.640 --> 1:21:14.000
+ something incredibly complex, can you take something, a small picture of that complex
+
+1:21:14.000 --> 1:21:19.520
+ and reverse engineer? That's kind of what we're doing as scientists here. You're seeing the result
+
+1:21:19.520 --> 1:21:24.400
+ of the complexity and you're trying to come up with some universal law that generate all of this.
+
+1:21:24.400 --> 1:21:29.280
+ What is the theory of everything? What are the basic physics laws that generated this whole
+
+1:21:29.280 --> 1:21:35.120
+ thing? And there's a hope that you should be able to do that, but it gets, it's difficult.
+
+1:21:35.120 --> 1:21:40.560
+ Yeah. But there is also some poetry on the fact that it's difficult because it gives us some
+
+1:21:40.560 --> 1:21:48.000
+ mystery to life, without which, I mean, it's not so fun. Life is no business fun.
+
+1:21:48.000 --> 1:21:52.720
+ Can we talk about interactive proofs a little bit and zero knowledge proofs? What are those?
+
+1:21:52.720 --> 1:21:55.200
+ What are those? How do they work?
+
+1:21:55.200 --> 1:22:06.560
+ So interactive proof actually is a modern realization and conceptualization of something
+
+1:22:06.560 --> 1:22:12.880
+ that we knew was true, that is easy to go to lecture. In fact, that's my motivation.
+
+1:22:12.880 --> 1:22:17.520
+ We invented schools to go to lecture. We don't say, oh, I'm the minister of education. I published
+
+1:22:17.520 --> 1:22:24.880
+ this book. You read it. This is book for this year, this book for this year. We spend a lot
+
+1:22:24.880 --> 1:22:31.600
+ of our treasury in educating our kids and in person, educating, go to class, interact with
+
+1:22:31.600 --> 1:22:37.920
+ teacher, on the blackboard and chalk on my time. Now we can have a whiteboard and presumably you're
+
+1:22:37.920 --> 1:22:46.240
+ going to have actually this magic pens and a display instead. But the idea is that interactively
+
+1:22:46.240 --> 1:22:53.280
+ you can convey truth much more efficiently. We knew this psychologically. It's better to
+
+1:22:53.280 --> 1:23:00.320
+ hear an explanation than just to belabor some paper. Same thing. So interactive proofs is a
+
+1:23:00.320 --> 1:23:06.320
+ way to do the following. Rather than doing some complicated, very long papers and possibly
+
+1:23:06.320 --> 1:23:12.720
+ infinitely long proofs, exponentially long proofs, you say the following. If this theorem is true,
+
+1:23:12.720 --> 1:23:18.560
+ there is a game that is associated to the theorem. If the theorem is true, this game,
+
+1:23:19.840 --> 1:23:25.680
+ I have a winning strategy that I can win half of the time, no matter what you do.
+
+1:23:26.640 --> 1:23:30.240
+ So then you say, well, is the theorem true? You believe me. Why should I believe you? Okay,
+
+1:23:30.240 --> 1:23:38.000
+ let's play. If I prove that I have a strategy and I win the first time and I win the second time,
+
+1:23:38.000 --> 1:23:45.440
+ then I lose a third time. But I win more than half of the time, or I win, say, all the time
+
+1:23:45.440 --> 1:23:50.080
+ if the theorem is true, and at least at most half of the time if the theorem is false, you
+
+1:23:50.080 --> 1:23:59.520
+ statistically get convinced. You can verify this quickly. And therefore, when the game typically
+
+1:23:59.520 --> 1:24:06.480
+ is extremely fast, so you generate a miniature game in which if the theorem is true, I win all
+
+1:24:06.480 --> 1:24:12.480
+ the time, and if the theorem is false, I can win at most half of the time. And if I win, win, win,
+
+1:24:12.480 --> 1:24:16.640
+ win, win, win, win, win, you can deduce either the theorem is true, which most probably is my
+
+1:24:16.640 --> 1:24:25.760
+ case of the week, or I've been very, very unlucky because it's like if I had 100 coin tosses and I
+
+1:24:25.760 --> 1:24:33.520
+ got 100 heads. Very improbable. So that is a way. And so this transformation from the formal
+
+1:24:33.520 --> 1:24:41.520
+ statement of a proof into a game that can be quickly played, and you can draw statistics
+
+1:24:41.520 --> 1:24:50.400
+ how many times you win, is one of a big conquest of modern complexity theory. And in fact,
+
+1:24:50.400 --> 1:24:57.040
+ actually has highlighted the notion of a proof as it really gives us a new insight of what to
+
+1:24:57.040 --> 1:25:05.760
+ be true means and what truth is and what proofs are. So these are legitimately proofs. So what
+
+1:25:05.760 --> 1:25:17.200
+ kind of mysteries can it allow us to unlock and prove? You said truth. So what does it allow us?
+
+1:25:17.200 --> 1:25:24.160
+ What kind of truth does that allow us to arrive at? So it enlarges the realm of what is provable
+
+1:25:24.160 --> 1:25:29.840
+ because in some sense of the classical way of proving things was extremely
+
+1:25:31.280 --> 1:25:34.720
+ inefficient from the verifier point of view. Yes.
+
+1:25:34.720 --> 1:25:41.680
+ Right. And so therefore, there is so much proof that you can take. But in this way,
+
+1:25:41.680 --> 1:25:49.920
+ you can actually very quickly, in minutes, verify something that is the correctness of an assertion
+
+1:25:49.920 --> 1:25:56.720
+ that otherwise would have taken a lifetime to belabor and check all the passages of a very,
+
+1:25:56.720 --> 1:26:02.560
+ very, very long proof. And you better check all of them because if you don't check one line,
+
+1:26:02.560 --> 1:26:08.240
+ an error can be in that line. And so you have to go linearly through all the stuff rather than
+
+1:26:08.240 --> 1:26:13.920
+ bypass this. So you enlarge a tremendous amount what the proof is. And in addition,
+
+1:26:13.920 --> 1:26:20.080
+ once you have the idea that essentially a proof system is something that
+
+1:26:22.000 --> 1:26:28.880
+ allows me to convince you of a true statement, but does not allow me to convince you of a false
+
+1:26:28.880 --> 1:26:35.920
+ statement, and that at the end is proof. Proof can be beautiful, should be elegant,
+
+1:26:35.920 --> 1:26:43.840
+ but at the end is true or false. It is possible to prove the truth and it should be impossible
+
+1:26:43.840 --> 1:26:49.760
+ or statistically extremely hard to prove something false. And if you do this, you can prove way,
+
+1:26:49.760 --> 1:26:56.720
+ way more once you understand this. And on top of it, we got some insight like in this zero
+
+1:26:56.720 --> 1:27:04.320
+ knowledge proofs that is in something which you took for granted where the same knowledge
+
+1:27:04.320 --> 1:27:11.920
+ and verification are actually separate concepts. So you can verify that an assertion is correct
+
+1:27:11.920 --> 1:27:18.320
+ without having any idea why this is so. And so people failed to say, if you want to verify
+
+1:27:18.320 --> 1:27:22.320
+ something, you have to have the proof. Once you have the proof, you know why it's true,
+
+1:27:22.320 --> 1:27:33.120
+ you have the proof itself. So somehow you can totally differentiate knowledge and verification
+
+1:27:33.120 --> 1:27:37.280
+ validity. So totally, you can decide if something is true and still have no idea.
+
+1:27:37.280 --> 1:27:38.880
+ Is there a good example in your mind?
+
+1:27:38.880 --> 1:27:47.600
+ Oh, actually, you know, at the beginning, we labored to find the first zero knowledge proof.
+
+1:27:47.600 --> 1:27:53.280
+ Then we found a second, then we found a third. And then a few years later, actually, we proved
+
+1:27:53.280 --> 1:28:01.760
+ a theorem which essentially says every theorem, no matter what about, can be explained in a zero
+
+1:28:01.760 --> 1:28:10.640
+ knowledge way. So it's not a class of theorem, but all theorems. And it's a very powerful thing. So
+
+1:28:10.640 --> 1:28:18.000
+ we were really, for thousands of years, bought this identity between knowledge and verification
+
+1:28:18.000 --> 1:28:23.600
+ had to be hand in hand together, and for no reason at all. I mean, we had to develop a
+
+1:28:23.600 --> 1:28:28.880
+ way of technology. As you know, I'm very big on technology because it makes us more human
+
+1:28:28.880 --> 1:28:37.200
+ and make us understand more things than before. And I think that's a good thing.
+
+1:28:37.760 --> 1:28:43.600
+ So this interactive proof process, there's power in games.
+
+1:28:43.600 --> 1:28:43.840
+ Yes.
+
+1:28:43.840 --> 1:28:49.200
+ And you've recently gotten into, recently, I'm not sure you can correct me, mechanism design.
+
+1:28:50.000 --> 1:28:50.240
+ Yeah.
+
+1:28:50.240 --> 1:28:58.720
+ So first of all, maybe you can explain what mechanism design is and the fascinating
+
+1:28:58.720 --> 1:29:02.480
+ space of playing with games and designing games.
+
+1:29:03.200 --> 1:29:10.480
+ Mechanism design is that you want a certain behavior to arise. If you want to organize
+
+1:29:11.680 --> 1:29:17.200
+ a societal structure or something, you want to have some orderly behavior to arise because
+
+1:29:17.200 --> 1:29:26.240
+ it is important for your goals. But you know that people, they don't care what my goals are.
+
+1:29:26.240 --> 1:29:32.960
+ They care about maximizing their utility. So put it crassly, making money. The more money,
+
+1:29:32.960 --> 1:29:36.320
+ the better, so to speak. I'm exaggerating.
+
+1:29:36.320 --> 1:29:39.280
+ Self interest in whatever way then.
+
+1:29:39.280 --> 1:29:48.640
+ So what you want to do is, ideally, what you want to do is to design a game so that
+
+1:29:48.640 --> 1:29:56.880
+ while people play it, so to maximize their self interest, they achieve the social goal
+
+1:29:56.880 --> 1:30:03.760
+ and behavior that I want. That is really the best type of thing. And it is a very
+
+1:30:03.760 --> 1:30:18.560
+ hard science and art to design these games. And it challenges us to actually come up with
+
+1:30:18.560 --> 1:30:24.880
+ solution concepts for a way to analyzing the games that need to be broader. And I think
+
+1:30:25.760 --> 1:30:32.320
+ game theory has developed a bunch of very compelling ways to analyze the game,
+
+1:30:32.320 --> 1:30:37.920
+ that if the game has the best property, you can have a pretty good guarantee that it's going to
+
+1:30:37.920 --> 1:30:45.360
+ be played in a given way. But as it turns out, and not surprisingly, these tools have a range
+
+1:30:45.360 --> 1:30:50.080
+ of action like anything else. All these so called the technical resolution concept,
+
+1:30:50.080 --> 1:30:54.880
+ the way to analyze the game, like dominant strategy equilibrium, if something comes to mind,
+
+1:30:54.880 --> 1:31:02.720
+ would be very meaningful. But as a limited power, in some sense, the games that can be
+
+1:31:03.600 --> 1:31:05.680
+ admit to such a way to be analyzed.
+
+1:31:05.680 --> 1:31:09.920
+ There's a very specific kind of games and the rules are set, the constraints are set,
+
+1:31:09.920 --> 1:31:11.840
+ the utilities are all set.
+
+1:31:11.840 --> 1:31:19.040
+ Yes. So if you want to reason, if there is a way, say, that you can analyze a restricted
+
+1:31:19.040 --> 1:31:26.240
+ class of games this way, but most games don't fall into this restricted class, then what do I do?
+
+1:31:26.240 --> 1:31:35.280
+ When you need to enlarge a way what a rational player can do. So for instance, in my opinion,
+
+1:31:35.280 --> 1:31:44.080
+ at least in some of my, I played with this for a few years, and I was doing some exoteric things,
+
+1:31:44.080 --> 1:31:50.640
+ I'm sure, in the space that was not exactly mainstream. And then I changed my interest in
+
+1:31:51.360 --> 1:31:58.000
+ blockchain. But what I'm saying for a while I was doing. So for instance, to me, is a way in which
+
+1:31:58.000 --> 1:32:04.720
+ I design the game, and you don't have the best move for you. The best move is the move that is
+
+1:32:04.720 --> 1:32:08.800
+ best for you, no matter what the other players are doing. Sometimes a game doesn't have that,
+
+1:32:08.800 --> 1:32:15.280
+ okay, it's too much to ask. But I can design the game such that given the option in front of you
+
+1:32:15.280 --> 1:32:20.560
+ say, oh, these are really stupid for me, take them aside. But these, these are not stupid.
+
+1:32:21.200 --> 1:32:27.760
+ So if you design the game so that in any combination of non stupid things that the player
+
+1:32:27.760 --> 1:32:36.320
+ can do, I achieve what I want, I'm done. I don't care to find the very unique equilibrium. I don't
+
+1:32:36.320 --> 1:32:41.360
+ give a damn. I want to say, well, as long as you don't do stupid things, and nobody else does
+
+1:32:41.360 --> 1:32:48.640
+ stupid things, good social things outcome arise, I should be equally happy. And so I really believe
+
+1:32:48.640 --> 1:33:01.360
+ that this type of analysis is possible and has a bigger radius. So it reaches more games, more
+
+1:33:01.360 --> 1:33:07.920
+ classes or games. And after that, we have to enlarge it again. And it's going to be, we're
+
+1:33:07.920 --> 1:33:15.520
+ going to have fun because human behavior can be conceptualized in many ways. And it's a long game.
+
+1:33:16.240 --> 1:33:20.480
+ It's a long game. Do you have favorite games that you're looking at now? I mean, I suppose
+
+1:33:20.480 --> 1:33:26.800
+ your work with blockchain and Algorand is a kind of game that you're basically this mechanism
+
+1:33:26.800 --> 1:33:34.720
+ design, design the game such that it's scalable, secure and decentralized, right? Yes. And very
+
+1:33:34.720 --> 1:33:43.840
+ often you have to say, and you must also design so that the incentives are, and tell you the truth,
+
+1:33:43.840 --> 1:33:51.280
+ whatever little I learned from my venture in mechanism design is that incentives are very
+
+1:33:51.280 --> 1:33:59.040
+ hard to design because people are very complex creatures. And so somehow the way we design
+
+1:33:59.040 --> 1:34:08.000
+ Algorand is a totally different way, essentially with no incentives, essentially. But technically
+
+1:34:08.000 --> 1:34:16.560
+ speaking, there is a notion that is actually believable, right? So that to say people want
+
+1:34:16.560 --> 1:34:23.920
+ to maximize their utility. Yes. Up to a point. Let me tell you. Assume that if you are honest,
+
+1:34:25.040 --> 1:34:30.720
+ you make a hundred bucks. But if you are dishonest, no matter how dishonest you are,
+
+1:34:30.720 --> 1:34:35.840
+ you can only make a hundred bucks and one cent. What are you going to be? I'm saying,
+
+1:34:35.840 --> 1:34:42.080
+ you know what? Technically speaking, even that one cent, nobody bothers and say,
+
+1:34:42.080 --> 1:34:46.640
+ how much am I going to make by honest? A hundred. If I'm devious and if I'm a criminal,
+
+1:34:46.640 --> 1:34:51.280
+ 100 bucks and one cent, you know, I might as well be honest. Okay. So that essentially is called,
+
+1:34:51.280 --> 1:35:00.160
+ you know, Epsilon utility equilibrium, but I think it's good. And that's what we design
+
+1:35:00.160 --> 1:35:07.600
+ essentially means that, you know, having no incentives is actually a good thing because
+
+1:35:07.600 --> 1:35:13.280
+ prevent people from reasoning, how else are you going to gain the system? But why can we achieve
+
+1:35:13.280 --> 1:35:18.640
+ an algorithm to have no incentives and in Bitcoin instead, you have to pay the miners because they
+
+1:35:18.640 --> 1:35:26.080
+ do a tremendous amount of work. Because if you have to do a lot of work, then you demand to be
+
+1:35:26.080 --> 1:35:31.360
+ paid accordingly. Because you, right? But if I'm going to say you have to add two and two equal
+
+1:35:31.360 --> 1:35:35.600
+ to four, how much you want me to pay for this? If you don't give me this, I don't add the two
+
+1:35:35.600 --> 1:35:40.240
+ and two. I would say you can add two and two in your sleep. You don't need to be paid to add the
+
+1:35:40.240 --> 1:35:46.320
+ two and two. So the idea is that if we make the system so efficient, so that generating the next
+
+1:35:46.320 --> 1:35:52.640
+ block is so damn simple, it doesn't hit the universe, let alone my computer, let alone
+
+1:35:52.640 --> 1:35:59.360
+ take some microsecond of computation, I might as well not being received incentives for doing that
+
+1:35:59.360 --> 1:36:03.680
+ and try to incentivize some other part of the system, but not to the main consensus,
+
+1:36:03.680 --> 1:36:06.800
+ which is a mechanism for generating and adding block to the chain.
+
+1:36:08.800 --> 1:36:15.600
+ Since you're Italian, Sicilian, I also heard rumors that you are a connoisseur of food.
+
+1:36:19.280 --> 1:36:25.360
+ If I said today's the last day you get to be alive, you shouldn't have trusted me.
+
+1:36:26.160 --> 1:36:29.760
+ You never know with a Russian whether you're going to make it out or not. Well, if you had
+
+1:36:29.760 --> 1:36:36.240
+ one last meal, you can travel somewhere in the world. Either you make it or somebody else makes
+
+1:36:36.240 --> 1:36:44.320
+ it. What's that going to look like? All right. If it's one last meal, I must say in this era of
+
+1:36:44.320 --> 1:36:56.000
+ COVID, I have not been able to see my mom. My mom was a fantastic chef and had this very
+
+1:36:56.000 --> 1:37:00.880
+ traditional food. As you know, the very traditional food are great for a reason,
+
+1:37:00.880 --> 1:37:08.160
+ because they survived hundreds of years of culinary innovation. There is one very laborious
+
+1:37:08.160 --> 1:37:16.160
+ thing, which is, you heard the name, which is parmigiana, but to do it is a piece of
+
+1:37:16.160 --> 1:37:22.160
+ art. So many hours that only my mom could do it. If we have one last meal, I want a parmigiana.
+
+1:37:22.160 --> 1:37:30.960
+ Okay. What's the laborious process? Is it the ingredients? Is it the actual process?
+
+1:37:31.600 --> 1:37:34.640
+ Is it the atmosphere and the humans involved?
+
+1:37:36.080 --> 1:37:45.200
+ The latter. The ingredient like in any other, in the Italian cuisine, believes in very few
+
+1:37:45.200 --> 1:37:55.520
+ ingredients. If you take say quintessential Italian recipe, spaghetti pesto. Pesto is olive oil,
+
+1:37:56.240 --> 1:38:06.880
+ very good extra virgin olive oil, basil, pine nuts, pepper, clove of garlic, not too much,
+
+1:38:06.880 --> 1:38:15.360
+ otherwise you overpower everything. And then to do either two schools of thought, parmesan or pecorino
+
+1:38:15.360 --> 1:38:22.320
+ or a mix of the two. I mentioned six ingredients. That is typical Italian. I understand that there
+
+1:38:22.320 --> 1:38:26.960
+ are other cuisines, for instance, a French cuisine, which is extremely sophisticated
+
+1:38:26.960 --> 1:38:33.360
+ and extremely combinatorial, or some Chinese cuisine, which has a lot of many more ingredients
+
+1:38:33.360 --> 1:38:40.000
+ than this. And yet the art is to put them together a lot of things. In Italy is really the striving
+
+1:38:40.000 --> 1:38:45.840
+ for simplicity, yet to find few ingredients, but the right ingredients to create something.
+
+1:38:45.840 --> 1:38:54.000
+ So in parmigiana, the ingredients are eggplants, tomatoes, basil, but how to put them together
+
+1:38:54.000 --> 1:39:04.560
+ and the process is an act of love, labor and love. You can spend the entire day,
+
+1:39:04.560 --> 1:39:09.040
+ I'm not exaggerating, but the entire morning for sure to do it properly.
+
+1:39:09.920 --> 1:39:14.800
+ Yeah, as a Japanese cuisine too, there's a mastery to the simplicity with the sushi. I don't know
+
+1:39:14.800 --> 1:39:19.280
+ if you've seen Giorgio's of sushi, but there's a mastery to that that's propagated through the
+
+1:39:19.280 --> 1:39:25.360
+ generations. It's fascinating. You know, people love it when I ask about books. I don't know
+
+1:39:26.080 --> 1:39:32.960
+ if books, whether fiction, nonfiction, technical or completely non technical had an impact on your
+
+1:39:32.960 --> 1:39:37.360
+ life throughout. If there's anything you would recommend or even just mention as something that
+
+1:39:37.360 --> 1:39:45.280
+ gave you an insight or moved you in some way. So, okay. So I don't know if I can comment because
+
+1:39:45.280 --> 1:39:50.480
+ in some sense you almost had to be Italian or to be such a scholar, but being Italian,
+
+1:39:51.120 --> 1:39:59.520
+ one thing that really impressed me tremendously is the Divine Comedy. It is a medieval poem,
+
+1:39:59.520 --> 1:40:07.280
+ a very long poem divided in three parts, hell, purgatory and paradise. Okay. And that is the
+
+1:40:07.280 --> 1:40:19.200
+ non trivial story of a middle man gets into a crisis, personal crisis. And then out of this
+
+1:40:19.200 --> 1:40:27.600
+ crisis he purifies, makes a catastrophe, purifies himself more and more and more until he's become
+
+1:40:28.480 --> 1:40:35.280
+ capable of actually meeting God. Okay. And that is actually a complex story. So you have to get
+
+1:40:35.280 --> 1:40:43.760
+ some very sophisticated language, maybe Latin at that point. We are talking about 1200s Italy,
+
+1:40:45.920 --> 1:40:52.800
+ in Florence. And this guy instead, he chose his own dialect, not spoken outside his own immediate
+
+1:40:52.800 --> 1:41:01.920
+ circle, a Florentine dialect. Actually, Dante really made Italian, Italian. How can you express
+
+1:41:01.920 --> 1:41:10.240
+ such a sophisticated thing? And then the point is that these words that nobody actually knew
+
+1:41:10.240 --> 1:41:16.080
+ because they were essentially dialect and plus a bunch of very intricate rhymes in which they had
+
+1:41:16.080 --> 1:41:23.440
+ to rhyme with things. And it turns out that by getting meaning from the things that rhyme,
+
+1:41:23.440 --> 1:41:29.680
+ you essentially guess what the word means and you invent Italian and you communicate
+
+1:41:29.680 --> 1:41:35.200
+ it by almost osmosis what you want. It's a miracle of communication. In a dialect,
+
+1:41:35.200 --> 1:41:40.320
+ a very poor language, very unsophisticated to express very sophisticated situation.
+
+1:41:41.600 --> 1:41:50.480
+ I love it. People love it, Italians and not Italian. But what I got of it is that very often
+
+1:41:52.080 --> 1:41:58.000
+ limitations are our strength. Because if you limit yourself at a very poor language,
+
+1:41:58.000 --> 1:42:04.080
+ somehow you get out of it and you achieve even better form of communication using a hyper
+
+1:42:04.080 --> 1:42:08.640
+ sophisticated literary language with lots of resonance from the prior books so that you can
+
+1:42:08.640 --> 1:42:13.280
+ actually instantaneously quote. He couldn't quote anything because nothing was written in Italian
+
+1:42:13.280 --> 1:42:21.840
+ before him. So I really felt that limitations are our strength. And I think that rather than
+
+1:42:21.840 --> 1:42:29.600
+ complaining about the limitations, we should embrace them because if we embrace our limitation,
+
+1:42:29.600 --> 1:42:36.000
+ limited as we are, we find very creative solutions that people with less limitation we have,
+
+1:42:36.960 --> 1:42:41.760
+ we would not even think about it. So limitations are kind of superpower if you choose to see it
+
+1:42:41.760 --> 1:42:49.440
+ that way. Since you speak both languages, is there something that's lost in translation to you? Is
+
+1:42:49.440 --> 1:42:55.120
+ there something you can express in Italian that you can't in English and vice versa maybe? Is
+
+1:42:55.120 --> 1:43:00.240
+ there something you could say to the musicality of the language? I mean, I've been to Italy a few
+
+1:43:00.240 --> 1:43:09.360
+ times and I'm not sure if it's the actual words, but the people are certainly very, there's body
+
+1:43:09.360 --> 1:43:16.720
+ language too. There's just the whole being is language. So I don't know if you miss some of that
+
+1:43:16.720 --> 1:43:25.360
+ when you're speaking English in this country. Yes. In fact, actually, certainly I miss it.
+
+1:43:25.360 --> 1:43:33.040
+ And somehow it was a sacrifice that I made consciously by the time I arrived. I knew that
+
+1:43:33.040 --> 1:43:40.720
+ this, I was not going to express myself at that level. And it was actually a sacrifice because
+
+1:43:40.720 --> 1:43:47.360
+ given to you also your mother tongue is Russian. So you know that you can be very expressive in
+
+1:43:47.360 --> 1:43:53.520
+ your mother tongue and not very expressive in a new tongue, a new language. And then what people
+
+1:43:53.520 --> 1:43:58.880
+ think of you in the new language, because when the precise of expression of things, it generates,
+
+1:43:59.840 --> 1:44:08.720
+ it shows elegance or it shows knowledge or it shows as a census or it shows as a caste or
+
+1:44:08.720 --> 1:44:12.160
+ education, whatever it is. So all of a sudden I found myself on the bottom.
+
+1:44:14.560 --> 1:44:22.720
+ So I had to fight all my way up, back up. But what I'm saying, their limitations are actually
+
+1:44:22.720 --> 1:44:30.000
+ our strength. In fact, it's a trick to limit yourself to exceed. And there are examples in
+
+1:44:30.000 --> 1:44:38.640
+ history. If you think about Hernan Cortes, he goes to invade Mexico. He has what, a few hundred
+
+1:44:38.640 --> 1:44:44.560
+ people with him and he has a hundred thousand people in arms on the other side. First thing he
+
+1:44:44.560 --> 1:44:53.520
+ does, he limits himself. He sinks his own ship. There is no return. And at that point he actually
+
+1:44:53.520 --> 1:45:01.040
+ manages. That's really profound. I actually, first of all, this inspiring to me, I feel like I have
+
+1:45:01.040 --> 1:45:07.200
+ quite a few limitations, but more practically on the Russian side, I'm going to try to do a couple
+
+1:45:07.200 --> 1:45:13.280
+ of really big and really tough interviews in Russian. Once COVID lifts a little bit, I'm
+
+1:45:13.280 --> 1:45:21.280
+ traveling to Russia and I'll keep your advice in mind that the limitations is a kind of superpower.
+
+1:45:21.280 --> 1:45:28.480
+ We should use it to our advantage because you do feel less, like you're not able to convey
+
+1:45:28.480 --> 1:45:34.720
+ your wisdom in the Russian language. Cause I moved here when I was 13. So you don't,
+
+1:45:35.920 --> 1:45:40.480
+ the parts of life you live under a certain language are the parts of life you're able
+
+1:45:40.480 --> 1:45:48.160
+ to communicate. I became a thoughtful, deeply thoughtful human in English.
+
+1:45:48.160 --> 1:45:56.400
+ But the pain from World War II, the music of the people that was instilled with me in Russian.
+
+1:45:56.400 --> 1:46:01.600
+ So I can carry both of those and there's limitations in both. I can't say philosophically
+
+1:46:01.600 --> 1:46:08.160
+ profound stuff in Russian, but I can't in English express like that melancholy feeling
+
+1:46:08.160 --> 1:46:11.840
+ of like the people. And so combining those two, I'll somehow.
+
+1:46:11.840 --> 1:46:18.880
+ Oh, beautifully said. Thanks for sharing. This is great. Yes. I totally understand you. Yes.
+
+1:46:18.880 --> 1:46:24.960
+ You've accomplished some incredible things in the space of science, in the space of
+
+1:46:26.160 --> 1:46:32.560
+ technology, in the space of theory and engineering. Do you have advice for somebody young,
+
+1:46:33.120 --> 1:46:37.840
+ an undergraduate student, somebody in high school or anyone who just feels young
+
+1:46:37.840 --> 1:46:43.120
+ about life or about career, about making their way in this world?
+
+1:46:43.920 --> 1:46:50.480
+ So I was telling before that I believe in emotion and my thing is to be true to your
+
+1:46:51.360 --> 1:46:58.480
+ own emotion. And that I think that if you do that, you're doing well because it's a life well spent
+
+1:46:59.200 --> 1:47:05.840
+ and you are going never tire because you want to solve all these emotional knots that
+
+1:47:05.840 --> 1:47:13.360
+ always intrigued you from the beginning. And I really believe that to live meaningfully,
+
+1:47:13.360 --> 1:47:20.320
+ creatively, and yet to live your emotional life. So I really believe that whether you're a scientist
+
+1:47:20.320 --> 1:47:25.360
+ or an artist even more, but a scientist, I think of them as artists as well. If you are a human
+
+1:47:25.360 --> 1:47:31.840
+ being, so you are really to live fully your emotions and to the extent possible, sometimes
+
+1:47:31.840 --> 1:47:39.520
+ emotions can be overbearing and my advice is try to express them with more and more confident.
+
+1:47:39.520 --> 1:47:45.200
+ Sometimes it's hard, but you are going to be much more fulfilled than by suppressing them.
+
+1:47:45.840 --> 1:47:49.120
+ What about love? One of the big ones. What role does that play?
+
+1:47:50.400 --> 1:47:58.720
+ That's the bigger part of emotions. It's a scary thing. It's a lot of vulnerability that comes
+
+1:47:58.720 --> 1:48:10.400
+ with love, but there is also so much energy and power and love in all senses and in the traditional
+
+1:48:10.400 --> 1:48:19.040
+ sense, but also in the sense of a broader sense for humanity, this feeling, this compassion that
+
+1:48:20.000 --> 1:48:28.560
+ makes us one with other people and the suffering of other people. All of this is very scary stuff,
+
+1:48:28.560 --> 1:48:37.280
+ but it's really the fabric of life. Well, the sad thing is it really hurts to lose it.
+
+1:48:38.320 --> 1:48:43.040
+ Yes, that's why the vulnerability comes with it. That's the thing about emotion is
+
+1:48:43.840 --> 1:48:51.440
+ the up and the down and the down seems to come always with up, but the up only comes with the
+
+1:48:51.440 --> 1:49:01.680
+ down. Let me ask you about the ultimate down, which is unfortunately we humans are mortal
+
+1:49:02.640 --> 1:49:10.240
+ or appear to be for the most part. Do you think about your own mortality? Do you fear death?
+
+1:49:11.200 --> 1:49:19.840
+ I hope so. Without death, there is no life. At least there is no meaningful life. Death is
+
+1:49:19.840 --> 1:49:26.480
+ actually in some sense our ultimate motivator to live a beautiful and meaningful life. I myself
+
+1:49:26.480 --> 1:49:33.760
+ felt as a young man that unless I got something that I wanted to do, I don't know why I got this
+
+1:49:33.760 --> 1:49:39.760
+ idea of something to say. If I'm not able to say, I would suicide. Maybe it was a way to motivate
+
+1:49:39.760 --> 1:49:44.720
+ myself, but you don't need to motivate it because in some sense, unfortunately, death is there.
+
+1:49:44.720 --> 1:49:55.280
+ So you better get up and do your thing because that is the best motivation to live fully.
+
+1:49:56.160 --> 1:49:59.040
+ Well, what do you hope your legacy is?
+
+1:50:05.360 --> 1:50:06.720
+ You mentioned you have two kids.
+
+1:50:06.720 --> 1:50:20.560
+ Yes. I really feel that on one side is my biological legacy and that is my two kids
+
+1:50:21.840 --> 1:50:31.840
+ and their kids, hopefully. That is one side. The other thing is this common enterprise,
+
+1:50:31.840 --> 1:50:41.440
+ which is society. I really feel that my legacy would be better by providing security and privacy.
+
+1:50:42.400 --> 1:50:48.720
+ Actually, for me, it's metaphorical to say I want to give you the ability to interact more and take
+
+1:50:48.720 --> 1:50:55.280
+ more risks and reach out more for more people as difficult and dangerous as it may seem.
+
+1:50:55.280 --> 1:51:02.400
+ But my whole scientific work is about to guarantee privacy and give you the security
+
+1:51:02.400 --> 1:51:08.400
+ of interaction. Not only in a transaction, like it would be a blockchain transaction, but
+
+1:51:09.040 --> 1:51:17.280
+ that is really one of the hardcore of my emotional problems. I think that these are
+
+1:51:17.280 --> 1:51:22.800
+ the problems I want to tackle. Ultimately, privacy and security is freedom.
+
+1:51:22.800 --> 1:51:28.800
+ Freedom is at the core of this. It's dangerous. It's like the emotion thing,
+
+1:51:30.400 --> 1:51:34.080
+ but ultimately, that's how we create all the beautiful things around us. Do you think there's
+
+1:51:34.080 --> 1:51:42.000
+ meaning to it all, this life, except the urgency that death provides and us anxious
+
+1:51:43.600 --> 1:51:48.800
+ beings create cool stuff along the way? Is there a deeper meaning? If it is, what is it?
+
+1:51:48.800 --> 1:51:53.200
+ Well, meaning of life. Actually, there are three meanings of life.
+
+1:51:53.760 --> 1:51:54.320
+ Great.
+
+1:51:54.320 --> 1:52:00.480
+ That's great. One, to seek. Two, to seek. And three, to seek.
+
+1:52:01.040 --> 1:52:04.640
+ To seek what? Or is there no answer to that?
+
+1:52:04.640 --> 1:52:10.880
+ There's no answer to that. I really think that the journey is more important than the destination,
+
+1:52:10.880 --> 1:52:19.840
+ whatever that be. I think that is a journey and is, in my opinion, at the end of the day,
+
+1:52:19.840 --> 1:52:29.120
+ I must admit, meaningful in itself. We must admit that maybe whatever your destination might be,
+
+1:52:30.240 --> 1:52:37.920
+ at the end, we may never get there, but hell was a great ride towards it.
+
+1:52:37.920 --> 1:52:43.680
+ Well, I don't think there's a better way to end this, Silvio. Thank you for wasting your extremely
+
+1:52:43.680 --> 1:52:50.240
+ valuable time with me today, joining on this journey of seeking something together. We found
+
+1:52:50.240 --> 1:52:54.800
+ nothing, but it was very fun. I really enjoyed it. Thank you so much for talking to us.
+
+1:52:54.800 --> 1:52:59.120
+ Thank you, Alex. It's been really special for me to be interviewed by you.
+
+1:53:00.240 --> 1:53:03.280
+ Thank you for listening to this conversation with Silvio McCauley,
+
+1:53:03.280 --> 1:53:09.840
+ and thank you to our sponsors, Athletic Greens Nutrition Drink, the Information In Depth
+
+1:53:09.840 --> 1:53:16.880
+ Tech Journalism website, Four Sigmatic Mushroom Coffee, and BetterHelp Online Therapy. Click the
+
+1:53:16.880 --> 1:53:22.240
+ sponsor links to get a discount and to support this podcast. And now, let me leave you with
+
+1:53:22.240 --> 1:53:28.240
+ some words from Henry David Thoreau. Wealth is the ability to fully experience life.
+
+1:53:28.240 --> 1:53:34.960
+ Thank you for listening, and hope to see you next time.
+

@@ -1,0 +1,5183 @@
+WEBVTT
+
+00:00.000 --> 00:04.640
+ The following is a conversation with Catherine Duclir, a professor of Planetary Science and
+
+00:04.640 --> 00:06.760
+ Astronomy at Caltech.
+
+00:06.760 --> 00:12.600
+ Her research is on the surface environments, atmospheres, and thermochemical histories
+
+00:12.600 --> 00:16.080
+ of the planets and moons in our solar system.
+
+00:16.080 --> 00:22.840
+ Quick mention of our sponsors, Fundrise, Blinkist, ExpressVPN, and Magic Spoon.
+
+00:22.840 --> 00:25.880
+ Check them out in the description to support this podcast.
+
+00:25.880 --> 00:30.960
+ As a side note, let me say that this conversation and a few others, quite big ones actually,
+
+00:30.960 --> 00:35.360
+ that are coming up were filmed in a studio where I was trying to outsource some of the
+
+00:35.360 --> 00:36.360
+ work.
+
+00:36.360 --> 00:38.920
+ Like all experiments, it was a learning experience for me.
+
+00:38.920 --> 00:40.840
+ It had some positives and negatives.
+
+00:40.840 --> 00:44.680
+ Ultimately, I decided to return back to doing it the way I was doing before, but hopefully
+
+00:44.680 --> 00:49.560
+ with a team who can help me out and work with me long term.
+
+00:49.560 --> 00:54.560
+ The point is, I will always keep challenging myself, trying stuff out, learning, growing,
+
+00:54.560 --> 00:56.640
+ and hopefully improving over time.
+
+00:56.640 --> 01:01.600
+ My goal is to surround myself with people who love what they do, are amazing at it,
+
+01:01.600 --> 01:04.960
+ and are obsessed with doing the best work of their lives.
+
+01:04.960 --> 01:08.080
+ To me, there's nothing more energizing and fun than that.
+
+01:08.080 --> 01:12.680
+ In fact, I'm currently hiring a few folks to work with me on various small projects.
+
+01:12.680 --> 01:17.560
+ If this is something of interest to you, go to lexfreedman.com slash hiring.
+
+01:17.560 --> 01:21.680
+ That's where I will always post opportunities for working with me.
+
+01:21.680 --> 01:28.000
+ This is the Lex Friedman Podcast, and here is my conversation with Catherine DeClear.
+
+01:28.000 --> 01:30.120
+ Why is Pluto not a planet anymore?
+
+01:30.120 --> 01:36.440
+ Does this upset you or has justice finally been served?
+
+01:36.440 --> 01:38.320
+ So I get asked this all the time.
+
+01:38.320 --> 01:43.440
+ I think all planetary scientists get asked about Pluto, especially by kids who, we just
+
+01:43.440 --> 01:46.400
+ love for Pluto to still be a planet.
+
+01:46.400 --> 01:53.640
+ But the reality is, when we first discovered Pluto, it was a unique object in the outer
+
+01:53.640 --> 01:54.640
+ solar system.
+
+01:54.640 --> 01:59.040
+ And we thought we were adding a planet to the inventory of planets that we had.
+
+01:59.040 --> 02:04.980
+ And then over time, it became clear that Pluto was not a unique, large object in the outer
+
+02:04.980 --> 02:08.960
+ solar system, that there were actually many of these.
+
+02:08.960 --> 02:12.600
+ And as we started discovering more and more of them, we realized that the concept of Pluto
+
+02:12.600 --> 02:18.960
+ being a planet didn't make sense unless maybe we added all the rest of them as planets.
+
+02:18.960 --> 02:22.240
+ So you could have imagined actually a different direction that this could have gone where
+
+02:22.240 --> 02:26.800
+ all the other objects that were discovered in that belt, or at least all the ones, let's
+
+02:26.800 --> 02:33.400
+ say, above a certain size, became planets instead of Pluto being declassified.
+
+02:33.400 --> 02:37.920
+ But we're now aware of many objects out there in the outer solar system and what's called
+
+02:37.920 --> 02:44.640
+ the Kuiper Belt that are of the same size or in some cases even larger than Pluto.
+
+02:44.640 --> 02:50.480
+ So the declassification was really just a realization that it was not in the same category
+
+02:50.480 --> 02:52.640
+ as the other planets in the solar system.
+
+02:52.640 --> 02:57.420
+ And we basically needed to refine our definition in such a way that took into account that
+
+02:57.420 --> 03:03.120
+ there's this belt of debris out there in the outer solar system of things with a range
+
+03:03.120 --> 03:05.080
+ of sizes.
+
+03:05.080 --> 03:10.840
+ Is there a hope for clear categorization of what is a planet and not, or is it all just
+
+03:10.840 --> 03:11.900
+ gray area?
+
+03:11.900 --> 03:18.080
+ When you study planets, when you study moons, satellites of those planets, is there lines
+
+03:18.080 --> 03:20.960
+ that could be cleanly drawn or is it just a giant mess?
+
+03:20.960 --> 03:27.120
+ Is it all like a fluid, let's say not mess, but it's like fluid of what is a planet, what
+
+03:27.120 --> 03:32.600
+ is a moon of a planet, what is debris, what is asteroids, all that kind of...
+
+03:32.600 --> 03:38.440
+ So there are technically clear definitions that were set down by the IAU, the International
+
+03:38.440 --> 03:41.640
+ Astronomy Union.
+
+03:41.640 --> 03:42.640
+ Is it size related?
+
+03:42.640 --> 03:44.440
+ Like what are the parameters based on?
+
+03:44.440 --> 03:49.560
+ So the parameters are that it has to orbit the sun, which was essentially to rule out
+
+03:49.560 --> 03:50.560
+ satellites.
+
+03:50.560 --> 03:53.880
+ Of course, this was a not very forward thinking definition because it technically means that
+
+03:53.880 --> 03:58.020
+ all extrasolar planets according to that definition are not planets.
+
+03:58.020 --> 04:00.340
+ So it has to orbit the sun.
+
+04:00.340 --> 04:05.760
+ It has to be large enough that its gravity has caused it to become spherical in shape,
+
+04:05.760 --> 04:08.280
+ which also applies to satellites and also applies to Pluto.
+
+04:08.280 --> 04:11.680
+ The third part of the definition is the thing that really rules out everything else, which
+
+04:11.680 --> 04:15.860
+ is that it has to have cleared out its orbital path.
+
+04:15.860 --> 04:21.560
+ And because Pluto orbits in a belt of material, it doesn't satisfy that stipulation.
+
+04:21.560 --> 04:22.840
+ Why didn't you clear out the path?
+
+04:22.840 --> 04:26.560
+ It's not big enough to knock everybody out of the way.
+
+04:26.560 --> 04:29.060
+ And this actually is not the first time it has happened.
+
+04:29.060 --> 04:33.440
+ So Ceres, when it was discovered, Ceres is the largest asteroid in the asteroid belt,
+
+04:33.440 --> 04:36.760
+ and it was originally considered a planet when it was first discovered.
+
+04:36.760 --> 04:42.920
+ And it went through exactly the same story, history, where people actually realized that
+
+04:42.920 --> 04:47.180
+ it was just one of many asteroids in the asteroid belt region, and then it got declassified
+
+04:47.180 --> 04:50.160
+ to an asteroid, and now it's back to a dwarf planet.
+
+04:50.160 --> 04:52.100
+ So there is a lot of reclassification.
+
+04:52.100 --> 04:59.840
+ So to me, as somebody who studies solar system objects, I just personally don't care.
+
+04:59.840 --> 05:04.460
+ My level of interest in something has nothing to do with what it's classified as.
+
+05:04.460 --> 05:08.420
+ So my favorite objects in the solar system are all moons, and frequently when I talk
+
+05:08.420 --> 05:12.400
+ about them, I refer to them as planets because to me they are planets.
+
+05:12.400 --> 05:17.080
+ They have volcanoes, they have geology, they have atmospheres, they're planet like worlds.
+
+05:17.080 --> 05:22.540
+ And so the distinction is not super meaningful to me, but it is important just for having
+
+05:22.540 --> 05:28.260
+ a general framework for understanding and talking about things to have a precise definition.
+
+05:28.260 --> 05:34.340
+ So you don't have a special romantic appreciation of a moon versus a planet versus an asteroid.
+
+05:34.340 --> 05:38.260
+ It's just an object that flies out there and it doesn't really matter what the categorization
+
+05:38.260 --> 05:39.260
+ is.
+
+05:39.260 --> 05:45.300
+ Because there's movies about asteroids and stuff, and then there's movies about the moon,
+
+05:45.300 --> 05:48.780
+ whatever, it's a really good movie.
+
+05:48.780 --> 05:55.580
+ There's something about moons that's almost like an outlier.
+
+05:55.580 --> 06:03.980
+ You think of a moon as a thing that's the secret part, and the planet is the more vanilla
+
+06:03.980 --> 06:04.980
+ regular part.
+
+06:04.980 --> 06:05.980
+ None of that?
+
+06:05.980 --> 06:06.980
+ You don't have any of that?
+
+06:06.980 --> 06:07.980
+ No, I actually do.
+
+06:07.980 --> 06:11.220
+ I really, satellites are, the moons are my favorite things in the solar system.
+
+06:11.220 --> 06:17.340
+ I think part of what you're saying, I agree from maybe a slightly different perspective,
+
+06:17.340 --> 06:22.460
+ which is from the perspective of exploration, we've spent a lot of time sending spacecraft
+
+06:22.460 --> 06:23.740
+ missions to planets.
+
+06:23.740 --> 06:27.260
+ We had a mission to Jupiter, we had a mission to Saturn, we have plenty of missions to Mars
+
+06:27.260 --> 06:28.500
+ and missions to Venus.
+
+06:28.500 --> 06:33.220
+ I think the exploration of the moons in the outer solar system is the next frontier of
+
+06:33.220 --> 06:35.580
+ solar system exploration.
+
+06:35.580 --> 06:39.400
+ The belt of debris, just real quick, that's out there.
+
+06:39.400 --> 06:42.140
+ Is there something incredible to be discovered there?
+
+06:42.140 --> 06:47.500
+ Again, we tend to focus on the planets and the moons, but it feels like there's probably
+
+06:47.500 --> 06:51.880
+ a lot of stuff out there and it probably, what is it?
+
+06:51.880 --> 06:56.860
+ It's like a garbage collector from outside of the solar system, isn't it?
+
+06:56.860 --> 07:02.060
+ Like, doesn't it protect from other objects that kind of fly in and what, it just feels
+
+07:02.060 --> 07:08.500
+ like it's a cool, you know when you like walk along the beach and look for stuff and like
+
+07:08.500 --> 07:13.820
+ look for, it feels like that's that kind of place where you can find cool weird things.
+
+07:13.820 --> 07:20.580
+ Or I guess in our conversation today, when we think about tools and what science is studying,
+
+07:20.580 --> 07:24.140
+ is there something to be studied out there or we just don't have maybe the tools yet
+
+07:24.140 --> 07:26.860
+ or there's nothing to be found?
+
+07:26.860 --> 07:28.340
+ There's absolutely a lot to be found.
+
+07:28.340 --> 07:32.500
+ So the material that's out there is remnant material from the formation of our solar system.
+
+07:32.500 --> 07:38.660
+ We don't think it comes from outside the solar system, at least not most of it.
+
+07:38.660 --> 07:44.740
+ But there are so many fascinating objects out there and I think what you fit on is exactly
+
+07:44.740 --> 07:48.780
+ right that we just don't have the tools to study them in detail.
+
+07:48.780 --> 07:53.100
+ But we can look out there and we can see there are different species of ice on their surface
+
+07:53.100 --> 07:58.100
+ that tells us about, you know, the chemical composition of the disk that formed our solar
+
+07:58.100 --> 07:59.100
+ system.
+
+07:59.100 --> 08:03.060
+ Some of these objects are way brighter than they should be, meaning they have some kind
+
+08:03.060 --> 08:04.340
+ of geological activity.
+
+08:04.340 --> 08:08.040
+ People have hypothesized that some of these objects have subsurface oceans.
+
+08:08.040 --> 08:12.460
+ You could even stretch your imagination and say some of those oceans could be habitable.
+
+08:12.460 --> 08:16.980
+ But we can't get very detailed information about them because they're so far away.
+
+08:16.980 --> 08:21.500
+ And so I think if any of those objects were in the inner solar system, it would be studied
+
+08:21.500 --> 08:24.060
+ intently and would be very interesting.
+
+08:24.060 --> 08:30.100
+ So would you be able to design a probe in that like very dense debris field, be able
+
+08:30.100 --> 08:32.780
+ to like hop from one place to another?
+
+08:32.780 --> 08:37.980
+ Is that just outside of the realm of like how would you even design devices or sensors
+
+08:37.980 --> 08:42.260
+ that go out there and take pictures and land?
+
+08:42.260 --> 08:47.200
+ Do you have to land to truly understand a little piece of rock or can you understand
+
+08:47.200 --> 08:52.580
+ it from remotely, like fly up close and remotely observe?
+
+08:52.580 --> 08:56.780
+ You can learn quite a lot from just a flyby and that's all we're currently capable of
+
+08:56.780 --> 08:58.540
+ doing in the outer solar system.
+
+08:58.540 --> 09:05.300
+ The New Horizons mission is a recent example which flew by Pluto and then they had searched
+
+09:05.300 --> 09:10.260
+ for another object that was out there in the Kuiper Belt, any object that was basically
+
+09:10.260 --> 09:13.900
+ somewhere that they could deflect their trajectory to actually fly by.
+
+09:13.900 --> 09:18.500
+ And so they did fly by another object out there in the Kuiper Belt and they take pictures
+
+09:18.500 --> 09:19.860
+ and they do what they can do.
+
+09:19.860 --> 09:25.220
+ And if you've seen the images from that mission of Pluto, you can see just how much detail
+
+09:25.220 --> 09:29.060
+ we have compared to just the sort of reddish dot that we knew of before.
+
+09:29.060 --> 09:33.980
+ So you do get an amazing amount of information actually from just essentially a high speed
+
+09:33.980 --> 09:34.980
+ flyby.
+
+09:34.980 --> 09:41.260
+ It always makes me sad to think about flybys that we might be able to, we might fly by
+
+09:41.260 --> 09:46.020
+ a piece of rock, take a picture and think, oh, that looks pretty and cool and whatever.
+
+09:46.020 --> 09:49.820
+ And that you could study certain like composition of the surface and so on.
+
+09:49.820 --> 09:55.780
+ But it's actually teeming with life and we won't be able to see it at first.
+
+09:55.780 --> 09:56.780
+ And it's sad.
+
+09:56.780 --> 10:00.300
+ Cause you know, like when you're on a deserted island and you wave your hands and the thing
+
+10:00.300 --> 10:05.460
+ flies by and you're trying to get their attention and they probably do the same, well in their
+
+10:05.460 --> 10:07.820
+ own way, bacteria probably, right?
+
+10:07.820 --> 10:10.100
+ But and we miss it.
+
+10:10.100 --> 10:16.380
+ I don't know, some reason it makes me, it's the FOMO, it's fear of missing out.
+
+10:16.380 --> 10:23.060
+ It makes me sad that there might be life out there and we don't, we're not in touch with
+
+10:23.060 --> 10:24.060
+ it.
+
+10:24.060 --> 10:25.060
+ We're not talking.
+
+10:25.060 --> 10:26.060
+ Yeah.
+
+10:26.060 --> 10:27.060
+ Well, okay.
+
+10:27.060 --> 10:32.540
+ A sad pause, a Russian philosophical pause.
+
+10:32.540 --> 10:33.540
+ Okay.
+
+10:33.540 --> 10:36.900
+ What are the tools available to us to study planets and their moons?
+
+10:36.900 --> 10:38.660
+ Oh my goodness.
+
+10:38.660 --> 10:41.520
+ That is such a big question.
+
+10:41.520 --> 10:47.620
+ So among the field of astronomy, so planetary science broadly speaking, well, it falls kind
+
+10:47.620 --> 10:53.860
+ of at the border of astronomy, geology, climate science, chemistry, and even biology.
+
+10:53.860 --> 10:57.820
+ So it's kind of on the border of many things, but part of it falls under the heading of
+
+10:57.820 --> 10:58.820
+ astronomy.
+
+10:58.820 --> 11:04.560
+ And among the things that you can study with telescopes, like solar system moons and planets,
+
+11:04.560 --> 11:09.660
+ the solar system is really unique in that we can actually send spacecraft missions to
+
+11:09.660 --> 11:11.540
+ the objects and study them in detail.
+
+11:11.540 --> 11:15.580
+ And so I think that's, that's the kind of type of tool that is, that people are most
+
+11:15.580 --> 11:22.420
+ aware of, that's most popularized, these amazing NASA missions that either you fly by the object,
+
+11:22.420 --> 11:27.620
+ you orbit the object, you land on the object, potentially you can talk about digging into
+
+11:27.620 --> 11:35.060
+ it, drilling, trying to detect tectonic tremors on its surface.
+
+11:35.060 --> 11:42.140
+ The types of tools that I use are primarily telescopes and so I, my background is in astrophysics
+
+11:42.140 --> 11:47.700
+ and so I actually got into solar system science from astronomy, not from, you know, a childhood
+
+11:47.700 --> 11:52.300
+ fascination with spacecraft missions, which is actually what a lot of planetary scientists
+
+11:52.300 --> 11:56.400
+ became planetary scientists because of childhood fascination with spacecraft missions, which
+
+11:56.400 --> 12:00.500
+ is kind of interesting for me to talk to people and see that trajectory.
+
+12:00.500 --> 12:03.460
+ I kind of came at it from the fascination with telescopes angle.
+
+12:03.460 --> 12:08.540
+ So you like telescopes, not rockets, or at least when I was a kid it was looking at the
+
+12:08.540 --> 12:14.180
+ stars and playing with telescopes that really fascinated me and that's how I got into this.
+
+12:14.180 --> 12:21.260
+ But telescopes, it's amazing how much detail and how much information you can get from
+
+12:21.260 --> 12:22.700
+ telescopes today.
+
+12:22.700 --> 12:29.860
+ You can resolve individual cloud features and watch them kind of sheer out in the atmosphere
+
+12:29.860 --> 12:30.860
+ of Titan.
+
+12:30.860 --> 12:38.620
+ You can literally watch volcanoes on Io change from day to day as the lava flows expand.
+
+12:38.620 --> 12:43.460
+ So and then, you know, spectroscopy, you get compositional information on all these things
+
+12:43.460 --> 12:51.100
+ and it's, when I started doing solar system astronomy, I was surprised by how much detail
+
+12:51.100 --> 12:55.740
+ and how much information you can get even from Earth and then as well as from orbit
+
+12:55.740 --> 12:59.580
+ like the Hubble Space Telescope or the James Webb.
+
+12:59.580 --> 13:06.420
+ So with the telescope, you can, I mean, how much information can you get about volcanoes,
+
+13:06.420 --> 13:13.720
+ about storms, about sort of weather, just so we kind of get a sense, like what a resolution
+
+13:13.720 --> 13:15.460
+ we're talking about?
+
+13:15.460 --> 13:20.020
+ Well, in terms of resolution, so at a, you know, on a given night, if I go and take a
+
+13:20.020 --> 13:26.420
+ picture of Io and its volcanoes, you can sometimes see at least a dozen different volcanoes.
+
+13:26.420 --> 13:30.180
+ You can see the infrared emission coming off of them and resolve them, separate them from
+
+13:30.180 --> 13:36.300
+ one another on the surface and actually watch how the heat coming off of them changes with
+
+13:36.300 --> 13:37.300
+ time.
+
+13:37.300 --> 13:41.740
+ And I think this time variability aspect is one of the big advantages we get from telescopes.
+
+13:41.740 --> 13:45.860
+ So you send a spacecraft mission there and you get an incredible amount of information
+
+13:45.860 --> 13:47.580
+ over a very short time period.
+
+13:47.580 --> 13:53.480
+ But for some science questions, you need to observe something for 30 years, 40 years.
+
+13:53.480 --> 13:57.780
+ Like let's say you want to look at the moon Titan, which has one of the most interesting
+
+13:57.780 --> 14:00.540
+ atmospheres in the solar system.
+
+14:00.540 --> 14:04.620
+ Its orbital period is 29, 30 years.
+
+14:04.620 --> 14:09.700
+ And so if you want to look at how its atmospheric seasons work, you have to observe it over
+
+14:09.700 --> 14:11.300
+ that long of a time period.
+
+14:11.300 --> 14:15.420
+ And you're not going to do that with a spacecraft, but you can do it with telescopes.
+
+14:15.420 --> 14:20.100
+ Can we just zoom in on certain things like, let's talk about Io, which is the moon of
+
+14:20.100 --> 14:21.100
+ Jupiter.
+
+14:21.100 --> 14:22.100
+ Right.
+
+14:22.100 --> 14:23.100
+ Okay.
+
+14:23.100 --> 14:24.100
+ It's so big.
+
+14:24.100 --> 14:27.380
+ There's like volcanoes all over the place.
+
+14:27.380 --> 14:30.260
+ It's from a distance.
+
+14:30.260 --> 14:31.260
+ It's awesome.
+
+14:31.260 --> 14:37.700
+ So can you tell me about this moon and you're sort of a scholar of many planets and moons,
+
+14:37.700 --> 14:40.140
+ but that one kind of stood out to me.
+
+14:40.140 --> 14:42.340
+ So why is that an interesting one?
+
+14:42.340 --> 14:47.620
+ For so many reasons, but Io is the most volcanically active object in the solar system.
+
+14:47.620 --> 14:50.500
+ It has hundreds of active volcanoes on it.
+
+14:50.500 --> 14:56.140
+ It has volcanic plumes that go hundreds of kilometers up above its surface.
+
+14:56.140 --> 15:03.180
+ It puts out more volume of magma per volcano than volcanoes on Earth today.
+
+15:03.180 --> 15:10.160
+ But I think to me, the reason that it's most interesting is as a laboratory for understanding
+
+15:10.160 --> 15:12.780
+ planetary processes.
+
+15:12.780 --> 15:18.700
+ So one of the broad goals of planetary science is to put together a sort of more general
+
+15:18.700 --> 15:24.580
+ and coherent framework for how planets work in general.
+
+15:24.580 --> 15:27.660
+ Our current framework, you know, it started out very Earth centric.
+
+15:27.660 --> 15:30.540
+ We start to understand how Earth volcanoes work.
+
+15:30.540 --> 15:35.140
+ But then when you try to transport that to somewhere like Io that doesn't have an atmosphere,
+
+15:35.140 --> 15:41.540
+ which has a very tenuous atmosphere, which makes a big difference for how the magma degasses,
+
+15:41.540 --> 15:44.940
+ for something that's really small, for something that has a different heat source, for something
+
+15:44.940 --> 15:49.140
+ that's embedded in another object's magnetic field, the kind of intuition we have from
+
+15:49.140 --> 15:50.220
+ Earth doesn't apply.
+
+15:50.220 --> 15:56.540
+ And so broadly, planetary science is trying to broaden that framework so that you have
+
+15:56.540 --> 16:01.260
+ a kind of narrative that you can understand how each planet became different from every
+
+16:01.260 --> 16:02.700
+ other planet.
+
+16:02.700 --> 16:04.060
+ And I'm already making a mistake.
+
+16:04.060 --> 16:06.300
+ When I say planet, I mean planets and moons.
+
+16:06.300 --> 16:08.340
+ Like I said, I see the moons as planets.
+
+16:08.340 --> 16:09.340
+ As planets.
+
+16:09.340 --> 16:10.340
+ Yeah.
+
+16:10.340 --> 16:14.620
+ I actually already noticed that you didn't introduce Io as the moon of Jupiter.
+
+16:14.620 --> 16:19.300
+ You completely, you kind of ignored the fact that Jupiter exists.
+
+16:19.300 --> 16:21.900
+ It's like, let's focus on this.
+
+16:21.900 --> 16:22.900
+ Yeah.
+
+16:22.900 --> 16:23.900
+ Okay.
+
+16:23.900 --> 16:28.780
+ So, and you also didn't mention Europa, which I think is the, is that the most famous moon
+
+16:28.780 --> 16:29.780
+ of Jupiter?
+
+16:29.780 --> 16:33.660
+ Is that the one gets attention because it might have life?
+
+16:33.660 --> 16:34.660
+ Exactly.
+
+16:34.660 --> 16:35.660
+ Yeah.
+
+16:35.660 --> 16:37.980
+ But to you, Io is also beautiful.
+
+16:37.980 --> 16:41.900
+ What's the difference between volcanoes on Io versus Earth?
+
+16:41.900 --> 16:44.980
+ You said atmosphere makes a difference.
+
+16:44.980 --> 16:48.500
+ What the heat source plays a big role.
+
+16:48.500 --> 16:55.860
+ So many of the moons in the outer solar system are heated from gravitationally by tidal heating.
+
+16:55.860 --> 17:00.540
+ And I'm happy to describe what that is or, yeah, please, what's tidal?
+
+17:00.540 --> 17:01.540
+ Yes.
+
+17:01.540 --> 17:07.740
+ So tidal heating is, it's, if you want to understand and contextualize planets and moons,
+
+17:07.740 --> 17:10.660
+ you have to understand their heat sources.
+
+17:10.660 --> 17:16.580
+ So for Earth, we have radioactive decay in our interior as well as residual heat of formation.
+
+17:16.580 --> 17:21.300
+ But for satellites, tidal heating plays a really significant role and in particular
+
+17:21.300 --> 17:27.380
+ in driving geological activity on satellites and potentially making those subsurface oceans
+
+17:27.380 --> 17:31.040
+ in places like Europa and Enceladus habitable.
+
+17:31.040 --> 17:37.500
+ And so the way that that works is if you have multiple moons and their orbital periods are
+
+17:37.500 --> 17:42.380
+ integer multiples of one another, that means that they're always encountering each other
+
+17:42.380 --> 17:46.420
+ at the same point in the orbit.
+
+17:46.420 --> 17:50.220
+ So if they were on just random orbits, they'd be encountering each other at random places
+
+17:50.220 --> 17:55.020
+ and the gravitational effect between the two moons would be canceling out over time.
+
+17:55.020 --> 18:00.160
+ But because they're always meeting each other at the same point in the orbit, those gravitational
+
+18:00.160 --> 18:02.860
+ interactions add up coherently.
+
+18:02.860 --> 18:06.100
+ And so that tweaks them into eccentric orbits.
+
+18:06.100 --> 18:08.020
+ What's an eccentric orbit?
+
+18:08.020 --> 18:12.980
+ So eccentric orbit or elliptical orbit, it just means noncircular, so a deviation from
+
+18:12.980 --> 18:13.980
+ a circular orbit.
+
+18:13.980 --> 18:19.180
+ And that means that for Io or Europa, at some points in their orbit, they're closer to Jupiter
+
+18:19.180 --> 18:22.340
+ and at some points in their orbit, they're farther away.
+
+18:22.340 --> 18:29.580
+ And so when they're closer, they're stretched out in a sense, but literally just not very
+
+18:29.580 --> 18:32.240
+ stretched out, like a couple hundred meters, something like that.
+
+18:32.240 --> 18:35.220
+ And then when they're farthest away, they're less stretched out.
+
+18:35.220 --> 18:40.140
+ And so you actually have the shape of the object deforming over the course of the orbit.
+
+18:40.140 --> 18:42.620
+ And these orbits are like just a couple of days.
+
+18:42.620 --> 18:49.300
+ And so that, in the case of Io, that is literally sufficient friction in its mantle to melt
+
+18:49.300 --> 18:50.900
+ the rock of its mantle.
+
+18:50.900 --> 18:52.840
+ And that's what generates the magma.
+
+18:52.840 --> 18:54.660
+ That's the source of the magma.
+
+18:54.660 --> 18:55.660
+ Yeah.
+
+18:55.660 --> 18:56.660
+ Okay.
+
+18:56.660 --> 19:03.200
+ So why is, so Europa is, I thought there was like ice and oceans underneath kind of thing.
+
+19:03.200 --> 19:05.380
+ So why is Europa not getting the friction?
+
+19:05.380 --> 19:07.820
+ It is, it's just a little bit farther away from Jupiter.
+
+19:07.820 --> 19:10.740
+ And then Ganymede is also in the orbital resonance.
+
+19:10.740 --> 19:14.900
+ So it's a three object orbital resonance in the Jupiter system.
+
+19:14.900 --> 19:20.700
+ But we have these sorts of orbital resonances all over the solar system and also in exoplanets.
+
+19:20.700 --> 19:25.620
+ So for Europa, basically because it's farther from Jupiter, the effect is not as extreme,
+
+19:25.620 --> 19:29.500
+ but you do still have heat generated in its interior in this way.
+
+19:29.500 --> 19:34.940
+ And that may be driving, could be driving hydrothermal activity at the base of its ocean,
+
+19:34.940 --> 19:38.780
+ which obviously would be a really valuable thing for life.
+
+19:38.780 --> 19:39.780
+ Cool.
+
+19:39.780 --> 19:42.100
+ So it's like heating up the ocean a little bit.
+
+19:42.100 --> 19:43.620
+ Heating up the ocean a little bit.
+
+19:43.620 --> 19:48.580
+ And specifically in these like hydrothermal vents where we see really interesting life
+
+19:48.580 --> 19:51.060
+ evolve in the bottom of Earth's oceans.
+
+19:51.060 --> 19:52.060
+ That's cool.
+
+19:52.060 --> 19:53.060
+ Okay.
+
+19:53.060 --> 19:55.440
+ So what's Io, what else?
+
+19:55.440 --> 19:59.740
+ So we know the source is this friction, but there's no atmosphere.
+
+19:59.740 --> 20:05.740
+ I'm trying to get a sense of what it's like if you and I were to visit Io, like what would
+
+20:05.740 --> 20:06.740
+ that look like?
+
+20:06.740 --> 20:08.780
+ What would it feel like?
+
+20:08.780 --> 20:15.560
+ Is this the entire thing covered in basically volcanoes?
+
+20:15.560 --> 20:18.660
+ So it's interesting because there's very little atmosphere.
+
+20:18.660 --> 20:23.300
+ The surface is actually really cold, very far below freezing on the surface when you're
+
+20:23.300 --> 20:28.980
+ away from a volcano, but the volcanoes themselves are over a thousand degrees or the magma when
+
+20:28.980 --> 20:30.740
+ it comes out is over a thousand degrees.
+
+20:30.740 --> 20:31.740
+ And so.
+
+20:31.740 --> 20:33.820
+ But it does come to the surface, the magma?
+
+20:33.820 --> 20:34.820
+ It does.
+
+20:34.820 --> 20:35.820
+ Yeah.
+
+20:35.820 --> 20:36.820
+ In particular places.
+
+20:36.820 --> 20:39.160
+ Whoa, that probably looks beautiful.
+
+20:39.160 --> 20:42.540
+ So like, so it's frozen, not ice.
+
+20:42.540 --> 20:46.380
+ Like what is, is rock, it's really cold rock.
+
+20:46.380 --> 20:51.340
+ And then you just have this like, what is, what does that look, what would that look
+
+20:51.340 --> 20:53.480
+ like with no atmosphere?
+
+20:53.480 --> 20:55.700
+ Would that, uh, would it be smoke?
+
+20:55.700 --> 20:58.620
+ What does it look like?
+
+20:58.620 --> 21:03.420
+ It's just magma, like just red, yellow, like liquidy things?
+
+21:03.420 --> 21:06.500
+ It's black, it's black and red, I guess.
+
+21:06.500 --> 21:10.440
+ Like think of the type of magma that you see in Hawaii.
+
+21:10.440 --> 21:13.260
+ So different types of magma flow in different ways, for example.
+
+21:13.260 --> 21:19.740
+ So in somewhere like Io, the magma is really hot and so it will flow out in sheets because
+
+21:19.740 --> 21:23.620
+ it has really low viscosity.
+
+21:23.620 --> 21:27.580
+ And I think the lava flows that we've been having in Hawaii over the past couple of years
+
+21:27.580 --> 21:35.020
+ are probably a decent analogy, although Io's magma's lavas are even more fluid and faster
+
+21:35.020 --> 21:36.020
+ moving.
+
+21:36.020 --> 21:37.020
+ How faster?
+
+21:37.020 --> 21:41.580
+ Like what, uh, how fat, like if you, uh, by the way, sorry, through the telescope, are
+
+21:41.580 --> 21:43.620
+ you tracking at what timescale?
+
+21:43.620 --> 21:47.580
+ Like every frame is how far apart?
+
+21:47.580 --> 21:50.820
+ If you're looking through a telescope, are we talking about seconds or we're talking
+
+21:50.820 --> 21:56.500
+ about days, months, when you kind of track, try to get a picture of what the surface might
+
+21:56.500 --> 21:59.660
+ look like, what's the frequency?
+
+21:59.660 --> 22:03.020
+ So it depends a little bit on what you want to do.
+
+22:03.020 --> 22:09.240
+ I, ideally every night, um, but you could take a frame every second and see how things
+
+22:09.240 --> 22:10.240
+ are changing.
+
+22:10.240 --> 22:16.300
+ The, the problem with that is that for things to change on a one second timescale, you to
+
+22:16.300 --> 22:19.820
+ actually see something change that fast, you have to have super high resolution.
+
+22:19.820 --> 22:22.460
+ The spatial resolution we have is a couple of hundred kilometers.
+
+22:22.460 --> 22:28.260
+ And so things are not changing on those scales over one second, unless you have something
+
+22:28.260 --> 22:29.900
+ really crazy happening.
+
+22:29.900 --> 22:36.100
+ So if you get, if you get a telescope closer to Io, if you get a, or a camera closer to
+
+22:36.100 --> 22:39.940
+ Io, would you be able to understand something?
+
+22:39.940 --> 22:41.860
+ Is that something of interest to you?
+
+22:41.860 --> 22:46.300
+ Would you be able to understand something deeper about these volcanic eruptions and
+
+22:46.300 --> 22:52.920
+ how magma flows and just the, like the rate of the magma is, or is it basically enough
+
+22:52.920 --> 22:55.100
+ to have the kilometer resolution?
+
+22:55.100 --> 22:56.100
+ Do you get it?
+
+22:56.100 --> 22:57.100
+ No way.
+
+22:57.100 --> 22:58.100
+ We want to go there.
+
+22:58.100 --> 22:59.100
+ Absolutely.
+
+22:59.100 --> 23:00.100
+ You want to go, you want to go to Io?
+
+23:00.100 --> 23:02.660
+ I mean, I don't want to go there personally, but I want to send a spacecraft mission there.
+
+23:02.660 --> 23:03.660
+ Absolutely.
+
+23:03.660 --> 23:04.660
+ Why?
+
+23:04.660 --> 23:05.660
+ Why are you scared?
+
+23:05.660 --> 23:06.660
+ Why am I scared?
+
+23:06.660 --> 23:11.540
+ Oh, you mean you don't like, I don't want to go there as a human as a human.
+
+23:11.540 --> 23:13.580
+ I want to send a robot there to look at it though.
+
+23:13.580 --> 23:16.180
+ This is again, everybody's discriminating against robots.
+
+23:16.180 --> 23:18.780
+ This is not, but it's fine.
+
+23:18.780 --> 23:22.320
+ But it's not hospitable to humans in any way, right?
+
+23:22.320 --> 23:24.780
+ Just very cold and very hot.
+
+23:24.780 --> 23:27.380
+ It's very cold.
+
+23:27.380 --> 23:31.680
+ The atmosphere is composed of sulfur dioxide, so you can breathe it.
+
+23:31.680 --> 23:32.680
+ There's no pressure.
+
+23:32.680 --> 23:34.860
+ I mean, it's kind of all the same things you talk about.
+
+23:34.860 --> 23:39.440
+ One talks about, about Mars only worse, the atmosphere is still a thousand times less
+
+23:39.440 --> 23:42.820
+ dense than Mars is.
+
+23:42.820 --> 23:47.060
+ And the radiation environment is terrible because you're embedded deep within Jupiter's
+
+23:47.060 --> 23:53.060
+ magnetic field and Jupiter's magnetic field is full of charged particles that have all
+
+23:53.060 --> 23:56.460
+ come out of Io's volcanoes actually.
+
+23:56.460 --> 24:03.060
+ So Jupiter's magnetic field strips all this material out of Io's atmosphere and that populates
+
+24:03.060 --> 24:07.540
+ its entire magnetosphere and then that material comes back around and hits Io and spreads
+
+24:07.540 --> 24:08.900
+ throughout the system actually.
+
+24:08.900 --> 24:13.580
+ It's just, it's like Io is the massive polluter of the Jupiter system.
+
+24:13.580 --> 24:15.700
+ Okay, cool.
+
+24:15.700 --> 24:23.260
+ So what does studying Io teach you about volcanoes on earth or vice versa?
+
+24:23.260 --> 24:30.900
+ Is in the difference of the two, what insights can you mine out?
+
+24:30.900 --> 24:34.900
+ That might be interesting in some way.
+
+24:34.900 --> 24:35.900
+ Yeah.
+
+24:35.900 --> 24:41.540
+ Well, we try to port the tools that we use to study earth volcanism to Io and it works
+
+24:41.540 --> 24:49.260
+ to some extent, but it is challenging because the situations are so different and the compositions
+
+24:49.260 --> 24:50.260
+ are really different.
+
+24:50.260 --> 24:55.020
+ When you talk about outgassing, you know, earth volcanoes outgassed primarily water
+
+24:55.020 --> 25:00.540
+ and carbon dioxide, and then sulfur dioxide is the third most abundant gas.
+
+25:00.540 --> 25:07.100
+ And on Io, the water and carbon dioxide are not there, either it didn't form with them
+
+25:07.100 --> 25:09.620
+ or it lost them, we don't know.
+
+25:09.620 --> 25:14.220
+ And so the chemistry of how the magma outgassed this is completely different.
+
+25:14.220 --> 25:24.580
+ But the kind of one to me most interesting analogy to earth is that, so Io, as I've said,
+
+25:24.580 --> 25:29.580
+ it has these really low viscosity magmas, the lava spreads really quickly across its
+
+25:29.580 --> 25:34.500
+ surface, it can put out massive volumes of magma in relatively short periods of time.
+
+25:34.500 --> 25:39.220
+ And that sort of volcanism is not happening anywhere else in the solar system today.
+
+25:39.220 --> 25:46.540
+ But literally every terrestrial planet and the moon had this, what we call very effusive
+
+25:46.540 --> 25:48.580
+ volcanism early in their history.
+
+25:48.580 --> 25:52.260
+ Okay, so this is almost like a little glimpse into the early history of earth.
+
+25:52.260 --> 25:53.260
+ Yeah.
+
+25:53.260 --> 25:54.260
+ Okay, cool.
+
+25:54.260 --> 26:00.220
+ So what are the chances that a volcano on earth destroys all of human civilization?
+
+26:00.220 --> 26:01.780
+ Maybe I wanted to sneak in that question.
+
+26:01.780 --> 26:06.020
+ Yeah, a volcano on earth.
+
+26:06.020 --> 26:09.500
+ Do you think about that kind of stuff when you just study volcanoes elsewhere?
+
+26:09.500 --> 26:15.380
+ Because isn't it kind of humbling to see something so powerful and so hot, like so unpleasant
+
+26:15.380 --> 26:18.980
+ for humans, and then you realize we're sitting on many of them here?
+
+26:18.980 --> 26:19.980
+ Right.
+
+26:19.980 --> 26:22.300
+ Yeah, Yellowstone is a classic example.
+
+26:22.300 --> 26:26.740
+ I don't know what the chances are of that happening.
+
+26:26.740 --> 26:31.380
+ My intuition would be that the chances of that are lower than the chances of us getting
+
+26:31.380 --> 26:37.580
+ wiped out by some other means, that maybe it'll happen eventually, that there'll be
+
+26:37.580 --> 26:41.060
+ one of these massive volcanoes on earth, but we'll probably be gone by then by some other
+
+26:41.060 --> 26:42.060
+ means.
+
+26:42.060 --> 26:43.060
+ Not to sound bleak.
+
+26:43.060 --> 26:44.060
+ That's very comforting.
+
+26:44.060 --> 26:51.060
+ Okay, so can we talk about Europa?
+
+26:51.060 --> 26:57.700
+ Is there, so maybe can you talk about the intuition, the hope that people have about
+
+26:57.700 --> 27:00.140
+ life being in Europa?
+
+27:00.140 --> 27:03.720
+ Maybe also, what are the things we know about it?
+
+27:03.720 --> 27:08.540
+ What are the things to you that are interesting about that particular moon of Jupiter?
+
+27:08.540 --> 27:09.540
+ Sure.
+
+27:09.540 --> 27:15.220
+ Yeah, Europa is, from many perspectives, one of the really interesting places in the solar
+
+27:15.220 --> 27:16.960
+ system among the solar system moons.
+
+27:16.960 --> 27:25.220
+ So there are a few, there's a lot of interest in looking for or understanding the potential
+
+27:25.220 --> 27:27.700
+ for life to evolve in the subsurface oceans.
+
+27:27.700 --> 27:33.940
+ I think it's fairly widely accepted that the chances of life evolving on the surfaces of
+
+27:33.940 --> 27:37.660
+ really anything in the solar system is very low.
+
+27:37.660 --> 27:45.400
+ The radiation environment is too harsh and there's just not liquids on the surface of
+
+27:45.400 --> 27:51.460
+ most of these things and it's canonically accepted that liquids are required for life.
+
+27:51.460 --> 27:55.620
+ And so the subsurface oceans, in addition to maybe Titan's atmosphere, the subsurface
+
+27:55.620 --> 28:01.260
+ oceans of the icy satellites are one of the most plausible places in the solar system
+
+28:01.260 --> 28:03.740
+ for life to evolve.
+
+28:03.740 --> 28:08.780
+ Europa and Cellitus are interesting because for many of the big satellites, so Ganymede
+
+28:08.780 --> 28:13.780
+ and Callisto, also satellites of Jupiter, also are thought to have subsurface oceans.
+
+28:13.780 --> 28:19.380
+ But they have these ice shells and then there's an ocean underneath the ice shell.
+
+28:19.380 --> 28:23.540
+ But on those moons around Ganymede, we think that there's another ice shell underneath
+
+28:23.540 --> 28:25.580
+ and then there's rock.
+
+28:25.580 --> 28:30.640
+ And the reason that that is a problem for life is that your ocean is probably just pure
+
+28:30.640 --> 28:34.740
+ water because it's trapped between two big shells of ice.
+
+28:34.740 --> 28:39.980
+ So Europa doesn't have this ice shell at the bottom of the ocean, we think.
+
+28:39.980 --> 28:45.500
+ And so the water and rock are in direct interaction and so that means that you can basically dissolve
+
+28:45.500 --> 28:47.060
+ a lot of material out of the rock.
+
+28:47.060 --> 28:52.840
+ You potentially have this hydrothermal activity that's injecting energy and nutrients for
+
+28:52.840 --> 28:53.840
+ life to survive.
+
+28:53.840 --> 29:02.500
+ And so this rock water interface is considered really important for the potential habitability.
+
+29:02.500 --> 29:08.940
+ As a small aside, you kind of said that it's canonically assumed that water is required
+
+29:08.940 --> 29:09.940
+ for life.
+
+29:09.940 --> 29:13.700
+ Is it possible to have life like in a volcano?
+
+29:13.700 --> 29:21.660
+ I remember people were like in that National Geographic program or something kind of hypothesizing
+
+29:21.660 --> 29:23.700
+ that you can really have life anywhere.
+
+29:23.700 --> 29:27.860
+ So as long as there's a source of heat, a source of energy, do you think it's possible
+
+29:27.860 --> 29:34.580
+ to have life in a volcano, like no water?
+
+29:34.580 --> 29:37.780
+ I think anything's possible.
+
+29:37.780 --> 29:39.740
+ I think so.
+
+29:39.740 --> 29:42.660
+ It doesn't have to be water.
+
+29:42.660 --> 29:46.100
+ You can tell, as you identified, I phrased that really carefully.
+
+29:46.100 --> 29:53.380
+ It's canonically accepted that because scientists recognize that we have no idea what broad
+
+29:53.380 --> 29:57.780
+ range of life could be out there and all we really have is our biases of life as we know
+
+29:57.780 --> 29:58.780
+ it.
+
+29:58.780 --> 30:02.820
+ But for life as we know it, it's very helpful to have or even necessary to have some kind
+
+30:02.820 --> 30:09.260
+ of liquid and preferably a polar solvent that can actually dissolve molecules, something
+
+30:09.260 --> 30:10.260
+ like water.
+
+30:10.260 --> 30:14.100
+ So the case of liquid methane on Titan is less ideal from that perspective.
+
+30:14.100 --> 30:20.460
+ But liquid magma, if it stays liquid long enough for life to evolve, you have a heat
+
+30:20.460 --> 30:22.420
+ source, you have a liquid, you have nutrients.
+
+30:22.420 --> 30:28.580
+ In theory, that checks your three classic astrobiology boxes.
+
+30:28.580 --> 30:29.580
+ That'd be fascinating.
+
+30:29.580 --> 30:32.580
+ I mean, it'd be fascinating if it's possible to detect it easily.
+
+30:32.580 --> 30:38.780
+ How would we detect if there is life on Europa?
+
+30:38.780 --> 30:45.620
+ Is it possible to do in a noncontact way from a distance through telescopes and so on?
+
+30:45.620 --> 30:51.140
+ Or do we need to send robots and do some drilling?
+
+30:51.140 --> 30:56.900
+ I think realistically you need to do the drilling.
+
+30:56.900 --> 31:02.580
+ So Europa also has these long tectonic features on its surface where it's thought that there's
+
+31:02.580 --> 31:08.180
+ potential for water from the ocean to be somehow making its way up onto the surface.
+
+31:08.180 --> 31:12.400
+ And you could imagine some out there scenario where there's bacteria in the ocean.
+
+31:12.400 --> 31:14.540
+ It's somehow working its way up through the ice shell.
+
+31:14.540 --> 31:16.200
+ It's spilling out on the surface.
+
+31:16.200 --> 31:18.820
+ It's being killed by the radiation.
+
+31:18.820 --> 31:24.300
+ But your instrument could detect some spectroscopic signature of that dead bacterium.
+
+31:24.300 --> 31:26.980
+ But that's many ifs and assumptions.
+
+31:26.980 --> 31:29.780
+ That's a hope because then you don't have to do that much drilling.
+
+31:29.780 --> 31:32.100
+ You can collect from the surface.
+
+31:32.100 --> 31:33.100
+ Skeletons of bacteria.
+
+31:33.100 --> 31:34.100
+ Right.
+
+31:34.100 --> 31:35.100
+ I'm thinking even remotely.
+
+31:35.100 --> 31:36.100
+ Oh, remotely.
+
+31:36.100 --> 31:37.100
+ Yeah.
+
+31:37.100 --> 31:45.580
+ That's sad that there's a single cell civilization living underneath all that ice trying to get
+
+31:45.580 --> 31:46.580
+ up.
+
+31:46.580 --> 31:47.580
+ Trying to get out.
+
+31:47.580 --> 31:55.220
+ Enceladus gives you a slightly better chance of that because Enceladus is a moon of Saturn
+
+31:55.220 --> 31:59.580
+ and it's broadly similar to Europa in some ways.
+
+31:59.580 --> 32:00.580
+ It's an icy satellite.
+
+32:00.580 --> 32:05.500
+ It has a subsurface ocean that's probably in touch with the rocky interior.
+
+32:05.500 --> 32:09.820
+ But it has these massive geysers at its south pole where it's spewing out material that
+
+32:09.820 --> 32:12.940
+ appears to be originating all the way from the ocean.
+
+32:12.940 --> 32:20.100
+ And so in that case, you could potentially fly through that plume and scoop up that material
+
+32:20.100 --> 32:22.700
+ and hope that at the velocities you'd be scooping it up.
+
+32:22.700 --> 32:27.060
+ You're not destroying any signature of the life you're looking for.
+
+32:27.060 --> 32:31.500
+ But let's say that you have some ingenuity and can come up with a way to do that.
+
+32:31.500 --> 32:38.260
+ It potentially gives you a more direct opportunity at least to try to measure those bacteria
+
+32:38.260 --> 32:39.260
+ directly.
+
+32:39.260 --> 32:45.100
+ Can you tell me a little more on, how do you pronounce it, Salas?
+
+32:45.100 --> 32:46.100
+ Enceladus.
+
+32:46.100 --> 32:47.100
+ Enceladus.
+
+32:47.100 --> 32:49.780
+ Can you tell me a little bit more about Enceladus?
+
+32:49.780 --> 32:58.100
+ Like we've been talking about way too much about Jupiter, Saturn doesn't get enough love.
+
+32:58.100 --> 32:59.380
+ Saturn doesn't get as much love.
+
+32:59.380 --> 33:02.060
+ So what's Enceladus?
+
+33:02.060 --> 33:05.300
+ Is that the most exciting moon of Saturn?
+
+33:05.300 --> 33:07.760
+ Depends on your perspective.
+
+33:07.760 --> 33:11.380
+ It's very exciting from a astrobiology perspective.
+
+33:11.380 --> 33:16.860
+ I think Enceladus and Titan are the two most unique and interesting moons of Saturn that
+
+33:16.860 --> 33:22.460
+ definitely both get the most attention also from the life perspective.
+
+33:22.460 --> 33:28.500
+ So what's the more likely Titan or Enceladus for life?
+
+33:28.500 --> 33:33.580
+ If you were to bet all your money in terms of like investing, which to investigate, what
+
+33:33.580 --> 33:37.260
+ are the differences between the two that are interesting to you?
+
+33:37.260 --> 33:38.260
+ Yeah.
+
+33:38.260 --> 33:43.260
+ So the potential for life in each of those two places is very different.
+
+33:43.260 --> 33:48.840
+ So Titan is the one place in the solar system where you might imagine, again, all of this
+
+33:48.840 --> 33:53.380
+ is so speculative, but you might imagine life evolving in the atmosphere.
+
+33:53.380 --> 33:59.900
+ So from a biology perspective, Titan is interesting because it forms complex organic molecules
+
+33:59.900 --> 34:01.740
+ in its atmosphere.
+
+34:01.740 --> 34:02.820
+ It has a dense atmosphere.
+
+34:02.820 --> 34:04.360
+ It's actually denser than Earth's.
+
+34:04.360 --> 34:09.660
+ It's the only moon that has an atmosphere denser than Earth's and it's got tons of methane
+
+34:09.660 --> 34:10.660
+ in it.
+
+34:10.660 --> 34:13.920
+ What happens is that methane gets irradiated, it breaks up and it reforms with other things
+
+34:13.920 --> 34:15.500
+ in the atmosphere.
+
+34:15.500 --> 34:21.640
+ It makes these complex organic molecules and it's effectively doing prebiotic chemistry
+
+34:21.640 --> 34:23.460
+ in the atmosphere.
+
+34:23.460 --> 34:25.540
+ While still being freezing cold?
+
+34:25.540 --> 34:26.540
+ Yes.
+
+34:26.540 --> 34:27.540
+ Okay.
+
+34:27.540 --> 34:29.740
+ What would that be like?
+
+34:29.740 --> 34:32.900
+ Would that be pleasant for humans to hang out there?
+
+34:32.900 --> 34:34.200
+ It's just really cold?
+
+34:34.200 --> 34:37.820
+ There's nowhere in the solar system that would be pleasant for humans.
+
+34:37.820 --> 34:38.820
+ It would be cold.
+
+34:38.820 --> 34:40.620
+ You couldn't breathe the air.
+
+34:40.620 --> 34:44.900
+ But colonization wise, if there's an atmosphere, isn't that a big plus?
+
+34:44.900 --> 34:47.860
+ Or still a ton of radiation?
+
+34:47.860 --> 34:48.860
+ Sure.
+
+34:48.860 --> 34:49.860
+ Okay.
+
+34:49.860 --> 34:55.740
+ So Titan, that's a really nice feature that life could be in the atmosphere because then
+
+34:55.740 --> 35:01.220
+ it might be remotely observable or certainly is more accessible if you visit.
+
+35:01.220 --> 35:02.740
+ Okay.
+
+35:02.740 --> 35:05.260
+ So what about Enceladus?
+
+35:05.260 --> 35:07.780
+ So that would be still in the ocean.
+
+35:07.780 --> 35:08.780
+ Right.
+
+35:08.780 --> 35:13.300
+ And Enceladus has the advantage, like I said, of spewing material out of its south pole
+
+35:13.300 --> 35:14.300
+ so you could collect it.
+
+35:14.300 --> 35:21.220
+ But it has the disadvantage of the fact that we don't actually really understand how its
+
+35:21.220 --> 35:28.020
+ ocean could stay globally liquid over the age of the solar system.
+
+35:28.020 --> 35:34.860
+ And so there are some models that say that it's going through this cyclical evolution
+
+35:34.860 --> 35:40.780
+ where the ocean freezes completely and thaws completely and the orbit sort of oscillates
+
+35:40.780 --> 35:45.020
+ in and out of these eccentricities.
+
+35:45.020 --> 35:49.540
+ And in that case, the potential for life ever occurring there in the first place is a lot
+
+35:49.540 --> 35:55.020
+ lower because if you only have an ocean for 100 million years, is that enough time?
+
+35:55.020 --> 36:00.580
+ It also means there might be mass extinction events if it does occur and then it just freezes.
+
+36:00.580 --> 36:01.580
+ Again, very sad, man.
+
+36:01.580 --> 36:07.620
+ This is very depressing, all the slaughter of life elsewhere.
+
+36:07.620 --> 36:11.900
+ How unlikely do you think life is on Earth?
+
+36:11.900 --> 36:18.780
+ So when you study other planets and you study the contents of other planets, does that give
+
+36:18.780 --> 36:26.020
+ you a perspective on the origin of life on Earth, which again is full of mystery in itself,
+
+36:26.020 --> 36:33.900
+ not the evolution, but the origin, the first springing to life, like from nothing to life,
+
+36:33.900 --> 36:37.380
+ from the basic ingredients to life?
+
+36:37.380 --> 36:40.620
+ I guess another way of asking it is how unique are we?
+
+36:40.620 --> 36:46.580
+ Yeah, it's a great question and it's one that just scientifically we don't have an answer
+
+36:46.580 --> 36:47.640
+ to.
+
+36:47.640 --> 36:53.040
+ We don't even know how many times life evolved on Earth, if it was only once or if it happened
+
+36:53.040 --> 36:56.560
+ independently a thousand times in different places.
+
+36:56.560 --> 37:01.840
+ We don't know whether it's happened anywhere else in the universe, although it feels absurd
+
+37:01.840 --> 37:07.540
+ to believe that we are the only life that evolved in the entire universe, but it's conceivable.
+
+37:07.540 --> 37:12.060
+ We just have just no real information.
+
+37:12.060 --> 37:15.740
+ We don't understand really how life came about in the first place on Earth.
+
+37:15.740 --> 37:23.620
+ I mean, so if you look at the Drake equation that tries to estimate how many alien civilizations
+
+37:23.620 --> 37:29.700
+ are out there, planets have a big part to play in that equation.
+
+37:29.700 --> 37:36.500
+ If you were to bet money in terms of the odds of origins of life on Earth, I mean, this
+
+37:36.500 --> 37:40.220
+ all has to do with how special and unique is Earth.
+
+37:40.220 --> 37:45.720
+ What you land in terms of the number of civilizations has to do with how unique their rare Earth
+
+37:45.720 --> 37:47.000
+ hypothesis is.
+
+37:47.000 --> 37:49.640
+ How rare and special is Earth?
+
+37:49.640 --> 37:52.740
+ How rare and special is the solar system?
+
+37:52.740 --> 37:58.500
+ Like if you had to bet all your money on a completely unscientific question, well, no,
+
+37:58.500 --> 38:03.340
+ it's actually a rigorously scientific, we just don't know a lot of things in that equation.
+
+38:03.340 --> 38:08.020
+ There's a lot of mysteries about that and it's slowly becoming better and better understood
+
+38:08.020 --> 38:13.500
+ in terms of exoplanets, in terms of how many solar systems are out there where there's
+
+38:13.500 --> 38:16.700
+ planets that are Earth like planets, it's getting better and better understood.
+
+38:16.700 --> 38:24.780
+ What's your sense from that perspective, how many alien civilizations out there, zero or
+
+38:24.780 --> 38:25.780
+ one plus?
+
+38:25.780 --> 38:30.420
+ You're right that the equation is being better understood, but you're really only talking
+
+38:30.420 --> 38:33.500
+ about the first three parameters in the equation or something.
+
+38:33.500 --> 38:38.380
+ How many stars are there, how many planets per star, and then we're just barely scratching
+
+38:38.380 --> 38:41.820
+ the surface of what fraction of those planets might be habitable.
+
+38:41.820 --> 38:46.460
+ The rest of the terms in the equation are like how likely is life to evolve given habitable
+
+38:46.460 --> 38:51.480
+ conditions, how likely is it to survive, all these things.
+
+38:51.480 --> 38:53.160
+ There are all these huge unknowns.
+
+38:53.160 --> 38:58.860
+ Actually I remember when I first saw that equation, I think it was my first year of
+
+38:58.860 --> 39:01.420
+ college and I thought this is ridiculous.
+
+39:01.420 --> 39:08.660
+ This is A, common sense that didn't need to give a name, you know, and B, just a bunch
+
+39:08.660 --> 39:12.340
+ of unknowns, it's like putting our ignorance together in one equation.
+
+39:12.340 --> 39:17.860
+ But now I understand this equation, you know, it's not something we'll ever necessarily
+
+39:17.860 --> 39:22.900
+ have the answer to, it just gives us a framework for having the exact conversation we're having
+
+39:22.900 --> 39:23.900
+ right now.
+
+39:23.900 --> 39:27.660
+ And I think that's how it was intended in the first place when it was put into writing
+
+39:27.660 --> 39:33.020
+ was to give people a language to communicate about the factors that go into the potential
+
+39:33.020 --> 39:38.100
+ for aliens to be out there and for us to find them.
+
+39:38.100 --> 39:46.740
+ I would put money on there being aliens, I would not put money on us having definitive
+
+39:46.740 --> 39:49.740
+ evidence of them in my lifetime.
+
+39:49.740 --> 39:54.700
+ Well, definitive is a funny, is a funny word.
+
+39:54.700 --> 40:01.500
+ My sense is, this is the saddest part for me, is my sense in terms of intelligent alien
+
+40:01.500 --> 40:11.100
+ civilizations, I feel like we're so, we're so self obsessed that we literally would not
+
+40:11.100 --> 40:13.340
+ be able to detect them.
+
+40:13.340 --> 40:20.020
+ Even when they're like in front of us, like trees could be aliens, but just their intelligence
+
+40:20.020 --> 40:28.780
+ could be realized on a scale, on a time scale or physical scale that we're not appreciating.
+
+40:28.780 --> 40:31.700
+ Like trees could be way more intelligent than us.
+
+40:31.700 --> 40:32.700
+ I don't know.
+
+40:32.700 --> 40:33.700
+ It's just a dumb example.
+
+40:33.700 --> 40:41.260
+ It could be rocks or it could be things like, this, I love this, this is a Dawkins memes.
+
+40:41.260 --> 40:46.460
+ It could be that ideas are the, like ideas we have, like where do ideas come from?
+
+40:46.460 --> 40:48.140
+ Where do thoughts come from?
+
+40:48.140 --> 40:55.840
+ Maybe thoughts are the aliens or maybe thoughts is the actual mechanisms of communication
+
+40:55.840 --> 40:57.700
+ in physics, right?
+
+40:57.700 --> 41:03.060
+ This is like, we think of thoughts as something that springs up from neurons firing or where
+
+41:03.060 --> 41:05.340
+ the hell they come from.
+
+41:05.340 --> 41:08.160
+ And now what about consciousness?
+
+41:08.160 --> 41:10.560
+ Maybe consciousness is the communication.
+
+41:10.560 --> 41:18.540
+ It sounds like ridiculous, but like we're so self centered on this space, time, communication
+
+41:18.540 --> 41:26.780
+ and physical space using like written language, like spoken with audio on a time scale that's
+
+41:26.780 --> 41:30.960
+ very specific on a physical scale, it's very specific.
+
+41:30.960 --> 41:37.620
+ So I tend to think that, but bacteria will probably recognize like moving organisms will
+
+41:37.620 --> 41:42.700
+ probably recognize, but when that forms itself into intelligence, most likely it'll be robots
+
+41:42.700 --> 41:45.620
+ of some kind because we won't be meeting the origins.
+
+41:45.620 --> 41:49.140
+ We'll be meeting the creations of those intelligences.
+
+41:49.140 --> 41:51.340
+ We just would not be able to appreciate it.
+
+41:51.340 --> 42:02.820
+ And that's the saddest thing to me that we, yeah, we're too dumb to see aliens.
+
+42:02.820 --> 42:07.300
+ Like we're too, we kind of think like, look at the progress of science, we've accomplished
+
+42:07.300 --> 42:08.460
+ so much.
+
+42:08.460 --> 42:13.640
+ The sad thing it could be that we're just like in the first 0.0001% of understanding
+
+42:13.640 --> 42:15.060
+ anything is humbling.
+
+42:15.060 --> 42:20.880
+ I hope that's true because I feel like we're very ignorant as a species.
+
+42:20.880 --> 42:25.700
+ And I hope that our current level of knowledge only represents the 0.001% of what we will
+
+42:25.700 --> 42:26.700
+ someday achieve.
+
+42:26.700 --> 42:29.540
+ That actually feels optimistic to me.
+
+42:29.540 --> 42:35.020
+ Well, I feel like that's easier for us to comprehend in the space of biology and not
+
+42:35.020 --> 42:39.260
+ as easy to comprehend in the space of physics, for example, because we have a sense that
+
+42:39.260 --> 42:45.460
+ like we have it, like if you, if you talk to theoretical physicists, they have a sense
+
+42:45.460 --> 42:54.180
+ that we understand the basic laws that form the nature of reality of our universe.
+
+42:54.180 --> 42:58.380
+ But so there's much more, like physicists are much more confident.
+
+42:58.380 --> 43:06.640
+ Biologists are like, uh, this is a squishy mess, we're doing our best, physicists, but
+
+43:06.640 --> 43:10.580
+ I would be, it'd be fascinating to see if physicists themselves would also be humbled
+
+43:10.580 --> 43:15.940
+ by their being like, what the hell is dark matter and dark energy?
+
+43:15.940 --> 43:21.900
+ What the hell is the, not just the origin of the, not just the big bang, but everything
+
+43:21.900 --> 43:24.180
+ that happened since the big bang.
+
+43:24.180 --> 43:27.320
+ A lot of things that happened since the big bang, we have no ideas about except basic
+
+43:27.320 --> 43:28.320
+ models of physics.
+
+43:28.320 --> 43:29.320
+ Right.
+
+43:29.320 --> 43:30.320
+ What happened before the big bang?
+
+43:30.320 --> 43:31.320
+ Yeah.
+
+43:31.320 --> 43:32.320
+ Yeah.
+
+43:32.320 --> 43:33.320
+ What happened before?
+
+43:33.320 --> 43:34.320
+ Or what's happening inside the black hole?
+
+43:34.320 --> 43:36.460
+ Why is there a black hole at the center of our galaxy?
+
+43:36.460 --> 43:37.460
+ Can somebody answer this?
+
+43:37.460 --> 43:39.660
+ A supermassive black hole.
+
+43:39.660 --> 43:41.500
+ Nobody knows how it started.
+
+43:41.500 --> 43:44.460
+ And they seem to be like in the middle of all galaxies.
+
+43:44.460 --> 43:48.700
+ Um, so that could be a portal for aliens to communicate through consciousness.
+
+43:48.700 --> 43:49.700
+ Okay.
+
+43:49.700 --> 43:51.700
+ Um, all right, back to planets.
+
+43:51.700 --> 43:55.300
+ How, um, what's your favorite outside of earth?
+
+43:55.300 --> 43:57.740
+ What's your favorite planet or moon?
+
+43:57.740 --> 44:03.500
+ Maybe outside of the ones we, well, first, have we talked about it already or, and then
+
+44:03.500 --> 44:05.980
+ if we did mention it, what's the one outside of that?
+
+44:05.980 --> 44:06.980
+ Oh gosh.
+
+44:06.980 --> 44:08.980
+ I have to come up with another favorite that's not IO.
+
+44:08.980 --> 44:09.980
+ Oh, IO is the favorite.
+
+44:09.980 --> 44:10.980
+ Oh, absolutely.
+
+44:10.980 --> 44:12.540
+ Why is IO the favorite?
+
+44:12.540 --> 44:17.540
+ I mean, basically everything I've, I've already said, it's just such a, an amazing and unique
+
+44:17.540 --> 44:18.540
+ object.
+
+44:18.540 --> 44:26.700
+ Um, but on, I guess a personal note, it's probably the object that made me become a
+
+44:26.700 --> 44:28.660
+ planetary scientist.
+
+44:28.660 --> 44:34.260
+ It's the first thing in the solar system that really deeply captured my interest.
+
+44:34.260 --> 44:42.620
+ Um, and when I started my PhD, I wanted to be an astrophysicist working on things like
+
+44:42.620 --> 44:48.380
+ galaxy evolution, um, and sort of slowly, I had done some projects in the solar system,
+
+44:48.380 --> 44:53.060
+ but IO was the thing that like really caught me in to doing solar system science.
+
+44:53.060 --> 44:54.060
+ Okay.
+
+44:54.060 --> 44:56.980
+ Let's, let's leave, uh, moons aside.
+
+44:56.980 --> 44:58.920
+ What's your favorite planet?
+
+44:58.920 --> 45:01.140
+ It sounds like you like moons better than planets.
+
+45:01.140 --> 45:02.940
+ So it's, uh, that's accurate.
+
+45:02.940 --> 45:05.700
+ Um, but the planets are, are fascinating.
+
+45:05.700 --> 45:10.540
+ I think, you know, I find that the planets in the solar system really fascinating.
+
+45:10.540 --> 45:17.020
+ What I like about the moons is that they, there's so much less that is known.
+
+45:17.020 --> 45:21.380
+ There's still a lot more discovery space and the questions that we can ask are still the,
+
+45:21.380 --> 45:22.380
+ the bigger questions.
+
+45:22.380 --> 45:23.380
+ Gotcha.
+
+45:23.380 --> 45:27.820
+ Um, which, you know, I, and maybe I'm being unfair to the planets because we're still
+
+45:27.820 --> 45:31.580
+ trying to understand things like, was there ever life on Mars?
+
+45:31.580 --> 45:37.460
+ And that is a huge question and one that we've sent numerous robots to Mars to try to answer.
+
+45:37.460 --> 45:41.220
+ So maybe I'm being unfair to the planets, but, but there is certainly quite a bit more
+
+45:41.220 --> 45:44.820
+ information, uh, that we have about the planets than the moons.
+
+45:44.820 --> 45:48.260
+ But I mean, Venus is, is a fascinating object.
+
+45:48.260 --> 45:53.340
+ So I like the objects that lie at the extremes.
+
+45:53.340 --> 45:59.420
+ I think that if we can make a sort of theory or, or like I've been saying, framework for
+
+45:59.420 --> 46:04.380
+ understanding planets and moons that can incorporate even the most extreme ones, then, you know,
+
+46:04.380 --> 46:08.240
+ those are the things that really test your theory and test your understanding.
+
+46:08.240 --> 46:10.400
+ And so they've always really fascinated me.
+
+46:10.400 --> 46:15.140
+ Not so much the nice habitable places like Earth, but these extreme places like Venus
+
+46:15.140 --> 46:23.620
+ that have, um, sulfuric acid clouds and just incredibly hot and dense surfaces.
+
+46:23.620 --> 46:30.120
+ And Venus, of course, I love volcanism for some reason, and, and Venus has, probably
+
+46:30.120 --> 46:37.020
+ has volcanic activity, definitely has in their recent past, maybe has ongoing today.
+
+46:37.020 --> 46:41.940
+ What do you make of the news and maybe you can update it in terms of life being discovered
+
+46:41.940 --> 46:44.180
+ in the atmosphere of Venus?
+
+46:44.180 --> 46:45.180
+ Is that, sorry.
+
+46:45.180 --> 46:46.180
+ Okay.
+
+46:46.180 --> 46:47.180
+ You have opinion.
+
+46:47.180 --> 46:49.100
+ I can already tell you have opinions.
+
+46:49.100 --> 46:50.100
+ Was that fake news?
+
+46:50.100 --> 46:52.740
+ I got excited when I saw that.
+
+46:52.740 --> 46:56.460
+ What's the, what's the final, uh, is there a life on Venus?
+
+46:56.460 --> 47:01.020
+ So the detection that was reported was the detection of the molecule phosphine.
+
+47:01.020 --> 47:10.340
+ Um, and they said that they tried every other mechanism they could think of to produce phosphine
+
+47:10.340 --> 47:13.680
+ and they, none of, no mechanism worked.
+
+47:13.680 --> 47:16.500
+ And then they said, well, we know that life produces phosphine.
+
+47:16.500 --> 47:19.540
+ And so that was sort of the train of logic.
+
+47:19.540 --> 47:25.980
+ And, um, I don't personally believe that phosphine was detected in the first place.
+
+47:25.980 --> 47:26.980
+ Okay.
+
+47:26.980 --> 47:35.500
+ So then, I mean, this is just one study, but I, as a layman, I'm skeptical a little bit
+
+47:35.500 --> 47:41.260
+ about tools that sense the contents of an atmosphere, like contents of an atmosphere
+
+47:41.260 --> 47:46.740
+ from remotely and making conclusive statements about life.
+
+47:46.740 --> 47:48.140
+ Oh yeah.
+
+47:48.140 --> 47:53.500
+ Well that connection that you just made, the contents of the atmosphere to the life is,
+
+47:53.500 --> 47:54.700
+ is a tricky one.
+
+47:54.700 --> 48:00.260
+ And yeah, I know that that claim received a lot of criticism for the lines of logic
+
+48:00.260 --> 48:05.060
+ that went from detection to, uh, to claim of life.
+
+48:05.060 --> 48:11.760
+ Even the detection itself though, did, doesn't, doesn't meet the sort of historical scientific
+
+48:11.760 --> 48:14.580
+ standards of, of a detection.
+
+48:14.580 --> 48:20.820
+ Um, the, it was a very tenuous detection and only one line of the species was detected.
+
+48:20.820 --> 48:26.600
+ And a lot of really complicated data analysis methods had to be applied to even make that
+
+48:26.600 --> 48:27.600
+ weak detection.
+
+48:27.600 --> 48:28.600
+ Yeah.
+
+48:28.600 --> 48:29.600
+ Um.
+
+48:29.600 --> 48:32.660
+ So it could be, it could be noise, it could be polluted data, it could be all the, all
+
+48:32.660 --> 48:33.660
+ those things.
+
+48:33.660 --> 48:38.100
+ And so it doesn't have, it doesn't meet the, the level of rigor that you would hope.
+
+48:38.100 --> 48:44.500
+ But of course, I mean, we're doing our best and it's clear that, uh, the human species
+
+48:44.500 --> 48:46.940
+ are hopeful to find life.
+
+48:46.940 --> 48:47.940
+ Clearly.
+
+48:47.940 --> 48:48.940
+ Yes.
+
+48:48.940 --> 48:50.580
+ Everyone is so excited about that possibility.
+
+48:50.580 --> 48:51.580
+ All right.
+
+48:51.580 --> 48:56.420
+ Let's, uh, let me ask you about Mars.
+
+48:56.420 --> 49:05.940
+ So, um, there's a guy named Elon Musk and, uh, he seems to want to take something called
+
+49:05.940 --> 49:07.500
+ Dogecoin there.
+
+49:07.500 --> 49:08.500
+ First of the month.
+
+49:08.500 --> 49:11.340
+ I'm just, I'm just kidding about the Dogecoin.
+
+49:11.340 --> 49:20.220
+ I don't even know what the heck is up with that whole, um, I think, uh, I think humor
+
+49:20.220 --> 49:28.580
+ has power in the 21st century in a way to spread ideas in the most positive way.
+
+49:28.580 --> 49:37.280
+ So I love that kind of humor because it makes people smile, but it also kind of sneaks.
+
+49:37.280 --> 49:40.740
+ It's like a Trojan horse for cool ideas.
+
+49:40.740 --> 49:45.580
+ You you open with humor and you, uh, like the humor is the appetizer.
+
+49:45.580 --> 49:52.860
+ And then the main meal is the science and the engineering anyway, uh, do you think it's
+
+49:52.860 --> 50:02.500
+ possible to colonize Mars or other planets in the solar system, but we're especially
+
+50:02.500 --> 50:04.300
+ looking to Mars.
+
+50:04.300 --> 50:09.100
+ Is there something about planets that make them very harsh to humans?
+
+50:09.100 --> 50:14.020
+ Is there something in particular you think about and maybe in a high like big picture
+
+50:14.020 --> 50:19.740
+ perspective, do you have a hope we, we do in fact become a multi planetary species?
+
+50:19.740 --> 50:26.820
+ I do think that if our species survives long enough and we don't wipe ourselves out or
+
+50:26.820 --> 50:32.940
+ get wiped out by some other means that we will eventually be able to colonize other
+
+50:32.940 --> 50:33.940
+ planets.
+
+50:33.940 --> 50:36.380
+ I do not expect that to happen in my lifetime.
+
+50:36.380 --> 50:41.260
+ I mean, tourists may go to Mars, tourists, people who commit years of their life to go
+
+50:41.260 --> 50:43.820
+ into Mars as a tourist may go to Mars.
+
+50:43.820 --> 50:46.820
+ Um, I don't think that we will colonize it.
+
+50:46.820 --> 50:53.540
+ Um, is there a sense why it's just too harsh on the environment to, uh, to, to, like it's
+
+50:53.540 --> 51:00.260
+ too costly to build something habitable there for a large population.
+
+51:00.260 --> 51:06.260
+ I think that we need to do a lot of work and learning how to use the resources that are
+
+51:06.260 --> 51:09.540
+ are on the planet already to do the things we need.
+
+51:09.540 --> 51:16.460
+ So if you're talking about someone going there for a few months, um, so we'll back up a little
+
+51:16.460 --> 51:17.600
+ bit.
+
+51:17.600 --> 51:22.820
+ There are many things that make Mars not hospitable, temperature, you can't breathe the air, you
+
+51:22.820 --> 51:27.420
+ need a pressure suit, even if you're on the surface, the radiation environment is, you
+
+51:27.420 --> 51:31.580
+ know, even in all of those things, the radiation environment is too harsh for the human body.
+
+51:31.580 --> 51:37.940
+ Um, all of those things seem like they could eventually have technological solutions.
+
+51:37.940 --> 51:46.220
+ Um, the challenge, the, the real significant challenge to me seems to be the, the creation
+
+51:46.220 --> 51:49.540
+ of a self sustaining civilization there.
+
+51:49.540 --> 51:53.880
+ You know, you can bring pressure suits, you can bring oxygen to breathe, but those are
+
+51:53.880 --> 51:55.220
+ all in limited supply.
+
+51:55.220 --> 51:59.760
+ And if we're going to colonize it, we need to find ways to make use of the resources
+
+51:59.760 --> 52:05.100
+ that are there to do things like produce food, produce the air, the humans need to keep breathing
+
+52:05.100 --> 52:07.140
+ just in order to make it self sustaining.
+
+52:07.140 --> 52:09.620
+ There's a tremendous amount of work that has to be done.
+
+52:09.620 --> 52:15.420
+ And people are working on these problems, but I think that's going to be a major obstacle
+
+52:15.420 --> 52:19.780
+ in going from visiting where we can bring everything we need to survive in the short
+
+52:19.780 --> 52:21.780
+ term to actually colonizing.
+
+52:21.780 --> 52:22.780
+ Yeah.
+
+52:22.780 --> 52:33.400
+ I find that whole project of the human species quite inspiring these like huge moonshot projects.
+
+52:33.400 --> 52:38.580
+ Somebody I was reading something, um, in terms of the source of food that's that may be the
+
+52:38.580 --> 52:42.860
+ most effective on Mars is you could farm insects.
+
+52:42.860 --> 52:44.980
+ That's the easiest thing to farm.
+
+52:44.980 --> 52:50.740
+ So we'd be eating like cockroaches before living on Mars because that's the easiest
+
+52:50.740 --> 52:54.620
+ thing to actually, um, as a source of protein.
+
+52:54.620 --> 52:57.860
+ So growing a source of protein is the easiest thing as insects.
+
+52:57.860 --> 53:03.160
+ I just imagine this giant for people who are afraid of insects.
+
+53:03.160 --> 53:07.180
+ This is not a pleasant, maybe you're not supposed to even think of it that way.
+
+53:07.180 --> 53:09.780
+ It'd be like a cockroach milkshake or something like that.
+
+53:09.780 --> 53:10.780
+ Right.
+
+53:10.780 --> 53:15.420
+ I wonder if, have people been working on the genetic engineering of, of insects to make
+
+53:15.420 --> 53:19.060
+ them radiation friendly, right.
+
+53:19.060 --> 53:22.540
+ Or pressure resistant or whatever.
+
+53:22.540 --> 53:29.620
+ What can possibly go wrong with making radiation resistant, they're already like survived everything.
+
+53:29.620 --> 53:32.900
+ Plus I, um, I took an allergy test, um, in Austin.
+
+53:32.900 --> 53:36.820
+ So there's everybody's alert is like the allergy levels are super high there.
+
+53:36.820 --> 53:43.020
+ Uh, and, uh, one of the things, apparently I'm not allergic to any insects except cockroaches.
+
+53:43.020 --> 53:44.380
+ It's hilarious.
+
+53:44.380 --> 53:50.920
+ So maybe, uh, um, well, I'm going to use that as a, you know, people use, uh, an excuse
+
+53:50.920 --> 53:52.780
+ that I'm allergic to cats to not have cats.
+
+53:52.780 --> 53:56.980
+ I'm going to use that as an excuse to, uh, not go to Mars as one of the first batch of
+
+53:56.980 --> 53:57.980
+ people.
+
+53:57.980 --> 54:00.740
+ I was going to ask if you had the opportunity, would you go?
+
+54:00.740 --> 54:03.080
+ Yeah, I'm joking about the cockroach thing.
+
+54:03.080 --> 54:04.080
+ I would definitely go.
+
+54:04.080 --> 54:05.220
+ I love challenges.
+
+54:05.220 --> 54:08.260
+ I love, I love things.
+
+54:08.260 --> 54:17.500
+ I love doing things where the possibility of death is, is, uh, not insignificant because
+
+54:17.500 --> 54:22.740
+ it makes me appreciate it more.
+
+54:22.740 --> 54:27.780
+ Meditating on death makes me appreciate life.
+
+54:27.780 --> 54:35.660
+ And uh, when the meditation on death is forced on you because of how difficult the task is,
+
+54:35.660 --> 54:37.900
+ I enjoy those kinds of things.
+
+54:37.900 --> 54:44.060
+ Most people don't, it seems like, but I love the idea of difficult journeys, um, for no
+
+54:44.060 --> 54:50.780
+ purpose whatsoever, except exploration, going into the unknown, seeing what the limits of
+
+54:50.780 --> 54:55.460
+ the human mind and the human body are is like, what the hell else is this whole journey that
+
+54:55.460 --> 54:56.460
+ we're on for?
+
+54:56.460 --> 55:00.380
+ I, I, uh, but it could be because I grew up in the Soviet Union.
+
+55:00.380 --> 55:07.140
+ There's a kind of love for space, like the, the space race, the cold war created.
+
+55:07.140 --> 55:13.020
+ I don't know if still it permeates American culture as much, but especially with the dad
+
+55:13.020 --> 55:20.460
+ as a scientist, I think I've, I've loved the idea of humans striving out towards the stars
+
+55:20.460 --> 55:24.900
+ always, like from the engineering perspective has been really exciting.
+
+55:24.900 --> 55:27.020
+ I don't know if people love that as much in America anymore.
+
+55:27.020 --> 55:31.860
+ I think, uh, Elon is bringing that back a little bit, that excitement about rockets
+
+55:31.860 --> 55:33.940
+ and going out there.
+
+55:33.940 --> 55:38.180
+ But, uh, so that's, that's hopeful, but for me, I always loved that idea.
+
+55:38.180 --> 55:47.140
+ From a alien scientist perspective, if you were to look back on earth, is there something
+
+55:47.140 --> 55:49.180
+ interesting you could say about earth?
+
+55:49.180 --> 55:51.060
+ Like, how would you summarize earth?
+
+55:51.060 --> 55:57.180
+ Like in a report, you know, like, uh, Hitchhiker's Guide to the Galaxy, like if you had to report,
+
+55:57.180 --> 56:03.580
+ like write a paper on earth or like a letter, like a, like a one pager, um, summarizing
+
+56:03.580 --> 56:06.700
+ the contents of the surface and the atmosphere, is there, is there something interesting?
+
+56:06.700 --> 56:11.140
+ Like, do you ever take that kind of perspective on it?
+
+56:11.140 --> 56:14.860
+ I know you like volcanism, so volcanoes that will probably be in the report.
+
+56:14.860 --> 56:17.020
+ I was going to say that's where I was going to go first.
+
+56:17.020 --> 56:20.560
+ Uh, there are a few things to say about the atmosphere, but in terms of the volcanoes,
+
+56:20.560 --> 56:28.300
+ so one of the really interesting puzzles to me in planetary science is so we can, we can
+
+56:28.300 --> 56:32.580
+ look out there and we've been talking about surfaces and volcanoes and atmospheres and
+
+56:32.580 --> 56:33.860
+ things like that.
+
+56:33.860 --> 56:38.100
+ But that is just, you know, this tiny little veneer on the outside of the planet and most
+
+56:38.100 --> 56:43.260
+ of the planet is completely sort of inaccessible to telescopes or to spacecraft missions.
+
+56:43.260 --> 56:47.580
+ You can drill a meter into the surface, but you know, that's still really the veneer.
+
+56:47.580 --> 56:53.500
+ Um, and one of the cool puzzles is looking at what's going on on the surface and trying
+
+56:53.500 --> 56:59.400
+ to figure out what's happening underneath or just any kind of indirect means that you
+
+56:59.400 --> 57:03.940
+ have to study the interior because you can't dig into it directly, even on Earth.
+
+57:03.940 --> 57:06.300
+ You can't dig deep into Earth.
+
+57:06.300 --> 57:13.020
+ Uh, so from that perspective, looking at Earth, um, one thing that you would be able to tell
+
+57:13.020 --> 57:18.760
+ from orbit, given enough time, is that Earth has tectonic plates.
+
+57:18.760 --> 57:22.940
+ So you would see that volcanoes follow the edges.
+
+57:22.940 --> 57:27.040
+ If you trace where all the volcanoes are on Earth, they follow these lines that trace
+
+57:27.040 --> 57:28.300
+ the edges of the plates.
+
+57:28.300 --> 57:34.700
+ And similarly, you would see things like the, uh, Hawaiian string of volcanoes that you
+
+57:34.700 --> 57:39.260
+ could infer just like, you know, we did as people actually living on Earth, that the
+
+57:39.260 --> 57:43.260
+ plates are moving over some plume that's coming up through the mantle.
+
+57:43.260 --> 57:48.180
+ And so you could use that to say, if the aliens could look at where the volcanoes are, are
+
+57:48.180 --> 57:51.780
+ happening on Earth and say something about the fact that Earth has plate tectonics, which
+
+57:51.780 --> 57:54.180
+ makes it really unique in the solar system.
+
+57:54.180 --> 57:55.180
+ Um...
+
+57:55.180 --> 57:56.180
+ Oh, really?
+
+57:56.180 --> 57:57.180
+ So the other planets don't have plate tectonics?
+
+57:57.180 --> 57:58.660
+ It's the only one that has plate tectonics.
+
+57:58.660 --> 57:59.660
+ Yeah.
+
+57:59.660 --> 58:03.740
+ What about Io and the friction and all that, that's not plate tectonics?
+
+58:03.740 --> 58:04.740
+ What's the difference between...
+
+58:04.740 --> 58:11.500
+ Oh, it's plate tectonics, like another layer of like solid rock that moves around and there's
+
+58:11.500 --> 58:12.500
+ cracks.
+
+58:12.500 --> 58:13.500
+ Exactly.
+
+58:13.500 --> 58:14.500
+ Yeah.
+
+58:14.500 --> 58:19.660
+ So, so Earth has plates of solid rock sitting on top of a partially molten layer, and those
+
+58:19.660 --> 58:22.060
+ plates are kind of shifting around.
+
+58:22.060 --> 58:26.060
+ Um, on Io, it doesn't have that.
+
+58:26.060 --> 58:28.900
+ And the volcanism is what we call heat pipe volcanism.
+
+58:28.900 --> 58:32.780
+ It's the magma just punches a hole through the crust and comes out on the surface.
+
+58:32.780 --> 58:35.780
+ I mean, that's a simplification, but that's effectively what's happening.
+
+58:35.780 --> 58:38.220
+ Through the freezing cold crust?
+
+58:38.220 --> 58:39.220
+ Yes.
+
+58:39.220 --> 58:41.380
+ Very cold, very rigid crust.
+
+58:41.380 --> 58:42.380
+ Yeah.
+
+58:42.380 --> 58:44.380
+ How do you, how does that look like, by the way?
+
+58:44.380 --> 58:49.540
+ I don't think we've mentioned, so the gas that's expelled, like if we were to look at
+
+58:49.540 --> 58:51.940
+ it, is it beautiful or is it like boring?
+
+58:51.940 --> 58:52.940
+ The gas?
+
+58:52.940 --> 58:56.740
+ I mean, the whole thing, like the magma punching through, the icy...
+
+58:56.740 --> 58:57.740
+ Oh my gosh.
+
+58:57.740 --> 59:00.700
+ Yes, I'm sure it would be beautiful, and the pictures we've seen of it are beautiful.
+
+59:00.700 --> 59:07.620
+ You have, so the magma will come out of the lava, will come out of these fissures, and
+
+59:07.620 --> 59:13.620
+ you have these curtains of lava that are maybe even a kilometer high.
+
+59:13.620 --> 59:17.660
+ So if you looked at videos, I don't know how many volcano videos you've looked at on Earth,
+
+59:17.660 --> 59:20.500
+ but you sometimes see a tiny, tiny version of this in Iceland.
+
+59:20.500 --> 59:24.380
+ You see just these sheets of magma coming out of a fissure when you have this really
+
+59:24.380 --> 59:29.900
+ low viscosity magma, sort of water like, coming out of these sheets.
+
+59:29.900 --> 59:35.420
+ And the plumes that come out, because there's no atmosphere, all the plume molecules are
+
+59:35.420 --> 59:42.820
+ just plume particles, where they end up is just a function of the direction that they
+
+59:42.820 --> 59:47.940
+ left the vent, so they're all following ballistic trajectories, and you end up with these umbrella
+
+59:47.940 --> 59:48.940
+ plumes.
+
+59:48.940 --> 59:53.180
+ You don't get these sort of complicated plumes that you have on Earth that are occurring
+
+59:53.180 --> 59:56.740
+ because of how that material is interacting with the atmosphere that's there.
+
+59:56.740 --> 1:00:01.380
+ You just have these huge umbrellas, and it's been hypothesized, actually, that the atmosphere
+
+1:00:01.380 --> 1:00:07.700
+ is made of sulfur dioxide, and that you could have these kind of ash particles from the
+
+1:00:07.700 --> 1:00:13.940
+ volcano and the sulfur dioxide would condense onto these particles, and you'd have sulfur
+
+1:00:13.940 --> 1:00:18.300
+ dioxide snow coming out of these volcanic plumes.
+
+1:00:18.300 --> 1:00:21.380
+ And there's not much light, though, right?
+
+1:00:21.380 --> 1:00:25.180
+ So you wouldn't be able to, like, it would not make a good Instagram photo, because you
+
+1:00:25.180 --> 1:00:28.140
+ have to, would you see the snow?
+
+1:00:28.140 --> 1:00:29.140
+ Sure.
+
+1:00:29.140 --> 1:00:30.140
+ There's light.
+
+1:00:30.140 --> 1:00:31.140
+ It depends.
+
+1:00:31.140 --> 1:00:32.140
+ Oh, okay.
+
+1:00:32.140 --> 1:00:33.140
+ So you could, okay.
+
+1:00:33.140 --> 1:00:36.380
+ It depends what angle you're looking at it, where the sun is, all the things like that.
+
+1:00:36.380 --> 1:00:38.580
+ You know, the sunlight is much weaker, but it's still there.
+
+1:00:38.580 --> 1:00:41.180
+ It's still there.
+
+1:00:41.180 --> 1:00:44.180
+ And how big is Io in terms of gravity?
+
+1:00:44.180 --> 1:00:45.180
+ Is it smaller?
+
+1:00:45.180 --> 1:00:47.780
+ Is it a pretty small moon?
+
+1:00:47.780 --> 1:00:49.980
+ It's quite a bit smaller than Earth anyway.
+
+1:00:49.980 --> 1:00:50.980
+ It's smaller than Earth.
+
+1:00:50.980 --> 1:00:51.980
+ Okay.
+
+1:00:51.980 --> 1:00:52.980
+ Okay.
+
+1:00:52.980 --> 1:00:53.980
+ Cool.
+
+1:00:53.980 --> 1:00:54.980
+ So they float up for a little bit.
+
+1:00:54.980 --> 1:00:55.980
+ So it floats.
+
+1:00:55.980 --> 1:00:56.980
+ Wow.
+
+1:00:56.980 --> 1:00:57.980
+ Yeah.
+
+1:00:57.980 --> 1:00:58.980
+ No, you're right.
+
+1:00:58.980 --> 1:01:00.060
+ That would be gorgeous.
+
+1:01:00.060 --> 1:01:03.820
+ What else about Earth is interesting besides volcanoes?
+
+1:01:03.820 --> 1:01:04.820
+ So plate tectonics.
+
+1:01:04.820 --> 1:01:13.540
+ I didn't realize that that was a unique element of a planet in the solar system, because that,
+
+1:01:13.540 --> 1:01:17.940
+ I wonder what, I mean, we experienced as human beings, it's quite painful because of earthquakes
+
+1:01:17.940 --> 1:01:22.260
+ and all those kinds of things, but I wonder if there's nice features to it.
+
+1:01:22.260 --> 1:01:23.260
+ Yeah.
+
+1:01:23.260 --> 1:01:30.020
+ So coming back to habitability again, things like tectonics and plate tectonics are thought
+
+1:01:30.020 --> 1:01:33.220
+ to play an important role in the surface being habitable.
+
+1:01:33.220 --> 1:01:36.840
+ And that's because you have a way of recycling materials.
+
+1:01:36.840 --> 1:01:41.940
+ So if you have a stagnant surface, everything, you know, you use up all the free oxygen,
+
+1:01:41.940 --> 1:01:48.060
+ everything reacts until you no longer have reactants that life can extract energy from.
+
+1:01:48.060 --> 1:01:53.880
+ And so if nothing's changing on your surface, you kind of reach this stagnation point.
+
+1:01:53.880 --> 1:01:58.620
+ But something like plate tectonics recycles material, you bring up new fresh material
+
+1:01:58.620 --> 1:02:04.100
+ from the interior, you bring down material that's up on the surface, and that can kind
+
+1:02:04.100 --> 1:02:10.060
+ of refresh your nutrient supply, in a sense, or the sort of raw materials that the surface
+
+1:02:10.060 --> 1:02:11.980
+ has to work with.
+
+1:02:11.980 --> 1:02:19.580
+ So from a kind of astrobiologist perspective, looking at Earth, you would see that recycling
+
+1:02:19.580 --> 1:02:24.540
+ of material because the plate tectonics, you would also see how much oxygen is in Earth's
+
+1:02:24.540 --> 1:02:25.540
+ atmosphere.
+
+1:02:25.540 --> 1:02:30.820
+ And between those two things, you would identify Earth as a reasonable candidate for a habitable
+
+1:02:30.820 --> 1:02:35.780
+ environment in addition to, of course, the, you know, pleasant temperature and liquid
+
+1:02:35.780 --> 1:02:37.260
+ water.
+
+1:02:37.260 --> 1:02:41.780
+ But the abundance of oxygen and the plate tectonics both play a role as well.
+
+1:02:41.780 --> 1:02:45.180
+ And also see like tiny dot satellites flying around and rockets.
+
+1:02:45.180 --> 1:02:46.180
+ Well, sure, yes.
+
+1:02:46.180 --> 1:02:50.300
+ I wonder if they would be able to, I really think about that, like, if aliens were to
+
+1:02:50.300 --> 1:02:58.020
+ visit, and would they really see humans as the thing they should be focusing on?
+
+1:02:58.020 --> 1:03:00.220
+ I think it would take a while, right?
+
+1:03:00.220 --> 1:03:06.020
+ Because it's so obvious that that should, because there's like so much incredible,
+
+1:03:06.020 --> 1:03:10.180
+ in terms of biomass, humans are a tiny, tiny, tiny fraction.
+
+1:03:10.180 --> 1:03:15.060
+ There's like ants, they would probably detect ants, right?
+
+1:03:15.060 --> 1:03:19.140
+ Or they probably would focus on the water and the fish because there's like a lot of
+
+1:03:19.140 --> 1:03:20.140
+ water.
+
+1:03:20.140 --> 1:03:25.060
+ I was surprised to learn that there's more species on land than there is in the sea.
+
+1:03:25.060 --> 1:03:29.420
+ Like there's 90, I think 90 to 95% of the species are on land.
+
+1:03:29.420 --> 1:03:30.420
+ Or on land?
+
+1:03:30.420 --> 1:03:31.420
+ On land.
+
+1:03:31.420 --> 1:03:32.420
+ Not in the sea?
+
+1:03:32.420 --> 1:03:33.420
+ No.
+
+1:03:33.420 --> 1:03:34.420
+ Not in the sea.
+
+1:03:34.420 --> 1:03:40.220
+ Not in the sea, but no, the variety that like the branches created by evolution, apparently
+
+1:03:40.220 --> 1:03:45.580
+ it's probably a good answer from evolutionary biology perspective, why land created so much
+
+1:03:45.580 --> 1:03:46.980
+ diversity, but it did.
+
+1:03:46.980 --> 1:03:53.660
+ So like the sea, there's so much not known about the sea, about the oceans, but it's
+
+1:03:53.660 --> 1:03:57.580
+ not, it's not diversity friendly.
+
+1:03:57.580 --> 1:03:58.580
+ What can I say?
+
+1:03:58.580 --> 1:04:01.580
+ It needs to improve its diversity.
+
+1:04:01.580 --> 1:04:04.940
+ Do you think the aliens would come, I mean, the first thing they would see is I suppose
+
+1:04:04.940 --> 1:04:10.220
+ our cities, assuming that they had some idea of what a natural world looked like, they
+
+1:04:10.220 --> 1:04:13.580
+ would see cities and say, these don't belong.
+
+1:04:13.580 --> 1:04:15.820
+ Which of these many species created these?
+
+1:04:15.820 --> 1:04:16.820
+ Yeah.
+
+1:04:16.820 --> 1:04:21.620
+ I mean, there's, if I were to guess, it would, it's a good question.
+
+1:04:21.620 --> 1:04:27.620
+ I don't know if you do this when you look at the telescope, whether you look at geometric
+
+1:04:27.620 --> 1:04:28.620
+ shapes.
+
+1:04:28.620 --> 1:04:38.180
+ Like if it's, cause to me like hard corners, like what do we think is engineered?
+
+1:04:38.180 --> 1:04:42.500
+ Things that are like, have kind of straight lines and corners and so on, they would probably
+
+1:04:42.500 --> 1:04:47.460
+ detect those in terms of buildings would stand out to them because that's, that goes against
+
+1:04:47.460 --> 1:04:52.420
+ the basic natural physics of the world.
+
+1:04:52.420 --> 1:04:58.220
+ But I don't know if the electricity and lights and so on, it could be, I honestly, it could
+
+1:04:58.220 --> 1:05:01.220
+ be the plate tectonics.
+
+1:05:01.220 --> 1:05:04.940
+ It could be like, that they're like the volcanoes that'd be okay.
+
+1:05:04.940 --> 1:05:05.940
+ That's a source of heat.
+
+1:05:05.940 --> 1:05:07.220
+ And then they would focus.
+
+1:05:07.220 --> 1:05:12.180
+ They might literally, I mean, depending on how alien life forms are, they might notice
+
+1:05:12.180 --> 1:05:20.260
+ the microorganisms before they notice the big, like notice the ant before the elephant.
+
+1:05:20.260 --> 1:05:24.100
+ Cause like there's a lot more of them depending what they're measuring.
+
+1:05:24.100 --> 1:05:29.220
+ We think like size matters, but maybe with their tools of measurement, they would look
+
+1:05:29.220 --> 1:05:32.420
+ for quantity versus size.
+
+1:05:32.420 --> 1:05:36.980
+ Like why focus on the big thing, focus on the thing that there's a lot of.
+
+1:05:36.980 --> 1:05:40.640
+ And when they see humans, depending on their measurement devices, they might see we're
+
+1:05:40.640 --> 1:05:43.760
+ made up of billions of organisms.
+
+1:05:43.760 --> 1:05:46.300
+ Like the fact that we have, we're very human.
+
+1:05:46.300 --> 1:05:49.940
+ We think we're one organism, but that may not be the case.
+
+1:05:49.940 --> 1:05:56.420
+ They might see, in fact, they may also see like a human city as one organism.
+
+1:05:56.420 --> 1:06:03.900
+ Like what is this thing that like, clearly this organism gets aroused at night because
+
+1:06:03.900 --> 1:06:11.500
+ the lights go on and then, and then it like, it sleeps during the day.
+
+1:06:11.500 --> 1:06:16.380
+ I don't know how, like the, what perspective you take on the city.
+
+1:06:16.380 --> 1:06:20.500
+ Is there something interesting about earth or other planets in terms of weather patterns?
+
+1:06:20.500 --> 1:06:26.260
+ So we talked a lot about volcanic patterns.
+
+1:06:26.260 --> 1:06:32.980
+ Is there something else about weather that's interesting, like storms or variations in
+
+1:06:32.980 --> 1:06:36.620
+ temperature, all those kinds of things?
+
+1:06:36.620 --> 1:06:38.480
+ Yeah.
+
+1:06:38.480 --> 1:06:45.180
+ So there's sort of every planet and moon has a kind of interesting and unique weather pattern.
+
+1:06:45.180 --> 1:06:50.820
+ And those weather patterns are really, we don't have a good understanding of them.
+
+1:06:50.820 --> 1:06:56.900
+ We don't even have a good understanding of the global circulation patterns of many of
+
+1:06:56.900 --> 1:07:00.560
+ these atmospheres, why the storm systems occur.
+
+1:07:00.560 --> 1:07:08.740
+ So the composition and occurrence of storms and clouds and these objects is another one
+
+1:07:08.740 --> 1:07:13.780
+ of these kind of windows into the interior that I was talking about with surfaces.
+
+1:07:13.780 --> 1:07:18.340
+ One of these ways that we can get perspective and what the composition is at the interior
+
+1:07:18.340 --> 1:07:20.380
+ and how the circulation is working.
+
+1:07:20.380 --> 1:07:26.660
+ So circulation will bring some species up from deeper in the atmosphere of the planet
+
+1:07:26.660 --> 1:07:30.640
+ to some altitude that's a little bit colder and that species will condense out and form
+
+1:07:30.640 --> 1:07:32.620
+ a cloud at that altitude.
+
+1:07:32.620 --> 1:07:39.220
+ And we can detect in some cases what those clouds are composed of.
+
+1:07:39.220 --> 1:07:46.340
+ But looking at where those occur can tell you how the circulation cells are, whether
+
+1:07:46.340 --> 1:07:50.940
+ the atmospheric circulation is, say, coming up at the equator and going down at the poles
+
+1:07:50.940 --> 1:07:53.620
+ or whether you have multiple cells in the atmosphere.
+
+1:07:53.620 --> 1:07:57.940
+ And I mean, Jupiter's atmosphere is just insane.
+
+1:07:57.940 --> 1:07:58.940
+ There's so much going on.
+
+1:07:58.940 --> 1:08:02.900
+ You look at these pictures and there's all these vortices and antivortices and you have
+
+1:08:02.900 --> 1:08:09.200
+ these different bands that are moving in opposite directions that may be giving you information
+
+1:08:09.200 --> 1:08:20.460
+ about the deep, like deep in the atmosphere, physically deep properties of Jupiter's interior
+
+1:08:20.460 --> 1:08:22.780
+ and circulation.
+
+1:08:22.780 --> 1:08:24.860
+ What are these vortices?
+
+1:08:24.860 --> 1:08:27.760
+ What's the basic material of the storms?
+
+1:08:27.760 --> 1:08:30.100
+ It's condensed molecules from the atmosphere.
+
+1:08:30.100 --> 1:08:36.100
+ So ammonia ice particles in the case of Jupiter, it's methane ice in the case of let's say
+
+1:08:36.100 --> 1:08:40.940
+ Uranus and Neptune and other species, you can kind of construct a chemical model for
+
+1:08:40.940 --> 1:08:42.780
+ which species can condense where.
+
+1:08:42.780 --> 1:08:47.180
+ And so you see a cloud at a certain altitude within the atmosphere and you can make a guess
+
+1:08:47.180 --> 1:08:51.900
+ at what that cloud is made of and sometimes measure it directly and different species
+
+1:08:51.900 --> 1:08:53.900
+ make different colors as well.
+
+1:08:53.900 --> 1:08:55.220
+ Oh, cool.
+
+1:08:55.220 --> 1:08:56.220
+ Ice storms.
+
+1:08:56.220 --> 1:08:57.220
+ Okay.
+
+1:08:57.220 --> 1:09:02.260
+ I mean, the climate of Uranus has always been fascinating to me because it orbits on its
+
+1:09:02.260 --> 1:09:07.420
+ side and it has a 42 year orbital period.
+
+1:09:07.420 --> 1:09:11.620
+ And so, you know, with Earth, our seasons are because our equator is tipped just a little
+
+1:09:11.620 --> 1:09:13.100
+ bit to the plane that we orbit in.
+
+1:09:13.100 --> 1:09:16.240
+ So sometimes the sunlight's a little bit above the equator and sometimes it's a little bit
+
+1:09:16.240 --> 1:09:17.240
+ below the equator.
+
+1:09:17.240 --> 1:09:22.940
+ But on Uranus, it's like for 10 years, the sunlight is directly on the North Pole and
+
+1:09:22.940 --> 1:09:26.900
+ then it's directly on the equator and then it's directly on the South Pole.
+
+1:09:26.900 --> 1:09:33.460
+ And it's actually kind of amazing that the atmosphere doesn't look crazier than it does.
+
+1:09:33.460 --> 1:09:38.500
+ But understanding how, taking again, like one of these extreme examples, if we can understand
+
+1:09:38.500 --> 1:09:43.580
+ why that atmosphere behaves in the way it does, it's kind of a test of our understanding
+
+1:09:43.580 --> 1:09:45.820
+ of how atmosphere is.
+
+1:09:45.820 --> 1:09:55.540
+ So like heats up one side of the planet for 10 years and then freezes it the next, like,
+
+1:09:55.540 --> 1:10:00.480
+ and that you're saying should probably lead to some chaos.
+
+1:10:00.480 --> 1:10:01.480
+ And it doesn't.
+
+1:10:01.480 --> 1:10:04.860
+ The fact that it doesn't tells you something about the atmosphere.
+
+1:10:04.860 --> 1:10:08.440
+ So atmospheres have a property that surfaces don't have, which is that they can redistribute
+
+1:10:08.440 --> 1:10:09.900
+ heat a lot more effectively.
+
+1:10:09.900 --> 1:10:10.900
+ Right.
+
+1:10:10.900 --> 1:10:15.780
+ So they have a stabilizing, like self regulating aspect to them that they're able to deal with
+
+1:10:15.780 --> 1:10:19.700
+ extreme conditions.
+
+1:10:19.700 --> 1:10:27.260
+ But predicting how that complex system unrolls is very difficult, as we know, about predicting
+
+1:10:27.260 --> 1:10:28.260
+ the weather on Earth even.
+
+1:10:28.260 --> 1:10:29.260
+ Oh, my goodness.
+
+1:10:29.260 --> 1:10:30.260
+ Yeah.
+
+1:10:30.260 --> 1:10:31.260
+ Even with the little variation we have on Earth.
+
+1:10:31.260 --> 1:10:35.100
+ You know, people have tried to put together global circulation models.
+
+1:10:35.100 --> 1:10:36.300
+ You know, we've done this for Earth.
+
+1:10:36.300 --> 1:10:38.740
+ People have tried to do these for other planets as well.
+
+1:10:38.740 --> 1:10:41.820
+ And it is a really hard problem.
+
+1:10:41.820 --> 1:10:45.820
+ So Titan, for example, like I said, it's one of the best studied atmospheres in the solar
+
+1:10:45.820 --> 1:10:50.540
+ system, and people have tried to make these global circulation models and actually predict
+
+1:10:50.540 --> 1:10:55.060
+ what's going to happen moving into sort of the next season of Titan.
+
+1:10:55.060 --> 1:10:57.060
+ And those predictions have ended up being wrong.
+
+1:10:57.060 --> 1:11:00.780
+ And so then, you know, I don't know, it's always exciting when a prediction is wrong
+
+1:11:00.780 --> 1:11:06.020
+ because it means that there's something more to learn, like your theory wasn't sufficient.
+
+1:11:06.020 --> 1:11:09.620
+ And then you get to go back and learn something by how you have to modify the theory to make
+
+1:11:09.620 --> 1:11:11.900
+ it fit.
+
+1:11:11.900 --> 1:11:15.980
+ I'm excited by the possibility of one day there will be for various moons and planets,
+
+1:11:15.980 --> 1:11:22.500
+ there will be like news programs reporting the weather with the fake confidence of like
+
+1:11:22.500 --> 1:11:25.700
+ as if you can predict the weather.
+
+1:11:25.700 --> 1:11:28.580
+ We talked quite a bit about planets and moons.
+
+1:11:28.580 --> 1:11:31.780
+ Can we talk a little bit about asteroids?
+
+1:11:31.780 --> 1:11:32.780
+ For sure.
+
+1:11:32.780 --> 1:11:34.580
+ What is, what's an asteroid?
+
+1:11:34.580 --> 1:11:36.940
+ And what kind of asteroids are there?
+
+1:11:36.940 --> 1:11:41.860
+ So the asteroids, let's talk about just the restricted to the main asteroid belt, which
+
+1:11:41.860 --> 1:11:49.580
+ is the region, it's a region of debris basically between Mars and Jupiter.
+
+1:11:49.580 --> 1:11:57.620
+ And the, these sort of belts of debris throughout the solar system, the outer solar system,
+
+1:11:57.620 --> 1:12:01.780
+ you know, the Kuiper belt that we talked about, the asteroid belt, as well as certain other
+
+1:12:01.780 --> 1:12:08.740
+ populations where they accumulate because they're gravitationally more favored, are
+
+1:12:08.740 --> 1:12:11.620
+ remnant objects from the origin of the solar system.
+
+1:12:11.620 --> 1:12:17.620
+ And so one of the reasons that we are so interested in them, aside from potentially the fact that
+
+1:12:17.620 --> 1:12:27.820
+ they could come hit Earth, but scientifically it's, it gives us a window into understanding
+
+1:12:27.820 --> 1:12:34.620
+ the composition of the material from which Earth and the other planets formed and how
+
+1:12:34.620 --> 1:12:40.000
+ that material was kind of redistributed over the history of the solar system.
+
+1:12:40.000 --> 1:12:44.200
+ So the asteroids, one could classify them in two different ways.
+
+1:12:44.200 --> 1:12:45.980
+ Some of them are ancient objects.
+
+1:12:45.980 --> 1:12:54.540
+ So they accreted out of the sort of disc of material that the whole solar system formed
+
+1:12:54.540 --> 1:13:02.500
+ out of and have kind of remained ever since more or less the same.
+
+1:13:02.500 --> 1:13:06.300
+ They've probably collided with each other and we see the, all these collisional fragments
+
+1:13:06.300 --> 1:13:13.120
+ and you can actually look and based on their orbits say, you know, like these 50 objects
+
+1:13:13.120 --> 1:13:16.300
+ originated as the same object.
+
+1:13:16.300 --> 1:13:22.620
+ You can see them kind of dynamically moving apart after some big collision.
+
+1:13:22.620 --> 1:13:26.120
+ And so some of them are these ancient objects maybe that have undergone collisions.
+
+1:13:26.120 --> 1:13:30.500
+ And then there's this other category of object that is the one that I personally find really
+
+1:13:30.500 --> 1:13:38.560
+ interesting which is remnants of objects that could have been planets.
+
+1:13:38.560 --> 1:13:45.540
+ So early on a bunch of potential planets accreted that we call planetesimals and they formed
+
+1:13:45.540 --> 1:13:49.180
+ and they formed with a lot of energy and they had enough time to actually differentiate.
+
+1:13:49.180 --> 1:13:53.560
+ So some of these objects differentiated into cores and mantles and crests.
+
+1:13:53.560 --> 1:14:00.720
+ And then they were subsequently disrupted in these massive collisions and they, now
+
+1:14:00.720 --> 1:14:05.140
+ we have these fragments, we think fragments floating around the asteroid belt that are
+
+1:14:05.140 --> 1:14:08.740
+ like bits of mantle, bits of core, bits of crest basically.
+
+1:14:08.740 --> 1:14:14.820
+ So it's like puzzle pieces that you might be able to stitch together or I guess it's
+
+1:14:14.820 --> 1:14:22.480
+ all mixed up so you can't stitch together the original planet candidates or is that
+
+1:14:22.480 --> 1:14:28.900
+ possible to try to see if they kind of, I mean, there's too many objects in there to.
+
+1:14:28.900 --> 1:14:33.780
+ I think that there are cases where people have kind of looked at objects and by looking
+
+1:14:33.780 --> 1:14:37.620
+ at their orbits, they say these objects should have originated together, but they have very
+
+1:14:37.620 --> 1:14:39.620
+ different compositions.
+
+1:14:39.620 --> 1:14:44.340
+ And so then you can hypothesize maybe they were different fragments of a differentiated
+
+1:14:44.340 --> 1:14:45.340
+ object.
+
+1:14:45.340 --> 1:14:49.620
+ But one of the really cool things about this is, you know, we've been talking about getting
+
+1:14:49.620 --> 1:14:52.620
+ clues into the interiors of planets.
+
+1:14:52.620 --> 1:14:57.580
+ We've never seen a planetary core or deep mantle directly.
+
+1:14:57.580 --> 1:15:01.780
+ Some mantle material comes up on our surface and then we can see it, but, you know, sort
+
+1:15:01.780 --> 1:15:03.800
+ of in bulk.
+
+1:15:03.800 --> 1:15:08.220
+ We haven't seen these things directly and these asteroids potentially give us a chance
+
+1:15:08.220 --> 1:15:14.060
+ to like look at what our own core and mantle is like, or at least would be like if it had
+
+1:15:14.060 --> 1:15:18.980
+ been also floating through space for a few billion years and getting irradiated and all
+
+1:15:18.980 --> 1:15:19.980
+ that.
+
+1:15:19.980 --> 1:15:26.020
+ But it's a cool potential window or like analogy into the interior of our own planet.
+
+1:15:26.020 --> 1:15:30.660
+ Well, how do you begin studying some of these asteroids?
+
+1:15:30.660 --> 1:15:33.980
+ What if you were to put together a study, like what are the interesting questions to
+
+1:15:33.980 --> 1:15:37.140
+ ask that are a little bit more specific?
+
+1:15:37.140 --> 1:15:43.860
+ Do you find a favorite asteroid that could be tracked and try to track it through telescopes?
+
+1:15:43.860 --> 1:15:51.780
+ Or do you, is it has to be, do you have to land on those things to study it?
+
+1:15:51.780 --> 1:15:58.060
+ So when it comes to the asteroids, there are so many of them and the big pictures or the
+
+1:15:58.060 --> 1:16:08.140
+ big questions are answered, so some questions can be answered by zooming in in detail on
+
+1:16:08.140 --> 1:16:11.940
+ individual object, but mostly you're trying to do a statistical study.
+
+1:16:11.940 --> 1:16:18.300
+ So you want to look at thousands of objects, even hundreds of thousands of objects and
+
+1:16:18.300 --> 1:16:25.620
+ figure out what their composition is and look at, you know, how many big asteroids there
+
+1:16:25.620 --> 1:16:29.380
+ are of this composition versus how many small asteroids of this other composition and put
+
+1:16:29.380 --> 1:16:34.180
+ together these kinds of statistical properties of the asteroid belt.
+
+1:16:34.180 --> 1:16:40.160
+ And those properties can be directly compared with the results of simulations for the formation
+
+1:16:40.160 --> 1:16:42.300
+ of the solar system.
+
+1:16:42.300 --> 1:16:50.620
+ What do we know about the surfaces of asteroids or the contents of the insides of asteroids
+
+1:16:50.620 --> 1:16:52.960
+ and what are still open questions?
+
+1:16:52.960 --> 1:17:00.340
+ So I would say that we don't know a whole lot about their compositions.
+
+1:17:00.340 --> 1:17:07.220
+ Most of them are small and so you can't study them in such detail with telescopes as you
+
+1:17:07.220 --> 1:17:11.780
+ could, you know, a planet or moon and at the same time, because there are so many of them,
+
+1:17:11.780 --> 1:17:17.500
+ you could send a spacecraft to a few, but you can't really like get a statistical survey
+
+1:17:17.500 --> 1:17:18.500
+ with spacecraft.
+
+1:17:18.500 --> 1:17:24.260
+ And so a lot of what we, a lot of what has been done comes down to sort of classification.
+
+1:17:24.260 --> 1:17:31.060
+ You look at how bright they are, you look at whether they're red or blue, simply, you
+
+1:17:31.060 --> 1:17:35.180
+ know, whether their spectrum is sloped towards long wavelengths or short wavelengths.
+
+1:17:35.180 --> 1:17:41.740
+ There are certain, if you point a spectrograph at their surfaces, there are certain features
+
+1:17:41.740 --> 1:17:42.740
+ you can see.
+
+1:17:42.740 --> 1:17:46.900
+ So you can tell that some of them have silicates on them.
+
+1:17:46.900 --> 1:17:50.100
+ But these are the sort of, they're pretty basic questions.
+
+1:17:50.100 --> 1:17:55.380
+ We're still trying to classify them based on fairly basic information in kind of combination
+
+1:17:55.380 --> 1:17:59.520
+ with our general understanding of the material the solar system formed from.
+
+1:17:59.520 --> 1:18:03.380
+ And so you're sort of, you're coming in with prior knowledge, which is that you more or
+
+1:18:03.380 --> 1:18:06.540
+ less know what the materials are the solar system formed from, and then you're trying
+
+1:18:06.540 --> 1:18:09.540
+ to classify them into these categories.
+
+1:18:09.540 --> 1:18:17.140
+ There's still a huge amount of room for understanding them better and for understanding how their
+
+1:18:17.140 --> 1:18:20.180
+ surfaces are changing in the space environment.
+
+1:18:20.180 --> 1:18:23.100
+ Is it hard to land on an asteroid?
+
+1:18:23.100 --> 1:18:26.100
+ Is this a dumb question?
+
+1:18:26.100 --> 1:18:36.300
+ It feels like it would be quite difficult to actually operate a spacecraft in such a
+
+1:18:36.300 --> 1:18:38.180
+ dense field of debris.
+
+1:18:38.180 --> 1:18:44.100
+ Oh, the asteroid belt, there's a ton of material there, but it's actually not that dense.
+
+1:18:44.100 --> 1:18:47.100
+ It is mostly open space.
+
+1:18:47.100 --> 1:18:51.540
+ So mentally do picture like mostly open space with some rocks.
+
+1:18:51.540 --> 1:18:54.660
+ The problem is some of them are not thought to be solid.
+
+1:18:54.660 --> 1:18:58.480
+ So some of these asteroids, especially these, these core mantle fragments, you can think
+
+1:18:58.480 --> 1:19:04.500
+ of as sort of solid like a planet, but some of them are just kind of aggregates of material.
+
+1:19:04.500 --> 1:19:06.680
+ We call them rubble piles.
+
+1:19:06.680 --> 1:19:08.660
+ And so there's not necessarily.
+
+1:19:08.660 --> 1:19:15.780
+ Might look like a rock, but do a lot of them have kind of clouds around them, like a dust
+
+1:19:15.780 --> 1:19:22.900
+ cloud thing, or like, do you know what you're stepping on when you try to land on it?
+
+1:19:22.900 --> 1:19:26.180
+ Like what are we supposed to be visualizing here?
+
+1:19:26.180 --> 1:19:29.100
+ This is like very few have water, right?
+
+1:19:29.100 --> 1:19:32.700
+ There's some water in the outer part of the asteroid belt, but they're not quite like
+
+1:19:32.700 --> 1:19:37.300
+ comets in the sense of having clouds around them.
+
+1:19:37.300 --> 1:19:41.180
+ There are some crazy asteroids that do become active like comets.
+
+1:19:41.180 --> 1:19:45.820
+ That's the whole other category of thing that we don't understand.
+
+1:19:45.820 --> 1:19:50.460
+ But their surfaces, I mean, we have visited some, you can find pictures that spacecraft
+
+1:19:50.460 --> 1:19:51.460
+ have taken of them.
+
+1:19:51.460 --> 1:19:54.700
+ We've actually scooped up material off of the surface of some of these objects.
+
+1:19:54.700 --> 1:19:58.780
+ We're bringing it back to analyze it in the lab.
+
+1:19:58.780 --> 1:20:04.380
+ And there's a mission that's launching next year to land on one of these supposedly core
+
+1:20:04.380 --> 1:20:09.780
+ fragment objects to try to figure out what the heck it is and what's going on with it.
+
+1:20:09.780 --> 1:20:16.420
+ But the surfaces, you know, they're, they're, you can picture a solid surface with some
+
+1:20:16.420 --> 1:20:23.340
+ little grains of sand or pebbles on it and occasional boulders, maybe some fine dusty
+
+1:20:23.340 --> 1:20:28.020
+ regions, dust kind of collecting in certain places.
+
+1:20:28.020 --> 1:20:30.580
+ Is there this, do you worry about this?
+
+1:20:30.580 --> 1:20:41.320
+ Is there any chance that one of these fellas destroys all of human civilization by an asteroid
+
+1:20:41.320 --> 1:20:45.780
+ kind of colliding with something, changing its trajectory and then heading its way towards
+
+1:20:45.780 --> 1:20:47.460
+ earth?
+
+1:20:47.460 --> 1:20:49.420
+ That is definitely possible.
+
+1:20:49.420 --> 1:20:54.260
+ And it doesn't even have to necessarily collide with something and change its trajectory.
+
+1:20:54.260 --> 1:20:56.020
+ We're not tracking all of them.
+
+1:20:56.020 --> 1:20:57.860
+ We can't track all of them yet.
+
+1:20:57.860 --> 1:21:01.820
+ You know, there's still a lot of them.
+
+1:21:01.820 --> 1:21:05.300
+ People are, people are tracking a lot of them and we are doing our best to track more of
+
+1:21:05.300 --> 1:21:06.300
+ them.
+
+1:21:06.300 --> 1:21:09.540
+ But there are a lot of them out there and it would be potentially catastrophic if one
+
+1:21:09.540 --> 1:21:11.260
+ of them impacted earth.
+
+1:21:11.260 --> 1:21:16.980
+ Have you, are you aware of this Apophis object?
+
+1:21:16.980 --> 1:21:23.140
+ So there's an asteroid, a near earth object called Apophis that people thought had a decent
+
+1:21:23.140 --> 1:21:28.840
+ probability of hitting earth in 2029 and then potentially again in 2036.
+
+1:21:28.840 --> 1:21:29.940
+ So they did a lot of studies.
+
+1:21:29.940 --> 1:21:35.060
+ It's not actually going to hit earth, but it is going to come very close.
+
+1:21:35.060 --> 1:21:40.780
+ It's going to be visible in the sky in a relatively dark, I mean, not even that dark, probably
+
+1:21:40.780 --> 1:21:50.580
+ not visible from Los Angeles, but, and it's going to come a 10th of the way between the
+
+1:21:50.580 --> 1:21:51.740
+ earth and the moon.
+
+1:21:51.740 --> 1:21:55.940
+ It's going to come closer apparently than some geosynchronous communication satellites.
+
+1:21:55.940 --> 1:21:56.940
+ Oh wow.
+
+1:21:56.940 --> 1:22:02.660
+ So that is a close call, but people have studied it and apparently are very confident it's
+
+1:22:02.660 --> 1:22:04.300
+ not actually going to hit us, but it was.
+
+1:22:04.300 --> 1:22:08.540
+ I'm going to have to look into this because I'm very sure, I'm very sure what's going
+
+1:22:08.540 --> 1:22:13.100
+ to happen if an asteroid actually hits earth.
+
+1:22:13.100 --> 1:22:23.300
+ That the scientific community and government will confidently say that, uh, we have nothing
+
+1:22:23.300 --> 1:22:24.300
+ to worry about.
+
+1:22:24.300 --> 1:22:26.340
+ It's going to be a close call.
+
+1:22:26.340 --> 1:22:30.420
+ And then last minute they'll be like, there was a miscalculation.
+
+1:22:30.420 --> 1:22:31.420
+ They're not lying.
+
+1:22:31.420 --> 1:22:35.300
+ It's just like the space of possibilities, because it's very difficult to track these
+
+1:22:35.300 --> 1:22:40.500
+ kinds of things and there's a lot of kind of, um, there's complexities involved in this.
+
+1:22:40.500 --> 1:22:46.340
+ There's a lot of uncertainties that I just, something tells me that human civilization
+
+1:22:46.340 --> 1:22:49.540
+ will end with, we'll see it coming.
+
+1:22:49.540 --> 1:22:54.020
+ And then last minute there'll be a, oops, we'll like, we'll see it coming and we'll,
+
+1:22:54.020 --> 1:22:57.740
+ it'll be like, no, it's just, it's just threatening, but no problem.
+
+1:22:57.740 --> 1:22:58.740
+ No problem.
+
+1:22:58.740 --> 1:23:01.140
+ And last minute it'll be like, oops, that was a miscalculation.
+
+1:23:01.140 --> 1:23:10.380
+ And it's all over in a matter of like a week, or just very positive and optimistic today.
+
+1:23:10.380 --> 1:23:16.380
+ Is there any chance that Bruce Willis can save us in the sense that from what you know
+
+1:23:16.380 --> 1:23:24.460
+ about asteroids, is there something that, um, you can catch them early enough to, uh,
+
+1:23:24.460 --> 1:23:31.660
+ change volcanic, uh, eruptions, right, um, sort of drill, put a nuclear weapon inside
+
+1:23:31.660 --> 1:23:37.180
+ and break up the asteroid or change its trajectory?
+
+1:23:37.180 --> 1:23:38.980
+ There is potential for that.
+
+1:23:38.980 --> 1:23:48.180
+ If you catch it early enough in advance, um, I think in theory, if you knew five years
+
+1:23:48.180 --> 1:23:56.380
+ in advance, um, depending on the objects and how close, how much you would need to deflect
+
+1:23:56.380 --> 1:24:00.620
+ it, um, you could deflect it a little bit.
+
+1:24:00.620 --> 1:24:04.100
+ I don't know that it would be sufficient in all cases.
+
+1:24:04.100 --> 1:24:09.500
+ Um, and this is definitely not my specific area of expertise, but my understanding is
+
+1:24:09.500 --> 1:24:11.980
+ that there is something you could do.
+
+1:24:11.980 --> 1:24:17.460
+ Um, but it also, how you would carry that out depends a lot on the properties of the
+
+1:24:17.460 --> 1:24:18.460
+ asteroid.
+
+1:24:18.460 --> 1:24:20.220
+ If it's a solid object versus a rubble pile.
+
+1:24:20.220 --> 1:24:26.980
+ So let's say you planted some bomb in the middle of it and it blew up, but it was just
+
+1:24:26.980 --> 1:24:28.940
+ kind of a pile of material anyway.
+
+1:24:28.940 --> 1:24:33.420
+ And then that material comes back together and then you kind of just have the same thing.
+
+1:24:33.420 --> 1:24:38.620
+ Presumably its trajectory would be altered, but it's, it's like a terminator too.
+
+1:24:38.620 --> 1:24:43.120
+ When it's like the thing that just like you shoot it in splashes and then comes back together
+
+1:24:43.120 --> 1:24:44.940
+ will be very useless.
+
+1:24:44.940 --> 1:24:45.940
+ That's fascinating.
+
+1:24:45.940 --> 1:24:48.580
+ It was fascinating.
+
+1:24:48.580 --> 1:24:56.860
+ I've gotten a lot of hope from watching, uh, uh, SpaceX rockets that land.
+
+1:24:56.860 --> 1:24:57.940
+ There's so much.
+
+1:24:57.940 --> 1:24:58.940
+ It's like, Oh wow.
+
+1:24:58.940 --> 1:25:06.140
+ From an AI perspective, from a robotics perspective, wow, we can do a hell of an amazing job with
+
+1:25:06.140 --> 1:25:09.380
+ control.
+
+1:25:09.380 --> 1:25:15.140
+ And but then we have an understanding about surfaces here on earth, we can map up a lot
+
+1:25:15.140 --> 1:25:16.140
+ of things.
+
+1:25:16.140 --> 1:25:17.140
+ I wonder if we can do that.
+
+1:25:17.140 --> 1:25:23.740
+ Some kind of detail of being able to have that same level of precision in landing on
+
+1:25:23.740 --> 1:25:31.940
+ surfaces with as wide of a variety as asteroids have to be able to understand the exact properties
+
+1:25:31.940 --> 1:25:37.620
+ of the surface and be able to encode that into whatever rocket that lands sufficiently
+
+1:25:37.620 --> 1:25:44.580
+ to, I presume humans, unlike the, unlike the movies, humans would likely get in the way.
+
+1:25:44.580 --> 1:25:52.900
+ Like it should all be done by robots and like land drill, place the, the explosive that
+
+1:25:52.900 --> 1:25:56.580
+ should all be done through control, the robots.
+
+1:25:56.580 --> 1:26:01.080
+ And then you should be able to dynamically adjust to, um, to the surface.
+
+1:26:01.080 --> 1:26:05.620
+ The flip side of that for a robotics person, I don't know if you've seen these, it's been
+
+1:26:05.620 --> 1:26:07.100
+ very heartbreaking.
+
+1:26:07.100 --> 1:26:14.060
+ Uh, somebody I know well, Russ Tedrick at MIT led the DARPA robotics challenge team for
+
+1:26:14.060 --> 1:26:15.980
+ the humanoid robot challenge for DARPA.
+
+1:26:15.980 --> 1:26:20.460
+ I don't know if you've seen videos of robots on two feet falling, but you're talking about
+
+1:26:20.460 --> 1:26:24.740
+ millions, you know, several years of work from with some of the most brilliant roboticists
+
+1:26:24.740 --> 1:26:27.060
+ in the world, millions of dollars.
+
+1:26:27.060 --> 1:26:31.140
+ And the final thing is a highlight video on YouTube of robots falling, but they had a
+
+1:26:31.140 --> 1:26:33.800
+ lot of trouble with uneven surfaces.
+
+1:26:33.800 --> 1:26:38.420
+ That's basically what you have to do with, uh, the challenge involves you're mostly autonomous
+
+1:26:38.420 --> 1:26:43.300
+ with some partial human communication, but that human communication is broken up.
+
+1:26:43.300 --> 1:26:48.700
+ Like you don't get a, you get a noisy channel, so you can, humans can, which is very similar
+
+1:26:48.700 --> 1:26:54.860
+ to what it would be like in humans remotely operating a thing on an asteroid.
+
+1:26:54.860 --> 1:26:57.420
+ And so with that, robots really struggled.
+
+1:26:57.420 --> 1:27:03.300
+ There's some hilarious painful videos of like a robot, not able to like open the door.
+
+1:27:03.300 --> 1:27:07.640
+ And then it tries to open the door without like, it misses the handle and in doing so
+
+1:27:07.640 --> 1:27:12.020
+ like falls, I mean, it's, um, it's painful to watch.
+
+1:27:12.020 --> 1:27:15.740
+ So like that, there's that, and then there's SpaceX.
+
+1:27:15.740 --> 1:27:21.780
+ So I have hope from SpaceX and then I have less hope from bipedal robotics, um, but it's
+
+1:27:21.780 --> 1:27:22.780
+ fun.
+
+1:27:22.780 --> 1:27:23.900
+ It's fun to kind of imagine.
+
+1:27:23.900 --> 1:27:28.420
+ And I think the planetary side of it comes into play in understanding the surfaces of
+
+1:27:28.420 --> 1:27:34.540
+ these asteroids more and more that, you know, forget sort of destruction of human civilization.
+
+1:27:34.540 --> 1:27:39.100
+ It'd be cool to have like spacecraft just landing on all these asteroids to study them
+
+1:27:39.100 --> 1:27:44.940
+ at scale and being able to figure out dynamically what, you know, whether it's a rubble pile
+
+1:27:44.940 --> 1:27:51.660
+ or whether it's, um, a solid objects, like, do you see that kind of future of science?
+
+1:27:51.660 --> 1:27:57.860
+ Maybe a hundred, 200, 300 years from now, where there's just robots expanding out through
+
+1:27:57.860 --> 1:28:00.800
+ the solar system, like sensors, essentially.
+
+1:28:00.800 --> 1:28:04.260
+ Some of it taking pictures from a distance, some of them landing, just exploring and giving
+
+1:28:04.260 --> 1:28:05.260
+ us data.
+
+1:28:05.260 --> 1:28:10.580
+ Cause it feels like we're working with very little data right now.
+
+1:28:10.580 --> 1:28:14.420
+ Sure I, I do see exploration going that way.
+
+1:28:14.420 --> 1:28:23.340
+ I think, um, the way that NASA is currently or historically has been doing missions is
+
+1:28:23.340 --> 1:28:28.140
+ putting together these, these really large missions that do a lot of things and are extremely
+
+1:28:28.140 --> 1:28:30.500
+ well tested and have a very low rate of failure.
+
+1:28:30.500 --> 1:28:38.840
+ But now that, um, these sort of CubeSat technologies are, are becoming easier to build, easier
+
+1:28:38.840 --> 1:28:41.700
+ to launch, they're, they're very cheap.
+
+1:28:41.700 --> 1:28:43.980
+ And you know, NASA is getting involved in this as well.
+
+1:28:43.980 --> 1:28:48.960
+ There's, there's a lot of interest in these missions that are relatively small, relatively
+
+1:28:48.960 --> 1:28:50.580
+ cheap and just do one thing.
+
+1:28:50.580 --> 1:28:54.160
+ So you can really optimize it to just do this one thing.
+
+1:28:54.160 --> 1:28:57.140
+ And maybe you could build a hundred of them and send them to different asteroids.
+
+1:28:57.140 --> 1:29:01.100
+ And they would just collect this one piece of information from each asteroid.
+
+1:29:01.100 --> 1:29:06.700
+ It's a kind of different, more distributed way of doing science, I guess.
+
+1:29:06.700 --> 1:29:11.160
+ And there's a ton of potential there, I agree.
+
+1:29:11.160 --> 1:29:17.220
+ Let me ask you about objects or one particular object from outside our solar system.
+
+1:29:17.220 --> 1:29:19.660
+ We don't get to study many of these, right?
+
+1:29:19.660 --> 1:29:24.580
+ They don't, we don't get stuff that just flies in out of nowhere from outside the solar system
+
+1:29:24.580 --> 1:29:25.580
+ and flies through.
+
+1:29:25.580 --> 1:29:30.460
+ Apparently there's been two recently in the past few years.
+
+1:29:30.460 --> 1:29:34.540
+ One of them is Amuamua.
+
+1:29:34.540 --> 1:29:37.340
+ What are your thoughts about Amuamua?
+
+1:29:37.340 --> 1:29:38.340
+ So fun to say.
+
+1:29:38.340 --> 1:29:44.260
+ Could it, could it be space junk from a distant alien civilization or is it just a weird shaped
+
+1:29:44.260 --> 1:29:45.260
+ comet?
+
+1:29:45.260 --> 1:29:49.540
+ I like the way that's phrased.
+
+1:29:49.540 --> 1:29:53.540
+ Um, so Amuamua is, is a fascinating object.
+
+1:29:53.540 --> 1:29:57.380
+ Just the fact that we have started discovering things that are coming in from outside our
+
+1:29:57.380 --> 1:30:01.980
+ solar system is amazing and can, can start to study them.
+
+1:30:01.980 --> 1:30:09.340
+ And now that we have seen some, we can design now kind of thinking in advance.
+
+1:30:09.340 --> 1:30:11.980
+ The next time we see one, we will be much more ready for it.
+
+1:30:11.980 --> 1:30:14.140
+ We will know which telescopes we want to point at it.
+
+1:30:14.140 --> 1:30:18.660
+ We will have explored whether we could even launch a fast turnaround mission to actually
+
+1:30:18.660 --> 1:30:23.540
+ like get to it before it leaves the solar system.
+
+1:30:23.540 --> 1:30:30.460
+ In terms of Amuamua, yeah, it's, for an object in our solar system, it's really unusual in
+
+1:30:30.460 --> 1:30:33.820
+ two particular ways.
+
+1:30:33.820 --> 1:30:38.860
+ One is the dimensions that we don't see natural things in our solar system that are kind of
+
+1:30:38.860 --> 1:30:39.980
+ long and skinny.
+
+1:30:39.980 --> 1:30:45.820
+ We see, the things we see in our solar system don't deviate from spherical by that much.
+
+1:30:45.820 --> 1:30:50.540
+ And then that it showed these strange properties of accelerating as it was leaving the solar
+
+1:30:50.540 --> 1:30:53.380
+ system, which was not understood at first.
+
+1:30:53.380 --> 1:31:03.180
+ So in terms of the alien space junk, you know, as a scientist, I cannot rule out that possibility.
+
+1:31:03.180 --> 1:31:05.540
+ I have no evidence to the contrary.
+
+1:31:05.540 --> 1:31:06.540
+ Um, however,
+
+1:31:06.540 --> 1:31:10.460
+ See, you're saying there's a chance.
+
+1:31:10.460 --> 1:31:16.580
+ I cannot, I cannot, as a scientist, honestly say that I can rule out that it's alien space
+
+1:31:16.580 --> 1:31:17.580
+ junk.
+
+1:31:17.580 --> 1:31:26.640
+ However, I see the kind of alien explanation as following this, the Sagan's extraordinary
+
+1:31:26.640 --> 1:31:29.200
+ claims require extraordinary evidence.
+
+1:31:29.200 --> 1:31:37.580
+ If you are going to actually claim that something is aliens, you need to carefully evaluate,
+
+1:31:37.580 --> 1:31:43.260
+ everyone needs to carefully evaluate the other options and see whether it could just be something
+
+1:31:43.260 --> 1:31:45.260
+ that we know exists that makes sense.
+
+1:31:45.260 --> 1:31:53.660
+ In the case of Oumuamua, there are explanations that fit well within our understanding of
+
+1:31:53.660 --> 1:31:54.660
+ how things work.
+
+1:31:54.660 --> 1:31:59.340
+ So there are a couple, there are two hypotheses for what it could be made of.
+
+1:31:59.340 --> 1:32:02.140
+ They're both basically just ice shards.
+
+1:32:02.140 --> 1:32:05.940
+ In one case, it's a nitrogen ice shard that came off of something like Pluto in another
+
+1:32:05.940 --> 1:32:10.980
+ solar system, that Pluto got hit with something and broke up into pieces, and one of those
+
+1:32:10.980 --> 1:32:13.320
+ pieces came through our solar system.
+
+1:32:13.320 --> 1:32:19.540
+ In the other scenario, it's a bit of a failed solar system.
+
+1:32:19.540 --> 1:32:24.820
+ So our solar system formed out of a collapsing molecular cloud.
+
+1:32:24.820 --> 1:32:29.660
+ Sometimes those molecular clouds are not massive enough, and they sort of collapse into bits,
+
+1:32:29.660 --> 1:32:33.180
+ but they don't actually form a solar system, but you end up with these kind of chunks of
+
+1:32:33.180 --> 1:32:35.100
+ hydrogen ice, apparently.
+
+1:32:35.100 --> 1:32:38.860
+ And so one of those chunks of hydrogen ice could have got ejected and passed through
+
+1:32:38.860 --> 1:32:39.860
+ our solar system.
+
+1:32:39.860 --> 1:32:45.780
+ So both cases explain these properties in about the same way.
+
+1:32:45.780 --> 1:32:50.720
+ So those ices will sublimate once they've passed the sun, and so as they're moving away
+
+1:32:50.720 --> 1:32:55.860
+ from the sun, you have the hydrogen or nitrogen ice sublimating off the sunward part of it,
+
+1:32:55.860 --> 1:32:58.940
+ and so that is responsible for the acceleration.
+
+1:32:58.940 --> 1:33:04.760
+ The shape also, because you have all this ice sublimating off the surface, if you take
+
+1:33:04.760 --> 1:33:11.220
+ something, the analogy that works pretty well here is for a bar of soap.
+
+1:33:11.220 --> 1:33:17.140
+ Your bar of soap starts out sort of close to spherical, at least from a physicist perspective,
+
+1:33:17.140 --> 1:33:21.380
+ and as you use it over time, you eventually end up with this long, thin shard because
+
+1:33:21.380 --> 1:33:28.100
+ it's been just by sort of weathering, as we would call it.
+
+1:33:28.100 --> 1:33:32.320
+ And so in the same way, if you just sublimate material off of one of these ice shards, it
+
+1:33:32.320 --> 1:33:37.020
+ ends up long and thin, and it ends up accelerating out of the solar system.
+
+1:33:37.020 --> 1:33:43.380
+ And so given that these properties can be reasonably well explained that way, we should
+
+1:33:43.380 --> 1:33:47.380
+ be extremely skeptical about attributing things to aliens.
+
+1:33:47.380 --> 1:33:54.060
+ See, the reason I like to think that it's aliens is because it puts a lot of priority
+
+1:33:54.060 --> 1:34:00.020
+ on us not being lazy and we need to catch this thing next time it comes around.
+
+1:34:00.020 --> 1:34:06.420
+ I like the idea that there's objects, it almost saddens me, they come out of the darkness
+
+1:34:06.420 --> 1:34:10.620
+ really fast and just fly by and go and leave.
+
+1:34:10.620 --> 1:34:16.260
+ It just seems like a wasted opportunity not to study them.
+
+1:34:16.260 --> 1:34:22.540
+ It's the easiest way to do space travel outside of the solar system is having the things come
+
+1:34:22.540 --> 1:34:23.540
+ to us.
+
+1:34:23.540 --> 1:34:24.540
+ Right?
+
+1:34:24.540 --> 1:34:25.540
+ I like that way of putting it.
+
+1:34:25.540 --> 1:34:28.880
+ And it would be nice to just land on it.
+
+1:34:28.880 --> 1:34:36.620
+ And first of all, really importantly, detect it early and then land on it with a really
+
+1:34:36.620 --> 1:34:47.500
+ nice spacecraft and study the hell out of it.
+
+1:34:47.500 --> 1:34:56.740
+ If there's a chance it's aliens, alien life, it just feels like such a cheap way, inexpensive
+
+1:34:56.740 --> 1:35:03.180
+ way to get information about alien life or something interesting that's out there.
+
+1:35:03.180 --> 1:35:08.300
+ And I'm not sure if an ice shard from another planetary system will be interesting, but
+
+1:35:08.300 --> 1:35:09.300
+ it very well could be.
+
+1:35:09.300 --> 1:35:11.440
+ It could be totally new sets of materials.
+
+1:35:11.440 --> 1:35:16.660
+ It could be, tell us about composition of planets we don't quite understand.
+
+1:35:16.660 --> 1:35:19.620
+ And it's just nice when, especially in the case of a Moa Moa, I guess it was pretty
+
+1:35:19.620 --> 1:35:20.620
+ close to earth.
+
+1:35:20.620 --> 1:35:30.260
+ It would have been nice to, don't go there, they come to us, I don't know.
+
+1:35:30.260 --> 1:35:31.420
+ That's what makes me quite sad.
+
+1:35:31.420 --> 1:35:32.420
+ It's a missed opportunity.
+
+1:35:32.420 --> 1:35:34.060
+ Well, yeah.
+
+1:35:34.060 --> 1:35:39.100
+ And whether you think it's aliens or not, it's a missed opportunity, but we weren't
+
+1:35:39.100 --> 1:35:44.380
+ prepared and we will be prepared for the next ones.
+
+1:35:44.380 --> 1:35:49.140
+ So there's been a movement in astronomy more towards what's called time domain astronomy.
+
+1:35:49.140 --> 1:35:53.060
+ So kind of monitoring the whole sky all the time at all wavelengths.
+
+1:35:53.060 --> 1:35:54.060
+ That's kind of the goal.
+
+1:35:54.060 --> 1:35:58.020
+ And so we expect to detect many more of these in the future, even though these were the
+
+1:35:58.020 --> 1:36:02.020
+ first two we saw, our potential to detect them is only increasing with time.
+
+1:36:02.020 --> 1:36:09.260
+ And so there will be more opportunities and based on these two, we now can actually sit
+
+1:36:09.260 --> 1:36:11.860
+ and think about what we'll do when the next one shows up.
+
+1:36:11.860 --> 1:36:16.740
+ I also, what it made me realize, I know I didn't really think through this, but it made
+
+1:36:16.740 --> 1:36:21.820
+ me realize if there is alien civilizations out there, the thing we're most likely to
+
+1:36:21.820 --> 1:36:24.660
+ see first would be space junk.
+
+1:36:24.660 --> 1:36:28.300
+ My stupid understanding of it.
+
+1:36:28.300 --> 1:36:34.400
+ And the second would be really dumb kind of, you could think of maybe like relay nodes
+
+1:36:34.400 --> 1:36:41.980
+ or something objects that you need to have a whole lot of for particular purposes of
+
+1:36:41.980 --> 1:36:44.300
+ like space travel and so on.
+
+1:36:44.300 --> 1:36:49.180
+ Like a speed limit signs or something, I don't know, whatever we have on earth, a lot of
+
+1:36:49.180 --> 1:36:50.180
+ that's dumb.
+
+1:36:50.180 --> 1:36:52.660
+ It's not alien aliens in themselves.
+
+1:36:52.660 --> 1:36:57.500
+ It's like artifacts that are useful to the engineering in the systems that are engineered
+
+1:36:57.500 --> 1:36:59.300
+ by alien civilizations.
+
+1:36:59.300 --> 1:37:05.600
+ So like it would, we would see a lot of stuff in terms of setting, in terms of looking for
+
+1:37:05.600 --> 1:37:08.140
+ alien life and trying to communicate with it.
+
+1:37:08.140 --> 1:37:17.540
+ Maybe we should be looking not for like smart creatures or systems to communicate with.
+
+1:37:17.540 --> 1:37:23.540
+ Maybe we should be looking for artifacts or even as dumb as like space junk.
+
+1:37:23.540 --> 1:37:29.340
+ It just kind of reframed my perspective of like, what are we looking for as signs?
+
+1:37:29.340 --> 1:37:34.060
+ Cause there could be a lot of stuff that doesn't have intelligence, but gives us really strong
+
+1:37:34.060 --> 1:37:37.820
+ signs that there's somewhere is life or intelligent life.
+
+1:37:37.820 --> 1:37:44.460
+ And yeah, that made me kind of, I know it might be dumb to say, but reframe the kind
+
+1:37:44.460 --> 1:37:46.940
+ of thing that we should be looking for.
+
+1:37:46.940 --> 1:37:48.640
+ Yeah.
+
+1:37:48.640 --> 1:37:53.100
+ So the benefit of looking for intelligent life is that we perhaps have a better chance
+
+1:37:53.100 --> 1:37:56.260
+ of recognizing it.
+
+1:37:56.260 --> 1:38:01.500
+ We couldn't necessarily recognize what an alien stop sign look like.
+
+1:38:01.500 --> 1:38:07.080
+ And maybe the theorists are the people who sort of model and try to understand slow system
+
+1:38:07.080 --> 1:38:10.220
+ objects are pretty good at coming up with models for anything.
+
+1:38:10.220 --> 1:38:15.500
+ I mean, maybe a mua mua was a stop sign, but we're clever enough that we could come up
+
+1:38:15.500 --> 1:38:18.220
+ with some physical explanations for it.
+
+1:38:18.220 --> 1:38:22.580
+ And then we all want to go with the simplest possible, we all want to believe the sort
+
+1:38:22.580 --> 1:38:25.580
+ of most skeptical possible explanation.
+
+1:38:25.580 --> 1:38:29.460
+ And so we missed it because we're too good at coming up with alternate explanations for
+
+1:38:29.460 --> 1:38:30.460
+ things.
+
+1:38:30.460 --> 1:38:35.820
+ And it's such an outlier, such a rare phenomenon that we can't study a hundred or a thousand
+
+1:38:35.820 --> 1:38:36.820
+ of these objects.
+
+1:38:36.820 --> 1:38:38.140
+ We have to, we had just one.
+
+1:38:38.140 --> 1:38:43.620
+ And so the science almost destroys the possibility of something special being there.
+
+1:38:43.620 --> 1:38:48.500
+ It's like Johnny Ive, this designer of Apple, I don't know if you know who that is.
+
+1:38:48.500 --> 1:38:49.500
+ He's the lead designer.
+
+1:38:49.500 --> 1:38:53.260
+ He's the person who designed the iPhone and all the major things.
+
+1:38:53.260 --> 1:38:58.260
+ And he talked about, he's brilliant, one of my favorite humans on earth and one of the
+
+1:38:58.260 --> 1:39:02.140
+ best designers in the history of earth.
+
+1:39:02.140 --> 1:39:07.380
+ He talked about like when he had this origins of an idea, like in his baby stages, he would
+
+1:39:07.380 --> 1:39:11.900
+ not tell Steve Jobs because Steve would usually like trample all over it.
+
+1:39:11.900 --> 1:39:14.060
+ He would say, this is a dumb idea.
+
+1:39:14.060 --> 1:39:19.860
+ And so I sometimes think of the scientific community in that sense, because the weapon
+
+1:39:19.860 --> 1:39:26.540
+ of the scientific method is so strong at its best that it sometimes crushes the out of
+
+1:39:26.540 --> 1:39:30.580
+ the box outlier evidence.
+
+1:39:30.580 --> 1:39:35.020
+ We don't get a lot of that evidence because we don't have, we're not lucky enough to have
+
+1:39:35.020 --> 1:39:36.020
+ a lot of evidence.
+
+1:39:36.020 --> 1:39:42.780
+ So we have to deal with just special cases and special cases could present an inkling
+
+1:39:42.780 --> 1:39:46.900
+ of something much bigger, but the scientific method user tramples all over it.
+
+1:39:46.900 --> 1:39:52.260
+ And it's hard to know what to do with that because the scientific method works, but at
+
+1:39:52.260 --> 1:39:54.780
+ the same time, every once in a while, it's like a balance.
+
+1:39:54.780 --> 1:40:00.380
+ You have to do 99% of the time, you have to do like scientific rigor, but every once in
+
+1:40:00.380 --> 1:40:06.300
+ a while, this is not you saying, me saying, smoke some weed and sit back and think, I
+
+1:40:06.300 --> 1:40:09.300
+ wonder, you know, it's the Joe Rogan thing.
+
+1:40:09.300 --> 1:40:13.980
+ It's entirely possible that it's alien space junk.
+
+1:40:13.980 --> 1:40:14.980
+ Anyway.
+
+1:40:14.980 --> 1:40:15.980
+ Yeah.
+
+1:40:15.980 --> 1:40:16.980
+ I think so.
+
+1:40:16.980 --> 1:40:18.380
+ I completely agree.
+
+1:40:18.380 --> 1:40:23.580
+ And I think that most scientists do speculate about these things.
+
+1:40:23.580 --> 1:40:28.540
+ It's just at what point do you act on those things?
+
+1:40:28.540 --> 1:40:33.060
+ So you're right that the scientific method has inherent skepticism, and for the most
+
+1:40:33.060 --> 1:40:39.220
+ part, that's a good thing because it means that we're not just believing crazy things
+
+1:40:39.220 --> 1:40:41.540
+ all the time.
+
+1:40:41.540 --> 1:40:50.040
+ But it's an interesting point that requiring that high level of rigor occasionally means
+
+1:40:50.040 --> 1:40:56.540
+ that you will miss something that is truly interesting because you needed to verify it
+
+1:40:56.540 --> 1:40:58.620
+ three times and it wasn't verifiable.
+
+1:40:58.620 --> 1:41:03.340
+ I also think like when you communicate with the general public, I think there's power
+
+1:41:03.340 --> 1:41:10.500
+ in that 1% speculation of just demonstrating authenticity as a human being, as a curious
+
+1:41:10.500 --> 1:41:12.540
+ human being.
+
+1:41:12.540 --> 1:41:18.940
+ I think too often, I think this is changing, but I saw, I've been quite disappointed in
+
+1:41:18.940 --> 1:41:23.160
+ my colleagues throughout 2020 with the coronavirus.
+
+1:41:23.160 --> 1:41:28.980
+ There's too much speaking from authority as opposed to speaking from curiosity.
+
+1:41:28.980 --> 1:41:32.860
+ There's some of the most incredible science has been done in 2020, especially on the virology
+
+1:41:32.860 --> 1:41:34.940
+ biology side.
+
+1:41:34.940 --> 1:41:41.860
+ And the kind of being talked down to by scientists is always really disappointing to me as opposed
+
+1:41:41.860 --> 1:41:42.860
+ to inspiring.
+
+1:41:42.860 --> 1:41:47.820
+ Like the things we, there's a lot of uncertainty about the coronavirus, but we know a lot of
+
+1:41:47.820 --> 1:41:54.060
+ this stuff and we speak from scientists from various disciplines, speak from data in the
+
+1:41:54.060 --> 1:41:56.500
+ face of that uncertainty.
+
+1:41:56.500 --> 1:41:58.740
+ And we're curious, we don't know what the hell is going on.
+
+1:41:58.740 --> 1:42:02.680
+ We don't know if this virus is going to evolve, mutate.
+
+1:42:02.680 --> 1:42:07.900
+ We don't know if this virus or the next one might destroy all human civilization.
+
+1:42:07.900 --> 1:42:08.980
+ You can't speak with certainty.
+
+1:42:08.980 --> 1:42:16.620
+ In fact, I was on a survey paper about masks, something I don't talk much about because
+
+1:42:16.620 --> 1:42:22.020
+ I don't like politics, but we don't know if masks work, but there's a lot of evidence
+
+1:42:22.020 --> 1:42:24.140
+ to show that they work for this particular virus.
+
+1:42:24.140 --> 1:42:27.780
+ The transmission of the virus is fascinating actually.
+
+1:42:27.780 --> 1:42:33.480
+ The biomechanics of the way viruses spread is fascinating.
+
+1:42:33.480 --> 1:42:36.340
+ If it wasn't destructive, it would be beautiful.
+
+1:42:36.340 --> 1:42:42.180
+ And we don't know, but it's inspiring to apply the scientific method to the best of our ability,
+
+1:42:42.180 --> 1:42:47.300
+ but also to show that you don't always know everything and to, perhaps not about the virus
+
+1:42:47.300 --> 1:42:51.020
+ as much, but other things speculate.
+
+1:42:51.020 --> 1:42:57.540
+ What if, you know, what if it's the worst case and the best case?
+
+1:42:57.540 --> 1:43:00.760
+ Because that's ultimately what we are, descendants of apes that are just curious about the world
+
+1:43:00.760 --> 1:43:01.760
+ around us.
+
+1:43:01.760 --> 1:43:11.980
+ Yeah, I'll just add to that, not on the topic of masks, but on the topic of curiosity.
+
+1:43:11.980 --> 1:43:19.300
+ I mean, I think that's, astronomy and planetary sciences, a field are a little, are unique
+
+1:43:19.300 --> 1:43:26.420
+ because for better and for worse, they don't directly impact humanity.
+
+1:43:26.420 --> 1:43:34.300
+ So you know, we're not studying virology to prevent transmission of, you know, illness
+
+1:43:34.300 --> 1:43:35.380
+ amongst humans.
+
+1:43:35.380 --> 1:43:40.180
+ We're not characterizing volcanoes on earth that could destroy cities.
+
+1:43:40.180 --> 1:43:49.780
+ We, it really is a more curious and in my opinion, playful scientific field than many.
+
+1:43:49.780 --> 1:43:54.860
+ So for better and worse, we can kind of afford to pursue some of the speculation more because
+
+1:43:54.860 --> 1:44:00.420
+ human lives are not in danger if we speculate a little bit too freely and get something
+
+1:44:00.420 --> 1:44:01.420
+ wrong.
+
+1:44:01.420 --> 1:44:03.520
+ Yeah, definitely.
+
+1:44:03.520 --> 1:44:09.940
+ In the space of AI, I am worried that we're sometimes too eager, speaking for myself,
+
+1:44:09.940 --> 1:44:14.900
+ to like flip the switch to on just to see like what happens.
+
+1:44:14.900 --> 1:44:19.260
+ Maybe sometimes we want to be a little bit careful about that because bad things might
+
+1:44:19.260 --> 1:44:21.180
+ happen.
+
+1:44:21.180 --> 1:44:27.940
+ Is there books or movies in your life long ago or recently that were inspiring, had an
+
+1:44:27.940 --> 1:44:30.300
+ impact on you that you would recommend?
+
+1:44:30.300 --> 1:44:31.860
+ Yeah, absolutely.
+
+1:44:31.860 --> 1:44:35.580
+ So many that I just don't know where to start with it.
+
+1:44:35.580 --> 1:44:37.140
+ So I love reading.
+
+1:44:37.140 --> 1:44:38.340
+ I read obsessively.
+
+1:44:38.340 --> 1:44:43.080
+ I've been reading fiction and a little bit of nonfiction, but mostly fiction obsessively
+
+1:44:43.080 --> 1:44:47.820
+ since I was a child and just never stopped.
+
+1:44:47.820 --> 1:44:50.140
+ So I have some favorite books.
+
+1:44:50.140 --> 1:44:51.780
+ None of them are easy readings.
+
+1:44:51.780 --> 1:44:56.580
+ So I definitely, I mean, I recommend them for somebody who likes an intellectual challenge
+
+1:44:56.580 --> 1:44:59.980
+ in the books that they read.
+
+1:44:59.980 --> 1:45:02.900
+ So maybe I should go chronologically.
+
+1:45:02.900 --> 1:45:04.580
+ I have at least three.
+
+1:45:04.580 --> 1:45:07.340
+ I'm not going to go through 50 here.
+
+1:45:07.340 --> 1:45:14.980
+ Yeah, I'd love to also like maybe ideas that you took away from what you mentioned.
+
+1:45:14.980 --> 1:45:15.980
+ Yeah.
+
+1:45:15.980 --> 1:45:16.980
+ Yeah.
+
+1:45:16.980 --> 1:45:20.300
+ Why they were so compelling to me.
+
+1:45:20.300 --> 1:45:27.580
+ One of the first books that really captured my fascination was Nabokov's book Pale Fire.
+
+1:45:27.580 --> 1:45:29.380
+ Are you familiar with it?
+
+1:45:29.380 --> 1:45:34.560
+ So I read it actually for a class.
+
+1:45:34.560 --> 1:45:39.820
+ It's one of the few books I've ever read for a class that I actually really liked.
+
+1:45:39.820 --> 1:45:44.680
+ And the book is, it's in some sense a puzzle.
+
+1:45:44.680 --> 1:45:52.320
+ He's a brilliant writer, of course, but the book is like, it's formatted like a poem.
+
+1:45:52.320 --> 1:45:59.460
+ So there's an introduction, a very long poem and footnotes, and you get partway through
+
+1:45:59.460 --> 1:46:04.020
+ it before realizing that the whole thing is actually a novel, unless you sort of read
+
+1:46:04.020 --> 1:46:05.020
+ up on it going in.
+
+1:46:05.020 --> 1:46:10.820
+ But the whole thing is a novel and there's a story that slowly reveals itself over the
+
+1:46:10.820 --> 1:46:21.320
+ course of all of this and kind of reveals this just fascinating character basically
+
+1:46:21.320 --> 1:46:24.100
+ and how his mind works in this story.
+
+1:46:24.100 --> 1:46:31.020
+ The idea of a novel also being a kind of intellectual puzzle and something that slowly reveals itself
+
+1:46:31.020 --> 1:46:36.460
+ over the course of reading was really fascinating to me and I have since found a lot more writers
+
+1:46:36.460 --> 1:46:38.140
+ like that.
+
+1:46:38.140 --> 1:46:44.760
+ In a contemporary example that comes to mind is Kazuo Ishiguro, who's pretty much all of
+
+1:46:44.760 --> 1:46:49.600
+ his books are like slow reveals over the course of the book and like nothing much happens
+
+1:46:49.600 --> 1:46:54.280
+ in the books, but you keep reading them because you just want to know like what the reality
+
+1:46:54.280 --> 1:46:57.660
+ is that he's slowly revealing to you.
+
+1:46:57.660 --> 1:47:02.220
+ The kind of discovery oriented reading maybe.
+
+1:47:02.220 --> 1:47:04.140
+ What's the second one?
+
+1:47:04.140 --> 1:47:08.100
+ Perhaps my favorite writer is Renier Maria Rilke.
+
+1:47:08.100 --> 1:47:09.100
+ Wow.
+
+1:47:09.100 --> 1:47:11.100
+ Are you familiar with him?
+
+1:47:11.100 --> 1:47:13.140
+ No, also not familiar.
+
+1:47:13.140 --> 1:47:14.140
+ You're hitting hidden ones.
+
+1:47:14.140 --> 1:47:19.420
+ I mean, I know in the book of Well, but I've never read Pale Fire, but Rilke, I've never,
+
+1:47:19.420 --> 1:47:22.900
+ I know it's a very difficult read, I know that much.
+
+1:47:22.900 --> 1:47:23.900
+ Yeah, right.
+
+1:47:23.900 --> 1:47:25.220
+ All of these are difficult reads.
+
+1:47:25.220 --> 1:47:33.740
+ I think I just, I read for in part for an intellectual challenge, but Rilke, so he wrote
+
+1:47:33.740 --> 1:47:38.060
+ one thing that might be characterizable as a novel, but he wrote a lot of poetry.
+
+1:47:38.060 --> 1:47:43.760
+ I mean, he wrote this series of poems called the Duino Elegies that were very impactful
+
+1:47:43.760 --> 1:47:53.260
+ for me personally, just emotionally, which actually it kind of ties in with astronomy
+
+1:47:53.260 --> 1:48:01.660
+ in that there's a sense in which we're all going through our lives alone and there's
+
+1:48:01.660 --> 1:48:10.100
+ just this sense of profound loneliness in the existence of every individual human.
+
+1:48:10.100 --> 1:48:18.540
+ I think I was drawn to astronomy in part because the sort of vast spaces, the kind of loneliness
+
+1:48:18.540 --> 1:48:24.660
+ and desolateness of space made the sort of internal loneliness feel okay.
+
+1:48:24.660 --> 1:48:32.220
+ In a sense, it like gave companionship and that's how I feel about Rilke's poetry.
+
+1:48:32.220 --> 1:48:40.920
+ He turns the kind of desolation and loneliness of human existence into something joyful and
+
+1:48:40.920 --> 1:48:42.580
+ almost meaningful.
+
+1:48:42.580 --> 1:48:48.860
+ Yeah, there's something about melancholy, I don't know about Rilke in general, but like
+
+1:48:48.860 --> 1:49:00.860
+ contemplating the melancholy nature of the human condition that makes it okay.
+
+1:49:00.860 --> 1:49:05.940
+ I got gentle from an engineering perspective, think that there is so much loneliness we
+
+1:49:05.940 --> 1:49:12.100
+ haven't explored within ourselves yet and that's my hope is to build AI systems that
+
+1:49:12.100 --> 1:49:15.580
+ help us explore our own loneliness.
+
+1:49:15.580 --> 1:49:22.020
+ I think that's kind of what love is and friendship is, is somebody who in a very small way helps
+
+1:49:22.020 --> 1:49:28.860
+ us explore our own loneliness, like they listen, we connect like two lonely creatures connect
+
+1:49:28.860 --> 1:49:38.100
+ for a time and it's like, oh, like acknowledge that we exist together for a brief time, but
+
+1:49:38.100 --> 1:49:43.260
+ in a somewhat shallow way, I think relative to how much it's possible to truly connect
+
+1:49:43.260 --> 1:49:44.540
+ as two consciousnesses.
+
+1:49:44.540 --> 1:49:48.980
+ So AI might be able to help on that front.
+
+1:49:48.980 --> 1:49:49.980
+ So what's the third one?
+
+1:49:49.980 --> 1:49:54.100
+ Actually, you know, I hadn't realized until this moment, but it's yet another one of these
+
+1:49:54.100 --> 1:49:57.160
+ kind of slow reveal books.
+
+1:49:57.160 --> 1:50:05.620
+ It's a contemporary Russian, I think Russian American writer named Olga Grushin and she
+
+1:50:05.620 --> 1:50:12.660
+ wrote this just phenomenal book called The Dream Life of Sukhanov that I read this year.
+
+1:50:12.660 --> 1:50:18.380
+ Maybe it was last year for the first time and it's just a really beautiful, this one
+
+1:50:18.380 --> 1:50:26.060
+ you could call a character study, I think of a Russian father coming to terms with himself
+
+1:50:26.060 --> 1:50:33.660
+ and his own past as he potentially slowly loses his mind.
+
+1:50:33.660 --> 1:50:36.620
+ Slow reveal.
+
+1:50:36.620 --> 1:50:37.620
+ Slow reveal.
+
+1:50:37.620 --> 1:50:39.740
+ Well, that's apparent from the beginning.
+
+1:50:39.740 --> 1:50:43.740
+ I hope I don't think it's a spoiler.
+
+1:50:43.740 --> 1:50:44.740
+ Decline into madness.
+
+1:50:44.740 --> 1:50:45.740
+ Spoiler alert.
+
+1:50:45.740 --> 1:50:47.540
+ So all of these are really heavy.
+
+1:50:47.540 --> 1:50:48.540
+ I don't know.
+
+1:50:48.540 --> 1:50:50.540
+ I just, I don't have anything lighter to recommend.
+
+1:50:50.540 --> 1:50:53.620
+ Ishiguro is the light version of this.
+
+1:50:53.620 --> 1:50:54.620
+ Okay.
+
+1:50:54.620 --> 1:50:58.500
+ Well, heavy has a certain kind of beauty to it in itself.
+
+1:50:58.500 --> 1:51:03.100
+ Is there advice you would give to a young person today that looks up to the stars and
+
+1:51:03.100 --> 1:51:05.160
+ wonders what the heck they want to do with their life?
+
+1:51:05.160 --> 1:51:15.180
+ So career, science, life in general, you've for now chosen a certain kind of path of curiosity.
+
+1:51:15.180 --> 1:51:20.340
+ What insights do you draw from that that you can give us advice to others?
+
+1:51:20.340 --> 1:51:27.940
+ I think for somebody, I would not presume to speak to giving people advice on life and
+
+1:51:27.940 --> 1:51:33.820
+ humanity overall, but for somebody thinking of being a scientist.
+
+1:51:33.820 --> 1:51:40.060
+ So there are a couple of things, one sort of practical thing, which is career wise,
+
+1:51:40.060 --> 1:51:47.780
+ I hadn't appreciated this going into science, but you need to, so the questions you're working
+
+1:51:47.780 --> 1:51:55.260
+ on and the techniques you use are both of very high importance, maybe equal importance
+
+1:51:55.260 --> 1:51:58.060
+ for being happy in your career.
+
+1:51:58.060 --> 1:52:01.660
+ If there are questions you're interested in, but the techniques that you need to use to
+
+1:52:01.660 --> 1:52:07.700
+ do them are tedious for you, then your job is going to be miserable even if the questions
+
+1:52:07.700 --> 1:52:09.100
+ are inspiring.
+
+1:52:09.100 --> 1:52:14.980
+ So you have to find, but if the techniques that you use are things that excite you, then
+
+1:52:14.980 --> 1:52:16.700
+ your job is fun every day.
+
+1:52:16.700 --> 1:52:22.100
+ So for me, I'm fascinated by the solar system and I love telescopes and I love doing data
+
+1:52:22.100 --> 1:52:25.620
+ analysis, playing with data from telescopes, coming up with new ways to use telescopes
+
+1:52:25.620 --> 1:52:28.100
+ and so that's where I have found that mesh.
+
+1:52:28.100 --> 1:52:32.740
+ But if I was interested in, you know, the dynamical evolution of the solar system, how
+
+1:52:32.740 --> 1:52:36.900
+ the orbits of things evolve, then I would need to do a different type of work that I
+
+1:52:36.900 --> 1:52:39.800
+ would just not find as appealing and so it just wouldn't be a good fit.
+
+1:52:39.800 --> 1:52:44.980
+ And so it sort of seems like an unromantic thing to have to think about the techniques
+
+1:52:44.980 --> 1:52:49.100
+ being the thing you want to work on also, but it really makes a profound difference
+
+1:52:49.100 --> 1:52:52.300
+ for I think your happiness and your scientific career.
+
+1:52:52.300 --> 1:52:53.300
+ I think that's really profound.
+
+1:52:53.300 --> 1:52:56.300
+ It's like the thing, the menial tasks.
+
+1:52:56.300 --> 1:53:00.300
+ If you enjoy those, that's a really good sign that that's the right path for you.
+
+1:53:00.300 --> 1:53:06.420
+ I think David Foster Wallace said that the key to life is to be unborable.
+
+1:53:06.420 --> 1:53:09.700
+ So basically everything should be exciting.
+
+1:53:09.700 --> 1:53:15.220
+ I don't think that's feasible, but you should find an area where everything is exciting.
+
+1:53:15.220 --> 1:53:20.180
+ I mean, depending on the day, but you could find the joy in everything, not just the big
+
+1:53:20.180 --> 1:53:28.860
+ exciting things that everyone thinks is exciting, but the details, the repetitive stuff, the
+
+1:53:28.860 --> 1:53:32.980
+ menial stuff, the stuff that takes years, the stuff that involves a lot of failure and
+
+1:53:32.980 --> 1:53:35.460
+ all those kinds of things that you find that enjoyable.
+
+1:53:35.460 --> 1:53:40.800
+ That's actually really profound to focus on that because people talk about like dreams
+
+1:53:40.800 --> 1:53:44.500
+ and passion and goals and so on, the big thing, but that's not actually what takes you there.
+
+1:53:44.500 --> 1:53:49.340
+ What takes you there is every single day, putting in the hours, and that's what actually
+
+1:53:49.340 --> 1:53:51.980
+ makes up life is the boring bits.
+
+1:53:51.980 --> 1:54:00.040
+ If the boring bits aren't boring, then that's an exciting life because when you were talking
+
+1:54:00.040 --> 1:54:06.500
+ so romantically and passionately about IO, I remember the poem by Robert Frost.
+
+1:54:06.500 --> 1:54:11.500
+ So let me ask you, let me read the poem and ask what your opinion is.
+
+1:54:11.500 --> 1:54:12.860
+ That's called Fire and Ice.
+
+1:54:12.860 --> 1:54:13.860
+ Oh yeah.
+
+1:54:13.860 --> 1:54:16.420
+ I could almost recite this from memory.
+
+1:54:16.420 --> 1:54:18.300
+ Some say the world will end in fire.
+
+1:54:18.300 --> 1:54:19.300
+ Some say in ice.
+
+1:54:19.300 --> 1:54:23.600
+ From what I've tasted of desire, I hold with those who favor fire.
+
+1:54:23.600 --> 1:54:29.180
+ But if I had to perish twice, I think I know enough of hate to say that for destruction
+
+1:54:29.180 --> 1:54:33.020
+ ice is also great and would suffice.
+
+1:54:33.020 --> 1:54:41.380
+ So let me ask, if you had to only choose one, would you choose the world to end in fire,
+
+1:54:41.380 --> 1:54:51.180
+ in volcanic eruptions, in heat and magma, or in ice, frozen over?
+
+1:54:51.180 --> 1:54:52.180
+ Fire or ice?
+
+1:54:52.180 --> 1:54:53.180
+ Fire.
+
+1:54:53.180 --> 1:54:54.180
+ Excellent choice.
+
+1:54:54.180 --> 1:55:10.660
+ I've always been a fan of chaos and the idea of things just slowly getting cold and stopping
+
+1:55:10.660 --> 1:55:14.820
+ and dying is just so depressing to me.
+
+1:55:14.820 --> 1:55:20.800
+ So much more depressing than things blowing up or burning or getting covered by a lava
+
+1:55:20.800 --> 1:55:21.800
+ flow.
+
+1:55:21.800 --> 1:55:27.500
+ Somehow the activity of it endows it with more meaning to me, maybe.
+
+1:55:27.500 --> 1:55:32.100
+ I've just now had this vision of you in action films where you're walking away without looking
+
+1:55:32.100 --> 1:55:38.420
+ back and this explosion's behind you and you put on shades and then it goes to credits.
+
+1:55:38.420 --> 1:55:45.780
+ Catherine, this is awesome, I think your work is really inspiring.
+
+1:55:45.780 --> 1:55:50.340
+ The kind of things we'll discover about planets in the next few decades is super cool and
+
+1:55:50.340 --> 1:55:55.620
+ I hope, I know you said there's probably not life in one of them, but there might be and
+
+1:55:55.620 --> 1:55:58.380
+ I hope we discover just that.
+
+1:55:58.380 --> 1:56:04.020
+ And perhaps even on Io, within the volcanic eruptions, there's a little creature hanging
+
+1:56:04.020 --> 1:56:06.340
+ on that we'll one day discover.
+
+1:56:06.340 --> 1:56:10.620
+ Thank you so much for wasting all your valuable time with me today, it was really awesome.
+
+1:56:10.620 --> 1:56:14.340
+ Yeah, likewise, thank you for having me here.
+
+1:56:14.340 --> 1:56:19.140
+ Thanks for listening to this conversation with Catherine Duclear and thank you to Fundrise,
+
+1:56:19.140 --> 1:56:23.180
+ Blinkist, ExpressVPN and Magic Spoon.
+
+1:56:23.180 --> 1:56:26.460
+ Check them out in the description to support this podcast.
+
+1:56:26.460 --> 1:56:29.740
+ And now let me leave you with some words from Carl Sagan.
+
+1:56:29.740 --> 1:56:34.500
+ On Titan, the molecules that have been raining down like mana from heaven for the last four
+
+1:56:34.500 --> 1:56:41.180
+ billion years might still be there, largely unaltered, deep frozen, awaiting for the chemists
+
+1:56:41.180 --> 1:56:42.800
+ from Earth.
+
+1:56:42.800 --> 1:57:04.940
+ Thank you for listening and hope to see you next time.
+

@@ -1,0 +1,6344 @@
+WEBVTT
+
+00:00.000 --> 00:06.400
+ The following is a conversation with Rodney Brooks, one of the greatest roboticists in history.
+
+00:06.400 --> 00:10.640
+ He led the Computer Science and Artificial Intelligence Laboratory at MIT,
+
+00:10.640 --> 00:16.000
+ then cofounded iRobot, which is one of the most successful robotics companies ever.
+
+00:16.560 --> 00:22.560
+ Then he cofounded Rethink Robotics that created some amazing collaborative robots like Baxter
+
+00:22.560 --> 00:30.640
+ and Sawyer. Finally, he cofounded Robust.ai, whose mission is to teach robots common sense,
+
+00:30.640 --> 00:35.120
+ which is a lot harder than it sounds. To support this podcast,
+
+00:35.120 --> 00:37.360
+ please check out our sponsors in the description.
+
+00:38.160 --> 00:43.920
+ As a side note, let me say that Rodney is someone I've looked up to for many years in my now over
+
+00:43.920 --> 00:52.080
+ two decade journey in robotics because, one, he's a legit great engineer of real world systems,
+
+00:52.080 --> 00:57.600
+ and two, he's not afraid to state controversial opinions that challenge the way we see the AI
+
+00:57.600 --> 01:04.240
+ world. But of course, while I agree with him on some of his critical views of AI, I don't agree
+
+01:04.240 --> 01:10.640
+ with some others, and he's fully supportive of such disagreement. Nobody ever built anything great
+
+01:10.640 --> 01:16.960
+ by being fully agreeable. There's always respect and love behind our interactions, and when a
+
+01:16.960 --> 01:22.560
+ conversation is recorded like it was for this podcast, I think a little bit of disagreement is
+
+01:22.560 --> 01:29.520
+ fun. This is the Lex Friedman Podcast, and here is my conversation with Rodney Brooks.
+
+01:31.760 --> 01:37.040
+ What is the most amazing or beautiful robot that you've ever had the chance to work with?
+
+01:37.600 --> 01:43.760
+ I think it was Domo, which was made by one of my grad students, Aaron Edsinger. It now sits in
+
+01:43.760 --> 01:50.720
+ Daniela Russo's office, director of CSAIL, and it was just a beautiful robot. Aaron was really
+
+01:50.720 --> 01:56.240
+ clever. He didn't give me a budget ahead of time. He didn't tell me what he was going to do.
+
+01:56.240 --> 02:02.960
+ He just started spending money. He spent a lot of money. He and Jeff Weber, who is a mechanical
+
+02:02.960 --> 02:08.640
+ engineer who Aaron insisted he bring with him when he became a grad student, built this beautiful,
+
+02:08.640 --> 02:17.040
+ gorgeous robot, Domo, which is an upper torso humanoid, two arms with fingers, three fingered
+
+02:17.040 --> 02:26.000
+ hands, and face eyeballs. Not the eyeballs, but everything else, series elastic actuators.
+
+02:26.880 --> 02:33.760
+ You can interact with it. Cable driven. All the motors are inside, and it's just gorgeous.
+
+02:33.760 --> 02:35.680
+ The eyeballs are actuated too, or no?
+
+02:35.680 --> 02:40.000
+ Oh yeah, the eyeballs are actuated with cameras, so it had a visual attention mechanism,
+
+02:41.280 --> 02:46.240
+ looking when people came in and looking in their face and talking with them.
+
+02:46.240 --> 02:47.200
+ Wow, was it amazing?
+
+02:48.000 --> 02:48.800
+ The beauty of it.
+
+02:49.600 --> 02:51.040
+ You said what was the most beautiful?
+
+02:51.040 --> 02:52.160
+ What is the most beautiful?
+
+02:52.160 --> 02:55.600
+ It's just mechanically gorgeous. As everything Aaron builds,
+
+02:55.600 --> 02:59.520
+ there's always been mechanically gorgeous. It's just exquisite in the detail.
+
+03:00.400 --> 03:04.400
+ We're talking about mechanically, like literally the amount of actuators.
+
+03:04.400 --> 03:10.080
+ The actuators, the cables, he anodizes different parts, different colors,
+
+03:10.080 --> 03:13.200
+ and it just looks like a work of art.
+
+03:13.200 --> 03:16.720
+ What about the face? Do you find the face beautiful in robots?
+
+03:17.760 --> 03:23.120
+ When you make a robot, it's making a promise for how well it will be able to interact,
+
+03:23.120 --> 03:26.800
+ so I always encourage my students not to overpromise.
+
+03:27.680 --> 03:31.840
+ Even with its essence, like the thing it presents, it should not overpromise.
+
+03:31.840 --> 03:37.200
+ Yeah, so the joke I make, which I think you'll get, is if your robot looks like Albert Einstein,
+
+03:37.200 --> 03:39.440
+ it should be as smart as Albert Einstein.
+
+03:39.440 --> 03:47.520
+ So the only thing in Domo's face is the eyeballs, because that's all it can do.
+
+03:47.520 --> 03:49.200
+ It can look at you and pay attention.
+
+03:52.640 --> 03:58.240
+ It's not like one of those Japanese robots that looks exactly like a person at all.
+
+03:58.240 --> 04:06.160
+ But see, the thing is, us humans and dogs, too, don't just use eyes as attentional mechanisms.
+
+04:06.160 --> 04:09.440
+ They also use it to communicate, as part of the communication.
+
+04:09.440 --> 04:12.880
+ Like a dog can look at you, look at another thing, and look back at you,
+
+04:12.880 --> 04:15.840
+ and that designates that we're going to be looking at that thing together.
+
+04:15.840 --> 04:21.200
+ Yeah, or intent, you know, on both Baxter and Sawyer at Rethink Robotics,
+
+04:21.200 --> 04:25.440
+ they had a screen with, you know, graphic eyes,
+
+04:25.440 --> 04:31.200
+ so it wasn't actually where the cameras were pointing, but the eyes would look in the direction
+
+04:31.200 --> 04:36.160
+ it was about to move its arm, so people in the factory nearby were not surprised by its motions,
+
+04:36.160 --> 04:39.040
+ because it gave that intent away.
+
+04:39.840 --> 04:45.120
+ Before we talk about Baxter, which I think is a beautiful robot, let's go back to the beginning.
+
+04:45.120 --> 04:48.560
+ When did you first fall in love with robotics?
+
+04:48.560 --> 04:50.880
+ We're talking about beauty and love to open the conversation.
+
+04:50.880 --> 04:51.440
+ This is great.
+
+04:51.440 --> 04:56.960
+ I was born in the end of 1954, and I grew up in Adelaide, South Australia,
+
+04:57.520 --> 05:05.120
+ and I have these two books that are dated 1961, so I'm guessing my mother found them in a store
+
+05:05.120 --> 05:08.560
+ in 62 or 63, How and Why Wonder Books.
+
+05:09.600 --> 05:15.680
+ How and Why Wonder Book of Electricity, and a How and Why Wonder Book of Giant Brains and Robots.
+
+05:15.680 --> 05:23.200
+ And I learned how to build circuits, you know, when I was eight or nine, simple circuits,
+
+05:23.200 --> 05:31.680
+ and I read, you know, learned the binary system, and saw all these drawings, mostly, of robots,
+
+05:31.680 --> 05:34.720
+ and then I tried to build them for the rest of my childhood.
+
+05:36.080 --> 05:38.400
+ Wait, 61, you said?
+
+05:38.400 --> 05:41.200
+ This was when the two books, I've still got them at home.
+
+05:41.200 --> 05:43.520
+ What does the robot mean in that context?
+
+05:43.520 --> 05:51.600
+ Some of the robots that they had were arms, you know, big arms to move nuclear material around,
+
+05:51.600 --> 05:57.600
+ but they had pictures of welding robots that looked like humans under the sea, welding stuff
+
+05:57.600 --> 05:58.100
+ underwater.
+
+05:59.040 --> 06:04.480
+ So they weren't real robots, but they were, you know, what people were thinking about for robots.
+
+06:05.200 --> 06:06.560
+ What were you thinking about?
+
+06:06.560 --> 06:07.920
+ Were you thinking about humanoids?
+
+06:07.920 --> 06:09.760
+ Were you thinking about arms with fingers?
+
+06:09.760 --> 06:12.080
+ Were you thinking about faces or colors?
+
+06:12.080 --> 06:14.000
+ Were you thinking about faces or cars?
+
+06:14.000 --> 06:19.360
+ No, actually, to be honest, I realized my limitation on building mechanical stuff.
+
+06:19.360 --> 06:26.400
+ So I just built the brains, mostly, out of different technologies as I got older.
+
+06:28.320 --> 06:35.040
+ I built a learning system which was chemical based, and I had this ice cube tray.
+
+06:35.040 --> 06:42.400
+ Each well was a cell, and by applying voltage to the two electrodes, it would build up a
+
+06:42.400 --> 06:43.040
+ copper bridge.
+
+06:43.040 --> 06:50.000
+ So over time, it would learn a simple network so I could teach it stuff.
+
+06:50.000 --> 07:00.160
+ And mostly, things were driven by my budget, and nails as electrodes and an ice cube tray
+
+07:00.160 --> 07:02.160
+ was about my budget at that stage.
+
+07:02.160 --> 07:07.520
+ Later, I managed to buy transistors, and I could build gates and flip flops and stuff.
+
+07:07.520 --> 07:11.040
+ So one of your first robots was an ice cube tray?
+
+07:11.040 --> 07:15.120
+ Yeah, it was very cerebral because it learned to add.
+
+07:16.720 --> 07:17.220
+ Very nice.
+
+07:17.920 --> 07:26.080
+ Well, just a decade or so before, in 1950, Alan Turing wrote a paper that formulated
+
+07:26.080 --> 07:32.400
+ the Turing Test, and he opened that paper with the question, can machines think?
+
+07:32.400 --> 07:34.160
+ So let me ask you this question.
+
+07:34.160 --> 07:36.160
+ Can machines think?
+
+07:36.160 --> 07:39.120
+ Can your ice cube tray one day think?
+
+07:40.800 --> 07:44.720
+ Certainly, machines can think because I believe you're a machine, and I'm a machine, and I
+
+07:44.720 --> 07:45.680
+ believe we both think.
+
+07:46.640 --> 07:51.360
+ I think any other philosophical position is sort of a little ludicrous.
+
+07:51.360 --> 07:53.760
+ What does think mean if it's not something that we do?
+
+07:53.760 --> 07:54.960
+ And we are machines.
+
+07:56.160 --> 08:00.880
+ So yes, machines can, but do we have a clue how to build such machines?
+
+08:00.880 --> 08:02.480
+ That's a very different question.
+
+08:02.480 --> 08:05.680
+ Are we capable of building such machines?
+
+08:05.680 --> 08:06.720
+ Are we smart enough?
+
+08:06.720 --> 08:10.000
+ We think we're smart enough to do anything, but maybe we're not.
+
+08:10.000 --> 08:14.160
+ Maybe we're just not smart enough to build stuff like us.
+
+08:14.160 --> 08:18.720
+ The kind of computer that Alan Turing was thinking about, do you think there is something
+
+08:18.720 --> 08:25.040
+ fundamentally or significantly different between the computer between our ears, the biological
+
+08:25.040 --> 08:31.200
+ computer that humans use, and the computer that he was thinking about from a sort of
+
+08:31.200 --> 08:33.280
+ high level philosophical?
+
+08:33.280 --> 08:36.480
+ Yeah, I believe that it's very wrong.
+
+08:36.480 --> 08:44.160
+ In fact, I'm halfway through a, I think it'll be about a 480 page book, the working title
+
+08:44.160 --> 08:45.440
+ is Not Even Wrong.
+
+08:45.440 --> 08:48.080
+ And if I may, I'll tell you a bit about that book.
+
+08:48.080 --> 08:48.720
+ Yes, please.
+
+08:48.720 --> 08:51.360
+ So there's two, well, three thrusts to it.
+
+08:52.720 --> 08:56.160
+ One is the history of computation, what we call computation.
+
+08:56.160 --> 09:03.760
+ It goes all the way back to some manuscripts in Latin from 1614 and 1620 by Napier and
+
+09:03.760 --> 09:06.640
+ Kepler through Babbage and Lovelace.
+
+09:06.640 --> 09:16.640
+ And then Turing's 1936 paper is what we think of as the invention of modern computation.
+
+09:17.360 --> 09:23.120
+ And that paper, by the way, did not set out to invent computation.
+
+09:23.120 --> 09:29.680
+ It set out to negatively answer one of Hilbert's three later set of problems.
+
+09:29.680 --> 09:38.560
+ He called it an effective way of getting answers.
+
+09:38.560 --> 09:49.360
+ And Hilbert really worked with rewriting rules, as did Church, who also, at the same time,
+
+09:49.360 --> 09:54.880
+ a month earlier than Turing, disproved Hilbert's one of these three hypotheses.
+
+09:54.880 --> 09:57.360
+ The other two had already been disproved by Gödel.
+
+09:57.360 --> 10:01.680
+ Turing set out to disprove it, because it's always easier to disprove these things than
+
+10:01.680 --> 10:03.280
+ to prove that there is an answer.
+
+10:04.160 --> 10:12.880
+ And so he needed, and it really came from his professor while I was an undergrad at
+
+10:12.880 --> 10:16.400
+ Cambridge, who turned it into, is there a mechanical process?
+
+10:16.400 --> 10:23.840
+ So he wanted to show a mechanical process that could calculate numbers, because that
+
+10:23.840 --> 10:27.760
+ was a mechanical process that people used to generate tables.
+
+10:27.760 --> 10:30.800
+ They were called computers, the people at the time.
+
+10:30.800 --> 10:35.360
+ And they followed a set of rules where they had paper, and they would write numbers down,
+
+10:35.360 --> 10:38.480
+ and based on the numbers, they'd keep writing other numbers.
+
+10:39.040 --> 10:46.800
+ And they would produce numbers for these tables, engineering tables, that the more iterations
+
+10:46.800 --> 10:48.960
+ they did, the more significant digits came out.
+
+10:48.960 --> 10:56.960
+ And so Turing, in that paper, set out to define what sort of machine could do that, mechanical
+
+10:56.960 --> 11:04.320
+ machine, where it could produce an arbitrary number of digits in the same way a human computer
+
+11:04.320 --> 11:04.880
+ did.
+
+11:06.720 --> 11:13.600
+ And he came up with a very simple set of constraints where there was an infinite supply
+
+11:13.600 --> 11:14.320
+ of paper.
+
+11:14.320 --> 11:22.320
+ This is the tape of the Turing machine, and each Turing machine came with a set of instructions
+
+11:22.320 --> 11:27.920
+ that, as a person, could do with pencil and paper, write down things on the tape and erase
+
+11:27.920 --> 11:29.200
+ them and put new things there.
+
+11:30.000 --> 11:36.560
+ And he was able to show that that system was not able to do something that Hilbert had
+
+11:36.560 --> 11:38.800
+ hypothesized, so he disproved it.
+
+11:38.800 --> 11:47.120
+ But he had to show that this system was good enough to do whatever could be done, but couldn't
+
+11:47.120 --> 11:48.400
+ do this other thing.
+
+11:48.400 --> 11:53.840
+ And there he said, and he says in the paper, I don't have any real arguments for this,
+
+11:53.840 --> 11:55.200
+ but based on intuition.
+
+11:55.840 --> 11:58.080
+ So that's how he defined computation.
+
+11:58.080 --> 12:05.440
+ And then if you look over the next, from 1936 up until really around 1975, you see people
+
+12:05.440 --> 12:09.200
+ struggling with, is this really what computation is?
+
+12:10.000 --> 12:17.200
+ And so Marvin Minsky, very well known in AI, but also a fantastic mathematician, in his
+
+12:17.200 --> 12:22.400
+ book Finite and Infant Machines from the mid-'60s, which is a beautiful, beautiful mathematical
+
+12:22.400 --> 12:26.720
+ book, says at the start of the book, well, what is computation?
+
+12:26.720 --> 12:29.520
+ Turing says it's this, and yeah, I sort of think it's that.
+
+12:29.520 --> 12:32.240
+ It doesn't really matter whether the stuff's made of wood or plastic.
+
+12:32.240 --> 12:36.320
+ It's just that relatively cheap stuff can do this stuff.
+
+12:36.320 --> 12:39.200
+ And so yeah, seems like computation.
+
+12:40.160 --> 12:48.880
+ And Donald Knuth, in his first volume of his Art of Computer Programming in around 1968,
+
+12:49.440 --> 12:51.600
+ says, well, what's computation?
+
+12:52.320 --> 12:57.200
+ It's this stuff, like Turing says, that a person could do each step without too much
+
+12:57.200 --> 12:57.600
+ trouble.
+
+12:57.600 --> 13:03.600
+ And so one of his examples of what would be too much trouble was a step which required
+
+13:03.600 --> 13:08.160
+ knowing whether Fermat's Last Theorem was true or not, because it was not known at the
+
+13:08.160 --> 13:08.800
+ time.
+
+13:08.800 --> 13:11.120
+ And that's too much trouble for a person to do as a step.
+
+13:12.160 --> 13:18.080
+ And Hopcroft and Ullman sort of said a similar thing later that year.
+
+13:18.080 --> 13:20.960
+ And by 1975, in the A.H.O.
+
+13:20.960 --> 13:24.880
+ Hopcroft and Ullman book, they're saying, well, you know, we don't really know what
+
+13:24.880 --> 13:30.400
+ computation is, but intuition says this is sort of about right, and this is what it is.
+
+13:31.280 --> 13:32.400
+ That's computation.
+
+13:32.400 --> 13:39.280
+ It's a sort of agreed upon thing which happens to be really easy to implement in silicon.
+
+13:39.280 --> 13:43.920
+ And then we had Moore's Law, which took off, and it's been an incredibly powerful tool.
+
+13:44.640 --> 13:46.080
+ I certainly wouldn't argue with that.
+
+13:46.080 --> 13:49.440
+ The version we have of computation, incredibly powerful.
+
+13:49.440 --> 13:51.440
+ Can we just take a pause?
+
+13:51.440 --> 13:55.440
+ So what we're talking about is there's an infinite tape with some simple rules of how
+
+13:55.440 --> 13:59.120
+ to write on that tape, and that's what we're kind of thinking about.
+
+13:59.120 --> 14:00.080
+ This is computation.
+
+14:00.080 --> 14:03.200
+ Yeah, and it's modeled after humans, how humans do stuff.
+
+14:03.200 --> 14:09.040
+ And I think it's, Turing says in the 36th paper, one of the critical facts here is that
+
+14:09.040 --> 14:11.120
+ a human has a limited amount of memory.
+
+14:11.920 --> 14:15.280
+ So that's what we're going to put onto our mechanical computers.
+
+14:15.280 --> 14:19.680
+ So, you know, I'm like mass.
+
+14:19.680 --> 14:26.240
+ I'm like mass or charge or, you know, it's not given by the universe.
+
+14:26.240 --> 14:28.640
+ It was, this is what we're going to call computation.
+
+14:29.200 --> 14:33.600
+ And then it has this really, you know, it had this really good implementation, which
+
+14:33.600 --> 14:36.800
+ has completely changed our technological world.
+
+14:36.800 --> 14:37.680
+ That's computation.
+
+14:40.400 --> 14:48.880
+ Second part of the book, or argument in the book, I have this two by two matrix with science.
+
+14:48.880 --> 14:56.080
+ In the top row, engineering in the bottom row, left column is intelligence, right column
+
+14:56.080 --> 14:56.640
+ is life.
+
+14:58.000 --> 15:02.800
+ So in the bottom row, the engineering, there's artificial intelligence and artificial life.
+
+15:03.440 --> 15:07.520
+ In the top row, there's neuroscience and abiogenesis.
+
+15:07.520 --> 15:09.920
+ How does living matter turn in?
+
+15:09.920 --> 15:12.000
+ How does nonliving matter become living matter?
+
+15:12.720 --> 15:14.000
+ Four disciplines.
+
+15:14.000 --> 15:22.160
+ These four disciplines all came into the current form in the period 1945 to 1965.
+
+15:24.000 --> 15:24.880
+ That's interesting.
+
+15:24.880 --> 15:28.480
+ There was neuroscience before, but it wasn't effective neuroscience.
+
+15:28.480 --> 15:32.160
+ It was, you know, there were these ganglia and there's electrical charges, but no one
+
+15:32.160 --> 15:33.040
+ knows what to do with it.
+
+15:33.680 --> 15:37.360
+ And furthermore, there are a lot of players who are common across them.
+
+15:38.000 --> 15:43.360
+ I've identified common players except for artificial intelligence and abiogenesis.
+
+15:43.360 --> 15:47.200
+ I don't have, but for any other pair, I can point to people who work them.
+
+15:47.200 --> 15:51.840
+ And a whole bunch of them, by the way, were at the research lab for electronics at MIT
+
+15:53.200 --> 15:56.880
+ where Warren McCulloch held forth.
+
+15:58.240 --> 16:06.400
+ In fact, McCulloch, Pitts, Letvin, and Maturana wrote the first paper on functional neuroscience
+
+16:06.400 --> 16:10.480
+ called What the Frog's Eye Tells the Frog's Brain, where instead of it just being this
+
+16:10.480 --> 16:17.680
+ bunch of nerves, they sort of showed what different anatomical components were doing
+
+16:17.680 --> 16:23.920
+ and telling other anatomical components and, you know, generating behavior in the frog.
+
+16:23.920 --> 16:29.840
+ Would you put them as basically the fathers or one of the early pioneers of what are now
+
+16:29.840 --> 16:31.440
+ called artificial neural networks?
+
+16:33.120 --> 16:35.120
+ Yeah, I mean, McCulloch and Pitts.
+
+16:36.560 --> 16:38.880
+ Pitts was a much younger than him.
+
+16:38.880 --> 16:48.240
+ In 1943, had written a paper inspired by Bertrand Russell on a calculus for the ideas eminent
+
+16:48.240 --> 16:56.080
+ in neural systems where they had tried to, without any real proof, they had tried to
+
+16:56.080 --> 17:03.280
+ give a formalism for neurons basically in terms of logic and gates or gates and not
+
+17:03.280 --> 17:09.120
+ gates with no real evidence that that was what was going on, but they talked about it
+
+17:09.120 --> 17:16.160
+ and that was picked up by Minsky for his 1953 dissertation on, which was a neural
+
+17:16.160 --> 17:17.760
+ network, we call it today.
+
+17:18.400 --> 17:26.640
+ It was picked up by John von Neumann when he was designing the Edbeck computer in 1945.
+
+17:26.640 --> 17:31.680
+ He talked about its components being neurons based on, and in references, he's only got
+
+17:31.680 --> 17:34.160
+ three references and one of them is the McCulloch Pitts paper.
+
+17:35.600 --> 17:40.000
+ So all these people and then the AI people and the artificial life people, which was
+
+17:40.000 --> 17:44.560
+ John von Neumann originally, there's like overlap between all, they're all going around
+
+17:44.560 --> 17:45.440
+ the same time.
+
+17:45.440 --> 17:50.640
+ And three of these four disciplines turned to computation as their primary metaphor.
+
+17:51.760 --> 17:54.480
+ So I've got a couple of chapters in the book.
+
+17:54.480 --> 17:58.480
+ One is titled, wait, computers are people?
+
+17:58.480 --> 18:00.800
+ Because that's where our computers came from.
+
+18:00.800 --> 18:01.920
+ Yeah.
+
+18:01.920 --> 18:05.280
+ And, you know, from people who were computing stuff.
+
+18:05.280 --> 18:08.960
+ And then I've got another chapter, wait, people are computers?
+
+18:08.960 --> 18:10.880
+ Which is about computational neuroscience.
+
+18:10.880 --> 18:11.360
+ Yeah.
+
+18:11.360 --> 18:13.120
+ So there's this whole circle here.
+
+18:14.160 --> 18:16.560
+ And that computation is it.
+
+18:16.560 --> 18:21.760
+ And, you know, I have talked to people about, well, maybe it's not computation that goes
+
+18:21.760 --> 18:22.960
+ on in the head.
+
+18:22.960 --> 18:24.160
+ Of course it is.
+
+18:24.160 --> 18:24.480
+ Yeah.
+
+18:24.480 --> 18:30.800
+ Okay, well, when Elon Musk's rocket goes up, is it computing?
+
+18:31.520 --> 18:32.800
+ Is that how it gets into orbit?
+
+18:32.800 --> 18:33.520
+ By computing?
+
+18:34.080 --> 18:37.920
+ But we've got this idea, if you want to build an AI system, you write a computer program.
+
+18:39.840 --> 18:46.480
+ Yeah, so the word computation very quickly starts doing a lot of work that it was not
+
+18:46.480 --> 18:48.640
+ initially intended to do.
+
+18:48.640 --> 18:53.280
+ It's the second and same if you talk about the universe as essentially performing a
+
+18:53.280 --> 18:53.760
+ computation.
+
+18:53.760 --> 18:54.320
+ Yeah, right.
+
+18:54.320 --> 18:55.280
+ Wolfram does this.
+
+18:55.280 --> 18:57.200
+ He turns it into computation.
+
+18:57.200 --> 18:59.360
+ You don't turn rockets into computation.
+
+18:59.360 --> 18:59.840
+ Yeah.
+
+18:59.840 --> 19:04.640
+ By the way, when you say computation in our conversation, do you tend to think of computation
+
+19:04.640 --> 19:07.200
+ narrowly in the way Turing thought of computation?
+
+19:08.000 --> 19:14.080
+ It's gotten very, you know, squishy.
+
+19:14.080 --> 19:14.400
+ Yeah.
+
+19:14.400 --> 19:14.880
+ Squishy.
+
+19:17.680 --> 19:22.640
+ But computation in the way Turing thinks about it and the way most people think about it
+
+19:22.640 --> 19:28.400
+ actually fits very well with thinking like a hunter gatherer.
+
+19:29.440 --> 19:34.000
+ There are places and there can be stuff in places and the stuff in places can change
+
+19:34.000 --> 19:36.160
+ and it stays there until someone changes it.
+
+19:37.120 --> 19:44.880
+ And it's this metaphor of place and container, which, you know, is a combination of our place
+
+19:44.880 --> 19:48.160
+ cells in our hippocampus and our cortex.
+
+19:48.160 --> 19:52.240
+ But this is how we use metaphors for mostly to think about.
+
+19:52.240 --> 19:57.120
+ And when we get outside of our metaphor range, we have to invent tools which we can sort
+
+19:57.120 --> 19:58.960
+ of switch on to use.
+
+19:58.960 --> 20:01.360
+ So calculus is an example of a tool.
+
+20:01.360 --> 20:06.640
+ It can do stuff that our raw reasoning can't do, and we've got conventions of when you
+
+20:06.640 --> 20:07.840
+ can use it or not.
+
+20:08.480 --> 20:15.280
+ But sometimes, you know, people try to all the time, we always try to get physical metaphors
+
+20:15.280 --> 20:21.040
+ for things, which is why quantum mechanics has been such a problem for a hundred years.
+
+20:21.040 --> 20:22.080
+ Because it's a particle.
+
+20:22.080 --> 20:22.880
+ No, it's a wave.
+
+20:22.880 --> 20:24.640
+ It's got to be something we understand.
+
+20:24.640 --> 20:29.040
+ And I say, no, it's some weird mathematical logic that's different from those, but we
+
+20:29.040 --> 20:30.080
+ want that metaphor.
+
+20:30.720 --> 20:35.680
+ Well, you know, I suspect that, you know, a hundred years or 200 years from now, neither
+
+20:35.680 --> 20:39.920
+ quantum mechanics nor dark matter will be talked about in the same terms, you know,
+
+20:39.920 --> 20:44.320
+ in the same way that Flogerson's theory eventually went away.
+
+20:44.320 --> 20:49.440
+ Because it just wasn't an adequate explanatory metaphor, you know.
+
+20:49.440 --> 20:56.000
+ That metaphor was the stuff, there is stuff in the burning, the burning is in the matter.
+
+20:56.000 --> 20:59.120
+ As it turns out, the burning was outside the matter, it was the oxygen.
+
+20:59.840 --> 21:05.440
+ So our desire for metaphor and combined with our limited cognitive capabilities gets us
+
+21:05.440 --> 21:06.400
+ into trouble.
+
+21:06.400 --> 21:08.320
+ That's my argument in this book.
+
+21:08.320 --> 21:10.080
+ Now, and people say, well, what is it then?
+
+21:10.080 --> 21:12.720
+ And I say, well, I wish I knew that, right, the book about that.
+
+21:12.720 --> 21:14.640
+ But I, you know, I give some ideas.
+
+21:14.640 --> 21:17.440
+ But so there's the three things.
+
+21:17.440 --> 21:19.920
+ Computation is sort of a particular thing we use.
+
+21:22.880 --> 21:26.320
+ Oh, can I tell you one beautiful thing, one beautiful thing I found?
+
+21:26.320 --> 21:30.000
+ So, you know, I used an example of a thing that's different from computation.
+
+21:30.000 --> 21:35.520
+ You hit a drum and it vibrates, and there are some stationary points on the drum surface,
+
+21:35.520 --> 21:37.840
+ you know, because the waves are going up and down the stationary points.
+
+21:37.840 --> 21:45.760
+ Now, you could compute them to arbitrary precision, but the drum just knows them.
+
+21:45.760 --> 21:46.960
+ The drum doesn't have to compute.
+
+21:47.760 --> 21:51.200
+ What was the very first computer program ever written by Ada Lovelace?
+
+21:51.920 --> 21:56.240
+ To compute Bernoulli numbers, and the Bernoulli numbers are exactly what you need to find those
+
+21:56.240 --> 21:58.320
+ stable points in the drum surface.
+
+21:58.320 --> 21:58.820
+ Wow.
+
+21:59.520 --> 22:01.120
+ And there was a bug in the program.
+
+22:03.280 --> 22:06.400
+ The arguments to divide were, I don't know, I don't know.
+
+22:06.400 --> 22:09.120
+ The arguments to divide were reversed in one place.
+
+22:10.000 --> 22:11.040
+ And it still worked?
+
+22:11.040 --> 22:12.560
+ Well, no, she's never got to run it.
+
+22:12.560 --> 22:14.000
+ They never built the analytical engine.
+
+22:14.000 --> 22:16.240
+ She wrote the program without it, you know.
+
+22:19.040 --> 22:21.040
+ So the computation?
+
+22:21.040 --> 22:26.160
+ Computation is sort of, you know, a thing that's become dominant as a metaphor, but
+
+22:27.200 --> 22:28.240
+ is it the right metaphor?
+
+22:29.680 --> 22:33.360
+ All three of these four fields adopted computation.
+
+22:33.360 --> 22:40.480
+ And, you know, a lot of it swirls around Warren McCulloch and all his students, and he funded
+
+22:40.480 --> 22:41.120
+ a lot of people.
+
+22:45.600 --> 22:49.360
+ And our human metaphors, our limitations to human thinking, all play into this.
+
+22:50.000 --> 22:51.680
+ Those are the three themes of the book.
+
+22:52.720 --> 22:54.880
+ So I have a little to say about computation.
+
+22:54.880 --> 23:05.040
+ So you're saying that there is a gap between the computer or the machine that performs
+
+23:05.040 --> 23:13.360
+ computation and this machine that appears to have consciousness and intelligence.
+
+23:13.360 --> 23:16.080
+ Yeah, that piece of meat in your head.
+
+23:16.080 --> 23:16.800
+ Piece of meat.
+
+23:16.800 --> 23:20.720
+ And maybe it's not just the meat in your head, it's the rest of you too.
+
+23:20.720 --> 23:24.960
+ I mean, you actually have a neural system in your gut.
+
+23:24.960 --> 23:31.040
+ I tend to also believe, not believe, but we're now dancing around things we don't know, but
+
+23:31.680 --> 23:35.280
+ I tend to believe other humans are important.
+
+23:36.560 --> 23:42.080
+ Like, so we're almost like, I just don't think we would ever have achieved the level
+
+23:42.080 --> 23:44.160
+ of intelligence we have with other humans.
+
+23:44.880 --> 23:49.680
+ I'm not saying so confidently, but I have an intuition that some of the intelligence
+
+23:49.680 --> 23:51.200
+ is in the interaction.
+
+23:51.200 --> 24:00.240
+ Yeah, and I think it seems to be very likely, again, this is speculation, but we, our species,
+
+24:00.240 --> 24:06.800
+ and probably neanderthals to some extent, because you can find old bones where they
+
+24:06.800 --> 24:14.320
+ seem to be counting on them by putting notches that were neanderthals, we are able to put
+
+24:15.360 --> 24:18.400
+ some of our stuff outside our body into the world.
+
+24:18.400 --> 24:19.840
+ And then other people can share it.
+
+24:20.400 --> 24:22.960
+ And then we get these tools that become shared tools.
+
+24:22.960 --> 24:30.240
+ And so there's a whole coupling that would not occur in the single deep learning network,
+
+24:30.240 --> 24:32.800
+ which was fed all of literature or something.
+
+24:33.840 --> 24:38.320
+ Yeah, the neural network can't step outside of itself.
+
+24:38.320 --> 24:46.640
+ But is there some, can we explore this dark room a little bit and try to get at something?
+
+24:46.640 --> 24:47.840
+ What is the magic?
+
+24:47.840 --> 24:51.840
+ Where does the magic come from in the human brain that creates the mind?
+
+24:52.480 --> 24:58.880
+ What's your sense as scientists that try to understand it and try to build it?
+
+24:58.880 --> 25:04.240
+ What are the directions it followed might be productive?
+
+25:04.240 --> 25:06.560
+ Is it creative, interactive robots?
+
+25:07.040 --> 25:13.440
+ Is it creating large deep neural networks that do like self supervised learning and
+
+25:13.440 --> 25:18.800
+ just like we'll discover that when you make something large enough, some interesting things
+
+25:18.800 --> 25:19.840
+ will emerge?
+
+25:19.840 --> 25:23.600
+ Is it through physics and chemistry, biology, like artificial life angle?
+
+25:23.600 --> 25:28.240
+ Like we'll sneak up in this four quadrant matrix that you mentioned.
+
+25:28.240 --> 25:33.440
+ Is there anything you're most, if you had to bet all your money, financial?
+
+25:33.440 --> 25:34.160
+ I wouldn't.
+
+25:35.040 --> 25:40.960
+ So every intelligence we know, animal intelligence, dog intelligence,
+
+25:40.960 --> 25:48.400
+ octopus intelligence, which is a very different sort of architecture from us.
+
+25:49.920 --> 25:59.520
+ All the intelligences we know perceive the world in some way and then have action in
+
+25:59.520 --> 26:11.520
+ the world, but they're able to perceive objects in a way which is actually pretty damn phenomenal
+
+26:11.520 --> 26:12.320
+ and surprising.
+
+26:13.200 --> 26:22.000
+ We tend to think that the box over here between us, which is a sound box, I think is a blue
+
+26:22.000 --> 26:30.560
+ box, but blueness is something that we construct with color constancy.
+
+26:32.560 --> 26:37.120
+ The blueness is not a direct function of the photons we're receiving.
+
+26:37.120 --> 26:47.600
+ It's actually context, which is why you can turn, maybe seeing the examples where someone
+
+26:47.600 --> 26:53.520
+ turns a stop sign into some other sort of sign by just putting a couple of marks on
+
+26:53.520 --> 26:55.280
+ them and the deep learning system gets it wrong.
+
+26:55.280 --> 26:57.600
+ And everyone says, but the stop sign's red.
+
+26:58.160 --> 26:59.920
+ Why is it thinking it's the other sort of sign?
+
+26:59.920 --> 27:02.800
+ Because redness is not intrinsic in just the photons.
+
+27:02.800 --> 27:07.120
+ It's actually a construction of an understanding of the whole world and the relationship between
+
+27:07.120 --> 27:09.840
+ objects to get color constancy.
+
+27:11.040 --> 27:15.760
+ But our tendency, in order that we get an archive paper really quickly, is you just
+
+27:15.760 --> 27:18.880
+ show a lot of data and give the labels and hope it figures it out.
+
+27:18.880 --> 27:21.040
+ But it's not figuring it out in the same way we do.
+
+27:21.040 --> 27:24.720
+ We have a very complex perceptual understanding of the world.
+
+27:24.720 --> 27:28.000
+ Dogs have a very different perceptual understanding based on smell.
+
+27:28.000 --> 27:34.880
+ They go smell a post, they can tell how many different dogs have visited it in the last
+
+27:34.880 --> 27:36.320
+ 10 hours and how long ago.
+
+27:36.320 --> 27:39.440
+ There's all sorts of stuff that we just don't perceive about the world.
+
+27:39.440 --> 27:42.400
+ And just taking a single snapshot is not perceiving about the world.
+
+27:42.400 --> 27:48.400
+ It's not seeing the registration between us and the object.
+
+27:48.400 --> 27:52.160
+ And registration is a philosophical concept.
+
+27:52.160 --> 27:54.560
+ Brian Cantwell Smith talks about it a lot.
+
+27:54.560 --> 27:58.640
+ Very difficult, squirmy thing to understand.
+
+27:59.200 --> 28:02.080
+ But I think none of our systems do that.
+
+28:02.080 --> 28:06.000
+ We've always talked in AI about the symbol grounding problem, how our symbols that we
+
+28:06.000 --> 28:07.440
+ talk about are grounded in the world.
+
+28:08.080 --> 28:12.320
+ And when deep learning came along and started labeling images, people said, ah, the grounding
+
+28:12.320 --> 28:13.440
+ problem has been solved.
+
+28:13.440 --> 28:18.800
+ No, the labeling problem was solved with some percentage accuracy, which is different from
+
+28:18.800 --> 28:19.760
+ the grounding problem.
+
+28:20.560 --> 28:28.880
+ So you agree with Hans Marvick and what's called the Marvick's paradox that highlights
+
+28:28.880 --> 28:38.720
+ this counterintuitive notion that reasoning is easy, but perception and mobility are hard.
+
+28:39.440 --> 28:39.840
+ Yeah.
+
+28:39.840 --> 28:45.360
+ We shared an office when I was working on computer vision and he was working on his
+
+28:45.360 --> 28:46.640
+ first mobile robot.
+
+28:46.640 --> 28:48.400
+ What were those conversations like?
+
+28:48.400 --> 28:49.040
+ They were great.
+
+28:50.160 --> 28:55.440
+ So do you still kind of, maybe you can elaborate, do you still believe this kind of notion that
+
+28:56.160 --> 28:59.600
+ perception is really hard?
+
+28:59.600 --> 29:04.080
+ Like, can you make sense of why we humans have this poor intuition about what's hard
+
+29:04.080 --> 29:04.480
+ and not?
+
+29:04.480 --> 29:10.640
+ Well, let me give us sort of another story.
+
+29:10.640 --> 29:10.880
+ Sure.
+
+29:11.520 --> 29:21.680
+ If you go back to the original teams working on AI from the late 50s into the 60s, and
+
+29:21.680 --> 29:27.760
+ you go to the AI lab at MIT, who was it that was doing that?
+
+29:27.760 --> 29:32.480
+ It was a bunch of really smart kids who got into MIT and they were intelligent.
+
+29:32.480 --> 29:34.160
+ So what's intelligence about?
+
+29:34.160 --> 29:39.760
+ Well, the stuff they were good at, playing chess, doing integrals, that was hard stuff.
+
+29:40.480 --> 29:45.680
+ But, you know, a baby could see stuff, that wasn't intelligent, anyone could do that,
+
+29:45.680 --> 29:46.800
+ that's not intelligence.
+
+29:47.280 --> 29:52.480
+ And so, you know, there was this intuition that the hard stuff is the things they were
+
+29:52.480 --> 29:56.800
+ good at and the easy stuff was the stuff that everyone could do.
+
+29:57.440 --> 29:57.760
+ Yeah.
+
+29:57.760 --> 30:00.880
+ And maybe I'm overplaying it a little bit, but I think there's an element of that.
+
+30:00.880 --> 30:08.480
+ Yeah, I mean, I don't know how much truth there is to, like chess, for example, was
+
+30:08.480 --> 30:14.080
+ for the longest time seen as the highest level of intellect, right?
+
+30:14.720 --> 30:17.200
+ Until we got computers that were better at it than people.
+
+30:17.200 --> 30:21.120
+ And then we realized, you know, if you go back to the 90s, you'll see, you know, the
+
+30:21.120 --> 30:26.320
+ stories in the press around when Kasparov was beaten by Deep Blue.
+
+30:26.320 --> 30:28.320
+ Oh, this is the end of all sorts of things.
+
+30:28.320 --> 30:30.640
+ Computers are going to be able to do anything from now on.
+
+30:30.640 --> 30:35.120
+ And we saw exactly the same stories with Alpha Zero, the Go Playing program.
+
+30:36.160 --> 30:36.660
+ Yeah.
+
+30:37.280 --> 30:40.640
+ But still, to me, reasoning is a special thing.
+
+30:41.200 --> 30:41.920
+ And perhaps...
+
+30:41.920 --> 30:44.640
+ No, actually, we're really bad at reasoning.
+
+30:44.640 --> 30:48.400
+ We just use these analogies based on our hunter gatherer intuitions.
+
+30:48.400 --> 30:53.520
+ But why is that not, don't you think the ability to construct metaphor is a really powerful
+
+30:53.520 --> 30:53.920
+ thing?
+
+30:53.920 --> 30:54.400
+ Oh, yeah, it is.
+
+30:54.400 --> 30:55.200
+ Tell stories.
+
+30:55.200 --> 30:55.520
+ It is.
+
+30:55.520 --> 31:00.960
+ It's the constructing the metaphor and registering that something constant in our brains.
+
+31:00.960 --> 31:04.000
+ Like, isn't that what we're doing with vision too?
+
+31:04.000 --> 31:06.080
+ And we're telling our stories.
+
+31:06.080 --> 31:07.840
+ We're constructing good models of the world.
+
+31:08.560 --> 31:09.760
+ Yeah, yeah.
+
+31:09.760 --> 31:16.400
+ But I think we jumped between what we're capable of and how we're doing it right there.
+
+31:16.400 --> 31:21.680
+ It was a little confusion that went on as we were telling each other stories.
+
+31:21.680 --> 31:22.400
+ Yes, exactly.
+
+31:23.440 --> 31:24.800
+ Trying to delude each other.
+
+31:24.800 --> 31:27.280
+ No, I just think I'm not exactly so.
+
+31:27.280 --> 31:29.200
+ I'm trying to pull apart this Moravec's paradox.
+
+31:30.160 --> 31:31.520
+ I don't view it as a paradox.
+
+31:33.280 --> 31:36.000
+ What did evolution spend its time on?
+
+31:36.000 --> 31:36.320
+ Yes.
+
+31:36.320 --> 31:39.360
+ It spent its time on getting us to perceive and move in the world.
+
+31:39.360 --> 31:43.600
+ That was 600 million years as multi cell creatures doing that.
+
+31:43.600 --> 31:53.120
+ And then it was relatively recent that we were able to hunt or gather or even animals hunting.
+
+31:53.120 --> 31:54.960
+ That's much more recent.
+
+31:54.960 --> 32:02.960
+ And then anything that we, speech, language, those things are a couple of hundred thousand
+
+32:02.960 --> 32:05.760
+ years probably, if that long.
+
+32:05.760 --> 32:08.240
+ And then agriculture, 10,000 years.
+
+32:09.520 --> 32:13.760
+ All that stuff was built on top of those earlier things, which took a long time to develop.
+
+32:14.320 --> 32:20.160
+ So if you then look at the engineering of these things, so building it into robots,
+
+32:20.160 --> 32:22.000
+ what's the hardest part of robotics?
+
+32:22.000 --> 32:29.920
+ Do you think as the decades that you worked on robots in the context of what we're talking
+
+32:29.920 --> 32:37.520
+ about, vision, perception, the actual sort of the biomechanics of movement, I'm kind
+
+32:37.520 --> 32:40.160
+ of drawing parallels here between humans and machines always.
+
+32:40.800 --> 32:43.360
+ Like what do you think is the hardest part of robotics?
+
+32:44.320 --> 32:45.920
+ I just want to think all of them.
+
+32:45.920 --> 32:49.360
+ I just want to think all of them.
+
+32:49.360 --> 32:51.280
+ There are no easy parts to do well.
+
+32:53.040 --> 32:55.600
+ We sort of go reductionist and we reduce it.
+
+32:55.600 --> 33:00.320
+ If only we had all the location of all the points in 3D, things would be great.
+
+33:02.400 --> 33:07.440
+ If only we had labels on the images, things would be great.
+
+33:07.440 --> 33:10.640
+ But as we see, that's not good enough.
+
+33:10.640 --> 33:13.040
+ Some deeper understanding.
+
+33:13.040 --> 33:20.960
+ But if I came to you and I could solve one category of problems in robotics instantly,
+
+33:21.680 --> 33:24.000
+ what would give you the greatest pleasure?
+
+33:28.160 --> 33:36.400
+ I mean, you look at robots that manipulate objects, what's hard about that?
+
+33:36.400 --> 33:43.040
+ You know, is it the perception, is it the reasoning about the world, that common sense
+
+33:43.040 --> 33:48.720
+ reasoning, is it the actual building a robot that's able to interact with the world?
+
+33:49.680 --> 33:54.960
+ Is it like human aspects of a robot that's interacting with humans in that game theory
+
+33:54.960 --> 33:56.080
+ of how they work well together?
+
+33:56.080 --> 34:00.000
+ Well, let's talk about manipulation for a second because I had this really blinding
+
+34:00.000 --> 34:05.360
+ moment, you know, I'm a grandfather, so grandfathers have blinding moments.
+
+34:05.360 --> 34:15.680
+ Just three or four miles from here, last year, my 16 month old grandson was in his new house
+
+34:16.240 --> 34:17.600
+ for the first time, right?
+
+34:18.240 --> 34:19.200
+ First time in this house.
+
+34:19.760 --> 34:25.040
+ And he'd never been able to get to a window before, but this had some low windows.
+
+34:25.040 --> 34:29.360
+ And he goes up to this window with a handle on it that he's never seen before.
+
+34:29.360 --> 34:34.800
+ And he's got one hand pushing the window and the other hand turning the handle to open
+
+34:34.800 --> 34:35.300
+ the window.
+
+34:36.640 --> 34:42.960
+ He knew two different hands, two different things he knew how to put together.
+
+34:44.080 --> 34:45.520
+ And he's 16 months old.
+
+34:45.520 --> 34:47.040
+ And there you are watching in awe.
+
+34:51.840 --> 34:55.200
+ In an environment he'd never seen before, a mechanism he'd never seen.
+
+34:55.200 --> 34:56.320
+ How did he do that?
+
+34:56.320 --> 34:57.600
+ Yes, that's a good question.
+
+34:57.600 --> 34:58.880
+ How did he do that?
+
+34:58.880 --> 34:59.380
+ That's why.
+
+34:59.380 --> 35:05.700
+ It's like, okay, like you could see the leap of genius from using one hand to perform a
+
+35:05.700 --> 35:11.460
+ task to combining, doing, I mean, first of all, in manipulation, that's really difficult.
+
+35:11.460 --> 35:15.300
+ It's like two hands, both necessary to complete the action.
+
+35:15.940 --> 35:16.820
+ And completely different.
+
+35:16.820 --> 35:25.140
+ And he'd never seen a window open before, but he inferred somehow handle open something.
+
+35:25.140 --> 35:31.140
+ Yeah, there may have been a lot of slightly different failure cases that you didn't see.
+
+35:32.180 --> 35:36.020
+ Not with a window, but with other objects of turning and twisting and handles.
+
+35:37.540 --> 35:42.900
+ There's a great counter to reinforcement learning.
+
+35:42.900 --> 35:48.740
+ We'll just give the robot plenty of time to try everything.
+
+35:50.260 --> 35:52.260
+ Can I tell a little side story here?
+
+35:52.260 --> 36:01.940
+ Yeah, so I'm in DeepMind in London, this is three, four years ago, where there's a big
+
+36:01.940 --> 36:06.020
+ Google building, and then you go inside and you go through this more security, and then
+
+36:06.020 --> 36:09.060
+ you get to DeepMind where the other Google employees can't go.
+
+36:09.060 --> 36:15.540
+ And I'm in a conference room, a conference room with some of the people, and they tell
+
+36:15.540 --> 36:23.940
+ me about their reinforcement learning experiment with robots, which are just trying stuff out.
+
+36:23.940 --> 36:25.380
+ And they're my robots.
+
+36:25.380 --> 36:26.900
+ They're Sawyer's.
+
+36:26.900 --> 36:27.540
+ We sold them.
+
+36:29.060 --> 36:33.300
+ And they really like them because Sawyer's are compliant and can sense forces, so they
+
+36:33.300 --> 36:35.620
+ don't break when they're bashing into walls.
+
+36:36.180 --> 36:37.700
+ They stop and they do all this stuff.
+
+36:38.980 --> 36:42.580
+ So you just let the robot do stuff, and eventually it figures stuff out.
+
+36:42.580 --> 36:47.380
+ By the way, Sawyer, we're talking about robot manipulation, so robot arms and so on.
+
+36:47.380 --> 36:48.580
+ Yeah, Sawyer's a robot.
+
+36:50.180 --> 36:51.220
+ What's Sawyer?
+
+36:51.220 --> 36:55.140
+ Sawyer's a robot arm that my company Rethink Robotics built.
+
+36:55.140 --> 36:56.580
+ Thank you for the context.
+
+36:56.580 --> 36:57.060
+ Sorry.
+
+36:57.060 --> 36:57.540
+ Okay, cool.
+
+36:57.540 --> 36:58.420
+ So we're in DeepMind.
+
+36:59.380 --> 37:04.100
+ And it's in the next room, these robots are just bashing around to try and use reinforcement
+
+37:04.100 --> 37:05.300
+ learning to learn how to act.
+
+37:05.940 --> 37:06.740
+ Can I go see them?
+
+37:06.740 --> 37:07.780
+ Oh no, they're secret.
+
+37:08.340 --> 37:09.300
+ They were my robots.
+
+37:09.300 --> 37:10.020
+ They were secret.
+
+37:10.820 --> 37:11.700
+ That's hilarious.
+
+37:11.700 --> 37:12.100
+ Okay.
+
+37:12.100 --> 37:17.860
+ Anyway, the point is, you know, this idea that you just let reinforcement learning figure
+
+37:17.860 --> 37:21.060
+ everything out is so counter to how a kid does stuff.
+
+37:21.780 --> 37:24.740
+ So again, story about my grandson.
+
+37:24.740 --> 37:29.220
+ I gave him this box that had lots of different lock mechanisms.
+
+37:29.780 --> 37:34.260
+ He didn't randomly, you know, and he was 18 months old, he didn't randomly try to touch
+
+37:34.260 --> 37:35.940
+ every surface or push everything.
+
+37:35.940 --> 37:42.020
+ He found he could see where the mechanism was, and he started exploring the mechanism
+
+37:42.020 --> 37:43.940
+ for each of these different lock mechanisms.
+
+37:44.580 --> 37:48.100
+ And there was reinforcement, no doubt, of some sort going on there.
+
+37:48.660 --> 37:54.100
+ But he applied a pre filter, which cut down the search space dramatically.
+
+37:55.540 --> 37:59.140
+ I wonder to what level we're able to introspect what's going on.
+
+37:59.700 --> 38:03.780
+ Because what's also possible is you have something like reinforcement learning going
+
+38:03.780 --> 38:05.860
+ on in the mind in the space of imagination.
+
+38:05.860 --> 38:10.900
+ So like you have a good model of the world you're predicting and you may be running those
+
+38:10.900 --> 38:16.820
+ tens of thousands of like loops, but you're like, as a human, you're just looking at yourself
+
+38:16.820 --> 38:18.740
+ trying to tell a story of what happened.
+
+38:18.740 --> 38:24.500
+ And it might seem simple, but maybe there's a lot of computation going on.
+
+38:24.500 --> 38:28.020
+ Whatever it is, but there's also a mechanism that's being built up.
+
+38:28.020 --> 38:30.420
+ It's not just random search.
+
+38:30.420 --> 38:33.780
+ Yeah, that mechanism prunes it dramatically.
+
+38:33.780 --> 38:40.980
+ Yeah, that pruning, that pruning stuff, but it doesn't, it's possible that that's, so
+
+38:40.980 --> 38:45.620
+ you don't think that's akin to a neural network inside a reinforcement learning algorithm.
+
+38:46.740 --> 38:47.700
+ Is it possible?
+
+38:49.140 --> 38:52.340
+ It's, yeah, until it's possible.
+
+38:52.340 --> 39:01.380
+ It's possible, but I'll be incredibly surprised if that happens.
+
+39:01.380 --> 39:06.020
+ I'll also be incredibly surprised that after all the decades that I've been doing this,
+
+39:06.020 --> 39:09.540
+ where every few years someone thinks, now we've got it.
+
+39:10.100 --> 39:10.820
+ Now we've got it.
+
+39:12.580 --> 39:15.620
+ Four or five years ago, I was saying, I don't think we've got it yet.
+
+39:15.620 --> 39:18.820
+ And everyone was saying, you don't understand how powerful AI is.
+
+39:18.820 --> 39:22.420
+ I had people tell me, you don't understand how powerful it is.
+
+39:22.420 --> 39:30.420
+ I sort of had a track record of what the world had done to think, well, this is no different
+
+39:30.420 --> 39:31.460
+ from before.
+
+39:31.460 --> 39:33.060
+ Or we have bigger computers.
+
+39:33.060 --> 39:35.940
+ We had bigger computers in the 90s and we could do more stuff.
+
+39:37.940 --> 39:43.380
+ But okay, so let me push back because I'm generally sort of optimistic and try to find
+
+39:43.380 --> 39:44.260
+ the beauty in things.
+
+39:44.260 --> 39:51.860
+ I think there's a lot of surprising and beautiful things that neural networks, this new generation
+
+39:51.860 --> 39:57.460
+ of deep learning revolution has revealed to me, has continually been very surprising
+
+39:57.460 --> 39:59.300
+ the kind of things it's able to do.
+
+39:59.300 --> 40:03.140
+ Now, generalizing that over saying like this, we've solved intelligence.
+
+40:03.140 --> 40:05.220
+ That's another big leap.
+
+40:05.220 --> 40:10.500
+ But is there something surprising and beautiful to you about neural networks that were actually
+
+40:10.500 --> 40:14.500
+ you said back and said, I did not expect this?
+
+40:16.100 --> 40:22.260
+ Oh, I think their performance on ImageNet was shocking.
+
+40:22.260 --> 40:26.340
+ The computer vision in those early days was just very like, wow, okay.
+
+40:26.340 --> 40:32.500
+ That doesn't mean that they're solving everything in computer vision we need to solve or in
+
+40:32.500 --> 40:33.700
+ vision for robots.
+
+40:33.700 --> 40:37.220
+ What about AlphaZero and self play mechanisms and reinforcement learning?
+
+40:37.220 --> 40:39.300
+ Yeah, that was all in the 90s.
+
+40:39.300 --> 40:42.740
+ Yeah, that was all in Donald Mickey's 1961 paper.
+
+40:44.020 --> 40:47.540
+ Everything that was there, which introduced reinforcement learning.
+
+40:48.340 --> 40:49.300
+ No, but come on.
+
+40:49.300 --> 40:52.020
+ So no, you're talking about the actual techniques.
+
+40:52.020 --> 40:57.140
+ But isn't it surprising to you the level it's able to achieve with no human supervision
+
+40:58.740 --> 40:59.700
+ of chess play?
+
+40:59.700 --> 41:05.860
+ Like, to me, there's a big, big difference between Deep Blue and...
+
+41:05.860 --> 41:11.860
+ Maybe what that's saying is how overblown our view of ourselves is.
+
+41:13.140 --> 41:14.740
+ You know, the chess is easy.
+
+41:16.740 --> 41:28.340
+ Yeah, I mean, I came across this 1946 report that, and I'd seen this as a kid in one of
+
+41:28.340 --> 41:30.340
+ those books that my mother had given me actually.
+
+41:30.340 --> 41:39.060
+ The 1946 report, which pitted someone with an abacus against an electronic calculator,
+
+41:39.620 --> 41:42.500
+ and he beat the electronic calculator.
+
+41:42.500 --> 41:48.980
+ You know, so there at that point was, well, humans are still better than machines at calculating.
+
+41:48.980 --> 41:54.420
+ Are you surprised today that a machine can, you know, do a billion floating point operations
+
+41:54.420 --> 41:58.500
+ a second and, you know, you're puzzling for minutes through one?
+
+41:58.500 --> 42:07.460
+ I mean, I don't know, but I am certainly surprised there's something, to me, different about
+
+42:07.460 --> 42:10.420
+ learning, so a system that's able to learn.
+
+42:10.420 --> 42:10.980
+ Learning.
+
+42:10.980 --> 42:13.700
+ See, now you're getting into one of the deadly sins.
+
+42:15.300 --> 42:19.220
+ Because of using terms overly broadly.
+
+42:19.220 --> 42:21.700
+ Yeah, I mean, there's so many different forms of learning.
+
+42:21.700 --> 42:22.260
+ Yeah.
+
+42:22.260 --> 42:23.300
+ So many different forms.
+
+42:23.300 --> 42:24.980
+ You know, I learned my way around the city.
+
+42:24.980 --> 42:26.500
+ I learned to play chess.
+
+42:26.500 --> 42:28.580
+ I learned Latin.
+
+42:28.580 --> 42:30.100
+ I learned to ride a bicycle.
+
+42:30.100 --> 42:33.700
+ All of those are, you know, very different capabilities.
+
+42:33.700 --> 42:34.180
+ Yeah.
+
+42:34.180 --> 42:41.860
+ And if someone, you know, has a, you know, in the old days, people would write a paper
+
+42:41.860 --> 42:43.220
+ about learning something.
+
+42:43.220 --> 42:52.580
+ Now the corporate press office puts out a press release about how Company X is leading
+
+42:52.580 --> 42:56.820
+ the world because they have a system that can...
+
+42:56.820 --> 42:58.180
+ Yeah, but here's the thing.
+
+42:58.180 --> 42:58.500
+ Okay.
+
+42:58.500 --> 42:59.460
+ So what is learning?
+
+43:00.100 --> 43:00.820
+ When I refer to...
+
+43:00.820 --> 43:02.420
+ Learning is many things.
+
+43:02.420 --> 43:02.580
+ But...
+
+43:02.580 --> 43:04.660
+ It's a suitcase word.
+
+43:04.660 --> 43:12.980
+ It's a suitcase word, but loosely, there's a dumb system, and over time, it becomes smart.
+
+43:13.700 --> 43:16.340
+ Well, it becomes less dumb at the thing that it's doing.
+
+43:16.340 --> 43:19.140
+ Smart is a loaded word.
+
+43:19.140 --> 43:21.220
+ Yes, less dumb at the thing it's doing.
+
+43:21.220 --> 43:27.060
+ It gets better performance under some measure, under some set of conditions at that thing.
+
+43:27.060 --> 43:35.780
+ And most of these learning algorithms, learning systems, fail when you change the conditions
+
+43:35.780 --> 43:37.940
+ just a little bit in a way that humans don't.
+
+43:37.940 --> 43:45.940
+ So I was at DeepMind, the AlphaGo had just come out, and I said, what would have happened
+
+43:45.940 --> 43:49.940
+ if you'd given it a 21 by 21 board instead of a 19 by 19 board?
+
+43:49.940 --> 43:51.620
+ They said, fail totally.
+
+43:51.620 --> 43:55.540
+ But a human player would actually be able to play.
+
+43:55.540 --> 44:02.980
+ And actually, funny enough, if you look at DeepMind's work since then, they're presenting
+
+44:02.980 --> 44:07.620
+ a lot of algorithms that would do well at the bigger board.
+
+44:07.620 --> 44:10.340
+ So they're slowly expanding this generalization.
+
+44:10.340 --> 44:12.580
+ I mean, to me, there's a core element there.
+
+44:12.580 --> 44:20.100
+ I think it is very surprising to me that even in a constrained game of chess or Go, that
+
+44:20.100 --> 44:27.620
+ through self play, by a system playing itself, that it can achieve superhuman level performance
+
+44:28.580 --> 44:29.940
+ through learning alone.
+
+44:29.940 --> 44:38.980
+ Okay, so you didn't like it when I referred to Donald Mickey's 1961 paper.
+
+44:38.980 --> 44:46.020
+ There, in the second part of it, which came a year later, they had self play on an electronic
+
+44:46.020 --> 44:52.180
+ computer at tic tac toe, okay, but it learned to play tic tac toe through self play.
+
+44:52.180 --> 44:54.580
+ And it learned to play optimally.
+
+44:54.580 --> 45:02.740
+ What I'm saying is, okay, I have a little bit of a bias, but I find ideas beautiful,
+
+45:02.740 --> 45:06.660
+ but only when they actually realize the promise.
+
+45:06.660 --> 45:08.420
+ That's another level of beauty.
+
+45:08.420 --> 45:13.540
+ For example, what Bezos and Elon Musk are doing with rockets.
+
+45:13.540 --> 45:18.900
+ We had rockets for a long time, but doing reusable cheap rockets, it's very impressive.
+
+45:18.900 --> 45:22.980
+ In the same way, I would have not predicted.
+
+45:22.980 --> 45:30.820
+ First of all, when I started and fell in love with AI, the game of Go was seen to be impossible
+
+45:30.820 --> 45:31.300
+ to solve.
+
+45:31.300 --> 45:38.500
+ Okay, so I thought maybe, you know, maybe it'd be possible to maybe have big leaps in
+
+45:38.500 --> 45:42.020
+ a Moore's law style of way, in computation, I'll be able to solve it.
+
+45:42.020 --> 45:50.500
+ But I would never have guessed that you can learn your way, however, I mean, in the narrow
+
+45:50.500 --> 45:55.620
+ sense of learning, learn your way to beat the best people in the world at the game of
+
+45:55.620 --> 45:59.300
+ Go without human supervision, not studying the game of experts.
+
+45:59.300 --> 46:08.900
+ Okay, so using a different learning technique, Arthur Samuel in the early 60s, and he was
+
+46:08.900 --> 46:14.900
+ the first person to use machine learning, had a program that could beat the world champion
+
+46:14.900 --> 46:15.540
+ at checkers.
+
+46:16.100 --> 46:19.860
+ And that at the time was considered amazing.
+
+46:19.860 --> 46:22.820
+ By the way, Arthur Samuel had some fantastic advantages.
+
+46:23.460 --> 46:25.700
+ Do you want to hear Arthur Samuel's advantages?
+
+46:25.700 --> 46:26.660
+ Two things.
+
+46:26.660 --> 46:30.500
+ One, he was at the 1956 AI conference.
+
+46:30.500 --> 46:32.420
+ I knew Arthur later in life.
+
+46:32.420 --> 46:34.500
+ He was at Stanford when I was a graduate student there.
+
+46:34.500 --> 46:37.060
+ He wore a tie and a jacket every day, the rest of us didn't.
+
+46:38.900 --> 46:40.500
+ Delightful man, delightful man.
+
+46:42.980 --> 46:51.620
+ It turns out Claude Shannon, in a 1950 Scientific American article, on chess playing, outlined
+
+46:51.620 --> 46:57.140
+ the learning mechanism that Arthur Samuel used, and they had met in 1956.
+
+46:57.140 --> 47:00.020
+ I assume there was some communication, but I don't know that for sure.
+
+47:00.580 --> 47:07.060
+ But Arthur Samuel had been a vacuum tube engineer, getting reliability of vacuum tubes, and then
+
+47:07.060 --> 47:11.860
+ had overseen the first transistorized computers at IBM.
+
+47:11.860 --> 47:18.180
+ And in those days, before you shipped a computer, you ran it for a week to get early failures.
+
+47:18.180 --> 47:28.580
+ So he had this whole farm of computers running random code for hours and hours for each computer.
+
+47:28.580 --> 47:29.940
+ He had a whole bunch of them.
+
+47:29.940 --> 47:38.820
+ So he ran his chess learning program with self play on IBM's production line.
+
+47:38.820 --> 47:43.700
+ He had more computation available to him than anyone else in the world, and then he was
+
+47:43.700 --> 47:48.260
+ able to produce a chess playing program, I mean a checkers playing program, that could
+
+47:48.260 --> 47:49.220
+ beat the world champion.
+
+47:49.940 --> 47:51.540
+ So that's amazing.
+
+47:51.540 --> 47:57.060
+ The question is, what I mean surprised, I don't just mean it's nice to have that accomplishment,
+
+47:58.020 --> 48:06.180
+ is there is a stepping towards something that feels more intelligent than before.
+
+48:06.180 --> 48:08.740
+ Yeah, but that's in your view of the world.
+
+48:08.740 --> 48:11.380
+ Okay, well let me then, it doesn't mean I'm wrong.
+
+48:11.380 --> 48:13.540
+ No, no it doesn't.
+
+48:13.540 --> 48:18.740
+ So the question is, if we keep taking steps like that, how far that takes us?
+
+48:18.740 --> 48:21.780
+ Are we going to build a better recommender systems?
+
+48:21.780 --> 48:23.860
+ Are we going to build a better robot?
+
+48:23.860 --> 48:25.940
+ Or will we solve intelligence?
+
+48:25.940 --> 48:33.300
+ So, you know, I'm putting my bet on, but still missing a whole lot.
+
+48:33.300 --> 48:33.800
+ A lot.
+
+48:34.500 --> 48:36.020
+ And why would I say that?
+
+48:36.020 --> 48:43.060
+ Well, in these games, they're all, you know, 100% information games, but again, but each
+
+48:43.060 --> 48:50.420
+ of these systems is a very short description of the current state, which is different from
+
+48:50.420 --> 48:55.620
+ registering and perception in the world, which gets back to Marovec's paradox.
+
+48:55.620 --> 49:05.780
+ I'm definitely not saying that chess is somehow harder than perception or any kind of, even
+
+49:05.780 --> 49:10.180
+ any kind of robotics in the physical world, I definitely think is way harder than the
+
+49:10.180 --> 49:10.820
+ game of chess.
+
+49:10.820 --> 49:15.300
+ So I was always much more impressed by the workings of the human mind.
+
+49:15.300 --> 49:15.940
+ It's incredible.
+
+49:15.940 --> 49:16.900
+ The human mind is incredible.
+
+49:17.700 --> 49:20.340
+ I believe that from the very beginning, I wanted to be a psychiatrist for the longest
+
+49:20.340 --> 49:20.740
+ time.
+
+49:20.740 --> 49:23.140
+ I always thought that's way more incredible in the game of chess.
+
+49:23.140 --> 49:26.740
+ I think the game of chess is, I love the Olympics.
+
+49:26.740 --> 49:31.860
+ It's just another example of us humans picking a task and then agreeing that a million humans
+
+49:31.860 --> 49:33.860
+ will dedicate their whole life to that task.
+
+49:33.860 --> 49:39.860
+ And that's the cool thing that the human mind is able to focus on one task and then compete
+
+49:39.860 --> 49:44.500
+ against each other and achieve like weirdly incredible levels of performance.
+
+49:44.500 --> 49:46.740
+ That's the aspect of chess that's super cool.
+
+49:46.740 --> 49:49.700
+ Not that chess in itself is really difficult.
+
+49:49.700 --> 49:53.460
+ It's like the Fermat's last theorem is not in itself to me that interesting.
+
+49:53.460 --> 49:57.780
+ The fact that thousands of people have been struggling to solve that particular problem
+
+49:57.780 --> 49:58.500
+ is fascinating.
+
+49:58.500 --> 50:00.500
+ So can I tell you my disease in this way?
+
+50:00.500 --> 50:00.740
+ Sure.
+
+50:01.460 --> 50:03.380
+ Which actually is closer to what you're saying.
+
+50:03.380 --> 50:07.620
+ So as a child, I was building various, I called them computers.
+
+50:07.620 --> 50:09.380
+ They weren't general purpose computers.
+
+50:09.380 --> 50:10.180
+ Ice cube tray.
+
+50:10.180 --> 50:11.380
+ The ice cube tray was one.
+
+50:11.380 --> 50:12.660
+ But I built other machines.
+
+50:12.660 --> 50:18.100
+ And what I liked to build was machines that could beat adults at a game and the adults
+
+50:18.100 --> 50:19.700
+ couldn't beat my machine.
+
+50:19.700 --> 50:19.940
+ Yeah.
+
+50:19.940 --> 50:22.660
+ So you were like, that's powerful.
+
+50:22.660 --> 50:24.820
+ That's a way to rebel.
+
+50:24.820 --> 50:33.220
+ Oh, by the way, when was the first time you built something that outperformed you?
+
+50:33.220 --> 50:33.860
+ Do you remember?
+
+50:34.660 --> 50:36.340
+ Well, I knew how it worked.
+
+50:36.340 --> 50:42.020
+ I was probably nine years old and I built a thing that was a game where you take turns
+
+50:42.020 --> 50:47.460
+ in taking matches from a pile and either the one who takes the last one or the one who
+
+50:47.460 --> 50:48.660
+ doesn't take the last one wins.
+
+50:48.660 --> 50:49.460
+ I forget.
+
+50:49.460 --> 50:54.500
+ And so it was pretty easy to build that out of wires and nails and little coils that were
+
+50:54.500 --> 50:58.020
+ like plugging in the number and a few light bulbs.
+
+50:59.060 --> 51:07.220
+ The one I was proud of, I was 12 when I built a thing out of old telephone switchboard switches
+
+51:07.220 --> 51:11.380
+ that could always win at tic tac toe.
+
+51:11.380 --> 51:14.500
+ And that was a much harder circuit to design.
+
+51:14.500 --> 51:17.620
+ But again, it was no active components.
+
+51:17.620 --> 51:23.300
+ It was just three position switches, empty, X, zero, O.
+
+51:23.300 --> 51:29.460
+ And nine of them and a light bulb on which move it wanted next.
+
+51:29.460 --> 51:31.540
+ And then the human would go and move that.
+
+51:31.540 --> 51:33.060
+ See, there's magic in that creation.
+
+51:33.060 --> 51:33.860
+ There was.
+
+51:33.860 --> 51:34.580
+ Yeah, yeah.
+
+51:34.580 --> 51:43.700
+ I tend to see magic in robots that like I also think that intelligence is a little bit
+
+51:43.700 --> 51:44.740
+ overrated.
+
+51:44.740 --> 51:48.100
+ I think we can have deep connections with robots very soon.
+
+51:49.140 --> 51:52.500
+ And well, we'll come back to connections for sure.
+
+51:52.500 --> 52:00.100
+ But I do want to say, I think too many people make the mistake of seeing that magic and
+
+52:00.100 --> 52:02.020
+ thinking, well, we'll just continue.
+
+52:02.820 --> 52:07.300
+ But each one of those is a hard fought battle for the next step, the next step.
+
+52:07.300 --> 52:07.540
+ Yes.
+
+52:08.180 --> 52:11.940
+ The open question here is, and this is why I'm playing devil's advocate, but I often
+
+52:11.940 --> 52:18.420
+ do when I read your blog post in my mind because I have like this eternal optimism, is it's
+
+52:18.420 --> 52:19.380
+ not clear to me.
+
+52:19.380 --> 52:23.940
+ So I don't do what obviously the journalists do or they give into the hype, but it's not
+
+52:23.940 --> 52:34.740
+ obvious to me how many steps away we are from a truly transformational understanding of
+
+52:34.740 --> 52:39.780
+ what it means to build intelligent systems or how to build intelligent systems.
+
+52:40.580 --> 52:45.140
+ I'm also aware of the whole history of artificial intelligence, which is where your deep grounding
+
+52:45.140 --> 52:51.860
+ of this is, is there has been an optimism for decades and that optimism, just like reading
+
+52:51.860 --> 52:57.300
+ old optimism is absurd because people were like, this is, they were saying things are
+
+52:57.300 --> 53:00.740
+ trivial for decades since the sixties, they're saying everything is true.
+
+53:00.740 --> 53:07.700
+ Computer vision is trivial, but I think my mind is working crisply enough to where, I
+
+53:07.700 --> 53:09.700
+ mean, we can dig into if you want.
+
+53:09.700 --> 53:12.900
+ I'm really surprised by the things DeepMind has done.
+
+53:12.900 --> 53:19.300
+ I don't think they're so, they're yet close to solving intelligence, but I'm not sure
+
+53:19.300 --> 53:21.220
+ it's not 10 to 10 years away.
+
+53:22.500 --> 53:30.100
+ What I'm referring to is interesting to see when the engineering, it takes that idea to
+
+53:30.100 --> 53:32.660
+ scale and the idea works.
+
+53:32.660 --> 53:34.100
+ And no, it fools people.
+
+53:34.900 --> 53:35.300
+ Okay.
+
+53:35.300 --> 53:40.420
+ Honestly, Rodney, if it was you, me and Demis inside a room, forget the press, forget all
+
+53:40.420 --> 53:47.060
+ those things, just as a scientist, as a roboticist, that wasn't surprising to you that at scale.
+
+53:47.060 --> 53:50.180
+ So we're talking about very large now, okay, let's pick one.
+
+53:50.180 --> 53:52.340
+ That's the most surprising to you.
+
+53:52.340 --> 53:52.820
+ Okay.
+
+53:52.820 --> 53:53.940
+ Please don't yell at me.
+
+53:53.940 --> 53:56.180
+ GPT three, okay.
+
+53:56.180 --> 54:03.300
+ Hold on, hold on, I was going to say, okay, alpha zero, alpha go, alpha go, zero, alpha
+
+54:03.300 --> 54:06.340
+ zero, and then alpha fold one and two.
+
+54:06.340 --> 54:13.460
+ So do any of these kind of have this core of, forget usefulness or application and so
+
+54:13.460 --> 54:19.220
+ on, which you could argue for alpha fold, like, as a scientist, was those surprising
+
+54:19.220 --> 54:22.260
+ to you that it worked as well as it did?
+
+54:23.140 --> 54:30.820
+ Okay, so if we're going to make the distinction between surprise and usefulness, and I have
+
+54:30.820 --> 54:40.580
+ to explain this, I would say alpha fold, and one of the problems at the moment with alpha
+
+54:40.580 --> 54:44.820
+ fold is, you know, it gets a lot of them right, which is a surprise to me, because they're
+
+54:44.820 --> 54:51.940
+ a really complex thing, but you don't know which ones it gets right, which then is a
+
+54:51.940 --> 54:52.500
+ bit of a problem.
+
+54:52.500 --> 54:53.620
+ Now they've come out with a recent...
+
+54:53.620 --> 54:56.180
+ You mean the structure of the proteins, it gets a lot of those right.
+
+54:56.180 --> 55:00.180
+ Yeah, it's a surprising number of them right, it's been a really hard problem.
+
+55:00.180 --> 55:02.100
+ So that was a surprise how many it gets right.
+
+55:03.220 --> 55:07.460
+ So far, the usefulness is limited, because you don't know which ones are right or not,
+
+55:07.460 --> 55:12.900
+ and now they've come out with a thing in the last few weeks, which is trying to get a useful
+
+55:12.900 --> 55:14.980
+ tool out of it, and they may well do it.
+
+55:15.620 --> 55:20.820
+ In that sense, at least alpha fold is different, because your alpha fold tool is different,
+
+55:21.940 --> 55:27.460
+ because now it's producing data sets that are actually, you know, potentially revolutionizing
+
+55:27.460 --> 55:31.620
+ competition biology, like they will actually help a lot of people, but...
+
+55:31.620 --> 55:36.020
+ You would say potentially revolutionizing, we don't know yet, but yeah.
+
+55:36.020 --> 55:36.820
+ That's true, yeah.
+
+55:36.820 --> 55:39.220
+ But they're, you know, but I got you.
+
+55:39.220 --> 55:40.020
+ I mean, this is...
+
+55:40.020 --> 55:45.860
+ Okay, so you know what, this is gonna be so fun, so let's go right into it.
+
+55:45.860 --> 55:52.020
+ Speaking of robots that operate in the real world, let's talk about self driving cars.
+
+55:52.740 --> 55:54.740
+ Oh, okay.
+
+55:54.740 --> 56:00.500
+ Okay, because you have built robotics companies, you're one of the greatest roboticists in
+
+56:00.500 --> 56:06.500
+ history, and that's not just in the space of ideas, we'll also probably talk about that,
+
+56:06.500 --> 56:13.220
+ but in the actual building and execution of businesses that make robots that are useful
+
+56:13.220 --> 56:16.020
+ for people and that actually work in the real world and make money.
+
+56:18.660 --> 56:24.420
+ You also sometimes are critical of Mr. Elon Musk, or let's more specifically focus on
+
+56:24.420 --> 56:27.620
+ this particular technology, which is autopilot inside Teslas.
+
+56:29.380 --> 56:33.780
+ What are your thoughts about Tesla autopilot, or more generally vision based machine learning
+
+56:33.780 --> 56:36.740
+ approach to semi autonomous driving?
+
+56:38.580 --> 56:43.140
+ These are robots, they're being used in the real world by hundreds of thousands of people,
+
+56:43.700 --> 56:49.940
+ and if you want to go there, I can go there, but that's not too much, which they're...
+
+56:49.940 --> 56:57.220
+ Let's say they're on par safety wise as humans currently, meaning human alone versus human
+
+56:57.220 --> 56:58.500
+ plus robot.
+
+56:58.500 --> 57:03.860
+ Okay, so first let me say I really like the car I came in here today.
+
+57:03.860 --> 57:04.340
+ Which is?
+
+57:06.260 --> 57:11.860
+ 2021 model, Mercedes E450.
+
+57:12.740 --> 57:19.620
+ I am impressed by the machine vision, sonar, other things.
+
+57:19.620 --> 57:21.700
+ I'm impressed by what it can do.
+
+57:21.700 --> 57:27.140
+ I'm really impressed with many aspects of it.
+
+57:29.540 --> 57:31.380
+ It's able to stay in lane, is it?
+
+57:31.380 --> 57:33.140
+ Oh yeah, it does the lane stuff.
+
+57:35.940 --> 57:40.260
+ It's looking on either side of me, it's telling me about nearby cars.
+
+57:40.260 --> 57:41.540
+ For blind spots and so on.
+
+57:41.540 --> 57:48.100
+ Yeah, when I'm going in close to something in the park, I get this beautiful, gorgeous,
+
+57:48.100 --> 57:49.780
+ top down view of the world.
+
+57:49.780 --> 57:56.900
+ I am impressed up the wazoo of how registered and metrical that is.
+
+57:56.900 --> 58:00.900
+ So it's like multiple cameras and it's all ready to go to produce the 360 view kind of
+
+58:00.900 --> 58:00.900
+ thing?
+
+58:00.900 --> 58:05.780
+ 360 view, it's synthesized so it's above the car, and it is unbelievable.
+
+58:06.580 --> 58:10.740
+ I got this car in January, it's the longest I've ever owned a car without digging it.
+
+58:11.460 --> 58:12.420
+ So it's better than me.
+
+58:13.540 --> 58:15.940
+ Me and it together are better.
+
+58:15.940 --> 58:24.980
+ So I'm not saying technology's bad or not useful, but here's my point.
+
+58:24.980 --> 58:30.260
+ Yes, it's a replay of the same movie.
+
+58:31.380 --> 58:34.900
+ Okay, so maybe you've seen me ask this question before.
+
+58:34.900 --> 58:54.100
+ But when did the first car go over 55 miles an hour for over 10 miles on a public freeway
+
+58:54.100 --> 58:56.660
+ with other traffic around driving completely autonomously?
+
+58:56.660 --> 58:57.460
+ When did that happen?
+
+58:59.060 --> 59:01.380
+ Was it CMU in the 80s or something?
+
+59:01.380 --> 59:02.340
+ It was a long time ago.
+
+59:02.340 --> 59:07.540
+ It was actually in 1987 in Munich at the Bundeswehr.
+
+59:09.380 --> 59:11.540
+ So they had it running in 1987.
+
+59:12.500 --> 59:16.660
+ When do you think, and Elon has said he's going to do this, when do you think we'll
+
+59:16.660 --> 59:23.780
+ have the first car drive coast to coast in the US, hands off the wheel, feet off the
+
+59:23.780 --> 59:25.220
+ pedals, coast to coast?
+
+59:25.940 --> 59:28.340
+ As far as I know, a few people have claimed to do it.
+
+59:28.340 --> 59:30.660
+ 1995, that was Carnegie Mellon.
+
+59:30.660 --> 59:35.700
+ I didn't know, but oh, that was the, they didn't claim, did they claim 100%?
+
+59:35.700 --> 59:37.540
+ Not 100%, not 100%.
+
+59:37.540 --> 59:41.940
+ And then there's a few marketing people who have claimed 100% since then.
+
+59:41.940 --> 59:50.740
+ My point is that, you know, what I see happening again is someone sees a demo and they overgeneralize
+
+59:50.740 --> 59:52.340
+ and say, we must be almost there.
+
+59:52.340 --> 59:54.900
+ But we've been working on it for 35 years.
+
+59:54.900 --> 59:56.180
+ So that's demos.
+
+59:56.180 --> 59:59.540
+ But this is going to take us back to the same conversation with AlphaZero.
+
+59:59.540 --> 1:00:06.100
+ Are you not, okay, I'll just say what I am because I thought, okay, when I first started
+
+1:00:06.100 --> 1:00:12.740
+ interacting with the Mobileye implementation of Tesla Autopilot, I've driven a lot of car,
+
+1:00:12.740 --> 1:00:15.940
+ you know, I've been in Google self driving car since the beginning.
+
+1:00:18.020 --> 1:00:23.300
+ I thought there was no way before I sat and used Mobileye, I thought they're just knowing
+
+1:00:23.300 --> 1:00:24.100
+ computer vision.
+
+1:00:24.100 --> 1:00:26.980
+ I thought there's no way it could work as well as it was working.
+
+1:00:26.980 --> 1:00:35.300
+ So my model of the limits of computer vision was way more limited than the actual implementation
+
+1:00:35.300 --> 1:00:35.940
+ of Mobileye.
+
+1:00:35.940 --> 1:00:37.860
+ I was so that's one example.
+
+1:00:37.860 --> 1:00:39.380
+ I was really surprised.
+
+1:00:39.380 --> 1:00:41.700
+ It's like, wow, that was that was incredible.
+
+1:00:41.700 --> 1:00:48.820
+ The second surprise came when Tesla threw away Mobileye and started from scratch.
+
+1:00:50.580 --> 1:00:52.740
+ I thought there's no way they can catch up to Mobileye.
+
+1:00:52.740 --> 1:00:56.260
+ I thought what Mobileye was doing was kind of incredible, like the amount of work and
+
+1:00:56.260 --> 1:00:56.980
+ the annotation.
+
+1:00:56.980 --> 1:01:01.620
+ Yeah, well, Mobileye was started by Amnon Shashua and used a lot of traditional, you
+
+1:01:01.620 --> 1:01:04.420
+ know, hard fought computer vision techniques.
+
+1:01:04.420 --> 1:01:11.620
+ But they also did a lot of good sort of like non research stuff, like actual like just
+
+1:01:11.620 --> 1:01:14.420
+ good, like what you do to make a successful product, right?
+
+1:01:14.420 --> 1:01:16.020
+ Scale, all that kind of stuff.
+
+1:01:16.020 --> 1:01:20.020
+ And so I was very surprised when they from scratch were able to catch up to that.
+
+1:01:20.660 --> 1:01:21.620
+ That's very impressive.
+
+1:01:21.620 --> 1:01:23.780
+ And I've talked to a lot of engineers that was involved.
+
+1:01:23.780 --> 1:01:25.620
+ This is that was impressive.
+
+1:01:25.620 --> 1:01:26.260
+ That was impressive.
+
+1:01:27.300 --> 1:01:34.900
+ And the recent progress, especially under the involvement of Andrej Karpathy, what they
+
+1:01:34.900 --> 1:01:40.340
+ were what they're doing with the data engine, which is converting into the driving task
+
+1:01:40.340 --> 1:01:45.140
+ into these multiple tasks and then doing this edge case discovery when they're pulling back
+
+1:01:45.140 --> 1:01:49.940
+ like the level of engineering made me rethink what's possible.
+
+1:01:49.940 --> 1:01:55.380
+ I don't I still, you know, I don't know to that intensity, but I always thought it was
+
+1:01:55.380 --> 1:02:00.260
+ very difficult to solve autonomous driving with all the sensors, with all the computation.
+
+1:02:00.260 --> 1:02:01.860
+ I just thought it's a very difficult problem.
+
+1:02:02.420 --> 1:02:07.860
+ But I've been continuously surprised how much you can engineer.
+
+1:02:07.860 --> 1:02:12.100
+ First of all, the data acquisition problem, because I thought, you know, just because
+
+1:02:12.100 --> 1:02:20.180
+ I worked with a lot of car companies and they're they're so a little a little bit old school
+
+1:02:20.180 --> 1:02:25.940
+ to where I didn't think they could do this at scale like AWS style data collection.
+
+1:02:25.940 --> 1:02:32.180
+ So when Tesla was able to do that, I started to think, OK, so what are the limits of this?
+
+1:02:33.140 --> 1:02:40.980
+ I still believe that driver like sensing and the interaction with the driver and like studying
+
+1:02:40.980 --> 1:02:43.700
+ the human factor psychology problem is essential.
+
+1:02:43.700 --> 1:02:45.460
+ It's it's always going to be there.
+
+1:02:45.460 --> 1:02:48.740
+ It's always going to be there, even with fully autonomous driving.
+
+1:02:48.740 --> 1:02:55.220
+ But I've been surprised what is the limit, especially a vision based alone, how far that
+
+1:02:55.220 --> 1:02:56.020
+ can take us.
+
+1:02:57.060 --> 1:02:59.860
+ So that's my levels of surprise now.
+
+1:03:00.900 --> 1:03:07.380
+ OK, can you explain in the same way you said, like Alpha Zero, that's a homework problem
+
+1:03:07.380 --> 1:03:10.260
+ that's scaled large in its chest, like who cares?
+
+1:03:10.260 --> 1:03:15.380
+ Go with here's actual people using an actual car and driving.
+
+1:03:15.380 --> 1:03:19.380
+ Many of them drive more than half their miles using the system.
+
+1:03:19.380 --> 1:03:19.880
+ Right.
+
+1:03:20.420 --> 1:03:24.980
+ So, yeah, they're doing well with with pure vision for your vision.
+
+1:03:24.980 --> 1:03:25.480
+ Yeah.
+
+1:03:25.480 --> 1:03:30.820
+ And, you know, and now no radar, which is I suspect that can't go all the way.
+
+1:03:30.820 --> 1:03:36.340
+ And one reason is without without new cameras that have a dynamic range closer to the human
+
+1:03:36.340 --> 1:03:39.300
+ eye, because human eye has incredible dynamic range.
+
+1:03:39.300 --> 1:03:46.500
+ And we make use of that dynamic range in its 11 orders of magnitude or some crazy number
+
+1:03:46.500 --> 1:03:47.000
+ like that.
+
+1:03:47.700 --> 1:03:53.140
+ The cameras don't have that, which is why you see the the the bad cases where the sun
+
+1:03:53.140 --> 1:03:57.060
+ on a white thing and it blinds it in a way it wouldn't blind the person.
+
+1:03:59.860 --> 1:04:06.020
+ I think there's a bunch of things to think about before you say this is so good, it's
+
+1:04:06.020 --> 1:04:06.660
+ just going to work.
+
+1:04:06.660 --> 1:04:12.180
+ OK, and I'll come at it from multiple angles.
+
+1:04:12.180 --> 1:04:13.700
+ And I know you've got a lot of time.
+
+1:04:13.700 --> 1:04:14.200
+ Yeah.
+
+1:04:14.420 --> 1:04:17.220
+ OK, let's let's I have thought about these things.
+
+1:04:17.220 --> 1:04:18.740
+ Yeah, I know.
+
+1:04:18.740 --> 1:04:24.980
+ You've been writing a lot of great blog posts about it for a while before Tesla had autopilot.
+
+1:04:24.980 --> 1:04:25.480
+ Right.
+
+1:04:25.480 --> 1:04:28.660
+ So you've been thinking about autonomous driving for a while from every angle.
+
+1:04:29.220 --> 1:04:36.020
+ So so a few things, you know, in the US, I think that the death rate for autonomous driving
+
+1:04:36.020 --> 1:04:42.500
+ death rate from motor vehicle accidents is about thirty five thousand a year,
+
+1:04:44.900 --> 1:04:49.140
+ which is an outrageous number, not outrageous compared to covid deaths.
+
+1:04:49.140 --> 1:04:50.980
+ But, you know, there is no rationality.
+
+1:04:52.100 --> 1:04:54.340
+ And that's part of the thing people have said.
+
+1:04:54.340 --> 1:04:58.900
+ Engineers say to me, well, if we cut down the number of deaths by 10 percent by having
+
+1:04:58.900 --> 1:05:01.300
+ autonomous driving, that's going to be great.
+
+1:05:01.300 --> 1:05:02.100
+ Everyone will love it.
+
+1:05:02.100 --> 1:05:09.620
+ And my prediction is that if autonomous vehicles kill more than 10 people a year, they'll be
+
+1:05:09.620 --> 1:05:14.260
+ screaming and hollering, even though thirty five thousand people a year have been killed
+
+1:05:14.260 --> 1:05:15.300
+ by human drivers.
+
+1:05:16.260 --> 1:05:17.300
+ It's not rational.
+
+1:05:17.860 --> 1:05:19.620
+ It's a different set of expectations.
+
+1:05:20.100 --> 1:05:21.700
+ And that will probably continue.
+
+1:05:23.860 --> 1:05:25.300
+ So there's that aspect of it.
+
+1:05:25.300 --> 1:05:34.420
+ The other aspect of it is that when we introduce new technology, we often change the rules
+
+1:05:34.420 --> 1:05:34.980
+ of the game.
+
+1:05:36.020 --> 1:05:45.060
+ So when we introduced cars first into our daily lives, we completely rebuilt our cities
+
+1:05:45.060 --> 1:05:46.900
+ and we changed all the laws.
+
+1:05:46.900 --> 1:05:52.820
+ Yeah, jaywalking was not an offense that was pushed by the car companies so that people
+
+1:05:52.820 --> 1:05:56.820
+ would stay off the road so there wouldn't be deaths from pedestrians getting hit.
+
+1:05:57.460 --> 1:06:02.580
+ We completely changed the structure of our cities and had these foul smelling things
+
+1:06:02.580 --> 1:06:04.580
+ everywhere around us.
+
+1:06:04.580 --> 1:06:11.060
+ And now you see pushback in cities like Barcelona is really trying to exclude cars, et cetera.
+
+1:06:11.060 --> 1:06:21.460
+ So I think that to get to self driving, we will, large adoption, it's not going to be
+
+1:06:21.460 --> 1:06:27.300
+ just take the current situation, take out the driver and put the same car doing the
+
+1:06:27.300 --> 1:06:30.100
+ same stuff because the end case is too many.
+
+1:06:31.860 --> 1:06:33.300
+ Here's an interesting question.
+
+1:06:33.300 --> 1:06:39.860
+ How many fully autonomous train systems do we have in the U.S.?
+
+1:06:41.860 --> 1:06:43.860
+ I mean, do you count them as fully autonomous?
+
+1:06:43.860 --> 1:06:47.860
+ I don't know because they're usually as a driver, but they're kind of autonomous, right?
+
+1:06:47.860 --> 1:06:49.860
+ No, let's get rid of the driver.
+
+1:06:51.380 --> 1:06:51.860
+ Okay.
+
+1:06:51.860 --> 1:06:52.820
+ I don't know.
+
+1:06:52.820 --> 1:06:54.660
+ It's either 15 or 16.
+
+1:06:54.660 --> 1:06:56.180
+ Most of them are in airports.
+
+1:06:56.900 --> 1:06:59.860
+ There's a few that are fully autonomous.
+
+1:06:59.860 --> 1:07:06.260
+ Seven are in airports, there's a few that go about five, two that go about five kilometers
+
+1:07:06.260 --> 1:07:07.060
+ out of airports.
+
+1:07:11.460 --> 1:07:17.460
+ When is the first fully autonomous train system for mass transit expected to operate fully
+
+1:07:17.460 --> 1:07:22.420
+ autonomously with no driver in a U.S.
+
+1:07:22.420 --> 1:07:22.920
+ City?
+
+1:07:23.540 --> 1:07:27.940
+ It's expected to operate in 2017 in Honolulu.
+
+1:07:27.940 --> 1:07:29.300
+ Oh, wow.
+
+1:07:29.300 --> 1:07:32.020
+ It's delayed, but they will get there.
+
+1:07:32.020 --> 1:07:35.780
+ BART, by the way, was originally going to be autonomous here in the Bay Area.
+
+1:07:35.780 --> 1:07:38.820
+ I mean, they're all very close to fully autonomous, right?
+
+1:07:38.820 --> 1:07:41.540
+ Yeah, but getting that close is the thing.
+
+1:07:41.540 --> 1:07:48.660
+ And I've often gone on a fully autonomous train in Japan, one that goes out to that
+
+1:07:48.660 --> 1:07:50.660
+ fake island in the middle of Tokyo Bay.
+
+1:07:50.660 --> 1:07:51.700
+ I forget the name of that.
+
+1:07:53.460 --> 1:07:55.540
+ And what do you see when you look at that?
+
+1:07:55.540 --> 1:08:02.020
+ What do you see when you go to a fully autonomous train in an airport?
+
+1:08:03.380 --> 1:08:05.300
+ It's not like regular trains.
+
+1:08:07.060 --> 1:08:12.100
+ At every station, there's a double set of doors so that there's a door of the train
+
+1:08:12.100 --> 1:08:16.340
+ and there's a door off the platform.
+
+1:08:18.020 --> 1:08:23.540
+ And this is really visible in this Japanese one because it goes out in amongst buildings.
+
+1:08:23.540 --> 1:08:27.060
+ The whole track is built so that people can't climb onto it.
+
+1:08:27.060 --> 1:08:27.560
+ Yeah.
+
+1:08:27.860 --> 1:08:32.260
+ So there's an engineering that then makes the system safe and makes them acceptable.
+
+1:08:32.260 --> 1:08:37.620
+ I think we'll see similar sorts of things happen in the U.S.
+
+1:08:37.620 --> 1:08:46.180
+ What surprised me, I thought, wrongly, that we would have special purpose lanes on 101
+
+1:08:46.180 --> 1:08:55.140
+ in the Bay Area, the leftmost lane, so that it would be normal for Teslas or other cars
+
+1:08:55.140 --> 1:09:00.900
+ to move into that lane and then say, okay, now it's autonomous and have that dedicated lane.
+
+1:09:00.900 --> 1:09:03.380
+ I was expecting movement to that.
+
+1:09:03.380 --> 1:09:06.500
+ Five years ago, I was expecting we'd have a lot more movement towards that.
+
+1:09:06.500 --> 1:09:07.460
+ We haven't.
+
+1:09:07.460 --> 1:09:12.820
+ And it may be because Tesla's been overpromising by saying this, calling their system fully
+
+1:09:12.820 --> 1:09:21.780
+ self driving, I think they may have been gotten there quicker by collaborating to change the
+
+1:09:21.780 --> 1:09:22.580
+ infrastructure.
+
+1:09:23.460 --> 1:09:30.180
+ This is one of the problems with long haul trucking being autonomous.
+
+1:09:30.180 --> 1:09:38.020
+ I think it makes sense on freeways at night for the trucks to go autonomously, but then
+
+1:09:38.020 --> 1:09:40.260
+ is that how do you get onto and off of the freeway?
+
+1:09:40.260 --> 1:09:42.980
+ What sort of infrastructure do you need for that?
+
+1:09:43.780 --> 1:09:48.500
+ Do you need to have the human in there to do that or can you get rid of the human?
+
+1:09:48.500 --> 1:09:55.060
+ So I think there's ways to get there, but it's an infrastructure argument because the
+
+1:09:55.060 --> 1:10:02.020
+ long tail of cases is very long and the acceptance of it will not be at the same level as human
+
+1:10:02.020 --> 1:10:02.580
+ drivers.
+
+1:10:02.580 --> 1:10:09.780
+ So I'm with you still, and I was with you for a long time, but I am surprised how well
+
+1:10:09.780 --> 1:10:14.820
+ how many edge cases of machine learning and vision based methods can cover.
+
+1:10:15.540 --> 1:10:22.260
+ This is what I'm trying to get at is I think there's something fundamentally different
+
+1:10:22.260 --> 1:10:27.460
+ with vision based methods and Tesla Autopilot and any company that's trying to do the same.
+
+1:10:27.460 --> 1:10:34.260
+ Okay, well, I'm not going to argue with you because, you know, we're speculating.
+
+1:10:34.260 --> 1:10:43.620
+ Yes, but, you know, my gut feeling tells me it's going to be things will speed up when
+
+1:10:43.620 --> 1:10:48.260
+ there is engineering of the environment because that's what happened with every other technology.
+
+1:10:48.260 --> 1:10:53.940
+ I'm a bit, I don't know about you, but I'm a bit cynical that infrastructure is going
+
+1:10:53.940 --> 1:10:59.460
+ to rely on government to help out in these cases.
+
+1:11:00.340 --> 1:11:05.540
+ If you just look at infrastructure in all domains, it's just a government always drags
+
+1:11:05.540 --> 1:11:06.900
+ behind on infrastructure.
+
+1:11:07.540 --> 1:11:11.780
+ There's like there's so many just well in this country in the future.
+
+1:11:11.780 --> 1:11:12.260
+ Sorry.
+
+1:11:12.260 --> 1:11:13.700
+ Yes, in this country.
+
+1:11:13.700 --> 1:11:17.780
+ And of course, there's many, many countries that are actually much worse on infrastructure.
+
+1:11:17.780 --> 1:11:21.220
+ Oh, yes, many of the much worse and there's some that are much worse.
+
+1:11:21.220 --> 1:11:25.940
+ You know, like high speed rail, the other countries are much better.
+
+1:11:25.940 --> 1:11:31.220
+ I guess my question is, like, which is at the core of what I was trying to think through
+
+1:11:31.220 --> 1:11:37.540
+ here and ask is like, how hard is the driving problem as it currently stands?
+
+1:11:37.540 --> 1:11:41.220
+ So you mentioned, like, we don't want to just take the human out and duplicate whatever
+
+1:11:41.220 --> 1:11:42.260
+ the human was doing.
+
+1:11:42.260 --> 1:11:48.340
+ But if we were to try to do that, what, how hard is that problem?
+
+1:11:48.340 --> 1:11:52.420
+ Because I used to think is way harder.
+
+1:11:52.420 --> 1:11:59.220
+ Like, I used to think it's with vision alone, it would be three decades, four decades.
+
+1:11:59.220 --> 1:12:06.740
+ Okay, so I don't know the answer to this thing I'm about to pose, but I do notice that on
+
+1:12:06.740 --> 1:12:13.380
+ Highway 280 here in the Bay Area, which largely has concrete surface rather than blacktop
+
+1:12:13.380 --> 1:12:20.900
+ surface, the white lines that are painted there now have black boundaries around them.
+
+1:12:20.900 --> 1:12:27.460
+ And my lane drift system in my car would not work without those black boundaries.
+
+1:12:27.460 --> 1:12:28.260
+ Interesting.
+
+1:12:28.260 --> 1:12:32.420
+ So I don't know whether they started doing it to help the lane drift, whether it is an
+
+1:12:32.420 --> 1:12:41.220
+ instance of infrastructure following the technology, but my car would not perform as well as the
+
+1:12:41.220 --> 1:12:45.460
+ lane, my car would not perform as well without that change in the way they paint the line.
+
+1:12:45.460 --> 1:12:50.340
+ Unfortunately, really good lane keeping is not as valuable.
+
+1:12:50.340 --> 1:12:54.900
+ Like, it's orders of magnitude more valuable to have a fully autonomous system.
+
+1:12:54.900 --> 1:13:00.900
+ Like, yeah, but for me, lane keeping is really helpful because I'm more healthy at it.
+
+1:13:00.900 --> 1:13:03.700
+ But you wouldn't pay 10 times.
+
+1:13:03.700 --> 1:13:11.540
+ Like, the problem is there's not financial, like, it doesn't make sense to revamp the
+
+1:13:11.540 --> 1:13:14.260
+ infrastructure to make lane keeping easier.
+
+1:13:14.820 --> 1:13:17.300
+ It does make sense to revamp the infrastructure.
+
+1:13:17.300 --> 1:13:22.260
+ If you have a large fleet of autonomous vehicles, now you change what it means to own cars,
+
+1:13:22.260 --> 1:13:23.860
+ you change the nature of transportation.
+
+1:13:24.980 --> 1:13:29.620
+ But for that, you need autonomous vehicles.
+
+1:13:29.620 --> 1:13:31.540
+ Let me ask you about Waymo then.
+
+1:13:31.540 --> 1:13:37.380
+ I've gotten a bunch of chances to ride in a Waymo self driving car.
+
+1:13:37.380 --> 1:13:40.980
+ And they're, I don't know if you'd call them self driving, but.
+
+1:13:40.980 --> 1:13:45.780
+ Well, I mean, I rode in one before they were called Waymo when I was still at X.
+
+1:13:45.780 --> 1:13:50.740
+ So there's currently, there's a big leap, another surprising leap I didn't think would
+
+1:13:50.740 --> 1:13:53.780
+ happen, which is they have no driver currently.
+
+1:13:53.780 --> 1:13:55.060
+ Yeah, in Chandler.
+
+1:13:55.060 --> 1:13:56.100
+ In Chandler, Arizona.
+
+1:13:56.100 --> 1:13:58.980
+ And I think they're thinking of doing that in Austin as well.
+
+1:13:58.980 --> 1:14:01.540
+ But they're expanding.
+
+1:14:01.540 --> 1:14:06.100
+ Although, you know, and I do an annual checkup on this.
+
+1:14:06.100 --> 1:14:13.300
+ So as of late last year, they were aiming for hundreds of rides a week, not thousands.
+
+1:14:14.020 --> 1:14:22.660
+ And there is no one in the car, but there's certainly safety people in the loop.
+
+1:14:22.660 --> 1:14:26.820
+ And it's not clear how many, you know, what the ratio of cars to safety people is.
+
+1:14:26.820 --> 1:14:31.620
+ It wasn't, obviously, they're not 100% transparent about this.
+
+1:14:31.620 --> 1:14:33.220
+ None of them are 100% transparent.
+
+1:14:33.220 --> 1:14:34.420
+ They're very untransparent.
+
+1:14:34.420 --> 1:14:39.540
+ But at least the way they're, I don't want to make definitively, but they're saying
+
+1:14:39.540 --> 1:14:40.740
+ there's no teleoperation.
+
+1:14:42.580 --> 1:14:45.620
+ So like, they're, I mean, okay.
+
+1:14:45.620 --> 1:14:51.780
+ And that sort of fits with YouTube videos I've seen of people being trapped in the car
+
+1:14:52.820 --> 1:14:55.460
+ by a red cone on the street.
+
+1:14:55.460 --> 1:15:01.620
+ And they do have rescue vehicles that come, and then a person gets in and drives it.
+
+1:15:01.620 --> 1:15:02.120
+ Yeah.
+
+1:15:02.580 --> 1:15:09.700
+ But isn't it incredible to you, it was to me, to get in a car with no driver and watch
+
+1:15:09.700 --> 1:15:15.060
+ the steering wheel turn, like for somebody who has been studying, at least certainly
+
+1:15:15.060 --> 1:15:18.980
+ the human side of autonomous vehicles for many years, and you've been doing it for way
+
+1:15:18.980 --> 1:15:22.420
+ longer, like it was incredible to me that this was actually could happen.
+
+1:15:22.420 --> 1:15:24.100
+ I don't care if that scale is 100 cars.
+
+1:15:24.100 --> 1:15:25.860
+ This is not a demo.
+
+1:15:25.860 --> 1:15:28.820
+ This is not, this is me as a regular human.
+
+1:15:28.820 --> 1:15:33.060
+ The argument I have is that people make interpolations from that.
+
+1:15:33.060 --> 1:15:33.940
+ Interpolations.
+
+1:15:33.940 --> 1:15:35.780
+ That, you know, it's here, it's done.
+
+1:15:37.060 --> 1:15:39.380
+ You know, it's just, you know, we've solved it.
+
+1:15:39.380 --> 1:15:40.340
+ No, we haven't yet.
+
+1:15:40.980 --> 1:15:42.500
+ And that's my argument.
+
+1:15:42.500 --> 1:15:42.900
+ Okay.
+
+1:15:42.900 --> 1:15:48.420
+ So I'd like to go to, you keep a list of predictions on your amazing blog post.
+
+1:15:48.420 --> 1:15:49.700
+ It'd be fun to go through them.
+
+1:15:49.700 --> 1:15:51.620
+ But before then, let me ask you about this.
+
+1:15:51.620 --> 1:16:03.140
+ You have a harshness to you sometimes in your criticisms of what is perceived as hype.
+
+1:16:05.940 --> 1:16:10.980
+ And so like, because people extrapolate, like you said, and they kind of buy into the hype
+
+1:16:10.980 --> 1:16:18.900
+ and then they kind of start to think that the technology is way better than it is.
+
+1:16:18.900 --> 1:16:21.700
+ But let me ask you maybe a difficult question.
+
+1:16:22.260 --> 1:16:22.760
+ Sure.
+
+1:16:23.780 --> 1:16:30.740
+ Do you think if you look at history of progress, don't you think to achieve the quote impossible,
+
+1:16:30.740 --> 1:16:32.740
+ you have to believe that it's possible?
+
+1:16:32.740 --> 1:16:34.260
+ Oh, absolutely.
+
+1:16:34.260 --> 1:16:34.820
+ Yeah.
+
+1:16:34.820 --> 1:16:46.980
+ Look, his two great runs, great, unbelievable, 1903, first human power, human, you know,
+
+1:16:46.980 --> 1:16:49.300
+ human, you know, heavier than their flight.
+
+1:16:49.300 --> 1:16:49.800
+ Yeah.
+
+1:16:50.580 --> 1:16:52.740
+ 1969, we land on the moon.
+
+1:16:52.740 --> 1:16:53.940
+ That's 66 years.
+
+1:16:53.940 --> 1:17:00.260
+ I'm 66 years old in my lifetime, that span of my lifetime, barely, you know, flying,
+
+1:17:00.260 --> 1:17:05.380
+ I don't know what it was, 50 feet, the length of the first flight or something to landing
+
+1:17:05.380 --> 1:17:05.780
+ on the moon.
+
+1:17:06.340 --> 1:17:07.380
+ Unbelievable.
+
+1:17:08.100 --> 1:17:08.980
+ Fantastic.
+
+1:17:08.980 --> 1:17:13.060
+ But that requires, by the way, one of the Wright brothers, both of them, but one of
+
+1:17:13.060 --> 1:17:16.180
+ them didn't believe it's even possible like a year before.
+
+1:17:16.180 --> 1:17:16.680
+ Right.
+
+1:17:16.680 --> 1:17:20.420
+ So, like, not just possible soon, but like ever.
+
+1:17:20.420 --> 1:17:21.940
+ So, you know.
+
+1:17:21.940 --> 1:17:24.820
+ How important is it to believe and be optimistic is what I guess.
+
+1:17:24.820 --> 1:17:26.100
+ Oh, yeah, it is important.
+
+1:17:26.100 --> 1:17:32.100
+ It's when it goes crazy, when I, you know, you said that, what was the word you used
+
+1:17:32.100 --> 1:17:33.060
+ for my bad?
+
+1:17:33.060 --> 1:17:33.780
+ Harshness.
+
+1:17:33.780 --> 1:17:34.580
+ Harshness.
+
+1:17:34.580 --> 1:17:35.080
+ Yes.
+
+1:17:40.180 --> 1:17:41.940
+ I just get so frustrated.
+
+1:17:41.940 --> 1:17:42.440
+ Yes.
+
+1:17:42.440 --> 1:17:51.260
+ When people make these leaps and tell me that I'm, that I don't understand, you know, yeah.
+
+1:17:53.020 --> 1:17:57.420
+ There's just from iRobot, which I was co founder of.
+
+1:17:57.420 --> 1:17:57.740
+ Yeah.
+
+1:17:57.740 --> 1:18:00.860
+ I don't know the exact numbers now because I haven't, it's 10 years since I stepped
+
+1:18:00.860 --> 1:18:06.220
+ off the board, but I believe it's well over 30 million robots cleaning houses from that
+
+1:18:06.220 --> 1:18:06.780
+ one company.
+
+1:18:06.780 --> 1:18:08.140
+ And now there's lots of other companies.
+
+1:18:08.140 --> 1:18:08.140
+ Yes.
+
+1:18:08.140 --> 1:18:14.940
+ Was that a crazy idea that we had to believe in 2002 when we released it?
+
+1:18:14.940 --> 1:18:20.540
+ Yeah, that was, we had, we had to, you know, believe that it could be done.
+
+1:18:20.540 --> 1:18:21.740
+ Let me ask you about this.
+
+1:18:21.740 --> 1:18:28.380
+ So iRobot, one of the greatest robotics companies ever in terms of creating a robot that actually
+
+1:18:28.380 --> 1:18:31.900
+ works in the real world, probably the greatest robotics company ever.
+
+1:18:31.900 --> 1:18:33.660
+ You were the co founder of it.
+
+1:18:33.660 --> 1:18:40.860
+ If, if the Rodney Brooks of today talked to the Rodney of back then, what would you tell
+
+1:18:40.860 --> 1:18:41.340
+ him?
+
+1:18:41.340 --> 1:18:47.100
+ Cause I have a sense that would you pat him on the back and say, well, you're doing is
+
+1:18:47.100 --> 1:18:50.780
+ going to fail, but go at it anyway.
+
+1:18:50.780 --> 1:18:54.060
+ That's what I'm referring to with the harshness.
+
+1:18:54.060 --> 1:18:56.700
+ You've accomplished an incredible thing there.
+
+1:18:56.700 --> 1:19:01.500
+ One of the several things we'll talk about was, you know, you know, you know, you've
+
+1:19:01.500 --> 1:19:03.820
+ done several things we'll talk about.
+
+1:19:03.820 --> 1:19:06.940
+ Well, like that's what I'm trying to get at that line.
+
+1:19:06.940 --> 1:19:14.140
+ No, it's, it's when my harshness is reserved for people who are not doing it, who claim
+
+1:19:14.140 --> 1:19:16.860
+ it's just, well, this shows that it's just going to happen.
+
+1:19:16.860 --> 1:19:18.300
+ But here, here's the thing.
+
+1:19:18.300 --> 1:19:19.020
+ This shows.
+
+1:19:19.020 --> 1:19:22.700
+ But you have that harshness for Elon too.
+
+1:19:24.060 --> 1:19:26.380
+ And no, no, it's a different harshness.
+
+1:19:26.380 --> 1:19:30.540
+ No, it's, it's a different argument with Elon.
+
+1:19:30.540 --> 1:19:34.780
+ I think SpaceX is an amazing company.
+
+1:19:34.780 --> 1:19:40.060
+ On the other hand, you know, I, in one of my blog posts, I said, what's easy and what's
+
+1:19:40.060 --> 1:19:40.460
+ hard.
+
+1:19:40.460 --> 1:19:44.300
+ I said, yeah, space X vertical landing rockets.
+
+1:19:44.300 --> 1:19:45.340
+ It had been done before.
+
+1:19:46.380 --> 1:19:48.700
+ Grid fins had been done since the sixties.
+
+1:19:48.700 --> 1:19:49.740
+ Every Soyuz has them.
+
+1:19:52.780 --> 1:19:58.220
+ Reusable space DCX reuse those rockets that landed vertically.
+
+1:19:58.220 --> 1:20:02.780
+ There's a whole insurance industry in place for rocket launches.
+
+1:20:02.780 --> 1:20:07.980
+ There are all sorts of infrastructure that was doable.
+
+1:20:07.980 --> 1:20:11.980
+ It took a great entrepreneur, a great personal expense.
+
+1:20:11.980 --> 1:20:18.220
+ He almost drove himself, you know, bankrupt doing it, a great belief to do it.
+
+1:20:18.860 --> 1:20:25.740
+ Whereas Hyperloop, there's a whole bunch more stuff that's never been thought about and
+
+1:20:25.740 --> 1:20:28.380
+ never been demonstrated.
+
+1:20:28.380 --> 1:20:33.660
+ So my estimation is Hyperloop is a long, long, long, a lot further off.
+
+1:20:33.660 --> 1:20:38.940
+ But, and if I've got a criticism of, of, of Elon, it's that he doesn't make distinctions
+
+1:20:39.740 --> 1:20:44.780
+ between when the technology's coming along and ready.
+
+1:20:44.780 --> 1:20:50.140
+ And then he'll go off and mouth off about other things, which then people go and compete
+
+1:20:50.140 --> 1:20:51.100
+ about and try and do.
+
+1:20:51.100 --> 1:20:57.580
+ And so this is where I, I, I, I understand what you're saying.
+
+1:20:57.580 --> 1:20:59.340
+ I tend to draw a different distinction.
+
+1:21:00.060 --> 1:21:06.220
+ I, I have a similar kind of harshness towards people who are not telling the truth, who
+
+1:21:06.220 --> 1:21:11.420
+ are basically fabricating stuff to make money or to, well, he believes what he says.
+
+1:21:11.420 --> 1:21:18.300
+ I just think that's a very important difference because I think in order to fly, in order
+
+1:21:18.300 --> 1:21:24.060
+ to get to the moon, you have to believe even when most people tell you you're wrong and
+
+1:21:24.060 --> 1:21:26.940
+ most likely you're wrong, but sometimes you're right.
+
+1:21:26.940 --> 1:21:29.900
+ I mean, that's the same thing I have with Tesla autopilot.
+
+1:21:29.900 --> 1:21:31.900
+ I think that's an interesting one.
+
+1:21:31.900 --> 1:21:38.780
+ I was, especially when I was at MIT and just the entire human factors in the robotics community
+
+1:21:38.780 --> 1:21:40.300
+ were very negative towards Elon.
+
+1:21:40.300 --> 1:21:43.020
+ It was very interesting for me to observe colleagues at MIT.
+
+1:21:45.020 --> 1:21:46.620
+ I wasn't sure what to make of that.
+
+1:21:46.620 --> 1:21:51.100
+ That was very upsetting to me because I understood where that, where that's coming from.
+
+1:21:51.900 --> 1:21:56.300
+ And I agreed with them and I kind of almost felt the same thing in the beginning until
+
+1:21:56.300 --> 1:22:01.660
+ I kind of opened my eyes and realized there's a lot of interesting ideas here that might
+
+1:22:01.660 --> 1:22:02.540
+ be over hype.
+
+1:22:02.540 --> 1:22:09.740
+ You know, if you focus yourself on the idea that you shouldn't call a system full self
+
+1:22:09.740 --> 1:22:16.220
+ driving when it's obviously not autonomous, fully autonomous, you're going to miss the
+
+1:22:16.220 --> 1:22:16.860
+ magic.
+
+1:22:16.860 --> 1:22:18.940
+ Oh, yeah, you are going to miss the magic.
+
+1:22:18.940 --> 1:22:25.340
+ But at the same time, there are people who buy it, literally pay money for it and take
+
+1:22:25.340 --> 1:22:27.180
+ those words as given.
+
+1:22:27.180 --> 1:22:30.300
+ So it's, but I haven't.
+
+1:22:30.300 --> 1:22:33.420
+ So that I take words as given is one thing.
+
+1:22:33.420 --> 1:22:38.940
+ I haven't actually seen people that use autopilot that believe that the behavior is really important,
+
+1:22:39.500 --> 1:22:40.700
+ like the actual action.
+
+1:22:40.700 --> 1:22:45.740
+ So like, this is to push back on the very thing that you're frustrated about, which
+
+1:22:45.740 --> 1:22:52.460
+ is like journalists and general people buying all the hype and going out in the same way.
+
+1:22:52.460 --> 1:22:57.980
+ I think there's a lot of hype about the negatives of this, too, that people are buying without
+
+1:22:57.980 --> 1:23:01.020
+ using people use the way this is what this was.
+
+1:23:01.020 --> 1:23:02.060
+ This opened my eyes.
+
+1:23:02.060 --> 1:23:07.580
+ Actually, the way people use a product is very different than the way they talk about
+
+1:23:07.580 --> 1:23:07.820
+ it.
+
+1:23:07.820 --> 1:23:09.500
+ This is true with robotics, with everything.
+
+1:23:09.500 --> 1:23:13.660
+ Everybody has dreams of how a particular product might be used or so on.
+
+1:23:13.660 --> 1:23:17.980
+ And then when it meets reality, there's a lot of fear of robotics, for example, that
+
+1:23:17.980 --> 1:23:20.380
+ robots are somehow dangerous and all those kinds of things.
+
+1:23:20.380 --> 1:23:23.980
+ But when you actually have robots in your life, whether it's in the factory or in the
+
+1:23:23.980 --> 1:23:28.300
+ home, making your life better, that's going to be that's way different.
+
+1:23:28.300 --> 1:23:30.460
+ Your perceptions of it are going to be way different.
+
+1:23:30.460 --> 1:23:34.780
+ And so my just tension was like, here's an innovator.
+
+1:23:34.780 --> 1:23:41.500
+ Supercruise from Cadillac was super interesting, too.
+
+1:23:41.500 --> 1:23:43.020
+ That's a really interesting system.
+
+1:23:43.020 --> 1:23:45.580
+ We should be excited by those innovations.
+
+1:23:45.580 --> 1:23:49.020
+ OK, so can I tell you something that's really annoyed me recently?
+
+1:23:49.020 --> 1:23:56.380
+ It's really annoyed me that the press and friends of mine on Facebook are going, these
+
+1:23:56.380 --> 1:23:59.740
+ billionaires and their space games, why are they doing that?
+
+1:23:59.740 --> 1:24:02.300
+ And that really, really pisses me off.
+
+1:24:02.300 --> 1:24:05.100
+ I must say, I applaud that.
+
+1:24:05.100 --> 1:24:06.780
+ I applaud it.
+
+1:24:06.780 --> 1:24:13.180
+ It's the taking and not necessarily the people who are doing the things, but, you know, that
+
+1:24:13.180 --> 1:24:19.740
+ I keep having to push back against unrealistic expectations when these things can become
+
+1:24:19.740 --> 1:24:20.300
+ real.
+
+1:24:20.300 --> 1:24:26.220
+ Yeah, I this was interesting on because there's been a particular focus for me is autonomous
+
+1:24:26.220 --> 1:24:30.140
+ driving, Elon's prediction of when certain milestones will be hit.
+
+1:24:30.140 --> 1:24:37.660
+ There's several things to be said there that I always I thought about, because whenever
+
+1:24:37.660 --> 1:24:44.860
+ you said them, it was obvious that's not going to me as a person that kind of not inside
+
+1:24:44.860 --> 1:24:46.940
+ the system is obvious.
+
+1:24:46.940 --> 1:24:48.700
+ It's unlikely to hit those.
+
+1:24:48.700 --> 1:24:50.700
+ There's two comments I want to make.
+
+1:24:50.700 --> 1:24:54.220
+ One, he legitimately believes it.
+
+1:24:54.220 --> 1:25:04.140
+ And two, much more importantly, I think that having ambitious deadlines drives people to
+
+1:25:04.140 --> 1:25:09.420
+ do the best work of their life, even when the odds of those deadlines are very low.
+
+1:25:09.420 --> 1:25:12.780
+ To a point, and I'm not talking about anyone here, I'm just saying.
+
+1:25:12.780 --> 1:25:14.220
+ So there's a line there, right?
+
+1:25:14.220 --> 1:25:20.140
+ You have to have a line because you overextend and it's demoralizing.
+
+1:25:20.140 --> 1:25:27.820
+ It's demoralizing, but I will say that there's an additional thing here that those words
+
+1:25:28.860 --> 1:25:32.460
+ also drive the stock market.
+
+1:25:34.140 --> 1:25:42.060
+ And we have because of the way that rich people in the past have manipulated the rubes through
+
+1:25:42.060 --> 1:25:49.260
+ investment, we have developed laws about what you're allowed to say.
+
+1:25:49.260 --> 1:25:58.380
+ And you know, there's an area here which is I tend to be maybe I'm naive, but I tend to
+
+1:25:58.380 --> 1:26:06.620
+ believe that like engineers, innovators, people like that, they're not they're my they don't
+
+1:26:06.620 --> 1:26:09.500
+ think like that, like manipulating the price of the stock price.
+
+1:26:09.500 --> 1:26:13.980
+ But it's possible that I'm I'm certain it's possible that I'm wrong.
+
+1:26:13.980 --> 1:26:21.820
+ It's a very cynical view of the world because I think most people that run companies, especially
+
+1:26:21.820 --> 1:26:27.260
+ original founders, they yeah, I'm not saying that's the intent.
+
+1:26:27.260 --> 1:26:33.340
+ I'm saying it's eventually it's kind of you you you you fall into that kind of behavior
+
+1:26:33.340 --> 1:26:33.340
+ pattern.
+
+1:26:33.340 --> 1:26:33.900
+ I don't know.
+
+1:26:33.900 --> 1:26:37.980
+ I tend to I wasn't saying I wasn't saying it's falling into that intent.
+
+1:26:37.980 --> 1:26:43.740
+ It's just you also have to protect investors in this environment.
+
+1:26:43.740 --> 1:26:44.620
+ In this market.
+
+1:26:44.620 --> 1:26:44.860
+ Yeah.
+
+1:26:45.580 --> 1:26:50.060
+ OK, so you have first of all, you have an amazing blog that people should check out.
+
+1:26:50.060 --> 1:26:54.060
+ But you also have this in that blog, a set of predictions.
+
+1:26:54.780 --> 1:26:55.740
+ Such a cool idea.
+
+1:26:55.740 --> 1:26:58.220
+ I don't know how long ago you started, like three, four years ago.
+
+1:26:58.220 --> 1:27:01.820
+ It was January 1st, 2018.
+
+1:27:01.820 --> 1:27:02.220
+ 18.
+
+1:27:02.940 --> 1:27:07.740
+ And I made these predictions and I said that every January 1st, I was going to check back
+
+1:27:07.740 --> 1:27:09.020
+ on how my predictions.
+
+1:27:09.020 --> 1:27:10.220
+ That's such a great thought experiment.
+
+1:27:10.220 --> 1:27:11.260
+ For 32 years.
+
+1:27:11.900 --> 1:27:13.340
+ Oh, you said 32 years.
+
+1:27:13.340 --> 1:27:16.380
+ I said 32 years because it's still that'll be January 1st, 2050.
+
+1:27:16.940 --> 1:27:19.980
+ I'll be I will just turn ninety.
+
+1:27:21.660 --> 1:27:31.180
+ Five, you know, and so people know that your predictions, at least for now, are in the
+
+1:27:31.180 --> 1:27:33.180
+ space of artificial intelligence.
+
+1:27:33.180 --> 1:27:34.860
+ Yeah, I didn't say I was going to make new predictions.
+
+1:27:34.860 --> 1:27:38.380
+ I was just going to measure this set of predictions that I made because I was sort of I was sort
+
+1:27:38.380 --> 1:27:40.620
+ of annoyed that everyone could make predictions.
+
+1:27:40.620 --> 1:27:42.460
+ They didn't come true and everyone forgot.
+
+1:27:42.460 --> 1:27:44.860
+ So I should hold myself to a high standard.
+
+1:27:44.860 --> 1:27:48.700
+ Yeah, but also just putting years and like date ranges on things.
+
+1:27:48.700 --> 1:27:50.140
+ It's a good thought exercise.
+
+1:27:50.140 --> 1:27:52.940
+ Yeah, like and like reasoning your thoughts out.
+
+1:27:52.940 --> 1:27:58.300
+ And so the topics are artificial intelligence, autonomous vehicles and space.
+
+1:27:58.300 --> 1:27:58.800
+ Yeah.
+
+1:28:00.940 --> 1:28:04.700
+ I was wondering if we could just go through some that stand out maybe from memory.
+
+1:28:04.700 --> 1:28:06.140
+ I can just mention to you some.
+
+1:28:06.140 --> 1:28:10.780
+ Let's talk about self driving cars, like some predictions that you're particularly proud
+
+1:28:10.780 --> 1:28:20.220
+ of or are particularly interesting from flying cars to the other element here is like how
+
+1:28:20.220 --> 1:28:24.700
+ widespread the location where the deployment of the autonomous vehicles is.
+
+1:28:25.900 --> 1:28:27.580
+ And there's also just a few fun ones.
+
+1:28:27.580 --> 1:28:30.300
+ Is there something that jumps to mind that you remember from the predictions?
+
+1:28:31.980 --> 1:28:37.500
+ Well, I think I did put in there that there would be a dedicated self driving lane on
+
+1:28:37.500 --> 1:28:41.740
+ 101 by some year, and I think I was over optimistic on that one.
+
+1:28:42.380 --> 1:28:42.860
+ Yeah, actually.
+
+1:28:42.860 --> 1:28:44.140
+ Yeah, I actually do remember that.
+
+1:28:44.140 --> 1:28:48.620
+ But you I think you were mentioning like difficulties at different cities.
+
+1:28:48.620 --> 1:28:49.120
+ Yeah.
+
+1:28:50.460 --> 1:28:52.460
+ Cambridge, Massachusetts, I think was an example.
+
+1:28:52.460 --> 1:28:56.860
+ Yeah, like in Cambridge Port, you know, I lived in Cambridge Port for a number of years
+
+1:28:56.860 --> 1:29:02.780
+ and you know, the roads are narrow and getting getting anywhere as a human driver is incredibly
+
+1:29:02.780 --> 1:29:07.660
+ frustrating when you start to put and people drive the wrong way on one way streets there.
+
+1:29:07.660 --> 1:29:14.860
+ It's just your prediction was driverless taxi services operating on all streets in
+
+1:29:14.860 --> 1:29:20.300
+ Cambridge Port, Massachusetts in 2035.
+
+1:29:21.100 --> 1:29:21.740
+ Yeah.
+
+1:29:21.740 --> 1:29:25.020
+ And that may have been too optimistic.
+
+1:29:25.020 --> 1:29:26.060
+ You think so?
+
+1:29:26.060 --> 1:29:31.020
+ You know, I've gotten a little more pessimistic since I made these internally on some of these
+
+1:29:31.020 --> 1:29:31.500
+ things.
+
+1:29:31.500 --> 1:29:42.780
+ So what can you put a year to a major milestone of deployment of a taxi service in in a few
+
+1:29:42.780 --> 1:29:47.500
+ major cities like something where you feel like autonomous vehicles are here.
+
+1:29:47.500 --> 1:29:55.900
+ So let's let's take the grid streets of San Francisco north of market.
+
+1:29:55.900 --> 1:29:56.540
+ Okay.
+
+1:29:56.540 --> 1:29:57.040
+ Okay.
+
+1:29:57.040 --> 1:30:07.040
+ Relatively benign environment, the streets are wide, the major problem is delivery trucks
+
+1:30:07.040 --> 1:30:10.880
+ stopping everywhere, which made things more complicated.
+
+1:30:12.880 --> 1:30:21.280
+ Taxi system there with somewhat designated pickup and drop offs, unlike with Uber and
+
+1:30:21.280 --> 1:30:28.160
+ Lyft, where you can sort of get to any place and the drivers will figure out how to get
+
+1:30:28.160 --> 1:30:28.720
+ in there.
+
+1:30:30.720 --> 1:30:32.080
+ We're still a few years away.
+
+1:30:32.080 --> 1:30:35.200
+ I, you know, I live in that area.
+
+1:30:35.200 --> 1:30:42.240
+ So I see, you know, the self driving car companies cars, multiple multiple ones every day.
+
+1:30:42.240 --> 1:30:52.480
+ Now if they're cruise, Zooks less often, Waymo all the time, different and different ones
+
+1:30:52.480 --> 1:30:53.440
+ come and go.
+
+1:30:53.440 --> 1:30:54.960
+ And there's always a driver.
+
+1:30:55.520 --> 1:31:02.240
+ There's always a driver at the moment, although I have noticed that sometimes the driver does
+
+1:31:02.240 --> 1:31:08.000
+ not have the authority to take over without talking to the home office, because they will
+
+1:31:08.000 --> 1:31:14.640
+ sit there waiting for a long time, and clearly something's going on where the home office
+
+1:31:14.640 --> 1:31:15.680
+ is making a decision.
+
+1:31:16.960 --> 1:31:21.600
+ So they're, you know, and, and so you can see whether they've got their hands on the
+
+1:31:21.600 --> 1:31:22.400
+ wheel or not.
+
+1:31:22.400 --> 1:31:27.680
+ And, and it's the incident resolution time that tells you, gives you some clues.
+
+1:31:28.240 --> 1:31:30.720
+ So what year do you think, what's your intuition?
+
+1:31:30.720 --> 1:31:34.880
+ What date range are you currently thinking San Francisco would be?
+
+1:31:34.880 --> 1:31:42.960
+ Are you currently thinking San Francisco would be autonomous taxi service from any point
+
+1:31:42.960 --> 1:31:45.840
+ A to any point B without a driver?
+
+1:31:47.760 --> 1:31:53.040
+ Are you still, are you thinking 10 years from now, 20 years from now, 30 years from now?
+
+1:31:53.040 --> 1:31:54.400
+ Certainly not 10 years from now.
+
+1:31:55.440 --> 1:31:56.320
+ It's going to be longer.
+
+1:31:56.880 --> 1:31:59.520
+ If you're allowed to go south of market way longer.
+
+1:31:59.520 --> 1:32:03.440
+ And unless it's reengineering of roads.
+
+1:32:03.440 --> 1:32:05.120
+ By the way, what's the biggest challenge?
+
+1:32:05.120 --> 1:32:06.080
+ You mentioned a few.
+
+1:32:06.080 --> 1:32:09.360
+ Is it, is it the delivery trucks?
+
+1:32:09.360 --> 1:32:15.040
+ Is it the edge cases, the computer perception, well, here's a case that I saw outside my
+
+1:32:15.040 --> 1:32:20.560
+ house a few weeks ago, about 8pm on a Friday night, it was getting dark, it was before
+
+1:32:20.560 --> 1:32:21.120
+ the solstice.
+
+1:32:23.520 --> 1:32:32.080
+ It was a cruise vehicle come down the hill, turned right and stopped dead, covering the
+
+1:32:32.080 --> 1:32:33.600
+ crosswalk.
+
+1:32:33.600 --> 1:32:35.120
+ Why did it stop dead?
+
+1:32:35.120 --> 1:32:38.480
+ Because there was a human just two feet from it.
+
+1:32:38.480 --> 1:32:41.680
+ Now, I just glanced, I knew what was happening.
+
+1:32:41.680 --> 1:32:47.840
+ The human was a woman was at the door of her car trying to unlock it with one of those
+
+1:32:47.840 --> 1:32:49.360
+ things that, you know, when you don't have a key.
+
+1:32:50.480 --> 1:32:54.720
+ That car thought, oh, she could jump out in front of me any second.
+
+1:32:55.520 --> 1:32:57.760
+ As a human, I could tell, no, she's not going to jump out.
+
+1:32:57.760 --> 1:32:59.360
+ She's busy trying to unlock her.
+
+1:32:59.360 --> 1:33:00.240
+ She's lost her keys.
+
+1:33:00.240 --> 1:33:01.200
+ She's trying to get in the car.
+
+1:33:01.200 --> 1:33:05.440
+ And it stayed there for, until I got bored.
+
+1:33:05.440 --> 1:33:11.600
+ And so the human driver in there did not take over.
+
+1:33:11.600 --> 1:33:14.080
+ But here's the kicker to me.
+
+1:33:14.080 --> 1:33:22.720
+ A guy comes down the hill with a stroller, I assume there's a baby in there, and now
+
+1:33:22.720 --> 1:33:25.760
+ the crosswalk's blocked by this cruise vehicle.
+
+1:33:25.760 --> 1:33:27.440
+ What's he going to do?
+
+1:33:27.440 --> 1:33:30.800
+ Cleverly, I think, he decided not to go in front of the car.
+
+1:33:30.800 --> 1:33:34.960
+ But he had to go behind it.
+
+1:33:34.960 --> 1:33:39.360
+ He had to get off the crosswalk, out into the intersection, to push his baby around
+
+1:33:39.360 --> 1:33:41.200
+ this car, which was stopped there.
+
+1:33:41.200 --> 1:33:44.080
+ And no human driver would have stopped there for that length of time.
+
+1:33:44.880 --> 1:33:46.160
+ They would have got out and out of the way.
+
+1:33:46.880 --> 1:33:56.000
+ And that's another one of my pet peeves, that safety is being compromised for individuals
+
+1:33:56.000 --> 1:33:59.760
+ who didn't sign up for having this happen in their neighborhood.
+
+1:33:59.760 --> 1:34:03.200
+ Now you can say that's an edge case, but...
+
+1:34:03.200 --> 1:34:13.040
+ Yeah, well, I'm in general not a fan of anecdotal evidence for stuff like this is one of my
+
+1:34:13.040 --> 1:34:17.920
+ biggest problems with the discussion of autonomous vehicles in general, people that criticize
+
+1:34:17.920 --> 1:34:24.640
+ them or support them are using edge cases, are using anecdotal evidence, but I got you.
+
+1:34:24.640 --> 1:34:26.800
+ Your question is, when is it going to happen in San Francisco?
+
+1:34:26.800 --> 1:34:29.040
+ I say not soon, but it's going to be one of them.
+
+1:34:29.040 --> 1:34:38.640
+ But where it is going to happen is in limited domains, campuses of various sorts, gated
+
+1:34:38.640 --> 1:34:45.120
+ communities where the other drivers are not arbitrary people.
+
+1:34:46.000 --> 1:34:52.800
+ They're people who know about these things, they've been warned about them, and at velocities
+
+1:34:52.800 --> 1:34:55.520
+ where it's always safe to stop dead.
+
+1:34:57.120 --> 1:34:58.720
+ You can't do that on the freeway.
+
+1:34:58.720 --> 1:35:06.160
+ That I think we're going to start to see, and they may not be shaped like current cars,
+
+1:35:06.160 --> 1:35:12.560
+ they may be things like May Mobility has those things and various companies have these.
+
+1:35:12.560 --> 1:35:14.400
+ Yeah, I wonder if that's a compelling experience.
+
+1:35:14.400 --> 1:35:20.320
+ To me, it's not just about automation, it's about creating a product that makes your...
+
+1:35:20.320 --> 1:35:23.680
+ It's not just cheaper, but it's fun to ride.
+
+1:35:23.680 --> 1:35:29.600
+ One of the least fun things is for a car that stops and waits.
+
+1:35:29.600 --> 1:35:34.400
+ There's something deeply frustrating for us humans for the rest of the world to take advantage
+
+1:35:34.400 --> 1:35:35.520
+ of us as we wait.
+
+1:35:35.520 --> 1:35:47.520
+ But think about not you as the customer, but someone who's in their 80s in a retirement
+
+1:35:47.520 --> 1:35:53.200
+ village whose kids have said, you're not driving anymore, and this gives you the freedom to
+
+1:35:53.200 --> 1:35:54.240
+ go to the market.
+
+1:35:54.240 --> 1:35:59.840
+ That's a hugely beneficial thing, but it's a very few orders of magnitude less impact
+
+1:35:59.840 --> 1:36:00.800
+ on the world.
+
+1:36:00.800 --> 1:36:05.760
+ It's just a few people in a small community using cars as opposed to the entirety of the
+
+1:36:05.760 --> 1:36:06.080
+ world.
+
+1:36:07.920 --> 1:36:13.600
+ I like that the first time that a car equipped with some version of a solution to the trolley
+
+1:36:13.600 --> 1:36:14.800
+ problem is...
+
+1:36:14.800 --> 1:36:16.400
+ What's NIML stand for?
+
+1:36:16.400 --> 1:36:17.040
+ Not in my life.
+
+1:36:17.040 --> 1:36:17.680
+ Not in my life.
+
+1:36:17.680 --> 1:36:20.080
+ I define my lifetime as up to 2050.
+
+1:36:20.080 --> 1:36:28.640
+ You know, I ask you, when have you had to decide which person shall I kill?
+
+1:36:29.360 --> 1:36:31.760
+ No, you put the brakes on and you break as hard as you can.
+
+1:36:31.760 --> 1:36:35.360
+ You're not making that decision.
+
+1:36:35.360 --> 1:36:41.280
+ I do think autonomous vehicles or semi autonomous vehicles do need to solve the whole pedestrian
+
+1:36:41.280 --> 1:36:45.520
+ problem that has elements of the trolley problem within it, but it's not...
+
+1:36:45.520 --> 1:36:51.760
+ Yeah, well, and I talk about it in one of the articles or blog posts that I wrote, and
+
+1:36:51.760 --> 1:36:55.120
+ people have told me, one of my coworkers has told me he does this.
+
+1:36:56.480 --> 1:37:01.600
+ He tortures autonomously driven vehicles and pedestrians will torture them.
+
+1:37:01.600 --> 1:37:07.360
+ Now, once they realize that putting one foot off the curb makes the car think that they
+
+1:37:07.360 --> 1:37:10.800
+ might walk into the road, teenagers will be doing that all the time.
+
+1:37:10.800 --> 1:37:15.440
+ I, by the way, one of my, and this is a whole nother discussion, because my main interest
+
+1:37:15.440 --> 1:37:18.400
+ with robotics is HRI, human robot interaction.
+
+1:37:19.200 --> 1:37:24.080
+ I believe that robots that interact with humans will have to push back.
+
+1:37:25.520 --> 1:37:30.480
+ Like they can't just be bullied because that creates a very uncompelling experience for
+
+1:37:30.480 --> 1:37:31.280
+ the humans.
+
+1:37:31.280 --> 1:37:35.600
+ Yeah, well, you know, Waymo, before it was called Waymo, discovered that, you know, they
+
+1:37:35.600 --> 1:37:38.080
+ had to do that at four way intersections.
+
+1:37:38.080 --> 1:37:42.800
+ They had to nudge forward to give the cue that they were going to go, because otherwise
+
+1:37:42.800 --> 1:37:45.680
+ the other drivers would just beat them all the time.
+
+1:37:46.400 --> 1:37:52.320
+ So you cofounded iRobot, as we mentioned, one of the most successful robotics companies
+
+1:37:52.320 --> 1:37:52.800
+ ever.
+
+1:37:53.520 --> 1:38:00.480
+ What are you most proud of with that company and the approach you took to robotics?
+
+1:38:00.480 --> 1:38:07.840
+ Well, there's something I'm quite proud of there, which may be a surprise, but, you know,
+
+1:38:07.840 --> 1:38:17.280
+ I was still on the board when this happened, it was March 2011, and we sent robots to Japan
+
+1:38:17.280 --> 1:38:27.520
+ and they were used to help shut down the Fukushima Daiichi nuclear power plant, which was, everything
+
+1:38:27.520 --> 1:38:32.240
+ was, I've been there since, I was there in 2014, and the robots, some of the robots were
+
+1:38:32.240 --> 1:38:33.120
+ still there.
+
+1:38:33.120 --> 1:38:35.600
+ I was proud that we were able to do that.
+
+1:38:35.600 --> 1:38:37.280
+ Why were we able to do that?
+
+1:38:38.000 --> 1:38:42.000
+ And, you know, people have said, well, you know, Japan is so good at robotics.
+
+1:38:42.960 --> 1:38:51.600
+ It was because we had had about 6,500 robots deployed in Iraq and Afghanistan, teleopt,
+
+1:38:51.600 --> 1:38:55.920
+ but with intelligence, dealing with roadside bombs.
+
+1:38:56.480 --> 1:39:03.360
+ So we had, it was at that time, nine years of in field experience with the robots in
+
+1:39:03.360 --> 1:39:09.200
+ harsh conditions, whereas the Japanese robots, which were, you know, getting, this goes back
+
+1:39:09.200 --> 1:39:14.560
+ to what annoys me so much, getting all the hype, look at that, look at that Honda robot,
+
+1:39:14.560 --> 1:39:20.800
+ it can walk, wow, the future's here, couldn't do a thing because they weren't deployed,
+
+1:39:20.800 --> 1:39:26.960
+ but we had deployed in really harsh conditions for a long time, and so we're able to do
+
+1:39:26.960 --> 1:39:30.400
+ something very positive in a very bad situation.
+
+1:39:30.400 --> 1:39:36.640
+ What about just the simple, and for people who don't know, one of the things that iRobot
+
+1:39:36.640 --> 1:39:40.400
+ has created is the Roomba vacuum cleaner.
+
+1:39:42.320 --> 1:39:47.760
+ What about the simple robot that, that is the Roomba, quote unquote, simple, that's
+
+1:39:47.760 --> 1:39:51.760
+ deployed in tens of millions of, in tens of millions of homes?
+
+1:39:53.200 --> 1:39:54.240
+ What do you think about that?
+
+1:39:54.240 --> 1:39:59.440
+ Well, I make the joke that I started out life as a pure mathematician and turned into a
+
+1:39:59.440 --> 1:40:05.440
+ vacuum cleaner salesman, so if you're going to be an entrepreneur, be ready for, be ready
+
+1:40:05.440 --> 1:40:15.040
+ to do anything, but I was, you know, there was a, there was a wacky lawsuit that I got
+
+1:40:15.040 --> 1:40:20.800
+ opposed for not too many years ago, and I was the only one who had emailed from the
+
+1:40:20.800 --> 1:40:27.520
+ 1990s, and no one in the company had it, so I went and went through my email, and it
+
+1:40:27.520 --> 1:40:34.880
+ reminded me of, you know, the joy of what we were doing, and what was I doing?
+
+1:40:34.880 --> 1:40:41.040
+ What was I doing at the time we were building, building the Roomba?
+
+1:40:41.920 --> 1:40:46.160
+ One of the things was we had this, you know, incredibly tight budget because we wanted
+
+1:40:46.160 --> 1:40:50.960
+ to put it on the shelves at $200.
+
+1:40:50.960 --> 1:40:59.120
+ There was another home cleaning robot at the time, it was the Electrolux Trilobite, which
+
+1:40:59.120 --> 1:41:05.360
+ sold for 2,000 euros, and to us that was not going to be a consumer product, so we had
+
+1:41:05.360 --> 1:41:10.480
+ reason to believe that $200 was a, was a thing that people would buy at.
+
+1:41:10.480 --> 1:41:19.120
+ That was our aim, but that meant we had, you know, that's on the shelf making profit.
+
+1:41:19.120 --> 1:41:26.560
+ That means the cost of goods has to be minimal, so I find all these emails of me going, you
+
+1:41:26.560 --> 1:41:32.000
+ know, I'd be in Taipei for a MIT meeting, and I'd stay a few extra days and go down
+
+1:41:32.000 --> 1:41:38.800
+ to Hsinchu and talk to these little tiny companies, lots of little tiny companies outside of TSMC,
+
+1:41:38.800 --> 1:41:45.440
+ Taiwan Semiconductor Manufacturing Corporation, which let all these little companies be fabulous.
+
+1:41:45.440 --> 1:41:51.760
+ They didn't have to have their own fab so they could innovate, and they were building,
+
+1:41:51.760 --> 1:41:57.840
+ their innovations were to build, strip down 6802s, 6802 was what was in an Apple I, get
+
+1:41:57.840 --> 1:42:03.600
+ rid of half the silicon and still have it be viable, and I'd previously got some of
+
+1:42:03.600 --> 1:42:11.520
+ those for some earlier failed products of iRobot, and that was in Hong Kong going to
+
+1:42:11.520 --> 1:42:16.800
+ all these companies that built, you know, they weren't gaming in the current sense,
+
+1:42:16.800 --> 1:42:23.360
+ there were these handheld games that you would play, or birthday cards, because we had about
+
+1:42:23.360 --> 1:42:30.640
+ a 50 cent budget for computation, so I'm trekking from place to place looking at their chips,
+
+1:42:30.640 --> 1:42:38.320
+ looking at what they'd removed, ah, their interrupt handling is too weak for a general
+
+1:42:38.320 --> 1:42:43.440
+ purpose, so I was going deep technical detail, and then I found this one from a company called
+
+1:42:43.440 --> 1:42:50.000
+ Winbond, which had, and I'd forgotten it had this much RAM, it had 512 bytes of RAM,
+
+1:42:50.000 --> 1:42:54.640
+ and it was in our budget, and it had all the capabilities we needed.
+
+1:42:54.640 --> 1:42:57.200
+ Yeah, and you were excited.
+
+1:42:57.200 --> 1:43:02.400
+ Yeah, and I was reading all these emails, Colin, I found this, so.
+
+1:43:02.400 --> 1:43:05.840
+ Did you think, did you ever think that you guys could be so successful?
+
+1:43:07.200 --> 1:43:10.960
+ Like, eventually this company would be so successful, could you possibly have imagined?
+
+1:43:12.240 --> 1:43:13.760
+ No, we never did think that.
+
+1:43:13.760 --> 1:43:19.200
+ We'd had 14 failed business models up to 2002, and then we had two winners the same year.
+
+1:43:19.200 --> 1:43:27.600
+ No, and then, you know, we, I remember the board, because by this time we had some venture
+
+1:43:27.600 --> 1:43:36.240
+ capital in, the board went along with us building some robots for, you know, aiming at the Christmas
+
+1:43:36.240 --> 1:43:44.640
+ 2002 market, and we went three times over what they authorized and built 70,000 of them,
+
+1:43:44.640 --> 1:43:51.200
+ and sold them all in that first, because we released on September 18th, and they were
+
+1:43:51.200 --> 1:43:52.560
+ all sold by Christmas.
+
+1:43:52.560 --> 1:43:57.040
+ So it was, so we were gutsy, but.
+
+1:43:57.040 --> 1:44:00.640
+ But yeah, you didn't think this will take over the world.
+
+1:44:00.640 --> 1:44:09.040
+ Well, this is, so a lot of amazing robotics companies have gone under over the past few
+
+1:44:09.040 --> 1:44:10.560
+ decades.
+
+1:44:10.560 --> 1:44:17.680
+ Why do you think it's so damn hard to run a successful robotics company?
+
+1:44:17.680 --> 1:44:18.960
+ There's a few things.
+
+1:44:20.960 --> 1:44:28.960
+ One is expectations of capabilities by the founders that are off base.
+
+1:44:29.680 --> 1:44:31.600
+ The founders, not the consumer, the founders.
+
+1:44:31.600 --> 1:44:34.000
+ Yeah, expectations of what can be delivered.
+
+1:44:34.000 --> 1:44:34.500
+ Sure.
+
+1:44:34.500 --> 1:44:42.180
+ Mispricing, and what a customer thinks is a valid price, is not rational, necessarily.
+
+1:44:42.180 --> 1:44:42.680
+ Yeah.
+
+1:44:43.620 --> 1:44:56.100
+ And expectations of customers, and just the sheer hardness of getting people to adopt a
+
+1:44:56.100 --> 1:44:57.060
+ new technology.
+
+1:44:57.060 --> 1:44:59.700
+ And I've suffered from all three of these, you know.
+
+1:44:59.700 --> 1:45:04.820
+ I've had more failures than successes, in terms of companies.
+
+1:45:04.820 --> 1:45:06.180
+ I've suffered from all three.
+
+1:45:07.860 --> 1:45:18.580
+ So, do you think one day there will be a robotics company, and by robotics company, I mean, where
+
+1:45:18.580 --> 1:45:24.740
+ your primary source of income is from robots, that will be a trillion plus dollar company?
+
+1:45:24.740 --> 1:45:31.460
+ And if so, what would that company do?
+
+1:45:31.460 --> 1:45:35.300
+ I can't, you know, because I'm still starting robot companies.
+
+1:45:35.300 --> 1:45:35.800
+ Yeah.
+
+1:45:38.180 --> 1:45:41.380
+ I'm not making any such predictions in my own mind.
+
+1:45:41.380 --> 1:45:43.140
+ I'm not thinking about a trillion dollar company.
+
+1:45:43.140 --> 1:45:47.220
+ And by the way, I don't think, you know, in the 90s, anyone was thinking that Apple would
+
+1:45:47.220 --> 1:45:48.580
+ ever be a trillion dollar company.
+
+1:45:48.580 --> 1:45:52.580
+ So, these are, these are, you know, these are, you know, these are, you know, these
+
+1:45:52.580 --> 1:45:57.220
+ would be a trillion dollar company, so these are, these are very hard to predict.
+
+1:45:57.220 --> 1:46:03.460
+ But, sorry to interrupt, but don't you, because I kind of have a vision in a small way, and
+
+1:46:03.460 --> 1:46:08.580
+ it's a big vision in a small way, that I see that there would be robots in the home,
+
+1:46:10.180 --> 1:46:12.420
+ at scale, like Roomba, but more.
+
+1:46:13.540 --> 1:46:14.980
+ And that's trillion dollar.
+
+1:46:15.620 --> 1:46:16.120
+ Right.
+
+1:46:16.120 --> 1:46:22.100
+ And I think there's a real market pull for them because of the demographic inversion,
+
+1:46:22.100 --> 1:46:25.220
+ you know, who's going to do all the stuff for the older people?
+
+1:46:26.180 --> 1:46:29.620
+ There's too many, you know, I'm leading here.
+
+1:46:31.700 --> 1:46:32.980
+ There's going to be too many of us.
+
+1:46:36.420 --> 1:46:41.540
+ But we don't have capable enough robots to make that economic argument at this point.
+
+1:46:42.340 --> 1:46:44.180
+ Do I expect that that will happen?
+
+1:46:44.180 --> 1:46:45.380
+ Yes, I expect it will happen.
+
+1:46:45.380 --> 1:46:50.580
+ But I got to tell you, we introduced the Roomba in 2002, and I stayed another
+
+1:46:50.580 --> 1:46:51.780
+ nine years.
+
+1:46:51.780 --> 1:46:57.700
+ We were always trying to find what the next home robot would be, and still today, the
+
+1:46:57.700 --> 1:47:02.660
+ primary product of 20 years late, almost 20 years later, 19 years later, the primary product
+
+1:47:02.660 --> 1:47:03.620
+ is still the Roomba.
+
+1:47:03.620 --> 1:47:07.060
+ So iRobot hasn't found the next one.
+
+1:47:07.060 --> 1:47:12.580
+ Do you think it's possible for one person in the garage to build it versus, like, Google
+
+1:47:12.580 --> 1:47:16.340
+ launching Google self driving car that turns into Waymo?
+
+1:47:16.340 --> 1:47:20.980
+ Do you think this is almost like what it takes to build a successful robotics company?
+
+1:47:20.980 --> 1:47:24.420
+ Do you think it's possible to go from the ground up, or is it just too much capital
+
+1:47:24.420 --> 1:47:24.980
+ investment?
+
+1:47:25.540 --> 1:47:31.700
+ Yeah, so it's very hard to get there without a lot of capital.
+
+1:47:31.700 --> 1:47:38.100
+ And we're starting to see, you know, fair chunks of capital for some robotics companies.
+
+1:47:38.100 --> 1:47:45.540
+ You know, Series B's, I saw one yesterday for $80 million, I think it was, for Covariant.
+
+1:47:45.540 --> 1:47:54.740
+ But it can take real money to get into these things, and you may fail along the way.
+
+1:47:54.740 --> 1:48:00.900
+ I've certainly failed at Rethink Robotics, and we lost $150 million in capital there.
+
+1:48:00.900 --> 1:48:05.700
+ So, okay, so Rethink Robotics is another amazing robotics company you cofounded.
+
+1:48:06.580 --> 1:48:08.100
+ So what was the vision there?
+
+1:48:09.060 --> 1:48:11.140
+ What was the dream?
+
+1:48:11.140 --> 1:48:15.620
+ And what are you most proud of with Rethink Robotics?
+
+1:48:15.620 --> 1:48:23.140
+ I'm most proud of the fact that we got robots out of the cage in factories that were safe,
+
+1:48:23.140 --> 1:48:26.180
+ absolutely safe, for people and robots to be next to each other.
+
+1:48:26.180 --> 1:48:27.700
+ So these are robotic arms.
+
+1:48:27.700 --> 1:48:28.500
+ Robotic arms.
+
+1:48:28.500 --> 1:48:31.140
+ Able to pick up stuff and interact with humans.
+
+1:48:31.140 --> 1:48:35.140
+ Yeah, and that humans could retask them without writing code.
+
+1:48:35.140 --> 1:48:40.020
+ And now that's sort of become an expectation for a lot of other little companies and big
+
+1:48:40.020 --> 1:48:42.260
+ companies, our advertising they're doing.
+
+1:48:42.260 --> 1:48:45.540
+ That's both an interface problem and also a safety problem.
+
+1:48:45.540 --> 1:48:46.580
+ Yeah, yeah.
+
+1:48:47.620 --> 1:48:49.460
+ So I'm most proud of that.
+
+1:48:51.300 --> 1:48:58.580
+ I completely, I let myself be talked out of what I wanted to do.
+
+1:48:59.380 --> 1:49:02.260
+ And, you know, you always got, you know, I can't replay the tape.
+
+1:49:02.260 --> 1:49:05.460
+ I can't replay it.
+
+1:49:05.460 --> 1:49:12.180
+ Maybe, you know, if I'd been stronger on, and I remember the day, I remember the exact
+
+1:49:12.180 --> 1:49:12.580
+ meeting.
+
+1:49:13.860 --> 1:49:15.380
+ Can you take me through that meeting?
+
+1:49:16.260 --> 1:49:16.580
+ Yeah.
+
+1:49:18.340 --> 1:49:23.940
+ So I'd said that I'd set as a target for the company that we were going to build $3,000
+
+1:49:23.940 --> 1:49:29.060
+ robots with force feedback that was safe for people to be around.
+
+1:49:29.700 --> 1:49:30.420
+ Wow.
+
+1:49:30.420 --> 1:49:31.380
+ That was my goal.
+
+1:49:31.380 --> 1:49:38.980
+ And we built, so we started in 2008, and we had prototypes built of plastic, plastic
+
+1:49:38.980 --> 1:49:48.180
+ gearboxes, and at a $3,000, you know, lifetime, or $3,000, I was saying, we're going to go
+
+1:49:48.180 --> 1:49:52.500
+ after not the people who already have robot arms in factories, the people who would never
+
+1:49:52.500 --> 1:49:53.940
+ have a robot arm.
+
+1:49:53.940 --> 1:49:55.940
+ We're going to go after a different market.
+
+1:49:55.940 --> 1:49:57.940
+ So we don't have to meet their expectations.
+
+1:49:57.940 --> 1:49:59.860
+ And so we're going to build it out of plastic.
+
+1:49:59.860 --> 1:50:02.740
+ It doesn't have to have a $35,000 lifetime.
+
+1:50:02.740 --> 1:50:05.460
+ It's going to be so cheap that it's OpEx, not CapEx.
+
+1:50:09.140 --> 1:50:16.980
+ And so we had a prototype that worked reasonably well, but the control engineers were complaining
+
+1:50:16.980 --> 1:50:24.820
+ about these plastic gearboxes with a beautiful little planetary gearbox that we could use
+
+1:50:24.820 --> 1:50:29.780
+ something called series elastic actuators.
+
+1:50:29.780 --> 1:50:30.980
+ We embedded them in there.
+
+1:50:30.980 --> 1:50:32.180
+ We could measure forces.
+
+1:50:32.180 --> 1:50:34.500
+ We knew when we hit something, et cetera.
+
+1:50:35.060 --> 1:50:40.100
+ The control engineers were saying, yeah, but there's this torque ripple because these plastic
+
+1:50:40.100 --> 1:50:44.900
+ gears, they're not great gears, and there's this ripple, and trying to do force control
+
+1:50:44.900 --> 1:50:47.220
+ around this ripple is so hard.
+
+1:50:47.220 --> 1:50:55.140
+ And I'm not going to name names, but I remember one of the mechanical engineers saying, we'll
+
+1:50:55.140 --> 1:50:59.620
+ just build a metal gearbox with spur gears, and it'll take six weeks.
+
+1:50:59.620 --> 1:51:00.340
+ We'll be done.
+
+1:51:01.140 --> 1:51:02.020
+ Problem solved.
+
+1:51:03.700 --> 1:51:06.660
+ Two years later, we got the spur gearbox working.
+
+1:51:08.020 --> 1:51:15.540
+ We cost reduced it every possible way we could, but now the price went up too.
+
+1:51:15.540 --> 1:51:19.300
+ And then the CEO at the time said, well, we have to have two arms, not one arm.
+
+1:51:19.860 --> 1:51:27.460
+ So our first robot product, Baxter, now cost $25,000, and the only people who were going
+
+1:51:27.460 --> 1:51:31.460
+ to look at that were people who had arms in factories because that was somewhat cheaper
+
+1:51:31.460 --> 1:51:33.460
+ for two arms than arms in factories.
+
+1:51:34.180 --> 1:51:43.700
+ But they were used to 0.1 millimeter reproducibility of motion and certain velocities, and I kept
+
+1:51:43.700 --> 1:51:45.620
+ thinking, but that's not what we're giving you.
+
+1:51:45.620 --> 1:51:47.380
+ You don't need position repeatability.
+
+1:51:47.380 --> 1:51:49.700
+ Use force control like a human does.
+
+1:51:49.700 --> 1:51:53.060
+ No, no, but we want that repeatability.
+
+1:51:53.060 --> 1:51:54.500
+ We want that repeatability.
+
+1:51:54.500 --> 1:51:56.340
+ All the other robots have that repeatability.
+
+1:51:56.340 --> 1:51:58.500
+ Why don't you have that repeatability?
+
+1:51:58.500 --> 1:51:59.780
+ So can you clarify?
+
+1:51:59.780 --> 1:52:02.900
+ Force control is you can grab the arm and you can move it.
+
+1:52:02.900 --> 1:52:04.660
+ You can move it around, but suppose you...
+
+1:52:06.100 --> 1:52:06.900
+ Can you see that?
+
+1:52:06.900 --> 1:52:07.540
+ Yes.
+
+1:52:07.540 --> 1:52:08.820
+ Suppose you want to...
+
+1:52:09.940 --> 1:52:10.440
+ Yes.
+
+1:52:10.440 --> 1:52:15.160
+ Suppose this thing is a precise thing that's got to fit here in this right angle.
+
+1:52:16.520 --> 1:52:20.520
+ Under position control, you have fixtured where this is.
+
+1:52:20.520 --> 1:52:25.320
+ You know where this is precisely, and you just move it, and it goes there.
+
+1:52:25.320 --> 1:52:30.120
+ In force control, you would do something like slide over here till we feel that and slide
+
+1:52:30.120 --> 1:52:34.040
+ it in there, and that's how a human gets precision.
+
+1:52:34.040 --> 1:52:40.600
+ They use force feedback and get the things to mate rather than just go straight to it.
+
+1:52:42.440 --> 1:52:48.120
+ Couldn't convince our customers who were in factories and were used to thinking about
+
+1:52:48.120 --> 1:52:51.880
+ things a certain way, and they wanted it, wanted it, wanted it.
+
+1:52:51.880 --> 1:52:55.560
+ So then we said, okay, we're going to build an arm that gives you that.
+
+1:52:56.120 --> 1:52:59.880
+ So now we ended up building a $35,000 robot with one arm with...
+
+1:52:59.880 --> 1:53:01.800
+ Oh, what are they called?
+
+1:53:04.840 --> 1:53:08.520
+ A certain sort of gearbox made by a company whose name I can't remember right now, but
+
+1:53:08.520 --> 1:53:09.480
+ it's the name of the gearbox.
+
+1:53:11.880 --> 1:53:14.760
+ But it's got torque ripple in it.
+
+1:53:15.560 --> 1:53:19.720
+ So now there was an extra two years of solving the problem of doing the force with the torque
+
+1:53:19.720 --> 1:53:20.200
+ ripple.
+
+1:53:20.200 --> 1:53:28.440
+ So we had to do the thing we had avoided for the plastic gearboxes, which is a little bit
+
+1:53:28.440 --> 1:53:31.240
+ for the plastic gearboxes we ended up having to do.
+
+1:53:31.240 --> 1:53:35.240
+ The robot was now overpriced and they...
+
+1:53:35.240 --> 1:53:38.680
+ And that was your intuition from the very beginning kind of that this is not...
+
+1:53:40.040 --> 1:53:44.760
+ You're opening a door to solve a lot of problems that you're eventually going to have to solve
+
+1:53:44.760 --> 1:53:45.800
+ this problem anyway.
+
+1:53:45.800 --> 1:53:46.120
+ Yeah.
+
+1:53:46.120 --> 1:53:49.240
+ And also I was aiming at a low price to go into a different market.
+
+1:53:49.240 --> 1:53:49.720
+ Low price.
+
+1:53:50.280 --> 1:53:51.160
+ That didn't have robots.
+
+1:53:51.160 --> 1:53:52.600
+ $3,000 would be amazing.
+
+1:53:52.600 --> 1:53:52.760
+ Yeah.
+
+1:53:52.760 --> 1:53:54.120
+ I think we could have done it for five.
+
+1:53:54.120 --> 1:53:58.840
+ But, you know, you talked about setting the goal a little too far for the engineers.
+
+1:53:58.840 --> 1:53:59.640
+ Yeah, exactly.
+
+1:54:02.280 --> 1:54:07.400
+ So why would you say that company not failed, but went under?
+
+1:54:09.000 --> 1:54:15.400
+ We had buyers and there's this thing called the Committee on Foreign Investment in the
+
+1:54:15.400 --> 1:54:16.600
+ U.S., CFIUS.
+
+1:54:18.120 --> 1:54:21.640
+ And that had previously been invoked twice.
+
+1:54:21.640 --> 1:54:27.960
+ Around where the government could stop foreign money coming into a U.S. company based on
+
+1:54:29.640 --> 1:54:31.000
+ defense requirements.
+
+1:54:32.680 --> 1:54:34.600
+ We went through due diligence multiple times.
+
+1:54:34.600 --> 1:54:42.280
+ We were going to get acquired, but every consortium had Chinese money in it, and all the bankers
+
+1:54:42.280 --> 1:54:47.080
+ would say at the last minute, you know, this isn't going to get past CFIUS, and the investors
+
+1:54:47.080 --> 1:54:47.880
+ would go away.
+
+1:54:47.880 --> 1:54:54.280
+ And then we had two buyers, once we were about to run out of money, two buyers, and one used
+
+1:54:54.280 --> 1:55:01.960
+ heavy handed legal stuff with the other one, said they were going to take it and pay more,
+
+1:55:02.760 --> 1:55:08.040
+ dropped out when we were out of cash, and then bought the assets at 1 30th of the price
+
+1:55:08.040 --> 1:55:09.320
+ they had offered a week before.
+
+1:55:10.920 --> 1:55:12.280
+ It was a tough week.
+
+1:55:12.280 --> 1:55:21.640
+ Do you, does it hurt to think about like an amazing company that didn't, you know, like
+
+1:55:21.640 --> 1:55:23.640
+ iRobot didn't find a way?
+
+1:55:24.440 --> 1:55:25.400
+ Yeah, it was tough.
+
+1:55:25.400 --> 1:55:27.480
+ I said I was never going to start another company.
+
+1:55:27.480 --> 1:55:36.360
+ I was pleased that everyone liked what we did so much that the team was hired by three
+
+1:55:36.360 --> 1:55:40.040
+ companies, and I was very happy that we were able to do that.
+
+1:55:40.040 --> 1:55:42.920
+ Three companies within a week.
+
+1:55:42.920 --> 1:55:44.760
+ Everyone had a job in one of these three companies.
+
+1:55:44.760 --> 1:55:49.800
+ Some stayed in their same desks because another company came in and rented the space.
+
+1:55:50.680 --> 1:55:54.840
+ So I felt good about people not being out on the street.
+
+1:55:55.720 --> 1:55:57.880
+ So Baxter has a screen with a face.
+
+1:55:59.560 --> 1:56:05.880
+ What, that's a revolutionary idea for a robot manipulation, like for a robotic arm.
+
+1:56:07.320 --> 1:56:08.840
+ How much opposition did you get?
+
+1:56:08.840 --> 1:56:12.920
+ Well, first the screen was also used during codeless programming.
+
+1:56:12.920 --> 1:56:14.440
+ We taught by demonstration.
+
+1:56:14.440 --> 1:56:17.000
+ It showed you what its understanding of the task was.
+
+1:56:17.640 --> 1:56:18.680
+ So it had two roles.
+
+1:56:21.240 --> 1:56:26.520
+ Some customers hated it, and so we made it so that when the robot was running it could
+
+1:56:26.520 --> 1:56:30.200
+ be showing graphs of what was happening and not show the eyes.
+
+1:56:30.200 --> 1:56:36.600
+ Other people, and some of them surprised me who they were, saying well this one doesn't
+
+1:56:36.600 --> 1:56:37.960
+ look as human as the old one.
+
+1:56:37.960 --> 1:56:39.640
+ We liked the human looking.
+
+1:56:39.640 --> 1:56:40.120
+ Yeah.
+
+1:56:40.120 --> 1:56:41.880
+ So there was a mixed bag.
+
+1:56:43.240 --> 1:56:48.760
+ But do you think that's, I don't know, I'm kind of disappointed whenever I talk to
+
+1:56:50.360 --> 1:56:55.160
+ roboticists, like the best robotics people in the world, they seem to not want to do
+
+1:56:55.160 --> 1:56:56.760
+ the eyes type of thing.
+
+1:56:56.760 --> 1:57:02.040
+ Like they seem to see it as a machine as opposed to a machine that can also have a human connection.
+
+1:57:02.760 --> 1:57:03.960
+ I'm not sure what to do with that.
+
+1:57:03.960 --> 1:57:05.480
+ It seems like a lost opportunity.
+
+1:57:05.480 --> 1:57:10.440
+ I think the trillion dollar company will have to do the human connection very well no matter
+
+1:57:10.440 --> 1:57:11.160
+ what it does.
+
+1:57:11.160 --> 1:57:11.960
+ Yeah, I agree.
+
+1:57:13.800 --> 1:57:15.560
+ Can I ask you a ridiculous question?
+
+1:57:15.560 --> 1:57:15.880
+ Sure.
+
+1:57:17.000 --> 1:57:18.280
+ I might give a ridiculous answer.
+
+1:57:19.880 --> 1:57:25.640
+ Do you think, well maybe by way of asking the question, let me first mention that you're
+
+1:57:25.640 --> 1:57:29.080
+ kind of critical of the idea of the Turing test as a test of intelligence.
+
+1:57:32.280 --> 1:57:33.640
+ Let me first ask this question.
+
+1:57:33.640 --> 1:57:40.360
+ Do you think we'll be able to build an AI system that humans fall in love with and it
+
+1:57:40.360 --> 1:57:43.960
+ falls in love with the human, like romantic love?
+
+1:57:46.920 --> 1:57:51.560
+ Well, we've had that with humans falling in love with cars even back in the 50s.
+
+1:57:51.560 --> 1:57:52.680
+ It's a different love, right?
+
+1:57:52.680 --> 1:57:53.640
+ Well, yeah.
+
+1:57:53.640 --> 1:57:58.680
+ I think there's a lifelong partnership where you can communicate and grow like...
+
+1:57:59.640 --> 1:58:01.160
+ I think we're a long way from that.
+
+1:58:01.160 --> 1:58:03.000
+ I think we're a long, long way.
+
+1:58:03.000 --> 1:58:08.440
+ I think Blade Runner had the time scale totally wrong.
+
+1:58:10.440 --> 1:58:16.840
+ Yeah, but so to me, honestly, the most difficult part is the thing that you said with the Marvex
+
+1:58:16.840 --> 1:58:21.400
+ Paradox is to create a human form that interacts and perceives the world.
+
+1:58:21.400 --> 1:58:28.040
+ But if we just look at a voice, like the movie Her or just like an Alexa type voice, I tend
+
+1:58:28.040 --> 1:58:29.560
+ to think we're not that far away.
+
+1:58:29.560 --> 1:58:43.400
+ Well, for some people, maybe not, but as humans, as we think about the future, we always try
+
+1:58:43.400 --> 1:58:44.200
+ to...
+
+1:58:44.200 --> 1:58:46.920
+ And this is the premise of most science fiction movies.
+
+1:58:46.920 --> 1:58:49.800
+ You've got the world just as it is today and you change one thing.
+
+1:58:50.920 --> 1:58:51.960
+ But that's not how...
+
+1:58:51.960 --> 1:58:53.960
+ And it's the same with a self driving car.
+
+1:58:53.960 --> 1:58:55.000
+ You change one thing.
+
+1:58:55.000 --> 1:58:56.840
+ No, everything changes.
+
+1:58:56.840 --> 1:58:59.720
+ Everything grows together.
+
+1:58:59.720 --> 1:59:04.520
+ So surprisingly, it might be surprising to you or might not, I think the best movie about
+
+1:59:04.520 --> 1:59:07.640
+ this stuff was Bicentennial Man.
+
+1:59:09.160 --> 1:59:10.440
+ And what was happening there?
+
+1:59:11.080 --> 1:59:14.200
+ It was schmaltzy and, you know, but what was happening there?
+
+1:59:15.720 --> 1:59:21.160
+ As the robot was trying to become more human, the humans were adopting the technology of
+
+1:59:21.160 --> 1:59:23.080
+ the robot and changing their bodies.
+
+1:59:23.080 --> 1:59:27.160
+ So there was a convergence happening in a sense.
+
+1:59:27.160 --> 1:59:28.760
+ So we will not be the same.
+
+1:59:28.760 --> 1:59:32.440
+ You know, we're already talking about genetically modifying our babies.
+
+1:59:32.440 --> 1:59:36.680
+ You know, there's more and more stuff happening around that.
+
+1:59:36.680 --> 1:59:41.800
+ We will want to modify ourselves even more for all sorts of things.
+
+1:59:43.240 --> 1:59:48.440
+ We put all sorts of technology in our bodies to improve it.
+
+1:59:48.440 --> 1:59:53.560
+ You know, I've got things in my ears so that I can sort of hear you.
+
+1:59:53.560 --> 1:59:54.060
+ Yeah.
+
+1:59:56.120 --> 1:59:57.480
+ So we're always modifying our bodies.
+
+1:59:57.480 --> 2:00:02.440
+ So, you know, I think it's hard to imagine exactly what it will be like in the future.
+
+2:00:03.640 --> 2:00:09.720
+ But on the Turing test side, do you think, so forget about love for a second, let's talk
+
+2:00:09.720 --> 2:00:12.280
+ about just like the Alexa Prize.
+
+2:00:12.280 --> 2:00:16.200
+ Actually, I was invited to be a part of the Alexa Prize.
+
+2:00:16.200 --> 2:00:22.040
+ Actually, I was invited to be a, what is the interviewer for the Alexa Prize or whatever
+
+2:00:23.080 --> 2:00:24.120
+ that's in two days.
+
+2:00:25.320 --> 2:00:32.440
+ Their idea is success looks like a person wanting to talk to an AI system for a prolonged
+
+2:00:32.440 --> 2:00:33.800
+ period of time, like 20 minutes.
+
+2:00:35.080 --> 2:00:41.400
+ How far away are we and why is it difficult to build an AI system with which you'd want
+
+2:00:41.400 --> 2:00:45.720
+ to have a beer and talk for an hour or two hours?
+
+2:00:45.720 --> 2:00:53.160
+ Like not for to check the weather or to check music, but just like to talk as friends.
+
+2:00:53.160 --> 2:01:00.840
+ Yeah, well, you know, we saw Weizenbaum back in the 60s with his programmer, Elisa, being
+
+2:01:00.840 --> 2:01:03.080
+ shocked at how much people would talk to Elisa.
+
+2:01:03.080 --> 2:01:08.360
+ And I remember, you know, in the 70s typing, you know, stuff to Elisa to see what it would
+
+2:01:08.360 --> 2:01:09.000
+ come back with.
+
+2:01:09.000 --> 2:01:17.960
+ You know, I think right now, and this is a thing that Amazon's been trying to improve
+
+2:01:17.960 --> 2:01:22.760
+ with Alexa, there is no continuity of topic.
+
+2:01:22.760 --> 2:01:26.680
+ There's not, you can't refer to what we talked about yesterday.
+
+2:01:27.880 --> 2:01:32.360
+ It's not the same as talking to a person where there seems to be an ongoing existence, which
+
+2:01:32.360 --> 2:01:32.920
+ changes.
+
+2:01:33.800 --> 2:01:37.080
+ We share moments together and they last in our memory together.
+
+2:01:37.080 --> 2:01:39.000
+ Yeah, there's none of that.
+
+2:01:39.000 --> 2:01:46.840
+ And there's no sort of intention of these systems that they have any goal in life, even
+
+2:01:46.840 --> 2:01:51.880
+ if it's to be happy, you know, they don't even have a semblance of that.
+
+2:01:51.880 --> 2:01:53.720
+ Now, I'm not saying this can't be done.
+
+2:01:53.720 --> 2:01:57.960
+ I'm just saying, I think this is why we don't feel that way about them.
+
+2:01:57.960 --> 2:02:01.560
+ That's a sort of a minimal requirement.
+
+2:02:01.560 --> 2:02:06.840
+ If you want the sort of interaction you're talking about, it's a minimal requirement.
+
+2:02:06.840 --> 2:02:10.360
+ Whether it's going to be sufficient, I don't know.
+
+2:02:10.360 --> 2:02:11.560
+ We haven't seen it yet.
+
+2:02:11.560 --> 2:02:14.120
+ We don't know what it feels like.
+
+2:02:14.120 --> 2:02:23.160
+ I tend to think it's not as difficult as solving intelligence, for example, and I think it's
+
+2:02:23.160 --> 2:02:24.680
+ achievable in the near term.
+
+2:02:26.680 --> 2:02:32.200
+ But on the Turing test, why don't you think the Turing test is a good test of intelligence?
+
+2:02:32.200 --> 2:02:39.080
+ Oh, because, you know, again, the Turing, if you read the paper, Turing wasn't saying
+
+2:02:39.080 --> 2:02:40.440
+ this is a good test.
+
+2:02:40.440 --> 2:02:46.520
+ He was using it as a rhetorical device to argue that if you can't tell the difference
+
+2:02:46.520 --> 2:02:52.920
+ between a computer and a person, you must say that the computer's thinking because you
+
+2:02:52.920 --> 2:02:56.040
+ can't tell the difference, you know, when it's thinking.
+
+2:02:56.600 --> 2:02:58.280
+ You can't say something different.
+
+2:02:58.280 --> 2:03:08.920
+ What it has become as this sort of weird game of fooling people, so back at the AI Lab in
+
+2:03:08.920 --> 2:03:14.280
+ the late 80s, we had this thing that still goes on called the AI Olympics, and one of
+
+2:03:14.280 --> 2:03:21.320
+ the events we had one year was the original imitation game, as Turing talked about, because
+
+2:03:21.320 --> 2:03:25.160
+ he starts by saying, can you tell whether it's a man or a woman?
+
+2:03:25.160 --> 2:03:28.680
+ So we did that at the Lab.
+
+2:03:28.680 --> 2:03:33.720
+ You'd go and type, and the thing would come back, and you had to tell whether it was a
+
+2:03:33.720 --> 2:03:50.920
+ man or a woman, and one man came up with a question that he could ask, which was always
+
+2:03:50.920 --> 2:03:55.000
+ a dead giveaway of whether the other person was really a man or a woman.
+
+2:03:56.520 --> 2:04:01.400
+ He would ask them, did you have green plastic toy soldiers as a kid?
+
+2:04:01.400 --> 2:04:01.880
+ Yeah.
+
+2:04:01.880 --> 2:04:03.240
+ What did you do with them?
+
+2:04:03.240 --> 2:04:07.160
+ And a woman trying to be a man would say, oh, I lined them up.
+
+2:04:07.160 --> 2:04:07.800
+ We had wars.
+
+2:04:07.800 --> 2:04:08.760
+ We had battles.
+
+2:04:08.760 --> 2:04:11.240
+ And the man, just being a man, would say, I stomped on them.
+
+2:04:11.240 --> 2:04:11.960
+ I burned them.
+
+2:04:11.960 --> 2:04:21.480
+ So that's what the Turing test with computers has become.
+
+2:04:21.480 --> 2:04:22.760
+ What's the trick question?
+
+2:04:23.560 --> 2:04:28.040
+ That's why I say it's sort of devolved into this weirdness.
+
+2:04:29.480 --> 2:04:35.800
+ Nevertheless, conversation not formulated as a test is a fascinatingly challenging dance.
+
+2:04:36.680 --> 2:04:38.200
+ That's a really hard problem.
+
+2:04:38.200 --> 2:04:45.720
+ To me, conversation, when non poses a test, is a more intuitive illustration how far away
+
+2:04:45.720 --> 2:04:48.760
+ we are from solving intelligence than computer vision.
+
+2:04:48.760 --> 2:04:49.240
+ It's hard.
+
+2:04:49.960 --> 2:04:53.000
+ Computer vision is harder for me to pull apart.
+
+2:04:53.000 --> 2:04:55.400
+ But with language, with conversation, you could see.
+
+2:04:55.400 --> 2:04:56.840
+ Because language is so human.
+
+2:04:56.840 --> 2:04:57.560
+ It's so human.
+
+2:04:58.680 --> 2:05:02.440
+ We can so clearly see it.
+
+2:05:04.280 --> 2:05:06.920
+ Shit, you mentioned something I was going to go off on.
+
+2:05:06.920 --> 2:05:08.920
+ OK.
+
+2:05:08.920 --> 2:05:16.120
+ I mean, I have to ask you, because you were the head of CSAIL, AI Lab, for a long time.
+
+2:05:17.560 --> 2:05:18.040
+ I don't know.
+
+2:05:18.840 --> 2:05:22.840
+ To me, when I came to MIT, you were one of the greats at MIT.
+
+2:05:22.840 --> 2:05:24.120
+ So what was that time like?
+
+2:05:25.960 --> 2:05:34.760
+ And plus, you're friends with, but you knew Minsky and all the folks there, all the legendary
+
+2:05:34.760 --> 2:05:37.400
+ AI people of which you're one.
+
+2:05:37.960 --> 2:05:39.560
+ So what was that time like?
+
+2:05:39.560 --> 2:05:46.760
+ What are memories that stand out to you from that time, from your time at MIT, from the
+
+2:05:46.760 --> 2:05:53.000
+ AI Lab, from the dreams that the AI Lab represented, to the actual revolutionary work?
+
+2:05:53.000 --> 2:05:55.640
+ Well, let me tell you first the disappointment in myself.
+
+2:05:56.760 --> 2:06:03.960
+ As I've been researching this book, and so many of the players were active in the 50s
+
+2:06:03.960 --> 2:06:08.600
+ and 60s, I knew many of them when they were older, and I didn't ask them all the questions
+
+2:06:08.600 --> 2:06:10.440
+ now I wish I had asked.
+
+2:06:11.320 --> 2:06:16.760
+ I'd sit with them at our Thursday lunches, which we had a faculty lunch, and I didn't
+
+2:06:16.760 --> 2:06:19.720
+ ask them so many questions that now I wish I had.
+
+2:06:19.720 --> 2:06:20.840
+ Can I ask you that question?
+
+2:06:20.840 --> 2:06:21.880
+ Because you wrote that.
+
+2:06:22.440 --> 2:06:25.800
+ You wrote that you were fortunate to know and rub shoulders with many of the greats,
+
+2:06:26.600 --> 2:06:30.680
+ those who founded AI, robotics, and computer science, and the World Wide Web.
+
+2:06:30.680 --> 2:06:34.760
+ And you wrote that your big regret nowadays is that often I have questions for those who
+
+2:06:34.760 --> 2:06:41.560
+ have passed on, and I didn't think to ask them any of these questions, even as I saw
+
+2:06:41.560 --> 2:06:44.120
+ them and said hello to them on a daily basis.
+
+2:06:44.120 --> 2:06:51.160
+ So maybe also another question I want to ask, if you could talk to them today, what question
+
+2:06:51.160 --> 2:06:51.960
+ would you ask?
+
+2:06:51.960 --> 2:06:53.240
+ What questions would you ask?
+
+2:06:53.240 --> 2:06:56.440
+ Well, Licklider, I would ask him.
+
+2:06:56.440 --> 2:07:02.600
+ You know, he had the vision for humans and computers working together, and he really
+
+2:07:02.600 --> 2:07:10.680
+ founded that at DARPA, and he gave the money to MIT, which started Project MAC in 1963.
+
+2:07:12.360 --> 2:07:16.200
+ And I would have talked to him about what the successes were, what the failures were,
+
+2:07:16.200 --> 2:07:18.680
+ what he saw as progress, etc.
+
+2:07:18.680 --> 2:07:24.680
+ I would have asked him more questions about that, because now I could use it in my book,
+
+2:07:24.680 --> 2:07:25.880
+ you know, but I think it's lost.
+
+2:07:25.880 --> 2:07:26.920
+ It's lost forever.
+
+2:07:26.920 --> 2:07:28.680
+ A lot of the motivations are lost.
+
+2:07:33.240 --> 2:07:40.840
+ I should have asked Marvin why he and Seymour Pappert came down so hard on neural networks
+
+2:07:40.840 --> 2:07:48.440
+ in 1968 in their book Perceptrons, because Marvin's PhD thesis was all about neural networks.
+
+2:07:48.440 --> 2:07:50.280
+ And how do you make sense of that?
+
+2:07:50.280 --> 2:07:52.040
+ That book destroyed the field.
+
+2:07:52.040 --> 2:07:56.280
+ He probably, do you think he knew the effect that book would have?
+
+2:07:59.480 --> 2:08:01.240
+ All the theorems are negative theorems.
+
+2:08:02.280 --> 2:08:02.780
+ Yeah.
+
+2:08:03.880 --> 2:08:04.380
+ Yeah.
+
+2:08:04.920 --> 2:08:05.960
+ So, yeah.
+
+2:08:05.960 --> 2:08:09.800
+ That's just the way of, that's the way of life.
+
+2:08:10.920 --> 2:08:15.800
+ But still, it's kind of tragic that he was both the proponent and the destroyer of neural
+
+2:08:15.800 --> 2:08:16.360
+ networks.
+
+2:08:16.360 --> 2:08:19.160
+ Yeah.
+
+2:08:19.160 --> 2:08:25.160
+ Is there other memories stand out from the robotics and the AI work at MIT?
+
+2:08:28.120 --> 2:08:30.600
+ Well, yeah, but you gotta be more specific.
+
+2:08:31.320 --> 2:08:33.160
+ Well, I mean, like, it's such a magical place.
+
+2:08:33.160 --> 2:08:40.520
+ I mean, to me, it's a little bit also heartbreaking that, you know, with Google and Facebook,
+
+2:08:40.520 --> 2:08:46.280
+ like DeepMind and so on, so much of the talent, you know, it doesn't stay necessarily
+
+2:08:46.280 --> 2:08:50.440
+ for prolonged periods of time in these universities.
+
+2:08:50.440 --> 2:08:50.940
+ Oh, yeah.
+
+2:08:50.940 --> 2:08:57.800
+ I mean, some of the companies are more guilty than others of paying fabulous salaries to
+
+2:08:57.800 --> 2:09:00.120
+ some of the highest, you know, producers.
+
+2:09:00.120 --> 2:09:02.840
+ And then just, you never hear from them again.
+
+2:09:02.840 --> 2:09:04.600
+ They're not allowed to give public talks.
+
+2:09:04.600 --> 2:09:05.640
+ They're sort of locked away.
+
+2:09:06.600 --> 2:09:12.280
+ And it's sort of like collecting, you know, Hollywood stars or something.
+
+2:09:12.280 --> 2:09:13.960
+ And they're not allowed to make movies anymore.
+
+2:09:13.960 --> 2:09:14.460
+ I own them.
+
+2:09:14.460 --> 2:09:15.660
+ Yeah.
+
+2:09:15.660 --> 2:09:20.700
+ That's tragic because, I mean, there's an openness to the university setting where you
+
+2:09:20.700 --> 2:09:25.580
+ do research to both in the space of ideas and like publication, all those kinds of things.
+
+2:09:25.580 --> 2:09:28.940
+ Yeah, you know, and, you know, there's the publication and all that.
+
+2:09:28.940 --> 2:09:31.980
+ And often, you know, although these places say they publish.
+
+2:09:32.940 --> 2:09:33.660
+ There's pressure.
+
+2:09:33.660 --> 2:09:41.260
+ But I think, for instance, you know, on net net, I think Google buying those eight or
+
+2:09:41.260 --> 2:09:45.580
+ nine robotics company was bad for the field because it locked those people away.
+
+2:09:46.620 --> 2:09:51.820
+ They didn't have to make the company succeed anymore, locked them away for years, and then
+
+2:09:53.660 --> 2:09:55.660
+ sort of all frid it away.
+
+2:09:55.660 --> 2:09:56.160
+ Yeah.
+
+2:09:56.160 --> 2:10:02.960
+ So do you have hope for MIT, for MIT?
+
+2:10:02.960 --> 2:10:03.460
+ Yeah.
+
+2:10:03.460 --> 2:10:04.000
+ Why shouldn't I?
+
+2:10:04.560 --> 2:10:11.200
+ Well, I could be harsh and say that I'm not sure I would say MIT is leading the world
+
+2:10:11.200 --> 2:10:15.440
+ in AI or even Stanford or Berkeley.
+
+2:10:15.440 --> 2:10:23.680
+ I would say, I would say DeepMind, Google AI, Facebook AI, all of those things.
+
+2:10:23.680 --> 2:10:29.920
+ I would take a slightly different approach, a different answer.
+
+2:10:30.560 --> 2:10:32.880
+ I'll come back to Facebook in a minute.
+
+2:10:32.880 --> 2:10:41.360
+ But I think those other places are following a dream of one of the founders.
+
+2:10:42.880 --> 2:10:46.560
+ And I'm not sure that it's well founded, the dream.
+
+2:10:46.560 --> 2:10:52.960
+ And I'm not sure that it's going to have the impact that he believes it is.
+
+2:10:54.720 --> 2:10:56.560
+ You're talking about Facebook and Google and so on.
+
+2:10:56.560 --> 2:10:57.600
+ I'm talking about Google.
+
+2:10:57.600 --> 2:10:58.320
+ Google.
+
+2:10:58.320 --> 2:11:03.360
+ But the thing is, those research labs aren't, there's the big dream.
+
+2:11:03.920 --> 2:11:08.480
+ And I'm usually a fan of no matter what the dream is, a big dream is a unifier.
+
+2:11:08.480 --> 2:11:15.200
+ Because what happens is you have a lot of bright minds working together on a dream.
+
+2:11:15.200 --> 2:11:20.000
+ What results is a lot of adjacent ideas and how so much progress is made.
+
+2:11:20.000 --> 2:11:20.500
+ Yeah.
+
+2:11:21.040 --> 2:11:22.560
+ So I'm not saying they're actually leading.
+
+2:11:22.560 --> 2:11:25.280
+ I'm not saying that the universities are leading.
+
+2:11:25.280 --> 2:11:25.780
+ Yeah.
+
+2:11:25.780 --> 2:11:28.960
+ But I don't think those companies are leading in general because they're,
+
+2:11:28.960 --> 2:11:36.160
+ we saw this incredible spike in attendees at NeurIPS.
+
+2:11:36.160 --> 2:11:44.800
+ And as I said in my January 1st review this year for 2020, 2020 will not be
+
+2:11:44.800 --> 2:11:48.560
+ remembered as a watershed year for machine learning or AI.
+
+2:11:48.560 --> 2:11:52.720
+ There was nothing surprising happened anyway.
+
+2:11:52.720 --> 2:11:56.720
+ Unlike when deep learning hit ImageNet.
+
+2:11:57.440 --> 2:12:00.160
+ That was a shake.
+
+2:12:02.080 --> 2:12:06.640
+ And there's a lot more people writing papers, but the papers are fundamentally
+
+2:12:06.640 --> 2:12:08.800
+ boring and uninteresting.
+
+2:12:08.800 --> 2:12:09.760
+ Incremental work.
+
+2:12:09.760 --> 2:12:10.260
+ Yeah.
+
+2:12:10.260 --> 2:12:13.140
+ Is there a particular memories you have with Minsky or somebody else at
+
+2:12:13.140 --> 2:12:15.620
+ MIT that stand out, funny stories?
+
+2:12:16.340 --> 2:12:19.140
+ I mean, unfortunately, he's another one that's passed away.
+
+2:12:21.940 --> 2:12:24.020
+ You've known some of the biggest minds in AI.
+
+2:12:24.580 --> 2:12:25.080
+ Yeah.
+
+2:12:25.080 --> 2:12:29.460
+ And you know, they, they did amazing things and sometimes they were grumpy.
+
+2:12:31.460 --> 2:12:35.380
+ Well, he was, uh, he was interesting cause he was very grumpy, but that,
+
+2:12:35.380 --> 2:12:41.060
+ that was his, uh, I remember him saying in an interview that the key to success
+
+2:12:41.780 --> 2:12:45.940
+ or being to keep being productive is to hate everything you've ever done in the past.
+
+2:12:45.940 --> 2:12:48.980
+ Maybe that, maybe that explains the Perceptron book.
+
+2:12:49.940 --> 2:12:50.440
+ There it was.
+
+2:12:50.440 --> 2:12:51.940
+ He told you exactly.
+
+2:12:53.540 --> 2:12:58.100
+ But he, meaning like, just like, I mean, maybe that's the way to not
+
+2:12:58.100 --> 2:12:59.380
+ treat yourself too seriously.
+
+2:12:59.380 --> 2:13:03.940
+ Just, uh, you know, you're not, you're not, you're not, you're not, you're not,
+
+2:13:03.940 --> 2:13:05.620
+ you're not treating yourself too seriously.
+
+2:13:05.620 --> 2:13:08.260
+ Just, uh, always be moving forward.
+
+2:13:09.220 --> 2:13:10.100
+ Uh, that was the idea.
+
+2:13:10.100 --> 2:13:14.980
+ I mean, that, that crankiness, I mean, there's a, uh, that's the scary.
+
+2:13:14.980 --> 2:13:21.060
+ So let me, let me, let me tell you, uh, you know, what really, um, you know,
+
+2:13:21.060 --> 2:13:27.460
+ the joy memories are about having access to technology before anyone else has seen
+
+2:13:27.460 --> 2:13:27.960
+ it.
+
+2:13:27.960 --> 2:13:34.860
+ You know, I got to Stanford in 1977 and we had, um, you know, we had terminals
+
+2:13:34.860 --> 2:13:37.260
+ that could show live video on them.
+
+2:13:37.260 --> 2:13:40.620
+ Um, digital, digital sound system.
+
+2:13:40.620 --> 2:13:45.020
+ We had a Xerox graphics printer.
+
+2:13:45.020 --> 2:13:50.140
+ We could print, um, uh, it wasn't, you know, it wasn't like a typewriter
+
+2:13:50.140 --> 2:13:51.980
+ ball hitting in characters.
+
+2:13:51.980 --> 2:13:53.580
+ It could print arbitrary things.
+
+2:13:53.580 --> 2:13:58.300
+ I mean, you know, one bit, you know, black or white, but you get arbitrary pictures.
+
+2:13:58.300 --> 2:14:00.380
+ This was science fiction sort of stuff.
+
+2:14:00.380 --> 2:14:07.260
+ Um, um, at, at MIT, the, uh, the list machines, which, you know, they were the
+
+2:14:07.260 --> 2:14:12.060
+ first personal computers and, you know, cost a hundred thousand dollars each.
+
+2:14:12.060 --> 2:14:14.620
+ And I could, you know, I got there early enough in the day.
+
+2:14:14.620 --> 2:14:15.980
+ I got one for the day.
+
+2:14:15.980 --> 2:14:17.420
+ Couldn't, couldn't stand up.
+
+2:14:17.420 --> 2:14:18.380
+ I had to keep working.
+
+2:14:18.380 --> 2:14:25.340
+ Um, um, so they're having that like direct glimpse into the future.
+
+2:14:25.340 --> 2:14:25.580
+ Yeah.
+
+2:14:25.580 --> 2:14:29.100
+ And, and, you know, I've had email every day since 1977.
+
+2:14:29.100 --> 2:14:36.060
+ Um, and, uh, you know, the, the host field was only eight bits, you know, that many
+
+2:14:36.060 --> 2:14:39.980
+ places, but I could send the email to other people at a few places.
+
+2:14:39.980 --> 2:14:45.340
+ So that was, that was pretty exciting to be in that world so different from what
+
+2:14:45.340 --> 2:14:46.780
+ the rest of the world knew.
+
+2:14:46.780 --> 2:14:53.420
+ Um, uh, uh, let me ask you probably edit this out, but just in case you have a
+
+2:14:53.420 --> 2:15:00.060
+ story, uh, I'm hanging out with Don Knuth, uh, for a while tomorrow.
+
+2:15:00.060 --> 2:15:02.700
+ Did you ever get a chance to such a different world than yours?
+
+2:15:03.340 --> 2:15:08.300
+ He's a very kind of theoretical computer science, the puzzle of, uh, of, uh, computer
+
+2:15:08.300 --> 2:15:09.500
+ science and mathematics.
+
+2:15:09.500 --> 2:15:13.740
+ And you're so much about the magic of robotics, like the practice of it.
+
+2:15:13.740 --> 2:15:17.820
+ You mentioned him earlier for like, not, you know, about computation.
+
+2:15:17.820 --> 2:15:19.580
+ Did your worlds cross?
+
+2:15:19.580 --> 2:15:20.540
+ They did enough.
+
+2:15:20.540 --> 2:15:25.100
+ You know, I, I know him now we talk, you know, but let me tell you my, my Donald
+
+2:15:25.100 --> 2:15:25.820
+ Knuth story.
+
+2:15:26.700 --> 2:15:31.500
+ So, um, you know, besides, you know, analysis of algorithms, he's well known for
+
+2:15:32.140 --> 2:15:36.940
+ writing tech, which is in LaTeX, which is the academic publishing system.
+
+2:15:37.580 --> 2:15:41.740
+ So he did that at the AI lab and he would do it.
+
+2:15:41.740 --> 2:15:44.060
+ He would work overnight at the AI lab.
+
+2:15:45.020 --> 2:15:55.660
+ And one, one day, one night, the, uh, the mainframe computer went down and, um, uh,
+
+2:15:55.660 --> 2:15:57.340
+ a guy named Robert Pore was there.
+
+2:15:57.340 --> 2:16:03.180
+ He did his PhD at the Media Lab at MIT and he was, um, you know, an engineer.
+
+2:16:04.300 --> 2:16:08.780
+ And so I, he and I, you know, tracked down what were the problem was.
+
+2:16:08.780 --> 2:16:13.100
+ It was one of this big refrigerator size or washing machine size disk drives had
+
+2:16:13.100 --> 2:16:13.500
+ failed.
+
+2:16:13.500 --> 2:16:15.500
+ And that's what brought the whole system down.
+
+2:16:15.500 --> 2:16:20.300
+ So we've got panels pulled off and we're pulling, you know, circuit cards out.
+
+2:16:20.300 --> 2:16:25.340
+ And Donald Knuth, who's a really tall guy walks in and he's looking down and says,
+
+2:16:25.340 --> 2:16:26.540
+ when will it be fixed?
+
+2:16:26.540 --> 2:16:28.940
+ You know, cause he wanted to get back to writing his tech system.
+
+2:16:31.340 --> 2:16:37.420
+ And so we, we figured out, you know, it was a particular chip, 7,400 series chip,
+
+2:16:37.420 --> 2:16:38.700
+ which was socketed.
+
+2:16:38.700 --> 2:16:40.780
+ We popped it out.
+
+2:16:40.780 --> 2:16:43.340
+ We put a replacement in, put it back in.
+
+2:16:43.340 --> 2:16:45.740
+ Smoke comes out cause we put it in backwards.
+
+2:16:45.740 --> 2:16:48.780
+ Cause we were so nervous that Donald Knuth was standing over us.
+
+2:16:49.500 --> 2:16:52.940
+ Anyway, we eventually got it fixed and got the mainframe running again.
+
+2:16:53.660 --> 2:16:56.220
+ So that was your little, when was that again?
+
+2:16:56.220 --> 2:16:58.860
+ Well, that must have been before October 79.
+
+2:16:58.860 --> 2:17:00.300
+ Cause we moved out of that building then.
+
+2:17:00.300 --> 2:17:03.740
+ So sometime probably 78 sometime early 79.
+
+2:17:03.740 --> 2:17:06.140
+ Yeah, those, all those figures is just fascinating.
+
+2:17:06.140 --> 2:17:09.420
+ All the people with pass, pass through MIT is really fascinating.
+
+2:17:10.220 --> 2:17:17.420
+ Is there, let me ask you to put on your big wise man hat.
+
+2:17:18.140 --> 2:17:20.860
+ Is there advice that you can give to young people today,
+
+2:17:20.860 --> 2:17:23.980
+ whether in high school or college who are thinking about their career
+
+2:17:24.700 --> 2:17:32.060
+ or thinking about life, how to live a life they're proud of, a successful life?
+
+2:17:32.060 --> 2:17:36.140
+ Yeah. So, so many people ask me for advice and have asked for,
+
+2:17:36.140 --> 2:17:41.020
+ and I give, I talk to a lot of people all the time and there is no one way.
+
+2:17:44.060 --> 2:17:48.700
+ You know, there's a lot of pressure to produce papers
+
+2:17:51.900 --> 2:17:53.980
+ that will be acceptable and be published.
+
+2:17:56.460 --> 2:17:58.620
+ Maybe I was, maybe I can't do it.
+
+2:17:58.620 --> 2:18:03.340
+ Maybe I was, maybe I come from an age where I would,
+
+2:18:03.340 --> 2:18:07.100
+ I could be a rebel against that and still succeed.
+
+2:18:07.100 --> 2:18:13.260
+ Maybe it's harder today, but I think it's important not to get too caught up
+
+2:18:14.860 --> 2:18:17.260
+ with what everyone else is doing.
+
+2:18:18.380 --> 2:18:22.940
+ And if you, if, well, it depends on what you want of life.
+
+2:18:22.940 --> 2:18:31.100
+ If you want to have real impact, you have to be ready to fail a lot of times.
+
+2:18:31.100 --> 2:18:33.420
+ So you have to make a lot of unsafe decisions.
+
+2:18:34.220 --> 2:18:38.700
+ And the only way to make that work is to make, keep doing it for a long time.
+
+2:18:38.700 --> 2:18:40.220
+ And then one of them will be work out.
+
+2:18:40.220 --> 2:18:43.740
+ And so that, that, that will make something successful.
+
+2:18:43.740 --> 2:18:44.220
+ Or not.
+
+2:18:45.500 --> 2:18:48.780
+ Or yeah, or you may, or you just may, you know, end up, you know,
+
+2:18:48.780 --> 2:18:50.780
+ not having a, you know, having a lousy career.
+
+2:18:50.780 --> 2:18:52.140
+ I mean, it's certainly possible.
+
+2:18:52.140 --> 2:18:53.420
+ Taking the risk is the thing.
+
+2:18:53.420 --> 2:18:53.580
+ Yeah.
+
+2:18:56.220 --> 2:19:04.620
+ But there's no way to, to make all safe decisions and actually really contribute.
+
+2:19:06.620 --> 2:19:11.020
+ Do you think about your death, about your mortality?
+
+2:19:12.300 --> 2:19:15.660
+ I got to say when COVID hit, I did.
+
+2:19:15.660 --> 2:19:18.860
+ Because we did, you know, in the early days, we didn't know how bad it was going to be.
+
+2:19:18.860 --> 2:19:22.780
+ And I, that, that made me work on my book harder for a while,
+
+2:19:22.780 --> 2:19:25.900
+ but then I'd started this company and now I'm doing full time,
+
+2:19:25.900 --> 2:19:27.100
+ more than full time of the company.
+
+2:19:27.100 --> 2:19:29.660
+ So the book's on hold, but I do want to finish this book.
+
+2:19:30.300 --> 2:19:32.060
+ When you think about it, are you afraid of it?
+
+2:19:35.820 --> 2:19:42.220
+ I'm afraid of dribbling, you know, of losing it.
+
+2:19:42.220 --> 2:19:43.980
+ The details of, okay.
+
+2:19:43.980 --> 2:19:44.220
+ Yeah.
+
+2:19:45.180 --> 2:19:45.580
+ Yeah.
+
+2:19:45.580 --> 2:19:50.380
+ But the fact that the ride ends, I've known that for a long time.
+
+2:19:51.260 --> 2:19:54.780
+ So it's, yeah, but there's knowing and knowing.
+
+2:19:55.420 --> 2:19:57.580
+ It's such a, yeah.
+
+2:19:57.580 --> 2:19:58.780
+ And it really sucks.
+
+2:19:58.780 --> 2:20:00.380
+ It feels, it feels a lot closer.
+
+2:20:01.820 --> 2:20:07.900
+ So my, in, in my, my blog with my predictions, my sort of push back against that was that I said,
+
+2:20:08.940 --> 2:20:14.860
+ I'm going to review these every year for 32 years and that puts me into my mid nineties.
+
+2:20:14.860 --> 2:20:18.780
+ So, you know, it's my whole every, every time you write the blog posts,
+
+2:20:18.780 --> 2:20:23.660
+ you're getting closer and closer to your own prediction of your death.
+
+2:20:23.660 --> 2:20:23.820
+ Yeah.
+
+2:20:24.940 --> 2:20:26.300
+ What do you hope your legacy is?
+
+2:20:28.140 --> 2:20:31.900
+ You're one of the greatest roboticist AI researchers of all time.
+
+2:20:34.700 --> 2:20:38.140
+ What I hope is that I actually finished writing this book
+
+2:20:38.140 --> 2:20:48.220
+ and that there's one person who reads it and see something about changing the way they're thinking.
+
+2:20:48.940 --> 2:20:53.340
+ And that leads to the next big.
+
+2:20:54.860 --> 2:20:59.340
+ And then there'll be on a podcast a hundred years from now saying I once read that book
+
+2:21:01.580 --> 2:21:02.860
+ and that changed everything.
+
+2:21:04.460 --> 2:21:06.140
+ What do you think is the meaning of life?
+
+2:21:06.140 --> 2:21:10.140
+ This whole thing, the existence, the, the, the, all the hurried things we do
+
+2:21:10.140 --> 2:21:13.260
+ on this planet, what do you think is the meaning of it all?
+
+2:21:13.260 --> 2:21:15.660
+ Yeah. Well, you know, I think we're all really bad at it.
+
+2:21:17.180 --> 2:21:19.020
+ Life or finding meaning or both.
+
+2:21:19.020 --> 2:21:24.380
+ Yeah. We get caught up in, in, in the, it's easy to get easier to do the stuff that's immediate
+
+2:21:24.940 --> 2:21:26.780
+ and not through the stuff. It's not immediate.
+
+2:21:27.820 --> 2:21:29.980
+ So the big picture we're bad at.
+
+2:21:29.980 --> 2:21:31.020
+ Yeah. Yeah.
+
+2:21:31.020 --> 2:21:33.900
+ Do you have a sense of what that big picture is?
+
+2:21:33.900 --> 2:21:37.980
+ Like why you ever look up to the stars and ask, why the hell are we here?
+
+2:21:41.580 --> 2:21:50.380
+ You know, my, my, my, my atheism tells me it's just random, but you know, I want to understand the,
+
+2:21:50.380 --> 2:21:55.660
+ the way random in the, in the, that's what I talk about in this book, how order comes from disorder.
+
+2:21:55.660 --> 2:21:56.220
+ Yeah.
+
+2:21:58.220 --> 2:22:02.460
+ But it kind of sprung up like most of the whole thing is random, but this, this, this,
+
+2:22:02.460 --> 2:22:06.940
+ the whole thing is random, but this little pocket of complexity they will call earth
+
+2:22:07.660 --> 2:22:10.300
+ that like, why the hell does that happen?
+
+2:22:10.300 --> 2:22:17.420
+ And, and what we don't know is how common that those pockets of complexity are or how often,
+
+2:22:18.060 --> 2:22:21.260
+ um, cause they may not last forever.
+
+2:22:22.780 --> 2:22:30.460
+ Which is, uh, more exciting slash sad to you if we're alone or if there's infinite number of.
+
+2:22:30.460 --> 2:22:35.420
+ Oh, I think, I think it's impossible for me to believe that we're alone.
+
+2:22:36.300 --> 2:22:39.980
+ Um, that would just be too horrible, too cruel.
+
+2:22:41.500 --> 2:22:43.180
+ It could be like the sad thing.
+
+2:22:43.180 --> 2:22:46.300
+ It could be like a graveyard of intelligent civilizations.
+
+2:22:46.300 --> 2:22:46.940
+ Oh, everywhere.
+
+2:22:46.940 --> 2:22:47.100
+ Yeah.
+
+2:22:47.980 --> 2:22:49.900
+ That might be the most likely outcome.
+
+2:22:50.620 --> 2:22:51.660
+ And for us too.
+
+2:22:51.660 --> 2:22:52.540
+ Yeah, exactly.
+
+2:22:52.540 --> 2:22:52.860
+ Yeah.
+
+2:22:52.860 --> 2:22:54.700
+ And all of this will be forgotten.
+
+2:22:54.700 --> 2:22:54.940
+ Yeah.
+
+2:22:54.940 --> 2:22:59.900
+ Yeah, including all the robots you build, everything forgotten.
+
+2:23:01.500 --> 2:23:05.740
+ Well, on average, everyone has been forgotten in history.
+
+2:23:05.740 --> 2:23:06.220
+ Yeah.
+
+2:23:06.220 --> 2:23:06.940
+ Right.
+
+2:23:06.940 --> 2:23:07.500
+ Yeah.
+
+2:23:07.500 --> 2:23:10.540
+ Most people are not remembered beyond the generation or two.
+
+2:23:11.100 --> 2:23:12.780
+ Um, I mean, yeah.
+
+2:23:12.780 --> 2:23:17.900
+ Well, not just on average, basically very close to a hundred percent of people who've ever lived
+
+2:23:17.900 --> 2:23:18.780
+ are forgotten.
+
+2:23:18.780 --> 2:23:19.020
+ Yeah.
+
+2:23:19.020 --> 2:23:24.140
+ I mean, you know, long arc of, I don't know anyone alive who remembers my great grandparents
+
+2:23:24.140 --> 2:23:25.260
+ because we didn't meet them.
+
+2:23:26.300 --> 2:23:32.460
+ So still this fun, this, uh, this, uh, life is pretty fun somehow.
+
+2:23:32.460 --> 2:23:32.620
+ Yeah.
+
+2:23:33.660 --> 2:23:39.180
+ Even the immense absurdity and, and, uh, at times, meaninglessness of it all.
+
+2:23:39.180 --> 2:23:40.220
+ It's pretty fun.
+
+2:23:40.220 --> 2:23:43.740
+ And one of the, for me, one of the most fun things is robots.
+
+2:23:43.740 --> 2:23:45.180
+ And I've looked up to your work.
+
+2:23:45.180 --> 2:23:46.780
+ I've looked up to you for a long time.
+
+2:23:46.780 --> 2:23:47.180
+ That's right.
+
+2:23:47.180 --> 2:23:47.740
+ God.
+
+2:23:47.740 --> 2:23:53.580
+ Rod, it's, it's an honor that, uh, you would spend your valuable time with me today talking.
+
+2:23:53.580 --> 2:23:54.780
+ It was an amazing conversation.
+
+2:23:54.780 --> 2:23:55.980
+ Thank you so much for being here.
+
+2:23:55.980 --> 2:23:57.820
+ Well, thanks for, thanks for talking with me.
+
+2:23:57.820 --> 2:23:58.620
+ I've enjoyed it.
+
+2:24:00.060 --> 2:24:02.700
+ Thanks for listening to this conversation with Rodney Brooks.
+
+2:24:02.700 --> 2:24:06.300
+ To support this podcast, please check out our sponsors in the description.
+
+2:24:06.860 --> 2:24:11.580
+ And now let me leave you with the three laws of robotics from Isaac Asimov.
+
+2:24:12.620 --> 2:24:19.020
+ One, a robot may not injure a human being or through inaction, allow human being to come to
+
+2:24:19.020 --> 2:24:25.580
+ harm. Two, a robot must obey the orders given to it by human beings, except when such orders
+
+2:24:25.580 --> 2:24:32.860
+ would conflict with the first law. And three, a robot must protect its own existence as long
+
+2:24:32.860 --> 2:24:37.500
+ as such protection does not conflict with the first or the second laws.
+
+2:24:38.620 --> 2:24:39.740
+ Thank you for listening.
+
+2:24:39.740 --> 2:24:49.740
+ I hope to see you next time.
+

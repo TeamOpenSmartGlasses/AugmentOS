@@ -1,0 +1,3488 @@
+WEBVTT
+
+00:00.000 --> 00:04.240
+ The following is a conversation with Scott Aaronson, his second time on the podcast.
+
+00:04.960 --> 00:10.320
+ He is a professor at UT Austin, director of the Quantum Information Center,
+
+00:10.320 --> 00:17.120
+ and previously a professor at MIT. Last time we talked about quantum computing. This time
+
+00:17.680 --> 00:23.280
+ we talk about computation complexity, consciousness, and theories of everything.
+
+00:23.280 --> 00:31.280
+ I'm recording this intro, as you may be able to tell, in a very strange room in the middle of the
+
+00:31.280 --> 00:39.280
+ night. I'm not really sure how I got here or how I'm going to get out, but Hunter S. Thompson
+
+00:39.280 --> 00:46.080
+ saying I think applies to today and the last few days and actually the last couple of weeks.
+
+00:46.080 --> 00:51.440
+ Life should not be a journey to the grave with the intention of arriving safely in a pretty and well
+
+00:51.440 --> 00:59.440
+ preserved body, but rather to skid in broadside in a cloud of smoke, thoroughly used up, totally
+
+00:59.440 --> 01:08.080
+ worn out, and loudly proclaiming, wow, what a ride. So I figured whatever I'm up to here,
+
+01:08.880 --> 01:14.480
+ and yes, lots of wine is involved, I'm going to have to improvise, have to improvise,
+
+01:14.480 --> 01:20.320
+ have to improvise, hence this recording. Okay, quick mention of each sponsor,
+
+01:20.320 --> 01:25.520
+ followed by some thoughts related to the episode. First sponsor is SimpliSafe, a home security
+
+01:25.520 --> 01:32.880
+ company I use to monitor and protect my apartment, though of course I'm always prepared with a fall
+
+01:32.880 --> 01:43.520
+ back plan, as a man in this world must always be. Second sponsor is 8sleep, a mattress that cools
+
+01:43.520 --> 01:50.160
+ itself, measures heart rate variability, has a nap, and has given me yet another reason to look
+
+01:50.160 --> 01:57.920
+ forward to sleep, including the all important power nap. Third sponsor is ExpressVPN, the VPN
+
+01:57.920 --> 02:05.040
+ I've used for many years to protect my privacy on the internet. Finally, the fourth sponsor is Better
+
+02:05.040 --> 02:11.440
+ Help, online therapy when you want to face your demons with a licensed professional, not just
+
+02:11.440 --> 02:17.280
+ by doing David Goggins like physical challenges like I seem to do on occasion. Please check out
+
+02:17.280 --> 02:21.840
+ these sponsors in the description to get a discount and to support the podcast.
+
+02:22.800 --> 02:27.520
+ As a side note, let me say that this is the second time I've recorded a conversation outdoors.
+
+02:28.400 --> 02:34.160
+ The first one was with Steven Wolfram when it was actually sunny out, in this case it was raining,
+
+02:34.160 --> 02:40.640
+ which is why I found a covered outdoor patio. But I learned a valuable lesson, which is that
+
+02:40.640 --> 02:47.120
+ raindrops can be quite loud on the hard metal surface of a patio cover. I did my best with
+
+02:47.120 --> 02:54.640
+ the audio, I hope it still sounds okay to you. I'm learning, always improving. In fact, as Scott says,
+
+02:55.440 --> 03:00.720
+ if you always win, then you're probably doing something wrong. To be honest, I get pretty upset
+
+03:00.720 --> 03:08.240
+ with myself when I fail, small or big, but I've learned that this feeling is priceless. It can be
+
+03:08.240 --> 03:16.080
+ fuel, when channeled into concrete plans of how to improve. So if you enjoy this thing, subscribe
+
+03:16.080 --> 03:22.480
+ on YouTube, review the Five Stars in Apple podcast, follow on Spotify, support on Patreon,
+
+03:22.480 --> 03:29.200
+ or connect with me on Twitter at Lex Friedman. And now, here's my conversation with Scott Aaronson.
+
+03:30.320 --> 03:34.960
+ Let's start with the most absurd question, but I've read you write some fascinating stuff about
+
+03:34.960 --> 03:40.720
+ it, so let's go there. Are we living in a simulation? What difference does it make,
+
+03:40.720 --> 03:46.640
+ Lex? I mean, I'm serious. What difference? Because if we are living in a simulation,
+
+03:46.640 --> 03:52.640
+ it raises the question, how real does something have to be in simulation for it to be sufficiently
+
+03:52.640 --> 03:57.760
+ immersive for us humans? But I mean, even in principle, how could we ever know if we were in
+
+03:57.760 --> 04:02.640
+ one, right? A perfect simulation, by definition, is something that's indistinguishable from the
+
+04:02.640 --> 04:07.440
+ real thing. Well, we didn't say anything about perfect. No, no, that's right. Well, if it was
+
+04:07.440 --> 04:13.040
+ an imperfect simulation, if we could hack it, find a bug in it, then that would be one thing,
+
+04:13.040 --> 04:19.840
+ right? If this was like The Matrix and there was a way for me to do flying kung fu moves or
+
+04:19.840 --> 04:24.400
+ something by hacking the simulation, well then we would have to cross that bridge when we came to
+
+04:24.400 --> 04:33.360
+ it, wouldn't we? At that point, it's hard to see the difference between that and just what people
+
+04:33.360 --> 04:39.440
+ would ordinarily refer to as a world with miracles. What about from a different perspective, thinking
+
+04:39.440 --> 04:44.560
+ about the universe as a computation, like a program running on a computer? That's kind of
+
+04:44.560 --> 04:50.480
+ a neighboring concept. It is. It is an interesting and reasonably well defined question to ask,
+
+04:50.480 --> 04:57.760
+ is the world computable? Does the world satisfy what we would call in CS the church touring
+
+04:57.760 --> 05:07.040
+ thesis? That is, could we take any physical system and simulate it to any desired precision by a
+
+05:07.040 --> 05:13.920
+ touring machine, given the appropriate input data, right? And so far, I think the indications are
+
+05:13.920 --> 05:20.240
+ pretty strong that our world does seem to satisfy the church touring thesis. At least if it doesn't,
+
+05:20.240 --> 05:27.360
+ then we haven't yet discovered why not. But now, does that mean that our universe is a simulation?
+
+05:27.360 --> 05:33.680
+ Well, that word seems to suggest that there is some other larger universe in which it is running.
+
+05:34.800 --> 05:40.880
+ And the problem there is that if the simulation is perfect, then we're never going to be able to get
+
+05:40.880 --> 05:47.760
+ any direct evidence about that other universe. We will only be able to see the effects of the
+
+05:47.760 --> 05:53.680
+ computation that is running in this universe. Well, let's imagine an analogy. Let's imagine
+
+05:53.680 --> 06:01.280
+ a PC, a personal computer, a computer. Is it possible with the advent of artificial intelligence
+
+06:01.280 --> 06:08.880
+ for the computer to look outside of itself to see, to understand its creator? I mean,
+
+06:08.880 --> 06:14.800
+ that's a simple, is that a ridiculous analogy? Well, I mean, with the computers that we actually
+
+06:14.800 --> 06:23.520
+ have, I mean, first of all, we all know that humans have done an imperfect job of enforcing
+
+06:23.520 --> 06:29.840
+ the abstraction boundaries of computers, right? Like you may try to confine some program to a
+
+06:29.840 --> 06:37.680
+ playpen, but as soon as there's one memory allocation error in the C program, then the
+
+06:37.680 --> 06:43.040
+ program has gotten out of that playpen and it can do whatever it wants, right? This is how most hacks
+
+06:43.040 --> 06:49.680
+ work, you know, viruses and worms and exploits. And, you know, you would have to imagine that an
+
+06:49.680 --> 06:55.360
+ AI would be able to discover something like that. Now, you know, of course, if we could actually
+
+06:55.360 --> 07:02.960
+ discover some exploit of reality itself, then, you know, then this whole, I mean, then in some
+
+07:02.960 --> 07:08.480
+ sense we wouldn't have to philosophize about this, right? This would no longer be a metaphysical
+
+07:08.480 --> 07:17.120
+ conversation. But the question is, what would that hack look like? Yeah, well, I have no idea. I mean,
+
+07:18.400 --> 07:25.120
+ Peter Shor, you know, the very famous person in quantum computing, of course, has joked that
+
+07:25.760 --> 07:31.440
+ maybe the reason why we haven't yet, you know, integrated general relativity in quantum mechanics
+
+07:31.440 --> 07:36.160
+ is that, you know, the part of the universe that depends on both of them was actually left
+
+07:36.160 --> 07:42.640
+ unspecified. And if we ever tried to do an experiment involving the singularity of a black
+
+07:42.640 --> 07:47.840
+ hole or something like that, then, you know, the universe would just generate an overflow error or
+
+07:47.840 --> 07:55.440
+ something, right? Yeah, we would just crash the universe. Now, you know, the universe, you know,
+
+07:55.440 --> 08:03.120
+ has seemed to hold up pretty well for, you know, 14 billion years, right? So, you know, my, you know,
+
+08:03.120 --> 08:09.760
+ a Occam's razor kind of guess has to be that, you know, it will continue to hold up, you know,
+
+08:09.760 --> 08:15.520
+ that the fact that we don't know the laws of physics governing some phenomenon is not a strong
+
+08:15.520 --> 08:21.600
+ sign that probing that phenomenon is going to crash the universe, right? But, you know, of course,
+
+08:21.600 --> 08:28.000
+ I could be wrong. But do you think on the physics side of things, you know, there's been recently a
+
+08:28.000 --> 08:33.520
+ few folks, Eric Weinstein and Stephen Wolfram that came out with a theory of everything. I think
+
+08:33.520 --> 08:39.600
+ there's a history of physicists dreaming and working on the unification of all the laws of
+
+08:39.600 --> 08:46.320
+ physics. Do you think it's possible that once we understand more physics, not necessarily the
+
+08:46.320 --> 08:50.480
+ unification of the laws, but just understand physics more deeply at the fundamental level,
+
+08:50.480 --> 08:58.000
+ we'll be able to start, you know, I mean, part of this is humorous, but looking to see if there's
+
+08:58.000 --> 09:05.280
+ any bugs in the universe that could be exploited for, you know, traveling at not just speed of
+
+09:05.280 --> 09:10.240
+ light, but just traveling faster than our current spaceships can travel, all that kind of stuff.
+
+09:10.240 --> 09:15.440
+ Well, I mean, to travel faster than our current spaceships could travel, you wouldn't need to
+
+09:15.440 --> 09:20.880
+ find any bug in the universe, right? The known laws of physics, you know, let us go much faster
+
+09:20.880 --> 09:25.680
+ up to the speed of light, right? And, you know, when people want to go faster than the speed of
+
+09:25.680 --> 09:30.800
+ light, well, we actually know something about what that would entail, namely that, you know,
+
+09:30.800 --> 09:36.800
+ according to relativity, that seems to entail communication backwards in time. Okay, so then
+
+09:36.800 --> 09:41.600
+ you have to worry about closed time like curves and all of that stuff. So, you know, in some sense,
+
+09:41.600 --> 09:45.920
+ we sort of know the price that you have to pay for these things, right?
+
+09:45.920 --> 09:48.400
+ But under the current understanding of physics.
+
+09:48.400 --> 09:53.040
+ That's right. That's right. We can't, you know, say that they're impossible, but we, you know,
+
+09:53.040 --> 10:01.200
+ we know that sort of a lot else in physics breaks, right? So, now regarding Eric Weinstein
+
+10:01.200 --> 10:06.240
+ and Stephen Wolfram, like, I wouldn't say that either of them has a theory of everything. I
+
+10:06.240 --> 10:11.840
+ would say that they have ideas that they hope, you know, could someday lead to a theory of everything.
+
+10:11.840 --> 10:13.120
+ Is that a worthy pursuit?
+
+10:13.120 --> 10:18.640
+ Well, I mean, certainly, let's say by theory of everything, you know, we don't literally mean a
+
+10:18.640 --> 10:24.800
+ theory of cats and of baseball and, you know, but we just mean it in the more limited sense of
+
+10:24.800 --> 10:31.600
+ everything, a fundamental theory of physics, right? Of all of the fundamental interactions of
+
+10:31.600 --> 10:38.800
+ physics, of course, such a theory, even after we had it, you know, would leave the entire question
+
+10:38.800 --> 10:45.840
+ of all the emergent behavior, right? You know, to be explored. So, it's only everything for a
+
+10:45.840 --> 10:50.320
+ specific definition of everything. Okay, but in that sense, I would say, of course, that's worth
+
+10:50.320 --> 10:56.240
+ pursuing. I mean, that is the entire program of fundamental physics, right? All of my friends who
+
+10:56.240 --> 11:02.160
+ do quantum gravity, who do string theory, who do anything like that, that is what's motivating them.
+
+11:02.160 --> 11:06.960
+ Yeah, it's funny, though, but, I mean, Eric Weinstein talks about this. It is, I don't know
+
+11:06.960 --> 11:11.920
+ much about the physics world, but I know about the AI world, and it is a little, it is a little bit
+
+11:11.920 --> 11:22.880
+ taboo to talk about AGI, for example, on the AI side. So, really, to talk about the big dream of
+
+11:22.880 --> 11:28.560
+ the community, I would say, because it seems so far away, it's almost taboo to bring it up, because,
+
+11:29.760 --> 11:34.320
+ you know, it's seen as the kind of people that dream about creating a truly superhuman level
+
+11:34.320 --> 11:40.080
+ intelligence. That's really far out there, people, because we're not even close to that. And it feels
+
+11:40.080 --> 11:45.440
+ like the same thing is true for the physics community. I mean, Stephen Hawking certainly
+
+11:45.440 --> 11:51.920
+ talked constantly about theory of everything, right? You know, I mean, people, you know,
+
+11:51.920 --> 11:57.760
+ use those terms who were, you know, some of the most respected people in the whole world of
+
+11:57.760 --> 12:03.040
+ physics, right? But, I mean, I think that the distinction that I would make is that people
+
+12:03.040 --> 12:09.760
+ might react badly if you use the term in a way that suggests that you, you know, thinking about
+
+12:09.760 --> 12:16.320
+ it for five minutes, have come up with this major new insight about it, right? It's difficult. Stephen
+
+12:16.320 --> 12:23.200
+ Hawking is not a great example, because I think you can do whatever the heck you want when you
+
+12:23.200 --> 12:29.280
+ get to that level. And I certainly see, like, senior faculty, you know, that, you know, at that
+
+12:29.280 --> 12:35.200
+ point, that's one of the nice things about getting older is you stop giving a damn. But
+
+12:35.760 --> 12:40.560
+ community as a whole, they tend to roll their eyes very quickly at stuff that's outside the
+
+12:40.560 --> 12:44.720
+ quote unquote mainstream. Well, let me put it this way. I mean, if you asked, you know,
+
+12:44.720 --> 12:49.680
+ Ed Witten, let's say, who is, you know, you might consider the leader of the string community,
+
+12:49.680 --> 12:54.960
+ and thus, you know, very, very mainstream, in a certain sense, but he would have no hesitation
+
+12:54.960 --> 13:01.840
+ in saying, you know, of course, you know, they're looking for a, you know, you know, a unified
+
+13:01.840 --> 13:07.200
+ description of nature of, you know, of general relativity of quantum mechanics of all the
+
+13:07.200 --> 13:13.280
+ fundamental interactions of nature, right? Now, you know, whether people would call that a theory
+
+13:13.280 --> 13:18.480
+ of everything, whether they would use that term, that might vary. You know, Lenny Susskind would
+
+13:18.480 --> 13:21.920
+ definitely have no problem telling you that, you know, if that's what we want, right?
+
+13:21.920 --> 13:25.200
+ TK For me, who loves human beings and psychology,
+
+13:25.760 --> 13:33.520
+ it's kind of ridiculous to say a theory that unifies the laws of physics gets you to understand
+
+13:33.520 --> 13:36.640
+ everything. I would say you're not even close to understanding everything.
+
+13:36.640 --> 13:43.200
+ TK Yeah, right. I mean, the word everything is a little ambiguous here. And then people will get
+
+13:43.200 --> 13:50.480
+ into debates about, you know, reductionism versus emergentism and blah, blah, blah. And so in not
+
+13:50.480 --> 13:55.600
+ wanting to say theory of everything, people might just be trying to short circuit that debate and
+
+13:55.600 --> 14:01.040
+ say, you know, look, you know, yes, we want a fundamental theory of, you know, the particles
+
+14:01.040 --> 14:02.320
+ and interactions of nature.
+
+14:02.320 --> 14:05.680
+ TK Let me bring up the next topic that people don't want to mention, although they're getting
+
+14:05.680 --> 14:10.160
+ more comfortable with it, is consciousness. You mentioned that you have a talk on consciousness
+
+14:10.160 --> 14:13.920
+ that I watched five minutes of, but the internet connection was really bad.
+
+14:13.920 --> 14:18.560
+ TK Was this my talk about, you know, refuting the integrated information theory?
+
+14:18.560 --> 14:18.800
+ TK Yes.
+
+14:18.800 --> 14:22.960
+ TK Which was a particular account of consciousness that, yeah, I think one can just show it doesn't
+
+14:22.960 --> 14:25.520
+ work. Much harder to say what does work.
+
+14:25.520 --> 14:34.240
+ TK Let me ask, maybe it'd be nice to comment on, you talk about also like the semi hard problem
+
+14:34.240 --> 14:36.720
+ of consciousness or like almost hard problem or kind of hard.
+
+14:36.720 --> 14:38.560
+ TK Pretty hard problem, I think I call it.
+
+14:38.560 --> 14:47.200
+ TK So maybe can you talk about that, their idea of the approach to modeling consciousness and
+
+14:47.200 --> 14:49.680
+ why you don't find it convincing? What is it, first of all?
+
+14:49.680 --> 14:55.920
+ TK Okay, well, so what I called the pretty hard problem of consciousness, this is my term,
+
+14:55.920 --> 15:02.400
+ although many other people have said something equivalent to this, okay? But it's just, you know,
+
+15:02.400 --> 15:09.840
+ the problem of, you know, giving an account of just which physical systems are conscious and
+
+15:09.840 --> 15:15.840
+ which are not. Or, you know, if there are degrees of consciousness, then quantifying how conscious
+
+15:15.840 --> 15:16.960
+ a given system is.
+
+15:16.960 --> 15:19.200
+ TK Oh, awesome. So that's the pretty hard problem.
+
+15:19.200 --> 15:20.240
+ TK Yeah, that's what I mean.
+
+15:20.240 --> 15:23.520
+ TK That's it. I'm adopting it. I love it. That's a good ring to it.
+
+15:23.520 --> 15:29.440
+ TK And so, you know, the infamous hard problem of consciousness is to explain how something
+
+15:29.440 --> 15:34.560
+ like consciousness could arise at all, you know, in a material universe, right? Or, you know,
+
+15:34.560 --> 15:40.880
+ why does it ever feel like anything to experience anything, right? And, you know, so I'm trying to
+
+15:40.880 --> 15:46.880
+ distinguish from that problem, right? And say, you know, no, okay, I would merely settle for an
+
+15:46.880 --> 15:52.560
+ account that could say, you know, is a fetus conscious? You know, if so, at which trimester?
+
+15:52.560 --> 15:58.160
+ You know, is a dog conscious? You know, what about a frog, right?
+
+15:58.160 --> 16:02.080
+ TK Or even as a precondition, you take that both these things are conscious,
+
+16:02.080 --> 16:03.680
+ tell me which is more conscious.
+
+16:03.680 --> 16:09.360
+ TK Yeah, for example, yes. Yeah, yeah. I mean, if consciousness is some multidimensional vector,
+
+16:09.360 --> 16:14.320
+ well, just tell me in which respects these things are conscious and in which respect they aren't,
+
+16:14.320 --> 16:19.040
+ right? And, you know, and have some principled way to do it where you're not, you know,
+
+16:19.040 --> 16:24.800
+ carving out exceptions for things that you like or don't like, but could somehow take a description
+
+16:24.800 --> 16:32.080
+ of an arbitrary physical system, and then just based on the physical properties of that system,
+
+16:32.080 --> 16:36.800
+ or the informational properties, or how it's connected, or something like that,
+
+16:36.800 --> 16:42.240
+ just in principle, calculate, you know, its degree of consciousness, right? I mean, this,
+
+16:42.240 --> 16:47.280
+ this would be the kind of thing that we would need, you know, if we wanted to address questions,
+
+16:47.280 --> 16:52.480
+ like, you know, what does it take for a machine to be conscious, right? Or when are, you know,
+
+16:52.480 --> 17:01.280
+ when should we regard AIs as being conscious? So now this IIT, this integrated information theory,
+
+17:01.920 --> 17:07.520
+ which has been put forward by Giulio Tinoni and a bunch of his
+
+17:09.680 --> 17:17.920
+ collaborators over the last decade or two, this is noteworthy, I guess, as a direct attempt to
+
+17:17.920 --> 17:22.640
+ answer that question, to, you know, answer the, to address the pretty hard problem,
+
+17:22.640 --> 17:29.840
+ right? And they give a, a criterion that's just based on how a system is connected. So you,
+
+17:29.840 --> 17:36.640
+ so it's up to you to sort of abstract the system, like a brain or a microchip, as a collection of
+
+17:36.640 --> 17:41.600
+ components that are connected to each other by some pattern of connections, you know, and,
+
+17:41.600 --> 17:48.000
+ and to specify how the components can influence each other, you know, like where the inputs go,
+
+17:48.000 --> 17:51.920
+ you know, where they affect the outputs. But then once you've specified that,
+
+17:51.920 --> 17:56.240
+ then they give this quantity that they call phi, you know, the Greek letter phi.
+
+17:56.800 --> 18:02.880
+ And the definition of phi has actually changed over time. It changes from one paper to another,
+
+18:02.880 --> 18:08.560
+ but in all of the variations, it involves something about what we in computer science
+
+18:08.560 --> 18:14.800
+ would call graph expansion. So basically what this means is that they want, in order to get a
+
+18:14.800 --> 18:22.080
+ large value of phi, it should not be possible to take your system and partition it into two
+
+18:22.080 --> 18:28.800
+ components that are only weakly connected to each other. Okay. So whenever we take our system and
+
+18:28.800 --> 18:33.520
+ sort of try to split it up into two, then there should be lots and lots of connections going
+
+18:33.520 --> 18:37.200
+ between the two components. Okay. Well, I understand what that means on a graph.
+
+18:37.200 --> 18:43.120
+ Do they formalize what, how to construct such a graph or data structure, whatever,
+
+18:44.160 --> 18:50.560
+ or is this one of the criticism I've heard you kind of say is that a lot of the very interesting
+
+18:50.560 --> 18:56.880
+ specifics are usually communicated through like natural language, like through words.
+
+18:56.880 --> 19:02.560
+ So it's like the details aren't always clear. Well, it's true. I mean, they have nothing even
+
+19:02.560 --> 19:09.920
+ resembling a derivation of this phi. Okay. So what they do is they state a whole bunch of postulates,
+
+19:09.920 --> 19:15.440
+ you know, axioms that they think that consciousness should satisfy. And then there's some verbal
+
+19:15.440 --> 19:20.960
+ discussion. And then at some point, phi appears. Right. Right. And this, this was what the first
+
+19:20.960 --> 19:26.400
+ thing that really made the hair stand on my neck, to be honest, because they are acting as if there
+
+19:26.400 --> 19:31.360
+ is a derivation. They're acting as if, you know, you're supposed to think that this is a derivation
+
+19:31.360 --> 19:36.800
+ and there's nothing even remotely resembling a derivate. They just pull the phi out of a hat
+
+19:36.800 --> 19:41.200
+ completely. Is one of the key criticisms to you is that details are missing or is there something
+
+19:41.200 --> 19:45.040
+ more fundamental? That's not even the key criticism. That's just, that's just a side point.
+
+19:45.040 --> 19:50.560
+ Okay. The, the core of it is that I think that the, you know, that they want to say that a system
+
+19:50.560 --> 19:57.040
+ is more conscious the larger its value of phi. And I think that that is obvious nonsense. Okay. As
+
+19:57.040 --> 20:02.160
+ soon as you think about it for like a minute, as soon as you think about it in terms of, could I
+
+20:02.160 --> 20:08.240
+ construct a system that had an enormous value of phi, like, you know, even larger than the brain
+
+20:08.240 --> 20:13.920
+ has, but that is just implementing an error correcting code, you know, doing nothing that we
+
+20:13.920 --> 20:20.080
+ would associate with, you know, intelligence or consciousness or any of it. The answer is yes,
+
+20:20.080 --> 20:25.360
+ it is easy to do that. Right. And so I wrote blog posts, just making this point that, yeah, it's
+
+20:25.360 --> 20:31.200
+ easy to do that. Now, you know, Tinoni's response to that was actually kind of incredible, right?
+
+20:31.200 --> 20:36.800
+ I mean, I, I, I admired it in a way because instead of disputing any of it, he just bit the
+
+20:36.800 --> 20:42.560
+ bullet in the sense, you know, he was one of the, the, uh, the most, uh, uh, audacious bullet
+
+20:42.560 --> 20:49.520
+ bitings I've ever seen in my career. Okay. He said, okay, then fine. You know, this system that
+
+20:49.520 --> 20:54.400
+ just applies this error correcting code it's conscious, you know, and if it has a much larger
+
+20:54.400 --> 20:59.600
+ value of phi than you or me, it's much more conscious than you and me. You know, you,
+
+20:59.600 --> 21:04.720
+ we just have to accept what the theory says because, you know, science is not about confirming
+
+21:04.720 --> 21:10.080
+ our intuitions. It's about challenging them. And, you know, this is what my theory predicts that
+
+21:10.080 --> 21:15.040
+ this thing is conscious and, you know, or super duper conscious. And how are you going to prove
+
+21:15.040 --> 21:21.840
+ me wrong? So the way I would argue against your blog posts is I would say, yes, sure. You're
+
+21:21.840 --> 21:28.320
+ right in general, but for naturally arising systems developed through the process of evolution on
+
+21:28.320 --> 21:33.760
+ earth, the, this rule of the larger fee being associated, being associated with more consciousness
+
+21:33.760 --> 21:38.640
+ is correct. Yeah. So that's not what he said at all. Right. Right. Because he wants this to be
+
+21:38.640 --> 21:43.040
+ completely general. So we can apply to even computers. Yeah. I mean, I mean, the, the whole
+
+21:43.040 --> 21:48.880
+ interest of the theory is the, you know, the hope that it could be completely general apply to aliens,
+
+21:48.880 --> 21:59.040
+ to computers, to animals, coma patients, to any of it. Right. And so, so, so he just said, well,
+
+21:59.040 --> 22:04.800
+ you know, Scott is relying on his intuition, but, you know, I'm relying on this theory and,
+
+22:04.800 --> 22:10.160
+ you know, to me it was almost like, you know, are we being serious here? Like, like, like,
+
+22:10.960 --> 22:16.640
+ you know, like, like, okay, yes, in science we try to learn highly nonintuitive things,
+
+22:16.640 --> 22:22.880
+ but what we do is we first test the theory on cases where we already know the answer. Right.
+
+22:22.880 --> 22:27.520
+ Like if we, if someone had a new theory of temperature, right, then, you know, maybe we
+
+22:27.520 --> 22:33.440
+ could check that it says that boiling water is hotter than ice. And then if it says that the sun
+
+22:33.440 --> 22:38.720
+ is hotter than anything, you know, you've ever experienced, then maybe we, we trust that
+
+22:38.720 --> 22:46.320
+ extrapolation. Right. But like this, this theory, like if, if, you know, it's now saying that, you
+
+22:46.320 --> 22:53.680
+ know, a, a gigantic grit, like regular grid of exclusive or gates can be way more conscious than,
+
+22:53.680 --> 22:59.680
+ you know, a person or than, than any animal can be, you know, even if it, you know, is, you know,
+
+22:59.680 --> 23:06.160
+ is, is, is, is so uniform that it might as well just be a blank wall. Right. And, and so now the
+
+23:06.160 --> 23:11.200
+ point is if, if this theory is sort of getting wrong, the question is a blank wall, you know,
+
+23:11.200 --> 23:15.920
+ more conscious than a person, then I would say, what is, what is there for it to get right?
+
+23:15.920 --> 23:22.240
+ So your, your sense is a blank wall is not more conscious than a human being.
+
+23:22.240 --> 23:25.920
+ Yeah. I mean, I mean, I mean, you could say that I am taking that as one of my axioms.
+
+23:27.360 --> 23:33.440
+ I'm saying, I'm saying that if, if a theory of consciousness is, is getting that wrong,
+
+23:33.440 --> 23:39.760
+ then whatever it is talking about at that point, I, I, I'm not going to call it consciousness.
+
+23:39.760 --> 23:40.720
+ I'm going to use a different word.
+
+23:40.720 --> 23:45.120
+ You have to use a different word. I mean, it's also, it's possible just like with intelligence
+
+23:45.120 --> 23:49.200
+ that us humans conveniently define these very difficult to understand concepts
+
+23:49.200 --> 23:55.200
+ in a very human centric way. Just like the Turing test really seems to define intelligence as a
+
+23:55.200 --> 24:01.040
+ thing that's human like. Right. But I would say that with any, uh, concept, you know, there's,
+
+24:01.040 --> 24:07.440
+ uh, uh, uh, you know, like we, we, we, we first need to define it. Right. And a definition is
+
+24:07.440 --> 24:12.640
+ only a good definition if it matches what we thought we were talking about prior to having
+
+24:12.640 --> 24:19.120
+ a definition. Right. And I would say that, you know, uh, fee as a definition of consciousness
+
+24:19.120 --> 24:26.160
+ fails that test. That is my argument. So, okay. So let's take a further step. So you mentioned
+
+24:26.160 --> 24:31.680
+ that the universe might be a Turing machine. So like it might be computations or simulatable
+
+24:31.680 --> 24:38.240
+ by one anyway, simulated by one. So what's your sense about consciousness? Do you think
+
+24:38.240 --> 24:45.200
+ consciousness is computation that we don't need to go to any place outside of the computable universe
+
+24:46.080 --> 24:52.800
+ to, uh, you know, to, to understand consciousness, to build consciousness, to measure consciousness,
+
+24:52.800 --> 24:57.840
+ all those kinds of things? I don't know. These are what, uh, you know, have been called the,
+
+24:57.840 --> 25:02.480
+ the vertiginous questions, right? There's the questions like, like, uh, you know,
+
+25:02.480 --> 25:08.240
+ you get a feeling of vertigo and thinking about them. Right. I mean, I certainly feel like, uh,
+
+25:08.240 --> 25:14.640
+ I am conscious in a way that is not reducible to computation, but why should you believe me?
+
+25:14.640 --> 25:19.360
+ Right. I mean, and, and, and if you said the same to me, then why should I believe you?
+
+25:19.360 --> 25:26.320
+ But as computer scientists, I feel like a computer could be, could achieve human level intelligence,
+
+25:27.680 --> 25:33.520
+ but, and that's actually a feeling and a hope. That's not a scientific belief. It's just,
+
+25:33.520 --> 25:36.800
+ we've built up enough intuition, the same kind of intuition you use in your blog.
+
+25:37.680 --> 25:41.040
+ You know, that's what scientists do. They, I mean, some of it is a scientific method,
+
+25:41.040 --> 25:45.840
+ but some of it is just damn good intuition. I don't have a good intuition about consciousness.
+
+25:45.840 --> 25:49.840
+ Yeah. I'm not sure that anyone does or has in the, you know,
+
+25:49.840 --> 25:52.640
+ 2,500 years that these things have been discussed, Lex.
+
+25:53.360 --> 25:57.360
+ But do you think we will? Like one of the, I've gotten a chance to attend,
+
+25:57.920 --> 26:01.280
+ can't wait to hear your opinion on this, but attend the Neuralink event.
+
+26:01.920 --> 26:07.360
+ And, uh, one of the dreams there is to, uh, you know, basically push neuroscience forward.
+
+26:07.360 --> 26:14.080
+ And the hope with neuroscience is that, uh, we can inspect the machinery from which all this
+
+26:14.080 --> 26:19.920
+ fun stuff emerges and see, we're going to notice something special, some special sauce from which
+
+26:19.920 --> 26:24.560
+ something like consciousness or cognition emerges. Yeah. Well, it's clear that we've learned an
+
+26:24.560 --> 26:30.320
+ enormous amount about neuroscience. We've learned an enormous amount about computation, you know,
+
+26:30.320 --> 26:36.800
+ about machine learning, about AI, how to get it to work. We've learned, uh, an enormous amount about
+
+26:36.800 --> 26:42.880
+ the underpinnings of the physical world, you know, and, you know, from one point of view,
+
+26:42.880 --> 26:47.680
+ that's like, uh, an enormous distance that we've traveled along the road to understanding
+
+26:47.680 --> 26:52.000
+ consciousness. From another point of view, you know, the distance still to be traveled on the
+
+26:52.000 --> 26:58.240
+ road, you know, maybe seems no shorter than it was at the beginning. Right? So it's very hard to say.
+
+26:58.240 --> 27:03.120
+ I mean, you know, these are questions like, like in, in, in sort of trying to have a theory
+
+27:03.120 --> 27:08.000
+ of consciousness, there's sort of a problem where it feels like it's not just that we don't know
+
+27:08.000 --> 27:13.280
+ how to make progress. It's that it's hard to specify what could even count as progress,
+
+27:13.280 --> 27:18.160
+ right? Because no matter what scientific theory someone proposed, someone else could come along
+
+27:18.160 --> 27:22.560
+ and say, well, you've just talked about the mechanism. You haven't said anything about
+
+27:22.560 --> 27:27.920
+ what breathes fire into the mechanism, what really makes there something that it's like to be it.
+
+27:27.920 --> 27:32.000
+ Right. And that seems like an objection that you could always raise no matter,
+
+27:32.000 --> 27:35.840
+ you know, how much someone elucidated the details of how the brain works.
+
+27:35.840 --> 27:40.000
+ Okay. Let's go to the Turing test and the Lobner Prize. I have this intuition, call me crazy,
+
+27:40.880 --> 27:48.080
+ but we, that a machine to pass the Turing test and it's full, whatever the spirit of it is,
+
+27:48.080 --> 27:54.960
+ we can talk about how to formulate the perfect Turing test, that that machine has to be conscious.
+
+27:55.680 --> 28:03.280
+ We at least have to, I have a very low bar of what consciousness is. I tend to, I tend to think that
+
+28:03.280 --> 28:08.640
+ the emulation of consciousness is as good as consciousness. So the consciousness is just a
+
+28:08.640 --> 28:16.240
+ dance, a social, a social, a shortcut, like a nice, useful tool, but I tend to connect intelligence
+
+28:16.240 --> 28:25.840
+ consciousness together. So by, by that, do you, maybe just to ask what, what role does consciousness
+
+28:25.840 --> 28:29.680
+ play? Do you think it passed in the Turing test? Well, look, I mean, it's almost tautologically
+
+28:29.680 --> 28:35.120
+ true that if we had a machine that passed the Turing test, then it would be emulating consciousness.
+
+28:35.120 --> 28:40.320
+ Right? So if your position is that, you know, emulation of consciousness is consciousness,
+
+28:40.320 --> 28:45.840
+ then so, you know, by, by definition, any machine that passed the Turing test would be conscious.
+
+28:45.840 --> 28:50.480
+ But it's, but I mean, we know that you could say that, you know, that, that is just a way to
+
+28:50.480 --> 28:55.840
+ rephrase the original question, you know, is an emulation of consciousness, you know, necessarily
+
+28:55.840 --> 29:01.120
+ conscious. Right. And you can, can, you know, I hear, I'm not saying anything new that hasn't been
+
+29:01.120 --> 29:07.360
+ debated ad nauseum in the literature. Okay. But, you know, you could imagine some very hard cases,
+
+29:07.360 --> 29:13.360
+ like imagine a machine that passed the Turing test, but that did so just by an enormous
+
+29:13.360 --> 29:19.840
+ cosmological sized lookup table that just cashed every possible conversation that could be had.
+
+29:19.840 --> 29:21.040
+ The old Chinese room.
+
+29:21.040 --> 29:26.400
+ Well, well, yeah, yeah. But, but this is, I mean, I mean, the Chinese room actually would be doing
+
+29:26.400 --> 29:31.520
+ some computation, at least in Searle's version. Right. Here, I'm just talking about a table lookup.
+
+29:31.520 --> 29:37.040
+ Okay. Now it's true that for conversations of a reasonable length, this, you know, lookup table
+
+29:37.040 --> 29:42.000
+ would be so enormous that wouldn't even fit in the observable universe. Okay. But supposing that
+
+29:42.000 --> 29:48.080
+ you could build a big enough lookup table and then just, you know, pass the Turing test just
+
+29:48.080 --> 29:52.960
+ by looking up what the person said. Right. Are you going to regard that as conscious?
+
+29:52.960 --> 30:00.880
+ Okay. Let me try to make this formal and then you can shut it down. I think that the emulation of
+
+30:00.880 --> 30:06.880
+ something is that something, if there exists in that system, a black box that's full of mystery.
+
+30:07.840 --> 30:11.440
+ So like, full of mystery to whom?
+
+30:11.440 --> 30:13.920
+ To human specters.
+
+30:13.920 --> 30:17.120
+ So does that mean that consciousness is relative to the observer? Like,
+
+30:17.120 --> 30:22.160
+ could something be conscious for us, but not conscious for an alien that understood better
+
+30:22.160 --> 30:27.360
+ what was happening inside the black box? Yes. So that if inside the black box is just a lookup
+
+30:27.360 --> 30:33.680
+ table, the alien that saw that would say this is not conscious. To us, another way to phrase the
+
+30:33.680 --> 30:38.960
+ black box is layers of abstraction, which make it very difficult to see to the actually underlying
+
+30:38.960 --> 30:44.400
+ functionality of the system. And then we observe just the abstraction. And so it looks like magic
+
+30:44.400 --> 30:51.040
+ to us. But once we understand the inner machinery, it stops being magic. And so like, that's a
+
+30:51.040 --> 30:57.040
+ prerequisite is that you can't know how it works, or some part of it, because then there has to be
+
+30:57.040 --> 31:04.800
+ in our human mind, entry point for the magic. So that's a formal definition of the system.
+
+31:05.440 --> 31:10.960
+ Yeah, well, look, I mean, I explored a view in this essay I wrote called The Ghost in the Quantum
+
+31:10.960 --> 31:17.440
+ Touring Machine seven years ago that is related to that, except that I did not want to have
+
+31:17.440 --> 31:22.400
+ consciousness be relative to the observer, right? Because I think that if consciousness means
+
+31:22.400 --> 31:27.840
+ anything, it is something that is experienced by the entity that is conscious, right? Like,
+
+31:27.840 --> 31:35.600
+ I don't need you to tell me that I'm conscious, nor do you need me to tell you that you are,
+
+31:35.600 --> 31:47.120
+ right? But basically, what I explored there is are there aspects of a system like a brain that just
+
+31:47.120 --> 31:52.880
+ could not be predicted even with arbitrarily advanced future technologies? It's because of
+
+31:52.880 --> 31:59.120
+ chaos combined with quantum mechanical uncertainty and things like that. I mean, that actually could
+
+31:59.120 --> 32:06.000
+ be a property of the brain, you know, if true, that would distinguish it in a principled way,
+
+32:06.000 --> 32:11.360
+ at least from any currently existing computer. Not from any possible computer, but yeah, yeah.
+
+32:11.360 --> 32:18.560
+ This is a thought experiment. So if I gave you information that the entire history of your life,
+
+32:20.000 --> 32:26.000
+ basically explain away free will with a lookup table, say that this was all predetermined,
+
+32:26.000 --> 32:29.840
+ that everything you experienced has already been predetermined, wouldn't that take away
+
+32:29.840 --> 32:34.640
+ your consciousness? Wouldn't you, yourself, wouldn't the experience of the world change for
+
+32:34.640 --> 32:39.600
+ you in a way that you can't take back? Well, let me put it this way. If you could
+
+32:39.600 --> 32:44.960
+ do like in a Greek tragedy where, you know, you would just write down a prediction for what I'm
+
+32:44.960 --> 32:52.160
+ going to do and then maybe you put the prediction in a sealed box and maybe, you know, you open it
+
+32:52.160 --> 32:56.480
+ later and you show that you knew everything I was going to do or, you know, of course,
+
+32:56.480 --> 33:01.680
+ the even creepier version would be you tell me the prediction and then I try to falsify it,
+
+33:01.680 --> 33:07.920
+ my very effort to falsify it makes it come true, right? Let's even forget that, you know,
+
+33:07.920 --> 33:13.040
+ that version as convenient as it is for fiction writers, right? Let's just do the version where
+
+33:13.040 --> 33:19.440
+ you put the prediction into a sealed envelope, okay? But if you could reliably predict everything
+
+33:19.440 --> 33:24.320
+ that I was going to do, I'm not sure that that would destroy my sense of being conscious,
+
+33:24.320 --> 33:30.320
+ but I think it really would destroy my sense of having free will, you know, and much, much more
+
+33:30.320 --> 33:37.760
+ than any philosophical conversation could possibly do that, right? And so I think it becomes extremely
+
+33:37.760 --> 33:43.280
+ interesting to ask, you know, could such predictions be done, you know, even in principle,
+
+33:43.280 --> 33:49.360
+ is it consistent with the laws of physics to make such predictions, to get enough data about someone
+
+33:49.360 --> 33:53.840
+ that you could actually generate such predictions without having to kill them in the process to,
+
+33:53.840 --> 33:57.280
+ you know, slice their brain up into little slivers or something.
+
+33:57.280 --> 33:59.120
+ I mean, it's theoretically possible, right?
+
+33:59.120 --> 34:03.760
+ Well, I don't know. I mean, it might be possible, but only at the cost of destroying the person,
+
+34:04.320 --> 34:11.040
+ right? I mean, it depends on how low you have to go in sort of the substrate. Like if there was
+
+34:11.040 --> 34:16.960
+ a nice digital abstraction layer, if you could think of each neuron as a kind of transistor
+
+34:16.960 --> 34:22.320
+ computing a digital function, then you could imagine some nanorobots that would go in and
+
+34:22.320 --> 34:27.520
+ would just scan the state of each transistor, you know, of each neuron and then, you know, make a
+
+34:28.480 --> 34:34.240
+ good enough copy, right? But if it was actually important to get down to the molecular or the
+
+34:34.240 --> 34:38.720
+ atomic level, then, you know, eventually you would be up against quantum effects.
+
+34:38.720 --> 34:43.760
+ You would be up against the unclonability of quantum states. So I think it's a question of
+
+34:43.760 --> 34:49.760
+ how good of a replica, how good does the replica have to be before you're going to count it as
+
+34:49.760 --> 34:53.600
+ actually a copy of you or as being able to predict your actions.
+
+34:54.240 --> 34:55.760
+ That's a totally open question.
+
+34:55.760 --> 35:02.080
+ Yeah, yeah, yeah. And especially once we say that, well, look, maybe there's no way to,
+
+35:02.080 --> 35:07.440
+ you know, to make a deterministic prediction because, you know, we know that there's noise
+
+35:07.440 --> 35:12.240
+ buffeting the brain around, presumably even quantum mechanical uncertainty,
+
+35:12.240 --> 35:16.960
+ you know, affecting the sodium ion channels, for example, whether they open or they close.
+
+35:18.720 --> 35:24.880
+ You know, there's no reason why over a certain time scale that shouldn't be amplified, just like
+
+35:24.880 --> 35:33.680
+ we imagine happens with the weather or with any other, you know, chaotic system. So if that stuff
+
+35:33.680 --> 35:43.600
+ is important, right, then we would say, well, you know, you can't, you know, you're never going to
+
+35:43.600 --> 35:48.000
+ be able to make an accurate enough copy. But now the hard part is, well, what if someone can make
+
+35:48.000 --> 35:54.320
+ a copy that sort of no one else can tell apart from you, right? It says the same kinds of things
+
+35:54.320 --> 35:59.600
+ that you would have said, maybe not exactly the same things because we agree that there's noise,
+
+35:59.600 --> 36:04.960
+ but it says the same kinds of things. And maybe you alone would say, no, I know that that's not
+
+36:04.960 --> 36:10.480
+ me, you know, it's, it doesn't share my, I haven't felt my consciousness leap over to that other
+
+36:10.480 --> 36:15.600
+ thing. I still feel it localized in this version, right? And then why should anyone else believe
+
+36:15.600 --> 36:20.000
+ you? What are your thoughts? I'd be curious, you're a really good person to ask, which is
+
+36:20.720 --> 36:26.080
+ Penrose's, Roger Penrose's work on consciousness, saying that there, you know, there is some,
+
+36:26.080 --> 36:32.240
+ there's some, with axons and so on, there might be some biological places where quantum mechanics
+
+36:32.240 --> 36:35.840
+ can come into play and through that create consciousness somehow.
+
+36:35.840 --> 36:42.480
+ Yeah. Okay. Well, um, uh, of course, you know, I read Penrose's books as a teenager. They had
+
+36:42.480 --> 36:47.840
+ a huge impact on me. Uh, uh, five or six years ago, I had the privilege to actually talk these
+
+36:47.840 --> 36:53.440
+ things over with Penrose, you know, at some length at a conference in Minnesota. And, uh, you know,
+
+36:53.440 --> 36:58.800
+ he is, uh, uh, you know, an amazing, uh, personality. I admire the fact that he was
+
+36:58.800 --> 37:04.080
+ even raising such, uh, audacious questions at all. Uh, but you know, to, to, to answer your
+
+37:04.080 --> 37:09.680
+ question, I think the first thing we need to get clear on is that he is not merely saying that
+
+37:09.680 --> 37:15.040
+ quantum mechanics is relevant to consciousness, right? That would be like, um, you know, that would
+
+37:15.040 --> 37:20.880
+ be tame compared to what he is saying, right? He is saying that, you know, even quantum mechanics
+
+37:20.880 --> 37:25.280
+ is not good enough, right? If, because if, if supposing for example, that the brain were a
+
+37:25.280 --> 37:30.640
+ quantum computer, I know that's still a computer, you know, in fact, a quantum computer can be
+
+37:30.640 --> 37:36.320
+ simulated by an ordinary computer. It might merely need exponentially more time in order to do so,
+
+37:36.320 --> 37:42.400
+ right? So that's simply not good enough for him. Okay. So what he wants is for the brain to be a
+
+37:42.400 --> 37:50.960
+ quantum gravitational computer or, or, uh, uh, he wants the brain to be exploiting as yet unknown
+
+37:50.960 --> 37:57.200
+ laws of quantum gravity. Okay. Which would, which would be uncomputable. That's the key point. Okay.
+
+37:57.200 --> 38:02.720
+ Yes. Yes. That would be literally uncomputable. And I've asked him, you know, to clarify this,
+
+38:02.720 --> 38:09.680
+ but uncomputable, even if you had an Oracle for the halting problem or, you know, and, and, or,
+
+38:09.680 --> 38:15.520
+ you know, as high up as you want to go and the sort of high, the usual hierarchy of uncomputability,
+
+38:15.520 --> 38:20.960
+ he wants to go beyond all of that. Okay. So, so, you know, just, just to be clear, like, you know,
+
+38:20.960 --> 38:26.320
+ if we're keeping count of how many speculations, you know, there's probably like at least five or
+
+38:26.320 --> 38:30.960
+ six of them, right? There's first of all, that there is some quantum gravity theory that would
+
+38:30.960 --> 38:36.480
+ involve this kind of uncomputability, right? Most people who study quantum gravity would not agree
+
+38:36.480 --> 38:41.360
+ with that. They would say that what we've learned, you know, what little we know about quantum
+
+38:41.360 --> 38:48.160
+ gravity from the, this ADS CFT correspondence, for example, has been very much consistent with
+
+38:48.160 --> 38:55.600
+ the broad idea of nature being computable, right? But, but all right, but, but supposing that he's
+
+38:55.600 --> 39:01.920
+ right about that, then, you know, what most physicists would say is that whatever new
+
+39:01.920 --> 39:07.920
+ phenomena there are in quantum gravity, you know, they might be relevant at the singularities of
+
+39:07.920 --> 39:15.600
+ black holes. They might be relevant at the big bang. They are plainly not relevant to something
+
+39:15.600 --> 39:21.920
+ like the brain, you know, that is operating at ordinary temperatures, you know, with ordinary
+
+39:21.920 --> 39:28.400
+ chemistry and, you know, the, the, the physics underlying the brain, they, they would say that
+
+39:28.400 --> 39:32.800
+ we have, you know, the fundamental physics of the brain, they would say that we've pretty much
+
+39:32.800 --> 39:39.440
+ completely known for, for generations now, right? Because, you know, quantum field theory lets us
+
+39:39.440 --> 39:44.720
+ sort of parameterize our ignorance, right? I mean, Sean Carroll has made this case and,
+
+39:44.720 --> 39:49.760
+ you know, in great detail, right? That sort of whatever new effects are coming from quantum
+
+39:49.760 --> 39:55.120
+ gravity, you know, they are sort of screened off by quantum field theory, right? And this is,
+
+39:55.120 --> 39:59.680
+ this brings, you know, brings us to the whole idea of effective theories, right? But the,
+
+39:59.680 --> 40:04.480
+ like we have, you know, the, in like in the standard model of elementary particles, right?
+
+40:04.480 --> 40:12.000
+ We have a quantum field theory that seems totally adequate for all of the terrestrial phenomena,
+
+40:12.000 --> 40:16.880
+ right? The only things that it doesn't, you know, explain are, well, first of all, you know,
+
+40:16.880 --> 40:23.440
+ the details of gravity, if you were to probe it, like at, at, you know, extremes of, you know,
+
+40:23.440 --> 40:29.760
+ curvature or like incredibly small distances, it doesn't explain dark matter. It doesn't explain
+
+40:29.760 --> 40:35.200
+ black hole singularities, right? But these are all very exotic things, very, you know, far removed
+
+40:35.200 --> 40:41.600
+ from our life on earth, right? So for Penrose to be right, he needs, you know, these phenomena to
+
+40:41.600 --> 40:49.280
+ somehow affect the brain. He needs the brain to contain antennae that are sensitive to this as
+
+40:49.280 --> 40:55.760
+ yet unknown physics, right? And then he needs a modification of quantum mechanics, okay? So he
+
+40:55.760 --> 41:02.560
+ needs quantum mechanics to actually be wrong, okay? He needs, what he wants is what he calls
+
+41:02.560 --> 41:09.040
+ an objective reduction mechanism or an objective collapse. So this is the idea that once quantum
+
+41:09.040 --> 41:17.680
+ states get large enough, then they somehow spontaneously collapse, right? That, you know,
+
+41:17.680 --> 41:23.200
+ and this is an idea that lots of people have explored. You know, there's something called the
+
+41:23.200 --> 41:29.200
+ GRW proposal that tries to, you know, say something along those lines, you know, and these are
+
+41:29.200 --> 41:33.760
+ theories that actually make testable predictions, right? Which is a nice feature that they have.
+
+41:34.320 --> 41:39.360
+ But, you know, the very fact that they're testable may mean that in the, you know, in the coming
+
+41:39.360 --> 41:45.200
+ decades, we may well be able to test these theories and show that they're wrong, right? You know, we
+
+41:45.200 --> 41:50.800
+ may be able to test some of Penrose's ideas. If not, not his ideas about consciousness, but at
+
+41:50.800 --> 41:56.560
+ least his ideas about an objective collapse of quantum states, right? And people have actually,
+
+41:56.560 --> 42:01.520
+ like Dick Balmeister, have actually been working to try to do these experiments. They haven't been
+
+42:01.520 --> 42:07.280
+ able to do it yet to test Penrose's proposal, okay? But Penrose would need more than just
+
+42:07.280 --> 42:11.920
+ an objective collapse of quantum states, which would already be the biggest development in
+
+42:11.920 --> 42:18.080
+ physics for a century since quantum mechanics itself, okay? He would need for consciousness
+
+42:18.080 --> 42:24.240
+ to somehow be able to influence the direction of the collapse so that it wouldn't be completely
+
+42:24.240 --> 42:29.440
+ random, but that, you know, your dispositions would somehow influence the quantum state
+
+42:29.440 --> 42:36.160
+ to collapse more likely this way or that way, okay? Finally, Penrose, you know, says that all
+
+42:36.160 --> 42:42.320
+ of this has to be true because of an argument that he makes based on Gödel's incompleteness theorem,
+
+42:42.320 --> 42:49.040
+ okay? Now, like I would say the overwhelming majority of computer scientists and mathematicians
+
+42:49.040 --> 42:53.920
+ who have thought about this, I don't think that Gödel's incompleteness theorem can do what he
+
+42:53.920 --> 43:00.000
+ needs it to do here, right? I don't think that that argument is sound, okay? But that is, you know,
+
+43:00.000 --> 43:04.560
+ that is sort of the tower that you have to ascend to if you're going to go where Penrose goes.
+
+43:04.560 --> 43:09.440
+ And the intuition he uses with the incompleteness theorem is that basically
+
+43:09.440 --> 43:13.360
+ that there's important stuff that's not computable? Is that where he takes it?
+
+43:13.360 --> 43:18.000
+ It's not just that because, I mean, everyone agrees that there are problems that are uncomputable,
+
+43:18.000 --> 43:25.280
+ right? That's a mathematical theorem, right? But what Penrose wants to say is that, you know,
+
+43:26.480 --> 43:33.920
+ for example, there are statements, you know, given any formal system, you know, for doing math,
+
+43:33.920 --> 43:39.280
+ right? There will be true statements of arithmetic that that formal system, you know,
+
+43:39.280 --> 43:44.080
+ if it's adequate for math at all, if it's consistent and so on, will not be able to prove.
+
+43:44.640 --> 43:49.600
+ A famous example being the statement that that system itself is consistent,
+
+43:49.600 --> 43:54.400
+ right? No, you know, good formal system can actually prove its own consistency.
+
+43:55.040 --> 44:00.480
+ That can only be done from a stronger formal system, which then can't prove its own consistency
+
+44:00.480 --> 44:08.400
+ and so on forever, okay? That's Gödel's theorem. But now, why is that relevant to consciousness,
+
+44:08.400 --> 44:13.360
+ right? Well, you know, I mean, the idea that it might have something to do with consciousness
+
+44:13.360 --> 44:22.160
+ as an old one, Gödel himself apparently thought that it did. You know, Lucas thought so, I think,
+
+44:22.160 --> 44:29.600
+ in the 60s. And Penrose is really just, you know, sort of updating what they and others had said.
+
+44:29.600 --> 44:34.000
+ I mean, you know, the idea that Gödel's theorem could have something to do with consciousness was,
+
+44:34.000 --> 44:40.800
+ you know, in 1950, when Alan Turing wrote his article about the Turing test, he already, you
+
+44:40.800 --> 44:47.600
+ know, was writing about that as like an old and well known idea and as a wrong one that he wanted
+
+44:47.600 --> 44:54.400
+ to dispense with. Okay, but the basic problem with this idea is, you know, Penrose wants to say
+
+44:54.400 --> 45:00.480
+ that and all of his predecessors here, you know, want to say that, you know, even though, you know,
+
+45:00.480 --> 45:07.680
+ this given formal system cannot prove its own consistency, we as humans sort of looking at it
+
+45:07.680 --> 45:15.280
+ from the outside can just somehow see its consistency, right? And the, you know, the rejoinder
+
+45:15.280 --> 45:21.120
+ to that, you know, from the very beginning has been, well, can we really? I mean, maybe, you
+
+45:21.120 --> 45:28.560
+ know, maybe he, Penrose can, but, you know, can the rest of us, right? And, you know, I noticed
+
+45:28.560 --> 45:36.560
+ that, you know, I mean, it is perfectly plausible to imagine a computer that could say, you know,
+
+45:36.560 --> 45:41.360
+ it would not be limited to working within a single formal system, right? They could say,
+
+45:41.360 --> 45:47.760
+ I am now going to adopt the hypothesis that my formal system is consistent, right? And I'm now
+
+45:47.760 --> 45:52.400
+ going to see what can be done from that stronger vantage point and so on. And, you know, and I'm
+
+45:52.400 --> 45:58.640
+ going to add new axioms to my system. Totally plausible. There's absolutely, Gödel's theorem
+
+45:58.640 --> 46:05.440
+ has nothing to say about against an AI that could repeatedly add new axioms. All it says is that
+
+46:05.440 --> 46:11.760
+ there is no absolute guarantee that when the AI adds new axioms that it will always be right.
+
+46:12.320 --> 46:15.600
+ Okay. And, you know, and that's, of course, the point that Penrose pounces on,
+
+46:15.600 --> 46:21.040
+ but the reply is obvious. And, you know, it's one that Alan Turing made 70 years ago. Namely,
+
+46:21.040 --> 46:26.400
+ we don't have an absolute guarantee that we're right when we add a new axiom. We never have,
+
+46:26.400 --> 46:31.600
+ and plausibly we never will. So on Alan Turing, you took part in the Lubna Prize?
+
+46:32.880 --> 46:39.600
+ Not really. No, I didn't. I mean, there was this kind of ridiculous claim that was made
+
+46:39.600 --> 46:46.080
+ some almost a decade ago about a chat bot called Eugene Goostman.
+
+46:46.080 --> 46:48.640
+ I guess you didn't participate as a judge in the Lubna Prize.
+
+46:48.640 --> 46:49.040
+ I didn't.
+
+46:49.040 --> 46:54.160
+ But you participated as a judge in that, I guess it was an exhibition event or something like that,
+
+46:54.160 --> 46:55.200
+ or with Eugene...
+
+46:56.400 --> 47:01.280
+ Eugene Goostman, that was just me writing a blog post because some journalist called me to ask
+
+47:01.280 --> 47:01.680
+ about it.
+
+47:01.680 --> 47:03.200
+ Did you ever chat with him? I thought that...
+
+47:03.200 --> 47:06.320
+ I did chat with Eugene Goostman. I mean, it was available on the web.
+
+47:06.320 --> 47:07.600
+ Oh, interesting. I didn't know that.
+
+47:07.600 --> 47:14.400
+ So yeah. So all that happened was that a bunch of journalists started writing breathless articles
+
+47:14.400 --> 47:21.440
+ about a first chat bot that passes the Turing test. And it was this thing called Eugene Goostman
+
+47:21.440 --> 47:29.200
+ that was supposed to simulate a 13 year old boy. And apparently someone had done some test where
+
+47:29.920 --> 47:36.080
+ people were less than perfect, let's say, distinguishing it from a human. And they said,
+
+47:36.080 --> 47:42.320
+ well, if you look at Turing's paper and you look at the percentages that he talked about,
+
+47:42.320 --> 47:44.560
+ then it seemed like we're past that threshold.
+
+47:45.600 --> 47:53.520
+ And I had a different way to look at it instead of the legalistic way, like let's just try the
+
+47:53.520 --> 47:59.760
+ actual thing out and let's see what it can do with questions like, is Mount Everest bigger
+
+47:59.760 --> 48:08.160
+ than a shoebox? Or just like the most obvious questions. And the answer is, well, it just kind
+
+48:08.160 --> 48:10.720
+ of parries you because it doesn't know what you're talking about.
+
+48:10.720 --> 48:16.800
+ So just to clarify exactly in which way they're obvious. They're obvious in the sense that
+
+48:17.360 --> 48:22.880
+ you convert the sentences into the meaning of the objects they represent and then do some basic
+
+48:23.600 --> 48:29.120
+ obvious common sense reasoning with the objects that the sentences represent.
+
+48:29.120 --> 48:35.040
+ Right. It was not able to answer or even intelligently respond to basic common sense
+
+48:35.040 --> 48:39.920
+ questions. But let me say something stronger than that. There was a famous chatbot in the 60s
+
+48:39.920 --> 48:48.160
+ called Eliza that managed to actually fool a lot of people. Or people would pour their hearts out
+
+48:48.160 --> 48:54.000
+ into this Eliza because it simulated a therapist. And most of what it would do is it would just
+
+48:54.000 --> 48:59.120
+ throw back at you whatever you said. And this turned out to be incredibly effective.
+
+49:00.720 --> 49:10.160
+ Maybe therapists know this. This is one of their tricks. But it really had some people convinced.
+
+49:10.880 --> 49:17.120
+ But this thing was just like, I think it was literally just a few hundred lines of Lisp code.
+
+49:17.120 --> 49:22.480
+ It was not only was it not intelligent, it wasn't especially sophisticated. It was
+
+49:22.480 --> 49:27.840
+ like a simple little hobbyist program. And Eugene Goostman, from what I could see,
+
+49:27.840 --> 49:36.880
+ was not a significant advance compared to Eliza. And that was really the point I was making.
+
+49:38.560 --> 49:45.520
+ In some sense, you didn't need a computer science professor to sort of say this. Anyone who was
+
+49:45.520 --> 49:50.560
+ looking at it and who just had an ounce of sense could have said the same thing.
+
+49:50.560 --> 49:57.440
+ But because these journalists were calling me, the first thing I said was,
+
+49:58.320 --> 50:04.640
+ well, I'm a quantum computing person. I'm not an AI person. You shouldn't ask me. Then they said,
+
+50:04.640 --> 50:08.560
+ look, you can go here and you can try it out. I said, all right. All right. So I'll try it out.
+
+50:10.800 --> 50:15.600
+ This whole discussion, it got a whole lot more interesting in just the last few months.
+
+50:15.600 --> 50:24.400
+ Yeah. I'd love to hear your thoughts about GPT3. In the last few months, the world has now seen
+
+50:24.400 --> 50:33.920
+ a chat engine or a text engine, I should say, called GPT3. I think it still does not pass
+
+50:33.920 --> 50:40.880
+ a Turing test. There are no real claims that it passes the Turing test. This comes out of the
+
+50:40.880 --> 50:47.280
+ group at OpenAI, and they've been relatively careful in what they've claimed about the system.
+
+50:47.280 --> 50:56.960
+ But I think as clearly as Eugene Goostman was not in advance over Eliza, it is equally clear that
+
+50:56.960 --> 51:03.040
+ this is a major advance over Eliza or really over anything that the world has seen before.
+
+51:03.040 --> 51:12.480
+ This is a text engine that can come up with kind of on topic, reasonable sounding completions to
+
+51:12.480 --> 51:20.240
+ just about anything that you ask. You can ask it to write a poem about topic X in the style of poet
+
+51:20.240 --> 51:29.040
+ Y and it will have a go at that. And it will do not a great job, not an amazing job, but a passable
+
+51:29.040 --> 51:36.240
+ job. Definitely as good as, in many cases, I would say better than I would have done.
+
+51:37.600 --> 51:43.760
+ You can ask it to write an essay, like a student essay, about pretty much any topic and it will
+
+51:43.760 --> 51:50.080
+ get something that I am pretty sure would get at least a B minus in the most high school or
+
+51:50.080 --> 51:56.320
+ even college classes. And in some sense, the way that it did this, the way that it achieves this,
+
+51:56.320 --> 52:03.760
+ Scott Alexander of the much mourned blog, Slate Star Codex, had a wonderful way of putting it.
+
+52:03.760 --> 52:08.400
+ He said that they basically just ground up the entire internet into a slurry.
+
+52:10.400 --> 52:16.640
+ And to tell you the truth, I had wondered for a while why nobody had tried that. Why not write
+
+52:16.640 --> 52:24.880
+ a chat bot by just doing deep learning over a corpus consisting of the entire web? And so
+
+52:24.880 --> 52:35.280
+ now they finally have done that. And the results are very impressive. It's not clear that people
+
+52:35.280 --> 52:41.440
+ can argue about whether this is truly a step toward general AI or not, but this is an amazing
+
+52:41.440 --> 52:50.720
+ capability that we didn't have a few years ago. A few years ago, if you had told me that we would
+
+52:50.720 --> 52:55.840
+ have it now, that would have surprised me. And I think that anyone who denies that is just not
+
+52:55.840 --> 53:02.720
+ engaging with what's there. So their model, it takes a large part of the internet and compresses
+
+53:02.720 --> 53:09.680
+ it in a small number of parameters relative to the size of the internet and is able to, without
+
+53:10.480 --> 53:16.880
+ fine tuning, do a basic kind of a querying mechanism, just like you described where you
+
+53:16.880 --> 53:21.520
+ specify a kind of poet and then you want to write a poem. And it somehow is able to do basically a
+
+53:21.520 --> 53:27.440
+ lookup on the internet of relevant things. How else do you explain it?
+
+53:27.440 --> 53:34.080
+ Well, okay. The training involved massive amounts of data from the internet and actually took
+
+53:34.080 --> 53:40.000
+ lots and lots of computer power, lots of electricity. There are some very prosaic
+
+53:40.000 --> 53:46.720
+ reasons why this wasn't done earlier. But it costs some tens of millions of dollars, I think.
+
+53:46.720 --> 53:49.440
+ Less, but approximately like a few million dollars.
+
+53:49.440 --> 53:51.360
+ Oh, okay. Oh, really? Okay.
+
+53:51.360 --> 53:53.600
+ It's more like four or five.
+
+53:53.600 --> 53:57.440
+ Oh, all right. All right. Thank you. I mean, as they scale it up, it will...
+
+53:57.440 --> 54:01.520
+ It'll cost, but then the hope is cost comes down and all that kind of stuff.
+
+54:02.320 --> 54:09.040
+ But basically, it is a neural net or what's now called a deep net,
+
+54:09.040 --> 54:15.520
+ but they're basically the same thing. So it's a form of algorithm that people
+
+54:15.520 --> 54:21.920
+ have known about for decades. But it is constantly trying to solve the problem,
+
+54:21.920 --> 54:30.080
+ predict the next word. So it's just trying to predict what comes next. It's not trying to
+
+54:30.080 --> 54:37.120
+ decide what it should say, what ought to be true. It's trying to predict what someone who had said
+
+54:37.120 --> 54:40.720
+ all of the words up to the preceding one would say next.
+
+54:40.720 --> 54:43.440
+ Although to push back on that, that's how it's trained.
+
+54:43.440 --> 54:45.280
+ That's right. No, of course.
+
+54:45.280 --> 54:50.480
+ It's arguable that our very cognition could be a mechanism as that simple.
+
+54:50.480 --> 54:52.960
+ Oh, of course. Of course. I never said that it wasn't.
+
+54:52.960 --> 54:54.960
+ Right. But...
+
+54:54.960 --> 55:00.400
+ Yeah. I mean, and sometimes that is... If there is a deep philosophical question that's
+
+55:00.400 --> 55:06.320
+ raised by GPT3, then that is it, right? Are we doing anything other than this predictive
+
+55:06.320 --> 55:12.000
+ processing, just trying to constantly trying to fill in a blank of what would come next
+
+55:12.000 --> 55:15.520
+ after what we just said up to this point? Is that what I'm doing right now?
+
+55:16.560 --> 55:20.480
+ It's impossible. So the intuition that a lot of people have, well, look,
+
+55:20.480 --> 55:24.800
+ this thing is not going to be able to reason, the Mountain Everest question.
+
+55:24.800 --> 55:31.600
+ Do you think it's possible that GPT5, 6, and 7 would be able to, with this exact same process,
+
+55:31.600 --> 55:38.720
+ begin to do something that looks like... Is indistinguishable to us humans from reasoning?
+
+55:38.720 --> 55:42.960
+ I mean, the truth is that we don't really know what the limits are, right?
+
+55:42.960 --> 55:44.000
+ Right. Exactly.
+
+55:44.000 --> 55:51.120
+ Because what we've seen so far is that GPT3 was basically the same thing as GPT2,
+
+55:51.120 --> 55:59.360
+ but just with a much larger network, more training time, bigger training corpus,
+
+55:59.360 --> 56:05.680
+ right? And it was very noticeably better than its immediate predecessor.
+
+56:05.680 --> 56:12.320
+ So we don't know where you hit the ceiling here, right? I mean, that's the amazing part and maybe
+
+56:12.320 --> 56:19.840
+ also the scary part, right? Now, my guess would be that at some point, there has to be diminishing
+
+56:19.840 --> 56:27.520
+ returns. It can't be that simple, can it? Right? But I wish that I had more to base that guess on.
+
+56:27.520 --> 56:31.360
+ Right. Yeah. I mean, some people say that there will be a limitation on the...
+
+56:31.360 --> 56:34.640
+ We're going to hit a limit on the amount of data that's on the internet.
+
+56:34.640 --> 56:39.360
+ Yes. Yeah. So sure. So there's certainly that limit. I mean, there's also...
+
+56:41.600 --> 56:47.040
+ If you are looking for questions that will stump GPT3, you can come up with some without...
+
+56:48.320 --> 56:55.680
+ Even getting it to learn how to balance parentheses, right? It doesn't do such a great job,
+
+56:55.680 --> 57:04.000
+ right? And its failures are ironic, right? Like basic arithmetic, right?
+
+57:04.000 --> 57:08.560
+ And you think, isn't that what computers are supposed to be best at? Isn't that where
+
+57:08.560 --> 57:14.880
+ computers already had us beat a century ago? Right? And yet that's where GPT3 struggles,
+
+57:14.880 --> 57:23.840
+ right? But it's amazing that it's almost like a young child in that way, right? But somehow,
+
+57:23.840 --> 57:30.640
+ because it is just trying to predict what comes next, it doesn't know when it should stop doing
+
+57:30.640 --> 57:36.240
+ that and start doing something very different, like some more exact logical reasoning, right?
+
+57:36.240 --> 57:45.920
+ And so one is naturally led to guess that our brain sort of has some element of predictive
+
+57:45.920 --> 57:50.240
+ processing, but that it's coupled to other mechanisms, right? That it's coupled to,
+
+57:50.800 --> 57:55.120
+ first of all, visual reasoning, which GPT3 also doesn't have any of, right?
+
+57:55.120 --> 57:58.560
+ Although there's some demonstration that there's a lot of promise there using...
+
+57:58.560 --> 58:00.880
+ Oh yeah, it can complete images. That's right.
+
+58:00.880 --> 58:05.600
+ And using exact same kind of transformer mechanisms to like watch videos on YouTube.
+
+58:06.160 --> 58:11.280
+ And so the same self supervised mechanism to be able to look,
+
+58:11.280 --> 58:14.240
+ it'd be fascinating to think what kind of completions you could do.
+
+58:14.240 --> 58:17.840
+ Oh yeah, no, absolutely. Although like if we ask it to like, you know,
+
+58:17.840 --> 58:22.400
+ a word problem that involve reasoning about the locations of things in space,
+
+58:22.400 --> 58:26.160
+ I don't think it does such a great job on those, right? To take an example. And so
+
+58:26.160 --> 58:31.120
+ the guess would be, well, you know, humans have a lot of predictive processing,
+
+58:31.120 --> 58:35.360
+ a lot of just filling in the blanks, but we also have these other mechanisms that we can
+
+58:35.360 --> 58:39.680
+ couple to, or that we can sort of call as subroutines when we need to.
+
+58:39.680 --> 58:45.520
+ And that maybe, you know, to go further, that one would want to integrate other forms of reasoning.
+
+58:46.800 --> 58:52.240
+ Let me go on another topic that is amazing, which is complexity.
+
+58:52.240 --> 59:00.640
+ And then start with the most absurdly romantic question of what's the most beautiful idea in
+
+59:00.640 --> 59:05.760
+ computer science or theoretical computer science to you? Like what just early on in your life,
+
+59:05.760 --> 59:08.560
+ or in general, have captivated you and just grabbed you?
+
+59:08.560 --> 59:13.280
+ I think I'm going to have to go with the idea of universality. You know,
+
+59:13.280 --> 59:20.160
+ if you're really asking for the most beautiful. I mean, so universality is the idea that, you know,
+
+59:20.160 --> 59:27.680
+ you put together a few simple operations, like in the case of Boolean logic, that might be the AND
+
+59:27.680 --> 59:33.520
+ gate, the OR gate, the NOT gate, right? And then your first guess is, okay, this is a good start,
+
+59:33.520 --> 59:38.960
+ but obviously, as I want to do more complicated things, I'm going to need more complicated building
+
+59:38.960 --> 59:44.080
+ blocks to express that, right? And that was actually my guess when I first learned what
+
+59:44.080 --> 59:50.800
+ programming was. I mean, when I was, you know, an adolescent and someone showed me Apple basic,
+
+59:50.800 --> 59:57.920
+ and then, you know, GW basic, if anyone listening remembers that. Okay. But, you know,
+
+59:57.920 --> 1:00:03.760
+ I thought, okay, well, now, you know, I mean, I thought I felt like this is a revelation. You know,
+
+1:00:03.760 --> 1:00:08.000
+ it's like finding out where babies come from. It's like that level of, you know, why didn't
+
+1:00:08.000 --> 1:00:12.800
+ anyone tell me this before, right? But I thought, okay, this is just the beginning. Now I know how
+
+1:00:12.800 --> 1:00:18.640
+ to write a basic program, but, you know, really write an interesting program, like, you know,
+
+1:00:18.640 --> 1:00:24.400
+ a video game, which had always been my dream as a kid to, you know, create my own Nintendo games,
+
+1:00:24.400 --> 1:00:29.360
+ right? You know, but, you know, obviously I'm going to need to learn some way more complicated
+
+1:00:29.360 --> 1:00:35.440
+ form of programming than that. Okay. But, you know, eventually I learned this incredible idea
+
+1:00:35.440 --> 1:00:42.400
+ of universality. And that says that, no, you throw in a few rules and then you already have
+
+1:00:42.400 --> 1:00:48.960
+ enough to express everything. Okay. So for example, the AND, the OR and the NOT gate can all,
+
+1:00:48.960 --> 1:00:54.400
+ or in fact, even just the AND and the NOT gate, or even just the NAND gate, for example,
+
+1:00:55.040 --> 1:01:00.480
+ is already enough to express any Boolean function on any number of bits. You just have to string
+
+1:01:00.480 --> 1:01:04.800
+ together enough of them. You can build a universe with NAND gates. You can build the universe out of
+
+1:01:04.800 --> 1:01:12.640
+ NAND gates. Yeah. You know, the simple instructions of BASIC are already enough, at least in principle,
+
+1:01:12.640 --> 1:01:17.840
+ you know, if we ignore details like how much memory can be accessed and stuff like that,
+
+1:01:17.840 --> 1:01:22.800
+ that is enough to express what could be expressed by any programming language whatsoever.
+
+1:01:22.800 --> 1:01:28.240
+ And the way to prove that is very simple. We simply need to show that in BASIC or whatever,
+
+1:01:28.240 --> 1:01:35.040
+ we could write an interpreter or a compiler for whatever other programming language we care about,
+
+1:01:35.040 --> 1:01:41.360
+ like C or Java or whatever. And as soon as we had done that, then ipso facto, anything that's
+
+1:01:41.360 --> 1:01:49.520
+ expressible in C or Java is also expressible in BASIC. Okay. And so this idea of universality,
+
+1:01:49.520 --> 1:01:54.720
+ you know, goes back at least to Alan Turing in the 1930s when, you know, he
+
+1:01:54.720 --> 1:02:01.040
+ wrote down this incredibly simple pared down model of a computer, the Turing machine, right,
+
+1:02:01.040 --> 1:02:08.800
+ which, you know, he pared down the instruction set to just read a symbol, you know, write a symbol,
+
+1:02:08.800 --> 1:02:15.440
+ move to the left, move to the right, halt, change your internal state, right? That's it. Okay.
+
+1:02:15.440 --> 1:02:22.160
+ And anybody proved that, you know, this could simulate all kinds of other things, you know,
+
+1:02:22.160 --> 1:02:28.560
+ and so in fact, today we would say, well, we would call it a Turing universal model of computation
+
+1:02:28.560 --> 1:02:37.680
+ that is, you know, just as it has just the same expressive power that BASIC or Java or C++ or any
+
+1:02:37.680 --> 1:02:43.600
+ of those other languages have because anything in those other languages could be compiled down
+
+1:02:43.600 --> 1:02:48.880
+ to Turing machine. Now, Turing also proved a different related thing, which is that there is
+
+1:02:48.880 --> 1:02:57.360
+ a single Turing machine that can simulate any other Turing machine if you just describe that
+
+1:02:57.360 --> 1:03:03.120
+ other machine on its tape, right? And likewise, there is a single Turing machine that will run
+
+1:03:03.120 --> 1:03:08.960
+ any C program, you know, if you just put it on its tape. That's a second meaning of universality.
+
+1:03:08.960 --> 1:03:12.320
+ First of all, he couldn't visualize it and that was in the 30s.
+
+1:03:12.320 --> 1:03:13.600
+ Yeah, the 30s. That's right.
+
+1:03:13.600 --> 1:03:21.120
+ That's before computers really, I mean, I don't know how, I wonder what that felt like,
+
+1:03:21.120 --> 1:03:27.760
+ you know, learning that there's no Santa Claus or something. Because I don't know if that's
+
+1:03:27.760 --> 1:03:34.800
+ empowering or paralyzing because it doesn't give you any, it's like you can't write a software
+
+1:03:34.800 --> 1:03:38.320
+ engineering book and make that the first chapter and say we're done.
+
+1:03:38.320 --> 1:03:44.320
+ Well, I mean, right. I mean, in one sense, it was this enormous flattening of the universe.
+
+1:03:44.320 --> 1:03:44.800
+ Yes.
+
+1:03:44.800 --> 1:03:50.320
+ I had imagined that there was going to be some infinite hierarchy of more and more powerful
+
+1:03:50.320 --> 1:03:55.440
+ programming languages, you know, and then I kicked myself for having such a stupid idea.
+
+1:03:55.440 --> 1:03:58.800
+ But apparently, Gödel had had the same conjecture in the 30s.
+
+1:03:58.800 --> 1:04:00.880
+ Oh, good. You're in good company.
+
+1:04:00.880 --> 1:04:10.000
+ Yeah. And then Gödel read Turing's paper and he kicked himself and he said, yeah, I was completely
+
+1:04:10.000 --> 1:04:17.760
+ wrong about that. But I had thought that maybe where I can contribute will be to invent a new
+
+1:04:17.760 --> 1:04:22.800
+ more powerful programming language that lets you express things that could never be expressed in
+
+1:04:22.800 --> 1:04:30.640
+ BASIC. And how would you do that? Obviously, you couldn't do it itself in BASIC. But there
+
+1:04:30.640 --> 1:04:36.400
+ is this incredible flattening that happens once you learn what is universality. But then it's also
+
+1:04:39.200 --> 1:04:44.720
+ an opportunity because it means once you know these rules, then the sky is the limit, right?
+
+1:04:44.720 --> 1:04:51.440
+ Then you have kind of the same weapons at your disposal that the world's greatest programmer has.
+
+1:04:51.440 --> 1:04:54.240
+ It's now all just a question of how you wield them.
+
+1:04:54.240 --> 1:05:00.960
+ Right. Exactly. So every problem is solvable, but some problems are harder than others.
+
+1:05:00.960 --> 1:05:06.960
+ Well, yeah, there's the question of how much time, you know, of how hard is it to write a program?
+
+1:05:06.960 --> 1:05:11.280
+ And then there's also the questions of what resources does the program need? You know,
+
+1:05:11.280 --> 1:05:15.360
+ how much time, how much memory? Those are much more complicated questions. Of course,
+
+1:05:15.360 --> 1:05:17.360
+ ones that we're still struggling with today.
+
+1:05:17.360 --> 1:05:21.200
+ Exactly. So you've, I don't know if you created Complexity Zoo or...
+
+1:05:21.200 --> 1:05:23.120
+ I did create the Complexity Zoo.
+
+1:05:23.120 --> 1:05:24.880
+ What is it? What's complexity?
+
+1:05:24.880 --> 1:05:29.360
+ Oh, all right, all right, all right. Complexity theory is the study of sort of the
+
+1:05:29.920 --> 1:05:38.000
+ inherent resources needed to solve computational problems, okay? So it's easiest to give an example.
+
+1:05:38.560 --> 1:05:47.040
+ Like, let's say we want to add two numbers, right? If I want to add them, you know, if the numbers
+
+1:05:47.040 --> 1:05:52.480
+ are twice as long, then it only, it will take me twice as long to add them, but only twice as long,
+
+1:05:52.480 --> 1:05:54.480
+ right? It's no worse than that.
+
+1:05:54.480 --> 1:05:55.440
+ Or a computer.
+
+1:05:55.440 --> 1:05:59.120
+ For a computer or for a person. We're using pencil and paper, for that matter.
+
+1:05:59.120 --> 1:06:00.400
+ If you have a good algorithm.
+
+1:06:00.400 --> 1:06:05.440
+ Yeah, that's right. I mean, even if you just use the elementary school algorithm of just carrying,
+
+1:06:05.440 --> 1:06:10.640
+ you know, then it takes time that is linear in the length of the numbers, right? Now,
+
+1:06:10.640 --> 1:06:17.040
+ multiplication, if you use the elementary school algorithm, is harder because you have to multiply
+
+1:06:17.040 --> 1:06:22.000
+ each digit of the first number by each digit of the second one. And then deal with all the
+
+1:06:22.000 --> 1:06:28.800
+ carries. So that's what we call a quadratic time algorithm, right? If the numbers become twice as
+
+1:06:28.800 --> 1:06:38.000
+ long, now you need four times as much time, okay? So now, as it turns out, people discovered much
+
+1:06:38.000 --> 1:06:45.040
+ faster ways to multiply numbers using computers. And today we know how to multiply two numbers
+
+1:06:45.040 --> 1:06:50.960
+ that are n digits long using a number of steps that's nearly linear in n. These are questions you
+
+1:06:50.960 --> 1:06:56.160
+ can ask. But now, let's think about a different thing that people, you know, they've encountered
+
+1:06:56.160 --> 1:07:03.040
+ in elementary school, factoring a number. Okay? Take a number and find its prime factors, right?
+
+1:07:03.040 --> 1:07:08.640
+ And here, you know, if I give you a number with ten digits, I ask you for its prime factors.
+
+1:07:08.640 --> 1:07:13.600
+ Well, maybe it's even, so you know that two is a factor. You know, maybe it ends in zero,
+
+1:07:13.600 --> 1:07:18.880
+ so you know that ten is a factor, right? But, you know, other than a few obvious things like that,
+
+1:07:18.880 --> 1:07:24.320
+ you know, if the prime factors are all very large, then it's not clear how you even get started,
+
+1:07:24.320 --> 1:07:29.360
+ right? You know, it seems like you have to do an exhaustive search among an enormous number of
+
+1:07:29.360 --> 1:07:39.280
+ factors. Now, and as many people might know, for better or worse, the security, you know,
+
+1:07:39.280 --> 1:07:45.200
+ of most of the encryption that we currently use to protect the internet is based on the belief,
+
+1:07:45.200 --> 1:07:51.280
+ and this is not a theorem, it's a belief, that factoring is an inherently hard problem
+
+1:07:52.000 --> 1:07:58.000
+ for our computers. We do know algorithms that are better than just trial division, than just trying
+
+1:07:58.000 --> 1:08:05.200
+ all the possible divisors, but they are still basically exponential. And exponential is hard.
+
+1:08:05.840 --> 1:08:11.520
+ Yeah, exactly. So the fastest algorithms that anyone has discovered, at least publicly
+
+1:08:11.520 --> 1:08:15.520
+ discovered, you know, I'm assuming that the NSA doesn't know something better,
+
+1:08:15.520 --> 1:08:21.920
+ okay? But they take time that basically grows exponentially with the cube root of the size of
+
+1:08:21.920 --> 1:08:26.800
+ the number that you're factoring, right? So that cube root, that's the part that takes all the
+
+1:08:26.800 --> 1:08:31.600
+ cleverness, okay? But there's still an exponential. There's still an exponentiality there. But what
+
+1:08:31.600 --> 1:08:37.360
+ that means is that, like, when people use a thousand bit keys for their cryptography,
+
+1:08:37.360 --> 1:08:42.800
+ that can probably be broken using the resources of the NSA or the world's other intelligence
+
+1:08:42.800 --> 1:08:47.600
+ agencies. You know, people have done analyses that say, you know, with a few hundred million
+
+1:08:47.600 --> 1:08:53.120
+ dollars of computer power, they could totally do this. And if you look at the documents that Snowden
+
+1:08:53.120 --> 1:08:59.360
+ released, you know, it looks a lot like they are doing that or something like that. It would kind
+
+1:08:59.360 --> 1:09:05.520
+ of be surprising if they weren't, okay? But, you know, if that's true, then in some ways that's
+
+1:09:05.520 --> 1:09:10.000
+ reassuring. Because if that's the best that they can do, then that would say that they can't break
+
+1:09:10.000 --> 1:09:16.960
+ 2,000 bit numbers, right? Then 2,000 bit numbers would be beyond what even they could do.
+
+1:09:16.960 --> 1:09:21.600
+ They haven't found an efficient algorithm. That's where all the worries and the concerns of quantum
+
+1:09:21.600 --> 1:09:24.400
+ computing came in, that there could be some kind of shortcut around that.
+
+1:09:24.400 --> 1:09:31.920
+ Right. So complexity theory is a huge part of, let's say, the theoretical core of computer
+
+1:09:31.920 --> 1:09:39.280
+ science. You know, it started in the 60s and 70s as, you know, sort of an autonomous field. So it
+
+1:09:39.280 --> 1:09:45.120
+ was, you know, already, you know, I mean, you know, it was well developed even by the time that
+
+1:09:45.120 --> 1:09:54.160
+ I was born, okay? But in 2002, I made a website called the Complexity Zoo, to answer your question,
+
+1:09:54.880 --> 1:10:01.360
+ where I just tried to catalog the different complexity classes, which are classes of problems
+
+1:10:01.360 --> 1:10:06.960
+ that are solvable with different kinds of resources, okay? So these are kind of, you know,
+
+1:10:06.960 --> 1:10:13.200
+ you could think of complexity classes as like being almost to theoretical computer science,
+
+1:10:13.200 --> 1:10:18.320
+ like what the elements are to chemistry, right? They're sort of, you know, there are our most
+
+1:10:18.320 --> 1:10:22.480
+ basic objects in a certain way. I feel like the elements
+
+1:10:25.120 --> 1:10:29.200
+ have a characteristic to them where you can't just add an infinite number.
+
+1:10:29.200 --> 1:10:34.960
+ Well, you could, but beyond a certain point, they become unstable, right? Right. So it's like,
+
+1:10:34.960 --> 1:10:39.040
+ you know, in theory, you can have atoms with, you know, and look, look, I mean, I mean,
+
+1:10:39.040 --> 1:10:48.880
+ a neutron star, you know, is a nucleus with, you know, uncalled billions of neutrons in it,
+
+1:10:48.880 --> 1:10:56.400
+ of hadrons in it, okay? But, you know, for sort of normal atoms, right, probably you can't get
+
+1:10:56.400 --> 1:11:04.320
+ much above a hundred atomic weight, 150 or so, or sorry, sorry, I mean, beyond 150 or so protons
+
+1:11:04.320 --> 1:11:10.240
+ without it, you know, very quickly fissioning. With complexity classes, well, yeah, you can have
+
+1:11:10.240 --> 1:11:16.080
+ an infinity of complexity classes, but, you know, maybe there's only a finite number of them that
+
+1:11:16.080 --> 1:11:21.680
+ are particularly interesting, right? Just like with anything else, you know, you care about
+
+1:11:21.680 --> 1:11:25.920
+ some more than about others. So what kind of interesting classes are there? I mean,
+
+1:11:25.920 --> 1:11:31.040
+ you could have just, maybe say, what are the, if you take any kind of computer science class,
+
+1:11:31.040 --> 1:11:36.400
+ what are the classes you learn? Good. Let me tell you sort of the biggest ones,
+
+1:11:36.400 --> 1:11:41.840
+ the ones that you would learn first. So, you know, first of all, there is P, that's what it's called,
+
+1:11:41.840 --> 1:11:47.840
+ okay? It stands for polynomial time. And this is just the class of all of the problems that you
+
+1:11:47.840 --> 1:11:54.240
+ could solve with a conventional computer, like your iPhone or your laptop, you know,
+
+1:11:54.240 --> 1:12:01.680
+ by a completely deterministic algorithm, right? Using a number of steps that grows only like the
+
+1:12:01.680 --> 1:12:09.280
+ size of the input raised to some fixed power, okay? So, if your algorithm is linear time,
+
+1:12:09.280 --> 1:12:14.800
+ like, you know, for adding numbers, okay, that problem is in P. If you have an algorithm that's
+
+1:12:14.800 --> 1:12:20.480
+ quadratic time, like the elementary school algorithm for multiplying two numbers, that's also
+
+1:12:20.480 --> 1:12:26.800
+ in P, even if it was the size of the input to the 10th power or to the 50th power, well, that wouldn't
+
+1:12:26.800 --> 1:12:32.160
+ be very good in practice. But, you know, formally, we would still count that, that would still be in
+
+1:12:32.160 --> 1:12:40.000
+ P, okay? But if your algorithm takes exponential time, meaning like if every time I add one more
+
+1:12:41.520 --> 1:12:48.560
+ data point to your input, if the time needed by the algorithm doubles, if you need time like two
+
+1:12:48.560 --> 1:12:56.320
+ to the power of the amount of input data, then that we call an exponential time algorithm, okay?
+
+1:12:56.320 --> 1:13:03.120
+ And that is not polynomial, okay? So, P is all of the problems that have some polynomial time
+
+1:13:03.120 --> 1:13:09.040
+ algorithm, okay? So, that includes most of what we do with our computers on a day to day basis,
+
+1:13:09.040 --> 1:13:14.320
+ you know, all the, you know, sorting, basic arithmetic, you know, whatever is going on in
+
+1:13:14.320 --> 1:13:21.840
+ your email reader or in Angry Birds, okay? It's all in P. Then the next super important class
+
+1:13:21.840 --> 1:13:28.400
+ is called NP. That stands for non deterministic polynomial, okay? It does not stand for not
+
+1:13:28.400 --> 1:13:35.440
+ polynomial, which is a common confusion. But NP was basically all of the problems
+
+1:13:35.440 --> 1:13:41.920
+ where if there is a solution, then it is easy to check the solution if someone shows it to you,
+
+1:13:41.920 --> 1:13:48.880
+ okay? So, actually a perfect example of a problem in NP is factoring, the one I told you about
+
+1:13:48.880 --> 1:13:56.240
+ before. Like if I gave you a number with thousands of digits and I told you that, you know, I asked
+
+1:13:56.240 --> 1:14:05.120
+ you, does this have at least three non trivial divisors, right? That might be a super hard problem
+
+1:14:05.120 --> 1:14:09.920
+ to solve, right? It might take you millions of years using any algorithm that's known, at least
+
+1:14:09.920 --> 1:14:16.000
+ running on our existing computers, okay? But if I simply showed you the divisors, I said,
+
+1:14:16.000 --> 1:14:22.080
+ here are three divisors of this number, then it would be very easy for you to ask your computer
+
+1:14:22.080 --> 1:14:27.520
+ to just check each one and see if it works. Just divide it in, see if there's any remainder,
+
+1:14:27.520 --> 1:14:35.040
+ right? And if they all go in, then you've checked. Well, I guess there were, right? So any problem
+
+1:14:35.040 --> 1:14:40.480
+ where, you know, wherever there's a solution, there is a short witness that can be easily,
+
+1:14:40.480 --> 1:14:48.000
+ like a polynomial size witness that can be checked in polynomial time, that we call an NP problem,
+
+1:14:48.000 --> 1:14:55.440
+ okay? And yeah, so every problem that's in P is also in NP, right? Because, you know, you could
+
+1:14:55.440 --> 1:14:59.520
+ always just ignore the witness and just, you know, if a problem is in P, you can just solve it
+
+1:14:59.520 --> 1:15:07.200
+ yourself, okay? But now, in some sense, the central, you know, mystery of theoretical computer science
+
+1:15:07.200 --> 1:15:15.200
+ is every NP problem in P. So if you can easily check the answer to a computational problem,
+
+1:15:15.200 --> 1:15:18.080
+ does that mean that you can also easily find the answer?
+
+1:15:18.080 --> 1:15:23.600
+ Even though there's all these problems that appear to be very difficult to find the answer,
+
+1:15:23.600 --> 1:15:26.880
+ it's still an open question whether a good answer exists.
+
+1:15:26.880 --> 1:15:29.680
+ Because no one has proven that there's no way to do it.
+
+1:15:29.680 --> 1:15:36.560
+ It's arguably the most, I don't know, the most famous, the most maybe interesting,
+
+1:15:36.560 --> 1:15:40.000
+ maybe you disagree with that, problem in theoretical computer science. So what's your
+
+1:15:40.000 --> 1:15:41.280
+ The most famous, for sure.
+
+1:15:41.280 --> 1:15:45.280
+ P equals NP. If you were to bet all your money, where do you put your money?
+
+1:15:45.280 --> 1:15:49.840
+ That's an easy one. P is not equal to NP. I like to say that if we were physicists,
+
+1:15:49.840 --> 1:15:54.560
+ we would have just declared that to be a law of nature, you know, just like thermodynamics.
+
+1:15:54.560 --> 1:15:55.680
+ That's hilarious.
+
+1:15:55.680 --> 1:16:01.280
+ Given ourselves Nobel Prizes for its discovery. Yeah, you know, and look, if later it turned out
+
+1:16:01.280 --> 1:16:04.560
+ that we were wrong, we just give ourselves more Nobel Prizes.
+
+1:16:04.560 --> 1:16:09.280
+ So harsh, but so true.
+
+1:16:09.280 --> 1:16:14.720
+ I mean, no, I mean, I mean, it's really just because we are mathematicians or descended
+
+1:16:14.720 --> 1:16:19.760
+ from mathematicians, you know, we have to call things conjectures that other people
+
+1:16:19.760 --> 1:16:23.280
+ would just call empirical facts or discoveries, right?
+
+1:16:23.280 --> 1:16:26.960
+ But one shouldn't read more into that difference in language, you know,
+
+1:16:26.960 --> 1:16:28.800
+ about the underlying truth.
+
+1:16:28.800 --> 1:16:33.760
+ So, okay, so you're a good investor and good spender of money. So then let me ask another
+
+1:16:33.760 --> 1:16:41.120
+ way. Is it possible at all? And what would that look like if P indeed equals NP?
+
+1:16:41.680 --> 1:16:45.360
+ Well, I do think that it's possible. I mean, in fact, you know, when people really pressed
+
+1:16:45.360 --> 1:16:50.320
+ me on my blog for what odds would I put, I put, you know, two or three percent odds.
+
+1:16:50.320 --> 1:16:51.200
+ Wow, that's pretty good.
+
+1:16:51.200 --> 1:16:57.200
+ That P equals NP. Yeah. Well, because, you know, when P, I mean, you really have to think
+
+1:16:57.200 --> 1:17:04.160
+ about, like, if there were 50, you know, mysteries like P versus NP, and if I made a guess about
+
+1:17:04.160 --> 1:17:09.040
+ every single one of them, would I expect to be right 50 times? Right? And the truthful
+
+1:17:09.040 --> 1:17:10.560
+ answer is no. Okay.
+
+1:17:10.560 --> 1:17:11.040
+ Yeah.
+
+1:17:11.040 --> 1:17:16.560
+ So, you know, and that's what you really mean in saying that, you know, you have, you know,
+
+1:17:16.560 --> 1:17:22.640
+ better than 98% odds for something. Okay. But so, yeah, you know, I mean, there could
+
+1:17:22.640 --> 1:17:27.920
+ certainly be surprises. And look, if P equals NP, well, then there would be the further
+
+1:17:27.920 --> 1:17:33.920
+ question of, you know, is the algorithm actually efficient in practice? Right? I mean, Don
+
+1:17:33.920 --> 1:17:39.440
+ Knuth, who I know that you've interviewed as well, right, he likes to conjecture that
+
+1:17:39.440 --> 1:17:44.720
+ P equals NP, but that the algorithm is so inefficient that it doesn't matter anyway.
+
+1:17:44.720 --> 1:17:45.200
+ Right?
+
+1:17:45.200 --> 1:17:50.160
+ No, I don't know. I've listened to him say that. I don't know whether he says that just
+
+1:17:50.160 --> 1:17:54.400
+ because he has an actual reason for thinking it's true or just because it sounds cool.
+
+1:17:54.400 --> 1:17:54.640
+ Yeah.
+
+1:17:54.640 --> 1:18:00.960
+ Okay. But, you know, that's a logical possibility, right, that the algorithm could be n to the
+
+1:18:00.960 --> 1:18:06.880
+ 10,000 time, or it could even just be n squared time, but with a leading constant of, it could
+
+1:18:06.880 --> 1:18:12.080
+ be a Google times n squared or something like that. And in that case, the fact that P equals
+
+1:18:12.080 --> 1:18:19.840
+ NP, well, it would ravage the whole theory of complexity. We would have to rebuild from
+
+1:18:19.840 --> 1:18:25.680
+ the ground up. But in practical terms, it might mean very little, right, if the algorithm
+
+1:18:25.680 --> 1:18:31.680
+ was too inefficient to run. If the algorithm could actually be run in practice, like if
+
+1:18:31.680 --> 1:18:38.000
+ it had small enough constants, or if you could improve it to where it had small enough constants
+
+1:18:38.000 --> 1:18:42.400
+ that was efficient in practice, then that would change the world. Okay?
+
+1:18:42.400 --> 1:18:44.320
+ You think it would have, like, what kind of impact would it have?
+
+1:18:44.320 --> 1:18:49.600
+ Well, okay, I mean, here's an example. I mean, you could, well, okay, just for starters,
+
+1:18:49.600 --> 1:18:53.600
+ you could break basically all of the encryption that people use to protect the internet.
+
+1:18:53.600 --> 1:18:54.480
+ That's just for starters.
+
+1:18:54.480 --> 1:18:57.920
+ You could break Bitcoin and every other cryptocurrency, or, you know,
+
+1:18:58.800 --> 1:19:06.480
+ mine as much Bitcoin as you wanted, right? You know, become a super duper billionaire,
+
+1:19:06.480 --> 1:19:09.040
+ right? And then plot your next move.
+
+1:19:09.040 --> 1:19:11.280
+ Right. That's just for starters. That's a good point.
+
+1:19:11.280 --> 1:19:16.960
+ Now, your next move might be something like, you know, you now have, like, a theoretically
+
+1:19:16.960 --> 1:19:22.240
+ optimal way to train any neural network, to find parameters for any neural network, right?
+
+1:19:22.240 --> 1:19:27.840
+ So you could now say, like, is there any small neural network that generates the entire content
+
+1:19:27.840 --> 1:19:33.280
+ of Wikipedia, right? If, you know, and now the question is not, can you find it? The
+
+1:19:33.280 --> 1:19:39.120
+ question has been reduced to, does that exist or not? If it does exist, then the answer would be,
+
+1:19:39.120 --> 1:19:44.400
+ yes, you can find it, okay? If you had this algorithm in your hands, okay?
+
+1:19:44.400 --> 1:19:50.000
+ You could ask your computer, you know, I mean, P versus NP is one of these seven problems that
+
+1:19:50.000 --> 1:19:54.880
+ carries this million dollar prize from the Clay Foundation. You know, if you solve it,
+
+1:19:54.880 --> 1:20:00.640
+ you know, and others are the Riemann hypothesis, the Poincare conjecture, which was solved,
+
+1:20:00.640 --> 1:20:06.320
+ although the solver turned down the prize, right, and four others. But what I like to say,
+
+1:20:06.320 --> 1:20:10.640
+ the way that we can see that P versus NP is the biggest of all of these questions
+
+1:20:11.200 --> 1:20:15.680
+ is that if you had this fast algorithm, then you could solve all seven of them,
+
+1:20:15.680 --> 1:20:20.880
+ okay? You just ask your computer, you know, is there a short proof of the Riemann hypothesis,
+
+1:20:20.880 --> 1:20:25.200
+ right? You know, that a machine could, in a language where a machine could verify it,
+
+1:20:25.200 --> 1:20:28.560
+ and provided that such a proof exists, then your computer finds it
+
+1:20:28.560 --> 1:20:33.120
+ in a short amount of time without having to do a brute force search, okay? So, I mean,
+
+1:20:33.120 --> 1:20:38.560
+ those are the stakes of what we're talking about. But I hope that also helps to give your listeners
+
+1:20:38.560 --> 1:20:45.120
+ some intuition of why I and most of my colleagues would put our money on P not equaling NP.
+
+1:20:46.080 --> 1:20:50.400
+ Is it possible, I apologize this is a really dumb question, but is it possible to,
+
+1:20:50.400 --> 1:20:58.720
+ that a proof will come out that P equals NP, but an algorithm that makes P equals NP
+
+1:20:59.360 --> 1:21:05.600
+ is impossible to find? Is that like crazy? Okay, well, if P equals NP, it would mean
+
+1:21:05.600 --> 1:21:08.720
+ that there is such an algorithm. That it exists, yeah.
+
+1:21:09.360 --> 1:21:17.200
+ But, you know, it would mean that it exists. Now, you know, in practice, normally the way that we
+
+1:21:17.200 --> 1:21:23.040
+ would prove anything like that would be by finding the algorithm. But there is such a thing as a
+
+1:21:23.040 --> 1:21:28.480
+ nonconstructive proof that an algorithm exists. You know, this has really only reared its head,
+
+1:21:28.480 --> 1:21:35.200
+ I think, a few times in the history of our field, right? But, you know, it is theoretically possible
+
+1:21:35.200 --> 1:21:40.960
+ that such a thing could happen. But, you know, there are, even here, there are some amusing
+
+1:21:40.960 --> 1:21:47.280
+ observations that one could make. So there is this famous observation of Leonid Levin, who was,
+
+1:21:47.280 --> 1:21:51.680
+ you know, one of the original discoverers of NP completeness, right? And he said,
+
+1:21:51.680 --> 1:21:58.960
+ we'll consider the following algorithm that I guarantee will solve the NP problems efficiently,
+
+1:21:58.960 --> 1:22:05.200
+ just as provided that P equals NP, okay? Here is what it does. It just runs, you know,
+
+1:22:05.200 --> 1:22:11.360
+ it enumerates every possible algorithm in a gigantic infinite list, right? From like in
+
+1:22:11.360 --> 1:22:15.840
+ like alphabetical order, right? You know, and many of them maybe won't even compile,
+
+1:22:15.840 --> 1:22:20.720
+ so we just ignore those, okay? But now, we just, you know, run the first algorithm,
+
+1:22:20.720 --> 1:22:24.560
+ then we run the second algorithm, we run the first one a little bit more,
+
+1:22:24.560 --> 1:22:28.720
+ then we run the first three algorithms for a while, we run the first four for a while.
+
+1:22:28.720 --> 1:22:35.360
+ This is called dovetailing, by the way. This is a known trick in theoretical computer science,
+
+1:22:35.360 --> 1:22:42.640
+ okay? But we do it in such a way that, you know, whatever is the algorithm out there in our list
+
+1:22:42.640 --> 1:22:48.560
+ that solves NP complete, you know, the NP problems efficiently, will eventually hit that one,
+
+1:22:48.560 --> 1:22:54.160
+ right? And now, the key is that whenever we hit that one, you know, by assumption,
+
+1:22:54.160 --> 1:22:59.360
+ it has to solve the problem, it has to find the solution, and once it claims to find a solution,
+
+1:22:59.360 --> 1:23:04.720
+ then we can check that ourselves, right? Because these are NP problems, then we can check it.
+
+1:23:04.720 --> 1:23:11.200
+ Now, this is utterly impractical, right? You know, you'd have to do this enormous exhaustive search
+
+1:23:11.200 --> 1:23:16.880
+ among all the algorithms, but from a certain theoretical standpoint, that is merely a constant
+
+1:23:16.880 --> 1:23:22.640
+ prefactor, right? That's merely a multiplier of your running time. So, there are tricks like that
+
+1:23:22.640 --> 1:23:27.920
+ one can do to say that, in some sense, the algorithm would have to be constructive. But,
+
+1:23:27.920 --> 1:23:33.840
+ you know, in the human sense, you know, it is possible that to, you know, it's conceivable
+
+1:23:33.840 --> 1:23:38.960
+ that one could prove such a thing via a nonconstructive method. Is that likely? I don't
+
+1:23:38.960 --> 1:23:46.320
+ think so. Not personally. So, that's P and NP, but the complexity zoo is full of wonderful
+
+1:23:46.320 --> 1:23:53.680
+ creatures. Well, it's got about 500 of them. 500. So, how do you get, yeah, how do you get more?
+
+1:23:56.160 --> 1:24:02.560
+ I mean, just for starters, there is everything that we could do with a conventional computer
+
+1:24:02.560 --> 1:24:08.080
+ with a polynomial amount of memory, okay, but possibly an exponential amount of time,
+
+1:24:08.080 --> 1:24:13.360
+ because we get to reuse the same memory over and over again. Okay, that is called P space,
+
+1:24:13.360 --> 1:24:21.200
+ okay? And that's actually, we think, an even larger class than NP. Okay, well, P is contained
+
+1:24:21.200 --> 1:24:26.640
+ in NP, which is contained in P space. And we think that those containments are strict.
+
+1:24:26.640 --> 1:24:30.240
+ And the constraint there is on the memory. The memory has to grow
+
+1:24:31.120 --> 1:24:35.280
+ polynomially with the size of the process. That's right. That's right. But in P space,
+
+1:24:35.280 --> 1:24:41.600
+ we now have interesting things that were not in NP, like as a famous example, you know,
+
+1:24:41.600 --> 1:24:46.720
+ from a given position in chess, you know, does white or black have the win? Let's say,
+
+1:24:46.720 --> 1:24:53.520
+ assuming provided that the game lasts only for a reasonable number of moves, okay? Or likewise,
+
+1:24:53.520 --> 1:24:57.920
+ for go, okay? And, you know, even for the generalizations of these games to arbitrary
+
+1:24:57.920 --> 1:25:01.760
+ size boards, because with an eight by eight board, you could say that's just a constant
+
+1:25:01.760 --> 1:25:06.480
+ size problem. You just, you know, in principle, you just solve it in O of one time, right?
+
+1:25:06.480 --> 1:25:14.080
+ But so we really mean the generalizations of, you know, games to arbitrary size boards here.
+
+1:25:14.080 --> 1:25:21.920
+ Or another thing in P space would be, like, I give you some really hard constraint satisfaction
+
+1:25:21.920 --> 1:25:28.880
+ problem, like, you know, a traveling salesperson or, you know, packing boxes into the trunk of
+
+1:25:28.880 --> 1:25:33.920
+ your car or something like that. And I ask, not just is there a solution, which would be an NP
+
+1:25:33.920 --> 1:25:41.200
+ problem, but I ask how many solutions are there, okay? That, you know, count the number of valid
+
+1:25:41.200 --> 1:25:49.120
+ solutions. That actually gives, those problems lie in a complexity class called sharp P, or like,
+
+1:25:49.120 --> 1:25:54.640
+ it looks like hashtag, like hashtag P, okay, which sits between NP and P space.
+
+1:25:55.760 --> 1:26:01.760
+ There's all the problems that you can do in exponential time, okay? That's called exp. So,
+
+1:26:01.760 --> 1:26:09.840
+ and by the way, it was proven in the 60s that exp is larger than P, okay? So we know that much.
+
+1:26:09.840 --> 1:26:14.960
+ We know that there are problems that are solvable in exponential time that are not solvable in
+
+1:26:14.960 --> 1:26:20.880
+ polynomial time, okay? In fact, we even know, we know that there are problems that are solvable in
+
+1:26:20.880 --> 1:26:26.400
+ n cubed time that are not solvable in n squared time. And that, those don't help us with a
+
+1:26:26.400 --> 1:26:31.920
+ controversy between P and NP at all. Unfortunately, it seems not, or certainly not yet, right?
+
+1:26:31.920 --> 1:26:37.680
+ The techniques that we use to establish those things, they're very, very related to how Turing
+
+1:26:37.680 --> 1:26:42.560
+ proved the unsolvability of the halting problem, but they seem to break down when we're comparing
+
+1:26:42.560 --> 1:26:50.240
+ two different resources, like time versus space, or like, you know, P versus NP, okay? But, you know,
+
+1:26:50.240 --> 1:26:55.840
+ I mean, there's what you can do with a randomized algorithm, right? That can be done with a
+
+1:26:55.840 --> 1:27:01.520
+ random algorithm, right? That can sometimes, you know, has some probability of making a mistake.
+
+1:27:01.520 --> 1:27:07.680
+ That's called BPP, bounded error probabilistic polynomial time. And then, of course, there's
+
+1:27:07.680 --> 1:27:13.680
+ one that's very close to my own heart, what you can efficiently do in polynomial time using a
+
+1:27:13.680 --> 1:27:20.240
+ quantum computer, okay? And that's called BQP, right? And so, you know, what's understood about
+
+1:27:20.240 --> 1:27:27.520
+ it? Okay, so P is contained in BPP, which is contained in BQP, which is contained in P space,
+
+1:27:27.520 --> 1:27:35.120
+ okay? So anything you can, in fact, in something very similar to sharp P. BQP is basically,
+
+1:27:35.120 --> 1:27:41.040
+ you know, well, it's contained in like P with the magic power to solve sharp P problems, okay?
+
+1:27:41.680 --> 1:27:44.960
+ Why is BQP contained in P space?
+
+1:27:44.960 --> 1:27:52.400
+ Oh, that's an excellent question. So there is, well, I mean, one has to prove that, okay? But
+
+1:27:53.040 --> 1:28:00.960
+ the proof, you could think of it as using Richard Feynman's picture of quantum mechanics,
+
+1:28:00.960 --> 1:28:06.640
+ which is that you can always, you know, we haven't really talked about quantum mechanics in this
+
+1:28:06.640 --> 1:28:08.480
+ conversation. We did in our previous one.
+
+1:28:08.480 --> 1:28:09.600
+ Yeah, we did last time.
+
+1:28:09.600 --> 1:28:16.160
+ But yeah, we did last time, okay? But basically, you could always think of a quantum computation
+
+1:28:16.160 --> 1:28:24.000
+ as like a branching tree of possibilities where each possible path that you could take
+
+1:28:24.000 --> 1:28:30.960
+ through, you know, the space has a complex number attached to it called an amplitude, okay? And now
+
+1:28:30.960 --> 1:28:36.080
+ the rule is, you know, when you make a measurement at the end, well, you see a random answer,
+
+1:28:36.080 --> 1:28:40.720
+ okay? But quantum mechanics is all about calculating the probability that you're
+
+1:28:40.720 --> 1:28:47.120
+ going to see one potential answer versus another one, right? And the rule for calculating the
+
+1:28:47.120 --> 1:28:53.120
+ probability that you'll see some answer is that you have to add up the amplitudes for all of the
+
+1:28:53.120 --> 1:28:58.560
+ paths that could have led to that answer. And then, you know, that's a complex number, so that,
+
+1:28:58.560 --> 1:29:04.400
+ you know, how could that be a probability? Then you take the squared absolute value of the result.
+
+1:29:04.400 --> 1:29:10.800
+ That gives you a number between zero and one, okay? So yeah, I just summarized quantum mechanics
+
+1:29:10.800 --> 1:29:17.920
+ in like 30 seconds, okay? But now, you know, what this already tells us is that anything I can do
+
+1:29:17.920 --> 1:29:23.840
+ with a quantum computer, I could simulate with a classical computer if I only have exponentially
+
+1:29:23.840 --> 1:29:30.480
+ more time, okay? And why is that? Because if I have exponential time, I could just write down this
+
+1:29:30.480 --> 1:29:36.960
+ entire branching tree and just explicitly calculate each of these amplitudes, right? You know, that
+
+1:29:36.960 --> 1:29:42.560
+ will be very inefficient, but it will work, right? It's enough to show that quantum computers could
+
+1:29:42.560 --> 1:29:47.600
+ not solve the halting problem or, you know, they could never do anything that is literally
+
+1:29:47.600 --> 1:29:54.400
+ uncomputable in Turing's sense, okay? But now, as I said, there's even a stronger result which says
+
+1:29:54.400 --> 1:30:02.400
+ that BQP is contained in PSPACE. The way that we prove that is that we say, if all I want is to
+
+1:30:02.400 --> 1:30:08.240
+ calculate the probability of some particular output happening, you know, which is all I need to
+
+1:30:08.240 --> 1:30:13.520
+ simulate a quantum computer, really, then I don't need to write down the entire quantum state,
+
+1:30:13.520 --> 1:30:20.400
+ which is an exponentially large object. All I need to do is just calculate what is the amplitude for
+
+1:30:20.400 --> 1:30:27.840
+ that final state. And to do that, I just have to sum up all the amplitudes that lead to that state.
+
+1:30:27.840 --> 1:30:34.240
+ Okay, so that's an exponentially large sum, but I can calculate it just reusing the same memory over
+
+1:30:34.240 --> 1:30:38.800
+ and over for each term in the sum. And hence the p, in the PSPACE? Hence the PSPACE. Yeah.
+
+1:30:39.600 --> 1:30:46.000
+ So what, out of that whole complexity zoo, and it could be BQP, what do you find is the most,
+
+1:30:46.000 --> 1:30:53.680
+ the class that captured your heart the most, the most beautiful class that's just, yeah.
+
+1:30:53.680 --> 1:31:03.680
+ I used, as my email address, bqpqpoly at gmail.com. Yes, because BQP slash Qpoly,
+
+1:31:03.680 --> 1:31:06.240
+ well, you know, amazingly no one had taken it.
+
+1:31:06.240 --> 1:31:07.760
+ Amazing, amazing.
+
+1:31:07.760 --> 1:31:12.400
+ But, you know, this is a class that I was involved in sort of defining,
+
+1:31:12.400 --> 1:31:18.240
+ proving the first theorems about in 2003 or so. So it was kind of close to my heart.
+
+1:31:18.240 --> 1:31:24.480
+ But this is like, if we extended BQP, which is the class of everything we can do efficiently
+
+1:31:24.480 --> 1:31:31.280
+ with a quantum computer, to allow quantum advice, which means imagine that you had some
+
+1:31:31.280 --> 1:31:36.640
+ special initial state, okay, that could somehow help you do computation. And maybe
+
+1:31:36.640 --> 1:31:43.040
+ such a state would be exponentially hard to prepare, okay, but maybe somehow these states
+
+1:31:43.040 --> 1:31:46.880
+ were formed in the Big Bang or something, and they've just been sitting around ever since,
+
+1:31:46.880 --> 1:31:53.040
+ right? If you found one, and if this state could be like ultra power, there are no limits on how
+
+1:31:53.040 --> 1:31:58.880
+ powerful it could be, except that this state doesn't know in advance which input you've got,
+
+1:31:58.880 --> 1:32:05.040
+ right? It only knows the size of your input. You know, and that's BQP slash Qpoly. So that's
+
+1:32:05.040 --> 1:32:11.200
+ one that I just personally happen to love, okay? But, you know, if you're asking like what's the,
+
+1:32:11.200 --> 1:32:18.960
+ you know, there's a class that I think is way more beautiful or fundamental than a lot of people
+
+1:32:18.960 --> 1:32:26.720
+ even within this field realize that it is. That class is called SZK, or Statistical Zero Knowledge.
+
+1:32:28.080 --> 1:32:32.880
+ And, you know, there's a very, very easy way to define this class, which is to say, suppose that
+
+1:32:32.880 --> 1:32:39.280
+ I have two algorithms that each sample from probability distributions, right? So each one
+
+1:32:39.280 --> 1:32:45.680
+ just outputs random samples according to, you know, possibly different distributions. And now
+
+1:32:45.680 --> 1:32:50.800
+ the question I ask is, you know, let's say distributions over strings of n bits, you know,
+
+1:32:50.800 --> 1:32:57.680
+ so over an exponentially large space. Now I ask, are these two distributions close or far as
+
+1:32:57.680 --> 1:33:04.000
+ close or far as probability distributions? Okay. Any problem that can be reduced to that,
+
+1:33:04.000 --> 1:33:10.320
+ you know, that can be put into that form is an SZK problem. And the way that this class was
+
+1:33:10.320 --> 1:33:15.040
+ originally discovered was completely different from that and was kind of more complicated. It
+
+1:33:15.040 --> 1:33:21.280
+ was discovered as the class of all of the problems that have a certain kind of what's called zero
+
+1:33:21.280 --> 1:33:27.920
+ knowledge proof. Zero knowledge proofs are one of the central ideas in cryptography. You know,
+
+1:33:27.920 --> 1:33:33.200
+ Shafi Goldwasser and Silvio McCauley won the Turing Award for, you know, inventing them.
+
+1:33:33.200 --> 1:33:38.960
+ And they're at the core of even some cryptocurrencies that, you know, people use
+
+1:33:38.960 --> 1:33:45.840
+ nowadays. But zero knowledge proofs are ways of proving to someone that something is true,
+
+1:33:45.840 --> 1:33:53.440
+ like, you know, that there is a solution to this, you know, optimization problem or that these two
+
+1:33:53.440 --> 1:33:59.440
+ graphs are isomorphic to each other or something, but without revealing why it's true, without
+
+1:33:59.440 --> 1:34:06.720
+ revealing anything about why it's true. Okay. SZK is all of the problems for which there is such a
+
+1:34:06.720 --> 1:34:13.680
+ proof that doesn't rely on any cryptography. Okay. And if you wonder, like, how could such a thing
+
+1:34:13.680 --> 1:34:20.560
+ possibly exist, right? Well, like, imagine that I had two graphs and I wanted to convince you
+
+1:34:20.560 --> 1:34:26.080
+ that these two graphs are not isomorphic, meaning, you know, I cannot permute one of them so that
+
+1:34:26.080 --> 1:34:30.720
+ it's the same as the other one, right? You know, that might be a very hard statement to prove,
+
+1:34:30.720 --> 1:34:35.280
+ right? I might need, you know, you might have to do a very exhaustive enumeration of, you know,
+
+1:34:35.280 --> 1:34:40.000
+ all the different permutations before you were convinced that it was true. But what if there were
+
+1:34:40.000 --> 1:34:45.920
+ some all knowing wizard that said to you, look, I'll tell you what, just pick one of the graphs
+
+1:34:45.920 --> 1:34:52.320
+ randomly, then randomly permute it, then send it to me and I will tell you which graph you started
+
+1:34:52.320 --> 1:35:02.720
+ with. Okay. And I will do that every single time. Right. And let's say that that wizard did that a
+
+1:35:02.720 --> 1:35:08.240
+ hundred times and it was right every time. Yeah. Right. Now, if the graphs were isomorphic, then,
+
+1:35:08.240 --> 1:35:13.120
+ you know, it would have been flipping a coin each time, right? It would have had only a one and two
+
+1:35:13.120 --> 1:35:18.800
+ to the 100 power chance of, you know, of guessing right each time. But, you know, so, so if it's
+
+1:35:18.800 --> 1:35:24.240
+ right every time, then now you're statistically convinced that these graphs are not isomorphic,
+
+1:35:24.240 --> 1:35:28.720
+ even though you've learned nothing new about why they aren't. So fascinating. So yeah. So,
+
+1:35:28.720 --> 1:35:35.040
+ so SDK is all of the problems that have protocols like that one, but it has this beautiful other
+
+1:35:35.040 --> 1:35:40.160
+ characterization. It's shown up again and again in my, in my own work and, you know, a lot of
+
+1:35:40.160 --> 1:35:45.200
+ people's work. And I think that it really is one of the most fundamental classes. It's just that
+
+1:35:45.200 --> 1:35:49.920
+ people didn't realize that when it was first discovered. So we're living in the middle of
+
+1:35:49.920 --> 1:35:56.720
+ a pandemic currently. Yeah. How has your life been changed or no better to ask, like, how has your
+
+1:35:56.720 --> 1:36:03.360
+ perspective of the world change with this world changing event of a pandemic overtaking the entire
+
+1:36:03.360 --> 1:36:08.240
+ world? Yeah. Well, I mean, I mean, all of our lives have changed, you know, like, I guess,
+
+1:36:08.800 --> 1:36:13.760
+ as with no other event since I was born, you know, you would have to go back to world war II
+
+1:36:13.760 --> 1:36:18.720
+ for something, I think of this magnitude, you know, on, you know, the way that we live our lives
+
+1:36:19.280 --> 1:36:26.240
+ as for how it has changed my worldview. I think that the, the failure of institutions,
+
+1:36:26.240 --> 1:36:32.720
+ you know, like, like, like the CDC, like, you know, other institutions that we sort of thought
+
+1:36:32.720 --> 1:36:40.160
+ were, were trustworthy, like a lot of the media was staggering, was, was absolutely breathtaking.
+
+1:36:40.720 --> 1:36:46.960
+ It is something that I would not have predicted. Right. I think I, I wrote on my blog that, you
+
+1:36:46.960 --> 1:36:53.680
+ know, the, you know, it's, it's, it's fascinating to like rewatch the movie Contagion from a decade
+
+1:36:53.680 --> 1:37:00.880
+ ago, right. That correctly foresaw so many aspects of, you know, what was going on, you know, an
+
+1:37:00.880 --> 1:37:06.800
+ airborne, you know, virus originates in China, spreads to, you know, much of the world, you know,
+
+1:37:06.800 --> 1:37:12.800
+ shuts everything down until a vaccine can be developed. You know, everyone has to stay at home,
+
+1:37:12.800 --> 1:37:18.480
+ you know, you know, it gets, you know, an enormous number of things, right. Okay. But the one thing
+
+1:37:18.480 --> 1:37:23.600
+ that they could not imagine, you know, is that like in this movie, everyone from the government
+
+1:37:23.600 --> 1:37:30.320
+ is like hyper competent, hyper, you know, dedicated to the public good, right. And you
+
+1:37:30.320 --> 1:37:33.680
+ know, yeah, they're the, they're the best of the best, you know, they could, you know, and, and
+
+1:37:33.680 --> 1:37:39.760
+ there are these conspiracy theorists, right. Who think, you know, you know, this is all fake news.
+
+1:37:39.760 --> 1:37:44.400
+ There's no, there's not really a pandemic. And those are some random people on the internet who
+
+1:37:44.400 --> 1:37:49.680
+ the hyper competent government people have to, you know, oppose, right. They, you know, in, in trying
+
+1:37:49.680 --> 1:37:55.040
+ to envision the worst thing that could happen, like, you know, the, the, there was a failure of
+
+1:37:55.040 --> 1:38:01.440
+ imagination. The movie makers did not imagine that the conspiracy theorists and the, you know,
+
+1:38:01.440 --> 1:38:07.200
+ and the incompetence and the nutcases would have captured our institutions and be the ones actually
+
+1:38:07.200 --> 1:38:13.520
+ running things. So you had a certain, I love competence in all walks of life. I love, I get
+
+1:38:13.520 --> 1:38:19.280
+ so much energy. I'm so excited by people who do amazing job. And I like you, or maybe you can
+
+1:38:19.280 --> 1:38:24.240
+ clarify, but I had maybe not intuition, but I hope that government at its best could be ultra
+
+1:38:24.240 --> 1:38:31.200
+ competent. What, first of all, two questions, like how do you explain the lack of confidence
+
+1:38:31.200 --> 1:38:36.160
+ and the other, maybe on the positive side, how can we build a more competent government?
+
+1:38:36.960 --> 1:38:41.680
+ Well, there's an election in two months. I mean, you have a faith that the election,
+
+1:38:41.680 --> 1:38:45.920
+ I, you know, it's not going to fix everything, but you know, it's like,
+
+1:38:45.920 --> 1:38:49.760
+ I feel like there is a ship that is sinking and you could at least stop the sinking.
+
+1:38:49.760 --> 1:38:55.200
+ But, you know, I think that there are much, much deeper problems. I mean, I think that,
+
+1:38:56.960 --> 1:39:03.520
+ you know, it is plausible to me that, you know, a lot of the failures, you know, with the CDC,
+
+1:39:03.520 --> 1:39:09.840
+ with some of the other health agencies, even, you know, predate Trump, you know, predate the,
+
+1:39:09.840 --> 1:39:16.400
+ you know, right wing populism that has sort of taken over much of the world now. And, you know,
+
+1:39:16.400 --> 1:39:23.760
+ I think that, you know, it is, you know, it is very, I'm actually, you know, I've actually been
+
+1:39:23.760 --> 1:39:31.360
+ strongly in favor of, you know, rushing vaccines of, you know, I thought that we could have done,
+
+1:39:31.360 --> 1:39:36.880
+ you know, human challenge trials, you know, which were not done, right? We could have, you know,
+
+1:39:36.880 --> 1:39:44.480
+ like had, you know, volunteers, you know, to actually, you know, be, you know, get vaccines,
+
+1:39:44.480 --> 1:39:49.680
+ get, you know, exposed to COVID. So innovative ways of accelerating what we've done previously
+
+1:39:49.680 --> 1:39:56.000
+ over a long time. I thought that, you know, each month that a vaccine is closer is like trillions
+
+1:39:56.000 --> 1:40:01.120
+ of dollars. Are you surprised? And of course, lives, you know, at least, you know, hundreds
+
+1:40:01.120 --> 1:40:05.680
+ of thousands of lives. Are you surprised that it's taking this long? We still don't have a plan.
+
+1:40:05.680 --> 1:40:11.840
+ There's still not a feeling like anyone is actually doing anything in terms of alleviating,
+
+1:40:11.840 --> 1:40:16.080
+ like any kind of plan. So there's a bunch of stuff, there's vaccine, but you could also do
+
+1:40:16.080 --> 1:40:21.200
+ a testing infrastructure where everybody's tested nonstop with contact tracing, all that kind of.
+
+1:40:21.200 --> 1:40:27.520
+ Well, I mean, I'm as surprised as almost everyone else. I mean, this is a historic failure. It is
+
+1:40:27.520 --> 1:40:33.360
+ one of the biggest failures in the 240 year history of the United States, right? And we should
+
+1:40:33.360 --> 1:40:38.960
+ be, you know, crystal clear about that. And, you know, one thing that I think has been missing,
+
+1:40:38.960 --> 1:40:45.840
+ you know, even from the more competent side is like, you know, is sort of the World War II
+
+1:40:45.840 --> 1:40:52.960
+ mentality, right? The, you know, the mentality of, you know, let's just, you know, you know,
+
+1:40:52.960 --> 1:40:59.920
+ if we can, by breaking a whole bunch of rules, you know, get a vaccine and, you know, and even
+
+1:40:59.920 --> 1:41:07.200
+ half the amount of time as we thought, then let's just do that because, you know, like we have to
+
+1:41:07.200 --> 1:41:13.520
+ weigh all of the moral qualms that we have about doing that against the moral qualms of not doing.
+
+1:41:13.520 --> 1:41:18.880
+ And one key little aspect to that that's deeply important to me, and we'll go into that topic
+
+1:41:18.880 --> 1:41:24.320
+ next, is the World War II mentality wasn't just about, you know, breaking all the rules to get
+
+1:41:24.320 --> 1:41:31.600
+ the job done. There was a togetherness to it. So I would, if I were president right now, it seems
+
+1:41:31.600 --> 1:41:39.440
+ quite elementary to unite the country because we're facing a crisis. It's easy to make the
+
+1:41:39.440 --> 1:41:46.240
+ virus the enemy. And it's very surprising to me that the division has increased as opposed to
+
+1:41:46.240 --> 1:41:51.360
+ decrease. That's heartbreaking. Yeah. Well, look, I mean, it's been said by others that this is the
+
+1:41:51.360 --> 1:41:57.200
+ first time in the country's history that we have a president who does not even pretend to, you know,
+
+1:41:57.200 --> 1:42:06.080
+ want to unite the country. I mean, Lincoln, who fought a civil war, said he wanted to unite the
+
+1:42:06.080 --> 1:42:15.120
+ country. And I do worry enormously about what happens if the results of this election are
+
+1:42:15.120 --> 1:42:22.320
+ contested. And will there be violence as a result of that? And will we have a clear path of succession?
+
+1:42:22.320 --> 1:42:27.120
+ And, you know, look, I mean, you know, this is all we're going to find out the answers to this in
+
+1:42:27.120 --> 1:42:31.840
+ two months. And if none of that happens, maybe I'll look foolish. But I am willing to go on the
+
+1:42:31.840 --> 1:42:37.040
+ record and say, I am terrified about that. Yeah, I've been reading The Rise and Fall of the Third
+
+1:42:37.040 --> 1:42:46.160
+ Reich. So if I can, this is like one little voice just to put out there that I think November will
+
+1:42:46.160 --> 1:42:55.680
+ be a really critical month for people to breathe and put love out there. Do not, you know, anger in
+
+1:42:55.680 --> 1:43:01.360
+ those in that context, no matter who wins, no matter what is said, will destroy our country,
+
+1:43:01.360 --> 1:43:05.760
+ may destroy our country, may destroy the world because of the power of the country. So it's
+
+1:43:05.760 --> 1:43:11.600
+ really important to be patient, loving, empathetic. Like one of the things that troubles me is that
+
+1:43:11.600 --> 1:43:17.920
+ even people on the left are unable to have a love and respect for people who voted for Trump. They
+
+1:43:17.920 --> 1:43:23.600
+ can't imagine that there's good people that could vote for the opposite side. Oh, I know there are
+
+1:43:23.600 --> 1:43:29.040
+ because I know some of them, right? I mean, you know, it's still, you know, maybe it baffles me,
+
+1:43:29.040 --> 1:43:34.240
+ but, you know, I know such people. Let me ask you this. It's also heartbreaking to me
+
+1:43:34.800 --> 1:43:39.120
+ on the topic of cancel culture. So in the machine learning community, I've seen it a little bit
+
+1:43:39.120 --> 1:43:46.800
+ that there's aggressive attacking of people who are trying to have a nuanced conversation about
+
+1:43:46.800 --> 1:43:55.360
+ things. And it's troubling because it feels like nuanced conversation is the only way to talk about
+
+1:43:55.360 --> 1:44:02.320
+ difficult topics. And when there's a thought police and speech police on any nuanced conversation
+
+1:44:02.320 --> 1:44:09.280
+ that everybody has to like in a animal farm chant that racism is bad and sexism is bad, which is
+
+1:44:09.280 --> 1:44:15.440
+ things that everybody believes and they can't possibly say anything nuanced. It feels like it
+
+1:44:15.440 --> 1:44:20.560
+ goes against any kind of progress from my kind of shallow perspective. But you've written a little
+
+1:44:20.560 --> 1:44:28.000
+ bit about cancel culture. Do you have thoughts there? Well, I mean, to say that I am opposed to,
+
+1:44:28.000 --> 1:44:35.040
+ you know, this trend of cancellations or of shouting people down rather than engaging them,
+
+1:44:35.040 --> 1:44:40.640
+ that would be a massive understatement, right? And I feel like, you know, I have put my money
+
+1:44:40.640 --> 1:44:46.160
+ where my mouth is, you know, not as much as some people have, but, you know, I've tried to do
+
+1:44:46.160 --> 1:44:52.960
+ something. I mean, I have defended, you know, some unpopular people and unpopular, you know, ideas
+
+1:44:52.960 --> 1:45:02.160
+ on my blog. I've, you know, tried to defend, you know, norms of open discourse, of, you know,
+
+1:45:02.160 --> 1:45:07.760
+ reasoning with our opponents, even when I've been shouted down for that on social media,
+
+1:45:07.760 --> 1:45:11.840
+ you know, called a racist, called a sexist, all of those things. And which, by the way,
+
+1:45:11.840 --> 1:45:17.680
+ I should say, you know, I would be perfectly happy to, you know, if we had time to say, you know,
+
+1:45:17.680 --> 1:45:25.600
+ you know, 10,000 times, you know, my hatred of racism, of sexism, of homophobia, right?
+
+1:45:25.600 --> 1:45:33.600
+ But what I don't want to do is to cede to some particular political faction the right to define
+
+1:45:33.600 --> 1:45:39.360
+ exactly what is meant by those terms to say, well, then you have to agree with all of these other
+
+1:45:39.360 --> 1:45:46.000
+ extremely contentious positions or else you are a misogynist or else you are a racist, right?
+
+1:45:46.000 --> 1:45:54.240
+ I say that, well, no, you know, don't I or, you know, don't people like me also get a say in the
+
+1:45:54.240 --> 1:46:00.080
+ discussion about, you know, what is racism, about what is going to be the most effective to combat
+
+1:46:00.080 --> 1:46:08.480
+ racism, right? And, you know, this cancellation mentality, I think, is spectacularly ineffective
+
+1:46:08.480 --> 1:46:13.200
+ at its own professed gall of, you know, combating racism and sexism.
+
+1:46:13.200 --> 1:46:19.440
+ What's a positive way out? So I, I try to, I don't know if you see what I do on Twitter,
+
+1:46:19.440 --> 1:46:25.680
+ but I, on Twitter, I mostly, in my whole, in my life, I've actually, it's who I am to the core is
+
+1:46:25.680 --> 1:46:31.440
+ like, I really focus on the positive and I try to put love out there in the world. And still,
+
+1:46:32.720 --> 1:46:36.720
+ I get attacked. And I look at that and I wonder like,
+
+1:46:36.720 --> 1:46:38.240
+ You too? I didn't know.
+
+1:46:38.240 --> 1:46:43.920
+ Like, I haven't actually said anything difficult and nuanced. You talk about somebody like
+
+1:46:43.920 --> 1:46:50.960
+ Steven Pinker, who I'm actually don't know the full range of things that he's attacked for,
+
+1:46:50.960 --> 1:46:55.440
+ but he tries to say difficult. He tries to be thoughtful about difficult topics.
+
+1:46:55.440 --> 1:46:55.840
+ He does.
+
+1:46:55.840 --> 1:46:59.920
+ And obviously he just gets slaughtered by.
+
+1:46:59.920 --> 1:47:06.400
+ Well, I mean, yes, but it's also amazing how well Steve has withstood it. I mean,
+
+1:47:06.400 --> 1:47:10.880
+ he just survived that attempt to cancel him just a couple of months ago, right?
+
+1:47:10.880 --> 1:47:15.360
+ Psychologically, he survives it too, which worries me because I don't think I can.
+
+1:47:15.360 --> 1:47:19.920
+ Yeah, I've gotten to know Steve a bit. He is incredibly unperturbed by this stuff.
+
+1:47:20.960 --> 1:47:26.320
+ And I admire that and I envy it. I wish that I could be like that. I mean, my impulse when I'm
+
+1:47:26.320 --> 1:47:32.960
+ getting attacked is I just want to engage every single like anonymous person on Twitter and Reddit
+
+1:47:32.960 --> 1:47:37.760
+ who is saying mean stuff about me. And I want to just say, well, look, can we just talk this over
+
+1:47:37.760 --> 1:47:43.280
+ for an hour? And then you'll see that I'm not that bad. And sometimes that even works. The
+
+1:47:43.280 --> 1:47:46.080
+ problem is then there's the 20,000 other ones.
+
+1:47:48.080 --> 1:47:50.640
+ That's not, but psychologically, does that wear on you?
+
+1:47:51.440 --> 1:47:56.080
+ It does. It does. But yeah, I mean, in terms of what is the solution, I mean, I wish I knew,
+
+1:47:56.080 --> 1:48:02.240
+ right? And so in a certain way, these problems are maybe harder than P versus NP, right?
+
+1:48:02.240 --> 1:48:10.560
+ I mean, but I think that part of it has to be that I think that there's a lot of sort of silent
+
+1:48:10.560 --> 1:48:17.360
+ support for what I'll call the open discourse side, the reasonable enlightenment side.
+
+1:48:17.360 --> 1:48:23.120
+ And I think that that support has to become less silent, right? I think that a lot of people
+
+1:48:23.120 --> 1:48:30.560
+ just sort of agree that a lot of these cancellations and attacks are ridiculous,
+
+1:48:30.560 --> 1:48:36.000
+ but are just afraid to say so, right? Or else they'll get shouted down as well, right? That's
+
+1:48:36.000 --> 1:48:42.560
+ just the standard witch hunt dynamic, which, of course, this faction understands and exploits to
+
+1:48:42.560 --> 1:48:52.880
+ its great advantage. But more people just said, we're not going to stand for this, right? This
+
+1:48:52.880 --> 1:49:01.440
+ is, guess what? We're against racism too. But what you're doing is ridiculous, right? And the
+
+1:49:01.440 --> 1:49:07.120
+ hard part is it takes a lot of mental energy. It takes a lot of time. Even if you feel like
+
+1:49:07.120 --> 1:49:12.560
+ you're not going to be canceled or you're staying on the safe side, it takes a lot of time to
+
+1:49:13.840 --> 1:49:19.200
+ phrase things in exactly the right way and to respond to everything people say.
+
+1:49:19.200 --> 1:49:29.520
+ So, but I think that the more people speak up from all political persuasions, from all walks
+
+1:49:29.520 --> 1:49:36.800
+ of life, then the easier it is to move forward. Since we've been talking about love, can you,
+
+1:49:37.520 --> 1:49:43.520
+ last time I talked to you about meaning of life a little bit, but here has, it's a weird question
+
+1:49:43.520 --> 1:49:50.720
+ to ask a computer scientist, but has love for other human beings, for things, for the world
+
+1:49:50.720 --> 1:49:59.440
+ around you played an important role in your life? Have you, it's easy for a world class
+
+1:49:59.440 --> 1:50:06.160
+ computer scientist, you could even call yourself like a physicist, everything to be lost in the
+
+1:50:06.160 --> 1:50:11.040
+ books. Is the connection to other humans, love for other humans played an important role?
+
+1:50:11.040 --> 1:50:24.880
+ I love my kids. I love my wife. I love my parents. I'm probably not different from most people in
+
+1:50:24.880 --> 1:50:32.880
+ loving their families and in that being very important in my life. Now, I should remind you
+
+1:50:32.880 --> 1:50:38.880
+ that I am a theoretical computer scientist. If you're looking for deep insight about the nature
+
+1:50:38.880 --> 1:50:45.920
+ of love, you're probably looking in the wrong place to ask me, but sure, it's been important.
+
+1:50:45.920 --> 1:50:53.200
+ But is there something from a computer science perspective to be said about love? Is that even
+
+1:50:53.200 --> 1:50:59.840
+ beyond into the realm of consciousness? There was this great cartoon, I think it
+
+1:50:59.840 --> 1:51:07.520
+ was one of the classic XKCDs where it shows a heart and it's squaring the heart, taking the
+
+1:51:07.520 --> 1:51:15.680
+ four year transform of the heart, integrating the heart, each thing and then it says my normal
+
+1:51:15.680 --> 1:51:21.760
+ approach is useless here. I'm so glad I asked this question. I think there's no better way to
+
+1:51:22.560 --> 1:51:26.960
+ end this. I hope we get a chance to talk again. This has been an amazing, cool experiment to do
+
+1:51:26.960 --> 1:51:31.040
+ it outside. I'm really glad you made it out. Yeah. Well, I appreciate it a lot. It's been a
+
+1:51:31.040 --> 1:51:36.640
+ pleasure and I'm glad you were able to come out to Austin. Thanks. Thanks for listening to this
+
+1:51:36.640 --> 1:51:44.480
+ conversation with Scott Aaronson. And thank you to our sponsors, 8sleep, SimpliSafe, ExpressVPN,
+
+1:51:44.480 --> 1:51:50.160
+ and BetterHelp. Please check out these sponsors in the description to get a discount and to
+
+1:51:50.160 --> 1:51:56.000
+ support this podcast. If you enjoy this thing, subscribe on YouTube, review it with five stars
+
+1:51:56.000 --> 1:52:01.680
+ on Apple Podcast, follow on Spotify, support on Patreon, or connect with me on Twitter
+
+1:52:01.680 --> 1:52:07.840
+ at Lex Friedman. And now let me leave you with some words from Scott Aaronson that I also gave
+
+1:52:07.840 --> 1:52:14.240
+ to you in the introduction, which is, if you always win, then you're probably doing something
+
+1:52:14.240 --> 1:52:21.120
+ wrong. Thank you for listening and for putting up with the intro and outro in this strange room in
+
+1:52:21.120 --> 1:52:36.320
+ the middle of nowhere. And I very much hope to see you next time in many more ways than one.
+

@@ -1,0 +1,4025 @@
+WEBVTT
+
+00:00.000 --> 00:05.360
+ The following is a conversation with Barry Barish, a theoretical physicist at Caltech
+
+00:05.360 --> 00:11.440
+ and the winner of the Nobel Prize in Physics for his contributions to the LIGO detector
+
+00:11.440 --> 00:18.000
+ and the observation of gravitational waves. LIGO, or the Laser Interferometer Gravitational Wave
+
+00:18.000 --> 00:24.320
+ Observatory, is probably the most precise measurement device ever built by humans.
+
+00:24.320 --> 00:31.680
+ It consists of two detectors with four kilometer long vacuum chambers situated three thousand
+
+00:31.680 --> 00:38.880
+ kilometers apart, operating in unison to measure a motion that is ten thousand times smaller than
+
+00:38.880 --> 00:44.640
+ the width of a proton. It is the smallest measurement ever attempted by science,
+
+00:44.640 --> 00:50.240
+ a measurement of gravitational waves caused by the most violent and cataclysmic events
+
+00:50.240 --> 00:54.800
+ in the universe, occurring over tens of millions of light years away.
+
+00:55.920 --> 00:59.840
+ To support this podcast, please check out our sponsors in the description.
+
+00:59.840 --> 01:19.840
+ This is the Lex Friedman Podcast and here is my conversation with Barry Barish.
+
+01:31.680 --> 01:42.160
+ Yeah, that memory is kind of something I use to illustrate something I think is common in science,
+
+01:42.160 --> 01:48.960
+ that people that do science somehow have maintained something that kids always have.
+
+01:49.760 --> 01:57.760
+ A small kid, eight years old or so, asks you so many questions usually, typically, that you
+
+01:57.760 --> 02:05.760
+ consider them pests. You tell them to stop asking so many questions. And somehow our system manages
+
+02:05.760 --> 02:13.680
+ to kill that in most people. So in school, we make people study and do their things,
+
+02:13.680 --> 02:21.760
+ but not to pester them by asking too many questions. And I think, not just myself,
+
+02:21.760 --> 02:28.160
+ but I think it's typical of scientists like myself that have somehow escaped that. Maybe
+
+02:28.160 --> 02:36.320
+ we're still children or maybe we somehow didn't get it beaten out of us. But I teach it in college
+
+02:36.320 --> 02:42.400
+ level and it's, to me, one of the biggest deficits is the lack of curiosity, if you want,
+
+02:42.400 --> 02:46.480
+ that we've beaten out of them because I think it's an innate human quality.
+
+02:46.480 --> 02:50.560
+ Is there some advice or insights you can give to how to keep that flame of curiosity going?
+
+02:50.560 --> 02:57.920
+ I think it's a problem of both parents and that parents should realize that's a great quality we
+
+02:57.920 --> 03:03.840
+ have. That you're curious and that's good. Instead, we have expressions like curiosity
+
+03:03.840 --> 03:14.160
+ killed the cat and more. But basically, it's not thought to be a good thing. Curiosity
+
+03:14.160 --> 03:16.960
+ killed the cat means if you're too curious, you get in trouble.
+
+03:16.960 --> 03:21.200
+ I don't like cats anyway, so maybe it's a good thing.
+
+03:21.200 --> 03:28.960
+ Yeah. That, to me, needs to be solved, really, in education and in homes. It's a realization
+
+03:28.960 --> 03:34.480
+ that there's certain human qualities that we should try to build on and not destroy. One of
+
+03:34.480 --> 03:40.160
+ them is curiosity. Anyway, back to me and curiosity. I was a pest and asked a lot of
+
+03:40.160 --> 03:46.880
+ questions. My father generally could answer them at that age. And the first one I remember that he
+
+03:46.880 --> 03:56.320
+ couldn't answer was not a very original question, but basically that ice is made out of water,
+
+03:56.320 --> 04:05.680
+ and so why does it float on water? He couldn't answer it. It may not have been the first
+
+04:05.680 --> 04:11.040
+ question. It's the first one that I remember. And that was the first time that I realized that
+
+04:11.040 --> 04:17.840
+ to learn and answer your own curiosity or questions, there's various mechanisms. In
+
+04:17.840 --> 04:23.600
+ this case, it was going to the library or asking people who know more and so forth. But
+
+04:23.600 --> 04:33.200
+ eventually, you do it by what we call research. But it's driven by, hopefully, you ask good
+
+04:33.200 --> 04:37.920
+ questions. If you ask good questions and you have the mechanism to solve them, then you do what I
+
+04:37.920 --> 04:45.040
+ do in life, basically, not necessarily physics. And it's a great quality in humans, and we should
+
+04:45.040 --> 04:52.320
+ nurture it. Do you remember any other kind of in high school, maybe early college, more basic
+
+04:52.320 --> 04:57.360
+ physics ideas that sparked your curiosity or mathematics or science in general?
+
+04:57.360 --> 05:02.960
+ I wasn't really into science until I got to college, to be honest with you. But
+
+05:02.960 --> 05:14.320
+ just staying with water for a minute, I remember that I was curious what happens to water. It rains
+
+05:14.320 --> 05:18.560
+ and there's water in a wet pavement, and then the pavement dries out. What happened to this
+
+05:19.120 --> 05:24.960
+ water that came down? And I didn't know that much. And then eventually, I learned in chemistry or
+
+05:24.960 --> 05:29.840
+ something, water is made out of hydrogen and oxygen. Those are both gases. So how the heck
+
+05:29.840 --> 05:38.560
+ does it make this substance? It's liquid. Yeah, so that has to do with states of matter.
+
+05:39.440 --> 05:46.480
+ I know perhaps LIGO and the thing for which you've gotten the Nobel Prize and the things
+
+05:46.480 --> 05:53.040
+ much of your life work perhaps was a happy accident in some sense in the early days. But
+
+05:53.040 --> 05:57.840
+ is there a moment where you looked up to the stars and also, the same way you wondered about water,
+
+05:57.840 --> 06:00.640
+ wondered about some of the things that are out there in the universe?
+
+06:01.600 --> 06:10.240
+ Oh, yeah, I think everybody looks and is in awe and is curious about what it is out there. And
+
+06:10.240 --> 06:17.280
+ as I learned more, I learned, of course, that we don't know very much about what's there. And the
+
+06:17.280 --> 06:22.720
+ more we learn, the more we know we don't know. I mean, we don't know what the majority of anything
+
+06:22.720 --> 06:27.840
+ is out there. It's all what we call dark matter and dark energy. And that's one of the big
+
+06:27.840 --> 06:33.280
+ questions. When I was a student, those weren't questions. So we even know less, in a sense,
+
+06:33.280 --> 06:43.200
+ the more we look. So of course, I think that's one of the areas that almost it's universal.
+
+06:43.200 --> 06:49.040
+ People see the sky, they see the stars and they're beautiful and see it looks different
+
+06:49.040 --> 06:52.880
+ on different nights. And it's a curiosity that we all have.
+
+06:54.160 --> 07:01.040
+ What are some questions about the universe that in the same way that you felt about the ice
+
+07:01.600 --> 07:07.040
+ that today? You mentioned to me offline, you're teaching a course on the frontiers of science,
+
+07:07.040 --> 07:12.800
+ frontiers of physics. What are some questions outside the ones we'll probably talk about that
+
+07:12.800 --> 07:23.520
+ kind of, yeah, fill you with the, get your flame of curiosity up and firing up, you know,
+
+07:23.520 --> 07:29.280
+ fill you with awe? Well, first, I'm a physicist, not an astronomer. So I'm interested in the
+
+07:29.280 --> 07:36.960
+ physical phenomenon, really. So the question of dark matter and dark energy, which we probably
+
+07:36.960 --> 07:45.360
+ won't talk about, our recent last 20, 30 years, certainly dark energy. Dark energy is a complete
+
+07:45.360 --> 07:53.280
+ puzzle. It goes against what you will ask me about, which is general relativity and Einstein's
+
+07:53.280 --> 08:00.400
+ general relativity. It basically takes something that he thought was what he called a constant,
+
+08:00.400 --> 08:09.760
+ which isn't. And if that's even the right theory, and it represents most of the universe. And then
+
+08:09.760 --> 08:14.480
+ we have something called dark matter, and there's good reason to believe it might be an exotic form
+
+08:14.480 --> 08:22.800
+ of particles. And that is something I've always worked on, on particle accelerators and so forth.
+
+08:22.800 --> 08:28.320
+ And it's a big puzzle, what it is. It's a bit of a cottage industry in that there's lots and lots
+
+08:28.320 --> 08:34.320
+ of searches, but it may be a little bit like, you know, looking for a treasure under rocks or
+
+08:34.320 --> 08:40.640
+ something. You don't, it's hard to, we don't have really good guidance, except that we have very,
+
+08:40.640 --> 08:49.520
+ very good information that is pervasive and it's there. And that it's probably particles, small,
+
+08:49.520 --> 08:57.200
+ that the evidence is all of those things. But then the most logical solution doesn't seem to work,
+
+08:57.200 --> 09:04.880
+ something called supersymmetry. And do you think the answer could be something very complicated?
+
+09:06.400 --> 09:12.560
+ You know, I like to hope that, think that most things that appear complicated are actually
+
+09:12.560 --> 09:19.440
+ simple if you really understand them. I think we just don't know at the present time, and it isn't
+
+09:19.440 --> 09:26.480
+ something that affects us. It does affect, it affects how the stars go around each other and so
+
+09:26.480 --> 09:32.960
+ forth, because we detect that there's missing gravity, but it doesn't affect everyday life at
+
+09:32.960 --> 09:42.480
+ all. I tend to think and expect maybe, and that the answers will be simple. We just haven't found
+
+09:42.480 --> 09:48.800
+ it yet. Do you think those answers might change the way we see other sources of gravity, black holes,
+
+09:49.280 --> 09:57.280
+ the way we see the parts of the universe that we do study? It's conceivable. The black holes that
+
+09:57.280 --> 10:06.000
+ we've found in our experiment, we're trying now to understand the origin of those. It's conceivable,
+
+10:06.000 --> 10:11.360
+ but doesn't seem the most likely that they were primordial, that is, they were made at the
+
+10:11.360 --> 10:15.840
+ beginning. And in that sense, they could represent at least part of the dark matter.
+
+10:16.800 --> 10:23.040
+ So there can be connections, dark black holes or how many there are, how much of the mass they
+
+10:23.040 --> 10:28.560
+ encompass is still pretty primitive. We don't know. So before I talk to you more about black holes,
+
+10:28.560 --> 10:33.760
+ let me take a step back to, I actually went to high school in Chicago and would go to
+
+10:34.720 --> 10:43.120
+ take classes at Fermilab, watch the buffalo and so on. So let me ask about, you mentioned that Enrico
+
+10:43.120 --> 10:50.080
+ for me was somebody who was inspiring to you in a certain kind of way. Why is that? Can you speak
+
+10:50.080 --> 10:59.440
+ to that? Sure. He was amazing, actually. He's the last, I'll come to the reason in a minute, but
+
+11:00.960 --> 11:11.200
+ he had a big influence on me at a young age. But he was the last physicist of note that was both
+
+11:11.200 --> 11:17.680
+ an experimental physicist and a theorist at the same time. And he did two amazing things within
+
+11:17.680 --> 11:29.360
+ months in 1933. We didn't really know what the nucleus was, what radioactive decay was,
+
+11:29.360 --> 11:42.880
+ what beta decay was when electrons come out of a nucleus. And near the end of 1933, the neutron had
+
+11:42.880 --> 11:47.680
+ just been discovered. And that meant that we knew a little bit more about what the nucleus is, that
+
+11:47.680 --> 11:54.640
+ it's made out of neutrons and protons. The neutron wasn't discovered till 1932. And then once we
+
+11:54.640 --> 12:00.160
+ discovered that there was a neutron and proton and they made the nucleus and then their electrons
+
+12:00.160 --> 12:08.240
+ that go around, the basic ingredients were there. And he wrote down not only just the theory,
+
+12:08.240 --> 12:16.560
+ a theory, but a theory that lasted decades and has only been improved on of beta decay, that is,
+
+12:16.560 --> 12:24.480
+ the radiation. He did this, came out of nowhere, and it was a fantastic theory. He submitted it
+
+12:24.480 --> 12:33.040
+ to Nature magazine, which was the primary best place to publish even then. And it got rejected
+
+12:33.040 --> 12:42.000
+ as being too speculative. And so he went back to his drawing board in Rome where he was,
+
+12:42.800 --> 12:48.720
+ added some to it, made it even longer, because it's really a classic article, and then published
+
+12:48.720 --> 12:58.720
+ it in the local Italian journal for physics and the German one. At the same time, in January of
+
+12:58.720 --> 13:07.360
+ 1932, Giulio and Curie, for the first time, saw artificial radioactivity. This was an important
+
+13:07.360 --> 13:14.080
+ discovery because radioactivity had been discovered much earlier. They had x rays and you
+
+13:14.080 --> 13:19.680
+ shouldn't be using them, but there was radioactivity. People knew it was useful for medicine.
+
+13:21.440 --> 13:26.960
+ But radioactive materials are hard to find, and so it wasn't prevalent. But if you could make them,
+
+13:26.960 --> 13:35.440
+ they had great use. And Giulio and Curie were able to bombard aluminum or something with alpha
+
+13:35.440 --> 13:44.720
+ particles and find that they excited something that decayed and had some half life and so forth,
+
+13:44.720 --> 13:51.520
+ meaning it was artificial version, or let's call it not a natural version, an induced version of
+
+13:51.520 --> 14:04.800
+ radioactive materials. And Fermi somehow had the insight, and I still can't see where he got it,
+
+14:05.440 --> 14:12.400
+ that the right way to follow that up was not using charged particles like alphas and so forth,
+
+14:12.400 --> 14:19.840
+ but use these newly discovered neutrons as the bombarding particle. It seemed impossible
+
+14:19.840 --> 14:26.640
+ they barely had been seen. It was hard to get very many of them. But it had the advantage that
+
+14:26.640 --> 14:35.840
+ they're not charged, so they go right into the nucleus. And that turned out to be the experimental
+
+14:35.840 --> 14:42.880
+ work that he did that won him the Nobel Prize. And it was the first step in fission, discovery
+
+14:42.880 --> 14:50.000
+ of fission. And he did this two completely different things, an experiment that was a great
+
+14:50.000 --> 14:57.520
+ idea and a tremendous implementation, because how do you get enough neutrons? And then he learned
+
+14:58.080 --> 15:04.000
+ quickly that not only do you want neutrons, but you want really slow ones. He learned that
+
+15:04.000 --> 15:09.680
+ experimentally, and he learned how to make slow ones, and then they were able to go through the
+
+15:09.680 --> 15:16.960
+ go through the periodic table and make lots of particles. He missed on fission at the moment,
+
+15:16.960 --> 15:21.760
+ but he had the basic information, and then fission follows soon after that.
+
+15:21.760 --> 15:27.280
+ Forgive me for not knowing, but is the birth of the idea of bombarding with neutrons,
+
+15:29.200 --> 15:35.760
+ is that an experimental idea? Was it born out of an experiment? Did he just observe something,
+
+15:35.760 --> 15:40.160
+ or is this an Einstein style idea where you come up from basic intuition?
+
+15:40.160 --> 15:46.560
+ I think it took a combination, because he realized that neutrons had a characteristic
+
+15:46.560 --> 15:51.360
+ that would allow them to go all the way into the nucleus when we didn't really understand
+
+15:53.760 --> 16:00.640
+ what the structure was of all this. So that took an understanding or recognition of the physics
+
+16:00.640 --> 16:06.320
+ itself of how a neutron interacts compared to, say, an alpha particle that Julio and Curie had
+
+16:06.320 --> 16:16.640
+ used. And then he had to invent a way to have enough neutrons, and he had a team of associates,
+
+16:16.640 --> 16:20.560
+ and he pulled it off quite quickly. So it was pretty astounding.
+
+16:21.920 --> 16:28.640
+ And probably, maybe you can speak to it, his ability to put together the engineering aspects
+
+16:28.640 --> 16:33.440
+ of great experiments and doing the theory, they probably fed each other. I wonder,
+
+16:33.440 --> 16:37.760
+ can you speak to why we don't see more of that? Is that just really difficult to do?
+
+16:38.400 --> 16:45.200
+ It's difficult to do. Yeah, I think in both theory and experiment in physics anyway,
+
+16:47.920 --> 16:52.960
+ it was conceivable if you had the right person to do it, and no one's been able to do it since. So
+
+16:52.960 --> 16:56.480
+ I had the dream that that was what I was going to be like, Fermi.
+
+16:56.480 --> 17:01.680
+ But you love both sides of it, the theory. Yeah, I never liked the idea that you did
+
+17:01.680 --> 17:05.760
+ experiments without really understanding the theory, or the theory should be related
+
+17:05.760 --> 17:11.600
+ very closely to experiments. And so I've always done experimental work that was closely related
+
+17:11.600 --> 17:16.640
+ to the theoretical ideas. I think I told you I'm Russian,
+
+17:16.640 --> 17:23.440
+ so I'm going to ask some romantic questions. But is it tragic to you that he's seen as the
+
+17:23.440 --> 17:29.440
+ architect of the nuclear age, that some of his creations led to potentially, some of his work
+
+17:30.560 --> 17:37.120
+ has led to potentially still the destruction of the human species, some of the most destructive
+
+17:38.080 --> 17:47.120
+ weapons? Yeah, I think even more general than him, I gave you all the virtues of curiosity a few
+
+17:47.120 --> 17:52.320
+ minutes ago. There's an interesting book called The Ratchet of Curiosity. A ratchet is something
+
+17:52.320 --> 17:59.520
+ that goes in one direction. And that is written by a guy who's probably a sociologist or philosopher
+
+17:59.520 --> 18:06.080
+ or something. And he picks on this particular problem, but other ones. And that is the danger
+
+18:06.080 --> 18:11.040
+ of knowledge, basically. You're curious, you learn something. So it's a little bit like
+
+18:11.040 --> 18:16.320
+ curiosity killed the cat. You have to be worried about whether you can handle new information that
+
+18:16.320 --> 18:22.960
+ you get. So in this case, the new information had to do with really understanding nuclear physics.
+
+18:22.960 --> 18:30.240
+ And that information, maybe we didn't have the sophistication to know how to keep it under
+
+18:30.240 --> 18:40.640
+ control. And Fermi himself was a very apolitical person. So he wasn't very driven by, or at least
+
+18:41.200 --> 18:46.080
+ he appears in all of his writing, the writing of his wife, the interactions that others had with
+
+18:46.080 --> 18:52.000
+ him. Either he avoided it all or he was pretty apolitical. I mean, he just saw the world through
+
+18:52.000 --> 19:01.120
+ kind of the lens of a scientist. But he asked if it's tragic. The bomb was tragic, certainly on
+
+19:01.120 --> 19:08.640
+ Japan. And he had a role in that. So I wouldn't want it as my legacy, for example. But brought
+
+19:08.640 --> 19:19.200
+ it to the human species that it's the ratchet of curiosity that we do stuff just to see what
+
+19:19.200 --> 19:26.720
+ happens. That curiosity, that in sort of my area of artificial intelligence, that's been a concern.
+
+19:27.840 --> 19:33.760
+ On a small scale, on a silly scale, perhaps currently, there's constantly unintended
+
+19:33.760 --> 19:40.240
+ consequences. You create a system and you put it out there and you have intuitions about how
+
+19:40.240 --> 19:44.240
+ it will work. You have hopes how it will work, but you put it out there just to see what happens.
+
+19:44.960 --> 19:49.680
+ And in most cases, because artificial intelligence is currently not super powerful,
+
+19:49.680 --> 19:58.240
+ it doesn't create a large scale negative effects, but that same curiosity as it progresses might
+
+19:58.240 --> 20:04.720
+ lead to something that destroys the human species. And the same may be true for bioengineering.
+
+20:04.720 --> 20:15.760
+ There's people that engineer viruses to protect us from viruses to see how close is this to
+
+20:15.760 --> 20:25.520
+ mutating so it can jump to humans or engineering defenses against those. And it seems exciting and
+
+20:25.520 --> 20:30.320
+ the application, the positive applications are really exciting at this time, but we don't think
+
+20:30.320 --> 20:36.720
+ about how that runs away in decades to come. Yeah. And I think it's the same idea as this
+
+20:36.720 --> 20:46.240
+ little book, The Ratchet of Science, The Ratchet of Curiosity. I mean, whether you pursue,
+
+20:46.240 --> 20:53.280
+ take curiosity and let artificial intelligence or machine learning run away with having its
+
+20:53.280 --> 20:58.560
+ solutions to whatever you want, or we do it, it's, I think, a similar consequence.
+
+20:59.120 --> 21:07.040
+ I think from what I've read about Enrico Fermi, he became a little bit cynical about the human
+
+21:07.040 --> 21:11.200
+ species towards the end of his life, both having observed what he observed.
+
+21:12.560 --> 21:20.160
+ Well, he didn't write much. I mean, he died young. He died soon after the World War. There was
+
+21:20.160 --> 21:26.880
+ already, you know, the work by Teller to develop the hydrogen bomb. And I think he was a little
+
+21:26.880 --> 21:32.960
+ cynical of that, you know, pushing it even further and rising tensions between the Soviet Union and
+
+21:32.960 --> 21:38.320
+ the U.S. and looked like an endless thing. So, but he didn't say very much, but a little bit,
+
+21:38.320 --> 21:45.520
+ as you said. Yeah, there's a few clips to sort of maybe picked on a bad mood, but in a sense that
+
+21:45.520 --> 21:55.440
+ almost like a sadness, a melancholy sadness to a hope that waned a little bit about that perhaps we
+
+21:55.440 --> 22:02.640
+ can do, like this curious species can find the way out. Well, especially, I think, people who
+
+22:02.640 --> 22:08.800
+ worked like he did at Los Alamos and spent years of their life somehow had to convince themselves
+
+22:08.800 --> 22:18.240
+ that dropping these bombs would bring lasting peace and that it didn't. Yeah. As a small,
+
+22:18.240 --> 22:23.600
+ interesting aside, it'd be interesting to hear if you have opinions on this. His name is also
+
+22:23.600 --> 22:30.960
+ attached to the Fermi Paradox, which asks if there is a, you know, it's a very interesting question,
+
+22:30.960 --> 22:37.520
+ which is if it does seem if you sort of reason basically that there should be a lot of alien
+
+22:37.520 --> 22:46.080
+ civilizations out there. If the human species, if Earth is not that unique by basic, no matter the
+
+22:46.080 --> 22:52.400
+ values you pick, it's likely that there's a lot of alien civilizations out there. And if that's the
+
+22:52.400 --> 22:59.840
+ case, why have they not at least obviously visited us or sent us loud signals that everybody can
+
+22:59.840 --> 23:09.200
+ hear? Fermi's quoted as saying, sitting down at lunch, I think it was with Teller and Herb York,
+
+23:09.200 --> 23:15.520
+ who was kind of one of the fathers of the atomic bomb. And he sat down and he said something like,
+
+23:15.520 --> 23:25.280
+ where are they? Which meant, where are these other? And then he did some numerology where he
+
+23:25.280 --> 23:31.680
+ calculated, you know, how many, what they knew about how many galaxies there are and how many
+
+23:31.680 --> 23:37.120
+ stars and how many planets then are like the Earth and blah, blah, blah. That's been done much
+
+23:37.120 --> 23:42.240
+ better by somebody named Drake. And so, people usually refer to the, I don't know whether it's
+
+23:42.240 --> 23:47.440
+ called the Drake formula or something, but it has the same conclusion. The conclusion is it would
+
+23:47.440 --> 23:53.760
+ be a miracle if there weren't other, you know, the statistics are so high that how can we be
+
+23:53.760 --> 24:04.160
+ singular and separate? So, probably there is, but there's almost certainly life somewhere. Maybe
+
+24:04.160 --> 24:13.840
+ there was even life on Mars a while back, but intelligent life, probably. So, you know, the
+
+24:13.840 --> 24:25.440
+ statistics say that communicating with us, I think that it's harder than people think. We might not
+
+24:25.440 --> 24:34.160
+ know the right way to expect the communication, but all the communication that we know about
+
+24:34.160 --> 24:41.040
+ travels at the speed of light. And we don't think anything can go faster than the speed of light.
+
+24:41.040 --> 24:48.560
+ That limits the problem quite a bit. And it makes it difficult to have any back and forth
+
+24:48.560 --> 24:54.640
+ communication. You could send signals like we try to or look for, but to have any communication,
+
+24:54.640 --> 25:00.880
+ it's pretty hard when it has to be close enough that the speed of light would mean we could
+
+25:00.880 --> 25:06.400
+ communicate with each other. And I think, and we didn't even understand that. I mean, we're
+
+25:06.400 --> 25:11.520
+ an advanced civilization, but we didn't even understand that a little more than a hundred
+
+25:11.520 --> 25:22.160
+ years ago. So, are we just not advanced enough? Maybe to know something about that's the speed
+
+25:22.160 --> 25:26.880
+ of light. Maybe there's some other way to communicate that isn't based on electromagnetism.
+
+25:26.880 --> 25:33.760
+ I don't know. Gravity seems to be also have the same speed. That was a principle that Einstein
+
+25:33.760 --> 25:39.520
+ had and something we've measured actually. So is it possible? I mean, so we'll talk about
+
+25:39.520 --> 25:47.520
+ gravitational waves and in some sense, there's a brainstorming going on, which is like,
+
+25:48.400 --> 25:52.880
+ how do we detect the signal? Like what would a signal look like and how would we detect it? And
+
+25:52.880 --> 25:57.840
+ that's true for gravitational waves. That's true for basically any physics phenomena. You have to
+
+25:57.840 --> 26:02.080
+ predict that that signal should exist. You have to have some kind of theory and model why that signal
+
+26:02.080 --> 26:09.200
+ should exist. I mean, is it possible that aliens are communicating with us via gravity? Like why
+
+26:09.200 --> 26:18.960
+ not? Well, yeah, it's true. Why not? For us, it's very hard to detect these gravitational effects.
+
+26:18.960 --> 26:24.880
+ They have to come from something pretty that has a lot of gravity like black holes, but we're
+
+26:24.880 --> 26:35.680
+ pretty primitive at this stage. There's very reputable physicists that look for a fifth force,
+
+26:36.560 --> 26:44.320
+ one that we haven't found yet. Maybe it's the key. What would a fifth force of physics look
+
+26:44.320 --> 26:50.080
+ like exactly? Well, usually they think it's probably a longer range force than we have now.
+
+26:50.080 --> 26:56.480
+ But there are reputable colleagues of mine that spend their life looking for a fifth force.
+
+26:56.480 --> 27:02.240
+ So longer range than gravity? Yeah. Super long? It doesn't fall off like one over r squared,
+
+27:02.240 --> 27:10.480
+ but maybe separately. Gravity, Newton taught us, goes like inversely one over the square of the
+
+27:10.480 --> 27:14.400
+ distance apart you are. So it falls pretty fast. That's okay. So now we have a theory of what
+
+27:14.400 --> 27:20.640
+ consciousness is. It's just the fifth force of physics. Yeah. There we go. That's a good hypothesis.
+
+27:24.640 --> 27:31.360
+ Speaking of gravity, what are gravitational waves? Let's maybe start from the basics.
+
+27:32.720 --> 27:39.920
+ We learned gravity from Newton, right? When you were young, you were told that if you jumped up,
+
+27:39.920 --> 27:46.720
+ the earth pulls you down. And when the apple falls out of the tree, the earth pulls it down.
+
+27:47.920 --> 27:54.480
+ And maybe you even asked your teacher why, but most of us accepted that. That was Newton's
+
+27:55.440 --> 28:00.400
+ picture, the apple falling out of the tree. But Newton's theory never told you why the apple
+
+28:00.400 --> 28:07.920
+ was attracted to the earth. That was a missing in Newton's theory. Newton's theory also
+
+28:07.920 --> 28:12.720
+ Newton recognized at least one of the two problems. I'll tell you one of them is there's more than
+
+28:12.720 --> 28:20.080
+ those, but one is why does the earth, what's the mechanism by which the earth pulls the apple or
+
+28:20.080 --> 28:25.920
+ holds the moon when it goes around, whatever it is. That's not explained by Newton, even though he
+
+28:25.920 --> 28:31.040
+ has the most successful theory of physics ever went 200 and some years with nobody ever seeing
+
+28:31.040 --> 28:38.960
+ a violation. But he accurately describes the movement of an object falling down to earth,
+
+28:38.960 --> 28:44.000
+ but he's not answering why that what's yeah, because it's a distance. He gives a formula,
+
+28:45.120 --> 28:51.760
+ which it's a product of the earth's mass, the apple's mass inversely proportional to the square
+
+28:51.760 --> 28:57.280
+ of the distance between and then the strength he called capital G, the strength he couldn't
+
+28:57.280 --> 29:03.840
+ determine, but it was determined 100 years later. But no one ever saw a violation of this until a
+
+29:03.840 --> 29:08.800
+ possible violation, which Einstein fixed, which was very small that has to do with
+
+29:08.800 --> 29:16.400
+ mercury going around the sun, the orbit being slightly wrong if you calculate it by Newton's
+
+29:16.400 --> 29:25.280
+ theory. But so like most theories then in physics, you can have a wonderful one like Newton's theory.
+
+29:25.280 --> 29:34.000
+ It isn't wrong. But you have to have an improvement on it to answer things that it can't answer. And
+
+29:34.000 --> 29:41.040
+ in this case, Einstein's theory is the next step. We don't know if it's anything like a final theory
+
+29:41.040 --> 29:51.440
+ or even the only way to formulate it either. But he formulated this theory, which he released in 1915.
+
+29:51.440 --> 29:56.960
+ He took 10 years to develop it, even though in 1905, he solved three or four of the most important
+
+29:56.960 --> 30:01.600
+ problems in physics in a matter of months. And then he spent 10 years on this problem before he
+
+30:02.480 --> 30:06.080
+ let it out. And this is called general relativity. It's a new theory of gravity.
+
+30:07.120 --> 30:18.720
+ 1915. In 1916, Einstein wrote a little paper where he did not do some fancy derivation.
+
+30:18.720 --> 30:30.000
+ Instead, he did what I would call he used his intuition, which he was very good at too. And that
+
+30:30.000 --> 30:36.400
+ is he noticed that if he wrote the formulas for general relativity in a particular way,
+
+30:37.200 --> 30:40.800
+ they looked a lot like the formulas for electricity and magnetism.
+
+30:40.800 --> 30:46.800
+ Being Einstein, he then took the leap that electricity and magnetism, we discovered only
+
+30:46.800 --> 30:54.560
+ 20 years before that in the 1880s, have waves. Of course, that's light and electromagnetic waves,
+
+30:54.560 --> 31:01.440
+ radio waves, everything else. So he said, if the formulas look similar, then gravity probably has
+
+31:01.440 --> 31:10.400
+ waves too. That's such a big leap, by the way. I mean, maybe you could go back to the 1880s,
+
+31:10.400 --> 31:15.120
+ maybe you can correct me, but that just seems like a heck of a leap.
+
+31:15.120 --> 31:21.280
+ Yeah. And it was considered to be a heck of a leap. So first that paper was, except for this
+
+31:22.080 --> 31:30.320
+ intuition, was poorly written, had a serious mistake. It had a factor of two wrong in the
+
+31:30.320 --> 31:37.200
+ strength of gravity, which meant if we use those formulas, we would... And two years later,
+
+31:37.200 --> 31:43.680
+ he wrote a second paper. And in that paper, it turns out to be important for us because in that
+
+31:43.680 --> 31:50.480
+ paper, he not only fixed his factor of two mistake, which he never admitted, he just wrote it,
+
+31:50.480 --> 31:58.640
+ fixed it like he always did. And then he told us how you make gravitational waves, what makes
+
+31:58.640 --> 32:05.200
+ gravitational waves. And you might recall in electromagnetism, we make electromagnetic waves
+
+32:05.200 --> 32:10.160
+ in a simple way. You take a plus charge and minus charge, you oscillate like this, and that makes
+
+32:10.160 --> 32:16.320
+ the electromagnetic waves. And a physicist named Hertz made a receiver that could detect the waves
+
+32:16.320 --> 32:22.160
+ and put it in the next room. He saw them and moved forward and backward and saw that it was wave like.
+
+32:22.160 --> 32:30.400
+ So Einstein said, it won't be a dipole like that, it'll be a four pole thing. And that's what it's
+
+32:30.400 --> 32:36.880
+ called, it's called a quadrupole moment that gives the gravitational wave. So that again, by insight,
+
+32:36.880 --> 32:43.360
+ not by derivation. That set the table for what you needed to do to do it. At the same time,
+
+32:43.360 --> 32:49.520
+ in the same year, Schwarzschild, not Einstein, said there were things called black holes. So
+
+32:49.520 --> 32:56.640
+ it's interesting that that came the same. So what year was that? 1915. It was in parallel...
+
+32:56.640 --> 33:01.920
+ Well, I should probably know this, but did Einstein not have an intuition that there
+
+33:01.920 --> 33:06.400
+ should be such things as black holes? That came from Schwarzschild. Oh, interesting.
+
+33:07.200 --> 33:14.400
+ Yeah. So Schwarzschild, who was a German theoretical physicist, he got killed in the war,
+
+33:14.400 --> 33:21.520
+ I think, in the First World War, two years later or so. He's the one that proposed black holes,
+
+33:21.520 --> 33:27.120
+ that there were black holes. That feels like a natural conclusion of general relativity, no? Or
+
+33:27.120 --> 33:33.840
+ is that not? Well, it may seem like it, but I don't know about a natural conclusion. It's a result
+
+33:34.560 --> 33:39.600
+ of curved space time though. Right. But it's such a weird result that you might have to...
+
+33:40.560 --> 33:48.960
+ It's a special... Yeah, it's a special case. Yeah. So I don't know. Anyway, Einstein then,
+
+33:48.960 --> 33:54.000
+ an interesting part of the story is that Einstein then left the problem. Most physicists,
+
+33:54.000 --> 34:01.120
+ because it really wasn't derived, he just made this, didn't pick up on it or general relativity
+
+34:01.120 --> 34:10.080
+ much because quantum mechanics became the thing in physics. And Einstein only picked up this
+
+34:10.080 --> 34:18.000
+ problem again after he immigrated to the US. So he came to the US in 1932. And I think in 1934 or
+
+34:18.000 --> 34:24.400
+ 1935, he was working with another physicist called Rosen, who he did several important works with,
+
+34:24.400 --> 34:32.880
+ and they revisited the question. And they had a problem that most of us as students always had,
+
+34:32.880 --> 34:37.680
+ that study general relativity. General relativity is really hard because it's four dimensional
+
+34:37.680 --> 34:42.800
+ instead of three dimensional. And if you don't set it up right, you get infinities,
+
+34:42.800 --> 34:49.520
+ which don't belong there. We call them coordinate singularities as a name. But if you get these
+
+34:49.520 --> 34:56.880
+ infinities, you don't get the answers you want. And he was trying to derive now general relativity
+
+34:57.440 --> 35:03.280
+ from general relativity, gravitational waves. And in doing it, he kept getting these infinities.
+
+35:04.240 --> 35:10.880
+ And so he wrote a paper with Rosen that he submitted to our most important journal,
+
+35:10.880 --> 35:17.840
+ Physical Review Letters. And that when it was submitted to Physical Review Letters,
+
+35:17.840 --> 35:24.400
+ it was entitled, Do Gravitational Waves Exist? A very funny title to write 20 years after he
+
+35:24.400 --> 35:32.240
+ proposed they exist. But it's because he had found these singularities, these infinities. And so
+
+35:32.240 --> 35:43.440
+ the editor at that time, and the part of it that I don't know, is peer review. We live and die by
+
+35:43.440 --> 35:48.560
+ peer review as scientists send our stuff out. We don't know when peer review actually started
+
+35:49.520 --> 35:55.520
+ or what peer review Einstein ever experienced before this time. But the editor of Physical
+
+35:55.520 --> 36:02.000
+ Review sent this out for review. He had a choice. He could take any article and just accept it.
+
+36:02.000 --> 36:07.760
+ He could reject it, or he could send it for review. I believe the editors used to have much
+
+36:07.760 --> 36:13.360
+ more power. Yeah, yeah. And he was a young man. His name was Tate. And he ended up being editor
+
+36:13.360 --> 36:22.320
+ for years. So he sent this for review to a theoretical physicist named Robertson, who was
+
+36:22.320 --> 36:27.840
+ also in this field of general relativity, who happened to be on sabbatical at that moment at
+
+36:27.840 --> 36:37.280
+ Caltech. Otherwise, his institution was Princeton, where Einstein was. And he saw that the way they
+
+36:37.280 --> 36:42.320
+ set up the problem, the infinities were like I make it as a student, because if you don't
+
+36:42.320 --> 36:48.320
+ set it up right in general relativity, you get these infinities. And so he reviewed the article
+
+36:48.320 --> 36:54.640
+ and gave an illustration that if they set it up in what are called cylindrical coordinates, these
+
+36:54.640 --> 37:03.280
+ infinities went away. The editor of Physical Review was obviously intimidated by Einstein.
+
+37:03.280 --> 37:08.800
+ He wrote this really not a letter back like I would get saying, you're screwed up in your paper
+
+37:08.800 --> 37:17.840
+ instead. It was kind of, what do you think of the comments of our referee? Einstein wrote back,
+
+37:17.840 --> 37:24.640
+ and it's a well documented letter, wrote back a letter to Physical Review saying, I didn't send
+
+37:24.640 --> 37:31.600
+ you the paper to send it to one of your so called experts. I sent it to you to publish. I withdraw
+
+37:31.600 --> 37:42.000
+ the paper. And he never published again in that journal. That was 1936. Instead, he rewrote it
+
+37:42.000 --> 37:49.920
+ with the fixes that were made, changed the title and published it in what was called the Franklin
+
+37:49.920 --> 37:56.960
+ Review, which is the Franklin Institute in Philadelphia, which is Benjamin Franklin
+
+37:56.960 --> 38:01.920
+ Institute, which doesn't have a journal now, but did at that time. So the article is published.
+
+38:01.920 --> 38:08.080
+ It's the last time he ever wrote about it. It remained controversial. So it wasn't until
+
+38:08.080 --> 38:19.760
+ close to 1960, 1958, where there was a conference that brought together the experts in general
+
+38:19.760 --> 38:29.360
+ relativity to try to sort out whether it was true that there were gravitational waves or not.
+
+38:29.360 --> 38:40.240
+ And there was a very nice derivation by a British theorist from the heart of the theory that gets
+
+38:40.240 --> 38:46.160
+ gravitational waves. And that was number one. The second thing that happened at that meeting is
+
+38:46.160 --> 38:53.200
+ Richard Feynman was there. And Feynman said, well, if there's typical Feynman, if there's
+
+38:53.200 --> 38:58.320
+ gravitational waves, they need to be able to do something, otherwise they don't exist. So they
+
+38:58.320 --> 39:05.200
+ have to be able to transfer energy. So he made an idea of a gedankenexperiment that is just a bar
+
+39:05.920 --> 39:11.120
+ with a couple of rings on it. And then if a gravitational wave goes through, it distorts the
+
+39:11.120 --> 39:19.440
+ bar and that creates friction on these little rings and that's heat and that's energy. So that
+
+39:19.440 --> 39:24.960
+ meant... Is that a good idea? That sounds like a good idea. Yeah. It means that he showed that
+
+39:24.960 --> 39:31.440
+ that with the distortion of space time, you could transfer energy just by this little idea.
+
+39:31.440 --> 39:39.360
+ And it was shown theoretically. So at that point, it was believed theoretically then
+
+39:39.360 --> 39:45.440
+ by people that gravitational waves should exist. No, we should be able to detect them.
+
+39:45.440 --> 39:49.200
+ We should be able to detect them, except that they're very, very small.
+
+39:49.200 --> 39:54.320
+ And so what kind of, there's a bunch of questions here, but what kind of events
+
+39:55.280 --> 40:01.200
+ would generate gravitational waves? You have to have this, what I call quadrupole moment.
+
+40:01.200 --> 40:08.400
+ That comes about if I have, for example, two objects that go around each other like this,
+
+40:08.400 --> 40:14.960
+ like the earth around the sun or the moon around the earth, or in our case, it turns out to be two
+
+40:14.960 --> 40:19.680
+ black holes going around each other like this. So how's that different than basic oscillation
+
+40:19.680 --> 40:24.080
+ back and forth? Is it just more common in nature to have... Oscillation is a dipole moment. So it
+
+40:24.080 --> 40:27.600
+ has to be in three dimensional space kind of oscillation. So you have to have something
+
+40:27.600 --> 40:32.160
+ that's three dimensional that'll give what I called a quadrupole moment. That's just built
+
+40:32.160 --> 40:38.400
+ into this. And luckily in nature you have stuff... And luckily things exist. And it is luckily
+
+40:38.400 --> 40:43.120
+ because the effect is so small that you could say, look, I could take a barbell
+
+40:43.120 --> 40:50.640
+ and spin it, right? And detect the gravitational waves. But unfortunately, no matter how much I
+
+40:50.640 --> 40:56.560
+ spin it, how fast I spin it, so I know how to make gravitational waves, but they're so weak,
+
+40:56.560 --> 41:01.520
+ I can't detect them. So we have to take something that's stronger than I can make. Otherwise we
+
+41:01.520 --> 41:07.040
+ would do what Hertz did for electromagnetic waves. Go in our lab, take a barbell, put it on
+
+41:07.040 --> 41:13.120
+ something, spin it. Can I ask a dumb question? So a single object that's weirdly shaped,
+
+41:13.120 --> 41:20.480
+ does that generate gravitational waves? So if it's rotating? Sure. But it's just a much weaker signal.
+
+41:20.480 --> 41:25.680
+ It's weaker. Well, we didn't know what the strongest signal would be that we would see.
+
+41:26.880 --> 41:31.040
+ We targeted seeing something called neutron stars actually, because black holes we don't
+
+41:31.040 --> 41:35.680
+ know very much about. It turned out we were a little bit lucky. There was a stronger source,
+
+41:35.680 --> 41:43.680
+ which was the black holes. Well, another ridiculous question. So you say waves. What does a wave mean?
+
+41:43.680 --> 41:52.320
+ Like the most ridiculous version of that question is, what does it feel like to ride a wave as you
+
+41:52.320 --> 42:00.320
+ get closer to the source? Or experience it? Well, if you experience a wave, imagine that this is
+
+42:00.320 --> 42:06.320
+ what happens to you. I don't know what you mean about getting close. It comes to you. So it's like
+
+42:06.320 --> 42:12.400
+ this light wave or something that comes through you. So when a light hits you, it makes your eyes
+
+42:12.400 --> 42:20.560
+ detect it. I flashed it. What does this do? It's like going to the amusement park, and they have
+
+42:20.560 --> 42:25.040
+ these mirrors. You look in this mirror and you look short and fat, and the one next to you makes
+
+42:25.040 --> 42:31.840
+ you tall and thin. Imagine that you went back and forth between those two mirrors once a second.
+
+42:32.560 --> 42:38.480
+ That would be a gravitational wave with a period of once a second. If you did it 60 times a second,
+
+42:38.480 --> 42:43.520
+ go back and forth. And then that's all that happens. It makes you taller and shorter and
+
+42:43.520 --> 42:50.320
+ fatter back and forth as it goes through you at the frequency of the gravitational wave. So the
+
+42:50.320 --> 42:57.520
+ frequencies that we detect are higher than one a second, but that's the idea. And the amount is
+
+42:57.520 --> 43:06.080
+ small. Amount is small, but if you're closer to the source of the wave, is it the same amount?
+
+43:07.200 --> 43:14.880
+ Yeah, it doesn't dissipate. It doesn't dissipate. Okay, so it's not that fun of an amusement ride.
+
+43:14.880 --> 43:22.400
+ Well, it does dissipate, but it's proportional to the distance.
+
+43:22.400 --> 43:24.720
+ Right. It's not a big power.
+
+43:24.720 --> 43:31.200
+ Right. Gotcha. But it would be a fun ride if you get a little bit closer or a lot closer.
+
+43:31.840 --> 43:36.320
+ I mean, I wonder what the... Okay, this is a ridiculous question, but I have you here.
+
+43:36.320 --> 43:44.640
+ I mean, the getting fatter and taller, I mean, that experience, for some reason,
+
+43:44.640 --> 43:51.520
+ that's mind blowing to me because it brings the distortion of space time to you. I mean,
+
+43:51.520 --> 43:56.000
+ space time is being morphed, right? Like this is a wave.
+
+43:56.000 --> 43:56.400
+ That's right.
+
+43:57.200 --> 43:59.760
+ That's so weird.
+
+43:59.760 --> 44:01.200
+ And we're in space, so we're affected by it.
+
+44:01.200 --> 44:03.520
+ Yeah, we're in space and now it's moving.
+
+44:03.520 --> 44:06.960
+ It's moving. I don't know what to do with it. I mean, does it... Okay.
+
+44:08.480 --> 44:12.560
+ How much do you think about the philosophical implications of
+
+44:13.440 --> 44:19.200
+ general relativity? Like that we're in space time and it can be bent by gravity.
+
+44:21.280 --> 44:27.280
+ Like, is that just what it is? Are we supposed to be okay with this? Because like Newton,
+
+44:27.840 --> 44:31.120
+ even Newton is a little weird, right? But that at least like makes sense.
+
+44:31.120 --> 44:37.680
+ That's our physical world. When an apple falls, it makes sense. But the fact that
+
+44:37.680 --> 44:47.840
+ entirety of the space time we're in can bend, that's really mind blowing.
+
+44:47.840 --> 44:49.360
+ Let me make another analogy.
+
+44:49.360 --> 44:50.880
+ This is a therapy session for me at this point.
+
+44:50.880 --> 44:52.880
+ Yeah, right. Another analogy.
+
+44:52.880 --> 44:53.520
+ Thank you.
+
+44:53.520 --> 44:56.000
+ So imagine you have a trampoline.
+
+44:56.000 --> 44:56.240
+ Yes.
+
+44:56.240 --> 45:00.800
+ Okay. What happens if you put a marble on a trampoline? It doesn't do anything, right?
+
+45:02.240 --> 45:04.720
+ No. Just a little bit, but not much.
+
+45:04.720 --> 45:07.600
+ Yeah. I mean, just if I drop it, it's not going to go anywhere.
+
+45:08.320 --> 45:11.120
+ Now imagine I put a bowling ball at the center of the trampoline.
+
+45:12.640 --> 45:16.640
+ Now I come up to the trampoline and I put a marble on, what happens?
+
+45:18.000 --> 45:20.560
+ It'll roll towards the bowling ball.
+
+45:20.560 --> 45:28.240
+ Okay. All right. So what's happened is the presence of this massive object distorted the space
+
+45:28.880 --> 45:35.040
+ that the trampoline did. This is the same thing that happens to the presence of the earth,
+
+45:36.080 --> 45:40.160
+ the earth and the apple. The presence of the earth affects the space around it,
+
+45:40.160 --> 45:43.840
+ just like the bowling ball on the trampoline.
+
+45:43.840 --> 45:47.280
+ Yeah. This doesn't make me feel better. I'm referring from the perspective of an
+
+45:47.280 --> 45:55.760
+ ant walking around on that trampoline. Then some guy just dropped a ball and then not only dropped
+
+45:55.760 --> 46:02.640
+ the ball, right? It's not just dropping a bowling ball. It's making the ball go up and down or doing
+
+46:02.640 --> 46:08.480
+ some kind of oscillation thing where it's like waves. And that's so fundamentally different from
+
+46:08.480 --> 46:13.360
+ the experience on being on flatland and walking around and just finding delicious, sweet things
+
+46:13.360 --> 46:20.000
+ as ant does. And it just feels like to me from a human experience perspective, completely,
+
+46:20.000 --> 46:21.680
+ it's humbling. It's truly humbling.
+
+46:22.800 --> 46:25.600
+ It's humbling, but we see that kind of phenomenon all the time.
+
+46:26.800 --> 46:32.240
+ Let me give you another example. Imagine that you walk up to a still pond.
+
+46:32.880 --> 46:33.440
+ Yes.
+
+46:33.440 --> 46:41.360
+ Okay. Now I throw, you throw a rock in it, what happens? The rock goes in, sinks to the bottom,
+
+46:41.360 --> 46:48.400
+ fine. And these little ripples go out and they travel out. That's exactly what happens. I mean,
+
+46:48.400 --> 46:55.440
+ there's a disturbance, which is these, say, the bowling ball or black holes. And then the ripples
+
+46:55.440 --> 47:01.520
+ that go out in the water, they're not, they don't have any, they don't have the rock, any part,
+
+47:01.520 --> 47:02.480
+ pieces of the rock.
+
+47:02.480 --> 47:10.000
+ See, the thing is, I guess what's not disturbing about that is it's a, I mean, I guess a flat
+
+47:10.000 --> 47:16.640
+ two dimensional surface that's being disturbed. Like for a three dimensional surface, a three
+
+47:16.640 --> 47:19.840
+ dimensional space to be disturbed feels weird.
+
+47:19.840 --> 47:23.120
+ It's even worse. It's four dimensional because it's space and time.
+
+47:23.120 --> 47:23.680
+ Time, yeah.
+
+47:24.880 --> 47:28.080
+ So that's why you need Einstein is to make it four dimensional.
+
+47:28.080 --> 47:29.440
+ To make it okay?
+
+47:29.440 --> 47:30.640
+ No, to make it.
+
+47:30.640 --> 47:31.680
+ To make it four dimensional?
+
+47:31.680 --> 47:32.320
+ Yeah.
+
+47:32.320 --> 47:39.120
+ Yeah, to take the same phenomenon and look at it in all of space and time. Anyway,
+
+47:39.120 --> 47:45.920
+ luckily for you and I and all of us, the amount of distortion is incredibly small.
+
+47:47.600 --> 47:54.240
+ So it turns out that if you think of space itself, now this is going to blow your mind too,
+
+47:54.240 --> 48:00.000
+ if you think of space as being like a material, like this table, it's very stiff. You know,
+
+48:00.000 --> 48:06.480
+ we have materials that are very pliable, materials that are very stiff. So space itself is very stiff.
+
+48:06.480 --> 48:09.520
+ So when gravitational waves come through it, luckily for us,
+
+48:09.520 --> 48:14.480
+ it doesn't distort it so much that it affects our ordinary life very much.
+
+48:16.240 --> 48:19.920
+ No, I mean, that's great. That's great. I thought there was something bad coming.
+
+48:19.920 --> 48:24.160
+ No, this is great. That's great news. So I mean, that, I mean, perhaps we evolved
+
+48:24.160 --> 48:32.800
+ as life on Earth to be such that for us, this particular set of effects of gravitational waves
+
+48:32.800 --> 48:36.160
+ is not that significant. Maybe that's why.
+
+48:36.160 --> 48:41.760
+ It is. You probably used this effect today or yesterday.
+
+48:41.760 --> 48:42.320
+ Did what?
+
+48:42.960 --> 48:45.440
+ So it's pervasive. Well, because...
+
+48:45.440 --> 48:49.440
+ You mean gravity or the way, or external? Because I only...
+
+48:49.440 --> 48:50.720
+ Curvature of space and time.
+
+48:50.720 --> 48:56.000
+ Curvature of space. How? I only care, a person is a human, right? The gravity of Earth.
+
+48:56.000 --> 48:58.000
+ But you use it every day, almost.
+
+48:59.360 --> 49:00.240
+ Oh, it's curving.
+
+49:00.240 --> 49:00.720
+ Uh huh.
+
+49:00.720 --> 49:01.760
+ No, no, no.
+
+49:01.760 --> 49:06.560
+ No, no, no. It's in this thing. Every time it tells you where you are,
+
+49:07.840 --> 49:11.520
+ how does it tell you where you are? It tells you where you are because we have
+
+49:11.520 --> 49:18.240
+ 24 satellites or some number that are going around in space and it asks how long it takes
+
+49:18.240 --> 49:24.320
+ the beam to go to the satellite and come back, the signal, to different ones.
+
+49:24.320 --> 49:28.560
+ And then it triangulates and tells you where you are. And then if you go down the road,
+
+49:28.560 --> 49:32.880
+ it tells you where you are. Do you know that if you did that with the satellites and you
+
+49:32.880 --> 49:34.800
+ didn't use Einstein's equations?
+
+49:34.800 --> 49:35.280
+ Oh no.
+
+49:36.560 --> 49:42.400
+ You won't get the right answer. That's right. And in fact, if you take a road that's, say,
+
+49:42.400 --> 49:46.640
+ 10 meters wide, I've done these numbers, and you ask how long you'd stay on the road if
+
+49:46.640 --> 49:52.160
+ you didn't make the correction for general relativity, this thing you're poo pooing,
+
+49:52.160 --> 49:56.400
+ because you're using every day, you'd go off the road in about a minute.
+
+49:56.400 --> 49:57.200
+ Well, actually, that might be my problem.
+
+49:57.200 --> 50:00.480
+ So you use it. So don't poo poo it.
+
+50:00.480 --> 50:04.320
+ Well, I think I'm using an Android, so maybe, and the GPS doesn't work that well, so maybe
+
+50:04.320 --> 50:11.280
+ I'm using Newton's physics. So I need to upgrade to general relativity. So gravitational waves
+
+50:11.280 --> 50:16.720
+ and Einstein had, wait, Feynman really does have a part in the story?
+
+50:16.720 --> 50:17.280
+ Yeah.
+
+50:17.280 --> 50:22.080
+ Was that one of the first kind of experimental proposed to detect gravitational waves?
+
+50:22.080 --> 50:25.360
+ Well, he did what we call a Godonkin experiment. That's a thought experiment.
+
+50:25.360 --> 50:25.680
+ Yes.
+
+50:25.680 --> 50:31.760
+ Okay. Not a real experiment. But then after that, then people believe gravitational waves
+
+50:31.760 --> 50:37.280
+ must exist. You can kind of calculate how big they are. They're tiny. And so people
+
+50:37.280 --> 50:43.520
+ started searching. The first idea that was used was Feynman's idea, and the very end of it.
+
+50:44.080 --> 50:51.360
+ And it was to take a great big, huge bar of aluminum and then put around, and it's made
+
+50:51.360 --> 50:57.360
+ like a cylinder, and then put around it some very, very sensitive detectors so that if a
+
+50:57.360 --> 51:03.760
+ gravitational wave happened to go through it, it would go, and you'd detect this extra strain
+
+51:03.760 --> 51:10.080
+ that was there. And that was this method that was used until we came along. It wasn't a very
+
+51:10.080 --> 51:11.120
+ good method to use.
+
+51:12.160 --> 51:16.960
+ And what was the, so we're talking about a pretty weak signal here.
+
+51:16.960 --> 51:19.280
+ Yeah, that's why that method didn't work.
+
+51:19.280 --> 51:25.200
+ So what, can you tell the story of figuring out what kind of method would be able to detect
+
+51:26.480 --> 51:28.640
+ this very weak signal of gravitational waves?
+
+51:30.080 --> 51:38.320
+ So remembering what happens when you go to the amusement park, that it's going to do something
+
+51:38.320 --> 51:44.400
+ like stretch this way and squash that way, squash this way and stretch this way. We do
+
+51:44.400 --> 51:49.600
+ have an instrument that can detect that kind of thing. It's called an interferometer.
+
+51:50.880 --> 51:58.720
+ And what it does is it just basically takes, usually light, and the two directions that
+
+51:58.720 --> 52:03.680
+ we're talking about, you send light down one direction and the perpendicular direction.
+
+52:04.240 --> 52:10.720
+ And if nothing changes, it takes the same, and the arms are the same length, it just
+
+52:10.720 --> 52:16.080
+ goes down, bounces back. And if you invert one compared to the other, they cancel so
+
+52:16.080 --> 52:17.040
+ that nothing happens.
+
+52:17.680 --> 52:24.080
+ But if it's like the amusement park and one of the arms got shorter and fatter, so it
+
+52:24.080 --> 52:30.480
+ took longer to go horizontally than it did to go vertically, then when the light comes
+
+52:30.480 --> 52:37.280
+ back, that comes back somewhat out of time. And that basically is the scheme. The only
+
+52:37.280 --> 52:44.880
+ problem is that that's not done very accurately in general, and we had to do it extremely
+
+52:44.880 --> 52:45.840
+ accurately.
+
+52:45.840 --> 52:52.160
+ So what's the difficulty of doing so accurately?
+
+52:52.160 --> 53:00.960
+ Okay. So the measurement that we have to do is a distortion in time. How big is it? It's
+
+53:00.960 --> 53:07.840
+ a distortion that's one part in 10 to the 21. That's 21 zeros and a one. Okay.
+
+53:08.720 --> 53:11.440
+ So this is like a delay in the thing coming back?
+
+53:13.520 --> 53:17.920
+ One of them coming back after the other one, but the difference is just one part in 10
+
+53:17.920 --> 53:26.560
+ to the 21. So for that reason, we make it big, let the arms be long. Okay, so one part
+
+53:26.560 --> 53:33.040
+ in 10 to the 21. In our case, it's kilometers long. So we have an instrument that's kilometers
+
+53:33.040 --> 53:34.880
+ in one direction, kilometers in the other.
+
+53:34.880 --> 53:37.360
+ How many kilometers are we talking about? Four kilometers.
+
+53:37.360 --> 53:44.640
+ Four kilometers in each direction. If you take then one part in 10 to the 21, we're
+
+53:44.640 --> 53:51.040
+ talking about measuring something to 10 to the minus 18 meters.
+
+53:54.720 --> 53:55.040
+ Okay.
+
+53:55.040 --> 54:01.520
+ Now, to tell you how small that is, the proton thing we're made of, which you can't go
+
+54:01.520 --> 54:07.200
+ and grab so easily, is 10 to the minus 15 meters. So this is one one thousandth the
+
+54:07.200 --> 54:13.920
+ size of a proton. That's the size of the effect. Einstein himself didn't think this
+
+54:13.920 --> 54:19.760
+ could be measured. We've never seen, actually, he said that. But that's because he didn't
+
+54:19.760 --> 54:25.520
+ anticipate modern lasers and techniques that we developed.
+
+54:27.200 --> 54:33.520
+ Okay. So maybe can you tell me a little bit what you're referring to as LIGO, the Laser
+
+54:34.240 --> 54:40.560
+ Interferometer Gravitational Wave Observatory. What is LIGO? Can you just elaborate kind
+
+54:40.560 --> 54:44.160
+ of the big picture view here before I ask you specific questions about it?
+
+54:44.160 --> 54:54.400
+ Yeah. So in the same idea that I just said, we have two long vacuum pipes, four kilometers
+
+54:54.400 --> 55:03.200
+ long. We start with a laser beam and we divide the beam going down the two arms. And we have
+
+55:03.200 --> 55:09.920
+ a mirror at the other end, reflects it back. It's more subtle, but we bring it back. If
+
+55:09.920 --> 55:14.800
+ there's no distortion in space time and the lengths are exactly the same, which we calibrate
+
+55:14.800 --> 55:20.720
+ them to be, then when it comes back, if we just invert one signal compared to the other,
+
+55:20.720 --> 55:26.800
+ they'll just cancel. So we see nothing. Okay. But if one arm got a little bit longer than
+
+55:26.800 --> 55:31.760
+ the other, then they don't come back at exactly the same time. They don't exactly cancel.
+
+55:31.760 --> 55:42.320
+ That's what we measure. So to give a number to it, we have the change of length to be
+
+55:42.320 --> 55:48.480
+ able to do this 10 to the minus 18 meters to one part in 10 to the 12th. And that was
+
+55:48.480 --> 55:55.920
+ the big experimental challenge that required a lot of innovation to be able to do.
+
+55:55.920 --> 56:02.560
+ You gave a lot of credit to, I think, Caltech and MIT for some of the technical developments
+
+56:02.560 --> 56:10.240
+ within this project. Is there some interesting things you can speak to at the low level of
+
+56:10.240 --> 56:17.600
+ some cool stuff that had to be solved? I'm a software engineer, so I have so much more
+
+56:17.600 --> 56:25.440
+ respect for everything done here than anything I've ever done. So I'll give you an example
+
+56:25.440 --> 56:35.840
+ of doing mechanical engineering at a better, basically mechanical engineering and geology
+
+56:35.840 --> 56:42.480
+ and maybe at a level. So what's the problem? The problem is the following, that I've given
+
+56:42.480 --> 56:47.920
+ you this picture of an instrument that by some magic, I can make good enough to measure
+
+56:47.920 --> 56:54.000
+ this very short distance. But then I put it down here, it won't work. And the reason it
+
+56:54.000 --> 56:59.600
+ doesn't work is that the Earth itself is moving all over the place all the time. You don't
+
+56:59.600 --> 57:05.680
+ realize it, it seems pretty good to you, but it's moving all the time. So somehow it's
+
+57:05.680 --> 57:10.320
+ moving so much that we can't deal with it. We happen to be trying to do the experiment
+
+57:10.320 --> 57:16.160
+ here on Earth, but we can't deal with it. So we have to make the instrument isolated
+
+57:16.160 --> 57:23.040
+ from the Earth at the frequencies we're at. We've got to float it. That's an engineering
+
+57:23.040 --> 57:24.720
+ problem, not a physics problem.
+
+57:24.720 --> 57:32.160
+ So we're having a conversation on a podcast right now, and people who record music work
+
+57:32.160 --> 57:38.080
+ with this, how to create an isolated room. And they usually build a room within a room,
+
+57:39.040 --> 57:43.200
+ but that's still not isolated. In fact, they say it's impossible to truly isolate from
+
+57:43.200 --> 57:51.760
+ sound, from noise and stuff like that. But that's like one step of millions that you
+
+57:51.760 --> 57:56.800
+ took is building a room inside a room, because you basically have to isolate all.
+
+57:56.800 --> 58:02.000
+ No, this is actually an easier problem. You just have to do it really well. So making
+
+58:02.000 --> 58:07.920
+ a clean room is really a tough problem because you have to put a room inside a room. This
+
+58:07.920 --> 58:14.080
+ is really simple engineering or physics. Okay, so what do you have to do? How do you isolate
+
+58:14.080 --> 58:21.600
+ yourself from the Earth? First, we work at, we're not looking at all frequencies for
+
+58:21.600 --> 58:26.560
+ gravitational waves. We're looking at particular frequencies that you can deal with here on
+
+58:26.560 --> 58:31.760
+ Earth. So what are frequencies would those be? You were just talking about frequencies.
+
+58:34.000 --> 58:40.800
+ We know by evolution, our bodies know, it's the audio band. Okay, the reason our ears
+
+58:40.800 --> 58:45.040
+ work where they work is that's where the Earth isn't going, making too much noise.
+
+58:45.040 --> 58:48.720
+ Okay, so the reason our ears work the way they work is because this is where it's quiet.
+
+58:48.720 --> 58:59.520
+ That's right. So if you go to one Hertz instead of 10 Hertz, the Earth is really moving around.
+
+58:59.520 --> 59:06.320
+ So somehow we live in what we call the audio band. It's tens of Hertz to thousands of Hertz.
+
+59:06.320 --> 59:14.000
+ That's where we live, okay? If we're going to do an experiment on the Earth, it's the
+
+59:14.000 --> 59:18.000
+ same frequency. That's where the Earth is the quietest. So we have to work in that frequency.
+
+59:18.000 --> 59:25.440
+ So we're not looking at all frequencies, okay? So the solution for the shaking of the Earth
+
+59:25.440 --> 59:33.840
+ to get rid of it is pretty mundane if we do the same thing that you do to make your car drive
+
+59:33.840 --> 59:39.760
+ smoothly down the road. So what happens when your car goes over a bump? Early cars did that,
+
+59:39.760 --> 59:41.280
+ they bounced. Right.
+
+59:41.280 --> 59:47.120
+ Okay, but you don't feel that in your car. So what happened to that energy? You can't just
+
+59:47.120 --> 59:53.040
+ disappear energy. So we have these things called shock absorbers in the car. What they do is they
+
+59:53.840 --> 59:58.880
+ take the thing that went like that, and they basically can't get rid of the energy, but they
+
+59:58.880 --> 1:00:08.560
+ move it to very, very low frequency. So what you feel isn't, you feel it go smoothly, okay? All
+
+1:00:08.560 --> 1:00:18.080
+ right. So we also work at this frequency. So we basically, why don't we have to do anything other
+
+1:00:18.080 --> 1:00:26.400
+ than shock absorbers? So we made the world's fanciest shock absorbers, okay? Not just like in
+
+1:00:26.400 --> 1:00:30.480
+ your car where there's one layer of them. They're just the right squishiness and so forth. They're
+
+1:00:30.480 --> 1:00:35.760
+ better than what's in the cars. And we have four layers of it. So whatever shakes and gets through
+
+1:00:35.760 --> 1:00:40.880
+ the first layer, we treat it in a second, third, fourth layer. So it's a mechanical engineering
+
+1:00:40.880 --> 1:00:46.640
+ problem. Yeah, that's what I said. So it's not, there's no weird tricks to it, like a chemistry
+
+1:00:46.640 --> 1:00:51.840
+ type thing. No, no. Just, well, the right squishiness, you need the right material inside.
+
+1:00:51.840 --> 1:00:58.720
+ And ours look like little springs, but they're. Springs? They're springs? So like legitimately,
+
+1:00:58.720 --> 1:01:06.640
+ like shock absorbers. Yeah. What? Okay. Okay. And this is now experimental physics at the,
+
+1:01:06.640 --> 1:01:11.120
+ at its limit. Okay. So you do this and we make the world's fanciest shock absorbers,
+
+1:01:11.120 --> 1:01:16.800
+ just mechanical engineering. Just mechanical engineering, this is hilarious. But we didn't,
+
+1:01:16.800 --> 1:01:25.360
+ we weren't good enough to discover gravitational waves. So we did another, we added another
+
+1:01:25.360 --> 1:01:33.920
+ feature and it's something else that you're aware of, probably have one. And that is to get rid of
+
+1:01:33.920 --> 1:01:40.160
+ noise. You've probably noise, which is, you don't like. And that's the same principle that's in
+
+1:01:40.160 --> 1:01:48.240
+ these little Bose earphones. Noise canceling? Noise canceling. So how do they work? They
+
+1:01:48.240 --> 1:01:53.600
+ basically, you go on an airplane and they sense the ambient noise from the engines
+
+1:01:53.600 --> 1:01:59.360
+ and cancel it. Cause it's just the same over and over again. They cancel it. And when the stewardess
+
+1:01:59.360 --> 1:02:03.760
+ comes and asks you whether you want coffee or tea or a drink or something, you hear, you're fine
+
+1:02:03.760 --> 1:02:09.040
+ because she's not ambient. She's the signal. So. Are we talking about active canceling? Like where
+
+1:02:09.040 --> 1:02:16.160
+ are the. Active canceling. So. This is, okay. So another. Don't tell me you have active canceling
+
+1:02:16.160 --> 1:02:22.480
+ on this. Yeah. Besides the shock absorbers. So we had this, so inside this array of shock absorbers.
+
+1:02:22.480 --> 1:02:29.600
+ Yeah. We, you asked for some interesting. This is awesome. So inside this, it's harder than the,
+
+1:02:29.600 --> 1:02:34.880
+ the earphone problem, but it's just engineering. We have to see measure, not just that the
+
+1:02:36.320 --> 1:02:42.880
+ engine still made noise, but the earth is shaking. It's moving in some direction. So we have to
+
+1:02:42.880 --> 1:02:48.240
+ actually tell not only that there's noise and cancel it, but what direction it's from. So we
+
+1:02:48.240 --> 1:02:57.840
+ put this array of seismometers inside this array of shock absorbers and measure the residual motion
+
+1:02:58.320 --> 1:03:05.040
+ and its direction. And we put little actuators that push back against it and cancel it.
+
+1:03:07.040 --> 1:03:11.920
+ This is awesome. So you have the actuators and you have the thing that is sensing the,
+
+1:03:11.920 --> 1:03:16.080
+ the vibrations and then you have the actual actuators that adjust for that and do so in
+
+1:03:16.080 --> 1:03:22.080
+ perfect synchrony. Yeah. What if it all works right. And so how much do we reduce the shaking
+
+1:03:22.080 --> 1:03:31.440
+ of the earth? I mean, one part in 10 to the 12th. One part in 10. So what gets through us is one
+
+1:03:31.440 --> 1:03:39.040
+ part in 10 to the 12th. That's pretty big reduction. You don't need that in your car,
+
+1:03:39.040 --> 1:03:43.200
+ but that's what we do. And so that's how isolated we are from the earth. And that was the biggest,
+
+1:03:43.200 --> 1:03:49.040
+ and that was the biggest, I'd say technical problem outside of the physics instrument,
+
+1:03:49.040 --> 1:03:54.480
+ the interferometer. Can I ask you a weird question here? You make it very poetically
+
+1:03:54.480 --> 1:04:00.000
+ and humorously is saying it's just a mechanical engineering problem, but is this one of the
+
+1:04:01.360 --> 1:04:09.760
+ biggest precision mechanical engineering efforts ever? I mean, this seems exceptionally difficult.
+
+1:04:09.760 --> 1:04:16.960
+ It is. And so it took a long time. And I think nobody seems to challenge the statement that
+
+1:04:16.960 --> 1:04:21.360
+ this is the most precision, precise instrument it's ever been built, LIGO.
+
+1:04:22.640 --> 1:04:25.680
+ I wonder what like listening to Led Zeppelin sounds on this thing,
+
+1:04:25.680 --> 1:04:30.080
+ because it's so isolated. I mean, this is like, I don't know.
+
+1:04:30.080 --> 1:04:37.520
+ No background. No, no back. It's wow. Wow. Wow. So when you were first
+
+1:04:37.520 --> 1:04:44.240
+ conceiving this, I would probably, if I was knowledgeable enough,
+
+1:04:44.240 --> 1:04:48.080
+ kind of laugh off the possibility that this is even possible.
+
+1:04:48.080 --> 1:04:54.880
+ I'm sure, like how many people believe that this is possible? Did you believe this is possible?
+
+1:04:54.880 --> 1:05:00.320
+ I did. I didn't know that we needed, for sure that we needed active. When we started,
+
+1:05:00.320 --> 1:05:08.320
+ we did dispassive, but we were doing the tests to develop the active to add as a second stage,
+
+1:05:08.320 --> 1:05:15.680
+ which we ended up needing. But there was a lot of, you know, now there was a lot of skepticism.
+
+1:05:15.680 --> 1:05:20.400
+ A lot of us, especially astronomers, felt that money was being wasted,
+
+1:05:20.400 --> 1:05:26.160
+ because we were also expensive. Doing what I told you is not cheap. So it was kind of
+
+1:05:26.160 --> 1:05:32.240
+ controversial. It was funded by the National Science Foundation. Can you just linger on this
+
+1:05:32.240 --> 1:05:41.280
+ just for a little longer? The actuator thing, the act of canceling. Do you remember like little
+
+1:05:41.280 --> 1:05:46.720
+ experiments that were done along the way to prove to the team themselves that this is even possible?
+
+1:05:49.120 --> 1:05:54.080
+ Because I work with quite a bit of robots, and to me, the idea that you could do it this precisely
+
+1:05:54.080 --> 1:06:01.520
+ is humbling and embarrassing, frankly. Because like, this is another level of precision that I
+
+1:06:01.520 --> 1:06:10.960
+ can't even, because robots are a mess. And this is basically one of the most precise robots ever.
+
+1:06:12.800 --> 1:06:18.240
+ Right. So like, is there, do you have any like small scale experiments that were done that just
+
+1:06:18.240 --> 1:06:27.040
+ be like, this is possible? Yeah, and larger scale. We made a test, that also has to be in vacuum too,
+
+1:06:27.040 --> 1:06:33.280
+ but we made test chambers that had this system in it, our first mock of this system, so we could test
+
+1:06:33.280 --> 1:06:41.040
+ it and optimize it and make it work. But it's just a mechanical engineering problem. Okay.
+
+1:06:41.040 --> 1:06:49.280
+ And humans are just ape descendants. I gotcha. I gotcha. Is there any video of this? Like some kind
+
+1:06:49.280 --> 1:06:56.160
+ of educational purpose visualizations of this act of canceling? I don't think so.
+
+1:06:58.160 --> 1:07:04.560
+ I mean, does this live on? Well, we work for parts of it, for the active canceling,
+
+1:07:04.560 --> 1:07:11.680
+ we worked with, for the instruments, for the sensor and instruments, we worked with a small
+
+1:07:11.680 --> 1:07:17.600
+ company near where you are, because it was our MIT people that got them that were, you know,
+
+1:07:17.600 --> 1:07:21.680
+ interested in the problem because they thought they might be able to commercialize it for
+
+1:07:22.240 --> 1:07:28.400
+ making stable tables to make microelectronics, for example, which are limited by how stable the table
+
+1:07:28.400 --> 1:07:35.200
+ is. I mean, at this point, it's a little expensive. So you never know, never know where this leads.
+
+1:07:36.400 --> 1:07:45.200
+ So maybe on the, let me ask you, just sticking it a little longer, this silly old mechanical
+
+1:07:45.200 --> 1:07:53.520
+ engineering problem. What was to you kind of the darkest moment of what was the hardest
+
+1:07:53.520 --> 1:07:58.320
+ stumbling block to get over on the engineer side? Like, was there any time where there's a doubt,
+
+1:07:58.320 --> 1:08:03.920
+ where it's like, I'm not sure we would be able to do this, a kind of engineering challenge that was
+
+1:08:03.920 --> 1:08:11.680
+ hit? Do you remember anything like that? I think the one that my colleague at MIT,
+
+1:08:11.680 --> 1:08:18.720
+ Ray Weiss, worked on so hard and was much more of a worry than this. This is only a question if you're
+
+1:08:18.720 --> 1:08:26.400
+ not doing well enough, you have to keep making it better somehow. But this whole huge instrument has
+
+1:08:26.400 --> 1:08:34.720
+ to be in vacuum. And the vacuum tanks are, you know, this big around. And so it's the world's
+
+1:08:34.720 --> 1:08:42.720
+ biggest high vacuum system. And how do you make it? First of all, how do you make this four meter
+
+1:08:42.720 --> 1:08:48.640
+ long sealed vacuum system? It has to be made out of four kilometers, four kilometers long. Would I
+
+1:08:48.640 --> 1:08:55.360
+ say something else? Meters. Four kilometers long. Big difference. Yeah. And so, but to make it,
+
+1:08:55.360 --> 1:09:04.480
+ yeah, we started with a roll of stainless steel, and then we roll it out like a spiral so that
+
+1:09:04.480 --> 1:09:14.160
+ there's a spiral weld on it. Okay, so the engineering was fine. We did that. We worked through
+
+1:09:14.160 --> 1:09:23.520
+ very good companies and so forth to build it. But the big worry was, what if you develop a leak?
+
+1:09:25.280 --> 1:09:31.200
+ This is a high vacuum, not just vacuum system. Typically, in a laboratory, if there's a leak,
+
+1:09:31.200 --> 1:09:40.000
+ you put helium around the thing you have, and then you detect where the helium is coming in.
+
+1:09:40.000 --> 1:09:44.080
+ But if you have something as big as this, you can't surround it with helium. So you might not
+
+1:09:44.080 --> 1:09:51.280
+ actually even know that there's a leak and it will be affecting it. Well, we can measure how
+
+1:09:51.280 --> 1:09:58.080
+ good the vacuum is so we can know that, but a leak can develop and then we don't, how do we fix it
+
+1:09:58.080 --> 1:10:04.880
+ or how do we find it? And so that was, you asked about a worry. That was always a really big worry.
+
+1:10:04.880 --> 1:10:10.960
+ What's the difference, you know, high vacuum and a vacuum? What is high vacuum? That's like some
+
+1:10:11.840 --> 1:10:20.640
+ delta close to vacuum? Is it some threshold? Well, there's a unit. High vacuum is when the vacuum
+
+1:10:20.640 --> 1:10:27.040
+ and the units that are used, which are tors, there's 10 to the minus nine. And there's high
+
+1:10:27.040 --> 1:10:35.600
+ vacuum is usually used in small places. The biggest vacuum system period is at CERN in this
+
+1:10:35.600 --> 1:10:40.080
+ big particle accelerator, but the high vacuum where they need really good vacuum so particles
+
+1:10:40.080 --> 1:10:47.520
+ don't scatter in it is smaller than ours. So ours is a really large high vacuum system.
+
+1:10:47.520 --> 1:10:53.600
+ I don't know. This is so cool. I mean, this is basically by far the greatest listening device
+
+1:10:53.600 --> 1:10:59.680
+ ever built by human. The fact that like descendants of apes could do this, that evolution started with
+
+1:10:59.680 --> 1:11:07.200
+ single cell organisms. I mean, is there any more, I'm a huge theory is like, yeah, yeah. But like
+
+1:11:07.200 --> 1:11:11.360
+ bridges, when I look at bridges from a civil engineering perspective, it's one of the most
+
+1:11:11.360 --> 1:11:17.200
+ beautiful creations by human beings. It's physics. You're using physics to construct objects that
+
+1:11:17.200 --> 1:11:21.760
+ can support huge amount of mass and it's like structural, but it's also beautiful.
+
+1:11:21.760 --> 1:11:26.480
+ And that humans can collaborate to create that throughout history. And then you take this
+
+1:11:26.480 --> 1:11:35.040
+ on another level. This is, this is like, it's exciting to me beyond measure that humans can
+
+1:11:35.040 --> 1:11:41.600
+ create something so precise. But another concept lost in this, you just said, you started talking
+
+1:11:41.600 --> 1:11:47.120
+ about single cell. Yeah. Okay. You have to realize this discovery that we made that everybody's
+
+1:11:47.120 --> 1:11:55.360
+ bought off on happened 1.3 billion years ago, somewhere. And then the signal came to us 1.3
+
+1:11:55.360 --> 1:12:00.880
+ billion years ago, we were just converting on the earth from single cell to multi cell life.
+
+1:12:01.440 --> 1:12:07.360
+ So when this actually happened, this collision of two black holes, we weren't here. We weren't
+
+1:12:07.360 --> 1:12:14.000
+ even close to developing single. Yeah, we were had, we're going from single cell to multi cell
+
+1:12:14.000 --> 1:12:20.720
+ life at that point. All to meet up at this, at this point. Yeah. Wow. That's like, that's almost
+
+1:12:20.720 --> 1:12:32.560
+ romantic. It is. Okay. So on the human side of things, it's kind of fascinating because you're
+
+1:12:32.560 --> 1:12:39.040
+ talking about over a thousand people team for LIGO. Yeah. They started out with, you know,
+
+1:12:39.040 --> 1:12:48.400
+ around a hundred and you've for parts of the time at least led this team. What does it take to lead
+
+1:12:48.400 --> 1:12:56.160
+ a team like this of incredibly brilliant theoreticians and engineers and just a lot of
+
+1:12:56.160 --> 1:13:03.200
+ different parties involved? A lot of egos, a lot of ideas. You had this fun, funny example,
+
+1:13:03.200 --> 1:13:10.720
+ I forget where, where in publishing a paper, you have to all agree on like, you know, the phrasing
+
+1:13:10.720 --> 1:13:15.040
+ of a certain sentence or the title of the paper and so on. That's a very interesting, simple
+
+1:13:15.040 --> 1:13:20.080
+ example. I'd love you to speak to that, but just in general, how, what does it take to lead this
+
+1:13:20.080 --> 1:13:28.800
+ kind of team? Okay. I think that the general idea is one we all know. You want to, you want to,
+
+1:13:28.800 --> 1:13:37.040
+ you want to get where the, the sum of something is more than the individual parts is what we say,
+
+1:13:37.040 --> 1:13:42.640
+ right? Yeah. So that's what you're trying to achieve. Yes. Okay. How do you do that? Actually,
+
+1:13:42.640 --> 1:13:49.280
+ mostly if we take multiple objects or people, I mean, you put them together, the sum is less.
+
+1:13:49.280 --> 1:13:56.400
+ Yes. Why? Because they overlap. So you don't have individual things that, you know, this
+
+1:13:56.400 --> 1:14:02.320
+ person does that, this person does that, then you get exactly the sum. But what you want is to
+
+1:14:02.320 --> 1:14:07.120
+ develop where you get more than what the individual contributions are. We know that's
+
+1:14:07.120 --> 1:14:14.160
+ very common. People use that expression everywhere. And it's the expression that has to be kind of
+
+1:14:14.160 --> 1:14:21.440
+ built into how people feel it's working. Because if you're part of a team, and you realize that
+
+1:14:21.440 --> 1:14:27.440
+ somehow the team is able to do more than the individuals could do themselves, then they buy on
+
+1:14:27.440 --> 1:14:36.000
+ kind of in terms of the process. So that's the, that's the goal that you have to have is to, to
+
+1:14:36.000 --> 1:14:45.840
+ achieve that. And that means that you have to realize parts of what you're trying to do that
+
+1:14:45.840 --> 1:14:52.240
+ require not that one person couldn't do it, it requires the combined talents to be able to do
+
+1:14:52.240 --> 1:14:57.200
+ something that neither of them could do themselves. And we have a lot of that kind of thing. And I
+
+1:14:57.200 --> 1:15:06.320
+ think, I mean, build into the some of the examples that I gave you. And so, how do you then, so, so
+
+1:15:06.320 --> 1:15:12.400
+ the key almost in anything you do is the people themselves, right? So in our case,
+
+1:15:12.400 --> 1:15:20.880
+ the first and most important was to attract to spend years of their life on this. And the best
+
+1:15:20.880 --> 1:15:27.200
+ possible people in the world to do it. So the only way to convince them is that somehow it's
+
+1:15:28.800 --> 1:15:34.080
+ better and more interesting for them than what they could do themselves. And so that's part of
+
+1:15:34.080 --> 1:15:42.240
+ this idea. Yeah, that's powerful. But nevertheless, there's best people in the world, there's egos. Is
+
+1:15:42.240 --> 1:15:47.840
+ there something to be said about managing egos? Oh, that's the human problem is always the hardest.
+
+1:15:47.840 --> 1:15:56.080
+ And so there's, that's an art, not a science, I think. I think the fact here that combined,
+
+1:15:56.080 --> 1:16:06.240
+ there's a was a romantic goal that we had to, you know, do something that people hadn't done before,
+
+1:16:06.240 --> 1:16:19.600
+ which was important scientifically and, and a huge challenge, enabled us to say, take and get, I mean,
+
+1:16:19.600 --> 1:16:24.320
+ what we did just to take an example, we use the light to go in this thing comes from lasers.
+
+1:16:24.320 --> 1:16:30.960
+ We need a certain kind of laser. So the kind of laser that we use, there were three different
+
+1:16:32.560 --> 1:16:37.520
+ institutions in the world that had the experts that do this, maybe in competition with each other.
+
+1:16:38.240 --> 1:16:45.040
+ So we got all three to join together and work with us to work on this as an example. So that
+
+1:16:45.040 --> 1:16:51.680
+ you had, and they had the thing that they were working together on a kind of object that they
+
+1:16:51.680 --> 1:16:57.280
+ wouldn't have otherwise. And we're part of a bigger team where they could discover something
+
+1:16:57.280 --> 1:17:03.520
+ that isn't even engineers. These are engineers that do laser. So, and they're part of our laser
+
+1:17:03.520 --> 1:17:14.480
+ physicists. So could you describe the moment or the period of time when finally this incredible
+
+1:17:14.480 --> 1:17:22.160
+ creation of human beings led to a detection of gravitational waves? It's a long story. Unfortunately,
+
+1:17:22.160 --> 1:17:28.560
+ this is a part that we started failures along the way kind of thing or all failures. That's all
+
+1:17:28.560 --> 1:17:36.080
+ that's built into it. If you're not, if you're not mechanical engineering, you build on your failures,
+
+1:17:36.080 --> 1:17:41.360
+ that's expected. So we're trying things that no one's done before. So it's technically not just
+
+1:17:41.360 --> 1:17:48.480
+ gravitational waves. And so it's built on failures. But anyway, we did before me, even
+
+1:17:48.480 --> 1:17:57.920
+ there, the people did R&D on the concepts. But starting in 1994, we got money from the National
+
+1:17:57.920 --> 1:18:06.240
+ Science Foundation to build this thing. It took about five years to build it. So by 1999, we had
+
+1:18:06.240 --> 1:18:13.920
+ built the basic unit. It did not have active seismic isolation at that stage, didn't have some
+
+1:18:13.920 --> 1:18:26.960
+ other things that we have now. What we did at the beginning was stick to technologies that we had
+
+1:18:27.360 --> 1:18:33.840
+ at least enough knowledge that we could make work or had tested in our own laboratories. And so then
+
+1:18:33.840 --> 1:18:41.040
+ we put together the instrument. We made it work. It didn't work very well, but it worked. And we
+
+1:18:41.040 --> 1:18:45.600
+ didn't see any gravitational waves. Then we figured out what limited us. And we went through this
+
+1:18:45.600 --> 1:18:55.520
+ every year for almost 10 years, never seeing gravitational waves. We would run it, looking for
+
+1:18:55.520 --> 1:19:06.320
+ gravitational waves for months, learn what limited us, fix it for months, and then run it again.
+
+1:19:06.320 --> 1:19:13.280
+ Eventually, we knew we had to take another big step. And that's when we made several changes,
+
+1:19:13.280 --> 1:19:21.600
+ including adding these active seismic isolation, which turned out to be a key. And we
+
+1:19:21.600 --> 1:19:27.520
+ fortunately got the National Science Foundation to give us another couple hundred million dollars,
+
+1:19:27.520 --> 1:19:42.080
+ 100 million more. And we rebuild it or fixed or improved it. And then in 2015, we turned it on.
+
+1:19:42.080 --> 1:19:50.560
+ And we almost instantly saw this first collision of two black holes.
+
+1:19:53.600 --> 1:19:58.560
+ And then we went through a process of, do we believe what we've seen?
+
+1:19:58.560 --> 1:20:02.400
+ Yeah, I think you're one of the people that went through that process. It sounds like some people
+
+1:20:02.400 --> 1:20:05.600
+ immediately believed it. And then you're like...
+
+1:20:05.600 --> 1:20:10.080
+ So as human beings, we all have different reactions to almost anything. And so
+
+1:20:10.080 --> 1:20:20.160
+ quite a few of my colleagues had a eureka moment immediately. I mean, the figure that we put in our
+
+1:20:20.160 --> 1:20:27.840
+ paper, first is just data. We didn't have to go through fancy computer programs to do anything.
+
+1:20:27.840 --> 1:20:36.080
+ And we show next to it the calculations of Einstein's equations. It looks just like what
+
+1:20:36.080 --> 1:20:42.000
+ we detected. And we did it in two different detectors halfway across the US. So it was
+
+1:20:42.000 --> 1:20:53.920
+ pretty convincing, but you don't want to fool yourself. So being a scientist, for me, we had
+
+1:20:53.920 --> 1:20:58.000
+ to go through and try to understand that the instrument itself, which was new, I said we had
+
+1:20:58.000 --> 1:21:06.240
+ rebuild it, couldn't somehow generate things that look like this. That took some tests. And then the
+
+1:21:06.240 --> 1:21:12.080
+ second, you'll appreciate more, we had to somehow convince ourselves we weren't hacked in some
+
+1:21:12.080 --> 1:21:12.800
+ clever way.
+
+1:21:12.800 --> 1:21:14.320
+ Cybersecurity question.
+
+1:21:14.320 --> 1:21:18.000
+ Yeah. Even though we're not on the internet, but...
+
+1:21:18.000 --> 1:21:23.520
+ Yeah. No, it can be physical access too. Yeah. That's fascinating. It's fascinating that you
+
+1:21:23.520 --> 1:21:34.560
+ would think about that. I mean, not enough. I mean, because it matches prediction. So the chances
+
+1:21:34.560 --> 1:21:38.320
+ of it actually being manipulated is very, very low. But nevertheless...
+
+1:21:38.320 --> 1:21:42.800
+ We still could have disgruntled all the graduate students who had worked with us earlier that...
+
+1:21:43.520 --> 1:21:48.880
+ Who want you to... I don't know how that's supposed to embarrass you. I suppose, yeah. I suppose I
+
+1:21:48.880 --> 1:21:55.360
+ see. But about what I think you said, within a month, you kind of convinced yourself officially.
+
+1:21:55.360 --> 1:22:01.520
+ Within a month, we convinced ourselves. We kept a thousand collaborators quiet during that time.
+
+1:22:01.520 --> 1:22:10.080
+ Then we spent another month or so trying to understand what we'd seen so that we could do the
+
+1:22:10.080 --> 1:22:14.480
+ science with it instead of just putting it out to the world and let somebody else understand that it
+
+1:22:14.480 --> 1:22:19.680
+ was two black holes and what it was. The fact that a thousand collaborators were quiet
+
+1:22:20.480 --> 1:22:25.600
+ is a really strong indication that this is a really close knit team. Yeah. And they're around
+
+1:22:25.600 --> 1:22:35.200
+ the world. Either strong knit or tight knit or had a strong dictatorship or something. Yeah.
+
+1:22:35.200 --> 1:22:39.120
+ Either fear or love. You can rule by fear or love. Yeah, right. You can go back to Machiavelli.
+
+1:22:39.120 --> 1:22:51.760
+ Yeah. All right. Well, this is really exciting that that's a success story because it didn't
+
+1:22:51.760 --> 1:22:56.720
+ have to be a success story, right? I mean, eventually, perhaps you could say it'll be an
+
+1:22:56.720 --> 1:23:06.160
+ event, but it could have taken over a century to get there. Oh, yeah. Yeah. And it's only downhill
+
+1:23:06.160 --> 1:23:18.240
+ now. What do you mean? You mean with gravitational waves? Yeah. Well, now we're off because of the
+
+1:23:18.240 --> 1:23:25.120
+ pandemic, but when we turned off, we were seeing some sort of gravitational wave event each week.
+
+1:23:26.880 --> 1:23:32.560
+ Now we're fixing, we're adding features where it'll probably be when we turn back on next year,
+
+1:23:32.560 --> 1:23:37.520
+ it'll probably be one every couple days. And they're not all the same. So it's
+
+1:23:38.160 --> 1:23:45.840
+ learning about what's out there in gravity instead of just optics. So it's all great.
+
+1:23:45.840 --> 1:23:54.880
+ We're only limited by the fantastic thing other than that this is a great field and it's all new
+
+1:23:54.880 --> 1:24:04.000
+ and so forth is that experimentally, the great thing is that we're limited by technology and
+
+1:24:04.000 --> 1:24:16.400
+ technical limitations, not by science. So another really important discovery that was made before
+
+1:24:16.400 --> 1:24:23.200
+ ours was what's called the Higgs boson made on the big accelerator at CERN. This huge accelerator,
+
+1:24:23.200 --> 1:24:29.360
+ they discovered a really important thing. We have Einstein's equation, E equals MC squared.
+
+1:24:29.920 --> 1:24:37.040
+ So energy makes mass or mass can make energy and that's the bomb. But the mechanism by which that
+
+1:24:37.040 --> 1:24:48.560
+ happens, not vision, but how do you create mass from energy was never understood until there was
+
+1:24:48.560 --> 1:24:58.400
+ a theory of it about 70 years ago now. And so they discovered it's named after a man named Higgs.
+
+1:24:58.400 --> 1:25:05.120
+ It's called the Higgs boson. And so it was discovered, but since that time, and I worked
+
+1:25:05.120 --> 1:25:09.920
+ on those experiments since that time, they haven't been able to progress very much further,
+
+1:25:09.920 --> 1:25:14.240
+ a little bit, but not a lot further. And the difference is that we're really lucky
+
+1:25:14.240 --> 1:25:22.880
+ we're in what we're doing in that there you see this Higgs boson, but there's tremendous amount
+
+1:25:22.880 --> 1:25:28.080
+ of other physics that goes on and you have to pick out the needle in the haystack of physics.
+
+1:25:28.080 --> 1:25:34.480
+ You can't make the physics go away, it's there. In our case, we have a very weak signal, but once we
+
+1:25:34.480 --> 1:25:40.080
+ get good enough to see it, it's weak compared to where we've reduced the background, but the
+
+1:25:40.080 --> 1:25:47.600
+ background is not physics, it's just technology. It's getting ourselves better isolated from the
+
+1:25:47.600 --> 1:25:56.160
+ Earth or getting a more powerful laser. And so since 2015, when we saw the first one,
+
+1:25:56.160 --> 1:26:03.040
+ we continually can make improvements that are enabling us to turn this into a real science
+
+1:26:03.040 --> 1:26:12.560
+ to do astronomy, a new kind of astronomy. It's a little like astronomy. Galileo started the field.
+
+1:26:12.560 --> 1:26:20.080
+ He basically took lenses that were made for classes and he didn't invent the first telescope,
+
+1:26:20.080 --> 1:26:28.880
+ but made a telescope, looked at Neptune and saw that it had four moons. That was the birth of
+
+1:26:28.880 --> 1:26:34.880
+ not just using your eyes to understand what's out there. And since that time, we've made better and
+
+1:26:34.880 --> 1:26:41.920
+ better telescopes, obviously, and astronomy thrives. And in a similar way, we're starting to
+
+1:26:41.920 --> 1:26:49.920
+ be able to crawl, but we're starting to be able to do that with gravitational waves. And it's
+
+1:26:49.920 --> 1:26:55.600
+ going to be more and more that we can do as we can make better and better instruments because,
+
+1:26:55.600 --> 1:27:02.400
+ as I say, it's not limited by picking it out of others. Yeah, it's not limited by the physics.
+
+1:27:02.400 --> 1:27:10.080
+ So you have an optimism about engineering that as human progress marches on,
+
+1:27:11.040 --> 1:27:17.280
+ engineering will always find a way to build a large enough device,
+
+1:27:17.280 --> 1:27:21.360
+ accurate enough device to detect the same thing. As long as it's not limited by physics,
+
+1:27:21.360 --> 1:27:34.720
+ yeah, they'll do it. So you, two other folks and the entire team won the Nobel prize for this big
+
+1:27:34.720 --> 1:27:49.680
+ effort. There's a million questions I can ask for, but looking back, where does the Nobel prize
+
+1:27:49.680 --> 1:27:57.920
+ fit into all of this? If you think hundreds of years from now, I venture to say that people
+
+1:27:57.920 --> 1:28:03.360
+ will not remember the winners of a prize, but they'll remember creations like these.
+
+1:28:03.360 --> 1:28:10.880
+ Maybe I'm romanticizing engineering, but I guess I want to ask how important is the Nobel prize in
+
+1:28:10.880 --> 1:28:22.240
+ all of this? Well, that's a complicated question. As a physicist, it's something if you're trying
+
+1:28:22.240 --> 1:28:30.960
+ to win a Nobel prize, forget it because they give one a year. So there's been 200 physicists
+
+1:28:30.960 --> 1:28:40.240
+ who have won the Nobel prize since 1900. And so things just have to fall right. So your goal cannot
+
+1:28:40.240 --> 1:28:51.600
+ be to win a Nobel prize. It wasn't my dream. It's tremendous for science. Why the Nobel prize for a
+
+1:28:51.600 --> 1:28:58.400
+ guy that made dynamite and stuff is what it is. It's a long story, but it's the one day a year
+
+1:28:58.400 --> 1:29:04.720
+ where actually the science that people have done is all over the world and so forth. Forget about
+
+1:29:04.720 --> 1:29:14.080
+ the people again. It is really good for science. It celebrates science for several days, different
+
+1:29:14.080 --> 1:29:21.280
+ fields, chemistry, medicine and so forth. And everybody doesn't understand everything about
+
+1:29:21.280 --> 1:29:27.760
+ these. They're generally fairly abstract, but then it's on the front page of newspapers around
+
+1:29:27.760 --> 1:29:32.080
+ the world. So it's really good for science. It's not easy to get science on the front page of the
+
+1:29:32.080 --> 1:29:41.760
+ New York Times. It's not there. Should be, but it's not. And so the Nobel prize is important in that
+
+1:29:41.760 --> 1:29:53.520
+ way. Otherwise, I have a certain celebrity that I didn't have before. And now you get to be a
+
+1:29:53.520 --> 1:30:01.280
+ celebrity that advertises science. It's a mechanism to remind us how incredible, how much credit
+
+1:30:01.280 --> 1:30:06.240
+ science deserves and everything. Well, it has a little bit more. One thing I didn't expect,
+
+1:30:06.240 --> 1:30:16.720
+ which is good, is that we have a government. I'm not picking on ours necessarily, but it's true of
+
+1:30:16.720 --> 1:30:23.040
+ all governments are not run by scientists. In our case, it's run by lawyers and businessmen.
+
+1:30:23.040 --> 1:30:29.520
+ Yep. Okay. And at best they may have an aide or something that knows a little science. So
+
+1:30:33.120 --> 1:30:42.640
+ in all countries hardly take into account science in making decisions.
+
+1:30:42.640 --> 1:30:44.320
+ Yes. Okay. And
+
+1:30:44.320 --> 1:30:53.200
+ having a Nobel prize, the people in those positions actually listen. So you have more
+
+1:30:53.200 --> 1:30:58.160
+ influence. I don't care whether it's about global warming or what the issue is. There's some
+
+1:30:58.160 --> 1:31:05.120
+ influence, which is lacking otherwise. And people pay attention to what I say. If I talk about
+
+1:31:05.120 --> 1:31:12.160
+ global warming, they wouldn't have before I had the Nobel prize. Yeah, this is very true. You're
+
+1:31:12.160 --> 1:31:20.000
+ like the celebrities who talk. Celebrity has power. Celebrity has power. And that's a good
+
+1:31:20.000 --> 1:31:24.880
+ thing. That's a good thing. Singling out people, I mean, on the other side of it, singling out
+
+1:31:24.880 --> 1:31:32.320
+ people has all kinds of, whether it's for Academy Awards or for this, have unfairness and
+
+1:31:32.320 --> 1:31:39.920
+ arbitrariness and so forth and so on. So that's the other side of the coin. Just like you said,
+
+1:31:39.920 --> 1:31:45.280
+ especially with the huge experimental projects like this, you know, it's a large team and it
+
+1:31:45.280 --> 1:31:49.760
+ does the nature of the Nobel prizes. It singles out a few individuals to represent the team.
+
+1:31:49.760 --> 1:31:57.440
+ Yeah. Nevertheless, it's a beautiful thing. What are ways to improve LIGO in the future,
+
+1:31:57.440 --> 1:32:03.520
+ increase the sensitivity? I've seen a few ideas that are kind of fascinating. Are you interested
+
+1:32:03.520 --> 1:32:09.680
+ in them? I'm not speaking about five years. Perhaps you could speak to the next five years,
+
+1:32:09.680 --> 1:32:16.080
+ but also the next hundred years. Yeah. So let me talk to both the instrument and the science.
+
+1:32:16.080 --> 1:32:21.200
+ Sure. So they go hand in hand. I mean, the thing that I said is if we make it better,
+
+1:32:21.920 --> 1:32:29.760
+ we see more kinds of weaker objects and we do astronomy. Okay. We're very motivated to make
+
+1:32:29.760 --> 1:32:36.240
+ a new instrument, which will be a big step, the next step, like making a new kind of telescope or
+
+1:32:36.240 --> 1:32:44.400
+ something. And the ideas of what that instrument should be haven't converged yet. There's different
+
+1:32:44.400 --> 1:32:52.480
+ ideas in Europe. They've done more work to kind of develop the ideas, but they're different from
+
+1:32:52.480 --> 1:32:59.840
+ ours and we have ideas. But I think over the next few years, we'll develop those. The idea is to make
+
+1:32:59.840 --> 1:33:06.240
+ an instrument that's at least 10 times better than what we can do with this instrument, 10 times
+
+1:33:06.240 --> 1:33:13.600
+ better than that. 10 times better means you can look 10 times further out. 10 times further out
+
+1:33:13.600 --> 1:33:21.680
+ is a thousand times more volume. So you're seeing much, much more of the universe. The best way to
+
+1:33:21.680 --> 1:33:29.280
+ look at it is to look further out. The big change is that if you can see far out, you see further
+
+1:33:29.280 --> 1:33:36.080
+ back in history. Yeah, you're traveling back in time. Yeah. And so we can start to do what we
+
+1:33:36.080 --> 1:33:44.160
+ call cosmology instead of astronomy or astrophysics. Cosmology is really the study of the evolution of
+
+1:33:44.160 --> 1:33:52.400
+ the universe. And so then you can start to hope to get to the important problems having to do with
+
+1:33:53.920 --> 1:34:01.600
+ how the universe began, how it evolved and so forth, which we really only study now with
+
+1:34:02.160 --> 1:34:12.320
+ optical instruments or electromagnetic waves. And early in the universe, those were blocked because
+
+1:34:12.320 --> 1:34:18.960
+ it was, basically it wasn't transparent. So the photons couldn't get out when everything was too
+
+1:34:18.960 --> 1:34:24.240
+ dense. What do you think, sorry on this tangent, what do you think an understanding of gravitational
+
+1:34:24.240 --> 1:34:28.560
+ waves from earlier in the universe can help us understand about the Big Bang and all that kind
+
+1:34:28.560 --> 1:34:37.120
+ of stuff? Yeah. But it's a non, it's another perspective on the thing. Is there some insights
+
+1:34:37.120 --> 1:34:43.040
+ you think could be revealed just to help a layman understand? Sure. First, we don't understand. We
+
+1:34:43.040 --> 1:34:47.920
+ use the word Big Bang. We don't understand the physics of what the Big Bang itself was.
+
+1:34:50.320 --> 1:34:58.160
+ So I think, and in the early stage, there were particles and there was a huge amount of gravity
+
+1:34:58.160 --> 1:35:10.240
+ and mass being made. So I'll say two things. One is, how did it all start? How did it happen? I'll
+
+1:35:10.240 --> 1:35:16.000
+ give you at least one example that we don't understand what we should understand. We don't
+
+1:35:16.000 --> 1:35:24.000
+ know why we're here. Yes. No, we do not. I don't mean it philosophically. I mean it in terms of
+
+1:35:24.000 --> 1:35:30.720
+ physics. Now, what do I mean by that? If I go into my laboratory at CERN or somewhere and I
+
+1:35:30.720 --> 1:35:38.480
+ collide particles together or put energy together, I make as much anti matter as matter. Anti matter
+
+1:35:38.480 --> 1:35:49.120
+ then annihilates matter and makes energy. So in the early universe, you made somehow a lot of
+
+1:35:49.120 --> 1:35:54.960
+ matter and anti matter, but there was an asymmetry. Somehow there was more matter and anti matter.
+
+1:35:55.520 --> 1:35:59.520
+ The matter and anti matter annihilated each other. At least that's what we think.
+
+1:35:59.520 --> 1:36:04.960
+ And there was only matter leftover. And we live in a universe that we see this all matter.
+
+1:36:05.840 --> 1:36:12.640
+ We don't have any idea. We have ideas, but we don't have any way to understand that at the
+
+1:36:12.640 --> 1:36:19.600
+ present time with the physics that we know. Can I ask a dumb question? Does anti matter have
+
+1:36:19.600 --> 1:36:29.040
+ anything like a gravitational field to send signals? So how does this asymmetry of matter
+
+1:36:29.040 --> 1:36:35.520
+ and anti matter could be investigated or further understood by observing gravitational fields or
+
+1:36:35.520 --> 1:36:45.360
+ weirdnesses in gravitational fields? I think that in principle, if there were anti neutron stars,
+
+1:36:45.360 --> 1:36:51.280
+ instead of just neutron stars, we would see different kinds of signals, but it didn't get
+
+1:36:51.280 --> 1:36:56.960
+ to that. We live in a universe that we've done enough looking because we don't see anti matter,
+
+1:36:56.960 --> 1:37:01.280
+ anti protons anywhere, no matter what we look at, that it's all made out of matter.
+
+1:37:01.280 --> 1:37:04.800
+ Hmm. There is no anti matter except when we go in our laboratories.
+
+1:37:06.400 --> 1:37:11.280
+ So, but when we go in our laboratories, we make as much anti matter as matter.
+
+1:37:11.280 --> 1:37:16.320
+ So there's something about the early universe that made this asymmetry. So we can't even
+
+1:37:16.320 --> 1:37:25.360
+ explain why we're here. That's what I meant. Physics wise, not in terms of how we evolved
+
+1:37:25.360 --> 1:37:36.080
+ and all that kind of stuff. So there might be inklings of some of the physics that gravitational
+
+1:37:36.080 --> 1:37:42.720
+ So gravitational waves don't get obstructed like light. So I said light only goes to 300,000 years.
+
+1:37:42.720 --> 1:37:47.520
+ So it goes back to the beginning. So if you could study the early universe with gravitational waves,
+
+1:37:47.520 --> 1:37:54.240
+ we can't do that yet. Then it took 400 years to be able to do that with optical, but
+
+1:37:54.240 --> 1:37:59.360
+ but then you can really understand the very, maybe understand the very early universe.
+
+1:38:00.400 --> 1:38:10.400
+ So in terms of questions like why we're here or what the big bang was, we should be, we can,
+
+1:38:10.400 --> 1:38:15.360
+ in principle, study that with gravitational waves. So to keep moving in this direction,
+
+1:38:15.360 --> 1:38:20.400
+ it's a unique kind of way to understand our universe.
+
+1:38:20.400 --> 1:38:24.640
+ So you think there's more Nobel prize level ideas to be discovered in relation to
+
+1:38:25.200 --> 1:38:31.680
+ I'd be shocked if there, if there isn't, not even going to that, which is a very long range problem.
+
+1:38:31.680 --> 1:38:39.280
+ But I think that we only see with electromagnetic waves, 4% of what's out there.
+
+1:38:39.280 --> 1:38:48.240
+ There must be, we looked for things that we knew should be there. There should be,
+
+1:38:48.240 --> 1:38:58.960
+ I would be shocked if there wasn't physics, objects, science, and with gravity that doesn't
+
+1:38:58.960 --> 1:39:06.480
+ show up in everything we do with telescopes. So I think we're just limited by not having
+
+1:39:06.480 --> 1:39:09.280
+ powerful enough instruments yet to do this.
+
+1:39:10.400 --> 1:39:16.560
+ Do you have a preference? I keep seeing this E. Lisa idea.
+
+1:39:17.200 --> 1:39:17.440
+ Yeah.
+
+1:39:18.240 --> 1:39:26.960
+ Is it, do you have a preference for earthbound or space faring mechanisms for?
+
+1:39:26.960 --> 1:39:32.880
+ They're complimentary. It's a little bit like, it's completely analogous to what's been done
+
+1:39:32.880 --> 1:39:39.760
+ in astronomy. So astronomy from the time of Galileo was done with visible light.
+
+1:39:42.000 --> 1:39:46.560
+ The big advances in astronomy in the last 50 years are because we have instruments that look
+
+1:39:46.560 --> 1:39:54.160
+ at the infrared, microwave, ultraviolet and so forth. So looking at different wavelengths
+
+1:39:54.160 --> 1:40:00.240
+ has been important. Basically going into space means that we'll look at instead of the audio
+
+1:40:00.240 --> 1:40:04.880
+ band, which we look at, as we said on the Earth's surface, we'll look at lower frequencies.
+
+1:40:05.680 --> 1:40:10.960
+ So it's completely complimentary and it starts to be looking at different frequencies just
+
+1:40:10.960 --> 1:40:12.400
+ like we do with astronomy.
+
+1:40:14.320 --> 1:40:18.960
+ It seems almost incredible to me, engineering wise, just like on earth to send something
+
+1:40:18.960 --> 1:40:25.360
+ that's kilometers across into space. Is that harder to engineer?
+
+1:40:25.360 --> 1:40:32.880
+ It actually is a little different. It's three satellites separated by hundreds of thousands
+
+1:40:32.880 --> 1:40:42.960
+ of kilometers and they send a laser beam from one to the other. And if the triangle changes
+
+1:40:42.960 --> 1:40:45.360
+ shape a little bit, they detect that from a graph.
+
+1:40:45.360 --> 1:40:56.160
+ Did you say hundreds of thousands of kilometers? Yeah. Sending lasers to each other. Okay.
+
+1:40:56.160 --> 1:40:57.200
+ It's just engineering.
+
+1:40:59.920 --> 1:41:02.160
+ Is it possible though? Is it doable?
+
+1:41:02.160 --> 1:41:02.400
+ Yes.
+
+1:41:03.520 --> 1:41:11.040
+ Okay. That's just incredible because they have to maintain, I mean, the precision here
+
+1:41:11.040 --> 1:41:16.800
+ is probably, there might be some more, what is it? Maybe noise is a smaller problem. I
+
+1:41:16.800 --> 1:41:22.880
+ guess there's no vibration to worry about like seismic stuff. So getting away from earth,
+
+1:41:22.880 --> 1:41:23.680
+ maybe you get away from seismic stuff.
+
+1:41:23.680 --> 1:41:28.160
+ Yeah. Those parts are easier. They don't have to measure it as accurately at low frequencies.
+
+1:41:29.200 --> 1:41:33.200
+ But they have a lot of tough engineering problems.
+
+1:41:33.200 --> 1:41:44.000
+ In order to detect that the gravitational waves affect things, the sensors have to be
+
+1:41:44.000 --> 1:41:48.400
+ what we call free masses, just like ours, are isolated from the earth. They have to
+
+1:41:48.400 --> 1:41:54.080
+ isolate it from the satellite. And that's a hard problem. They have to do that pretty,
+
+1:41:54.080 --> 1:42:00.080
+ not as well as we have to do it, but very well. And they've done a test mission and
+
+1:42:00.080 --> 1:42:06.880
+ the engineering seems to be at least in principle in hand. This will be in the 2030s.
+
+1:42:06.880 --> 1:42:07.920
+ 2030s?
+
+1:42:07.920 --> 1:42:08.160
+ Yeah.
+
+1:42:09.600 --> 1:42:16.080
+ This is incredible. This is incredible. Let me ask about black holes.
+
+1:42:17.200 --> 1:42:27.440
+ So what we're talking about is observing orbiting black holes. I saw the terminology of like
+
+1:42:27.440 --> 1:42:28.880
+ binary black hole systems.
+
+1:42:28.880 --> 1:42:29.680
+ Binary black holes.
+
+1:42:29.680 --> 1:42:33.040
+ Is that the one that's when they're dancing? Okay.
+
+1:42:33.040 --> 1:42:36.080
+ They're both going around each other, just like the earth around the sun.
+
+1:42:36.080 --> 1:42:39.440
+ Okay. Is that weird that there's black holes going around each other?
+
+1:42:40.080 --> 1:42:45.200
+ So the finding binary systems of stars is similar to finding binary systems of...
+
+1:42:45.840 --> 1:42:46.560
+ Of black holes.
+
+1:42:46.560 --> 1:42:55.760
+ Well, they were once stars. So we haven't said what a black hole is physically yet.
+
+1:42:55.760 --> 1:42:56.880
+ Yeah. What's a black hole?
+
+1:42:56.880 --> 1:43:03.280
+ So black hole is first, it's a mathematical concept or a physical concept. And that is
+
+1:43:03.840 --> 1:43:10.640
+ a region of space. So it's simply a region of space where the curvature of space time,
+
+1:43:10.640 --> 1:43:17.920
+ meaning the gravitational field is so strong that nothing can get out, including light.
+
+1:43:19.040 --> 1:43:26.320
+ And there's light gets bent if the space time is warped enough.
+
+1:43:26.320 --> 1:43:31.360
+ And so even light gets bent around and stays in it. So that's the concept of a black hole.
+
+1:43:33.200 --> 1:43:39.280
+ And maybe you can make... So that's a concept that didn't say how they come about.
+
+1:43:40.400 --> 1:43:45.600
+ And there could be different ways they come about. The ones that we are seeing,
+
+1:43:48.480 --> 1:43:52.480
+ we're not sure. That's what we're trying to learn now is what they...
+
+1:43:52.480 --> 1:44:00.880
+ But the general expectation is that they come... These black holes happen when a star dies.
+
+1:44:02.000 --> 1:44:06.400
+ So what does that mean that a star dies? What happens? A star like our sun
+
+1:44:08.880 --> 1:44:17.600
+ basically makes heat and light by fusion. It's made up. And as it burns, it burns up the hydrogen
+
+1:44:17.600 --> 1:44:24.240
+ and then the helium and slowly works its way up to the heavier and heavier elements that are
+
+1:44:24.240 --> 1:44:29.840
+ in the star. And when it gets up to iron, the fusion process doesn't work anymore.
+
+1:44:30.560 --> 1:44:37.200
+ And so the stars die and that happens to stars. And then they do what's called a supernova.
+
+1:44:37.200 --> 1:44:43.760
+ What happens then is that a star is a delicate balance between an outward pressure from fusion
+
+1:44:43.760 --> 1:44:50.080
+ and light and burning and an inward pressure of gravity trying to pull the
+
+1:44:51.120 --> 1:44:57.760
+ masses together. Once it burns itself out, it goes and it collapses and that's a supernova.
+
+1:44:57.760 --> 1:45:05.440
+ When it collapses, all the mass that was there is in a very much smaller space. And if a star,
+
+1:45:05.440 --> 1:45:11.680
+ if you do the calculations, if a star is big enough, that can create a strong enough
+
+1:45:11.680 --> 1:45:17.920
+ gravitational field to make a black hole. Our sun won't. It's too small.
+
+1:45:17.920 --> 1:45:18.480
+ Too small.
+
+1:45:19.200 --> 1:45:26.400
+ And we don't know exactly what, but it's usually thought that a star has to be at least three
+
+1:45:26.400 --> 1:45:32.160
+ times as big as our sun to make a black hole. But that's the physical way there.
+
+1:45:32.160 --> 1:45:34.800
+ You can make black holes. That's the first
+
+1:45:34.800 --> 1:45:41.840
+ explanation that one would give for what we see,
+
+1:45:41.840 --> 1:45:45.440
+ but it's not necessarily true. We're not sure yet.
+
+1:45:45.440 --> 1:45:48.560
+ What we see in terms of, for the origins of black holes?
+
+1:45:48.560 --> 1:45:52.320
+ No, the black holes that we see in gravitational waves.
+
+1:45:52.320 --> 1:45:56.720
+ So the, but you're also looking for the ones who are binary solar systems.
+
+1:45:56.720 --> 1:46:01.760
+ So they're binary systems, but they could have been made from binary stars. So there's binary
+
+1:46:01.760 --> 1:46:07.520
+ stars around. So that's, so that's the first explanation is that that's what they are.
+
+1:46:07.520 --> 1:46:07.920
+ Gotcha.
+
+1:46:09.760 --> 1:46:16.800
+ Other explanations, but what we see has some puzzles. This is kind of the way science works,
+
+1:46:16.800 --> 1:46:29.280
+ I guess. We see heavier ones than up to, we've seen one system that was 140 times the mass of
+
+1:46:29.280 --> 1:46:39.760
+ our own sun. That's not believed to be possible with the parent being a big star because big
+
+1:46:39.760 --> 1:46:49.120
+ stars can only be so big or they are unstable. It's just the fact that they live in an environment
+
+1:46:49.120 --> 1:46:55.920
+ that makes them unstable. So the fact that we see bigger ones, they may be come from something else.
+
+1:46:55.920 --> 1:47:04.800
+ It's possible that they were made in a different way by little ones eating each other up or maybe
+
+1:47:04.800 --> 1:47:11.600
+ they were made or maybe they came with the big bang. The prime, what we call primordial, which
+
+1:47:11.600 --> 1:47:16.160
+ means they're really different. They came from that. We don't know at this point if they came
+
+1:47:16.160 --> 1:47:21.040
+ with a big bang, then maybe they account for what we call dark matter or some of it.
+
+1:47:21.040 --> 1:47:26.080
+ Hmm. Like there was a lot of them if they came with it because there's a lot of dark matter.
+
+1:47:26.080 --> 1:47:26.320
+ Yeah.
+
+1:47:27.360 --> 1:47:34.240
+ But will gravitational waves give you any kind of intuition about the origin of these oscillating?
+
+1:47:34.240 --> 1:47:39.600
+ We think that if we see the distributions enough of them, the distributions of their
+
+1:47:40.320 --> 1:47:45.760
+ masses, the distributions of how they're spinning, so we can actually measure when they're going
+
+1:47:45.760 --> 1:47:55.120
+ around each other, whether they're spinning like this or whether the whole system has any wobbles.
+
+1:47:55.680 --> 1:47:59.120
+ What? So this is now. Okay.
+
+1:48:00.400 --> 1:48:01.280
+ We're doing that.
+
+1:48:01.280 --> 1:48:04.400
+ And then you're constantly kind of crawling back and back in time.
+
+1:48:04.400 --> 1:48:09.920
+ And we're crawling back in time and seeing how many there are as we go back. And so do they
+
+1:48:09.920 --> 1:48:10.480
+ point back.
+
+1:48:10.480 --> 1:48:15.920
+ So you're like, what is that discipline called, cartography or something? You're like mapping
+
+1:48:15.920 --> 1:48:21.920
+ this, the early universe via the lens of gravitational waves.
+
+1:48:21.920 --> 1:48:24.080
+ Not yet the early universe, but at least back in time.
+
+1:48:24.080 --> 1:48:24.720
+ Earlier.
+
+1:48:24.720 --> 1:48:32.960
+ Yeah. So black holes are this mathematical phenomenon, but they come about in different
+
+1:48:32.960 --> 1:48:39.600
+ ways. We have a huge black hole at the center of our galaxy and other galaxies. Those probably
+
+1:48:39.600 --> 1:48:44.160
+ were made some other way. We don't know when the galaxies themselves had to do with the
+
+1:48:44.160 --> 1:48:49.680
+ formation of galaxies. We don't really know. So the fact that we use the word black hole,
+
+1:48:50.240 --> 1:48:56.480
+ the origin of black holes might be quite different depending on how they happen. They just have
+
+1:48:56.480 --> 1:49:00.160
+ to in the end have a gravitational field that will bend everything in.
+
+1:49:01.200 --> 1:49:06.720
+ How do you feel about black holes as a human being? There's this thing that's nearly
+
+1:49:06.720 --> 1:49:13.680
+ infinitely dense, doesn't let light escape. Isn't that kind of terrifying? It feels like
+
+1:49:13.680 --> 1:49:14.960
+ the stuff in nightmares.
+
+1:49:14.960 --> 1:49:17.600
+ I think it's an opportunity.
+
+1:49:19.040 --> 1:49:20.160
+ To do what exactly?
+
+1:49:21.360 --> 1:49:26.800
+ So like the early universe is an opportunity. If we can study the early universe, we can
+
+1:49:26.800 --> 1:49:32.720
+ learn things like I told you. And here again, we have an embarrassing situation in physics.
+
+1:49:32.720 --> 1:49:39.920
+ We have two wonderful theories of physics, one based on quantum mechanics, quantum field
+
+1:49:39.920 --> 1:49:46.000
+ theory. And we can go to a big accelerator like at CERN and smash particles together
+
+1:49:46.000 --> 1:49:51.840
+ and almost explain anything that happens beautifully using quantum field theory and
+
+1:49:51.840 --> 1:49:57.200
+ quantum mechanics. Then we have another theory of physics called general relativity, which
+
+1:49:57.200 --> 1:50:02.160
+ is what we've been talking about most of the time, which is fantastic at describing the
+
+1:50:02.160 --> 1:50:12.000
+ things at high velocities, long distances, and so forth. So that's not the way it's
+
+1:50:12.000 --> 1:50:17.920
+ supposed to be. We're trying to create a theory of physics, not two theories of physics.
+
+1:50:18.480 --> 1:50:22.960
+ So we have an embarrassment that we have two different theories of physics. People have
+
+1:50:22.960 --> 1:50:28.080
+ tried to make a unified theory, what they call a unified theory. You've heard those
+
+1:50:28.080 --> 1:50:36.560
+ words for decades. They still haven't. That's been primarily done theoretically or tried.
+
+1:50:36.560 --> 1:50:44.640
+ People actively do that. My personal belief is that like much of physics, we need some
+
+1:50:44.640 --> 1:50:51.280
+ clues. So we need some experimental evidence. So where is there a place? If we go to CERN
+
+1:50:51.280 --> 1:50:56.160
+ and do those experiments, gravitational waves or general relativity don't matter. If we
+
+1:50:56.160 --> 1:51:02.560
+ go to study our black holes, elementary particle physics doesn't matter. We're studying these
+
+1:51:02.560 --> 1:51:09.120
+ huge objects. So where might we have a place where both phenomena have to be satisfied?
+
+1:51:09.120 --> 1:51:15.920
+ An example is black holes. Inside black holes. Yeah. So we can't do that today. But when
+
+1:51:15.920 --> 1:51:24.160
+ I think of black hole, it's a potential treasure chest of understanding the fundamental problems
+
+1:51:24.160 --> 1:51:32.800
+ of physics and maybe can give us clues to how we bring to the embarrassment of having
+
+1:51:32.800 --> 1:51:38.960
+ two theories of physics together. That's my own romantic idea. What's the worst that could
+
+1:51:38.960 --> 1:51:45.040
+ happen? It's so enticing. Just go in and look. Do you think, how far are we away from
+
+1:51:45.040 --> 1:51:50.880
+ figuring out the unified theory of physics, the theory of everything? What's your sense?
+
+1:51:50.880 --> 1:52:02.080
+ Who will solve it? Like what discipline will solve it? Yeah. I think so little progress
+
+1:52:02.080 --> 1:52:16.080
+ has been made without more experimental clues, as I said, that we're just not able to say
+
+1:52:16.080 --> 1:52:26.320
+ that we're close without some clues. The most popular theory these days that might lead
+
+1:52:26.320 --> 1:52:34.440
+ to that is called string theory. The problem with string theory is it solves a lot of beautiful
+
+1:52:34.440 --> 1:52:46.720
+ mathematical problems we have in physics. It's very satisfying theoretically, but it
+
+1:52:46.720 --> 1:52:53.840
+ has almost no predictive, maybe no predictive ability because it is a theory that works
+
+1:52:53.840 --> 1:53:02.080
+ in 11 dimensions. We live in a physical world of three space and one time dimension. In
+
+1:53:02.080 --> 1:53:08.720
+ order to make predictions in our world with string theory, you have to somehow get rid
+
+1:53:08.720 --> 1:53:15.280
+ of these other seven dimensions. That's done mathematically by saying they curl up on each
+
+1:53:15.280 --> 1:53:23.400
+ other on scales that are too small to affect anything here. That's an okay argument, but
+
+1:53:23.400 --> 1:53:30.320
+ how you do that is not unique. That means if I start with that theory and I go to our
+
+1:53:30.320 --> 1:53:37.280
+ world here, I can't uniquely go to it. And if I can't, it's not predictive. And that's
+
+1:53:37.280 --> 1:53:42.480
+ actually a killer. That's a killer. And string theory is, it seems like from my outsider's
+
+1:53:42.480 --> 1:53:46.920
+ perspective has lost favor over the years, perhaps because of this very idea. It's a
+
+1:53:46.920 --> 1:53:52.440
+ lack of predictive power. I mean, that science has to connect to something where you make
+
+1:53:52.440 --> 1:53:59.960
+ predictions as beautiful as it might be. So I don't think we're close. I think we need
+
+1:53:59.960 --> 1:54:07.520
+ some experimental clues. It may be that information on something we don't understand presently
+
+1:54:07.520 --> 1:54:12.680
+ at all, like dark energy or probably not dark matter, but dark energy or something might
+
+1:54:12.680 --> 1:54:26.160
+ give us some ideas. But I can't envision right now in the short term, meaning the horizon
+
+1:54:26.160 --> 1:54:31.760
+ that we can see how we're going to bring these two theories together.
+
+1:54:31.760 --> 1:54:38.560
+ A kind of a two part question, maybe just asking the same thing in two different ways.
+
+1:54:38.560 --> 1:54:47.760
+ One question is, do you have hope that humans will colonize the galaxy? So expand out, become
+
+1:54:47.760 --> 1:54:53.080
+ a multi planetary species. Another way of asking that from a gravitational and a propulsion
+
+1:54:53.080 --> 1:54:57.160
+ perspective, do you think we'll come up with ways to travel closer to the speed of light
+
+1:54:57.160 --> 1:55:02.280
+ or maybe faster than the speed of light, which would make it a whole heck of a lot easier
+
+1:55:02.280 --> 1:55:06.120
+ to expand out into the universe?
+
+1:55:06.120 --> 1:55:17.800
+ Yeah. Well, I think that's very futuristic. I think we're not that far from being able
+
+1:55:17.800 --> 1:55:29.720
+ to make a one way trip to Mars. That's then a question of whether people are willing to
+
+1:55:29.720 --> 1:55:31.640
+ send somebody on a one way trip.
+
+1:55:31.640 --> 1:55:36.840
+ Oh, I think they are. There's a lot of the explorers burned bright within our hearts.
+
+1:55:36.840 --> 1:55:37.840
+ Yeah, exactly.
+
+1:55:37.840 --> 1:55:42.920
+ There's a lot of people willing to die for the opportunity to explore new territory.
+
+1:55:42.920 --> 1:55:51.280
+ So this recent landing on Mars is pretty impressive. They have a little helicopter. They're going
+
+1:55:51.280 --> 1:55:57.920
+ to fly around. You can imagine in the not too distant future that you could have, I
+
+1:55:57.920 --> 1:56:04.520
+ don't think civilizations colonizing, I can envision, but I can envision something more
+
+1:56:04.520 --> 1:56:12.000
+ like the South Pole. We haven't colonized Antarctica because it's all ice and cold and
+
+1:56:12.000 --> 1:56:19.000
+ so forth. But we have stations. So we have a station that's self sustaining at the South
+
+1:56:19.000 --> 1:56:22.000
+ Pole. I've been there. It has.
+
+1:56:22.000 --> 1:56:23.000
+ Wow, really?
+
+1:56:23.000 --> 1:56:24.000
+ Yeah.
+
+1:56:24.000 --> 1:56:30.080
+ What's that like? Because there's parallels there to go to Mars.
+
+1:56:30.080 --> 1:56:31.080
+ It's fantastic.
+
+1:56:31.080 --> 1:56:33.480
+ What's the journey like?
+
+1:56:33.480 --> 1:56:41.640
+ The journey involves going. The South Pole station is run in the US by the National Science
+
+1:56:41.640 --> 1:56:48.160
+ Foundation. I went because I was on the National Science Board that runs the National Science
+
+1:56:48.160 --> 1:56:56.120
+ Foundation. And so you get a VIP trip if you're healthy enough to the South Pole to see it,
+
+1:56:56.120 --> 1:57:08.840
+ which I took. You fly from the US to Australia to Christchurch in Southern Australia. And
+
+1:57:08.840 --> 1:57:13.840
+ from there you fly to McMurdo Station, which is on the coast. And it's the station with
+
+1:57:13.840 --> 1:57:20.600
+ about a thousand people right on the coast of Antarctica. It's about a seven or eight
+
+1:57:20.600 --> 1:57:28.040
+ hour flight and they can't predict the weather. So when I flew from Christchurch to McMurdo
+
+1:57:28.040 --> 1:57:32.980
+ Station, they tell you in advance, you do it in a military aircraft, they tell you in
+
+1:57:32.980 --> 1:57:37.840
+ advance that they can't predict whether they can land because they have to land on ice.
+
+1:57:37.840 --> 1:57:38.840
+ And reassuring.
+
+1:57:38.840 --> 1:57:46.760
+ Yeah. And so about halfway the pilot got on and said, sorry, this is a, they call it a
+
+1:57:46.760 --> 1:57:52.360
+ boomerang flight. You know, boomerang goes out and goes back. So we had to stay a little
+
+1:57:52.360 --> 1:57:59.560
+ while in Christchurch, but then we eventually went to McMurdo Station and then flew to the
+
+1:57:59.560 --> 1:58:07.920
+ South Pole. The South Pole itself is, when I was there, it was minus 51 degrees. That
+
+1:58:07.920 --> 1:58:26.840
+ was summer. Zero humidity. And it's about 11,000 feet altitude because it's never warm
+
+1:58:26.840 --> 1:58:32.040
+ enough for anything to melt. So it doesn't snow very much, but it's about 11,000 feet
+
+1:58:32.040 --> 1:58:41.480
+ of snowpack. So you land in a place that's high altitude, cold as could be, and incredibly
+
+1:58:41.480 --> 1:58:52.360
+ dry, which means you have a physical adjustment. The place itself is fantastic. They have this
+
+1:58:52.360 --> 1:59:00.320
+ great station there. They do astronomy at the South Pole. Nature wise, is it beautiful?
+
+1:59:00.320 --> 1:59:05.160
+ What's the experience like? Or is it like visiting any town? No, it's very small. There's
+
+1:59:05.160 --> 1:59:13.120
+ only less than a hundred people there. Even when I was there, there were about 50 or 60
+
+1:59:13.120 --> 1:59:18.800
+ there. And in the winter, there's less, half of that. Their winter. Yeah. It gets real
+
+1:59:18.800 --> 1:59:28.640
+ cold. It gets really cold, yeah. But it's a station. And I think, and that's, I mean,
+
+1:59:28.640 --> 1:59:33.920
+ we haven't gone beyond that. On the coast of Antarctica, they have greenhouses and they're
+
+1:59:33.920 --> 1:59:40.840
+ self sustaining in McMurdo Station, but we haven't really settled more than that kind
+
+1:59:40.840 --> 1:59:55.440
+ of thing in Antarctica, which is a big country or a big plot, a big piece of land. So I don't,
+
+1:59:55.440 --> 2:00:04.640
+ I can't envision kind of colonizing at people living so much, as much as I can see the equivalent
+
+2:00:04.640 --> 2:00:10.400
+ of the South Pole Station. Well, in the computing world, there's an idea of backing up your
+
+2:00:10.400 --> 2:00:16.520
+ data and then you want to do offsite backup, to make sure that if the whole thing burns,
+
+2:00:16.520 --> 2:00:21.520
+ if your whole house burns down, that you can have a backup offsite of the data. I think
+
+2:00:21.520 --> 2:00:28.260
+ the difference between Antarctica and Mars is Mars is an offsite backup. That if we have
+
+2:00:28.260 --> 2:00:32.800
+ nuclear war, whatever the heck might happen here on earth, it'd be nice to have a backup
+
+2:00:32.800 --> 2:00:38.000
+ elsewhere. And it'd be nice to have a large enough colony where we sent a variety of people
+
+2:00:38.000 --> 2:00:48.160
+ except a few silly astronauts in suits, have an actual vibrant, get a few musicians and
+
+2:00:48.160 --> 2:00:53.920
+ artists up there, get a few, maybe like one or two computer scientists, those are essential.
+
+2:00:53.920 --> 2:00:56.320
+ Maybe even a physicist, but I'm not sure.
+
+2:00:56.320 --> 2:01:02.200
+ Yeah, maybe not. So that comes back to something you talked about earlier, which is the paradox,
+
+2:01:02.200 --> 2:01:10.360
+ Fermi's paradox, because you talked about having to escape. And so one number you don't
+
+2:01:10.360 --> 2:01:15.760
+ know how to use in Fermi's calculation or Drake, who's done it better, is how long do
+
+2:01:15.760 --> 2:01:24.320
+ civilizations last? We've barely gotten to where we can communicate with electricity
+
+2:01:24.320 --> 2:01:28.040
+ and magnetism and maybe we'll wipe ourselves out pretty soon.
+
+2:01:28.040 --> 2:01:32.480
+ Are you hopeful in general? Like you think we've got another couple of hundred years
+
+2:01:32.480 --> 2:01:35.680
+ at least? Or are you worried?
+
+2:01:35.680 --> 2:01:47.480
+ Well, no, I'm hopeful, but I don't know if I'm hopeful in the longterm. If you say, are
+
+2:01:47.480 --> 2:01:55.720
+ we able to go for another couple of thousand years? I'm not sure. I think we have where
+
+2:01:55.720 --> 2:02:00.760
+ we started, the fact that we can do things that don't allow us to kind of keep going
+
+2:02:00.760 --> 2:02:06.560
+ or there can be, whether it ends up being a virus that we create or ends up being the
+
+2:02:06.560 --> 2:02:11.480
+ equivalent of nuclear war or something else. It's not clear that we can control things
+
+2:02:11.480 --> 2:02:13.120
+ well enough.
+
+2:02:13.120 --> 2:02:20.520
+ So speaking of really cold conditions and not being hopeful and eventual suffering and
+
+2:02:20.520 --> 2:02:26.120
+ destruction of the human species, let me ask you about Russian literature. You mentioned,
+
+2:02:26.120 --> 2:02:30.960
+ how's that for transition? I'm doing my best here. You mentioned that you used to love
+
+2:02:30.960 --> 2:02:36.760
+ literature when you were younger and you even were hoping to be a writer yourself. That
+
+2:02:36.760 --> 2:02:43.760
+ was the motivation. And some of the books I've seen that you listed that were inspiring
+
+2:02:43.760 --> 2:02:52.960
+ to you was from Russian literature, like Tolstoy, Dostoevsky, Solzhenitsyn. Maybe in general
+
+2:02:52.960 --> 2:02:57.840
+ you can speak to your fascination with Russian literature or in general what you picked up
+
+2:02:57.840 --> 2:02:58.840
+ from those.
+
+2:02:58.840 --> 2:03:08.320
+ I'm not surprised you picked up on the Russian literature, your background, but that's okay.
+
+2:03:08.320 --> 2:03:12.040
+ You should be surprised I didn't make the entire conversation about this. That's the
+
+2:03:12.040 --> 2:03:13.040
+ real surprise.
+
+2:03:13.040 --> 2:03:24.280
+ Yeah. When I didn't really become a physicist or want to go in science until I started college.
+
+2:03:24.280 --> 2:03:29.680
+ So when I was younger, I was good at math and that kind of stuff, but I didn't really,
+
+2:03:29.680 --> 2:03:36.400
+ I came from a family, nobody went to college and I didn't have any mentors. But I liked
+
+2:03:36.400 --> 2:03:42.440
+ to read when I was really young. And so when I was very young, I always carried around
+
+2:03:42.440 --> 2:03:49.280
+ a pocket book and read it. And my mother read these mystery stories and I got bored by those
+
+2:03:49.280 --> 2:03:55.500
+ eventually. And then I discovered real literature. I don't know what age, but about 12 or 13.
+
+2:03:55.500 --> 2:04:00.640
+ And so then I started reading good literature and there's nothing better than Russian literature,
+
+2:04:00.640 --> 2:04:01.640
+ of course.
+
+2:04:01.640 --> 2:04:02.640
+ Thank you.
+
+2:04:02.640 --> 2:04:16.240
+ Reading good literature. So I read quite a bit of Russian literature at that time. And
+
+2:04:16.240 --> 2:04:22.840
+ so you asked me about, well, I don't know, I'll say a few words, Dostoevsky. So what
+
+2:04:22.840 --> 2:04:33.200
+ about Dostoevsky? For me, Dostoevsky was important in two, I mean, I've read a lot of literature
+
+2:04:33.200 --> 2:04:39.160
+ because it's kind of the other thing I do with my life. And he made two incredible,
+
+2:04:39.160 --> 2:04:46.960
+ in addition to his own literature, he influenced literature tremendously by having, I don't
+
+2:04:46.960 --> 2:04:53.720
+ know how to pronounce polyphony. So he's the first real serious author that had multiple
+
+2:04:53.720 --> 2:05:05.440
+ narrators. And he absolutely is the first. And he also was the first, he began existential
+
+2:05:05.440 --> 2:05:12.440
+ literature. So the most important book that I've read in the last year when I've been
+
+2:05:12.440 --> 2:05:20.960
+ forced to be isolated was existential literature. I decided to reread Camus, The Plague.
+
+2:05:20.960 --> 2:05:23.880
+ Oh, yeah. That's a great book.
+
+2:05:23.880 --> 2:05:26.400
+ It's a great book and it's right now to read it. It's fantastic.
+
+2:05:26.400 --> 2:05:30.960
+ I think that book is about love, actually. Love for humanity.
+
+2:05:30.960 --> 2:05:37.080
+ It is, but it has all the, if you haven't read it in recent years, I had read it before,
+
+2:05:37.080 --> 2:05:43.080
+ of course, but to read it during this, because it's about a plague. So it's really fantastic
+
+2:05:43.080 --> 2:05:48.000
+ to read down. But that reminds me of, he was a great existentialist, but the beginning
+
+2:05:48.000 --> 2:05:50.800
+ of existential literature was Dostoevsky.
+
+2:05:50.800 --> 2:05:51.940
+ Dostoevsky, yeah.
+
+2:05:51.940 --> 2:06:00.280
+ So in addition to his own great novels, he had a tremendous impact on literature.
+
+2:06:00.280 --> 2:06:06.300
+ And there's also for Dostoevsky, unlike most other existentialists, he was at least in
+
+2:06:06.300 --> 2:06:12.360
+ part religious. I mean, religiosity permeated his idea. I mean, one of my favorite books
+
+2:06:12.360 --> 2:06:16.720
+ of his is The Idiot, which is a Christlike figure in there.
+
+2:06:16.720 --> 2:06:19.280
+ Well, there's Prince Mishkin, is that his name?
+
+2:06:19.280 --> 2:06:20.280
+ Prince Mishkin, yeah.
+
+2:06:20.280 --> 2:06:21.280
+ Yeah, Mishkin.
+
+2:06:21.280 --> 2:06:22.280
+ Yeah, Mishkin.
+
+2:06:22.280 --> 2:06:23.280
+ Yeah.
+
+2:06:23.280 --> 2:06:25.960
+ That's one thing about, you read it in English, I presume.
+
+2:06:25.960 --> 2:06:26.960
+ Yeah, yeah.
+
+2:06:26.960 --> 2:06:30.500
+ Yeah. So the names, that's what gets a lot of people. There's so many names, so hard
+
+2:06:30.500 --> 2:06:35.700
+ to pronounce. You have to remember all of them. It's like you have the same problem.
+
+2:06:35.700 --> 2:06:38.320
+ But he was a great character.
+
+2:06:38.320 --> 2:06:47.240
+ I kind of have a connection with him, because I often, the title of the book, The Idiot,
+
+2:06:47.240 --> 2:06:52.620
+ is I kind of, I often call myself an idiot, because that's how I feel. I feel so naive
+
+2:06:52.620 --> 2:06:59.600
+ about this world. And I'm not sure, I'm not sure why that is. Maybe it's genetic or so
+
+2:06:59.600 --> 2:07:05.160
+ on. But I have a connection, a spiritual connection to that character.
+
+2:07:05.160 --> 2:07:06.160
+ To Mishkin.
+
+2:07:06.160 --> 2:07:07.160
+ To Mishkin, yeah.
+
+2:07:07.160 --> 2:07:10.160
+ But he was far from an idiot.
+
+2:07:10.160 --> 2:07:17.400
+ No, in some sense, in some sense. But in another sense, maybe not of this world.
+
+2:07:17.400 --> 2:07:23.020
+ In another sense he was. I mean, he was a bumbler, a bunker.
+
+2:07:23.020 --> 2:07:28.160
+ But you also mentioned Solzhenitsyn, very interesting.
+
+2:07:28.160 --> 2:07:36.800
+ And he always confused me. Of course, he was really, really important in writing about
+
+2:07:36.800 --> 2:07:48.480
+ Stalin, and first getting in trouble, and then later he wrote about Stalin in a way,
+
+2:07:48.480 --> 2:07:55.640
+ I forget what the book was, in a way that was very critical of Lenin.
+
+2:07:55.640 --> 2:08:00.640
+ Yeah, he's evolved through the years, and he actually showed support for Putin eventually.
+
+2:08:00.640 --> 2:08:08.480
+ It was a very interesting transition he took, no, journey he took through thinking about
+
+2:08:08.480 --> 2:08:17.920
+ Russia and the Soviet Union. But I think what I get from him is basic, it's like Viktor
+
+2:08:17.920 --> 2:08:25.640
+ has this man's search for meaning. I have a similar kind of sense of the cruelty of
+
+2:08:25.640 --> 2:08:31.520
+ human nature, cruelty of indifference, but also the ability to find happiness in the
+
+2:08:31.520 --> 2:08:37.720
+ small joys of life. That's something, there's nothing like a prison camp that makes you
+
+2:08:37.720 --> 2:08:41.760
+ realize you could still be happy with a very, very little.
+
+2:08:41.760 --> 2:08:50.160
+ Yeah, his description of how to go through a day and actually enjoy it in a prison camp
+
+2:08:50.160 --> 2:08:56.760
+ is pretty amazing. And some prison camp, it's the worst of the worst.
+
+2:08:56.760 --> 2:09:09.440
+ And also, I do think about the role of authoritarian states in hopeful idealistic systems somehow
+
+2:09:09.440 --> 2:09:16.760
+ leading to the suffering of millions. And this might be arguable, but I think a lot
+
+2:09:16.760 --> 2:09:24.240
+ of people believe that Stalin, I think, genuinely believed that he's doing good for the world.
+
+2:09:24.240 --> 2:09:32.280
+ And he wasn't. It's a very valuable lesson that even evil people think they're doing
+
+2:09:32.280 --> 2:09:38.360
+ good. Otherwise, it's too difficult to do the evil. The best way to do evil is to believe
+
+2:09:38.360 --> 2:09:44.000
+ about framing it in a way like you're doing good. And then this is a very clear picture
+
+2:09:44.000 --> 2:09:53.400
+ of that, which is the gulags. And Solzhenitsyn is one of the best people to reveal that.
+
+2:09:53.400 --> 2:09:58.880
+ The most recent thing I read, it isn't actually fiction, was the woman, I can't remember
+
+2:09:58.880 --> 2:10:04.280
+ her name, who got the Nobel Prize about within the last five years. I don't know whether
+
+2:10:04.280 --> 2:10:09.840
+ she's Ukrainian or Russian, but there are interviews. Have you read that?
+
+2:10:09.840 --> 2:10:12.680
+ Interview of Ukrainian survivors of...
+
+2:10:12.680 --> 2:10:18.560
+ Well, I think she may be originally Ukrainian. The book's written in Russian and translated
+
+2:10:18.560 --> 2:10:23.920
+ in English, and many of the interviews are in Moscow and places. But she won the Nobel
+
+2:10:23.920 --> 2:10:31.080
+ Prize within the last five years or so. But what's interesting is that these are people
+
+2:10:31.080 --> 2:10:39.040
+ of all different ages, all different occupations and so forth, and they're reflecting on their
+
+2:10:39.040 --> 2:10:45.560
+ reaction to basically the present Soviet system, the system they lived with before.
+
+2:10:45.560 --> 2:10:57.400
+ There's a lot of looking back by a lot of them with, well, it being much better before.
+
+2:10:57.400 --> 2:11:05.680
+ Yeah. I don't know what... In America, we think we know the right answer, what it means
+
+2:11:05.680 --> 2:11:11.440
+ to be, to build a better world. I'm not so sure. I think we're all just trying to figure
+
+2:11:11.440 --> 2:11:12.440
+ it out.
+
+2:11:12.440 --> 2:11:13.440
+ Yeah, there's...
+
+2:11:13.440 --> 2:11:14.440
+ We're doing our best.
+
+2:11:14.440 --> 2:11:17.600
+ I think you're right.
+
+2:11:17.600 --> 2:11:23.760
+ Is there advice you can give to young people today, besides reading Russian literature
+
+2:11:23.760 --> 2:11:29.920
+ at a young age, about how to find their way in life, how to find success in Korea or just
+
+2:11:29.920 --> 2:11:37.080
+ life in general?
+
+2:11:37.080 --> 2:11:43.080
+ My own belief, it may not be very deep, but I believe it. I think you should follow your
+
+2:11:43.080 --> 2:11:48.600
+ dreams and you should have dreams and follow your dreams if you can, to the extent that
+
+2:11:48.600 --> 2:11:55.800
+ you can. And we spend a lot of our time doing something with ourselves. In my case, physics,
+
+2:11:55.800 --> 2:12:04.720
+ in your case, I don't know, whatever it is, machine learning and this. Yeah, you should
+
+2:12:04.720 --> 2:12:05.720
+ have fun.
+
+2:12:05.720 --> 2:12:12.120
+ What was... Wait, wait, wait. Follow your dreams. What dream did you have? Because there's...
+
+2:12:12.120 --> 2:12:14.720
+ Well, originally, I was...
+
+2:12:14.720 --> 2:12:16.720
+ Because you didn't follow your dream. I thought you were supposed to be a writer.
+
+2:12:16.720 --> 2:12:20.400
+ I changed along the way. I was gonna be, but I changed.
+
+2:12:20.400 --> 2:12:21.400
+ What happened?
+
+2:12:21.400 --> 2:12:28.460
+ That was... What happened? Oh, I read... I decided to take the most serious literature
+
+2:12:28.460 --> 2:12:34.800
+ course in my high school, which was a mistake. I'd probably be a second rate writer now.
+
+2:12:34.800 --> 2:12:35.800
+ And...
+
+2:12:35.800 --> 2:12:37.520
+ Could be a Nobel Prize winning writer.
+
+2:12:37.520 --> 2:12:50.080
+ And the book that we read, even though I had read Russian novels, I was 15, I think, cured
+
+2:12:50.080 --> 2:12:53.080
+ me from being a novelist.
+
+2:12:53.080 --> 2:12:54.080
+ Destroyed your dream?
+
+2:12:54.080 --> 2:12:55.080
+ Yes.
+
+2:12:55.080 --> 2:12:56.800
+ Cured you. Okay. What was the book?
+
+2:12:56.800 --> 2:12:57.800
+ Moby Dick.
+
+2:12:57.800 --> 2:12:58.800
+ Okay.
+
+2:12:58.800 --> 2:13:00.360
+ So, why Moby Dick?
+
+2:13:00.360 --> 2:13:01.360
+ Yeah, why?
+
+2:13:01.360 --> 2:13:07.680
+ So, I've read it since, and it's a great novel. Maybe it's as good as the Russian novels.
+
+2:13:07.680 --> 2:13:11.280
+ I've never made it through. It was too boring. It was too long.
+
+2:13:11.280 --> 2:13:14.400
+ Okay. Your words are gonna mesh with what I say.
+
+2:13:14.400 --> 2:13:15.400
+ Excellent.
+
+2:13:15.400 --> 2:13:17.880
+ And you may have the same problem at older ages.
+
+2:13:17.880 --> 2:13:19.520
+ That's why I'm not a writer.
+
+2:13:19.520 --> 2:13:27.120
+ It may be. So, the problem is, Moby Dick is... What I remember was there was a chapter that
+
+2:13:27.120 --> 2:13:34.080
+ was maybe 100 pages long, all describing this, why there was Ahab and the white whale, and
+
+2:13:34.080 --> 2:13:39.520
+ it was the battle between Ahab with his wooden peg leg and the white whale.
+
+2:13:39.520 --> 2:13:43.460
+ And there was a chapter that was 100 pages long in my memory, I don't know how long it
+
+2:13:43.460 --> 2:13:49.960
+ really was, that described in detail, though, great white whale and what he was doing and
+
+2:13:49.960 --> 2:13:52.360
+ what his fins were like and this and that.
+
+2:13:52.360 --> 2:13:58.280
+ And it was so incredibly boring, the word you used, that I thought, if this is great
+
+2:13:58.280 --> 2:14:00.280
+ literature, screw it.
+
+2:14:00.280 --> 2:14:01.280
+ Fascinating.
+
+2:14:01.280 --> 2:14:06.800
+ Okay. And now, why did I have a problem? I know now in reflection, because I still read
+
+2:14:06.800 --> 2:14:18.600
+ a lot, and I read that novel after I was 30 or 40 years old, and the problem was simple.
+
+2:14:18.600 --> 2:14:25.600
+ I diagnosed what the problem was. That novel, in contrast to the Russian novels, which are
+
+2:14:25.600 --> 2:14:32.960
+ very realistic and point of view, is one huge metaphor.
+
+2:14:32.960 --> 2:14:37.200
+ At 15 years old, I probably didn't know the word, and I certainly didn't know the meaning
+
+2:14:37.200 --> 2:14:38.200
+ of metaphor.
+
+2:14:38.200 --> 2:14:42.160
+ Yeah, like, why do I care about a fish? Why are you telling me all about this fish?
+
+2:14:42.160 --> 2:14:47.600
+ Exactly. It's one big metaphor. So, reading it later as a metaphor, I could really enjoy
+
+2:14:47.600 --> 2:14:51.480
+ it. But the teacher gave me the wrong book, or maybe it was the right book because I went
+
+2:14:51.480 --> 2:14:59.320
+ into physics. But it was truly, I think, I may oversimplify, but it was really that I
+
+2:14:59.320 --> 2:15:04.360
+ was too young to read that book. Not too young to read the Russian novels, interestingly,
+
+2:15:04.360 --> 2:15:08.840
+ but too young to read that because I probably didn't even know the word, and I certainly
+
+2:15:08.840 --> 2:15:10.800
+ didn't understand it as a metaphor.
+
+2:15:10.800 --> 2:15:15.400
+ Well, in terms of fish, I recommend people read Old Man and the Sea, much shorter, much
+
+2:15:15.400 --> 2:15:21.920
+ better. It's still a metaphor, though. But you can read it just as a story about a guy
+
+2:15:21.920 --> 2:15:29.560
+ catching a fish, and it's still fun to read. I had the same experience as you, not with
+
+2:15:29.560 --> 2:15:34.640
+ Moby Dick, but later in college, I took a course on James Joyce. Don't ask me why. I
+
+2:15:34.640 --> 2:15:38.980
+ was majoring in computer science, I took a course on James Joyce. And I was kept being
+
+2:15:38.980 --> 2:15:46.640
+ told that he is widely considered, by many considered, to be the greatest literary writer
+
+2:15:46.640 --> 2:15:52.520
+ of the 20th century. And I kept reading, I think, so his short story is The Dead, I think
+
+2:15:52.520 --> 2:15:57.360
+ it's called. It was very good. Well, not very good, but pretty good. And then Ulysses.
+
+2:15:57.360 --> 2:15:58.360
+ It's actually very good.
+
+2:15:58.360 --> 2:16:02.640
+ It is very good. Only The Dead, the final story, it still rings with me today. But then
+
+2:16:02.640 --> 2:16:09.400
+ Ulysses was, I got through Ulysses with the help of some Cliff Notes and so on. And so
+
+2:16:09.400 --> 2:16:14.760
+ I did Ulysses and then Finnegan's Wake. The moment I started Finnegan's Wake, I said,
+
+2:16:14.760 --> 2:16:22.440
+ this is stupid. That's when I went full into like, I don't know, that's when I went full
+
+2:16:22.440 --> 2:16:28.480
+ Kafka, Bukowski, like people who just talk about the darkness of the human condition
+
+2:16:28.480 --> 2:16:36.520
+ in the fewest words possible and without any of the music of language. So it was a turning
+
+2:16:36.520 --> 2:16:45.200
+ point as well. I wonder when is the right time to appreciate the beauty of language.
+
+2:16:45.200 --> 2:16:49.040
+ Like even Shakespeare. I was very much off put by Shakespeare in high school and only
+
+2:16:49.040 --> 2:16:55.440
+ later I started to appreciate its value in the same way. Let me ask you a ridiculous
+
+2:16:55.440 --> 2:17:04.640
+ question. Okay. I mean, because you've read Russian literature, let me ask this one last
+
+2:17:04.640 --> 2:17:10.560
+ question. I might be lying. There might be a couple more, but what do you think is the
+
+2:17:10.560 --> 2:17:17.980
+ meaning of this whole thing? You got a Nobel prize for looking out into the, trying to
+
+2:17:17.980 --> 2:17:24.800
+ reach back into the beginning of the universe, listening to the gravitational waves, but
+
+2:17:24.800 --> 2:17:33.840
+ that still doesn't answer the why. Why are we here? Beyond just the matter and anti matter,
+
+2:17:33.840 --> 2:17:35.360
+ the philosophical question.
+
+2:17:35.360 --> 2:17:42.960
+ The philosophical question about the meaning of life, I'm probably not really good at.
+
+2:17:42.960 --> 2:17:56.600
+ I think that the individual meaning, I would say it rather simplistically is whether you've
+
+2:17:56.600 --> 2:18:05.160
+ made a difference, a positive difference, I'd say for anything besides yourself. Meaning
+
+2:18:05.160 --> 2:18:11.340
+ you could have been important to other people or you could have discovered gravitational
+
+2:18:11.340 --> 2:18:16.300
+ waves that matters to other people or something, but something beyond just existing on the
+
+2:18:16.300 --> 2:18:27.440
+ earth as an individual. So your life has meaning if you have affected either knowledge or people
+
+2:18:27.440 --> 2:18:35.960
+ or something beyond yourself. It's a simplistic statement, but it's about as good as I can
+
+2:18:35.960 --> 2:18:46.480
+ say. In all of its simplicity, it may be very true. Does it make you sad that this ride
+
+2:18:46.480 --> 2:18:55.360
+ ends? Do you think about your mortality? Are you afraid of it?
+
+2:18:55.360 --> 2:19:06.520
+ Not exactly afraid of it, but saddened by it. I'm old enough to know that I've lived
+
+2:19:06.520 --> 2:19:14.960
+ most of my life and I enjoy being alive. I can imagine being sick and not wanting to
+
+2:19:14.960 --> 2:19:17.560
+ be alive, but I'm not.
+
+2:19:17.560 --> 2:19:23.040
+ It's been a good ride.
+
+2:19:23.040 --> 2:19:35.720
+ I'm not happy to see it come to an end. I'd like to see it prolong, but I don't fear the
+
+2:19:35.720 --> 2:19:44.320
+ dying itself or that kind of thing. It's more, I'd like to prolong what is I think a good
+
+2:19:44.320 --> 2:19:51.240
+ life that I'm living and still living.
+
+2:19:51.240 --> 2:20:01.600
+ It's sad to think that the finiteness of it is the thing that makes it special. And also
+
+2:20:01.600 --> 2:20:08.520
+ sad to me, at least it's kind of, I don't think I'm using too strong of a word, but
+
+2:20:08.520 --> 2:20:15.960
+ it's kind of terrifying the uncertainty of it. The mystery of it, the mystery of death.
+
+2:20:15.960 --> 2:20:20.120
+ The mystery of it, yeah, of death. When we're talking about the mystery of black holes that's
+
+2:20:20.120 --> 2:20:25.120
+ somehow distant, that's somehow out there and the mystery of our own.
+
+2:20:25.120 --> 2:20:31.400
+ But even life, the mystery of consciousness, I find so hard to deal with too. I mean, it's
+
+2:20:31.400 --> 2:20:37.640
+ not as painful. I mean, we're conscious, but the whole magic of life we can understand,
+
+2:20:37.640 --> 2:20:43.560
+ but consciousness where we can actually think and so forth. It's pretty.
+
+2:20:43.560 --> 2:20:48.520
+ It seems like such a beautiful gift that it really sucks that we get to let go of it.
+
+2:20:48.520 --> 2:20:54.080
+ We have to let go of it. What do you hope your legacy is? As I'm sure they will. Aliens
+
+2:20:54.080 --> 2:20:59.320
+ when they visit and humans have destroyed all of human civilization. Aliens read about
+
+2:20:59.320 --> 2:21:03.520
+ you in an encyclopedia that we'll leave behind. What do you hope it says?
+
+2:21:03.520 --> 2:21:12.280
+ Well, I would hope they, to the extent that they evaluated me, felt that I helped move
+
+2:21:12.280 --> 2:21:22.520
+ science forward as a tangible contribution and that I served as a good role model for
+
+2:21:22.520 --> 2:21:25.680
+ how humans should live their lives.
+
+2:21:25.680 --> 2:21:31.840
+ And we're part of creating one of the most incredible things humans have ever created.
+
+2:21:31.840 --> 2:21:36.920
+ So yes, there's the science. That's the Fermi thing, right?
+
+2:21:36.920 --> 2:21:38.240
+ And the instrument, I guess.
+
+2:21:38.240 --> 2:21:43.960
+ And the instrument. The instrument is a magical creation, not just by a human, by a collection
+
+2:21:43.960 --> 2:21:58.720
+ of humans. The collaboration is, that's humanity at its best. I do hope we last quite a bit
+
+2:21:58.720 --> 2:22:05.560
+ longer, but if we don't, this is a good thing to remember humans by. At least they built
+
+2:22:05.560 --> 2:22:10.320
+ that thing. That's pretty impressive. Barry, this is an amazing conversation. Thank you
+
+2:22:10.320 --> 2:22:14.840
+ so much for wasting your time and explaining so many things so well. I appreciate your
+
+2:22:14.840 --> 2:22:15.840
+ time today.
+
+2:22:15.840 --> 2:22:17.960
+ Thank you.
+
+2:22:17.960 --> 2:22:22.760
+ Thanks for listening to this conversation with Barry Barish. To support this podcast,
+
+2:22:22.760 --> 2:22:28.280
+ please check out our sponsors in the description. And now let me leave you with some words from
+
+2:22:28.280 --> 2:22:35.840
+ Werner Heisenberg, a theoretical physicist and one of the key pioneers of quantum mechanics.
+
+2:22:35.840 --> 2:22:43.500
+ Not only is the universe stranger than we think, it is stranger than we can think. Thank
+
+2:22:43.500 --> 2:22:58.640
+ you for listening and hope to see you next time.
+

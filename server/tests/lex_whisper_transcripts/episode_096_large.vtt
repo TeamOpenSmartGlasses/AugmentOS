@@ -1,0 +1,3602 @@
+WEBVTT
+
+00:00.000 --> 00:03.120
+ The following is a conversation with Stephen Schwarzman,
+
+00:03.120 --> 00:05.760
+ CEO and cofounder of Blackstone,
+
+00:05.760 --> 00:08.240
+ one of the world's leading investment firms
+
+00:08.240 --> 00:12.920
+ with over $530 billion of assets under management.
+
+00:12.920 --> 00:17.880
+ He's one of the most successful business leaders in history.
+
+00:17.880 --> 00:20.920
+ I recommend his recent book called What It Takes
+
+00:20.920 --> 00:24.440
+ that tells stories and lessons from his personal journey.
+
+00:24.440 --> 00:26.320
+ Stephen is a philanthropist
+
+00:26.320 --> 00:28.680
+ and one of the wealthiest people in the world,
+
+00:28.680 --> 00:31.200
+ recently signing the Giving Pledge,
+
+00:31.200 --> 00:33.840
+ thereby committing to give the majority of his wealth
+
+00:33.840 --> 00:36.080
+ to philanthropic causes.
+
+00:36.080 --> 00:41.080
+ As an example, in 2018, he donated $350 million to MIT
+
+00:41.920 --> 00:45.160
+ to help establish his new College of Computing,
+
+00:45.160 --> 00:48.160
+ the mission of which promotes interdisciplinary, big,
+
+00:48.160 --> 00:51.880
+ bold research in artificial intelligence.
+
+00:51.880 --> 00:53.280
+ For those of you who know me,
+
+00:53.280 --> 00:55.840
+ know that MIT is near and dear to my heart
+
+00:55.840 --> 00:57.400
+ and always will be.
+
+00:57.400 --> 01:01.400
+ It was and is a place where I believe big, bold,
+
+01:01.400 --> 01:03.520
+ revolutionary ideas have a home,
+
+01:03.520 --> 01:05.040
+ and that is what is needed
+
+01:05.040 --> 01:08.320
+ in artificial intelligence research in the coming decades.
+
+01:08.320 --> 01:11.120
+ Yes, there's institutional challenges,
+
+01:11.120 --> 01:13.200
+ but also there's power
+
+01:13.200 --> 01:15.600
+ in the passion of individual researchers,
+
+01:15.600 --> 01:17.600
+ from undergrad to PhD,
+
+01:17.600 --> 01:20.480
+ from young scientists to senior faculty.
+
+01:20.480 --> 01:23.560
+ I believe the dream to build intelligence systems
+
+01:23.560 --> 01:26.400
+ burns brighter than ever in the halls of MIT.
+
+01:26.400 --> 01:28.600
+ This conversation was recorded recently,
+
+01:28.600 --> 01:31.040
+ but before the outbreak of the pandemic.
+
+01:31.040 --> 01:33.200
+ For everyone feeling the burden of this crisis,
+
+01:33.200 --> 01:35.080
+ I'm sending love your way.
+
+01:35.080 --> 01:37.360
+ Stay strong, we're in this together.
+
+01:38.480 --> 01:41.000
+ This is the Artificial Intelligence Podcast.
+
+01:41.000 --> 01:43.160
+ If you enjoy it, subscribe on YouTube,
+
+01:43.160 --> 01:45.440
+ review it with five stars on Apple Podcast,
+
+01:45.440 --> 01:46.640
+ support it on Patreon,
+
+01:46.640 --> 01:50.000
+ or simply connect with me on Twitter at Lex Friedman,
+
+01:50.000 --> 01:52.600
+ spelled F R I D M A N.
+
+01:52.600 --> 01:55.120
+ As usual, I'll do a few minutes of ads now,
+
+01:55.120 --> 01:56.800
+ and never any ads in the middle
+
+01:56.800 --> 01:58.960
+ that can break the flow of the conversation.
+
+01:58.960 --> 02:00.280
+ I hope that works for you,
+
+02:00.280 --> 02:02.200
+ and doesn't hurt the listening experience.
+
+02:02.200 --> 02:03.720
+ Quick summary of the ads.
+
+02:03.720 --> 02:07.320
+ Two sponsors, Masterclass and ExpressVPN.
+
+02:07.320 --> 02:08.920
+ Please consider supporting the podcast
+
+02:08.920 --> 02:13.320
+ by signing up to Masterclass at masterclass.com slash lex,
+
+02:13.320 --> 02:18.320
+ and getting ExpressVPN at expressvpn.com slash lexpod.
+
+02:19.440 --> 02:22.320
+ This show is sponsored by Masterclass.
+
+02:22.320 --> 02:25.200
+ Sign up at masterclass.com slash lex
+
+02:25.200 --> 02:28.560
+ to get a discount and support this podcast.
+
+02:28.560 --> 02:30.280
+ When I first heard about Masterclass,
+
+02:30.280 --> 02:32.200
+ I thought it was too good to be true.
+
+02:32.200 --> 02:35.680
+ For $180 a year, you get an all access pass
+
+02:35.680 --> 02:38.840
+ to watch courses from, to list some of my favorites,
+
+02:38.840 --> 02:41.000
+ Chris Hadfield on Space Exploration,
+
+02:41.000 --> 02:44.040
+ Neil deGrasse Tyson on Scientific Thinking and Communication,
+
+02:44.040 --> 02:48.480
+ Will Wright, creator of SimCity and Sims on game design,
+
+02:48.480 --> 02:52.760
+ Carlos Santana on guitar, Gary Kasparov on chess,
+
+02:52.760 --> 02:56.200
+ Daniel Negrano on poker, and many, many more.
+
+02:56.200 --> 02:58.880
+ Chris Hadfield explaining how rockets work,
+
+02:58.880 --> 03:01.600
+ and the experience of being launched into space alone
+
+03:01.600 --> 03:03.320
+ is worth the money.
+
+03:03.320 --> 03:06.640
+ By the way, you can watch it on basically any device.
+
+03:06.640 --> 03:10.200
+ Once again, sign up at masterclass.com slash lex
+
+03:10.200 --> 03:12.720
+ to get a discount and to support this podcast.
+
+03:13.640 --> 03:16.520
+ This show is sponsored by ExpressVPN.
+
+03:16.520 --> 03:20.360
+ Get it at expressvpn.com slash lex pod
+
+03:20.360 --> 03:23.240
+ to get a discount and to support this podcast.
+
+03:23.240 --> 03:25.740
+ I've been using ExpressVPN for many years.
+
+03:25.740 --> 03:26.680
+ I love it.
+
+03:26.680 --> 03:29.520
+ It's easy to use, press the big power on button,
+
+03:29.520 --> 03:31.280
+ and your privacy is protected.
+
+03:31.280 --> 03:33.600
+ And, if you like, you can make it look
+
+03:33.600 --> 03:36.360
+ like your location is anywhere else in the world.
+
+03:36.360 --> 03:39.400
+ I might be in Boston now, but it can make you look like
+
+03:39.400 --> 03:42.280
+ I'm in New York, London, Paris,
+
+03:42.280 --> 03:44.360
+ or anywhere else in the world.
+
+03:44.360 --> 03:46.840
+ This has a large number of obvious benefits.
+
+03:46.840 --> 03:49.760
+ Certainly, it allows you to access international versions
+
+03:49.760 --> 03:52.520
+ of streaming websites like the Japanese Netflix
+
+03:52.520 --> 03:54.440
+ or the UK Hulu.
+
+03:54.440 --> 03:57.400
+ ExpressVPN works on any device you can imagine.
+
+03:57.400 --> 04:01.120
+ I use it on Linux, shout out to Ubuntu 2004,
+
+04:01.120 --> 04:05.520
+ Windows, Android, but it's available everywhere else too.
+
+04:05.520 --> 04:09.880
+ Once again, get it at expressvpn.com slash lex pod
+
+04:09.880 --> 04:13.140
+ to get a discount and to support this podcast.
+
+04:13.140 --> 04:16.660
+ And now, here's my conversation with Stephen Schwarzman.
+
+04:17.640 --> 04:19.720
+ Let's start with a tough question.
+
+04:19.720 --> 04:21.840
+ What idea do you believe,
+
+04:21.840 --> 04:24.880
+ whether grounded in data or in intuition,
+
+04:24.880 --> 04:27.540
+ that many people you respect disagree with you on?
+
+04:28.640 --> 04:32.140
+ Well, there isn't all that much anymore
+
+04:32.140 --> 04:34.800
+ since the world's so transparent.
+
+04:34.800 --> 04:39.800
+ But one of the things I believe in and put it in the book,
+
+04:39.800 --> 04:43.920
+ the book, what it takes is if you're gonna do something,
+
+04:43.920 --> 04:46.200
+ do something very consequential.
+
+04:46.200 --> 04:51.040
+ Do something that's quite large, if you can, that's unique.
+
+04:51.040 --> 04:54.240
+ Because if you operate in that kind of space,
+
+04:54.240 --> 04:57.760
+ when you're successful, it's a huge impact.
+
+04:57.760 --> 05:02.440
+ The prospect of success enables you to recruit people
+
+05:02.440 --> 05:04.320
+ who wanna be part of that.
+
+05:04.320 --> 05:06.840
+ And those type of large opportunities
+
+05:06.840 --> 05:09.480
+ are pretty easily described.
+
+05:09.480 --> 05:14.480
+ And so, not everybody likes to operate at scale.
+
+05:14.520 --> 05:16.160
+ Some people like to do small things
+
+05:16.160 --> 05:21.160
+ because it is meaningful for them emotionally.
+
+05:21.320 --> 05:25.400
+ And so, occasionally, you get a disagreement on that.
+
+05:25.400 --> 05:30.000
+ But those are life choices rather than commercial choices.
+
+05:30.000 --> 05:31.000
+ That's interesting.
+
+05:31.000 --> 05:34.880
+ What good and bad comes with going big?
+
+05:34.880 --> 05:39.880
+ We often, in America, think big is good.
+
+05:41.320 --> 05:44.040
+ What's the benefit, what's the cost
+
+05:44.040 --> 05:45.920
+ in terms of just bigger than business,
+
+05:45.920 --> 05:49.160
+ but life, happiness, the pursuit of happiness?
+
+05:49.160 --> 05:51.840
+ Well, you do things that make you happy.
+
+05:51.840 --> 05:53.640
+ It's not mandated.
+
+05:53.640 --> 05:56.040
+ And everybody's different.
+
+05:56.040 --> 06:00.720
+ And some people, if they have talent,
+
+06:00.720 --> 06:02.480
+ like playing pro football,
+
+06:02.480 --> 06:06.200
+ other people just like throwing the ball around,
+
+06:07.240 --> 06:09.040
+ not even being on a team.
+
+06:09.040 --> 06:10.760
+ What's better?
+
+06:10.760 --> 06:12.360
+ Depends what your objectives are.
+
+06:12.360 --> 06:14.080
+ Depends what your talent is.
+
+06:15.440 --> 06:19.720
+ Depends what gives you joy.
+
+06:19.720 --> 06:21.520
+ So, in terms of going big,
+
+06:21.520 --> 06:24.200
+ is it both for impact on the world
+
+06:24.200 --> 06:27.640
+ and because you personally gives you joy?
+
+06:27.640 --> 06:31.960
+ Well, it makes it easier to succeed, actually.
+
+06:31.960 --> 06:35.040
+ Because if you catch something, for example,
+
+06:35.040 --> 06:39.600
+ that's cyclical, that's a huge opportunity,
+
+06:39.600 --> 06:42.680
+ then you usually can find some place
+
+06:42.680 --> 06:46.960
+ within that huge opportunity where you can make it work.
+
+06:46.960 --> 06:51.440
+ If you're prosecuting a really small thing
+
+06:51.440 --> 06:56.200
+ and you're wrong, you don't have many places to go.
+
+06:56.200 --> 07:00.320
+ So, I've always found that the easy place to be
+
+07:00.320 --> 07:05.320
+ and the ability where you can concentrate human resources,
+
+07:07.720 --> 07:12.720
+ get people excited about doing really impactful big things,
+
+07:13.240 --> 07:16.520
+ and you can afford to pay them, actually.
+
+07:16.520 --> 07:20.720
+ Because the bigger thing can generate much more
+
+07:20.720 --> 07:24.880
+ in the way of financial resources.
+
+07:24.880 --> 07:28.480
+ So, that brings people out of talent to help you.
+
+07:28.480 --> 07:33.480
+ And so, all together, it's a virtuous circle, I think.
+
+07:34.280 --> 07:37.240
+ How do you know an opportunity when you see one
+
+07:37.240 --> 07:40.200
+ in terms of the one you wanna go big on?
+
+07:40.200 --> 07:42.680
+ Is it intuition, is it facts?
+
+07:43.640 --> 07:48.640
+ Is it back and forth deliberation with people you trust?
+
+07:48.800 --> 07:50.640
+ What's the process?
+
+07:50.640 --> 07:52.640
+ Is it art, is it science?
+
+07:52.640 --> 07:54.200
+ Well, it's pattern recognition.
+
+07:55.360 --> 07:57.720
+ And how do you get to pattern recognition?
+
+07:57.720 --> 08:00.200
+ First, you need to understand the patterns
+
+08:00.200 --> 08:02.920
+ and the changes that are happening.
+
+08:02.920 --> 08:07.920
+ And that's either, it's observational on some level.
+
+08:08.760 --> 08:13.760
+ You can call it data or you can just call it listening
+
+08:14.680 --> 08:18.040
+ to unusual things that people are saying
+
+08:18.040 --> 08:19.960
+ that they haven't said before.
+
+08:19.960 --> 08:24.320
+ And I've always tried to describe this.
+
+08:24.320 --> 08:29.320
+ It's like seeing a piece of white lint on a black dress.
+
+08:29.440 --> 08:33.280
+ But most people disregard that piece of lint.
+
+08:33.280 --> 08:34.920
+ They just see the dress.
+
+08:34.920 --> 08:37.080
+ I always see the lint.
+
+08:37.080 --> 08:41.720
+ And I'm fascinated by how did something get someplace
+
+08:41.720 --> 08:43.480
+ it's not supposed to be?
+
+08:43.480 --> 08:47.120
+ So, it doesn't even need to be a big discrepancy.
+
+08:47.120 --> 08:49.880
+ But if something shouldn't be someplace
+
+08:49.880 --> 08:54.880
+ in a constellation of facts that sort of made sense
+
+08:56.360 --> 09:01.360
+ in a traditional way, I've learned that if you focus
+
+09:01.360 --> 09:05.920
+ on why one discordant note is there,
+
+09:05.920 --> 09:09.480
+ that's usually a key to something important.
+
+09:09.480 --> 09:14.480
+ And if you can find two of those discordant notes,
+
+09:14.720 --> 09:17.680
+ that's usually a straight line to someplace.
+
+09:17.680 --> 09:20.480
+ And that someplace is not where you've been.
+
+09:20.480 --> 09:24.360
+ And usually when you figure out that things are changing
+
+09:24.360 --> 09:27.360
+ or have changed and you describe them,
+
+09:27.360 --> 09:29.160
+ which you have to be able to do
+
+09:29.160 --> 09:33.240
+ because it's not some odd intuition.
+
+09:33.240 --> 09:35.680
+ It's just focusing on facts.
+
+09:35.680 --> 09:39.000
+ It's almost like a scientific discovery, if you will.
+
+09:39.000 --> 09:42.280
+ When you describe it to other people in the real world,
+
+09:42.280 --> 09:46.840
+ they tend to do absolutely nothing about it.
+
+09:46.840 --> 09:51.160
+ And that's because humans are comfortable
+
+09:51.160 --> 09:53.120
+ in their own reality.
+
+09:53.120 --> 09:57.400
+ And if there's no particular reason at that moment
+
+09:57.400 --> 10:00.080
+ to shake them out of their reality,
+
+10:00.080 --> 10:03.600
+ they'll stay in it even if they're ultimately
+
+10:03.600 --> 10:05.320
+ completely wrong.
+
+10:05.320 --> 10:09.120
+ And I've always been stunned that when I explain
+
+10:09.120 --> 10:13.000
+ where we're going, what we're doing and why,
+
+10:13.000 --> 10:18.000
+ almost everyone just says, that's interesting.
+
+10:18.160 --> 10:20.640
+ And they continue doing what they're doing.
+
+10:20.640 --> 10:24.920
+ And so I think it's pretty easy to do that.
+
+10:26.440 --> 10:29.000
+ But what you need is a huge data set.
+
+10:29.000 --> 10:33.280
+ So before AI and people's focus on data,
+
+10:33.280 --> 10:36.160
+ I've sort of been doing this mostly my whole life.
+
+10:36.160 --> 10:40.400
+ I'm not a scientist, I'm not let alone a computer scientist.
+
+10:40.400 --> 10:43.320
+ And you can just hear what people are saying
+
+10:43.320 --> 10:46.280
+ when somebody says something or you observe something
+
+10:46.280 --> 10:48.480
+ that simply doesn't make sense.
+
+10:48.480 --> 10:50.520
+ That's when you really go to work.
+
+10:50.520 --> 10:52.920
+ The rest of it's just processing.
+
+10:52.920 --> 10:55.320
+ You know, on a quick tangent,
+
+10:55.320 --> 10:57.400
+ pattern recognition is a term often used
+
+10:57.400 --> 10:58.960
+ throughout the history of AI.
+
+10:58.960 --> 11:01.480
+ That's the goal of artificial intelligence
+
+11:01.480 --> 11:03.400
+ is pattern recognition, right?
+
+11:03.400 --> 11:08.400
+ But there's, I would say, various flavors of that.
+
+11:08.400 --> 11:12.600
+ So usually pattern recognition refers to the process
+
+11:12.600 --> 11:17.200
+ of the, we said dress and the lint on the dress.
+
+11:17.200 --> 11:21.120
+ Pattern recognition is very good at identifying the dress
+
+11:21.120 --> 11:24.880
+ as looking at the pattern that's always there,
+
+11:24.880 --> 11:27.000
+ that's very common and so on.
+
+11:27.000 --> 11:28.920
+ You almost refer to a pattern that's like
+
+11:28.920 --> 11:33.840
+ in what's called outlier detection in computer science,
+
+11:33.840 --> 11:38.200
+ right, the rare thing, the small thing.
+
+11:38.200 --> 11:41.800
+ Now, AI is not often good at that.
+
+11:41.800 --> 11:46.240
+ Do you, just almost philosophically,
+
+11:46.240 --> 11:48.880
+ the kind of decisions you made in your life
+
+11:48.880 --> 11:52.040
+ based scientifically almost on data,
+
+11:52.040 --> 11:55.000
+ do you think AI in the future will be able to do?
+
+11:55.000 --> 11:59.400
+ Is it something that could be put down into code
+
+11:59.400 --> 12:01.440
+ or is it still deeply human?
+
+12:01.440 --> 12:07.440
+ It's tough for me to say since I don't have domain knowledge
+
+12:09.040 --> 12:14.040
+ in AI to know everything that could or might occur.
+
+12:14.960 --> 12:19.720
+ I know, sort of in my own case,
+
+12:19.720 --> 12:22.840
+ that most people don't see any of that.
+
+12:22.840 --> 12:27.840
+ I just assumed it was motivational, you know,
+
+12:27.840 --> 12:32.920
+ but it's also sort of, it's hardwiring.
+
+12:32.920 --> 12:38.560
+ What are you wired or programmed to be finding or looking for?
+
+12:38.560 --> 12:41.960
+ It's not what happens every day.
+
+12:41.960 --> 12:44.640
+ That's not interesting, frankly.
+
+12:44.640 --> 12:47.080
+ I mean, that's what people mostly do.
+
+12:47.080 --> 12:49.960
+ I do a bunch of that too because, you know,
+
+12:49.960 --> 12:52.520
+ that's what you do in normal life.
+
+12:52.520 --> 12:57.080
+ But I've always been completely fascinated
+
+12:57.080 --> 13:00.200
+ by the stuff that doesn't fit.
+
+13:00.200 --> 13:02.800
+ Or the other way of thinking about it,
+
+13:02.800 --> 13:07.400
+ it's determining what people want
+
+13:07.400 --> 13:10.040
+ without them saying it.
+
+13:11.520 --> 13:14.520
+ That's a different kind of pattern.
+
+13:14.520 --> 13:17.160
+ You can see everything they're doing.
+
+13:17.160 --> 13:18.360
+ There's a missing piece.
+
+13:18.360 --> 13:20.360
+ They don't know it's missing.
+
+13:20.360 --> 13:23.400
+ You think it's missing given the other facts.
+
+13:23.400 --> 13:27.080
+ You know about them and you deliver that
+
+13:27.080 --> 13:28.840
+ and then that becomes, you know,
+
+13:28.840 --> 13:33.320
+ sort of very easy to sell to them.
+
+13:33.320 --> 13:35.280
+ To linger on this point a little bit,
+
+13:35.280 --> 13:37.760
+ you've mentioned that in your family,
+
+13:37.760 --> 13:38.680
+ when you were growing up,
+
+13:38.680 --> 13:41.680
+ nobody raised their voice in anger or otherwise.
+
+13:41.680 --> 13:44.240
+ And you said that this allows you to learn to listen
+
+13:44.240 --> 13:46.040
+ and hear some interesting things.
+
+13:47.360 --> 13:50.560
+ Can you elaborate as you have been on that idea,
+
+13:50.560 --> 13:54.240
+ what do you hear about the world if you listen?
+
+13:54.240 --> 13:57.400
+ Well, you have to listen really intensely
+
+13:57.400 --> 14:01.120
+ to understand what people are saying
+
+14:01.120 --> 14:03.560
+ as well as what people are intending
+
+14:03.560 --> 14:06.720
+ because it's not necessarily the same thing.
+
+14:07.800 --> 14:12.800
+ And people mostly give themselves away
+
+14:14.120 --> 14:16.600
+ no matter how clever they think they are.
+
+14:16.600 --> 14:21.600
+ Particularly if you have the full array of inputs.
+
+14:22.440 --> 14:24.600
+ In other words, if you look at their face,
+
+14:24.600 --> 14:28.200
+ you look at their eyes, which are the window on the soul,
+
+14:28.200 --> 14:33.200
+ it's very difficult to conceal what you're thinking.
+
+14:33.640 --> 14:36.560
+ You look at facial expressions and posture.
+
+14:36.560 --> 14:39.480
+ You listen to their voice, which changes.
+
+14:41.120 --> 14:44.880
+ You know, when you're talking about something
+
+14:44.880 --> 14:46.800
+ you're comfortable with or not,
+
+14:46.800 --> 14:48.720
+ are you speaking faster?
+
+14:48.720 --> 14:51.880
+ Is the amplitude of what you're saying higher?
+
+14:51.880 --> 14:56.200
+ Most people just give away what's really on their mind.
+
+14:56.200 --> 14:58.600
+ You know, they're not that clever.
+
+14:58.600 --> 15:00.600
+ They're busy spending their time thinking about
+
+15:00.600 --> 15:03.520
+ what they're in the process of saying.
+
+15:03.520 --> 15:07.960
+ And so if you just observe that, not in a hostile way,
+
+15:07.960 --> 15:10.360
+ but just in an evocative way
+
+15:10.360 --> 15:12.960
+ and just let them talk for a while,
+
+15:12.960 --> 15:16.080
+ they'll more or less tell you almost completely
+
+15:16.080 --> 15:17.800
+ what they're thinking,
+
+15:17.800 --> 15:21.680
+ even the stuff they don't want you to know.
+
+15:21.680 --> 15:24.720
+ And once you know that, of course,
+
+15:24.720 --> 15:29.200
+ it's sort of easy to play that kind of game
+
+15:29.200 --> 15:31.160
+ because they've already told you
+
+15:31.160 --> 15:32.480
+ everything you need to know.
+
+15:32.480 --> 15:37.080
+ And so it's easy to get to a conclusion
+
+15:37.080 --> 15:40.520
+ if there's meant to be one, an area of common interest,
+
+15:40.520 --> 15:44.800
+ since you know almost exactly what's on their mind.
+
+15:44.800 --> 15:48.040
+ And so that's an enormous advantage
+
+15:48.040 --> 15:51.840
+ as opposed to just walking in someplace
+
+15:51.840 --> 15:54.000
+ and somebody telling you something
+
+15:54.000 --> 15:56.400
+ and you believing what they're saying.
+
+15:56.400 --> 15:59.880
+ There are so many different levels of communication.
+
+16:01.120 --> 16:05.080
+ So a powerful approach to life you discuss in the book
+
+16:05.080 --> 16:08.000
+ on the topic of listening and really hearing people
+
+16:08.000 --> 16:10.240
+ is figuring out what the biggest problem,
+
+16:10.240 --> 16:12.960
+ bothering a particular individual or group is
+
+16:12.960 --> 16:15.560
+ and coming up with a solution to that problem
+
+16:15.560 --> 16:18.720
+ and presenting them with a solution, right?
+
+16:20.080 --> 16:24.280
+ In fact, you brilliantly describe a lot of simple things
+
+16:24.280 --> 16:26.520
+ that most people just don't do.
+
+16:26.520 --> 16:28.040
+ It's kind of obvious,
+
+16:28.040 --> 16:31.240
+ find the problem that's bothering somebody deeply.
+
+16:31.240 --> 16:33.560
+ And as you said, I think you've implied
+
+16:33.560 --> 16:36.320
+ that they will usually tell you what the problem is,
+
+16:36.320 --> 16:39.320
+ but can you talk about this process
+
+16:39.320 --> 16:43.120
+ of seeing what the biggest problem for a person is,
+
+16:43.120 --> 16:44.360
+ trying to solve it,
+
+16:44.360 --> 16:47.760
+ and maybe a particularly memorable example?
+
+16:47.760 --> 16:52.060
+ Sure, if you know you're gonna meet somebody,
+
+16:52.060 --> 16:55.840
+ there are two types of situations, chance meetings,
+
+16:55.840 --> 16:59.320
+ and the second is you know you're gonna meet somebody.
+
+16:59.320 --> 17:01.320
+ So let's take the easiest one,
+
+17:01.320 --> 17:04.160
+ which is you know you're gonna meet somebody.
+
+17:04.160 --> 17:09.160
+ And you start trying to make pretend you're them.
+
+17:09.640 --> 17:11.200
+ It's really easy.
+
+17:11.200 --> 17:12.740
+ What's on their mind?
+
+17:13.880 --> 17:16.280
+ What are they thinking about in their daily life?
+
+17:16.280 --> 17:19.040
+ What are the big problems they're facing?
+
+17:19.040 --> 17:24.040
+ So if they're, you know, to make it a really easy example,
+
+17:24.540 --> 17:26.280
+ you know, make pretend, you know,
+
+17:26.280 --> 17:28.760
+ they're like president of the United States.
+
+17:28.760 --> 17:31.720
+ Doesn't have to be this president, could be any president.
+
+17:31.720 --> 17:34.440
+ So you sort of know what's more or less on their mind
+
+17:34.440 --> 17:37.260
+ because the press keeps reporting it.
+
+17:37.260 --> 17:40.960
+ And you see it on television, you hear it.
+
+17:40.960 --> 17:42.440
+ People discuss it.
+
+17:42.440 --> 17:45.160
+ So you know if you're gonna be running into somebody
+
+17:45.160 --> 17:47.400
+ in that kind of position.
+
+17:47.400 --> 17:49.760
+ You sort of know what they look like already.
+
+17:50.760 --> 17:52.120
+ You know what they sound like.
+
+17:52.120 --> 17:56.000
+ You know what their voice is like.
+
+17:56.000 --> 17:58.360
+ And you know what they're focused on.
+
+17:58.360 --> 18:01.440
+ And so if you're gonna meet somebody like that,
+
+18:01.440 --> 18:05.360
+ what you should do is take the biggest unresolved issue
+
+18:05.360 --> 18:09.120
+ that they're facing and come up with
+
+18:09.120 --> 18:11.680
+ a few interesting solutions
+
+18:11.680 --> 18:15.080
+ that basically haven't been out there.
+
+18:16.040 --> 18:19.140
+ Or that you haven't heard anybody else
+
+18:19.140 --> 18:20.000
+ always thinking about.
+
+18:20.000 --> 18:21.680
+ So just to give you an example,
+
+18:21.680 --> 18:24.360
+ I was sort of in the early 1990s
+
+18:24.360 --> 18:26.420
+ and I was invited to something at the White House
+
+18:26.420 --> 18:29.400
+ which was a big deal for me because I was like,
+
+18:29.400 --> 18:30.940
+ you know, a person from no place.
+
+18:30.940 --> 18:35.320
+ And you know, I had met the president once before
+
+18:35.320 --> 18:37.200
+ because it was President Bush
+
+18:37.200 --> 18:40.360
+ because his son was in my dormitory.
+
+18:40.360 --> 18:43.000
+ So I had met him at Parents Day.
+
+18:43.000 --> 18:45.360
+ I mean it's just like the oddity of things.
+
+18:45.360 --> 18:47.760
+ So I knew I was gonna see him
+
+18:47.760 --> 18:50.400
+ because that's where the invitation came from.
+
+18:51.560 --> 18:54.040
+ And so there was something going on
+
+18:54.040 --> 18:57.320
+ and I just thought about two or three ways
+
+18:57.320 --> 19:00.960
+ to approach that issue.
+
+19:00.960 --> 19:04.400
+ And you know, at that point I was separated
+
+19:04.400 --> 19:08.720
+ and so I had brought a date to the White House
+
+19:08.720 --> 19:12.440
+ and so I saw the president
+
+19:12.440 --> 19:16.040
+ and we sort of went over in a corner for about 10 minutes
+
+19:16.040 --> 19:18.480
+ and discussed whatever this issue was.
+
+19:18.480 --> 19:22.000
+ And I later went back to my date.
+
+19:22.000 --> 19:22.840
+ It was a little rude
+
+19:22.840 --> 19:25.800
+ but it was meant to be confidential conversation
+
+19:25.800 --> 19:27.720
+ and I barely knew her.
+
+19:27.720 --> 19:29.560
+ And you know, she said,
+
+19:29.560 --> 19:31.520
+ what were you talking about all that time?
+
+19:31.520 --> 19:33.440
+ I said, well, you know,
+
+19:33.440 --> 19:35.160
+ there's something going on in the world
+
+19:35.160 --> 19:37.960
+ and I've thought about different ways
+
+19:37.960 --> 19:40.800
+ of perhaps approaching that and he was interested.
+
+19:41.640 --> 19:44.080
+ And the answer is of course he was interested.
+
+19:44.080 --> 19:45.380
+ Why wouldn't he be interested?
+
+19:45.380 --> 19:47.840
+ There didn't seem to be an easy outcome.
+
+19:47.840 --> 19:51.360
+ And so, you know, conversations of that type,
+
+19:51.360 --> 19:53.800
+ once somebody knows you're really thinking
+
+19:53.800 --> 19:58.600
+ about what's good for them and good for the situation,
+
+19:58.600 --> 20:01.880
+ it has nothing to do with me.
+
+20:01.880 --> 20:05.480
+ I mean, it's really about being in service,
+
+20:05.480 --> 20:08.640
+ you know, to the situation.
+
+20:08.640 --> 20:12.080
+ Then people trust you and they'll tell you other things
+
+20:12.080 --> 20:17.080
+ because they know your motives are basically very pure.
+
+20:17.360 --> 20:20.560
+ You're just trying to resolve a difficult situation
+
+20:20.560 --> 20:21.920
+ or help somebody do it.
+
+20:21.920 --> 20:24.960
+ So these types of things, you know,
+
+20:24.960 --> 20:27.600
+ that's a planned situation, that's easy.
+
+20:27.600 --> 20:29.720
+ Sometimes you just come upon somebody
+
+20:29.720 --> 20:31.980
+ and they start talking and you know,
+
+20:31.980 --> 20:34.940
+ that requires, you know, like different skills.
+
+20:34.940 --> 20:38.020
+ You know, you can ask them,
+
+20:38.020 --> 20:39.440
+ what have you been working on lately?
+
+20:39.440 --> 20:41.480
+ What are you thinking about?
+
+20:41.480 --> 20:43.320
+ You can ask them, you know,
+
+20:43.320 --> 20:45.720
+ has anything been particularly difficult?
+
+20:45.720 --> 20:48.960
+ And you know, you can ask most people
+
+20:48.960 --> 20:53.960
+ if they trust you for some reason, they'll tell you.
+
+20:55.560 --> 20:58.000
+ And then you have to instantly go to work on it.
+
+20:58.860 --> 21:02.120
+ And you know, that's not as good
+
+21:02.120 --> 21:03.640
+ as having some advanced planning,
+
+21:03.640 --> 21:08.640
+ but you know, almost everything going on is like out there.
+
+21:10.880 --> 21:15.340
+ And people who are involved with interesting situations,
+
+21:15.340 --> 21:20.340
+ they're playing in the same ecosystem.
+
+21:20.980 --> 21:25.540
+ They just have different roles in the ecosystem.
+
+21:25.540 --> 21:29.080
+ And you know, you could do that
+
+21:29.080 --> 21:31.140
+ with somebody who owns a pro football team
+
+21:32.100 --> 21:34.240
+ that loses all the time.
+
+21:34.240 --> 21:37.300
+ We specialize in those in New York.
+
+21:37.300 --> 21:41.460
+ And you know, you already have analyzed
+
+21:41.460 --> 21:43.280
+ why they're losing, right?
+
+21:43.280 --> 21:48.240
+ Inevitably, it's because they don't have a great quarterback,
+
+21:48.240 --> 21:50.340
+ they don't have a great coach,
+
+21:50.340 --> 21:52.420
+ and they don't have a great general manager
+
+21:52.420 --> 21:55.180
+ who knows how to hire the best talent.
+
+21:55.180 --> 21:59.200
+ Those are the three reasons why a team fails, right?
+
+21:59.200 --> 22:01.160
+ Because there are salary caps,
+
+22:01.160 --> 22:03.380
+ so every team pays a certain amount of money
+
+22:03.380 --> 22:04.840
+ for all their players.
+
+22:04.840 --> 22:07.000
+ So it's gotta be those three positions.
+
+22:07.000 --> 22:09.500
+ So if you're talking with somebody like that,
+
+22:09.500 --> 22:13.460
+ inevitably, even though it's not structured,
+
+22:13.460 --> 22:16.780
+ you'll know how their team's doing
+
+22:16.780 --> 22:19.240
+ and you'll know pretty much why.
+
+22:19.240 --> 22:22.420
+ And if you start asking questions about that,
+
+22:22.420 --> 22:24.940
+ they're typically very happy to talk about it
+
+22:24.940 --> 22:27.020
+ because they haven't solved that problem.
+
+22:27.020 --> 22:29.620
+ In some cases, they don't even know that's the problem.
+
+22:29.620 --> 22:31.300
+ It's pretty easy to see it.
+
+22:31.300 --> 22:33.620
+ So, you know, I do stuff like that,
+
+22:33.620 --> 22:38.620
+ which I find is intuitive as a process,
+
+22:38.620 --> 22:43.540
+ but, you know, leads to really good results.
+
+22:43.540 --> 22:46.680
+ Well, the funny thing is when you're smart,
+
+22:48.220 --> 22:51.400
+ for smart people, it's hard to escape their own ego
+
+22:51.400 --> 22:53.520
+ and the space of their own problems,
+
+22:53.520 --> 22:55.680
+ which is what's required
+
+22:55.680 --> 22:58.220
+ to think about other people's problems.
+
+22:58.220 --> 23:01.040
+ It requires for you to let go of the fact
+
+23:01.040 --> 23:03.780
+ that your own problems are all important
+
+23:03.780 --> 23:05.700
+ and then to talk about your,
+
+23:05.700 --> 23:09.240
+ I think while it seems obvious
+
+23:09.240 --> 23:11.860
+ and I think quite brilliant,
+
+23:11.860 --> 23:14.580
+ it's just a difficult leap for many people,
+
+23:14.580 --> 23:16.340
+ especially smart people,
+
+23:16.340 --> 23:19.380
+ to empathize with, truly empathize with the problems
+
+23:19.380 --> 23:20.220
+ of others.
+
+23:21.140 --> 23:23.380
+ Well, I have a competitive advantage,
+
+23:23.380 --> 23:27.660
+ which is, I don't think I'm so smart.
+
+23:29.220 --> 23:31.820
+ So, you know, it's not a problem for me.
+
+23:31.820 --> 23:33.460
+ Well, the truly smartest people I know
+
+23:33.460 --> 23:34.820
+ say that exact same thing.
+
+23:34.820 --> 23:39.580
+ Yeah, being humble is really useful,
+
+23:39.580 --> 23:41.480
+ competitive advantage, as you said.
+
+23:42.520 --> 23:44.440
+ How do you stay humble?
+
+23:44.440 --> 23:46.960
+ Well, I haven't changed much.
+
+23:46.960 --> 23:47.800
+ Since?
+
+23:47.800 --> 23:51.100
+ Since I was in my mid teens.
+
+23:51.100 --> 23:54.800
+ You know, I was raised partly in the city
+
+23:54.800 --> 23:56.340
+ and partly in the suburbs.
+
+23:58.280 --> 24:03.280
+ And, you know, whatever the values I had at that time,
+
+24:03.280 --> 24:05.700
+ those are still my values.
+
+24:05.700 --> 24:08.300
+ I call them like middle class values,
+
+24:08.300 --> 24:10.300
+ that's how I was raised.
+
+24:10.300 --> 24:14.740
+ And I've never changed, why would I?
+
+24:14.740 --> 24:16.300
+ That's who I am.
+
+24:16.300 --> 24:21.140
+ And so the accoutrement of, you know,
+
+24:21.140 --> 24:25.580
+ the rest of your life has gotta be put on the same,
+
+24:25.580 --> 24:28.480
+ you know, like solid foundation of who you are.
+
+24:28.480 --> 24:31.220
+ Because if you start losing who you really are,
+
+24:31.220 --> 24:32.700
+ who are you?
+
+24:32.700 --> 24:37.180
+ So I've never had the desire to be somebody else.
+
+24:37.180 --> 24:40.740
+ I just do other things now that I wouldn't do
+
+24:40.740 --> 24:43.940
+ as a, you know, sort of as a middle class kid
+
+24:43.940 --> 24:45.340
+ from Philadelphia.
+
+24:45.340 --> 24:48.660
+ I mean, my life has morphed on a certain level.
+
+24:48.660 --> 24:52.580
+ But part of the strength of having integrity
+
+24:52.580 --> 24:57.580
+ of personality is that you can remain in touch
+
+24:57.580 --> 25:02.580
+ with everybody who comes from that kind of background.
+
+25:04.160 --> 25:07.320
+ And, you know, even though I do some things
+
+25:07.320 --> 25:09.000
+ that aren't like that, you know,
+
+25:09.000 --> 25:12.340
+ in terms of people I meet or situations I'm in,
+
+25:12.340 --> 25:15.040
+ I always look at it through the same lens.
+
+25:15.040 --> 25:17.800
+ And that's very psychologically comfortable
+
+25:18.760 --> 25:22.500
+ and doesn't require me to make any real adjustments
+
+25:22.500 --> 25:25.200
+ in my life and I just keep plowing ahead.
+
+25:25.200 --> 25:29.500
+ There's a lot of activity in progress in recent years
+
+25:29.500 --> 25:31.300
+ around effective altruism.
+
+25:32.620 --> 25:34.500
+ I wanted to bring this topic with you
+
+25:34.500 --> 25:37.100
+ because it's an interesting one from your perspective.
+
+25:38.220 --> 25:39.980
+ You can put it in any kind of terms,
+
+25:39.980 --> 25:44.300
+ but it's philanthropy that focuses on maximizing impact.
+
+25:44.300 --> 25:47.340
+ How do you see the goal of philanthropy,
+
+25:47.340 --> 25:50.020
+ both from a personal motivation perspective
+
+25:50.020 --> 25:53.580
+ and the societal big picture impact perspective?
+
+25:53.580 --> 25:55.940
+ Yeah, I don't think about philanthropy
+
+25:55.940 --> 25:58.980
+ the way you would expect me to, okay?
+
+25:58.980 --> 26:03.980
+ I look at, you know, sort of solving big issues,
+
+26:04.420 --> 26:09.420
+ addressing big issues, starting new organizations to do it,
+
+26:09.500 --> 26:12.060
+ much like we do in our business.
+
+26:12.060 --> 26:14.300
+ You know, we keep growing our business
+
+26:14.300 --> 26:17.620
+ not by taking the original thing and making it larger,
+
+26:17.620 --> 26:22.260
+ but continually seeing new things and building those.
+
+26:22.260 --> 26:26.380
+ And, you know, sort of marshaling financial resources,
+
+26:26.380 --> 26:30.420
+ human resources, and in our case,
+
+26:30.420 --> 26:32.120
+ because we're in the investment business,
+
+26:32.120 --> 26:33.980
+ we find something new that looks like
+
+26:33.980 --> 26:36.780
+ it's gonna be terrific and we do that
+
+26:36.780 --> 26:38.740
+ and it works out really well.
+
+26:38.740 --> 26:42.300
+ All I do in what you would call philanthropy
+
+26:42.300 --> 26:47.300
+ is look at other opportunities to help society.
+
+26:47.300 --> 26:50.380
+ And I end up starting something new,
+
+26:50.380 --> 26:53.100
+ marshaling people, marshaling a lot of money,
+
+26:53.100 --> 26:56.820
+ and then at the end of that kind of creative process,
+
+26:56.820 --> 26:59.740
+ somebody typically asks me to write a check.
+
+26:59.740 --> 27:01.940
+ I don't wake up and say,
+
+27:01.940 --> 27:05.460
+ how can I give large amounts of money away?
+
+27:05.460 --> 27:10.460
+ I look at issues that are important for people.
+
+27:10.620 --> 27:13.700
+ In some cases, I do smaller things.
+
+27:13.700 --> 27:18.700
+ Because it's important to a person, and, you know,
+
+27:18.700 --> 27:21.060
+ I can relate to that person.
+
+27:21.060 --> 27:24.540
+ There's some unfairness that's happened to them.
+
+27:24.540 --> 27:26.940
+ And so in situations like that,
+
+27:26.940 --> 27:29.820
+ I'd give money anonymously and help them out.
+
+27:29.820 --> 27:34.820
+ And, you know, it's like a miniature version
+
+27:35.460 --> 27:37.540
+ of addressing something really big.
+
+27:37.540 --> 27:41.700
+ So, you know, at MIT, I'm a little bit
+
+27:41.700 --> 27:46.660
+ you know, at MIT, I've done a big thing,
+
+27:46.660 --> 27:49.860
+ you know, helping to start this new school of computing.
+
+27:49.860 --> 27:51.940
+ And I did that because, you know,
+
+27:51.940 --> 27:56.940
+ I saw that, you know, there's sort of like a global race on
+
+27:57.220 --> 28:00.700
+ in AI, quantum, and other major technologies.
+
+28:00.700 --> 28:05.700
+ And I thought that the US could use more enhancement
+
+28:06.860 --> 28:09.700
+ from a competitive perspective.
+
+28:09.700 --> 28:12.340
+ And I also, because I get to China a lot
+
+28:12.340 --> 28:16.060
+ and I travel around a lot compared to a regular person,
+
+28:17.140 --> 28:21.020
+ you know, I can see the need to have control
+
+28:21.020 --> 28:23.140
+ of these types of technologies.
+
+28:23.140 --> 28:26.340
+ So when they're introduced, we don't create a mess
+
+28:26.340 --> 28:30.740
+ like we did with the internet and with social media.
+
+28:30.740 --> 28:33.420
+ Unintended consequence, you know,
+
+28:33.420 --> 28:36.540
+ that's creating all kinds of issues and freedom of speech
+
+28:36.540 --> 28:39.380
+ and the functioning of liberal democracies.
+
+28:39.380 --> 28:41.580
+ So with AI, it was pretty clear
+
+28:41.580 --> 28:44.980
+ that there was enormous difference of views
+
+28:44.980 --> 28:48.740
+ around the world by the relatively few practitioners
+
+28:48.740 --> 28:51.500
+ in the world who really knew what was going on.
+
+28:51.500 --> 28:55.900
+ And by accident, I knew a bunch of these people,
+
+28:55.900 --> 28:59.940
+ you know, who were like big famous people.
+
+28:59.940 --> 29:01.980
+ And I could talk to them and say,
+
+29:01.980 --> 29:04.260
+ why do you think this is a force for bad?
+
+29:05.140 --> 29:08.700
+ And someone else, why do you feel this is a force for good?
+
+29:08.700 --> 29:13.500
+ And how do we move forward with the technology
+
+29:13.500 --> 29:18.500
+ by the same time, make sure that whatever is potentially,
+
+29:19.460 --> 29:22.380
+ you know, sort of on the bad side of this technology
+
+29:22.380 --> 29:26.220
+ with, you know, for example, disruption of workforces
+
+29:26.220 --> 29:29.700
+ and things like that, that could happen much faster
+
+29:29.700 --> 29:32.100
+ than the industrial revolution.
+
+29:32.100 --> 29:33.380
+ What do we do about that?
+
+29:33.380 --> 29:35.980
+ And how do we keep that under control
+
+29:35.980 --> 29:39.540
+ so that the really good things about these technologies,
+
+29:39.540 --> 29:41.860
+ which will be great things,
+
+29:41.860 --> 29:44.980
+ not good things are allowed to happen?
+
+29:44.980 --> 29:49.980
+ So to me, you know, this was one of the great issues
+
+29:52.100 --> 29:53.900
+ facing society.
+
+29:53.900 --> 29:57.420
+ The number of people who were aware of it were very small.
+
+29:57.420 --> 30:00.460
+ I just accidentally got sucked into it.
+
+30:00.460 --> 30:06.420
+ And as soon as I saw it, I went, oh my God, this is mega,
+
+30:06.420 --> 30:09.980
+ both on a competitive basis globally,
+
+30:09.980 --> 30:13.620
+ but also in terms of protecting society
+
+30:13.620 --> 30:15.540
+ and benefiting society.
+
+30:15.540 --> 30:17.620
+ So that's how I got involved.
+
+30:17.620 --> 30:20.140
+ And at the end, you know, sort of the right thing
+
+30:20.140 --> 30:22.380
+ that we figured out was, you know,
+
+30:22.380 --> 30:26.180
+ sort of double MIT's computer science faculty
+
+30:26.180 --> 30:30.900
+ and basically create the first AI enabled university
+
+30:30.900 --> 30:32.500
+ in the world.
+
+30:32.500 --> 30:35.660
+ And, you know, in effect, be an example,
+
+30:35.660 --> 30:38.460
+ a beacon to the rest of the research community
+
+30:38.460 --> 30:40.900
+ around the world academically,
+
+30:40.900 --> 30:49.300
+ and create, you know, a much more robust U.S. situation,
+
+30:49.300 --> 30:52.940
+ competitive situation among the universities.
+
+30:52.940 --> 30:55.820
+ Because if MIT was going to raise a lot of money
+
+30:55.820 --> 30:59.340
+ and double its faculty, well, you could bet that,
+
+30:59.340 --> 31:02.460
+ you know, a number of other universities
+
+31:02.460 --> 31:03.420
+ were going to do the same thing.
+
+31:03.420 --> 31:08.260
+ At the end of it, it would be great for knowledge creation,
+
+31:08.260 --> 31:12.980
+ you know, great for the United States, great for the world.
+
+31:12.980 --> 31:19.580
+ And so I like to do things that I think are really positive,
+
+31:19.580 --> 31:23.060
+ things that other people aren't acting on,
+
+31:23.060 --> 31:25.940
+ that I see for whatever the reason.
+
+31:25.940 --> 31:29.220
+ First, it's just people I meet and what they say,
+
+31:29.220 --> 31:32.940
+ and I can recognize when something really profound
+
+31:32.940 --> 31:35.380
+ is about to happen or needs to.
+
+31:35.380 --> 31:39.100
+ And I do it, and at the end of the situation,
+
+31:39.100 --> 31:43.300
+ somebody says, can you write a check to help us?
+
+31:43.300 --> 31:44.860
+ And then the answer is sure.
+
+31:44.860 --> 31:48.260
+ I mean, because if I don't, the vision won't happen.
+
+31:48.260 --> 31:52.420
+ But it's the vision of whatever I do
+
+31:52.420 --> 31:54.380
+ that is compelling.
+
+31:54.380 --> 31:59.540
+ And essentially, I love that idea of whether it's small
+
+31:59.540 --> 32:01.940
+ at the individual level or really big,
+
+32:01.940 --> 32:06.820
+ like the gift to MIT to launch the College of Computing.
+
+32:06.820 --> 32:14.500
+ It starts with a vision, and you see philanthropy as,
+
+32:14.500 --> 32:18.460
+ the biggest impact you can have is by launching something new,
+
+32:18.460 --> 32:22.500
+ especially on an issue that others aren't really addressing.
+
+32:22.500 --> 32:25.700
+ And I also love the notion, and you're absolutely right,
+
+32:25.700 --> 32:30.580
+ that there's other universities, Stanford, CMU,
+
+32:30.580 --> 32:33.460
+ I'm looking at you, that would essentially,
+
+32:33.460 --> 32:39.500
+ the seed will create other, it'll have a ripple effect
+
+32:39.500 --> 32:42.500
+ that potentially might help US be a leader
+
+32:42.500 --> 32:44.300
+ or continue to be a leader in AI.
+
+32:44.300 --> 32:49.060
+ It's potentially a very transformative research
+
+32:49.060 --> 32:50.020
+ direction.
+
+32:50.020 --> 32:52.220
+ Just to linger on that point a little bit,
+
+32:52.220 --> 32:55.980
+ what is your hope long term for the impact
+
+32:55.980 --> 33:00.260
+ the college here at MIT might have in the next five, 10,
+
+33:00.260 --> 33:03.580
+ even 20, or let's get crazy, 30, 50 years?
+
+33:03.580 --> 33:06.100
+ Well, it's very difficult to predict the future
+
+33:06.100 --> 33:08.460
+ when you're dealing with knowledge production
+
+33:08.460 --> 33:11.140
+ and creativity.
+
+33:11.140 --> 33:16.220
+ MIT has, obviously, some unique aspects.
+
+33:16.220 --> 33:22.780
+ Globally, there's four big academic surveys.
+
+33:22.780 --> 33:25.460
+ I forget whether it was QS, there's
+
+33:25.460 --> 33:31.100
+ the Times in London, the US News, and whatever.
+
+33:31.100 --> 33:34.900
+ And one of these recently, MIT, was ranked number one
+
+33:34.900 --> 33:37.620
+ in the world.
+
+33:37.620 --> 33:41.420
+ So leave aside whether you're number three somewhere else,
+
+33:41.420 --> 33:47.140
+ in the great sweep of humanity, this is pretty amazing.
+
+33:47.140 --> 33:53.580
+ So you have a really remarkable aggregation of human talent
+
+33:53.580 --> 33:55.180
+ here.
+
+33:55.180 --> 33:58.380
+ And where it goes, it's hard to tell.
+
+33:58.380 --> 34:03.220
+ You have to be a scientist to have the right feel.
+
+34:03.220 --> 34:08.620
+ But what's important is you have a critical mass of people.
+
+34:08.620 --> 34:12.620
+ And I think it breaks into two buckets.
+
+34:12.620 --> 34:15.700
+ One is scientific advancement.
+
+34:15.700 --> 34:21.500
+ And if the new college can help either
+
+34:21.500 --> 34:25.780
+ serve as a convening force within the university
+
+34:25.780 --> 34:33.020
+ or help coordination and communication among people,
+
+34:33.020 --> 34:36.780
+ that's a good thing, absolute good thing.
+
+34:36.780 --> 34:41.580
+ The second thing is in the AI ethics area,
+
+34:41.580 --> 34:48.940
+ which is, in a way, equally important.
+
+34:48.940 --> 34:55.620
+ Because if the science side creates blowback
+
+34:55.620 --> 35:03.980
+ so that science is a bit crippled in terms
+
+35:03.980 --> 35:09.020
+ of going forward because society's reaction to knowledge
+
+35:09.020 --> 35:13.140
+ advancement in this field becomes really hostile,
+
+35:13.140 --> 35:15.460
+ then you've sort of lost the game
+
+35:15.460 --> 35:18.980
+ in terms of scientific progress and innovation.
+
+35:18.980 --> 35:22.980
+ And so the AI ethics piece is super important
+
+35:22.980 --> 35:29.500
+ because in a perfect world, MIT would
+
+35:29.500 --> 35:32.460
+ serve as a global convener.
+
+35:32.460 --> 35:38.420
+ Because what you need is you need the research universities.
+
+35:38.420 --> 35:46.460
+ You need the companies that are driving AI and quantum work.
+
+35:46.460 --> 35:49.500
+ You need governments who will ultimately
+
+35:49.500 --> 35:53.460
+ be regulating certain elements of this.
+
+35:53.460 --> 35:59.540
+ And you also need the media to be knowledgeable and trained
+
+35:59.540 --> 36:09.020
+ so we don't get overreactions to one situation, which then goes
+
+36:09.020 --> 36:12.540
+ viral and it ends up shutting down
+
+36:12.540 --> 36:18.660
+ avenues that are perfectly fine to be walking down or running
+
+36:18.660 --> 36:20.540
+ down that avenue.
+
+36:20.540 --> 36:25.580
+ But if enough discordant information,
+
+36:25.580 --> 36:34.020
+ not even correct necessarily, sort of gets
+
+36:34.020 --> 36:36.900
+ pushed around society, then you can end up
+
+36:36.900 --> 36:40.700
+ with a really hostile regulatory environment and other things.
+
+36:40.700 --> 36:44.540
+ So you have four drivers that have
+
+36:44.540 --> 36:50.220
+ to be sort of integrated.
+
+36:50.220 --> 36:55.100
+ And so if the new school of computing
+
+36:55.100 --> 36:58.540
+ can be really helpful in that regard,
+
+36:58.540 --> 37:02.100
+ then that's a real service to science.
+
+37:02.100 --> 37:05.100
+ And it's a service to MIT.
+
+37:05.100 --> 37:10.060
+ So that's why I wanted to get involved for both areas.
+
+37:10.060 --> 37:12.820
+ And the hope is for me, for others,
+
+37:12.820 --> 37:17.620
+ for everyone, for the world, is for this particular college
+
+37:17.620 --> 37:22.980
+ of computing to be a beacon and a connector for these ideas.
+
+37:22.980 --> 37:23.820
+ Yeah, that's right.
+
+37:23.820 --> 37:31.940
+ I mean, I think MIT is perfectly positioned to do that.
+
+37:31.940 --> 37:35.220
+ So you've mentioned the media, social media, the internet
+
+37:35.220 --> 37:41.900
+ as this complex network of communication with flaws,
+
+37:41.900 --> 37:44.140
+ perhaps, perhaps you can speak to them.
+
+37:44.140 --> 37:50.500
+ But I personally think that science and technology
+
+37:50.500 --> 37:58.140
+ has its flaws, but ultimately is, one, sexy, exciting.
+
+37:58.140 --> 38:01.180
+ It's the way for us to explore and understand
+
+38:01.180 --> 38:02.940
+ the mysteries of our world.
+
+38:02.940 --> 38:06.900
+ And two, perhaps more importantly for some people,
+
+38:06.900 --> 38:09.700
+ it's a huge way to, a really powerful way
+
+38:09.700 --> 38:12.540
+ to grow the economy, to improve the quality of life
+
+38:12.540 --> 38:13.620
+ for everyone.
+
+38:13.620 --> 38:19.060
+ So how do we get, how do you see the media, social media,
+
+38:19.060 --> 38:26.060
+ the internet as a society having a healthy discourse
+
+38:26.060 --> 38:30.220
+ about science, first of all, one that's factual
+
+38:30.220 --> 38:33.140
+ and two, one that finds science exciting,
+
+38:33.140 --> 38:36.540
+ that invests in science, that pushes it forward,
+
+38:36.540 --> 38:41.620
+ especially in this science fiction, fear filled field
+
+38:41.620 --> 38:43.460
+ of artificial intelligence?
+
+38:43.460 --> 38:45.780
+ Well, I think that's a little above my pay grade
+
+38:45.780 --> 38:50.060
+ because trying to control social media
+
+38:50.060 --> 38:52.820
+ to make it do what you want to do
+
+38:52.820 --> 38:56.580
+ appears to be beyond almost anybody's control.
+
+38:56.580 --> 39:00.820
+ And the technology is being used to create
+
+39:00.820 --> 39:04.060
+ what I call the tyranny of the minorities.
+
+39:04.060 --> 39:07.940
+ A minority is defined as two or three people
+
+39:07.940 --> 39:09.300
+ on a street corner.
+
+39:09.300 --> 39:11.340
+ Doesn't matter what they look like.
+
+39:11.340 --> 39:13.500
+ Doesn't matter where they came from.
+
+39:13.500 --> 39:19.940
+ They're united by that one issue that they care about.
+
+39:19.940 --> 39:26.860
+ And their job is to enforce their views on the world.
+
+39:26.860 --> 39:30.860
+ And in the political world, people just
+
+39:30.860 --> 39:34.100
+ are manufacturing truth.
+
+39:34.100 --> 39:36.340
+ And they throw it all over.
+
+39:36.340 --> 39:38.980
+ And it affects all of us.
+
+39:38.980 --> 39:45.220
+ And sometimes people are just hired to do that.
+
+39:45.220 --> 39:46.780
+ It's amazing.
+
+39:46.780 --> 39:48.740
+ And you think it's one person.
+
+39:48.740 --> 39:55.340
+ It's really just sort of a front for a particular point of view.
+
+39:55.340 --> 39:59.860
+ And this has become exceptionally disruptive
+
+39:59.860 --> 40:01.860
+ for society.
+
+40:01.860 --> 40:03.500
+ And it's dangerous.
+
+40:03.500 --> 40:07.420
+ And it's undercutting the ability of liberal democracies
+
+40:07.420 --> 40:09.020
+ to function.
+
+40:09.020 --> 40:11.980
+ And I don't know how to get a grip on this.
+
+40:11.980 --> 40:16.260
+ And I was really surprised when we was up here
+
+40:16.260 --> 40:24.500
+ for the announcement last spring of the College of Computing.
+
+40:24.500 --> 40:27.580
+ And they had all these famous scientists, some of whom
+
+40:27.580 --> 40:32.660
+ were involved with the invention of the internet.
+
+40:32.660 --> 40:36.460
+ And almost every one of them got up and said,
+
+40:36.460 --> 40:39.180
+ I think I made a mistake.
+
+40:39.180 --> 40:41.500
+ And as a non scientist, I never thought
+
+40:41.500 --> 40:44.100
+ I'd hear anyone say that.
+
+40:44.100 --> 40:48.660
+ And what they said is, more or less, to make it simple,
+
+40:48.660 --> 40:52.660
+ we thought this would be really cool inventing the internet.
+
+40:52.660 --> 40:55.020
+ We could connect everyone in the world.
+
+40:55.020 --> 40:56.820
+ We can move knowledge around.
+
+40:56.820 --> 40:58.980
+ It was instantaneous.
+
+40:58.980 --> 41:01.260
+ It's a really amazing thing.
+
+41:01.260 --> 41:04.380
+ He said, I don't know that there was anyone
+
+41:04.380 --> 41:07.540
+ who ever thought about social media coming out of that
+
+41:07.540 --> 41:12.580
+ and the actual consequences for people's lives.
+
+41:12.580 --> 41:17.580
+ There's always some younger person.
+
+41:17.580 --> 41:19.700
+ I just saw one of these yesterday.
+
+41:19.700 --> 41:21.380
+ It's reported on the national news
+
+41:21.380 --> 41:25.740
+ who killed himself when people use social media
+
+41:25.740 --> 41:30.500
+ to basically sort of ridicule him or something of that type.
+
+41:30.500 --> 41:33.460
+ This is dead.
+
+41:33.460 --> 41:35.780
+ This is dangerous.
+
+41:35.780 --> 41:43.660
+ And so I don't have a solution for that other
+
+41:43.660 --> 41:46.940
+ than going forward, you can end up
+
+41:46.940 --> 41:50.060
+ with this type of outcome using AI.
+
+41:50.060 --> 41:56.180
+ To make this kind of mistake twice is unforgivable.
+
+41:56.180 --> 42:02.180
+ So interestingly, at least in the West and parts of China,
+
+42:02.180 --> 42:08.900
+ people are quite sympathetic to the whole concept of AI ethics
+
+42:08.900 --> 42:13.620
+ and what gets introduced when and cooperation
+
+42:13.620 --> 42:17.460
+ within your own country, within your own industry,
+
+42:17.460 --> 42:20.420
+ as well as globally to make sure
+
+42:20.420 --> 42:24.260
+ that the technology is a force for good.
+
+42:24.260 --> 42:25.660
+ And that really interesting topic.
+
+42:25.660 --> 42:28.660
+ Since 2007, you've had a relationship
+
+42:28.660 --> 42:32.820
+ with senior leadership with a lot of people in China
+
+42:32.820 --> 42:36.020
+ and an interest in understanding modern China,
+
+42:36.020 --> 42:39.540
+ their culture, their world, much like with Russia.
+
+42:39.540 --> 42:42.180
+ I'm from Russia originally.
+
+42:42.180 --> 42:44.980
+ Americans are told a very narrow, one sided story
+
+42:44.980 --> 42:48.660
+ about China that I'm sure misses a lot
+
+42:48.660 --> 42:53.260
+ of fascinating complexity, both positive and negative.
+
+42:53.260 --> 42:57.020
+ What lessons about Chinese culture, its ideas as a nation,
+
+42:57.020 --> 43:00.540
+ its future do you think Americans should know about,
+
+43:00.540 --> 43:02.860
+ deliberate on, think about?
+
+43:02.860 --> 43:06.100
+ Well, it's sort of a wide question
+
+43:06.100 --> 43:09.500
+ that you're asking about.
+
+43:09.500 --> 43:11.860
+ China is a pretty unusual place.
+
+43:11.860 --> 43:15.940
+ First, it's huge.
+
+43:15.940 --> 43:17.660
+ It's physically huge.
+
+43:17.660 --> 43:19.980
+ It's got a billion three people.
+
+43:19.980 --> 43:24.940
+ And the character of the people isn't as well understood
+
+43:24.940 --> 43:27.300
+ in the United States.
+
+43:27.300 --> 43:34.020
+ Chinese people are amazingly energetic.
+
+43:34.020 --> 43:37.220
+ If you're one of a billion three people,
+
+43:37.220 --> 43:40.100
+ one of the things you've got to be focused on
+
+43:40.100 --> 43:44.900
+ is how do you make your way through a crowd
+
+43:44.900 --> 43:50.940
+ of a billion 2.99999 other people.
+
+43:50.940 --> 43:52.900
+ No, the word for that is competitive.
+
+43:52.900 --> 43:57.100
+ Yes, they are individually highly energetic,
+
+43:57.100 --> 44:02.900
+ highly focused, always looking for some opportunity
+
+44:02.900 --> 44:07.740
+ for themselves because they need to,
+
+44:07.740 --> 44:11.940
+ because there's an enormous amount of just literally people
+
+44:11.940 --> 44:12.460
+ around.
+
+44:12.460 --> 44:17.860
+ And so what I've found is they'll
+
+44:17.860 --> 44:21.780
+ try and find a way to win for themselves.
+
+44:21.780 --> 44:25.900
+ And their country is complicated because it basically
+
+44:25.900 --> 44:29.540
+ doesn't have the same kind of functional laws
+
+44:29.540 --> 44:34.020
+ that we do in the United States and the West.
+
+44:34.020 --> 44:39.740
+ And the country is controlled really
+
+44:39.740 --> 44:44.340
+ through a web of relationships you have with other people
+
+44:44.340 --> 44:47.500
+ and the relationships that those other people have
+
+44:47.500 --> 44:48.860
+ with other people.
+
+44:48.860 --> 44:53.860
+ So it's an incredibly dynamic culture
+
+44:53.860 --> 44:56.860
+ where if somebody knocks somebody up
+
+44:56.860 --> 44:59.620
+ on the top who's three levels above you
+
+44:59.620 --> 45:01.300
+ and is, in effect, protecting you,
+
+45:01.300 --> 45:08.260
+ then you're like a floating molecule there
+
+45:08.260 --> 45:12.140
+ without tethering except the one or two layers above you.
+
+45:12.140 --> 45:14.180
+ But that's going to get affected.
+
+45:14.180 --> 45:15.940
+ So it's a very dynamic system.
+
+45:15.940 --> 45:19.940
+ And getting people to change is not that easy
+
+45:19.940 --> 45:23.780
+ because if there aren't really functioning laws,
+
+45:23.780 --> 45:27.380
+ it's only the relationships that everybody has.
+
+45:27.380 --> 45:30.900
+ And so when you decide to make a major change
+
+45:30.900 --> 45:33.980
+ and you sign up for it, something
+
+45:33.980 --> 45:36.420
+ is changing in your life.
+
+45:36.420 --> 45:40.700
+ There won't necessarily be all the same people on your team.
+
+45:40.700 --> 45:43.660
+ And that's a very high risk enterprise.
+
+45:43.660 --> 45:46.260
+ So when you're dealing with China,
+
+45:46.260 --> 45:50.940
+ it's important to know almost what everybody's relationship
+
+45:50.940 --> 45:52.740
+ is with somebody.
+
+45:52.740 --> 45:55.860
+ So when you suggest doing something differently,
+
+45:55.860 --> 45:59.100
+ you line up these forces.
+
+45:59.100 --> 46:02.740
+ In the West, it's usually you talk to a person
+
+46:02.740 --> 46:04.900
+ and they figure out what's good for them.
+
+46:04.900 --> 46:06.340
+ It's a lot easier.
+
+46:06.340 --> 46:08.820
+ And in that sense, in a funny way,
+
+46:08.820 --> 46:11.420
+ it's easier to make change in the West,
+
+46:11.420 --> 46:14.860
+ just the opposite of what people think.
+
+46:14.860 --> 46:17.220
+ But once the Chinese system adjusts
+
+46:17.220 --> 46:22.500
+ to something that's new, everybody's on the team.
+
+46:22.500 --> 46:23.540
+ It's hard to change them.
+
+46:23.540 --> 46:28.740
+ But once they're changed, they are incredibly focused in a way
+
+46:28.740 --> 46:31.860
+ that it's hard for the West to do
+
+46:31.860 --> 46:35.020
+ in a more individualistic culture.
+
+46:35.020 --> 46:38.700
+ So there are all kinds of fascinating things.
+
+46:42.580 --> 46:46.820
+ One thing that might interest the people who are listening
+
+46:46.820 --> 46:50.900
+ who are more technologically based than some other group.
+
+46:50.900 --> 46:56.060
+ I was with one of the top people in the government
+
+46:56.060 --> 47:00.060
+ a few weeks ago, and he was telling me that every school
+
+47:00.060 --> 47:08.700
+ child in China is going to be taught computer science.
+
+47:08.700 --> 47:14.980
+ Now, imagine 100% of these children.
+
+47:14.980 --> 47:20.060
+ This is such a large number of human beings.
+
+47:20.060 --> 47:22.820
+ Now, that doesn't mean that every one of them
+
+47:22.820 --> 47:25.260
+ will be good at computer science.
+
+47:25.260 --> 47:28.780
+ But if it's sort of like in the West,
+
+47:28.780 --> 47:33.420
+ if it's like math or English, everybody's going to take it.
+
+47:33.420 --> 47:35.540
+ Not everybody's great at English.
+
+47:35.540 --> 47:36.540
+ They don't write books.
+
+47:36.540 --> 47:38.220
+ They don't write poetry.
+
+47:38.220 --> 47:41.180
+ And not everybody's good at math.
+
+47:41.180 --> 47:44.780
+ Somebody like myself, I sort of evolved to the third grade,
+
+47:44.780 --> 47:47.740
+ and I'm still doing flashcards.
+
+47:47.740 --> 47:50.220
+ I didn't make it further in math.
+
+47:50.220 --> 47:54.660
+ But imagine everybody in their society
+
+47:54.660 --> 47:58.380
+ is going to be involved with computer science.
+
+47:58.380 --> 48:01.180
+ I'd just even pause on that.
+
+48:01.180 --> 48:05.180
+ I think computer science involves,
+
+48:05.180 --> 48:07.940
+ at the basic beginner level, programming.
+
+48:07.940 --> 48:11.380
+ And the idea that everybody in the society
+
+48:11.380 --> 48:18.620
+ would have some ability to program a computer is incredible.
+
+48:18.620 --> 48:20.340
+ For me, it's incredibly exciting,
+
+48:20.340 --> 48:24.980
+ and I think that should give the United States pause
+
+48:24.980 --> 48:28.100
+ and consider what...
+
+48:28.100 --> 48:31.300
+ Talking about sort of philanthropy and launching things,
+
+48:31.300 --> 48:33.780
+ there's nothing like launching,
+
+48:33.780 --> 48:38.180
+ sort of investing in young youth, the education system,
+
+48:38.180 --> 48:40.380
+ because that's where everything launches.
+
+48:40.380 --> 48:41.220
+ Yes.
+
+48:41.220 --> 48:42.620
+ Well, we've got a complicated system
+
+48:42.620 --> 48:45.700
+ because we have over 3,000 school districts
+
+48:45.700 --> 48:47.380
+ around the country.
+
+48:47.380 --> 48:50.900
+ China doesn't worry about that as a concept.
+
+48:50.900 --> 48:55.220
+ They make a decision at the very top of the government
+
+48:55.220 --> 48:57.380
+ that that's what they want to have happen,
+
+48:57.380 --> 48:59.460
+ and that is what will happen.
+
+48:59.460 --> 49:07.020
+ And we're really handicapped by this distributed power
+
+49:07.020 --> 49:08.180
+ in the education area,
+
+49:08.180 --> 49:10.820
+ although some people involved with that area
+
+49:10.820 --> 49:13.860
+ will think it's great.
+
+49:13.860 --> 49:17.060
+ But you would know better than I do
+
+49:17.060 --> 49:18.900
+ what percent of American children
+
+49:18.900 --> 49:23.220
+ have computer science exposure.
+
+49:23.220 --> 49:29.460
+ My guess, no knowledge, would be 5% or less.
+
+49:29.460 --> 49:33.060
+ And if we're going to be going into a world
+
+49:33.060 --> 49:37.380
+ where the other major economic power,
+
+49:37.380 --> 49:42.580
+ sort of like ourselves, has got like 100% and we got 5%,
+
+49:42.580 --> 49:49.060
+ and the whole computer science area is the future,
+
+49:49.060 --> 49:52.980
+ then we're purposely or accidentally actually
+
+49:52.980 --> 49:54.900
+ handicapping ourselves,
+
+49:54.900 --> 50:00.300
+ and our system doesn't allow us to adjust quickly to that.
+
+50:00.300 --> 50:06.300
+ So, you know, issues like this I find fascinating.
+
+50:06.300 --> 50:08.340
+ And, you know, if you're lucky enough
+
+50:08.340 --> 50:12.540
+ to go to other countries, which I do,
+
+50:12.540 --> 50:14.580
+ and you learn what they're thinking,
+
+50:14.580 --> 50:22.700
+ then it informs what we ought to be doing in the United States.
+
+50:22.700 --> 50:25.580
+ So the current administration, Donald Trump,
+
+50:25.580 --> 50:29.820
+ has released an executive order on artificial intelligence.
+
+50:29.820 --> 50:31.820
+ Not sure if you're familiar with it.
+
+50:31.820 --> 50:36.300
+ In 2019, looking several years ahead,
+
+50:36.300 --> 50:38.740
+ how does America sort of,
+
+50:38.740 --> 50:41.780
+ we've mentioned in terms of the big impact,
+
+50:41.780 --> 50:47.980
+ we hope your investment in MIT will have a ripple effect,
+
+50:47.980 --> 50:51.740
+ but from a federal perspective, from a government perspective,
+
+50:51.740 --> 50:55.660
+ how does America establish, with respect to China,
+
+50:55.660 --> 50:57.780
+ leadership in the world at the top
+
+50:57.780 --> 51:00.260
+ for research and development in AI?
+
+51:00.260 --> 51:04.060
+ I think that you have to get the federal government
+
+51:04.060 --> 51:07.660
+ in the game in a big way,
+
+51:07.660 --> 51:13.540
+ and that this leap forward technologically,
+
+51:13.540 --> 51:17.340
+ which is going to happen with or without us,
+
+51:17.340 --> 51:19.980
+ you know, really should be with us,
+
+51:19.980 --> 51:23.500
+ and it's an opportunity, in effect,
+
+51:23.500 --> 51:28.380
+ for another moonshot kind of mobilization
+
+51:28.380 --> 51:30.860
+ by the United States.
+
+51:30.860 --> 51:38.220
+ I think the appetite actually is there to do that.
+
+51:38.220 --> 51:41.380
+ At the moment, what's getting in the way
+
+51:41.380 --> 51:45.980
+ is the kind of poisonous politics we have,
+
+51:45.980 --> 51:52.500
+ but if you go below the lack of cooperation,
+
+51:52.500 --> 51:59.100
+ which is almost the defining element of American democracy
+
+51:59.100 --> 52:00.940
+ right now in the Congress,
+
+52:00.940 --> 52:04.660
+ if you talk to individual members, they get it,
+
+52:04.660 --> 52:08.020
+ and they would like to do something.
+
+52:08.020 --> 52:11.060
+ Another part of the issue is we're running huge deficits.
+
+52:11.060 --> 52:13.820
+ We're running trillion dollar plus deficits.
+
+52:13.820 --> 52:19.540
+ So how much money do you need for this initiative?
+
+52:19.540 --> 52:21.460
+ Where does it come from?
+
+52:21.460 --> 52:24.260
+ Who's prepared to stand up for it?
+
+52:24.260 --> 52:27.100
+ Because if it involves taking away resources
+
+52:27.100 --> 52:32.740
+ from another area, our political system is not real flexible.
+
+52:32.740 --> 52:41.260
+ To do that, if you're creating this kind of initiative,
+
+52:41.260 --> 52:45.220
+ which we need, where does the money come from?
+
+52:45.220 --> 52:47.380
+ And trying to get money
+
+52:47.380 --> 52:49.540
+ when you've got trillion dollar deficits,
+
+52:49.540 --> 52:50.860
+ in a way, could be easy.
+
+52:50.860 --> 52:52.220
+ What's the difference of a trillion
+
+52:52.220 --> 52:54.580
+ and a trillion and a little more?
+
+52:54.580 --> 52:58.620
+ But, you know, it's hard with the mechanisms of Congress.
+
+52:58.620 --> 53:06.340
+ But what's really important is this is not an issue
+
+53:06.340 --> 53:12.540
+ that is unknown, and it's viewed as a very important issue.
+
+53:12.540 --> 53:15.900
+ And there's almost no one in the Congress
+
+53:15.900 --> 53:18.980
+ when you sit down and explain what's going on
+
+53:18.980 --> 53:22.140
+ who doesn't say, we've got to do something.
+
+53:22.140 --> 53:26.020
+ Let me ask the impossible question.
+
+53:26.020 --> 53:30.660
+ You didn't endorse Donald Trump, but after he was elected,
+
+53:30.660 --> 53:38.860
+ you have given him advice, which seems to me a great thing
+
+53:38.860 --> 53:42.060
+ to do, no matter who the president is,
+
+53:42.060 --> 53:47.140
+ to positively contribute to this nation by giving advice.
+
+53:47.140 --> 53:50.580
+ And yet, you've received a lot of criticism for this.
+
+53:50.580 --> 53:54.100
+ So on the previous topic of science and technology
+
+53:54.100 --> 53:59.740
+ and government, how do we have a healthy discourse,
+
+53:59.740 --> 54:05.500
+ give advice, get excited conversation with the government
+
+54:05.500 --> 54:09.620
+ about science and technology without it becoming politicized?
+
+54:09.620 --> 54:12.100
+ Well, it's very interesting.
+
+54:12.100 --> 54:17.260
+ So when I was young, before there was a moonshot,
+
+54:17.260 --> 54:22.300
+ we had a president named John F. Kennedy from Massachusetts
+
+54:22.300 --> 54:23.060
+ here.
+
+54:23.060 --> 54:27.700
+ And in his inaugural address as president,
+
+54:27.700 --> 54:31.700
+ he asked not what your country can do for you,
+
+54:31.700 --> 54:34.860
+ but what you can do for your country.
+
+54:34.860 --> 54:40.340
+ We had a generation of people my age, basically people,
+
+54:40.340 --> 54:45.180
+ who grew up with that credo.
+
+54:45.180 --> 54:49.980
+ And sometimes you don't need to innovate.
+
+54:49.980 --> 54:52.700
+ You can go back to basic principles.
+
+54:52.700 --> 54:55.860
+ And that's good basic principle.
+
+54:55.860 --> 54:58.620
+ What can we do?
+
+54:58.620 --> 55:04.540
+ Americans have GDP per capita of around $60,000.
+
+55:04.540 --> 55:08.180
+ It's not equally distributed, but it's big.
+
+55:08.180 --> 55:15.980
+ And people have, I think, an obligation to help
+
+55:15.980 --> 55:17.220
+ their country.
+
+55:17.220 --> 55:19.140
+ And I do that.
+
+55:19.140 --> 55:28.740
+ And apparently, I take some grief from some people who
+
+55:28.740 --> 55:33.580
+ project on me things I don't even vaguely believe.
+
+55:33.580 --> 55:36.980
+ But I'm quite simple.
+
+55:36.980 --> 55:41.060
+ I tried to help the previous president, President Obama.
+
+55:41.060 --> 55:42.660
+ He was a good guy.
+
+55:42.660 --> 55:44.420
+ And he was a different party.
+
+55:44.420 --> 55:46.660
+ And I tried to help President Bush.
+
+55:46.660 --> 55:48.580
+ And he's a different party.
+
+55:48.580 --> 55:57.180
+ And I sort of don't care that much about what the parties are.
+
+55:57.180 --> 56:01.420
+ I care about, even though I'm a big donor for the Republicans,
+
+56:01.420 --> 56:08.220
+ but what motivates me is, what are the problems we're facing?
+
+56:08.220 --> 56:13.500
+ Can I help people get to a good outcome that
+
+56:13.500 --> 56:16.620
+ will stand any test?
+
+56:16.620 --> 56:24.860
+ But we live in a world now where the filters and the hostility
+
+56:24.860 --> 56:30.100
+ is so unbelievable.
+
+56:30.100 --> 56:34.140
+ In the 1960s, when I went to school and university,
+
+56:34.140 --> 56:40.060
+ I went to Yale, we had so much stuff going on.
+
+56:40.060 --> 56:43.820
+ We had a war called the Vietnam War.
+
+56:43.820 --> 56:47.660
+ We had sort of black power starting.
+
+56:47.660 --> 56:54.580
+ And we had a sexual revolution with the birth control pill.
+
+56:54.580 --> 57:02.980
+ And there was one other major thing going on,
+
+57:02.980 --> 57:05.460
+ the drug revolution.
+
+57:05.460 --> 57:08.020
+ There hasn't been a generation that
+
+57:08.020 --> 57:17.460
+ had more stuff going on in a four year period than my era.
+
+57:17.460 --> 57:23.460
+ Yet, there wasn't this kind of instant hostility
+
+57:23.460 --> 57:26.220
+ if you believed something different.
+
+57:26.220 --> 57:32.180
+ Everybody lived together and respected the other person.
+
+57:32.180 --> 57:37.780
+ And I think that this type of change needs to happen.
+
+57:37.780 --> 57:41.580
+ And it's got to happen from the leadership
+
+57:41.580 --> 57:44.420
+ of our major institutions.
+
+57:44.420 --> 57:48.660
+ And I don't think that leaders can
+
+57:48.660 --> 57:53.780
+ be bullied by people who are against sort
+
+57:53.780 --> 57:56.300
+ of the classical version of free speech
+
+57:56.300 --> 58:00.420
+ and letting open expression and inquiry.
+
+58:00.420 --> 58:05.420
+ That's what universities are for, among other things,
+
+58:05.420 --> 58:06.820
+ Socratic methods.
+
+58:06.820 --> 58:18.940
+ And so I have, in the midst of this onslaught of oddness,
+
+58:18.940 --> 58:22.900
+ I believe in still the basic principles.
+
+58:22.900 --> 58:26.540
+ And we're going to have to find a way to get back to that.
+
+58:26.540 --> 58:31.420
+ And that doesn't start with the people sort of in the middle
+
+58:31.420 --> 58:36.300
+ to the bottom who are using these kinds of screens
+
+58:36.300 --> 58:41.260
+ to shout people down and create an uncooperative environment.
+
+58:41.260 --> 58:46.140
+ It's got to be done at the top with core principles that
+
+58:46.140 --> 58:48.340
+ are articulated.
+
+58:48.340 --> 58:53.580
+ And ironically, if people don't sign on
+
+58:53.580 --> 58:56.900
+ to these kind of core principles where people are equal
+
+58:56.900 --> 59:02.980
+ and speech can be heard and you don't have these enormous
+
+59:02.980 --> 59:06.940
+ shout down biases subtly or out loud,
+
+59:06.940 --> 59:09.580
+ then they don't belong at those institutions.
+
+59:09.580 --> 59:12.100
+ They're violating the core principles.
+
+59:12.100 --> 59:18.180
+ And that's how you end up making change.
+
+59:18.180 --> 59:21.660
+ But you have to have courageous people who
+
+59:21.660 --> 59:26.220
+ are willing to lay that out for the benefit of not just
+
+59:26.220 --> 59:31.620
+ their institutions, but for society as a whole.
+
+59:31.620 --> 59:35.740
+ So I believe that will happen.
+
+59:35.740 --> 59:41.580
+ But it needs the commitment of senior people
+
+59:41.580 --> 59:42.700
+ to make it happen.
+
+59:42.700 --> 59:43.660
+ Courage.
+
+59:43.660 --> 59:47.820
+ And I think for such great leaders, great universities,
+
+59:47.820 --> 59:49.300
+ there's a huge hunger for it.
+
+59:49.300 --> 59:53.260
+ So I am too very optimistic that it will come.
+
+59:53.260 --> 59:56.420
+ I'm now personally taking a step into building a startup
+
+59:56.420 --> 1:00:00.740
+ first time, hoping to change the world, of course.
+
+1:00:00.740 --> 1:00:03.380
+ There are thousands, maybe more, maybe millions
+
+1:00:03.380 --> 1:00:06.100
+ of other first time entrepreneurs like me.
+
+1:00:06.100 --> 1:00:08.060
+ What advice?
+
+1:00:08.060 --> 1:00:09.420
+ You've gone through this process.
+
+1:00:09.420 --> 1:00:14.060
+ You've talked about the suffering, the emotional turmoil
+
+1:00:14.060 --> 1:00:15.540
+ it all might entail.
+
+1:00:15.540 --> 1:00:20.220
+ What advice do you have for those people taking that step?
+
+1:00:20.220 --> 1:00:23.260
+ I'd say it's a rough ride.
+
+1:00:23.260 --> 1:00:28.860
+ And you have to be psychologically prepared
+
+1:00:28.860 --> 1:00:33.060
+ for things going wrong with frequency.
+
+1:00:33.060 --> 1:00:38.340
+ You have to be prepared to be put in situations where you're
+
+1:00:38.340 --> 1:00:40.620
+ being asked to solve problems you didn't even
+
+1:00:40.620 --> 1:00:43.020
+ know those problems existed.
+
+1:00:43.020 --> 1:00:47.140
+ For example, renting space, it's not really a problem
+
+1:00:47.140 --> 1:00:48.620
+ unless you've never done it.
+
+1:00:48.620 --> 1:00:52.060
+ You have no idea what a lease looks like.
+
+1:00:52.060 --> 1:00:56.820
+ You don't even know the relevant rent in a market.
+
+1:00:56.820 --> 1:00:58.580
+ So everything is new.
+
+1:00:58.580 --> 1:01:00.740
+ Everything has to be learned.
+
+1:01:00.740 --> 1:01:04.460
+ What you realize is that it's good to have other people
+
+1:01:04.460 --> 1:01:07.660
+ with you who've had some experience in areas
+
+1:01:07.660 --> 1:01:09.780
+ where you don't know what you're doing.
+
+1:01:09.780 --> 1:01:13.140
+ Unfortunately, an entrepreneur starting
+
+1:01:13.140 --> 1:01:14.620
+ doesn't know much of anything.
+
+1:01:14.620 --> 1:01:18.140
+ So everything is something new.
+
+1:01:18.140 --> 1:01:24.420
+ And I think it's important not to be alone,
+
+1:01:24.420 --> 1:01:28.660
+ because it's sort of overwhelming.
+
+1:01:28.660 --> 1:01:33.660
+ And you need somebody to talk to other than a spouse or a loved
+
+1:01:33.660 --> 1:01:38.340
+ one, because even they get bored with your problems.
+
+1:01:38.340 --> 1:01:43.940
+ And so getting a group, if you look at Alibaba,
+
+1:01:43.940 --> 1:01:47.580
+ Jack Ma was telling me they basically
+
+1:01:47.580 --> 1:01:52.420
+ were like at financial death's door at least twice.
+
+1:01:52.420 --> 1:01:55.940
+ And the fact that it wasn't just Jack.
+
+1:01:55.940 --> 1:01:57.940
+ I mean, people think it is, because he
+
+1:01:57.940 --> 1:02:02.420
+ became the sort of public face and the driver.
+
+1:02:02.420 --> 1:02:08.380
+ But a group of people who can give advice,
+
+1:02:08.380 --> 1:02:13.460
+ share situations to talk about, that's really important.
+
+1:02:13.460 --> 1:02:15.900
+ And that's not just referring to the small details
+
+1:02:15.900 --> 1:02:17.100
+ like renting space.
+
+1:02:17.100 --> 1:02:17.600
+ No.
+
+1:02:17.600 --> 1:02:20.500
+ It's also the psychological burden.
+
+1:02:20.500 --> 1:02:24.700
+ Yeah, and because most entrepreneurs at some point
+
+1:02:24.700 --> 1:02:27.780
+ question what they're doing, because it's not going so well.
+
+1:02:27.780 --> 1:02:29.180
+ Or they're screwing it up, and they
+
+1:02:29.180 --> 1:02:34.100
+ don't know how to unscrew it up, because we're all learning.
+
+1:02:34.100 --> 1:02:38.700
+ And it's hard to be learning when there are like 25 variables
+
+1:02:38.700 --> 1:02:39.340
+ going on.
+
+1:02:39.340 --> 1:02:43.820
+ If you're missing four big ones, you can really make a mess.
+
+1:02:43.820 --> 1:02:50.940
+ And so the ability to, in effect, have either an outsider
+
+1:02:50.940 --> 1:02:53.340
+ who's really smart that you can rely on
+
+1:02:53.340 --> 1:02:57.460
+ for certain type of things, or other people who are working
+
+1:02:57.460 --> 1:03:03.380
+ with you on a daily basis, most people
+
+1:03:03.380 --> 1:03:06.260
+ who haven't had experience believe
+
+1:03:06.260 --> 1:03:10.700
+ in the myth of the one person, one great person,
+
+1:03:10.700 --> 1:03:15.580
+ makes outcomes, creates outcomes that are positive.
+
+1:03:15.580 --> 1:03:18.660
+ Most of us, it's not like that.
+
+1:03:18.660 --> 1:03:22.860
+ If you look back over a lot of the big successful tech
+
+1:03:22.860 --> 1:03:28.020
+ companies, it's not typically one person.
+
+1:03:28.020 --> 1:03:30.860
+ And you will know these stories better than I do,
+
+1:03:30.860 --> 1:03:32.400
+ because it's your world, not mine.
+
+1:03:32.400 --> 1:03:35.300
+ But even I know that almost every one of them
+
+1:03:35.300 --> 1:03:36.860
+ had two people.
+
+1:03:36.860 --> 1:03:40.380
+ If you look at Google, that's what they had.
+
+1:03:40.380 --> 1:03:43.660
+ And that was the same at Microsoft at the beginning.
+
+1:03:43.660 --> 1:03:48.180
+ And it was the same at Apple.
+
+1:03:48.180 --> 1:03:50.020
+ People have different skills.
+
+1:03:50.020 --> 1:03:53.300
+ And they need to play off of other people.
+
+1:03:53.300 --> 1:03:59.660
+ So the advice that I would give you
+
+1:03:59.660 --> 1:04:03.420
+ is make sure you understand that so you don't head off
+
+1:04:03.420 --> 1:04:08.280
+ in some direction as a lone wolf and find that either you
+
+1:04:08.280 --> 1:04:13.740
+ can't invent all the solutions or you make bad decisions
+
+1:04:13.740 --> 1:04:15.700
+ on certain types of things.
+
+1:04:15.700 --> 1:04:18.020
+ This is a team sport.
+
+1:04:18.020 --> 1:04:22.460
+ Entrepreneur means you're alone, in effect.
+
+1:04:22.460 --> 1:04:24.260
+ And that's the myth.
+
+1:04:24.260 --> 1:04:27.420
+ But it's mostly a myth.
+
+1:04:27.420 --> 1:04:29.900
+ Yeah, I think, and you talk about this in your book,
+
+1:04:29.900 --> 1:04:31.940
+ and I could talk to you about it forever,
+
+1:04:31.940 --> 1:04:36.740
+ the harshly self critical aspect to your personality
+
+1:04:36.740 --> 1:04:39.780
+ and to mine as well in the face of failure.
+
+1:04:39.780 --> 1:04:41.820
+ It's a powerful tool, but it's also
+
+1:04:41.820 --> 1:04:49.180
+ a burden that's very interesting to walk that line.
+
+1:04:49.180 --> 1:04:53.020
+ But let me ask in terms of people around you,
+
+1:04:53.020 --> 1:04:56.140
+ in terms of friends, in the bigger
+
+1:04:56.140 --> 1:04:57.940
+ picture of your own life, where do you
+
+1:04:57.940 --> 1:05:02.700
+ put the value of love, family, friendship
+
+1:05:02.700 --> 1:05:06.580
+ in the big picture journey of your life?
+
+1:05:06.580 --> 1:05:12.140
+ Well, ultimately, all journeys are alone.
+
+1:05:12.140 --> 1:05:13.340
+ It's great to have support.
+
+1:05:16.260 --> 1:05:23.980
+ And when you go forward and say your job is
+
+1:05:23.980 --> 1:05:26.260
+ to make something work, and that's your number one
+
+1:05:26.260 --> 1:05:31.500
+ priority, and you're going to work at it to make it work,
+
+1:05:31.500 --> 1:05:33.900
+ it's like superhuman effort.
+
+1:05:33.900 --> 1:05:38.220
+ People don't become successful as part time workers.
+
+1:05:38.220 --> 1:05:40.580
+ It doesn't work that way.
+
+1:05:40.580 --> 1:05:48.420
+ And if you're prepared to make that 100% to 120% effort,
+
+1:05:48.420 --> 1:05:51.500
+ you're going to need support, and you're
+
+1:05:51.500 --> 1:05:53.140
+ going to have to have people involved
+
+1:05:53.140 --> 1:05:56.300
+ with your life who understand that that's really
+
+1:05:56.300 --> 1:05:59.180
+ part of your life.
+
+1:05:59.180 --> 1:06:01.580
+ Sometimes you're involved with somebody,
+
+1:06:01.580 --> 1:06:04.820
+ and they don't really understand that.
+
+1:06:04.820 --> 1:06:09.140
+ And that's a source of conflict and difficulty.
+
+1:06:09.140 --> 1:06:13.500
+ But if you're involved with the right people,
+
+1:06:13.500 --> 1:06:20.140
+ whether it's a dating relationship or a spousal
+
+1:06:20.140 --> 1:06:28.820
+ relationship, you have to involve them in your life,
+
+1:06:28.820 --> 1:06:36.540
+ but not burden them with every minor triumph or mistake.
+
+1:06:36.540 --> 1:06:41.060
+ They actually get bored with it after a while.
+
+1:06:41.060 --> 1:06:45.900
+ And so you have to set up different types of ecosystems.
+
+1:06:45.900 --> 1:06:48.300
+ You have your home life.
+
+1:06:48.300 --> 1:06:50.140
+ You have your love life.
+
+1:06:50.140 --> 1:06:51.620
+ You have children.
+
+1:06:51.620 --> 1:06:55.900
+ And that's the enduring part of what you do.
+
+1:06:55.900 --> 1:07:00.420
+ And then on the other side, you've got the unpredictable
+
+1:07:00.420 --> 1:07:07.220
+ nature of this type of work.
+
+1:07:07.220 --> 1:07:12.980
+ What I say to people at my firm who are younger, usually,
+
+1:07:12.980 --> 1:07:16.420
+ well, everybody's younger, but people
+
+1:07:16.420 --> 1:07:19.780
+ who are of an age where they're just
+
+1:07:19.780 --> 1:07:24.500
+ having their first child, or maybe they have two children,
+
+1:07:24.500 --> 1:07:31.140
+ that it's important to make sure they go away
+
+1:07:31.140 --> 1:07:37.540
+ with their spouse at least once every two months to just
+
+1:07:37.540 --> 1:07:42.620
+ some lovely place where there are no children, no issues,
+
+1:07:42.620 --> 1:07:45.740
+ sometimes once a month if they're
+
+1:07:45.740 --> 1:07:48.380
+ sort of energetic and clever.
+
+1:07:48.380 --> 1:07:49.700
+ And that
+
+1:07:49.700 --> 1:07:51.740
+ Escape the craziness of it all.
+
+1:07:51.740 --> 1:07:58.100
+ Yeah, and reaffirm your values as a couple.
+
+1:07:58.100 --> 1:08:00.940
+ And you have to have fun.
+
+1:08:00.940 --> 1:08:04.780
+ If you don't have fun with the person you're with,
+
+1:08:04.780 --> 1:08:07.460
+ and all you're doing is dealing with issues,
+
+1:08:07.460 --> 1:08:09.580
+ then that gets pretty old.
+
+1:08:09.580 --> 1:08:14.580
+ And so you have to protect the fun element of your life
+
+1:08:14.580 --> 1:08:15.540
+ together.
+
+1:08:15.540 --> 1:08:18.740
+ And the way to do that isn't by hanging around the house
+
+1:08:18.740 --> 1:08:22.540
+ and dealing with sort of more problems.
+
+1:08:22.540 --> 1:08:27.340
+ You have to get away and reinforce and reinvigorate
+
+1:08:27.340 --> 1:08:28.340
+ your relationship.
+
+1:08:28.340 --> 1:08:31.740
+ And whenever I tell one of our younger people about that,
+
+1:08:31.740 --> 1:08:33.540
+ they sort of look at me, and it's
+
+1:08:33.540 --> 1:08:35.820
+ like the scales are falling off of their eyes.
+
+1:08:35.820 --> 1:08:39.060
+ And they're saying, jeez, I hadn't thought about that.
+
+1:08:39.060 --> 1:08:41.340
+ I'm so enmeshed in all these things.
+
+1:08:41.340 --> 1:08:42.820
+ But that's a great idea.
+
+1:08:42.820 --> 1:08:45.260
+ And that's something, as an entrepreneur,
+
+1:08:45.260 --> 1:08:47.660
+ you also have to do.
+
+1:08:47.660 --> 1:08:50.620
+ You just can't let relationships slip
+
+1:08:50.620 --> 1:08:53.540
+ because you're half overwhelmed.
+
+1:08:53.540 --> 1:08:54.300
+ Beautifully put.
+
+1:08:54.300 --> 1:08:57.340
+ And I think there's no better place to end it.
+
+1:08:57.340 --> 1:08:58.700
+ Steve, thank you so much.
+
+1:08:58.700 --> 1:08:59.620
+ I really appreciate it.
+
+1:08:59.620 --> 1:09:01.020
+ It was an honor to talk to you.
+
+1:09:01.020 --> 1:09:02.820
+ My pleasure.
+
+1:09:02.820 --> 1:09:04.500
+ Thanks for listening to this conversation
+
+1:09:04.500 --> 1:09:05.740
+ with Stephen Schwarzman.
+
+1:09:05.740 --> 1:09:09.940
+ And thank you to our sponsors, ExpressVPN and MasterClass.
+
+1:09:09.940 --> 1:09:11.620
+ Please consider supporting the podcast
+
+1:09:11.620 --> 1:09:16.380
+ by signing up to MasterClass at masterclass.com slash lex
+
+1:09:16.380 --> 1:09:21.260
+ and getting ExpressVPN at expressvpn.com slash lexpod.
+
+1:09:21.260 --> 1:09:23.860
+ If you enjoy this podcast, subscribe on YouTube,
+
+1:09:23.860 --> 1:09:26.180
+ review it with five stars on Apple Podcast,
+
+1:09:26.180 --> 1:09:28.420
+ support it on Patreon, or simply connect with me
+
+1:09:28.420 --> 1:09:31.940
+ on Twitter at lexfriedman.
+
+1:09:31.940 --> 1:09:33.860
+ And now, let me leave you with some words
+
+1:09:33.860 --> 1:09:38.140
+ from Stephen Schwarzman's book, What It Takes.
+
+1:09:38.140 --> 1:09:41.500
+ It's as hard to start and run a small business
+
+1:09:41.500 --> 1:09:43.780
+ as it is to start a big one.
+
+1:09:43.780 --> 1:09:46.900
+ You will suffer the same toll financially and psychologically
+
+1:09:46.900 --> 1:09:49.500
+ as you bludgeon it into existence.
+
+1:09:50.340 --> 1:09:53.540
+ It's hard to raise the money and to find the right people.
+
+1:09:53.540 --> 1:09:56.620
+ So if you're going to dedicate your life to a business,
+
+1:09:56.620 --> 1:09:59.740
+ which is the only way it will ever work,
+
+1:09:59.740 --> 1:10:02.660
+ you should choose one with the potential to be huge.
+
+1:10:02.660 --> 1:10:15.540
+ Thank you for listening and hope to see you next time.
+
