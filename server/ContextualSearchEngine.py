@@ -232,7 +232,7 @@ class ContextualSearchEngine:
             # get mid and start entry - assuming we always get a mid
             mid = None
             for identifier in result.get("identifier"):
-                if identifier.get('name') == 'google_kg_mid':
+                if identifier.get('name') == 'googleKgMID':
                     mid = identifier.get('value')
                     break
 
@@ -247,7 +247,7 @@ class ContextualSearchEngine:
 
             # get image
             if result.get('image'):
-                image_url = result.get('image').get('content_url')
+                image_url = result.get('image').get('contentUrl')
                 # convert to actual image url if it's a wikipedia image
                 # if "wiki" in image_url:
                 # image_url = self.wiki_image_parser(image_url)
@@ -262,9 +262,9 @@ class ContextualSearchEngine:
             else:
                 res[mid]["type"] = result.get('@type')[0].upper()
 
-            detailed_description = result.get("detailed_description")
+            detailed_description = result.get("detailedDescription")
             if detailed_description:
-                res[mid]["summary"] = detailed_description.get('article_body')
+                res[mid]["summary"] = detailed_description.get('articleBody')
                 res[mid]["url"] = detailed_description.get('url')
             else:
                 res[mid]["summary"] = result.get('description')
