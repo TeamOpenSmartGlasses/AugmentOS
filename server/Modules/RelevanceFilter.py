@@ -57,8 +57,8 @@ Only output the JSON entity score list, nothing else!
 
 
 class RelevanceFilter:
-    def __init__(self, databaseHandler):
-        self.databaseHandler = databaseHandler
+    def __init__(self, db_handler):
+        self.db_handler = db_handler
         self.banned_terms = ["LOL", "AI", "Caden Pierce", "Alex Israel"]
 
     def should_display_result_based_on_context(self, userId, cse_outputs, context):

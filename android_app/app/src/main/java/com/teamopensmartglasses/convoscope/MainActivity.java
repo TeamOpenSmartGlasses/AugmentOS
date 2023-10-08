@@ -18,9 +18,11 @@ package com.teamopensmartglasses.convoscope;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
@@ -34,6 +36,10 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,6 +49,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.teamopensmartglasses.convoscope.events.SharingContactChangedEvent;
+import com.teamopensmartglasses.convoscope.events.ToggleEnableSharingEvent;
+import com.teamopensmartglasses.convoscope.events.UserIdChangedEvent;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -68,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
   public static final String UI_UPDATE_FINAL_TRANSCRIPT = "UI_UPDATE_FINAL_TRANSCRIPT";
   public static final String CONVOSCOPE_MESSAGE_STRING = "CONVOSCOPE_MESSAGE_STRING";
   public static final String FINAL_TRANSCRIPT = "FINAL_TRANSCRIPT";
+  Switch serviceToggleSwitch;
 
   @SuppressLint("ClickableViewAccessibility")
   @Override
@@ -87,27 +96,51 @@ public class MainActivity extends AppCompatActivity {
     transcriptRecyclerView.setAdapter(transcriptTextUiAdapter);
 
     //buttons
-    final Button llmButton = findViewById(R.id.llmButton);
-    llmButton.setOnTouchListener(new View.OnTouchListener() {
-      @Override
-      public boolean onTouch(View v, MotionEvent event) {
-        switch (event.getAction()) {
-          case MotionEvent.ACTION_DOWN:
-            Log.d(TAG, "Button down.");
-            if (mService != null) {
-              mService.buttonDownEvent(0, false);
-            }
-            break;
-          case MotionEvent.ACTION_UP:
-            Log.d(TAG, "Button up.");
-            if (mService != null) {
-              mService.buttonDownEvent(0, true);
-            }
-            break;
-        }
-        return true;
+    final Switch toggleSharingSwitch = findViewById(R.id.toggleSharingSwitch);
+    toggleSharingSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+      //EventBus.getDefault().post(new ToggleEnableSharingEvent(isChecked));
+      if(isChecked) {
+        pickContact();
+      }
+      else {
+        EventBus.getDefault().post(new SharingContactChangedEvent("", ""));
       }
     });
+
+    serviceToggleSwitch = findViewById(R.id.serviceToggle);
+    serviceToggleSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+      if(isChecked) {
+        startConvoscopeService();
+      }
+      else {
+        stopConvoscopeService();
+      }
+    });
+
+    final Button changeUserIdButton = findViewById(R.id.setUserIdButton);
+    changeUserIdButton.setOnClickListener(v -> showTextInputDialog(MainActivity.this));
+
+//    final Button llmButton = findViewById(R.id.llmButton);
+//    llmButton.setOnTouchListener(new View.OnTouchListener() {
+//      @Override
+//      public boolean onTouch(View v, MotionEvent event) {
+//        switch (event.getAction()) {
+//          case MotionEvent.ACTION_DOWN:
+//            Log.d(TAG, "Button down.");
+//            if (mService != null) {
+//              mService.buttonDownEvent(0, false);
+//            }
+//            break;
+//          case MotionEvent.ACTION_UP:
+//            Log.d(TAG, "Button up.");
+//            if (mService != null) {
+//              mService.buttonDownEvent(0, true);
+//            }
+//            break;
+//        }
+//        return true;
+//      }
+//    });
 
     Button pickContactButton = findViewById(R.id.pick_contact_button);
     pickContactButton.setOnClickListener(new View.OnClickListener() {
@@ -224,6 +257,7 @@ public class MainActivity extends AppCompatActivity {
     Intent stopIntent = new Intent(this, ConvoscopeService.class);
     stopIntent.setAction(ConvoscopeService.ACTION_STOP_FOREGROUND_SERVICE);
     startService(stopIntent);
+    serviceToggleSwitch.setChecked(false);
   }
 
   public void sendConvoscopeServiceMessage(String message) {
@@ -244,6 +278,7 @@ public class MainActivity extends AppCompatActivity {
     startIntent.setAction(ConvoscopeService.ACTION_START_FOREGROUND_SERVICE);
     startService(startIntent);
     bindConvoscopeService();
+    serviceToggleSwitch.setChecked(true);
   }
 
   //check if service is running
@@ -374,5 +409,43 @@ public class MainActivity extends AppCompatActivity {
         }
       }
     }
+  }
+
+  // Change UserID button
+  public void showTextInputDialog(Context context) {
+    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+    builder.setTitle("Enter new UserID");
+
+    // Set up the input
+    final EditText input = new EditText(context);
+    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.MATCH_PARENT);
+    input.setLayoutParams(lp);
+    builder.setView(input);
+
+    // Set up the buttons
+    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+      @Override
+      public void onClick(DialogInterface dialog, int which) {
+        String result = input.getText().toString();
+        // Use the text result as needed
+        handleTextInputResult(result);
+      }
+    });
+    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+      @Override
+      public void onClick(DialogInterface dialog, int which) {
+        dialog.cancel();
+      }
+    });
+
+    builder.show();
+  }
+
+  private void handleTextInputResult(String result) {
+    // Handle the text input result here
+    Toast.makeText(this, "Set UserID to: " + result, Toast.LENGTH_SHORT).show();
+    EventBus.getDefault().post(new UserIdChangedEvent(result));
   }
 }
