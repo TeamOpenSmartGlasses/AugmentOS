@@ -1,0 +1,2147 @@
+WEBVTT
+
+00:00.000 --> 00:03.000
+ The following is a conversation with Vladimir Vapnik.
+
+00:03.000 --> 00:05.200
+ He's the co inventor of support vector machines,
+
+00:05.200 --> 00:07.840
+ support vector clustering, VC theory,
+
+00:07.840 --> 00:11.120
+ and many foundational ideas in statistical learning.
+
+00:11.120 --> 00:13.080
+ He was born in the Soviet Union
+
+00:13.080 --> 00:16.240
+ and worked at the Institute of Control Sciences in Moscow.
+
+00:16.240 --> 00:19.280
+ Then in the United States, he worked at AT&T,
+
+00:19.280 --> 00:22.200
+ NEC Labs, Facebook Research,
+
+00:22.200 --> 00:25.880
+ and now is a professor at Columbia University.
+
+00:25.880 --> 00:30.120
+ His work has been cited over 170,000 times.
+
+00:30.120 --> 00:31.800
+ He has some very interesting ideas
+
+00:31.800 --> 00:34.760
+ about artificial intelligence and the nature of learning,
+
+00:34.760 --> 00:37.560
+ especially on the limits of our current approaches
+
+00:37.560 --> 00:39.320
+ and the open problems in the field.
+
+00:40.360 --> 00:42.440
+ This conversation is part of MIT course
+
+00:42.440 --> 00:44.360
+ on artificial general intelligence
+
+00:44.360 --> 00:46.800
+ and the artificial intelligence podcast.
+
+00:46.800 --> 00:49.520
+ If you enjoy it, please subscribe on YouTube
+
+00:49.520 --> 00:52.960
+ or rate it on iTunes or your podcast provider of choice,
+
+00:52.960 --> 00:55.240
+ or simply connect with me on Twitter
+
+00:55.240 --> 01:00.120
+ or other social networks at Lex Friedman spelled F R I D.
+
+01:00.120 --> 01:03.760
+ And now here's my conversation with Vladimir Vapnik.
+
+01:04.760 --> 01:08.800
+ Einstein famously said that God doesn't play dice.
+
+01:08.800 --> 01:09.920
+ Yeah.
+
+01:09.920 --> 01:12.800
+ You have studied the world through the eyes of statistics.
+
+01:12.800 --> 01:17.280
+ So let me ask you in terms of the nature of reality,
+
+01:17.280 --> 01:21.320
+ fundamental nature of reality, does God play dice?
+
+01:21.320 --> 01:25.400
+ We don't know some factors.
+
+01:25.400 --> 01:28.160
+ And because we don't know some factors,
+
+01:28.160 --> 01:30.520
+ which could be important,
+
+01:30.520 --> 01:35.040
+ it looks like God plays dice.
+
+01:35.040 --> 01:38.000
+ But we should describe it.
+
+01:38.000 --> 01:42.080
+ In philosophy, they distinguish between two positions,
+
+01:42.080 --> 01:44.920
+ positions of instrumentalism,
+
+01:44.920 --> 01:48.720
+ where you're creating theory for prediction
+
+01:48.720 --> 01:50.960
+ and position of realism,
+
+01:50.960 --> 01:54.640
+ where you're trying to understand what God did.
+
+01:54.640 --> 01:58.400
+ Can you describe instrumentalism and realism a little bit?
+
+01:58.400 --> 02:03.400
+ For example, if you have some mechanical laws,
+
+02:04.200 --> 02:06.280
+ what is that?
+
+02:06.280 --> 02:11.280
+ Is it law which is true always and everywhere?
+
+02:11.480 --> 02:14.880
+ Or it is law which allow you to predict
+
+02:14.880 --> 02:19.880
+ position of moving element?
+
+02:19.880 --> 02:23.000
+ What you believe.
+
+02:23.000 --> 02:25.520
+ You believe that it is God's law,
+
+02:25.520 --> 02:28.520
+ that God created the world,
+
+02:28.520 --> 02:33.200
+ which obey to this physical law.
+
+02:33.200 --> 02:36.280
+ Or it is just law for predictions.
+
+02:36.280 --> 02:38.440
+ And which one is instrumentalism?
+
+02:38.440 --> 02:39.960
+ For predictions.
+
+02:39.960 --> 02:43.680
+ If you believe that this is law of God,
+
+02:43.680 --> 02:47.560
+ and it's always true everywhere,
+
+02:47.560 --> 02:50.080
+ that means that you're realist.
+
+02:50.080 --> 02:55.080
+ So you're trying to really understand God's thought.
+
+02:55.520 --> 02:58.640
+ So the way you see the world is as an instrumentalist?
+
+03:00.080 --> 03:03.280
+ You know, I'm working for some models,
+
+03:03.280 --> 03:07.000
+ model of machine learning.
+
+03:07.000 --> 03:11.680
+ So in this model, we can see setting,
+
+03:12.840 --> 03:15.360
+ and we try to solve,
+
+03:15.360 --> 03:18.320
+ resolve the setting to solve the problem.
+
+03:18.320 --> 03:20.840
+ And you can do in two different way.
+
+03:20.840 --> 03:23.880
+ From the point of view of instrumentalist,
+
+03:23.880 --> 03:27.160
+ and that's what everybody does now.
+
+03:27.160 --> 03:31.640
+ Because they say that goal of machine learning
+
+03:31.640 --> 03:36.640
+ is to find the rule for classification.
+
+03:36.880 --> 03:38.360
+ That is true.
+
+03:38.360 --> 03:41.000
+ But it is instrument for prediction.
+
+03:41.000 --> 03:46.000
+ But I can say the goal of machine learning
+
+03:46.240 --> 03:50.080
+ is to learn about conditional probability.
+
+03:50.080 --> 03:54.520
+ So how God played use, and if he play,
+
+03:54.520 --> 03:56.000
+ what is probability for one,
+
+03:56.000 --> 04:00.000
+ what is probability for another, given situation.
+
+04:00.000 --> 04:02.680
+ But for prediction, I don't need this.
+
+04:02.680 --> 04:04.320
+ I need the rule.
+
+04:04.320 --> 04:08.520
+ But for understanding, I need conditional probability.
+
+04:08.520 --> 04:11.840
+ So let me just step back a little bit first to talk about,
+
+04:11.840 --> 04:14.000
+ you mentioned, which I read last night,
+
+04:14.000 --> 04:19.000
+ the parts of the 1960 paper by Eugene Wigner,
+
+04:21.360 --> 04:23.560
+ Unreasonable Effectiveness of Mathematics
+
+04:23.560 --> 04:24.960
+ and Natural Sciences.
+
+04:24.960 --> 04:29.400
+ Such a beautiful paper, by the way.
+
+04:29.400 --> 04:32.640
+ Made me feel, to be honest,
+
+04:32.640 --> 04:35.560
+ to confess my own work in the past few years
+
+04:35.560 --> 04:38.480
+ on deep learning, heavily applied.
+
+04:38.480 --> 04:40.440
+ Made me feel that I was missing out
+
+04:40.440 --> 04:43.480
+ on some of the beauty of nature
+
+04:43.480 --> 04:45.640
+ in the way that math can uncover.
+
+04:45.640 --> 04:50.440
+ So let me just step away from the poetry of that for a second.
+
+04:50.440 --> 04:53.120
+ How do you see the role of math in your life?
+
+04:53.120 --> 04:55.640
+ Is it a tool, is it poetry?
+
+04:55.640 --> 04:57.040
+ Where does it sit?
+
+04:57.040 --> 05:01.480
+ And does math for you have limits of what it can describe?
+
+05:01.480 --> 05:06.480
+ Some people say that math is language which use God.
+
+05:06.480 --> 05:07.320
+ Use God.
+
+05:08.280 --> 05:10.320
+ So I believe that...
+
+05:10.320 --> 05:12.280
+ Speak to God or use God or...
+
+05:12.280 --> 05:13.120
+ Use God.
+
+05:13.120 --> 05:14.080
+ Use God.
+
+05:14.080 --> 05:15.560
+ Yeah.
+
+05:15.560 --> 05:20.560
+ So I believe that this article
+
+05:23.920 --> 05:27.840
+ about effectiveness, unreasonable effectiveness of math,
+
+05:27.840 --> 05:32.120
+ is that if you're looking at mathematical structures,
+
+05:32.120 --> 05:36.120
+ they know something about reality.
+
+05:36.120 --> 05:41.120
+ And the most scientists from Natural Science,
+
+05:41.120 --> 05:46.120
+ they're looking on equation and trying to understand reality.
+
+05:47.120 --> 05:50.120
+ So the same in machine learning.
+
+05:50.120 --> 05:56.120
+ If you try very carefully look on all equations
+
+05:56.120 --> 05:59.120
+ which define conditional probability,
+
+05:59.120 --> 06:04.120
+ you can understand something about reality
+
+06:04.120 --> 06:07.120
+ more than from your fantasy.
+
+06:07.120 --> 06:13.120
+ So math can reveal the simple underlying principles of reality perhaps.
+
+06:13.120 --> 06:16.120
+ You know what means simple?
+
+06:16.120 --> 06:19.120
+ It is very hard to discover them.
+
+06:19.120 --> 06:23.120
+ But then when you discover them and look at them,
+
+06:23.120 --> 06:26.120
+ you see how beautiful they are.
+
+06:26.120 --> 06:33.120
+ And it is surprising why people did not see that before.
+
+06:33.120 --> 06:37.120
+ You're looking on equation and derive it from equations.
+
+06:37.120 --> 06:43.120
+ For example, I talked yesterday about least square method.
+
+06:43.120 --> 06:48.120
+ And people had a lot of fantasy how to improve least square method.
+
+06:48.120 --> 06:52.120
+ But if you're going step by step by solving some equations,
+
+06:52.120 --> 06:59.120
+ you suddenly will get some term which after thinking,
+
+06:59.120 --> 07:04.120
+ you understand that it describes position of observation point.
+
+07:04.120 --> 07:08.120
+ In least square method, we throw out a lot of information.
+
+07:08.120 --> 07:11.120
+ We don't look in composition of point of observations,
+
+07:11.120 --> 07:14.120
+ we're looking only on residuals.
+
+07:14.120 --> 07:19.120
+ But when you understood that, that's very simple idea,
+
+07:19.120 --> 07:22.120
+ but it's not too simple to understand.
+
+07:22.120 --> 07:26.120
+ And you can derive this just from equations.
+
+07:26.120 --> 07:31.120
+ So some simple algebra, a few steps will take you to something surprising
+
+07:31.120 --> 07:34.120
+ that when you think about, you understand.
+
+07:34.120 --> 07:42.120
+ And that is proof that human intuition is not too rich and very primitive.
+
+07:42.120 --> 07:48.120
+ And it does not see very simple situations.
+
+07:48.120 --> 07:50.120
+ So let me take a step back.
+
+07:50.120 --> 07:54.120
+ In general, yes.
+
+07:54.120 --> 08:01.120
+ But what about human, as opposed to intuition, ingenuity?
+
+08:01.120 --> 08:06.120
+ Moments of brilliance.
+
+08:06.120 --> 08:09.120
+ Do you have to be so hard on human intuition?
+
+08:09.120 --> 08:12.120
+ Are there moments of brilliance in human intuition?
+
+08:12.120 --> 08:17.120
+ They can leap ahead of math and then the math will catch up?
+
+08:17.120 --> 08:19.120
+ I don't think so.
+
+08:19.120 --> 08:26.120
+ I think that the best human intuition, it is putting in axioms.
+
+08:26.120 --> 08:28.120
+ And then it is technical.
+
+08:28.120 --> 08:31.120
+ See where the axioms take you.
+
+08:31.120 --> 08:35.120
+ But if they correctly take axioms.
+
+08:35.120 --> 08:41.120
+ But it axiom polished during generations of scientists.
+
+08:41.120 --> 08:45.120
+ And this is integral wisdom.
+
+08:45.120 --> 08:47.120
+ That is beautifully put.
+
+08:47.120 --> 08:56.120
+ But if you maybe look at, when you think of Einstein and special relativity,
+
+08:56.120 --> 09:04.120
+ what is the role of imagination coming first there in the moment of discovery of an idea?
+
+09:04.120 --> 09:10.120
+ So there is obviously a mix of math and out of the box imagination there.
+
+09:10.120 --> 09:12.120
+ That I don't know.
+
+09:12.120 --> 09:17.120
+ Whatever I did, I exclude any imagination.
+
+09:17.120 --> 09:22.120
+ Because whatever I saw in machine learning that comes from imagination,
+
+09:22.120 --> 09:29.120
+ like features, like deep learning, they are not relevant to the problem.
+
+09:29.120 --> 09:34.120
+ When you are looking very carefully from mathematical equations,
+
+09:34.120 --> 09:39.120
+ you are deriving very simple theory, which goes far beyond theoretically
+
+09:39.120 --> 09:42.120
+ than whatever people can imagine.
+
+09:42.120 --> 09:44.120
+ Because it is not good fantasy.
+
+09:44.120 --> 09:46.120
+ It is just interpretation.
+
+09:46.120 --> 09:48.120
+ It is just fantasy.
+
+09:48.120 --> 09:51.120
+ But it is not what you need.
+
+09:51.120 --> 09:59.120
+ You don't need any imagination to derive the main principle of machine learning.
+
+09:59.120 --> 10:02.120
+ When you think about learning and intelligence,
+
+10:02.120 --> 10:06.120
+ maybe thinking about the human brain and trying to describe mathematically
+
+10:06.120 --> 10:13.120
+ the process of learning, that is something like what happens in the human brain.
+
+10:13.120 --> 10:17.120
+ Do you think we have the tools currently?
+
+10:17.120 --> 10:21.120
+ Do you think we will ever have the tools to try to describe that process of learning?
+
+10:21.120 --> 10:25.120
+ It is not description what is going on.
+
+10:25.120 --> 10:27.120
+ It is interpretation.
+
+10:27.120 --> 10:29.120
+ It is your interpretation.
+
+10:29.120 --> 10:32.120
+ Your vision can be wrong.
+
+10:32.120 --> 10:39.120
+ You know, one guy invented microscope, Levenhuk, for the first time.
+
+10:39.120 --> 10:45.120
+ Only he got this instrument and he kept secret about microscope.
+
+10:45.120 --> 10:49.120
+ But he wrote a report in London Academy of Science.
+
+10:49.120 --> 10:52.120
+ In his report, when he was looking at the blood,
+
+10:52.120 --> 10:56.120
+ he looked everywhere, on the water, on the blood, on the sperm.
+
+10:56.120 --> 11:04.120
+ But he described blood like fight between queen and king.
+
+11:04.120 --> 11:12.120
+ So, he saw blood cells, red cells, and he imagined that it is army fighting each other.
+
+11:12.120 --> 11:17.120
+ And it was his interpretation of situation.
+
+11:17.120 --> 11:20.120
+ And he sent this report in Academy of Science.
+
+11:20.120 --> 11:24.120
+ They very carefully looked because they believed that he is right.
+
+11:24.120 --> 11:25.120
+ He saw something.
+
+11:25.120 --> 11:26.120
+ Yes.
+
+11:26.120 --> 11:28.120
+ But he gave wrong interpretation.
+
+11:28.120 --> 11:32.120
+ And I believe the same can happen with brain.
+
+11:32.120 --> 11:33.120
+ With brain, yeah.
+
+11:33.120 --> 11:35.120
+ The most important part.
+
+11:35.120 --> 11:39.120
+ You know, I believe in human language.
+
+11:39.120 --> 11:43.120
+ In some proverbs, there is so much wisdom.
+
+11:43.120 --> 11:54.120
+ For example, people say that it is better than thousand days of diligent studies one day with great teacher.
+
+11:54.120 --> 11:59.120
+ But if I will ask you what teacher does, nobody knows.
+
+11:59.120 --> 12:01.120
+ And that is intelligence.
+
+12:01.120 --> 12:12.120
+ But we know from history and now from math and machine learning that teacher can do a lot.
+
+12:12.120 --> 12:16.120
+ So, what from a mathematical point of view is the great teacher?
+
+12:16.120 --> 12:17.120
+ I don't know.
+
+12:17.120 --> 12:18.120
+ That's an open question.
+
+12:18.120 --> 12:25.120
+ No, but we can say what teacher can do.
+
+12:25.120 --> 12:32.120
+ He can introduce some invariants, some predicate for creating invariants.
+
+12:32.120 --> 12:33.120
+ How he doing it?
+
+12:33.120 --> 12:41.120
+ I don't know because teacher knows reality and can describe from this reality a predicate, invariants.
+
+12:41.120 --> 12:49.120
+ But he knows that when you're using invariant, you can decrease number of observations hundred times.
+
+12:49.120 --> 12:53.120
+ So, but maybe try to pull that apart a little bit.
+
+12:53.120 --> 12:59.120
+ I think you mentioned like a piano teacher saying to the student, play like a butterfly.
+
+12:59.120 --> 13:00.120
+ Yeah.
+
+13:00.120 --> 13:01.120
+ I play piano.
+
+13:01.120 --> 13:03.120
+ I play guitar for a long time.
+
+13:03.120 --> 13:12.120
+ Yeah, maybe it's romantic, poetic, but it feels like there's a lot of truth in that statement.
+
+13:12.120 --> 13:15.120
+ Like there is a lot of instruction in that statement.
+
+13:15.120 --> 13:17.120
+ And so, can you pull that apart?
+
+13:17.120 --> 13:19.120
+ What is that?
+
+13:19.120 --> 13:22.120
+ The language itself may not contain this information.
+
+13:22.120 --> 13:24.120
+ It is not blah, blah, blah.
+
+13:24.120 --> 13:25.120
+ It is not blah, blah, blah.
+
+13:25.120 --> 13:26.120
+ It affects you.
+
+13:26.120 --> 13:27.120
+ It's what?
+
+13:27.120 --> 13:28.120
+ It affects you.
+
+13:28.120 --> 13:29.120
+ It affects your playing.
+
+13:29.120 --> 13:34.120
+ Yes, it does, but it's not the laying.
+
+13:34.120 --> 13:38.120
+ It feels like what is the information being exchanged there?
+
+13:38.120 --> 13:39.120
+ What is the nature of information?
+
+13:39.120 --> 13:41.120
+ What is the representation of that information?
+
+13:41.120 --> 13:45.120
+ I believe that it is sort of predicate, but I don't know.
+
+13:45.120 --> 13:49.120
+ That is exactly what intelligence and machine learning should be.
+
+13:49.120 --> 13:50.120
+ Yes.
+
+13:50.120 --> 13:53.120
+ Because the rest is just mathematical technique.
+
+13:53.120 --> 14:03.120
+ I think that what was discovered recently is that there is two mechanism of learning.
+
+14:03.120 --> 14:08.120
+ One called strong convergence mechanism and weak convergence mechanism.
+
+14:08.120 --> 14:11.120
+ Before, people use only one convergence.
+
+14:11.120 --> 14:16.120
+ In weak convergence mechanism, you can use predicate.
+
+14:16.120 --> 14:23.120
+ That's what play like butterfly and it will immediately affect your playing.
+
+14:23.120 --> 14:27.120
+ You know, there is English proverb, great.
+
+14:27.120 --> 14:35.120
+ If it looks like a duck, swims like a duck, and quack like a duck, then it is probably duck.
+
+14:35.120 --> 14:36.120
+ Yes.
+
+14:36.120 --> 14:40.120
+ But this is exact about predicate.
+
+14:40.120 --> 14:43.120
+ Looks like a duck, what it means.
+
+14:43.120 --> 14:47.120
+ You saw many ducks that you're training data.
+
+14:47.120 --> 14:56.120
+ So, you have description of how looks integral looks ducks.
+
+14:56.120 --> 14:57.120
+ Yeah.
+
+14:57.120 --> 14:59.120
+ The visual characteristics of a duck.
+
+14:59.120 --> 15:00.120
+ Yeah.
+
+15:00.120 --> 15:04.120
+ But you want and you have model for recognition.
+
+15:04.120 --> 15:12.120
+ So, you would like so that theoretical description from model coincide with empirical description,
+
+15:12.120 --> 15:14.120
+ which you saw on territory.
+
+15:14.120 --> 15:18.120
+ So, about looks like a duck, it is general.
+
+15:18.120 --> 15:21.120
+ But what about swims like a duck?
+
+15:21.120 --> 15:23.120
+ You should know that duck swims.
+
+15:23.120 --> 15:26.120
+ You can say it play chess like a duck.
+
+15:26.120 --> 15:27.120
+ Okay.
+
+15:27.120 --> 15:29.120
+ Duck doesn't play chess.
+
+15:29.120 --> 15:35.120
+ And it is completely legal predicate, but it is useless.
+
+15:35.120 --> 15:41.120
+ So, half teacher can recognize not useless predicate.
+
+15:41.120 --> 15:47.120
+ So, up to now, we don't use this predicate in existing machine learning.
+
+15:47.120 --> 15:50.120
+ So, why we need zillions of data.
+
+15:50.120 --> 15:55.120
+ But in this English proverb, they use only three predicate.
+
+15:55.120 --> 15:59.120
+ Looks like a duck, swims like a duck, and quack like a duck.
+
+15:59.120 --> 16:08.120
+ So, you can't deny the fact that swims like a duck and quacks like a duck has humor in it, has ambiguity.
+
+16:08.120 --> 16:12.120
+ Let's talk about swim like a duck.
+
+16:12.120 --> 16:16.120
+ It doesn't say jump like a duck.
+
+16:16.120 --> 16:17.120
+ Why?
+
+16:17.120 --> 16:18.120
+ Because...
+
+16:18.120 --> 16:20.120
+ It's not relevant.
+
+16:20.120 --> 16:27.120
+ But that means that you know ducks, you know different birds, you know animals.
+
+16:27.120 --> 16:32.120
+ And you derive from this that it is relevant to say swim like a duck.
+
+16:32.120 --> 16:42.120
+ So, underneath, in order for us to understand swims like a duck, it feels like we need to know millions of other little pieces of information.
+
+16:42.120 --> 16:44.120
+ Which we pick up along the way.
+
+16:44.120 --> 16:45.120
+ You don't think so.
+
+16:45.120 --> 16:55.120
+ There doesn't need to be this knowledge base in those statements carries some rich information that helps us understand the essence of duck.
+
+16:55.120 --> 16:57.120
+ Yeah.
+
+16:57.120 --> 17:01.120
+ How far are we from integrating predicates?
+
+17:01.120 --> 17:07.120
+ You know that when you consider complete theory of machine learning.
+
+17:07.120 --> 17:12.120
+ So, what it does, you have a lot of functions.
+
+17:12.120 --> 17:17.120
+ And then you're talking it looks like a duck.
+
+17:17.120 --> 17:20.120
+ You see your training data.
+
+17:20.120 --> 17:31.120
+ From training data you recognize like expected duck should look.
+
+17:31.120 --> 17:40.120
+ Then you remove all functions which does not look like you think it should look from training data.
+
+17:40.120 --> 17:46.120
+ So, you decrease amount of function from which you pick up one.
+
+17:46.120 --> 17:52.120
+ Then you give a second predicate and again decrease the set of function.
+
+17:52.120 --> 17:56.120
+ And after that you pick up the best function you can find.
+
+17:56.120 --> 17:58.120
+ It is standard machine learning.
+
+17:58.120 --> 18:03.120
+ So, why you need not too many examples?
+
+18:03.120 --> 18:06.120
+ Because your predicates aren't very good?
+
+18:06.120 --> 18:17.120
+ That means that predicates are very good because every predicate is invented to decrease admissible set of function.
+
+18:17.120 --> 18:22.120
+ So, you talk about admissible set of functions and you talk about good functions.
+
+18:22.120 --> 18:24.120
+ So, what makes a good function?
+
+18:24.120 --> 18:35.120
+ So, admissible set of function is set of function which has small capacity or small diversity, small VC dimension example.
+
+18:35.120 --> 18:37.120
+ Which contain good function inside.
+
+18:37.120 --> 18:45.120
+ So, by the way for people who don't know VC, you're the V in the VC.
+
+18:45.120 --> 18:50.120
+ So, how would you describe to lay person what VC theory is?
+
+18:50.120 --> 18:52.120
+ How would you describe VC?
+
+18:52.120 --> 18:54.120
+ So, when you have a machine.
+
+18:54.120 --> 19:02.120
+ So, machine capable to pick up one function from the admissible set of function.
+
+19:02.120 --> 19:07.120
+ But set of admissible function can be big.
+
+19:07.120 --> 19:11.120
+ So, it contain all continuous functions and it's useless.
+
+19:11.120 --> 19:15.120
+ You don't have so many examples to pick up function.
+
+19:15.120 --> 19:17.120
+ But it can be small.
+
+19:17.120 --> 19:24.120
+ Small, we call it capacity but maybe better called diversity.
+
+19:24.120 --> 19:27.120
+ So, not very different function in the set.
+
+19:27.120 --> 19:31.120
+ It's infinite set of function but not very diverse.
+
+19:31.120 --> 19:34.120
+ So, it is small VC dimension.
+
+19:34.120 --> 19:41.120
+ When VC dimension is small, you need small amount of training data.
+
+19:41.120 --> 19:53.120
+ So, the goal is to create admissible set of functions which is have small VC dimension and contain good function.
+
+19:53.120 --> 20:02.120
+ Then you will be able to pick up the function using small amount of observations.
+
+20:02.120 --> 20:06.120
+ So, that is the task of learning?
+
+20:06.120 --> 20:07.120
+ Yeah.
+
+20:07.120 --> 20:17.120
+ Is creating a set of admissible functions that has a small VC dimension and then you've figure out a clever way of picking up?
+
+20:17.120 --> 20:22.120
+ No, that is goal of learning which I formulated yesterday.
+
+20:22.120 --> 20:30.120
+ Statistical learning theory does not involve in creating admissible set of function.
+
+20:30.120 --> 20:39.120
+ In classical learning theory, everywhere, 100% in textbook, the set of function, admissible set of function is given.
+
+20:39.120 --> 20:47.120
+ But this is science about nothing because the most difficult problem to create admissible set of functions
+
+20:47.120 --> 20:55.120
+ given, say, a lot of functions, continuum set of function, create admissible set of functions.
+
+20:55.120 --> 21:02.120
+ That means that it has finite VC dimension, small VC dimension and contain good function.
+
+21:02.120 --> 21:05.120
+ So, this was out of consideration.
+
+21:05.120 --> 21:07.120
+ So, what's the process of doing that?
+
+21:07.120 --> 21:08.120
+ I mean, it's fascinating.
+
+21:08.120 --> 21:13.120
+ What is the process of creating this admissible set of functions?
+
+21:13.120 --> 21:15.120
+ That is invariant.
+
+21:15.120 --> 21:16.120
+ That's invariant.
+
+21:16.120 --> 21:30.120
+ Yeah, you're looking of properties of training data and properties means that you have some function
+
+21:30.120 --> 21:39.120
+ and you just count what is value, average value of function on training data.
+
+21:39.120 --> 21:46.120
+ You have model and what is expectation of this function on the model and they should coincide.
+
+21:46.120 --> 21:51.120
+ So, the problem is about how to pick up functions.
+
+21:51.120 --> 21:54.120
+ It can be any function.
+
+21:54.120 --> 22:00.120
+ In fact, it is true for all functions.
+
+22:00.120 --> 22:11.120
+ But because when we're talking, say, duck does not jumping, so you don't ask question jump like a duck
+
+22:11.120 --> 22:13.120
+ because it is trivial.
+
+22:13.120 --> 22:16.120
+ It does not jumping and doesn't help you to recognize jump.
+
+22:16.120 --> 22:24.120
+ But you know something, which question to ask and you're asking it seems like a duck,
+
+22:24.120 --> 22:28.120
+ but looks like a duck at this general situation.
+
+22:28.120 --> 22:36.120
+ Looks like, say, guy who have this illness, this disease.
+
+22:36.120 --> 22:39.120
+ It is legal.
+
+22:39.120 --> 22:47.120
+ So, there is a general type of predicate looks like and special type of predicate,
+
+22:47.120 --> 22:51.120
+ which related to this specific problem.
+
+22:51.120 --> 22:56.120
+ And that is intelligence part of all this business and that where teacher is involved.
+
+22:56.120 --> 23:01.120
+ Incorporating the specialized predicates.
+
+23:01.120 --> 23:08.120
+ What do you think about deep learning as neural networks, these arbitrary architectures
+
+23:08.120 --> 23:13.120
+ as helping accomplish some of the tasks you're thinking about?
+
+23:13.120 --> 23:15.120
+ Their effectiveness or lack thereof?
+
+23:15.120 --> 23:20.120
+ What are the weaknesses and what are the possible strengths?
+
+23:20.120 --> 23:29.120
+ You know, I think that this is fantasy, everything which like deep learning, like features.
+
+23:29.120 --> 23:34.120
+ Let me give you this example.
+
+23:34.120 --> 23:39.120
+ One of the greatest books is Churchill book about history of Second World War.
+
+23:39.120 --> 23:53.120
+ And he started this book describing that in old time when war is over, so the great kings,
+
+23:53.120 --> 24:00.120
+ they gathered together, almost all of them were relatives, and they discussed what should
+
+24:00.120 --> 24:03.120
+ be done, how to create peace.
+
+24:03.120 --> 24:05.120
+ And they came to agreement.
+
+24:05.120 --> 24:13.120
+ And when happened First World War, the general public came in power.
+
+24:13.120 --> 24:18.120
+ And they were so greedy that robbed Germany.
+
+24:18.120 --> 24:24.120
+ And it was clear for everybody that it is not peace, that peace will last only 20 years
+
+24:24.120 --> 24:28.120
+ because they were not professionals.
+
+24:28.120 --> 24:32.120
+ And the same I see in machine learning.
+
+24:32.120 --> 24:38.120
+ There are mathematicians who are looking for the problem from a very deep point of view,
+
+24:38.120 --> 24:40.120
+ mathematical point of view.
+
+24:40.120 --> 24:46.120
+ And there are computer scientists who mostly does not know mathematics.
+
+24:46.120 --> 24:49.120
+ They just have interpretation of that.
+
+24:49.120 --> 24:54.120
+ And they invented a lot of blah, blah, blah interpretations like deep learning.
+
+24:54.120 --> 24:55.120
+ Why you need deep learning?
+
+24:55.120 --> 24:57.120
+ Mathematic does not know deep learning.
+
+24:57.120 --> 25:00.120
+ Mathematic does not know neurons.
+
+25:00.120 --> 25:02.120
+ It is just function.
+
+25:02.120 --> 25:09.120
+ If you like to say piecewise linear function, say that and do in class of piecewise linear
+
+25:09.120 --> 25:10.120
+ function.
+
+25:10.120 --> 25:12.120
+ But they invent something.
+
+25:12.120 --> 25:22.120
+ And then they try to prove advantage of that through interpretations, which mostly wrong.
+
+25:22.120 --> 25:27.120
+ And when it's not enough, they appeal to brain, which they know nothing about that.
+
+25:27.120 --> 25:30.120
+ Nobody knows what's going on in the brain.
+
+25:30.120 --> 25:34.120
+ So, I think that more reliable work on math.
+
+25:34.120 --> 25:36.120
+ This is a mathematical problem.
+
+25:36.120 --> 25:39.120
+ Do your best to solve this problem.
+
+25:39.120 --> 25:45.120
+ Try to understand that there is not only one way of convergence, which is strong way of
+
+25:45.120 --> 25:46.120
+ convergence.
+
+25:46.120 --> 25:49.120
+ There is a weak way of convergence, which requires predicate.
+
+25:49.120 --> 25:56.120
+ And if you will go through all this stuff, you will see that you don't need deep learning.
+
+25:56.120 --> 26:03.120
+ Even more, I would say one of the theory, which called represented theory.
+
+26:03.120 --> 26:16.120
+ It says that optimal solution of mathematical problem, which is described learning is on
+
+26:16.120 --> 26:21.120
+ shadow network, not on deep learning.
+
+26:21.120 --> 26:22.120
+ And a shallow network.
+
+26:22.120 --> 26:23.120
+ Yeah.
+
+26:23.120 --> 26:24.120
+ The ultimate problem is there.
+
+26:24.120 --> 26:25.120
+ Absolutely.
+
+26:25.120 --> 26:29.120
+ In the end, what you're saying is exactly right.
+
+26:29.120 --> 26:37.120
+ The question is you have no value for throwing something on the table, playing with it, not
+
+26:37.120 --> 26:38.120
+ math.
+
+26:38.120 --> 26:43.120
+ It's like a neural network where you said throwing something in the bucket or the biological
+
+26:43.120 --> 26:47.120
+ example and looking at kings and queens or the cells or the microscope.
+
+26:47.120 --> 26:55.120
+ You don't see value in imagining the cells or kings and queens and using that as inspiration
+
+26:55.120 --> 26:59.120
+ and imagination for where the math will eventually lead you.
+
+26:59.120 --> 27:06.120
+ You think that interpretation basically deceives you in a way that's not productive.
+
+27:06.120 --> 27:17.120
+ I think that if you're trying to analyze this business of learning and especially discussion
+
+27:17.120 --> 27:24.120
+ about deep learning, it is discussion about interpretation, not about things, about what
+
+27:24.120 --> 27:26.120
+ you can say about things.
+
+27:26.120 --> 27:27.120
+ That's right.
+
+27:27.120 --> 27:29.120
+ But aren't you surprised by the beauty of it?
+
+27:29.120 --> 27:38.200
+ So not mathematical beauty, but the fact that it works at all or are you criticizing that
+
+27:38.200 --> 27:47.880
+ very beauty, our human desire to interpret, to find our silly interpretations in these
+
+27:47.880 --> 27:49.840
+ constructs?
+
+27:49.840 --> 27:51.320
+ Let me ask you this.
+
+27:51.320 --> 27:57.100
+ Are you surprised and does it inspire you?
+
+27:57.100 --> 28:03.520
+ How do you feel about the success of a system like AlphaGo at beating the game of Go?
+
+28:03.520 --> 28:11.600
+ Using neural networks to estimate the quality of a board and the quality of the position.
+
+28:11.600 --> 28:14.600
+ That is your interpretation, quality of the board.
+
+28:14.600 --> 28:15.600
+ Yeah, yes.
+
+28:15.600 --> 28:16.600
+ Yeah.
+
+28:16.600 --> 28:20.320
+ So it's not our interpretation.
+
+28:20.320 --> 28:25.920
+ The fact is a neural network system, it doesn't matter, a learning system that we don't I
+
+28:25.920 --> 28:30.160
+ think mathematically understand that well, beats the best human player, does something
+
+28:30.160 --> 28:31.160
+ that was thought impossible.
+
+28:31.160 --> 28:35.160
+ That means that it's not a very difficult problem.
+
+28:35.160 --> 28:40.200
+ So you empirically, we've empirically have discovered that this is not a very difficult
+
+28:40.200 --> 28:41.200
+ problem.
+
+28:41.200 --> 28:42.200
+ Yeah.
+
+28:42.200 --> 28:44.080
+ It's true.
+
+28:44.080 --> 28:48.720
+ So maybe, can't argue.
+
+28:48.720 --> 28:56.680
+ So even more I would say that if they use deep learning, it is not the most effective
+
+28:56.680 --> 29:00.320
+ way of learning theory.
+
+29:00.320 --> 29:08.800
+ And usually when people use deep learning, they're using zillions of training data.
+
+29:08.800 --> 29:10.480
+ Yeah.
+
+29:10.480 --> 29:13.520
+ But you don't need this.
+
+29:13.520 --> 29:23.240
+ So I describe challenge, can we do some problems which do well deep learning method, this deep
+
+29:23.240 --> 29:28.400
+ net, using hundred times less training data.
+
+29:28.400 --> 29:38.560
+ Even more, some problems deep learning cannot solve because it's not necessary they create
+
+29:38.560 --> 29:40.840
+ admissible set of function.
+
+29:40.840 --> 29:45.840
+ To create deep architecture means to create admissible set of functions.
+
+29:45.840 --> 29:50.680
+ You cannot say that you're creating good admissible set of functions.
+
+29:50.680 --> 29:52.760
+ You just, it's your fantasy.
+
+29:52.760 --> 29:54.960
+ It does not come from us.
+
+29:54.960 --> 30:00.280
+ But it is possible to create admissible set of functions because you have your training
+
+30:00.280 --> 30:01.280
+ data.
+
+30:01.280 --> 30:10.600
+ That actually for mathematicians, when you consider a variant, you need to use law of
+
+30:10.600 --> 30:11.600
+ large numbers.
+
+30:11.600 --> 30:20.840
+ When you're making training in existing algorithm, you need uniform law of large numbers, which
+
+30:20.840 --> 30:25.300
+ is much more difficult, it requires VC dimension and all this stuff.
+
+30:25.300 --> 30:33.480
+ But nevertheless, if you use both weak and strong way of convergence, you can decrease
+
+30:33.480 --> 30:35.240
+ a lot of training data.
+
+30:35.240 --> 30:41.360
+ You could do the three, the swims like a duck and quacks like a duck.
+
+30:41.360 --> 30:48.820
+ So let's step back and think about human intelligence in general.
+
+30:48.820 --> 30:54.120
+ Clearly that has evolved in a non mathematical way.
+
+30:54.120 --> 31:04.280
+ It wasn't, as far as we know, God or whoever didn't come up with a model and place in our
+
+31:04.280 --> 31:05.880
+ brain of admissible functions.
+
+31:05.880 --> 31:06.880
+ It kind of evolved.
+
+31:06.880 --> 31:09.720
+ I don't know, maybe you have a view on this.
+
+31:09.720 --> 31:16.920
+ So Alan Turing in the 50s, in his paper, asked and rejected the question, can machines think?
+
+31:16.920 --> 31:23.960
+ It's not a very useful question, but can you briefly entertain this useful, useless question?
+
+31:23.960 --> 31:25.720
+ Can machines think?
+
+31:25.720 --> 31:28.560
+ So talk about intelligence and your view of it.
+
+31:28.560 --> 31:29.880
+ I don't know that.
+
+31:29.880 --> 31:35.560
+ I know that Turing described imitation.
+
+31:35.560 --> 31:43.060
+ If computer can imitate human being, let's call it intelligent.
+
+31:43.060 --> 31:46.720
+ And he understands that it is not thinking computer.
+
+31:46.720 --> 31:49.480
+ He completely understands what he's doing.
+
+31:49.480 --> 31:53.840
+ But he set up problem of imitation.
+
+31:53.840 --> 31:58.000
+ So now we understand that the problem is not in imitation.
+
+31:58.000 --> 32:04.360
+ I'm not sure that intelligence is just inside of us.
+
+32:04.360 --> 32:06.680
+ It may be also outside of us.
+
+32:06.680 --> 32:09.440
+ I have several observations.
+
+32:09.440 --> 32:20.360
+ So when I prove some theorem, it's very difficult theorem, in couple of years, in several places,
+
+32:20.360 --> 32:27.140
+ people prove the same theorem, say, Sawyer Lemma, after us was done, then another guys
+
+32:27.140 --> 32:28.960
+ proved the same theorem.
+
+32:28.960 --> 32:32.280
+ In the history of science, it's happened all the time.
+
+32:32.280 --> 32:40.600
+ For example, geometry, it's happened simultaneously, first it did Lobachevsky and then Gauss and
+
+32:40.600 --> 32:48.800
+ Boyai and another guys, and it's approximately in 10 times period, 10 years period of time.
+
+32:48.800 --> 32:51.760
+ And I saw a lot of examples like that.
+
+32:51.760 --> 32:57.800
+ And many mathematicians think that when they develop something, they develop something
+
+32:57.800 --> 33:01.600
+ in general which affect everybody.
+
+33:01.600 --> 33:07.320
+ So maybe our model that intelligence is only inside of us is incorrect.
+
+33:07.320 --> 33:09.320
+ It's our interpretation.
+
+33:09.320 --> 33:15.800
+ It might be there exists some connection with world intelligence.
+
+33:15.800 --> 33:16.800
+ I don't know.
+
+33:16.800 --> 33:19.040
+ You're almost like plugging in into...
+
+33:19.040 --> 33:21.240
+ Yeah, exactly.
+
+33:21.240 --> 33:22.640
+ And contributing to this...
+
+33:22.640 --> 33:24.360
+ Into a big network.
+
+33:24.360 --> 33:28.360
+ Into a big, maybe in your own network.
+
+33:28.360 --> 33:37.400
+ On the flip side of that, maybe you can comment on big O complexity and how you see classifying
+
+33:37.400 --> 33:42.240
+ algorithms by worst case running time in relation to their input.
+
+33:42.240 --> 33:47.840
+ So that way of thinking about functions, do you think p equals np, do you think that's
+
+33:47.840 --> 33:49.120
+ an interesting question?
+
+33:49.120 --> 33:52.000
+ Yeah, it is an interesting question.
+
+33:52.000 --> 34:00.000
+ But let me talk about complexity in about worst case scenario.
+
+34:00.000 --> 34:04.320
+ There is a mathematical setting.
+
+34:04.320 --> 34:11.160
+ When I came to United States in 1990, people did not know, they did not know statistical
+
+34:11.160 --> 34:13.040
+ learning theory.
+
+34:13.040 --> 34:19.400
+ So in Russia, it was published to monographs, our monographs, but in America they didn't
+
+34:19.400 --> 34:20.400
+ know.
+
+34:20.400 --> 34:26.640
+ Then they learned and somebody told me that it is worst case theory and they will create
+
+34:26.640 --> 34:30.800
+ real case theory, but till now it did not.
+
+34:30.800 --> 34:34.100
+ Because it is mathematical too.
+
+34:34.100 --> 34:38.680
+ You can do only what you can do using mathematics.
+
+34:38.680 --> 34:45.920
+ And which has a clear understanding and clear description.
+
+34:45.920 --> 34:52.640
+ And for this reason, we introduce complexity.
+
+34:52.640 --> 35:01.720
+ And we need this because using, actually it is diversity, I like this one more.
+
+35:01.720 --> 35:05.220
+ You see the mention, you can prove some theorems.
+
+35:05.220 --> 35:12.680
+ But we also create theory for case when you know probability measure.
+
+35:12.680 --> 35:18.080
+ And that is the best case which can happen, it is entropy theory.
+
+35:18.080 --> 35:24.080
+ So from mathematical point of view, you know the best possible case and the worst possible
+
+35:24.080 --> 35:25.080
+ case.
+
+35:25.080 --> 35:30.480
+ You can derive different model in medium, but it's not so interesting.
+
+35:30.480 --> 35:33.440
+ You think the edges are interesting?
+
+35:33.440 --> 35:44.720
+ The edges are interesting because it is not so easy to get good bound, exact bound.
+
+35:44.720 --> 35:49.280
+ It's not many cases where you have the bound is not exact.
+
+35:49.280 --> 35:54.840
+ But interesting principles which discover the mass.
+
+35:54.840 --> 36:00.340
+ Do you think it's interesting because it's challenging and reveals interesting principles
+
+36:00.340 --> 36:02.700
+ that allow you to get those bounds?
+
+36:02.700 --> 36:06.700
+ Or do you think it's interesting because it's actually very useful for understanding the
+
+36:06.700 --> 36:11.080
+ essence of a function of an algorithm?
+
+36:11.080 --> 36:17.680
+ So it's like me judging your life as a human being by the worst thing you did and the best
+
+36:17.680 --> 36:21.840
+ thing you did versus all the stuff in the middle.
+
+36:21.840 --> 36:24.520
+ It seems not productive.
+
+36:24.520 --> 36:31.520
+ I don't think so because you cannot describe situation in the middle.
+
+36:31.520 --> 36:34.600
+ So it will be not general.
+
+36:34.600 --> 36:44.120
+ So you can describe edges cases and it is clear it has some model, but you cannot describe
+
+36:44.120 --> 36:47.720
+ model for every new case.
+
+36:47.720 --> 36:53.400
+ So you will be never accurate when you're using model.
+
+36:53.400 --> 36:59.360
+ But from a statistical point of view, the way you've studied functions and the nature
+
+36:59.360 --> 37:07.760
+ of learning in the world, don't you think that the real world has a very long tail?
+
+37:07.760 --> 37:19.520
+ That the edge cases are very far away from the mean, the stuff in the middle or no?
+
+37:19.520 --> 37:21.520
+ I don't know that.
+
+37:21.520 --> 37:36.920
+ I think that from my point of view, if you will use formal statistic, you need uniform
+
+37:36.920 --> 37:40.300
+ law of large numbers.
+
+37:40.300 --> 37:52.240
+ If you will use this invariance business, you will need just law of large numbers.
+
+37:52.240 --> 37:56.760
+ And there's this huge difference between uniform law of large numbers and large numbers.
+
+37:56.760 --> 38:01.880
+ Is it useful to describe that a little more or should we just take it to...
+
+38:01.880 --> 38:09.800
+ For example, when I'm talking about duck, I give three predicates and that was enough.
+
+38:09.800 --> 38:19.760
+ But if you will try to do formal distinguish, you will need a lot of observations.
+
+38:19.760 --> 38:27.400
+ So that means that information about looks like a duck contain a lot of bit of information,
+
+38:27.400 --> 38:29.860
+ formal bits of information.
+
+38:29.860 --> 38:39.880
+ So we don't know that how much bit of information contain things from artificial and from intelligence.
+
+38:39.880 --> 38:42.440
+ And that is the subject of analysis.
+
+38:42.440 --> 38:54.780
+ Till now, all business, I don't like how people consider artificial intelligence.
+
+38:54.780 --> 39:01.240
+ They consider us some codes which imitate activity of human being.
+
+39:01.240 --> 39:03.960
+ It is not science, it is applications.
+
+39:03.960 --> 39:09.760
+ You would like to imitate go ahead, it is very useful and a good problem.
+
+39:09.760 --> 39:15.960
+ But you need to learn something more.
+
+39:15.960 --> 39:25.960
+ How people try to do, how people can to develop, say, predicates seems like a duck or play
+
+39:25.960 --> 39:29.960
+ like butterfly or something like that.
+
+39:29.960 --> 39:37.000
+ Not the teacher says you, how it came in his mind, how he choose this image.
+
+39:37.000 --> 39:38.000
+ So that process...
+
+39:38.000 --> 39:39.960
+ That is problem of intelligence.
+
+39:39.960 --> 39:44.720
+ That is the problem of intelligence and you see that connected to the problem of learning?
+
+39:44.720 --> 39:45.720
+ Absolutely.
+
+39:45.720 --> 39:52.240
+ Because you immediately give this predicate like specific predicate seems like a duck
+
+39:52.240 --> 39:54.840
+ or quack like a duck.
+
+39:54.840 --> 39:57.560
+ It was chosen somehow.
+
+39:57.560 --> 40:01.400
+ So what is the line of work, would you say?
+
+40:01.400 --> 40:08.680
+ If you were to formulate as a set of open problems, that will take us there, to play
+
+40:08.680 --> 40:09.680
+ like a butterfly.
+
+40:09.680 --> 40:12.200
+ We'll get a system to be able to...
+
+40:12.200 --> 40:14.520
+ Let's separate two stories.
+
+40:14.520 --> 40:20.480
+ One mathematical story that if you have predicate, you can do something.
+
+40:20.480 --> 40:23.840
+ And another story how to get predicate.
+
+40:23.840 --> 40:32.280
+ It is intelligence problem and people even did not start to understand intelligence.
+
+40:32.280 --> 40:39.440
+ Because to understand intelligence, first of all, try to understand what do teachers.
+
+40:39.440 --> 40:43.960
+ How teacher teach, why one teacher better than another one.
+
+40:43.960 --> 40:44.960
+ Yeah.
+
+40:44.960 --> 40:50.400
+ And so you think we really even haven't started on the journey of generating the predicates?
+
+40:50.400 --> 40:51.400
+ No.
+
+40:51.400 --> 40:52.400
+ We don't understand.
+
+40:52.400 --> 40:56.880
+ We even don't understand that this problem exists.
+
+40:56.880 --> 40:57.880
+ Because did you hear...
+
+40:57.880 --> 40:58.880
+ You do.
+
+40:58.880 --> 41:02.720
+ No, I just know name.
+
+41:02.720 --> 41:13.440
+ I want to understand why one teacher better than another and how affect teacher, student.
+
+41:13.440 --> 41:18.520
+ It is not because he repeating the problem which is in textbook.
+
+41:18.520 --> 41:20.920
+ He makes some remarks.
+
+41:20.920 --> 41:23.040
+ He makes some philosophy of reasoning.
+
+41:23.040 --> 41:24.600
+ Yeah, that's a beautiful...
+
+41:24.600 --> 41:31.400
+ So it is a formulation of a question that is the open problem.
+
+41:31.400 --> 41:34.200
+ Why is one teacher better than another?
+
+41:34.200 --> 41:35.320
+ Right.
+
+41:35.320 --> 41:37.360
+ What he does better.
+
+41:37.360 --> 41:38.360
+ Yeah.
+
+41:38.360 --> 41:39.360
+ What...
+
+41:39.360 --> 41:40.360
+ What...
+
+41:40.360 --> 41:41.360
+ Why in...
+
+41:41.360 --> 41:42.360
+ At every level?
+
+41:42.360 --> 41:45.080
+ How do they get better?
+
+41:45.080 --> 41:48.560
+ What does it mean to be better?
+
+41:48.560 --> 41:49.560
+ The whole...
+
+41:49.560 --> 41:50.560
+ Yeah.
+
+41:50.560 --> 41:51.560
+ Yeah.
+
+41:51.560 --> 41:56.800
+ From whatever model I have, one teacher can give a very good predicate.
+
+41:56.800 --> 42:03.880
+ One teacher can say swims like a dog and another can say jump like a dog.
+
+42:03.880 --> 42:09.400
+ And jump like a dog carries zero information.
+
+42:09.400 --> 42:14.400
+ So what is the most exciting problem in statistical learning you've ever worked on or are working
+
+42:14.400 --> 42:17.600
+ on now?
+
+42:17.600 --> 42:24.560
+ I just finished this invariant story and I'm happy that...
+
+42:24.560 --> 42:30.600
+ I believe that it is ultimate learning story.
+
+42:30.600 --> 42:38.120
+ At least I can show that there are no another mechanism, only two mechanisms.
+
+42:38.120 --> 42:46.760
+ But they separate statistical part from intelligent part and I know nothing about intelligent
+
+42:46.760 --> 42:47.760
+ part.
+
+42:47.760 --> 42:59.160
+ And if you will know this intelligent part, so it will help us a lot in teaching, in learning.
+
+42:59.160 --> 43:00.160
+ In learning.
+
+43:00.160 --> 43:01.160
+ Yeah.
+
+43:01.160 --> 43:02.920
+ You will know it when we see it?
+
+43:02.920 --> 43:07.100
+ So for example, in my talk, the last slide was a challenge.
+
+43:07.100 --> 43:14.680
+ So you have say NIST digit recognition problem and deep learning claims that they did it
+
+43:14.680 --> 43:22.100
+ very well, say 99.5% of correct answers.
+
+43:22.100 --> 43:25.280
+ But they use 60,000 observations.
+
+43:25.280 --> 43:29.560
+ Can you do the same using hundred times less?
+
+43:29.560 --> 43:35.280
+ But incorporating invariants, what it means, you know, digit one, two, three.
+
+43:35.280 --> 43:44.040
+ But looking on that, explain to me which invariant I should keep to use hundred examples or say
+
+43:44.040 --> 43:47.800
+ hundred times less examples to do the same job.
+
+43:47.800 --> 43:56.520
+ Yeah, that last slide, unfortunately your talk ended quickly, but that last slide was
+
+43:56.520 --> 44:01.960
+ a powerful open challenge and a formulation of the essence here.
+
+44:01.960 --> 44:06.300
+ What is the exact problem of intelligence?
+
+44:06.300 --> 44:15.040
+ Because everybody, when machine learning started and it was developed by mathematicians, they
+
+44:15.040 --> 44:22.540
+ immediately recognized that we use much more training data than humans needed.
+
+44:22.540 --> 44:27.640
+ But now again, we came to the same story, have to decrease.
+
+44:27.640 --> 44:30.660
+ That is the problem of learning.
+
+44:30.660 --> 44:37.320
+ It is not like in deep learning, they use zillions of training data because maybe zillions
+
+44:37.320 --> 44:44.720
+ are not enough if you have a good invariants.
+
+44:44.720 --> 44:49.520
+ Maybe you will never collect some number of observations.
+
+44:49.520 --> 44:56.080
+ But now it is a question to intelligence, how to do that?
+
+44:56.080 --> 45:03.200
+ Because statistical part is ready, as soon as you supply us with predicate, we can do
+
+45:03.200 --> 45:06.880
+ good job with small amount of observations.
+
+45:06.880 --> 45:11.040
+ And the very first challenge is well known digit recognition.
+
+45:11.040 --> 45:15.560
+ And you know digits, and please tell me invariants.
+
+45:15.560 --> 45:25.760
+ I think about that, I can say for digit three, I would introduce concept of horizontal symmetry.
+
+45:25.760 --> 45:32.440
+ So the digit three has horizontal symmetry, say more than, say, digit two or something
+
+45:32.440 --> 45:33.440
+ like that.
+
+45:33.440 --> 45:40.480
+ But as soon as I get the idea of horizontal symmetry, I can mathematically invent a lot
+
+45:40.480 --> 45:47.360
+ of measure of horizontal symmetry, or then vertical symmetry, or diagonal symmetry, whatever,
+
+45:47.360 --> 45:49.980
+ if I have idea of symmetry.
+
+45:49.980 --> 45:52.800
+ But what else?
+
+45:52.800 --> 46:07.600
+ I think on digit I see that it is meta predicate, which is not shape, it is something like symmetry,
+
+46:07.600 --> 46:16.240
+ like how dark is whole picture, something like that, which can self rise a predicate.
+
+46:16.240 --> 46:29.800
+ You think such a predicate could rise out of something that is not general, meaning
+
+46:29.800 --> 46:35.640
+ it feels like for me to be able to understand the difference between two and three, I would
+
+46:35.640 --> 46:48.080
+ need to have had a childhood of 10 to 15 years playing with kids, going to school, being
+
+46:48.080 --> 46:57.880
+ yelled by parents, all of that, walking, jumping, looking at ducks, and then I would be able
+
+46:57.880 --> 47:03.120
+ to generate the right predicate for telling the difference between two and a three.
+
+47:03.120 --> 47:05.720
+ Or do you think there's a more efficient way?
+
+47:05.720 --> 47:06.720
+ I don't know.
+
+47:06.720 --> 47:12.200
+ I know for sure that you must know something more than digits.
+
+47:12.200 --> 47:13.200
+ Yes.
+
+47:13.200 --> 47:15.000
+ And that's a powerful statement.
+
+47:15.000 --> 47:16.000
+ Yeah.
+
+47:16.000 --> 47:24.600
+ But maybe there are several languages of description, these elements of digits.
+
+47:24.600 --> 47:32.000
+ So I'm talking about symmetry, about some properties of geometry, I'm talking about
+
+47:32.000 --> 47:33.000
+ something abstract.
+
+47:33.000 --> 47:34.780
+ I don't know that.
+
+47:34.780 --> 47:38.900
+ But this is a problem of intelligence.
+
+47:38.900 --> 47:47.160
+ So in one of our articles, it is trivial to show that every example can carry not more
+
+47:47.160 --> 47:50.240
+ than one bit of information in real.
+
+47:50.240 --> 48:00.660
+ Because when you show example and you say this is one, you can remove, say, a function
+
+48:00.660 --> 48:05.080
+ which does not tell you one, say, is the best strategy.
+
+48:05.080 --> 48:10.160
+ If you can do it perfectly, it's remove half of the functions.
+
+48:10.160 --> 48:17.080
+ But when you use one predicate, which looks like a duck, you can remove much more functions
+
+48:17.080 --> 48:18.920
+ than half.
+
+48:18.920 --> 48:26.160
+ And that means that it contains a lot of bit of information from formal point of view.
+
+48:26.160 --> 48:34.640
+ But when you have a general picture of what you want to recognize and general picture
+
+48:34.640 --> 48:40.960
+ of the world, can you invent this predicate?
+
+48:40.960 --> 48:47.560
+ And that predicate carries a lot of information.
+
+48:47.560 --> 48:48.960
+ Beautifully put.
+
+48:48.960 --> 48:56.000
+ Maybe just me, but in all the math you show, in your work, which is some of the most profound
+
+48:56.000 --> 49:02.320
+ mathematical work in the field of learning AI and just math in general, I hear a lot
+
+49:02.320 --> 49:04.400
+ of poetry and philosophy.
+
+49:04.400 --> 49:09.920
+ You really kind of talk about philosophy of science.
+
+49:09.920 --> 49:13.320
+ There's a poetry and music to a lot of the work you're doing and the way you're thinking
+
+49:13.320 --> 49:14.320
+ about it.
+
+49:14.320 --> 49:16.680
+ So do you, where does that come from?
+
+49:16.680 --> 49:18.880
+ Do you escape to poetry?
+
+49:18.880 --> 49:21.360
+ Do you escape to music or not?
+
+49:21.360 --> 49:23.840
+ I think that there exists ground truth.
+
+49:23.840 --> 49:25.760
+ There exists ground truth?
+
+49:25.760 --> 49:26.760
+ Yeah.
+
+49:26.760 --> 49:30.720
+ And that can be seen everywhere.
+
+49:30.720 --> 49:39.000
+ The smart guy, philosopher, sometimes I'm surprised how they deep see.
+
+49:39.000 --> 49:45.560
+ Sometimes I see that some of them are completely out of subject.
+
+49:45.560 --> 49:50.960
+ But the ground truth I see in music.
+
+49:50.960 --> 49:51.960
+ Music is the ground truth?
+
+49:51.960 --> 49:52.960
+ Yeah.
+
+49:52.960 --> 50:01.880
+ And in poetry, many poets, they believe, they take dictation.
+
+50:01.880 --> 50:12.360
+ So what piece of music as a piece of empirical evidence gave you a sense that they are touching
+
+50:12.360 --> 50:14.560
+ something in the ground truth?
+
+50:14.560 --> 50:16.720
+ It is structure.
+
+50:16.720 --> 50:17.720
+ The structure of the math of music.
+
+50:17.720 --> 50:22.360
+ Yeah, because when you're listening to Bach, you see the structure.
+
+50:22.360 --> 50:31.160
+ Very clear, very classic, very simple, and the same in math when you have axioms in geometry,
+
+50:31.160 --> 50:32.160
+ you have the same feeling.
+
+50:32.160 --> 50:38.360
+ And in poetry, sometimes you see the same.
+
+50:38.360 --> 50:44.580
+ And if you look back at your childhood, you grew up in Russia, you maybe were born as
+
+50:44.580 --> 50:48.680
+ a researcher in Russia, you've developed as a researcher in Russia, you've came to United
+
+50:48.680 --> 50:51.800
+ States and a few places.
+
+50:51.800 --> 51:00.000
+ If you look back, what was some of your happiest moments as a researcher, some of the most
+
+51:00.000 --> 51:09.960
+ profound moments, not in terms of their impact on society, but in terms of their impact on
+
+51:09.960 --> 51:15.400
+ how damn good you feel that day and you remember that moment?
+
+51:15.400 --> 51:26.600
+ You know, every time when you found something, it is great in the life, every simple things.
+
+51:26.600 --> 51:32.160
+ But my general feeling is that most of my time was wrong.
+
+51:32.160 --> 51:39.520
+ You should go again and again and again and try to be honest in front of yourself, not
+
+51:39.520 --> 51:47.840
+ to make interpretation, but try to understand that it's related to ground truth, it is not
+
+51:47.840 --> 51:52.640
+ my blah, blah, blah interpretation and something like that.
+
+51:52.640 --> 51:56.720
+ But you're allowed to get excited at the possibility of discovery.
+
+51:56.720 --> 51:57.720
+ Oh yeah.
+
+51:57.720 --> 51:59.840
+ You have to double check it.
+
+51:59.840 --> 52:10.880
+ No, but how it's related to another ground truth, is it just temporary or it is for forever?
+
+52:10.880 --> 52:19.880
+ You know, you always have a feeling when you found something, how big is that?
+
+52:19.880 --> 52:26.560
+ So 20 years ago when we discovered statistical learning theory, nobody believed, except for
+
+52:26.560 --> 52:37.640
+ one guy, Dudley from MIT, and then in 20 years it became fashion, and the same with support
+
+52:37.640 --> 52:41.480
+ vector machines, that is kernel machines.
+
+52:41.480 --> 52:49.240
+ So with support vector machines and learning theory, when you were working on it, you had
+
+52:49.240 --> 52:59.600
+ a sense, you had a sense of the profundity of it, how this seems to be right, this seems
+
+52:59.600 --> 53:00.600
+ to be powerful.
+
+53:00.600 --> 53:01.600
+ Right.
+
+53:01.600 --> 53:02.600
+ Absolutely.
+
+53:02.600 --> 53:03.600
+ Immediately.
+
+53:03.600 --> 53:18.480
+ I recognized that it will last forever, and now when I found this invariant story, I have
+
+53:18.480 --> 53:24.720
+ a feeling that it is complete learning, because I have proof that there are no different mechanisms.
+
+53:24.720 --> 53:35.480
+ You can have some cosmetic improvement you can do, but in terms of invariants, you need
+
+53:35.480 --> 53:41.660
+ both invariants and statistical learning, and they should work together.
+
+53:41.660 --> 53:52.920
+ But also I'm happy that we can formulate what is intelligence from that, and to separate
+
+53:52.920 --> 53:57.240
+ from technical part, and that is completely different.
+
+53:57.240 --> 53:58.240
+ Absolutely.
+
+53:58.240 --> 54:00.280
+ Well, Vladimir, thank you so much for talking today.
+
+54:00.280 --> 54:01.280
+ Thank you.
+
+54:01.280 --> 54:02.280
+ It's an honor.
+

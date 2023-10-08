@@ -1,0 +1,5342 @@
+WEBVTT
+
+00:00.000 --> 00:04.200
+ As part of MIT course 6S099, Artificial General Intelligence,
+
+00:04.200 --> 00:06.600
+ I've gotten the chance to sit down with Max Tegmark.
+
+00:06.600 --> 00:08.680
+ He is a professor here at MIT.
+
+00:08.680 --> 00:11.920
+ He's a physicist, spent a large part of his career
+
+00:11.920 --> 00:16.960
+ studying the mysteries of our cosmological universe.
+
+00:16.960 --> 00:20.680
+ But he's also studied and delved into the beneficial
+
+00:20.680 --> 00:24.000
+ possibilities and the existential risks
+
+00:24.000 --> 00:25.800
+ of artificial intelligence.
+
+00:25.800 --> 00:29.040
+ Amongst many other things, he is the cofounder
+
+00:29.040 --> 00:33.080
+ of the Future of Life Institute, author of two books,
+
+00:33.080 --> 00:35.160
+ both of which I highly recommend.
+
+00:35.160 --> 00:37.260
+ First, Our Mathematical Universe.
+
+00:37.260 --> 00:40.160
+ Second is Life 3.0.
+
+00:40.160 --> 00:44.080
+ He's truly an out of the box thinker and a fun personality,
+
+00:44.080 --> 00:45.480
+ so I really enjoy talking to him.
+
+00:45.480 --> 00:47.980
+ If you'd like to see more of these videos in the future,
+
+00:47.980 --> 00:50.640
+ please subscribe and also click the little bell icon
+
+00:50.640 --> 00:52.720
+ to make sure you don't miss any videos.
+
+00:52.720 --> 00:56.840
+ Also, Twitter, LinkedIn, agi.mit.edu
+
+00:56.840 --> 00:59.600
+ if you wanna watch other lectures
+
+00:59.600 --> 01:01.080
+ or conversations like this one.
+
+01:01.080 --> 01:04.000
+ Better yet, go read Max's book, Life 3.0.
+
+01:04.000 --> 01:07.940
+ Chapter seven on goals is my favorite.
+
+01:07.940 --> 01:10.480
+ It's really where philosophy and engineering come together
+
+01:10.480 --> 01:13.440
+ and it opens with a quote by Dostoevsky.
+
+01:14.400 --> 01:17.940
+ The mystery of human existence lies not in just staying alive
+
+01:17.940 --> 01:20.520
+ but in finding something to live for.
+
+01:20.520 --> 01:23.920
+ Lastly, I believe that every failure rewards us
+
+01:23.920 --> 01:26.560
+ with an opportunity to learn
+
+01:26.560 --> 01:28.360
+ and in that sense, I've been very fortunate
+
+01:28.360 --> 01:30.960
+ to fail in so many new and exciting ways
+
+01:31.840 --> 01:34.020
+ and this conversation was no different.
+
+01:34.020 --> 01:36.160
+ I've learned about something called
+
+01:36.160 --> 01:40.840
+ radio frequency interference, RFI, look it up.
+
+01:40.840 --> 01:42.960
+ Apparently, music and conversations
+
+01:42.960 --> 01:45.480
+ from local radio stations can bleed into the audio
+
+01:45.480 --> 01:47.080
+ that you're recording in such a way
+
+01:47.080 --> 01:49.360
+ that it almost completely ruins that audio.
+
+01:49.360 --> 01:52.060
+ It's an exceptionally difficult sound source to remove.
+
+01:53.240 --> 01:55.520
+ So, I've gotten the opportunity to learn
+
+01:55.520 --> 02:00.200
+ how to avoid RFI in the future during recording sessions.
+
+02:00.200 --> 02:02.680
+ I've also gotten the opportunity to learn
+
+02:02.680 --> 02:06.240
+ how to use Adobe Audition and iZotope RX 6
+
+02:06.240 --> 02:11.240
+ to do some noise, some audio repair.
+
+02:11.720 --> 02:14.380
+ Of course, this is an exceptionally difficult noise
+
+02:14.380 --> 02:15.220
+ to remove.
+
+02:15.220 --> 02:16.280
+ I am an engineer.
+
+02:16.280 --> 02:18.240
+ I'm not an audio engineer.
+
+02:18.240 --> 02:20.180
+ Neither is anybody else in our group
+
+02:20.180 --> 02:21.880
+ but we did our best.
+
+02:21.880 --> 02:25.040
+ Nevertheless, I thank you for your patience
+
+02:25.040 --> 02:27.960
+ and I hope you're still able to enjoy this conversation.
+
+02:27.960 --> 02:29.320
+ Do you think there's intelligent life
+
+02:29.320 --> 02:31.360
+ out there in the universe?
+
+02:31.360 --> 02:33.480
+ Let's open up with an easy question.
+
+02:33.480 --> 02:36.240
+ I have a minority view here actually.
+
+02:36.240 --> 02:39.440
+ When I give public lectures, I often ask for a show of hands
+
+02:39.440 --> 02:42.920
+ who thinks there's intelligent life out there somewhere else
+
+02:42.920 --> 02:45.440
+ and almost everyone put their hands up
+
+02:45.440 --> 02:47.360
+ and when I ask why, they'll be like,
+
+02:47.360 --> 02:50.900
+ oh, there's so many galaxies out there, there's gotta be.
+
+02:51.840 --> 02:54.560
+ But I'm a numbers nerd, right?
+
+02:54.560 --> 02:56.640
+ So when you look more carefully at it,
+
+02:56.640 --> 02:58.040
+ it's not so clear at all.
+
+02:59.080 --> 03:00.680
+ When we talk about our universe, first of all,
+
+03:00.680 --> 03:03.040
+ we don't mean all of space.
+
+03:03.040 --> 03:04.040
+ We actually mean, I don't know,
+
+03:04.040 --> 03:05.440
+ you can throw me the universe if you want,
+
+03:05.440 --> 03:07.280
+ it's behind you there.
+
+03:07.280 --> 03:11.440
+ It's, we simply mean the spherical region of space
+
+03:11.440 --> 03:15.360
+ from which light has a time to reach us so far
+
+03:15.360 --> 03:17.040
+ during the 14.8 billion year,
+
+03:17.040 --> 03:19.320
+ 13.8 billion years since our Big Bang.
+
+03:19.320 --> 03:22.320
+ There's more space here but this is what we call a universe
+
+03:22.320 --> 03:24.040
+ because that's all we have access to.
+
+03:24.040 --> 03:25.960
+ So is there intelligent life here
+
+03:25.960 --> 03:28.920
+ that's gotten to the point of building telescopes
+
+03:28.920 --> 03:29.960
+ and computers?
+
+03:31.160 --> 03:34.540
+ My guess is no, actually.
+
+03:34.540 --> 03:37.800
+ The probability of it happening on any given planet
+
+03:39.240 --> 03:42.620
+ is some number we don't know what it is.
+
+03:42.620 --> 03:47.620
+ And what we do know is that the number can't be super high
+
+03:48.480 --> 03:50.300
+ because there's over a billion Earth like planets
+
+03:50.300 --> 03:52.880
+ in the Milky Way galaxy alone,
+
+03:52.880 --> 03:56.280
+ many of which are billions of years older than Earth.
+
+03:56.280 --> 04:00.600
+ And aside from some UFO believers,
+
+04:00.600 --> 04:01.880
+ there isn't much evidence
+
+04:01.880 --> 04:05.600
+ that any superduran civilization has come here at all.
+
+04:05.600 --> 04:08.440
+ And so that's the famous Fermi paradox, right?
+
+04:08.440 --> 04:10.180
+ And then if you work the numbers,
+
+04:10.180 --> 04:13.440
+ what you find is that if you have no clue
+
+04:13.440 --> 04:16.880
+ what the probability is of getting life on a given planet,
+
+04:16.880 --> 04:19.680
+ so it could be 10 to the minus 10, 10 to the minus 20,
+
+04:19.680 --> 04:22.960
+ or 10 to the minus two, or any power of 10
+
+04:22.960 --> 04:23.800
+ is sort of equally likely
+
+04:23.800 --> 04:25.480
+ if you wanna be really open minded,
+
+04:25.480 --> 04:27.600
+ that translates into it being equally likely
+
+04:27.600 --> 04:31.800
+ that our nearest neighbor is 10 to the 16 meters away,
+
+04:31.800 --> 04:33.880
+ 10 to the 17 meters away, 10 to the 18.
+
+04:35.400 --> 04:40.400
+ By the time you get much less than 10 to the 16 already,
+
+04:41.080 --> 04:45.960
+ we pretty much know there is nothing else that close.
+
+04:45.960 --> 04:47.280
+ And when you get beyond 10.
+
+04:47.280 --> 04:48.680
+ Because they would have discovered us.
+
+04:48.680 --> 04:50.360
+ Yeah, they would have been discovered as long ago,
+
+04:50.360 --> 04:51.440
+ or if they're really close,
+
+04:51.440 --> 04:53.560
+ we would have probably noted some engineering projects
+
+04:53.560 --> 04:54.640
+ that they're doing.
+
+04:54.640 --> 04:57.880
+ And if it's beyond 10 to the 26 meters,
+
+04:57.880 --> 05:00.000
+ that's already outside of here.
+
+05:00.000 --> 05:05.000
+ So my guess is actually that we are the only life in here
+
+05:05.800 --> 05:09.040
+ that's gotten the point of building advanced tech,
+
+05:09.040 --> 05:10.720
+ which I think is very,
+
+05:12.680 --> 05:15.360
+ puts a lot of responsibility on our shoulders, not screw up.
+
+05:15.360 --> 05:17.240
+ I think people who take for granted
+
+05:17.240 --> 05:20.120
+ that it's okay for us to screw up,
+
+05:20.120 --> 05:22.760
+ have an accidental nuclear war or go extinct somehow
+
+05:22.760 --> 05:25.960
+ because there's a sort of Star Trek like situation out there
+
+05:25.960 --> 05:28.360
+ where some other life forms are gonna come and bail us out
+
+05:28.360 --> 05:30.400
+ and it doesn't matter as much.
+
+05:30.400 --> 05:33.400
+ I think they're leveling us into a false sense of security.
+
+05:33.400 --> 05:35.200
+ I think it's much more prudent to say,
+
+05:35.200 --> 05:36.400
+ let's be really grateful
+
+05:36.400 --> 05:38.720
+ for this amazing opportunity we've had
+
+05:38.720 --> 05:43.720
+ and make the best of it just in case it is down to us.
+
+05:44.080 --> 05:45.680
+ So from a physics perspective,
+
+05:45.680 --> 05:48.800
+ do you think intelligent life,
+
+05:48.800 --> 05:51.360
+ so it's unique from a sort of statistical view
+
+05:51.360 --> 05:52.560
+ of the size of the universe,
+
+05:52.560 --> 05:55.840
+ but from the basic matter of the universe,
+
+05:55.840 --> 05:59.040
+ how difficult is it for intelligent life to come about?
+
+05:59.040 --> 06:01.280
+ The kind of advanced tech building life
+
+06:03.120 --> 06:05.720
+ is implied in your statement that it's really difficult
+
+06:05.720 --> 06:07.640
+ to create something like a human species.
+
+06:07.640 --> 06:11.560
+ Well, I think what we know is that going from no life
+
+06:11.560 --> 06:15.720
+ to having life that can do a level of tech,
+
+06:15.720 --> 06:18.720
+ there's some sort of two going beyond that
+
+06:18.720 --> 06:22.200
+ than actually settling our whole universe with life.
+
+06:22.200 --> 06:26.560
+ There's some major roadblock there,
+
+06:26.560 --> 06:30.880
+ which is some great filter as it's sometimes called,
+
+06:30.880 --> 06:33.520
+ which is tough to get through.
+
+06:33.520 --> 06:37.160
+ It's either that roadblock is either behind us
+
+06:37.160 --> 06:38.720
+ or in front of us.
+
+06:38.720 --> 06:41.080
+ I'm hoping very much that it's behind us.
+
+06:41.080 --> 06:45.960
+ I'm super excited every time we get a new report from NASA
+
+06:45.960 --> 06:48.480
+ saying they failed to find any life on Mars.
+
+06:48.480 --> 06:50.080
+ I'm like, yes, awesome.
+
+06:50.080 --> 06:51.680
+ Because that suggests that the hard part,
+
+06:51.680 --> 06:54.240
+ maybe it was getting the first ribosome
+
+06:54.240 --> 06:59.240
+ or some very low level kind of stepping stone
+
+06:59.520 --> 07:00.400
+ so that we're home free.
+
+07:00.400 --> 07:01.720
+ Because if that's true,
+
+07:01.720 --> 07:03.640
+ then the future is really only limited
+
+07:03.640 --> 07:05.200
+ by our own imagination.
+
+07:05.200 --> 07:07.360
+ It would be much suckier if it turns out
+
+07:07.360 --> 07:11.440
+ that this level of life is kind of a dime a dozen,
+
+07:11.440 --> 07:12.760
+ but maybe there's some other problem.
+
+07:12.760 --> 07:16.160
+ Like as soon as a civilization gets advanced technology,
+
+07:16.160 --> 07:17.000
+ within a hundred years,
+
+07:17.000 --> 07:20.320
+ they get into some stupid fight with themselves and poof.
+
+07:20.320 --> 07:21.760
+ That would be a bummer.
+
+07:21.760 --> 07:26.160
+ Yeah, so you've explored the mysteries of the universe,
+
+07:26.160 --> 07:29.000
+ the cosmological universe, the one that's sitting
+
+07:29.000 --> 07:30.000
+ between us today.
+
+07:31.080 --> 07:35.960
+ I think you've also begun to explore the other universe,
+
+07:35.960 --> 07:38.000
+ which is sort of the mystery,
+
+07:38.000 --> 07:40.960
+ the mysterious universe of the mind of intelligence,
+
+07:40.960 --> 07:42.840
+ of intelligent life.
+
+07:42.840 --> 07:45.280
+ So is there a common thread between your interest
+
+07:45.280 --> 07:48.760
+ or the way you think about space and intelligence?
+
+07:48.760 --> 07:51.040
+ Oh yeah, when I was a teenager,
+
+07:53.040 --> 07:57.280
+ I was already very fascinated by the biggest questions.
+
+07:57.280 --> 08:00.560
+ And I felt that the two biggest mysteries of all in science
+
+08:00.560 --> 08:05.000
+ were our universe out there and our universe in here.
+
+08:05.000 --> 08:08.120
+ So it's quite natural after having spent
+
+08:08.120 --> 08:11.040
+ a quarter of a century on my career,
+
+08:11.040 --> 08:12.680
+ thinking a lot about this one,
+
+08:12.680 --> 08:14.320
+ that I'm now indulging in the luxury
+
+08:14.320 --> 08:15.960
+ of doing research on this one.
+
+08:15.960 --> 08:17.720
+ It's just so cool.
+
+08:17.720 --> 08:20.120
+ I feel the time is ripe now
+
+08:20.120 --> 08:25.120
+ for you trans greatly deepening our understanding of this.
+
+08:25.120 --> 08:26.640
+ Just start exploring this one.
+
+08:26.640 --> 08:29.560
+ Yeah, because I think a lot of people view intelligence
+
+08:29.560 --> 08:33.520
+ as something mysterious that can only exist
+
+08:33.520 --> 08:36.120
+ in biological organisms like us,
+
+08:36.120 --> 08:37.680
+ and therefore dismiss all talk
+
+08:37.680 --> 08:41.160
+ about artificial general intelligence as science fiction.
+
+08:41.160 --> 08:43.200
+ But from my perspective as a physicist,
+
+08:43.200 --> 08:46.680
+ I am a blob of quarks and electrons
+
+08:46.680 --> 08:48.360
+ moving around in a certain pattern
+
+08:48.360 --> 08:50.080
+ and processing information in certain ways.
+
+08:50.080 --> 08:53.600
+ And this is also a blob of quarks and electrons.
+
+08:53.600 --> 08:55.360
+ I'm not smarter than the water bottle
+
+08:55.360 --> 08:57.880
+ because I'm made of different kinds of quarks.
+
+08:57.880 --> 08:59.640
+ I'm made of up quarks and down quarks,
+
+08:59.640 --> 09:01.400
+ exact same kind as this.
+
+09:01.400 --> 09:05.080
+ There's no secret sauce, I think, in me.
+
+09:05.080 --> 09:08.560
+ It's all about the pattern of the information processing.
+
+09:08.560 --> 09:12.240
+ And this means that there's no law of physics
+
+09:12.240 --> 09:15.600
+ saying that we can't create technology,
+
+09:15.600 --> 09:19.960
+ which can help us by being incredibly intelligent
+
+09:19.960 --> 09:21.680
+ and help us crack mysteries that we couldn't.
+
+09:21.680 --> 09:23.560
+ In other words, I think we've really only seen
+
+09:23.560 --> 09:26.480
+ the tip of the intelligence iceberg so far.
+
+09:26.480 --> 09:29.960
+ Yeah, so the perceptronium.
+
+09:29.960 --> 09:31.280
+ Yeah.
+
+09:31.280 --> 09:33.200
+ So you coined this amazing term.
+
+09:33.200 --> 09:35.760
+ It's a hypothetical state of matter,
+
+09:35.760 --> 09:38.360
+ sort of thinking from a physics perspective,
+
+09:38.360 --> 09:40.080
+ what is the kind of matter that can help,
+
+09:40.080 --> 09:42.920
+ as you're saying, subjective experience emerge,
+
+09:42.920 --> 09:44.280
+ consciousness emerge.
+
+09:44.280 --> 09:46.640
+ So how do you think about consciousness
+
+09:46.640 --> 09:48.160
+ from this physics perspective?
+
+09:49.960 --> 09:50.800
+ Very good question.
+
+09:50.800 --> 09:55.800
+ So again, I think many people have underestimated
+
+09:55.800 --> 09:59.120
+ our ability to make progress on this
+
+09:59.120 --> 10:01.320
+ by convincing themselves it's hopeless
+
+10:01.320 --> 10:05.840
+ because somehow we're missing some ingredient that we need.
+
+10:05.840 --> 10:09.560
+ There's some new consciousness particle or whatever.
+
+10:09.560 --> 10:12.720
+ I happen to think that we're not missing anything
+
+10:12.720 --> 10:16.320
+ and that it's not the interesting thing
+
+10:16.320 --> 10:18.560
+ about consciousness that gives us
+
+10:18.560 --> 10:21.400
+ this amazing subjective experience of colors
+
+10:21.400 --> 10:23.320
+ and sounds and emotions.
+
+10:23.320 --> 10:26.320
+ It's rather something at the higher level
+
+10:26.320 --> 10:28.800
+ about the patterns of information processing.
+
+10:28.800 --> 10:33.160
+ And that's why I like to think about this idea
+
+10:33.160 --> 10:34.480
+ of perceptronium.
+
+10:34.480 --> 10:36.920
+ What does it mean for an arbitrary physical system
+
+10:36.920 --> 10:41.920
+ to be conscious in terms of what its particles are doing
+
+10:41.920 --> 10:43.560
+ or its information is doing?
+
+10:43.560 --> 10:46.080
+ I don't think, I hate carbon chauvinism,
+
+10:46.080 --> 10:47.960
+ this attitude you have to be made of carbon atoms
+
+10:47.960 --> 10:50.160
+ to be smart or conscious.
+
+10:50.160 --> 10:53.520
+ There's something about the information processing
+
+10:53.520 --> 10:55.360
+ that this kind of matter performs.
+
+10:55.360 --> 10:57.840
+ Yeah, and you can see I have my favorite equations here
+
+10:57.840 --> 11:00.720
+ describing various fundamental aspects of the world.
+
+11:00.720 --> 11:02.560
+ I feel that I think one day,
+
+11:02.560 --> 11:04.360
+ maybe someone who's watching this will come up
+
+11:04.360 --> 11:07.280
+ with the equations that information processing
+
+11:07.280 --> 11:08.760
+ has to satisfy to be conscious.
+
+11:08.760 --> 11:11.800
+ I'm quite convinced there is big discovery
+
+11:11.800 --> 11:15.400
+ to be made there because let's face it,
+
+11:15.400 --> 11:18.720
+ we know that so many things are made up of information.
+
+11:18.720 --> 11:21.960
+ We know that some information processing is conscious
+
+11:21.960 --> 11:25.520
+ because we are conscious.
+
+11:25.520 --> 11:27.600
+ But we also know that a lot of information processing
+
+11:27.600 --> 11:28.440
+ is not conscious.
+
+11:28.440 --> 11:30.040
+ Like most of the information processing happening
+
+11:30.040 --> 11:32.680
+ in your brain right now is not conscious.
+
+11:32.680 --> 11:36.040
+ There are like 10 megabytes per second coming in
+
+11:36.040 --> 11:38.080
+ even just through your visual system.
+
+11:38.080 --> 11:40.480
+ You're not conscious about your heartbeat regulation
+
+11:40.480 --> 11:42.120
+ or most things.
+
+11:42.120 --> 11:45.680
+ Even if I just ask you to like read what it says here,
+
+11:45.680 --> 11:48.040
+ you look at it and then, oh, now you know what it said.
+
+11:48.040 --> 11:51.560
+ But you're not aware of how the computation actually happened.
+
+11:51.560 --> 11:53.680
+ Your consciousness is like the CEO
+
+11:53.680 --> 11:56.680
+ that got an email at the end with the final answer.
+
+11:56.680 --> 12:01.000
+ So what is it that makes a difference?
+
+12:01.000 --> 12:05.120
+ I think that's both a great science mystery.
+
+12:05.120 --> 12:07.080
+ We're actually studying it a little bit in my lab here
+
+12:07.080 --> 12:10.920
+ at MIT, but I also think it's just a really urgent question
+
+12:10.920 --> 12:12.080
+ to answer.
+
+12:12.080 --> 12:14.880
+ For starters, I mean, if you're an emergency room doctor
+
+12:14.880 --> 12:17.160
+ and you have an unresponsive patient coming in,
+
+12:17.160 --> 12:19.600
+ wouldn't it be great if in addition to having
+
+12:22.360 --> 12:25.320
+ a CT scanner, you had a consciousness scanner
+
+12:25.320 --> 12:27.920
+ that could figure out whether this person
+
+12:27.920 --> 12:30.960
+ is actually having locked in syndrome
+
+12:30.960 --> 12:32.440
+ or is actually comatose.
+
+12:33.360 --> 12:37.000
+ And in the future, imagine if we build robots
+
+12:37.000 --> 12:41.480
+ or the machine that we can have really good conversations
+
+12:41.480 --> 12:44.840
+ with, which I think is very likely to happen.
+
+12:44.840 --> 12:47.760
+ Wouldn't you want to know if your home helper robot
+
+12:47.760 --> 12:51.320
+ is actually experiencing anything or just like a zombie,
+
+12:51.320 --> 12:53.520
+ I mean, would you prefer it?
+
+12:53.520 --> 12:54.360
+ What would you prefer?
+
+12:54.360 --> 12:56.200
+ Would you prefer that it's actually unconscious
+
+12:56.200 --> 12:58.560
+ so that you don't have to feel guilty about switching it off
+
+12:58.560 --> 13:02.120
+ or giving boring chores or what would you prefer?
+
+13:02.120 --> 13:06.520
+ Well, certainly we would prefer,
+
+13:06.520 --> 13:08.960
+ I would prefer the appearance of consciousness.
+
+13:08.960 --> 13:11.720
+ But the question is whether the appearance of consciousness
+
+13:11.720 --> 13:15.040
+ is different than consciousness itself.
+
+13:15.040 --> 13:18.200
+ And sort of to ask that as a question,
+
+13:18.200 --> 13:21.760
+ do you think we need to understand what consciousness is,
+
+13:21.760 --> 13:23.520
+ solve the hard problem of consciousness
+
+13:23.520 --> 13:28.240
+ in order to build something like an AGI system?
+
+13:28.240 --> 13:30.440
+ No, I don't think that.
+
+13:30.440 --> 13:34.520
+ And I think we will probably be able to build things
+
+13:34.520 --> 13:36.080
+ even if we don't answer that question.
+
+13:36.080 --> 13:37.720
+ But if we want to make sure that what happens
+
+13:37.720 --> 13:40.960
+ is a good thing, we better solve it first.
+
+13:40.960 --> 13:44.960
+ So it's a wonderful controversy you're raising there
+
+13:44.960 --> 13:47.960
+ where you have basically three points of view
+
+13:47.960 --> 13:48.800
+ about the hard problem.
+
+13:48.800 --> 13:52.800
+ So there are two different points of view.
+
+13:52.800 --> 13:55.160
+ They both conclude that the hard problem of consciousness
+
+13:55.160 --> 13:56.840
+ is BS.
+
+13:56.840 --> 13:59.320
+ On one hand, you have some people like Daniel Dennett
+
+13:59.320 --> 14:01.480
+ who say that consciousness is just BS
+
+14:01.480 --> 14:05.000
+ because consciousness is the same thing as intelligence.
+
+14:05.000 --> 14:06.440
+ There's no difference.
+
+14:06.440 --> 14:11.080
+ So anything which acts conscious is conscious,
+
+14:11.080 --> 14:13.480
+ just like we are.
+
+14:13.480 --> 14:15.960
+ And then there are also a lot of people,
+
+14:15.960 --> 14:18.400
+ including many top AI researchers I know,
+
+14:18.400 --> 14:19.920
+ who say, oh, consciousness is just bullshit
+
+14:19.920 --> 14:22.760
+ because, of course, machines can never be conscious.
+
+14:22.760 --> 14:24.520
+ They're always going to be zombies.
+
+14:24.520 --> 14:27.880
+ You never have to feel guilty about how you treat them.
+
+14:27.880 --> 14:30.880
+ And then there's a third group of people,
+
+14:30.880 --> 14:34.920
+ including Giulio Tononi, for example,
+
+14:34.920 --> 14:37.440
+ and Krzysztof Koch and a number of others.
+
+14:37.440 --> 14:39.520
+ I would put myself also in this middle camp
+
+14:39.520 --> 14:41.880
+ who say that actually some information processing
+
+14:41.880 --> 14:44.160
+ is conscious and some is not.
+
+14:44.160 --> 14:46.960
+ So let's find the equation which can be used
+
+14:46.960 --> 14:49.080
+ to determine which it is.
+
+14:49.080 --> 14:52.040
+ And I think we've just been a little bit lazy,
+
+14:52.040 --> 14:54.960
+ kind of running away from this problem for a long time.
+
+14:54.960 --> 14:57.840
+ It's been almost taboo to even mention the C word
+
+14:57.840 --> 15:00.520
+ in a lot of circles because,
+
+15:00.520 --> 15:03.520
+ but we should stop making excuses.
+
+15:03.520 --> 15:07.920
+ This is a science question and there are ways
+
+15:07.920 --> 15:11.960
+ we can even test any theory that makes predictions for this.
+
+15:11.960 --> 15:13.640
+ And coming back to this helper robot,
+
+15:13.640 --> 15:16.080
+ I mean, so you said you'd want your helper robot
+
+15:16.080 --> 15:18.160
+ to certainly act conscious and treat you,
+
+15:18.160 --> 15:20.880
+ like have conversations with you and stuff.
+
+15:20.880 --> 15:21.720
+ I think so.
+
+15:21.720 --> 15:22.560
+ But wouldn't you, would you feel,
+
+15:22.560 --> 15:23.920
+ would you feel a little bit creeped out
+
+15:23.920 --> 15:27.680
+ if you realized that it was just a glossed up tape recorder,
+
+15:27.680 --> 15:31.560
+ you know, that was just zombie and was a faking emotion?
+
+15:31.560 --> 15:34.560
+ Would you prefer that it actually had an experience
+
+15:34.560 --> 15:37.000
+ or would you prefer that it's actually
+
+15:37.000 --> 15:39.120
+ not experiencing anything so you feel,
+
+15:39.120 --> 15:42.200
+ you don't have to feel guilty about what you do to it?
+
+15:42.200 --> 15:45.040
+ It's such a difficult question because, you know,
+
+15:45.040 --> 15:47.280
+ it's like when you're in a relationship and you say,
+
+15:47.280 --> 15:48.120
+ well, I love you.
+
+15:48.120 --> 15:49.760
+ And the other person said, I love you back.
+
+15:49.760 --> 15:52.640
+ It's like asking, well, do they really love you back
+
+15:52.640 --> 15:55.360
+ or are they just saying they love you back?
+
+15:55.360 --> 15:58.120
+ Don't you really want them to actually love you?
+
+15:58.120 --> 16:03.120
+ It's hard to, it's hard to really know the difference
+
+16:03.520 --> 16:08.520
+ between everything seeming like there's consciousness
+
+16:09.000 --> 16:10.640
+ present, there's intelligence present,
+
+16:10.640 --> 16:13.840
+ there's affection, passion, love,
+
+16:13.840 --> 16:16.200
+ and it actually being there.
+
+16:16.200 --> 16:17.720
+ I'm not sure, do you have?
+
+16:17.720 --> 16:19.400
+ But like, can I ask you a question about this?
+
+16:19.400 --> 16:20.760
+ Like to make it a bit more pointed.
+
+16:20.760 --> 16:22.920
+ So Mass General Hospital is right across the river, right?
+
+16:22.920 --> 16:23.760
+ Yes.
+
+16:23.760 --> 16:26.720
+ Suppose you're going in for a medical procedure
+
+16:26.720 --> 16:29.320
+ and they're like, you know, for anesthesia,
+
+16:29.320 --> 16:31.000
+ what we're going to do is we're going to give you
+
+16:31.000 --> 16:33.160
+ muscle relaxants so you won't be able to move
+
+16:33.160 --> 16:35.040
+ and you're going to feel excruciating pain
+
+16:35.040 --> 16:35.880
+ during the whole surgery,
+
+16:35.880 --> 16:37.600
+ but you won't be able to do anything about it.
+
+16:37.600 --> 16:39.200
+ But then we're going to give you this drug
+
+16:39.200 --> 16:40.760
+ that erases your memory of it.
+
+16:41.960 --> 16:43.440
+ Would you be cool about that?
+
+16:44.960 --> 16:47.600
+ What's the difference that you're conscious about it
+
+16:48.600 --> 16:51.640
+ or not if there's no behavioral change, right?
+
+16:51.640 --> 16:54.520
+ Right, that's a really, that's a really clear way to put it.
+
+16:54.520 --> 16:57.400
+ That's, yeah, it feels like in that sense,
+
+16:57.400 --> 17:01.080
+ experiencing it is a valuable quality.
+
+17:01.080 --> 17:04.800
+ So actually being able to have subjective experiences,
+
+17:05.840 --> 17:09.120
+ at least in that case, is valuable.
+
+17:09.120 --> 17:11.240
+ And I think we humans have a little bit
+
+17:11.240 --> 17:13.600
+ of a bad track record also of making
+
+17:13.600 --> 17:15.480
+ these self serving arguments
+
+17:15.480 --> 17:18.040
+ that other entities aren't conscious.
+
+17:18.040 --> 17:19.160
+ You know, people often say,
+
+17:19.160 --> 17:21.800
+ oh, these animals can't feel pain.
+
+17:21.800 --> 17:24.040
+ It's okay to boil lobsters because we ask them
+
+17:24.040 --> 17:25.960
+ if it hurt and they didn't say anything.
+
+17:25.960 --> 17:27.400
+ And now there was just a paper out saying,
+
+17:27.400 --> 17:29.320
+ lobsters do feel pain when you boil them
+
+17:29.320 --> 17:31.040
+ and they're banning it in Switzerland.
+
+17:31.040 --> 17:33.560
+ And we did this with slaves too often and said,
+
+17:33.560 --> 17:34.680
+ oh, they don't mind.
+
+17:36.240 --> 17:39.480
+ They don't maybe aren't conscious
+
+17:39.480 --> 17:41.160
+ or women don't have souls or whatever.
+
+17:41.160 --> 17:43.200
+ So I'm a little bit nervous when I hear people
+
+17:43.200 --> 17:46.360
+ just take as an axiom that machines
+
+17:46.360 --> 17:48.960
+ can't have experience ever.
+
+17:48.960 --> 17:51.560
+ I think this is just a really fascinating science question
+
+17:51.560 --> 17:52.400
+ is what it is.
+
+17:52.400 --> 17:54.720
+ Let's research it and try to figure out
+
+17:54.720 --> 17:56.000
+ what it is that makes the difference
+
+17:56.000 --> 17:58.880
+ between unconscious intelligent behavior
+
+17:58.880 --> 18:01.120
+ and conscious intelligent behavior.
+
+18:01.120 --> 18:04.680
+ So in terms of, so if you think of a Boston Dynamics
+
+18:04.680 --> 18:07.680
+ human or robot being sort of with a broom
+
+18:07.680 --> 18:11.920
+ being pushed around, it starts pushing
+
+18:11.920 --> 18:13.320
+ on a consciousness question.
+
+18:13.320 --> 18:17.040
+ So let me ask, do you think an AGI system
+
+18:17.040 --> 18:19.720
+ like a few neuroscientists believe
+
+18:19.720 --> 18:22.320
+ needs to have a physical embodiment?
+
+18:22.320 --> 18:25.720
+ Needs to have a body or something like a body?
+
+18:25.720 --> 18:28.280
+ No, I don't think so.
+
+18:28.280 --> 18:30.560
+ You mean to have a conscious experience?
+
+18:30.560 --> 18:31.640
+ To have consciousness.
+
+18:33.160 --> 18:36.080
+ I do think it helps a lot to have a physical embodiment
+
+18:36.080 --> 18:38.440
+ to learn the kind of things about the world
+
+18:38.440 --> 18:41.480
+ that are important to us humans, for sure.
+
+18:42.560 --> 18:45.600
+ But I don't think the physical embodiment
+
+18:45.600 --> 18:47.120
+ is necessary after you've learned it
+
+18:47.120 --> 18:48.760
+ to just have the experience.
+
+18:48.760 --> 18:51.400
+ Think about when you're dreaming, right?
+
+18:51.400 --> 18:52.600
+ Your eyes are closed.
+
+18:52.600 --> 18:54.240
+ You're not getting any sensory input.
+
+18:54.240 --> 18:55.960
+ You're not behaving or moving in any way
+
+18:55.960 --> 18:58.160
+ but there's still an experience there, right?
+
+18:59.720 --> 19:01.400
+ And so clearly the experience that you have
+
+19:01.400 --> 19:03.320
+ when you see something cool in your dreams
+
+19:03.320 --> 19:04.800
+ isn't coming from your eyes.
+
+19:04.800 --> 19:08.640
+ It's just the information processing itself in your brain
+
+19:08.640 --> 19:10.920
+ which is that experience, right?
+
+19:10.920 --> 19:13.640
+ But if I put it another way, I'll say
+
+19:13.640 --> 19:15.120
+ because it comes from neuroscience
+
+19:15.120 --> 19:18.280
+ is the reason you want to have a body and a physical
+
+19:18.280 --> 19:23.280
+ something like a physical, you know, a physical system
+
+19:23.920 --> 19:27.040
+ is because you want to be able to preserve something.
+
+19:27.040 --> 19:30.840
+ In order to have a self, you could argue,
+
+19:30.840 --> 19:35.840
+ would you need to have some kind of embodiment of self
+
+19:36.400 --> 19:37.960
+ to want to preserve?
+
+19:38.920 --> 19:42.400
+ Well, now we're getting a little bit anthropomorphic
+
+19:42.400 --> 19:45.200
+ into anthropomorphizing things.
+
+19:45.200 --> 19:47.280
+ Maybe talking about self preservation instincts.
+
+19:47.280 --> 19:50.560
+ I mean, we are evolved organisms, right?
+
+19:50.560 --> 19:53.520
+ So Darwinian evolution endowed us
+
+19:53.520 --> 19:57.120
+ and other evolved organism with a self preservation instinct
+
+19:57.120 --> 20:00.560
+ because those that didn't have those self preservation genes
+
+20:00.560 --> 20:02.960
+ got cleaned out of the gene pool, right?
+
+20:02.960 --> 20:06.880
+ But if you build an artificial general intelligence
+
+20:06.880 --> 20:10.040
+ the mind space that you can design is much, much larger
+
+20:10.040 --> 20:14.440
+ than just a specific subset of minds that can evolve.
+
+20:14.440 --> 20:17.280
+ So an AGI mind doesn't necessarily have
+
+20:17.280 --> 20:19.880
+ to have any self preservation instinct.
+
+20:19.880 --> 20:21.600
+ It also doesn't necessarily have to be
+
+20:21.600 --> 20:24.040
+ so individualistic as us.
+
+20:24.040 --> 20:26.080
+ Like, imagine if you could just, first of all,
+
+20:26.080 --> 20:27.960
+ or we are also very afraid of death.
+
+20:27.960 --> 20:29.920
+ You know, I suppose you could back yourself up
+
+20:29.920 --> 20:32.000
+ every five minutes and then your airplane
+
+20:32.000 --> 20:32.840
+ is about to crash.
+
+20:32.840 --> 20:36.680
+ You're like, shucks, I'm gonna lose the last five minutes
+
+20:36.680 --> 20:39.520
+ of experiences since my last cloud backup, dang.
+
+20:39.520 --> 20:41.520
+ You know, it's not as big a deal.
+
+20:41.520 --> 20:45.680
+ Or if we could just copy experiences between our minds
+
+20:45.680 --> 20:47.640
+ easily like we, which we could easily do
+
+20:47.640 --> 20:50.360
+ if we were silicon based, right?
+
+20:50.360 --> 20:54.040
+ Then maybe we would feel a little bit more
+
+20:54.040 --> 20:56.560
+ like a hive mind actually, that maybe it's the,
+
+20:56.560 --> 20:59.960
+ so I don't think we should take for granted at all
+
+20:59.960 --> 21:03.000
+ that AGI will have to have any of those sort of
+
+21:04.880 --> 21:07.360
+ competitive as alpha male instincts.
+
+21:07.360 --> 21:10.160
+ On the other hand, you know, this is really interesting
+
+21:10.160 --> 21:13.840
+ because I think some people go too far and say,
+
+21:13.840 --> 21:16.680
+ of course we don't have to have any concerns either
+
+21:16.680 --> 21:20.800
+ that advanced AI will have those instincts
+
+21:20.800 --> 21:22.680
+ because we can build anything we want.
+
+21:22.680 --> 21:26.280
+ That there's a very nice set of arguments going back
+
+21:26.280 --> 21:28.560
+ to Steve Omohundro and Nick Bostrom and others
+
+21:28.560 --> 21:32.280
+ just pointing out that when we build machines,
+
+21:32.280 --> 21:34.680
+ we normally build them with some kind of goal, you know,
+
+21:34.680 --> 21:38.520
+ win this chess game, drive this car safely or whatever.
+
+21:38.520 --> 21:40.960
+ And as soon as you put in a goal into machine,
+
+21:40.960 --> 21:42.760
+ especially if it's kind of open ended goal
+
+21:42.760 --> 21:44.640
+ and the machine is very intelligent,
+
+21:44.640 --> 21:47.000
+ it'll break that down into a bunch of sub goals.
+
+21:48.280 --> 21:51.280
+ And one of those goals will almost always
+
+21:51.280 --> 21:54.200
+ be self preservation because if it breaks or dies
+
+21:54.200 --> 21:56.120
+ in the process, it's not gonna accomplish the goal, right?
+
+21:56.120 --> 21:58.040
+ Like suppose you just build a little,
+
+21:58.040 --> 22:01.000
+ you have a little robot and you tell it to go down
+
+22:01.000 --> 22:04.040
+ the store market here and get you some food,
+
+22:04.040 --> 22:06.200
+ make you cook an Italian dinner, you know,
+
+22:06.200 --> 22:08.400
+ and then someone mugs it and tries to break it
+
+22:08.400 --> 22:09.480
+ on the way.
+
+22:09.480 --> 22:12.920
+ That robot has an incentive to not get destroyed
+
+22:12.920 --> 22:14.720
+ and defend itself or run away,
+
+22:14.720 --> 22:17.720
+ because otherwise it's gonna fail in cooking your dinner.
+
+22:17.720 --> 22:19.560
+ It's not afraid of death,
+
+22:19.560 --> 22:22.960
+ but it really wants to complete the dinner cooking goal.
+
+22:22.960 --> 22:25.040
+ So it will have a self preservation instinct.
+
+22:25.040 --> 22:27.920
+ Continue being a functional agent somehow.
+
+22:27.920 --> 22:32.920
+ And similarly, if you give any kind of more ambitious goal
+
+22:33.720 --> 22:37.000
+ to an AGI, it's very likely they wanna acquire
+
+22:37.000 --> 22:39.840
+ more resources so it can do that better.
+
+22:39.840 --> 22:42.720
+ And it's exactly from those sort of sub goals
+
+22:42.720 --> 22:43.800
+ that we might not have intended
+
+22:43.800 --> 22:47.160
+ that some of the concerns about AGI safety come.
+
+22:47.160 --> 22:50.600
+ You give it some goal that seems completely harmless.
+
+22:50.600 --> 22:53.360
+ And then before you realize it,
+
+22:53.360 --> 22:55.480
+ it's also trying to do these other things
+
+22:55.480 --> 22:56.920
+ which you didn't want it to do.
+
+22:56.920 --> 22:59.160
+ And it's maybe smarter than us.
+
+22:59.160 --> 23:01.000
+ So it's fascinating.
+
+23:01.000 --> 23:05.680
+ And let me pause just because I am in a very kind
+
+23:05.680 --> 23:08.720
+ of human centric way, see fear of death
+
+23:08.720 --> 23:11.840
+ as a valuable motivator.
+
+23:11.840 --> 23:16.440
+ So you don't think, you think that's an artifact
+
+23:16.440 --> 23:19.120
+ of evolution, so that's the kind of mind space
+
+23:19.120 --> 23:22.120
+ evolution created that we're sort of almost obsessed
+
+23:22.120 --> 23:24.400
+ about self preservation, some kind of genetic flow.
+
+23:24.400 --> 23:29.400
+ You don't think that's necessary to be afraid of death.
+
+23:29.480 --> 23:32.920
+ So not just a kind of sub goal of self preservation
+
+23:32.920 --> 23:34.920
+ just so you can keep doing the thing,
+
+23:34.920 --> 23:38.720
+ but more fundamentally sort of have the finite thing
+
+23:38.720 --> 23:43.080
+ like this ends for you at some point.
+
+23:43.080 --> 23:44.160
+ Interesting.
+
+23:44.160 --> 23:47.440
+ Do I think it's necessary for what precisely?
+
+23:47.440 --> 23:50.920
+ For intelligence, but also for consciousness.
+
+23:50.920 --> 23:55.040
+ So for those, for both, do you think really
+
+23:55.040 --> 23:59.120
+ like a finite death and the fear of it is important?
+
+23:59.120 --> 24:04.120
+ So before I can answer, before we can agree
+
+24:05.160 --> 24:06.960
+ on whether it's necessary for intelligence
+
+24:06.960 --> 24:08.360
+ or for consciousness, we should be clear
+
+24:08.360 --> 24:09.800
+ on how we define those two words.
+
+24:09.800 --> 24:11.960
+ Cause a lot of really smart people define them
+
+24:11.960 --> 24:13.320
+ in very different ways.
+
+24:13.320 --> 24:17.080
+ I was on this panel with AI experts
+
+24:17.080 --> 24:20.080
+ and they couldn't agree on how to define intelligence even.
+
+24:20.080 --> 24:22.000
+ So I define intelligence simply
+
+24:22.000 --> 24:24.760
+ as the ability to accomplish complex goals.
+
+24:25.640 --> 24:27.280
+ I like your broad definition, because again
+
+24:27.280 --> 24:29.040
+ I don't want to be a carbon chauvinist.
+
+24:29.040 --> 24:30.400
+ Right.
+
+24:30.400 --> 24:34.600
+ And in that case, no, certainly
+
+24:34.600 --> 24:36.480
+ it doesn't require fear of death.
+
+24:36.480 --> 24:40.120
+ I would say alpha go, alpha zero is quite intelligent.
+
+24:40.120 --> 24:43.080
+ I don't think alpha zero has any fear of being turned off
+
+24:43.080 --> 24:46.320
+ because it doesn't understand the concept of it even.
+
+24:46.320 --> 24:48.440
+ And similarly consciousness.
+
+24:48.440 --> 24:52.240
+ I mean, you could certainly imagine very simple
+
+24:52.240 --> 24:53.920
+ kind of experience.
+
+24:53.920 --> 24:57.200
+ If certain plants have any kind of experience
+
+24:57.200 --> 24:58.560
+ I don't think they're very afraid of dying
+
+24:58.560 --> 25:00.920
+ or there's nothing they can do about it anyway much.
+
+25:00.920 --> 25:04.560
+ So there wasn't that much value in, but more seriously
+
+25:04.560 --> 25:09.200
+ I think if you ask, not just about being conscious
+
+25:09.200 --> 25:14.200
+ but maybe having what you would, we might call
+
+25:14.320 --> 25:16.400
+ an exciting life where you feel passion
+
+25:16.400 --> 25:21.400
+ and really appreciate the things.
+
+25:21.480 --> 25:24.440
+ Maybe there somehow, maybe there perhaps it does help
+
+25:24.440 --> 25:27.880
+ having a backdrop that, Hey, it's finite.
+
+25:27.880 --> 25:31.200
+ No, let's make the most of this, let's live to the fullest.
+
+25:31.200 --> 25:33.800
+ So if you knew you were going to live forever
+
+25:34.880 --> 25:37.400
+ do you think you would change your?
+
+25:37.400 --> 25:39.560
+ Yeah, I mean, in some perspective
+
+25:39.560 --> 25:43.960
+ it would be an incredibly boring life living forever.
+
+25:43.960 --> 25:47.360
+ So in the sort of loose subjective terms that you said
+
+25:47.360 --> 25:50.480
+ of something exciting and something in this
+
+25:50.480 --> 25:53.240
+ that other humans would understand, I think is, yeah
+
+25:53.240 --> 25:57.120
+ it seems that the finiteness of it is important.
+
+25:57.120 --> 25:59.560
+ Well, the good news I have for you then is
+
+25:59.560 --> 26:02.120
+ based on what we understand about cosmology
+
+26:02.120 --> 26:05.120
+ everything is in our universe is probably
+
+26:05.120 --> 26:07.960
+ ultimately probably finite, although.
+
+26:07.960 --> 26:11.560
+ Big crunch or big, what's the, the infinite expansion.
+
+26:11.560 --> 26:13.840
+ Yeah, we could have a big chill or a big crunch
+
+26:13.840 --> 26:18.440
+ or a big rip or that's the big snap or death bubbles.
+
+26:18.440 --> 26:20.040
+ All of them are more than a billion years away.
+
+26:20.040 --> 26:24.600
+ So we should, we certainly have vastly more time
+
+26:24.600 --> 26:27.920
+ than our ancestors thought, but there is still
+
+26:29.160 --> 26:32.360
+ it's still pretty hard to squeeze in an infinite number
+
+26:32.360 --> 26:36.560
+ of compute cycles, even though there are some loopholes
+
+26:36.560 --> 26:37.720
+ that just might be possible.
+
+26:37.720 --> 26:41.960
+ But I think, you know, some people like to say
+
+26:41.960 --> 26:44.760
+ that you should live as if you're about to
+
+26:44.760 --> 26:46.720
+ you're going to die in five years or so.
+
+26:46.720 --> 26:47.960
+ And that's sort of optimal.
+
+26:47.960 --> 26:50.560
+ Maybe it's a good assumption.
+
+26:50.560 --> 26:54.680
+ We should build our civilization as if it's all finite
+
+26:54.680 --> 26:55.680
+ to be on the safe side.
+
+26:55.680 --> 26:56.960
+ Right, exactly.
+
+26:56.960 --> 26:59.720
+ So you mentioned defining intelligence
+
+26:59.720 --> 27:02.960
+ as the ability to solve complex goals.
+
+27:02.960 --> 27:05.440
+ Where would you draw a line or how would you try
+
+27:05.440 --> 27:08.200
+ to define human level intelligence
+
+27:08.200 --> 27:10.680
+ and superhuman level intelligence?
+
+27:10.680 --> 27:13.280
+ Where is consciousness part of that definition?
+
+27:13.280 --> 27:16.640
+ No, consciousness does not come into this definition.
+
+27:16.640 --> 27:20.280
+ So, so I think of intelligence as it's a spectrum
+
+27:20.280 --> 27:21.960
+ but there are very many different kinds of goals
+
+27:21.960 --> 27:22.800
+ you can have.
+
+27:22.800 --> 27:24.000
+ You can have a goal to be a good chess player
+
+27:24.000 --> 27:28.520
+ a good goal player, a good car driver, a good investor
+
+27:28.520 --> 27:31.160
+ good poet, et cetera.
+
+27:31.160 --> 27:34.320
+ So intelligence that by its very nature
+
+27:34.320 --> 27:36.680
+ isn't something you can measure by this one number
+
+27:36.680 --> 27:37.960
+ or some overall goodness.
+
+27:37.960 --> 27:38.800
+ No, no.
+
+27:38.800 --> 27:40.320
+ There are some people who are more better at this.
+
+27:40.320 --> 27:42.360
+ Some people are better than that.
+
+27:42.360 --> 27:45.440
+ Right now we have machines that are much better than us
+
+27:45.440 --> 27:49.040
+ at some very narrow tasks like multiplying large numbers
+
+27:49.040 --> 27:53.200
+ fast, memorizing large databases, playing chess
+
+27:53.200 --> 27:56.280
+ playing go and soon driving cars.
+
+27:57.480 --> 28:00.080
+ But there's still no machine that can match
+
+28:00.080 --> 28:02.720
+ a human child in general intelligence
+
+28:02.720 --> 28:05.720
+ but artificial general intelligence, AGI
+
+28:05.720 --> 28:07.880
+ the name of your course, of course
+
+28:07.880 --> 28:12.880
+ that is by its very definition, the quest
+
+28:13.400 --> 28:16.000
+ to build a machine that can do everything
+
+28:16.000 --> 28:17.800
+ as well as we can.
+
+28:17.800 --> 28:21.960
+ So the old Holy grail of AI from back to its inception
+
+28:21.960 --> 28:25.560
+ in the sixties, if that ever happens, of course
+
+28:25.560 --> 28:27.320
+ I think it's going to be the biggest transition
+
+28:27.320 --> 28:29.040
+ in the history of life on earth
+
+28:29.040 --> 28:33.200
+ but it doesn't necessarily have to wait the big impact
+
+28:33.200 --> 28:35.400
+ until machines are better than us at knitting
+
+28:35.400 --> 28:39.160
+ that the really big change doesn't come exactly
+
+28:39.160 --> 28:41.800
+ at the moment they're better than us at everything.
+
+28:41.800 --> 28:44.120
+ The really big change comes first
+
+28:44.120 --> 28:45.840
+ there are big changes when they start becoming better
+
+28:45.840 --> 28:48.800
+ at us at doing most of the jobs that we do
+
+28:48.800 --> 28:51.160
+ because that takes away much of the demand
+
+28:51.160 --> 28:53.200
+ for human labor.
+
+28:53.200 --> 28:55.640
+ And then the really whopping change comes
+
+28:55.640 --> 29:00.640
+ when they become better than us at AI research, right?
+
+29:01.040 --> 29:03.760
+ Because right now the timescale of AI research
+
+29:03.760 --> 29:08.400
+ is limited by the human research and development cycle
+
+29:08.400 --> 29:10.160
+ of years typically, you know
+
+29:10.160 --> 29:13.480
+ how long does it take from one release of some software
+
+29:13.480 --> 29:15.720
+ or iPhone or whatever to the next?
+
+29:15.720 --> 29:20.720
+ But once Google can replace 40,000 engineers
+
+29:20.920 --> 29:25.920
+ by 40,000 equivalent pieces of software or whatever
+
+29:26.400 --> 29:29.680
+ but then there's no reason that has to be years
+
+29:29.680 --> 29:31.840
+ it can be in principle much faster
+
+29:31.840 --> 29:36.040
+ and the timescale of future progress in AI
+
+29:36.040 --> 29:39.320
+ and all of science and technology will be driven
+
+29:39.320 --> 29:40.960
+ by machines, not humans.
+
+29:40.960 --> 29:45.960
+ So it's this simple point which gives right
+
+29:46.520 --> 29:48.720
+ this incredibly fun controversy
+
+29:48.720 --> 29:51.880
+ about whether there can be intelligence explosion
+
+29:51.880 --> 29:54.400
+ so called singularity as Werner Vinge called it.
+
+29:54.400 --> 29:57.040
+ Now the idea is articulated by I.J. Good
+
+29:57.040 --> 29:59.480
+ is obviously way back fifties
+
+29:59.480 --> 30:01.040
+ but you can see Alan Turing
+
+30:01.040 --> 30:03.640
+ and others thought about it even earlier.
+
+30:06.920 --> 30:10.080
+ So you asked me what exactly would I define
+
+30:10.080 --> 30:12.800
+ human level intelligence, yeah.
+
+30:12.800 --> 30:15.680
+ So the glib answer is to say something
+
+30:15.680 --> 30:18.520
+ which is better than us at all cognitive tasks
+
+30:18.520 --> 30:21.800
+ with a better than any human at all cognitive tasks
+
+30:21.800 --> 30:23.080
+ but the really interesting bar
+
+30:23.080 --> 30:25.760
+ I think goes a little bit lower than that actually.
+
+30:25.760 --> 30:27.920
+ It's when they can, when they're better than us
+
+30:27.920 --> 30:31.760
+ at AI programming and general learning
+
+30:31.760 --> 30:35.360
+ so that they can if they want to get better
+
+30:35.360 --> 30:37.240
+ than us at anything by just studying.
+
+30:37.240 --> 30:40.560
+ So they're better is a key word and better is towards
+
+30:40.560 --> 30:44.120
+ this kind of spectrum of the complexity of goals
+
+30:44.120 --> 30:45.680
+ it's able to accomplish.
+
+30:45.680 --> 30:50.360
+ So another way to, and that's certainly
+
+30:50.360 --> 30:53.040
+ a very clear definition of human love.
+
+30:53.040 --> 30:55.240
+ So there's, it's almost like a sea that's rising
+
+30:55.240 --> 30:56.800
+ you can do more and more and more things
+
+30:56.800 --> 30:58.640
+ it's a geographic that you show
+
+30:58.640 --> 30:59.880
+ it's really nice way to put it.
+
+30:59.880 --> 31:01.560
+ So there's some peaks that
+
+31:01.560 --> 31:03.280
+ and there's an ocean level elevating
+
+31:03.280 --> 31:04.800
+ and you solve more and more problems
+
+31:04.800 --> 31:07.720
+ but just kind of to take a pause
+
+31:07.720 --> 31:09.000
+ and we took a bunch of questions
+
+31:09.000 --> 31:10.240
+ and a lot of social networks
+
+31:10.240 --> 31:11.720
+ and a bunch of people asked
+
+31:11.720 --> 31:14.480
+ a sort of a slightly different direction
+
+31:14.480 --> 31:19.480
+ on creativity and things that perhaps aren't a peak.
+
+31:23.560 --> 31:24.720
+ Human beings are flawed
+
+31:24.720 --> 31:28.720
+ and perhaps better means having contradiction
+
+31:28.720 --> 31:30.200
+ being flawed in some way.
+
+31:30.200 --> 31:34.960
+ So let me sort of start easy, first of all.
+
+31:34.960 --> 31:36.600
+ So you have a lot of cool equations.
+
+31:36.600 --> 31:39.760
+ Let me ask, what's your favorite equation, first of all?
+
+31:39.760 --> 31:42.760
+ I know they're all like your children, but like
+
+31:42.760 --> 31:43.680
+ which one is that?
+
+31:43.680 --> 31:45.560
+ This is the shirt in your equation.
+
+31:45.560 --> 31:48.640
+ It's the master key of quantum mechanics
+
+31:48.640 --> 31:49.880
+ of the micro world.
+
+31:49.880 --> 31:52.800
+ So this equation will protect everything
+
+31:52.800 --> 31:55.840
+ to do with atoms, molecules and all the way up.
+
+31:55.840 --> 31:58.560
+ Right?
+
+31:58.560 --> 31:59.760
+ Yeah, so, okay.
+
+31:59.760 --> 32:02.080
+ So quantum mechanics is certainly a beautiful
+
+32:02.080 --> 32:05.160
+ mysterious formulation of our world.
+
+32:05.160 --> 32:08.760
+ So I'd like to sort of ask you, just as an example
+
+32:08.760 --> 32:12.160
+ it perhaps doesn't have the same beauty as physics does
+
+32:12.160 --> 32:16.960
+ but in mathematics abstract, the Andrew Wiles
+
+32:16.960 --> 32:19.360
+ who proved the Fermat's last theorem.
+
+32:19.360 --> 32:22.040
+ So he just saw this recently
+
+32:22.040 --> 32:24.160
+ and it kind of caught my eye a little bit.
+
+32:24.160 --> 32:27.960
+ This is 358 years after it was conjectured.
+
+32:27.960 --> 32:29.960
+ So this is very simple formulation.
+
+32:29.960 --> 32:32.640
+ Everybody tried to prove it, everybody failed.
+
+32:32.640 --> 32:34.800
+ And so here's this guy comes along
+
+32:34.800 --> 32:38.640
+ and eventually proves it and then fails to prove it
+
+32:38.640 --> 32:41.320
+ and then proves it again in 94.
+
+32:41.320 --> 32:43.480
+ And he said like the moment when everything connected
+
+32:43.480 --> 32:46.040
+ into place in an interview said
+
+32:46.040 --> 32:47.880
+ it was so indescribably beautiful.
+
+32:47.880 --> 32:51.040
+ That moment when you finally realize the connecting piece
+
+32:51.040 --> 32:52.800
+ of two conjectures.
+
+32:52.800 --> 32:55.280
+ He said, it was so indescribably beautiful.
+
+32:55.280 --> 32:57.040
+ It was so simple and so elegant.
+
+32:57.040 --> 32:58.760
+ I couldn't understand how I'd missed it.
+
+32:58.760 --> 33:02.080
+ And I just stared at it in disbelief for 20 minutes.
+
+33:02.080 --> 33:05.240
+ Then during the day, I walked around the department
+
+33:05.240 --> 33:07.880
+ and I keep coming back to my desk
+
+33:07.880 --> 33:09.840
+ looking to see if it was still there.
+
+33:09.840 --> 33:10.680
+ It was still there.
+
+33:10.680 --> 33:11.760
+ I couldn't contain myself.
+
+33:11.760 --> 33:12.880
+ I was so excited.
+
+33:12.880 --> 33:15.880
+ It was the most important moment on my working life.
+
+33:15.880 --> 33:18.960
+ Nothing I ever do again will mean as much.
+
+33:18.960 --> 33:20.800
+ So that particular moment.
+
+33:20.800 --> 33:24.640
+ And it kind of made me think of what would it take?
+
+33:24.640 --> 33:27.960
+ And I think we have all been there at small levels.
+
+33:29.480 --> 33:32.240
+ Maybe let me ask, have you had a moment like that
+
+33:32.240 --> 33:34.880
+ in your life where you just had an idea?
+
+33:34.880 --> 33:37.040
+ It's like, wow, yes.
+
+33:40.000 --> 33:42.480
+ I wouldn't mention myself in the same breath
+
+33:42.480 --> 33:44.760
+ as Andrew Wiles, but I've certainly had a number
+
+33:44.760 --> 33:52.200
+ of aha moments when I realized something very cool
+
+33:52.200 --> 33:56.000
+ about physics, which has completely made my head explode.
+
+33:56.000 --> 33:58.320
+ In fact, some of my favorite discoveries I made later,
+
+33:58.320 --> 34:01.080
+ I later realized that they had been discovered earlier
+
+34:01.080 --> 34:03.240
+ by someone who sometimes got quite famous for it.
+
+34:03.240 --> 34:05.480
+ So it's too late for me to even publish it,
+
+34:05.480 --> 34:07.440
+ but that doesn't diminish in any way.
+
+34:07.440 --> 34:09.760
+ The emotional experience you have when you realize it,
+
+34:09.760 --> 34:11.320
+ like, wow.
+
+34:11.320 --> 34:15.520
+ Yeah, so what would it take in that moment, that wow,
+
+34:15.520 --> 34:17.320
+ that was yours in that moment?
+
+34:17.320 --> 34:21.440
+ So what do you think it takes for an intelligence system,
+
+34:21.440 --> 34:24.520
+ an AGI system, an AI system to have a moment like that?
+
+34:25.640 --> 34:26.760
+ That's a tricky question
+
+34:26.760 --> 34:29.200
+ because there are actually two parts to it, right?
+
+34:29.200 --> 34:33.920
+ One of them is, can it accomplish that proof?
+
+34:33.920 --> 34:37.640
+ Can it prove that you can never write A to the N
+
+34:37.640 --> 34:42.760
+ plus B to the N equals three to that equal Z to the N
+
+34:42.760 --> 34:45.320
+ for all integers, et cetera, et cetera,
+
+34:45.320 --> 34:48.720
+ when N is bigger than two?
+
+34:48.720 --> 34:51.360
+ That's simply a question about intelligence.
+
+34:51.360 --> 34:54.120
+ Can you build machines that are that intelligent?
+
+34:54.120 --> 34:57.280
+ And I think by the time we get a machine
+
+34:57.280 --> 35:00.840
+ that can independently come up with that level of proofs,
+
+35:00.840 --> 35:03.360
+ probably quite close to AGI.
+
+35:03.360 --> 35:07.240
+ The second question is a question about consciousness.
+
+35:07.240 --> 35:11.760
+ When will we, how likely is it that such a machine
+
+35:11.760 --> 35:14.240
+ will actually have any experience at all,
+
+35:14.240 --> 35:16.160
+ as opposed to just being like a zombie?
+
+35:16.160 --> 35:20.560
+ And would we expect it to have some sort of emotional response
+
+35:20.560 --> 35:24.640
+ to this or anything at all akin to human emotion
+
+35:24.640 --> 35:28.320
+ where when it accomplishes its machine goal,
+
+35:28.320 --> 35:31.920
+ it views it as somehow something very positive
+
+35:31.920 --> 35:39.160
+ and sublime and deeply meaningful?
+
+35:39.160 --> 35:41.440
+ I would certainly hope that if in the future
+
+35:41.440 --> 35:45.120
+ we do create machines that are our peers
+
+35:45.120 --> 35:50.160
+ or even our descendants, that I would certainly
+
+35:50.160 --> 35:55.480
+ hope that they do have this sublime appreciation of life.
+
+35:55.480 --> 35:58.840
+ In a way, my absolutely worst nightmare
+
+35:58.840 --> 36:05.760
+ would be that at some point in the future,
+
+36:05.760 --> 36:07.400
+ the distant future, maybe our cosmos
+
+36:07.400 --> 36:10.600
+ is teeming with all this post biological life doing
+
+36:10.600 --> 36:12.880
+ all the seemingly cool stuff.
+
+36:12.880 --> 36:16.480
+ And maybe the last humans, by the time
+
+36:16.480 --> 36:20.120
+ our species eventually fizzles out,
+
+36:20.120 --> 36:21.920
+ will be like, well, that's OK because we're
+
+36:21.920 --> 36:23.600
+ so proud of our descendants here.
+
+36:23.600 --> 36:26.680
+ And look what all the, my worst nightmare
+
+36:26.680 --> 36:30.360
+ is that we haven't solved the consciousness problem.
+
+36:30.360 --> 36:32.880
+ And we haven't realized that these are all the zombies.
+
+36:32.880 --> 36:36.200
+ They're not aware of anything any more than a tape recorder
+
+36:36.200 --> 36:37.840
+ has any kind of experience.
+
+36:37.840 --> 36:40.040
+ So the whole thing has just become
+
+36:40.040 --> 36:41.520
+ a play for empty benches.
+
+36:41.520 --> 36:44.640
+ That would be the ultimate zombie apocalypse.
+
+36:44.640 --> 36:47.200
+ So I would much rather, in that case,
+
+36:47.200 --> 36:52.240
+ that we have these beings which can really
+
+36:52.240 --> 36:57.000
+ appreciate how amazing it is.
+
+36:57.000 --> 37:01.080
+ And in that picture, what would be the role of creativity?
+
+37:01.080 --> 37:04.960
+ A few people ask about creativity.
+
+37:04.960 --> 37:07.080
+ When you think about intelligence,
+
+37:07.080 --> 37:09.840
+ certainly the story you told at the beginning of your book
+
+37:09.840 --> 37:15.200
+ involved creating movies and so on, making money.
+
+37:15.200 --> 37:17.240
+ You can make a lot of money in our modern world
+
+37:17.240 --> 37:18.600
+ with music and movies.
+
+37:18.600 --> 37:20.880
+ So if you are an intelligent system,
+
+37:20.880 --> 37:22.960
+ you may want to get good at that.
+
+37:22.960 --> 37:26.280
+ But that's not necessarily what I mean by creativity.
+
+37:26.280 --> 37:29.640
+ Is it important on that complex goals
+
+37:29.640 --> 37:31.600
+ where the sea is rising for there
+
+37:31.600 --> 37:33.800
+ to be something creative?
+
+37:33.800 --> 37:37.400
+ Or am I being very human centric and thinking creativity
+
+37:37.400 --> 37:41.880
+ somehow special relative to intelligence?
+
+37:41.880 --> 37:47.240
+ My hunch is that we should think of creativity simply
+
+37:47.240 --> 37:50.760
+ as an aspect of intelligence.
+
+37:50.760 --> 37:57.840
+ And we have to be very careful with human vanity.
+
+37:57.840 --> 37:59.520
+ We have this tendency to very often want
+
+37:59.520 --> 38:01.560
+ to say, as soon as machines can do something,
+
+38:01.560 --> 38:03.560
+ we try to diminish it and say, oh, but that's
+
+38:03.560 --> 38:05.920
+ not real intelligence.
+
+38:05.920 --> 38:08.400
+ Isn't it creative or this or that?
+
+38:08.400 --> 38:12.200
+ The other thing, if we ask ourselves
+
+38:12.200 --> 38:14.320
+ to write down a definition of what we actually mean
+
+38:14.320 --> 38:18.840
+ by being creative, what we mean by Andrew Wiles, what he did
+
+38:18.840 --> 38:21.880
+ there, for example, don't we often mean that someone takes
+
+38:21.880 --> 38:26.000
+ a very unexpected leap?
+
+38:26.000 --> 38:29.680
+ It's not like taking 573 and multiplying it
+
+38:29.680 --> 38:33.840
+ by 224 by just a step of straightforward cookbook
+
+38:33.840 --> 38:36.520
+ like rules, right?
+
+38:36.520 --> 38:39.680
+ You can maybe make a connection between two things
+
+38:39.680 --> 38:42.640
+ that people had never thought was connected or something
+
+38:42.640 --> 38:44.480
+ like that.
+
+38:44.480 --> 38:47.720
+ I think this is an aspect of intelligence.
+
+38:47.720 --> 38:53.000
+ And this is actually one of the most important aspects of it.
+
+38:53.000 --> 38:55.520
+ Maybe the reason we humans tend to be better at it
+
+38:55.520 --> 38:57.840
+ than traditional computers is because it's
+
+38:57.840 --> 38:59.640
+ something that comes more naturally if you're
+
+38:59.640 --> 39:04.120
+ a neural network than if you're a traditional logic gate
+
+39:04.120 --> 39:05.720
+ based computer machine.
+
+39:05.720 --> 39:08.640
+ We physically have all these connections.
+
+39:08.640 --> 39:13.800
+ And you activate here, activate here, activate here.
+
+39:13.800 --> 39:16.560
+ Bing.
+
+39:16.560 --> 39:21.040
+ My hunch is that if we ever build a machine where you could
+
+39:21.040 --> 39:29.200
+ just give it the task, hey, you say, hey, I just realized
+
+39:29.200 --> 39:32.320
+ I want to travel around the world instead this month.
+
+39:32.320 --> 39:34.600
+ Can you teach my AGI course for me?
+
+39:34.600 --> 39:35.960
+ And it's like, OK, I'll do it.
+
+39:35.960 --> 39:37.920
+ And it does everything that you would have done
+
+39:37.920 --> 39:39.760
+ and improvises and stuff.
+
+39:39.760 --> 39:43.360
+ That would, in my mind, involve a lot of creativity.
+
+39:43.360 --> 39:45.680
+ Yeah, so it's actually a beautiful way to put it.
+
+39:45.680 --> 39:52.640
+ I think we do try to grasp at the definition of intelligence
+
+39:52.640 --> 39:56.360
+ is everything we don't understand how to build.
+
+39:56.360 --> 39:59.360
+ So we as humans try to find things
+
+39:59.360 --> 40:01.240
+ that we have and machines don't have.
+
+40:01.240 --> 40:03.800
+ And maybe creativity is just one of the things, one
+
+40:03.800 --> 40:05.480
+ of the words we use to describe that.
+
+40:05.480 --> 40:07.200
+ That's a really interesting way to put it.
+
+40:07.200 --> 40:09.520
+ I don't think we need to be that defensive.
+
+40:09.520 --> 40:11.560
+ I don't think anything good comes out of saying,
+
+40:11.560 --> 40:18.080
+ well, we're somehow special, you know?
+
+40:18.080 --> 40:21.040
+ Contrary wise, there are many examples in history
+
+40:21.040 --> 40:27.840
+ of where trying to pretend that we're somehow superior
+
+40:27.840 --> 40:33.120
+ to all other intelligent beings has led to pretty bad results,
+
+40:33.120 --> 40:35.960
+ right?
+
+40:35.960 --> 40:38.440
+ Nazi Germany, they said that they were somehow superior
+
+40:38.440 --> 40:40.080
+ to other people.
+
+40:40.080 --> 40:42.440
+ Today, we still do a lot of cruelty to animals
+
+40:42.440 --> 40:44.440
+ by saying that we're so superior somehow,
+
+40:44.440 --> 40:46.440
+ and they can't feel pain.
+
+40:46.440 --> 40:48.480
+ Slavery was justified by the same kind
+
+40:48.480 --> 40:52.200
+ of just really weak arguments.
+
+40:52.200 --> 40:57.120
+ And I don't think if we actually go ahead and build
+
+40:57.120 --> 40:59.440
+ artificial general intelligence, it
+
+40:59.440 --> 41:01.360
+ can do things better than us, I don't
+
+41:01.360 --> 41:04.080
+ think we should try to found our self worth on some sort
+
+41:04.080 --> 41:09.760
+ of bogus claims of superiority in terms
+
+41:09.760 --> 41:12.120
+ of our intelligence.
+
+41:12.120 --> 41:18.080
+ I think we should instead find our calling
+
+41:18.080 --> 41:23.360
+ and the meaning of life from the experiences that we have.
+
+41:23.360 --> 41:28.720
+ I can have very meaningful experiences
+
+41:28.720 --> 41:32.920
+ even if there are other people who are smarter than me.
+
+41:32.920 --> 41:34.400
+ When I go to a faculty meeting here,
+
+41:34.400 --> 41:36.520
+ and we talk about something, and then I certainly realize,
+
+41:36.520 --> 41:39.080
+ oh, boy, he has an old prize, he has an old prize,
+
+41:39.080 --> 41:40.800
+ he has an old prize, I don't have one.
+
+41:40.800 --> 41:43.760
+ Does that make me enjoy life any less
+
+41:43.760 --> 41:47.560
+ or enjoy talking to those people less?
+
+41:47.560 --> 41:49.560
+ Of course not.
+
+41:49.560 --> 41:54.160
+ And the contrary, I feel very honored and privileged
+
+41:54.160 --> 41:58.760
+ to get to interact with other very intelligent beings that
+
+41:58.760 --> 42:00.680
+ are better than me at a lot of stuff.
+
+42:00.680 --> 42:02.840
+ So I don't think there's any reason why
+
+42:02.840 --> 42:06.080
+ we can't have the same approach with intelligent machines.
+
+42:06.080 --> 42:07.320
+ That's a really interesting.
+
+42:07.320 --> 42:08.920
+ So people don't often think about that.
+
+42:08.920 --> 42:10.600
+ They think about when there's going,
+
+42:10.600 --> 42:13.320
+ if there's machines that are more intelligent,
+
+42:13.320 --> 42:15.080
+ you naturally think that that's not
+
+42:15.080 --> 42:19.080
+ going to be a beneficial type of intelligence.
+
+42:19.080 --> 42:23.000
+ You don't realize it could be like peers with Nobel prizes
+
+42:23.000 --> 42:25.120
+ that would be just fun to talk with,
+
+42:25.120 --> 42:27.560
+ and they might be clever about certain topics,
+
+42:27.560 --> 42:32.240
+ and you can have fun having a few drinks with them.
+
+42:32.240 --> 42:35.880
+ Well, also, another example we can all
+
+42:35.880 --> 42:39.320
+ relate to of why it doesn't have to be a terrible thing
+
+42:39.320 --> 42:42.560
+ to be in the presence of people who are even smarter than us
+
+42:42.560 --> 42:45.600
+ all around is when you and I were both two years old,
+
+42:45.600 --> 42:48.360
+ I mean, our parents were much more intelligent than us,
+
+42:48.360 --> 42:49.040
+ right?
+
+42:49.040 --> 42:51.960
+ Worked out OK, because their goals
+
+42:51.960 --> 42:53.960
+ were aligned with our goals.
+
+42:53.960 --> 42:58.680
+ And that, I think, is really the number one key issue
+
+42:58.680 --> 43:02.280
+ we have to solve if we value align the value alignment
+
+43:02.280 --> 43:03.080
+ problem, exactly.
+
+43:03.080 --> 43:06.520
+ Because people who see too many Hollywood movies
+
+43:06.520 --> 43:10.000
+ with lousy science fiction plot lines,
+
+43:10.000 --> 43:12.200
+ they worry about the wrong thing, right?
+
+43:12.200 --> 43:16.320
+ They worry about some machine suddenly turning evil.
+
+43:16.320 --> 43:21.480
+ It's not malice that is the concern.
+
+43:21.480 --> 43:22.880
+ It's competence.
+
+43:22.880 --> 43:27.440
+ By definition, intelligent makes you very competent.
+
+43:27.440 --> 43:31.920
+ If you have a more intelligent goal playing,
+
+43:31.920 --> 43:33.680
+ computer playing is a less intelligent one.
+
+43:33.680 --> 43:36.120
+ And when we define intelligence as the ability
+
+43:36.120 --> 43:38.600
+ to accomplish goal winning, it's going
+
+43:38.600 --> 43:40.560
+ to be the more intelligent one that wins.
+
+43:40.560 --> 43:43.560
+ And if you have a human and then you
+
+43:43.560 --> 43:47.720
+ have an AGI that's more intelligent in all ways
+
+43:47.720 --> 43:49.520
+ and they have different goals, guess who's
+
+43:49.520 --> 43:50.720
+ going to get their way, right?
+
+43:50.720 --> 43:57.120
+ So I was just reading about this particular rhinoceros species
+
+43:57.120 --> 43:59.200
+ that was driven extinct just a few years ago.
+
+43:59.200 --> 44:02.280
+ Ellen Bummer is looking at this cute picture of a mommy
+
+44:02.280 --> 44:05.080
+ rhinoceros with its child.
+
+44:05.080 --> 44:09.320
+ And why did we humans drive it to extinction?
+
+44:09.320 --> 44:12.800
+ It wasn't because we were evil rhino haters as a whole.
+
+44:12.800 --> 44:14.920
+ It was just because our goals weren't aligned
+
+44:14.920 --> 44:16.000
+ with those of the rhinoceros.
+
+44:16.000 --> 44:17.680
+ And it didn't work out so well for the rhinoceros
+
+44:17.680 --> 44:19.560
+ because we were more intelligent, right?
+
+44:19.560 --> 44:21.240
+ So I think it's just so important
+
+44:21.240 --> 44:27.120
+ that if we ever do build AGI, before we unleash anything,
+
+44:27.120 --> 44:31.840
+ we have to make sure that it learns
+
+44:31.840 --> 44:36.000
+ to understand our goals, that it adopts our goals,
+
+44:36.000 --> 44:37.920
+ and that it retains those goals.
+
+44:37.920 --> 44:40.520
+ So the cool, interesting problem there
+
+44:40.520 --> 44:47.040
+ is us as human beings trying to formulate our values.
+
+44:47.040 --> 44:51.360
+ So you could think of the United States Constitution as a way
+
+44:51.360 --> 44:56.680
+ that people sat down, at the time a bunch of white men,
+
+44:56.680 --> 44:59.680
+ which is a good example, I should say.
+
+44:59.680 --> 45:01.480
+ They formulated the goals for this country.
+
+45:01.480 --> 45:03.760
+ And a lot of people agree that those goals actually
+
+45:03.760 --> 45:05.360
+ held up pretty well.
+
+45:05.360 --> 45:07.160
+ That's an interesting formulation of values
+
+45:07.160 --> 45:09.440
+ and failed miserably in other ways.
+
+45:09.440 --> 45:13.320
+ So for the value alignment problem and the solution to it,
+
+45:13.320 --> 45:19.560
+ we have to be able to put on paper or in a program
+
+45:19.560 --> 45:20.400
+ human values.
+
+45:20.400 --> 45:22.400
+ How difficult do you think that is?
+
+45:22.400 --> 45:24.040
+ Very.
+
+45:24.040 --> 45:25.880
+ But it's so important.
+
+45:25.880 --> 45:28.000
+ We really have to give it our best.
+
+45:28.000 --> 45:30.120
+ And it's difficult for two separate reasons.
+
+45:30.120 --> 45:33.440
+ There's the technical value alignment problem
+
+45:33.440 --> 45:39.120
+ of figuring out just how to make machines understand our goals,
+
+45:39.120 --> 45:40.440
+ adopt them, and retain them.
+
+45:40.440 --> 45:43.200
+ And then there's the separate part of it,
+
+45:43.200 --> 45:44.200
+ the philosophical part.
+
+45:44.200 --> 45:45.920
+ Whose values anyway?
+
+45:45.920 --> 45:48.320
+ And since it's not like we have any great consensus
+
+45:48.320 --> 45:52.040
+ on this planet on values, what mechanism should we
+
+45:52.040 --> 45:54.120
+ create then to aggregate and decide, OK,
+
+45:54.120 --> 45:56.520
+ what's a good compromise?
+
+45:56.520 --> 45:58.440
+ That second discussion can't just
+
+45:58.440 --> 46:01.560
+ be left to tech nerds like myself.
+
+46:01.560 --> 46:05.720
+ And if we refuse to talk about it and then AGI gets built,
+
+46:05.720 --> 46:07.160
+ who's going to be actually making
+
+46:07.160 --> 46:08.480
+ the decision about whose values?
+
+46:08.480 --> 46:12.080
+ It's going to be a bunch of dudes in some tech company.
+
+46:12.080 --> 46:17.240
+ And are they necessarily so representative of all
+
+46:17.240 --> 46:19.400
+ of humankind that we want to just entrust it to them?
+
+46:19.400 --> 46:23.000
+ Are they even uniquely qualified to speak
+
+46:23.000 --> 46:25.240
+ to future human happiness just because they're
+
+46:25.240 --> 46:26.480
+ good at programming AI?
+
+46:26.480 --> 46:30.200
+ I'd much rather have this be a really inclusive conversation.
+
+46:30.200 --> 46:32.560
+ But do you think it's possible?
+
+46:32.560 --> 46:37.560
+ So you create a beautiful vision that includes the diversity,
+
+46:37.560 --> 46:40.960
+ cultural diversity, and various perspectives on discussing
+
+46:40.960 --> 46:43.600
+ rights, freedoms, human dignity.
+
+46:43.600 --> 46:46.520
+ But how hard is it to come to that consensus?
+
+46:46.520 --> 46:50.400
+ Do you think it's certainly a really important thing
+
+46:50.400 --> 46:51.880
+ that we should all try to do?
+
+46:51.880 --> 46:54.240
+ But do you think it's feasible?
+
+46:54.240 --> 47:00.160
+ I think there's no better way to guarantee failure than to
+
+47:00.160 --> 47:02.840
+ refuse to talk about it or refuse to try.
+
+47:02.840 --> 47:05.320
+ And I also think it's a really bad strategy
+
+47:05.320 --> 47:08.560
+ to say, OK, let's first have a discussion for a long time.
+
+47:08.560 --> 47:11.040
+ And then once we reach complete consensus,
+
+47:11.040 --> 47:13.360
+ then we'll try to load it into some machine.
+
+47:13.360 --> 47:16.560
+ No, we shouldn't let perfect be the enemy of good.
+
+47:16.560 --> 47:20.600
+ Instead, we should start with the kindergarten ethics
+
+47:20.600 --> 47:22.120
+ that pretty much everybody agrees on
+
+47:22.120 --> 47:24.360
+ and put that into machines now.
+
+47:24.360 --> 47:25.880
+ We're not doing that even.
+
+47:25.880 --> 47:31.000
+ Look at anyone who builds this passenger aircraft,
+
+47:31.000 --> 47:33.000
+ wants it to never under any circumstances
+
+47:33.000 --> 47:35.600
+ fly into a building or a mountain.
+
+47:35.600 --> 47:38.480
+ Yet the September 11 hijackers were able to do that.
+
+47:38.480 --> 47:41.800
+ And even more embarrassingly, Andreas Lubitz,
+
+47:41.800 --> 47:43.960
+ this depressed Germanwings pilot,
+
+47:43.960 --> 47:47.360
+ when he flew his passenger jet into the Alps killing over 100
+
+47:47.360 --> 47:50.640
+ people, he just told the autopilot to do it.
+
+47:50.640 --> 47:53.200
+ He told the freaking computer to change the altitude
+
+47:53.200 --> 47:55.040
+ to 100 meters.
+
+47:55.040 --> 47:58.160
+ And even though it had the GPS maps, everything,
+
+47:58.160 --> 48:00.640
+ the computer was like, OK.
+
+48:00.640 --> 48:05.320
+ So we should take those very basic values,
+
+48:05.320 --> 48:08.400
+ where the problem is not that we don't agree.
+
+48:08.400 --> 48:10.120
+ The problem is just we've been too lazy
+
+48:10.120 --> 48:11.480
+ to try to put it into our machines
+
+48:11.480 --> 48:15.520
+ and make sure that from now on, airplanes will just,
+
+48:15.520 --> 48:16.920
+ which all have computers in them,
+
+48:16.920 --> 48:19.720
+ but will just refuse to do something like that.
+
+48:19.720 --> 48:22.160
+ Go into safe mode, maybe lock the cockpit door,
+
+48:22.160 --> 48:24.480
+ go over to the nearest airport.
+
+48:24.480 --> 48:28.080
+ And there's so much other technology in our world
+
+48:28.080 --> 48:31.320
+ as well now, where it's really becoming quite timely
+
+48:31.320 --> 48:34.120
+ to put in some sort of very basic values like this.
+
+48:34.120 --> 48:39.240
+ Even in cars, we've had enough vehicle terrorism attacks
+
+48:39.240 --> 48:42.040
+ by now, where people have driven trucks and vans
+
+48:42.040 --> 48:45.480
+ into pedestrians, that it's not at all a crazy idea
+
+48:45.480 --> 48:48.680
+ to just have that hardwired into the car.
+
+48:48.680 --> 48:50.280
+ Because yeah, there are a lot of,
+
+48:50.280 --> 48:52.240
+ there's always going to be people who for some reason
+
+48:52.240 --> 48:54.800
+ want to harm others, but most of those people
+
+48:54.800 --> 48:56.760
+ don't have the technical expertise to figure out
+
+48:56.760 --> 48:58.520
+ how to work around something like that.
+
+48:58.520 --> 49:01.760
+ So if the car just won't do it, it helps.
+
+49:01.760 --> 49:02.840
+ So let's start there.
+
+49:02.840 --> 49:04.960
+ So there's a lot of, that's a great point.
+
+49:04.960 --> 49:06.800
+ So not chasing perfect.
+
+49:06.800 --> 49:10.840
+ There's a lot of things that most of the world agrees on.
+
+49:10.840 --> 49:11.840
+ Yeah, let's start there.
+
+49:11.840 --> 49:12.680
+ Let's start there.
+
+49:12.680 --> 49:14.560
+ And then once we start there,
+
+49:14.560 --> 49:17.240
+ we'll also get into the habit of having
+
+49:17.240 --> 49:18.520
+ these kind of conversations about, okay,
+
+49:18.520 --> 49:21.760
+ what else should we put in here and have these discussions?
+
+49:21.760 --> 49:23.920
+ This should be a gradual process then.
+
+49:23.920 --> 49:28.600
+ Great, so, but that also means describing these things
+
+49:28.600 --> 49:31.240
+ and describing it to a machine.
+
+49:31.240 --> 49:34.200
+ So one thing, we had a few conversations
+
+49:34.200 --> 49:35.640
+ with Stephen Wolfram.
+
+49:35.640 --> 49:37.080
+ I'm not sure if you're familiar with Stephen.
+
+49:37.080 --> 49:38.360
+ Oh yeah, I know him quite well.
+
+49:38.360 --> 49:42.040
+ So he is, he works with a bunch of things,
+
+49:42.040 --> 49:46.560
+ but cellular automata, these simple computable things,
+
+49:46.560 --> 49:47.960
+ these computation systems.
+
+49:47.960 --> 49:49.880
+ And he kind of mentioned that,
+
+49:49.880 --> 49:52.480
+ we probably have already within these systems
+
+49:52.480 --> 49:54.680
+ already something that's AGI,
+
+49:56.120 --> 49:58.720
+ meaning like we just don't know it
+
+49:58.720 --> 50:00.400
+ because we can't talk to it.
+
+50:00.400 --> 50:04.800
+ So if you give me this chance to try to at least
+
+50:04.800 --> 50:06.720
+ form a question out of this is,
+
+50:07.600 --> 50:10.880
+ I think it's an interesting idea to think
+
+50:10.880 --> 50:12.680
+ that we can have intelligent systems,
+
+50:12.680 --> 50:15.600
+ but we don't know how to describe something to them
+
+50:15.600 --> 50:17.360
+ and they can't communicate with us.
+
+50:17.360 --> 50:19.840
+ I know you're doing a little bit of work in explainable AI,
+
+50:19.840 --> 50:22.040
+ trying to get AI to explain itself.
+
+50:22.040 --> 50:25.520
+ So what are your thoughts of natural language processing
+
+50:25.520 --> 50:27.640
+ or some kind of other communication?
+
+50:27.640 --> 50:30.120
+ How does the AI explain something to us?
+
+50:30.120 --> 50:33.640
+ How do we explain something to it, to machines?
+
+50:33.640 --> 50:35.320
+ Or you think of it differently?
+
+50:35.320 --> 50:39.960
+ So there are two separate parts to your question there.
+
+50:39.960 --> 50:42.440
+ One of them has to do with communication,
+
+50:42.440 --> 50:44.440
+ which is super interesting, I'll get to that in a sec.
+
+50:44.440 --> 50:47.280
+ The other is whether we already have AGI
+
+50:47.280 --> 50:49.240
+ but we just haven't noticed it there.
+
+50:49.240 --> 50:50.080
+ Right.
+
+50:51.800 --> 50:53.000
+ There I beg to differ.
+
+50:54.280 --> 50:56.480
+ I don't think there's anything in any cellular automaton
+
+50:56.480 --> 50:59.040
+ or anything or the internet itself or whatever
+
+50:59.040 --> 51:03.560
+ that has artificial general intelligence
+
+51:03.560 --> 51:05.520
+ and that it can really do exactly everything
+
+51:05.520 --> 51:07.000
+ we humans can do better.
+
+51:07.000 --> 51:11.600
+ I think the day that happens, when that happens,
+
+51:11.600 --> 51:15.600
+ we will very soon notice, we'll probably notice even before
+
+51:15.600 --> 51:17.440
+ because in a very, very big way.
+
+51:17.440 --> 51:18.840
+ But for the second part, though.
+
+51:18.840 --> 51:20.720
+ Wait, can I ask, sorry.
+
+51:20.720 --> 51:24.400
+ So, because you have this beautiful way
+
+51:24.400 --> 51:29.400
+ to formulating consciousness as information processing,
+
+51:30.360 --> 51:31.360
+ and you can think of intelligence
+
+51:31.360 --> 51:32.280
+ as information processing,
+
+51:32.280 --> 51:34.320
+ and you can think of the entire universe
+
+51:34.320 --> 51:38.720
+ as these particles and these systems roaming around
+
+51:38.720 --> 51:41.360
+ that have this information processing power.
+
+51:41.360 --> 51:44.840
+ You don't think there is something with the power
+
+51:44.840 --> 51:49.040
+ to process information in the way that we human beings do
+
+51:49.040 --> 51:54.040
+ that's out there that needs to be sort of connected to.
+
+51:55.400 --> 51:57.880
+ It seems a little bit philosophical, perhaps,
+
+51:57.880 --> 52:00.080
+ but there's something compelling to the idea
+
+52:00.080 --> 52:01.920
+ that the power is already there,
+
+52:01.920 --> 52:05.440
+ which the focus should be more on being able
+
+52:05.440 --> 52:07.360
+ to communicate with it.
+
+52:07.360 --> 52:11.960
+ Well, I agree that in a certain sense,
+
+52:11.960 --> 52:15.360
+ the hardware processing power is already out there
+
+52:15.360 --> 52:19.000
+ because our universe itself can think of it
+
+52:19.000 --> 52:21.000
+ as being a computer already, right?
+
+52:21.000 --> 52:23.800
+ It's constantly computing what water waves,
+
+52:23.800 --> 52:26.120
+ how it devolved the water waves in the River Charles
+
+52:26.120 --> 52:28.440
+ and how to move the air molecules around.
+
+52:28.440 --> 52:30.480
+ Seth Lloyd has pointed out, my colleague here,
+
+52:30.480 --> 52:32.920
+ that you can even in a very rigorous way
+
+52:32.920 --> 52:35.480
+ think of our entire universe as being a quantum computer.
+
+52:35.480 --> 52:37.680
+ It's pretty clear that our universe
+
+52:37.680 --> 52:40.320
+ supports this amazing processing power
+
+52:40.320 --> 52:42.160
+ because you can even,
+
+52:42.160 --> 52:44.920
+ within this physics computer that we live in, right?
+
+52:44.920 --> 52:47.040
+ We can even build actual laptops and stuff,
+
+52:47.040 --> 52:49.000
+ so clearly the power is there.
+
+52:49.000 --> 52:52.040
+ It's just that most of the compute power that nature has,
+
+52:52.040 --> 52:54.240
+ it's, in my opinion, kind of wasting on boring stuff
+
+52:54.240 --> 52:56.520
+ like simulating yet another ocean wave somewhere
+
+52:56.520 --> 52:58.040
+ where no one is even looking, right?
+
+52:58.040 --> 53:00.880
+ So in a sense, what life does, what we are doing
+
+53:00.880 --> 53:03.880
+ when we build computers is we're rechanneling
+
+53:03.880 --> 53:07.200
+ all this compute that nature is doing anyway
+
+53:07.200 --> 53:09.360
+ into doing things that are more interesting
+
+53:09.360 --> 53:11.440
+ than just yet another ocean wave,
+
+53:11.440 --> 53:13.200
+ and let's do something cool here.
+
+53:14.080 --> 53:17.080
+ So the raw hardware power is there, for sure,
+
+53:17.080 --> 53:21.080
+ but then even just computing what's going to happen
+
+53:21.080 --> 53:23.520
+ for the next five seconds in this water bottle,
+
+53:23.520 --> 53:26.000
+ takes a ridiculous amount of compute
+
+53:26.000 --> 53:27.920
+ if you do it on a human computer.
+
+53:27.920 --> 53:29.920
+ This water bottle just did it.
+
+53:29.920 --> 53:33.440
+ But that does not mean that this water bottle has AGI
+
+53:34.760 --> 53:37.040
+ because AGI means it should also be able to,
+
+53:37.040 --> 53:40.160
+ like I've written my book, done this interview.
+
+53:40.160 --> 53:42.080
+ And I don't think it's just communication problems.
+
+53:42.080 --> 53:46.760
+ I don't really think it can do it.
+
+53:46.760 --> 53:49.280
+ Although Buddhists say when they watch the water
+
+53:49.280 --> 53:51.240
+ and that there is some beauty,
+
+53:51.240 --> 53:53.720
+ that there's some depth and beauty in nature
+
+53:53.720 --> 53:54.840
+ that they can communicate with.
+
+53:54.840 --> 53:56.480
+ Communication is also very important though
+
+53:56.480 --> 54:01.200
+ because I mean, look, part of my job is being a teacher.
+
+54:01.200 --> 54:06.200
+ And I know some very intelligent professors even
+
+54:06.200 --> 54:09.800
+ who just have a bit of hard time communicating.
+
+54:09.800 --> 54:12.640
+ They come up with all these brilliant ideas,
+
+54:12.640 --> 54:14.520
+ but to communicate with somebody else,
+
+54:14.520 --> 54:16.920
+ you have to also be able to simulate their own mind.
+
+54:16.920 --> 54:18.360
+ Yes, empathy.
+
+54:18.360 --> 54:20.640
+ Build well enough and understand model of their mind
+
+54:20.640 --> 54:24.400
+ that you can say things that they will understand.
+
+54:24.400 --> 54:26.480
+ And that's quite difficult.
+
+54:26.480 --> 54:28.280
+ And that's why today it's so frustrating
+
+54:28.280 --> 54:32.600
+ if you have a computer that makes some cancer diagnosis
+
+54:32.600 --> 54:34.120
+ and you ask it, well, why are you saying
+
+54:34.120 --> 54:36.120
+ I should have this surgery?
+
+54:36.120 --> 54:37.960
+ And if it can only reply,
+
+54:37.960 --> 54:40.800
+ I was trained on five terabytes of data
+
+54:40.800 --> 54:45.080
+ and this is my diagnosis, boop, boop, beep, beep.
+
+54:45.080 --> 54:49.120
+ It doesn't really instill a lot of confidence, right?
+
+54:49.120 --> 54:51.120
+ So I think we have a lot of work to do
+
+54:51.120 --> 54:54.320
+ on communication there.
+
+54:54.320 --> 54:58.040
+ So what kind of, I think you're doing a little bit of work
+
+54:58.040 --> 54:59.320
+ in explainable AI.
+
+54:59.320 --> 55:01.320
+ What do you think are the most promising avenues?
+
+55:01.320 --> 55:05.240
+ Is it mostly about sort of the Alexa problem
+
+55:05.240 --> 55:07.200
+ of natural language processing of being able
+
+55:07.200 --> 55:11.600
+ to actually use human interpretable methods
+
+55:11.600 --> 55:13.160
+ of communication?
+
+55:13.160 --> 55:16.000
+ So being able to talk to a system and it talk back to you,
+
+55:16.000 --> 55:18.640
+ or is there some more fundamental problems to be solved?
+
+55:18.640 --> 55:21.160
+ I think it's all of the above.
+
+55:21.160 --> 55:23.520
+ The natural language processing is obviously important,
+
+55:23.520 --> 55:27.600
+ but there are also more nerdy fundamental problems.
+
+55:27.600 --> 55:31.640
+ Like if you take, you play chess?
+
+55:31.640 --> 55:33.040
+ Of course, I'm Russian.
+
+55:33.040 --> 55:33.880
+ I have to.
+
+55:33.880 --> 55:34.720
+ You speak Russian?
+
+55:34.720 --> 55:35.560
+ Yes, I speak Russian.
+
+55:35.560 --> 55:38.040
+ Excellent, I didn't know.
+
+55:38.040 --> 55:39.160
+ When did you learn Russian?
+
+55:39.160 --> 55:41.800
+ I speak very bad Russian, I'm only an autodidact,
+
+55:41.800 --> 55:44.560
+ but I bought a book, Teach Yourself Russian,
+
+55:44.560 --> 55:47.720
+ read a lot, but it was very difficult.
+
+55:47.720 --> 55:48.560
+ Wow.
+
+55:48.560 --> 55:49.960
+ That's why I speak so bad.
+
+55:49.960 --> 55:51.960
+ How many languages do you know?
+
+55:51.960 --> 55:53.840
+ Wow, that's really impressive.
+
+55:53.840 --> 55:56.320
+ I don't know, my wife has some calculation,
+
+55:56.320 --> 55:58.400
+ but my point was, if you play chess,
+
+55:58.400 --> 56:01.040
+ have you looked at the AlphaZero games?
+
+56:01.040 --> 56:02.600
+ The actual games, no.
+
+56:02.600 --> 56:05.000
+ Check it out, some of them are just mind blowing,
+
+56:06.320 --> 56:07.720
+ really beautiful.
+
+56:07.720 --> 56:12.400
+ And if you ask, how did it do that?
+
+56:13.760 --> 56:16.520
+ You go talk to Demis Hassabis,
+
+56:16.520 --> 56:18.240
+ I know others from DeepMind,
+
+56:19.120 --> 56:20.600
+ all they'll ultimately be able to give you
+
+56:20.600 --> 56:23.920
+ is big tables of numbers, matrices,
+
+56:23.920 --> 56:25.720
+ that define the neural network.
+
+56:25.720 --> 56:28.080
+ And you can stare at these tables of numbers
+
+56:28.080 --> 56:29.600
+ till your face turn blue,
+
+56:29.600 --> 56:32.520
+ and you're not gonna understand much
+
+56:32.520 --> 56:34.520
+ about why it made that move.
+
+56:34.520 --> 56:37.640
+ And even if you have natural language processing
+
+56:37.640 --> 56:40.280
+ that can tell you in human language about,
+
+56:40.280 --> 56:42.520
+ oh, five, seven, points, two, eight,
+
+56:42.520 --> 56:43.560
+ still not gonna really help.
+
+56:43.560 --> 56:47.480
+ So I think there's a whole spectrum of fun challenges
+
+56:47.480 --> 56:50.520
+ that are involved in taking a computation
+
+56:50.520 --> 56:52.240
+ that does intelligent things
+
+56:52.240 --> 56:56.240
+ and transforming it into something equally good,
+
+56:57.760 --> 57:01.840
+ equally intelligent, but that's more understandable.
+
+57:01.840 --> 57:03.240
+ And I think that's really valuable
+
+57:03.240 --> 57:07.440
+ because I think as we put machines in charge
+
+57:07.440 --> 57:09.760
+ of ever more infrastructure in our world,
+
+57:09.760 --> 57:12.680
+ the power grid, the trading on the stock market,
+
+57:12.680 --> 57:14.320
+ weapon systems and so on,
+
+57:14.320 --> 57:17.760
+ it's absolutely crucial that we can trust
+
+57:17.760 --> 57:19.400
+ these AIs to do all we want.
+
+57:19.400 --> 57:21.520
+ And trust really comes from understanding
+
+57:22.520 --> 57:24.400
+ in a very fundamental way.
+
+57:24.400 --> 57:27.560
+ And that's why I'm working on this,
+
+57:27.560 --> 57:29.160
+ because I think the more,
+
+57:29.160 --> 57:31.840
+ if we're gonna have some hope of ensuring
+
+57:31.840 --> 57:33.520
+ that machines have adopted our goals
+
+57:33.520 --> 57:35.800
+ and that they're gonna retain them,
+
+57:35.800 --> 57:38.800
+ that kind of trust, I think,
+
+57:38.800 --> 57:41.200
+ needs to be based on things you can actually understand,
+
+57:41.200 --> 57:44.240
+ preferably even improve theorems on.
+
+57:44.240 --> 57:46.080
+ Even with a self driving car, right?
+
+57:47.040 --> 57:48.680
+ If someone just tells you it's been trained
+
+57:48.680 --> 57:50.640
+ on tons of data and it never crashed,
+
+57:50.640 --> 57:54.200
+ it's less reassuring than if someone actually has a proof.
+
+57:54.200 --> 57:55.960
+ Maybe it's a computer verified proof,
+
+57:55.960 --> 57:58.800
+ but still it says that under no circumstances
+
+57:58.800 --> 58:02.320
+ is this car just gonna swerve into oncoming traffic.
+
+58:02.320 --> 58:04.640
+ And that kind of information helps to build trust
+
+58:04.640 --> 58:08.080
+ and helps build the alignment of goals,
+
+58:09.400 --> 58:12.200
+ at least awareness that your goals, your values are aligned.
+
+58:12.200 --> 58:13.840
+ And I think even in the very short term,
+
+58:13.840 --> 58:16.360
+ if you look at how, you know, today, right?
+
+58:16.360 --> 58:19.320
+ This absolutely pathetic state of cybersecurity
+
+58:19.320 --> 58:21.720
+ that we have, where is it?
+
+58:21.720 --> 58:25.960
+ Three billion Yahoo accounts we can't pack,
+
+58:27.200 --> 58:31.720
+ almost every American's credit card and so on.
+
+58:32.800 --> 58:34.120
+ Why is this happening?
+
+58:34.120 --> 58:37.960
+ It's ultimately happening because we have software
+
+58:37.960 --> 58:41.200
+ that nobody fully understood how it worked.
+
+58:41.200 --> 58:44.800
+ That's why the bugs hadn't been found, right?
+
+58:44.800 --> 58:47.480
+ And I think AI can be used very effectively
+
+58:47.480 --> 58:49.640
+ for offense, for hacking,
+
+58:49.640 --> 58:52.320
+ but it can also be used for defense.
+
+58:52.320 --> 58:55.360
+ Hopefully automating verifiability
+
+58:55.360 --> 59:00.360
+ and creating systems that are built in different ways
+
+59:00.680 --> 59:02.920
+ so you can actually prove things about them.
+
+59:02.920 --> 59:05.240
+ And it's important.
+
+59:05.240 --> 59:07.680
+ So speaking of software that nobody understands
+
+59:07.680 --> 59:10.640
+ how it works, of course, a bunch of people ask
+
+59:10.640 --> 59:12.160
+ about your paper, about your thoughts
+
+59:12.160 --> 59:14.680
+ of why does deep and cheap learning work so well?
+
+59:14.680 --> 59:15.520
+ That's the paper.
+
+59:15.520 --> 59:18.320
+ But what are your thoughts on deep learning?
+
+59:18.320 --> 59:21.880
+ These kind of simplified models of our own brains
+
+59:21.880 --> 59:26.440
+ have been able to do some successful perception work,
+
+59:26.440 --> 59:29.560
+ pattern recognition work, and now with AlphaZero and so on,
+
+59:29.560 --> 59:30.880
+ do some clever things.
+
+59:30.880 --> 59:33.880
+ What are your thoughts about the promise limitations
+
+59:33.880 --> 59:35.680
+ of this piece?
+
+59:35.680 --> 59:40.680
+ Great, I think there are a number of very important insights,
+
+59:43.080 --> 59:44.640
+ very important lessons we can always draw
+
+59:44.640 --> 59:47.120
+ from these kinds of successes.
+
+59:47.120 --> 59:48.960
+ One of them is when you look at the human brain,
+
+59:48.960 --> 59:51.480
+ you see it's very complicated, 10th of 11 neurons,
+
+59:51.480 --> 59:53.320
+ and there are all these different kinds of neurons
+
+59:53.320 --> 59:55.040
+ and yada, yada, and there's been this long debate
+
+59:55.040 --> 59:57.200
+ about whether the fact that we have dozens
+
+59:57.200 --> 1:00:00.160
+ of different kinds is actually necessary for intelligence.
+
+1:00:01.560 --> 1:00:03.360
+ We can now, I think, quite convincingly answer
+
+1:00:03.360 --> 1:00:07.640
+ that question of no, it's enough to have just one kind.
+
+1:00:07.640 --> 1:00:09.920
+ If you look under the hood of AlphaZero,
+
+1:00:09.920 --> 1:00:11.080
+ there's only one kind of neuron
+
+1:00:11.080 --> 1:00:15.000
+ and it's ridiculously simple mathematical thing.
+
+1:00:15.000 --> 1:00:17.280
+ So it's just like in physics,
+
+1:00:17.280 --> 1:00:20.320
+ it's not, if you have a gas with waves in it,
+
+1:00:20.320 --> 1:00:23.240
+ it's not the detailed nature of the molecule that matter,
+
+1:00:24.240 --> 1:00:26.040
+ it's the collective behavior somehow.
+
+1:00:26.040 --> 1:00:30.720
+ Similarly, it's this higher level structure
+
+1:00:30.720 --> 1:00:31.760
+ of the network that matters,
+
+1:00:31.760 --> 1:00:34.080
+ not that you have 20 kinds of neurons.
+
+1:00:34.080 --> 1:00:37.040
+ I think our brain is such a complicated mess
+
+1:00:37.040 --> 1:00:41.720
+ because it wasn't evolved just to be intelligent,
+
+1:00:41.720 --> 1:00:45.840
+ it was involved to also be self assembling
+
+1:00:47.000 --> 1:00:48.760
+ and self repairing, right?
+
+1:00:48.760 --> 1:00:51.920
+ And evolutionarily attainable.
+
+1:00:51.920 --> 1:00:53.560
+ And so on and so on.
+
+1:00:53.560 --> 1:00:54.720
+ So I think it's pretty,
+
+1:00:54.720 --> 1:00:57.040
+ my hunch is that we're going to understand
+
+1:00:57.040 --> 1:00:59.520
+ how to build AGI before we fully understand
+
+1:00:59.520 --> 1:01:02.600
+ how our brains work, just like we understood
+
+1:01:02.600 --> 1:01:05.560
+ how to build flying machines long before
+
+1:01:05.560 --> 1:01:07.800
+ we were able to build a mechanical bird.
+
+1:01:07.800 --> 1:01:08.640
+ Yeah, that's right.
+
+1:01:08.640 --> 1:01:13.280
+ You've given the example exactly of mechanical birds
+
+1:01:13.280 --> 1:01:15.680
+ and airplanes and airplanes do a pretty good job
+
+1:01:15.680 --> 1:01:18.560
+ of flying without really mimicking bird flight.
+
+1:01:18.560 --> 1:01:20.920
+ And even now after 100 years later,
+
+1:01:20.920 --> 1:01:23.880
+ did you see the Ted talk with this German mechanical bird?
+
+1:01:23.880 --> 1:01:25.040
+ I heard you mention it.
+
+1:01:25.040 --> 1:01:26.520
+ Check it out, it's amazing.
+
+1:01:26.520 --> 1:01:27.760
+ But even after that, right,
+
+1:01:27.760 --> 1:01:29.360
+ we still don't fly in mechanical birds
+
+1:01:29.360 --> 1:01:32.720
+ because it turned out the way we came up with was simpler
+
+1:01:32.720 --> 1:01:33.840
+ and it's better for our purposes.
+
+1:01:33.840 --> 1:01:35.280
+ And I think it might be the same there.
+
+1:01:35.280 --> 1:01:36.280
+ That's one lesson.
+
+1:01:37.520 --> 1:01:42.520
+ And another lesson, it's more what our paper was about.
+
+1:01:42.640 --> 1:01:45.800
+ First, as a physicist thought it was fascinating
+
+1:01:45.800 --> 1:01:48.240
+ how there's a very close mathematical relationship
+
+1:01:48.240 --> 1:01:50.800
+ actually between our artificial neural networks
+
+1:01:50.800 --> 1:01:54.560
+ and a lot of things that we've studied for in physics
+
+1:01:54.560 --> 1:01:57.520
+ go by nerdy names like the renormalization group equation
+
+1:01:57.520 --> 1:01:59.800
+ and Hamiltonians and yada, yada, yada.
+
+1:01:59.800 --> 1:02:04.360
+ And when you look a little more closely at this,
+
+1:02:05.720 --> 1:02:06.560
+ you have,
+
+1:02:10.320 --> 1:02:12.360
+ at first I was like, well, there's something crazy here
+
+1:02:12.360 --> 1:02:13.520
+ that doesn't make sense.
+
+1:02:13.520 --> 1:02:18.520
+ Because we know that if you even want to build
+
+1:02:19.200 --> 1:02:22.560
+ a super simple neural network to tell apart cat pictures
+
+1:02:22.560 --> 1:02:23.400
+ and dog pictures, right,
+
+1:02:23.400 --> 1:02:25.400
+ that you can do that very, very well now.
+
+1:02:25.400 --> 1:02:27.520
+ But if you think about it a little bit,
+
+1:02:27.520 --> 1:02:29.080
+ you convince yourself it must be impossible
+
+1:02:29.080 --> 1:02:31.920
+ because if I have one megapixel,
+
+1:02:31.920 --> 1:02:34.160
+ even if each pixel is just black or white,
+
+1:02:34.160 --> 1:02:36.960
+ there's two to the power of 1 million possible images,
+
+1:02:36.960 --> 1:02:38.960
+ which is way more than there are atoms in our universe,
+
+1:02:38.960 --> 1:02:41.000
+ right, so in order to,
+
+1:02:42.040 --> 1:02:43.200
+ and then for each one of those,
+
+1:02:43.200 --> 1:02:44.640
+ I have to assign a number,
+
+1:02:44.640 --> 1:02:47.080
+ which is the probability that it's a dog.
+
+1:02:47.080 --> 1:02:49.440
+ So an arbitrary function of images
+
+1:02:49.440 --> 1:02:54.440
+ is a list of more numbers than there are atoms in our universe.
+
+1:02:54.440 --> 1:02:57.360
+ So clearly I can't store that under the hood of my GPU
+
+1:02:57.360 --> 1:03:00.640
+ or my computer, yet somehow it works.
+
+1:03:00.640 --> 1:03:01.480
+ So what does that mean?
+
+1:03:01.480 --> 1:03:04.960
+ Well, it means that out of all of the problems
+
+1:03:04.960 --> 1:03:08.200
+ that you could try to solve with a neural network,
+
+1:03:10.120 --> 1:03:12.880
+ almost all of them are impossible to solve
+
+1:03:12.880 --> 1:03:14.560
+ with a reasonably sized one.
+
+1:03:15.480 --> 1:03:17.440
+ But then what we showed in our paper
+
+1:03:17.440 --> 1:03:22.360
+ was that the fraction, the kind of problems,
+
+1:03:22.360 --> 1:03:23.800
+ the fraction of all the problems
+
+1:03:23.800 --> 1:03:26.520
+ that you could possibly pose,
+
+1:03:26.520 --> 1:03:29.480
+ that we actually care about given the laws of physics
+
+1:03:29.480 --> 1:03:32.480
+ is also an infinite testimony, tiny little part.
+
+1:03:32.480 --> 1:03:35.440
+ And amazingly, they're basically the same part.
+
+1:03:35.440 --> 1:03:37.560
+ Yeah, it's almost like our world was created for,
+
+1:03:37.560 --> 1:03:39.000
+ I mean, they kind of come together.
+
+1:03:39.000 --> 1:03:42.800
+ Yeah, well, you could say maybe where the world was created
+
+1:03:42.800 --> 1:03:44.960
+ for us, but I have a more modest interpretation,
+
+1:03:44.960 --> 1:03:46.680
+ which is that the world was created for us,
+
+1:03:46.680 --> 1:03:48.040
+ but I have a more modest interpretation,
+
+1:03:48.040 --> 1:03:50.360
+ which is that instead evolution endowed us
+
+1:03:50.360 --> 1:03:53.120
+ with neural networks precisely for that reason.
+
+1:03:53.120 --> 1:03:54.640
+ Because this particular architecture,
+
+1:03:54.640 --> 1:03:56.040
+ as opposed to the one in your laptop,
+
+1:03:56.040 --> 1:04:01.040
+ is very, very well adapted to solving the kind of problems
+
+1:04:02.480 --> 1:04:05.560
+ that nature kept presenting our ancestors with.
+
+1:04:05.560 --> 1:04:08.120
+ So it makes sense that why do we have a brain
+
+1:04:08.120 --> 1:04:09.280
+ in the first place?
+
+1:04:09.280 --> 1:04:11.880
+ It's to be able to make predictions about the future
+
+1:04:11.880 --> 1:04:12.880
+ and so on.
+
+1:04:12.880 --> 1:04:16.440
+ So if we had a sucky system, which could never solve it,
+
+1:04:16.440 --> 1:04:18.280
+ we wouldn't have a world.
+
+1:04:18.280 --> 1:04:23.280
+ So this is, I think, a very beautiful fact.
+
+1:04:23.680 --> 1:04:24.520
+ Yeah.
+
+1:04:24.520 --> 1:04:29.000
+ We also realize that there's been earlier work
+
+1:04:29.000 --> 1:04:32.040
+ on why deeper networks are good,
+
+1:04:32.040 --> 1:04:34.680
+ but we were able to show an additional cool fact there,
+
+1:04:34.680 --> 1:04:38.360
+ which is that even incredibly simple problems,
+
+1:04:38.360 --> 1:04:41.080
+ like suppose I give you a thousand numbers
+
+1:04:41.080 --> 1:04:42.720
+ and ask you to multiply them together,
+
+1:04:42.720 --> 1:04:46.680
+ and you can write a few lines of code, boom, done, trivial.
+
+1:04:46.680 --> 1:04:49.520
+ If you just try to do that with a neural network
+
+1:04:49.520 --> 1:04:52.440
+ that has only one single hidden layer in it,
+
+1:04:52.440 --> 1:04:53.400
+ you can do it,
+
+1:04:54.320 --> 1:04:57.360
+ but you're going to need two to the power of a thousand
+
+1:04:57.360 --> 1:05:00.920
+ neurons to multiply a thousand numbers,
+
+1:05:00.920 --> 1:05:02.520
+ which is, again, more neurons than there are atoms
+
+1:05:02.520 --> 1:05:03.360
+ in our universe.
+
+1:05:04.600 --> 1:05:05.480
+ That's fascinating.
+
+1:05:05.480 --> 1:05:09.960
+ But if you allow yourself to make it a deep network
+
+1:05:09.960 --> 1:05:13.240
+ with many layers, you only need 4,000 neurons.
+
+1:05:13.240 --> 1:05:14.520
+ It's perfectly feasible.
+
+1:05:16.400 --> 1:05:17.960
+ That's really interesting.
+
+1:05:17.960 --> 1:05:18.800
+ Yeah.
+
+1:05:18.800 --> 1:05:21.040
+ So on another architecture type,
+
+1:05:21.040 --> 1:05:22.720
+ I mean, you mentioned Schrodinger's equation,
+
+1:05:22.720 --> 1:05:26.360
+ and what are your thoughts about quantum computing
+
+1:05:27.240 --> 1:05:32.240
+ and the role of this kind of computational unit
+
+1:05:32.400 --> 1:05:34.880
+ in creating an intelligence system?
+
+1:05:34.880 --> 1:05:39.520
+ In some Hollywood movies that I will not mention by name
+
+1:05:39.520 --> 1:05:41.040
+ because I don't want to spoil them.
+
+1:05:41.040 --> 1:05:44.240
+ The way they get AGI is building a quantum computer.
+
+1:05:45.480 --> 1:05:47.600
+ Because the word quantum sounds cool and so on.
+
+1:05:47.600 --> 1:05:48.440
+ That's right.
+
+1:05:50.040 --> 1:05:52.880
+ First of all, I think we don't need quantum computers
+
+1:05:52.880 --> 1:05:54.920
+ to build AGI.
+
+1:05:54.920 --> 1:05:59.240
+ I suspect your brain is not a quantum computer
+
+1:05:59.240 --> 1:06:00.640
+ in any profound sense.
+
+1:06:01.600 --> 1:06:03.200
+ So you don't even wrote a paper about that
+
+1:06:03.200 --> 1:06:04.560
+ a lot many years ago.
+
+1:06:04.560 --> 1:06:08.120
+ I calculated the so called decoherence time,
+
+1:06:08.120 --> 1:06:10.320
+ how long it takes until the quantum computerness
+
+1:06:10.320 --> 1:06:13.400
+ of what your neurons are doing gets erased
+
+1:06:15.320 --> 1:06:17.960
+ by just random noise from the environment.
+
+1:06:17.960 --> 1:06:21.320
+ And it's about 10 to the minus 21 seconds.
+
+1:06:21.320 --> 1:06:24.600
+ So as cool as it would be to have a quantum computer
+
+1:06:24.600 --> 1:06:27.320
+ in my head, I don't think that fast.
+
+1:06:27.320 --> 1:06:28.360
+ On the other hand,
+
+1:06:28.360 --> 1:06:33.040
+ there are very cool things you could do
+
+1:06:33.040 --> 1:06:34.200
+ with quantum computers.
+
+1:06:35.240 --> 1:06:37.480
+ Or I think we'll be able to do soon
+
+1:06:37.480 --> 1:06:39.360
+ when we get bigger ones.
+
+1:06:39.360 --> 1:06:40.960
+ That might actually help machine learning
+
+1:06:40.960 --> 1:06:43.160
+ do even better than the brain.
+
+1:06:43.160 --> 1:06:45.640
+ So for example,
+
+1:06:47.040 --> 1:06:50.760
+ one, this is just a moonshot,
+
+1:06:50.760 --> 1:06:55.760
+ but learning is very much same thing as search.
+
+1:07:01.800 --> 1:07:03.160
+ If you're trying to train a neural network
+
+1:07:03.160 --> 1:07:06.240
+ to get really learned to do something really well,
+
+1:07:06.240 --> 1:07:07.280
+ you have some loss function,
+
+1:07:07.280 --> 1:07:10.360
+ you have a bunch of knobs you can turn,
+
+1:07:10.360 --> 1:07:12.080
+ represented by a bunch of numbers,
+
+1:07:12.080 --> 1:07:12.920
+ and you're trying to tweak them
+
+1:07:12.920 --> 1:07:15.080
+ so that it becomes as good as possible at this thing.
+
+1:07:15.080 --> 1:07:19.680
+ So if you think of a landscape with some valley,
+
+1:07:20.720 --> 1:07:22.120
+ where each dimension of the landscape
+
+1:07:22.120 --> 1:07:24.120
+ corresponds to some number you can change,
+
+1:07:24.120 --> 1:07:25.640
+ you're trying to find the minimum.
+
+1:07:25.640 --> 1:07:26.760
+ And it's well known that
+
+1:07:26.760 --> 1:07:29.040
+ if you have a very high dimensional landscape,
+
+1:07:29.040 --> 1:07:31.840
+ complicated things, it's super hard to find the minimum.
+
+1:07:31.840 --> 1:07:35.840
+ Quantum mechanics is amazingly good at this.
+
+1:07:35.840 --> 1:07:38.240
+ Like if I want to know what's the lowest energy state
+
+1:07:38.240 --> 1:07:39.720
+ this water can possibly have,
+
+1:07:41.720 --> 1:07:42.560
+ incredibly hard to compute,
+
+1:07:42.560 --> 1:07:45.400
+ but nature will happily figure this out for you
+
+1:07:45.400 --> 1:07:48.000
+ if you just cool it down, make it very, very cold.
+
+1:07:49.800 --> 1:07:50.880
+ If you put a ball somewhere,
+
+1:07:50.880 --> 1:07:52.240
+ it'll roll down to its minimum.
+
+1:07:52.240 --> 1:07:54.280
+ And this happens metaphorically
+
+1:07:54.280 --> 1:07:56.320
+ at the energy landscape too.
+
+1:07:56.320 --> 1:07:59.280
+ And quantum mechanics even uses some clever tricks,
+
+1:07:59.280 --> 1:08:02.520
+ which today's machine learning systems don't.
+
+1:08:02.520 --> 1:08:04.160
+ Like if you're trying to find the minimum
+
+1:08:04.160 --> 1:08:06.960
+ and you get stuck in the little local minimum here,
+
+1:08:06.960 --> 1:08:08.760
+ in quantum mechanics you can actually tunnel
+
+1:08:08.760 --> 1:08:11.840
+ through the barrier and get unstuck again.
+
+1:08:13.480 --> 1:08:14.320
+ That's really interesting.
+
+1:08:14.320 --> 1:08:16.120
+ Yeah, so it may be, for example,
+
+1:08:16.120 --> 1:08:19.160
+ that we'll one day use quantum computers
+
+1:08:19.160 --> 1:08:22.840
+ that help train neural networks better.
+
+1:08:22.840 --> 1:08:23.680
+ That's really interesting.
+
+1:08:23.680 --> 1:08:27.040
+ Okay, so as a component of kind of the learning process,
+
+1:08:27.040 --> 1:08:27.880
+ for example.
+
+1:08:27.880 --> 1:08:29.440
+ Yeah.
+
+1:08:29.440 --> 1:08:33.080
+ Let me ask sort of wrapping up here a little bit,
+
+1:08:33.080 --> 1:08:36.880
+ let me return to the questions of our human nature
+
+1:08:36.880 --> 1:08:40.000
+ and love, as I mentioned.
+
+1:08:40.000 --> 1:08:41.640
+ So do you think,
+
+1:08:44.280 --> 1:08:46.000
+ you mentioned sort of a helper robot,
+
+1:08:46.000 --> 1:08:48.640
+ but you could think of also personal robots.
+
+1:08:48.640 --> 1:08:52.480
+ Do you think the way we human beings fall in love
+
+1:08:52.480 --> 1:08:54.680
+ and get connected to each other
+
+1:08:54.680 --> 1:08:58.040
+ is possible to achieve in an AI system
+
+1:08:58.040 --> 1:09:00.360
+ and human level AI intelligence system?
+
+1:09:00.360 --> 1:09:03.720
+ Do you think we would ever see that kind of connection?
+
+1:09:03.720 --> 1:09:06.160
+ Or, you know, in all this discussion
+
+1:09:06.160 --> 1:09:08.520
+ about solving complex goals,
+
+1:09:08.520 --> 1:09:10.760
+ is this kind of human social connection,
+
+1:09:10.760 --> 1:09:12.560
+ do you think that's one of the goals
+
+1:09:12.560 --> 1:09:16.280
+ on the peaks and valleys with the raising sea levels
+
+1:09:16.280 --> 1:09:17.360
+ that we'll be able to achieve?
+
+1:09:17.360 --> 1:09:20.040
+ Or do you think that's something that's ultimately,
+
+1:09:20.040 --> 1:09:21.760
+ or at least in the short term,
+
+1:09:21.760 --> 1:09:23.640
+ relative to the other goals is not achievable?
+
+1:09:23.640 --> 1:09:25.120
+ I think it's all possible.
+
+1:09:25.120 --> 1:09:27.600
+ And I mean, in recent,
+
+1:09:27.600 --> 1:09:30.840
+ there's a very wide range of guesses, as you know,
+
+1:09:30.840 --> 1:09:33.720
+ among AI researchers, when we're going to get AGI.
+
+1:09:35.120 --> 1:09:37.640
+ Some people, you know, like our friend Rodney Brooks
+
+1:09:37.640 --> 1:09:41.040
+ says it's going to be hundreds of years at least.
+
+1:09:41.040 --> 1:09:42.200
+ And then there are many others
+
+1:09:42.200 --> 1:09:44.040
+ who think it's going to happen much sooner.
+
+1:09:44.040 --> 1:09:45.520
+ And recent polls,
+
+1:09:46.840 --> 1:09:48.640
+ maybe half or so of AI researchers
+
+1:09:48.640 --> 1:09:50.920
+ think we're going to get AGI within decades.
+
+1:09:50.920 --> 1:09:52.720
+ So if that happens, of course,
+
+1:09:52.720 --> 1:09:55.040
+ then I think these things are all possible.
+
+1:09:55.040 --> 1:09:56.840
+ But in terms of whether it will happen,
+
+1:09:56.840 --> 1:10:00.600
+ I think we shouldn't spend so much time asking
+
+1:10:00.600 --> 1:10:03.240
+ what do we think will happen in the future?
+
+1:10:03.240 --> 1:10:05.160
+ As if we are just some sort of pathetic,
+
+1:10:05.160 --> 1:10:07.040
+ your passive bystanders, you know,
+
+1:10:07.040 --> 1:10:09.280
+ waiting for the future to happen to us.
+
+1:10:09.280 --> 1:10:11.640
+ Hey, we're the ones creating this future, right?
+
+1:10:11.640 --> 1:10:15.520
+ So we should be proactive about it
+
+1:10:15.520 --> 1:10:16.920
+ and ask ourselves what sort of future
+
+1:10:16.920 --> 1:10:18.240
+ we would like to have happen.
+
+1:10:18.240 --> 1:10:19.920
+ We're going to make it like that.
+
+1:10:19.920 --> 1:10:22.720
+ Well, what I prefer is just some sort of incredibly boring,
+
+1:10:22.720 --> 1:10:24.320
+ zombie like future where there's all these
+
+1:10:24.320 --> 1:10:26.040
+ mechanical things happening and there's no passion,
+
+1:10:26.040 --> 1:10:28.040
+ no emotion, no experience, maybe even.
+
+1:10:29.600 --> 1:10:32.040
+ No, I would of course, much rather prefer it
+
+1:10:32.040 --> 1:10:35.240
+ if all the things that we find that we value the most
+
+1:10:36.240 --> 1:10:40.680
+ about humanity are our subjective experience,
+
+1:10:40.680 --> 1:10:43.000
+ passion, inspiration, love, you know.
+
+1:10:43.000 --> 1:10:48.000
+ If we can create a future where those things do happen,
+
+1:10:48.000 --> 1:10:50.840
+ where those things do exist, you know,
+
+1:10:50.840 --> 1:10:54.560
+ I think ultimately it's not our universe
+
+1:10:54.560 --> 1:10:57.960
+ giving meaning to us, it's us giving meaning to our universe.
+
+1:10:57.960 --> 1:11:01.840
+ And if we build more advanced intelligence,
+
+1:11:01.840 --> 1:11:03.680
+ let's make sure we build it in such a way
+
+1:11:03.680 --> 1:11:08.680
+ that meaning is part of it.
+
+1:11:09.120 --> 1:11:11.400
+ A lot of people that seriously study this problem
+
+1:11:11.400 --> 1:11:13.600
+ and think of it from different angles
+
+1:11:13.600 --> 1:11:16.880
+ have trouble in the majority of cases,
+
+1:11:16.880 --> 1:11:19.160
+ if they think through that happen,
+
+1:11:19.160 --> 1:11:22.520
+ are the ones that are not beneficial to humanity.
+
+1:11:22.520 --> 1:11:25.560
+ And so, yeah, so what are your thoughts?
+
+1:11:25.560 --> 1:11:29.400
+ What's should people, you know,
+
+1:11:29.400 --> 1:11:32.040
+ I really don't like people to be terrified.
+
+1:11:33.440 --> 1:11:35.040
+ What's a way for people to think about it
+
+1:11:35.040 --> 1:11:39.600
+ in a way we can solve it and we can make it better?
+
+1:11:39.600 --> 1:11:42.960
+ No, I don't think panicking is going to help in any way.
+
+1:11:42.960 --> 1:11:44.840
+ It's not going to increase chances
+
+1:11:44.840 --> 1:11:45.880
+ of things going well either.
+
+1:11:45.880 --> 1:11:48.400
+ Even if you are in a situation where there is a real threat,
+
+1:11:48.400 --> 1:11:51.080
+ does it help if everybody just freaks out?
+
+1:11:51.080 --> 1:11:52.680
+ No, of course, of course not.
+
+1:11:53.640 --> 1:11:56.600
+ I think, yeah, there are of course ways
+
+1:11:56.600 --> 1:11:58.440
+ in which things can go horribly wrong.
+
+1:11:59.560 --> 1:12:03.680
+ First of all, it's important when we think about this thing,
+
+1:12:03.680 --> 1:12:05.280
+ about the problems and risks,
+
+1:12:05.280 --> 1:12:07.160
+ to also remember how huge the upsides can be
+
+1:12:07.160 --> 1:12:08.440
+ if we get it right, right?
+
+1:12:08.440 --> 1:12:12.360
+ Everything we love about society and civilization
+
+1:12:12.360 --> 1:12:13.400
+ is a product of intelligence.
+
+1:12:13.400 --> 1:12:15.320
+ So if we can amplify our intelligence
+
+1:12:15.320 --> 1:12:18.760
+ with machine intelligence and not anymore lose our loved one
+
+1:12:18.760 --> 1:12:21.080
+ to what we're told is an incurable disease
+
+1:12:21.080 --> 1:12:24.800
+ and things like this, of course, we should aspire to that.
+
+1:12:24.800 --> 1:12:26.680
+ So that can be a motivator, I think,
+
+1:12:26.680 --> 1:12:29.120
+ reminding ourselves that the reason we try to solve problems
+
+1:12:29.120 --> 1:12:33.520
+ is not just because we're trying to avoid gloom,
+
+1:12:33.520 --> 1:12:35.760
+ but because we're trying to do something great.
+
+1:12:35.760 --> 1:12:37.680
+ But then in terms of the risks,
+
+1:12:37.680 --> 1:12:42.680
+ I think the really important question is to ask,
+
+1:12:42.680 --> 1:12:45.480
+ what can we do today that will actually help
+
+1:12:45.480 --> 1:12:47.320
+ make the outcome good, right?
+
+1:12:47.320 --> 1:12:49.880
+ And dismissing the risk is not one of them.
+
+1:12:51.240 --> 1:12:54.800
+ I find it quite funny often when I'm in discussion panels
+
+1:12:54.800 --> 1:12:55.960
+ about these things,
+
+1:12:55.960 --> 1:13:00.960
+ how the people who work for companies,
+
+1:13:01.200 --> 1:13:03.120
+ always be like, oh, nothing to worry about,
+
+1:13:03.120 --> 1:13:04.760
+ nothing to worry about, nothing to worry about.
+
+1:13:04.760 --> 1:13:09.600
+ And it's only academics sometimes express concerns.
+
+1:13:09.600 --> 1:13:11.880
+ That's not surprising at all if you think about it.
+
+1:13:11.880 --> 1:13:12.880
+ Right.
+
+1:13:12.880 --> 1:13:15.200
+ Upton Sinclair quipped, right,
+
+1:13:15.200 --> 1:13:18.040
+ that it's hard to make a man believe in something
+
+1:13:18.040 --> 1:13:20.120
+ when his income depends on not believing in it.
+
+1:13:20.120 --> 1:13:24.080
+ And frankly, we know a lot of these people in companies
+
+1:13:24.080 --> 1:13:26.240
+ that they're just as concerned as anyone else.
+
+1:13:26.240 --> 1:13:28.480
+ But if you're the CEO of a company,
+
+1:13:28.480 --> 1:13:30.280
+ that's not something you want to go on record saying
+
+1:13:30.280 --> 1:13:33.440
+ when you have silly journalists who are gonna put a picture
+
+1:13:33.440 --> 1:13:35.720
+ of a Terminator robot when they quote you.
+
+1:13:35.720 --> 1:13:39.040
+ So the issues are real.
+
+1:13:39.040 --> 1:13:41.920
+ And the way I think about what the issue is,
+
+1:13:41.920 --> 1:13:46.920
+ is basically the real choice we have is,
+
+1:13:48.040 --> 1:13:50.840
+ first of all, are we gonna just dismiss the risks
+
+1:13:50.840 --> 1:13:54.480
+ and say, well, let's just go ahead and build machines
+
+1:13:54.480 --> 1:13:57.560
+ that can do everything we can do better and cheaper.
+
+1:13:57.560 --> 1:14:00.200
+ Let's just make ourselves obsolete as fast as possible.
+
+1:14:00.200 --> 1:14:01.720
+ What could possibly go wrong?
+
+1:14:01.720 --> 1:14:03.440
+ That's one attitude.
+
+1:14:03.440 --> 1:14:05.440
+ The opposite attitude, I think, is to say,
+
+1:14:06.400 --> 1:14:08.800
+ here's this incredible potential,
+
+1:14:08.800 --> 1:14:11.960
+ let's think about what kind of future
+
+1:14:11.960 --> 1:14:14.640
+ we're really, really excited about.
+
+1:14:14.640 --> 1:14:18.480
+ What are the shared goals that we can really aspire towards?
+
+1:14:18.480 --> 1:14:19.960
+ And then let's think really hard
+
+1:14:19.960 --> 1:14:22.000
+ about how we can actually get there.
+
+1:14:22.000 --> 1:14:24.160
+ So start with, don't start thinking about the risks,
+
+1:14:24.160 --> 1:14:26.720
+ start thinking about the goals.
+
+1:14:26.720 --> 1:14:28.200
+ And then when you do that,
+
+1:14:28.200 --> 1:14:30.480
+ then you can think about the obstacles you want to avoid.
+
+1:14:30.480 --> 1:14:32.840
+ I often get students coming in right here into my office
+
+1:14:32.840 --> 1:14:34.120
+ for career advice.
+
+1:14:34.120 --> 1:14:35.560
+ I always ask them this very question,
+
+1:14:35.560 --> 1:14:37.920
+ where do you want to be in the future?
+
+1:14:37.920 --> 1:14:40.640
+ If all she can say is, oh, maybe I'll have cancer,
+
+1:14:40.640 --> 1:14:42.480
+ maybe I'll get run over by a truck.
+
+1:14:42.480 --> 1:14:44.280
+ Yeah, focus on the obstacles instead of the goals.
+
+1:14:44.280 --> 1:14:46.880
+ She's just going to end up a hypochondriac paranoid.
+
+1:14:47.920 --> 1:14:49.920
+ Whereas if she comes in and fire in her eyes
+
+1:14:49.920 --> 1:14:51.840
+ and is like, I want to be there.
+
+1:14:51.840 --> 1:14:53.960
+ And then we can talk about the obstacles
+
+1:14:53.960 --> 1:14:55.760
+ and see how we can circumvent them.
+
+1:14:55.760 --> 1:14:58.880
+ That's, I think, a much, much healthier attitude.
+
+1:14:58.880 --> 1:15:03.880
+ And I feel it's very challenging to come up with a vision
+
+1:15:03.880 --> 1:15:08.120
+ for the future, which we are unequivocally excited about.
+
+1:15:08.120 --> 1:15:10.320
+ I'm not just talking now in the vague terms,
+
+1:15:10.320 --> 1:15:12.360
+ like, yeah, let's cure cancer, fine.
+
+1:15:12.360 --> 1:15:14.720
+ I'm talking about what kind of society
+
+1:15:14.720 --> 1:15:15.840
+ do we want to create?
+
+1:15:15.840 --> 1:15:20.360
+ What do we want it to mean to be human in the age of AI,
+
+1:15:20.360 --> 1:15:21.720
+ in the age of AGI?
+
+1:15:22.840 --> 1:15:25.360
+ So if we can have this conversation,
+
+1:15:25.360 --> 1:15:28.200
+ broad, inclusive conversation,
+
+1:15:28.200 --> 1:15:31.400
+ and gradually start converging towards some,
+
+1:15:31.400 --> 1:15:34.240
+ some future that with some direction, at least,
+
+1:15:34.240 --> 1:15:35.400
+ that we want to steer towards, right,
+
+1:15:35.400 --> 1:15:38.160
+ then we'll be much more motivated
+
+1:15:38.160 --> 1:15:39.960
+ to constructively take on the obstacles.
+
+1:15:39.960 --> 1:15:43.560
+ And I think if I had, if I had to,
+
+1:15:43.560 --> 1:15:46.640
+ if I try to wrap this up in a more succinct way,
+
+1:15:46.640 --> 1:15:51.480
+ I think we can all agree already now
+
+1:15:51.480 --> 1:15:56.160
+ that we should aspire to build AGI
+
+1:15:56.160 --> 1:16:05.160
+ that doesn't overpower us, but that empowers us.
+
+1:16:05.160 --> 1:16:08.560
+ And think of the many various ways that can do that,
+
+1:16:08.560 --> 1:16:11.000
+ whether that's from my side of the world
+
+1:16:11.000 --> 1:16:12.720
+ of autonomous vehicles.
+
+1:16:12.720 --> 1:16:14.720
+ I'm personally actually from the camp
+
+1:16:14.720 --> 1:16:16.800
+ that believes this human level intelligence
+
+1:16:16.800 --> 1:16:20.480
+ is required to achieve something like vehicles
+
+1:16:20.480 --> 1:16:23.880
+ that would actually be something we would enjoy using
+
+1:16:23.880 --> 1:16:25.120
+ and being part of.
+
+1:16:25.120 --> 1:16:27.040
+ So that's one example, and certainly there's a lot
+
+1:16:27.040 --> 1:16:30.920
+ of other types of robots and medicine and so on.
+
+1:16:30.920 --> 1:16:33.880
+ So focusing on those and then coming up with the obstacles,
+
+1:16:33.880 --> 1:16:35.920
+ coming up with the ways that that can go wrong
+
+1:16:35.920 --> 1:16:38.160
+ and solving those one at a time.
+
+1:16:38.160 --> 1:16:41.520
+ And just because you can build an autonomous vehicle,
+
+1:16:41.520 --> 1:16:42.800
+ even if you could build one
+
+1:16:42.800 --> 1:16:45.080
+ that would drive just fine without you,
+
+1:16:45.080 --> 1:16:46.720
+ maybe there are some things in life
+
+1:16:46.720 --> 1:16:48.400
+ that we would actually want to do ourselves.
+
+1:16:48.400 --> 1:16:49.240
+ That's right.
+
+1:16:49.240 --> 1:16:51.400
+ Right, like, for example,
+
+1:16:51.400 --> 1:16:53.040
+ if you think of our society as a whole,
+
+1:16:53.040 --> 1:16:56.320
+ there are some things that we find very meaningful to do.
+
+1:16:57.200 --> 1:16:59.640
+ And that doesn't mean we have to stop doing them
+
+1:16:59.640 --> 1:17:02.000
+ just because machines can do them better.
+
+1:17:02.000 --> 1:17:04.080
+ I'm not gonna stop playing tennis
+
+1:17:04.080 --> 1:17:07.360
+ just the day someone builds a tennis robot and beat me.
+
+1:17:07.360 --> 1:17:09.600
+ People are still playing chess and even go.
+
+1:17:09.600 --> 1:17:14.600
+ Yeah, and in the very near term even,
+
+1:17:14.600 --> 1:17:18.880
+ some people are advocating basic income, replace jobs.
+
+1:17:18.880 --> 1:17:20.840
+ But if the government is gonna be willing
+
+1:17:20.840 --> 1:17:24.040
+ to just hand out cash to people for doing nothing,
+
+1:17:24.040 --> 1:17:25.840
+ then one should also seriously consider
+
+1:17:25.840 --> 1:17:27.640
+ whether the government should also hire
+
+1:17:27.640 --> 1:17:29.480
+ a lot more teachers and nurses
+
+1:17:29.480 --> 1:17:32.160
+ and the kind of jobs which people often
+
+1:17:32.160 --> 1:17:34.440
+ find great fulfillment in doing, right?
+
+1:17:34.440 --> 1:17:36.320
+ We get very tired of hearing politicians saying,
+
+1:17:36.320 --> 1:17:39.320
+ oh, we can't afford hiring more teachers,
+
+1:17:39.320 --> 1:17:41.480
+ but we're gonna maybe have basic income.
+
+1:17:41.480 --> 1:17:44.000
+ If we can have more serious research and thought
+
+1:17:44.000 --> 1:17:46.200
+ into what gives meaning to our lives,
+
+1:17:46.200 --> 1:17:48.960
+ the jobs give so much more than income, right?
+
+1:17:48.960 --> 1:17:50.520
+ Mm hmm.
+
+1:17:50.520 --> 1:17:53.320
+ And then think about in the future,
+
+1:17:53.320 --> 1:17:58.320
+ what are the roles that we wanna have people
+
+1:18:00.000 --> 1:18:03.040
+ continually feeling empowered by machines?
+
+1:18:03.040 --> 1:18:06.120
+ And I think sort of, I come from Russia,
+
+1:18:06.120 --> 1:18:07.240
+ from the Soviet Union.
+
+1:18:07.240 --> 1:18:10.160
+ And I think for a lot of people in the 20th century,
+
+1:18:10.160 --> 1:18:14.080
+ going to the moon, going to space was an inspiring thing.
+
+1:18:14.080 --> 1:18:18.080
+ I feel like the universe of the mind,
+
+1:18:18.080 --> 1:18:20.880
+ so AI, understanding, creating intelligence
+
+1:18:20.880 --> 1:18:23.240
+ is that for the 21st century.
+
+1:18:23.240 --> 1:18:24.400
+ So it's really surprising.
+
+1:18:24.400 --> 1:18:25.640
+ And I've heard you mention this.
+
+1:18:25.640 --> 1:18:27.400
+ It's really surprising to me,
+
+1:18:27.400 --> 1:18:29.240
+ both on the research funding side,
+
+1:18:29.240 --> 1:18:31.760
+ that it's not funded as greatly as it could be,
+
+1:18:31.760 --> 1:18:34.760
+ but most importantly, on the politician side,
+
+1:18:34.760 --> 1:18:36.520
+ that it's not part of the public discourse
+
+1:18:36.520 --> 1:18:40.800
+ except in the killer bots terminator kind of view,
+
+1:18:40.800 --> 1:18:44.880
+ that people are not yet, I think, perhaps excited
+
+1:18:44.880 --> 1:18:46.680
+ by the possible positive future
+
+1:18:46.680 --> 1:18:48.120
+ that we can build together.
+
+1:18:48.120 --> 1:18:51.520
+ So we should be, because politicians usually just focus
+
+1:18:51.520 --> 1:18:53.320
+ on the next election cycle, right?
+
+1:18:54.480 --> 1:18:57.160
+ The single most important thing I feel we humans have learned
+
+1:18:57.160 --> 1:18:59.320
+ in the entire history of science
+
+1:18:59.320 --> 1:19:02.040
+ is they were the masters of underestimation.
+
+1:19:02.040 --> 1:19:07.040
+ We underestimated the size of our cosmos again and again,
+
+1:19:08.480 --> 1:19:10.200
+ realizing that everything we thought existed
+
+1:19:10.200 --> 1:19:12.240
+ was just a small part of something grander, right?
+
+1:19:12.240 --> 1:19:16.640
+ Planet, solar system, the galaxy, clusters of galaxies.
+
+1:19:16.640 --> 1:19:17.560
+ The universe.
+
+1:19:18.440 --> 1:19:23.120
+ And we now know that the future has just
+
+1:19:23.120 --> 1:19:25.160
+ so much more potential
+
+1:19:25.160 --> 1:19:27.640
+ than our ancestors could ever have dreamt of.
+
+1:19:27.640 --> 1:19:32.360
+ This cosmos, imagine if all of Earth
+
+1:19:33.600 --> 1:19:35.440
+ was completely devoid of life,
+
+1:19:36.640 --> 1:19:38.520
+ except for Cambridge, Massachusetts.
+
+1:19:39.560 --> 1:19:42.680
+ Wouldn't it be kind of lame if all we ever aspired to
+
+1:19:42.680 --> 1:19:45.560
+ was to stay in Cambridge, Massachusetts forever
+
+1:19:45.560 --> 1:19:47.160
+ and then go extinct in one week,
+
+1:19:47.160 --> 1:19:49.760
+ even though Earth was gonna continue on for longer?
+
+1:19:49.760 --> 1:19:52.800
+ That sort of attitude I think we have now
+
+1:19:54.200 --> 1:19:57.800
+ on the cosmic scale, life can flourish on Earth,
+
+1:19:57.800 --> 1:20:00.840
+ not for four years, but for billions of years.
+
+1:20:00.840 --> 1:20:02.920
+ I can even tell you about how to move it out of harm's way
+
+1:20:02.920 --> 1:20:04.840
+ when the sun gets too hot.
+
+1:20:04.840 --> 1:20:09.520
+ And then we have so much more resources out here,
+
+1:20:09.520 --> 1:20:12.480
+ which today, maybe there are a lot of other planets
+
+1:20:12.480 --> 1:20:14.960
+ with bacteria or cow like life on them,
+
+1:20:14.960 --> 1:20:19.880
+ but most of this, all this opportunity seems,
+
+1:20:19.880 --> 1:20:22.440
+ as far as we can tell, to be largely dead,
+
+1:20:22.440 --> 1:20:23.560
+ like the Sahara Desert.
+
+1:20:23.560 --> 1:20:28.480
+ And yet we have the opportunity to help life flourish
+
+1:20:28.480 --> 1:20:30.280
+ around this for billions of years.
+
+1:20:30.280 --> 1:20:32.680
+ So let's quit squabbling about
+
+1:20:34.080 --> 1:20:36.480
+ whether some little border should be drawn
+
+1:20:36.480 --> 1:20:38.440
+ one mile to the left or right,
+
+1:20:38.440 --> 1:20:41.080
+ and look up into the skies and realize,
+
+1:20:41.080 --> 1:20:44.040
+ hey, we can do such incredible things.
+
+1:20:44.040 --> 1:20:46.640
+ Yeah, and that's, I think, why it's really exciting
+
+1:20:46.640 --> 1:20:49.440
+ that you and others are connected
+
+1:20:49.440 --> 1:20:51.880
+ with some of the work Elon Musk is doing,
+
+1:20:51.880 --> 1:20:54.480
+ because he's literally going out into that space,
+
+1:20:54.480 --> 1:20:57.000
+ really exploring our universe, and it's wonderful.
+
+1:20:57.000 --> 1:21:02.000
+ That is exactly why Elon Musk is so misunderstood, right?
+
+1:21:02.000 --> 1:21:05.000
+ Misconstrued him as some kind of pessimistic doomsayer.
+
+1:21:05.000 --> 1:21:07.640
+ The reason he cares so much about AI safety
+
+1:21:07.640 --> 1:21:12.080
+ is because he more than almost anyone else appreciates
+
+1:21:12.080 --> 1:21:14.280
+ these amazing opportunities that we'll squander
+
+1:21:14.280 --> 1:21:16.640
+ if we wipe out here on Earth.
+
+1:21:16.640 --> 1:21:19.680
+ We're not just going to wipe out the next generation,
+
+1:21:19.680 --> 1:21:23.320
+ all generations, and this incredible opportunity
+
+1:21:23.320 --> 1:21:25.400
+ that's out there, and that would really be a waste.
+
+1:21:25.400 --> 1:21:30.080
+ And AI, for people who think that it would be better
+
+1:21:30.080 --> 1:21:33.600
+ to do without technology, let me just mention that
+
+1:21:34.680 --> 1:21:36.320
+ if we don't improve our technology,
+
+1:21:36.320 --> 1:21:39.320
+ the question isn't whether humanity is going to go extinct.
+
+1:21:39.320 --> 1:21:41.160
+ The question is just whether we're going to get taken out
+
+1:21:41.160 --> 1:21:44.800
+ by the next big asteroid or the next super volcano
+
+1:21:44.800 --> 1:21:48.280
+ or something else dumb that we could easily prevent
+
+1:21:48.280 --> 1:21:49.840
+ with more tech, right?
+
+1:21:49.840 --> 1:21:53.160
+ And if we want life to flourish throughout the cosmos,
+
+1:21:53.160 --> 1:21:54.760
+ AI is the key to it.
+
+1:21:56.120 --> 1:21:59.840
+ As I mentioned in a lot of detail in my book right there,
+
+1:21:59.840 --> 1:22:04.840
+ even many of the most inspired sci fi writers,
+
+1:22:04.880 --> 1:22:08.120
+ I feel have totally underestimated the opportunities
+
+1:22:08.120 --> 1:22:11.240
+ for space travel, especially at the other galaxies,
+
+1:22:11.240 --> 1:22:15.360
+ because they weren't thinking about the possibility of AGI,
+
+1:22:15.360 --> 1:22:17.520
+ which just makes it so much easier.
+
+1:22:17.520 --> 1:22:18.440
+ Right, yeah.
+
+1:22:18.440 --> 1:22:23.440
+ So that goes to your view of AGI that enables our progress,
+
+1:22:24.080 --> 1:22:25.760
+ that enables a better life.
+
+1:22:25.760 --> 1:22:28.320
+ So that's a beautiful way to put it
+
+1:22:28.320 --> 1:22:29.960
+ and then something to strive for.
+
+1:22:29.960 --> 1:22:31.440
+ So Max, thank you so much.
+
+1:22:31.440 --> 1:22:32.560
+ Thank you for your time today.
+
+1:22:32.560 --> 1:22:33.560
+ It's been awesome.
+
+1:22:33.560 --> 1:22:34.400
+ Thank you so much.
+
+1:22:34.400 --> 1:22:35.240
+ Thanks.
+
+1:22:35.240 --> 1:22:40.240
+ Have a great day.
+
