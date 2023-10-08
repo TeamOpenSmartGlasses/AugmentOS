@@ -1,0 +1,1253 @@
+WEBVTT
+
+00:00.000 --> 00:04.320
+ What difference between biological neural networks and artificial neural networks
+
+00:04.320 --> 00:07.600
+ is most mysterious, captivating, and profound for you?
+
+00:11.120 --> 00:15.280
+ First of all, there's so much we don't know about biological neural networks,
+
+00:15.280 --> 00:21.840
+ and that's very mysterious and captivating because maybe it holds the key to improving
+
+00:21.840 --> 00:29.680
+ artificial neural networks. One of the things I studied recently is something
+
+00:29.680 --> 00:36.160
+ that we don't know how biological neural networks do but would be really useful for artificial ones
+
+00:37.120 --> 00:45.040
+ is the ability to do credit assignment through very long time spans. There are things that
+
+00:46.560 --> 00:50.400
+ we can in principle do with artificial neural nets, but it's not very convenient and it's
+
+00:50.400 --> 00:55.920
+ not biologically plausible. And this mismatch, I think this kind of mismatch
+
+00:55.920 --> 01:02.560
+ may be an interesting thing to study to, A, understand better how brains might do these
+
+01:02.560 --> 01:08.000
+ things because we don't have good corresponding theories with artificial neural nets, and B,
+
+01:09.200 --> 01:18.320
+ maybe provide new ideas that we could explore about things that brain do differently and that
+
+01:18.320 --> 01:23.680
+ we could incorporate in artificial neural nets. So let's break credit assignment up a little bit.
+
+01:23.680 --> 01:30.320
+ Yes. So what, it's a beautifully technical term, but it could incorporate so many things. So is it
+
+01:30.320 --> 01:37.760
+ more on the RNN memory side, that thinking like that, or is it something about knowledge, building
+
+01:37.760 --> 01:44.800
+ up common sense knowledge over time? Or is it more in the reinforcement learning sense that you're
+
+01:44.800 --> 01:50.080
+ picking up rewards over time for a particular, to achieve a certain kind of goal? So I was thinking
+
+01:50.080 --> 01:59.440
+ more about the first two meanings whereby we store all kinds of memories, episodic memories
+
+01:59.440 --> 02:10.560
+ in our brain, which we can access later in order to help us both infer causes of things that we
+
+02:10.560 --> 02:20.640
+ are observing now and assign credit to decisions or interpretations we came up with a while ago
+
+02:20.640 --> 02:29.280
+ when those memories were stored. And then we can change the way we would have reacted or interpreted
+
+02:29.280 --> 02:33.760
+ things in the past, and now that's credit assignment used for learning.
+
+02:33.760 --> 02:43.600
+ So in which way do you think artificial neural networks, the current LSTM, the current architectures
+
+02:43.600 --> 02:50.320
+ are not able to capture the, presumably you're thinking of very long term?
+
+02:50.320 --> 02:58.560
+ Yes. So current, the current nets are doing a fairly good jobs for sequences with dozens or
+
+02:58.560 --> 03:04.960
+ say hundreds of time steps. And then it gets harder and harder and depending on what you have
+
+03:04.960 --> 03:11.920
+ to remember and so on, as you consider longer durations. Whereas humans seem to be able to
+
+03:12.480 --> 03:16.960
+ do credit assignment through essentially arbitrary times, like I could remember something I did last
+
+03:16.960 --> 03:23.840
+ year. And then now because I see some new evidence, I'm going to change my mind about the way I was
+
+03:23.840 --> 03:28.720
+ thinking last year. And hopefully not do the same mistake again.
+
+03:30.720 --> 03:36.080
+ I think a big part of that is probably forgetting. You're only remembering the really important
+
+03:36.080 --> 03:38.480
+ things. It's very efficient forgetting.
+
+03:40.000 --> 03:46.160
+ Yes. So there's a selection of what we remember. And I think there are really cool connection to
+
+03:46.160 --> 03:52.080
+ higher level cognition here regarding consciousness, deciding and emotions,
+
+03:52.080 --> 03:59.200
+ so deciding what comes to consciousness and what gets stored in memory, which are not trivial either.
+
+04:00.720 --> 04:07.120
+ So you've been at the forefront there all along, showing some of the amazing things that neural
+
+04:07.120 --> 04:12.640
+ networks, deep neural networks can do in the field of artificial intelligence is just broadly
+
+04:12.640 --> 04:19.120
+ in all kinds of applications. But we can talk about that forever. But what, in your view,
+
+04:19.120 --> 04:23.920
+ because we're thinking towards the future, is the weakest aspect of the way deep neural networks
+
+04:23.920 --> 04:28.160
+ represent the world? What is that? What is in your view is missing?
+
+04:29.200 --> 04:38.240
+ So current state of the art neural nets trained on large quantities of images or texts
+
+04:38.240 --> 04:44.240
+ have some level of understanding of, you know, what explains those data sets, but it's very
+
+04:45.360 --> 04:53.360
+ basic, it's it's very low level. And it's not nearly as robust and abstract and general
+
+04:54.160 --> 05:02.400
+ as our understanding. Okay, so that doesn't tell us how to fix things. But I think it encourages
+
+05:02.400 --> 05:13.200
+ us to think about how we can maybe train our neural nets differently, so that they would
+
+05:14.240 --> 05:20.400
+ focus, for example, on causal explanation, something that we don't do currently with neural
+
+05:20.400 --> 05:27.440
+ net training. Also, one thing I'll talk about in my talk this afternoon is the fact that
+
+05:27.440 --> 05:33.680
+ instead of learning separately from images and videos on one hand and from texts on the other
+
+05:33.680 --> 05:42.000
+ hand, we need to do a better job of jointly learning about language and about the world
+
+05:42.000 --> 05:50.160
+ to which it refers. So that, you know, both sides can help each other. We need to have good world
+
+05:50.160 --> 05:57.360
+ models in our neural nets for them to really understand sentences, which talk about what's
+
+05:57.360 --> 06:06.400
+ going on in the world. And I think we need language input to help provide clues about
+
+06:06.400 --> 06:13.600
+ what high level concepts like semantic concepts should be represented at the top levels of our
+
+06:13.600 --> 06:21.920
+ neural nets. In fact, there is evidence that the purely unsupervised learning of representations
+
+06:21.920 --> 06:28.960
+ doesn't give rise to high level representations that are as powerful as the ones we're getting
+
+06:28.960 --> 06:35.040
+ from supervised learning. And so the clues we're getting just with the labels, not even sentences,
+
+06:35.680 --> 06:42.400
+ is already very, very high level. And I think that's a very important thing to keep in mind.
+
+06:42.400 --> 06:49.520
+ It's already very powerful. Do you think that's an architecture challenge or is it a data set challenge?
+
+06:49.520 --> 06:59.360
+ Neither. I'm tempted to just end it there. Can you elaborate slightly?
+
+07:02.880 --> 07:06.800
+ Of course, data sets and architectures are something you want to always play with. But
+
+07:06.800 --> 07:13.040
+ I think the crucial thing is more the training objectives, the training frameworks. For example,
+
+07:13.040 --> 07:20.240
+ going from passive observation of data to more active agents, which
+
+07:22.320 --> 07:27.280
+ learn by intervening in the world, the relationships between causes and effects,
+
+07:27.280 --> 07:36.640
+ the sort of objective functions, which could be important to allow the highest level explanations
+
+07:36.640 --> 07:43.840
+ to rise from the learning, which I don't think we have now, the kinds of objective functions,
+
+07:43.840 --> 07:50.400
+ which could be used to reward exploration, the right kind of exploration. So these kinds of
+
+07:50.400 --> 07:57.200
+ questions are neither in the data set nor in the architecture, but more in how we learn,
+
+07:57.200 --> 08:04.240
+ under what objectives and so on. Yeah, I've heard you mention in several contexts, the idea of sort
+
+08:04.240 --> 08:08.880
+ of the way children learn, they interact with objects in the world. And it seems fascinating
+
+08:08.880 --> 08:15.520
+ because in some sense, except with some cases in reinforcement learning, that idea
+
+08:15.520 --> 08:20.720
+ is not part of the learning process in artificial neural networks. So it's almost like,
+
+08:21.360 --> 08:29.120
+ do you envision something like an objective function saying, you know what, if you
+
+08:29.680 --> 08:36.400
+ poke this object in this kind of way, it would be really helpful for me to further learn.
+
+08:36.400 --> 08:37.040
+ Right, right.
+
+08:37.040 --> 08:40.320
+ Sort of almost guiding some aspect of the learning.
+
+08:40.320 --> 08:43.600
+ Right, right, right. So I was talking to Rebecca Sacks just a few minutes ago,
+
+08:43.600 --> 08:52.080
+ and she was talking about lots and lots of evidence from infants seem to clearly pick
+
+08:52.960 --> 09:03.040
+ what interests them in a directed way. And so they're not passive learners, they focus their
+
+09:03.040 --> 09:10.480
+ attention on aspects of the world, which are most interesting, surprising in a non trivial way.
+
+09:10.480 --> 09:14.000
+ That makes them change their theories of the world.
+
+09:16.000 --> 09:25.280
+ So that's a fascinating view of the future progress. But on a more maybe boring question,
+
+09:26.080 --> 09:33.760
+ do you think going deeper and larger, so do you think just increasing the size of the things that
+
+09:33.760 --> 09:38.800
+ have been increasing a lot in the past few years, is going to be a big thing?
+
+09:38.800 --> 09:43.760
+ I think increasing the size of the things that have been increasing a lot in the past few years
+
+09:44.320 --> 09:51.840
+ will also make significant progress. So some of the representational issues that you mentioned,
+
+09:51.840 --> 09:54.880
+ they're kind of shallow, in some sense.
+
+09:54.880 --> 09:58.400
+ Oh, shallow in the sense of abstraction.
+
+09:58.400 --> 10:00.800
+ In the sense of abstraction, they're not getting some...
+
+10:00.800 --> 10:06.880
+ I don't think that having more depth in the network in the sense of instead of 100 layers,
+
+10:06.880 --> 10:11.680
+ you're going to have more layers. I don't think so. Is that obvious to you?
+
+10:11.680 --> 10:19.200
+ Yes. What is clear to me is that engineers and companies and labs and grad students will continue
+
+10:19.200 --> 10:25.600
+ to tune architectures and explore all kinds of tweaks to make the current state of the art
+
+10:25.600 --> 10:31.440
+ slightly ever slightly better. But I don't think that's going to be nearly enough. I think we need
+
+10:31.440 --> 10:39.920
+ changes in the way that we're considering learning to achieve the goal that these learners actually
+
+10:39.920 --> 10:45.840
+ understand in a deep way the environment in which they are, you know, observing and acting.
+
+10:46.640 --> 10:52.080
+ But I guess I was trying to ask a question that's more interesting than just more layers.
+
+10:53.200 --> 11:00.800
+ It's basically, once you figure out a way to learn through interacting, how many parameters
+
+11:00.800 --> 11:07.760
+ it takes to store that information. So I think our brain is quite bigger than most neural networks.
+
+11:07.760 --> 11:13.120
+ Right, right. Oh, I see what you mean. Oh, I'm with you there. So I agree that in order to
+
+11:14.240 --> 11:19.760
+ build neural nets with the kind of broad knowledge of the world that typical adult humans have,
+
+11:20.960 --> 11:24.880
+ probably the kind of computing power we have now is going to be insufficient.
+
+11:25.600 --> 11:30.320
+ So the good news is there are hardware companies building neural net chips. And so
+
+11:30.320 --> 11:37.520
+ it's going to get better. However, the good news in a way, which is also a bad news,
+
+11:37.520 --> 11:46.960
+ is that even our state of the art, deep learning methods fail to learn models that understand
+
+11:46.960 --> 11:50.480
+ even very simple environments, like some grid worlds that we have built.
+
+11:52.000 --> 11:56.080
+ Even these fairly simple environments, I mean, of course, if you train them with enough examples,
+
+11:56.080 --> 12:02.640
+ eventually they get it. But it's just like, instead of what humans might need just
+
+12:03.440 --> 12:09.200
+ dozens of examples, these things will need millions for very, very, very simple tasks.
+
+12:10.000 --> 12:16.640
+ And so I think there's an opportunity for academics who don't have the kind of computing
+
+12:16.640 --> 12:23.440
+ power that, say, Google has to do really important and exciting research to advance
+
+12:23.440 --> 12:30.960
+ the state of the art in training frameworks, learning models, agent learning in even simple
+
+12:30.960 --> 12:37.200
+ environments that are synthetic, that seem trivial, but yet current machine learning fails on.
+
+12:38.240 --> 12:43.760
+ We talked about priors and common sense knowledge. It seems like
+
+12:43.760 --> 12:52.160
+ we humans take a lot of knowledge for granted. So what's your view of these priors of forming
+
+12:52.160 --> 12:58.880
+ this broad view of the world, this accumulation of information and how we can teach neural networks
+
+12:58.880 --> 13:05.520
+ or learning systems to pick that knowledge up? So knowledge, for a while, the artificial
+
+13:05.520 --> 13:14.320
+ intelligence was maybe in the 80s, like there's a time where knowledge representation, knowledge,
+
+13:14.320 --> 13:22.240
+ acquisition, expert systems, I mean, the symbolic AI was a view, was an interesting problem set to
+
+13:22.240 --> 13:27.680
+ solve and it was kind of put on hold a little bit, it seems like. Because it doesn't work.
+
+13:27.680 --> 13:34.960
+ It doesn't work. That's right. But that's right. But the goals of that remain important.
+
+13:34.960 --> 13:39.760
+ Yes. Remain important. And how do you think those goals can be addressed?
+
+13:39.760 --> 13:47.600
+ Right. So first of all, I believe that one reason why the classical expert systems approach failed
+
+13:48.400 --> 13:54.000
+ is because a lot of the knowledge we have, so you talked about common sense intuition,
+
+13:56.320 --> 14:01.680
+ there's a lot of knowledge like this, which is not consciously accessible.
+
+14:01.680 --> 14:05.440
+ There are lots of decisions we're taking that we can't really explain, even if sometimes we make
+
+14:05.440 --> 14:15.600
+ up a story. And that knowledge is also necessary for machines to take good decisions. And that
+
+14:15.600 --> 14:22.400
+ knowledge is hard to codify in expert systems, rule based systems and classical AI formalism.
+
+14:22.960 --> 14:29.520
+ And there are other issues, of course, with the old AI, like not really good ways of handling
+
+14:29.520 --> 14:37.040
+ uncertainty, I would say something more subtle, which we understand better now, but I think still
+
+14:37.040 --> 14:43.360
+ isn't enough in the minds of people. There's something really powerful that comes from
+
+14:43.920 --> 14:49.280
+ distributed representations, the thing that really makes neural nets work so well.
+
+14:49.280 --> 14:58.640
+ And it's hard to replicate that kind of power in a symbolic world. The knowledge in expert systems
+
+14:58.640 --> 15:04.960
+ and so on is nicely decomposed into like a bunch of rules. Whereas if you think about a neural net,
+
+15:04.960 --> 15:10.960
+ it's the opposite. You have this big blob of parameters which work intensely together to
+
+15:10.960 --> 15:16.960
+ represent everything the network knows. And it's not sufficiently factorized. It's not
+
+15:16.960 --> 15:23.520
+ sufficiently factorized. And so I think this is one of the weaknesses of current neural nets,
+
+15:24.240 --> 15:32.320
+ that we have to take lessons from classical AI in order to bring in another kind of compositionality,
+
+15:32.320 --> 15:38.800
+ which is common in language, for example, and in these rules, but that isn't so native to neural
+
+15:38.800 --> 15:48.400
+ nets. And on that line of thinking, disentangled representations. Yes. So let me connect with
+
+15:48.400 --> 15:55.280
+ disentangled representations, if you might, if you don't mind. So for many years, I've thought,
+
+15:55.280 --> 16:00.560
+ and I still believe that it's really important that we come up with learning algorithms,
+
+16:00.560 --> 16:06.400
+ either unsupervised or supervised, but reinforcement, whatever, that build representations
+
+16:06.400 --> 16:13.360
+ in which the important factors, hopefully causal factors are nicely separated and easy to pick up
+
+16:13.360 --> 16:18.480
+ from the representation. So that's the idea of disentangled representations. It says transform
+
+16:18.480 --> 16:25.120
+ the data into a space where everything becomes easy. We can maybe just learn with linear models
+
+16:25.120 --> 16:30.960
+ about the things we care about. And I still think this is important, but I think this is missing out
+
+16:30.960 --> 16:37.280
+ on a very important ingredient, which classical AI systems can remind us of.
+
+16:38.080 --> 16:41.920
+ So let's say we have these disentangled representations. You still need to learn about
+
+16:43.440 --> 16:47.200
+ the relationships between the variables, those high level semantic variables. They're not going
+
+16:47.200 --> 16:52.000
+ to be independent. I mean, this is like too much of an assumption. They're going to have some
+
+16:52.000 --> 16:56.320
+ interesting relationships that allow to predict things in the future, to explain what happened
+
+16:56.320 --> 17:01.600
+ in the past. The kind of knowledge about those relationships in a classical AI system
+
+17:01.600 --> 17:06.000
+ is encoded in the rules. Like a rule is just like a little piece of knowledge that says,
+
+17:06.000 --> 17:10.960
+ oh, I have these two, three, four variables that are linked in this interesting way,
+
+17:10.960 --> 17:14.800
+ then I can say something about one or two of them given a couple of others, right?
+
+17:14.800 --> 17:22.160
+ In addition to disentangling the elements of the representation, which are like the variables
+
+17:22.160 --> 17:31.840
+ in a rule based system, you also need to disentangle the mechanisms that relate those
+
+17:31.840 --> 17:37.200
+ variables to each other. So like the rules. So the rules are neatly separated. Like each rule is,
+
+17:37.200 --> 17:43.360
+ you know, living on its own. And when I change a rule because I'm learning, it doesn't need to
+
+17:43.360 --> 17:48.720
+ break other rules. Whereas current neural nets, for example, are very sensitive to what's called
+
+17:48.720 --> 17:53.520
+ catastrophic forgetting, where after I've learned some things and then I learn new things,
+
+17:54.080 --> 17:59.280
+ they can destroy the old things that I had learned, right? If the knowledge was better
+
+17:59.280 --> 18:05.520
+ factorized and separated, disentangled, then you would avoid a lot of that.
+
+18:06.560 --> 18:09.680
+ Now, you can't do this in the sensory domain.
+
+18:10.320 --> 18:13.120
+ What do you mean by sensory domain?
+
+18:13.120 --> 18:18.640
+ Like in pixel space. But my idea is that when you project the data in the right semantic space,
+
+18:18.640 --> 18:25.040
+ it becomes possible to now represent this extra knowledge beyond the transformation from inputs
+
+18:25.040 --> 18:30.000
+ to representations, which is how representations act on each other and predict the future and so on
+
+18:31.120 --> 18:37.680
+ in a way that can be neatly disentangled. So now it's the rules that are disentangled from each
+
+18:37.680 --> 18:40.400
+ other and not just the variables that are disentangled from each other.
+
+18:40.400 --> 18:45.200
+ And you draw a distinction between semantic space and pixel, like does there need to be
+
+18:45.200 --> 18:46.560
+ an architectural difference?
+
+18:46.560 --> 18:51.280
+ Well, yeah. So there's the sensory space like pixels, which where everything is entangled.
+
+18:52.080 --> 18:57.680
+ The information, like the variables are completely interdependent in very complicated ways.
+
+18:58.160 --> 19:03.520
+ And also computation, like it's not just the variables, it's also how they are related to
+
+19:03.520 --> 19:10.240
+ each other is all intertwined. But I'm hypothesizing that in the right high level
+
+19:11.280 --> 19:16.720
+ representation space, both the variables and how they relate to each other can be
+
+19:16.720 --> 19:20.240
+ disentangled. And that will provide a lot of generalization power.
+
+19:20.800 --> 19:22.240
+ Generalization power.
+
+19:22.240 --> 19:22.720
+ Yes.
+
+19:22.720 --> 19:29.280
+ Distribution of the test set is assumed to be the same as the distribution of the training set.
+
+19:29.280 --> 19:35.600
+ Right. This is where current machine learning is too weak. It doesn't tell us anything,
+
+19:35.600 --> 19:40.080
+ is not able to tell us anything about how our neural nets, say, are going to generalize to
+
+19:40.080 --> 19:45.120
+ a new distribution. And, you know, people may think, well, but there's nothing we can say
+
+19:45.120 --> 19:50.880
+ if we don't know what the new distribution will be. The truth is humans are able to generalize
+
+19:50.880 --> 19:51.760
+ to new distributions.
+
+19:52.560 --> 19:54.000
+ Yeah. How are we able to do that?
+
+19:54.000 --> 19:57.920
+ Yeah. Because there is something, these new distributions, even though they could look
+
+19:57.920 --> 20:02.240
+ very different from the training distributions, they have things in common. So let me give you
+
+20:02.240 --> 20:07.920
+ a concrete example. You read a science fiction novel. The science fiction novel, maybe, you
+
+20:07.920 --> 20:15.200
+ know, brings you in some other planet where things look very different on the surface,
+
+20:15.200 --> 20:20.000
+ but it's still the same laws of physics. And so you can read the book and you understand
+
+20:20.000 --> 20:27.360
+ what's going on. So the distribution is very different. But because you can transport
+
+20:27.360 --> 20:33.120
+ a lot of the knowledge you had from Earth about the underlying cause and effect relationships
+
+20:33.120 --> 20:38.720
+ and physical mechanisms and all that, and maybe even social interactions, you can now
+
+20:38.720 --> 20:42.160
+ make sense of what is going on on this planet where, like, visually, for example,
+
+20:42.160 --> 20:43.280
+ things are totally different.
+
+20:45.280 --> 20:50.800
+ Taking that analogy further and distorting it, let's enter a science fiction world of,
+
+20:50.800 --> 20:59.840
+ say, Space Odyssey, 2001, with Hal. Or maybe, which is probably one of my favorite AI movies.
+
+20:59.840 --> 21:00.480
+ Me too.
+
+21:00.480 --> 21:05.360
+ And then there's another one that a lot of people love that may be a little bit outside
+
+21:05.360 --> 21:10.000
+ of the AI community is Ex Machina. I don't know if you've seen it.
+
+21:10.000 --> 21:10.480
+ Yes. Yes.
+
+21:11.600 --> 21:16.000
+ By the way, what are your views on that movie? Are you able to enjoy it?
+
+21:16.000 --> 21:21.120
+ Are there things I like and things I hate?
+
+21:21.120 --> 21:26.800
+ So you could talk about that in the context of a question I want to ask, which is, there's
+
+21:26.800 --> 21:32.800
+ quite a large community of people from different backgrounds, often outside of AI, who are concerned
+
+21:32.800 --> 21:37.600
+ about existential threat of artificial intelligence. You've seen this community
+
+21:37.600 --> 21:42.160
+ develop over time. You've seen you have a perspective. So what do you think is the best
+
+21:42.160 --> 21:48.320
+ way to talk about AI safety, to think about it, to have discourse about it within AI community
+
+21:48.320 --> 21:54.560
+ and outside and grounded in the fact that Ex Machina is one of the main sources of information
+
+21:54.560 --> 21:56.560
+ for the general public about AI?
+
+21:56.560 --> 22:02.240
+ So I think you're putting it right. There's a big difference between the sort of discussion
+
+22:02.240 --> 22:07.600
+ we ought to have within the AI community and the sort of discussion that really matter
+
+22:07.600 --> 22:17.120
+ in the general public. So I think the picture of Terminator and AI loose and killing people
+
+22:17.120 --> 22:24.560
+ and super intelligence that's going to destroy us, whatever we try, isn't really so useful
+
+22:24.560 --> 22:30.000
+ for the public discussion. Because for the public discussion, the things I believe really
+
+22:30.000 --> 22:37.200
+ matter are the short term and medium term, very likely negative impacts of AI on society,
+
+22:37.200 --> 22:43.280
+ whether it's from security, like, you know, big brother scenarios with face recognition
+
+22:43.280 --> 22:50.000
+ or killer robots, or the impact on the job market, or concentration of power and discrimination,
+
+22:50.000 --> 22:57.760
+ all kinds of social issues, which could actually, some of them could really threaten democracy,
+
+22:57.760 --> 22:58.800
+ for example.
+
+22:58.800 --> 23:04.000
+ Just to clarify, when you said killer robots, you mean autonomous weapon, weapon systems.
+
+23:04.000 --> 23:06.320
+ Yes, I don't mean that's right.
+
+23:06.320 --> 23:13.040
+ So I think these short and medium term concerns should be important parts of the public debate.
+
+23:13.040 --> 23:24.080
+ Now, existential risk, for me is a very unlikely consideration, but still worth academic investigation
+
+23:24.640 --> 23:30.080
+ in the same way that you could say, should we study what could happen if meteorite, you
+
+23:30.080 --> 23:33.920
+ know, came to earth and destroyed it. So I think it's very unlikely that this is going
+
+23:33.920 --> 23:43.040
+ to happen in or happen in a reasonable future. The sort of scenario of an AI getting loose
+
+23:43.040 --> 23:46.560
+ goes against my understanding of at least current machine learning and current neural
+
+23:46.560 --> 23:51.120
+ nets and so on. It's not plausible to me. But of course, I don't have a crystal ball
+
+23:51.120 --> 23:55.520
+ and who knows what AI will be in 50 years from now. So I think it is worth that scientists
+
+23:55.520 --> 23:59.680
+ study those problems. It's just not a pressing question as far as I'm concerned.
+
+23:59.680 --> 24:05.840
+ So before I continue down that line, I have a few questions there. But what do you like
+
+24:05.840 --> 24:09.840
+ and not like about Ex Machina as a movie? Because I actually watched it for the second
+
+24:09.840 --> 24:15.600
+ time and enjoyed it. I hated it the first time, and I enjoyed it quite a bit more the
+
+24:15.600 --> 24:23.440
+ second time when I sort of learned to accept certain pieces of it, see it as a concept
+
+24:23.440 --> 24:26.320
+ movie. What was your experience? What were your thoughts?
+
+24:26.320 --> 24:36.080
+ So the negative is the picture it paints of science is totally wrong. Science in general
+
+24:36.080 --> 24:44.160
+ and AI in particular. Science is not happening in some hidden place by some, you know, really
+
+24:44.160 --> 24:52.160
+ smart guy, one person. This is totally unrealistic. This is not how it happens. Even a team of
+
+24:52.160 --> 24:59.840
+ people in some isolated place will not make it. Science moves by small steps, thanks to
+
+24:59.840 --> 25:10.480
+ the collaboration and community of a large number of people interacting. And all the
+
+25:10.480 --> 25:14.560
+ scientists who are expert in their field kind of know what is going on, even in the industrial
+
+25:14.560 --> 25:21.920
+ labs. It's information flows and leaks and so on. And the spirit of it is very different
+
+25:21.920 --> 25:25.600
+ from the way science is painted in this movie.
+
+25:25.600 --> 25:32.400
+ Yeah, let me ask on that point. It's been the case to this point that kind of even if
+
+25:32.400 --> 25:36.800
+ the research happens inside Google or Facebook, inside companies, it still kind of comes out,
+
+25:36.800 --> 25:41.680
+ ideas come out. Do you think that will always be the case with AI? Is it possible to bottle
+
+25:41.680 --> 25:47.360
+ ideas to the point where there's a set of breakthroughs that go completely undiscovered
+
+25:47.360 --> 25:52.240
+ by the general research community? Do you think that's even possible?
+
+25:52.240 --> 25:59.520
+ It's possible, but it's unlikely. It's not how it is done now. It's not how I can foresee
+
+25:59.520 --> 26:09.520
+ it in the foreseeable future. But of course, I don't have a crystal ball and science is
+
+26:09.520 --> 26:14.960
+ a crystal ball. And so who knows? This is science fiction after all.
+
+26:14.960 --> 26:21.440
+ I think it's ominous that the lights went off during that discussion.
+
+26:21.440 --> 26:25.320
+ So the problem, again, there's one thing is the movie and you could imagine all kinds
+
+26:25.320 --> 26:30.320
+ of science fiction. The problem for me, maybe similar to the question about existential
+
+26:30.320 --> 26:39.440
+ risk, is that this kind of movie paints such a wrong picture of what is the actual science
+
+26:39.440 --> 26:45.640
+ and how it's going on that it can have unfortunate effects on people's understanding of current
+
+26:45.640 --> 26:50.800
+ science. And so that's kind of sad.
+
+26:50.800 --> 26:58.440
+ There's an important principle in research, which is diversity. So in other words, research
+
+26:58.440 --> 27:03.720
+ is exploration. Research is exploration in the space of ideas. And different people will
+
+27:03.720 --> 27:09.520
+ focus on different directions. And this is not just good, it's essential. So I'm totally
+
+27:09.520 --> 27:16.440
+ fine with people exploring directions that are contrary to mine or look orthogonal to
+
+27:16.440 --> 27:24.920
+ mine. I am more than fine. I think it's important. I and my friends don't claim we have universal
+
+27:24.920 --> 27:29.560
+ truth about what will, especially about what will happen in the future. Now that being
+
+27:29.560 --> 27:36.560
+ said, we have our intuitions and then we act accordingly according to where we think we
+
+27:36.560 --> 27:42.480
+ can be most useful and where society has the most to gain or to lose. We should have those
+
+27:42.480 --> 27:49.800
+ debates and not end up in a society where there's only one voice and one way of thinking
+
+27:49.800 --> 27:53.520
+ and research money is spread out.
+
+27:53.520 --> 27:59.040
+ So disagreement is a sign of good research, good science.
+
+27:59.040 --> 28:00.040
+ Yes.
+
+28:00.040 --> 28:08.600
+ The idea of bias in the human sense of bias. How do you think about instilling in machine
+
+28:08.600 --> 28:15.240
+ learning something that's aligned with human values in terms of bias? We intuitively as
+
+28:15.240 --> 28:21.160
+ human beings have a concept of what bias means, of what fundamental respect for other human
+
+28:21.160 --> 28:26.760
+ beings means. But how do we instill that into machine learning systems, do you think?
+
+28:26.760 --> 28:32.360
+ So I think there are short term things that are already happening and then there are long
+
+28:32.360 --> 28:38.360
+ term things that we need to do. In the short term, there are techniques that have been
+
+28:38.360 --> 28:44.200
+ proposed and I think will continue to be improved and maybe alternatives will come up to take
+
+28:44.200 --> 28:50.120
+ data sets in which we know there is bias, we can measure it. Pretty much any data set
+
+28:50.120 --> 28:55.520
+ where humans are being observed taking decisions will have some sort of bias, discrimination
+
+28:55.520 --> 28:59.000
+ against particular groups and so on.
+
+28:59.000 --> 29:04.240
+ And we can use machine learning techniques to try to build predictors, classifiers that
+
+29:04.240 --> 29:11.600
+ are going to be less biased. We can do it, for example, using adversarial methods to
+
+29:11.600 --> 29:18.360
+ make our systems less sensitive to these variables we should not be sensitive to.
+
+29:18.360 --> 29:23.520
+ So these are clear, well defined ways of trying to address the problem. Maybe they have weaknesses
+
+29:23.520 --> 29:28.840
+ and more research is needed and so on. But I think in fact they are sufficiently mature
+
+29:28.840 --> 29:35.240
+ that governments should start regulating companies where it matters, say like insurance companies,
+
+29:35.240 --> 29:40.480
+ so that they use those techniques. Because those techniques will probably reduce the
+
+29:40.480 --> 29:46.440
+ bias but at a cost. For example, maybe their predictions will be less accurate and so companies
+
+29:46.440 --> 29:48.560
+ will not do it until you force them.
+
+29:48.560 --> 29:56.040
+ All right, so this is short term. Long term, I'm really interested in thinking how we can
+
+29:56.040 --> 30:01.560
+ instill moral values into computers. Obviously, this is not something we'll achieve in the
+
+30:01.560 --> 30:08.120
+ next five or 10 years. How can we, you know, there's already work in detecting emotions,
+
+30:08.120 --> 30:19.880
+ for example, in images, in sounds, in texts, and also studying how different agents interacting
+
+30:19.880 --> 30:28.200
+ in different ways may correspond to patterns of, say, injustice, which could trigger anger.
+
+30:28.200 --> 30:37.840
+ So these are things we can do in the medium term and eventually train computers to model,
+
+30:37.840 --> 30:46.960
+ for example, how humans react emotionally. I would say the simplest thing is unfair situations
+
+30:46.960 --> 30:52.680
+ which trigger anger. This is one of the most basic emotions that we share with other animals.
+
+30:52.680 --> 30:57.160
+ I think it's quite feasible within the next few years that we can build systems that can
+
+30:57.160 --> 31:01.980
+ detect these kinds of things to the extent, unfortunately, that they understand enough
+
+31:01.980 --> 31:08.240
+ about the world around us, which is a long time away. But maybe we can initially do this
+
+31:08.240 --> 31:14.840
+ in virtual environments. So you can imagine a video game where agents interact in some
+
+31:14.840 --> 31:21.640
+ ways and then some situations trigger an emotion. I think we could train machines to detect
+
+31:21.640 --> 31:27.400
+ those situations and predict that the particular emotion will likely be felt if a human was
+
+31:27.400 --> 31:29.460
+ playing one of the characters.
+
+31:29.460 --> 31:35.720
+ You have shown excitement and done a lot of excellent work with unsupervised learning.
+
+31:35.720 --> 31:39.840
+ But there's been a lot of success on the supervised learning side.
+
+31:39.840 --> 31:40.840
+ Yes, yes.
+
+31:40.840 --> 31:46.680
+ And one of the things I'm really passionate about is how humans and robots work together.
+
+31:46.680 --> 31:52.800
+ And in the context of supervised learning, that means the process of annotation. Do you
+
+31:52.800 --> 32:00.080
+ think about the problem of annotation put in a more interesting way as humans teaching
+
+32:00.080 --> 32:01.080
+ machines?
+
+32:01.080 --> 32:02.080
+ Yes.
+
+32:02.080 --> 32:03.080
+ Is there?
+
+32:03.080 --> 32:09.560
+ Yes. I think it's an important subject. Reducing it to annotation may be useful for somebody
+
+32:09.560 --> 32:16.300
+ building a system tomorrow. But longer term, the process of teaching, I think, is something
+
+32:16.300 --> 32:19.960
+ that deserves a lot more attention from the machine learning community. So there are people
+
+32:19.960 --> 32:24.560
+ who have coined the term machine teaching. So what are good strategies for teaching a
+
+32:24.560 --> 32:33.160
+ learning agent? And can we design and train a system that is going to be a good teacher?
+
+32:33.160 --> 32:42.200
+ So in my group, we have a project called BBI or BBI game, where there is a game or scenario
+
+32:42.200 --> 32:48.480
+ where there's a learning agent and a teaching agent. Presumably, the teaching agent would
+
+32:48.480 --> 32:57.960
+ eventually be a human. But we're not there yet. And the role of the teacher is to use
+
+32:57.960 --> 33:04.840
+ its knowledge of the environment, which it can acquire using whatever way brute force
+
+33:04.840 --> 33:10.760
+ to help the learner learn as quickly as possible. So the learner is going to try to learn by
+
+33:10.760 --> 33:19.920
+ itself, maybe using some exploration and whatever. But the teacher can choose, can have an influence
+
+33:19.920 --> 33:27.160
+ on the interaction with the learner, so as to guide the learner, maybe teach it the things
+
+33:27.160 --> 33:30.840
+ that the learner has most trouble with, or just add the boundary between what it knows
+
+33:30.840 --> 33:36.180
+ and doesn't know, and so on. So there's a tradition of these kind of ideas from other
+
+33:36.180 --> 33:45.320
+ fields and like tutorial systems, for example, and AI. And of course, people in the humanities
+
+33:45.320 --> 33:48.240
+ have been thinking about these questions. But I think it's time that machine learning
+
+33:48.240 --> 33:55.440
+ people look at this, because in the future, we'll have more and more human machine interaction
+
+33:55.440 --> 34:01.040
+ with the human in the loop. And I think understanding how to make this work better, all the problems
+
+34:01.040 --> 34:06.160
+ around that are very interesting and not sufficiently addressed. You've done a lot of work with
+
+34:06.160 --> 34:14.000
+ language, too. What aspect of the traditionally formulated Turing test, a test of natural
+
+34:14.000 --> 34:19.520
+ language understanding and generation in your eyes is the most difficult of conversation?
+
+34:19.520 --> 34:25.640
+ What in your eyes is the hardest part of conversation to solve for machines? So I would say it's
+
+34:25.640 --> 34:32.300
+ everything having to do with the non linguistic knowledge, which implicitly you need in order
+
+34:32.300 --> 34:37.680
+ to make sense of sentences, things like the Winograd schema. So these sentences that are
+
+34:37.680 --> 34:43.720
+ semantically ambiguous. In other words, you need to understand enough about the world
+
+34:43.720 --> 34:49.280
+ in order to really interpret properly those sentences. I think these are interesting challenges
+
+34:49.280 --> 34:57.300
+ for machine learning, because they point in the direction of building systems that both
+
+34:57.300 --> 35:03.760
+ understand how the world works and this causal relationships in the world and associate that
+
+35:03.760 --> 35:12.080
+ knowledge with how to express it in language, either for reading or writing.
+
+35:12.080 --> 35:13.080
+ You speak French?
+
+35:13.080 --> 35:14.760
+ Yes, it's my mother tongue.
+
+35:14.760 --> 35:20.400
+ It's one of the romance languages. Do you think passing the Turing test and all the
+
+35:20.400 --> 35:24.320
+ underlying challenges we just mentioned depend on language? Do you think it might be easier
+
+35:24.320 --> 35:28.920
+ in French than it is in English, or is independent of language?
+
+35:28.920 --> 35:37.600
+ I think it's independent of language. I would like to build systems that can use the same
+
+35:37.600 --> 35:46.720
+ principles, the same learning mechanisms to learn from human agents, whatever their language.
+
+35:46.720 --> 35:53.560
+ Well, certainly us humans can talk more beautifully and smoothly in poetry, some Russian originally.
+
+35:53.560 --> 36:02.600
+ I know poetry in Russian is maybe easier to convey complex ideas than it is in English.
+
+36:02.600 --> 36:09.480
+ But maybe I'm showing my bias and some people could say that about French. But of course,
+
+36:09.480 --> 36:15.880
+ the goal ultimately is our human brain is able to utilize any kind of those languages
+
+36:15.880 --> 36:18.280
+ to use them as tools to convey meaning.
+
+36:18.280 --> 36:22.040
+ Yeah, of course, there are differences between languages, and maybe some are slightly better
+
+36:22.040 --> 36:26.120
+ at some things, but in the grand scheme of things, where we're trying to understand how
+
+36:26.120 --> 36:32.040
+ the brain works and language and so on, I think these differences are minute.
+
+36:32.040 --> 36:38.880
+ So you've lived perhaps through an AI winter of sorts?
+
+36:38.880 --> 36:39.920
+ Yes.
+
+36:39.920 --> 36:44.740
+ How did you stay warm and continue your research?
+
+36:44.740 --> 36:45.740
+ Stay warm with friends.
+
+36:45.740 --> 36:51.160
+ With friends. Okay, so it's important to have friends. And what have you learned from the
+
+36:51.160 --> 36:53.600
+ experience?
+
+36:53.600 --> 37:02.040
+ Listen to your inner voice. Don't, you know, be trying to just please the crowds and the
+
+37:02.040 --> 37:10.320
+ fashion. And if you have a strong intuition about something that is not contradicted by
+
+37:10.320 --> 37:17.280
+ actual evidence, go for it. I mean, it could be contradicted by people.
+
+37:17.280 --> 37:20.600
+ Not your own instinct of based on everything you've learned?
+
+37:20.600 --> 37:28.320
+ Of course, you have to adapt your beliefs when your experiments contradict those beliefs.
+
+37:28.320 --> 37:35.000
+ But you have to stick to your beliefs. Otherwise, it's what allowed me to go through those years.
+
+37:35.000 --> 37:42.040
+ It's what allowed me to persist in directions that, you know, took time, whatever other
+
+37:42.040 --> 37:48.040
+ people think, took time to mature and bring fruits.
+
+37:48.040 --> 37:54.520
+ So history of AI is marked with these, of course, it's marked with technical breakthroughs,
+
+37:54.520 --> 38:00.980
+ but it's also marked with these seminal events that capture the imagination of the community.
+
+38:00.980 --> 38:06.400
+ Most recent, I would say, AlphaGo beating the world champion human Go player was one
+
+38:06.400 --> 38:12.360
+ of those moments. What do you think the next such moment might be?
+
+38:12.360 --> 38:22.600
+ Okay, so first of all, I think that these so called seminal events are overrated. As
+
+38:22.600 --> 38:30.200
+ I said, science really moves by small steps. Now what happens is you make one more small
+
+38:30.200 --> 38:39.480
+ step and it's like the drop that, you know, that fills the bucket and then you have drastic
+
+38:39.480 --> 38:43.920
+ consequences because now you're able to do something you were not able to do before.
+
+38:43.920 --> 38:49.720
+ Or now, say, the cost of building some device or solving a problem becomes cheaper than
+
+38:49.720 --> 38:53.900
+ what existed and you have a new market that opens up, right? So especially in the world
+
+38:53.900 --> 39:03.760
+ of commerce and applications, the impact of a small scientific progress could be huge.
+
+39:03.760 --> 39:07.800
+ But in the science itself, I think it's very, very gradual.
+
+39:07.800 --> 39:13.160
+ And where are these steps being taken now? So there's unsupervised learning.
+
+39:13.160 --> 39:23.380
+ So if I look at one trend that I like in my community, so for example, at Milan, my institute,
+
+39:23.380 --> 39:31.840
+ what are the two hardest topics? GANs and reinforcement learning. Even though in Montreal
+
+39:31.840 --> 39:37.020
+ in particular, reinforcement learning was something pretty much absent just two or three
+
+39:37.020 --> 39:44.280
+ years ago. So there's really a big interest from students and there's a big interest from
+
+39:44.280 --> 39:51.560
+ people like me. So I would say this is something where we're going to see more progress, even
+
+39:51.560 --> 39:58.680
+ though it hasn't yet provided much in terms of actual industrial fallout. Like even though
+
+39:58.680 --> 40:03.360
+ there's AlphaGo, there's no, like Google is not making money on this right now. But I
+
+40:03.360 --> 40:08.960
+ think over the long term, this is really, really important for many reasons.
+
+40:08.960 --> 40:13.840
+ So in other words, I would say reinforcement learning may be more generally agent learning
+
+40:13.840 --> 40:17.520
+ because it doesn't have to be with rewards. It could be in all kinds of ways that an agent
+
+40:17.520 --> 40:20.720
+ is learning about its environment.
+
+40:20.720 --> 40:28.840
+ Now reinforcement learning you're excited about, do you think GANs could provide something,
+
+40:28.840 --> 40:38.880
+ at the moment? Well, GANs or other generative models, I believe, will be crucial ingredients
+
+40:38.880 --> 40:45.480
+ in building agents that can understand the world. A lot of the successes in reinforcement
+
+40:45.480 --> 40:51.160
+ learning in the past has been with policy gradient, where you just learn a policy, you
+
+40:51.160 --> 40:55.760
+ don't actually learn a model of the world. But there are lots of issues with that. And
+
+40:55.760 --> 41:00.880
+ we don't know how to do model based RL right now. But I think this is where we have to
+
+41:00.880 --> 41:09.340
+ go in order to build models that can generalize faster and better like to new distributions
+
+41:09.340 --> 41:16.120
+ that capture to some extent, at least the underlying causal mechanisms in the world.
+
+41:16.120 --> 41:21.480
+ Last question. What made you fall in love with artificial intelligence? If you look
+
+41:21.480 --> 41:28.880
+ back, what was the first moment in your life when you were fascinated by either the human
+
+41:28.880 --> 41:31.360
+ mind or the artificial mind?
+
+41:31.360 --> 41:35.520
+ You know, when I was an adolescent, I was reading a lot. And then I started reading
+
+41:35.520 --> 41:36.520
+ science fiction.
+
+41:36.520 --> 41:37.520
+ There you go.
+
+41:37.520 --> 41:46.520
+ That's it. That's where I got hooked. And then, you know, I had one of the first personal
+
+41:46.520 --> 41:52.680
+ computers and I got hooked in programming. And so it just, you know,
+
+41:52.680 --> 41:54.800
+ Start with fiction and then make it a reality.
+
+41:54.800 --> 41:55.800
+ That's right.
+
+41:55.800 --> 41:57.560
+ Yoshua, thank you so much for talking to me.
+
+41:57.560 --> 42:18.160
+ My pleasure.
+
