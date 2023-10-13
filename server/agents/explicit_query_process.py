@@ -18,8 +18,6 @@ from agents.agent_prompts import generate_prompt, generate_master_prompt
 
 # llm = ChatOpenAI(temperature=0, openai_api_key=openai_api_key, model="gpt-4-0613")
 
-history = dict()
-
 wake_terms = [
     "hey convoscope",
     "hey conboscope",
@@ -45,7 +43,7 @@ def stringify_history(chathistory):
 
 def explicit_query_processing_loop():
     #lock = threading.Lock()
-
+    history = dict()
     dbHandler = DatabaseHandler(parent_handler=False)
 
     print("START AGENT INSIGHT PROCESSING LOOP")
@@ -78,12 +76,15 @@ def explicit_query_processing_loop():
                 print("YO! THE QUERY IS: " + query)
 
                 insightGenerationStartTime = time.time()
-                length = len(transcript['text'])
-                new_chunk_length = int(length * 0.05)
-                history = transcript['text'][:length-new_chunk_length]
-                # history = stringify_history(history[user_id])
+                # length = len(transcript['text'])
+                # new_chunk_length = int(length * 0.05)
+                
+                # chat_history = transcript['text'][:length-new_chunk_length]
+                chat_history = stringify_history(history[user_id])
                 # prompt = generate_prompt(f"<Old Transcript>{transcript['text'][:length-new_chunk_length]}<New Transcript>{transcript['text'][length-new_chunk_length:]}")
-                mprompt = generate_master_prompt(history + " " + transcript['text'][length-new_chunk_length:])
+                # usertext = chat_history + " " + transcript['text'][length-new_chunk_length:]
+                # usertext = transcript['text'][length-new_chunk_length:]
+                mprompt = generate_master_prompt(chat_history + "\n\n" + "new query: " + query)
                 try:
                     insight = master_agent.run(mprompt)
                     insight = "Insight: Stuff is good and stuff that's right"
@@ -94,6 +95,9 @@ def explicit_query_processing_loop():
                     # insight_obj['uuid'] = str(uuid.uuid4())
                     # insight_obj['text'] = insight
                     # dbHandler.add_agent_insights_results_for_user(transcript['user_id'], [insight_obj])
+                    history[user_id].push("user: " + query)
+                    history[user_id].push("llm: " + insight)
+                    if len(history[user_id] > 4): history[user_id].pop(0)
                     print("running running and running running and running running")
                 except Exception as e:
                     print("Exception in agent.run()...:")

@@ -19,11 +19,6 @@ from langchain.chains import LLMChain
 
 search = GoogleSerperAPIWrapper(serper_api_key=serper_api_key)
 llm = ChatOpenAI(temperature=0, openai_api_key=openai_api_key, model="gpt-4-0613")
-# llm = OpenAI(openai_api_key=openai_api_key, model="gpt-4-0613")
-# ## Tools for our agent
-# We had decided to give our agents the ability to
-# - Search for a query using the web
-# - Scrape a page to find out more info
 
 # Scraping tool
 from bs4 import BeautifulSoup
