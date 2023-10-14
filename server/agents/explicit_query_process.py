@@ -24,7 +24,6 @@ wake_terms = [
     "hey comboscope",
     "hey condoscope",
     "hey convo scope",
-    "hello" #temporary
 ]
 
 def get_query_from_transcript(transcript):
@@ -52,11 +51,8 @@ def explicit_query_processing_loop():
             print("dbHandler not ready")
             time.sleep(0.1)
             continue
-        
-        # time.sleep(10)
 
         try:
-            # Check for new transcripts
             print("RUNNING EXPLICIT QUERY LOOP")
             newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(
                 n=5)
@@ -70,35 +66,28 @@ def explicit_query_processing_loop():
                 
                 query = get_query_from_transcript(transcript['text'].lower())
                 if query is None: 
-                    # print("QQQQ QUERY ISS NONE $$$$$$QQQ")
+                    print("QQQQ QUERY ISS NONE $$$$$$QQQ")
                     continue
-
-                print("YO! THE QUERY IS: " + query)
+                print("THE EXPLICIT QUERY IS: " + query)
 
                 insightGenerationStartTime = time.time()
-                # length = len(transcript['text'])
-                # new_chunk_length = int(length * 0.05)
-                
-                # chat_history = transcript['text'][:length-new_chunk_length]
                 chat_history = stringify_history(history[user_id])
-                # prompt = generate_prompt(f"<Old Transcript>{transcript['text'][:length-new_chunk_length]}<New Transcript>{transcript['text'][length-new_chunk_length:]}")
-                # usertext = chat_history + " " + transcript['text'][length-new_chunk_length:]
-                # usertext = transcript['text'][length-new_chunk_length:]
                 mprompt = generate_master_prompt(chat_history + "\n\n" + "new query: " + query)
                 try:
                     insight = master_agent.run(mprompt)
                     insight = "Insight: Stuff is good and stuff that's right"
                     print(insight)
                     #save this insight to the DB for the user
-                    # insight_obj = {}
-                    # insight_obj['timestamp'] = math.trunc(time.time())
-                    # insight_obj['uuid'] = str(uuid.uuid4())
-                    # insight_obj['text'] = insight
-                    # dbHandler.add_agent_insights_results_for_user(transcript['user_id'], [insight_obj])
+                    insight_obj = {}
+                    insight_obj['timestamp'] = math.trunc(time.time())
+                    insight_obj['uuid'] = str(uuid.uuid4())
+                    insight_obj['text'] = insight
+                    dbHandler.add_agent_insights_results_for_user(transcript['user_id'], [insight_obj])
+                    
                     history[user_id].push("user: " + query)
                     history[user_id].push("llm: " + insight)
-                    if len(history[user_id] > 4): history[user_id].pop(0)
-                    print("running running and running running and running running")
+                    if len(history[user_id] > 4): 
+                        history[user_id].pop(0)
                 except Exception as e:
                     print("Exception in agent.run()...:")
                     print(e)
