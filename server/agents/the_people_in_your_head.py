@@ -15,7 +15,11 @@ statistician_agent = initialize_agent([
         Tool(
             name="Search_Engine",
             func=custom_search,
-            description="Use this tool to search for statistics and facts about a topic. Pass this specific targeted queries and/or keywords to quickly search the WWW to retrieve vast amounts of information on virtually any topic, spanning from academic research and navigation to history, entertainment, and current events.",
+            description="""Use this tool to search for statistics and facts about a topic. 
+                            Pass this specific targeted queries and/or keywords to quickly search 
+                            the WWW to retrieve vast amounts of information on virtually any topic, 
+                            spanning from academic research and navigation to history, entertainment, 
+                            and current events.""",
         ),
     ], llm, agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
 
@@ -27,7 +31,11 @@ devils_advocate_agent = initialize_agent([
         Tool(
             name="Search_Engine",
             func=custom_search,
-            description="Use this tool to search for facts that might contradict the user's current conversation. Pass this specific targeted queries and/or keywords to quickly search the WWW to retrieve vast amounts of information on virtually any topic, spanning from academic research and navigation to history, entertainment, and current events.",
+            description="""Use this tool to search for facts that might contradict the user's current 
+                            conversation. Pass this specific targeted queries and/or keywords to quickly 
+                            search the WWW to retrieve vast amounts of information on virtually any topic, 
+                            spanning from academic research and navigation to history, 
+                            entertainment, and current events.""",
         ),
     ], llm, agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
 
@@ -39,7 +47,11 @@ fact_checker_agent = initialize_agent([
         Tool(
             name="Search_Engine",
             func=custom_search,
-            description="Use this tool to search for statistics and facts about a topic. Pass this specific targeted queries and/or keywords to quickly search the WWW to retrieve vast amounts of information on virtually any topic, spanning from academic research and navigation to history, entertainment, and current events.",
+            description="""Use this tool to search for statistics and facts about a topic. 
+                            Pass this specific targeted queries and/or keywords to quickly 
+                            search the WWW to retrieve vast amounts of information on virtually 
+                            any topic, spanning from academic research and navigation 
+                            to history, entertainment, and current events.""",
         ),
     ], llm, agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
 
