@@ -82,7 +82,7 @@ export function NavbarMinimal({
   return (
     <Navbar width={{ base: 80 }} p="md">
       <Center>
-        <Avatar src="/Convoscope_new.png" alt="CSE Logo" />
+        <Avatar src="/Convoscope_logo_og.png" alt="CSE Logo" />
       </Center>
       <Navbar.Section grow mt={50}>
         <Stack justify="center" spacing={0}>
