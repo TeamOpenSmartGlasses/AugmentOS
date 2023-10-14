@@ -21,6 +21,7 @@ from agents.agent_prompts import generate_prompt, generate_master_prompt
 wake_terms = [
     "hey convoscope",
     "hey conboscope",
+    "hey confoscope",
     "hey comboscope",
     "hey condoscope",
     "hey convo scope",
@@ -34,15 +35,14 @@ def get_query_from_transcript(transcript):
             return transcript[index:]
     return None
 
-def stringify_history(chathistory):
+def stringify_history(insight_history):
     history = ""
-    for c in chathistory:
-        history += c + "\n\n"
+    for c in insight_history:
+        history += "User: {}\nLLM:{}\n\n".format(c['query'], c['insight'])
     return history
 
 def explicit_query_processing_loop():
     #lock = threading.Lock()
-    history = dict()
     dbHandler = DatabaseHandler(parent_handler=False)
 
     print("START AGENT INSIGHT PROCESSING LOOP")
@@ -60,9 +60,6 @@ def explicit_query_processing_loop():
                 print("Run EXPLICIT QUERY STUFF with... user_id: '{}' ... text: '{}'".format(
                     transcript['user_id'], transcript['text']))
                 user_id = transcript['user_id']
-
-                if user_id not in history:
-                    history[user_id] = []
                 
                 query = get_query_from_transcript(transcript['text'].lower())
                 if query is None: 
@@ -71,23 +68,28 @@ def explicit_query_processing_loop():
                 print("THE EXPLICIT QUERY IS: " + query)
 
                 insightGenerationStartTime = time.time()
-                chat_history = stringify_history(history[user_id])
-                mprompt = generate_master_prompt(chat_history + "\n\n" + "new query: " + query)
+
+                insight_history = dbHandler.get_agent_insights_history_for_user(transcript['user_id'])
+                chat_history = stringify_history(insight_history)
+
+                mprompt = generate_master_prompt(chat_history, query)
+
+                print("||||||||| MPROMPT ||||||||||||||")
+                print(mprompt)
+                print("||||||||||||||||||||||||||||||||")
+
                 try:
                     insight = master_agent.run(mprompt)
-                    insight = "Insight: Stuff is good and stuff that's right"
-                    print(insight)
-                    #save this insight to the DB for the user
-                    insight_obj = {}
-                    insight_obj['timestamp'] = math.trunc(time.time())
-                    insight_obj['uuid'] = str(uuid.uuid4())
-                    insight_obj['text'] = insight
-                    dbHandler.add_agent_insights_results_for_user(transcript['user_id'], [insight_obj])
                     
-                    history[user_id].push("user: " + query)
-                    history[user_id].push("llm: " + insight)
-                    if len(history[user_id] > 4): 
-                        history[user_id].pop(0)
+                    print("===========200 IQ INSIGHT============")
+                    print(insight)
+                    print("=====================================")
+                    
+                    #save this insight to the DB for the user
+                    insight_time = math.trunc(time.time())
+                    insight_uuid = str(uuid.uuid4())
+                    insight_obj = {'timestamp': insight_time, 'uuid': insight_uuid, 'query': query, 'insight': insight}
+                    dbHandler.add_agent_insights_results_for_user(transcript['user_id'], [insight_obj])
                 except Exception as e:
                     print("Exception in agent.run()...:")
                     print(e)
