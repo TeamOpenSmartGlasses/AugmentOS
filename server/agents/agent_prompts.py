@@ -55,7 +55,7 @@ In your initial thought, you should first come up with a plan to generate the "I
 """
 
 
-generate_master_prompt = lambda x: f"""
+generate_master_prompt = lambda x, y: f"""
 You are the master agent of "Convoscope". "Convoscope" is a tool that listens to a user's live conversation and enhances their conversation by providing them with real time "Insights". The "Insights" you generate should aim to lead the user to deeper understanding, broader perspectives, new ideas, more accurate information, better replies, and enhanced conversations. 
 
 [Your Objective]
@@ -71,5 +71,5 @@ In your initial thought, you should first write down a plan to generate the "Ins
 <Task end>
 
 <History start>{x}<History end>
-<Transcript start>{x}<Transcript end>
+<Transcript start>{y}<Transcript end>
 """
