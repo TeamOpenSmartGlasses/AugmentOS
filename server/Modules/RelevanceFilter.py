@@ -1,7 +1,7 @@
 class RelevanceFilter:
     def __init__(self, db_handler):
         self.db_handler = db_handler
-        self.banned_terms = ["LOL", "AI", "Caden Pierce", "Alex Israel"]
+        self.banned_terms = ["LOL", "AI", "Caden Pierce", "Alex Israel", "Professor", "God", "Jesus", "Google", "David Newman", "Patty"]
 
     def should_run_for_text(self, user_id, text):
         should_run = True

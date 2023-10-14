@@ -29,7 +29,6 @@ global app
 
 #handle new transcripts coming in
 async def chat_handler(request):
-    print("got chat...")
     start_time = time.time()
 
     body = await request.json()
@@ -49,8 +48,8 @@ async def chat_handler(request):
         print("user_id none in chat_handler, exiting with error response 400.")
         return web.Response(text='no user_id in request', status=400)
 
-    print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format(
-        "FINAL" if is_final else "INTERMEDIATE", text, timestamp, user_id))
+    #print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format(
+        #"FINAL" if is_final else "INTERMEDIATE", text, timestamp, user_id))
     if is_final:
         print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format("FINAL", text, timestamp, user_id))
     start_save_db_time = time.time()
@@ -96,6 +95,7 @@ async def button_handler(request):
 # run cse/definer tools for subscribed users in background every n ms if there is fresh data to run on
 def cse_loop():
     print("START PROCESSING LOOP")
+
     #setup things we need for processing
     db_handler = DatabaseHandler(parent_handler=False)
     relevance_filter = RelevanceFilter(db_handler=db_handler)
@@ -107,6 +107,8 @@ def cse_loop():
             print("db_handler not ready")
             time.sleep(0.1)
             continue
+
+        loop_start_time = time.time()
 
         try:
             p_loop_start_time = time.time()
@@ -141,9 +143,12 @@ def cse_loop():
             traceback.print_exc()
         finally:
             p_loop_end_time = time.time()
-            # print("=== processing_loop completed in {} seconds overall ===".format(
-            #     round(p_loop_end_time - p_loop_start_time, 2)))
-        time.sleep(2.5)
+            print("=== processing_loop completed in {} seconds overall ===".format(
+                round(p_loop_end_time - p_loop_start_time, 2)))
+
+        loop_run_period = 2.5 #run the loop this often
+        while (time.time() - loop_start_time) < loop_run_period: #wait until loop_run_period has passed before running this again
+            time.sleep(0.2)
 
 
 #frontends poll this to get the results from our processing of their transcripts

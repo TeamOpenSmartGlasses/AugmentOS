@@ -213,7 +213,7 @@ class DatabaseHandler:
             stale_intermediate_time = 10
             if (user['latest_intermediate_transcript']['timestamp'] != -1) and ((time.time() - user['latest_intermediate_transcript']['timestamp']) > stale_intermediate_time):
                 print("~~~~~~~~~~~~~~ Killing stale intermediate transcript")
-                filter = {"userId": userId}
+                filter = {"user_id": user_id}
                 # Set `latest_intermediate_transcript` to empty string and timestamp -1
                 update = {
                     "$set": {"latest_intermediate_transcript": self.emptyTranscript}}
