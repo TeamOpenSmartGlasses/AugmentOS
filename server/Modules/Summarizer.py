@@ -8,6 +8,11 @@ from server_config import openai_api_key, use_azure_openai, azure_openai_api_key
 openai.api_key = openai_api_key
 
 ### For use with Azure OpenAI ###
+"""
+# # # #
+# TODO: NEED TO FIND WAY TO USE AZURE // OpenAI throughout codebase... need to separate the llm initialization code out
+#       (just use OpenAI for now)
+# # # #
 if use_azure_openai:
     print("$$$ USING AZURE OPENAI $$$")
     openai.api_key = azure_openai_api_key
@@ -15,7 +20,8 @@ if use_azure_openai:
     openai.api_type = 'azure'
     openai.api_version = '2023-08-01-preview' # this may change in the future
     deployment_name = azure_openai_api_deployment # This will correspond to the custom name you chose for your deployment when you deployed a model. 
-
+"""
+    
 og_prompt_no_context = """Please summarize the following "entity description" text to 8 words or less, extracting the most important information about the entity. The summary should be easy to parse very quickly. Leave out filler words. Don't write the name of the entity. Use less than 8 words for the entire summary. Be concise, brief, and succinct.
 
             Example:
