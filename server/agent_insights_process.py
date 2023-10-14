@@ -25,7 +25,7 @@ agent = initialize_agent([
         description="Pass this specific targeted queries and/or keywords to quickly search the WWW to retrieve vast amounts of information on virtually any topic, spanning from academic research and navigation to history, entertainment, and current events. It's a tool for understanding, navigating, and engaging with the digital world's vast knowledge.",
     ),
     #StructuredTool.from_function(scrape_page)
-], llm, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
+], llm, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=5, verbose=True)
 
 def agent_insights_processing_loop():
     #lock = threading.Lock()
