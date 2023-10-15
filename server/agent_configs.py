@@ -30,7 +30,7 @@ The plan should include a final step to generate the insight. The insight must {
 
 <Transcript start>{conversation_transcript}<Transcript end>"""
 
-agent_list = [
+agent_config_list = [
         {
             "agent_name": "Statistician", 
             "insight_num_words" : 10,
@@ -57,8 +57,9 @@ def agent_prompt_maker(agent_config, conversation_transcript):
     agent_prompt = agent_prompt_blueprint.format(**agent_config, conversation_transcript=conversation_transcript)
     return agent_prompt
 
-for agent in agent_list:
-    print(agent)
-    agent_prompt = agent_prompt_maker(agent, "this is a test transcript")
-    print(agent_prompt)
-    print("--------------\n\n\n")
+if __name__ == "__main__":
+    for agent in agent_config_list:
+        print(agent)
+        agent_prompt = agent_prompt_maker(agent, "this is a test transcript")
+        print(agent_prompt)
+        print("--------------\n\n\n")
