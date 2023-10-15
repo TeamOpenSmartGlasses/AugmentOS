@@ -86,7 +86,6 @@ async def button_handler(request):
 
     if button_activity:  # True if push down, false if button release
         print("button True")
-
         return web.Response(text=json.dumps({'message': "button up activity detected"}), status=200)
     else:
         return web.Response(text=json.dumps({'message': "button up activity detected"}), status=200)
@@ -94,7 +93,7 @@ async def button_handler(request):
 
 # run cse/definer tools for subscribed users in background every n ms if there is fresh data to run on
 def cse_loop():
-    print("START PROCESSING LOOP")
+    print("START CSE PROCESSING LOOP")
 
     #setup things we need for processing
     db_handler = DatabaseHandler(parent_handler=False)
@@ -123,6 +122,7 @@ def cse_loop():
                 cse_start_time = time.time()
                 cse_responses = cse.contextual_search_engine(
                     transcript['user_id'], transcript['text'])
+                #cse_responses = None
                 cse_end_time = time.time()
                 print("=== CSE completed in {} seconds ===".format(
                     round(cse_end_time - cse_start_time, 2)))
@@ -213,6 +213,7 @@ async def return_image(request):
 
 
 #frontend can upload CSVs to run custom data search on
+#DEV: we don't use this and it's not exposed on the frontend as it's currently broken and low priority
 async def upload_user_data(request):
     # Check file size before doing anything else
     try:
@@ -244,6 +245,47 @@ async def upload_user_data(request):
         return web.Response(text="Missing user file or user ID in the received data", status=400)
 
 
+#run a single agent with no extra context
+async def run_single_agent(request):
+    body = await request.json()
+    timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
+    user_id = body.get('userId')
+    agent_name = body.get('agentName')
+
+    # 400 if missing params
+    if timestamp is None or timestamp == '':
+        print("Timestamp none in send_agent_chat, exiting with error response 400.")
+        return web.Response(text='no timestamp in request', status=400)
+    if user_id is None or user_id == '':
+        print("user_id none in send_agent_chat, exiting with error response 400.")
+        return web.Response(text='no user_id in request', status=400)
+
+    print("Got single agent request for agent: {}".format(agent_name))
+
+    return web.Response(text=json.dumps({'success': True, 'message': "Running agent: {}".format(agent_name)}), status=200)
+
+
+#receive a chat message manually typed in the agent chat box
+async def send_agent_chat(request):
+    body = await request.json()
+    timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
+    user_id = body.get('userId')
+    chat_message = body.get('chatMessage')
+
+    # 400 if missing params
+    if timestamp is None or timestamp == '':
+        print("Timestamp none in send_agent_chat, exiting with error response 400.")
+        return web.Response(text='no timestamp in request', status=400)
+    if user_id is None or user_id == '':
+        print("user_id none in send_agent_chat, exiting with error response 400.")
+        return web.Response(text='no user_id in request', status=400)
+    if chat_message is None or chat_message == '':
+        print("chatMessage none in send_agent_chat, exiting with error response 400.")
+        return web.Response(text='no chatMessage in request', status=400)
+
+    return web.Response(text=json.dumps({'success': True, 'message': "Got your message: {}".format(chat_message)}), status=200)
+
+
 if __name__ == '__main__':
     db_handler = DatabaseHandler()
     #start proccessing loop subprocess to process data as it comes in
@@ -255,12 +297,11 @@ if __name__ == '__main__':
     cse_process.start()
 
     #start the agent process
-    #agent_background_process = multiprocessing.Process(target=agent_insights_processing_loop)
-    #agent_background_process.start()
+    agent_background_process = multiprocessing.Process(target=agent_insights_processing_loop)
+    agent_background_process.start()
 
     # setup and run web app
     # CORS allow from all sources
-    
     MAX_FILE_SIZE_MB = 88
     app = web.Application(client_max_size=(1024*1024*MAX_FILE_SIZE_MB))
     app.add_routes(
@@ -270,6 +311,8 @@ if __name__ == '__main__':
             web.post('/ui_poll', ui_poll),
             web.post('/upload_userdata', upload_user_data),
             web.get('/image', return_image),
+            web.post('/run_single_agent', run_single_agent),
+            web.post('/send_agent_chat', send_agent_chat),
         ]
     )
     cors = aiohttp_cors.setup(app, defaults={
@@ -285,5 +328,5 @@ if __name__ == '__main__':
     web.run_app(app, port=server_port)
 
     #let processes finish and join
-    #agent_background_process.join()
+    agent_background_process.join()
     cse_process.join()
