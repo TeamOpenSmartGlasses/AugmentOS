@@ -20,7 +20,7 @@ from server_config import server_port
 from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH
 from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
-from agent_insights_process import agent_insights_processing_loop
+from proactive_agents_process import proactive_agents_processing_loop
 from Modules.RelevanceFilter import RelevanceFilter
 
 global db_handler
@@ -191,11 +191,11 @@ async def ui_poll(request, minutes=0.5):
         resp["result"] = cse_results
 
     #get agent results
-    if "agent_insights" in features:
-        agent_insight_results = db_handler.get_agent_insights_results_for_user_device(user_id=user_id, device_id=device_id)
+    if "proactive_agents" in features:
+        agent_insight_results = db_handler.get_proactive_agents_results_for_user_device(user_id=user_id, device_id=device_id)
 
         #add agents insight to response
-        resp["result_agent_insights"] = agent_insight_results
+        resp["result_proactive_agents"] = agent_insight_results
 
     return web.Response(text=json.dumps(resp), status=200)
 
@@ -261,6 +261,10 @@ async def run_single_agent(request):
         return web.Response(text='no user_id in request', status=400)
 
     print("Got single agent request for agent: {}".format(agent_name))
+    #initialize the requested agent - using the name given
+    #get the context for the last n minutes
+    #save the agent request
+    #have the explicit agent request thread look for any new requests, run them, return results in ui_poll
 
     return web.Response(text=json.dumps({'success': True, 'message': "Running agent: {}".format(agent_name)}), status=200)
 
@@ -296,9 +300,9 @@ if __name__ == '__main__':
     cse_process = multiprocessing.Process(target=cse_loop)
     cse_process.start()
 
-    #start the agent process
-    agent_background_process = multiprocessing.Process(target=agent_insights_processing_loop)
-    agent_background_process.start()
+    #start the proactive agents process
+    proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
+    proactive_agents_background_process.start()
 
     # setup and run web app
     # CORS allow from all sources
@@ -328,5 +332,5 @@ if __name__ == '__main__':
     web.run_app(app, port=server_port)
 
     #let processes finish and join
-    agent_background_process.join()
+    proactive_agents_background_process.join()
     cse_process.join()

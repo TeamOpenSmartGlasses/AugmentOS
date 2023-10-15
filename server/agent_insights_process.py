@@ -32,26 +32,23 @@ async def agent_arun_wrapper(agent_config, test_transcript):
     } 
 
 def agent_insights_processing_loop():
-    #lock = threading.Lock()
-
+    print("START MULTI AGENT PROCESSING LOOP")
     dbHandler = DatabaseHandler(parent_handler=False)
     loop = asyncio.get_event_loop()
 
-    print("START AGENT INSIGHT PROCESSING LOOP")
     while True:
         if not dbHandler.ready:
             print("dbHandler not ready")
             time.sleep(0.1)
             continue
-        #lock.acquire()
         
         #wait for some transcripts to load in
-        time.sleep(10)
+        time.sleep(15)
 
         try:
             pLoopStartTime = time.time()
             # Check for new transcripts
-            print("RUNNING INSIGHTS AGENT LOOP")
+            print("RUNNING MULTI-AGENT LOOP")
             newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(
                 n=120)
             for transcript in newTranscripts:
