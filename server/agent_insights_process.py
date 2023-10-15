@@ -6,31 +6,20 @@ import multiprocessing
 import os
 import math
 import uuid
+import asyncio
 
-from server_config import openai_api_key
+from server.agents.statistician_agent import init_statistician_agent, statistician_agent_prompt_wrapper
+from server.agents.fact_checker_agent import init_fact_checker_agent, fact_checker_agent_prompt_wrapper
+from server.agents.devils_advocate_agent import init_devils_advocate_agent, devils_advocate_agent_prompt_wrapper
 
-from langchain.agents import initialize_agent
-from langchain.tools import StructuredTool, Tool
-from langchain.agents import AgentType
-from langchain.chat_models import ChatOpenAI
-from agent_tools import scrape_page, custom_search
-from agent_insights_prompts import generate_prompt
-
-llm = ChatOpenAI(temperature=0, openai_api_key=openai_api_key, model="gpt-4-0613")
-
-agent = initialize_agent([
-    Tool(
-        name="Search_Engine",
-        func=custom_search,
-        description="Pass this specific targeted queries and/or keywords to quickly search the WWW to retrieve vast amounts of information on virtually any topic, spanning from academic research and navigation to history, entertainment, and current events. It's a tool for understanding, navigating, and engaging with the digital world's vast knowledge.",
-    ),
-    #StructuredTool.from_function(scrape_page)
-], llm, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=5, verbose=True)
 
 def agent_insights_processing_loop():
     #lock = threading.Lock()
 
     dbHandler = DatabaseHandler(parent_handler=False)
+    statistician_agent = init_statistician_agent()
+    fact_checker_agent = init_fact_checker_agent()
+    devils_advocate_agent = init_devils_advocate_agent()
 
     print("START AGENT INSIGHT PROCESSING LOOP")
     while True:
@@ -59,10 +48,51 @@ def agent_insights_processing_loop():
                 insightGenerationStartTime = time.time()
                 length = len(transcript['text'])
                 new_chunk_length = int(length * 0.05)
+                agent_transcript = f"<Old Transcript>{transcript['text'][:length-new_chunk_length]}<New Transcript>{transcript['text'][length-new_chunk_length:]}"
                 try:
-                    insight = agent.run(generate_prompt(f"<Old Transcript>{transcript['text'][:length-new_chunk_length]}<New Transcript>{transcript['text'][length-new_chunk_length:]}"))
+                    tasks = [
+                        statistician_agent.arun(statistician_agent_prompt_wrapper(agent_transcript)),
+                        fact_checker_agent.arun(fact_checker_agent_prompt_wrapper(agent_transcript)),
+                        devils_advocate_agent.arun(devils_advocate_agent_prompt_wrapper(agent_transcript))
+                    ]
+                    
+                    # will refactor the agents into classes properly later, then we don't have this ugly agent_order code
+                    agent_order = ["statistician", "devils_advocate", "fact_checker"]
+                    insights = asyncio.run(asyncio.gather(*tasks))
+                    for idx, insight in enumerate(insights):
+                        #save this insight to the DB for the user
+                        insight_obj = {}
+                        insight_obj['timestamp'] = math.trunc(time.time())
+                        insight_obj['uuid'] = str(uuid.uuid4())
+                        insight_obj['agent'] = agent_order[idx]
+                        insight_obj['text'] = insight
+                        dbHandler.add_agent_insights_results_for_user(transcript['user_id'], [insight_obj])
+
                     #insight = "Insight: Stuff is good and stuff that's right"
-                    print(insight)
+                except Exception as e:
+                    print("Exception in agent.run()...:")
+                    print(e)
+                    traceback.print_exc()
+                    continue
+                insightGenerationEndTime = time.time()
+                print("=== insightGeneration completed in {} seconds ===".format(
+                    round(insightGenerationEndTime - insightGenerationStartTime, 2)))
+                insightGenerationStartTime = time.time()
+                length = len(transcript['text'])
+                new_chunk_length = int(length * 0.05)
+                agent_transcript = f"<Old Transcript>{transcript['text'][:length-new_chunk_length]}<New Transcript>{transcript['text'][length-new_chunk_length:]}"
+                try:
+                    tasks = [
+                        statistician_agent.arun(statistician_agent_prompt_wrapper(agent_transcript)),
+                        fact_checker_agent.arun(fact_checker_agent_prompt_wrapper(agent_transcript)),
+                        devils_advocate_agent.arun(devils_advocate_agent_prompt_wrapper(agent_transcript))
+                    ]
+                    
+                    insights = await asyncio.gather(*tasks)
+                   
+
+                    #insight = "Insight: Stuff is good and stuff that's right"
+
                     #save this insight to the DB for the user
                     insight_obj = {}
                     insight_obj['timestamp'] = math.trunc(time.time())

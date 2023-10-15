@@ -1,6 +1,12 @@
-# Define the agent prompt here
+from server_config import openai_api_key
 
-generate_prompt = lambda x: f"""
+from langchain.agents import initialize_agent
+from langchain.tools import Tool
+from langchain.agents import AgentType
+from langchain.chat_models import ChatOpenAI
+from agent_tools import custom_search
+
+insight_agent_prompt_wrapper = lambda x: f"""
 [Definitions]
 - "Insights": Intelligent analysis, ideas, arguments, questions to ask, and deeper insights that will help the user improve the flow within their conversations. 
 - "Convoscope": a tool that listens to a user's live conversation and enhances their conversation flow by providing them with real time "Insights", which will often lead the user to deeper understanding, broader perspective, new ideas, and better replies.
@@ -50,3 +56,14 @@ In your initial thought, you should first come up with a plan to generate the "I
 
 <Transcript start>{x}<Transcript end>
 """
+
+llm = ChatOpenAI(temperature=0, openai_api_key=openai_api_key, model="gpt-4-0613")
+
+def init_insights_agent():
+    return initialize_agent([
+        Tool(
+            name="Search_Engine",
+            func=custom_search,
+            description="Pass this specific targeted queries and/or keywords to quickly search the WWW to retrieve vast amounts of information on virtually any topic, spanning from academic research and navigation to history, entertainment, and current events. It's a tool for understanding, navigating, and engaging with the digital world's vast knowledge.",
+        ),
+    ], llm, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=5, verbose=True)
