@@ -12,6 +12,8 @@ import {
 import Sidebar, { NavbarLink } from "./components/Sidebar";
 import TranscriptCard from "./components/TranscriptCard";
 import PageView from "./components/PageView";
+import AgentChatView from "./components/AgentChatView";
+import RunAgentsView from "./components/RunAgentsView";
 import { Entity } from "./types";
 import ReferenceCard from "./components/ReferenceCard";
 import Cookies from "js-cookie";
@@ -33,10 +35,11 @@ const useStyles = createStyles((theme) => ({
   container: {
     width: "100%",
     height: "100%",
-    padding: "2.5rem",
+    padding: "1.5rem 1.5rem 0.5rem 1.5rem",
   },
 
-  rightPanel: { backgroundColor: theme.white, borderRadius: "0.25rem" },
+    rightPanel: { backgroundColor: theme.white, borderRadius: "0.5rem", margin: "0rem 0rem 1rem 0rem" },
+    referenceScroll: { backgroundColor: theme.white, borderRadius: "0.5rem", padding: "1rem", margin: "0rem 0rem 1rem 0rem" },
 }));
 
 export default function App() {
@@ -93,14 +96,14 @@ export default function App() {
 
   //poll the backend for UI updates
   const updateUiBackendPoll = () => {
-    const subTranscript = {
-      features: ["contextual_search_engine", "agent_insights"], //list of features here
+    const uiPollRequstBody = {
+      features: ["contextual_search_engine", "agent_insights", "agent_chat"], //list of features here
       userId: window.userId,
       deviceId: window.deviceId,
     };
 
     axiosClient
-      .post(UI_POLL_ENDPOINT, subTranscript)
+      .post(UI_POLL_ENDPOINT, uiPollRequstBody)
       .then((res) => {
         // const newEntitiesDict = res.data.result;
         // if (res.data.success) console.log(res.data);
@@ -170,7 +173,7 @@ export default function App() {
         <Container fluid className={classes.container}>
           <Flex
             justify={"space-evenly"}
-            gap={"2.5rem"}
+            gap={"0.8rem"}
             h={"100%"}
             direction={smallerThanMedium ? "column" : "row"}
           >
@@ -200,40 +203,92 @@ export default function App() {
                   />
                 )}
               </Group>
+
               <TranscriptCard
                 transcriptBoxHeight={smallerThanMedium ? "2.5vh" : "6.5vh"}
               />
-              <ScrollArea scrollHideDelay={100}>
-                {entities.map((entity, i) => (
-                  <ReferenceCard
-                    entity={entity}
-                    key={`entity-${i}`}
-                    cardId={`entity-${i}`}
-                    selectedCardId={selectedCardId}
-                    setSelectedCardId={setSelectedCardId}
-                    setViewMoreUrl={setViewMoreUrl}
-                    setLoading={setLoadingViewMore}
-                  />
-                ))}
-                <div ref={endOfReferencesRef}></div>
-              </ScrollArea>
+
+             <Flex
+                  direction={"column"}
+                  w={{ xs: "100%", md: "100%" }}
+                  h={{ xs: "50%", md: "20%" }}
+                  px={"md"}
+                  py={"sm"}
+                  className={classes.rightPanel}
+                >
+                  <RunAgentsView />
+              </Flex>
+
+
+              <Flex
+                  direction={"column"}
+                  w={{ xs: "100%", md: "100%" }}
+                  h={{ xs: "50%", md: "70%" }}
+                  px={"md"}
+                  py={"sm"}
+                 className={classes.referenceScroll}
+                >
+                <Title 
+                    order={2}
+                      sx={{
+                        marginLeft: "0rem",
+                        textDecoration: "underline",
+                      }}
+                    >
+                     What You Talked About
+                  </Title>
+
+                  <ScrollArea scrollHideDelay={100}>
+                    {entities.map((entity, i) => (
+                      <ReferenceCard
+                        entity={entity}
+                        key={`entity-${i}`}
+                        cardId={`entity-${i}`}
+                        selectedCardId={selectedCardId}
+                        setSelectedCardId={setSelectedCardId}
+                        setViewMoreUrl={setViewMoreUrl}
+                        setLoading={setLoadingViewMore}
+                      />
+                    ))}
+                    <div ref={endOfReferencesRef}></div>
+                  </ScrollArea>
+              </Flex>
             </Stack>
 
             {/* Right Panel */}
             <Flex
-              direction={"column"}
-              w={{ xs: "100%", md: "50%" }}
-              h={{ xs: "50%", md: "100%" }}
-              px={"md"}
-              py={"sm"}
-              className={classes.rightPanel}
-            >
-              <PageView
-                viewMoreUrl={viewMoreUrl}
-                loading={loadingViewMore}
-                setLoading={setLoadingViewMore}
-              />
-            </Flex>
+                  direction={"column"}
+                  w={{ xs: "100%", md: "100%" }}
+                  h={{ xs: "50%", md: "100%" }}
+                  px={"md"}
+                  py={"sm"}
+                >
+             <Flex
+                  direction={"column"}
+                  w={{ xs: "100%", md: "100%" }}
+                  h={{ xs: "50%", md: "30%" }}
+                  px={"md"}
+                  py={"sm"}
+                  className={classes.rightPanel}
+                >
+                      <AgentChatView/>
+              </Flex>
+
+                <Flex
+                  direction={"column"}
+                  w={{ xs: "100%", md: "100%" }}
+                  h={{ xs: "50%", md: "70%" }}
+                  px={"md"}
+                  py={"sm"}
+                  className={classes.rightPanel}
+                >
+                      <PageView
+                        viewMoreUrl={viewMoreUrl}
+                        loading={loadingViewMore}
+                        setLoading={setLoadingViewMore}
+                      />
+                </Flex>
+             </Flex>
           </Flex>
         </Container>
       </Flex>
