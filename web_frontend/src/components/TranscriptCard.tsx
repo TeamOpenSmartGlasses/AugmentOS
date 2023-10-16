@@ -173,7 +173,7 @@ const TranscriptCard = ({ transcriptBoxHeight }: TranscriptCardProps) => {
           </ActionIcon>
         )}
       </Flex>
-      {isRecognizing && (
+      {/*isRecognizing && (
         <ScrollArea
           scrollHideDelay={100}
           className={classes.transcriptBox}
@@ -187,7 +187,7 @@ const TranscriptCard = ({ transcriptBoxHeight }: TranscriptCardProps) => {
             <div ref={endOfTranscriptRef}></div>
           </Box>
         </ScrollArea>
-      )}
+      )*/}
     </Flex>
   );
 };

@@ -8,3 +8,5 @@ export const UI_POLL_ENDPOINT = baseEndpoint + "/ui_poll";
 export const CHAT_ENDPOINT = baseEndpoint + "/chat";
 
 export const UPLOAD_USERDATA_ENDPOINT = baseEndpoint + "/upload_userdata";
+
+export const AGENT_RUN_ENDPOINT = baseEndpoint + "/run_single_agent";

@@ -14,6 +14,7 @@
     "@emotion/react": "^11.11.1",
     "@mantine/core": "^6.0.19",
     "@mantine/hooks": "^6.0.19",
+    "@material-ui/core": "^4.12.4",
     "@tabler/icons-react": "^2.30.0",
     "axios": "^1.4.0",
     "js-cookie": "^3.0.5",
