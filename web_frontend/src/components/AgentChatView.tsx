@@ -1,4 +1,3 @@
-import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import {
   Box,
   Text,
@@ -11,7 +10,10 @@ import {
   Stack,
 } from "@mantine/core";
 import axiosClient from "../axiosConfig";
-import { AGENT_RUN_ENDPOINT } from "../serverEndpoints";
+import {
+  AGENT_RUN_ENDPOINT,
+  SEND_AGENT_CHAT_ENDPOINT,
+} from "../serverEndpoints";
 import { useEffect, useRef, useState } from "react";
 
 // const useStyles = createStyles((theme) => ({}));
@@ -90,15 +92,27 @@ const AgentChatView = () => {
 
   const handleSendMessage = () => {
     if (currentMessage.trim()) {
+      const payload = {
+        agent_name: "agent_name",
+        userId: "userId",
+        deviceId: "deviceId",
+        message: currentMessage,
+      };
+      axiosClient
+        .post(SEND_AGENT_CHAT_ENDPOINT, payload)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch(console.log);
       setMessages([...messages, { sender: "user", text: currentMessage }]);
       setCurrentMessage("");
       // Simulate a bot response
-      setTimeout(() => {
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { sender: "bot", text: "Bot response" },
-        ]);
-      }, 1000);
+      // setTimeout(() => {
+      //   setMessages((prevMessages) => [
+      //     ...prevMessages,
+      //     { sender: "bot", text: "Bot response" },
+      //   ]);
+      // }, 1000);
     }
   };
 
@@ -118,13 +132,8 @@ const AgentChatView = () => {
     });
   };
 
-  const sendNewMessage = () => {
-    setMessages([...messages, { sender: "user", text: currentMessage }]);
-    setCurrentMessage("");
-  };
-
   useEffect(() => {
-    console.log(messages)
+    console.log(messages);
     scrollToBottom();
   }, [messages]);
 
