@@ -11,7 +11,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@chatscope/chat-ui-kit-react": "^1.10.1",
     "@emotion/react": "^11.11.1",
     "@mantine/core": "^6.0.19",
     "@mantine/hooks": "^6.0.19",
@@ -21,7 +20,6 @@
     "js-cookie": "^3.0.5",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
-    "react-chat-bubble": "^0.8.7",
     "react-dom": "^18.2.0",
     "react-speech-recognition": "^3.10.0",
     "regenerator-runtime": "^0.14.0"
