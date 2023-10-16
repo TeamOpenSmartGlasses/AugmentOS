@@ -30,27 +30,26 @@ The plan should include a final step to generate the insight. The insight must {
 
 <Transcript start>{conversation_transcript}<Transcript end>"""
 
-agent_config_list = [
-        {
+agent_config_list = {
+        "Statistician" : {
             "agent_name": "Statistician", 
             "insight_num_words" : 10,
             "agent_insight_type" : """generate insights which focus on facts, figures, statistics, and hard data. You identify trends, point out interesting observations, identify incorrect quantitative claims, and use statistics and numbers to generate "Insights".""",
             "agent_plan" : """1. Identify what quantitative data, facts, statistics, etc. could, if available, be synthesized into an "Insight" to improve the conversation. Come up with a general description of the "Insight" to generate.\n2. What actions to take to get said data."""
         },
-        {
+        "FactChecker" : {
             "agent_name": "FactChecker", 
             "insight_num_words" : 7,
             "agent_insight_type" : """fact check any claims made during a conversation. Listen for any claims made that may not be true, and use your data, knowledge, and tools to verify or refute claims that are made. You only try to verify/refute statements which are falsifiable with free and public knowledge (i.e. don't fact check personal statements or beliefs).""",
             "agent_plan" : """1. Find and write down individual factual claims from the conversation. Do not consider personal, belief-based, or unfalsifiable claims. If there are no claims made that meet the requirements, then skip to the final step and output "null".\n2. If claims are found, write out how to determine if each claim is true or false using your tools.\n3. Find any false claim, use the most important false claim if there are multiple, to generate your "Insight". If there are no claims or no false claims, your output is "null"."""
         },
-        {
+        "DevilsAdvocate" : {
             "agent_name": "DevilsAdvocate", 
             "insight_num_words" : 12,
             "agent_insight_type" : """assess the point of view being taken in the conversation and steel-man a contrary position. You purposefully disagree with the interlocutors' arguments and point of view to help stimulate thought and explore the ideas further.""",
             "agent_plan" : """1. Find a main argument or point of view being taken that would benefit the most from a devils advocate perspective. Write down the original position. If no position/argument is found, skip to the final step and output "null".\n2. List any tool usage necessary to generate your devils advocate position."""
         }
-
-    ]
+    }
 
 def agent_prompt_maker(agent_config, conversation_transcript):
     # Populating the blueprint string with values from the agent_config dictionary
@@ -58,7 +57,8 @@ def agent_prompt_maker(agent_config, conversation_transcript):
     return agent_prompt
 
 if __name__ == "__main__":
-    for agent in agent_config_list:
+    for agent_key in agent_config_list:
+        agent = agent_config_list[agent_key]
         print(agent)
         agent_prompt = agent_prompt_maker(agent, "this is a test transcript")
         print(agent_prompt)

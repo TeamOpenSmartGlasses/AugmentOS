@@ -16,7 +16,7 @@ from langchain.agents import initialize_agent
 from langchain.agents import AgentType
 from agent_tools import custom_search
 
-llm = ChatOpenAI(temperature=0, openai_api_key=openai_api_key, model="gpt-4-0613")
+llm = ChatOpenAI(temperature=0.5, openai_api_key=openai_api_key, model="gpt-4-0613")
 agent = initialize_agent([
         Tool(
             name="Search_Engine",
@@ -31,7 +31,7 @@ async def agent_arun_wrapper(agent_config, test_transcript):
         "agent_insight": await agent.arun(agent_prompt_maker(agent_config, test_transcript))
     } 
 
-def agent_insights_processing_loop():
+def proactive_agents_processing_loop():
     print("START MULTI AGENT PROCESSING LOOP")
     dbHandler = DatabaseHandler(parent_handler=False)
     loop = asyncio.get_event_loop()
@@ -61,11 +61,15 @@ def agent_insights_processing_loop():
                 insightGenerationStartTime = time.time()
               
                 try:
-                    tasks = [agent_arun_wrapper(agent_config, transcript) for agent_config in agent_config_list]
+                    agent_list = list(agent_config.values())
+                    tasks = [agent_arun_wrapper(agent_config, transcript) for agent_list in agent_config_list]
                     insights_tasks = asyncio.gather(*tasks)
                     insights = loop.run_until_complete(insights_tasks)
 
                     print("insights: {}".format(insights))
+                    #cut off the prompts first "Insight: " words
+                    for insight in insights:
+                        insight["agent_insight"] = insight["agent_insight"][len("Insight:"):]
                     # [{'agent_name': 'Statistician', 'agent_insight': "Insight: Brain's processing limit challenges full Wikipedia integration. Neuralink trials show promising BCI advancements."},
                     # {'agent_name': 'FactChecker', 'agent_insight': 'null'},
                     # {'agent_name': 'DevilsAdvocate', 'agent_insight': 'Insight: Is more information always beneficial, or could it lead to cognitive overload?'}]
@@ -76,7 +80,7 @@ def agent_insights_processing_loop():
                         insight_obj['timestamp'] = math.trunc(time.time())
                         insight_obj['uuid'] = str(uuid.uuid4())
                         insight_obj['agent_name'] = insight["agent_name"]
-                        insight_obj['text'] = insight["agent_insight"]
+                        insight_obj['agent_insight'] = insight["agent_insight"]
                         dbHandler.add_agent_insights_results_for_user(transcript['user_id'], [insight_obj])
 
                 except Exception as e:

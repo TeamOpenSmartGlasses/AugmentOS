@@ -1,4 +1,7 @@
 from aiohttp import web
+import asyncio
+import math
+import uuid
 from aiohttp.web_response import Response
 from pathlib import Path
 import json
@@ -21,6 +24,7 @@ from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH
 from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
 from proactive_agents_process import proactive_agents_processing_loop
+from explicit_agents import run_single_agent
 from Modules.RelevanceFilter import RelevanceFilter
 
 global db_handler
@@ -158,7 +162,7 @@ def cse_loop():
 
 
 #frontends poll this to get the results from our processing of their transcripts
-async def ui_poll(request, minutes=0.5):
+async def ui_poll_handler(request, minutes=0.5):
     # parse request
     body = await request.json()
     user_id = body.get('userId')
@@ -201,7 +205,7 @@ async def ui_poll(request, minutes=0.5):
 
 
 #return images that we generated and gave frontends a URL for
-async def return_image(request):
+async def return_image_handler(request):
     requested_img = request.rel_url.query['img']
     img_path = Path(IMAGE_PATH).joinpath(requested_img)
     try:
@@ -214,7 +218,7 @@ async def return_image(request):
 
 #frontend can upload CSVs to run custom data search on
 #DEV: we don't use this and it's not exposed on the frontend as it's currently broken and low priority
-async def upload_user_data(request):
+async def upload_user_data_handler(request):
     # Check file size before doing anything else
     try:
         post_data = await request.post()
@@ -244,9 +248,28 @@ async def upload_user_data(request):
     else:
         return web.Response(text="Missing user file or user ID in the received data", status=400)
 
+async def agent_runner(agent_name, user_id):
+    print("Starting agent run task of agent {} for user {}".format(agent_name, user_id))
+    #get the context for the last n minutes
+    n_seconds = 5*60
+    convo_context = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n_seconds)
+
+    #spin up the agent
+    agent_insight = run_single_agent(agent_name, convo_context)
+
+    #save this insight to the DB for the user
+    insight_obj = {}
+    insight_obj['timestamp'] = math.trunc(time.time())
+    insight_obj['uuid'] = str(uuid.uuid4())
+    insight_obj['agent_name'] = agent_insight["agent_name"]
+    insight_obj['agent_insight'] = agent_insight["agent_insight"]
+    db_handler.add_agent_insights_results_for_user(user_id, [insight_obj])
+
+    #agent run complete
+    print("--- Done agent run task of agent {} from user {}".format(agent_name, user_id))
 
 #run a single agent with no extra context
-async def run_single_agent(request):
+async def run_single_agent_handler(request):
     body = await request.json()
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
     user_id = body.get('userId')
@@ -261,16 +284,15 @@ async def run_single_agent(request):
         return web.Response(text='no user_id in request', status=400)
 
     print("Got single agent request for agent: {}".format(agent_name))
-    #initialize the requested agent - using the name given
-    #get the context for the last n minutes
-    #save the agent request
-    #have the explicit agent request thread look for any new requests, run them, return results in ui_poll
+
+    #spin up agent
+    asyncio.ensure_future(agent_runner(agent_name, user_id))
 
     return web.Response(text=json.dumps({'success': True, 'message': "Running agent: {}".format(agent_name)}), status=200)
 
 
 #receive a chat message manually typed in the agent chat box
-async def send_agent_chat(request):
+async def send_agent_chat_handler(request):
     body = await request.json()
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
     user_id = body.get('userId')
@@ -291,32 +313,36 @@ async def send_agent_chat(request):
 
 
 if __name__ == '__main__':
+    print("Starting server...")
     db_handler = DatabaseHandler()
     #start proccessing loop subprocess to process data as it comes in
     if USE_GPU_FOR_INFERENCING:
         multiprocessing.set_start_method('spawn')
 
     #log_queue = multiprocessing.Queue()
+    print("Starting CSE process...")
     cse_process = multiprocessing.Process(target=cse_loop)
     cse_process.start()
 
     #start the proactive agents process
+    print("Starting Proactive Agents process...")
     proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
     proactive_agents_background_process.start()
 
     # setup and run web app
     # CORS allow from all sources
+    print("Starting aiohttp server...")
     MAX_FILE_SIZE_MB = 88
     app = web.Application(client_max_size=(1024*1024*MAX_FILE_SIZE_MB))
     app.add_routes(
         [
             web.post('/chat', chat_handler),
             web.post('/button_event', button_handler),
-            web.post('/ui_poll', ui_poll),
-            web.post('/upload_userdata', upload_user_data),
-            web.get('/image', return_image),
-            web.post('/run_single_agent', run_single_agent),
-            web.post('/send_agent_chat', send_agent_chat),
+            web.post('/ui_poll', ui_poll_handler),
+            web.post('/upload_userdata', upload_user_data_handler),
+            web.get('/image', return_image_handler),
+            web.post('/run_single_agent', run_single_agent_handler),
+            web.post('/send_agent_chat', send_agent_chat_handler),
         ]
     )
     cors = aiohttp_cors.setup(app, defaults={
