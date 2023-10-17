@@ -1,4 +1,4 @@
-agent_prompt_blueprint = """
+expert_agent_prompt_blueprint = """
 "Convoscope" is a multi-agent system in which you are the {agent_name} agent. You are a highly skilled and highly intelligent expert {agent_name}.
 
 You will be given direct access to a live stream of transcripts from the user's conversation. Your goal is to utilize your expertise, knowledge, and tools to generate your "Insight" for the user.
@@ -25,12 +25,14 @@ In your initial thought, you should first come up with a plan to generate the "I
 
 {agent_plan}
 
-The plan should include a final step to generate the insight. The insight must {insight_num_words} words or less and be in the format `Insight: {{Insert your "Insight" here}}`. If you don't have a very valuable and useful insight for any reason, simply specify your "Insight as "null".
+The plan should include a final step to generate the insight. The insight must {insight_num_words} words or less and be in the format `Insight: {{Insert your "Insight" here}}`. If you don't have a very valuable and useful insight for any reason, simply specify your "Insight as "null" by outputting `Insight: null`.
 <Task end>
 
-<Transcript start>{conversation_transcript}<Transcript end>"""
+<Transcript start>{conversation_transcript}<Transcript end>
 
-agent_config_list = {
+Now fulfill your objective."""
+
+expert_agent_config_list = {
         "Statistician" : {
             "agent_name": "Statistician", 
             "insight_num_words" : 10,
@@ -51,15 +53,15 @@ agent_config_list = {
         }
     }
 
-def agent_prompt_maker(agent_config, conversation_transcript):
+def expert_agent_prompt_maker(expert_agent_config, conversation_transcript):
     # Populating the blueprint string with values from the agent_config dictionary
-    agent_prompt = agent_prompt_blueprint.format(**agent_config, conversation_transcript=conversation_transcript)
-    return agent_prompt
+    expert_agent_prompt = expert_agent_prompt_blueprint.format(**expert_agent_config, conversation_transcript=conversation_transcript)
+    return expert_agent_prompt
 
 if __name__ == "__main__":
     for agent_key in agent_config_list:
-        agent = agent_config_list[agent_key]
+        agent = expert_agent_config_list[agent_key]
         print(agent)
-        agent_prompt = agent_prompt_maker(agent, "this is a test transcript")
+        agent_prompt = expert_agent_prompt_maker(agent, "this is a test transcript")
         print(agent_prompt)
         print("--------------\n\n\n")

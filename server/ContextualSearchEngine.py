@@ -21,11 +21,11 @@ import math
 import time
 from bs4 import BeautifulSoup
 from txtai.embeddings import Embeddings
-from update_embeddings import update_embeddings
+from Modules.update_embeddings import update_embeddings
 
 #Convoscope
 from Modules.Summarizer import Summarizer
-import word_frequency
+import Modules.word_frequency as word_frequency
 from constants import CUSTOM_USER_DATA_PATH, USE_GPU_FOR_INFERENCING, SUMMARIZE_CUSTOM_DATA, DEFINE_RARE_WORDS, IMAGE_PATH
 from server_config import google_maps_api_key
 

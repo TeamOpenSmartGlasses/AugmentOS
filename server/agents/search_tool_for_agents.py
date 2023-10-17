@@ -3,7 +3,9 @@ from bs4 import BeautifulSoup
 import requests
 from server_config import serper_api_key
 from Modules.Summarizer import Summarizer
+from langchain.agents.tools import Tool
 
+#ban some sites that we can never scrape
 banned_sites = ["calendar.google.com", "researchgate.net"]
 
 def scrape_page(url: str):
@@ -34,7 +36,6 @@ def scrape_page(url: str):
             return None
         
 # custom search tool, we copied the serper integration on langchain but we prefer all the data to be displayed in one json message
-
 k: int = 5
 gl: str = "us"
 hl: str = "en"
@@ -98,7 +99,7 @@ def parse_snippets(results: dict) -> List[str]:
                 summarized_page = summarizer.summarize_description_with_bert(page, num_sentences=num_sentences)
                 if len(summarized_page) == 0:
                     summarized_page = "None"
-                snippets.append(f"Title: {result['title']}\nSource:{result['link']}\nSnippet: {result['snippet']}\nSummarized Page: <p>{summarized_page}</p>")
+                snippets.append(f"Title: {result['title']}\nSource:{result['link']}\nSnippet: {result['snippet']}\nSummarized Page: {summarized_page}")
 
     if len(snippets) == 0:
         return ["No good Google Search Result was found"]
@@ -111,7 +112,7 @@ def parse_results(results: dict) -> str:
             results_string += f"<result{idx}>\n{val}\n</result{idx}>\n\n"
         return results_string
 
-def custom_search(query: str, parse=True, **kwargs: Any):
+def run_search_tool_for_agents(query: str, parse=True, **kwargs: Any):
     results = serper_search(
             search_term=query,
             gl=gl,
@@ -122,3 +123,11 @@ def custom_search(query: str, parse=True, **kwargs: Any):
             **kwargs,
         )
     return parse_results(results)
+
+def get_search_tool_for_agents():
+    search_tool_for_agents = Tool(
+        name="Search_Engine",
+        func=run_search_tool_for_agents,
+        description="Pass this specific targeted queries and/or keywords to quickly search the WWW to retrieve vast amounts of information on virtually any topic, spanning from academic research and navigation to history, entertainment, and current events. It's a tool for understanding, navigating, and engaging with the digital world's vast knowledge.",
+    )
+    return search_tool_for_agents

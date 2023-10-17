@@ -23,8 +23,8 @@ from server_config import server_port
 from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH
 from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
-from proactive_agents_process import proactive_agents_processing_loop
-from explicit_agents import run_single_agent
+from agents.proactive_agents_process import proactive_agents_processing_loop
+from agents.expert_agents import run_single_expert_agent
 from Modules.RelevanceFilter import RelevanceFilter
 
 global db_handler
@@ -248,14 +248,14 @@ async def upload_user_data_handler(request):
     else:
         return web.Response(text="Missing user file or user ID in the received data", status=400)
 
-async def agent_runner(agent_name, user_id):
-    print("Starting agent run task of agent {} for user {}".format(agent_name, user_id))
+async def expert_agent_runner(expert_agent_name, user_id):
+    print("Starting agent run task of agent {} for user {}".format(expert_agent_name, user_id))
     #get the context for the last n minutes
     n_seconds = 5*60
     convo_context = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n_seconds)
 
     #spin up the agent
-    agent_insight = run_single_agent(agent_name, convo_context)
+    agent_insight = run_single_expert_agent(expert_agent_name, convo_context)
 
     #save this insight to the DB for the user
     insight_obj = {}
@@ -266,10 +266,10 @@ async def agent_runner(agent_name, user_id):
     db_handler.add_agent_insights_results_for_user(user_id, [insight_obj])
 
     #agent run complete
-    print("--- Done agent run task of agent {} from user {}".format(agent_name, user_id))
+    print("--- Done agent run task of agent {} from user {}".format(expert_agent_name, user_id))
 
 #run a single agent with no extra context
-async def run_single_agent_handler(request):
+async def run_single_expert_agent_handler(request):
     body = await request.json()
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
     user_id = body.get('userId')
@@ -286,7 +286,7 @@ async def run_single_agent_handler(request):
     print("Got single agent request for agent: {}".format(agent_name))
 
     #spin up agent
-    asyncio.ensure_future(agent_runner(agent_name, user_id))
+    asyncio.ensure_future(expert_agent_runner(agent_name, user_id))
 
     return web.Response(text=json.dumps({'success': True, 'message': "Running agent: {}".format(agent_name)}), status=200)
 
@@ -341,7 +341,7 @@ if __name__ == '__main__':
             web.post('/ui_poll', ui_poll_handler),
             web.post('/upload_userdata', upload_user_data_handler),
             web.get('/image', return_image_handler),
-            web.post('/run_single_agent', run_single_agent_handler),
+            web.post('/run_single_agent', run_single_expert_agent_handler),
             web.post('/send_agent_chat', send_agent_chat_handler),
         ]
     )
