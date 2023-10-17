@@ -58,7 +58,7 @@ const ReferenceCard = ({
   };
 
   //if entity is an agent output, specify how it should look
-  if (entity.text) {
+  if (entity.agent_insight) {
     //setup name of agent
     entity.name = entity.agent_name + " says...";
 
@@ -108,7 +108,7 @@ const ReferenceCard = ({
               overflowWrap: "break-word",
             }}
           >
-            {entity.summary || entity.text}
+            {entity.summary || entity.agent_insight}
             {entity.url && !entity.text && (
               <UnstyledButton>
                 <Text

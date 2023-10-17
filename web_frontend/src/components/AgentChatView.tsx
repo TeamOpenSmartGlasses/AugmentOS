@@ -45,35 +45,6 @@ const AgentChatView = () => {
   //   setLoading(false);
   // };
 
-  const callSingleAgent = (agentName: string) => {
-    const runAgentRequstBody = {
-      agent_name: agentName, //list of features here
-      userId: window.userId,
-      deviceId: window.deviceId,
-    };
-
-    axiosClient
-      .post(AGENT_RUN_ENDPOINT, runAgentRequstBody)
-      .then((res) => {
-        if (res.data.success) {
-          const newEntities = res.data.result as any[];
-          const newInsights = res.data.result_agent_insights as any[];
-          if (newEntities.length === 0 && newInsights.length === 0) return;
-
-          // setEntities((entities) => [
-          //   ...entities,
-          //   ...newEntities,
-          //   ...newInsights,
-          // ]);
-        }
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  };
-
-  // const { classes, theme } = useStyles();
-
   type Message = {
     sender: "user" | "bot";
     text: string;
@@ -81,22 +52,19 @@ const AgentChatView = () => {
 
   const [messages, setMessages] = useState<Message[]>([
     { sender: "bot", text: "Hello! I'm here to help!" },
-    { sender: "bot", text: "What would you like to know?" },
-    { sender: "user", text: "fact check that last claim about bhutan" },
-    { sender: "user", text: "fact check that last claim about bhutan" },
-    { sender: "user", text: "fact check that last claim about bhutan" },
-    { sender: "user", text: "fact check that last claim about bhutan" },
     { sender: "user", text: "fact check that last claim about bhutan" },
   ]);
   const [currentMessage, setCurrentMessage] = useState<string>("");
 
   const handleSendMessage = () => {
+    setMessages([...messages, { sender: "user", text: currentMessage }]);
+    setCurrentMessage("");
+
     if (currentMessage.trim()) {
       const payload = {
-        agent_name: "agent_name",
         userId: "userId",
         deviceId: "deviceId",
-        message: currentMessage,
+        chatMessage: currentMessage,
       };
       axiosClient
         .post(SEND_AGENT_CHAT_ENDPOINT, payload)
@@ -104,15 +72,13 @@ const AgentChatView = () => {
           console.log(res);
         })
         .catch(console.log);
-      setMessages([...messages, { sender: "user", text: currentMessage }]);
-      setCurrentMessage("");
       // Simulate a bot response
-      // setTimeout(() => {
-      //   setMessages((prevMessages) => [
-      //     ...prevMessages,
-      //     { sender: "bot", text: "Bot response" },
-      //   ]);
-      // }, 1000);
+      setTimeout(() => {
+      setMessages((prevMessages) => [
+           ...prevMessages,
+           { sender: "bot", text: "Bot response" },
+         ]);
+       }, 1000);
     }
   };
 
