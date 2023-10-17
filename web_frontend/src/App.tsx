@@ -10,7 +10,6 @@ import {
   createStyles,
 } from "@mantine/core";
 import Sidebar, { NavbarLink } from "./components/Sidebar";
-import TranscriptCard from "./components/TranscriptCard";
 import PageView from "./components/PageView";
 import AgentChatView from "./components/AgentChatView";
 import RunAgentsView from "./components/RunAgentsView";
@@ -204,10 +203,6 @@ export default function App() {
                   />
                 )}
               </Group>
-
-              <TranscriptCard
-                transcriptBoxHeight={smallerThanMedium ? "2.5vh" : "6.5vh"}
-              />
 
              <Flex
                   direction={"column"}

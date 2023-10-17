@@ -1,22 +1,21 @@
-import { useState, JSX } from "react";
+import { JSX } from "react";
 import {
   Navbar,
-  Center,
   Tooltip,
-  Image,
-  UnstyledButton,
   createStyles,
   Stack,
   rem,
-  Avatar,
+  ActionIcon,
 } from "@mantine/core";
-import { IconSettings, TablerIconsProps } from "@tabler/icons-react";
+import { IconDots, TablerIconsProps } from "@tabler/icons-react";
+import TranscriptCard from "./TranscriptCard";
 
 const useStyles = createStyles((theme) => ({
   link: {
-    width: rem(50),
-    height: rem(50),
-    borderRadius: theme.radius.md,
+    width: rem(66),
+    height: rem(66),
+    borderRadius: 100,
+    borderWidth: 1.5,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -61,12 +60,14 @@ export function NavbarLink({
   const { classes, cx } = useStyles();
   return (
     <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
-      <UnstyledButton
+      <ActionIcon
+        variant={"outline"}
+        radius={100}
         onClick={onClick}
         className={cx(classes.link, { [classes.active]: active })}
       >
-        <Icon size="2.2rem" stroke={1.5} />
-      </UnstyledButton>
+        <Icon size="2rem" stroke={3} />
+      </ActionIcon>
     </Tooltip>
   );
 }
@@ -81,17 +82,16 @@ export function NavbarMinimal({
   toggleSettings,
 }: NavbarMinimalProps) {
   return (
-    <Navbar width={{ base: 90 }} p="md">
-      <Center>
-            <Image
-              radius="md"
-              src="/Convoscope_logo_og.png"
-            />
-      </Center>
-      <Navbar.Section grow mt={50}>
+    <Navbar width={{ base: "7rem" }} p="md" bg={"rgba(0, 0, 0, 0)"} withBorder={false}>
+      <Navbar.Section>
+        <Stack justify="center" spacing={0}>
+          <TranscriptCard />  
+        </Stack>
+      </Navbar.Section>
+      <Navbar.Section mt={"auto"}>
         <Stack justify="center" spacing={0}>
           <NavbarLink
-            icon={IconSettings}
+            icon={IconDots}
             label={"Settings"}
             active={settingsOpened}
             onClick={toggleSettings}

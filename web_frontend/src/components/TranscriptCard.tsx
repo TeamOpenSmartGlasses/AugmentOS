@@ -1,10 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
   ActionIcon,
-  Text,
-  Flex,
-  Box,
-  ScrollArea,
   createStyles,
 } from "@mantine/core";
 import {
@@ -33,11 +29,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-interface TranscriptCardProps {
-  transcriptBoxHeight: string;
-}
-
-const TranscriptCard = ({ transcriptBoxHeight }: TranscriptCardProps) => {
+const TranscriptCard = () => {
   const { classes } = useStyles();
   const endOfTranscriptRef = useRef<HTMLDivElement | null>(null);
 
@@ -138,57 +130,19 @@ const TranscriptCard = ({ transcriptBoxHeight }: TranscriptCardProps) => {
   }
 
   return (
-    <Flex direction={"column"} className={classes.card}>
-      <Flex justify={"space-between"} align={"center"} px={"md"} py={"xs"}>
-        <Text size={"lg"} weight={500}>
-          {isMicrophoneAvailable
-            ? isRecognizing
-              ? "Recognizing Speech"
-              : "Start Transcription"
-            : "Please enable microphone"}
-        </Text>
-        {isRecognizing ? (
-          <ActionIcon
-            variant="light"
-            onClick={stopRecognizing}
-            color={"red"}
-            className={classes.iconButton}
-            disabled={
-              !isMicrophoneAvailable || !browserSupportsSpeechRecognition
-            }
-          >
-            <IconPlayerStopFilled size="1.25rem" />
-          </ActionIcon>
-        ) : (
-          <ActionIcon
-            variant="light"
-            onClick={startRecognizing}
-            color={"green"}
-            className={classes.iconButton}
-            disabled={
-              !isMicrophoneAvailable || !browserSupportsSpeechRecognition
-            }
-          >
-            <IconPlayerPlayFilled size="1.25rem" />
-          </ActionIcon>
-        )}
-      </Flex>
-      {/*isRecognizing && (
-        <ScrollArea
-          scrollHideDelay={100}
-          className={classes.transcriptBox}
-          px={"lg"}
-          py={"md"}
+        <ActionIcon
+          variant="filled"
+          radius={100}
+          onClick={isRecognizing ? stopRecognizing : startRecognizing}
+          size={"5rem"}
+          color={isRecognizing ? "red" : "green"}
+          className={classes.iconButton}
+          disabled={
+            !isMicrophoneAvailable || !browserSupportsSpeechRecognition
+          }
         >
-          <Box mah={transcriptBoxHeight}>
-            <Text size={"xl"} color="white">
-              {transcript}
-            </Text>
-            <div ref={endOfTranscriptRef}></div>
-          </Box>
-        </ScrollArea>
-      )*/}
-    </Flex>
+          {isRecognizing ? <IconPlayerStopFilled size="3rem" /> : <IconPlayerPlayFilled size="3rem" />}
+        </ActionIcon>
   );
 };
 
