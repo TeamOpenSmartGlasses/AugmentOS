@@ -30,7 +30,6 @@ global app
 
 #handle new transcripts coming in
 async def chat_handler(request):
-    print("got chat...")
     start_time = time.time()
 
     body = await request.json()
@@ -50,8 +49,8 @@ async def chat_handler(request):
         print("user_id none in chat_handler, exiting with error response 400.")
         return web.Response(text='no user_id in request', status=400)
 
-    print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format(
-        "FINAL" if is_final else "INTERMEDIATE", text, timestamp, user_id))
+    #print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format(
+        #"FINAL" if is_final else "INTERMEDIATE", text, timestamp, user_id))
     if is_final:
         print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format("FINAL", text, timestamp, user_id))
     start_save_db_time = time.time()
@@ -97,6 +96,7 @@ async def button_handler(request):
 # run cse/definer tools for subscribed users in background every n ms if there is fresh data to run on
 def cse_loop():
     print("START PROCESSING LOOP")
+
     #setup things we need for processing
     db_handler = DatabaseHandler(parent_handler=False)
     relevance_filter = RelevanceFilter(db_handler=db_handler)
@@ -108,6 +108,8 @@ def cse_loop():
             print("db_handler not ready")
             time.sleep(0.1)
             continue
+
+        loop_start_time = time.time()
 
         try:
             p_loop_start_time = time.time()
@@ -128,13 +130,19 @@ def cse_loop():
 
                 #filter responses with relevance filter, then save CSE results to the database
                 cse_responses_filtered = list()
-                if cse_responses != None:
-                    for res in cse_responses:
-                        if res != {} and res != None:
-                            if relevance_filter.should_run_for_text(transcript['user_id'], res['name']):
-                                cse_responses_filtered.append(res)
+
+                if cse_responses:
+                    cse_responses_filtered = relevance_filter.should_display_result_based_on_context(
+                        transcript["user_id"], cse_responses, transcript["text"]
+                    )
+
+                    final_cse_responses = [cse_response for cse_response in cse_responses if cse_response["name"] in cse_responses_filtered]
+                    print("=== CSE RESPONSES FILTERED: {} ===".format(final_cse_responses))
+
                     db_handler.add_cse_results_for_user(
-                        transcript['user_id'], cse_responses_filtered)
+                        transcript["user_id"], final_cse_responses
+                    )
+
         except Exception as e:
             cse_responses = None
             print("Exception in CSE...:")
@@ -142,9 +150,12 @@ def cse_loop():
             traceback.print_exc()
         finally:
             p_loop_end_time = time.time()
-            # print("=== processing_loop completed in {} seconds overall ===".format(
-            #     round(p_loop_end_time - p_loop_start_time, 2)))
-        time.sleep(2.5)
+            print("=== processing_loop completed in {} seconds overall ===".format(
+                round(p_loop_end_time - p_loop_start_time, 2)))
+
+        loop_run_period = 2.5 #run the loop this often
+        while (time.time() - loop_start_time) < loop_run_period: #wait until loop_run_period has passed before running this again
+            time.sleep(0.2)
 
 
 #frontends poll this to get the results from our processing of their transcripts
@@ -280,4 +291,3 @@ if __name__ == '__main__':
     #let processes finish and join
     #agent_background_process.join()
     cse_process.join()
-

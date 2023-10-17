@@ -57,6 +57,11 @@ const ReferenceCard = ({
     setLoading(true);
   };
 
+  if (entity.text) {
+    entity.name = "💡Insight💡";
+    entity.image_url = "/brain-thinking.jpg";
+  }
+
   return (
     <Card
       withBorder
@@ -93,8 +98,8 @@ const ReferenceCard = ({
               overflowWrap: "break-word",
             }}
           >
-            {entity.summary}
-            {entity.url && (
+            {entity.summary || entity.text}
+            {entity.url && !entity.text && (
               <UnstyledButton>
                 <Text
                   fz="lg"

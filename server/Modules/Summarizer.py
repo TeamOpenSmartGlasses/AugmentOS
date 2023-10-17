@@ -21,60 +21,32 @@ if use_azure_openai:
     openai.api_version = '2023-08-01-preview' # this may change in the future
     deployment_name = azure_openai_api_deployment # This will correspond to the custom name you chose for your deployment when you deployed a model. 
 """
-    
-og_prompt_no_context = """Please summarize the following "entity description" text to 8 words or less, extracting the most important information about the entity. The summary should be easy to parse very quickly. Leave out filler words. Don't write the name of the entity. Use less than 8 words for the entire summary. Be concise, brief, and succinct.
 
-            Example:
-            [INPUT]
-            "George Washington (February 22, 1732 – December 14, 1799) was an American military officer, statesman, and Founding Father who served as the first president of the United States from 1789 to 1797."
+summarizer_prompt = """You are an expert at summarizing text in a way that is contextually relevant to the current conversation. You are an intelligent agent that is a sybsytem of the intelligent agent called. "Convoscope". You are the summarization worker agent of "Definer" agent. "Convoscope" is a tool that listens to a user's live conversation and enhances their conversation by providing them with real time "Insights". The "Definer" agent defines rare words, concepts, places, concepts, etc. live in conversation. You are the summarizer part of the "Definer" agent. You will be given text to summarize and a context of the transcripts of the current conversation. You will also be given a description of an entity. You should generaet a contextually relevant description of that entity. The description should aim to lead the user to deeper understanding, broader perspectives, new ideas, more accurate information, better replies, and enhanced conversations. Make sure the definition doesn't tell the user things they already know - exact pertinent and relevant information from the definition in your super short summary.
 
-            [OUTPUT]
-            First American president, military officer, Founding Father.
+Please summarize the following "entity description" text to 8 words or less, extracting the most important information about the entity.
 
-            Example:
-            [INPUT]
-            "ChatGPT is an artificial intelligence chatbot developed by OpenAI and released in November 2022. It is built on top of OpenAI's GPT-3.5 and GPT-4 families of large language models and has been fine-tuned using both supervised and reinforcement learning techniques."
-            [OUTPUT]
-            AI chatbot using GPT models.
+    * Extract only the most important information about the entitiy, as summaries must be 8 words or less. 
+    * The summary should be easy to parse very quickly. 
+    * Leave out filler words. 
+    * Don't write the name of the entity. 
+    * Don't include the "Text to summarize" in your response.
+    * Use less than 8 words for the entire summary. Be concise, brief, and succinct.
+    * Do not hallucinate, do not make things up. Use the source text.
 
-            \n Text to summarize: \n{} \n_summary (8 words or less): """
+You will be given a "Conversational Context", which is the transcript from the live conversation. Use this to make the defintion contextually relevant and useful. The "Conversational Context" is not a source of truth, it's there to inform you of what is happening in the conversation so you know what information to extract from the "Entity definition" to put in your summary.
 
-og_prompt_with_context = """
-    Summarize the following "entity description" text in relation to the given "context" which is a transcript from a conversation. 
-* Extract only the most important information about the entitiy, as summaries must be 8 words or less. 
-* The summary should be easy to parse very quickly. 
-* Leave out filler words. 
-* Don't write the name of the entity. 
-* Don't include the "Text to summarize" in your response.
-* Use less than 8 words for the entire summary. Be concise, brief, and succinct.
+Entity definition to summarize:
+```
+{}
+```
 
-Example:
-[INPUT]
-Text to summarize:
-"LinkedIn is a business and employment-focused social media platform that works through websites and mobile apps. It was launched on May 5, 2003."
+Conversational Context:
+```
+{}
+```
 
-Context:
-"LinkedIn was bought by Microsoft."
-
-[OUTPUT]
-Social media platform, bought by Microsoft in 2016.
-
-Example:
-[INPUT]
-Text to summarize:
-"Barack Hussein Obama II is an American politician who served as the 44th president of the United States from 2009 to 2017. A member of the Democratic Party, he was the first African-American president."
-
-Context:
-"Where did Obama come from?"
-
-[OUTPUT]
-44th US President, elected 2009, from Chicago Illinois.
-
-\n_text to summarize:\n\n
-{}\n
-Context:\n\n
-{}\n
-\n_summary (8 words or less): 
+Summary in 8 words or less:\n
 """
 
 class Summarizer:
@@ -89,11 +61,11 @@ class Summarizer:
             chars_to_use, len(entity_description))]
 
         # Check cache for summary first
-        cache_key = entity_description + ' c: ' + context
-        summary = self.database_handler.find_cached_summary(cache_key)
-        if summary:
-            print("$$$ SUMMARY: FOUND CACHED SUMMARY")
-            return summary
+        #cache_key = entity_description + ' c: ' + context
+        #summary = self.database_handler.find_cached_summary(cache_key)
+        #if summary:
+        #    print("$$$ SUMMARY: FOUND CACHED SUMMARY")
+        #    return summary
 
         # Summary does not exist. Get it with OpenAI
         print("$$$ SUMMARY: SUMMARIZING WITH OPENAI")
@@ -102,10 +74,7 @@ class Summarizer:
         return summary
 
     def summarize_entity_with_openai(self, entity_description: str, context: str = ""):
-            if context and context != "" and False: # Disable contextual summaries for now
-                prompt = og_prompt_with_context.format(entity_description, context)
-            else:
-                prompt = og_prompt_no_context.format(entity_description)
+            prompt = summarizer_prompt.format(entity_description, context)
             
             if use_azure_openai and False:
                 #messages = [{"role": "user", "content": prompt}]
@@ -115,10 +84,11 @@ class Summarizer:
                 #response = chat_completion['choices'][0]['message']['content']
                 print()
             else:
-                chat_completion = openai.Completion.create(model="text-davinci-002", prompt=prompt, temperature=0.5, max_tokens=20)
+                #chat_completion = openai.Completion.create(model="text-davinci-002", prompt=prompt, temperature=0.5, max_tokens=20)
+                chat_completion = openai.Completion.create(model="gpt-3.5-turbo-instruct", prompt=prompt, temperature=0.5, max_tokens=20)
                 response = chat_completion.choices[0].text
             
             return response
 
-    def summarize_description_with_bert(self, description):
-        return self.model(description, num_sentences=3)
+    def summarize_description_with_bert(self, description, num_sentences=3):
+        return self.model(description, num_sentences=num_sentences)

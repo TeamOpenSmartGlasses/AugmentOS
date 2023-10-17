@@ -94,7 +94,7 @@ export default function App() {
   //poll the backend for UI updates
   const updateUiBackendPoll = () => {
     const subTranscript = {
-      features: ["contextual_search_engine"], //list of features here
+      features: ["contextual_search_engine", "agent_insights"], //list of features here
       userId: window.userId,
       deviceId: window.deviceId,
     };
@@ -102,16 +102,35 @@ export default function App() {
     axiosClient
       .post(UI_POLL_ENDPOINT, subTranscript)
       .then((res) => {
-        const newEntitiesDict = res.data.result;
-        if (res.data.success) console.log(res.data);
-        if (res.data.result) {
-          const newEntitiesArray = Object.keys(newEntitiesDict).map(function (
-            k
-          ) {
-            return newEntitiesDict[k];
-          });
-          console.log(newEntitiesArray);
-          setEntities((entities) => [...entities, ...newEntitiesArray]);
+        // const newEntitiesDict = res.data.result;
+        // if (res.data.success) console.log(res.data);
+        // if (
+        //   res.data.result && (res.data.result_agent_insights as any[]).length > 0
+        // ) {
+        //   const newEntitiesArray = Object.keys(newEntitiesDict).map(function (
+        //     k
+        //   ) {
+        //     return newEntitiesDict[k];
+        //   });
+        //   console.log(newEntitiesArray);
+        //   setEntities((entities) => [...entities, ...newEntitiesArray]);
+        // }
+        // if (
+        //   res.data.result_agent_insights &&
+        //   (res.data.result_agent_insights as any[]).length > 0
+        // ) {
+        //   console.log("Insights:", res.data.result_agent_insights);
+        // }
+        if (res.data.success) {
+          const newEntities = res.data.result as any[];
+          const newInsights = res.data.result_agent_insights as any[];
+          if (newEntities.length === 0 && newInsights.length === 0) return;
+
+          setEntities((entities) => [
+            ...entities,
+            ...newEntities,
+            ...newInsights,
+          ]);
         }
       })
       .catch(function (error) {

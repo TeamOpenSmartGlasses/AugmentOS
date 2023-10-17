@@ -78,7 +78,7 @@ class ContextualSearchEngine:
         self.custom_embeddings = dict()
 
         self.banned_words = set(stopwords.words(
-            "english") + ["mit", "MIT", "Media", "media", "yeah", "we're", "thing", "going", "hey", "that", "OK", "like", "right", "one", "I'm", "to", "pretty", "I", "think", "so", "get", "has", "have"])
+            "english") + ["mit", "MIT", "Media", "media", "really", "yeah", "we're", "thing", "going", "hey", "that", "OK", "like", "right", "one", "I'm", "to", "pretty", "I", "think", "so", "get", "has", "have"])
 
         if USE_GPU_FOR_INFERENCING:
             self.inference_device = "cuda:0" if torch.cuda.is_available() else "cpu"
@@ -364,11 +364,8 @@ class ContextualSearchEngine:
         entities_custom = self.fuzzy_search_on_user_custom_data(user_id, talk)
  
         #run semantic search
-        entities_semantic_custom = self.semantic_search_custom_data(user_id)
+        #entities_semantic_custom = self.semantic_search_custom_data(user_id)
 
-        # find rare words (including acronyms) and define them
-        context = talk + self.db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, 3)
-        
         # get entities
         entities_raw = self.analyze_entities(talk)
 
@@ -418,10 +415,13 @@ class ContextualSearchEngine:
         # build response object from various processing sources
         response = dict()
 
+        # find rare words (including acronyms) and define them
+        rare_word_context = self.db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, 3)
+        
         # get rare word def's
         if DEFINE_RARE_WORDS:
             #find the rare words and their definitions
-            rare_word_definitions = word_frequency.rare_word_define_string(talk, context)
+            rare_word_definitions = word_frequency.rare_word_define_string(talk, rare_word_context)
             #summarize the definitions by cutting them short
             summary_len = 180
             for word_def in rare_word_definitions:
@@ -441,8 +441,11 @@ class ContextualSearchEngine:
 
         # add custom NER entities to response
         response.update(entities_custom)
-        response.update(entities_semantic_custom)
+        #response.update(entities_semantic_custom)
 
+        # find rare words (including acronyms) and define them
+        summaries_context = self.db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, 180)
+        
         # build response and summarize long entity descriptions
         for entity_name in response.keys():
             # get description
@@ -450,7 +453,7 @@ class ContextualSearchEngine:
 
             # summarize entity if greater than n words long
             if (description != None) and (description != None) and (len(description.split(" ")) > 14):
-                summary = self.summarizer.summarize_entity(description, context=context)
+                summary = self.summarizer.summarize_entity(description, context=summaries_context)
             elif description != None:
                 summary = description
             else:
@@ -619,10 +622,14 @@ class ContextualSearchEngine:
             return list()
         #don't even try search if the to_search is too high frequency
         to_search_string_freq_index = self.get_string_freq(to_search)
-        if to_search_string_freq_index < 0.04:
-            print(f"--- Didn't search '{to_search}' because too common words")
+        if (len(individual_words) <= 2) and (to_search_string_freq_index < 0.067): #if there are 1-2 words to search and the index is below this, don't run
+            print(f"--- Didn't search '{to_search}' because too common words, index {to_search_string_freq_index}")
+            return list()
+        if (len(individual_words) > 3) and (to_search_string_freq_index < 0.06): #if there are 1-2 words to search and the index is below this, don't run
+            print(f"--- Didn't search '{to_search}' because too common words, index {to_search_string_freq_index}")
             return list()
 
+        print(f"INSTEAD --- are search '{to_search}' because rare enough words, index {to_search_string_freq_index}")
         #helper functions for fuzzy search
         def get_whole_match(match_entity, full_string):
             start_idx = match_entity.start  # inclusive
@@ -706,6 +713,8 @@ class ContextualSearchEngine:
                     matches.append(idx)
                     continue
 
+        #spin it around so it's reverse chronologial
+        matches.reverse()
         return matches
 
     def find_combinations(self, words, window_size):
