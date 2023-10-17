@@ -195,11 +195,11 @@ async def ui_poll_handler(request, minutes=0.5):
         resp["result"] = cse_results
 
     #get agent results
-    if "proactive_agents" in features:
-        agent_insight_results = db_handler.get_proactive_agents_results_for_user_device(user_id=user_id, device_id=device_id)
+    if "proactive_agent_insights" in features:
+        agent_insight_results = db_handler.get_proactive_agents_insights_results_for_user_device(user_id=user_id, device_id=device_id)
 
         #add agents insight to response
-        resp["result_proactive_agents"] = agent_insight_results
+        resp["results_proactive_agent_insights"] = agent_insight_results
 
     return web.Response(text=json.dumps(resp), status=200)
 

@@ -32,11 +32,11 @@ def stream(dataset):
             description = summarizer.summarize_description_with_bert(str(row['description'])) if SUMMARIZE_CUSTOM_DATA else str(
                 row['description'])
         except:
-            print("Error summarizing entity: {}".format(row['title']))
+            #print("Error summarizing entity: {}".format(row['title']))
             description = str(row['description'])
 
-        print("Title: {}".format(title))
-        print("-- Description: {}".format(description))
+        #print("Title: {}".format(title))
+        #print("-- Description: {}".format(description))
 
         tags = json.dumps({"title" : title,
                 "description" : description,
@@ -83,12 +83,12 @@ def process(df, embeddings):
     # dataset = df['abstract'].tolist()
 
     # Create embeddings model, backed by sentence-transformers & transformers, enable content storage
-    print("Starting making embeddings...")
+    #print("Starting making embeddings...")
     embeddings.upsert(stream(df))
     # insert into csv
     # add_csv(dataset)
     # top_wiki_name += dataset
-    print("Done making embeddings.")
+    #print("Done making embeddings.")
 
     return embeddings
 
@@ -108,7 +108,7 @@ def process(df, embeddings):
 # dataset = load_dataset("ag_news", split="train")
 
 def update_embeddings(df, user_id):
-    print("Loading CSV...")
+    #print("Loading CSV...")
     # df = pd.read_csv('enwiki-20220901-pages-articles-multistream.csv', quotechar='|', index_col = False, nrows=NUMERO)
     user_folder_path = os.path.join('custom_data', str(user_id))
     # load the qrank top n csv to compare
