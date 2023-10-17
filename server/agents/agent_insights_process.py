@@ -13,8 +13,8 @@ from langchain.agents import initialize_agent
 from langchain.tools import StructuredTool, Tool
 from langchain.agents import AgentType
 from langchain.chat_models import ChatOpenAI
-from agent_tools import scrape_page, custom_search
-from agent_insights_prompts import generate_prompt
+from agents.agent_tools import scrape_page, custom_search
+from agents.agent_prompts import generate_prompt
 
 llm = ChatOpenAI(temperature=0, openai_api_key=openai_api_key, model="gpt-4-0613")
 

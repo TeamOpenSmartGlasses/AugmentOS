@@ -20,7 +20,8 @@ from server_config import server_port
 from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH
 from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
-from agent_insights_process import agent_insights_processing_loop
+from agents.agent_insights_process import agent_insights_processing_loop
+from agents.explicit_query_process import explicit_query_processing_loop
 from Modules.RelevanceFilter import RelevanceFilter
 
 global db_handler
@@ -257,6 +258,9 @@ if __name__ == '__main__':
     #start the agent process
     #agent_background_process = multiprocessing.Process(target=agent_insights_processing_loop)
     #agent_background_process.start()
+
+    explicit_background_process = multiprocessing.Process(target=explicit_query_processing_loop)
+    explicit_background_process.start()
 
     # setup and run web app
     # CORS allow from all sources
