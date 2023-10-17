@@ -8,11 +8,6 @@ from server_config import openai_api_key, use_azure_openai, azure_openai_api_key
 openai.api_key = openai_api_key
 
 ### For use with Azure OpenAI ###
-"""
-# # # #
-# TODO: NEED TO FIND WAY TO USE AZURE // OpenAI throughout codebase... need to separate the llm initialization code out
-#       (just use OpenAI for now)
-# # # #
 if use_azure_openai:
     print("$$$ USING AZURE OPENAI $$$")
     openai.api_key = azure_openai_api_key
@@ -20,9 +15,9 @@ if use_azure_openai:
     openai.api_type = 'azure'
     openai.api_version = '2023-08-01-preview' # this may change in the future
     deployment_name = azure_openai_api_deployment # This will correspond to the custom name you chose for your deployment when you deployed a model. 
-"""
 
-summarizer_prompt = """You are an expert at summarizing text in a way that is contextually relevant to the current conversation. You are an intelligent agent that is a sybsytem of the intelligent agent called. "Convoscope". You are the summarization worker agent of "Definer" agent. "Convoscope" is a tool that listens to a user's live conversation and enhances their conversation by providing them with real time "Insights". The "Definer" agent defines rare words, concepts, places, concepts, etc. live in conversation. You are the summarizer part of the "Definer" agent. You will be given text to summarize and a context of the transcripts of the current conversation. You will also be given a description of an entity. You should generaet a contextually relevant description of that entity. The description should aim to lead the user to deeper understanding, broader perspectives, new ideas, more accurate information, better replies, and enhanced conversations. Make sure the definition doesn't tell the user things they already know - exact pertinent and relevant information from the definition in your super short summary.
+summarizer_prompt = """
+You are an expert at summarizing text in a way that is contextually relevant to the current conversation. You are an intelligent agent that is a sybsytem of the intelligent agent called. "Convoscope". You are the summarization worker agent of "Definer" agent. "Convoscope" is a tool that listens to a user's live conversation and enhances their conversation by providing them with real time "Insights". The "Definer" agent defines rare words, concepts, places, concepts, etc. live in conversation. You are the summarizer part of the "Definer" agent. You will be given text to summarize and a context of the transcripts of the current conversation. You will also be given a description of an entity. You should generaet a contextually relevant description of that entity. The description should aim to lead the user to deeper understanding, broader perspectives, new ideas, more accurate information, better replies, and enhanced conversations. Make sure the definition doesn't tell the user things they already know - exact pertinent and relevant information from the definition in your super short summary.
 
 Please summarize the following "entity description" text to 8 words or less, extracting the most important information about the entity.
 
@@ -75,14 +70,14 @@ class Summarizer:
 
     def summarize_entity_with_openai(self, entity_description: str, context: str = ""):
             prompt = summarizer_prompt.format(entity_description, context)
-            
-            if use_azure_openai and False:
-                #messages = [{"role": "user", "content": prompt}]
-                # chat_completion = openai.ChatCompletion.create(engine=deployment_name, messages=messages, temperature=0.5, max_tokens=20)
-                #if chat_completion['choices'][0]['finish_reason'] == "content_filter":
-                #    print("Microsoft content filter says hello")
-                #response = chat_completion['choices'][0]['message']['content']
-                print()
+            print(prompt)
+        
+            if use_azure_openai:
+                messages = [{"role": "user", "content": prompt}]
+                chat_completion = openai.ChatCompletion.create(engine=deployment_name, messages=messages, temperature=0.5, max_tokens=20)
+                if chat_completion['choices'][0]['finish_reason'] == "content_filter":
+                    print("Microsoft content filter says hello")
+                response = chat_completion['choices'][0]['message']['content']
             else:
                 #chat_completion = openai.Completion.create(model="text-davinci-002", prompt=prompt, temperature=0.5, max_tokens=20)
                 chat_completion = openai.Completion.create(model="gpt-3.5-turbo-instruct", prompt=prompt, temperature=0.5, max_tokens=20)

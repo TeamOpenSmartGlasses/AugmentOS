@@ -419,12 +419,6 @@ class DatabaseHandler:
                 new_results.append(res)
         return new_results
 
-    def get_agent_insights_history_for_user(self, user_id):
-        self.create_user_if_not_exists(user_id)
-        filter = {"user_id": user_id}
-        user = self.user_collection.find_one(filter)
-        return user['agent_insights_results'] 
-
     def get_agent_insights_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
         self.add_ui_device_to_user_if_not_exists(user_id, device_id)
 
