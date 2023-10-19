@@ -1,11 +1,13 @@
 import {
   ActionIcon,
-  Title,
-  Box,
   Center,
   Skeleton,
   Text,
   Tooltip,
+  Flex,
+  CloseButton,
+  rem,
+  Stack,
 } from "@mantine/core";
 import { IconArrowUp } from "@tabler/icons-react";
 
@@ -20,18 +22,7 @@ const PageView = ({ viewMoreUrl, loading, setLoading }: PageViewProps) => {
     setLoading(false);
   };
   return (
-    <Box h={"90%"}>
-          <Title 
-            order={2}
-            lineClamp={1}
-              sx={{
-                marginLeft: "0rem",
-                textDecoration: "underline",
-              }}
-            >
-             Explore
-          </Title>
-
+    <Flex sx={{ height: "100%" }}>
       {viewMoreUrl ? (
         <Skeleton
           visible={loading}
@@ -72,7 +63,10 @@ const PageView = ({ viewMoreUrl, loading, setLoading }: PageViewProps) => {
           </Text>
         </Center>
       )}
-    </Box>
+      <Stack align="center">
+        <CloseButton size={rem(25)} />
+      </Stack>
+    </Flex>
   );
 };
 

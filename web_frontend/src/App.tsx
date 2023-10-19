@@ -34,7 +34,8 @@ const useStyles = createStyles((theme) => ({
   container: {
     width: "100%",
     height: "100%",
-    padding: "1.5rem 1.5rem 0.5rem 1.5rem",
+    padding: 0,
+    flex: "1 1 0"
   },
 
     rightPanel: { backgroundColor: theme.white, borderRadius: "0.5rem", margin: "0rem 0rem 1rem 0rem" },
@@ -215,6 +216,16 @@ export default function App() {
                   <RunAgentsView />
               </Flex>
 
+              <Flex
+                  direction={"column"}
+                  w={{ xs: "100%", md: "100%" }}
+                  h={{ xs: "50%", md: "30%" }}
+                  px={"md"}
+                  py={"sm"}
+                  className={classes.rightPanel}
+                >
+                      <AgentChatView/>
+              </Flex>
 
               <Flex
                   direction={"column"}
@@ -250,42 +261,16 @@ export default function App() {
                   </ScrollArea>
               </Flex>
             </Stack>
-
-            {/* Right Panel */}
-            <Flex
-                  direction={"column"}
-                  w={{ xs: "100%", md: "100%" }}
-                  h={{ xs: "50%", md: "100%" }}
-                  px={"md"}
-                  py={"sm"}
-                >
-             <Flex
-                  direction={"column"}
-                  w={{ xs: "100%", md: "100%" }}
-                  h={{ xs: "50%", md: "30%" }}
-                  px={"md"}
-                  py={"sm"}
-                  className={classes.rightPanel}
-                >
-                      <AgentChatView/>
-              </Flex>
-
-                <Flex
-                  direction={"column"}
-                  w={{ xs: "100%", md: "100%" }}
-                  h={{ xs: "50%", md: "70%" }}
-                  px={"md"}
-                  py={"sm"}
-                  className={classes.rightPanel}
-                >
-                      <PageView
-                        viewMoreUrl={viewMoreUrl}
-                        loading={loadingViewMore}
-                        setLoading={setLoadingViewMore}
-                      />
-                </Flex>
-             </Flex>
           </Flex>
+        </Container>
+
+        <Container fluid className={classes.container}>
+          <PageView
+            // viewMoreUrl={viewMoreUrl}
+            viewMoreUrl={"https://en.wikipedia.org/wiki/Doppler_effect"}
+            loading={loadingViewMore}
+            setLoading={setLoadingViewMore}
+          />
         </Container>
       </Flex>
 
