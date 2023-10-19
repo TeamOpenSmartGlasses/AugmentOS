@@ -15,25 +15,10 @@ from langchain.agents import AgentType
 from langchain.chat_models import ChatOpenAI
 from agents.agent_tools import scrape_page, custom_search
 from agents.agent_prompts import generate_prompt, generate_master_prompt
+from agents.wake_words import *
 
-# llm = ChatOpenAI(temperature=0, openai_api_key=openai_api_key, model="gpt-4-0613")
-
-wake_terms = [
-    "hey convoscope",
-    "hey conboscope",
-    "hey confoscope",
-    "hey comboscope",
-    "hey condoscope",
-    "hey convo scope",
-]
-
-def get_query_from_transcript(transcript):
-    for term in wake_terms:
-        if term in transcript:
-            # print("SHEEEEE")
-            index = transcript.find(term) + len(term)
-            return transcript[index:]
-    return None
+pause_query_time = 4
+force_query_time = 8
 
 def stringify_history(insight_history):
     history = ""
@@ -54,30 +39,43 @@ def explicit_query_processing_loop():
 
         try:
             print("RUNNING EXPLICIT QUERY LOOP")
-            newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(
-                n=5)
-            for transcript in newTranscripts:
-                print("Run EXPLICIT QUERY STUFF with... user_id: '{}' ... text: '{}'".format(
-                    transcript['user_id'], transcript['text']))
-                user_id = transcript['user_id']
-                
-                query = get_query_from_transcript(transcript['text'].lower())
+            users = dbHandler.get_users_with_recent_wake_words()    
+            for user in users:
+                is_query_ready = False
+                current_time = time.time()
+
+                # If wake word is old, just run on what we have
+                if current_time > user['last_wake_word_time'] + force_query_time:
+                    is_query_ready = True
+
+                # If there has been a pause
+                elif current_time > user['final_transcripts'][-1]['timestamp'] + pause_query_time:
+                    is_query_ready = True
+
+                if not is_query_ready: continue
+
+                # TODO: Optimize this. We already have the transcripts in `user` so no need for second DB call, just need to get by time
+                num_seconds_to_get = round(current_time - user['last_wake_word_time']) + 1
+                text = dbHandler.get_transcripts_from_last_nseconds_for_user_as_string(user_id=user['user_id'], n=num_seconds_to_get)
+
+                # Pull query out of the text
+                query = get_explicit_query_from_transcript(text)
                 if query is None: 
-                    print("QQQQ QUERY ISS NONE $$$$$$QQQ")
+                    print("QQQQ QUERY ISS NONE QQQQ")
                     continue
-                print("THE EXPLICIT QUERY IS: " + query)
-
-                insightGenerationStartTime = time.time()
-
-                insight_history = dbHandler.get_agent_insights_history_for_user(transcript['user_id'])
+                else:
+                    print("Run EXPLICIT QUERY STUFF with... user_id: '{}' ... text: '{}'".format(
+                        user['user_id'], query))
+                
+                # Set up prompt for Meta Agent
+                insight_history = dbHandler.get_agent_insights_history_for_user(user['user_id'])
                 chat_history = stringify_history(insight_history)
-
                 mprompt = generate_master_prompt(chat_history, query)
-
                 print("||||||||| MPROMPT ||||||||||||||")
                 print(mprompt)
                 print("||||||||||||||||||||||||||||||||")
 
+                insightGenerationStartTime = time.time()
                 try:
                     insight = master_agent.run(mprompt)
                     
@@ -86,15 +84,16 @@ def explicit_query_processing_loop():
                     print("=====================================")
                     
                     #save this insight to the DB for the user
-                    insight_time = math.trunc(time.time())
-                    insight_uuid = str(uuid.uuid4())
-                    insight_obj = {'timestamp': insight_time, 'uuid': insight_uuid, 'query': query, 'insight': insight}
-                    dbHandler.add_agent_insights_results_for_user(transcript['user_id'], [insight_obj])
+                    dbHandler.add_agent_insights_results_for_user(user['user_id'], query, insight)
                 except Exception as e:
                     print("Exception in agent.run()...:")
                     print(e)
                     traceback.print_exc()
+                    dbHandler.reset_wake_word_time_for_user(user['user_id'])
                     continue
+
+                dbHandler.reset_wake_word_time_for_user(user['user_id'])
+
                 insightGenerationEndTime = time.time()
                 print("=== insightGeneration completed in {} seconds ===".format(
                     round(insightGenerationEndTime - insightGenerationStartTime, 2)))
