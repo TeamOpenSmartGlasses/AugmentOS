@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import {
   ActionIcon,
   createStyles,
+  keyframes,
 } from "@mantine/core";
 import {
   IconPlayerStopFilled,
@@ -20,14 +21,15 @@ const useStyles = createStyles((theme) => ({
   iconButton: {
     width: "2rem",
     height: "2rem",
-  },
-
-  transcriptBox: {
-    backgroundColor: "gray",
-    borderBottomLeftRadius: "0.25rem",
-    WebkitBorderBottomRightRadius: "0.25rem",
+    animation: `${breathe} 4s ease-in-out infinite`
   },
 }));
+
+const breathe = keyframes`
+  0% { transform: translate(0); filter: brightness(1); }
+  50% { transform: translate(0, -8px); filter: brightness(1.1); }
+  100% { transform: translate(0); filter: brightness(1); }
+`;
 
 const TranscriptCard = () => {
   const { classes } = useStyles();
