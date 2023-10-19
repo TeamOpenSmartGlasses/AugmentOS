@@ -6,6 +6,7 @@ import base64
 import numpy as np
 import pandas as pd
 from fuzzysearch import find_near_matches
+from rapidfuzz import fuzz
 from nltk.corpus import stopwords
 from io import BytesIO
 from PIL import Image
@@ -23,10 +24,10 @@ from bs4 import BeautifulSoup
 from txtai.embeddings import Embeddings
 from update_embeddings import update_embeddings
 
-#Convoscope
+# Convoscope
 from Modules.Summarizer import Summarizer
 import word_frequency
-from constants import CUSTOM_USER_DATA_PATH, USE_GPU_FOR_INFERENCING, SUMMARIZE_CUSTOM_DATA, DEFINE_RARE_WORDS, IMAGE_PATH
+from constants import CUSTOM_USER_DATA_PATH, DEFINE_RARE_WORDS, IMAGE_PATH
 from server_config import google_maps_api_key
 
 # Google NLP
@@ -69,7 +70,7 @@ class ContextualSearchEngine:
         self.db_handler = db_handler
         self.summarizer = Summarizer(db_handler)
 
-        #load the word frequency index
+        # load the word frequency index
         word_frequency.load_word_freq_indices()
 
         self.max_window_size = 3
@@ -80,13 +81,13 @@ class ContextualSearchEngine:
         self.banned_words = set(stopwords.words(
             "english") + ["mit", "MIT", "Media", "media", "really", "yeah", "we're", "thing", "going", "hey", "that", "OK", "like", "right", "one", "I'm", "to", "pretty", "I", "think", "so", "get", "has", "have"])
 
-        if USE_GPU_FOR_INFERENCING:
-            self.inference_device = "cuda:0" if torch.cuda.is_available() else "cpu"
-        else:
-            self.inference_device = "cpu"
+        # if USE_GPU_FOR_INFERENCING:
+        #     self.inference_device = "cuda:0" if torch.cuda.is_available() else "cpu"
+        # else:
+        #     self.inference_device = "cpu"
 
-        self.similarity_func = Similarity(
-            "valhalla/distilbart-mnli-12-1", gpu=(USE_GPU_FOR_INFERENCING))
+        # self.similarity_func = Similarity(
+        #     "valhalla/distilbart-mnli-12-1", gpu=(USE_GPU_FOR_INFERENCING))
 
     def semantic_search_custom_data(self, user_id):
         #first, get the context, and the summary of that context
@@ -94,13 +95,13 @@ class ContextualSearchEngine:
         context_summary = self.summarizer.summarize_description_with_bert(context)
         query = context_summary
 
-        #run semantic search
+        # run semantic search
         print(f"@@@@@@@@@@ Semantic searching {query} for user {user_id}")
         query_stripped = query.replace("\"", "")
         results = self.custom_embeddings[user_id].search(f"select id, text, score, tags from txtai where similar(\"{query_stripped}\") order by score DESC", limit=10)
         filtered_results = dict()
 
-        #get best semantic search results and put them into proper data structure
+        # get best semantic search results and put them into proper data structure
         for result in results:
             if result["score"] > 0.59:
                 title = result["id"]
@@ -135,7 +136,7 @@ class ContextualSearchEngine:
 
         self.custom_data[user_id] = concatenated_df
 
-        #load user data embeddings
+        # load user data embeddings
         print(f"Loading embeddings for {user_id}...")
         self.custom_embeddings[user_id].load(
             f"{user_folder_path}/custom_data_embeddings.txtai")
@@ -319,8 +320,8 @@ class ContextualSearchEngine:
         # List all CSV files in the user-specific folder
         csv_files = [f for f in os.listdir(
             user_folder_path) if f.endswith('.csv')]
-        print("FOUND FILES FOR {user_id}: ")
-        print(csv_files)
+        # print("FOUND FILES FOR {user_id}: ")
+        # print(csv_files)
 
         # Read each CSV into a DataFrame
         dfs = [pd.read_csv(os.path.join(user_folder_path, csv_file))
@@ -339,9 +340,9 @@ class ContextualSearchEngine:
         print("SETUP CUSTOM DATA FOR USER {}, CUSTOM DATA FRAME IS BELOW:".format(user_id))
         print(self.custom_data[user_id])
 
-        #setup custom embeddings for user
+        # setup custom embeddings for user
         custom_embeddings_path = f"{self.user_custom_data_path}/{user_id}/custom_data_embeddings.txtai"
-        print(f"Loading embeddings for {user_id}...")
+        # print(f"Loading embeddings for {user_id}...")
         self.custom_embeddings[user_id] = Embeddings(
             {"path": "sentence-transformers/paraphrase-MiniLM-L3-v2", "content": True})
         if (os.path.exists(custom_embeddings_path)):
@@ -363,8 +364,8 @@ class ContextualSearchEngine:
         # find mentions of custom data entities
         entities_custom = self.fuzzy_search_on_user_custom_data(user_id, talk)
  
-        #run semantic search
-        #entities_semantic_custom = self.semantic_search_custom_data(user_id)
+        # run semantic search
+        # entities_semantic_custom = self.semantic_search_custom_data(user_id)
 
         # get entities
         entities_raw = self.analyze_entities(talk)
@@ -422,7 +423,7 @@ class ContextualSearchEngine:
         if DEFINE_RARE_WORDS:
             #find the rare words and their definitions
             rare_word_definitions = word_frequency.rare_word_define_string(talk, rare_word_context)
-            #summarize the definitions by cutting them short
+            # summarize the definitions by cutting them short
             summary_len = 180
             for word_def in rare_word_definitions:
                 word = list(word_def.keys())[0]
@@ -514,10 +515,10 @@ class ContextualSearchEngine:
         if not self.does_user_have_custom_data_loaded(user_id):
             return {}
 
-        #split the text to seach with into individual words
+        # split the text to seach with into individual words
         words = talk.split()
 
-        #setup some parameters for the fuzzy search
+        # setup some parameters for the fuzzy search
         config = {
             "entity_column_name": "title",
             "entity_column_name_filtered": "title",
@@ -548,7 +549,7 @@ class ContextualSearchEngine:
         # run brute force NER on transcript using custom data
         word_combos = self.find_combinations(words, self.max_window_size)
 
-        #run combinations through the fuzzy search
+        # run combinations through the fuzzy search
         matches_idxs = list()
         for combination in word_combos:
             ctime = time.time()
@@ -556,7 +557,7 @@ class ContextualSearchEngine:
                 combination,
                 list(enumerate(entity_names_to_match_filtered)),
                 config)
-            print("custom_fuzzy_search ran in {} on combo '{}'".format(time.time() - ctime, combination))
+            # print("custom_fuzzy_search ran in {} on combo '{}'".format(time.time() - ctime, combination))
             matches_idxs.extend(curr_matches)
 
         # build response object
@@ -582,7 +583,7 @@ class ContextualSearchEngine:
             else:
                 matches[titles[mi]]["url"] = None
 
-        #self.custom_data[user_id]
+        # self.custom_data[user_id]
         # this is mostly unneeded as we rarely return too many results, but this is here just in case we do return too many results
         unreasonable_num = 4
 
@@ -608,8 +609,8 @@ class ContextualSearchEngine:
         compute_entropy = config["compute_entropy"]
         max_l_dist = config["max_l_dist"]
 
-        #before searching, check a few things to make sure the search is worth doing
-        #some combinations are super short and not worth searching because they yield false positives
+        # before searching, check a few things to make sure the search is worth doing
+        # some combinations are super short and not worth searching because they yield false positives
         if len(to_search) < 8:
             return list()
         #only run to_searchs that don't contain too many filler words
@@ -620,20 +621,20 @@ class ContextualSearchEngine:
                 num_banned += 1
         if (num_banned / len(individual_words)) >= 0.4:
             return list()
-        #don't even try search if the to_search is too high frequency
+        # don't even try search if the to_search is too high frequency
         to_search_string_freq_index = self.get_string_freq(to_search)
         if (len(individual_words) <= 2) and (to_search_string_freq_index < 0.067): #if there are 1-2 words to search and the index is below this, don't run
-            print(f"--- Didn't search '{to_search}' because too common words, index {to_search_string_freq_index}")
+            # print(f"--- Didn't search '{to_search}' because too common words, index {to_search_string_freq_index}")
             return list()
         if (len(individual_words) > 3) and (to_search_string_freq_index < 0.06): #if there are 1-2 words to search and the index is below this, don't run
-            print(f"--- Didn't search '{to_search}' because too common words, index {to_search_string_freq_index}")
+            # print(f"--- Didn't search '{to_search}' because too common words, index {to_search_string_freq_index}")
             return list()
 
-        print(f"INSTEAD --- are search '{to_search}' because rare enough words, index {to_search_string_freq_index}")
-        #helper functions for fuzzy search
+        # print(f"INSTEAD --- are search '{to_search}' because rare enough words, index {to_search_string_freq_index}")
+        # helper functions for fuzzy search
         def get_whole_match(match_entity, full_string):
-            start_idx = match_entity.start  # inclusive
-            end_idx = match_entity.end  # exclusive
+            start_idx = match_entity.dest_start  # inclusive
+            end_idx = match_entity.dest_end  # exclusive
 
             substring = full_string[start_idx:end_idx]
 
@@ -664,56 +665,58 @@ class ContextualSearchEngine:
 
         matches = list()
         for idx, entity in entities:
-            #use fuzzysearch to run first search
+            # use fuzzysearch to run first search
             searched_entity = pascal_to_words(entity).lower().replace(":", "")
-            match_entities = find_near_matches(
-                to_search.lower(),
-                searched_entity,
-                max_deletions=max_deletions,
-                max_insertions=max_insertions,
-                max_substitutions=max_substitutions,
-                max_l_dist=max_l_dist,
-            )
+            # match_entities = find_near_matches(
+            #     to_search.lower(),
+            #     searched_entity,
+            #     max_deletions=max_deletions,
+            #     max_insertions=max_insertions,
+            #     max_substitutions=max_substitutions,
+            #     max_l_dist=max_l_dist,
+            # )
 
-            #if we got a fuzzysearch result, run the result through a number of hand-made filters
-            if match_entities:
-                for match_entity in match_entities:
-                    # first check if match is true by making sure what is said is similiar length to match
-                    match_len = match_entity.end - match_entity.start # get length of substring that matched
-                    whole_match = get_whole_match(match_entity, searched_entity) # get length of all the words that that substring belonged to
-                    match_distance = abs(len(whole_match) - len(to_search))
-                    if (match_distance >= 2):
-                        #print(f"--- Drop '{whole_match}' because match distance is too high") #don't print, because too common
-                        continue
+            match_entity = fuzz.partial_ratio_alignment(to_search.lower(), searched_entity, score_cutoff=70)
 
-                    #if not a very close match, check if the matched entity is rare enough to be a real match
-                    string_freq_index = self.get_string_freq(whole_match.replace(":",""))
-                    if (match_entity.dist > 1) and (string_freq_index < 0.06):
-                        print(f"--- Drop '{whole_match}' because too common words")
-                        continue
-
-                    #never match on just a single word (but allow PascalCase style through as it's multiple words)
-                    if not (" " in whole_match) and (count_capitals(whole_match) < 2):
-                        print(f"-- Skip '{whole_match}' because single word")
-                        continue
-
-                    #if our match is not the start of a word, then don't count it
-                    if match_entity.start != 0:
-                        if (searched_entity[match_entity.start - 1] != " "):
-                            print(f"-- Skip '{whole_match}' because it's not the start of a word")
-                            continue
-
-                    print("@@@@@@@@@@@@@@ TRUE MATCH")
-                    print("--- WHOLEMATCH", whole_match)
-                    print("--- SEARCHED ENTITY", searched_entity)
-                    print("--- FREQUENCY INDEX", str(string_freq_index))
-                    print("--- to_search", to_search)
-                    print("--- entity", entity)
-                    print("--- match_entity", match_entity)
-                    matches.append(idx)
+            # if we got a fuzzysearch result, run the result through a number of hand-made filters
+            if match_entity:
+                # for match_entity in match_entities:
+                # first check if match is true by making sure what is said is similiar length to match
+                # match_len = match_entity.dest_end - match_entity.dest_start # get length of substring that matched
+                whole_match = get_whole_match(match_entity, searched_entity) # get length of all the words that that substring belonged to
+                match_distance = abs(len(whole_match) - len(to_search))
+                if (match_distance >= 2):
+                    #print(f"--- Drop '{whole_match}' because match distance is too high") #don't print, because too common
                     continue
 
-        #spin it around so it's reverse chronologial
+                # if not a very close match, check if the matched entity is rare enough to be a real match
+                string_freq_index = self.get_string_freq(whole_match.replace(":",""))
+                if (match_entity.dist > 1) and (string_freq_index < 0.06):
+                    print(f"--- Drop '{whole_match}' because too common words")
+                    continue
+
+                # never match on just a single word (but allow PascalCase style through as it's multiple words)
+                if not (" " in whole_match) and (count_capitals(whole_match) < 2):
+                    print(f"-- Skip '{whole_match}' because single word")
+                    continue
+
+                # if our match is not the start of a word, then don't count it
+                if match_entity.dest_start != 0:
+                    if (searched_entity[match_entity.dest_start - 1] != " "):
+                        print(f"-- Skip '{whole_match}' because it's not the start of a word")
+                        continue
+
+                print("@@@@@@@@@@@@@@ TRUE MATCH")
+                print("--- WHOLEMATCH", whole_match)
+                print("--- SEARCHED ENTITY", searched_entity)
+                print("--- FREQUENCY INDEX", str(string_freq_index))
+                print("--- to_search", to_search)
+                print("--- entity", entity)
+                print("--- match_entity", match_entity)
+                matches.append(idx)
+                # continue
+
+        # spin it around so it's reverse chronologial
         matches.reverse()
         return matches
 

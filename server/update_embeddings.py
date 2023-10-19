@@ -44,7 +44,7 @@ def stream(dataset):
                 })
 
         text = title + ": " + description
-        yield (title, text, tags)
+        yield title, text, tags
 
 
 def semantic_search(embeddings, query):
@@ -82,7 +82,8 @@ def process(df, embeddings):
 
     # dataset = df['abstract'].tolist()
 
-    # Create embeddings model, backed by sentence-transformers & transformers, enable content storage
+    # Create embeddings model, backed by sentence-transformers & transformers,
+    # enable content storage
     print("Starting making embeddings...")
     embeddings.upsert(stream(df))
     # insert into csv
@@ -95,10 +96,9 @@ def process(df, embeddings):
     # Create similarity instance for re-ranking
     # similarity = Similarity("valhalla/distilbart-mnli-12-3")
 
-    # queries = ["what a wonderful world", "Donald Trump", "big war in the 60s", "hippy music festival 1969", "opposite of day", "dog"]
-    # for query in queries:
-    #    print("Running similiarity search.")
-    #    print(ranksearch(query)[:2])
+    # queries = ["what a wonderful world", "Donald Trump", "big war in the 60s",
+    # "hippy music festival 1969", "opposite of day", "dog"] for query in queries:
+    # print("Running similiarity search.") print(ranksearch(query)[:2])
 
 
 # mapper = WikiMapper("index_enwiki_latest_ossg.db")
@@ -109,7 +109,8 @@ def process(df, embeddings):
 
 def update_embeddings(df, user_id):
     print("Loading CSV...")
-    # df = pd.read_csv('enwiki-20220901-pages-articles-multistream.csv', quotechar='|', index_col = False, nrows=NUMERO)
+    # df = pd.read_csv('enwiki-20220901-pages-articles-multistream.csv', quotechar='|',
+    # index_col = False, nrows=NUMERO)
     user_folder_path = os.path.join('custom_data', str(user_id))
     # load the qrank top n csv to compare
     # qrank = pd.read_csv("qrank_top_n_pandas_hundredthousand_2.csv")
