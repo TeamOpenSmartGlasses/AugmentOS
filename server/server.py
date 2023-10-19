@@ -48,23 +48,23 @@ async def chat_handler(request):
         print("user_id none in chat_handler, exiting with error response 400.")
         return web.Response(text='no user_id in request', status=400)
 
-    #print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format(
-        #"FINAL" if is_final else "INTERMEDIATE", text, timestamp, user_id))
+    # print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format(
+    #     "FINAL" if is_final else "INTERMEDIATE", text, timestamp, user_id))
     if is_final:
         print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format("FINAL", text, timestamp, user_id))
     start_save_db_time = time.time()
     db_handler.save_transcript_for_user(user_id=user_id, text=text, timestamp=timestamp, is_final=is_final)
     end_save_db_time = time.time()
-    #print("=== CHAT_HANDLER's save DB done in {} SECONDS ===".format(
+    # print("=== CHAT_HANDLER's save DB done in {} SECONDS ===".format(
     #    round(end_save_db_time - start_save_db_time, 2)))
 
     end_time = time.time()
-    #print("=== CHAT_HANDLER COMPLETED IN {} SECONDS ===".format(
+    # print("=== CHAT_HANDLER COMPLETED IN {} SECONDS ===".format(
     #    round(end_time - start_time, 2)))
     return web.Response(text=json.dumps({'success': True, 'message': ""}), status=200)
 
 
-#runs when button is pressed on frontend - right now button ring on wearable or button in TPA
+# runs when button is pressed on frontend - right now button ring on wearable or button in TPA
 async def button_handler(request):
     body = await request.json()
     button_num = body.get('buttonNum')
@@ -96,12 +96,12 @@ async def button_handler(request):
 def cse_loop():
     print("START PROCESSING LOOP")
 
-    #setup things we need for processing
+    # setup things we need for processing
     db_handler = DatabaseHandler(parent_handler=False)
     relevance_filter = RelevanceFilter(db_handler=db_handler)
     cse = ContextualSearchEngine(db_handler=db_handler)
 
-    #then run the main loop
+    # then run the main loop
     while True:
         if not db_handler.ready:
             print("db_handler not ready")
@@ -109,6 +109,7 @@ def cse_loop():
             continue
 
         loop_start_time = time.time()
+        p_loop_start_time = time.time()
 
         try:
             p_loop_start_time = time.time()
