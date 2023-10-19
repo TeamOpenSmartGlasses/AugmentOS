@@ -6,9 +6,7 @@ import asyncio
 
 #custom
 from DatabaseHandler import DatabaseHandler
-from agents.expert_agent_configs import expert_agent_config_list, expert_agent_prompt_maker
-from agents.search_tool_for_agents import get_search_tool_for_agents
-from agents.expert_agents import expert_agent_arun_wrapper
+from agents.proactive_meta_agent import run_proactive_meta_agent_and_experts
 from server_config import openai_api_key
 
 def proactive_agents_processing_loop():
@@ -41,12 +39,8 @@ def proactive_agents_processing_loop():
                 insightGenerationStartTime = time.time()
               
                 try:
-                    #loop through all expert agents and run them all
-                    expert_agent_list = list(expert_agent_config_list.values())
-                    tasks = [expert_agent_arun_wrapper(expert_agent_config, transcript) for expert_agent_config in expert_agent_list]
-                    insights_tasks = asyncio.gather(*tasks)
-                    insights = loop.run_until_complete(insights_tasks)
-
+                    #run proactive meta agent, get insights
+                    insights = run_proactive_meta_agent_and_experts(transcript)
                     print("insights: {}".format(insights))
                     #cut off the prompts first "Insight: " words
                     for insight in insights:
