@@ -5,9 +5,9 @@ import {
   Card,
   Title,
   createStyles,
-  Box,
   Group,
   rem,
+  Stack,
 } from "@mantine/core";
 import { Entity } from "../types";
 
@@ -16,10 +16,11 @@ const useStyles = createStyles((theme) => ({
     height: 120,
     marginTop: "1rem",
     ":first-of-type": { marginTop: 0 },
-    backgroundColor: theme.white,
+    backgroundColor: theme.colors.cardFill,
     ":hover": {
-      opacity: 0.75,
+      filter: "brightness(1.2)",
     },
+    color: theme.colors.titleText,
   },
 }));
 
@@ -66,15 +67,11 @@ const ReferenceCard = ({
 
   return (
     <Card
-      withBorder
       radius="md"
       p={0}
       h={"max-content"}
       onClick={handleSelectCard}
       className={classes.card}
-      sx={{
-        color: selected ? theme.colors.indigo[9] : "black",
-      }}
     >
       <Flex align={"center"} h={"100%"}>
         {(entity.image_url || entity.map_image_path) && (
@@ -85,18 +82,15 @@ const ReferenceCard = ({
             radius="md"
           />
         )}
-        <Flex
-          direction={"column"}
+        <Stack
           p={"lg"}
-          h={"100%"}
+          h="max-content"
           w="100%"
           justify={"center"}
         >
-          <Title order={2} lineClamp={1}>
-            {entity.name}
-          </Title>
-          <Text
+          <Title
             fz="lg"
+            size="2rem"
             sx={{
               wordWrap: "break-word",
               wordBreak: "break-word",
@@ -104,16 +98,15 @@ const ReferenceCard = ({
             }}
           >
             {entity.summary || entity.agent_insight}
-          </Text>
-          <Group>
-            <Box sx={{ flex: "1" }} />
+          </Title>
+          <Group mt="auto">
             {entity.agent_name && (
               <Text
                 sx={{
                   textTransform: "uppercase",
                 }}
-                color={selected ? "white" : "black"}
                 fw="bold"
+                ml="auto"
               >
                 {entity.agent_name}
               </Text>
@@ -127,7 +120,7 @@ const ReferenceCard = ({
               />
             )}
           </Group>
-        </Flex>
+        </Stack>
       </Flex>
     </Card>
   );

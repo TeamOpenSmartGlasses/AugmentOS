@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import {
+  ColorScheme,
   Container,
   Flex,
   MantineProvider,
   ScrollArea,
+  Transition,
   createStyles,
 } from "@mantine/core";
 import Sidebar from "./components/Sidebar";
@@ -36,6 +38,24 @@ const useStyles = createStyles((theme) => ({
     rightPanel: { backgroundColor: theme.white, borderRadius: "0.5rem", margin: "0rem 0rem 1rem 0rem" },
     referenceScroll: { backgroundColor: theme.white, borderRadius: "0.5rem", padding: "1rem", margin: "0rem 0rem 1rem 0rem" },
 }));
+
+const theme = {
+  colorScheme: "dark" as ColorScheme,
+  colors: {
+    cardFill: "hsla(167, 44%, 8%, 1)",
+    titleText: "hsla(175, 20%, 87%, 1)",
+    outlineGreen: "hsla(172, 56%, 20%, 1)",
+  },
+
+  defaultGradient: {
+    from: "hsla(174, 78%, 49%, 1)",
+    to: "hsla(174, 90%, 36%, 1)"
+  },
+
+  fontFamily: "Inter, sans-serif",
+  fontFamilyMonospace: "Inter, monospace",
+  headings: { fontFamily: "Inter, sans-serif" },
+};
 
 export default function App() {
   const { classes } = useStyles();
@@ -167,11 +187,7 @@ export default function App() {
     <MantineProvider
       withGlobalStyles
       withNormalizeCSS
-      theme={{
-        fontFamily: "Inter, sans-serif",
-        fontFamilyMonospace: "Inter, monospace",
-        headings: { fontFamily: "Inter, sans-serif" },
-      }}
+      theme={theme}
     >
       <Flex className={classes.root}>
         {!smallerThanMedium && (
@@ -179,20 +195,31 @@ export default function App() {
         )}
         <Container fluid className={classes.container} pt={"2rem"}>
           {/* Left Panel */}
-            <ScrollArea scrollHideDelay={100}>
-              {entities.map((entity, i) => (
-                <ReferenceCard
-                  entity={entity}
-                  key={`entity-${i}`}
-                  cardId={`entity-${i}`}
-                  selectedCardId={selectedCardId}
-                  setSelectedCardId={setSelectedCardId}
-                  setViewMoreUrl={setViewMoreUrl}
-                  setLoading={setLoadingViewMore}
-                />
-              ))}
-              <div ref={endOfReferencesRef}></div>
-            </ScrollArea>
+          <ScrollArea scrollHideDelay={100}>
+            {entities.map((entity, i) => (
+              <Transition
+                mounted={true}
+                transition="slide-up"
+                duration={400}
+                timingFunction="ease"
+              >
+                {(styles) => (
+                  <div style={styles}>
+                    <ReferenceCard
+                      entity={entity}
+                      key={`entity-${i}`}
+                      cardId={`entity-${i}`}
+                      selectedCardId={selectedCardId}
+                      setSelectedCardId={setSelectedCardId}
+                      setViewMoreUrl={setViewMoreUrl}
+                      setLoading={setLoadingViewMore}
+                    />
+                  </div>
+                )}
+              </Transition>
+            ))}
+            <div ref={endOfReferencesRef}></div>
+          </ScrollArea>
         </Container>
 
         <Container fluid className={classes.container}>
