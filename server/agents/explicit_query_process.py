@@ -1,17 +1,6 @@
-import threading
 from DatabaseHandler import DatabaseHandler
 import time
 import traceback
-import multiprocessing
-import os
-import math
-import uuid
-
-from server_config import openai_api_key
-# from agents.the_people_in_your_head import *
-from langchain.agents import initialize_agent
-from langchain.tools import StructuredTool, Tool
-from langchain.agents import AgentType
 from agents.wake_words import *
 from agents.explicit_meta_agent import run_explicit_meta_agent, explicit_meta_agent_prompt_blueprint
 
@@ -36,7 +25,6 @@ def explicit_query_processing_loop():
             continue
 
         try:
-            print("RUNNING EXPLICIT QUERY LOOP")
             users = dbHandler.get_users_with_recent_wake_words()    
             for user in users:
                 is_query_ready = False
@@ -59,7 +47,6 @@ def explicit_query_processing_loop():
                 # Pull query out of the text
                 query = get_explicit_query_from_transcript(text)
                 if query is None: 
-                    print("QQQQ QUERY ISS NONE QQQQ")
                     continue
                 else:
                     print("Run EXPLICIT QUERY STUFF with... user_id: '{}' ... text: '{}'".format(
