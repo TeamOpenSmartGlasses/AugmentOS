@@ -5,4 +5,6 @@ export type Entity = {
   map_image_path?: string; // from maps
   url?: string; // view more url
   text?: string; // insight
+  agent_insight?: string;
+  agent_name?: string;
 };

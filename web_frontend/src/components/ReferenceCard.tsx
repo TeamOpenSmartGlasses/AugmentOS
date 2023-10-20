@@ -7,6 +7,8 @@ import {
   UnstyledButton,
   createStyles,
   Box,
+  Group,
+  rem,
 } from "@mantine/core";
 import { Entity } from "../types";
 
@@ -30,6 +32,12 @@ interface ReferenceCardProps {
   setViewMoreUrl: React.Dispatch<React.SetStateAction<string | undefined>>;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
+const AGENT_ICON_PATHS: Record<string, string> = {
+  "Statistician": "/statistician_agent_avatar.jpg",
+  "FactChecker": "/fact_checker_agent_avatar.jpg",
+  "DevilsAdvocate": "/devils_advocate_agent_avatar.jpg",
+};
 
 const ReferenceCard = ({
   entity,
@@ -57,21 +65,6 @@ const ReferenceCard = ({
     setLoading(true);
   };
 
-  //if entity is an agent output, specify how it should look
-  if (entity.agent_insight) {
-    //setup name of agent
-    entity.name = entity.agent_name + " says...";
-
-    //setup image of agent output
-    if (entity.agent_name == "Statistician"){
-        entity.image_url = "/statistician_agent_avatar.jpg";
-    } else if (entity.agent_name == "FactChecker"){
-        entity.image_url = "/fact_checker_agent_avatar.jpg";
-    } else if (entity.agent_name == "DevilsAdvocate"){
-        entity.image_url = "/devils_advocate_agent_avatar.jpg";
-    }
-  }
-
   return (
     <Card
       withBorder
@@ -84,16 +77,20 @@ const ReferenceCard = ({
         color: selected ? theme.colors.indigo[9] : "black",
       }}
     >
-      <Flex gap={"1rem"} align={"center"} h={"100%"}>
-        {entity.image_url || entity.map_image_path ? (
-          <Image src={getImageUrl(entity)} height={120} width={120} />
-        ) : (
-          <Box ml={"1rem"}></Box>
+      <Flex align={"center"} h={"100%"}>
+        {(entity.image_url || entity.map_image_path) && (
+          <Image
+            src={getImageUrl(entity)}
+            height={120}
+            width={120}
+            radius="md"
+          />
         )}
         <Flex
           direction={"column"}
-          pr={"lg"}
+          p={"lg"}
           h={"100%"}
+          w="100%"
           justify={"center"}
           py={entity.image_url || entity.map_image_path ? 0 : 10}
         >
@@ -109,22 +106,43 @@ const ReferenceCard = ({
             }}
           >
             {entity.summary || entity.agent_insight}
-            {entity.url && !entity.text && (
-              <UnstyledButton>
-                <Text
-                  fz="lg"
-                  sx={{
-                    marginLeft: "0.5rem",
-                    textDecoration: "underline",
-                  }}
-                  color={selected ? "white" : "black"}
-                  onClick={handleSelectCard}
-                >
-                  Read more
-                </Text>
-              </UnstyledButton>
-            )}
           </Text>
+          {entity.url && !entity.text && (
+            <UnstyledButton>
+              <Text
+                sx={{
+                  textTransform: "uppercase",
+                }}
+                fw="bold"
+                color={selected ? "white" : "black"}
+                onClick={handleSelectCard}
+              >
+                More
+              </Text>
+            </UnstyledButton>
+          )}
+          <Group>
+            <Box sx={{ flex: "1" }} />
+            {entity.agent_name && (
+              <Text
+                sx={{
+                  textTransform: "uppercase",
+                }}
+                color={selected ? "white" : "black"}
+                fw="bold"
+              >
+                {entity.agent_name}
+              </Text>
+            )}
+            {entity.agent_name && (
+              <Image
+                src={AGENT_ICON_PATHS[entity.agent_name]}
+                height={rem(50)}
+                width={rem(50)}
+                radius="md"
+              />
+            )}
+          </Group>
         </Flex>
       </Flex>
     </Card>

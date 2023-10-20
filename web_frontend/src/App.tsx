@@ -46,7 +46,18 @@ export default function App() {
   const { classes } = useStyles();
 
   const endOfReferencesRef = useRef<HTMLDivElement | null>(null);
-  const [entities, setEntities] = useState<Entity[]>([]);
+  // TODO: remove test card
+  const [entities, setEntities] = useState<Entity[]>([
+    {
+      name: "test name",
+      summary: "test summary",
+      image_url:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Redshift.svg/340px-Redshift.svg.png",
+      url: "test url",
+      agent_name: "FactChecker",
+      agent_insight: "FactChecker",
+    },
+  ]);
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
   const [selectedCardId, setSelectedCardId] = useState<string>("");
   const [loadingViewMore, setLoadingViewMore] = useState(false);
@@ -180,7 +191,6 @@ export default function App() {
           >
             {/* Left Panel */}
             <Stack
-              w={{ xs: "100%", md: "50%" }}
               h={{ xs: "50%", md: "100%" }}
               spacing={"xl"}
             >
@@ -235,16 +245,6 @@ export default function App() {
                   py={"sm"}
                  className={classes.referenceScroll}
                 >
-                <Title 
-                    order={2}
-                      sx={{
-                        marginLeft: "0rem",
-                        textDecoration: "underline",
-                      }}
-                    >
-                     What You Talked About
-                  </Title>
-
                   <ScrollArea scrollHideDelay={100}>
                     {entities.map((entity, i) => (
                       <ReferenceCard
@@ -266,6 +266,7 @@ export default function App() {
 
         <Container fluid className={classes.container}>
           <PageView
+            // TODO: remove testing url
             // viewMoreUrl={viewMoreUrl}
             viewMoreUrl={"https://en.wikipedia.org/wiki/Doppler_effect"}
             loading={loadingViewMore}
