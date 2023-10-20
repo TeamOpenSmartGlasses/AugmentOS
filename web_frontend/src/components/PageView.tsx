@@ -8,29 +8,18 @@ import {
   Stack,
 } from "@mantine/core";
 import { IconArrowUp } from "@tabler/icons-react";
-import { useEffect, useState } from "react";
 
 interface PageViewProps {
   viewMoreUrl: string | undefined;
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  onClose: () => void;
 }
 
-const PageView = ({ viewMoreUrl, loading, setLoading }: PageViewProps) => {
-  const [isHidden, setIsHidden] = useState(false);
-
+const PageView = ({ viewMoreUrl, loading, setLoading, onClose }: PageViewProps) => {
   const handleLoad = () => {
     setLoading(false);
   };
-
-  useEffect(() => {
-    // reopen the explore pane when viewMoreUrl changes
-    setIsHidden(false)
-  }, [viewMoreUrl]);
-
-  if (isHidden) {
-    return null;
-  }
 
   return (
     <Flex sx={{ height: "100%" }}>
@@ -67,7 +56,7 @@ const PageView = ({ viewMoreUrl, loading, setLoading }: PageViewProps) => {
         ></iframe>
       </Skeleton>
       <Stack align="center" w="3rem">
-        <CloseButton onClick={() => setIsHidden(true)} size={rem(25)} mt="sm"/>
+        <CloseButton onClick={onClose} size={rem(25)} mt="sm"/>
       </Stack>
     </Flex>
   );

@@ -69,13 +69,15 @@ export default function App() {
       image_url:
       // "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Doppler_effect_diagrammatic.svg/520px-Doppler_effect_diagrammatic.svg.png",
         "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Redshift.svg/340px-Redshift.svg.png",
-      url: "test url",
+      url: "https://en.wikipedia.org/wiki/Doppler_effect",
       agent_name: "FactChecker",
       agent_insight: "FactChecker",
     },
   ]);
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
-  const [selectedCardId, setSelectedCardId] = useState<string>("");
+  // TODO: default to false
+  const [showExplorePane, setShowExplorePane] = useState(false);
+  const [selectedCardId, setSelectedCardId] = useState<number | undefined>();
   const [loadingViewMore, setLoadingViewMore] = useState(false);
 
   const [opened, { open: openSettings, close: closeSettings }] =
@@ -184,11 +186,7 @@ export default function App() {
   }, [entities]);
 
   return (
-    <MantineProvider
-      withGlobalStyles
-      withNormalizeCSS
-      theme={theme}
-    >
+    <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
       <Flex className={classes.root}>
         {!smallerThanMedium && (
           <Sidebar settingsOpened={opened} toggleSettings={toggleSettings} />
@@ -208,11 +206,14 @@ export default function App() {
                     <ReferenceCard
                       entity={entity}
                       key={`entity-${i}`}
-                      cardId={`entity-${i}`}
-                      selectedCardId={selectedCardId}
-                      setSelectedCardId={setSelectedCardId}
-                      setViewMoreUrl={setViewMoreUrl}
-                      setLoading={setLoadingViewMore}
+                      // FIXME: associate an id with each entity
+                      selected={selectedCardId === i}
+                      onClick={() => {
+                        setSelectedCardId(i);
+                        setViewMoreUrl(entity.url);
+                        setLoadingViewMore(true);
+                        setShowExplorePane(true);
+                      }}
                     />
                   </div>
                 )}
@@ -222,15 +223,23 @@ export default function App() {
           </ScrollArea>
         </Container>
 
-        <Container fluid className={classes.container}>
-          <PageView
-            // TODO: remove testing url
-            // viewMoreUrl={viewMoreUrl}
-            viewMoreUrl={"https://en.wikipedia.org/wiki/Doppler_effect"}
-            loading={loadingViewMore}
-            setLoading={setLoadingViewMore}
-          />
-        </Container>
+        <Transition
+          mounted={showExplorePane}
+          transition="slide-left"
+          duration={400}
+          timingFunction="ease"
+        >
+          {(styles) => (
+            <Container fluid className={classes.container} style={styles}>
+              <PageView
+                viewMoreUrl={viewMoreUrl}
+                loading={loadingViewMore}
+                setLoading={setLoadingViewMore}
+                onClose={() => setShowExplorePane(false)}
+              />
+            </Container>
+          )}
+        </Transition>
       </Flex>
 
       <SettingsModal

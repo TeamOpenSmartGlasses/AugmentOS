@@ -26,11 +26,8 @@ const useStyles = createStyles((theme) => ({
 
 interface ReferenceCardProps {
   entity: Entity;
-  cardId: string;
-  selectedCardId: string;
-  setSelectedCardId: React.Dispatch<React.SetStateAction<string>>;
-  setViewMoreUrl: React.Dispatch<React.SetStateAction<string | undefined>>;
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  selected?: boolean;
+  onClick: () => void;
 }
 
 const AGENT_ICON_PATHS: Record<string, string> = {
@@ -41,14 +38,10 @@ const AGENT_ICON_PATHS: Record<string, string> = {
 
 const ReferenceCard = ({
   entity,
-  setViewMoreUrl,
-  cardId,
-  selectedCardId,
-  setSelectedCardId,
-  setLoading,
+  selected = false,
+  onClick,
 }: ReferenceCardProps) => {
-  const { classes, theme } = useStyles();
-  const selected = cardId === selectedCardId;
+  const { classes } = useStyles();
 
   const getImageUrl = (entity: Entity) => {
     if (entity.map_image_path) {
@@ -59,19 +52,14 @@ const ReferenceCard = ({
     return entity.image_url;
   };
 
-  const handleSelectCard = () => {
-    setSelectedCardId(cardId);
-    setViewMoreUrl(entity.url);
-    setLoading(true);
-  };
-
   return (
     <Card
       radius="md"
       p={0}
       h={"max-content"}
-      onClick={handleSelectCard}
+      onClick={onClick}
       className={classes.card}
+      sx={{...(selected && {filter: "brightness(1.2)"})}}
     >
       <Flex align={"center"} h={"100%"}>
         {(entity.image_url || entity.map_image_path) && (
