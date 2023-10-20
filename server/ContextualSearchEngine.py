@@ -356,6 +356,7 @@ class ContextualSearchEngine:
         if talk.strip() == "":
             return
 
+        # user_id = "medialab2"
         if not self.does_user_have_custom_data_loaded(user_id):
             self.load_custom_user_data(user_id)
 
@@ -513,7 +514,7 @@ class ContextualSearchEngine:
         return True
 
     def fuzzy_search_on_user_custom_data(self, user_id, talk):
-        user_id = "medialab2"
+        # user_id = "medialab2"
         if not self.does_user_have_custom_data_loaded(user_id):
             print("User {} does not have custom data loaded".format(user_id))
             print("=========================================================================")
@@ -672,7 +673,8 @@ class ContextualSearchEngine:
         matches = list()
         # for idx, entity in entities:
         # use fuzzysearch to run first search
-        searched_entities = [pascal_to_words(entity).lower().replace(":", "") for entity in entities]
+
+        searched_entities = [pascal_to_words(entity[1]).lower().replace(":", "") for entity in entities]
         # match_entities = find_near_matches(
         #     to_search.lower(),
         #     searched_entity,
@@ -682,48 +684,61 @@ class ContextualSearchEngine:
         #     max_l_dist=max_l_dist,
         # )
 
+        print(len(searched_entities))
+        print("searched_entities", searched_entities[:10])
+        print("to_search", to_search)
+        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
         # match_entity = fuzz.partial_ratio_alignment(to_search.lower(), searched_entity, score_cutoff=70)
-        entity_scores = process.cdist([to_search.lower()], searched_entities, scorer=fuzz.ratio, score_cutoff=3, workers=-1)[0]
+        entity_scores = process.cdist([to_search.lower()], searched_entities, scorer=fuzz.ratio, score_cutoff=60, workers=-1)[0]
         
-        matching_indices = np.where(entity_scores > 0)
-        # match_entities = [entities[i] for i in matching_indices]
+        matching_indices = np.where(entity_scores >= 60)
+        # print("entity_scores", matching_indices[0][:10])
+        
+        # print(len(matching_indices[0]), max(matching_indices[0]))
+        # print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+        # print("matching indices", matching_indices[0])
+        # print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+        match_entities = [entities[i] for i in matching_indices[0][:10]]
+        print(*match_entities, sep="\n")
 
         # if we got a fuzzysearch result, run the result through a number of hand-made filters
-        # if match_entity:
-        # for match_entity in match_entities:
-        #     # first check if match is true by making sure what is said is similiar length to match
-        #     # match_len = match_entity.dest_end - match_entity.dest_start # get length of substring that matched
-        #     whole_match = get_whole_match(match_entity, match_entity) # get length of all the words that that substring belonged to
-        #     match_distance = abs(len(whole_match) - len(to_search))
-        #     if match_distance >= 2:
-        #         #print(f"--- Drop '{whole_match}' because match distance is too high") # don't print, because too common
-        #         continue
-
-        #     # if not a very close match, check if the matched entity is rare enough to be a real match
-        #     string_freq_index = self.get_string_freq(whole_match.replace(":",""))
-        #     if (match_entity.dist > 1) and (string_freq_index < 0.06):
-        #         # print(f"--- Drop '{whole_match}' because too common words")
-        #         continue
-
-        #     # never match on just a single word (but allow PascalCase style through as it's multiple words)
-        #     if not (" " in whole_match) and (count_capitals(whole_match) < 2):
-        #         # print(f"-- Skip '{whole_match}' because single word")
-        #         continue
-
-        #     # if our match is not the start of a word, then don't count it
-        #     if match_entity.dest_start != 0:
-        #         if (searched_entity[match_entity.dest_start - 1] != " "):
-        #             print(f"-- Skip '{whole_match}' because it's not the start of a word")
+        # if match_entities:
+        #     for match_entity in match_entities:
+        #         # first check if match is true by making sure what is said is similiar length to match
+        #         # match_len = match_entity.dest_end - match_entity.dest_start # get length of substring that matched
+        #         whole_match = get_whole_match(match_entity, match_entity) # get length of all the words that that substring belonged to
+        #         match_distance = abs(len(whole_match) - len(to_search))
+        #         if match_distance >= 2:
+        #             #print(f"--- Drop '{whole_match}' because match distance is too high") # don't print, because too common
         #             continue
 
-            # print("@@@@@@@@@@@@@@ TRUE MATCH")
-            # print("--- WHOLEMATCH", whole_match)
-            # print("--- SEARCHED ENTITY", searched_entity)
-            # print("--- FREQUENCY INDEX", str(string_freq_index))
-            # print("--- to_search", to_search)
-            # print("--- entity", entity)
-            # print("--- match_entity", match_entity)
-        matches.extend(matching_indices.tolist())
+        #         # if not a very close match, check if the matched entity is rare enough to be a real match
+        #         string_freq_index = self.get_string_freq(whole_match.replace(":",""))
+        #         if (match_entity.dist > 1) and (string_freq_index < 0.06):
+        #             # print(f"--- Drop '{whole_match}' because too common words")
+        #             continue
+
+        #         # never match on just a single word (but allow PascalCase style through as it's multiple words)
+        #         if not (" " in whole_match) and (count_capitals(whole_match) < 2):
+        #             # print(f"-- Skip '{whole_match}' because single word")
+        #             continue
+
+        #         # if our match is not the start of a word, then don't count it
+        #         if match_entity.dest_start != 0:
+        #             if (searched_entity[match_entity.dest_start - 1] != " "):
+        #                 print(f"-- Skip '{whole_match}' because it's not the start of a word")
+        #                 continue
+
+        #         print("@@@@@@@@@@@@@@ TRUE MATCH")
+        #         print("--- WHOLEMATCH", whole_match)
+        #         print("--- SEARCHED ENTITY", searched_entity)
+        #         print("--- FREQUENCY INDEX", str(string_freq_index))
+        #         print("--- to_search", to_search)
+        #         print("--- entity", entity)
+        #         print("--- match_entity", match_entity)
+
+        if len (matching_indices[0]) > 0:
+            matches.extend(matching_indices[0].tolist())
                 # continue
 
         # spin it around so it's reverse chronologial

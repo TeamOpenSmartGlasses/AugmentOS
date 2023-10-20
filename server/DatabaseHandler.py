@@ -217,7 +217,7 @@ class DatabaseHandler:
                 # Set `latest_intermediate_transcript` to empty string and timestamp -1
                 update = {
                     "$set": {"latest_intermediate_transcript": self.empty_transcript}}
-                self.userCollection.update_one(filter=filter, update=update)
+                self.user_collection.update_one(filter=filter, update=update)
 
             # Get part `latest_intermediate_transcript` after `cse_consumed_transcript_idx` index
             start_index = user['cse_consumed_transcript_idx']

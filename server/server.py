@@ -247,17 +247,17 @@ async def upload_user_data(request):
 
 if __name__ == '__main__':
     db_handler = DatabaseHandler()
-    #start proccessing loop subprocess to process data as it comes in
+    # start proccessing loop subprocess to process data as it comes in
     if USE_GPU_FOR_INFERENCING:
         multiprocessing.set_start_method('spawn')
 
-    #log_queue = multiprocessing.Queue()
+    # log_queue = multiprocessing.Queue()
     cse_process = multiprocessing.Process(target=cse_loop)
     cse_process.start()
 
-    #start the agent process
-    #agent_background_process = multiprocessing.Process(target=agent_insights_processing_loop)
-    #agent_background_process.start()
+    # start the agent process
+    # agent_background_process = multiprocessing.Process(target=agent_insights_processing_loop)
+    # agent_background_process.start()
 
     # setup and run web app
     # CORS allow from all sources
