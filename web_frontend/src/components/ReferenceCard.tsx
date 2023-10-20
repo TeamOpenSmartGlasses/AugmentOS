@@ -81,7 +81,7 @@ const ReferenceCard = ({
         {(entity.image_url || entity.map_image_path) && (
           <Image
             src={getImageUrl(entity)}
-            height={120}
+            height={"100%"}
             width={120}
             radius="md"
           />
@@ -92,7 +92,6 @@ const ReferenceCard = ({
           h={"100%"}
           w="100%"
           justify={"center"}
-          py={entity.image_url || entity.map_image_path ? 0 : 10}
         >
           <Title order={2} lineClamp={1}>
             {entity.name}

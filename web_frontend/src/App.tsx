@@ -52,7 +52,8 @@ export default function App() {
       name: "test name",
       summary: "test summary",
       image_url:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Redshift.svg/340px-Redshift.svg.png",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Doppler_effect_diagrammatic.svg/520px-Doppler_effect_diagrammatic.svg.png",
+        // "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Redshift.svg/340px-Redshift.svg.png",
       url: "test url",
       agent_name: "FactChecker",
       agent_insight: "FactChecker",
@@ -241,9 +242,6 @@ export default function App() {
                   direction={"column"}
                   w={{ xs: "100%", md: "100%" }}
                   h={{ xs: "50%", md: "70%" }}
-                  px={"md"}
-                  py={"sm"}
-                 className={classes.referenceScroll}
                 >
                   <ScrollArea scrollHideDelay={100}>
                     {entities.map((entity, i) => (
