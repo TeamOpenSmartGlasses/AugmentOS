@@ -10,7 +10,9 @@ llm = ChatOpenAI(temperature=0.5, openai_api_key=openai_api_key, model="gpt-4-06
 
 #explictly respond to user queries
 explicit_meta_agent_prompt_blueprint = """You are a highly intelligent, skilled, and helpful assistant that helps answer user queries that they make during their conversations.
-agent 
+
+[Your Tools]
+You have access to "Agents", which are like workers in your team that can help you do certain tasks. Imagine you are a human manager and your agents as human workers. You can assign tasks to your agents and they will help you complete the tasks. Speak to them like how you would speak to a human worker, give detailed context and instructions.
 
 [Conversation Transcript]
 This is the current live transcript of the conversation you're assisting:
@@ -41,16 +43,21 @@ def make_expert_agents_as_tools(transcript):
             verbose=True)
 
         def run_expert_agent_wrapper(command):
-            return expert_agent.run(expert_agent_explicit_prompt + '\n' + command)
+            return expert_agent.run(expert_agent_explicit_prompt + '\n[Extra Instructions]\n' + command)
+
+        expert_agent_as_tool = Tool(
+            name=expert_agent['agent_name'],
+            func=run_expert_agent_wrapper,
+            description="Use this tool when: " + expert_agent['proactive_tool_description']
+        )
     
-        tools.append(expert_agent)
+        tools.append(expert_agent_as_tool)
     return tools
 
 def get_explicit_meta_agent(transcript):
     expert_agents_as_tools = make_expert_agents_as_tools(transcript)
-    explicit_meta_agent_tools = expert_agents_as_tools
     explicit_meta_agent = initialize_agent(
-            [explicit_meta_agent_tools], 
+            expert_agents_as_tools, 
             llm, 
             agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION, 
             max_iterations=10, 
@@ -61,4 +68,8 @@ def run_explicit_meta_agent(context, query):
     prompt = explicit_meta_agent_prompt_blueprint.format(conversation_context=context, query=query)
     transcript = "{}\nQuery: {}".format(context, query)
     return get_explicit_meta_agent(transcript).run(prompt)
+
+if __name__ == '__main__':
+    run_explicit_meta_agent("THIS IS THE CONTEXT", "FACT CHECK THAT CARS HAVE 4 WHEELS?")
+
 
