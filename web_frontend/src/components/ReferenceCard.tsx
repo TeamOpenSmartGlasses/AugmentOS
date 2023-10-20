@@ -4,7 +4,6 @@ import {
   Image,
   Card,
   Title,
-  UnstyledButton,
   createStyles,
   Box,
   Group,
@@ -106,20 +105,6 @@ const ReferenceCard = ({
           >
             {entity.summary || entity.agent_insight}
           </Text>
-          {entity.url && !entity.text && (
-            <UnstyledButton>
-              <Text
-                sx={{
-                  textTransform: "uppercase",
-                }}
-                fw="bold"
-                color={selected ? "white" : "black"}
-                onClick={handleSelectCard}
-              >
-                More
-              </Text>
-            </UnstyledButton>
-          )}
           <Group>
             <Box sx={{ flex: "1" }} />
             {entity.agent_name && (

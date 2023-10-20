@@ -2,24 +2,19 @@ import { useEffect, useRef, useState } from "react";
 import {
   Container,
   Flex,
-  Group,
   MantineProvider,
   ScrollArea,
   Stack,
-  Title,
   createStyles,
 } from "@mantine/core";
-import Sidebar, { NavbarLink } from "./components/Sidebar";
+import Sidebar from "./components/Sidebar";
 import PageView from "./components/PageView";
-import AgentChatView from "./components/AgentChatView";
-import RunAgentsView from "./components/RunAgentsView";
 import { Entity } from "./types";
 import ReferenceCard from "./components/ReferenceCard";
 import Cookies from "js-cookie";
 import axiosClient from "./axiosConfig";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import "./index.css";
-import { IconSettings } from "@tabler/icons-react";
 import SettingsModal from "./components/SettingsModal";
 import { UI_POLL_ENDPOINT } from "./serverEndpoints";
 
@@ -50,10 +45,10 @@ export default function App() {
   const [entities, setEntities] = useState<Entity[]>([
     {
       name: "test name",
-      summary: "test summary",
+      summary: "The Doppler effect (also Doppler shift) is the change in the frequency of a wave.",
       image_url:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Doppler_effect_diagrammatic.svg/520px-Doppler_effect_diagrammatic.svg.png",
-        // "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Redshift.svg/340px-Redshift.svg.png",
+      // "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Doppler_effect_diagrammatic.svg/520px-Doppler_effect_diagrammatic.svg.png",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Redshift.svg/340px-Redshift.svg.png",
       url: "test url",
       agent_name: "FactChecker",
       agent_insight: "FactChecker",
@@ -195,69 +190,20 @@ export default function App() {
               h={{ xs: "50%", md: "100%" }}
               spacing={"xl"}
             >
-              <Group position="apart">
-                <Title
-                  order={2}
-                  sx={{
-                    display: hideTitle ? "none" : "block",
-                    transition: "display 0.5s, transform 0.5s",
-                    transform: hideTitle ? "translateY(-100%)" : "",
-                  }}
-                >
-                  Convoscope
-                </Title>
-                {smallerThanMedium && (
-                  <NavbarLink
-                    active={opened}
-                    onClick={toggleSettings}
-                    icon={IconSettings}
-                    label={"Settings"}
+              <ScrollArea scrollHideDelay={100}>
+                {entities.map((entity, i) => (
+                  <ReferenceCard
+                    entity={entity}
+                    key={`entity-${i}`}
+                    cardId={`entity-${i}`}
+                    selectedCardId={selectedCardId}
+                    setSelectedCardId={setSelectedCardId}
+                    setViewMoreUrl={setViewMoreUrl}
+                    setLoading={setLoadingViewMore}
                   />
-                )}
-              </Group>
-
-             <Flex
-                  direction={"column"}
-                  w={{ xs: "100%", md: "100%" }}
-                  h={{ xs: "50%", md: "20%" }}
-                  px={"md"}
-                  py={"sm"}
-                  className={classes.rightPanel}
-                >
-                  <RunAgentsView />
-              </Flex>
-
-              <Flex
-                  direction={"column"}
-                  w={{ xs: "100%", md: "100%" }}
-                  h={{ xs: "50%", md: "30%" }}
-                  px={"md"}
-                  py={"sm"}
-                  className={classes.rightPanel}
-                >
-                      <AgentChatView/>
-              </Flex>
-
-              <Flex
-                  direction={"column"}
-                  w={{ xs: "100%", md: "100%" }}
-                  h={{ xs: "50%", md: "70%" }}
-                >
-                  <ScrollArea scrollHideDelay={100}>
-                    {entities.map((entity, i) => (
-                      <ReferenceCard
-                        entity={entity}
-                        key={`entity-${i}`}
-                        cardId={`entity-${i}`}
-                        selectedCardId={selectedCardId}
-                        setSelectedCardId={setSelectedCardId}
-                        setViewMoreUrl={setViewMoreUrl}
-                        setLoading={setLoadingViewMore}
-                      />
-                    ))}
-                    <div ref={endOfReferencesRef}></div>
-                  </ScrollArea>
-              </Flex>
+                ))}
+                <div ref={endOfReferencesRef}></div>
+              </ScrollArea>
             </Stack>
           </Flex>
         </Container>
