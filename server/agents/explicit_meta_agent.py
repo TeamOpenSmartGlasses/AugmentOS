@@ -50,7 +50,7 @@ def get_explicit_meta_agent(transcript):
     expert_agents_as_tools = make_expert_agents_as_tools(transcript)
     explicit_meta_agent_tools = expert_agents_as_tools
     explicit_meta_agent = initialize_agent(
-            explicit_meta_agent_tools, 
+            [explicit_meta_agent_tools], 
             llm, 
             agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION, 
             max_iterations=10, 
