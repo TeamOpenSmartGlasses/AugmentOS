@@ -12,6 +12,7 @@ class DatabaseHandler:
         print("INITTING DB HANDLER")
         self.uri = database_uri
         self.min_transcript_word_length = 5
+        self.wake_word_min_update_time = 2 # 2 seconds
         self.user_collection = None
         self.cache_collection = None
         self.ready = False
@@ -89,6 +90,7 @@ class DatabaseHandler:
                 {"user_id": user_id,
                  "latest_intermediate_transcript": self.empty_transcript,
                  "final_transcripts": [],
+                 "last_wake_word_time": -1,
                  "cse_consumed_transcript_id": -1,
                  "cse_consumed_transcript_idx": 0, 
                  "transcripts": [], 
@@ -294,8 +296,8 @@ class DatabaseHandler:
 
         return transcripts
 
-    def get_recent_transcripts_from_last_nseconds_for_all_users(self, n=30):
-        users = self.user_collection.find()
+    def get_recent_transcripts_from_last_nseconds_for_all_users(self, n=30, users_list=None):
+        users = self.user_collection.find() if users_list is None else users_list
         transcripts = []
         for user in users:
             user_id = user['user_id']
@@ -328,7 +330,7 @@ class DatabaseHandler:
             'timestamp': {'$lt': transcript_expiration_date}}}}
         self.user_collection.update_many(filter, condition)
 
-    ## TRANSCRIPT FORMATTING ###
+    ### TRANSCRIPT FORMATTING ###
 
     def get_stringified_transcript_window(self, transcript_list):
         # If we only have an intermediate, use the latest 15 words at most
@@ -381,6 +383,38 @@ class DatabaseHandler:
 
         return output.strip()
 
+    ### WAKE WORDS ###
+
+    def update_wake_word_time_for_user(self, user_id):
+        self.create_user_if_not_exists(user_id)
+        print("UPDATE WW TIME")
+        current_time = time.time()
+
+        # Only update if we haven't already noted a wake word within the last 2 seconds, OR if the time is -1
+        query_condition = {
+            "user_id": user_id, 
+            '$or': [
+                {'last_wake_word_time': {'$lt': (current_time - self.wake_word_min_update_time)}},
+                {'last_wake_word_time': -1}
+            ]
+        }
+
+        update = {"$set": {"last_wake_word_time": current_time}}
+        
+        self.user_collection.update_one(query_condition, update)
+
+    def get_users_with_recent_wake_words(self):
+        filter = {"last_wake_word_time": {'$ne': -1}}
+        relevant_users = self.user_collection.find(filter)
+        return relevant_users
+    
+    def reset_wake_word_time_for_user(self, user_id):
+        self.create_user_if_not_exists(user_id)
+        filter = {"user_id": user_id}
+        update = {"$set": {"last_wake_word_time": -1}}
+        self.user_collection.update_one(filter=filter, update=update)
+
+
     ### CSE RESULTS ###
 
     def add_cse_results_for_user(self, user_id, results):
@@ -393,9 +427,13 @@ class DatabaseHandler:
         update = {"$set": {"cse_results": []}}
         self.user_collection.update_one(filter=filter, update=update)
 
-    def add_agent_insights_results_for_user(self, user_id, results):
+    def add_agent_insights_results_for_user(self, user_id, query, insight):
+        insight_time = math.trunc(time.time())
+        insight_uuid = str(uuid.uuid4())
+        insight_obj = {'timestamp': insight_time, 'uuid': insight_uuid, 'query': query, 'insight': insight}
+
         filter = {"user_id": user_id}
-        update = {"$push": {"agent_insights_results": {'$each': results}}}
+        update = {"$push": {"agent_insights_results": {'$each': [insight_obj]}}}
         self.user_collection.update_one(filter=filter, update=update)
 
     ### CSE RESULTS FOR SPECIFIC DEVICE (USE THIS) ###
@@ -418,6 +456,12 @@ class DatabaseHandler:
                         user_id, device_id, res['uuid'])
                 new_results.append(res)
         return new_results
+
+    def get_agent_insights_history_for_user(self, user_id):
+        self.create_user_if_not_exists(user_id)
+        filter = {"user_id": user_id}
+        user = self.user_collection.find_one(filter)
+        return user['agent_insights_results'] 
 
     def get_proactive_agents_insights_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
         self.add_ui_device_to_user_if_not_exists(user_id, device_id)

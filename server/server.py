@@ -25,6 +25,8 @@ from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_agents_process import proactive_agents_processing_loop
 from agents.expert_agents import run_single_expert_agent
+from agents.explicit_query_process import explicit_query_processing_loop
+import agents.wake_words
 from Modules.RelevanceFilter import RelevanceFilter
 
 global db_handler
@@ -104,6 +106,10 @@ def cse_loop():
     relevance_filter = RelevanceFilter(db_handler=db_handler)
     cse = ContextualSearchEngine(db_handler=db_handler)
 
+    def detect_wake_words_in_transcript(transcript):
+        if agents.wake_words.does_text_contain_wake_word(transcript['text']):
+            db_handler.update_wake_word_time_for_user(transcript['user_id'])
+
     #then run the main loop
     while True:
         if not db_handler.ready:
@@ -120,7 +126,10 @@ def cse_loop():
                 combine_transcripts=True, delete_after=False)
             if new_transcripts is None or new_transcripts == []:
                 print("---------- No transcripts to run on for this cse_loop run...")
-            for transcript in new_transcripts:
+            for transcript in new_transcripts:   
+                # ALSO CHECK FOR WAKE WORDS HERE FOR EFFICIENCY. NEED TO GENERALIZE THIS LOOP?
+                detect_wake_words_in_transcript(transcript)
+
                 print("Run CSE with... user_id: '{}' ... text: '{}'".format(
                     transcript['user_id'], transcript['text']))
                 cse_start_time = time.time()
@@ -328,6 +337,9 @@ if __name__ == '__main__':
     print("Starting Proactive Agents process...")
     proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
     proactive_agents_background_process.start()
+
+    explicit_background_process = multiprocessing.Process(target=explicit_query_processing_loop)
+    explicit_background_process.start()
 
     # setup and run web app
     # CORS allow from all sources
