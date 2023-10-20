@@ -7,7 +7,7 @@ import {
   ActionIcon,
 } from "@mantine/core";
 import { IconSettings, TablerIconsProps } from "@tabler/icons-react";
-import TranscriptCard from "./TranscriptCard";
+import TranscriptButton from "./TranscriptButton";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -73,7 +73,7 @@ export function NavbarMinimal({
     <Navbar w={"8rem"} p="xl" bg={"rgba(0, 0, 0, 0)"} withBorder={false}>
       <Navbar.Section>
         <Stack m="auto" w="min-content">
-          <TranscriptCard />  
+          <TranscriptButton />  
         </Stack>
       </Navbar.Section>
       <Navbar.Section mt={"auto"}>

@@ -31,7 +31,7 @@ const breathe = keyframes`
   100% { transform: translate(0); filter: brightness(1); }
 `;
 
-const TranscriptCard = () => {
+const TranscriptButton = () => {
   const { classes } = useStyles();
   const endOfTranscriptRef = useRef<HTMLDivElement | null>(null);
 
@@ -148,4 +148,4 @@ const TranscriptCard = () => {
   );
 };
 
-export default TranscriptCard;
+export default TranscriptButton;
