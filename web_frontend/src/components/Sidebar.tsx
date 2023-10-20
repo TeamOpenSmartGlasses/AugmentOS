@@ -4,32 +4,20 @@ import {
   Tooltip,
   createStyles,
   Stack,
-  rem,
   ActionIcon,
 } from "@mantine/core";
-import { IconDots, TablerIconsProps } from "@tabler/icons-react";
+import { IconSettings, TablerIconsProps } from "@tabler/icons-react";
 import TranscriptCard from "./TranscriptCard";
 
 const useStyles = createStyles((theme) => ({
   link: {
-    width: rem(66),
-    height: rem(66),
+    width: "3rem",
+    height: "3rem",
     borderRadius: 100,
     borderWidth: 1.5,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    color:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[0]
-        : theme.colors.gray[7],
-
-    "&:hover": {
-      backgroundColor:
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[5]
-          : theme.colors.gray[0],
-    },
   },
 
   active: {
@@ -82,16 +70,16 @@ export function NavbarMinimal({
   toggleSettings,
 }: NavbarMinimalProps) {
   return (
-    <Navbar width={{ base: "7rem" }} p="md" bg={"rgba(0, 0, 0, 0)"} withBorder={false}>
+    <Navbar w={"8rem"} p="xl" bg={"rgba(0, 0, 0, 0)"} withBorder={false}>
       <Navbar.Section>
-        <Stack justify="center" spacing={0}>
+        <Stack m="auto" w="min-content">
           <TranscriptCard />  
         </Stack>
       </Navbar.Section>
       <Navbar.Section mt={"auto"}>
-        <Stack justify="center" spacing={0}>
+        <Stack m="auto" w="min-content">
           <NavbarLink
-            icon={IconDots}
+            icon={IconSettings}
             label={"Settings"}
             active={settingsOpened}
             onClick={toggleSettings}

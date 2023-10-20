@@ -4,7 +4,6 @@ import {
   Flex,
   MantineProvider,
   ScrollArea,
-  Stack,
   createStyles,
 } from "@mantine/core";
 import Sidebar from "./components/Sidebar";
@@ -22,8 +21,9 @@ const useStyles = createStyles((theme) => ({
   root: {
     height: "100vh",
     width: "100vw",
-    backgroundColor: "#DEDEDE",
+    background: "linear-gradient(179.11deg, #112925 -5.4%, #1A2624 0.96%, #121615 28.67%)",
     overflow: "clip",
+    gap: "4rem"
   },
 
   container: {
@@ -61,7 +61,6 @@ export default function App() {
   const [opened, { open: openSettings, close: closeSettings }] =
     useDisclosure(false);
   const smallerThanMedium = useMediaQuery("(max-width: 62em)");
-  const hideTitle = !smallerThanMedium && entities.length > 5;
 
   const toggleSettings = () => {
     if (opened) {
@@ -178,34 +177,22 @@ export default function App() {
         {!smallerThanMedium && (
           <Sidebar settingsOpened={opened} toggleSettings={toggleSettings} />
         )}
-        <Container fluid className={classes.container}>
-          <Flex
-            justify={"space-evenly"}
-            gap={"0.8rem"}
-            h={"100%"}
-            direction={smallerThanMedium ? "column" : "row"}
-          >
-            {/* Left Panel */}
-            <Stack
-              h={{ xs: "50%", md: "100%" }}
-              spacing={"xl"}
-            >
-              <ScrollArea scrollHideDelay={100}>
-                {entities.map((entity, i) => (
-                  <ReferenceCard
-                    entity={entity}
-                    key={`entity-${i}`}
-                    cardId={`entity-${i}`}
-                    selectedCardId={selectedCardId}
-                    setSelectedCardId={setSelectedCardId}
-                    setViewMoreUrl={setViewMoreUrl}
-                    setLoading={setLoadingViewMore}
-                  />
-                ))}
-                <div ref={endOfReferencesRef}></div>
-              </ScrollArea>
-            </Stack>
-          </Flex>
+        <Container fluid className={classes.container} pt={"2rem"}>
+          {/* Left Panel */}
+            <ScrollArea scrollHideDelay={100}>
+              {entities.map((entity, i) => (
+                <ReferenceCard
+                  entity={entity}
+                  key={`entity-${i}`}
+                  cardId={`entity-${i}`}
+                  selectedCardId={selectedCardId}
+                  setSelectedCardId={setSelectedCardId}
+                  setViewMoreUrl={setViewMoreUrl}
+                  setLoading={setLoadingViewMore}
+                />
+              ))}
+              <div ref={endOfReferencesRef}></div>
+            </ScrollArea>
         </Container>
 
         <Container fluid className={classes.container}>

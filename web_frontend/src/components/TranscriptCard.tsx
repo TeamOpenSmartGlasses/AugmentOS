@@ -21,13 +21,13 @@ const useStyles = createStyles((theme) => ({
   iconButton: {
     width: "2rem",
     height: "2rem",
-    animation: `${breathe} 4s ease-in-out infinite`
+    animation: `${breathe} 6s ease-in-out infinite`
   },
 }));
 
 const breathe = keyframes`
   0% { transform: translate(0); filter: brightness(1); }
-  50% { transform: translate(0, -8px); filter: brightness(1.1); }
+  50% { transform: translate(0, -6px); filter: brightness(1.2); }
   100% { transform: translate(0); filter: brightness(1); }
 `;
 
@@ -136,14 +136,14 @@ const TranscriptCard = () => {
           variant="filled"
           radius={100}
           onClick={isRecognizing ? stopRecognizing : startRecognizing}
-          size={"5rem"}
-          color={isRecognizing ? "red" : "green"}
+          size={"4rem"}
+          bg={"linear-gradient(180deg, #1BE0CC 0%, #09B09F 100%), linear-gradient(0deg, #164F47, #164F47)"}
           className={classes.iconButton}
           disabled={
             !isMicrophoneAvailable || !browserSupportsSpeechRecognition
           }
         >
-          {isRecognizing ? <IconPlayerStopFilled size="3rem" /> : <IconPlayerPlayFilled size="3rem" />}
+          {isRecognizing ? <IconPlayerStopFilled size="2.4rem" /> : <IconPlayerPlayFilled size="2.4rem" />}
         </ActionIcon>
   );
 };
