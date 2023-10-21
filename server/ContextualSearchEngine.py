@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 from fuzzysearch import find_near_matches
 from rapidfuzz import fuzz
-from rapidfuzz import process
+from rapidfuzz import process as rapidfuzz_process
 from nltk.corpus import stopwords
 from io import BytesIO
 from PIL import Image
@@ -612,7 +612,7 @@ class ContextualSearchEngine:
         max_insertions = config["max_insertions"]
         max_substitutions = config["max_substitutions"]
         compute_entropy = config["compute_entropy"]
-        max_l_dist = config["max_l_dist"]
+        max_l_dist = 5
 
         # before searching, check a few things to make sure the search is worth doing
         # some combinations are super short and not worth searching because they yield false positives
@@ -685,12 +685,17 @@ class ContextualSearchEngine:
         print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
         print("to_search", to_search)
         # match_entity = fuzz.partial_ratio_alignment(to_search.lower(), searched_entity, score_cutoff=70)
-        rapid_fuzz_cutoff = 75.1
-        entity_scores = process.cdist([to_search.lower()], searched_entities, scorer=fuzz.partial_ratio, score_cutoff=rapid_fuzz_cutoff, workers=-1)[0]
-        
-        matching_indices = np.where(entity_scores >= rapid_fuzz_cutoff)
-        entity_scores_filt = entity_scores[entity_scores >= rapid_fuzz_cutoff]
-        #print("entity_score ", entity_scores)
+
+        # thresholds
+        rapid_fuzz_cutoff_threshold = 75.1
+        min_string_frequency_index = 0.06
+        max_allowed_match_length_difference = 2
+
+        entity_scores = rapidfuzz_process.cdist([to_search.lower()], searched_entities, scorer=fuzz.partial_ratio, score_cutoff=rapid_fuzz_cutoff_threshold, workers=-1)[0]
+
+        matching_indices = np.where(entity_scores >= rapid_fuzz_cutoff_threshold)
+        entity_scores_filt = entity_scores[entity_scores >= rapid_fuzz_cutoff_threshold]
+        # print("entity_score ", entity_scores)
         print("entity_scores filtered ", entity_scores_filt)
         print("entity matched indices", matching_indices[0])
         
@@ -698,52 +703,67 @@ class ContextualSearchEngine:
         # print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
         # print("matching indices", matching_indices[0])
         # print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-        match_entities = [entities[i] for i in matching_indices[0]]
-        print(*match_entities, sep="\n")
+        candidate_matches  = [(entities[i], i) for i in matching_indices[0]]
+        print(*candidate_matches, sep="\n")
 
+        final_matching_indices  = []
         # if we got a fuzzysearch result, run the result through a number of hand-made filters
-        # if match_entities:
-        #     for match_entity in match_entities:
-        #         # first check if match is true by making sure what is said is similiar length to match
-        #         # match_len = match_entity.dest_end - match_entity.dest_start # get length of substring that matched
-        #         whole_match = get_whole_match(match_entity, match_entity) # get length of all the words that that substring belonged to
-        #         match_distance = abs(len(whole_match) - len(to_search))
-        #         if match_distance >= 2:
-        #             #print(f"--- Drop '{whole_match}' because match distance is too high") # don't print, because too common
-        #             continue
+        for candidate_entity, idx in candidate_matches:
+            searched_entity = pascal_to_words(candidate_entity).lower().replace(":", "")
 
-        #         # if not a very close match, check if the matched entity is rare enough to be a real match
-        #         string_freq_index = self.get_string_freq(whole_match.replace(":",""))
-        #         if (match_entity.dist > 1) and (string_freq_index < 0.06):
-        #             # print(f"--- Drop '{whole_match}' because too common words")
-        #             continue
+            match_entity = find_near_matches(
+                to_search.lower(),
+                searched_entity,
+                max_deletions=max_deletions,
+                max_insertions=max_insertions,
+                max_substitutions=max_substitutions,
+                max_l_dist=max_l_dist,
+            )[0] # it will almost always return one match, so just get the first one
 
-        #         # never match on just a single word (but allow PascalCase style through as it's multiple words)
-        #         if not (" " in whole_match) and (count_capitals(whole_match) < 2):
-        #             # print(f"-- Skip '{whole_match}' because single word")
-        #             continue
+            # first check if match is true by making sure what is said is similiar length to match
+            match_len = match_entity.end - match_entity.start # get length of substring that matched
+            whole_match = get_whole_match(match_entity, searched_entity) # get length of all the words that that substring belonged to
+            match_distance = abs(len(whole_match) - len(to_search))
+            if match_distance >= max_allowed_match_length_difference:
+                # print(f"--- Drop '{whole_match}' because match distance is too high") #don't print, because too common
+                continue
 
-        #         # if our match is not the start of a word, then don't count it
-        #         if match_entity.dest_start != 0:
-        #             if (searched_entity[match_entity.dest_start - 1] != " "):
-        #                 print(f"-- Skip '{whole_match}' because it's not the start of a word")
-        #                 continue
+            # if not a very close match, check if the matched entity is rare enough to be a real match
+            string_freq_index = self.get_string_freq(whole_match.replace(":",""))
+            if (match_entity.dist > 1) and (string_freq_index < min_string_frequency_index):
+                print(f"--- Drop '{whole_match}' because too common words")
+                continue
 
-        #         print("@@@@@@@@@@@@@@ TRUE MATCH")
-        #         print("--- WHOLEMATCH", whole_match)
-        #         print("--- SEARCHED ENTITY", searched_entity)
-        #         print("--- FREQUENCY INDEX", str(string_freq_index))
-        #         print("--- to_search", to_search)
-        #         print("--- entity", entity)
-        #         print("--- match_entity", match_entity)
+            # never match on just a single word (but allow PascalCase style through as it's multiple words)
+            if not (" " in whole_match) and (count_capitals(whole_match) < 2):
+                print(f"-- Skip '{whole_match}' because single word")
+                continue
 
-        if len (matching_indices[0]) > 0:
+            # if our match is not the start of a word, then don't count it
+            if match_entity.start != 0:
+                if (searched_entity[match_entity.start - 1] != " "):
+                    print(f"-- Skip '{whole_match}' because it's not the start of a word")
+                    continue
+
+            print("@@@@@@@@@@@@@@ TRUE MATCH")
+            print("--- WHOLEMATCH", whole_match)
+            print("--- SEARCHED ENTITY", searched_entity)
+            print("--- FREQUENCY INDEX", str(string_freq_index))
+            print("--- to_search", to_search)
+            print("--- candidate_entity", candidate_entity)
+            print("--- match_entity", match_entity)
+
+            final_matching_indices .append(idx)
+
+
+        if final_matching_indices :
             matches.extend(matching_indices[0].tolist())
-                # continue
 
-        # spin it around so it's reverse chronologial
-        matches.reverse()
-        return matches
+            # spin it around so it's reverse chronologial
+            matches.reverse()
+            return matches
+
+        return []
 
     def find_combinations(self, words, window_size):
         """
