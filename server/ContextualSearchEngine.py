@@ -638,8 +638,8 @@ class ContextualSearchEngine:
         # print(f"INSTEAD --- are search '{to_search}' because rare enough words, index {to_search_string_freq_index}")
         # helper functions for fuzzy search
         def get_whole_match(match_entity, full_string):
-            start_idx = match_entity.dest_start  # inclusive
-            end_idx = match_entity.dest_end  # exclusive
+            start_idx = match_entity.start  # inclusive
+            end_idx = match_entity.end  # exclusive
 
             substring = full_string[start_idx:end_idx]
 
@@ -666,12 +666,18 @@ class ContextualSearchEngine:
             return sum(1 for char in text if char.isupper())
 
         def pascal_to_words(pascal_str):
-            return ' '.join(re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', pascal_str))
+            try:
+                return ' '.join(re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', pascal_str))
+            except TypeError:
+                print("ERROR WITH PASCAL TO WORDS", pascal_str)
+                return ' '.join(re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', pascal_str[0]))
 
         matches = list()
         # for idx, entity in entities:
         # use fuzzysearch to run first search
-
+        
+        print("###################################################")
+        print(entities[0][1], type(entities[0][1]))
         searched_entities = [pascal_to_words(entity[1]).lower().replace(":", "") for entity in entities]
         # match_entities = find_near_matches(
         #     to_search.lower(),
@@ -703,12 +709,13 @@ class ContextualSearchEngine:
         # print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
         # print("matching indices", matching_indices[0])
         # print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-        candidate_matches  = [(entities[i], i) for i in matching_indices[0]]
+        candidate_matches  = [entities[i] for i in matching_indices[0]]
         print(*candidate_matches, sep="\n")
 
         final_matching_indices  = []
         # if we got a fuzzysearch result, run the result through a number of hand-made filters
-        for candidate_entity, idx in candidate_matches:
+        for idx, candidate_entity in candidate_matches:
+            print(candidate_entity, "candidate_entity")
             searched_entity = pascal_to_words(candidate_entity).lower().replace(":", "")
 
             match_entity = find_near_matches(
@@ -718,7 +725,14 @@ class ContextualSearchEngine:
                 max_insertions=max_insertions,
                 max_substitutions=max_substitutions,
                 max_l_dist=max_l_dist,
-            )[0] # it will almost always return one match, so just get the first one
+            )
+
+            if not match_entity:
+                print(f"--- Drop '{searched_entity}' because no match")
+                continue
+            
+            print("match_entity", match_entity)
+            match_entity = match_entity[0]
 
             # first check if match is true by making sure what is said is similiar length to match
             match_len = match_entity.end - match_entity.start # get length of substring that matched
