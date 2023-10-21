@@ -356,7 +356,6 @@ class ContextualSearchEngine:
         if talk.strip() == "":
             return
 
-        # user_id = "medialab2"
         if not self.does_user_have_custom_data_loaded(user_id):
             self.load_custom_user_data(user_id)
 
@@ -514,7 +513,6 @@ class ContextualSearchEngine:
         return True
 
     def fuzzy_search_on_user_custom_data(self, user_id, talk):
-        # user_id = "medialab2"
         if not self.does_user_have_custom_data_loaded(user_id):
             print("User {} does not have custom data loaded".format(user_id))
             print("=========================================================================")
@@ -684,21 +682,23 @@ class ContextualSearchEngine:
         #     max_l_dist=max_l_dist,
         # )
 
-        print(len(searched_entities))
-        print("searched_entities", searched_entities[:10])
-        print("to_search", to_search)
         print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+        print("to_search", to_search)
         # match_entity = fuzz.partial_ratio_alignment(to_search.lower(), searched_entity, score_cutoff=70)
-        entity_scores = process.cdist([to_search.lower()], searched_entities, scorer=fuzz.ratio, score_cutoff=60, workers=-1)[0]
+        rapid_fuzz_cutoff = 75.1
+        entity_scores = process.cdist([to_search.lower()], searched_entities, scorer=fuzz.partial_ratio, score_cutoff=rapid_fuzz_cutoff, workers=-1)[0]
         
-        matching_indices = np.where(entity_scores >= 60)
-        # print("entity_scores", matching_indices[0][:10])
+        matching_indices = np.where(entity_scores >= rapid_fuzz_cutoff)
+        entity_scores_filt = entity_scores[entity_scores >= rapid_fuzz_cutoff]
+        #print("entity_score ", entity_scores)
+        print("entity_scores filtered ", entity_scores_filt)
+        print("entity matched indices", matching_indices[0])
         
         # print(len(matching_indices[0]), max(matching_indices[0]))
         # print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
         # print("matching indices", matching_indices[0])
         # print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-        match_entities = [entities[i] for i in matching_indices[0][:10]]
+        match_entities = [entities[i] for i in matching_indices[0]]
         print(*match_entities, sep="\n")
 
         # if we got a fuzzysearch result, run the result through a number of hand-made filters

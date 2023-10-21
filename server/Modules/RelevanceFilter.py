@@ -178,7 +178,7 @@ class RelevanceFilter:
         entities_filtered = self.llm_relevance_filter(cse_outputs_filtered, context)
         try:
             entities_filtered_dict = json.loads(entities_filtered)
-            print(f"===========================ENTITIES FILTERED: {str(entities_filtered_dict)}==============================")
+            #print(f"===========================ENTITIES FILTERED: {str(entities_filtered_dict)}==============================")
         except json.JSONDecodeError as e:
             print(f"Error parsing JSON: {e}")
             entities_filtered_dict = {}
@@ -203,7 +203,7 @@ class RelevanceFilter:
         # print(f"===========================LLM INPUT: {input_text}==============================")
         response = self.get_gpt_reponse(input_text)
 
-        print(f"===========================LLM PREDICTION: {response}==============================")
+        #print(f"===========================LLM PREDICTION: {response}==============================")
         return response
 
     def get_gpt_reponse(self, prompt, model="gpt-3.5"):
