@@ -217,7 +217,7 @@ class DatabaseHandler:
                 # Set `latest_intermediate_transcript` to empty string and timestamp -1
                 update = {
                     "$set": {"latest_intermediate_transcript": self.empty_transcript}}
-                self.userCollection.update_one(filter=filter, update=update)
+                self.user_collection.update_one(filter=filter, update=update)
 
             # Get part `latest_intermediate_transcript` after `cse_consumed_transcript_idx` index
             start_index = user['cse_consumed_transcript_idx']
@@ -419,7 +419,7 @@ class DatabaseHandler:
                 new_results.append(res)
         return new_results
 
-    def get_agent_insights_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
+    def get_proactive_agents_insights_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
         self.add_ui_device_to_user_if_not_exists(user_id, device_id)
 
         user = self.user_collection.find_one({"user_id": user_id})

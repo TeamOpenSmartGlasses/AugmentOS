@@ -1,5 +1,6 @@
 import {
   ActionIcon,
+  Title,
   Box,
   Center,
   Skeleton,
@@ -19,7 +20,18 @@ const PageView = ({ viewMoreUrl, loading, setLoading }: PageViewProps) => {
     setLoading(false);
   };
   return (
-    <Box h={"100%"}>
+    <Box h={"95%"}>
+          <Title 
+            order={2}
+            lineClamp={1}
+              sx={{
+                marginLeft: "0rem",
+                textDecoration: "underline",
+              }}
+            >
+             Explore
+          </Title>
+
       {viewMoreUrl ? (
         <Skeleton
           visible={loading}

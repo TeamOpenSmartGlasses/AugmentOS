@@ -21,11 +21,11 @@ import math
 import time
 from bs4 import BeautifulSoup
 from txtai.embeddings import Embeddings
-from update_embeddings import update_embeddings
+from Modules.update_embeddings import update_embeddings
 
 #Convoscope
 from Modules.Summarizer import Summarizer
-import word_frequency
+import Modules.word_frequency as word_frequency
 from constants import CUSTOM_USER_DATA_PATH, USE_GPU_FOR_INFERENCING, SUMMARIZE_CUSTOM_DATA, DEFINE_RARE_WORDS, IMAGE_PATH
 from server_config import google_maps_api_key
 
@@ -95,7 +95,7 @@ class ContextualSearchEngine:
         query = context_summary
 
         #run semantic search
-        print(f"@@@@@@@@@@ Semantic searching {query} for user {user_id}")
+        #print(f"@@@@@@@@@@ Semantic searching {query} for user {user_id}")
         query_stripped = query.replace("\"", "")
         results = self.custom_embeddings[user_id].search(f"select id, text, score, tags from txtai where similar(\"{query_stripped}\") order by score DESC", limit=10)
         filtered_results = dict()
@@ -107,11 +107,11 @@ class ContextualSearchEngine:
                 tags = json.loads(result["tags"])
                 description = tags["description"]
                 url = tags["url"]
-                print("Got semantic search match:")
-                print(f"-- Semantic match title: {title}")
+                #print("Got semantic search match:")
+                #print(f"-- Semantic match title: {title}")
                 #print(f"-- Semantic match desc.: {description}")
-                print(f"-- Semantic match url.: {url}")
-                print("\n********")
+                #print(f"-- Semantic match url.: {url}")
+                #print("\n********")
                 res_obj = {"name" : title, "summary" : description, "url" : url}
                 filtered_results[title] = res_obj
             else:
@@ -291,7 +291,7 @@ class ContextualSearchEngine:
             user_folder_path, f'data{next_file_num}.csv')
         df.to_csv(df_file_path, index=False)
 
-        print(f"Data saved to: {df_file_path}")
+        #print(f"Data saved to: {df_file_path}")
 
         # Update the embeddings
         update_embeddings(df, user_id)
@@ -303,9 +303,10 @@ class ContextualSearchEngine:
         path = "{}/{}".format(CUSTOM_USER_DATA_PATH, user_id)
         if not os.path.exists(path):
             os.makedirs(path)
-            print(f"Folder '{path}' created!")
+            #print(f"Folder '{path}' created!")
         else:
-            print(f"Folder '{path}' already exists.")
+            #print(f"Folder '{path}' already exists.")
+            pass
 
         user_folder_path = os.path.join(
             CUSTOM_USER_DATA_PATH, str(user_id))
@@ -319,8 +320,8 @@ class ContextualSearchEngine:
         # List all CSV files in the user-specific folder
         csv_files = [f for f in os.listdir(
             user_folder_path) if f.endswith('.csv')]
-        print("FOUND FILES FOR {user_id}: ")
-        print(csv_files)
+        #print("FOUND FILES FOR {user_id}: ")
+        #print(csv_files)
 
         # Read each CSV into a DataFrame
         dfs = [pd.read_csv(os.path.join(user_folder_path, csv_file))
@@ -336,19 +337,20 @@ class ContextualSearchEngine:
         else:
             self.custom_data[user_id] = dict()
 
-        print("SETUP CUSTOM DATA FOR USER {}, CUSTOM DATA FRAME IS BELOW:".format(user_id))
-        print(self.custom_data[user_id])
+        #print("SETUP CUSTOM DATA FOR USER {}, CUSTOM DATA FRAME IS BELOW:".format(user_id))
+        #print(self.custom_data[user_id])
 
         #setup custom embeddings for user
         custom_embeddings_path = f"{self.user_custom_data_path}/{user_id}/custom_data_embeddings.txtai"
-        print(f"Loading embeddings for {user_id}...")
+        #print(f"Loading embeddings for {user_id}...")
         self.custom_embeddings[user_id] = Embeddings(
             {"path": "sentence-transformers/paraphrase-MiniLM-L3-v2", "content": True})
         if (os.path.exists(custom_embeddings_path)):
             self.custom_embeddings[user_id].load(custom_embeddings_path)
-            print(f"-- Populated embeddings loaded for {user_id}...")
+            #print(f"-- Populated embeddings loaded for {user_id}...")
         else:
-            print(f"-- Empty embeddings only loaded for {user_id}...")
+            #print(f"-- Empty embeddings only loaded for {user_id}...")
+            pass
 
     def contextual_search_engine(self, user_id, talk):
         if talk.strip() == "":
@@ -463,7 +465,7 @@ class ContextualSearchEngine:
 
         # return None if no results
         if response == {}:
-            print("\n\n===CSE RESPONSE EMPTY ===\n\n")
+            #print("\n\n===CSE RESPONSE EMPTY ===\n\n")
             return None
 
         # add timestamp and id to each response
@@ -556,7 +558,7 @@ class ContextualSearchEngine:
                 combination,
                 list(enumerate(entity_names_to_match_filtered)),
                 config)
-            print("custom_fuzzy_search ran in {} on combo '{}'".format(time.time() - ctime, combination))
+            #print("custom_fuzzy_search ran in {} on combo '{}'".format(time.time() - ctime, combination))
             matches_idxs.extend(curr_matches)
 
         # build response object
@@ -623,13 +625,13 @@ class ContextualSearchEngine:
         #don't even try search if the to_search is too high frequency
         to_search_string_freq_index = self.get_string_freq(to_search)
         if (len(individual_words) <= 2) and (to_search_string_freq_index < 0.067): #if there are 1-2 words to search and the index is below this, don't run
-            print(f"--- Didn't search '{to_search}' because too common words, index {to_search_string_freq_index}")
+            #print(f"--- Didn't search '{to_search}' because too common words, index {to_search_string_freq_index}")
             return list()
         if (len(individual_words) > 3) and (to_search_string_freq_index < 0.06): #if there are 1-2 words to search and the index is below this, don't run
-            print(f"--- Didn't search '{to_search}' because too common words, index {to_search_string_freq_index}")
+            #print(f"--- Didn't search '{to_search}' because too common words, index {to_search_string_freq_index}")
             return list()
 
-        print(f"INSTEAD --- are search '{to_search}' because rare enough words, index {to_search_string_freq_index}")
+        #print(f"INSTEAD --- are search '{to_search}' because rare enough words, index {to_search_string_freq_index}")
         #helper functions for fuzzy search
         def get_whole_match(match_entity, full_string):
             start_idx = match_entity.start  # inclusive
@@ -689,27 +691,27 @@ class ContextualSearchEngine:
                     #if not a very close match, check if the matched entity is rare enough to be a real match
                     string_freq_index = self.get_string_freq(whole_match.replace(":",""))
                     if (match_entity.dist > 1) and (string_freq_index < 0.06):
-                        print(f"--- Drop '{whole_match}' because too common words")
+                        #print(f"--- Drop '{whole_match}' because too common words")
                         continue
 
                     #never match on just a single word (but allow PascalCase style through as it's multiple words)
                     if not (" " in whole_match) and (count_capitals(whole_match) < 2):
-                        print(f"-- Skip '{whole_match}' because single word")
+                        #print(f"-- Skip '{whole_match}' because single word")
                         continue
 
                     #if our match is not the start of a word, then don't count it
                     if match_entity.start != 0:
                         if (searched_entity[match_entity.start - 1] != " "):
-                            print(f"-- Skip '{whole_match}' because it's not the start of a word")
+                            #print(f"-- Skip '{whole_match}' because it's not the start of a word")
                             continue
 
-                    print("@@@@@@@@@@@@@@ TRUE MATCH")
-                    print("--- WHOLEMATCH", whole_match)
-                    print("--- SEARCHED ENTITY", searched_entity)
-                    print("--- FREQUENCY INDEX", str(string_freq_index))
-                    print("--- to_search", to_search)
-                    print("--- entity", entity)
-                    print("--- match_entity", match_entity)
+                    # print("@@@@@@@@@@@@@@ TRUE MATCH")
+                    # print("--- WHOLEMATCH", whole_match)
+                    # print("--- SEARCHED ENTITY", searched_entity)
+                    # print("--- FREQUENCY INDEX", str(string_freq_index))
+                    # print("--- to_search", to_search)
+                    # print("--- entity", entity)
+                    # print("--- match_entity", match_entity)
                     matches.append(idx)
                     continue
 

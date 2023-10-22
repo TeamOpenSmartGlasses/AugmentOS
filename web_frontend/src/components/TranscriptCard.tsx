@@ -138,7 +138,6 @@ const TranscriptCard = ({ transcriptBoxHeight }: TranscriptCardProps) => {
   }
 
   return (
-    <Flex direction={"column"} className={classes.card}>
       <Flex justify={"space-between"} align={"center"} px={"md"} py={"xs"}>
         <Text size={"lg"} weight={500}>
           {isMicrophoneAvailable
@@ -172,8 +171,7 @@ const TranscriptCard = ({ transcriptBoxHeight }: TranscriptCardProps) => {
             <IconPlayerPlayFilled size="1.25rem" />
           </ActionIcon>
         )}
-      </Flex>
-      {isRecognizing && (
+      {/*isRecognizing && (
         <ScrollArea
           scrollHideDelay={100}
           className={classes.transcriptBox}
@@ -187,7 +185,7 @@ const TranscriptCard = ({ transcriptBoxHeight }: TranscriptCardProps) => {
             <div ref={endOfTranscriptRef}></div>
           </Box>
         </ScrollArea>
-      )}
+      )*/}
     </Flex>
   );
 };
