@@ -97,7 +97,7 @@ export default function App() {
   //poll the backend for UI updates
   const updateUiBackendPoll = () => {
     const uiPollRequstBody = {
-      features: ["contextual_search_engine", "proactive_agent_insights", "agent_chat"], //list of features here
+      features: ["contextual_search_engine", "proactive_agent_insights", "explicit_agent_insights", "agent_chat"], //list of features here
       userId: window.userId,
       deviceId: window.deviceId,
     };
@@ -127,8 +127,10 @@ export default function App() {
         if (res.data.success) {
           console.log(res.data);
           const newEntities = res.data.result as any[];
-          const newInsights = res.data.results_proactive_agent_insights as any[];
-          if (newEntities.length === 0 && newInsights.length === 0) return;
+          const newInsights = (res.data.results_proactive_agent_insights as any[]) || [];
+          const newExplicitQueries = (res.data.explicit_insight_queries as any[]) || [];
+          const newExplicitInsights = (res.data.explicit_insight_results as any[]) || [];
+          if (newEntities.length === 0 && newInsights.length === 0 && newExplicitQueries.length === 0 && newExplicitInsights.length === 0) return;
 
           setEntities((entities) => [
             ...entities,

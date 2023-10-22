@@ -419,7 +419,6 @@ class DatabaseHandler:
     ### Explicit Queries ###
 
     def add_explicit_query_for_user(self, user_id, query):
-        print(" SAVING SUM SHIT ")
         query_time = math.trunc(time.time())
         query_uuid = str(uuid.uuid4())
         query_obj = {'timestamp': query_time, 'uuid': query_uuid, 'query': query}
@@ -439,17 +438,58 @@ class DatabaseHandler:
         update = {"$push": {"agent_explicit_insights_results": {'$each': [insight_obj]}}}
         self.user_collection.update_one(filter=filter, update=update)
 
-    def get_explicit_query_history_for_user(self, user_id):
+    def get_explicit_query_history_for_user(self, user_id, device_id = None, should_consume=True, include_consumed=False):
         self.create_user_if_not_exists(user_id)
         filter = {"user_id": user_id}
         user = self.user_collection.find_one(filter)
-        return user['agent_explicit_queries'] 
+    
+        results = user['agent_explicit_queries'] if user != None else []
+        #print("\/\/\/\/\/\/\/\/\/\/\/\/\/")
+        #print("RESULTSSSSSZJIWASDJIWAJDIAWJIODCJAIWD")
+        #print(results)
+        #print("\||\|||||||\\\\\\\\kadjwlkajmdlkawmdlkawmkldmawlkdaw")
+        already_consumed_ids = [
+            ] if include_consumed else self.get_consumed_explicit_ids_for_user_device(user_id, device_id)
+        new_results = []
+        for res in results:
+            if ('uuid' in res) and (res['uuid'] not in already_consumed_ids):
+                if should_consume:
+                    self.add_consumed_explicit_id_for_user_device(
+                        user_id, device_id, res['uuid'])
+                new_results.append(res)
+        return new_results
 
-    def get_explicit_insights_history_for_user(self, user_id):
+    def get_explicit_insights_history_for_user(self, user_id, device_id = None, should_consume=True, include_consumed=False):
         self.create_user_if_not_exists(user_id)
         filter = {"user_id": user_id}
         user = self.user_collection.find_one(filter)
-        return user['agent_explicit_insights_results'] 
+             
+        results = user['agent_explicit_insights_results'] if user != None else []
+        already_consumed_ids = [
+            ] if include_consumed else self.get_consumed_explicit_ids_for_user_device(user_id, device_id, user_obj=user)
+        new_results = []
+        for res in results:
+            if ('uuid' in res) and (res['uuid'] not in already_consumed_ids):
+                if should_consume:
+                    self.add_consumed_explicit_id_for_user_device(
+                        user_id, device_id, res['uuid'])
+                new_results.append(res)
+        return new_results
+    
+    def add_consumed_explicit_id_for_user_device(self, user_id, device_id, consumed_uuid):
+        filter = {"user_id": user_id, "ui_list.device_id": device_id}
+        update = {"$addToSet": {
+            "ui_list.$.consumed_explicit_ids": consumed_uuid}}
+        # "$add_to_set": {"ui_list": device_id}}
+        self.user_collection.update_many(filter=filter, update=update)
+
+    def get_consumed_explicit_ids_for_user_device(self, user_id, device_id, user_obj = None):
+        filter = {"user_id": user_id, "ui_list.device_id": device_id}
+        user = user_obj if user_obj else self.user_collection.find_one(filter=filter)
+        if user == None or user['ui_list'] == None or user['ui_list'][0] == None:
+            return []
+        to_return = user['ui_list'][0]['consumed_explicit_ids']
+        return to_return if to_return != None else []
 
     ### CSE RESULTS ###
 
@@ -597,7 +637,7 @@ class DatabaseHandler:
 
         if need_add:
             print("Creating device for user '{}': {}".format(user_id, device_id))
-            ui_object = {"device_id": device_id, "consumed_cse_result_ids": [], "consumed_agent_insights_result_ids": []}
+            ui_object = {"device_id": device_id, "consumed_cse_result_ids": [], "consumed_agent_insights_result_ids": [], "consumed_explicit_ids": []}
             filter = {"user_id": user_id}
             update = {"$addToSet": {"ui_list": ui_object}}
             self.user_collection.update_one(filter=filter, update=update)

@@ -55,7 +55,7 @@ def explicit_query_processing_loop():
                 query_uuid = dbHandler.add_explicit_query_for_user(user['user_id'], query)
                 
                 # Set up prompt for Meta Agent
-                insight_history = dbHandler.get_explicit_insights_history_for_user(user['user_id'])
+                insight_history = dbHandler.get_explicit_insights_history_for_user(user['user_id'], device_id=None, should_consume=False, include_consumed=True)
                 chat_history = stringify_history(insight_history)
                 
                 insightGenerationStartTime = time.time()
