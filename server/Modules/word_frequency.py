@@ -2,8 +2,7 @@
 # constant
 import pandas as pd
 from nltk.corpus import wordnet
-import word_define
-from word_define import *
+from Modules.word_define import *
 import re
 import pickle
 

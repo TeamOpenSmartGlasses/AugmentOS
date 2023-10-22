@@ -3,6 +3,7 @@ import {
   Navbar,
   Center,
   Tooltip,
+  Image,
   UnstyledButton,
   createStyles,
   Stack,
@@ -64,7 +65,7 @@ export function NavbarLink({
         onClick={onClick}
         className={cx(classes.link, { [classes.active]: active })}
       >
-        <Icon size="1.2rem" stroke={1.5} />
+        <Icon size="2.2rem" stroke={1.5} />
       </UnstyledButton>
     </Tooltip>
   );
@@ -80,9 +81,12 @@ export function NavbarMinimal({
   toggleSettings,
 }: NavbarMinimalProps) {
   return (
-    <Navbar width={{ base: 80 }} p="md">
+    <Navbar width={{ base: 90 }} p="md">
       <Center>
-        <Avatar src="/Convoscope_logo_og.png" alt="CSE Logo" />
+            <Image
+              radius="md"
+              src="/Convoscope_logo_og.png"
+            />
       </Center>
       <Navbar.Section grow mt={50}>
         <Stack justify="center" spacing={0}>

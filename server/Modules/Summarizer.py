@@ -9,7 +9,7 @@ openai.api_key = openai_api_key
 
 ### For use with Azure OpenAI ###
 if use_azure_openai:
-    #print("$$$ USING AZURE OPENAI $$$")
+    # print("$$$ USING AZURE OPENAI $$$")
     openai.api_key = azure_openai_api_key
     openai.api_base = azure_openai_api_base # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
     openai.api_type = 'azure'
@@ -36,7 +36,7 @@ Entity definition to summarize:
 {}
 ```
 
-Conversational Context:
+Conversational Context (DO NOT include this in the summary, just use it to help you make a contextually relevant summary of the entity definition above):
 ```
 {}
 ```
@@ -63,14 +63,14 @@ class Summarizer:
         #    return summary
 
         # Summary does not exist. Get it with OpenAI
-        #print("$$$ SUMMARY: SUMMARIZING WITH OPENAI")
+        # print("$$$ SUMMARY: SUMMARIZING WITH OPENAI")
         summary = self.summarize_entity_with_openai(entity_description, context)
         self.database_handler.save_cached_summary(entity_description, summary)
         return summary
 
     def summarize_entity_with_openai(self, entity_description: str, context: str = ""):
             prompt = summarizer_prompt.format(entity_description, context)
-            #print(prompt)
+            # print(prompt)
         
             if use_azure_openai:
                 messages = [{"role": "user", "content": prompt}]
