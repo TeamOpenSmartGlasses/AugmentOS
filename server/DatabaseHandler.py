@@ -444,10 +444,6 @@ class DatabaseHandler:
         user = self.user_collection.find_one(filter)
     
         results = user['agent_explicit_queries'] if user != None else []
-        #print("\/\/\/\/\/\/\/\/\/\/\/\/\/")
-        #print("RESULTSSSSSZJIWASDJIWAJDIAWJIODCJAIWD")
-        #print(results)
-        #print("\||\|||||||\\\\\\\\kadjwlkajmdlkawmdlkawmkldmawlkdaw")
         already_consumed_ids = [
             ] if include_consumed else self.get_consumed_explicit_ids_for_user_device(user_id, device_id)
         new_results = []
