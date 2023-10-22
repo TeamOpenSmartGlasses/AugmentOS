@@ -20,7 +20,7 @@ const PageView = ({ viewMoreUrl, loading, setLoading }: PageViewProps) => {
     setLoading(false);
   };
   return (
-    <Box h={"90%"}>
+    <Box h={"95%"}>
           <Title 
             order={2}
             lineClamp={1}
