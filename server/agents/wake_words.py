@@ -1,3 +1,5 @@
+from string import punctuation
+
 explicit_wake_words = [
     "hey convoscope",
     "hey conboscope",
@@ -24,5 +26,6 @@ def get_explicit_query_from_transcript(transcript):
     for term in explicit_wake_words:
         if term in transcript_low:
             index = transcript_low.find(term) + len(term)
-            return transcript_low[index:]
+            base_query = transcript_low[index:]
+            return base_query.strip(punctuation).strip()
     return None
