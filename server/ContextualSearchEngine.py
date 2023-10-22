@@ -705,13 +705,13 @@ class ContextualSearchEngine:
                             #print(f"-- Skip '{whole_match}' because it's not the start of a word")
                             continue
 
-                    print("@@@@@@@@@@@@@@ TRUE MATCH")
-                    print("--- WHOLEMATCH", whole_match)
-                    print("--- SEARCHED ENTITY", searched_entity)
-                    print("--- FREQUENCY INDEX", str(string_freq_index))
-                    print("--- to_search", to_search)
-                    print("--- entity", entity)
-                    print("--- match_entity", match_entity)
+                    # print("@@@@@@@@@@@@@@ TRUE MATCH")
+                    # print("--- WHOLEMATCH", whole_match)
+                    # print("--- SEARCHED ENTITY", searched_entity)
+                    # print("--- FREQUENCY INDEX", str(string_freq_index))
+                    # print("--- to_search", to_search)
+                    # print("--- entity", entity)
+                    # print("--- match_entity", match_entity)
                     matches.append(idx)
                     continue
 
