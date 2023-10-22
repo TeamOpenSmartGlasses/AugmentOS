@@ -654,10 +654,13 @@ class ContextualSearchEngine:
                 continue
             # don't even try search if the to_search is too high frequency
             to_search_string_freq_index = self.get_string_freq(to_search)
-            if (len(individual_words) <= 2) and (to_search_string_freq_index < 0.067): # if there are 1-2 words to search and the index is below this, don't run
+            if ("cyber" in to_search) or ("never mind" in to_search) or ("nevermind" in to_search):
+                print(to_search)
+                print(to_search_string_freq_index)
+            if (len(individual_words) <= 2) and (to_search_string_freq_index < 0.03): # if there are 1-2 words to search and the index is below this, don't run
                 # print(f"--- Didn't search '{to_search}' because too common words, index {to_search_string_freq_index}")
                 continue
-            if (len(individual_words) > 3) and (to_search_string_freq_index < 0.06): # if there are 1-2 words to search and the index is below this, don't run
+            if (len(individual_words) > 3) and (to_search_string_freq_index < 0.03): # if there are 1-2 words to search and the index is below this, don't run
                 # print(f"--- Didn't search '{to_search}' because too common words, index {to_search_string_freq_index}")
                 continue
 
@@ -709,7 +712,7 @@ class ContextualSearchEngine:
         # for idx, entity in entities:
         # use fuzzysearch to run first search
 
-        print("###################################################")
+        # print("###################################################")
         # print(entities[0], type(entities[0]))
         searched_entities = [pascal_to_words(entity).lower().replace(":", "") for entity in entities]
         # match_entities = find_near_matches(
@@ -721,24 +724,29 @@ class ContextualSearchEngine:
         #     max_l_dist=max_l_dist,
         # )
 
-        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+        # print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
         # print("to_search", to_search)
         # match_entity = fuzz.partial_ratio_alignment(to_search.lower(), searched_entity, score_cutoff=70)
 
         # thresholds
-        rapid_fuzz_cutoff_threshold = 75.1
+        rapid_fuzz_cutoff_threshold = 72.1
         min_string_frequency_index = 0.06
         max_allowed_match_length_difference = 2
-        print(filtered_combinations_to_search, "filtered_combinations_to_search")
+        #print(filtered_combinations_to_search, "filtered_combinations_to_search")
 
         entity_scores = rapidfuzz_process.cdist(
             [to_search.lower() for to_search in filtered_combinations_to_search],
             searched_entities, scorer=fuzz.partial_ratio, score_cutoff=rapid_fuzz_cutoff_threshold, workers=-1)
 
-        print("entity_scores", entity_scores)
-        print("entity_scores", entity_scores.shape)
+        # print("entity_scores", entity_scores)
+        # print("entity_scores", entity_scores.shape)
         matching_indices = np.where(entity_scores > 0)
-        print("matching_indices", matching_indices)
+        # for idx, score in enumerate(entity_scores):
+            # mscore = max(score)
+            # if mscore > rapid_fuzz_cutoff_threshold:
+                # candidate_entity = filtered_combinations_to_search[idx]
+                # print("candidate_entity: {}, score: {}".format(candidate_entity, mscore))
+         # print("matching_indices", matching_indices)
 
         if not matching_indices:
             return []
@@ -758,10 +766,10 @@ class ContextualSearchEngine:
         final_matching_indices  = []
         # if we got a fuzzysearch result, run the result through a number of hand-made filters
         for candidate_entity_idx, matching_entity_idx in zip(matching_indices[0], matching_indices[1]):
-            print("candidate_entity_idx", candidate_entity_idx)
-            print("matching_entity_idx", matching_entity_idx)
             candidate_entity = filtered_combinations_to_search[candidate_entity_idx].lower()
             searched_entity = pascal_to_words(searched_entities[matching_entity_idx]).lower().replace(":", "")
+            #candidate_entity_score = entity_scores[candidate_entity_idx]
+            # print("searched_entity", searched_entity)
 
             match_entity = find_near_matches(
                 candidate_entity,
@@ -773,10 +781,10 @@ class ContextualSearchEngine:
             )
 
             if not match_entity:
-                print(f"--- Drop '{searched_entity}' because no match")
+                # print(f"--- Drop '{searched_entity}' because no match")
                 continue
 
-            print("match_entity", match_entity)
+            #print("match_entity", match_entity)
             match_entity = match_entity[0]
 
             # first check if match is true by making sure what is said is similiar length to match
