@@ -96,6 +96,8 @@ class DatabaseHandler:
                  "transcripts": [], 
                  "cse_results": [], 
                  "ui_list": [],
+                 "agent_explicit_queries": [],
+                 "agent_explicit_insights_results": [],
                  "agent_insights_results" : []})
 
     ### CACHE ###
@@ -309,8 +311,8 @@ class DatabaseHandler:
 
         return transcripts
     
-    def get_transcripts_from_last_nseconds_for_user(self, user_id, n=30):
-        all_transcripts = self.get_all_transcripts_for_user(user_id)
+    def get_transcripts_from_last_nseconds_for_user(self, user_id, n=30, transcript_list=None):
+        all_transcripts = transcript_list if transcript_list else self.get_all_transcripts_for_user(user_id)
 
         recent_transcripts = []
         current_time = time.time()
@@ -319,8 +321,8 @@ class DatabaseHandler:
                 recent_transcripts.append(transcript)
         return recent_transcripts
 
-    def get_transcripts_from_last_nseconds_for_user_as_string(self, user_id, n=30):
-        transcripts = self.get_transcripts_from_last_nseconds_for_user(user_id, n)
+    def get_transcripts_from_last_nseconds_for_user_as_string(self, user_id, n=30, transcript_list=None):
+        transcripts = self.get_transcripts_from_last_nseconds_for_user(user_id, n, transcript_list)
         return self.stringify_transcripts(transcript_list=transcripts)
 
     def purge_old_transcripts_for_user_id(self, user_id):
@@ -414,6 +416,40 @@ class DatabaseHandler:
         update = {"$set": {"last_wake_word_time": -1}}
         self.user_collection.update_one(filter=filter, update=update)
 
+    ### Explicit Queries ###
+
+    def add_explicit_query_for_user(self, user_id, query):
+        print(" SAVING SUM SHIT ")
+        query_time = math.trunc(time.time())
+        query_uuid = str(uuid.uuid4())
+        query_obj = {'timestamp': query_time, 'uuid': query_uuid, 'query': query}
+
+        filter = {"user_id": user_id}
+        update = {"$push": {"agent_explicit_queries": {'$each': [query_obj]}}}
+        self.user_collection.update_one(filter=filter, update=update)
+
+        return query_uuid
+
+    def add_explicit_insight_result_for_user(self, user_id, query, insight):
+        insight_time = math.trunc(time.time())
+        insight_uuid = str(uuid.uuid4())
+        insight_obj = {'timestamp': insight_time, 'uuid': insight_uuid, 'query': query, 'insight': insight}
+
+        filter = {"user_id": user_id}
+        update = {"$push": {"agent_explicit_insights_results": {'$each': [insight_obj]}}}
+        self.user_collection.update_one(filter=filter, update=update)
+
+    def get_explicit_query_history_for_user(self, user_id):
+        self.create_user_if_not_exists(user_id)
+        filter = {"user_id": user_id}
+        user = self.user_collection.find_one(filter)
+        return user['agent_explicit_queries'] 
+
+    def get_explicit_insights_history_for_user(self, user_id):
+        self.create_user_if_not_exists(user_id)
+        filter = {"user_id": user_id}
+        user = self.user_collection.find_one(filter)
+        return user['agent_explicit_insights_results'] 
 
     ### CSE RESULTS ###
 
@@ -427,10 +463,10 @@ class DatabaseHandler:
         update = {"$set": {"cse_results": []}}
         self.user_collection.update_one(filter=filter, update=update)
 
-    def add_agent_insights_results_for_user(self, user_id, query, insight):
+    def add_agent_insights_results_for_user(self, user_id, agent_name, agent_insight):
         insight_time = math.trunc(time.time())
         insight_uuid = str(uuid.uuid4())
-        insight_obj = {'timestamp': insight_time, 'uuid': insight_uuid, 'query': query, 'insight': insight}
+        insight_obj = {'timestamp': insight_time, 'uuid': insight_uuid, 'agent_name': agent_name, 'agent_insight': agent_insight}
 
         filter = {"user_id": user_id}
         update = {"$push": {"agent_insights_results": {'$each': [insight_obj]}}}

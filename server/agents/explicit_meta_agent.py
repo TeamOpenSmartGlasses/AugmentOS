@@ -34,7 +34,7 @@ def make_expert_agents_as_tools(transcript):
         expert_agent_explicit_prompt = expert_agent_prompt_maker(expert_agent, transcript)
 
         #make the agent with tools
-        expert_agent = initialize_agent(
+        new_expert_agent = initialize_agent(
             [
                 get_search_tool_for_agents()
             ], 
@@ -43,7 +43,7 @@ def make_expert_agents_as_tools(transcript):
             verbose=True)
 
         def run_expert_agent_wrapper(command):
-            return expert_agent.run(expert_agent_explicit_prompt + '\n[Extra Instructions]\n' + command)
+            return new_expert_agent.run(expert_agent_explicit_prompt + '\n[Extra Instructions]\n' + command)
 
         expert_agent_as_tool = Tool(
             name=expert_agent['agent_name'],

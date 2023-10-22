@@ -51,12 +51,7 @@ def proactive_agents_processing_loop():
 
                     for insight in insights:
                         #save this insight to the DB for the user
-                        insight_obj = {}
-                        insight_obj['timestamp'] = math.trunc(time.time())
-                        insight_obj['uuid'] = str(uuid.uuid4())
-                        insight_obj['agent_name'] = insight["agent_name"]
-                        insight_obj['agent_insight'] = insight["agent_insight"]
-                        dbHandler.add_agent_insights_results_for_user(transcript['user_id'], [insight_obj])
+                        dbHandler.add_agent_insights_results_for_user(transcript['user_id'], insight["agent_name"], insight["agent_insight"])
 
                 except Exception as e:
                     print("Exception in agent.run()...:")

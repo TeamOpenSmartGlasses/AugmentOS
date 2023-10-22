@@ -210,6 +210,12 @@ async def ui_poll_handler(request, minutes=0.5):
         #add agents insight to response
         resp["results_proactive_agent_insights"] = agent_insight_results
 
+    if "explicit_agent_insights" in features or True:
+        explicit_insight_queries = db_handler.get_explicit_query_history_for_user(user_id=user_id)
+        explicit_insight_results = db_handler.get_explicit_insights_history_for_user(user_id=user_id)
+        resp["explicit_insight_queries"] = explicit_insight_queries
+        resp["explicit_insight_results"] = explicit_insight_results
+
     return web.Response(text=json.dumps(resp), status=200)
 
 
@@ -267,12 +273,7 @@ async def expert_agent_runner(expert_agent_name, user_id):
     agent_insight = run_single_expert_agent(expert_agent_name, convo_context)
 
     #save this insight to the DB for the user
-    insight_obj = {}
-    insight_obj['timestamp'] = math.trunc(time.time())
-    insight_obj['uuid'] = str(uuid.uuid4())
-    insight_obj['agent_name'] = agent_insight["agent_name"]
-    insight_obj['agent_insight'] = agent_insight["agent_insight"]
-    db_handler.add_agent_insights_results_for_user(user_id, [insight_obj])
+    db_handler.add_agent_insights_results_for_user(user_id, agent_insight["agent_name"], agent_insight["agent_insight"])
 
     #agent run complete
     print("--- Done agent run task of agent {} from user {}".format(expert_agent_name, user_id))

@@ -40,29 +40,27 @@ def explicit_query_processing_loop():
 
                 if not is_query_ready: continue
 
-                # TODO: Optimize this. We already have the transcripts in `user` so no need for second DB call, just need to get by time
                 num_seconds_to_get = round(current_time - user['last_wake_word_time']) + 1
-                text = dbHandler.get_transcripts_from_last_nseconds_for_user_as_string(user_id=user['user_id'], n=num_seconds_to_get)
+                text = dbHandler.get_transcripts_from_last_nseconds_for_user_as_string(user_id=user['user_id'], n=num_seconds_to_get, transcript_list=user['final_transcripts'])
 
                 # Pull query out of the text
                 query = get_explicit_query_from_transcript(text)
                 if query is None: 
+                    print("THE QUERY IS NOTHING!!!!")
                     continue
-                else:
-                    print("Run EXPLICIT QUERY STUFF with... user_id: '{}' ... text: '{}'".format(
-                        user['user_id'], query))
+
+                print("Run EXPLICIT QUERY STUFF with... user_id: '{}' ... text: '{}'".format(
+                    user['user_id'], query))
+                
+                query_uuid = dbHandler.add_explicit_query_for_user(user['user_id'], query)
                 
                 # Set up prompt for Meta Agent
-                insight_history = dbHandler.get_agent_insights_history_for_user(user['user_id'])
+                insight_history = dbHandler.get_explicit_insights_history_for_user(user['user_id'])
                 chat_history = stringify_history(insight_history)
                 
-                # mprompt = run_explicit_meta_agent(chat_history, query)
-                # print("||||||||| MPROMPT ||||||||||||||")
-                # print(mprompt)
-                # print("||||||||||||||||||||||||||||||||")
-
                 insightGenerationStartTime = time.time()
                 try:
+                    print(" RUN THE INSIGHT FOR EXPLICIT ")
                     insight = run_explicit_meta_agent(chat_history, query)
                     
                     print("===========200 IQ INSIGHT============")
@@ -70,7 +68,7 @@ def explicit_query_processing_loop():
                     print("=====================================")
                     
                     #save this insight to the DB for the user
-                    dbHandler.add_agent_insights_results_for_user(user['user_id'], query, insight)
+                    dbHandler.add_explicit_insight_result_for_user(user['user_id'], query, insight)
                 except Exception as e:
                     print("Exception in agent.run()...:")
                     print(e)
