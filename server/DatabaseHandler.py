@@ -158,7 +158,10 @@ class DatabaseHandler:
     def get_all_transcripts_for_user(self, user_id, delete_after=False):
         self.create_user_if_not_exists(user_id)
         user = self.get_user(user_id)
-        return user['final_transcripts']
+        transcripts = user['final_transcripts']
+        if user['latest_intermediate_transcript']['text']:
+            transcripts.append(user['latest_intermediate_transcript'])
+        return transcripts
 
     def combine_text_from_transcripts(self, transcripts, recent_transcripts_only=True):
         curr_time = time.time()
