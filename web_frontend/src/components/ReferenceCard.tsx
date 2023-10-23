@@ -57,9 +57,19 @@ const ReferenceCard = ({
     setLoading(true);
   };
 
-  if (entity.text) {
-    entity.name = "💡Insight💡";
-    entity.image_url = "/brain-thinking.jpg";
+  //if entity is an agent output, specify how it should look
+  if (entity.agent_insight) {
+    //setup name of agent
+    entity.name = entity.agent_name + " says...";
+
+    //setup image of agent output
+    if (entity.agent_name == "Statistician"){
+        entity.image_url = "/statistician_agent_avatar.jpg";
+    } else if (entity.agent_name == "FactChecker"){
+        entity.image_url = "/fact_checker_agent_avatar.jpg";
+    } else if (entity.agent_name == "DevilsAdvocate"){
+        entity.image_url = "/devils_advocate_agent_avatar.jpg";
+    }
   }
 
   return (
@@ -98,7 +108,7 @@ const ReferenceCard = ({
               overflowWrap: "break-word",
             }}
           >
-            {entity.summary || entity.text}
+            {entity.summary || entity.agent_insight}
             {entity.url && !entity.text && (
               <UnstyledButton>
                 <Text
