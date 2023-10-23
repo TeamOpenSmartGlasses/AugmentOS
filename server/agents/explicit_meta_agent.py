@@ -5,6 +5,7 @@ from langchain.agents.tools import Tool
 from langchain.chat_models import ChatOpenAI
 from server_config import openai_api_key
 from langchain.agents import AgentType
+import asyncio
 
 llm = ChatOpenAI(temperature=0.5, openai_api_key=openai_api_key, model="gpt-4-0613")
 
@@ -44,6 +45,9 @@ def make_expert_agents_as_tools(transcript):
 
         def run_expert_agent_wrapper(command):
             return new_expert_agent.run(expert_agent_explicit_prompt + '\n[Extra Instructions]\n' + command)
+        
+        async def run_expert_agent_wrapper_async(command):
+            return await new_expert_agent.arun(expert_agent_explicit_prompt + '\n[Extra Instructions]\n' + command)
 
         expert_agent_as_tool = Tool(
             name=expert_agent['agent_name'],
@@ -68,6 +72,18 @@ def run_explicit_meta_agent(context, query):
     prompt = explicit_meta_agent_prompt_blueprint.format(conversation_context=context, query=query)
     transcript = "{}\nQuery: {}".format(context, query)
     return get_explicit_meta_agent(transcript).run(prompt)
+
+
+def run_explicit_meta_agent_async(context, query):
+    prompt = explicit_meta_agent_prompt_blueprint.format(conversation_context=context, query=query)
+    transcript = "{}\nQuery: {}".format(context, query)
+
+    loop = asyncio.get_event_loop()
+    agents_to_run_tasks = [get_explicit_meta_agent(transcript).arun(prompt)]
+    insights_tasks = asyncio.gather(*agents_to_run_tasks)
+    insights = loop.run_until_complete(insights_tasks)
+    return insights
+
 
 if __name__ == '__main__':
     run_explicit_meta_agent("THIS IS THE CONTEXT", "FACT CHECK THAT CARS HAVE 4 WHEELS?")

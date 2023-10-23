@@ -2,7 +2,7 @@ from DatabaseHandler import DatabaseHandler
 import time
 import traceback
 from agents.wake_words import *
-from agents.explicit_meta_agent import run_explicit_meta_agent, explicit_meta_agent_prompt_blueprint
+from agents.explicit_meta_agent import run_explicit_meta_agent, run_explicit_meta_agent_async, explicit_meta_agent_prompt_blueprint
 
 pause_query_time = 4
 force_query_time = 8
@@ -25,28 +25,32 @@ def explicit_query_processing_loop():
             continue
 
         try:
-            users = dbHandler.get_users_with_recent_wake_words()    
+            users = dbHandler.get_users_with_recent_wake_words()
             for user in users:
+                last_wake_word_time = user['last_wake_word_time']
+
                 is_query_ready = False
                 current_time = time.time()
 
                 # If wake word is old, just run on what we have
-                if current_time > user['last_wake_word_time'] + force_query_time:
+                if current_time > last_wake_word_time + force_query_time:
                     is_query_ready = True
 
                 # If there has been a pause
-                elif current_time > user['final_transcripts'][-1]['timestamp'] + pause_query_time:
+                elif (len(user['final_transcripts']) != 0) and (current_time > user['final_transcripts'][-1]['timestamp'] + pause_query_time):
                     is_query_ready = True
 
                 if not is_query_ready: continue
+                dbHandler.reset_wake_word_time_for_user(user['user_id'])
 
-                num_seconds_to_get = round(current_time - user['last_wake_word_time']) + 1
-                text = dbHandler.get_transcripts_from_last_nseconds_for_user_as_string(user_id=user['user_id'], n=num_seconds_to_get, transcript_list=user['final_transcripts'])
+                num_seconds_to_get = round(current_time - last_wake_word_time) + 1
+                text = dbHandler.get_transcripts_from_last_nseconds_for_user_as_string(user_id=user['user_id'], n=num_seconds_to_get)#, transcript_list=user['final_transcripts'])
 
                 # Pull query out of the text
                 query = get_explicit_query_from_transcript(text)
                 if query is None: 
-                    print("THE QUERY IS NOTHING!!!!")
+                    print("THE QUERY IS NOTHING!!!! WHY? TEXT:")
+                    print(text)
                     continue
 
                 print("Run EXPLICIT QUERY STUFF with... user_id: '{}' ... text: '{}'".format(
@@ -61,9 +65,9 @@ def explicit_query_processing_loop():
                 insightGenerationStartTime = time.time()
                 try:
                     print(" RUN THE INSIGHT FOR EXPLICIT ")
-                    insight = run_explicit_meta_agent(chat_history, query)
+                    insight = run_explicit_meta_agent_async(chat_history, query)
                     
-                    print("===========200 IQ INSIGHT============")
+                    print("========== 200 IQ INSIGHT ===========")
                     print(insight)
                     print("=====================================")
                     
