@@ -47,6 +47,7 @@ export default function App() {
 
   const endOfReferencesRef = useRef<HTMLDivElement | null>(null);
   const [entities, setEntities] = useState<Entity[]>([]);
+  const [explicitInsights, setExplicitInsights] = useState<Entity[]>([]);
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
   const [selectedCardId, setSelectedCardId] = useState<string>("");
   const [loadingViewMore, setLoadingViewMore] = useState(false);
@@ -137,6 +138,12 @@ export default function App() {
             ...newEntities,
             ...newInsights,
           ]);
+
+          setExplicitInsights((explicitInsights) => [
+            ...explicitInsights,
+            ...newExplicitQueries,
+            ...newExplicitInsights
+          ])
         }
       })
       .catch(function (error) {
@@ -274,7 +281,9 @@ export default function App() {
                   py={"sm"}
                   className={classes.rightPanel}
                 >
-                      <AgentChatView/>
+                      <AgentChatView
+                        insights={explicitInsights}
+                      />
               </Flex>
 
                 <Flex

@@ -6,3 +6,10 @@ export type Entity = {
   url?: string; // view more url
   text?: string; // insight
 };
+
+export type Insight = {
+  timestamp?: number;
+  uuid?: string;
+  query?: string;
+  insight?: string;
+}
