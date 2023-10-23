@@ -25,7 +25,7 @@ from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_agents_process import proactive_agents_processing_loop
 from agents.expert_agents import run_single_expert_agent
-from agents.explicit_query_process import explicit_query_processing_loop
+from agents.explicit_query_process import explicit_query_processing_loop, call_explicit_agent
 import agents.wake_words
 from Modules.RelevanceFilter import RelevanceFilter
 
@@ -108,7 +108,7 @@ def cse_loop():
 
     def detect_wake_words_in_transcript(transcript):
         if agents.wake_words.does_text_contain_wake_word(transcript['text']):
-            db_handler.update_wake_word_time_for_user(transcript['user_id'])
+            db_handler.update_wake_word_time_for_user(transcript['user_id'], loop_start_time)
 
     #then run the main loop
     while True:
@@ -162,8 +162,8 @@ def cse_loop():
             traceback.print_exc()
         finally:
             p_loop_end_time = time.time()
-            print("=== processing_loop completed in {} seconds overall ===".format(
-                round(p_loop_end_time - p_loop_start_time, 2)))
+            # print("=== processing_loop completed in {} seconds overall ===".format(
+            #     round(p_loop_end_time - p_loop_start_time, 2)))
 
         loop_run_period = 2.5 #run the loop this often
         while (time.time() - loop_start_time) < loop_run_period: #wait until loop_run_period has passed before running this again
@@ -318,6 +318,11 @@ async def send_agent_chat_handler(request):
     if chat_message is None or chat_message == '':
         print("chatMessage none in send_agent_chat, exiting with error response 400.")
         return web.Response(text='no chatMessage in request', status=400)
+
+    # skip into proc loop
+    print("SEND AGENT CHAT FOR USER_ID: " + user_id)
+    user = db_handler.get_user(user_id)
+    await call_explicit_agent(user, chat_message)
 
     return web.Response(text=json.dumps({'success': True, 'message': "Got your message: {}".format(chat_message)}), status=200)
 

@@ -74,15 +74,10 @@ def run_explicit_meta_agent(context, query):
     return get_explicit_meta_agent(transcript).run(prompt)
 
 
-def run_explicit_meta_agent_async(context, query):
+async def run_explicit_meta_agent_async(context, query):
     prompt = explicit_meta_agent_prompt_blueprint.format(conversation_context=context, query=query)
     transcript = "{}\nQuery: {}".format(context, query)
-
-    loop = asyncio.get_event_loop()
-    agents_to_run_tasks = [get_explicit_meta_agent(transcript).arun(prompt)]
-    insights_tasks = asyncio.gather(*agents_to_run_tasks)
-    insights = loop.run_until_complete(insights_tasks)
-    return insights
+    return await (get_explicit_meta_agent(transcript).arun(prompt))
 
 
 if __name__ == '__main__':

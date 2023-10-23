@@ -25,7 +25,7 @@ def get_explicit_query_from_transcript(transcript):
     transcript_low = transcript.lower()
     for term in explicit_wake_words:
         if term in transcript_low:
-            index = transcript_low.find(term) + len(term)
+            index = transcript_low.rfind(term) + len(term)
             base_query = transcript_low[index:]
             return base_query.strip(punctuation).strip()
     return None

@@ -383,10 +383,10 @@ class DatabaseHandler:
 
     ### WAKE WORDS ###
 
-    def update_wake_word_time_for_user(self, user_id):
+    def update_wake_word_time_for_user(self, user_id, timestamp):
         self.create_user_if_not_exists(user_id)
         print("UPDATE WW TIME")
-        current_time = time.time()
+        current_time = timestamp
 
         # Only update if we haven't already noted a wake word within the last 2 seconds, OR if the time is -1
         query_condition = {
@@ -452,9 +452,7 @@ class DatabaseHandler:
         return new_results
 
     def get_explicit_insights_history_for_user(self, user_id, device_id = None, should_consume=True, include_consumed=False):
-        self.create_user_if_not_exists(user_id)
-        filter = {"user_id": user_id}
-        user = self.user_collection.find_one(filter)
+        user = self.get_user(user_id)
              
         results = user['agent_explicit_insights_results'] if user != None else []
         already_consumed_ids = [
