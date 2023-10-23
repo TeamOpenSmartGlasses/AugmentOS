@@ -209,12 +209,13 @@ class RelevanceFilter:
             print(f"Error parsing JSON: {e}")
             entities_filtered_dict = {}
         else:
-            pass 
+            pass
             # print("Successfully parsed the JSON string.")
         # print(f"===========================ENTITIES FILTERED: {str(entities_filtered)}==============================")
 
         # valid_outputs.extend(entities_filtered)
         final_entities = [entity for entity in entities_filtered_dict.keys() if entities_filtered_dict[entity] >= LLM_FILTER_THRESHOLD]
+        # print(f"===========================CSE OUTPUTS FILTERED: {final_entities}==============================")
 
         return final_entities
 

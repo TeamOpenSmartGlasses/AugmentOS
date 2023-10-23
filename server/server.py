@@ -52,23 +52,23 @@ async def chat_handler(request):
         print("user_id none in chat_handler, exiting with error response 400.")
         return web.Response(text='no user_id in request', status=400)
 
-    #print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format(
-        #"FINAL" if is_final else "INTERMEDIATE", text, timestamp, user_id))
+    # print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format(
+    #     "FINAL" if is_final else "INTERMEDIATE", text, timestamp, user_id))
     if is_final:
         print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format("FINAL", text, timestamp, user_id))
     start_save_db_time = time.time()
     db_handler.save_transcript_for_user(user_id=user_id, text=text, timestamp=timestamp, is_final=is_final)
     end_save_db_time = time.time()
-    #print("=== CHAT_HANDLER's save DB done in {} SECONDS ===".format(
+    # print("=== CHAT_HANDLER's save DB done in {} SECONDS ===".format(
     #    round(end_save_db_time - start_save_db_time, 2)))
 
     end_time = time.time()
-    #print("=== CHAT_HANDLER COMPLETED IN {} SECONDS ===".format(
+    # print("=== CHAT_HANDLER COMPLETED IN {} SECONDS ===".format(
     #    round(end_time - start_time, 2)))
     return web.Response(text=json.dumps({'success': True, 'message': ""}), status=200)
 
 
-#runs when button is pressed on frontend - right now button ring on wearable or button in TPA
+# runs when button is pressed on frontend - right now button ring on wearable or button in TPA
 async def button_handler(request):
     body = await request.json()
     button_num = body.get('buttonNum')
@@ -99,12 +99,12 @@ async def button_handler(request):
 def cse_loop():
     print("START CSE PROCESSING LOOP")
 
-    #setup things we need for processing
+    # setup things we need for processing
     db_handler = DatabaseHandler(parent_handler=False)
     relevance_filter = RelevanceFilter(db_handler=db_handler)
     cse = ContextualSearchEngine(db_handler=db_handler)
 
-    #then run the main loop
+    # then run the main loop
     while True:
         if not db_handler.ready:
             print("db_handler not ready")
@@ -112,6 +112,7 @@ def cse_loop():
             continue
 
         loop_start_time = time.time()
+        p_loop_start_time = time.time()
 
         try:
             p_loop_start_time = time.time()
@@ -216,8 +217,8 @@ async def return_image_handler(request):
     return Response(body=data, content_type="image/jpg")
 
 
-#frontend can upload CSVs to run custom data search on
-#DEV: we don't use this and it's not exposed on the frontend as it's currently broken and low priority
+# frontend can upload CSVs to run custom data search on
+# DEV: we don't use this and it's not exposed on the frontend as it's currently broken and low priority
 async def upload_user_data_handler(request):
     # Check file size before doing anything else
     try:
@@ -315,16 +316,16 @@ async def send_agent_chat_handler(request):
 if __name__ == '__main__':
     print("Starting server...")
     db_handler = DatabaseHandler()
-    #start proccessing loop subprocess to process data as it comes in
+    # start proccessing loop subprocess to process data as it comes in
     if USE_GPU_FOR_INFERENCING:
         multiprocessing.set_start_method('spawn')
 
-    #log_queue = multiprocessing.Queue()
+    # log_queue = multiprocessing.Queue()
     print("Starting CSE process...")
     cse_process = multiprocessing.Process(target=cse_loop)
     cse_process.start()
 
-    #start the proactive agents process
+    # start the proactive agents process
     print("Starting Proactive Agents process...")
     proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
     proactive_agents_background_process.start()

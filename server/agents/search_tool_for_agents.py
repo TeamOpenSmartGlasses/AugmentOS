@@ -8,8 +8,11 @@ from langchain.agents.tools import Tool
 #ban some sites that we can never scrape
 banned_sites = ["calendar.google.com", "researchgate.net"]
 
-def scrape_page(url: str):
-    """Based on your observations from the Search_Engine, if you want more details from a snippet for a non-PDF page, pass this the page's URL and the page's title to scrape the full page and retrieve the full contents of the page."""
+
+def scrape_page(url: str, title: str):
+    """Based on your observations from the Search_Engine, if you want more details from
+    a snippet for a non-PDF page, pass this the page's URL and the page's title to
+    scrape the full page and retrieve the full contents of the page."""
 
     print("Parsing: {}".format(url))
     if any(substring in url for substring in banned_sites):
@@ -34,7 +37,8 @@ def scrape_page(url: str):
         except requests.RequestException as e:
             print(f"Failed to fetch {url}. Error: {e}")
             return None
-        
+
+
 # custom search tool, we copied the serper integration on langchain but we prefer all the data to be displayed in one json message
 k: int = 5
 gl: str = "us"
@@ -43,6 +47,8 @@ tbs = None
 num_sentences = 10
 search_type: Literal["news", "search", "places", "images"] = "search"
 summarizer = Summarizer(None)
+
+
 def serper_search(
         search_term: str, search_type: str = "search", **kwargs: Any
     ) -> dict:
@@ -60,6 +66,7 @@ def serper_search(
     response.raise_for_status()
     search_results = response.json()
     return search_results
+
 
 def parse_snippets(results: dict) -> List[str]:
     result_key_for_type = {
@@ -105,12 +112,14 @@ def parse_snippets(results: dict) -> List[str]:
         return ["No good Google Search Result was found"]
     return snippets
 
+
 def parse_results(results: dict) -> str:
         snippets = parse_snippets(results)
         results_string = ""
         for idx, val in enumerate(snippets):
             results_string += f"<result{idx}>\n{val}\n</result{idx}>\n\n"
         return results_string
+
 
 def run_search_tool_for_agents(query: str, parse=True, **kwargs: Any):
     results = serper_search(
@@ -123,6 +132,7 @@ def run_search_tool_for_agents(query: str, parse=True, **kwargs: Any):
             **kwargs,
         )
     return parse_results(results)
+
 
 def get_search_tool_for_agents():
     search_tool_for_agents = Tool(
