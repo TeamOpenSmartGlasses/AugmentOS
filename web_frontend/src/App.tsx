@@ -206,10 +206,10 @@ export default function App() {
                       // FIXME: associate an id with each entity
                       selected={selectedCardId === i}
                       onClick={() => {
-                        setSelectedCardId(i);
+                        setSelectedCardId(i === selectedCardId ? undefined : i);
                         setViewMoreUrl(entity.url);
                         setLoadingViewMore(true);
-                        setShowExplorePane(true);
+                        setShowExplorePane(!showExplorePane);
                       }}
                     />
                   </div>
