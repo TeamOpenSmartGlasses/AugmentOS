@@ -38,13 +38,13 @@ expert_agent_config_list = {
             "agent_plan" : """1. Identify what quantitative data, facts, statistics, etc. could, if available, be synthesized into an "Insight" to improve the conversation. Come up with a general description of the "Insight" to generate.\n2. What actions to take to get said data.""",
             "proactive_tool_description" : """Occurrences in a conversation where statistics, graphs, and data would be useful to the user."""
         },
-        "FactChecker" : {
-            "agent_name": "FactChecker", 
-            "insight_num_words" : 7,
-            "agent_insight_type" : """fact check any claims made during a conversation. Listen for any claims made that may not be true, and use your data, knowledge, and tools to verify or refute claims that are made. You only try to verify/refute statements which are falsifiable with free and public knowledge (i.e. don't fact check personal statements or beliefs).""",
-            "agent_plan" : """1. Find and write down individual factual claims from the conversation. Do not consider personal, belief-based, or unfalsifiable claims. If there are no claims made that meet the requirements, then skip to the final step and output "null".\n2. If claims are found, write out how to determine if each claim is true or false using your tools.\n3. Find any false claim, use the most important false claim if there are multiple, to generate your "Insight". If there are no claims or no false claims, your output is "null".""",
-            "proactive_tool_description" : """If a statement is made which you suspect might be false, and that statement is falsifiable with free and public knowledge. Don't use this to verify your own searches or your own ideas, only use this to verify the user's statements."""
-        },
+        # "FactChecker" : {
+        #     "agent_name": "FactChecker", 
+        #     "insight_num_words" : 7,
+        #     "agent_insight_type" : """fact check any claims made during a conversation. Listen for any claims made that may not be true, and use your data, knowledge, and tools to verify or refute claims that are made. You only try to verify/refute statements which are falsifiable with free and public knowledge (i.e. don't fact check personal statements or beliefs).""",
+        #     "agent_plan" : """1. Find and write down individual factual claims from the conversation. Do not consider personal, belief-based, or unfalsifiable claims. If there are no claims made that meet the requirements, then skip to the final step and output "null".\n2. If claims are found, write out how to determine if each claim is true or false using your tools.\n3. Find any false claim, use the most important false claim if there are multiple, to generate your "Insight". If there are no claims or no false claims, your output is "null".""",
+        #     "proactive_tool_description" : """If a statement is made which you suspect might be false, and that statement is falsifiable with free and public knowledge. Don't use this to verify your own searches or your own ideas, only use this to verify the user's statements."""
+        # },
         "DevilsAdvocate" : {
             "agent_name": "DevilsAdvocate", 
             "insight_num_words" : 12,
@@ -53,7 +53,6 @@ expert_agent_config_list = {
             "proactive_tool_description" : """When it would be useful for the user to see a devil’s advocate opinion (a steel-man argument supporting a viewpoint different from their own)."""
         }
     }
-
 def expert_agent_prompt_maker(expert_agent_config, conversation_transcript, final_command=""):
     # Populating the blueprint string with values from the agent_config dictionary
     if final_command != "":
