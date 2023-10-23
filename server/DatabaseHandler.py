@@ -153,7 +153,11 @@ class DatabaseHandler:
             self.user_collection.update_one(filter=filter, update=update)
 
     def get_user(self, user_id):
-        return self.user_collection.find_one({"user_id": user_id})
+        user = self.user_collection.find_one({"user_id": user_id})
+        if not user:
+            self.create_user_if_not_exists(user_id)
+            return self.get_user(user_id)
+        return user
 
     def get_all_transcripts_for_user(self, user_id, delete_after=False):
         self.create_user_if_not_exists(user_id)
@@ -372,19 +376,8 @@ class DatabaseHandler:
         if len(transcript_list) == 0:
             return output
 
-        # Concatenate text of all FINAL transcripts
-        last_final_transcript_index = 99999999
         for index, t in enumerate(transcript_list):
-            if t['is_final'] == True:
-                last_final_transcript_index = index
-                output = output + t['text'] + ' '
-
-        # Then add the last intermediate if it occurs later than the latest final...
-        last_intermediate_text = ""
-        for i in range(last_final_transcript_index, len(transcript_list)):
-            if transcript_list[i]['is_final'] == False:
-                last_intermediate_text = transcript_list[i]['text']
-        output = output + ' ' + last_intermediate_text
+            output = output + t['text'] + ' '
 
         return output.strip()
 
