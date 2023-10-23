@@ -25,7 +25,6 @@ const useStyles = createStyles((theme) => ({
     width: "100vw",
     background: "linear-gradient(179.11deg, #112925 -5.4%, #1A2624 0.96%, #121615 28.67%)",
     overflow: "clip",
-    gap: "4rem"
   },
 
   container: {
@@ -34,9 +33,6 @@ const useStyles = createStyles((theme) => ({
     padding: 0,
     flex: "1 1 0"
   },
-
-    rightPanel: { backgroundColor: theme.white, borderRadius: "0.5rem", margin: "0rem 0rem 1rem 0rem" },
-    referenceScroll: { backgroundColor: theme.white, borderRadius: "0.5rem", padding: "1rem", margin: "0rem 0rem 1rem 0rem" },
 }));
 
 const theme = {
@@ -44,6 +40,7 @@ const theme = {
   colors: {
     cardFill: "hsla(167, 44%, 8%, 1)",
     titleText: "hsla(175, 20%, 87%, 1)",
+    bodyText: "hsla(175, 20%, 77%, 1)",
     outlineGreen: "hsla(172, 56%, 20%, 1)",
   },
 
@@ -65,7 +62,7 @@ export default function App() {
   const [entities, setEntities] = useState<Entity[]>([
     {
       name: "test name",
-      summary: "The Doppler effect (also Doppler shift) is the change in the frequency of a wave.",
+      summary: "The Doppler effect is the change in the frequency of a wave.",
       image_url:
       // "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Doppler_effect_diagrammatic.svg/520px-Doppler_effect_diagrammatic.svg.png",
         "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Redshift.svg/340px-Redshift.svg.png",
@@ -191,7 +188,7 @@ export default function App() {
         {!smallerThanMedium && (
           <Sidebar settingsOpened={opened} toggleSettings={toggleSettings} />
         )}
-        <Container fluid className={classes.container} pt={"2rem"}>
+        <Container fluid className={classes.container} pt={"2rem"} px={"4rem"}>
           {/* Left Panel */}
           <ScrollArea scrollHideDelay={100}>
             {entities.map((entity, i) => (

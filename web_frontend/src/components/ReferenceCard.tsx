@@ -3,11 +3,11 @@ import {
   Text,
   Image,
   Card,
-  Title,
   createStyles,
   Group,
   rem,
   Stack,
+  useMantineTheme,
 } from "@mantine/core";
 import { Entity } from "../types";
 
@@ -41,6 +41,7 @@ const ReferenceCard = ({
   selected = false,
   onClick,
 }: ReferenceCardProps) => {
+  const theme = useMantineTheme();
   const { classes } = useStyles();
 
   const getImageUrl = (entity: Entity) => {
@@ -56,9 +57,10 @@ const ReferenceCard = ({
     <Card
       radius="md"
       p={0}
-      h={"max-content"}
+      h={"22rem"}
       onClick={onClick}
       className={classes.card}
+      withBorder
       sx={{...(selected && {filter: "brightness(1.2)"})}}
     >
       <Flex align={"center"} h={"100%"}>
@@ -66,18 +68,19 @@ const ReferenceCard = ({
           <Image
             src={getImageUrl(entity)}
             height={"100%"}
-            width={120}
+            sx={{flex: "1 1 120px"}}
             radius="md"
           />
         )}
         <Stack
           p={"lg"}
-          h="max-content"
+          h="100%"
           w="100%"
+          sx={{flex: "10 1 0"}}
           justify={"center"}
         >
-          <Title
-            fz="lg"
+          <Text
+            fw={"bold"}
             size="2rem"
             sx={{
               wordWrap: "break-word",
@@ -86,7 +89,7 @@ const ReferenceCard = ({
             }}
           >
             {entity.summary || entity.agent_insight}
-          </Title>
+          </Text>
           <Group mt="auto">
             {entity.agent_name && (
               <Text
@@ -95,6 +98,7 @@ const ReferenceCard = ({
                 }}
                 fw="bold"
                 ml="auto"
+                color={theme.colors.bodyText}
               >
                 {entity.agent_name}
               </Text>

@@ -19,17 +19,6 @@ const useStyles = createStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
   },
-
-  active: {
-    "&, &:hover": {
-      backgroundColor: theme.fn.variant({
-        variant: "light",
-        color: theme.primaryColor,
-      }).background,
-      color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
-        .color,
-    },
-  },
 }));
 
 interface NavbarLinkProps {
@@ -42,7 +31,7 @@ interface NavbarLinkProps {
 export function NavbarLink({
   icon: Icon,
   label,
-  active,
+  // active,
   onClick,
 }: NavbarLinkProps) {
   const { classes, cx } = useStyles();
@@ -52,9 +41,9 @@ export function NavbarLink({
         variant={"outline"}
         radius={100}
         onClick={onClick}
-        className={cx(classes.link, { [classes.active]: active })}
+        className={cx(classes.link)}
       >
-        <Icon size="2rem" stroke={3} />
+        <Icon size="2rem" stroke={1.5} />
       </ActionIcon>
     </Tooltip>
   );
