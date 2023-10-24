@@ -54,6 +54,7 @@ def make_expert_agents_prompts():
         expert_agents_descriptions_prompt += f"\n- Agent {idx+1}:\n"
         expert_agents_descriptions_prompt += f"""   - Name: {expert_agent["agent_name"]}\n"""
         expert_agents_descriptions_prompt += f"""   - When to call: {expert_agent["proactive_tool_description"]}\n"""
+        expert_agents_descriptions_prompt += f"""   - Example insight generated: {expert_agent["proactive_tool_example"]}\n"""
 
     return expert_agents_descriptions_prompt
 
