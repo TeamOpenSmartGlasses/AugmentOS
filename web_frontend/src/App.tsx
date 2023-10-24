@@ -32,14 +32,17 @@ const useStyles = createStyles((theme) => ({
     overflow: "clip",
   },
 
+  card: { backgroundColor: theme.white, borderRadius: "0.25rem" },
+
   container: {
     width: "100%",
     height: "100%",
-    padding: "1.5rem 1.5rem 0.5rem 1.5rem",
+    padding: "1rem",
   },
 
-    rightPanel: { backgroundColor: theme.white, borderRadius: "0.5rem", margin: "0rem 0rem 1rem 0rem" },
-    referenceScroll: { backgroundColor: theme.white, borderRadius: "0.5rem", padding: "1rem", margin: "0rem 0rem 1rem 0rem" },
+    panel: { backgroundColor: theme.white, borderRadius: "0.5rem", margin: "0rem 0rem 0rem 0rem" },
+    rightPanel: { backgroundColor: theme.white, borderRadius: "0.5rem", margin: "0rem 0rem 0rem 0rem" },
+    referenceScroll: { backgroundColor: theme.white, borderRadius: "0.5rem", padding: "1rem", margin: "0rem 0rem 0rem 0rem" },
 }));
 
 export default function App() {
@@ -55,7 +58,7 @@ export default function App() {
   const [opened, { open: openSettings, close: closeSettings }] =
     useDisclosure(false);
   const smallerThanMedium = useMediaQuery("(max-width: 62em)");
-  const hideTitle = !smallerThanMedium && entities.length > 5;
+  const hideTitle = false; //!smallerThanMedium && entities.length > 5;
 
   const toggleSettings = () => {
     if (opened) {
@@ -189,9 +192,10 @@ export default function App() {
           >
             {/* Left Panel */}
             <Stack
-              w={{ xs: "100%", md: "50%" }}
+              w={{ xs: "60%", md: "60%" }}
               h={{ xs: "50%", md: "100%" }}
-              spacing={"xl"}
+              spacing={"md"}
+              justify={"space-between"}
             >
               <Group position="apart">
                 <Title
@@ -214,26 +218,20 @@ export default function App() {
                 )}
               </Group>
 
-              <TranscriptCard
-                transcriptBoxHeight={smallerThanMedium ? "2.5vh" : "6.5vh"}
-              />
-
-             <Flex
-                  direction={"column"}
-                  w={{ xs: "100%", md: "100%" }}
-                  h={{ xs: "50%", md: "20%" }}
-                  px={"md"}
-                  py={"sm"}
-                  className={classes.rightPanel}
-                >
-                  <RunAgentsView />
+                <Flex 
+                    direction={"column"} 
+                    className={classes.card}
+                    h={{ xs: "50%", md: "5%" }}
+                  >
+                  <TranscriptCard
+                    transcriptBoxHeight={smallerThanMedium ? "2.5vh" : "6.5vh"}
+                  />
               </Flex>
-
 
               <Flex
                   direction={"column"}
                   w={{ xs: "100%", md: "100%" }}
-                  h={{ xs: "50%", md: "70%" }}
+                  h={{ xs: "50%", md: "75%" }}
                   px={"md"}
                   py={"sm"}
                  className={classes.referenceScroll}
@@ -245,7 +243,7 @@ export default function App() {
                         textDecoration: "underline",
                       }}
                     >
-                     What You Talked About
+                     Agent Insights
                   </Title>
 
                   <ScrollArea scrollHideDelay={100}>
@@ -263,44 +261,68 @@ export default function App() {
                     <div ref={endOfReferencesRef}></div>
                   </ScrollArea>
               </Flex>
+             <Flex
+                  direction={"column"}
+                  w={{ xs: "100%", md: "100%" }}
+                  h={{ xs: "50%", md: "15%" }}
+                  px={"md"}
+                  py={"sm"}
+                  className={classes.rightPanel}
+                  className={classes.panel}
+                >
+                  <RunAgentsView />
+              </Flex>
+
+
+
             </Stack>
 
             {/* Right Panel */}
+                {/*
             <Flex
                   direction={"column"}
-                  w={{ xs: "100%", md: "100%" }}
+                  w={{ xs: "40%", md: "40%" }}
                   h={{ xs: "50%", md: "100%" }}
                   px={"md"}
                   py={"sm"}
                 >
-             <Flex
-                  direction={"column"}
-                  w={{ xs: "100%", md: "100%" }}
-                  h={{ xs: "50%", md: "30%" }}
-                  px={"md"}
-                  py={"sm"}
-                  className={classes.rightPanel}
-                >
-                      <AgentChatView
-                        insights={explicitInsights}
-                      />
-              </Flex>
+                */}
+            <Stack
+              w={{ xs: "60%", md: "60%" }}
+              h={{ xs: "50%", md: "100%" }}
+              spacing={"md"}
+              justify={"space-between"}
+            >
 
-                <Flex
-                  direction={"column"}
-                  w={{ xs: "100%", md: "100%" }}
-                  h={{ xs: "50%", md: "70%" }}
-                  px={"md"}
-                  py={"sm"}
-                  className={classes.rightPanel}
-                >
-                      <PageView
-                        viewMoreUrl={viewMoreUrl}
-                        loading={loadingViewMore}
-                        setLoading={setLoadingViewMore}
-                      />
-                </Flex>
-             </Flex>
+                    <Flex
+                      direction={"column"}
+                      w={{ xs: "100%", md: "100%" }}
+                      h={{ xs: "50%", md: "80%" }}
+                      px={"md"}
+                      py={"sm"}
+                      className={classes.rightPanel}
+                    >
+                          <PageView
+                            viewMoreUrl={viewMoreUrl}
+                            loading={loadingViewMore}
+                            setLoading={setLoadingViewMore}
+                          />
+                     </Flex>
+                 <Flex
+                      direction={"column"}
+                      w={{ xs: "100%", md: "100%" }}
+                      h={{ xs: "50%", md: "20%" }}
+                      px={"md"}
+                      py={"sm"}
+                      className={classes.panel}
+                    >
+                        <AgentChatView
+                          insights={explicitInsights}
+                        />
+                  </Flex>
+
+
+                </Stack>
           </Flex>
         </Container>
       </Flex>

@@ -55,6 +55,7 @@ const AgentChatView = ({insights}: ExplicitProps) => {
 
   const [messages, setMessages] = useState<Message[]>([
     { sender: "bot", text: "Hello! I'm here to help!" },
+    //{ sender: "user", text: "fact check that last claim about bhutan" },
   ]);
   const [currentMessage, setCurrentMessage] = useState<string>("");
 
@@ -154,6 +155,7 @@ const AgentChatView = ({insights}: ExplicitProps) => {
             <div ref={chatRef} />
           </Stack>
         </ScrollArea>
+        {/*
         <div className="chat-input">
           <Input
             value={currentMessage}
@@ -168,6 +170,7 @@ const AgentChatView = ({insights}: ExplicitProps) => {
             rightSectionWidth={70}
           />
         </div>
+        */}
       </Box>
     </Box>
   );

@@ -2,6 +2,7 @@ import {
   ActionIcon,
   Box,
   Center,
+  Flex,
   Skeleton,
   Text,
   Title,
@@ -23,6 +24,7 @@ interface RunAgentsViewProps {
 const useStyles = createStyles((theme) => ({
   agentButton: {
     height: 70,
+    fontSize: "1.3rem",
     marginTop: "1rem",
     marginRight: "2rem",
     ":first-of-type": { marginTop: 0 },
@@ -82,13 +84,17 @@ const RunAgentsView = ({ viewMoreUrl, loading, setLoading }: RunAgentsViewProps)
             >
              Convo Agents
           </Title>
-
-          <Center>
-                <Box>
-                    {makeAgentButtons()}
-                </Box>
-            </Center>
-
+          <Flex
+            justify={"space-evenly"}
+            direction={"row"}
+            wrap={"wrap"}
+          >
+              <Center>
+                    <Box>
+                        {makeAgentButtons()}
+                    </Box>
+                </Center>
+            </Flex>
         </Box>
     );
 };

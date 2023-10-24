@@ -6,6 +6,14 @@
 
 Setup environment variables (refer to env.local file)
 `VITE_BACKEND_BASE_URL` should be set to where your backend is
+`VITE_SERVER_ENVIRONMENT` can be set to an endpoint modifier to run multiple servers on the same URL
+
+Example to run on your url and at /api/dev:
+```
+export VITE_BACKEND_BASE_URL=<your url>; export VITE_SERVER_ENVIRONMENT=dev
+```
+
+If you want to run without a special location after /api, then set `VITE_SERVER_ENVIRONMENT=prod` for production (main server).
 
 ## Start application
 

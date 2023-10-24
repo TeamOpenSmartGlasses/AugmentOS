@@ -30,8 +30,7 @@ def proactive_agents_processing_loop():
             newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(
                 n=120)
             for transcript in newTranscripts:
-                #DEV if len(transcript['text']) < 800: # Around 150-200 words, no point to generate insight below this
-                if len(transcript['text']) < 20: # Around 150-200 words, no point to generate insight below this
+                if len(transcript['text']) < 400: # Around 75-100 words, no point to generate insight below this
                     print("Transcript too short, skipping...")
                     continue
                 print("Run Insights generation with... user_id: '{}' ... text: '{}'".format(
@@ -42,9 +41,6 @@ def proactive_agents_processing_loop():
                     #run proactive meta agent, get insights
                     insights = run_proactive_meta_agent_and_experts(transcript)
                     print("insights: {}".format(insights))
-                    #cut off the prompts first "Insight: " words
-                    for insight in insights:
-                        insight["agent_insight"] = insight["agent_insight"][len("Insight:"):]
                     # [{'agent_name': 'Statistician', 'agent_insight': "Insight: Brain's processing limit challenges full Wikipedia integration. Neuralink trials show promising BCI advancements."},
                     # {'agent_name': 'FactChecker', 'agent_insight': 'null'},
                     # {'agent_name': 'DevilsAdvocate', 'agent_insight': 'Insight: Is more information always beneficial, or could it lead to cognitive overload?'}]
