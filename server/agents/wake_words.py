@@ -2,14 +2,33 @@ from string import punctuation
 
 explicit_wake_words = [
     "hey convoscope",
+
     "hey conboscope",
+    "hey conbo scope",
+
     "hey confoscope",
+    "hey confo scope",
+
+    "hey confiscope",
+    "hey confi scope",
+    
     "hey condoscope",
+    "hey condo scope",
+
+    "hey canvascope",
+    "hey canva scope",
 
     "hey comvoscope"
+    "hey comvo scope",
+
     "hey comboscope",
+    "hey combo scope",
+
     "hey comfoscope",
+    "hey comfo scope",
+
     "hey comdoscope",
+    "hey comdo scope",
 
     "hey convo scope",
 ]
