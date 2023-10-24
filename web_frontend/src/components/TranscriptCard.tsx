@@ -85,7 +85,7 @@ const TranscriptCard = ({ transcriptBoxHeight }: TranscriptCardProps) => {
       setTranscriptStartIdx(transcript.length + 1);
     }
 
-    console.log(text, isFinal);
+    //console.log(text, isFinal);
 
     axiosClient
       .post(CHAT_ENDPOINT, payload)
