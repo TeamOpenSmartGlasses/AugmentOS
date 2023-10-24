@@ -38,8 +38,12 @@ def proactive_agents_processing_loop():
                 insightGenerationStartTime = time.time()
               
                 try:
+                    insights_history = dbHandler.get_agent_insights_history_for_user(transcript['user_id'])
+                    print("insights_history: {}".format(insights_history))
+                    # [{'agent_name': 'Statistician', 'agent_insight': "Insight: Brain's processing limit challenges full Wikipedia integration. Neuralink trials show promising BCI advancements."}, ...]
+
                     #run proactive meta agent, get insights
-                    insights = run_proactive_meta_agent_and_experts(transcript)
+                    insights = run_proactive_meta_agent_and_experts(transcript, insights_history)
                     print("insights: {}".format(insights))
                     # [{'agent_name': 'Statistician', 'agent_insight': "Insight: Brain's processing limit challenges full Wikipedia integration. Neuralink trials show promising BCI advancements."},
                     # {'agent_name': 'FactChecker', 'agent_insight': 'null'},

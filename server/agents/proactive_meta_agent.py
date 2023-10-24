@@ -1,6 +1,6 @@
 #custom
+from collections import defaultdict
 from agents.search_tool_for_agents import get_search_tool_for_agents
-from agents.expert_agent_configs import expert_agent_config_list, expert_agent_prompt_maker
 from agents.expert_agent_configs import expert_agent_config_list, expert_agent_prompt_maker
 from agents.expert_agents import expert_agent_arun_wrapper
 from server_config import openai_api_key
@@ -38,6 +38,10 @@ You have access to "Expert Agents", which are like workers in your team that wit
 This is the current live transcript of the conversation you're assisting:
 <Transcript start>{conversation_context}<Transcript end>
 
+[Recent Insights History]
+Here are the insights that have been generated recently, you should not call the expert agent if you think it will generate the same insight as one of these:
+{insights_history}
+
 <Task start>You should now output a list of the expert agents you think should run. Feel free to specify no expert agents. {format_instructions}<Task end>"""
 
 # , but they're expensive to run, so only specify agents that will be helpful
@@ -53,14 +57,21 @@ def make_expert_agents_prompts():
 
     return expert_agents_descriptions_prompt
 
-def run_proactive_meta_agent_and_experts(conversation_context):
+def run_proactive_meta_agent_and_experts(conversation_context: str, insights_history: list):
     #run proactive agent to find out which expert agents we should run
-    proactive_meta_agent_response = run_proactive_meta_agent(conversation_context)
+    proactive_meta_agent_response = run_proactive_meta_agent(conversation_context, insights_history)
     print(proactive_meta_agent_response)
 
     #do nothing else if proactive meta agent didn't specify an agent to run
     if proactive_meta_agent_response == []:
         return []
+
+    #parse insights history into a dict of agent_name: [agent_insights] so expert agent won't repeat the same insights
+    insights_history_dict = defaultdict(list)
+    for insight in insights_history:
+        insights_history_dict[insight["agent_name"]].append(insight["agent_insight"])
+
+    print("insights_history_dict", insights_history_dict)
 
     #get the configs of any expert agents we should run
     experts_to_run_configs = list()
@@ -69,13 +80,13 @@ def run_proactive_meta_agent_and_experts(conversation_context):
 
     #run all the agents in parralel
     loop = asyncio.get_event_loop()
-    agents_to_run_tasks = [expert_agent_arun_wrapper(expert_agent_config, conversation_context) for expert_agent_config in experts_to_run_configs]
+    agents_to_run_tasks = [expert_agent_arun_wrapper(expert_agent_config, conversation_context, insights_history_dict[expert_agent_config["agent_name"]]) for expert_agent_config in experts_to_run_configs]
     insights_tasks = asyncio.gather(*agents_to_run_tasks)
     insights = loop.run_until_complete(insights_tasks)
     return insights
 
 
-def run_proactive_meta_agent(conversation_context):
+def run_proactive_meta_agent(conversation_context: str, insights_history: list):
     #get expert agents descriptions
     expert_agents_descriptions_prompt = make_expert_agents_prompts()
 
@@ -93,15 +104,18 @@ def run_proactive_meta_agent(conversation_context):
 
     extract_proactive_meta_agent_query_prompt = PromptTemplate(
         template=proactive_meta_agent_prompt_blueprint,
-        input_variables=["conversation_context", "expert_agents_descriptions_prompt"],
+        input_variables=["conversation_context", "expert_agents_descriptions_prompt", "insights_history"],
         partial_variables={
             "format_instructions": proactive_meta_agent_query_parser.get_format_instructions()}
     )
 
     proactive_meta_agent_query_prompt_string = extract_proactive_meta_agent_query_prompt.format_prompt(
             conversation_context=conversation_context, 
-            expert_agents_descriptions_prompt=expert_agents_descriptions_prompt
+            expert_agents_descriptions_prompt=expert_agents_descriptions_prompt,
+            insights_history=str(insights_history) if len(insights_history) > 0 else "None"
         ).to_string()
+
+    print("Proactive meta agent query prompt string", proactive_meta_agent_query_prompt_string)
 
     response = llm([HumanMessage(content=proactive_meta_agent_query_prompt_string)])
     try:
