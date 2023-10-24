@@ -9,7 +9,7 @@ from langchain.agents.tools import Tool
 banned_sites = ["calendar.google.com", "researchgate.net"]
 
 
-def scrape_page(url: str, title: str):
+def scrape_page(url: str):
     """Based on your observations from the Search_Engine, if you want more details from
     a snippet for a non-PDF page, pass this the page's URL and the page's title to
     scrape the full page and retrieve the full contents of the page."""
@@ -100,6 +100,8 @@ def parse_snippets(results: dict) -> List[str]:
     for result in results[result_key_for_type[search_type]][:k]:
         if "snippet" in result:
             page = scrape_page(result["link"])
+            if ('title' not in result) or (result['title'] is None):
+                result['title'] = ""
             if page is None:
                 snippets.append(f"Title: {result['title']}\nPossible answers: {result['snippet']}\n")
             else:

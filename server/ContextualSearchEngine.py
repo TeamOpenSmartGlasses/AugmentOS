@@ -537,7 +537,8 @@ class ContextualSearchEngine:
             print("=========================================================================")
             return {}
         else:
-            print("User {} has custom data loaded".format(user_id), "=========================================================================")
+            pass
+            #print("User {} has custom data loaded".format(user_id), "=========================================================================")
 
         # split the text to seach with into individual words
         words = talk.split()
@@ -575,7 +576,7 @@ class ContextualSearchEngine:
 
         start_time = time.time()
         matches_idxs = self.custom_fuzzy_search(word_combos, entity_names_to_match_filtered, config)
-        print("custom_fuzzy_search ran in {} on combo '{}'".format(time.time() - start_time, word_combos))
+        #print("custom_fuzzy_search ran in {} on combo '{}'".format(time.time() - start_time, word_combos))
 
         # run combinations through the fuzzy search
         # matches_idxs = list()
@@ -654,9 +655,6 @@ class ContextualSearchEngine:
                 continue
             # don't even try search if the to_search is too high frequency
             to_search_string_freq_index = self.get_string_freq(to_search)
-            if ("cyber" in to_search) or ("never mind" in to_search) or ("nevermind" in to_search):
-                print(to_search)
-                print(to_search_string_freq_index)
             if (len(individual_words) <= 2) and (to_search_string_freq_index < 0.03): # if there are 1-2 words to search and the index is below this, don't run
                 # print(f"--- Didn't search '{to_search}' because too common words, index {to_search_string_freq_index}")
                 continue

@@ -82,4 +82,4 @@ def proactive_agents_processing_loop():
             # print("=== processing_loop completed in {} seconds overall ===".format(
             #     round(pLoopEndTime - pLoopStartTime, 2)))
 
-        time.sleep(50)
+        time.sleep(15)

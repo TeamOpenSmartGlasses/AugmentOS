@@ -13,6 +13,7 @@ import pandas as pd
 import multiprocessing
 import logging
 import logging.handlers
+from concurrent.futures import ThreadPoolExecutor
 
 # CORS
 import aiohttp_cors
@@ -24,9 +25,10 @@ from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH
 from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_agents_process import proactive_agents_processing_loop
-from agents.expert_agents import run_single_expert_agent
+from agents.expert_agents import run_single_expert_agent, arun_single_expert_agent
 from Modules.RelevanceFilter import RelevanceFilter
 
+global agent_executor
 global db_handler
 global relevance_filter
 global app
@@ -54,7 +56,7 @@ async def chat_handler(request):
 
     # print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format(
     #     "FINAL" if is_final else "INTERMEDIATE", text, timestamp, user_id))
-    if is_final:
+    if is_final and False:
         print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format("FINAL", text, timestamp, user_id))
     start_save_db_time = time.time()
     db_handler.save_transcript_for_user(user_id=user_id, text=text, timestamp=timestamp, is_final=is_final)
@@ -120,17 +122,18 @@ def cse_loop():
             new_transcripts = db_handler.get_new_cse_transcripts_for_all_users(
                 combine_transcripts=True, delete_after=False)
             if new_transcripts is None or new_transcripts == []:
-                print("---------- No transcripts to run on for this cse_loop run...")
+                pass
+                # print("---------- No transcripts to run on for this cse_loop run...")
             for transcript in new_transcripts:
-                print("Run CSE with... user_id: '{}' ... text: '{}'".format(
-                    transcript['user_id'], transcript['text']))
+                # print("Run CSE with... user_id: '{}' ... text: '{}'".format(
+                #     transcript['user_id'], transcript['text']))
                 cse_start_time = time.time()
                 cse_responses = cse.contextual_search_engine(
                     transcript['user_id'], transcript['text'])
                 #cse_responses = None
                 cse_end_time = time.time()
-                print("=== CSE completed in {} seconds ===".format(
-                    round(cse_end_time - cse_start_time, 2)))
+                # print("=== CSE completed in {} seconds ===".format(
+                #     round(cse_end_time - cse_start_time, 2)))
 
                 #filter responses with relevance filter, then save CSE results to the database
                 cse_responses_filtered = list()
@@ -141,7 +144,7 @@ def cse_loop():
                     )
 
                     final_cse_responses = [cse_response for cse_response in cse_responses if cse_response["name"] in cse_responses_filtered]
-                    print("=== CSE RESPONSES FILTERED: {} ===".format(final_cse_responses))
+                    # print("=== CSE RESPONSES FILTERED: {} ===".format(final_cse_responses))
 
                     db_handler.add_cse_results_for_user(
                         transcript["user_id"], final_cse_responses
@@ -154,8 +157,8 @@ def cse_loop():
             traceback.print_exc()
         finally:
             p_loop_end_time = time.time()
-            print("=== processing_loop completed in {} seconds overall ===".format(
-                round(p_loop_end_time - p_loop_start_time, 2)))
+            # print("=== processing_loop completed in {} seconds overall ===".format(
+            #     round(p_loop_end_time - p_loop_start_time, 2)))
 
         loop_run_period = 2.5 #run the loop this often
         while (time.time() - loop_start_time) < loop_run_period: #wait until loop_run_period has passed before running this again
@@ -256,15 +259,16 @@ async def expert_agent_runner(expert_agent_name, user_id):
     convo_context = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n_seconds)
 
     #spin up the agent
-    agent_insight = run_single_expert_agent(expert_agent_name, convo_context)
+    agent_insight = await arun_single_expert_agent(expert_agent_name, convo_context)
 
     #save this insight to the DB for the user
-    insight_obj = {}
-    insight_obj['timestamp'] = math.trunc(time.time())
-    insight_obj['uuid'] = str(uuid.uuid4())
-    insight_obj['agent_name'] = agent_insight["agent_name"]
-    insight_obj['agent_insight'] = agent_insight["agent_insight"]
-    db_handler.add_agent_insights_results_for_user(user_id, [insight_obj])
+    if agent_insight["agent_insight"] != None:
+        insight_obj = {}
+        insight_obj['timestamp'] = math.trunc(time.time())
+        insight_obj['uuid'] = str(uuid.uuid4())
+        insight_obj['agent_name'] = agent_insight["agent_name"]
+        insight_obj['agent_insight'] = agent_insight["agent_insight"]
+        db_handler.add_agent_insights_results_for_user(user_id, [insight_obj])
 
     #agent run complete
     print("--- Done agent run task of agent {} from user {}".format(expert_agent_name, user_id))
@@ -288,6 +292,11 @@ async def run_single_expert_agent_handler(request):
 
     #spin up agent
     asyncio.ensure_future(expert_agent_runner(agent_name, user_id))
+    #loop = asyncio.get_event_loop()
+    #loop.create_task(expert_agent_runner(agent_name, user_id))  # Non-blocking
+    #loop.run_in_executor(executor, run_single_agent)
+
+    print("Spun up agent, now returning.")
 
     return web.Response(text=json.dumps({'success': True, 'message': "Running agent: {}".format(agent_name)}), status=200)
 
@@ -315,6 +324,7 @@ async def send_agent_chat_handler(request):
 
 if __name__ == '__main__':
     print("Starting server...")
+    agent_executor = ThreadPoolExecutor()
     db_handler = DatabaseHandler()
     # start proccessing loop subprocess to process data as it comes in
     if USE_GPU_FOR_INFERENCING:

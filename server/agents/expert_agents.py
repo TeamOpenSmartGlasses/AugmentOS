@@ -19,11 +19,9 @@ agent = initialize_agent([
 
 def clean_expert_agent_output(expert_agent_response):
     #for consistency, the final response starts with "Insight: ", let's remove that
-    if expert_agent_response == "null": 
-        expert_agent_response = None
-    expert_agent_response = expert_agent_response[len("Insight:"):]
-    if expert_agent_response == "null": 
-        expert_agent_response = None
+    if "null" in expert_agent_response: 
+        return None
+    expert_agent_response = expert_agent_response.replace("Insight: ", "") #remove "Insight: " preface from insight
     return expert_agent_response
 
 
@@ -32,9 +30,14 @@ def run_single_expert_agent(expert_agent_name, convo_context):
     expert_agent_config = expert_agent_config_list[expert_agent_name]
     #run the agent
     expert_agent_response = expert_agent_run_wrapper(expert_agent_config, convo_context)
-    #clean the output
-    expert_agent_response = clean_expert_agent_output(expert_agent_response)
+    return expert_agent_response
 
+
+async def arun_single_expert_agent(expert_agent_name, convo_context):
+    #initialize the requested expert agent - using the name given
+    expert_agent_config = expert_agent_config_list[expert_agent_name]
+    #run the agent
+    expert_agent_response = await expert_agent_arun_wrapper(expert_agent_config, convo_context)
     return expert_agent_response
 
 
