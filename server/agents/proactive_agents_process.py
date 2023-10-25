@@ -53,7 +53,7 @@ def proactive_agents_processing_loop():
                         if insight is None:
                             continue
                         #save this insight to the DB for the user
-                        dbHandler.add_agent_insights_results_for_user(transcript['user_id'], insight["agent_name"], insight["agent_insight"])
+                        dbHandler.add_agent_insights_results_for_user(transcript['user_id'], insight["agent_name"], insight["agent_insight"], insight["reference_sources"], insight["insight_motive"])
 
                 except Exception as e:
                     print("Exception in agent.run()...:")
