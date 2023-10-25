@@ -50,6 +50,8 @@ def proactive_agents_processing_loop():
                     # {'agent_name': 'DevilsAdvocate', 'agent_insight': 'Insight: Is more information always beneficial, or could it lead to cognitive overload?'}]
 
                     for insight in insights:
+                        if insight is None:
+                            continue
                         #save this insight to the DB for the user
                         dbHandler.add_agent_insights_results_for_user(transcript['user_id'], insight["agent_name"], insight["agent_insight"])
 
