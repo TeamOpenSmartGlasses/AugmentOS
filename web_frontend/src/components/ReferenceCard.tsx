@@ -7,6 +7,7 @@ import {
   UnstyledButton,
   createStyles,
   Box,
+  Tooltip,
 } from "@mantine/core";
 import { Entity } from "../types";
 
@@ -44,16 +45,19 @@ const ReferenceCard = ({
 
   const getImageUrl = (entity: Entity) => {
     if (entity.map_image_path) {
-      return `${import.meta.env.VITE_BACKEND_BASE_URL}/${
-        entity.map_image_path
-      }`;
+      return `${import.meta.env.VITE_BACKEND_BASE_URL}/${entity.map_image_path
+        }`;
     }
     return entity.image_url;
   };
 
   const handleSelectCard = () => {
     setSelectedCardId(cardId);
-    setViewMoreUrl(entity.url);
+    if (entity.url) {
+      setViewMoreUrl(entity.url);
+    } else if (entity.agent_references) {
+      setViewMoreUrl(entity.agent_references);
+    }
     setLoading(true);
   };
 
@@ -63,72 +67,76 @@ const ReferenceCard = ({
     entity.name = entity.agent_name + " says...";
 
     //setup image of agent output
-    if (entity.agent_name == "Statistician"){
-        entity.image_url = "/statistician_agent_avatar.jpg";
-    } else if (entity.agent_name == "FactChecker"){
-        entity.image_url = "/fact_checker_agent_avatar.jpg";
-    } else if (entity.agent_name == "DevilsAdvocate"){
-        entity.image_url = "/devils_advocate_agent_avatar.jpg";
+    if (entity.agent_name == "Statistician") {
+      entity.image_url = "/statistician_agent_avatar.jpg";
+    } else if (entity.agent_name == "FactChecker") {
+      entity.image_url = "/fact_checker_agent_avatar.jpg";
+    } else if (entity.agent_name == "DevilsAdvocate") {
+      entity.image_url = "/devils_advocate_agent_avatar.jpg";
     }
   }
 
-  return (
-    <Card
-      withBorder
-      radius="md"
-      p={0}
-      h={"max-content"}
-      onClick={handleSelectCard}
-      className={classes.card}
-      sx={{
-        color: selected ? theme.colors.indigo[9] : "black",
-      }}
-    >
-      <Flex gap={"1rem"} align={"center"} h={"100%"}>
-        {entity.image_url || entity.map_image_path ? (
-          <Image src={getImageUrl(entity)} height={120} width={120} />
-        ) : (
-          <Box ml={"1rem"}></Box>
-        )}
-        <Flex
-          direction={"column"}
-          pr={"lg"}
-          h={"100%"}
-          justify={"center"}
-          py={entity.image_url || entity.map_image_path ? 0 : 10}
+  const card = <Card
+    withBorder
+    radius="md"
+    p={0}
+    h={"max-content"}
+    onClick={handleSelectCard}
+    className={classes.card}
+    sx={{
+      color: selected ? theme.colors.indigo[9] : "black",
+    }}
+  >
+    <Flex gap={"1rem"} align={"center"} h={"100%"}>
+      {entity.image_url || entity.map_image_path ? (
+        <Image src={getImageUrl(entity)} height={120} width={120} />
+      ) : (
+        <Box ml={"1rem"}></Box>
+      )}
+      <Flex
+        direction={"column"}
+        pr={"lg"}
+        h={"100%"}
+        justify={"center"}
+        py={entity.image_url || entity.map_image_path ? 0 : 10}
+      >
+        <Title order={2} lineClamp={1}>
+          {entity.name}
+        </Title>
+        <Text
+          fz="lg"
+          sx={{
+            wordWrap: "break-word",
+            wordBreak: "break-word",
+            overflowWrap: "break-word",
+          }}
         >
-          <Title order={2} lineClamp={1}>
-            {entity.name}
-          </Title>
-          <Text
-            fz="lg"
-            sx={{
-              wordWrap: "break-word",
-              wordBreak: "break-word",
-              overflowWrap: "break-word",
-            }}
-          >
-            {entity.summary || entity.agent_insight}
-            {entity.url && !entity.text && (
-              <UnstyledButton>
-                <Text
-                  fz="lg"
-                  sx={{
-                    marginLeft: "0.5rem",
-                    textDecoration: "underline",
-                  }}
-                  color={selected ? "white" : "black"}
-                  onClick={handleSelectCard}
-                >
-                  Read more
-                </Text>
-              </UnstyledButton>
-            )}
-          </Text>
-        </Flex>
+          {entity.summary || entity.agent_insight}
+          {entity.url && !entity.text && (
+            <UnstyledButton>
+              <Text
+                fz="lg"
+                sx={{
+                  marginLeft: "0.5rem",
+                  textDecoration: "underline",
+                }}
+                color={selected ? "white" : "black"}
+                onClick={handleSelectCard}
+              >
+                Read more
+              </Text>
+            </UnstyledButton>
+          )}
+        </Text>
       </Flex>
-    </Card>
-  );
+    </Flex>
+  </Card>
+
+  if (entity.agent_motive) {
+    return <Tooltip.Floating label={entity.agent_motive}>{card}</Tooltip.Floating>
+  }
+
+  return card;
 };
 
 export default ReferenceCard;
