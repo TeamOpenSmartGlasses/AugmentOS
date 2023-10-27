@@ -111,10 +111,15 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list):
             "format_instructions": proactive_meta_agent_query_parser.get_format_instructions()}
     )
 
+    if len(insights_history) > 0:
+        insights_history=format_list_data(insights_history)
+    else:
+        insights_history="None"
+
     proactive_meta_agent_query_prompt_string = extract_proactive_meta_agent_query_prompt.format_prompt(
             conversation_context=conversation_context, 
             expert_agents_descriptions_prompt=expert_agents_descriptions_prompt,
-            insights_history=format_list_data(insights_history) if len(insights_history) > 0 else "None"
+            insights_history=insights_history
         ).to_string()
 
     print("Proactive meta agent query prompt string", proactive_meta_agent_query_prompt_string)

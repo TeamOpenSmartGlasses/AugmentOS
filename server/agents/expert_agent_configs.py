@@ -126,7 +126,13 @@ def expert_agent_prompt_maker(expert_agent_config, conversation_transcript, form
     # Populating the blueprint string with values from the agent_config dictionary
     if final_command != "":
         final_command = "\n\n" + final_command
-    expert_agent_prompt = expert_agent_prompt_blueprint.format(**expert_agent_config, final_command=final_command, conversation_transcript=conversation_transcript, insights_history=format_list_data(insights_history), format_instructions=format_instructions)
+
+    if len(insights_history) > 0:
+        insights_history = format_list_data(insights_history)
+    else:
+        insights_history = "None"
+    
+    expert_agent_prompt = expert_agent_prompt_blueprint.format(**expert_agent_config, final_command=final_command, conversation_transcript=conversation_transcript, insights_history=insights_history, format_instructions=format_instructions)
 
     # print("expert_agent_prompt", expert_agent_prompt)
 
