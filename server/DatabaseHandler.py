@@ -537,6 +537,7 @@ class DatabaseHandler:
             { "$limit": top },
             {
                 "$project": {
+                    "_id": 0,
                     "insight": "$agent_insights_results.agent_insight",
                     "agent_name": "$agent_insights_results.agent_name"
                 }

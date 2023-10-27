@@ -1,7 +1,7 @@
 #custom
 from collections import defaultdict
 from agents.search_tool_for_agents import get_search_tool_for_agents
-from agents.expert_agent_configs import expert_agent_config_list, expert_agent_prompt_maker
+from agents.expert_agent_configs import expert_agent_config_list, expert_agent_prompt_maker, format_list_data
 from agents.expert_agents import expert_agent_arun_wrapper
 from server_config import openai_api_key
 
@@ -61,7 +61,8 @@ def make_expert_agents_prompts():
 def run_proactive_meta_agent_and_experts(conversation_context: str, insights_history: list):
     #run proactive agent to find out which expert agents we should run
     proactive_meta_agent_response = run_proactive_meta_agent(conversation_context, insights_history)
-    print(proactive_meta_agent_response)
+
+    # print(proactive_meta_agent_response)
 
     #do nothing else if proactive meta agent didn't specify an agent to run
     if proactive_meta_agent_response == []:
@@ -113,7 +114,7 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list):
     proactive_meta_agent_query_prompt_string = extract_proactive_meta_agent_query_prompt.format_prompt(
             conversation_context=conversation_context, 
             expert_agents_descriptions_prompt=expert_agents_descriptions_prompt,
-            insights_history=str(insights_history) if len(insights_history) > 0 else "None"
+            insights_history=format_list_data(insights_history) if len(insights_history) > 0 else "None"
         ).to_string()
 
     print("Proactive meta agent query prompt string", proactive_meta_agent_query_prompt_string)

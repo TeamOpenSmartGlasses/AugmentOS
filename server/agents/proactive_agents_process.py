@@ -43,7 +43,7 @@ def proactive_agents_processing_loop():
                     # [{'agent_name': 'Statistician', 'agent_insight': "Insight: Brain's processing limit challenges full Wikipedia integration. Neuralink trials show promising BCI advancements."}, ...]
 
                     #run proactive meta agent, get insights
-                    insights = run_proactive_meta_agent_and_experts(transcript, insights_history)
+                    insights = run_proactive_meta_agent_and_experts(transcript['text'], insights_history)
                     print("insights: {}".format(insights))
                     # [{'agent_name': 'Statistician', 'agent_insight': "Insight: Brain's processing limit challenges full Wikipedia integration. Neuralink trials show promising BCI advancements."},
                     # {'agent_name': 'FactChecker', 'agent_insight': 'null'},
