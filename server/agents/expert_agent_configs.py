@@ -36,11 +36,11 @@ In your initial thought, you should first come up with a plan to generate the "I
 
 {agent_plan}
 
-The plan should include a final step to generate the insight. The insight must {insight_num_words} words or less and be in the format `Insight: {{Insert your "Insight" here}}`, and can omit filler words or replace words with symbols to shorten the length of the insight where possible. If you don't have a very valuable and useful insight for any reason, simply specify your "Insight as "null" by outputting `Insight: null`. 
+The plan should include a final step to generate the insight. The "Insight" must {insight_num_words} words or less. The "Insight" can omit filler words or replace words with symbols or acronyms to shorten its length where possible. If you don't have a very valuable and useful "Insight" for any reason, simply specify your "Insight" as the string "null". 
 
-Once you have the insight, collect the relevant reference sources used to generate this insight, and also the motive of the how the insight helps with the conversation, with literal quotes from the transcript. If the insight is not really as insightful as the ones from the examples, we should hide it and just return `Insight: null.
+Once you have the "Insight", extract the url of the most relevant reference source used to generate this "Insight". Also, relay the motive of the why the insight benefits the conversation, with quotes from the transcript. If the "Insight" is not up to par with the examples, we should hide it and just return "null" for the "Insight".
 
-Format instructions
+Here are more detailed formatting instructions
 {format_instructions}
 
 Remember, the insight needs to be {insight_num_words} words or less!
