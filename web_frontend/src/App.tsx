@@ -27,6 +27,8 @@ const useStyles = createStyles((theme) => ({
     overflow: "clip",
   },
 
+  card: { backgroundColor: theme.white, borderRadius: "0.25rem" },
+
   container: {
     width: "100%",
     height: "100%",
