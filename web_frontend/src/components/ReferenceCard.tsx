@@ -35,7 +35,7 @@ interface ReferenceCardProps {
 }
 
 const AGENT_ICON_PATHS: Record<string, string> = {
-  "Statistician": "/statistician_agent_avatar.jpg",
+  "Statistician": "/stats_agent_transparent.png",
   "FactChecker": "/fact_checker_agent_avatar.jpg",
   "DevilsAdvocate": "/devils_advocate_agent_avatar.jpg",
 };
@@ -64,6 +64,7 @@ const ReferenceCard = ({
       radius="md"
       p={0}
       h={"22rem"}
+      mb={"2.5rem"}
       onClick={onClick}
       className={classes.card}
       withBorder

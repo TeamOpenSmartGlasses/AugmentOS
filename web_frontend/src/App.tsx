@@ -67,8 +67,7 @@ export default function App() {
       // "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Doppler_effect_diagrammatic.svg/520px-Doppler_effect_diagrammatic.svg.png",
         "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Redshift.svg/340px-Redshift.svg.png",
       url: "https://en.wikipedia.org/wiki/Doppler_effect",
-      agent_name: "FactChecker",
-      agent_insight: "FactChecker",
+      agent_name: "Statistician",
     },
   ]);
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
