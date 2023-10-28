@@ -83,6 +83,7 @@ const ReferenceCard = ({
               "& > div, & > div > figure, & > div > figure > div": {
                 height: "100%",
               },
+              background: "white"
             }}
           >
             <Image src={getImageUrl(entity)} fit="cover" height="100%" />
@@ -113,6 +114,7 @@ const ReferenceCard = ({
                 e.stopPropagation();
                 setThumbState(thumbState === "down" ? undefined : "down");
               }}
+              style={{transform: "scaleX(-1)"}}
             >
               {thumbState === "down" ? (
                 <IconThumbDownFilled size="2rem" stroke={1.5} />
