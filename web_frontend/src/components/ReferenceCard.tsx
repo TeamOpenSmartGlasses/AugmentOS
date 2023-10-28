@@ -11,7 +11,7 @@ import {
   Box,
   ActionIcon,
 } from "@mantine/core";
-import { Entity } from "../types";
+import { AgentName, Entity } from "../types";
 import { IconThumbDown, IconThumbDownFilled, IconThumbUp, IconThumbUpFilled } from "@tabler/icons-react";
 import { useState } from "react";
 
@@ -34,10 +34,11 @@ interface ReferenceCardProps {
   onClick: () => void;
 }
 
-const AGENT_ICON_PATHS: Record<string, string> = {
-  "Statistician": "/stats_agent_transparent.png",
-  "FactChecker": "/fact_checker_agent_avatar.jpg",
-  "DevilsAdvocate": "/devils_advocate_agent_avatar.jpg",
+const AGENT_ICON_PATHS: Record<AgentName, string> = {
+  [AgentName.STATISTICIAN]: "/stats_agent_transparent.png",
+  [AgentName.FACT_CHECKER]: "/fact_checker_agent_avatar.jpg",
+  [AgentName.DEVILS_ADVOCATE]: "/devils_advocate_agent_avatar.jpg",
+  [AgentName.DEFINER]: "/devils_advocate_agent_avatar.jpg",
 };
 
 const ReferenceCard = ({
@@ -129,30 +130,29 @@ const ReferenceCard = ({
               overflowWrap: "break-word",
             }}
           >
-            {entity.summary || entity.agent_insight}
+            {/* if there is an entity.name, show the Definer card format. Otherwise show the agent insight */}
+            {entity.name
+              ? `${entity.name}: ${entity.summary}`
+              : entity.agent_insight}
           </Text>
           <Group mt="auto">
-            {entity.agent_name && (
-              <Text
-                sx={{
-                  textTransform: "uppercase",
-                }}
-                fw="bold"
-                ml="auto"
-                size={rem(20)}
-                color={theme.colors.bodyText}
-              >
-                {entity.agent_name}
-              </Text>
-            )}
-            {entity.agent_name && (
-              <Image
-                src={AGENT_ICON_PATHS[entity.agent_name]}
-                height={rem(50)}
-                width={rem(50)}
-                radius="md"
-              />
-            )}
+            <Text
+              sx={{
+                textTransform: "uppercase",
+              }}
+              fw="bold"
+              ml="auto"
+              size={rem(20)}
+              color={theme.colors.bodyText}
+            >
+              {entity.agent_name ?? AgentName.DEFINER}
+            </Text>
+            <Image
+              src={AGENT_ICON_PATHS[entity.agent_name ?? AgentName.DEFINER]}
+              height={rem(50)}
+              width={rem(50)}
+              radius="md"
+            />
           </Group>
         </Stack>
       </Flex>

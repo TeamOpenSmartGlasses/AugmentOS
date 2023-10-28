@@ -10,7 +10,7 @@ import {
 } from "@mantine/core";
 import Sidebar from "./components/Sidebar";
 import PageView from "./components/PageView";
-import { Entity } from "./types";
+import { AgentName, Entity } from "./types";
 import ReferenceCard from "./components/ReferenceCard";
 import Cookies from "js-cookie";
 import axiosClient from "./axiosConfig";
@@ -63,19 +63,26 @@ export default function App() {
   // TODO: remove test card
   const [entities, setEntities] = useState<Entity[]>([
     {
-      name: "test name",
-      summary: "The Doppler effect is the change in the frequency of a wave.",
+      agent_insight: "90% of waves have a frequency of 100 Hz.",
       image_url:
-      // "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Doppler_effect_diagrammatic.svg/520px-Doppler_effect_diagrammatic.svg.png",
         "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Redshift.svg/340px-Redshift.svg.png",
       url: "https://en.wikipedia.org/wiki/Doppler_effect",
-      agent_name: "Statistician",
+      agent_name: AgentName.STATISTICIAN,
+      uuid: "test id 1",
+    },
+    {
+      name: "Doppler Effect",
+      summary: "The change in the frequency of a wave.",
+      image_url:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Doppler_effect_diagrammatic.svg/520px-Doppler_effect_diagrammatic.svg.png",
+      url: "https://en.wikipedia.org/wiki/Doppler_effect",
+      uuid: "test id 2",
     },
   ]);
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
   // TODO: default to false
   const [showExplorePane, setShowExplorePane] = useState(false);
-  const [selectedCardId, setSelectedCardId] = useState<number | undefined>();
+  const [selectedCardId, setSelectedCardId] = useState<string | undefined>();
   const [loadingViewMore, setLoadingViewMore] = useState(false);
 
   const [opened, { open: openSettings, close: closeSettings }] =
@@ -192,22 +199,21 @@ export default function App() {
         <Container fluid className={classes.container} pt={"2rem"} px={"4rem"}>
           {/* Left Panel */}
           <ScrollArea scrollHideDelay={100}>
-            {entities.map((entity, i) => (
+            {entities.slice(0).reverse().map((entity) => (
               <Transition
                 mounted={true}
                 transition="slide-up"
                 duration={400}
                 timingFunction="ease"
+                key={`entity-${entity.uuid}`}
               >
                 {(styles) => (
                   <div style={styles}>
                     <ReferenceCard
                       entity={entity}
-                      key={`entity-${i}`}
-                      // FIXME: associate an id with each entity
-                      selected={selectedCardId === i}
+                      selected={selectedCardId === entity.uuid}
                       onClick={() => {
-                        setSelectedCardId(i === selectedCardId ? undefined : i);
+                        setSelectedCardId(entity.uuid === selectedCardId ? undefined : entity.uuid);
                         setViewMoreUrl(entity.url);
                         setLoadingViewMore(true);
                         setShowExplorePane(!showExplorePane);

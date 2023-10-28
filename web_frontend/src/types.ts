@@ -1,3 +1,10 @@
+export enum AgentName {
+  STATISTICIAN = "Statistician",
+  DEFINER = "Definer",
+  FACT_CHECKER = "FactChecker",
+  DEVILS_ADVOCATE = "DevilsAdvocate",
+}
+
 export type Entity = {
   name?: string;
   summary?: string;
@@ -6,5 +13,6 @@ export type Entity = {
   url?: string; // view more url
   text?: string; // insight
   agent_insight?: string;
-  agent_name?: string;
+  agent_name?: AgentName;
+  uuid: string;
 };
