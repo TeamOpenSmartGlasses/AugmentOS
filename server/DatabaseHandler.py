@@ -1,6 +1,7 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 import time
+import agents.wake_words
 import math
 from hashlib import sha256
 from server_config import database_uri, clear_users_on_start, clear_cache_on_start
@@ -116,14 +117,21 @@ class DatabaseHandler:
         item = {"description": description_hash, "summary": summary}
         self.cache_collection.insert_one(item)
 
+    def check_for_wake_words_in_transcript_text(self, user_id, text):
+        if agents.wake_words.does_text_contain_wake_word(text):
+            self.update_wake_word_time_for_user(user_id, time.time())
+
     ### TRANSCRIPTS ###
 
     def save_transcript_for_user(self, user_id, text, timestamp, is_final):
         if text == "": return
 
+        text = text.strip()
+
         transcript = {"user_id": user_id, "text": text,
                       "timestamp": timestamp, "is_final": is_final, "uuid": str(uuid.uuid4())}
-        self.create_user_if_not_exists(user_id)
+        
+        user = self.get_user(user_id)
 
         self.purge_old_transcripts_for_user_id(user_id)
 
@@ -141,16 +149,23 @@ class DatabaseHandler:
             # If `cse_consumed_transcript_id` == -1:
             # Set `cse_consumed_transcript_id` = `my_new_id`
             # `cse_consumed_transcript_idx` stays the same
-            user = self.get_user(user_id)
             if user['cse_consumed_transcript_id'] == -1:
                 update = {
                     "$set": {"cse_consumed_transcript_id": transcript['uuid']}}
                 self.user_collection.update_one(filter=filter, update=update)
+            
+            # Check for wake words
+            self.check_for_wake_words_in_transcript_text(user_id, text)
         else:
             # Save to `latest_intermediate_transcript` field in database - text and timestamp
             filter = {"user_id": user_id}
             update = {"$set": {"latest_intermediate_transcript": transcript}}
             self.user_collection.update_one(filter=filter, update=update)
+
+            # Check for wake words
+            latest_final_text = user['final_transcripts'][-1]['text'] if user['final_transcripts'] else ""
+            self.check_for_wake_words_in_transcript_text(user_id, latest_final_text + text)
+
 
     def get_user(self, user_id):
         user = self.user_collection.find_one({"user_id": user_id})
@@ -169,10 +184,18 @@ class DatabaseHandler:
 
     def combine_text_from_transcripts(self, transcripts, recent_transcripts_only=True):
         curr_time = time.time()
+        last_index = len(transcripts) - 1
         text = ""
-        for t in transcripts:
+
+        for index, t in enumerate(transcripts):
             if recent_transcripts_only and (curr_time - t['timestamp'] < self.final_transcript_validity_time):
-                text += t['text'] + " "
+                text += t['text']
+            elif not recent_transcripts_only:
+                text += t['text']
+
+            if index != last_index:
+                text += " "
+
         return text
 
     def get_new_cse_transcripts_for_user(self, user_id, delete_after=False):
