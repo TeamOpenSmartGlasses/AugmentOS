@@ -206,7 +206,7 @@ export default function App() {
         )}
         <Container fluid className={classes.container} pt={"2rem"} px={"4rem"}>
           {/* Left Panel */}
-          <ScrollArea scrollHideDelay={100}>
+          <ScrollArea scrollHideDelay={100} h="100%">
             {entities.slice(0).reverse().map((entity, i) => (
               <Transition
                 mounted={mountedIds.has(entity.uuid)}
