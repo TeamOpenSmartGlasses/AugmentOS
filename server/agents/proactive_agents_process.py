@@ -38,8 +38,8 @@ def proactive_agents_processing_loop():
                 insightGenerationStartTime = time.time()
               
                 # TODO: Test this quick n' dirty way of preventing proactive from running on explicit queries
-                transcript_to_use = transcript
-                explicit_history = dbHandler.get_explicit_query_history_for_user()
+                transcript_to_use = transcript['text']
+                explicit_history = dbHandler.get_explicit_query_history_for_user(user_id=transcript['user_id'], device_id=None, should_consume=False, include_consumed=True)
                 for hist_item in explicit_history:
                     transcript_to_use.replace(hist_item['query'], ' ... ')
 
