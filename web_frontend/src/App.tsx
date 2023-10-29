@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import {
+  Box,
   ColorScheme,
   Container,
   Flex,
+  Image,
   MantineProvider,
   ScrollArea,
   Transition,
@@ -62,22 +64,22 @@ export default function App() {
   const endOfReferencesRef = useRef<HTMLDivElement | null>(null);
   // TODO: remove test card
   const [entities, setEntities] = useState<Entity[]>([
-    {
-      agent_insight: "90% of waves have a frequency of 100 Hz.",
-      image_url:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Redshift.svg/340px-Redshift.svg.png",
-      url: "https://en.wikipedia.org/wiki/Doppler_effect",
-      agent_name: AgentName.STATISTICIAN,
-      uuid: "test id 1",
-    },
-    {
-      name: "Doppler Effect",
-      summary: "The change in the frequency of a wave.",
-      image_url:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Doppler_effect_diagrammatic.svg/520px-Doppler_effect_diagrammatic.svg.png",
-      url: "https://en.wikipedia.org/wiki/Doppler_effect",
-      uuid: "test id 2",
-    },
+    // {
+    //   agent_insight: "90% of waves have a frequency of 100 Hz.",
+    //   image_url:
+    //     "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Redshift.svg/340px-Redshift.svg.png",
+    //   url: "https://en.wikipedia.org/wiki/Doppler_effect",
+    //   agent_name: AgentName.STATISTICIAN,
+    //   uuid: "test id 1",
+    // },
+    // {
+    //   name: "Doppler Effect",
+    //   summary: "The change in the frequency of a wave.",
+    //   image_url:
+    //   "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Doppler_effect_diagrammatic.svg/520px-Doppler_effect_diagrammatic.svg.png",
+    //   url: "https://en.wikipedia.org/wiki/Doppler_effect",
+    //   uuid: "test id 2",
+    // },
   ]);
   const [mountedIds, setMountedIds] = useState(new Set<string>());
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
@@ -201,37 +203,47 @@ export default function App() {
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
       <Flex className={classes.root}>
-        {!smallerThanMedium && (
-          <Sidebar settingsOpened={opened} toggleSettings={toggleSettings} />
-        )}
+        <Sidebar settingsOpened={opened} toggleSettings={toggleSettings} />
         <Container fluid className={classes.container} pt={"2rem"} px={"4rem"}>
+          {entities.length === 0 && (
+            <Box w="50%" mx="auto" mt="xl">
+              <Image src={"/blobs.gif"} fit="cover" />
+            </Box>
+          )}
           {/* Left Panel */}
           <ScrollArea scrollHideDelay={100} h="100%">
-            {entities.slice(0).reverse().map((entity, i) => (
-              <Transition
-                mounted={mountedIds.has(entity.uuid)}
-                transition="slide-down"
-                duration={400}
-                timingFunction="ease"
-                key={`entity-${entity.uuid}`}
-              >
-                {(styles) => (
-                  <div style={styles}>
-                    <ReferenceCard
-                      entity={entity}
-                      selected={selectedCardId === entity.uuid}
-                      onClick={() => {
-                        setSelectedCardId(entity.uuid === selectedCardId ? undefined : entity.uuid);
-                        setViewMoreUrl(entity.url);
-                        setLoadingViewMore(true);
-                        setShowExplorePane(!showExplorePane);
-                      }}
-                      large={i === 0}
-                    />
-                  </div>
-                )}
-              </Transition>
-            ))}
+            {entities
+              .slice(0)
+              .reverse()
+              .map((entity, i) => (
+                <Transition
+                  mounted={mountedIds.has(entity.uuid)}
+                  transition="slide-down"
+                  duration={400}
+                  timingFunction="ease"
+                  key={`entity-${entity.uuid}`}
+                >
+                  {(styles) => (
+                    <div style={styles}>
+                      <ReferenceCard
+                        entity={entity}
+                        selected={selectedCardId === entity.uuid}
+                        onClick={() => {
+                          setSelectedCardId(
+                            entity.uuid === selectedCardId
+                              ? undefined
+                              : entity.uuid
+                          );
+                          setViewMoreUrl(entity.url);
+                          setLoadingViewMore(true);
+                          setShowExplorePane(!showExplorePane);
+                        }}
+                        large={i === 0}
+                      />
+                    </div>
+                  )}
+                </Transition>
+              ))}
             <div ref={endOfReferencesRef}></div>
           </ScrollArea>
         </Container>
