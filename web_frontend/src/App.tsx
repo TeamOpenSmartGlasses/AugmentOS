@@ -79,6 +79,7 @@ export default function App() {
       uuid: "test id 2",
     },
   ]);
+  const [mountedIds, setMountedIds] = useState(new Set<string>());
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
   // TODO: default to false
   const [showExplorePane, setShowExplorePane] = useState(false);
@@ -175,6 +176,13 @@ export default function App() {
       });
   };
 
+  // HACK: delay mount reference cards when entities change
+  useEffect(() => {
+    setTimeout(
+      () => setMountedIds(new Set([...entities.map((entity) => entity.uuid)])),
+      100
+    );}, [entities]);
+
   useEffect(() => {
     initUserId();
     setInterval(() => {
@@ -199,10 +207,10 @@ export default function App() {
         <Container fluid className={classes.container} pt={"2rem"} px={"4rem"}>
           {/* Left Panel */}
           <ScrollArea scrollHideDelay={100}>
-            {entities.slice(0).reverse().map((entity) => (
+            {entities.slice(0).reverse().map((entity, i) => (
               <Transition
-                mounted={true}
-                transition="slide-up"
+                mounted={mountedIds.has(entity.uuid)}
+                transition="slide-down"
                 duration={400}
                 timingFunction="ease"
                 key={`entity-${entity.uuid}`}
@@ -218,6 +226,7 @@ export default function App() {
                         setLoadingViewMore(true);
                         setShowExplorePane(!showExplorePane);
                       }}
+                      large={i === 0}
                     />
                   </div>
                 )}

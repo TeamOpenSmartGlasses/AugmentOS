@@ -32,6 +32,7 @@ interface ReferenceCardProps {
   entity: Entity;
   selected?: boolean;
   onClick: () => void;
+  large?: boolean;
 }
 
 const AGENT_ICON_PATHS: Record<AgentName, string> = {
@@ -45,6 +46,7 @@ const ReferenceCard = ({
   entity,
   selected = false,
   onClick,
+  large = false,
 }: ReferenceCardProps) => {
   const theme = useMantineTheme();
   const { classes } = useStyles();
@@ -64,7 +66,7 @@ const ReferenceCard = ({
     <Card
       radius="md"
       p={0}
-      h={"22rem"}
+      h={large ? "22rem" : "15rem"}
       mb={"2.5rem"}
       onClick={onClick}
       className={classes.card}
