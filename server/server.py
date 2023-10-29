@@ -338,7 +338,7 @@ if __name__ == '__main__':
     # start the proactive agents process
     print("Starting Proactive Agents process...")
     proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
-    # proactive_agents_background_process.start()
+    proactive_agents_background_process.start()
 
     explicit_background_process = multiprocessing.Process(target=explicit_query_processing_loop)
     explicit_background_process.start()
