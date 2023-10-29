@@ -170,9 +170,9 @@ class DatabaseHandler:
             update = {"$set": {"latest_intermediate_transcript": transcript}}
             self.user_collection.update_one(filter=filter, update=update)
 
-            # Check for wake words in this intermediate + latest final transcript
+            # Check for wake words in this intermediate + final word of latest final transcript
             # TODO: Eval if we should detect wake words in intermediates
-            latest_final_text = user['final_transcripts'][-1]['text'] if user['final_transcripts'] else ""
+            latest_final_text = user['final_transcripts'][-1]['text'].strip().split()[-1] if user['final_transcripts'] else ""
             text_to_search = latest_final_text + " " + text
             self.check_for_wake_words_in_transcript_text(user_id, text_to_search)
 
@@ -214,7 +214,6 @@ class DatabaseHandler:
         unconsumed_transcripts = []
 
         if user['cse_consumed_transcript_id'] != -1:
-            print()
             # Get the transcript with ID `cse_consumed_transcript_id`, get the last part of it (anything after `cse_consumed_transcript_idx`)
             first_transcript = None
             for index, t in enumerate(user['final_transcripts']):
@@ -235,7 +234,7 @@ class DatabaseHandler:
                     backslide_words = ' '.join(backslide_word_list[-(self.backslide-len(backslide_word_list)):])
 
                     words_from_start = first_transcript['text'][start_index:].strip()
-                    first_transcript['text'] = backslide_words + " " + words_from_start
+                    first_transcript['text'] = backslide_words + " " + words_from_start if words_from_start else backslide_words
 
                     if first_transcript['text'] != "":
                         unconsumed_transcripts.append(first_transcript)
