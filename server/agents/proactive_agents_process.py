@@ -37,9 +37,15 @@ def proactive_agents_processing_loop():
                     transcript['user_id'], transcript['text']))
                 insightGenerationStartTime = time.time()
               
+                # TODO: Test this quick n' dirty way of preventing proactive from running on explicit queries
+                transcript_to_use = transcript
+                explicit_history = dbHandler.get_explicit_query_history_for_user()
+                for hist_item in explicit_history:
+                    transcript_to_use.replace(hist_item['query'], ' ... ')
+
                 try:
                     #run proactive meta agent, get insights
-                    insights = run_proactive_meta_agent_and_experts(transcript)
+                    insights = run_proactive_meta_agent_and_experts(transcript_to_use)
                     print("insights: {}".format(insights))
                     # [{'agent_name': 'Statistician', 'agent_insight': "Insight: Brain's processing limit challenges full Wikipedia integration. Neuralink trials show promising BCI advancements."},
                     # {'agent_name': 'FactChecker', 'agent_insight': 'null'},
