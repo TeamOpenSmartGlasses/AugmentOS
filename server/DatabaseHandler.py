@@ -123,6 +123,14 @@ class DatabaseHandler:
 
     ### TRANSCRIPTS ###
 
+    def get_latest_transcript_from_user_obj(self, user_obj):
+        if user_obj['latest_intermediate_transcript']['timestamp'] != -1:
+            return user_obj['latest_intermediate_transcript']
+        elif user_obj['final_transcripts']:
+            return user_obj['final_transcripts'][-1]
+        else:
+            return None 
+
     def save_transcript_for_user(self, user_id, text, timestamp, is_final):
         if text == "": return
 
@@ -162,9 +170,11 @@ class DatabaseHandler:
             update = {"$set": {"latest_intermediate_transcript": transcript}}
             self.user_collection.update_one(filter=filter, update=update)
 
-            # Check for wake words
+            # Check for wake words in this intermediate + latest final transcript
+            # TODO: Eval if we should detect wake words in intermediates
             latest_final_text = user['final_transcripts'][-1]['text'] if user['final_transcripts'] else ""
-            self.check_for_wake_words_in_transcript_text(user_id, latest_final_text + text)
+            text_to_search = latest_final_text + " " + text
+            self.check_for_wake_words_in_transcript_text(user_id, text_to_search)
 
 
     def get_user(self, user_id):

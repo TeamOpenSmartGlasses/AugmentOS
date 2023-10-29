@@ -7,8 +7,8 @@ import asyncio
 
 dbHandler = DatabaseHandler(parent_handler=False)
 
-pause_query_time = 4
-force_query_time = 8
+pause_query_time = 8
+force_query_time = 12
 
 def stringify_history(insight_history):
     history = ""
@@ -39,11 +39,13 @@ def explicit_query_processing_loop():
                 if current_time > last_wake_word_time + force_query_time:
                     is_query_ready = True
 
-                # If there has been a pause
-                elif (len(user['final_transcripts']) != 0) and (current_time > user['final_transcripts'][-1]['timestamp'] + pause_query_time):
+                # If there has been a pause (the latest transcript is old)
+                latest_transcript = dbHandler.get_latest_transcript_from_user_obj(user)
+                if latest_transcript and (current_time > latest_transcript['timestamp'] + pause_query_time):
                     is_query_ready = True
 
                 if not is_query_ready: continue
+                
                 dbHandler.reset_wake_word_time_for_user(user['user_id'])
 
                 # Because last_wake_word_time is set when the wake word is found, and NOT when the wake word actually occured,
