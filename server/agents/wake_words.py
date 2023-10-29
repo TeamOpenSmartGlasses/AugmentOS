@@ -1,36 +1,44 @@
 from string import punctuation
 
-explicit_wake_words = [
-    "hey convoscope",
+# explicit_wake_words = [
+#     "hey convoscope",
 
-    "hey conboscope",
-    "hey conbo scope",
+#     "hey conboscope",
+#     "hey conbo scope",
 
-    "hey confoscope",
-    "hey confo scope",
+#     "hey confoscope",
+#     "hey confo scope",
 
-    "hey confiscope",
-    "hey confi scope",
+#     "hey confiscope",
+#     "hey confi scope",
     
-    "hey condoscope",
-    "hey condo scope",
+#     "hey condoscope",
+#     "hey condo scope",
 
-    "hey canvascope",
-    "hey canva scope",
+#     "hey canvascope",
+#     "hey canva scope",
 
-    "hey comvoscope"
-    "hey comvo scope",
+#     "hey comvoscope"
+#     "hey comvo scope",
 
-    "hey comboscope",
-    "hey combo scope",
+#     "hey comboscope",
+#     "hey combo scope",
 
-    "hey comfoscope",
-    "hey comfo scope",
+#     "hey comfoscope",
+#     "hey comfo scope",
 
-    "hey comdoscope",
-    "hey comdo scope",
+#     "hey comdoscope",
+#     "hey comdo scope",
 
-    "hey convo scope",
+#     "hey convo scope",
+# ]
+
+explicit_wake_words = [
+    "hey mira",
+    "he mira",
+
+    "hey mara",
+    "he mara",
 ]
 
 def does_text_contain_wake_word(transcript):
