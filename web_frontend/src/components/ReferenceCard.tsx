@@ -38,8 +38,8 @@ interface ReferenceCardProps {
 const AGENT_ICON_PATHS: Record<AgentName, string> = {
   [AgentName.STATISTICIAN]: "/stats_agent_transparent.png",
   [AgentName.FACT_CHECKER]: "/fact_checker_agent_avatar.jpg",
-  [AgentName.DEVILS_ADVOCATE]: "/devils_advocate_agent_avatar.jpg",
-  [AgentName.DEFINER]: "/devils_advocate_agent_avatar.jpg",
+  [AgentName.DEVILS_ADVOCATE]: "/devils_advocate_agent_avatar.png",
+  [AgentName.DEFINER]: "/definer_agent_avatar.png",
 };
 
 const ReferenceCard = ({
