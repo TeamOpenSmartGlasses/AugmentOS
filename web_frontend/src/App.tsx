@@ -235,8 +235,9 @@ export default function App() {
                               : entity.uuid
                           );
                           setViewMoreUrl(entity.url);
-                          setLoadingViewMore(true);
-                          setShowExplorePane(!showExplorePane);
+                          setShowExplorePane(
+                            entity.uuid !== selectedCardId
+                          );
                         }}
                         large={i === 0}
                       />
