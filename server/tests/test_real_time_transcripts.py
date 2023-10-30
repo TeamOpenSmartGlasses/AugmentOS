@@ -1,5 +1,7 @@
 # How to use:
 # Run the script and specify the path of the transcript file.
+# 
+# To get results to appear on the frontend, you need to change the parameters in the test_helper.py file. UserId and DeviceId can be found in the journalctl logs, then the endpoint is just the server api url
 
 import time
 import webvtt
