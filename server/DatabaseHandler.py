@@ -438,6 +438,10 @@ class DatabaseHandler:
         relevant_users = self.user_collection.find(filter)
         return relevant_users
     
+    def get_wake_word_time_for_user(self, user_id):
+        user = self.get_user(user_id)
+        return user["last_wake_word_time"]
+
     def reset_wake_word_time_for_user(self, user_id):
         self.create_user_if_not_exists(user_id)
         filter = {"user_id": user_id}

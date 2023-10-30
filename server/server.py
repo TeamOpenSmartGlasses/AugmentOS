@@ -209,8 +209,10 @@ async def ui_poll_handler(request, minutes=0.5):
     if "explicit_agent_insights" in features:
         explicit_insight_queries = db_handler.get_explicit_query_history_for_user(user_id=user_id, device_id=device_id)
         explicit_insight_results = db_handler.get_explicit_insights_history_for_user(user_id=user_id, device_id=device_id)
+        wake_word_time = db_handler.get_wake_word_time_for_user(user_id=user_id)
         resp["explicit_insight_queries"] = explicit_insight_queries
         resp["explicit_insight_results"] = explicit_insight_results
+        resp["wake_word_time"] = wake_word_time
 
     return web.Response(text=json.dumps(resp), status=200)
 
