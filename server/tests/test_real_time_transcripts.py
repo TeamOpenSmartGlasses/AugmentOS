@@ -19,7 +19,7 @@ def test_transcripts_in_realtime(file_path):
 
         # Send transcript to server
         print(caption.text)
-        test_on_text(caption.text)
+        chat(caption.text, True)
 
         # Wait until the end time
         while time.time() - start_time < end:
