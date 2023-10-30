@@ -1,3 +1,6 @@
+# How to use:
+# Run the script and specify the path of the transcript file.
+
 import time
 import webvtt
 from test_helper import *
