@@ -66,7 +66,7 @@ const ReferenceCard = ({
     <Card
       radius="md"
       p={0}
-      h={large ? "22rem" : "15rem"}
+      h={large ? "30vh" : "20vh"}
       mb={"2.5rem"}
       onClick={onClick}
       className={classes.card}
@@ -85,7 +85,7 @@ const ReferenceCard = ({
               "& > div, & > div > figure, & > div > figure > div": {
                 height: "100%",
               },
-              background: "white"
+              background: "white",
             }}
           >
             <Image src={getImageUrl(entity)} fit="cover" height="100%" />
@@ -116,12 +116,19 @@ const ReferenceCard = ({
                 e.stopPropagation();
                 setThumbState(thumbState === "down" ? undefined : "down");
               }}
-              style={{transform: "scaleX(-1)"}}
             >
               {thumbState === "down" ? (
-                <IconThumbDownFilled size="2rem" stroke={1.5} />
+                <IconThumbDownFilled
+                  size="2rem"
+                  stroke={1.5}
+                  style={{ transform: "scaleX(-1)" }}
+                />
               ) : (
-                <IconThumbDown size="2rem" stroke={1.5} />
+                <IconThumbDown
+                  size="2rem"
+                  stroke={1.5}
+                  style={{ transform: "scaleX(-1)" }}
+                />
               )}
             </ActionIcon>
           </Group>
