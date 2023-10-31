@@ -3,11 +3,14 @@ import {
   Box,
   ColorScheme,
   Container,
+  ContainerProps,
   Flex,
+  FlexProps,
   Image,
   MantineProvider,
   ScrollArea,
   Transition,
+  createPolymorphicComponent,
   createStyles,
 } from "@mantine/core";
 import Sidebar from "./components/Sidebar";
@@ -20,6 +23,12 @@ import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import "./index.css";
 import SettingsModal from "./components/SettingsModal";
 import { UI_POLL_ENDPOINT } from "./serverEndpoints";
+import { motion } from "framer-motion";
+
+// animate-able components for framer-motion
+// https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
+const PFlex = createPolymorphicComponent<'div', FlexProps>(Flex)
+const PContainer = createPolymorphicComponent<'div', ContainerProps>(Container)
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -202,9 +211,16 @@ export default function App() {
 
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
-      <Flex className={classes.root}>
+      <PFlex component={motion.div} className={classes.root} layout>
         <Sidebar settingsOpened={opened} toggleSettings={toggleSettings} />
-        <Container fluid className={classes.container} pt={"2rem"} px={"4rem"}>
+        <PContainer
+          component={motion.div}
+          layout
+          fluid
+          className={classes.container}
+          pt={"2rem"}
+          px={"4rem"}
+        >
           {entities.length === 0 && (
             <Box w="50%" mx="auto" mt="xl">
               <Image src={"/blobs.gif"} fit="cover" />
@@ -224,7 +240,7 @@ export default function App() {
                   key={`entity-${entity.uuid}`}
                 >
                   {(styles) => (
-                    <div style={styles}>
+                    <motion.div style={styles}>
                       <ReferenceCard
                         entity={entity}
                         selected={selectedCardId === entity.uuid}
@@ -235,38 +251,36 @@ export default function App() {
                               : entity.uuid
                           );
                           setViewMoreUrl(entity.url);
-                          setShowExplorePane(
-                            entity.uuid !== selectedCardId
-                          );
+                          setShowExplorePane(entity.uuid !== selectedCardId);
                         }}
                         large={i === 0}
                       />
-                    </div>
+                    </motion.div>
                   )}
                 </Transition>
               ))}
             <div ref={endOfReferencesRef}></div>
           </ScrollArea>
-        </Container>
+        </PContainer>
 
-        <Transition
-          mounted={showExplorePane}
-          transition="slide-left"
-          duration={400}
-          timingFunction="ease"
+        <PContainer
+          component={motion.div}
+          layout
+          fluid
+          className={classes.container}
+          sx={{
+            flex: showExplorePane ? "1 1 0" : "0",
+            visibility: showExplorePane ? "visible" : "hidden",
+          }}
         >
-          {(styles) => (
-            <Container fluid className={classes.container} style={styles}>
-              <PageView
-                viewMoreUrl={viewMoreUrl}
-                loading={loadingViewMore}
-                setLoading={setLoadingViewMore}
-                onClose={() => setShowExplorePane(false)}
-              />
-            </Container>
-          )}
-        </Transition>
-      </Flex>
+          <PageView
+            viewMoreUrl={viewMoreUrl}
+            loading={loadingViewMore}
+            setLoading={setLoadingViewMore}
+            onClose={() => setShowExplorePane(false)}
+          />
+        </PContainer>
+      </PFlex>
 
       <SettingsModal
         smallerThanMedium={smallerThanMedium}
