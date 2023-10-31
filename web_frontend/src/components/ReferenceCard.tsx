@@ -7,7 +7,6 @@ import {
   UnstyledButton,
   createStyles,
   Box,
-  Tooltip,
 } from "@mantine/core";
 import { Entity } from "../types";
 
@@ -76,7 +75,7 @@ const ReferenceCard = ({
     }
   }
 
-  const card = <Card
+  return <Card
     withBorder
     radius="md"
     p={0}
@@ -130,13 +129,7 @@ const ReferenceCard = ({
         </Text>
       </Flex>
     </Flex>
-  </Card>
-
-  if (entity.agent_motive) {
-    return <Tooltip.Floating label={entity.agent_motive}>{card}</Tooltip.Floating>
-  }
-
-  return card;
+  </Card>;
 };
 
 export default ReferenceCard;
