@@ -38,31 +38,22 @@ def proactive_agents_processing_loop():
                 insightGenerationStartTime = time.time()
               
                 try:
+                    insights_history = dbHandler.get_agent_insights_history_for_user(transcript['user_id'])
+                    print("insights_history: {}".format(insights_history))
+                    # [{'agent_name': 'Statistician', 'agent_insight': "Insight: Brain's processing limit challenges full Wikipedia integration. Neuralink trials show promising BCI advancements."}, ...]
+
                     #run proactive meta agent, get insights
-                    insights = run_proactive_meta_agent_and_experts(transcript)
+                    insights = run_proactive_meta_agent_and_experts(transcript['text'], insights_history)
                     print("insights: {}".format(insights))
                     # [{'agent_name': 'Statistician', 'agent_insight': "Insight: Brain's processing limit challenges full Wikipedia integration. Neuralink trials show promising BCI advancements."},
                     # {'agent_name': 'FactChecker', 'agent_insight': 'null'},
                     # {'agent_name': 'DevilsAdvocate', 'agent_insight': 'Insight: Is more information always beneficial, or could it lead to cognitive overload?'}]
 
                     for insight in insights:
-                        if insight != None:
-                            #save this insight to the DB for the user
-                            insight_obj = {}
-                            insight_obj['timestamp'] = math.trunc(time.time())
-                            insight_obj['uuid'] = str(uuid.uuid4())
-                            insight_obj['agent_name'] = insight["agent_name"]
-                            insight_obj['agent_insight'] = insight["agent_insight"]
-                            dbHandler.add_agent_insights_results_for_user(transcript['user_id'], [insight_obj])
-
-                    #DEV - to debug and show that the insight is running
-                    if False:
-                        insight_obj = {}
-                        insight_obj['timestamp'] = math.trunc(time.time())
-                        insight_obj['uuid'] = str(uuid.uuid4())
-                        insight_obj['agent_name'] = "Debug Agent"
-                        insight_obj['agent_insight'] = "This is a test of the system."
-                        dbHandler.add_agent_insights_results_for_user(transcript['user_id'], [insight_obj])
+                        if insight is None:
+                            continue
+                        #save this insight to the DB for the user
+                        dbHandler.add_agent_insights_results_for_user(transcript['user_id'], insight["agent_name"], insight["agent_insight"], insight["reference_url"], insight["agent_motive"])
 
                 except Exception as e:
                     print("Exception in agent.run()...:")

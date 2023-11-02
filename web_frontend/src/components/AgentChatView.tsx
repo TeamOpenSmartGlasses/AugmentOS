@@ -15,6 +15,7 @@ import {
   SEND_AGENT_CHAT_ENDPOINT,
 } from "../serverEndpoints";
 import { useEffect, useRef, useState } from "react";
+import { Insight } from "../types";
 
 // const useStyles = createStyles((theme) => ({}));
 
@@ -40,10 +41,12 @@ const BotChatBubble = (text: string) => {
   );
 };
 
-const AgentChatView = () => {
-  // const handleLoad = () => {
-  //   setLoading(false);
-  // };
+interface ExplicitProps {
+  insights: Insight;
+}
+
+const AgentChatView = ({insights}: ExplicitProps) => {
+  insights;
 
   type Message = {
     sender: "user" | "bot";
@@ -57,13 +60,12 @@ const AgentChatView = () => {
   const [currentMessage, setCurrentMessage] = useState<string>("");
 
   const handleSendMessage = () => {
-    setMessages([...messages, { sender: "user", text: currentMessage }]);
     setCurrentMessage("");
 
     if (currentMessage.trim()) {
       const payload = {
-        userId: "userId",
-        deviceId: "deviceId",
+        userId: window.userId,
+        deviceId: window.deviceId,
         chatMessage: currentMessage,
       };
       axiosClient
@@ -72,11 +74,16 @@ const AgentChatView = () => {
           console.log(res);
         })
         .catch(console.log);
-      // Simulate a bot response
+
       setTimeout(() => {
+      //TODO: [Grey out "Send" button until user query message comes through], OR, [display user's message & ignore the next query message]
+      //setMessages([...messages, { sender: "user", text: currentMessage }]);
+
       setMessages((prevMessages) => [
            ...prevMessages,
-           { sender: "bot", text: "Bot response" },
+
+           //TODO: Replace this "..." placeholder text with an actual animation
+           { sender: "bot", text: "..." },
          ]);
        }, 1000);
     }
@@ -102,6 +109,26 @@ const AgentChatView = () => {
     console.log(messages);
     scrollToBottom();
   }, [messages]);
+
+  useEffect(()=> {
+    console.log('INSIGHTS:')
+    console.log(insights)
+
+    let insightsList = insights as any[];
+    for (let i = 0; i < insightsList.length; i++) {
+      if ('insight' in insightsList[i])
+      {
+        //Insight
+        setMessages([...messages, { sender: "bot", text: insightsList[i]['insight'] }]);
+      }
+      else if ('query' in insightsList[i])
+      {
+        //Query
+        setMessages([...messages, { sender: "user", text: insightsList[i]['query'] }]);
+      }
+    }
+
+  }, [insights])
 
   return (
     <Box h={"100%"}>
