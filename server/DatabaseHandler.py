@@ -417,7 +417,7 @@ class DatabaseHandler:
 
     def update_wake_word_time_for_user(self, user_id, timestamp):
         self.create_user_if_not_exists(user_id)
-        print("UPDATE WW TIME")
+        # print("UPDATE WW TIME")
         current_time = timestamp
 
         # Only update if we haven't already noted a wake word within the last 2 seconds, OR if the time is -1
