@@ -122,7 +122,7 @@ Insight: Free speech has limits; doesn't protect from harmful speech consequence
 def format_list_data(list_data: list):
     return "\n".join([f"{i+1}. {str(example)}" for i, example in enumerate(list_data)])
 
-def expert_agent_prompt_maker(expert_agent_config, conversation_transcript, format_instructions, insights_history: list = [], final_command=""):
+def expert_agent_prompt_maker(expert_agent_config, conversation_transcript, format_instructions="", insights_history: list = [], final_command=""):
     # Populating the blueprint string with values from the agent_config dictionary
     if final_command != "":
         final_command = "\n\n" + final_command
