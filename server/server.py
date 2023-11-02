@@ -267,8 +267,12 @@ async def expert_agent_runner(expert_agent_name, user_id):
     n_seconds = 5*60
     convo_context = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n_seconds)
 
+    #get the most recent insights for this user
+    insights_history = db_handler.get_agent_insights_history_for_user(user_id)
+    insights_history = [insight["agent_insight"] for insight in insights_history if insight["agent_name"] == expert_agent_name]
+
     #spin up the agent
-    agent_insight = run_single_expert_agent(expert_agent_name, convo_context)
+    agent_insight = run_single_expert_agent(expert_agent_name, convo_context, insights_history)
 
     #save this insight to the DB for the user
     db_handler.add_agent_insights_results_for_user(user_id, agent_insight["agent_name"], agent_insight["agent_insight"])

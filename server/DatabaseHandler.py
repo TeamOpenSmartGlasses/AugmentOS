@@ -529,10 +529,10 @@ class DatabaseHandler:
         update = {"$set": {"cse_results": []}}
         self.user_collection.update_one(filter=filter, update=update)
 
-    def add_agent_insights_results_for_user(self, user_id, agent_name, agent_insight):
+    def add_agent_insights_results_for_user(self, user_id, agent_name, agent_insight, agent_references, agent_motive):
         insight_time = math.trunc(time.time())
         insight_uuid = str(uuid.uuid4())
-        insight_obj = {'timestamp': insight_time, 'uuid': insight_uuid, 'agent_name': agent_name, 'agent_insight': agent_insight}
+        insight_obj = {'timestamp': insight_time, 'uuid': insight_uuid, 'agent_name': agent_name, 'agent_insight': agent_insight, 'agent_references': agent_references, 'agent_motive': agent_motive}
 
         filter = {"user_id": user_id}
         update = {"$push": {"agent_insights_results": {'$each': [insight_obj]}}}
@@ -559,11 +559,32 @@ class DatabaseHandler:
                 new_results.append(res)
         return new_results
 
-    def get_agent_insights_history_for_user(self, user_id):
+    def get_agent_insights_history_for_user(self, user_id, top=10):
         self.create_user_if_not_exists(user_id)
-        filter = {"user_id": user_id}
-        user = self.user_collection.find_one(filter)
-        return user['agent_insights_results'] 
+        # filter = {"user_id": user_id}
+        # user = self.user_collection.find_one(filter)
+        # insights = sorted(user['agent_insights_results'], key=lambda x: x['timestamp'], reverse=True)[:top]
+        # return insights
+
+        pipeline = [
+            { "$match": { "user_id": user_id } },
+            { "$unwind": "$agent_insights_results" },
+            { "$sort": { "agent_insights_results.timestamp": -1 } },
+            { "$limit": top },
+            {
+                "$project": {
+                    "_id": 0,
+                    "insight": "$agent_insights_results.agent_insight",
+                    "agent_name": "$agent_insights_results.agent_name"
+                }
+            }
+        ]
+        results = list(self.user_collection.aggregate(pipeline))
+
+        print("Insights history RESULTS:", results)
+
+        return results
+        
 
     def get_proactive_agents_insights_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
         self.add_ui_device_to_user_if_not_exists(user_id, device_id)

@@ -44,16 +44,22 @@ def proactive_agents_processing_loop():
                     transcript_to_use.replace(hist_item['query'], ' ... ')
 
                 try:
+                    insights_history = dbHandler.get_agent_insights_history_for_user(transcript['user_id'])
+                    print("insights_history: {}".format(insights_history))
+                    # [{'agent_name': 'Statistician', 'agent_insight': "Insight: Brain's processing limit challenges full Wikipedia integration. Neuralink trials show promising BCI advancements."}, ...]
+
                     #run proactive meta agent, get insights
-                    insights = run_proactive_meta_agent_and_experts(transcript_to_use)
+                    insights = run_proactive_meta_agent_and_experts(transcript_to_use, insights_history)
                     print("insights: {}".format(insights))
                     # [{'agent_name': 'Statistician', 'agent_insight': "Insight: Brain's processing limit challenges full Wikipedia integration. Neuralink trials show promising BCI advancements."},
                     # {'agent_name': 'FactChecker', 'agent_insight': 'null'},
                     # {'agent_name': 'DevilsAdvocate', 'agent_insight': 'Insight: Is more information always beneficial, or could it lead to cognitive overload?'}]
 
                     for insight in insights:
+                        if insight is None:
+                            continue
                         #save this insight to the DB for the user
-                        dbHandler.add_agent_insights_results_for_user(transcript['user_id'], insight["agent_name"], insight["agent_insight"])
+                        dbHandler.add_agent_insights_results_for_user(transcript['user_id'], insight["agent_name"], insight["agent_insight"], insight["reference_url"], insight["agent_motive"])
 
                 except Exception as e:
                     print("Exception in agent.run()...:")

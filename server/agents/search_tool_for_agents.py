@@ -9,7 +9,7 @@ from langchain.agents.tools import Tool
 banned_sites = ["calendar.google.com", "researchgate.net"]
 
 
-def scrape_page(url: str, title: str = None):
+def scrape_page(url: str):
     """Based on your observations from the Search_Engine, if you want more details from
     a snippet for a non-PDF page, pass this the page's URL and the page's title to
     scrape the full page and retrieve the full contents of the page."""
