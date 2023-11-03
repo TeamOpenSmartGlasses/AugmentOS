@@ -9,7 +9,7 @@ import {
   Stack,
   useMantineTheme,
   Box,
-  ActionIcon,
+  UnstyledButton,
 } from "@mantine/core";
 import { AgentName, Entity } from "../types";
 import { IconThumbDown, IconThumbDownFilled, IconThumbUp, IconThumbUpFilled } from "@tabler/icons-react";
@@ -25,7 +25,22 @@ const useStyles = createStyles((theme) => ({
       filter: "brightness(1.2)",
     },
     color: theme.colors.titleText,
+    border: `1.5px solid ${theme.colors.outlineBlue}`,
+    borderRadius: rem(30),
   },
+
+  button: {
+    color: theme.colors.convoscopeBlue,
+    paddingLeft: rem(8),
+    paddingRight: rem(8),
+    paddingTop: rem(8),
+    paddingBottom: rem(5),
+    borderRadius: rem(12),
+    border: `1.5px solid ${theme.colors.outlineBlue}`,
+    ":active": {
+      translate: "0 2px",
+    }
+  }
 }));
 
 interface ReferenceCardProps {
@@ -58,8 +73,6 @@ const ReferenceCard = ({
   const theme = useMantineTheme();
   const { classes } = useStyles();
 
-  const [thumbState, setThumbState] = useState<"up" | "down" | undefined>();
-
   const getImageUrl = (entity: Entity) => {
     if (entity.map_image_path) {
       return `${import.meta.env.VITE_BACKEND_BASE_URL}/${
@@ -77,14 +90,13 @@ const ReferenceCard = ({
       mb={"2.5rem"}
       onClick={onClick}
       className={classes.card}
-      withBorder
       sx={{ ...(selected && { filter: "brightness(1.2)" }) }}
     >
       <Flex align={"center"} h={"100%"}>
         {(entity.image_url || entity.map_image_path) && (
           <Box
             sx={{
-              borderRadius: "0.5rem",
+              borderRadius: rem(30),
               flex: `1 1 ${large ? 180 : 120}px`,
               objectFit: "cover",
               overflow: "clip",
@@ -100,65 +112,36 @@ const ReferenceCard = ({
         )}
         <Stack
           p={"lg"}
+          pl="3rem"
           h="100%"
           w="100%"
           sx={{ flex: "10 1 0" }}
           justify={"center"}
         >
-          <Group ml="auto">
-            <ActionIcon
-              onClick={(e) => {
-                e.stopPropagation();
-                setThumbState(thumbState === "up" ? undefined : "up");
+          <Group noWrap align="start">
+            <Text
+              size={rem(33)}
+              sx={{
+                wordWrap: "break-word",
+                wordBreak: "break-word",
+                overflowWrap: "break-word",
+                color: theme.colors.bodyText,
               }}
             >
-              {thumbState === "up" ? (
-                <IconThumbUpFilled size="2rem" stroke={1.5} />
-              ) : (
-                <IconThumbUp size="2rem" stroke={1.5} />
-              )}
-            </ActionIcon>
-            <ActionIcon
-              onClick={(e) => {
-                e.stopPropagation();
-                setThumbState(thumbState === "down" ? undefined : "down");
-              }}
-            >
-              {thumbState === "down" ? (
-                <IconThumbDownFilled
-                  size="2rem"
-                  stroke={1.5}
-                  style={{ transform: "scaleX(-1)" }}
-                />
-              ) : (
-                <IconThumbDown
-                  size="2rem"
-                  stroke={1.5}
-                  style={{ transform: "scaleX(-1)" }}
-                />
-              )}
-            </ActionIcon>
+              {/* if there is an entity.name, show the Definer card format. Otherwise show the agent insight */}
+              {entity.name
+                ? `${entity.name}: ${entity.summary}`
+                : entity.agent_insight}
+            </Text>
+            <ThumbButtons />
           </Group>
-          <Text
-            fw={"bold"}
-            size="2rem"
-            sx={{
-              wordWrap: "break-word",
-              wordBreak: "break-word",
-              overflowWrap: "break-word",
-            }}
-          >
-            {/* if there is an entity.name, show the Definer card format. Otherwise show the agent insight */}
-            {entity.name
-              ? `${entity.name}: ${entity.summary}`
-              : entity.agent_insight}
-          </Text>
           <Group mt="auto">
             <Text
+              transform="uppercase"
               fw="bold"
               ml="auto"
-              size={rem(20)}
-              color={theme.colors.bodyText}
+              size={rem(22)}
+              sx={{ letterSpacing: rem(1.1) }}
             >
               {AGENT_ICON_NAMES[entity.agent_name ?? AgentName.DEFINER]}
             </Text>
@@ -176,3 +159,47 @@ const ReferenceCard = ({
 };
 
 export default ReferenceCard;
+
+const ThumbButtons = () => {
+  const { classes } = useStyles();
+  const [thumbState, setThumbState] = useState<"up" | "down" | undefined>();
+
+  return (
+    <Group ml="auto" noWrap>
+      <UnstyledButton
+        className={classes.button}
+        onClick={(e) => {
+          e.stopPropagation();
+          setThumbState(thumbState === "up" ? undefined : "up");
+        }}
+      >
+        {thumbState === "up" ? (
+          <IconThumbUpFilled size="2rem" stroke={1.5} />
+        ) : (
+          <IconThumbUp size="2rem" stroke={1.5} />
+        )}
+      </UnstyledButton>
+      <UnstyledButton
+        className={classes.button}
+        onClick={(e) => {
+          e.stopPropagation();
+          setThumbState(thumbState === "down" ? undefined : "down");
+        }}
+      >
+        {thumbState === "down" ? (
+          <IconThumbDownFilled
+            size="2rem"
+            stroke={1.5}
+            style={{ transform: "scaleX(-1)" }}
+          />
+        ) : (
+          <IconThumbDown
+            size="2rem"
+            stroke={1.5}
+            style={{ transform: "scaleX(-1)" }}
+          />
+        )}
+      </UnstyledButton>
+    </Group>
+  );
+}
