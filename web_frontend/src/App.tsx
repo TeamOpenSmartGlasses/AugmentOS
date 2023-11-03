@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import {
   Box,
-  ColorScheme,
   Container,
   ContainerProps,
   Flex,
@@ -24,6 +23,7 @@ import "./index.css";
 import SettingsModal from "./components/SettingsModal";
 import { UI_POLL_ENDPOINT } from "./serverEndpoints";
 import { motion } from "framer-motion";
+import { theme } from "./theme";
 
 // animate-able components for framer-motion
 // https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
@@ -47,27 +47,6 @@ const useStyles = createStyles((theme) => ({
     flex: "1 1 0"
   },
 }));
-
-const theme = {
-  colorScheme: "dark" as ColorScheme,
-  colors: {
-    cardFill: "hsla(231, 28%, 13%, 1)",
-    titleText: "hsla(240, 31%, 87%, 1)",
-    bodyText: "hsla(240, 27%, 73%, 1)",
-    outlineBlue: "hsla(227, 33%, 27%, 1)",
-    convoscopeBlue: "hsla(200, 99%, 53%, 1)",
-  },
-  primaryColor: "convoscopeBlue",
-
-  defaultGradient: {
-    from: "hsla(174, 78%, 49%, 1)",
-    to: "hsla(174, 90%, 36%, 1)"
-  },
-
-  fontFamily: "Inter, sans-serif",
-  fontFamilyMonospace: "Inter, monospace",
-  headings: { fontFamily: "Inter, sans-serif" },
-};
 
 export default function App() {
   const { classes } = useStyles();
@@ -220,9 +199,7 @@ export default function App() {
           layout
           fluid
           className={classes.container}
-          sx={{
-            width: showExplorePane ? "50%" : "100%",
-          }}
+          w={showExplorePane ? "50%" : "100%"}
           pt={"2rem"}
           px={"4rem"}
         >
