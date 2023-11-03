@@ -73,7 +73,6 @@ export default function App() {
   ]);
   const [mountedIds, setMountedIds] = useState(new Set<string>());
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
-  // TODO: default to false
   const [showExplorePane, setShowExplorePane] = useState(false);
   const [selectedCardId, setSelectedCardId] = useState<string | undefined>();
   const [loadingViewMore, setLoadingViewMore] = useState(false);

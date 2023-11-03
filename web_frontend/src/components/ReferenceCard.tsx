@@ -25,8 +25,9 @@ const useStyles = createStyles((theme) => ({
       filter: "brightness(1.2)",
     },
     color: theme.colors.titleText,
-    border: `1.5px solid ${theme.colors.outlineBlue}`,
+    border: `1.5px solid ${theme.colors.cardStroke}`,
     borderRadius: rem(30),
+    boxShadow: "15px 15px 40px 0px rgba(0, 0, 0, 0.40)"
   },
 
   button: {
@@ -36,7 +37,7 @@ const useStyles = createStyles((theme) => ({
     paddingTop: rem(8),
     paddingBottom: rem(5),
     borderRadius: rem(12),
-    border: `1.5px solid ${theme.colors.outlineBlue}`,
+    border: `1.5px solid ${theme.colors.cardStroke}`,
     ":active": {
       translate: "0 2px",
     }
@@ -112,7 +113,6 @@ const ReferenceCard = ({
         )}
         <Stack
           p={"lg"}
-          pl="3rem"
           h="100%"
           w="100%"
           sx={{ flex: "10 1 0" }}
@@ -121,6 +121,7 @@ const ReferenceCard = ({
           <Group noWrap align="start">
             <Text
               size={rem(33)}
+              p="xl"
               sx={{
                 wordWrap: "break-word",
                 wordBreak: "break-word",

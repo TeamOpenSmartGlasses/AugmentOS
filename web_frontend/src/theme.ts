@@ -6,8 +6,9 @@ export const theme = {
     cardFill: "hsla(231, 28%, 13%, 1)",
     titleText: "hsla(240, 31%, 87%, 1)",
     bodyText: "hsla(240, 27%, 73%, 1)",
-    outlineBlue: "hsla(227, 33%, 27%, 1)",
+    cardStroke: "hsla(227, 33%, 27%, 1)",
     convoscopeBlue: "hsla(200, 99%, 53%, 1)",
+    iconColor: "hsla(227, 40%, 63%, 1)",
   },
   primaryColor: "convoscopeBlue",
 

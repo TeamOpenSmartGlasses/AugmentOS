@@ -4,20 +4,24 @@ import {
   Tooltip,
   createStyles,
   Stack,
-  ActionIcon,
+  UnstyledButton,
+  rem,
 } from "@mantine/core";
 import { IconSettings, TablerIconsProps } from "@tabler/icons-react";
 import TranscriptButton from "./TranscriptButton";
 
 const useStyles = createStyles((theme) => ({
   link: {
-    width: "3rem",
-    height: "3rem",
-    borderRadius: 100,
+    width: rem(66),
+    height: rem(66),
+    borderRadius: 999,
     borderWidth: 1.5,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    color: theme.colors.iconColor,
+    border: `3px solid ${theme.colors.cardStroke}`,
+    backgroundColor: theme.colors.cardFill,
   },
 }));
 
@@ -37,14 +41,13 @@ export function NavbarLink({
   const { classes, cx } = useStyles();
   return (
     <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
-      <ActionIcon
+      <UnstyledButton
         variant={"outline"}
-        radius={100}
         onClick={onClick}
         className={cx(classes.link)}
       >
         <Icon size="2rem" stroke={1.5} />
-      </ActionIcon>
+      </UnstyledButton>
     </Tooltip>
   );
 }

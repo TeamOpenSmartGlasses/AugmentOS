@@ -5,10 +5,6 @@ import {
   keyframes,
   Image,
 } from "@mantine/core";
-import {
-  IconPlayerStopFilled,
-  IconPlayerPlayFilled,
-} from "@tabler/icons-react";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
