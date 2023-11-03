@@ -36,10 +36,17 @@ interface ReferenceCardProps {
 }
 
 const AGENT_ICON_PATHS: Record<AgentName, string> = {
-  [AgentName.STATISTICIAN]: "/stats_agent_transparent.png",
-  [AgentName.FACT_CHECKER]: "/fact_checker_agent_avatar.jpg",
-  [AgentName.DEVILS_ADVOCATE]: "/devils_advocate_agent_avatar.png",
-  [AgentName.DEFINER]: "/definer_agent_avatar.png",
+  [AgentName.STATISTICIAN]: "/statistician_icon_large.svg",
+  [AgentName.FACT_CHECKER]: "/fact_checker_icon_large.svg",
+  [AgentName.DEVILS_ADVOCATE]: "/devils_icon_large.svg",
+  [AgentName.DEFINER]: "/definer_icon_large.svg",
+};
+
+const AGENT_ICON_NAMES: Record<AgentName, string> = {
+  [AgentName.STATISTICIAN]: "Statistician",
+  [AgentName.FACT_CHECKER]: "Fact Checker",
+  [AgentName.DEVILS_ADVOCATE]: "Devil's Advocate",
+  [AgentName.DEFINER]: "Definer",
 };
 
 const ReferenceCard = ({
@@ -78,7 +85,7 @@ const ReferenceCard = ({
           <Box
             sx={{
               borderRadius: "0.5rem",
-              flex: "1 1 120px",
+              flex: `1 1 ${large ? 180 : 120}px`,
               objectFit: "cover",
               overflow: "clip",
               height: "100%",
@@ -148,20 +155,17 @@ const ReferenceCard = ({
           </Text>
           <Group mt="auto">
             <Text
-              sx={{
-                textTransform: "uppercase",
-              }}
               fw="bold"
               ml="auto"
               size={rem(20)}
               color={theme.colors.bodyText}
             >
-              {entity.agent_name ?? AgentName.DEFINER}
+              {AGENT_ICON_NAMES[entity.agent_name ?? AgentName.DEFINER]}
             </Text>
             <Image
               src={AGENT_ICON_PATHS[entity.agent_name ?? AgentName.DEFINER]}
-              height={rem(50)}
-              width={rem(50)}
+              height={large ? rem(50) : rem(40)}
+              width={large ? rem(50) : rem(40)}
               radius="md"
             />
           </Group>

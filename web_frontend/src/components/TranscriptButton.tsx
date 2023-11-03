@@ -3,6 +3,7 @@ import {
   ActionIcon,
   createStyles,
   keyframes,
+  Image,
 } from "@mantine/core";
 import {
   IconPlayerStopFilled,
@@ -132,19 +133,20 @@ const TranscriptButton = () => {
   }
 
   return (
-        <ActionIcon
-          variant="filled"
-          radius={100}
-          onClick={isRecognizing ? stopRecognizing : startRecognizing}
-          size={"4rem"}
-          bg={"linear-gradient(180deg, #1BE0CC 0%, #09B09F 100%), linear-gradient(0deg, #164F47, #164F47)"}
-          className={classes.iconButton}
-          disabled={
-            !isMicrophoneAvailable || !browserSupportsSpeechRecognition
-          }
-        >
-          {isRecognizing ? <IconPlayerStopFilled size="2.4rem" /> : <IconPlayerPlayFilled size="2.4rem" />}
-        </ActionIcon>
+    <ActionIcon
+      variant="filled"
+      radius={100}
+      onClick={isRecognizing ? stopRecognizing : startRecognizing}
+      size={"4rem"}
+      className={classes.iconButton}
+      disabled={!isMicrophoneAvailable || !browserSupportsSpeechRecognition}
+    >
+      {isRecognizing ? (
+        <Image src="/record_button.svg" />
+      ) : (
+        <Image src="/record_button_start.svg" />
+      )}
+    </ActionIcon>
   );
 };
 

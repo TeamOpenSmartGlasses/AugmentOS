@@ -34,7 +34,7 @@ const useStyles = createStyles((theme) => ({
   root: {
     height: "100vh",
     width: "100vw",
-    background: "linear-gradient(179.11deg, #112925 -5.4%, #1A2624 0.96%, #121615 28.67%)",
+    background: "var(--bg-gradient-full---blue, linear-gradient(180deg, #191A27 2.23%, #14141D 25.74%, #14141D 49.42%, #14141D 73.62%, #14141D 96.28%))",
     overflow: "clip",
   },
 
@@ -51,9 +51,9 @@ const useStyles = createStyles((theme) => ({
 const theme = {
   colorScheme: "dark" as ColorScheme,
   colors: {
-    cardFill: "hsla(167, 44%, 8%, 1)",
-    titleText: "hsla(175, 20%, 87%, 1)",
-    bodyText: "hsla(175, 20%, 77%, 1)",
+    cardFill: "hsla(231, 28%, 13%, 1)",
+    titleText: "hsla(240, 31%, 87%, 1)",
+    bodyText: "hsla(240, 27%, 73%, 1)",
     outlineGreen: "hsla(172, 56%, 20%, 1)",
   },
 
@@ -78,7 +78,7 @@ export default function App() {
       image_url:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Redshift.svg/340px-Redshift.svg.png",
       url: "https://en.wikipedia.org/wiki/Doppler_effect",
-      agent_name: AgentName.DEVILS_ADVOCATE,
+      agent_name: AgentName.STATISTICIAN,
       uuid: "test id 1",
     },
     {
@@ -235,7 +235,7 @@ export default function App() {
                 <Transition
                   mounted={mountedIds.has(entity.uuid)}
                   transition="slide-down"
-                  duration={400}
+                  duration={800}
                   timingFunction="ease"
                   key={`entity-${entity.uuid}`}
                 >
