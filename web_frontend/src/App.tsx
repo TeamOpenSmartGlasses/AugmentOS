@@ -218,6 +218,9 @@ export default function App() {
           layout
           fluid
           className={classes.container}
+          sx={{
+            width: showExplorePane ? "50%" : "100%",
+          }}
           pt={"2rem"}
           px={"4rem"}
         >
@@ -266,19 +269,27 @@ export default function App() {
         <PContainer
           component={motion.div}
           layout
-          fluid
-          className={classes.container}
           sx={{
             flex: showExplorePane ? "1 1 0" : "0",
-            visibility: showExplorePane ? "visible" : "hidden",
           }}
         >
-          <PageView
-            viewMoreUrl={viewMoreUrl}
-            loading={loadingViewMore}
-            setLoading={setLoadingViewMore}
-            onClose={() => setShowExplorePane(false)}
-          />
+          <Transition
+            mounted={showExplorePane}
+            transition="slide-left"
+            duration={400}
+            timingFunction="ease"
+          >
+            {(styles) => (
+              <motion.div style={{ ...styles, height: "100%" }}>
+                <PageView
+                  viewMoreUrl={viewMoreUrl}
+                  loading={loadingViewMore}
+                  setLoading={setLoadingViewMore}
+                  onClose={() => setShowExplorePane(false)}
+                />
+              </motion.div>
+            )}
+          </Transition>
         </PContainer>
       </PFlex>
 
