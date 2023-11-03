@@ -8,7 +8,7 @@ import asyncio
 dbHandler = DatabaseHandler(parent_handler=False)
 
 pause_query_time = 8
-force_query_time = 12
+force_query_time = 16
 
 def stringify_history(insight_history):
     history = ""
@@ -18,7 +18,6 @@ def stringify_history(insight_history):
 
 def explicit_query_processing_loop():
     #lock = threading.Lock()
-
 
     print("START AGENT INSIGHT PROCESSING LOOP")
     while True:
@@ -65,7 +64,7 @@ def explicit_query_processing_loop():
             print("Exception in EXPLITT QUERY STUFF..:")
             print(e)
             traceback.print_exc()
-        time.sleep(2)
+        time.sleep(0.2)
 
 async def call_explicit_agent(user_obj, query):
     user = user_obj

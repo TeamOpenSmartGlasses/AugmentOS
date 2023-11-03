@@ -26,15 +26,25 @@ Now use your knowledge and/or tools (if needed) to answer the query to the best 
 {query}
 """
 
-#generate expert agents as tools (each one has a search engine, later make the tools each agent has programmatic)
+# makes the wrapper fnction for expert agents when they're run as tools - a function factory so we don't have weird scope issues
+def make_expert_agent_run_wrapper_function(agent, agent_explicit_prompt, is_async=False):
+    def run_expert_agent_wrapper(command):
+        return agent.run(agent_explicit_prompt + '\n[Extra Instructions]\n' + command)
+
+    async def run_expert_agent_wrapper_async(command):
+        return await agent.arun(agent_explicit_prompt + '\n[Extra Instructions]\n' + command)
+
+    return run_expert_agent_wrapper_async if is_async else run_expert_agent_wrapper
+
+# generate expert agents as tools (each one has a search engine, later make the tools each agent has programmatic)
 def make_expert_agents_as_tools(transcript):
     tools = []
     expert_agents_list = list(expert_agent_config_list.values())
     for expert_agent in expert_agents_list:
-        #make the expert agent with it own special prompt
+        # make the expert agent with it own special prompt
         expert_agent_explicit_prompt = expert_agent_prompt_maker(expert_agent, transcript)
 
-        #make the agent with tools
+        # make the agent with tools
         new_expert_agent = initialize_agent(
             [
                 get_search_tool_for_agents()
@@ -43,11 +53,8 @@ def make_expert_agents_as_tools(transcript):
             agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION, 
             verbose=True)
 
-        def run_expert_agent_wrapper(command):
-            return new_expert_agent.run(expert_agent_explicit_prompt + '\n[Extra Instructions]\n' + command)
-        
-        async def run_expert_agent_wrapper_async(command):
-            return await new_expert_agent.arun(expert_agent_explicit_prompt + '\n[Extra Instructions]\n' + command)
+        # use function factory to make expert agent runner wrapper
+        run_expert_agent_wrapper = make_expert_agent_run_wrapper_function(new_expert_agent, expert_agent_explicit_prompt)
 
         expert_agent_as_tool = Tool(
             name=expert_agent['agent_name'],
@@ -60,6 +67,8 @@ def make_expert_agents_as_tools(transcript):
 
 def get_explicit_meta_agent(transcript):
     expert_agents_as_tools = make_expert_agents_as_tools(transcript)
+    print("EXPERT AGENTS AS TOOLS")
+    print(expert_agents_as_tools)
     explicit_meta_agent = initialize_agent(
             expert_agents_as_tools, 
             llm, 
@@ -82,5 +91,3 @@ async def run_explicit_meta_agent_async(context, query):
 
 if __name__ == '__main__':
     run_explicit_meta_agent("THIS IS THE CONTEXT", "FACT CHECK THAT CARS HAVE 4 WHEELS?")
-
-

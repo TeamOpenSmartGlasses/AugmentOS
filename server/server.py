@@ -118,27 +118,28 @@ def cse_loop():
 
         try:
             p_loop_start_time = time.time()
+
             # Check for new transcripts
             new_transcripts = db_handler.get_new_cse_transcripts_for_all_users(
                 combine_transcripts=True, delete_after=False)
+
             if new_transcripts is None or new_transcripts == []:
                 print("---------- No transcripts to run on for this cse_loop run...")
-            for transcript in new_transcripts:   
-                # ALSO CHECK FOR WAKE WORDS HERE FOR EFFICIENCY. NEED TO GENERALIZE THIS LOOP?
 
+            for transcript in new_transcripts:   
                 print("Run CSE with... user_id: '{}' ... text: '{}'".format(
                     transcript['user_id'], transcript['text']))
                 cse_start_time = time.time()
+
                 cse_responses = cse.contextual_search_engine(
                     transcript['user_id'], transcript['text'])
-                #cse_responses = None
+
                 cse_end_time = time.time()
                 print("=== CSE completed in {} seconds ===".format(
                     round(cse_end_time - cse_start_time, 2)))
 
                 #filter responses with relevance filter, then save CSE results to the database
                 cse_responses_filtered = list()
-
                 if cse_responses:
                     cse_responses_filtered = relevance_filter.should_display_result_based_on_context(
                         transcript["user_id"], cse_responses, transcript["text"]
@@ -150,7 +151,6 @@ def cse_loop():
                     db_handler.add_cse_results_for_user(
                         transcript["user_id"], final_cse_responses
                     )
-
         except Exception as e:
             cse_responses = None
             print("Exception in CSE...:")
@@ -161,7 +161,7 @@ def cse_loop():
             # print("=== processing_loop completed in {} seconds overall ===".format(
             #     round(p_loop_end_time - p_loop_start_time, 2)))
 
-        loop_run_period = 2.5 #run the loop this often
+        loop_run_period = 1.5 #run the loop this often
         while (time.time() - loop_start_time) < loop_run_period: #wait until loop_run_period has passed before running this again
             time.sleep(0.2)
 
@@ -199,13 +199,14 @@ async def ui_poll_handler(request, minutes=0.5):
         # add CSE response
         resp["result"] = cse_results
 
-    #get agent results
+    # get agent results
     if "proactive_agent_insights" in features:
         agent_insight_results = db_handler.get_proactive_agents_insights_results_for_user_device(user_id=user_id, device_id=device_id)
 
         #add agents insight to response
         resp["results_proactive_agent_insights"] = agent_insight_results
 
+    # get user queries and agent responses
     if "explicit_agent_insights" in features:
         explicit_insight_queries = db_handler.get_explicit_query_history_for_user(user_id=user_id, device_id=device_id)
         explicit_insight_results = db_handler.get_explicit_insights_history_for_user(user_id=user_id, device_id=device_id)
@@ -380,3 +381,4 @@ if __name__ == '__main__':
     #let processes finish and join
     proactive_agents_background_process.join()
     cse_process.join()
+    explicit_background_process.join()

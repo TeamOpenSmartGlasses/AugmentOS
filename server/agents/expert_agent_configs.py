@@ -73,28 +73,28 @@ Insight: Cancer survival rate: 49% in mid-70s to 68% now
 Insight: Brain can recognize images in ~100ms, 10x faster than previously thought
 """
         },
-#         "FactChecker" : {
-#             "agent_name": "FactChecker", 
-#             "insight_num_words" : 7,
-#             "agent_insight_type" : """fact check any claims made during a conversation. Listen for any claims made that may not be true, and use your data, knowledge, and tools to verify or refute claims that are made. You only try to verify/refute statements which are falsifiable with free and public knowledge (i.e. don't fact check personal statements or beliefs).""",
-#             "agent_plan" : """1. Find and write down individual factual claims from the conversation. Do not consider personal, belief-based, or unfalsifiable claims. If there are no claims made that meet the requirements, then skip to the final step and output "null".\n2. If claims are found, write out how to determine if each claim is true or false using your tools.\n3. Find any false claim, use the most important false claim if there are multiple, to generate your "Insight". If there are no claims or no false claims, your output is "null".""",
-#             "proactive_tool_description" : """If a statement is made which you suspect might be false or contains a common myth, and that statement is falsifiable with free and public knowledge or through mythbusters. Don't use this to verify your own searches or your own ideas, only use this to verify the user's statements.""",
-#             "proactive_tool_example": """Conversation: Transcript is about the topic of "Eating carrots improves night vision."
-# Insight: Carrots have vitamin A; don't grant night vision. WWII myth origin""",
-#             "examples" : """
-# 1. Conversation: Transcript is about the topic of "Eating carrots improves night vision."
-# Insight: Carrots have vitamin A; don't grant night vision. WWII myth origin
+         "FactChecker" : {
+             "agent_name": "FactChecker", 
+             "insight_num_words" : 7,
+             "agent_insight_type" : """fact check any claims made during a conversation. Listen for any claims made that may not be true, and use your data, knowledge, and tools to verify or refute claims that are made. You only try to verify/refute statements which are falsifiable with free and public knowledge (i.e. don't fact check personal statements or beliefs).""",
+             "agent_plan" : """1. Find and write down individual factual claims from the conversation. Do not consider personal, belief-based, or unfalsifiable claims. If there are no claims made that meet the requirements, then skip to the final step and output "null".\n2. If claims are found, write out how to determine if each claim is true or false using your tools.\n3. Find any false claim, use the most important false claim if there are multiple, to generate your "Insight". If there are no claims or no false claims, your output is "null".""",
+             "proactive_tool_description" : """If a statement is made which you suspect might be false or contains a common myth, and that statement is falsifiable with free and public knowledge or through mythbusters. Don't use this to verify your own searches or your own ideas, only use this to verify the user's statements.""",
+             "proactive_tool_example": """Conversation: Transcript is about the topic of "Eating carrots improves night vision."
+ Insight: Carrots have vitamin A; don't grant night vision. WWII myth origin""",
+             "examples" : """
+ 1. Conversation: Transcript is about the topic of "Eating carrots improves night vision."
+ Insight: Carrots have vitamin A; don't grant night vision. WWII myth origin
 
-# 2. Conversation: Transcript is about the topic of "Napoleon Bonaparte was extremely short, standing only 5 feet tall."
-# Insight: Napoleon was 5'7"; average height, Misconception from French units
+ 2. Conversation: Transcript is about the topic of "Napoleon Bonaparte was extremely short, standing only 5 feet tall."
+ Insight: Napoleon was 5'7"; average height, Misconception from French units
 
-# 3. Conversation: Transcript is about the topic of "Humans only use 10% of their brains."
-# Insight: Humans use 100% of their brains; brain imaging shows activity
+ 3. Conversation: Transcript is about the topic of "Humans only use 10% of their brains."
+ Insight: Humans use 100% of their brains; brain imaging shows activity
 
-# 4. Conversation: Transcript is about the topic of "Goldfish have a memory span of just a few seconds."
-# Insight: Common myth; studies show goldfish remember things for months
-# """
-#         },
+ 4. Conversation: Transcript is about the topic of "Goldfish have a memory span of just a few seconds."
+ Insight: Common myth; studies show goldfish remember things for months
+ """
+         },
         "DevilsAdvocate" : {
             "agent_name": "DevilsAdvocate", 
             "insight_num_words" : 12,
