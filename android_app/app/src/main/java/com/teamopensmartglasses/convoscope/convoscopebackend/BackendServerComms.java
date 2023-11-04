@@ -83,14 +83,10 @@ public class BackendServerComms {
 
                         if(endpoint == LLM_QUERY_ENDPOINT || endpoint == BUTTON_EVENT_ENDPOINT) {
                             Log.d(TAG, response.toString());
-                            try {
-                                if (response.getString("message").length() > 0) {
-                                    callback.onSuccess(response);
-                                } else {
-                                    callback.onFailure();
-                                }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
+                            if (response.has("message")) {
+                                callback.onSuccess(response);
+                            } else {
+                                callback.onFailure();
                             }
                         }
                     }

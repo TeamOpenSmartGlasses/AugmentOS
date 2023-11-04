@@ -244,7 +244,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 }
                 @Override
                 public void onFailure(){
-                    Log.d(TAG, "SOME FAILURE HAPPENED");
+                    Log.d(TAG, "SOME FAILURE HAPPENED (sendLLMQueryRequest)");
                 }
 
             });
@@ -275,7 +275,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 }
                 @Override
                 public void onFailure(){
-                    Log.d(TAG, "SOME FAILURE HAPPENED");
+                    Log.d(TAG, "SOME FAILURE HAPPENED (requestContextualSearchEngine)");
                 }
 
             });
@@ -330,7 +330,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 Log.d(TAG, "--- " + body);
                 responses.add(combined);
                 sendUiUpdateSingle(combined);
-                speakTTS(combined);
+                //speakTTS(combined);
 
                 resultsToDisplayList.add(combined.substring(0,Math.min(72, combined.length())).trim().replaceAll("\\s+", " "));
 
@@ -476,7 +476,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 }
                 @Override
                 public void onFailure(){
-                    Log.d(TAG, "SOME FAILURE HAPPENED");
+                    Log.d(TAG, "SOME FAILURE HAPPENED (buttonDownEvent)");
                 }
 
             });
