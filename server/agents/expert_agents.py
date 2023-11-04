@@ -37,6 +37,10 @@ def post_process_agent_output(expert_agent_response, agent_name):
     #agent output should be like
     #{"agent_insight": "null" | "insight", "reference_url": "https://..." | "", "agent_motive": "because ..." | ""}
     
+    #handle null response
+    if expert_agent_response == "null":
+         return {"agent_insight": "null", "reference_url": "", "agent_motive": ""}
+
     #add agent name to the json obj
     expert_agent_response["agent_name"] = agent_name
 
