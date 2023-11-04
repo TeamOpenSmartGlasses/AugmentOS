@@ -32,8 +32,6 @@ public class BackendServerComms {
     private Context mContext;
     private int requestTimeoutPeriod = 0; //15000;
 
-    private boolean useDevServer;
-
     public static BackendServerComms getInstance(Context c){
         if (restServerComms == null){
             restServerComms = new BackendServerComms(c);
@@ -45,7 +43,6 @@ public class BackendServerComms {
         // Instantiate the RequestQueue.
         mContext = context;
         mRequestQueue = Volley.newRequestQueue(mContext);
-        useDevServer = false;
     }
 
     //handles requesting data, sending data
