@@ -16,7 +16,7 @@ def stringify_history(insight_history):
         history += "User: {}\nLLM:{}\n\n".format(c['query'], c['insight'])
     return history
 
-def explicit_query_processing_loop():
+def explicit_agent_processing_loop():
     #lock = threading.Lock()
 
     print("START AGENT INSIGHT PROCESSING LOOP")

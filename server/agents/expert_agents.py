@@ -60,24 +60,38 @@ def post_process_agent_output(expert_agent_response, agent_name):
 def run_single_expert_agent(expert_agent_name, convo_context, insights_history: list):
     #initialize the requested expert agent - using the name given
     expert_agent_config = expert_agent_config_list[expert_agent_name]
+
     #run the agent
     expert_agent_response = expert_agent_run_wrapper(expert_agent_config, convo_context, insights_history)
+    if expert_agent_response is None:
+        return None
+
     #process the output
     expert_agent_response = post_process_agent_output(expert_agent_response, expert_agent_name)
     return expert_agent_response
 
 
-async def arun_single_expert_agent(expert_agent_name, convo_context):
+async def arun_single_expert_agent(expert_agent_name, convo_context, insights_history: list):
     #initialize the requested expert agent - using the name given
     expert_agent_config = expert_agent_config_list[expert_agent_name]
+
     #run the agent
-    expert_agent_response = await expert_agent_arun_wrapper(expert_agent_config, convo_context)
+    expert_agent_response = await expert_agent_arun_wrapper(expert_agent_config, convo_context, insights_history)
+    print(expert_agent_response)
+    if expert_agent_response is None:
+        return None
+
+    #process the output
+    expert_agent_response = post_process_agent_output(expert_agent_response, expert_agent_name)
     return expert_agent_response
 
 
 async def expert_agent_arun_wrapper(expert_agent_config, convo_context, insights_history: list):
     #get agent response
-    expert_agent_response = await agent.arun(expert_agent_prompt_maker(expert_agent_config, convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history ))
+    expert_agent_response = await agent.arun(expert_agent_prompt_maker(expert_agent_config, convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history))
+    if expert_agent_response is None:
+        return None
+
     #post process the output
     expert_agent_response = post_process_agent_output(expert_agent_response, expert_agent_config["agent_name"])
 
@@ -89,11 +103,13 @@ async def expert_agent_arun_wrapper(expert_agent_config, convo_context, insights
 def expert_agent_run_wrapper(expert_agent_config, convo_context, insights_history: list):
     #run the agent
     expert_agent_response = agent.run(expert_agent_prompt_maker(expert_agent_config, convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history))
+    if expert_agent_response is None:
+        return None
+
     #post process the output
     expert_agent_response = post_process_agent_output(expert_agent_response, expert_agent_config["agent_name"])
 
     print("expert_agent_response", expert_agent_response)
 
     return expert_agent_response
-
 

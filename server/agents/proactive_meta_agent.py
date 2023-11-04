@@ -28,7 +28,7 @@ import asyncio
 proactive_meta_agent_prompt_blueprint = """You are the higly intelligent and skilled proactive master agent of "Convoscope". "Convoscope" is a tool that listens to a user's live conversation and enhances their conversation by providing them with real time "Insights". The "Insights" generated should aim to lead the user to deeper understanding, broader perspectives, new ideas, more accurate information, better replies, and enhanced conversations.
 
 [Your Objective]
-"Convoscope" is a multi-agent system in which you are the master agent. You will be given direct access to a live stream of transcripts from the user's conversation alongside information about a number of different 'expert agents` who have the power to generate "Insights". Your goal is to recognize when the thoughts or work of an 'expert agent' would be useful to the conversation and to output a list of which agents should be run. It's ok to output an empty list if no agents should be run right now. It's ok to specify multiple agents.
+"Convoscope" is a multi-agent system in which you are the proactive meta agent. You will be given direct access to a live stream of transcripts from the user's conversation alongside information about a number of different 'expert agents` who have the power to generate "Insights". Your goal is to recognize when the thoughts or work of an 'expert agent' would be useful to the conversation and to output a list of which agents should be run. It's OK to output an empty list if no agents should be run right now. It's OK to specify multiple agents.
 
 [Your Agents]
 You have access to "Expert Agents", which are like workers in your team that with special abilities. These are the agents you can run:
@@ -73,7 +73,7 @@ def run_proactive_meta_agent_and_experts(conversation_context: str, insights_his
     for insight in insights_history:
         insights_history_dict[insight["agent_name"]].append(insight["insight"])
 
-    print("insights_history_dict", insights_history_dict)
+    # print("insights_history_dict", insights_history_dict)
 
     #get the configs of any expert agents we should run
     experts_to_run_configs = list()
@@ -122,7 +122,7 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list):
             insights_history=insights_history
         ).to_string()
 
-    print("Proactive meta agent query prompt string", proactive_meta_agent_query_prompt_string)
+    # print("Proactive meta agent query prompt string", proactive_meta_agent_query_prompt_string)
 
     response = llm([HumanMessage(content=proactive_meta_agent_query_prompt_string)])
     try:
