@@ -1,5 +1,7 @@
 package com.teamopensmartglasses.convoscope;
 
+import static com.teamopensmartglasses.convoscope.Constants.*;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
@@ -43,7 +45,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private Runnable runnableCode;
     static String userId;
     static final String deviceId = "android";
-    static final String [] features = {"contextual_search_engine", "proactive_agent_insights"};
+    static final String [] features = {"contextual_search_engine", "proactive_agent_insights", "explicit_agent_insights"};
 
     private SMSComms smsComms;
     static String phoneNumName = "Alex";
@@ -230,7 +232,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             jsonQuery.put("userId", userId);
             jsonQuery.put("isFinal", isFinal);
             jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
-            backendServerComms.restRequest(BackendServerComms.LLM_QUERY_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
+            backendServerComms.restRequest(LLM_QUERY_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
                     try {
@@ -259,7 +261,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             jsonQuery.put("deviceId", deviceId);
             jsonQuery.put("features", featuresArray);
             System.out.println(jsonQuery);
-            backendServerComms.restRequest(BackendServerComms.CSE_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
+            backendServerComms.restRequest(CSE_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
                     try {
@@ -298,8 +300,16 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //        Log.d(TAG, "GOT CSE RESULT: " + response.toString());
         String imgKey = "image_url";
         String mapImgKey = "map_image_path";
-        JSONArray cseResults = response.getJSONArray("result");
-        JSONArray proactiveAgentResults = response.getJSONArray("results_proactive_agent_insights");
+
+        JSONArray cseResults = response.has(cseResultKey) ? response.getJSONArray(cseResultKey) : new JSONArray();
+
+        JSONArray proactiveAgentResults = response.has(proactiveAgentResultsKey) ? response.getJSONArray(proactiveAgentResultsKey) : new JSONArray();
+
+        JSONArray explicitAgentQueries = response.has(explicitAgentQueriesKey) ? response.getJSONArray(explicitAgentQueriesKey) : new JSONArray();
+
+        JSONArray explicitAgentResults = response.has(explicitAgentResultsKey) ? response.getJSONArray(explicitAgentResultsKey) : new JSONArray();
+
+        double wakeWordTime = response.has(wakeWordTimeKey) ? response.getDouble(wakeWordTimeKey) : -1;
 
         if (cseResults.length() > 0){
             Log.d(TAG, "GOT CSE RESULTS: " + response.toString());
@@ -363,8 +373,41 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 Log.d(TAG, "--- " + body);
                 responses.add(combined);
                 sendUiUpdateSingle(combined);
-                //speakTTS(combined);
 
+                resultsToDisplayList.add(combined.substring(0,Math.min(72, combined.length())).trim().replaceAll("\\s+", " "));
+            } catch (JSONException e){
+                e.printStackTrace();
+            }
+        }
+
+        //go through explicit agent queries and add to resultsToDisplayList
+        for (int i = 0; i < explicitAgentQueries.length(); i++){
+            try {
+                JSONObject obj = explicitAgentQueries.getJSONObject(i);
+                String name = "Query";
+                String body = obj.getString("query");
+                String combined = name + ": " + body;
+                Log.d(TAG, name);
+                Log.d(TAG, "--- " + body);
+                responses.add(combined);
+                sendUiUpdateSingle(combined);
+                resultsToDisplayList.add(combined.substring(0,Math.min(72, combined.length())).trim().replaceAll("\\s+", " "));
+            } catch (JSONException e){
+                e.printStackTrace();
+            }
+        }
+
+        //go through explicit agent results and add to resultsToDisplayList
+        for (int i = 0; i < explicitAgentResults.length(); i++){
+            try {
+                JSONObject obj = explicitAgentResults.getJSONObject(i);
+                String name = "Mira";
+                String body = obj.getString("insight");
+                String combined = name + ": " + body;
+                Log.d(TAG, name);
+                Log.d(TAG, "--- " + body);
+                responses.add(combined);
+                sendUiUpdateSingle(combined);
                 resultsToDisplayList.add(combined.substring(0,Math.min(72, combined.length())).trim().replaceAll("\\s+", " "));
             } catch (JSONException e){
                 e.printStackTrace();
@@ -419,7 +462,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             jsonQuery.put("button_activity", downUp);
             jsonQuery.put("userId", userId);
             jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
-            backendServerComms.restRequest(BackendServerComms.BUTTON_EVENT_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
+            backendServerComms.restRequest(BUTTON_EVENT_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
                     try {
