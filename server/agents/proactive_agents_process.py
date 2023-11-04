@@ -59,7 +59,7 @@ def proactive_agents_processing_loop():
                         if insight is None:
                             continue
                         #save this insight to the DB for the user
-                        dbHandler.add_agent_insights_results_for_user(transcript['user_id'], insight["agent_name"], insight["agent_insight"], insight["reference_url"], insight["agent_motive"])
+                        dbHandler.add_agent_insight_result_for_user(transcript['user_id'], insight["agent_name"], insight["agent_insight"], insight["reference_url"], insight["agent_motive"])
 
                 except Exception as e:
                     print("Exception in agent.run()...:")
@@ -79,4 +79,4 @@ def proactive_agents_processing_loop():
             # print("=== processing_loop completed in {} seconds overall ===".format(
             #     round(pLoopEndTime - pLoopStartTime, 2)))
 
-        time.sleep(50)
+        time.sleep(15)

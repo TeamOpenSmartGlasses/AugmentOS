@@ -100,6 +100,8 @@ def parse_snippets(results: dict) -> List[str]:
     for result in results[result_key_for_type[search_type]][:k]:
         if "snippet" in result:
             page = scrape_page(result["link"])
+            if ('title' not in result) or (result['title'] is None):
+                result['title'] = ""
             if page is None:
                 snippets.append(f"Title: {result['title']}\nPossible answers: {result['snippet']}\n")
             else:

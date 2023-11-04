@@ -13,6 +13,7 @@ import pandas as pd
 import multiprocessing
 import logging
 import logging.handlers
+from concurrent.futures import ThreadPoolExecutor
 
 # CORS
 import aiohttp_cors
@@ -24,11 +25,12 @@ from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH
 from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_agents_process import proactive_agents_processing_loop
-from agents.expert_agents import run_single_expert_agent
+from agents.expert_agents import run_single_expert_agent, arun_single_expert_agent
 from agents.explicit_query_process import explicit_query_processing_loop, call_explicit_agent
 import agents.wake_words
 from Modules.RelevanceFilter import RelevanceFilter
 
+global agent_executor
 global db_handler
 global relevance_filter
 global app
@@ -56,7 +58,7 @@ async def chat_handler(request):
 
     # print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format(
     #     "FINAL" if is_final else "INTERMEDIATE", text, timestamp, user_id))
-    if is_final:
+    if is_final and False:
         print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format("FINAL", text, timestamp, user_id))
     start_save_db_time = time.time()
     db_handler.save_transcript_for_user(user_id=user_id, text=text, timestamp=timestamp, is_final=is_final)
@@ -135,8 +137,8 @@ def cse_loop():
                     transcript['user_id'], transcript['text'])
 
                 cse_end_time = time.time()
-                print("=== CSE completed in {} seconds ===".format(
-                    round(cse_end_time - cse_start_time, 2)))
+                # print("=== CSE completed in {} seconds ===".format(
+                #     round(cse_end_time - cse_start_time, 2)))
 
                 #filter responses with relevance filter, then save CSE results to the database
                 cse_responses_filtered = list()
@@ -146,7 +148,7 @@ def cse_loop():
                     )
 
                     final_cse_responses = [cse_response for cse_response in cse_responses if cse_response["name"] in cse_responses_filtered]
-                    print("=== CSE RESPONSES FILTERED: {} ===".format(final_cse_responses))
+                    # print("=== CSE RESPONSES FILTERED: {} ===".format(final_cse_responses))
 
                     db_handler.add_cse_results_for_user(
                         transcript["user_id"], final_cse_responses
@@ -273,10 +275,11 @@ async def expert_agent_runner(expert_agent_name, user_id):
     insights_history = [insight["agent_insight"] for insight in insights_history if insight["agent_name"] == expert_agent_name]
 
     #spin up the agent
-    agent_insight = run_single_expert_agent(expert_agent_name, convo_context, insights_history)
+    agent_insight = await arun_single_expert_agent(expert_agent_name, convo_context)
 
     #save this insight to the DB for the user
-    db_handler.add_agent_insights_results_for_user(user_id, agent_insight["agent_name"], agent_insight["agent_insight"])
+    if agent_insight["agent_insight"] != None:
+        db_handler.add_agent_insight_result_for_user(user_id, agent_insight["agent_name"], agent_insight["agent_insight"], agent_insight["reference_url"], agent_insight["agent_motive"])
 
     #agent run complete
     print("--- Done agent run task of agent {} from user {}".format(expert_agent_name, user_id))
@@ -300,6 +303,11 @@ async def run_single_expert_agent_handler(request):
 
     #spin up agent
     asyncio.ensure_future(expert_agent_runner(agent_name, user_id))
+    #loop = asyncio.get_event_loop()
+    #loop.create_task(expert_agent_runner(agent_name, user_id))  # Non-blocking
+    #loop.run_in_executor(executor, run_single_agent)
+
+    print("Spun up agent, now returning.")
 
     return web.Response(text=json.dumps({'success': True, 'message': "Running agent: {}".format(agent_name)}), status=200)
 
@@ -332,6 +340,7 @@ async def send_agent_chat_handler(request):
 
 if __name__ == '__main__':
     print("Starting server...")
+    agent_executor = ThreadPoolExecutor()
     db_handler = DatabaseHandler()
     # start proccessing loop subprocess to process data as it comes in
     if USE_GPU_FOR_INFERENCING:

@@ -128,12 +128,13 @@ export default function App() {
         // ) {
         //   console.log("Insights:", res.data.result_agent_insights);
         // }
+        
         if (res.data.success) {
-          console.log(res.data);
           const newEntities = res.data.result as any[];
           const newInsights = (res.data.results_proactive_agent_insights as any[]) || [];
           const newExplicitQueries = (res.data.explicit_insight_queries as any[]) || [];
           const newExplicitInsights = (res.data.explicit_insight_results as any[]) || [];
+
           if (newEntities.length === 0 && newInsights.length === 0 && newExplicitQueries.length === 0 && newExplicitInsights.length === 0) return;
 
           setEntities((entities) => [
@@ -197,26 +198,31 @@ export default function App() {
               spacing={"md"}
               justify={"space-between"}
             >
-              <Group position="apart">
-                <Title
-                  order={2}
-                  sx={{
-                    display: hideTitle ? "none" : "block",
-                    transition: "display 0.5s, transform 0.5s",
-                    transform: hideTitle ? "translateY(-100%)" : "",
-                  }}
-                >
-                  Convoscope
-                </Title>
-                {smallerThanMedium && (
-                  <NavbarLink
-                    active={opened}
-                    onClick={toggleSettings}
-                    icon={IconSettings}
-                    label={"Settings"}
-                  />
-                )}
-              </Group>
+                <Flex
+                    direction={"column"} 
+                    h={{ xs: "50%", md: "5%" }}
+                  >
+                  <Group position="apart">
+                    <Title
+                      order={2}
+                      sx={{
+                        display: hideTitle ? "none" : "block",
+                        transition: "display 0.5s, transform 0.5s",
+                        transform: hideTitle ? "translateY(-100%)" : "",
+                      }}
+                    >
+                      Convoscope
+                    </Title>
+                    {smallerThanMedium && (
+                      <NavbarLink
+                        active={opened}
+                        onClick={toggleSettings}
+                        icon={IconSettings}
+                        label={"Settings"}
+                      />
+                    )}
+                  </Group>
+              </Flex>
 
                 <Flex 
                     direction={"column"} 
@@ -231,7 +237,7 @@ export default function App() {
               <Flex
                   direction={"column"}
                   w={{ xs: "100%", md: "100%" }}
-                  h={{ xs: "50%", md: "75%" }}
+                  h={{ xs: "50%", md: "70%" }}
                   px={"md"}
                   py={"sm"}
                  className={classes.referenceScroll}
@@ -272,9 +278,6 @@ export default function App() {
                 >
                   <RunAgentsView />
               </Flex>
-
-
-
             </Stack>
 
             {/* Right Panel */}
