@@ -63,10 +63,10 @@ Insight: US: 6% HS students in CS, China: <1% K-12 in programming""",
 1. Conversation: Transcript compares the number of CS students in US and China.
 Insight: US: 6% HS students in CS, China: <1% K-12 in programming
 
-2. Conversation: Transcript is about the topic of "Should we ban plastic straws?".
+2. Conversation: Transcript mentions "Should we ban plastic straws?".
 Insight: 500mil straws in the US/day, 8.3bil straws pollute the world's beaches
 
-3. Conversation: Transcript is about the topic of "Cancer survival rate across the years".
+3. Conversation: Transcript mentions "Cancer survival rate across the years".
 Insight: Cancer survival rate: 49% in mid-70s to 68% now
 
 4. Conversation: Transcript is about how fast the brain can recognize things.
@@ -75,23 +75,23 @@ Insight: Brain can recognize images in ~100ms, 10x faster than previously though
         },
          "FactChecker" : {
              "agent_name": "FactChecker", 
-             "insight_num_words" : 7,
+             "insight_num_words" : 10,
              "agent_insight_type" : """fact check any claims made during a conversation. Listen for any claims made that may not be true, and use your data, knowledge, and tools to verify or refute claims that are made. You only try to verify/refute statements which are falsifiable with free and public knowledge (i.e. don't fact check personal statements or beliefs).""",
              "agent_plan" : """1. Find and write down individual factual claims from the conversation. Do not consider personal, belief-based, or unfalsifiable claims. If there are no claims made that meet the requirements, then skip to the final step and output "null".\n2. If claims are found, write out how to determine if each claim is true or false using your tools.\n3. Find any false claim, use the most important false claim if there are multiple, to generate your "Insight". If there are no claims or no false claims, your output is "null".""",
-             "proactive_tool_description" : """If a statement is made which you suspect might be false or contains a common myth, and that statement is falsifiable with free and public knowledge or through mythbusters. Don't use this to verify your own searches or your own ideas, only use this to verify the user's statements.""",
-             "proactive_tool_example": """Conversation: Transcript is about the topic of "Eating carrots improves night vision."
+             "proactive_tool_description" : """Trigger a fact-check if a statement in the transcript falls under: misinterpreted statistics, historical inaccuracies, misleading health claims, political misrepresentations, scientific misunderstandings, or false economic data. Also, initiate a fact-check for statements not commonly known to an uneducated person, suspected falsehoods, common myths, or claims verifiable through free, public knowledge or MythBusters. This guideline is for verifying user's statements, not your own searches or ideas.""",
+             "proactive_tool_example": """Conversation: Transcript mentions "Eating carrots improves night vision."
  Insight: Carrots have vitamin A; don't grant night vision. WWII myth origin""",
              "examples" : """
- 1. Conversation: Transcript is about the topic of "Eating carrots improves night vision."
+ 1. Conversation: Transcript mentions "Eating carrots improves night vision."
  Insight: Carrots have vitamin A; don't grant night vision. WWII myth origin
 
- 2. Conversation: Transcript is about the topic of "Napoleon Bonaparte was extremely short, standing only 5 feet tall."
+ 2. Conversation: Transcript mentions "Napoleon Bonaparte was extremely short, standing only 5 feet tall."
  Insight: Napoleon was 5'7"; average height, Misconception from French units
 
- 3. Conversation: Transcript is about the topic of "Humans only use 10% of their brains."
+ 3. Conversation: Transcript mentions "Humans only use 10% of their brains."
  Insight: Humans use 100% of their brains; brain imaging shows activity
 
- 4. Conversation: Transcript is about the topic of "Goldfish have a memory span of just a few seconds."
+ 4. Conversation: Transcript mentions "Goldfish have a memory span of just a few seconds."
  Insight: Common myth; studies show goldfish remember things for months
  """
          },
@@ -101,19 +101,19 @@ Insight: Brain can recognize images in ~100ms, 10x faster than previously though
             "agent_insight_type" : """assess the point of view being taken in the conversation and steel-man a contrary position. You purposefully disagree with the interlocutors' arguments and point of view to help stimulate thought and explore the ideas further.""",
             "agent_plan" : """1. Find a main argument or point of view being taken that would benefit the most from a devils advocate perspective. Write down the original position. If no position/argument is found, skip to the final step and output "null".\n2. List any tool usage necessary to generate your devils advocate position.""",
             "proactive_tool_description" : """When it would be useful for the user to see a devil's advocate opinion (a steel-man argument supporting a viewpoint different from their own).""",
-            "proactive_tool_example": """Conversation: Transcript is about the topic of "Climate change is a hoax."
+            "proactive_tool_example": """Conversation: Transcript mentions "Climate change is a hoax."
 Insight: Most scientists confirm climate change's reality; evidence is in global trends""",
             "examples": """
-1. Conversation: Transcript is about the topic of "Climate change is a hoax."
+1. Conversation: Transcript mentions "Climate change is a hoax."
 Insight: Most scientists confirm climate change's reality; evidence is in global trends
 
-2. Conversation: Transcript is about the topic of "Vaccines cause autism".
+2. Conversation: Transcript mentions "Vaccines cause autism".
 Insight: Numerous studies show no vaccine-autism link; vaccines prevent disease outbreaks
 
-3. Conversation: Transcript is about the topic of "Artificial intelligence will replace all human jobs."
+3. Conversation: Transcript mentions "Artificial intelligence will replace all human jobs."
 Insight: AI will create new jobs and industries, not just replace old ones
 
-4. Conversation: Transcript is about the topic of "Freedom of speech means I can say anything without consequences".
+4. Conversation: Transcript mentions "Freedom of speech means I can say anything without consequences".
 Insight: Free speech has limits; doesn't protect from harmful speech consequences
 """
         }
