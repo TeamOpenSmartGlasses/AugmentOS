@@ -4,15 +4,16 @@ import time
 import test_on_lex
 import multiprocessing
 
-TEST_USERID = "testUserId"
+TEST_USERID = "caydenLexTester"
 TEST_DEVICEID = "testDeviceId"
 
-PORT = '8080'
-URL = "http://localhost"
+server_endpoint = '/dev2'
+URL = "https://vpmkebx0cl.execute-api.us-east-2.amazonaws.com/api"
 
-URI = URL + ":" + PORT
+URI = URL + server_endpoint
 UI_POLL_ENDPOINT = URI + "/ui_poll"
 CHAT_ENDPOINT = URI + "/chat"
+PLAYBACK_SPEED = 2
 
 ui_poll_data = {
       'features': ["contextual_search_engine"],
@@ -40,6 +41,8 @@ def chat(text, isFinal):
       'timestamp': time.time(),
       'isFinal': isFinal,
     }
+    print(CHAT_ENDPOINT)
+    print(chat_data)
     r_chat = requests.post(CHAT_ENDPOINT, data=json.dumps(chat_data))
     json_chat = r_chat.json()
     print(json_chat)
