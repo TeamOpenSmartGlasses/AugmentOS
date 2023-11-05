@@ -27,7 +27,7 @@ Now use your knowledge and/or tools (if needed) to answer the query to the best 
 """
 
 # makes the wrapper fnction for expert agents when they're run as tools - a function factory so we don't have weird scope issues
-def make_expert_agent_run_wrapper_function(agent, agent_explicit_prompt, is_async=False):
+def make_expert_agent_run_wrapper_function(agent, agent_explicit_prompt, is_async=True):
     def run_expert_agent_wrapper(command):
         return agent.run(agent_explicit_prompt + '\n[Extra Instructions]\n' + command)
 
