@@ -4,6 +4,7 @@ import {
   createStyles,
   keyframes,
   Image,
+  rem,
 } from "@mantine/core";
 import SpeechRecognition, {
   useSpeechRecognition,
@@ -133,7 +134,7 @@ const TranscriptButton = () => {
       variant="filled"
       radius={100}
       onClick={isRecognizing ? stopRecognizing : startRecognizing}
-      size={"4rem"}
+      size={rem(80)}
       className={classes.iconButton}
       disabled={!isMicrophoneAvailable || !browserSupportsSpeechRecognition}
     >

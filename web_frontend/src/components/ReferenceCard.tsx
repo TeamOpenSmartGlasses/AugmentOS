@@ -17,7 +17,6 @@ import { useState } from "react";
 
 const useStyles = createStyles((theme) => ({
   card: {
-    height: 120,
     marginTop: "1rem",
     ":first-of-type": { marginTop: 0 },
     backgroundColor: theme.colors.cardFill,
@@ -127,6 +126,7 @@ const ReferenceCard = ({
                 wordBreak: "break-word",
                 overflowWrap: "break-word",
                 color: theme.colors.bodyText,
+                lineHeight: "150%",
               }}
             >
               {/* if there is an entity.name, show the Definer card format. Otherwise show the agent insight */}
