@@ -9,7 +9,7 @@ from langchain.agents.tools import Tool
 banned_sites = ["calendar.google.com", "researchgate.net"]
 
 
-def scrape_page(url: str, title: str):
+def scrape_page(url: str):
     """Based on your observations from the Search_Engine, if you want more details from
     a snippet for a non-PDF page, pass this the page's URL and the page's title to
     scrape the full page and retrieve the full contents of the page."""
@@ -100,6 +100,8 @@ def parse_snippets(results: dict) -> List[str]:
     for result in results[result_key_for_type[search_type]][:k]:
         if "snippet" in result:
             page = scrape_page(result["link"])
+            if ('title' not in result) or (result['title'] is None):
+                result['title'] = ""
             if page is None:
                 snippets.append(f"Title: {result['title']}\nPossible answers: {result['snippet']}\n")
             else:
@@ -134,10 +136,24 @@ def run_search_tool_for_agents(query: str, parse=True, **kwargs: Any):
     return parse_results(results)
 
 
+async def arun_search_tool_for_agents(query: str, parse=True, **kwargs: Any):
+    results = serper_search(
+            search_term=query,
+            gl=gl,
+            hl=hl,
+            num=k,
+            tbs=tbs,
+            search_type=search_type,
+            **kwargs,
+        )
+    return parse_results(results)
+
+
 def get_search_tool_for_agents():
     search_tool_for_agents = Tool(
         name="Search_Engine",
         func=run_search_tool_for_agents,
+        coroutine=arun_search_tool_for_agents,
         description="Pass this specific targeted queries and/or keywords to quickly search the WWW to retrieve vast amounts of information on virtually any topic, spanning from academic research and navigation to history, entertainment, and current events. It's a tool for understanding, navigating, and engaging with the digital world's vast knowledge.",
     )
     return search_tool_for_agents

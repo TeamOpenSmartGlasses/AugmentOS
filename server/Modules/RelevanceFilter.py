@@ -2,7 +2,7 @@ import json
 import openai
 
 from server_config import openai_api_key
-from constants import LLM_FILTER_THRESHOLD
+from constants import LLM_FILTER_THRESHOLD, RELEVANCE_FILTER_TIME
 # from server.Prompts.relevance_filter_prompt import relevance_filter_prompt
 
 openai.api_key = openai_api_key
@@ -176,13 +176,13 @@ class RelevanceFilter:
     def __init__(self, db_handler):
         print("RelevanceFilter initialized")
         self.db_handler = db_handler
-        self.banned_terms = ["LOL", "AI", "Caden Pierce", "Alex Israel", "Professor", "God", "Jesus", "Google", "David Newman", "Patty"]
+        self.banned_terms = ["LOL", "AI", "Caden Pierce", "Alex Israel", "Professor", "God", "Jesus", "Google", "David Newman", "Patty", "Earth", "North America", "United States", "Special Boat Service", "League of Legends"]
 
     def should_display_result_based_on_context(self, user_id, cse_outputs, context):
         valid_outputs = []
         
         terms_defined_in_last_n_seconds = self.db_handler.get_defined_terms_from_last_nseconds_for_user_device(
-            user_id, n=120
+            user_id, n=RELEVANCE_FILTER_TIME
         )
 
         # print(f"===========================CONTEXT: {context}==============================")

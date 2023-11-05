@@ -75,9 +75,8 @@ const ReferenceCard = ({
 
   const getImageUrl = (entity: Entity) => {
     if (entity.map_image_path) {
-      return `${import.meta.env.VITE_BACKEND_BASE_URL}/${
-        entity.map_image_path
-      }`;
+      return `${import.meta.env.VITE_BACKEND_BASE_URL}/${entity.map_image_path
+        }`;
     }
     return entity.image_url;
   };
@@ -155,8 +154,7 @@ const ReferenceCard = ({
           </Group>
         </Stack>
       </Flex>
-    </Card>
-  );
+  </Card>);
 };
 
 export default ReferenceCard;
