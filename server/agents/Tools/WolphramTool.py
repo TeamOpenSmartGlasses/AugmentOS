@@ -1,11 +1,20 @@
-from wolframclient.evaluation import WolframLanguageSession
-from wolframclient.language import wlexpr
+import wolframalpha
+from server.server_config import wolframalpha_api_key
 
 
 class WolframTool:
     def __init__(self):
-        self.session = WolframLanguageSession()
+        try:
+            self.client = wolframalpha.Client(wolframalpha_api_key)
+        except Exception as e:
+            print(f"Failed to initialize Wolfram Tool. Error: {e}")
+            self.client = None
 
-    def query(self, input_query):
-        res = self.session.evaluate(wlexpr(input_query))
-        return res
+    def query(self, query: str) -> str:
+        if self.client is None:
+            return None
+
+        response = self.client.query(query)
+        answer = next(response.results).text
+        
+        return answer
