@@ -441,13 +441,14 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         minimumDisplayRate = minimumDisplayRatePerResult * displayThese.size();
         latestDisplayTime = System.currentTimeMillis();
-        displayListAsBullets(displayThese);
-    }
 
-    public void displayListAsBullets(ArrayList<String> bullets){
-        //parse results to display and show on glasses
-        String[] resultsToDisplayListArr = bullets.toArray(new String[bullets.size()]);
-        sgmLib.sendBulletPointList("Convoscope", resultsToDisplayListArr);
+        if (displayThese.size() == 1) {
+            sgmLib.sendReferenceCard(appName, displayThese.get(0));
+        }
+        else {
+            String[] resultsToDisplayListArr = displayThese.toArray(new String[displayThese.size()]);
+            sgmLib.sendBulletPointList(appName, resultsToDisplayListArr);
+        }
     }
 
     public void speakTTS(String toSpeak){
