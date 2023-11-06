@@ -1,8 +1,11 @@
+import wolframalpha
 from langchain.agents import Tool
-from Tools.WolframAlphaTool import WolframAlphaTool
+from agents.Tools.WolframAlphaTool import WolframAlphaTool
+from server_config import wolframalpha_api_key
 
 
 WolframAlpha_tool = WolframAlphaTool()
+
 
 def get_wolfram_alpha_tool_for_agents():
     wolfram_client_tool_for_agents = Tool(

@@ -1,5 +1,5 @@
 import wolframalpha
-from server.server_config import wolframalpha_api_key
+from server_config import wolframalpha_api_key
 
 
 class WolframAlphaTool:
