@@ -51,7 +51,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private SMSComms smsComms;
     static String phoneNumName = "Alex";
     static String phoneNum = "8477367492"; // Alex's phone number. Fun default.
-    double previousWakeWordTime = -1; // Initialize this at -1
+    long previousWakeWordTime = -1; // Initialize this at -1
     static int maxBullets = 2; // Maximum number of bullet points per display iteration
     long latestDisplayTime = 0; // Initialize this at 0
     long minimumDisplayRate = 0; // Initialize this at 0
@@ -328,15 +328,16 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         JSONArray explicitAgentResults = response.has(explicitAgentResultsKey) ? response.getJSONArray(explicitAgentResultsKey) : new JSONArray();
 
-        double wakeWordTime = response.has(wakeWordTimeKey) ? response.getDouble(wakeWordTimeKey) : -1;
+        long wakeWordTime = response.has(wakeWordTimeKey) ? response.getLong(wakeWordTimeKey) : -1;
 
         if (cseResults.length() > 0){
             Log.d(TAG, "GOT CSE RESULTS: " + response.toString());
         }
 
         if (wakeWordTime != -1 && wakeWordTime != previousWakeWordTime){
-            String body = "Listening...";
-            //queueOutput(body); // TODO: Uncomment this once wake word detection fixed on backend
+            previousWakeWordTime = wakeWordTime;
+            String body = "Listening... ";
+            queueOutput(body);
         }
 
         //go through CSE results and add to resultsToDisplayList
