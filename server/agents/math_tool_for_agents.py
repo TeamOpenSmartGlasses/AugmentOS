@@ -1,5 +1,5 @@
 from langchain.agents import Tool
-from Tools.WolphramAlphaTool import WolframAlphaTool
+from Tools.WolframAlphaTool import WolframAlphaTool
 
 
 WolframAlpha_tool = WolframAlphaTool()
