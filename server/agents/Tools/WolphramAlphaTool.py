@@ -18,3 +18,12 @@ class WolframAlphaTool:
         answer = next(response.results).text
         
         return answer
+
+    async def a_query(self, query: str) -> str:
+        if self.client is None:
+            return None
+
+        response = self.client.query(query)
+        answer = next(response.results).text
+        
+        return answer

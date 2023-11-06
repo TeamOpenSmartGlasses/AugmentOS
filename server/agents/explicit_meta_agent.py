@@ -1,4 +1,5 @@
 from agents.search_tool_for_agents import get_search_tool_for_agents
+from agents.math_tool_for_agents import get_wolfram_alpha_tool_for_agents
 from agents.expert_agent_configs import expert_agent_config_list, expert_agent_prompt_maker
 from langchain.agents import initialize_agent
 from langchain.agents.tools import Tool
@@ -45,9 +46,9 @@ def make_expert_agents_as_tools(transcript):
         expert_agent_explicit_prompt = expert_agent_prompt_maker(expert_agent, transcript)
 
         # make the agent with tools
-        new_expert_agent = initialize_agent(
-            [
-                get_search_tool_for_agents()
+        new_expert_agent = initialize_agent([
+                get_search_tool_for_agents(),
+                get_wolfram_alpha_tool_for_agents(),
             ], 
             llm, 
             agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION, 

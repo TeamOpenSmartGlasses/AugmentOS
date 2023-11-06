@@ -11,6 +11,7 @@ from langchain.schema import OutputParserException
 from server_config import openai_api_key
 from agents.expert_agent_configs import expert_agent_config_list, expert_agent_prompt_maker
 from agents.search_tool_for_agents import get_search_tool_for_agents
+from agents.math_tool_for_agents import get_wolfram_alpha_tool_for_agents
 
 #agent insight structure
 class AgentInsight(BaseModel):
@@ -31,6 +32,7 @@ agent_insight_parser = PydanticOutputParser(pydantic_object=AgentInsight)
 llm = ChatOpenAI(temperature=0.5, openai_api_key=openai_api_key, model="gpt-4-0613")
 agent = initialize_agent([
         get_search_tool_for_agents(),
+        get_wolfram_alpha_tool_for_agents(),
     ], llm, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=True)
 
 def post_process_agent_output(expert_agent_response, agent_name):
