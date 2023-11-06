@@ -41,15 +41,21 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private BackendServerComms backendServerComms;
     ArrayList<String> responses;
     ArrayList<String> responsesToShare;
-    private Handler handler = new Handler(Looper.getMainLooper());
-    private Runnable runnableCode;
+    private Handler csePollLoopHandler = new Handler(Looper.getMainLooper());
+    private Runnable cseRunnableCode;
+    private Handler displayPollLoopHandler = new Handler(Looper.getMainLooper());
+    private Runnable displayRunnableCode;
     static String userId;
     static final String deviceId = "android";
     static final String [] features = {"contextual_search_engine", "proactive_agent_insights", "explicit_agent_insights"};
-
     private SMSComms smsComms;
     static String phoneNumName = "Alex";
     static String phoneNum = "8477367492"; // Alex's phone number. Fun default.
+    double previousWakeWordTime = -1; // Initialize this at -1
+    static int maxBullets = 2; // Maximum number of bullet points per display iteration
+    long latestDisplayTime = 0; // Initialize this at 0
+    long minimumDisplayRate = 0; // Initialize this at 0
+    long minimumDisplayRatePerResult = 4000; // Rate-limit displaying new results to 4 seconds per result
 
     private long currTime = 0;
     private long lastPressed = 0;
@@ -97,6 +103,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         userId = getUserId();
 
         setUpCsePolling();
+        setUpDisplayQueuePolling();
 
         smsComms = new SMSComms();
 
@@ -104,19 +111,31 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     public void setUpCsePolling(){
-        runnableCode = new Runnable() {
+        cseRunnableCode = new Runnable() {
             @Override
             public void run() {
                 requestContextualSearchEngine();
-                handler.postDelayed(this, 1000);
+                csePollLoopHandler.postDelayed(this, 1000);
             }
         };
-        handler.post(runnableCode);
+        csePollLoopHandler.post(cseRunnableCode);
+    }
+
+    public void setUpDisplayQueuePolling(){
+        displayRunnableCode = new Runnable() {
+            @Override
+            public void run() {
+                maybeDisplayFromResultList();
+                displayPollLoopHandler.postDelayed(this, 500);
+            }
+        };
+        displayPollLoopHandler.post(displayRunnableCode);
     }
 
     @Override
     public void onDestroy(){
-        handler.removeCallbacks(runnableCode);
+        csePollLoopHandler.removeCallbacks(cseRunnableCode);
+        displayPollLoopHandler.removeCallbacks(displayRunnableCode);
         EventBus.getDefault().unregister(this);
         sgmLib.deinit();
         super.onDestroy();
@@ -315,8 +334,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             Log.d(TAG, "GOT CSE RESULTS: " + response.toString());
         }
 
-        //all the stuff from the results that we want to display
-        ArrayList<String> resultsToDisplayList = new ArrayList<>();
+        if (wakeWordTime != -1 && wakeWordTime != previousWakeWordTime){
+            String body = "Listening...";
+            //queueOutput(body); // TODO: Uncomment this once wake word detection fixed on backend
+        }
 
         //go through CSE results and add to resultsToDisplayList
         String sharableResponse = "";
@@ -328,11 +349,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 String combined = name + ": " + body;
                 Log.d(TAG, name);
                 Log.d(TAG, "--- " + body);
-                responses.add(combined);
-                sendUiUpdateSingle(combined);
-                //speakTTS(combined);
-
-                resultsToDisplayList.add(combined.substring(0,Math.min(72, combined.length())).trim().replaceAll("\\s+", " "));
+                queueOutput(combined);
 
 //                if(obj.has(mapImgKey)){
 //                    String mapImgPath = obj.getString(mapImgKey);
@@ -371,10 +388,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 String combined = name + ": " + body;
                 Log.d(TAG, name);
                 Log.d(TAG, "--- " + body);
-                responses.add(combined);
-                sendUiUpdateSingle(combined);
-
-                resultsToDisplayList.add(combined.substring(0,Math.min(72, combined.length())).trim().replaceAll("\\s+", " "));
+                queueOutput(combined);
             } catch (JSONException e){
                 e.printStackTrace();
             }
@@ -384,14 +398,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         for (int i = 0; i < explicitAgentQueries.length(); i++){
             try {
                 JSONObject obj = explicitAgentQueries.getJSONObject(i);
-                String name = "Query";
-                String body = obj.getString("query");
-                String combined = name + ": " + body;
-                Log.d(TAG, name);
-                Log.d(TAG, "--- " + body);
-                responses.add(combined);
-                sendUiUpdateSingle(combined);
-                resultsToDisplayList.add(combined.substring(0,Math.min(72, combined.length())).trim().replaceAll("\\s+", " "));
+                String body = "Processing query: " + obj.getString("query");
+                queueOutput(body);
             } catch (JSONException e){
                 e.printStackTrace();
             }
@@ -401,28 +409,43 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         for (int i = 0; i < explicitAgentResults.length(); i++){
             try {
                 JSONObject obj = explicitAgentResults.getJSONObject(i);
-                String name = "Mira";
-                String body = obj.getString("insight");
-                String combined = name + ": " + body;
-                Log.d(TAG, name);
-                Log.d(TAG, "--- " + body);
-                responses.add(combined);
-                sendUiUpdateSingle(combined);
-                resultsToDisplayList.add(combined.substring(0,Math.min(72, combined.length())).trim().replaceAll("\\s+", " "));
+                String body = "Response: " + obj.getString("insight");
+                queueOutput(body);
             } catch (JSONException e){
                 e.printStackTrace();
             }
         }
 
-        if (resultsToDisplayList.size() == 0){
-            return;
-        }
-
         //add a response to share to the shareable response list
         responsesToShare.add(sharableResponse);
+    }
 
+    //all the stuff from the results that we want to display
+    ArrayList<String> resultsToDisplayList = new ArrayList<>();
+    public void queueOutput(String item){
+        responses.add(item);
+        sendUiUpdateSingle(item);
+        resultsToDisplayList.add(item.substring(0,Math.min(72, item.length())).trim().replaceAll("\\s+", " "));
+    }
+
+    public void maybeDisplayFromResultList(){
+        if (resultsToDisplayList.size() == 0) return;
+        if (System.currentTimeMillis() - latestDisplayTime < minimumDisplayRate) return;
+
+        ArrayList<String> displayThese = new ArrayList<String>();
+        for(int i = 0; i < resultsToDisplayList.size(); i++) {
+            if (i >= maxBullets) break;
+            displayThese.add(resultsToDisplayList.remove(0));
+        }
+
+        minimumDisplayRate = minimumDisplayRatePerResult * displayThese.size();
+        latestDisplayTime = System.currentTimeMillis();
+        displayListAsBullets(displayThese);
+    }
+
+    public void displayListAsBullets(ArrayList<String> bullets){
         //parse results to display and show on glasses
-        String[] resultsToDisplayListArr = resultsToDisplayList.toArray(new String[resultsToDisplayList.size()]);
+        String[] resultsToDisplayListArr = bullets.toArray(new String[bullets.size()]);
         sgmLib.sendBulletPointList("Convoscope", resultsToDisplayListArr);
     }
 
