@@ -7,16 +7,24 @@ import time
 import webvtt
 from test_helper import *
 
-def test_transcripts_in_realtime(file_path):
+def test_transcripts_in_realtime(file_path, user_start_time):
     captions = webvtt.read(file_path)
     start_time = time.time()
 
     for caption in captions:
         start = timestamp_to_seconds(caption.start)
-        end = timestamp_to_seconds(caption.end)
+
+        #drop everything before user start time
+        if start < user_start_time:
+            print("Dropping: {}".format(caption.text))
+            continue
+
+        #modify the start and end time based on user_start_time
+        start = start - user_start_time
+        end = timestamp_to_seconds(caption.end) - user_start_time
 
         # Wait until the start time
-        while time.time() - start_time < start:
+        while ((time.time() - start_time) * PLAYBACK_SPEED) < start:
             time.sleep(0.01)
 
         # Send transcript to server
@@ -24,7 +32,7 @@ def test_transcripts_in_realtime(file_path):
         chat(caption.text, True)
 
         # Wait until the end time
-        while time.time() - start_time < end:
+        while ((time.time() - start_time) * PLAYBACK_SPEED) < end:
             time.sleep(0.01)
 
         # Get the response from the server
@@ -45,4 +53,9 @@ def timestamp_to_seconds(timestamp):
 
 if __name__ == "__main__":
     file_path = input("Enter the path to the VTT file: ")
-    test_transcripts_in_realtime(file_path)
+    user_start_time = input("Enter the number of seconds in to start (or press enter to start at beginning: ")
+    if not user_start_time or user_start_time == " ":
+        user_start_time = 0
+    else:
+        user_start_time = int(user_start_time)
+    test_transcripts_in_realtime(file_path, user_start_time)
