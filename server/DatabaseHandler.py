@@ -424,7 +424,7 @@ class DatabaseHandler:
         query_condition = {
             "user_id": user_id, 
             '$or': [
-                {'last_wake_word_time': {'$lt': (current_time - self.wake_word_min_update_time)}},
+                # {'last_wake_word_time': {'$lt': (current_time - self.wake_word_min_update_time)}},
                 {'last_wake_word_time': -1}
             ]
         }
