@@ -2,7 +2,7 @@ import wolframalpha
 from server.server_config import wolframalpha_api_key
 
 
-class WolframTool:
+class WolframAlphaTool:
     def __init__(self):
         try:
             self.client = wolframalpha.Client(wolframalpha_api_key)

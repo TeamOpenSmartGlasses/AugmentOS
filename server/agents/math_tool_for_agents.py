@@ -1,19 +1,16 @@
 from langchain.agents import Tool
-from Tools.MathTool import MathTool, WolframTool
-
-def get_math_tool_for_agents():
-    math_tool_for_agents = Tool(
-        name="Math_Tool",
-        func=MathTool().apply,
-        description="Perform mathematical operations"
-    )
-    return math_tool_for_agents
+from Tools.WolphramAlphaTool import WolframAlphaTool
 
 
 def get_wolfram_client_tool_for_agents():
     wolfram_client_tool_for_agents = Tool(
-        name="Wolfram_Tool",
-        func=WolframTool().query,
-        description="Query Wolfram Alpha"
+        name="WolframAlpha_Tool",
+        func=WolframAlphaTool().query,
+        description="""
+        Leverage the computational intelligence of Wolfram Alpha through this tool to perform complex calculations, 
+        access reports and data across various domains such as mathematics, science, technology, and everyday life. 
+        This tool offers an invaluable resource for in-depth analysis, problem-solving, and discovery.
+        """
     )
+
     return wolfram_client_tool_for_agents
