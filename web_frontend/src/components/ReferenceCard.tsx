@@ -1,8 +1,6 @@
 import {
-  Flex,
   Text,
   Image,
-  Card,
   createStyles,
   Group,
   rem,
@@ -13,22 +11,9 @@ import {
 import { AgentName, Entity } from "../types";
 import { IconThumbDown, IconThumbDownFilled, IconThumbUp, IconThumbUpFilled } from "@tabler/icons-react";
 import { useState } from "react";
+import CardWrapper, { CardWrapperProps } from "./CardWrapper";
 
 const useStyles = createStyles((theme) => ({
-  card: {
-    marginTop: "1rem",
-    ":first-of-type": { marginTop: 0 },
-    marginBottom: "2.5rem",
-    backgroundColor: theme.colors.cardFill,
-    ":hover": {
-      filter: "brightness(1.2)",
-    },
-    color: theme.colors.titleText,
-    border: `1.5px solid ${theme.colors.cardStroke}`,
-    borderRadius: rem(30),
-    boxShadow: "15px 15px 40px 0px rgba(0, 0, 0, 0.40)"
-  },
-
   button: {
     color: theme.colors.convoscopeBlue,
     paddingLeft: rem(8),
@@ -39,15 +24,12 @@ const useStyles = createStyles((theme) => ({
     border: `1.5px solid ${theme.colors.cardStroke}`,
     ":active": {
       translate: "0 2px",
-    }
-  }
+    },
+  },
 }));
 
-interface ReferenceCardProps {
+interface ReferenceCardProps extends CardWrapperProps {
   entity: Entity;
-  selected?: boolean;
-  onClick: () => void;
-  large?: boolean;
 }
 
 const AGENT_ICON_PATHS: Record<AgentName, string> = {
@@ -71,7 +53,6 @@ const ReferenceCard = ({
   large = false,
 }: ReferenceCardProps) => {
   const theme = useMantineTheme();
-  const { classes } = useStyles();
 
   const getImageUrl = (entity: Entity) => {
     if (entity.map_image_path) {
@@ -82,72 +63,63 @@ const ReferenceCard = ({
   };
 
   return (
-    <Card
-      radius="md"
-      p={0}
-      h={large ? "36vh" : "24vh"}
-      onClick={onClick}
-      className={classes.card}
-      sx={{ ...(selected && { filter: "brightness(1.2)" }) }}
-    >
-      <Flex align={"center"} h={"100%"}>
-        {(entity.image_url || entity.map_image_path) && (
-          <Box
-            sx={{
-              borderRadius: rem(30),
-              flex: `1 1 ${large ? 180 : 120}px`,
-              objectFit: "cover",
-              overflow: "clip",
+    <CardWrapper onClick={onClick} selected={selected} large={large}>
+      {(entity.image_url || entity.map_image_path) && (
+        <Box
+          sx={{
+            borderRadius: rem(30),
+            flex: `1 1 ${large ? 180 : 120}px`,
+            objectFit: "cover",
+            overflow: "clip",
+            height: "100%",
+            "& > div, & > div > figure, & > div > figure > div": {
               height: "100%",
-              "& > div, & > div > figure, & > div > figure > div": {
-                height: "100%",
-              },
-              background: "white",
-            }}
-          >
-            <Image src={getImageUrl(entity)} fit="cover" height="100%" />
-          </Box>
-        )}
-        <Box p={"lg"} h="100%" w="100%" sx={{ flex: "10 1 0" }}>
-          <Box sx={{ float: "right" }}>
-            <ThumbButtons />
-          </Box>
-          <Text
-            size={rem(33)}
-            pl="sm"
-            sx={{
-              wordWrap: "break-word",
-              wordBreak: "break-word",
-              overflowWrap: "break-word",
-              color: theme.colors.bodyText,
-              lineHeight: "150%",
-            }}
-          >
-            {/* if there is an entity.name, show the Definer card format. Otherwise show the agent insight */}
-            {entity.name
-              ? `${entity.name}: ${entity.summary}`
-              : entity.agent_insight}
-          </Text>
-          {/* make label stick to bottom-right corner */}
-          <Group p="lg" sx={{bottom: 0, right: 0, position: "absolute"}}>
-            <Text
-              transform="uppercase"
-              fw="bold"
-              size={rem(22)}
-              sx={{ letterSpacing: rem(1.1) }}
-            >
-              {AGENT_ICON_NAMES[entity.agent_name ?? AgentName.DEFINER]}
-            </Text>
-            <Image
-              src={AGENT_ICON_PATHS[entity.agent_name ?? AgentName.DEFINER]}
-              height={large ? rem(50) : rem(40)}
-              width={large ? rem(50) : rem(40)}
-              radius="md"
-            />
-          </Group>
+            },
+            background: "white",
+          }}
+        >
+          <Image src={getImageUrl(entity)} fit="cover" height="100%" />
         </Box>
-      </Flex>
-    </Card>
+      )}
+      <Box p={"lg"} h="100%" w="100%" sx={{ flex: "10 1 0" }}>
+        <Box sx={{ float: "right" }}>
+          <ThumbButtons />
+        </Box>
+        <Text
+          size={rem(33)}
+          pl="sm"
+          sx={{
+            wordWrap: "break-word",
+            wordBreak: "break-word",
+            overflowWrap: "break-word",
+            color: theme.colors.bodyText,
+            lineHeight: "150%",
+          }}
+        >
+          {/* if there is an entity.name, show the Definer card format. Otherwise show the agent insight */}
+          {entity.name
+            ? `${entity.name}: ${entity.summary}`
+            : entity.agent_insight}
+        </Text>
+        {/* make label stick to bottom-right corner */}
+        <Group p="lg" sx={{ bottom: 0, right: 0, position: "absolute" }}>
+          <Text
+            transform="uppercase"
+            fw="bold"
+            size={rem(22)}
+            sx={{ letterSpacing: rem(1.1) }}
+          >
+            {AGENT_ICON_NAMES[entity.agent_name ?? AgentName.DEFINER]}
+          </Text>
+          <Image
+            src={AGENT_ICON_PATHS[entity.agent_name ?? AgentName.DEFINER]}
+            height={large ? rem(50) : rem(40)}
+            width={large ? rem(50) : rem(40)}
+            radius="md"
+          />
+        </Group>
+      </Box>
+    </CardWrapper>
   );
 };
 
