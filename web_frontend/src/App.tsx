@@ -210,7 +210,7 @@ export default function App() {
           className={classes.container}
           w={showExplorePane ? "50%" : "100%"}
           pt={"2rem"}
-          px={"4rem"}
+          px={"1rem"}
         >
           {entities.length === 0 && (
             <Box w="50%" mx="auto" mt="xl">

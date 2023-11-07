@@ -6,7 +6,6 @@ import {
   createStyles,
   Group,
   rem,
-  Stack,
   useMantineTheme,
   Box,
   UnstyledButton,
@@ -48,7 +47,6 @@ interface ReferenceCardProps {
   selected?: boolean;
   onClick: () => void;
   large?: boolean;
-  showExplorePane?: boolean;
 }
 
 const AGENT_ICON_PATHS: Record<AgentName, string> = {
@@ -70,7 +68,6 @@ const ReferenceCard = ({
   selected = false,
   onClick,
   large = false,
-  showExplorePane = false,
 }: ReferenceCardProps) => {
   const theme = useMantineTheme();
   const { classes } = useStyles();
@@ -111,37 +108,31 @@ const ReferenceCard = ({
             <Image src={getImageUrl(entity)} fit="cover" height="100%" />
           </Box>
         )}
-        <Stack
-          p={"lg"}
-          h="100%"
-          w="100%"
-          sx={{ flex: "10 1 0" }}
-          justify={"center"}
-        >
-          <Group noWrap align="start">
-            <Text
-              size={rem(33)}
-              p="xl"
-              sx={{
-                wordWrap: "break-word",
-                wordBreak: "break-word",
-                overflowWrap: "break-word",
-                color: theme.colors.bodyText,
-                lineHeight: "150%",
-              }}
-            >
-              {/* if there is an entity.name, show the Definer card format. Otherwise show the agent insight */}
-              {entity.name
-                ? `${entity.name}: ${entity.summary}`
-                : entity.agent_insight}
-            </Text>
-            {!showExplorePane && <ThumbButtons />}
-          </Group>
-          {!showExplorePane && <Group mt="auto">
+        <Box p={"lg"} h="100%" w="100%" sx={{ flex: "10 1 0" }}>
+          <Box sx={{ float: "right" }}>
+            <ThumbButtons />
+          </Box>
+          <Text
+            size={rem(33)}
+            pl="sm"
+            sx={{
+              wordWrap: "break-word",
+              wordBreak: "break-word",
+              overflowWrap: "break-word",
+              color: theme.colors.bodyText,
+              lineHeight: "150%",
+            }}
+          >
+            {/* if there is an entity.name, show the Definer card format. Otherwise show the agent insight */}
+            {entity.name
+              ? `${entity.name}: ${entity.summary}`
+              : entity.agent_insight}
+          </Text>
+          {/* make label stick to bottom-right corner */}
+          <Group p="lg" sx={{bottom: 0, right: 0, position: "absolute"}}>
             <Text
               transform="uppercase"
               fw="bold"
-              ml="auto"
               size={rem(22)}
               sx={{ letterSpacing: rem(1.1) }}
             >
@@ -153,10 +144,11 @@ const ReferenceCard = ({
               width={large ? rem(50) : rem(40)}
               radius="md"
             />
-          </Group>}
-        </Stack>
+          </Group>
+        </Box>
       </Flex>
-  </Card>);
+    </Card>
+  );
 };
 
 export default ReferenceCard;
