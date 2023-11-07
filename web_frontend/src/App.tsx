@@ -14,7 +14,7 @@ import {
 } from "@mantine/core";
 import Sidebar from "./components/Sidebar";
 import PageView from "./components/PageView";
-import { AgentName, Entity } from "./types";
+import { AgentName, Entity, Insight } from "./types";
 import ReferenceCard from "./components/ReferenceCard";
 import Cookies from "js-cookie";
 import axiosClient from "./axiosConfig";
@@ -24,6 +24,7 @@ import SettingsModal from "./components/SettingsModal";
 import { UI_POLL_ENDPOINT } from "./serverEndpoints";
 import { motion } from "framer-motion";
 import { theme } from "./theme";
+import ExplicitCard from "./components/ExplicitCard";
 
 // animate-able components for framer-motion
 // https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
@@ -71,7 +72,8 @@ export default function App() {
     },
   ]);
   const [mountedIds, setMountedIds] = useState(new Set<string>());
-  const [explicitInsights, setExplicitInsights] = useState<Entity[]>([]);
+  const [explicitInsights, setExplicitInsights] = useState<Insight[]>([]);
+  const [isExplicitListening, setIsExplicitListening] = useState(false);
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
   const [showExplorePane, setShowExplorePane] = useState(false);
   const [selectedCardId, setSelectedCardId] = useState<string | undefined>();
@@ -170,7 +172,9 @@ export default function App() {
             ...newExplicitInsights
           ])
 
-          console.log(res.data)
+          if (res.data.wake_word_time === -1) {
+            setIsExplicitListening(true);
+          }
         }
       })
       .catch(function (error) {
@@ -212,6 +216,7 @@ export default function App() {
           )}
           {/* Left Panel */}
           <ScrollArea scrollHideDelay={100} h="100%">
+            {isExplicitListening && <ExplicitCard entities={explicitInsights}/>}
             {entities
               .slice(0)
               .reverse()
@@ -237,7 +242,7 @@ export default function App() {
                           setViewMoreUrl(entity.url);
                           setShowExplorePane(entity.uuid !== selectedCardId);
                         }}
-                        large={i === 0}
+                        large={i === 0 && !isExplicitListening}
                       />
                     </motion.div>
                   )}

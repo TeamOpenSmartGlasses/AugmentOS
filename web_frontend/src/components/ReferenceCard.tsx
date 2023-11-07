@@ -18,6 +18,7 @@ const useStyles = createStyles((theme) => ({
   card: {
     marginTop: "1rem",
     ":first-of-type": { marginTop: 0 },
+    marginBottom: "2.5rem",
     backgroundColor: theme.colors.cardFill,
     ":hover": {
       filter: "brightness(1.2)",
@@ -85,7 +86,6 @@ const ReferenceCard = ({
       radius="md"
       p={0}
       h={large ? "36vh" : "24vh"}
-      mb={"2.5rem"}
       onClick={onClick}
       className={classes.card}
       sx={{ ...(selected && { filter: "brightness(1.2)" }) }}
