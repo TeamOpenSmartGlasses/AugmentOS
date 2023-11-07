@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Box,
   Container,
@@ -51,7 +51,6 @@ const useStyles = createStyles((theme) => ({
 export default function App() {
   const { classes } = useStyles();
 
-  const endOfReferencesRef = useRef<HTMLDivElement | null>(null);
   // TODO: remove test card
   const [entities, setEntities] = useState<Entity[]>([
     {
@@ -170,6 +169,8 @@ export default function App() {
             ...newExplicitQueries,
             ...newExplicitInsights
           ])
+
+          console.log(res.data)
         }
       })
       .catch(function (error) {
@@ -190,14 +191,6 @@ export default function App() {
       updateUiBackendPoll();
     }, 1000);
   }, []);
-
-  useEffect(() => {
-    endOfReferencesRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "start",
-    });
-  }, [entities]);
 
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
@@ -231,7 +224,7 @@ export default function App() {
                   key={`entity-${entity.uuid}`}
                 >
                   {(styles) => (
-                    <motion.div style={styles}>
+                    <motion.div style={styles} layout>
                       <ReferenceCard
                         entity={entity}
                         selected={selectedCardId === entity.uuid}
@@ -245,13 +238,11 @@ export default function App() {
                           setShowExplorePane(entity.uuid !== selectedCardId);
                         }}
                         large={i === 0}
-                        showExplorePane={showExplorePane}
                       />
                     </motion.div>
                   )}
                 </Transition>
               ))}
-            <div ref={endOfReferencesRef}></div>
           </ScrollArea>
         </PContainer>
 
