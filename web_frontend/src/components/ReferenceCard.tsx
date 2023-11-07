@@ -48,6 +48,7 @@ interface ReferenceCardProps {
   selected?: boolean;
   onClick: () => void;
   large?: boolean;
+  showExplorePane?: boolean;
 }
 
 const AGENT_ICON_PATHS: Record<AgentName, string> = {
@@ -69,6 +70,7 @@ const ReferenceCard = ({
   selected = false,
   onClick,
   large = false,
+  showExplorePane = false,
 }: ReferenceCardProps) => {
   const theme = useMantineTheme();
   const { classes } = useStyles();
@@ -85,7 +87,7 @@ const ReferenceCard = ({
     <Card
       radius="md"
       p={0}
-      h={large ? "30vh" : "20vh"}
+      h={large ? "36vh" : "24vh"}
       mb={"2.5rem"}
       onClick={onClick}
       className={classes.card}
@@ -133,9 +135,9 @@ const ReferenceCard = ({
                 ? `${entity.name}: ${entity.summary}`
                 : entity.agent_insight}
             </Text>
-            <ThumbButtons />
+            {!showExplorePane && <ThumbButtons />}
           </Group>
-          <Group mt="auto">
+          {!showExplorePane && <Group mt="auto">
             <Text
               transform="uppercase"
               fw="bold"
@@ -151,7 +153,7 @@ const ReferenceCard = ({
               width={large ? rem(50) : rem(40)}
               radius="md"
             />
-          </Group>
+          </Group>}
         </Stack>
       </Flex>
   </Card>);
