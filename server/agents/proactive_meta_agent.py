@@ -93,7 +93,7 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list):
     expert_agents_descriptions_prompt = make_expert_agents_prompts()
 
     #start up GPT4 connection
-    llm = ChatOpenAI(temperature=0.2, openai_api_key=openai_api_key, model="gpt-4")
+    llm = ChatOpenAI(temperature=0.2, openai_api_key=openai_api_key, model="gpt-4-1106-preview")
 
     class ProactiveMetaAgentQuery(BaseModel):
         """

@@ -28,7 +28,7 @@ class AgentInsight(BaseModel):
 agent_insight_parser = PydanticOutputParser(pydantic_object=AgentInsight)
 
 #start up the agent blueprint
-llm = ChatOpenAI(temperature=0.5, openai_api_key=openai_api_key, model="gpt-4-0613")
+llm = ChatOpenAI(temperature=0.5, openai_api_key=openai_api_key, model="gpt-4-1106-preview")
 agent = initialize_agent([
         get_search_tool_for_agents(),
     ], llm, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=True)
