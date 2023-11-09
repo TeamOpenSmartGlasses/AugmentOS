@@ -7,5 +7,5 @@ LLM_FILTER_THRESHOLD = 5
 RELEVANCE_FILTER_TIME = 20 # number of seconds the relevance filter looks back
 
 GPT_4_MODEL = "gpt-4-1106-preview"
-MAX_GPT_4_TOKENS = 2048
+GPT_4_MAX_TOKENS = 2048
 GPT_TEMPERATURE = 0.5
