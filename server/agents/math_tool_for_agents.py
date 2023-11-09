@@ -13,9 +13,10 @@ def get_wolfram_alpha_tool_for_agents():
         func=WolframAlpha_tool.query,
         coroutine=WolframAlpha_tool.a_query,
         description="""
-        Leverage the computational intelligence of Wolfram Alpha through this tool to perform complex calculations, 
-        access reports and data across various domains such as mathematics, science, technology, and everyday life. 
-        This tool offers an invaluable resource for in-depth analysis, problem-solving, and discovery.
+        Utilize this tool to harness the computational and data retrieval capabilities of Wolfram Alpha. 
+        It enables you to perform detailed calculations, access structured data, and find solutions to 
+        complex problems in various domains, including mathematics, science, technology, and everyday life.
+        With this tool, you can deepen your analysis and enrich you problem-solving abilities.
         """
     )
 
