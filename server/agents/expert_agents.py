@@ -6,6 +6,7 @@ from langchain.agents import AgentType
 from pydantic import BaseModel, Field, validator
 from langchain.output_parsers import PydanticOutputParser
 from langchain.schema import OutputParserException
+from constants import GPT_4_MODEL, GPT_4_MAX_TOKENS, GPT_TEMPERATURE
 
 #custom
 from server_config import openai_api_key
@@ -29,7 +30,7 @@ class AgentInsight(BaseModel):
 agent_insight_parser = PydanticOutputParser(pydantic_object=AgentInsight)
 
 #start up the agent blueprint
-llm = ChatOpenAI(temperature=0.5, openai_api_key=openai_api_key, model="gpt-4-0613")
+llm = ChatOpenAI(temperature=GPT_TEMPERATURE, openai_api_key=openai_api_key, model=GPT_4_MODEL, max_tokens=GPT_4_MAX_TOKENS)
 agent = initialize_agent([
         get_search_tool_for_agents(),
         get_wolfram_alpha_tool_for_agents(),
