@@ -38,24 +38,41 @@ def post_process_agent_output(expert_agent_response, agent_name):
     #agent output should be like
     #{"agent_insight": "null" | "insight", "reference_url": "https://..." | "", "agent_motive": "because ..." | ""}
     
-    #handle null response
-    if expert_agent_response == "null":
-         return {"agent_insight": "null", "reference_url": "", "agent_motive": ""}
+    try:
+        #handle null response
+        if expert_agent_response is None or expert_agent_response == "null":
+            return None
+        
+        #response is already a dict from langchain internals
+        #but we want to check again, so we stringify the response and parse
+        #we need to parse this way because str replaces the double quotes with single quotes
+        str_response = "{"
+        for k,v in expert_agent_response.items():
+            v = v.replace('"', '')
+            str_response += f'"{k}": "{v}", '
+        str_response = str_response[:-2] + "}"
 
-    #add agent name to the json obj
-    expert_agent_response["agent_name"] = agent_name
+        expert_agent_response = agent_insight_parser.parse(str_response)
+        expert_agent_response = expert_agent_response.dict()
 
-    #clean insight
-    agent_insight = expert_agent_response["agent_insight"]
+        #clean insight
+        agent_insight = expert_agent_response["agent_insight"]
 
-    #handle null insight
-    if "null" in agent_insight: 
+        # handle null insight
+        if "null" in agent_insight:
+            return None
+        
+        #remove "Insight: " preface from insight
+        expert_agent_response["agent_insight"] = agent_insight.replace("Insight: ", "")
+
+        # add agent name to the json obj
+        expert_agent_response["agent_name"] = agent_name
+
+        return expert_agent_response
+    
+    except OutputParserException as e:
+        print(e)
         return None
-
-    #remove "Insight: " preface from insight
-    expert_agent_response["agent_insight"] = agent_insight.replace("Insight: ", "")
-
-    return expert_agent_response
 
 
 def run_single_expert_agent(expert_agent_name, convo_context, insights_history: list):
