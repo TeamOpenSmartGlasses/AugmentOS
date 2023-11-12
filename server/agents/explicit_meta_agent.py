@@ -6,8 +6,9 @@ from langchain.chat_models import ChatOpenAI
 from server_config import openai_api_key
 from langchain.agents import AgentType
 import asyncio
+from constants import GPT_4_MODEL, GPT_4_MAX_TOKENS, GPT_TEMPERATURE
 
-llm = ChatOpenAI(temperature=0.5, openai_api_key=openai_api_key, model="gpt-4-0613")
+llm = ChatOpenAI(temperature=GPT_TEMPERATURE, openai_api_key=openai_api_key, model=GPT_4_MODEL, max_tokens=GPT_4_MAX_TOKENS)
 
 #explictly respond to user queries
 explicit_meta_agent_prompt_blueprint = """You are a highly intelligent, skilled, and helpful assistant that helps answer user queries that they make during their conversations.
