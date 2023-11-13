@@ -14,7 +14,7 @@ import {
 } from "@mantine/core";
 import Sidebar from "./components/Sidebar";
 import ExplorePane from "./components/ExplorePane";
-import { AgentName, Entity, Insight } from "./types";
+import { Entity, Insight } from "./types";
 import ReferenceCard from "./components/ReferenceCard";
 import Cookies from "js-cookie";
 import axiosClient from "./axiosConfig";
@@ -52,31 +52,10 @@ const useStyles = createStyles((theme) => ({
 export default function App() {
   const { classes } = useStyles();
 
-  // TODO: remove test card
-  const [entities, setEntities] = useState<Entity[]>([
-    {
-      name: "Doppler Effect",
-      summary: "The change in the frequency of a wave.",
-      image_url:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Doppler_effect_diagrammatic.svg/520px-Doppler_effect_diagrammatic.svg.png",
-      url: "https://en.wikipedia.org/wiki/Doppler_effect",
-      uuid: "test id 2",
-    },
-    {
-      agent_insight: "90% of waves have a frequency of 100 Hz.",
-      image_url:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Redshift.svg/340px-Redshift.svg.png",
-      url: "https://en.wikipedia.org/wiki/Doppler_effect",
-      agent_name: AgentName.COMMAND,
-      uuid: "test id 1",
-    },
-  ]);
+  const [entities, setEntities] = useState<Entity[]>([]);
   const [mountedIds, setMountedIds] = useState(new Set<string>());
-  const [explicitInsights, setExplicitInsights] = useState<Insight[]>([
-    { query: "What is the doppler effect?" },
-    { query: "What is the doppler effect?", insight: "The change in the frequency of a wave." },
-  ]);
-  const [isExplicitListening, setIsExplicitListening] = useState(true);
+  const [explicitInsights, setExplicitInsights] = useState<Insight[]>([]);
+  const [isExplicitListening, setIsExplicitListening] = useState(false);
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
   const [showExplorePane, setShowExplorePane] = useState(false);
   const [selectedCardId, setSelectedCardId] = useState<string | undefined>();
@@ -135,37 +114,26 @@ export default function App() {
     axiosClient
       .post(UI_POLL_ENDPOINT, uiPollRequstBody)
       .then((res) => {
-        // const newEntitiesDict = res.data.result;
-        // if (res.data.success) console.log(res.data);
-        // if (
-        //   res.data.result && (res.data.result_agent_insights as any[]).length > 0
-        // ) {
-        //   const newEntitiesArray = Object.keys(newEntitiesDict).map(function (
-        //     k
-        //   ) {
-        //     return newEntitiesDict[k];
-        //   });
-        //   console.log(newEntitiesArray);
-        //   setEntities((entities) => [...entities, ...newEntitiesArray]);
-        // }
-        // if (
-        //   res.data.result_agent_insights &&
-        //   (res.data.result_agent_insights as any[]).length > 0
-        // ) {
-        //   console.log("Insights:", res.data.result_agent_insights);
-        // }
-
-        
         if (res.data.success) {
-          const newEntities = res.data.result as any[];
-          const newInsights = (res.data.results_proactive_agent_insights as any[]) || [];
-          const newExplicitQueries = (res.data.explicit_insight_queries as any[]) || [];
-          const newExplicitInsights = (res.data.explicit_insight_results as any[]) || [];
+          const newEntities = res.data.result as Entity[];
+          const newInsights =
+            (res.data.results_proactive_agent_insights as Entity[]) || [];
+          const newExplicitQueries =
+            (res.data.explicit_insight_queries as Insight[]) || [];
+          const newExplicitInsights =
+            (res.data.explicit_insight_results as Insight[]) || [];
+
           if (res.data.wake_word_time !== -1) {
             setIsExplicitListening(true);
           }
-          console.log(res.data.wake_word_time)
-          if (newEntities.length === 0 && newInsights.length === 0 && newExplicitQueries.length === 0 && newExplicitInsights.length === 0) return;
+
+          if (
+            newEntities.length === 0 &&
+            newInsights.length === 0 &&
+            newExplicitQueries.length === 0 &&
+            newExplicitInsights.length === 0
+          )
+            return;
 
           setEntities((entities) => [
             ...entities,
@@ -178,7 +146,6 @@ export default function App() {
             ...newExplicitQueries,
             ...newExplicitInsights
           ])
-
         }
       })
       .catch(function (error) {
