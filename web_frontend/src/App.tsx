@@ -67,7 +67,7 @@ export default function App() {
       image_url:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Redshift.svg/340px-Redshift.svg.png",
       url: "https://en.wikipedia.org/wiki/Doppler_effect",
-      agent_name: AgentName.STATISTICIAN,
+      agent_name: AgentName.COMMAND,
       uuid: "test id 1",
     },
   ]);
@@ -151,13 +151,17 @@ export default function App() {
         // ) {
         //   console.log("Insights:", res.data.result_agent_insights);
         // }
+
         
         if (res.data.success) {
           const newEntities = res.data.result as any[];
           const newInsights = (res.data.results_proactive_agent_insights as any[]) || [];
           const newExplicitQueries = (res.data.explicit_insight_queries as any[]) || [];
           const newExplicitInsights = (res.data.explicit_insight_results as any[]) || [];
-
+          if (res.data.wake_word_time !== -1) {
+            setIsExplicitListening(true);
+          }
+          console.log(res.data.wake_word_time)
           if (newEntities.length === 0 && newInsights.length === 0 && newExplicitQueries.length === 0 && newExplicitInsights.length === 0) return;
 
           setEntities((entities) => [
@@ -172,9 +176,6 @@ export default function App() {
             ...newExplicitInsights
           ])
 
-          if (res.data.wake_word_time === -1) {
-            setIsExplicitListening(true);
-          }
         }
       })
       .catch(function (error) {
@@ -193,7 +194,7 @@ export default function App() {
     initUserId();
     setInterval(() => {
       updateUiBackendPoll();
-    }, 1000);
+    }, 200);
   }, []);
 
   return (

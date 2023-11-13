@@ -37,6 +37,7 @@ const AGENT_ICON_PATHS: Record<AgentName, string> = {
   [AgentName.FACT_CHECKER]: "/fact_checker_icon_large.svg",
   [AgentName.DEVILS_ADVOCATE]: "/devils_icon_large.svg",
   [AgentName.DEFINER]: "/definer_icon_large.svg",
+  [AgentName.COMMAND]: "/dial_icon_large.svg",
 };
 
 const AGENT_ICON_NAMES: Record<AgentName, string> = {
@@ -44,6 +45,7 @@ const AGENT_ICON_NAMES: Record<AgentName, string> = {
   [AgentName.FACT_CHECKER]: "Fact Checker",
   [AgentName.DEVILS_ADVOCATE]: "Devil's Advocate",
   [AgentName.DEFINER]: "Definer",
+  [AgentName.COMMAND]: "Command",
 };
 
 const ReferenceCard = ({

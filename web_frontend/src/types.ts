@@ -3,6 +3,7 @@ export enum AgentName {
   DEFINER = "Definer",
   FACT_CHECKER = "FactChecker",
   DEVILS_ADVOCATE = "DevilsAdvocate",
+  COMMAND = "Command"
 }
 
 export type Entity = {
