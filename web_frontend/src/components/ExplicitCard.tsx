@@ -1,14 +1,32 @@
 import { Box, Flex, Image, Stack, Text, rem, useMantineTheme } from "@mantine/core";
-import { Insight } from "../types";
+import { AgentName, Entity, Insight } from "../types";
 import CardWrapper from "./CardWrapper";
+import { uniqueId } from "lodash";
 
 interface ExplicitCardProps {
-  entities: Insight[];
+  explicitInsights: Insight[];
+  // HACK: setters to add a new ReferenceCard once we get the insight
+  setEntities: React.Dispatch<React.SetStateAction<Entity[]>>;
+  setIsExplicitListening: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ExplicitCard = ({entities}:ExplicitCardProps) => {
+const ExplicitCard = ({explicitInsights, setEntities, setIsExplicitListening}:ExplicitCardProps) => {
   const theme = useMantineTheme();
-  const lastEntity = entities.at(-1);
+  const lastEntity = explicitInsights.at(-1);
+  const queryString = `Query: ${lastEntity?.query}`;
+  const answerString = `Answer: ${lastEntity?.insight}`;
+
+  if (lastEntity?.insight) {
+    setEntities((prevEntities) => [
+      ...prevEntities,
+      {
+        uuid: uniqueId(),
+        agent_insight: `${queryString}\n${answerString}`,
+        agent_name: AgentName.COMMAND,
+      },
+    ]);
+    setIsExplicitListening(false);
+  }
 
   return (
     <CardWrapper large onClick={() => {}}>
@@ -35,7 +53,7 @@ const ExplicitCard = ({entities}:ExplicitCardProps) => {
           >
             {!lastEntity?.query
               ? "I'm listening..."
-              : `Query: ${lastEntity?.query}`}
+              : queryString}
           </Text>
           {lastEntity?.insight && (
             <Text
@@ -48,7 +66,7 @@ const ExplicitCard = ({entities}:ExplicitCardProps) => {
                 lineHeight: "150%",
               }}
             >
-              Answer: {lastEntity.insight}
+              {answerString}
             </Text>
           )}
         </Stack>

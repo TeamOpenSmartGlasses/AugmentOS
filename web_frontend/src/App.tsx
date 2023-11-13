@@ -72,8 +72,11 @@ export default function App() {
     },
   ]);
   const [mountedIds, setMountedIds] = useState(new Set<string>());
-  const [explicitInsights, setExplicitInsights] = useState<Insight[]>([]);
-  const [isExplicitListening, setIsExplicitListening] = useState(false);
+  const [explicitInsights, setExplicitInsights] = useState<Insight[]>([
+    { query: "What is the doppler effect?" },
+    { query: "What is the doppler effect?", insight: "The change in the frequency of a wave." },
+  ]);
+  const [isExplicitListening, setIsExplicitListening] = useState(true);
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
   const [showExplorePane, setShowExplorePane] = useState(false);
   const [selectedCardId, setSelectedCardId] = useState<string | undefined>();
@@ -217,7 +220,9 @@ export default function App() {
           )}
           {/* Left Panel */}
           <ScrollArea scrollHideDelay={100} h="100%">
-            {isExplicitListening && <ExplicitCard entities={explicitInsights}/>}
+            {isExplicitListening && (
+              <ExplicitCard explicitInsights={explicitInsights} setEntities={setEntities} setIsExplicitListening={setIsExplicitListening}/>
+            )}
             {entities
               .slice(0)
               .reverse()
