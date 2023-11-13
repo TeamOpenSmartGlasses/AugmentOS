@@ -47,7 +47,7 @@ const PageView = ({ viewMoreUrl, loading, setLoading, onClose }: PageViewProps) 
           </ActionIcon>
         </Tooltip>
         <iframe
-          id="zoomed-out-iframe"
+          id="zoomed-in-iframe"
           src={viewMoreUrl}
           onLoad={handleLoad}
           width="100%"
