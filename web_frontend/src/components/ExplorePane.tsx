@@ -9,14 +9,14 @@ import {
 } from "@mantine/core";
 import { IconArrowUp } from "@tabler/icons-react";
 
-interface PageViewProps {
+interface ExplorePaneProps {
   viewMoreUrl: string | undefined;
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   onClose: () => void;
 }
 
-const PageView = ({ viewMoreUrl, loading, setLoading, onClose }: PageViewProps) => {
+const ExplorePane = ({ viewMoreUrl, loading, setLoading, onClose }: ExplorePaneProps) => {
   const handleLoad = () => {
     setLoading(false);
   };
@@ -62,4 +62,4 @@ const PageView = ({ viewMoreUrl, loading, setLoading, onClose }: PageViewProps) 
   );
 };
 
-export default PageView;
+export default ExplorePane;

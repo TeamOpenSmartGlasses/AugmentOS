@@ -13,7 +13,7 @@ import {
   createStyles,
 } from "@mantine/core";
 import Sidebar from "./components/Sidebar";
-import PageView from "./components/PageView";
+import ExplorePane from "./components/ExplorePane";
 import { AgentName, Entity, Insight } from "./types";
 import ReferenceCard from "./components/ReferenceCard";
 import Cookies from "js-cookie";
@@ -275,7 +275,7 @@ export default function App() {
           >
             {(styles) => (
               <motion.div style={{ ...styles, height: "100%" }}>
-                <PageView
+                <ExplorePane
                   viewMoreUrl={viewMoreUrl}
                   loading={loadingViewMore}
                   setLoading={setLoadingViewMore}
