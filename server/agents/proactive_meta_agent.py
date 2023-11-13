@@ -24,6 +24,8 @@ from typing import List, Optional
 
 import asyncio
 
+from constants import GPT_4_MODEL, GPT_4_MAX_TOKENS, GPT_TEMPERATURE
+
 #proactively decides which agents to run and runs them
 proactive_meta_agent_prompt_blueprint = """You are the higly intelligent and skilled proactive master agent of "Convoscope". "Convoscope" is a tool that listens to a user's live conversation and enhances their conversation by providing them with real time "Insights". The "Insights" generated should aim to lead the user to deeper understanding, broader perspectives, new ideas, more accurate information, better replies, and enhanced conversations.
 
@@ -93,7 +95,7 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list):
     expert_agents_descriptions_prompt = make_expert_agents_prompts()
 
     #start up GPT4 connection
-    llm = ChatOpenAI(temperature=0.2, openai_api_key=openai_api_key, model="gpt-4")
+    llm = ChatOpenAI(temperature=0.2, openai_api_key=openai_api_key, model=GPT_4_MODEL, max_tokens=GPT_4_MAX_TOKENS)
 
     class ProactiveMetaAgentQuery(BaseModel):
         """
