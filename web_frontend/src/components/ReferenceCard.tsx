@@ -96,7 +96,7 @@ const ReferenceCard = ({
             overflowWrap: "break-word",
             color: theme.colors.bodyText,
             lineHeight: "150%",
-            whiteSpace: "pre-line"
+            whiteSpace: "pre-line",
           }}
         >
           {/* if there is an entity.name, show the Definer card format. Otherwise show the agent insight */}
@@ -133,7 +133,7 @@ const ThumbButtons = () => {
   const [thumbState, setThumbState] = useState<"up" | "down" | undefined>();
 
   return (
-    <Group ml="auto" noWrap>
+    <Group noWrap pl="xs" pb="xs">
       <UnstyledButton
         className={classes.button}
         onClick={(e) => {
