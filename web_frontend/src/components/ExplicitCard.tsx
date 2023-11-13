@@ -1,4 +1,4 @@
-import { Box, Image, Stack, Text, rem, useMantineTheme } from "@mantine/core";
+import { Box, Flex, Image, Stack, Text, rem, useMantineTheme } from "@mantine/core";
 import { Insight } from "../types";
 import CardWrapper from "./CardWrapper";
 
@@ -12,40 +12,17 @@ const ExplicitCard = ({entities}:ExplicitCardProps) => {
 
   return (
     <CardWrapper large onClick={() => {}}>
-      {!lastEntity?.insight && (
-        <Box w={rem(237)} h={rem(237)} sx={{objectFit: "cover"}}>
-          <Image src={"/explicit_blobs.gif"} />
-        </Box>
-      )}
-      <Stack>
-        {!lastEntity?.query ? (
-          <Text
-            size={rem(33)}
-            sx={{
-              wordWrap: "break-word",
-              wordBreak: "break-word",
-              overflowWrap: "break-word",
-              color: theme.colors.bodyText,
-              lineHeight: "150%",
-            }}
+      <Flex px={rem(60)} gap={rem(52)}>
+        {!lastEntity?.insight && (
+          <Box
+            w={rem(237)}
+            h={rem(237)}
+            sx={{ overflow: "hidden", borderRadius: 999 }}
           >
-            I'm listening...
-          </Text>
-        ) : (
-          <Text
-            size={rem(33)}
-            sx={{
-              wordWrap: "break-word",
-              wordBreak: "break-word",
-              overflowWrap: "break-word",
-              color: theme.colors.bodyText,
-              lineHeight: "150%",
-            }}
-          >
-            Query: {lastEntity?.query}
-          </Text>
+            <Image src={"/explicit_blobs.gif"} sx={{ scale: "8" }} />
+          </Box>
         )}
-        {lastEntity?.insight && (
+        <Stack my="auto">
           <Text
             size={rem(33)}
             sx={{
@@ -56,10 +33,26 @@ const ExplicitCard = ({entities}:ExplicitCardProps) => {
               lineHeight: "150%",
             }}
           >
-            Answer: {lastEntity.insight}
+            {!lastEntity?.query
+              ? "I'm listening..."
+              : `Query: ${lastEntity?.query}`}
           </Text>
-        )}
-      </Stack>
+          {lastEntity?.insight && (
+            <Text
+              size={rem(33)}
+              sx={{
+                wordWrap: "break-word",
+                wordBreak: "break-word",
+                overflowWrap: "break-word",
+                color: theme.colors.bodyText,
+                lineHeight: "150%",
+              }}
+            >
+              Answer: {lastEntity.insight}
+            </Text>
+          )}
+        </Stack>
+      </Flex>
     </CardWrapper>
   );
 };
