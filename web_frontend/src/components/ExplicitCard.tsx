@@ -2,31 +2,48 @@ import { Box, Flex, Image, Stack, Text, rem, useMantineTheme } from "@mantine/co
 import { AgentName, Entity, Insight } from "../types";
 import CardWrapper from "./CardWrapper";
 import { uniqueId } from "lodash";
+import { useEffect } from "react";
 
 interface ExplicitCardProps {
   explicitInsights: Insight[];
   // HACK: setters to add a new ReferenceCard once we get the insight
+  setExplicitInsights: React.Dispatch<React.SetStateAction<Insight[]>>;
   setEntities: React.Dispatch<React.SetStateAction<Entity[]>>;
   setIsExplicitListening: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ExplicitCard = ({explicitInsights, setEntities, setIsExplicitListening}:ExplicitCardProps) => {
+const ExplicitCard = ({
+  explicitInsights,
+  setEntities,
+  setIsExplicitListening,
+  setExplicitInsights,
+}: ExplicitCardProps) => {
   const theme = useMantineTheme();
   const lastEntity = explicitInsights.at(-1);
   const queryString = `Query: ${lastEntity?.query}`;
   const answerString = `Answer: ${lastEntity?.insight}`;
 
-  if (lastEntity?.insight) {
-    setEntities((prevEntities) => [
-      ...prevEntities,
-      {
-        uuid: uniqueId(),
-        agent_insight: `${queryString}\n${answerString}`,
-        agent_name: AgentName.COMMAND,
-      },
-    ]);
-    setIsExplicitListening(false);
-  }
+  useEffect(() => {
+    if (lastEntity?.insight) {
+      setEntities((prevEntities) => [
+        ...prevEntities,
+        {
+          uuid: uniqueId(),
+          agent_insight: `${queryString}\n${answerString}`,
+          agent_name: AgentName.COMMAND,
+        },
+      ]);
+      setIsExplicitListening(false);
+      setExplicitInsights([]);
+    }
+  }, [
+    answerString,
+    lastEntity?.insight,
+    queryString,
+    setEntities,
+    setExplicitInsights,
+    setIsExplicitListening,
+  ]);
 
   return (
     <CardWrapper large onClick={() => {}}>
@@ -51,9 +68,7 @@ const ExplicitCard = ({explicitInsights, setEntities, setIsExplicitListening}:Ex
               lineHeight: "150%",
             }}
           >
-            {!lastEntity?.query
-              ? "I'm listening..."
-              : queryString}
+            {!lastEntity?.query ? "I'm listening..." : queryString}
           </Text>
           {lastEntity?.insight && (
             <Text

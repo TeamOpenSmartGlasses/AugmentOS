@@ -188,7 +188,12 @@ export default function App() {
           {/* Left Panel */}
           <ScrollArea scrollHideDelay={100} h="100%">
             {isExplicitListening && (
-              <ExplicitCard explicitInsights={explicitInsights} setEntities={setEntities} setIsExplicitListening={setIsExplicitListening}/>
+              <ExplicitCard
+                explicitInsights={explicitInsights}
+                setExplicitInsights={setExplicitInsights}
+                setEntities={setEntities}
+                setIsExplicitListening={setIsExplicitListening}
+              />
             )}
             {entities
               .slice(0)
