@@ -180,7 +180,7 @@ export default function App() {
           pt={"2rem"}
           px={"1rem"}
         >
-          {entities.length === 0 && (
+          {entities.length === 0 && !isExplicitListening && (
             <Box w="50%" mx="auto" mt="xl">
               <Image src={"/blobs.gif"} fit="cover" />
             </Box>
