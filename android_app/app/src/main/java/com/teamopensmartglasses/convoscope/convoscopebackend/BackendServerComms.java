@@ -5,6 +5,9 @@ Adapted from:
 https://github.com/emexlabs/WearableIntelligenceSystem/blob/master/android_smart_phone/main/app/src/main/java/com/wearableintelligencesystem/androidsmartphone/comms/BackendServerComms.java
  */
 
+import static com.teamopensmartglasses.convoscope.Config.*;
+import static com.teamopensmartglasses.convoscope.Constants.*;
+
 import android.content.Context;
 import android.util.Log;
 
@@ -27,15 +30,7 @@ public class BackendServerComms {
     //volley vars
     public RequestQueue mRequestQueue;
     private Context mContext;
-    public String serverUrl;
     private int requestTimeoutPeriod = 0; //15000;
-
-    private boolean useDevServer;
-
-    //endpoints
-    public static final String LLM_QUERY_ENDPOINT = "/chat";
-    public static final String BUTTON_EVENT_ENDPOINT = "/button_event";
-    public static final String CSE_ENDPOINT = "/ui_poll";
 
     public static BackendServerComms getInstance(Context c){
         if (restServerComms == null){
@@ -48,13 +43,6 @@ public class BackendServerComms {
         // Instantiate the RequestQueue.
         mContext = context;
         mRequestQueue = Volley.newRequestQueue(mContext);
-//        serverUrl = "https://1q93wu6qkd.execute-api.us-east-2.amazonaws.com"; //jeremy
-//        serverUrl = "https://9259wtmk89.execute-api.us-east-2.amazonaws.com"; //cayden
-        //serverUrl = "https://m0q3aubk6c.execute-api.us-east-1.amazonaws.com"; //cayden, MIT Media Lab Fluid Interfaces Group
-        serverUrl = "https://vpmkebx0cl.execute-api.us-east-2.amazonaws.com/api"; //TOSG BOX
-//        serverUrl = "http://192.168.7.111:8080";
-
-        useDevServer = true;
     }
 
     //handles requesting data, sending data
@@ -95,14 +83,10 @@ public class BackendServerComms {
 
                         if(endpoint == LLM_QUERY_ENDPOINT || endpoint == BUTTON_EVENT_ENDPOINT) {
                             Log.d(TAG, response.toString());
-                            try {
-                                if (response.getString("message").length() > 0) {
-                                    callback.onSuccess(response);
-                                } else {
-                                    callback.onFailure();
-                                }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
+                            if (response.has("message")) {
+                                callback.onSuccess(response);
+                            } else {
+                                callback.onFailure();
                             }
                         }
                     }
