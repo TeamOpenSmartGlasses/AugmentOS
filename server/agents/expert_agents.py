@@ -6,6 +6,7 @@ from langchain.agents import AgentType
 from pydantic import BaseModel, Field, validator
 from langchain.output_parsers import PydanticOutputParser
 from langchain.schema import OutputParserException
+from constants import GPT_4_MODEL, GPT_4_MAX_TOKENS, GPT_TEMPERATURE
 
 #custom
 from server_config import openai_api_key
@@ -28,7 +29,7 @@ class AgentInsight(BaseModel):
 agent_insight_parser = PydanticOutputParser(pydantic_object=AgentInsight)
 
 #start up the agent blueprint
-llm = ChatOpenAI(temperature=0.5, openai_api_key=openai_api_key, model="gpt-4-0613")
+llm = ChatOpenAI(temperature=GPT_TEMPERATURE, openai_api_key=openai_api_key, model=GPT_4_MODEL, max_tokens=GPT_4_MAX_TOKENS)
 agent = initialize_agent([
         get_search_tool_for_agents(),
     ], llm, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=True)
@@ -37,43 +38,78 @@ def post_process_agent_output(expert_agent_response, agent_name):
     #agent output should be like
     #{"agent_insight": "null" | "insight", "reference_url": "https://..." | "", "agent_motive": "because ..." | ""}
     
-    #add agent name to the json obj
-    expert_agent_response["agent_name"] = agent_name
+    try:
+        #handle null response
+        if expert_agent_response is None or expert_agent_response == "null":
+            return None
+        
+        #response is already a dict from langchain internals
+        #but we want to check again, so we stringify the response and parse
+        #we need to parse this way because str replaces the double quotes with single quotes
+        str_response = "{"
+        for k,v in expert_agent_response.items():
+            v = v.replace('"', '')
+            str_response += f'"{k}": "{v}", '
+        str_response = str_response[:-2] + "}"
 
-    #clean insight
-    agent_insight = expert_agent_response["agent_insight"]
+        expert_agent_response = agent_insight_parser.parse(str_response)
+        expert_agent_response = expert_agent_response.dict()
 
-    #handle null insight
-    if "null" in agent_insight: 
+        #clean insight
+        agent_insight = expert_agent_response["agent_insight"]
+
+        # handle null insight
+        if "null" in agent_insight:
+            return None
+        
+        #remove "Insight: " preface from insight
+        expert_agent_response["agent_insight"] = agent_insight.replace("Insight: ", "")
+
+        # add agent name to the json obj
+        expert_agent_response["agent_name"] = agent_name
+
+        return expert_agent_response
+    
+    except OutputParserException as e:
+        print(e)
         return None
-
-    #remove "Insight: " preface from insight
-    expert_agent_response["agent_insight"] = agent_insight.replace("Insight: ", "")
-
-    return expert_agent_response
 
 
 def run_single_expert_agent(expert_agent_name, convo_context, insights_history: list):
     #initialize the requested expert agent - using the name given
     expert_agent_config = expert_agent_config_list[expert_agent_name]
+
     #run the agent
     expert_agent_response = expert_agent_run_wrapper(expert_agent_config, convo_context, insights_history)
+    if expert_agent_response is None:
+        return None
+
     #process the output
     expert_agent_response = post_process_agent_output(expert_agent_response, expert_agent_name)
     return expert_agent_response
 
 
-async def arun_single_expert_agent(expert_agent_name, convo_context):
+async def arun_single_expert_agent(expert_agent_name, convo_context, insights_history: list):
     #initialize the requested expert agent - using the name given
     expert_agent_config = expert_agent_config_list[expert_agent_name]
+
     #run the agent
-    expert_agent_response = await expert_agent_arun_wrapper(expert_agent_config, convo_context)
+    expert_agent_response = await expert_agent_arun_wrapper(expert_agent_config, convo_context, insights_history)
+    print(expert_agent_response)
+    if expert_agent_response is None:
+        return None
+
+    #process the output
+    expert_agent_response = post_process_agent_output(expert_agent_response, expert_agent_name)
     return expert_agent_response
 
 
 async def expert_agent_arun_wrapper(expert_agent_config, convo_context, insights_history: list):
     #get agent response
-    expert_agent_response = await agent.arun(expert_agent_prompt_maker(expert_agent_config, convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history ))
+    expert_agent_response = await agent.arun(expert_agent_prompt_maker(expert_agent_config, convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history))
+    if expert_agent_response is None:
+        return None
+
     #post process the output
     expert_agent_response = post_process_agent_output(expert_agent_response, expert_agent_config["agent_name"])
 
@@ -85,11 +121,13 @@ async def expert_agent_arun_wrapper(expert_agent_config, convo_context, insights
 def expert_agent_run_wrapper(expert_agent_config, convo_context, insights_history: list):
     #run the agent
     expert_agent_response = agent.run(expert_agent_prompt_maker(expert_agent_config, convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history))
+    if expert_agent_response is None:
+        return None
+
     #post process the output
     expert_agent_response = post_process_agent_output(expert_agent_response, expert_agent_config["agent_name"])
 
     print("expert_agent_response", expert_agent_response)
 
     return expert_agent_response
-
 

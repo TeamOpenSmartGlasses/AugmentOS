@@ -136,10 +136,24 @@ def run_search_tool_for_agents(query: str, parse=True, **kwargs: Any):
     return parse_results(results)
 
 
+async def arun_search_tool_for_agents(query: str, parse=True, **kwargs: Any):
+    results = serper_search(
+            search_term=query,
+            gl=gl,
+            hl=hl,
+            num=k,
+            tbs=tbs,
+            search_type=search_type,
+            **kwargs,
+        )
+    return parse_results(results)
+
+
 def get_search_tool_for_agents():
     search_tool_for_agents = Tool(
         name="Search_Engine",
         func=run_search_tool_for_agents,
+        coroutine=arun_search_tool_for_agents,
         description="Pass this specific targeted queries and/or keywords to quickly search the WWW to retrieve vast amounts of information on virtually any topic, spanning from academic research and navigation to history, entertainment, and current events. It's a tool for understanding, navigating, and engaging with the digital world's vast knowledge.",
     )
     return search_tool_for_agents

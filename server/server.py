@@ -26,7 +26,7 @@ from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_agents_process import proactive_agents_processing_loop
 from agents.expert_agents import run_single_expert_agent, arun_single_expert_agent
-from agents.explicit_query_process import explicit_query_processing_loop, call_explicit_agent
+from agents.explicit_agent_process import explicit_agent_processing_loop, call_explicit_agent
 import agents.wake_words
 from Modules.RelevanceFilter import RelevanceFilter
 
@@ -272,13 +272,13 @@ async def expert_agent_runner(expert_agent_name, user_id):
 
     #get the most recent insights for this user
     insights_history = db_handler.get_agent_insights_history_for_user(user_id)
-    insights_history = [insight["agent_insight"] for insight in insights_history if insight["agent_name"] == expert_agent_name]
+    insights_history = [insight["insight"] for insight in insights_history if insight["agent_name"] == expert_agent_name]
 
     #spin up the agent
-    agent_insight = await arun_single_expert_agent(expert_agent_name, convo_context)
+    agent_insight = await arun_single_expert_agent(expert_agent_name, convo_context, insights_history)
 
     #save this insight to the DB for the user
-    if agent_insight["agent_insight"] != None:
+    if agent_insight != None and agent_insight["agent_insight"] != None:
         db_handler.add_agent_insight_result_for_user(user_id, agent_insight["agent_name"], agent_insight["agent_insight"], agent_insight["reference_url"], agent_insight["agent_motive"])
 
     #agent run complete
@@ -356,7 +356,7 @@ if __name__ == '__main__':
     proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
     proactive_agents_background_process.start()
 
-    explicit_background_process = multiprocessing.Process(target=explicit_query_processing_loop)
+    explicit_background_process = multiprocessing.Process(target=explicit_agent_processing_loop)
     explicit_background_process.start()
 
     # setup and run web app

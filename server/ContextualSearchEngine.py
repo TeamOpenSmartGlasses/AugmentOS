@@ -121,16 +121,16 @@ class ContextualSearchEngine:
 
         # get best semantic search results and put them into proper data structure
         for result in results:
-            if result["score"] > 0.59:
+            if result["score"] > 0.55:
                 title = result["id"]
                 tags = json.loads(result["tags"])
                 description = tags["description"]
                 url = tags["url"]
-                #print("Got semantic search match:")
-                #print(f"-- Semantic match title: {title}")
-                #print(f"-- Semantic match desc.: {description}")
-                #print(f"-- Semantic match url.: {url}")
-                #print("\n********")
+                print("Got semantic search match:")
+                print(f"-- Semantic match title: {title}")
+                print(f"-- Semantic match desc.: {description}")
+                print(f"-- Semantic match url.: {url}")
+                print("\n********")
                 res_obj = {"name" : title, "summary" : description, "url" : url}
                 filtered_results[title] = res_obj
             else:
@@ -385,7 +385,7 @@ class ContextualSearchEngine:
         entities_custom = self.fuzzy_search_on_user_custom_data(user_id, talk)
  
         # run semantic search
-        # entities_semantic_custom = self.semantic_search_custom_data(user_id)
+        entities_semantic_custom = self.semantic_search_custom_data(user_id)
 
         # get entities
         entities_raw = self.analyze_entities(talk)
@@ -462,7 +462,7 @@ class ContextualSearchEngine:
 
         # add custom NER entities to response
         response.update(entities_custom)
-        #response.update(entities_semantic_custom)
+        response.update(entities_semantic_custom)
 
         # find rare words (including acronyms) and define them
         summaries_context = self.db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, 180)
