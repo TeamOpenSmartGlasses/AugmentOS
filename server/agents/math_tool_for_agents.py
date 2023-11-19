@@ -17,6 +17,12 @@ def get_wolfram_alpha_tool_for_agents():
         It enables you to perform detailed calculations, access structured data, and find solutions to 
         complex problems in various domains, including mathematics, science, technology, and everyday life.
         With this tool, you can deepen your analysis and enrich you problem-solving abilities.
+        Use this tool especially to perform calculations like averages and medians etc.
+        
+        [Example Usage]
+        You have a list of values [1, 43, 23, 11, 86, 21, 19]
+
+        Using this tool you can easily compute the median: 21.
         """
     )
 
