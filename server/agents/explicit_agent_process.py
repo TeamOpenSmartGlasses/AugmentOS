@@ -16,6 +16,12 @@ def stringify_history(insight_history):
         history += "User: {}\nLLM:{}\n\n".format(c['query'], c['insight'])
     return history
 
+def is_user_id_in_user_list(user_id, user_list):
+    for user_obj in user_list:
+        if user_obj['user_id'] == user_id:
+            return True
+    return False
+
 def explicit_agent_processing_loop():
     #lock = threading.Lock()
 
@@ -27,10 +33,17 @@ def explicit_agent_processing_loop():
             continue
 
         try:
+            # Get current wake worded users
             users = dbHandler.get_users_with_recent_wake_words()
+
+            # Try to find new wake worded users 
+            newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(n=2)
+            for t in newTranscripts:
+                if not is_user_id_in_user_list(t['user_id'], users):
+                    dbHandler.check_for_wake_words_in_transcript_text(t['user_id'], t['text'])
+
             for user in users:
                 last_wake_word_time = user['last_wake_word_time']
-
                 is_query_ready = False
                 current_time = time.time()
 
@@ -64,7 +77,7 @@ def explicit_agent_processing_loop():
             print("Exception in EXPLITT QUERY STUFF..:")
             print(e)
             traceback.print_exc()
-        time.sleep(0.2)
+        time.sleep(0.1)
 
 async def call_explicit_agent(user_obj, query):
     user = user_obj
