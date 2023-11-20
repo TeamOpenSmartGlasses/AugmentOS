@@ -26,6 +26,7 @@ export interface CardWrapperProps {
   selected?: boolean;
   onClick: () => void;
   large?: boolean;
+  pointer?: boolean;
 }
 
 const CardWrapper = ({
@@ -33,6 +34,7 @@ const CardWrapper = ({
   onClick,
   large = false,
   children,
+  pointer = false
 }: PropsWithChildren<CardWrapperProps>) => {
   const { classes } = useStyles();
 
@@ -43,9 +45,14 @@ const CardWrapper = ({
       h={large ? "36vh" : "24vh"}
       onClick={onClick}
       className={classes.card}
-      sx={{ ...(selected && { filter: "brightness(1.2)" }) }}
+      sx={{
+        ...(selected && { filter: "brightness(1.2)" }),
+        ...(pointer && { cursor: "pointer" }),
+      }}
     >
-      <Flex align={"center"} h={"100%"}>{children}</Flex>
+      <Flex align={"center"} h={"100%"}>
+        {children}
+      </Flex>
     </Card>
   );
 };

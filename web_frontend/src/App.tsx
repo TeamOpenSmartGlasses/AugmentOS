@@ -224,6 +224,7 @@ export default function App() {
                           );
                         }}
                         large={i === 0 && !isExplicitListening}
+                        pointer={entity.url !== undefined}
                       />
                     </motion.div>
                   )}

@@ -53,6 +53,7 @@ const ReferenceCard = ({
   selected = false,
   onClick,
   large = false,
+  pointer = false,
 }: ReferenceCardProps) => {
   const theme = useMantineTheme();
 
@@ -65,7 +66,12 @@ const ReferenceCard = ({
   };
 
   return (
-    <CardWrapper onClick={onClick} selected={selected} large={large}>
+    <CardWrapper
+      onClick={onClick}
+      selected={selected}
+      large={large}
+      pointer={pointer}
+    >
       {(entity.image_url || entity.map_image_path) && (
         <Box
           sx={{
