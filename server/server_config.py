@@ -9,6 +9,7 @@ use_azure_openai = False
 azure_openai_api_key=""
 azure_openai_api_base=""
 azure_openai_api_deployment=""
+wolframalpha_api_key = ""
 
 # Uncomment one of the following for prod/dev:
 #

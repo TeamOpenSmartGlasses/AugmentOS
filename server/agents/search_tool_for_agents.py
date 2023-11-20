@@ -7,12 +7,22 @@ from langchain.agents.tools import Tool
 
 #ban some sites that we can never scrape
 banned_sites = ["calendar.google.com", "researchgate.net"]
+# custom search tool, we copied the serper integration on langchain but we prefer all the data to be displayed in one json message
+k: int = 5
+gl: str = "us"
+hl: str = "en"
+tbs = None
+num_sentences = 10
+search_type: Literal["news", "search", "places", "images"] = "search"
+summarizer = Summarizer(None)
 
 
 def scrape_page(url: str):
-    """Based on your observations from the Search_Engine, if you want more details from
+    """
+    Based on your observations from the Search_Engine, if you want more details from
     a snippet for a non-PDF page, pass this the page's URL and the page's title to
-    scrape the full page and retrieve the full contents of the page."""
+    scrape the full page and retrieve the full contents of the page.
+    """
 
     print("Parsing: {}".format(url))
     if any(substring in url for substring in banned_sites):
@@ -37,16 +47,6 @@ def scrape_page(url: str):
         except requests.RequestException as e:
             print(f"Failed to fetch {url}. Error: {e}")
             return None
-
-
-# custom search tool, we copied the serper integration on langchain but we prefer all the data to be displayed in one json message
-k: int = 5
-gl: str = "us"
-hl: str = "en"
-tbs = None
-num_sentences = 10
-search_type: Literal["news", "search", "places", "images"] = "search"
-summarizer = Summarizer(None)
 
 
 def serper_search(
@@ -132,7 +132,7 @@ def run_search_tool_for_agents(query: str, parse=True, **kwargs: Any):
             tbs=tbs,
             search_type=search_type,
             **kwargs,
-        )
+    )
     return parse_results(results)
 
 
@@ -145,7 +145,7 @@ async def arun_search_tool_for_agents(query: str, parse=True, **kwargs: Any):
             tbs=tbs,
             search_type=search_type,
             **kwargs,
-        )
+    )
     return parse_results(results)
 
 
