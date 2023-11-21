@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   ActionIcon,
   createStyles,
@@ -31,7 +31,6 @@ const breathe = keyframes`
 
 const TranscriptButton = () => {
   const { classes } = useStyles();
-  const endOfTranscriptRef = useRef<HTMLDivElement | null>(null);
 
   const [isRecognizing, setIsRecognizing] = useState(true);
   const [transcriptStartIdx, setTranscriptStartIdx] = useState(0);
@@ -95,20 +94,11 @@ const TranscriptButton = () => {
     []
   );
 
-  const scrollToBottom = () => {
-    endOfTranscriptRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "start",
-    });
-  };
-
   useEffect(() => {
     startRecognizing();
   }, []);
 
   useEffect(() => {
-    scrollToBottom();
     submitTranscript(transcript, transcriptStartIdx, false);
     debouncedSubmitFinalTranscript(transcript, transcriptStartIdx);
   }, [transcript]);
