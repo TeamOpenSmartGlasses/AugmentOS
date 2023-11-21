@@ -1,3 +1,6 @@
+from server.utils import format_list_data
+
+
 expert_agent_prompt_blueprint = """
 "Convoscope" is a multi-agent system in which you are the {agent_name} agent. You are a highly skilled and highly intelligent expert {agent_name}.
 
@@ -118,11 +121,6 @@ Insight: Free speech has limits; doesn't protect from harmful speech consequence
 """,
     },
 }
-
-
-def format_list_data(list_data: list):
-    return "\n".join([f"{i+1}. {str(example)}" for i, example in enumerate(list_data)])
-
 
 def expert_agent_prompt_maker(
     expert_agent_config,

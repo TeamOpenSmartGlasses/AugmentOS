@@ -2,7 +2,7 @@ from DatabaseHandler import DatabaseHandler
 import time
 import traceback
 from agents.wake_words import *
-from agents.explicit_meta_agent import run_explicit_meta_agent, run_explicit_meta_agent_async, explicit_meta_agent_prompt_blueprint
+from agents.explicit_meta_agent import run_explicit_meta_agent_async
 import asyncio
 
 dbHandler = DatabaseHandler(parent_handler=False)
