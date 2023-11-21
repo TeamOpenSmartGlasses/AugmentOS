@@ -713,12 +713,12 @@ class DatabaseHandler:
         user = self.user_collection.find_one({"user_id": user_id})
         results = user['entity_definitions_results'] if user != None else []
         already_consumed_ids = [
-        ] if include_consumed else self.get_consumed_agent_insights_result_ids_for_user_device(user_id, device_id)
+        ] if include_consumed else self.get_consumed_entity_definition_ids_for_user_device(user_id, device_id)
         new_results = []
         for res in results:
             if ('uuid' in res) and (res['uuid'] not in already_consumed_ids):
                 if should_consume:
-                    self.add_consumed_agent_insights_result_id_for_user_device(
+                    self.add_consumed_entity_definition_id_for_user_device(
                         user_id, device_id, res['uuid'])
                 new_results.append(res)
         return new_results
