@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {
+  ActionIcon,
   Box,
   Container,
   ContainerProps,
@@ -8,9 +9,11 @@ import {
   Image,
   MantineProvider,
   ScrollArea,
+  Stack,
   Transition,
   createPolymorphicComponent,
   createStyles,
+  rem,
 } from "@mantine/core";
 import Sidebar from "./components/Sidebar";
 import ExplorePane from "./components/ExplorePane";
@@ -25,6 +28,7 @@ import { UI_POLL_ENDPOINT } from "./serverEndpoints";
 import { motion } from "framer-motion";
 import { theme } from "./theme";
 import ExplicitCard from "./components/ExplicitCard";
+import { IconLayoutSidebarRightCollapse, IconLayoutSidebarRightExpand } from "@tabler/icons-react";
 
 // animate-able components for framer-motion
 // https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
@@ -239,24 +243,42 @@ export default function App() {
           sx={{
             flex: showExplorePane ? "1 1 0" : "0",
           }}
+          className={classes.container}
         >
-          <Transition
-            mounted={showExplorePane}
-            transition="slide-left"
-            duration={400}
-            timingFunction="ease"
-          >
-            {(styles) => (
-              <motion.div style={{ ...styles, height: "100%" }}>
-                <ExplorePane
-                  viewMoreUrl={viewMoreUrl}
-                  loading={loadingViewMore}
-                  setLoading={setLoadingViewMore}
-                  onClose={() => setShowExplorePane(false)}
-                />
-              </motion.div>
-            )}
-          </Transition>
+          <Flex sx={{ height: "100%" }}>
+            {entities.length > 0 && <Stack align="center" w="3rem">
+              <ActionIcon
+                onClick={() => {
+                  setShowExplorePane(!showExplorePane);
+                  setSelectedCardId(undefined);
+                }}
+                size={rem(25)}
+                mt="sm"
+              >
+                {showExplorePane ? (
+                  <IconLayoutSidebarRightCollapse />
+                ) : (
+                  <IconLayoutSidebarRightExpand />
+                )}
+              </ActionIcon>
+            </Stack>}
+            <Transition
+              mounted={showExplorePane}
+              transition="slide-left"
+              duration={400}
+              timingFunction="ease"
+            >
+              {(styles) => (
+                <motion.div style={{ ...styles, height: "100%", width: "100%" }}>
+                  <ExplorePane
+                    viewMoreUrl={viewMoreUrl}
+                    loading={loadingViewMore}
+                    setLoading={setLoadingViewMore}
+                  />
+                </motion.div>
+              )}
+            </Transition>
+          </Flex>
         </PContainer>
       </PFlex>
 
