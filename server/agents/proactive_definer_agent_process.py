@@ -40,7 +40,8 @@ def proactive_agents_processing_loop():
                     # 
 
                     # run proactive meta agent, get definition
-                    entities = run_proactive_entity_definer(transcript['text'], definition_history)
+                    entities_res = run_proactive_entity_definer(transcript['text'], definition_history)
+                    entities = entities_res['entities']
                     print("entities: {}".format(entities))
                     # 
 

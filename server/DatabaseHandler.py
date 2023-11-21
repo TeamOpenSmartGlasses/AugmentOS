@@ -529,15 +529,6 @@ class DatabaseHandler:
         update = {"$set": {"cse_results": []}}
         self.user_collection.update_one(filter=filter, update=update)
 
-    def add_entity_definition_result_for_user(self, user_id, entity, definition):
-        entity_time = math.trunc(time.time())
-        entity_uuid = str(uuid.uuid4())
-        entity_obj = {'timestamp': entity_time, 'uuid': entity_uuid, 'entity': entity, 'definition': definition}
-
-        filter = {"user_id": user_id}
-        update = {"$push": {"entity_definitions": {'$each': [entity_obj]}}}
-        self.user_collection.update_one(filter=filter, update=update)
-
     def add_agent_insight_result_for_user(self, user_id, agent_name, agent_insight, agent_references=None, agent_motive=None):
         insight_time = math.trunc(time.time())
         insight_uuid = str(uuid.uuid4())
@@ -568,27 +559,6 @@ class DatabaseHandler:
                 new_results.append(res)
         return new_results
 
-    def get_definer_history_for_user(self, user_id, top=10):
-        pipeline = [
-            { "$match": { "user_id": user_id } },
-            { "$unwind": "$agent_definitions" },
-            { "$sort": { "agent_definitions.timestamp": -1 } },
-            { "$limit": top },
-            {
-                "$project": {
-                    "_id": 0,
-                    "entity": "$agent_definitions.entity",
-                    "definition": "$agent_definitions.definition"
-                }
-            }
-        ]
-        results = list(self.user_collection.aggregate(pipeline))
-
-        print("Definer history RESULTS:", results)
-
-        return results
-
-
     def get_agent_insights_history_for_user(self, user_id, top=10):
         self.create_user_if_not_exists(user_id)
         # filter = {"user_id": user_id}
@@ -615,7 +585,6 @@ class DatabaseHandler:
 
         return results
         
-
     def get_proactive_agents_insights_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
         self.add_ui_device_to_user_if_not_exists(user_id, device_id)
 
@@ -691,6 +660,68 @@ class DatabaseHandler:
             if current_time - result['timestamp'] < n:
                 previously_defined_terms.append(result)
         return previously_defined_terms
+
+    ### INTELLIGENT ENTITY DEFINITIONS ###
+
+    def get_definer_history_for_user(self, user_id, top=10):
+        pipeline = [
+            { "$match": { "user_id": user_id } },
+            { "$unwind": "$entity_definitions_results" },
+            { "$sort": { "entity_definitions_results.timestamp": -1 } },
+            { "$limit": top },
+            {
+                "$project": {
+                    "_id": 0,
+                    "entity": "$entity_definitions_results.entity",
+                    "definition": "$entity_definitions_results.definition"
+                }
+            }
+        ]
+        results = list(self.user_collection.aggregate(pipeline))
+
+        print("Definer history RESULTS:", results)
+
+        return results
+    
+    def add_entity_definition_result_for_user(self, user_id, entity, definition):
+        entity_time = math.trunc(time.time())
+        entity_uuid = str(uuid.uuid4())
+        entity_obj = {'timestamp': entity_time, 'uuid': entity_uuid, 'entity': entity, 'definition': definition}
+
+        filter = {"user_id": user_id}
+        update = {"$push": {"entity_definitions_results": {'$each': [entity_obj]}}}
+        self.user_collection.update_one(filter=filter, update=update)
+
+    def get_consumed_entity_definition_ids_for_user_device(self, user_id, device_id):
+        filter = {"user_id": user_id, "ui_list.device_id": device_id}
+        user = self.user_collection.find_one(filter=filter)
+        if user == None or user['ui_list'] == None or user['ui_list'][0] == None:
+            return []
+        to_return = user['ui_list'][0]['consumed_entity_definitions_result_ids']
+        return to_return if to_return != None else []
+    
+    def add_consumed_entity_definition_id_for_user_device(self, user_id, device_id, consumed_result_uuid):
+        filter = {"user_id": user_id, "ui_list.device_id": device_id}
+        update = {"$addToSet": {
+            "ui_list.$.consumed_entity_definitions_result_ids": consumed_result_uuid}}
+        # "$add_to_set": {"ui_list": device_id}}
+        self.user_collection.update_many(filter=filter, update=update)
+
+    def get_entity_definitions_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
+        self.add_ui_device_to_user_if_not_exists(user_id, device_id)
+
+        user = self.user_collection.find_one({"user_id": user_id})
+        results = user['entity_definitions_results'] if user != None else []
+        already_consumed_ids = [
+        ] if include_consumed else self.get_consumed_agent_insights_result_ids_for_user_device(user_id, device_id)
+        new_results = []
+        for res in results:
+            if ('uuid' in res) and (res['uuid'] not in already_consumed_ids):
+                if should_consume:
+                    self.add_consumed_agent_insights_result_id_for_user_device(
+                        user_id, device_id, res['uuid'])
+                new_results.append(res)
+        return new_results
 
     ### UI DEVICE ###
 
