@@ -41,7 +41,10 @@ def proactive_agents_processing_loop():
 
                     # run proactive meta agent, get definition
                     entities_res = run_proactive_entity_definer(transcript['text'], definition_history)
-                    entities = entities_res['entities']
+                    if entities_res is None:
+                        continue
+
+                    entities = entities_res.entities
                     print("entities: {}".format(entities))
                     # 
 
@@ -49,7 +52,7 @@ def proactive_agents_processing_loop():
                         if entity is None:
                             continue
                         #save this entity to the DB for the user
-                        dbHandler.add_entity_definition_result_for_user(transcript['user_id'], entity['entity'], entity['definition'])
+                        dbHandler.add_entity_definition_result_for_user(transcript['user_id'], entity.entity, entity.definition)
 
                 except Exception as e:
                     print("Exception in entity definer:")

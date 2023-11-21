@@ -27,6 +27,7 @@ from DatabaseHandler import DatabaseHandler
 from agents.proactive_agents_process import proactive_agents_processing_loop
 from agents.expert_agents import run_single_expert_agent, arun_single_expert_agent
 from agents.explicit_agent_process import explicit_agent_processing_loop, call_explicit_agent
+from agents.proactive_definer_agent_process import proactive_agents_processing_loop
 import agents.wake_words
 from Modules.RelevanceFilter import RelevanceFilter
 
@@ -364,6 +365,12 @@ if __name__ == '__main__':
     explicit_background_process = multiprocessing.Process(target=explicit_agent_processing_loop)
     explicit_background_process.start()
 
+    # start intelligent definer agent process
+    print("Starting Intelligent Definer Agent process...")
+    intelligent_definer_agent_process = multiprocessing.Process(
+        target=proactive_agents_processing_loop)
+    intelligent_definer_agent_process.start()
+
     # setup and run web app
     # CORS allow from all sources
     print("Starting aiohttp server...")
@@ -396,3 +403,4 @@ if __name__ == '__main__':
     proactive_agents_background_process.join()
     cse_process.join()
     explicit_background_process.join()
+    intelligent_definer_agent_process.join()
