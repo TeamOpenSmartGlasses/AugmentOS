@@ -529,6 +529,15 @@ class DatabaseHandler:
         update = {"$set": {"cse_results": []}}
         self.user_collection.update_one(filter=filter, update=update)
 
+    def add_entity_definition_result_for_user(self, user_id, entity, definition):
+        entity_time = math.trunc(time.time())
+        entity_uuid = str(uuid.uuid4())
+        entity_obj = {'timestamp': entity_time, 'uuid': entity_uuid, 'entity': entity, 'definition': definition}
+
+        filter = {"user_id": user_id}
+        update = {"$push": {"entity_definitions": {'$each': [entity_obj]}}}
+        self.user_collection.update_one(filter=filter, update=update)
+
     def add_agent_insight_result_for_user(self, user_id, agent_name, agent_insight, agent_references=None, agent_motive=None):
         insight_time = math.trunc(time.time())
         insight_uuid = str(uuid.uuid4())
@@ -558,6 +567,27 @@ class DatabaseHandler:
                         user_id, device_id, res['uuid'])
                 new_results.append(res)
         return new_results
+
+    def get_definer_history_for_user(self, user_id, top=10):
+        pipeline = [
+            { "$match": { "user_id": user_id } },
+            { "$unwind": "$agent_definitions" },
+            { "$sort": { "agent_definitions.timestamp": -1 } },
+            { "$limit": top },
+            {
+                "$project": {
+                    "_id": 0,
+                    "entity": "$agent_definitions.entity",
+                    "definition": "$agent_definitions.definition"
+                }
+            }
+        ]
+        results = list(self.user_collection.aggregate(pipeline))
+
+        print("Definer history RESULTS:", results)
+
+        return results
+
 
     def get_agent_insights_history_for_user(self, user_id, top=10):
         self.create_user_if_not_exists(user_id)
