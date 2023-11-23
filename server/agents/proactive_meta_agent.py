@@ -2,7 +2,7 @@
 from collections import defaultdict
 from agents.expert_agent_configs import expert_agent_config_list
 from agents.expert_agents import expert_agent_arun_wrapper
-from server.utils import format_list_data
+from agents.agent_utils import format_list_data
 from server_config import openai_api_key
 
 #langchain

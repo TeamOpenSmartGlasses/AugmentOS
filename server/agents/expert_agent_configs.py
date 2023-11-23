@@ -1,5 +1,4 @@
-from server.utils import format_list_data
-
+from agents.agent_utils import format_list_data
 
 expert_agent_prompt_blueprint = """
 "Convoscope" is a multi-agent system in which you are the {agent_name} agent. You are a highly skilled and highly intelligent expert {agent_name}.

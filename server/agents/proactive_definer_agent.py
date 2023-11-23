@@ -4,7 +4,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.output_parsers import PydanticOutputParser
 from langchain.schema import OutputParserException
 from pydantic import BaseModel, Field
-from server.utils import format_list_data
+from agents.agent_utils import format_list_data
 
 from server_config import openai_api_key
 
@@ -106,6 +106,8 @@ def run_proactive_entity_definer(
     response = llm(
         [HumanMessage(content=proactive_rare_word_agent_query_prompt_string)]
     )
+
+    print("Proactive meta agent response", response)
 
     try:
         res = proactive_rare_word_agent_query_parser.parse(

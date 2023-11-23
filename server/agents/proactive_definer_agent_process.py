@@ -1,15 +1,15 @@
 import time
 import traceback
 import asyncio
+import uuid
 
 #custom
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_definer_agent import run_proactive_entity_definer
 
-def proactive_agents_processing_loop():
+def proactive_definer_processing_loop():
     print("START DEFINER PROCESSING LOOP")
     dbHandler = DatabaseHandler(parent_handler=False)
-    loop = asyncio.get_event_loop()
 
     while True:
         if not dbHandler.ready:
@@ -35,24 +35,36 @@ def proactive_agents_processing_loop():
               
 
                 try:
-                    definition_history = dbHandler.get_definer_history_for_user(transcript['user_id'])
-                    print("definition_history: {}".format(definition_history))
+                    # definition_history = dbHandler.get_definer_history_for_user(transcript['user_id'])
+                    # definition_history = []
+                    # print("definition_history: {}".format(definition_history))
                     # 
 
                     # run proactive meta agent, get definition
-                    entities_res = run_proactive_entity_definer(transcript['text'], definition_history)
+                    entities_res = run_proactive_entity_definer(transcript['text'], [])
                     if entities_res is None:
                         continue
 
                     entities = entities_res.entities
-                    print("entities: {}".format(entities))
-                    # 
-
+                    # print("entities: {}".format(entities))
+                    
+                    # Save results like CSE
+                    results = []
                     for entity in entities:
                         if entity is None:
                             continue
-                        #save this entity to the DB for the user
-                        dbHandler.add_entity_definition_result_for_user(transcript['user_id'], entity.entity, entity.definition)
+
+                        # Follow this shape
+                        # {'mid': '/m/04sv4', 'image_url': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCLC4S8YEmi62S2wg7iKSUh1G2iBHxExeS9NArjqG76lqQZo_V', 'name': 'Microsoft Corporation', 'category': 'Technology corporation', 'type': 'CORPORATION', 'summary': '\nTech giant with popular software and products.', 'url': 'https://en.wikipedia.org/wiki/Microsoft', 'timestamp': 1700719963, 'uuid': '17e300a2-5c60-4352-af56-54706f1a2923'}
+                        res = {}
+                        res['name'] = entity.entity
+                        res['summary'] = entity.definition
+                        res['timestamp'] = int(time.time())
+                        res['uuid'] = str(uuid.uuid4())
+                        results.append(res)
+                        
+                    #save entities to the DB for the user
+                    dbHandler.add_cse_results_for_user(transcript['user_id'], results)
 
                 except Exception as e:
                     print("Exception in entity definer:")
