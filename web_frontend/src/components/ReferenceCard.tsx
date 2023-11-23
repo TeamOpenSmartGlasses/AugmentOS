@@ -1,46 +1,61 @@
 import {
-  Flex,
   Text,
   Image,
-  Card,
-  Title,
-  UnstyledButton,
   createStyles,
+  Group,
+  rem,
+  useMantineTheme,
   Box,
+  UnstyledButton,
 } from "@mantine/core";
-import { Entity } from "../types";
+import { AgentName, Entity } from "../types";
+import { IconThumbDown, IconThumbDownFilled, IconThumbUp, IconThumbUpFilled } from "@tabler/icons-react";
+import { useState } from "react";
+import CardWrapper, { CardWrapperProps } from "./CardWrapper";
 
 const useStyles = createStyles((theme) => ({
-  card: {
-    height: 120,
-    marginTop: "1rem",
-    ":first-of-type": { marginTop: 0 },
-    backgroundColor: theme.white,
-    ":hover": {
-      opacity: 0.75,
+  button: {
+    color: theme.colors.convoscopeBlue,
+    paddingLeft: rem(8),
+    paddingRight: rem(8),
+    paddingTop: rem(8),
+    paddingBottom: rem(5),
+    borderRadius: rem(12),
+    border: `1.5px solid ${theme.colors.cardStroke}`,
+    ":active": {
+      translate: "0 2px",
     },
   },
 }));
 
-interface ReferenceCardProps {
+interface ReferenceCardProps extends CardWrapperProps {
   entity: Entity;
-  cardId: string;
-  selectedCardId: string;
-  setSelectedCardId: React.Dispatch<React.SetStateAction<string>>;
-  setViewMoreUrl: React.Dispatch<React.SetStateAction<string | undefined>>;
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
+const AGENT_ICON_PATHS: Record<AgentName, string> = {
+  [AgentName.STATISTICIAN]: "/statistician_icon_large.svg",
+  [AgentName.FACT_CHECKER]: "/fact_checker_icon_large.svg",
+  [AgentName.DEVILS_ADVOCATE]: "/devils_icon_large.svg",
+  [AgentName.DEFINER]: "/definer_icon_large.svg",
+  [AgentName.COMMAND]: "/dial_icon_large.svg",
+};
+
+const AGENT_ICON_NAMES: Record<AgentName, string> = {
+  [AgentName.STATISTICIAN]: "Statistician",
+  [AgentName.FACT_CHECKER]: "Fact Checker",
+  [AgentName.DEVILS_ADVOCATE]: "Devil's Advocate",
+  [AgentName.DEFINER]: "Definer",
+  [AgentName.COMMAND]: "Command",
+};
 
 const ReferenceCard = ({
   entity,
-  setViewMoreUrl,
-  cardId,
-  selectedCardId,
-  setSelectedCardId,
-  setLoading,
+  selected = false,
+  onClick,
+  large = false,
+  pointer = false,
 }: ReferenceCardProps) => {
-  const { classes, theme } = useStyles();
-  const selected = cardId === selectedCardId;
+  const theme = useMantineTheme();
 
   const getImageUrl = (entity: Entity) => {
     if (entity.map_image_path) {
@@ -50,86 +65,115 @@ const ReferenceCard = ({
     return entity.image_url;
   };
 
-  const handleSelectCard = () => {
-    setSelectedCardId(cardId);
-    if (entity.url) {
-      setViewMoreUrl(entity.url);
-    } else if (entity.agent_references) {
-      setViewMoreUrl(entity.agent_references);
-    }
-    setLoading(true);
-  };
-
-  //if entity is an agent output, specify how it should look
-  if (entity.agent_insight) {
-    //setup name of agent
-    entity.name = entity.agent_name + " says...";
-
-    //setup image of agent output
-    if (entity.agent_name == "Statistician") {
-      entity.image_url = "/statistician_agent_avatar.jpg";
-    } else if (entity.agent_name == "FactChecker") {
-      entity.image_url = "/fact_checker_agent_avatar.jpg";
-    } else if (entity.agent_name == "DevilsAdvocate") {
-      entity.image_url = "/devils_advocate_agent_avatar.jpg";
-    }
-  }
-
-  return <Card
-    withBorder
-    radius="md"
-    p={0}
-    h={"max-content"}
-    onClick={handleSelectCard}
-    className={classes.card}
-    sx={{
-      color: selected ? theme.colors.indigo[9] : "black",
-    }}
-  >
-    <Flex gap={"1rem"} align={"center"} h={"100%"}>
-      {entity.image_url || entity.map_image_path ? (
-        <Image src={getImageUrl(entity)} height={120} width={120} />
-      ) : (
-        <Box ml={"1rem"}></Box>
+  return (
+    <CardWrapper
+      onClick={onClick}
+      selected={selected}
+      large={large}
+      pointer={pointer}
+    >
+      {(entity.image_url || entity.map_image_path) && (
+        <Box
+          sx={{
+            borderRadius: rem(30),
+            flex: `1 1 ${large ? 180 : 120}px`,
+            objectFit: "cover",
+            overflow: "clip",
+            height: "100%",
+            "& > div, & > div > figure, & > div > figure > div": {
+              height: "100%",
+            },
+            background: "white",
+          }}
+        >
+          <Image src={getImageUrl(entity)} fit="cover" height="100%" />
+        </Box>
       )}
-      <Flex
-        direction={"column"}
-        pr={"lg"}
-        h={"100%"}
-        justify={"center"}
-        py={entity.image_url || entity.map_image_path ? 0 : 10}
-      >
-        <Title order={2} lineClamp={1}>
-          {entity.name}
-        </Title>
+      <Box p={"lg"} h="100%" w="100%" sx={{ flex: "10 1 0" }}>
+        <Box sx={{ float: "right" }}>
+          <ThumbButtons />
+        </Box>
         <Text
-          fz="lg"
+          size={rem(33)}
+          pl="sm"
           sx={{
             wordWrap: "break-word",
             wordBreak: "break-word",
             overflowWrap: "break-word",
+            color: theme.colors.bodyText,
+            lineHeight: "150%",
+            whiteSpace: "pre-line",
           }}
         >
-          {entity.summary || entity.agent_insight}
-          {entity.url && !entity.text && (
-            <UnstyledButton>
-              <Text
-                fz="lg"
-                sx={{
-                  marginLeft: "0.5rem",
-                  textDecoration: "underline",
-                }}
-                color={selected ? "white" : "black"}
-                onClick={handleSelectCard}
-              >
-                Read more
-              </Text>
-            </UnstyledButton>
-          )}
+          {/* if there is an entity.name, show the Definer card format. Otherwise show the agent insight */}
+          {entity.name
+            ? `${entity.name}: ${entity.summary}`
+            : entity.agent_insight}
         </Text>
-      </Flex>
-    </Flex>
-  </Card>;
+        {/* make label stick to bottom-right corner */}
+        <Group p="lg" sx={{ bottom: 0, right: 0, position: "absolute" }}>
+          <Text
+            transform="uppercase"
+            fw="bold"
+            size={rem(22)}
+            sx={{ letterSpacing: rem(1.1) }}
+          >
+            {AGENT_ICON_NAMES[entity.agent_name ?? AgentName.DEFINER]}
+          </Text>
+          <Image
+            src={AGENT_ICON_PATHS[entity.agent_name ?? AgentName.DEFINER]}
+            height={large ? rem(50) : rem(40)}
+            width={large ? rem(50) : rem(40)}
+            radius="md"
+          />
+        </Group>
+      </Box>
+    </CardWrapper>
+  );
 };
 
 export default ReferenceCard;
+
+const ThumbButtons = () => {
+  const { classes } = useStyles();
+  const [thumbState, setThumbState] = useState<"up" | "down" | undefined>();
+
+  return (
+    <Group noWrap pl="xs" pb="xs">
+      <UnstyledButton
+        className={classes.button}
+        onClick={(e) => {
+          e.stopPropagation();
+          setThumbState(thumbState === "up" ? undefined : "up");
+        }}
+      >
+        {thumbState === "up" ? (
+          <IconThumbUpFilled size="2rem" stroke={1.5} />
+        ) : (
+          <IconThumbUp size="2rem" stroke={1.5} />
+        )}
+      </UnstyledButton>
+      <UnstyledButton
+        className={classes.button}
+        onClick={(e) => {
+          e.stopPropagation();
+          setThumbState(thumbState === "down" ? undefined : "down");
+        }}
+      >
+        {thumbState === "down" ? (
+          <IconThumbDownFilled
+            size="2rem"
+            stroke={1.5}
+            style={{ transform: "scaleX(-1)" }}
+          />
+        ) : (
+          <IconThumbDown
+            size="2rem"
+            stroke={1.5}
+            style={{ transform: "scaleX(-1)" }}
+          />
+        )}
+      </UnstyledButton>
+    </Group>
+  );
+}

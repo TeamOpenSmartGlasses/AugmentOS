@@ -1,34 +1,45 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import {
+  ActionIcon,
+  Box,
   Container,
+  ContainerProps,
   Flex,
-  Group,
+  FlexProps,
+  Image,
   MantineProvider,
   ScrollArea,
   Stack,
-  Title,
+  Transition,
+  createPolymorphicComponent,
   createStyles,
+  rem,
 } from "@mantine/core";
-import Sidebar, { NavbarLink } from "./components/Sidebar";
-import TranscriptCard from "./components/TranscriptCard";
-import PageView from "./components/PageView";
-import AgentChatView from "./components/AgentChatView";
-import RunAgentsView from "./components/RunAgentsView";
-import { Entity } from "./types";
+import Sidebar from "./components/Sidebar";
+import ExplorePane from "./components/ExplorePane";
+import { Entity, Insight } from "./types";
 import ReferenceCard from "./components/ReferenceCard";
 import Cookies from "js-cookie";
 import axiosClient from "./axiosConfig";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import "./index.css";
-import { IconSettings } from "@tabler/icons-react";
 import SettingsModal from "./components/SettingsModal";
 import { UI_POLL_ENDPOINT } from "./serverEndpoints";
+import { motion } from "framer-motion";
+import { theme } from "./theme";
+import ExplicitCard from "./components/ExplicitCard";
+import { IconLayoutSidebarRightCollapse, IconLayoutSidebarRightExpand } from "@tabler/icons-react";
+
+// animate-able components for framer-motion
+// https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
+const PFlex = createPolymorphicComponent<'div', FlexProps>(Flex)
+const PContainer = createPolymorphicComponent<'div', ContainerProps>(Container)
 
 const useStyles = createStyles((theme) => ({
   root: {
     height: "100vh",
     width: "100vw",
-    backgroundColor: "#DEDEDE",
+    background: "var(--bg-gradient-full---blue, linear-gradient(180deg, #191A27 2.23%, #14141D 25.74%, #14141D 49.42%, #14141D 73.62%, #14141D 96.28%))",
     overflow: "clip",
   },
 
@@ -37,28 +48,26 @@ const useStyles = createStyles((theme) => ({
   container: {
     width: "100%",
     height: "100%",
-    padding: "1rem",
+    padding: 0,
+    flex: "1 1 0"
   },
-
-    panel: { backgroundColor: theme.white, borderRadius: "0.5rem", margin: "0rem 0rem 0rem 0rem" },
-    rightPanel: { backgroundColor: theme.white, borderRadius: "0.5rem", margin: "0rem 0rem 0rem 0rem" },
-    referenceScroll: { backgroundColor: theme.white, borderRadius: "0.5rem", padding: "1rem", margin: "0rem 0rem 0rem 0rem" },
 }));
 
 export default function App() {
   const { classes } = useStyles();
 
-  const endOfReferencesRef = useRef<HTMLDivElement | null>(null);
   const [entities, setEntities] = useState<Entity[]>([]);
-  const [explicitInsights, setExplicitInsights] = useState<Entity[]>([]);
+  const [mountedIds, setMountedIds] = useState(new Set<string>());
+  const [explicitInsights, setExplicitInsights] = useState<Insight[]>([]);
+  const [isExplicitListening, setIsExplicitListening] = useState(false);
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
-  const [selectedCardId, setSelectedCardId] = useState<string>("");
+  const [showExplorePane, setShowExplorePane] = useState(false);
+  const [selectedCardId, setSelectedCardId] = useState<string | undefined>();
   const [loadingViewMore, setLoadingViewMore] = useState(false);
 
   const [opened, { open: openSettings, close: closeSettings }] =
     useDisclosure(false);
   const smallerThanMedium = useMediaQuery("(max-width: 62em)");
-  const hideTitle = false; //!smallerThanMedium && entities.length > 5;
 
   const toggleSettings = () => {
     if (opened) {
@@ -109,33 +118,26 @@ export default function App() {
     axiosClient
       .post(UI_POLL_ENDPOINT, uiPollRequstBody)
       .then((res) => {
-        // const newEntitiesDict = res.data.result;
-        // if (res.data.success) console.log(res.data);
-        // if (
-        //   res.data.result && (res.data.result_agent_insights as any[]).length > 0
-        // ) {
-        //   const newEntitiesArray = Object.keys(newEntitiesDict).map(function (
-        //     k
-        //   ) {
-        //     return newEntitiesDict[k];
-        //   });
-        //   console.log(newEntitiesArray);
-        //   setEntities((entities) => [...entities, ...newEntitiesArray]);
-        // }
-        // if (
-        //   res.data.result_agent_insights &&
-        //   (res.data.result_agent_insights as any[]).length > 0
-        // ) {
-        //   console.log("Insights:", res.data.result_agent_insights);
-        // }
-        
         if (res.data.success) {
-          const newEntities = res.data.result as any[];
-          const newInsights = (res.data.results_proactive_agent_insights as any[]) || [];
-          const newExplicitQueries = (res.data.explicit_insight_queries as any[]) || [];
-          const newExplicitInsights = (res.data.explicit_insight_results as any[]) || [];
+          const newEntities = res.data.result as Entity[];
+          const newInsights =
+            (res.data.results_proactive_agent_insights as Entity[]) || [];
+          const newExplicitQueries =
+            (res.data.explicit_insight_queries as Insight[]) || [];
+          const newExplicitInsights =
+            (res.data.explicit_insight_results as Insight[]) || [];
 
-          if (newEntities.length === 0 && newInsights.length === 0 && newExplicitQueries.length === 0 && newExplicitInsights.length === 0) return;
+          if (res.data.wake_word_time !== -1) {
+            setIsExplicitListening(true);
+          }
+
+          if (
+            newEntities.length === 0 &&
+            newInsights.length === 0 &&
+            newExplicitQueries.length === 0 &&
+            newExplicitInsights.length === 0
+          )
+            return;
 
           setEntities((entities) => [
             ...entities,
@@ -155,180 +157,130 @@ export default function App() {
       });
   };
 
+  // HACK: delay mount reference cards when entities change
+  useEffect(() => {
+    setTimeout(
+      () => setMountedIds(new Set([...entities.map((entity) => entity.uuid)])),
+      100
+    );}, [entities]);
+
   useEffect(() => {
     initUserId();
     setInterval(() => {
       updateUiBackendPoll();
-    }, 1000);
+    }, 200);
   }, []);
 
-  useEffect(() => {
-    endOfReferencesRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "start",
-    });
-  }, [entities]);
-
   return (
-    <MantineProvider
-      withGlobalStyles
-      withNormalizeCSS
-      theme={{
-        fontFamily: "Inter, sans-serif",
-        fontFamilyMonospace: "Inter, monospace",
-        headings: { fontFamily: "Inter, sans-serif" },
-      }}
-    >
-      <Flex className={classes.root}>
-        {!smallerThanMedium && (
-          <Sidebar settingsOpened={opened} toggleSettings={toggleSettings} />
-        )}
-        <Container fluid className={classes.container}>
-          <Flex
-            justify={"space-evenly"}
-            gap={"0.8rem"}
-            h={"100%"}
-            direction={smallerThanMedium ? "column" : "row"}
-          >
-            {/* Left Panel */}
-            <Stack
-              w={{ xs: "60%", md: "60%" }}
-              h={{ xs: "50%", md: "100%" }}
-              spacing={"md"}
-              justify={"space-between"}
-            >
-                <Flex
-                    direction={"column"} 
-                    h={{ xs: "50%", md: "5%" }}
-                  >
-                  <Group position="apart">
-                    <Title
-                      order={2}
-                      sx={{
-                        display: hideTitle ? "none" : "block",
-                        transition: "display 0.5s, transform 0.5s",
-                        transform: hideTitle ? "translateY(-100%)" : "",
-                      }}
-                    >
-                      Convoscope
-                    </Title>
-                    {smallerThanMedium && (
-                      <NavbarLink
-                        active={opened}
-                        onClick={toggleSettings}
-                        icon={IconSettings}
-                        label={"Settings"}
-                      />
-                    )}
-                  </Group>
-              </Flex>
-
-                <Flex 
-                    direction={"column"} 
-                    className={classes.card}
-                    h={{ xs: "50%", md: "5%" }}
-                  >
-                  <TranscriptCard
-                    transcriptBoxHeight={smallerThanMedium ? "2.5vh" : "6.5vh"}
-                  />
-              </Flex>
-
-              <Flex
-                  direction={"column"}
-                  w={{ xs: "100%", md: "100%" }}
-                  h={{ xs: "50%", md: "70%" }}
-                  px={"md"}
-                  py={"sm"}
-                 className={classes.referenceScroll}
+    <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
+      <PFlex component={motion.div} className={classes.root} layout>
+        <Sidebar settingsOpened={opened} toggleSettings={toggleSettings} />
+        <PContainer
+          component={motion.div}
+          layout
+          fluid
+          className={classes.container}
+          w={showExplorePane ? "50%" : "100%"}
+          pt={"2rem"}
+          px={"1rem"}
+        >
+          {entities.length === 0 && !isExplicitListening && (
+            <Box w="50%" mx="auto" mt="xl">
+              <Image src={"/blobs.gif"} fit="cover" />
+            </Box>
+          )}
+          {/* Left Panel */}
+          <ScrollArea scrollHideDelay={100} h="100%">
+            {isExplicitListening && (
+              <ExplicitCard
+                explicitInsights={explicitInsights}
+                setExplicitInsights={setExplicitInsights}
+                setEntities={setEntities}
+                setIsExplicitListening={setIsExplicitListening}
+              />
+            )}
+            {entities
+              .slice(0)
+              .reverse()
+              .map((entity, i) => (
+                <Transition
+                  mounted={mountedIds.has(entity.uuid)}
+                  transition="slide-down"
+                  duration={800}
+                  timingFunction="ease"
+                  key={`entity-${entity.uuid}`}
                 >
-                <Title 
-                    order={2}
-                      sx={{
-                        marginLeft: "0rem",
-                        textDecoration: "underline",
-                      }}
-                    >
-                     Agent Insights
-                  </Title>
-
-                  <ScrollArea scrollHideDelay={100}>
-                    {entities.map((entity, i) => (
+                  {(styles) => (
+                    <motion.div style={styles} layout>
                       <ReferenceCard
                         entity={entity}
-                        key={`entity-${i}`}
-                        cardId={`entity-${i}`}
-                        selectedCardId={selectedCardId}
-                        setSelectedCardId={setSelectedCardId}
-                        setViewMoreUrl={setViewMoreUrl}
-                        setLoading={setLoadingViewMore}
+                        selected={selectedCardId === entity.uuid}
+                        onClick={() => {
+                          setSelectedCardId(
+                            entity.uuid === selectedCardId
+                              ? undefined
+                              : entity.uuid
+                          );
+                          setViewMoreUrl(entity.url);
+                          setShowExplorePane(
+                            entity.url !== undefined &&
+                              entity.uuid !== selectedCardId
+                          );
+                        }}
+                        large={i === 0 && !isExplicitListening}
+                        pointer={entity.url !== undefined}
                       />
-                    ))}
-                    <div ref={endOfReferencesRef}></div>
-                  </ScrollArea>
-              </Flex>
-             <Flex
-                  direction={"column"}
-                  w={{ xs: "100%", md: "100%" }}
-                  h={{ xs: "50%", md: "15%" }}
-                  px={"md"}
-                  py={"sm"}
-                  className={classes.rightPanel}
-                  className={classes.panel}
-                >
-                  <RunAgentsView />
-              </Flex>
-            </Stack>
+                    </motion.div>
+                  )}
+                </Transition>
+              ))}
+          </ScrollArea>
+        </PContainer>
 
-            {/* Right Panel */}
-                {/*
-            <Flex
-                  direction={"column"}
-                  w={{ xs: "40%", md: "40%" }}
-                  h={{ xs: "50%", md: "100%" }}
-                  px={"md"}
-                  py={"sm"}
-                >
-                */}
-            <Stack
-              w={{ xs: "60%", md: "60%" }}
-              h={{ xs: "50%", md: "100%" }}
-              spacing={"md"}
-              justify={"space-between"}
+        <PContainer
+          component={motion.div}
+          layout
+          sx={{
+            flex: showExplorePane ? "1 1 0" : "0",
+          }}
+          className={classes.container}
+        >
+          <Flex sx={{ height: "100%" }}>
+            {entities.length > 0 && <Stack align="center" w="3rem">
+              <ActionIcon
+                onClick={() => {
+                  setShowExplorePane(!showExplorePane);
+                  setSelectedCardId(undefined);
+                }}
+                size={rem(25)}
+                mt="sm"
+              >
+                {showExplorePane ? (
+                  <IconLayoutSidebarRightCollapse />
+                ) : (
+                  <IconLayoutSidebarRightExpand />
+                )}
+              </ActionIcon>
+            </Stack>}
+            <Transition
+              mounted={showExplorePane}
+              transition="slide-left"
+              duration={400}
+              timingFunction="ease"
             >
-
-                    <Flex
-                      direction={"column"}
-                      w={{ xs: "100%", md: "100%" }}
-                      h={{ xs: "50%", md: "80%" }}
-                      px={"md"}
-                      py={"sm"}
-                      className={classes.rightPanel}
-                    >
-                          <PageView
-                            viewMoreUrl={viewMoreUrl}
-                            loading={loadingViewMore}
-                            setLoading={setLoadingViewMore}
-                          />
-                     </Flex>
-                 <Flex
-                      direction={"column"}
-                      w={{ xs: "100%", md: "100%" }}
-                      h={{ xs: "50%", md: "20%" }}
-                      px={"md"}
-                      py={"sm"}
-                      className={classes.panel}
-                    >
-                        <AgentChatView
-                          insights={explicitInsights}
-                        />
-                  </Flex>
-
-
-                </Stack>
+              {(styles) => (
+                <motion.div style={{ ...styles, height: "100%", width: "100%" }}>
+                  <ExplorePane
+                    viewMoreUrl={viewMoreUrl}
+                    loading={loadingViewMore}
+                    setLoading={setLoadingViewMore}
+                  />
+                </motion.div>
+              )}
+            </Transition>
           </Flex>
-        </Container>
-      </Flex>
+        </PContainer>
+      </PFlex>
 
       <SettingsModal
         smallerThanMedium={smallerThanMedium}
