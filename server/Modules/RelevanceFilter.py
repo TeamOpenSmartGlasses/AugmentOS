@@ -25,6 +25,7 @@ Lower Scores are assigned if:
 - they are common and it is thus likely that someone in the conversation already knows about that entity
 - the entity is general/generic
 - The definition of the entity doesn't contribute to the conversation's quality
+- the entity is a place/location that is generally well known
 
 Examples: Very gamous countries, locations, companies or public figures   
 

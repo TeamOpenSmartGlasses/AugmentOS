@@ -1,47 +1,27 @@
-import { useState, JSX } from "react";
+import { JSX } from "react";
 import {
   Navbar,
-  Center,
   Tooltip,
-  Image,
-  UnstyledButton,
   createStyles,
   Stack,
+  UnstyledButton,
   rem,
-  Avatar,
 } from "@mantine/core";
 import { IconSettings, TablerIconsProps } from "@tabler/icons-react";
+import TranscriptButton from "./TranscriptButton";
 
 const useStyles = createStyles((theme) => ({
   link: {
-    width: rem(50),
-    height: rem(50),
-    borderRadius: theme.radius.md,
+    width: rem(66),
+    height: rem(66),
+    borderRadius: 999,
+    borderWidth: 1.5,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    color:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[0]
-        : theme.colors.gray[7],
-
-    "&:hover": {
-      backgroundColor:
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[5]
-          : theme.colors.gray[0],
-    },
-  },
-
-  active: {
-    "&, &:hover": {
-      backgroundColor: theme.fn.variant({
-        variant: "light",
-        color: theme.primaryColor,
-      }).background,
-      color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
-        .color,
-    },
+    color: theme.colors.iconColor,
+    border: `3px solid ${theme.colors.cardStroke}`,
+    backgroundColor: theme.colors.cardFill,
   },
 }));
 
@@ -55,17 +35,18 @@ interface NavbarLinkProps {
 export function NavbarLink({
   icon: Icon,
   label,
-  active,
+  // active,
   onClick,
 }: NavbarLinkProps) {
   const { classes, cx } = useStyles();
   return (
     <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
       <UnstyledButton
+        variant={"outline"}
         onClick={onClick}
-        className={cx(classes.link, { [classes.active]: active })}
+        className={cx(classes.link)}
       >
-        <Icon size="2.2rem" stroke={1.5} />
+        <Icon size="2rem" stroke={1.5} />
       </UnstyledButton>
     </Tooltip>
   );
@@ -81,15 +62,14 @@ export function NavbarMinimal({
   toggleSettings,
 }: NavbarMinimalProps) {
   return (
-    <Navbar width={{ base: 90 }} p="md">
-      <Center>
-            <Image
-              radius="md"
-              src="/Convoscope_logo_og.png"
-            />
-      </Center>
-      <Navbar.Section grow mt={50}>
-        <Stack justify="center" spacing={0}>
+    <Navbar w={"8rem"} p="xl" bg={"rgba(0, 0, 0, 0)"} withBorder={false}>
+      <Navbar.Section>
+        <Stack m="auto" w="min-content">
+          <TranscriptButton />  
+        </Stack>
+      </Navbar.Section>
+      <Navbar.Section mt={"auto"}>
+        <Stack m="auto" w="min-content">
           <NavbarLink
             icon={IconSettings}
             label={"Settings"}
