@@ -3,13 +3,12 @@ from agents.math_tool_for_agents import get_wolfram_alpha_tool_for_agents
 from agents.expert_agent_configs import expert_agent_config_list, expert_agent_prompt_maker
 from langchain.agents import initialize_agent
 from langchain.agents.tools import Tool
-from langchain.chat_models import ChatOpenAI
 from server_config import openai_api_key
 from langchain.agents import AgentType
 import asyncio
-from constants import GPT_4_MODEL, GPT_4_MAX_TOKENS, GPT_TEMPERATURE
+from Modules.LangchainSetup import *
 
-llm = ChatOpenAI(temperature=GPT_TEMPERATURE, openai_api_key=openai_api_key, model=GPT_4_MODEL, max_tokens=GPT_4_MAX_TOKENS)
+llm = get_langchain_gpt4()
 
 #explictly respond to user queries
 explicit_meta_agent_prompt_blueprint = """You are a highly intelligent, skilled, and helpful assistant that helps answer user queries that they make during their conversations.

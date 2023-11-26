@@ -1,6 +1,5 @@
 #langchain
-from langchain.chat_models import ChatOpenAI
-from langchain.agents.tools import Tool
+from Modules.LangchainSetup import *
 from langchain.agents import initialize_agent
 from langchain.agents import AgentType
 from pydantic import BaseModel, Field, validator
@@ -30,7 +29,7 @@ class AgentInsight(BaseModel):
 agent_insight_parser = PydanticOutputParser(pydantic_object=AgentInsight)
 
 #start up the agent blueprint
-llm = ChatOpenAI(temperature=GPT_TEMPERATURE, openai_api_key=openai_api_key, model=GPT_4_MODEL, max_tokens=GPT_4_MAX_TOKENS)
+llm = get_langchain_gpt4()
 agent = initialize_agent([
         get_search_tool_for_agents(),
         get_wolfram_alpha_tool_for_agents(),

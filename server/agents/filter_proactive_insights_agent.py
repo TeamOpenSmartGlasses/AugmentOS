@@ -181,7 +181,7 @@ class RelevanceFilter:
             entities_filtered_dict = json.loads(entities_filtered)
             print(f"===========================ENTITIES FILTERED: {str(entities_filtered_dict)}==============================")
         except json.JSONDecodeError as e:
-            print(f"Error parsing JSON: {e}")
+            print(f"filter_proactive_insights_agent.py: Error parsing JSON: {e}")
             entities_filtered_dict = {}
         else:
             print("Successfully parsed the JSON string.")

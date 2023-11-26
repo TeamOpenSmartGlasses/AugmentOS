@@ -1,5 +1,3 @@
-import os
-
 # OpenAI imports
 import openai
 from server_config import openai_api_key, use_azure_openai, azure_openai_api_key, azure_openai_api_base, azure_openai_api_deployment
@@ -24,5 +22,4 @@ def one_off_query(prompt, max_tokens=30):
     else:
         response = "OpenAI placeholder"
     
-    # print("QUERY RESPONSE!: " + response)
     return response
