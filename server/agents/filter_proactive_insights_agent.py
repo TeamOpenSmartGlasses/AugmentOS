@@ -1,12 +1,9 @@
 #a critic agent that filters down the insights that the rest of the agent system proactively generated
 import json
 import openai
-
-from server_config import openai_api_key
+from Modules.QueryLLM import *
 from constants import LLM_FILTER_THRESHOLD
 # from server.Prompts.relevance_filter_prompt import relevance_filter_prompt
-
-openai.api_key = openai_api_key
 
 relevance_filter_prompt = (
     lambda context, entity: f"""
@@ -205,22 +202,10 @@ class RelevanceFilter:
         input_text = relevance_filter_prompt(context, str(llm_entities_input))
 
         # print(f"===========================LLM INPUT: {input_text}==============================")
-        response = self.get_gpt_reponse(input_text)
+        response = one_off_query(input_text, 193)
 
         print(f"===========================LLM PREDICTION: {response}==============================")
         return response
-
-    def get_gpt_reponse(self, prompt, model="gpt-3.5"):
-        messages = [{"role": "user", "content": prompt}]
-        response = openai.ChatCompletion.create(
-            model='gpt-3.5-turbo',
-            messages=messages,
-            max_tokens=193,
-            temperature=0,
-        )
-
-        return response.choices[0].message["content"]
-
 
 # if __name__ == "__main__":
 #     relevance_filter = RelevanceFilter(None)
