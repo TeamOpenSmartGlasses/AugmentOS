@@ -15,15 +15,14 @@ else:
 
 def one_off_query(prompt, max_tokens=30):
     if use_azure_openai:
-        chat_completion = openai.Completion.create(engine=deployment_name, prompt=prompt, max_tokens=max_tokens)
+        messages = [{"role": "user", "content": prompt}]
+        chat_completion = openai.ChatCompletion.create(engine=deployment_name, messages=messages, max_tokens=max_tokens)
         if chat_completion['choices'][0]['finish_reason'] == "content_filter":
             response = "Microsoft content filter says hello"
         else:
-            response = chat_completion['choices'][0]['text'].replace('\n', '').replace(' .', '.').strip()
+            response = chat_completion['choices'][0]['message']['content'].replace('\n', '').replace(' .', '.').strip()
     else:
         response = "OpenAI placeholder"
     
-    # WTF ???
-    response = "I LIKE TURTLES"
-    print("QUERY RESPONSE!: " + response)
+    # print("QUERY RESPONSE!: " + response)
     return response
