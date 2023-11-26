@@ -12,6 +12,7 @@ from constants import GPT_4_MODEL, GPT_4_MAX_TOKENS, GPT_TEMPERATURE
 from server_config import openai_api_key
 from agents.expert_agent_configs import expert_agent_config_list, expert_agent_prompt_maker
 from agents.search_tool_for_agents import get_search_tool_for_agents
+from agents.math_tool_for_agents import get_wolfram_alpha_tool_for_agents
 
 #agent insight structure
 class AgentInsight(BaseModel):
@@ -32,6 +33,7 @@ agent_insight_parser = PydanticOutputParser(pydantic_object=AgentInsight)
 llm = ChatOpenAI(temperature=GPT_TEMPERATURE, openai_api_key=openai_api_key, model=GPT_4_MODEL, max_tokens=GPT_4_MAX_TOKENS)
 agent = initialize_agent([
         get_search_tool_for_agents(),
+        get_wolfram_alpha_tool_for_agents(),
     ], llm, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=True)
 
 def post_process_agent_output(expert_agent_response, agent_name):

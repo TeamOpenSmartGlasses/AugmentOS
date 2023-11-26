@@ -1,8 +1,6 @@
-@media only screen and (max-width: 62em) {
-  #zoomed-out-iframe {
-    transform: scale(0.9);
-    transform-origin: 0 0;
-    width: 111%;
-    height: 111%;
-  }
+#zoomed-in-iframe {
+  transform: scale(1.2);
+  transform-origin: 0 0;
+  width: calc(1 * 100% / 1.2);
+  height: calc(1 * 100% / 1.2);
 }
