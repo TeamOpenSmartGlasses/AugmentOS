@@ -685,19 +685,17 @@ class DatabaseHandler:
         return results
     
     def add_agent_proactive_definition_results_for_user(self, user_id, entities):
-        entities_obj = []
+        print("Entities", entities)
+
         for entity in entities:
             if entity is None:
                 continue
-            res = {}
-            res['entity_name'] = entity.entity_name
-            res['entity_summary'] = entity.entity_definition
-            res['timestamp'] = int(time.time())
-            res['uuid'] = str(uuid.uuid4())
-            entities_obj.append(res)
+            
+            entity['timestamp'] = int(time.time())
+            entity['uuid'] = str(uuid.uuid4())
 
         filter = {"user_id": user_id}
-        update = {"$push": {"agent_proactive_definer_results": {'$each': entities_obj}}}
+        update = {"$push": {"agent_proactive_definer_results": {'$each': entities}}}
         self.user_collection.update_one(filter=filter, update=update)
 
     def get_consumed_agent_proactive_definition_ids_for_user_device(self, user_id, device_id):
@@ -753,7 +751,8 @@ class DatabaseHandler:
 
         if need_add:
             print("Creating device for user '{}': {}".format(user_id, device_id))
-            ui_object = {"device_id": device_id, "consumed_cse_result_ids": [], "consumed_agent_insights_result_ids": [], "consumed_explicit_ids": []}
+            ui_object = {"device_id": device_id, "consumed_cse_result_ids": [
+            ], "consumed_agent_insights_result_ids": [], "consumed_explicit_ids": [], "consumed_agent_proactive_definer_result_ids": []}
             filter = {"user_id": user_id}
             update = {"$addToSet": {"ui_list": ui_object}}
             self.user_collection.update_one(filter=filter, update=update)

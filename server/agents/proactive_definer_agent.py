@@ -6,7 +6,7 @@ from langchain.schema import OutputParserException
 from pydantic import BaseModel, Field
 from agents.agent_utils import format_list_data
 from server_config import openai_api_key
-from search_tool_for_agents import asearch_google_knowledge_graph
+from agents.search_tool_for_agents import asearch_google_knowledge_graph
 import asyncio
 
 proactive_rare_word_agent_prompt_blueprint = """
@@ -114,6 +114,8 @@ def run_proactive_definer_agent(
         res = proactive_rare_word_agent_query_parser.parse(
             response.content
         )
+        # we still have unknown_entities to search for but we will do them next time
+        res = search_entities(res.entities)
         return res
     except OutputParserException:
         return None
@@ -121,16 +123,20 @@ def run_proactive_definer_agent(
 def search_entities(entities: list[Entity]):
     search_tasks = []
     for entity in entities:
-        search_tasks.append(asearch_google_knowledge_graph(entity.entity))
+        search_tasks.append(asearch_google_knowledge_graph(entity.entity + " " + entity.definition))
     
+    loop = asyncio.get_event_loop()
     responses = asyncio.gather(*search_tasks)
+    responses = loop.run_until_complete(responses)
 
     print("Async search responses", responses)
 
     entity_objs = []
-    for response in responses:
-        print("response", response) 
+    for idx, response in enumerate(responses):
+        print("response", str(response))
         res = dict()
+        res["name"] = entities[idx].entity
+        res["definition"] = entities[idx].definition
         for item in response.item_list_element:
             result = item.get("result")
 

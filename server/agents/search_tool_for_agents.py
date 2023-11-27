@@ -168,8 +168,9 @@ types = ['']                          # Optional: List of schema.org types to re
 limit = 1                            # Optional: Number of entities to return
 
 # Google knowledge graph search tool
-def search_google_knowledge_graph(project_id: str,
+def search_google_knowledge_graph(
     search_query: str,
+    project_id: str = gcp_project_id,
     location: str = location, 
     languages: Sequence[str] = languages,
     types: Sequence[str] = None,
@@ -194,10 +195,11 @@ def search_google_knowledge_graph(project_id: str,
     # Make the request
     response = client.search_public_kg(request=request)
 
-    return response[0]
+    return response
 
-async def asearch_google_knowledge_graph(project_id: str,
+async def asearch_google_knowledge_graph(
     search_query: str,
+    project_id: str = gcp_project_id,
     location: str = location, 
     languages: Sequence[str] = languages,
     types: Sequence[str] = None,
@@ -220,8 +222,8 @@ async def asearch_google_knowledge_graph(project_id: str,
     )
 
     # Make the request
-    response = client.search_public_kg(request=request)
+    response = await client.search_public_kg(request=request)
 
     print("response: {}".format(response))
     
-    return response[0]
+    return response

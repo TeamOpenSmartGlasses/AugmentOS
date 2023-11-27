@@ -219,9 +219,9 @@ async def ui_poll_handler(request, minutes=0.5):
         resp["wake_word_time"] = wake_word_time
 
     # get entity definitions
-    # if "intelligent_entity_definitions" in features:
-    #     entity_definitions = db_handler.get_entity_definitions_results_for_user_device(user_id=user_id, device_id=device_id)
-    #     resp["entity_definitions"] = entity_definitions
+    if "intelligent_entity_definitions" in features:
+        entity_definitions = db_handler.get_agent_proactive_definer_results_for_user_device(user_id=user_id, device_id=device_id)
+        resp["entity_definitions"] = entity_definitions
 
     return web.Response(text=json.dumps(resp), status=200)
 
