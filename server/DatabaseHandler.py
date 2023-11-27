@@ -99,6 +99,7 @@ class DatabaseHandler:
                  "ui_list": [],
                  "agent_explicit_queries": [],
                  "agent_explicit_insights_results": [],
+                 "agent_proactive_definer_results": [],
                  "agent_insights_results" : []})
 
     ### CACHE ###
@@ -663,65 +664,72 @@ class DatabaseHandler:
 
     ### INTELLIGENT ENTITY DEFINITIONS ###
 
-    # def get_definer_history_for_user(self, user_id, top=10):
-    #     pipeline = [
-    #         { "$match": { "user_id": user_id } },
-    #         { "$unwind": "$entity_definitions_results" },
-    #         { "$sort": { "entity_definitions_results.timestamp": -1 } },
-    #         { "$limit": top },
-    #         {
-    #             "$project": {
-    #                 "_id": 0,
-    #                 "entity": "$entity_definitions_results.entity",
-    #                 "definition": "$entity_definitions_results.definition"
-    #             }
-    #         }
-    #     ]
-    #     results = list(self.user_collection.aggregate(pipeline))
+    def get_definer_history_for_user(self, user_id, top=10):
+        pipeline = [
+            { "$match": { "user_id": user_id } },
+            { "$unwind": "$agent_proactive_definer_results" },
+            { "$sort": { "agent_proactive_definer_results.timestamp": -1 } },
+            { "$limit": top },
+            {
+                "$project": {
+                    "_id": 0,
+                    "entity": "$agent_proactive_definer_results.entity",
+                    "definition": "$agent_proactive_definer_results.definition"
+                }
+            }
+        ]
+        results = list(self.user_collection.aggregate(pipeline))
 
-    #     print("Definer history RESULTS:", results)
+        print("Definer history RESULTS:", results)
 
-    #     return results
+        return results
     
-    # def add_entity_definition_result_for_user(self, user_id, entity, definition):
-    #     entity_time = math.trunc(time.time())
-    #     entity_uuid = str(uuid.uuid4())
-    #     entity_obj = {'timestamp': entity_time, 'uuid': entity_uuid, 'entity': entity, 'definition': definition}
+    def add_agent_proactive_definition_results_for_user(self, user_id, entities):
+        entities_obj = []
+        for entity in entities:
+            if entity is None:
+                continue
+            res = {}
+            res['entity_name'] = entity.entity_name
+            res['entity_summary'] = entity.entity_definition
+            res['timestamp'] = int(time.time())
+            res['uuid'] = str(uuid.uuid4())
+            entities_obj.append(res)
 
-    #     filter = {"user_id": user_id}
-    #     update = {"$push": {"entity_definitions_results": {'$each': [entity_obj]}}}
-    #     self.user_collection.update_one(filter=filter, update=update)
+        filter = {"user_id": user_id}
+        update = {"$push": {"agent_proactive_definer_results": {'$each': entities_obj}}}
+        self.user_collection.update_one(filter=filter, update=update)
 
-    # def get_consumed_entity_definition_ids_for_user_device(self, user_id, device_id):
-    #     filter = {"user_id": user_id, "ui_list.device_id": device_id}
-    #     user = self.user_collection.find_one(filter=filter)
-    #     if user == None or user['ui_list'] == None or user['ui_list'][0] == None:
-    #         return []
-    #     to_return = user['ui_list'][0]['consumed_entity_definitions_result_ids']
-    #     return to_return if to_return != None else []
+    def get_consumed_agent_proactive_definition_ids_for_user_device(self, user_id, device_id):
+        filter = {"user_id": user_id, "ui_list.device_id": device_id}
+        user = self.user_collection.find_one(filter=filter)
+        if user == None or user['ui_list'] == None or user['ui_list'][0] == None:
+            return []
+        to_return = user['ui_list'][0]['consumed_agent_proactive_definer_result_ids']
+        return to_return if to_return != None else []
     
-    # def add_consumed_entity_definition_id_for_user_device(self, user_id, device_id, consumed_result_uuid):
-    #     filter = {"user_id": user_id, "ui_list.device_id": device_id}
-    #     update = {"$addToSet": {
-    #         "ui_list.$.consumed_entity_definitions_result_ids": consumed_result_uuid}}
-    #     # "$add_to_set": {"ui_list": device_id}}
-    #     self.user_collection.update_many(filter=filter, update=update)
+    def add_consumed_agent_proactive_definition_id_for_user_device(self, user_id, device_id, consumed_result_uuid):
+        filter = {"user_id": user_id, "ui_list.device_id": device_id}
+        update = {"$addToSet": {
+            "ui_list.$.consumed_agent_proactive_definer_result_ids": consumed_result_uuid}}
+        # "$add_to_set": {"ui_list": device_id}}
+        self.user_collection.update_many(filter=filter, update=update)
 
-    # def get_entity_definitions_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
-    #     self.add_ui_device_to_user_if_not_exists(user_id, device_id)
+    def get_agent_proactive_definer_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
+        self.add_ui_device_to_user_if_not_exists(user_id, device_id)
 
-    #     user = self.user_collection.find_one({"user_id": user_id})
-    #     results = user['entity_definitions_results'] if user != None else []
-    #     already_consumed_ids = [
-    #     ] if include_consumed else self.get_consumed_entity_definition_ids_for_user_device(user_id, device_id)
-    #     new_results = []
-    #     for res in results:
-    #         if ('uuid' in res) and (res['uuid'] not in already_consumed_ids):
-    #             if should_consume:
-    #                 self.add_consumed_entity_definition_id_for_user_device(
-    #                     user_id, device_id, res['uuid'])
-    #             new_results.append(res)
-    #     return new_results
+        user = self.user_collection.find_one({"user_id": user_id})
+        results = user['agent_proactive_definer_results'] if user != None else []
+        already_consumed_ids = [
+        ] if include_consumed else self.get_consumed_agent_proactive_definition_ids_for_user_device(user_id, device_id)
+        new_results = []
+        for res in results:
+            if ('uuid' in res) and (res['uuid'] not in already_consumed_ids):
+                if should_consume:
+                    self.add_consumed_agent_proactive_definition_id_for_user_device(
+                        user_id, device_id, res['uuid'])
+                new_results.append(res)
+        return new_results
 
     ### UI DEVICE ###
 

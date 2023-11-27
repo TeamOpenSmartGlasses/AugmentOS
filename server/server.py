@@ -134,7 +134,7 @@ def cse_loop():
                     transcript['user_id'], transcript['text']))
                 cse_start_time = time.time()
 
-                cse_responses = cse.contextual_search_engine(
+                cse_responses = cse.custom_data_proactive_search(
                     transcript['user_id'], transcript['text'])
 
                 cse_end_time = time.time()

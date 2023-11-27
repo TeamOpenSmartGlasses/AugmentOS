@@ -371,7 +371,7 @@ class ContextualSearchEngine:
         # else:
             # print(f"-- Empty embeddings only loaded for {user_id}...")
 
-    def contextual_search_engine(self, user_id, talk):
+    def custom_data_proactive_search(self, user_id, talk):
         if talk.strip() == "":
             return
 
@@ -388,50 +388,50 @@ class ContextualSearchEngine:
         entities_semantic_custom = self.semantic_search_custom_data(user_id)
 
         # get entities
-        entities_raw = self.analyze_entities(talk)
+        # entities_raw = self.analyze_entities(talk)
 
         # filter entities
-        entities = list()
-        metadata_keys_we_want = ["mid", "wikipedia_url"]
-        for entity in entities_raw:
-            # if the entitiy had a knowledge graph ID or wikipedia entry, then we want it
-            for metadata_name, metadata_value in entity.metadata.items():
-                if metadata_name in metadata_keys_we_want:
-                    entities.append(entity)
-                    break
-            # if the entity had a location, then we want it
-            if entity.type_ == "LOCATION":
-                entities.append(entity)
-                break
+        # entities = list()
+        # metadata_keys_we_want = ["mid", "wikipedia_url"]
+        # for entity in entities_raw:
+        #     # if the entitiy had a knowledge graph ID or wikipedia entry, then we want it
+        #     for metadata_name, metadata_value in entity.metadata.items():
+        #         if metadata_name in metadata_keys_we_want:
+        #             entities.append(entity)
+        #             break
+        #     # if the entity had a location, then we want it
+        #     if entity.type_ == "LOCATION":
+        #         entities.append(entity)
+        #         break
 
         # if entities have `mid`s, then lookup the entities with google knowledge graph, get all mid's first, as batch mid search is faster
-        mids = list()
-        for entity in entities:
-            metadata = entity.metadata
-            # print(entity.name)
-            if "mid" in metadata.keys():
-                mid = metadata["mid"]
-                mids.append(mid)
-        entity_search_results = self.lookup_mids(mids)
+        # mids = list()
+        # for entity in entities:
+        #     metadata = entity.metadata
+        #     # print(entity.name)
+        #     if "mid" in metadata.keys():
+        #         mid = metadata["mid"]
+        #         mids.append(mid)
+        # entity_search_results = self.lookup_mids(mids)
 
-        # if entities are locations, then add a map image to it
-        locations = dict()
-        for entity_mid in entity_search_results:
-            entity = entity_search_results[entity_mid]
-            if entity["type"] == "LOCATION":
-                zoom = 3
-                map_image_name = "map_{}-{}.jpg".format(entity["name"], zoom)
-                map_image_path = "{}/{}".format(IMAGE_PATH, map_image_name)
+        # # if entities are locations, then add a map image to it
+        # locations = dict()
+        # for entity_mid in entity_search_results:
+        #     entity = entity_search_results[entity_mid]
+        #     if entity["type"] == "LOCATION":
+        #         zoom = 3
+        #         map_image_name = "map_{}-{}.jpg".format(entity["name"], zoom)
+        #         map_image_path = "{}/{}".format(IMAGE_PATH, map_image_name)
 
-                if not Path(map_image_path).is_file():
-                    static_map_img_raw = self.get_google_static_map_img(
-                        place=entity["name"], zoom=zoom)
-                    static_map_img_pil = Image.open(
-                        BytesIO(static_map_img_raw))
-                    static_map_img_pil.save(map_image_path)
+        #         if not Path(map_image_path).is_file():
+        #             static_map_img_raw = self.get_google_static_map_img(
+        #                 place=entity["name"], zoom=zoom)
+        #             static_map_img_pil = Image.open(
+        #                 BytesIO(static_map_img_raw))
+        #             static_map_img_pil.save(map_image_path)
 
-                entity_search_results[entity_mid]["map_image_path"] = "/api/{}image?img={}".format(
-                    path_modifier, map_image_name)
+        #         entity_search_results[entity_mid]["map_image_path"] = "/api/{}image?img={}".format(
+        #             path_modifier, map_image_name)
 
         # build response object from various processing sources
         response = dict()
@@ -455,10 +455,10 @@ class ContextualSearchEngine:
                 response[word]["type"] = "RARE_WORD"
                 response[word]["name"] = word
 
-        # put search results into response
-        for entity_mid in entity_search_results:
-            entity = entity_search_results[entity_mid]
-            response[entity["name"]] = entity
+        # # put search results into response
+        # for entity_mid in entity_search_results:
+        #     entity = entity_search_results[entity_mid]
+        #     response[entity["name"]] = entity
 
         # add custom NER entities to response
         response.update(entities_custom)
