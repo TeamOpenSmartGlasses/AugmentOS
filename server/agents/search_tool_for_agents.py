@@ -157,3 +157,71 @@ def get_search_tool_for_agents():
         description="Pass this specific targeted queries and/or keywords to quickly search the WWW to retrieve vast amounts of information on virtually any topic, spanning from academic research and navigation to history, entertainment, and current events. It's a tool for understanding, navigating, and engaging with the digital world's vast knowledge.",
     )
     return search_tool_for_agents
+
+from google.cloud import enterpriseknowledgegraph as ekg
+from server_config import gcp_project_id
+from collections.abc import Sequence
+
+location = 'YOUR_GRAPH_LOCATION'      # Values: 'global'
+languages = ['en']                    # Optional: List of ISO 639-1 Codes
+types = ['']                          # Optional: List of schema.org types to return
+limit = 1                            # Optional: Number of entities to return
+
+# Google knowledge graph search tool
+def search_google_knowledge_graph(project_id: str,
+    search_query: str,
+    location: str = location, 
+    languages: Sequence[str] = languages,
+    types: Sequence[str] = None,
+    limit: int = limit,):
+    
+    # Create a client
+    client = ekg.EnterpriseKnowledgeGraphServiceAsyncClient()
+
+    # The full resource name of the location
+    # e.g. projects/{project_id}/locations/{location}
+    parent = client.common_location_path(project=project_id, location=location)
+
+    # Initialize request argument(s)
+    request = ekg.SearchPublicKgRequest(
+        parent=parent,
+        query=search_query,
+        languages=languages,
+        types=types,
+        limit=limit,
+    )
+
+    # Make the request
+    response = client.search_public_kg(request=request)
+
+    return response[0]
+
+async def asearch_google_knowledge_graph(project_id: str,
+    search_query: str,
+    location: str = location, 
+    languages: Sequence[str] = languages,
+    types: Sequence[str] = None,
+    limit: int = limit,):
+    
+    # Create a client
+    client = ekg.EnterpriseKnowledgeGraphServiceAsyncClient()
+
+    # The full resource name of the location
+    # e.g. projects/{project_id}/locations/{location}
+    parent = client.common_location_path(project=project_id, location=location)
+
+    # Initialize request argument(s)
+    request = ekg.SearchPublicKgRequest(
+        parent=parent,
+        query=search_query,
+        languages=languages,
+        types=types,
+        limit=limit,
+    )
+
+    # Make the request
+    response = client.search_public_kg(request=request)
+
+    print("response: {}".format(response))
+    
+    return response[0]

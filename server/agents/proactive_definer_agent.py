@@ -5,8 +5,9 @@ from langchain.output_parsers import PydanticOutputParser
 from langchain.schema import OutputParserException
 from pydantic import BaseModel, Field
 from agents.agent_utils import format_list_data
-
 from server_config import openai_api_key
+from search_tool_for_agents import asearch_google_knowledge_graph
+import asyncio
 
 proactive_rare_word_agent_prompt_blueprint = """
 # Objective: 
@@ -68,7 +69,7 @@ proactive_rare_word_agent_query_parser = PydanticOutputParser(
     pydantic_object=ConversationEntities
 )
 
-def run_proactive_entity_definer(
+def run_proactive_definer_agent(
     conversation_context: str, definitions_history: list = []
 ):
     # start up GPT4 connection
@@ -116,4 +117,64 @@ def run_proactive_entity_definer(
         return res
     except OutputParserException:
         return None
+
+def search_entities(entities: list[Entity]):
+    search_tasks = []
+    for entity in entities:
+        search_tasks.append(asearch_google_knowledge_graph(entity.entity))
     
+    responses = asyncio.gather(*search_tasks)
+
+    print("Async search responses", responses)
+
+    entity_objs = []
+    for response in responses:
+        print("response", response) 
+        res = dict()
+        for item in response.item_list_element:
+            result = item.get("result")
+
+            # get mid and start entry - assuming we always get a mid
+            mid = None
+            for identifier in result.get("identifier"):
+                if identifier.get('name') == 'googleKgMID':
+                    mid = identifier.get('value')
+                    break
+
+            if mid is None:
+                continue
+
+            res[mid] = dict()
+            res[mid]["mid"] = mid
+
+            # get google cloud id
+            cloud_id = result.get('@id')
+
+            # get image
+            if result.get('image'):
+                image_url = result.get('image').get('contentUrl')
+                # convert to actual image url if it's a wikipedia image
+                # if "wiki" in image_url:
+                # image_url = self.wiki_image_parser(image_url)
+                res[mid]["image_url"] = image_url
+
+            res[mid]["name"] = result.get('name')
+            res[mid]["category"] = result.get('description')
+
+            # set our own types
+            if any(x in ['Place', 'City', 'AdministrativeArea'] for x in result.get('@type')):
+                res[mid]["type"] = "LOCATION"
+            else:
+                res[mid]["type"] = result.get('@type')[0].upper()
+
+            detailed_description = result.get("detailedDescription")
+            if detailed_description:
+                res[mid]["summary"] = detailed_description.get('articleBody')
+                res[mid]["url"] = detailed_description.get('url')
+            else:
+                res[mid]["summary"] = result.get('description')
+
+        entity_objs.append(res)
+    
+    print("entity_objs", entity_objs)
+    return entity_objs
