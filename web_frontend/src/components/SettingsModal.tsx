@@ -1,12 +1,14 @@
 import {
   Alert,
   Button,
+  Group,
   // Divider,
   // FileButton,
   Modal,
   Stack,
   Text,
   TextInput,
+  useMantineTheme,
   // Title,
 } from "@mantine/core";
 import { IconInfoCircle } from "@tabler/icons-react";
@@ -28,6 +30,7 @@ const SettingsModal = ({
   closeSettings,
   setUserIdAndDeviceId,
 }: SettingsModalProps) => {
+  const theme = useMantineTheme();
   const [userId, setUserId] = useState<string | undefined>(
     Cookies.get("userId")
   );
@@ -97,14 +100,18 @@ const SettingsModal = ({
           <Text>No saved username</Text>
         )}
 
-        <TextInput
-          ref={ref}
-          placeholder="Your new username"
-          label="Set New Username"
-          withAsterisk
-        />
-        <Button onClick={updateUsername}>Set Username</Button>
-
+        <Group>
+          <TextInput
+            ref={ref}
+            placeholder="Your new username"
+            label="Set New Username"
+            withAsterisk
+            sx={{ flex: "1" }}
+          />
+          <Button onClick={updateUsername} variant="default" mt="auto">
+            Set Username
+          </Button>
+        </Group>
         {/*
         {isCustomUser && (
           <>
