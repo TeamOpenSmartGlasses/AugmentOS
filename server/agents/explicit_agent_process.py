@@ -106,6 +106,11 @@ async def call_explicit_agent(user_obj, query):
         print("Exception in agent.run()...:")
         print(e)
         traceback.print_exc()
+
+        # TODO: Use GPT to generate a random funny error message
+        fallback_insight = "Hmm, not sure about that one, bud."
+
+        dbHandler.add_explicit_insight_result_for_user(user['user_id'], query, fallback_insight)
         dbHandler.reset_wake_word_time_for_user(user['user_id'])
 
     dbHandler.reset_wake_word_time_for_user(user['user_id'])
