@@ -8,7 +8,7 @@ import {
   Stack,
   Text,
   TextInput,
-  useMantineTheme,
+  createStyles,
   // Title,
 } from "@mantine/core";
 import { IconInfoCircle } from "@tabler/icons-react";
@@ -24,13 +24,24 @@ interface SettingsModalProps {
   setUserIdAndDeviceId: (newUserId: string) => void;
 }
 
+const useStyles = createStyles((theme) => ({
+  header: {
+    backgroundColor: theme.colors.cardFill,
+  },
+ 
+  content: {
+    backgroundColor: theme.colors.cardFill,
+    border: `1px solid ${theme.colors.cardStroke}`
+  }
+}));
+
 const SettingsModal = ({
   smallerThanMedium,
   opened,
   closeSettings,
   setUserIdAndDeviceId,
 }: SettingsModalProps) => {
-  const theme = useMantineTheme();
+  const {classes} = useStyles();
   const [userId, setUserId] = useState<string | undefined>(
     Cookies.get("userId")
   );
@@ -82,9 +93,10 @@ const SettingsModal = ({
       opened={opened}
       onClose={closeSettings}
       title={<Text fw={700}>Settings</Text>}
+      classNames={{ content: classes.content, header: classes.header }}
     >
       <Stack>
-        <Alert icon={<IconInfoCircle />} title="Connect your custom data!">
+        <Alert icon={<IconInfoCircle />} title="Connect your custom data!" variant="outline">
           Get started by setting a custom and unique username, then upload your
           CSV file containing your entity definitions
         </Alert>
