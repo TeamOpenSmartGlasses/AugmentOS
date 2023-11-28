@@ -37,8 +37,6 @@ def proactive_definer_processing_loop():
 
                 try:
                     definition_history = dbHandler.get_definer_history_for_user(transcript['user_id'])
-                    definition_history = []
-                    print("definition_history: {}".format(definition_history))
 
                     # run proactive meta agent, get definition
                     entities = run_proactive_definer_agent(transcript['text'], definitions_history=definition_history)
@@ -55,7 +53,7 @@ def proactive_definer_processing_loop():
                     traceback.print_exc()
                     continue
                 entityDefinerEndTime = time.time()
-                print("=== entityDefiner completed in {} seconds ===".format(
+                print("=== definer loop completed in {} seconds ===".format(
                     round(entityDefinerEndTime - entityDefinerStartTime, 2)))
         except Exception as e:
             print("Exception in entity definer...:")

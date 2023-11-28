@@ -664,7 +664,7 @@ class DatabaseHandler:
 
     ### INTELLIGENT ENTITY DEFINITIONS ###
 
-    def get_definer_history_for_user(self, user_id, top=10):
+    def get_definer_history_for_user(self, user_id, top=5):
         pipeline = [
             { "$match": { "user_id": user_id } },
             { "$unwind": "$agent_proactive_definer_results" },
@@ -673,14 +673,14 @@ class DatabaseHandler:
             {
                 "$project": {
                     "_id": 0,
-                    "entity": "$agent_proactive_definer_results.entity",
-                    "definition": "$agent_proactive_definer_results.definition"
+                    "entity": "$agent_proactive_definer_results.name",
+                    "definition": "$agent_proactive_definer_results.summary"
                 }
             }
         ]
         results = list(self.user_collection.aggregate(pipeline))
 
-        print("Definer history RESULTS:", results)
+        # print("Definer history RESULTS:", results)
 
         return results
     

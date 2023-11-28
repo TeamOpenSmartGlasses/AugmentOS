@@ -108,7 +108,7 @@ def run_proactive_definer_agent(
         [HumanMessage(content=proactive_rare_word_agent_query_prompt_string)]
     )
 
-    print("Proactive meta agent response", response)
+    # print("Proactive meta agent response", response)
 
     try:
         res = proactive_rare_word_agent_query_parser.parse(
@@ -123,7 +123,7 @@ def run_proactive_definer_agent(
 def search_entities(entities: list[Entity]):
     search_tasks = []
     for entity in entities:
-        search_tasks.append(asearch_google_knowledge_graph(entity.entity + " " + entity.definition))
+        search_tasks.append(asearch_google_knowledge_graph(entity.entity))
     
     loop = asyncio.get_event_loop()
     responses = asyncio.gather(*search_tasks)
@@ -133,7 +133,6 @@ def search_entities(entities: list[Entity]):
     for idx, response in enumerate(responses):
         # print("response", str(response))
         res = dict()
-        res["name"] = entities[idx].entity
         res["summary"] = entities[idx].definition
 
         if response is None:
@@ -177,7 +176,6 @@ def search_entities(entities: list[Entity]):
             detailed_description = result.get("detailedDescription")
             if detailed_description:
                 res["url"] = detailed_description.get('url')
-           
 
         entity_objs.append(res)
     
