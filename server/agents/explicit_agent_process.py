@@ -7,7 +7,7 @@ import asyncio
 
 dbHandler = DatabaseHandler(parent_handler=False)
 
-pause_query_time = 8
+pause_query_time = 4
 force_query_time = 16
 
 def stringify_history(insight_history):
