@@ -29,6 +29,7 @@ import { motion } from "framer-motion";
 import { theme } from "./theme";
 import ExplicitCard from "./components/ExplicitCard";
 import { IconLayoutSidebarRightCollapse, IconLayoutSidebarRightExpand } from "@tabler/icons-react";
+import { mockEntities } from "./mockData";
 
 // animate-able components for framer-motion
 // https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
@@ -54,7 +55,7 @@ const useStyles = createStyles({
 export default function App() {
   const { classes } = useStyles();
 
-  const [entities, setEntities] = useState<Entity[]>([]);
+  const [entities, setEntities] = useState<Entity[]>(mockEntities);
   const [mountedIds, setMountedIds] = useState(new Set<string>());
   const [explicitInsights, setExplicitInsights] = useState<Insight[]>([]);
   const [isExplicitListening, setIsExplicitListening] = useState(false);
@@ -181,6 +182,7 @@ export default function App() {
           w={showExplorePane ? "50%" : "100%"}
           pt={"2rem"}
           px={"1rem"}
+          transition={{bounce: 0}}
         >
           {entities.length === 0 && !isExplicitListening && (
             <Box w="50%" mx="auto" mt="xl">
@@ -209,7 +211,7 @@ export default function App() {
                   key={`entity-${entity.uuid}`}
                 >
                   {(styles) => (
-                    <motion.div style={styles} layout>
+                    <div style={styles}>
                       <ReferenceCard
                         entity={entity}
                         selected={selectedCardId === entity.uuid}
@@ -228,7 +230,7 @@ export default function App() {
                         large={i === 0 && !isExplicitListening}
                         pointer={entity.url !== undefined}
                       />
-                    </motion.div>
+                    </div>
                   )}
                 </Transition>
               ))}
@@ -244,22 +246,24 @@ export default function App() {
           className={classes.container}
         >
           <Flex sx={{ height: "100%" }}>
-            {entities.length > 0 && <Stack align="center" w="3rem">
-              <ActionIcon
-                onClick={() => {
-                  setShowExplorePane(!showExplorePane);
-                  setSelectedCardId(undefined);
-                }}
-                size={rem(25)}
-                mt="sm"
-              >
-                {showExplorePane ? (
-                  <IconLayoutSidebarRightCollapse />
-                ) : (
-                  <IconLayoutSidebarRightExpand />
-                )}
-              </ActionIcon>
-            </Stack>}
+            {entities.length > 0 && (
+              <Stack align="center" w="3rem">
+                <ActionIcon
+                  onClick={() => {
+                    setShowExplorePane(!showExplorePane);
+                    setSelectedCardId(undefined);
+                  }}
+                  size={rem(25)}
+                  mt="sm"
+                >
+                  {showExplorePane ? (
+                    <IconLayoutSidebarRightCollapse />
+                  ) : (
+                    <IconLayoutSidebarRightExpand />
+                  )}
+                </ActionIcon>
+              </Stack>
+            )}
             <Transition
               mounted={showExplorePane}
               transition="slide-left"
@@ -267,7 +271,9 @@ export default function App() {
               timingFunction="ease"
             >
               {(styles) => (
-                <motion.div style={{ ...styles, height: "100%", width: "100%" }}>
+                <motion.div
+                  style={{ ...styles, height: "100%", width: "100%" }}
+                >
                   <ExplorePane
                     viewMoreUrl={viewMoreUrl}
                     loading={loadingViewMore}
