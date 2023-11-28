@@ -35,7 +35,7 @@ import { IconLayoutSidebarRightCollapse, IconLayoutSidebarRightExpand } from "@t
 const PFlex = createPolymorphicComponent<'div', FlexProps>(Flex)
 const PContainer = createPolymorphicComponent<'div', ContainerProps>(Container)
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles({
   root: {
     height: "100vh",
     width: "100vw",
@@ -43,15 +43,13 @@ const useStyles = createStyles((theme) => ({
     overflow: "clip",
   },
 
-  card: { backgroundColor: theme.white, borderRadius: "0.25rem" },
-
   container: {
     width: "100%",
     height: "100%",
     padding: 0,
     flex: "1 1 0"
   },
-}));
+});
 
 export default function App() {
   const { classes } = useStyles();
