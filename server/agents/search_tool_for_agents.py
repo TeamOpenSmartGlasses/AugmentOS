@@ -221,9 +221,13 @@ async def asearch_google_knowledge_graph(
         limit=limit,
     )
 
-    # Make the request
-    response = await client.search_public_kg(request=request)
+    try:
+        # Make the request
+        response = await client.search_public_kg(request=request)
 
-    print("response: {}".format(response))
+        # print("response: {}".format(response))
+    except:
+        print("error in search_google_knowledge_graph")
+        response = None
     
     return response

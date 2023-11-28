@@ -129,14 +129,16 @@ def search_entities(entities: list[Entity]):
     responses = asyncio.gather(*search_tasks)
     responses = loop.run_until_complete(responses)
 
-    print("Async search responses", responses)
-
     entity_objs = []
     for idx, response in enumerate(responses):
-        print("response", str(response))
+        # print("response", str(response))
         res = dict()
         res["name"] = entities[idx].entity
-        res["definition"] = entities[idx].definition
+        res["summary"] = entities[idx].definition
+
+        if response is None:
+            continue
+
         for item in response.item_list_element:
             result = item.get("result")
 
@@ -150,8 +152,7 @@ def search_entities(entities: list[Entity]):
             if mid is None:
                 continue
 
-            res[mid] = dict()
-            res[mid]["mid"] = mid
+            res["mid"] = mid
 
             # get google cloud id
             cloud_id = result.get('@id')
@@ -162,25 +163,22 @@ def search_entities(entities: list[Entity]):
                 # convert to actual image url if it's a wikipedia image
                 # if "wiki" in image_url:
                 # image_url = self.wiki_image_parser(image_url)
-                res[mid]["image_url"] = image_url
+                res["image_url"] = image_url
 
-            res[mid]["name"] = result.get('name')
-            res[mid]["category"] = result.get('description')
+            res["name"] = result.get('name')
+            res["category"] = result.get('description')
 
             # set our own types
             if any(x in ['Place', 'City', 'AdministrativeArea'] for x in result.get('@type')):
-                res[mid]["type"] = "LOCATION"
+                res["type"] = "LOCATION"
             else:
-                res[mid]["type"] = result.get('@type')[0].upper()
+                res["type"] = result.get('@type')[0].upper()
 
             detailed_description = result.get("detailedDescription")
             if detailed_description:
-                res[mid]["summary"] = detailed_description.get('articleBody')
-                res[mid]["url"] = detailed_description.get('url')
-            else:
-                res[mid]["summary"] = result.get('description')
+                res["url"] = detailed_description.get('url')
+           
 
         entity_objs.append(res)
     
-    print("entity_objs", entity_objs)
     return entity_objs
