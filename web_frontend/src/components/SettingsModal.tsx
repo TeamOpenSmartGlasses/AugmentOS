@@ -1,19 +1,19 @@
 import {
   Alert,
   Button,
-  Divider,
-  FileButton,
+  // Divider,
+  // FileButton,
   Modal,
   Stack,
   Text,
   TextInput,
-  Title,
+  // Title,
 } from "@mantine/core";
 import { IconInfoCircle } from "@tabler/icons-react";
 import Cookies from "js-cookie";
 import { useRef, useState } from "react";
-import axiosClient from "../axiosConfig";
-import { UPLOAD_USERDATA_ENDPOINT } from "../serverEndpoints";
+// import axiosClient from "../axiosConfig";
+// import { UPLOAD_USERDATA_ENDPOINT } from "../serverEndpoints";
 
 interface SettingsModalProps {
   smallerThanMedium: boolean;
@@ -34,7 +34,7 @@ const SettingsModal = ({
   const [isCustomUser, setIsCustomUser] = useState<boolean | undefined>(
     Cookies.get("isCustomUser") === "true"
   );
-  const [file, setFile] = useState<File | null>(null);
+  // const [file, setFile] = useState<File | null>(null);
 
   const ref = useRef<HTMLInputElement>(null);
   const updateUsername = () => {
@@ -46,30 +46,30 @@ const SettingsModal = ({
     }
   };
 
-  const submitCustomData = () => {
-    if (!file || !userId) {
-      return;
-    }
+  // const submitCustomData = () => {
+  //   if (!file || !userId) {
+  //     return;
+  //   }
 
-    let formData = new FormData();
-    formData.append("custom-file", file);
-    formData.append("userId", userId);
-    axiosClient
-      .post(UPLOAD_USERDATA_ENDPOINT, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      .then((res: any) => {
-        if(res.status == 200){
-          alert(res.data);
-        }
-      })
-      .catch(function (error: any) {
-        console.error(error);
-        alert(error.response.data);
-      });
-  };
+  //   const formData = new FormData();
+  //   formData.append("custom-file", file);
+  //   formData.append("userId", userId);
+  //   axiosClient
+  //     .post(UPLOAD_USERDATA_ENDPOINT, formData, {
+  //       headers: {
+  //         "Content-Type": "multipart/form-data",
+  //       },
+  //     })
+  //     .then((res: any) => {
+  //       if(res.status == 200){
+  //         alert(res.data);
+  //       }
+  //     })
+  //     .catch(function (error: any) {
+  //       console.error(error);
+  //       alert(error.response.data);
+  //     });
+  // };
 
   return (
     <Modal
