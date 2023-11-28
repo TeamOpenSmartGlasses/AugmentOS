@@ -21,3 +21,5 @@ transformers
 bert-extractive-summarizer
 webvtt-py
 rapidfuzz
+wolframalpha
+pydantic==1.10.13

@@ -1,0 +1,12 @@
+<svg width="66" height="66" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="record button">
+<circle id="Iris" cx="33" cy="33" r="33" fill="#2E385C"/>
+<circle id="Center shape" cx="33" cy="33" r="27" fill="url(#paint0_radial_766_3794)"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial_766_3794" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(33 33) rotate(90) scale(27)">
+<stop offset="0.213542" stop-color="#10ADFE"/>
+<stop offset="0.786458" stop-color="#0097E6"/>
+</radialGradient>
+</defs>
+</svg>

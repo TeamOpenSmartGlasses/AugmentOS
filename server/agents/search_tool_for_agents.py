@@ -1,3 +1,5 @@
+# Beware when updating pydantic to v2, you might need to use pydantic.v1 instead of pydantic namespace
+from pydantic import BaseModel, Field
 from typing import Any, List, Literal
 from bs4 import BeautifulSoup
 import requests
@@ -5,14 +7,24 @@ from server_config import serper_api_key
 from Modules.Summarizer import Summarizer
 from langchain.agents.tools import Tool
 
-#ban some sites that we can never scrape
+# ban some sites that we can never scrape
 banned_sites = ["calendar.google.com", "researchgate.net"]
+# custom search tool, we copied the serper integration on langchain but we prefer all the data to be displayed in one json message
+k: int = 5
+gl: str = "us"
+hl: str = "en"
+tbs = None
+num_sentences = 10
+search_type: Literal["news", "search", "places", "images"] = "search"
+summarizer = Summarizer(None)
 
 
 def scrape_page(url: str):
-    """Based on your observations from the Search_Engine, if you want more details from
+    """
+    Based on your observations from the Search_Engine, if you want more details from
     a snippet for a non-PDF page, pass this the page's URL and the page's title to
-    scrape the full page and retrieve the full contents of the page."""
+    scrape the full page and retrieve the full contents of the page.
+    """
 
     print("Parsing: {}".format(url))
     if any(substring in url for substring in banned_sites):
@@ -32,26 +44,17 @@ def scrape_page(url: str):
             response.raise_for_status()
 
             soup = BeautifulSoup(response.content, 'html.parser')
-            text = " ".join([t.get_text() for t in soup.find_all(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'])])
-            return text.replace('|','')
+            text = " ".join([t.get_text() for t in soup.find_all(
+                ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'])])
+            return text.replace('|', '')
         except requests.RequestException as e:
             print(f"Failed to fetch {url}. Error: {e}")
             return None
 
 
-# custom search tool, we copied the serper integration on langchain but we prefer all the data to be displayed in one json message
-k: int = 5
-gl: str = "us"
-hl: str = "en"
-tbs = None
-num_sentences = 10
-search_type: Literal["news", "search", "places", "images"] = "search"
-summarizer = Summarizer(None)
-
-
 def serper_search(
-        search_term: str, search_type: str = "search", **kwargs: Any
-    ) -> dict:
+    search_term: str, search_type: str = "search", **kwargs: Any
+) -> dict:
     headers = {
         "X-API-KEY": serper_api_key or "",
         "Content-Type": "application/json",
@@ -103,12 +106,15 @@ def parse_snippets(results: dict) -> List[str]:
             if ('title' not in result) or (result['title'] is None):
                 result['title'] = ""
             if page is None:
-                snippets.append(f"Title: {result['title']}\nPossible answers: {result['snippet']}\n")
+                snippets.append(
+                    f"Title: {result['title']}\nPossible answers: {result['snippet']}\n")
             else:
-                summarized_page = summarizer.summarize_description_with_bert(page, num_sentences=num_sentences)
+                summarized_page = summarizer.summarize_description_with_bert(
+                    page, num_sentences=num_sentences)
                 if len(summarized_page) == 0:
                     summarized_page = "None"
-                snippets.append(f"Title: {result['title']}\nSource:{result['link']}\nSnippet: {result['snippet']}\nSummarized Page: {summarized_page}")
+                snippets.append(
+                    f"Title: {result['title']}\nSource:{result['link']}\nSnippet: {result['snippet']}\nSummarized Page: {summarized_page}")
 
     if len(snippets) == 0:
         return ["No good Google Search Result was found"]
@@ -116,37 +122,39 @@ def parse_snippets(results: dict) -> List[str]:
 
 
 def parse_results(results: dict) -> str:
-        snippets = parse_snippets(results)
-        results_string = ""
-        for idx, val in enumerate(snippets):
-            results_string += f"<result{idx}>\n{val}\n</result{idx}>\n\n"
-        return results_string
+    snippets = parse_snippets(results)
+    results_string = ""
+    for idx, val in enumerate(snippets):
+        results_string += f"<result{idx}>\n{val}\n</result{idx}>\n\n"
+    return results_string
 
 
-def run_search_tool_for_agents(query: str, parse=True, **kwargs: Any):
+def run_search_tool_for_agents(query: str):
     results = serper_search(
-            search_term=query,
-            gl=gl,
-            hl=hl,
-            num=k,
-            tbs=tbs,
-            search_type=search_type,
-            **kwargs,
-        )
+        search_term=query,
+        gl=gl,
+        hl=hl,
+        num=k,
+        tbs=tbs,
+        search_type=search_type,
+    )
     return parse_results(results)
 
 
-async def arun_search_tool_for_agents(query: str, parse=True, **kwargs: Any):
+async def arun_search_tool_for_agents(query: str):
     results = serper_search(
-            search_term=query,
-            gl=gl,
-            hl=hl,
-            num=k,
-            tbs=tbs,
-            search_type=search_type,
-            **kwargs,
-        )
+        search_term=query,
+        gl=gl,
+        hl=hl,
+        num=k,
+        tbs=tbs,
+        search_type=search_type,
+    )
     return parse_results(results)
+
+
+class SearchInput(BaseModel):
+    query: str = Field(description="a search query")
 
 
 def get_search_tool_for_agents():
@@ -155,6 +163,7 @@ def get_search_tool_for_agents():
         func=run_search_tool_for_agents,
         coroutine=arun_search_tool_for_agents,
         description="Pass this specific targeted queries and/or keywords to quickly search the WWW to retrieve vast amounts of information on virtually any topic, spanning from academic research and navigation to history, entertainment, and current events. It's a tool for understanding, navigating, and engaging with the digital world's vast knowledge.",
+        args_schema=SearchInput
     )
     return search_tool_for_agents
 
