@@ -279,7 +279,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             jsonQuery.put("userId", userId);
             jsonQuery.put("deviceId", deviceId);
             jsonQuery.put("features", featuresArray);
-            System.out.println(jsonQuery);
+            // System.out.println(jsonQuery);
             backendServerComms.restRequest(CSE_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
