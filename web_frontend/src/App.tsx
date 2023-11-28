@@ -190,7 +190,7 @@ export default function App() {
             </Box>
           )}
           {/* Left Panel */}
-          <ScrollArea scrollHideDelay={100} h="100%">
+          <ScrollArea scrollHideDelay={100} h="100%" type="never">
             {isExplicitListening && (
               <ExplicitCard
                 explicitInsights={explicitInsights}
