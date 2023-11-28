@@ -13,14 +13,13 @@ proactive_rare_word_agent_prompt_blueprint = """
 # Objective: 
 Identify "Rare Entities" in a conversation transcript. These include specialized terms, jargon, and specific entities (people, places, organizations, events) that are significant within their domains but not broadly known.
 
-# Criteria for Rare Entities:
-- No Redundancy: Exclude if already defined in the conversation.
-- Clear Definition: Must have a standalone, clear definition.
-- Rarity: Select niche and not well-known entities.
+# Criteria for Rare Entities in order of importance:
+- Rarity: Select niche and not well-known entities to the average high schooler. Do not define well known entities like the Fortune 500 organizations, worldwide events, or popular locations. Do not select overly relevant entities that have been popularized by recent news or events such as "COVID-19" or "Bitcoin".
+- Utility: Must provide value to a user's goals and interests within the conversation. You need to evaluate the transcript to detect if there is a non expert user who would benefit from learning about the entity.
+- No Redundancy: Exclude definitions if already defined in the conversation.
 - Complexity: Choose terms with non-obvious meanings.
-- Definability: Must be succinctly definable in under 10 words.
+- Definability: Must be clearly and succinctly definable in under 10 words.
 - Searchability: Should have a Wikipedia page.
-- Relevance: Must enhance the conversation's depth.
 
 # Conversation Transcript:
 <Transcript start>{conversation_context}<Transcript end>
@@ -30,18 +29,19 @@ These have already been defined so don't define them again:
 {definitions_history}
 
 # Task:
-Output two arrays:
-1. 'entities': [{{ entity: string, definition: string }}], with entity as a well-understood term and definition is concise (< 12 words) 
-2. `unknown_entities`: [string], list of unfamiliar entities needing more research for definition. Add context keywords to help with searchability.
+Output an array:
+entities: [{{ entity: string, definition: string }}], with entity as a well-understood term and definition is concise (< 12 words) 
 
 # Additional Guidelines:
+- For entity names, intelligently detect and use the most complete and official name based on context. For example, autocompleting short names such as "Geoffrey Hinton" instead of "Hinton" and returning official names such as "The Clay Mathematics Institute" when the conversation mentions "Clay Foundation" or "CMI" in the context of mathematics. 
 - Provide Context: Add context keywords to help with searchability.
 - Use simple language: Make definitions easy to understand.
 - For entities, make sure that you are confident in their definitions and know they are not made up, don't approximate.
 - For unknown entities, don't include long phrases or sentences.
+- Limit results to 5 entities, prioritize rarity.
 
 # Example Output:
-{{ entities: [{{ entity: "Moore's Law", definition: "Computing power doubles every ~2 yrs" }}], unknown_entities: ["Samuel Paria (actor)", "Freiran (anime, car)"] }}
+entities: [{{ entity: "Moore's Law", definition: "Computing power doubles every ~2 yrs" }}, {{ entity: "Butterfly Effect", definition: "Small changes can have large effects" }}]
 
 {format_instructions} 
 If no relevant entities are identified, output empty arrays.
@@ -60,10 +60,10 @@ class ConversationEntities(BaseModel):
         description="list of entities and their definitions",
         default=[]
     )
-    unknown_entities: list[str] = Field(
-        description="list of search terms for unknown entities",
-        default=[]
-    )
+    # unknown_entities: list[str] = Field(
+    #     description="list of search terms for unknown entities",
+    #     default=[]
+    # )
 
 proactive_rare_word_agent_query_parser = PydanticOutputParser(
     pydantic_object=ConversationEntities

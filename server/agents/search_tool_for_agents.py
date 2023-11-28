@@ -162,7 +162,7 @@ from google.cloud import enterpriseknowledgegraph as ekg
 from server_config import gcp_project_id
 from collections.abc import Sequence
 
-location = 'YOUR_GRAPH_LOCATION'      # Values: 'global'
+location = 'global'      # Values: 'global'
 languages = ['en']                    # Optional: List of ISO 639-1 Codes
 types = ['']                          # Optional: List of schema.org types to return
 limit = 1                            # Optional: Number of entities to return
@@ -231,3 +231,8 @@ async def asearch_google_knowledge_graph(
         response = None
     
     return response
+
+# testing
+if __name__ == "__main__":
+    print(search_google_knowledge_graph(
+        "Poincaré Conjecture"))
