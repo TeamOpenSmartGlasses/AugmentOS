@@ -23,3 +23,5 @@ webvtt-py
 rapidfuzz
 wolframalpha
 pydantic==1.10.13
+gspread
+oauth2client
