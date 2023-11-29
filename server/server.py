@@ -272,7 +272,7 @@ async def expert_agent_runner(expert_agent_name, user_id):
 
     #get the most recent insights for this user
     insights_history = db_handler.get_agent_insights_history_for_user(user_id)
-    insights_history = [insight["insight"] for insight in insights_history if insight["agent_name"] == expert_agent_name]
+    insights_history = [insight["insight"] for insight in insights_history]
 
     #spin up the agent
     agent_insight = await arun_single_expert_agent(expert_agent_name, convo_context, insights_history)

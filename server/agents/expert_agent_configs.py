@@ -24,9 +24,12 @@ Here are some example insights structure that you should aim to generate, a summ
 {examples}
 
 [Previously Generated Insights]
-Here are some insights that had already been previously generated, if any, for this conversation. You should not repeat any of these insights:
+Here are some insights that had already been previously generated, if any, for this conversation. You MUST not repeat any of these insights:
 
 {insights_history}
+
+
+**Remember** You must carefully read the history of insights generated for this conversation and ensure that you do not repeat any of the insights that have already been generated. If you repeat an insight, you will be penalized. Even if you generate a new insight, but it is very similar to a previous insight, you will be penalized. If you are unsure if your insight is too similar to a previous insight you should not generate the insight.
 
 [Your Task]
 <Task start>
