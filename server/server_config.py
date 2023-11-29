@@ -12,8 +12,6 @@ azure_openai_api_base=""
 azure_openai_api_gpt35_deployment=""
 azure_openai_api_gpt4_deployment=""
 
-gcp_api_key = ""
-
 # Uncomment one of the following configs:
 # Local:
 database_uri = "mongodb://localhost:27017"
