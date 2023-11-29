@@ -8,18 +8,18 @@ import time
 
 
 class Timer:
-    def _init_(self, function_name: str, worksheet: gspread.Worksheet) -> None:
+    def __init__(self, function_name: str, worksheet: gspread.Worksheet) -> None:
         self.function_name = function_name
         self.worksheet = worksheet
         self.start_time = 0
         self.end_time = 0
         self.duration = 0
 
-    def _enter_(self) -> "Timer":
+    def __enter__(self) -> "Timer":
         self.start_time = perf_counter()
         return self
 
-    def _exit_(self, exc_type, exc_val, exc_tb):
+    def __exit__(self, exc_type, exc_val, exc_tb):
         self.end_time = perf_counter()
         self.duration = self.end_time - self.start_time
         print(f"Elapsed time: {self.duration} seconds")
@@ -38,7 +38,7 @@ class Timer:
         self.worksheet.append_row(data)
 
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     def some_function():
         time.sleep(2)
 
@@ -51,4 +51,4 @@ if _name_ == '_main_':
     worksheet = client.open(spreadsheet_name).worksheet(worksheet_name)
 
     with Timer('some_function', worksheet):
-        some_function()
+       some_function()
