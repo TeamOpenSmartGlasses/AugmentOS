@@ -27,6 +27,7 @@ from DatabaseHandler import DatabaseHandler
 from agents.proactive_agents_process import proactive_agents_processing_loop
 from agents.expert_agents import run_single_expert_agent, arun_single_expert_agent
 from agents.explicit_agent_process import explicit_agent_processing_loop, call_explicit_agent
+from agents.proactive_definer_agent_process import proactive_definer_processing_loop
 import agents.wake_words
 from Modules.RelevanceFilter import RelevanceFilter
 
@@ -133,7 +134,7 @@ def cse_loop():
                     transcript['user_id'], transcript['text']))
                 cse_start_time = time.time()
 
-                cse_responses = cse.contextual_search_engine(
+                cse_responses = cse.custom_data_proactive_search(
                     transcript['user_id'], transcript['text'])
 
                 cse_end_time = time.time()
@@ -216,6 +217,11 @@ async def ui_poll_handler(request, minutes=0.5):
         resp["explicit_insight_queries"] = explicit_insight_queries
         resp["explicit_insight_results"] = explicit_insight_results
         resp["wake_word_time"] = wake_word_time
+
+    # get entity definitions
+    if "intelligent_entity_definitions" in features:
+        entity_definitions = db_handler.get_agent_proactive_definer_results_for_user_device(user_id=user_id, device_id=device_id)
+        resp["entity_definitions"] = entity_definitions
 
     return web.Response(text=json.dumps(resp), status=200)
 
@@ -351,6 +357,11 @@ if __name__ == '__main__':
     cse_process = multiprocessing.Process(target=cse_loop)
     cse_process.start()
 
+    # start intelligent definer agent process
+    print("Starting Intelligent Definer Agent process...")
+    intelligent_definer_agent_process = multiprocessing.Process(target=proactive_definer_processing_loop)
+    intelligent_definer_agent_process.start()
+
     # start the proactive agents process
     print("Starting Proactive Agents process...")
     proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
@@ -389,5 +400,6 @@ if __name__ == '__main__':
 
     #let processes finish and join
     proactive_agents_background_process.join()
+    intelligent_definer_agent_process.join()
     cse_process.join()
     explicit_background_process.join()

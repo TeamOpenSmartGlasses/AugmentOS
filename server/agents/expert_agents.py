@@ -2,7 +2,7 @@
 from Modules.LangchainSetup import *
 from langchain.agents import initialize_agent
 from langchain.agents import AgentType
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, Field
 from langchain.output_parsers import PydanticOutputParser
 from langchain.schema import OutputParserException
 from constants import GPT_4_MODEL, GPT_4_MAX_TOKENS, GPT_TEMPERATURE
