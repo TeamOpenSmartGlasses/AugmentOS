@@ -119,7 +119,8 @@ class DatabaseHandler:
 
     def check_for_wake_words_in_transcript_text(self, user_id, text):
         if agents.wake_words.does_text_contain_wake_word(text):
-            self.update_wake_word_time_for_user(user_id, time.time())
+            return self.update_wake_word_time_for_user(user_id, time.time())
+        return False
 
     ### TRANSCRIPTS ###
 
@@ -161,21 +162,11 @@ class DatabaseHandler:
                 update = {
                     "$set": {"cse_consumed_transcript_id": transcript['uuid']}}
                 self.user_collection.update_one(filter=filter, update=update)
-            
-            # Check for wake words
-            self.check_for_wake_words_in_transcript_text(user_id, text)
         else:
             # Save to `latest_intermediate_transcript` field in database - text and timestamp
             filter = {"user_id": user_id}
             update = {"$set": {"latest_intermediate_transcript": transcript}}
             self.user_collection.update_one(filter=filter, update=update)
-
-            # Check for wake words in this intermediate + final word of latest final transcript
-            # TODO: Eval if we should detect wake words in intermediates
-            latest_final_text = user['final_transcripts'][-1]['text'].strip().split()[-1] if user['final_transcripts'] else ""
-            text_to_search = latest_final_text + " " + text
-            self.check_for_wake_words_in_transcript_text(user_id, text_to_search)
-
 
     def get_user(self, user_id):
         user = self.user_collection.find_one({"user_id": user_id})
@@ -431,7 +422,8 @@ class DatabaseHandler:
 
         update = {"$set": {"last_wake_word_time": current_time}}
         
-        self.user_collection.update_one(query_condition, update)
+        result = self.user_collection.update_one(query_condition, update)
+        return True if result.modified_count else False
 
     def get_users_with_recent_wake_words(self):
         filter = {"last_wake_word_time": {'$ne': -1}}
