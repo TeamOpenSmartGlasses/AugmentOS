@@ -2,7 +2,7 @@
 from Modules.LangchainSetup import *
 from langchain.agents import initialize_agent
 from langchain.agents import AgentType
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, Field
 from langchain.output_parsers import PydanticOutputParser
 from langchain.schema import OutputParserException
 from constants import GPT_4_MODEL, GPT_4_MAX_TOKENS, GPT_TEMPERATURE
@@ -63,8 +63,8 @@ def post_process_agent_output(expert_agent_response, agent_name):
         if "null" in agent_insight:
             return None
         
-        #remove "Insight: " preface from insight
-        expert_agent_response["agent_insight"] = agent_insight.replace("Insight: ", "")
+        #remove "Insight: " preface from insight # remove leading/ending whitespace/newlines
+        expert_agent_response["agent_insight"] = agent_insight.replace("Insight: ", "").strip()
 
         # add agent name to the json obj
         expert_agent_response["agent_name"] = agent_name
@@ -96,7 +96,6 @@ async def arun_single_expert_agent(expert_agent_name, convo_context, insights_hi
 
     #run the agent
     expert_agent_response = await expert_agent_arun_wrapper(expert_agent_config, convo_context, insights_history)
-    print(expert_agent_response)
     if expert_agent_response is None:
         return None
 
