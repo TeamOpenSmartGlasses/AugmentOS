@@ -96,7 +96,7 @@ const SettingsModal = ({
       classNames={{ content: classes.content, header: classes.header }}
     >
       <Stack>
-        <Alert icon={<IconInfoCircle />} title="Connect your custom data!" variant="outline">
+        <Alert icon={<IconInfoCircle />} title="Connect your custom data!" variant="light" color="blue">
           Get started by setting a custom and unique username, then upload your
           CSV file containing your entity definitions
         </Alert>
