@@ -7,15 +7,16 @@ from pydantic import BaseModel, Field
 from agents.agent_utils import format_list_data
 from server_config import openai_api_key
 from agents.search_tool_for_agents import asearch_google_knowledge_graph
+from Modules.LangchainSetup import *
 import asyncio
 
 proactive_rare_word_agent_prompt_blueprint = """
 # Objective: 
-Identify "Rare Entities" in a conversation transcript. These include specialized terms, jargon, and specific entities (people, places, organizations, events) that are significant within their domains but not broadly known.
+Identify "Rare Entities" in a conversation transcript. These include specialized terms, jargon, rare words, and specific entities (people, places, organizations, events) that are significant within their domains but not broadly known.
 
 # Criteria for Rare Entities in order of importance:
-- Rarity: Select niche and not well-known entities to the average high schooler. Do not define well known entities like the Fortune 500 organizations, worldwide events, or popular locations. Do not select overly relevant entities that have been popularized by recent news or events such as "COVID-19" or "Bitcoin".
-- Utility: Must provide value to a user's goals and interests within the conversation. You need to evaluate the transcript to detect if there is a non expert user who would benefit from learning about the entity.
+- Rarity: Select entities and words that are niche and not well-known to the average high schooler. Do not define well known entities like the Fortune 500 organizations, worldwide-known events, or popular locations. Do not select entities have been popularized by recent news or events such as "COVID-19" or "Bitcoin".
+- Utility: Must provide value to a user's goals and interests within the conversation. You need to evaluate the transcript to detect if there is a non expert user who would benefit from learning about the entity or might not know the word.
 - No Redundancy: Exclude definitions if already defined in the conversation.
 - Complexity: Choose terms with non-obvious meanings.
 - Definability: Must be clearly and succinctly definable in under 10 words.
@@ -38,6 +39,7 @@ entities: [{{ entity: string, definition: string }}], with entity as a well-unde
 - Use simple language: Make definitions easy to understand.
 - For entities, make sure that you are confident in their definitions and know they are not made up, don't approximate.
 - For unknown entities, don't include long phrases or sentences.
+- For rare words, define them using commons words.
 - Limit results to 5 entities, prioritize rarity.
 
 # Example Output:
@@ -73,11 +75,7 @@ def run_proactive_definer_agent(
     conversation_context: str, definitions_history: list = []
 ):
     # start up GPT4 connection
-    llm = ChatOpenAI(
-        temperature=0,
-        openai_api_key=openai_api_key,
-        model="gpt-4-1106-preview",
-    )
+    llm = get_langchain_gpt4()
 
     extract_proactive_rare_word_agent_query_prompt = PromptTemplate(
         template=proactive_rare_word_agent_prompt_blueprint,
