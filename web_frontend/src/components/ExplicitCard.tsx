@@ -1,4 +1,4 @@
-import { Stack, Text, rem, useMantineTheme } from "@mantine/core";
+import { Text, useMantineTheme } from "@mantine/core";
 import { AGENT_ICON_NAMES, AGENT_ICON_PATHS, AgentName, Entity, Insight } from "../types";
 import CardWrapper from "./CardWrapper";
 import { uniqueId } from "lodash";
@@ -54,34 +54,19 @@ const ExplicitCard = ({
       imageSrc="/explicit_blobs.gif"
       selected
     >
-      <Stack my="auto">
-        <Text
-          size={rem(33)}
-          sx={{
-            wordWrap: "break-word",
-            wordBreak: "break-word",
-            overflowWrap: "break-word",
-            color: theme.colors.bodyText,
-            lineHeight: "150%",
-          }}
-        >
-          {!lastEntity?.query ? "I'm listening..." : queryString}
-        </Text>
-        {lastEntity?.insight && (
-          <Text
-            size={rem(33)}
-            sx={{
-              wordWrap: "break-word",
-              wordBreak: "break-word",
-              overflowWrap: "break-word",
-              color: theme.colors.bodyText,
-              lineHeight: "150%",
-            }}
-          >
-            {answerString}
-          </Text>
-        )}
-      </Stack>
+      <Text
+        sx={{
+          wordWrap: "break-word",
+          wordBreak: "break-word",
+          overflowWrap: "break-word",
+          color: theme.colors.bodyText,
+          lineHeight: "150%",
+        }}
+      >
+        {!lastEntity?.query ? "I'm listening..." : queryString}
+        <br />
+        {lastEntity?.insight && answerString}
+      </Text>
     </CardWrapper>
   );
 };

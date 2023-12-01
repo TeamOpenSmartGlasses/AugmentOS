@@ -67,7 +67,6 @@ const ReferenceCard = ({
         <ThumbButtons />
       </Box>
       <Text
-        size={rem(33)}
         pl="sm"
         sx={{
           wordWrap: "break-word",
@@ -104,9 +103,9 @@ const ThumbButtons = () => {
         }}
       >
         {thumbState === "up" ? (
-          <IconThumbUpFilled size="2rem" stroke={1.5} />
+          <IconThumbUpFilled size="3vh" stroke={1.5} />
         ) : (
-          <IconThumbUp size="2rem" stroke={1.5} />
+          <IconThumbUp size="3vh" stroke={1.5} />
         )}
       </UnstyledButton>
       <UnstyledButton
@@ -118,13 +117,13 @@ const ThumbButtons = () => {
       >
         {thumbState === "down" ? (
           <IconThumbDownFilled
-            size="2rem"
+            size="3vh"
             stroke={1.5}
             style={{ transform: "scaleX(-1)" }}
           />
         ) : (
           <IconThumbDown
-            size="2rem"
+            size="3vh"
             stroke={1.5}
             style={{ transform: "scaleX(-1)" }}
           />

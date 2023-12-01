@@ -64,7 +64,7 @@ const CardWrapper = ({
         ...(pointer && { cursor: "pointer" }),
       }}
     >
-      <Flex align={"center"} h={"100%"}>
+      <Flex align={"center"} h={"100%"} sx={{fontSize: "3vh"}}>
         <Box
           sx={{
             borderRadius: rem(30),
@@ -117,15 +117,15 @@ const CardWrapper = ({
             <Text
               transform="uppercase"
               fw="bold"
-              size={rem(22)}
-              sx={{ letterSpacing: rem(1.1) }}
+              size={"2vh"}
+              sx={{ letterSpacing: "0.1vh" }}
             >
               {agentName}
             </Text>
             <Image
               src={agentIconSrc}
-              height={large ? rem(50) : rem(40)}
-              width={large ? rem(50) : rem(40)}
+              height={large ? "5vh" : "4vh"}
+              width={large ? "5vh" : "4vh"}
               radius="md"
             />
           </Group>
