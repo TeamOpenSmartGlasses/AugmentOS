@@ -80,6 +80,6 @@ export const mockEntities: Entity[] = [
     map_image_path:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Taj_Mahal%2C_Agra%2C_India_edit3.jpg/375px-Taj_Mahal%2C_Agra%2C_India_edit3.jpg",
     url: "https://en.wikipedia.org/wiki/Taj_Mahal",
-    uuid: "mock9"
+    uuid: "mock10"
   },
 ];
