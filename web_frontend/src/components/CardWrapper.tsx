@@ -3,6 +3,10 @@ import {
   Card,
   createStyles,
   rem,
+  Box,
+  Image,
+  Group,
+  Text,
 } from "@mantine/core";
 import { PropsWithChildren } from "react";
 
@@ -27,6 +31,10 @@ export interface CardWrapperProps {
   onClick: () => void;
   large?: boolean;
   pointer?: boolean;
+  imageSrc?: string;
+  agentName: string;
+  agentIconSrc: string;
+  imageScale?: number;
 }
 
 const CardWrapper = ({
@@ -34,7 +42,11 @@ const CardWrapper = ({
   onClick,
   large = false,
   children,
-  pointer = false
+  pointer = false,
+  imageSrc,
+  agentName,
+  agentIconSrc,
+  imageScale = 1
 }: PropsWithChildren<CardWrapperProps>) => {
   const { classes } = useStyles();
 
@@ -51,7 +63,45 @@ const CardWrapper = ({
       }}
     >
       <Flex align={"center"} h={"100%"}>
-        {children}
+        <Box
+          sx={{
+            borderRadius: rem(30),
+            flex: `1 1 ${large ? 180 : 120}px`,
+            objectFit: "cover",
+            overflow: "clip",
+            height: "100%",
+            "& > div, & > div > figure, & > div > figure > div": {
+              height: "100%",
+            },
+            background: "white",
+          }}
+        >
+          <Image
+            src={imageSrc ?? "/Convoscope_new.png"}
+            fit="cover"
+            height="100%"
+            sx={{ scale: `${imageScale}` }}
+          />
+        </Box>
+        <Box p={"lg"} h="100%" w="100%" sx={{ flex: "10 1 0" }}>
+          {children}
+          <Group p="lg" sx={{ bottom: 0, right: 0, position: "absolute" }}>
+        <Text
+          transform="uppercase"
+          fw="bold"
+          size={rem(22)}
+          sx={{ letterSpacing: rem(1.1) }}
+        >
+          {agentName}
+        </Text>
+        <Image
+          src={agentIconSrc}
+          height={large ? rem(50) : rem(40)}
+          width={large ? rem(50) : rem(40)}
+          radius="md"
+        />
+      </Group>
+        </Box>
       </Flex>
     </Card>
   );

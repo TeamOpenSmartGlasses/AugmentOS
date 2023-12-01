@@ -1,5 +1,5 @@
-import { Box, Flex, Image, Stack, Text, rem, useMantineTheme } from "@mantine/core";
-import { AgentName, Entity, Insight } from "../types";
+import { Stack, Text, rem, useMantineTheme } from "@mantine/core";
+import { AGENT_ICON_NAMES, AGENT_ICON_PATHS, AgentName, Entity, Insight } from "../types";
 import CardWrapper from "./CardWrapper";
 import { uniqueId } from "lodash";
 import { useEffect } from "react";
@@ -46,18 +46,28 @@ const ExplicitCard = ({
   ]);
 
   return (
-    <CardWrapper large onClick={() => {}}>
-      <Flex px={rem(60)} gap={rem(52)}>
-        {!lastEntity?.insight && (
-          <Box
-            w={rem(237)}
-            h={rem(237)}
-            sx={{ overflow: "hidden", borderRadius: 999 }}
-          >
-            <Image src={"/explicit_blobs.gif"} sx={{ scale: "8" }} />
-          </Box>
-        )}
-        <Stack my="auto">
+    <CardWrapper
+      large
+      onClick={() => {}}
+      agentName={AGENT_ICON_NAMES[AgentName.COMMAND]}
+      agentIconSrc={AGENT_ICON_PATHS[AgentName.COMMAND]}
+      imageSrc="/explicit_blobs.gif"
+      imageScale={2}
+    >
+      <Stack my="auto">
+        <Text
+          size={rem(33)}
+          sx={{
+            wordWrap: "break-word",
+            wordBreak: "break-word",
+            overflowWrap: "break-word",
+            color: theme.colors.bodyText,
+            lineHeight: "150%",
+          }}
+        >
+          {!lastEntity?.query ? "I'm listening..." : queryString}
+        </Text>
+        {lastEntity?.insight && (
           <Text
             size={rem(33)}
             sx={{
@@ -68,24 +78,10 @@ const ExplicitCard = ({
               lineHeight: "150%",
             }}
           >
-            {!lastEntity?.query ? "I'm listening..." : queryString}
+            {answerString}
           </Text>
-          {lastEntity?.insight && (
-            <Text
-              size={rem(33)}
-              sx={{
-                wordWrap: "break-word",
-                wordBreak: "break-word",
-                overflowWrap: "break-word",
-                color: theme.colors.bodyText,
-                lineHeight: "150%",
-              }}
-            >
-              {answerString}
-            </Text>
-          )}
-        </Stack>
-      </Flex>
+        )}
+      </Stack>
     </CardWrapper>
   );
 };

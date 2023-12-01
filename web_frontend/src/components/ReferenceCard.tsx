@@ -1,6 +1,5 @@
 import {
   Text,
-  Image,
   createStyles,
   Group,
   rem,
@@ -8,7 +7,7 @@ import {
   Box,
   UnstyledButton,
 } from "@mantine/core";
-import { AgentName, Entity } from "../types";
+import { AGENT_ICON_NAMES, AGENT_ICON_PATHS, AgentName, Entity } from "../types";
 import { IconThumbDown, IconThumbDownFilled, IconThumbUp, IconThumbUpFilled } from "@tabler/icons-react";
 import { useState } from "react";
 import CardWrapper, { CardWrapperProps } from "./CardWrapper";
@@ -28,25 +27,10 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-interface ReferenceCardProps extends CardWrapperProps {
+interface ReferenceCardProps
+  extends Omit<CardWrapperProps, "agentName" | "agentIconSrc"> {
   entity: Entity;
 }
-
-const AGENT_ICON_PATHS: Record<AgentName, string> = {
-  [AgentName.STATISTICIAN]: "/statistician_icon_large.svg",
-  [AgentName.FACT_CHECKER]: "/fact_checker_icon_large.svg",
-  [AgentName.DEVILS_ADVOCATE]: "/devils_icon_large.svg",
-  [AgentName.DEFINER]: "/definer_icon_large.svg",
-  [AgentName.COMMAND]: "/dial_icon_large.svg",
-};
-
-const AGENT_ICON_NAMES: Record<AgentName, string> = {
-  [AgentName.STATISTICIAN]: "Statistician",
-  [AgentName.FACT_CHECKER]: "Fact Checker",
-  [AgentName.DEVILS_ADVOCATE]: "Devil's Advocate",
-  [AgentName.DEFINER]: "Definer",
-  [AgentName.COMMAND]: "Command",
-};
 
 const ReferenceCard = ({
   entity,
@@ -71,63 +55,35 @@ const ReferenceCard = ({
       selected={selected}
       large={large}
       pointer={pointer}
+      imageSrc={
+        entity.image_url || entity.map_image_path
+          ? getImageUrl(entity)
+          : undefined
+      }
+      agentName={AGENT_ICON_NAMES[entity.agent_name ?? AgentName.DEFINER]}
+      agentIconSrc={AGENT_ICON_PATHS[entity.agent_name ?? AgentName.DEFINER]}
     >
-      {(entity.image_url || entity.map_image_path) && (
-        <Box
-          sx={{
-            borderRadius: rem(30),
-            flex: `1 1 ${large ? 180 : 120}px`,
-            objectFit: "cover",
-            overflow: "clip",
-            height: "100%",
-            "& > div, & > div > figure, & > div > figure > div": {
-              height: "100%",
-            },
-            background: "white",
-          }}
-        >
-          <Image src={getImageUrl(entity)} fit="cover" height="100%" />
-        </Box>
-      )}
-      <Box p={"lg"} h="100%" w="100%" sx={{ flex: "10 1 0" }}>
-        <Box sx={{ float: "right" }}>
-          <ThumbButtons />
-        </Box>
-        <Text
-          size={rem(33)}
-          pl="sm"
-          sx={{
-            wordWrap: "break-word",
-            wordBreak: "break-word",
-            overflowWrap: "break-word",
-            color: theme.colors.bodyText,
-            lineHeight: "150%",
-            whiteSpace: "pre-line",
-          }}
-        >
-          {/* if there is an entity.name, show the Definer card format. Otherwise show the agent insight */}
-          {entity.name
-            ? `${entity.name}: ${entity.summary}`
-            : entity.agent_insight}
-        </Text>
-        {/* make label stick to bottom-right corner */}
-        <Group p="lg" sx={{ bottom: 0, right: 0, position: "absolute" }}>
-          <Text
-            transform="uppercase"
-            fw="bold"
-            size={rem(22)}
-            sx={{ letterSpacing: rem(1.1) }}
-          >
-            {AGENT_ICON_NAMES[entity.agent_name ?? AgentName.DEFINER]}
-          </Text>
-          <Image
-            src={AGENT_ICON_PATHS[entity.agent_name ?? AgentName.DEFINER]}
-            height={large ? rem(50) : rem(40)}
-            width={large ? rem(50) : rem(40)}
-            radius="md"
-          />
-        </Group>
+      <Box sx={{ float: "right" }}>
+        <ThumbButtons />
       </Box>
+      <Text
+        size={rem(33)}
+        pl="sm"
+        sx={{
+          wordWrap: "break-word",
+          wordBreak: "break-word",
+          overflowWrap: "break-word",
+          color: theme.colors.bodyText,
+          lineHeight: "150%",
+          whiteSpace: "pre-line",
+        }}
+      >
+        {/* if there is an entity.name, show the Definer card format. Otherwise show the agent insight */}
+        {entity.name
+          ? `${entity.name}: ${entity.summary}`
+          : entity.agent_insight}
+      </Text>
+      {/* make label stick to bottom-right corner */}
     </CardWrapper>
   );
 };
