@@ -205,7 +205,7 @@ export default function App() {
                   <Collapse key={`entity-${entity.uuid}`} timeout={800}>
                     <ReferenceCard
                       entity={entity}
-                      selected={selectedCardId === entity.uuid}
+                      selected={selectedCardId === entity.uuid && !isExplicitListening}
                       onClick={() => {
                         setSelectedCardId(
                           entity.uuid === selectedCardId

@@ -7,6 +7,7 @@ import {
   Image,
   Group,
   Text,
+  useMantineTheme,
 } from "@mantine/core";
 import { PropsWithChildren, useRef } from "react";
 
@@ -47,6 +48,7 @@ const CardWrapper = ({
   agentIconSrc,
 }: PropsWithChildren<CardWrapperProps>) => {
   const { classes } = useStyles();
+  const theme = useMantineTheme();
 
   const backgroundRef = useRef<HTMLDivElement>(null);
 
@@ -58,7 +60,7 @@ const CardWrapper = ({
       onClick={onClick}
       className={classes.card}
       sx={{
-        ...(selected && { filter: "brightness(1.2)" }),
+        ...(selected && { borderColor: theme.colors.convoscopeBlue}),
         ...(pointer && { cursor: "pointer" }),
       }}
     >
