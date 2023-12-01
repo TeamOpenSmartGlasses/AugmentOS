@@ -29,7 +29,6 @@ import { motion } from "framer-motion";
 import { theme } from "./theme";
 import ExplicitCard from "./components/ExplicitCard";
 import { IconLayoutSidebarRightCollapse, IconLayoutSidebarRightExpand } from "@tabler/icons-react";
-import { mockEntities } from "./mockData";
 import {
   TransitionGroup,
 } from 'react-transition-group';
@@ -59,7 +58,7 @@ const useStyles = createStyles({
 export default function App() {
   const { classes } = useStyles();
 
-  const [entities, setEntities] = useState<Entity[]>(mockEntities);
+  const [entities, setEntities] = useState<Entity[]>([]);
   const [explicitInsights, setExplicitInsights] = useState<Insight[]>([]);
   const [isExplicitListening, setIsExplicitListening] = useState(false);
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
