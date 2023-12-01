@@ -1,30 +1,24 @@
 #custom
 from collections import defaultdict
-from agents.search_tool_for_agents import get_search_tool_for_agents
-from agents.expert_agent_configs import expert_agent_config_list, expert_agent_prompt_maker, format_list_data
+from agents.expert_agent_configs import expert_agent_config_list
 from agents.expert_agents import expert_agent_arun_wrapper
+from agents.agent_utils import format_list_data
 from server_config import openai_api_key
 
 #langchain
-from langchain.agents import initialize_agent
 from langchain.chat_models import ChatOpenAI
-from langchain.agents import AgentType
-from langchain.llms import OpenAI
 from langchain.chat_models import ChatOpenAI
-from langchain import PromptTemplate, LLMChain
+from langchain.prompts import PromptTemplate
 from langchain.schema import (
-    AIMessage,
-    HumanMessage,
-    SystemMessage
+    HumanMessage
 )
 from langchain.output_parsers import PydanticOutputParser
 from langchain.schema import OutputParserException
-from pydantic import BaseModel, Field, validator
-from typing import List, Optional
+from pydantic import BaseModel, Field
 
 import asyncio
 
-from constants import GPT_4_MODEL, GPT_4_MAX_TOKENS, GPT_TEMPERATURE
+from Modules.LangchainSetup import *
 
 #proactively decides which agents to run and runs them
 proactive_meta_agent_prompt_blueprint = """You are the higly intelligent and skilled proactive master agent of "Convoscope". "Convoscope" is a tool that listens to a user's live conversation and enhances their conversation by providing them with real time "Insights". The "Insights" generated should aim to lead the user to deeper understanding, broader perspectives, new ideas, more accurate information, better replies, and enhanced conversations.
@@ -95,7 +89,7 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list):
     expert_agents_descriptions_prompt = make_expert_agents_prompts()
 
     #start up GPT4 connection
-    llm = ChatOpenAI(temperature=0.2, openai_api_key=openai_api_key, model=GPT_4_MODEL, max_tokens=GPT_4_MAX_TOKENS)
+    llm = get_langchain_gpt4(temperature=0.2)
 
     class ProactiveMetaAgentQuery(BaseModel):
         """

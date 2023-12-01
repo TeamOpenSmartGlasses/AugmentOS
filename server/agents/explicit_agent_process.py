@@ -2,12 +2,12 @@ from DatabaseHandler import DatabaseHandler
 import time
 import traceback
 from agents.wake_words import *
-from agents.explicit_meta_agent import run_explicit_meta_agent, run_explicit_meta_agent_async, explicit_meta_agent_prompt_blueprint
+from agents.explicit_meta_agent import run_explicit_meta_agent_async
 import asyncio
 
 dbHandler = DatabaseHandler(parent_handler=False)
 
-pause_query_time = 8
+pause_query_time = 4
 force_query_time = 16
 
 def stringify_history(insight_history):
@@ -15,6 +15,12 @@ def stringify_history(insight_history):
     for c in insight_history:
         history += "User: {}\nLLM:{}\n\n".format(c['query'], c['insight'])
     return history
+
+def is_user_id_in_user_list(user_id, user_list):
+    for user_obj in user_list:
+        if user_obj['user_id'] == user_id:
+            return True
+    return False
 
 def explicit_agent_processing_loop():
     #lock = threading.Lock()
@@ -27,10 +33,17 @@ def explicit_agent_processing_loop():
             continue
 
         try:
+            # Get current wake worded users
             users = dbHandler.get_users_with_recent_wake_words()
+
+            # Try to find new wake worded users 
+            newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(n=2)
+            for t in newTranscripts:
+                if not is_user_id_in_user_list(t['user_id'], users):
+                    dbHandler.check_for_wake_words_in_transcript_text(t['user_id'], t['text'])
+
             for user in users:
                 last_wake_word_time = user['last_wake_word_time']
-
                 is_query_ready = False
                 current_time = time.time()
 
@@ -64,7 +77,7 @@ def explicit_agent_processing_loop():
             print("Exception in EXPLITT QUERY STUFF..:")
             print(e)
             traceback.print_exc()
-        time.sleep(0.2)
+        time.sleep(0.1)
 
 async def call_explicit_agent(user_obj, query):
     user = user_obj
@@ -93,6 +106,11 @@ async def call_explicit_agent(user_obj, query):
         print("Exception in agent.run()...:")
         print(e)
         traceback.print_exc()
+
+        # TODO: Use GPT to generate a random funny error message
+        fallback_insight = "Hmm, not sure about that one, bud."
+
+        dbHandler.add_explicit_insight_result_for_user(user['user_id'], query, fallback_insight)
         dbHandler.reset_wake_word_time_for_user(user['user_id'])
 
     dbHandler.reset_wake_word_time_for_user(user['user_id'])
