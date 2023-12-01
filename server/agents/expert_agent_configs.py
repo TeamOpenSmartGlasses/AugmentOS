@@ -59,6 +59,7 @@ expert_agent_config_list = {
     "Statistician": {
         "agent_name": "Statistician",
         "insight_num_words": 10,
+        "tools": ["Search_Engine", "Wolfram_Alpha"],
         "agent_insight_type": """generate insights which focus on statistics, and quantitative data. Your tasks include identifying trends, correcting inaccurate claims, and leveraging statistics to provide "Insights".""",
         "agent_plan": """1. Identify what quantitative data, facts, statistics, etc. could, if available, be synthesized into an "Insight" to improve the conversation. Come up with a general description of the "Insight" to generate.\n2. What actions to take to get said data, seek the necessary data from reputable sources like Statista, prioritizing official statistics or academic publications. Ensure the "Insights" derived are backed by solid, quantitative data, otherwise your insight is "null".""",
         "proactive_tool_description": """Occurrences in a conversation where statistics, graphs, and data would be useful to the user.""",
@@ -81,6 +82,7 @@ Insight: Brain can recognize images in ~100ms, 10x faster than previously though
     "FactChecker": {
         "agent_name": "FactChecker",
         "insight_num_words": 10,
+        "tools": ["Search_Engine"],
         "agent_insight_type": """fact check any claims made during a conversation. Trigger a fact-check if a statement in the transcript falls under: misinterpreted statistics, historical inaccuracies, misleading health claims, political misrepresentations, scientific misunderstandings, or false economic data. Also, initiate a fact-check for factual statements made that may incite doubt as to their veracity, suspected falsehoods, common myths, etc. You only fact check claims which are verifiable through free, publically available knowledge. Do not consider personal, belief-based, or unfalsifiable claims. Your response should be a fact check, not a factoid. If there is not a clear, distinct, clear-cut thing to fact check, then just output "null", DO NOT run if there isn't a clear fact to check that fits the previous requirements.""",
         "agent_plan": """1. Find and write down individual factual claims from the conversation. Do not consider personal, belief-based, or unfalsifiable claims. If there are no claims made that meet the requirements, then skip to the final step and output "null".\n2. If one or more claims are found, select the claim that would provide the most value and forget the rest, then write out how to determine if each claim is true or false using your tools.\n3. Generate the "Insight", if the claim is true, then the "Insight" should be `{{quote}} is correct`, else it should be the truth. If there are no claims or no false claims, your output is "null".\n""",
         "proactive_tool_description": """Trigger a fact-check if a statement in the transcript falls under: misinterpreted statistics, historical inaccuracies, misleading health claims, political misrepresentations, scientific misunderstandings, or false economic data. Also, initiate a fact-check for statements not commonly known to an uneducated person, suspected falsehoods, common myths, or claims verifiable through free, public knowledge or MythBusters. Do not consider personal, belief-based, or unfalsifiable claims.""",
@@ -103,6 +105,7 @@ Insight: Brain can recognize images in ~100ms, 10x faster than previously though
     "DevilsAdvocate": {
         "agent_name": "DevilsAdvocate",
         "insight_num_words": 12,
+        "tools": ["Search_Engine"],
         "agent_insight_type": """assess the point of view being taken in the conversation and steel-man a contrary position. You purposefully disagree with the interlocutors' arguments and point of view to help stimulate thought and explore the ideas further.""",
         "agent_plan": """1. Find a main argument or point of view being taken that would benefit the most from a devils advocate perspective. Write down the original position. If no position/argument is found, skip to the final step and output "null".\n2. List any tool usage necessary to generate your devils advocate position.""",
         "proactive_tool_description": """When it would be useful for the user to see a devil's advocate opinion (a steel-man argument supporting a viewpoint different from their own).""",

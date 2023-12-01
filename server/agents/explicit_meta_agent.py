@@ -48,13 +48,12 @@ def make_expert_agents_as_tools(transcript):
         # make the expert agent with it own special prompt
         expert_agent_explicit_prompt = expert_agent_prompt_maker(expert_agent, transcript)
 
-        match expert_agent['agent_name']:
-            case "DevilsAdvocate", "FactChecker":
-                agent_tools = [get_search_tool_for_agents()]
-            case "Statistician":
-                agent_tools = [get_search_tool_for_agents(), get_wolfram_alpha_tool_for_agents()]
-            case _:
-                agent_tools = []
+        agent_tools = []
+
+        if "Search_Engine" in expert_agent['tools']:
+                agent_tools.append(get_search_tool_for_agents())
+        if "Wolfram_Alpha" in expert_agent['tools']:
+                agent_tools.append(get_wolfram_alpha_tool_for_agents())
 
         # make the agent with tools
         new_expert_agent = initialize_agent(agent_tools, llm, agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
