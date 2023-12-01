@@ -30,6 +30,10 @@ import { theme } from "./theme";
 import ExplicitCard from "./components/ExplicitCard";
 import { IconLayoutSidebarRightCollapse, IconLayoutSidebarRightExpand } from "@tabler/icons-react";
 import { mockEntities } from "./mockData";
+import {
+  TransitionGroup,
+} from 'react-transition-group';
+import { Collapse } from "@material-ui/core";
 
 // animate-able components for framer-motion
 // https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
@@ -56,7 +60,6 @@ export default function App() {
   const { classes } = useStyles();
 
   const [entities, setEntities] = useState<Entity[]>(mockEntities);
-  const [mountedIds, setMountedIds] = useState(new Set<string>());
   const [explicitInsights, setExplicitInsights] = useState<Insight[]>([]);
   const [isExplicitListening, setIsExplicitListening] = useState(false);
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
@@ -156,13 +159,6 @@ export default function App() {
       });
   };
 
-  // HACK: delay mount reference cards when entities change
-  useEffect(() => {
-    setTimeout(
-      () => setMountedIds(new Set([...entities.map((entity) => entity.uuid)])),
-      100
-    );}, [entities]);
-
   useEffect(() => {
     initUserId();
     setInterval(() => {
@@ -182,7 +178,7 @@ export default function App() {
           w={showExplorePane ? "50%" : "100%"}
           pt={"2rem"}
           px={"1rem"}
-          transition={{bounce: 0}}
+          transition={{ bounce: 0 }}
         >
           {entities.length === 0 && !isExplicitListening && (
             <Box w="50%" mx="auto" mt="xl">
@@ -191,49 +187,43 @@ export default function App() {
           )}
           {/* Left Panel */}
           <ScrollArea scrollHideDelay={100} h="100%" type="never">
-            {isExplicitListening && (
-              <ExplicitCard
-                explicitInsights={explicitInsights}
-                setExplicitInsights={setExplicitInsights}
-                setEntities={setEntities}
-                setIsExplicitListening={setIsExplicitListening}
-              />
-            )}
-            {entities
-              .slice(0)
-              .reverse()
-              .map((entity, i) => (
-                <Transition
-                  mounted={mountedIds.has(entity.uuid)}
-                  transition="slide-down"
-                  duration={800}
-                  timingFunction="ease"
-                  key={`entity-${entity.uuid}`}
-                >
-                  {(styles) => (
-                    <div style={styles}>
-                      <ReferenceCard
-                        entity={entity}
-                        selected={selectedCardId === entity.uuid}
-                        onClick={() => {
-                          setSelectedCardId(
-                            entity.uuid === selectedCardId
-                              ? undefined
-                              : entity.uuid
-                          );
-                          setViewMoreUrl(entity.url);
-                          setShowExplorePane(
-                            entity.url !== undefined &&
-                              entity.uuid !== selectedCardId
-                          );
-                        }}
-                        large={i === 0 && !isExplicitListening}
-                        pointer={entity.url !== undefined}
-                      />
-                    </div>
-                  )}
-                </Transition>
-              ))}
+            <TransitionGroup>
+              {isExplicitListening && (
+                <Collapse timeout={800}>
+                  <ExplicitCard
+                    explicitInsights={explicitInsights}
+                    setExplicitInsights={setExplicitInsights}
+                    setEntities={setEntities}
+                    setIsExplicitListening={setIsExplicitListening}
+                  />
+                </Collapse>
+              )}
+              {entities
+                .slice(0)
+                .reverse()
+                .map((entity, i) => (
+                  <Collapse key={`entity-${entity.uuid}`} timeout={800}>
+                    <ReferenceCard
+                      entity={entity}
+                      selected={selectedCardId === entity.uuid}
+                      onClick={() => {
+                        setSelectedCardId(
+                          entity.uuid === selectedCardId
+                            ? undefined
+                            : entity.uuid
+                        );
+                        setViewMoreUrl(entity.url);
+                        setShowExplorePane(
+                          entity.url !== undefined &&
+                            entity.uuid !== selectedCardId
+                        );
+                      }}
+                      large={i === 0 && !isExplicitListening}
+                      pointer={entity.url !== undefined}
+                    />
+                  </Collapse>
+                ))}
+            </TransitionGroup>
           </ScrollArea>
         </PContainer>
 
