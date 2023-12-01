@@ -8,7 +8,7 @@ import {
   Group,
   Text,
 } from "@mantine/core";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useRef } from "react";
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -34,7 +34,6 @@ export interface CardWrapperProps {
   imageSrc?: string;
   agentName: string;
   agentIconSrc: string;
-  imageScale?: number;
 }
 
 const CardWrapper = ({
@@ -43,12 +42,13 @@ const CardWrapper = ({
   large = false,
   children,
   pointer = false,
-  imageSrc,
+  imageSrc = "/Convoscope_new.png",
   agentName,
   agentIconSrc,
-  imageScale = 1
 }: PropsWithChildren<CardWrapperProps>) => {
   const { classes } = useStyles();
+
+  const backgroundRef = useRef<HTMLDivElement>(null);
 
   return (
     <Card
@@ -67,40 +67,66 @@ const CardWrapper = ({
           sx={{
             borderRadius: rem(30),
             flex: `1 1 ${large ? 180 : 120}px`,
-            objectFit: "cover",
             overflow: "clip",
             height: "100%",
-            "& > div, & > div > figure, & > div > figure > div": {
-              height: "100%",
-            },
-            background: "white",
+            position: "relative",
           }}
+          ref={backgroundRef}
         >
-          <Image
-            src={imageSrc ?? "/Convoscope_new.png"}
-            fit="cover"
-            height="100%"
-            sx={{ scale: `${imageScale}` }}
-          />
+          <Box
+            sx={{
+              position: "absolute",
+              width: "100%",
+              height: "100%"
+            }}
+          >
+            <img
+              src={imageSrc}
+              style={{
+                objectFit: "cover",
+                height: "100%",
+                width: "100%",
+                filter: "blur(5px) brightness(0.7)"
+              }}
+            />
+          </Box>
+          <Box
+            sx={{
+              position: "absolute",
+              width: "100%",
+              height: "100%"
+            }}
+          >
+            <img
+              src={imageSrc}
+              height="100%"
+              width="100%"
+              style={{
+                display: "block",
+                objectFit: "contain",
+                margin: "auto"
+              }}
+            />
+          </Box>
         </Box>
         <Box p={"lg"} h="100%" w="100%" sx={{ flex: "10 1 0" }}>
           {children}
           <Group p="lg" sx={{ bottom: 0, right: 0, position: "absolute" }}>
-        <Text
-          transform="uppercase"
-          fw="bold"
-          size={rem(22)}
-          sx={{ letterSpacing: rem(1.1) }}
-        >
-          {agentName}
-        </Text>
-        <Image
-          src={agentIconSrc}
-          height={large ? rem(50) : rem(40)}
-          width={large ? rem(50) : rem(40)}
-          radius="md"
-        />
-      </Group>
+            <Text
+              transform="uppercase"
+              fw="bold"
+              size={rem(22)}
+              sx={{ letterSpacing: rem(1.1) }}
+            >
+              {agentName}
+            </Text>
+            <Image
+              src={agentIconSrc}
+              height={large ? rem(50) : rem(40)}
+              width={large ? rem(50) : rem(40)}
+              radius="md"
+            />
+          </Group>
         </Box>
       </Flex>
     </Card>
