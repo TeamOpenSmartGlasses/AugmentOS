@@ -3,25 +3,26 @@ import { AGENT_ICON_NAMES, AGENT_ICON_PATHS, AgentName, Entity, Insight } from "
 import CardWrapper from "./CardWrapper";
 import { uniqueId } from "lodash";
 import { useEffect } from "react";
+import { useSetRecoilState } from "recoil";
+import { isExplicitListeningState } from "../recoil";
 
 interface ExplicitCardProps {
   explicitInsights: Insight[];
   // HACK: setters to add a new ReferenceCard once we get the insight
   setExplicitInsights: React.Dispatch<React.SetStateAction<Insight[]>>;
   setEntities: React.Dispatch<React.SetStateAction<Entity[]>>;
-  setIsExplicitListening: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const ExplicitCard = ({
   explicitInsights,
   setEntities,
-  setIsExplicitListening,
   setExplicitInsights,
 }: ExplicitCardProps) => {
   const theme = useMantineTheme();
   const lastEntity = explicitInsights.at(-1);
   const queryString = `Query: ${lastEntity?.query}`;
   const answerString = `Answer: ${lastEntity?.insight}`;
+  const setIsExplicitListening = useSetRecoilState(isExplicitListeningState);
 
   useEffect(() => {
     if (lastEntity?.insight) {
