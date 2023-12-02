@@ -33,6 +33,7 @@ import {
   TransitionGroup,
 } from 'react-transition-group';
 import { Collapse } from "@material-ui/core";
+import { RecoilRoot } from "recoil";
 
 // animate-able components for framer-motion
 // https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
@@ -173,121 +174,125 @@ export default function App() {
   }, []);
 
   return (
-    <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
-      <PFlex component={motion.div} className={classes.root} layout>
-        <Sidebar settingsOpened={opened} toggleSettings={toggleSettings} />
-        <PContainer
-          component={motion.div}
-          layout
-          fluid
-          className={classes.container}
-          w={showExplorePane ? "50%" : "100%"}
-          pt={"2rem"}
-          px={"1rem"}
-          transition={{ bounce: 0 }}
-        >
-          {entities.length === 0 && !isExplicitListening && (
-            <Box w="50%" mx="auto" mt="xl">
-              <Image src={"/blobs.gif"} fit="cover" />
-            </Box>
-          )}
-          {/* Left Panel */}
-          <ScrollArea scrollHideDelay={100} h="100%" type="never">
-            <TransitionGroup>
-              {isExplicitListening && (
-                <Collapse timeout={800}>
-                  <ExplicitCard
-                    explicitInsights={explicitInsights}
-                    setExplicitInsights={setExplicitInsights}
-                    setEntities={setEntities}
-                    setIsExplicitListening={setIsExplicitListening}
-                  />
-                </Collapse>
-              )}
-              {entities
-                .slice(0)
-                .reverse()
-                .map((entity, i) => (
-                  <Collapse key={`entity-${entity.uuid}`} timeout={800}>
-                    <ReferenceCard
-                      entity={entity}
-                      selected={selectedCardId === entity.uuid && !isExplicitListening}
-                      onClick={() => {
-                        setSelectedCardId(
-                          entity.uuid === selectedCardId
-                            ? undefined
-                            : entity.uuid
-                        );
-                        setViewMoreUrl(entity.url);
-                        setShowExplorePane(
-                          entity.url !== undefined &&
-                            entity.uuid !== selectedCardId
-                        );
-                      }}
-                      large={i === 0 && !isExplicitListening}
-                      pointer={entity.url !== undefined}
+    <RecoilRoot>
+      <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
+        <PFlex component={motion.div} className={classes.root} layout>
+          <Sidebar settingsOpened={opened} toggleSettings={toggleSettings} />
+          <PContainer
+            component={motion.div}
+            layout
+            fluid
+            className={classes.container}
+            w={showExplorePane ? "50%" : "100%"}
+            pt={"2rem"}
+            px={"1rem"}
+            transition={{ bounce: 0 }}
+          >
+            {entities.length === 0 && !isExplicitListening && (
+              <Box w="50%" mx="auto" mt="xl">
+                <Image src={"/blobs.gif"} fit="cover" />
+              </Box>
+            )}
+            {/* Left Panel */}
+            <ScrollArea scrollHideDelay={100} h="100%" type="never">
+              <TransitionGroup>
+                {isExplicitListening && (
+                  <Collapse timeout={800}>
+                    <ExplicitCard
+                      explicitInsights={explicitInsights}
+                      setExplicitInsights={setExplicitInsights}
+                      setEntities={setEntities}
+                      setIsExplicitListening={setIsExplicitListening}
                     />
                   </Collapse>
-                ))}
-            </TransitionGroup>
-          </ScrollArea>
-        </PContainer>
+                )}
+                {entities
+                  .slice(0)
+                  .reverse()
+                  .map((entity, i) => (
+                    <Collapse key={`entity-${entity.uuid}`} timeout={800}>
+                      <ReferenceCard
+                        entity={entity}
+                        selected={
+                          selectedCardId === entity.uuid && !isExplicitListening
+                        }
+                        onClick={() => {
+                          setSelectedCardId(
+                            entity.uuid === selectedCardId
+                              ? undefined
+                              : entity.uuid
+                          );
+                          setViewMoreUrl(entity.url);
+                          setShowExplorePane(
+                            entity.url !== undefined &&
+                              entity.uuid !== selectedCardId
+                          );
+                        }}
+                        large={i === 0 && !isExplicitListening}
+                        pointer={entity.url !== undefined}
+                      />
+                    </Collapse>
+                  ))}
+              </TransitionGroup>
+            </ScrollArea>
+          </PContainer>
 
-        <PContainer
-          component={motion.div}
-          layout
-          sx={{
-            flex: showExplorePane ? "1 1 0" : "0",
-          }}
-          className={classes.container}
-        >
-          <Flex sx={{ height: "100%" }}>
-            {entities.length > 0 && (
-              <Stack align="center" w="3rem">
-                <ActionIcon
-                  onClick={() => {
-                    setShowExplorePane(!showExplorePane);
-                    setSelectedCardId(undefined);
-                  }}
-                  size={rem(25)}
-                  mt="sm"
-                >
-                  {showExplorePane ? (
-                    <IconLayoutSidebarRightCollapse />
-                  ) : (
-                    <IconLayoutSidebarRightExpand />
-                  )}
-                </ActionIcon>
-              </Stack>
-            )}
-            <Transition
-              mounted={showExplorePane}
-              transition="slide-left"
-              duration={400}
-              timingFunction="ease"
-            >
-              {(styles) => (
-                <motion.div
-                  style={{ ...styles, height: "100%", width: "100%" }}
-                >
-                  <ExplorePane
-                    viewMoreUrl={viewMoreUrl}
-                    loading={loadingViewMore}
-                    setLoading={setLoadingViewMore}
-                  />
-                </motion.div>
+          <PContainer
+            component={motion.div}
+            layout
+            sx={{
+              flex: showExplorePane ? "1 1 0" : "0",
+            }}
+            className={classes.container}
+          >
+            <Flex sx={{ height: "100%" }}>
+              {entities.length > 0 && (
+                <Stack align="center" w="3rem">
+                  <ActionIcon
+                    onClick={() => {
+                      setShowExplorePane(!showExplorePane);
+                      setSelectedCardId(undefined);
+                    }}
+                    size={rem(25)}
+                    mt="sm"
+                  >
+                    {showExplorePane ? (
+                      <IconLayoutSidebarRightCollapse />
+                    ) : (
+                      <IconLayoutSidebarRightExpand />
+                    )}
+                  </ActionIcon>
+                </Stack>
               )}
-            </Transition>
-          </Flex>
-        </PContainer>
-      </PFlex>
+              <Transition
+                mounted={showExplorePane}
+                transition="slide-left"
+                duration={400}
+                timingFunction="ease"
+              >
+                {(styles) => (
+                  <motion.div
+                    style={{ ...styles, height: "100%", width: "100%" }}
+                  >
+                    <ExplorePane
+                      viewMoreUrl={viewMoreUrl}
+                      loading={loadingViewMore}
+                      setLoading={setLoadingViewMore}
+                    />
+                  </motion.div>
+                )}
+              </Transition>
+            </Flex>
+          </PContainer>
+        </PFlex>
 
-      <SettingsModal
-        smallerThanMedium={smallerThanMedium}
-        opened={opened}
-        closeSettings={closeSettings}
-        setUserIdAndDeviceId={setUserIdAndDeviceId}
-      />
-    </MantineProvider>
+        <SettingsModal
+          smallerThanMedium={smallerThanMedium}
+          opened={opened}
+          closeSettings={closeSettings}
+          setUserIdAndDeviceId={setUserIdAndDeviceId}
+        />
+      </MantineProvider>
+    </RecoilRoot>
   );
 }

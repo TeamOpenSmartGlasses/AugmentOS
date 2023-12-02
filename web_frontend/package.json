@@ -24,6 +24,7 @@
     "react-dom": "^18.2.0",
     "react-speech-recognition": "^3.10.0",
     "react-transition-group": "^4.4.5",
+    "recoil": "^0.7.7",
     "regenerator-runtime": "^0.14.0"
   },
   "devDependencies": {
