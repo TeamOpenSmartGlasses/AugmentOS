@@ -28,8 +28,7 @@ TOKEN_DIRECTORY = os.path.dirname(os.path.realpath(__file__))
 def get_service():
     creds = None
 
-    token_path = os.path.join(TOKEN_DIRECTORY, "token.json"
-    )  # Join directory with filename
+    token_path = os.path.join(TOKEN_DIRECTORY, "token.json")
     if os.path.exists(token_path):
         creds = Credentials.from_authorized_user_file(token_path, SCOPES)
 
