@@ -166,3 +166,82 @@ def get_search_tool_for_agents():
         args_schema=SearchInput
     )
     return search_tool_for_agents
+
+from google.cloud import enterpriseknowledgegraph as ekg
+from server_config import gcp_project_id
+from collections.abc import Sequence
+
+location = 'global'      # Values: 'global'
+languages = ['en']                    # Optional: List of ISO 639-1 Codes
+types = ['']                          # Optional: List of schema.org types to return
+limit = 1                            # Optional: Number of entities to return
+
+# Google knowledge graph search tool
+def search_google_knowledge_graph(
+    search_query: str,
+    project_id: str = gcp_project_id,
+    location: str = location, 
+    languages: Sequence[str] = languages,
+    types: Sequence[str] = None,
+    limit: int = limit,):
+    
+    # Create a client
+    client = ekg.EnterpriseKnowledgeGraphServiceAsyncClient()
+
+    # The full resource name of the location
+    # e.g. projects/{project_id}/locations/{location}
+    parent = client.common_location_path(project=project_id, location=location)
+
+    # Initialize request argument(s)
+    request = ekg.SearchPublicKgRequest(
+        parent=parent,
+        query=search_query,
+        languages=languages,
+        types=types,
+        limit=limit,
+    )
+
+    # Make the request
+    response = client.search_public_kg(request=request)
+
+    return response
+
+async def asearch_google_knowledge_graph(
+    search_query: str,
+    project_id: str = gcp_project_id,
+    location: str = location, 
+    languages: Sequence[str] = languages,
+    types: Sequence[str] = None,
+    limit: int = limit,):
+    
+    # Create a client
+    client = ekg.EnterpriseKnowledgeGraphServiceAsyncClient()
+
+    # The full resource name of the location
+    # e.g. projects/{project_id}/locations/{location}
+    parent = client.common_location_path(project=project_id, location=location)
+
+    # Initialize request argument(s)
+    request = ekg.SearchPublicKgRequest(
+        parent=parent,
+        query=search_query,
+        languages=languages,
+        types=types,
+        limit=limit,
+    )
+
+    try:
+        # Make the request
+        response = await client.search_public_kg(request=request)
+
+        # print("response: {}".format(response))
+    except:
+        print("error in search_google_knowledge_graph")
+        response = None
+    
+    return response
+
+# testing
+if __name__ == "__main__":
+    print(search_google_knowledge_graph(
+        "Poincaré Conjecture"))
