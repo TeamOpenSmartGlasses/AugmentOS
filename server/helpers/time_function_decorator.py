@@ -9,7 +9,7 @@ import warnings
 import time
 from time import perf_counter, strftime, localtime
 from functools import wraps
-import os.path
+import os
 import sys
 
 current_script_path = os.path.dirname(__file__)
@@ -22,15 +22,21 @@ from server_config import time_everything_spreadsheet_id
 
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
+TOKEN_DIRECTORY = os.path.dirname(os.path.realpath(__file__))
+
 
 def get_service():
     creds = None
-    if os.path.exists("token.json"):
-        creds = Credentials.from_authorized_user_file("token.json", SCOPES)
+
+    token_path = os.path.join(TOKEN_DIRECTORY, "token.json"
+    )  # Join directory with filename
+    if os.path.exists(token_path):
+        creds = Credentials.from_authorized_user_file(token_path, SCOPES)
+
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
-            with open("token.json", "w") as token:
+            with open(token_path, "w") as token:
                 token.write(creds.to_json())
         else:
             warnings.warn(
