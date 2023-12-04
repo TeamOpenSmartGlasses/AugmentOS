@@ -130,8 +130,8 @@ async def parse_snippets_async(results: dict, scrape_pages: bool = False, summar
     return snippets
 
 
-async def parse_results_async(results: dict) -> str:
-    snippets = await parse_snippets_async(results, scrape_pages=False)
+async def parse_results_async(results: dict, scrape_pages: bool = False, summarize_pages: bool = True, num_sentences: int = 3) -> str:
+    snippets = await parse_snippets_async(results, scrape_pages=scrape_pages, summarize_pages=summarize_pages, num_sentences=num_sentences)
     results_string = ""
     for idx, val in enumerate(snippets):
         results_string += f"Res {idx + 1}:\n{val}\n\n"
@@ -147,7 +147,7 @@ async def arun_search_tool_for_agents(query: str):
         tbs=tbs,
         search_type=search_type,
     )
-    return await parse_results_async(results)
+    return await parse_results_async(results, scrape_pages=False)
 
 if __name__ == "__main__":
     import time
@@ -156,3 +156,8 @@ if __name__ == "__main__":
     print(asyncio.run(res))
     end = time.time()
     print("Time taken: ", end - start, "seconds")
+
+    ### FYI: Improvement stats
+    # Previously, the search tool with scrape and summarize took 7.8s to run
+    # Now, with scrape and summarize, it takes 3.95s to run
+    # Now, without scrape and summarize, it takes 0.92s-1.1s to run
