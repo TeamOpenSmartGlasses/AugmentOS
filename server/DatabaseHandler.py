@@ -104,6 +104,7 @@ class DatabaseHandler:
                  "cse_consumed_transcript_idx": 0, 
                  "transcripts": [], 
                  "ui_list": [],
+                 "rating_ids": [],
                  "cse_result_ids": [],
                  "agent_explicit_query_ids": [],
                  "agent_explicit_insights_result_ids": [],
@@ -558,23 +559,26 @@ class DatabaseHandler:
 
     ### INSIGHT RATING ###
     
-    def rate_insight_by_uuid(self, user_id, uuid, rating):
-        user = self.get_user(user_id)
-        
-        rating_obj = {"rating_uuid": uuid, "rating": rating}
-        # Add results to relevant results collection
-        self.ratings_collection.insert_one(rating_object)
+    # Ratings are integers between 1-10, with 0 being lame and 10 being super not lame 
+    def rate_insight_by_uuid(self, user_id, insight_uuid, rating):
+        if not isinstance(rating, (int)): return
+        if rating < 0 or rating > 10: return
 
-        # Add result ids to user
-        result_ids = []
-        for r in results: result_ids.append(r['uuid'])
+        rating_time = math.trunc(time.time())
+        rating_uuid = str(uuid.uuid4())
+        rating_obj = {"uuid": rating_uuid, "timestamp": rating_time, "insight_uuid": insight_uuid, "rating": rating}
+        self.ratings_collection.insert_one(rating_obj)
 
         filter = {"user_id": user_id}
-        update = {"$push": {"cse_result_ids": {'$each': result_ids}}}
+        update = {"$push": {"rating_ids":  rating_uuid}}
         self.user_collection.update_one(filter=filter, update=update)
 
     def get_insight_ratings_for_user(self, user_id):
-        print("bottomtext")
+        return self.get_results_for_user_device("rating_ids", user_id, device_id=None, should_consume=False, include_consumed=True)
+
+    def get_insight_rating_from_insight_uuid(self, insight_uuid):
+        filter = {"insight_uuid": insight_uuid}
+        return self.ratings_collection.find_one(filter=filter)
 
     ### GENERIC ###
 
