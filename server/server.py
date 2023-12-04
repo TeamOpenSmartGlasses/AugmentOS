@@ -61,6 +61,7 @@ async def chat_handler(request):
     if is_final and False:
         print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format("FINAL", text, timestamp, user_id))
     start_save_db_time = time.time()
+    print("TEXT: " + text)
     db_handler.save_transcript_for_user(user_id=user_id, text=text, timestamp=timestamp, is_final=is_final)
     end_save_db_time = time.time()
     # print("=== CHAT_HANDLER's save DB done in {} SECONDS ===".format(
@@ -120,7 +121,6 @@ def cse_loop():
 
         try:
             p_loop_start_time = time.time()
-
             # Check for new transcripts
             new_transcripts = db_handler.get_new_cse_transcripts_for_all_users(
                 combine_transcripts=True, delete_after=False)
@@ -337,6 +337,24 @@ async def send_agent_chat_handler(request):
 
     return web.Response(text=json.dumps({'success': True, 'message': "Got your message: {}".format(chat_message)}), status=200)
 
+async def rate_insight(request):
+    body = await request.json()
+    user_id = body.get('userId')
+    uuid = body.get('uuid')
+    rating = body.get('rating')
+
+     # 400 if missing params
+    if user_id is None or user_id == '':
+        print("user_id none in rate_insight, exiting with error response 400.")
+        return web.Response(text='no user_id in request', status=400)
+    if uuid is None or uuid == '':
+        print("uuid none in rate_insight, exiting with error response 400.")
+        return web.Response(text='no uuid in request', status=400)
+    if rating is None or rating == '':
+        print("rating none in rate_insight, exiting with error response 400.")
+        return web.Response(text='no rating in request', status=400)
+
+    db_handler.rate_insight_by_uuid(user_id=user_id, uuid=uuid, rating=rating)
 
 if __name__ == '__main__':
     print("Starting server...")
