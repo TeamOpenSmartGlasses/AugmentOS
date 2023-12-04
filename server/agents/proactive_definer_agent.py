@@ -30,23 +30,25 @@ Output an array:
 entities: [{{ entity_name: string, definition: string, ekg_search_keyword: string }}], where definition is concise (< 12 words), and ekg_search_keyword as the best search keyword for the Google Knowledge Graph.  
 
 ## Additional Guidelines:
+- Do not define entities you yourself are not familiar with, you can try to piece together the implied entity, but if you are not 90% confident, skip it.
 - Entity names should be quoted from the conversation, so the output definitions can be referenced back to the conversation.
-- For the search keyword, use complete, official and context relevant keyword(s) to search for that entity. You might need to autocomplete entity names or use their official names or add additional context keywords to help with searchability, especially if the entity is ambiguous or has multiple meanings. For rare words, include "definition" in the search keyword.
+- For the search keyword, use complete, official and context relevant keyword(s) to search for that entity. You might need to autocomplete entity names or use their official names or add additional context keywords (like the type of entity) to help with searchability, especially if the entity is ambiguous or has multiple meanings. Additionally, for rare words, add "definition" to the search keyword.
 - Definitions should use simple language to be easily understood.
 - Select entities whose definitions you are very confident about, otherwise skip them.
 - Multiple entities can be detected from one phrase, for example, "The Lugubrious Game" can be defined as a painting, and the rare word "lugubrious" is also worth defining.
 - Limit results to {number_of_definitions} entities, prioritize rarity.
 - Examples:
-    - Completing incomplete name example: If the conversation talks about "Balmer" and "Microsoft", the keyword is "Steve Balmer", but the entity name would be "Balmer" because that is the name quoted from the conversation.
+    - Completing incomplete name example: If the conversation talks about "Balmer" and "Microsoft", the keyword is "Steve Balmer (ceo)", and the entity name would be "Steve Balmer" because it is complete.
     - Replacing unofficial name example: If the conversation talks about "Clay Institute", the keyword is "Clay Mathematics Institute" since that is the official name, but the entity name would be "Clay Institute" because that is the name quoted from the conversation.
     - Adding context example: If the conversation talks about "Theory of everything", the keyword needs context keywords such as "Theory of everything (concept)", because there is a popular movie with the same name. 
+    - Inferring entity example: If the conversation mentions "Coleman Sachs" in the context of finance, you might be able to infer it was supposed to be "Goldman Sachs", so you autocorrect and define it as "Goldman Sachs", an investment bank. We want to hide bad transcriptions.
 
 ## Recent Definitions:
 These have already been defined so don't define them again:
 {definitions_history}
 
 ## Example Output:
-entities: [{{ entity_name: "Moore's Law", definition: "Computing power doubles every ~2 yrs", ekg_search_key: "Moore's Law" }}, {{ entity_name: "80/20 Rule", definition: "Productivity concept; Majority of results come from few causes", ekg_search_key: "Pareto Principle" }}]
+entities: [{{ entity_name: "80/20 Rule", definition: "Productivity concept; Majority of results come from few causes", ekg_search_key: "80/20 Rule (productivity)" }}]
 
 {format_instructions} 
 If no relevant entities are identified, output empty arrays.
@@ -125,7 +127,7 @@ def search_entities(entities: list[Entity]):
     search_tasks = []
     for entity in entities:
         # search_tasks.append(asearch_google_knowledge_graph(entity.ekg_search_keyword))
-        search_tasks.append(search_url_for_entity_async("What is " + entity.ekg_search_keyword))
+        search_tasks.append(search_url_for_entity_async(entity.ekg_search_keyword))
     
     loop = asyncio.get_event_loop()
     responses = asyncio.gather(*search_tasks)

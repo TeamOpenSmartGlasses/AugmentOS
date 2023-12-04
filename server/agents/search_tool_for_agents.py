@@ -353,15 +353,27 @@ async def asearch_google_knowledge_graph(
 
 # definer url search tool
 def extract_entity_url_and_image(results: dict):
+    # Only get the first top url and image_url
     res = {}
     if results.get("knowledgeGraph"):
-        res["url"] = results.get("knowledgeGraph", {}).get("descriptionLink")
-        res["imageUrl"] = results.get("knowledgeGraph", {}).get("imageUrl")
+        result = results.get("knowledgeGraph", {})
+        if result.get("descriptionSource") == "Wikipedia":
+            ref_url = result.get("descriptionLink")
+            res["url"] = ref_url
+        if result.get("imageUrl"):
+            image_url = result.get("imageUrl")
+            res["image_url"] = image_url
+    if "url" in res and "image_url" in res:
+        return res
 
     for result in results[result_key_for_type[search_type]][:k]:
-        if result.get("link"):
+        if "url" not in res and result.get("link"):
             res["url"] = result.get("link")
-    
+        if "image_url" not in res and result.get("imageUrl"):
+            res["image_url"] = result.get("imageUrl")
+
+        if "url" in res and "image_url" in res:
+            return res
     return res
 
 async def search_url_for_entity_async(query: str):
