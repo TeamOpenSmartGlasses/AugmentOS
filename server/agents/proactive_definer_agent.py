@@ -6,7 +6,7 @@ from langchain.schema import OutputParserException
 from pydantic import BaseModel, Field
 from agents.agent_utils import format_list_data
 from server_config import openai_api_key
-from agents.search_tool_for_agents import asearch_google_knowledge_graph
+from agents.search_tool_for_agents import asearch_google_knowledge_graph, search_url_for_entity_async
 from Modules.LangchainSetup import *
 import asyncio
 
@@ -124,60 +124,62 @@ def run_proactive_definer_agent(
 def search_entities(entities: list[Entity]):
     search_tasks = []
     for entity in entities:
-        search_tasks.append(asearch_google_knowledge_graph(entity.ekg_search_keyword))
+        # search_tasks.append(asearch_google_knowledge_graph(entity.ekg_search_keyword))
+        search_tasks.append(search_url_for_entity_async("What is " + entity.ekg_search_keyword))
     
     loop = asyncio.get_event_loop()
     responses = asyncio.gather(*search_tasks)
     responses = loop.run_until_complete(responses)
 
     entity_objs = []
-    for idx, response in enumerate(responses):
+    for entity, response in zip(entities, responses):
         # print("response", str(response))
         res = dict()
-        res["name"] = entities[idx].name
-        res["summary"] = entities[idx].definition
+        res["name"] = entity.name
+        res["summary"] = entity.definition
+        res.update(response)
+        
+        # if response is None:
+        #     continue
 
-        if response is None:
-            continue
+        # for item in response.item_list_element:
+        #     result = item.get("result")
 
-        for item in response.item_list_element:
-            result = item.get("result")
+        #     # get mid and start entry - assuming we always get a mid
+        #     mid = None
+        #     for identifier in result.get("identifier"):
+        #         if identifier.get('name') == 'googleKgMID':
+        #             mid = identifier.get('value')
+        #             break
 
-            # get mid and start entry - assuming we always get a mid
-            mid = None
-            for identifier in result.get("identifier"):
-                if identifier.get('name') == 'googleKgMID':
-                    mid = identifier.get('value')
-                    break
+        #     if mid is None:
+        #         continue
 
-            if mid is None:
-                continue
+        #     res["mid"] = mid
 
-            res["mid"] = mid
+        #     # get google cloud id
+        #     cloud_id = result.get('@id')
 
-            # get google cloud id
-            cloud_id = result.get('@id')
+        #     # get image
+        #     if result.get('image'):
+        #         image_url = result.get('image').get('contentUrl')
+        #         # convert to actual image url if it's a wikipedia image
+        #         # if "wiki" in image_url:
+        #         # image_url = self.wiki_image_parser(image_url)
+        #         res["image_url"] = image_url
 
-            # get image
-            if result.get('image'):
-                image_url = result.get('image').get('contentUrl')
-                # convert to actual image url if it's a wikipedia image
-                # if "wiki" in image_url:
-                # image_url = self.wiki_image_parser(image_url)
-                res["image_url"] = image_url
+        #     # res["name"] = result.get('name')
+        #     res["category"] = result.get('description')
 
-            # res["name"] = result.get('name')
-            res["category"] = result.get('description')
+        #     # set our own types
+        #     if any(x in ['Place', 'City', 'AdministrativeArea'] for x in result.get('@type')):
+        #         res["type"] = "LOCATION"
+        #     else:
+        #         res["type"] = result.get('@type')[0].upper()
 
-            # set our own types
-            if any(x in ['Place', 'City', 'AdministrativeArea'] for x in result.get('@type')):
-                res["type"] = "LOCATION"
-            else:
-                res["type"] = result.get('@type')[0].upper()
-
-            detailed_description = result.get("detailedDescription")
-            if detailed_description:
-                res["url"] = detailed_description.get('url')
+        #     detailed_description = result.get("detailedDescription")
+        #     if detailed_description:
+        #         res["url"] = detailed_description.get('url')
 
         entity_objs.append(res)
     

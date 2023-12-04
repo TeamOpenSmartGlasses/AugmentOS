@@ -351,7 +351,26 @@ async def asearch_google_knowledge_graph(
     
     return response
 
-# testing
-if __name__ == "__main__":
-    print(search_google_knowledge_graph(
-        "Poincaré Conjecture"))
+# definer url search tool
+def extract_entity_url_and_image(results: dict):
+    res = {}
+    if results.get("knowledgeGraph"):
+        res["url"] = results.get("knowledgeGraph", {}).get("descriptionLink")
+        res["imageUrl"] = results.get("knowledgeGraph", {}).get("imageUrl")
+
+    for result in results[result_key_for_type[search_type]][:k]:
+        if result.get("link"):
+            res["url"] = result.get("link")
+    
+    return res
+
+async def search_url_for_entity_async(query: str):
+    results = await serper_search_async(
+        search_term=query,
+        gl=gl,
+        hl=hl,
+        num=k,
+        tbs=tbs,
+        search_type=search_type,
+    )
+    return extract_entity_url_and_image(results)
