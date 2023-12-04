@@ -34,6 +34,9 @@ class DatabaseHandler:
 
             self.init_users_collection()
             self.init_cache_collection()
+            self.init_insights_collections()
+            self.init_ratings_collection()
+            self.ready = True
         except Exception as e:
             print(e)
 
@@ -41,27 +44,32 @@ class DatabaseHandler:
 
     def init_users_collection(self):
         self.user_db = self.client['users']
-        if 'users' in self.user_db.list_collection_names():
-            self.user_collection = self.user_db.get_collection('users')
-
-            if clear_users_on_start and self.parent_handler:
-                self.user_collection.drop()
-                self.init_users_collection()
-        else:
-            self.user_collection = self.user_db.create_collection('users')
-
-        self.ready = True
+        self.user_collection = self.get_collection(self.user_db, 'users', wipe=clear_users_on_start)
 
     def init_cache_collection(self):
         self.cache_db = self.client['cache']
-        if 'cache' in self.cache_db.list_collection_names():
-            self.cache_collection = self.cache_db.get_collection('cache')
+        self.cache_collection = self.get_collection(self.cache_db, 'cache', wipe=clear_cache_on_start)
 
-            if clear_cache_on_start and self.parent_handler:
-                self.cache_collection.drop()
-                self.init_cache_collection()
+    def init_insights_collections(self):
+        self.results_db = self.client['results']
+        self.cse_results_collection = self.get_collection(self.results_db, 'cse_results')
+        self.agent_explicit_queries_collection = self.get_collection(self.results_db, 'agent_explicit_queries')
+        self.agent_explicit_insights_results_collection = self.get_collection(self.results_db, 'agent_explicit_insights_results')
+        self.agent_insights_results_collection = self.get_collection(self.results_db, 'agent_insights_results')
+
+    def init_ratings_collection(self):
+        self.ratings_db = self.client['ratings']
+        self.ratings_collection = self.get_collection(self.ratings_db, 'ratings')
+
+    def get_collection(self, db, collection_name, wipe = False):
+        if collection_name in db.list_collection_names():
+            collection = db.get_collection(collection_name)
+            if wipe and self.parent_handler:
+                collection.drop()
+                return db.create_collection(collection_name)            
+            return collection
         else:
-            self.cache_collection = self.cache_db.create_collection('cache')
+            return db.create_collection(collection_name)
 
     ### MISC ###
 
@@ -95,7 +103,7 @@ class DatabaseHandler:
                  "cse_consumed_transcript_id": -1,
                  "cse_consumed_transcript_idx": 0, 
                  "transcripts": [], 
-                 "cse_results": [], 
+                 "cse_result_ids": [],
                  "ui_list": [],
                  "agent_explicit_queries": [],
                  "agent_explicit_insights_results": [],
@@ -116,10 +124,6 @@ class DatabaseHandler:
         description_hash = sha256(long_description.encode("utf-8")).hexdigest()
         item = {"description": description_hash, "summary": summary}
         self.cache_collection.insert_one(item)
-
-    def check_for_wake_words_in_transcript_text(self, user_id, text):
-        if agents.wake_words.does_text_contain_wake_word(text):
-            self.update_wake_word_time_for_user(user_id, time.time())
 
     ### TRANSCRIPTS ###
 
@@ -175,7 +179,6 @@ class DatabaseHandler:
             latest_final_text = user['final_transcripts'][-1]['text'].strip().split()[-1] if user['final_transcripts'] else ""
             text_to_search = latest_final_text + " " + text
             self.check_for_wake_words_in_transcript_text(user_id, text_to_search)
-
 
     def get_user(self, user_id):
         user = self.user_collection.find_one({"user_id": user_id})
@@ -373,36 +376,6 @@ class DatabaseHandler:
 
     ### TRANSCRIPT FORMATTING ###
 
-    def get_stringified_transcript_window(self, transcript_list):
-        # If we only have an intermediate, use the latest 15 words at most
-        #if len(transcript_list) == 1 and not transcript_list[0]['is_final']:
-        #    text = transcript_list[0]['text']
-        #    text_word_list = text.strip().split()
-        #    text_last_nwords = ' '.join(text_word_list[-(15-len(text_word_list)):])
-        #    return text_last_nwords
-
-        #transcript_to_run_on = ""
-        #for t in transcript_list:
-        #    if False:
-        #        # This is effectively the backslider/window/thing
-        #       # TODO: Only take last 4 words?
-        #        transcript_to_run_on += " " + t['text']
-        #    else:
-        #        transcript_to_run_on += " " + t['text']
-
-        # if len(transcript_list) == 0: return None
-        # back_slider = 4
-        # latest_transcript = transcript_list[-1]['text']
-        # latest_transcript_word_list = latest_transcript.strip().split()
-        # transcript_to_run_on = latest_transcript
-        # if len(latest_transcript_word_list) < back_slider and len(transcript_list) > 1:
-        #     # Defer to penultimate transcript (if there is one)
-        #     penultimate_transcript = transcript_list[-2]['text']
-        #     penultimate_transcript_word_list = penultimate_transcript.strip().split()
-        #     penultimate_transcript_last_nwords = ' '.join(penultimate_transcript_word_list[-(back_slider-len(latest_transcript_word_list)):])
-        #     transcript_to_run_on = penultimate_transcript_last_nwords + ' ' + latest_transcript
-        return 0
-
     def stringify_transcripts(self, transcript_list):
         output = ""
         if len(transcript_list) == 0:
@@ -448,15 +421,20 @@ class DatabaseHandler:
         update = {"$set": {"last_wake_word_time": -1}}
         self.user_collection.update_one(filter=filter, update=update)
 
+    def check_for_wake_words_in_transcript_text(self, user_id, text):
+        if agents.wake_words.does_text_contain_wake_word(text):
+            self.update_wake_word_time_for_user(user_id, time.time())
+
     ### Explicit Queries ###
 
     def add_explicit_query_for_user(self, user_id, query):
         query_time = math.trunc(time.time())
         query_uuid = str(uuid.uuid4())
         query_obj = {'timestamp': query_time, 'uuid': query_uuid, 'query': query}
+        self.agent_explicit_queries_collection.insert_one(query_obj)
 
         filter = {"user_id": user_id}
-        update = {"$push": {"agent_explicit_queries": {'$each': [query_obj]}}}
+        update = {"$push": {"agent_explicit_queries": query_uuid}}
         self.user_collection.update_one(filter=filter, update=update)
 
         return query_uuid
@@ -465,191 +443,70 @@ class DatabaseHandler:
         insight_time = math.trunc(time.time())
         insight_uuid = str(uuid.uuid4())
         insight_obj = {'timestamp': insight_time, 'uuid': insight_uuid, 'query': query, 'insight': insight}
+        self.agent_explicit_insights_results_collection.insert_one(insight_obj)
 
         filter = {"user_id": user_id}
-        update = {"$push": {"agent_explicit_insights_results": {'$each': [insight_obj]}}}
+        update = {"$push": {"agent_explicit_insights_results": insight_uuid}}
         self.user_collection.update_one(filter=filter, update=update)
 
     def get_explicit_query_history_for_user(self, user_id, device_id = None, should_consume=True, include_consumed=False):
-        self.create_user_if_not_exists(user_id)
-        filter = {"user_id": user_id}
-        user = self.user_collection.find_one(filter)
-    
-        results = user['agent_explicit_queries'] if user != None else []
-        already_consumed_ids = [
-            ] if include_consumed else self.get_consumed_explicit_ids_for_user_device(user_id, device_id)
-        new_results = []
-        for res in results:
-            if ('uuid' in res) and (res['uuid'] not in already_consumed_ids):
-                if should_consume:
-                    self.add_consumed_explicit_id_for_user_device(
-                        user_id, device_id, res['uuid'])
-                new_results.append(res)
-        return new_results
+        return self.get_results_for_user_device("agent_explicit_queries", user_id, device_id, should_consume, include_consumed)
 
     def get_explicit_insights_history_for_user(self, user_id, device_id = None, should_consume=True, include_consumed=False):
-        user = self.get_user(user_id)
-             
-        results = user['agent_explicit_insights_results'] if user != None else []
-        already_consumed_ids = [
-            ] if include_consumed else self.get_consumed_explicit_ids_for_user_device(user_id, device_id, user_obj=user)
-        new_results = []
-        for res in results:
-            if ('uuid' in res) and (res['uuid'] not in already_consumed_ids):
-                if should_consume:
-                    self.add_consumed_explicit_id_for_user_device(
-                        user_id, device_id, res['uuid'])
-                new_results.append(res)
-        return new_results
-    
-    def add_consumed_explicit_id_for_user_device(self, user_id, device_id, consumed_uuid):
-        filter = {"user_id": user_id, "ui_list.device_id": device_id}
-        update = {"$addToSet": {
-            "ui_list.$.consumed_explicit_ids": consumed_uuid}}
-        # "$add_to_set": {"ui_list": device_id}}
-        self.user_collection.update_many(filter=filter, update=update)
-
-    def get_consumed_explicit_ids_for_user_device(self, user_id, device_id, user_obj = None):
-        filter = {"user_id": user_id, "ui_list.device_id": device_id}
-        user = user_obj if user_obj else self.user_collection.find_one(filter=filter)
-        if user == None or user['ui_list'] == None or user['ui_list'][0] == None:
-            return []
-        to_return = user['ui_list'][0]['consumed_explicit_ids']
-        return to_return if to_return != None else []
+        return self.get_results_for_user_device("agent_explicit_insights_results", user_id, device_id, should_consume, include_consumed)
 
     ### CSE RESULTS ###
 
     def add_cse_results_for_user(self, user_id, results):
+        if not results: return
+
+        # Add results to relevant results collection
+        self.cse_results_collection.insert_many(results)
+
+        # Add result ids to user
+        result_ids = []
+        for r in results: result_ids.append(r['uuid'])
+
         filter = {"user_id": user_id}
-        update = {"$push": {"cse_results": {'$each': results}}}
+        update = {"$push": {"cse_result_ids": {'$each': result_ids}}}
         self.user_collection.update_one(filter=filter, update=update)
 
-    def delete_cse_results_for_user(self, user_id):
+    def delete_cse_result_ids_for_user(self, user_id):
         filter = {"user_id": user_id}
-        update = {"$set": {"cse_results": []}}
-        self.user_collection.update_one(filter=filter, update=update)
-
-    def add_agent_insight_result_for_user(self, user_id, agent_name, agent_insight, agent_references=None, agent_motive=None):
-        insight_time = math.trunc(time.time())
-        insight_uuid = str(uuid.uuid4())
-        insight_obj = {'timestamp': insight_time, 'uuid': insight_uuid, 'agent_name': agent_name, 'agent_insight': agent_insight, 'agent_references': agent_references, 'agent_motive': agent_motive}
-
-        filter = {"user_id": user_id}
-        update = {"$push": {"agent_insights_results": {'$each': [insight_obj]}}}
+        update = {"$set": {"cse_result_ids": []}}
         self.user_collection.update_one(filter=filter, update=update)
 
     ### CSE RESULTS FOR SPECIFIC DEVICE (USE THIS) ###
 
     def get_cse_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
-        self.add_ui_device_to_user_if_not_exists(user_id, device_id)
+        return self.get_results_for_user_device("cse_result_ids", user_id, device_id, should_consume, include_consumed)
 
-        user = self.user_collection.find_one({"user_id": user_id})
-        results = user['cse_results'] if user != None else []
-        already_consumed_ids = [
-        ] if include_consumed else self.get_consumed_cse_result_ids_for_user_device(user_id, device_id)
+    ### PROACTIVE INSIGHTS ###
 
-        # print("ALREADY CONSUMED IDS:")
-        # print(already_consumed_ids)
-        new_results = []
-        for res in results:
-            if ('uuid' in res) and (res['uuid'] not in already_consumed_ids):
-                if should_consume:
-                    self.add_consumed_cse_result_id_for_user_device(
-                        user_id, device_id, res['uuid'])
-                new_results.append(res)
-        return new_results
-
+    # TODO: consult kenji here // test this more
     def get_agent_insights_history_for_user(self, user_id, top=10):
-        self.create_user_if_not_exists(user_id)
-        # filter = {"user_id": user_id}
-        # user = self.user_collection.find_one(filter)
-        # insights = sorted(user['agent_insights_results'], key=lambda x: x['timestamp'], reverse=True)[:top]
-        # return insights
-
+        uuid_list = self.get_user(user_id)['agent_insights_results']
         pipeline = [
-            { "$match": { "user_id": user_id } },
-            { "$unwind": "$agent_insights_results" },
-            { "$sort": { "agent_insights_results.timestamp": -1 } },
+            {"$match": {"uuid": {"$in": uuid_list}}},
+            # { "$unwind": "$agent_insights_results" },
+            { "$sort": { "timestamp": -1 } },
             { "$limit": top },
             {
                 "$project": {
                     "_id": 0,
-                    "insight": "$agent_insights_results.agent_insight",
-                    "agent_name": "$agent_insights_results.agent_name"
+                    "insight": "$agent_insight",
+                    "agent_name": "$agent_name"
                 }
             }
         ]
-        results = list(self.user_collection.aggregate(pipeline))
+        results = list(self.agent_insights_results_collection.aggregate(pipeline))
 
         print("Insights history RESULTS:", results)
 
         return results
-        
 
     def get_proactive_agents_insights_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
-        self.add_ui_device_to_user_if_not_exists(user_id, device_id)
-
-        user = self.user_collection.find_one({"user_id": user_id})
-        results = user['agent_insights_results'] if user != None else []
-        already_consumed_ids = [
-        ] if include_consumed else self.get_consumed_agent_insights_result_ids_for_user_device(user_id, device_id)
-        new_results = []
-        for res in results:
-            if ('uuid' in res) and (res['uuid'] not in already_consumed_ids):
-                if should_consume:
-                    self.add_consumed_agent_insights_result_id_for_user_device(
-                        user_id, device_id, res['uuid'])
-                new_results.append(res)
-        return new_results
-
-    def add_consumed_cse_result_id_for_user_device(self, user_id, device_id, consumed_result_uuid):
-        filter = {"user_id": user_id, "ui_list.device_id": device_id}
-        update = {"$addToSet": {
-            "ui_list.$.consumed_cse_result_ids": consumed_result_uuid}}
-        # "$add_to_set": {"ui_list": device_id}}
-        self.user_collection.update_many(filter=filter, update=update)
-
-    def add_consumed_agent_insights_result_id_for_user_device(self, user_id, device_id, consumed_result_uuid):
-        filter = {"user_id": user_id, "ui_list.device_id": device_id}
-        update = {"$addToSet": {
-            "ui_list.$.consumed_agent_insights_result_ids": consumed_result_uuid}}
-        # "$add_to_set": {"ui_list": device_id}}
-        self.user_collection.update_many(filter=filter, update=update)
-
-    def get_consumed_cse_result_ids_for_user_device(self, user_id, device_id):
-        filter = {"user_id": user_id, "ui_list.device_id": device_id}
-        user = self.user_collection.find_one(filter=filter)
-        if user == None or user['ui_list'] == None or user['ui_list'][0] == None:
-            return []
-        to_return = user['ui_list'][0]['consumed_cse_result_ids']
-        return to_return if to_return != None else []
-
-    def get_consumed_agent_insights_result_ids_for_user_device(self, user_id, device_id):
-        filter = {"user_id": user_id, "ui_list.device_id": device_id}
-        user = self.user_collection.find_one(filter=filter)
-        if user == None or user['ui_list'] == None or user['ui_list'][0] == None:
-            return []
-        to_return = user['ui_list'][0]['consumed_agent_insights_result_ids']
-        return to_return if to_return != None else []
-
-    def get_cse_result_by_uuid(self, uuid):
-        filter = {"cse_results.uuid": uuid}
-        user = self.user_collection.find_one(filter=filter)
-        user_results = user['cse_results']
-        for res in user_results:
-            if res['uuid'] == uuid:
-                return res
-        return None
-
-    def get_consumed_cse_results_for_user_device(self, user_id, device_id):
-        consumed_ids = self.get_consumed_cse_result_ids_for_user_device(
-            user_id, device_id)
-        consumed_results = []
-        for id in consumed_ids:
-            result = self.get_cse_result_by_uuid(id)
-            if result != None:
-                consumed_results.append(result)
-        return consumed_results
+        return self.get_results_for_user_device("agent_insights_results", user_id, device_id, should_consume, include_consumed)
 
     def get_defined_terms_from_last_nseconds_for_user_device(self, user_id, n=300):
         consumed_results = self.get_cse_results_for_user_device(
@@ -662,6 +519,16 @@ class DatabaseHandler:
                 previously_defined_terms.append(result)
         return previously_defined_terms
 
+    def add_agent_insight_result_for_user(self, user_id, agent_name, agent_insight, agent_references=None, agent_motive=None):
+        insight_time = math.trunc(time.time())
+        insight_uuid = str(uuid.uuid4())
+        insight_obj = {'timestamp': insight_time, 'uuid': insight_uuid, 'agent_name': agent_name, 'agent_insight': agent_insight, 'agent_references': agent_references, 'agent_motive': agent_motive}
+        self.agent_insights_results_collection.insert_one(insight_obj)
+        
+        filter = {"user_id": user_id}
+        update = {"$push": {"agent_insights_results": insight_uuid}}
+        self.user_collection.update_one(filter=filter, update=update)
+    
     ### UI DEVICE ###
 
     def get_all_ui_devices_for_user(self, user_id):
@@ -684,10 +551,81 @@ class DatabaseHandler:
 
         if need_add:
             print("Creating device for user '{}': {}".format(user_id, device_id))
-            ui_object = {"device_id": device_id, "consumed_cse_result_ids": [], "consumed_agent_insights_result_ids": [], "consumed_explicit_ids": []}
+            ui_object = {"device_id": device_id, "consumed_result_ids": [], "consumed_agent_insights_result_ids": []}
             filter = {"user_id": user_id}
             update = {"$addToSet": {"ui_list": ui_object}}
             self.user_collection.update_one(filter=filter, update=update)
+
+    ### INSIGHT RATING ###
+    
+    def rate_insight_by_uuid(self, user_id, uuid, rating):
+        user = self.get_user(user_id)
+        
+        rating_obj = {"rating_uuid": uuid, "rating": rating}
+        # Add results to relevant results collection
+        self.ratings_collection.insert_one(rating_object)
+
+        # Add result ids to user
+        result_ids = []
+        for r in results: result_ids.append(r['uuid'])
+
+        filter = {"user_id": user_id}
+        update = {"$push": {"cse_result_ids": {'$each': result_ids}}}
+        self.user_collection.update_one(filter=filter, update=update)
+
+    def get_insight_ratings_for_user(self, user_id):
+        print("bottomtext")
+
+    ### GENERIC ###
+
+    # Search all results collections for a specific UUID
+    def get_result_from_uuid(self, uuid):
+        filter = {"uuid": uuid}
+        res = self.cse_results_collection.find_one(filter, {'_id': 0})
+        if res: return res
+        res = self.agent_explicit_queries_collection.find_one(filter, {'_id': 0})
+        if res: return res
+        res = self.agent_explicit_insights_results_collection.find_one(filter, {'_id': 0})
+        if res: return res
+        res = self.agent_insights_results_collection.find_one(filter, {'_id': 0})
+        if res: return res
+        return None
+
+    def get_results_for_user_device(self, result_type, user_id, device_id, should_consume=True, include_consumed=False):
+        self.add_ui_device_to_user_if_not_exists(user_id, device_id)
+
+        user = self.user_collection.find_one({"user_id": user_id})
+
+        if result_type not in user: raise Exception("Invalid result type: `{}`".format(str(result_type)))
+
+        result_ids = user[result_type] if user != None else []
+        already_consumed_ids = [
+        ] if include_consumed else self.get_consumed_result_ids_for_user_device(user_id, device_id)
+        new_results = []
+        for uuid in result_ids:
+            if uuid not in already_consumed_ids:
+                if should_consume:
+                    self.add_consumed_result_id_for_user_device(
+                        user_id, device_id, uuid)
+                result = self.get_result_from_uuid(uuid)
+                new_results.append(result)
+        return new_results
+    
+    def get_consumed_result_ids_for_user_device(self, user_id, device_id):
+        filter = {"user_id": user_id, "ui_list.device_id": device_id}
+        user = self.user_collection.find_one(filter=filter)
+        if user == None or user['ui_list'] == None or user['ui_list'][0] == None:
+            return []
+        to_return = user['ui_list'][0]['consumed_result_ids']
+        return to_return if to_return != None else []
+    
+    def add_consumed_result_id_for_user_device(self, user_id, device_id, consumed_result_uuid):
+        filter = {"user_id": user_id, "ui_list.device_id": device_id}
+        update = {"$addToSet": {
+            "ui_list.$.consumed_result_ids": consumed_result_uuid}}
+        # "$add_to_set": {"ui_list": device_id}}
+        self.user_collection.update_many(filter=filter, update=update)
+
 
 ### Function list for developers ###
 #
