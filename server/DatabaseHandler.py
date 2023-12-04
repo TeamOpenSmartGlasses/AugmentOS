@@ -103,11 +103,11 @@ class DatabaseHandler:
                  "cse_consumed_transcript_id": -1,
                  "cse_consumed_transcript_idx": 0, 
                  "transcripts": [], 
-                 "cse_result_ids": [],
                  "ui_list": [],
-                 "agent_explicit_queries": [],
-                 "agent_explicit_insights_results": [],
-                 "agent_insights_results" : []})
+                 "cse_result_ids": [],
+                 "agent_explicit_query_ids": [],
+                 "agent_explicit_insights_result_ids": [],
+                 "agent_insights_result_ids" : []})
 
     ### CACHE ###
 
@@ -434,7 +434,7 @@ class DatabaseHandler:
         self.agent_explicit_queries_collection.insert_one(query_obj)
 
         filter = {"user_id": user_id}
-        update = {"$push": {"agent_explicit_queries": query_uuid}}
+        update = {"$push": {"agent_explicit_query_ids": query_uuid}}
         self.user_collection.update_one(filter=filter, update=update)
 
         return query_uuid
@@ -446,14 +446,14 @@ class DatabaseHandler:
         self.agent_explicit_insights_results_collection.insert_one(insight_obj)
 
         filter = {"user_id": user_id}
-        update = {"$push": {"agent_explicit_insights_results": insight_uuid}}
+        update = {"$push": {"agent_explicit_insights_result_ids": insight_uuid}}
         self.user_collection.update_one(filter=filter, update=update)
 
     def get_explicit_query_history_for_user(self, user_id, device_id = None, should_consume=True, include_consumed=False):
-        return self.get_results_for_user_device("agent_explicit_queries", user_id, device_id, should_consume, include_consumed)
+        return self.get_results_for_user_device("agent_explicit_query_ids", user_id, device_id, should_consume, include_consumed)
 
     def get_explicit_insights_history_for_user(self, user_id, device_id = None, should_consume=True, include_consumed=False):
-        return self.get_results_for_user_device("agent_explicit_insights_results", user_id, device_id, should_consume, include_consumed)
+        return self.get_results_for_user_device("agent_explicit_insights_result_ids", user_id, device_id, should_consume, include_consumed)
 
     ### CSE RESULTS ###
 
@@ -485,10 +485,10 @@ class DatabaseHandler:
 
     # TODO: consult kenji here // test this more
     def get_agent_insights_history_for_user(self, user_id, top=10):
-        uuid_list = self.get_user(user_id)['agent_insights_results']
+        uuid_list = self.get_user(user_id)['agent_insights_result_ids']
         pipeline = [
             {"$match": {"uuid": {"$in": uuid_list}}},
-            # { "$unwind": "$agent_insights_results" },
+            # { "$unwind": "$agent_insights_result_ids" },
             { "$sort": { "timestamp": -1 } },
             { "$limit": top },
             {
@@ -506,7 +506,7 @@ class DatabaseHandler:
         return results
 
     def get_proactive_agents_insights_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
-        return self.get_results_for_user_device("agent_insights_results", user_id, device_id, should_consume, include_consumed)
+        return self.get_results_for_user_device("agent_insights_result_ids", user_id, device_id, should_consume, include_consumed)
 
     def get_defined_terms_from_last_nseconds_for_user_device(self, user_id, n=300):
         consumed_results = self.get_cse_results_for_user_device(
@@ -526,7 +526,7 @@ class DatabaseHandler:
         self.agent_insights_results_collection.insert_one(insight_obj)
         
         filter = {"user_id": user_id}
-        update = {"$push": {"agent_insights_results": insight_uuid}}
+        update = {"$push": {"agent_insights_result_ids": insight_uuid}}
         self.user_collection.update_one(filter=filter, update=update)
     
     ### UI DEVICE ###
