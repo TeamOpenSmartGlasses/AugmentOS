@@ -337,24 +337,25 @@ async def send_agent_chat_handler(request):
 
     return web.Response(text=json.dumps({'success': True, 'message': "Got your message: {}".format(chat_message)}), status=200)
 
-async def rate_insight(request):
+async def rate_result_handler(request):
     body = await request.json()
     user_id = body.get('userId')
-    uuid = body.get('uuid')
+    result_uuid = body.get('resultUuid')
     rating = body.get('rating')
 
      # 400 if missing params
     if user_id is None or user_id == '':
-        print("user_id none in rate_insight, exiting with error response 400.")
+        print("user_id none in rate_result, exiting with error response 400.")
         return web.Response(text='no user_id in request', status=400)
     if uuid is None or uuid == '':
-        print("uuid none in rate_insight, exiting with error response 400.")
+        print("uuid none in rate_result, exiting with error response 400.")
         return web.Response(text='no uuid in request', status=400)
     if rating is None or rating == '':
-        print("rating none in rate_insight, exiting with error response 400.")
+        print("rating none in rate_result, exiting with error response 400.")
         return web.Response(text='no rating in request', status=400)
 
-    db_handler.rate_insight_by_uuid(user_id=user_id, uuid=uuid, rating=rating)
+    res = db_handler.rate_result_by_uuid(user_id=user_id, result_uuid=result_uuid, rating=rating)
+    return web.Response(text=json.dumps({'success': True, 'message': str(res)}), status=200)
 
 if __name__ == '__main__':
     print("Starting server...")
@@ -391,6 +392,7 @@ if __name__ == '__main__':
             web.get('/image', return_image_handler),
             web.post('/run_single_agent', run_single_expert_agent_handler),
             web.post('/send_agent_chat', send_agent_chat_handler),
+            web.post('/rate_result', rate_result_handler)
         ]
     )
     cors = aiohttp_cors.setup(app, defaults={

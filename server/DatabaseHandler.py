@@ -559,14 +559,14 @@ class DatabaseHandler:
 
     ### INSIGHT RATING ###
     
-    # Ratings are integers between 1-10, with 0 being lame and 10 being super not lame 
-    def rate_insight_by_uuid(self, user_id, insight_uuid, rating):
-        if not isinstance(rating, (int)): return
-        if rating < 0 or rating > 10: return
+    # Rating should be an integer between 1-10, with 0 being lame and 10 being super not lame 
+    def rate_result_by_uuid(self, user_id, result_uuid, rating):
+        if not isinstance(rating, (int)): return "Rating must be an integer"
+        if rating < 0 or rating > 10: return "Rating must be an integer 0 - 10"
 
         rating_time = math.trunc(time.time())
         rating_uuid = str(uuid.uuid4())
-        rating_obj = {"uuid": rating_uuid, "timestamp": rating_time, "insight_uuid": insight_uuid, "rating": rating}
+        rating_obj = {"uuid": rating_uuid, "timestamp": rating_time, "result_uuid": result_uuid, "rating": rating}
         self.ratings_collection.insert_one(rating_obj)
 
         filter = {"user_id": user_id}
