@@ -128,11 +128,6 @@ class DatabaseHandler:
         item = {"description": description_hash, "summary": summary}
         self.cache_collection.insert_one(item)
 
-    def check_for_wake_words_in_transcript_text(self, user_id, text):
-        if agents.wake_words.does_text_contain_wake_word(text):
-            return self.update_wake_word_time_for_user(user_id, time.time())
-        return False
-
     ### TRANSCRIPTS ###
 
     def get_latest_transcript_from_user_obj(self, user_obj):
@@ -423,7 +418,8 @@ class DatabaseHandler:
 
     def check_for_wake_words_in_transcript_text(self, user_id, text):
         if agents.wake_words.does_text_contain_wake_word(text):
-            self.update_wake_word_time_for_user(user_id, time.time())
+            return self.update_wake_word_time_for_user(user_id, time.time())
+        return False
 
     ### Explicit Queries ###
 
@@ -546,7 +542,7 @@ class DatabaseHandler:
         ]
         results = list(self.agent_proactive_definer_collection.aggregate(pipeline))
 
-        # print("Definer history RESULTS:", results)
+        print("Definer history RESULTS:", results)
 
         return results
     
