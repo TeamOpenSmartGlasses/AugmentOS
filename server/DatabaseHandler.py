@@ -56,6 +56,7 @@ class DatabaseHandler:
         self.agent_explicit_queries_collection = self.get_collection(self.results_db, 'agent_explicit_queries')
         self.agent_explicit_insights_results_collection = self.get_collection(self.results_db, 'agent_explicit_insights_results')
         self.agent_insights_results_collection = self.get_collection(self.results_db, 'agent_insights_results')
+        self.agent_proactive_definer_collection = self.get_collection(self.results_db, 'agent_proactive_definer_results')
 
     def init_ratings_collection(self):
         self.ratings_db = self.client['ratings']
@@ -108,6 +109,7 @@ class DatabaseHandler:
                  "cse_result_ids": [],
                  "agent_explicit_query_ids": [],
                  "agent_explicit_insights_result_ids": [],
+                 "agent_proactive_definer_result_ids": [],
                  "agent_insights_result_ids" : []})
 
     ### CACHE ###
@@ -125,6 +127,11 @@ class DatabaseHandler:
         description_hash = sha256(long_description.encode("utf-8")).hexdigest()
         item = {"description": description_hash, "summary": summary}
         self.cache_collection.insert_one(item)
+
+    def check_for_wake_words_in_transcript_text(self, user_id, text):
+        if agents.wake_words.does_text_contain_wake_word(text):
+            return self.update_wake_word_time_for_user(user_id, time.time())
+        return False
 
     ### TRANSCRIPTS ###
 
@@ -166,20 +173,11 @@ class DatabaseHandler:
                 update = {
                     "$set": {"cse_consumed_transcript_id": transcript['uuid']}}
                 self.user_collection.update_one(filter=filter, update=update)
-            
-            # Check for wake words
-            self.check_for_wake_words_in_transcript_text(user_id, text)
         else:
             # Save to `latest_intermediate_transcript` field in database - text and timestamp
             filter = {"user_id": user_id}
             update = {"$set": {"latest_intermediate_transcript": transcript}}
             self.user_collection.update_one(filter=filter, update=update)
-
-            # Check for wake words in this intermediate + final word of latest final transcript
-            # TODO: Eval if we should detect wake words in intermediates
-            latest_final_text = user['final_transcripts'][-1]['text'].strip().split()[-1] if user['final_transcripts'] else ""
-            text_to_search = latest_final_text + " " + text
-            self.check_for_wake_words_in_transcript_text(user_id, text_to_search)
 
     def get_user(self, user_id):
         user = self.user_collection.find_one({"user_id": user_id})
@@ -405,7 +403,8 @@ class DatabaseHandler:
 
         update = {"$set": {"last_wake_word_time": current_time}}
         
-        self.user_collection.update_one(query_condition, update)
+        result = self.user_collection.update_one(query_condition, update)
+        return True if result.modified_count else False
 
     def get_users_with_recent_wake_words(self):
         filter = {"last_wake_word_time": {'$ne': -1}}
@@ -477,8 +476,6 @@ class DatabaseHandler:
         update = {"$set": {"cse_result_ids": []}}
         self.user_collection.update_one(filter=filter, update=update)
 
-    ### CSE RESULTS FOR SPECIFIC DEVICE (USE THIS) ###
-
     def get_cse_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
         return self.get_results_for_user_device("cse_result_ids", user_id, device_id, should_consume, include_consumed)
 
@@ -495,8 +492,8 @@ class DatabaseHandler:
             {
                 "$project": {
                     "_id": 0,
-                    "insight": "$agent_insight",
-                    "agent_name": "$agent_name"
+                    "insight": "1",
+                    "agent_name": "1"
                 }
             }
         ]
@@ -530,6 +527,51 @@ class DatabaseHandler:
         update = {"$push": {"agent_insights_result_ids": insight_uuid}}
         self.user_collection.update_one(filter=filter, update=update)
     
+    ### INTELLIGENT ENTITY DEFINITIONS ###
+
+    def get_definer_history_for_user(self, user_id, top=5):
+        uuid_list = self.get_user(user_id)['agent_proactive_definer_result_ids']
+        pipeline = [
+            {"$match": {"uuid": {"$in": uuid_list}}},
+            # { "$match": { "user_id": user_id } },
+            { "$sort": { "timestamp": -1 } },
+            { "$limit": top },
+            {
+                "$project": {
+                    "_id": 0,
+                    "entity": "1",
+                    "definition": "1"
+                }
+            }
+        ]
+        results = list(self.agent_proactive_definer_collection.aggregate(pipeline))
+
+        # print("Definer history RESULTS:", results)
+
+        return results
+    
+    def add_agent_proactive_definition_results_for_user(self, user_id, entities):
+        print("Entities", entities)
+
+        for entity in entities:
+            if entity is None:
+                continue
+            
+            entity['timestamp'] = int(time.time())
+            entity['uuid'] = str(uuid.uuid4())
+
+        self.agent_proactive_definer_collection.insert_many(entities)
+
+        result_ids = []
+        for e in entities: result_ids.append(e['uuid'])
+
+        filter = {"user_id": user_id}
+        update = {"$push": {"agent_proactive_definer_result_ids": {'$each': result_ids}}}
+        self.user_collection.update_one(filter=filter, update=update)
+
+    def get_agent_proactive_definer_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
+         return self.get_results_for_user_device("agent_proactive_definer_result_ids", user_id, device_id, should_consume, include_consumed)
+
     ### UI DEVICE ###
 
     def get_all_ui_devices_for_user(self, user_id):
@@ -552,7 +594,8 @@ class DatabaseHandler:
 
         if need_add:
             print("Creating device for user '{}': {}".format(user_id, device_id))
-            ui_object = {"device_id": device_id, "consumed_result_ids": [], "consumed_agent_insights_result_ids": []}
+            ui_object = {"device_id": device_id, "consumed_result_ids": [
+            ]}
             filter = {"user_id": user_id}
             update = {"$addToSet": {"ui_list": ui_object}}
             self.user_collection.update_one(filter=filter, update=update)
@@ -573,12 +616,12 @@ class DatabaseHandler:
         update = {"$push": {"rating_ids":  rating_uuid}}
         self.user_collection.update_one(filter=filter, update=update)
 
-    def get_insight_ratings_for_user(self, user_id):
+    def get_result_ratings_for_user(self, user_id):
         return self.get_results_for_user_device("rating_ids", user_id, device_id=None, should_consume=False, include_consumed=True)
 
-    def get_insight_rating_from_insight_uuid(self, insight_uuid):
-        filter = {"insight_uuid": insight_uuid}
-        return self.ratings_collection.find_one(filter=filter)
+    def get_result_rating_from_result_uuid(self, insight_uuid):
+        filter = {"result_uuid": insight_uuid}
+        return self.ratings_collection.find_many(filter=filter)
 
     ### GENERIC ###
 

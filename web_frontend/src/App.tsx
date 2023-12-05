@@ -110,7 +110,7 @@ export default function App() {
   //poll the backend for UI updates
   const updateUiBackendPoll = () => {
     const uiPollRequstBody = {
-      features: ["contextual_search_engine", "proactive_agent_insights", "explicit_agent_insights", "agent_chat"], //list of features here
+      features: ["contextual_search_engine", "proactive_agent_insights", "explicit_agent_insights", "intelligent_entity_definitions", "agent_chat"], //list of features here
       userId: window.userId,
       deviceId: window.deviceId,
     };
@@ -126,6 +126,11 @@ export default function App() {
             (res.data.explicit_insight_queries as Insight[]) || [];
           const newExplicitInsights =
             (res.data.explicit_insight_results as Insight[]) || [];
+          const newProactiveDefinitions =
+            (res.data.entity_definitions as Entity[]) || [];
+
+          console.log("THOSE DEFINS THO");
+          console.log(newProactiveDefinitions);
 
           if (res.data.wake_word_time !== -1) {
             setIsExplicitListening(true);
@@ -135,7 +140,8 @@ export default function App() {
             newEntities.length === 0 &&
             newInsights.length === 0 &&
             newExplicitQueries.length === 0 &&
-            newExplicitInsights.length === 0
+            newExplicitInsights.length === 0 &&
+            newProactiveDefinitions.length === 0
           )
             return;
 
@@ -143,6 +149,7 @@ export default function App() {
             ...entities,
             ...newEntities,
             ...newInsights,
+            ...newProactiveDefinitions,
           ]);
 
           setExplicitInsights((explicitInsights) => [
