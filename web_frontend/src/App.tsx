@@ -28,24 +28,27 @@ import { UI_POLL_ENDPOINT } from "./serverEndpoints";
 import { motion } from "framer-motion";
 import { theme } from "./theme";
 import ExplicitCard from "./components/ExplicitCard";
-import { IconLayoutSidebarRightCollapse, IconLayoutSidebarRightExpand } from "@tabler/icons-react";
 import {
-  TransitionGroup,
-} from 'react-transition-group';
+  IconLayoutSidebarRightCollapse,
+  IconLayoutSidebarRightExpand,
+} from "@tabler/icons-react";
+import { TransitionGroup } from "react-transition-group";
 import { Collapse } from "@material-ui/core";
 import { useRecoilState } from "recoil";
 import { isExplicitListeningState } from "./recoil";
+import Transcriber from "./hooks/Transcriber";
 
 // animate-able components for framer-motion
 // https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
-const PFlex = createPolymorphicComponent<'div', FlexProps>(Flex)
-const PContainer = createPolymorphicComponent<'div', ContainerProps>(Container)
+const PFlex = createPolymorphicComponent<"div", FlexProps>(Flex);
+const PContainer = createPolymorphicComponent<"div", ContainerProps>(Container);
 
 const useStyles = createStyles({
   root: {
     height: "100vh",
     width: "100vw",
-    background: "var(--bg-gradient-full---blue, linear-gradient(180deg, #191A27 2.23%, #14141D 25.74%, #14141D 49.42%, #14141D 73.62%, #14141D 96.28%))",
+    background:
+      "var(--bg-gradient-full---blue, linear-gradient(180deg, #191A27 2.23%, #14141D 25.74%, #14141D 49.42%, #14141D 73.62%, #14141D 96.28%))",
     overflow: "clip",
   },
 
@@ -53,7 +56,7 @@ const useStyles = createStyles({
     width: "100%",
     height: "100%",
     padding: 0,
-    flex: "1 1 0"
+    flex: "1 1 0",
   },
 });
 
@@ -62,7 +65,9 @@ export default function App() {
 
   const [entities, setEntities] = useState<Entity[]>([]);
   const [explicitInsights, setExplicitInsights] = useState<Insight[]>([]);
-  const [isExplicitListening, setIsExplicitListening] = useRecoilState(isExplicitListeningState);
+  const [isExplicitListening, setIsExplicitListening] = useRecoilState(
+    isExplicitListeningState
+  );
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
   const [showExplorePane, setShowExplorePane] = useState(false);
   const [selectedCardId, setSelectedCardId] = useState<string | undefined>();
@@ -113,7 +118,13 @@ export default function App() {
   //poll the backend for UI updates
   const updateUiBackendPoll = () => {
     const uiPollRequstBody = {
-      features: ["contextual_search_engine", "proactive_agent_insights", "explicit_agent_insights", "intelligent_entity_definitions", "agent_chat"], //list of features here
+      features: [
+        "contextual_search_engine",
+        "proactive_agent_insights",
+        "explicit_agent_insights",
+        "intelligent_entity_definitions",
+        "agent_chat",
+      ], //list of features here
       userId: window.userId,
       deviceId: window.deviceId,
     };
@@ -158,8 +169,8 @@ export default function App() {
           setExplicitInsights((explicitInsights) => [
             ...explicitInsights,
             ...newExplicitQueries,
-            ...newExplicitInsights
-          ])
+            ...newExplicitInsights,
+          ]);
         }
       })
       .catch(function (error) {
@@ -176,6 +187,7 @@ export default function App() {
 
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
+      <Transcriber />
       <PFlex component={motion.div} className={classes.root} layout>
         <Sidebar settingsOpened={opened} toggleSettings={toggleSettings} />
         <PContainer

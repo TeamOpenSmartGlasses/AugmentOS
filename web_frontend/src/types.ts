@@ -3,7 +3,7 @@ export enum AgentName {
   DEFINER = "Definer",
   FACT_CHECKER = "FactChecker",
   DEVILS_ADVOCATE = "DevilsAdvocate",
-  COMMAND = "Command"
+  COMMAND = "Command",
 }
 
 export const AGENT_ICON_PATHS: Record<AgentName, string> = {
@@ -41,4 +41,9 @@ export type Insight = {
   uuid?: string;
   query?: string;
   insight?: string;
+};
+
+export interface TranscriptionState {
+  isRecognizing: boolean;
+  transcriptStartIdx: number;
 }
