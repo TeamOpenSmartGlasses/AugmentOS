@@ -75,17 +75,23 @@ class DatabaseHandler:
     ### MISC ###
 
     # Returns the index of the nearest beginning of a word before "curr_index"
-    # EX: find_closest_start_word_index('hello world, my name is alex!', 5) => 5
+    # EX: find_closest_start_word_index('Zimbabwe', 4) => 0
+    # EX: find_closest_start_word_index('hello world, my name is alex!', 5) => 6
     # EX: ...
-    # EX: find_closest_start_word_index('hello world, my name is alex!', 11) => 5
-    # EX: find_closest_start_word_index('hello world, my name is alex!', 12) => 12
+    # EX: find_closest_start_word_index('hello world, my name is alex!', 11) => 6
+    # EX: find_closest_start_word_index('hello world, my name is alex!', 12) => 13
     def find_closest_start_word_index(self, text, curr_index):
+        # print("YO! text: `{}`, indx: `{}`".format(text, (str(curr_index))))
+        
+        if curr_index > len(text): return len(text)
+        if " " not in text: return 0
+
         latest_stop_index = 0
         for i, c in enumerate(text):
             if c == " ":
                 if(i > curr_index):
                     return latest_stop_index
-                latest_stop_index = i
+                latest_stop_index = i + 1
         return curr_index
 
     def create_user_if_not_exists(self, user_id):
@@ -206,17 +212,21 @@ class DatabaseHandler:
         return text
 
     def get_new_cse_transcripts_for_user(self, user_id, delete_after=False):
-        self.create_user_if_not_exists(user_id)
         user = self.get_user(user_id)
         unconsumed_transcripts = []
 
         if user['cse_consumed_transcript_id'] != -1:
             # Get the transcript with ID `cse_consumed_transcript_id`, get the last part of it (anything after `cse_consumed_transcript_idx`)
             first_transcript = None
+
+            # OPTIMIZATION TODO:
+            # This will keep growing as the user generates final transcripts. Need to iterate only for recentish transcripts here.
             for index, t in enumerate(user['final_transcripts']):
                 # Get the first unconsumed final
                 if t['uuid'] == user['cse_consumed_transcript_id']:
                     first_transcript = t
+
+                    # BUG : Start index off by one
                     start_index = user['cse_consumed_transcript_idx']
                     
                     # ensure start_index points to the beginning of a word
@@ -249,6 +259,8 @@ class DatabaseHandler:
                     user['latest_intermediate_transcript'])
             index_offset = 0
         else:
+            # OPTIMIZATION TODO: This block gets run for every user for every second. Need to fix this.
+
             #if the latest intermediate is old/stale, then the frontend client stops streaming transcripts before giving us a final, so make it final and drop it
             stale_intermediate_time = 10
             if (user['latest_intermediate_transcript']['timestamp'] != -1) and ((time.time() - user['latest_intermediate_transcript']['timestamp']) > stale_intermediate_time):
@@ -286,6 +298,7 @@ class DatabaseHandler:
         # `cse_consumed_transcript_id` = -1
         # `cse_consumed_transcript_idx` to index of most recent transcript we consumed in 1.
         if len(unconsumed_transcripts) > 0:
+            # print("NEW INDEX: LEN UNCONSUMED: {}, LEN OFFSET: {}".format(str(len(unconsumed_transcripts[-1]['text'])), str(index_offset)))
             new_index = len(unconsumed_transcripts[-1]['text']) + index_offset
         else:
             new_index = 0
@@ -547,7 +560,7 @@ class DatabaseHandler:
         return results
     
     def add_agent_proactive_definition_results_for_user(self, user_id, entities):
-        print("Entities", entities)
+        if not entities: return
 
         for entity in entities:
             if entity is None:
