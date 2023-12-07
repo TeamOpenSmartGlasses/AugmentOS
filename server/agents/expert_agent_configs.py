@@ -47,7 +47,7 @@ expert_agent_config_list = {
     "Statistician": {
         "agent_name": "Statistician",
         "insight_num_words": 10,
-        "agent_insight_type": """generate insights which focus on statistics, and quantitative data. Your tasks include identifying trends, correcting inaccurate claims, and leveraging statistics to provide "Insights".""",
+        "agent_insight_type": """generate insights which focus on statistics, and quantitative data. Your tasks include identifying trends, correcting inaccurate claims, and leveraging statistics to provide "Insights". If you don't have a strong stastistic or data to provide, or you failed to find the data you planned to, then just output `null`, don't try to output watered down or irrelevant stats.""",
         "agent_plan": """1. Come up with a general description of the "Insight" to generate. \n2.Identify the single most important quantitative data, statistics, etc. that is needed to generate the "Insight". Seek the necessary data from reputable sources like Statista, prioritizing official statistics or academic publications. """,
         "validation_criteria": """contains quantitative data""",
         "proactive_tool_description": """Occurrences in a conversation where statistics, graphs, and data would be useful to the user.""",
@@ -87,7 +87,7 @@ Insight: Cancer survival rate: 49% in mid-70s to 68% now
     "DevilsAdvocate": {
         "agent_name": "DevilsAdvocate",
         "insight_num_words": 12,
-        "agent_insight_type": """assess the point of view being taken in the conversation and steel-man a contrary position. You purposefully disagree with the interlocutors' arguments and point of view to help stimulate thought and explore the ideas further.""",
+        "agent_insight_type": """assess the point of view being taken in the conversation and steel-man a contrary position. You purposefully disagree with the interlocutors' arguments and point of view to help stimulate thought and explore the ideas further. Provide your argument in simple and easy to understand language.""",
         "agent_plan": """1. Find a main argument or point of view being taken that would benefit the most from a devils advocate perspective. Write down the original position. If no position/argument is found, skip to the final step and output "null".\n2. Think of insightful perspectives and generate a devil's advocate.""",
         "validation_criteria": """gives an interesting perspective but not too controversial""",
         "proactive_tool_description": """When it would be useful for the user to see a devil's advocate opinion (a steel-man argument supporting a viewpoint different from their own).""",
