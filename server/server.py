@@ -285,7 +285,7 @@ async def expert_agent_runner(expert_agent_name, user_id):
 
     #save this insight to the DB for the user
     if agent_insight != None and agent_insight["agent_insight"] != None:
-        db_handler.add_agent_insight_result_for_user(user_id, agent_insight["agent_name"], agent_insight["agent_insight"], agent_insight["reference_url"], agent_insight["agent_motive"])
+        db_handler.add_agent_insight_result_for_user(user_id, agent_insight["agent_name"], agent_insight["agent_insight"], agent_insight["reference_url"])
 
     #agent run complete
     print("--- Done agent run task of agent {} from user {}".format(expert_agent_name, user_id))
