@@ -28,18 +28,22 @@ import { UI_POLL_ENDPOINT } from "./serverEndpoints";
 import { motion } from "framer-motion";
 import { theme } from "./theme";
 import ExplicitCard from "./components/ExplicitCard";
-import { IconLayoutSidebarRightCollapse, IconLayoutSidebarRightExpand } from "@tabler/icons-react";
+import {
+  IconLayoutSidebarRightCollapse,
+  IconLayoutSidebarRightExpand,
+} from "@tabler/icons-react";
 
 // animate-able components for framer-motion
 // https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
-const PFlex = createPolymorphicComponent<'div', FlexProps>(Flex)
-const PContainer = createPolymorphicComponent<'div', ContainerProps>(Container)
+const PFlex = createPolymorphicComponent<"div", FlexProps>(Flex);
+const PContainer = createPolymorphicComponent<"div", ContainerProps>(Container);
 
 const useStyles = createStyles((theme) => ({
   root: {
     height: "100vh",
     width: "100vw",
-    background: "var(--bg-gradient-full---blue, linear-gradient(180deg, #191A27 2.23%, #14141D 25.74%, #14141D 49.42%, #14141D 73.62%, #14141D 96.28%))",
+    background:
+      "var(--bg-gradient-full---blue, linear-gradient(180deg, #191A27 2.23%, #14141D 25.74%, #14141D 49.42%, #14141D 73.62%, #14141D 96.28%))",
     overflow: "clip",
   },
 
@@ -49,14 +53,22 @@ const useStyles = createStyles((theme) => ({
     width: "100%",
     height: "100%",
     padding: 0,
-    flex: "1 1 0"
+    flex: "1 1 0",
   },
 }));
 
 export default function App() {
   const { classes } = useStyles();
 
-  const [entities, setEntities] = useState<Entity[]>([]);
+  const [entities, setEntities] = useState<Entity[]>([
+    {
+      uuid: "1",
+      agent_name: "Statistician",
+      agent_insight: "GPT-4 is the most powerful AI ever created",
+      agent_references:
+        "https://techcrunch.com/2023/11/06/openai-launches-gpt-4-turbo-and-launches-fine-tuning-program-for-gpt-4/",
+    },
+  ]);
   const [mountedIds, setMountedIds] = useState(new Set<string>());
   const [explicitInsights, setExplicitInsights] = useState<Insight[]>([]);
   const [isExplicitListening, setIsExplicitListening] = useState(false);
@@ -110,7 +122,13 @@ export default function App() {
   //poll the backend for UI updates
   const updateUiBackendPoll = () => {
     const uiPollRequstBody = {
-      features: ["contextual_search_engine", "proactive_agent_insights", "explicit_agent_insights", "intelligent_entity_definitions", "agent_chat"], //list of features here
+      features: [
+        "contextual_search_engine",
+        "proactive_agent_insights",
+        "explicit_agent_insights",
+        "intelligent_entity_definitions",
+        "agent_chat",
+      ], //list of features here
       userId: window.userId,
       deviceId: window.deviceId,
     };
@@ -155,8 +173,8 @@ export default function App() {
           setExplicitInsights((explicitInsights) => [
             ...explicitInsights,
             ...newExplicitQueries,
-            ...newExplicitInsights
-          ])
+            ...newExplicitInsights,
+          ]);
         }
       })
       .catch(function (error) {
@@ -169,7 +187,8 @@ export default function App() {
     setTimeout(
       () => setMountedIds(new Set([...entities.map((entity) => entity.uuid)])),
       100
-    );}, [entities]);
+    );
+  }, [entities]);
 
   useEffect(() => {
     initUserId();
@@ -228,10 +247,12 @@ export default function App() {
                               ? undefined
                               : entity.uuid
                           );
-                          setViewMoreUrl(entity.url);
+                          setViewMoreUrl(entity.url || entity.agent_references);
                           setShowExplorePane(
-                            entity.url !== undefined &&
-                              entity.uuid !== selectedCardId
+                            (entity.url !== undefined &&
+                              entity.uuid !== selectedCardId) ||
+                              (entity.agent_references !== undefined &&
+                                entity.uuid !== selectedCardId)
                           );
                         }}
                         large={i === 0 && !isExplicitListening}
@@ -253,22 +274,24 @@ export default function App() {
           className={classes.container}
         >
           <Flex sx={{ height: "100%" }}>
-            {entities.length > 0 && <Stack align="center" w="3rem">
-              <ActionIcon
-                onClick={() => {
-                  setShowExplorePane(!showExplorePane);
-                  setSelectedCardId(undefined);
-                }}
-                size={rem(25)}
-                mt="sm"
-              >
-                {showExplorePane ? (
-                  <IconLayoutSidebarRightCollapse />
-                ) : (
-                  <IconLayoutSidebarRightExpand />
-                )}
-              </ActionIcon>
-            </Stack>}
+            {entities.length > 0 && (
+              <Stack align="center" w="3rem">
+                <ActionIcon
+                  onClick={() => {
+                    setShowExplorePane(!showExplorePane);
+                    setSelectedCardId(undefined);
+                  }}
+                  size={rem(25)}
+                  mt="sm"
+                >
+                  {showExplorePane ? (
+                    <IconLayoutSidebarRightCollapse />
+                  ) : (
+                    <IconLayoutSidebarRightExpand />
+                  )}
+                </ActionIcon>
+              </Stack>
+            )}
             <Transition
               mounted={showExplorePane}
               transition="slide-left"
@@ -276,7 +299,9 @@ export default function App() {
               timingFunction="ease"
             >
               {(styles) => (
-                <motion.div style={{ ...styles, height: "100%", width: "100%" }}>
+                <motion.div
+                  style={{ ...styles, height: "100%", width: "100%" }}
+                >
                   <ExplorePane
                     viewMoreUrl={viewMoreUrl}
                     loading={loadingViewMore}
