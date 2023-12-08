@@ -36,7 +36,7 @@ import { TransitionGroup } from "react-transition-group";
 import { Collapse } from "@material-ui/core";
 import { useRecoilState } from "recoil";
 import { isExplicitListeningState } from "./recoil";
-import Transcriber from "./hooks/Transcriber";
+import { useTranscription } from "./hooks/useTranscription";
 
 // animate-able components for framer-motion
 // https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
@@ -62,6 +62,8 @@ const useStyles = createStyles({
 
 export default function App() {
   const { classes } = useStyles();
+
+  useTranscription();
 
   const [entities, setEntities] = useState<Entity[]>([]);
   const [explicitInsights, setExplicitInsights] = useState<Insight[]>([]);
@@ -187,7 +189,6 @@ export default function App() {
 
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
-      <Transcriber />
       <PFlex component={motion.div} className={classes.root} layout>
         <Sidebar settingsOpened={opened} toggleSettings={toggleSettings} />
         <PContainer

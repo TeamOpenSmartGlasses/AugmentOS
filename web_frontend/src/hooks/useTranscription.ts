@@ -3,56 +3,67 @@ import SpeechRecognition, {
 } from "react-speech-recognition";
 import axiosClient from "../axiosConfig";
 import { CHAT_ENDPOINT } from "../serverEndpoints";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { isRecognizingState, transcriptStartIdxState } from "../recoil";
+import { debounce } from "lodash";
+import { useCallback, useEffect } from "react";
 
 export const useTranscription = () => {
-  const setIsRecognizing = useSetRecoilState(isRecognizingState);
+  const isRecognizing = useRecoilValue(isRecognizingState);
   const [transcriptStartIdx, setTranscriptStartIdx] = useRecoilState(
     transcriptStartIdxState
   );
 
   const { transcript, resetTranscript } = useSpeechRecognition();
 
-  const stopRecognizing = () => {
-    SpeechRecognition.stopListening();
-    setIsRecognizing(false);
-    resetTranscript();
-    setTranscriptStartIdx(0);
-  };
-
-  const startRecognizing = () => {
-    SpeechRecognition.startListening({ continuous: true });
-    setIsRecognizing(true);
-  };
-
-  const submitTranscript = (isFinal: boolean) => {
-    const text = transcript.substring(transcriptStartIdx);
-
-    const payload = {
-      text: text,
-      userId: window.userId,
-      timestamp: Date.now(),
-      isFinal,
-    };
-
-    if (text === "") {
-      return;
+  useEffect(() => {
+    if (isRecognizing) {
+      SpeechRecognition.startListening({ continuous: true });
+    } else {
+      SpeechRecognition.stopListening();
+      resetTranscript();
+      setTranscriptStartIdx(0);
     }
+  }, [isRecognizing, resetTranscript, setTranscriptStartIdx]);
 
-    if (isFinal && text !== "") {
-      setTranscriptStartIdx(transcript.length + 1);
-    }
+  const submitTranscript = useCallback(
+    (isFinal: boolean) => {
+      const text = transcript.substring(transcriptStartIdx);
 
-    //console.log(text, isFinal);
+      const payload = {
+        text: text,
+        userId: window.userId,
+        timestamp: Date.now(),
+        isFinal,
+      };
 
-    axiosClient
-      .post(CHAT_ENDPOINT, payload)
-      // .then((res) => {})
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+      if (text === "") {
+        return;
+      }
 
-  return { stopRecognizing, startRecognizing, submitTranscript };
+      if (isFinal && text !== "") {
+        setTranscriptStartIdx(transcript.length + 1);
+      }
+
+      //console.log(text, isFinal);
+
+      axiosClient
+        .post(CHAT_ENDPOINT, payload)
+        // .then((res) => {})
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+    [setTranscriptStartIdx, transcript, transcriptStartIdx]
+  );
+
+  const debouncedSubmitFinalTranscript = useCallback(
+    debounce(() => submitTranscript(true), 800),
+    []
+  );
+
+  useEffect(() => {
+    submitTranscript(false);
+    debouncedSubmitFinalTranscript();
+  }, [debouncedSubmitFinalTranscript, submitTranscript, transcript]);
 };
