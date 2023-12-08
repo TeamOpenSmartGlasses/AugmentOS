@@ -13,9 +13,9 @@ import { PropsWithChildren, useRef } from "react";
 
 const useStyles = createStyles((theme) => ({
   card: {
-    marginTop: "1rem",
+    marginTop: `${GAP_VH}vh`,
     ":first-of-type": { marginTop: 0 },
-    marginBottom: "2.5rem",
+    marginBottom: `${GAP_VH}vh`,
     backgroundColor: theme.colors.cardFill,
     ":hover": {
       filter: "brightness(1.2)",
@@ -37,6 +37,10 @@ export interface CardWrapperProps {
   agentIconSrc: string;
 }
 
+export const LARGE_CARD_VH = 36;
+export const SMALL_CARD_VH = 24;
+export const GAP_VH = (100 - LARGE_CARD_VH - 2 * SMALL_CARD_VH) / 4;
+
 const CardWrapper = ({
   selected = false,
   onClick,
@@ -56,7 +60,7 @@ const CardWrapper = ({
     <Card
       radius="md"
       p={0}
-      h={large ? "36vh" : "24vh"}
+      h={large ? `${LARGE_CARD_VH}vh` : `${SMALL_CARD_VH}vh`}
       onClick={onClick}
       className={classes.card}
       sx={{

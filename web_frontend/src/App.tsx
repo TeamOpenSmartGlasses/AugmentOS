@@ -34,6 +34,7 @@ import {
 } from "@tabler/icons-react";
 import { TransitionGroup } from "react-transition-group";
 import { Collapse } from "@material-ui/core";
+import { GAP_VH } from "./components/CardWrapper";
 
 // animate-able components for framer-motion
 // https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
@@ -190,7 +191,7 @@ export default function App() {
           fluid
           className={classes.container}
           w={showExplorePane ? "50%" : "100%"}
-          pt={"2rem"}
+          pt={`${GAP_VH}vh`}
           px={"1rem"}
           transition={{ bounce: 0 }}
         >
