@@ -285,7 +285,7 @@ async def expert_agent_runner(expert_agent_name, user_id):
 
     #save this insight to the DB for the user
     if agent_insight != None and agent_insight["agent_insight"] != None:
-        db_handler.add_agent_insight_result_for_user(user_id, agent_insight["agent_name"], agent_insight["agent_insight"], agent_insight["reference_url"], agent_insight["agent_motive"])
+        db_handler.add_agent_insight_result_for_user(user_id, agent_insight["agent_name"], agent_insight["agent_insight"], agent_insight["reference_url"])
 
     #agent run complete
     print("--- Done agent run task of agent {} from user {}".format(expert_agent_name, user_id))
@@ -348,6 +348,7 @@ if __name__ == '__main__':
     print("Starting server...")
     agent_executor = ThreadPoolExecutor()
     db_handler = DatabaseHandler()
+
     # start proccessing loop subprocess to process data as it comes in
     if USE_GPU_FOR_INFERENCING:
         multiprocessing.set_start_method('spawn')
@@ -367,6 +368,7 @@ if __name__ == '__main__':
     proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
     proactive_agents_background_process.start()
 
+    # start the explicit agent process
     explicit_background_process = multiprocessing.Process(target=explicit_agent_processing_loop)
     explicit_background_process.start()
 

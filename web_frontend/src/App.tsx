@@ -37,6 +37,7 @@ import { Collapse } from "@material-ui/core";
 import { useRecoilState } from "recoil";
 import { isExplicitListeningState } from "./recoil";
 import { useTranscription } from "./hooks/useTranscription";
+import { GAP_VH } from "./components/CardWrapper";
 
 // animate-able components for framer-motion
 // https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
@@ -197,7 +198,7 @@ export default function App() {
           fluid
           className={classes.container}
           w={showExplorePane ? "50%" : "100%"}
-          pt={"2rem"}
+          pt={`${GAP_VH}vh`}
           px={"1rem"}
           transition={{ bounce: 0 }}
         >

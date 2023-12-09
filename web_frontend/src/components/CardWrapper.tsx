@@ -13,9 +13,9 @@ import { PropsWithChildren, useRef } from "react";
 
 const useStyles = createStyles((theme) => ({
   card: {
-    marginTop: "1rem",
+    marginTop: `${GAP_VH}vh`,
     ":first-of-type": { marginTop: 0 },
-    marginBottom: "2.5rem",
+    marginBottom: `${GAP_VH}vh`,
     backgroundColor: theme.colors.cardFill,
     ":hover": {
       filter: "brightness(1.2)",
@@ -23,7 +23,7 @@ const useStyles = createStyles((theme) => ({
     color: theme.colors.titleText,
     border: `1.5px solid ${theme.colors.cardStroke}`,
     borderRadius: rem(30),
-    boxShadow: "15px 15px 40px 0px rgba(0, 0, 0, 0.40)"
+    boxShadow: "15px 15px 40px 0px rgba(0, 0, 0, 0.40)",
   },
 }));
 
@@ -37,13 +37,17 @@ export interface CardWrapperProps {
   agentIconSrc: string;
 }
 
+export const LARGE_CARD_VH = 36;
+export const SMALL_CARD_VH = 24;
+export const GAP_VH = (100 - LARGE_CARD_VH - 2 * SMALL_CARD_VH) / 4;
+
 const CardWrapper = ({
   selected = false,
   onClick,
   large = false,
   children,
   pointer = false,
-  imageSrc = "/Convoscope_new.png",
+  imageSrc,
   agentName,
   agentIconSrc,
 }: PropsWithChildren<CardWrapperProps>) => {
@@ -56,61 +60,63 @@ const CardWrapper = ({
     <Card
       radius="md"
       p={0}
-      h={large ? "36vh" : "24vh"}
+      h={large ? `${LARGE_CARD_VH}vh` : `${SMALL_CARD_VH}vh`}
       onClick={onClick}
       className={classes.card}
       sx={{
-        ...(selected && { borderColor: theme.colors.convoscopeBlue}),
+        ...(selected && { borderColor: theme.colors.convoscopeBlue }),
         ...(pointer && { cursor: "pointer" }),
       }}
     >
-      <Flex align={"center"} h={"100%"} sx={{fontSize: "3vh"}}>
-        <Box
-          sx={{
-            borderRadius: rem(30),
-            flex: `1 1 ${large ? 180 : 120}px`,
-            overflow: "clip",
-            height: "100%",
-            position: "relative",
-          }}
-          ref={backgroundRef}
-        >
+      <Flex align={"center"} h={"100%"} sx={{ fontSize: "3vh" }}>
+        {imageSrc && (
           <Box
             sx={{
-              position: "absolute",
-              width: "100%",
-              height: "100%"
+              borderRadius: rem(30),
+              flex: `1 1 ${large ? 180 : 120}px`,
+              overflow: "clip",
+              height: "100%",
+              position: "relative",
             }}
+            ref={backgroundRef}
           >
-            <img
-              src={imageSrc}
-              style={{
-                objectFit: "cover",
-                height: "100%",
+            <Box
+              sx={{
+                position: "absolute",
                 width: "100%",
-                filter: "blur(5px) brightness(0.7)"
+                height: "100%",
               }}
-            />
-          </Box>
-          <Box
-            sx={{
-              position: "absolute",
-              width: "100%",
-              height: "100%"
-            }}
-          >
-            <img
-              src={imageSrc}
-              height="100%"
-              width="100%"
-              style={{
-                display: "block",
-                objectFit: "contain",
-                margin: "auto"
+            >
+              <img
+                src={imageSrc}
+                style={{
+                  objectFit: "cover",
+                  height: "100%",
+                  width: "100%",
+                  filter: "blur(5px) brightness(0.7)",
+                }}
+              />
+            </Box>
+            <Box
+              sx={{
+                position: "absolute",
+                width: "100%",
+                height: "100%",
               }}
-            />
+            >
+              <img
+                src={imageSrc}
+                height="100%"
+                width="100%"
+                style={{
+                  display: "block",
+                  objectFit: "contain",
+                  margin: "auto",
+                }}
+              />
+            </Box>
           </Box>
-        </Box>
+        )}
         <Box p={"lg"} h="100%" w="100%" sx={{ flex: "10 1 0" }}>
           {children}
           <Group p="lg" sx={{ bottom: 0, right: 0, position: "absolute" }}>

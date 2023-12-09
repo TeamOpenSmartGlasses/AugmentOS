@@ -6,19 +6,27 @@ import requests
 from server_config import serper_api_key
 from Modules.Summarizer import Summarizer
 from langchain.agents.tools import Tool
+import asyncio
+import aiohttp
 
 # ban some sites that we can never scrape
 banned_sites = ["calendar.google.com", "researchgate.net"]
 # custom search tool, we copied the serper integration on langchain but we prefer all the data to be displayed in one json message
-k: int = 5
+k: int = 3
 gl: str = "us"
 hl: str = "en"
 tbs = None
-num_sentences = 10
+num_sentences = 5
 search_type: Literal["news", "search", "places", "images"] = "search"
 summarizer = Summarizer(None)
+result_key_for_type = {
+        "news": "news",
+        "places": "places",
+        "images": "images",
+        "search": "organic",
+    }
 
-
+# Sync version
 def scrape_page(url: str):
     """
     Based on your observations from the Search_Engine, if you want more details from
@@ -72,12 +80,6 @@ def serper_search(
 
 
 def parse_snippets(results: dict) -> List[str]:
-    result_key_for_type = {
-        "news": "news",
-        "places": "places",
-        "images": "images",
-        "search": "organic",
-    }
     snippets = []
     if results.get("answerBox"):
         answer_box = results.get("answerBox", {})
@@ -140,9 +142,117 @@ def run_search_tool_for_agents(query: str):
     )
     return parse_results(results)
 
+# Async version
+async def scrape_page_async(url: str, summarize_page = False, num_sentences = 3):
+    """
+    Based on your observations from the Search_Engine, if you want more details from
+    a snippet for a non-PDF page, pass this the page's URL and the page's title to
+    scrape the full page and retrieve the full contents of the page.
+    """
+
+    print("Parsing: {}".format(url))
+    if any(substring in url for substring in banned_sites):
+        print("Skipping site: {}".format(url))
+        return None
+    else:
+        try:
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+                'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
+                'Accept-Encoding': 'none',
+                'Accept-Language': 'en-US,en;q=0.8',
+                'Connection': 'keep-alive',
+            }
+            async with aiohttp.ClientSession() as session:
+                async with session.get(url, headers=headers, timeout=30) as response:
+                    response.raise_for_status()
+                    content = await response.text()
+
+                    soup = BeautifulSoup(content, 'html.parser')
+                    text = " ".join([t.get_text() for t in soup.find_all(
+                        ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'])])
+                    text = text.replace('|', '')
+
+                    if summarize_page:
+                        return summarizer.summarize_description_with_bert(text, num_sentences=num_sentences)
+                    return text
+        except Exception as e:
+            print(f"Failed to fetch {url}. Error: {e}")
+            return None
+
+
+async def serper_search_async(
+    search_term: str, search_type: str = "search", **kwargs: Any
+) -> dict:
+    headers = {
+        "X-API-KEY": serper_api_key or "",
+        "Content-Type": "application/json",
+    }
+    params = {
+        "q": search_term,
+        **{key: value for key, value in kwargs.items() if value is not None},
+    }
+    async with aiohttp.ClientSession() as session:
+        async with session.post(f"https://google.serper.dev/{search_type}", headers=headers, json=params) as response:
+            response.raise_for_status()
+            search_results = await response.json()
+            return search_results
+
+
+async def parse_snippets_async(results: dict, scrape_pages: bool = False, summarize_pages: bool = True, num_sentences: int = 3) -> List[str]:
+    snippets = []
+    if results.get("answerBox"):
+        answer_box = results.get("answerBox", {})
+        if answer_box.get("answer"):
+            snippets.append(f"The answer is {answer_box.get('answer')}")
+        elif answer_box.get("snippet"):
+            snippets.append(f"The answer might be in the snippet: {answer_box.get('snippet')}")
+        elif answer_box.get("snippetHighlighted"):
+            snippets.append(f"The answer might be in the snippet: {answer_box.get('snippetHighlighted')}")
+
+    if results.get("knowledgeGraph"):
+        kg = results.get("knowledgeGraph", {})
+        title = kg.get("title")
+        entity_type = kg.get("type")
+        if entity_type:
+            snippets.append(f"Knowledge Graph Results: {title}: {entity_type}.")
+        description = kg.get("description")
+        if description:
+            snippets.append(f"Knowledge Graph Results: {title}: {description}.")
+        for attribute, value in kg.get("attributes", {}).items():
+            snippets.append(f"Knowledge Graph Results: {title} {attribute}: {value}.")
+
+    if scrape_pages:
+        tasks = []
+        for result in results[result_key_for_type[search_type]][:k]:
+            task = asyncio.create_task(scrape_page_async(result["link"], summarize_page=summarize_pages, num_sentences=num_sentences))
+            tasks.append(task)
+        summarized_pages = await asyncio.gather(*tasks)
+        for i, page in enumerate(summarized_pages):
+            result = results[result_key_for_type[search_type]][i]
+            if page:
+                snippets.append(f"Title: {result.get('title', '')}\nSource:{result['link']}\nSnippet: {result.get('snippet', '')}\nSummarized Page: {page}")
+            else:
+                snippets.append(f"Title: {result.get('title', '')}\nSource:{result['link']}\nSnippet: {result.get('snippet', '')}\n")
+    else:
+        for result in results[result_key_for_type[search_type]][:k]:
+            snippets.append(f"Title: {result.get('title', '')}\nSource:{result['link']}\nSnippet: {result.get('snippet', '')}\n")
+
+    if len(snippets) == 0:
+        return ["No good Google Search Result was found"]
+    return snippets
+
+
+async def parse_results_async(results: dict, scrape_pages: bool = False, summarize_pages: bool = True, num_sentences: int = 3) -> str:
+    snippets = await parse_snippets_async(results, scrape_pages=scrape_pages, summarize_pages=summarize_pages, num_sentences=num_sentences)
+    results_string = ""
+    for idx, val in enumerate(snippets):
+        results_string += f"Res {idx + 1}:\n{val}\n\n"
+    return results_string
 
 async def arun_search_tool_for_agents(query: str):
-    results = serper_search(
+    results = await serper_search_async(
         search_term=query,
         gl=gl,
         hl=hl,
@@ -150,7 +260,7 @@ async def arun_search_tool_for_agents(query: str):
         tbs=tbs,
         search_type=search_type,
     )
-    return parse_results(results)
+    return await parse_results_async(results, scrape_pages=False)
 
 
 class SearchInput(BaseModel):
@@ -241,7 +351,38 @@ async def asearch_google_knowledge_graph(
     
     return response
 
-# testing
-if __name__ == "__main__":
-    print(search_google_knowledge_graph(
-        "Poincaré Conjecture"))
+# definer url search tool
+def extract_entity_url_and_image(results: dict):
+    # Only get the first top url and image_url
+    res = {}
+    if results.get("knowledgeGraph"):
+        result = results.get("knowledgeGraph", {})
+        if result.get("descriptionSource") == "Wikipedia":
+            ref_url = result.get("descriptionLink")
+            res["url"] = ref_url
+        if result.get("imageUrl"):
+            image_url = result.get("imageUrl")
+            res["image_url"] = image_url
+    if "url" in res and "image_url" in res:
+        return res
+
+    for result in results[result_key_for_type[search_type]][:k]:
+        if "url" not in res and result.get("link"):
+            res["url"] = result.get("link")
+        if "image_url" not in res and result.get("imageUrl"):
+            res["image_url"] = result.get("imageUrl")
+
+        if "url" in res and "image_url" in res:
+            return res
+    return res
+
+async def search_url_for_entity_async(query: str):
+    results = await serper_search_async(
+        search_term=query,
+        gl=gl,
+        hl=hl,
+        num=k,
+        tbs=tbs,
+        search_type=search_type,
+    )
+    return extract_entity_url_and_image(results)

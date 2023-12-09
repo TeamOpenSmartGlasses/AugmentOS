@@ -45,6 +45,8 @@ def proactive_definer_processing_loop():
                         entities = [entity for entity in entities if entity is not None]
 
                         #save entities to the DB for the user
+                        print("Adding entities in proactive definer process:")
+                        print(entities)
                         dbHandler.add_agent_proactive_definition_results_for_user(transcript['user_id'], entities)
 
                 except Exception as e:
