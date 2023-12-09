@@ -32,13 +32,16 @@ import {
   IconLayoutSidebarRightCollapse,
   IconLayoutSidebarRightExpand,
 } from "@tabler/icons-react";
+import { TransitionGroup } from "react-transition-group";
+import { Collapse } from "@material-ui/core";
+import { GAP_VH } from "./components/CardWrapper";
 
 // animate-able components for framer-motion
 // https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
 const PFlex = createPolymorphicComponent<"div", FlexProps>(Flex);
 const PContainer = createPolymorphicComponent<"div", ContainerProps>(Container);
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles({
   root: {
     height: "100vh",
     width: "100vw",
@@ -47,29 +50,18 @@ const useStyles = createStyles((theme) => ({
     overflow: "clip",
   },
 
-  card: { backgroundColor: theme.white, borderRadius: "0.25rem" },
-
   container: {
     width: "100%",
     height: "100%",
     padding: 0,
     flex: "1 1 0",
   },
-}));
+});
 
 export default function App() {
   const { classes } = useStyles();
 
-  const [entities, setEntities] = useState<Entity[]>([
-    {
-      uuid: "1",
-      agent_name: "Statistician",
-      agent_insight: "GPT-4 is the most powerful AI ever created",
-      agent_references:
-        "https://techcrunch.com/2023/11/06/openai-launches-gpt-4-turbo-and-launches-fine-tuning-program-for-gpt-4/",
-    },
-  ]);
-  const [mountedIds, setMountedIds] = useState(new Set<string>());
+  const [entities, setEntities] = useState<Entity[]>([]);
   const [explicitInsights, setExplicitInsights] = useState<Insight[]>([]);
   const [isExplicitListening, setIsExplicitListening] = useState(false);
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
@@ -182,14 +174,6 @@ export default function App() {
       });
   };
 
-  // HACK: delay mount reference cards when entities change
-  useEffect(() => {
-    setTimeout(
-      () => setMountedIds(new Set([...entities.map((entity) => entity.uuid)])),
-      100
-    );
-  }, [entities]);
-
   useEffect(() => {
     initUserId();
     setInterval(() => {
@@ -207,8 +191,9 @@ export default function App() {
           fluid
           className={classes.container}
           w={showExplorePane ? "50%" : "100%"}
-          pt={"2rem"}
+          pt={`${GAP_VH}vh`}
           px={"1rem"}
+          transition={{ bounce: 0 }}
         >
           {entities.length === 0 && !isExplicitListening && (
             <Box w="50%" mx="auto" mt="xl">
@@ -216,52 +201,46 @@ export default function App() {
             </Box>
           )}
           {/* Left Panel */}
-          <ScrollArea scrollHideDelay={100} h="100%">
-            {isExplicitListening && (
-              <ExplicitCard
-                explicitInsights={explicitInsights}
-                setExplicitInsights={setExplicitInsights}
-                setEntities={setEntities}
-                setIsExplicitListening={setIsExplicitListening}
-              />
-            )}
-            {entities
-              .slice(0)
-              .reverse()
-              .map((entity, i) => (
-                <Transition
-                  mounted={mountedIds.has(entity.uuid)}
-                  transition="slide-down"
-                  duration={800}
-                  timingFunction="ease"
-                  key={`entity-${entity.uuid}`}
-                >
-                  {(styles) => (
-                    <motion.div style={styles} layout>
-                      <ReferenceCard
-                        entity={entity}
-                        selected={selectedCardId === entity.uuid}
-                        onClick={() => {
-                          setSelectedCardId(
-                            entity.uuid === selectedCardId
-                              ? undefined
-                              : entity.uuid
-                          );
-                          setViewMoreUrl(entity.url || entity.agent_references);
-                          setShowExplorePane(
-                            (entity.url !== undefined &&
-                              entity.uuid !== selectedCardId) ||
-                              (entity.agent_references !== undefined &&
-                                entity.uuid !== selectedCardId)
-                          );
-                        }}
-                        large={i === 0 && !isExplicitListening}
-                        pointer={entity.url !== undefined}
-                      />
-                    </motion.div>
-                  )}
-                </Transition>
-              ))}
+          <ScrollArea scrollHideDelay={100} h="100%" type="never">
+            <TransitionGroup>
+              {isExplicitListening && (
+                <Collapse timeout={800}>
+                  <ExplicitCard
+                    explicitInsights={explicitInsights}
+                    setExplicitInsights={setExplicitInsights}
+                    setEntities={setEntities}
+                    setIsExplicitListening={setIsExplicitListening}
+                  />
+                </Collapse>
+              )}
+              {entities
+                .slice(0)
+                .reverse()
+                .map((entity, i) => (
+                  <Collapse key={`entity-${entity.uuid}`} timeout={800}>
+                    <ReferenceCard
+                      entity={entity}
+                      selected={
+                        selectedCardId === entity.uuid && !isExplicitListening
+                      }
+                      onClick={() => {
+                        setSelectedCardId(
+                          entity.uuid === selectedCardId
+                            ? undefined
+                            : entity.uuid
+                        );
+                        setViewMoreUrl(entity.url);
+                        setShowExplorePane(
+                          entity.url !== undefined &&
+                            entity.uuid !== selectedCardId
+                        );
+                      }}
+                      large={i === 0 && !isExplicitListening}
+                      pointer={entity.url !== undefined}
+                    />
+                  </Collapse>
+                ))}
+            </TransitionGroup>
           </ScrollArea>
         </PContainer>
 

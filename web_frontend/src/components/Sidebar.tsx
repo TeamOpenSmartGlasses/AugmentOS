@@ -22,6 +22,9 @@ const useStyles = createStyles((theme) => ({
     color: theme.colors.iconColor,
     border: `3px solid ${theme.colors.cardStroke}`,
     backgroundColor: theme.colors.cardFill,
+    ":active": {translate: "0 1px"},
+    ":hover": {borderColor: theme.colors.convoscopeBlue},
+    transition: "0.1s",
   },
 }));
 
@@ -39,6 +42,7 @@ export function NavbarLink({
   onClick,
 }: NavbarLinkProps) {
   const { classes, cx } = useStyles();
+
   return (
     <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
       <UnstyledButton
