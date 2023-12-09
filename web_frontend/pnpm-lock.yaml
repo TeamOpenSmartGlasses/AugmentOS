@@ -41,6 +41,9 @@ dependencies:
   react-speech-recognition:
     specifier: ^3.10.0
     version: 3.10.0(react@18.2.0)
+  react-transition-group:
+    specifier: ^4.4.5
+    version: 4.4.5(react-dom@18.2.0)(react@18.2.0)
   regenerator-runtime:
     specifier: ^0.14.0
     version: 0.14.0
@@ -61,6 +64,9 @@ devDependencies:
   '@types/react-speech-recognition':
     specifier: ^3.9.2
     version: 3.9.2
+  '@types/react-transition-group':
+    specifier: ^4.4.9
+    version: 4.4.9
   '@types/regenerator-runtime':
     specifier: ^0.13.1
     version: 0.13.1
@@ -617,7 +623,7 @@ packages:
       '@material-ui/types': 5.1.0(@types/react@18.2.15)
       '@material-ui/utils': 4.11.3(react-dom@18.2.0)(react@18.2.0)
       '@types/react': 18.2.15
-      '@types/react-transition-group': 4.4.7
+      '@types/react-transition-group': 4.4.9
       clsx: 1.1.1
       hoist-non-react-statics: 3.3.2
       popper.js: 1.16.1-lts
@@ -1000,11 +1006,10 @@ packages:
       '@types/dom-speech-recognition': 0.0.1
     dev: true
 
-  /@types/react-transition-group@4.4.7:
-    resolution: {integrity: sha512-ICCyBl5mvyqYp8Qeq9B5G/fyBSRC0zx3XM3sCC6KkcMsNeAHqXBKkmat4GqdJET5jtYUpZXrxI5flve5qhi2Eg==}
+  /@types/react-transition-group@4.4.9:
+    resolution: {integrity: sha512-ZVNmWumUIh5NhH8aMD9CR2hdW0fNuYInlocZHaZ+dgk/1K49j1w/HoAuK1ki+pgscQrOFRTlXeoURtuzEkV3dg==}
     dependencies:
       '@types/react': 18.2.15
-    dev: false
 
   /@types/react@18.2.15:
     resolution: {integrity: sha512-oEjE7TQt1fFTFSbf8kkNuc798ahTUzn3Le67/PWjE8MAfYAD/qB7O8hSTcromLFqHCt9bcdOg5GXMokzTjJ5SA==}
