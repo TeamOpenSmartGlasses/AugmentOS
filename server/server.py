@@ -367,6 +367,7 @@ if __name__ == '__main__':
     print("Starting server...")
     agent_executor = ThreadPoolExecutor()
     db_handler = DatabaseHandler()
+
     # start proccessing loop subprocess to process data as it comes in
     if USE_GPU_FOR_INFERENCING:
         multiprocessing.set_start_method('spawn')
@@ -386,6 +387,7 @@ if __name__ == '__main__':
     proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
     proactive_agents_background_process.start()
 
+    # start the explicit agent process
     explicit_background_process = multiprocessing.Process(target=explicit_agent_processing_loop)
     explicit_background_process.start()
 
