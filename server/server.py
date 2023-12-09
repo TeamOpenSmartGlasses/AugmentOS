@@ -62,7 +62,6 @@ async def chat_handler(request):
     if is_final and False:
         print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format("FINAL", text, timestamp, user_id))
     start_save_db_time = time.time()
-    print("TEXT: " + text)
     db_handler.save_transcript_for_user(user_id=user_id, text=text, timestamp=timestamp, is_final=is_final)
     end_save_db_time = time.time()
     # print("=== CHAT_HANDLER's save DB done in {} SECONDS ===".format(
