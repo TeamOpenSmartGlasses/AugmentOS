@@ -618,7 +618,8 @@ class DatabaseHandler:
 
         rating_time = math.trunc(time.time())
         rating_uuid = str(uuid.uuid4())
-        rating_obj = {"uuid": rating_uuid, "timestamp": rating_time, "result_uuid": result_uuid, "rating": rating}
+        rating_context = self.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n = 240)
+        rating_obj = {"uuid": rating_uuid, "timestamp": rating_time, "result_uuid": result_uuid, "rating": rating, "context": rating_context}
         self.ratings_collection.insert_one(rating_obj)
 
         filter = {"user_id": user_id}
