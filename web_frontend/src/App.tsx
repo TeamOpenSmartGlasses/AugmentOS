@@ -214,6 +214,9 @@ export default function App() {
                 </Collapse>
               )}
               {entities
+                .filter((e) => {
+                  return !(e == null || e == undefined) 
+                })
                 .slice(0)
                 .reverse()
                 .map((entity, i) => (
