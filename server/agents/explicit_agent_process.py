@@ -4,12 +4,15 @@ import traceback
 from agents.wake_words import *
 from agents.explicit_meta_agent import run_explicit_meta_agent_async
 import asyncio
+from helpers.time_function_decorator import time_function
 
 dbHandler = DatabaseHandler(parent_handler=False)
 
 pause_query_time = 4
 force_query_time = 16
 
+
+@time_function()
 def stringify_history(insight_history):
     history = ""
     for c in insight_history:
@@ -22,6 +25,8 @@ def is_user_id_in_user_list(user_id, user_list):
             return True
     return False
 
+
+@time_function()
 def explicit_agent_processing_loop():
     #lock = threading.Lock()
 
@@ -79,6 +84,8 @@ def explicit_agent_processing_loop():
             traceback.print_exc()
         time.sleep(0.1)
 
+
+@time_function()
 async def call_explicit_agent(user_obj, query):
     user = user_obj
 

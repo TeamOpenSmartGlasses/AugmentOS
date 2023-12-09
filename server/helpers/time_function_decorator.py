@@ -10,22 +10,15 @@ from time import perf_counter, strftime, localtime
 from functools import wraps
 import os.path
 import os
-import sys
 
 import openpyxl
-from openpyxl.utils import get_column_letter
-
-WRITE_TO_LOCAL_SHEET = False
-
-current_script_path = os.path.dirname(__file__)
-base_dir = os.path.join(current_script_path, '..', '..')
-server_dir = os.path.join(base_dir, 'server')
-sys.path.append(server_dir)
 
 from constants import TIME_EVERYTHING
 from server_config import time_everything_spreadsheet_id, use_azure_openai
 
+
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
+WRITE_TO_LOCAL_SHEET = False
 
 TOKEN_DIRECTORY = os.path.dirname(os.path.realpath(__file__))
 
@@ -91,6 +84,9 @@ def update_sheet_with_pandas(service, function_name, time_called, duration):
         function_index = number_of_columns + 2
         worksheet.update_cell(1, function_index, function_name)
 
+        worksheet.update_cell(2, function_index, 'Time Called')
+        worksheet.update_cell(2, function_index + 1, 'Duration')
+
     next_empty_row = find_first_empty_row(worksheet, function_index)
 
     timestamp_cell = gspread.utils.rowcol_to_a1(next_empty_row, function_index)
@@ -120,6 +116,11 @@ def time_function():
                 return function(*args, **kwargs)
 
             start_time = perf_counter()
+            function_name = function.__name__
+            if function_name == "expert_agent_arun_wrapper":
+                function_name += "_" + args[0]["agent_name"]
+                
+
             result = await function(*args, **kwargs)
             end_time = perf_counter()
             duration = end_time - start_time
@@ -127,7 +128,7 @@ def time_function():
 
             time_called = strftime("%Y-%m-%d %H:%M:%S", localtime())
 
-            update_sheet_with_pandas(service, function.__name__, time_called,
+            update_sheet_with_pandas(service, function_name, time_called,
                 f"{duration:.6f} seconds"
             )
 
@@ -166,10 +167,15 @@ def time_function():
 
 
 if __name__ == "__main__":
-
     @time_function()
-    def some_function():
+    def test_sync_function():
         time.sleep(0.1)
 
 
-    some_function()
+    @time_function()
+    async def test_async_function():
+        await asyncio.sleep(0.1)
+
+
+    test_sync_function()
+    asyncio.run(test_async_function())

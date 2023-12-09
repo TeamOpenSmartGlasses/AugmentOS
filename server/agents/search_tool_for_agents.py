@@ -6,6 +6,8 @@ import requests
 from server_config import serper_api_key
 from Modules.Summarizer import Summarizer
 from langchain.agents.tools import Tool
+from helpers.time_function_decorator import time_function
+
 
 # ban some sites that we can never scrape
 banned_sites = ["calendar.google.com", "researchgate.net"]
@@ -19,6 +21,7 @@ search_type: Literal["news", "search", "places", "images"] = "search"
 summarizer = Summarizer(None)
 
 
+@time_function()
 def scrape_page(url: str):
     """
     Based on your observations from the Search_Engine, if you want more details from
@@ -52,6 +55,7 @@ def scrape_page(url: str):
             return None
 
 
+@time_function()
 def serper_search(
     search_term: str, search_type: str = "search", **kwargs: Any
 ) -> dict:
@@ -71,6 +75,7 @@ def serper_search(
     return search_results
 
 
+@time_function()
 def parse_snippets(results: dict) -> List[str]:
     result_key_for_type = {
         "news": "news",
@@ -121,6 +126,7 @@ def parse_snippets(results: dict) -> List[str]:
     return snippets
 
 
+@time_function()
 def parse_results(results: dict) -> str:
     snippets = parse_snippets(results)
     results_string = ""
@@ -129,6 +135,7 @@ def parse_results(results: dict) -> str:
     return results_string
 
 
+@time_function()
 def run_search_tool_for_agents(query: str):
     results = serper_search(
         search_term=query,
@@ -141,6 +148,7 @@ def run_search_tool_for_agents(query: str):
     return parse_results(results)
 
 
+@time_function()
 async def arun_search_tool_for_agents(query: str):
     results = serper_search(
         search_term=query,

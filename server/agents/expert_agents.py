@@ -12,6 +12,8 @@ from server_config import openai_api_key
 from agents.expert_agent_configs import expert_agent_config_list, expert_agent_prompt_maker
 from agents.search_tool_for_agents import get_search_tool_for_agents
 from agents.math_tool_for_agents import get_wolfram_alpha_tool_for_agents
+from helpers.time_function_decorator import time_function
+
 
 #agent insight structure
 class AgentInsight(BaseModel):
@@ -35,6 +37,8 @@ agent = initialize_agent([
         get_wolfram_alpha_tool_for_agents(),
     ], llm, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=True)
 
+
+@time_function()
 def post_process_agent_output(expert_agent_response, agent_name):
     #agent output should be like
     #{"agent_insight": "null" | "insight", "reference_url": "https://..." | "", "agent_motive": "because ..." | ""}
@@ -76,6 +80,7 @@ def post_process_agent_output(expert_agent_response, agent_name):
         return None
 
 
+@time_function()
 def run_single_expert_agent(expert_agent_name, convo_context, insights_history: list):
     #initialize the requested expert agent - using the name given
     expert_agent_config = expert_agent_config_list[expert_agent_name]
@@ -90,6 +95,7 @@ def run_single_expert_agent(expert_agent_name, convo_context, insights_history: 
     return expert_agent_response
 
 
+@time_function()
 async def arun_single_expert_agent(expert_agent_name, convo_context, insights_history: list):
     #initialize the requested expert agent - using the name given
     expert_agent_config = expert_agent_config_list[expert_agent_name]
@@ -104,6 +110,7 @@ async def arun_single_expert_agent(expert_agent_name, convo_context, insights_hi
     return expert_agent_response
 
 
+@time_function()
 async def expert_agent_arun_wrapper(expert_agent_config, convo_context, insights_history: list):
     #get agent response
     expert_agent_response = await agent.arun(expert_agent_prompt_maker(expert_agent_config, convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history))
@@ -116,8 +123,9 @@ async def expert_agent_arun_wrapper(expert_agent_config, convo_context, insights
     print("expert_agent_response", expert_agent_response)
     
     return expert_agent_response
-    
 
+
+@time_function()
 def expert_agent_run_wrapper(expert_agent_config, convo_context, insights_history: list):
     #run the agent
     expert_agent_response = agent.run(expert_agent_prompt_maker(expert_agent_config, convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history))

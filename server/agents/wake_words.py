@@ -41,12 +41,14 @@ explicit_wake_words = [
     "he mara",
 ]
 
+
 def does_text_contain_wake_word(transcript):
     transcript_low = transcript.lower()
     for term in explicit_wake_words:
         if term in transcript_low:
             return True
     return False
+
 
 def get_explicit_query_from_transcript(transcript):
     transcript_low = transcript.lower()
