@@ -121,7 +121,6 @@ def cse_loop():
 
         try:
             p_loop_start_time = time.time()
-
             # Check for new transcripts
             new_transcripts = db_handler.get_new_cse_transcripts_for_all_users(
                 combine_transcripts=True, delete_after=False)
@@ -285,7 +284,7 @@ async def expert_agent_runner(expert_agent_name, user_id):
 
     #save this insight to the DB for the user
     if agent_insight != None and agent_insight["agent_insight"] != None:
-        db_handler.add_agent_insight_result_for_user(user_id, agent_insight["agent_name"], agent_insight["agent_insight"], agent_insight["reference_url"], agent_insight["agent_motive"])
+        db_handler.add_agent_insight_result_for_user(user_id, agent_insight["agent_name"], agent_insight["agent_insight"], agent_insight["reference_url"])
 
     #agent run complete
     print("--- Done agent run task of agent {} from user {}".format(expert_agent_name, user_id))
@@ -343,11 +342,31 @@ async def send_agent_chat_handler(request):
 
     return web.Response(text=json.dumps({'success': True, 'message': "Got your message: {}".format(chat_message)}), status=200)
 
+async def rate_result_handler(request):
+    body = await request.json()
+    user_id = body.get('userId')
+    result_uuid = body.get('resultUuid')
+    rating = body.get('rating')
+
+     # 400 if missing params
+    if user_id is None or user_id == '':
+        print("user_id none in rate_result, exiting with error response 400.")
+        return web.Response(text='no user_id in request', status=400)
+    if uuid is None or uuid == '':
+        print("uuid none in rate_result, exiting with error response 400.")
+        return web.Response(text='no uuid in request', status=400)
+    if rating is None or rating == '':
+        print("rating none in rate_result, exiting with error response 400.")
+        return web.Response(text='no rating in request', status=400)
+
+    res = db_handler.rate_result_by_uuid(user_id=user_id, result_uuid=result_uuid, rating=rating)
+    return web.Response(text=json.dumps({'success': True, 'message': str(res)}), status=200)
 
 if __name__ == '__main__':
     print("Starting server...")
     agent_executor = ThreadPoolExecutor()
     db_handler = DatabaseHandler()
+
     # start proccessing loop subprocess to process data as it comes in
     if USE_GPU_FOR_INFERENCING:
         multiprocessing.set_start_method('spawn')
@@ -367,6 +386,7 @@ if __name__ == '__main__':
     proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
     proactive_agents_background_process.start()
 
+    # start the explicit agent process
     explicit_background_process = multiprocessing.Process(target=explicit_agent_processing_loop)
     explicit_background_process.start()
 
@@ -384,6 +404,7 @@ if __name__ == '__main__':
             web.get('/image', return_image_handler),
             web.post('/run_single_agent', run_single_expert_agent_handler),
             web.post('/send_agent_chat', send_agent_chat_handler),
+            web.post('/rate_result', rate_result_handler)
         ]
     )
     cors = aiohttp_cors.setup(app, defaults={

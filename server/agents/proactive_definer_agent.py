@@ -6,55 +6,66 @@ from langchain.schema import OutputParserException
 from pydantic import BaseModel, Field
 from agents.agent_utils import format_list_data
 from server_config import openai_api_key
-from agents.search_tool_for_agents import asearch_google_knowledge_graph
+from agents.search_tool_for_agents import asearch_google_knowledge_graph, search_url_for_entity_async
 from Modules.LangchainSetup import *
 import asyncio
 
 proactive_rare_word_agent_prompt_blueprint = """
-# Objective: 
-Identify "Rare Entities" in a conversation transcript. These include specialized terms, jargon, rare words, and specific entities (people, places, organizations, events) that are significant within their domains but not broadly known.
+# Objective
+Identify "Rare Entities" in a conversation transcript. These include rare words, phrases, jargons, adages, people, places, organizations, events etc that are not well known to the average high schooler, in accordance to current trends. You can also intelligently detect entities that are described in the conversation but not explicitly mentioned.
 
-# Criteria for Rare Entities in order of importance:
-- Rarity: Select entities and words that are niche and not well-known to the average high schooler. Do not define well known entities like the Fortune 500 organizations, worldwide-known events, or popular locations. Do not select entities have been popularized by recent news or events such as "COVID-19" or "Bitcoin".
-- Utility: Must provide value to a user's goals and interests within the conversation. You need to evaluate the transcript to detect if there is a non expert user who would benefit from learning about the entity or might not know the word.
-- No Redundancy: Exclude definitions if already defined in the conversation.
-- Complexity: Choose terms with non-obvious meanings.
-- Definability: Must be clearly and succinctly definable in under 10 words.
-- Searchability: Should have a Wikipedia page.
+# Criteria for Rare Entities in order of importance
+1. Rarity: Select entities that are unlikely for an average high schooler to know. Well known entities are like Fortune 500 organizations, worldwide-known events, popular locations, and entities popularized by recent news or events such as "COVID-19", "Bitcoin", or "Generative AI".
+2. Utility: Definition should help a user understand the conversation better and achieve their goals.
+3. No Redundancy: Exclude definitions if already defined in the conversation.
+4. Complexity: Choose terms with non-obvious meanings, such as "Butterfly Effect" but not "Electric Car".
+5. Definability: Must be clearly and succinctly definable in under 10 words.
 
 # Conversation Transcript:
 <Transcript start>{conversation_context}<Transcript end>
 
-# Recent Definitions:
+# Output Guidelines:
+Output an array (ONLY OUTPUT THIS) of the entities you identified using the following template: `[{{ entity_name: string, definition: string, ekg_search_keyword: string }}]`
+
+- definition is concise (< 12 words)
+- ekg_search_keyword as the best search keywords for the Google Knowledge Graph
+- it's OK to output an empty array - most of the time, the array will be empty, only include items if the fit all the requirements
+
+## Additional Guidelines:
+- Do not define entities you yourself are not familiar with, you can try to piece together the implied entity, but if you are not 90% confident, skip it.
+- For the search keyword, use complete, official and context relevant keyword(s) to search for that entity. You might need to autocomplete entity names or use their official names or add additional context keywords (like the type of entity) to help with searchability, especially if the entity is ambiguous or has multiple meanings. Additionally, for rare words, add "definition" to the search keyword.
+- Definitions should use simple language to be easily understood.
+- Select entities whose definitions you are very confident about, otherwise skip them.
+- Multiple entities can be detected from one phrase, for example, "The Lugubrious Game" can be defined as a painting (iff the entire term "the lugubrious game" is mentioned), and the rare word "lugubrious" is also worth defining.
+- Limit results to {number_of_definitions} entities, prioritize rarity.
+- Examples:
+    - Completing incomplete name example: If the conversation talks about "Balmer" and "Microsoft", the keyword is "Steve Balmer + CEO", and the entity name would be "Steve Balmer" because it is complete.
+    - Replacing unofficial name example: If the conversation talks about "Clay Institute", the keyword is "Clay Mathematics Institute" since that is the official name, but the entity name would be "Clay Institute" because that is the name quoted from the conversation.
+    - Adding context example: If the conversation talks about "Theory of everything", the keyword needs context keywords such as "Theory of everything + concept", because there is a popular movie with the same name. 
+    - Inferring transcript errors example: If the conversation mentions "Coleman Sachs" in the context of finance, you can infer it was supposed to be "Goldman Sachs", so you autocorrect and define it as "Goldman Sachs".
+
+## Recent Definitions:
 These have already been defined so don't define them again:
 {definitions_history}
 
-# Task:
-Output an array:
-entities: [{{ entity: string, definition: string }}], with entity as a well-understood term and definition is concise (< 12 words) 
-
-# Additional Guidelines:
-- For entity names, intelligently detect and use the most complete and official name based on context. For example, autocompleting short names such as "Geoffrey Hinton" instead of "Hinton" and returning official names such as "The Clay Mathematics Institute" when the conversation mentions "Clay Foundation" or "CMI" in the context of mathematics. 
-- Provide Context: Add context keywords to help with searchability.
-- Use simple language: Make definitions easy to understand.
-- For entities, make sure that you are confident in their definitions and know they are not made up, don't approximate.
-- For unknown entities, don't include long phrases or sentences.
-- For rare words, define them using commons words.
-- Limit results to 5 entities, prioritize rarity.
-
-# Example Output:
-entities: [{{ entity: "Moore's Law", definition: "Computing power doubles every ~2 yrs" }}, {{ entity: "Butterfly Effect", definition: "Small changes can have large effects" }}]
+## Example Output:
+entities: [{{ entity_name: "80/20 Rule", definition: "Productivity concept; Majority of results come from few causes", ekg_search_key: "80/20 Rule + productivity" }}]
 
 {format_instructions} 
 If no relevant entities are identified, output empty arrays.
 """
+#6. Searchability: Likely to have a specific and valid reference source: Wikipedia page, dictionary entry etc.
+#- Entity names should be quoted from the conversation, so the output definitions can be referenced back to the conversation.
 
 class Entity(BaseModel):
-    entity: str = Field(
+    name: str = Field(
         description="entity name",
     )
     definition: str = Field(
         description="entity definition",
+    )
+    ekg_search_keyword: str = Field(
+        description="keyword to search for entity on Google Enterprise Knowledge Graph",
     )
 
 class ConversationEntities(BaseModel):
@@ -62,10 +73,6 @@ class ConversationEntities(BaseModel):
         description="list of entities and their definitions",
         default=[]
     )
-    # unknown_entities: list[str] = Field(
-    #     description="list of search terms for unknown entities",
-    #     default=[]
-    # )
 
 proactive_rare_word_agent_query_parser = PydanticOutputParser(
     pydantic_object=ConversationEntities
@@ -84,7 +91,8 @@ def run_proactive_definer_agent(
             "definitions_history",
         ],
         partial_variables={
-            "format_instructions": proactive_rare_word_agent_query_parser.get_format_instructions()
+            "format_instructions": proactive_rare_word_agent_query_parser.get_format_instructions(),
+            "number_of_definitions": "3", # this is a tradeoff between speed and results, 3 is faster than 5
         },
     )
 
@@ -106,7 +114,7 @@ def run_proactive_definer_agent(
         [HumanMessage(content=proactive_rare_word_agent_query_prompt_string)]
     )
 
-    # print("Proactive meta agent response", response)
+    print("Proactive meta agent response", response)
 
     try:
         res = proactive_rare_word_agent_query_parser.parse(
@@ -121,59 +129,62 @@ def run_proactive_definer_agent(
 def search_entities(entities: list[Entity]):
     search_tasks = []
     for entity in entities:
-        search_tasks.append(asearch_google_knowledge_graph(entity.entity))
+        # search_tasks.append(asearch_google_knowledge_graph(entity.ekg_search_keyword))
+        search_tasks.append(search_url_for_entity_async(entity.ekg_search_keyword))
     
     loop = asyncio.get_event_loop()
     responses = asyncio.gather(*search_tasks)
     responses = loop.run_until_complete(responses)
 
     entity_objs = []
-    for idx, response in enumerate(responses):
+    for entity, response in zip(entities, responses):
         # print("response", str(response))
         res = dict()
-        res["summary"] = entities[idx].definition
+        res["name"] = entity.name
+        res["summary"] = entity.definition
+        res.update(response)
+        
+        # if response is None:
+        #     continue
 
-        if response is None:
-            continue
+        # for item in response.item_list_element:
+        #     result = item.get("result")
 
-        for item in response.item_list_element:
-            result = item.get("result")
+        #     # get mid and start entry - assuming we always get a mid
+        #     mid = None
+        #     for identifier in result.get("identifier"):
+        #         if identifier.get('name') == 'googleKgMID':
+        #             mid = identifier.get('value')
+        #             break
 
-            # get mid and start entry - assuming we always get a mid
-            mid = None
-            for identifier in result.get("identifier"):
-                if identifier.get('name') == 'googleKgMID':
-                    mid = identifier.get('value')
-                    break
+        #     if mid is None:
+        #         continue
 
-            if mid is None:
-                continue
+        #     res["mid"] = mid
 
-            res["mid"] = mid
+        #     # get google cloud id
+        #     cloud_id = result.get('@id')
 
-            # get google cloud id
-            cloud_id = result.get('@id')
+        #     # get image
+        #     if result.get('image'):
+        #         image_url = result.get('image').get('contentUrl')
+        #         # convert to actual image url if it's a wikipedia image
+        #         # if "wiki" in image_url:
+        #         # image_url = self.wiki_image_parser(image_url)
+        #         res["image_url"] = image_url
 
-            # get image
-            if result.get('image'):
-                image_url = result.get('image').get('contentUrl')
-                # convert to actual image url if it's a wikipedia image
-                # if "wiki" in image_url:
-                # image_url = self.wiki_image_parser(image_url)
-                res["image_url"] = image_url
+        #     # res["name"] = result.get('name')
+        #     res["category"] = result.get('description')
 
-            res["name"] = result.get('name')
-            res["category"] = result.get('description')
+        #     # set our own types
+        #     if any(x in ['Place', 'City', 'AdministrativeArea'] for x in result.get('@type')):
+        #         res["type"] = "LOCATION"
+        #     else:
+        #         res["type"] = result.get('@type')[0].upper()
 
-            # set our own types
-            if any(x in ['Place', 'City', 'AdministrativeArea'] for x in result.get('@type')):
-                res["type"] = "LOCATION"
-            else:
-                res["type"] = result.get('@type')[0].upper()
-
-            detailed_description = result.get("detailedDescription")
-            if detailed_description:
-                res["url"] = detailed_description.get('url')
+        #     detailed_description = result.get("detailedDescription")
+        #     if detailed_description:
+        #         res["url"] = detailed_description.get('url')
 
         entity_objs.append(res)
     

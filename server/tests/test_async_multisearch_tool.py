@@ -7,7 +7,7 @@ import asyncio
 from langchain.tools import WikipediaQueryRun
 from langchain.utilities import WikipediaAPIWrapper
 
-wikipedia = WikipediaQueryRun(api_wrapper=WikipediaAPIWrapper())
+# wikipedia = WikipediaQueryRun(api_wrapper=WikipediaAPIWrapper())
 
 k: int = 1
 gl: str = "us"
@@ -44,29 +44,21 @@ async def parse_snippets(search_term: str, results: dict) -> str:
         "images": "images",
         "search": "organic",
     }
-    snippets = [f"Search Term: {search_term}"]
-    # print(results)
+    snippets = [f"{search_term} got results: "]
 
-    if results.get("knowledgeGraph"):
-        knowledge_graph = results.get("knowledgeGraph", {})
-        snippets.append(f"Description: {knowledge_graph.get('description')}, Source: {knowledge_graph.get('descriptionLink')}")
-    # # Add the answer box if present
-    # if results.get("answerBox"):
-    #     answer_box = results.get("answerBox", {})
-    #     answer = (
-    #         answer_box.get("answer")
-    #         or answer_box.get("snippet")
-    #         or answer_box.get("snippetHighlighted")
-    #     )
-    #     if answer:
-    #         snippets.append(f"Answer Box: {answer}")
+    # Add the answer box if present
+    if results.get("answerBox"):
+        answer_box = results.get("answerBox", {})
+        answer = answer_box.get("answer") or answer_box.get("snippet") or answer_box.get("snippetHighlighted")
+        if answer:
+            snippets.append(f"Answer Box: {answer}")
 
-    # # Add top k search results
-    # for result in results[result_key_for_type[search_type]][:k]:
-    #     snippet = result.get("snippet")
-    #     snippets.append(f"Answer: {snippet}, Source: {result.get('link')}")
+    # Add top k search results
+    for result in results[result_key_for_type[search_type]][:k]:
+        snippet = result.get("snippet")
+        snippets.append(snippet)
 
-    return "\n".join(snippets)
+    return '\n'.join(snippets)
 
 
 async def custom_search(search_terms: List[str], **kwargs: Any) -> List[str]:
