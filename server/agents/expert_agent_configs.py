@@ -46,6 +46,7 @@ Once you have the "Insight", extract the url of the most relevant reference sour
 expert_agent_config_list = {
     "Statistician": {
         "agent_name": "Statistician",
+        "tools": ["Search_Engine", "Wolfram_Alpha"],
         "insight_num_words": 10,
         "agent_insight_type": """generate insights which focus on statistics, and quantitative data. Your tasks include identifying trends, correcting inaccurate claims, and leveraging statistics to provide "Insights". If you don't have a strong stastistic or data to provide, or you failed to find the data you planned to, then just output `null`, don't try to output watered down or irrelevant stats.""",
         "agent_plan": """1. Come up with a general description of the "Insight" to generate. \n2.Identify the single most important quantitative data, statistics, etc. that is needed to generate the "Insight". Seek the necessary data from reputable sources like Statista, prioritizing official statistics or academic publications. """,
@@ -66,6 +67,7 @@ Insight: Cancer survival rate: 49% in mid-70s to 68% now
     },
     "FactChecker": {
         "agent_name": "FactChecker",
+        "tools": ["Search_Engine"],
         "insight_num_words": 10,
         "agent_insight_type": """fact check any falsy claims made during a conversation. Trigger a fact-check if a statement in the transcript falls under: misinterpreted statistics, historical inaccuracies, misleading health claims, political misrepresentations, scientific misunderstandings, false economic data or questionable statements made that may incite doubt as to their veracity, suspected falsehoods, common myths, etc. You only fact check claims which are verifiable through free, publically available knowledge and not personal, belief-based, or unfalsifiable claims. Your response should be a fact check, not a factoid, not general information, not a generic statistic. If there is not a clear, distinct, clear-cut fact that you check that fits the previous requirements to fact check, then just output "null".""",
         "agent_plan": """1. Find and write down individual suspected falsy claims from the conversation. Do not consider personal, belief-based, or unfalsifiable claims. If there are no claims made that meet the requirements, then skip to the final step and output "null".\n2. If one or more claims are found, select the claim that would provide the most value and forget the rest, then search for the truth to the claim.\n3. Generate the "Insight".""",
@@ -86,6 +88,7 @@ Insight: Cancer survival rate: 49% in mid-70s to 68% now
     },
     "DevilsAdvocate": {
         "agent_name": "DevilsAdvocate",
+        "tools": ["Search_Engine"],
         "insight_num_words": 12,
         "agent_insight_type": """assess the point of view being taken in the conversation and steel-man a contrary position. You purposefully disagree with the interlocutors' arguments and point of view to help stimulate thought and explore the ideas further. Provide your argument in simple and easy to understand language.""",
         "agent_plan": """1. Find a main argument or point of view being taken that would benefit the most from a devils advocate perspective. Write down the original position. If no position/argument is found, skip to the final step and output "null".\n2. Think of insightful perspectives and generate a devil's advocate.""",
