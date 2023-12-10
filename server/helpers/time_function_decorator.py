@@ -18,12 +18,15 @@ from server_config import time_everything_spreadsheet_id, use_azure_openai
 
 
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
-WRITE_TO_LOCAL_SHEET = False
-
 TOKEN_DIRECTORY = os.path.dirname(os.path.realpath(__file__))
+
+WRITE_TO_LOCAL_SHEET = False
+SAVE_THRESHOLD = 0.005
 
 
 def update_local_excel(function_name, time_called, duration):
+    raise NotImplementedError("This function is not implemented yet")
+    
     excel_file_path = os.path.join(TOKEN_DIRECTORY, "timings.xlsx")
 
     if os.path.exists(excel_file_path):
@@ -73,7 +76,7 @@ def update_sheet_with_pandas(service, function_name, time_called, duration):
         update_local_excel(function_name, time_called, duration)
 
     sh = service.open_by_key(time_everything_spreadsheet_id)
-    worksheet = sh.get_worksheet(0)
+    worksheet = sh.get_worksheet(1)
 
     header_values = worksheet.row_values(1)
     number_of_columns = len(header_values)
@@ -105,63 +108,71 @@ def time_function():
         if not TIME_EVERYTHING:
             return function
 
-        @wraps(function)
-        async def async_wrapper(*args, **kwargs):
-            print(f"Timing function '{function.__name__}'")
-            service = get_service()
-            if not service:
-                warnings.warn(
-                    "Unable to access Google Sheets. Timing will not be recorded."
-                )
-                return function(*args, **kwargs)
+        time_called = strftime("%m-%d-%Y", localtime())
 
-            start_time = perf_counter()
-            function_name = function.__name__
-            if function_name == "expert_agent_arun_wrapper":
-                function_name += "_" + args[0]["agent_name"]
-                
+        try:
+            @wraps(function)
+            async def async_wrapper(*args, **kwargs):
+                print(f"Timing function '{function.__name__}'")
+                service = get_service()
+                if not service:
+                    warnings.warn(
+                        "Unable to access Google Sheets. Timing will not be recorded."
+                    )
+                    return function(*args, **kwargs)
 
-            result = await function(*args, **kwargs)
-            end_time = perf_counter()
-            duration = end_time - start_time
-            print(f"Function '{function.__name__}' took {duration:.6f} seconds")
+                start_time = perf_counter()
+                function_name = function.__name__
+                if function_name == "expert_agent_arun_wrapper":
+                    function_name += "_" + args[0]["agent_name"]
+                    
 
-            time_called = strftime("%Y-%m-%d %H:%M:%S", localtime())
+                result = await function(*args, **kwargs)
+                end_time = perf_counter()
+                duration = end_time - start_time
+                print(f"Function '{function.__name__}' took {duration:.6f} seconds")
 
-            update_sheet_with_pandas(service, function_name, time_called,
-                f"{duration:.6f} seconds"
-            )
+                if duration > SAVE_THRESHOLD:
+                    update_sheet_with_pandas(service, function_name, time_called, f"{duration:.6f} seconds")
 
-            return result
+                return result
 
-        @wraps(function)
-        def sync_wrapper(*args, **kwargs):
-            print(f"Timing function '{function.__name__}'")
-            service = get_service()
-            if not service:
-                warnings.warn(
-                    "Unable to access Google Sheets. Timing will not be recorded."
-                )
-                return function(*args, **kwargs)
+            @wraps(function)
+            def sync_wrapper(*args, **kwargs):
+                print(f"Timing function '{function.__name__}'")
+                service = get_service()
+                if not service:
+                    warnings.warn(
+                        "Unable to access Google Sheets. Timing will not be recorded."
+                    )
+                    return function(*args, **kwargs)
 
-            start_time = perf_counter()
-            result = function(*args, **kwargs)
-            end_time = perf_counter()
-            duration = end_time - start_time
-            print(f"Function '{function.__name__}' took {duration:.6f} seconds")
+                start_time = perf_counter()
+                result = function(*args, **kwargs)
+                end_time = perf_counter()
+                duration = end_time - start_time
 
-            time_called = strftime("%Y-%m-%d %H:%M:%S", localtime())
+                function_name = function.__name__
+                if function_name == "expert_agent_arun_wrapper":
+                    function_name += "_" + args[0]["agent_name"]
 
-            update_sheet_with_pandas(service, function.__name__, time_called,
-                f"{duration:.6f} seconds"
-            )
+                print(f"Function '{function_name}' took {duration:.6f} seconds")
 
-            return result
+                if duration > SAVE_THRESHOLD:
+                    update_sheet_with_pandas(service, function.__name__, time_called,
+                        f"{duration:.6f} seconds"
+                    )
 
-        if asyncio.iscoroutinefunction(function):
-            return async_wrapper
-        else:
-            return sync_wrapper
+                return result
+
+            if asyncio.iscoroutinefunction(function):
+                return async_wrapper
+            else:
+                return sync_wrapper
+        
+        except Exception as e:
+            print(f"Error timing function '{function.__name__}': {e}")
+            return function
 
     return decorator
 

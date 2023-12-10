@@ -86,6 +86,7 @@ def run_proactive_meta_agent_and_experts(conversation_context: str, insights_his
     return insights
 
 
+@time_function()
 def run_proactive_meta_agent(conversation_context: str, insights_history: list):
     #get expert agents descriptions
     expert_agents_descriptions_prompt = make_expert_agents_prompts()
