@@ -501,8 +501,6 @@ class DatabaseHandler:
             {
                 "$project": {
                     "_id": 0,
-                    "insight": "1",
-                    "agent_name": "1"
                 }
             }
         ]
@@ -548,8 +546,6 @@ class DatabaseHandler:
             {
                 "$project": {
                     "_id": 0,
-                    "entity": "1",
-                    "definition": "1"
                 }
             }
         ]
