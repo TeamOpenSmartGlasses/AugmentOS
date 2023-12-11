@@ -12,6 +12,8 @@ azure_openai_api_base=""
 azure_openai_api_gpt35_deployment=""
 azure_openai_api_gpt4_deployment=""
 
+time_everything_spreadsheet_id = ""
+
 # Uncomment one of the following configs:
 # Local:
 database_uri = "mongodb://localhost:27017"
