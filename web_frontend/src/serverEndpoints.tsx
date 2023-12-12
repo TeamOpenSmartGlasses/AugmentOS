@@ -12,3 +12,5 @@ export const UPLOAD_USERDATA_ENDPOINT = baseEndpoint + "/upload_userdata";
 export const AGENT_RUN_ENDPOINT = baseEndpoint + "/run_single_agent";
 
 export const SEND_AGENT_CHAT_ENDPOINT = baseEndpoint + "/send_agent_chat";
+
+export const RATE_INSIGHT_ENDPOINT = baseEndpoint + "/rate_result"

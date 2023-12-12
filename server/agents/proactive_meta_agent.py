@@ -15,7 +15,7 @@ from langchain.schema import (
 from langchain.output_parsers import PydanticOutputParser
 from langchain.schema import OutputParserException
 from pydantic import BaseModel, Field
-
+from helpers.time_function_decorator import time_function
 import asyncio
 
 from Modules.LangchainSetup import *
@@ -54,6 +54,8 @@ def make_expert_agents_prompts():
 
     return expert_agents_descriptions_prompt
 
+
+@time_function()
 def run_proactive_meta_agent_and_experts(conversation_context: str, insights_history: list):
     #run proactive agent to find out which expert agents we should run
     proactive_meta_agent_response = run_proactive_meta_agent(conversation_context, insights_history)
@@ -84,6 +86,7 @@ def run_proactive_meta_agent_and_experts(conversation_context: str, insights_his
     return insights
 
 
+@time_function()
 def run_proactive_meta_agent(conversation_context: str, insights_history: list):
     #get expert agents descriptions
     expert_agents_descriptions_prompt = make_expert_agents_prompts()

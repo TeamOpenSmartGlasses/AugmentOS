@@ -11,6 +11,8 @@ import { AGENT_ICON_NAMES, AGENT_ICON_PATHS, AgentName, Entity } from "../types"
 import { IconThumbDown, IconThumbDownFilled, IconThumbUp, IconThumbUpFilled } from "@tabler/icons-react";
 import { useState } from "react";
 import CardWrapper, { CardWrapperProps } from "./CardWrapper";
+import axiosClient from "../axiosConfig";
+import { RATE_INSIGHT_ENDPOINT } from "../serverEndpoints";
 
 const useStyles = createStyles((theme) => ({
   button: {
@@ -27,6 +29,31 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+
+const rateInsight = (entity: Entity, newState) => {
+
+  let rating = -1;
+  if (newState == "up") rating = 10;
+  if (newState == "down") rating = 0;
+  if (rating == -1) return;
+
+  const rateInsightRequestBody = {
+    userId: window.userId,
+    resultUuid:  entity.uuid,
+    rating: rating
+  };
+
+  axiosClient
+    .post(RATE_INSIGHT_ENDPOINT, rateInsightRequestBody)
+    .then((res) => {
+      if (res.data.success) {
+        console.log("Successfully rated card");
+      }
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+}
 interface ReferenceCardProps
   extends Omit<CardWrapperProps, "agentName" | "agentIconSrc"> {
   entity: Entity;
@@ -64,7 +91,7 @@ const ReferenceCard = ({
       agentIconSrc={AGENT_ICON_PATHS[entity.agent_name ?? AgentName.DEFINER]}
     >
       <Box sx={{ float: "right" }}>
-        <ThumbButtons />
+        <ThumbButtons entity={entity} />
       </Box>
       <Text
         pl="sm"
@@ -89,7 +116,7 @@ const ReferenceCard = ({
 
 export default ReferenceCard;
 
-const ThumbButtons = () => {
+const ThumbButtons = ({ entity }) => {
   const { classes } = useStyles();
   const [thumbState, setThumbState] = useState<"up" | "down" | undefined>();
 
@@ -99,7 +126,11 @@ const ThumbButtons = () => {
         className={classes.button}
         onClick={(e) => {
           e.stopPropagation();
-          setThumbState(thumbState === "up" ? undefined : "up");
+          setThumbState(prevState => {
+            const newState = prevState === "up" ? undefined : "up";
+            rateInsight(entity, newState)
+            return newState;
+          })
         }}
       >
         {thumbState === "up" ? (
@@ -112,7 +143,11 @@ const ThumbButtons = () => {
         className={classes.button}
         onClick={(e) => {
           e.stopPropagation();
-          setThumbState(thumbState === "down" ? undefined : "down");
+          setThumbState(prevState => {
+            const newState = prevState === "down" ? undefined : "down";
+            rateInsight(entity, newState)
+            return newState;
+          })
         }}
       >
         {thumbState === "down" ? (

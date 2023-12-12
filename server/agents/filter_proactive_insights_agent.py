@@ -4,6 +4,7 @@ import openai
 from Modules.QueryLLM import *
 from constants import LLM_FILTER_THRESHOLD
 # from server.Prompts.relevance_filter_prompt import relevance_filter_prompt
+from helpers.time_function_decorator import time_function
 
 relevance_filter_prompt = (
     lambda context, entity: f"""
@@ -152,7 +153,8 @@ class RelevanceFilter:
         print("RelevanceFilter initialized")
         self.db_handler = db_handler
         self.banned_terms = ["LOL", "AI", "Caden Pierce", "Alex Israel", "Professor", "God", "Jesus", "Google", "David Newman", "Patty"]
-
+    
+    @time_function()
     def should_display_result_based_on_context(self, user_id, cse_outputs, context):
         valid_outputs = []
         
@@ -192,6 +194,7 @@ class RelevanceFilter:
 
         return final_entities
 
+    @time_function()
     def llm_relevance_filter(self, entities, context):
 
         llm_entities_input = dict()

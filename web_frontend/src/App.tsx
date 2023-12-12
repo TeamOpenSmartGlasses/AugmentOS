@@ -220,6 +220,13 @@ export default function App() {
                 </Collapse>
               )}
               {entities
+                .filter((e) => {                  
+                  if (e == null || e == undefined){
+                    console.log("NULL ENTITY FOUND");
+                    return false;
+                  } 
+                  return true;
+                })
                 .slice(0)
                 .reverse()
                 .map((entity, i) => (

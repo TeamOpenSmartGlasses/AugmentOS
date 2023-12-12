@@ -7,6 +7,8 @@ from server_config import openai_api_key
 from langchain.agents import AgentType
 import asyncio
 from Modules.LangchainSetup import *
+from helpers.time_function_decorator import time_function
+
 
 llm = get_langchain_gpt4()
 
@@ -30,7 +32,9 @@ Actions should ONLY be for using tools or returning the final answer. If you hav
 {query}
 """
 
+
 # makes the wrapper fnction for expert agents when they're run as tools - a function factory so we don't have weird scope issues
+@time_function()
 def make_expert_agent_run_wrapper_function(agent, agent_explicit_prompt, is_async=True):
     def run_expert_agent_wrapper(command):
         return agent.run(agent_explicit_prompt + '\n[Extra Instructions]\n' + command)
@@ -40,7 +44,9 @@ def make_expert_agent_run_wrapper_function(agent, agent_explicit_prompt, is_asyn
 
     return run_expert_agent_wrapper_async if is_async else run_expert_agent_wrapper
 
+
 # generate expert agents as tools (each one has a search engine, later make the tools each agent has programmatic)
+@time_function()
 def make_expert_agents_as_tools(transcript):
     tools = []
     expert_agents_list = list(expert_agent_config_list.values())
@@ -48,13 +54,12 @@ def make_expert_agents_as_tools(transcript):
         # make the expert agent with it own special prompt
         expert_agent_explicit_prompt = expert_agent_prompt_maker(expert_agent, transcript)
 
-        match expert_agent['agent_name']:
-            case "DevilsAdvocate", "FactChecker":
-                agent_tools = [get_search_tool_for_agents()]
-            case "Statistician":
-                agent_tools = [get_search_tool_for_agents(), get_wolfram_alpha_tool_for_agents()]
-            case _:
-                agent_tools = []
+        agent_tools = []
+
+        if "Search_Engine" in expert_agent['tools']:
+                agent_tools.append(get_search_tool_for_agents())
+        if "Wolfram_Alpha" in expert_agent['tools']:
+                agent_tools.append(get_wolfram_alpha_tool_for_agents())
 
         # make the agent with tools
         new_expert_agent = initialize_agent(agent_tools, llm, agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
@@ -72,6 +77,8 @@ def make_expert_agents_as_tools(transcript):
         tools.append(expert_agent_as_tool)
     return tools
 
+
+@time_function()
 def get_explicit_meta_agent(transcript):
     expert_agents_as_tools = make_expert_agents_as_tools(transcript)
     print("EXPERT AGENTS AS TOOLS")
@@ -84,12 +91,15 @@ def get_explicit_meta_agent(transcript):
             verbose=True)
     return explicit_meta_agent
 
+
+@time_function()
 def run_explicit_meta_agent(context, query):
     prompt = explicit_meta_agent_prompt_blueprint.format(conversation_context=context, query=query)
     transcript = "{}\nQuery: {}".format(context, query)
     return get_explicit_meta_agent(transcript).run(prompt)
 
 
+@time_function()
 async def run_explicit_meta_agent_async(context, query):
     prompt = explicit_meta_agent_prompt_blueprint.format(conversation_context=context, query=query)
     transcript = "{}\nQuery: {}".format(context, query)
