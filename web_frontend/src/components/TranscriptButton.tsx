@@ -1,7 +1,7 @@
 import { ActionIcon, createStyles, keyframes, Image, rem } from "@mantine/core";
 import { useSpeechRecognition } from "react-speech-recognition";
-import { useRecoilState } from "recoil";
-import { isRecognizingState } from "../recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { isExplicitListeningState, isRecognizingState } from "../recoil";
 
 const breathe = keyframes`
   0% { transform: translate(0); filter: brightness(1); }
@@ -24,12 +24,19 @@ const TranscriptButton = () => {
     useSpeechRecognition();
 
   const [isRecognizing, setIsRecognizing] = useRecoilState(isRecognizingState);
+  const setIsExplicitListening = useSetRecoilState(isExplicitListeningState);
 
   return (
     <ActionIcon
       variant="filled"
       radius={100}
-      onClick={() => setIsRecognizing((prevVal) => !prevVal)}
+      onClick={() => {
+        if (isRecognizing) {
+          // stop the explicit agent if stopping listening
+          setIsExplicitListening(false);
+        }
+        setIsRecognizing((prevVal) => !prevVal);
+      }}
       size={rem(80)}
       className={classes.iconButton}
       disabled={!isMicrophoneAvailable || !browserSupportsSpeechRecognition}
