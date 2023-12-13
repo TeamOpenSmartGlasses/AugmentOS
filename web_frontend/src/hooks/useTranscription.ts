@@ -3,13 +3,19 @@ import SpeechRecognition, {
 } from "react-speech-recognition";
 import axiosClient from "../axiosConfig";
 import { CHAT_ENDPOINT } from "../serverEndpoints";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { isRecognizingState, transcriptStartIdxState } from "../recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import {
+  isExplicitListeningState,
+  isRecognizingState,
+  transcriptStartIdxState,
+} from "../recoil";
 import { debounce } from "lodash";
 import { useCallback, useEffect } from "react";
 
 export const useTranscription = () => {
   const isRecognizing = useRecoilValue(isRecognizingState);
+  const setIsExplicitListening = useSetRecoilState(isExplicitListeningState);
+
   const [transcriptStartIdx, setTranscriptStartIdx] = useRecoilState(
     transcriptStartIdxState
   );
@@ -23,8 +29,14 @@ export const useTranscription = () => {
       SpeechRecognition.stopListening();
       resetTranscript();
       setTranscriptStartIdx(0);
+      setIsExplicitListening(false); // stop showing the explicit card
     }
-  }, [isRecognizing, resetTranscript, setTranscriptStartIdx]);
+  }, [
+    isRecognizing,
+    resetTranscript,
+    setIsExplicitListening,
+    setTranscriptStartIdx,
+  ]);
 
   const submitTranscript = useCallback(
     (isFinal: boolean) => {
