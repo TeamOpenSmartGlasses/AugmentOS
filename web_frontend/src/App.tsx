@@ -32,11 +32,7 @@ import {
 import { TransitionGroup } from "react-transition-group";
 import { Collapse } from "@material-ui/core";
 import { useRecoilState, useRecoilValue } from "recoil";
-import {
-  entitiesState,
-  explicitInsightsState,
-  isExplicitListeningState,
-} from "./recoil";
+import { entitiesState, isExplicitListeningState } from "./recoil";
 import { useTranscription } from "./hooks/useTranscription";
 import { GAP_VH } from "./components/CardWrapper";
 import { useUiUpdateBackendPoll } from "./hooks/useUiUpdateBackendPoll";
@@ -70,9 +66,6 @@ export default function App() {
   useUiUpdateBackendPoll();
 
   const [entities, setEntities] = useRecoilState(entitiesState);
-  const [explicitInsights, setExplicitInsights] = useRecoilState(
-    explicitInsightsState
-  );
   const isExplicitListening = useRecoilValue(isExplicitListeningState);
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
   const [showExplorePane, setShowExplorePane] = useState(false);
@@ -145,11 +138,7 @@ export default function App() {
             <TransitionGroup>
               {isExplicitListening && (
                 <Collapse timeout={800}>
-                  <ExplicitCard
-                    explicitInsights={explicitInsights}
-                    setExplicitInsights={setExplicitInsights}
-                    setEntities={setEntities}
-                  />
+                  <ExplicitCard />
                 </Collapse>
               )}
               {entities
