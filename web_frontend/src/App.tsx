@@ -17,14 +17,11 @@ import {
 } from "@mantine/core";
 import Sidebar from "./components/Sidebar";
 import ExplorePane from "./components/ExplorePane";
-import { Entity, Insight } from "./types";
 import ReferenceCard from "./components/ReferenceCard";
 import Cookies from "js-cookie";
-import axiosClient from "./axiosConfig";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import "./index.css";
 import SettingsModal from "./components/SettingsModal";
-import { UI_POLL_ENDPOINT } from "./serverEndpoints";
 import { motion } from "framer-motion";
 import { theme } from "./theme";
 import ExplicitCard from "./components/ExplicitCard";
@@ -34,10 +31,15 @@ import {
 } from "@tabler/icons-react";
 import { TransitionGroup } from "react-transition-group";
 import { Collapse } from "@material-ui/core";
-import { useRecoilState } from "recoil";
-import { isExplicitListeningState } from "./recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
+import {
+  entitiesState,
+  explicitInsightsState,
+  isExplicitListeningState,
+} from "./recoil";
 import { useTranscription } from "./hooks/useTranscription";
 import { GAP_VH } from "./components/CardWrapper";
+import { useUiUpdateBackendPoll } from "./hooks/useUiUpdateBackendPoll";
 
 // animate-able components for framer-motion
 // https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
@@ -65,12 +67,13 @@ export default function App() {
   const { classes } = useStyles();
 
   useTranscription();
+  useUiUpdateBackendPoll();
 
-  const [entities, setEntities] = useState<Entity[]>([]);
-  const [explicitInsights, setExplicitInsights] = useState<Insight[]>([]);
-  const [isExplicitListening, setIsExplicitListening] = useRecoilState(
-    isExplicitListeningState
+  const [entities, setEntities] = useRecoilState(entitiesState);
+  const [explicitInsights, setExplicitInsights] = useRecoilState(
+    explicitInsightsState
   );
+  const isExplicitListening = useRecoilValue(isExplicitListeningState);
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
   const [showExplorePane, setShowExplorePane] = useState(false);
   const [selectedCardId, setSelectedCardId] = useState<string | undefined>();
@@ -86,17 +89,6 @@ export default function App() {
     } else {
       openSettings();
     }
-  };
-
-  const initUserId = () => {
-    let userId = Cookies.get("userId");
-    if (userId == undefined || userId == null || userId == "") {
-      console.log("No userID detected - generating random userID");
-      userId = generateRandomUserId();
-    } else {
-      console.log("Previous userId found: " + userId);
-    }
-    setUserIdAndDeviceId(userId);
   };
 
   const generateRandomUserId = () => {
@@ -118,74 +110,15 @@ export default function App() {
     window.deviceId = "CSEWebFrontendDefault";
   };
 
-  //poll the backend for UI updates
-  const updateUiBackendPoll = () => {
-    const uiPollRequstBody = {
-      features: [
-        "contextual_search_engine",
-        "proactive_agent_insights",
-        "explicit_agent_insights",
-        "intelligent_entity_definitions",
-        "agent_chat",
-      ], //list of features here
-      userId: window.userId,
-      deviceId: window.deviceId,
-    };
-
-    axiosClient
-      .post(UI_POLL_ENDPOINT, uiPollRequstBody)
-      .then((res) => {
-        if (res.data.success) {
-          const newEntities = res.data.result as Entity[];
-          const newInsights =
-            (res.data.results_proactive_agent_insights as Entity[]) || [];
-          const newExplicitQueries =
-            (res.data.explicit_insight_queries as Insight[]) || [];
-          const newExplicitInsights =
-            (res.data.explicit_insight_results as Insight[]) || [];
-          const newProactiveDefinitions =
-            (res.data.entity_definitions as Entity[]) || [];
-
-          console.log("THOSE DEFINS THO");
-          console.log(newProactiveDefinitions);
-
-          if (res.data.wake_word_time !== -1) {
-            setIsExplicitListening(true);
-          }
-
-          if (
-            newEntities.length === 0 &&
-            newInsights.length === 0 &&
-            newExplicitQueries.length === 0 &&
-            newExplicitInsights.length === 0 &&
-            newProactiveDefinitions.length === 0
-          )
-            return;
-
-          setEntities((entities) => [
-            ...entities,
-            ...newEntities,
-            ...newInsights,
-            ...newProactiveDefinitions,
-          ]);
-
-          setExplicitInsights((explicitInsights) => [
-            ...explicitInsights,
-            ...newExplicitQueries,
-            ...newExplicitInsights,
-          ]);
-        }
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  };
-
   useEffect(() => {
-    initUserId();
-    setInterval(() => {
-      updateUiBackendPoll();
-    }, 200);
+    let userId = Cookies.get("userId");
+    if (userId == undefined || userId == null || userId == "") {
+      console.log("No userID detected - generating random userID");
+      userId = generateRandomUserId();
+    } else {
+      console.log("Previous userId found: " + userId);
+    }
+    setUserIdAndDeviceId(userId);
   }, []);
 
   return (
@@ -220,11 +153,11 @@ export default function App() {
                 </Collapse>
               )}
               {entities
-                .filter((e) => {                  
-                  if (e == null || e == undefined){
+                .filter((e) => {
+                  if (e == null || e == undefined) {
                     console.log("NULL ENTITY FOUND");
                     return false;
-                  } 
+                  }
                   return true;
                 })
                 .slice(0)

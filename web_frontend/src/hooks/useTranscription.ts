@@ -8,6 +8,10 @@ import { isExplicitListeningState, isRecognizingState } from "../recoil";
 import { debounce } from "lodash";
 import { useCallback, useEffect, useState } from "react";
 
+/**
+ * Submits the transcript to the backend as the transcript changes
+ * when the app is recognizing speech.
+ */
 export const useTranscription = () => {
   const isRecognizing = useRecoilValue(isRecognizingState);
   const setIsExplicitListening = useSetRecoilState(isExplicitListeningState);
