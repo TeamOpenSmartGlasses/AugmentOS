@@ -1,42 +1,18 @@
-import { atom, selector, DefaultValue } from "recoil";
-import { TranscriptionState } from "./types";
+import { atom } from "recoil";
 
-export const isExplicitListeningState = atom({
+export const isExplicitListeningState = atom<boolean>({
   key: "isExplicitListening",
   default: false,
-});
-
-const transcriptionState = atom<TranscriptionState>({
-  key: "transcript",
-  default: {
-    isRecognizing: true,
-    transcriptStartIdx: 0,
-  },
 });
 
 /**
  * Type guard for Recoil's Default Value type.
  */
-const isRecoilDefaultValue = (val: unknown): val is DefaultValue => {
-  return val instanceof DefaultValue;
-};
+// const isRecoilDefaultValue = (val: unknown): val is DefaultValue => {
+//   return val instanceof DefaultValue;
+// };
 
-export const isRecognizingState = selector({
+export const isRecognizingState = atom<boolean>({
   key: "isRecognizing",
-  get: ({ get }) => get(transcriptionState).isRecognizing,
-  set: ({ set }, newVal) =>
-    set(transcriptionState, (prevVal) => ({
-      ...prevVal,
-      isRecognizing: isRecoilDefaultValue(newVal) ? true : newVal,
-    })),
-});
-
-export const transcriptStartIdxState = selector({
-  key: "transcriptStartIdx",
-  get: ({ get }) => get(transcriptionState).transcriptStartIdx,
-  set: ({ set }, newVal) =>
-    set(transcriptionState, (prevVal) => ({
-      ...prevVal,
-      transcriptStartIdx: isRecoilDefaultValue(newVal) ? 0 : newVal,
-    })),
+  default: true,
 });

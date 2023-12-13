@@ -3,22 +3,16 @@ import SpeechRecognition, {
 } from "react-speech-recognition";
 import axiosClient from "../axiosConfig";
 import { CHAT_ENDPOINT } from "../serverEndpoints";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import {
-  isExplicitListeningState,
-  isRecognizingState,
-  transcriptStartIdxState,
-} from "../recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { isExplicitListeningState, isRecognizingState } from "../recoil";
 import { debounce } from "lodash";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export const useTranscription = () => {
   const isRecognizing = useRecoilValue(isRecognizingState);
   const setIsExplicitListening = useSetRecoilState(isExplicitListeningState);
 
-  const [transcriptStartIdx, setTranscriptStartIdx] = useRecoilState(
-    transcriptStartIdxState
-  );
+  const [transcriptStartIdx, setTranscriptStartIdx] = useState(0);
 
   const { transcript, resetTranscript } = useSpeechRecognition();
 
