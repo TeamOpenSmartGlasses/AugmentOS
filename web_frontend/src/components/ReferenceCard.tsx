@@ -7,8 +7,18 @@ import {
   Box,
   UnstyledButton,
 } from "@mantine/core";
-import { AGENT_ICON_NAMES, AGENT_ICON_PATHS, AgentName, Entity } from "../types";
-import { IconThumbDown, IconThumbDownFilled, IconThumbUp, IconThumbUpFilled } from "@tabler/icons-react";
+import {
+  AGENT_ICON_NAMES,
+  AGENT_ICON_PATHS,
+  AgentName,
+  Entity,
+} from "../types";
+import {
+  IconThumbDown,
+  IconThumbDownFilled,
+  IconThumbUp,
+  IconThumbUpFilled,
+} from "@tabler/icons-react";
 import { useState } from "react";
 import CardWrapper, { CardWrapperProps } from "./CardWrapper";
 import axiosClient from "../axiosConfig";
@@ -29,18 +39,16 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-
-const rateInsight = (entity: Entity, newState) => {
-
+const rateInsight = (entity: Entity, newState: ThumbState) => {
   let rating = -1;
-  if (newState == "up") rating = 10;
-  if (newState == "down") rating = 0;
+  if (newState == ThumbState.UP) rating = 10;
+  if (newState == ThumbState.DOWN) rating = 0;
   if (rating == -1) return;
 
   const rateInsightRequestBody = {
     userId: window.userId,
-    resultUuid:  entity.uuid,
-    rating: rating
+    resultUuid: entity.uuid,
+    rating: rating,
   };
 
   axiosClient
@@ -53,7 +61,7 @@ const rateInsight = (entity: Entity, newState) => {
     .catch(function (error) {
       console.error(error);
     });
-}
+};
 interface ReferenceCardProps
   extends Omit<CardWrapperProps, "agentName" | "agentIconSrc"> {
   entity: Entity;
@@ -70,8 +78,9 @@ const ReferenceCard = ({
 
   const getImageUrl = (entity: Entity) => {
     if (entity.map_image_path) {
-      return `${import.meta.env.VITE_BACKEND_BASE_URL}/${entity.map_image_path
-        }`;
+      return `${import.meta.env.VITE_BACKEND_BASE_URL}/${
+        entity.map_image_path
+      }`;
     }
     return entity.image_url;
   };
@@ -116,9 +125,15 @@ const ReferenceCard = ({
 
 export default ReferenceCard;
 
-const ThumbButtons = ({ entity }) => {
+enum ThumbState {
+  UP,
+  DOWN,
+  UNSET,
+}
+
+const ThumbButtons = ({ entity }: { entity: Entity }) => {
   const { classes } = useStyles();
-  const [thumbState, setThumbState] = useState<"up" | "down" | undefined>();
+  const [thumbState, setThumbState] = useState<ThumbState>();
 
   return (
     <Group noWrap pl="xs" pb="xs">
@@ -126,14 +141,15 @@ const ThumbButtons = ({ entity }) => {
         className={classes.button}
         onClick={(e) => {
           e.stopPropagation();
-          setThumbState(prevState => {
-            const newState = prevState === "up" ? undefined : "up";
-            rateInsight(entity, newState)
+          setThumbState((prevState) => {
+            const newState =
+              prevState === ThumbState.UP ? ThumbState.UNSET : ThumbState.UP;
+            rateInsight(entity, newState);
             return newState;
-          })
+          });
         }}
       >
-        {thumbState === "up" ? (
+        {thumbState === ThumbState.UP ? (
           <IconThumbUpFilled size="3vh" stroke={1.5} />
         ) : (
           <IconThumbUp size="3vh" stroke={1.5} />
@@ -143,14 +159,17 @@ const ThumbButtons = ({ entity }) => {
         className={classes.button}
         onClick={(e) => {
           e.stopPropagation();
-          setThumbState(prevState => {
-            const newState = prevState === "down" ? undefined : "down";
-            rateInsight(entity, newState)
+          setThumbState((prevState) => {
+            const newState =
+              prevState === ThumbState.DOWN
+                ? ThumbState.UNSET
+                : ThumbState.DOWN;
+            rateInsight(entity, newState);
             return newState;
-          })
+          });
         }}
       >
-        {thumbState === "down" ? (
+        {thumbState === ThumbState.DOWN ? (
           <IconThumbDownFilled
             size="3vh"
             stroke={1.5}
@@ -166,4 +185,4 @@ const ThumbButtons = ({ entity }) => {
       </UnstyledButton>
     </Group>
   );
-}
+};
