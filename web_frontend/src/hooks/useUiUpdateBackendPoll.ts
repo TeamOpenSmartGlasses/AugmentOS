@@ -61,12 +61,20 @@ export const useUiUpdateBackendPoll = () => {
             )
               return;
 
-            setEntities((entities) => [
-              ...entities,
-              ...newEntities,
-              ...newInsights,
-              ...newProactiveDefinitions,
-            ]);
+            setEntities((entities) =>
+              [
+                ...entities,
+                ...newEntities,
+                ...newInsights,
+                ...newProactiveDefinitions,
+              ].filter((e) => {
+                if (e == null || e == undefined) {
+                  console.log("NULL ENTITY FOUND");
+                  return false;
+                }
+                return true;
+              })
+            );
 
             setExplicitInsights((explicitInsights) => [
               ...explicitInsights,
