@@ -8,6 +8,10 @@ import {
   explicitInsightsState,
   isExplicitListeningState,
 } from "../recoil";
+import {
+  ENABLE_NOTIFICATION_SOUNDS,
+  NOTIFICATION_FILEPATH,
+} from "../constants";
 
 /**
  * poll the backend for UI updates and update state of entities and explicit insights
@@ -60,6 +64,10 @@ export const useUiUpdateBackendPoll = () => {
               newProactiveDefinitions.length === 0
             )
               return;
+
+            if (ENABLE_NOTIFICATION_SOUNDS) {
+              new Audio(NOTIFICATION_FILEPATH).play();
+            }
 
             setEntities((entities) =>
               [
