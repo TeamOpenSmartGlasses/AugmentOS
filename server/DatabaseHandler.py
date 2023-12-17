@@ -52,11 +52,11 @@ class DatabaseHandler:
 
     def init_insights_collections(self):
         self.results_db = self.client['results']
-        self.cse_results_collection = self.get_collection(self.results_db, 'cse_results')
-        self.agent_explicit_queries_collection = self.get_collection(self.results_db, 'agent_explicit_queries')
-        self.agent_explicit_insights_results_collection = self.get_collection(self.results_db, 'agent_explicit_insights_results')
-        self.agent_insights_results_collection = self.get_collection(self.results_db, 'agent_insights_results')
-        self.agent_proactive_definer_collection = self.get_collection(self.results_db, 'agent_proactive_definer_results')
+        self.cse_results_collection = self.get_collection(self.results_db, 'cse_results', wipe=clear_cache_on_start)
+        self.agent_explicit_queries_collection = self.get_collection(self.results_db, 'agent_explicit_queries', wipe=clear_cache_on_start)
+        self.agent_explicit_insights_results_collection = self.get_collection(self.results_db, 'agent_explicit_insights_results', wipe=clear_cache_on_start)
+        self.agent_insights_results_collection = self.get_collection(self.results_db, 'agent_insights_results', wipe=clear_cache_on_start)
+        self.agent_proactive_definer_collection = self.get_collection(self.results_db, 'agent_proactive_definer_results', wipe=clear_cache_on_start)
 
     def init_ratings_collection(self):
         self.ratings_db = self.client['ratings']
@@ -642,6 +642,8 @@ class DatabaseHandler:
         if res: return res
         res = self.agent_insights_results_collection.find_one(filter, {'_id': 0})
         if res: return res
+        res = self.agent_proactive_definer_collection.find_one(filter, {'_id': 0})
+        if res: return res
         return None
 
     def get_results_for_user_device(self, result_type, user_id, device_id, should_consume=True, include_consumed=False):
@@ -661,7 +663,7 @@ class DatabaseHandler:
                     self.add_consumed_result_id_for_user_device(
                         user_id, device_id, uuid)
                 result = self.get_result_from_uuid(uuid)
-                new_results.append(result)
+                if result is not None: new_results.append(result)
         return new_results
     
     def get_consumed_result_ids_for_user_device(self, user_id, device_id):

@@ -49,8 +49,10 @@ export const useUiUpdateBackendPoll = () => {
             const newProactiveDefinitions =
               (res.data.entity_definitions as Entity[]) || [];
 
-            console.log("THOSE DEFINS THO");
-            console.log(newProactiveDefinitions);
+            if (JSON.stringify(newProactiveDefinitions) == JSON.stringify([])) {
+              console.log("THOSE DEFINS THO");
+              console.log(newProactiveDefinitions);
+            }
 
             if (res.data.wake_word_time !== -1) {
               setIsExplicitListening(true);
