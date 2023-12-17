@@ -1,0 +1,38 @@
+{
+    "name": "Convoscope for YouTube",
+    "version": "1.0.0",
+    "side_panel": {
+        "default_path": "index.html"
+    },
+    "description": "Convoscope for YouTube",
+    "manifest_version": 3,
+    "author": "rick chuckleberg",
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "Convoscope for YouTube"
+    },
+    "permissions": [
+        "scripting",
+        "tabs",
+        "activeTab",
+        "sidePanel"
+    ],
+    "content_scripts": [
+        {
+            "js": [
+                "scriptf.js"
+            ],
+            
+            "matches": [
+                "https://*.youtube.com/*"
+            ]
+        }
+    ],
+    "host_permissions": [
+        "https://youtube.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    }
+}
