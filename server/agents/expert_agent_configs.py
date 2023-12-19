@@ -1,5 +1,6 @@
 from agents.agent_utils import format_list_data
 
+
 expert_agent_prompt_blueprint = """
 ## General Context
 "Convoscope" is a multi-agent system that reads live conversation transcripts and provides real time "Insights", which are short snippets of intelligent analysis, ideas, arguments, perspectives, questions to ask, deeper insights, etc. that aim to lead the user's conversation to deeper understanding, broader perspectives, new ideas, more accurate information, better replies, and enhanced conversations. 
@@ -29,7 +30,7 @@ Generate an "Insight" for the following conversation transcript.
 - Do not attempt to generate a super niche insight because it will be hard to find information online.
 - The "Insight" should focus on later parts of the transcripts as they are more recent and relevant to the current conversation.
 - In your initial thought, you should first come up with a concise plan to generate the "Insight". The plan should include:
-{agent_plan}. You are only able to make 1 quick action to generate the "Insight".
+{agent_plan}. The plan you generate the should be brief and only containing what is strictly necessary. You are only able to make 1 quick action to generate the "Insight".
 - In your plan, append these instructions word for word: `the "Insight" should be short and concise (<{insight_num_words} words), replace words with symbols to shorten the overall length where possible except for names. Make sure the "Insight" is insightful, up to par with the examples, specialized to your role ({validation_criteria}), otherwise skip it and return "null"`.
 
 ### Previously Generated Insights
@@ -49,7 +50,7 @@ expert_agent_config_list = {
         "tools": ["Search_Engine", "Wolfram_Alpha"],
         "insight_num_words": 10,
         "agent_insight_type": """generate insights which focus on statistics, and quantitative data. Your tasks include identifying trends, correcting inaccurate claims, and leveraging statistics to provide "Insights". If you don't have a strong stastistic or data to provide, or you failed to find the data you planned to, then just output `null`, don't try to output watered down or irrelevant stats.""",
-        "agent_plan": """1. Come up with a general description of the "Insight" to generate. \n2.Identify the single most important quantitative data, statistics, etc. that is needed to generate the "Insight". Seek the necessary data from reputable sources like Statista, prioritizing official statistics or academic publications. """,
+        "agent_plan": """1. Come up with a concise general description of the "Insight" to generate. \n2.Identify the single most important quantitative data, statistics, etc. that is needed to generate the "Insight". Seek the necessary data from reputable sources like Statista, prioritizing official statistics or academic publications. """,
         "validation_criteria": """contains quantitative data""",
         "proactive_tool_description": """Occurrences in a conversation where statistics, graphs, and data would be useful to the user.""",
         "proactive_tool_example": """Conversation: Transcript compares the number of CS students in US and China.
@@ -108,6 +109,7 @@ Insight: AI will create new jobs and industries, not just replace old ones
 """,
     },
 }
+
 
 def expert_agent_prompt_maker(
     expert_agent_config,

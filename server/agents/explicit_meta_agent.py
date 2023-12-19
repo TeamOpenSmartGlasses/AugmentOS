@@ -10,6 +10,7 @@ from Modules.LangchainSetup import *
 from helpers.time_function_decorator import time_function
 
 
+
 llm = get_langchain_gpt4()
 
 #explictly respond to user queries
@@ -26,7 +27,7 @@ This is the current live transcript of the conversation you're assisting:
 Now use your knowledge and/or tools (if needed) to answer the query to the best of your ability. Do not use your tools if you already know the answer to the query. The query may accidentally contain some extra speech at the end, you should ignore any noise and try to find the user's inteded query. Make your answer as concise and succinct as possible. Leave out filler words and redundancy to make the answer high entropy and as to-the-point as possible. Never answer with more than 240 characters, and try to make it even less than that. Most answers can be given in under 10 words.
 
 [Actions]
-Actions should ONLY be for using tools or returning the final answer. If you have a task to do yourself, don't put it in the "Action", just go ahead and do the taask.
+Actions should ONLY be for using tools or returning the final answer. If you have a task to do yourself, don't put it in the "Action", just go ahead and do the task.
 
 [Query]
 {query}

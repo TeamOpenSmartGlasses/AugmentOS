@@ -295,3 +295,4 @@ server/images/cse/
 server/package-lock.json
 server/helpers/credentials.json
 server/helpers/token.json
+.prettierrc
