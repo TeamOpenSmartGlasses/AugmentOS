@@ -18,6 +18,7 @@ def does_text_contain_wake_word(transcript):
     for term in explicit_wake_words:
         if term in transcript_low:
             return True
+
     return False
 
 
@@ -28,4 +29,5 @@ def get_explicit_query_from_transcript(transcript):
             index = transcript_low.rfind(term) + len(term)
             base_query = transcript_low[index:]
             return base_query.strip(punctuation).strip()
+
     return None
