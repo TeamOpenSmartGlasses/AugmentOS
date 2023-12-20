@@ -10,6 +10,12 @@ explicit_wake_words = [
 
     "hey mirror",
     "he mirror",
+
+    "hey miara",
+    "he miara",
+
+    "hey mia",
+    "he mia",
 ]
 
 
