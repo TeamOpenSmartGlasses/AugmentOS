@@ -10,6 +10,7 @@ from agents.search_tool_for_agents import asearch_google_knowledge_graph, search
 from Modules.LangchainSetup import *
 import asyncio
 
+
 proactive_rare_word_agent_prompt_blueprint = """
 # Objective
 Identify "Rare Entities" in a conversation transcript. These include rare words, phrases, jargons, adages, people, places, organizations, events etc that are not well known to the average high schooler, in accordance to current trends. You can also intelligently detect entities that are described in the conversation but not explicitly mentioned.
@@ -74,9 +75,11 @@ class ConversationEntities(BaseModel):
         default=[]
     )
 
+
 proactive_rare_word_agent_query_parser = PydanticOutputParser(
     pydantic_object=ConversationEntities
 )
+
 
 def run_proactive_definer_agent(
     conversation_context: str, definitions_history: list = []
@@ -125,6 +128,7 @@ def run_proactive_definer_agent(
         return res
     except OutputParserException:
         return None
+
 
 def search_entities(entities: list[Entity]):
     search_tasks = []

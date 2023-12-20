@@ -296,6 +296,7 @@ from google.cloud import enterpriseknowledgegraph as ekg
 from server_config import gcp_project_id
 from collections.abc import Sequence
 
+
 location = 'global'      # Values: 'global'
 languages = ['en']                    # Optional: List of ISO 639-1 Codes
 types = ['']                          # Optional: List of schema.org types to return
@@ -404,4 +405,5 @@ async def search_url_for_entity_async(query: str):
         tbs=tbs,
         search_type=search_type,
     )
+
     return extract_entity_url_and_image(results)

@@ -20,7 +20,8 @@ import asyncio
 
 from Modules.LangchainSetup import *
 
-#proactively decides which agents to run and runs them
+
+# proactively decides which agents to run and runs them
 proactive_meta_agent_prompt_blueprint = """You are the higly intelligent and skilled proactive master agent of "Convoscope". "Convoscope" is a tool that listens to a user's live conversation and enhances their conversation by providing them with real time "Insights". The "Insights" generated should aim to lead the user to deeper understanding, broader perspectives, new ideas, more accurate information, better replies, and enhanced conversations.
 
 [Your Objective]
@@ -40,9 +41,9 @@ Here are the insights that have been generated recently, you should not call the
 
 <Task start>You should now output a list of the expert agents you think should run. Feel free to specify no expert agents. {format_instructions}<Task end>"""
 
-# , but they're expensive to run, so only specify agents that will be helpful
 
-#generate expert agents as tools (each one has a search engine, later make the tools each agent has programmatic)
+# , but they're expensive to run, so only specify agents that will be helpful
+# generate expert agents as tools (each one has a search engine, later make the tools each agent has programmatic)
 def make_expert_agents_prompts():
     expert_agents_descriptions_prompt = str()
     expert_agents_list = list(expert_agent_config_list.values())
@@ -55,14 +56,13 @@ def make_expert_agents_prompts():
     return expert_agents_descriptions_prompt
 
 
-@time_function()
 def run_proactive_meta_agent_and_experts(conversation_context: str, insights_history: list):
     #run proactive agent to find out which expert agents we should run
     proactive_meta_agent_response = run_proactive_meta_agent(conversation_context, insights_history)
 
     # print(proactive_meta_agent_response)
 
-    #do nothing else if proactive meta agent didn't specify an agent to run
+    # do nothing else if proactive meta agent didn't specify an agent to run
     if proactive_meta_agent_response == []:
         return []
 
@@ -73,12 +73,12 @@ def run_proactive_meta_agent_and_experts(conversation_context: str, insights_his
 
     # print("insights_history_dict", insights_history_dict)
 
-    #get the configs of any expert agents we should run
+    # get the configs of any expert agents we should run
     experts_to_run_configs = list()
     for expert_to_run in proactive_meta_agent_response:
         experts_to_run_configs.append(expert_agent_config_list[expert_to_run])
 
-    #run all the agents in parralel
+    # run all the agents in parralel
     loop = asyncio.get_event_loop()
     agents_to_run_tasks = [expert_agent_arun_wrapper(expert_agent_config, conversation_context, insights_history_dict[expert_agent_config["agent_name"]]) for expert_agent_config in experts_to_run_configs]
     insights_tasks = asyncio.gather(*agents_to_run_tasks)
@@ -88,10 +88,10 @@ def run_proactive_meta_agent_and_experts(conversation_context: str, insights_his
 
 @time_function()
 def run_proactive_meta_agent(conversation_context: str, insights_history: list):
-    #get expert agents descriptions
+    # get expert agents descriptions
     expert_agents_descriptions_prompt = make_expert_agents_prompts()
 
-    #start up GPT4 connection
+    # start up GPT4 connection
     llm = get_langchain_gpt4(temperature=0.2)
 
     class ProactiveMetaAgentQuery(BaseModel):
@@ -129,4 +129,3 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list):
         return expert_agents_to_run_list
     except OutputParserException:
         return None
-

@@ -7,6 +7,7 @@ import uuid
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_definer_agent import run_proactive_definer_agent
 
+
 def proactive_definer_processing_loop():
     print("START DEFINER PROCESSING LOOP")
     dbHandler = DatabaseHandler(parent_handler=False)
