@@ -21,7 +21,7 @@ from aiohttp import web, web_exceptions
 
 #Convoscope
 from server_config import server_port
-from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH
+from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH, USER_STUDY
 from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_agents_process import proactive_agents_processing_loop
@@ -31,12 +31,14 @@ from agents.proactive_definer_agent_process import proactive_definer_processing_
 import agents.wake_words
 from Modules.RelevanceFilter import RelevanceFilter
 
+
 global agent_executor
 global db_handler
 global relevance_filter
 global app
 
-#handle new transcripts coming in
+
+# handle new transcripts coming in
 async def chat_handler(request):
     start_time = time.time()
 
@@ -109,7 +111,7 @@ def cse_loop():
     relevance_filter = RelevanceFilter(db_handler=db_handler)
     cse = ContextualSearchEngine(db_handler=db_handler)
 
-    #then run the main loop
+    # then run the main loop
     while True:
         if not db_handler.ready:
             print("db_handler not ready")
@@ -118,6 +120,9 @@ def cse_loop():
 
         loop_start_time = time.time()
         p_loop_start_time = time.time()
+
+        if USER_STUDY: # we don't want to run CSE for user study
+            continue
 
         try:
             p_loop_start_time = time.time()
@@ -138,9 +143,9 @@ def cse_loop():
 
                 cse_end_time = time.time()
                 # print("=== CSE completed in {} seconds ===".format(
-                #     round(cse_end_time - cse_start_time, 2)))
+                # round(cse_end_time - cse_start_time, 2)))
 
-                #filter responses with relevance filter, then save CSE results to the database
+                # filter responses with relevance filter, then save CSE results to the database
                 cse_responses_filtered = list()
                 if cse_responses:
                     cse_responses_filtered = relevance_filter.should_display_result_based_on_context(
@@ -153,22 +158,25 @@ def cse_loop():
                     db_handler.add_cse_results_for_user(
                         transcript["user_id"], final_cse_responses
                     )
+
         except Exception as e:
             cse_responses = None
             print("Exception in CSE...:")
             print(e)
             traceback.print_exc()
+
         finally:
             p_loop_end_time = time.time()
             # print("=== processing_loop completed in {} seconds overall ===".format(
             #     round(p_loop_end_time - p_loop_start_time, 2)))
 
-        loop_run_period = 1.5 #run the loop this often
-        while (time.time() - loop_start_time) < loop_run_period: #wait until loop_run_period has passed before running this again
+        loop_run_period = 1.5 # run the loop this often
+
+        while (time.time() - loop_start_time) < loop_run_period: # wait until loop_run_period has passed before running this again
             time.sleep(0.2)
 
 
-#frontends poll this to get the results from our processing of their transcripts
+# frontends poll this to get the results from our processing of their transcripts
 async def ui_poll_handler(request, minutes=0.5):
     # parse request
     body = await request.json()
@@ -225,7 +233,7 @@ async def ui_poll_handler(request, minutes=0.5):
     return web.Response(text=json.dumps(resp), status=200)
 
 
-#return images that we generated and gave frontends a URL for
+# return images that we generated and gave frontends a URL for
 async def return_image_handler(request):
     requested_img = request.rel_url.query['img']
     img_path = Path(IMAGE_PATH).joinpath(requested_img)
@@ -271,25 +279,25 @@ async def upload_user_data_handler(request):
 
 async def expert_agent_runner(expert_agent_name, user_id):
     print("Starting agent run task of agent {} for user {}".format(expert_agent_name, user_id))
-    #get the context for the last n minutes
+    # get the context for the last n minutes
     n_seconds = 5*60
     convo_context = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n_seconds)
 
-    #get the most recent insights for this user
+    # get the most recent insights for this user
     insights_history = db_handler.get_agent_insights_history_for_user(user_id)
     insights_history = [insight["insight"] for insight in insights_history]
 
-    #spin up the agent
+    # spin up the agent
     agent_insight = await arun_single_expert_agent(expert_agent_name, convo_context, insights_history)
 
-    #save this insight to the DB for the user
+    # save this insight to the DB for the user
     if agent_insight != None and agent_insight["agent_insight"] != None:
         db_handler.add_agent_insight_result_for_user(user_id, agent_insight["agent_name"], agent_insight["agent_insight"], agent_insight["reference_url"])
 
     #agent run complete
     print("--- Done agent run task of agent {} from user {}".format(expert_agent_name, user_id))
 
-#run a single agent with no extra context
+# run a single agent with no extra context
 async def run_single_expert_agent_handler(request):
     body = await request.json()
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
@@ -308,16 +316,16 @@ async def run_single_expert_agent_handler(request):
 
     #spin up agent
     asyncio.ensure_future(expert_agent_runner(agent_name, user_id))
-    #loop = asyncio.get_event_loop()
-    #loop.create_task(expert_agent_runner(agent_name, user_id))  # Non-blocking
-    #loop.run_in_executor(executor, run_single_agent)
+    # loop = asyncio.get_event_loop()
+    # loop.create_task(expert_agent_runner(agent_name, user_id))  # Non-blocking
+    # loop.run_in_executor(executor, run_single_agent)
 
     print("Spun up agent, now returning.")
 
     return web.Response(text=json.dumps({'success': True, 'message': "Running agent: {}".format(agent_name)}), status=200)
 
 
-#receive a chat message manually typed in the agent chat box
+# receive a chat message manually typed in the agent chat box
 async def send_agent_chat_handler(request):
     body = await request.json()
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
@@ -419,7 +427,7 @@ if __name__ == '__main__':
     print("Running web server...")
     web.run_app(app, port=server_port)
 
-    #let processes finish and join
+    # let processes finish and join
     proactive_agents_background_process.join()
     intelligent_definer_agent_process.join()
     cse_process.join()
