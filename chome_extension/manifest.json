@@ -8,7 +8,7 @@
     "manifest_version": 3,
     "author": "rick chuckleberg",
     "action":{
-        "default_popup": "index.html",
+        
         "default_title": "Convoscope for YouTube"
     },
     "permissions": [
@@ -19,17 +19,13 @@
     ],
     "content_scripts": [
         {
-            "js": [
-                "scriptf.js"
-            ],
-            
-            "matches": [
-                "https://*.youtube.com/*"
-            ]
-        }
+            "matches": ["https://*/*"],
+            "js": ["sidebar.js"],
+            "css": ["style.css"]
+          }
     ],
     "host_permissions": [
-        "https://youtube.com/*"
+        "https://*.youtube.com/*"
     ],
     "background": {
         "service_worker": "background.js",

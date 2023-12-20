@@ -1,5 +1,8 @@
-var backendUrl = "http://localhost:8080";
-var chatEndpoint = backendUrl + "/chat"
+import { backendUrl, chatEndpoint } from './constants.js'
+
+chrome.sidePanel
+  .setPanelBehavior({ openPanelOnActionClick: true })
+  .catch((error) => console.error(error));
 
 function sendTranscriptToConvoscope(transcript) {
   
@@ -42,6 +45,7 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
           previousYtTranscript = message.data;
         }  
     }
+    return true;
 });
 
 // Maybe fetch new YT Transcripts
@@ -49,6 +53,7 @@ setInterval(() => {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     let activeTab = tabs[0];
 
+    if (!activeTab) return;
     if (activeTab.url && activeTab.url.indexOf("youtube.com/watch?v=") == -1) return;
 
     chrome.scripting.executeScript({
