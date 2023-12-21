@@ -73,6 +73,7 @@ const ReferenceCard = ({
   onClick,
   large = false,
   pointer = false,
+  showLabel,
 }: ReferenceCardProps) => {
   const theme = useMantineTheme();
 
@@ -98,6 +99,7 @@ const ReferenceCard = ({
       }
       agentName={AGENT_ICON_NAMES[entity.agent_name ?? AgentName.DEFINER]}
       agentIconSrc={AGENT_ICON_PATHS[entity.agent_name ?? AgentName.DEFINER]}
+      showLabel={showLabel}
     >
       <Box sx={{ float: "right" }}>
         <ThumbButtons entity={entity} />
@@ -118,7 +120,6 @@ const ReferenceCard = ({
           ? `${entity.name}: ${entity.summary}`
           : entity.agent_insight}
       </Text>
-      {/* make label stick to bottom-right corner */}
     </CardWrapper>
   );
 };
