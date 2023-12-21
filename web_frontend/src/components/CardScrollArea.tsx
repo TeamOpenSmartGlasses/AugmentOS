@@ -9,6 +9,7 @@ import {
   selectedCardIdState,
 } from "../recoil";
 import { useRecoilState, useRecoilValue } from "recoil";
+import { IS_STUDY } from "../constants";
 
 const CardScrollArea = () => {
   const entities = useRecoilValue(entitiesState);
@@ -48,7 +49,7 @@ const CardScrollArea = () => {
                 }}
                 large={i === 0 && !isExplicitListening}
                 pointer={entity.url !== undefined}
-                showLabel={false}
+                showLabel={!IS_STUDY}
               />
             </Collapse>
           ))}
