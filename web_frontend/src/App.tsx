@@ -5,10 +5,12 @@ import { useUiUpdateBackendPoll } from "./hooks/useUiUpdateBackendPoll";
 import { generateRandomUserId, setUserIdAndDeviceId } from "./utils/utils";
 import Cookies from "js-cookie";
 import StudyLayout from "./layouts/StudyLayout";
+import { useTrackTabChange } from "./hooks/useTrackTabChange";
 
 export default function App() {
   useTranscription();
   useUiUpdateBackendPoll();
+  useTrackTabChange();
 
   useEffect(() => {
     let userId = Cookies.get("userId");

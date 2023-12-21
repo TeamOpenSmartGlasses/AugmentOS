@@ -58,6 +58,11 @@ export const showExplorePaneValue = selector<boolean>({
 });
 
 export const videoTimeAtom = atom<undefined | number>({
-  key: "videoTiem",
+  key: "videoTime",
   default: undefined,
+});
+
+export const tabChangeCountAtom = atom<number>({
+  key: "tabChangeCount",
+  default: 0,
 });
