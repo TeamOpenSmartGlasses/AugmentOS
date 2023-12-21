@@ -1,5 +1,4 @@
 import {
-  ScrollArea,
   Flex,
   Stack,
   ActionIcon,
@@ -13,24 +12,26 @@ import {
   Image,
   Transition,
 } from "@mantine/core";
-import { Collapse } from "@material-ui/core";
 import {
   IconLayoutSidebarRightCollapse,
   IconLayoutSidebarRightExpand,
 } from "@tabler/icons-react";
 import { motion } from "framer-motion";
-import { TransitionGroup } from "react-transition-group";
 import { GAP_VH } from "../components/CardWrapper";
-import ExplicitCard from "../components/ExplicitCard";
 import ExplorePane from "../components/ExplorePane";
-import ReferenceCard from "../components/ReferenceCard";
 import SettingsModal from "../components/SettingsModal";
 import Sidebar from "../components/Sidebar";
-import { useRecoilValue } from "recoil";
-import { entitiesState, isExplicitListeningState } from "../recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import {
+  entitiesState,
+  isExplicitListeningState,
+  selectedCardIdState,
+  showExplorePaneValue,
+} from "../recoil";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { useState } from "react";
 import { setUserIdAndDeviceId } from "../utils/utils";
+import CardScrollArea from "../components/CardScrollArea";
 
 // animate-able components for framer-motion
 // https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
@@ -59,9 +60,8 @@ const MainLayout = () => {
 
   const entities = useRecoilValue(entitiesState);
   const isExplicitListening = useRecoilValue(isExplicitListeningState);
-  const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
-  const [showExplorePane, setShowExplorePane] = useState(false);
-  const [selectedCardId, setSelectedCardId] = useState<string | undefined>();
+  const showExplorePane = useRecoilValue(showExplorePaneValue);
+  const setSelectedCardId = useSetRecoilState(selectedCardIdState);
   const [loadingViewMore, setLoadingViewMore] = useState(false);
 
   const [opened, { open: openSettings, close: closeSettings }] =
@@ -96,49 +96,7 @@ const MainLayout = () => {
             </Box>
           )}
           {/* Left Panel */}
-          <ScrollArea scrollHideDelay={100} h="100%" type="never">
-            <TransitionGroup>
-              {isExplicitListening && (
-                <Collapse timeout={800}>
-                  <ExplicitCard />
-                </Collapse>
-              )}
-              {entities
-                .filter((e) => {
-                  if (e == null || e == undefined) {
-                    console.log("NULL ENTITY FOUND");
-                    return false;
-                  }
-                  return true;
-                })
-                .slice(0)
-                .reverse()
-                .map((entity, i) => (
-                  <Collapse key={`entity-${entity.uuid}`} timeout={800}>
-                    <ReferenceCard
-                      entity={entity}
-                      selected={
-                        selectedCardId === entity.uuid && !isExplicitListening
-                      }
-                      onClick={() => {
-                        setSelectedCardId(
-                          entity.uuid === selectedCardId
-                            ? undefined
-                            : entity.uuid
-                        );
-                        setViewMoreUrl(entity.url);
-                        setShowExplorePane(
-                          entity.url !== undefined &&
-                            entity.uuid !== selectedCardId
-                        );
-                      }}
-                      large={i === 0 && !isExplicitListening}
-                      pointer={entity.url !== undefined}
-                    />
-                  </Collapse>
-                ))}
-            </TransitionGroup>
-          </ScrollArea>
+          <CardScrollArea />
         </PContainer>
 
         <PContainer
@@ -154,11 +112,15 @@ const MainLayout = () => {
               <Stack align="center" w="3rem">
                 <ActionIcon
                   onClick={() => {
-                    setShowExplorePane(!showExplorePane);
-                    setSelectedCardId(undefined);
+                    setSelectedCardId((prevState) =>
+                      prevState === undefined
+                        ? entities.at(-1)?.uuid
+                        : undefined
+                    );
                   }}
                   size={rem(25)}
                   mt="sm"
+                  disabled={entities.at(-1)?.url === undefined}
                 >
                   {showExplorePane ? (
                     <IconLayoutSidebarRightCollapse />
@@ -179,7 +141,6 @@ const MainLayout = () => {
                   style={{ ...styles, height: "100%", width: "100%" }}
                 >
                   <ExplorePane
-                    viewMoreUrl={viewMoreUrl}
                     loading={loadingViewMore}
                     setLoading={setLoadingViewMore}
                   />
