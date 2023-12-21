@@ -14,10 +14,15 @@ import {
 import { motion } from "framer-motion";
 import { GAP_VH } from "../components/CardWrapper";
 import ExplorePane from "../components/ExplorePane";
-import { useRecoilValue } from "recoil";
-import { entitiesState, isExplicitListeningState } from "../recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
+import {
+  entitiesState,
+  isExplicitListeningState,
+  videoTimeAtom,
+} from "../recoil";
 import { useRef, useState } from "react";
 import CardScrollArea from "../components/CardScrollArea";
+import { VIDEO_SRC } from "../constants";
 
 // animate-able components for framer-motion
 // https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
@@ -47,7 +52,7 @@ const StudyLayout = () => {
   const entities = useRecoilValue(entitiesState);
   const isExplicitListening = useRecoilValue(isExplicitListeningState);
   const [loadingViewMore, setLoadingViewMore] = useState(false);
-  const [time, setTime] = useState<number | undefined>();
+  const [time, setTime] = useRecoilState(videoTimeAtom);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
@@ -82,7 +87,7 @@ const StudyLayout = () => {
         >
           <Stack sx={{ height: "100%", width: "100%" }}>
             <video
-              src="/Convoscope_Smart_Glasses_Intelligence_Tools.mp4"
+              src={VIDEO_SRC}
               width="100%"
               ref={videoRef}
               onTimeUpdate={() => setTime(videoRef.current?.currentTime)}
@@ -91,10 +96,10 @@ const StudyLayout = () => {
               <Button
                 onClick={() => videoRef.current?.play()}
                 variant="default"
+                fullWidth
               >
-                Start
+                {time === undefined ? "Start" : `current time: ${time} seconds`}
               </Button>
-              current time: {time} seconds
             </Group>
             <ExplorePane
               loading={loadingViewMore}

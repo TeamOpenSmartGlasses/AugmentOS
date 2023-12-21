@@ -1,5 +1,6 @@
 import { atom, selector } from "recoil";
 import { Entity, Insight } from "./types";
+import { mockEntities } from "./mockData";
 
 export const isExplicitListeningState = atom<boolean>({
   key: "isExplicitListening",
@@ -18,7 +19,10 @@ export const isRecognizingState = atom<boolean>({
   default: true,
 });
 
-export const entitiesState = atom<Entity[]>({ key: "entities", default: [] });
+export const entitiesState = atom<Entity[]>({
+  key: "entities",
+  default: mockEntities,
+});
 
 export const explicitInsightsState = atom<Insight[]>({
   key: "explicitInsights",
@@ -51,4 +55,9 @@ export const showExplorePaneValue = selector<boolean>({
   get: ({ get }) => {
     return get(explorePaneUrlValue) !== undefined;
   },
+});
+
+export const videoTimeAtom = atom<undefined | number>({
+  key: "videoTiem",
+  default: undefined,
 });
