@@ -14,15 +14,17 @@ import {
 import { motion } from "framer-motion";
 import { GAP_VH } from "../components/CardWrapper";
 import ExplorePane from "../components/ExplorePane";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import axiosClient from "../axiosConfig";
 import {
   entitiesState,
   isExplicitListeningState,
   videoTimeAtom,
 } from "../recoil";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import CardScrollArea from "../components/CardScrollArea";
 import { VIDEO_SRC } from "../constants";
+import { LOAD_RECORDING_ENDPOINT } from "../serverEndpoints";
 
 // animate-able components for framer-motion
 // https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
@@ -46,14 +48,57 @@ const useStyles = createStyles({
   },
 });
 
+// Get the recording from the backend and store the prerecorded entities in `results`
+let results:any[] = []
+const getDefinitionsFromBackend = (videoId: string) => {
+  if (!videoId) return;
+
+  let payload = {
+    "recordingName": videoId
+  }
+
+  axiosClient
+    .post(LOAD_RECORDING_ENDPOINT, payload)
+    .then((res: any) => {
+      results = res.data;
+    })
+    .catch(function (error: any) {
+      console.error(error);
+    });
+};
+
+let videoName = VIDEO_SRC.substring(0, VIDEO_SRC.indexOf("."));
+console.log(videoName)
+getDefinitionsFromBackend(videoName)
+
+let resultDisplayIndex = 0;
 const StudyLayout = () => {
   const { classes } = useStyles();
 
   const entities = useRecoilValue(entitiesState);
+  const setEntities = useSetRecoilState(entitiesState);
   const isExplicitListening = useRecoilValue(isExplicitListeningState);
   const [loadingViewMore, setLoadingViewMore] = useState(false);
   const [time, setTime] = useRecoilState(videoTimeAtom);
   const videoRef = useRef<HTMLVideoElement>(null);
+  
+  useEffect(() => {
+    if(results.length == 0) return;
+    if(resultDisplayIndex >= results.length) return;
+
+    if (time > results[resultDisplayIndex]['time_since_recording_start']){
+      setEntities((entities: any) =>
+              [
+                ...entities,
+                results[resultDisplayIndex]
+              ].filter((e) => {
+                return (!(e == null || e == undefined))
+              })
+            );
+      resultDisplayIndex += 1;
+    }
+    return () => {};
+  }, [time]);
 
   return (
     <>
