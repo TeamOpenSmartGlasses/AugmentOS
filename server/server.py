@@ -105,6 +105,20 @@ async def save_recording_handler(request):
     # return web.Response(text=json.dumps({'success': True, 'message': recording}), status=200)
 
 
+async def load_recording_handler(request):
+    body = await request.json()
+    recording_name = body.get('recordingName')
+    
+    if recording_name is None or recording_name == '':
+        print("recording_name none in chat_handler, exiting with error response 400.")
+        return web.Response(text='no recordingName in request', status=400)
+    
+    file_path = 'recordings/{}.json'.format(recording_name)
+    return web.FileResponse(file_path, headers={
+        'Content-Disposition': 'Attachment;filename={}.json'.format(recording_name)
+    })
+    # return web.Response(text=json.dumps({'success': True, 'mess
+
 # runs when button is pressed on frontend - right now button ring on wearable or button in TPA
 async def button_handler(request):
     body = await request.json()
@@ -437,7 +451,8 @@ if __name__ == '__main__':
             web.post('/send_agent_chat', send_agent_chat_handler),
             web.post('/rate_result', rate_result_handler),
             web.post('/start_recording', start_recording_handler),
-            web.post('/save_recording', save_recording_handler)
+            web.post('/save_recording', save_recording_handler),
+            web.post('/load_recording', load_recording_handler)
         ]
     )
     cors = aiohttp_cors.setup(app, defaults={
