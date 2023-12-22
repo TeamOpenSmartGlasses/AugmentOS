@@ -50,8 +50,8 @@ export const useUiUpdateBackendPoll = () => {
               (res.data.entity_definitions as Entity[]) || [];
 
             if (JSON.stringify(newProactiveDefinitions) == JSON.stringify([])) {
-              console.log("THOSE DEFINS THO");
-              console.log(newProactiveDefinitions);
+              //console.log("THOSE DEFINS THO");
+              //console.log(newProactiveDefinitions);
             }
 
             if (res.data.wake_word_time !== -1) {
