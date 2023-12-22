@@ -107,6 +107,7 @@ class DatabaseHandler:
                  "latest_intermediate_transcript": self.empty_transcript,
                  "final_transcripts": [],
                  "last_wake_word_time": -1,
+                 "last_recording_start_time": -1,
                  "cse_consumed_transcript_id": -1,
                  "cse_consumed_transcript_idx": 0, 
                  "transcripts": [], 
@@ -393,12 +394,52 @@ class DatabaseHandler:
 
         return output.strip()
 
+    ### RECORDING ###
+
+    def update_recording_time_for_user(self, user_id):
+        self.create_user_if_not_exists(user_id)
+        current_time = time.time()
+
+        # Only update if the time is -1
+        query_condition = {
+            "user_id": user_id, 
+            '$or': [ {'last_recording_start_time': -1} ]
+        }
+
+        update = {"$set": {"last_recording_start_time": current_time}}
+        
+        result = self.user_collection.update_one(query_condition, update)
+        return True if result.modified_count else False
+
+
+    def reset_recording_time_for_user(self, user_id):
+        old_recording_time = self.get_user(user_id)['last_recording_start_time']
+        filter = {"user_id": user_id}
+        update = {"$set": {"last_recording_start_time": -1}}
+        self.user_collection.update_one(filter=filter, update=update)
+        return old_recording_time
+
+    def save_recording(self, user_id, recording_name):
+        print("Saving recording")
+        old_recording_time = self.reset_recording_time_for_user(user_id)
+        if old_recording_time == -1: return []
+
+        results_timeframe = time.time() - old_recording_time
+        results = self.get_defined_terms_from_last_nseconds_for_user_device(user_id, results_timeframe)
+        for r in results:
+            time_since_recording_start = r['timestamp'] - old_recording_time
+            r['time_since_recording_start'] = time_since_recording_start
+        return results
+
+
+        # TODO: Save to database here?
+        print("Recording saved: " + recording_name)
+
     ### WAKE WORDS ###
 
-    def update_wake_word_time_for_user(self, user_id, timestamp):
+    def update_wake_word_time_for_user(self, user_id):
         self.create_user_if_not_exists(user_id)
-        # print("UPDATE WW TIME")
-        current_time = timestamp
+        current_time = time.time()
 
         # Only update if we haven't already noted a wake word within the last 2 seconds, OR if the time is -1
         query_condition = {
@@ -431,7 +472,7 @@ class DatabaseHandler:
 
     def check_for_wake_words_in_transcript_text(self, user_id, text):
         if agents.wake_words.does_text_contain_wake_word(text):
-            return self.update_wake_word_time_for_user(user_id, time.time())
+            return self.update_wake_word_time_for_user(user_id)
         return False
 
     ### Explicit Queries ###
