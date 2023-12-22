@@ -17,7 +17,9 @@ function sendMessageToServiceWorker(message) {
 }
 
 function loadConvoscope(){
-   var convoscopeFrame = document.getElementById("convoscopeFrame");
+   //if (isConvoscopeRunning()) return;
+
+   let convoscopeFrame = document.getElementById("convoscopeFrame");
    convoscopeFrame.src = frontendUrl;
    convoscopeFrame.style.display = "block";
 
@@ -27,12 +29,22 @@ function loadConvoscope(){
         console.log('Received response:', response);
         alert("hi")
     });
+
+    // also start recording
 }
 
 function stopConvoscope(){
-    var convoscopeFrame = document.getElementById("convoscopeFrame");
+    //if (!isConvoscopeRunning()) return;
+
+    let convoscopeFrame = document.getElementById("convoscopeFrame");
     convoscopeFrame.src = "";
     convoscopeFrame.style.display = "none";
+}
+
+function isConvoscopeRunning(){
+    let convoscopeFrame = document.getElementById("convoscopeFrame");
+    if (convoscopeFrame == null || convoscopeFrame.src.length < 2) return false;
+    return true;
 }
 
 document.addEventListener('DOMContentLoaded', function () {
