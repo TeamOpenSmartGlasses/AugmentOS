@@ -1,18 +1,16 @@
-import {
-  ActionIcon,
-  Skeleton,
-  Tooltip,
-  Text,
-} from "@mantine/core";
+import { ActionIcon, Skeleton, Tooltip, Text } from "@mantine/core";
 import { IconArrowUp } from "@tabler/icons-react";
+import { explorePaneUrlValue } from "../recoil";
+import { useRecoilValue } from "recoil";
 
 interface ExplorePaneProps {
-  viewMoreUrl: string | undefined;
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ExplorePane = ({ viewMoreUrl, loading, setLoading }: ExplorePaneProps) => {
+const ExplorePane = ({ loading, setLoading }: ExplorePaneProps) => {
+  const viewMoreUrl = useRecoilValue(explorePaneUrlValue);
+
   const handleLoad = () => {
     setLoading(false);
   };
