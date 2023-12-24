@@ -69,7 +69,8 @@ def run_proactive_meta_agent_and_experts(conversation_context: str, insights_his
     #parse insights history into a dict of agent_name: [agent_insights] so expert agent won't repeat the same insights
     insights_history_dict = defaultdict(list)
     for insight in insights_history:
-        insights_history_dict[insight["agent_name"]].append(insight["insight"])
+        insights_history_dict[insight["agent_name"]].append(
+            insight["agent_insight"])
 
     # print("insights_history_dict", insights_history_dict)
 
