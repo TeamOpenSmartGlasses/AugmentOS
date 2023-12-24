@@ -415,7 +415,7 @@ async def search_url_for_entity_async(query: str):
             search_type="search",
         ))
 
-        image_search_task = None if "definition" in query else asyncio.create_task(serper_search_async(
+        image_search_task = asyncio.create_task(serper_search_async(
             search_term=query,
             gl=gl,
             hl=hl,
@@ -424,9 +424,7 @@ async def search_url_for_entity_async(query: str):
             search_type="images",
         ))
 
-        tasks = [search_task]
-        if image_search_task:
-            tasks.append(image_search_task)
+        tasks = [search_task, image_search_task]
 
         search_results, image_results = await asyncio.gather(*tasks)
         
