@@ -47,3 +47,8 @@ export interface TranscriptionState {
   isRecognizing: boolean;
   transcriptStartIdx: number;
 }
+
+export type TabChange = {
+  leaveTime: Date;
+  returnTime: Date;
+};

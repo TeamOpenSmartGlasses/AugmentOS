@@ -35,6 +35,7 @@ export interface CardWrapperProps {
   imageSrc?: string;
   agentName: string;
   agentIconSrc: string;
+  showLabel?: boolean;
 }
 
 export const LARGE_CARD_VH = 36;
@@ -50,6 +51,7 @@ const CardWrapper = ({
   imageSrc,
   agentName,
   agentIconSrc,
+  showLabel = true,
 }: PropsWithChildren<CardWrapperProps>) => {
   const { classes } = useStyles();
   const theme = useMantineTheme();
@@ -119,22 +121,25 @@ const CardWrapper = ({
         )}
         <Box p={"lg"} h="100%" w="100%" sx={{ flex: "10 1 0" }}>
           {children}
-          <Group p="lg" sx={{ bottom: 0, right: 0, position: "absolute" }}>
-            <Text
-              transform="uppercase"
-              fw="bold"
-              size={"2vh"}
-              sx={{ letterSpacing: "0.1vh" }}
-            >
-              {agentName}
-            </Text>
-            <Image
-              src={agentIconSrc}
-              height={large ? "5vh" : "4vh"}
-              width={large ? "5vh" : "4vh"}
-              radius="md"
-            />
-          </Group>
+          {/* make label stick to bottom-right corner */}
+          {showLabel && (
+            <Group p="lg" sx={{ bottom: 0, right: 0, position: "absolute" }}>
+              <Text
+                transform="uppercase"
+                fw="bold"
+                size={"2vh"}
+                sx={{ letterSpacing: "0.1vh" }}
+              >
+                {agentName}
+              </Text>
+              <Image
+                src={agentIconSrc}
+                height={large ? "5vh" : "4vh"}
+                width={large ? "5vh" : "4vh"}
+                radius="md"
+              />
+            </Group>
+          )}
         </Box>
       </Flex>
     </Card>
