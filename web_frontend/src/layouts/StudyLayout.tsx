@@ -50,7 +50,22 @@ const useStyles = createStyles({
 
 // Get the recording from the backend and store the prerecorded entities in `results`
 let results:any[] = []
-const getDefinitionsFromBackend = (videoId: string) => {
+
+const getRecordingFromPublicFolder = (videoId: string) =>{
+  fetch(`/${videoId}.json`)
+      .then(response => response.json())
+      .then(jsonData => {
+        results = jsonData;
+        return true;
+      })
+      .catch(error => {
+        console.error('Error fetching the JSON file:', error);
+        return false;
+      });
+  return false;
+}
+
+const getRecordingFromBackend = (videoId: string) => {
   if (!videoId) return;
 
   let payload = {
@@ -69,7 +84,9 @@ const getDefinitionsFromBackend = (videoId: string) => {
 
 let videoName = VIDEO_SRC.substring(0, VIDEO_SRC.indexOf("."));
 console.log(videoName)
-getDefinitionsFromBackend(videoName)
+if (!getRecordingFromPublicFolder(videoName)){
+  getRecordingFromBackend(videoName)
+}
 
 let resultDisplayIndex = 0;
 const StudyLayout = () => {

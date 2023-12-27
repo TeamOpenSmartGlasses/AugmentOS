@@ -1,0 +1,18 @@
+[
+    {
+      "name": "CONVOSCOPE VID: Test entity that triggers at 2 sec",
+      "summary": "A technology company specializing in AI and machine learning solutions.",
+      "url": "https://www.oriontech.com",
+      "timestamp": 1672540800,
+      "uuid": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      "time_since_recording_start": 2
+    },
+    {
+      "name": "CONVOSCOPE VID: Test entity that triggers at 5 sec",
+      "summary": "An organization promoting sustainable gardening and eco-friendly practices.",
+      "url": "https://www.greengardens.org",
+      "timestamp": 1672605200,
+      "uuid": "d3dc33ae-e4f8-4f73-9386-7bca3a4f0f3a",
+      "time_since_recording_start": 5
+    }
+  ]
