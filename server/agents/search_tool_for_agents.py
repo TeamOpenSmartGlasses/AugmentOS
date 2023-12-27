@@ -368,40 +368,69 @@ async def asearch_google_knowledge_graph(
     
     return response
 
+import requests
+
+def can_embed_url(url: str):
+    response = requests.head(url)
+
+    # Check the headers for 'X-Frame-Options' or 'Content-Security-Policy'
+    x_frame_options = response.headers.get('X-Frame-Options')
+    csp = response.headers.get('Content-Security-Policy')
+
+    return not (x_frame_options or ('frame-ancestors' in csp if csp else False))
 
 # definer url search tool
-def extract_entity_url_and_image(results: dict):
+def extract_entity_url_and_image(search_results: dict, image_results: dict):
     # Only get the first top url and image_url
     res = {}
-    if results.get("knowledgeGraph"):
-        result = results.get("knowledgeGraph", {})
+    if search_results.get("knowledgeGraph"):
+        result = search_results.get("knowledgeGraph", {})
         if result.get("descriptionSource") == "Wikipedia":
             ref_url = result.get("descriptionLink")
             res["url"] = ref_url
-        if result.get("imageUrl"):
-            image_url = result.get("imageUrl")
-            res["image_url"] = image_url
-    if "url" in res and "image_url" in res:
-        return res
 
-    for result in results[result_key_for_type[search_type]][:k]:
-        if "url" not in res and result.get("link"):
+    for result in search_results[result_key_for_type["search"]][:k]:
+        if "url" not in res and result.get("link") and can_embed_url(result.get("link")):
             res["url"] = result.get("link")
+            break
+
+    if image_results is None:
+        return res
+    
+    for result in image_results[result_key_for_type["images"]][:k]:
         if "image_url" not in res and result.get("imageUrl"):
             res["image_url"] = result.get("imageUrl")
+            break
 
-        if "url" in res and "image_url" in res:
-            return res
     return res
 
-
 async def search_url_for_entity_async(query: str):
-    results = await serper_search_async(
-        search_term=query,
-        gl=gl,
-        hl=hl,
-        num=k,
-        tbs=tbs,
-        search_type=search_type,
-    )
-    return extract_entity_url_and_image(results)
+    async def inner_search(query:str): 
+        search_task = asyncio.create_task(serper_search_async(
+            search_term=query,
+            gl=gl,
+            hl=hl,
+            num=k,
+            tbs=tbs,
+            search_type="search",
+        ))
+
+        image_search_task = asyncio.create_task(serper_search_async(
+            search_term=query,
+            gl=gl,
+            hl=hl,
+            num=k,
+            tbs=tbs,
+            search_type="images",
+        ))
+
+        tasks = [search_task, image_search_task]
+
+        search_results, image_results = await asyncio.gather(*tasks)
+        
+        return extract_entity_url_and_image(search_results, image_results)
+    
+    res = await inner_search(query)
+    if "url" not in res:
+        res = await inner_search(query + " wiki") # fallback search using wiki
+    return res
