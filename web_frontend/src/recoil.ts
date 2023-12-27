@@ -1,5 +1,5 @@
 import { atom, selector } from "recoil";
-import { Entity, Insight } from "./types";
+import { Entity, Insight, TabChange } from "./types";
 import { mockEntities } from "./mockData";
 
 export const isExplicitListeningState = atom<boolean>({
@@ -62,7 +62,7 @@ export const videoTimeAtom = atom<undefined | number>({
   default: undefined,
 });
 
-export const tabChangeCountAtom = atom<number>({
-  key: "tabChangeCount",
-  default: 0,
+export const tabChangesAtom = atom<TabChange[]>({
+  key: "tabChanges",
+  default: [],
 });

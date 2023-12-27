@@ -11,16 +11,16 @@ import { IS_STUDY } from "./constants";
 
 export default function App() {
   useEffect(() => {
-    let search = window.location.search;
-    let params = new URLSearchParams(search);
-    let userId = params.get('userId');
+    const search = window.location.search;
+    const params = new URLSearchParams(search);
+    let userId: string | null | undefined = params.get("userId");
 
-    if (userId == undefined || userId == null || userId == "") {
+    if (!userId) {
       console.log("No userID in URL - checking for existing userID");
       userId = Cookies.get("userId");
     }
 
-    if (userId == undefined || userId == null || userId == "") {
+    if (!userId) {
       console.log("No userID detected - generating random userID");
       userId = generateRandomUserId();
     } else {

@@ -1,14 +1,20 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSetRecoilState } from "recoil";
-import { tabChangeCountAtom } from "../recoil";
+import { tabChangesAtom } from "../recoil";
 
 export const useTrackTabChange = () => {
-  const setTabChangeCount = useSetRecoilState(tabChangeCountAtom);
+  const setTabChanges = useSetRecoilState(tabChangesAtom);
+  const [leaveTime, setLeaveTime] = useState(new Date());
 
   useEffect(() => {
     const handleVisibilityChange = () => {
-      if (document.visibilityState !== "visible") {
-        setTabChangeCount((prevVal) => prevVal + 1);
+      if (document.visibilityState === "visible") {
+        setTabChanges((prevVal) => [
+          ...prevVal,
+          { leaveTime, returnTime: new Date() },
+        ]);
+      } else {
+        setLeaveTime(new Date());
       }
     };
     document.addEventListener("visibilitychange", handleVisibilityChange);
@@ -16,5 +22,5 @@ export const useTrackTabChange = () => {
     return () => {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, [setTabChangeCount]);
+  }, [leaveTime, setTabChanges]);
 };
