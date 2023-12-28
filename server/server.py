@@ -77,7 +77,7 @@ async def start_recording_handler(request):
     user_id = body.get('userId')
     
     if user_id is None or user_id == '':
-        print("user_id none in chat_handler, exiting with error response 400.")
+        print("user_id none in start_recording_handler, exiting with error response 400.")
         return web.Response(text='no userId in request', status=400)
     
     result = db_handler.update_recording_time_for_user(user_id)
@@ -90,8 +90,11 @@ async def save_recording_handler(request):
     recording_name = body.get('recordingName')
     
     if user_id is None or user_id == '':
-        print("user_id none in chat_handler, exiting with error response 400.")
+        print("user_id none in save_recording_handler, exiting with error response 400.")
         return web.Response(text='no userId in request', status=400)
+    if recording_name is None or recording_name == '':
+        print("recording_name none in save_recording_handler, exiting with error response 400.")
+        return web.Response(text='no recordingName in request', status=400)
     
     recording = db_handler.save_recording(user_id, recording_name)
     
@@ -110,7 +113,7 @@ async def load_recording_handler(request):
     recording_name = body.get('recordingName')
     
     if recording_name is None or recording_name == '':
-        print("recording_name none in chat_handler, exiting with error response 400.")
+        print("recording_name none in load_recording_handler, exiting with error response 400.")
         return web.Response(text='no recordingName in request', status=400)
     
     file_path = 'recordings/{}.json'.format(recording_name)
