@@ -11,7 +11,7 @@ import { useCallback, useEffect, useState, useRef } from "react";
 // Define the debounced function outside the component
 const debouncedSubmit = debounce((submitFunc, transcriptRef) => {
   submitFunc(true, transcriptRef.current);
-}, 2000);
+}, 800);
 
 /**
  * Submits the transcript to the backend as the transcript changes
