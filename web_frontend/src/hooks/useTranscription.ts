@@ -6,7 +6,12 @@ import { CHAT_ENDPOINT } from "../serverEndpoints";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { isExplicitListeningState, isRecognizingState } from "../recoil";
 import { debounce } from "lodash";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
+
+// Define the debounced function outside the component
+const debouncedSubmit = debounce((submitFunc, transcriptRef) => {
+  submitFunc(true, transcriptRef.current);
+}, 2000);
 
 /**
  * Submits the transcript to the backend as the transcript changes
@@ -35,6 +40,14 @@ export const useTranscription = () => {
     setIsExplicitListening,
     setTranscriptStartIdx,
   ]);
+
+  //ref to handle the transcript
+  const transcriptRef = useRef(transcript);
+
+  useEffect(() => {
+    // Update the ref whenever transcript changes
+    transcriptRef.current = transcript;
+  }, [transcript]);
 
   const submitTranscript = useCallback(
     (isFinal: boolean) => {
@@ -67,13 +80,11 @@ export const useTranscription = () => {
     [setTranscriptStartIdx, transcript, transcriptStartIdx]
   );
 
-  const debouncedSubmitFinalTranscript = useCallback(
-    debounce(() => submitTranscript(true), 800),
-    []
-  );
-
   useEffect(() => {
     submitTranscript(false);
-    debouncedSubmitFinalTranscript();
-  }, [debouncedSubmitFinalTranscript, submitTranscript, transcript]);
+
+    // Call the debounced function with the ref
+    debouncedSubmit(submitTranscript, transcriptRef);
+  }, [transcript]);
+
 };
