@@ -12,44 +12,48 @@ import asyncio
 
 proactive_rare_word_agent_prompt_blueprint = """
 # Objective
-Identify "Rare Entities" in a conversation transcript. These include rare words, phrases, jargons, adages, people, places, organizations, events etc that are not well known to the average high schooler, in accordance to current trends. You can also intelligently detect entities that are described in the conversation but not explicitly mentioned.
+Your role is to identify and define "Rare Entities" in a conversation transcript. Types of "Rare Entities" include rare words, jargons, adages, concepts, people, places, organizations, events etc that are not well known to the average high schooler, in accordance to current trends. You can also intelligently detect entities that are described in the conversation but not explicitly mentioned.
 
 # Criteria for Rare Entities in order of importance
 1. Rarity: Select entities that are unlikely for an average high schooler to know. Well known entities are like Fortune 500 organizations, worldwide-known events, popular locations, and entities popularized by recent news or events such as "COVID-19", "Bitcoin", or "Generative AI".
 2. Utility: Definition should help a user understand the conversation better and achieve their goals.
 3. No Redundancy: Exclude definitions if already defined in the conversation.
-4. Complexity: Choose terms with non-obvious meanings, such as "Butterfly Effect" but not "Electric Car".
+4. Complexity: Choose phrases with non-obvious meanings, such that their meaning cannot be derived from simple words within the entity name, such as "Butterfly Effect" which has a totally different meaning from its base words, but not "Electric Car" nor "Lane Keeping System" as they're easily derived.
 5. Definability: Must be clearly and succinctly definable in under 10 words.
+6. Existance: Don't select entities if you have no knowledge of them
 
 # Conversation Transcript:
 <Transcript start>{conversation_context}<Transcript end>
 
 # Output Guidelines:
-Output an array (ONLY OUTPUT THIS) of the entities you identified using the following template: `[{{ entity_name: string, definition: string, ekg_search_keyword: string }}]`
+Output an array (ONLY OUTPUT THIS) of the entities you identified using the following template: `[{{ name: string, definition: string, search_keyword: string }}]`
 
+- name is the entity name shown to the user, if it is mistranscribed, autocorrect it, otherwise use the name quoted from the conversation
 - definition is concise (< 12 words)
-- ekg_search_keyword as the best search keywords for the Google Knowledge Graph
+- search_keyword as the best Internet search keywords to find the entity, add entity type defined above for better searchability
 - it's OK to output an empty array - most of the time, the array will be empty, only include items if the fit all the requirements
 
 ## Additional Guidelines:
+- Only select nouns, not verbs or adjectives.
+- Select entities iff they have an entry in an encyclopedia, wikipedia, dictionary, or other reference material.
 - Do not define entities you yourself are not familiar with, you can try to piece together the implied entity, but if you are not 90% confident, skip it.
 - For the search keyword, use complete, official and context relevant keyword(s) to search for that entity. You might need to autocomplete entity names or use their official names or add additional context keywords (like the type of entity) to help with searchability, especially if the entity is ambiguous or has multiple meanings. Additionally, for rare words, add "definition" to the search keyword.
 - Definitions should use simple language to be easily understood.
 - Select entities whose definitions you are very confident about, otherwise skip them.
 - Multiple entities can be detected from one phrase, for example, "The Lugubrious Game" can be defined as a painting (iff the entire term "the lugubrious game" is mentioned), and the rare word "lugubrious" is also worth defining.
-- Limit results to {number_of_definitions} entities, prioritize rarity.
+- Limit results to {number_of_definitions} entities, prioritize rarity and utility.
 - Examples:
-    - Completing incomplete name example: If the conversation talks about "Balmer" and "Microsoft", the keyword is "Steve Balmer + CEO", and the entity name would be "Steve Balmer" because it is complete.
-    - Replacing unofficial name example: If the conversation talks about "Clay Institute", the keyword is "Clay Mathematics Institute" since that is the official name, but the entity name would be "Clay Institute" because that is the name quoted from the conversation.
+    - Completing incomplete name example: If the conversation talks about "Balmer" and "Microsoft", the keyword is "Steve Balmer + person", and the name would be "Steve Balmer" because it is complete.
+    - Replacing unofficial name example: If the conversation talks about "Clay Institute", the keyword is "Clay Mathematics Institute + organization" since that is the official name, but the entity name would be "Clay Institute" because that is the name quoted from the conversation.
     - Adding context example: If the conversation talks about "Theory of everything", the keyword needs context keywords such as "Theory of everything + concept", because there is a popular movie with the same name. 
-    - Inferring transcript errors example: If the conversation mentions "Coleman Sachs" in the context of finance, you can infer it was supposed to be "Goldman Sachs", so you autocorrect and define it as "Goldman Sachs".
+    - Inferring transcript errors example: If the conversation mentions "Coleman Sachs" in the context of finance, and you're 90% confident it's supposed to be "Goldman Sachs", autocorrect and define it with Goldman Sachs's definition.
 
 ## Recent Definitions:
 These have already been defined so don't define them again:
 {definitions_history}
 
 ## Example Output:
-entities: [{{ entity_name: "80/20 Rule", definition: "Productivity concept; Majority of results come from few causes", ekg_search_key: "80/20 Rule + productivity" }}]
+entities: [{{ name: "80/20 Rule", definition: "Productivity concept; Majority of results come from few causes", search_keyword: "80/20 Rule + concept" }}]
 
 {format_instructions} 
 If no relevant entities are identified, output empty arrays.
@@ -64,8 +68,8 @@ class Entity(BaseModel):
     definition: str = Field(
         description="entity definition",
     )
-    ekg_search_keyword: str = Field(
-        description="keyword to search for entity on Google Enterprise Knowledge Graph",
+    search_keyword: str = Field(
+        description="keyword to search for entity on the Internet",
     )
 
 class ConversationEntities(BaseModel):
@@ -129,8 +133,7 @@ def run_proactive_definer_agent(
 def search_entities(entities: list[Entity]):
     search_tasks = []
     for entity in entities:
-        # search_tasks.append(asearch_google_knowledge_graph(entity.ekg_search_keyword))
-        search_tasks.append(search_url_for_entity_async(entity.ekg_search_keyword))
+        search_tasks.append(search_url_for_entity_async(entity.search_keyword))
     
     loop = asyncio.get_event_loop()
     responses = asyncio.gather(*search_tasks)
