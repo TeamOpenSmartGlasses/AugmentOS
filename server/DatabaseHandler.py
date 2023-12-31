@@ -426,7 +426,7 @@ class DatabaseHandler:
 
         results_timeframe = time.time() - old_recording_time
         results = []
-        results.append(self.get_defined_terms_from_last_nseconds_for_user_device(user_id, results_timeframe))
+        # results.append(self.get_defined_terms_from_last_nseconds_for_user_device(user_id, results_timeframe))
         results.append(self.get_agent_proactive_definer_results_from_last_nseconds_for_user_device(user_id, results_timeframe))
         for r in results:
             time_since_recording_start = r['timestamp'] - old_recording_time
