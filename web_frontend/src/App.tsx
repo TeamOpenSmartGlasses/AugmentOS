@@ -8,6 +8,9 @@ import StudyLayout from "./layouts/StudyLayout";
 import { useTrackTabChange } from "./hooks/useTrackTabChange";
 import MainLayout from "./layouts/MainLayout";
 import { IS_STUDY } from "./constants";
+import { useSetRecoilState } from "recoil";
+import { studyConditionAtom } from "./recoil";
+import { StudyCondition } from "./types";
 
 export default function App() {
   useEffect(() => {
@@ -41,6 +44,19 @@ const MainApp = () => {
 
 const StudyApp = () => {
   useTrackTabChange();
+  const setStudyCondition = useSetRecoilState(studyConditionAtom);
+
+  useEffect(() => {
+    const search = window.location.search;
+    const params = new URLSearchParams(search);
+    const condition: string | null | undefined = params.get("condition");
+
+    if (condition === "1") {
+      setStudyCondition(StudyCondition.CONVOSCOPE);
+    } else if (condition === "2") {
+      setStudyCondition(StudyCondition.NO_CONVOSCOPE);
+    }
+  }, [setStudyCondition]);
 
   return <StudyLayout />;
 };

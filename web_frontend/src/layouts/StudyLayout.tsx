@@ -18,11 +18,13 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import {
   entitiesState,
   isExplicitListeningState,
+  studyConditionAtom,
   videoTimeAtom,
 } from "../recoil";
 import { useRef, useState } from "react";
 import CardScrollArea from "../components/CardScrollArea";
 import { VIDEO_SRC } from "../constants";
+import { StudyCondition } from "../types";
 
 // animate-able components for framer-motion
 // https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
@@ -55,6 +57,7 @@ const StudyLayout = () => {
   const [time, setTime] = useRecoilState(videoTimeAtom);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [hasVideoEnded, setHasVideoEnded] = useState(false);
+  const studyCondition = useRecoilValue(studyConditionAtom);
 
   return (
     <>
@@ -75,7 +78,7 @@ const StudyLayout = () => {
             </Box>
           )}
           {/* Left Panel */}
-          <CardScrollArea />
+          {studyCondition === StudyCondition.CONVOSCOPE && <CardScrollArea />}
         </PContainer>
 
         <PContainer
@@ -108,10 +111,12 @@ const StudyLayout = () => {
                   : `current time: ${time} seconds`}
               </Button>
             </Group>
-            <ExplorePane
-              loading={loadingViewMore}
-              setLoading={setLoadingViewMore}
-            />
+            {studyCondition === StudyCondition.CONVOSCOPE && (
+              <ExplorePane
+                loading={loadingViewMore}
+                setLoading={setLoadingViewMore}
+              />
+            )}
           </Stack>
         </PContainer>
       </PFlex>
