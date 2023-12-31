@@ -425,7 +425,9 @@ class DatabaseHandler:
         if old_recording_time == -1: return []
 
         results_timeframe = time.time() - old_recording_time
-        results = self.get_defined_terms_from_last_nseconds_for_user_device(user_id, results_timeframe)
+        results = []
+        results.append(self.get_defined_terms_from_last_nseconds_for_user_device(user_id, results_timeframe))
+        results.append(self.get_agent_proactive_definer_results_from_last_nseconds_for_user_device(user_id, results_timeframe))
         for r in results:
             time_since_recording_start = r['timestamp'] - old_recording_time
             r['time_since_recording_start'] = time_since_recording_start
@@ -561,6 +563,17 @@ class DatabaseHandler:
         previously_defined_terms = []
         current_time = math.trunc(time.time())
         for result in consumed_results:
+            if current_time - result['timestamp'] < n:
+                previously_defined_terms.append(result)
+        return previously_defined_terms
+
+    def get_agent_proactive_definer_results_from_last_nseconds_for_user_device(self, user_id, n=300):
+        results = self.get_agent_proactive_definer_results_for_user_device(
+            user_id=user_id, device_id="", should_consume=False, include_consumed=True)
+
+        previously_defined_terms = []
+        current_time = math.trunc(time.time())
+        for result in results:
             if current_time - result['timestamp'] < n:
                 previously_defined_terms.append(result)
         return previously_defined_terms
