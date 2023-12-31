@@ -54,6 +54,7 @@ const StudyLayout = () => {
   const [loadingViewMore, setLoadingViewMore] = useState(false);
   const [time, setTime] = useRecoilState(videoTimeAtom);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [hasVideoEnded, setHasVideoEnded] = useState(false);
 
   return (
     <>
@@ -91,14 +92,20 @@ const StudyLayout = () => {
               width="100%"
               ref={videoRef}
               onTimeUpdate={() => setTime(videoRef.current?.currentTime)}
+              onEnded={() => setHasVideoEnded(true)}
             ></video>
             <Group>
               <Button
                 onClick={() => videoRef.current?.play()}
                 variant="default"
                 fullWidth
+                disabled={hasVideoEnded}
               >
-                {time === undefined ? "Start" : `current time: ${time} seconds`}
+                {hasVideoEnded
+                  ? "Video ended"
+                  : time === undefined
+                  ? "Start"
+                  : `current time: ${time} seconds`}
               </Button>
             </Group>
             <ExplorePane
