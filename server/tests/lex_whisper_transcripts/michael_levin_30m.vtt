@@ -1,0 +1,1075 @@
+WEBVTT
+
+00:00.000 --> 00:04.640
+ turns out that if you train a planarian and then cut their heads off, the tail will regenerate a
+
+00:04.640 --> 00:09.760
+ brand new brain that still remembers the original information. I think planaria hold the answer to
+
+00:09.760 --> 00:14.800
+ pretty much every deep question of life. For one thing, they're similar to our ancestors. So they
+
+00:14.800 --> 00:17.600
+ have true symmetry, they have a true brain, they're not like earthworms, they're, you know,
+
+00:17.600 --> 00:20.640
+ they're much more advanced life form. They have lots of different internal organs, but they're
+
+00:20.640 --> 00:24.560
+ these little, they're about, you know, maybe two centimeters in the centimeter to two in size.
+
+00:24.560 --> 00:30.640
+ And they have a head and a tail. And the first thing is planaria are immortal. So they do not
+
+00:30.640 --> 00:34.320
+ age. There's no such thing as an old planarian. So that right there tells you that these theories
+
+00:34.320 --> 00:40.080
+ of thermodynamic limitations on lifespan are wrong. It's not that well over time of everything
+
+00:40.080 --> 00:44.560
+ degrades. No, planaria can keep it going for probably, you know, how long have they been
+
+00:44.560 --> 00:48.640
+ around 400 million years, right? So these are the actual, so the planaria in our lab
+
+00:48.640 --> 00:54.880
+ are actually in physical continuity with planaria that were here 400 million years ago.
+
+00:54.880 --> 01:00.080
+ The following is a conversation with Michael Levin, one of the most fascinating and brilliant
+
+01:00.080 --> 01:07.120
+ biologists I've ever talked to. He and his lab at Tufts University works on novel ways to understand
+
+01:07.120 --> 01:12.960
+ and control complex pattern formation in biological systems. Andre Karpathy, a world
+
+01:12.960 --> 01:18.880
+ class AI researcher, is the person who first introduced me to Michael Levin's work. I bring
+
+01:18.880 --> 01:25.680
+ this up because these two people make me realize that biology has a lot to teach us about AI,
+
+01:25.680 --> 01:32.000
+ and AI might have a lot to teach us about biology. This is the Lex Friedman podcast.
+
+01:32.000 --> 01:37.440
+ To support it, please check out our sponsors in the description. And now, dear friends,
+
+01:37.440 --> 01:44.480
+ here's Michael Levin. Embryogenesis is the process of building the human body from a single cell. I
+
+01:44.480 --> 01:50.160
+ think it's one of the most incredible things that exists on earth from a single embryo. So how does
+
+01:50.160 --> 01:56.080
+ this process work? Yeah, it is an incredible process. I think it's maybe the most magical
+
+01:56.080 --> 02:01.520
+ process there is. And I think one of the most fundamentally interesting things about it is that
+
+02:01.520 --> 02:07.120
+ it shows that each of us takes the journey from so called just physics to mind, right? Because we
+
+02:07.120 --> 02:12.880
+ all start life as a single quiescent, unfertilized oocyte, and it's basically a bag of chemicals,
+
+02:12.880 --> 02:16.720
+ and you look at that and you say, okay, this is chemistry and physics. And then nine months and
+
+02:16.720 --> 02:22.320
+ some years later, you have an organism with high level cognition and preferences and an inner life
+
+02:22.320 --> 02:27.520
+ and so on. And what embryogenesis tells us is that that transformation from physics to mind is
+
+02:27.520 --> 02:32.560
+ gradual. It's smooth. There is no special place where, you know, a lightning bolt says, boom,
+
+02:32.560 --> 02:37.440
+ now you've gone from physics to true cognition. That doesn't happen. And so we can see in this
+
+02:37.440 --> 02:41.440
+ process that the whole mystery, you know, the biggest mystery of the universe, basically,
+
+02:41.440 --> 02:47.680
+ how you get mind from matter. From just physics, in quotes. Yeah. So where's the magic into the
+
+02:47.680 --> 02:54.480
+ thing? How do we get from information encoded in DNA and make physical reality out of that
+
+02:54.480 --> 02:59.280
+ information? So one of the things that I think is really important if we're going to bring in DNA
+
+02:59.280 --> 03:05.520
+ into this picture is to think about the fact that what DNA encodes is the hardware of life. DNA
+
+03:05.520 --> 03:09.760
+ contains the instructions for the kind of micro level hardware that every cell gets to play with.
+
+03:09.760 --> 03:14.160
+ So all the proteins, all the signaling factors, the ion channels, all the cool little pieces of
+
+03:14.160 --> 03:20.640
+ hardware that cells have, that's what's in the DNA. The rest of it is in so called generic laws.
+
+03:20.640 --> 03:25.920
+ And these are laws of mathematics. These are laws of computation. These are laws of physics,
+
+03:25.920 --> 03:32.000
+ of all kinds of interesting things that are not directly in the DNA. And that process, you know,
+
+03:32.000 --> 03:36.800
+ I think the reason I always put just physics in quotes is because I don't think there is such a
+
+03:36.800 --> 03:41.520
+ thing as just physics. I think that thinking about these things in binary categories, like this is
+
+03:41.520 --> 03:45.840
+ physics, this is true cognition, this is as if it's only faking these kinds of things. I think
+
+03:45.840 --> 03:49.760
+ that's what gets us in trouble. I think that we really have to understand that it's a continuum
+
+03:49.760 --> 03:53.600
+ and we have to work up the scaling, the laws of scaling. And we can certainly talk about that.
+
+03:53.600 --> 03:56.640
+ There's a lot of really interesting thoughts to be had there.
+
+03:56.640 --> 04:03.200
+ So the physics is deeply integrated with the information. So the DNA doesn't exist on its own.
+
+04:03.200 --> 04:10.480
+ The DNA is integrated as, in some sense, in response to the laws of physics at every scale.
+
+04:10.480 --> 04:14.080
+ The laws of the environment it exists in.
+
+04:14.080 --> 04:18.960
+ Yeah, the environment and also the laws of the universe. I mean, the thing about the DNA is that
+
+04:18.960 --> 04:25.440
+ it's once evolution discovers a certain kind of machine, that if the physical implementation is
+
+04:25.440 --> 04:29.920
+ appropriate, it's sort of, and this is hard to talk about because we don't have a good vocabulary
+
+04:29.920 --> 04:36.560
+ for this yet, but it's a very kind of a platonic notion that if the machine is there, it pulls down
+
+04:36.560 --> 04:42.960
+ interesting things that you do not have to evolve from scratch because the laws of physics give it
+
+04:42.960 --> 04:47.200
+ to you for free. So just as a really stupid example, if you're trying to evolve a particular
+
+04:47.200 --> 04:50.720
+ triangle, you can evolve the first angle and you evolve the second angle, but you don't need to
+
+04:50.720 --> 04:54.480
+ evolve the third. You know what it is already. Now, why do you know? That's a gift for free
+
+04:54.480 --> 04:58.240
+ from geometry in a particular space. You know what that angle has to be. And if you evolve
+
+04:58.240 --> 05:01.920
+ an ion channel, which is, ion channels are basically transistors, right? They're voltage
+
+05:01.920 --> 05:06.720
+ gated current conductances. If you evolve that ion channel, you immediately get to use things
+
+05:06.720 --> 05:10.160
+ like truth tables. You get logic functions. You don't have to evolve the logic function.
+
+05:10.160 --> 05:14.160
+ You don't have to evolve a truth table. It doesn't have to be in the DNA. You get it for free,
+
+05:14.160 --> 05:17.360
+ right? And the fact that if you have NAND gates, you can build anything you want, you get that for
+
+05:17.360 --> 05:22.720
+ free. All you have to evolve is that first step, that first little machine that enables you to
+
+05:22.720 --> 05:27.680
+ couple to those laws. And there's laws of adhesion and many other things. And this is all that
+
+05:27.680 --> 05:33.600
+ interplay between the hardware that's set up by the genetics and the software that's made, right?
+
+05:33.600 --> 05:38.240
+ The physiological software that basically does all the computation and the cognition and everything
+
+05:38.240 --> 05:43.920
+ else is a real interplay between the information and the DNA and the laws of physics of computation
+
+05:43.920 --> 05:49.360
+ and so on. So is it fair to say, just like this idea that the laws of mathematics are discovered,
+
+05:50.640 --> 05:55.520
+ they're latent within the fabric of the universe in that same way the laws of biology are kind of
+
+05:55.520 --> 05:59.760
+ discovered? Yeah, I think that's absolutely, and it's probably not a popular view, but I think
+
+05:59.760 --> 06:05.520
+ that's right on the money. Yeah. Well, I think that's a really deep idea. Then embryogenesis
+
+06:05.520 --> 06:16.000
+ is the process of revealing, of embodying, of manifesting these laws. You're not building the
+
+06:16.000 --> 06:23.520
+ laws. You're just creating the capacity to reveal. Yes. I think, again, not the standard view of
+
+06:23.520 --> 06:27.760
+ molecular biology by any means, but I think that's right on the money. I'll give you a simple example.
+
+06:27.760 --> 06:31.680
+ Some of our latest work with these xenobots, right? So what we've done is to take some skin
+
+06:31.680 --> 06:36.080
+ cells off of an early frog embryo and basically ask about their plasticity. If we give you a
+
+06:36.080 --> 06:40.400
+ chance to sort of reboot your multicellularity in a different context, what would you do?
+
+06:40.400 --> 06:45.120
+ Because what you might assume by... The thing about embryogenesis is that it's super reliable,
+
+06:45.120 --> 06:50.640
+ right? It's very robust. And that really obscures some of its most interesting features. We get
+
+06:50.640 --> 06:54.800
+ used to it. We get used to the fact that acorns make oak trees and frog eggs make frogs. And we
+
+06:54.800 --> 06:57.920
+ say, well, what else is it going to make? That's what it makes. That's a standard story.
+
+06:57.920 --> 07:03.600
+ But the reality is... And so you look at these skin cells and you say, well, what do they know
+
+07:03.600 --> 07:07.840
+ how to do? Well, they know how to be a passive boring two dimensional outer layer, keeping the
+
+07:07.840 --> 07:11.200
+ bacteria from getting into the embryo. That's what they know how to do. Well, it turns out that if
+
+07:11.200 --> 07:17.040
+ you take these skin cells and you remove the rest of the embryo, so you remove all of the rest of
+
+07:17.040 --> 07:20.960
+ the cells and you say, well, you're by yourself now, what do you want to do? So what they do is
+
+07:20.960 --> 07:26.480
+ they form this multi little creature that runs around the dish. They have all kinds of incredible
+
+07:26.480 --> 07:30.960
+ and incredible capacities. They navigate through mazes. They have various behaviors that they do
+
+07:30.960 --> 07:38.960
+ both independently and together. Basically, they implement von Neumann's dream of self replication,
+
+07:38.960 --> 07:42.560
+ because if you sprinkle a bunch of loose cells into the dish, what they do is they run around,
+
+07:42.560 --> 07:46.800
+ they collect those cells into little piles. They sort of mush them together until those little
+
+07:46.800 --> 07:50.960
+ piles become the next generation of xenobots. So you've got this machine that builds copies of
+
+07:50.960 --> 07:56.720
+ itself from loose material in its environment. None of this are things that you would have expected
+
+07:56.720 --> 08:01.280
+ from the frog genome. In fact, the genome is wild type. There's nothing wrong with their genetics.
+
+08:01.280 --> 08:06.320
+ Nothing has been added, no nanomaterials, no genomic editing, nothing. And so what we have
+
+08:06.320 --> 08:11.360
+ done there is engineered by subtraction. What you've done is you've removed the other cells
+
+08:11.360 --> 08:15.920
+ that normally basically bully these cells into being skin cells. And you find out that what they
+
+08:15.920 --> 08:21.680
+ really want to do is to be this, their default behaviors to be a xenobot. But in vivo, in the
+
+08:21.680 --> 08:28.640
+ embryo, they get told to be skinned by these other cell types. And so now here comes this really
+
+08:28.640 --> 08:33.760
+ interesting question that you just posed. When you ask where does the form of the tadpole and
+
+08:33.760 --> 08:39.920
+ the frog come from, the standard answer is, well, it's selection. So over millions of years,
+
+08:39.920 --> 08:44.720
+ it's been shaped to produce the specific body that's fit for froggy environments.
+
+08:44.720 --> 08:48.240
+ Where does the shape of the xenobot come from? There's never been any xenobots. There's never
+
+08:48.240 --> 08:51.920
+ been selection to be a good xenobot. These cells find themselves in the new environment.
+
+08:51.920 --> 08:57.920
+ In 48 hours, they figure out how to be an entirely different protoorganism with new capacities like
+
+08:57.920 --> 09:02.000
+ kinematic self replication. That's not how frogs or tadpoles replicate. We've made it impossible
+
+09:02.000 --> 09:05.600
+ for them to replicate their normal way. Within a couple of days, these guys find a new way of
+
+09:05.600 --> 09:09.200
+ doing it that's not done anywhere else in the biosphere. Well, actually, let's step back and
+
+09:09.200 --> 09:16.320
+ define, what are xenobots? So a xenobot is a self assembling little protoorganism. It's also a
+
+09:16.320 --> 09:22.000
+ biological robot. Those things are not distinct. It's a member of both classes. How much is it
+
+09:22.000 --> 09:28.160
+ biology? How much is that robot? At this point, most of it is biology because what we're doing is
+
+09:28.160 --> 09:35.120
+ we're discovering natural behaviors of the cells and also of the cell collectives. Now, one of the
+
+09:35.120 --> 09:39.440
+ really important parts of this was that we're working together with Josh Bongaert's group at
+
+09:39.440 --> 09:45.040
+ University of Vermont. They're computer scientists, they do AI, and they've basically been able to
+
+09:45.040 --> 09:51.440
+ use a simulated evolution approach to ask, how can we manipulate these cells, give them signals,
+
+09:51.440 --> 09:56.080
+ not rewire their DNA, so not hardware, but experience signals? So can we remove some cells?
+
+09:56.080 --> 09:59.920
+ Can we add some cells? Can we poke them in different ways to get them to do other things?
+
+09:59.920 --> 10:04.400
+ So in the future, there's going to be, we're now, and this is future unpublished work, but
+
+10:04.400 --> 10:08.720
+ we're doing all sorts of interesting ways to reprogram them to new behaviors. But before you
+
+10:08.720 --> 10:13.040
+ can start to reprogram these things, you have to understand what their innate capacities are.
+
+10:13.040 --> 10:19.520
+ Okay, so that means engineering, programming, you're engineering them in the future. And in
+
+10:19.520 --> 10:28.400
+ some sense, the definition of a robot is something you in part engineer versus evolve. I mean,
+
+10:28.400 --> 10:33.280
+ it's such a fuzzy definition anyway, in some sense, many of the organisms within our body
+
+10:33.280 --> 10:40.640
+ are kinds of robots. And I think robots is a weird line because it's, we tend to see robots
+
+10:40.640 --> 10:45.760
+ as the other. I think there will be a time in the future when there's going to be something akin to
+
+10:45.760 --> 10:52.800
+ the civil rights movements for robots, but we'll talk about that later perhaps. Anyway, so how do
+
+10:52.800 --> 11:00.000
+ you, can we just linger on it? How do you build a Xenobot? What are we talking about here? From
+
+11:00.560 --> 11:06.640
+ when does it start and how does it become the glorious Xenobot?
+
+11:06.640 --> 11:12.080
+ Yeah, so just to take one step back, one of the things that a lot of people get stuck on is they
+
+11:12.080 --> 11:19.120
+ say, well, you know, engineering requires new DNA circuits or it requires new nanomaterials,
+
+11:19.120 --> 11:24.560
+ you know, what the thing is, we are now moving from old school engineering, which use passive
+
+11:24.560 --> 11:28.480
+ materials, right? That things, you know, wood, metal, things like this, that basically the only
+
+11:28.480 --> 11:31.280
+ thing you could depend on is that they were going to keep their shape. That's it. They don't do
+
+11:31.280 --> 11:35.120
+ anything else. It's on you as an engineer to make them do everything they're going to do.
+
+11:35.120 --> 11:39.040
+ And then there were active materials and now computation materials. This is a whole new era.
+
+11:39.040 --> 11:43.600
+ These are agential materials. This is you're now collaborating with your substrate because your
+
+11:43.600 --> 11:51.280
+ material has an agenda. These cells have, you know, billions of years of evolution. They have goals.
+
+11:51.280 --> 11:54.160
+ They have preferences. They're not just going to sit where you put them. That's hilarious that you
+
+11:54.160 --> 11:58.880
+ have to talk your material into keeping its shape. That's it. That is exactly right. That is exactly
+
+11:58.880 --> 12:04.400
+ right. Stay there. It's like getting a bunch of cats or something and trying to organize the shape
+
+12:04.400 --> 12:08.000
+ out of them. It's funny. We're on the same page here because in a paper, this is, this is currently
+
+12:08.640 --> 12:12.800
+ just been accepted in nature by engineering. One of the figures I have is building a tower
+
+12:12.800 --> 12:17.360
+ out of Legos versus dogs, right? So think about the difference, right? If you build out of Legos,
+
+12:17.360 --> 12:22.800
+ you have full control over where it's going to go. But if somebody knocks it over, it's game over.
+
+12:22.800 --> 12:26.240
+ With the dogs, you cannot just come and stack them. They're not going to stay that way. But
+
+12:26.240 --> 12:29.680
+ the good news is that if you train them, then somebody knocks it over, they'll get right back
+
+12:29.680 --> 12:33.760
+ up. So it's all right. So as an engineer, what you really want to know is what can they depend
+
+12:33.760 --> 12:37.440
+ on this thing to do, right? That's really, you know, a lot of people have definitions of robots
+
+12:37.440 --> 12:41.360
+ as far as what they're made of or how they got here, you know, design versus evolve, whatever.
+
+12:41.360 --> 12:45.200
+ I don't think any of that is useful. I think, I think as an engineer, what you want to know is
+
+12:45.200 --> 12:49.920
+ how much can I depend on this thing to do when I'm not around to micromanage it? What level of,
+
+12:50.960 --> 12:54.400
+ what level of dependency can I, can I give this thing? How much agency does it have?
+
+12:54.400 --> 12:57.360
+ Which then tells you what techniques do you use? So do you use micromanagement,
+
+12:57.360 --> 13:01.200
+ like you put everything where it goes? Do you train it? Do you give it signals? Do you try
+
+13:01.200 --> 13:04.560
+ to convince it to do things, right? How much, you know, how intelligent is your substrate?
+
+13:04.560 --> 13:08.480
+ And so now we're moving into this, into this area where you're, you're, you're working with
+
+13:08.480 --> 13:12.560
+ agential materials. That's a collaboration. That's not, that's not old, old style.
+
+13:12.560 --> 13:14.320
+ What's the word you're using? Agential?
+
+13:14.320 --> 13:14.880
+ Agential.
+
+13:14.880 --> 13:15.040
+ Yeah.
+
+13:15.040 --> 13:15.680
+ What's that mean?
+
+13:15.680 --> 13:19.440
+ Agency. It comes from the word agency. So, so basically the material has agency, meaning that
+
+13:20.160 --> 13:26.000
+ it has some, some level of obviously not human level, but some level of preferences, goals,
+
+13:26.000 --> 13:30.000
+ memories, ability to remember things, to compute into the future, meaning anticipate,
+
+13:30.640 --> 13:34.800
+ you know, when you're working with cells, they have all of that to some, to various degrees.
+
+13:34.800 --> 13:39.920
+ Is that empowering or limiting having material as a mind of its own, literally?
+
+13:39.920 --> 13:43.600
+ I think it's both, right? So it raises difficulties because it means that
+
+13:43.600 --> 13:48.880
+ it, if you, if you're using the old mindset, which is a linear kind of extrapolation of what's going
+
+13:48.880 --> 13:54.320
+ to happen, you're going to be surprised and shocked all the time because biology does not
+
+13:54.320 --> 13:59.200
+ do what we linearly expect materials to do. On the other hand, it's massively liberating. And
+
+13:59.200 --> 14:04.240
+ so in the following way, I've argued that advances in regenerative medicine require us to take
+
+14:04.240 --> 14:09.040
+ advantage of this because what it means is that you can get the material to do things that you
+
+14:09.040 --> 14:13.120
+ don't know how to micromanage. So just as a simple example, right? If you, if you, you had a rat
+
+14:13.840 --> 14:19.120
+ and you wanted this rat to do a circus trick, put a ball in the little hoop, you can do it the
+
+14:19.120 --> 14:22.960
+ micromanagement way, which is try to control every neuron and try to play the thing like a puppet,
+
+14:22.960 --> 14:26.960
+ right? And maybe someday that'll be possible, maybe, or you can train the rat. And this is
+
+14:26.960 --> 14:31.040
+ why humanity for thousands of years before we knew any neuroscience, we had no idea what's
+
+14:31.040 --> 14:35.040
+ behind, what's between the ears of any animal. We were able to train these animals because once you
+
+14:35.040 --> 14:40.480
+ recognize the level of agency of a certain system, you can use appropriate techniques. If you know
+
+14:40.480 --> 14:44.160
+ the currency of motivation, reward and punishment, you know how smart it is, you know what kinds of
+
+14:44.160 --> 14:50.080
+ things it likes to do. You are searching a much more, much smoother, much nicer problem space than
+
+14:50.080 --> 14:54.080
+ if you try to micromanage the thing. And in regenerative medicine, when you're trying to get,
+
+14:54.080 --> 14:57.920
+ let's say an arm to grow back or an eye to repair a cell birth defect or something,
+
+14:57.920 --> 15:02.960
+ do you really want to be controlling tens of thousands of genes at each point to try to
+
+15:02.960 --> 15:07.760
+ micromanage it? Or do you want to find the high level modular controls that say,
+
+15:07.760 --> 15:11.360
+ build an arm here. You already know how to build an arm. You did it before, do it again.
+
+15:11.360 --> 15:15.920
+ So that's, I think it's both, it's both difficult and it challenges us to develop new ways of
+
+15:15.920 --> 15:21.760
+ engineering and it's hugely empowering. Okay. So how do you do, I mean, maybe sticking with
+
+15:21.760 --> 15:31.120
+ the metaphor of dogs and cats, I presume you have to figure out the, find the dogs and dispose of
+
+15:31.120 --> 15:38.400
+ the cats. Because, you know, it's like the old herding cats is an issue. So you may be able to
+
+15:38.400 --> 15:44.800
+ train dogs. I suspect you will not be able to train cats. Or if you do, you're never going to
+
+15:44.800 --> 15:53.040
+ be able to trust them. So is there a way to figure out which material is amenable to herding? Is it in
+
+15:53.040 --> 15:59.360
+ the lab work or is it in simulation? Right now it's largely in the lab because we, our simulations
+
+15:59.360 --> 16:04.560
+ do not capture yet the most interesting and powerful things about biology. So the simulation
+
+16:04.560 --> 16:10.480
+ does, what we're pretty good at simulating are feed forward emergent types of things,
+
+16:10.480 --> 16:15.120
+ right? So cellular automata, if you have simple rules and you sort of roll those forward for
+
+16:15.120 --> 16:19.360
+ every, every agent or every cell in the simulation, then complex things happen, you know, ant colony
+
+16:19.360 --> 16:23.600
+ or algorithms, things like that. We're good at that. And that's, and that's fine. The difficulty
+
+16:23.600 --> 16:28.400
+ with all of that is that it's incredibly hard to reverse. So this is a really hard inverse problem,
+
+16:28.400 --> 16:31.520
+ right? If you look at a bunch of termites and they make a, you know, a thing with a single chimney
+
+16:31.520 --> 16:36.080
+ and you say, well, I like it, but I'd like two chimneys. How do you change the rules of behavior
+
+16:36.080 --> 16:40.320
+ free termites? So they make two chimneys, right? Or, or if you say, here are a bunch of cells that are
+
+16:40.320 --> 16:44.720
+ creating this kind of organism. I don't think that's optimal. I'd like to repair that birth
+
+16:44.720 --> 16:49.040
+ defect. How do you control all the, all the individual low level rules, right? All the protein
+
+16:49.040 --> 16:53.520
+ interactions and everything else, rolling it back from the anatomy that you want to the low level
+
+16:53.520 --> 16:57.360
+ hardware rules is in general intractable. It's a, it's an inverse problem that's generally not
+
+16:57.360 --> 17:02.960
+ solvable. So right now it's mostly in the lab because what we need to do is we need to understand
+
+17:02.960 --> 17:08.320
+ how biology uses top down controls. So the idea is not, not bottom up emergence, but the idea of
+
+17:09.520 --> 17:14.560
+ things like a goal directed test operate exit kinds of loops where, where it's basically an
+
+17:14.560 --> 17:19.120
+ error minimization function over a new space and not a space of gene expression, but for example,
+
+17:19.120 --> 17:23.760
+ a space of anatomy. So just as a simple example, if you have, you have a salamander and it's got
+
+17:23.760 --> 17:29.040
+ an arm, you can, you can amputate that arm anywhere along the length. It will grow exactly
+
+17:29.040 --> 17:32.880
+ what's needed and then it stops. That's the most amazing thing about regeneration is that it stops
+
+17:32.880 --> 17:37.280
+ it knows when to stop. When does it stop? It stops when a correct salamander arm has been completed.
+
+17:37.280 --> 17:42.880
+ So that tells you that's right. That's a, that's a, a means ends kind of analysis where it has to
+
+17:42.880 --> 17:47.280
+ know what the correct limb is supposed to look like, right? So it has a way to ascertain the
+
+17:47.280 --> 17:51.360
+ current shape. It has a way to measure that Delta from, from what shape it's supposed to be. And it
+
+17:51.360 --> 17:55.600
+ will keep taking actions, meaning remodeling and growing and everything else until that's complete.
+
+17:55.600 --> 17:59.200
+ So once you know that, and we've taken advantage of this in the lab to do some, some really wild
+
+17:59.200 --> 18:04.400
+ things with, with both planaria and frog embryos and so on, once you know that, you can start
+
+18:04.400 --> 18:08.880
+ playing with that, with that homeostatic cycle. You can ask, for example, well, how does it remember
+
+18:08.880 --> 18:12.240
+ what the correct shape is? And can we mess with that memory? Can we give it a false memory of
+
+18:12.240 --> 18:16.160
+ what the shape should be and let the cells build something else? Or can we mess with the measurement
+
+18:16.160 --> 18:20.800
+ apparatus, right? So it gives you, it gives you those kinds of, so, so, so the idea is to
+
+18:21.680 --> 18:28.240
+ basically appropriate a lot of the approaches and concepts from cognitive neuroscience and
+
+18:28.240 --> 18:33.600
+ behavioral science into things that previously were taken to be dumb materials. And, you know,
+
+18:33.600 --> 18:37.440
+ you get yelled at in class if you, if you, for being anthropomorphic, if you said, well, my cells
+
+18:37.440 --> 18:41.280
+ want to do this and my cells want to do that. And I think, I think that's a, that's a major mistake
+
+18:41.280 --> 18:45.920
+ that leaves a ton of capabilities on the table. So thinking about biologic systems as things that
+
+18:45.920 --> 18:56.560
+ have memory, have almost something like cognitive ability, but I mean, how incredible is it,
+
+18:56.560 --> 19:03.600
+ you know, that the salamander arm is being rebuilt, not with a dictator. It's kind of like
+
+19:03.600 --> 19:08.880
+ the cellular automata system. All the individual workers are doing their own thing. So where's that
+
+19:10.320 --> 19:16.080
+ top down signal that does the control coming from? Like, how can you find it? Like, why does it stop
+
+19:16.080 --> 19:21.120
+ growing? How does it know the shape? How does it have memory of the shape? And how does it tell
+
+19:21.120 --> 19:26.080
+ everybody to be like, whoa, whoa, whoa, slow down, we're done. So the first thing to think about,
+
+19:26.080 --> 19:33.680
+ I think, is that there are no examples anywhere of a central dictator, because in this kind of
+
+19:33.680 --> 19:40.480
+ science, because everything is made of parts. And so we, even though we feel as a unified central
+
+19:40.480 --> 19:45.840
+ sort of intelligence and kind of point of cognition, we are a bag of neurons, right?
+
+19:45.840 --> 19:49.760
+ All intelligence is collective intelligence. There's this, this is important to kind of
+
+19:50.720 --> 19:54.560
+ think about, because a lot of people think, okay, there's real intelligence, like me,
+
+19:54.560 --> 19:59.280
+ and then there's collective intelligence, which is ants and flocks of birds and termites and
+
+19:59.280 --> 20:05.520
+ things like that. And maybe it's appropriate to think of them as an individual, and maybe it's
+
+20:05.520 --> 20:09.520
+ not, and a lot of people are skeptical about that and so on. But you've got to realize that
+
+20:09.520 --> 20:13.760
+ we are not, there's no such thing as this like indivisible diamond of intelligence that's like
+
+20:13.760 --> 20:19.600
+ this one central thing that's not made of parts. We are all made of parts. And so if you believe,
+
+20:19.600 --> 20:25.520
+ which I think is hard to get around, that we in fact have a centralized set of goals and
+
+20:25.520 --> 20:30.240
+ preferences and we plan and we do things and so on, you are already committed to the fact that
+
+20:30.240 --> 20:34.000
+ a collection of cells is able to do this, because we are a collection of cells. There's no getting
+
+20:34.000 --> 20:37.920
+ around that. In our case, what we do is we navigate the three dimensional world and we
+
+20:37.920 --> 20:41.840
+ have behavior. This is blowing my mind right now, because we are just a collection of cells.
+
+20:41.840 --> 20:50.560
+ Oh yeah. So when I'm moving this arm, I feel like I'm the central dictator of that action,
+
+20:50.560 --> 20:57.840
+ but there's a lot of stuff going on. All the cells here are collaborating in some interesting way.
+
+20:57.840 --> 21:00.880
+ They're getting signal from the central nervous system.
+
+21:00.880 --> 21:05.600
+ Well, even the central nervous system is misleadingly named because it isn't really
+
+21:05.600 --> 21:10.800
+ central. Again, it's just a bunch of cells. I mean, all of them, right? There are no,
+
+21:10.800 --> 21:16.240
+ there are no singular indivisible intelligences anywhere. We are all, every example that we've
+
+21:16.240 --> 21:21.040
+ ever seen is a collective of something. It's just that we're used to it. We're used to that. We're
+
+21:21.040 --> 21:24.080
+ used to, okay, this thing is kind of a single thing, but it's really not. You zoom in, you know
+
+21:24.080 --> 21:29.360
+ what you see. You see a bunch of cells running around. Is there some unifying, I mean, we're
+
+21:29.360 --> 21:36.000
+ jumping around, but that something that you look at as the bioelectrical signal versus the
+
+21:36.000 --> 21:46.880
+ biochemical, the chemistry, the electricity, maybe the life is in that versus the cells.
+
+21:47.680 --> 21:56.400
+ It's the, there's an orchestra playing and the resulting music is the dictator.
+
+21:57.120 --> 22:02.560
+ That's not bad. That's Dennis Noble's kind of view of things. He has two really good books
+
+22:02.560 --> 22:07.360
+ where he talks about this musical analogy, right? So I think that's, I like it. I like it.
+
+22:07.360 --> 22:08.640
+ Is it wrong though?
+
+22:08.640 --> 22:13.600
+ I don't think it's, no, I don't think it's wrong. I don't think it's wrong. I think the important
+
+22:13.600 --> 22:23.040
+ thing about it is that we have to come to grips with the fact that a true proper cognitive
+
+22:23.040 --> 22:27.920
+ intelligence can still be made of parts. Those things are, and in fact it has to be, and I think
+
+22:27.920 --> 22:32.800
+ it's a real shame, but I see this all the time. When you have a collective like this, whether it
+
+22:32.800 --> 22:40.880
+ be a group of robots or a collection of cells or neurons or whatever, as soon as we gain some
+
+22:40.880 --> 22:45.360
+ insight into how it works, meaning that, oh, I see, in order to take this action, here's the
+
+22:45.360 --> 22:50.320
+ information that got processed via this chemical mechanism or whatever. Immediately people say,
+
+22:50.320 --> 22:54.880
+ oh, well then that's not real cognition. That's just physics. I think this is fundamentally
+
+22:54.880 --> 22:58.720
+ flawed because if you zoom into anything, what are you going to see? Of course you're just going to
+
+22:58.720 --> 23:01.680
+ see physics. What else could be underneath, right? It's not going to be fairy dust. It's going to be
+
+23:01.680 --> 23:05.920
+ physics and chemistry, but that doesn't take away from the magic of the fact that there are certain
+
+23:05.920 --> 23:10.320
+ ways to arrange that physics and chemistry and in particular the bioelectricity, which I like a lot,
+
+23:11.440 --> 23:18.640
+ to give you an emergent collective with goals and preferences and memories and anticipations
+
+23:18.640 --> 23:22.160
+ that do not belong to any of the subunits. So I think what we're getting into here,
+
+23:22.160 --> 23:26.640
+ and we can talk about how this happens during embryogenesis and so on, what we're getting into
+
+23:26.640 --> 23:33.360
+ is the origin of a self with a capital S. So we ourselves, there are many other kinds of
+
+23:33.360 --> 23:37.120
+ selves, and we can tell some really interesting stories about where selves come from and how they
+
+23:37.120 --> 23:42.240
+ become unified. Yeah, is this the first, or at least humans tend to think that this is the
+
+23:42.880 --> 23:49.440
+ level of which the self with a capital S is first born, and we really don't want to see
+
+23:49.440 --> 23:54.720
+ human civilization or Earth itself as one living organism. Yeah, that's very uncomfortable to us.
+
+23:54.720 --> 24:01.200
+ It is, yeah. But is, yeah, where's the self born? We have to grow up past that. So what I like to do
+
+24:01.200 --> 24:06.560
+ is, I'll tell you two quick stories about that. I like to roll backwards. So as opposed to, so if
+
+24:06.560 --> 24:10.560
+ you start and you say, okay, here's a paramecium, and you see it, you know, it's a single cell
+
+24:10.560 --> 24:14.320
+ organism, you see it doing various things, and people will say, okay, I'm sure there's some
+
+24:14.320 --> 24:18.160
+ chemical story to be told about how it's doing it, so that's not a paramecium.
+
+24:18.160 --> 24:23.360
+ So that's not true cognition, right? And people will argue about that. I like to work it backwards.
+
+24:23.360 --> 24:28.880
+ I say, let's agree that you and I, as we sit here, are examples of true cognition, if anything,
+
+24:28.880 --> 24:32.960
+ as if there's anything that's true cognition, we are examples of it. Now let's just roll back
+
+24:32.960 --> 24:36.800
+ slowly, right? So you roll back to the time when you were a small child and used to doing whatever,
+
+24:36.800 --> 24:41.280
+ and then just sort of day by day, you roll back, and eventually you become more or less that
+
+24:41.280 --> 24:46.560
+ paramecium, and then you sort of even below that, right, as an unfertilized OSI. So
+
+24:46.560 --> 24:53.840
+ it's, no one has, to my knowledge, no one has come up with any convincing discrete step at which
+
+24:53.840 --> 24:59.040
+ my cognitive powers disappear, right? It just doesn't, the biology doesn't offer any specific
+
+24:59.040 --> 25:04.000
+ step. It's incredibly smooth and slow and continuous. And so I think this idea that it just
+
+25:04.000 --> 25:10.080
+ sort of magically shows up at one point, and then, you know, humans have true selves that don't exist
+
+25:10.080 --> 25:13.840
+ elsewhere, I think it runs against everything we know about evolution, everything we know about
+
+25:13.840 --> 25:18.400
+ developmental biology, these are all slow continua. And the other really important story I
+
+25:18.400 --> 25:23.280
+ want to tell is where embryos come from. So think about this for a second. Amniote embryos, so this
+
+25:23.280 --> 25:29.200
+ is humans, birds, and so on, mammals and birds and so on. Imagine a flat disk of cells, so there's
+
+25:29.200 --> 25:35.120
+ maybe 50,000 cells. And in that, so when you get an egg from a fertilized, let's say you buy a
+
+25:35.120 --> 25:42.560
+ fertilized egg from a farm, right? That egg will have about 50,000 cells in a flat disk, it looks
+
+25:42.560 --> 25:50.080
+ like a little tiny little frisbee. And in that flat disk, what'll happen is there'll be one set
+
+25:50.080 --> 25:56.000
+ of cells will become special, and it will tell all the other cells, I'm going to be the head,
+
+25:56.000 --> 26:00.160
+ you guys don't be the head. And so it'll amplify symmetry breaking amplification, you get one
+
+26:00.160 --> 26:06.320
+ embryo, there's some neural tissue and some other stuff forms. Now, you say, okay, I had one egg
+
+26:06.320 --> 26:10.880
+ and one embryo, and there you go, what else could it be? Well, the reality is, and I used to, I did
+
+26:10.880 --> 26:16.400
+ all of this as a grad student, if you take a little needle, and you make a scratch in that
+
+26:16.400 --> 26:20.720
+ blastoderm in that disk, such that the cells can't talk to each other for a while, it heals up, but
+
+26:20.720 --> 26:26.240
+ for a while, they can't talk to each other. What will happen is that both regions will decide that
+
+26:26.240 --> 26:29.120
+ they can be the embryo, and there will be two of them. And then when they heal up, they become
+
+26:29.120 --> 26:33.920
+ conjoint twins, and you can make two, you can make three, you can make lots. So the question of how
+
+26:33.920 --> 26:40.720
+ many cells are in there cannot be answered until it's actually played all the way through. It isn't
+
+26:40.720 --> 26:44.320
+ necessarily that there's just one, there can be many. So what you have is you have this medium,
+
+26:44.320 --> 26:49.280
+ this, this undifferentiated, I'm sure there's a there's a psychological version of this somewhere
+
+26:49.280 --> 26:53.280
+ that I don't know the proper terminology. But you have this, you have this list, like the ocean of
+
+26:53.280 --> 26:58.960
+ potentiality, you have these 1000s of cells, and some number of individuals are going to be formed
+
+26:58.960 --> 27:05.040
+ out of it, usually one, sometimes zero, sometimes several. And they form out of these cells,
+
+27:05.040 --> 27:10.880
+ because a region of these cells organizes into a collective that will have goals, goals that
+
+27:10.880 --> 27:15.680
+ individual cells don't have, for example, make a limb, make an eye, how many eyes? Well, exactly
+
+27:15.680 --> 27:19.120
+ two. So individual cells don't know what an eye is, they don't know how many eyes you're supposed
+
+27:19.120 --> 27:23.360
+ to have, but the collective does. The collective has goals and memories and anticipations that the
+
+27:23.360 --> 27:27.440
+ individual cells don't. And that that the establishment of that boundary with its own
+
+27:27.440 --> 27:32.960
+ ability to maintain to to pursue certain goals. That's the origin of selfhood.
+
+27:33.920 --> 27:42.800
+ But I, is that goal in there somewhere? Were they always destined? Like, are they discovering
+
+27:42.800 --> 27:49.360
+ that goal? Like, where the hell did evolution discover this when you went from the prokaryotes
+
+27:49.360 --> 27:55.600
+ to eukaryotic cells? And then they started making groups. And when you make a certain group,
+
+27:55.600 --> 28:03.600
+ you make a, you make it sound, and it's such a tricky thing to try to understand, you make it
+
+28:03.600 --> 28:09.680
+ sound like this cells didn't get together and came up with a goal. But the very act of them
+
+28:09.680 --> 28:16.880
+ getting together revealed the goal that was always there. There was always that potential
+
+28:16.880 --> 28:20.880
+ for that goal. So the first thing to say is that there are way more questions here than
+
+28:20.880 --> 28:25.680
+ certainties. Okay, so everything I'm telling you is cutting edge developing, you know, stuff. So
+
+28:25.680 --> 28:29.520
+ it's not as if any of us know the answer to this. But, but here's, here's, here's my opinion on
+
+28:29.520 --> 28:36.000
+ this. I think what evolution, I don't think that evolution produces solutions to specific problems,
+
+28:36.000 --> 28:39.680
+ in other words, specific environments, like here's a frog that can live well in a froggy
+
+28:39.680 --> 28:46.000
+ environment. I think what evolution produces is problem solving machines that that will that will
+
+28:46.000 --> 28:50.320
+ solve problems in different spaces. So not just three dimensional spaces, but in a way,
+
+28:50.320 --> 28:55.120
+ three dimensional space. This goes back to what we were talking about before we the brain is a
+
+28:55.120 --> 29:01.360
+ evolutionarily a late development. It's a system that is able to net to pursue goals in three
+
+29:01.360 --> 29:05.040
+ dimensional space by giving commands to muscles, where did that system come from that system
+
+29:05.040 --> 29:10.000
+ evolved from a much more ancient, evolutionarily much more ancient system, where collections of
+
+29:10.000 --> 29:18.320
+ cells gave instructions to for cell behaviors, meaning cells move to divide to die to change into
+
+29:18.320 --> 29:23.440
+ cells to navigate more for space, the space of anatomies, the space of all possible anatomies.
+
+29:23.440 --> 29:27.520
+ And before that, cells were navigating transcriptional space, which is a space of all
+
+29:27.520 --> 29:31.840
+ possible gene expressions. And before that metabolic space. So what evolution has done,
+
+29:31.840 --> 29:38.720
+ I think, is is is is produced hardware that is very good at navigating different spaces using a
+
+29:38.720 --> 29:42.560
+ bag of tricks, right, which which I'm sure many of them we can steal for autonomous vehicles and
+
+29:42.560 --> 29:47.840
+ robotics and various things. And what happens is that they navigate these spaces without a whole
+
+29:47.840 --> 29:51.520
+ lot of commitment to what the space is. In fact, they don't know what the space is, right? We are
+
+29:51.520 --> 29:57.280
+ all brains in a vat, so to speak. Every cell does not know, right? Every cell is some other name,
+
+29:57.280 --> 30:02.160
+ some other cells external environment, right? So where does that with that border between you,
+
+30:02.160 --> 30:05.680
+ you and the outside world, you don't really know where that is, right? Every every collection of
+
+30:05.680 --> 30:10.880
+ cell has to figure that out from scratch. And the fact that evolution requires all of these things
