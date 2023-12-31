@@ -18,13 +18,13 @@ def proactive_definer_processing_loop():
             continue
         
         #wait for some transcripts to load in
-        time.sleep(15)
+        time.sleep(5)
 
         try:
             pLoopStartTime = time.time()
             # Check for new transcripts
             print("RUNNING DEFINER LOOP")
-            newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(n=25)
+            newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(n=10)
 
             for transcript in newTranscripts:
                 if len(transcript['text']) < 80: # Around 20-30 words, like on a sentence level
