@@ -1,10 +1,10 @@
 # This is how we test convoscope
 
-### To run a test + make a recording of a Lex Fridman podcast:
+### To run a test + make a recording of a Lex Fridman podcast (or other .vtt transcript):
 
 1. Edit the test_helper.py to point to your backend. Specify a unique userId in test_helper.py. For deviceId, I prefer to use "CSEWebFrontendDefault" as that lines up with the web frontend.
 2. (OPTIONAL) To see insights as they come in: Open a web frontend pointed to the same backend, set your userId in the frontend to the same as in your code.
-3. Make sure the `tests/lex_whisper_transcripts/` folder is populated with at least one Lex podcast transcript, then run `python record_on_lex.py`.
+3. run `python record_on_lex.py some_transcript.vtt`.
 
 The script will...:
 * Pull a random Lex transcript
