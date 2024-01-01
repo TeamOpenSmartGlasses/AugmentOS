@@ -6,13 +6,16 @@ from langchain.schema import OutputParserException
 from pydantic import BaseModel, Field
 from agents.agent_utils import format_list_data
 from server_config import openai_api_key
-from agents.search_tool_for_agents import asearch_google_knowledge_graph, search_url_for_entity_async
+from agents.search_tool_for_agents import (
+    asearch_google_knowledge_graph,
+    search_url_for_entity_async,
+)
 from Modules.LangchainSetup import *
 import asyncio
 
 proactive_rare_word_agent_prompt_blueprint = """
 # Objective
-Your role is to identify and define "Rare Entities" in a conversation transcript. Types of "Rare Entities" include rare words, jargons, adages, concepts, people, places, organizations, events etc that are not well known to the average high schooler, in accordance to current trends. You can also intelligently detect entities that are described in the conversation but not explicitly mentioned.
+Your role is to identify and define "Rare Entities" in a transcript. Types of "Rare Entities" include rare words, jargons, adages, concepts, people, places, organizations, events etc that are not well known to the average high schooler, in accordance to current trends. You can also intelligently detect entities that are described in the conversation but not explicitly mentioned.
 
 # Criteria for Rare Entities in order of importance
 1. Rarity: Select entities that are unlikely for an average high schooler to know. Well known entities are like Fortune 500 organizations, worldwide-known events, popular locations, and entities popularized by recent news or events such as "COVID-19", "Bitcoin", or "Generative AI".
@@ -28,25 +31,24 @@ Your role is to identify and define "Rare Entities" in a conversation transcript
 # Output Guidelines:
 Output an array (ONLY OUTPUT THIS) of the entities you identified using the following template: `[{{ name: string, definition: string, search_keyword: string }}]`
 
-- name is the entity name shown to the user, if it is mistranscribed, autocorrect it, otherwise use the name quoted from the conversation
+- name is the entity name shown to the user, if the name is mistranscribed, autocorrect it into the most well known form with proper spelling, capitalization and punctuation
 - definition is concise (< 12 words)
-- search_keyword as the best Internet search keywords to find the entity, add entity type defined above for better searchability
+- search_keyword as the best specific Internet search keywords to search for the entity, add entity type defined above for better searchability
 - it's OK to output an empty array - most of the time, the array will be empty, only include items if the fit all the requirements
 
 ## Additional Guidelines:
 - Only select nouns, not verbs or adjectives.
 - Select entities iff they have an entry in an encyclopedia, wikipedia, dictionary, or other reference material.
-- Do not define entities you yourself are not familiar with, you can try to piece together the implied entity, but if you are not 90% confident, skip it.
-- For the search keyword, use complete, official and context relevant keyword(s) to search for that entity. You might need to autocomplete entity names or use their official names or add additional context keywords (like the type of entity) to help with searchability, especially if the entity is ambiguous or has multiple meanings. Additionally, for rare words, add "definition" to the search keyword.
+- Do not define entities you yourself are unfamiliar with, you can try to piece together the implied entity only if you are 99% confident.
+- For the search keyword, use complete, official and context relevant keyword(s) to search for that entity. You might need to autocorrect entity names or use their official names or add additional context keywords (like the type of entity) to help with searchability, especially if the entity is ambiguous or has multiple meanings. Additionally, for rare words, add "definition" to the search keyword.
 - Definitions should use simple language to be easily understood.
-- Select entities whose definitions you are very confident about, otherwise skip them.
-- Multiple entities can be detected from one phrase, for example, "The Lugubrious Game" can be defined as a painting (iff the entire term "the lugubrious game" is mentioned), and the rare word "lugubrious" is also worth defining.
+- Multiple entities can be detected from one phrase, for example, "The Lugubrious Game" can be defined as a painting (iff the entire term "the lugubrious game" is mentioned), and the rare word "lugubrious" is also a candidate to define.
 - Limit results to {number_of_definitions} entities, prioritize rarity and utility.
 - Examples:
-    - Completing incomplete name example: If the conversation talks about "Balmer" and "Microsoft", the keyword is "Steve Balmer + person", and the name would be "Steve Balmer" because it is complete.
-    - Replacing unofficial name example: If the conversation talks about "Clay Institute", the keyword is "Clay Mathematics Institute + organization" since that is the official name, but the entity name would be "Clay Institute" because that is the name quoted from the conversation.
-    - Adding context example: If the conversation talks about "Theory of everything", the keyword needs context keywords such as "Theory of everything + concept", because there is a popular movie with the same name. 
-    - Inferring transcript errors example: If the conversation mentions "Coleman Sachs" in the context of finance, and you're 90% confident it's supposed to be "Goldman Sachs", autocorrect and define it with Goldman Sachs's definition.
+    - Completing incomplete name example: Conversation mentions "Balmer" and "Microsoft", the keyword is "Steve Balmer + person", and the name would be "Steve Balmer" because it is complete.
+    - Replacing unofficial name example: Conversation mentions "Clay Institute", the keyword is "Clay Mathematics Institute + organization", using the official name.
+    - Add context example: Conversation mentions "Theory of everything", the keyword needs context keywords such as "Theory of everything + concept", because there is a popular movie with the same name. 
+    - Autocorrect transcript example: Conversation mentions "Coleman Sachs" in the context of finance, if you're confident it was supposed to be "Goldman Sachs", you autocorrect it and define "Goldman Sachs".
 
 ## Recent Definitions:
 These have already been defined so don't define them again:
@@ -58,8 +60,9 @@ entities: [{{ name: "80/20 Rule", definition: "Productivity concept; Majority of
 {format_instructions} 
 If no relevant entities are identified, output empty arrays.
 """
-#6. Searchability: Likely to have a specific and valid reference source: Wikipedia page, dictionary entry etc.
-#- Entity names should be quoted from the conversation, so the output definitions can be referenced back to the conversation.
+# 6. Searchability: Likely to have a specific and valid reference source: Wikipedia page, dictionary entry etc.
+# - Entity names should be quoted from the conversation, so the output definitions can be referenced back to the conversation.
+
 
 class Entity(BaseModel):
     name: str = Field(
@@ -72,15 +75,17 @@ class Entity(BaseModel):
         description="keyword to search for entity on the Internet",
     )
 
+
 class ConversationEntities(BaseModel):
     entities: list[Entity] = Field(
-        description="list of entities and their definitions",
-        default=[]
+        description="list of entities and their definitions", default=[]
     )
+
 
 proactive_rare_word_agent_query_parser = PydanticOutputParser(
     pydantic_object=ConversationEntities
 )
+
 
 def run_proactive_definer_agent(
     conversation_context: str, definitions_history: list = []
@@ -96,7 +101,7 @@ def run_proactive_definer_agent(
         ],
         partial_variables={
             "format_instructions": proactive_rare_word_agent_query_parser.get_format_instructions(),
-            "number_of_definitions": "3", # this is a tradeoff between speed and results, 3 is faster than 5
+            "number_of_definitions": "3",  # this is a tradeoff between speed and results, 3 is faster than 5
         },
     )
 
@@ -121,20 +126,19 @@ def run_proactive_definer_agent(
     print("Proactive meta agent response", response)
 
     try:
-        res = proactive_rare_word_agent_query_parser.parse(
-            response.content
-        )
+        res = proactive_rare_word_agent_query_parser.parse(response.content)
         # we still have unknown_entities to search for but we will do them next time
         res = search_entities(res.entities)
         return res
     except OutputParserException:
         return None
 
+
 def search_entities(entities: list[Entity]):
     search_tasks = []
     for entity in entities:
         search_tasks.append(search_url_for_entity_async(entity.search_keyword))
-    
+
     loop = asyncio.get_event_loop()
     responses = asyncio.gather(*search_tasks)
     responses = loop.run_until_complete(responses)
@@ -146,7 +150,7 @@ def search_entities(entities: list[Entity]):
         res["name"] = entity.name
         res["summary"] = entity.definition
         res.update(response)
-        
+
         # if response is None:
         #     continue
 
@@ -190,5 +194,5 @@ def search_entities(entities: list[Entity]):
         #         res["url"] = detailed_description.get('url')
 
         entity_objs.append(res)
-    
+
     return entity_objs
