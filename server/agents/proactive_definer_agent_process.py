@@ -36,7 +36,8 @@ def proactive_definer_processing_loop():
               
 
                 try:
-                    definition_history = dbHandler.get_definer_history_for_user(transcript['user_id'])
+                    # definition_history = dbHandler.get_definer_history_for_user(transcript['user_id'])
+                    definition_history = dbHandler.get_recent_nminutes_definer_history_for_user(transcript['user_id'])
 
                     # run proactive meta agent, get definition
                     entities = run_proactive_definer_agent(transcript['text'], definitions_history=definition_history)
