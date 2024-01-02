@@ -61,6 +61,10 @@ def proactive_definer_processing_loop():
                         print("Adding entities in proactive definer process:")
                         print(entities)
 
+                        # STUDY CODE: make the entity timestamp halfway through the transcript string we pulled
+                        for entity in entities:
+                            entity['timestamp'] = individual_transcripts[0]["timestamp"] + int(check_time/2)
+                        """
                         # STUDY CODE: Populate the entity timestamps here
                         for entity in entities:
                             entity['timestamp'] = int(time.time())
@@ -74,6 +78,7 @@ def proactive_definer_processing_loop():
                                     if entity_location > (1 * (len(t['text']) / 3)): time_offset = 7
                                     if entity_location > (2 * (len(t['text']) / 3)): time_offset = 9
                                     entity['timestamp'] = t['timestamp'] + time_offset
+                        """
 
                         dbHandler.add_agent_proactive_definition_results_for_user(transcript['user_id'], entities)
 

@@ -8,6 +8,6 @@ RELEVANCE_FILTER_TIME = 120 # number of seconds the relevance filter looks back
 
 GPT_4_MODEL = "gpt-4-1106-preview"
 GPT_4_MAX_TOKENS = 2048
-GPT_TEMPERATURE = 0.5
+GPT_TEMPERATURE = 0.0
 
 TIME_EVERYTHING = False

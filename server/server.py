@@ -421,9 +421,9 @@ if __name__ == '__main__':
         multiprocessing.set_start_method('spawn')
 
     # log_queue = multiprocessing.Queue()
-    print("Starting CSE process...")
-    cse_process = multiprocessing.Process(target=cse_loop)
-    cse_process.start()
+    #print("Starting CSE process...")
+    #cse_process = multiprocessing.Process(target=cse_loop)
+    #cse_process.start()
 
     # start intelligent definer agent process
     print("Starting Intelligent Definer Agent process...")
@@ -431,13 +431,13 @@ if __name__ == '__main__':
     intelligent_definer_agent_process.start()
 
     # start the proactive agents process
-    print("Starting Proactive Agents process...")
-    proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
-    proactive_agents_background_process.start()
+    #print("Starting Proactive Agents process...")
+    #proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
+    #proactive_agents_background_process.start()
 
     # start the explicit agent process
-    explicit_background_process = multiprocessing.Process(target=explicit_agent_processing_loop)
-    explicit_background_process.start()
+    #explicit_background_process = multiprocessing.Process(target=explicit_agent_processing_loop)
+    #explicit_background_process.start()
 
     # setup and run web app
     # CORS allow from all sources
@@ -472,7 +472,7 @@ if __name__ == '__main__':
     web.run_app(app, port=server_port)
 
     #let processes finish and join
-    proactive_agents_background_process.join()
+    #proactive_agents_background_process.join()
     intelligent_definer_agent_process.join()
-    cse_process.join()
-    explicit_background_process.join()
+    #cse_process.join()
+    #explicit_background_process.join()
