@@ -25,12 +25,6 @@ def proactive_agents_processing_loop():
         #wait for some transcripts to load in
         time.sleep(15)
 
-        # for testing purposes
-        entities = [{"insight": "test", "agent": "test", "reference_url": "test"}]
-        dbHandler.add_agent_proactive_definition_results_for_user(
-                            "KenjiPcx", entities
-                        )
-
         try:
             pLoopStartTime = time.time()
             # Check for new transcripts

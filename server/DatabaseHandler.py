@@ -6,7 +6,8 @@ import math
 from hashlib import sha256
 from server_config import database_uri, clear_users_on_start, clear_cache_on_start
 import uuid
-
+import logging
+from logger_config import logger
 
 class DatabaseHandler:
     def __init__(self, parent_handler=True):
@@ -658,7 +659,7 @@ class DatabaseHandler:
         ]
         results = list(self.agent_insights_results_collection.aggregate(pipeline))
 
-        print("Insights history RESULTS:", results)
+        # logger.log(logging.DEBUG, "{}: Insights history RESULTS: {}".format("get_agent_insights_history_for_user", results))
 
         return results
 
@@ -686,7 +687,7 @@ class DatabaseHandler:
         ]
         results = list(self.agent_insights_results_collection.aggregate(pipeline))
 
-        print("Insights history RESULTS:", results)
+        # logger.log(logging.DEBUG, "{}: Insights history RESULTS: {}".format("get_recent_nminutes_agent_insights_history_for_user", results))
 
         return results
 
@@ -754,7 +755,7 @@ class DatabaseHandler:
         ]
         results = list(self.agent_proactive_definer_collection.aggregate(pipeline))
 
-        print("Definer history RESULTS:", results)
+        # logger.log(logging.DEBUG, "{}: Definer history RESULTS: {}".format("get_definer_history_for_user", results))
 
         return results
 
@@ -778,12 +779,13 @@ class DatabaseHandler:
                 }
             },
         ]
-        results = list(self.agent_insights_results_collection.aggregate(pipeline))
+        results = list(
+            self.agent_proactive_definer_collection.aggregate(pipeline))
 
         # Extracting only names from results
         names = [result["name"] for result in results]
 
-        print("Definer history RESULTS:", names)
+        # logger.log(logging.DEBUG, "{}: Definer history RESULTS: {}".format("get_recent_nminutes_definer_history_for_user", names))
 
         return names
 
