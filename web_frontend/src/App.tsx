@@ -55,6 +55,8 @@ const StudyApp = () => {
       setStudyCondition(StudyCondition.CONVOSCOPE);
     } else if (condition === "2") {
       setStudyCondition(StudyCondition.NO_CONVOSCOPE);
+    } else if (condition === "3") {
+      setStudyCondition(StudyCondition.GOOGLE);
     }
   }, [setStudyCondition]);
 

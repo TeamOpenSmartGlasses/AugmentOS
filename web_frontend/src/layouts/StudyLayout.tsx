@@ -21,7 +21,7 @@ import {
   studyConditionAtom,
   videoTimeAtom,
 } from "../recoil";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CardScrollArea from "../components/CardScrollArea";
 import { VIDEO_SRC } from "../constants";
 import { StudyCondition } from "../types";
@@ -59,6 +59,14 @@ const StudyLayout = () => {
   const [hasVideoEnded, setHasVideoEnded] = useState(false);
   const studyCondition = useRecoilValue(studyConditionAtom);
 
+  useEffect(() => {
+    if (studyCondition === StudyCondition.GOOGLE) {
+      const script = document.createElement("script");
+      document.head.append(script);
+      script.src = "https://cse.google.com/cse.js?cx=c6140097ef66f4f84";
+    }
+  }, [studyCondition]);
+
   return (
     <>
       <PFlex component={motion.div} className={classes.root} layout>
@@ -72,13 +80,34 @@ const StudyLayout = () => {
           px={"1rem"}
           transition={{ bounce: 0 }}
         >
-          {entities.length === 0 && !isExplicitListening && (
-            <Box w="50%" mx="auto" mt="xl">
-              <Image src={"/blobs.gif"} fit="cover" />
+          {/* Left Panel */}
+          {studyCondition === StudyCondition.CONVOSCOPE && (
+            <>
+              {entities.length === 0 && !isExplicitListening && (
+                <Box w="50%" mx="auto" mt="xl">
+                  <Image src={"/blobs.gif"} fit="cover" />
+                </Box>
+              )}
+              <CardScrollArea />
+            </>
+          )}
+          {studyCondition === StudyCondition.GOOGLE && (
+            <Box
+              sx={{
+                ".gsc-input": { color: "black" },
+                ".gsc-control-cse": { height: "100%" },
+                ".gsc-control-wrapper-cse": {
+                  height: "100%",
+                  overflow: "auto",
+                },
+                "#___gcse_1": { height: "100%" },
+                height: "100%",
+              }}
+            >
+              <div className="gcse-searchbox"></div>
+              <div className="gcse-searchresults"></div>
             </Box>
           )}
-          {/* Left Panel */}
-          {studyCondition === StudyCondition.CONVOSCOPE && <CardScrollArea />}
         </PContainer>
 
         <PContainer
