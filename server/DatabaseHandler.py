@@ -6,7 +6,8 @@ import math
 from hashlib import sha256
 from server_config import database_uri, clear_users_on_start, clear_cache_on_start
 import uuid
-
+import logging
+from logger_config import logger
 
 class DatabaseHandler:
     def __init__(self, parent_handler=True):
@@ -533,21 +534,49 @@ class DatabaseHandler:
 
     # TODO: consult kenji here // test this more
     def get_agent_insights_history_for_user(self, user_id, top=10):
-        uuid_list = self.get_user(user_id)['agent_insights_result_ids']
+        uuid_list = self.get_user(user_id)["agent_insights_result_ids"]
         pipeline = [
             {"$match": {"uuid": {"$in": uuid_list}}},
             # { "$unwind": "$agent_insights_result_ids" },
-            { "$sort": { "timestamp": -1 } },
-            { "$limit": top },
+            {"$sort": {"timestamp": -1}},
+            {"$limit": top},
             {
                 "$project": {
                     "_id": 0,
                 }
-            }
+            },
         ]
         results = list(self.agent_insights_results_collection.aggregate(pipeline))
 
-        print("Insights history RESULTS:", results)
+        # logger.log(logging.DEBUG, "{}: Insights history RESULTS: {}".format("get_agent_insights_history_for_user", results))
+
+        return results
+    
+    def get_recent_nminutes_agent_insights_history_for_user(
+        self, user_id, n_minutes=10
+    ):
+        uuid_list = self.get_user(user_id)["agent_insights_result_ids"]
+        current_time = math.trunc(time.time())
+        n_seconds = n_minutes * 60
+        timestamp_threshold = current_time - n_seconds
+
+        pipeline = [
+            {
+                "$match": {
+                    "uuid": {"$in": uuid_list},
+                    "timestamp": {"$gte": timestamp_threshold},
+                }
+            },
+            {"$sort": {"timestamp": -1}},
+            {
+                "$project": {
+                    "_id": 0,
+                }
+            },
+        ]
+        results = list(self.agent_insights_results_collection.aggregate(pipeline))
+
+        # logger.log(logging.DEBUG, "{}: Insights history RESULTS: {}".format("get_recent_nminutes_agent_insights_history_for_user", results))
 
         return results
 
@@ -589,23 +618,53 @@ class DatabaseHandler:
     ### INTELLIGENT ENTITY DEFINITIONS ###
 
     def get_definer_history_for_user(self, user_id, top=5):
-        uuid_list = self.get_user(user_id)['agent_proactive_definer_result_ids']
+        uuid_list = self.get_user(user_id)["agent_proactive_definer_result_ids"]
         pipeline = [
             {"$match": {"uuid": {"$in": uuid_list}}},
             # { "$match": { "user_id": user_id } },
-            { "$sort": { "timestamp": -1 } },
-            { "$limit": top },
+            {"$sort": {"timestamp": -1}},
+            {"$limit": top},
             {
                 "$project": {
                     "_id": 0,
                 }
-            }
+            },
         ]
         results = list(self.agent_proactive_definer_collection.aggregate(pipeline))
 
-        print("Definer history RESULTS:", results)
+        # logger.log(logging.DEBUG, "{}: Definer history RESULTS: {}".format("get_definer_history_for_user", results))
 
         return results
+    
+    def get_recent_nminutes_definer_history_for_user(self, user_id, n_minutes=10):
+        uuid_list = self.get_user(user_id)["agent_proactive_definer_result_ids"]
+        current_time = math.trunc(time.time())
+        n_seconds = n_minutes * 60
+        timestamp_threshold = current_time - n_seconds
+
+        pipeline = [
+            {
+                "$match": {
+                    "uuid": {"$in": uuid_list},
+                    "timestamp": {"$gte": timestamp_threshold},
+                }
+            },
+            {"$sort": {"timestamp": -1}},
+            {
+                "$project": {
+                    "_id": 0,
+                }
+            },
+        ]
+        results = list(
+            self.agent_proactive_definer_collection.aggregate(pipeline))
+
+        # Extracting only names from results
+        names = [result["name"] for result in results]
+
+        # logger.log(logging.DEBUG, "{}: Definer history RESULTS: {}".format("get_recent_nminutes_definer_history_for_user", names))
+
+        return names
     
     def add_agent_proactive_definition_results_for_user(self, user_id, entities):
         if not entities: return
