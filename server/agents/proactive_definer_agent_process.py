@@ -61,10 +61,10 @@ def proactive_definer_processing_loop():
                                     # Need timing offset...
                                     # If the entity occurs 1/3rd thru the transcript, delay extra
                                     # If the entity occurs 2/3rd thru the transcript, delay even more
-                                    time_offset = 1
+                                    time_offset = 5
                                     entity_location = t['text'].index(entity['name'])
-                                    if entity_location > (1 * (len(t['text']) / 3)): time_offset = 3
-                                    if entity_location > (2 * (len(t['text']) / 3)): time_offset = 4
+                                    if entity_location > (1 * (len(t['text']) / 3)): time_offset = 7
+                                    if entity_location > (2 * (len(t['text']) / 3)): time_offset = 9
                                     entity['timestamp'] = t['timestamp'] + time_offset
 
                         dbHandler.add_agent_proactive_definition_results_for_user(transcript['user_id'], entities)
