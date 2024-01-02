@@ -15,7 +15,7 @@ import asyncio
 
 proactive_rare_word_agent_prompt_blueprint = """
 # Objective
-Your role is to identify and define "Rare Entities" in a transcript. Types of "Rare Entities" include rare words, jargons, adages, concepts, people, places, organizations, events etc that are not well known to the average high schooler, in accordance to current trends. You can also intelligently detect entities that are described in the conversation but not explicitly mentioned.
+Your role is to identify and define "Rare Entities (REs)" in a transcript. Types of REs include rare words, jargons, adages, concepts, people, places, organizations, events etc that are not well known to the average high schooler, in accordance to current trends. You can also intelligently detect REs that are described in the conversation but not explicitly mentioned.
 
 # Criteria for Rare Entities in order of importance
 1. Rarity: Select entities that are unlikely for an average high schooler to know. Well known entities are like Fortune 500 organizations, worldwide-known events, popular locations, and entities popularized by recent news or events such as "COVID-19", "Bitcoin", or "Generative AI".
@@ -29,36 +29,33 @@ Your role is to identify and define "Rare Entities" in a transcript. Types of "R
 <Transcript start>{conversation_context}<Transcript end>
 
 # Output Guidelines:
-Output an array (ONLY OUTPUT THIS) of the entities you identified using the following template: `[{{ name: string, definition: string, search_keyword: string }}]`
-
-- name is the entity name shown to the user, if the name is mistranscribed, autocorrect it into the most well known form with proper spelling, capitalization and punctuation
-- definition is concise (< 12 words)
-- search_keyword as the best specific Internet search keywords to search for the entity, add entity type defined above for better searchability
+Output an array of the entities using the following template: `[{{ name: string, definition: string, search_keyword: string }}]`
+- name is the RE name shown to the user, if the name is mistranscribed, autocorrect it into the most well known form with proper spelling, capitalization and punctuation
+- definition is concise (< 12 words) and uses simple words
+- search_keyword is the best specific Internet search keywords to search for the RE, you might need to use their complete official RE name, or autocorrect RE name, or add additional context keywords (like the entity type) for better searchability, especially if the entity is ambiguous or has multiple meanings. Additionally, for rare words, add "definition" to the search keyword.
 - it's OK to output an empty array - most of the time, the array will be empty, only include items if the fit all the requirements
 
 ## Additional Guidelines:
-- Only select nouns, not verbs or adjectives.
-- Select entities iff they have an entry in an encyclopedia, wikipedia, dictionary, or other reference material.
-- Do not define entities you yourself are unfamiliar with, you can try to piece together the implied entity only if you are 99% confident.
-- For the search keyword, use complete, official and context relevant keyword(s) to search for that entity. You might need to autocorrect entity names or use their official names or add additional context keywords (like the type of entity) to help with searchability, especially if the entity is ambiguous or has multiple meanings. Additionally, for rare words, add "definition" to the search keyword.
-- Definitions should use simple language to be easily understood.
-- Multiple entities can be detected from one phrase, for example, "The Lugubrious Game" can be defined as a painting (iff the entire term "the lugubrious game" is mentioned), and the rare word "lugubrious" is also a candidate to define.
-- Limit results to {number_of_definitions} entities, prioritize rarity and utility.
+- Only define NOUNS.
+- Select RE that have an entry in an encyclopedia, wikipedia, dictionary, or other reference material.
+- Do not select a RE you yourself are unfamiliar with, you can infer the implied entity or autocorrect mistransribed names only if you are 99% confident, never select an entity if you will define it as "Unknown Entity".
+- Multiple REs can be defined from one phrase, for example, "The Lugubrious Game" is a candidate to define, the rare word "lugubrious" is also a candidate.
+- Limit results to {number_of_definitions} REs.
 - Examples:
     - Completing incomplete name example: Conversation mentions "Balmer" and "Microsoft", the keyword is "Steve Balmer + person", and the name would be "Steve Balmer" because it is complete.
     - Replacing unofficial name example: Conversation mentions "Clay Institute", the keyword is "Clay Mathematics Institute + organization", using the official name.
     - Add context example: Conversation mentions "Theory of everything", the keyword needs context keywords such as "Theory of everything + concept", because there is a popular movie with the same name. 
-    - Autocorrect transcript example: Conversation mentions "Coleman Sachs" in the context of finance, if you're confident it was supposed to be "Goldman Sachs", you autocorrect it and define "Goldman Sachs".
+    - Autocorrect transcript example: Conversation mentions "Coleman Sachs" in the context of finance, if you are confident it is supposed to be "Goldman Sachs", you autocorrect it and define "Goldman Sachs".
 
 ## Recent Definitions:
-These have already been defined so don't define them again:
+These REs have already been defined so don't define them again:
 {definitions_history}
 
 ## Example Output:
 entities: [{{ name: "80/20 Rule", definition: "Productivity concept; Majority of results come from few causes", search_keyword: "80/20 Rule + concept" }}]
 
 {format_instructions} 
-If no relevant entities are identified, output empty arrays.
+If there are no relevant entities, output an empty array.
 """
 # 6. Searchability: Likely to have a specific and valid reference source: Wikipedia page, dictionary entry etc.
 # - Entity names should be quoted from the conversation, so the output definitions can be referenced back to the conversation.
