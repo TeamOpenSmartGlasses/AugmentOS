@@ -8,6 +8,7 @@ import asyncio
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_meta_agent import run_proactive_meta_agent_and_experts
 from server_config import openai_api_key
+from logger_config import logger
 
 def proactive_agents_processing_loop():
     print("START MULTI AGENT PROCESSING LOOP")
@@ -22,6 +23,12 @@ def proactive_agents_processing_loop():
         
         #wait for some transcripts to load in
         time.sleep(15)
+
+        # for testing purposes
+        entities = [{"insight": "test", "agent": "test", "reference_url": "test"}]
+        dbHandler.add_agent_proactive_definition_results_for_user(
+                            "KenjiPcx", entities
+                        )
 
         try:
             pLoopStartTime = time.time()
@@ -47,6 +54,8 @@ def proactive_agents_processing_loop():
                     insights_history = dbHandler.get_recent_nminutes_agent_insights_history_for_user(transcript['user_id'])
                     print("insights_history: {}".format(insights_history))
                     # [{'agent_name': 'Statistician', 'agent_insight': "Insight: Brain's processing limit challenges full Wikipedia integration. Neuralink trials show promising BCI advancements."}, ...]
+
+                    logger.log("Insights history: {}".format(insights_history))
 
                     #run proactive meta agent, get insights
                     insights = run_proactive_meta_agent_and_experts(transcript_to_use, insights_history)

@@ -6,6 +6,7 @@ import uuid
 #custom
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_definer_agent import run_proactive_definer_agent
+from logger_config import logger
 
 def proactive_definer_processing_loop():
     print("START DEFINER PROCESSING LOOP")
@@ -19,6 +20,12 @@ def proactive_definer_processing_loop():
         
         #wait for some transcripts to load in
         time.sleep(15)
+
+        # for testing purposes
+        entities = [{"name": "test", "definition": "test", "image_url": "test", "reference_url": "test"}]
+        dbHandler.add_agent_proactive_definition_results_for_user(
+                            "KenjiPcx", entities
+                        )
 
         try:
             pLoopStartTime = time.time()
@@ -38,6 +45,8 @@ def proactive_definer_processing_loop():
                 try:
                     # definition_history = dbHandler.get_definer_history_for_user(transcript['user_id'])
                     definition_history = dbHandler.get_recent_nminutes_definer_history_for_user(transcript['user_id'])
+
+                    logger.log("Definer history: {}".format(definition_history))
 
                     # run proactive meta agent, get definition
                     entities = run_proactive_definer_agent(transcript['text'], definitions_history=definition_history)
