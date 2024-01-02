@@ -321,7 +321,8 @@ async def expert_agent_runner(expert_agent_name, user_id):
     convo_context = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n_seconds)
 
     #get the most recent insights for this user
-    insights_history = db_handler.get_agent_insights_history_for_user(user_id)
+    # insights_history = db_handler.get_agent_insights_history_for_user(user_id)
+    insights_history = db_handler.get_recent_nminutes_agent_insights_history_for_user(user_id)
     insights_history = [insight["insight"] for insight in insights_history]
 
     #spin up the agent

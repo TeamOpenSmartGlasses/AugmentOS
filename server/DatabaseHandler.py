@@ -775,8 +775,6 @@ class DatabaseHandler:
             {
                 "$project": {
                     "_id": 0,
-                    "name": 1,  # Include the "name" field
-                    "definition": 0,  # Exclude the "definition" field
                 }
             },
         ]

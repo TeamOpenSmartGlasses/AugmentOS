@@ -3,6 +3,7 @@ import traceback
 import math
 import uuid
 import asyncio
+import logging
 
 #custom
 from DatabaseHandler import DatabaseHandler
@@ -55,7 +56,7 @@ def proactive_agents_processing_loop():
                     print("insights_history: {}".format(insights_history))
                     # [{'agent_name': 'Statistician', 'agent_insight': "Insight: Brain's processing limit challenges full Wikipedia integration. Neuralink trials show promising BCI advancements."}, ...]
 
-                    logger.log("Insights history: {}".format(insights_history))
+                    logger.log(level=logging.DEBUG, msg="Insights history: {}".format(insights_history))
 
                     #run proactive meta agent, get insights
                     insights = run_proactive_meta_agent_and_experts(transcript_to_use, insights_history)

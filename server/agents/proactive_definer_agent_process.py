@@ -2,6 +2,7 @@ import time
 import traceback
 import asyncio
 import uuid
+import logging
 
 #custom
 from DatabaseHandler import DatabaseHandler
@@ -46,7 +47,8 @@ def proactive_definer_processing_loop():
                     # definition_history = dbHandler.get_definer_history_for_user(transcript['user_id'])
                     definition_history = dbHandler.get_recent_nminutes_definer_history_for_user(transcript['user_id'])
 
-                    logger.log("Definer history: {}".format(definition_history))
+                    logger.log(level=logging.DEBUG, msg="Definer history: {}".format(
+                        definition_history))
 
                     # run proactive meta agent, get definition
                     entities = run_proactive_definer_agent(transcript['text'], definitions_history=definition_history)

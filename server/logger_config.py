@@ -2,7 +2,7 @@ import logging
 from logging.handlers import TimedRotatingFileHandler
 
 logger = logging.getLogger("DefinerLogger")
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 
 handler = TimedRotatingFileHandler(
     "daily_log.log", when="midnight", interval=1, backupCount=7
