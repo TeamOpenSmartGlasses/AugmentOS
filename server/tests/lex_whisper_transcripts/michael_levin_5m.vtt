@@ -1,0 +1,181 @@
+WEBVTT
+
+00:00.000 --> 00:04.640
+ turns out that if you train a planarian and then cut their heads off, the tail will regenerate a
+
+00:04.640 --> 00:09.760
+ brand new brain that still remembers the original information. I think planaria hold the answer to
+
+00:09.760 --> 00:14.800
+ pretty much every deep question of life. For one thing, they're similar to our ancestors. So they
+
+00:14.800 --> 00:17.600
+ have true symmetry, they have a true brain, they're not like earthworms, they're, you know,
+
+00:17.600 --> 00:20.640
+ they're much more advanced life form. They have lots of different internal organs, but they're
+
+00:20.640 --> 00:24.560
+ these little, they're about, you know, maybe two centimeters in the centimeter to two in size.
+
+00:24.560 --> 00:30.640
+ And they have a head and a tail. And the first thing is planaria are immortal. So they do not
+
+00:30.640 --> 00:34.320
+ age. There's no such thing as an old planarian. So that right there tells you that these theories
+
+00:34.320 --> 00:40.080
+ of thermodynamic limitations on lifespan are wrong. It's not that well over time of everything
+
+00:40.080 --> 00:44.560
+ degrades. No, planaria can keep it going for probably, you know, how long have they been
+
+00:44.560 --> 00:48.640
+ around 400 million years, right? So these are the actual, so the planaria in our lab
+
+00:48.640 --> 00:54.880
+ are actually in physical continuity with planaria that were here 400 million years ago.
+
+00:54.880 --> 01:00.080
+ The following is a conversation with Michael Levin, one of the most fascinating and brilliant
+
+01:00.080 --> 01:07.120
+ biologists I've ever talked to. He and his lab at Tufts University works on novel ways to understand
+
+01:07.120 --> 01:12.960
+ and control complex pattern formation in biological systems. Andre Karpathy, a world
+
+01:12.960 --> 01:18.880
+ class AI researcher, is the person who first introduced me to Michael Levin's work. I bring
+
+01:18.880 --> 01:25.680
+ this up because these two people make me realize that biology has a lot to teach us about AI,
+
+01:25.680 --> 01:32.000
+ and AI might have a lot to teach us about biology. This is the Lex Friedman podcast.
+
+01:32.000 --> 01:37.440
+ To support it, please check out our sponsors in the description. And now, dear friends,
+
+01:37.440 --> 01:44.480
+ here's Michael Levin. Embryogenesis is the process of building the human body from a single cell. I
+
+01:44.480 --> 01:50.160
+ think it's one of the most incredible things that exists on earth from a single embryo. So how does
+
+01:50.160 --> 01:56.080
+ this process work? Yeah, it is an incredible process. I think it's maybe the most magical
+
+01:56.080 --> 02:01.520
+ process there is. And I think one of the most fundamentally interesting things about it is that
+
+02:01.520 --> 02:07.120
+ it shows that each of us takes the journey from so called just physics to mind, right? Because we
+
+02:07.120 --> 02:12.880
+ all start life as a single quiescent, unfertilized oocyte, and it's basically a bag of chemicals,
+
+02:12.880 --> 02:16.720
+ and you look at that and you say, okay, this is chemistry and physics. And then nine months and
+
+02:16.720 --> 02:22.320
+ some years later, you have an organism with high level cognition and preferences and an inner life
+
+02:22.320 --> 02:27.520
+ and so on. And what embryogenesis tells us is that that transformation from physics to mind is
+
+02:27.520 --> 02:32.560
+ gradual. It's smooth. There is no special place where, you know, a lightning bolt says, boom,
+
+02:32.560 --> 02:37.440
+ now you've gone from physics to true cognition. That doesn't happen. And so we can see in this
+
+02:37.440 --> 02:41.440
+ process that the whole mystery, you know, the biggest mystery of the universe, basically,
+
+02:41.440 --> 02:47.680
+ how you get mind from matter. From just physics, in quotes. Yeah. So where's the magic into the
+
+02:47.680 --> 02:54.480
+ thing? How do we get from information encoded in DNA and make physical reality out of that
+
+02:54.480 --> 02:59.280
+ information? So one of the things that I think is really important if we're going to bring in DNA
+
+02:59.280 --> 03:05.520
+ into this picture is to think about the fact that what DNA encodes is the hardware of life. DNA
+
+03:05.520 --> 03:09.760
+ contains the instructions for the kind of micro level hardware that every cell gets to play with.
+
+03:09.760 --> 03:14.160
+ So all the proteins, all the signaling factors, the ion channels, all the cool little pieces of
+
+03:14.160 --> 03:20.640
+ hardware that cells have, that's what's in the DNA. The rest of it is in so called generic laws.
+
+03:20.640 --> 03:25.920
+ And these are laws of mathematics. These are laws of computation. These are laws of physics,
+
+03:25.920 --> 03:32.000
+ of all kinds of interesting things that are not directly in the DNA. And that process, you know,
+
+03:32.000 --> 03:36.800
+ I think the reason I always put just physics in quotes is because I don't think there is such a
+
+03:36.800 --> 03:41.520
+ thing as just physics. I think that thinking about these things in binary categories, like this is
+
+03:41.520 --> 03:45.840
+ physics, this is true cognition, this is as if it's only faking these kinds of things. I think
+
+03:45.840 --> 03:49.760
+ that's what gets us in trouble. I think that we really have to understand that it's a continuum
+
+03:49.760 --> 03:53.600
+ and we have to work up the scaling, the laws of scaling. And we can certainly talk about that.
+
+03:53.600 --> 03:56.640
+ There's a lot of really interesting thoughts to be had there.
+
+03:56.640 --> 04:03.200
+ So the physics is deeply integrated with the information. So the DNA doesn't exist on its own.
+
+04:03.200 --> 04:10.480
+ The DNA is integrated as, in some sense, in response to the laws of physics at every scale.
+
+04:10.480 --> 04:14.080
+ The laws of the environment it exists in.
+
+04:14.080 --> 04:18.960
+ Yeah, the environment and also the laws of the universe. I mean, the thing about the DNA is that
+
+04:18.960 --> 04:25.440
+ it's once evolution discovers a certain kind of machine, that if the physical implementation is
+
+04:25.440 --> 04:29.920
+ appropriate, it's sort of, and this is hard to talk about because we don't have a good vocabulary
+
+04:29.920 --> 04:36.560
+ for this yet, but it's a very kind of a platonic notion that if the machine is there, it pulls down
+
+04:36.560 --> 04:42.960
+ interesting things that you do not have to evolve from scratch because the laws of physics give it
+
+04:42.960 --> 04:47.200
+ to you for free. So just as a really stupid example, if you're trying to evolve a particular
+
+04:47.200 --> 04:50.720
+ triangle, you can evolve the first angle and you evolve the second angle, but you don't need to
+
+04:50.720 --> 04:54.480
+ evolve the third. You know what it is already. Now, why do you know? That's a gift for free
+
+04:54.480 --> 04:58.240
+ from geometry in a particular space. You know what that angle has to be. And if you evolve
+
+04:58.240 --> 05:01.920
+ an ion channel, which is, ion channels are basically transistors, right? They're voltage
+
+05:01.920 --> 05:06.720
+ gated current conductances. If you evolve that ion channel, you immediately get to use things
