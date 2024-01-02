@@ -14,9 +14,10 @@ import {
 import { motion } from "framer-motion";
 import { GAP_VH } from "../components/CardWrapper";
 import ExplorePane from "../components/ExplorePane";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import {
   entitiesState,
+  googleSearchResultUrlAtom,
   isExplicitListeningState,
   studyConditionAtom,
   videoTimeAtom,
@@ -58,14 +59,49 @@ const StudyLayout = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [hasVideoEnded, setHasVideoEnded] = useState(false);
   const studyCondition = useRecoilValue(studyConditionAtom);
+  const observerRef = useRef<MutationObserver>();
+  const [searchResultsNode, setSearchResultsNode] =
+    useState<HTMLElement | null>();
+  const setGoogleSearchResultUrl = useSetRecoilState(googleSearchResultUrlAtom);
 
   useEffect(() => {
     if (studyCondition === StudyCondition.GOOGLE) {
+      // insert the Programmable Search Engine script into the DOM
       const script = document.createElement("script");
       document.head.append(script);
       script.src = "https://cse.google.com/cse.js?cx=c6140097ef66f4f84";
+
+      // detect when the search results change
+      observerRef.current = new MutationObserver(() => {
+        // get all the search results
+        document.querySelectorAll("a.gs-title").forEach((element) =>
+          element.addEventListener("click", (event) => {
+            // don't open the link; instead, display it in the explore pane
+            event.preventDefault();
+            setGoogleSearchResultUrl(
+              (event.target as unknown as HTMLAnchorElement).href
+            );
+          })
+        );
+      });
+
+      if (searchResultsNode)
+        observerRef.current.observe(searchResultsNode, {
+          childList: true,
+          subtree: true,
+        });
     }
-  }, [studyCondition]);
+  }, [searchResultsNode, setGoogleSearchResultUrl, studyCondition]);
+
+  useEffect(() => {
+    // we periodically check until the search results node exists
+    const id = setInterval(() => {
+      if (!searchResultsNode) {
+        setSearchResultsNode(document.getElementById("___gcse_1"));
+      }
+    }, 200);
+    return () => clearInterval(id);
+  }, [searchResultsNode]);
 
   return (
     <>
@@ -140,7 +176,8 @@ const StudyLayout = () => {
                   : `current time: ${time} seconds`}
               </Button>
             </Group>
-            {studyCondition === StudyCondition.CONVOSCOPE && (
+            {(studyCondition === StudyCondition.CONVOSCOPE ||
+              studyCondition === StudyCondition.GOOGLE) && (
               <ExplorePane
                 loading={loadingViewMore}
                 setLoading={setLoadingViewMore}

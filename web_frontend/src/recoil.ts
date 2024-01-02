@@ -71,3 +71,8 @@ export const studyConditionAtom = atom<undefined | StudyCondition>({
   key: "studyCondition",
   default: undefined,
 });
+
+export const googleSearchResultUrlAtom = atom<undefined | string>({
+  key: "googleSearchUrl",
+  default: undefined,
+});
