@@ -613,8 +613,9 @@ class DatabaseHandler:
         for entity in entities:
             if entity is None:
                 continue
-            
-            entity['timestamp'] = int(time.time())
+
+            # STUDY CODE: populate this in proactive_definer_agent_process.py
+            # entity['timestamp'] = int(time.time())
             entity['uuid'] = str(uuid.uuid4())
 
         self.agent_proactive_definer_collection.insert_many(entities)
