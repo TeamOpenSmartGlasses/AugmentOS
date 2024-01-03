@@ -4,14 +4,17 @@ import time
 import test_on_lex
 import multiprocessing
 
-TEST_USERID = "caydenLexTester"
-TEST_DEVICEID = "testDeviceId"
+# TEST_USERID = "caydenLexTester"
+# TEST_DEVICEID = "testDeviceId"
 
-# TEST_USERID = "testUserId"
-# TEST_DEVICEID = "CSEWebFrontendDefault"
+TEST_USERID = "testUserId"
+TEST_DEVICEID = "CSEWebFrontendDefault"
 
-server_endpoint = '/dev2'
-URL = "https://vpmkebx0cl.execute-api.us-east-2.amazonaws.com/api"
+# server_endpoint = '/dev2'
+# URL = "https://vpmkebx0cl.execute-api.us-east-2.amazonaws.com/api"
+
+server_endpoint = ''
+URL = "http://localhost:8080"
 
 # server_endpoint = ''
 # URL = "http://localhost:8080"
@@ -80,6 +83,8 @@ def start_recording():
 
 def save_recording(recording_name: str = "testRecording"):
     data = {'userId': TEST_USERID, 'recordingName': recording_name}
+    print("DATA:")
+    print(str(data))
     r = requests.post(SAVE_RECORDING_ENDPOINT, data=json.dumps(data))
     r_json = r.json()
     print(r_json)

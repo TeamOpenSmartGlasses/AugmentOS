@@ -52,3 +52,9 @@ export type TabChange = {
   leaveTime: Date;
   returnTime: Date;
 };
+
+export enum StudyCondition {
+  CONVOSCOPE,
+  NO_CONVOSCOPE,
+  GOOGLE,
+}
