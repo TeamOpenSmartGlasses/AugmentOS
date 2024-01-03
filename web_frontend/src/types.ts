@@ -56,4 +56,5 @@ export type TabChange = {
 export enum StudyCondition {
   CONVOSCOPE,
   NO_CONVOSCOPE,
+  GOOGLE,
 }

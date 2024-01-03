@@ -14,14 +14,15 @@ import {
 import { motion } from "framer-motion";
 import { GAP_VH } from "../components/CardWrapper";
 import ExplorePane from "../components/ExplorePane";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import {
   entitiesState,
+  googleSearchResultUrlAtom,
   isExplicitListeningState,
   studyConditionAtom,
   videoTimeAtom,
 } from "../recoil";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CardScrollArea from "../components/CardScrollArea";
 import { VIDEO_SRC } from "../constants";
 import { StudyCondition } from "../types";
@@ -58,6 +59,49 @@ const StudyLayout = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [hasVideoEnded, setHasVideoEnded] = useState(false);
   const studyCondition = useRecoilValue(studyConditionAtom);
+  const observerRef = useRef<MutationObserver>();
+  const [searchResultsNode, setSearchResultsNode] =
+    useState<HTMLElement | null>();
+  const setGoogleSearchResultUrl = useSetRecoilState(googleSearchResultUrlAtom);
+
+  useEffect(() => {
+    if (studyCondition === StudyCondition.GOOGLE) {
+      // insert the Programmable Search Engine script into the DOM
+      const script = document.createElement("script");
+      document.head.append(script);
+      script.src = "https://cse.google.com/cse.js?cx=c6140097ef66f4f84";
+
+      // detect when the search results change
+      observerRef.current = new MutationObserver(() => {
+        // get all the search results
+        document.querySelectorAll("a.gs-title").forEach((element) =>
+          element.addEventListener("click", (event) => {
+            // don't open the link; instead, display it in the explore pane
+            event.preventDefault();
+            setGoogleSearchResultUrl(
+              (event.target as unknown as HTMLAnchorElement).href
+            );
+          })
+        );
+      });
+
+      if (searchResultsNode)
+        observerRef.current.observe(searchResultsNode, {
+          childList: true,
+          subtree: true,
+        });
+    }
+  }, [searchResultsNode, setGoogleSearchResultUrl, studyCondition]);
+
+  useEffect(() => {
+    // we periodically check until the search results node exists
+    const id = setInterval(() => {
+      if (!searchResultsNode) {
+        setSearchResultsNode(document.getElementById("___gcse_1"));
+      }
+    }, 200);
+    return () => clearInterval(id);
+  }, [searchResultsNode]);
 
   return (
     <>
@@ -72,13 +116,34 @@ const StudyLayout = () => {
           px={"1rem"}
           transition={{ bounce: 0 }}
         >
-          {entities.length === 0 && !isExplicitListening && (
-            <Box w="50%" mx="auto" mt="xl">
-              <Image src={"/blobs.gif"} fit="cover" />
+          {/* Left Panel */}
+          {studyCondition === StudyCondition.CONVOSCOPE && (
+            <>
+              {entities.length === 0 && !isExplicitListening && (
+                <Box w="50%" mx="auto" mt="xl">
+                  <Image src={"/blobs.gif"} fit="cover" />
+                </Box>
+              )}
+              <CardScrollArea />
+            </>
+          )}
+          {studyCondition === StudyCondition.GOOGLE && (
+            <Box
+              sx={{
+                ".gsc-input": { color: "black" },
+                ".gsc-control-cse": { height: "100%" },
+                ".gsc-control-wrapper-cse": {
+                  height: "100%",
+                  overflow: "auto",
+                },
+                "#___gcse_1": { height: "100%" },
+                height: "100%",
+              }}
+            >
+              <div className="gcse-searchbox"></div>
+              <div className="gcse-searchresults"></div>
             </Box>
           )}
-          {/* Left Panel */}
-          {studyCondition === StudyCondition.CONVOSCOPE && <CardScrollArea />}
         </PContainer>
 
         <PContainer
@@ -111,7 +176,8 @@ const StudyLayout = () => {
                   : `current time: ${time} seconds`}
               </Button>
             </Group>
-            {studyCondition === StudyCondition.CONVOSCOPE && (
+            {(studyCondition === StudyCondition.CONVOSCOPE ||
+              studyCondition === StudyCondition.GOOGLE) && (
               <ExplorePane
                 loading={loadingViewMore}
                 setLoading={setLoadingViewMore}

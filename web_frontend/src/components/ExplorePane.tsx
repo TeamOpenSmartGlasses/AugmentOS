@@ -1,7 +1,12 @@
 import { ActionIcon, Skeleton, Tooltip, Text } from "@mantine/core";
 import { IconArrowUp } from "@tabler/icons-react";
-import { explorePaneUrlValue } from "../recoil";
+import {
+  explorePaneUrlValue,
+  googleSearchResultUrlAtom,
+  studyConditionAtom,
+} from "../recoil";
 import { useRecoilValue } from "recoil";
+import { StudyCondition } from "../types";
 
 interface ExplorePaneProps {
   loading: boolean;
@@ -9,7 +14,15 @@ interface ExplorePaneProps {
 }
 
 const ExplorePane = ({ loading, setLoading }: ExplorePaneProps) => {
-  const viewMoreUrl = useRecoilValue(explorePaneUrlValue);
+  const explorePaneUrl = useRecoilValue(explorePaneUrlValue);
+  const googleSearchResultUrl = useRecoilValue(googleSearchResultUrlAtom);
+  const studyCondition = useRecoilValue(studyConditionAtom);
+  const viewMoreUrl =
+    studyCondition === StudyCondition.CONVOSCOPE
+      ? explorePaneUrl
+      : studyCondition === StudyCondition.GOOGLE
+      ? googleSearchResultUrl
+      : undefined;
 
   const handleLoad = () => {
     setLoading(false);
@@ -37,9 +50,11 @@ const ExplorePane = ({ loading, setLoading }: ExplorePaneProps) => {
         </ActionIcon>
       </Tooltip>
       {viewMoreUrl === undefined ? (
-        <Text m="auto" w="fit-content">
-          Click on a card with a link to explore.
-        </Text>
+        studyCondition === StudyCondition.CONVOSCOPE && (
+          <Text m="auto" w="fit-content">
+            Click on a card with a link to explore.
+          </Text>
+        )
       ) : (
         <iframe
           id="zoomed-in-iframe"
