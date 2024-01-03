@@ -52,28 +52,28 @@ const useStyles = createStyles({
 });
 
 // Get the recording from the backend and store the prerecorded entities in `results`
-let results:any[] = []
+let results: any[] = [];
 
-const getRecordingFromPublicFolder = (videoId: string) =>{
+const getRecordingFromPublicFolder = (videoId: string) => {
   fetch(`/${videoId}.json`)
-      .then(response => response.json())
-      .then(jsonData => {
-        results = jsonData;
-        return true;
-      })
-      .catch(error => {
-        console.error('Error fetching the JSON file:', error);
-        return false;
-      });
+    .then((response) => response.json())
+    .then((jsonData) => {
+      results = jsonData;
+      return true;
+    })
+    .catch((error) => {
+      console.error("Error fetching the JSON file:", error);
+      return false;
+    });
   return false;
-}
+};
 
 const getRecordingFromBackend = (videoId: string) => {
   if (!videoId) return;
 
-  let payload = {
-    "recordingName": videoId
-  }
+  const payload = {
+    recordingName: videoId,
+  };
 
   axiosClient
     .post(LOAD_RECORDING_ENDPOINT, payload)
@@ -85,10 +85,10 @@ const getRecordingFromBackend = (videoId: string) => {
     });
 };
 
-let videoName = VIDEO_SRC.substring(0, VIDEO_SRC.indexOf("."));
-console.log(videoName)
-if (!getRecordingFromPublicFolder(videoName)){
-  getRecordingFromBackend(videoName)
+const videoName = VIDEO_SRC.substring(0, VIDEO_SRC.indexOf("."));
+console.log(videoName);
+if (!getRecordingFromPublicFolder(videoName)) {
+  getRecordingFromBackend(videoName);
 }
 
 let resultDisplayIndex = 0;
@@ -101,30 +101,24 @@ const StudyLayout = () => {
   const [loadingViewMore, setLoadingViewMore] = useState(false);
   const [time, setTime] = useRecoilState(videoTimeAtom);
   const videoRef = useRef<HTMLVideoElement>(null);
-  
-  useEffect(() => {
-    if(results.length == 0) return;
-    if(resultDisplayIndex >= results.length) return;
 
-    if (time > results[resultDisplayIndex]['time_since_recording_start']){
+  useEffect(() => {
+    if (results.length == 0) return;
+    if (resultDisplayIndex >= results.length) return;
+
+    if (time > results[resultDisplayIndex]["time_since_recording_start"]) {
       setEntities((entities: any) =>
-              [
-                ...entities,
-                results[resultDisplayIndex]
-              ].filter((e) => {
-                return (!(e == null || e == undefined))
-              })
-            );
+        [...entities, results[resultDisplayIndex]].filter((e) => {
+          return !(e == null || e == undefined);
+        })
+      );
       resultDisplayIndex += 1;
     }
     return () => {};
   }, [time]);
-  
+
   const [hasVideoEnded, setHasVideoEnded] = useState(false);
   const studyCondition = useRecoilValue(studyConditionAtom);
-  const observerRef = useRef<MutationObserver>();
-  const [searchResultsNode, setSearchResultsNode] =
-    useState<HTMLElement | null>();
   const setGoogleSearchResultUrl = useSetRecoilState(googleSearchResultUrlAtom);
 
   useEffect(() => {
@@ -134,37 +128,32 @@ const StudyLayout = () => {
       document.head.append(script);
       script.src = "https://cse.google.com/cse.js?cx=c6140097ef66f4f84";
 
-      // detect when the search results change
-      observerRef.current = new MutationObserver(() => {
+      const resultsRenderedCallback = () => {
         // get all the search results
-        document.querySelectorAll("a.gs-title").forEach((element) =>
+        document.querySelectorAll("a.gs-title, a.gs-image").forEach((element) =>
           element.addEventListener("click", (event) => {
             // don't open the link; instead, display it in the explore pane
             event.preventDefault();
             setGoogleSearchResultUrl(
-              (event.target as unknown as HTMLAnchorElement).href
+              element.getAttribute("data-ctorig") ?? undefined
             );
           })
         );
-      });
+      };
 
-      if (searchResultsNode)
-        observerRef.current.observe(searchResultsNode, {
-          childList: true,
-          subtree: true,
-        });
+      // Use the Programmable Search Engine API to run the callback whenever results render
+      // https://developers.google.com/custom-search/docs/element
+      const windowUnsafeTyped = window as unknown as {
+        __gcse: { searchCallbacks?: unknown };
+      };
+      windowUnsafeTyped.__gcse || (windowUnsafeTyped.__gcse = {});
+      windowUnsafeTyped.__gcse.searchCallbacks = {
+        web: {
+          rendered: resultsRenderedCallback,
+        },
+      };
     }
-  }, [searchResultsNode, setGoogleSearchResultUrl, studyCondition]);
-
-  useEffect(() => {
-    // we periodically check until the search results node exists
-    const id = setInterval(() => {
-      if (!searchResultsNode) {
-        setSearchResultsNode(document.getElementById("___gcse_1"));
-      }
-    }, 200);
-    return () => clearInterval(id);
-  }, [searchResultsNode]);
+  }, [setGoogleSearchResultUrl, studyCondition]);
 
   return (
     <>
