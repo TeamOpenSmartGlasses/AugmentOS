@@ -6,6 +6,7 @@ public class Constants {
     public static String explicitAgentQueriesKey = "explicit_insight_queries";
     public static String explicitAgentResultsKey = "explicit_insight_results";
     public static String wakeWordTimeKey = "wake_word_time";
+    public static String entityDefinitionsKey = "entity_definitions";
 
     //endpoints
     public static final String LLM_QUERY_ENDPOINT = "/chat";

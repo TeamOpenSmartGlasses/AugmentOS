@@ -328,6 +328,13 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         JSONArray explicitAgentResults = response.has(explicitAgentResultsKey) ? response.getJSONArray(explicitAgentResultsKey) : new JSONArray();
 
+        JSONArray entityDefinitions = response.has(entityDefinitionsKey) ? response.getJSONArray(entityDefinitionsKey) : new JSONArray();
+
+        // Just append the entityDefinitions to the cseResults as they have similar schema
+        for (int i = 0; i < entityDefinitions.length(); i++) {
+            cseResults.put(entityDefinitions.get(i));
+        }
+
         long wakeWordTime = response.has(wakeWordTimeKey) ? response.getLong(wakeWordTimeKey) : -1;
 
         if (cseResults.length() > 0){
