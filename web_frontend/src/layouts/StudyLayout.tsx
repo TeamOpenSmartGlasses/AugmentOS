@@ -126,7 +126,8 @@ const StudyLayout = () => {
       // insert the Programmable Search Engine script into the DOM
       const script = document.createElement("script");
       document.head.append(script);
-      script.src = "https://cse.google.com/cse.js?cx=c6140097ef66f4f84";
+      //script.src = "https://cse.google.com/cse.js?cx=c6140097ef66f4f84";
+      script.src = "https://cse.google.com/cse.js?cx=5670fc00c6f414e7a";
 
       const resultsRenderedCallback = () => {
         // get all the search results
