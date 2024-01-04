@@ -38,13 +38,12 @@ def proactive_definer_processing_loop():
                 print("Run rare entity definition with... user_id: '{}' ... text: '{}'".format(
                     transcript['user_id'], transcript['text']))
                 entityDefinerStartTime = time.time()
-              
 
                 try:
                     # definition_history = dbHandler.get_definer_history_for_user(transcript['user_id'])
                     definition_history = dbHandler.get_recent_nminutes_definer_history_for_user(transcript['user_id'], n_minutes=90)
 
-                    logger.log(level=logging.DEBUG, msg="Definer history: {}".format(
+                    logger.log(level=logging.DEBUG, msg="Runnin proactive definer with Definer history: {}".format(
                         definition_history))
 
                     # run proactive meta agent, get definition
