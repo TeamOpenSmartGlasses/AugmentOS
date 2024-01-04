@@ -23,3 +23,8 @@ webvtt-py
 rapidfuzz
 wolframalpha
 pydantic==1.10.13
+gspread
+oauth2client
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib

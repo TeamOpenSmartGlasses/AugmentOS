@@ -55,7 +55,7 @@ async def chat_handler(request):
         return web.Response(text='no timestamp in request', status=400)
     if user_id is None or user_id == '':
         print("user_id none in chat_handler, exiting with error response 400.")
-        return web.Response(text='no user_id in request', status=400)
+        return web.Response(text='no userId in request', status=400)
 
     # print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format(
     #     "FINAL" if is_final else "INTERMEDIATE", text, timestamp, user_id))
@@ -72,6 +72,52 @@ async def chat_handler(request):
     #    round(end_time - start_time, 2)))
     return web.Response(text=json.dumps({'success': True, 'message': ""}), status=200)
 
+async def start_recording_handler(request):
+    body = await request.json()
+    user_id = body.get('userId')
+    
+    if user_id is None or user_id == '':
+        print("user_id none in chat_handler, exiting with error response 400.")
+        return web.Response(text='no userId in request', status=400)
+    
+    result = db_handler.update_recording_time_for_user(user_id)
+    
+    return web.Response(text=json.dumps({'success': result}), status=200)
+
+async def save_recording_handler(request):
+    body = await request.json()
+    user_id = body.get('userId')
+    recording_name = body.get('recordingName')
+    
+    if user_id is None or user_id == '':
+        print("user_id none in chat_handler, exiting with error response 400.")
+        return web.Response(text='no userId in request', status=400)
+    
+    recording = db_handler.save_recording(user_id, recording_name)
+    
+    file_path = 'recordings/{}.json'.format(recording_name)
+    with open(file_path, 'w') as file:
+        json.dump(recording, file)
+
+    return web.FileResponse(file_path, headers={
+        'Content-Disposition': 'Attachment;filename={}.json'.format(recording_name)
+    })
+    # return web.Response(text=json.dumps({'success': True, 'message': recording}), status=200)
+
+
+async def load_recording_handler(request):
+    body = await request.json()
+    recording_name = body.get('recordingName')
+    
+    if recording_name is None or recording_name == '':
+        print("recording_name none in chat_handler, exiting with error response 400.")
+        return web.Response(text='no recordingName in request', status=400)
+    
+    file_path = 'recordings/{}.json'.format(recording_name)
+    return web.FileResponse(file_path, headers={
+        'Content-Disposition': 'Attachment;filename={}.json'.format(recording_name)
+    })
+    # return web.Response(text=json.dumps({'success': True, 'mess
 
 # runs when button is pressed on frontend - right now button ring on wearable or button in TPA
 async def button_handler(request):
@@ -85,13 +131,13 @@ async def button_handler(request):
 
     # 400 if missing params
     if button_num is None or button_num == '':
-        return web.Response(text='no button_num in request', status=400)
+        return web.Response(text='no buttonNum in request', status=400)
     if button_activity is None or button_activity == '':
-        return web.Response(text='no button_activity in request', status=400)
+        return web.Response(text='no buttonActivity in request', status=400)
     if timestamp is None or timestamp == '':
         return web.Response(text='no timestamp in request', status=400)
     if user_id is None or user_id == '':
-        return web.Response(text='no user_id in request', status=400)
+        return web.Response(text='no userId in request', status=400)
 
     if button_activity:  # True if push down, false if button release
         print("button True")
@@ -121,7 +167,6 @@ def cse_loop():
 
         try:
             p_loop_start_time = time.time()
-
             # Check for new transcripts
             new_transcripts = db_handler.get_new_cse_transcripts_for_all_users(
                 combine_transcripts=True, delete_after=False)
@@ -179,7 +224,7 @@ async def ui_poll_handler(request, minutes=0.5):
 
     # 400 if missing params
     if user_id is None or user_id == '':
-        return web.Response(text='no user_id in request', status=400)
+        return web.Response(text='no userId in request', status=400)
     if device_id is None or device_id == '':
         return web.Response(text='no device_id in request', status=400)
     if features is None or features == '':
@@ -205,7 +250,6 @@ async def ui_poll_handler(request, minutes=0.5):
     # get agent results
     if "proactive_agent_insights" in features:
         agent_insight_results = db_handler.get_proactive_agents_insights_results_for_user_device(user_id=user_id, device_id=device_id)
-
         #add agents insight to response
         resp["results_proactive_agent_insights"] = agent_insight_results
 
@@ -277,7 +321,8 @@ async def expert_agent_runner(expert_agent_name, user_id):
     convo_context = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n_seconds)
 
     #get the most recent insights for this user
-    insights_history = db_handler.get_agent_insights_history_for_user(user_id)
+    # insights_history = db_handler.get_agent_insights_history_for_user(user_id)
+    insights_history = db_handler.get_recent_nminutes_agent_insights_history_for_user(user_id)
     insights_history = [insight["insight"] for insight in insights_history]
 
     #spin up the agent
@@ -303,7 +348,7 @@ async def run_single_expert_agent_handler(request):
         return web.Response(text='no timestamp in request', status=400)
     if user_id is None or user_id == '':
         print("user_id none in send_agent_chat, exiting with error response 400.")
-        return web.Response(text='no user_id in request', status=400)
+        return web.Response(text='no userId in request', status=400)
 
     print("Got single agent request for agent: {}".format(agent_name))
 
@@ -331,7 +376,7 @@ async def send_agent_chat_handler(request):
         return web.Response(text='no timestamp in request', status=400)
     if user_id is None or user_id == '':
         print("user_id none in send_agent_chat, exiting with error response 400.")
-        return web.Response(text='no user_id in request', status=400)
+        return web.Response(text='no userId in request', status=400)
     if chat_message is None or chat_message == '':
         print("chatMessage none in send_agent_chat, exiting with error response 400.")
         return web.Response(text='no chatMessage in request', status=400)
@@ -343,6 +388,25 @@ async def send_agent_chat_handler(request):
 
     return web.Response(text=json.dumps({'success': True, 'message': "Got your message: {}".format(chat_message)}), status=200)
 
+async def rate_result_handler(request):
+    body = await request.json()
+    user_id = body.get('userId')
+    result_uuid = body.get('resultUuid')
+    rating = body.get('rating')
+
+     # 400 if missing params
+    if user_id is None or user_id == '':
+        print("user_id none in rate_result, exiting with error response 400.")
+        return web.Response(text='no userId in request', status=400)
+    if uuid is None or uuid == '':
+        print("uuid none in rate_result, exiting with error response 400.")
+        return web.Response(text='no uuid in request', status=400)
+    if rating is None or rating == '':
+        print("rating none in rate_result, exiting with error response 400.")
+        return web.Response(text='no rating in request', status=400)
+
+    res = db_handler.rate_result_by_uuid(user_id=user_id, result_uuid=result_uuid, rating=rating)
+    return web.Response(text=json.dumps({'success': True, 'message': str(res)}), status=200)
 
 if __name__ == '__main__':
     print("Starting server...")
@@ -386,6 +450,10 @@ if __name__ == '__main__':
             web.get('/image', return_image_handler),
             web.post('/run_single_agent', run_single_expert_agent_handler),
             web.post('/send_agent_chat', send_agent_chat_handler),
+            web.post('/rate_result', rate_result_handler),
+            web.post('/start_recording', start_recording_handler),
+            web.post('/save_recording', save_recording_handler),
+            web.post('/load_recording', load_recording_handler)
         ]
     )
     cors = aiohttp_cors.setup(app, defaults={

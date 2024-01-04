@@ -6,8 +6,10 @@ import requests
 from server_config import serper_api_key
 from Modules.Summarizer import Summarizer
 from langchain.agents.tools import Tool
+from helpers.time_function_decorator import time_function
 import asyncio
 import aiohttp
+
 
 # ban some sites that we can never scrape
 banned_sites = ["calendar.google.com", "researchgate.net"]
@@ -26,7 +28,9 @@ result_key_for_type = {
         "search": "organic",
     }
 
+
 # Sync version
+@time_function()
 def scrape_page(url: str):
     """
     Based on your observations from the Search_Engine, if you want more details from
@@ -60,6 +64,7 @@ def scrape_page(url: str):
             return None
 
 
+@time_function()
 def serper_search(
     search_term: str, search_type: str = "search", **kwargs: Any
 ) -> dict:
@@ -79,6 +84,7 @@ def serper_search(
     return search_results
 
 
+@time_function()
 def parse_snippets(results: dict) -> List[str]:
     snippets = []
     if results.get("answerBox"):
@@ -123,6 +129,7 @@ def parse_snippets(results: dict) -> List[str]:
     return snippets
 
 
+@time_function()
 def parse_results(results: dict) -> str:
     snippets = parse_snippets(results)
     results_string = ""
@@ -131,6 +138,7 @@ def parse_results(results: dict) -> str:
     return results_string
 
 
+@time_function()
 def run_search_tool_for_agents(query: str):
     results = serper_search(
         search_term=query,
@@ -142,7 +150,9 @@ def run_search_tool_for_agents(query: str):
     )
     return parse_results(results)
 
+
 # Async version
+@time_function()
 async def scrape_page_async(url: str, summarize_page = False, num_sentences = 3):
     """
     Based on your observations from the Search_Engine, if you want more details from
@@ -182,6 +192,7 @@ async def scrape_page_async(url: str, summarize_page = False, num_sentences = 3)
             return None
 
 
+@time_function()
 async def serper_search_async(
     search_term: str, search_type: str = "search", **kwargs: Any
 ) -> dict:
@@ -200,6 +211,7 @@ async def serper_search_async(
             return search_results
 
 
+@time_function()
 async def parse_snippets_async(results: dict, scrape_pages: bool = False, summarize_pages: bool = True, num_sentences: int = 3) -> List[str]:
     snippets = []
     if results.get("answerBox"):
@@ -244,6 +256,7 @@ async def parse_snippets_async(results: dict, scrape_pages: bool = False, summar
     return snippets
 
 
+@time_function()
 async def parse_results_async(results: dict, scrape_pages: bool = False, summarize_pages: bool = True, num_sentences: int = 3) -> str:
     snippets = await parse_snippets_async(results, scrape_pages=scrape_pages, summarize_pages=summarize_pages, num_sentences=num_sentences)
     results_string = ""
@@ -251,6 +264,8 @@ async def parse_results_async(results: dict, scrape_pages: bool = False, summari
         results_string += f"Res {idx + 1}:\n{val}\n\n"
     return results_string
 
+
+@time_function()
 async def arun_search_tool_for_agents(query: str):
     results = await serper_search_async(
         search_term=query,
@@ -286,6 +301,7 @@ languages = ['en']                    # Optional: List of ISO 639-1 Codes
 types = ['']                          # Optional: List of schema.org types to return
 limit = 1                            # Optional: Number of entities to return
 
+
 # Google knowledge graph search tool
 def search_google_knowledge_graph(
     search_query: str,
@@ -315,6 +331,7 @@ def search_google_knowledge_graph(
     response = client.search_public_kg(request=request)
 
     return response
+
 
 async def asearch_google_knowledge_graph(
     search_query: str,
@@ -351,38 +368,69 @@ async def asearch_google_knowledge_graph(
     
     return response
 
+import requests
+
+def can_embed_url(url: str):
+    response = requests.head(url)
+
+    # Check the headers for 'X-Frame-Options' or 'Content-Security-Policy'
+    x_frame_options = response.headers.get('X-Frame-Options')
+    csp = response.headers.get('Content-Security-Policy')
+
+    return not (x_frame_options or ('frame-ancestors' in csp if csp else False))
+
 # definer url search tool
-def extract_entity_url_and_image(results: dict):
+def extract_entity_url_and_image(search_results: dict, image_results: dict):
     # Only get the first top url and image_url
     res = {}
-    if results.get("knowledgeGraph"):
-        result = results.get("knowledgeGraph", {})
+    if search_results.get("knowledgeGraph"):
+        result = search_results.get("knowledgeGraph", {})
         if result.get("descriptionSource") == "Wikipedia":
             ref_url = result.get("descriptionLink")
             res["url"] = ref_url
-        if result.get("imageUrl"):
-            image_url = result.get("imageUrl")
-            res["image_url"] = image_url
-    if "url" in res and "image_url" in res:
-        return res
 
-    for result in results[result_key_for_type[search_type]][:k]:
-        if "url" not in res and result.get("link"):
+    for result in search_results[result_key_for_type["search"]][:k]:
+        if "url" not in res and result.get("link") and can_embed_url(result.get("link")):
             res["url"] = result.get("link")
+            break
+
+    if image_results is None:
+        return res
+    
+    for result in image_results[result_key_for_type["images"]][:k]:
         if "image_url" not in res and result.get("imageUrl"):
             res["image_url"] = result.get("imageUrl")
+            break
 
-        if "url" in res and "image_url" in res:
-            return res
     return res
 
 async def search_url_for_entity_async(query: str):
-    results = await serper_search_async(
-        search_term=query,
-        gl=gl,
-        hl=hl,
-        num=k,
-        tbs=tbs,
-        search_type=search_type,
-    )
-    return extract_entity_url_and_image(results)
+    async def inner_search(query:str): 
+        search_task = asyncio.create_task(serper_search_async(
+            search_term=query,
+            gl=gl,
+            hl=hl,
+            num=k,
+            tbs=tbs,
+            search_type="search",
+        ))
+
+        image_search_task = asyncio.create_task(serper_search_async(
+            search_term=query,
+            gl=gl,
+            hl=hl,
+            num=k,
+            tbs=tbs,
+            search_type="images",
+        ))
+
+        tasks = [search_task, image_search_task]
+
+        search_results, image_results = await asyncio.gather(*tasks)
+        
+        return extract_entity_url_and_image(search_results, image_results)
+    
+    res = await inner_search(query)
+    if "url" not in res:
+        res = await inner_search(query + " wiki") # fallback search using wiki
+    return res
