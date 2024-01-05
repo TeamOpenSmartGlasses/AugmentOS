@@ -8,7 +8,10 @@ from helpers.time_function_decorator import time_function
 
 dbHandler = DatabaseHandler(parent_handler=False)
 
-pause_query_time = 4
+# Number of seconds without speach triggers query
+pause_query_time = 2.5
+
+# Number of total seconds of speach before query cuts off and executes
 force_query_time = 16
 
 
