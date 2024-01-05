@@ -59,6 +59,8 @@ def make_expert_agent_run_wrapper_function(agent, agent_explicit_prompt, is_asyn
 @time_function()
 def make_expert_agents_as_tools(transcript):
     tools = []
+    tools.append(get_search_tool_for_agents())
+    # tools.append(get_wolfram_alpha_tool_for_agents) # Uncomment if we want faster wolfram
     expert_agents_list = list(expert_agent_config_list.values())
     for expert_agent in expert_agents_list:
         # make the expert agent with it own special prompt
@@ -66,8 +68,6 @@ def make_expert_agents_as_tools(transcript):
 
         agent_tools = []
 
-        if "Search_Engine" in expert_agent['tools']:
-                agent_tools.append(get_search_tool_for_agents())
         if "Wolfram_Alpha" in expert_agent['tools']:
                 agent_tools.append(get_wolfram_alpha_tool_for_agents())
 
@@ -85,6 +85,7 @@ def make_expert_agents_as_tools(transcript):
         )
     
         tools.append(expert_agent_as_tool)
+    
     return tools
 
 
