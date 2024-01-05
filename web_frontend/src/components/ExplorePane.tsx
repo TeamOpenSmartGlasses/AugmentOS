@@ -1,4 +1,4 @@
-import { ActionIcon, Skeleton, Tooltip, Text } from "@mantine/core";
+import { ActionIcon, Skeleton, Tooltip } from "@mantine/core";
 import { IconArrowUp } from "@tabler/icons-react";
 import {
   explorePaneUrlValue,

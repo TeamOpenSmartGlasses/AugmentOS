@@ -108,7 +108,10 @@ const StudyLayout = () => {
     if (results.length == 0) return;
     if (resultDisplayIndex >= results.length) return;
 
-    if (time > results[resultDisplayIndex]["time_since_recording_start"]) {
+    if (
+      time !== undefined &&
+      time > results[resultDisplayIndex]["time_since_recording_start"]
+    ) {
       setEntities((entities: any) =>
         [...entities, results[resultDisplayIndex]].filter((e) => {
           return !(e == null || e == undefined);
@@ -167,7 +170,7 @@ const StudyLayout = () => {
           fluid
           className={classes.container}
           w={"35%"}
-          pt={studyCondition !== StudyCondition.GOOGLE ? `${GAP_VH}vh` : '0'}
+          pt={studyCondition !== StudyCondition.GOOGLE ? `${GAP_VH}vh` : "0"}
           px={"1rem"}
           transition={{ bounce: 0 }}
         >
@@ -211,31 +214,37 @@ const StudyLayout = () => {
           }}
           className={classes.container}
         >
-          <Stack sx={{ height: "100%", width: "100%", alignItems: "end", padding: "15px"}}>
+          <Stack
+            sx={{
+              height: "100%",
+              width: "100%",
+              alignItems: "end",
+              padding: "15px",
+            }}
+          >
             <Group noWrap align="center" position="right">
-                <Group>
-                  <Button
-                    onClick={() => videoRef.current?.play()}
-                    variant="default"
-                    fullWidth
-                    disabled={hasVideoEnded}
-                  >
-                    {hasVideoEnded
-                      ? "Video ended"
-                      : time === undefined
-                      ? "Start"
-                      : `Please watch until end of video.`}
-                  </Button>
-                </Group>
-                <video
-                  src={VIDEO_SRC}
-                  style={{ width: '30vw', height: 'auto' }} // Adjust the value as needed
-                  ref={videoRef}
-                  onTimeUpdate={() => setTime(videoRef.current?.currentTime)}
-                  onEnded={() => setHasVideoEnded(true)}
-                ></video>
-
+              <Group>
+                <Button
+                  onClick={() => videoRef.current?.play()}
+                  variant="default"
+                  fullWidth
+                  disabled={hasVideoEnded}
+                >
+                  {hasVideoEnded
+                    ? "Video ended"
+                    : time === undefined
+                    ? "Start"
+                    : `Please watch until end of video.`}
+                </Button>
               </Group>
+              <video
+                src={VIDEO_SRC}
+                style={{ width: "30vw", height: "auto" }} // Adjust the value as needed
+                ref={videoRef}
+                onTimeUpdate={() => setTime(videoRef.current?.currentTime)}
+                onEnded={() => setHasVideoEnded(true)}
+              ></video>
+            </Group>
             {(studyCondition === StudyCondition.CONVOSCOPE ||
               studyCondition === StudyCondition.GOOGLE) && (
               <ExplorePane

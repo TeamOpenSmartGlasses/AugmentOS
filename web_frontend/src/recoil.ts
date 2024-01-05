@@ -1,6 +1,5 @@
 import { atom, selector } from "recoil";
 import { Entity, Insight, StudyCondition, TabChange } from "./types";
-import { mockEntities } from "./mockData";
 
 export const isExplicitListeningState = atom<boolean>({
   key: "isExplicitListening",
