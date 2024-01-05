@@ -47,7 +47,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private Runnable displayRunnableCode;
     static String userId;
     static final String deviceId = "android";
-    static final String [] features = {"contextual_search_engine", "proactive_agent_insights", "explicit_agent_insights"};
+    static final String [] features = {"contextual_search_engine", "proactive_agent_insights", "explicit_agent_insights", "intelligent_entity_definitions"};
     private SMSComms smsComms;
     static String phoneNumName = "Alex";
     static String phoneNum = "8477367492"; // Alex's phone number. Fun default.
