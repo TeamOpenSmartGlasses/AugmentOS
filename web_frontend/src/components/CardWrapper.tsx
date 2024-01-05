@@ -75,7 +75,7 @@ const CardWrapper = ({
           <Box
             sx={{
               borderRadius: rem(30),
-              flex: `1 1 ${large ? 180 : 120}px`,
+              flex: `1 1 ${large ? 320 : 280}px`,
               overflow: "clip",
               height: "100%",
               position: "relative",

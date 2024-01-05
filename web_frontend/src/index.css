@@ -1,6 +1,6 @@
 #zoomed-in-iframe {
-  transform: scale(1.2);
+  transform: scale(1.4);
   transform-origin: 0 0;
-  width: calc(1 * 100% / 1.2);
-  height: calc(1 * 100% / 1.2);
+  width: calc(1 * 100% / 1.4);
+  height: calc(1 * 100% / 1.4);
 }

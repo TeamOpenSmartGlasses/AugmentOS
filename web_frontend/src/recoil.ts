@@ -21,7 +21,8 @@ export const isRecognizingState = atom<boolean>({
 
 export const entitiesState = atom<Entity[]>({
   key: "entities",
-  default: mockEntities,
+  //default: mockEntities,
+  default: [],
 });
 
 export const explicitInsightsState = atom<Insight[]>({

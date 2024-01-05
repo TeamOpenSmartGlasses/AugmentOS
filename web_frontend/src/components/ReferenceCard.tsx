@@ -101,9 +101,11 @@ const ReferenceCard = ({
       agentIconSrc={AGENT_ICON_PATHS[entity.agent_name ?? AgentName.DEFINER]}
       showLabel={showLabel}
     >
+    {/*
       <Box sx={{ float: "right" }}>
         <ThumbButtons entity={entity} />
       </Box>
+    */}
       <Text
         pl="sm"
         sx={{

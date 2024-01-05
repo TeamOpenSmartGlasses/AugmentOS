@@ -49,13 +49,7 @@ const ExplorePane = ({ loading, setLoading }: ExplorePaneProps) => {
           <IconArrowUp style={{ width: "70%", height: "70%" }} stroke={1.5} />
         </ActionIcon>
       </Tooltip>
-      {viewMoreUrl === undefined ? (
-        studyCondition === StudyCondition.CONVOSCOPE && (
-          <Text m="auto" w="fit-content">
-            Click on a card with a link to explore.
-          </Text>
-        )
-      ) : (
+      {viewMoreUrl !== undefined && (
         <iframe
           id="zoomed-in-iframe"
           src={viewMoreUrl}

@@ -54,18 +54,18 @@ const useStyles = createStyles({
 // Get the recording from the backend and store the prerecorded entities in `results`
 let results: any[] = [];
 
-const getRecordingFromPublicFolder = (videoId: string) => {
-  fetch(`/${videoId}.json`)
-    .then((response) => response.json())
-    .then((jsonData) => {
-      results = jsonData;
-      return true;
-    })
-    .catch((error) => {
-      console.error("Error fetching the JSON file:", error);
-      return false;
-    });
-  return false;
+const getRecordingFromPublicFolder = async (videoId: string) => {
+  console.log(`Fetching this: /${videoId}.json`);
+  try {
+    const response = await fetch(`/${videoId}.json`);
+    const jsonData = await response.json();
+    console.error("got that stuff in getRecordingFromPublicFolder()");
+    results = jsonData;
+    return true; // Return true if fetch is successful
+  } catch (error) {
+    console.error("Error fetching the JSON file:", error);
+    return false; // Return false in case of an error
+  }
 };
 
 const getRecordingFromBackend = (videoId: string) => {
@@ -87,9 +87,11 @@ const getRecordingFromBackend = (videoId: string) => {
 
 const videoName = VIDEO_SRC.substring(0, VIDEO_SRC.indexOf("."));
 console.log(videoName);
-if (!getRecordingFromPublicFolder(videoName)) {
-  getRecordingFromBackend(videoName);
-}
+getRecordingFromPublicFolder(videoName).then((success) => {
+  if (!success) {
+    getRecordingFromBackend(videoName);
+  }
+});
 
 let resultDisplayIndex = 0;
 const StudyLayout = () => {
@@ -164,8 +166,8 @@ const StudyLayout = () => {
           layout
           fluid
           className={classes.container}
-          w={"50%"}
-          pt={`${GAP_VH}vh`}
+          w={"35%"}
+          pt={studyCondition !== StudyCondition.GOOGLE ? `${GAP_VH}vh` : '0'}
           px={"1rem"}
           transition={{ bounce: 0 }}
         >
@@ -173,7 +175,7 @@ const StudyLayout = () => {
           {studyCondition === StudyCondition.CONVOSCOPE && (
             <>
               {entities.length === 0 && !isExplicitListening && (
-                <Box w="50%" mx="auto" mt="xl">
+                <Box w="35%" mx="auto" mt="xl">
                   <Image src={"/blobs.gif"} fit="cover" />
                 </Box>
               )}
@@ -202,33 +204,38 @@ const StudyLayout = () => {
         <PContainer
           component={motion.div}
           layout
+          fluid
+          w={"65%"}
           sx={{
-            flex: "1 1 0",
+            flex: "none",
           }}
           className={classes.container}
         >
-          <Stack sx={{ height: "100%", width: "100%" }}>
-            <video
-              src={VIDEO_SRC}
-              width="100%"
-              ref={videoRef}
-              onTimeUpdate={() => setTime(videoRef.current?.currentTime)}
-              onEnded={() => setHasVideoEnded(true)}
-            ></video>
-            <Group>
-              <Button
-                onClick={() => videoRef.current?.play()}
-                variant="default"
-                fullWidth
-                disabled={hasVideoEnded}
-              >
-                {hasVideoEnded
-                  ? "Video ended"
-                  : time === undefined
-                  ? "Start"
-                  : `current time: ${time} seconds`}
-              </Button>
-            </Group>
+          <Stack sx={{ height: "100%", width: "100%", alignItems: "end", padding: "15px"}}>
+            <Group noWrap align="center" position="right">
+                <Group>
+                  <Button
+                    onClick={() => videoRef.current?.play()}
+                    variant="default"
+                    fullWidth
+                    disabled={hasVideoEnded}
+                  >
+                    {hasVideoEnded
+                      ? "Video ended"
+                      : time === undefined
+                      ? "Start"
+                      : `Please watch until end of video.`}
+                  </Button>
+                </Group>
+                <video
+                  src={VIDEO_SRC}
+                  style={{ width: '30vw', height: 'auto' }} // Adjust the value as needed
+                  ref={videoRef}
+                  onTimeUpdate={() => setTime(videoRef.current?.currentTime)}
+                  onEnded={() => setHasVideoEnded(true)}
+                ></video>
+
+              </Group>
             {(studyCondition === StudyCondition.CONVOSCOPE ||
               studyCondition === StudyCondition.GOOGLE) && (
               <ExplorePane
