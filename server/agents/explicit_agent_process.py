@@ -8,8 +8,8 @@ from helpers.time_function_decorator import time_function
 
 dbHandler = DatabaseHandler(parent_handler=False)
 
-pause_query_time = 4
-force_query_time = 16
+pause_query_time = 3
+force_query_time = 12
 
 
 @time_function()
