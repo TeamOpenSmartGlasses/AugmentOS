@@ -88,7 +88,8 @@ def run_proactive_definer_agent(
     conversation_context: str, definitions_history: list = []
 ):
     # start up GPT4 connection
-    llm = get_langchain_gpt4()
+    # llm = get_langchain_gpt4()
+    llm = get_langchain_gpt35()
 
     extract_proactive_rare_word_agent_query_prompt = PromptTemplate(
         template=proactive_rare_word_agent_prompt_blueprint,
