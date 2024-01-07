@@ -4,6 +4,9 @@ export enum AgentName {
   FACT_CHECKER = "FactChecker",
   DEVILS_ADVOCATE = "DevilsAdvocate",
   COMMAND = "Command",
+  HISTORIAN = "Historian",
+  COGNITIVE_BIAS_DETECTOR = "CognitiveBiasDetector",
+  REAL_TIMER = "RealTimer",
 }
 
 export const AGENT_ICON_PATHS: Record<AgentName, string> = {
@@ -12,6 +15,10 @@ export const AGENT_ICON_PATHS: Record<AgentName, string> = {
   [AgentName.DEVILS_ADVOCATE]: "/devils_icon_large.svg",
   [AgentName.DEFINER]: "/definer_icon_large.svg",
   [AgentName.COMMAND]: "/dial_icon_large.svg",
+  [AgentName.HISTORIAN]: "/dial_icon_large.svg",
+  [AgentName.COGNITIVE_BIAS_DETECTOR]: "/dial_icon_large.svg",
+  [AgentName.REAL_TIMER]: "/dial_icon_large.svg",
+  [AgentName.QUESTION_ASKER]: "/dial_icon_large.svg",
 };
 
 export const AGENT_ICON_NAMES: Record<AgentName, string> = {
@@ -20,6 +27,10 @@ export const AGENT_ICON_NAMES: Record<AgentName, string> = {
   [AgentName.DEVILS_ADVOCATE]: "Devil's Advocate",
   [AgentName.DEFINER]: "Definer",
   [AgentName.COMMAND]: "Command",
+  [AgentName.HISTORIAN]: "Historian",
+  [AgentName.COGNITIVE_BIAS_DETECTOR]: "Cognitive Bias Detector",
+  [AgentName.REAL_TIMER]: "Real Timer",
+  [AgentName.QUESTION_ASKER]: "Question Asker",
 };
 
 export type Entity = {
@@ -27,7 +38,7 @@ export type Entity = {
   summary?: string;
   image_url?: string; // from wiki
   map_image_path?: string; // from maps
-  url?: string; // view more url
+  url?: string | null; // view more url
   text?: string; // insight
   uuid: string;
   agent_insight?: string; // agent insight
