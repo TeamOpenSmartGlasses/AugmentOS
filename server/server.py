@@ -421,9 +421,9 @@ if __name__ == '__main__':
         multiprocessing.set_start_method('spawn')
 
     # log_queue = multiprocessing.Queue()
-    print("Starting CSE process...")
-    cse_process = multiprocessing.Process(target=cse_loop)
-    cse_process.start()
+    #print("Starting CSE process...")
+    #cse_process = multiprocessing.Process(target=cse_loop)
+    #cse_process.start()
 
     # start intelligent definer agent process
     print("Starting Intelligent Definer Agent process...")
@@ -474,5 +474,5 @@ if __name__ == '__main__':
     #let processes finish and join
     proactive_agents_background_process.join()
     intelligent_definer_agent_process.join()
-    cse_process.join()
+    #cse_process.join()
     explicit_background_process.join()
