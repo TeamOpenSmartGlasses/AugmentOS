@@ -7,6 +7,7 @@ readable_date_time = date_time.strftime("%Y-%m-%d %H:%M:%S")
 
 stat_data = {
     "start_time": readable_date_time,
+    "time_elapsed": 0,
     'all': {
         'size': 0,
         'average_time_taken': 0,
@@ -40,6 +41,10 @@ def write():
         json.dump(stat_data, file, indent=4)
 
 #############
+
+def get_time_elapsed():
+    elapsed = time.time() - date_time
+    return elapsed.strftime("%H:%M:%S")
 
 def track_gpt3_time_and_cost(time_taken, amount_to_increase):
     stat_data['gpt3']['data'].append(time_taken)
@@ -100,5 +105,6 @@ def track_time_average(time_taken):
 
     stat_data['all']['average_time_taken'] = sum(times) / len(times)
     stat_data['all']['median_time'] = median
+    stat_data['time_elapsed'] = get_time_elapsed()
     write()
 
