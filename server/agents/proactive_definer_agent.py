@@ -76,7 +76,7 @@ If there are no relevant entities, output an empty array.
 # 6. Searchability: Likely to have a specific and valid reference source: Wikipedia page, dictionary entry etc.
 # - Entity names should be quoted from the conversation, so the output definitions can be referenced back to the conversation.
 
-min_gatekeeper_score = 5
+min_gatekeeper_score = 7
 
 class GatekeeperScore(BaseModel):
     score: int = Field(
