@@ -1,17 +1,33 @@
 from langchain.prompts import PromptTemplate
 from langchain.schema import HumanMessage
-from langchain.chat_models import ChatOpenAI
 from langchain.output_parsers import PydanticOutputParser
+from langchain.callbacks import get_openai_callback
 from langchain.schema import OutputParserException
 from pydantic import BaseModel, Field
 from agents.agent_utils import format_list_data
-from server_config import openai_api_key
 from agents.search_tool_for_agents import (
-    asearch_google_knowledge_graph,
     search_url_for_entity_async,
 )
 from Modules.LangchainSetup import *
 import asyncio
+from Modules.QueryLLM import *
+from helpers.cost_tracker import *
+
+proactive_rare_word_agent_relevancy_check_prompt_blueprint = """
+# Objective
+Determine whether the following part of a conversation's transcript contains any rare/interesting topics or words. 
+
+# Conversation Transcript:
+<Transcript start>{conversation_context}<Transcript end>
+
+# Output guidelines
+Return a number 1-10, with 1 being mundane, and 10 being the most interesting/rare.
+
+## Example Output:
+6
+
+{format_instructions} 
+"""
 
 proactive_rare_word_agent_prompt_blueprint = """
 # Objective
@@ -60,6 +76,16 @@ If there are no relevant entities, output an empty array.
 # 6. Searchability: Likely to have a specific and valid reference source: Wikipedia page, dictionary entry etc.
 # - Entity names should be quoted from the conversation, so the output definitions can be referenced back to the conversation.
 
+min_runnable_score = 5
+
+class RunnableScore(BaseModel):
+    score: int = Field(
+        description="Score of how interesting/rare/relevant the words in the passage are", default=0
+    )
+
+runnable_score_query_parser = PydanticOutputParser(
+    pydantic_object=RunnableScore
+)
 
 class Entity(BaseModel):
     name: str = Field(
@@ -87,8 +113,43 @@ proactive_rare_word_agent_query_parser = PydanticOutputParser(
 def run_proactive_definer_agent(
     conversation_context: str, definitions_history: list = []
 ):
+    # First: determine if we should even run
+    llm35 = get_langchain_gpt35()
+
+    runnable_score_prompt = PromptTemplate(
+        template=proactive_rare_word_agent_relevancy_check_prompt_blueprint,
+        input_variables=[
+            "conversation_context"
+        ],
+        partial_variables={
+            "format_instructions": runnable_score_query_parser.get_format_instructions(),
+        },
+    )
+    runnable_score_prompt_string = (
+        runnable_score_prompt.format_prompt(
+            conversation_context=conversation_context
+        ).to_string()
+    )
+
+    with get_openai_callback() as cb:
+        score_response = llm35(
+            [HumanMessage(content=runnable_score_prompt_string)]
+        )
+        print("GPT3.5 query cost:")
+        print(cb.total_cost)
+        update_cost_tracker("proactive_definer_gpt3_cost", cb.total_cost)
+
+    try:
+        content = runnable_score_query_parser.parse(score_response.content)
+        score = int(content.score)
+        if False and score < min_runnable_score: return None
+    except OutputParserException as e:
+        print("ERROR: " + str(e))
+        return None
+
+    # If relevant, run full prompt
     # start up GPT4 connection
-    llm = get_langchain_gpt4()
+    llm4 = get_langchain_gpt4()
 
     extract_proactive_rare_word_agent_query_prompt = PromptTemplate(
         template=proactive_rare_word_agent_prompt_blueprint,
@@ -115,10 +176,13 @@ def run_proactive_definer_agent(
     )
 
     # print("Proactive meta agent query prompt string", proactive_rare_word_agent_query_prompt_string)
-
-    response = llm(
-        [HumanMessage(content=proactive_rare_word_agent_query_prompt_string)]
-    )
+    with get_openai_callback() as cb:
+        response = llm4(
+            [HumanMessage(content=proactive_rare_word_agent_query_prompt_string)]
+        )
+        print("GPT4 query cost:")
+        print(cb.total_cost)
+        update_cost_tracker("proactive_definer_gpt4_cost", cb.total_cost)
 
     print("Proactive meta agent response", response)
 

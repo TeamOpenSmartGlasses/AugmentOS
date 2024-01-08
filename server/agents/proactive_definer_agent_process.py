@@ -47,7 +47,12 @@ def proactive_definer_processing_loop():
                         definition_history))
 
                     # run proactive meta agent, get definition
+                    startt = time.time()
                     entities = run_proactive_definer_agent(transcript['text'], definitions_history=definition_history)
+                    endt = time.time()
+                    if entities:
+                        print("ENTITIES = " + str(len(entities)))
+                        print("TIME TAKEN = " + str(endt - startt) + " SECONDS!!!")
                     
                     if entities is not None:
                         entities = [entity for entity in entities if entity is not None]
