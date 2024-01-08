@@ -36,7 +36,7 @@ stat_data = {
 }
 
 def write():
-    filename = "definer_stats/stats {}.json".format(readable_date_time)
+    filename = "definer_stats/stats/stats {}.json".format(readable_date_time)
     with open(filename, 'w') as file:
         json.dump(stat_data, file, indent=4)
 
