@@ -11,7 +11,7 @@ from agents.search_tool_for_agents import (
 from Modules.LangchainSetup import *
 import asyncio
 from Modules.QueryLLM import *
-from helpers.cost_tracker import *
+from definer_stats.stat_tracker import *
 
 proactive_rare_word_agent_relevancy_check_prompt_blueprint = """
 # Objective
@@ -76,15 +76,15 @@ If there are no relevant entities, output an empty array.
 # 6. Searchability: Likely to have a specific and valid reference source: Wikipedia page, dictionary entry etc.
 # - Entity names should be quoted from the conversation, so the output definitions can be referenced back to the conversation.
 
-min_runnable_score = 5
+min_gatekeeper_score = 5
 
-class RunnableScore(BaseModel):
+class GatekeeperScore(BaseModel):
     score: int = Field(
         description="Score of how interesting/rare/relevant the words in the passage are", default=0
     )
 
-runnable_score_query_parser = PydanticOutputParser(
-    pydantic_object=RunnableScore
+gatekeeper_score_query_parser = PydanticOutputParser(
+    pydantic_object=GatekeeperScore
 )
 
 class Entity(BaseModel):
@@ -113,42 +113,48 @@ proactive_rare_word_agent_query_parser = PydanticOutputParser(
 def run_proactive_definer_agent(
     conversation_context: str, definitions_history: list = []
 ):
+
     # First: determine if we should even run
+    gpt3start = time.time()
     llm35 = get_langchain_gpt35()
 
-    runnable_score_prompt = PromptTemplate(
+    gatekeeper_score_prompt = PromptTemplate(
         template=proactive_rare_word_agent_relevancy_check_prompt_blueprint,
         input_variables=[
             "conversation_context"
         ],
         partial_variables={
-            "format_instructions": runnable_score_query_parser.get_format_instructions(),
+            "format_instructions": gatekeeper_score_query_parser.get_format_instructions(),
         },
     )
-    runnable_score_prompt_string = (
-        runnable_score_prompt.format_prompt(
+    gatekeeper_score_prompt_string = (
+        gatekeeper_score_prompt.format_prompt(
             conversation_context=conversation_context
         ).to_string()
     )
 
     with get_openai_callback() as cb:
         score_response = llm35(
-            [HumanMessage(content=runnable_score_prompt_string)]
+            [HumanMessage(content=gatekeeper_score_prompt_string)]
         )
-        print("GPT3.5 query cost:")
-        print(cb.total_cost)
-        update_cost_tracker("proactive_definer_gpt3_cost", cb.total_cost)
+        # print("GPT3.5 query cost:")
+        # print(cb.total_cost)
+        gpt3cost = cb.total_cost
 
     try:
-        content = runnable_score_query_parser.parse(score_response.content)
+        content = gatekeeper_score_query_parser.parse(score_response.content)
         score = int(content.score)
-        if False and score < min_runnable_score: return None
+        if score < min_gatekeeper_score: return None
+        print("SCORE GOOD! RUNNING GPT4!")
     except OutputParserException as e:
         print("ERROR: " + str(e))
         return None
+    
+    track_gpt3_time_and_cost(time.time() - gpt3start, gpt3cost)
 
     # If relevant, run full prompt
     # start up GPT4 connection
+    gpt4start = time.time()
     llm4 = get_langchain_gpt4()
 
     extract_proactive_rare_word_agent_query_prompt = PromptTemplate(
@@ -180,16 +186,23 @@ def run_proactive_definer_agent(
         response = llm4(
             [HumanMessage(content=proactive_rare_word_agent_query_prompt_string)]
         )
-        print("GPT4 query cost:")
-        print(cb.total_cost)
-        update_cost_tracker("proactive_definer_gpt4_cost", cb.total_cost)
+        # print("GPT4 query cost:")
+        # print(cb.total_cost)
+        gpt4cost = cb.total_cost
 
     print("Proactive meta agent response", response)
 
     try:
         res = proactive_rare_word_agent_query_parser.parse(response.content)
         # we still have unknown_entities to search for but we will do them next time
+
+        if len(res.entities) > 0:
+            gatekeeper_accuracy_average(100)
+        else:
+            gatekeeper_accuracy_average(0)
+
         res = search_entities(res.entities)
+        track_gpt4_time_and_cost(time.time() - gpt4start, gpt4cost)
         return res
     except OutputParserException:
         return None
