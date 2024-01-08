@@ -7,6 +7,7 @@ export enum AgentName {
   HISTORIAN = "Historian",
   COGNITIVE_BIAS_DETECTOR = "CognitiveBiasDetector",
   REAL_TIMER = "RealTimer",
+  QUESTION_ASKER = "QuestionAsker",
 }
 
 export const AGENT_ICON_PATHS: Record<AgentName, string> = {
@@ -15,10 +16,10 @@ export const AGENT_ICON_PATHS: Record<AgentName, string> = {
   [AgentName.DEVILS_ADVOCATE]: "/devils_icon_large.svg",
   [AgentName.DEFINER]: "/definer_icon_large.svg",
   [AgentName.COMMAND]: "/dial_icon_large.svg",
-  [AgentName.HISTORIAN]: "/dial_icon_large.svg",
-  [AgentName.COGNITIVE_BIAS_DETECTOR]: "/dial_icon_large.svg",
-  [AgentName.REAL_TIMER]: "/dial_icon_large.svg",
-  [AgentName.QUESTION_ASKER]: "/dial_icon_large.svg",
+  [AgentName.HISTORIAN]: "/historian_icon_large.svg",
+  [AgentName.COGNITIVE_BIAS_DETECTOR]: "/cogbias_icon_large.svg",
+  [AgentName.REAL_TIMER]: "/realtimer_icon_large.svg",
+  [AgentName.QUESTION_ASKER]: "/questionasker_icon_large.svg",
 };
 
 export const AGENT_ICON_NAMES: Record<AgentName, string> = {
