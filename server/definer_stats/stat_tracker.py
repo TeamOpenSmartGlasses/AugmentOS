@@ -2,6 +2,7 @@ import json
 import time
 from datetime import datetime
 
+start_time = time.time()
 date_time = datetime.fromtimestamp(time.time())
 readable_date_time = date_time.strftime("%Y-%m-%d %H:%M:%S")
 
@@ -29,6 +30,12 @@ stat_data = {
         'median_time': 0,
         'cost': 0,
     },
+    'image': {
+        'data': [],
+        'size': 0,
+        'average_time_taken': 0,
+        'median_time': 0,
+    },
     'gatekeeper': {
         'data': [],
         'gatekeeper_accuracy': 0,
@@ -43,7 +50,7 @@ def write():
 #############
 
 def get_time_elapsed():
-    elapsed = time.time() - date_time
+    elapsed = datetime.fromtimestamp(time.time() - start_time)
     return elapsed.strftime("%H:%M:%S")
 
 def track_gpt3_time_and_cost(time_taken, amount_to_increase):
@@ -83,6 +90,19 @@ def track_gpt4_time_and_cost(time_taken, amount_to_increase):
     stat_data['gpt4']['average_time_taken'] = sum(gpt4times) / len(gpt4times)
     stat_data['gpt4']['median_time'] = median
     write()
+
+def track_image_time(time_taken):
+    stat_data['image']['data'].append(time_taken)
+    stat_data['image']['size'] += 1
+    image_times = stat_data['image']['data']
+    image_times.sort()
+    n = len(image_times)
+    if n % 2 == 0:
+        median = (image_times[n//2 - 1] + image_times[n//2]) / 2
+    else:
+        median = image_times[n//2]
+    stat_data['image']['average_time_taken'] = sum(image_times) / len(image_times)
+    stat_data['image']['median_time'] = median
 
 def gatekeeper_accuracy_average(accuracy):
     if accuracy is None: return

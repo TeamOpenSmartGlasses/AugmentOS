@@ -17,6 +17,14 @@ proactive_rare_word_agent_relevancy_check_prompt_blueprint = """
 # Objective
 Determine whether the following part of a conversation's transcript contains any rare/interesting topics or words. 
 
+# Criteria for rare or interesting topics
+1. Rarity: Select entities that are unlikely for an average high schooler to know. Well known entities should NOT be included, like Fortune 500 organizations, worldwide-known events, popular locations, commonly discussed concepts such as "Planet" or "Free Will" or "Charles Darwin", and entities popularized by recent news or events such as "COVID-19", "Bitcoin", or "Generative AI".
+2. Utility: Definition should help a user understand the conversation better and achieve their goals.
+3. No Redundancy: Exclude definitions if already defined in the conversation.
+4. Complexity: Choose phrases with non-obvious meanings, such that their meaning cannot be derived from simple words within the entity name, such as "Butterfly Effect" which has a totally different meaning from its base words, but not "Electric Car" nor "Lane Keeping System" as they're easily derived.
+5. Definability: Must be clearly and succinctly definable in under 10 words.
+6. Existance: Don't select entities if you have no knowledge of them
+
 # Conversation Transcript:
 <Transcript start>{conversation_context}<Transcript end>
 
@@ -76,7 +84,7 @@ If there are no relevant entities, output an empty array.
 # 6. Searchability: Likely to have a specific and valid reference source: Wikipedia page, dictionary entry etc.
 # - Entity names should be quoted from the conversation, so the output definitions can be referenced back to the conversation.
 
-min_gatekeeper_score = 7
+min_gatekeeper_score = 8
 
 class GatekeeperScore(BaseModel):
     score: int = Field(
@@ -144,6 +152,8 @@ def run_proactive_definer_agent(
     try:
         content = gatekeeper_score_query_parser.parse(score_response.content)
         score = int(content.score)
+        print("SCORE: " + str(score))
+        print("content: " + conversation_context)
         if score < min_gatekeeper_score: return None
         print("SCORE GOOD! RUNNING GPT4!")
     except OutputParserException as e:
@@ -201,8 +211,11 @@ def run_proactive_definer_agent(
         else:
             gatekeeper_accuracy_average(0)
 
-        res = search_entities(res.entities)
         track_gpt4_time_and_cost(time.time() - gpt4start, gpt4cost)
+        
+        image_start = time.time()
+        res = search_entities(res.entities)
+        track_image_time(time.time() - image_start)
         return res
     except OutputParserException:
         return None
