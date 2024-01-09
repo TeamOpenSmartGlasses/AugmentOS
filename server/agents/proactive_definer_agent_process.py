@@ -11,7 +11,7 @@ from logger_config import logger
 
 from definer_stats.stat_tracker import *
 
-time_between_iterations = 4
+time_between_iterations = 3
 
 def proactive_definer_processing_loop():
     print("START DEFINER PROCESSING LOOP")
