@@ -153,14 +153,13 @@ def run_proactive_definer_agent(
         content = gatekeeper_score_query_parser.parse(score_response.content)
         score = int(content.score)
         print("SCORE: " + str(score))
-        print("content: " + conversation_context)
+        # print("content: " + conversation_context)
+        track_gpt3_time_and_cost(time.time() - gpt3start, gpt3cost)
         if score < min_gatekeeper_score: return None
         print("SCORE GOOD! RUNNING GPT4!")
     except OutputParserException as e:
         print("ERROR: " + str(e))
         return None
-    
-    track_gpt3_time_and_cost(time.time() - gpt3start, gpt3cost)
 
     # If relevant, run full prompt
     # start up GPT4 connection
@@ -212,10 +211,12 @@ def run_proactive_definer_agent(
             gatekeeper_accuracy_average(0)
 
         track_gpt4_time_and_cost(time.time() - gpt4start, gpt4cost)
+        print("GPT4 TIME: " + str(time.time() - gpt4start))
         
         image_start = time.time()
         res = search_entities(res.entities)
         track_image_time(time.time() - image_start)
+        print("IMAGE TIME: " + str(time.time() - image_start))
         return res
     except OutputParserException:
         return None
