@@ -36,7 +36,7 @@ def proactive_definer_processing_loop():
             newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(n=time_between_iterations*2)
 
             for transcript in newTranscripts:
-                if len(transcript['text']) < 60: #80: # Around 20-30 words, like on a sentence level
+                if len(transcript['text']) < 40: #80: # Around 20-30 words, like on a sentence level
                     print("Transcript too short, skipping...")
                     continue
                 print("Run rare entity definition with... user_id: '{}' ... text: '{}'".format(
