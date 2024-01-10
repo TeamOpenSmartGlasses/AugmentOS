@@ -42,11 +42,13 @@ const CardScrollArea = () => {
                 selected={
                   selectedCardId === entity.uuid && !isExplicitListening
                 }
+                /*
                 onClick={() => {
                   setSelectedCardId(
                     entity.uuid === selectedCardId ? undefined : entity.uuid
                   );
                 }}
+                */
                 large={i === 0 && !isExplicitListening}
                 pointer={entity.url !== undefined}
                 showLabel={!IS_STUDY}

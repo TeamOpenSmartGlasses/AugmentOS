@@ -66,12 +66,12 @@ const CardWrapper = ({
       onClick={onClick}
       className={classes.card}
       sx={{
-        ...(selected && { borderColor: theme.colors.convoscopeBlue }),
+        ...(large && { borderColor: theme.colors.convoscopeBlue }),
         ...(pointer && { cursor: "pointer" }),
       }}
     >
       <Flex align={"center"} h={"100%"} sx={{ fontSize: "3vh" }}>
-        {imageSrc && (
+        {imageSrc && false && (
           <Box
             sx={{
               borderRadius: rem(30),

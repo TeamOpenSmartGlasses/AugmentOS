@@ -126,6 +126,18 @@ const StudyLayout = () => {
   const studyCondition = useRecoilValue(studyConditionAtom);
   const setGoogleSearchResultUrl = useSetRecoilState(googleSearchResultUrlAtom);
 
+  /*
+  useEffect(() => {
+        const timer = setTimeout(() => {
+            // Your function logic here
+            videoRef.current?.play();
+        }, 5 * 1000); // n is the delay in milliseconds (1000 ms = 1 second)
+
+        return () => clearTimeout(timer); // Cleanup timer
+    }, []); // Empty dependency array means this runs once after the initial render
+   */
+
+
   useEffect(() => {
     if (studyCondition === StudyCondition.GOOGLE) {
       // insert the Programmable Search Engine script into the DOM
@@ -168,8 +180,59 @@ const StudyLayout = () => {
           component={motion.div}
           layout
           fluid
+          w={"75%"}
+          justify-content={"center"}
+          sx={{
+            flex: "none",
+          }}
           className={classes.container}
-          w={"35%"}
+        >
+          <Stack
+            sx={{
+              height: "100%",
+              width: "100%",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "15px",
+            }}
+          >
+            <Group noWrap direction="column" justify-content="center" align="center" position="center">
+              <Group>
+                <Button
+                  onClick={() => videoRef.current?.play()}
+                  variant="default"
+                  fullWidth
+                  disabled={hasVideoEnded}
+                >
+                  {hasVideoEnded
+                    ? "Video ended"
+                    : time === undefined
+                    ? "Start"
+                    : `Please watch until end of video.`}
+                </Button>
+              </Group>
+              <video
+                src={VIDEO_SRC}
+                style={{ width: "50vw", height: "auto" }} // Adjust the value as needed
+                ref={videoRef}
+                onTimeUpdate={() => setTime(videoRef.current?.currentTime)}
+                onEnded={() => setHasVideoEnded(true)}
+              ></video>
+            </Group>
+            {(studyCondition === StudyCondition.GOOGLE) && (
+              <ExplorePane
+                loading={loadingViewMore}
+                setLoading={setLoadingViewMore}
+              />
+            )}
+          </Stack>
+        </PContainer>
+        <PContainer
+          component={motion.div}
+          layout
+          fluid
+          className={classes.container}
+          w={"25%"}
           pt={studyCondition !== StudyCondition.GOOGLE ? `${GAP_VH}vh` : "0"}
           px={"1rem"}
           transition={{ bounce: 0 }}
@@ -178,7 +241,7 @@ const StudyLayout = () => {
           {studyCondition === StudyCondition.CONVOSCOPE && (
             <>
               {entities.length === 0 && !isExplicitListening && (
-                <Box w="35%" mx="auto" mt="xl">
+                <Box w="25%" mx="auto" mt="xl">
                   <Image src={"/blobs.gif"} fit="cover" />
                 </Box>
               )}
@@ -204,56 +267,7 @@ const StudyLayout = () => {
           )}
         </PContainer>
 
-        <PContainer
-          component={motion.div}
-          layout
-          fluid
-          w={"65%"}
-          sx={{
-            flex: "none",
-          }}
-          className={classes.container}
-        >
-          <Stack
-            sx={{
-              height: "100%",
-              width: "100%",
-              alignItems: "end",
-              padding: "15px",
-            }}
-          >
-            <Group noWrap align="center" position="right">
-              <Group>
-                <Button
-                  onClick={() => videoRef.current?.play()}
-                  variant="default"
-                  fullWidth
-                  disabled={hasVideoEnded}
-                >
-                  {hasVideoEnded
-                    ? "Video ended"
-                    : time === undefined
-                    ? "Start"
-                    : `Please watch until end of video.`}
-                </Button>
-              </Group>
-              <video
-                src={VIDEO_SRC}
-                style={{ width: "30vw", height: "auto" }} // Adjust the value as needed
-                ref={videoRef}
-                onTimeUpdate={() => setTime(videoRef.current?.currentTime)}
-                onEnded={() => setHasVideoEnded(true)}
-              ></video>
-            </Group>
-            {(studyCondition === StudyCondition.CONVOSCOPE ||
-              studyCondition === StudyCondition.GOOGLE) && (
-              <ExplorePane
-                loading={loadingViewMore}
-                setLoading={setLoadingViewMore}
-              />
-            )}
-          </Stack>
-        </PContainer>
+
       </PFlex>
     </>
   );

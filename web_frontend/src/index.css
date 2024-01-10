@@ -4,3 +4,19 @@
   width: calc(1 * 100% / 1.4);
   height: calc(1 * 100% / 1.4);
 }
+
+.gs-title {
+    font-size: 42px; /* Adjust this value to change the title text size */
+}
+
+.gsc-control-cse .gs-result .gs-title, .gsc-control-cse .gs-result .gs-title * {
+    font-size: 32px !important; /* Adjust this value to change the title text size */
+}
+
+.gs-snippet {
+    font-size: 19px; /* Adjust this value to change the snippet text size */
+}
+
+.gsc-input {
+    font-size: 19px; /* Adjust this value to change the search box text size */
+}

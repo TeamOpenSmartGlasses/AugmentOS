@@ -64,7 +64,7 @@ const ReferenceCard = ({
       >
         {/* if there is an entity.name, show the Definer card format. Otherwise show the agent insight */}
         {entity.name
-          ? `${entity.name}: ${entity.summary}`
+          ? <p><b>{entity.name}</b>: {entity.summary}</p>
           : entity.agent_insight}
       </Text>
     </CardWrapper>
