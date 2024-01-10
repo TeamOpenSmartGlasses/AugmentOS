@@ -15,7 +15,6 @@ interface ReferenceCardProps
 const ReferenceCard = ({
   entity,
   selected = false,
-  onClick,
   large = false,
   pointer = false,
   showLabel,
@@ -33,7 +32,6 @@ const ReferenceCard = ({
 
   return (
     <CardWrapper
-      onClick={onClick}
       selected={selected}
       large={large}
       pointer={pointer}

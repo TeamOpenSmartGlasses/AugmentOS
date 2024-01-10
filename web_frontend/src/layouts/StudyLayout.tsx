@@ -13,7 +13,7 @@ import {
 } from "@mantine/core";
 import { motion } from "framer-motion";
 import { GAP_VH } from "../components/CardWrapper";
-import ExplorePane from "../components/ExplorePane";
+//import ExplorePane from "../components/ExplorePane";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import axiosClient from "../axiosConfig";
 import {
@@ -100,7 +100,6 @@ const StudyLayout = () => {
   const entities = useRecoilValue(entitiesState);
   const setEntities = useSetRecoilState(entitiesState);
   const isExplicitListening = useRecoilValue(isExplicitListeningState);
-  const [loadingViewMore, setLoadingViewMore] = useState(false);
   const [time, setTime] = useRecoilState(videoTimeAtom);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -196,7 +195,7 @@ const StudyLayout = () => {
               padding: "15px",
             }}
           >
-            <Stack noWrap direction="column" justify-content="center" align="center" position="center">
+            <Stack justify-content="center" align="center">
               <Group>
                 <Button
                   onClick={() => videoRef.current?.play()}

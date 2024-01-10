@@ -29,7 +29,6 @@ const useStyles = createStyles((theme) => ({
 
 export interface CardWrapperProps {
   selected?: boolean;
-  onClick: () => void;
   large?: boolean;
   pointer?: boolean;
   imageSrc?: string;
@@ -43,8 +42,6 @@ export const SMALL_CARD_VH = 24;
 export const GAP_VH = (100 - LARGE_CARD_VH - 2 * SMALL_CARD_VH) / 4;
 
 const CardWrapper = ({
-  selected = false,
-  onClick,
   large = false,
   children,
   pointer = false,
@@ -63,7 +60,6 @@ const CardWrapper = ({
       radius="md"
       p={0}
       h={large ? `${LARGE_CARD_VH}vh` : `${SMALL_CARD_VH}vh`}
-      onClick={onClick}
       className={classes.card}
       sx={{
         ...(large && { borderColor: theme.colors.convoscopeBlue }),

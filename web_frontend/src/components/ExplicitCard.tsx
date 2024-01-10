@@ -46,7 +46,6 @@ const ExplicitCard = () => {
   return (
     <CardWrapper
       large
-      onClick={() => {}}
       agentName={AGENT_ICON_NAMES[AgentName.COMMAND]}
       agentIconSrc={AGENT_ICON_PATHS[AgentName.COMMAND]}
       imageSrc="/explicit_blobs.gif"

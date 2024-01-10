@@ -6,16 +6,13 @@ import ReferenceCard from "./ReferenceCard";
 import {
   entitiesState,
   isExplicitListeningState,
-  selectedCardIdState,
 } from "../recoil";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 import { IS_STUDY } from "../constants";
 
 const CardScrollArea = () => {
   const entities = useRecoilValue(entitiesState);
   const isExplicitListening = useRecoilValue(isExplicitListeningState);
-  const [selectedCardId, setSelectedCardId] =
-    useRecoilState(selectedCardIdState);
 
   return (
     <ScrollArea scrollHideDelay={100} h="100%" type="never">
@@ -39,9 +36,6 @@ const CardScrollArea = () => {
             <Collapse key={`entity-${entity.uuid}`} timeout={800}>
               <ReferenceCard
                 entity={entity}
-                selected={
-                  selectedCardId === entity.uuid && !isExplicitListening
-                }
                 /*
                 onClick={() => {
                   setSelectedCardId(
