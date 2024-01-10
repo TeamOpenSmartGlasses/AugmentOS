@@ -27,7 +27,11 @@ These are your Expert Agents: {expert_agents_name_list}
 
 [Conversation Transcript]
 This is the current live transcript of the conversation you're assisting:
-<Transcript start>{conversation_context}<Transcript end>
+<Transcript start>{transcript_history}<Transcript end>
+
+[Your assistant history]
+This is the history of your previous inputs and responses:
+<Assistant history start>{insight_history}<Assistant history end>
 
 [Your Task]
 Now use your knowledge and/or tools (if needed) to answer the query to the best of your ability. Do not use your tools if you already know the answer to the query. The query may accidentally contain some extra speech not related to the query, you should ignore any noise and try to find the user's inteded query.
@@ -110,23 +114,24 @@ def get_explicit_meta_agent(transcript):
             llm, 
             agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION, 
             max_iterations=10, 
+            handle_parsing_errors=True,
             verbose=True)
     return explicit_meta_agent
 
 
 @time_function()
-def run_explicit_meta_agent(context, query):
+def run_explicit_meta_agent(query, transcript_history = "", insight_history = ""):
     expert_agents_name_list = get_expert_agents_name_list()
-    prompt = explicit_meta_agent_prompt_blueprint.format(conversation_context=context, query=query, expert_agents_name_list=expert_agents_name_list)
-    transcript = "{}\nQuery: {}".format(context, query)
+    prompt = explicit_meta_agent_prompt_blueprint.format(insight_history=insight_history, query=query, transcript_history=transcript_history, expert_agents_name_list=expert_agents_name_list)
+    transcript = "{}\nQuery: {}".format(insight_history, query)
     return get_explicit_meta_agent(transcript).run(prompt)
 
 
 @time_function()
-async def run_explicit_meta_agent_async(context, query):
+async def run_explicit_meta_agent_async(query, transcript_history = "", insight_history = ""):
     expert_agents_name_list = get_expert_agents_name_list()
-    prompt = explicit_meta_agent_prompt_blueprint.format(conversation_context=context, query=query, expert_agents_name_list=expert_agents_name_list)
-    transcript = "{}\nQuery: {}".format(context, query)
+    prompt = explicit_meta_agent_prompt_blueprint.format(insight_history=insight_history, query=query, transcript_history=transcript_history, expert_agents_name_list=expert_agents_name_list)
+    transcript = "{}\nQuery: {}".format(insight_history, query)
     return await (get_explicit_meta_agent(transcript).arun(prompt))
 
 
