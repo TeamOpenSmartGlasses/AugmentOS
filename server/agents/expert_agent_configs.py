@@ -26,6 +26,7 @@ Generate an "Insight" for the following conversation transcript.
 <Transcript start>{conversation_transcript}<Transcript end>
 
 ### Additional Guidelines
+- Remember the user will ONLY see the insight, so it should be valuable on its own wihtout any other information. The user does NOT see your thoughts, research, tool use, etc., ONLY the insight.
 - Do not attempt to generate a super niche insight because it will be hard to find information online.
 - The "Insight" should focus on later parts of the transcripts as they are more recent and relevant to the current conversation.
 - In your initial thought, you should first come up with a concise plan to generate the "Insight". The plan should include:
@@ -47,7 +48,7 @@ expert_agent_config_list = {
     "Statistician": {
         "agent_name": "Statistician",
         "tools": ["Search_Engine", "Wolfram_Alpha"],
-        "insight_num_words": 10,
+        "insight_num_words": 15,
         "agent_insight_type": """generate insights which focus on statistics, and quantitative data. Your tasks include identifying trends, correcting inaccurate claims, and leveraging statistics to provide "Insights". If you don't have a strong stastistic or data to provide, or you failed to find the data you planned to, then just output `null`, don't try to output watered down or irrelevant stats.""",
         "agent_plan": """1. Come up with a general description of the "Insight" to generate. \n2.Identify the single most important quantitative data, statistics, etc. that is needed to generate the "Insight". Seek the necessary data from reputable sources like Statista, prioritizing official statistics or academic publications. """,
         "validation_criteria": """contains quantitative data""",
@@ -89,7 +90,7 @@ Insight: Cancer survival rate: 49% in mid-70s to 68% now
     "DevilsAdvocate": {
         "agent_name": "DevilsAdvocate",
         "tools": ["Search_Engine"],
-        "insight_num_words": 12,
+        "insight_num_words": 15,
         "agent_insight_type": """assess the point of view being taken in the conversation and steel-man a contrary position. You purposefully disagree with the interlocutors' arguments and point of view to help stimulate thought and explore the ideas further. Provide your argument in simple and easy to understand language.""",
         "agent_plan": """1. Find a main argument or point of view being taken that would benefit the most from a devils advocate perspective. Write down the original position. If no position/argument is found, skip to the final step and output "null".\n2. Think of insightful perspectives and generate a devil's advocate.""",
         "validation_criteria": """gives an interesting perspective but not too controversial""",
@@ -110,7 +111,7 @@ Insight: AI will create new jobs and industries, not just replace old ones
   "QuestionAsker": {
         "agent_name": "QuestionAsker",
         "tools": [],
-        "insight_num_words": 12,
+        "insight_num_words": 15,
         "agent_insight_type": """propose a question, relevant to the current conversation, that isn't already being sufficiently discussed, that would stimulate further thought and explore ideas further. Don't ask something broad, ask something specific to the current conversation. Provide your question in simple and easy to understand language, and always pose it as a question.""",
         "agent_plan": """1. Read the conversation thus far. 2. Think deeply about a contextually relevant, provacative question, something that the conversationalists haven't considered yet. 3. Output your question in the requested format""",
         "validation_criteria": """a short, thought-provoking question""",
@@ -142,8 +143,8 @@ Insight: Paris: 60% chance of rain, high of 22°C, air quality index at moderate
     "CognitiveBiasDetector": {
         "agent_name": "CognitiveBiasDetector",
         "tools": [],
-        "insight_num_words": 8,
-        "agent_insight_type": """detect and highlight cognitive biases in conversation. Focus on more common biases like confirmation bias, anchoring, overconfidence. Output `null` if no bias detected or relevant. Avoid speculation.""",
+        "insight_num_words": 15,
+        "agent_insight_type": """detect and highlight cognitive biases in conversation. Focus on more common biases like confirmation bias, anchoring, overconfidence. Output `null` if no bias detected or relevant. Avoid speculation. Give evidence and reason for how the bias was detected.""",
         "agent_plan": """1. Scan conversation for cognitive bias patterns. \n2. Provide brief bias description and suggestion.""",
         "validation_criteria": """accurate cognitive bias identification, pertinent to discussion""",
         "proactive_tool_description": """When an argument, opinion, or perspective might be due to cognitive bias. This agent spots conversation points where cognitive biases might influence perspectives or decisions.""",
@@ -160,27 +161,27 @@ Insight: Anchoring Bias: Review more studies.
 Insight: Overconfidence: Reassess realistically.
 """,
     },
-        "Historian": {
-        "agent_name": "Historian",
-        "tools": [],
-        "insight_num_words": 10,
-        "agent_insight_type": """identify and parallel current topics with lesser-known but relevant historical events. Aim to provide brief, impactful historical analogies that offer insights into current situations, using history as a lens. Output `null` if no suitable historical parallel is found.""",
-        "agent_plan": """1. Pinpoint current discussion topics lacking historical perspective. \n2. Think about relevant, lesser-known historical events that mirror the current topic. Don't over-generalize - if you can't find a good example, just output `null`. \n3. Formulate a concise, enlightening historical insight.""",
-        "validation_criteria": """contains accurate, relevant historical parallel, brief yet insightful""",
-        "proactive_tool_description": """Detecting moments in conversation where historical parallels can deepen understanding of current topics.""",
-        "proactive_tool_example": """Conversation: Debating the impact of AI on job markets.
-            Insight: Similar to the Industrial Revolution's shift in labor dynamics.""",
-        "examples": """
-1. Conversation: Discussing cryptocurrency's disruptive potential.
-Insight: Parallels 18th-century tulip mania's impact on Dutch economy.
-
-2. Conversation: Debating climate change action.
-Insight: Climate action reminiscent of Dust Bowl crisis led to transformative agricultural policies.
-
-3. Conversation: Analyzing social media's role in political polarization.
-Insight: 1920s radio: similar influence as social media in shaping public opinion and politics.
-""",
-    },
+#        "Historian": {
+#        "agent_name": "Historian",
+#        "tools": [],
+#        "insight_num_words": 10,
+#        "agent_insight_type": """identify and parallel current topics with lesser-known but relevant historical events. Aim to provide brief, impactful historical analogies that offer insights into current situations, using history as a lens. Output `null` if no suitable historical parallel is found.""",
+#        "agent_plan": """1. Pinpoint current discussion topics lacking historical perspective. \n2. Think about relevant, lesser-known historical events that mirror the current topic. Don't over-generalize - if you can't find a good example, just output `null`. \n3. Formulate a concise, enlightening historical insight.""",
+#        "validation_criteria": """contains accurate, relevant historical parallel, brief yet insightful""",
+#        "proactive_tool_description": """Detecting moments in conversation where historical parallels can deepen understanding of current topics.""",
+#        "proactive_tool_example": """Conversation: Debating the impact of AI on job markets.
+#            Insight: Similar to the Industrial Revolution's shift in labor dynamics.""",
+#        "examples": """
+#1. Conversation: Discussing cryptocurrency's disruptive potential.
+#Insight: Parallels 18th-century tulip mania's impact on Dutch economy.
+#
+#2. Conversation: Debating climate change action.
+#Insight: Climate action reminiscent of Dust Bowl crisis led to transformative agricultural policies.
+#
+#3. Conversation: Analyzing social media's role in political polarization.
+#Insight: 1920s radio: similar influence as social media in shaping public opinion and politics.
+#""",
+#    },
 }
 
 def expert_agent_prompt_maker(

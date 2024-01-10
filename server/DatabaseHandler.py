@@ -597,6 +597,8 @@ class DatabaseHandler:
     def add_agent_insight_result_for_user(self, user_id, agent_name, agent_insight, agent_references=None, agent_motive=None):
         insight_time = math.trunc(time.time())
         insight_uuid = str(uuid.uuid4())
+        if agent_references == "":
+            agent_references = None
         insight_obj = {'timestamp': insight_time, 'uuid': insight_uuid, 'agent_name': agent_name, 'agent_insight': agent_insight, 'url': agent_references, 'agent_motive': agent_motive}
         self.agent_insights_results_collection.insert_one(insight_obj)
         

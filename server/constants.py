@@ -6,7 +6,7 @@ DEFINE_RARE_WORDS = False
 LLM_FILTER_THRESHOLD = 6
 RELEVANCE_FILTER_TIME = 120 # number of seconds the relevance filter looks back
 
-DEBUG_FORCE_EXPERT_AGENT_RUN = True
+DEBUG_FORCE_EXPERT_AGENT_RUN = False
 
 GPT_4_MODEL = "gpt-4-1106-preview"
 GPT_4_MAX_TOKENS = 2048
