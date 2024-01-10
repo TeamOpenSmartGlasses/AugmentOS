@@ -9,6 +9,7 @@ from DatabaseHandler import DatabaseHandler
 from agents.proactive_definer_agent import run_proactive_definer_agent
 from logger_config import logger
 
+run_time = 5
 check_time = 10
 
 def proactive_definer_processing_loop():
@@ -18,6 +19,8 @@ def proactive_definer_processing_loop():
     #wait for some transcripts to load in
     time.sleep(15)
 
+    last_run_start_time = 0
+
     while True:
         if not dbHandler.ready:
             print("dbHandler not ready")
@@ -25,7 +28,10 @@ def proactive_definer_processing_loop():
             continue
         
         #delay between loops
-        time.sleep(5)
+        time_since_last_run = time.time() - last_run_start_time
+        if time_since_last_run < run_time:
+            time.sleep(run_time - time_since_last_run)
+        last_run_start_time = time.time()
 
         try:
             pLoopStartTime = time.time()

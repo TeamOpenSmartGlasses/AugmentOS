@@ -56,6 +56,8 @@ entities: [{{ name: "80/20 Rule", definition: "Productivity concept; Majority of
 
 {format_instructions} 
 If there are no relevant entities, output an empty array.
+
+For this run, follow all instructions, except only output maximum 1 entity in the list. Do not output multiple entiies in the list. If there are multiple candidates, choose the candidate entity which best aligns with the entity selection guidelines.
 """
 # 6. Searchability: Likely to have a specific and valid reference source: Wikipedia page, dictionary entry etc.
 # - Entity names should be quoted from the conversation, so the output definitions can be referenced back to the conversation.
