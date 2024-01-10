@@ -196,7 +196,7 @@ const StudyLayout = () => {
               padding: "15px",
             }}
           >
-            <Group noWrap direction="column" justify-content="center" align="center" position="center">
+            <Stack noWrap direction="column" justify-content="center" align="center" position="center">
               <Group>
                 <Button
                   onClick={() => videoRef.current?.play()}
@@ -213,18 +213,18 @@ const StudyLayout = () => {
               </Group>
               <video
                 src={VIDEO_SRC}
-                style={{ width: "50vw", height: "auto" }} // Adjust the value as needed
+                style={{ width: "73vw", height: "auto" }} // Adjust the value as needed
                 ref={videoRef}
                 onTimeUpdate={() => setTime(videoRef.current?.currentTime)}
                 onEnded={() => setHasVideoEnded(true)}
               ></video>
-            </Group>
-            {(studyCondition === StudyCondition.GOOGLE) && (
+            </Stack>
+            {/*(studyCondition === StudyCondition.GOOGLE) && (
               <ExplorePane
                 loading={loadingViewMore}
                 setLoading={setLoadingViewMore}
               />
-            )}
+            )*/}
           </Stack>
         </PContainer>
         <PContainer
