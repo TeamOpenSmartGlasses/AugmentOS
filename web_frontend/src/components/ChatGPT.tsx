@@ -5,9 +5,10 @@ import {
   ScrollArea,
   Textarea,
   Text,
+  Stack,
 } from "@mantine/core";
 import { IconArrowUp, IconFlower, IconUser } from "@tabler/icons-react";
-import { useRef, useState } from "react";
+import { PropsWithChildren, useEffect, useRef, useState } from "react";
 
 enum Sender {
   CHATGPT = "ChatGPT",
@@ -21,21 +22,8 @@ interface Message {
 
 const ChatGPT = () => {
   const [query, setQuery] = useState("");
-  const [history, setHistory] = useState<Message[]>([
-    { sender: Sender.USER, content: "question question question question" },
-    { sender: Sender.CHATGPT, content: "as a large language model i" },
-    { sender: Sender.USER, content: "question question question question" },
-    { sender: Sender.USER, content: "question question question question" },
-    { sender: Sender.USER, content: "question question question question" },
-    { sender: Sender.USER, content: "question question question question" },
-    { sender: Sender.USER, content: "question question question question" },
-    { sender: Sender.USER, content: "question question question question" },
-    {
-      sender: Sender.CHATGPT,
-      content:
-        "as a large language model i as a large language model i as a large language model i as a large language model i as a large language model i as a large language model\ni as a large language model i as a large language model i as a large language model i as a large language model i as a large language model i\nas a large language model i as a large language model i ",
-    },
-  ]);
+  const [history, setHistory] = useState<Message[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
   const newUserQuery = () => {
@@ -44,55 +32,55 @@ const ChatGPT = () => {
       { sender: Sender.USER, content: query },
     ]);
     setQuery("");
+    setIsLoading(true);
+  };
 
+  useEffect(() => {
     if (scrollAreaRef.current) {
       // scroll to bottom of the scroll area
-      // FIXME: this doesn't work
-      scrollAreaRef.current.scroll({
+      scrollAreaRef.current.scrollTo({
         top: scrollAreaRef.current.scrollHeight,
         behavior: "smooth",
       });
     }
-  };
+  }, [history]);
 
   return (
     <Flex h="100%" p="md" bg="rgb(52,53,65)" direction="column">
-      <ScrollArea ref={scrollAreaRef}>
+      {history.length === 0 && (
+        <Stack m="auto">
+          <Box w="3rem" h="3rem" m="auto">
+            <IconUser
+              color="white"
+              size="3rem"
+              style={{
+                margin: "auto",
+                background: "#acacbe",
+                padding: "0.5rem",
+                borderRadius: 100,
+              }}
+            />
+          </Box>
+          <Text fw="bolder" color="white" w="fit-content" m="auto" size="xl">
+            Ask ChatGPT
+          </Text>
+        </Stack>
+      )}
+      <ScrollArea viewportRef={scrollAreaRef}>
         {history.map((message) => (
-          <Flex>
-            <Box w="1.5rem" h="1.5rem" mr="xs">
-              {message.sender === Sender.CHATGPT ? (
-                <IconFlower
-                  color="white"
-                  size="1.5rem"
-                  style={{
-                    margin: "auto",
-                    background: "#19c37d",
-                    padding: "0.25rem",
-                    borderRadius: 100,
-                  }}
-                />
-              ) : (
-                <IconUser
-                  color="white"
-                  size="1.5rem"
-                  style={{
-                    margin: "auto",
-                    background: "#acacbe",
-                    padding: "0.25rem",
-                    borderRadius: 100,
-                  }}
-                />
-              )}
-            </Box>
-            <Flex direction="column" pb="xl">
-              <Text fw="bold">{message.sender}</Text>
-              {message.content.split("\n").map((p) => (
-                <Text pb="xs">{p}</Text>
-              ))}
-            </Flex>
-          </Flex>
+          <MessageDisplay sender={message.sender}>
+            {message.content.split("\n").map((p) => (
+              <Text pb="xs">{p}</Text>
+            ))}
+          </MessageDisplay>
         ))}
+        {isLoading && (
+          <MessageDisplay sender={Sender.CHATGPT}>
+            <Text pb="xs">
+              <LoadingDots />
+            </Text>
+          </MessageDisplay>
+        )}
       </ScrollArea>
       <Flex direction="row" mt="auto" gap="xs" w="100%">
         <Textarea
@@ -124,3 +112,59 @@ const ChatGPT = () => {
 };
 
 export default ChatGPT;
+
+const MessageDisplay = ({
+  sender,
+  children,
+}: PropsWithChildren<{ sender: Sender }>) => {
+  return (
+    <Flex>
+      <Box w="1.5rem" h="1.5rem" mr="xs">
+        {sender === Sender.CHATGPT ? (
+          <IconFlower
+            color="white"
+            size="1.5rem"
+            style={{
+              margin: "auto",
+              background: "#19c37d",
+              padding: "0.25rem",
+              borderRadius: 100,
+            }}
+          />
+        ) : (
+          <IconUser
+            color="white"
+            size="1.5rem"
+            style={{
+              margin: "auto",
+              background: "#acacbe",
+              padding: "0.25rem",
+              borderRadius: 100,
+            }}
+          />
+        )}
+      </Box>
+      <Flex direction="column" pb="xl">
+        <Text fw="bold">{sender}</Text>
+        {children}
+      </Flex>
+    </Flex>
+  );
+};
+
+const LoadingDots = () => {
+  const [dots, setDots] = useState(".");
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      if (dots.length < 3) {
+        setDots(dots + ".");
+      } else {
+        setDots(".");
+      }
+    }, 500);
+    return () => clearInterval(intervalId);
+  }, [dots]);
+
+  return dots;
+};
