@@ -57,4 +57,5 @@ export enum StudyCondition {
   CONVOSCOPE,
   NO_CONVOSCOPE,
   GOOGLE,
+  CHATGPT,
 }

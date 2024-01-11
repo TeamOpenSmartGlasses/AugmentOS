@@ -28,6 +28,7 @@ import CardScrollArea from "../components/CardScrollArea";
 import { VIDEO_SRC } from "../constants";
 import { LOAD_RECORDING_ENDPOINT } from "../serverEndpoints";
 import { StudyCondition } from "../types";
+import ChatGPT from "../components/ChatGPT";
 
 // animate-able components for framer-motion
 // https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
@@ -135,7 +136,6 @@ const StudyLayout = () => {
         return () => clearTimeout(timer); // Cleanup timer
     }, []); // Empty dependency array means this runs once after the initial render
    */
-
 
   useEffect(() => {
     if (studyCondition === StudyCondition.GOOGLE) {
@@ -264,9 +264,8 @@ const StudyLayout = () => {
               <div className="gcse-searchresults"></div>
             </Box>
           )}
+          {studyCondition === StudyCondition.CHATGPT && <ChatGPT />}
         </PContainer>
-
-
       </PFlex>
     </>
   );
