@@ -1,6 +1,7 @@
 import json
 import time
 from datetime import datetime
+import math
 
 start_time = time.time()
 date_time = datetime.fromtimestamp(time.time())
@@ -50,8 +51,11 @@ def write():
 #############
 
 def get_time_elapsed():
-    elapsed = datetime.fromtimestamp(time.time() - start_time)
-    return elapsed.strftime("%H:%M:%S")
+    seconds = time.time() - start_time
+    hours = seconds // 3600
+    minutes = (seconds % 3600) // 60
+    remaining_seconds = seconds % 60
+    return f"{math.floor(hours)}:{math.floor(minutes)}:{math.floor(remaining_seconds)}"
 
 def track_gpt3_time_and_cost(time_taken, amount_to_increase):
     stat_data['gpt3']['data'].append(time_taken)

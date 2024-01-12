@@ -118,7 +118,8 @@ class DatabaseHandler:
                  "agent_explicit_query_ids": [],
                  "agent_explicit_insights_result_ids": [],
                  "agent_proactive_definer_result_ids": [],
-                 "agent_insights_result_ids" : []})
+                 "agent_insights_result_ids" : [],
+                 "agent_proactive_definer_irrelevant_terms": []})
 
     ### CACHE ###
 
@@ -675,7 +676,33 @@ class DatabaseHandler:
         self.user_collection.update_one(filter=filter, update=update)
 
     def get_agent_proactive_definer_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
-         return self.get_results_for_user_device("agent_proactive_definer_result_ids", user_id, device_id, should_consume, include_consumed)
+        return self.get_results_for_user_device("agent_proactive_definer_result_ids", user_id, device_id, should_consume, include_consumed)
+
+    def get_agent_proactive_definer_irrelevant_terms(self, user_id):
+        user = self.get_user(user_id)
+        return user["agent_proactive_definer_irrelevant_terms"]
+
+    def push_agent_proactive_definer_irrelevant_term(self, user_id, new_term):
+        filter = {"user_id": user_id}
+        update = {"$push": {"agent_proactive_definer_irrelevant_terms": {"$each": [new_term]}}}
+        self.user_collection.update_one(filter=filter, update=update)
+        
+        # Cut off start of list if too large
+        max_size = 40
+        self.user_collection.update_one(
+            { 'user_id': user_id },
+            [
+                { '$set': {
+                    'agent_proactive_definer_irrelevant_terms': {
+                        '$cond': {
+                            'if': { '$gt': [{ '$size': "$agent_proactive_definer_irrelevant_terms" }, max_size] },
+                            'then': { '$slice': ["$agent_proactive_definer_irrelevant_terms", 1, { '$size': "$agent_proactive_definer_irrelevant_terms" }] },
+                            'else': "$agent_proactive_definer_irrelevant_terms"
+                        }
+                    }
+                }}
+            ]
+        )
 
     ### UI DEVICE ###
 

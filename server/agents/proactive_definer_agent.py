@@ -12,26 +12,30 @@ from Modules.LangchainSetup import *
 import asyncio
 from Modules.QueryLLM import *
 from definer_stats.stat_tracker import *
+from DatabaseHandler import DatabaseHandler
 
-proactive_rare_word_agent_relevancy_check_prompt_blueprint = """
+proactive_gatekeeper_prompt_blueprint = """
 # Objective
-Determine whether the following part of a conversation's transcript contains any rare/interesting topics or words. 
+Determine whether the following part of a conversation's transcript contains any words or topics that are interesting or rare. 
 
 # Criteria for rare or interesting topics
-- Rarity: Select entities that are unlikely for an average high schooler to know. Well known entities should NOT be included, like Fortune 500 organizations, worldwide-known events, popular locations, commonly discussed concepts such as "Planet" or "Free Will" or "Charles Darwin", and entities popularized by recent news or events such as "COVID-19", "Bitcoin", or "Generative AI".
-- Utility: Definition should help a user understand the conversation better and achieve their goals.
+- Rarity: Good topics are ones that are unlikely for an average high schooler to know.
+- Utility: Having more information about the topic would help someone understand it better.
 - Complexity: Choose phrases with non-obvious meanings, such that their meaning cannot be derived from simple words within the entity name, such as "Butterfly Effect" which has a totally different meaning from its base words, but not "Electric Car" nor "Lane Keeping System" as they're easily derived.
-- Definability: Must be clearly and succinctly definable in under 10 words.
-- Existance: Don't select entities if you have no knowledge of them
+
+# List of words that aren't likely to be rare or interesting
+<Word list start>{irrelevant_terms}<Word list end>
 
 # Conversation Transcript:
 <Transcript start>{conversation_context}<Transcript end>
 
 # Output guidelines
-Return a number 1-10, with 1 being mundane, and 10 being very interesting/rare.
+- Return a number 1-10, with 1 being mundane, and 10 being very interesting/rare.
+- Return the term(s) that most heavily impacted the provided score. 
 
 ## Example Output:
-6
+score: 6
+terms: ['80/20 rule']
 
 {format_instructions} 
 """
@@ -52,7 +56,7 @@ Your role is to identify and define "Rare Entities (REs)" in a transcript. Types
 <Transcript start>{conversation_context}<Transcript end>
 
 # Output Guidelines:
-Output an array of the entities using the following template: `[{{ name: string, definition: string, search_keyword: string }}]`
+Output an array `entities` of the entities using the following template: `[{{ name: string, definition: string, search_keyword: string }}]`
 - name is the RE name shown to the user, if the name is mistranscribed, autocorrect it into the most well known form with proper spelling, capitalization and punctuation
 - definition is concise (< 12 words) and uses simple words
 - search_keyword is the best specific Internet search keywords to search for the RE, you might need to use their complete official RE name, or autocorrect RE name, or add additional context keywords (like the entity type) for better searchability, especially if the entity is ambiguous or has multiple meanings. Additionally, for rare words, add "definition" to the search keyword.
@@ -83,11 +87,14 @@ If there are no relevant entities, output an empty array.
 # 6. Searchability: Likely to have a specific and valid reference source: Wikipedia page, dictionary entry etc.
 # - Entity names should be quoted from the conversation, so the output definitions can be referenced back to the conversation.
 
-min_gatekeeper_score = 6
+min_gatekeeper_score = 4
 
 class GatekeeperScore(BaseModel):
     score: int = Field(
         description="Score of how interesting/rare/relevant the words in the passage are", default=0
+    )
+    terms: list[str] = Field(
+        description="list of terms that most heavily impacted the given score"
     )
 
 gatekeeper_score_query_parser = PydanticOutputParser(
@@ -110,6 +117,9 @@ class ConversationEntities(BaseModel):
     entities: list[Entity] = Field(
         description="list of entities and their definitions", default=[]
     )
+    irrelevant_terms: list[str] = Field(
+        description="list of common and/or irrelevant words", default=[]
+    )
 
 
 proactive_rare_word_agent_query_parser = PydanticOutputParser(
@@ -118,17 +128,20 @@ proactive_rare_word_agent_query_parser = PydanticOutputParser(
 
 
 def run_proactive_definer_agent(
-    conversation_context: str, definitions_history: list = []
+        user_id: str, dbHandler: DatabaseHandler, conversation_context: str, definitions_history: list = []
 ):
+
+    irrelevant_terms = dbHandler.get_agent_proactive_definer_irrelevant_terms(user_id)
 
     # First: determine if we should even run
     gpt3start = time.time()
     llm35 = get_langchain_gpt35()
 
     gatekeeper_score_prompt = PromptTemplate(
-        template=proactive_rare_word_agent_relevancy_check_prompt_blueprint,
+        template=proactive_gatekeeper_prompt_blueprint,
         input_variables=[
-            "conversation_context"
+            "conversation_context",
+            "irrelevant_terms"
         ],
         partial_variables={
             "format_instructions": gatekeeper_score_query_parser.get_format_instructions(),
@@ -136,7 +149,8 @@ def run_proactive_definer_agent(
     )
     gatekeeper_score_prompt_string = (
         gatekeeper_score_prompt.format_prompt(
-            conversation_context=conversation_context
+            conversation_context=conversation_context,
+            irrelevant_terms=(', '.join(irrelevant_terms))
         ).to_string()
     )
 
@@ -144,18 +158,15 @@ def run_proactive_definer_agent(
         score_response = llm35(
             [HumanMessage(content=gatekeeper_score_prompt_string)]
         )
-        # print("GPT3.5 query cost:")
-        # print(cb.total_cost)
         gpt3cost = cb.total_cost
 
     try:
         content = gatekeeper_score_query_parser.parse(score_response.content)
         score = int(content.score)
-        print("SCORE: " + str(score))
-        # print("content: " + conversation_context)
+        gatekeeper_terms = content.terms
         track_gpt3_time_and_cost(time.time() - gpt3start, gpt3cost)
         if score < min_gatekeeper_score: return None
-        print("SCORE GOOD! RUNNING GPT4!")
+        print("SCORE GOOD ({})! RUNNING GPT4!".format(str(score)))
     except OutputParserException as e:
         print("ERROR: " + str(e))
         return None
@@ -195,8 +206,6 @@ def run_proactive_definer_agent(
         response = llm4(
             [HumanMessage(content=proactive_rare_word_agent_query_prompt_string)]
         )
-        # print("GPT4 query cost:")
-        # print(cb.total_cost)
         gpt4cost = cb.total_cost
 
     print("Proactive meta agent response", response)
@@ -209,6 +218,11 @@ def run_proactive_definer_agent(
             gatekeeper_accuracy_average(100)
         else:
             gatekeeper_accuracy_average(0)
+
+            for term in gatekeeper_terms:
+                if term not in irrelevant_terms:
+                    dbHandler.push_agent_proactive_definer_irrelevant_term(user_id, term)
+            print("UPDATED IRRELEVANT TERMS: " + str(dbHandler.get_agent_proactive_definer_irrelevant_terms(user_id)))
 
         track_gpt4_time_and_cost(time.time() - gpt4start, gpt4cost)
         print("GPT4 TIME: " + str(time.time() - gpt4start))

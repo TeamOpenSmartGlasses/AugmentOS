@@ -52,7 +52,7 @@ def proactive_definer_processing_loop():
 
                     # run proactive meta agent, get definition
                     startt = time.time()
-                    entities = run_proactive_definer_agent(transcript['text'], definitions_history=definition_history)
+                    entities = run_proactive_definer_agent(transcript['user_id'], dbHandler, transcript['text'], definitions_history=definition_history)
                     endt = time.time()
                     if entities:
                         print("ENTITIES = " + str(len(entities)))
