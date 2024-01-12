@@ -20,6 +20,7 @@
     "framer-motion": "^10.16.4",
     "js-cookie": "^3.0.5",
     "lodash": "^4.17.21",
+    "openai": "^4.24.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-speech-recognition": "^3.10.0",

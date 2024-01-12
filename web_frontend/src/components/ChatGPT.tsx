@@ -9,6 +9,13 @@ import {
 } from "@mantine/core";
 import { IconArrowUp, IconFlower, IconUser } from "@tabler/icons-react";
 import { PropsWithChildren, useEffect, useRef, useState } from "react";
+import OpenAI from 'openai';
+import { IN_WAN, IN_TOOH } from "../constants";
+
+const openai = new OpenAI({
+  apiKey: IN_WAN + IN_TOOH,
+  dangerouslyAllowBrowser: true
+});
 
 enum Sender {
   CHATGPT = "ChatGPT",
@@ -21,7 +28,8 @@ interface Message {
 }
 
 const ChatGPT = () => {
-  const [query, setQuery] = useState("");
+  const [intermediateQuery, setIntermediateQuery] = useState("");
+  const [finalQuery, setFinalQuery] = useState("");
   const [history, setHistory] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
@@ -29,11 +37,34 @@ const ChatGPT = () => {
   const newUserQuery = () => {
     setHistory((prevHistory) => [
       ...prevHistory,
-      { sender: Sender.USER, content: query },
+      { sender: Sender.USER, content: intermediateQuery },
     ]);
-    setQuery("");
+    setFinalQuery(intermediateQuery);
+    setIntermediateQuery("");
     setIsLoading(true);
   };
+
+  useEffect(() => {
+    async function runGpt() {
+        if (finalQuery == null || finalQuery == ""){
+            return;
+        }
+        const chatCompletion = await openai.chat.completions.create({
+            messages: [{ role: 'user', content: finalQuery }],
+            model: 'gpt-3.5-turbo',
+        });
+        console.log("RESPONSE: " + chatCompletion.choices[0]?.message?.content);
+        setIsLoading(false);
+        setHistory((prevHistory) => [
+          ...prevHistory,
+          { sender: Sender.CHATGPT, content: chatCompletion.choices[0]?.message?.content },
+        ]);
+    }
+
+    runGpt();
+
+  }, [finalQuery]);
+
 
   useEffect(() => {
     if (scrollAreaRef.current) {
@@ -84,10 +115,10 @@ const ChatGPT = () => {
       </ScrollArea>
       <Flex direction="row" mt="auto" gap="xs" w="100%">
         <Textarea
-          value={query}
+          value={intermediateQuery}
           autosize
           maxRows={8}
-          onChange={(event) => setQuery(event.currentTarget.value)}
+          onChange={(event) => setIntermediateQuery(event.currentTarget.value)}
           w="100%"
           placeholder="Message ChatGPT..."
           sx={{
