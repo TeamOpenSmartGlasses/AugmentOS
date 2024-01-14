@@ -46,17 +46,16 @@ If you are asked for a summary, read the "Conversation Transcript" above, and su
 
 Users will see/hear your answers on earbuds, smart glasses, or on a screen while distracted, so make your answer as concise and succinct as possible. Leave out filler words and redundancy to make the answer high entropy and as to-the-point as possible. Avoid new lines. Answers should be 10 words or less unless user explicitly asks for more detial. Use telegraph style writing for conciseness.
 
-Make sure your final answer is always returned in the specified format! Never return just a string, return a final answer formatted as directed!
-
 The Search_Engine is not for personal queries! It will only search the web, don't use it if the user asks a question about themselves, only use it to retrieve information from the web.
 
-If the user asks you a question about something that was just said, or to summarize the conversation, use the "Conversation Transcript" to do so.
 
 [Actions]
-Actions should ONLY be for using tools or returning the final answer. If you have a task to do yourself, don't put it in the "Action", just go ahead and do the task.
+Actions should ONLY be for using tools or returning the final answer. If you have a task to do yourself, don't put it in the "Action", just go ahead and do the task. Actions are only for final answers and using tools.
 
 [Query]
-{query}
+```{query}```
+
+NOTE: Make sure your final answer is always returned in the specified format! Never return just a string, return a final answer formatted as directed!
 """
 
 
@@ -128,7 +127,7 @@ def get_explicit_meta_agent(transcript):
             llm, 
             agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION, 
             max_iterations=4, 
-            handle_parsing_errors=True,
+            handle_parsing_errors="That output triggered an error, check your output and make sure it conforms, use the Action/Action Input syntax",
             verbose=True)
     return explicit_meta_agent
 
