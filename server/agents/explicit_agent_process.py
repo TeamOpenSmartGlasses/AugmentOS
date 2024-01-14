@@ -8,9 +8,8 @@ from helpers.time_function_decorator import time_function
 
 dbHandler = DatabaseHandler(parent_handler=False)
 
-pause_query_time = 3
+pause_query_time = 2
 force_query_time = 12
-
 
 @time_function()
 def stringify_history(insight_history):
