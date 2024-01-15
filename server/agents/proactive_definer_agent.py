@@ -62,6 +62,8 @@ Output an array `entities` of the entities using the following template: `[{{ na
 - search_keyword is the best specific Internet search keywords to search for the RE, you might need to use their complete official RE name, or autocorrect RE name, or add additional context keywords (like the entity type) for better searchability, especially if the entity is ambiguous or has multiple meanings. Additionally, for rare words, add "definition" to the search keyword.
 - it's OK to output an empty array - most of the time, the array will be empty, only include items if the fit all the requirements
 
+Also, output another array `irrelevant_terms` of terms that aren't rare entities.
+
 ## Additional Guidelines:
 - Only define NOUNS.
 - Select RE that have an entry in an encyclopedia, wikipedia, dictionary, or other reference material.
@@ -80,9 +82,11 @@ These REs have already been defined so don't define them again:
 
 ## Example Output:
 entities: [{{ name: "80/20 Rule", definition: "Productivity concept; Majority of results come from few causes", search_keyword: "80/20 Rule + concept" }}]
+irrelevant_terms: ["the", "dog", "rock", "table", "who"]
 
 {format_instructions} 
 If there are no relevant entities, output an empty array.
+If there are no irrelevant_terms, output an empty array.
 """
 # 6. Searchability: Likely to have a specific and valid reference source: Wikipedia page, dictionary entry etc.
 # - Entity names should be quoted from the conversation, so the output definitions can be referenced back to the conversation.
@@ -228,7 +232,8 @@ def run_proactive_definer_agent(
         print("GPT4 TIME: " + str(time.time() - gpt4start))
         
         image_start = time.time()
-        res = search_entities(res.entities)
+        should_get_images = dbHandler.get_user_options(user_id)["enable_agent_proactive_definer_images"]
+        res = search_entities(res.entities, should_get_images)
         track_image_time(time.time() - image_start)
         print("IMAGE TIME: " + str(time.time() - image_start))
         return res
@@ -236,10 +241,10 @@ def run_proactive_definer_agent(
         return None
 
 
-def search_entities(entities: list[Entity]):
+def search_entities(entities: list[Entity], should_get_images):
     search_tasks = []
     for entity in entities:
-        search_tasks.append(search_url_for_entity_async(entity.search_keyword))
+        search_tasks.append(search_url_for_entity_async(entity.search_keyword, should_get_images))
 
     loop = asyncio.get_event_loop()
     responses = asyncio.gather(*search_tasks)

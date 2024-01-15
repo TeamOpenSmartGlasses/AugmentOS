@@ -404,7 +404,7 @@ def extract_entity_url_and_image(search_results: dict, image_results: dict):
 
     return res
 
-async def search_url_for_entity_async(query: str):
+async def search_url_for_entity_async(query: str, get_image: bool = True):
     async def inner_search(query:str): 
         search_task = asyncio.create_task(serper_search_async(
             search_term=query,
@@ -415,14 +415,18 @@ async def search_url_for_entity_async(query: str):
             search_type="search",
         ))
 
-        image_search_task = asyncio.create_task(serper_search_async(
-            search_term=query,
-            gl=gl,
-            hl=hl,
-            num=k,
-            tbs=tbs,
-            search_type="images",
-        ))
+        if get_image:
+            image_search_task = asyncio.create_task(serper_search_async(
+                search_term=query,
+                gl=gl,
+                hl=hl,
+                num=k,
+                tbs=tbs,
+                search_type="images",
+            ))
+        else:
+            async def dummy(): return None
+            image_search_task = asyncio.create_task(dummy())
 
         tasks = [search_task, image_search_task]
 
