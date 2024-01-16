@@ -14,6 +14,8 @@ from Modules.QueryLLM import *
 from definer_stats.stat_tracker import *
 from DatabaseHandler import DatabaseHandler
 
+min_gatekeeper_score = 4
+
 proactive_gatekeeper_prompt_blueprint = """
 # Objective
 Determine whether the following part of a conversation's transcript contains any "Rare Entities (REs)". Types of REs include rare words, jargons, adages, concepts, people, places, organizations, events, phrase etc. that are not well known to the average high schooler.
@@ -87,8 +89,6 @@ If there are no relevant entities, output an empty array.
 """
 # 6. Searchability: Likely to have a specific and valid reference source: Wikipedia page, dictionary entry etc.
 # - Entity names should be quoted from the conversation, so the output definitions can be referenced back to the conversation.
-
-min_gatekeeper_score = 4
 
 class GatekeeperScore(BaseModel):
     score: int = Field(

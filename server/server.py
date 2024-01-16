@@ -427,9 +427,9 @@ if __name__ == '__main__':
     #cse_process.start()
 
     # start intelligent definer agent process
-    #print("Starting Intelligent Definer Agent process...")
-    #intelligent_definer_agent_process = multiprocessing.Process(target=proactive_definer_processing_loop)
-    #intelligent_definer_agent_process.start()
+    print("Starting Intelligent Definer Agent process...")
+    intelligent_definer_agent_process = multiprocessing.Process(target=proactive_definer_processing_loop)
+    intelligent_definer_agent_process.start()
 
     # start the proactive agents process
     print("Starting Proactive Agents process...")
