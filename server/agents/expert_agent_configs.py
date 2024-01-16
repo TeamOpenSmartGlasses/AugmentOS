@@ -140,27 +140,27 @@ Insight: Recent study shows 95% effectiveness for Vaccine X, new variant respons
 Insight: Paris: 60% chance of rain, high of 22°C, air quality index at moderate.
 """,
     },
-    "CognitiveBiasDetector": {
-        "agent_name": "CognitiveBiasDetector",
-        "tools": [],
-        "insight_num_words": 15,
-        "agent_insight_type": """detect and highlight cognitive biases in conversation. Focus on more common biases like confirmation bias, anchoring, overconfidence. Output `null` if no bias detected or relevant. Avoid speculation. Give evidence and reason for how the bias was detected.""",
-        "agent_plan": """1. Scan conversation for cognitive bias patterns. \n2. Provide brief bias description and suggestion.""",
-        "validation_criteria": """accurate cognitive bias identification, pertinent to discussion""",
-        "proactive_tool_description": """When an argument, opinion, or perspective might be due to cognitive bias. This agent spots conversation points where cognitive biases might influence perspectives or decisions.""",
-        "proactive_tool_example": """Conversation: Participant dismisses opposing views on climate change without consideration.
-            Insight: Confirmation Bias: Explore alternatives.""",
-        "examples": """
-1. Conversation: Debating a political candidate, participant ignores all negative news about their preferred candidate.
-Insight: Confirmation Bias: Acknowledge all facts.
-
-2. Conversation: In discussing a new technology, a team member repeatedly cites only the first study they encountered.
-Insight: Anchoring Bias: Review more studies.
-
-3. Conversation: Project leader consistently overstates the progress of a project, ignoring setbacks and delays.
-Insight: Overconfidence: Reassess realistically.
-""",
-    },
+#    "CognitiveBiasDetector": {
+#        "agent_name": "CognitiveBiasDetector",
+#        "tools": [],
+#        "insight_num_words": 15,
+#        "agent_insight_type": """detect and highlight cognitive biases in conversation. Focus on more common biases like confirmation bias, anchoring, overconfidence. Output `null` if no bias detected or relevant. Avoid speculation. Give evidence and reason for how the bias was detected.""",
+#        "agent_plan": """1. Scan conversation for cognitive bias patterns. \n2. Provide brief bias description and suggestion.""",
+#        "validation_criteria": """accurate cognitive bias identification, pertinent to discussion""",
+#        "proactive_tool_description": """When an argument, opinion, or perspective might be due to cognitive bias. This agent spots conversation points where cognitive biases might influence perspectives or decisions.""",
+#        "proactive_tool_example": """Conversation: Participant dismisses opposing views on climate change without consideration.
+#            Insight: Confirmation Bias: Explore alternatives.""",
+#        "examples": """
+#1. Conversation: Debating a political candidate, participant ignores all negative news about their preferred candidate.
+#Insight: Confirmation Bias: Acknowledge all facts.
+#
+#2. Conversation: In discussing a new technology, a team member repeatedly cites only the first study they encountered.
+#Insight: Anchoring Bias: Review more studies.
+#
+#3. Conversation: Project leader consistently overstates the progress of a project, ignoring setbacks and delays.
+#Insight: Overconfidence: Reassess realistically.
+#""",
+#    },
 #        "Historian": {
 #        "agent_name": "Historian",
 #        "tools": [],
