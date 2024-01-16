@@ -32,6 +32,7 @@ import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { useState } from "react";
 import { setUserIdAndDeviceId } from "../utils/utils";
 import CardScrollArea from "../components/CardScrollArea";
+import ToolsPanel from "../components/ToolsPanel";
 
 // animate-able components for framer-motion
 // https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
@@ -157,6 +158,8 @@ const MainLayout = () => {
         closeSettings={closeSettings}
         setUserIdAndDeviceId={setUserIdAndDeviceId}
       />
+
+      <ToolsPanel />
     </>
   );
 };
