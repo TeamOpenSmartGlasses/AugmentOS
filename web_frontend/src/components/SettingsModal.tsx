@@ -1,19 +1,26 @@
 import {
   Alert,
   Button,
+  Flex,
   Group,
   // Divider,
   // FileButton,
   Modal,
+  Image,
   Stack,
   Text,
   TextInput,
   createStyles,
+  rem,
+  Checkbox,
+  Textarea,
+  Box,
   // Title,
 } from "@mantine/core";
 import { IconInfoCircle } from "@tabler/icons-react";
 import Cookies from "js-cookie";
 import { useRef, useState } from "react";
+import { AGENT_ICON_NAMES, AGENT_ICON_PATHS, AgentName } from "../types";
 // import axiosClient from "../axiosConfig";
 // import { UPLOAD_USERDATA_ENDPOINT } from "../serverEndpoints";
 
@@ -28,12 +35,23 @@ const useStyles = createStyles((theme) => ({
   header: {
     backgroundColor: theme.colors.cardFill,
   },
- 
+
   content: {
     backgroundColor: theme.colors.cardFill,
-    border: `1px solid ${theme.colors.cardStroke}`
-  }
+    border: `1px solid ${theme.colors.cardStroke}`,
+  },
 }));
+
+const QUESTIONS = [
+  "What is your educational background?",
+  "What are your interests?",
+];
+
+enum SITUATIONS {
+  BUSINESS = "Business",
+  ACADEMIC = "Academic",
+  SOCIAL = "Social",
+}
 
 const SettingsModal = ({
   smallerThanMedium,
@@ -41,7 +59,7 @@ const SettingsModal = ({
   closeSettings,
   setUserIdAndDeviceId,
 }: SettingsModalProps) => {
-  const {classes} = useStyles();
+  const { classes } = useStyles();
   const [userId, setUserId] = useState<string | undefined>(
     Cookies.get("userId")
   );
@@ -88,42 +106,59 @@ const SettingsModal = ({
   return (
     <Modal
       id="settings-modal"
-      size={"md"}
+      size={"lg"}
       ml={smallerThanMedium ? 0 : 40}
       opened={opened}
       onClose={closeSettings}
       title={<Text fw={700}>Settings</Text>}
       classNames={{ content: classes.content, header: classes.header }}
     >
-      <Stack>
-        <Alert icon={<IconInfoCircle />} title="Connect your custom data!" variant="light" color="blue">
+      <Alert
+        icon={<IconInfoCircle />}
+        title="Warning: you have unsaved changes."
+        variant="light"
+        color="red"
+        mx="lg"
+      >
+        <Box />
+      </Alert>
+      <Stack sx={{ gap: "4rem" }} p="lg">
+        {/* <Alert
+          icon={<IconInfoCircle />}
+          title="Connect your custom data!"
+          variant="light"
+          color="blue"
+        >
           Get started by setting a custom and unique username, then upload your
           CSV file containing your entity definitions
-        </Alert>
+        </Alert> */}
 
-        {isCustomUser ? (
-          <Text>
-            Username found, logged in as{" "}
-            <Text fw={700} component="span">
-              {userId}
+        <Stack>
+          <Text fw={700}>Username</Text>
+          {isCustomUser ? (
+            <Text>
+              Username found, logged in as{" "}
+              <Text fw={700} component="span">
+                {userId}
+              </Text>
             </Text>
-          </Text>
-        ) : (
-          <Text>No saved username</Text>
-        )}
+          ) : (
+            <Text>No saved username</Text>
+          )}
 
-        <Group>
-          <TextInput
-            ref={ref}
-            placeholder="Your new username"
-            label="Set New Username"
-            withAsterisk
-            sx={{ flex: "1" }}
-          />
-          <Button onClick={updateUsername} variant="default" mt="auto">
-            Set Username
-          </Button>
-        </Group>
+          <Group>
+            <TextInput
+              ref={ref}
+              placeholder="Your new username"
+              label="Set New Username"
+              withAsterisk
+              sx={{ flex: "1" }}
+            />
+            <Button onClick={updateUsername} variant="default" mt="auto">
+              Set Username
+            </Button>
+          </Group>
+        </Stack>
         {/*
         {isCustomUser && (
           <>
@@ -147,6 +182,64 @@ const SettingsModal = ({
           </>
         )}
         */}
+        <Stack>
+          <Text fw={700}>Enabled Agents</Text>
+
+          {Object.entries(AgentName).map(([, agent]) => (
+            <Flex>
+              <Checkbox mr="lg" my="auto" />
+              <Image
+                src={AGENT_ICON_PATHS[agent]}
+                height={rem(30)}
+                width={rem(30)}
+                radius="md"
+                mx="lg"
+              />
+              <Text
+                transform="uppercase"
+                fw="bold"
+                sx={{ letterSpacing: "0.1vh" }}
+              >
+                {AGENT_ICON_NAMES[agent]}
+              </Text>
+            </Flex>
+          ))}
+        </Stack>
+
+        <Stack>
+          <Text fw={700}>Biography</Text>
+          <Textarea />
+        </Stack>
+
+        <Stack>
+          <Text fw={700}>Background</Text>
+          {QUESTIONS.map((question) => (
+            <Textarea label={question} />
+          ))}
+        </Stack>
+
+        <Stack>
+          <Text fw={700}>Background</Text>
+          {QUESTIONS.map((question) => (
+            <Textarea label={question} />
+          ))}
+        </Stack>
+
+        <Stack>
+          <Text fw={700}>Usage Situations</Text>
+          {Object.entries(SITUATIONS).map(([, situation]) => (
+            <Flex>
+              <Checkbox mr="lg" my="auto" />
+              <Text fw="bold" sx={{ letterSpacing: "0.1vh" }}>
+                {situation}
+              </Text>
+            </Flex>
+          ))}
+        </Stack>
+
+        <Button variant="default" ml="auto">
+          Save
+        </Button>
       </Stack>
     </Modal>
   );
