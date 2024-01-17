@@ -15,6 +15,11 @@ import {
   Checkbox,
   Textarea,
   Box,
+  Affix,
+  Title,
+  List,
+  SimpleGrid,
+  Switch,
   // Title,
 } from "@mantine/core";
 import { IconInfoCircle } from "@tabler/icons-react";
@@ -38,7 +43,7 @@ const useStyles = createStyles((theme) => ({
 
   content: {
     backgroundColor: theme.colors.cardFill,
-    border: `1px solid ${theme.colors.cardStroke}`,
+    border: `1.5px solid ${theme.colors.cardStroke}`,
   },
 }));
 
@@ -106,19 +111,21 @@ const SettingsModal = ({
       ml={smallerThanMedium ? 0 : 40}
       opened={opened}
       onClose={closeSettings}
-      title={<Text fw={700}>Settings</Text>}
+      title={<Title>Settings</Title>}
       classNames={{ content: classes.content, header: classes.header }}
     >
-      <Alert
-        icon={<IconInfoCircle />}
-        title="Warning: you have unsaved changes."
-        variant="light"
-        color="red"
-        mx="lg"
-      >
-        <Box />
-      </Alert>
-      <Stack sx={{ gap: "4rem" }} p="lg">
+      <Affix>
+        <Alert
+          icon={<IconInfoCircle />}
+          title="Warning: you have unsaved changes."
+          variant="light"
+          color="red"
+          mx="lg"
+        >
+          <Box />
+        </Alert>
+      </Affix>
+      <Stack spacing="lg" px="lg">
         {/* <Alert
           icon={<IconInfoCircle />}
           title="Connect your custom data!"
@@ -129,17 +136,16 @@ const SettingsModal = ({
           CSV file containing your entity definitions
         </Alert> */}
 
-        <Stack>
-          <Text fw={700}>Username</Text>
+        <Stack spacing="xs">
           {isCustomUser ? (
-            <Text>
+            <Title order={2}>
               Username found, logged in as{" "}
               <Text fw={700} component="span">
                 {userId}
               </Text>
-            </Text>
+            </Title>
           ) : (
-            <Text>No saved username</Text>
+            <Title order={2}>No saved username</Title>
           )}
 
           <Group>
@@ -178,51 +184,89 @@ const SettingsModal = ({
           </>
         )}
         */}
-        <Stack>
-          <Text fw={700}>Enabled Agents</Text>
-
-          {Object.entries(AgentName).map(([, agent]) => (
-            <Flex>
-              <Checkbox mr="lg" my="auto" />
-              <Image
-                src={AGENT_ICON_PATHS[agent]}
-                height={rem(30)}
-                width={rem(30)}
-                radius="md"
-                mx="lg"
-              />
-              <Text
-                transform="uppercase"
-                fw="bold"
-                sx={{ letterSpacing: "0.1vh" }}
-              >
-                {AGENT_ICON_NAMES[agent]}
-              </Text>
-            </Flex>
-          ))}
+        <Stack spacing="xs">
+          <Group>
+            <Title order={2}>Enabled Agents</Title>
+            <Switch
+              label="Use proactive agents"
+              labelPosition="left"
+              color="green"
+              defaultChecked
+              ml="auto"
+            />
+          </Group>
+          <SimpleGrid cols={2}>
+            {Object.entries(AgentName).map(([, agent]) => (
+              <Flex>
+                <Checkbox my="auto" />
+                <Image
+                  src={AGENT_ICON_PATHS[agent]}
+                  height={rem(30)}
+                  width={rem(30)}
+                  mx="lg"
+                />
+                <Text transform="uppercase" fw="bold">
+                  {AGENT_ICON_NAMES[agent]}
+                </Text>
+              </Flex>
+            ))}
+          </SimpleGrid>
         </Stack>
 
-        <Stack>
-          <Text fw={700}>Biography</Text>
+        <Stack spacing="xs">
+          <Title order={2}>Biography</Title>
           <Textarea
             label={
-              "What would you like Convoscope to know about you to provide better responses?"
+              <>
+                <Text>
+                  What would you like Convoscope to know about you to provide
+                  better responses?
+                </Text>
+                <List withPadding size="sm">
+                  <List.Item>Where are you based?</List.Item>
+                  <List.Item>What do you do for work?</List.Item>
+                  <List.Item>What are your hobbies and interests?</List.Item>
+                  <List.Item>What are some goals you have?</List.Item>
+                </List>
+              </>
             }
           />
-          {/* TODO: thought setters */}
-          <Textarea label={"How would you like Convoscope to behave?"} />
+          <Textarea
+            label={
+              <>
+                <Text>
+                  What would you like Convoscope to know about you to provide
+                  better responses?
+                </Text>
+                <List withPadding size="sm">
+                  <List.Item>
+                    How often should Convoscope provide insights?
+                  </List.Item>
+                  <List.Item>
+                    What types of conversations will you use Convoscope for?
+                  </List.Item>
+                  <List.Item>
+                    What are some examples of things you'd like Convoscope to
+                    do?
+                  </List.Item>
+                </List>
+              </>
+            }
+          />
         </Stack>
 
-        <Stack>
-          <Text fw={700}>Usage Situations</Text>
-          {Object.entries(SITUATIONS).map(([, situation]) => (
-            <Flex>
-              <Checkbox mr="lg" my="auto" />
-              <Text fw="bold" sx={{ letterSpacing: "0.1vh" }}>
-                {situation}
-              </Text>
-            </Flex>
-          ))}
+        <Stack spacing="xs">
+          <Title order={2}>Usage Situations</Title>
+          <SimpleGrid cols={2}>
+            {Object.entries(SITUATIONS).map(([, situation]) => (
+              <Flex>
+                <Checkbox mr="lg" my="auto" />
+                <Text fw="bold" sx={{ letterSpacing: "0.1vh" }}>
+                  {situation}
+                </Text>
+              </Flex>
+            ))}
+          </SimpleGrid>
         </Stack>
 
         <Button variant="default" ml="auto">

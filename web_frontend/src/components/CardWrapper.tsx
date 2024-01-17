@@ -132,7 +132,6 @@ const CardWrapper = ({
               src={agentIconSrc}
               height={large ? "5vh" : "4vh"}
               width={large ? "5vh" : "4vh"}
-              radius="md"
             />
           </Group>
         </Box>
