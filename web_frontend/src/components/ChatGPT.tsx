@@ -24,7 +24,7 @@ enum Sender {
 
 interface Message {
   sender: Sender;
-  content: string;
+  content: string | null;
 }
 
 const ChatGPT = () => {
@@ -102,7 +102,7 @@ const ChatGPT = () => {
       <ScrollArea viewportRef={scrollAreaRef}>
         {history.map((message) => (
           <MessageDisplay sender={message.sender}>
-            {message.content.split("\n").map((p) => (
+            {message.content != null && message.content.split("\n").map((p) => (
               <Text pb="xs">{p}</Text>
             ))}
           </MessageDisplay>
