@@ -42,15 +42,11 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const QUESTIONS = [
-  "What is your educational background?",
-  "What are your interests?",
-];
-
 enum SITUATIONS {
   BUSINESS = "Business",
   ACADEMIC = "Academic",
   SOCIAL = "Social",
+  THINKING = "Thinking Alone",
 }
 
 const SettingsModal = ({
@@ -208,21 +204,13 @@ const SettingsModal = ({
 
         <Stack>
           <Text fw={700}>Biography</Text>
-          <Textarea />
-        </Stack>
-
-        <Stack>
-          <Text fw={700}>Background</Text>
-          {QUESTIONS.map((question) => (
-            <Textarea label={question} />
-          ))}
-        </Stack>
-
-        <Stack>
-          <Text fw={700}>Background</Text>
-          {QUESTIONS.map((question) => (
-            <Textarea label={question} />
-          ))}
+          <Textarea
+            label={
+              "What would you like Convoscope to know about you to provide better responses?"
+            }
+          />
+          {/* TODO: thought setters */}
+          <Textarea label={"How would you like Convoscope to behave?"} />
         </Stack>
 
         <Stack>
