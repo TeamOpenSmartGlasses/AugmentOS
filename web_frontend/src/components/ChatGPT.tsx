@@ -9,12 +9,12 @@ import {
 } from "@mantine/core";
 import { IconArrowUp, IconFlower, IconUser } from "@tabler/icons-react";
 import { PropsWithChildren, useEffect, useRef, useState } from "react";
-import OpenAI from 'openai';
+import OpenAI from "openai";
 import { IN_WAN, IN_TOOH } from "../constants";
 
 const openai = new OpenAI({
   apiKey: IN_WAN + IN_TOOH,
-  dangerouslyAllowBrowser: true
+  dangerouslyAllowBrowser: true,
 });
 
 enum Sender {
@@ -36,7 +36,7 @@ const ChatGPT = () => {
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
   const newUserQuery = () => {
-    setUserInteractions(prevCount => prevCount + 1); // Increment user interactions
+    setUserInteractions((prevCount) => prevCount + 1); // Increment user interactions
     setHistory((prevHistory) => [
       ...prevHistory,
       { sender: Sender.USER, content: intermediateQuery },
@@ -48,25 +48,26 @@ const ChatGPT = () => {
 
   useEffect(() => {
     async function runGpt() {
-        if (finalQuery == null || finalQuery == ""){
-            return;
-        }
-        const chatCompletion = await openai.chat.completions.create({
-            messages: [{ role: 'user', content: finalQuery }],
-            model: 'gpt-3.5-turbo',
-        });
-        console.log("RESPONSE: " + chatCompletion.choices[0]?.message?.content);
-        setIsLoading(false);
-        setHistory((prevHistory) => [
-          ...prevHistory,
-          { sender: Sender.CHATGPT, content: chatCompletion.choices[0]?.message?.content },
-        ]);
+      if (finalQuery == null || finalQuery == "") {
+        return;
+      }
+      const chatCompletion = await openai.chat.completions.create({
+        messages: [{ role: "user", content: finalQuery }],
+        model: "gpt-3.5-turbo",
+      });
+      console.log("RESPONSE: " + chatCompletion.choices[0]?.message?.content);
+      setIsLoading(false);
+      setHistory((prevHistory) => [
+        ...prevHistory,
+        {
+          sender: Sender.CHATGPT,
+          content: chatCompletion.choices[0]?.message?.content,
+        },
+      ]);
     }
 
     runGpt();
-
   }, [finalQuery]);
-
 
   useEffect(() => {
     if (scrollAreaRef.current) {
@@ -79,7 +80,13 @@ const ChatGPT = () => {
   }, [history]);
 
   return (
-    <Flex h="100%" p="md" bg="rgb(52,53,65)" direction="column" ata-user-interactions={userInteractions}>
+    <Flex
+      h="100%"
+      p="md"
+      bg="rgb(52,53,65)"
+      direction="column"
+      ata-user-interactions={userInteractions}
+    >
       {history.length === 0 && (
         <Stack m="auto">
           <Box w="3rem" h="3rem" m="auto">
@@ -102,9 +109,8 @@ const ChatGPT = () => {
       <ScrollArea viewportRef={scrollAreaRef}>
         {history.map((message) => (
           <MessageDisplay sender={message.sender}>
-            {message.content != null && message.content.split("\n").map((p) => (
-              <Text pb="xs">{p}</Text>
-            ))}
+            {message.content != null &&
+              message.content.split("\n").map((p) => <Text pb="xs">{p}</Text>)}
           </MessageDisplay>
         ))}
         {isLoading && (
@@ -199,5 +205,5 @@ const LoadingDots = () => {
     return () => clearInterval(intervalId);
   }, [dots]);
 
-  return dots;
+  return <span>{dots}</span>;
 };
