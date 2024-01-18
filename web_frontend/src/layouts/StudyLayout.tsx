@@ -148,9 +148,13 @@ const StudyLayout = () => {
       const resultsRenderedCallback = () => {
         //hide iframe and back button
         const iframe = document.getElementById("overlay-iframe");
-        iframe.style.display = "none";
+        if (iframe) {
+          iframe.style.display = "none";
+        }
         const back_button = document.getElementById("overlay-back");
-        back_button.style.display = "none";
+        if (back_button) {
+          back_button.style.display = "none";
+        }
 
         // user searched for something, so increment number of user interactions
         setUserInteractions((prevCount) => prevCount + 1);
@@ -162,11 +166,17 @@ const StudyLayout = () => {
             event.preventDefault();
 
             //show iframe
-            const iframe = document.getElementById("overlay-iframe");
-            iframe.style.display = "block"; // Show the iframe
-            iframe.src = element.getAttribute("data-ctorig") ?? "about:blank"; // Set the URL
+            const iframe = document.getElementById(
+              "overlay-iframe"
+            ) as HTMLIFrameElement;
+            if (iframe) {
+              iframe.style.display = "block"; // Show the iframe
+              iframe.src = element.getAttribute("data-ctorig") ?? "about:blank"; // Set the URL
+            }
             const back_button = document.getElementById("overlay-back");
-            back_button.style.display = "block"; // Show the button
+            if (back_button) {
+              back_button.style.display = "block"; // Show the button
+            }
             //
             setGoogleSearchResultUrl(
               element.getAttribute("data-ctorig") ?? undefined
@@ -312,10 +322,10 @@ const StudyLayout = () => {
                 <button
                   id="overlay-back"
                   onClick={() => {
-                    document.getElementById("overlay-iframe").style.display =
-                      "none"; // Hide the iframe
-                    document.getElementById("overlay-back").style.display =
-                      "none"; // Hide the iframe
+                    const iframe = document.getElementById("overlay-iframe");
+                    if (iframe) iframe.style.display = "none"; // Hide the iframe
+                    const back_button = document.getElementById("overlay-back");
+                    if (back_button) back_button.style.display = "none"; // Hide the iframe
                   }}
                   style={{
                     position: "absolute",
