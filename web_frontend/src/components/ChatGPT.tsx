@@ -33,10 +33,12 @@ const ChatGPT = () => {
   const [history, setHistory] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [userInteractions, setUserInteractions] = useState(0);
+  const [userInteractionStrings, setUserInteractionStrings] = useState([]);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
   const newUserQuery = () => {
     setUserInteractions((prevCount) => prevCount + 1); // Increment user interactions
+    setUserInteractionStrings((prevStrings) => [...prevStrings, encodeURIComponent(intermediateQuery)]);
     setHistory((prevHistory) => [
       ...prevHistory,
       { sender: Sender.USER, content: intermediateQuery },
@@ -85,7 +87,8 @@ const ChatGPT = () => {
       p="md"
       bg="rgb(52,53,65)"
       direction="column"
-      ata-user-interactions={userInteractions}
+      data-user-interactions-cgpt={userInteractions}
+      data-user-strings-cgpt={userInteractionStrings}
     >
       {history.length === 0 && (
         <Stack m="auto">
