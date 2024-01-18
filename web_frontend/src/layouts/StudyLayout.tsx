@@ -13,7 +13,6 @@ import {
 } from "@mantine/core";
 import { motion } from "framer-motion";
 import { GAP_VH } from "../components/CardWrapper";
-import ExplorePane from "../components/ExplorePane";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import axiosClient from "../axiosConfig";
 import {
@@ -147,6 +146,15 @@ const StudyLayout = () => {
       script.src = "https://cse.google.com/cse.js?cx=5670fc00c6f414e7a";
 
       const resultsRenderedCallback = () => {
+        //hide iframe and back button
+        const iframe = document.getElementById("overlay-iframe");
+        iframe.style.display = "none";
+        const back_button = document.getElementById("overlay-back");
+        back_button.style.display = "none";
+
+        // user searched for something, so increment number of user interactions
+        setUserInteractions((prevCount) => prevCount + 1);
+
         // get all the search results
         document.querySelectorAll("a.gs-title, a.gs-image").forEach((element) =>
           element.addEventListener("click", (event) => {
@@ -154,44 +162,19 @@ const StudyLayout = () => {
             event.preventDefault();
 
             //show iframe
-            const iframe = document.getElementById('overlay-iframe');
-            iframe.style.display = 'block'; // Show the iframe
-            iframe.src = element.getAttribute("data-ctorig") ?? 'about:blank'; // Set the URL
-            const back_button = document.getElementById('overlay-back');
-            back_button.style.display = 'block'; // Show the button
-                                                                                   //
+            const iframe = document.getElementById("overlay-iframe");
+            iframe.style.display = "block"; // Show the iframe
+            iframe.src = element.getAttribute("data-ctorig") ?? "about:blank"; // Set the URL
+            const back_button = document.getElementById("overlay-back");
+            back_button.style.display = "block"; // Show the button
+            //
             setGoogleSearchResultUrl(
               element.getAttribute("data-ctorig") ?? undefined
             );
-            
-            setUserInteractions(prevCount => prevCount + 1); // Increment user interactions
+
+            setUserInteractions((prevCount) => prevCount + 1); // Increment user interactions
           })
         );
-
-        // get when search button is clicked
-        // Attach an event listener to the 'gsc-search-button' click event
-        document.querySelector('.gsc-search-button').addEventListener('click', () => {
-            //hide iframe
-            const iframe = document.getElementById('overlay-iframe');
-            iframe.style.display = 'none'; // Hide the iframe
-            const back_button = document.getElementById('overlay-back');
-            back_button.style.display = 'none'; // Show the button
-            
-            setUserInteractions(prevCount => prevCount + 1); // Increment user interactions
-        });
-
-        // Attach an event listener to the search input field for the 'Enter' key press
-        document.querySelector('.gsc-input').addEventListener('keydown', (event) => {
-            if (event.key === 'Enter' || event.keyCode === 13) {
-                // Prevent the default form submission if your search input is inside a form
-                event.preventDefault();
-
-                // Trigger the same actions as the search button click
-                // You might need to trigger the click event of the actual search button or replicate the logic here
-                document.querySelector('.gsc-search-button').click();
-            }
-        });
-
       };
 
       // Use the Programmable Search Engine API to run the callback whenever results render
@@ -210,7 +193,12 @@ const StudyLayout = () => {
 
   return (
     <>
-      <PFlex component={motion.div} className={classes.root} layout data-user-interactions={userInteractions}>
+      <PFlex
+        component={motion.div}
+        className={classes.root}
+        layout
+        data-user-interactions={userInteractions}
+      >
         <PContainer
           component={motion.div}
           layout
@@ -296,24 +284,24 @@ const StudyLayout = () => {
                 height: "100%",
                 // Removed position relative here as it will be applied to the new container
               }}
-            > 
+            >
               <div className="gcse-searchbox"></div>
-              
+
               {/* New container for search results and iframe */}
-              <div style={{ position: 'relative', height: '100%' }}>
+              <div style={{ position: "relative", height: "100%" }}>
                 <div className="gcse-searchresults"></div>
 
                 {/* Iframe Overlay */}
                 <iframe
                   src=""
                   style={{
-                    position: 'absolute',
+                    position: "absolute",
                     top: 0,
                     left: 0,
-                    width: '100%', 
-                    height: '100%',
-                    border: 'none',
-                    display: 'none', // Initially hide the iframe
+                    width: "100%",
+                    height: "100%",
+                    border: "none",
+                    display: "none", // Initially hide the iframe
                     zIndex: 10, // Ensure the iframe is above other content
                   }}
                   id="overlay-iframe"
@@ -321,23 +309,25 @@ const StudyLayout = () => {
                   sandbox=""
                 ></iframe>
 
-                  <button
-                    id="overlay-back"
-                    onClick={() => {
-                      document.getElementById('overlay-iframe').style.display = 'none'; // Hide the iframe
-                      document.getElementById('overlay-back').style.display = 'none'; // Hide the iframe
-                    }}
-                    style={{
-                      position: 'absolute',
-                      top: '10px', // Adjust as needed
-                      left: '10px', // Adjust as needed
-                      zIndex: 11, // Ensure the button is above the iframe
-                      display: 'none', // Initially hide the iframe
-                      // Add more styles as needed for the button appearance
-                    }}
-                  >
-                    Back
-                  </button>
+                <button
+                  id="overlay-back"
+                  onClick={() => {
+                    document.getElementById("overlay-iframe").style.display =
+                      "none"; // Hide the iframe
+                    document.getElementById("overlay-back").style.display =
+                      "none"; // Hide the iframe
+                  }}
+                  style={{
+                    position: "absolute",
+                    top: "10px", // Adjust as needed
+                    left: "10px", // Adjust as needed
+                    zIndex: 11, // Ensure the button is above the iframe
+                    display: "none", // Initially hide the iframe
+                    // Add more styles as needed for the button appearance
+                  }}
+                >
+                  Back
+                </button>
               </div>
             </Box>
           )}
