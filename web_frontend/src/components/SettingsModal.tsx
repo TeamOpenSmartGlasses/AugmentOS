@@ -14,6 +14,7 @@ import {
 import { IconInfoCircle } from "@tabler/icons-react";
 import Cookies from "js-cookie";
 import { useRef, useState } from "react";
+import * as authn from "../auth";
 // import axiosClient from "../axiosConfig";
 // import { UPLOAD_USERDATA_ENDPOINT } from "../serverEndpoints";
 
@@ -101,29 +102,16 @@ const SettingsModal = ({
           CSV file containing your entity definitions
         </Alert>
 
-        {isCustomUser ? (
+        {window.authToken ? (
           <Text>
-            Username found, logged in as{" "}
-            <Text fw={700} component="span">
-              {userId}
-            </Text>
+            Logged in
           </Text>
         ) : (
-          <Text>No saved username</Text>
+          <Button onClick={authn.signInWithGoogle} variant="default" mt="auto">
+          Log in
+          </Button>
         )}
 
-        <Group>
-          <TextInput
-            ref={ref}
-            placeholder="Your new username"
-            label="Set New Username"
-            withAsterisk
-            sx={{ flex: "1" }}
-          />
-          <Button onClick={updateUsername} variant="default" mt="auto">
-            Set Username
-          </Button>
-        </Group>
         {/*
         {isCustomUser && (
           <>

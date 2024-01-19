@@ -46,7 +46,7 @@ const rateInsight = (entity: Entity, newState: ThumbState) => {
   if (rating == -1) return;
 
   const rateInsightRequestBody = {
-    userId: window.userId,
+    "Authorization": window.authToken,
     resultUuid: entity.uuid,
     rating: rating,
   };

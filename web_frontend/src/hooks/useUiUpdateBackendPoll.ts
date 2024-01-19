@@ -13,6 +13,8 @@ import {
   NOTIFICATION_FILEPATH,
 } from "../constants";
 
+import * as authn from "../auth";
+
 /**
  * poll the backend for UI updates and update state of entities and explicit insights
  */
@@ -23,7 +25,12 @@ export const useUiUpdateBackendPoll = () => {
 
   useEffect(() => {
     const updateUiBackendPoll = () => {
+      if (window.authToken == undefined || window.authToken == "") {
+        return;
+      };
+
       const uiPollRequstBody = {
+        "Authorization": window.authToken,
         features: [
           "contextual_search_engine",
           "proactive_agent_insights",
@@ -31,7 +38,6 @@ export const useUiUpdateBackendPoll = () => {
           "intelligent_entity_definitions",
           "agent_chat",
         ], //list of features here
-        userId: window.userId,
         deviceId: window.deviceId,
       };
 
@@ -95,6 +101,12 @@ export const useUiUpdateBackendPoll = () => {
         })
         .catch(function (error) {
           console.error(error);
+          
+          if (error.response.status == 401){
+            // not logged in
+            window.authToken = "";
+            authn.signInWithGoogle()
+          }
         });
     };
     setInterval(updateUiBackendPoll, 200);

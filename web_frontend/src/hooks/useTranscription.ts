@@ -54,8 +54,8 @@ export const useTranscription = () => {
       const text = transcript.substring(transcriptStartIdx);
 
       const payload = {
+        "Authorization": window.authToken,
         text: text,
-        userId: window.userId,
         timestamp: Date.now(),
         isFinal,
       };

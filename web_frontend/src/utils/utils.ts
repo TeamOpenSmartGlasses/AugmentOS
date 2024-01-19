@@ -18,3 +18,8 @@ export const setUserIdAndDeviceId = (newUserId: string) => {
   Cookies.set("userId", newUserId, { expires: 9999 });
   window.deviceId = "CSEWebFrontendDefault";
 };
+
+export const setAuthToken = (newAuthToken: string) => {
+  window.authToken = newAuthToken;
+  Cookies.set("authToken", newAuthToken, { expires: 9999 });
+}
