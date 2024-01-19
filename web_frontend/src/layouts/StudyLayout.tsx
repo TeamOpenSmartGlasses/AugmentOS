@@ -123,7 +123,7 @@ const StudyLayout = () => {
 
   const [hasVideoEnded, setHasVideoEnded] = useState(false);
   const [userInteractions, setUserInteractions] = useState(0);
-  const [userInteractionStrings, setUserInteractionStrings] = useState([]);
+  const [userInteractionStrings, setUserInteractionStrings] = useState<string[]>([]);
   const studyCondition = useRecoilValue(studyConditionAtom);
   const setGoogleSearchResultUrl = useSetRecoilState(googleSearchResultUrlAtom);
 
@@ -160,7 +160,7 @@ const StudyLayout = () => {
         // user searched for something, so increment number of user interactions
         setUserInteractions((prevCount) => prevCount + 1);
         //get what they searched for and save it
-        const searchInput = document.querySelector('.gsc-input-box input').value;
+        const searchInput = (document.querySelector('.gsc-input-box input') as HTMLInputElement).value;
         setUserInteractionStrings((prevStrings) => [...prevStrings, encodeURIComponent(searchInput)]);
 
         // get all the search results
@@ -187,7 +187,7 @@ const StudyLayout = () => {
             );
 
             setUserInteractions((prevCount) => prevCount + 1); // Increment user interactions
-            setUserInteractionStrings((prevStrings) => [...prevStrings, element.getAttribute("data-ctorig")]);
+            setUserInteractionStrings((prevStrings) => [...prevStrings, element.getAttribute("data-ctorig")!]);
           })
         );
       };

@@ -33,7 +33,7 @@ const ChatGPT = () => {
   const [history, setHistory] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [userInteractions, setUserInteractions] = useState(0);
-  const [userInteractionStrings, setUserInteractionStrings] = useState([]);
+  const [userInteractionStrings, setUserInteractionStrings] = useState<string[]>([]);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
   const newUserQuery = () => {
