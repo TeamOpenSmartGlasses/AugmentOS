@@ -111,6 +111,9 @@ class DatabaseHandler:
                  "last_recording_start_time": -1,
                  "cse_consumed_transcript_id": -1,
                  "cse_consumed_transcript_idx": 0, 
+                 "options": {
+                    "enable_agent_proactive_definer_images": True,
+                 },
                  "transcripts": [], 
                  "ui_list": [],
                  "rating_ids": [],
@@ -137,7 +140,20 @@ class DatabaseHandler:
         item = {"description": description_hash, "summary": summary}
         self.cache_collection.insert_one(item)
 
+    ### OPTIONS ###
+
+    def get_user_options(self, user_id):
+        filter = {"user_id": user_id}
+        doc = self.user_collection.find_one(filter, {'options': 1, '_id': 0})
+        return doc.get('options', None) if doc else None
+
     ### TRANSCRIPTS ###
+
+    # Returns True if we can save new transcripts, False if we are getting too many transcripts too quickly
+    def transcript_rate_limiter(self, user_id, new_text):
+        max_wpm = 320 # Human speech is 100-200 WPM, use 320 for safe margin
+        transcripts = self.get_transcripts_from_last_nseconds_for_user_as_string(user_id, 60) + " " + new_text
+        return len(transcripts.split()) < max_wpm
 
     def get_latest_transcript_from_user_obj(self, user_obj):
         if user_obj['latest_intermediate_transcript']['timestamp'] != -1:
@@ -147,15 +163,17 @@ class DatabaseHandler:
         else:
             return None 
 
-    def save_transcript_for_user(self, user_id, text, timestamp, is_final):
+    def save_transcript_for_user(self, user_id, text, is_final):
         if text == "": return
 
         text = text.strip()
 
         transcript = {"user_id": user_id, "text": text,
-                      "timestamp": timestamp, "is_final": is_final, "uuid": str(uuid.uuid4())}
+                      "timestamp": time.time(), "is_final": is_final, "uuid": str(uuid.uuid4())}
         
         user = self.get_user(user_id)
+
+        if not self.transcript_rate_limiter(user_id, text): return False
 
         self.purge_old_transcripts_for_user_id(user_id)
 
@@ -182,6 +200,8 @@ class DatabaseHandler:
             filter = {"user_id": user_id}
             update = {"$set": {"latest_intermediate_transcript": transcript}}
             self.user_collection.update_one(filter=filter, update=update)
+        
+        return True
 
     def get_user(self, user_id):
         user = self.user_collection.find_one({"user_id": user_id})

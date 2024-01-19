@@ -41,39 +41,23 @@ global app
 
 #handle new transcripts coming in
 async def chat_handler(request):
-    start_time = time.time()
-
     body = await request.json()
     is_final = body.get('isFinal')
     text = body.get('text')
-    timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
     user_id = body.get('userId')
 
     # 400 if missing params
     if text is None or text == '':
         print("Text none in chat_handler, exiting with error response 400.")
         return web.Response(text='no text in request', status=400)
-    if timestamp is None or timestamp == '':
-        print("Timestamp none in chat_handler, exiting with error response 400.")
-        return web.Response(text='no timestamp in request', status=400)
     if user_id is None or user_id == '':
         print("user_id none in chat_handler, exiting with error response 400.")
         return web.Response(text='no userId in request', status=400)
 
-    # print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format(
-    #     "FINAL" if is_final else "INTERMEDIATE", text, timestamp, user_id))
-    if is_final and False:
-        print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format("FINAL", text, timestamp, user_id))
-    start_save_db_time = time.time()
-    db_handler.save_transcript_for_user(user_id=user_id, text=text, timestamp=timestamp, is_final=is_final)
-    end_save_db_time = time.time()
-    # print("=== CHAT_HANDLER's save DB done in {} SECONDS ===".format(
-    #    round(end_save_db_time - start_save_db_time, 2)))
+    success = db_handler.save_transcript_for_user(user_id=user_id, text=text, is_final=is_final)
+    message = "Sending messages too fast" if not success else ""
 
-    end_time = time.time()
-    # print("=== CHAT_HANDLER COMPLETED IN {} SECONDS ===".format(
-    #    round(end_time - start_time, 2)))
-    return web.Response(text=json.dumps({'success': True, 'message': ""}), status=200)
+    return web.Response(text=json.dumps({'success': True, 'message': message}), status=200)
 
 async def start_recording_handler(request):
     body = await request.json()
@@ -434,7 +418,7 @@ if __name__ == '__main__':
     # start the proactive agents process
     print("Starting Proactive Agents process...")
     proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
-    proactive_agents_background_process.start()
+    # proactive_agents_background_process.start()
 
     # start the explicit agent process
     explicit_background_process = multiprocessing.Process(target=explicit_agent_processing_loop)
