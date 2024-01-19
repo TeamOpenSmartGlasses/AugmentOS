@@ -14,14 +14,16 @@ from Modules.QueryLLM import *
 from definer_stats.stat_tracker import *
 from DatabaseHandler import DatabaseHandler
 
+min_gatekeeper_score = 4
+
 proactive_gatekeeper_prompt_blueprint = """
 # Objective
-Determine whether the following part of a conversation's transcript contains any words or topics that are interesting or rare. 
+Determine whether the following part of a conversation's transcript contains any "Rare Entities (REs)". Types of REs include rare words, jargons, adages, concepts, people, places, organizations, events, phrase etc. that are not well known to the average high schooler.
 
 # Criteria for rare or interesting topics
-- Rarity: Good topics are ones that are unlikely for an average high schooler to know.
-- Utility: Having more information about the topic would help someone understand it better.
-- Complexity: Choose phrases with non-obvious meanings, such that their meaning cannot be derived from simple words within the entity name, such as "Butterfly Effect" which has a totally different meaning from its base words, but not "Electric Car" nor "Lane Keeping System" as they're easily derived.
+- Rarity: Good REs are ones that are unlikely for an average high schooler to know.
+- Utility: A definition of the RE would help a user understand the conversation better and achieve their goals.
+- Complexity: Choose REs with non-obvious meanings, such that their meaning cannot be derived from simple words within the entity name, such as "Butterfly Effect" which has a totally different meaning from its base words, but not "Electric Car" nor "Lane Keeping System" as they're easily derived.
 
 # List of words that aren't likely to be rare or interesting
 <Word list start>{irrelevant_terms}<Word list end>
@@ -30,8 +32,8 @@ Determine whether the following part of a conversation's transcript contains any
 <Transcript start>{conversation_context}<Transcript end>
 
 # Output guidelines
-- Return a number 1-10, with 1 being mundane, and 10 being very interesting/rare.
-- Return the term(s) that most heavily impacted the provided score. 
+- Return a score which is a number 1-10, with 1 being not very useful, and 10 being very useful/interesting/rare.
+- Return the REs that most heavily impacted the provided score. 
 
 ## Example Output:
 score: 6
@@ -43,6 +45,7 @@ terms: ['80/20 rule']
 proactive_rare_word_agent_prompt_blueprint = """
 # Objective
 Your role is to identify and define "Rare Entities (REs)" in a transcript. Types of REs include rare words, jargons, adages, concepts, people, places, organizations, events etc that are not well known to the average high schooler, in accordance to current trends. You can also intelligently detect REs that are described in the conversation but not explicitly mentioned.
+
 
 # Criteria for Rare Entities in order of importance
 1. Rarity: Select entities that are unlikely for an average high schooler to know. Well known entities should NOT be included, like Fortune 500 organizations, worldwide-known events, popular locations, commonly discussed concepts such as "Planet" or "Free Will" or "Charles Darwin", and entities popularized by recent news or events such as "COVID-19", "Bitcoin", or "Generative AI".
@@ -90,8 +93,6 @@ If there are no irrelevant_terms, output an empty array.
 """
 # 6. Searchability: Likely to have a specific and valid reference source: Wikipedia page, dictionary entry etc.
 # - Entity names should be quoted from the conversation, so the output definitions can be referenced back to the conversation.
-
-min_gatekeeper_score = 4
 
 class GatekeeperScore(BaseModel):
     score: int = Field(

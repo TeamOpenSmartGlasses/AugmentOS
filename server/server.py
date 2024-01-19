@@ -134,6 +134,7 @@ async def button_handler(request):
 
 
 # run cse/definer tools for subscribed users in background every n ms if there is fresh data to run on
+"""
 def cse_loop():
     print("START CSE PROCESSING LOOP")
 
@@ -199,7 +200,7 @@ def cse_loop():
         loop_run_period = 1.5 #run the loop this often
         while (time.time() - loop_start_time) < loop_run_period: #wait until loop_run_period has passed before running this again
             time.sleep(0.2)
-
+"""
 
 #frontends poll this to get the results from our processing of their transcripts
 async def ui_poll_handler(request, minutes=0.5):
@@ -405,9 +406,9 @@ if __name__ == '__main__':
         multiprocessing.set_start_method('spawn')
 
     # log_queue = multiprocessing.Queue()
-    print("Starting CSE process...")
-    cse_process = multiprocessing.Process(target=cse_loop)
-    # cse_process.start()
+    #print("Starting CSE process...")
+    #cse_process = multiprocessing.Process(target=cse_loop)
+    #cse_process.start()
 
     # start intelligent definer agent process
     print("Starting Intelligent Definer Agent process...")
@@ -457,6 +458,6 @@ if __name__ == '__main__':
 
     #let processes finish and join
     proactive_agents_background_process.join()
-    intelligent_definer_agent_process.join()
-    cse_process.join()
+    #intelligent_definer_agent_process.join()
+    #cse_process.join()
     explicit_background_process.join()

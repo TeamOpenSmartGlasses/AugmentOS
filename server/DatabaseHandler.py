@@ -21,7 +21,7 @@ class DatabaseHandler:
         self.backslide = 4
         self.intermediate_transcript_validity_time = 0  # .3 # 300 ms in seconds
         self.final_transcript_validity_time = 0  # .3 # 300 ms in seconds
-        self.transcript_expiration_time = 600  # 10 minutes in seconds
+        self.transcript_expiration_time = 600 * 6  # 60 minutes in seconds
         self.parent_handler = parent_handler
         self.empty_transcript = {"text": "", "timestamp": -1, "is_final": False, "uuid": -1}
 

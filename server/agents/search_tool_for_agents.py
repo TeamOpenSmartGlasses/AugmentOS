@@ -287,7 +287,7 @@ def get_search_tool_for_agents():
         name="Search_Engine",
         func=run_search_tool_for_agents,
         coroutine=arun_search_tool_for_agents,
-        description="Pass this specific targeted queries and/or keywords to quickly search the WWW to retrieve vast amounts of information on virtually any topic, spanning from academic research and navigation to history, entertainment, and current events. It's a tool for understanding, navigating, and engaging with the digital world's vast knowledge.",
+        description="Pass this specific targeted queries and/or keywords to quickly search the WWW to retrieve vast amounts of information on virtually any topic, spanning from academic research and navigation to history, entertainment, and current events. It's a tool for understanding, navigating, and engaging with the digital world's vast knowledge. This tool does NOT work for personal information. Don't use it to find personal data of the user.",
         args_schema=SearchInput
     )
     return search_tool_for_agents
