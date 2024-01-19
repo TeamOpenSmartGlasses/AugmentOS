@@ -252,7 +252,7 @@ const StudyLayout = () => {
               </Group>
               <video
                 src={VIDEO_SRC}
-                style={{ width: "67vw", height: "auto" }} // Adjust the value as needed
+                style={{ width: "67vw", maxHeight: "90vh", height: "auto" }} // Adjust the value as needed
                 ref={videoRef}
                 onTimeUpdate={() => setTime(videoRef.current?.currentTime)}
                 onEnded={() => setHasVideoEnded(true)}

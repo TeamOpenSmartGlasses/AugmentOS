@@ -53,10 +53,32 @@ const ChatGPT = () => {
       if (finalQuery == null || finalQuery == "") {
         return;
       }
-      const chatCompletion = await openai.chat.completions.create({
-        messages: [{ role: "user", content: finalQuery }],
-        model: "gpt-3.5-turbo",
-      });
+
+      const messages = history.map((message, index) => ({
+          role: message.sender === Sender.USER ? 'user' as const : 'assistant' as const,
+          content: message.content ?? "",
+          name: `message_${index}`
+        }));
+
+        const chatCompletion = await openai.chat.completions.create({
+          model: "gpt-3.5-turbo",
+          messages: messages as any,  // Using 'as any' to bypass the type checking
+        });
+
+//      const messages = history.map(message => ({
+//          role: message.sender === Sender.USER ? "user" : "assistant",
+//          content: message.content ?? "",
+//        }));
+//        const chatCompletion = await openai.chat.completions.create({
+//          model: "gpt-3.5-turbo",
+//          messages: messages,
+//        });
+
+
+//      const chatCompletion = await openai.chat.completions.create({
+//        messages: [{ role: "user", content: finalQuery }],
+//        model: "gpt-3.5-turbo",
+//      });
       console.log("RESPONSE: " + chatCompletion.choices[0]?.message?.content);
       setIsLoading(false);
       setHistory((prevHistory) => [
