@@ -9,6 +9,8 @@ import {
 } from "@mantine/core";
 import { IconArrowUp, IconFlower, IconUser } from "@tabler/icons-react";
 import { PropsWithChildren, useEffect, useRef, useState } from "react";
+import axiosClient from "../axiosConfig";
+import { SEND_AGENT_CHAT_ENDPOINT } from "../serverEndpoints";
 
 enum Sender {
   MIRA = "Mira",
@@ -27,14 +29,37 @@ const Chat = () => {
   const [isLoading, setIsLoading] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
-  const newUserQuery = () => {
-    setHistory((prevHistory) => [
-      ...prevHistory,
-      { sender: Sender.USER, content: intermediateQuery },
-    ]);
-    setFinalQuery(intermediateQuery);
-    setIntermediateQuery("");
-    setIsLoading(true);
+  const handleSendMessage = () => {
+    if (intermediateQuery.trim()) {
+      const payload = {
+        agent_name: "agent_name",
+        userId: "userId",
+        deviceId: "deviceId",
+        message: intermediateQuery,
+      };
+      axiosClient
+        .post(SEND_AGENT_CHAT_ENDPOINT, payload)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch(console.log);
+
+      setHistory((prevHistory) => [
+        ...prevHistory,
+        { sender: Sender.USER, content: intermediateQuery },
+      ]);
+      setFinalQuery(intermediateQuery);
+      setIntermediateQuery("");
+      setIsLoading(true);
+
+      // Simulate a bot response
+      // setTimeout(() => {
+      //   setMessages((prevMessages) => [
+      //     ...prevMessages,
+      //     { sender: "bot", text: "Bot response" },
+      //   ]);
+      // }, 1000);
+    }
   };
 
   useEffect(() => {
@@ -122,7 +147,7 @@ const Chat = () => {
           size="lg"
           mt="auto"
           bg="black"
-          onClick={newUserQuery}
+          onClick={handleSendMessage}
         >
           <IconArrowUp size="1.125rem" />
         </ActionIcon>

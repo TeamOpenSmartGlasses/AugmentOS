@@ -1,6 +1,5 @@
 import { atom } from "recoil";
 import { Entity, Insight } from "./types";
-import { mockEntities } from "./mockData";
 
 export const isExplicitListeningState = atom<boolean>({
   key: "isExplicitListening",
@@ -21,7 +20,7 @@ export const isRecognizingState = atom<boolean>({
 
 export const entitiesState = atom<Entity[]>({
   key: "entities",
-  default: mockEntities,
+  default: [],
 });
 
 export const explicitInsightsState = atom<Insight[]>({
