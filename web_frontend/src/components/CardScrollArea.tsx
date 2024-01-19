@@ -3,18 +3,12 @@ import { Collapse } from "@material-ui/core";
 import { TransitionGroup } from "react-transition-group";
 import ExplicitCard from "./ExplicitCard";
 import ReferenceCard from "./ReferenceCard";
-import {
-  entitiesState,
-  isExplicitListeningState,
-  selectedCardIdState,
-} from "../recoil";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { entitiesState, isExplicitListeningState } from "../recoil";
+import { useRecoilValue } from "recoil";
 
 const CardScrollArea = () => {
   const entities = useRecoilValue(entitiesState);
   const isExplicitListening = useRecoilValue(isExplicitListeningState);
-  const [selectedCardId, setSelectedCardId] =
-    useRecoilState(selectedCardIdState);
 
   return (
     <ScrollArea scrollHideDelay={100} h="100%" type="never">
@@ -38,13 +32,8 @@ const CardScrollArea = () => {
             <Collapse key={`entity-${entity.uuid}`} timeout={800}>
               <ReferenceCard
                 entity={entity}
-                selected={
-                  selectedCardId === entity.uuid && !isExplicitListening
-                }
                 onClick={() => {
-                  setSelectedCardId(
-                    entity.uuid === selectedCardId ? undefined : entity.uuid
-                  );
+                  if (entity.url) window.open(entity.url, "_blank");
                 }}
                 large={i === 0 && !isExplicitListening}
                 pointer={entity.url !== undefined}

@@ -1,5 +1,6 @@
-import { atom, selector } from "recoil";
+import { atom } from "recoil";
 import { Entity, Insight } from "./types";
+import { mockEntities } from "./mockData";
 
 export const isExplicitListeningState = atom<boolean>({
   key: "isExplicitListening",
@@ -18,37 +19,12 @@ export const isRecognizingState = atom<boolean>({
   default: true,
 });
 
-export const entitiesState = atom<Entity[]>({ key: "entities", default: [] });
+export const entitiesState = atom<Entity[]>({
+  key: "entities",
+  default: mockEntities,
+});
 
 export const explicitInsightsState = atom<Insight[]>({
   key: "explicitInsights",
   default: [],
-});
-
-export const selectedCardIdState = atom<string | undefined>({
-  key: "selectedCardId",
-  default: undefined,
-});
-
-export const selectedEntityValue = selector<Entity | undefined>({
-  key: "selectedEntity",
-  get: ({ get }) => {
-    return get(entitiesState).find(
-      (entity) => entity.uuid === get(selectedCardIdState)
-    );
-  },
-});
-
-export const explorePaneUrlValue = selector<string | undefined>({
-  key: "explorePaneUrl",
-  get: ({ get }) => {
-    return get(selectedEntityValue)?.url;
-  },
-});
-
-export const showExplorePaneValue = selector<boolean>({
-  key: "showExplorePane",
-  get: ({ get }) => {
-    return get(explorePaneUrlValue) !== undefined;
-  },
 });

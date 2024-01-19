@@ -186,5 +186,5 @@ const LoadingDots = () => {
     return () => clearInterval(intervalId);
   }, [dots]);
 
-  return dots;
+  return <span>{dots}</span>;
 };
