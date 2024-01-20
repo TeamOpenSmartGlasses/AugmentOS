@@ -287,7 +287,7 @@ def get_search_tool_for_agents():
         name="Search_Engine",
         func=run_search_tool_for_agents,
         coroutine=arun_search_tool_for_agents,
-        description="Pass this specific targeted queries and/or keywords to quickly search the WWW to retrieve vast amounts of information on virtually any topic, spanning from academic research and navigation to history, entertainment, and current events. It's a tool for understanding, navigating, and engaging with the digital world's vast knowledge.",
+        description="Pass this specific targeted queries and/or keywords to quickly search the WWW to retrieve vast amounts of information on virtually any topic, spanning from academic research and navigation to history, entertainment, and current events. It's a tool for understanding, navigating, and engaging with the digital world's vast knowledge. This tool does NOT work for personal information. Don't use it to find personal data of the user.",
         args_schema=SearchInput
     )
     return search_tool_for_agents
@@ -404,7 +404,7 @@ def extract_entity_url_and_image(search_results: dict, image_results: dict):
 
     return res
 
-async def search_url_for_entity_async(query: str):
+async def search_url_for_entity_async(query: str, get_image: bool = True):
     async def inner_search(query:str): 
         search_task = asyncio.create_task(serper_search_async(
             search_term=query,
@@ -415,14 +415,18 @@ async def search_url_for_entity_async(query: str):
             search_type="search",
         ))
 
-        image_search_task = asyncio.create_task(serper_search_async(
-            search_term=query,
-            gl=gl,
-            hl=hl,
-            num=k,
-            tbs=tbs,
-            search_type="images",
-        ))
+        if get_image:
+            image_search_task = asyncio.create_task(serper_search_async(
+                search_term=query,
+                gl=gl,
+                hl=hl,
+                num=k,
+                tbs=tbs,
+                search_type="images",
+            ))
+        else:
+            async def dummy(): return None
+            image_search_task = asyncio.create_task(dummy())
 
         tasks = [search_task, image_search_task]
 
