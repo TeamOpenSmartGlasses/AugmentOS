@@ -34,8 +34,8 @@ def proactive_agents_processing_loop():
                 if len(transcript['text']) < 400: # Around 75-100 words, no point to generate insight below this
                     print("Transcript too short, skipping...")
                     continue
-                print("Run Insights generation with... user_id: '{}' ... text: '{}'".format(
-                    transcript['user_id'], transcript['text']))
+                # print("Run Insights generation with... user_id: '{}' ... text: '{}'".format(
+                #     transcript['user_id'], transcript['text']))
                 insightGenerationStartTime = time.time()
               
                 # TODO: Test this quick n' dirty way of preventing proactive from running on explicit queries
@@ -46,7 +46,7 @@ def proactive_agents_processing_loop():
 
                 try:
                     # insights_history = dbHandler.get_agent_insights_history_for_user(transcript['user_id'])
-                    insights_history = dbHandler.get_recent_nminutes_agent_insights_history_for_user(transcript['user_id'])
+                    insights_history = dbHandler.get_recent_nminutes_agent_insights_history_for_user(transcript['user_id'], n_minutes=90)
                     print("insights_history: {}".format(insights_history))
                     # [{'agent_name': 'Statistician', 'agent_insight': "Insight: Brain's processing limit challenges full Wikipedia integration. Neuralink trials show promising BCI advancements."}, ...]
 
