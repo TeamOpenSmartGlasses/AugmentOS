@@ -94,6 +94,22 @@ const ChatGPT = () => {
   }, [finalQuery]);
 
   useEffect(() => {
+    // Prepare the message
+    console.log('running interaction setup!');
+    const message = {
+        userInteractions: userInteractions,
+        userInteractionStrings: userInteractionStrings
+    };
+
+    console.log("sending message: ");
+    console.log(message);
+
+    // Send the message to the parent window
+    window.parent.postMessage(message, '*');
+
+  }, [userInteractions, userInteractionStrings]);
+
+  useEffect(() => {
     if (scrollAreaRef.current) {
       // scroll to bottom of the scroll area
       scrollAreaRef.current.scrollTo({

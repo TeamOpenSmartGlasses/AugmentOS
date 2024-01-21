@@ -139,6 +139,20 @@ const StudyLayout = () => {
    */
 
   useEffect(() => {
+    // Prepare the message
+    console.log('running interaction setup!');
+    const message = {
+        userInteractions: userInteractions,
+        userInteractionStrings: userInteractionStrings
+    };
+
+    // Send the message to the parent window
+    window.parent.postMessage(message, '*');
+
+  }, [userInteractions, userInteractionStrings]);
+
+
+  useEffect(() => {
     if (studyCondition === StudyCondition.GOOGLE) {
       // insert the Programmable Search Engine script into the DOM
       const script = document.createElement("script");
