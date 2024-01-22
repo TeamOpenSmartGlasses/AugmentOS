@@ -17,4 +17,4 @@ rootProject.name = "Convoscope"
 include ':app'
 
 include ':SGMLib'
-project(':SGMLib').projectDir = new File(rootProject.projectDir, '../SmartGlassesManager/SGM_android_library/SGMLib')
+project(':SGMLib').projectDir = new File(rootProject.projectDir, '../SmartGlassesManager/SGM_android/SmartGlassesManager')

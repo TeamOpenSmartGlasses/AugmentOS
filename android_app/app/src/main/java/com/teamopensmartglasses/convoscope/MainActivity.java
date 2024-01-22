@@ -47,10 +47,15 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.teamopensmartglasses.convoscope.events.SharingContactChangedEvent;
 import com.teamopensmartglasses.convoscope.events.ToggleEnableSharingEvent;
 import com.teamopensmartglasses.convoscope.events.UserIdChangedEvent;
+import com.teamopensmartglasses.convoscope.ui.SettingsUi;
+import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
+import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
+import com.teamopensmartglasses.smartglassesmanager.utils.PermissionsUtils;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -60,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
   public final String TAG = "Convoscope_MainActivity";
   public ConvoscopeService mService;
   boolean mBound;
+
+  PermissionsUtils permissionsUtils;
 
   //Permissions
   private static final int PERMISSIONS_REQUEST_RECORD_AUDIO = 1;
@@ -77,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
   public static final String CONVOSCOPE_MESSAGE_STRING = "CONVOSCOPE_MESSAGE_STRING";
   public static final String FINAL_TRANSCRIPT = "FINAL_TRANSCRIPT";
   Switch serviceToggleSwitch;
+  private SmartGlassesDevice selectedDevice;
 
   @SuppressLint("ClickableViewAccessibility")
   @Override
@@ -117,30 +125,8 @@ public class MainActivity extends AppCompatActivity {
       }
     });
 
-    final Button changeUserIdButton = findViewById(R.id.setUserIdButton);
-    changeUserIdButton.setOnClickListener(v -> showTextInputDialog(MainActivity.this));
-
-//    final Button llmButton = findViewById(R.id.llmButton);
-//    llmButton.setOnTouchListener(new View.OnTouchListener() {
-//      @Override
-//      public boolean onTouch(View v, MotionEvent event) {
-//        switch (event.getAction()) {
-//          case MotionEvent.ACTION_DOWN:
-//            Log.d(TAG, "Button down.");
-//            if (mService != null) {
-//              mService.buttonDownEvent(0, false);
-//            }
-//            break;
-//          case MotionEvent.ACTION_UP:
-//            Log.d(TAG, "Button up.");
-//            if (mService != null) {
-//              mService.buttonDownEvent(0, true);
-//            }
-//            break;
-//        }
-//        return true;
-//      }
-//    });
+    final Button settingsButton = findViewById(R.id.settings_button);
+    settingsButton.setOnClickListener(v -> openSettingsFragment());
 
     Button pickContactButton = findViewById(R.id.pick_contact_button);
     pickContactButton.setOnClickListener(new View.OnClickListener() {
@@ -164,6 +150,10 @@ public class MainActivity extends AppCompatActivity {
   @Override
   public void onStart() {
     super.onStart();
+
+    permissionsUtils = new PermissionsUtils(this, TAG);
+    permissionsUtils.getSomePermissions();
+
     if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
         != PackageManager.PERMISSION_GRANTED) {
       ActivityCompat.requestPermissions(
@@ -447,5 +437,19 @@ public class MainActivity extends AppCompatActivity {
     // Handle the text input result here
     Toast.makeText(this, "Set UserID to: " + result, Toast.LENGTH_SHORT).show();
     EventBus.getDefault().post(new UserIdChangedEvent(result));
+  }
+
+  private void openSettingsFragment() {
+    SettingsUi settingsFragment = new SettingsUi();
+    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+    transaction.replace(R.id.main_container, settingsFragment);
+    transaction.addToBackStack(null); // Add to back stack for back button support
+    transaction.commit();
+  }
+
+  @Override
+  public boolean onSupportNavigateUp() {
+    onBackPressed();
+    return true;
   }
 }
