@@ -13,11 +13,11 @@ import com.teamopensmartglasses.convoscope.events.SharingContactChangedEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
 import com.teamopensmartglasses.convoscope.events.UserIdChangedEvent;
-import com.teamopensmartglasses.sgmlib.DataStreamType;
-import com.teamopensmartglasses.sgmlib.FocusStates;
-import com.teamopensmartglasses.sgmlib.SGMCommand;
-import com.teamopensmartglasses.sgmlib.SGMLib;
-import com.teamopensmartglasses.sgmlib.SmartGlassesAndroidService;
+
+import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartRingButtonOutputEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SpeechRecOutputEvent;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -35,7 +35,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private final IBinder binder = new LocalBinder();
 
     //our instance of the SGM library
-    public SGMLib sgmLib;
+    //public SGMLib sgmLib;
 
     //Convoscope stuff
     private BackendServerComms backendServerComms;
@@ -83,22 +83,22 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         responses.add("Welcome to Convoscope.");
 
         //Create SGMLib instance with context: this
-        sgmLib = new SGMLib(this);
+        //sgmLib = new SGMLib(this);
 
         //Define command with a UUID
         UUID commandUUID = UUID.fromString("5b824bb6-d3b3-417d-8c74-3b103efb403f");
-        SGMCommand command = new SGMCommand("Convoscope", commandUUID, new String[]{"convoscope", "wearable intelligence"}, "AI wearable intelligence.");
+        //SGMCommand command = new SGMCommand("Convoscope", commandUUID, new String[]{"convoscope", "wearable intelligence"}, "AI wearable intelligence.");
 
         //Register the command
         Log.d(TAG, "Registering Convoscope command with SGMLib");
-        sgmLib.registerCommand(command, this::convoscopeStartCommandCallback);
+        //sgmLib.registerCommand(command, this::convoscopeStartCommandCallback);
 
         //setup backend comms
         backendServerComms = new BackendServerComms(this);
 
         Log.d(TAG, "Convoscope SERVICE STARTED");
 
-        EventBus.getDefault().register(this);
+        //EventBus.getDefault().register(this);
 
         userId = getUserId();
 
@@ -107,7 +107,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         smsComms = new SMSComms();
 
-        runConvoscope();
+        this.aioConnectSmartGlasses();
     }
 
     public void setUpCsePolling(){
@@ -137,39 +137,31 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         csePollLoopHandler.removeCallbacks(cseRunnableCode);
         displayPollLoopHandler.removeCallbacks(displayRunnableCode);
         EventBus.getDefault().unregister(this);
-        sgmLib.deinit();
         super.onDestroy();
-    }
-
-    public void runConvoscope(){
-        //request to be the in focus app so we can continue to show transcripts
-//        sgmLib.requestFocus(this::focusChangedCallback);
-        if (focusState == FocusStates.OUT_FOCUS){
-            sgmLib.requestFocus(this::focusChangedCallback);
-        }
-
-        //Subscribe to transcription stream
-        sgmLib.subscribe(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM, this::processTranscriptionCallback);
-        sgmLib.subscribe(DataStreamType.SMART_RING_BUTTON, this::processButtonCallback);
-        sgmLib.subscribe(DataStreamType.GLASSES_SIDE_TAP, this::processGlassesTapCallback);
     }
 
     public void convoscopeStartCommandCallback(String args, long commandTriggeredTime){
         Log.d("TAG","Convoscope start callback called");
-        runConvoscope();
+        //runConvoscope();
     }
+    @Subscribe
+    public void onGlassesTapSideEvent(GlassesTapOutputEvent event) {
+        int numTaps = event.numTaps;
+        boolean sideOfGlasses = event.sideOfGlasses;
+        long time = event.timestamp;
 
-    public void focusChangedCallback(FocusStates focusState){
-        Log.d(TAG, "Focus callback called with state: " + focusState);
-        this.focusState = focusState;
-    }
-
-    public void processGlassesTapCallback(int numTaps, boolean sideOfGlasses, long timestamp){
         Log.d(TAG, "GLASSES TAPPED X TIMES: " + numTaps + " SIDEOFGLASSES: " + sideOfGlasses);
         if (numTaps == 3)
             sendLatestCSEResultViaSms();
     }
-    public void processButtonCallback(int buttonId, long timestamp, boolean isDown){
+
+
+    @Subscribe
+    public void onSmartRingButtonEvent(SmartRingButtonOutputEvent event) {
+        int buttonId = event.buttonId;
+        long time = event.timestamp;
+        boolean isDown = event.isDown;
+
         if(!isDown || buttonId != 1) return;
         Log.d(TAG,"DETECTED BUTTON PRESS W BUTTON ID: " + buttonId);
         currTime = System.currentTimeMillis();
@@ -194,7 +186,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
             smsComms.sendSms(phoneNum, messageToSend);
 
-            sgmLib.sendReferenceCard("Convoscope", "Sending result(s) via SMS to " + phoneNumName);
+            sendReferenceCard("Convoscope", "Sending result(s) via SMS to " + phoneNumName);
         }
     }
 
@@ -212,15 +204,18 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //    }
 
 
-
-    public void processTranscriptionCallback(String transcript, long timestamp, boolean isFinal){
-        Log.d(TAG, "PROCESS TRANSCRIPTION CALLBACK. IS IT FINAL? " + isFinal + " " + transcript);
+    @Subscribe
+    public void onTranscript(SpeechRecOutputEvent event) {
+        String text = event.text;
+        long time = event.timestamp;
+        boolean isFinal = event.isFinal;
+        Log.d(TAG, "PROCESS TRANSCRIPTION CALLBACK. IS IT FINAL? " + isFinal + " " + text);
 
         if (isFinal)
-            sendFinalTranscriptToActivity(transcript);
+            sendFinalTranscriptToActivity(text);
 
         //debounce and then send to backend
-        debounceAndSendTranscript(transcript, isFinal);
+        debounceAndSendTranscript(text, isFinal);
     }
 
     private long lastSentTime = 0;
@@ -450,16 +445,16 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         latestDisplayTime = System.currentTimeMillis();
 
         if (displayThese.size() == 1) {
-            sgmLib.sendReferenceCard(appName, displayThese.get(0));
+            sendReferenceCard(appName, displayThese.get(0));
         }
         else {
             String[] resultsToDisplayListArr = displayThese.toArray(new String[displayThese.size()]);
-            sgmLib.sendBulletPointList(appName, resultsToDisplayListArr);
+            sendBulletPointList(appName, resultsToDisplayListArr);
         }
     }
 
     public void speakTTS(String toSpeak){
-        sgmLib.sendTextLine(toSpeak);
+        sendTextLine(toSpeak);
     }
 
     public void sendUiUpdateFull(){
