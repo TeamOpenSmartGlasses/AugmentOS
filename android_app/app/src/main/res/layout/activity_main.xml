@@ -72,7 +72,7 @@
         android:layout_width="115dp"
         android:layout_height="63dp"
         android:layout_marginTop="24dp"
-        android:text="Set UserID"
+        android:text="Settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
