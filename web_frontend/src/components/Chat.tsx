@@ -6,8 +6,16 @@ import {
   Textarea,
   Text,
   Stack,
+  Button,
+  Group,
 } from "@mantine/core";
-import { IconArrowUp, IconFlower, IconUser } from "@tabler/icons-react";
+import {
+  IconArrowUp,
+  IconFile,
+  IconFlower,
+  IconShare,
+  IconUser,
+} from "@tabler/icons-react";
 import { PropsWithChildren, useEffect, useRef, useState } from "react";
 import axiosClient from "../axiosConfig";
 import { SEND_AGENT_CHAT_ENDPOINT } from "../serverEndpoints";
@@ -136,18 +144,56 @@ const Chat = () => {
           </MessageDisplay>
         )}
       </ScrollArea>
-      <Flex direction="row" mt="auto" gap="xs" w="100%">
+      <Group py="xs" mt="auto">
+        <Button
+          variant="default"
+          size="md"
+          sx={{ flex: "1 1 0" }}
+          rightIcon={<IconFile />}
+        >
+          Summarize
+        </Button>
+        <Button
+          variant="default"
+          size="md"
+          sx={{ flex: "1 1 0" }}
+          rightIcon={<IconShare />}
+        >
+          Share
+        </Button>
+      </Group>
+      <Flex
+        direction="row"
+        gap="xs"
+        w="100%"
+        p="xs"
+        h="min-content"
+        sx={{
+          borderRadius: "0.25rem",
+          outline: "1px solid #8e8ea0",
+          background: "rgba(0,0,0,0)",
+        }}
+      >
         <Textarea
           value={query}
           autosize
           maxRows={8}
           onChange={(event) => setQuery(event.currentTarget.value)}
+          onKeyDown={(event) => {
+            if (event.key === "Enter" && !event.shiftKey) {
+              handleSendMessage();
+            }
+          }}
           w="100%"
           placeholder="Message Mira..."
+          my="auto"
           sx={{
-            "textarea, textarea:focus": {
-              outline: "1px solid #8e8ea0",
+            height: "min-content",
+            textarea: {
+              padding: 0,
+              border: "none",
               background: "rgba(0,0,0,0)",
+              minHeight: "unset",
             },
           }}
         />
@@ -157,7 +203,6 @@ const Chat = () => {
           mt="auto"
           bg="black"
           onClick={handleSendMessage}
-          m="auto"
         >
           <IconArrowUp size="1.125rem" />
         </ActionIcon>
