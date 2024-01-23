@@ -7,4 +7,6 @@
   <color name="redButton">#DF4A4A</color>
   <color name="greenButton">#1D9E1A</color>
   <color name="blueButton">#3176D3</color>
+  <color name="background_light">#FFFFFF</color>
+  <color name="background_dark">#000000</color>
 </resources>
