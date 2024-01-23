@@ -6,12 +6,20 @@ import {
   Title,
   Stack,
   rem,
-  Button,
+  createStyles,
 } from "@mantine/core";
 import { useSignInWithGoogle } from "../auth";
 import GoogleButton from "../components/GoogleButton";
+import { cardStyles } from "../theme";
+
+const useStyles = createStyles(() => ({
+  card: {
+    ...cardStyles,
+  },
+}));
 
 const LandingPage = () => {
+  const { classes } = useStyles();
   const { signInWithGoogle } = useSignInWithGoogle();
 
   return (
@@ -20,7 +28,7 @@ const LandingPage = () => {
         <Image src={"/blobs.gif"} fit="cover" />
       </Box>
       <Box w="40%" p="xl">
-        <Card h="100%">
+        <Card h="100%" className={classes.card}>
           <Stack>
             <Box w={rem(160)} mx="auto" mt={rem(102)}>
               <Image src={"/chat_bubbles_icon.svg"} />
@@ -29,11 +37,12 @@ const LandingPage = () => {
               Welcome!
             </Title>
             <GoogleButton
-              mt="xl"
+              mt="10rem"
               onClick={signInWithGoogle}
               variant="default"
               w="fit-content"
               mx="auto"
+              size="xl"
             >
               Sign in with Google
             </GoogleButton>
