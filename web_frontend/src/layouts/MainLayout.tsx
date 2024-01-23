@@ -38,14 +38,6 @@ const PFlex = createPolymorphicComponent<"div", FlexProps>(Flex);
 const PContainer = createPolymorphicComponent<"div", ContainerProps>(Container);
 
 const useStyles = createStyles({
-  root: {
-    height: "100vh",
-    width: "100vw",
-    background:
-      "var(--bg-gradient-full---blue, linear-gradient(180deg, #191A27 2.23%, #14141D 25.74%, #14141D 49.42%, #14141D 73.62%, #14141D 96.28%))",
-    overflow: "clip",
-  },
-
   container: {
     width: "100%",
     height: "100%",
@@ -77,7 +69,7 @@ const MainLayout = () => {
 
   return (
     <>
-      <PFlex component={motion.div} className={classes.root} layout>
+      <PFlex component={motion.div} layout>
         <Sidebar settingsOpened={opened} toggleSettings={toggleSettings} />
         <PContainer
           component={motion.div}

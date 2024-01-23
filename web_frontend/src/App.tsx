@@ -4,9 +4,11 @@ import { useTranscription } from "./hooks/useTranscription";
 import { useUiUpdateBackendPoll } from "./hooks/useUiUpdateBackendPoll";
 import Cookies from "js-cookie";
 import MainLayout from "./layouts/MainLayout";
-import { useRecoilState } from "recoil";
-import { userIdState } from "./recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { authTokenState, userIdState } from "./recoil";
 import { useAuth } from "./auth";
+import LandingPage from "./layouts/LandingPage";
+import RootLayout from "./layouts/RootLayout";
 
 export default function App() {
   useTranscription();
@@ -14,7 +16,7 @@ export default function App() {
   useAuth();
 
   const [userId, setUserId] = useRecoilState(userIdState);
-  console.log(userId);
+  const authToken = useRecoilValue(authTokenState);
 
   useEffect(() => {
     const search = window.location.search;
@@ -38,5 +40,7 @@ export default function App() {
     }
   }, [setUserId, userId]);
 
-  return <MainLayout />;
+  return (
+    <RootLayout>{authToken ? <MainLayout /> : <LandingPage />}</RootLayout>
+  );
 }
