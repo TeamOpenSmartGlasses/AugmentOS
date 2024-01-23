@@ -4,7 +4,11 @@ import SpeechRecognition, {
 import axiosClient from "../axiosConfig";
 import { CHAT_ENDPOINT } from "../serverEndpoints";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { isExplicitListeningState, isRecognizingState } from "../recoil";
+import {
+  authTokenState,
+  isExplicitListeningState,
+  isRecognizingState,
+} from "../recoil";
 import { debounce } from "lodash";
 import { useCallback, useEffect, useState, useRef } from "react";
 
@@ -20,6 +24,7 @@ const debouncedSubmit = debounce((submitFunc, transcriptRef) => {
 export const useTranscription = () => {
   const isRecognizing = useRecoilValue(isRecognizingState);
   const setIsExplicitListening = useSetRecoilState(isExplicitListeningState);
+  const authToken = useRecoilValue(authTokenState);
 
   const [transcriptStartIdx, setTranscriptStartIdx] = useState(0);
 
@@ -54,7 +59,7 @@ export const useTranscription = () => {
       const text = transcript.substring(transcriptStartIdx);
 
       const payload = {
-        "Authorization": window.authToken,
+        Authorization: authToken,
         text: text,
         timestamp: Date.now(),
         isFinal,
@@ -77,7 +82,7 @@ export const useTranscription = () => {
           console.error(error);
         });
     },
-    [setTranscriptStartIdx, transcript, transcriptStartIdx]
+    [authToken, transcript, transcriptStartIdx]
   );
 
   useEffect(() => {
@@ -86,5 +91,4 @@ export const useTranscription = () => {
     // Call the debounced function with the ref
     debouncedSubmit(submitTranscript, transcriptRef);
   }, [transcript]);
-
 };

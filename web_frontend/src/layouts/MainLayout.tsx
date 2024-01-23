@@ -30,7 +30,6 @@ import {
 } from "../recoil";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { useState } from "react";
-import { setUserIdAndDeviceId } from "../utils/utils";
 import CardScrollArea from "../components/CardScrollArea";
 
 // animate-able components for framer-motion
@@ -155,7 +154,6 @@ const MainLayout = () => {
         smallerThanMedium={smallerThanMedium}
         opened={opened}
         closeSettings={closeSettings}
-        setUserIdAndDeviceId={setUserIdAndDeviceId}
       />
     </>
   );

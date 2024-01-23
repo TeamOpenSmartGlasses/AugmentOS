@@ -2,8 +2,10 @@ import { useEffect } from "react";
 import axiosClient from "../axiosConfig";
 import { UI_POLL_ENDPOINT } from "../serverEndpoints";
 import { Entity, Insight } from "../types";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import {
+  authTokenState,
+  deviceIdState,
   entitiesState,
   explicitInsightsState,
   isExplicitListeningState,
@@ -12,8 +14,7 @@ import {
   ENABLE_NOTIFICATION_SOUNDS,
   NOTIFICATION_FILEPATH,
 } from "../constants";
-
-import * as authn from "../auth";
+import { useSignInWithGoogle } from "../auth";
 
 /**
  * poll the backend for UI updates and update state of entities and explicit insights
@@ -22,15 +23,18 @@ export const useUiUpdateBackendPoll = () => {
   const setEntities = useSetRecoilState(entitiesState);
   const setExplicitInsights = useSetRecoilState(explicitInsightsState);
   const setIsExplicitListening = useSetRecoilState(isExplicitListeningState);
+  const [authToken, setAuthToken] = useRecoilState(authTokenState);
+  const { signInWithGoogle } = useSignInWithGoogle();
+  const deviceId = useRecoilValue(deviceIdState);
 
   useEffect(() => {
     const updateUiBackendPoll = () => {
-      if (window.authToken == undefined || window.authToken == "") {
+      if (!authToken) {
         return;
-      };
+      }
 
       const uiPollRequstBody = {
-        "Authorization": window.authToken,
+        Authorization: authToken,
         features: [
           "contextual_search_engine",
           "proactive_agent_insights",
@@ -38,7 +42,7 @@ export const useUiUpdateBackendPoll = () => {
           "intelligent_entity_definitions",
           "agent_chat",
         ], //list of features here
-        deviceId: window.deviceId,
+        deviceId: deviceId,
       };
 
       axiosClient
@@ -101,14 +105,24 @@ export const useUiUpdateBackendPoll = () => {
         })
         .catch(function (error) {
           console.error(error);
-          
-          if (error.response.status == 401){
+
+          if (error.response.status == 401) {
             // not logged in
-            window.authToken = "";
-            authn.signInWithGoogle()
+            setAuthToken(undefined);
+            signInWithGoogle();
           }
         });
     };
-    setInterval(updateUiBackendPoll, 200);
-  }, [setEntities, setExplicitInsights, setIsExplicitListening]);
+    const intervalId = setInterval(updateUiBackendPoll, 200);
+
+    return () => clearInterval(intervalId);
+  }, [
+    authToken,
+    deviceId,
+    setAuthToken,
+    setEntities,
+    setExplicitInsights,
+    setIsExplicitListening,
+    signInWithGoogle,
+  ]);
 };

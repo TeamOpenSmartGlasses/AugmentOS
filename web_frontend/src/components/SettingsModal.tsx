@@ -1,20 +1,20 @@
 import {
   Alert,
   Button,
-  Group,
   // Divider,
   // FileButton,
   Modal,
   Stack,
   Text,
-  TextInput,
   createStyles,
   // Title,
 } from "@mantine/core";
 import { IconInfoCircle } from "@tabler/icons-react";
 import Cookies from "js-cookie";
 import { useRef, useState } from "react";
-import * as authn from "../auth";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { authTokenState, userIdState } from "../recoil";
+import { useSignInWithGoogle } from "../auth";
 // import axiosClient from "../axiosConfig";
 // import { UPLOAD_USERDATA_ENDPOINT } from "../serverEndpoints";
 
@@ -22,30 +22,26 @@ interface SettingsModalProps {
   smallerThanMedium: boolean;
   opened: boolean;
   closeSettings: () => void;
-  setUserIdAndDeviceId: (newUserId: string) => void;
 }
 
 const useStyles = createStyles((theme) => ({
   header: {
     backgroundColor: theme.colors.cardFill,
   },
- 
+
   content: {
     backgroundColor: theme.colors.cardFill,
-    border: `1px solid ${theme.colors.cardStroke}`
-  }
+    border: `1px solid ${theme.colors.cardStroke}`,
+  },
 }));
 
 const SettingsModal = ({
   smallerThanMedium,
   opened,
   closeSettings,
-  setUserIdAndDeviceId,
 }: SettingsModalProps) => {
-  const {classes} = useStyles();
-  const [userId, setUserId] = useState<string | undefined>(
-    Cookies.get("userId")
-  );
+  const { classes } = useStyles();
+  const [userId, setUserId] = useRecoilState(userIdState);
   const [isCustomUser, setIsCustomUser] = useState<boolean | undefined>(
     Cookies.get("isCustomUser") === "true"
   );
@@ -55,11 +51,13 @@ const SettingsModal = ({
   const updateUsername = () => {
     if (ref.current?.value && ref.current.value !== "") {
       Cookies.set("isCustomUser", "true", { expires: 9999 });
-      setUserIdAndDeviceId(ref.current?.value);
       setIsCustomUser(true);
       setUserId(ref.current.value);
     }
   };
+
+  const authToken = useRecoilValue(authTokenState);
+  const { signInWithGoogle } = useSignInWithGoogle();
 
   // const submitCustomData = () => {
   //   if (!file || !userId) {
@@ -97,18 +95,21 @@ const SettingsModal = ({
       classNames={{ content: classes.content, header: classes.header }}
     >
       <Stack>
-        <Alert icon={<IconInfoCircle />} title="Connect your custom data!" variant="light" color="blue">
+        <Alert
+          icon={<IconInfoCircle />}
+          title="Connect your custom data!"
+          variant="light"
+          color="blue"
+        >
           Get started by setting a custom and unique username, then upload your
           CSV file containing your entity definitions
         </Alert>
 
-        {window.authToken ? (
-          <Text>
-            Logged in
-          </Text>
+        {authToken ? (
+          <Text>Logged in</Text>
         ) : (
-          <Button onClick={authn.signInWithGoogle} variant="default" mt="auto">
-          Log in
+          <Button onClick={signInWithGoogle} variant="default" mt="auto">
+            Log in
           </Button>
         )}
 

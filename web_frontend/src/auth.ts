@@ -1,8 +1,17 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app"
-import { getAuth, signInWithPopup, onAuthStateChanged, GoogleAuthProvider, is } from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import {
+  getAuth,
+  signInWithPopup,
+  onAuthStateChanged,
+  GoogleAuthProvider,
+  is,
+} from "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
-import { setAuthToken } from "./utils/utils";
+import { useSetRecoilState } from "recoil";
+import { authTokenState } from "./recoil";
+import Cookies from "js-cookie";
+import { useEffect } from "react";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -16,7 +25,7 @@ const firebaseConfig = {
   storageBucket: "alexwearllm.appspot.com",
   messagingSenderId: "668396061442",
   appId: "1:668396061442:web:9148796b76767bfa15781b",
-  measurementId: "G-6Q131BK64W"
+  measurementId: "G-6Q131BK64W",
 };
 
 // Initialize Firebase
@@ -27,38 +36,54 @@ const googleProvider = new GoogleAuthProvider();
 
 const auth = getAuth();
 
-export var isPopupOpen = false;
+// export var isPopupOpen = false;
 
-export const signInWithGoogle = () => {
-    isPopupOpen = true;
-    signInWithPopup(auth, googleProvider)
+export const useSignInWithGoogle = () => {
+  const setAuthToken = useSetRecoilState(authTokenState);
+
+  return {
+    signInWithGoogle: () => {
+      //   isPopupOpen = true;
+      signInWithPopup(auth, googleProvider)
         .then((result: any) => {
-            const user = result.user;
-            auth.currentUser?.getIdToken(true).then((idToken) => {
-                console.log("GOT A LOGIN GOOD!!")
-                console.log(user)
-                setAuthToken(idToken)
-            })
+          const user = result.user;
+          auth.currentUser?.getIdToken(true).then((idToken) => {
+            console.log("GOT A LOGIN GOOD!!");
+            console.log(user);
+            setAuthToken(idToken);
 
-            //setAuthToken(token);
-            isPopupOpen = false;
+            Cookies.set("authToken", idToken, { expires: 9999 });
+          });
 
-        }).catch((error: any) => {
-            console.log(error)
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            const email = error.email;
-            const credential = error.credential;
-            isPopupOpen = false;
+          //setAuthToken(token);
+          //   isPopupOpen = false;
+        })
+        .catch((error: any) => {
+          console.log(error);
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          const email = error.email;
+          const credential = error.credential;
+          //   isPopupOpen = false;
         });
-}
+    },
+  };
+};
 
-onAuthStateChanged(auth, (user) => {
-    if (user) {
+export const useAuth = () => {
+  const setAuthToken = useSetRecoilState(authTokenState);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
         // User is signed in
-        console.log("AUTH STATE GOOD")
-    } else {
+        console.log("AUTH STATE GOOD");
+        setAuthToken(await user.getIdToken());
+      } else {
         // User is signed out
-        console.log("AUTH STATE bad")
-    }
-});
+        console.log("AUTH STATE bad");
+      }
+    });
+    return unsubscribe;
+  }, [setAuthToken]);
+};
