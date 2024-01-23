@@ -33,7 +33,7 @@ interface Message {
 }
 
 const Chat = () => {
-  const [query, setQuery] = useState("");
+  const [userInputValue, setUserInputValue] = useState("");
   const [history, setHistory] = useState<Message[]>([]);
   const [isMiraLoading, setIsMiraLoading] = useState(false);
   const [isUserLoading, setIsUserLoading] = useState(false);
@@ -43,16 +43,17 @@ const Chat = () => {
   const isExplicitListening = useRecoilValue(isExplicitListeningState);
 
   const handleSendMessage = () => {
-    if (query.trim()) {
+    const chatMessage = userInputValue.trim();
+    if (chatMessage) {
       const payload = {
         agent_name: "agent_name",
         userId: window.userId,
         deviceId: window.deviceId,
-        chatMessage: query,
+        chatMessage,
       };
       axiosClient.post(SEND_AGENT_CHAT_ENDPOINT, payload);
 
-      setQuery("");
+      setUserInputValue("");
       setIsMiraLoading(true);
     }
   };
@@ -175,12 +176,13 @@ const Chat = () => {
         }}
       >
         <Textarea
-          value={query}
+          value={userInputValue}
           autosize
           maxRows={8}
-          onChange={(event) => setQuery(event.currentTarget.value)}
+          onChange={(event) => setUserInputValue(event.currentTarget.value)}
           onKeyDown={(event) => {
             if (event.key === "Enter" && !event.shiftKey) {
+              event.preventDefault();
               handleSendMessage();
             }
           }}
