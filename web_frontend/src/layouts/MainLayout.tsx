@@ -47,7 +47,7 @@ const MainLayout = () => {
         <Sidebar settingsOpened={opened} toggleSettings={toggleSettings} />
         <Box
           className={classes.container}
-          sx={{ flex: "3 1 0" }}
+          sx={{ flex: "7 1 0" }}
           pt={`${GAP_VH}vh`}
           px={"1rem"}
         >
@@ -59,7 +59,7 @@ const MainLayout = () => {
           <CardScrollArea />
         </Box>
 
-        <Box py={`${GAP_VH}vh`} pl="1rem" pr="2rem">
+        <Box py={`${GAP_VH}vh`} pl="1rem" pr="2rem" sx={{ flex: "3 1 0" }}>
           <ToolsPanel />
         </Box>
       </Flex>

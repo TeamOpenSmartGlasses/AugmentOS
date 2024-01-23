@@ -11,6 +11,8 @@ import { IconArrowUp, IconFlower, IconUser } from "@tabler/icons-react";
 import { PropsWithChildren, useEffect, useRef, useState } from "react";
 import axiosClient from "../axiosConfig";
 import { SEND_AGENT_CHAT_ENDPOINT } from "../serverEndpoints";
+import { explicitInsightsState, isExplicitListeningState } from "../recoil";
+import { useRecoilValue } from "recoil";
 
 enum Sender {
   MIRA = "Mira",
@@ -23,62 +25,60 @@ interface Message {
 }
 
 const Chat = () => {
-  const [intermediateQuery, setIntermediateQuery] = useState("");
-  const [finalQuery, setFinalQuery] = useState("");
+  const [query, setQuery] = useState("");
   const [history, setHistory] = useState<Message[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isMiraLoading, setIsMiraLoading] = useState(false);
+  const [isUserLoading, setIsUserLoading] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const explicitInsights = useRecoilValue(explicitInsightsState);
+  const lastInsight = explicitInsights.at(-1);
+  const isExplicitListening = useRecoilValue(isExplicitListeningState);
 
   const handleSendMessage = () => {
-    if (intermediateQuery.trim()) {
+    if (query.trim()) {
       const payload = {
         agent_name: "agent_name",
-        userId: "userId",
-        deviceId: "deviceId",
-        message: intermediateQuery,
+        userId: window.userId,
+        deviceId: window.deviceId,
+        chatMessage: query,
       };
-      axiosClient
-        .post(SEND_AGENT_CHAT_ENDPOINT, payload)
-        .then((res) => {
-          console.log(res);
-        })
-        .catch(console.log);
+      axiosClient.post(SEND_AGENT_CHAT_ENDPOINT, payload);
 
-      setHistory((prevHistory) => [
-        ...prevHistory,
-        { sender: Sender.USER, content: intermediateQuery },
-      ]);
-      setFinalQuery(intermediateQuery);
-      setIntermediateQuery("");
-      setIsLoading(true);
-
-      // Simulate a bot response
-      // setTimeout(() => {
-      //   setMessages((prevMessages) => [
-      //     ...prevMessages,
-      //     { sender: "bot", text: "Bot response" },
-      //   ]);
-      // }, 1000);
+      setQuery("");
+      setIsMiraLoading(true);
     }
   };
 
   useEffect(() => {
-    async function runGpt() {
-      if (finalQuery == null || finalQuery == "") {
-        return;
-      }
-      setIsLoading(false);
+    if (isExplicitListening) {
+      setIsUserLoading(true);
+    }
+  }, [isExplicitListening]);
+
+  useEffect(() => {
+    if (lastInsight?.insight) {
       setHistory((prevHistory) => [
         ...prevHistory,
         {
           sender: Sender.MIRA,
-          content: "test",
+          content: lastInsight.insight!,
         },
       ]);
-    }
 
-    runGpt();
-  }, [finalQuery]);
+      setIsMiraLoading(false);
+    } else if (lastInsight?.query) {
+      setHistory((prevHistory) => [
+        ...prevHistory,
+        {
+          sender: Sender.USER,
+          content: lastInsight.query!,
+        },
+      ]);
+
+      setIsUserLoading(false);
+      setIsMiraLoading(true);
+    }
+  }, [lastInsight?.insight, lastInsight?.query]);
 
   useEffect(() => {
     if (scrollAreaRef.current) {
@@ -92,7 +92,7 @@ const Chat = () => {
 
   return (
     <Flex h="100%" p="md" bg="rgb(52,53,65)" direction="column">
-      {history.length === 0 && (
+      {history.length === 0 && !isUserLoading && !isMiraLoading && (
         <Stack m="auto">
           <Box w="3rem" h="3rem" m="auto">
             <IconUser
@@ -112,15 +112,24 @@ const Chat = () => {
         </Stack>
       )}
       <ScrollArea viewportRef={scrollAreaRef}>
-        {history.map((message) => (
-          <MessageDisplay sender={message.sender}>
-            {message.content.split("\n").map((p) => (
-              <Text pb="xs">{p}</Text>
+        {history.map((message, i) => (
+          <MessageDisplay sender={message.sender} key={`message-${i}`}>
+            {message.content.split("\n").map((p, j) => (
+              <Text pb="xs" key={`message-text-${j}`}>
+                {p}
+              </Text>
             ))}
           </MessageDisplay>
         ))}
-        {isLoading && (
+        {isMiraLoading && (
           <MessageDisplay sender={Sender.MIRA}>
+            <Text pb="xs">
+              <LoadingDots />
+            </Text>
+          </MessageDisplay>
+        )}
+        {isUserLoading && (
+          <MessageDisplay sender={Sender.USER}>
             <Text pb="xs">
               <LoadingDots />
             </Text>
@@ -129,10 +138,10 @@ const Chat = () => {
       </ScrollArea>
       <Flex direction="row" mt="auto" gap="xs" w="100%">
         <Textarea
-          value={intermediateQuery}
+          value={query}
           autosize
           maxRows={8}
-          onChange={(event) => setIntermediateQuery(event.currentTarget.value)}
+          onChange={(event) => setQuery(event.currentTarget.value)}
           w="100%"
           placeholder="Message Mira..."
           sx={{
@@ -148,6 +157,7 @@ const Chat = () => {
           mt="auto"
           bg="black"
           onClick={handleSendMessage}
+          m="auto"
         >
           <IconArrowUp size="1.125rem" />
         </ActionIcon>
