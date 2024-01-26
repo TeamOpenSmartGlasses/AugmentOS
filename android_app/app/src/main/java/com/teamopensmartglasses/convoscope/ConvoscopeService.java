@@ -30,7 +30,6 @@ import java.util.UUID;
 
 public class ConvoscopeService extends SmartGlassesAndroidService {
     public final String TAG = "Convoscope_ConvoscopeService";
-    public final String appName = "Convoscope";
 
     private final IBinder binder = new LocalBinder();
 
