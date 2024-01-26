@@ -40,7 +40,7 @@ export const selectedEntityValue = selector<Entity | undefined>({
   },
 });
 
-export const explorePaneUrlValue = selector<string | undefined>({
+export const explorePaneUrlValue = selector<string | undefined | null>({
   key: "explorePaneUrl",
   get: ({ get }) => {
     return get(selectedEntityValue)?.url;
@@ -50,7 +50,7 @@ export const explorePaneUrlValue = selector<string | undefined>({
 export const showExplorePaneValue = selector<boolean>({
   key: "showExplorePane",
   get: ({ get }) => {
-    return get(explorePaneUrlValue) !== undefined;
+    return Boolean(get(explorePaneUrlValue));
   },
 });
 

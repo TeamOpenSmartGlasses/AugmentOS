@@ -1,7 +1,7 @@
 firebase-admin
 aiohttp
 aiohttp_cors
-openai
+openai==0.28
 langchain
 nltk
 google-cloud-language
