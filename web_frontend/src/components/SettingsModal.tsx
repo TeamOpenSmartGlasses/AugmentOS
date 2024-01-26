@@ -105,14 +105,6 @@ const SettingsModal = ({
           CSV file containing your entity definitions
         </Alert>
 
-        {authToken ? (
-          <Text>Logged in</Text>
-        ) : (
-          <Button onClick={signInWithGoogle} variant="default" mt="auto">
-            Log in
-          </Button>
-        )}
-
         {/*
         {isCustomUser && (
           <>
