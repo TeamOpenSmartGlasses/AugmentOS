@@ -105,8 +105,7 @@ export const useUiUpdateBackendPoll = () => {
         })
         .catch(function (error) {
           console.error(error);
-
-          if (error.response.status == 401) {
+          if (error.response && error.response.status == 401) {
             // not logged in
             setAuthToken(undefined);
             signInWithGoogle();
