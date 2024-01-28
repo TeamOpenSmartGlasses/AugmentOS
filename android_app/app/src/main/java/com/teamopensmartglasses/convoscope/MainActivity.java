@@ -49,6 +49,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.teamopensmartglasses.convoscope.events.SharingContactChangedEvent;
 import com.teamopensmartglasses.convoscope.events.ToggleEnableSharingEvent;
 import com.teamopensmartglasses.convoscope.events.UserIdChangedEvent;
@@ -143,8 +145,16 @@ public class MainActivity extends AppCompatActivity {
       }
     });
 
-    //start the main Convoscope backend, if it's not already running
-    startConvoscopeService();
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    if (user != null) {
+      // User is signed in
+      //start the main Convoscope backend, if it's not already running
+      startConvoscopeService();
+    } else {
+      // No user is signed in
+      Intent intent = new Intent(this, LoginActivity.class);
+      startActivity(intent);
+    }
   }
 
   @Override

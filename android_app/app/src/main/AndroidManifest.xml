@@ -28,6 +28,8 @@
       </intent-filter>
     </activity>
 
+    <activity android:name=".LoginActivity"></activity>
+
     <service android:name="com.teamopensmartglasses.convoscope.ConvoscopeService"
         android:foregroundServiceType="microphone"
         android:exported="true">

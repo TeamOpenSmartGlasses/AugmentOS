@@ -3,7 +3,6 @@ package com.teamopensmartglasses.convoscope;
 import static com.teamopensmartglasses.convoscope.Constants.*;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
@@ -12,7 +11,6 @@ import android.util.Log;
 import com.teamopensmartglasses.convoscope.events.SharingContactChangedEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
-import com.teamopensmartglasses.convoscope.events.UserIdChangedEvent;
 
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
@@ -44,7 +42,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private Runnable cseRunnableCode;
     private Handler displayPollLoopHandler = new Handler(Looper.getMainLooper());
     private Runnable displayRunnableCode;
-    static String userId;
     static final String deviceId = "android";
     static final String [] features = {"contextual_search_engine", "proactive_agent_insights", "explicit_agent_insights", "intelligent_entity_definitions"};
     private SMSComms smsComms;
@@ -99,8 +96,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         //EventBus.getDefault().register(this);
 
-        userId = getUserId();
-
         setUpCsePolling();
         setUpDisplayQueuePolling();
 
@@ -113,7 +108,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         cseRunnableCode = new Runnable() {
             @Override
             public void run() {
-                requestContextualSearchEngine();
+                requestUiPoll();
                 csePollLoopHandler.postDelayed(this, 1000);
             }
         };
@@ -223,14 +218,14 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         debounceHandler.removeCallbacks(debounceRunnable);
         long currentTime = System.currentTimeMillis();
         if (isFinal) {
-            sendLLMQueryRequest(transcript, isFinal);
+            sendTranscriptRequest(transcript, isFinal);
         } else { //if intermediate
             if (currentTime - lastSentTime >= DEBOUNCE_DELAY) {
-                sendLLMQueryRequest(transcript, isFinal);
+                sendTranscriptRequest(transcript, isFinal);
                 lastSentTime = currentTime;
             } else {
                 debounceRunnable = () -> {
-                    sendLLMQueryRequest(transcript, isFinal);
+                    sendTranscriptRequest(transcript, isFinal);
                     lastSentTime = System.currentTimeMillis();
                 };
                 debounceHandler.postDelayed(debounceRunnable, DEBOUNCE_DELAY);
@@ -238,11 +233,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
     }
 
-    public void sendLLMQueryRequest(String query, boolean isFinal){
+    public void sendTranscriptRequest(String query, boolean isFinal){
         try{
             JSONObject jsonQuery = new JSONObject();
             jsonQuery.put("text", query);
-            jsonQuery.put("userId", userId);
+            jsonQuery.put("Authorization", Config.authToken);
             jsonQuery.put("isFinal", isFinal);
             jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
             backendServerComms.restRequest(LLM_QUERY_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
@@ -257,7 +252,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 }
                 @Override
                 public void onFailure(){
-                    Log.d(TAG, "SOME FAILURE HAPPENED (sendLLMQueryRequest)");
+                    Log.d(TAG, "SOME FAILURE HAPPENED (sendChatRequest)");
                 }
 
             });
@@ -266,11 +261,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
     }
 
-    public void requestContextualSearchEngine(){
+    public void requestUiPoll(){
         try{
             JSONObject jsonQuery = new JSONObject();
             JSONArray featuresArray = new JSONArray(features);
-            jsonQuery.put("userId", userId);
+            jsonQuery.put("Authorization", Config.authToken);
             jsonQuery.put("deviceId", deviceId);
             jsonQuery.put("features", featuresArray);
             // System.out.println(jsonQuery);
@@ -288,7 +283,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 }
                 @Override
                 public void onFailure(){
-                    Log.d(TAG, "SOME FAILURE HAPPENED (requestContextualSearchEngine)");
+                    Log.d(TAG, "SOME FAILURE HAPPENED (requestUiPoll)");
                 }
 
             });
@@ -486,7 +481,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             JSONObject jsonQuery = new JSONObject();
             jsonQuery.put("button_num", buttonNumber);
             jsonQuery.put("button_activity", downUp);
-            jsonQuery.put("userId", userId);
+            jsonQuery.put("Authorization", Config.authToken);
             jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
             backendServerComms.restRequest(BUTTON_EVENT_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
@@ -517,33 +512,5 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         String newNum = receivedEvent.phoneNumber;
         phoneNumName = receivedEvent.name;
         phoneNum = newNum.replaceAll("[^0-9]", "");
-    }
-
-    @Subscribe
-    public void onUserIdChangedEvent(UserIdChangedEvent receivedEvent){
-        Log.d(TAG, "GOT NEW USERID: " + receivedEvent.userId);
-        setUserId(receivedEvent.userId);
-    }
-
-    public void setUserId(String newUserId){
-        SharedPreferences sharedPreferences = getSharedPreferences(appName, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("userId", newUserId);
-        editor.apply();
-
-        userId = newUserId;
-    }
-
-    public String getUserId(){
-        SharedPreferences sharedPreferences = getSharedPreferences(appName, MODE_PRIVATE);
-        String value = sharedPreferences.getString("userId", "noUserIdFound");
-
-        if (value == "noUserIdFound"){
-            String randomUserId = "Convoscope_" + UUID.randomUUID().toString().replaceAll("_", "").substring(0, 5);
-            setUserId(randomUserId);
-            return randomUserId;
-        }
-
-        return value;
     }
 }
