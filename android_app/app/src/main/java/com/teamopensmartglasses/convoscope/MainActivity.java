@@ -42,6 +42,7 @@ import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -49,6 +50,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.teamopensmartglasses.convoscope.events.SharingContactChangedEvent;
@@ -458,5 +462,20 @@ public class MainActivity extends AppCompatActivity {
   public boolean onSupportNavigateUp() {
     onBackPressed();
     return true;
+  }
+
+  public void signOut(){
+    AuthUI.getInstance()
+            .signOut(this)
+            .addOnCompleteListener(new OnCompleteListener<Void>() {
+              public void onComplete(@NonNull Task<Void> task) {
+                Log.d(TAG, "LOGGED OUT");
+
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                finish();
+              }
+            });
   }
 }

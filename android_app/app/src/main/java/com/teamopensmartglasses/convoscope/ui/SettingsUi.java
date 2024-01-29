@@ -26,6 +26,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.teamopensmartglasses.convoscope.ConvoscopeService;
+import com.teamopensmartglasses.convoscope.LoginActivity;
 import com.teamopensmartglasses.convoscope.MainActivity;
 import com.teamopensmartglasses.smartglassesmanager.R;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
@@ -132,6 +133,13 @@ public class SettingsUi extends Fragment {
                     ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.VOSK_ASR_FRAMEWORK);
                     //((MainActivity)getActivity()).changeAsrFramework(ASR_FRAMEWORKS.VOSK_ASR_FRAMEWORK);
                 }
+            }
+        });
+
+        final Button logOutButton = view.findViewById(com.teamopensmartglasses.convoscope.R.id.log_out_button);
+        logOutButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                ((MainActivity)getActivity()).signOut();
             }
         });
     }
