@@ -8,6 +8,13 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GetTokenResult;
 import com.teamopensmartglasses.convoscope.events.SharingContactChangedEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
@@ -24,7 +31,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class ConvoscopeService extends SmartGlassesAndroidService {
     public final String TAG = "Convoscope_ConvoscopeService";
@@ -35,6 +41,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     //public SGMLib sgmLib;
 
     //Convoscope stuff
+    String authToken = "";
     private BackendServerComms backendServerComms;
     ArrayList<String> responses;
     ArrayList<String> responsesToShare;
@@ -82,11 +89,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         //sgmLib = new SGMLib(this);
 
         //Define command with a UUID
-        UUID commandUUID = UUID.fromString("5b824bb6-d3b3-417d-8c74-3b103efb403f");
+        //UUID commandUUID = UUID.fromString("5b824bb6-d3b3-417d-8c74-3b103efb403f");
         //SGMCommand command = new SGMCommand("Convoscope", commandUUID, new String[]{"convoscope", "wearable intelligence"}, "AI wearable intelligence.");
 
         //Register the command
-        Log.d(TAG, "Registering Convoscope command with SGMLib");
+        //Log.d(TAG, "Registering Convoscope command with SGMLib");
         //sgmLib.registerCommand(command, this::convoscopeStartCommandCallback);
 
         //setup backend comms
@@ -96,6 +103,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         //EventBus.getDefault().register(this);
 
+        setAuthToken();
         setUpCsePolling();
         setUpDisplayQueuePolling();
 
@@ -108,7 +116,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         cseRunnableCode = new Runnable() {
             @Override
             public void run() {
-                requestUiPoll();
+                if (authToken != "") {
+                    requestUiPoll();
+                }
                 csePollLoopHandler.postDelayed(this, 1000);
             }
         };
@@ -187,17 +197,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private Handler debounceHandler = new Handler(Looper.getMainLooper());
     private Runnable debounceRunnable;
 
-//    private void debounceAndSendTranscript(String transcript, boolean isFinal){
-//        debounceHandler.removeCallbacks(debounceRunnable);
-//        if (isFinal){
-//            sendLLMQueryRequest(transcript, isFinal);
-//        } else {
-//            debounceRunnable = () -> sendLLMQueryRequest(transcript, isFinal);
-//            debounceHandler.postDelayed(debounceRunnable, 900);
-//        }
-//    }
-
-
     @Subscribe
     public void onTranscript(SpeechRecOutputEvent event) {
         String text = event.text;
@@ -237,21 +236,20 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         try{
             JSONObject jsonQuery = new JSONObject();
             jsonQuery.put("text", query);
-            jsonQuery.put("Authorization", Config.authToken);
+            jsonQuery.put("Authorization", authToken);
             jsonQuery.put("isFinal", isFinal);
             jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
             backendServerComms.restRequest(LLM_QUERY_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
                     try {
-                        //Log.d(TAG, "CALLING on Success");
-                        parseLLMQueryResult(result);
+                        parseSendTranscriptResult(result);
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
                 }
                 @Override
-                public void onFailure(){
+                public void onFailure(int code){
                     Log.d(TAG, "SOME FAILURE HAPPENED (sendChatRequest)");
                 }
 
@@ -265,34 +263,32 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         try{
             JSONObject jsonQuery = new JSONObject();
             JSONArray featuresArray = new JSONArray(features);
-            jsonQuery.put("Authorization", Config.authToken);
+            jsonQuery.put("Authorization", authToken);
             jsonQuery.put("deviceId", deviceId);
             jsonQuery.put("features", featuresArray);
-            // System.out.println(jsonQuery);
             backendServerComms.restRequest(CSE_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
                     try {
-                        //Log.d(TAG, "CALLING on Success");
-                        //Log.d(TAG, "Result: " + result.toString());
-                        
                         parseConvoscopeResults(result);
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
                 }
                 @Override
-                public void onFailure(){
+                public void onFailure(int code){
                     Log.d(TAG, "SOME FAILURE HAPPENED (requestUiPoll)");
+                    if (code == 401){
+                        setAuthToken();
+                    }
                 }
-
             });
         } catch (JSONException e){
             e.printStackTrace();
         }
     }
 
-    public void parseLLMQueryResult(JSONObject response) throws JSONException {
+    public void parseSendTranscriptResult(JSONObject response) throws JSONException {
 //        Log.d(TAG, "Got result from server: " + response.toString());
         String message = response.getString("message");
         //DEV
@@ -481,7 +477,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             JSONObject jsonQuery = new JSONObject();
             jsonQuery.put("button_num", buttonNumber);
             jsonQuery.put("button_activity", downUp);
-            jsonQuery.put("Authorization", Config.authToken);
+            jsonQuery.put("Authorization", authToken);
             jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
             backendServerComms.restRequest(BUTTON_EVENT_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
@@ -496,7 +492,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                     }
                 }
                 @Override
-                public void onFailure(){
+                public void onFailure(int code){
                     Log.d(TAG, "SOME FAILURE HAPPENED (buttonDownEvent)");
                 }
 
@@ -512,5 +508,28 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         String newNum = receivedEvent.phoneNumber;
         phoneNumName = receivedEvent.name;
         phoneNum = newNum.replaceAll("[^0-9]", "");
+    }
+
+    public void setAuthToken(){
+        Log.d(TAG, "GETTING AUTH TOKEN");
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            user.getIdToken(true)
+                .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                    public void onComplete(@NonNull Task<GetTokenResult> task) {
+                        if (task.isSuccessful()) {
+                            String idToken = task.getResult().getToken();
+                            Log.d(TAG, "Auth Token: " + idToken);
+                            authToken = idToken;
+                        } else {
+                            // Handle error -> task.getException();
+                        }
+                    }
+                });
+        }
+        else {
+            // not logged in, must log in
+
+        }
     }
 }

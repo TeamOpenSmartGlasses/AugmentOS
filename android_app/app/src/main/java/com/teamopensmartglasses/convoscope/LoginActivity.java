@@ -91,7 +91,6 @@ public class LoginActivity extends AppCompatActivity {
                       String idToken = task.getResult().getToken();
                       // Use the idToken for your app logic
                       Log.d(TAG, "Auth Token: " + idToken);
-                      Config.authToken = "";
                       navigateToMainActivityForSuccess();
                     } else {
                       // Handle error -> task.getException();
@@ -223,9 +222,6 @@ public class LoginActivity extends AppCompatActivity {
     // Navigate back to MainActivity
     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
     startActivity(intent);
-
-    // Optionally, add this if you want to clear the activity stack
-    // and prevent the user from returning to the LoginActivity via the back button
     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
     finish();
   }

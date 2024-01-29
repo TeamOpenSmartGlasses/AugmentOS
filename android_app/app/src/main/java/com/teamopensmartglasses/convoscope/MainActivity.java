@@ -147,11 +147,8 @@ public class MainActivity extends AppCompatActivity {
 
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     if (user != null) {
-      // User is signed in
-      //start the main Convoscope backend, if it's not already running
       startConvoscopeService();
     } else {
-      // No user is signed in
       Intent intent = new Intent(this, LoginActivity.class);
       startActivity(intent);
     }
