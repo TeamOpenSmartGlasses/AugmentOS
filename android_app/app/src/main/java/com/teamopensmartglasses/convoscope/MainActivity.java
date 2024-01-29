@@ -458,7 +458,7 @@ public class MainActivity extends AppCompatActivity {
               public void onComplete(@NonNull Task<Void> task) {
                 Log.d(TAG, "LOGGED OUT");
                 stopService(new Intent(MainActivity.this, ConvoscopeService.class));
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                Intent intent = new Intent(MainActivity.this, LandingActivity.class);
                 startActivity(intent);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 finish();
