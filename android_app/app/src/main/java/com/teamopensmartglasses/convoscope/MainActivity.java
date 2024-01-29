@@ -89,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
   public static final String UI_UPDATE_FINAL_TRANSCRIPT = "UI_UPDATE_FINAL_TRANSCRIPT";
   public static final String CONVOSCOPE_MESSAGE_STRING = "CONVOSCOPE_MESSAGE_STRING";
   public static final String FINAL_TRANSCRIPT = "FINAL_TRANSCRIPT";
-  Switch serviceToggleSwitch;
   private SmartGlassesDevice selectedDevice;
 
   @SuppressLint("ClickableViewAccessibility")
@@ -118,16 +117,6 @@ public class MainActivity extends AppCompatActivity {
       }
       else {
         EventBus.getDefault().post(new SharingContactChangedEvent("", ""));
-      }
-    });
-
-    serviceToggleSwitch = findViewById(R.id.serviceToggle);
-    serviceToggleSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-      if(isChecked) {
-        startConvoscopeService();
-      }
-      else {
-        stopConvoscopeService();
       }
     });
 
@@ -258,7 +247,6 @@ public class MainActivity extends AppCompatActivity {
     Intent stopIntent = new Intent(this, ConvoscopeService.class);
     stopIntent.setAction(ConvoscopeService.ACTION_STOP_FOREGROUND_SERVICE);
     startService(stopIntent);
-    serviceToggleSwitch.setChecked(false);
   }
 
   public void sendConvoscopeServiceMessage(String message) {
@@ -279,7 +267,6 @@ public class MainActivity extends AppCompatActivity {
     startIntent.setAction(ConvoscopeService.ACTION_START_FOREGROUND_SERVICE);
     startService(startIntent);
     bindConvoscopeService();
-    serviceToggleSwitch.setChecked(true);
   }
 
   //check if service is running
