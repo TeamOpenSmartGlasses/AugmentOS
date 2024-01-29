@@ -11,6 +11,7 @@ import static com.teamopensmartglasses.convoscope.Constants.*;
 import android.content.Context;
 import android.util.Log;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -86,20 +87,26 @@ public class BackendServerComms {
                             if (response.has("message")) {
                                 callback.onSuccess(response);
                             } else {
-                                callback.onFailure();
+                                callback.onFailure(-1);
                             }
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-                Log.d(TAG, "Failure sending data.");
+                if (error instanceof AuthFailureError) {
+                    Log.d("Volley", "Authentication Failure: " + error.toString());
+                    callback.onFailure(401);
+                }
+                else {
+                    error.printStackTrace();
+                    Log.d(TAG, "Failure sending data.");
 //                if (retry < 3) {
 //                    retry += 1;
 //                    refresh();
 //                    search(query);
 //                }
+                }
             }
         });
 
