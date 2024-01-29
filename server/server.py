@@ -396,6 +396,21 @@ async def rate_result_handler(request):
     res = db_handler.rate_result_by_uuid(user_id=user_id, result_uuid=result_uuid, rating=rating)
     return web.Response(text=json.dumps({'success': True, 'message': str(res)}), status=200)
 
+async def summarize_conversation_handler(request):
+    body = await request.json()
+    user_id = body.get('userId')
+
+     # 400 if missing params
+    if user_id is None or user_id == '':
+        print("user_id none in rate_result, exiting with error response 400.")
+        return web.Response(text='no userId in request', status=400)
+    
+    user = db_handler.get_user(user_id)
+    # HACK
+    await call_explicit_agent(user, "Please summarize the conversation so far")
+
+    return web.Response(text=json.dumps({'success': True, 'message': "got summarize conversation request"}), status=200)
+
 if __name__ == '__main__':
     print("Starting server...")
     agent_executor = ThreadPoolExecutor()
@@ -439,6 +454,7 @@ if __name__ == '__main__':
             web.post('/run_single_agent', run_single_expert_agent_handler),
             web.post('/send_agent_chat', send_agent_chat_handler),
             web.post('/rate_result', rate_result_handler),
+            web.post('/summarize_conversation', summarize_conversation_handler),
             web.post('/start_recording', start_recording_handler),
             web.post('/save_recording', save_recording_handler),
             web.post('/load_recording', load_recording_handler)
