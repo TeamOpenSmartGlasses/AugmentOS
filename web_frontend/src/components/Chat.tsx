@@ -17,7 +17,10 @@ import {
 } from "@tabler/icons-react";
 import { PropsWithChildren, useEffect, useRef, useState } from "react";
 import axiosClient from "../axiosConfig";
-import { SEND_AGENT_CHAT_ENDPOINT } from "../serverEndpoints";
+import {
+  SEND_AGENT_CHAT_ENDPOINT,
+  SUMMARIZE_CONVERSATION_ENDPOINT,
+} from "../serverEndpoints";
 import { explicitInsightsState, isExplicitListeningState } from "../recoil";
 import { useRecoilValue } from "recoil";
 import StyledButton from "./StyledButton";
@@ -57,6 +60,13 @@ const Chat = () => {
       setUserInputValue("");
       setIsMiraLoading(true);
     }
+  };
+
+  const handleSummarize = () => {
+    const payload = {
+      userId: window.userId,
+    };
+    axiosClient.post(SUMMARIZE_CONVERSATION_ENDPOINT, payload);
   };
 
   useEffect(() => {
@@ -152,6 +162,7 @@ const Chat = () => {
           size="md"
           sx={{ flex: "1 1 0" }}
           rightIcon={<IconFile />}
+          onClick={handleSummarize}
         >
           Summarize
         </StyledButton>
