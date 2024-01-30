@@ -36,7 +36,7 @@ const CardScrollArea = () => {
                   if (entity.url) window.open(entity.url, "_blank");
                 }}
                 large={i === 0 && !isExplicitListening}
-                pointer={entity.url !== undefined}
+                pointer={Boolean(entity.url)}
               />
             </Collapse>
           ))}
