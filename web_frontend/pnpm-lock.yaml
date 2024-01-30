@@ -14,6 +14,9 @@ dependencies:
   '@mantine/hooks':
     specifier: ^6.0.19
     version: 6.0.19(react@18.2.0)
+  '@mantine/utils':
+    specifier: ^6.0.21
+    version: 6.0.21(react@18.2.0)
   '@material-ui/core':
     specifier: ^4.12.4
     version: 4.12.4(@types/react@18.2.15)(react-dom@18.2.0)(react@18.2.0)
@@ -602,6 +605,14 @@ packages:
 
   /@mantine/utils@6.0.19(react@18.2.0):
     resolution: {integrity: sha512-duvtnaW1gDR2gnvUqnWhl6DMW7sN0HEWqS8Z/BbwaMi75U+Xp17Q72R9JtiIrxQbzsq+KvH9L9B/pxMVwbLirg==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
+  /@mantine/utils@6.0.21(react@18.2.0):
+    resolution: {integrity: sha512-33RVDRop5jiWFao3HKd3Yp7A9mEq4HAJxJPTuYm1NkdqX6aTKOQK7wT8v8itVodBp+sb4cJK6ZVdD1UurK/txQ==}
     peerDependencies:
       react: '>=16.8.0'
     dependencies:

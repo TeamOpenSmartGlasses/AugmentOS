@@ -1,20 +1,16 @@
-import { Stack, rem, useMantineTheme } from "@mantine/core";
+import { Stack, createStyles } from "@mantine/core";
 import Chat from "./Chat";
+import { cardStyles } from "../theme";
+
+const useStyles = createStyles({
+  card: { ...cardStyles, overflow: "clip" },
+});
 
 const ToolsPanel = () => {
-  const theme = useMantineTheme();
+  const { classes } = useStyles();
 
   return (
-    <Stack
-      h="100%"
-      sx={{
-        gap: 0,
-        backgroundColor: theme.colors.cardFill,
-        border: `1.5px solid ${theme.colors.cardStroke}`,
-        borderRadius: rem(30),
-        overflow: "clip",
-      }}
-    >
+    <Stack className={classes.card} h="100%">
       <Chat />
     </Stack>
   );

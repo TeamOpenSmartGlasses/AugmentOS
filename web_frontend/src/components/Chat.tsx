@@ -1,13 +1,12 @@
 import {
-  ActionIcon,
   Box,
   Flex,
   ScrollArea,
   Textarea,
   Text,
   Stack,
-  Button,
   Group,
+  rem,
 } from "@mantine/core";
 import {
   IconArrowUp,
@@ -21,6 +20,7 @@ import axiosClient from "../axiosConfig";
 import { SEND_AGENT_CHAT_ENDPOINT } from "../serverEndpoints";
 import { explicitInsightsState, isExplicitListeningState } from "../recoil";
 import { useRecoilValue } from "recoil";
+import StyledButton from "./StyledButton";
 
 enum Sender {
   MIRA = "Mira",
@@ -34,6 +34,7 @@ interface Message {
 
 const Chat = () => {
   const [userInputValue, setUserInputValue] = useState("");
+  const [userInputFocused, setUserInputFocused] = useState(false);
   const [history, setHistory] = useState<Message[]>([]);
   const [isMiraLoading, setIsMiraLoading] = useState(false);
   const [isUserLoading, setIsUserLoading] = useState(false);
@@ -100,7 +101,7 @@ const Chat = () => {
   }, [history]);
 
   return (
-    <Flex h="100%" p="md" bg="rgb(52,53,65)" direction="column">
+    <Flex h="100%" p="md" direction="column">
       {history.length === 0 && !isUserLoading && !isMiraLoading && (
         <Stack m="auto">
           <Box w="3rem" h="3rem" m="auto">
@@ -146,34 +147,39 @@ const Chat = () => {
         )}
       </ScrollArea>
       <Group py="xs" mt="auto">
-        <Button
+        <StyledButton
           variant="default"
           size="md"
           sx={{ flex: "1 1 0" }}
           rightIcon={<IconFile />}
         >
           Summarize
-        </Button>
-        <Button
+        </StyledButton>
+        <StyledButton
           variant="default"
           size="md"
           sx={{ flex: "1 1 0" }}
           rightIcon={<IconShare />}
         >
           Share
-        </Button>
+        </StyledButton>
       </Group>
       <Flex
         direction="row"
         gap="xs"
         w="100%"
-        p="xs"
+        p="sm"
         h="min-content"
-        sx={{
-          borderRadius: "0.25rem",
-          outline: "1px solid #8e8ea0",
+        sx={(theme) => ({
+          borderRadius: rem(30),
+          outline: `1.5px solid ${
+            userInputFocused
+              ? theme.colors.convoscopeBlue
+              : theme.colors.cardStroke
+          }`,
+          transition: "0.2s",
           background: "rgba(0,0,0,0)",
-        }}
+        })}
       >
         <Textarea
           value={userInputValue}
@@ -198,16 +204,15 @@ const Chat = () => {
               minHeight: "unset",
             },
           }}
+          onFocus={() => setUserInputFocused(true)}
+          onBlur={() => setUserInputFocused(false)}
         />
-        <ActionIcon
-          variant="filled"
-          size="lg"
-          mt="auto"
-          bg="black"
-          onClick={handleSendMessage}
-        >
-          <IconArrowUp size="1.125rem" />
-        </ActionIcon>
+        <StyledButton mt="auto" onClick={handleSendMessage}>
+          <IconArrowUp
+            size={rem(18)}
+            style={{ position: "absolute", marginLeft: rem(-9) }}
+          />
+        </StyledButton>
       </Flex>
     </Flex>
   );
