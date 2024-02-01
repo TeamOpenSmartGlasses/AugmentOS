@@ -19,13 +19,13 @@ import { useEffect } from "react";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyAUeuWnv5XBqhlp3SyTvY-kwo7cZkIDbvw",
-  authDomain: "alexwearllm.firebaseapp.com",
-  projectId: "alexwearllm",
-  storageBucket: "alexwearllm.appspot.com",
-  messagingSenderId: "668396061442",
-  appId: "1:668396061442:web:9148796b76767bfa15781b",
-  measurementId: "G-6Q131BK64W",
+  apiKey: "AIzaSyAWE0kOCylMU0CbyCac6tZyYgCaBgrIvOw",
+  authDomain: "convoscope-dab5e.firebaseapp.com",
+  projectId: "convoscope-dab5e",
+  storageBucket: "convoscope-dab5e.appspot.com",
+  messagingSenderId: "57798059243",
+  appId: "1:57798059243:web:590b3e0b8c56a03ccf4aae",
+  measurementId: "G-2RF6F0YYTM"
 };
 
 // Initialize Firebase
