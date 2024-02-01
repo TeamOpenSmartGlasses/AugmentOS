@@ -18,9 +18,7 @@ import com.google.firebase.auth.GetTokenResult;
 import com.teamopensmartglasses.convoscope.events.SharingContactChangedEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
-
-import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
+import com.teamopensmartglasses.convoscope.ui.ConvoscopeUi;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SpeechRecOutputEvent;
 
@@ -31,6 +29,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartRingButtonOutputEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SpeechRecOutputEvent;
 
 public class ConvoscopeService extends SmartGlassesAndroidService {
     public final String TAG = "Convoscope_ConvoscopeService";
@@ -69,7 +72,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private final long doubleTapTimeConst = 600;
 
     public ConvoscopeService() {
-        super(MainActivity.class,
+        super(ConvoscopeUi.class,
                 "convoscope_app",
                 3288,
                 "Convoscope",
@@ -96,7 +99,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         smsComms = new SMSComms();
 
-        //this.aioConnectSmartGlasses();
+        this.aioConnectSmartGlasses();
     }
 
     public void setUpCsePolling(){
@@ -436,22 +439,22 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     public void sendUiUpdateFull(){
         Intent intent = new Intent();
-        intent.setAction(MainActivity.UI_UPDATE_FULL);
-        intent.putStringArrayListExtra(MainActivity.CONVOSCOPE_MESSAGE_STRING, responses);
+        intent.setAction(ConvoscopeUi.UI_UPDATE_FULL);
+        intent.putStringArrayListExtra(ConvoscopeUi.CONVOSCOPE_MESSAGE_STRING, responses);
         sendBroadcast(intent);
     }
 
     public void sendUiUpdateSingle(String message) {
         Intent intent = new Intent();
-        intent.setAction(MainActivity.UI_UPDATE_SINGLE);
-        intent.putExtra(MainActivity.CONVOSCOPE_MESSAGE_STRING, message);
+        intent.setAction(ConvoscopeUi.UI_UPDATE_SINGLE);
+        intent.putExtra(ConvoscopeUi.CONVOSCOPE_MESSAGE_STRING, message);
         sendBroadcast(intent);
     }
 
     public void sendFinalTranscriptToActivity(String transcript){
         Intent intent = new Intent();
-        intent.setAction(MainActivity.UI_UPDATE_FINAL_TRANSCRIPT);
-        intent.putExtra(MainActivity.FINAL_TRANSCRIPT, transcript);
+        intent.setAction(ConvoscopeUi.UI_UPDATE_FINAL_TRANSCRIPT);
+        intent.putExtra(ConvoscopeUi.FINAL_TRANSCRIPT, transcript);
         sendBroadcast(intent);
     }
 

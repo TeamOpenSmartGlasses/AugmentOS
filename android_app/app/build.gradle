@@ -97,5 +97,5 @@ dependencies {
     implementation("org.greenrobot:eventbus:3.3.1")
 
     //SGMLib library
-    implementation project (":SGMLib")
+    implementation project (":SmartGlassesManager")
 }

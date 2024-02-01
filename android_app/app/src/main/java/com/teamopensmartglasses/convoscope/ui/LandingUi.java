@@ -46,7 +46,7 @@ public class LandingUi extends Fragment {
     if (user != null) {
       //startMainActivity();
       //TODO: I think this is it?
-      navController.navigate(R.id.main_container);
+      navController.navigate(R.id.nav_convoscope);
     }
 
     final Button landingButton = view.findViewById(R.id.landing_button);
@@ -54,7 +54,7 @@ public class LandingUi extends Fragment {
       public void onClick(View v) {
         //startMainActivity();
         //navController.navigate(R.id.main_container);
-        navController.navigate(R.id.nav_landing);
+        navController.navigate(R.id.nav_convoscope);
       }
     });
   }

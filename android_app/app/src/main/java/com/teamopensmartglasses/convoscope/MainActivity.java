@@ -18,56 +18,34 @@ package com.teamopensmartglasses.convoscope;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
-import android.app.AlertDialog;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.provider.ContactsContract;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.teamopensmartglasses.convoscope.events.SharingContactChangedEvent;
-import com.teamopensmartglasses.convoscope.events.UserIdChangedEvent;
 import com.teamopensmartglasses.convoscope.ui.LandingUi;
-import com.teamopensmartglasses.convoscope.ui.LoginUi;
 import com.teamopensmartglasses.convoscope.ui.SelectSmartGlassesUi;
-import com.teamopensmartglasses.convoscope.ui.SettingsUi;
 import com.teamopensmartglasses.convoscope.ui.UiUtils;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.utils.PermissionsUtils;
-
-import org.greenrobot.eventbus.EventBus;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
   public final String TAG = "Convoscope_MainActivity";
@@ -81,17 +59,7 @@ public class MainActivity extends AppCompatActivity {
   private static final int SEND_SMS_PERMISSION_REQUEST_CODE = 1234;
   private static final int PICK_CONTACT_REQUEST = 1;
   private static final int READ_CONTACTS_PERMISSIONS_REQUEST = 2;
-  //UI
-  private ResponseTextUiAdapter responseTextUiAdapter;
-  private RecyclerView responseRecyclerView;
-  private TranscriptTextUiAdapter transcriptTextUiAdapter;
-  private RecyclerView transcriptRecyclerView;
-  public static final String UI_UPDATE_FULL = "UI_UPDATE_FULL";
-  public static final String UI_UPDATE_SINGLE = "UI_UPDATE_SINGLE";
-  public static final String UI_UPDATE_FINAL_TRANSCRIPT = "UI_UPDATE_FINAL_TRANSCRIPT";
-  public static final String CONVOSCOPE_MESSAGE_STRING = "CONVOSCOPE_MESSAGE_STRING";
-  public static final String FINAL_TRANSCRIPT = "FINAL_TRANSCRIPT";
-  private static final String defaultFragmentLabel = "Convoscope";
+
   public SmartGlassesDevice selectedDevice;
 
   @SuppressLint("ClickableViewAccessibility")
@@ -100,47 +68,6 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     mBound = false;
-
-    //setup UI
-    responseRecyclerView = findViewById(R.id.recyclerView);
-    responseRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-    responseTextUiAdapter = new ResponseTextUiAdapter(new ArrayList<>());
-    responseRecyclerView.setAdapter(responseTextUiAdapter);
-    transcriptRecyclerView = findViewById(R.id.rawTranscriptsRecyclerView);
-    transcriptRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-    transcriptTextUiAdapter = new TranscriptTextUiAdapter(new ArrayList<>());
-    transcriptRecyclerView.setAdapter(transcriptTextUiAdapter);
-
-    //buttons
-    final Switch toggleSharingSwitch = findViewById(R.id.toggleSharingSwitch);
-    toggleSharingSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-      //EventBus.getDefault().post(new ToggleEnableSharingEvent(isChecked));
-      if(isChecked) {
-        pickContact();
-      }
-      else {
-        EventBus.getDefault().post(new SharingContactChangedEvent("", ""));
-      }
-    });
-
-    final Button settingsButton = findViewById(R.id.settings_button);
-    settingsButton.setOnClickListener(v -> openSettingsFragment());
-
-    Button pickContactButton = findViewById(R.id.pick_contact_button);
-    pickContactButton.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_CONTACTS)
-                != PackageManager.PERMISSION_GRANTED) {
-          ActivityCompat.requestPermissions(MainActivity.this,
-                  new String[]{Manifest.permission.READ_CONTACTS},
-                  READ_CONTACTS_PERMISSIONS_REQUEST);
-        } else {
-          pickContact();
-        }
-      }
-    });
-
 
     //setup the nav bar
     NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
@@ -158,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
   @Override
   public void onStart() {
     super.onStart();
-    UiUtils.setupTitle(this, defaultFragmentLabel);
+    UiUtils.setupTitle(this, "Convoscope");
 
     permissionsUtils = new PermissionsUtils(this, TAG);
     permissionsUtils.getSomePermissions();
@@ -209,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
       case READ_CONTACTS_PERMISSIONS_REQUEST:
         if (grantResults.length > 0 &&
                 grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-          pickContact();
+          //pickContact();
         } else {
           Toast.makeText(this, "Permission to read contacts denied", Toast.LENGTH_SHORT).show();
         }
@@ -220,13 +147,9 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onResume() {
     super.onResume();
-    UiUtils.setupTitle(this, defaultFragmentLabel);
+//    UiUtils.setupTitle(this, defaultFragmentLabel);
     //register receiver that gets data from the service
-    registerReceiver(mMainServiceReceiver, makeMainServiceReceiverIntentFilter());
 
-    //scroll to bottom of scrolling UIs
-    responseRecyclerView.scrollToPosition(responseTextUiAdapter.getItemCount() - 1);
-    transcriptRecyclerView.scrollToPosition(transcriptTextUiAdapter.getItemCount() - 1);
 
     if (isMyServiceRunning(ConvoscopeService.class)) {
       //bind to WearableAi service
@@ -245,9 +168,6 @@ public class MainActivity extends AppCompatActivity {
 
     //unbind wearableAi service
     unbindConvoscopeService();
-
-    //unregister receiver
-    unregisterReceiver(mMainServiceReceiver);
   }
 
   public void stopConvoscopeService() {
@@ -322,136 +242,41 @@ public class MainActivity extends AppCompatActivity {
     }
   };
 
-  //UI
-  private static IntentFilter makeMainServiceReceiverIntentFilter() {
-    final IntentFilter intentFilter = new IntentFilter();
-    intentFilter.addAction(UI_UPDATE_FULL);
-    intentFilter.addAction(UI_UPDATE_SINGLE);
-    intentFilter.addAction(UI_UPDATE_FINAL_TRANSCRIPT);
-
-    return intentFilter;
-  }
-
-  private final BroadcastReceiver mMainServiceReceiver = new BroadcastReceiver() {
-    @Override
-    public void onReceive(Context context, Intent intent) {
-      final String action = intent.getAction();
-      if (UI_UPDATE_SINGLE.equals(action)) {
-        String message = intent.getStringExtra(CONVOSCOPE_MESSAGE_STRING);
-        if (!message.equals("") && !message.equals(null)) {
-          Log.d(TAG, "Got message: " + message);
-          addResponseTextBox(message);
-        }
-      } else if (UI_UPDATE_FULL.equals(action)){
-        responseTextUiAdapter.clearTexts();
-        ArrayList<String> messages = intent.getStringArrayListExtra(CONVOSCOPE_MESSAGE_STRING);
-        for(String message : messages) {
-          addResponseTextBox(message);
-        }
-      } else if (UI_UPDATE_FINAL_TRANSCRIPT.equals(action)){
-        String transcript = intent.getStringExtra(FINAL_TRANSCRIPT);
-        addTranscriptTextBox(transcript);
-      }
-    }
-  };
-
-  // Call this method to add a new text box to the list
-  public void addResponseTextBox(String text) {
-    responseTextUiAdapter.addText(text);
-    responseRecyclerView.smoothScrollToPosition(responseTextUiAdapter.getItemCount() - 1);
-  }
-
-  // Call this method to add a new text box to the list
-  public void addTranscriptTextBox(String text) {
-    transcriptTextUiAdapter.addText(text);
-    transcriptRecyclerView.smoothScrollToPosition(transcriptTextUiAdapter.getItemCount() - 1);
-  }
-
-  private void pickContact() {
-    Intent pickContactIntent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-    startActivityForResult(pickContactIntent, PICK_CONTACT_REQUEST);
-  }
 
 
   @Override
   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
-    if (requestCode == PICK_CONTACT_REQUEST && resultCode == RESULT_OK) {
-      Uri contactUri = data.getData();
-
-      // Perform another query to get the contact's details
-      Cursor cursor = getContentResolver().query(contactUri, null,
-              null, null, null);
-
-      if (cursor != null && cursor.moveToFirst()) {
-        String id = cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.Contacts._ID));
-
-        Cursor phones = getContentResolver().query(
-                ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-                null,
-                ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + id,
-                null, null);
-
-        while (phones != null && phones.moveToNext()) {
-          @SuppressLint("Range") String phoneNumber = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-          @SuppressLint("Range") String name = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
-          Toast.makeText(this, "Phone number: " + phoneNumber, Toast.LENGTH_LONG).show();
-          EventBus.getDefault().post(new SharingContactChangedEvent(name, phoneNumber));
-        }
-
-        cursor.close();
-
-        if (phones != null) {
-          phones.close();
-        }
-      }
-    }
-  }
-
-  // Change UserID button
-  public void showTextInputDialog(Context context) {
-    AlertDialog.Builder builder = new AlertDialog.Builder(context);
-    builder.setTitle("Enter new UserID");
-
-    // Set up the input
-    final EditText input = new EditText(context);
-    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.MATCH_PARENT,
-            LinearLayout.LayoutParams.MATCH_PARENT);
-    input.setLayoutParams(lp);
-    builder.setView(input);
-
-    // Set up the buttons
-    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-      @Override
-      public void onClick(DialogInterface dialog, int which) {
-        String result = input.getText().toString();
-        // Use the text result as needed
-        handleTextInputResult(result);
-      }
-    });
-    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-      @Override
-      public void onClick(DialogInterface dialog, int which) {
-        dialog.cancel();
-      }
-    });
-
-    builder.show();
-  }
-
-  private void handleTextInputResult(String result) {
-    // Handle the text input result here
-    Toast.makeText(this, "Set UserID to: " + result, Toast.LENGTH_SHORT).show();
-    EventBus.getDefault().post(new UserIdChangedEvent(result));
-  }
-
-  private void openSettingsFragment() {
-    SettingsUi settingsFragment = new SettingsUi();
-    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-    transaction.replace(R.id.main_container, settingsFragment);
-    transaction.addToBackStack(null); // Add to back stack for back button support
-    transaction.commit();
+//    if (requestCode == PICK_CONTACT_REQUEST && resultCode == RESULT_OK) {
+//      Uri contactUri = data.getData();
+//
+//      // Perform another query to get the contact's details
+//      Cursor cursor = getContentResolver().query(contactUri, null,
+//              null, null, null);
+//
+//      if (cursor != null && cursor.moveToFirst()) {
+//        String id = cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.Contacts._ID));
+//
+//        Cursor phones = getContentResolver().query(
+//                ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+//                null,
+//                ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + id,
+//                null, null);
+//
+//        while (phones != null && phones.moveToNext()) {
+//          @SuppressLint("Range") String phoneNumber = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+//          @SuppressLint("Range") String name = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+//          Toast.makeText(this, "Phone number: " + phoneNumber, Toast.LENGTH_LONG).show();
+//          EventBus.getDefault().post(new SharingContactChangedEvent(name, phoneNumber));
+//        }
+//
+//        cursor.close();
+//
+//        if (phones != null) {
+//          phones.close();
+//        }
+//      }
+//    }
   }
 
   @Override
