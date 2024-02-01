@@ -13,12 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.teamopensmartglasses.convoscope;
+package com.teamopensmartglasses.convoscope.ui;
+import static android.app.Activity.RESULT_OK;
+
+import static androidx.core.app.ActivityCompat.finishAffinity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,6 +36,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
 import androidx.activity.result.ActivityResultCallback;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
 import com.firebase.ui.auth.IdpResponse;
@@ -34,12 +48,15 @@ import com.google.firebase.auth.ActionCodeSettings;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import com.teamopensmartglasses.convoscope.Config.*;
+
+import com.teamopensmartglasses.convoscope.ConvoscopeService;
+import com.teamopensmartglasses.convoscope.MainActivity;
+import com.teamopensmartglasses.convoscope.R;
 
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginUi extends Fragment {
   public final String TAG = "Convoscope_LoginActivity";
-
+  private NavController navController;
   // [START auth_fui_create_launcher]
   // See: https://developer.android.com/training/basics/intents/result
   private final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
@@ -51,14 +68,29 @@ public class LoginActivity extends AppCompatActivity {
             }
           }
   );
-  // [END auth_fui_create_launcher]
+
+  public LoginUi(){}
 
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
+  public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                           Bundle savedInstanceState) {
+    // Inflate the layout for this fragment
+    return inflater.inflate(R.layout.landing_fragment, container, false);
+  }
+
+  @Override
+  public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_login);
+    navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
     createSignInIntent();
   }
+
+//  @Override
+//  protected void onCreate(Bundle savedInstanceState) {
+//    super.onCreate(savedInstanceState);
+//    setContentView(R.layout.activity_login);
+//    createSignInIntent();
+//  }
 
   public void createSignInIntent() {
     // Choose authentication providers
@@ -77,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
 
   private void onSignInResult(FirebaseAuthUIAuthenticationResult result) {
     IdpResponse response = result.getIdpResponse();
-    if (result.getResultCode() == RESULT_OK) {
+    if (result.getResultCode() == RESULT_OK) { //TODO: check where we're getting this value from
       // Successfully signed in
       FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
       Log.d(TAG, "WOAH LOGGED IN");
@@ -110,7 +142,7 @@ public class LoginActivity extends AppCompatActivity {
   }
   public void signOut() {
     AuthUI.getInstance()
-            .signOut(this)
+            .signOut(getActivity())
             .addOnCompleteListener(new OnCompleteListener<Void>() {
               public void onComplete(@NonNull Task<Void> task) {
                 Log.d(TAG, "LOGGED OUT");
@@ -123,7 +155,7 @@ public class LoginActivity extends AppCompatActivity {
 
   public void delete() {
     AuthUI.getInstance()
-            .delete(this)
+            .delete(getActivity())
             .addOnCompleteListener(new OnCompleteListener<Void>() {
               @Override
               public void onComplete(@NonNull Task<Void> task) {
@@ -188,62 +220,44 @@ public class LoginActivity extends AppCompatActivity {
     signInLauncher.launch(signInIntent);
     // [END auth_fui_email_link]
   }
-
-  public void catchEmailLink() {
-    List<AuthUI.IdpConfig> providers = Collections.emptyList();
-
-    // [START auth_fui_email_link_catch]
-    if (AuthUI.canHandleIntent(getIntent())) {
-      if (getIntent().getExtras() == null) {
-        return;
-      }
-      String link = getIntent().getExtras().getString("email_link_sign_in");
-      if (link != null) {
-        Intent signInIntent = AuthUI.getInstance()
-                .createSignInIntentBuilder()
-                .setEmailLink(link)
-                .setAvailableProviders(providers)
-                .build();
-        signInLauncher.launch(signInIntent);
-      }
-    }
-    // [END auth_fui_email_link_catch]
-  }
+//
+//  public void catchEmailLink() {
+//    List<AuthUI.IdpConfig> providers = Collections.emptyList();
+//
+//    // [START auth_fui_email_link_catch]
+//    if (AuthUI.canHandleIntent(getIntent())) {
+//      if (getIntent().getExtras() == null) {
+//        return;
+//      }
+//      String link = getIntent().getExtras().getString("email_link_sign_in");
+//      if (link != null) {
+//        Intent signInIntent = AuthUI.getInstance()
+//                .createSignInIntentBuilder()
+//                .setEmailLink(link)
+//                .setAvailableProviders(providers)
+//                .build();
+//        signInLauncher.launch(signInIntent);
+//      }
+//    }
+//    // [END auth_fui_email_link_catch]
+//  }
 
   public void restartLoginActivity(){
     // Restart the LoginActivity
-    Intent intent = new Intent(LoginActivity.this, LoginActivity.class);
-    startActivity(intent);
-    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-    finish();
+    int id = navController.getCurrentDestination().getId();
+    navController.popBackStack(id, true);
+    navController.navigate(id);
   }
 
   public void navigateToMainActivityForSuccess(){
     // Navigate back to MainActivity
-    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-    startActivity(intent);
-    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-    finish();
+    //navController.navigate(R.id.main_container);
+    navController.popBackStack(R.id.main_container, true);
   }
 
   public void killApp(){
-    stopService(new Intent(this, ConvoscopeService.class));
-    finishAffinity();
+    //getActivity()stopService(new Intent(getActivity(), ConvoscopeService.class));
+    //finishAffinity(getActivity());
     System.exit(0);
   }
-
-
-//
-//  public void setAuthToken(String newAuthToken){
-//    SharedPreferences sharedPreferences = getSharedPreferences(appName, MODE_PRIVATE);
-//    SharedPreferences.Editor editor = sharedPreferences.edit();
-//    editor.putString("authToken", newAuthToken);
-//    editor.apply();
-//  }
-//
-//  public String getAuthToken(){
-//    SharedPreferences sharedPreferences = getSharedPreferences(appName, MODE_PRIVATE);
-//    String value = sharedPreferences.getString("authToken", "");
-//    return value;
-//  }
 }

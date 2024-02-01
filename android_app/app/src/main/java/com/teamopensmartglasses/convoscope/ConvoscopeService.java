@@ -85,23 +85,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         responsesToShare = new ArrayList<>();
         responses.add("Welcome to Convoscope.");
 
-        //Create SGMLib instance with context: this
-        //sgmLib = new SGMLib(this);
-
-        //Define command with a UUID
-        //UUID commandUUID = UUID.fromString("5b824bb6-d3b3-417d-8c74-3b103efb403f");
-        //SGMCommand command = new SGMCommand("Convoscope", commandUUID, new String[]{"convoscope", "wearable intelligence"}, "AI wearable intelligence.");
-
-        //Register the command
-        //Log.d(TAG, "Registering Convoscope command with SGMLib");
-        //sgmLib.registerCommand(command, this::convoscopeStartCommandCallback);
-
         //setup backend comms
         backendServerComms = new BackendServerComms(this);
 
-        Log.d(TAG, "Convoscope SERVICE STARTED");
-
-        //EventBus.getDefault().register(this);
+        Log.d(TAG, "Convoscope service started");
 
         setAuthToken();
         setUpCsePolling();
@@ -109,7 +96,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         smsComms = new SMSComms();
 
-        this.aioConnectSmartGlasses();
+        //this.aioConnectSmartGlasses();
     }
 
     public void setUpCsePolling(){

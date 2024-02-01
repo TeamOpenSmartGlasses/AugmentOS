@@ -24,19 +24,20 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.teamopensmartglasses.convoscope.ConvoscopeService;
-import com.teamopensmartglasses.convoscope.LoginActivity;
 import com.teamopensmartglasses.convoscope.MainActivity;
-import com.teamopensmartglasses.smartglassesmanager.R;
+import com.teamopensmartglasses.convoscope.R;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
 
 public class SettingsUi extends Fragment {
     private  final String TAG = "WearableAi_SettingsUIFragment";
 
-    private final String fragmentLabel = "Example Smart Glasses App";
+    private final String fragmentLabel = "Settings";
 
-    //private NavController navController;
+    private NavController navController;
 
     //test card raw data
     public String testCardImg = "https://ichef.bbci.co.uk/news/976/cpsprodpb/7727/production/_103330503_musk3.jpg";
@@ -57,10 +58,9 @@ public class SettingsUi extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //setup the title
-        //UiUtils.setupTitle(getActivity(), fragmentLabel);
+        UiUtils.setupTitle(getActivity(), fragmentLabel);
 
-     //   navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+        navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
         Context mContext = this.getContext();
 
         final Button killServiceButton = view.findViewById(R.id.kill_wearableai_service);
@@ -85,7 +85,8 @@ public class SettingsUi extends Fragment {
                 }
 
                 ((MainActivity)getActivity()).startConvoscopeService();
-                // navController.navigate(R.id.nav_select_smart_glasses);
+                //((MainActivity)getActivity()).openGlassesSelector();
+                navController.navigate(R.id.nav_select_smart_glasses);
             }
         });
 
@@ -128,10 +129,8 @@ public class SettingsUi extends Fragment {
                 //save explicitly as well as force change in case the service is down, we want this to be saved either way
                 if (isChecked) {
                     ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
-                    //ConvoscopeService(ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
                 } else {
                     ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.VOSK_ASR_FRAMEWORK);
-                    //((MainActivity)getActivity()).changeAsrFramework(ASR_FRAMEWORKS.VOSK_ASR_FRAMEWORK);
                 }
             }
         });
@@ -183,12 +182,6 @@ public class SettingsUi extends Fragment {
     }
 
     /** The API won't work without a valid API key. This prompts the user to enter one. */
-    private void showDefaultAppDialog() {
-        LinearLayout contentLayout =
-                (LinearLayout) getLayoutInflater().inflate(R.layout.default_app_dialog, null);
-        EditText keyInput = contentLayout.findViewById(R.id.default_app_input);
-        keyInput.setInputType(InputType.TYPE_CLASS_TEXT);
-    }
 
     public void showNoGoogleAsrDialog(){
         new android.app.AlertDialog.Builder(this.getContext()) .setIcon(android.R.drawable.ic_dialog_alert)
@@ -204,6 +197,7 @@ public class SettingsUi extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        UiUtils.setupTitle(getActivity(), fragmentLabel);
         // Show the back button when the fragment is visible
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -214,5 +208,4 @@ public class SettingsUi extends Fragment {
         // Hide the back button when the fragment is no longer visible
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
-
 }

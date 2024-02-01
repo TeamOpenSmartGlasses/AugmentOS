@@ -33,10 +33,8 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.ContactsContract;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Switch;
@@ -46,6 +44,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.fragment.app.FragmentTransaction;
@@ -56,10 +56,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.teamopensmartglasses.convoscope.events.SharingContactChangedEvent;
-import com.teamopensmartglasses.convoscope.events.ToggleEnableSharingEvent;
 import com.teamopensmartglasses.convoscope.events.UserIdChangedEvent;
+import com.teamopensmartglasses.convoscope.ui.LandingUi;
+import com.teamopensmartglasses.convoscope.ui.LoginUi;
+import com.teamopensmartglasses.convoscope.ui.SelectSmartGlassesUi;
 import com.teamopensmartglasses.convoscope.ui.SettingsUi;
-import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
+import com.teamopensmartglasses.convoscope.ui.UiUtils;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.utils.PermissionsUtils;
 
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
   public final String TAG = "Convoscope_MainActivity";
   public ConvoscopeService mService;
   boolean mBound;
-
+  private NavController navController;
   PermissionsUtils permissionsUtils;
 
   //Permissions
@@ -89,7 +91,8 @@ public class MainActivity extends AppCompatActivity {
   public static final String UI_UPDATE_FINAL_TRANSCRIPT = "UI_UPDATE_FINAL_TRANSCRIPT";
   public static final String CONVOSCOPE_MESSAGE_STRING = "CONVOSCOPE_MESSAGE_STRING";
   public static final String FINAL_TRANSCRIPT = "FINAL_TRANSCRIPT";
-  private SmartGlassesDevice selectedDevice;
+  private static final String defaultFragmentLabel = "Convoscope";
+  public SmartGlassesDevice selectedDevice;
 
   @SuppressLint("ClickableViewAccessibility")
   @Override
@@ -138,18 +141,24 @@ public class MainActivity extends AppCompatActivity {
       }
     });
 
+
+    //setup the nav bar
+    NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+    Log.d(TAG, getSupportFragmentManager().getFragments().toString());
+    navController = navHostFragment.getNavController();
+
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     if (user != null) {
       startConvoscopeService();
     } else {
-      Intent intent = new Intent(this, LoginActivity.class);
-      startActivity(intent);
+      navController.navigate(R.id.nav_login);
     }
   }
 
   @Override
   public void onStart() {
     super.onStart();
+    UiUtils.setupTitle(this, defaultFragmentLabel);
 
     permissionsUtils = new PermissionsUtils(this, TAG);
     permissionsUtils.getSomePermissions();
@@ -211,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onResume() {
     super.onResume();
-
+    UiUtils.setupTitle(this, defaultFragmentLabel);
     //register receiver that gets data from the service
     registerReceiver(mMainServiceReceiver, makeMainServiceReceiverIntentFilter());
 
@@ -458,11 +467,30 @@ public class MainActivity extends AppCompatActivity {
               public void onComplete(@NonNull Task<Void> task) {
                 Log.d(TAG, "LOGGED OUT");
                 stopService(new Intent(MainActivity.this, ConvoscopeService.class));
-                Intent intent = new Intent(MainActivity.this, LandingActivity.class);
+                Intent intent = new Intent(MainActivity.this, LandingUi.class);
                 startActivity(intent);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 finish();
               }
             });
+  }
+
+  public void connectSmartGlasses(SmartGlassesDevice device){
+    this.selectedDevice = device;
+
+    //check if the service is running. If not, we should start it first, so it doesn't die when we unbind
+    if (!isMyServiceRunning(ConvoscopeService.class)){
+      Log.e(TAG, "Something went wrong, service should be started and bound.");
+    } else {
+      mService.connectToSmartGlasses(device);
+    }
+  }
+
+  public void openGlassesSelector() {
+    SelectSmartGlassesUi selectorFragment = new SelectSmartGlassesUi();
+    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+    transaction.replace(com.teamopensmartglasses.convoscope.R.id.main_container, selectorFragment);
+    transaction.addToBackStack(null); // Add to back stack for back button support
+    transaction.commit();
   }
 }
