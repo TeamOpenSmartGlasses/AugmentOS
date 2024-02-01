@@ -31,6 +31,7 @@ from agents.proactive_agents_process import proactive_agents_processing_loop
 from agents.expert_agents import run_single_expert_agent, arun_single_expert_agent
 from agents.explicit_agent_process import explicit_agent_processing_loop, call_explicit_agent
 from agents.proactive_definer_agent_process import proactive_definer_processing_loop
+from agents.language_learning_agent_process import language_learning_agents_processing_loop
 import agents.wake_words
 from Modules.RelevanceFilter import RelevanceFilter
 
@@ -411,18 +412,23 @@ if __name__ == '__main__':
     ##cse_process.start()
 
     # start intelligent definer agent process
-    print("Starting Intelligent Definer Agent process...")
-    intelligent_definer_agent_process = multiprocessing.Process(target=proactive_definer_processing_loop)
-    intelligent_definer_agent_process.start()
+    #print("Starting Intelligent Definer Agent process...")
+    #intelligent_definer_agent_process = multiprocessing.Process(target=proactive_definer_processing_loop)
+    #intelligent_definer_agent_process.start()
 
     # start the proactive agents process
-    print("Starting Proactive Agents process...")
-    proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
+    #print("Starting Proactive Agents process...")
+    #proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
     # proactive_agents_background_process.start()
 
     # start the explicit agent process
     explicit_background_process = multiprocessing.Process(target=explicit_agent_processing_loop)
     explicit_background_process.start()
+
+    # start the language learning app process
+    #print("Starting Language Learning Agents process...")
+    language_learning_background_process = multiprocessing.Process(target=language_learning_agents_processing_loop)
+    language_learning_background_process.start()
 
     # setup and run web app
     # CORS allow from all sources
@@ -457,7 +463,8 @@ if __name__ == '__main__':
     web.run_app(app, port=server_port)
 
     #let processes finish and join
-    proactive_agents_background_process.join()
-    intelligent_definer_agent_process.join()
+    #proactive_agents_background_process.join()
+    #intelligent_definer_agent_process.join()
     #cse_process.join()
+    language_learning_background_process.join()
     explicit_background_process.join()
