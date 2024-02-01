@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "668396061442",
-    "project_id": "alexwearllm",
-    "storage_bucket": "alexwearllm.appspot.com"
+    "project_number": "57798059243",
+    "project_id": "convoscope-dab5e",
+    "storage_bucket": "convoscope-dab5e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:668396061442:android:26fc1ae6b5520ffd15781b",
+        "mobilesdk_app_id": "1:57798059243:android:ad037fb9d27ccce4cf4aae",
         "android_client_info": {
           "package_name": "com.teamopensmartglasses.convoscope"
         }
       },
       "oauth_client": [
         {
-          "client_id": "668396061442-l6pog7iiqolsqiupb32rlagce28p79vm.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.teamopensmartglasses.convoscope",
-            "certificate_hash": "388700c1df1cfb9bde87ba41fbffd9ffc40910bf"
-          }
-        },
-        {
-          "client_id": "668396061442-fsflrj6o639b7u29pat5auvh9fg4dcuj.apps.googleusercontent.com",
+          "client_id": "57798059243-k0v22s9b7i44occjlp8qk0d67ia6j1og.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD_WX_ABBtKYrjWcUujwJMbRjahYCw5w0s"
+          "current_key": "AIzaSyBCrxZVrpMyzuJ1CJ_SanCaibXS7ZocIUQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "668396061442-fsflrj6o639b7u29pat5auvh9fg4dcuj.apps.googleusercontent.com",
+              "client_id": "57798059243-k0v22s9b7i44occjlp8qk0d67ia6j1og.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
