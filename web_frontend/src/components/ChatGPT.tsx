@@ -168,6 +168,12 @@ const ChatGPT = () => {
           autosize
           maxRows={8}
           onChange={(event) => setIntermediateQuery(event.currentTarget.value)}
+            onKeyDown={(event) => {
+            if (event.key === 'Enter' && !event.shiftKey) {
+              event.preventDefault();
+              newUserQuery();
+            }
+          }}
           w="100%"
           placeholder="Message ChatGPT..."
           sx={{
