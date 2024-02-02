@@ -85,7 +85,9 @@ public class SettingsUi extends Fragment {
                 }
                 ((MainActivity)getActivity()).stopConvoscopeService();
                 ((MainActivity)getActivity()).startConvoscopeService();
-                navController.navigate(R.id.nav_select_smart_glasses);
+
+                //TODO: Temporarily disable this
+                //navController.navigate(R.id.nav_select_smart_glasses);
             }
         });
 
