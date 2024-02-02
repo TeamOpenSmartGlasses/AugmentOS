@@ -27,6 +27,7 @@ import com.teamopensmartglasses.convoscope.MainActivity;
 import com.teamopensmartglasses.convoscope.R;
 import com.teamopensmartglasses.convoscope.ResponseTextUiAdapter;
 import com.teamopensmartglasses.convoscope.TranscriptTextUiAdapter;
+import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
 import com.teamopensmartglasses.convoscope.events.SharingContactChangedEvent;
 import com.teamopensmartglasses.convoscope.events.UserIdChangedEvent;
 
@@ -78,10 +79,12 @@ import com.teamopensmartglasses.convoscope.ui.LoginUi;
 import com.teamopensmartglasses.convoscope.ui.SelectSmartGlassesUi;
 import com.teamopensmartglasses.convoscope.ui.SettingsUi;
 import com.teamopensmartglasses.convoscope.ui.UiUtils;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.utils.PermissionsUtils;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 
@@ -338,7 +341,10 @@ public class ConvoscopeUi extends Fragment {
 //    transaction.commit();
   }
 
-
+  @Subscribe
+  public void onGoogleAuthFailedEvent(GoogleAuthFailedEvent event){
+    navController.navigate(R.id.nav_login);
+  }
 
 }
 
