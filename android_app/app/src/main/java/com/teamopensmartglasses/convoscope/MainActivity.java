@@ -73,13 +73,6 @@ public class MainActivity extends AppCompatActivity {
     NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
     Log.d(TAG, getSupportFragmentManager().getFragments().toString());
     navController = navHostFragment.getNavController();
-
-    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    if (user != null) {
-      startConvoscopeService();
-    } else {
-      navController.navigate(R.id.nav_login);
-    }
   }
 
   @Override

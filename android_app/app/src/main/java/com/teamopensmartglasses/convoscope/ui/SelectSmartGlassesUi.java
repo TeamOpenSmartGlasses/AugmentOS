@@ -96,8 +96,7 @@ public class SelectSmartGlassesUi extends Fragment {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                navController.navigate(R.id.nav_settings);
-                //((MainActivity)getActivity()).onBackPressed();
+                ((MainActivity)getActivity()).onBackPressed();
             }
         });
 

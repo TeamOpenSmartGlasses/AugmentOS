@@ -44,17 +44,13 @@ public class LandingUi extends Fragment {
     // Check if we're already logged in... if so, skip to MainActivity
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     if (user != null) {
-      //startMainActivity();
-      //TODO: I think this is it?
       navController.navigate(R.id.nav_convoscope);
     }
 
     final Button landingButton = view.findViewById(R.id.landing_button);
     landingButton.setOnClickListener(new View.OnClickListener() {
       public void onClick(View v) {
-        //startMainActivity();
-        //navController.navigate(R.id.main_container);
-        navController.navigate(R.id.nav_convoscope);
+        navController.navigate(R.id.nav_login);
       }
     });
   }

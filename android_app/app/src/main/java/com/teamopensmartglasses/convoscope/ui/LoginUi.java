@@ -38,6 +38,7 @@ import com.google.firebase.auth.GetTokenResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
 import com.firebase.ui.auth.AuthUI;
@@ -109,10 +110,9 @@ public class LoginUi extends Fragment {
 
   private void onSignInResult(FirebaseAuthUIAuthenticationResult result) {
     IdpResponse response = result.getIdpResponse();
-    if (result.getResultCode() == RESULT_OK) { //TODO: check where we're getting this value from
+    if (result.getResultCode() == RESULT_OK) {
       // Successfully signed in
       FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-      Log.d(TAG, "WOAH LOGGED IN");
 
       // Get the auth token
       if (user != null) {
@@ -250,9 +250,10 @@ public class LoginUi extends Fragment {
   }
 
   public void navigateToMainActivityForSuccess(){
-    // Navigate back to MainActivity
-    //navController.navigate(R.id.main_container);
-    navController.popBackStack(R.id.main_container, true);
+    NavOptions navOptions = new NavOptions.Builder()
+            .setPopUpTo(R.id.nav_landing, true) // Replace 'nav_graph_start_destination' with the ID of your start destination in the nav graph
+            .build();
+    navController.navigate(R.id.nav_convoscope, null, navOptions);
   }
 
   public void killApp(){

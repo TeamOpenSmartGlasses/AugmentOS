@@ -23,6 +23,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.teamopensmartglasses.convoscope.MainActivity;
 import com.teamopensmartglasses.convoscope.R;
 import com.teamopensmartglasses.convoscope.ResponseTextUiAdapter;
 import com.teamopensmartglasses.convoscope.TranscriptTextUiAdapter;
@@ -97,9 +98,7 @@ public class ConvoscopeUi extends Fragment {
   public static final String UI_UPDATE_FINAL_TRANSCRIPT = "UI_UPDATE_FINAL_TRANSCRIPT";
   public static final String CONVOSCOPE_MESSAGE_STRING = "CONVOSCOPE_MESSAGE_STRING";
   public static final String FINAL_TRANSCRIPT = "FINAL_TRANSCRIPT";
-  private static final String defaultFragmentLabel = "Convoscope";
-
-    private final String fragmentLabel = "Select Glasses to Connect...";
+  private static final String fragmentLabel = "Convoscope";
 
     private NavController navController;
 
@@ -269,6 +268,8 @@ public class ConvoscopeUi extends Fragment {
 //                }
 //            }
 //        });
+
+          ((MainActivity)getActivity()).startConvoscopeService();
     }
 
     private void pickContact() {

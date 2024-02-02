@@ -83,9 +83,8 @@ public class SettingsUi extends Fragment {
                         return;
                     }
                 }
-
+                ((MainActivity)getActivity()).stopConvoscopeService();
                 ((MainActivity)getActivity()).startConvoscopeService();
-                //((MainActivity)getActivity()).openGlassesSelector();
                 navController.navigate(R.id.nav_select_smart_glasses);
             }
         });
