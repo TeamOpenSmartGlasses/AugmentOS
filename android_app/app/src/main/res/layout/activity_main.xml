@@ -5,127 +5,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/main_container"
     tools:context="com.teamopensmartglasses.convoscope.MainActivity">
 
-  <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/recyclerView"
-
-      android:layout_width="0dp"
-      app:layout_constraintWidth_default="percent"
-      app:layout_constraintWidth_percent="0.95"
-      android:layout_height="0dp"
-      app:layout_constraintHeight_default="percent"
-      app:layout_constraintHeight_percent="0.6"
-
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent" />
-
-  <androidx.constraintlayout.widget.ConstraintLayout
-      android:id="@+id/rawTranscriptsBox"
-
+  <androidx.fragment.app.FragmentContainerView
+      android:id="@+id/nav_host_fragment"
+      android:name="androidx.navigation.fragment.NavHostFragment"
       android:layout_width="0dp"
       android:layout_height="0dp"
-      android:background="@drawable/layout_border"
+      android:layout_weight="1"
+      app:defaultNavHost="true"
+
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintHeight_default="percent"
-
-      app:layout_constraintHeight_percent="0.4"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintWidth_default="percent"
-      app:layout_constraintWidth_percent="0.6">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rawTranscriptsRecyclerView"
-        android:padding="2dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-  </androidx.constraintlayout.widget.ConstraintLayout>
-
-  <androidx.constraintlayout.widget.ConstraintLayout
-      android:id="@+id/buttonsBox"
-
-      android:layout_width="0dp"
-      android:layout_height="0dp"
-      android:background="@drawable/layout_border"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHeight_default="percent"
-
-      app:layout_constraintHeight_percent="0.4"
-      app:layout_constraintWidth_default="percent"
-      app:layout_constraintWidth_percent="0.403">
-
-    <Switch
-        android:id="@+id/toggleSharingSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Results Sharing"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/setUserIdButton"
-        android:layout_width="115dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="24dp"
-        android:text="Set UserID"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pick_contact_button" />
-
-    <Button
-        android:id="@+id/pick_contact_button"
-        android:layout_width="120dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="24dp"
-        android:text="Select Contact"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toggleSharingSwitch" />
-
-    <Switch
-        android:id="@+id/serviceToggle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:checked="true"
-        android:text="Run Convoscope"
-        android:textAlignment="viewStart"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.785"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/setUserIdButton"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <!--    <Button-->
-<!--        android:id="@+id/button2"-->
-<!--        android:layout_width="107dp"-->
-<!--        android:layout_height="107dp"-->
-<!--        android:layout_marginTop="32dp"-->
-<!--        android:background="@color/blueButton"-->
-<!--        android:text="B2"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/button" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/button3"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="32dp"-->
-<!--        android:background="@color/blueButton"-->
-<!--        android:text="B3"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/button2" />-->
-
-  </androidx.constraintlayout.widget.ConstraintLayout>
-
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:navGraph="@navigation/nav_graph" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

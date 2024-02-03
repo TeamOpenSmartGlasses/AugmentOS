@@ -34,6 +34,8 @@ from agents.proactive_definer_agent_process import proactive_definer_processing_
 import agents.wake_words
 from Modules.RelevanceFilter import RelevanceFilter
 
+from auth.authentication import *
+
 global agent_executor
 global db_handler
 global relevance_filter
@@ -44,7 +46,11 @@ async def chat_handler(request):
     body = await request.json()
     is_final = body.get('isFinal')
     text = body.get('text')
-    user_id = body.get('userId')
+    timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
 
     # 400 if missing params
     if text is None or text == '':
@@ -112,7 +118,10 @@ async def button_handler(request):
     button_num = body.get('buttonNum')
     button_activity = body.get('buttonActivity')
     timestamp = body.get('timestamp')
-    user_id = body.get('userId')
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
     print('\n=== New Request ===\n', button_num,
           button_activity, timestamp, user_id)
 
@@ -206,13 +215,14 @@ def cse_loop():
 async def ui_poll_handler(request, minutes=0.5):
     # parse request
     body = await request.json()
-    user_id = body.get('userId')
     device_id = body.get('deviceId')
     features = body.get('features')
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
 
     # 400 if missing params
-    if user_id is None or user_id == '':
-        return web.Response(text='no userId in request', status=400)
     if device_id is None or device_id == '':
         return web.Response(text='no device_id in request', status=400)
     if features is None or features == '':
@@ -280,7 +290,10 @@ async def upload_user_data_handler(request):
         return web.Response(text="File too large. Max file size: {}MB".format(MAX_FILE_SIZE_MB), status=413)
 
     user_file = post_data.get('custom-file')
-    user_id = post_data.get('user_id')
+    id_token = post_data.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
 
     if user_file and user_id:
         # Check if the file is a CSV file by looking at its content type
@@ -327,7 +340,10 @@ async def expert_agent_runner(expert_agent_name, user_id):
 async def run_single_expert_agent_handler(request):
     body = await request.json()
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
-    user_id = body.get('userId')
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
     agent_name = body.get('agentName')
 
     # 400 if missing params
@@ -355,7 +371,10 @@ async def run_single_expert_agent_handler(request):
 async def send_agent_chat_handler(request):
     body = await request.json()
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
-    user_id = body.get('userId')
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
     chat_message = body.get('chatMessage')
 
     # 400 if missing params
@@ -378,7 +397,10 @@ async def send_agent_chat_handler(request):
 
 async def rate_result_handler(request):
     body = await request.json()
-    user_id = body.get('userId')
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
     result_uuid = body.get('resultUuid')
     rating = body.get('rating')
 
@@ -395,6 +417,16 @@ async def rate_result_handler(request):
 
     res = db_handler.rate_result_by_uuid(user_id=user_id, result_uuid=result_uuid, rating=rating)
     return web.Response(text=json.dumps({'success': True, 'message': str(res)}), status=200)
+
+async def protected_route(request):
+    print("PROTECTED ROUTE")
+    id_token = request.headers.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is not None:
+        # Proceed with the user request
+        print()
+    else:
+        raise web.HTTPUnauthorized()
 
 if __name__ == '__main__':
     print("Starting server...")
@@ -431,6 +463,7 @@ if __name__ == '__main__':
     app = web.Application(client_max_size=(1024*1024*MAX_FILE_SIZE_MB))
     app.add_routes(
         [
+            web.get('/protected', protected_route),
             web.post('/chat', chat_handler),
             web.post('/button_event', button_handler),
             web.post('/ui_poll', ui_poll_handler),
