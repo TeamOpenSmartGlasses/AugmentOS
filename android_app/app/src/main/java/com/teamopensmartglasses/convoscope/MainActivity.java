@@ -34,6 +34,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.firebase.ui.auth.AuthUI;
@@ -285,10 +286,10 @@ public class MainActivity extends AppCompatActivity {
               public void onComplete(@NonNull Task<Void> task) {
                 Log.d(TAG, "LOGGED OUT");
                 stopService(new Intent(MainActivity.this, ConvoscopeService.class));
-                Intent intent = new Intent(MainActivity.this, LandingUi.class);
-                startActivity(intent);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                finish();
+                NavOptions navOptions = new NavOptions.Builder()
+                        .setPopUpTo(R.id.nav_landing, true) // Replace 'nav_graph_start_destination' with the ID of your start destination in the nav graph
+                        .build();
+                navController.navigate(R.id.nav_landing, null, navOptions);
               }
             });
   }
