@@ -224,6 +224,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     public void sendTranscriptRequest(String query, boolean isFinal){
+        if (authToken == ""){
+            EventBus.getDefault().post(new GoogleAuthFailedEvent());
+        }
+
         try{
             JSONObject jsonQuery = new JSONObject();
             jsonQuery.put("text", query);
