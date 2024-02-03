@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
   //Permissions
   private static final int PERMISSIONS_REQUEST_RECORD_AUDIO = 1;
-  private static final int SEND_SMS_PERMISSION_REQUEST_CODE = 1234;
   private static final int PICK_CONTACT_REQUEST = 1;
   private static final int READ_CONTACTS_PERMISSIONS_REQUEST = 2;
 
@@ -83,20 +82,12 @@ public class MainActivity extends AppCompatActivity {
     UiUtils.setupTitle(this, "Convoscope");
 
     permissionsUtils = new PermissionsUtils(this, TAG);
-    permissionsUtils.getSomePermissions();
-
     if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
         != PackageManager.PERMISSION_GRANTED) {
-      ActivityCompat.requestPermissions(
-          this, new String[] {Manifest.permission.RECORD_AUDIO}, PERMISSIONS_REQUEST_RECORD_AUDIO);
-    }
-
-    if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS)
-            != PackageManager.PERMISSION_GRANTED) {
-      Log.d(TAG, "NO SMS PERM!");
-      ActivityCompat.requestPermissions(
-              this, new String[] {Manifest.permission.SEND_SMS}, SEND_SMS_PERMISSION_REQUEST_CODE);
-    }
+      permissionsUtils.getSomePermissions();
+      //ActivityCompat.requestPermissions(:w
+      // this, new String[] {Manifest.permission.RECORD_AUDIO}, PERMISSIONS_REQUEST_RECORD_AUDIO);
+      }
   }
 
   @Override
