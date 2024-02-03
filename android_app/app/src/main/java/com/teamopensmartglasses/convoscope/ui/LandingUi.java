@@ -42,10 +42,11 @@ public class LandingUi extends Fragment {
     navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
 
     // Check if we're already logged in... if so, skip to MainActivity
-    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    if (user != null) {
-      navController.navigate(R.id.nav_convoscope);
-    }
+    //TODO: Investigate why this is buggy
+//    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//    if (user != null) {
+//      navController.navigate(R.id.nav_convoscope);
+//    }
 
     final Button landingButton = view.findViewById(R.id.landing_button);
     landingButton.setOnClickListener(new View.OnClickListener() {
@@ -54,11 +55,4 @@ public class LandingUi extends Fragment {
       }
     });
   }
-
-//  public void startMainActivity(){
-//    Intent intent = new Intent(LandingUi.this, MainActivity.class);
-//    startActivity(intent);
-//    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//    finish();
-//  }
 }
