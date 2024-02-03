@@ -11,6 +11,7 @@ from agents.language_learning_agent import run_language_learning_agent
 from agents.proactive_meta_agent import run_proactive_meta_agent_and_experts
 from server_config import openai_api_key
 from logger_config import logger
+from server.agents.helpers.get_dictionary_rank import get_dictionary_rank
 
 run_period = 3
 
@@ -37,16 +38,17 @@ def language_learning_agents_processing_loop():
             for transcript in newTranscripts:
                 print(transcript)
                 ctime = time.time()
-                words_to_show = run_language_learning_agent(newTranscripts)
+                dictionary_rank = get_dictionary_rank(transcript['text'])
+                words_to_show = run_language_learning_agent(transcript['text'], dictionary_rank)
                 loop_time = time.time() - ctime
                 print(f"RAN LL IN : {loop_time}")
                 print(words_to_show)
-            
-            if words_to_show:
-                final_words_to_show = list(filter(None, words_to_show))
-                print("WORDS TO SHOW")
-                print(final_words_to_show)
-                dbHandler.add_language_learning_words_to_show_for_user(transcript['user_id'], final_words_to_show)
+
+                if words_to_show:
+                    final_words_to_show = list(filter(None, words_to_show))
+                    print("WORDS TO SHOW")
+                    print(final_words_to_show)
+                    dbHandler.add_language_learning_words_to_show_for_user(transcript['user_id'], final_words_to_show)
 
         except Exception as e:
             print("Exception in Language learning loop...:")
