@@ -343,7 +343,7 @@ public class ConvoscopeUi extends Fragment {
 
   @Subscribe
   public void onGoogleAuthFailedEvent(GoogleAuthFailedEvent event){
-    navController.navigate(R.id.nav_login);
+    ((MainActivity)getActivity()).signOut();
   }
 
 }

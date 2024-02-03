@@ -39,6 +39,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -284,7 +285,18 @@ public class MainActivity extends AppCompatActivity {
             .signOut(this)
             .addOnCompleteListener(new OnCompleteListener<Void>() {
               public void onComplete(@NonNull Task<Void> task) {
-                Log.d(TAG, "LOGGED OUT");
+                Log.d(TAG, "LOGGED OUT (SUCCESSFULLY)");
+                stopService(new Intent(MainActivity.this, ConvoscopeService.class));
+                NavOptions navOptions = new NavOptions.Builder()
+                        .setPopUpTo(R.id.nav_landing, true) // Replace 'nav_graph_start_destination' with the ID of your start destination in the nav graph
+                        .build();
+                navController.navigate(R.id.nav_landing, null, navOptions);
+              }
+            })
+            .addOnFailureListener(new OnFailureListener() {
+              @Override
+              public void onFailure(@NonNull Exception e) {
+                Log.d(TAG, "LOGGED OUT (WITH ERROR)");
                 stopService(new Intent(MainActivity.this, ConvoscopeService.class));
                 NavOptions navOptions = new NavOptions.Builder()
                         .setPopUpTo(R.id.nav_landing, true) // Replace 'nav_graph_start_destination' with the ID of your start destination in the nav graph
