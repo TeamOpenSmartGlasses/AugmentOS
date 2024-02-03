@@ -270,7 +270,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 public void onFailure(int code){
                     Log.d(TAG, "SOME FAILURE HAPPENED (requestUiPoll)");
                     if (code == 401){
-                        setAuthToken();
+                        EventBus.getDefault().post(new GoogleAuthFailedEvent());
                     }
                 }
             });
