@@ -256,6 +256,10 @@ async def ui_poll_handler(request, minutes=0.5):
         entity_definitions = db_handler.get_agent_proactive_definer_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["entity_definitions"] = entity_definitions
 
+    if "language_learning":
+        language_learning_results = db_handler.get_language_learning_results_for_user(user_id=user_id)
+        resp["language_learning_results"] = language_learning_results
+
     return web.Response(text=json.dumps(resp), status=200)
 
 

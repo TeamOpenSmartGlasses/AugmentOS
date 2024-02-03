@@ -37,6 +37,7 @@ class DatabaseHandler:
             self.init_cache_collection()
             self.init_insights_collections()
             self.init_ratings_collection()
+            self.init_language_learning_collection()
             self.ready = True
         except Exception as e:
             print(e)
@@ -62,6 +63,10 @@ class DatabaseHandler:
     def init_ratings_collection(self):
         self.ratings_db = self.client['ratings']
         self.ratings_collection = self.get_collection(self.ratings_db, 'ratings')
+    
+    def init_language_learning_collection(self):
+        self.language_learning_db = self.client['language_learning']
+        self.language_learning_collection = self.get_collection(self.language_learning_db, 'language_learning', wipe=clear_cache_on_start)
 
     def get_collection(self, db, collection_name, wipe = False):
         if collection_name in db.list_collection_names():
@@ -647,7 +652,7 @@ class DatabaseHandler:
         # logger.log(logging.DEBUG, "{}: Definer history RESULTS: {}".format("get_definer_history_for_user", results))
 
         return results
-    
+
     def get_recent_nminutes_definer_history_for_user(self, user_id, n_minutes=10):
         uuid_list = self.get_user(user_id)["agent_proactive_definer_result_ids"]
         current_time = math.trunc(time.time())
@@ -677,7 +682,50 @@ class DatabaseHandler:
         # logger.log(logging.DEBUG, "{}: Definer history RESULTS: {}".format("get_recent_nminutes_definer_history_for_user", names))
 
         return names
-    
+
+    def get_language_learning_words_defined_history_for_user(self, user_id, top=5):
+        uuid_list = self.get_user(user_id)["language_learning_words_to_show_ids"]
+        pipeline = [
+            {"$match": {"uuid": {"$in": uuid_list}}},
+            {"$sort": {"timestamp": -1}},
+            {"$limit": top},
+            {
+                "$project": {
+                    "_id": 0,
+                }
+            },
+        ]
+        results = list(self.language_learning_collection.aggregate(pipeline))
+
+        return results
+
+    def get_recent_nminutes_language_learning_words_defined_history_for_user(self, user_id, n_minutes=10):
+        uuid_list = self.get_user(user_id)["language_learning_words_to_show_ids"]
+        current_time = math.trunc(time.time())
+        n_seconds = n_minutes * 60
+        timestamp_threshold = current_time - n_seconds
+
+        pipeline = [
+            {
+                "$match": {
+                    "uuid": {"$in": uuid_list},
+                    "timestamp": {"$gte": timestamp_threshold},
+                }
+            },
+            {"$sort": {"timestamp": -1}},
+            {
+                "$project": {
+                    "_id": 0,
+                }
+            },
+        ]
+        results = list(
+            self.language_learning_collection.aggregate(pipeline))
+
+        names = [result["name"] for result in results]
+
+        return names
+
     def add_agent_proactive_definition_results_for_user(self, user_id, entities):
         if not entities: return
 
@@ -793,6 +841,9 @@ class DatabaseHandler:
         if res: return res
         res = self.agent_proactive_definer_collection.find_one(filter, {'_id': 0})
         if res: return res
+        res = self.language_learning_collection.find_one(filter, {'_id': 0})
+        if res: return res
+
         return None
 
     def get_results_for_user_device(self, result_type, user_id, device_id, should_consume=True, include_consumed=False):
@@ -830,6 +881,25 @@ class DatabaseHandler:
         # "$add_to_set": {"ui_list": device_id}}
         self.user_collection.update_many(filter=filter, update=update)
 
+    def add_language_learning_words_to_show_for_user(self, user_id, words):
+        for word in words:
+            if word is None:
+                continue
+            
+            word['timestamp'] = int(time.time())
+            word['uuid'] = str(uuid.uuid4())
+
+        self.language_learning_words_to_show_collection.insert_many(words)
+
+        result_ids = []
+        for e in words: result_ids.append(e['uuid'])
+
+        filter = {"user_id": user_id}
+        update = {"$push": {"language_learning_words_to_show_ids": {'$each': result_ids}}}
+        self.user_collection.update_one(filter=filter, update=update)
+
+    def get_language_learning_results_for_user(self, user_id, should_consume=True, include_consumed=False):
+        return self.get_results_for_user("language_learning_result_ids", user_id, should_consume, include_consumed)
 
 ### Function list for developers ###
 #
