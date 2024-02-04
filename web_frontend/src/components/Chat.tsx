@@ -21,7 +21,12 @@ import {
   SEND_AGENT_CHAT_ENDPOINT,
   SUMMARIZE_CONVERSATION_ENDPOINT,
 } from "../serverEndpoints";
-import { explicitInsightsState, isExplicitListeningState } from "../recoil";
+import {
+  deviceIdState,
+  explicitInsightsState,
+  isExplicitListeningState,
+  userIdState,
+} from "../recoil";
 import { useRecoilValue } from "recoil";
 import StyledButton from "./StyledButton";
 
@@ -45,14 +50,16 @@ const Chat = () => {
   const explicitInsights = useRecoilValue(explicitInsightsState);
   const lastInsight = explicitInsights.at(-1);
   const isExplicitListening = useRecoilValue(isExplicitListeningState);
+  const userId = useRecoilValue(userIdState);
+  const deviceId = useRecoilValue(deviceIdState);
 
   const handleSendMessage = () => {
     const chatMessage = userInputValue.trim();
     if (chatMessage) {
       const payload = {
         agent_name: "agent_name",
-        userId: window.userId,
-        deviceId: window.deviceId,
+        userId: userId,
+        deviceId: deviceId,
         chatMessage,
       };
       axiosClient.post(SEND_AGENT_CHAT_ENDPOINT, payload);
@@ -64,7 +71,7 @@ const Chat = () => {
 
   const handleSummarize = () => {
     const payload = {
-      userId: window.userId,
+      userId,
     };
     axiosClient.post(SUMMARIZE_CONVERSATION_ENDPOINT, payload);
   };
