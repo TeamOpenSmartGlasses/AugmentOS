@@ -5,7 +5,6 @@ import Sidebar from "../components/Sidebar";
 import { useRecoilValue } from "recoil";
 import { entitiesState, isExplicitListeningState } from "../recoil";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
-import { setUserIdAndDeviceId } from "../utils/utils";
 import CardScrollArea from "../components/CardScrollArea";
 import ToolsPanel from "../components/ToolsPanel";
 
@@ -17,7 +16,6 @@ const useStyles = createStyles({
       "var(--bg-gradient-full---blue, linear-gradient(180deg, #191A27 2.23%, #14141D 25.74%, #14141D 49.42%, #14141D 73.62%, #14141D 96.28%))",
     overflow: "clip",
   },
-
   container: {
     padding: 0,
   },
@@ -68,7 +66,6 @@ const MainLayout = () => {
         smallerThanMedium={smallerThanMedium}
         opened={opened}
         closeSettings={closeSettings}
-        setUserIdAndDeviceId={setUserIdAndDeviceId}
       />
     </>
   );

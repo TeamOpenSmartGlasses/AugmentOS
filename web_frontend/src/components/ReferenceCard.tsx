@@ -23,6 +23,8 @@ import { useState } from "react";
 import CardWrapper, { CardWrapperProps } from "./CardWrapper";
 import axiosClient from "../axiosConfig";
 import { RATE_INSIGHT_ENDPOINT } from "../serverEndpoints";
+import { useRecoilValue } from "recoil";
+import { authTokenState } from "../recoil";
 
 const useStyles = createStyles((theme) => ({
   button: {
@@ -39,29 +41,6 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const rateInsight = (entity: Entity, newState: ThumbState) => {
-  let rating = -1;
-  if (newState == ThumbState.UP) rating = 10;
-  if (newState == ThumbState.DOWN) rating = 0;
-  if (rating == -1) return;
-
-  const rateInsightRequestBody = {
-    userId: window.userId,
-    resultUuid: entity.uuid,
-    rating: rating,
-  };
-
-  axiosClient
-    .post(RATE_INSIGHT_ENDPOINT, rateInsightRequestBody)
-    .then((res) => {
-      if (res.data.success) {
-        console.log("Successfully rated card");
-      }
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
-};
 interface ReferenceCardProps
   extends Omit<CardWrapperProps, "agentName" | "agentIconSrc"> {
   entity: Entity;
@@ -134,6 +113,31 @@ enum ThumbState {
 const ThumbButtons = ({ entity }: { entity: Entity }) => {
   const { classes } = useStyles();
   const [thumbState, setThumbState] = useState<ThumbState>();
+  const authToken = useRecoilValue(authTokenState);
+
+  const rateInsight = (entity: Entity, newState: ThumbState) => {
+    let rating = -1;
+    if (newState == ThumbState.UP) rating = 10;
+    if (newState == ThumbState.DOWN) rating = 0;
+    if (rating == -1) return;
+
+    const rateInsightRequestBody = {
+      Authorization: authToken,
+      resultUuid: entity.uuid,
+      rating: rating,
+    };
+
+    axiosClient
+      .post(RATE_INSIGHT_ENDPOINT, rateInsightRequestBody)
+      .then((res) => {
+        if (res.data.success) {
+          console.log("Successfully rated card");
+        }
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  };
 
   return (
     <Group noWrap pl="xs" pb="xs">
