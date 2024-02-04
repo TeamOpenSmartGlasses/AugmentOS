@@ -10,6 +10,7 @@ import {
   Stack,
   Button,
   Group,
+  Text,
 } from "@mantine/core";
 import { motion } from "framer-motion";
 import { GAP_VH } from "../components/CardWrapper";
@@ -28,6 +29,13 @@ import { VIDEO_SRC } from "../constants";
 import { LOAD_RECORDING_ENDPOINT } from "../serverEndpoints";
 import { StudyCondition } from "../types";
 import ChatGPT from "../components/ChatGPT";
+
+const CONDITIONS = {
+  None: StudyCondition.NO_CONVOSCOPE,
+  Google: StudyCondition.GOOGLE,
+  ChatGPT: StudyCondition.CHATGPT,
+  Convoscope: StudyCondition.CONVOSCOPE,
+};
 
 // animate-able components for framer-motion
 // https://github.com/orgs/mantinedev/discussions/1169#discussioncomment-5444975
@@ -123,8 +131,11 @@ const StudyLayout = () => {
 
   const [hasVideoEnded, setHasVideoEnded] = useState(false);
   const [userInteractions, setUserInteractions] = useState(0);
-  const [userInteractionStrings, setUserInteractionStrings] = useState<string[]>([]);
-  const studyCondition = useRecoilValue(studyConditionAtom);
+  const [userInteractionStrings, setUserInteractionStrings] = useState<
+    string[]
+  >([]);
+  const [studyCondition, setStudyCondition] =
+    useRecoilState(studyConditionAtom);
   const setGoogleSearchResultUrl = useSetRecoilState(googleSearchResultUrlAtom);
 
   /*
@@ -140,17 +151,15 @@ const StudyLayout = () => {
 
   useEffect(() => {
     // Prepare the message
-    console.log('running interaction setup!');
+    console.log("running interaction setup!");
     const message = {
-        userInteractions: userInteractions,
-        userInteractionStrings: userInteractionStrings
+      userInteractions: userInteractions,
+      userInteractionStrings: userInteractionStrings,
     };
 
     // Send the message to the parent window
-    window.parent.postMessage(message, '*');
-
+    window.parent.postMessage(message, "*");
   }, [userInteractions, userInteractionStrings]);
-
 
   useEffect(() => {
     if (studyCondition === StudyCondition.GOOGLE) {
@@ -174,8 +183,13 @@ const StudyLayout = () => {
         // user searched for something, so increment number of user interactions
         setUserInteractions((prevCount) => prevCount + 1);
         //get what they searched for and save it
-        const searchInput = (document.querySelector('.gsc-input-box input') as HTMLInputElement).value;
-        setUserInteractionStrings((prevStrings) => [...prevStrings, encodeURIComponent(searchInput)]);
+        const searchInput = (
+          document.querySelector(".gsc-input-box input") as HTMLInputElement
+        ).value;
+        setUserInteractionStrings((prevStrings) => [
+          ...prevStrings,
+          encodeURIComponent(searchInput),
+        ]);
 
         // get all the search results
         document.querySelectorAll("a.gs-title, a.gs-image").forEach((element) =>
@@ -201,7 +215,10 @@ const StudyLayout = () => {
             );
 
             setUserInteractions((prevCount) => prevCount + 1); // Increment user interactions
-            setUserInteractionStrings((prevStrings) => [...prevStrings, element.getAttribute("data-ctorig")!]);
+            setUserInteractionStrings((prevStrings) => [
+              ...prevStrings,
+              element.getAttribute("data-ctorig")!,
+            ]);
           })
         );
       };
@@ -240,6 +257,25 @@ const StudyLayout = () => {
           }}
           className={classes.container}
         >
+          <Group p="md">
+            <Text>Study Condition:</Text>
+            {Object.entries(CONDITIONS).map(([name, condition], i) => (
+              <Button
+                key={i}
+                variant="default"
+                onClick={() => setStudyCondition(condition)}
+                sx={(theme) =>
+                  studyCondition === condition
+                    ? {
+                        borderColor: theme.colors.convoscopeBlue,
+                      }
+                    : {}
+                }
+              >
+                {name}
+              </Button>
+            ))}
+          </Group>
           <Stack
             sx={{
               height: "100%",
