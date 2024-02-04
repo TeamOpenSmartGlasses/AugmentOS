@@ -1,6 +1,7 @@
 package com.teamopensmartglasses.convoscope;
 
 public class Constants {
+    public static String appName = "Convoscope";
     public static String cseResultKey = "result";
     public static String proactiveAgentResultsKey = "results_proactive_agent_insights";
     public static String explicitAgentQueriesKey = "explicit_insight_queries";

@@ -10,20 +10,17 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { PropsWithChildren, useRef } from "react";
+import { cardStyles } from "../theme";
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles(() => ({
   card: {
     marginTop: `${GAP_VH}vh`,
     ":first-of-type": { marginTop: 0 },
     marginBottom: `${GAP_VH}vh`,
-    backgroundColor: theme.colors.cardFill,
     ":hover": {
       filter: "brightness(1.2)",
     },
-    color: theme.colors.titleText,
-    border: `1.5px solid ${theme.colors.cardStroke}`,
-    borderRadius: rem(30),
-    boxShadow: "15px 15px 40px 0px rgba(0, 0, 0, 0.40)",
+    ...cardStyles,
   },
 }));
 
