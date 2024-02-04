@@ -55,7 +55,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private Runnable displayRunnableCode;
     static final String deviceId = "android";
     static final String [] features = {"contextual_search_engine", "proactive_agent_insights", "explicit_agent_insights", "intelligent_entity_definitions"};
-    private SMSComms smsComms;
+//    private SMSComms smsComms;
     static String phoneNumName = "Alex";
     static String phoneNum = "8477367492"; // Alex's phone number. Fun default.
     long previousWakeWordTime = -1; // Initialize this at -1
@@ -98,7 +98,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         setUpCsePolling();
         setUpDisplayQueuePolling();
 
-        smsComms = new SMSComms();
+//        smsComms = new SMSComms();
 
         this.aioConnectSmartGlasses();
     }
@@ -146,8 +146,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         long time = event.timestamp;
 
         Log.d(TAG, "GLASSES TAPPED X TIMES: " + numTaps + " SIDEOFGLASSES: " + sideOfGlasses);
-        if (numTaps == 3)
-            sendLatestCSEResultViaSms();
+        if (numTaps == 3) {
+//            sendLatestCSEResultViaSms();
+            Log.d(TAG, "GOT A TRIPLE TAP");
+        }
     }
 
 
@@ -163,8 +165,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         //Detect double presses
         if(isDown && currTime - lastPressed < doublePressTimeConst) {
-            Log.d(TAG, "CurrTime-lastPressed: "+ (currTime-lastPressed));
-            sendLatestCSEResultViaSms();
+            Log.d(TAG, "Double tap - CurrTime-lastPressed: "+ (currTime-lastPressed));
+//            sendLatestCSEResultViaSms();
         }
 
         if(isDown) {
@@ -172,18 +174,18 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
     }
 
-    public void sendLatestCSEResultViaSms(){
-        if (phoneNum == "") return;
-
-        if (responses.size() > 1) {
-            //Send latest CSE result via sms;
-            String messageToSend = responsesToShare.get(responsesToShare.size() - 1);
-
-            smsComms.sendSms(phoneNum, messageToSend);
-
-            sendReferenceCard("Convoscope", "Sending result(s) via SMS to " + phoneNumName);
-        }
-    }
+//    public void sendLatestCSEResultViaSms(){
+//        if (phoneNum == "") return;
+//
+//        if (responses.size() > 1) {
+//            //Send latest CSE result via sms;
+//            String messageToSend = responsesToShare.get(responsesToShare.size() - 1);
+//
+//            smsComms.sendSms(phoneNum, messageToSend);
+//
+//            sendReferenceCard("Convoscope", "Sending result(s) via SMS to " + phoneNumName);
+//        }
+//    }
 
     private Handler debounceHandler = new Handler(Looper.getMainLooper());
     private Runnable debounceRunnable;
@@ -352,14 +354,14 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //                }
 
                 // For SMS
-                sharableResponse += combined;
-                if(obj.has("url")){
-                    sharableResponse += "\n" + obj.get("url");
-                }
-                sharableResponse += "\n\n";
-                if(i == cseResults.length() - 1){
-                    sharableResponse += "Sent from Convoscope";
-                }
+//                sharableResponse += combined;
+//                if(obj.has("url")){
+//                    sharableResponse += "\n" + obj.get("url");
+//                }
+//                sharableResponse += "\n\n";
+//                if(i == cseResults.length() - 1){
+//                    sharableResponse += "Sent from Convoscope";
+//                }
 
 
             } catch (JSONException e){
