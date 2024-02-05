@@ -122,7 +122,7 @@ const SettingsModal = ({
           <Box />
         </Alert>
       </Affix>
-      <Stack spacing="lg" px="lg">
+      <Stack spacing="xl" px={0}>
         {/* <Alert
           icon={<IconInfoCircle />}
           title="Connect your custom data!"
