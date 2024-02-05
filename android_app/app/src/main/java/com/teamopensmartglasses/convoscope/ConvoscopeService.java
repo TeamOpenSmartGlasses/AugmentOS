@@ -195,7 +195,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         String text = event.text;
         long time = event.timestamp;
         boolean isFinal = event.isFinal;
-        Log.d(TAG, "PROCESS TRANSCRIPTION CALLBACK. IS IT FINAL? " + isFinal + " " + text);
+//        Log.d(TAG, "PROCESS TRANSCRIPTION CALLBACK. IS IT FINAL? " + isFinal + " " + text);
 
         if (isFinal)
             sendFinalTranscriptToActivity(text);
@@ -312,50 +312,63 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             }
         }
 
-        StringBuilder topLine = new StringBuilder();
-        StringBuilder bottomLine = new StringBuilder();
 
-        // Use en space instead of a regular space for padding
-        String enSpace = "\u2002"; // for en space
-
-        // Step 1: Calculate maximum width for each word pair and build the lines
+        String enSpace = "\u2002"; // Using en space for padding
+        String llResult = "";
         for (int i = 0; i < inWords.length; i++) {
             String inWord = inWords[i];
             String translation = inWordsTranslations[i];
-            int maxWidth = Math.max(inWord.length(), translation.length());
-
-            // Step 2: Calculate padding for "in_word"
-            int padding = (maxWidth - inWord.length()) / 2;
-
-            // Append spaces for padding before "in_word" to topLine
-            for (int j = 0; j < padding; j++) {
-                topLine.append(enSpace);
-            }
-
-            // Append "in_word" to topLine
-            topLine.append(inWord);
-
-            // Append additional spaces after "in_word" to ensure alignment, if necessary
-            int totalSpaces = maxWidth - inWord.length();
-            for (int j = padding + inWord.length(); j < totalSpaces; j++) {
-                topLine.append(enSpace);
-            }
-
-            // Append "in_word_translation" directly to bottomLine
-            bottomLine.append(translation);
-
-            // If not the last word pair, append spaces to both lines to separate word pairs
-            if (i < inWords.length - 1) {
-                topLine.append(enSpace.repeat(4)); // Adjust the number of spaces as needed for aesthetics
-                bottomLine.append(enSpace.repeat(4)); // Keep this the same as the top line for alignment
-            }
+            llResult += inWord + enSpace.repeat(3) + "->"+ enSpace.repeat(3) + translation + "\n\n";
         }
 
-        // Step 4: Join the two lines
-        String llResult = topLine.toString() + "\n" + bottomLine.toString();
+//        StringBuilder topLine = new StringBuilder();
+//        StringBuilder bottomLine = new StringBuilder();
+//
+//        // Calculate initial padding for the first word based on the bottom line's first word
+//        int initialPaddingLength = (inWordsTranslations[0].length() - inWords[0].length()) / 2;
+//        if (initialPaddingLength > 0) {
+//            topLine.append(String.valueOf(enSpace).repeat(initialPaddingLength));
+//        } else {
+//            initialPaddingLength = 0; // Ensure it's not negative for subsequent calculations
+//        }
+//
+//        for (int i = 0; i < inWords.length; i++) {
+//            String inWord = inWords[i];
+//            String translation = inWordsTranslations[i];
+//
+//            topLine.append(inWord);
+//            bottomLine.append(translation);
+//
+//            if (i < inWords.length - 1) {
+//                // Calculate the minimum necessary space to add based on the length of the next words in both lines
+//                int nextTopWordLength = inWords[i + 1].length();
+//                int nextBottomWordLength = inWordsTranslations[i + 1].length();
+//                int currentTopWordLength = inWord.length();
+//                int currentBottomWordLength = translation.length();
+//
+//                // Calculate additional space needed for alignment
+//                int additionalSpaceTop = nextTopWordLength - currentTopWordLength;
+//                int additionalSpaceBottom = nextBottomWordLength - currentBottomWordLength;
+//
+//                // Ensure there's a minimum spacing for readability, reduce this as needed
+//                int minSpace = 2; // Reduced minimum space for closer alignment
+//                int spacesToAddTop = Math.max(additionalSpaceTop, minSpace);
+//                int spacesToAddBottom = Math.max(additionalSpaceBottom, minSpace);
+//
+//                // Append the calculated spaces to each line
+//                topLine.append(String.valueOf(enSpace).repeat(spacesToAddTop));
+//                bottomLine.append(String.valueOf(enSpace).repeat(spacesToAddBottom));
+//            }
+//        }
+//
+//
+//        // Adjust for the initial padding by ensuring the bottom line starts directly under the top line's first word
+//        if (initialPaddingLength > 0) {
+//            String initialPaddingForBottom = String.valueOf(enSpace).repeat(initialPaddingLength);
+//            bottomLine = new StringBuilder(initialPaddingForBottom).append(bottomLine.toString());
+//        }
 
-        // Output the result
-        Log.d(TAG, llResult);
+//        String llResult = topLine.toString() + "\n" + bottomLine.toString();
         return llResult;
     }
 
