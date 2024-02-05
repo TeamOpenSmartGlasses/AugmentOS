@@ -9,7 +9,6 @@ import {
   Image,
   Stack,
   Text,
-  TextInput,
   createStyles,
   rem,
   Checkbox,
@@ -20,12 +19,15 @@ import {
   List,
   SimpleGrid,
   Switch,
+  TextInput,
   // Title,
 } from "@mantine/core";
 import { IconInfoCircle } from "@tabler/icons-react";
 import Cookies from "js-cookie";
 import { useRef, useState } from "react";
 import { AGENT_ICON_NAMES, AGENT_ICON_PATHS, AgentName } from "../types";
+import { useRecoilState } from "recoil";
+import { userIdState } from "../recoil";
 // import axiosClient from "../axiosConfig";
 // import { UPLOAD_USERDATA_ENDPOINT } from "../serverEndpoints";
 
@@ -33,7 +35,6 @@ interface SettingsModalProps {
   smallerThanMedium: boolean;
   opened: boolean;
   closeSettings: () => void;
-  setUserIdAndDeviceId: (newUserId: string) => void;
 }
 
 const useStyles = createStyles((theme) => ({
@@ -58,12 +59,9 @@ const SettingsModal = ({
   smallerThanMedium,
   opened,
   closeSettings,
-  setUserIdAndDeviceId,
 }: SettingsModalProps) => {
   const { classes } = useStyles();
-  const [userId, setUserId] = useState<string | undefined>(
-    Cookies.get("userId")
-  );
+  const [userId, setUserId] = useRecoilState(userIdState);
   const [isCustomUser, setIsCustomUser] = useState<boolean | undefined>(
     Cookies.get("isCustomUser") === "true"
   );
@@ -73,7 +71,6 @@ const SettingsModal = ({
   const updateUsername = () => {
     if (ref.current?.value && ref.current.value !== "") {
       Cookies.set("isCustomUser", "true", { expires: 9999 });
-      setUserIdAndDeviceId(ref.current?.value);
       setIsCustomUser(true);
       setUserId(ref.current.value);
     }

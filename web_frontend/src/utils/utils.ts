@@ -1,5 +1,3 @@
-import Cookies from "js-cookie";
-
 export const generateRandomUserId = () => {
   const rand = "x"
     .repeat(5)
@@ -11,10 +9,4 @@ export const generateRandomUserId = () => {
         ]
     );
   return "WebFrontend_" + rand;
-};
-
-export const setUserIdAndDeviceId = (newUserId: string) => {
-  window.userId = newUserId;
-  Cookies.set("userId", newUserId, { expires: 9999 });
-  window.deviceId = "CSEWebFrontendDefault";
 };

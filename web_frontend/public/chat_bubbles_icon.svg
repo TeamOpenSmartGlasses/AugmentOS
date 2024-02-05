@@ -1,0 +1,22 @@
+<svg width="162" height="114" viewBox="0 0 162 114" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g id="Group 22">
+    <path id="Rectangle 54"
+      d="M37.1406 23.2429C37.1406 10.4062 47.5468 0 60.3835 0H137.86C150.697 0 161.103 10.4062 161.103 23.2429V77.4763H60.3835C47.5468 77.4763 37.1406 67.0701 37.1406 54.2334V23.2429Z"
+      fill="url(#paint0_linear_766_5447)" />
+    <path id="Rectangle 55" opacity="0.8"
+      d="M0 59.5857C0 46.749 10.4062 36.3428 23.2429 36.3428H100.719C113.556 36.3428 123.962 46.749 123.962 59.5857V90.5762C123.962 103.413 113.556 113.819 100.719 113.819H0V59.5857Z"
+      fill="url(#paint1_linear_766_5447)" />
+  </g>
+  <defs>
+    <linearGradient id="paint0_linear_766_5447" x1="99.1217" y1="0" x2="99.1217" y2="77.4763"
+      gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10ADFE" />
+      <stop offset="1" stop-color="#0088CF" />
+    </linearGradient>
+    <linearGradient id="paint1_linear_766_5447" x1="61.981" y1="36.3428" x2="61.981" y2="113.819"
+      gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10ADFE" />
+      <stop offset="1" stop-color="#0088CF" />
+    </linearGradient>
+  </defs>
+</svg>
