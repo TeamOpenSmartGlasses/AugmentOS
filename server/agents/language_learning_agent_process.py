@@ -5,7 +5,7 @@ import uuid
 import asyncio
 import logging
 
-#custom
+# custom
 from DatabaseHandler import DatabaseHandler
 from agents.language_learning_agent import run_language_learning_agent
 from agents.proactive_meta_agent import run_proactive_meta_agent_and_experts
@@ -13,7 +13,9 @@ from server_config import openai_api_key
 from logger_config import logger
 from server.agents.helpers.get_dictionary_rank import get_dictionary_rank
 
+
 run_period = 3
+
 
 def language_learning_agents_processing_loop():
     print("START LANGUAGE LEARNING PROCESSING LOOP")
@@ -25,16 +27,18 @@ def language_learning_agents_processing_loop():
             print("dbHandler not ready")
             time.sleep(0.1)
             continue
-        
-        #wait for some transcripts to load in
+
+        # wait for some transcripts to load in
         time.sleep(1)
 
         try:
             pLoopStartTime = time.time()
             # Check for new transcripts
             print("RUNNING LANGUAGE LEARNING LOOP")
-            newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(n=run_period)
+            newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(
+                n=run_period)
 
+            words_to_show = None
             for transcript in newTranscripts:
                 print(transcript)
                 ctime = time.time()
@@ -56,7 +60,7 @@ def language_learning_agents_processing_loop():
             traceback.print_exc()
 
         finally:
-            #lock.release()
+            # lock.release()
             pLoopEndTime = time.time()
             print("=== language leanring loop completed in {} seconds overall ===".format(
                 round(pLoopEndTime - pLoopStartTime, 2)))

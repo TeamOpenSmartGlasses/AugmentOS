@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_container"
+    tools:context="com.teamopensmartglasses.convoscope.MainActivity">
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/recyclerView"
+
+      android:layout_width="0dp"
+      app:layout_constraintWidth_default="percent"
+      app:layout_constraintWidth_percent="0.95"
+      android:layout_height="0dp"
+      app:layout_constraintHeight_default="percent"
+      app:layout_constraintHeight_percent="0.75"
+
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/rawTranscriptsBox"
+
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:background="@drawable/layout_border"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintHeight_default="percent"
+
+      app:layout_constraintHeight_percent="0.25"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintWidth_default="percent"
+      app:layout_constraintWidth_percent="0.6">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rawTranscriptsRecyclerView"
+        android:padding="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/buttonsBox"
+
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:background="@drawable/layout_border"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHeight_default="percent"
+
+      app:layout_constraintHeight_percent="0.25"
+      app:layout_constraintWidth_default="percent"
+      app:layout_constraintWidth_percent="0.403">
+
+    <Button
+        android:id="@+id/settings_button"
+        android:layout_width="115dp"
+        android:layout_height="63dp"
+        android:text="Settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <!--    <Button-->
+<!--        android:id="@+id/button2"-->
+<!--        android:layout_width="107dp"-->
+<!--        android:layout_height="107dp"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:background="@color/blueButton"-->
+<!--        android:text="B2"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/button" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/button3"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:background="@color/blueButton"-->
+<!--        android:text="B3"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/button2" />-->
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

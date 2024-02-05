@@ -3,21 +3,25 @@ package com.teamopensmartglasses.convoscope;
 import static com.teamopensmartglasses.convoscope.Constants.*;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GetTokenResult;
+import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
 import com.teamopensmartglasses.convoscope.events.SharingContactChangedEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
-import com.teamopensmartglasses.convoscope.events.UserIdChangedEvent;
-import com.teamopensmartglasses.sgmlib.DataStreamType;
-import com.teamopensmartglasses.sgmlib.FocusStates;
-import com.teamopensmartglasses.sgmlib.SGMCommand;
-import com.teamopensmartglasses.sgmlib.SGMLib;
-import com.teamopensmartglasses.sgmlib.SmartGlassesAndroidService;
+import com.teamopensmartglasses.convoscope.ui.ConvoscopeUi;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartRingButtonOutputEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SpeechRecOutputEvent;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -26,18 +30,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.UUID;
+
+import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartRingButtonOutputEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SpeechRecOutputEvent;
 
 public class ConvoscopeService extends SmartGlassesAndroidService {
     public final String TAG = "Convoscope_ConvoscopeService";
-    public final String appName = "Convoscope";
 
     private final IBinder binder = new LocalBinder();
 
     //our instance of the SGM library
-    public SGMLib sgmLib;
+    //public SGMLib sgmLib;
 
     //Convoscope stuff
+    String authToken = "";
     private BackendServerComms backendServerComms;
     ArrayList<String> responses;
     ArrayList<String> responsesToShare;
@@ -45,7 +53,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private Runnable cseRunnableCode;
     private Handler displayPollLoopHandler = new Handler(Looper.getMainLooper());
     private Runnable displayRunnableCode;
-    static String userId;
     static final String deviceId = "android";
     static final String [] features = {"contextual_search_engine", "proactive_agent_insights", "explicit_agent_insights", "intelligent_entity_definitions"};
     private SMSComms smsComms;
@@ -66,7 +73,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private final long doubleTapTimeConst = 600;
 
     public ConvoscopeService() {
-        super(MainActivity.class,
+        super(ConvoscopeUi.class,
                 "convoscope_app",
                 3288,
                 "Convoscope",
@@ -82,39 +89,27 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         responsesToShare = new ArrayList<>();
         responses.add("Welcome to Convoscope.");
 
-        //Create SGMLib instance with context: this
-        sgmLib = new SGMLib(this);
-
-        //Define command with a UUID
-        UUID commandUUID = UUID.fromString("5b824bb6-d3b3-417d-8c74-3b103efb403f");
-        SGMCommand command = new SGMCommand("Convoscope", commandUUID, new String[]{"convoscope", "wearable intelligence"}, "AI wearable intelligence.");
-
-        //Register the command
-        Log.d(TAG, "Registering Convoscope command with SGMLib");
-        sgmLib.registerCommand(command, this::convoscopeStartCommandCallback);
-
         //setup backend comms
         backendServerComms = new BackendServerComms(this);
 
-        Log.d(TAG, "Convoscope SERVICE STARTED");
+        Log.d(TAG, "Convoscope service started");
 
-        EventBus.getDefault().register(this);
-
-        userId = getUserId();
-
+        setAuthToken();
         setUpCsePolling();
         setUpDisplayQueuePolling();
 
         smsComms = new SMSComms();
 
-        runConvoscope();
+        this.aioConnectSmartGlasses();
     }
 
     public void setUpCsePolling(){
         cseRunnableCode = new Runnable() {
             @Override
             public void run() {
-                requestContextualSearchEngine();
+                if (authToken != "") {
+                    requestUiPoll();
+                }
                 csePollLoopHandler.postDelayed(this, 1000);
             }
         };
@@ -137,39 +132,31 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         csePollLoopHandler.removeCallbacks(cseRunnableCode);
         displayPollLoopHandler.removeCallbacks(displayRunnableCode);
         EventBus.getDefault().unregister(this);
-        sgmLib.deinit();
         super.onDestroy();
-    }
-
-    public void runConvoscope(){
-        //request to be the in focus app so we can continue to show transcripts
-//        sgmLib.requestFocus(this::focusChangedCallback);
-        if (focusState == FocusStates.OUT_FOCUS){
-            sgmLib.requestFocus(this::focusChangedCallback);
-        }
-
-        //Subscribe to transcription stream
-        sgmLib.subscribe(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM, this::processTranscriptionCallback);
-        sgmLib.subscribe(DataStreamType.SMART_RING_BUTTON, this::processButtonCallback);
-        sgmLib.subscribe(DataStreamType.GLASSES_SIDE_TAP, this::processGlassesTapCallback);
     }
 
     public void convoscopeStartCommandCallback(String args, long commandTriggeredTime){
         Log.d("TAG","Convoscope start callback called");
-        runConvoscope();
+        //runConvoscope();
     }
+    @Subscribe
+    public void onGlassesTapSideEvent(GlassesTapOutputEvent event) {
+        int numTaps = event.numTaps;
+        boolean sideOfGlasses = event.sideOfGlasses;
+        long time = event.timestamp;
 
-    public void focusChangedCallback(FocusStates focusState){
-        Log.d(TAG, "Focus callback called with state: " + focusState);
-        this.focusState = focusState;
-    }
-
-    public void processGlassesTapCallback(int numTaps, boolean sideOfGlasses, long timestamp){
         Log.d(TAG, "GLASSES TAPPED X TIMES: " + numTaps + " SIDEOFGLASSES: " + sideOfGlasses);
         if (numTaps == 3)
             sendLatestCSEResultViaSms();
     }
-    public void processButtonCallback(int buttonId, long timestamp, boolean isDown){
+
+
+    @Subscribe
+    public void onSmartRingButtonEvent(SmartRingButtonOutputEvent event) {
+        int buttonId = event.buttonId;
+        long time = event.timestamp;
+        boolean isDown = event.isDown;
+
         if(!isDown || buttonId != 1) return;
         Log.d(TAG,"DETECTED BUTTON PRESS W BUTTON ID: " + buttonId);
         currTime = System.currentTimeMillis();
@@ -194,33 +181,25 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
             smsComms.sendSms(phoneNum, messageToSend);
 
-            sgmLib.sendReferenceCard("Convoscope", "Sending result(s) via SMS to " + phoneNumName);
+            sendReferenceCard("Convoscope", "Sending result(s) via SMS to " + phoneNumName);
         }
     }
 
     private Handler debounceHandler = new Handler(Looper.getMainLooper());
     private Runnable debounceRunnable;
 
-//    private void debounceAndSendTranscript(String transcript, boolean isFinal){
-//        debounceHandler.removeCallbacks(debounceRunnable);
-//        if (isFinal){
-//            sendLLMQueryRequest(transcript, isFinal);
-//        } else {
-//            debounceRunnable = () -> sendLLMQueryRequest(transcript, isFinal);
-//            debounceHandler.postDelayed(debounceRunnable, 900);
-//        }
-//    }
-
-
-
-    public void processTranscriptionCallback(String transcript, long timestamp, boolean isFinal){
-        Log.d(TAG, "PROCESS TRANSCRIPTION CALLBACK. IS IT FINAL? " + isFinal + " " + transcript);
+    @Subscribe
+    public void onTranscript(SpeechRecOutputEvent event) {
+        String text = event.text;
+        long time = event.timestamp;
+        boolean isFinal = event.isFinal;
+        Log.d(TAG, "PROCESS TRANSCRIPTION CALLBACK. IS IT FINAL? " + isFinal + " " + text);
 
         if (isFinal)
-            sendFinalTranscriptToActivity(transcript);
+            sendFinalTranscriptToActivity(text);
 
         //debounce and then send to backend
-        debounceAndSendTranscript(transcript, isFinal);
+        debounceAndSendTranscript(text, isFinal);
     }
 
     private long lastSentTime = 0;
@@ -229,14 +208,14 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         debounceHandler.removeCallbacks(debounceRunnable);
         long currentTime = System.currentTimeMillis();
         if (isFinal) {
-            sendLLMQueryRequest(transcript, isFinal);
+            sendTranscriptRequest(transcript, isFinal);
         } else { //if intermediate
             if (currentTime - lastSentTime >= DEBOUNCE_DELAY) {
-                sendLLMQueryRequest(transcript, isFinal);
+                sendTranscriptRequest(transcript, isFinal);
                 lastSentTime = currentTime;
             } else {
                 debounceRunnable = () -> {
-                    sendLLMQueryRequest(transcript, isFinal);
+                    sendTranscriptRequest(transcript, isFinal);
                     lastSentTime = System.currentTimeMillis();
                 };
                 debounceHandler.postDelayed(debounceRunnable, DEBOUNCE_DELAY);
@@ -244,26 +223,29 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
     }
 
-    public void sendLLMQueryRequest(String query, boolean isFinal){
+    public void sendTranscriptRequest(String query, boolean isFinal){
+        if (authToken == ""){
+            EventBus.getDefault().post(new GoogleAuthFailedEvent());
+        }
+
         try{
             JSONObject jsonQuery = new JSONObject();
             jsonQuery.put("text", query);
-            jsonQuery.put("userId", userId);
+            jsonQuery.put("Authorization", authToken);
             jsonQuery.put("isFinal", isFinal);
             jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
             backendServerComms.restRequest(LLM_QUERY_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
                     try {
-                        //Log.d(TAG, "CALLING on Success");
-                        parseLLMQueryResult(result);
+                        parseSendTranscriptResult(result);
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
                 }
                 @Override
-                public void onFailure(){
-                    Log.d(TAG, "SOME FAILURE HAPPENED (sendLLMQueryRequest)");
+                public void onFailure(int code){
+                    Log.d(TAG, "SOME FAILURE HAPPENED (sendChatRequest)");
                 }
 
             });
@@ -272,38 +254,36 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
     }
 
-    public void requestContextualSearchEngine(){
+    public void requestUiPoll(){
         try{
             JSONObject jsonQuery = new JSONObject();
             JSONArray featuresArray = new JSONArray(features);
-            jsonQuery.put("userId", userId);
+            jsonQuery.put("Authorization", authToken);
             jsonQuery.put("deviceId", deviceId);
             jsonQuery.put("features", featuresArray);
-            // System.out.println(jsonQuery);
             backendServerComms.restRequest(CSE_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
                     try {
-                        //Log.d(TAG, "CALLING on Success");
-                        //Log.d(TAG, "Result: " + result.toString());
-                        
                         parseConvoscopeResults(result);
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
                 }
                 @Override
-                public void onFailure(){
-                    Log.d(TAG, "SOME FAILURE HAPPENED (requestContextualSearchEngine)");
+                public void onFailure(int code){
+                    Log.d(TAG, "SOME FAILURE HAPPENED (requestUiPoll)");
+                    if (code == 401){
+                        EventBus.getDefault().post(new GoogleAuthFailedEvent());
+                    }
                 }
-
             });
         } catch (JSONException e){
             e.printStackTrace();
         }
     }
 
-    public void parseLLMQueryResult(JSONObject response) throws JSONException {
+    public void parseSendTranscriptResult(JSONObject response) throws JSONException {
 //        Log.d(TAG, "Got result from server: " + response.toString());
         String message = response.getString("message");
         //DEV
@@ -450,36 +430,36 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         latestDisplayTime = System.currentTimeMillis();
 
         if (displayThese.size() == 1) {
-            sgmLib.sendReferenceCard(appName, displayThese.get(0));
+            sendReferenceCard(appName, displayThese.get(0));
         }
         else {
             String[] resultsToDisplayListArr = displayThese.toArray(new String[displayThese.size()]);
-            sgmLib.sendBulletPointList(appName, resultsToDisplayListArr);
+            sendBulletPointList(appName, resultsToDisplayListArr);
         }
     }
 
     public void speakTTS(String toSpeak){
-        sgmLib.sendTextLine(toSpeak);
+        sendTextLine(toSpeak);
     }
 
     public void sendUiUpdateFull(){
         Intent intent = new Intent();
-        intent.setAction(MainActivity.UI_UPDATE_FULL);
-        intent.putStringArrayListExtra(MainActivity.CONVOSCOPE_MESSAGE_STRING, responses);
+        intent.setAction(ConvoscopeUi.UI_UPDATE_FULL);
+        intent.putStringArrayListExtra(ConvoscopeUi.CONVOSCOPE_MESSAGE_STRING, responses);
         sendBroadcast(intent);
     }
 
     public void sendUiUpdateSingle(String message) {
         Intent intent = new Intent();
-        intent.setAction(MainActivity.UI_UPDATE_SINGLE);
-        intent.putExtra(MainActivity.CONVOSCOPE_MESSAGE_STRING, message);
+        intent.setAction(ConvoscopeUi.UI_UPDATE_SINGLE);
+        intent.putExtra(ConvoscopeUi.CONVOSCOPE_MESSAGE_STRING, message);
         sendBroadcast(intent);
     }
 
     public void sendFinalTranscriptToActivity(String transcript){
         Intent intent = new Intent();
-        intent.setAction(MainActivity.UI_UPDATE_FINAL_TRANSCRIPT);
-        intent.putExtra(MainActivity.FINAL_TRANSCRIPT, transcript);
+        intent.setAction(ConvoscopeUi.UI_UPDATE_FINAL_TRANSCRIPT);
+        intent.putExtra(ConvoscopeUi.FINAL_TRANSCRIPT, transcript);
         sendBroadcast(intent);
     }
 
@@ -492,7 +472,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             JSONObject jsonQuery = new JSONObject();
             jsonQuery.put("button_num", buttonNumber);
             jsonQuery.put("button_activity", downUp);
-            jsonQuery.put("userId", userId);
+            jsonQuery.put("Authorization", authToken);
             jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
             backendServerComms.restRequest(BUTTON_EVENT_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
@@ -507,7 +487,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                     }
                 }
                 @Override
-                public void onFailure(){
+                public void onFailure(int code){
                     Log.d(TAG, "SOME FAILURE HAPPENED (buttonDownEvent)");
                 }
 
@@ -525,31 +505,26 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         phoneNum = newNum.replaceAll("[^0-9]", "");
     }
 
-    @Subscribe
-    public void onUserIdChangedEvent(UserIdChangedEvent receivedEvent){
-        Log.d(TAG, "GOT NEW USERID: " + receivedEvent.userId);
-        setUserId(receivedEvent.userId);
-    }
-
-    public void setUserId(String newUserId){
-        SharedPreferences sharedPreferences = getSharedPreferences(appName, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("userId", newUserId);
-        editor.apply();
-
-        userId = newUserId;
-    }
-
-    public String getUserId(){
-        SharedPreferences sharedPreferences = getSharedPreferences(appName, MODE_PRIVATE);
-        String value = sharedPreferences.getString("userId", "noUserIdFound");
-
-        if (value == "noUserIdFound"){
-            String randomUserId = "Convoscope_" + UUID.randomUUID().toString().replaceAll("_", "").substring(0, 5);
-            setUserId(randomUserId);
-            return randomUserId;
+    public void setAuthToken(){
+        Log.d(TAG, "GETTING AUTH TOKEN");
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            user.getIdToken(true)
+                .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                    public void onComplete(@NonNull Task<GetTokenResult> task) {
+                        if (task.isSuccessful()) {
+                            String idToken = task.getResult().getToken();
+                            Log.d(TAG, "Auth Token: " + idToken);
+                            authToken = idToken;
+                        } else {
+                            EventBus.getDefault().post(new GoogleAuthFailedEvent());
+                        }
+                    }
+                });
         }
-
-        return value;
+        else {
+            // not logged in, must log in
+            EventBus.getDefault().post(new GoogleAuthFailedEvent());
+        }
     }
 }

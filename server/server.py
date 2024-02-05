@@ -35,6 +35,8 @@ from agents.language_learning_agent_process import language_learning_agents_proc
 import agents.wake_words
 from Modules.RelevanceFilter import RelevanceFilter
 
+from auth.authentication import *
+
 global agent_executor
 global db_handler
 global relevance_filter
@@ -45,7 +47,11 @@ async def chat_handler(request):
     body = await request.json()
     is_final = body.get('isFinal')
     text = body.get('text')
-    user_id = body.get('userId')
+    timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
 
     # 400 if missing params
     if text is None or text == '':
@@ -113,7 +119,10 @@ async def button_handler(request):
     button_num = body.get('buttonNum')
     button_activity = body.get('buttonActivity')
     timestamp = body.get('timestamp')
-    user_id = body.get('userId')
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
     print('\n=== New Request ===\n', button_num,
           button_activity, timestamp, user_id)
 
@@ -135,91 +144,90 @@ async def button_handler(request):
 
 
 # run cse/definer tools for subscribed users in background every n ms if there is fresh data to run on
-"""
-def cse_loop():
-    print("START CSE PROCESSING LOOP")
-
-    # setup things we need for processing
-    db_handler = DatabaseHandler(parent_handler=False)
-    relevance_filter = RelevanceFilter(db_handler=db_handler)
-    cse = ContextualSearchEngine(db_handler=db_handler)
-
-    #then run the main loop
-    while True:
-        if not db_handler.ready:
-            print("db_handler not ready")
-            time.sleep(0.1)
-            continue
-
-        loop_start_time = time.time()
-        p_loop_start_time = time.time()
-
-        try:
-            p_loop_start_time = time.time()
-            # Check for new transcripts
-            new_transcripts = db_handler.get_new_cse_transcripts_for_all_users(
-                combine_transcripts=True, delete_after=False)
-
-            if new_transcripts is None or new_transcripts == []:
-                print("---------- No transcripts to run on for this cse_loop run...")
-
-            for transcript in new_transcripts:   
-                print("Run CSE with... user_id: '{}' ... text: '{}'".format(
-                    transcript['user_id'], transcript['text']))
-                cse_start_time = time.time()
-
-                cse_responses = cse.custom_data_proactive_search(
-                    transcript['user_id'], transcript['text'])
-
-                cse_end_time = time.time()
-                # print("=== CSE completed in {} seconds ===".format(
-                #     round(cse_end_time - cse_start_time, 2)))
-
-                #filter responses with relevance filter, then save CSE results to the database
-                cse_responses_filtered = list()
-                if cse_responses:
-                    cse_responses_filtered = relevance_filter.should_display_result_based_on_context(
-                        transcript["user_id"], cse_responses, transcript["text"]
-                    )
-
-                    final_cse_responses = [cse_response for cse_response in cse_responses if cse_response["name"] in cse_responses_filtered]
-                    # print("=== CSE RESPONSES FILTERED: {} ===".format(final_cse_responses))
-
-                    db_handler.add_cse_results_for_user(
-                        transcript["user_id"], final_cse_responses
-                    )
-        except Exception as e:
-            cse_responses = None
-            print("Exception in CSE...:")
-            print(e)
-            traceback.print_exc()
-        finally:
-            p_loop_end_time = time.time()
-            # print("=== processing_loop completed in {} seconds overall ===".format(
-            #     round(p_loop_end_time - p_loop_start_time, 2)))
-
-        loop_run_period = 1.5 #run the loop this often
-        while (time.time() - loop_start_time) < loop_run_period: #wait until loop_run_period has passed before running this again
-            time.sleep(0.2)
-"""
+#def cse_loop():
+#    print("START CSE PROCESSING LOOP")
+#
+#    # setup things we need for processing
+#    db_handler = DatabaseHandler(parent_handler=False)
+#    relevance_filter = RelevanceFilter(db_handler=db_handler)
+#    cse = ContextualSearchEngine(db_handler=db_handler)
+#
+#    #then run the main loop
+#    while True:
+#        if not db_handler.ready:
+#            print("db_handler not ready")
+#            time.sleep(0.1)
+#            continue
+#
+#        loop_start_time = time.time()
+#        p_loop_start_time = time.time()
+#
+#        try:
+#            p_loop_start_time = time.time()
+#            # Check for new transcripts
+#            new_transcripts = db_handler.get_new_cse_transcripts_for_all_users(
+#                combine_transcripts=True, delete_after=False)
+#
+#            if new_transcripts is None or new_transcripts == []:
+#                print("---------- No transcripts to run on for this cse_loop run...")
+#
+#            for transcript in new_transcripts:   
+#                print("Run CSE with... user_id: '{}' ... text: '{}'".format(
+#                    transcript['user_id'], transcript['text']))
+#                cse_start_time = time.time()
+#
+#                cse_responses = cse.custom_data_proactive_search(
+#                    transcript['user_id'], transcript['text'])
+#
+#                cse_end_time = time.time()
+#                # print("=== CSE completed in {} seconds ===".format(
+#                #     round(cse_end_time - cse_start_time, 2)))
+#
+#                #filter responses with relevance filter, then save CSE results to the database
+#                cse_responses_filtered = list()
+#                if cse_responses:
+#                    cse_responses_filtered = relevance_filter.should_display_result_based_on_context(
+#                        transcript["user_id"], cse_responses, transcript["text"]
+#                    )
+#
+#                    final_cse_responses = [cse_response for cse_response in cse_responses if cse_response["name"] in cse_responses_filtered]
+#                    # print("=== CSE RESPONSES FILTERED: {} ===".format(final_cse_responses))
+#
+#                    db_handler.add_cse_results_for_user(
+#                        transcript["user_id"], final_cse_responses
+#                    )
+#        except Exception as e:
+#            cse_responses = None
+#            print("Exception in CSE...:")
+#            print(e)
+#            traceback.print_exc()
+#        finally:
+#            p_loop_end_time = time.time()
+#            # print("=== processing_loop completed in {} seconds overall ===".format(
+#            #     round(p_loop_end_time - p_loop_start_time, 2)))
+#
+#        loop_run_period = 1.5 #run the loop this often
+#        while (time.time() - loop_start_time) < loop_run_period: #wait until loop_run_period has passed before running this again
+#            time.sleep(0.2)
 
 #frontends poll this to get the results from our processing of their transcripts
 async def ui_poll_handler(request, minutes=0.5):
     # parse request
     body = await request.json()
-    user_id = body.get('userId')
     device_id = body.get('deviceId')
     features = body.get('features')
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
 
     # 400 if missing params
-    if user_id is None or user_id == '':
-        return web.Response(text='no userId in request', status=400)
     if device_id is None or device_id == '':
         return web.Response(text='no device_id in request', status=400)
     if features is None or features == '':
         return web.Response(text='no features in request', status=400)
-    if "contextual_search_engine" not in features:
-        return web.Response(text='contextual_search_engine not in features', status=400)
+    #if "contextual_search_engine" not in features:
+    #    return web.Response(text='contextual_search_engine not in features', status=400)
 
     resp = dict()
     resp["success"] = True
@@ -256,9 +264,11 @@ async def ui_poll_handler(request, minutes=0.5):
         entity_definitions = db_handler.get_agent_proactive_definer_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["entity_definitions"] = entity_definitions
 
-    if "language_learning":
-        language_learning_results = db_handler.get_language_learning_results_for_user(user_id=user_id)
+    if "language_learning" in features:
+        language_learning_results = db_handler.get_language_learning_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["language_learning_results"] = language_learning_results
+        print("RETURNING THIS LANGUAGE LEARNING RESULTS")
+        print(language_learning_results)
 
     return web.Response(text=json.dumps(resp), status=200)
 
@@ -285,7 +295,10 @@ async def upload_user_data_handler(request):
         return web.Response(text="File too large. Max file size: {}MB".format(MAX_FILE_SIZE_MB), status=413)
 
     user_file = post_data.get('custom-file')
-    user_id = post_data.get('user_id')
+    id_token = post_data.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
 
     if user_file and user_id:
         # Check if the file is a CSV file by looking at its content type
@@ -332,7 +345,10 @@ async def expert_agent_runner(expert_agent_name, user_id):
 async def run_single_expert_agent_handler(request):
     body = await request.json()
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
-    user_id = body.get('userId')
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
     agent_name = body.get('agentName')
 
     # 400 if missing params
@@ -360,7 +376,10 @@ async def run_single_expert_agent_handler(request):
 async def send_agent_chat_handler(request):
     body = await request.json()
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
-    user_id = body.get('userId')
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
     chat_message = body.get('chatMessage')
 
     # 400 if missing params
@@ -383,7 +402,10 @@ async def send_agent_chat_handler(request):
 
 async def rate_result_handler(request):
     body = await request.json()
-    user_id = body.get('userId')
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
     result_uuid = body.get('resultUuid')
     rating = body.get('rating')
 
@@ -400,6 +422,16 @@ async def rate_result_handler(request):
 
     res = db_handler.rate_result_by_uuid(user_id=user_id, result_uuid=result_uuid, rating=rating)
     return web.Response(text=json.dumps({'success': True, 'message': str(res)}), status=200)
+
+async def protected_route(request):
+    print("PROTECTED ROUTE")
+    id_token = request.headers.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is not None:
+        # Proceed with the user request
+        print()
+    else:
+        raise web.HTTPUnauthorized()
 
 if __name__ == '__main__':
     print("Starting server...")
@@ -441,6 +473,7 @@ if __name__ == '__main__':
     app = web.Application(client_max_size=(1024*1024*MAX_FILE_SIZE_MB))
     app.add_routes(
         [
+            web.get('/protected', protected_route),
             web.post('/chat', chat_handler),
             web.post('/button_event', button_handler),
             web.post('/ui_poll', ui_poll_handler),
