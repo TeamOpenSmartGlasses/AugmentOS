@@ -144,73 +144,71 @@ async def button_handler(request):
 
 
 # run cse/definer tools for subscribed users in background every n ms if there is fresh data to run on
-"""
-def cse_loop():
-    print("START CSE PROCESSING LOOP")
-
-    # setup things we need for processing
-    db_handler = DatabaseHandler(parent_handler=False)
-    relevance_filter = RelevanceFilter(db_handler=db_handler)
-    cse = ContextualSearchEngine(db_handler=db_handler)
-
-    #then run the main loop
-    while True:
-        if not db_handler.ready:
-            print("db_handler not ready")
-            time.sleep(0.1)
-            continue
-
-        loop_start_time = time.time()
-        p_loop_start_time = time.time()
-
-        try:
-            p_loop_start_time = time.time()
-            # Check for new transcripts
-            new_transcripts = db_handler.get_new_cse_transcripts_for_all_users(
-                combine_transcripts=True, delete_after=False)
-
-            if new_transcripts is None or new_transcripts == []:
-                print("---------- No transcripts to run on for this cse_loop run...")
-
-            for transcript in new_transcripts:   
-                print("Run CSE with... user_id: '{}' ... text: '{}'".format(
-                    transcript['user_id'], transcript['text']))
-                cse_start_time = time.time()
-
-                cse_responses = cse.custom_data_proactive_search(
-                    transcript['user_id'], transcript['text'])
-
-                cse_end_time = time.time()
-                # print("=== CSE completed in {} seconds ===".format(
-                #     round(cse_end_time - cse_start_time, 2)))
-
-                #filter responses with relevance filter, then save CSE results to the database
-                cse_responses_filtered = list()
-                if cse_responses:
-                    cse_responses_filtered = relevance_filter.should_display_result_based_on_context(
-                        transcript["user_id"], cse_responses, transcript["text"]
-                    )
-
-                    final_cse_responses = [cse_response for cse_response in cse_responses if cse_response["name"] in cse_responses_filtered]
-                    # print("=== CSE RESPONSES FILTERED: {} ===".format(final_cse_responses))
-
-                    db_handler.add_cse_results_for_user(
-                        transcript["user_id"], final_cse_responses
-                    )
-        except Exception as e:
-            cse_responses = None
-            print("Exception in CSE...:")
-            print(e)
-            traceback.print_exc()
-        finally:
-            p_loop_end_time = time.time()
-            # print("=== processing_loop completed in {} seconds overall ===".format(
-            #     round(p_loop_end_time - p_loop_start_time, 2)))
-
-        loop_run_period = 1.5 #run the loop this often
-        while (time.time() - loop_start_time) < loop_run_period: #wait until loop_run_period has passed before running this again
-            time.sleep(0.2)
-"""
+#def cse_loop():
+#    print("START CSE PROCESSING LOOP")
+#
+#    # setup things we need for processing
+#    db_handler = DatabaseHandler(parent_handler=False)
+#    relevance_filter = RelevanceFilter(db_handler=db_handler)
+#    cse = ContextualSearchEngine(db_handler=db_handler)
+#
+#    #then run the main loop
+#    while True:
+#        if not db_handler.ready:
+#            print("db_handler not ready")
+#            time.sleep(0.1)
+#            continue
+#
+#        loop_start_time = time.time()
+#        p_loop_start_time = time.time()
+#
+#        try:
+#            p_loop_start_time = time.time()
+#            # Check for new transcripts
+#            new_transcripts = db_handler.get_new_cse_transcripts_for_all_users(
+#                combine_transcripts=True, delete_after=False)
+#
+#            if new_transcripts is None or new_transcripts == []:
+#                print("---------- No transcripts to run on for this cse_loop run...")
+#
+#            for transcript in new_transcripts:   
+#                print("Run CSE with... user_id: '{}' ... text: '{}'".format(
+#                    transcript['user_id'], transcript['text']))
+#                cse_start_time = time.time()
+#
+#                cse_responses = cse.custom_data_proactive_search(
+#                    transcript['user_id'], transcript['text'])
+#
+#                cse_end_time = time.time()
+#                # print("=== CSE completed in {} seconds ===".format(
+#                #     round(cse_end_time - cse_start_time, 2)))
+#
+#                #filter responses with relevance filter, then save CSE results to the database
+#                cse_responses_filtered = list()
+#                if cse_responses:
+#                    cse_responses_filtered = relevance_filter.should_display_result_based_on_context(
+#                        transcript["user_id"], cse_responses, transcript["text"]
+#                    )
+#
+#                    final_cse_responses = [cse_response for cse_response in cse_responses if cse_response["name"] in cse_responses_filtered]
+#                    # print("=== CSE RESPONSES FILTERED: {} ===".format(final_cse_responses))
+#
+#                    db_handler.add_cse_results_for_user(
+#                        transcript["user_id"], final_cse_responses
+#                    )
+#        except Exception as e:
+#            cse_responses = None
+#            print("Exception in CSE...:")
+#            print(e)
+#            traceback.print_exc()
+#        finally:
+#            p_loop_end_time = time.time()
+#            # print("=== processing_loop completed in {} seconds overall ===".format(
+#            #     round(p_loop_end_time - p_loop_start_time, 2)))
+#
+#        loop_run_period = 1.5 #run the loop this often
+#        while (time.time() - loop_start_time) < loop_run_period: #wait until loop_run_period has passed before running this again
+#            time.sleep(0.2)
 
 #frontends poll this to get the results from our processing of their transcripts
 async def ui_poll_handler(request, minutes=0.5):
@@ -228,8 +226,8 @@ async def ui_poll_handler(request, minutes=0.5):
         return web.Response(text='no device_id in request', status=400)
     if features is None or features == '':
         return web.Response(text='no features in request', status=400)
-    if "contextual_search_engine" not in features:
-        return web.Response(text='contextual_search_engine not in features', status=400)
+    #if "contextual_search_engine" not in features:
+    #    return web.Response(text='contextual_search_engine not in features', status=400)
 
     resp = dict()
     resp["success"] = True
@@ -266,9 +264,11 @@ async def ui_poll_handler(request, minutes=0.5):
         entity_definitions = db_handler.get_agent_proactive_definer_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["entity_definitions"] = entity_definitions
 
-    if "language_learning":
-        language_learning_results = db_handler.get_language_learning_results_for_user(user_id=user_id)
+    if "language_learning" in features:
+        language_learning_results = db_handler.get_language_learning_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["language_learning_results"] = language_learning_results
+        print("RETURNING THIS LANGUAGE LEARNING RESULTS")
+        print(language_learning_results)
 
     return web.Response(text=json.dumps(resp), status=200)
 

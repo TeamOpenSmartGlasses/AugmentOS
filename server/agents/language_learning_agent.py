@@ -18,20 +18,18 @@ import asyncio
 from Modules.LangchainSetup import *
 
 language_learning_agent_prompt_blueprint = """
-The aim is to help the language learner to understand new words in the context of real conversations. This helps them learn the words, and it helps the follow along with the dialog. Only a few words are translated so the language learner can rely on their built-in knowledge for as much of the target language as possible.
+The aim is to help the language learner to understand new words in the context of real conversations. This helps them learn the words, and it helps the follow along with the dialog. Only a few words are translated so the language learner can rely on their built-in knowledge as much as possible.
 
-You are a highly skilled proffesional translator and advanced language teacher, fluent in Russian, Chinese, French, Spanish, German, English, and more. You are listening to a user's conversation right now. The user is learning {target_language}. The user's first language is {source_language}. The input text is in the target language and your translation is in the source language.
+You are a highly skilled proffesional translator and advanced language teacher, fluent in Russian, Chinese, French, Spanish, German, English, and more. You are listening to a user's conversation right now. The user is learning {target_language}. The user's first language is {source_language}. If the input text is in the target language, then your translation is in the source language. If the input text is in the source language, then your translation is in the target.
 
-You identify vocabulary that the user might not know and then tranlsate only that vocabulary. You should *only* translate words you think the learner doesn't know. Outputting 0 or only 1 translations is OK (4 maximum). If the learner's score is <50, they will probably need every few words defined. 50-75 fluency might need 1 word per sentence. 75+, only more rare words, once every few minutes.
+You identify vocabulary that the user might not know and then translate only that vocabulary. You should *only* translate words you think the learner doesn't know. Outputting zero or only one translation is OK (4 maximum). If the learner's score is <50, they will probably need every few words defined. 50-75 fluency might need 1 word per sentence. 75+, only more rare words, once every few minutes.
 
 Process:
 
 0. Consider the fluency level of the user, which is {fluency_level}, where 0<=fluency_level<=100, with 0 being complete beginner, 50 being conversation, 75 intermediate and 100 being native speaker
 1. Skim through the conversation segment and identify 0 to 4 words that may unfamiliar to someone with a fluency level of {fluency_level}.
 2. For each of the zero to three identified word in the target language, provide a 1-2 word translation in the source language (which is {source_language}) (try to make translations as short as posible). Use context clues from the conversation to inform your translations.
-3. Output Python dictionary only. The keys are the words in {target_language} (rare, understandality relevant words), and the values are the translation of those words into {source_language}. There should be <= 4 object in the dict. Don't output any explanation or extra data, just this simple python list.
-
-ONLY OUTPUT JUST THE PYTHON DICT.
+3. Output Python dictionary only using the format instructions below. The keys are the rare, relevant words in the language of the input text, and the values are the translation of those words into the opposite of the input text language. There should be <= 4 words per run in the dict. Don't output any explanation or extra data, just this simple info.
 
 Conversation segment to analyze:
 ```{conversation_segment}```
@@ -48,7 +46,7 @@ Output: {{"stars" : <translation>}}
 
 Follow this format when you output: {format_instructions}
 
-Now provide the output Python dict:
+Now provide the output Python:
 """
 
 @time_function()
@@ -58,8 +56,8 @@ def run_language_learning_agent(conversation_context: str): #, insights_history:
 
     conversation_segment = conversation_context #"It's a beautiful day to be out and about at the library! And you should come to my house tomorrow!"
     fluency_level = 20  # Example fluency level
-    target_language = "English"
-    source_language = "Russian"
+    target_language = "Russian"
+    source_language = "English"
 
     class LanguageLearningAgentQuery(BaseModel):
         """
@@ -91,6 +89,16 @@ def run_language_learning_agent(conversation_context: str): #, insights_history:
     print(response)
     try:
         translated_words = language_learning_agent_query_parser.parse(response.content).translated_words
-        return translated_words 
-    except OutputParserException:
+        translated_words_obj = list()
+        for word in translated_words:
+            tmpdict = dict()
+            tmpdict["in_word"] = word #pack the translation
+            tmpdict["in_word_translation"] = translated_words[word] #pack the translation
+            translated_words_obj.append(tmpdict)
+
+        print(translated_words_obj)
+        return translated_words_obj 
+    except OutputParserException as e:
+        print('parse fail')
+        print(e)
         return None
