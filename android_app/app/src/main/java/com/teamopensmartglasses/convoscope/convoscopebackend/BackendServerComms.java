@@ -53,7 +53,7 @@ public class BackendServerComms {
 
         //if using dev server, add /dev in front
         if (useDevServer) {
-            builtUrl = serverUrl + "/dev" + endpoint;
+            builtUrl = serverUrl + "/mit" + endpoint;
         }
 
         //get the request type

@@ -54,7 +54,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private Handler displayPollLoopHandler = new Handler(Looper.getMainLooper());
     private Runnable displayRunnableCode;
     static final String deviceId = "android";
-    static final String [] features = {"contextual_search_engine", "proactive_agent_insights", "explicit_agent_insights", "intelligent_entity_definitions"};
+    static final String [] features = {"proactive_agent_insights", "explicit_agent_insights", "intelligent_entity_definitions", "language_learning"};
 //    private SMSComms smsComms;
     static String phoneNumName = "Alex";
     static String phoneNum = "8477367492"; // Alex's phone number. Fun default.
@@ -297,31 +297,105 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //        }
     }
 
+    public String calculateLLStringFormatted(JSONArray jsonArray){
+        // Assuming jsonArray is your existing JSONArray object
+        String[] inWords = new String[jsonArray.length()];
+        String[] inWordsTranslations = new String[jsonArray.length()];
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            try {
+                JSONObject obj = jsonArray.getJSONObject(i);
+                inWords[i] = obj.getString("in_word");
+                inWordsTranslations[i] = obj.getString("in_word_translation");
+            } catch (JSONException e){
+                e.printStackTrace();
+            }
+        }
+
+        StringBuilder topLine = new StringBuilder();
+        StringBuilder bottomLine = new StringBuilder();
+
+        // Use en space instead of a regular space for padding
+        String enSpace = "\u2002"; // for en space
+
+        // Step 1: Calculate maximum width for each word pair and build the lines
+        for (int i = 0; i < inWords.length; i++) {
+            String inWord = inWords[i];
+            String translation = inWordsTranslations[i];
+            int maxWidth = Math.max(inWord.length(), translation.length());
+
+            // Step 2: Calculate padding for "in_word"
+            int padding = (maxWidth - inWord.length()) / 2;
+
+            // Append spaces for padding before "in_word" to topLine
+            for (int j = 0; j < padding; j++) {
+                topLine.append(enSpace);
+            }
+
+            // Append "in_word" to topLine
+            topLine.append(inWord);
+
+            // Append additional spaces after "in_word" to ensure alignment, if necessary
+            int totalSpaces = maxWidth - inWord.length();
+            for (int j = padding + inWord.length(); j < totalSpaces; j++) {
+                topLine.append(enSpace);
+            }
+
+            // Append "in_word_translation" directly to bottomLine
+            bottomLine.append(translation);
+
+            // If not the last word pair, append spaces to both lines to separate word pairs
+            if (i < inWords.length - 1) {
+                topLine.append(enSpace.repeat(4)); // Adjust the number of spaces as needed for aesthetics
+                bottomLine.append(enSpace.repeat(4)); // Keep this the same as the top line for alignment
+            }
+        }
+
+        // Step 4: Join the two lines
+        String llResult = topLine.toString() + "\n" + bottomLine.toString();
+
+        // Output the result
+        Log.d(TAG, llResult);
+        return llResult;
+    }
+
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
 //        Log.d(TAG, "GOT CSE RESULT: " + response.toString());
         String imgKey = "image_url";
         String mapImgKey = "map_image_path";
 
-        JSONArray cseResults = response.has(cseResultKey) ? response.getJSONArray(cseResultKey) : new JSONArray();
+//        JSONArray cseResults = response.has(cseResultKey) ? response.getJSONArray(cseResultKey) : new JSONArray();
 
-        JSONArray proactiveAgentResults = response.has(proactiveAgentResultsKey) ? response.getJSONArray(proactiveAgentResultsKey) : new JSONArray();
+//        JSONArray proactiveAgentResults = response.has(proactiveAgentResultsKey) ? response.getJSONArray(proactiveAgentResultsKey) : new JSONArray();
 
         JSONArray explicitAgentQueries = response.has(explicitAgentQueriesKey) ? response.getJSONArray(explicitAgentQueriesKey) : new JSONArray();
 
         JSONArray explicitAgentResults = response.has(explicitAgentResultsKey) ? response.getJSONArray(explicitAgentResultsKey) : new JSONArray();
 
-        JSONArray entityDefinitions = response.has(entityDefinitionsKey) ? response.getJSONArray(entityDefinitionsKey) : new JSONArray();
+//        JSONArray entityDefinitions = response.has(entityDefinitionsKey) ? response.getJSONArray(entityDefinitionsKey) : new JSONArray();
 
-        // Just append the entityDefinitions to the cseResults as they have similar schema
-        for (int i = 0; i < entityDefinitions.length(); i++) {
-            cseResults.put(entityDefinitions.get(i));
+        JSONArray languageLearningResults = response.has(languageLearningKey) ? response.getJSONArray(languageLearningKey) : new JSONArray();
+
+        String llResult = "";
+//            String llResult = "|this is     |the result\n|siht si    |tresult eht";
+        for (int i = 0; i < languageLearningResults.length(); i++) {
+            Log.d(TAG, "LANGUAGE LEARNING RESULTS:" + languageLearningResults.get(i));
         }
+        if (languageLearningResults.length() != 0) {
+            llResult = calculateLLStringFormatted(languageLearningResults);
+            queueOutput(llResult);
+        }
+
+//        // Just append the entityDefinitions to the cseResults as they have similar schema
+//        for (int i = 0; i < entityDefinitions.length(); i++) {
+//            cseResults.put(entityDefinitions.get(i));
+//        }
 
         long wakeWordTime = response.has(wakeWordTimeKey) ? response.getLong(wakeWordTimeKey) : -1;
 
-        if (cseResults.length() > 0){
-            Log.d(TAG, "GOT CSE RESULTS: " + response.toString());
-        }
+//        if (cseResults.length() > 0){
+//            Log.d(TAG, "GOT CSE RESULTS: " + response.toString());
+//        }
 
         if (wakeWordTime != -1 && wakeWordTime != previousWakeWordTime){
             previousWakeWordTime = wakeWordTime;
@@ -330,59 +404,59 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
 
         //go through CSE results and add to resultsToDisplayList
-        String sharableResponse = "";
-        for (int i = 0; i < cseResults.length(); i++){
-            try {
-                JSONObject obj = cseResults.getJSONObject(i);
-                String name = obj.getString("name");
-                String body = obj.getString("summary");
-                String combined = name + ": " + body;
-                Log.d(TAG, name);
-                Log.d(TAG, "--- " + body);
-                queueOutput(combined);
-
-//                if(obj.has(mapImgKey)){
-//                    String mapImgPath = obj.getString(mapImgKey);
-//                    String mapImgUrl = backendServerComms.serverUrl + mapImgPath;
-//                    sgmLib.sendReferenceCard(name, body, mapImgUrl);
-//                }
-//                else if(obj.has(imgKey)) {
-//                    sgmLib.sendReferenceCard(name, body, obj.getString(imgKey));
-//                }
-//                else {
-//                    sgmLib.sendReferenceCard(name, body);
-//                }
-
-                // For SMS
-//                sharableResponse += combined;
-//                if(obj.has("url")){
-//                    sharableResponse += "\n" + obj.get("url");
-//                }
-//                sharableResponse += "\n\n";
-//                if(i == cseResults.length() - 1){
-//                    sharableResponse += "Sent from Convoscope";
-//                }
-
-
-            } catch (JSONException e){
-                e.printStackTrace();
-            }
-        }
-
-        //go through proactive agent results and add to resultsToDisplayList
-        for (int i = 0; i < proactiveAgentResults.length(); i++){
-            try {
-                JSONObject obj = proactiveAgentResults.getJSONObject(i);
-                String name = obj.getString("agent_name") + " says";
-                String body = obj.getString("agent_insight");
-                String combined = name + ": " + body;
-                Log.d(TAG, name);
-                Log.d(TAG, "--- " + body);
-                queueOutput(combined);
-            } catch (JSONException e){
-                e.printStackTrace();
-            }
-        }
+//        String sharableResponse = "";
+//        for (int i = 0; i < cseResults.length(); i++){
+//            try {
+//                JSONObject obj = cseResults.getJSONObject(i);
+//                String name = obj.getString("name");
+//                String body = obj.getString("summary");
+//                String combined = name + ": " + body;
+//                Log.d(TAG, name);
+//                Log.d(TAG, "--- " + body);
+//                queueOutput(combined);
+//
+////                if(obj.has(mapImgKey)){
+////                    String mapImgPath = obj.getString(mapImgKey);
+////                    String mapImgUrl = backendServerComms.serverUrl + mapImgPath;
+////                    sgmLib.sendReferenceCard(name, body, mapImgUrl);
+////                }
+////                else if(obj.has(imgKey)) {
+////                    sgmLib.sendReferenceCard(name, body, obj.getString(imgKey));
+////                }
+////                else {
+////                    sgmLib.sendReferenceCard(name, body);
+////                }
+//
+//                // For SMS
+////                sharableResponse += combined;
+////                if(obj.has("url")){
+////                    sharableResponse += "\n" + obj.get("url");
+////                }
+////                sharableResponse += "\n\n";
+////                if(i == cseResults.length() - 1){
+////                    sharableResponse += "Sent from Convoscope";
+////                }
+//
+//
+//            } catch (JSONException e){
+//                e.printStackTrace();
+//            }
+//        }
+//
+//        //go through proactive agent results and add to resultsToDisplayList
+//        for (int i = 0; i < proactiveAgentResults.length(); i++){
+//            try {
+//                JSONObject obj = proactiveAgentResults.getJSONObject(i);
+//                String name = obj.getString("agent_name") + " says";
+//                String body = obj.getString("agent_insight");
+//                String combined = name + ": " + body;
+//                Log.d(TAG, name);
+//                Log.d(TAG, "--- " + body);
+//                queueOutput(combined);
+//            } catch (JSONException e){
+//                e.printStackTrace();
+//            }
+//        }
 
         //go through explicit agent queries and add to resultsToDisplayList
         for (int i = 0; i < explicitAgentQueries.length(); i++){
@@ -405,9 +479,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 e.printStackTrace();
             }
         }
-
-        //add a response to share to the shareable response list
-        responsesToShare.add(sharableResponse);
     }
 
     //all the stuff from the results that we want to display
@@ -415,7 +486,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public void queueOutput(String item){
         responses.add(item);
         sendUiUpdateSingle(item);
-        resultsToDisplayList.add(item.substring(0,Math.min(72, item.length())).trim().replaceAll("\\s+", " "));
+        resultsToDisplayList.add(item.substring(0,Math.min(72, item.length())).trim());//.replaceAll("\\s+", " "));
     }
 
     public void maybeDisplayFromResultList(){
@@ -432,11 +503,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         latestDisplayTime = System.currentTimeMillis();
 
         if (displayThese.size() == 1) {
-            sendReferenceCard(appName, displayThese.get(0));
+            sendReferenceCard(glassesCardTitle, displayThese.get(0));
         }
         else {
             String[] resultsToDisplayListArr = displayThese.toArray(new String[displayThese.size()]);
-            sendBulletPointList(appName, resultsToDisplayListArr);
+            sendBulletPointList(glassesCardTitle, resultsToDisplayListArr);
         }
     }
 
