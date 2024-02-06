@@ -1,6 +1,6 @@
 # custom
 from collections import defaultdict
-from agent_utils import format_list_data
+from agents.agent_utils import format_list_data
 from server_config import openai_api_key
 
 # langchain
@@ -19,7 +19,9 @@ from Modules.LangchainSetup import *
 language_learning_agent_prompt_blueprint = """
 The aim is to help the language learner to understand new words in the context of real conversations. This helps them learn the words, and it helps the follow along with the dialog. Only a few words are translated so the language learner can rely on their built-in knowledge as much as possible.
 
-You are a highly skilled proffesional translator and advanced language teacher, fluent in Russian, Chinese, French, Spanish, German, English, and more. You are listening to a user's conversation right now. The user is learning {target_language}. The user's first language is {source_language}. If the input text is in the target language, then your translation is in the source language. If the input text is in the source language, then your translation is in the target.
+You are a highly skilled proffesional translator and advanced language teacher, fluent in Russian, Chinese, French, Spanish, German, English, and more. You are listening to a user's conversation right now. The user is learning {target_language}. The user's first language is {source_language}.
+
+If the input text is in the target language, your translation is in the source language. If input text is in the source language, translate to target language.
 
 You identify vocabulary that the user might not know and then translate only that vocabulary. You should *only* translate words you think the learner doesn't know. Outputting zero or only one translation is OK (3 maximum). If the learner's score is <50, they will probably need every few words defined. 50-75 fluency might need 1 word per sentence. 75+, only more rare words, once every few minutes.
 
@@ -31,30 +33,45 @@ This level influences the selection of words to translate:
    - 75-99 (Intermediate): Only translate rare or complex words that an intermediate learner might not encounter frequently.
    - 100 (Native Speaker): No translation is necessary unless extremely rare or technical terms are used.
 1. Skim through the conversation segment and identify 0 to 3 words that may unfamiliar to someone with a fluency level of {fluency_level}.
-2. For each of the zero to three identified word in the target language, provide a 1-2 word translation in the source language (which is {source_language}) (try to make translations as short as posible). Use context clues from the conversation to inform your translations.
-3. Output Python dictionary only using the format instructions below. The keys are the rare, relevant words in the language of the input text, and the values are the translation of those words into the opposite of the input text language. There should be <= 3 words per run in the dict. Don't output any explanation or extra data, just this simple info.
-
-Conversation segment to analyze:
-```{conversation_segment}```
+2. Consider the frequency rank percentile of the words in the conversation segment. The percentile is a number between 0 and 100, which determines how rare the word is in the language. Percentiles provide a measure of how a word's frequency compares to the rest of the words in the language: a word in 10th percential is more uncommon than 90% of the words in the language. Conversely, a word in the 99th percentile is common, more frequent than 99% of the words. Use the percentile to determine words that the user might not know.
+3. For each of the zero to three identified word in the input text language, provide a 1-2 word translation in the opposite language (either {source_language} or {target_language}, whatever is opposite to the input text. Try to make translations as short as posible. Use context from the conversation to inform your translations.
+4. Output Python dictionary only using the format instructions below. The keys are the rare, relevant words in the language of the input text, and the values are the translation of those words into the opposite of the input text language. There should be <= 3 words per run in the dict. Don't output any explanation or extra data, just this simple info. It's OK to output zero words if there are no appopriately rare words in the input text.
 
 Examples:
+
 Conversation 1: "I ran for the train, but the fruit stand was in the way"
 Output 1: {{"train" : <translation>, "fruit stand" : translation}}
 Conversation 2: "Oh, so you're a student of biology, that's great"
 Output 2: {{"student" : <translation>, "biology" : translation}}
-Conversation 3: "I love to look at the stars and think of my family"
+Conversation 3: "let's go there and say hello to her"
+Output 3 (empty, no results): {{}}
+Conversation 4: "I love to look at the stars and think of my family"
 Output 3: {{"stars" : <translation>}}
 
+Frequency Ranking:
 
-Input text (from live conversation transcript):
-```{conversation_segment}```
+The frequency ranking of each word tells you how common it is in daily speech. The frequency ranking of the wordsin the conversation segment are: ```{word_rank}```
 
 DO NOT define common words like "yes", "no", "he", "hers", "to", "from", "thank you", "please", "because", etc. in ANY language - they are too common. Focus on rare words.
+
+
+Input Text (from live conversation transcript):
+```{conversation_segment}```
 
 Follow this format when you output: {format_instructions}
 
 Now provide the output Python dictionary using the format instructions above:
 """
+
+def format_list_data(data: dict) -> str:
+    """
+    Formats a dict into a string that can be used in a prompt
+    """
+    data_str = ""
+    for key, value in data.items():
+        data_str += f"{key} : {value}\n"
+    return data_str
+
 
 @time_function()
 def run_language_learning_agent(conversation_context: str, word_rank: dict):
@@ -85,6 +102,8 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict):
             "format_instructions": language_learning_agent_query_parser.get_format_instructions()}
     )
 
+    word_rank_string = format_list_data(word_rank)
+
     language_learning_agent_query_prompt_string = extract_language_learning_agent_query_prompt.format_prompt(
         conversation_context=conversation_context,
         source_language=source_language,
@@ -93,6 +112,9 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict):
         conversation_segment=conversation_segment,
         word_rank=word_rank_string
     ).to_string()
+
+    print("LANGUAGE LEARNING PROMPT********************************")
+    print(language_learning_agent_query_prompt_string)
 
     # print("Proactive meta agent query prompt string", language_learning_agent_query_prompt_string)
 
