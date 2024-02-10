@@ -1,5 +1,5 @@
 import { ScrollArea } from "@mantine/core";
-import { Collapse } from "@material-ui/core";
+import { Collapse } from "@mui/material";
 import { TransitionGroup } from "react-transition-group";
 import ExplicitCard from "./ExplicitCard";
 import ReferenceCard from "./ReferenceCard";
