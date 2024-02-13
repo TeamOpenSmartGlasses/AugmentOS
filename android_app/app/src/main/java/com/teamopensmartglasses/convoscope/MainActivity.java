@@ -184,6 +184,11 @@ public class MainActivity extends AppCompatActivity {
     bindConvoscopeService();
   }
 
+  public void restartConvoscopeService(){
+    stopConvoscopeService();
+    startConvoscopeService();
+  }
+
   //check if service is running
   private boolean isMyServiceRunning(Class<?> serviceClass) {
     ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
