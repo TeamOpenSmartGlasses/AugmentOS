@@ -2,6 +2,7 @@ package com.teamopensmartglasses.convoscope;
 
 import static com.teamopensmartglasses.convoscope.Constants.*;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
@@ -9,6 +10,7 @@ import android.os.Looper;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -518,6 +520,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                             String idToken = task.getResult().getToken();
                             Log.d(TAG, "Auth Token: " + idToken);
                             authToken = idToken;
+
+                            PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
+                                    .edit()
+                                    .putString("auth_token", authToken)
+                                    .apply();
                         } else {
                             EventBus.getDefault().post(new GoogleAuthFailedEvent());
                         }
