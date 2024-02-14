@@ -33,9 +33,9 @@ Note:
 All questions must be formulated in the target language to ensure immersion and practical language usage, regardless of the learner's proficiency level.
 
 "Nearby Points of Interest:"
-{locations}
+{places}
 
 Follow this format when you output: {format_instructions}
 
-Now provide the output Python dictionary using the format instructions above:
+Now provide the output Python list using the format instructions above:
 """
