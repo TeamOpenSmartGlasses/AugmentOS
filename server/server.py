@@ -113,6 +113,20 @@ async def load_recording_handler(request):
     })
     # return web.Response(text=json.dumps({'success': True, 'mess
 
+
+async def set_user_settings(request):
+    body = await request.json()
+    target_language = body.get('target_language')
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
+    
+    db_handler.update_user_options(user_id, body)
+
+    return web.Response(text=json.dumps({'success': True, 'message': "Saved your settings."}))
+
+
 # runs when button is pressed on frontend - right now button ring on wearable or button in TPA
 async def button_handler(request):
     body = await request.json()
@@ -484,7 +498,8 @@ if __name__ == '__main__':
             web.post('/rate_result', rate_result_handler),
             web.post('/start_recording', start_recording_handler),
             web.post('/save_recording', save_recording_handler),
-            web.post('/load_recording', load_recording_handler)
+            web.post('/load_recording', load_recording_handler),
+            web.post('/set_user_settings', set_user_settings)
         ]
     )
     cors = aiohttp_cors.setup(app, defaults={
