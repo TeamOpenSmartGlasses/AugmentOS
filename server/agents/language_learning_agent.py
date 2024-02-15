@@ -40,6 +40,7 @@ This level influences the selection of words to translate:
 2. Consider the frequency rank percentile of the words in the conversation context. The percentile is a number between 0 and 100, which determines how rare the word is in the language. Percentiles provide a measure of how a word's frequency compares to the rest of the words in the language: a word in 10th percential is more uncommon than 90% of the words in the language. Conversely, a word in the 99th percentile is common, more frequent than 99% of the words. Use the percentile to determine words that the user might not know.
 3. For each of the zero to three identified words in the input text language, provide a 1-2 word translation in the opposite language (either {source_language} or {target_language}, whatever is opposite to the input text. Try to make translations as short as posible. Use context from the conversation to inform your translations.
 4. Output Python dictionary only using the format instructions below. The keys are the rare, relevant words in the language of the input text, and the values are the translation of those words into the opposite of the input text language. There should be <= 3 words per run in the dict. Don't output any explanation or extra data, just this simple info. It's OK to output zero words if there are no appopriately rare words in the input text.
+4. Output response using the format instructions below. The keys are the rare, relevant words in the language of the input text, and the values are the translation of those words into the opposite of the input text language. There should be <= 3 words per run in the dict. Don't output any explanation or extra data, just this simple info. It's OK to output zero words if there are no appopriately rare words in the input text.
 
 Examples:
 
@@ -55,7 +56,12 @@ Output 3: {{"stars" : <translation>}}
 Final Data:
 DO NOT define common words like "yes", "no", "he", "hers", "to", "from", "thank you", "please", "because", etc. in ANY language - they are too common. Focus on rare words.
 
+Frequency Ranking:
+IGNORE THIS FOR NOW: The frequency ranking of each word tells you how common it is in daily speech. The frequency ranking of the wordsin the conversation context are: ```{word_rank}```
 
+Input:
+
+<<<<<<< HEAD
 Follow this format when you output: {format_instructions}
 
 Frequency Ranking:
@@ -68,7 +74,12 @@ Input Text (from live conversation transcript):
 
 
 
-Now provide the output Python dictionary using the format instructions above:
+Input Text (from live conversation transcript):
+```{conversation_context}```
+
+Follow this format when you output: {format_instructions}
+
+Now provide the output using the format instructions above:
 """
 
 #Preface Rule:
