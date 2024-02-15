@@ -29,7 +29,7 @@ def is_user_id_in_user_list(user_id, user_list):
 def explicit_agent_processing_loop():
     #lock = threading.Lock()
 
-    print("START AGENT INSIGHT PROCESSING LOOP")
+    print("START EXPLICIT AGENT PROCESSING LOOP")
     while True:
         if not dbHandler.ready:
             print("dbHandler not ready")
