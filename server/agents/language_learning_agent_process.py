@@ -1,16 +1,10 @@
 import time
 import traceback
-import math
-import uuid
 import asyncio
-import logging
 
 # custom
 from DatabaseHandler import DatabaseHandler
 from agents.language_learning_agent import run_language_learning_agent
-from agents.proactive_meta_agent import run_proactive_meta_agent_and_experts
-from server_config import openai_api_key
-from logger_config import logger
 from agents.helpers.get_dictionary_rank import get_dictionary_rank
 
 run_period = 3

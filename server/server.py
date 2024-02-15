@@ -32,6 +32,7 @@ from agents.expert_agents import run_single_expert_agent, arun_single_expert_age
 from agents.explicit_agent_process import explicit_agent_processing_loop, call_explicit_agent
 from agents.proactive_definer_agent_process import proactive_definer_processing_loop
 from agents.language_learning_agent_process import language_learning_agents_processing_loop
+from agents.question_asker_agent_process import question_asker_agents_processing_loop
 import agents.wake_words
 from Modules.RelevanceFilter import RelevanceFilter
 
@@ -465,6 +466,11 @@ if __name__ == '__main__':
     #print("Starting Language Learning Agents process...")
     language_learning_background_process = multiprocessing.Process(target=language_learning_agents_processing_loop)
     language_learning_background_process.start()
+    
+    # start the question asker app process
+    # print("Starting Question Asker Agents process...")
+    question_asker_background_process = multiprocessing.Process(target=question_asker_agents_processing_loop)
+    question_asker_background_process.start()
 
     # setup and run web app
     # CORS allow from all sources
@@ -504,4 +510,5 @@ if __name__ == '__main__':
     #intelligent_definer_agent_process.join()
     #cse_process.join()
     language_learning_background_process.join()
+    question_asker_background_process.join()
     explicit_background_process.join()
