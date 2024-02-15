@@ -131,6 +131,7 @@ class DatabaseHandler:
                  "cse_consumed_transcript_idx": 0,
                  "options": {
                      "enable_agent_proactive_definer_images": True,
+                     "target_language": "Russian",
                  },
                  "transcripts": [],
                  "ui_list": [],
@@ -165,6 +166,28 @@ class DatabaseHandler:
         filter = {"user_id": user_id}
         doc = self.user_collection.find_one(filter, {'options': 1, '_id': 0})
         return doc.get('options', None) if doc else None
+
+
+    def update_user_options(self, user_id, options_update):
+        filter = {"user_id": user_id}
+        update = {"$set": {}}
+        for key, value in options_update.items():
+            update["$set"][f"options.{key}"] = value
+        result = self.user_collection.update_one(filter, update)
+        if result.modified_count > 0:
+            print(f'Options updated for user {user_id}.')
+        else:
+            print(f'No updates made for user {user_id}. Either user does not exist or no changes were necessary.')
+
+    def get_user_option_value(self, user_id, option_key):
+        filter = {"user_id": user_id}
+        projection = {'options': 1, '_id': 0}
+        doc = self.user_collection.find_one(filter, projection)
+        if doc and 'options' in doc and option_key in doc['options']:
+            return doc['options'][option_key]
+        else:
+            return None
+
 
     ### TRANSCRIPTS ###
 

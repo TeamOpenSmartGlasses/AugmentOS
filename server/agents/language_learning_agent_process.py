@@ -41,7 +41,12 @@ def language_learning_agents_processing_loop():
                 print(transcript)
                 ctime = time.time()
                 dictionary_rank = get_dictionary_rank(transcript['text'])
-                words_to_show = run_language_learning_agent(transcript['text'], dictionary_rank)
+                #get users target language
+                target_language = dbHandler.get_user_option_value(transcript['user_id'], "target_language")
+                print("GOT LANGUAGE: " + target_language)
+
+                #run the language learning agent
+                words_to_show = run_language_learning_agent(transcript['text'], dictionary_rank, target_language)
                 loop_time = time.time() - ctime
                 print(f"RAN LL IN : {loop_time}")
                 print(words_to_show)
