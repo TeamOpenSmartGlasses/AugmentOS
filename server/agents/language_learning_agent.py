@@ -14,6 +14,10 @@ from langchain.schema import OutputParserException
 from pydantic import BaseModel, Field
 from helpers.time_function_decorator import time_function
 
+#pinyin
+import json
+from pypinyin import pinyin, Style
+
 from Modules.LangchainSetup import *
 
 language_learning_agent_prompt_blueprint = """
@@ -101,7 +105,7 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
 
     # "It's a beautiful day to be out and about at the library! And you should come to my house tomorrow!"
     conversation_context = conversation_context
-    fluency_level = 35  # Example fluency level
+    fluency_level = 30  # Example fluency level
     #target_language = "Chinese (Pinyin)"
     source_language = "English"
 
@@ -144,17 +148,25 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
     try:
         translated_words = language_learning_agent_query_parser.parse(
             response.content).translated_words
-        translated_words_obj = list()
-        for word in translated_words:
-            tmpdict = dict()
-            tmpdict["in_word"] = word  # pack the translation
-            # pack the translation
-            tmpdict["in_word_translation"] = translated_words[word]
-            translated_words_obj.append(tmpdict)
 
+        #convert Chinese characters into Pinyin
+        # Function to convert Chinese text to Pinyin
+        def chinese_to_pinyin(chinese_text):
+            return ' '.join([item[0] for item in pinyin(chinese_text, style=Style.TONE)])
+
+        # Apply Pinyin conversion if target_language is "Chinese (Pinyin)"
+        if target_language == "Chinese (Pinyin)":
+            translated_words_pinyin = {chinese_to_pinyin(word): chinese_to_pinyin(translated_words[word]) for word in translated_words}
+        else:
+            translated_words_pinyin = translated_words
+
+        translated_words_obj = []
+        for word, translation in translated_words_pinyin.items():
+            translated_words_obj.append({"in_word": word, "in_word_translation": translation})
+
+        print("TRANSLATED OUTPUT: ")
         print(translated_words_obj)
         return translated_words_obj
-
     except OutputParserException as e:
         print('parse fail')
         print(e)
