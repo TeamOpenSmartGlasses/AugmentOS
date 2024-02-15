@@ -68,6 +68,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private long lastPressed = 0;
     private long lastTapped = 0;
 
+    //clear screen to start
+    public boolean clearedScreenYet = false;
+
     // Double clicking constants
     private final long doublePressTimeConst = 420;
     private final long doubleTapTimeConst = 600;
@@ -297,29 +300,44 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //        }
     }
 
-    public String calculateLLStringFormatted(JSONArray jsonArray){
+    public String[] calculateLLStringFormatted(JSONArray jsonArray){
+        //clear canvas if needed
+        if (!clearedScreenYet){
+            sendHomeScreen();
+            clearedScreenYet = true;
+        }
+
         // Assuming jsonArray is your existing JSONArray object
+        int max_rows_allowed = 4;
+
         String[] inWords = new String[jsonArray.length()];
         String[] inWordsTranslations = new String[jsonArray.length()];
+        String[] llResults = new String[max_rows_allowed];
+        String enSpace = "\u2002"; // Using en space for padding
 
-        for (int i = 0; i < jsonArray.length(); i++) {
+        int minSpaces = 2;
+        for (int i = 0; i < jsonArray.length() && i < max_rows_allowed; i++) {
             try {
                 JSONObject obj = jsonArray.getJSONObject(i);
                 inWords[i] = obj.getString("in_word");
                 inWordsTranslations[i] = obj.getString("in_word_translation");
+                int max_len = Math.max(inWords[i].length(), inWordsTranslations[i].length());
+//                llResults[i] = inWords[i] + enSpace.repeat(Math.max(0, max_len - inWords[i].length()) + minSpaces) + "⟶" + enSpace.repeat(Math.max(0, max_len - inWordsTranslations[i].length()) + minSpaces) + inWordsTranslations[i];
+                llResults[i] = inWords[i] + enSpace.repeat(minSpaces) + "⟶" + enSpace.repeat(minSpaces) + inWordsTranslations[i];
             } catch (JSONException e){
                 e.printStackTrace();
             }
         }
 
+        return llResults;
 
-        String enSpace = "\u2002"; // Using en space for padding
-        String llResult = "";
-        for (int i = 0; i < inWords.length; i++) {
-            String inWord = inWords[i];
-            String translation = inWordsTranslations[i];
-            llResult += inWord + enSpace.repeat(3) + "->"+ enSpace.repeat(3) + translation + "\n\n";
-        }
+//        String enSpace = "\u2002"; // Using en space for padding
+//        String llResult = "";
+//        for (int i = 0; i < inWords.length; i++) {
+//            String inWord = inWords[i];
+//            String translation = inWordsTranslations[i];
+//            llResult += inWord + enSpace.repeat(3) + "->"+ enSpace.repeat(3) + translation + "\n\n";
+//        }
 
 //        StringBuilder topLine = new StringBuilder();
 //        StringBuilder bottomLine = new StringBuilder();
@@ -369,7 +387,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //        }
 
 //        String llResult = topLine.toString() + "\n" + bottomLine.toString();
-        return llResult;
     }
 
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
@@ -390,14 +407,22 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         JSONArray languageLearningResults = response.has(languageLearningKey) ? response.getJSONArray(languageLearningKey) : new JSONArray();
 
         String llResult = "";
+        String[] llResults;
+
 //            String llResult = "|this is     |the result\n|siht si    |tresult eht";
         for (int i = 0; i < languageLearningResults.length(); i++) {
             Log.d(TAG, "LANGUAGE LEARNING RESULTS:" + languageLearningResults.get(i));
         }
         if (languageLearningResults.length() != 0) {
-            llResult = calculateLLStringFormatted(languageLearningResults);
-            queueOutput(llResult);
+            llResults = calculateLLStringFormatted(languageLearningResults);
+//            queueOutput(llResult);
+//            llResults[0] = "do first let's go";
+//            llResults[1] = "dogs and cats";
+//            llResults[2] = "terranosaurus rex -> and cats";
+//            llResults[3] = "whatcha -> __= dogs andts";
+            sendRowsCard(llResults);
         }
+
 
 //        // Just append the entityDefinitions to the cseResults as they have similar schema
 //        for (int i = 0; i < entityDefinitions.length(); i++) {
@@ -583,13 +608,13 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
     }
 
-    @Subscribe
-    public void onContactChangedEvent(SharingContactChangedEvent receivedEvent){
-        Log.d(TAG, "GOT NEW PHONE NUMBER: " + receivedEvent.phoneNumber);
-        String newNum = receivedEvent.phoneNumber;
-        phoneNumName = receivedEvent.name;
-        phoneNum = newNum.replaceAll("[^0-9]", "");
-    }
+//    @Subscribe
+//    public void onContactChangedEvent(SharingContactChangedEvent receivedEvent){
+//        Log.d(TAG, "GOT NEW PHONE NUMBER: " + receivedEvent.phoneNumber);
+//        String newNum = receivedEvent.phoneNumber;
+//        phoneNumName = receivedEvent.name;
+//        phoneNum = newNum.replaceAll("[^0-9]", "");
+//    }
 
     public void setAuthToken(){
         Log.d(TAG, "GETTING AUTH TOKEN");
