@@ -17,6 +17,7 @@
   </string-array>
 
         <string-array name="language_options">
+            <item>English</item>
             <item>Russian</item>
             <item>Chinese (Pinyin)</item>
             <item>Japanese</item>
