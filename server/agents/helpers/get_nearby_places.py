@@ -2,7 +2,7 @@ from typing import Optional
 
 import requests
 import json
-from server.server_config import google_maps_api_key
+from server_config import google_maps_api_key
 import warnings
 
 

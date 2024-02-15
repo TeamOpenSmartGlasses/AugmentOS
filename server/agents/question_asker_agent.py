@@ -13,13 +13,13 @@ from helpers.time_function_decorator import time_function
 
 from Modules.LangchainSetup import *
 
-from prompts import question_asker_prompt_blueprint
+from agents.prompts import question_asker_prompt_blueprint
 
 
 @time_function()
 def run_question_asker_agent(places: list, target_language: str = "Russian", source_language: str = "English", fluency_level: int = 35):
     # start up GPT3 connection
-    llm = get_langchain_gpt35(temperature=0.2)
+    llm = get_langchain_gpt4(temperature=0.2)
 
     places_string = "\n".join(places)
 
@@ -48,8 +48,8 @@ def run_question_asker_agent(places: list, target_language: str = "Russian", sou
         fluency_level=fluency_level,
     ).to_string()
 
-    print("QUESTION ASKER PROMPT********************************")
-    print(question_asker_agent_query_prompt_string)
+    # print("QUESTION ASKER PROMPT********************************")
+    # print(question_asker_agent_query_prompt_string)
 
     response = llm(
         [HumanMessage(content=question_asker_agent_query_prompt_string)])
@@ -66,7 +66,7 @@ def run_question_asker_agent(places: list, target_language: str = "Russian", sou
             tmpdict["question"] = question # pack the question
             questions_obj.append(tmpdict)
 
-        print(questions_obj)
+        # print(questions_obj)
         return questions_obj
 
     except OutputParserException as e:

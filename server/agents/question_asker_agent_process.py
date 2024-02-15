@@ -5,7 +5,7 @@ import asyncio
 # custom
 from DatabaseHandler import DatabaseHandler
 from agents.question_asker_agent import run_question_asker_agent
-from helpers.get_nearby_places import get_user_location, get_nearby_places
+from agents.helpers.get_nearby_places import get_user_location, get_nearby_places
 
 run_period = 30
 

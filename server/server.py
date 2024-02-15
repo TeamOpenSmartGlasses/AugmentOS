@@ -38,6 +38,7 @@ from Modules.RelevanceFilter import RelevanceFilter
 
 from auth.authentication import *
 
+
 global agent_executor
 global db_handler
 global relevance_filter
