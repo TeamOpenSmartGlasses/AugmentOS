@@ -12,10 +12,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -91,23 +94,6 @@ public class SettingsUi extends Fragment {
             }
         });
 
-        final Button startHotspotButton = view.findViewById(R.id.start_hotspot);
-            startHotspotButton.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                // Code here executes on main thread after user presses button
-                launchHotspotSettings();
-            }
-        });
-
-        // setup test card sender
-        final Button sendTestCardButton = view.findViewById(R.id.send_test_card_old);
-        sendTestCardButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Code here executes on main thread after user presses button
-                sendTestCard();
-            }
-        });
-
         final Button setGoogleApiKeyButton = view.findViewById(R.id.google_api_change);
         final Switch switchGoogleAsr = view.findViewById(R.id.google_asr_switch);
 
@@ -136,12 +122,75 @@ public class SettingsUi extends Fragment {
             }
         });
 
-        final Button logOutButton = view.findViewById(com.teamopensmartglasses.convoscope.R.id.log_out_button);
+        final Button logOutButton = view.findViewById(R.id.log_out_button);
         logOutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 ((MainActivity)getActivity()).signOut();
             }
         });
+
+        //setup transcript language spinner
+        Spinner transcribeLanguageSpinner = view.findViewById(R.id.transcribeLanguageSpinner);
+        ArrayAdapter<CharSequence> transcribeAdapter = ArrayAdapter.createFromResource(mContext,
+                R.array.language_options, android.R.layout.simple_spinner_item);
+        transcribeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        transcribeLanguageSpinner.setAdapter(transcribeAdapter);
+
+        // Retrieve the saved transcribe language
+        String savedTranscribeLanguage = ((MainActivity)getActivity()).mService.getChosenTranscribeLanguage(mContext);
+
+        // Find the position of the saved language in the adapter
+        int languageSpinnerPosition = transcribeAdapter.getPosition(savedTranscribeLanguage);
+
+        // Set the Spinner to show the saved language
+        transcribeLanguageSpinner.setSelection(languageSpinnerPosition);
+
+        transcribeLanguageSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedLanguage = parent.getItemAtPosition(position).toString();
+                // Save the selected language as the new transcribe language default
+                ((MainActivity)getActivity()).mService.saveChosenTranscribeLanguage(mContext, selectedLanguage);
+                ((MainActivity)getActivity()).restartConvoscopeService();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Another interface callback
+            }
+        });
+
+        //setup target targetLanguage spinner
+        Spinner targetLanguageSpinner = view.findViewById(R.id.targetLanguageSpinner);
+        ArrayAdapter<CharSequence> tlAdapter = ArrayAdapter.createFromResource(mContext,
+                R.array.language_options, android.R.layout.simple_spinner_item);
+        tlAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        targetLanguageSpinner.setAdapter(tlAdapter);
+
+        // Retrieve the saved target targetLanguage
+        String savedTargetLanguage = ((MainActivity)getActivity()).mService.getChosenTargetLanguage(mContext);
+
+        // Find the position of the saved targetLanguage in the adapter
+        int targetLanguageSpinnerPosition = tlAdapter.getPosition(savedTargetLanguage);
+
+        // Set the Spinner to show the saved targetLanguage
+        targetLanguageSpinner.setSelection(targetLanguageSpinnerPosition);
+
+        targetLanguageSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedLanguage = parent.getItemAtPosition(position).toString();
+                // Save the selected targetLanguage as the new default
+                ((MainActivity)getActivity()).mService.saveChosenTargetLanguage(mContext, selectedLanguage);
+                ((MainActivity)getActivity()).mService.updateTargetLanguageOnBackend(mContext);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Another interface callback
+            }
+        });
+
     }
 
     public void sendTestCard(){

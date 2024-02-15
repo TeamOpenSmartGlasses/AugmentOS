@@ -16,6 +16,16 @@
     <item>Personal</item>
   </string-array>
 
+        <string-array name="language_options">
+            <item>English</item>
+            <item>Russian</item>
+            <item>Chinese (Pinyin)</item>
+            <item>Japanese</item>
+            <item>Spanish</item>
+            <!-- Add more languages here -->
+        </string-array>
+
+
 
   <!-- Entering API key message. -->
   <string name="api_key_message">Enter G-Cloud API key</string>
@@ -29,4 +39,5 @@
   <string name="DEFAULT_COMMAND_SET_SHARED_PREF_KEY">default_command_set_key</string>
 
   <string name="SHARED_PREF_ASR_KEY">shared_pref_api_key</string>
+    <string name="SHARED_PREF_TARGET_LANGUAGE">shared_pref_target_language</string>
 </resources>
