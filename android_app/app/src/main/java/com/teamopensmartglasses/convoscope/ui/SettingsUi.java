@@ -12,10 +12,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -91,23 +94,6 @@ public class SettingsUi extends Fragment {
             }
         });
 
-        final Button startHotspotButton = view.findViewById(R.id.start_hotspot);
-            startHotspotButton.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                // Code here executes on main thread after user presses button
-                launchHotspotSettings();
-            }
-        });
-
-        // setup test card sender
-        final Button sendTestCardButton = view.findViewById(R.id.send_test_card_old);
-        sendTestCardButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Code here executes on main thread after user presses button
-                sendTestCard();
-            }
-        });
-
         final Button setGoogleApiKeyButton = view.findViewById(R.id.google_api_change);
         final Switch switchGoogleAsr = view.findViewById(R.id.google_asr_switch);
 
@@ -136,12 +122,45 @@ public class SettingsUi extends Fragment {
             }
         });
 
-        final Button logOutButton = view.findViewById(com.teamopensmartglasses.convoscope.R.id.log_out_button);
+        final Button logOutButton = view.findViewById(R.id.log_out_button);
         logOutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 ((MainActivity)getActivity()).signOut();
             }
         });
+
+
+        //setup target language spinner
+        Spinner languageSpinner = view.findViewById(R.id.languageSpinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(mContext,
+                R.array.language_options, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        languageSpinner.setAdapter(adapter);
+
+        // Retrieve the saved target language
+        String savedLanguage = ((MainActivity)getActivity()).mService.getChosenTargetLanguage(mContext);
+
+        // Find the position of the saved language in the adapter
+        int spinnerPosition = adapter.getPosition(savedLanguage);
+
+        // Set the Spinner to show the saved language
+        languageSpinner.setSelection(spinnerPosition);
+
+        languageSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedLanguage = parent.getItemAtPosition(position).toString();
+                // Save the selected language as the new default
+                ((MainActivity)getActivity()).mService.saveChosenTargetLanguage(mContext, selectedLanguage);
+                ((MainActivity)getActivity()).mService.updateTargetLanguageOnBackend(mContext);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Another interface callback
+            }
+        });
+
     }
 
     public void sendTestCard(){
