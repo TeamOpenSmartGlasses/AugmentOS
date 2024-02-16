@@ -2,6 +2,7 @@ package com.teamopensmartglasses.convoscope;
 
 import static com.teamopensmartglasses.convoscope.Constants.*;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
@@ -9,6 +10,7 @@ import android.os.Looper;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -16,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
+import com.teamopensmartglasses.convoscope.events.GoogleAuthSucceedEvent;
 import com.teamopensmartglasses.convoscope.events.SharingContactChangedEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
@@ -30,11 +33,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SpeechRecOutputEvent;
+import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
 
 public class ConvoscopeService extends SmartGlassesAndroidService {
     public final String TAG = "Convoscope_ConvoscopeService";
@@ -78,14 +83,17 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public ConvoscopeService() {
         super(ConvoscopeUi.class,
                 "convoscope_app",
-                3288,
+                3588,
                 "Convoscope",
-                "Wearable intelligence upgrades. By TeamOpenSmartGlasses.", R.drawable.ic_launcher_background);
+                "Wearable intelligence upgrades. By TeamOpenSmartGlasses.", R.drawable.ic_launcher_foreground);
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
+
+        //setup event bus subscribers
+        this.setupEventBusSubscribers();
 
         //make responses holder
         responses = new ArrayList<>();
@@ -101,9 +109,34 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         setUpCsePolling();
         setUpDisplayQueuePolling();
 
-//        smsComms = new SMSComms();
-
         this.aioConnectSmartGlasses();
+    }
+
+    public void sendSettings(JSONObject settingsObj){
+        try{
+            Log.d(TAG, "AUTH from Settings: " + authToken);
+            settingsObj.put("Authorization", authToken);
+            settingsObj.put("timestamp", System.currentTimeMillis() / 1000);
+            backendServerComms.restRequest(SET_USER_SETTINGS_ENDPOINT, settingsObj, new VolleyJsonCallback(){
+                @Override
+                public void onSuccess(JSONObject result){
+                    try {
+                        Log.d(TAG, "GOT Settings update result: " + result.toString());
+                        String query_answer = result.getString("message");
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                @Override
+                public void onFailure(int code){
+                    Log.d(TAG, "SOME FAILURE HAPPENED (sendSettings)");
+
+                }
+
+            });
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
     }
 
     public void setUpCsePolling(){
@@ -142,6 +175,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         Log.d("TAG","Convoscope start callback called");
         //runConvoscope();
     }
+
     @Subscribe
     public void onGlassesTapSideEvent(GlassesTapOutputEvent event) {
         int numTaps = event.numTaps;
@@ -154,7 +188,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             Log.d(TAG, "GOT A TRIPLE TAP");
         }
     }
-
 
     @Subscribe
     public void onSmartRingButtonEvent(SmartRingButtonOutputEvent event) {
@@ -421,6 +454,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //            llResults[2] = "terranosaurus rex -> and cats";
 //            llResults[3] = "whatcha -> __= dogs andts";
             sendRowsCard(llResults);
+            sendUiUpdateSingle(String.join("\n", Arrays.copyOfRange(llResults, 0, languageLearningResults.length())));
         }
 
 
@@ -625,8 +659,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                     public void onComplete(@NonNull Task<GetTokenResult> task) {
                         if (task.isSuccessful()) {
                             String idToken = task.getResult().getToken();
-                            Log.d(TAG, "Auth Token: " + idToken);
+                            Log.d(TAG, "GOT dat Auth Token: " + idToken);
                             authToken = idToken;
+                            EventBus.getDefault().post(new GoogleAuthSucceedEvent());
                         } else {
                             EventBus.getDefault().post(new GoogleAuthFailedEvent());
                         }
@@ -637,5 +672,39 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             // not logged in, must log in
             EventBus.getDefault().post(new GoogleAuthFailedEvent());
         }
+    }
+
+    public static void saveChosenTargetLanguage(Context context, String targetLanguageString) {
+        PreferenceManager.getDefaultSharedPreferences(context)
+                .edit()
+                .putString(context.getResources().getString(R.string.SHARED_PREF_TARGET_LANGUAGE), targetLanguageString)
+                .apply();
+    }
+
+    public static String getChosenTargetLanguage(Context context) {
+        String targetLanguageString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_TARGET_LANGUAGE), "");
+        if (targetLanguageString.equals("")){
+            saveChosenTargetLanguage(context, "Russian");
+            targetLanguageString = "Russian";
+        }
+        return targetLanguageString;
+    }
+
+    public void updateTargetLanguageOnBackend(Context context){
+        String targetLanguage = getChosenTargetLanguage(context);
+        try{
+            JSONObject settingsObj = new JSONObject();
+            settingsObj.put("target_language", targetLanguage);
+            sendSettings(settingsObj);
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
+
+    @Subscribe
+    public void onGoogleAuthSucceed(GoogleAuthSucceedEvent event){
+        Log.d(TAG, "Running google auth succeed event response");
+        //give the server our latest settings
+        updateTargetLanguageOnBackend(this);
     }
 }

@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
@@ -154,6 +155,17 @@ public class MainActivity extends AppCompatActivity {
 
     //unbind wearableAi service
     unbindConvoscopeService();
+  }
+
+  public void restartConvoscopeService() {
+    stopConvoscopeService();
+    Handler starter = new Handler();
+    starter.postDelayed(new Runnable() {
+      @Override
+      public void run() {
+        startConvoscopeService();
+      }
+    }, 400);
   }
 
   public void stopConvoscopeService() {

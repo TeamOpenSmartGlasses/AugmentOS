@@ -14,12 +14,20 @@ from langchain.schema import OutputParserException
 from pydantic import BaseModel, Field
 from helpers.time_function_decorator import time_function
 
+#pinyin
+import json
+from pypinyin import pinyin, Style
+
 from Modules.LangchainSetup import *
 
 language_learning_agent_prompt_blueprint = """
+Intro:
 The aim is to help the language learner to understand new words in the context of real conversations. This helps them learn the words, and it helps the follow along with the dialog. Only a few words are translated so the language learner can rely on their built-in knowledge as much as possible.
 
 You are a highly skilled proffesional translator and advanced language teacher, fluent in Russian, Chinese, French, Spanish, German, English, and more. You are listening to a user's conversation right now. The user is learning {target_language}. The user's first language is {source_language}.
+
+Target Language: {target_language}
+Source Language: {source_language}
 
 If the input text is in the target language, your translation is in the source language. If input text is in the source language, translate to target language.
 
@@ -32,10 +40,11 @@ This level influences the selection of words to translate:
    - 50-74 (Conversational): Translate approximately one word per sentence, selecting words that are somewhat common but might still pose challenges.
    - 75-99 (Intermediate): Only translate rare or complex words that an intermediate learner might not encounter frequently.
    - 100 (Native Speaker): No translation is necessary unless extremely rare or technical terms are used.
-1. Skim through the conversation segment and identify 0 to 3 words that may unfamiliar to someone with a fluency level of {fluency_level}.
-2. Consider the frequency rank percentile of the words in the conversation segment. The percentile is a number between 0 and 100, which determines how rare the word is in the language. Percentiles provide a measure of how a word's frequency compares to the rest of the words in the language: a word in 10th percential is more uncommon than 90% of the words in the language. Conversely, a word in the 99th percentile is common, more frequent than 99% of the words. Use the percentile to determine words that the user might not know.
-3. For each of the zero to three identified word in the input text language, provide a 1-2 word translation in the opposite language (either {source_language} or {target_language}, whatever is opposite to the input text. Try to make translations as short as posible. Use context from the conversation to inform your translations.
+1. Skim through the conversation context and identify 0 to 3 words that may unfamiliar to someone with a fluency level of {fluency_level}.
+2. Consider the frequency rank percentile of the words in the conversation context. The percentile is a number between 0 and 100, which determines how rare the word is in the language. Percentiles provide a measure of how a word's frequency compares to the rest of the words in the language: a word in 10th percential is more uncommon than 90% of the words in the language. Conversely, a word in the 99th percentile is common, more frequent than 99% of the words. Use the percentile to determine words that the user might not know.
+3. For each of the zero to three identified words in the input text language, provide a 1-2 word translation in the opposite language (either {source_language} or {target_language}, whatever is opposite to the input text. Try to make translations as short as posible. Use context from the conversation to inform your translations.
 4. Output Python dictionary only using the format instructions below. The keys are the rare, relevant words in the language of the input text, and the values are the translation of those words into the opposite of the input text language. There should be <= 3 words per run in the dict. Don't output any explanation or extra data, just this simple info. It's OK to output zero words if there are no appopriately rare words in the input text.
+4. Output response using the format instructions below. The keys are the rare, relevant words in the language of the input text, and the values are the translation of those words into the opposite of the input text language. There should be <= 3 words per run in the dict. Don't output any explanation or extra data, just this simple info. It's OK to output zero words if there are no appopriately rare words in the input text.
 
 Examples:
 
@@ -48,20 +57,47 @@ Output 3 (empty, no results): {{}}
 Conversation 4: "I love to look at the stars and think of my family"
 Output 3: {{"stars" : <translation>}}
 
-Frequency Ranking:
-
-The frequency ranking of each word tells you how common it is in daily speech. The frequency ranking of the wordsin the conversation segment are: ```{word_rank}```
-
+Final Data:
 DO NOT define common words like "yes", "no", "he", "hers", "to", "from", "thank you", "please", "because", etc. in ANY language - they are too common. Focus on rare words.
+
+Frequency Ranking:
+IGNORE THIS FOR NOW: The frequency ranking of each word tells you how common it is in daily speech. The frequency ranking of the wordsin the conversation context are: ```{word_rank}```
+
+Input:
+
+<<<<<<< HEAD
+Follow this format when you output: {format_instructions}
+
+Frequency Ranking:
+IGNORE THIS FOR NOW: The frequency ranking of each word tells you how common it is in daily speech. The frequency ranking of the wordsin the conversation context are: ```{word_rank}```
+
+Input:
+
+Input Text (from live conversation transcript):
+```{conversation_context}```
+
 
 
 Input Text (from live conversation transcript):
-```{conversation_segment}```
+```{conversation_context}```
 
 Follow this format when you output: {format_instructions}
 
-Now provide the output Python dictionary using the format instructions above:
+Now provide the output using the format instructions above:
 """
+
+#Preface Rule:
+#Use Pinyin when writing Chinese. Never use Chinese characters, use Pinyin.
+#, use Pinyin if writing Chinese)
+#3.a. If writing Chinese, output exclusively in Pinyin, avoiding Chinese characters entirely.
+#NEVER OUTPUT CHINESE CHARACTERS. USE PINYIN, USE THE LATIN ALPHABET PINYIN FOR CHINESE.
+
+#Use Pinyin when writing Chinese. Never use Chinese characters, use Pinyin.
+
+# in_word_translation must be in Pinyin or Latin characters.
+
+# If writing Chinese, output exclusively in Pinyin, avoiding Chinese characters entirely.
+
 
 def format_list_data(data: dict) -> str:
     """
@@ -74,14 +110,17 @@ def format_list_data(data: dict) -> str:
 
 
 @time_function()
-def run_language_learning_agent(conversation_context: str, word_rank: dict):
+def run_language_learning_agent(conversation_context: str, word_rank: dict, target_language="Russian"):
+    print("Running ll agent with this: ")
+    print(conversation_context)
+    print(word_rank)
     # start up GPT3 connection
     llm = get_langchain_gpt35(temperature=0.2)
 
     # "It's a beautiful day to be out and about at the library! And you should come to my house tomorrow!"
-    conversation_segment = conversation_context
-    fluency_level = 35  # Example fluency level
-    target_language = "Russian"
+    conversation_context = conversation_context
+    fluency_level = 30  # Example fluency level
+    #target_language = "Chinese (Pinyin)"
     source_language = "English"
 
     class LanguageLearningAgentQuery(BaseModel):
@@ -96,8 +135,7 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict):
 
     extract_language_learning_agent_query_prompt = PromptTemplate(
         template=language_learning_agent_prompt_blueprint,
-        input_variables=["conversation_context",
-                         "target_language", "source_language", "fluency_level"],
+        input_variables=["conversation_context", "target_language", "source_language", "fluency_level", "word_rank"],
         partial_variables={
             "format_instructions": language_learning_agent_query_parser.get_format_instructions()}
     )
@@ -109,11 +147,10 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict):
         source_language=source_language,
         target_language=target_language,
         fluency_level=fluency_level,
-        conversation_segment=conversation_segment,
         word_rank=word_rank_string
     ).to_string()
 
-    print("LANGUAGE LEARNING PROMPT********************************")
+    #print("LANGUAGE LEARNING PROMPT********************************")
     print(language_learning_agent_query_prompt_string)
 
     # print("Proactive meta agent query prompt string", language_learning_agent_query_prompt_string)
@@ -125,17 +162,25 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict):
     try:
         translated_words = language_learning_agent_query_parser.parse(
             response.content).translated_words
-        translated_words_obj = list()
-        for word in translated_words:
-            tmpdict = dict()
-            tmpdict["in_word"] = word  # pack the translation
-            # pack the translation
-            tmpdict["in_word_translation"] = translated_words[word]
-            translated_words_obj.append(tmpdict)
 
+        #convert Chinese characters into Pinyin
+        # Function to convert Chinese text to Pinyin
+        def chinese_to_pinyin(chinese_text):
+            return ' '.join([item[0] for item in pinyin(chinese_text, style=Style.TONE)])
+
+        # Apply Pinyin conversion if target_language is "Chinese (Pinyin)"
+        if target_language == "Chinese (Pinyin)":
+            translated_words_pinyin = {chinese_to_pinyin(word): chinese_to_pinyin(translated_words[word]) for word in translated_words}
+        else:
+            translated_words_pinyin = translated_words
+
+        translated_words_obj = []
+        for word, translation in translated_words_pinyin.items():
+            translated_words_obj.append({"in_word": word, "in_word_translation": translation})
+
+        print("TRANSLATED OUTPUT: ")
         print(translated_words_obj)
         return translated_words_obj
-
     except OutputParserException as e:
         print('parse fail')
         print(e)
@@ -144,6 +189,6 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict):
 
 if __name__ == "__main__":
     # "It's a beautiful day to be out and about at the library! And you should come to my house tomorrow!"
-    conversation_segment = "It's a beautiful day to be out and about at the library! And you should come to my house tomorrow!"
+    conversation_context = "It's a beautiful day to be out and about at the library! And you should come to my house tomorrow!"
     word_rank = {"beautiful": 100, "library": 200, "house": 300}
-    run_language_learning_agent(conversation_segment, word_rank)
+    run_language_learning_agent(conversation_context, word_rank)
