@@ -47,11 +47,15 @@ async def chat_handler(request):
     body = await request.json()
     is_final = body.get('isFinal')
     text = body.get('text')
+    transcribe_language = body.get('transcribe_language')
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
     id_token = body.get('Authorization')
     user_id = await verify_id_token(id_token)
     if user_id is None:
         raise web.HTTPUnauthorized()
+
+    if transcribe_language is None or "":
+        transcribe_language = "English"
 
     # 400 if missing params
     if text is None or text == '':
@@ -61,7 +65,7 @@ async def chat_handler(request):
         print("user_id none in chat_handler, exiting with error response 400.")
         return web.Response(text='no userId in request', status=400)
 
-    success = db_handler.save_transcript_for_user(user_id=user_id, text=text, is_final=is_final)
+    success = db_handler.save_transcript_for_user(user_id=user_id, text=text, is_final=is_final, transcribe_language=transcribe_language)
     message = "Sending messages too fast" if not success else ""
 
     return web.Response(text=json.dumps({'success': True, 'message': message}), status=200)
