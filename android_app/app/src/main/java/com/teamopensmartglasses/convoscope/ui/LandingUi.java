@@ -1,5 +1,6 @@
 package com.teamopensmartglasses.convoscope.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,11 +14,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.preference.PreferenceManager;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.teamopensmartglasses.convoscope.MainActivity;
 import com.teamopensmartglasses.convoscope.R;
+import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
 
 public class LandingUi extends Fragment {
   public final String TAG = "Convoscope_LandingActivity";
@@ -42,11 +45,9 @@ public class LandingUi extends Fragment {
     navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
 
     // Check if we're already logged in... if so, skip to MainActivity
-    //TODO: Investigate why this is buggy
-//    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//    if (user != null) {
-//      navController.navigate(R.id.nav_convoscope);
-//    }
+    if (!getSavedAuthToken().isEmpty()) {
+      navController.navigate(R.id.nav_convoscope);
+    }
 
     final Button landingButton = view.findViewById(R.id.landing_button);
     landingButton.setOnClickListener(new View.OnClickListener() {
@@ -54,5 +55,9 @@ public class LandingUi extends Fragment {
         navController.navigate(R.id.nav_login);
       }
     });
+  }
+
+  public String getSavedAuthToken(){
+      return PreferenceManager.getDefaultSharedPreferences(getContext()).getString("auth_token", "");
   }
 }

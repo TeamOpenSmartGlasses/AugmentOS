@@ -26,11 +26,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.preference.PreferenceManager;
 
 import com.teamopensmartglasses.convoscope.ConvoscopeService;
 import com.teamopensmartglasses.convoscope.MainActivity;
 import com.teamopensmartglasses.convoscope.R;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
+import com.teamopensmartglasses.smartglassesmanager.supportedglasses.AudioWearable;
 
 public class SettingsUi extends Fragment {
     private  final String TAG = "WearableAi_SettingsUIFragment";
@@ -125,6 +127,22 @@ public class SettingsUi extends Fragment {
                     ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
                 } else {
                     ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.VOSK_ASR_FRAMEWORK);
+                }
+            }
+        });
+
+        final Switch glassesAudioToggle = view.findViewById(R.id.glasses_audio_toggle);
+        glassesAudioToggle.setChecked(ConvoscopeService.getPreferredWearable(getContext()).equals(new AudioWearable().deviceModelName)); // off by default
+        glassesAudioToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked){
+                    ConvoscopeService.savePreferredWearable(getContext(), new AudioWearable().deviceModelName);
+                    ((MainActivity)getActivity()).restartConvoscopeService();
+                }
+                else {
+                    ConvoscopeService.savePreferredWearable(getContext(), "");
+                    ((MainActivity)getActivity()).restartConvoscopeService();
                 }
             }
         });

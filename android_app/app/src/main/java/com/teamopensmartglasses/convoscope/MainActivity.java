@@ -36,6 +36,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.NavOptions;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.preference.PreferenceManager;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -184,6 +185,11 @@ public class MainActivity extends AppCompatActivity {
     bindConvoscopeService();
   }
 
+  public void restartConvoscopeService(){
+    stopConvoscopeService();
+    startConvoscopeService();
+  }
+
   //check if service is running
   private boolean isMyServiceRunning(Class<?> serviceClass) {
     ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
@@ -271,7 +277,15 @@ public class MainActivity extends AppCompatActivity {
     return true;
   }
 
+  public void setSavedAuthToken(Context context, String newAuthToken){
+    PreferenceManager.getDefaultSharedPreferences(context)
+            .edit()
+            .putString("auth_token", newAuthToken)
+            .apply();
+  }
+
   public void signOut(){
+    setSavedAuthToken(getApplicationContext(), "");
     AuthUI.getInstance()
             .signOut(this)
             .addOnCompleteListener(new OnCompleteListener<Void>() {
