@@ -65,7 +65,6 @@ IGNORE THIS FOR NOW: The frequency ranking of each word tells you how common it 
 
 Input:
 
-<<<<<<< HEAD
 Follow this format when you output: {format_instructions}
 
 Frequency Ranking:
