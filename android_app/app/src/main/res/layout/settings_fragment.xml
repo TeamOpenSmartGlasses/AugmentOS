@@ -86,24 +86,15 @@
         app:layout_constraintTop_toBottomOf="@+id/start_hotspot" />
 
     <Button
-        android:id="@+id/google_api_change"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:text="Set Google API Key"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/google_asr_switch" />
-
-    <Button
         android:id="@+id/log_out_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="8dp"
         android:text="Log out"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/google_api_change" />
+        app:layout_constraintTop_toBottomOf="@+id/google_asr_switch" />
 
 
     <!--    <Button-->

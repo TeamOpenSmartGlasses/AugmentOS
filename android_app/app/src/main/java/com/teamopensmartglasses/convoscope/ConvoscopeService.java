@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -33,8 +34,8 @@ import java.util.ArrayList;
 
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartRingButtonOutputEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SpeechRecOutputEvent;
+import org.json.JSONObject;
+import java.io.InputStream;
 
 public class ConvoscopeService extends SmartGlassesAndroidService {
     public final String TAG = "Convoscope_ConvoscopeService";
@@ -93,6 +94,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         backendServerComms = new BackendServerComms(this);
 
         Log.d(TAG, "Convoscope service started");
+
+        String asrApiKey = getFirebaseApiKey();
+        saveApiKey(this, asrApiKey);
 
         setAuthToken();
         setUpCsePolling();
@@ -527,6 +531,26 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         else {
             // not logged in, must log in
             EventBus.getDefault().post(new GoogleAuthFailedEvent());
+        }
+    }
+
+    public String getFirebaseApiKey() {
+        try {
+            InputStream is = getAssets().open("google-services.json");
+            byte[] buffer = new byte[is.available()];
+            is.read(buffer);
+            is.close();
+
+            String json = new String(buffer, "UTF-8");
+            JSONObject jsonObject = new JSONObject(json);
+            return jsonObject.getJSONObject("client")
+                    .getJSONArray("api_key")
+                    .getJSONObject(0)
+                    .getString("current_key");
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), "Error #782: Please report to developers", Toast.LENGTH_LONG);
+            return null;
         }
     }
 }

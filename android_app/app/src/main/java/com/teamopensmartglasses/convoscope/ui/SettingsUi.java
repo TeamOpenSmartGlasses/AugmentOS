@@ -108,25 +108,18 @@ public class SettingsUi extends Fragment {
             }
         });
 
-        final Button setGoogleApiKeyButton = view.findViewById(R.id.google_api_change);
+        //final Button setGoogleApiKeyButton = view.findViewById(R.id.google_api_change);
         final Switch switchGoogleAsr = view.findViewById(R.id.google_asr_switch);
 
         //find out the current ASR state, remember it
         ASR_FRAMEWORKS asrFramework = ConvoscopeService.getChosenAsrFramework(mContext);
         switchGoogleAsr.setChecked(asrFramework == ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
 
-        setGoogleApiKeyButton.setEnabled(switchGoogleAsr.isChecked());
-        setGoogleApiKeyButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                showAPIKeyDialog();
-            }
-        });
-
         switchGoogleAsr.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 ((MainActivity)getActivity()).stopConvoscopeService();
 
-                setGoogleApiKeyButton.setEnabled(isChecked);
+                //setGoogleApiKeyButton.setEnabled(isChecked);
                 //save explicitly as well as force change in case the service is down, we want this to be saved either way
                 if (isChecked) {
                     ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
@@ -158,31 +151,6 @@ public class SettingsUi extends Fragment {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity( intent);
     }
-
-    /** The API won't work without a valid API key. This prompts the user to enter one. */
-    private void showAPIKeyDialog() {
-        LinearLayout contentLayout =
-                (LinearLayout) getLayoutInflater().inflate(R.layout.api_key_message, null);
-        TextView linkView = contentLayout.findViewById(R.id.api_key_link_view);
-        linkView.setText(Html.fromHtml(getString(R.string.api_key_doc_link)));
-        linkView.setMovementMethod(LinkMovementMethod.getInstance());
-        EditText keyInput = contentLayout.findViewById(R.id.api_key_input);
-        keyInput.setInputType(InputType.TYPE_CLASS_TEXT);
-        keyInput.setText(ConvoscopeService.getApiKey(this.getContext()));
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this.getContext());
-        builder
-                .setTitle(getString(R.string.api_key_message))
-                .setView(contentLayout)
-                .setPositiveButton(
-                        getString(android.R.string.ok),
-                        (dialog, which) -> {
-                            ConvoscopeService.saveApiKey(this.getContext(), keyInput.getText().toString().trim());
-                        })
-                .show();
-    }
-
-    /** The API won't work without a valid API key. This prompts the user to enter one. */
 
     public void showNoGoogleAsrDialog(){
         new android.app.AlertDialog.Builder(this.getContext()) .setIcon(android.R.drawable.ic_dialog_alert)
