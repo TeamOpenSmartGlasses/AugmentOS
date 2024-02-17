@@ -424,12 +424,13 @@ async def send_agent_chat_handler(request):
 
 async def update_gps_location_for_user(request):
     body = await request.json()
-    print("update_gps_location_for_user")
-    print(body)
+    # print("update_gps_location_for_user")
+    # print(body)
 
     # id_token = body.get('Authorization')
     # user_id = await verify_id_token(id_token)
-    user_id = body.get('userId') # TODO: remove this line when we have the above line working
+    user_id = body.get('userId') # TODO: remove this line when we have the above lines working
+    device_id = body.get('deviceId') # TODO: remove this line when we have the above lines working
 
     if user_id is None:
         raise web.HTTPUnauthorized()
@@ -446,8 +447,8 @@ async def update_gps_location_for_user(request):
         print("location none in update_gps_location_for_user, exiting with error response 400.")
         return web.Response(text='no chatMessage in request', status=400)
 
-    # print("SEND UPDATE LOCATION FOR USER_ID: " + user_id)
-    # db_handler.add_gps_location_for_user(user_id, location)
+    print("SEND UPDATE LOCATION FOR USER_ID: " + user_id)
+    db_handler.add_gps_location_for_user(user_id, location)
 
     return web.Response(text=json.dumps({'success': True, 'message': "Got your location: {}".format(location)}), status=200)
 

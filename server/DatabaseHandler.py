@@ -40,6 +40,7 @@ class DatabaseHandler:
             self.init_insights_collections()
             self.init_ratings_collection()
             self.init_language_learning_collection()
+            self.init_gps_location_collection()
             self.ready = True
         except Exception as e:
             print(e)
@@ -78,6 +79,11 @@ class DatabaseHandler:
         self.language_learning_db = self.client['language_learning']
         self.language_learning_collection = self.get_collection(
             self.language_learning_db, 'language_learning_results', wipe=clear_cache_on_start)
+
+    def init_gps_location_collection(self):
+        self.gps_location_db = self.client['gps_location']
+        self.gps_location_collection = self.get_collection(
+            self.gps_location_db, 'gps_location_results', wipe=clear_cache_on_start)
 
     def get_collection(self, db, collection_name, wipe=False):
         if collection_name in db.list_collection_names():
@@ -142,6 +148,7 @@ class DatabaseHandler:
                  "agent_proactive_definer_result_ids": [],
                  "agent_insights_result_ids": [],
                  "language_learning_result_ids": [],
+                 "gps_location_result_ids": [],
                  "agent_proactive_definer_irrelevant_terms": []})
 
     ### CACHE ###
@@ -763,6 +770,23 @@ class DatabaseHandler:
 
         return results
 
+    def get_gps_location_for_user(self, user_id, top=1):
+        uuid_list = self.get_user(user_id)["gps_location_result_ids"]
+        pipeline = [
+            {"$match": {"uuid": {"$in": uuid_list}}},
+            {"$sort": {"timestamp": -1}},
+            {"$limit": top},
+            {
+                "$project": {
+                    "_id": 0,
+                }
+            },
+        ]
+
+        results = list(self.gps_location_collection.aggregate(pipeline))
+
+        return results
+
     def get_recent_nminutes_language_learning_words_defined_history_for_user(self, user_id, n_minutes=10):
         uuid_list = self.get_user(user_id)["language_learning_result_ids"]
         current_time = math.trunc(time.time())
@@ -925,6 +949,9 @@ class DatabaseHandler:
         res = self.language_learning_collection.find_one(filter, {'_id': 0})
         if res:
             return res
+        res = self.gps_location_collection.find_one(filter, {'_id': 0})
+        if res:
+            return res
 
         return None
 
@@ -1007,6 +1034,25 @@ class DatabaseHandler:
 
     def get_language_learning_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
         return self.get_results_for_user_device("language_learning_result_ids", user_id, device_id, should_consume, include_consumed)
+
+    def add_gps_location_for_user(self, user_id, location):
+        if not location:
+            print("No location to add")
+            return
+        
+        location['timestamp'] = int(time.time())
+        location['uuid'] = str(uuid.uuid4())
+
+        print("INSERTING location: " + str(location))
+        self.gps_location_collection.insert_one(location)
+
+
+        filter = {"user_id": user_id}
+        update = {"$push": {"gps_location_result_ids": location['uuid']}}
+        self.user_collection.update_one(filter=filter, update=update)
+
+    def get_gps_location_results_for_user_device(self, user_id, device_id, should_consume=False, include_consumed=False):
+        return self.get_results_for_user_device("gps_location_result_ids", user_id, device_id, should_consume, include_consumed)
 
 ### Function list for developers ###
 #
