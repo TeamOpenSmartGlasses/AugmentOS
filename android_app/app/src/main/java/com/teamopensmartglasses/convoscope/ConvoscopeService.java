@@ -97,7 +97,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         Log.d(TAG, "Convoscope service started");
 
-        String asrApiKey = getFirebaseApiKey();
+        String asrApiKey = getResources().getString(R.string.google_api_key);
+        Log.d(TAG, "ASR KEY: " + asrApiKey);
         saveApiKey(this, asrApiKey);
 
         setAuthToken();
@@ -538,26 +539,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         else {
             // not logged in, must log in
             EventBus.getDefault().post(new GoogleAuthFailedEvent());
-        }
-    }
-
-    public String getFirebaseApiKey() {
-        try {
-            InputStream is = getAssets().open("google-services.json");
-            byte[] buffer = new byte[is.available()];
-            is.read(buffer);
-            is.close();
-
-            String json = new String(buffer, "UTF-8");
-            JSONObject jsonObject = new JSONObject(json);
-            return jsonObject.getJSONObject("client")
-                    .getJSONArray("api_key")
-                    .getJSONObject(0)
-                    .getString("current_key");
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(getApplicationContext(), "Error #782: Please report to developers", Toast.LENGTH_LONG);
-            return null;
         }
     }
 }
