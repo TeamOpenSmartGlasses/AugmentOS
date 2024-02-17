@@ -59,9 +59,14 @@ Output 3 (empty, no results): {{}}
 Conversation 4: "I love to look at the stars and think of my family"
 Output 3: {{"stars" : <translation>}}
 
-Final Data:
 DO NOT define common words like "yes", "no", "he", "hers", "to", "from", "thank you", "please", "because", etc. in ANY language - they are too common. Focus on rare words.
-Input Text (from live conversation transcript):
+
+FINAL DATA AND COMMANDS:
+Previous Definitions:
+Don't define any of the words in this list, as they were all recently defined:
+```{live_translate_word_history}```
+
+Input Text (transcript from user's live conversation):
 ```{conversation_context}```
 
 Frequency Ranking:
@@ -101,7 +106,7 @@ def format_list_data(data: dict) -> str:
 
 
 @time_function()
-def run_language_learning_agent(conversation_context: str, word_rank: dict, target_language="Russian", transcribe_language="English"):
+def run_language_learning_agent(conversation_context: str, word_rank: dict, target_language="Russian", transcribe_language="English", live_translate_word_history=""):
     print("Running ll agent with this: ")
     print(conversation_context)
     print(word_rank)
@@ -126,7 +131,7 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
 
     extract_language_learning_agent_query_prompt = PromptTemplate(
         template=language_learning_agent_prompt_blueprint,
-        input_variables=["conversation_context", "target_language", "source_language", "fluency_level", "word_rank"],
+        input_variables=["conversation_context", "target_language", "source_language", "fluency_level", "word_rank", "live_translate_word_history"],
         partial_variables={
             "format_instructions": language_learning_agent_query_parser.get_format_instructions()}
     )
@@ -138,7 +143,8 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
         source_language=source_language,
         target_language=target_language,
         fluency_level=fluency_level,
-        word_rank=word_rank_string
+        word_rank=word_rank_string,
+        live_translate_word_history=live_translate_word_history
     ).to_string()
 
     print("LANGUAGE LEARNING PROMPT********************************")

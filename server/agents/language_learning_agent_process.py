@@ -53,8 +53,13 @@ def language_learning_agents_processing_loop():
                 #get word frequencies to represent how common words are
                 word_frequency_percentiles = get_word_frequency_percentiles(transcript['text'], transcribe_language)
 
+                #get previous word definitons for last few minutes
+                live_translate_word_history = dbHandler.get_recent_nminutes_language_learning_words_defined_history_for_user(transcript['user_id'], n_minutes=4)
+                print("GOT live translate word history: ")
+                print(live_translate_word_history)
+
                 #run the language learning agent
-                words_to_show = run_language_learning_agent(transcript['text'], word_frequency_percentiles, target_language, transcribe_language)
+                words_to_show = run_language_learning_agent(transcript['text'], word_frequency_percentiles, target_language, transcribe_language, live_translate_word_history)
                 loop_time = time.time() - ctime
                 print(f"RAN LL IN : {loop_time}")
                 print(words_to_show)

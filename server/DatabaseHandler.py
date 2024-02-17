@@ -787,7 +787,7 @@ class DatabaseHandler:
         results = list(
             self.language_learning_collection.aggregate(pipeline))
 
-        names = [result["name"] for result in results]
+        names = [result["in_word"] for result in results]
 
         return names
 
