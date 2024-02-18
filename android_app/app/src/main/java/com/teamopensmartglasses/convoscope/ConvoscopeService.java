@@ -1,6 +1,18 @@
 package com.teamopensmartglasses.convoscope;
 
-import static com.teamopensmartglasses.convoscope.Constants.*;
+import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.CSE_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.GEOLOCATION_STREAM_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.SET_USER_SETTINGS_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.cseResultKey;
+import static com.teamopensmartglasses.convoscope.Constants.entityDefinitionsKey;
+import static com.teamopensmartglasses.convoscope.Constants.explicitAgentQueriesKey;
+import static com.teamopensmartglasses.convoscope.Constants.explicitAgentResultsKey;
+import static com.teamopensmartglasses.convoscope.Constants.glassesCardTitle;
+import static com.teamopensmartglasses.convoscope.Constants.languageLearningKey;
+import static com.teamopensmartglasses.convoscope.Constants.proactiveAgentResultsKey;
+import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,12 +29,13 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
-import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
-import com.teamopensmartglasses.convoscope.events.GoogleAuthSucceedEvent;
-import com.teamopensmartglasses.convoscope.events.SharingContactChangedEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
+import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
+import com.teamopensmartglasses.convoscope.events.GoogleAuthSucceedEvent;
 import com.teamopensmartglasses.convoscope.ui.ConvoscopeUi;
+import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SpeechRecOutputEvent;
 
@@ -32,14 +45,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartRingButtonOutputEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SpeechRecOutputEvent;
-import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
+import java.util.Objects;
 
 public class ConvoscopeService extends SmartGlassesAndroidService {
     public final String TAG = "Convoscope_ConvoscopeService";
@@ -54,10 +63,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private BackendServerComms backendServerComms;
     ArrayList<String> responses;
     ArrayList<String> responsesToShare;
-    private Handler csePollLoopHandler = new Handler(Looper.getMainLooper());
+    private final Handler csePollLoopHandler = new Handler(Looper.getMainLooper());
     private Runnable cseRunnableCode;
-    private Handler displayPollLoopHandler = new Handler(Looper.getMainLooper());
+    private final Handler displayPollLoopHandler = new Handler(Looper.getMainLooper());
     private Runnable displayRunnableCode;
+    private final LocationSystem locationSystem = new LocationSystem();
     static final String deviceId = "android";
     public String [] features = {"proactive_agent_insights", "explicit_agent_insights", "intelligent_entity_definitions"};//default setup
     public String proactiveAgents = "proactive_agent_insights";
@@ -270,7 +280,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     public void sendTranscriptRequest(String query, boolean isFinal){
-        if (authToken == ""){
+        if (Objects.equals(authToken, "")){
             EventBus.getDefault().post(new GoogleAuthFailedEvent());
         }
 
@@ -327,6 +337,46 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 }
             });
         } catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void requestLocation(){
+        try{
+            // Get location data as JSONObject
+            JSONObject locationData = locationSystem.getUserLocation();
+            double latitude = locationData.getDouble("lat");
+            double longitude = locationData.getDouble("lng");
+
+            JSONObject jsonQuery = new JSONObject();
+            // Assuming 'features' is a List<String> or similar that needs to be converted to JSONArray
+            JSONArray featuresArray = new JSONArray(features);
+
+            Log.d(TAG, "hitting UI poll with these features: " + featuresArray);
+            jsonQuery.put("Authorization", authToken);
+            jsonQuery.put("deviceId", deviceId);
+            jsonQuery.put("features", featuresArray);
+            jsonQuery.put("lat", latitude);
+            jsonQuery.put("lng", longitude);
+
+            backendServerComms.restRequest(GEOLOCATION_STREAM_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
+                @Override
+                public void onSuccess(JSONObject result){
+                    try {
+                        parseConvoscopeResults(result);
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                @Override
+                public void onFailure(int code){
+                    Log.d(TAG, "SOME FAILURE HAPPENED (requestLocation)");
+                    if (code == 401){
+                        EventBus.getDefault().post(new GoogleAuthFailedEvent());
+                    }
+                }
+            });
+        } catch (JSONException | IOException e){
             e.printStackTrace();
         }
     }
