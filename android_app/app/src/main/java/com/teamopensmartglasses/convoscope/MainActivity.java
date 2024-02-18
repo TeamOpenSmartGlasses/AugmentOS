@@ -37,6 +37,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.NavOptions;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.preference.PreferenceManager;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -165,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
       public void run() {
         startConvoscopeService();
       }
-    }, 400);
+    }, 300);
   }
 
   public void stopConvoscopeService() {
@@ -283,7 +284,15 @@ public class MainActivity extends AppCompatActivity {
     return true;
   }
 
+  public void setSavedAuthToken(Context context, String newAuthToken){
+    PreferenceManager.getDefaultSharedPreferences(context)
+            .edit()
+            .putString("auth_token", newAuthToken)
+            .apply();
+  }
+
   public void signOut(){
+    setSavedAuthToken(getApplicationContext(), "");
     AuthUI.getInstance()
             .signOut(this)
             .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -327,4 +336,27 @@ public class MainActivity extends AppCompatActivity {
     transaction.addToBackStack(null); // Add to back stack for back button support
     transaction.commit();
   }
+
+      public void saveCurrentMode(Context context, String currentModeString) {
+        //update the features for the new mode
+        if (mService != null) {
+          mService.changeMode(currentModeString);
+        }
+
+        //save the new mode
+        PreferenceManager.getDefaultSharedPreferences(context)
+                .edit()
+                .putString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), currentModeString)
+                .apply();
+    }
+
+    public String getCurrentMode(Context context) {
+        String currentModeString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), "");
+        if (currentModeString.equals("")){
+            saveCurrentMode(context, "Proactive Agents");
+            currentModeString = "Proactive Agents";
+        }
+        return currentModeString;
+    }
+
 }

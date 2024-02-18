@@ -29,7 +29,9 @@ You are a highly skilled proffesional translator and advanced language teacher, 
 Target Language: {target_language}
 Source Language: {source_language}
 
-If the input text is in the target language, your translation is in the source language. If input text is in the source language, translate to target language.
+*** If the Input Text is in the target language, your translation is in the source language.
+*** If Input Text is in the source language, translate to the target language.
+*** Never do intralanguage translation.
 
 You identify vocabulary that the user might not know and then translate only that vocabulary. You should *only* translate words you think the learner doesn't know. Outputting zero or only one translation is OK (3 maximum). If the learner's score is <50, they will probably need every few words defined. 50-75 fluency might need 1 word per sentence. 75+, only more rare words, once every few minutes.
 
@@ -57,30 +59,28 @@ Output 3 (empty, no results): {{}}
 Conversation 4: "I love to look at the stars and think of my family"
 Output 3: {{"stars" : <translation>}}
 
-Final Data:
 DO NOT define common words like "yes", "no", "he", "hers", "to", "from", "thank you", "please", "because", etc. in ANY language - they are too common. Focus on rare words.
 
 Frequency Ranking:
 IGNORE THIS FOR NOW: The frequency ranking of each word tells you how common it is in daily speech. The frequency ranking of the wordsin the conversation context are: ```{word_rank}```
 
-Input:
+FINAL DATA AND COMMANDS:
+Previous Definitions:
+Don't define any of the words in this list, as they were all recently defined:
+```{live_translate_word_history}```
 
-Follow this format when you output: {format_instructions}
+Input Text (transcript from user's live conversation):
+```{conversation_context}```
 
 Frequency Ranking:
-IGNORE THIS FOR NOW: The frequency ranking of each word tells you how common it is in daily speech. The frequency ranking of the wordsin the conversation context are: ```{word_rank}```
-
-Input:
-
-Input Text (from live conversation transcript):
-```{conversation_context}```
-
-
-
-Input Text (from live conversation transcript):
-```{conversation_context}```
+The frequency ranking of each word tells you how common it is in daily speech as a percentile (0 is most common, 100 is most rare). The frequency ranking of the words in the "Input Text" conversation transcript are:
+```
+{word_rank}
+```
 
 Follow this format when you output: {format_instructions}
+
+Define at least one of the words this time.
 
 Now provide the output using the format instructions above:
 """
@@ -109,10 +109,7 @@ def format_list_data(data: dict) -> str:
 
 
 @time_function()
-def run_language_learning_agent(conversation_context: str, word_rank: dict, target_language="Russian"):
-    print("Running ll agent with this: ")
-    print(conversation_context)
-    print(word_rank)
+def run_language_learning_agent(conversation_context: str, word_rank: dict, target_language="Russian", transcribe_language="English", live_translate_word_history=""):
     # start up GPT3 connection
     llm = get_langchain_gpt35(temperature=0.2)
 
@@ -134,7 +131,7 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
 
     extract_language_learning_agent_query_prompt = PromptTemplate(
         template=language_learning_agent_prompt_blueprint,
-        input_variables=["conversation_context", "target_language", "source_language", "fluency_level", "word_rank"],
+        input_variables=["conversation_context", "target_language", "source_language", "fluency_level", "word_rank", "live_translate_word_history"],
         partial_variables={
             "format_instructions": language_learning_agent_query_parser.get_format_instructions()}
     )
@@ -146,11 +143,12 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
         source_language=source_language,
         target_language=target_language,
         fluency_level=fluency_level,
-        word_rank=word_rank_string
+        word_rank=word_rank_string,
+        live_translate_word_history=live_translate_word_history
     ).to_string()
 
     #print("LANGUAGE LEARNING PROMPT********************************")
-    print(language_learning_agent_query_prompt_string)
+    #print(language_learning_agent_query_prompt_string)
 
     # print("Proactive meta agent query prompt string", language_learning_agent_query_prompt_string)
 

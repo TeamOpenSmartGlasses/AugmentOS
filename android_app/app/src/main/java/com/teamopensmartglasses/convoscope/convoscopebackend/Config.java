@@ -1,4 +1,4 @@
-package com.teamopensmartglasses.convoscope;
+package com.teamopensmartglasses.convoscope.convoscopebackend;
 
 public class Config {
     //public static final String serverUrl = "https://1q93wu6qkd.execute-api.us-east-2.amazonaws.com"; //jeremy

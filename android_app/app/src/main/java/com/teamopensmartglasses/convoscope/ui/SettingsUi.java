@@ -34,6 +34,7 @@ import com.teamopensmartglasses.convoscope.ConvoscopeService;
 import com.teamopensmartglasses.convoscope.MainActivity;
 import com.teamopensmartglasses.convoscope.R;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
+import com.teamopensmartglasses.smartglassesmanager.supportedglasses.AudioWearable;
 
 public class SettingsUi extends Fragment {
     private  final String TAG = "WearableAi_SettingsUIFragment";
@@ -122,7 +123,23 @@ public class SettingsUi extends Fragment {
             }
         });
 
-        final Button logOutButton = view.findViewById(R.id.log_out_button);
+        final Switch glassesAudioToggle = view.findViewById(R.id.glasses_audio_toggle);
+        glassesAudioToggle.setChecked(ConvoscopeService.getPreferredWearable(getContext()).equals(new AudioWearable().deviceModelName)); // off by default
+        glassesAudioToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked){
+                    ConvoscopeService.savePreferredWearable(getContext(), new AudioWearable().deviceModelName);
+                    ((MainActivity)getActivity()).restartConvoscopeService();
+                }
+                else {
+                    ConvoscopeService.savePreferredWearable(getContext(), "");
+                    ((MainActivity)getActivity()).restartConvoscopeService();
+                }
+            }
+        });
+
+        final Button logOutButton = view.findViewById(com.teamopensmartglasses.convoscope.R.id.log_out_button);
         logOutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 ((MainActivity)getActivity()).signOut();
@@ -146,10 +163,17 @@ public class SettingsUi extends Fragment {
         transcribeLanguageSpinner.setSelection(languageSpinnerPosition);
 
         transcribeLanguageSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            boolean initTranscribeLanguageSetup = true;
+
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (initTranscribeLanguageSetup){
+                    initTranscribeLanguageSetup = false;
+                    return;
+                }
                 String selectedLanguage = parent.getItemAtPosition(position).toString();
                 // Save the selected language as the new transcribe language default
+                Log.d(TAG, "TRANSCRIBE LANGUAGE SPINNER CHANGED");
                 ((MainActivity)getActivity()).mService.saveChosenTranscribeLanguage(mContext, selectedLanguage);
                 ((MainActivity)getActivity()).restartConvoscopeService();
             }
@@ -177,10 +201,17 @@ public class SettingsUi extends Fragment {
         targetLanguageSpinner.setSelection(targetLanguageSpinnerPosition);
 
         targetLanguageSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            boolean initTargetLanguageSetup = true;
+
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (initTargetLanguageSetup){
+                    initTargetLanguageSetup = false;
+                    return;
+                }
                 String selectedLanguage = parent.getItemAtPosition(position).toString();
                 // Save the selected targetLanguage as the new default
+                Log.d(TAG, "TARGET LANGUAGE SPINNER CHANGED");
                 ((MainActivity)getActivity()).mService.saveChosenTargetLanguage(mContext, selectedLanguage);
                 ((MainActivity)getActivity()).mService.updateTargetLanguageOnBackend(mContext);
             }

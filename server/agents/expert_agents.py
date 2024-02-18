@@ -31,7 +31,7 @@ agent_insight_parser = PydanticOutputParser(pydantic_object=AgentInsight)
 llm = get_langchain_gpt4()
 agent = initialize_agent([
         get_search_tool_for_agents(),
-        get_wolfram_alpha_tool_for_agents(),
+        #get_wolfram_alpha_tool_for_agents(),
     ], llm, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=True)
 
 

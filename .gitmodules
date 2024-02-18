@@ -1,3 +1,6 @@
 [submodule "SmartGlassesManager"]
 	path = SmartGlassesManager
 	url = git@github.com:TeamOpenSmartGlasses/SmartGlassesManager.git
+[submodule "server/word_frequency_lists"]
+	path = server/word_frequency_lists
+	url = git@github.com:hermitdave/FrequencyWords.git

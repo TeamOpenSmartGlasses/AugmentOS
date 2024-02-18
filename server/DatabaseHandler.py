@@ -25,7 +25,8 @@ class DatabaseHandler:
         self.transcript_expiration_time = 600 * 6  # 60 minutes in seconds
         self.parent_handler = parent_handler
         self.empty_transcript = {
-            "text": "", "timestamp": -1, "is_final": False, "uuid": -1}
+                "text": "", "timestamp": -1, "is_final": False, "uuid": -1, "transcribe_language" : "English"
+                }
 
         # Create a new client and connect to the server
         self.client = MongoClient(self.uri, server_api=ServerApi('1'))
@@ -200,10 +201,10 @@ class DatabaseHandler:
 
     # Returns True if we can save new transcripts, False if we are getting too many transcripts too quickly
     def transcript_rate_limiter(self, user_id, new_text):
-        max_wpm = 320  # Human speech is 100-200 WPM, use 320 for safe margin
-        transcripts = self.get_transcripts_from_last_nseconds_for_user_as_string(
-            user_id, 60) + " " + new_text
-        return len(transcripts.split()) < max_wpm
+#        max_wpm = 320  # Human speech is 100-200 WPM, use 320 for safe margin
+#        transcripts, transcribe_language = self.get_transcripts_from_last_nseconds_for_user_as_string(user_id, 60) + " " + new_text
+#        return len(transcripts.split()) < max_wpm
+        return True
 
     def get_latest_transcript_from_user_obj(self, user_obj):
         if user_obj['latest_intermediate_transcript']['timestamp'] != -1:
@@ -213,14 +214,14 @@ class DatabaseHandler:
         else:
             return None
 
-    def save_transcript_for_user(self, user_id, text, is_final):
+    def save_transcript_for_user(self, user_id, text, is_final, transcribe_language):
         if text == "":
             return
 
         text = text.strip()
 
         transcript = {"user_id": user_id, "text": text,
-                      "timestamp": time.time(), "is_final": is_final, "uuid": str(uuid.uuid4())}
+                "timestamp": time.time(), "is_final": is_final, "uuid": str(uuid.uuid4()), "transcribe_language" : transcribe_language}
 
         user = self.get_user(user_id)
 
@@ -438,11 +439,11 @@ class DatabaseHandler:
         transcripts = []
         for user in users:
             user_id = user['user_id']
-            transcript_string = self.get_transcripts_from_last_nseconds_for_user_as_string(
+            transcript_string, transcribe_language = self.get_transcripts_from_last_nseconds_for_user_as_string(
                 user_id, n)
             if transcript_string:
                 transcripts.append(
-                    {'user_id': user_id, 'text': transcript_string})
+                        {'user_id': user_id, 'text': transcript_string, 'transcribe_language' : transcribe_language})
 
         return transcripts
 
@@ -474,12 +475,12 @@ class DatabaseHandler:
     def stringify_transcripts(self, transcript_list):
         output = ""
         if len(transcript_list) == 0:
-            return output
+            return output, "English"
 
         for index, t in enumerate(transcript_list):
             output = output + t['text'] + ' '
 
-        return output.strip()
+        return output.strip(), transcript_list[0]["transcribe_language"]
 
     ### RECORDING ###
 
@@ -810,7 +811,7 @@ class DatabaseHandler:
         results = list(
             self.language_learning_collection.aggregate(pipeline))
 
-        names = [result["name"] for result in results]
+        names = [result["in_word"] for result in results]
 
         return names
 
@@ -905,7 +906,7 @@ class DatabaseHandler:
 
         rating_time = math.trunc(time.time())
         rating_uuid = str(uuid.uuid4())
-        rating_context = self.get_transcripts_from_last_nseconds_for_user_as_string(
+        rating_context, transcribe_language = self.get_transcripts_from_last_nseconds_for_user_as_string(
             user_id, n=240)
         rating_obj = {"uuid": rating_uuid, "timestamp": rating_time,
                       "result_uuid": result_uuid, "rating": rating, "context": rating_context}
