@@ -5,7 +5,7 @@ Adapted from:
 https://github.com/emexlabs/WearableIntelligenceSystem/blob/master/android_smart_phone/main/app/src/main/java/com/wearableintelligencesystem/androidsmartphone/comms/BackendServerComms.java
  */
 
-import static com.teamopensmartglasses.convoscope.Config.*;
+import static com.teamopensmartglasses.convoscope.convoscopebackend.Config.*;
 import static com.teamopensmartglasses.convoscope.Constants.*;
 
 import android.content.Context;
@@ -53,7 +53,7 @@ public class BackendServerComms {
 
         //if using dev server, add /dev in front
         if (useDevServer) {
-            builtUrl = serverUrl + "/dev" + endpoint;
+            builtUrl = serverUrl + devServerUrl + endpoint;
         }
 
         //get the request type
