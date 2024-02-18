@@ -74,14 +74,18 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private final Handler csePollLoopHandler = new Handler(Looper.getMainLooper());
     private Runnable cseRunnableCode;
     private final Handler displayPollLoopHandler = new Handler(Looper.getMainLooper());
+    private final Handler locationSendingLoopHandler = new Handler(Looper.getMainLooper());
     private Runnable displayRunnableCode;
-    private final LocationSystem locationSystem = new LocationSystem();
+    private Runnable locationSendingRunnableCode;
+    private LocationSystem locationSystem;
     static final String deviceId = "android";
     public String [] features = {"proactive_agent_insights", "explicit_agent_insights", "intelligent_entity_definitions"};//default setup
     public String proactiveAgents = "proactive_agent_insights";
     public String explicitAgent = "explicit_agent_insights";
     public String definerAgent = "intelligent_entity_definitions";
     public String languageLearningAgent = "language_learning";
+    public double previousLat = 0;
+    public double previousLng = 0;
 
     //language learning buffer stuff
     private LinkedList<DefinedWord> definedWords = new LinkedList<>();
@@ -140,6 +144,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         setAuthToken();
         setUpCsePolling();
         setUpDisplayQueuePolling();
+        setUpLocationSending();
 
         //setup mode
         changeMode(getCurrentMode(this));
@@ -185,6 +190,18 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             }
         };
         csePollLoopHandler.post(cseRunnableCode);
+    }
+
+    public void setUpLocationSending(){
+        locationSystem = new LocationSystem(getApplicationContext());
+        locationSendingRunnableCode = new Runnable() {
+            @Override
+            public void run() {
+                requestLocation();
+                locationSendingLoopHandler.postDelayed(this, 1000 * 5); //30 seconds, TODO: make more intelligent later
+            }
+        };
+        locationSendingLoopHandler.post(locationSendingRunnableCode);
     }
 
     public void setUpDisplayQueuePolling(){
@@ -360,18 +377,16 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public void requestLocation(){
         try{
             // Get location data as JSONObject
-            JSONObject locationData = locationSystem.getUserLocation();
-            double latitude = locationData.getDouble("lat");
-            double longitude = locationData.getDouble("lng");
+            double latitude = locationSystem.lat;
+            double longitude = locationSystem.lng;
+
+            // TODO: Filter here... is it meaningfully different?
+            if(latitude == 0 && longitude == 0) return;
 
             JSONObject jsonQuery = new JSONObject();
-            // Assuming 'features' is a List<String> or similar that needs to be converted to JSONArray
-            JSONArray featuresArray = new JSONArray(features);
 
-            Log.d(TAG, "hitting UI poll with these features: " + featuresArray);
             jsonQuery.put("Authorization", authToken);
             jsonQuery.put("deviceId", deviceId);
-            jsonQuery.put("features", featuresArray);
             jsonQuery.put("lat", latitude);
             jsonQuery.put("lng", longitude);
 
@@ -379,6 +394,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 @Override
                 public void onSuccess(JSONObject result){
                     try {
+                        previousLat = latitude;
+                        previousLng = longitude;
                         parseConvoscopeResults(result);
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
@@ -392,7 +409,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                     }
                 }
             });
-        } catch (JSONException | IOException e){
+        } catch (JSONException e){
             e.printStackTrace();
         }
     }
@@ -801,6 +818,15 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 .edit()
                 .putString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), currentModeString)
                 .apply();
+
+        try{
+            JSONObject settingsObj = new JSONObject();
+            JSONArray featuresList = new JSONArray(features);
+            settingsObj.put("features", featuresList);
+            sendSettings(settingsObj);
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
     }
 
     public String getCurrentMode(Context context) {
