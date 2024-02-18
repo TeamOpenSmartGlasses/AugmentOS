@@ -264,6 +264,7 @@ async def ui_poll_handler(request, minutes=0.5):
 
     # get agent results
     if "proactive_agent_insights" in features:
+        print("including proactive agent insights")
         agent_insight_results = db_handler.get_proactive_agents_insights_results_for_user_device(user_id=user_id, device_id=device_id)
         #add agents insight to response
         resp["results_proactive_agent_insights"] = agent_insight_results
@@ -466,21 +467,22 @@ if __name__ == '__main__':
     ##cse_process.start()
 
     # start intelligent definer agent process
-    #print("Starting Intelligent Definer Agent process...")
-    #intelligent_definer_agent_process = multiprocessing.Process(target=proactive_definer_processing_loop)
-    #intelligent_definer_agent_process.start()
+    print("Starting Intelligent Definer Agent process...")
+    intelligent_definer_agent_process = multiprocessing.Process(target=proactive_definer_processing_loop)
+    intelligent_definer_agent_process.start()
 
     # start the proactive agents process
-    #print("Starting Proactive Agents process...")
-    #proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
-    # proactive_agents_background_process.start()
+    print("Starting Proactive Agents process...")
+    proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
+    proactive_agents_background_process.start()
 
     # start the explicit agent process
+    print("Starting Explicit Agent process...")
     explicit_background_process = multiprocessing.Process(target=explicit_agent_processing_loop)
     explicit_background_process.start()
 
     # start the language learning app process
-    #print("Starting Language Learning Agents process...")
+    print("Starting Language Learning Agents process...")
     language_learning_background_process = multiprocessing.Process(target=language_learning_agents_processing_loop)
     language_learning_background_process.start()
 
@@ -519,8 +521,8 @@ if __name__ == '__main__':
     web.run_app(app, port=server_port)
 
     #let processes finish and join
-    #proactive_agents_background_process.join()
-    #intelligent_definer_agent_process.join()
+    proactive_agents_background_process.join()
+    intelligent_definer_agent_process.join()
     #cse_process.join()
     language_learning_background_process.join()
     explicit_background_process.join()
