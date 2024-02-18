@@ -95,23 +95,6 @@ public class SettingsUi extends Fragment {
             }
         });
 
-        final Button startHotspotButton = view.findViewById(R.id.start_hotspot);
-            startHotspotButton.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                // Code here executes on main thread after user presses button
-                launchHotspotSettings();
-            }
-        });
-
-        // setup test card sender
-        final Button sendTestCardButton = view.findViewById(R.id.send_test_card_old);
-        sendTestCardButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Code here executes on main thread after user presses button
-                sendTestCard();
-            }
-        });
-
         //final Button setGoogleApiKeyButton = view.findViewById(R.id.google_api_change);
         final Switch switchGoogleAsr = view.findViewById(R.id.google_asr_switch);
 
