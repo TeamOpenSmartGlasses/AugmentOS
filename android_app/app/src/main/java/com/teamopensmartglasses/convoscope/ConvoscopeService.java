@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
@@ -37,8 +38,8 @@ import java.util.Arrays;
 
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartRingButtonOutputEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SpeechRecOutputEvent;
+import org.json.JSONObject;
+import java.io.InputStream;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
 
 public class ConvoscopeService extends SmartGlassesAndroidService {
@@ -109,6 +110,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         backendServerComms = new BackendServerComms(this);
 
         Log.d(TAG, "Convoscope service started");
+
+        String asrApiKey = getResources().getString(R.string.google_api_key);
+        Log.d(TAG, "ASR KEY: " + asrApiKey);
+        saveApiKey(this, asrApiKey);
 
         setAuthToken();
         setUpCsePolling();
