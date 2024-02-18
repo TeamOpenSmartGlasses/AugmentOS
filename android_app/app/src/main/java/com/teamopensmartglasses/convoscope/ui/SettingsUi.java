@@ -96,25 +96,26 @@ public class SettingsUi extends Fragment {
         });
 
         //final Button setGoogleApiKeyButton = view.findViewById(R.id.google_api_change);
-        final Switch switchGoogleAsr = view.findViewById(R.id.google_asr_switch);
+        //final Switch switchGoogleAsr = view.findViewById(R.id.google_asr_switch);
 
         //find out the current ASR state, remember it
         ASR_FRAMEWORKS asrFramework = ConvoscopeService.getChosenAsrFramework(mContext);
-        switchGoogleAsr.setChecked(asrFramework == ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
-
-        switchGoogleAsr.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ((MainActivity)getActivity()).stopConvoscopeService();
-
-                //setGoogleApiKeyButton.setEnabled(isChecked);
-                //save explicitly as well as force change in case the service is down, we want this to be saved either way
-                if (isChecked) {
-                    ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
-                } else {
-                    ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.VOSK_ASR_FRAMEWORK);
-                }
-            }
-        });
+        ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
+//        switchGoogleAsr.setChecked(asrFramework == ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
+//
+//        switchGoogleAsr.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                ((MainActivity)getActivity()).stopConvoscopeService();
+//
+//                //setGoogleApiKeyButton.setEnabled(isChecked);
+//                //save explicitly as well as force change in case the service is down, we want this to be saved either way
+//                if (isChecked) {
+//                    ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
+//                } else {
+//                    ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.VOSK_ASR_FRAMEWORK);
+//                }
+//            }
+//        });
 
         final Switch glassesAudioToggle = view.findViewById(R.id.glasses_audio_toggle);
         glassesAudioToggle.setChecked(ConvoscopeService.getPreferredWearable(getContext()).equals(new AudioWearable().deviceModelName)); // off by default
