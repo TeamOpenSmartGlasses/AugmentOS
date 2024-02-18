@@ -59,7 +59,12 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private Handler displayPollLoopHandler = new Handler(Looper.getMainLooper());
     private Runnable displayRunnableCode;
     static final String deviceId = "android";
-    static final String [] features = {"proactive_agent_insights", "explicit_agent_insights", "intelligent_entity_definitions", "language_learning"};
+    public String [] features = {"proactive_agent_insights", "explicit_agent_insights", "intelligent_entity_definitions"};//default setup
+    public String proactiveAgents = "proactive_agent_insights";
+    public String explicitAgent = "explicit_agent_insights";
+    public String definerAgent = "intelligent_entity_definitions";
+    public String languageLearningAgent = "language_learning";
+
 //    private SMSComms smsComms;
     static String phoneNumName = "Alex";
     static String phoneNum = "8477367492"; // Alex's phone number. Fun default.
@@ -108,6 +113,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         setAuthToken();
         setUpCsePolling();
         setUpDisplayQueuePolling();
+
+        //setup mode
+        changeMode(getCurrentMode(this));
 
         this.aioConnectSmartGlasses();
     }
@@ -269,6 +277,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         try{
             JSONObject jsonQuery = new JSONObject();
             jsonQuery.put("text", query);
+            jsonQuery.put("transcribe_language", getChosenTranscribeLanguage(this));
             jsonQuery.put("Authorization", authToken);
             jsonQuery.put("isFinal", isFinal);
             jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
@@ -296,6 +305,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         try{
             JSONObject jsonQuery = new JSONObject();
             JSONArray featuresArray = new JSONArray(features);
+            Log.d(TAG, "hitting UI poll with these features: " + featuresArray);
             jsonQuery.put("Authorization", authToken);
             jsonQuery.put("deviceId", deviceId);
             jsonQuery.put("features", featuresArray);
@@ -427,47 +437,44 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         String imgKey = "image_url";
         String mapImgKey = "map_image_path";
 
-//        JSONArray cseResults = response.has(cseResultKey) ? response.getJSONArray(cseResultKey) : new JSONArray();
-
-//        JSONArray proactiveAgentResults = response.has(proactiveAgentResultsKey) ? response.getJSONArray(proactiveAgentResultsKey) : new JSONArray();
-
+        //explicity queries
         JSONArray explicitAgentQueries = response.has(explicitAgentQueriesKey) ? response.getJSONArray(explicitAgentQueriesKey) : new JSONArray();
 
         JSONArray explicitAgentResults = response.has(explicitAgentResultsKey) ? response.getJSONArray(explicitAgentResultsKey) : new JSONArray();
 
-//        JSONArray entityDefinitions = response.has(entityDefinitionsKey) ? response.getJSONArray(entityDefinitionsKey) : new JSONArray();
+        //custom data
+        JSONArray cseResults = response.has(cseResultKey) ? response.getJSONArray(cseResultKey) : new JSONArray();
 
+        //proactive agents
+        JSONArray proactiveAgentResults = response.has(proactiveAgentResultsKey) ? response.getJSONArray(proactiveAgentResultsKey) : new JSONArray();
+        JSONArray entityDefinitions = response.has(entityDefinitionsKey) ? response.getJSONArray(entityDefinitionsKey) : new JSONArray();
+
+        //language learning
         JSONArray languageLearningResults = response.has(languageLearningKey) ? response.getJSONArray(languageLearningKey) : new JSONArray();
 
         String llResult = "";
         String[] llResults;
 
-//            String llResult = "|this is     |the result\n|siht si    |tresult eht";
         for (int i = 0; i < languageLearningResults.length(); i++) {
             Log.d(TAG, "LANGUAGE LEARNING RESULTS:" + languageLearningResults.get(i));
         }
         if (languageLearningResults.length() != 0) {
             llResults = calculateLLStringFormatted(languageLearningResults);
-//            queueOutput(llResult);
-//            llResults[0] = "do first let's go";
-//            llResults[1] = "dogs and cats";
-//            llResults[2] = "terranosaurus rex -> and cats";
-//            llResults[3] = "whatcha -> __= dogs andts";
             sendRowsCard(llResults);
             sendUiUpdateSingle(String.join("\n", Arrays.copyOfRange(llResults, 0, languageLearningResults.length())));
         }
 
 
-//        // Just append the entityDefinitions to the cseResults as they have similar schema
-//        for (int i = 0; i < entityDefinitions.length(); i++) {
-//            cseResults.put(entityDefinitions.get(i));
-//        }
+        // Just append the entityDefinitions to the cseResults as they have similar schema
+        for (int i = 0; i < entityDefinitions.length(); i++) {
+            cseResults.put(entityDefinitions.get(i));
+        }
 
         long wakeWordTime = response.has(wakeWordTimeKey) ? response.getLong(wakeWordTimeKey) : -1;
 
-//        if (cseResults.length() > 0){
-//            Log.d(TAG, "GOT CSE RESULTS: " + response.toString());
-//        }
+        if (cseResults.length() > 0){
+            Log.d(TAG, "GOT CSE RESULTS: " + response.toString());
+        }
 
         if (wakeWordTime != -1 && wakeWordTime != previousWakeWordTime){
             previousWakeWordTime = wakeWordTime;
@@ -476,59 +483,59 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
 
         //go through CSE results and add to resultsToDisplayList
-//        String sharableResponse = "";
-//        for (int i = 0; i < cseResults.length(); i++){
-//            try {
-//                JSONObject obj = cseResults.getJSONObject(i);
-//                String name = obj.getString("name");
-//                String body = obj.getString("summary");
-//                String combined = name + ": " + body;
-//                Log.d(TAG, name);
-//                Log.d(TAG, "--- " + body);
-//                queueOutput(combined);
-//
-////                if(obj.has(mapImgKey)){
-////                    String mapImgPath = obj.getString(mapImgKey);
-////                    String mapImgUrl = backendServerComms.serverUrl + mapImgPath;
-////                    sgmLib.sendReferenceCard(name, body, mapImgUrl);
-////                }
-////                else if(obj.has(imgKey)) {
-////                    sgmLib.sendReferenceCard(name, body, obj.getString(imgKey));
-////                }
-////                else {
-////                    sgmLib.sendReferenceCard(name, body);
-////                }
-//
-//                // For SMS
-////                sharableResponse += combined;
-////                if(obj.has("url")){
-////                    sharableResponse += "\n" + obj.get("url");
-////                }
-////                sharableResponse += "\n\n";
-////                if(i == cseResults.length() - 1){
-////                    sharableResponse += "Sent from Convoscope";
-////                }
-//
-//
-//            } catch (JSONException e){
-//                e.printStackTrace();
-//            }
-//        }
-//
-//        //go through proactive agent results and add to resultsToDisplayList
-//        for (int i = 0; i < proactiveAgentResults.length(); i++){
-//            try {
-//                JSONObject obj = proactiveAgentResults.getJSONObject(i);
-//                String name = obj.getString("agent_name") + " says";
-//                String body = obj.getString("agent_insight");
-//                String combined = name + ": " + body;
-//                Log.d(TAG, name);
-//                Log.d(TAG, "--- " + body);
-//                queueOutput(combined);
-//            } catch (JSONException e){
-//                e.printStackTrace();
-//            }
-//        }
+        String sharableResponse = "";
+        for (int i = 0; i < cseResults.length(); i++){
+            try {
+                JSONObject obj = cseResults.getJSONObject(i);
+                String name = obj.getString("name");
+                String body = obj.getString("summary");
+                String combined = name + ": " + body;
+                Log.d(TAG, name);
+                Log.d(TAG, "--- " + body);
+                queueOutput(combined);
+
+//                if(obj.has(mapImgKey)){
+//                    String mapImgPath = obj.getString(mapImgKey);
+//                    String mapImgUrl = backendServerComms.serverUrl + mapImgPath;
+//                    sgmLib.sendReferenceCard(name, body, mapImgUrl);
+//                }
+//                else if(obj.has(imgKey)) {
+//                    sgmLib.sendReferenceCard(name, body, obj.getString(imgKey));
+//                }
+//                else {
+//                    sgmLib.sendReferenceCard(name, body);
+//                }
+
+                // For SMS
+//                sharableResponse += combined;
+//                if(obj.has("url")){
+//                    sharableResponse += "\n" + obj.get("url");
+//                }
+//                sharableResponse += "\n\n";
+//                if(i == cseResults.length() - 1){
+//                    sharableResponse += "Sent from Convoscope";
+//                }
+
+
+            } catch (JSONException e){
+                e.printStackTrace();
+            }
+        }
+
+        //go through proactive agent results and add to resultsToDisplayList
+        for (int i = 0; i < proactiveAgentResults.length(); i++){
+            try {
+                JSONObject obj = proactiveAgentResults.getJSONObject(i);
+                String name = obj.getString("agent_name") + " says";
+                String body = obj.getString("agent_insight");
+                String combined = name + ": " + body;
+                Log.d(TAG, name);
+                Log.d(TAG, "--- " + body);
+                queueOutput(combined);
+            } catch (JSONException e){
+                e.printStackTrace();
+            }
+        }
 
         //go through explicit agent queries and add to resultsToDisplayList
         for (int i = 0; i < explicitAgentQueries.length(); i++){
@@ -689,6 +696,35 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
         return targetLanguageString;
     }
+
+    public void changeMode(String currentModeString){
+        if (currentModeString.equals("Proactive Agents")){
+            features = new String[]{explicitAgent, proactiveAgents, definerAgent};
+        } else if (currentModeString.equals("Language Learning")){
+            features = new String[]{explicitAgent, languageLearningAgent};
+        }
+    }
+
+    public void saveCurrentMode(Context context, String currentModeString) {
+        //update the features for the new mode
+        changeMode(currentModeString);
+
+        //save the new mode
+        PreferenceManager.getDefaultSharedPreferences(context)
+                .edit()
+                .putString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), currentModeString)
+                .apply();
+    }
+
+    public String getCurrentMode(Context context) {
+        String currentModeString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), "");
+        if (currentModeString.equals("")){
+            saveCurrentMode(context, "Proactive Agents");
+            currentModeString = "Proactive Agents";
+        }
+        return currentModeString;
+    }
+
 
     public void updateTargetLanguageOnBackend(Context context){
         String targetLanguage = getChosenTargetLanguage(context);

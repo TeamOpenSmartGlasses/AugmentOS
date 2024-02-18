@@ -146,10 +146,17 @@ public class SettingsUi extends Fragment {
         transcribeLanguageSpinner.setSelection(languageSpinnerPosition);
 
         transcribeLanguageSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            boolean initTranscribeLanguageSetup = true;
+
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (initTranscribeLanguageSetup){
+                    initTranscribeLanguageSetup = false;
+                    return;
+                }
                 String selectedLanguage = parent.getItemAtPosition(position).toString();
                 // Save the selected language as the new transcribe language default
+                Log.d(TAG, "TRANSCRIBE LANGUAGE SPINNER CHANGED");
                 ((MainActivity)getActivity()).mService.saveChosenTranscribeLanguage(mContext, selectedLanguage);
                 ((MainActivity)getActivity()).restartConvoscopeService();
             }
@@ -177,10 +184,17 @@ public class SettingsUi extends Fragment {
         targetLanguageSpinner.setSelection(targetLanguageSpinnerPosition);
 
         targetLanguageSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            boolean initTargetLanguageSetup = true;
+
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (initTargetLanguageSetup){
+                    initTargetLanguageSetup = false;
+                    return;
+                }
                 String selectedLanguage = parent.getItemAtPosition(position).toString();
                 // Save the selected targetLanguage as the new default
+                Log.d(TAG, "TARGET LANGUAGE SPINNER CHANGED");
                 ((MainActivity)getActivity()).mService.saveChosenTargetLanguage(mContext, selectedLanguage);
                 ((MainActivity)getActivity()).mService.updateTargetLanguageOnBackend(mContext);
             }
