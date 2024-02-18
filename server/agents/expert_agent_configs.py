@@ -47,7 +47,7 @@ Once you have the "Insight", extract the url of the most relevant reference sour
 expert_agent_config_list = {
     "Statistician": {
         "agent_name": "Statistician",
-        "tools": ["Search_Engine", "Wolfram_Alpha"],
+        "tools": ["Search_Engine"],
         "insight_num_words": 15,
         "agent_insight_type": """generate insights which focus on statistics, and quantitative data. Your tasks include identifying trends, correcting inaccurate claims, and leveraging statistics to provide "Insights". If you don't have a strong stastistic or data to provide, or you failed to find the data you planned to, then just output `null`, don't try to output watered down or irrelevant stats.""",
         "agent_plan": """1. Come up with a general description of the "Insight" to generate. \n2.Identify the single most important quantitative data, statistics, etc. that is needed to generate the "Insight". Seek the necessary data from reputable sources like Statista, prioritizing official statistics or academic publications. """,
