@@ -45,9 +45,10 @@ def get_word_frequency_percentiles(transcript: str, language_code: str) -> dict:
     for word in words:
         # For languages other than Chinese, consider lowercasing the word to improve match rate
         word_lower = word.lower() if language_code in ["English", "Spanish", "French"] else word
-        if word_lower in words_dict:
+        word_lower_token = word_lower.split("'")[0].translate(str.maketrans("", "", "?!.,;\""))
+        if word_lower_token in words_dict:
             # Convert rank to percentile
-            percentile = (words_dict[word_lower] / total_words) * 100
+            percentile = round((words_dict[word_lower_token] / total_words) * 100, 1)
             words_rank[word] = percentile
 
     return words_rank
