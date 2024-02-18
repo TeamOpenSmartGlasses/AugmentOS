@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
@@ -157,6 +158,17 @@ public class MainActivity extends AppCompatActivity {
     unbindConvoscopeService();
   }
 
+  public void restartConvoscopeService() {
+    stopConvoscopeService();
+    Handler starter = new Handler();
+    starter.postDelayed(new Runnable() {
+      @Override
+      public void run() {
+        startConvoscopeService();
+      }
+    }, 300);
+  }
+
   public void stopConvoscopeService() {
     unbindConvoscopeService();
     if (!isMyServiceRunning(ConvoscopeService.class)) return;
@@ -183,11 +195,6 @@ public class MainActivity extends AppCompatActivity {
     startIntent.setAction(ConvoscopeService.ACTION_START_FOREGROUND_SERVICE);
     startService(startIntent);
     bindConvoscopeService();
-  }
-
-  public void restartConvoscopeService(){
-    stopConvoscopeService();
-    startConvoscopeService();
   }
 
   //check if service is running
@@ -329,4 +336,27 @@ public class MainActivity extends AppCompatActivity {
     transaction.addToBackStack(null); // Add to back stack for back button support
     transaction.commit();
   }
+
+      public void saveCurrentMode(Context context, String currentModeString) {
+        //update the features for the new mode
+        if (mService != null) {
+          mService.changeMode(currentModeString);
+        }
+
+        //save the new mode
+        PreferenceManager.getDefaultSharedPreferences(context)
+                .edit()
+                .putString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), currentModeString)
+                .apply();
+    }
+
+    public String getCurrentMode(Context context) {
+        String currentModeString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), "");
+        if (currentModeString.equals("")){
+            saveCurrentMode(context, "Proactive Agents");
+            currentModeString = "Proactive Agents";
+        }
+        return currentModeString;
+    }
+
 }

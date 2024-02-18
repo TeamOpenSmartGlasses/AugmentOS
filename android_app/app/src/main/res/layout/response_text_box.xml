@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:paddingRight="6dp"
     android:paddingLeft="6dp"
-    android:paddingTop="8dp">
+    android:paddingBottom ="4dp"
+    android:paddingTop="4dp">
 
     <TextView
         android:id="@+id/textView"

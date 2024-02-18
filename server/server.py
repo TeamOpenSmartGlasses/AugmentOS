@@ -31,6 +31,7 @@ from agents.proactive_agents_process import proactive_agents_processing_loop
 from agents.expert_agents import run_single_expert_agent, arun_single_expert_agent
 from agents.explicit_agent_process import explicit_agent_processing_loop, call_explicit_agent
 from agents.proactive_definer_agent_process import proactive_definer_processing_loop
+from agents.language_learning_agent_process import language_learning_agents_processing_loop
 import agents.wake_words
 from Modules.RelevanceFilter import RelevanceFilter
 
@@ -46,11 +47,15 @@ async def chat_handler(request):
     body = await request.json()
     is_final = body.get('isFinal')
     text = body.get('text')
+    transcribe_language = body.get('transcribe_language')
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
     id_token = body.get('Authorization')
     user_id = await verify_id_token(id_token)
     if user_id is None:
         raise web.HTTPUnauthorized()
+
+    if transcribe_language is None or "":
+        transcribe_language = "English"
 
     # 400 if missing params
     if text is None or text == '':
@@ -60,7 +65,7 @@ async def chat_handler(request):
         print("user_id none in chat_handler, exiting with error response 400.")
         return web.Response(text='no userId in request', status=400)
 
-    success = db_handler.save_transcript_for_user(user_id=user_id, text=text, is_final=is_final)
+    success = db_handler.save_transcript_for_user(user_id=user_id, text=text, is_final=is_final, transcribe_language=transcribe_language)
     message = "Sending messages too fast" if not success else ""
 
     return web.Response(text=json.dumps({'success': True, 'message': message}), status=200)
@@ -112,6 +117,20 @@ async def load_recording_handler(request):
     })
     # return web.Response(text=json.dumps({'success': True, 'mess
 
+
+async def set_user_settings(request):
+    body = await request.json()
+    target_language = body.get('target_language')
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
+    
+    db_handler.update_user_options(user_id, body)
+
+    return web.Response(text=json.dumps({'success': True, 'message': "Saved your settings."}))
+
+
 # runs when button is pressed on frontend - right now button ring on wearable or button in TPA
 async def button_handler(request):
     body = await request.json()
@@ -143,73 +162,71 @@ async def button_handler(request):
 
 
 # run cse/definer tools for subscribed users in background every n ms if there is fresh data to run on
-"""
-def cse_loop():
-    print("START CSE PROCESSING LOOP")
-
-    # setup things we need for processing
-    db_handler = DatabaseHandler(parent_handler=False)
-    relevance_filter = RelevanceFilter(db_handler=db_handler)
-    cse = ContextualSearchEngine(db_handler=db_handler)
-
-    #then run the main loop
-    while True:
-        if not db_handler.ready:
-            print("db_handler not ready")
-            time.sleep(0.1)
-            continue
-
-        loop_start_time = time.time()
-        p_loop_start_time = time.time()
-
-        try:
-            p_loop_start_time = time.time()
-            # Check for new transcripts
-            new_transcripts = db_handler.get_new_cse_transcripts_for_all_users(
-                combine_transcripts=True, delete_after=False)
-
-            if new_transcripts is None or new_transcripts == []:
-                print("---------- No transcripts to run on for this cse_loop run...")
-
-            for transcript in new_transcripts:   
-                print("Run CSE with... user_id: '{}' ... text: '{}'".format(
-                    transcript['user_id'], transcript['text']))
-                cse_start_time = time.time()
-
-                cse_responses = cse.custom_data_proactive_search(
-                    transcript['user_id'], transcript['text'])
-
-                cse_end_time = time.time()
-                # print("=== CSE completed in {} seconds ===".format(
-                #     round(cse_end_time - cse_start_time, 2)))
-
-                #filter responses with relevance filter, then save CSE results to the database
-                cse_responses_filtered = list()
-                if cse_responses:
-                    cse_responses_filtered = relevance_filter.should_display_result_based_on_context(
-                        transcript["user_id"], cse_responses, transcript["text"]
-                    )
-
-                    final_cse_responses = [cse_response for cse_response in cse_responses if cse_response["name"] in cse_responses_filtered]
-                    # print("=== CSE RESPONSES FILTERED: {} ===".format(final_cse_responses))
-
-                    db_handler.add_cse_results_for_user(
-                        transcript["user_id"], final_cse_responses
-                    )
-        except Exception as e:
-            cse_responses = None
-            print("Exception in CSE...:")
-            print(e)
-            traceback.print_exc()
-        finally:
-            p_loop_end_time = time.time()
-            # print("=== processing_loop completed in {} seconds overall ===".format(
-            #     round(p_loop_end_time - p_loop_start_time, 2)))
-
-        loop_run_period = 1.5 #run the loop this often
-        while (time.time() - loop_start_time) < loop_run_period: #wait until loop_run_period has passed before running this again
-            time.sleep(0.2)
-"""
+#def cse_loop():
+#    print("START CSE PROCESSING LOOP")
+#
+#    # setup things we need for processing
+#    db_handler = DatabaseHandler(parent_handler=False)
+#    relevance_filter = RelevanceFilter(db_handler=db_handler)
+#    cse = ContextualSearchEngine(db_handler=db_handler)
+#
+#    #then run the main loop
+#    while True:
+#        if not db_handler.ready:
+#            print("db_handler not ready")
+#            time.sleep(0.1)
+#            continue
+#
+#        loop_start_time = time.time()
+#        p_loop_start_time = time.time()
+#
+#        try:
+#            p_loop_start_time = time.time()
+#            # Check for new transcripts
+#            new_transcripts = db_handler.get_new_cse_transcripts_for_all_users(
+#                combine_transcripts=True, delete_after=False)
+#
+#            if new_transcripts is None or new_transcripts == []:
+#                print("---------- No transcripts to run on for this cse_loop run...")
+#
+#            for transcript in new_transcripts:   
+#                print("Run CSE with... user_id: '{}' ... text: '{}'".format(
+#                    transcript['user_id'], transcript['text']))
+#                cse_start_time = time.time()
+#
+#                cse_responses = cse.custom_data_proactive_search(
+#                    transcript['user_id'], transcript['text'])
+#
+#                cse_end_time = time.time()
+#                # print("=== CSE completed in {} seconds ===".format(
+#                #     round(cse_end_time - cse_start_time, 2)))
+#
+#                #filter responses with relevance filter, then save CSE results to the database
+#                cse_responses_filtered = list()
+#                if cse_responses:
+#                    cse_responses_filtered = relevance_filter.should_display_result_based_on_context(
+#                        transcript["user_id"], cse_responses, transcript["text"]
+#                    )
+#
+#                    final_cse_responses = [cse_response for cse_response in cse_responses if cse_response["name"] in cse_responses_filtered]
+#                    # print("=== CSE RESPONSES FILTERED: {} ===".format(final_cse_responses))
+#
+#                    db_handler.add_cse_results_for_user(
+#                        transcript["user_id"], final_cse_responses
+#                    )
+#        except Exception as e:
+#            cse_responses = None
+#            print("Exception in CSE...:")
+#            print(e)
+#            traceback.print_exc()
+#        finally:
+#            p_loop_end_time = time.time()
+#            # print("=== processing_loop completed in {} seconds overall ===".format(
+#            #     round(p_loop_end_time - p_loop_start_time, 2)))
+#
+#        loop_run_period = 1.5 #run the loop this often
+#        while (time.time() - loop_start_time) < loop_run_period: #wait until loop_run_period has passed before running this again
+#            time.sleep(0.2)
 
 #frontends poll this to get the results from our processing of their transcripts
 async def ui_poll_handler(request, minutes=0.5):
@@ -227,8 +244,8 @@ async def ui_poll_handler(request, minutes=0.5):
         return web.Response(text='no device_id in request', status=400)
     if features is None or features == '':
         return web.Response(text='no features in request', status=400)
-    if "contextual_search_engine" not in features:
-        return web.Response(text='contextual_search_engine not in features', status=400)
+    #if "contextual_search_engine" not in features:
+    #    return web.Response(text='contextual_search_engine not in features', status=400)
 
     resp = dict()
     resp["success"] = True
@@ -247,6 +264,7 @@ async def ui_poll_handler(request, minutes=0.5):
 
     # get agent results
     if "proactive_agent_insights" in features:
+        print("including proactive agent insights")
         agent_insight_results = db_handler.get_proactive_agents_insights_results_for_user_device(user_id=user_id, device_id=device_id)
         #add agents insight to response
         resp["results_proactive_agent_insights"] = agent_insight_results
@@ -264,6 +282,12 @@ async def ui_poll_handler(request, minutes=0.5):
     if "intelligent_entity_definitions" in features:
         entity_definitions = db_handler.get_agent_proactive_definer_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["entity_definitions"] = entity_definitions
+
+    if "language_learning" in features:
+        language_learning_results = db_handler.get_language_learning_results_for_user_device(user_id=user_id, device_id=device_id)
+        resp["language_learning_results"] = language_learning_results
+        print("RETURNING THIS LANGUAGE LEARNING RESULTS")
+        print(language_learning_results)
 
     return web.Response(text=json.dumps(resp), status=200)
 
@@ -450,11 +474,17 @@ if __name__ == '__main__':
     # start the proactive agents process
     print("Starting Proactive Agents process...")
     proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
-    # proactive_agents_background_process.start()
+    proactive_agents_background_process.start()
 
     # start the explicit agent process
+    print("Starting Explicit Agent process...")
     explicit_background_process = multiprocessing.Process(target=explicit_agent_processing_loop)
     explicit_background_process.start()
+
+    # start the language learning app process
+    print("Starting Language Learning Agents process...")
+    language_learning_background_process = multiprocessing.Process(target=language_learning_agents_processing_loop)
+    language_learning_background_process.start()
 
     # setup and run web app
     # CORS allow from all sources
@@ -474,7 +504,8 @@ if __name__ == '__main__':
             web.post('/rate_result', rate_result_handler),
             web.post('/start_recording', start_recording_handler),
             web.post('/save_recording', save_recording_handler),
-            web.post('/load_recording', load_recording_handler)
+            web.post('/load_recording', load_recording_handler),
+            web.post('/set_user_settings', set_user_settings)
         ]
     )
     cors = aiohttp_cors.setup(app, defaults={
@@ -493,4 +524,5 @@ if __name__ == '__main__':
     proactive_agents_background_process.join()
     intelligent_definer_agent_process.join()
     #cse_process.join()
+    language_learning_background_process.join()
     explicit_background_process.join()

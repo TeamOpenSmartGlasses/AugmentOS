@@ -29,7 +29,7 @@ def is_user_id_in_user_list(user_id, user_list):
 def explicit_agent_processing_loop():
     #lock = threading.Lock()
 
-    print("START AGENT INSIGHT PROCESSING LOOP")
+    print("START EXPLICIT AGENT PROCESSING LOOP")
     while True:
         if not dbHandler.ready:
             print("dbHandler not ready")
@@ -67,7 +67,7 @@ def explicit_agent_processing_loop():
                 # Because last_wake_word_time is set when the wake word is found, and NOT when the wake word actually occured,
                 # we need to add a high number such as force_query_time to offset that inaccuracy
                 num_seconds_to_get = round(current_time - last_wake_word_time) + force_query_time
-                text = dbHandler.get_transcripts_from_last_nseconds_for_user_as_string(user_id=user['user_id'], n=num_seconds_to_get)#, transcript_list=user['final_transcripts'])
+                text, transcribe_language = dbHandler.get_transcripts_from_last_nseconds_for_user_as_string(user_id=user['user_id'], n=num_seconds_to_get)#, transcript_list=user['final_transcripts'])
 
                 # Pull query out of the text
                 query = get_explicit_query_from_transcript(text)
@@ -108,7 +108,8 @@ async def call_explicit_agent(user_obj, query):
     if len(transcript_history) > max_len:
         transcript_history = transcript_history[(len(transcript_history)-max_len):]
 
-    print("HISTORY GOING INTO QUERY: " + transcript_history) 
+    print("HISTORY GOING INTO QUERY: ")
+    print(transcript_history) 
 
     insightGenerationStartTime = time.time()
     try:

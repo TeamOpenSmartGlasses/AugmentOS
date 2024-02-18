@@ -1,26 +1,27 @@
 package com.teamopensmartglasses.convoscope.ui;
 
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Switch;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.teamopensmartglasses.convoscope.MainActivity;
@@ -28,60 +29,7 @@ import com.teamopensmartglasses.convoscope.R;
 import com.teamopensmartglasses.convoscope.ResponseTextUiAdapter;
 import com.teamopensmartglasses.convoscope.TranscriptTextUiAdapter;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
-import com.teamopensmartglasses.convoscope.events.SharingContactChangedEvent;
 import com.teamopensmartglasses.convoscope.events.UserIdChangedEvent;
-
-import org.greenrobot.eventbus.EventBus;
-
-import android.annotation.SuppressLint;
-import android.app.ActivityManager;
-import android.app.AlertDialog;
-import android.content.BroadcastReceiver;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.ServiceConnection;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.provider.ContactsContract;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.Switch;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.fragment.app.FragmentTransaction;
-
-import com.firebase.ui.auth.AuthUI;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.teamopensmartglasses.convoscope.events.SharingContactChangedEvent;
-import com.teamopensmartglasses.convoscope.events.UserIdChangedEvent;
-import com.teamopensmartglasses.convoscope.ui.LandingUi;
-import com.teamopensmartglasses.convoscope.ui.LoginUi;
-import com.teamopensmartglasses.convoscope.ui.SelectSmartGlassesUi;
-import com.teamopensmartglasses.convoscope.ui.SettingsUi;
-import com.teamopensmartglasses.convoscope.ui.UiUtils;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
-import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
-import com.teamopensmartglasses.smartglassesmanager.utils.PermissionsUtils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -272,7 +220,57 @@ public class ConvoscopeUi extends Fragment {
 //            }
 //        });
 
-          ((MainActivity)getActivity()).startConvoscopeService();
+      //setup mode switcher
+      RadioGroup convoscopeModeSelector = view.findViewById(R.id.radioGroupOptions);
+
+      String currentModeString = ((MainActivity)getActivity()).getCurrentMode(this.getContext());
+
+      RadioButton radioButtonProactiveAgents = view.findViewById(R.id.radioButtonProactiveAgents);
+      RadioButton radioButtonLanguageLearning = view.findViewById(R.id.radioButtonLanguageLearning);
+      RadioButton radioButtonWalkNGrok = view.findViewById(R.id.radioButtonWalkNGrok);
+      RadioButton radioButtonADHDGlasses = view.findViewById(R.id.radioButtonADHDGlasses);
+
+      // Set the radio button as active based on the saved string
+      if (currentModeString.equals(radioButtonProactiveAgents.getText().toString())) {
+        convoscopeModeSelector.check(R.id.radioButtonProactiveAgents);
+      } else if (currentModeString.equals(radioButtonLanguageLearning.getText().toString())) {
+        convoscopeModeSelector.check(R.id.radioButtonLanguageLearning);
+      } else if (currentModeString.equals(radioButtonWalkNGrok.getText().toString())) {
+        convoscopeModeSelector.check(R.id.radioButtonWalkNGrok);
+      } else if (currentModeString.equals(radioButtonADHDGlasses.getText().toString())) {
+        convoscopeModeSelector.check(R.id.radioButtonADHDGlasses);
+      }
+
+      Context mContext = this.getContext();
+      convoscopeModeSelector.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(RadioGroup group, int checkedId) {
+          switch (checkedId) {
+            case R.id.radioButtonProactiveAgents:
+              // Implement action for Proactive Agents
+              Log.d(TAG, "PROACTIVE AGENTS MODE SELECTED");
+              ((MainActivity)getActivity()).mService.saveCurrentMode(mContext, "Proactive Agents");
+              break;
+            case R.id.radioButtonLanguageLearning:
+              // Implement action for Language Learning
+              Log.d(TAG, "LLSG MODE SELECTED");
+              ((MainActivity)getActivity()).mService.saveCurrentMode(mContext, "Language Learning");
+              break;
+            case R.id.radioButtonWalkNGrok:
+              // Note: This case is inactive but structured for completeness
+              Log.d(TAG, "WALK_GROK MODE SELECTED");
+              ((MainActivity)getActivity()).mService.saveCurrentMode(mContext, "Walk'n'Grok");
+              break;
+            case R.id.radioButtonADHDGlasses:
+              // Note: This case is inactive but structured for completeness
+              Log.d(TAG, "ADHD MODE SELECTED");
+              ((MainActivity)getActivity()).mService.saveCurrentMode(mContext, "ADHD Glasses");
+              break;
+          }
+        }
+      });
+
+      ((MainActivity)getActivity()).startConvoscopeService();
     }
 
     private void pickContact() {
