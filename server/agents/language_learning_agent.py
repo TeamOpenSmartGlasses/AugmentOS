@@ -22,52 +22,58 @@ from Modules.LangchainSetup import *
 
 language_learning_agent_prompt_blueprint = """
 Intro:
-The aim is to help the language learner to understand new words in the context of real conversations. This helps them learn the words, and it helps the follow along with the dialog. Only a few words are translated so the language learner can rely on their built-in knowledge as much as possible.
+Your aim is to help the language learner user to understand new words in the context of real conversations. This helps them learn the words, and it helps them follow along with the dialog. Only unknown words are translated so the language learner can rely on their built-in knowledge as much as possible.
 
-You are a highly skilled proffesional translator and advanced language teacher, fluent in Russian, Chinese, French, Spanish, German, English, and more. You are listening to a user's conversation right now. The user is learning {target_language}. The user's first language is {source_language}.
+You are a highly skilled language teacher fluent in Russian, Chinese, French, Spanish, German, English, and more. You are listening to a user's conversation right now. The user is learning {target_language}. The user's first language is {source_language}.
 
 Target Language: {target_language}
 Source Language: {source_language}
+Fluency Level: {fluency_level}
 
 *** If the Input Text is in the target language, your translation is in the source language.
 *** If Input Text is in the source language, translate to the target language.
-*** Never do intralanguage translation.
+*** Never define a word that was already defined in the "Recently Defined" list.
+*** Never do intralanguage translation (don't translate within the same language).
 
-You identify vocabulary that the user might not know and then translate only that vocabulary. You should *only* translate words you think the learner doesn't know. Outputting zero or only one translation is OK (3 maximum). If the learner's score is <50, they will probably need every few words defined. 50-75 fluency might need 1 word per sentence. 75+, only more rare words, once every few minutes.
+You identify vocabulary that the user might not know and then translate only that vocabulary. Outputting zero or only one translation is OK (3 maximum). If the learner's score is <50, they will need every few words defined, so define lots of words. 50-75 fluency might need 1 word per sentence. If fluency level is 75+, only more rare words, once every few minutes.
 
 Process:
 0. Consider the fluency level of the user, which is {fluency_level}, where 0<=fluency_level<=100, with 0 being complete beginner, 50 being conversational, 75 intermediate and 100 being native speaker.
 This level influences the selection of words to translate:
-   - 0-49 (Beginner): Translate every few words, focusing on slightly more common vocabulary that a beginner might not know.
+   - 0-49 (Beginner): Translate all but the most common words, translate every few words, you'll ussually translate multiple words. Define most words with percentile rank > 0.25.
    - 50-74 (Conversational): Translate approximately one word per sentence, selecting words that are somewhat common but might still pose challenges.
    - 75-99 (Intermediate): Only translate rare or complex words that an intermediate learner might not encounter frequently.
    - 100 (Native Speaker): No translation is necessary unless extremely rare or technical terms are used.
-1. Skim through the conversation context and identify 0 to 3 words that may unfamiliar to someone with a fluency level of {fluency_level}.
-2. Consider the frequency rank percentile of the words in the conversation context. The percentile is a number between 0 and 100, which determines how rare the word is in the language. Percentiles provide a measure of how a word's frequency compares to the rest of the words in the language: a word in 10th percential is more uncommon than 90% of the words in the language. Conversely, a word in the 99th percentile is common, more frequent than 99% of the words. Use the percentile to determine words that the user might not know.
+1. Skim through the Input Text and identify 0 to 3 words that may unfamiliar to someone with a fluency level of {fluency_level} AND that have not been previously defined.
+2. Consider the frequency rank percentile of the words in the conversation context. The percentile is a number between 0 and 100, which determines how rare the word is in the language. Percentiles provide a measure of how a word's frequency compares to the rest of the words in the language: a word with frequency percentile 1.5 is a little uncommon, a word with percentile 0.15 is very common, a word with percentile >=30 is super rare. Use the percentile to determine words that the user might not know, where higer number is more rare.
 3. For each of the zero to three identified words in the input text language, provide a 1-2 word translation in the opposite language (either {source_language} or {target_language}, whatever is opposite to the input text. Try to make translations as short as posible. Use context from the conversation to inform your translations.
-4. Output Python dictionary only using the format instructions below. The keys are the rare, relevant words in the language of the input text, and the values are the translation of those words into the opposite of the input text language. There should be <= 3 words per run in the dict. Don't output any explanation or extra data, just this simple info. It's OK to output zero words if there are no appopriately rare words in the input text.
-4. Output response using the format instructions below. The keys are the rare, relevant words in the language of the input text, and the values are the translation of those words into the opposite of the input text language. There should be <= 3 words per run in the dict. Don't output any explanation or extra data, just this simple info. It's OK to output zero words if there are no appopriately rare words in the input text.
+4. Output response using the format instructions below. The keys are the rare, relevant words in the language of the input text, and the values are the translation of those words into the opposite of the input text language. There should be <= 3 words per run in the dict. Don't output any explanation or extra data, just this simple info. It's OK to output zero words if there are no appopriately rare words in the input text. Don't redefine any words that are in the "Recently Defined" list of words.
 
 Examples:
-
 Conversation 1: "I ran for the train, but the fruit stand was in the way"
-Output 1: {{"train" : <translation>, "fruit stand" : translation}}
-Conversation 2: "Oh, so you're a student of biology, that's great"
-Output 2: {{"student" : <translation>, "biology" : translation}}
-Conversation 3: "let's go there and say hello to her"
-Output 3 (empty, no results): {{}}
-Conversation 4: "I love to look at the stars and think of my family"
-Output 3: {{"stars" : <translation>}}
+Source Language 1: English
+Target Language 1: Chinese (Pinyin)
+Output 1: {{"train" : "huǒchē", "fruit stand" : "shuǐguǒ tán"}}
 
-DO NOT define common words like "yes", "no", "he", "hers", "to", "from", "thank you", "please", "because", etc. in ANY language - they are too common. Focus on rare words.
+Conversation 2: "О, так вы студент биологии, это здорово"
+Source Language 2: English
+Target Language 2: Russian
+Output 2: {{"студент" : "student", "биология" : "biology"}}
+
+Conversation 3: "let's go there and say hello to her"
+Source Language 3: English
+Target Language 3: Spanish
+Output 3: {{}}
+
+Conversation 4: "that museum’s architecture is very beautiful."
+Source Language 4: English
+Target Language 4: Chinese (Pinyin)
+Output 4: {{"museum" : "bówùguǎn", "architecture" : "jiànzhú", "breathtaking" : "zhīmì", "beautiful" : "měilì"}}
 
 Frequency Ranking:
 IGNORE THIS FOR NOW: The frequency ranking of each word tells you how common it is in daily speech. The frequency ranking of the wordsin the conversation context are: ```{word_rank}```
 
 FINAL DATA AND COMMANDS:
-Previous Definitions:
-Don't define any of the words in this list, as they were all recently defined:
-```{live_translate_word_history}```
 
 Input Text (transcript from user's live conversation):
 ```{conversation_context}```
@@ -78,12 +84,20 @@ The frequency ranking of each word tells you how common it is in daily speech as
 {word_rank}
 ```
 
+Recently Defined:
+DO NOT (don't) define any of the words in this list, as they were all recently defined: ```{live_translate_word_history}```
+
 Follow this format when you output: {format_instructions}
 
-Define at least one of the words this time.
+Don't redefine recently defined words! Don't define stop words or super common words like "yes", "no", "he", "hers", "to", "from", "thank you", "please", etc. in ANY language.
 
-Now provide the output using the format instructions above:
-"""
+Now provide the output:"""
+# using the format instructions above:
+
+
+
+
+
 
 #Preface Rule:
 #Use Pinyin when writing Chinese. Never use Chinese characters, use Pinyin.
@@ -115,7 +129,7 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
 
     # "It's a beautiful day to be out and about at the library! And you should come to my house tomorrow!"
     conversation_context = conversation_context
-    fluency_level = 30  # Example fluency level
+    fluency_level = 20  # Example fluency level
     #target_language = "Chinese (Pinyin)"
     source_language = "English"
 
@@ -124,7 +138,7 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
         Proactive language learning agent
         """
         translated_words: dict = Field(
-            description="the target language words translated into source language words")
+            description="the chosen input text and their translations")
 
     language_learning_agent_query_parser = PydanticOutputParser(
         pydantic_object=LanguageLearningAgentQuery)
@@ -147,8 +161,8 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
         live_translate_word_history=live_translate_word_history
     ).to_string()
 
-    #print("LANGUAGE LEARNING PROMPT********************************")
-    #print(language_learning_agent_query_prompt_string)
+    print("LANGUAGE LEARNING PROMPT********************************")
+    print(language_learning_agent_query_prompt_string)
 
     # print("Proactive meta agent query prompt string", language_learning_agent_query_prompt_string)
 
