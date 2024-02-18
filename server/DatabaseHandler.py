@@ -1052,8 +1052,8 @@ class DatabaseHandler:
         update = {"$push": {"gps_location_result_ids": location['uuid']}}
         self.user_collection.update_one(filter=filter, update=update)
 
-    def get_gps_location_results_for_user_device(self, user_id, device_id, should_consume=False, include_consumed=False):
-        return self.get_results_for_user_device("gps_location_result_ids", user_id, device_id, should_consume, include_consumed)
+    def get_gps_location_results_for_user(self, user_id, should_consume=False, include_consumed=False):
+        return self.get_results_for_user("gps_location_result_ids", user_id, should_consume, include_consumed)
 
 ### Function list for developers ###
 #
