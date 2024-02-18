@@ -669,6 +669,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                             Log.d(TAG, "GOT dat Auth Token: " + idToken);
                             authToken = idToken;
                             EventBus.getDefault().post(new GoogleAuthSucceedEvent());
+                            PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
+                                    .edit()
+                                    .putString("auth_token", authToken)
+                                    .apply();
                         } else {
                             EventBus.getDefault().post(new GoogleAuthFailedEvent());
                         }

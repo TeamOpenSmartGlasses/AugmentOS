@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
       public void run() {
         startConvoscopeService();
       }
-    }, 400);
+    }, 300);
   }
 
   public void stopConvoscopeService() {
@@ -284,7 +284,15 @@ public class MainActivity extends AppCompatActivity {
     return true;
   }
 
+  public void setSavedAuthToken(Context context, String newAuthToken){
+    PreferenceManager.getDefaultSharedPreferences(context)
+            .edit()
+            .putString("auth_token", newAuthToken)
+            .apply();
+  }
+
   public void signOut(){
+    setSavedAuthToken(getApplicationContext(), "");
     AuthUI.getInstance()
             .signOut(this)
             .addOnCompleteListener(new OnCompleteListener<Void>() {
