@@ -49,6 +49,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.LinkedList;
+
+import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartRingButtonOutputEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SpeechRecOutputEvent;
+import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
 
 public class ConvoscopeService extends SmartGlassesAndroidService {
     public final String TAG = "Convoscope_ConvoscopeService";
@@ -74,6 +81,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public String explicitAgent = "explicit_agent_insights";
     public String definerAgent = "intelligent_entity_definitions";
     public String languageLearningAgent = "language_learning";
+
+    //language learning buffer stuff
+    private LinkedList<DefinedWord> definedWords = new LinkedList<>();
+    private long llDefinedWordsShowTime = 40 * 1000; // define in milliseconds
+    private int maxDefinedWordsShow = 4;
 
 //    private SMSComms smsComms;
     static String phoneNumName = "Alex";
@@ -315,7 +327,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         try{
             JSONObject jsonQuery = new JSONObject();
             JSONArray featuresArray = new JSONArray(features);
-            Log.d(TAG, "hitting UI poll with these features: " + featuresArray);
             jsonQuery.put("Authorization", authToken);
             jsonQuery.put("deviceId", deviceId);
             jsonQuery.put("features", featuresArray);
@@ -393,93 +404,114 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //        }
     }
 
-    public String[] calculateLLStringFormatted(JSONArray jsonArray){
-        //clear canvas if needed
-        if (!clearedScreenYet){
+//    public String[] calculateLLStringFormatted(JSONArray jsonArray){
+//        //clear canvas if needed
+//        if (!clearedScreenYet){
+//            sendHomeScreen();
+//            clearedScreenYet = true;
+//        }
+//
+//        // Assuming jsonArray is your existing JSONArray object
+//        int max_rows_allowed = 4;
+//
+//        String[] inWords = new String[jsonArray.length()];
+//        String[] inWordsTranslations = new String[jsonArray.length()];
+//        String[] llResults = new String[max_rows_allowed];
+//        String enSpace = "\u2002"; // Using en space for padding
+//
+//        int minSpaces = 2;
+//        for (int i = 0; i < jsonArray.length() && i < max_rows_allowed; i++) {
+//            try {
+//                JSONObject obj = jsonArray.getJSONObject(i);
+//                inWords[i] = obj.getString("in_word");
+//                inWordsTranslations[i] = obj.getString("in_word_translation");
+//                int max_len = Math.max(inWords[i].length(), inWordsTranslations[i].length());
+////                llResults[i] = inWords[i] + enSpace.repeat(Math.max(0, max_len - inWords[i].length()) + minSpaces) + "⟶" + enSpace.repeat(Math.max(0, max_len - inWordsTranslations[i].length()) + minSpaces) + inWordsTranslations[i];
+//                llResults[i] = inWords[i] + enSpace.repeat(minSpaces) + "⟶" + enSpace.repeat(minSpaces) + inWordsTranslations[i];
+//            } catch (JSONException e){
+//                e.printStackTrace();
+//            }
+//        }
+//
+//        return llResults;
+//
+////        String enSpace = "\u2002"; // Using en space for padding
+////        String llResult = "";
+////        for (int i = 0; i < inWords.length; i++) {
+////            String inWord = inWords[i];
+////            String translation = inWordsTranslations[i];
+////            llResult += inWord + enSpace.repeat(3) + "->"+ enSpace.repeat(3) + translation + "\n\n";
+////        }
+//
+////        StringBuilder topLine = new StringBuilder();
+////        StringBuilder bottomLine = new StringBuilder();
+////
+////        // Calculate initial padding for the first word based on the bottom line's first word
+////        int initialPaddingLength = (inWordsTranslations[0].length() - inWords[0].length()) / 2;
+////        if (initialPaddingLength > 0) {
+////            topLine.append(String.valueOf(enSpace).repeat(initialPaddingLength));
+////        } else {
+////            initialPaddingLength = 0; // Ensure it's not negative for subsequent calculations
+////        }
+////
+////        for (int i = 0; i < inWords.length; i++) {
+////            String inWord = inWords[i];
+////            String translation = inWordsTranslations[i];
+////
+////            topLine.append(inWord);
+////            bottomLine.append(translation);
+////
+////            if (i < inWords.length - 1) {
+////                // Calculate the minimum necessary space to add based on the length of the next words in both lines
+////                int nextTopWordLength = inWords[i + 1].length();
+////                int nextBottomWordLength = inWordsTranslations[i + 1].length();
+////                int currentTopWordLength = inWord.length();
+////                int currentBottomWordLength = translation.length();
+////
+////                // Calculate additional space needed for alignment
+////                int additionalSpaceTop = nextTopWordLength - currentTopWordLength;
+////                int additionalSpaceBottom = nextBottomWordLength - currentBottomWordLength;
+////
+////                // Ensure there's a minimum spacing for readability, reduce this as needed
+////                int minSpace = 2; // Reduced minimum space for closer alignment
+////                int spacesToAddTop = Math.max(additionalSpaceTop, minSpace);
+////                int spacesToAddBottom = Math.max(additionalSpaceBottom, minSpace);
+////
+////                // Append the calculated spaces to each line
+////                topLine.append(String.valueOf(enSpace).repeat(spacesToAddTop));
+////                bottomLine.append(String.valueOf(enSpace).repeat(spacesToAddBottom));
+////            }
+////        }
+////
+////
+////        // Adjust for the initial padding by ensuring the bottom line starts directly under the top line's first word
+////        if (initialPaddingLength > 0) {
+////            String initialPaddingForBottom = String.valueOf(enSpace).repeat(initialPaddingLength);
+////            bottomLine = new StringBuilder(initialPaddingForBottom).append(bottomLine.toString());
+////        }
+//
+////        String llResult = topLine.toString() + "\n" + bottomLine.toString();
+//    }
+
+    public String[] calculateLLStringFormatted(LinkedList<DefinedWord> definedWords) {
+        if (!clearedScreenYet) {
             sendHomeScreen();
             clearedScreenYet = true;
         }
 
-        // Assuming jsonArray is your existing JSONArray object
         int max_rows_allowed = 4;
-
-        String[] inWords = new String[jsonArray.length()];
-        String[] inWordsTranslations = new String[jsonArray.length()];
-        String[] llResults = new String[max_rows_allowed];
+        String[] llResults = new String[Math.min(max_rows_allowed, definedWords.size())];
         String enSpace = "\u2002"; // Using en space for padding
 
         int minSpaces = 2;
-        for (int i = 0; i < jsonArray.length() && i < max_rows_allowed; i++) {
-            try {
-                JSONObject obj = jsonArray.getJSONObject(i);
-                inWords[i] = obj.getString("in_word");
-                inWordsTranslations[i] = obj.getString("in_word_translation");
-                int max_len = Math.max(inWords[i].length(), inWordsTranslations[i].length());
-//                llResults[i] = inWords[i] + enSpace.repeat(Math.max(0, max_len - inWords[i].length()) + minSpaces) + "⟶" + enSpace.repeat(Math.max(0, max_len - inWordsTranslations[i].length()) + minSpaces) + inWordsTranslations[i];
-                llResults[i] = inWords[i] + enSpace.repeat(minSpaces) + "⟶" + enSpace.repeat(minSpaces) + inWordsTranslations[i];
-            } catch (JSONException e){
-                e.printStackTrace();
-            }
+        int index = 0;
+        for (DefinedWord word : definedWords) {
+            if (index >= max_rows_allowed) break;
+            llResults[index] = word.inWord + enSpace.repeat(minSpaces) + "⟶" + enSpace.repeat(minSpaces) + word.inWordTranslation;
+            index++;
         }
 
         return llResults;
-
-//        String enSpace = "\u2002"; // Using en space for padding
-//        String llResult = "";
-//        for (int i = 0; i < inWords.length; i++) {
-//            String inWord = inWords[i];
-//            String translation = inWordsTranslations[i];
-//            llResult += inWord + enSpace.repeat(3) + "->"+ enSpace.repeat(3) + translation + "\n\n";
-//        }
-
-//        StringBuilder topLine = new StringBuilder();
-//        StringBuilder bottomLine = new StringBuilder();
-//
-//        // Calculate initial padding for the first word based on the bottom line's first word
-//        int initialPaddingLength = (inWordsTranslations[0].length() - inWords[0].length()) / 2;
-//        if (initialPaddingLength > 0) {
-//            topLine.append(String.valueOf(enSpace).repeat(initialPaddingLength));
-//        } else {
-//            initialPaddingLength = 0; // Ensure it's not negative for subsequent calculations
-//        }
-//
-//        for (int i = 0; i < inWords.length; i++) {
-//            String inWord = inWords[i];
-//            String translation = inWordsTranslations[i];
-//
-//            topLine.append(inWord);
-//            bottomLine.append(translation);
-//
-//            if (i < inWords.length - 1) {
-//                // Calculate the minimum necessary space to add based on the length of the next words in both lines
-//                int nextTopWordLength = inWords[i + 1].length();
-//                int nextBottomWordLength = inWordsTranslations[i + 1].length();
-//                int currentTopWordLength = inWord.length();
-//                int currentBottomWordLength = translation.length();
-//
-//                // Calculate additional space needed for alignment
-//                int additionalSpaceTop = nextTopWordLength - currentTopWordLength;
-//                int additionalSpaceBottom = nextBottomWordLength - currentBottomWordLength;
-//
-//                // Ensure there's a minimum spacing for readability, reduce this as needed
-//                int minSpace = 2; // Reduced minimum space for closer alignment
-//                int spacesToAddTop = Math.max(additionalSpaceTop, minSpace);
-//                int spacesToAddBottom = Math.max(additionalSpaceBottom, minSpace);
-//
-//                // Append the calculated spaces to each line
-//                topLine.append(String.valueOf(enSpace).repeat(spacesToAddTop));
-//                bottomLine.append(String.valueOf(enSpace).repeat(spacesToAddBottom));
-//            }
-//        }
-//
-//
-//        // Adjust for the initial padding by ensuring the bottom line starts directly under the top line's first word
-//        if (initialPaddingLength > 0) {
-//            String initialPaddingForBottom = String.valueOf(enSpace).repeat(initialPaddingLength);
-//            bottomLine = new StringBuilder(initialPaddingForBottom).append(bottomLine.toString());
-//        }
-
-//        String llResult = topLine.toString() + "\n" + bottomLine.toString();
     }
 
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
@@ -501,17 +533,13 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         //language learning
         JSONArray languageLearningResults = response.has(languageLearningKey) ? response.getJSONArray(languageLearningKey) : new JSONArray();
-
-        String llResult = "";
+        updateDefinedWords(languageLearningResults); //sliding buffer, time managed language learning card
         String[] llResults;
-
-        for (int i = 0; i < languageLearningResults.length(); i++) {
-            Log.d(TAG, "LANGUAGE LEARNING RESULTS:" + languageLearningResults.get(i));
-        }
         if (languageLearningResults.length() != 0) {
-            llResults = calculateLLStringFormatted(languageLearningResults);
+            llResults = calculateLLStringFormatted(getDefinedWords());
             sendRowsCard(llResults);
-            sendUiUpdateSingle(String.join("\n", Arrays.copyOfRange(llResults, 0, languageLearningResults.length())));
+            sendUiUpdateSingle(String.join("\n", Arrays.copyOfRange(llResults, 0, llResults.length)));
+//            sendUiUpdateSingle(String.join("\n", Arrays.copyOfRange(llResults, llResults.length, 0)));
         }
 
 
@@ -796,5 +824,56 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         Log.d(TAG, "Running google auth succeed event response");
         //give the server our latest settings
         updateTargetLanguageOnBackend(this);
+    }
+
+
+    //language learning
+    public void updateDefinedWords(JSONArray newData) {
+        long currentTime = System.currentTimeMillis();
+        Log.d(TAG, "GOT NEW DATA: ");
+        Log.d(TAG, newData.toString());
+
+        // Add new data to the list
+        for (int i = 0; i < newData.length(); i++) {
+            try {
+                JSONObject wordData = newData.getJSONObject(i);
+                definedWords.addFirst(new DefinedWord(
+                        wordData.getString("in_word"),
+                        wordData.getString("in_word_translation"),
+                        wordData.getLong("timestamp"),
+                        wordData.getString("uuid")
+                ));
+            } catch (JSONException e){
+                e.printStackTrace();
+            }
+        }
+
+        // Remove old words based on time constraint
+        definedWords.removeIf(word -> (currentTime - (word.timestamp * 1000)) > llDefinedWordsShowTime);
+
+        // Ensure list does not exceed max size
+        while (definedWords.size() > maxDefinedWordsShow) {
+            definedWords.removeLast();
+        }
+    }
+
+    // Getter for the list, if needed
+    public LinkedList<DefinedWord> getDefinedWords() {
+        return definedWords;
+    }
+
+    // A simple representation of your word data
+    private static class DefinedWord {
+        String inWord;
+        String inWordTranslation;
+        long timestamp;
+        String uuid;
+
+        DefinedWord(String inWord, String inWordTranslation, long timestamp, String uuid) {
+            this.inWord = inWord;
+            this.inWordTranslation = inWordTranslation;
+            this.timestamp = timestamp;
+            this.uuid = uuid;
+        }
     }
 }
