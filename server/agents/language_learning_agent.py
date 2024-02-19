@@ -160,8 +160,8 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
         live_translate_word_history=live_translate_word_history
     ).to_string()
 
-    print("LANGUAGE LEARNING PROMPT********************************")
-    print(language_learning_agent_query_prompt_string)
+    # print("LANGUAGE LEARNING PROMPT********************************")
+    # print(language_learning_agent_query_prompt_string)
 
     # print("Proactive meta agent query prompt string", language_learning_agent_query_prompt_string)
 

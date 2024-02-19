@@ -32,7 +32,7 @@ from agents.expert_agents import run_single_expert_agent, arun_single_expert_age
 from agents.explicit_agent_process import explicit_agent_processing_loop, call_explicit_agent
 from agents.proactive_definer_agent_process import proactive_definer_processing_loop
 from agents.language_learning_agent_process import language_learning_agents_processing_loop
-from agents.question_asker_agent_process import question_asker_agents_processing_loop
+from agents.ll_context_convo_agent_process import ll_context_convo_agent_processing_loop
 import agents.wake_words
 from Modules.RelevanceFilter import RelevanceFilter
 
@@ -50,6 +50,8 @@ async def chat_handler(request):
     body = await request.json()
     is_final = body.get('isFinal')
     text = body.get('text')
+    device_id = body.get('deviceId')
+    print(request)
     transcribe_language = body.get('transcribe_language')
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
     id_token = body.get('Authorization')
@@ -68,7 +70,7 @@ async def chat_handler(request):
         print("user_id none in chat_handler, exiting with error response 400.")
         return web.Response(text='no userId in request', status=400)
 
-    success = db_handler.save_transcript_for_user(user_id=user_id, text=text, is_final=is_final, transcribe_language=transcribe_language)
+    success = db_handler.save_transcript_for_user(user_id=user_id, device_id=device_id, text=text, is_final=is_final, transcribe_language=transcribe_language)
     message = "Sending messages too fast" if not success else ""
 
     return web.Response(text=json.dumps({'success': True, 'message': message}), status=200)
@@ -295,6 +297,12 @@ async def ui_poll_handler(request, minutes=0.5):
         resp["language_learning_results"] = language_learning_results
         print("RETURNING THIS LANGUAGE LEARNING RESULTS")
         print(language_learning_results)
+    
+    if "ll_context_convo" in features:
+        ll_context_convo_results = db_handler.get_ll_context_convo_results_for_user_device(user_id=user_id, device_id=device_id)
+        resp["ll_context_convo_results"] = ll_context_convo_results
+        print("RETURNING THIS QUESTION ASKER RESULTS")
+        print(ll_context_convo_results)
 
     return web.Response(text=json.dumps(resp), status=200)
 
@@ -530,8 +538,8 @@ if __name__ == '__main__':
     
     # start the question asker app process
     # print("Starting Question Asker Agents process...")
-    question_asker_background_process = multiprocessing.Process(target=question_asker_agents_processing_loop)
-    question_asker_background_process.start()
+    ll_context_convo_background_process = multiprocessing.Process(target=ll_context_convo_agent_processing_loop)
+    ll_context_convo_background_process.start()
 
     # setup and run web app
     # CORS allow from all sources
@@ -572,5 +580,5 @@ if __name__ == '__main__':
     intelligent_definer_agent_process.join()
     #cse_process.join()
     language_learning_background_process.join()
-    question_asker_background_process.join()
+    ll_context_convo_background_process.join()
     explicit_background_process.join()

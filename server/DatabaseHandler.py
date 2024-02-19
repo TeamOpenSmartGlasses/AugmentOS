@@ -25,7 +25,7 @@ class DatabaseHandler:
         self.transcript_expiration_time = 600 * 6  # 60 minutes in seconds
         self.parent_handler = parent_handler
         self.empty_transcript = {
-                "text": "", "timestamp": -1, "is_final": False, "uuid": -1, "transcribe_language" : "English"
+                "text": "", "device_id": "None", "timestamp": -1, "is_final": False, "uuid": -1, "transcribe_language" : "English"
                 }
 
         # Create a new client and connect to the server
@@ -80,9 +80,9 @@ class DatabaseHandler:
         self.language_learning_db = self.client['language_learning']
         self.language_learning_collection = self.get_collection(
             self.language_learning_db, 'language_learning_results', wipe=clear_cache_on_start)
-        self.question_asker_db = self.client['question_asker']
-        self.question_asker_collection = self.get_collection(
-            self.question_asker_db, 'question_asker_results', wipe=clear_cache_on_start)
+        self.ll_context_convo_db = self.client['ll_context_convo']
+        self.ll_context_convo_collection = self.get_collection(
+            self.ll_context_convo_db, 'll_context_convo_results', wipe=clear_cache_on_start)
 
     def init_gps_location_collection(self):
         self.gps_location_db = self.client['gps_location']
@@ -152,7 +152,7 @@ class DatabaseHandler:
                  "agent_proactive_definer_result_ids": [],
                  "agent_insights_result_ids": [],
                  "language_learning_result_ids": [],
-                 "question_asker_result_ids": [],
+                 "ll_context_convo_result_ids": [],
                  "gps_location_result_ids": [],
                  "agent_proactive_definer_irrelevant_terms": []})
 
@@ -206,7 +206,7 @@ class DatabaseHandler:
     # Returns True if we can save new transcripts, False if we are getting too many transcripts too quickly
     def transcript_rate_limiter(self, user_id, new_text):
 #        max_wpm = 320  # Human speech is 100-200 WPM, use 320 for safe margin
-#        transcripts, transcribe_language = self.get_transcripts_from_last_nseconds_for_user_as_string(user_id, 60) + " " + new_text
+#        transcripts, transcribe_language , device_id = self.get_transcripts_from_last_nseconds_for_user_as_string(user_id, 60) + " " + new_text
 #        return len(transcripts.split()) < max_wpm
         return True
 
@@ -218,13 +218,13 @@ class DatabaseHandler:
         else:
             return None
 
-    def save_transcript_for_user(self, user_id, text, is_final, transcribe_language):
+    def save_transcript_for_user(self, user_id, device_id, text, is_final, transcribe_language):
         if text == "":
             return
 
         text = text.strip()
 
-        transcript = {"user_id": user_id, "text": text,
+        transcript = {"user_id": user_id, "device_id": device_id, "text": text,
                 "timestamp": time.time(), "is_final": is_final, "uuid": str(uuid.uuid4()), "transcribe_language" : transcribe_language}
 
         user = self.get_user(user_id)
@@ -443,11 +443,11 @@ class DatabaseHandler:
         transcripts = []
         for user in users:
             user_id = user['user_id']
-            transcript_string, transcribe_language = self.get_transcripts_from_last_nseconds_for_user_as_string(
+            transcript_string, transcribe_language, device_id = self.get_transcripts_from_last_nseconds_for_user_as_string(
                 user_id, n)
             if transcript_string:
                 transcripts.append(
-                        {'user_id': user_id, 'text': transcript_string, 'transcribe_language' : transcribe_language})
+                        {'user_id': user_id, 'device_id': device_id, 'text': transcript_string, 'transcribe_language': transcribe_language})
 
         return transcripts
 
@@ -479,12 +479,12 @@ class DatabaseHandler:
     def stringify_transcripts(self, transcript_list):
         output = ""
         if len(transcript_list) == 0:
-            return output, "English"
+            return output, "English", None
 
         for index, t in enumerate(transcript_list):
             output = output + t['text'] + ' '
 
-        return output.strip(), transcript_list[0]["transcribe_language"]
+        return output.strip(), transcript_list[0]["transcribe_language"], transcript_list[0]["device_id"]
 
     ### RECORDING ###
 
@@ -775,8 +775,8 @@ class DatabaseHandler:
 
         return results
 
-    def get_question_asker_history_for_user(self, user_id, top=2):
-        uuid_list = self.get_user(user_id)["question_asker_result_ids"]
+    def get_ll_context_convo_history_for_user(self, user_id, top=2):
+        uuid_list = self.get_user(user_id)["ll_context_convo_result_ids"]
         pipeline = [
             {"$match": {"uuid": {"$in": uuid_list}}},
             {"$sort": {"timestamp": -1}},
@@ -787,7 +787,7 @@ class DatabaseHandler:
                 }
             },
         ]
-        results = list(self.question_asker_collection.aggregate(pipeline))
+        results = list(self.ll_context_convo_collection.aggregate(pipeline))
 
         return results
 
@@ -835,8 +835,8 @@ class DatabaseHandler:
 
         return names
 
-    def get_recent_nminutes_question_asker_history_for_user(self, user_id, n_minutes=10):
-        uuid_list = self.get_user(user_id)["question_asker_result_ids"]
+    def get_recent_nminutes_ll_context_convo_history_for_user(self, user_id, n_minutes=10):
+        uuid_list = self.get_user(user_id)["ll_context_convo_result_ids"]
         current_time = math.trunc(time.time())
         n_seconds = n_minutes * 60
         timestamp_threshold = current_time - n_seconds
@@ -856,7 +856,7 @@ class DatabaseHandler:
             },
         ]
         results = list(
-            self.question_asker_collection.aggregate(pipeline))
+            self.ll_context_convo_collection.aggregate(pipeline))
 
         names = [result["in_word"] for result in results]
 
@@ -953,7 +953,7 @@ class DatabaseHandler:
 
         rating_time = math.trunc(time.time())
         rating_uuid = str(uuid.uuid4())
-        rating_context, transcribe_language = self.get_transcripts_from_last_nseconds_for_user_as_string(
+        rating_context, transcribe_language, device_id = self.get_transcripts_from_last_nseconds_for_user_as_string(
             user_id, n=240)
         rating_obj = {"uuid": rating_uuid, "timestamp": rating_time,
                       "result_uuid": result_uuid, "rating": rating, "context": rating_context}
@@ -997,7 +997,7 @@ class DatabaseHandler:
         res = self.language_learning_collection.find_one(filter, {'_id': 0})
         if res:
             return res
-        res = self.question_asker_collection.find_one(filter, {'_id': 0})
+        res = self.ll_context_convo_collection.find_one(filter, {'_id': 0})
         if res:
             return res
         res = self.gps_location_collection.find_one(filter, {'_id': 0})
@@ -1086,7 +1086,7 @@ class DatabaseHandler:
     def get_language_learning_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
         return self.get_results_for_user_device("language_learning_result_ids", user_id, device_id, should_consume, include_consumed)
 
-    def add_question_asker_results_for_user(self, user_id, questions):
+    def add_ll_context_convo_results_for_user(self, user_id, questions):
         for question in questions:
             if not question:
                 continue
@@ -1095,18 +1095,18 @@ class DatabaseHandler:
             question['uuid'] = str(uuid.uuid4())
 
         print("INSERTING THESE questions: " + str(questions))
-        self.question_asker_collection.insert_many(questions)
+        self.ll_context_convo_collection.insert_many(questions)
 
         result_ids = []
         for e in questions:
             result_ids.append(e['uuid'])
 
         filter = {"user_id": user_id}
-        update = {"$push": {"question_asker_result_ids": {'$each': result_ids}}}
+        update = {"$push": {"ll_context_convo_result_ids": {'$each': result_ids}}}
         self.user_collection.update_one(filter=filter, update=update)
 
-    def get_question_asker_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
-        return self.get_results_for_user_device("question_asker_result_ids", user_id, device_id, should_consume, include_consumed)
+    def get_ll_context_convo_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
+        return self.get_results_for_user_device("ll_context_convo_result_ids", user_id, device_id, should_consume, include_consumed)
 
     def add_gps_location_for_user(self, user_id, location):
         if not location:

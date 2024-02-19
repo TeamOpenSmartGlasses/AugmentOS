@@ -28,7 +28,7 @@ def get_user_location() -> dict:
         return {}
 
 
-def get_nearby_places(location: dict, radius: int = 5, type: Optional[str] = None) -> list:
+def get_nearby_places(location: dict, radius: int = 100, type: Optional[str] = None) -> list:
     """
     Get nearby places based on the user's location, using the Google Places API.
     """
