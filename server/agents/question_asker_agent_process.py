@@ -50,7 +50,7 @@ def question_asker_agents_processing_loop():
                     final_questions = list(filter(None, questions))
                     print("QUESTIONS TO ASK")
                     print(final_questions)
-                    db_handler.add_language_learning_questions_for_user(
+                    db_handler.add_question_asker_results_for_user(
                         transcript['user_id'], final_questions)
 
         except Exception as e:

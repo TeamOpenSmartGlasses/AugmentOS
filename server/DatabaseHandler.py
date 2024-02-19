@@ -1086,19 +1086,19 @@ class DatabaseHandler:
     def get_language_learning_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
         return self.get_results_for_user_device("language_learning_result_ids", user_id, device_id, should_consume, include_consumed)
 
-    def add_question_asker_results_for_user(self, user_id, words):
-        for word in words:
-            if word is None:
+    def add_question_asker_results_for_user(self, user_id, questions):
+        for question in questions:
+            if not question:
                 continue
 
-            word['timestamp'] = int(time.time())
-            word['uuid'] = str(uuid.uuid4())
+            question['timestamp'] = int(time.time())
+            question['uuid'] = str(uuid.uuid4())
 
-        print("INSERTING THESE WORDS: " + str(words))
-        self.question_asker_collection.insert_many(words)
+        print("INSERTING THESE questions: " + str(questions))
+        self.question_asker_collection.insert_many(questions)
 
         result_ids = []
-        for e in words:
+        for e in questions:
             result_ids.append(e['uuid'])
 
         filter = {"user_id": user_id}
