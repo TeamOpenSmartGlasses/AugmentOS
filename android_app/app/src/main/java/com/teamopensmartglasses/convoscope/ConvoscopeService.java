@@ -1,7 +1,7 @@
 package com.teamopensmartglasses.convoscope;
 
 import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOINT;
-import static com.teamopensmartglasses.convoscope.Constants.CSE_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GEOLOCATION_STREAM_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.SET_USER_SETTINGS_ENDPOINT;
@@ -89,11 +89,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public String languageLearningAgent = "language_learning";
     public double previousLat = 0;
     public double previousLng = 0;
-
-    //language learning buffer stuff
-    private LinkedList<DefinedWord> definedWords = new LinkedList<>();
-    private long llDefinedWordsShowTime = 40 * 1000; // define in milliseconds
-    private int maxDefinedWordsShow = 4;
 
     //language learning buffer stuff
     private LinkedList<DefinedWord> definedWords = new LinkedList<>();
