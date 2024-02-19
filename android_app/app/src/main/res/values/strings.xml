@@ -22,12 +22,14 @@
             <item>Chinese (Pinyin)</item>
             <item>Japanese</item>
             <item>Spanish</item>
+            <item>Hebrew</item>
             <!-- Add more languages here -->
         </string-array>
 
 
 
   <!-- Entering API key message. -->
+  <string name="google_api_key">API_KEY_ERROR</string>
   <string name="api_key_message">Enter G-Cloud API key</string>
   <!-- API key document link. -->
   <string name="api_key_doc_link">See &lt;a href="https://cloud.google.com/docs/authentication/api-keys">here&lt;/a> for more details.</string>
