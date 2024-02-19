@@ -14,7 +14,7 @@ public class Constants {
     //endpoints
     public static final String LLM_QUERY_ENDPOINT = "/chat";
     public static final String BUTTON_EVENT_ENDPOINT = "/button_event";
-    public static final String CSE_ENDPOINT = "/ui_poll";
+    public static final String UI_POLL_ENDPOINT = "/ui_poll";
     public static final String SET_USER_SETTINGS_ENDPOINT = "/set_user_settings";
 }
 
