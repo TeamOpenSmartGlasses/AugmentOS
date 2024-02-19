@@ -13,7 +13,7 @@ from server_config import openai_api_key
 from logger_config import logger
 from agents.helpers.word_frequency_percentiles import get_word_frequency_percentiles
 
-run_period = 3
+run_period = 1.5 
 
 def language_learning_agents_processing_loop():
     print("START LANGUAGE LEARNING PROCESSING LOOP")
@@ -32,9 +32,9 @@ def language_learning_agents_processing_loop():
         try:
             pLoopStartTime = time.time()
             # Check for new transcripts
-            print("RUNNING LANGUAGE LEARNING LOOP")
+            #print("RUNNING LANGUAGE LEARNING LOOP")
             newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(
-                n=run_period*2)
+                n=run_period*3)
 
             words_to_show = None
             for transcript in newTranscripts:
@@ -43,12 +43,12 @@ def language_learning_agents_processing_loop():
 
                 #get users target language
                 target_language = dbHandler.get_user_option_value(transcript['user_id'], "target_language")
-                print("GOT TARGET LANGUAGE: " + target_language)
+                #print("GOT TARGET LANGUAGE: " + target_language)
 
                 #get the transcription language
-                print(transcript)
+                #print(transcript)
                 transcribe_language = transcript["transcribe_language"]
-                print("GOT TRANSCIBE LANGUAGE: " + transcribe_language)
+                #print("GOT TRANSCIBE LANGUAGE: " + transcribe_language)
 
                 #get word frequencies to represent how common words are
                 word_frequency_percentiles = get_word_frequency_percentiles(transcript['text'], transcribe_language)
@@ -81,4 +81,5 @@ def language_learning_agents_processing_loop():
             print("=== language leanring loop completed in {} seconds overall ===".format(
                 round(pLoopEndTime - pLoopStartTime, 2)))
 
+        #run again after delay for run_period
         time.sleep(max(0, run_period - (pLoopEndTime - pLoopStartTime)))
