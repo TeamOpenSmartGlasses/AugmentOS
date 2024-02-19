@@ -20,6 +20,7 @@ from pypinyin import pinyin, Style
 
 from Modules.LangchainSetup import *
 
+
 language_learning_agent_prompt_blueprint = """
 You are an expert language teacher fluent in Russian, Chinese, French, Spanish, German, English, and more. You are listening to a user's conversation right now. The user is learning {target_language}. The user's first language is {source_language}. You help the language learner user by translating some words from one language to another.
 
@@ -66,7 +67,8 @@ Recently Translated: Don't define any of the following recently translated words
 
 Output Format: {format_instructions}
 
-Don't redefine recently defined words! Don't include punctuation or periods (do not include ?.,;) in your output! Output all lowercase! Define 1/4 of the words in the input text. Now provide the output:"""
+Don't redefine recently defined words! Don't include punctuation or periods (do not include ?.,;) in your output! Output all lowercase! Define 1/4 of the words in the input text. Now provide the output:
+"""
 
 #opposite language (either {source_language} or {target_language}, whatever is
 

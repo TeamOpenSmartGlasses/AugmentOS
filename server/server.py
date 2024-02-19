@@ -232,11 +232,13 @@ async def button_handler(request):
 #        loop_run_period = 1.5 #run the loop this often
 #        while (time.time() - loop_start_time) < loop_run_period: #wait until loop_run_period has passed before running this again
 #            time.sleep(0.2)
-
 #frontends poll this to get the results from our processing of their transcripts
+
+
 async def ui_poll_handler(request, minutes=0.5):
     # parse request
     body = await request.json()
+    # print(body)
     device_id = body.get('deviceId')
     features = body.get('features')
     id_token = body.get('Authorization')
@@ -429,13 +431,10 @@ async def send_agent_chat_handler(request):
 
 async def update_gps_location_for_user(request):
     body = await request.json()
-    # print("update_gps_location_for_user")
-    # print(body)
+    print(body)
 
-    # id_token = body.get('Authorization')
-    # user_id = await verify_id_token(id_token)
-    user_id = body.get('userId') # TODO: remove this line when we have the above lines working
-    device_id = body.get('deviceId') # TODO: remove this line when we have the above lines working
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
 
     if user_id is None:
         raise web.HTTPUnauthorized()
@@ -454,6 +453,8 @@ async def update_gps_location_for_user(request):
 
     print("SEND UPDATE LOCATION FOR USER_ID: " + user_id)
     db_handler.add_gps_location_for_user(user_id, location)
+    
+    print("Got your location: {}".format(db_handler.get_gps_location_for_user(user_id)))
 
     return web.Response(text=json.dumps({'success': True, 'message': "Got your location: {}".format(location)}), status=200)
 

@@ -80,6 +80,9 @@ class DatabaseHandler:
         self.language_learning_db = self.client['language_learning']
         self.language_learning_collection = self.get_collection(
             self.language_learning_db, 'language_learning_results', wipe=clear_cache_on_start)
+        self.question_asker_db = self.client['question_asker']
+        self.question_asker_collection = self.get_collection(
+            self.question_asker_db, 'question_asker_results', wipe=clear_cache_on_start)
 
     def init_gps_location_collection(self):
         self.gps_location_db = self.client['gps_location']
@@ -149,6 +152,7 @@ class DatabaseHandler:
                  "agent_proactive_definer_result_ids": [],
                  "agent_insights_result_ids": [],
                  "language_learning_result_ids": [],
+                 "question_asker_result_ids": [],
                  "gps_location_result_ids": [],
                  "agent_proactive_definer_irrelevant_terms": []})
 
@@ -771,6 +775,22 @@ class DatabaseHandler:
 
         return results
 
+    def get_question_asker_history_for_user(self, user_id, top=2):
+        uuid_list = self.get_user(user_id)["question_asker_result_ids"]
+        pipeline = [
+            {"$match": {"uuid": {"$in": uuid_list}}},
+            {"$sort": {"timestamp": -1}},
+            {"$limit": top},
+            {
+                "$project": {
+                    "_id": 0,
+                }
+            },
+        ]
+        results = list(self.question_asker_collection.aggregate(pipeline))
+
+        return results
+
     def get_gps_location_for_user(self, user_id, top=1):
         uuid_list = self.get_user(user_id)["gps_location_result_ids"]
         pipeline = [
@@ -810,6 +830,33 @@ class DatabaseHandler:
         ]
         results = list(
             self.language_learning_collection.aggregate(pipeline))
+
+        names = [result["in_word"] for result in results]
+
+        return names
+
+    def get_recent_nminutes_question_asker_history_for_user(self, user_id, n_minutes=10):
+        uuid_list = self.get_user(user_id)["question_asker_result_ids"]
+        current_time = math.trunc(time.time())
+        n_seconds = n_minutes * 60
+        timestamp_threshold = current_time - n_seconds
+
+        pipeline = [
+            {
+                "$match": {
+                    "uuid": {"$in": uuid_list},
+                    "timestamp": {"$gte": timestamp_threshold},
+                }
+            },
+            {"$sort": {"timestamp": -1}},
+            {
+                "$project": {
+                    "_id": 0,
+                }
+            },
+        ]
+        results = list(
+            self.question_asker_collection.aggregate(pipeline))
 
         names = [result["in_word"] for result in results]
 
@@ -950,6 +997,9 @@ class DatabaseHandler:
         res = self.language_learning_collection.find_one(filter, {'_id': 0})
         if res:
             return res
+        res = self.question_asker_collection.find_one(filter, {'_id': 0})
+        if res:
+            return res
         res = self.gps_location_collection.find_one(filter, {'_id': 0})
         if res:
             return res
@@ -1036,6 +1086,28 @@ class DatabaseHandler:
     def get_language_learning_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
         return self.get_results_for_user_device("language_learning_result_ids", user_id, device_id, should_consume, include_consumed)
 
+    def add_question_asker_results_for_user(self, user_id, words):
+        for word in words:
+            if word is None:
+                continue
+
+            word['timestamp'] = int(time.time())
+            word['uuid'] = str(uuid.uuid4())
+
+        print("INSERTING THESE WORDS: " + str(words))
+        self.question_asker_collection.insert_many(words)
+
+        result_ids = []
+        for e in words:
+            result_ids.append(e['uuid'])
+
+        filter = {"user_id": user_id}
+        update = {"$push": {"question_asker_result_ids": {'$each': result_ids}}}
+        self.user_collection.update_one(filter=filter, update=update)
+
+    def get_question_asker_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
+        return self.get_results_for_user_device("question_asker_result_ids", user_id, device_id, should_consume, include_consumed)
+
     def add_gps_location_for_user(self, user_id, location):
         if not location:
             print("No location to add")
@@ -1052,8 +1124,8 @@ class DatabaseHandler:
         update = {"$push": {"gps_location_result_ids": location['uuid']}}
         self.user_collection.update_one(filter=filter, update=update)
 
-    def get_gps_location_results_for_user(self, user_id, should_consume=False, include_consumed=False):
-        return self.get_results_for_user("gps_location_result_ids", user_id, should_consume, include_consumed)
+    def get_gps_location_results_for_user_device(self, user_id, device_id, should_consume=False, include_consumed=False):
+        return self.get_results_for_user_device("gps_location_result_ids", user_id, device_id, should_consume, include_consumed)
 
 ### Function list for developers ###
 #

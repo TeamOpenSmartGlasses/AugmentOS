@@ -12,34 +12,34 @@ run_period = 30
 
 def question_asker_agents_processing_loop():
     print("START QUESTION ASKER PROCESSING LOOP")
-    dbHandler = DatabaseHandler(parent_handler=False)
+    db_handler = DatabaseHandler(parent_handler=False)
     loop = asyncio.get_event_loop()
 
     while True:
-        if not dbHandler.ready:
-            print("dbHandler not ready")
+        if not db_handler.ready:
+            print("db_handler not ready")
             time.sleep(0.1)
             continue
 
         # wait for some transcripts to load in
-        time.sleep(1)
+        time.sleep(5)
 
         try:
             pLoopStartTime = time.time()
             # Check for new transcripts
             print("RUNNING QUESTION ASKER LOOP")
-            newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(
+            newTranscripts = db_handler.get_recent_transcripts_from_last_nseconds_for_all_users(
                 n=run_period)
 
             questions = None
+            user_ids = set()
             for transcript in newTranscripts:
-                if transcript['text']:
-                    print(transcript)
+                if user_ids.__contains__(transcript['user_id']):
                     continue
 
+                user_ids.add(transcript['user_id'])
                 ctime = time.time()
-                # TODO - remove this line and get location from user's device
-                location = get_user_location()
+                location = db_handler.get_user_location(transcript['user_id'])
                 places = get_nearby_places(location)
                 questions = run_question_asker_agent(places)
                 loop_time = time.time() - ctime
@@ -50,7 +50,7 @@ def question_asker_agents_processing_loop():
                     final_questions = list(filter(None, questions))
                     print("QUESTIONS TO ASK")
                     print(final_questions)
-                    dbHandler.add_language_learning_questions_for_user(
+                    db_handler.add_language_learning_questions_for_user(
                         transcript['user_id'], final_questions)
 
         except Exception as e:
