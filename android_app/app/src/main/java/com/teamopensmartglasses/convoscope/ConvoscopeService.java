@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
@@ -115,6 +116,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         backendServerComms = new BackendServerComms(this);
 
         Log.d(TAG, "Convoscope service started");
+
+        String asrApiKey = getResources().getString(R.string.google_api_key);
+        Log.d(TAG, "ASR KEY: " + asrApiKey);
+        saveApiKey(this, asrApiKey);
 
         setAuthToken();
         setUpUiPolling();
