@@ -30,6 +30,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
+import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
+import com.teamopensmartglasses.convoscope.events.GoogleAuthSucceedEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
@@ -51,12 +53,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.LinkedList;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
-import org.json.JSONObject;
-import java.io.InputStream;
-import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
 
 public class ConvoscopeService extends SmartGlassesAndroidService {
     public final String TAG = "Convoscope_ConvoscopeService";
@@ -75,6 +77,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private Runnable cseRunnableCode;
     private final Handler displayPollLoopHandler = new Handler(Looper.getMainLooper());
     private final Handler locationSendingLoopHandler = new Handler(Looper.getMainLooper());
+    private Runnable uiPollRunnableCode;
     private Runnable displayRunnableCode;
     private Runnable locationSendingRunnableCode;
     private LocationSystem locationSystem;
@@ -92,6 +95,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private long llDefinedWordsShowTime = 40 * 1000; // define in milliseconds
     private int maxDefinedWordsShow = 4;
 
+    //language learning buffer stuff
+    private LinkedList<DefinedWord> definedWords = new LinkedList<>();
+    private long llDefinedWordsShowTime = 40 * 1000; // define in milliseconds
+    private int maxDefinedWordsShow = 4;
+
 //    private SMSComms smsComms;
     static String phoneNumName = "Alex";
     static String phoneNum = "8477367492"; // Alex's phone number. Fun default.
@@ -99,7 +107,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     static int maxBullets = 2; // Maximum number of bullet points per display iteration
     long latestDisplayTime = 0; // Initialize this at 0
     long minimumDisplayRate = 0; // Initialize this at 0
-    long minimumDisplayRatePerResult = 4000; // Rate-limit displaying new results to 4 seconds per result
+    long minimumDisplayRatePerResult = 1500; // Rate-limit displaying new results to n milliseconds per result
 
     private long currTime = 0;
     private long lastPressed = 0;
@@ -142,7 +150,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         saveApiKey(this, asrApiKey);
 
         setAuthToken();
-        setUpCsePolling();
+        setUpUiPolling();
         setUpDisplayQueuePolling();
         setUpLocationSending();
 
@@ -179,17 +187,17 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
     }
 
-    public void setUpCsePolling(){
-        cseRunnableCode = new Runnable() {
+    public void setUpUiPolling(){
+        uiPollRunnableCode = new Runnable() {
             @Override
             public void run() {
                 if (authToken != "") {
                     requestUiPoll();
                 }
-                csePollLoopHandler.postDelayed(this, 1000);
+                csePollLoopHandler.postDelayed(this, 150);
             }
         };
-        csePollLoopHandler.post(cseRunnableCode);
+        csePollLoopHandler.post(uiPollRunnableCode);
     }
 
     public void setUpLocationSending(){
@@ -217,7 +225,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     @Override
     public void onDestroy(){
-        csePollLoopHandler.removeCallbacks(cseRunnableCode);
+        csePollLoopHandler.removeCallbacks(uiPollRunnableCode);
         displayPollLoopHandler.removeCallbacks(displayRunnableCode);
         EventBus.getDefault().unregister(this);
         super.onDestroy();
@@ -352,7 +360,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             jsonQuery.put("Authorization", authToken);
             jsonQuery.put("deviceId", deviceId);
             jsonQuery.put("features", featuresArray);
-            backendServerComms.restRequest(CSE_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
+            backendServerComms.restRequest(UI_POLL_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
                     try {
@@ -560,8 +568,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         if (languageLearningResults.length() != 0) {
             llResults = calculateLLStringFormatted(getDefinedWords());
             sendRowsCard(llResults);
-            sendUiUpdateSingle(String.join("\n", Arrays.copyOfRange(llResults, 0, llResults.length)));
-//            sendUiUpdateSingle(String.join("\n", Arrays.copyOfRange(llResults, llResults.length, 0)));
+            List<String> list = Arrays.stream(Arrays.copyOfRange(llResults, 0, languageLearningResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
+            Collections.reverse(list);
+            sendUiUpdateSingle(String.join("\n", list));
         }
 
 
@@ -592,7 +601,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 String combined = name + ": " + body;
                 Log.d(TAG, name);
                 Log.d(TAG, "--- " + body);
-                queueOutput(combined);
+                //queueOutput(combined);
+                queueOutput(body);
 
 //                if(obj.has(mapImgKey)){
 //                    String mapImgPath = obj.getString(mapImgKey);
@@ -665,7 +675,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public void queueOutput(String item){
         responses.add(item);
         sendUiUpdateSingle(item);
-        resultsToDisplayList.add(item.substring(0,Math.min(72, item.length())).trim());//.replaceAll("\\s+", " "));
+        resultsToDisplayList.add(item.substring(0,Math.min(140, item.length())).trim());//.replaceAll("\\s+", " "));
     }
 
     public void maybeDisplayFromResultList(){
@@ -861,8 +871,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     //language learning
     public void updateDefinedWords(JSONArray newData) {
         long currentTime = System.currentTimeMillis();
-        Log.d(TAG, "GOT NEW DATA: ");
-        Log.d(TAG, newData.toString());
+//        Log.d(TAG, "GOT NEW DATA: ");
+//        Log.d(TAG, newData.toString());
 
         // Add new data to the list
         for (int i = 0; i < newData.length(); i++) {
