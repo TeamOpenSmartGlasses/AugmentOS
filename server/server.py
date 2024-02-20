@@ -51,7 +51,6 @@ async def chat_handler(request):
     is_final = body.get('isFinal')
     text = body.get('text')
     device_id = body.get('deviceId')
-    print(request)
     transcribe_language = body.get('transcribe_language')
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
     id_token = body.get('Authorization')
@@ -258,6 +257,8 @@ async def ui_poll_handler(request, minutes=0.5):
 
     resp = dict()
     resp["success"] = True
+    
+    db_handler.update_active_user(user_id, device_id)
 
     # get CSE results
     if "contextual_search_engine" in features:
@@ -439,10 +440,10 @@ async def send_agent_chat_handler(request):
 
 async def update_gps_location_for_user(request):
     body = await request.json()
-    print(body)
 
     id_token = body.get('Authorization')
     user_id = await verify_id_token(id_token)
+    device_id = body.get('deviceId')
 
     if user_id is None:
         raise web.HTTPUnauthorized()
@@ -459,10 +460,10 @@ async def update_gps_location_for_user(request):
         print("location none in update_gps_location_for_user, exiting with error response 400.")
         return web.Response(text='no chatMessage in request', status=400)
 
-    print("SEND UPDATE LOCATION FOR USER_ID: " + user_id)
+    # print("SEND UPDATE LOCATION FOR USER_ID: " + user_id)
     db_handler.add_gps_location_for_user(user_id, location)
     
-    print("Got your location: {}".format(db_handler.get_gps_location_for_user(user_id)))
+    # print("Got your location: {}".format(db_handler.get_gps_location_results_for_user_device(user_id, device_id)))
 
     return web.Response(text=json.dumps({'success': True, 'message': "Got your location: {}".format(location)}), status=200)
 

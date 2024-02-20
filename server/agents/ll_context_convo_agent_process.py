@@ -31,29 +31,42 @@ def ll_context_convo_agent_processing_loop():
             newTranscripts = db_handler.get_recent_transcripts_from_last_nseconds_for_all_users(
                 n=run_period)
 
-            questions = None
+            response = None
             user_ids = set()
-            for transcript in newTranscripts:
-                if user_ids.__contains__(transcript['user_id']):
+            for user in db_handler.get_active_users():
+                user_id = user['user_id']
+                device_id = user['device_id']
+
+                if user_ids.__contains__(user_id):
                     continue
 
-                user_ids.add(transcript['user_id'])
+                user_ids.add(user_id)
                 ctime = time.time()
-                location = db_handler.get_gps_location_results_for_user_device(transcript['user_id'], transcript['device_id'])
-                places = get_nearby_places(location[0])
-                questions = run_ll_context_convo_agent(places)
+                target_language = db_handler.get_user_option_value(user_id, "target_language")
+                locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
+
+                if locations:
+                    user_location = locations[-1]
+                else:
+                    continue
+
+                places = get_nearby_places(user_location)
+
+                if not places:
+                    print("NO PLACES FOUND")
+                    continue
+
+                response = run_ll_context_convo_agent(places=places, target_language=target_language, fluency_level=35)
+
                 print("QUESTIONS#########################")
-                print(questions)
                 loop_time = time.time() - ctime
                 print(f"RAN LL CONTEXTUAL CONVO IN : {loop_time}")
-                print(questions)
+                print(response)
 
-                if questions:
-                    final_questions = list(filter(None, questions))
-                    print("QUESTIONS TO ASK")
-                    print(final_questions)
+                if response:
+
                     db_handler.add_ll_context_convo_results_for_user(
-                        transcript['user_id'], final_questions)
+                        user_id, response)
 
         except Exception as e:
             print("Exception in CONTEXTUAL CONVO loop...:")

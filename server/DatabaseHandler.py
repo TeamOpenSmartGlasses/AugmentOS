@@ -52,6 +52,9 @@ class DatabaseHandler:
         self.user_db = self.client['users']
         self.user_collection = self.get_collection(
             self.user_db, 'users', wipe=clear_users_on_start)
+        self.active_user_db = self.client['active_users']
+        self.active_user_collection = self.get_collection(
+            self.active_user_db, 'active_users', wipe=clear_users_on_start)
 
     def init_cache_collection(self):
         self.cache_db = self.client['cache']
@@ -171,6 +174,22 @@ class DatabaseHandler:
         description_hash = sha256(long_description.encode("utf-8")).hexdigest()
         item = {"description": description_hash, "summary": summary}
         self.cache_collection.insert_one(item)
+        
+    ## ACTIVE USERS ##
+
+    def update_active_user(self, user_id, device_id):
+        current_time = int(time.time())
+        self.active_user_collection.update_one(
+            {"user_id": user_id, "device_id": device_id},
+            {"$set": {"last_active": current_time}},
+            upsert=True
+        )
+
+    def get_active_users(self, active_threshold=10):
+        current_time = int(time.time())
+        query = {"last_active": {"$gte": current_time - active_threshold}}
+        active_users = self.active_user_collection.find(query)
+        return [{"user_id": user['user_id'], "device_id": user['device_id']} for user in active_users]
 
     ### OPTIONS ###
 
@@ -1086,23 +1105,17 @@ class DatabaseHandler:
     def get_language_learning_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
         return self.get_results_for_user_device("language_learning_result_ids", user_id, device_id, should_consume, include_consumed)
 
-    def add_ll_context_convo_results_for_user(self, user_id, questions):
-        for question in questions:
-            if not question:
-                continue
+    def add_ll_context_convo_results_for_user(self, user_id, reponse):
+        if not reponse:
+            return
+        reponse['timestamp'] = int(time.time())
+        reponse['uuid'] = str(uuid.uuid4())
 
-            question['timestamp'] = int(time.time())
-            question['uuid'] = str(uuid.uuid4())
-
-        print("INSERTING THESE questions: " + str(questions))
-        self.ll_context_convo_collection.insert_many(questions)
-
-        result_ids = []
-        for e in questions:
-            result_ids.append(e['uuid'])
+        print("INSERTING reponse: " + str(reponse))
+        self.ll_context_convo_collection.insert_one(reponse)
 
         filter = {"user_id": user_id}
-        update = {"$push": {"ll_context_convo_result_ids": {'$each': result_ids}}}
+        update = {"$push": {"ll_context_convo_result_ids": reponse['uuid']}}
         self.user_collection.update_one(filter=filter, update=update)
 
     def get_ll_context_convo_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):

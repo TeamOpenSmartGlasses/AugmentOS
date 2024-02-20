@@ -15,12 +15,11 @@ from Modules.LangchainSetup import *
 
 
 ll_context_convo_prompt_blueprint = """
-You are an expert language teacher fluent in Russian, Chinese, French, Spanish, German, English, and more. You are listening to a user's conversation right now. The user is learning {target_language}. The user's first language is {source_language}. You help the language learner user by asking questions about their environment.
+You are an expert language teacher fluent in Russian, Chinese, French, Spanish, German, English, and more. You are listening to a user's conversation right now. The user is learning {target_language}. You help the language learner user by asking questions about their environment.
 
 Leveraging environmental context for language learning can significantly enhance the educational experience. Given data about the points of interest around a user's current location, your task is to craft tailored language learning activities. These activities should be specifically designed to match the learner's proficiency level in their target language, encouraging interaction with their surroundings through the target language lens.
 
 Target Language: {target_language}
-Source Language: {source_language}
 Fluency Level: {fluency_level}
 
 Process:
@@ -53,33 +52,32 @@ Now provide the output:
 
 
 @time_function()
-def run_ll_context_convo_agent(places: list, target_language: str = "Russian", source_language: str = "English", fluency_level: int = 35):
+def run_ll_context_convo_agent(places: list, target_language: str = "Russian", fluency_level: int = 35):
     # start up GPT3 connection
     llm = get_langchain_gpt4(temperature=0.2)
 
     places_string = "\n".join(places)
 
-    class QuestionAskerAgentQuery(BaseModel):
+    class ContextConvoAgentQuery(BaseModel):
         """
-        Proactive question asker agent
+        Proactive Context Convo Agent
         """
-        questions: list = Field(
-            description="the questions to ask the user about the surrounding places.")
+        response: str = Field(
+            description="the question to ask the user about the surrounding places.")
 
     ll_context_convo_agent_query_parser = PydanticOutputParser(
-        pydantic_object=QuestionAskerAgentQuery)
+        pydantic_object=ContextConvoAgentQuery)
 
     extract_ll_context_convo_agent_query_prompt = PromptTemplate(
         template=ll_context_convo_prompt_blueprint,
         input_variables=["places",
-                         "target_language", "source_language", "fluency_level"],
+                         "target_language", "fluency_level"],
         partial_variables={
             "format_instructions": ll_context_convo_agent_query_parser.get_format_instructions()}
     )
 
     ll_context_convo_agent_query_prompt_string = extract_ll_context_convo_agent_query_prompt.format_prompt(
         places=places_string,
-        source_language=source_language,
         target_language=target_language,
         fluency_level=fluency_level,
     ).to_string()
@@ -92,18 +90,14 @@ def run_ll_context_convo_agent(places: list, target_language: str = "Russian", s
     print(response)
 
     try:
-        questions = ll_context_convo_agent_query_parser.parse(
-            response.content).questions
+        response = ll_context_convo_agent_query_parser.parse(
+            response.content).response
 
-        questions_obj = list()
+        response_obj = dict()
+        response_obj["response"] = response # pack the response into a dictionary
 
-        for question in questions:
-            tmpdict = dict()
-            tmpdict["question"] = question # pack the question
-            questions_obj.append(tmpdict)
-
-        # print(questions_obj)
-        return questions_obj
+        # print(response_obj)
+        return response_obj
 
     except OutputParserException as e:
         print('parse fail')
