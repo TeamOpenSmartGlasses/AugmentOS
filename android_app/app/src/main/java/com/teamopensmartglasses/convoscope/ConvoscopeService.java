@@ -90,9 +90,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private LinkedList<DefinedWord> definedWords = new LinkedList<>();
     private LinkedList<ContextConvoResponse> contextConvoResponses = new LinkedList<>();
     private final long llDefinedWordsShowTime = 40 * 1000; // define in milliseconds
-    private final long llContextConvoResponsesShowTime = 40 * 1000; // define in milliseconds
-    private int maxDefinedWordsShow = 4;
-    private int maxContextConvoResponsesShow = 1;
+    private final long llContextConvoResponsesShowTime = 80 * 1000; // define in milliseconds
+    private final long locationSendTime = 1000 * 30; // define in milliseconds
+    private final int maxDefinedWordsShow = 4;
+    private final int maxContextConvoResponsesShow = 2;
 
 //    private SMSComms smsComms;
     static String phoneNumName = "Alex";
@@ -200,7 +201,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             @Override
             public void run() {
                 requestLocation();
-                locationSendingLoopHandler.postDelayed(this, 1000 * 10); //30 seconds, TODO: make more intelligent later
+                locationSendingLoopHandler.postDelayed(this, locationSendTime); //30 seconds, TODO: make more intelligent later
             }
         };
         locationSendingLoopHandler.post(locationSendingRunnableCode);
@@ -592,10 +593,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         JSONArray llContextConvoResults = response.has(llContextConvoKey) ? response.getJSONArray(llContextConvoKey) : new JSONArray();
         updateContextConvoResponses(llContextConvoResults); //sliding buffer, time managed context convo card
         String[] llContextConvoResponses;
-        if (languageLearningResults.length() != 0) {
+        if (llContextConvoResults.length() != 0) {
             llContextConvoResponses = calculateLLContextConvoResponseFormatted(getContextConvoResponses());
             sendRowsCard(llContextConvoResponses);
-            List<String> list = Arrays.stream(Arrays.copyOfRange(llContextConvoResponses, 0, languageLearningResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
+            List<String> list = Arrays.stream(Arrays.copyOfRange(llContextConvoResponses, 0, llContextConvoResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
             Collections.reverse(list);
             sendUiUpdateSingle(String.join("\n", list));
         }
@@ -963,6 +964,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 e.printStackTrace();
             }
         }
+
+        contextConvoResponses.removeIf(contextConvoResponse -> (currentTime - (contextConvoResponse.timestamp * 1000)) > llContextConvoResponsesShowTime);
 
         // Ensure list does not exceed max size
         while (contextConvoResponses.size() > maxContextConvoResponsesShow) {
