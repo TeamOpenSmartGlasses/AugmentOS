@@ -11,6 +11,7 @@ import static com.teamopensmartglasses.convoscope.Constants.explicitAgentQueries
 import static com.teamopensmartglasses.convoscope.Constants.explicitAgentResultsKey;
 import static com.teamopensmartglasses.convoscope.Constants.glassesCardTitle;
 import static com.teamopensmartglasses.convoscope.Constants.languageLearningKey;
+import static com.teamopensmartglasses.convoscope.Constants.llContextConvoKey;
 import static com.teamopensmartglasses.convoscope.Constants.proactiveAgentResultsKey;
 import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
 
@@ -20,7 +21,6 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
@@ -34,10 +34,7 @@ import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthSucceedEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
-import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
-import com.teamopensmartglasses.convoscope.events.GoogleAuthSucceedEvent;
 import com.teamopensmartglasses.convoscope.ui.ConvoscopeUi;
-import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SpeechRecOutputEvent;
@@ -48,7 +45,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
@@ -58,7 +54,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
 
 public class ConvoscopeService extends SmartGlassesAndroidService {
     public final String TAG = "Convoscope_ConvoscopeService";
@@ -87,13 +82,17 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public String explicitAgent = "explicit_agent_insights";
     public String definerAgent = "intelligent_entity_definitions";
     public String languageLearningAgent = "language_learning";
+    public String llContextConvoAgent = "ll_context_convo";
     public double previousLat = 0;
     public double previousLng = 0;
 
     //language learning buffer stuff
     private LinkedList<DefinedWord> definedWords = new LinkedList<>();
-    private long llDefinedWordsShowTime = 40 * 1000; // define in milliseconds
+    private LinkedList<ContextConvoResponse> contextConvoResponses = new LinkedList<>();
+    private final long llDefinedWordsShowTime = 40 * 1000; // define in milliseconds
+    private final long llContextConvoResponsesShowTime = 40 * 1000; // define in milliseconds
     private int maxDefinedWordsShow = 4;
+    private int maxContextConvoResponsesShow = 1;
 
 //    private SMSComms smsComms;
     static String phoneNumName = "Alex";
@@ -201,7 +200,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             @Override
             public void run() {
                 requestLocation();
-                locationSendingLoopHandler.postDelayed(this, 1000 * 5); //30 seconds, TODO: make more intelligent later
+                locationSendingLoopHandler.postDelayed(this, 1000 * 10); //30 seconds, TODO: make more intelligent later
             }
         };
         locationSendingLoopHandler.post(locationSendingRunnableCode);
@@ -539,6 +538,27 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         return llResults;
     }
 
+    public String[] calculateLLContextConvoResponseFormatted(LinkedList<ContextConvoResponse> contextConvoResponses) {
+        if (!clearedScreenYet) {
+            sendHomeScreen();
+            clearedScreenYet = true;
+        }
+
+        int max_rows_allowed = 4;
+        String[] llResults = new String[Math.min(max_rows_allowed, contextConvoResponses.size())];
+//        String enSpace = "\u2002"; // Using en space for padding
+
+//        int minSpaces = 2;
+        int index = 0;
+        for (ContextConvoResponse contextConvoResponse: contextConvoResponses) {
+            if (index >= max_rows_allowed) break;
+            llResults[index] = contextConvoResponse.response;
+            index++;
+        }
+
+        return llResults;
+    }
+
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
 //        Log.d(TAG, "GOT CSE RESULT: " + response.toString());
         String imgKey = "image_url";
@@ -568,6 +588,17 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             sendUiUpdateSingle(String.join("\n", list));
         }
 
+        // ll context convo
+        JSONArray llContextConvoResults = response.has(llContextConvoKey) ? response.getJSONArray(llContextConvoKey) : new JSONArray();
+        updateContextConvoResponses(llContextConvoResults); //sliding buffer, time managed context convo card
+        String[] llContextConvoResponses;
+        if (languageLearningResults.length() != 0) {
+            llContextConvoResponses = calculateLLContextConvoResponseFormatted(getContextConvoResponses());
+            sendRowsCard(llContextConvoResponses);
+            List<String> list = Arrays.stream(Arrays.copyOfRange(llContextConvoResponses, 0, languageLearningResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
+            Collections.reverse(list);
+            sendUiUpdateSingle(String.join("\n", list));
+        }
 
         // Just append the entityDefinitions to the cseResults as they have similar schema
         for (int i = 0; i < entityDefinitions.length(); i++) {
@@ -810,7 +841,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         if (currentModeString.equals("Proactive Agents")){
             features = new String[]{explicitAgent, proactiveAgents, definerAgent};
         } else if (currentModeString.equals("Language Learning")){
-            features = new String[]{explicitAgent, languageLearningAgent};
+            features = new String[]{explicitAgent, languageLearningAgent, llContextConvoAgent};
         }
     }
 
@@ -866,8 +897,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     //language learning
     public void updateDefinedWords(JSONArray newData) {
         long currentTime = System.currentTimeMillis();
-//        Log.d(TAG, "GOT NEW DATA: ");
-//        Log.d(TAG, newData.toString());
+        Log.d(TAG, "GOT NEW WORDS: ");
+        Log.d(TAG, newData.toString());
 
         // Add new data to the list
         for (int i = 0; i < newData.length(); i++) {
@@ -908,6 +939,50 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         DefinedWord(String inWord, String inWordTranslation, long timestamp, String uuid) {
             this.inWord = inWord;
             this.inWordTranslation = inWordTranslation;
+            this.timestamp = timestamp;
+            this.uuid = uuid;
+        }
+    }
+
+    //context convo
+    public void updateContextConvoResponses(JSONArray newData) {
+        long currentTime = System.currentTimeMillis();
+        Log.d(TAG, "GOT NEW DATA: ");
+        Log.d(TAG, newData.toString());
+
+        // Add new data to the list
+        for (int i = 0; i < newData.length(); i++) {
+            try {
+                JSONObject wordData = newData.getJSONObject(i);
+                contextConvoResponses.addFirst(new ContextConvoResponse(
+                        wordData.getString("ll_context_convo_response"),
+                        wordData.getLong("timestamp"),
+                        wordData.getString("uuid")
+                ));
+            } catch (JSONException e){
+                e.printStackTrace();
+            }
+        }
+
+        // Ensure list does not exceed max size
+        while (contextConvoResponses.size() > maxContextConvoResponsesShow) {
+            contextConvoResponses.removeLast();
+        }
+    }
+
+    // Getter for the list, if needed
+    public LinkedList<ContextConvoResponse> getContextConvoResponses() {
+        return contextConvoResponses;
+    }
+
+    // A simple representation of your word data
+    private static class ContextConvoResponse {
+        String response;
+        long timestamp;
+        String uuid;
+
+        ContextConvoResponse(String response, long timestamp, String uuid) {
+            this.response = response;
             this.timestamp = timestamp;
             this.uuid = uuid;
         }

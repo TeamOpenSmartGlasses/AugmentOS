@@ -10,6 +10,7 @@ public class Constants {
     public static String wakeWordTimeKey = "wake_word_time";
     public static String entityDefinitionsKey = "entity_definitions";
     public static String languageLearningKey = "language_learning_results";
+    public static String llContextConvoKey = "ll_context_convo_results";
 
     //endpoints
     public static final String LLM_QUERY_ENDPOINT = "/chat";

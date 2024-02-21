@@ -79,8 +79,6 @@ dependencies {
     implementation "androidx.navigation:navigation-runtime:2.2.0"
     implementation "androidx.fragment:fragment:1.2.0"
 
-    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
-
     // firebase
     implementation platform('com.google.firebase:firebase-bom:32.7.1')
     implementation "com.google.firebase:firebase-auth"
