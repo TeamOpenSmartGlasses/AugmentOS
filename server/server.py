@@ -296,14 +296,16 @@ async def ui_poll_handler(request, minutes=0.5):
     if "language_learning" in features:
         language_learning_results = db_handler.get_language_learning_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["language_learning_results"] = language_learning_results
-        print("RETURNING THIS LANGUAGE LEARNING RESULTS")
-        print(language_learning_results)
+        if language_learning_results:
+            print("server.py ================================= LLRESULT")
+            print(language_learning_results)
     
     if "ll_context_convo" in features:
         ll_context_convo_results = db_handler.get_ll_context_convo_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["ll_context_convo_results"] = ll_context_convo_results
-        print("RETURNING THIS QUESTION ASKER RESULTS")
-        print(ll_context_convo_results)
+        if ll_context_convo_results:
+            print("RETURNING THIS QUESTION ASKER RESULTS")
+            print(ll_context_convo_results)
 
     return web.Response(text=json.dumps(resp), status=200)
 
@@ -463,7 +465,7 @@ async def update_gps_location_for_user(request):
     # print("SEND UPDATE LOCATION FOR USER_ID: " + user_id)
     db_handler.add_gps_location_for_user(user_id, location)
     
-    # print("Got your location: {}".format(db_handler.get_gps_location_results_for_user_device(user_id, device_id)))
+    print("Got your location: {}".format(db_handler.get_gps_location_results_for_user_device(user_id, device_id)))
 
     return web.Response(text=json.dumps({'success': True, 'message': "Got your location: {}".format(location)}), status=200)
 

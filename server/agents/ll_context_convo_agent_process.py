@@ -28,8 +28,8 @@ def ll_context_convo_agent_processing_loop():
             pLoopStartTime = time.time()
             # Check for new transcripts
             print("RUNNING CONTEXTUAL CONVO LOOP")
-            newTranscripts = db_handler.get_recent_transcripts_from_last_nseconds_for_all_users(
-                n=run_period)
+            # newTranscripts = db_handler.get_recent_transcripts_from_last_nseconds_for_all_users(
+            #     n=run_period)
 
             response = None
             user_ids = set()
@@ -39,7 +39,7 @@ def ll_context_convo_agent_processing_loop():
 
                 if user_ids.__contains__(user_id):
                     continue
-
+                
                 user_ids.add(user_id)
                 ctime = time.time()
                 target_language = db_handler.get_user_option_value(user_id, "target_language")
@@ -48,6 +48,7 @@ def ll_context_convo_agent_processing_loop():
                 if locations:
                     user_location = locations[-1]
                 else:
+                    print("NO LOCATIONS FOUND")
                     continue
 
                 places = get_nearby_places(user_location)
@@ -58,13 +59,12 @@ def ll_context_convo_agent_processing_loop():
 
                 response = run_ll_context_convo_agent(places=places, target_language=target_language, fluency_level=35)
 
-                print("QUESTIONS#########################")
+                # print("QUESTIONS#########################")
                 loop_time = time.time() - ctime
                 print(f"RAN LL CONTEXTUAL CONVO IN : {loop_time}")
-                print(response)
+                # print(response)
 
                 if response:
-
                     db_handler.add_ll_context_convo_results_for_user(
                         user_id, response)
 
