@@ -16,7 +16,7 @@ def ll_context_convo_agent_processing_loop():
     loop = asyncio.get_event_loop()
 
     # wait for some transcripts to load in
-    time.sleep(5)
+    time.sleep(20)
     
     while True:
         if not db_handler.ready:
@@ -48,7 +48,7 @@ def ll_context_convo_agent_processing_loop():
                 if locations:
                     user_location = locations[-1]
                 else:
-                    print("NO LOCATIONS FOUND")
+                    print("NO LOCATION FOUND, PLESE ENABLE GPS")
                     continue
 
                 places = get_nearby_places(user_location)
