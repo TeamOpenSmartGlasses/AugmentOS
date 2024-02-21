@@ -94,9 +94,10 @@ def run_ll_context_convo_agent(places: list, target_language: str = "Russian", f
             response.content).response
 
         response_obj = dict()
-        response_obj["response"] = response # pack the response into a dictionary
+        response_obj["ll_context_convo_response"] = response # pack the response into a dictionary
 
-        # print(response_obj)
+        print("RESPONSE OBJ")
+        print(response_obj)
         return response_obj
 
     except OutputParserException as e:
