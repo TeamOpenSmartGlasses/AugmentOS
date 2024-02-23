@@ -44,11 +44,19 @@ def ll_context_convo_agent_processing_loop():
                 ctime = time.time()
                 target_language = db_handler.get_user_option_value(user_id, "target_language")
                 locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
+                transcripts = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=60)
 
-                if locations:
+                if len(locations) > 1:
                     user_location = locations[-1]
+                    past_location = locations[-2]
+                    if abs(user_location['lat'] - past_location['lat']) < 2e-05 and (user_location['lng'] - past_location['lng']) < 1e-05:
+                        print("User is not moving, skipping")
+                        continue
+                    elif transcripts[0]:
+                        print("User is talking, skipping", transcripts)
+                        continue
                 else:
-                    print("NO LOCATION FOUND, PLESE ENABLE GPS")
+                    print("Not enough locations, please wait", locations)
                     continue
 
                 places = get_nearby_places(user_location)
