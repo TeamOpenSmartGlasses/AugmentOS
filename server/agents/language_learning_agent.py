@@ -55,7 +55,6 @@ Source Language 3: English
 Target Language 3: Spanish
 Output 3: {{}}
 
-FINAL DATA AND COMMANDS:
 Input Text (transcript from user's live conversation):
 ```{conversation_context}```
 
