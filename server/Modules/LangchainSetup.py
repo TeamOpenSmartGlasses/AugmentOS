@@ -11,7 +11,7 @@ def get_langchain_gpt4(temperature=GPT_TEMPERATURE, model=GPT_4_MODEL, max_token
     if use_azure_openai:
         return AzureChatOpenAI(openai_api_key=azure_openai_api_key, 
                             openai_api_base=azure_openai_api_base,
-                            openai_api_version = "2023-05-15",
+                            openai_api_version = "2024-02-15-preview",
                             deployment_name=azure_openai_api_gpt4_deployment,
                             temperature=temperature,
                             max_tokens=max_tokens,
@@ -23,7 +23,7 @@ def get_langchain_gpt35(temperature=GPT_TEMPERATURE, model=GPT_35_MODEL, max_tok
     if use_azure_openai:
         return AzureChatOpenAI(openai_api_key=azure_openai_api_key, 
                             openai_api_base=azure_openai_api_base,
-                            openai_api_version = "2023-05-15",
+                            openai_api_version = "2024-02-15-preview",
                             deployment_name=azure_openai_api_gpt35_deployment,
                             temperature=temperature,
                             max_tokens=max_tokens,
@@ -35,7 +35,7 @@ def get_langchain_gpt35_16k(temperature=GPT_TEMPERATURE, model=GPT_35_16K_MODEL,
     if use_azure_openai:
         return AzureChatOpenAI(openai_api_key=azure_openai_api_key, 
                             openai_api_base=azure_openai_api_base,
-                            openai_api_version = "2023-05-15",
+                            openai_api_version = "2024-02-15-preview",
                             deployment_name=azure_openai_api_gpt35_16k_deployment,
                             temperature=temperature,
                             max_tokens=max_tokens,
