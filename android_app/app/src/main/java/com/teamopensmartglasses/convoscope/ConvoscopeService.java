@@ -396,13 +396,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             backendServerComms.restRequest(GEOLOCATION_STREAM_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
-                    try {
-                        previousLat = latitude;
-                        previousLng = longitude;
-                        parseLocationResults(result);
-                    } catch (JSONException e) {
-                        throw new RuntimeException(e);
-                    }
+                    Log.d(TAG, "Request sent Successfully: " + result.toString());
                 }
                 @Override
                 public void onFailure(int code){
@@ -589,6 +583,17 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             sendUiUpdateSingle(String.join("\n", list));
         }
 
+        JSONArray llContextConvoResults = response.has(llContextConvoKey) ? response.getJSONArray(llContextConvoKey) : new JSONArray();
+        updateContextConvoResponses(llContextConvoResults); //sliding buffer, time managed context convo card
+        String[] llContextConvoResponses;
+        if (llContextConvoResults.length() != 0) {
+            llContextConvoResponses = calculateLLContextConvoResponseFormatted(getContextConvoResponses());
+            sendRowsCard(llContextConvoResponses);
+            List<String> list = Arrays.stream(Arrays.copyOfRange(llContextConvoResponses, 0, llContextConvoResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
+            Collections.reverse(list);
+            sendUiUpdateSingle(String.join("\n", list));
+        }
+
         // Just append the entityDefinitions to the cseResults as they have similar schema
         for (int i = 0; i < entityDefinitions.length(); i++) {
             cseResults.put(entityDefinitions.get(i));
@@ -686,17 +691,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     public void parseLocationResults(JSONObject response) throws JSONException {
+        Log.d(TAG, "GOT LOCATION RESULT: " + response.toString());
         // ll context convo
-        JSONArray llContextConvoResults = response.has(llContextConvoKey) ? response.getJSONArray(llContextConvoKey) : new JSONArray();
-        updateContextConvoResponses(llContextConvoResults); //sliding buffer, time managed context convo card
-        String[] llContextConvoResponses;
-        if (llContextConvoResults.length() != 0) {
-            llContextConvoResponses = calculateLLContextConvoResponseFormatted(getContextConvoResponses());
-            sendRowsCard(llContextConvoResponses);
-            List<String> list = Arrays.stream(Arrays.copyOfRange(llContextConvoResponses, 0, llContextConvoResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
-            Collections.reverse(list);
-            sendUiUpdateSingle(String.join("\n", list));
-        }
+
     }
 
     //all the stuff from the results that we want to display
