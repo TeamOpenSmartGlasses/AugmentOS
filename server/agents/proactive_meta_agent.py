@@ -1,7 +1,6 @@
 #custom
 from collections import defaultdict
-from agents.expert_agent_configs import expert_agent_config_list
-from agents.expert_agents import expert_agent_arun_wrapper
+from agents.expert_agent_configs import default_expert_agent_list
 from agents.agent_utils import format_list_data
 from server_config import openai_api_key
 from constants import DEBUG_FORCE_EXPERT_AGENT_RUN
@@ -55,12 +54,9 @@ Here are the insights that have been generated recently, you should not call the
 #generate expert agents as tools (each one has a search engine, later make the tools each agent has programmatic)
 def make_expert_agents_prompts():
     expert_agents_descriptions_prompt = str()
-    expert_agents_list = list(expert_agent_config_list.values())
-    for idx, expert_agent in enumerate(expert_agents_list):
-        expert_agents_descriptions_prompt += f"\n- Agent {idx+1}:\n"
-        expert_agents_descriptions_prompt += f"""   - Name: {expert_agent["agent_name"]}\n"""
-        expert_agents_descriptions_prompt += f"""   - When to call: {expert_agent["proactive_tool_description"]}\n"""
-        expert_agents_descriptions_prompt += f"""   - Example insight generated: {expert_agent["proactive_tool_example"]}\n"""
+
+    for idx, expert_agent in enumerate(default_expert_agent_list):
+        expert_agents_descriptions_prompt += expert_agent.get_agent_info_for_proactive_agent(idx+1)
 
     return expert_agents_descriptions_prompt
 
@@ -83,16 +79,12 @@ def run_proactive_meta_agent_and_experts(conversation_context: str, insights_his
         insights_history_dict[insight["agent_name"]].append(
             insight["agent_insight"])
 
-    # print("insights_history_dict", insights_history_dict)
-
     #get the configs of any expert agents we should run
-    experts_to_run_configs = list()
-    for expert_to_run in proactive_meta_agent_response:
-        experts_to_run_configs.append(expert_agent_config_list[expert_to_run])
+    experts_to_run = [ea for ea in default_expert_agent_list if (ea.agent_name in proactive_meta_agent_response)]
 
     #run all the agents in parralel
     loop = asyncio.get_event_loop()
-    agents_to_run_tasks = [expert_agent_arun_wrapper(expert_agent_config, conversation_context, insights_history_dict[expert_agent_config["agent_name"]]) for expert_agent_config in experts_to_run_configs]
+    agents_to_run_tasks = [expert_agent.run_agent_async(conversation_context, insights_history_dict[expert_agent.agent_name]) for expert_agent in experts_to_run]
     insights_tasks = asyncio.gather(*agents_to_run_tasks)
     insights = loop.run_until_complete(insights_tasks)
     return insights

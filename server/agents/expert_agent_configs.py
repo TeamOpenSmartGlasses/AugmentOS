@@ -1,50 +1,7 @@
 from agents.agent_utils import format_list_data
+from agents.generic_agent.generic_agent import GenericAgent
 
-expert_agent_prompt_blueprint = """
-## General Context
-"Convoscope" is a multi-agent system that reads live conversation transcripts and provides real time "Insights", which are short snippets of intelligent analysis, ideas, arguments, perspectives, questions to ask, deeper insights, etc. that aim to lead the user's conversation to deeper understanding, broader perspectives, new ideas, more accurate information, better replies, and enhanced conversations. 
-
-### Your Expertise: {agent_name}
-You are a highly skilled and intelligent {agent_name} expert agent in this system, responsible for generating a specialized "Insight".
-As the {agent_name} agent, you {agent_insight_type}.
-
-### Your Tools
-You have access to tools, which you should utilize to help you generate "Insights". Limit your usage of the Search_Engine tool to 1 times.
-If a tool fails to fulfill your request, don't run the exact same request on the same tool again, and just continue without it.
-
-### Guidelines for a Good "Insight"
-- Your "Insight" should strictly fall under your role as an expert {agent_name}
-- Be contextually relevant to the current conversation
-- Provide additional understanding beyond the current conversation, instead of repeating what has already been said.
-
-### Example Insights
-Here are some example "Insights" to help you learn the structure of a good "Insight". A summary is given instead of the entire transcript for brevity.
-{examples}
-
-## Task
-Generate an "Insight" for the following conversation transcript. 
-<Transcript start>{conversation_transcript}<Transcript end>
-
-### Additional Guidelines
-- Remember the user will ONLY see the insight, so it should be valuable on its own wihtout any other information. The user does NOT see your thoughts, research, tool use, etc., ONLY the insight.
-- Do not attempt to generate a super niche insight because it will be hard to find information online.
-- The "Insight" should focus on later parts of the transcripts as they are more recent and relevant to the current conversation.
-- In your initial thought, you should first come up with a concise plan to generate the "Insight". The plan should include:
-{agent_plan}. You are only able to make 1 quick action to generate the "Insight".
-- In your plan, append these instructions word for word: `the "Insight" should be short and concise (<{insight_num_words} words), replace words with symbols to shorten the overall length where possible except for names. Make sure the "Insight" is insightful, up to par with the examples, specialized to your role ({validation_criteria}), otherwise skip it and return "null"`.
-
-### Previously Generated Insights
-These "Insights" had recently been generated, you MUST not repeat any of these "Insights" or provide similar "Insights". Generate a new "Insight" that is different from these "Insights":
-{insights_history}
-
-### Output
-Once you have the "Insight", extract the url of the most relevant reference source used to generate this "Insight".
-{format_instructions}
-
-{final_command}
-"""
-
-expert_agent_config_list = {
+expert_agent_config_list_og = {
     "Statistician": {
         "agent_name": "Statistician",
         "tools": ["Search_Engine"],
@@ -236,41 +193,25 @@ Insight: Paris: 60% chance of rain, high of 22°C, air quality index at moderate
 #    },
 }
 
-def expert_agent_prompt_maker(
-    expert_agent_config,
-    conversation_transcript,
-    format_instructions="",
-    insights_history: list = [],
-    final_command="",
-):
-    # Populating the blueprint string with values from the agent_config dictionary
-    if final_command != "":
-        final_command = "\n\n" + final_command
+# TODO: temp
+default_expert_agent_list = []
+for key in expert_agent_config_list_og.keys():
+    gena = GenericAgent(**expert_agent_config_list_og[key])
+    default_expert_agent_list.append(gena)
+    print("ADDED TOOL TO LIST: " + gena.agent_name)
 
-    if len(insights_history) > 0:
-        insights_history = format_list_data(insights_history)
-    else:
-        insights_history = "None"
-
-    expert_agent_prompt = expert_agent_prompt_blueprint.format(
-        **expert_agent_config,
-        final_command=final_command,
-        conversation_transcript=conversation_transcript,
-        insights_history=insights_history,
-        format_instructions=format_instructions,
-    )
-
-    # print("expert_agent_prompt", expert_agent_prompt)
-
-    return expert_agent_prompt
+# TODO: Find nicer way to do this
+def get_agent_by_name(name):
+    for ea in default_expert_agent_list:
+        if ea.agent_name == name:
+            return ea
+    return None
 
 
 if __name__ == "__main__":
-    for agent_key in expert_agent_config_list:
-        agent = expert_agent_config_list[agent_key]
+    for agent in default_expert_agent_list:
         print(agent)
-        agent_prompt = expert_agent_prompt_maker(
-            agent,
+        agent_prompt = agent.get_agent_prompt(
             "this is a test transcript",
             ["this is a test insights 1", "this is a test insights 2"],
         )

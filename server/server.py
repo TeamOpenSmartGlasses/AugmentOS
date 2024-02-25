@@ -28,7 +28,7 @@ from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH
 from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_agents_process import proactive_agents_processing_loop
-from agents.expert_agents import run_single_expert_agent, arun_single_expert_agent
+from agents.expert_agent_configs import get_agent_by_name
 from agents.explicit_agent_process import explicit_agent_processing_loop, call_explicit_agent
 from agents.proactive_definer_agent_process import proactive_definer_processing_loop
 from agents.language_learning_agent_process import language_learning_agents_processing_loop
@@ -351,7 +351,9 @@ async def expert_agent_runner(expert_agent_name, user_id):
     insights_history = [insight["insight"] for insight in insights_history]
 
     #spin up the agent
-    agent_insight = await arun_single_expert_agent(expert_agent_name, convo_context, insights_history)
+    expert_agent = get_agent_by_name(expert_agent_name)
+    if expert_agent:
+        agent_insight = await expert_agent.run_agent_async(expert_agent_name, convo_context, insights_history)
 
     #save this insight to the DB for the user
     if agent_insight != None and agent_insight["agent_insight"] != None:
@@ -484,7 +486,7 @@ if __name__ == '__main__':
     # start the language learning app process
     print("Starting Language Learning Agents process...")
     language_learning_background_process = multiprocessing.Process(target=language_learning_agents_processing_loop)
-    language_learning_background_process.start()
+    #language_learning_background_process.start()
 
     # setup and run web app
     # CORS allow from all sources
