@@ -24,7 +24,7 @@ from aiohttp import web, web_exceptions
 
 #Convoscope
 from server_config import server_port
-from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH, SEND_LL_CONTEXT_CONVO_RESULTS
+from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH
 from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_agents_process import proactive_agents_processing_loop
@@ -300,7 +300,7 @@ async def ui_poll_handler(request, minutes=0.5):
             print("server.py ================================= LLRESULT")
             print(language_learning_results)
     
-    if "ll_context_convo" in features and SEND_LL_CONTEXT_CONVO_RESULTS:
+    if "ll_context_convo" in features:
         ll_context_convo_results = db_handler.get_ll_context_convo_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["ll_context_convo_results"] = ll_context_convo_results
         if ll_context_convo_results:

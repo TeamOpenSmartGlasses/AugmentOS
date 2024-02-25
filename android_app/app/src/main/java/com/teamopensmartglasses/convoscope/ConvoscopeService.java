@@ -399,7 +399,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                     try {
                         previousLat = latitude;
                         previousLng = longitude;
-                        parseConvoscopeResults(result);
+                        parseLocationResults(result);
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
@@ -589,18 +589,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             sendUiUpdateSingle(String.join("\n", list));
         }
 
-        // ll context convo
-        JSONArray llContextConvoResults = response.has(llContextConvoKey) ? response.getJSONArray(llContextConvoKey) : new JSONArray();
-        updateContextConvoResponses(llContextConvoResults); //sliding buffer, time managed context convo card
-        String[] llContextConvoResponses;
-        if (llContextConvoResults.length() != 0) {
-            llContextConvoResponses = calculateLLContextConvoResponseFormatted(getContextConvoResponses());
-            sendRowsCard(llContextConvoResponses);
-            List<String> list = Arrays.stream(Arrays.copyOfRange(llContextConvoResponses, 0, llContextConvoResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
-            Collections.reverse(list);
-            sendUiUpdateSingle(String.join("\n", list));
-        }
-
         // Just append the entityDefinitions to the cseResults as they have similar schema
         for (int i = 0; i < entityDefinitions.length(); i++) {
             cseResults.put(entityDefinitions.get(i));
@@ -694,6 +682,20 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             } catch (JSONException e){
                 e.printStackTrace();
             }
+        }
+    }
+
+    public void parseLocationResults(JSONObject response) throws JSONException {
+        // ll context convo
+        JSONArray llContextConvoResults = response.has(llContextConvoKey) ? response.getJSONArray(llContextConvoKey) : new JSONArray();
+        updateContextConvoResponses(llContextConvoResults); //sliding buffer, time managed context convo card
+        String[] llContextConvoResponses;
+        if (llContextConvoResults.length() != 0) {
+            llContextConvoResponses = calculateLLContextConvoResponseFormatted(getContextConvoResponses());
+            sendRowsCard(llContextConvoResponses);
+            List<String> list = Arrays.stream(Arrays.copyOfRange(llContextConvoResponses, 0, llContextConvoResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
+            Collections.reverse(list);
+            sendUiUpdateSingle(String.join("\n", list));
         }
     }
 
