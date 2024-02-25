@@ -565,6 +565,7 @@ if __name__ == '__main__':
             web.post('/start_recording', start_recording_handler),
             web.post('/save_recording', save_recording_handler),
             web.post('/load_recording', load_recording_handler),
+            web.post('/set_user_settings', set_user_settings),
             web.post('/gps_location', update_gps_location_for_user),
         ]
     )
