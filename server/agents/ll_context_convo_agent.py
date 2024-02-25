@@ -41,7 +41,6 @@ Output 2: 如何询问去大英博物馆内某个展览的路线？
 Input 3: Intermediate, Shakespeare's Globe Theatre, Spanish
 Output 3: Estás justo al lado del Teatro Globe de Shakespeare, ¿sabes por qué Shakespeare es tan famoso?
 
-FINAL DATA AND COMMANDS:
 "Nearby Points of Interest:"
 {places}
 
