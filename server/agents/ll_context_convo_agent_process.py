@@ -1,13 +1,41 @@
 import time
 import traceback
 import asyncio
+from math import radians, cos, sin, sqrt, atan2
 
 # custom
 from DatabaseHandler import DatabaseHandler
 from agents.ll_context_convo_agent import run_ll_context_convo_agent
 from agents.helpers.get_nearby_places import get_user_location, get_nearby_places
 
-run_period = 15
+run_period = 30
+transcript_period = 60
+
+def lat_lng_to_meters(lat1, lng1, lat2, lng2):
+    # Radius of the Earth in km
+    R = 6371.0
+
+    # Convert latitude and longitude from degrees to radians
+    lat1_rad = radians(lat1)
+    lng1_rad = radians(lng1)
+    lat2_rad = radians(lat2)
+    lng2_rad = radians(lng2)
+
+    # Difference in coordinates
+    dlat = lat2_rad - lat1_rad
+    dlng = lng2_rad - lng1_rad
+
+    # Haversine formula
+    a = sin(dlat / 2)**2 + cos(lat1_rad) * cos(lat2_rad) * sin(dlng / 2)**2
+    c = 2 * atan2(sqrt(a), sqrt(1 - a))
+
+    # Distance in kilometers
+    distance_km = R * c
+
+    # Convert km to meters
+    distance_meters = distance_km * 1000
+
+    return distance_meters
 
 
 def ll_context_convo_agent_processing_loop():
@@ -39,24 +67,31 @@ def ll_context_convo_agent_processing_loop():
 
                 if user_ids.__contains__(user_id):
                     continue
-                
+                print("here")
                 user_ids.add(user_id)
                 ctime = time.time()
                 target_language = db_handler.get_user_option_value(user_id, "target_language")
                 locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
-                transcripts = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=60)
+                transcripts = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=transcript_period)
 
                 if len(locations) > 1:
                     user_location = locations[-1]
                     past_location = locations[-2]
-                    if abs(user_location['lat'] - past_location['lat']) < 2e-05 and (user_location['lng'] - past_location['lng']) < 1e-05:
+                    
+                    displacement = lat_lng_to_meters(lat1=past_location['lat'], lng1=past_location['lng'], lat2=user_location['lat'], lng2=user_location['lng'])
+                    delta_time = user_location['timestamp'] - past_location['timestamp']
+                    
+                    speed = displacement / delta_time
+                    print(speed)
+
+                    if speed < 0.01:
                         print("User is not moving, skipping")
                         continue
-                    elif transcripts[0]:
+                    elif len(transcripts[0]) / transcript_period > 1: # compute characters per second
                         print("User is talking, skipping", transcripts)
                         continue
                 else:
-                    print("Not enough locations, please wait", locations)
+                    print("Not enough locations, please wait")
                     continue
 
                 places = get_nearby_places(user_location)
