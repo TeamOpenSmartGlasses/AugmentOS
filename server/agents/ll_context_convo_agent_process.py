@@ -9,7 +9,7 @@ from agents.ll_context_convo_agent import run_ll_context_convo_agent
 from agents.helpers.get_nearby_places import get_user_location, get_nearby_places
 
 run_period = 30
-transcript_period = 60
+transcript_period = 1
 
 def lat_lng_to_meters(lat1, lng1, lat2, lng2):
     # Radius of the Earth in km
@@ -72,7 +72,7 @@ def ll_context_convo_agent_processing_loop():
                 ctime = time.time()
                 target_language = db_handler.get_user_option_value(user_id, "target_language")
                 locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
-                transcripts = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=transcript_period)
+                transcripts = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=60*transcript_period)
 
                 if len(locations) > 1:
                     user_location = locations[-1]
@@ -87,7 +87,7 @@ def ll_context_convo_agent_processing_loop():
                     if speed < 0.01:
                         print("User is not moving, skipping")
                         continue
-                    elif len(transcripts[0]) / transcript_period > 1: # compute characters per second
+                    elif len(transcripts[0].split(" ")) / transcript_period > 1: # compute characters per second
                         print("User is talking, skipping", transcripts)
                         continue
                 else:
