@@ -20,6 +20,7 @@ from pypinyin import pinyin, Style
 
 from Modules.LangchainSetup import *
 
+
 language_learning_agent_prompt_blueprint = """
 You are an expert language teacher fluent in Russian, Chinese, French, Spanish, German, English, and more. You are listening to a user's conversation right now. The user is learning {target_language}. The user's first language is {source_language}. You help the language learner user by translating some words from one language to another.
 
@@ -92,8 +93,6 @@ Don't redefine recently defined words! Don't include punctuation or periods (do 
 #Output 4: {{"museum" : "bówùguǎn", "architecture" : "jiànzhú", "beautiful" : "měilì"}}
 
 
-
-
 #Preface Rule:
 #Use Pinyin when writing Chinese. Never use Chinese characters, use Pinyin.
 #, use Pinyin if writing Chinese)
@@ -148,7 +147,7 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
     )
 
     word_rank_string = format_list_data(word_rank)
-    #print("LANGUAGE LEARNING WORD RANK STRING:" + word_rank_string)
+    # print("LANGUAGE LEARNING WORD RANK STRING:" + word_rank_string)
 
     language_learning_agent_query_prompt_string = extract_language_learning_agent_query_prompt.format_prompt(
         conversation_context=conversation_context,
@@ -159,8 +158,8 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
         live_translate_word_history=live_translate_word_history
     ).to_string()
 
-    #print("LANGUAGE LEARNING PROMPT********************************")
-    #print(language_learning_agent_query_prompt_string)
+    # print("LANGUAGE LEARNING PROMPT********************************")
+    # print(language_learning_agent_query_prompt_string)
 
     # print("Proactive meta agent query prompt string", language_learning_agent_query_prompt_string)
 

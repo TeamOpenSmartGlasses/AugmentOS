@@ -1,9 +1,6 @@
 import time
 import traceback
-import math
-import uuid
 import asyncio
-import logging
 
 # custom
 from DatabaseHandler import DatabaseHandler
