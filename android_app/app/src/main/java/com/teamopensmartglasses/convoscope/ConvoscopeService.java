@@ -378,13 +378,17 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     public void requestLocation(){
+        Log.d(TAG, "running request locatoin");
         try{
             // Get location data as JSONObject
             double latitude = locationSystem.lat;
             double longitude = locationSystem.lng;
 
             // TODO: Filter here... is it meaningfully different?
-            if(latitude == 0 && longitude == 0) return;
+            if(latitude == 0 && longitude == 0){
+                Log.d(TAG, "Got bad locatoin, exiting");
+                return;
+            }
 
             JSONObject jsonQuery = new JSONObject();
 
@@ -901,8 +905,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     //language learning
     public void updateDefinedWords(JSONArray newData) {
         long currentTime = System.currentTimeMillis();
-        Log.d(TAG, "GOT NEW WORDS: ");
-        Log.d(TAG, newData.toString());
+//        Log.d(TAG, "GOT NEW WORDS: ");
+//        Log.d(TAG, newData.toString());
 
         // Add new data to the list
         for (int i = 0; i < newData.length(); i++) {
@@ -951,8 +955,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     //context convo
     public void updateContextConvoResponses(JSONArray newData) {
         long currentTime = System.currentTimeMillis();
-        Log.d(TAG, "GOT NEW DATA: ");
-        Log.d(TAG, newData.toString());
+//        Log.d(TAG, "GOT NEW DATA: ");
+//        Log.d(TAG, newData.toString());
 
         // Add new data to the list
         for (int i = 0; i < newData.length(); i++) {

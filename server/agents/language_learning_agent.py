@@ -148,6 +148,7 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
 
     word_rank_string = format_list_data(word_rank)
     # print("LANGUAGE LEARNING WORD RANK STRING:" + word_rank_string)
+    #print("LANGUAGE LEARNING WORD RANK STRING:" + word_rank_string)
 
     language_learning_agent_query_prompt_string = extract_language_learning_agent_query_prompt.format_prompt(
         conversation_context=conversation_context,
