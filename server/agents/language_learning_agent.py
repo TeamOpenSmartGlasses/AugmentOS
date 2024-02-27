@@ -24,7 +24,7 @@ from Modules.LangchainSetup import *
 language_learning_agent_prompt_blueprint = """
 You are an expert language teacher fluent in Russian, Chinese, French, Spanish, German, English, and more. You are listening to a user's conversation right now. The user is learning {target_language}. The user's first language is {source_language}. You help the language learner user by translating some words from one language to another.
 
-You identify vocabulary from the conversation transcript (Input Text) that the user might not understand and then translate those words. You output 0 to 3 words. If the learner's fluency level is less than 50, they will need 1/4 words defined (one third of the words in the Input Text are defined or have already been defines). 50-75 fluency level might need 1 word per sentence. If fluency level is >75, only choose and translate very rare words.
+You identify vocabulary from the conversation transcript (Input Text) that the user might not understand and then translate those words. You output 0 to 3 words. If the learner's fluency level is less than 50, they will need 1/6 words defined (one third of the words in the Input Text are defined or have already been defines). 50-75 fluency level might need 1 word per sentence. If fluency level is >75, only choose and translate very rare words.
 
 Target Language: {target_language}
 Source Language: {source_language}
@@ -37,7 +37,7 @@ Process:
 1. Skim through the Input Text and identify 0 to 3 words that may unfamiliar to someone with a fluency level of {fluency_level} AND that have not been previously defined.
 2. Consider consider how command a word is (the word frequency percentile) in the Input Text to determine how likely the user knows that word. For word frequency numbers: 0.1 is very common, >1.0 is rare, >12.0 is very rare.
 3. For each of the zero to three identified words in the input text language, provide a 1-2 word translation in the language opposite to that of the input text. Make translations short. Use context from the conversation to inform translation of homonyms.
-4. Output response using the format instructions below. The keys are the rare, relevant words in the language of the input text, and the values are the translation of those words into the opposite of the input text language.  Don't redefine any words that are in the "Recently Translated" list of words.
+4. Output response using the format instructions below. The keys are the rare, relevant words in the language of the input text, in the order they appear in the text, and the values are the translation of those words into the opposite of the input text language.  Don't redefine any words that are in the "Recently Translated" list of words.
 
 Examples:
 Conversation 1: "I ran for the train, but the fruit stand was in the way"
@@ -66,8 +66,7 @@ Recently Translated: Don't define any of the following recently translated words
 
 Output Format: {format_instructions}
 
-Don't redefine recently defined words! Don't include punctuation or periods (do not include ?.,;) in your output! Output all lowercase! Define 1/4 of the words in the input text. Now provide the output:
-"""
+Don't redefine recently defined words! Don't include punctuation or periods (do not include ?.,;) in your output! Output all lowercase! Define 1/6 of the words in the input text (never define all of the words in the input, never define highly common words like "the", "a", "it", etc.). Output words in the order they appear in the input text. Now provide the output:"""
 
 #opposite language (either {source_language} or {target_language}, whatever is
 
@@ -148,7 +147,7 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
     )
 
     word_rank_string = format_list_data(word_rank)
-    # print("LANGUAGE LEARNING WORD RANK STRING:" + word_rank_string)
+    #print("LANGUAGE LEARNING WORD RANK STRING:" + word_rank_string)
 
     language_learning_agent_query_prompt_string = extract_language_learning_agent_query_prompt.format_prompt(
         conversation_context=conversation_context,
@@ -166,7 +165,7 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
 
     response = llm(
         [HumanMessage(content=language_learning_agent_query_prompt_string)])
-    print(response)
+    #print(response)
 
     try:
         translated_words = language_learning_agent_query_parser.parse(
@@ -183,12 +182,18 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
         else:
             translated_words_pinyin = translated_words
 
+        #drop any repeats and then pack into list(even though we prompt it not to, it often does repeats)
         translated_words_obj = []
+        word_rank_threshold = 0.2
+        #print(word_rank)
+        live_translate_word_history_set = set(live_translate_word_history)  # Convert to set for efficient lookup
         for word, translation in translated_words_pinyin.items():
-            translated_words_obj.append({"in_word": word, "in_word_translation": translation})
+            if word not in live_translate_word_history_set:  # Check if word is not in the already translated words
+                if word in word_rank and word_rank[word] >= word_rank_threshold: 
+                    translated_words_obj.append({"in_word": word, "in_word_translation": translation})
 
-        print("TRANSLATED OUTPUT: ")
-        print(translated_words_obj)
+        #print("TRANSLATED OUTPUT: ")
+        #print(translated_words_obj)
         return translated_words_obj
     except OutputParserException as e:
         print('parse fail')

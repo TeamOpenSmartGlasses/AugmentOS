@@ -62,11 +62,11 @@ public class ConvoscopeUi extends Fragment {
     @Override
     public void onReceive(Context context, Intent intent) {
       final String action = intent.getAction();
-      Log.d(TAG, "ConvoscopeUi got something");
+//      Log.d(TAG, "ConvoscopeUi got something");
       if (UI_UPDATE_SINGLE.equals(action)) {
         String message = intent.getStringExtra(CONVOSCOPE_MESSAGE_STRING);
         if (!message.equals("") && !message.equals(null)) {
-          Log.d(TAG, "Got message: " + message);
+//          Log.d(TAG, "Got message: " + message);
           addResponseTextBox(message);
         }
       } else if (UI_UPDATE_FULL.equals(action)){
