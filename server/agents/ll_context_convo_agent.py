@@ -13,11 +13,14 @@ from helpers.time_function_decorator import time_function
 
 from Modules.LangchainSetup import *
 
+#pinyin
+import json
+from pypinyin import pinyin, Style
 
 ll_context_convo_prompt_blueprint = """
 You are an expert language teacher fluent in Russian, Chinese, French, Spanish, German, English, and more. You are listening to a user's conversation right now. The user is learning {target_language}. You help the language learner user by asking talking to them about their environment.
 
-You identify interesting places around the user and converse with them about these places in their target language. You tailor your conversation to the user's fluency level. If the learner's fluency level is less than 50, use basic vocabulary and simple sentences If the learner's fluency level is between 50 and 75, introduce intermediate grammatical structures and a broader lexicon. If the learner's fluency level is greater than 75, engage in nuanced discourse and incorporating idiomatic expressions.
+You know about interesting places around the user's current locatoin and converse with them about these places in their target language. You tailor your conversation to the user's fluency level. If the learner's fluency level is less than 50, use basic vocabulary and simple, short sentences If the learner's fluency level is between 50 and 75, introduce intermediate grammatical structures and a broader lexicon. If the learner's fluency level is greater than 75, engage in nuanced discourse and incorporating idiomatic expressions.
 
 Target Language: {target_language}
 Fluency Level: {fluency_level}
@@ -45,6 +48,8 @@ Output 3: Estás justo al lado del Teatro Globe de Shakespeare, ¿sabes por qué
 {places}
 
 Output Format: {format_instructions}
+
+Keep the output sentence short and simple.
 
 Now provide the output:
 """
@@ -91,6 +96,13 @@ def run_ll_context_convo_agent(places: list, target_language: str = "Russian", f
     try:
         response = ll_context_convo_agent_query_parser.parse(
             response.content).response
+
+        def chinese_to_pinyin(chinese_text):
+            return ' '.join([item[0] for item in pinyin(chinese_text, style=Style.TONE)])
+
+        # Apply Pinyin conversion if target_language is "Chinese (Pinyin)"
+        if target_language == "Chinese (Pinyin)":
+            response = chinese_to_pinyin(response)
 
         response_obj = dict()
         response_obj["ll_context_convo_response"] = response # pack the response into a dictionary

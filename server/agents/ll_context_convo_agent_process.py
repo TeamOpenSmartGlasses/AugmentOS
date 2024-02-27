@@ -84,10 +84,12 @@ def ll_context_convo_agent_processing_loop():
                     speed = displacement / delta_time
                     print(speed)
 
+                    wpm_threshold = 30
+                    print(transcripts)
                     if speed < 0.01:
                         print("User is not moving, skipping")
                         continue
-                    elif len(transcripts[0].split(" ")) / transcript_period > 1: # compute characters per second
+                    elif ((len(transcripts[0].split(" ")) / transcript_period)) > wpm_threshold: # compute words per minute
                         print("User is talking, skipping", transcripts)
                         continue
                 else:
@@ -102,10 +104,10 @@ def ll_context_convo_agent_processing_loop():
 
                 response = run_ll_context_convo_agent(places=places, target_language=target_language, fluency_level=35)
 
-                # print("QUESTIONS#########################")
+                print("LL Contextual convo output #########################")
+                print(response)
                 loop_time = time.time() - ctime
                 print(f"RAN LL CONTEXTUAL CONVO IN : {loop_time}")
-                # print(response)
 
                 if response:
                     db_handler.add_ll_context_convo_results_for_user(
