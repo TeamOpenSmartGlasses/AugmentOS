@@ -513,11 +513,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //    }
 
     public String[] calculateLLStringFormatted(LinkedList<DefinedWord> definedWords) {
-        if (!clearedScreenYet) {
-            sendHomeScreen();
-            clearedScreenYet = true;
-        }
-
         int max_rows_allowed = 4;
         String[] llResults = new String[Math.min(max_rows_allowed, definedWords.size())];
         String enSpace = "\u2002"; // Using en space for padding
@@ -576,11 +571,20 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         updateDefinedWords(languageLearningResults); //sliding buffer, time managed language learning card
         String[] llResults;
         if (languageLearningResults.length() != 0) {
+            if (!clearedScreenYet) {
+                sendHomeScreen();
+                clearedScreenYet = true;
+            }
+
             llResults = calculateLLStringFormatted(getDefinedWords());
             sendRowsCard(llResults);
-            List<String> list = Arrays.stream(Arrays.copyOfRange(llResults, 0, languageLearningResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
-            Collections.reverse(list);
-            sendUiUpdateSingle(String.join("\n", list));
+            Log.d(TAG, "GOT THAT ONEEEEEEEE:");
+            Log.d(TAG, String.join("\n", llResults));
+//            sendUiUpdateSingle(String.join("\n", Arrays.copyOfRange(llResults, llResults.length, 0)));
+//            List<String> list = Arrays.stream(Arrays.copyOfRange(llResults, 0, languageLearningResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
+//            Collections.reverse(list);
+            //sendUiUpdateSingle(String.join("\n", list));
+            sendUiUpdateSingle(String.join("\n", llResults));
         }
 
         JSONArray llContextConvoResults = response.has(llContextConvoKey) ? response.getJSONArray(llContextConvoKey) : new JSONArray();
