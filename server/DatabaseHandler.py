@@ -1091,7 +1091,6 @@ class DatabaseHandler:
             word['timestamp'] = int(time.time())
             word['uuid'] = str(uuid.uuid4())
 
-        print("INSERTING THESE WORDS: " + str(words))
         self.language_learning_collection.insert_many(words)
 
         result_ids = []
