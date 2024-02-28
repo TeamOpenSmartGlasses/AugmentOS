@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <color name="colorPrimary">#7500B5</color>
+  <!--<color name="colorPrimary">#7500B5</color>-->
+  <color name="colorPrimary">#A54200</color>
   <color name="red">#FF0000</color>
   <color name="green">#00FF00</color>
   <color name="blue">#0000FF</color>
-  <color name="colorPrimaryDark">#380057</color>
-  <color name="colorAccent">#D81B60</color>
+  <!--<color name="colorPrimaryDark">#380057</color> -->
+  <color name="colorPrimaryDark">#43E0E8</color>
+  <!--<color name="colorAccent">#D81B60</color>-->
+  <color name="colorAccent">#43E0E8</color>
   <color name="colorLightGray">#BBBBBB</color>
   <color name="redButton">#DF4A4A</color>
   <color name="greenButton">#1D9E1A</color>
   <color name="blueButton">#3176D3</color>
   <color name="background_light">#FFFFFF</color>
   <color name="background_dark">#000000</color>
+  <color name="colorPrimaryDarkMode">#FFFFFF</color> <!-- Default light color -->
+  <color name="colorPrimaryDarkDarkMode">#EEEEEE</color> <!-- Lighter variant -->
+  <color name="colorAccentDarkMode">#FF4081</color> <!-- Light mode accent color -->
 </resources>
