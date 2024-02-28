@@ -14,7 +14,7 @@
   <color name="greenButton">#1D9E1A</color>
   <color name="blueButton">#3176D3</color>
   <color name="background_light">#FFFFFF</color>
-  <color name="background_dark">#000000</color>
+  <color name="background_dark">#121212</color>
   <color name="colorPrimaryDarkMode">#FFFFFF</color> <!-- Default light color -->
   <color name="colorPrimaryDarkDarkMode">#EEEEEE</color> <!-- Lighter variant -->
   <color name="colorAccentDarkMode">#FF4081</color> <!-- Light mode accent color -->
