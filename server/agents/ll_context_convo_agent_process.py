@@ -86,7 +86,8 @@ def ll_context_convo_agent_processing_loop():
 
                     wpm_threshold = 30
                     print(transcripts)
-                    if speed < 0.01:
+                    print("Speed is: " + str(speed))
+                    if speed < 0.00001:
                         print("User is not moving, skipping")
                         continue
                     elif ((len(transcripts[0].split(" ")) / transcript_period)) > wpm_threshold: # compute words per minute
