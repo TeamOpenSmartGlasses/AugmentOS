@@ -73,7 +73,7 @@ public class BackendServerComms {
 //                        Log.d(TAG, "Success requesting data, response:");
                         //
 
-                        if(endpoint == CSE_ENDPOINT) {
+                        if(endpoint == UI_POLL_ENDPOINT) {
                             try {
                                 if (response.getBoolean("success")) {
                                     callback.onSuccess(response);
@@ -83,7 +83,7 @@ public class BackendServerComms {
                         }
 
                         if(endpoint == LLM_QUERY_ENDPOINT || endpoint == BUTTON_EVENT_ENDPOINT) {
-                            Log.d(TAG, response.toString());
+//                            Log.d(TAG, response.toString());
                             if (response.has("message")) {
                                 callback.onSuccess(response);
                             } else {

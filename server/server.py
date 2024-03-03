@@ -32,21 +32,25 @@ from agents.expert_agents import run_single_expert_agent, arun_single_expert_age
 from agents.explicit_agent_process import explicit_agent_processing_loop, call_explicit_agent
 from agents.proactive_definer_agent_process import proactive_definer_processing_loop
 from agents.language_learning_agent_process import language_learning_agents_processing_loop
+from agents.ll_context_convo_agent_process import ll_context_convo_agent_processing_loop
 import agents.wake_words
 from Modules.RelevanceFilter import RelevanceFilter
 
 from auth.authentication import *
+
 
 global agent_executor
 global db_handler
 global relevance_filter
 global app
 
+
 #handle new transcripts coming in
 async def chat_handler(request):
     body = await request.json()
     is_final = body.get('isFinal')
     text = body.get('text')
+    device_id = body.get('deviceId')
     transcribe_language = body.get('transcribe_language')
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
     id_token = body.get('Authorization')
@@ -65,10 +69,11 @@ async def chat_handler(request):
         print("user_id none in chat_handler, exiting with error response 400.")
         return web.Response(text='no userId in request', status=400)
 
-    success = db_handler.save_transcript_for_user(user_id=user_id, text=text, is_final=is_final, transcribe_language=transcribe_language)
+    success = db_handler.save_transcript_for_user(user_id=user_id, device_id=device_id, text=text, is_final=is_final, transcribe_language=transcribe_language)
     message = "Sending messages too fast" if not success else ""
 
     return web.Response(text=json.dumps({'success': True, 'message': message}), status=200)
+
 
 async def start_recording_handler(request):
     body = await request.json()
@@ -81,6 +86,7 @@ async def start_recording_handler(request):
     result = db_handler.update_recording_time_for_user(user_id)
     
     return web.Response(text=json.dumps({'success': result}), status=200)
+
 
 async def save_recording_handler(request):
     body = await request.json()
@@ -227,11 +233,13 @@ async def button_handler(request):
 #        loop_run_period = 1.5 #run the loop this often
 #        while (time.time() - loop_start_time) < loop_run_period: #wait until loop_run_period has passed before running this again
 #            time.sleep(0.2)
-
 #frontends poll this to get the results from our processing of their transcripts
+
+
 async def ui_poll_handler(request, minutes=0.5):
     # parse request
     body = await request.json()
+    # print(body)
     device_id = body.get('deviceId')
     features = body.get('features')
     id_token = body.get('Authorization')
@@ -249,6 +257,8 @@ async def ui_poll_handler(request, minutes=0.5):
 
     resp = dict()
     resp["success"] = True
+    
+    db_handler.update_active_user(user_id, device_id)
 
     # get CSE results
     if "contextual_search_engine" in features:
@@ -286,8 +296,16 @@ async def ui_poll_handler(request, minutes=0.5):
     if "language_learning" in features:
         language_learning_results = db_handler.get_language_learning_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["language_learning_results"] = language_learning_results
-        print("RETURNING THIS LANGUAGE LEARNING RESULTS")
-        print(language_learning_results)
+        if language_learning_results:
+            print("server.py ================================= LLRESULT")
+            print(language_learning_results)
+    
+    if "ll_context_convo" in features:
+        ll_context_convo_results = db_handler.get_ll_context_convo_results_for_user_device(user_id=user_id, device_id=device_id)
+        resp["ll_context_convo_results"] = ll_context_convo_results
+        if ll_context_convo_results:
+            print("RETURNING THIS QUESTION ASKER RESULTS")
+            print(ll_context_convo_results)
 
     return web.Response(text=json.dumps(resp), status=200)
 
@@ -339,6 +357,7 @@ async def upload_user_data_handler(request):
     else:
         return web.Response(text="Missing user file or user ID in the received data", status=400)
 
+
 async def expert_agent_runner(expert_agent_name, user_id):
     print("Starting agent run task of agent {} for user {}".format(expert_agent_name, user_id))
     #get the context for the last n minutes
@@ -359,6 +378,7 @@ async def expert_agent_runner(expert_agent_name, user_id):
 
     #agent run complete
     print("--- Done agent run task of agent {} from user {}".format(expert_agent_name, user_id))
+
 
 #run a single agent with no extra context
 async def run_single_expert_agent_handler(request):
@@ -419,6 +439,39 @@ async def send_agent_chat_handler(request):
 
     return web.Response(text=json.dumps({'success': True, 'message': "Got your message: {}".format(chat_message)}), status=200)
 
+
+async def update_gps_location_for_user(request):
+    body = await request.json()
+
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    device_id = body.get('deviceId')
+
+    if user_id is None:
+        raise web.HTTPUnauthorized()
+
+    location = dict()
+    location['lat'] = body.get('lat')
+    location['lng'] = body.get('lng')
+
+    # 400 if missing params
+    if not user_id:
+        print("user_id none in update_gps_location_for_user, exiting with error response 400.")
+        return web.Response(text='no userId in request', status=400)
+    if not location['lat'] or not location['lng']:
+        print("location none in update_gps_location_for_user, exiting with error response 400.")
+        return web.Response(text='no chatMessage in request', status=400)
+
+    # print("SEND UPDATE LOCATION FOR USER_ID: " + user_id)
+    db_handler.add_gps_location_for_user(user_id, location)
+    
+    locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
+    if len(locations) > 1:
+        print("difference in locations: ", locations[-1]['lat'] - locations[-2]['lat'], locations[-1]['lng'] - locations[-2]['lng'])
+
+    return web.Response(text=json.dumps({'success': True, 'message': "Got your location: {}".format(location)}), status=200)
+
+
 async def rate_result_handler(request):
     body = await request.json()
     id_token = body.get('Authorization')
@@ -442,6 +495,7 @@ async def rate_result_handler(request):
     res = db_handler.rate_result_by_uuid(user_id=user_id, result_uuid=result_uuid, rating=rating)
     return web.Response(text=json.dumps({'success': True, 'message': str(res)}), status=200)
 
+
 async def protected_route(request):
     print("PROTECTED ROUTE")
     id_token = request.headers.get('Authorization')
@@ -451,6 +505,7 @@ async def protected_route(request):
         print()
     else:
         raise web.HTTPUnauthorized()
+
 
 if __name__ == '__main__':
     print("Starting server...")
@@ -485,6 +540,11 @@ if __name__ == '__main__':
     print("Starting Language Learning Agents process...")
     language_learning_background_process = multiprocessing.Process(target=language_learning_agents_processing_loop)
     language_learning_background_process.start()
+    
+    # start the question asker app process
+    # print("Starting Question Asker Agents process...")
+    ll_context_convo_background_process = multiprocessing.Process(target=ll_context_convo_agent_processing_loop)
+    ll_context_convo_background_process.start()
 
     # setup and run web app
     # CORS allow from all sources
@@ -494,18 +554,19 @@ if __name__ == '__main__':
     app.add_routes(
         [
             web.get('/protected', protected_route),
+            web.get('/image', return_image_handler),
             web.post('/chat', chat_handler),
             web.post('/button_event', button_handler),
             web.post('/ui_poll', ui_poll_handler),
             web.post('/upload_userdata', upload_user_data_handler),
-            web.get('/image', return_image_handler),
             web.post('/run_single_agent', run_single_expert_agent_handler),
             web.post('/send_agent_chat', send_agent_chat_handler),
             web.post('/rate_result', rate_result_handler),
             web.post('/start_recording', start_recording_handler),
             web.post('/save_recording', save_recording_handler),
             web.post('/load_recording', load_recording_handler),
-            web.post('/set_user_settings', set_user_settings)
+            web.post('/set_user_settings', set_user_settings),
+            web.post('/gps_location', update_gps_location_for_user),
         ]
     )
     cors = aiohttp_cors.setup(app, defaults={
@@ -525,4 +586,5 @@ if __name__ == '__main__':
     intelligent_definer_agent_process.join()
     #cse_process.join()
     language_learning_background_process.join()
+    ll_context_convo_background_process.join()
     explicit_background_process.join()
