@@ -21,7 +21,7 @@
         android:text="Coolest Smart Glasses"
         android:layout_marginLeft="4dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#4d4d4d"
+        android:textColor="@color/textColor"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/glasses_icon"
         app:layout_constraintTop_toTopOf="parent" />

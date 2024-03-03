@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <color name="colorPrimary">#00BFDB</color>
+  <color name="colorPrimary">#566cc9</color>
+  <color name="colorPrimaryDark">#405acc</color>
+  <color name="colorAccent">#247478</color>
+
   <color name="red">#FF6666</color>
   <color name="green">#66FF66</color>
   <color name="blue">#6666FF</color>
-  <color name="colorPrimaryDark">#00BFDB</color>
-  <color name="colorAccent">#FF4081</color>
+
   <color name="colorLightGray">#444444</color>
+
   <color name="redButton">#E57373</color>
   <color name="greenButton">#81C784</color>
   <color name="blueButton">#64B5F6</color>
-  <color name="background_light">#121212</color>
-  <color name="background_dark">#666666</color>
+
+  <color name="backgroundColor">#212121</color>
+  <color name="textColor">#efefef</color>
+  <color name="bubbleColor">#434343</color>
 </resources>
