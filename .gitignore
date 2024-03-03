@@ -292,3 +292,6 @@ server/images/cse/
 server/package-lock.json
 server/helpers/credentials.json
 server/helpers/token.json
+server/word_freq_lists/
+server/glove.6B/glove.6B.50d.txt
+server/auth/serviceAccountKey.json
