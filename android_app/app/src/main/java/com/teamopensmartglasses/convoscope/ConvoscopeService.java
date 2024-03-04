@@ -582,6 +582,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
             llResults = calculateLLStringFormatted(getDefinedWords());
             sendRowsCard(llResults);
+            sendTextToSpeech("欢迎使用安卓文本到语音转换功能", "chinese");
             Log.d(TAG, "GOT THAT ONEEEEEEEE:");
             Log.d(TAG, String.join("\n", llResults));
 //            sendUiUpdateSingle(String.join("\n", Arrays.copyOfRange(llResults, llResults.length, 0)));
