@@ -48,6 +48,7 @@ public class ConvoscopeUi extends Fragment {
   public static final String UI_UPDATE_SINGLE = "UI_UPDATE_SINGLE";
   public static final String UI_UPDATE_FINAL_TRANSCRIPT = "UI_UPDATE_FINAL_TRANSCRIPT";
   public static final String CONVOSCOPE_MESSAGE_STRING = "CONVOSCOPE_MESSAGE_STRING";
+  public static final String TRANSCRIPTS_MESSAGE_STRING = "TRANSCRIPTS_MESSAGE_STRING";
   public static final String FINAL_TRANSCRIPT = "FINAL_TRANSCRIPT";
   private static final String fragmentLabel = "Convoscope";
 
@@ -71,10 +72,17 @@ public class ConvoscopeUi extends Fragment {
         }
       } else if (UI_UPDATE_FULL.equals(action)){
         responseTextUiAdapter.clearTexts();
-        ArrayList<String> messages = intent.getStringArrayListExtra(CONVOSCOPE_MESSAGE_STRING);
-        for(String message : messages) {
-          addResponseTextBox(message);
+        transcriptTextUiAdapter.clearTexts();
+        ArrayList<String> responsesBuffer = intent.getStringArrayListExtra(CONVOSCOPE_MESSAGE_STRING);
+        ArrayList<String> transcrriptsBuffer = intent.getStringArrayListExtra(TRANSCRIPTS_MESSAGE_STRING);
+        for (String message : responsesBuffer) {
+          addResponseTextBox(message, false);
         }
+        responseRecyclerView.scrollToPosition(responseTextUiAdapter.getItemCount() - 1);
+        for (String transcript : transcrriptsBuffer) {
+          addTranscriptTextBox(transcript);
+        }
+        transcriptRecyclerView.scrollToPosition(transcriptTextUiAdapter.getItemCount() - 1);
       } else if (UI_UPDATE_FINAL_TRANSCRIPT.equals(action)){
         String transcript = intent.getStringExtra(FINAL_TRANSCRIPT);
         addTranscriptTextBox(transcript);
@@ -89,6 +97,11 @@ public class ConvoscopeUi extends Fragment {
 
     //unregister receiver
     getActivity().registerReceiver(mMainServiceReceiver, makeMainServiceReceiverIntentFilter());
+
+    //trigger UI update
+    if (((MainActivity)getActivity()).mService != null){
+       ((MainActivity)getActivity()).mService.sendUiUpdateFull();
+    }
   }
 
   @Override
@@ -278,18 +291,30 @@ public class ConvoscopeUi extends Fragment {
 //        startActivityForResult(pickContactIntent, PICK_CONTACT_REQUEST);
     }
 
-      // Call this method to add a new text box to the list
+  // Call this method to add a new text box to the list
   public void addResponseTextBox(String text) {
+    addResponseTextBox(text, true);
+  }
+
+  public void addResponseTextBox(String text, boolean scroll) {
     responseTextUiAdapter.addText(text);
-    responseRecyclerView.smoothScrollToPosition(responseTextUiAdapter.getItemCount() - 1);
+    if (scroll){
+      responseRecyclerView.smoothScrollToPosition(responseTextUiAdapter.getItemCount() - 1);
+    }
+//      responseRecyclerView.scrollToPosition(responseTextUiAdapter.getItemCount() - 1);
   }
 
   // Call this method to add a new text box to the list
   public void addTranscriptTextBox(String text) {
-    transcriptTextUiAdapter.addText(text);
-    transcriptRecyclerView.smoothScrollToPosition(transcriptTextUiAdapter.getItemCount() - 1);
+   addTranscriptTextBox(text, true);
   }
 
+  public void addTranscriptTextBox(String text, boolean scroll) {
+    transcriptTextUiAdapter.addText(text);
+    if (scroll) {
+      transcriptRecyclerView.smoothScrollToPosition(transcriptTextUiAdapter.getItemCount() - 1);
+    }
+  }
 
   // Change UserID button
   public void showTextInputDialog(Context context) {
