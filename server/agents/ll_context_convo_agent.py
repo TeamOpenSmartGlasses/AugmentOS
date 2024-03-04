@@ -1,3 +1,5 @@
+from typing import Optional
+
 # custom
 from agents.agent_utils import format_list_data
 
@@ -14,8 +16,8 @@ from helpers.time_function_decorator import time_function
 from Modules.LangchainSetup import *
 
 #pinyin
-import json
 from pypinyin import pinyin, Style
+
 
 ll_context_convo_prompt_blueprint = """
 You are an expert language teacher fluent in Russian, Chinese, French, Spanish, German, English, and more. You are listening to a user's conversation right now. The user is learning {target_language}. You help the language learner user by asking talking to them about their environment.
@@ -30,7 +32,8 @@ Process:
 1. Review the given locations and select the most interesting ones as the basis for your conversation, ensuring they align with the learner's proficiency level. 
 The input follows the format for each location:
 'name: [Location Name]; types: [type1, type2, ...]'
-2. Generate a question or response in the target language tailored to both the learner's level and the selected locations, varying from simple vocabulary tasks for beginners to nuanced debates for native speakers.
+2. Look at the conversation history to ensure that the question or response is relevant to the current conversation. If the conversation history is empty, generate a question based on the selected locations.
+3. Generate a question or response in the target language tailored to both the learner's level and the selected locations, varying from simple vocabulary tasks for beginners to nuanced debates for native speakers.
 
 Output:
 - Output should be a question or response.
@@ -47,6 +50,9 @@ Output 3: Estás justo al lado del Teatro Globe de Shakespeare, ¿sabes por qué
 "Nearby Points of Interest:"
 {places}
 
+Here is the previous context:
+{conversation_history}
+
 Output Format: {format_instructions}
 
 Keep the output sentence short and simple.
@@ -56,7 +62,7 @@ Now provide the output:
 
 
 @time_function()
-def run_ll_context_convo_agent(places: list, target_language: str = "Russian", fluency_level: int = 35):
+def run_ll_context_convo_agent(places: list, target_language: str = "Russian", fluency_level: int = 35, conversation_history: Optional[str] = None):
     # start up GPT3 connection
     llm = get_langchain_gpt4(temperature=0.2)
 
@@ -75,7 +81,7 @@ def run_ll_context_convo_agent(places: list, target_language: str = "Russian", f
     extract_ll_context_convo_agent_query_prompt = PromptTemplate(
         template=ll_context_convo_prompt_blueprint,
         input_variables=["places",
-                         "target_language", "fluency_level"],
+                         "target_language", "fluency_level", "conversation_history"],
         partial_variables={
             "format_instructions": ll_context_convo_agent_query_parser.get_format_instructions()}
     )
@@ -84,6 +90,7 @@ def run_ll_context_convo_agent(places: list, target_language: str = "Russian", f
         places=places_string,
         target_language=target_language,
         fluency_level=fluency_level,
+        conversation_history=conversation_history,
     ).to_string()
 
     # print("QUESTION ASKER PROMPT********************************")
