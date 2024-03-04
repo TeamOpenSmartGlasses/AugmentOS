@@ -3,11 +3,14 @@ from pymongo.server_api import ServerApi
 import time
 import agents.wake_words
 import math
+import warnings
 from hashlib import sha256
 from server_config import database_uri, clear_users_on_start, clear_cache_on_start
 import uuid
 import logging
 from logger_config import logger
+from constants import TESTING
+
 
 
 class DatabaseHandler:
@@ -186,6 +189,10 @@ class DatabaseHandler:
         )
 
     def get_active_users(self, active_threshold=10):
+        if TESTING:
+            warnings.warn("TESTING MODE: Returning test user. Please remove this warning when not testing.")
+            return [{"user_id": "oO4QvMJELYM6jEYtLDbo1LRFLPO2", "device_id": "android"}]
+
         current_time = int(time.time())
         query = {"last_active": {"$gte": current_time - active_threshold}}
         active_users = self.active_user_collection.find(query)
