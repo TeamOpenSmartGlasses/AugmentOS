@@ -12,7 +12,6 @@
         android:padding="8dp"
         android:layout_height="wrap_content"
         android:textSize="@dimen/transcript_text_size"
-        android:fontFamily="@font/montserrat_regular"
         android:hint="Text here my man."
         android:background="@drawable/rounded_corner"
         android:textColor="@color/textColor"/>
