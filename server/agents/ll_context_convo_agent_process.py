@@ -15,7 +15,7 @@ import warnings
 if TESTING_LL_CONTEXT_CONVO_AGENT:
     run_period = 10
 else:
-    run_period = 10
+    run_period = 30
 
 transcript_period = 60
 
@@ -71,7 +71,7 @@ async def handle_user_conversation(user_id, device_id, db_handler, ongoing_conve
 
         if TESTING_LL_CONTEXT_CONVO_AGENT:
             warnings.warn("Currently in testing mode, skipping speed and trascription checks, please remove TESTING flag to run normally.")
-        elif speed < 0:
+        elif speed < 0.5:
             print("User is not moving, skipping")
             ongoing_conversations.remove(user_id)
             return
