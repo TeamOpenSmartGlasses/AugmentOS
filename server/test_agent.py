@@ -18,7 +18,7 @@ if __name__ == "__main__":
     print(places)
     places = ["name: Withworth Park, types: ['locality', 'park']", "name: Green Restaurant, types: ['locality', 'restaurant']"]
     conversation_history = [
-        {'role': 'll_context_convo_agent', 'content': '¿Te gusta el parque? Withworth Park es muy bonito.'},
+        {'role': 'agent', 'content': '¿Te gusta el parque? Withworth Park es muy bonito.'},
         {'role': 'user', 'content': 'Si, me gusta mucho el parque. Es muy bonito. Quiero ir al restaurante Green Restaurant. ¿Dónde está?'},
     ]
     reponse = run_ll_context_convo_agent(places, target_language="Spanish", conversation_history=conversation_history)

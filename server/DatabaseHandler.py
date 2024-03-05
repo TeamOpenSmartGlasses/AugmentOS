@@ -9,7 +9,7 @@ from server_config import database_uri, clear_users_on_start, clear_cache_on_sta
 import uuid
 import logging
 from logger_config import logger
-from constants import TESTING
+from constants import TESTING_LL_CONTEXT_CONVO_AGENT
 
 
 
@@ -189,7 +189,7 @@ class DatabaseHandler:
         )
 
     def get_active_users(self, active_threshold=10):
-        if TESTING:
+        if TESTING_LL_CONTEXT_CONVO_AGENT:
             warnings.warn("TESTING MODE: Returning test user. Please remove this warning when not testing.")
             return [{"user_id": "oO4QvMJELYM6jEYtLDbo1LRFLPO2", "device_id": "android"}]
 

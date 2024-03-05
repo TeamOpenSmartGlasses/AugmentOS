@@ -40,11 +40,11 @@ Output:
 
 Examples:
 
-Input 1: Beginner, Greenwich Park, Russian
+Input 1: 35, Greenwich Park, Russian
 Output 1: Когда вы последний раз гуляли в Гринвичском парке?
-Input 2: Conversational, The British Museum, Chinese
+Input 2: 61, The British Museum, Chinese
 Output 2: 如何询问去大英博物馆内某个展览的路线？
-Input 3: Intermediate, Shakespeare's Globe Theatre, Spanish
+Input 3: 79, Shakespeare's Globe Theatre, Spanish
 Output 3: Estás justo al lado del Teatro Globe de Shakespeare, ¿sabes por qué Shakespeare es tan famoso?
 
 "Nearby Points of Interest:"
@@ -113,6 +113,7 @@ def run_ll_context_convo_agent(places: list, target_language: str = "Russian", f
 
         response_obj = dict()
         response_obj["ll_context_convo_response"] = response # pack the response into a dictionary
+        response_obj["to_tts"] = {"text": response, "language": target_language}
 
         print("RESPONSE OBJ")
         print(response_obj)

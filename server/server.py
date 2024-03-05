@@ -24,7 +24,7 @@ from aiohttp import web, web_exceptions
 
 #Convoscope
 from server_config import server_port
-from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH, TESTING
+from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH, TESTING_LL_CONTEXT_CONVO_AGENT
 from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_agents_process import proactive_agents_processing_loop
@@ -441,7 +441,7 @@ async def send_agent_chat_handler(request):
 
 
 async def update_gps_location_for_user(request):
-    if TESTING:
+    if TESTING_LL_CONTEXT_CONVO_AGENT:
         warnings.warn("TESTING MODE: Using hardcoded user_id, device_id and location. Please remove this warning when done testing.")
         user_id = "oO4QvMJELYM6jEYtLDbo1LRFLPO2"
         device_id = "android"
