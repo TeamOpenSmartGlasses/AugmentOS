@@ -47,6 +47,7 @@ Insight: Cancer survival rate: 49% in mid-70s to 68% now
     "DevilsAdvocate": {
         "agent_name": "DevilsAdvocate",
         "tools": ["Search_Engine"],
+        "discourage_tool_use": False,
         "insight_num_words": 15,
         "agent_insight_type": """assess the point of view being taken in the conversation and steel-man a contrary position. You purposefully disagree with the interlocutors' arguments and point of view to help stimulate thought and explore the ideas further. Provide your argument in simple and easy to understand language.""",
         "agent_plan": """1. Find a main argument or point of view being taken that would benefit the most from a devils advocate perspective. Write down the original position. If no position/argument is found, skip to the final step and output "null".\n2. Think of insightful perspectives and generate a devil's advocate.""",
@@ -68,6 +69,7 @@ Insight: AI will create new jobs and industries, not just replace old ones
   "QuestionAsker": {
         "agent_name": "QuestionAsker",
         "tools": [],
+        "discourage_tool_use": False,
         "insight_num_words": 15,
         "agent_insight_type": """propose a question, relevant to the current conversation, that isn't already being sufficiently discussed, that would stimulate further thought and explore ideas further. Don't ask something broad, ask something specific to the current conversation. Provide your question in simple and easy to understand language, and always pose it as a question.""",
         "agent_plan": """1. Read the conversation thus far. 2. Think deeply about a contextually relevant, provacative question, something that the conversationalists haven't considered yet. 3. Output your question in the requested format""",
@@ -79,6 +81,7 @@ Insight: AI will create new jobs and industries, not just replace old ones
     "QuestionAnswerer": {
         "agent_name": "QuestionAnswerer",
         "tools": ["Search_Engine"],
+        "discourage_tool_use": True,
         "insight_num_words": 15,
         "agent_insight_type": """
             Answer any questions, inquiries, or open-ended rhetoricals made during a conversation. The question might be specific, broad, literal, rhetorical, or not even phrased as a question. 
@@ -107,6 +110,7 @@ Insight: AI will create new jobs and industries, not just replace old ones
     "RealTimer": {
         "agent_name": "RealTimer",
         "tools": ["Search_Engine"],
+        "discourage_tool_use": False,
         "insight_num_words": 15,
         "agent_insight_type": """listen for mention of ongoing events that would benefit from real-time information and generate insights based on real-time data and current events. Your tasks include updating ongoing events, reporting recent advancements, and relaying current statistics relevant to the topic. If real-time information isn't available or relevant, output `null`. Avoid outdated or speculative information. The information you find should be fast-changing and new, if it's not, just output `null`.""",
         "agent_plan": """1. Identify the topic most requiring real-time updates. \n2. Use tools to gather the most recent, relevant information, focusing on reliable news sources, official reports, and recent statistics. \n3. Synthesize this information into a concise, informative insight. If you couldn't find a great insight or fast-changing update, just output `null`.""",

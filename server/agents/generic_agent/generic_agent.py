@@ -11,6 +11,8 @@ from agents.generic_agent.agent_insight import *
 llm4 = get_langchain_gpt4()
 llm35 = get_langchain_gpt35(temperature=0.0)
 
+discourage_tool_use_prompt = "- In general, tools have a high time cost, so only use them if you must - try to answer questions without them if you can. If query asks for a stat or data that you already know, don't search for it, just provide it from memory, the speed of a direct answer is more important than having the most up-to-date information."
+
 expert_agent_prompt_blueprint = """
 ## General Context
 "Convoscope" is a multi-agent system that reads live conversation transcripts and provides real time "Insights", which are short snippets of intelligent analysis, ideas, arguments, perspectives, questions to ask, deeper insights, etc. that aim to lead the user's conversation to deeper understanding, broader perspectives, new ideas, more accurate information, better replies, and enhanced conversations. 
@@ -20,8 +22,9 @@ You are a highly skilled and intelligent {agent_name} expert agent in this syste
 As the {agent_name} agent, you {agent_insight_type}.
 
 ### Your Tools
-You have access to tools, which you should utilize to help you generate "Insights". Limit your usage of the Search_Engine tool to 1 times.
-If a tool fails to fulfill your request, don't run the exact same request on the same tool again, and just continue without it.
+- You have access to tools, which you should utilize to help you generate "Insights". Limit your usage of the Search_Engine tool to 1 times.
+- If a tool fails to fulfill your request, don't run the exact same request on the same tool again, and just continue without it.
+{discourage_tool_use_prompt}
 
 ### Guidelines for a Good "Insight"
 - Your "Insight" should strictly fall under your role as an expert {agent_name}
@@ -68,6 +71,7 @@ class GenericAgent:
                  proactive_tool_description,
                  proactive_tool_example,
                  examples,
+                 discourage_tool_use = False,
                  try_small_model_first = True,
                  small_model_confidence_threshold = 5) -> None:
         self.agent_name = agent_name
@@ -80,16 +84,16 @@ class GenericAgent:
         self.proactive_tool_example = proactive_tool_example
         self.examples = examples
 
+        self.discourage_tool_use = discourage_tool_use
         self.try_small_model_first = try_small_model_first
         self.small_model_confidence_threshold = small_model_confidence_threshold
 
         self.agent_small = initialize_agent([
-            get_search_tool_for_agents(),
         ], llm35, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=True)
 
         self.agent_large = initialize_agent([
             get_search_tool_for_agents(),
-        ], llm4, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=True)
+        ], llm4, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=1, early_stopping_method="generate", verbose=True)
 
     def get_agent_prompt(
         self,
@@ -113,6 +117,7 @@ class GenericAgent:
             conversation_transcript=conversation_transcript,
             insights_history=insights_history,
             format_instructions=format_instructions,
+            discourage_tool_use_prompt=discourage_tool_use_prompt if self.discourage_tool_use else ""
         )
 
         print("expert_agent_prompt\n\n", expert_agent_prompt)
