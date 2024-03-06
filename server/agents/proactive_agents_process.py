@@ -11,6 +11,8 @@ from agents.proactive_meta_agent import run_proactive_meta_agent_and_experts
 from server_config import openai_api_key
 from logger_config import logger
 
+time_between_iterations = 4
+
 def proactive_agents_processing_loop():
     print("START MULTI AGENT PROCESSING LOOP")
     dbHandler = DatabaseHandler(parent_handler=False)
@@ -23,15 +25,15 @@ def proactive_agents_processing_loop():
             continue
         
         #wait for some transcripts to load in
-        time.sleep(15)
+        time.sleep(time_between_iterations)
 
         try:
             pLoopStartTime = time.time()
             # Check for new transcripts
             print("RUNNING MULTI-AGENT LOOP")
-            newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(n=240)
+            newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(n=time_between_iterations*2)
             for transcript in newTranscripts:
-                if len(transcript['text']) < 400: # Around 75-100 words, no point to generate insight below this
+                if len(transcript['text'].split()) < 8: # Around 75-100 words, no point to generate insight below this
                     print("Transcript too short, skipping...")
                     continue
                 # print("Run Insights generation with... user_id: '{}' ... text: '{}'".format(
@@ -55,9 +57,6 @@ def proactive_agents_processing_loop():
                     #run proactive meta agent, get insights
                     insights = run_proactive_meta_agent_and_experts(transcript_to_use, insights_history)
                     print("insights: {}".format(insights))
-                    # [{'agent_name': 'Statistician', 'agent_insight': "Insight: Brain's processing limit challenges full Wikipedia integration. Neuralink trials show promising BCI advancements."},
-                    # {'agent_name': 'FactChecker', 'agent_insight': 'null'},
-                    # {'agent_name': 'DevilsAdvocate', 'agent_insight': 'Insight: Is more information always beneficial, or could it lead to cognitive overload?'}]
 
                     for insight in insights:
                         if insight is None:

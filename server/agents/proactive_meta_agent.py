@@ -4,10 +4,11 @@ from agents.expert_agent_configs import default_expert_agent_list
 from agents.agent_utils import format_list_data
 from server_config import openai_api_key
 from constants import DEBUG_FORCE_EXPERT_AGENT_RUN
+from agents.proactive_meta_agent_prompts import proactive_meta_agent_prompt_blueprint, proactive_meta_agent_gatekeeper_prompt_blueprint
 
 #langchain
-from langchain.chat_models import ChatOpenAI
-from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
+from langchain_community.callbacks import get_openai_callback
 from langchain.prompts import PromptTemplate
 from langchain.schema import (
     HumanMessage
@@ -24,32 +25,31 @@ force_run_agents_prompt = ""
 if DEBUG_FORCE_EXPERT_AGENT_RUN:
     force_run_agents_prompt = "For this run, you MUST specify at least 1 expert agent to run. Do not output an empty list."
 
-#proactively decides which agents to run and runs them
-proactive_meta_agent_prompt_blueprint = """You are the higly intelligent and skilled proactive master agent of "Convoscope". "Convoscope" is a tool that listens to a user's live conversation and enhances their conversation by providing them with real time "Insights". The "Insights" generated should aim to lead the user to deeper understanding, broader perspectives, new ideas, more accurate information, better replies, and enhanced conversations.
+min_gatekeeper_score = 4
 
-[Your Objective]
-"Convoscope" is a multi-agent system in which you are the proactive meta agent. You will be given direct access to a live stream of transcripts from the user's conversation alongside information about a number of different 'expert agents` who have the power to generate "Insights". Your goal is to recognize when the thoughts or work of an 'expert agent' would be useful to the conversation and to output a list of which agents should be run. It's OK to output an empty list if no agents should be run right now. It's OK to specify multiple agents, but you should ussually just specify an empty list or only 1 agent.
+class ProactiveMetaAgentGatekeeperScore(BaseModel):
+    """
+    Proactive meta agent that determines which agents to run
+    """
+    score: int = Field(
+        description="Score of how confident you are that your selection of Expert Agents is optimal", default=0
+    )
+    agents_list: list = Field(
+        description="the agents to run given the conversation context"
+    )
 
-{force_run_agents_prompt}
+proactive_meta_agent_gatekeeper_score_query_parser = PydanticOutputParser(
+    pydantic_object=ProactiveMetaAgentGatekeeperScore
+)
 
-[Timing]
-The longer it's been without any insights generated, the more likely it is that an insight would be useful and welcome. It's good to have at least 1 insight every few minutes. So if the last insight time was 12 seconds ago, it's very unlikely that we need another insight right now. But if the last insight was 2 minutes ago, it's very likely we want a new insight. If the last insight was over 4 minutes ago and there's new transcripts, you should almost definitly specify an expert agent to create an insight, because it's been so long.
+class ProactiveMetaAgentQuery(BaseModel):
+        """
+        Proactive meta agent that determines which agents to run
+        """
+        agents_list: list = Field(
+            description="the agents to run given the conversation context")
 
-[Your Agents]
-You have access to "Expert Agents", which are like workers in your team that with special abilities. These are the agents you can run:
-{expert_agents_descriptions_prompt}
-
-[Conversation Transcript]
-This is the current live transcript of the conversation you're assisting:
-<Transcript start>{conversation_context}<Transcript end>
-
-[Recent Insights History]
-Here are the insights that have been generated recently, you should not call the expert agent if you think it will generate the same insight as one of these:
-{insights_history}
-
-<Task start>You should now output a list of the expert agents you think should run. Feel free to specify no expert agents. {format_instructions}<Task end>"""
-
-# , but they're expensive to run, so only specify agents that will be helpful
+proactive_meta_agent_query_parser = PydanticOutputParser(pydantic_object=ProactiveMetaAgentQuery)
 
 #generate expert agents as tools (each one has a search engine, later make the tools each agent has programmatic)
 def make_expert_agents_prompts():
@@ -89,23 +89,58 @@ def run_proactive_meta_agent_and_experts(conversation_context: str, insights_his
     insights = loop.run_until_complete(insights_tasks)
     return insights
 
-
 @time_function()
 def run_proactive_meta_agent(conversation_context: str, insights_history: list):
     #get expert agents descriptions
     expert_agents_descriptions_prompt = make_expert_agents_prompts()
 
+    # Start small model for gatekeeper
+    llm35 = get_langchain_gpt35()
+
+    gatekeeper_score_prompt = PromptTemplate(
+        template = proactive_meta_agent_gatekeeper_prompt_blueprint,
+        input_variables = ["conversation_context", "expert_agents_descriptions_prompt", "insights_history", "force_run_agents_prompt"],
+        partial_variables = {
+            "format_instructions": proactive_meta_agent_gatekeeper_score_query_parser.get_format_instructions(),
+        },
+    )
+    gatekeeper_score_prompt_string = (
+        gatekeeper_score_prompt.format_prompt(
+            conversation_context=conversation_context, 
+            expert_agents_descriptions_prompt=expert_agents_descriptions_prompt,
+            insights_history=insights_history,
+            force_run_agents_prompt=force_run_agents_prompt
+        ).to_string()
+    )
+
+    # options:
+    # O1: Score is "how sure are we to run"
+    # O2: Score is "here's a list of agents, here's how certain I am about them"
+    #
+    #
+    #
+
+    with get_openai_callback() as cb:
+        score_response = llm35(
+            [HumanMessage(content=gatekeeper_score_prompt_string)]
+        )
+        gpt3cost = cb.total_cost
+
+    try:
+        content = proactive_meta_agent_gatekeeper_score_query_parser.parse(score_response.content)
+        score = int(content.score)
+        expert_agents_to_run_list = content.agents_list
+        # track_gpt3_time_and_cost(time.time() - gpt3start, gpt3cost)
+        print("GOT A SCORE FROM GPT3.5: {}".format(score))
+        if score >= min_gatekeeper_score: 
+            return expert_agents_to_run_list
+        print("SCORE UNCERTAIN ({})! RUNNING GPT4!".format(str(score)))
+    except OutputParserException as e:
+        print("ERROR: " + str(e))
+        return None
+
     #start up GPT4 connection
     llm = get_langchain_gpt4(temperature=0.2)
-
-    class ProactiveMetaAgentQuery(BaseModel):
-        """
-        Proactive meta agent that determines which agents to run
-        """
-        agents_list: list = Field(
-            description="the agents to run given the conversation context")
-
-    proactive_meta_agent_query_parser = PydanticOutputParser(pydantic_object=ProactiveMetaAgentQuery)
 
     extract_proactive_meta_agent_query_prompt = PromptTemplate(
         template=proactive_meta_agent_prompt_blueprint,
