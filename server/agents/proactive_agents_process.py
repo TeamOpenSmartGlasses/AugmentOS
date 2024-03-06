@@ -47,11 +47,8 @@ def proactive_agents_processing_loop():
                     transcript_to_use.replace(hist_item['query'], ' ... ')
 
                 try:
-                    # insights_history = dbHandler.get_agent_insights_history_for_user(transcript['user_id'])
                     insights_history = dbHandler.get_recent_nminutes_agent_insights_history_for_user(transcript['user_id'], n_minutes=90)
                     print("insights_history: {}".format(insights_history))
-                    # [{'agent_name': 'Statistician', 'agent_insight': "Insight: Brain's processing limit challenges full Wikipedia integration. Neuralink trials show promising BCI advancements."}, ...]
-
                     logger.log(level=logging.DEBUG, msg="Insights history: {}".format(insights_history))
 
                     #run proactive meta agent, get insights
@@ -76,10 +73,3 @@ def proactive_agents_processing_loop():
             print("Exception in Insight generator...:")
             print(e)
             traceback.print_exc()
-        finally:
-            #lock.release()
-            pLoopEndTime = time.time()
-            # print("=== processing_loop completed in {} seconds overall ===".format(
-            #     round(pLoopEndTime - pLoopStartTime, 2)))
-
-        time.sleep(15)
