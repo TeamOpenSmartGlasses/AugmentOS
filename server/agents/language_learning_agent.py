@@ -4,7 +4,7 @@ from agents.agent_utils import format_list_data
 from server_config import openai_api_key
 
 # langchain
-from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.schema import (
     HumanMessage
