@@ -274,9 +274,7 @@ async def ui_poll_handler(request, minutes=0.5):
 
     # get agent results
     if "proactive_agent_insights" in features:
-        print("including proactive agent insights")
         agent_insight_results = db_handler.get_proactive_agents_insights_results_for_user_device(user_id=user_id, device_id=device_id)
-        #add agents insight to response
         resp["results_proactive_agent_insights"] = agent_insight_results
 
     # get user queries and agent responses
