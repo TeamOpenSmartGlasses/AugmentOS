@@ -12,6 +12,9 @@ azure_openai_api_base=""
 azure_openai_api_gpt35_deployment=""
 azure_openai_api_gpt4_deployment=""
 
+azure_api_llama_13b_chat_endpoint = ""
+azure_api_llama_13b_chat_api_key = ""
+
 time_everything_spreadsheet_id = ""
 
 # Uncomment one of the following configs:
