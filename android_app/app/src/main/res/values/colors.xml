@@ -14,7 +14,7 @@
   <color name="greenButton">#1D9E1A</color>
   <color name="blueButton">#3176D3</color>
 
-  <color name="backgroundColor">#fefefe</color>
+  <color name="backgroundColor">#ffffff</color>
   <color name="textColor">#212121</color>
   <color name="bubbleColor">#f4f4f4</color>
 </resources>
