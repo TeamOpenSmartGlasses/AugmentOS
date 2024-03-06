@@ -32,7 +32,7 @@ class ProactiveMetaAgentGatekeeperScore(BaseModel):
     Proactive meta agent that determines which agents to run
     """
     score: int = Field(
-        description="Score of how confident you are that your selection of Expert Agents is optimal", default=0
+        description="Score of how confident you are that your selection of Expert Agents is optimal, with 1 being not confident, and 10 being the most confident.", default=0
     )
     agents_list: list = Field(
         description="the agents to run given the conversation context"
@@ -131,7 +131,7 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list):
         score = int(content.score)
         expert_agents_to_run_list = content.agents_list
         # track_gpt3_time_and_cost(time.time() - gpt3start, gpt3cost)
-        print("GOT A SCORE FROM GPT3.5: {}".format(score))
+        print("GPT3 result || AgentList: {} || Score: {}".format(expert_agents_to_run_list, score))
         if score >= min_gatekeeper_score: 
             return expert_agents_to_run_list
         print("SCORE UNCERTAIN ({})! RUNNING GPT4!".format(str(score)))
