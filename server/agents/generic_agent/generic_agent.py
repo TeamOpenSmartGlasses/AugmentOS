@@ -1,6 +1,7 @@
 from agents.agent_utils import format_list_data
 from langchain.agents import initialize_agent
 from langchain.agents.tools import Tool
+from langchain.prompts import PromptTemplate
 from langchain.agents import AgentType
 from agents.search_tool_for_agents import get_search_tool_for_agents
 from agents.math_tool_for_agents import get_wolfram_alpha_tool_for_agents
@@ -89,11 +90,12 @@ class GenericAgent:
         self.small_model_confidence_threshold = small_model_confidence_threshold
 
         self.agent_small = initialize_agent([
+            # get_search_tool_for_agents(),
         ], llm35, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=True)
 
         self.agent_large = initialize_agent([
             get_search_tool_for_agents(),
-        ], llm4, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=1, early_stopping_method="generate", verbose=True)
+        ], llm4, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=True)
 
     def get_agent_prompt(
         self,
@@ -111,18 +113,48 @@ class GenericAgent:
         else:
             insights_history = "None"
 
-        expert_agent_prompt = expert_agent_prompt_blueprint.format(
-            **vars(self),
-            final_command=final_command,
-            conversation_transcript=conversation_transcript,
-            insights_history=insights_history,
-            format_instructions=format_instructions,
-            discourage_tool_use_prompt=discourage_tool_use_prompt if self.discourage_tool_use else ""
+        expert_agent_prompt = PromptTemplate(
+            template=expert_agent_prompt_blueprint,
+            input_variables=[
+                "agent_name",
+                "agent_insight_type",
+                "discourage_tool_use_prompt",
+                "examples",
+                "conversation_transcript",
+                "agent_plan",
+                "insight_num_words",
+                "validation_criteria",
+                "insights_history",
+                "final_command"
+            ],
+            partial_variables={
+                "format_instructions": format_instructions,
+            },
         )
 
-        print("expert_agent_prompt\n\n", expert_agent_prompt)
+        expert_agent_prompt_string = (
+             expert_agent_prompt.format_prompt(
+                **vars(self),
+                final_command=final_command,
+                conversation_transcript=conversation_transcript,
+                insights_history=insights_history,
+                discourage_tool_use_prompt=discourage_tool_use_prompt if self.discourage_tool_use else "",
+                format_instructions=format_instructions,
+             ).to_string()
+        )
 
-        return expert_agent_prompt 
+        # expert_agent_prompt = expert_agent_prompt_blueprint.format(
+        #     **vars(self),
+        #     final_command=final_command,
+        #     conversation_transcript=conversation_transcript,
+        #     insights_history=insights_history,
+        #     discourage_tool_use_prompt=discourage_tool_use_prompt if self.discourage_tool_use else "",
+        #     format_instructions=format_instructions,
+        # )
+
+        print("expert_agent_prompt\n\n", expert_agent_prompt_string)
+
+        return expert_agent_prompt_string 
     
     def run_agent_wrapper_async(self, agent, agent_explicit_prompt):
         async def run_expert_agent_wrapper_async(command):
@@ -168,13 +200,18 @@ class GenericAgent:
 
     @time_function()
     async def run_agent_async(self, convo_context, insights_history: list):
+        prompt_str = self.get_agent_prompt(convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history)
+
         # if self.try_small_model_first:
-        #     expert_agent_response = await self.agent_small.arun(self.get_agent_prompt(convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history))
+        #     #expert_agent_response = await self.agent_small.arun(self.get_agent_prompt(convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history))
+        #     res = llm35([HumanMessage(content=prompt_str)])
+        #     expert_agent_response = agent_insight_parser.parse(res.content)
+        #     # TODO: fix parsing issues
         
         # print("THIS IS IT")
         # print(expert_agent_response)
 
-        # if expert_agent_response is None or expert_agent_response['confidence_score'] < self.small_model_confidence_threshold:
+        # if expert_agent_response is None or expert_agent_response.confidence_score < self.small_model_confidence_threshold:
         expert_agent_response = await self.agent_large.arun(self.get_agent_prompt(convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history))
 
         if expert_agent_response is None:
