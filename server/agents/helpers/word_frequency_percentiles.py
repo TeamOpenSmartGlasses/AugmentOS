@@ -58,7 +58,7 @@ def get_word_frequency_percentiles(transcript: str, language_code: str) -> dict:
         elif word_lower_token in large_words_dict: 
             percentile = 99 #large percentile for words not in small dataset but in large dataset
             words_rank[word] = percentile
-
+ 
     print("WORDS_RANK",words_rank)
     return words_rank
 
