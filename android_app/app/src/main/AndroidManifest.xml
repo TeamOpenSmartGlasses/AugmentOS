@@ -22,7 +22,8 @@
 
     <activity
         android:name="com.teamopensmartglasses.convoscope.MainActivity"
-        android:exported="true">
+        android:exported="true"
+        android:theme="@style/AppTheme">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>
@@ -31,7 +32,8 @@
 
     <service android:name="com.teamopensmartglasses.convoscope.ConvoscopeService"
         android:foregroundServiceType="microphone"
-        android:exported="true">
+        android:exported="true"
+        android:theme="@style/AppTheme">
         <intent-filter>
           <action android:name="SGM_COMMAND_INTENT" />
         </intent-filter>
