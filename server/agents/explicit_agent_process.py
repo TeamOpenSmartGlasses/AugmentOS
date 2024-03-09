@@ -2,7 +2,7 @@ from DatabaseHandler import DatabaseHandler
 import time
 import traceback
 from agents.wake_words import *
-from agents.explicit_meta_agent import run_explicit_meta_agent_async
+from agents.explicit_agent import run_explicit_agent_async
 import asyncio
 from helpers.time_function_decorator import time_function
 
@@ -115,7 +115,7 @@ async def call_explicit_agent(user_obj, query):
     try:
         print(" RUN THE INSIGHT FOR EXPLICIT ")
         # CHAT HISTORY = CONTEXT IN FUNCTION
-        insight = await run_explicit_meta_agent_async(query, transcript_history=transcript_history, insight_history=stringified_insight_history)
+        insight = await run_explicit_agent_async(query, transcript_history=transcript_history, insight_history=stringified_insight_history)
         
         print("========== 200 IQ INSIGHT ===========")
         print(insight)

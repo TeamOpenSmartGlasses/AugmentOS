@@ -71,7 +71,7 @@ async def handle_user_conversation(user_id, device_id, db_handler, ongoing_conve
 
         if TESTING_LL_CONTEXT_CONVO_AGENT:
             warnings.warn("Currently in testing mode, skipping speed and trascription checks, please remove TESTING flag to run normally.")
-        elif speed < 0.5:
+        elif speed < 0.00001:
             print("User is not moving, skipping")
             ongoing_conversations.remove(user_id)
             return

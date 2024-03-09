@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="Trying to Connect..."
-        android:textColor="#4d4d4d"
+        android:textColor="@color/textColor"
         android:textSize="28dp"
         android:textStyle="bold"
         android:justificationMode="inter_word"

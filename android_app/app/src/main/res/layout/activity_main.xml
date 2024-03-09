@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main_container"
+    android:theme="@style/AppTheme"
     tools:context="com.teamopensmartglasses.convoscope.MainActivity">
 
   <androidx.fragment.app.FragmentContainerView
