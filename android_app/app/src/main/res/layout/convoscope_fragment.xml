@@ -11,9 +11,7 @@
 
   <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/recyclerView"
-      android:layout_width="0dp"
-      app:layout_constraintWidth_default="percent"
-      app:layout_constraintWidth_percent="0.95"
+      android:layout_width="match_parent"
       android:layout_height="0dp"
       app:layout_constraintHeight_default="percent"
       app:layout_constraintHeight_percent="0.7"

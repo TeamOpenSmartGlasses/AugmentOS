@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <color name="colorPrimary">#7500B5</color>
-  <color name="colorPrimaryDark">#380057</color>
-  <color name="colorAccent">#2f999e</color>
+  <color name="colorPrimary">#0F86E4</color>
+  <color name="colorPrimaryDark">#0E61A3</color>
+  <color name="colorAccent">#44BEF4</color>
 
   <color name="red">#FF0000</color>
   <color name="green">#00FF00</color>
@@ -16,5 +16,5 @@
 
   <color name="backgroundColor">#ffffff</color>
   <color name="textColor">#212121</color>
-  <color name="bubbleColor">#f4f4f4</color>
+  <color name="bubbleColor">#e8e8e8</color>
 </resources>
