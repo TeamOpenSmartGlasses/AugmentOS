@@ -47,17 +47,14 @@ for lang_code in language_code_map.keys():
     freq_dicts[(lang_code, 'full')] = pd.Series(df_full['rank'].values, index=df_full['word']).to_dict()
 
 def get_word_frequency_percentiles(transcript: str, language_code: str) -> dict:
-    #folder_name = language_code_map[language_code]
-    print(freq_dicts.keys())
     words_dict_key = (language_code, '50k') if (language_code, '50k') in freq_dicts else (language_code, 'full')
     words_dict = freq_dicts[words_dict_key]
     total_words = len(words_dict)  # Get total words from the selected dictionary
 
     # Tokenize the transcript based on the language
-    if language_code == "Chinese":
+    print(language_code)
+    if language_code == "Chinese" or language_code == "Chinese (Pinyin)":
         words = list(jieba.cut(transcript))
-        print("TOKENIZED WORDS: ", words)
-
     else:
         words = transcript.split()
 
@@ -75,8 +72,7 @@ def get_word_frequency_percentiles(transcript: str, language_code: str) -> dict:
         else: #large percentile for words not in small dataset
             percentile = 98.2
             words_rank[word] = percentile
- 
-    print("WORDS_RANK", words_rank)
+
     return words_rank
 
 if __name__ == "__main__":
