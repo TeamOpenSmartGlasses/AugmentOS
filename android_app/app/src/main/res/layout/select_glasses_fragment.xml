@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:theme="@style/AppTheme"
-    android:background="@color/background_light"
-xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/backgroundColor"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:id="@+id/textView6"
@@ -13,7 +13,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         android:layout_height="wrap_content"
         android:layout_marginTop ="5dp"
         android:text="Select your smart glasses:"
-        android:textColor="#4d4d4d"
+        android:textColor="@color/textColor"
         android:textSize="28dp"
         android:textStyle="bold"
         android:justificationMode="inter_word"

@@ -16,6 +16,9 @@ explicit_wake_words = [
 
     "hey mia",
     "he mia",
+
+    "hey mural",
+    "he mural"
 ]
 
 
