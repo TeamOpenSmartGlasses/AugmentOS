@@ -7,7 +7,7 @@ language_code_map = {
     "English": "en",
     "Spanish": "es",
     "Russian": "ru",
-    "Japanese": "ja",
+    #"Japanese": "ja",
     "French": "fr",
     "Chinese": "zh_cn",  # Assuming simplified Chinese; adjust if necessary for traditional
     "Chinese (Pinyin)": "zh_cn",  # Assuming simplified Chinese; adjust if necessary for traditional
@@ -29,13 +29,29 @@ def load_frequency_list(language_code: str, type: str) -> pd.DataFrame:
     df['rank'] = df['frequency'].rank(ascending=False)
     return df
 
-def get_word_frequency_percentiles(transcript: str, language_code: str) -> dict:
-    df = load_frequency_list(language_code, '50k')
-    words_dict = pd.Series(df['rank'].values,index=df['word']).to_dict()
-    total_words = len(df)  # Get the total number of words in the dataset
+# Load frequency lists at the start
+freq_dicts = {}
 
-    df = load_frequency_list(language_code, 'full')
-    large_words_dict = pd.Series(df['rank'].values,index=df['word']).to_dict()
+# Attempt to preload both '50k' and 'full' frequency lists, with fallback
+for lang_code in language_code_map.keys():
+    try:
+        # Attempt to load the '50k' frequency list
+        df_50k = load_frequency_list(lang_code, '50k')
+        freq_dicts[(lang_code, '50k')] = pd.Series(df_50k['rank'].values, index=df_50k['word']).to_dict()
+    except FileNotFoundError:
+        # If '50k' file does not exist
+        pass
+
+    # Ensure the 'full' list is always loaded
+    df_full = load_frequency_list(lang_code, 'full')
+    freq_dicts[(lang_code, 'full')] = pd.Series(df_full['rank'].values, index=df_full['word']).to_dict()
+
+def get_word_frequency_percentiles(transcript: str, language_code: str) -> dict:
+    #folder_name = language_code_map[language_code]
+    print(freq_dicts.keys())
+    words_dict_key = (language_code, '50k') if (language_code, '50k') in freq_dicts else (language_code, 'full')
+    words_dict = freq_dicts[words_dict_key]
+    total_words = len(words_dict)  # Get total words from the selected dictionary
 
     # Tokenize the transcript based on the language
     if language_code == "Chinese":
@@ -50,16 +66,16 @@ def get_word_frequency_percentiles(transcript: str, language_code: str) -> dict:
     for word in words:
         # For languages other than Chinese, consider lowercasing the word to improve match rate
         word_lower = word.lower() if language_code in ["English", "Spanish", "French"] else word
-        word_lower_token = word_lower.split("'")[0].translate(str.maketrans("", "", "?!.,;\""))
+        word_lower_token = word_lower.split("'")[0].translate(str.maketrans("", "", "?。!.,;？\""))
         if word_lower_token in words_dict:
             # Convert rank to percentile
             percentile = round((words_dict[word_lower_token] / total_words) * 100, 1)
             words_rank[word] = percentile
-        elif word_lower_token in large_words_dict: 
-            percentile = 99 #large percentile for words not in small dataset but in large dataset
+        else: #large percentile for words not in small dataset
+            percentile = 98.2
             words_rank[word] = percentile
  
-    print("WORDS_RANK",words_rank)
+    print("WORDS_RANK", words_rank)
     return words_rank
 
 if __name__ == "__main__":
