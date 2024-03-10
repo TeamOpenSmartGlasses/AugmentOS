@@ -12,7 +12,7 @@ from constants import TESTING_LL_CONTEXT_CONVO_AGENT
 import warnings
 
 
-LOCAL_TESTING_LL_CONTEXT_CONVO_AGENT = True
+LOCAL_TESTING_LL_CONTEXT_CONVO_AGENT = False
 response_period = 10
 
 if TESTING_LL_CONTEXT_CONVO_AGENT or LOCAL_TESTING_LL_CONTEXT_CONVO_AGENT:
@@ -51,6 +51,7 @@ def lat_lng_to_meters(lat1, lng1, lat2, lng2):
 
 
 async def handle_user_conversation(user_id, device_id, db_handler, ongoing_conversations):
+    start = time.time()
     print("RUNNING CONTEXTUAL CONVO FOR USER: ", user_id)
     target_language = db_handler.get_user_option_value(user_id, "target_language")
     locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
@@ -141,6 +142,9 @@ async def handle_user_conversation(user_id, device_id, db_handler, ongoing_conve
         print(user_reponse)
 
         conversation_history.append({"role": "user", "content": user_reponse})
+
+        if time.time() - start >= 300:
+            break
 
         locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
 
