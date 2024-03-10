@@ -240,8 +240,8 @@ public class ConvoscopeUi extends Fragment {
 
       RadioButton radioButtonProactiveAgents = view.findViewById(R.id.radioButtonProactiveAgents);
       RadioButton radioButtonLanguageLearning = view.findViewById(R.id.radioButtonLanguageLearning);
-      RadioButton radioButtonWalkNGrok = view.findViewById(R.id.radioButtonWalkNGrok);
       RadioButton radioButtonADHDGlasses = view.findViewById(R.id.radioButtonADHDGlasses);
+      RadioButton radioButtonWalkNGrok = view.findViewById(R.id.radioButtonWalkNGrok);
 
       // Set the radio button as active based on the saved string
       if (currentModeString.equals(radioButtonProactiveAgents.getText().toString())) {
