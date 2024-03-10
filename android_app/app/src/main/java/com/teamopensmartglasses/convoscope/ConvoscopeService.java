@@ -54,6 +54,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
+import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
 
 public class ConvoscopeService extends SmartGlassesAndroidService {
     public final String TAG = "Convoscope_ConvoscopeService";
@@ -587,8 +588,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             }
 
             llResults = calculateLLStringFormatted(getDefinedWords());
-            sendRowsCard(llResults);
-//            sendTextToSpeech("欢迎使用安卓文本到语音转换功能", "chinese");
+            if (getConnectedDeviceModelName() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
+                sendRowsCard(llResults);
+            }
+
+//            sendTextToSpeech("欢迎使用安卓文本到语音转换功能", "Chinese");
 //            Log.d(TAG, "GOT THAT ONEEEEEEEE:");
             Log.d(TAG, String.join("\n", llResults));
 //            sendUiUpdateSingle(String.join("\n", Arrays.copyOfRange(llResults, llResults.length, 0)));
@@ -600,14 +604,30 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
 
         JSONArray llContextConvoResults = response.has(llContextConvoKey) ? response.getJSONArray(llContextConvoKey) : new JSONArray();
+
         updateContextConvoResponses(llContextConvoResults); //sliding buffer, time managed context convo card
         String[] llContextConvoResponses;
+
         if (llContextConvoResults.length() != 0) {
             llContextConvoResponses = calculateLLContextConvoResponseFormatted(getContextConvoResponses());
-            sendRowsCard(llContextConvoResponses);
+            if (getConnectedDeviceModelName() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
+                sendRowsCard(llContextConvoResponses);
+            }
             List<String> list = Arrays.stream(Arrays.copyOfRange(llContextConvoResponses, 0, llContextConvoResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
             Collections.reverse(list);
             sendUiUpdateSingle(String.join("\n", list));
+
+            try {
+                JSONObject llContextConvoResult = llContextConvoResults.getJSONObject(0);
+                JSONObject toTTS = llContextConvoResult.getJSONObject("to_tts");
+                String text = toTTS.getString("text");
+                String language = toTTS.getString("language");
+//                Log.d(TAG, "Text: " + text + ", Language: " + language);
+                sendTextToSpeech(text, language);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
         }
 
         // Just append the entityDefinitions to the cseResults as they have similar schema
