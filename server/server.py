@@ -132,9 +132,21 @@ async def set_user_settings(request):
     if user_id is None:
         raise web.HTTPUnauthorized()
     
-    db_handler.update_user_options(user_id, body)
+    db_handler.update_user_settings(user_id, body)
 
     return web.Response(text=json.dumps({'success': True, 'message': "Saved your settings."}))
+
+
+async def get_user_settings(request):
+    body = await request.json()
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
+    
+    user_settings = db_handler.get_user_settings(user_id, body)
+
+    return web.Response(text=json.dumps({'success': True, 'settings': user_settings}))
 
 
 # runs when button is pressed on frontend - right now button ring on wearable or button in TPA
@@ -307,6 +319,10 @@ async def ui_poll_handler(request, minutes=0.5):
             print("RETURNING THIS QUESTION ASKER RESULTS")
             print(ll_context_convo_results)
 
+    # tell the frontend to update their local settings if needed
+    should_update_settings = db_handler.get_user_option_value(user_id, "should_update_settings")
+    resp["should_update_settings"] = should_update_settings
+
     return web.Response(text=json.dumps(resp), status=200)
 
 
@@ -441,20 +457,20 @@ async def send_agent_chat_handler(request):
 
 
 async def update_gps_location_for_user(request):
-    if TESTING_LL_CONTEXT_CONVO_AGENT:
-        warnings.warn("TESTING MODE: Using hardcoded user_id, device_id and location. Please remove this warning when done testing.")
-        user_id = "oO4QvMJELYM6jEYtLDbo1LRFLPO2"
-        device_id = "android"
-        location = {'lat': 53.411812, 'lng': -2.210799, 'timestamp': 1709593069, 'uuid': 'e7674554-2a89-44ac-900b-ae21ba817e74'}
-        db_handler.add_gps_location_for_user(user_id, location)
-        return web.Response(text=json.dumps({'success': True, 'message': "Got your location: {}".format(location)}), status=200)
+    # if TESTING_LL_CONTEXT_CONVO_AGENT:
+    #     warnings.warn("TESTING MODE: Using hardcoded user_id, device_id and location. Please remove this warning when done testing.")
+    #     user_id = "oO4QvMJELYM6jEYtLDbo1LRFLPO2"
+    #     device_id = "android"
+    #     location = {'lat': 53.411812, 'lng': -2.210799, 'timestamp': 1709593069, 'uuid': 'e7674554-2a89-44ac-900b-ae21ba817e74'}
+    #     db_handler.add_gps_location_for_user(user_id, location)
+    #     return web.Response(text=json.dumps({'success': True, 'message': "Got your location: {}".format(location)}), status=200)
 
     body = await request.json()
     id_token = body.get('Authorization')
     user_id = await verify_id_token(id_token)
     device_id = body.get('deviceId')
-    
-    print("update_gps_location_for_user #################################")
+
+    # print("update_gps_location_for_user #################################")
     print(user_id, device_id)
     if user_id is None:
         raise web.HTTPUnauthorized()
@@ -476,7 +492,7 @@ async def update_gps_location_for_user(request):
     
     locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
     
-    print("locations: ", locations)
+    # print("locations: ", locations)
     # if len(locations) > 1:
     #     print("difference in locations: ", locations[-1]['lat'] - locations[-2]['lat'], locations[-1]['lng'] - locations[-2]['lng'])
 
@@ -577,6 +593,7 @@ if __name__ == '__main__':
             web.post('/save_recording', save_recording_handler),
             web.post('/load_recording', load_recording_handler),
             web.post('/set_user_settings', set_user_settings),
+            web.post('/get_user_settings', get_user_settings),
             web.post('/gps_location', update_gps_location_for_user),
         ]
     )
