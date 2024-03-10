@@ -8,7 +8,7 @@ from agents.adhd_stmb_agent import run_adhd_stmb_agent
 from server_config import openai_api_key
 from logger_config import logger
 
-run_period = 5
+run_period = 20
 transcript_back_time = run_period * 1.1
 total_transcript_context_time = 5 * 60
 minimum_topic_time = 20 #the minimum amount of time since last topic change for a new topic chnage

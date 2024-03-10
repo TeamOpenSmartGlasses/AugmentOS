@@ -289,7 +289,6 @@ async def ui_poll_handler(request, minutes=0.5):
         resp["explicit_insight_results"] = explicit_insight_results
         resp["wake_word_time"] = wake_word_time
 
-    # get entity definitions
     if "intelligent_entity_definitions" in features:
         entity_definitions = db_handler.get_agent_proactive_definer_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["entity_definitions"] = entity_definitions
@@ -297,16 +296,17 @@ async def ui_poll_handler(request, minutes=0.5):
     if "language_learning" in features:
         language_learning_results = db_handler.get_language_learning_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["language_learning_results"] = language_learning_results
-        if language_learning_results:
-            print("server.py ================================= LLRESULT")
-            print(language_learning_results)
     
     if "ll_context_convo" in features:
         ll_context_convo_results = db_handler.get_ll_context_convo_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["ll_context_convo_results"] = ll_context_convo_results
-        if ll_context_convo_results:
-            print("RETURNING THIS QUESTION ASKER RESULTS")
-            print(ll_context_convo_results)
+
+    if "adhd_stmb_agent_summaries" in features:
+        adhd_stmb_agent_results = db_handler.get_adhd_stmb_results_for_user_device(user_id=user_id, device_id=device_id)
+        resp["adhd_stmb_agent_results"] = adhd_stmb_agent_results
+        if adhd_stmb_agent_results:
+            print("@@@@@@@@@ ADHD")
+            print(adhd_stmb_agent_results)
 
     return web.Response(text=json.dumps(resp), status=200)
 
