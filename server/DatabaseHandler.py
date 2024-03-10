@@ -1048,6 +1048,9 @@ class DatabaseHandler:
         res = self.gps_location_collection.find_one(filter, {'_id': 0})
         if res:
             return res
+        res = self.topic_shifts_collection.find_one(filter, {'_id': 0})
+        if res:
+            return res
 
         return None
 
@@ -1061,9 +1064,9 @@ class DatabaseHandler:
                 "Invalid result type: `{}`".format(str(result_type)))
 
         result_ids = user[result_type] if user != None else []
-        #print("running get results for user with result_type as " + result_type)
-        #print(result_ids)
-        #print(user)
+#        if result_ids != [] and result_type == "topic_shift_result_ids":
+#            print("running get results for user with result_type as " + result_type)
+#            print(result_ids)
         already_consumed_ids = [
         ] if include_consumed else self.get_consumed_result_ids_for_user_device(user_id, device_id)
         new_results = []
@@ -1146,6 +1149,9 @@ class DatabaseHandler:
     def get_ll_context_convo_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
         return self.get_results_for_user_device("ll_context_convo_result_ids", user_id, device_id, should_consume, include_consumed)
 
+    def get_adhd_stmb_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
+        return self.get_results_for_user_device("topic_shift_result_ids", user_id, device_id, should_consume, include_consumed)
+
     def add_gps_location_for_user(self, user_id, location):
         if not location:
             print("No location to add")
@@ -1174,7 +1180,7 @@ class DatabaseHandler:
         topic_shift['timestamp'] = int(time.time())
         topic_shift['uuid'] = str(uuid.uuid4())
 
-        #print("INSERTING TOPIC SHIFT: " + str(topic_shift))
+        print("INSERTING TOPIC SHIFT: " + str(topic_shift))
         self.topic_shifts_collection.insert_one(topic_shift)
 
         filter = {"user_id": user_id}
@@ -1217,3 +1223,4 @@ z = db.user_collection.find()
 for pp in z:
     print(pp)
 """
+
