@@ -12,7 +12,10 @@ from constants import TESTING_LL_CONTEXT_CONVO_AGENT
 import warnings
 
 
-if TESTING_LL_CONTEXT_CONVO_AGENT:
+LOCAL_TESTING_LL_CONTEXT_CONVO_AGENT = True
+response_period = 10
+
+if TESTING_LL_CONTEXT_CONVO_AGENT or LOCAL_TESTING_LL_CONTEXT_CONVO_AGENT:
     run_period = 10
 else:
     run_period = 30
@@ -62,14 +65,14 @@ async def handle_user_conversation(user_id, device_id, db_handler, ongoing_conve
 
         displacement = lat_lng_to_meters(lat1=past_location['lat'], lng1=past_location['lng'], lat2=user_location['lat'], lng2=user_location['lng'])
         delta_time = user_location['timestamp'] - past_location['timestamp']
-        
+
         speed = displacement / delta_time
         print(speed)
 
         wpm_threshold = 30
         print(transcripts)
 
-        if TESTING_LL_CONTEXT_CONVO_AGENT:
+        if TESTING_LL_CONTEXT_CONVO_AGENT or LOCAL_TESTING_LL_CONTEXT_CONVO_AGENT:
             warnings.warn("Currently in testing mode, skipping speed and trascription checks, please remove TESTING flag to run normally.")
         elif speed < 0.00001:
             print("User is not moving, skipping")
@@ -107,19 +110,21 @@ async def handle_user_conversation(user_id, device_id, db_handler, ongoing_conve
 
         conversation_history.append({"role": "agent", "content": response['ll_context_convo_response']})
 
-        await asyncio.sleep(5)
+        await asyncio.sleep(response_period)
         user_reponse = []
-        new_response = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=5)
+        new_response = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=response_period)
 
         # This block waits for the user to respond
         while new_response[0] or not user_reponse:
-            
+
             if new_response[0]:
                 print("NEW RESPONSE")
                 user_reponse.append(new_response[0])
-            
-            await asyncio.sleep(5)
-            new_response = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=5)
+            else:
+                print("NO NEW RESPONSE")
+
+            await asyncio.sleep(response_period)
+            new_response = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=response_period)
             # print("NEW RESPONSE 2")
             # print(new_response)
             # print("USER RESPONSE 2")
@@ -149,7 +154,7 @@ async def handle_user_conversation(user_id, device_id, db_handler, ongoing_conve
 async def ll_context_convo_agent_processing_loop_async():
     print("START CONTEXTUAL CONVO PROCESSING LOOP ASYNC")
     db_handler = DatabaseHandler(parent_handler=False)
-    
+
     # Ensure we are using an async event loop
     asyncio.set_event_loop(asyncio.new_event_loop())
     loop = asyncio.get_event_loop()
@@ -168,7 +173,7 @@ async def ll_context_convo_agent_processing_loop_async():
         try:
             pLoopStartTime = time.time()
             print("RUNNING CONTEXTUAL CONVO LOOP ASYNC")
-            
+
             active_users = db_handler.get_active_users()
             tasks = []
 
@@ -177,9 +182,12 @@ async def ll_context_convo_agent_processing_loop_async():
                 user_id = user['user_id']
                 device_id = user['device_id']
 
+                print("STARTING CONTEXTUAL CONVO FOR USER: ", user_id)
                 if user_id in ongoing_conversations:
+                    print("Found ongoing conversation for user: ", user_id)
                     continue
 
+                ongoing_conversations.add(user_id)
                 tasks.append(handle_user_conversation(user_id, device_id, db_handler, ongoing_conversations))
 
             if tasks:
