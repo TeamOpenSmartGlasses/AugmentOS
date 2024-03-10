@@ -54,7 +54,6 @@ async def handle_user_conversation(user_id, device_id, db_handler, ongoing_conve
     transcripts = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=transcript_period)
     ongoing_conversations.add(user_id)
 
-
     # this block checks if the user is moving or talking, if so, it skips the conversation
     if len(locations) > 1:
         user_location = locations[-1]
@@ -92,6 +91,10 @@ async def handle_user_conversation(user_id, device_id, db_handler, ongoing_conve
 
     conversation_history = []
 
+    #conversation starting, so change the user's transcribe language to the target language
+    db_handler.update_single_user_setting(user_id, "dynamic_transcribe_language", target_language)
+    db_handler.update_single_user_setting(user_id, "use_dynamic_transcribe_language", True)
+
     # this block runs the contextual conversation agent until the conversation ends
     while True:
         places = get_nearby_places(user_location)
@@ -103,6 +106,8 @@ async def handle_user_conversation(user_id, device_id, db_handler, ongoing_conve
                 user_id, response)
         else:
             ongoing_conversations.remove(user_id)
+            #conversation ending, so stop using dynamic transcribe language
+            db_handler.update_single_user_setting(user_id, "use_dynamic_transcribe_language", False)
             return
 
         conversation_history.append({"role": "agent", "content": response['ll_context_convo_response']})
@@ -143,6 +148,9 @@ async def handle_user_conversation(user_id, device_id, db_handler, ongoing_conve
         places = None
 
     ongoing_conversations.remove(user_id)
+    #conversation ending, so stop using dynamic transcribe language
+    db_handler.update_single_user_setting(user_id, "use_dynamic_transcribe_language", False)
+
     return
 
 

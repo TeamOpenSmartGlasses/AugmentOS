@@ -233,7 +233,7 @@ def run_proactive_definer_agent(
         print("GPT4 TIME: " + str(time.time() - gpt4start))
         
         image_start = time.time()
-        should_get_images = dbHandler.get_user_options(user_id)["enable_agent_proactive_definer_images"]
+        should_get_images = dbHandler.get_user_settings(user_id)["enable_agent_proactive_definer_images"]
         res = search_entities(res.entities, should_get_images)
         track_image_time(time.time() - image_start)
         print("IMAGE TIME: " + str(time.time() - image_start))
