@@ -1,10 +1,12 @@
 package com.teamopensmartglasses.convoscope;
 
+import static com.firebase.ui.auth.AuthUI.getApplicationContext;
 import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GEOLOCATION_STREAM_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.SET_USER_SETTINGS_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.GET_USER_SETTINGS_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.cseResultKey;
 import static com.teamopensmartglasses.convoscope.Constants.entityDefinitionsKey;
 import static com.teamopensmartglasses.convoscope.Constants.explicitAgentQueriesKey;
@@ -13,6 +15,7 @@ import static com.teamopensmartglasses.convoscope.Constants.glassesCardTitle;
 import static com.teamopensmartglasses.convoscope.Constants.languageLearningKey;
 import static com.teamopensmartglasses.convoscope.Constants.llContextConvoKey;
 import static com.teamopensmartglasses.convoscope.Constants.proactiveAgentResultsKey;
+import static com.teamopensmartglasses.convoscope.Constants.shouldUpdateSettingsKey;
 import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
 
 import android.content.Context;
@@ -186,6 +189,31 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
     }
 
+    public void getSettings(){
+        try{
+            JSONObject getSettingsObj = new JSONObject();
+            getSettingsObj.put("Authorization", authToken);
+            backendServerComms.restRequest(GET_USER_SETTINGS_ENDPOINT, getSettingsObj, new VolleyJsonCallback(){
+                @Override
+                public void onSuccess(JSONObject result){
+                    try {
+                        Log.d(TAG, "GOT GET Settings update result: " + result.toString());
+                        Boolean useDynamicTranscribeLanguage = result.getBoolean("use_dynamic_transcribe_language");
+                        Log.d(TAG, "Should use dynamic? " + useDynamicTranscribeLanguage);
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                @Override
+                public void onFailure(int code){
+                    Log.d(TAG, "SOME FAILURE HAPPENED (getSettings)");
+                }
+            });
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
+
     public void setUpUiPolling(){
         uiPollRunnableCode = new Runnable() {
             @Override
@@ -201,6 +229,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     public void setUpLocationSending(){
         locationSystem = new LocationSystem(getApplicationContext());
+
+        if (locationSendingLoopHandler != null){
+            locationSendingLoopHandler.removeCallbacksAndMessages(this);
+        }
+
         locationSendingRunnableCode = new Runnable() {
             @Override
             public void run() {
@@ -704,6 +737,16 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 e.printStackTrace();
             }
         }
+
+        //see if we should update user settings
+        boolean shouldUpdateSettingsResult = response.has(shouldUpdateSettingsKey) ? response.getBoolean(shouldUpdateSettingsKey) : false;
+        if (shouldUpdateSettingsResult){
+            getSettings();
+        }
+    }
+
+    public void updateSetttingsFromServer(){
+
     }
 
     public void parseLocationResults(JSONObject response) throws JSONException {
