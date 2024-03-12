@@ -11,7 +11,8 @@ from agents.proactive_meta_agent import run_proactive_meta_agent_and_experts
 from server_config import openai_api_key
 from logger_config import logger
 
-time_between_iterations = 4
+time_between_iterations = 5
+min_words_to_run = 8
 
 def proactive_agents_processing_loop():
     print("START MULTI AGENT PROCESSING LOOP")
@@ -33,9 +34,10 @@ def proactive_agents_processing_loop():
             print("RUNNING MULTI-AGENT LOOP")
             newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(n=time_between_iterations*2)
             for transcript in newTranscripts:
-                if len(transcript['text'].split()) < 8: # Around 75-100 words, no point to generate insight below this
-                    print("Transcript too short, skipping...")
-                    continue
+                if len(transcript['text'].split()) < min_words_to_run: # Around 75-100 words, no point to generate insight below this
+                    if "?" not in transcript['text']: # Make an exception for questions
+                        print("Transcript too short, skipping...")
+                        continue
                 # print("Run Insights generation with... user_id: '{}' ... text: '{}'".format(
                 #     transcript['user_id'], transcript['text']))
                 insightGenerationStartTime = time.time()

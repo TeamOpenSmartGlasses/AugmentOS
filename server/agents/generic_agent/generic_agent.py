@@ -1,5 +1,5 @@
 from agents.agent_utils import format_list_data
-from langchain.agents import initialize_agent
+from langchain.agents import initialize_agent, load_tools
 from langchain.agents.tools import Tool
 from langchain.prompts import PromptTemplate
 from langchain.agents import AgentType
@@ -12,7 +12,7 @@ from agents.generic_agent.agent_insight import *
 llm4 = get_langchain_gpt4()
 llm35 = get_langchain_gpt35(temperature=0.0)
 
-discourage_tool_use_prompt = "- In general, tools have a high time cost, so only use them if you must - try to answer questions without them if you can. If query asks for a stat or data that you already know, don't search for it, just provide it from memory, the speed of a direct answer is more important than having the most up-to-date information."
+discourage_tool_use_prompt = "- Tools have a high time cost, so only use them if you must - try to answer questions without them if you can. If query asks for a stat or data that you already know, don't search for it, just provide it from memory, the speed of a direct answer is more important than having the most up-to-date information."
 
 expert_agent_prompt_blueprint = """
 ## General Context
@@ -90,12 +90,12 @@ class GenericAgent:
         self.small_model_confidence_threshold = small_model_confidence_threshold
 
         self.agent_small = initialize_agent([
-            # get_search_tool_for_agents(),
-        ], llm35, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=True)
+            get_search_tool_for_agents(),
+        ], llm35, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=False)
 
         self.agent_large = initialize_agent([
             get_search_tool_for_agents(),
-        ], llm4, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=True)
+        ], llm4, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=False)
 
     def get_agent_prompt(
         self,
@@ -201,18 +201,27 @@ class GenericAgent:
     @time_function()
     async def run_agent_async(self, convo_context, insights_history: list):
         prompt_str = self.get_agent_prompt(convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history)
+        confidence_score = -1
+        expert_agent_response = None
 
-        # if self.try_small_model_first:
-        #     #expert_agent_response = await self.agent_small.arun(self.get_agent_prompt(convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history))
-        #     res = llm35([HumanMessage(content=prompt_str)])
-        #     expert_agent_response = agent_insight_parser.parse(res.content)
-        #     # TODO: fix parsing issues
+        if self.try_small_model_first:
+            try:
+                # res = await self.agent_small.ainvoke({"input": prompt_str})
+                res = await llm35.ainvoke([HumanMessage(content=prompt_str)])
+                # expert_agent_response = agent_insight_parser.parse(res.content)
+                print("RES:")
+                print(res)
+                expert_agent_response = res['output']
+                confidence_score = expert_agent_response['confidence_score']
+            except:
+                pass
         
-        # print("THIS IS IT")
-        # print(expert_agent_response)
+        print("THIS IS IT")
+        print(expert_agent_response)
 
-        # if expert_agent_response is None or expert_agent_response.confidence_score < self.small_model_confidence_threshold:
-        expert_agent_response = await self.agent_large.arun(self.get_agent_prompt(convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history))
+        if expert_agent_response is None or confidence_score < self.small_model_confidence_threshold:
+            res = await self.agent_large.ainvoke({"input": prompt_str})
+            expert_agent_response = res['output']
 
         if expert_agent_response is None:
             return None
