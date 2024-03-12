@@ -55,6 +55,8 @@ def language_learning_agents_processing_loop():
                 #print(live_translate_word_history)
 
                 #run the language learning agent
+                print("transcript is: ")
+                print(transcript)
                 words_to_show = run_language_learning_agent(transcript['text'], word_frequency_percentiles, target_language, transcribe_language, live_translate_word_history)
                 loop_time = time.time() - ctime
                 #print(f"RAN LL IN : {loop_time}")
