@@ -63,12 +63,14 @@ async def cleanup_conversation(user_id, db_handler):
 async def handle_user_conversation(user_id, device_id, db_handler):
     start = time.time()
     print("RUNNING CONTEXTUAL CONVO FOR USER: ", user_id)
-    target_language = db_handler.get_user_option_value(user_id, "target_language")
+    target_language = db_handler.get_user_settings_value(user_id, "target_language")
     locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
     transcripts = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=transcript_period)
     ongoing_conversations.add(user_id)
 
     # this block checks if the user is moving or talking, if so, it skips the conversation
+    print("LOCATIONS:")
+    print(locations)
     if len(locations) > 1:
         user_location = locations[-1]
         past_location = locations[-2]
@@ -109,6 +111,7 @@ async def handle_user_conversation(user_id, device_id, db_handler):
     db_handler.update_single_user_setting(user_id, "dynamic_transcribe_language", target_language)
     db_handler.update_single_user_setting(user_id, "use_dynamic_transcribe_language", True)
     db_handler.update_single_user_setting(user_id, "is_having_a_conversation", True)
+    db_handler.update_single_user_setting(user_id, "should_update_settings", True)
 
     # this block runs the contextual conversation agent until the conversation ends
     while True:

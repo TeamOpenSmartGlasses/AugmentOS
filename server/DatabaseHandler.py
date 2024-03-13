@@ -232,7 +232,7 @@ class DatabaseHandler:
             print(f'No updates made for user {user_id}. Either user does not exist or no changes were necessary.')
 
 
-    def get_user_option_value(self, user_id, option_key):
+    def get_user_settings_value(self, user_id, option_key):
         filter = {"user_id": user_id}
         projection = {'settings': 1, '_id': 0}
         doc = self.user_collection.find_one(filter, projection)
@@ -240,6 +240,14 @@ class DatabaseHandler:
             return doc['settings'][option_key]
         else:
             return None
+
+
+    def get_should_update_settings(self, user_id):
+        should_update_settings = self.get_user_settings_value(user_id, "should_update_settings")
+        if should_update_settings:
+            print("should update settings was true, changing to false")
+            self.update_single_user_setting(user_id, "should_update_settings", False)
+        return should_update_settings
 
 
     ### TRANSCRIPTS ###

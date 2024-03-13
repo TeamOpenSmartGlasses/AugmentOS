@@ -144,7 +144,7 @@ async def get_user_settings(request):
     if user_id is None:
         raise web.HTTPUnauthorized()
     
-    user_settings = db_handler.get_user_settings(user_id, body)
+    user_settings = db_handler.get_user_settings(user_id)
 
     return web.Response(text=json.dumps({'success': True, 'settings': user_settings}))
 
@@ -320,7 +320,7 @@ async def ui_poll_handler(request, minutes=0.5):
             print(ll_context_convo_results)
 
     # tell the frontend to update their local settings if needed
-    should_update_settings = db_handler.get_user_option_value(user_id, "should_update_settings")
+    should_update_settings = db_handler.get_should_update_settings(user_id)
     resp["should_update_settings"] = should_update_settings
 
     return web.Response(text=json.dumps(resp), status=200)
@@ -549,14 +549,14 @@ if __name__ == '__main__':
     ##cse_process.start()
 
     # start intelligent definer agent process
-    print("Starting Intelligent Definer Agent process...")
-    intelligent_definer_agent_process = multiprocessing.Process(target=proactive_definer_processing_loop)
-    intelligent_definer_agent_process.start()
+    #print("Starting Intelligent Definer Agent process...")
+    #intelligent_definer_agent_process = multiprocessing.Process(target=proactive_definer_processing_loop)
+    #intelligent_definer_agent_process.start()
 
     # start the proactive agents process
-    print("Starting Proactive Agents process...")
-    proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
-    proactive_agents_background_process.start()
+    #print("Starting Proactive Agents process...")
+    #proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
+    #proactive_agents_background_process.start()
 
     # start the explicit agent process
     print("Starting Explicit Agent process...")
@@ -564,9 +564,9 @@ if __name__ == '__main__':
     explicit_background_process.start()
 
     # start the language learning app process
-    print("Starting Language Learning Agents process...")
-    language_learning_background_process = multiprocessing.Process(target=language_learning_agents_processing_loop)
-    language_learning_background_process.start()
+    #print("Starting Language Learning Agents process...")
+    #language_learning_background_process = multiprocessing.Process(target=language_learning_agents_processing_loop)
+    #language_learning_background_process.start()
     
     # start the question asker app process
     print("Starting Contextual Convo Agents process...")
@@ -610,9 +610,9 @@ if __name__ == '__main__':
     web.run_app(app, port=server_port)
 
     #let processes finish and join
-    proactive_agents_background_process.join()
-    intelligent_definer_agent_process.join()
+    #proactive_agents_background_process.join()
+    #intelligent_definer_agent_process.join()
     #cse_process.join()
-    language_learning_background_process.join()
+    #language_learning_background_process.join()
     ll_context_convo_background_process.join()
     explicit_background_process.join()
