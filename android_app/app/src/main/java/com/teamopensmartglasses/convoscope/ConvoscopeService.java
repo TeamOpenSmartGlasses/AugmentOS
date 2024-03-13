@@ -95,8 +95,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private LinkedList<DefinedWord> definedWords = new LinkedList<>();
     private LinkedList<ContextConvoResponse> contextConvoResponses = new LinkedList<>();
     private final long llDefinedWordsShowTime = 40 * 1000; // define in milliseconds
-    private final long llContextConvoResponsesShowTime = 80 * 1000; // define in milliseconds
-    private final long locationSendTime = 1000 * 30; // define in milliseconds
+    private final long llContextConvoResponsesShowTime = 90 * 1000; // define in milliseconds
+    private final long locationSendTime = 1000 * 10; // define in milliseconds
     private final int maxDefinedWordsShow = 4;
     private final int maxContextConvoResponsesShow = 2;
 
@@ -192,6 +192,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     public void getSettings(){
         try{
+            Log.d(TAG, "Runnign get settings");
             JSONObject getSettingsObj = new JSONObject();
             getSettingsObj.put("Authorization", authToken);
             backendServerComms.restRequest(GET_USER_SETTINGS_ENDPOINT, getSettingsObj, new VolleyJsonCallback(){
@@ -199,8 +200,14 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 public void onSuccess(JSONObject result){
                     try {
                         Log.d(TAG, "GOT GET Settings update result: " + result.toString());
-                        Boolean useDynamicTranscribeLanguage = result.getBoolean("use_dynamic_transcribe_language");
+                        JSONObject settings = result.getJSONObject("settings");
+                        Boolean useDynamicTranscribeLanguage = settings.getBoolean("use_dynamic_transcribe_language");
+                        String dynamicTranscribeLanguage = settings.getString("dynamic_transcribe_language");
                         Log.d(TAG, "Should use dynamic? " + useDynamicTranscribeLanguage);
+                        if (useDynamicTranscribeLanguage){
+                            Log.d(TAG, "Switching running transcribe language to: " + dynamicTranscribeLanguage);
+                            switchRunningTranscribeLanguage(dynamicTranscribeLanguage);
+                        }
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
@@ -212,6 +219,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             });
         } catch (JSONException e){
             e.printStackTrace();
+            Log.d(TAG, "SOME FAILURE HAPPENED (getSettings)");
         }
     }
 
@@ -239,7 +247,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             @Override
             public void run() {
                 requestLocation();
-                locationSendingLoopHandler.postDelayed(this, locationSendTime); //30 seconds, TODO: make more intelligent later
+                locationSendingLoopHandler.postDelayed(this, locationSendTime);
             }
         };
         locationSendingLoopHandler.post(locationSendingRunnableCode);
@@ -260,6 +268,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public void onDestroy(){
         csePollLoopHandler.removeCallbacks(uiPollRunnableCode);
         displayPollLoopHandler.removeCallbacks(displayRunnableCode);
+        locationSendingLoopHandler.removeCallbacksAndMessages(this);
         EventBus.getDefault().unregister(this);
         super.onDestroy();
     }
@@ -418,7 +427,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     public void requestLocation(){
-        Log.d(TAG, "running request locatoin");
+//        Log.d(TAG, "running request locatoin");
         try{
             // Get location data as JSONObject
             double latitude = locationSystem.lat;
@@ -621,7 +630,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             }
 
             llResults = calculateLLStringFormatted(getDefinedWords());
-            if (getConnectedDeviceModelName() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
+            if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
                 sendRowsCard(llResults);
             }
 
@@ -643,12 +652,13 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         if (llContextConvoResults.length() != 0) {
             llContextConvoResponses = calculateLLContextConvoResponseFormatted(getContextConvoResponses());
-            if (getConnectedDeviceModelName() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
+            if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
                 sendRowsCard(llContextConvoResponses);
             }
             List<String> list = Arrays.stream(Arrays.copyOfRange(llContextConvoResponses, 0, llContextConvoResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
             Collections.reverse(list);
             sendUiUpdateSingle(String.join("\n", list));
+            responsesBuffer.add(String.join("\n", list));
 
             try {
                 JSONObject llContextConvoResult = llContextConvoResults.getJSONObject(0);
@@ -761,6 +771,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         //see if we should update user settings
         boolean shouldUpdateSettingsResult = response.has(shouldUpdateSettingsKey) ? response.getBoolean(shouldUpdateSettingsKey) : false;
         if (shouldUpdateSettingsResult){
+            Log.d(TAG, "Runnign get settings because shouldUpdateSettings true");
             getSettings();
         }
     }
