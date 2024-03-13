@@ -62,7 +62,7 @@ Now provide the output:
 
 
 @time_function()
-def run_ll_context_convo_agent(places: list, target_language: str = "Russian", fluency_level: int = 35, conversation_history: Optional[str] = None):
+def run_ll_context_convo_agent(places: list, target_language: str = "Russian", fluency_level: int = 35, conversation_history: Optional[dict] = None):
     # start up GPT3 connection
     llm = get_langchain_gpt4(temperature=0.2)
 

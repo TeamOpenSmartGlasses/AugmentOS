@@ -152,6 +152,7 @@ class DatabaseHandler:
                      "transcribe_language": "English",
                      "dynamic_transcribe_language": "English", #the current dynamic transcribe language that we set momentarily
                      "use_dynamic_transcribe_language": False,
+                     "is_having_a_conversation": False,
                  },
                  "transcripts": [],
                  "ui_list": [],
@@ -193,9 +194,9 @@ class DatabaseHandler:
         )
 
     def get_active_users(self, active_threshold=10):
-        if TESTING_LL_CONTEXT_CONVO_AGENT:
-            warnings.warn("TESTING MODE: Returning test user. Please remove this warning when not testing.")
-            return [{"user_id": "oO4QvMJELYM6jEYtLDbo1LRFLPO2", "device_id": "android"}]
+        # if TESTING_LL_CONTEXT_CONVO_AGENT:
+        #     warnings.warn("TESTING MODE: Returning test user. Please remove this warning when not testing.")
+        #     return [{"user_id": "oO4QvMJELYM6jEYtLDbo1LRFLPO2", "device_id": "android"}]
 
         current_time = int(time.time())
         query = {"last_active": {"$gte": current_time - active_threshold}}
@@ -231,7 +232,7 @@ class DatabaseHandler:
             print(f'No updates made for user {user_id}. Either user does not exist or no changes were necessary.')
 
 
-    def get_user_option_value(self, user_id, option_key):
+    def get_user_settings_value(self, user_id, option_key):
         filter = {"user_id": user_id}
         projection = {'settings': 1, '_id': 0}
         doc = self.user_collection.find_one(filter, projection)
@@ -239,6 +240,14 @@ class DatabaseHandler:
             return doc['settings'][option_key]
         else:
             return None
+
+
+    def get_should_update_settings(self, user_id):
+        should_update_settings = self.get_user_settings_value(user_id, "should_update_settings")
+        if should_update_settings:
+            print("should update settings was true, changing to false")
+            self.update_single_user_setting(user_id, "should_update_settings", False)
+        return should_update_settings
 
 
     ### TRANSCRIPTS ###
