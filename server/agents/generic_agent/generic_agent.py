@@ -143,15 +143,6 @@ class GenericAgent:
              ).to_string()
         )
 
-        # expert_agent_prompt = expert_agent_prompt_blueprint.format(
-        #     **vars(self),
-        #     final_command=final_command,
-        #     conversation_transcript=conversation_transcript,
-        #     insights_history=insights_history,
-        #     discourage_tool_use_prompt=discourage_tool_use_prompt if self.discourage_tool_use else "",
-        #     format_instructions=format_instructions,
-        # )
-
         print("expert_agent_prompt\n\n", expert_agent_prompt_string)
 
         return expert_agent_prompt_string 
@@ -205,19 +196,11 @@ class GenericAgent:
         expert_agent_response = None
 
         if self.try_small_model_first:
-            try:
-                # res = await self.agent_small.ainvoke({"input": prompt_str})
-                res = await llm35.ainvoke([HumanMessage(content=prompt_str)])
-                # expert_agent_response = agent_insight_parser.parse(res.content)
-                print("RES:")
-                print(res)
-                expert_agent_response = res['output']
+            print("Attempting query w/ small model first")
+            expert_agent_response = await self.run_simple_llm_async(convo_context, insights_history)
+            if expert_agent_response and 'confidence_score' in expert_agent_response:
                 confidence_score = expert_agent_response['confidence_score']
-            except:
-                pass
-        
-        print("THIS IS IT")
-        print(expert_agent_response)
+            
 
         if expert_agent_response is None or confidence_score < self.small_model_confidence_threshold:
             res = await self.agent_large.ainvoke({"input": prompt_str})
@@ -229,6 +212,13 @@ class GenericAgent:
         #post process the output
         expert_agent_response = post_process_agent_output(expert_agent_response, self.agent_name)
 
-        print("expert_agent_response", expert_agent_response)
+        print("END: expert_agent_response", expert_agent_response)
         
         return expert_agent_response
+    
+    async def run_simple_llm_async(self, convo_context, insights_history: list):
+        prompt_str = self.get_agent_prompt(convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history)
+        res = await llm35.ainvoke([HumanMessage(content=prompt_str)])
+        response = agent_insight_parser.parse(res.content)
+        response = response.dict()
+        return response
