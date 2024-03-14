@@ -152,7 +152,7 @@ class DatabaseHandler:
                      "transcribe_language": "English",
                      "dynamic_transcribe_language": "English", #the current dynamic transcribe language that we set momentarily
                      "use_dynamic_transcribe_language": False,
-                     "is_having_a_conversation": False,
+                     "is_having_language_learning_contextual_convo": False,
                      "features": [],
                  },
                  "transcripts": [],

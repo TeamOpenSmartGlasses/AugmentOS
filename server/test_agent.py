@@ -1,3 +1,5 @@
+import time
+
 from agents.proactive_meta_agent import run_proactive_meta_agent_and_experts
 from agents.language_learning_agent import run_language_learning_agent
 from agents.ll_context_convo_agent import run_ll_context_convo_agent
@@ -16,12 +18,16 @@ if __name__ == "__main__":
     places = get_nearby_places(location)
     print("PLACES #########################")
     print(places)
-    places = ["name: Withworth Park, types: ['locality', 'park']", "name: Green Restaurant, types: ['locality', 'restaurant']"]
+    # places = ["name: Withworth Park, types: ['locality', 'park']", "name: Green Restaurant, types: ['locality', 'restaurant']"]
+    places = []
     conversation_history = [
         {'role': 'agent', 'content': '¿Te gusta el parque? Withworth Park es muy bonito.'},
-        {'role': 'user', 'content': 'Si, me gusta mucho el parque. Es muy bonito. Quiero ir al restaurante Green Restaurant. ¿Dónde está?'},
+        # {'role': 'user', 'content': 'No, no me gusta el parque. Prefiero quedarme en casa.'},
+        {'role': 'user', 'content': 'Si, me gusta el parque. Es muy bonito.'},
     ]
+    start = time.time()
     reponse = run_ll_context_convo_agent(places, target_language="Spanish", conversation_history=conversation_history)
+    print(time.time() - start)
     print("RESPONSE #########################")
     if reponse:
         print(reponse['ll_context_convo_response'])
