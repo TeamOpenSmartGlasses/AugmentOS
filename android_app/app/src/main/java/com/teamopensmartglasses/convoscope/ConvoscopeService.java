@@ -66,7 +66,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     //Convoscope stuff
     String authToken = "";
     private BackendServerComms backendServerComms;
-    ArrayList<String> responses;
+    ArrayList<String> responsesBuffer;
+    ArrayList<String> transcriptsBuffer;
     ArrayList<String> responsesToShare;
     private final Handler csePollLoopHandler = new Handler(Looper.getMainLooper());
     private Runnable cseRunnableCode;
@@ -131,9 +132,12 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         this.setupEventBusSubscribers();
 
         //make responses holder
-        responses = new ArrayList<>();
+        responsesBuffer = new ArrayList<>();
         responsesToShare = new ArrayList<>();
-        responses.add("Welcome to Convoscope.");
+        responsesBuffer.add("Welcome to Convoscope.");
+
+        //make responses holder
+        transcriptsBuffer = new ArrayList<>();
 
         //setup backend comms
         backendServerComms = new BackendServerComms(this);
@@ -288,8 +292,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         boolean isFinal = event.isFinal;
 //        Log.d(TAG, "PROCESS TRANSCRIPTION CALLBACK. IS IT FINAL? " + isFinal + " " + text);
 
-        if (isFinal)
+        if (isFinal) {
+            transcriptsBuffer.add(text);
             sendFinalTranscriptToActivity(text);
+        }
 
         //debounce and then send to backend
         debounceAndSendTranscript(text, isFinal);
@@ -582,13 +588,15 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
             llResults = calculateLLStringFormatted(getDefinedWords());
             sendRowsCard(llResults);
-            Log.d(TAG, "GOT THAT ONEEEEEEEE:");
+//            sendTextToSpeech("欢迎使用安卓文本到语音转换功能", "chinese");
+//            Log.d(TAG, "GOT THAT ONEEEEEEEE:");
             Log.d(TAG, String.join("\n", llResults));
 //            sendUiUpdateSingle(String.join("\n", Arrays.copyOfRange(llResults, llResults.length, 0)));
 //            List<String> list = Arrays.stream(Arrays.copyOfRange(llResults, 0, languageLearningResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
 //            Collections.reverse(list);
             //sendUiUpdateSingle(String.join("\n", list));
             sendUiUpdateSingle(String.join("\n", llResults));
+            responsesBuffer.add(String.join("\n", llResults));
         }
 
         JSONArray llContextConvoResults = response.has(llContextConvoKey) ? response.getJSONArray(llContextConvoKey) : new JSONArray();
@@ -701,13 +709,12 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public void parseLocationResults(JSONObject response) throws JSONException {
         Log.d(TAG, "GOT LOCATION RESULT: " + response.toString());
         // ll context convo
-
     }
 
     //all the stuff from the results that we want to display
     ArrayList<String> resultsToDisplayList = new ArrayList<>();
     public void queueOutput(String item){
-        responses.add(item);
+        responsesBuffer.add(item);
         sendUiUpdateSingle(item);
         resultsToDisplayList.add(item.substring(0,Math.min(140, item.length())).trim());//.replaceAll("\\s+", " "));
     }
@@ -741,7 +748,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public void sendUiUpdateFull(){
         Intent intent = new Intent();
         intent.setAction(ConvoscopeUi.UI_UPDATE_FULL);
-        intent.putStringArrayListExtra(ConvoscopeUi.CONVOSCOPE_MESSAGE_STRING, responses);
+        intent.putStringArrayListExtra(ConvoscopeUi.CONVOSCOPE_MESSAGE_STRING, responsesBuffer);
+        intent.putStringArrayListExtra(ConvoscopeUi.TRANSCRIPTS_MESSAGE_STRING, transcriptsBuffer);
         sendBroadcast(intent);
     }
 

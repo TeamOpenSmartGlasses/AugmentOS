@@ -23,6 +23,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -129,6 +132,23 @@ public class MainActivity extends AppCompatActivity {
           Toast.makeText(this, "Permission to read contacts denied", Toast.LENGTH_SHORT).show();
         }
       default: // Should not happen. Something we did not request.
+    }
+  }
+
+  @Override
+  public void onConfigurationChanged(@NonNull Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+    // Check for night mode status and apply theme accordingly
+    int nightModeFlags = newConfig.uiMode & Configuration.UI_MODE_NIGHT_MASK;
+    switch (nightModeFlags) {
+      case Configuration.UI_MODE_NIGHT_YES:
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        break;
+      case Configuration.UI_MODE_NIGHT_NO:
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        break;
+      case Configuration.UI_MODE_NIGHT_UNDEFINED:
+        break;
     }
   }
 

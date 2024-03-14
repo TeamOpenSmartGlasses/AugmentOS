@@ -15,5 +15,5 @@
         android:textSize="@dimen/response_text_size"
         android:hint="Text here my man."
         android:background="@drawable/rounded_corner"
-        android:textColor="#000000"/>
+        android:textColor="@color/textColor"/>
 </LinearLayout>
