@@ -153,6 +153,7 @@ class DatabaseHandler:
                      "dynamic_transcribe_language": "English", #the current dynamic transcribe language that we set momentarily
                      "use_dynamic_transcribe_language": False,
                      "is_having_a_conversation": False,
+                     "features": [],
                  },
                  "transcripts": [],
                  "ui_list": [],
@@ -240,7 +241,9 @@ class DatabaseHandler:
             return doc['settings'][option_key]
         else:
             return None
-
+        
+    def get_user_feature_enabled(self, user_id, feature_name):
+        return feature_name in self.get_user_settings_value(user_id, "features")
 
     def get_should_update_settings(self, user_id):
         should_update_settings = self.get_user_settings_value(user_id, "should_update_settings")

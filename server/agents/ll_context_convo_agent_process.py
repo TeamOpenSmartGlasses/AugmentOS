@@ -7,7 +7,7 @@ from math import radians, cos, sin, sqrt, atan2
 from DatabaseHandler import DatabaseHandler
 from agents.ll_context_convo_agent import run_ll_context_convo_agent
 from agents.helpers.get_nearby_places import get_user_location, get_nearby_places
-from constants import TESTING_LL_CONTEXT_CONVO_AGENT
+from constants import TESTING_LL_CONTEXT_CONVO_AGENT, LL_CONTEXT_CONVO_AGENT
 
 import warnings
 
@@ -199,6 +199,8 @@ async def ll_context_convo_agent_processing_loop_async():
 
             # start a conversation for each active user
             for user in active_users:
+                if not db_handler.get_user_feature_enabled(user['user_id'], LL_CONTEXT_CONVO_AGENT): continue
+
                 user_id = user['user_id']
                 device_id = user['device_id']
 
