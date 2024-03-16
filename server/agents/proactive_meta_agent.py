@@ -7,7 +7,6 @@ from constants import DEBUG_FORCE_EXPERT_AGENT_RUN
 from agents.proactive_meta_agent_prompts import proactive_meta_agent_prompt_blueprint, proactive_meta_agent_gatekeeper_prompt_blueprint
 
 #langchain
-from langchain_community.chat_models import ChatOpenAI
 from langchain_community.callbacks import get_openai_callback
 from langchain.prompts import PromptTemplate
 from langchain.schema import (
@@ -25,14 +24,14 @@ force_run_agents_prompt = ""
 if DEBUG_FORCE_EXPERT_AGENT_RUN:
     force_run_agents_prompt = "For this run, you MUST specify at least 1 expert agent to run. Do not output an empty list."
 
-min_gatekeeper_score = 4
+min_gatekeeper_score = 6
 
 class ProactiveMetaAgentGatekeeperScore(BaseModel):
     """
     Proactive meta agent that determines which agents to run
     """
     score: int = Field(
-        description="Score of how confident you are that your selection of Expert Agents is optimal, with 1 being not confident, and 10 being the most confident.", default=0
+        description="Score of how confident you are that your selection of Expert Agents is optimal, with 1 being not very confident, and 10 being the most confident.", default=0
     )
     agents_list: list = Field(
         description="the agents to run given the conversation context"
@@ -121,7 +120,7 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list):
     #
 
     with get_openai_callback() as cb:
-        score_response = llm35(
+        score_response = llm35.invoke(
             [HumanMessage(content=gatekeeper_score_prompt_string)]
         )
         gpt3cost = cb.total_cost
@@ -163,7 +162,7 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list):
 
     # print("Proactive meta agent query prompt string", proactive_meta_agent_query_prompt_string)
 
-    response = llm([HumanMessage(content=proactive_meta_agent_query_prompt_string)])
+    response = llm.invoke([HumanMessage(content=proactive_meta_agent_query_prompt_string)])
     try:
         expert_agents_to_run_list = proactive_meta_agent_query_parser.parse(response.content).agents_list
         return expert_agents_to_run_list
