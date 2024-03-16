@@ -89,7 +89,7 @@ def run_ll_context_convo_agent(places: list, target_language: str = "Russian", f
     # print("QUESTION ASKER PROMPT********************************")
     # print(ll_context_convo_agent_query_prompt_string)
 
-    response = llm(
+    response = llm.invoke(
         [HumanMessage(content=ll_context_convo_agent_query_prompt_string)])
     print(response)
 

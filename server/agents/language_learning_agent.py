@@ -4,7 +4,6 @@ from agents.agent_utils import format_list_data
 from server_config import openai_api_key
 
 # langchain
-from langchain_community.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.schema import (
     HumanMessage
@@ -164,7 +163,7 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
 
     # print("Proactive meta agent query prompt string", language_learning_agent_query_prompt_string)
 
-    response = llm(
+    response = llm.invoke(
         [HumanMessage(content=language_learning_agent_query_prompt_string)])
     #print(response)
 
