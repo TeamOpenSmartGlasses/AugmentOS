@@ -11,6 +11,7 @@ public class Constants {
     public static String entityDefinitionsKey = "entity_definitions";
     public static String languageLearningKey = "language_learning_results";
     public static String llContextConvoKey = "ll_context_convo_results";
+    public static String adhdStmbAgentKey = "adhd_stmb_agent_results";
 
     //endpoints
     public static final String LLM_QUERY_ENDPOINT = "/chat";

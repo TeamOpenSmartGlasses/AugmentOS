@@ -12,7 +12,7 @@ from agents.helpers.word_frequency_percentiles import get_word_frequency_percent
 
 run_period = 1.5
 
-def language_learning_agents_processing_loop():
+def language_learning_agent_processing_loop():
     print("START LANGUAGE LEARNING PROCESSING LOOP")
     dbHandler = DatabaseHandler(parent_handler=False)
     loop = asyncio.get_event_loop()
