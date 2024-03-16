@@ -13,7 +13,7 @@ from constants import LANGUAGE_LEARNING_AGENT
 
 run_period = 1.5
 
-def language_learning_agents_processing_loop():
+def language_learning_agent_processing_loop():
     print("START LANGUAGE LEARNING PROCESSING LOOP")
     db_handler = DatabaseHandler(parent_handler=False)
     loop = asyncio.get_event_loop()

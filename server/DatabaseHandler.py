@@ -45,6 +45,7 @@ class DatabaseHandler:
             self.init_ratings_collection()
             self.init_language_learning_collection()
             self.init_gps_location_collection()
+            self.init_topic_shifts_collection()
             self.ready = True
         except Exception as e:
             print(e)
@@ -94,6 +95,11 @@ class DatabaseHandler:
         self.gps_location_db = self.client['gps_location']
         self.gps_location_collection = self.get_collection(
             self.gps_location_db, 'gps_location_results', wipe=clear_cache_on_start)
+
+    def init_topic_shifts_collection(self):
+        self.topic_shifts_db = self.client['topic_shifts']
+        self.topic_shifts_collection = self.get_collection(
+            self.topic_shifts_db, 'topic_shifts_results', wipe=clear_cache_on_start)
 
     def get_collection(self, db, collection_name, wipe=False):
         if collection_name in db.list_collection_names():
@@ -166,6 +172,7 @@ class DatabaseHandler:
                  "language_learning_result_ids": [],
                  "ll_context_convo_result_ids": [],
                  "gps_location_result_ids": [],
+                 "topic_shift_result_ids": [],
                  "agent_proactive_definer_irrelevant_terms": []})
 
     ### CACHE ###
@@ -860,6 +867,25 @@ class DatabaseHandler:
 
         return results
 
+    def get_latest_topic_shift_for_user(self, user_id, top=1, true_shift=True):
+        uuid_list = self.get_user(user_id)["topic_shift_result_ids"]
+        match_condition = {"uuid": {"$in": uuid_list}}
+        if true_shift is not None:
+            match_condition["true_shift"] = true_shift
+        pipeline = [
+            {"$match": match_condition},
+            {"$sort": {"timestamp": -1}},
+            {"$limit": top},
+            {
+                "$project": {
+                    "_id": 0,
+                }
+            },
+        ]
+
+        results = list(self.topic_shifts_collection.aggregate(pipeline))
+        return results
+
     def get_recent_nminutes_language_learning_words_defined_history_for_user(self, user_id, n_minutes=10):
         uuid_list = self.get_user(user_id)["language_learning_result_ids"]
         current_time = math.trunc(time.time())
@@ -1055,6 +1081,9 @@ class DatabaseHandler:
         res = self.gps_location_collection.find_one(filter, {'_id': 0})
         if res:
             return res
+        res = self.topic_shifts_collection.find_one(filter, {'_id': 0})
+        if res:
+            return res
 
         return None
 
@@ -1068,9 +1097,9 @@ class DatabaseHandler:
                 "Invalid result type: `{}`".format(str(result_type)))
 
         result_ids = user[result_type] if user != None else []
-        #print("running get results for user with result_type as " + result_type)
-        #print(result_ids)
-        #print(user)
+#        if result_ids != [] and result_type == "topic_shift_result_ids":
+#            print("running get results for user with result_type as " + result_type)
+#            print(result_ids)
         already_consumed_ids = [
         ] if include_consumed else self.get_consumed_result_ids_for_user_device(user_id, device_id)
         new_results = []
@@ -1153,6 +1182,9 @@ class DatabaseHandler:
     def get_ll_context_convo_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
         return self.get_results_for_user_device("ll_context_convo_result_ids", user_id, device_id, should_consume, include_consumed)
 
+    def get_adhd_stmb_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
+        return self.get_results_for_user_device("topic_shift_result_ids", user_id, device_id, should_consume, include_consumed)
+
     def add_gps_location_for_user(self, user_id, location):
         if not location:
             print("No location to add")
@@ -1173,6 +1205,25 @@ class DatabaseHandler:
                 }
             }
         }
+        self.user_collection.update_one(filter=filter, update=update)
+
+    def add_topic_shift_for_user(self, user_id, time_of_shift, summary, true_shift=False):
+        if not time_of_shift:
+            print("No topic shift timestamp to add")
+            return
+        
+        topic_shift = dict()
+        topic_shift['time_of_shift'] = time_of_shift
+        topic_shift['summary'] = summary
+        topic_shift['true_shift'] = true_shift
+        topic_shift['timestamp'] = int(time.time())
+        topic_shift['uuid'] = str(uuid.uuid4())
+
+        print("INSERTING TOPIC SHIFT: " + str(topic_shift))
+        self.topic_shifts_collection.insert_one(topic_shift)
+
+        filter = {"user_id": user_id}
+        update = {"$push": {"topic_shift_result_ids": topic_shift['uuid']}}
         self.user_collection.update_one(filter=filter, update=update)
 
     def get_gps_location_results_for_user_device(self, user_id, device_id, should_consume=False, include_consumed=False):
@@ -1211,3 +1262,4 @@ z = db.user_collection.find()
 for pp in z:
     print(pp)
 """
+

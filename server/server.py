@@ -31,8 +31,9 @@ from agents.proactive_agents_process import proactive_agents_processing_loop
 from agents.expert_agents import run_single_expert_agent, arun_single_expert_agent
 from agents.explicit_agent_process import explicit_agent_processing_loop, call_explicit_agent
 from agents.proactive_definer_agent_process import proactive_definer_processing_loop
-from agents.language_learning_agent_process import language_learning_agents_processing_loop
+from agents.language_learning_agent_process import language_learning_agent_processing_loop
 from agents.ll_context_convo_agent_process import ll_context_convo_agent_processing_loop
+from agents.adhd_stmb_agent_process import adhd_stmb_agent_processing_loop
 import agents.wake_words
 from Modules.RelevanceFilter import RelevanceFilter
 
@@ -299,7 +300,6 @@ async def ui_poll_handler(request, minutes=0.5):
         resp["explicit_insight_results"] = explicit_insight_results
         resp["wake_word_time"] = wake_word_time
 
-    # get entity definitions
     if "intelligent_entity_definitions" in features:
         entity_definitions = db_handler.get_agent_proactive_definer_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["entity_definitions"] = entity_definitions
@@ -307,16 +307,17 @@ async def ui_poll_handler(request, minutes=0.5):
     if "language_learning" in features:
         language_learning_results = db_handler.get_language_learning_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["language_learning_results"] = language_learning_results
-        if language_learning_results:
-            print("server.py ================================= LLRESULT")
-            print(language_learning_results)
     
     if "ll_context_convo" in features:
         ll_context_convo_results = db_handler.get_ll_context_convo_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["ll_context_convo_results"] = ll_context_convo_results
-        if ll_context_convo_results:
-            print("RETURNING THIS QUESTION ASKER RESULTS")
-            print(ll_context_convo_results)
+
+    if "adhd_stmb_agent_summaries" in features:
+        adhd_stmb_agent_results = db_handler.get_adhd_stmb_results_for_user_device(user_id=user_id, device_id=device_id)
+        resp["adhd_stmb_agent_results"] = adhd_stmb_agent_results
+        if adhd_stmb_agent_results:
+            print("@@@@@@@@@ ADHD")
+            print(adhd_stmb_agent_results)
 
     # tell the frontend to update their local settings if needed
     should_update_settings = db_handler.get_should_update_settings(user_id)
@@ -543,19 +544,19 @@ if __name__ == '__main__':
         multiprocessing.set_start_method('spawn')
 
     # log_queue = multiprocessing.Queue()
-    ##print("Starting CSE process...")
-    ##cse_process = multiprocessing.Process(target=cse_loop)
-    ##cse_process.start()
+    #print("Starting CSE process...")
+    #cse_process = multiprocessing.Process(target=cse_loop)
+    #cse_process.start()
 
     # start intelligent definer agent process
-    #print("Starting Intelligent Definer Agent process...")
-    #intelligent_definer_agent_process = multiprocessing.Process(target=proactive_definer_processing_loop)
-    #intelligent_definer_agent_process.start()
+    print("Starting Intelligent Definer Agent process...")
+    intelligent_definer_agent_process = multiprocessing.Process(target=proactive_definer_processing_loop)
+    intelligent_definer_agent_process.start()
 
     # start the proactive agents process
-    #print("Starting Proactive Agents process...")
-    #proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
-    #proactive_agents_background_process.start()
+    print("Starting Proactive Agents process...")
+    proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
+    proactive_agents_background_process.start()
 
     # start the explicit agent process
     print("Starting Explicit Agent process...")
@@ -563,14 +564,19 @@ if __name__ == '__main__':
     explicit_background_process.start()
 
     # start the language learning app process
-    #print("Starting Language Learning Agents process...")
-    #language_learning_background_process = multiprocessing.Process(target=language_learning_agents_processing_loop)
-    #language_learning_background_process.start()
+    print("Starting Language Learning Agents process...")
+    language_learning_background_process = multiprocessing.Process(target=language_learning_agent_processing_loop)
+    language_learning_background_process.start()
     
-    # start the question asker app process
-    print("Starting Contextual Convo Agents process...")
+    # start the contextual convo language larning app process
+    print("Starting Contextual Convo Language learning app process...")
     ll_context_convo_background_process = multiprocessing.Process(target=ll_context_convo_agent_processing_loop)
     ll_context_convo_background_process.start()
+
+    # start the contextual convo language larning app process
+    print("Starting ADHD STMB app process...")
+    adhd_stmb_background_process = multiprocessing.Process(target=adhd_stmb_agent_processing_loop)
+    adhd_stmb_background_process.start()
 
     # setup and run web app
     # CORS allow from all sources
@@ -609,9 +615,10 @@ if __name__ == '__main__':
     web.run_app(app, port=server_port)
 
     #let processes finish and join
-    #proactive_agents_background_process.join()
-    #intelligent_definer_agent_process.join()
+    proactive_agents_background_process.join()
+    intelligent_definer_agent_process.join()
     #cse_process.join()
-    #language_learning_background_process.join()
+    language_learning_background_process.join()
     ll_context_convo_background_process.join()
     explicit_background_process.join()
+    adhd_stmb_background_process.join()
