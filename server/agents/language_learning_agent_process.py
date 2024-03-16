@@ -9,6 +9,7 @@ from agents.proactive_meta_agent import run_proactive_meta_agent_and_experts
 from server_config import openai_api_key
 from logger_config import logger
 from agents.helpers.word_frequency_percentiles import get_word_frequency_percentiles
+from constants import LANGUAGE_LEARNING_AGENT
 
 run_period = 1.5
 
@@ -35,9 +36,11 @@ def language_learning_agents_processing_loop():
 
             words_to_show = None
             for transcript in newTranscripts:
+                if not db_handler.get_user_feature_enabled(transcript['user_id'], LANGUAGE_LEARNING_AGENT): continue
+
                 ctime = time.time()
                 
-                if db_handler.get_user_settings_value(transcript['user_id'], "is_having_a_conversation"):
+                if db_handler.get_user_option_value(transcript['user_id'], "is_having_language_learning_contextual_convo"):
                     print("User is having a conversation, skipping language translation")
                     continue
                 else:

@@ -7,15 +7,14 @@ from math import radians, cos, sin, sqrt, atan2
 from DatabaseHandler import DatabaseHandler
 from agents.ll_context_convo_agent import run_ll_context_convo_agent
 from agents.helpers.get_nearby_places import get_user_location, get_nearby_places
-from constants import TESTING_LL_CONTEXT_CONVO_AGENT
+from constants import TESTING_LL_CONTEXT_CONVO_AGENT, LL_CONTEXT_CONVO_AGENT
 
 import warnings
 
 
-LOCAL_TESTING_LL_CONTEXT_CONVO_AGENT = True
 response_period = 10
 
-if TESTING_LL_CONTEXT_CONVO_AGENT or LOCAL_TESTING_LL_CONTEXT_CONVO_AGENT:
+if TESTING_LL_CONTEXT_CONVO_AGENT:
     run_period = 10
 else:
     run_period = 30
@@ -55,7 +54,7 @@ def lat_lng_to_meters(lat1, lng1, lat2, lng2):
 async def cleanup_conversation(user_id, db_handler):
     ongoing_conversations.remove(user_id)
     print("dsadsadas", ongoing_conversations)
-    db_handler.update_single_user_setting(user_id, "is_having_a_conversation", False)
+    db_handler.update_single_user_setting(user_id, "is_having_language_learning_contextual_convo", False)
     db_handler.update_single_user_setting(user_id, "use_dynamic_transcribe_language", False) # conversation ending, so stop using dynamic transcribe language
     return
 
@@ -84,7 +83,7 @@ async def handle_user_conversation(user_id, device_id, db_handler):
         wpm_threshold = 30
         print(transcripts)
 
-        if TESTING_LL_CONTEXT_CONVO_AGENT or LOCAL_TESTING_LL_CONTEXT_CONVO_AGENT:
+        if TESTING_LL_CONTEXT_CONVO_AGENT:
             warnings.warn("Currently in testing mode, skipping speed and trascription checks, please remove TESTING flag to run normally.")
         elif speed < 0.00001:
             print("User is not moving, skipping")
@@ -110,7 +109,7 @@ async def handle_user_conversation(user_id, device_id, db_handler):
     # conversation starting, so change the user's transcribe language to the target language
     db_handler.update_single_user_setting(user_id, "dynamic_transcribe_language", target_language)
     db_handler.update_single_user_setting(user_id, "use_dynamic_transcribe_language", True)
-    db_handler.update_single_user_setting(user_id, "is_having_a_conversation", True)
+    db_handler.update_single_user_setting(user_id, "is_having_language_learning_contextual_convo", True)
     db_handler.update_single_user_setting(user_id, "should_update_settings", True)
 
     # this block runs the contextual conversation agent until the conversation ends
@@ -199,6 +198,8 @@ async def ll_context_convo_agent_processing_loop_async():
 
             # start a conversation for each active user
             for user in active_users:
+                if not db_handler.get_user_feature_enabled(user['user_id'], LL_CONTEXT_CONVO_AGENT): continue
+
                 user_id = user['user_id']
                 device_id = user['device_id']
 
