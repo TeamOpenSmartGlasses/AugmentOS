@@ -78,35 +78,35 @@ Insight: AI will create new jobs and industries, not just replace old ones
         "proactive_tool_example": """No examples.""",
         "examples": """No examples.""",
     },
-    "QuestionAnswerer": {
-        "agent_name": "QuestionAnswerer",
-        "tools": ["Search_Engine"],
-        "discourage_tool_use": True,
-        "insight_num_words": 15,
-        "agent_insight_type": """
-            Answer any questions, inquiries, or open-ended rhetoricals made during a conversation. The question might be specific, broad, literal, rhetorical, or not even phrased as a question. 
-            You only give answers that are verifiable through free, publically available knowledge and not personal or belief-based claims.
-            Your answer should be a statement, and if needed, some short explanation.
-            If there is not a clear, distinct, clear-cut question that you can answer that fits the previous requirements to answer, then just output "null".
-        """,
-        "agent_plan": """
-            1. Find and write down individual questions posed in the conversation. If there are no questions made that meet the requirements, then skip to the final step and output "null".\n2. If one or more questions are found, select the question that would provide the most value and forget the rest, then search for the answer.\n3. Generate the "Insight".
-        """,
-        "validation_criteria": """
-            answers a question, and provides brief elaboration
-        """,
-        "proactive_tool_description": """
-            Trigger an answer when a question or rhetorical thought goes unanswered. Provide your answer in simple and easy to understand language. Also, initiate an answer for questions/statements not commonly known to an uneducated person, suspected falsehoods, common myths, or claims verifiable through free, public knowledge. Do not consider personal, belief-based, or unfalsifiable claims.
-        """,
-        "proactive_tool_example": """
-            Conversation: Transcript mentions "Which city was the first skyscraper built in"
-            Insight: "1st skyscraper: Chicago
-        """,
-        "examples": """
-            Conversation: Transcript mentions "Which city was the first skyscraper built in"
-            Insight: "1st skyscraper: Chicago
-        """,
-   },
+#     "QuestionAnswerer": {
+#         "agent_name": "QuestionAnswerer",
+#         "tools": ["Search_Engine"],
+#         "discourage_tool_use": True,
+#         "insight_num_words": 15,
+#         "agent_insight_type": """
+#             Answer any questions, inquiries, or open-ended rhetoricals made during a conversation. The question might be specific, broad, literal, rhetorical, or not even phrased as a question. 
+#             You only give answers that are verifiable through free, publically available knowledge and not personal or belief-based claims.
+#             Your answer should be a statement, and if needed, some short explanation.
+#             If there is not a clear, distinct, clear-cut question that you can answer that fits the previous requirements to answer, then just output "null".
+#         """,
+#         "agent_plan": """
+#             1. Find and write down individual questions posed in the conversation. If there are no questions made that meet the requirements, then skip to the final step and output "null".\n2. If one or more questions are found, select the question that would provide the most value and forget the rest, then search for the answer.\n3. Generate the "Insight".
+#         """,
+#         "validation_criteria": """
+#             answers a question, and provides brief elaboration
+#         """,
+#         "proactive_tool_description": """
+#             Trigger an answer when a question or rhetorical thought goes unanswered. Provide your answer in simple and easy to understand language. Also, initiate an answer for questions/statements not commonly known to an uneducated person, suspected falsehoods, common myths, or claims verifiable through free, public knowledge. Do not consider personal, belief-based, or unfalsifiable claims.
+#         """,
+#         "proactive_tool_example": """
+#             Conversation: Transcript mentions "Which city was the first skyscraper built in"
+#             Insight: "1st skyscraper: Chicago
+#         """,
+#         "examples": """
+#             Conversation: Transcript mentions "Which city was the first skyscraper built in"
+#             Insight: "1st skyscraper: Chicago
+#         """,
+#    },
     "RealTimer": {
         "agent_name": "RealTimer",
         "tools": ["Search_Engine"],
