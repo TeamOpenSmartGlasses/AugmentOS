@@ -46,7 +46,7 @@ def language_learning_agents_processing_loop():
                 else:
                     print("User is not having a conversation, running language translation")
                 #get users target language
-                target_language = db_handler.get_user_option_value(transcript['user_id'], "target_language")
+                target_language = db_handler.get_user_settings_value(transcript['user_id'], "target_language")
                 #print("GOT TARGET LANGUAGE: " + target_language)
 
                 #get the transcription language
