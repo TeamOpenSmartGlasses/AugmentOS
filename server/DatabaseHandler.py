@@ -3,11 +3,14 @@ from pymongo.server_api import ServerApi
 import time
 import agents.wake_words
 import math
+import warnings
 from hashlib import sha256
 from server_config import database_uri, clear_users_on_start, clear_cache_on_start
 import uuid
 import logging
 from logger_config import logger
+from constants import TESTING_LL_CONTEXT_CONVO_AGENT
+
 
 
 class DatabaseHandler:
@@ -142,9 +145,15 @@ class DatabaseHandler:
                  "last_recording_start_time": -1,
                  "cse_consumed_transcript_id": -1,
                  "cse_consumed_transcript_idx": 0,
-                 "options": {
+                 "settings": {
                      "enable_agent_proactive_definer_images": True,
+                     "should_update_settings": False,
                      "target_language": "Russian",
+                     "transcribe_language": "English",
+                     "dynamic_transcribe_language": "English", #the current dynamic transcribe language that we set momentarily
+                     "use_dynamic_transcribe_language": False,
+                     "is_having_language_learning_contextual_convo": False,
+                     "features": [],
                  },
                  "transcripts": [],
                  "ui_list": [],
@@ -186,6 +195,10 @@ class DatabaseHandler:
         )
 
     def get_active_users(self, active_threshold=10):
+        # if TESTING_LL_CONTEXT_CONVO_AGENT:
+        #     warnings.warn("TESTING MODE: Returning test user. Please remove this warning when not testing.")
+        #     return [{"user_id": "oO4QvMJELYM6jEYtLDbo1LRFLPO2", "device_id": "android"}]
+
         current_time = int(time.time())
         query = {"last_active": {"$gte": current_time - active_threshold}}
         active_users = self.active_user_collection.find(query)
@@ -193,31 +206,51 @@ class DatabaseHandler:
 
     ### OPTIONS ###
 
-    def get_user_options(self, user_id):
+    def get_user_settings(self, user_id):
         filter = {"user_id": user_id}
-        doc = self.user_collection.find_one(filter, {'options': 1, '_id': 0})
-        return doc.get('options', None) if doc else None
+        doc = self.user_collection.find_one(filter, {'settings': 1, '_id': 0})
+        return doc.get('settings', None) if doc else None
 
 
-    def update_user_options(self, user_id, options_update):
+    def update_user_settings(self, user_id, settings_update):
         filter = {"user_id": user_id}
         update = {"$set": {}}
-        for key, value in options_update.items():
-            update["$set"][f"options.{key}"] = value
+        for key, value in settings_update.items():
+            update["$set"][f"settings.{key}"] = value
         result = self.user_collection.update_one(filter, update)
         if result.modified_count > 0:
             print(f'Options updated for user {user_id}.')
         else:
             print(f'No updates made for user {user_id}. Either user does not exist or no changes were necessary.')
 
-    def get_user_option_value(self, user_id, option_key):
+    def update_single_user_setting(self, user_id, setting_key, setting_value):
         filter = {"user_id": user_id}
-        projection = {'options': 1, '_id': 0}
+        update = {"$set": {f"settings.{setting_key}": setting_value}}
+        result = self.user_collection.update_one(filter, update)
+        if result.modified_count > 0:
+            print(f'Setting "{setting_key}" updated for user {user_id}.')
+        else:
+            print(f'No updates made for user {user_id}. Either user does not exist or no changes were necessary.')
+
+
+    def get_user_settings_value(self, user_id, option_key):
+        filter = {"user_id": user_id}
+        projection = {'settings': 1, '_id': 0}
         doc = self.user_collection.find_one(filter, projection)
-        if doc and 'options' in doc and option_key in doc['options']:
-            return doc['options'][option_key]
+        if doc and 'settings' in doc and option_key in doc['settings']:
+            return doc['settings'][option_key]
         else:
             return None
+        
+    def get_user_feature_enabled(self, user_id, feature_name):
+        return feature_name in self.get_user_settings_value(user_id, "features")
+
+    def get_should_update_settings(self, user_id):
+        should_update_settings = self.get_user_settings_value(user_id, "should_update_settings")
+        if should_update_settings:
+            print("should update settings was true, changing to false")
+            self.update_single_user_setting(user_id, "should_update_settings", False)
+        return should_update_settings
 
 
     ### TRANSCRIPTS ###
@@ -1128,12 +1161,18 @@ class DatabaseHandler:
         location['timestamp'] = int(time.time())
         location['uuid'] = str(uuid.uuid4())
 
-        print("INSERTING location: " + str(location))
+        # print("INSERTING location: " + str(location))
         self.gps_location_collection.insert_one(location)
 
-
         filter = {"user_id": user_id}
-        update = {"$push": {"gps_location_result_ids": location['uuid']}}
+        update = {
+            "$push": {
+                "gps_location_result_ids": {
+                    "$each": [location['uuid']],
+                    "$slice": -10  # Keep only the latest 10 entries
+                }
+            }
+        }
         self.user_collection.update_one(filter=filter, update=update)
 
     def get_gps_location_results_for_user_device(self, user_id, device_id, should_consume=False, include_consumed=False):

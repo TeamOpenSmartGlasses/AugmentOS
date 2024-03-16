@@ -24,7 +24,7 @@ from aiohttp import web, web_exceptions
 
 #Convoscope
 from server_config import server_port
-from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH
+from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH, TESTING_LL_CONTEXT_CONVO_AGENT
 from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_agents_process import proactive_agents_processing_loop
@@ -132,9 +132,21 @@ async def set_user_settings(request):
     if user_id is None:
         raise web.HTTPUnauthorized()
     
-    db_handler.update_user_options(user_id, body)
+    db_handler.update_user_settings(user_id, body)
 
     return web.Response(text=json.dumps({'success': True, 'message': "Saved your settings."}))
+
+
+async def get_user_settings(request):
+    body = await request.json()
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
+    
+    user_settings = db_handler.get_user_settings(user_id)
+
+    return web.Response(text=json.dumps({'success': True, 'settings': user_settings}))
 
 
 # runs when button is pressed on frontend - right now button ring on wearable or button in TPA
@@ -274,7 +286,6 @@ async def ui_poll_handler(request, minutes=0.5):
 
     # get agent results
     if "proactive_agent_insights" in features:
-        print("including proactive agent insights")
         agent_insight_results = db_handler.get_proactive_agents_insights_results_for_user_device(user_id=user_id, device_id=device_id)
         #add agents insight to response
         resp["results_proactive_agent_insights"] = agent_insight_results
@@ -306,6 +317,10 @@ async def ui_poll_handler(request, minutes=0.5):
         if ll_context_convo_results:
             print("RETURNING THIS QUESTION ASKER RESULTS")
             print(ll_context_convo_results)
+
+    # tell the frontend to update their local settings if needed
+    should_update_settings = db_handler.get_should_update_settings(user_id)
+    resp["should_update_settings"] = should_update_settings
 
     return web.Response(text=json.dumps(resp), status=200)
 
@@ -441,12 +456,21 @@ async def send_agent_chat_handler(request):
 
 
 async def update_gps_location_for_user(request):
-    body = await request.json()
+    # if TESTING_LL_CONTEXT_CONVO_AGENT:
+    #     warnings.warn("TESTING MODE: Using hardcoded user_id, device_id and location. Please remove this warning when done testing.")
+    #     user_id = "oO4QvMJELYM6jEYtLDbo1LRFLPO2"
+    #     device_id = "android"
+    #     location = {'lat': 53.411812, 'lng': -2.210799, 'timestamp': 1709593069, 'uuid': 'e7674554-2a89-44ac-900b-ae21ba817e74'}
+    #     db_handler.add_gps_location_for_user(user_id, location)
+    #     return web.Response(text=json.dumps({'success': True, 'message': "Got your location: {}".format(location)}), status=200)
 
+    body = await request.json()
     id_token = body.get('Authorization')
     user_id = await verify_id_token(id_token)
     device_id = body.get('deviceId')
 
+    # print("update_gps_location_for_user #################################")
+    print(user_id, device_id)
     if user_id is None:
         raise web.HTTPUnauthorized()
 
@@ -466,8 +490,10 @@ async def update_gps_location_for_user(request):
     db_handler.add_gps_location_for_user(user_id, location)
     
     locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
-    if len(locations) > 1:
-        print("difference in locations: ", locations[-1]['lat'] - locations[-2]['lat'], locations[-1]['lng'] - locations[-2]['lng'])
+    
+    # print("locations: ", locations)
+    # if len(locations) > 1:
+    #     print("difference in locations: ", locations[-1]['lat'] - locations[-2]['lat'], locations[-1]['lng'] - locations[-2]['lng'])
 
     return web.Response(text=json.dumps({'success': True, 'message': "Got your location: {}".format(location)}), status=200)
 
@@ -522,14 +548,14 @@ if __name__ == '__main__':
     ##cse_process.start()
 
     # start intelligent definer agent process
-    print("Starting Intelligent Definer Agent process...")
-    intelligent_definer_agent_process = multiprocessing.Process(target=proactive_definer_processing_loop)
-    intelligent_definer_agent_process.start()
+    #print("Starting Intelligent Definer Agent process...")
+    #intelligent_definer_agent_process = multiprocessing.Process(target=proactive_definer_processing_loop)
+    #intelligent_definer_agent_process.start()
 
     # start the proactive agents process
-    print("Starting Proactive Agents process...")
-    proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
-    proactive_agents_background_process.start()
+    #print("Starting Proactive Agents process...")
+    #proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
+    #proactive_agents_background_process.start()
 
     # start the explicit agent process
     print("Starting Explicit Agent process...")
@@ -537,12 +563,12 @@ if __name__ == '__main__':
     explicit_background_process.start()
 
     # start the language learning app process
-    print("Starting Language Learning Agents process...")
-    language_learning_background_process = multiprocessing.Process(target=language_learning_agents_processing_loop)
-    language_learning_background_process.start()
+    #print("Starting Language Learning Agents process...")
+    #language_learning_background_process = multiprocessing.Process(target=language_learning_agents_processing_loop)
+    #language_learning_background_process.start()
     
     # start the question asker app process
-    # print("Starting Question Asker Agents process...")
+    print("Starting Contextual Convo Agents process...")
     ll_context_convo_background_process = multiprocessing.Process(target=ll_context_convo_agent_processing_loop)
     ll_context_convo_background_process.start()
 
@@ -566,6 +592,7 @@ if __name__ == '__main__':
             web.post('/save_recording', save_recording_handler),
             web.post('/load_recording', load_recording_handler),
             web.post('/set_user_settings', set_user_settings),
+            web.post('/get_user_settings', get_user_settings),
             web.post('/gps_location', update_gps_location_for_user),
         ]
     )
@@ -582,9 +609,9 @@ if __name__ == '__main__':
     web.run_app(app, port=server_port)
 
     #let processes finish and join
-    proactive_agents_background_process.join()
-    intelligent_definer_agent_process.join()
+    #proactive_agents_background_process.join()
+    #intelligent_definer_agent_process.join()
     #cse_process.join()
-    language_learning_background_process.join()
+    #language_learning_background_process.join()
     ll_context_convo_background_process.join()
     explicit_background_process.join()

@@ -5,6 +5,7 @@ from agents.wake_words import *
 from agents.explicit_agent import run_explicit_agent_async
 import asyncio
 from helpers.time_function_decorator import time_function
+from constants import EXPLICIT_AGENT
 
 dbHandler = DatabaseHandler(parent_handler=False)
 
@@ -43,6 +44,7 @@ def explicit_agent_processing_loop():
             # Try to find new wake worded users 
             newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(n=2)
             for t in newTranscripts:
+                if not dbHandler.get_user_feature_enabled(t['user_id'], EXPLICIT_AGENT): continue
                 if not is_user_id_in_user_list(t['user_id'], users):
                     dbHandler.check_for_wake_words_in_transcript_text(t['user_id'], t['text'])
 
