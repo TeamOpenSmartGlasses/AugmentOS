@@ -84,13 +84,13 @@ def run_ll_context_convo_agent(places: list, target_language: str = "Russian", f
         fluency_level=fluency_level,
         conversation_history=conversation_history,
     ).to_string()
-    print(ll_context_convo_agent_query_prompt_string)
+    # print(ll_context_convo_agent_query_prompt_string)
     # print("QUESTION ASKER PROMPT********************************")
     # print(ll_context_convo_agent_query_prompt_string)
 
     response = llm(
         [HumanMessage(content=ll_context_convo_agent_query_prompt_string)])
-    print(response)
+    # print(response)
 
     try:
         response = ll_context_convo_agent_query_parser.parse(
@@ -107,7 +107,7 @@ def run_ll_context_convo_agent(places: list, target_language: str = "Russian", f
         response_obj["ll_context_convo_response"] = response # pack the response into a dictionary
         response_obj["to_tts"] = {"text": response, "language": target_language}
 
-        print("RESPONSE OBJ")
+        print("LL CONTEXT CONVO RESPONSE: ")
         print(response_obj)
         return response_obj
 

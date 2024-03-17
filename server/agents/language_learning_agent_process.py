@@ -40,7 +40,7 @@ def language_learning_agent_processing_loop():
 
                 ctime = time.time()
                 
-                if db_handler.get_user_option_value(transcript['user_id'], "is_having_language_learning_contextual_convo"):
+                if db_handler.get_user_settings_value(transcript['user_id'], "is_having_language_learning_contextual_convo"):
                     print("User is having a conversation, skipping language translation")
                     continue
                 else:
