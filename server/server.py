@@ -472,7 +472,7 @@ async def update_gps_location_for_user(request):
     device_id = body.get('deviceId')
 
     # print("update_gps_location_for_user #################################")
-    print(user_id, device_id)
+    # print(user_id, device_id)
     if user_id is None:
         raise web.HTTPUnauthorized()
 
