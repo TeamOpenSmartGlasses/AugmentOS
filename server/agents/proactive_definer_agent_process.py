@@ -38,7 +38,7 @@ def proactive_definer_processing_loop():
             newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(n=time_between_iterations*2)
 
             for transcript in newTranscripts:
-                if not dbHandler.get_user_feature_enabled(transcript['user_id'], DEFINER_AGENT): continue
+                if not dbHandler.get_user_current_mode_enabled(transcript['user_id'], DEFINER_AGENT): continue
 
                 if len(transcript['text']) < 40: #80: # Around 20-30 words, like on a sentence level
                     print("Transcript too short, skipping...")

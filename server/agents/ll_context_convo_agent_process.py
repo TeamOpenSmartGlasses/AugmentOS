@@ -53,7 +53,6 @@ def lat_lng_to_meters(lat1, lng1, lat2, lng2):
 
 async def cleanup_conversation(user_id, db_handler):
     ongoing_conversations.remove(user_id)
-    print("dsadsadas", ongoing_conversations)
     db_handler.update_single_user_setting(user_id, "is_having_language_learning_contextual_convo", False)
     db_handler.update_single_user_setting(user_id, "use_dynamic_transcribe_language", False) # conversation ending, so stop using dynamic transcribe language
     return
@@ -61,7 +60,7 @@ async def cleanup_conversation(user_id, db_handler):
 
 async def handle_user_conversation(user_id, device_id, db_handler):
     start = time.time()
-    print("RUNNING CONTEXTUAL CONVO FOR USER: ", user_id)
+    print("MAYBE RUNNING CONTEXTUAL CONVO FOR USER: ", user_id)
     target_language = db_handler.get_user_settings_value(user_id, "target_language")
     locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
     transcripts = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=transcript_period)
@@ -98,6 +97,7 @@ async def handle_user_conversation(user_id, device_id, db_handler):
         await cleanup_conversation(user_id, db_handler)
         return
 
+    print("NOW RUNNING CONTEXTUAL CONVO FOR USER: ", user_id)
 
     # if not places:
     #     print("NO PLACES FOUND")
@@ -198,7 +198,7 @@ async def ll_context_convo_agent_processing_loop_async():
 
             # start a conversation for each active user
             for user in active_users:
-                if not db_handler.get_user_feature_enabled(user['user_id'], LL_CONTEXT_CONVO_AGENT): continue
+                if not db_handler.get_user_current_mode_enabled(user['user_id'], LL_CONTEXT_CONVO_AGENT): continue
 
                 user_id = user['user_id']
                 device_id = user['device_id']

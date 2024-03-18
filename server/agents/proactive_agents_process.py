@@ -32,7 +32,7 @@ def proactive_agents_processing_loop():
             print("RUNNING MULTI-AGENT LOOP")
             newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(n=240)
             for transcript in newTranscripts:
-                if not dbHandler.get_user_feature_enabled(transcript['user_id'], PROACTIVE_AGENTS): continue
+                if not dbHandler.get_user_current_mode_enabled(transcript['user_id'], PROACTIVE_AGENTS): continue
 
                 if len(transcript['text']) < 400: # Around 75-100 words, no point to generate insight below this
                     print("Transcript too short, skipping...")

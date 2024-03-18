@@ -254,7 +254,6 @@ async def ui_poll_handler(request, minutes=0.5):
     body = await request.json()
     # print(body)
     device_id = body.get('deviceId')
-    features = body.get('features')
     id_token = body.get('Authorization')
     user_id = await verify_id_token(id_token)
     if user_id is None:
@@ -263,8 +262,8 @@ async def ui_poll_handler(request, minutes=0.5):
     # 400 if missing params
     if device_id is None or device_id == '':
         return web.Response(text='no device_id in request', status=400)
-    if features is None or features == '':
-        return web.Response(text='no features in request', status=400)
+#    if features is None or features == '':
+#        return web.Response(text='no features in request', status=400)
     #if "contextual_search_engine" not in features:
     #    return web.Response(text='contextual_search_engine not in features', status=400)
 
@@ -274,50 +273,44 @@ async def ui_poll_handler(request, minutes=0.5):
     db_handler.update_active_user(user_id, device_id)
 
     # get CSE results
-    if "contextual_search_engine" in features:
-        cse_results = db_handler.get_cse_results_for_user_device(
-            user_id=user_id, device_id=device_id)
-
-        if cse_results:
-            print("server.py ================================= CSERESULT")
-            print(cse_results)
-
-        # add CSE response
-        resp["result"] = cse_results
+#    if "contextual_search_engine" in features:
+#        cse_results = db_handler.get_cse_results_for_user_device(
+#            user_id=user_id, device_id=device_id)
+#
+#        if cse_results:
+#            print("server.py ================================= CSERESULT")
+#            print(cse_results)
+#
+#        # add CSE response
+#        resp["result"] = cse_results
 
     # get agent results
-    if "proactive_agent_insights" in features:
-        agent_insight_results = db_handler.get_proactive_agents_insights_results_for_user_device(user_id=user_id, device_id=device_id)
-        #add agents insight to response
-        resp["results_proactive_agent_insights"] = agent_insight_results
+    agent_insight_results = db_handler.get_proactive_agents_insights_results_for_user_device(user_id=user_id, device_id=device_id)
+    #add agents insight to response
+    resp["results_proactive_agent_insights"] = agent_insight_results
 
     # get user queries and agent responses
-    if "explicit_agent_insights" in features:
-        explicit_insight_queries = db_handler.get_explicit_query_history_for_user(user_id=user_id, device_id=device_id)
-        explicit_insight_results = db_handler.get_explicit_insights_history_for_user(user_id=user_id, device_id=device_id)
-        wake_word_time = db_handler.get_wake_word_time_for_user(user_id=user_id)
-        resp["explicit_insight_queries"] = explicit_insight_queries
-        resp["explicit_insight_results"] = explicit_insight_results
-        resp["wake_word_time"] = wake_word_time
+    explicit_insight_queries = db_handler.get_explicit_query_history_for_user(user_id=user_id, device_id=device_id)
+    explicit_insight_results = db_handler.get_explicit_insights_history_for_user(user_id=user_id, device_id=device_id)
+    wake_word_time = db_handler.get_wake_word_time_for_user(user_id=user_id)
+    resp["explicit_insight_queries"] = explicit_insight_queries
+    resp["explicit_insight_results"] = explicit_insight_results
+    resp["wake_word_time"] = wake_word_time
 
-    if "intelligent_entity_definitions" in features:
-        entity_definitions = db_handler.get_agent_proactive_definer_results_for_user_device(user_id=user_id, device_id=device_id)
-        resp["entity_definitions"] = entity_definitions
+    entity_definitions = db_handler.get_agent_proactive_definer_results_for_user_device(user_id=user_id, device_id=device_id)
+    resp["entity_definitions"] = entity_definitions
 
-    if "language_learning" in features:
-        language_learning_results = db_handler.get_language_learning_results_for_user_device(user_id=user_id, device_id=device_id)
-        resp["language_learning_results"] = language_learning_results
+    language_learning_results = db_handler.get_language_learning_results_for_user_device(user_id=user_id, device_id=device_id)
+    resp["language_learning_results"] = language_learning_results
     
-    if "ll_context_convo" in features:
-        ll_context_convo_results = db_handler.get_ll_context_convo_results_for_user_device(user_id=user_id, device_id=device_id)
-        resp["ll_context_convo_results"] = ll_context_convo_results
+    ll_context_convo_results = db_handler.get_ll_context_convo_results_for_user_device(user_id=user_id, device_id=device_id)
+    resp["ll_context_convo_results"] = ll_context_convo_results
 
-    if "adhd_stmb_agent_summaries" in features:
-        adhd_stmb_agent_results = db_handler.get_adhd_stmb_results_for_user_device(user_id=user_id, device_id=device_id)
-        resp["adhd_stmb_agent_results"] = adhd_stmb_agent_results
-        if adhd_stmb_agent_results:
-            print("@@@@@@@@@ ADHD")
-            print(adhd_stmb_agent_results)
+    adhd_stmb_agent_results = db_handler.get_adhd_stmb_results_for_user_device(user_id=user_id, device_id=device_id)
+    resp["adhd_stmb_agent_results"] = adhd_stmb_agent_results
+    if adhd_stmb_agent_results:
+        print("@@@@@@@@@ ADHD")
+        print(adhd_stmb_agent_results)
 
     # tell the frontend to update their local settings if needed
     should_update_settings = db_handler.get_should_update_settings(user_id)

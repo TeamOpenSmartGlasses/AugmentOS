@@ -159,7 +159,7 @@ class DatabaseHandler:
                      "dynamic_transcribe_language": "English", #the current dynamic transcribe language that we set momentarily
                      "use_dynamic_transcribe_language": False,
                      "is_having_language_learning_contextual_convo": False,
-                     "features": [],
+                     "current_mode": "Proactive Agents",
                  },
                  "transcripts": [],
                  "ui_list": [],
@@ -249,8 +249,8 @@ class DatabaseHandler:
         else:
             return None
         
-    def get_user_feature_enabled(self, user_id, feature_name):
-        return feature_name in self.get_user_settings_value(user_id, "features")
+    def get_user_current_mode_enabled(self, user_id):
+        return self.get_user_settings_value(user_id, "current_mode")
 
     def get_should_update_settings(self, user_id):
         should_update_settings = self.get_user_settings_value(user_id, "should_update_settings")
