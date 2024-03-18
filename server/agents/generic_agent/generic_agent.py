@@ -193,6 +193,7 @@ class GenericAgent:
     async def run_agent_async(self, convo_context, insights_history: list):
         prompt_str = self.get_agent_prompt(convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history)
         confidence_score = -1
+        small_insight = None
         expert_agent_response = None
 
         if self.try_small_model_first:
@@ -200,9 +201,10 @@ class GenericAgent:
             expert_agent_response = await self.run_simple_llm_async(convo_context, insights_history)
             if expert_agent_response and 'confidence_score' in expert_agent_response:
                 confidence_score = expert_agent_response['confidence_score']
-            
+            if expert_agent_response and 'agent_insight' in expert_agent_response:
+                small_insight = expert_agent_response['agent_insight']
 
-        if expert_agent_response is None or confidence_score < self.small_model_confidence_threshold:
+        if expert_agent_response is None or confidence_score < self.small_model_confidence_threshold or small_insight == "null":
             res = await self.agent_large.ainvoke({"input": prompt_str})
             expert_agent_response = res['output']
 
@@ -210,10 +212,10 @@ class GenericAgent:
             return None
 
         #post process the output
-        print("BEFORE POST PROCESS, RESPONSE: " + str(expert_agent_response))
+        # print("BEFORE POST PROCESS, RESPONSE: " + str(expert_agent_response))
         expert_agent_response = post_process_agent_output(expert_agent_response, self.agent_name)
 
-        print("END: expert_agent_response", expert_agent_response)
+        # print("END: expert_agent_response", expert_agent_response)
         
         return expert_agent_response
     
