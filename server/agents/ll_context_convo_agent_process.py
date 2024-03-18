@@ -191,7 +191,7 @@ async def ll_context_convo_agent_processing_loop_async():
 
         try:
             pLoopStartTime = time.time()
-            print("RUNNING CONTEXTUAL CONVO LOOP ASYNC")
+            # print("RUNNING CONTEXTUAL CONVO LOOP ASYNC")
 
             active_users = db_handler.get_active_users()
             tasks = []
@@ -222,7 +222,7 @@ async def ll_context_convo_agent_processing_loop_async():
 
         finally:
             pLoopEndTime = time.time()
-            print(f"=== CONTEXTUAL CONVO loop completed in {round(pLoopEndTime - pLoopStartTime, 2)} seconds overall ===")
+            # print(f"=== CONTEXTUAL CONVO loop completed in {round(pLoopEndTime - pLoopStartTime, 2)} seconds overall ===")
 
         await asyncio.sleep(run_period)
 

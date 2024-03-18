@@ -30,7 +30,7 @@ def adhd_stmb_agent_processing_loop():
         try:
             pLoopStartTime = time.time()
             # Check for new transcripts
-            print("RUNNING ADHD STMB LOOP")
+            # print("RUNNING ADHD STMB LOOP")
             newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(
                 n=transcript_back_time)
 
