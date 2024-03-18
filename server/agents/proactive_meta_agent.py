@@ -24,17 +24,14 @@ force_run_agents_prompt = ""
 if DEBUG_FORCE_EXPERT_AGENT_RUN:
     force_run_agents_prompt = "For this run, you MUST specify at least 1 expert agent to run. Do not output an empty list."
 
-min_gatekeeper_score = 6
+min_gatekeeper_score = 4
 
 class ProactiveMetaAgentGatekeeperScore(BaseModel):
     """
-    Proactive meta agent that determines which agents to run
+    Meta agent that determines if an "Insight" should be generated
     """
     score: int = Field(
-        description="Score of how confident you are that your selection of Expert Agents is optimal, with 1 being not very confident, and 10 being the most confident.", default=0
-    )
-    agents_list: list = Field(
-        description="the agents to run given the conversation context"
+        description="Score 1 - 10 of how likely an \"Insight\" would be to the conversation, with 1 being not very helpful, and 10 being the most helpful.", default=0
     )
 
 proactive_meta_agent_gatekeeper_score_query_parser = PydanticOutputParser(
@@ -69,7 +66,7 @@ def run_proactive_meta_agent_and_experts(conversation_context: str, insights_his
     print(proactive_meta_agent_response)
 
     #do nothing else if proactive meta agent didn't specify an agent to run
-    if proactive_meta_agent_response == []:
+    if proactive_meta_agent_response == [] or proactive_meta_agent_response == None:
         return []
 
     #parse insights history into a dict of agent_name: [agent_insights] so expert agent won't repeat the same insights
@@ -98,7 +95,7 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list):
 
     gatekeeper_score_prompt = PromptTemplate(
         template = proactive_meta_agent_gatekeeper_prompt_blueprint,
-        input_variables = ["conversation_context", "expert_agents_descriptions_prompt", "insights_history", "force_run_agents_prompt"],
+        input_variables = ["conversation_context", "expert_agents_descriptions_prompt", "force_run_agents_prompt"],
         partial_variables = {
             "format_instructions": proactive_meta_agent_gatekeeper_score_query_parser.get_format_instructions(),
         },
@@ -107,19 +104,12 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list):
         gatekeeper_score_prompt.format_prompt(
             conversation_context=conversation_context, 
             expert_agents_descriptions_prompt=expert_agents_descriptions_prompt,
-            insights_history=insights_history,
             force_run_agents_prompt=force_run_agents_prompt
         ).to_string()
     )
 
-    # options:
-    # O1: Score is "how sure are we to run"
-    # O2: Score is "here's a list of agents, here's how certain I am about them"
-    #
-    #
-    #
-
     with get_openai_callback() as cb:
+        # print("GATEKEEPER PROMPT STRING", gatekeeper_score_prompt_string)
         score_response = llm35.invoke(
             [HumanMessage(content=gatekeeper_score_prompt_string)]
         )
@@ -128,12 +118,10 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list):
     try:
         content = proactive_meta_agent_gatekeeper_score_query_parser.parse(score_response.content)
         score = int(content.score)
-        expert_agents_to_run_list = content.agents_list
-        # track_gpt3_time_and_cost(time.time() - gpt3start, gpt3cost)
-        print("GPT3: Transcript: {} || AgentList: {} || Score: {}".format(conversation_context, expert_agents_to_run_list, score))
-        if score >= min_gatekeeper_score: 
-            return expert_agents_to_run_list
-        print("SCORE UNCERTAIN ({})! RUNNING GPT4!".format(str(score)))
+        if score < min_gatekeeper_score: 
+            print("SCORE BAD ({} < {})! GATEKEEPER SAYS NO!".format(str(score), str(min_gatekeeper_score)))
+            return None
+        print("SCORE GOOD ({} > {})! RUNNING GPT4!".format(str(score), str(min_gatekeeper_score)))
     except OutputParserException as e:
         print("ERROR: " + str(e))
         return None

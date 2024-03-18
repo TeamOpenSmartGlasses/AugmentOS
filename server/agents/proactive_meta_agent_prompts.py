@@ -27,37 +27,20 @@ Here are the insights that have been generated recently, you should not call the
 
 proactive_meta_agent_gatekeeper_prompt_blueprint = """
 [Objective]
-Your job is to listen to a user's live conversation and provide them with "Insights" by selecting the optimal "Expert Agent(s)".
+Your job is to listen to a user's live conversation and determine if an "Insight" might be helpful to the conversation. 
 
 "Insights" should lead the user to deeper understanding, broader perspectives, new ideas, more accurate information, better replies, and enhanced conversations.
 
-"Expert Agents" are like workers in your team which have the power to generate "Insights". Only specify agents that will be helpful.`
-
-[How]
-- You will be given transcripts from the user's conversation and information about a number of different "Expert Agents".
-
-- Your task is to recognize when an "Expert Agent" would be useful to the conversation and to output a list of which agents should be run.
-
-[Extra info]
-- It's OK to output an empty list if no agents should be run right now. It's OK to specify multiple agents, but try to specify 0-1 Agents.
-
-- If the transcript is nonsensical, return an empty list.
-
-{force_run_agents_prompt}
-
-[Your Agents]
-You have access to "Expert Agents", which are like workers in your team that with special abilities. These are the agents you can run:
+[Types of "Insights"]
+The following are "Expert Agents", which describe which types of "Insights" can be made:
 {expert_agents_descriptions_prompt}
 
 [Conversation Transcript]
 This is the current live transcript of the conversation you're assisting:
 <Transcript start>{conversation_context}<Transcript end>
 
-[Recent Insights History]
-Here are the insights that have been generated recently, you should not call the expert agent if you think it will generate the same insight as one of these:
-{insights_history}
 <Task start>
-You should now output a list of the expert agents you think should run. Feel free to specify no expert agents. 
-Also, output a score 1-10 of how confident you are that your selection of Expert Agents is optimal.
+Output an "Insight helpfulness" score, which is a number 1 - 10, with 1 being not very helpful, and 10 being very useful/helpful.
+If the score is 6 or higher, an "Insight" would be helpful to the conversation. If the score is 5 or lower, an "Insight" would not be helpful to the conversation.
 {format_instructions}
 <Task end>"""
