@@ -90,6 +90,10 @@ public class BackendServerComms {
                                 callback.onFailure(-1);
                             }
                         }
+
+                        if (endpoint == GET_USER_SETTINGS_ENDPOINT){
+                            callback.onSuccess(response);
+                        }
                     }
                 }, new Response.ErrorListener() {
             @Override

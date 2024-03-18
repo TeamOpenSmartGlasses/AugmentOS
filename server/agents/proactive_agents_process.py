@@ -10,6 +10,7 @@ from DatabaseHandler import DatabaseHandler
 from agents.proactive_meta_agent import run_proactive_meta_agent_and_experts
 from server_config import openai_api_key
 from logger_config import logger
+from constants import PROACTIVE_AGENTS
 
 time_between_iterations = 5
 timelength_of_usable_transcripts = time_between_iterations * 2
@@ -42,6 +43,8 @@ def proactive_agents_processing_loop():
             # print("RUNNING MULTI-AGENT LOOP")
             newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(n=timelength_of_usable_transcripts)
             for transcript in newTranscripts:
+                if not dbHandler.get_user_feature_enabled(transcript['user_id'], PROACTIVE_AGENTS): continue
+
                 # Don't run if the transcript is too short
                 if not is_transcript_long_enough(transcript['text']):
                     print("Transcript too short, skipping...")

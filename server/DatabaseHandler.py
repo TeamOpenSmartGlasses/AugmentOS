@@ -3,11 +3,14 @@ from pymongo.server_api import ServerApi
 import time
 import agents.wake_words
 import math
+import warnings
 from hashlib import sha256
 from server_config import database_uri, clear_users_on_start, clear_cache_on_start
 import uuid
 import logging
 from logger_config import logger
+from constants import TESTING_LL_CONTEXT_CONVO_AGENT
+
 
 
 class DatabaseHandler:
@@ -42,6 +45,7 @@ class DatabaseHandler:
             self.init_ratings_collection()
             self.init_language_learning_collection()
             self.init_gps_location_collection()
+            self.init_topic_shifts_collection()
             self.ready = True
         except Exception as e:
             print(e)
@@ -96,6 +100,11 @@ class DatabaseHandler:
         self.gps_location_collection = self.get_collection(
             self.gps_location_db, 'gps_location_results', wipe=clear_cache_on_start)
 
+    def init_topic_shifts_collection(self):
+        self.topic_shifts_db = self.client['topic_shifts']
+        self.topic_shifts_collection = self.get_collection(
+            self.topic_shifts_db, 'topic_shifts_results', wipe=clear_cache_on_start)
+
     def get_collection(self, db, collection_name, wipe=False):
         if collection_name in db.list_collection_names():
             collection = db.get_collection(collection_name)
@@ -146,9 +155,15 @@ class DatabaseHandler:
                  "last_recording_start_time": -1,
                  "cse_consumed_transcript_id": -1,
                  "cse_consumed_transcript_idx": 0,
-                 "options": {
+                 "settings": {
                      "enable_agent_proactive_definer_images": True,
+                     "should_update_settings": False,
                      "target_language": "Russian",
+                     "transcribe_language": "English",
+                     "dynamic_transcribe_language": "English", #the current dynamic transcribe language that we set momentarily
+                     "use_dynamic_transcribe_language": False,
+                     "is_having_language_learning_contextual_convo": False,
+                     "features": [],
                  },
                  "transcripts": [],
                  "ui_list": [],
@@ -162,6 +177,7 @@ class DatabaseHandler:
                  "language_learning_result_ids": [],
                  "ll_context_convo_result_ids": [],
                  "gps_location_result_ids": [],
+                 "topic_shift_result_ids": [],
                  "agent_proactive_definer_irrelevant_terms": []})
 
     ### CACHE ###
@@ -191,6 +207,10 @@ class DatabaseHandler:
         )
 
     def get_active_users(self, active_threshold=10):
+        # if TESTING_LL_CONTEXT_CONVO_AGENT:
+        #     warnings.warn("TESTING MODE: Returning test user. Please remove this warning when not testing.")
+        #     return [{"user_id": "oO4QvMJELYM6jEYtLDbo1LRFLPO2", "device_id": "android"}]
+
         current_time = int(time.time())
         query = {"last_active": {"$gte": current_time - active_threshold}}
         active_users = self.active_user_collection.find(query)
@@ -198,31 +218,51 @@ class DatabaseHandler:
 
     ### OPTIONS ###
 
-    def get_user_options(self, user_id):
+    def get_user_settings(self, user_id):
         filter = {"user_id": user_id}
-        doc = self.user_collection.find_one(filter, {'options': 1, '_id': 0})
-        return doc.get('options', None) if doc else None
+        doc = self.user_collection.find_one(filter, {'settings': 1, '_id': 0})
+        return doc.get('settings', None) if doc else None
 
 
-    def update_user_options(self, user_id, options_update):
+    def update_user_settings(self, user_id, settings_update):
         filter = {"user_id": user_id}
         update = {"$set": {}}
-        for key, value in options_update.items():
-            update["$set"][f"options.{key}"] = value
+        for key, value in settings_update.items():
+            update["$set"][f"settings.{key}"] = value
         result = self.user_collection.update_one(filter, update)
         if result.modified_count > 0:
             print(f'Options updated for user {user_id}.')
         else:
             print(f'No updates made for user {user_id}. Either user does not exist or no changes were necessary.')
 
-    def get_user_option_value(self, user_id, option_key):
+    def update_single_user_setting(self, user_id, setting_key, setting_value):
         filter = {"user_id": user_id}
-        projection = {'options': 1, '_id': 0}
+        update = {"$set": {f"settings.{setting_key}": setting_value}}
+        result = self.user_collection.update_one(filter, update)
+        if result.modified_count > 0:
+            print(f'Setting "{setting_key}" updated for user {user_id}.')
+        else:
+            print(f'No updates made for user {user_id}. Either user does not exist or no changes were necessary.')
+
+
+    def get_user_settings_value(self, user_id, option_key):
+        filter = {"user_id": user_id}
+        projection = {'settings': 1, '_id': 0}
         doc = self.user_collection.find_one(filter, projection)
-        if doc and 'options' in doc and option_key in doc['options']:
-            return doc['options'][option_key]
+        if doc and 'settings' in doc and option_key in doc['settings']:
+            return doc['settings'][option_key]
         else:
             return None
+        
+    def get_user_feature_enabled(self, user_id, feature_name):
+        return feature_name in self.get_user_settings_value(user_id, "features")
+
+    def get_should_update_settings(self, user_id):
+        should_update_settings = self.get_user_settings_value(user_id, "should_update_settings")
+        if should_update_settings:
+            print("should update settings was true, changing to false")
+            self.update_single_user_setting(user_id, "should_update_settings", False)
+        return should_update_settings
 
 
     ### TRANSCRIPTS ###
@@ -885,6 +925,25 @@ class DatabaseHandler:
 
         return results
 
+    def get_latest_topic_shift_for_user(self, user_id, top=1, true_shift=True):
+        uuid_list = self.get_user(user_id)["topic_shift_result_ids"]
+        match_condition = {"uuid": {"$in": uuid_list}}
+        if true_shift is not None:
+            match_condition["true_shift"] = true_shift
+        pipeline = [
+            {"$match": match_condition},
+            {"$sort": {"timestamp": -1}},
+            {"$limit": top},
+            {
+                "$project": {
+                    "_id": 0,
+                }
+            },
+        ]
+
+        results = list(self.topic_shifts_collection.aggregate(pipeline))
+        return results
+
     def get_recent_nminutes_language_learning_words_defined_history_for_user(self, user_id, n_minutes=10):
         uuid_list = self.get_user(user_id)["language_learning_result_ids"]
         current_time = math.trunc(time.time())
@@ -1085,6 +1144,9 @@ class DatabaseHandler:
         res = self.gps_location_collection.find_one(filter, {'_id': 0})
         if res:
             return res
+        res = self.topic_shifts_collection.find_one(filter, {'_id': 0})
+        if res:
+            return res
 
         return None
 
@@ -1098,9 +1160,9 @@ class DatabaseHandler:
                 "Invalid result type: `{}`".format(str(result_type)))
 
         result_ids = user[result_type] if user != None else []
-        #print("running get results for user with result_type as " + result_type)
-        #print(result_ids)
-        #print(user)
+#        if result_ids != [] and result_type == "topic_shift_result_ids":
+#            print("running get results for user with result_type as " + result_type)
+#            print(result_ids)
         already_consumed_ids = [
         ] if include_consumed else self.get_consumed_result_ids_for_user_device(user_id, device_id)
         new_results = []
@@ -1183,6 +1245,9 @@ class DatabaseHandler:
     def get_ll_context_convo_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
         return self.get_results_for_user_device("ll_context_convo_result_ids", user_id, device_id, should_consume, include_consumed)
 
+    def get_adhd_stmb_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
+        return self.get_results_for_user_device("topic_shift_result_ids", user_id, device_id, should_consume, include_consumed)
+
     def add_gps_location_for_user(self, user_id, location):
         if not location:
             print("No location to add")
@@ -1194,9 +1259,34 @@ class DatabaseHandler:
         # print("INSERTING location: " + str(location))
         self.gps_location_collection.insert_one(location)
 
+        filter = {"user_id": user_id}
+        update = {
+            "$push": {
+                "gps_location_result_ids": {
+                    "$each": [location['uuid']],
+                    "$slice": -10  # Keep only the latest 10 entries
+                }
+            }
+        }
+        self.user_collection.update_one(filter=filter, update=update)
+
+    def add_topic_shift_for_user(self, user_id, time_of_shift, summary, true_shift=False):
+        if not time_of_shift:
+            print("No topic shift timestamp to add")
+            return
+        
+        topic_shift = dict()
+        topic_shift['time_of_shift'] = time_of_shift
+        topic_shift['summary'] = summary
+        topic_shift['true_shift'] = true_shift
+        topic_shift['timestamp'] = int(time.time())
+        topic_shift['uuid'] = str(uuid.uuid4())
+
+        print("INSERTING TOPIC SHIFT: " + str(topic_shift))
+        self.topic_shifts_collection.insert_one(topic_shift)
 
         filter = {"user_id": user_id}
-        update = {"$push": {"gps_location_result_ids": location['uuid']}}
+        update = {"$push": {"topic_shift_result_ids": topic_shift['uuid']}}
         self.user_collection.update_one(filter=filter, update=update)
 
     def get_gps_location_results_for_user_device(self, user_id, device_id, should_consume=False, include_consumed=False):
@@ -1235,3 +1325,4 @@ z = db.user_collection.find()
 for pp in z:
     print(pp)
 """
+

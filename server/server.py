@@ -24,15 +24,16 @@ from aiohttp import web, web_exceptions
 
 #Convoscope
 from server_config import server_port
-from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH
+from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH, TESTING_LL_CONTEXT_CONVO_AGENT
 from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_agents_process import proactive_agents_processing_loop
 from agents.expert_agent_configs import get_agent_by_name
 from agents.explicit_agent_process import explicit_agent_processing_loop, call_explicit_agent
 from agents.proactive_definer_agent_process import proactive_definer_processing_loop
-from agents.language_learning_agent_process import language_learning_agents_processing_loop
+from agents.language_learning_agent_process import language_learning_agent_processing_loop
 from agents.ll_context_convo_agent_process import ll_context_convo_agent_processing_loop
+from agents.adhd_stmb_agent_process import adhd_stmb_agent_processing_loop
 import agents.wake_words
 from Modules.RelevanceFilter import RelevanceFilter
 
@@ -132,9 +133,21 @@ async def set_user_settings(request):
     if user_id is None:
         raise web.HTTPUnauthorized()
     
-    db_handler.update_user_options(user_id, body)
+    db_handler.update_user_settings(user_id, body)
 
     return web.Response(text=json.dumps({'success': True, 'message': "Saved your settings."}))
+
+
+async def get_user_settings(request):
+    body = await request.json()
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
+    
+    user_settings = db_handler.get_user_settings(user_id)
+
+    return web.Response(text=json.dumps({'success': True, 'settings': user_settings}))
 
 
 # runs when button is pressed on frontend - right now button ring on wearable or button in TPA
@@ -286,7 +299,6 @@ async def ui_poll_handler(request, minutes=0.5):
         resp["explicit_insight_results"] = explicit_insight_results
         resp["wake_word_time"] = wake_word_time
 
-    # get entity definitions
     if "intelligent_entity_definitions" in features:
         entity_definitions = db_handler.get_agent_proactive_definer_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["entity_definitions"] = entity_definitions
@@ -294,16 +306,21 @@ async def ui_poll_handler(request, minutes=0.5):
     if "language_learning" in features:
         language_learning_results = db_handler.get_language_learning_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["language_learning_results"] = language_learning_results
-        if language_learning_results:
-            print("server.py ================================= LLRESULT")
-            print(language_learning_results)
     
     if "ll_context_convo" in features:
         ll_context_convo_results = db_handler.get_ll_context_convo_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["ll_context_convo_results"] = ll_context_convo_results
-        if ll_context_convo_results:
-            print("RETURNING THIS QUESTION ASKER RESULTS")
-            print(ll_context_convo_results)
+
+    if "adhd_stmb_agent_summaries" in features:
+        adhd_stmb_agent_results = db_handler.get_adhd_stmb_results_for_user_device(user_id=user_id, device_id=device_id)
+        resp["adhd_stmb_agent_results"] = adhd_stmb_agent_results
+        if adhd_stmb_agent_results:
+            print("@@@@@@@@@ ADHD")
+            print(adhd_stmb_agent_results)
+
+    # tell the frontend to update their local settings if needed
+    should_update_settings = db_handler.get_should_update_settings(user_id)
+    resp["should_update_settings"] = should_update_settings
 
     return web.Response(text=json.dumps(resp), status=200)
 
@@ -441,12 +458,21 @@ async def send_agent_chat_handler(request):
 
 
 async def update_gps_location_for_user(request):
-    body = await request.json()
+    # if TESTING_LL_CONTEXT_CONVO_AGENT:
+    #     warnings.warn("TESTING MODE: Using hardcoded user_id, device_id and location. Please remove this warning when done testing.")
+    #     user_id = "oO4QvMJELYM6jEYtLDbo1LRFLPO2"
+    #     device_id = "android"
+    #     location = {'lat': 53.411812, 'lng': -2.210799, 'timestamp': 1709593069, 'uuid': 'e7674554-2a89-44ac-900b-ae21ba817e74'}
+    #     db_handler.add_gps_location_for_user(user_id, location)
+    #     return web.Response(text=json.dumps({'success': True, 'message': "Got your location: {}".format(location)}), status=200)
 
+    body = await request.json()
     id_token = body.get('Authorization')
     user_id = await verify_id_token(id_token)
     device_id = body.get('deviceId')
 
+    # print("update_gps_location_for_user #################################")
+    print(user_id, device_id)
     if user_id is None:
         raise web.HTTPUnauthorized()
 
@@ -466,6 +492,8 @@ async def update_gps_location_for_user(request):
     db_handler.add_gps_location_for_user(user_id, location)
     
     locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
+    
+    # print("locations: ", locations)
     # if len(locations) > 1:
     #     print("difference in locations: ", locations[-1]['lat'] - locations[-2]['lat'], locations[-1]['lng'] - locations[-2]['lng'])
 
@@ -517,9 +545,9 @@ if __name__ == '__main__':
         multiprocessing.set_start_method('spawn')
 
     # log_queue = multiprocessing.Queue()
-    ##print("Starting CSE process...")
-    ##cse_process = multiprocessing.Process(target=cse_loop)
-    ##cse_process.start()
+    #print("Starting CSE process...")
+    #cse_process = multiprocessing.Process(target=cse_loop)
+    #cse_process.start()
 
     # start intelligent definer agent process
     print("Starting Intelligent Definer Agent process...")
@@ -538,13 +566,18 @@ if __name__ == '__main__':
 
     # start the language learning app process
     print("Starting Language Learning Agents process...")
-    language_learning_background_process = multiprocessing.Process(target=language_learning_agents_processing_loop)
+    language_learning_background_process = multiprocessing.Process(target=language_learning_agent_processing_loop)
     language_learning_background_process.start()
     
-    # start the question asker app process
-    # print("Starting Question Asker Agents process...")
+    # start the contextual convo language larning app process
+    print("Starting Contextual Convo Language learning app process...")
     ll_context_convo_background_process = multiprocessing.Process(target=ll_context_convo_agent_processing_loop)
     ll_context_convo_background_process.start()
+
+    # start the contextual convo language larning app process
+    print("Starting ADHD STMB app process...")
+    adhd_stmb_background_process = multiprocessing.Process(target=adhd_stmb_agent_processing_loop)
+    adhd_stmb_background_process.start()
 
     # setup and run web app
     # CORS allow from all sources
@@ -566,6 +599,7 @@ if __name__ == '__main__':
             web.post('/save_recording', save_recording_handler),
             web.post('/load_recording', load_recording_handler),
             web.post('/set_user_settings', set_user_settings),
+            web.post('/get_user_settings', get_user_settings),
             web.post('/gps_location', update_gps_location_for_user),
         ]
     )
@@ -588,3 +622,4 @@ if __name__ == '__main__':
     language_learning_background_process.join()
     ll_context_convo_background_process.join()
     explicit_background_process.join()
+    adhd_stmb_background_process.join()

@@ -11,6 +11,8 @@ public class Constants {
     public static String entityDefinitionsKey = "entity_definitions";
     public static String languageLearningKey = "language_learning_results";
     public static String llContextConvoKey = "ll_context_convo_results";
+    public static String shouldUpdateSettingsKey = "should_update_settings";
+    public static String adhdStmbAgentKey = "adhd_stmb_agent_results";
 
     //endpoints
     public static final String LLM_QUERY_ENDPOINT = "/chat";
@@ -18,4 +20,5 @@ public class Constants {
     public static final String BUTTON_EVENT_ENDPOINT = "/button_event";
     public static final String UI_POLL_ENDPOINT = "/ui_poll";
     public static final String SET_USER_SETTINGS_ENDPOINT = "/set_user_settings";
+    public static final String GET_USER_SETTINGS_ENDPOINT = "/get_user_settings";
 }

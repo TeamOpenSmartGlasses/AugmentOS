@@ -93,6 +93,14 @@
           android:text="Language Learning" />
 
       <RadioButton
+          android:id="@+id/radioButtonADHDGlasses"
+          android:layout_width="match_parent"
+          android:layout_height="38dp"
+          android:enabled="true"
+          android:buttonTint="@color/colorAccent"
+          android:text="ADHD Glasses" />
+
+      <RadioButton
           android:id="@+id/radioButtonWalkNGrok"
           android:layout_width="match_parent"
           android:layout_height="38dp"
@@ -100,13 +108,6 @@
           android:buttonTint="@color/bubbleColor"
           android:text="Walk 'n' Grok" />
 
-      <RadioButton
-          android:id="@+id/radioButtonADHDGlasses"
-          android:layout_width="match_parent"
-          android:layout_height="38dp"
-          android:enabled="false"
-          android:buttonTint="@color/bubbleColor"
-          android:text="ADHD Glasses" />
     </RadioGroup>
 
 

@@ -67,11 +67,14 @@ def get_word_frequency_percentiles(transcript: str, language_code: str) -> dict:
         if word_lower_token in words_dict:
             # Convert rank to percentile
             percentile = round((words_dict[word_lower_token] / total_words) * 100, 1)
-            words_rank[word.translate(str.maketrans("", "", "?!.,;\""))] = percentile
+            words_rank[word.translate(str.maketrans("", "", "?。!.,;？\""))] = percentile
             #words_rank[word] = percentile
         else: #large percentile for words not in small dataset
             percentile = 98.2
             words_rank[word] = percentile
+
+    print("WORDS RANK:")
+    print(words_rank)
 
     return words_rank
 
