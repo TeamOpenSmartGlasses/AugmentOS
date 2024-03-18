@@ -360,14 +360,14 @@ public class MainActivity extends AppCompatActivity {
       public void saveCurrentMode(Context context, String currentModeString) {
         //update the features for the new mode
         if (mService != null) {
-          mService.changeMode(currentModeString);
+          mService.saveCurrentMode(this, currentModeString);
+        } else {
+          //save the new mode
+          PreferenceManager.getDefaultSharedPreferences(context)
+                  .edit()
+                  .putString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), currentModeString)
+                  .apply();
         }
-
-        //save the new mode
-        PreferenceManager.getDefaultSharedPreferences(context)
-                .edit()
-                .putString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), currentModeString)
-                .apply();
     }
 
     public String getCurrentMode(Context context) {
