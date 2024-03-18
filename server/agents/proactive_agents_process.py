@@ -12,7 +12,15 @@ from server_config import openai_api_key
 from logger_config import logger
 
 time_between_iterations = 5
+timelength_of_usable_transcripts = time_between_iterations * 2
 min_words_to_run = 8
+
+def is_transcript_long_enough(transcript: str):
+    if len(transcript.split()) < min_words_to_run:
+        if "?" not in transcript:
+            return False
+    return True
+
 
 def proactive_agents_processing_loop():
     print("START MULTI AGENT PROCESSING LOOP")
@@ -31,29 +39,46 @@ def proactive_agents_processing_loop():
         try:
             pLoopStartTime = time.time()
             # Check for new transcripts
-            print("RUNNING MULTI-AGENT LOOP")
-            newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(n=time_between_iterations*2)
+            # print("RUNNING MULTI-AGENT LOOP")
+            newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(n=timelength_of_usable_transcripts)
             for transcript in newTranscripts:
-                if len(transcript['text'].split()) < min_words_to_run: # Around 75-100 words, no point to generate insight below this
-                    if "?" not in transcript['text']: # Make an exception for questions
-                        print("Transcript too short, skipping...")
-                        continue
-                # print("Run Insights generation with... user_id: '{}' ... text: '{}'".format(
-                #     transcript['user_id'], transcript['text']))
-                insightGenerationStartTime = time.time()
+                # Don't run if the transcript is too short
+                if not is_transcript_long_enough(transcript['text']):
+                    print("Transcript too short, skipping...")
+                    continue
+
+                # Don't run if in the middle of an explicit query
+                if dbHandler.get_wake_word_time_for_user(transcript['user_id']) != -1:
+                    continue
               
-                # TODO: Test this quick n' dirty way of preventing proactive from running on explicit queries
                 transcript_to_use = transcript['text']
-                explicit_history = dbHandler.get_explicit_query_history_for_user(user_id=transcript['user_id'], device_id=None, should_consume=False, include_consumed=True)
+                
+                # Filter out recent explicit queries
+                explicit_history = dbHandler.get_recent_n_seconds_explicit_query_history_for_user(user_id=transcript['user_id'], n_seconds=timelength_of_usable_transcripts)
                 for hist_item in explicit_history:
-                    transcript_to_use.replace(hist_item['query'], ' ... ')
+                    transcript_to_use = transcript_to_use.replace(hist_item['query'], '')
+
+                # Filter out recent proactive queries
+                proactive_query_history = dbHandler.get_recent_n_seconds_agent_insights_query_history_for_user(user_id=transcript['user_id'], n_seconds=timelength_of_usable_transcripts)
+                for hist_item in proactive_query_history:
+                    transcript_to_use = transcript_to_use.replace(hist_item['query'], '')
+
+                if not is_transcript_long_enough(transcript_to_use):
+                    print("Transcript too short after removing explicit+proactive queries:\n'{}'\nSkipping...".format(transcript_to_use))
+                    continue
+
+                insightGenerationStartTime = time.time()
 
                 try:
+                    # Get proactive insight history
                     insights_history = dbHandler.get_recent_nminutes_agent_insights_history_for_user(transcript['user_id'], n_minutes=90)
-                    print("insights_history: {}".format(insights_history))
+                    # print("insights_history: {}".format(insights_history))
                     logger.log(level=logging.DEBUG, msg="Insights history: {}".format(insights_history))
 
-                    #run proactive meta agent, get insights
+                    # Add this proactive query to history
+                    dbHandler.add_agent_insight_query_for_user(transcript['user_id'], transcript_to_use)
+
+                    # Run proactive meta agent, get insights
                     insights = run_proactive_meta_agent_and_experts(transcript_to_use, insights_history)
                     print("insights: {}".format(insights))
 

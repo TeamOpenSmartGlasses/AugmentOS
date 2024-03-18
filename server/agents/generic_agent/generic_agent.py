@@ -210,6 +210,7 @@ class GenericAgent:
             return None
 
         #post process the output
+        print("BEFORE POST PROCESS, RESPONSE: " + str(expert_agent_response))
         expert_agent_response = post_process_agent_output(expert_agent_response, self.agent_name)
 
         print("END: expert_agent_response", expert_agent_response)
