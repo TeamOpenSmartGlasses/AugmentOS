@@ -7,6 +7,7 @@ from DatabaseHandler import DatabaseHandler
 from agents.adhd_stmb_agent import run_adhd_stmb_agent
 from server_config import openai_api_key
 from logger_config import logger
+from constants import ADHD_STMB_AGENT
 
 run_period = 20
 transcript_back_time = run_period * 1.1
@@ -36,6 +37,8 @@ def adhd_stmb_agent_processing_loop():
 
             words_to_show = None
             for transcript in newTranscripts:
+                if not dbHandler.get_user_feature_enabled(transcript['user_id'], ADHD_STMB_AGENT): continue
+                
                 ctime = time.time()
                 user_id = transcript['user_id']
 
