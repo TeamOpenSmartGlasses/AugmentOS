@@ -466,8 +466,8 @@ async def update_gps_location_for_user(request):
     db_handler.add_gps_location_for_user(user_id, location)
     
     locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
-    if len(locations) > 1:
-        print("difference in locations: ", locations[-1]['lat'] - locations[-2]['lat'], locations[-1]['lng'] - locations[-2]['lng'])
+    # if len(locations) > 1:
+    #     print("difference in locations: ", locations[-1]['lat'] - locations[-2]['lat'], locations[-1]['lng'] - locations[-2]['lng'])
 
     return web.Response(text=json.dumps({'success': True, 'message': "Got your location: {}".format(location)}), status=200)
 

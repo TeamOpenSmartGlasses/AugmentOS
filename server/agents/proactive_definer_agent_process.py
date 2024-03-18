@@ -32,7 +32,7 @@ def proactive_definer_processing_loop():
         try:
             pLoopStartTime = time.time()
             # Check for new transcripts
-            print("RUNNING DEFINER LOOP")
+            # print("RUNNING DEFINER LOOP")
             newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(n=time_between_iterations*2)
 
             for transcript in newTranscripts:

@@ -130,7 +130,7 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list):
         score = int(content.score)
         expert_agents_to_run_list = content.agents_list
         # track_gpt3_time_and_cost(time.time() - gpt3start, gpt3cost)
-        print("GPT3 result || AgentList: {} || Score: {}".format(expert_agents_to_run_list, score))
+        print("GPT3: Transcript: {} || AgentList: {} || Score: {}".format(conversation_context, expert_agents_to_run_list, score))
         if score >= min_gatekeeper_score: 
             return expert_agents_to_run_list
         print("SCORE UNCERTAIN ({})! RUNNING GPT4!".format(str(score)))

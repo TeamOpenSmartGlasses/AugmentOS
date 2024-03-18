@@ -67,7 +67,7 @@ def ll_context_convo_agent_processing_loop():
 
                 if user_ids.__contains__(user_id):
                     continue
-                print("here")
+                # print("here")
                 user_ids.add(user_id)
                 ctime = time.time()
                 target_language = db_handler.get_user_option_value(user_id, "target_language")
@@ -82,16 +82,16 @@ def ll_context_convo_agent_processing_loop():
                     delta_time = user_location['timestamp'] - past_location['timestamp']
                     
                     speed = displacement / delta_time
-                    print(speed)
+                    # print(speed)
 
                     wpm_threshold = 30
-                    print(transcripts)
-                    print("Speed is: " + str(speed))
+                    # print(transcripts)
+                    # print("Speed is: " + str(speed))
                     if speed < 0.00001:
-                        print("User is not moving, skipping")
+                        # print("User is not moving, skipping")
                         continue
                     elif ((len(transcripts[0].split(" ")) / transcript_period)) > wpm_threshold: # compute words per minute
-                        print("User is talking, skipping", transcripts)
+                        # print("User is talking, skipping", transcripts)
                         continue
                 else:
                     print("Not enough locations, please wait")
@@ -122,7 +122,7 @@ def ll_context_convo_agent_processing_loop():
         finally:
             # lock.release()
             pLoopEndTime = time.time()
-            print("=== CONTEXTUAL CONVO loop completed in {} seconds overall ===".format(
-                round(pLoopEndTime - pLoopStartTime, 2)))
+            # print("=== CONTEXTUAL CONVO loop completed in {} seconds overall ===".format(
+            #     round(pLoopEndTime - pLoopStartTime, 2)))
 
         time.sleep(run_period)
