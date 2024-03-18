@@ -85,6 +85,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/glasses_audio_toggle" />
 
+
     <Spinner
         android:id="@+id/transcribeLanguageSpinner"
         android:layout_width="250dp"
@@ -92,6 +93,7 @@
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/rounded_corner"
         app:layout_constraintTop_toBottomOf="@+id/transcribeLanguageTitle" />
 
     <TextView
@@ -99,12 +101,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
-        android:text="Transcribe: "
+        android:text="Transcribe Language: "
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/languageNameTitle" />
+
 
     <Spinner
         android:id="@+id/targetLanguageSpinner"
@@ -113,6 +116,7 @@
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/rounded_corner"
         app:layout_constraintTop_toBottomOf="@+id/targetLanguageTitle" />
 
     <TextView
@@ -120,7 +124,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
-        android:text="Target: "
+        android:text="I want to learn: "
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -134,6 +138,7 @@
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/rounded_corner"
         app:layout_constraintTop_toBottomOf="@+id/sourceLanguageTitle" />
 
     <TextView
@@ -141,7 +146,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
-        android:text="Source: "
+        android:text="I speak: "
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
