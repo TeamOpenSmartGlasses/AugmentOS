@@ -180,7 +180,7 @@ async def ll_context_convo_agent_processing_loop_async():
     loop = asyncio.get_event_loop()
 
     # wait for some transcripts to load in
-    await asyncio.sleep(20)
+    await asyncio.sleep(60)
 
     # This block initiates the contextual conversation agent for each active user
     while True:

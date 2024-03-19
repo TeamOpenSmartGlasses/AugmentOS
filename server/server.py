@@ -562,9 +562,9 @@ if __name__ == '__main__':
     language_learning_background_process.start()
     
     # start the contextual convo language larning app process
-    print("Starting Contextual Convo Language learning app process...")
-    ll_context_convo_background_process = multiprocessing.Process(target=ll_context_convo_agent_processing_loop)
-    ll_context_convo_background_process.start()
+    #print("Starting Contextual Convo Language learning app process...")
+    #ll_context_convo_background_process = multiprocessing.Process(target=ll_context_convo_agent_processing_loop)
+    #ll_context_convo_background_process.start()
 
     # start the contextual convo language larning app process
     print("Starting ADHD STMB app process...")
@@ -612,6 +612,6 @@ if __name__ == '__main__':
     intelligent_definer_agent_process.join()
     #cse_process.join()
     language_learning_background_process.join()
-    ll_context_convo_background_process.join()
+    #ll_context_convo_background_process.join()
     explicit_background_process.join()
     adhd_stmb_background_process.join()
