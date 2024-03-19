@@ -1033,9 +1033,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public String getCurrentMode(Context context) {
         String currentModeString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), "");
         if (currentModeString.equals("")){
-            saveCurrentMode(context, "Proactive Agents");
-            currentModeString = "Proactive Agents";
+            currentModeString = "ADHD Glasses";
         }
+        saveCurrentMode(context, "Proactive Agents");
         return currentModeString;
     }
 
