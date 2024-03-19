@@ -198,7 +198,7 @@ async def ll_context_convo_agent_processing_loop_async():
 
             # start a conversation for each active user
             for user in active_users:
-                if not db_handler.get_user_current_mode_enabled(user['user_id'], LL_CONTEXT_CONVO_AGENT): continue
+                if not db_handler.get_user_feature_enabled(user['user_id'], LL_CONTEXT_CONVO_AGENT): continue
 
                 user_id = user['user_id']
                 device_id = user['device_id']

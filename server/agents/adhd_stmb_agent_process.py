@@ -37,7 +37,7 @@ def adhd_stmb_agent_processing_loop():
 
             words_to_show = None
             for transcript in newTranscripts:
-                if not dbHandler.get_user_current_mode_enabled(transcript['user_id'], ADHD_STMB_AGENT): continue #skip if the user is not in ADHD mode
+                if not dbHandler.get_user_feature_enabled(transcript['user_id'], ADHD_STMB_AGENT): continue #skip if the user is not in ADHD mode
                 ctime = time.time()
                 user_id = transcript['user_id']
 

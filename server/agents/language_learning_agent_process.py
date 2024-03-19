@@ -36,7 +36,7 @@ def language_learning_agent_processing_loop():
 
             words_to_show = None
             for transcript in newTranscripts:
-                if not db_handler.get_user_current_mode_enabled(transcript['user_id'], LANGUAGE_LEARNING_AGENT): continue
+                if not db_handler.get_user_feature_enabled(transcript['user_id'], LANGUAGE_LEARNING_AGENT): continue
 
                 ctime = time.time()
                 
