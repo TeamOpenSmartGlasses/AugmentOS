@@ -1,7 +1,7 @@
 firebase-admin
 aiohttp
 aiohttp_cors
-openai==0.28
+openai==1.14.1
 langchain-openai
 langchain
 langchain-community

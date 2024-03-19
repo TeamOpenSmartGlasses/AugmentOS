@@ -13,7 +13,7 @@ from logger_config import logger
 from constants import PROACTIVE_AGENTS
 
 time_between_iterations = 5
-timelength_of_usable_transcripts = time_between_iterations * 2
+timelength_of_usable_transcripts = time_between_iterations * 8
 min_words_to_run = 8
 
 def is_transcript_long_enough(transcript: str):

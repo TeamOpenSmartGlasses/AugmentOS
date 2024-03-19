@@ -30,7 +30,7 @@ class ProactiveMetaAgentGatekeeperScore(BaseModel):
     """
     Meta agent that determines if an "Insight" should be generated
     """
-    score: int = Field(
+    insight_usefulness_score: int = Field(
         description="Score 1 - 10 of how likely an \"Insight\" would be to the conversation, with 1 being not very helpful, and 10 being the most helpful.", default=0
     )
 
@@ -117,7 +117,7 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list):
 
     try:
         content = proactive_meta_agent_gatekeeper_score_query_parser.parse(score_response.content)
-        score = int(content.score)
+        score = int(content.insight_usefulness_score)
         if score < min_gatekeeper_score: 
             print("SCORE BAD ({} < {})! GATEKEEPER SAYS NO!".format(str(score), str(min_gatekeeper_score)))
             return None

@@ -181,7 +181,7 @@ class GenericAgent:
     # Below: Used by proactive meta agent
     #
     
-    def get_agent_info_for_proactive_agent(self, index):
+    def get_agent_info_for_proactive_agent(self, index, simple=False):
         prompt = ""
         prompt += f"\n- Agent {index}:\n"
         prompt += f"""   - Name: {self.agent_name}\n"""
