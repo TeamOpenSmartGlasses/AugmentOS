@@ -24,7 +24,7 @@ from aiohttp import web, web_exceptions
 
 #Convoscope
 from server_config import server_port
-from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH, TESTING_LL_CONTEXT_CONVO_AGENT, MODES_FEATURES_MAP
+from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH, TESTING_LL_CONTEXT_CONVO_AGENT
 from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_agents_process import proactive_agents_processing_loop
@@ -133,11 +133,7 @@ async def set_user_settings(request):
     if user_id is None:
         raise web.HTTPUnauthorized()
     
-    features_obj = {"features": []}
-    if body["current_mode"] in MODES_FEATURES_MAP:
-        features_obj = {"features": MODES_FEATURES_MAP[body["current_mode"]]}
-
-    db_handler.update_user_settings(user_id, features_obj)
+    db_handler.update_user_settings(user_id, body)
 
     return web.Response(text=json.dumps({'success': True, 'message': "Saved your settings."}))
 
