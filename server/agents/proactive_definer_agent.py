@@ -1,7 +1,7 @@
 from langchain.prompts import PromptTemplate
 from langchain.schema import HumanMessage
 from langchain.output_parsers import PydanticOutputParser
-from langchain.callbacks import get_openai_callback
+from langchain_community.callbacks import get_openai_callback
 from langchain.schema import OutputParserException
 from pydantic import BaseModel, Field
 from agents.agent_utils import format_list_data
@@ -160,7 +160,7 @@ def run_proactive_definer_agent(
     )
 
     with get_openai_callback() as cb:
-        score_response = llm35(
+        score_response = llm35.invoke(
             [HumanMessage(content=gatekeeper_score_prompt_string)]
         )
         gpt3cost = cb.total_cost

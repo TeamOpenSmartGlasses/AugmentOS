@@ -123,8 +123,8 @@ def time_function():
 
                 start_time = perf_counter()
                 function_name = function.__name__
-                if function_name == "expert_agent_arun_wrapper":
-                    function_name += "_" + args[0]["agent_name"]
+                if function_name == "run_agent_async":
+                    function_name += "_" + args[0].agent_name
                     
 
                 result = await function(*args, **kwargs)
@@ -153,8 +153,8 @@ def time_function():
                 duration = end_time - start_time
 
                 function_name = function.__name__
-                if function_name == "expert_agent_arun_wrapper":
-                    function_name += "_" + args[0]["agent_name"]
+                if function_name == "run_agent_async":
+                    function_name += "_" + args[0].agent_name
 
                 print(f"Function '{function_name}' took {duration:.6f} seconds")
 

@@ -28,7 +28,7 @@ from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH, TESTING_LL_CONTEXT_CO
 from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_agents_process import proactive_agents_processing_loop
-from agents.expert_agents import run_single_expert_agent, arun_single_expert_agent
+from agents.expert_agent_configs import get_agent_by_name
 from agents.explicit_agent_process import explicit_agent_processing_loop, call_explicit_agent
 from agents.proactive_definer_agent_process import proactive_definer_processing_loop
 from agents.language_learning_agent_process import language_learning_agent_processing_loop
@@ -285,11 +285,11 @@ async def ui_poll_handler(request, minutes=0.5):
 #        resp["result"] = cse_results
 
     # get agent results
+    #proactive agents
     agent_insight_results = db_handler.get_proactive_agents_insights_results_for_user_device(user_id=user_id, device_id=device_id)
-    #add agents insight to response
     resp["results_proactive_agent_insights"] = agent_insight_results
 
-    # get user queries and agent responses
+    # explicit agent - user queries and agent responses
     explicit_insight_queries = db_handler.get_explicit_query_history_for_user(user_id=user_id, device_id=device_id)
     explicit_insight_results = db_handler.get_explicit_insights_history_for_user(user_id=user_id, device_id=device_id)
     wake_word_time = db_handler.get_wake_word_time_for_user(user_id=user_id)
@@ -297,20 +297,21 @@ async def ui_poll_handler(request, minutes=0.5):
     resp["explicit_insight_results"] = explicit_insight_results
     resp["wake_word_time"] = wake_word_time
 
+    # intelligent definer
     entity_definitions = db_handler.get_agent_proactive_definer_results_for_user_device(user_id=user_id, device_id=device_id)
     resp["entity_definitions"] = entity_definitions
 
+    # language learning rare word translation
     language_learning_results = db_handler.get_language_learning_results_for_user_device(user_id=user_id, device_id=device_id)
     resp["language_learning_results"] = language_learning_results
     
+    # language learning contextual convos
     ll_context_convo_results = db_handler.get_ll_context_convo_results_for_user_device(user_id=user_id, device_id=device_id)
     resp["ll_context_convo_results"] = ll_context_convo_results
 
+    # ADHD short term memory buffer
     adhd_stmb_agent_results = db_handler.get_adhd_stmb_results_for_user_device(user_id=user_id, device_id=device_id)
     resp["adhd_stmb_agent_results"] = adhd_stmb_agent_results
-    if adhd_stmb_agent_results:
-        print("@@@@@@@@@ ADHD")
-        print(adhd_stmb_agent_results)
 
     # tell the frontend to update their local settings if needed
     should_update_settings = db_handler.get_should_update_settings(user_id)
@@ -379,7 +380,9 @@ async def expert_agent_runner(expert_agent_name, user_id):
     insights_history = [insight["insight"] for insight in insights_history]
 
     #spin up the agent
-    agent_insight = await arun_single_expert_agent(expert_agent_name, convo_context, insights_history)
+    expert_agent = get_agent_by_name(expert_agent_name)
+    if expert_agent:
+        agent_insight = await expert_agent.run_agent_async(expert_agent_name, convo_context, insights_history)
 
     #save this insight to the DB for the user
     if agent_insight != None and agent_insight["agent_insight"] != None:
@@ -464,7 +467,7 @@ async def update_gps_location_for_user(request):
     device_id = body.get('deviceId')
 
     # print("update_gps_location_for_user #################################")
-    print(user_id, device_id)
+    # print(user_id, device_id)
     if user_id is None:
         raise web.HTTPUnauthorized()
 

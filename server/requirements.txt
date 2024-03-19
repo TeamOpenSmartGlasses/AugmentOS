@@ -2,7 +2,9 @@ firebase-admin
 aiohttp
 aiohttp_cors
 openai==0.28
+langchain-openai
 langchain
+langchain-community
 nltk
 google-cloud-language
 google-cloud-enterpriseknowledgegraph
@@ -31,3 +33,4 @@ google-auth-httplib2
 google-auth-oauthlib
 openpyxl
 pypinyin
+llmlingua
