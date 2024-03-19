@@ -24,7 +24,7 @@ force_run_agents_prompt = ""
 if DEBUG_FORCE_EXPERT_AGENT_RUN:
     force_run_agents_prompt = "For this run, you MUST specify at least 1 expert agent to run. Do not output an empty list."
 
-min_gatekeeper_score = 4
+min_gatekeeper_score = 3
 
 class ProactiveMetaAgentGatekeeperScore(BaseModel):
     """
