@@ -9,7 +9,7 @@ from server_config import database_uri, clear_users_on_start, clear_cache_on_sta
 import uuid
 import logging
 from logger_config import logger
-from constants import TESTING_LL_CONTEXT_CONVO_AGENT
+from constants import TESTING_LL_CONTEXT_CONVO_AGENT, MODES_FEATURES_MAP
 
 
 
@@ -73,8 +73,12 @@ class DatabaseHandler:
             self.results_db, 'agent_explicit_queries', wipe=clear_cache_on_start)
         self.agent_explicit_insights_results_collection = self.get_collection(
             self.results_db, 'agent_explicit_insights_results', wipe=clear_cache_on_start)
+        
         self.agent_insights_results_collection = self.get_collection(
             self.results_db, 'agent_insights_results', wipe=clear_cache_on_start)
+        self.agent_insights_queries_collection = self.get_collection(
+            self.results_db, 'agent_insights_queries', wipe=clear_cache_on_start)
+        
         self.agent_proactive_definer_collection = self.get_collection(
             self.results_db, 'agent_proactive_definer_results', wipe=clear_cache_on_start)
 
@@ -159,7 +163,7 @@ class DatabaseHandler:
                      "dynamic_transcribe_language": "English", #the current dynamic transcribe language that we set momentarily
                      "use_dynamic_transcribe_language": False,
                      "is_having_language_learning_contextual_convo": False,
-                     "features": [],
+                     "current_mode": "Language Learning",
                  },
                  "transcripts": [],
                  "ui_list": [],
@@ -169,6 +173,7 @@ class DatabaseHandler:
                  "agent_explicit_insights_result_ids": [],
                  "agent_proactive_definer_result_ids": [],
                  "agent_insights_result_ids": [],
+                 "agent_insights_query_ids": [],
                  "language_learning_result_ids": [],
                  "ll_context_convo_result_ids": [],
                  "gps_location_result_ids": [],
@@ -250,7 +255,8 @@ class DatabaseHandler:
             return None
         
     def get_user_feature_enabled(self, user_id, feature_name):
-        return feature_name in self.get_user_settings_value(user_id, "features")
+        current_mode = self.get_user_settings_value(user_id, "current_mode")
+        return current_mode in MODES_FEATURES_MAP and feature_name in MODES_FEATURES_MAP[current_mode]
 
     def get_should_update_settings(self, user_id):
         should_update_settings = self.get_user_settings_value(user_id, "should_update_settings")
@@ -656,6 +662,29 @@ class DatabaseHandler:
     def get_explicit_query_history_for_user(self, user_id, device_id=None, should_consume=True, include_consumed=False):
         return self.get_results_for_user_device("agent_explicit_query_ids", user_id, device_id, should_consume, include_consumed)
 
+    def get_recent_n_seconds_explicit_query_history_for_user(
+        self, user_id, n_seconds=10
+    ):
+        uuid_list = self.get_user(user_id)["agent_explicit_query_ids"]
+        current_time = math.trunc(time.time())
+        timestamp_threshold = current_time - n_seconds
+        pipeline = [
+            {
+                "$match": {
+                    "uuid": {"$in": uuid_list},
+                    "timestamp": {"$gte": timestamp_threshold},
+                }
+            },
+            {"$sort": {"timestamp": -1}},
+            {
+                "$project": {
+                    "_id": 0,
+                }
+            },
+        ]
+        return list(
+            self.agent_explicit_queries_collection.aggregate(pipeline))
+
     def get_explicit_insights_history_for_user(self, user_id, device_id=None, should_consume=True, include_consumed=False):
         return self.get_results_for_user_device("agent_explicit_insights_result_ids", user_id, device_id, should_consume, include_consumed)
 
@@ -707,6 +736,29 @@ class DatabaseHandler:
         # logger.log(logging.DEBUG, "{}: Insights history RESULTS: {}".format("get_agent_insights_history_for_user", results))
 
         return results
+    
+    def get_recent_n_seconds_agent_insights_query_history_for_user(
+            self, user_id, n_seconds=10
+        ):
+            uuid_list = self.get_user(user_id)["agent_insights_query_ids"]
+            current_time = math.trunc(time.time())
+            timestamp_threshold = current_time - n_seconds
+            pipeline = [
+                {
+                    "$match": {
+                        "uuid": {"$in": uuid_list},
+                        "timestamp": {"$gte": timestamp_threshold},
+                    }
+                },
+                {"$sort": {"timestamp": -1}},
+                {
+                    "$project": {
+                        "_id": 0,
+                    }
+                },
+            ]
+            return list(
+                self.agent_insights_queries_collection.aggregate(pipeline))
 
     def get_recent_nminutes_agent_insights_history_for_user(
         self, user_id, n_minutes=10
@@ -730,12 +782,8 @@ class DatabaseHandler:
                 }
             },
         ]
-        results = list(
+        return list(
             self.agent_insights_results_collection.aggregate(pipeline))
-
-        # logger.log(logging.DEBUG, "{}: Insights history RESULTS: {}".format("get_recent_nminutes_agent_insights_history_for_user", results))
-
-        return results
 
     def get_proactive_agents_insights_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
         return self.get_results_for_user_device("agent_insights_result_ids", user_id, device_id, should_consume, include_consumed)
@@ -750,6 +798,17 @@ class DatabaseHandler:
             if current_time - result['timestamp'] < n:
                 previously_defined_terms.append(result)
         return previously_defined_terms
+
+    def add_agent_insight_query_for_user(self, user_id, query):
+        query_time = math.trunc(time.time())
+        query_uuid = str(uuid.uuid4())
+        query_obj = {'timestamp': query_time,
+                        'uuid': query_uuid, 'query': query}
+        self.agent_insights_queries_collection.insert_one(query_obj)
+
+        filter = {"user_id": user_id}
+        update = {"$push": {"agent_insights_query_ids": query_uuid}}
+        self.user_collection.update_one(filter=filter, update=update)
 
     def add_agent_insight_result_for_user(self, user_id, agent_name, agent_insight, agent_references=None, agent_motive=None):
         insight_time = math.trunc(time.time())
@@ -1062,6 +1121,11 @@ class DatabaseHandler:
             return res
         res = self.agent_explicit_insights_results_collection.find_one(filter, {
                                                                        '_id': 0})
+        if res:
+            return res
+        res = self.agent_insights_queries_collection.find_one(filter, {
+                                                              '_id': 0})
+        
         if res:
             return res
         res = self.agent_insights_results_collection.find_one(filter, {

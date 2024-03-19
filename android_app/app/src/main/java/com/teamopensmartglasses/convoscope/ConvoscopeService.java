@@ -83,7 +83,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private Runnable locationSendingRunnableCode;
     private LocationSystem locationSystem;
     static final String deviceId = "android";
-    public String [] features = {"proactive_agent_insights", "explicit_agent_insights", "intelligent_entity_definitions"};//default setup
     public String proactiveAgents = "proactive_agent_insights";
     public String explicitAgent = "explicit_agent_insights";
     public String definerAgent = "intelligent_entity_definitions";
@@ -157,13 +156,13 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         Log.d(TAG, "ASR KEY: " + asrApiKey);
         saveApiKey(this, asrApiKey);
 
-        setAuthToken();
+        startAuthTokenRefresh(); //get auth token and set to keep refreshing
         setUpUiPolling();
         setUpDisplayQueuePolling();
         setUpLocationSending();
 
-        //setup mode
-        changeMode(getCurrentMode(this));
+        //setup mode if not set yet
+        getCurrentMode(this);
 
         this.aioConnectSmartGlasses();
     }
@@ -235,7 +234,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 if (authToken != "") {
                     requestUiPoll();
                 }
-                csePollLoopHandler.postDelayed(this, 150);
+                csePollLoopHandler.postDelayed(this, 200);
             }
         };
         csePollLoopHandler.post(uiPollRunnableCode);
@@ -405,10 +404,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public void requestUiPoll(){
         try{
             JSONObject jsonQuery = new JSONObject();
-            JSONArray featuresArray = new JSONArray(features);
             jsonQuery.put("Authorization", authToken);
             jsonQuery.put("deviceId", deviceId);
-            jsonQuery.put("features", featuresArray);
             backendServerComms.restRequest(UI_POLL_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
@@ -929,29 +926,73 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //        phoneNum = newNum.replaceAll("[^0-9]", "");
 //    }
 
-    public void setAuthToken(){
+//    public void setAuthToken(){
+//        Log.d(TAG, "GETTING AUTH TOKEN");
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        if (user != null) {
+//            user.getIdToken(true)
+//                .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+//                    public void onComplete(@NonNull Task<GetTokenResult> task) {
+//                        if (task.isSuccessful()) {
+//                            String idToken = task.getResult().getToken();
+//                            Log.d(TAG, "GOT dat Auth Token: " + idToken);
+//                            authToken = idToken;
+//                            EventBus.getDefault().post(new GoogleAuthSucceedEvent());
+//                            PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
+//                                    .edit()
+//                                    .putString("auth_token", authToken)
+//                                    .apply();
+//                        } else {
+//                            EventBus.getDefault().post(new GoogleAuthFailedEvent());
+//                        }
+//                    }
+//                });
+//        }
+//        else {
+//            // not logged in, must log in
+//            EventBus.getDefault().post(new GoogleAuthFailedEvent());
+//        }
+//    }
+
+    private Handler authHandler = new Handler();
+    private Runnable authRunnable = new Runnable() {
+        @Override
+        public void run() {
+            setAuthToken();
+            authHandler.postDelayed(this, 59 * 60 * 1000); // Schedule the next run after 59 minutes
+        }
+    };
+
+    public void startAuthTokenRefresh() {
+        authRunnable.run(); // Start the initial run
+    }
+
+    public void stopAuthTokenRefresh() {
+        authHandler.removeCallbacks(authRunnable); // Stop the recurring task
+    }
+
+    public void setAuthToken() {
         Log.d(TAG, "GETTING AUTH TOKEN");
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             user.getIdToken(true)
-                .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
-                    public void onComplete(@NonNull Task<GetTokenResult> task) {
-                        if (task.isSuccessful()) {
-                            String idToken = task.getResult().getToken();
-                            Log.d(TAG, "GOT dat Auth Token: " + idToken);
-                            authToken = idToken;
-                            EventBus.getDefault().post(new GoogleAuthSucceedEvent());
-                            PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
-                                    .edit()
-                                    .putString("auth_token", authToken)
-                                    .apply();
-                        } else {
-                            EventBus.getDefault().post(new GoogleAuthFailedEvent());
+                    .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                        public void onComplete(@NonNull Task<GetTokenResult> task) {
+                            if (task.isSuccessful()) {
+                                String idToken = task.getResult().getToken();
+                                Log.d(TAG, "GOT dat Auth Token: " + idToken);
+                                authToken = idToken;
+                                EventBus.getDefault().post(new GoogleAuthSucceedEvent());
+                                PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
+                                        .edit()
+                                        .putString("auth_token", authToken)
+                                        .apply();
+                            } else {
+                                EventBus.getDefault().post(new GoogleAuthFailedEvent());
+                            }
                         }
-                    }
-                });
-        }
-        else {
+                    });
+        } else {
             // not logged in, must log in
             EventBus.getDefault().post(new GoogleAuthFailedEvent());
         }
@@ -973,21 +1014,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         return targetLanguageString;
     }
 
-    public void changeMode(String currentModeString){
-        if (currentModeString.equals("Proactive Agents")){
-            features = new String[]{explicitAgent, proactiveAgents, definerAgent};
-        } else if (currentModeString.equals("Language Learning")){
-            features = new String[]{explicitAgent, languageLearningAgent, llContextConvoAgent};
-        } else if (currentModeString.equals("ADHD Glasses")){
-            Log.d(TAG, "Settings features for ADHD Glasses");
-            features = new String[]{explicitAgent, adhdStmbAgent};
-        }
-    }
-
     public void saveCurrentMode(Context context, String currentModeString) {
-        //update the features for the new mode
-        changeMode(currentModeString);
-
         //save the new mode
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
@@ -996,8 +1023,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         try{
             JSONObject settingsObj = new JSONObject();
-            JSONArray featuresList = new JSONArray(features);
-            settingsObj.put("features", featuresList);
+            settingsObj.put("current_mode", currentModeString);
             sendSettings(settingsObj);
         } catch (JSONException e){
             e.printStackTrace();
@@ -1007,9 +1033,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public String getCurrentMode(Context context) {
         String currentModeString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), "");
         if (currentModeString.equals("")){
-            saveCurrentMode(context, "Proactive Agents");
-            currentModeString = "Proactive Agents";
+            currentModeString = "ADHD Glasses";
         }
+        saveCurrentMode(context, "Proactive Agents");
         return currentModeString;
     }
 
@@ -1203,5 +1229,23 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             this.timestamp = timestamp;
             this.uuid = uuid;
         }
+    }
+
+    //retry auth right away if it failed, but don't do it too much as we have a max # refreshes/day
+    private int googleAuthRetryCount = 0;
+    private long lastGoogleAuthRetryTime = 0;
+
+    @Subscribe
+    public void onGoogleAuthFailedEvent(GoogleAuthFailedEvent event) {
+        long currentTime = System.currentTimeMillis();
+        if (currentTime - lastGoogleAuthRetryTime >= 2000 && googleAuthRetryCount < 3) {
+            setAuthToken();
+            lastGoogleAuthRetryTime = currentTime;
+            googleAuthRetryCount++;
+        }
+    }
+
+    public void resetGoogleAuthRetryCount() {
+        googleAuthRetryCount = 0;
     }
 }
