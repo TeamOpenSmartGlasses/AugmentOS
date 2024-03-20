@@ -20,6 +20,9 @@ import asyncio
 
 from Modules.LangchainSetup import *
 
+from DatabaseHandler import DatabaseHandler
+dbHandler = DatabaseHandler(parent_handler=False)
+
 force_run_agents_prompt = ""
 if DEBUG_FORCE_EXPERT_AGENT_RUN:
     force_run_agents_prompt = "For this run, you MUST specify at least 1 expert agent to run. Do not output an empty list."
@@ -58,12 +61,13 @@ def make_expert_agents_prompts():
 
 
 @time_function()
-def run_proactive_meta_agent_and_experts(conversation_context: str, insights_history: list):
+def run_proactive_meta_agent_and_experts(conversation_context: str, insights_history: list, user_id: str):
     #run proactive agent to find out which expert agents we should run
-    proactive_meta_agent_response = run_proactive_meta_agent(conversation_context, insights_history)
+    proactive_meta_agent_response = run_proactive_meta_agent(conversation_context, insights_history, user_id)
 
-    print("RUNNING THESE AGENTS")
-    print(proactive_meta_agent_response)
+    if proactive_meta_agent_response:
+        print("RUNNING THESE AGENTS")
+        print(proactive_meta_agent_response)
 
     #do nothing else if proactive meta agent didn't specify an agent to run
     if proactive_meta_agent_response == [] or proactive_meta_agent_response == None:
@@ -86,7 +90,7 @@ def run_proactive_meta_agent_and_experts(conversation_context: str, insights_his
     return insights
 
 @time_function()
-def run_proactive_meta_agent(conversation_context: str, insights_history: list):
+def run_proactive_meta_agent(conversation_context: str, insights_history: list, user_id: str):
     #get expert agents descriptions
     expert_agents_descriptions_prompt = make_expert_agents_prompts()
 
@@ -125,6 +129,9 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list):
     except OutputParserException as e:
         print("ERROR: " + str(e))
         return None
+
+    # Add this proactive query to history
+    dbHandler.add_agent_insight_query_for_user(user_id, conversation_context)
 
     #start up GPT4 connection
     llm = get_langchain_gpt4(temperature=0.2)

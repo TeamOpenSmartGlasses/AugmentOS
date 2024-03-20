@@ -77,8 +77,8 @@ def proactive_definer_processing_loop():
                     traceback.print_exc()
                     continue
                 entityDefinerEndTime = time.time()
-                print("=== definer loop completed in {} seconds ===".format(
-                    round(entityDefinerEndTime - entityDefinerStartTime, 2)))
+                # print("=== definer loop completed in {} seconds ===".format(
+                #     round(entityDefinerEndTime - entityDefinerStartTime, 2)))
         except Exception as e:
             print("Exception in entity definer...:")
             print(e)
