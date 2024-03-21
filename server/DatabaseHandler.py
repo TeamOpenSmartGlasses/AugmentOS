@@ -58,7 +58,7 @@ class DatabaseHandler:
             self.user_db, 'users', wipe=clear_users_on_start)
         self.active_user_db = self.client['active_users']
         self.active_user_collection = self.get_collection(
-            self.active_user_db, 'active_users', wipe=clear_users_on_start)
+            self.active_user_db, 'active_users', wipe=True)
 
     def init_cache_collection(self):
         self.cache_db = self.client['cache']

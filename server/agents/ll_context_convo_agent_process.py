@@ -59,7 +59,6 @@ async def cleanup_conversation(user_id, db_handler):
 
 
 async def handle_user_conversation(user_id, device_id, db_handler):
-    start = time.time()
     print("MAYBE RUNNING CONTEXTUAL CONVO FOR USER: ", user_id)
     target_language = db_handler.get_user_settings_value(user_id, "target_language")
     locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
@@ -67,8 +66,8 @@ async def handle_user_conversation(user_id, device_id, db_handler):
     ongoing_conversations.add(user_id)
 
     # this block checks if the user is moving or talking, if so, it skips the conversation
-    print("LOCATIONS:")
-    print(locations)
+    # print("LOCATIONS:")
+    # print(locations)
     if len(locations) > 1:
         user_location = locations[-1]
         past_location = locations[-2]
@@ -76,11 +75,14 @@ async def handle_user_conversation(user_id, device_id, db_handler):
         displacement = lat_lng_to_meters(lat1=past_location['lat'], lng1=past_location['lng'], lat2=user_location['lat'], lng2=user_location['lng'])
         delta_time = user_location['timestamp'] - past_location['timestamp']
 
-        speed = displacement / delta_time
+
+        speed = displacement / delta_time if delta_time > 0 else 0
         print(speed)
 
-        wpm_threshold = 30
+        wpm_threshold = 20
+        print("TRANSCRIPTS:")
         print(transcripts)
+        print(len(transcripts[0].split(" ")) / (transcript_period / 60))
 
         if TESTING_LL_CONTEXT_CONVO_AGENT:
             warnings.warn("Currently in testing mode, skipping speed and trascription checks, please remove TESTING flag to run normally.")
@@ -131,6 +133,7 @@ async def handle_user_conversation(user_id, device_id, db_handler):
         user_reponse = []
         new_response = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=response_period)
 
+        start = time.time()
         # This block waits for the user to respond
         while new_response[0] or not user_reponse:
 
@@ -139,6 +142,8 @@ async def handle_user_conversation(user_id, device_id, db_handler):
                 user_reponse.append(new_response[0])
             else:
                 print("NO NEW RESPONSE")
+                if time.time() - start > 120:
+                    break
 
             await asyncio.sleep(response_period)
             new_response = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=response_period)
@@ -153,9 +158,6 @@ async def handle_user_conversation(user_id, device_id, db_handler):
         print(user_reponse)
 
         conversation_history.append({"role": "user", "content": user_reponse})
-
-        if time.time() - start >= 300:
-            break
 
         locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
 

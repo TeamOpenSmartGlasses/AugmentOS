@@ -73,8 +73,8 @@ def get_word_frequency_percentiles(transcript: str, language_code: str) -> dict:
             percentile = 98.2
             words_rank[word] = percentile
 
-    print("WORDS RANK:")
-    print(words_rank)
+    # print("WORDS RANK:")
+    # print(words_rank)
 
     return words_rank
 
