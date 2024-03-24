@@ -82,8 +82,9 @@ def run_speech_coach_agent(transcription):
 
         number_of_filler_words = speech_coach_agent_query_parser.parse(
             response.content).number_of_filler_words
-
-        print("Number of most recent filler words: ", number_of_filler_words)
+        # print("-"*20)
+        # print("GPT: Num of most recent filler words: ", number_of_filler_words)
+        # print("-"*20)
         return number_of_filler_words
         # if has_filler_words:
         #     return number_of_filler_words

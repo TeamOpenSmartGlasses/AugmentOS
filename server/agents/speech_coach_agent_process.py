@@ -9,14 +9,21 @@ from server_config import openai_api_key
 from logger_config import logger
 from constants import SPEECH_AGENT
 
-run_period = 20
+run_period = 10 # seconds
+num_periods = 6
+calc_period = run_period * num_periods # to calculate the number of filler words every 2 minutes
 transcript_back_time = run_period * 1.1
 total_transcript_context_time = 5 * 60
 minimum_topic_time = 20 #the minimum amount of time since last topic change for a new topic chnage
 
 
 def speech_coach_agent_processing_loop():
-    FILLER_WORDS = 0
+    sliding_percentage_filler_words = 0
+    total_percentage_filler_words = 0
+    num_filler_words = 0
+    num_total_words = 0
+    list_num_filler_words = [] 
+    list_num_total_words = [] 
     print("START SPEECH COACH AGENT PROCESSING LOOP")
     dbHandler = DatabaseHandler(parent_handler=False)
     loop = asyncio.get_event_loop()
@@ -49,13 +56,36 @@ def speech_coach_agent_processing_loop():
             
                 try:
                     # number_of_filler_words = int(number_of_filler_words)
-                    number_of_filler_words = run_speech_coach_agent(transcript)                    
-                    FILLER_WORDS += int(number_of_filler_words)
-                    print("NUMBER OF FILLER WORDS SO FAR: ", FILLER_WORDS)
+                    curr_num_total_words = len(transcript.split(' '))
+                    curr_num_filler_words = run_speech_coach_agent(transcript)  
+
+                    print("-"*20)
+                    print(transcript)
+                    print("CURR NUM OF FILLER WORDS: ", curr_num_filler_words)
+                    print("CURR NUM OF TOTAL WORDS: ", curr_num_total_words)
+                    print("CURR PERCENTAGE OF FILLER WORDS: ", curr_num_filler_words/curr_num_total_words)
+
+                    list_num_filler_words.append(curr_num_filler_words)
+                    list_num_total_words.append(curr_num_total_words)
+                    print(list_num_filler_words)
+                    print(list_num_total_words)
+                    if len(list_num_filler_words) > num_periods:
+                        del list_num_filler_words[0]
+                        del list_num_total_words[0]
+                    sliding_percentage_filler_words = sum(list_num_filler_words) / sum(list_num_total_words) * 100
+
+                    num_filler_words += curr_num_filler_words
+                    num_total_words += curr_num_total_words
+                    total_percentage_filler_words = num_filler_words / num_total_words * 100
+
+                    # print("NUMBER OF FILLER WORDS SO FAR: ", num_filler_words)
+                    print("SLIDING PERCENTAGE OF FILLER WORDS: ", sliding_percentage_filler_words)
+                    print("-"*20)
+                    dbHandler.add_percent_filler_words_for_user(user_id, sliding_percentage_filler_words)
                 except Exception as e:
                     print("Failed to convert number of filler words to int")
                     print(e)
-                    print(number_of_filler_words)
+                    print(num_filler_words)
 
                 loop_time = time.time() - ctime
                 print(f"RAN SPEECH COACH AGENT IN : {loop_time}")

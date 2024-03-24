@@ -314,6 +314,10 @@ async def ui_poll_handler(request, minutes=0.5):
     adhd_stmb_agent_results = db_handler.get_adhd_stmb_results_for_user_device(user_id=user_id, device_id=device_id)
     resp["adhd_stmb_agent_results"] = adhd_stmb_agent_results
 
+    # Speech coach
+    speech_coach_agent_results = db_handler.get_percent_filler_words_for_user_device(user_id=user_id, device_id=device_id)
+    resp["speech_coach_agent_results"] = speech_coach_agent_results
+
     # tell the frontend to update their local settings if needed
     should_update_settings = db_handler.get_should_update_settings(user_id)
     resp["should_update_settings"] = should_update_settings
@@ -561,9 +565,9 @@ if __name__ == '__main__':
     explicit_background_process.start()
 
     # start the language learning app process
-    print("Starting Language Learning Agents process...")
-    language_learning_background_process = multiprocessing.Process(target=language_learning_agent_processing_loop)
-    language_learning_background_process.start()
+    # print("Starting Language Learning Agents process...")
+    # language_learning_background_process = multiprocessing.Process(target=language_learning_agent_processing_loop)
+    # language_learning_background_process.start()
     
     # start the contextual convo language larning app process
     #print("Starting Contextual Convo Language learning app process...")
@@ -620,7 +624,7 @@ if __name__ == '__main__':
     proactive_agents_background_process.join()
     intelligent_definer_agent_process.join()
     #cse_process.join()
-    language_learning_background_process.join()
+    # language_learning_background_process.join()
     #ll_context_convo_background_process.join()
     explicit_background_process.join()
     adhd_stmb_background_process.join()

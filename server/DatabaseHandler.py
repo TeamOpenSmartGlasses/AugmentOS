@@ -46,6 +46,7 @@ class DatabaseHandler:
             self.init_language_learning_collection()
             self.init_gps_location_collection()
             self.init_topic_shifts_collection()
+            self.init_percent_filler_words_collection()
             self.ready = True
         except Exception as e:
             print(e)
@@ -99,6 +100,11 @@ class DatabaseHandler:
         self.gps_location_db = self.client['gps_location']
         self.gps_location_collection = self.get_collection(
             self.gps_location_db, 'gps_location_results', wipe=clear_cache_on_start)
+
+    def init_percent_filler_words_collection(self):
+        self.percent_filler_words_db = self.client['percent_filler_words']
+        self.percent_filler_words_collection = self.get_collection(
+            self.percent_filler_words_db, 'percent_filler_words_results', wipe=clear_cache_on_start)
 
     def init_topic_shifts_collection(self):
         self.topic_shifts_db = self.client['topic_shifts']
@@ -178,6 +184,7 @@ class DatabaseHandler:
                  "ll_context_convo_result_ids": [],
                  "gps_location_result_ids": [],
                  "topic_shift_result_ids": [],
+                 "percent_filler_words_results_ids": [],
                  "agent_proactive_definer_irrelevant_terms": []})
 
     ### CACHE ###
@@ -657,6 +664,18 @@ class DatabaseHandler:
 
         filter = {"user_id": user_id}
         update = {"$push": {"agent_explicit_insights_result_ids": insight_uuid}}
+        self.user_collection.update_one(filter=filter, update=update)
+
+    def add_percent_filler_words_for_user(self, user_id, percent):
+        percent_time = math.trunc(time.time())
+        percent_uuid = str(uuid.uuid4())
+        percent_obj = {'timestamp': percent_time,
+                       'uuid': percent_uuid, 'percent': percent}
+        # self.agent_explicit_insights_results_collection.insert_one(insight_obj)
+        self.percent_filler_words_collection.insert_one(percent_obj)
+
+        filter = {"user_id": user_id}
+        update = {"$push": {"percent_filler_words_results_ids": percent_uuid}}
         self.user_collection.update_one(filter=filter, update=update)
 
     def get_explicit_query_history_for_user(self, user_id, device_id=None, should_consume=True, include_consumed=False):
@@ -1148,6 +1167,9 @@ class DatabaseHandler:
         res = self.topic_shifts_collection.find_one(filter, {'_id': 0})
         if res:
             return res
+        res = self.percent_filler_words_collection.find_one(filter, {'_id': 0})
+        if res:
+            return res
 
         return None
 
@@ -1248,6 +1270,9 @@ class DatabaseHandler:
 
     def get_adhd_stmb_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
         return self.get_results_for_user_device("topic_shift_result_ids", user_id, device_id, should_consume, include_consumed)
+
+    def get_percent_filler_words_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
+        return self.get_results_for_user_device("percent_filler_words_results_ids", user_id, device_id, should_consume, include_consumed)
 
     def add_gps_location_for_user(self, user_id, location):
         if not location:
