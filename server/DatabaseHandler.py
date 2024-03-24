@@ -354,12 +354,11 @@ class DatabaseHandler:
         return user
 
     def get_all_transcripts_for_user(self, user_id, delete_after=False):
+        transcripts = []
         user = self.get_user(user_id)
         user_transcripts = self.transcripts_collection.find_one({"user_id": user_id})
         if user_transcripts and "final_transcripts" in user_transcripts:
             transcripts = user_transcripts["final_transcripts"]
-        else:
-            transcripts = []
 
         if user['latest_intermediate_transcript']['text']:
             transcripts.append(user['latest_intermediate_transcript'])
