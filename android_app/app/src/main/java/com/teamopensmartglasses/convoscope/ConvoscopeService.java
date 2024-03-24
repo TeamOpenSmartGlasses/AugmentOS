@@ -2,6 +2,7 @@ package com.teamopensmartglasses.convoscope;
 
 import static com.firebase.ui.auth.AuthUI.getApplicationContext;
 import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.DIARIZE_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GEOLOCATION_STREAM_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
@@ -39,6 +40,7 @@ import com.teamopensmartglasses.convoscope.events.GoogleAuthSucceedEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
 import com.teamopensmartglasses.convoscope.ui.ConvoscopeUi;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DiarizationOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SpeechRecOutputEvent;
@@ -335,6 +337,34 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     private Handler debounceHandler = new Handler(Looper.getMainLooper());
     private Runnable debounceRunnable;
+
+    @Subscribe
+    public void onDiarizeData(DiarizationOutputEvent event) {
+        Log.d(TAG, "SENDING DIARIZATION STUFF");
+        try{
+            JSONObject jsonQuery = new JSONObject();
+            jsonQuery.put("transcript_meta_data", event.diarizationData);
+            jsonQuery.put("Authorization", authToken);
+            jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
+            backendServerComms.restRequest(DIARIZE_QUERY_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
+                @Override
+                public void onSuccess(JSONObject result){
+                    try {
+                        parseSendTranscriptResult(result);
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                @Override
+                public void onFailure(int code){
+                    Log.d(TAG, "SOME FAILURE HAPPENED (send Diarize Data)");
+                }
+
+            });
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
 
     @Subscribe
     public void onTranscript(SpeechRecOutputEvent event) {
