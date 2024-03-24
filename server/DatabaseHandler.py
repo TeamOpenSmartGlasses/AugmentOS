@@ -381,20 +381,6 @@ class DatabaseHandler:
 
         return text
 
-    def update_cse_consumed_transcript_idx_for_user(self, user_id, new_index):
-        filter = {"user_id": user_id}
-        update = {"$set": {"cse_consumed_transcript_idx": new_index}}
-        self.user_collection.update_one(filter=filter, update=update)
-
-    def get_final_transcript_by_uuid(self, uuid):
-        filter = {"final_transcripts.uuid": uuid}
-        return self.user_collection.find_one(filter)
-
-    def delete_all_transcripts_for_user(self, user_id):
-        filter = {"user_id": user_id}
-        update = {"$set": {"final_transcripts": []}}
-        self.user_collection.update_one(filter=filter, update=update)
-
     def get_recent_transcripts_from_last_nseconds_for_all_users(self, n=30, users_list=None):
         users = self.user_collection.find() if users_list is None else users_list
         transcripts = []
