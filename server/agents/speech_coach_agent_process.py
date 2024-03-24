@@ -14,9 +14,9 @@ transcript_back_time = run_period * 1.1
 total_transcript_context_time = 5 * 60
 minimum_topic_time = 20 #the minimum amount of time since last topic change for a new topic chnage
 
-FILLER_WORDS = 0
 
 def speech_coach_agent_processing_loop():
+    FILLER_WORDS = 0
     print("START SPEECH COACH AGENT PROCESSING LOOP")
     dbHandler = DatabaseHandler(parent_handler=False)
     loop = asyncio.get_event_loop()
@@ -39,11 +39,8 @@ def speech_coach_agent_processing_loop():
 
             words_to_show = None
             for transcript in newTranscripts:
-                print("HERE 1")
-                if not dbHandler.get_user_feature_enabled(transcript['user_id'], SPEECH_AGENT): continue
-                print("HERE 2")
-                # ADD FOLLOWING LINE LATER
-                # if not dbHandler.get_user_feature_enabled(transcript['user_id'], SPEECH_COACH_AGENT): continue #skip if the user is not in ADHD mode
+                if not dbHandler.get_user_feature_enabled(transcript['user_id'], SPEECH_AGENT): continue                
+                # ADD FOLLOWING LINE LATER                
                 ctime = time.time()
                 user_id = transcript['user_id']
 
@@ -52,8 +49,9 @@ def speech_coach_agent_processing_loop():
             
                 try:
                     # number_of_filler_words = int(number_of_filler_words)
-                    number_of_filler_words = run_speech_coach_agent(transcript)
-                    FILLER_WORDS += number_of_filler_words
+                    number_of_filler_words = run_speech_coach_agent(transcript)                    
+                    FILLER_WORDS += int(number_of_filler_words)
+                    print("NUMBER OF FILLER WORDS SO FAR: ", FILLER_WORDS)
                 except Exception as e:
                     print("Failed to convert number of filler words to int")
                     print(e)
