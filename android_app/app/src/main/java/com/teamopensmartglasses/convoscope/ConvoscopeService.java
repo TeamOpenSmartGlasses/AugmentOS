@@ -635,7 +635,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         //proactive agents
         JSONArray proactiveAgentResults = response.has(proactiveAgentResultsKey) ? response.getJSONArray(proactiveAgentResultsKey) : new JSONArray();
         JSONArray entityDefinitions = response.has(entityDefinitionsKey) ? response.getJSONArray(entityDefinitionsKey) : new JSONArray();
-
+        Log.d(TAG, response.toString());
         //adhd STMB results
         JSONArray adhdStmbResults = response.has(adhdStmbAgentKey) ? response.getJSONArray(adhdStmbAgentKey) : new JSONArray();
         if (adhdStmbResults.length() != 0) {
