@@ -58,6 +58,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
+import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
 
 public class ConvoscopeService extends SmartGlassesAndroidService {
@@ -160,6 +161,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         setUpUiPolling();
         setUpDisplayQueuePolling();
         setUpLocationSending();
+
+        //setup ASR version
+        ConvoscopeService.saveChosenAsrFramework(this, ASR_FRAMEWORKS.DEEPGRAM_ASR_FRAMEWORK);
 
         //setup mode if not set yet
         getCurrentMode(this);
@@ -1033,9 +1037,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public String getCurrentMode(Context context) {
         String currentModeString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), "");
         if (currentModeString.equals("")){
-            currentModeString = "ADHD Glasses";
+            currentModeString = "Language Learning";
         }
-        saveCurrentMode(context, "Proactive Agents");
+        saveCurrentMode(context, currentModeString);
         return currentModeString;
     }
 
