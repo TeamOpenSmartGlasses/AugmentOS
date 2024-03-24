@@ -34,6 +34,7 @@ from agents.proactive_definer_agent_process import proactive_definer_processing_
 from agents.language_learning_agent_process import language_learning_agent_processing_loop
 from agents.ll_context_convo_agent_process import ll_context_convo_agent_processing_loop
 from agents.adhd_stmb_agent_process import adhd_stmb_agent_processing_loop
+from agents.speech_coach_agent_process import speech_coach_agent_processing_loop
 import agents.wake_words
 from Modules.RelevanceFilter import RelevanceFilter
 
@@ -574,6 +575,11 @@ if __name__ == '__main__':
     adhd_stmb_background_process = multiprocessing.Process(target=adhd_stmb_agent_processing_loop)
     adhd_stmb_background_process.start()
 
+    # start the contextual convo language larning app process
+    print("Starting SPEECH COACH app process...")
+    speech_coach_background_process = multiprocessing.Process(target=speech_coach_agent_processing_loop)
+    speech_coach_background_process.start()
+
     # setup and run web app
     # CORS allow from all sources
     print("Starting aiohttp server...")
@@ -618,3 +624,5 @@ if __name__ == '__main__':
     #ll_context_convo_background_process.join()
     explicit_background_process.join()
     adhd_stmb_background_process.join()
+
+    speech_coach_background_process.join()
