@@ -229,7 +229,7 @@ class GenericAgent:
     
     async def run_simple_llm_async(self, convo_context, insights_history: list):
         prompt_str = self.get_agent_prompt(convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history, use_tools_prompt=False)
-        res = await llm35.ainvoke([HumanMessage(content=prompt_str)])
+        res = await llm4.ainvoke([HumanMessage(content=prompt_str)])
         response = agent_insight_parser.parse(res.content)
         response = response.dict()
 
