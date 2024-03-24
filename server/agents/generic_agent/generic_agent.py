@@ -13,6 +13,11 @@ llm4 = get_langchain_gpt4()
 llm35 = get_langchain_gpt35(temperature=0.0)
 
 discourage_tool_use_prompt = "- Tools have a high time cost, so only use them if you must - try to answer questions without them if you can. If query asks for a stat or data that you already know, don't search for it, just provide it from memory, the speed of a direct answer is more important than having the most up-to-date information."
+general_tools_prompt = """
+### Your Tools
+- You have access to tools, which you should utilize to help you generate "Insights". Limit your usage of the Search_Engine tool to 1 times.
+- If a tool fails to fulfill your request, don't run the exact same request on the same tool again, and just continue without it.
+"""
 
 expert_agent_prompt_blueprint = """
 ## General Context
@@ -22,9 +27,7 @@ expert_agent_prompt_blueprint = """
 You are a highly skilled and intelligent {agent_name} expert agent in this system, responsible for generating a specialized "Insight".
 As the {agent_name} agent, you {agent_insight_type}.
 
-### Your Tools
-- You have access to tools, which you should utilize to help you generate "Insights". Limit your usage of the Search_Engine tool to 1 times.
-- If a tool fails to fulfill your request, don't run the exact same request on the same tool again, and just continue without it.
+{general_tools_prompt}
 {discourage_tool_use_prompt}
 
 ### Guidelines for a Good "Insight"
@@ -103,6 +106,7 @@ class GenericAgent:
         format_instructions="",
         insights_history: list = [],
         final_command="",
+        use_tools_prompt = True
     ):
         # Populating the blueprint string with values from the agent_config dictionary
         if final_command != "":
@@ -118,6 +122,7 @@ class GenericAgent:
             input_variables=[
                 "agent_name",
                 "agent_insight_type",
+                "general_tools_prompt",
                 "discourage_tool_use_prompt",
                 "examples",
                 "conversation_transcript",
@@ -138,6 +143,7 @@ class GenericAgent:
                 final_command=final_command,
                 conversation_transcript=conversation_transcript,
                 insights_history=insights_history,
+                general_tools_prompt=general_tools_prompt if use_tools_prompt else "",
                 discourage_tool_use_prompt=discourage_tool_use_prompt if self.discourage_tool_use else "",
                 format_instructions=format_instructions,
              ).to_string()
@@ -191,7 +197,7 @@ class GenericAgent:
 
     @time_function()
     async def run_agent_async(self, convo_context, insights_history: list):
-        prompt_str = self.get_agent_prompt(convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history)
+        prompt_str = self.get_agent_prompt(convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history, use_tools_prompt=True)
         confidence_score = -1
         small_insight = None
         expert_agent_response = None
@@ -203,8 +209,10 @@ class GenericAgent:
                 confidence_score = expert_agent_response['confidence_score']
             if expert_agent_response and 'agent_insight' in expert_agent_response:
                 small_insight = expert_agent_response['agent_insight']
+                print("Small model insight: " + small_insight)
 
         if expert_agent_response is None or confidence_score < self.small_model_confidence_threshold or small_insight == "null":
+            print("Small model failed - attempting query w/ large model")
             res = await self.agent_large.ainvoke({"input": prompt_str})
             expert_agent_response = res['output']
 
@@ -220,8 +228,11 @@ class GenericAgent:
         return expert_agent_response
     
     async def run_simple_llm_async(self, convo_context, insights_history: list):
-        prompt_str = self.get_agent_prompt(convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history)
-        res = await llm35.ainvoke([HumanMessage(content=prompt_str)])
+        prompt_str = self.get_agent_prompt(convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history, use_tools_prompt=False)
+        res = await llm4.ainvoke([HumanMessage(content=prompt_str)])
         response = agent_insight_parser.parse(res.content)
         response = response.dict()
+
+        print("Simple LLM response:\n" + str(response))
+
         return response

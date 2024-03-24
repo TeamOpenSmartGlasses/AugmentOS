@@ -13,7 +13,7 @@ from logger_config import logger
 from constants import PROACTIVE_AGENTS
 
 time_between_iterations = 5
-timelength_of_usable_transcripts = time_between_iterations * 4
+timelength_of_usable_transcripts = time_between_iterations * 8
 min_words_to_run = 8
 
 def is_transcript_long_enough(transcript: str):
@@ -44,6 +44,10 @@ def proactive_agents_processing_loop():
             newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(n=timelength_of_usable_transcripts)
             for transcript in newTranscripts:
                 if not dbHandler.get_user_feature_enabled(transcript['user_id'], PROACTIVE_AGENTS): continue
+
+                # Check if transcripts are recent enough, TODO: this is inefficient
+                if not dbHandler.get_transcripts_from_last_nseconds_for_user(transcript['user_id'], time_between_iterations + 1):
+                    continue
 
                 # Don't run if the transcript is too short
                 if not is_transcript_long_enough(transcript['text']):
@@ -78,12 +82,11 @@ def proactive_agents_processing_loop():
                     # print("insights_history: {}".format(insights_history))
                     logger.log(level=logging.DEBUG, msg="Insights history: {}".format(insights_history))
 
-                    # Add this proactive query to history
-                    dbHandler.add_agent_insight_query_for_user(transcript['user_id'], transcript_to_use)
-
                     # Run proactive meta agent, get insights
-                    insights = run_proactive_meta_agent_and_experts(transcript_to_use, insights_history)
-                    print("insights: {}".format(insights))
+                    insights = run_proactive_meta_agent_and_experts(transcript_to_use, insights_history, transcript['user_id'])
+                    
+                    if insights:
+                        print("insights: {}".format(insights))
 
                     for insight in insights:
                         if insight is None:
