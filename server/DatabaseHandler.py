@@ -282,10 +282,14 @@ class DatabaseHandler:
     def get_latest_transcript_from_user_obj(self, user_obj):
         if user_obj['latest_intermediate_transcript']['timestamp'] != -1:
             return user_obj['latest_intermediate_transcript']
-        
-        user_transcripts = self.transcripts_collection.find_one({"user_id": user_obj['user_id']})
-        if user_transcripts and "final_transcripts" in user_transcripts:
-            return user_transcripts["final_transcripts"][-1]
+        ### TODO: HACKATHON
+        elif user_obj['final_transcripts']:
+            return user_obj['final_transcripts'][-1]
+        else:
+            return None
+        # user_transcripts = self.transcripts_collection.find_one({"user_id": user_obj['user_id']})
+        # if user_transcripts and "final_transcripts" in user_transcripts:
+        #     return user_transcripts["final_transcripts"][-1]
     
         return None
 
@@ -333,9 +337,17 @@ class DatabaseHandler:
         self.purge_old_transcripts_for_user_id(user_id)
 
         if is_final:
-            filter = {"user_id": user_id}
-            update = {"$set": {"latest_intermediate_transcript": self.empty_transcript}}
-            self.user_collection.update_one(filter=filter, update=update)
+            # if user['cse_consumed_transcript_id'] == -1:
+            #     filter = {"user_id": user_id}
+            #     update = {
+            #         "$set": {"cse_consumed_transcript_id": transcript['uuid']}}
+            #     self.user_collection.update_one(filter=filter, update=update)
+            print()
+            
+            # TODO: HACKATHON
+            # filter = {"user_id": user_id}
+            # update = {"$set": {"latest_intermediate_transcript": self.empty_transcript}}
+            # self.user_collection.update_one(filter=filter, update=update)
         else:
             filter = {"user_id": user_id}
             update = {"$set": {"latest_intermediate_transcript": transcript}}
