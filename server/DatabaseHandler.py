@@ -49,6 +49,7 @@ class DatabaseHandler:
             self.init_topic_shifts_collection()
             self.init_percent_filler_words_collection()
             self.init_percent_proportion_user_collection()
+            self.init_understandability_score_user_collection()
             self.ready = True
         except Exception as e:
             print(e)
@@ -117,6 +118,11 @@ class DatabaseHandler:
         self.percent_proportion_user_db = self.client['percent_proportion_user']
         self.percent_proportion_user_collection = self.get_collection(
             self.percent_proportion_user_db, 'percent_percent_proportion_results', wipe=clear_cache_on_start)       
+
+    def init_understandability_score_user_collection(self):
+        self.understandability_score_user_db = self.client['understandability_score']
+        self.understandability_score_user_collection = self.get_collection(
+            self.understandability_score_user_db, 'understandability_score_results', wipe=clear_cache_on_start)                   
 
     def init_topic_shifts_collection(self):
         self.topic_shifts_db = self.client['topic_shifts']
@@ -196,6 +202,7 @@ class DatabaseHandler:
                  "topic_shift_result_ids": [],
                  "percent_filler_words_results_ids": [],
                  "percent_proportion_user_results_ids": [],
+                 "understandability_score_results_ids": [],
                  "agent_proactive_definer_irrelevant_terms": []})
 
     ### CACHE ###
@@ -588,6 +595,18 @@ class DatabaseHandler:
         filter = {"user_id": user_id}
         update = {"$push": {"percent_proportion_user_results_ids": percent_uuid}}
         self.user_collection.update_one(filter=filter, update=update)
+
+    def add_understandability_score_for_user(self, user_id, understandability_score):
+        understandability_score_time = math.trunc(time.time())
+        understandability_score_uuid = str(uuid.uuid4())
+        understandability_score_obj = {'timestamp': understandability_score_time,
+                       'uuid': understandability_score_uuid, 'understandability_score': understandability_score}
+        # self.agent_explicit_insights_results_collection.insert_one(insight_obj)
+        self.understandability_score_user_collection.insert_one(understandability_score_obj)
+
+        filter = {"user_id": user_id}
+        update = {"$push": {"understandability_score_results_ids": understandability_score_uuid}}
+        self.user_collection.update_one(filter=filter, update=update)        
 
 
     def get_explicit_query_history_for_user(self, user_id, device_id=None, should_consume=True, include_consumed=False):
@@ -1085,6 +1104,9 @@ class DatabaseHandler:
         res = self.percent_proportion_user_collection.find_one(filter, {'_id': 0})
         if res:
             return res        
+        res = self.understandability_score_user_collection.find_one(filter, {'_id': 0})
+        if res:
+            return res        
 
         return None
 
@@ -1191,6 +1213,9 @@ class DatabaseHandler:
 
     def get_percent_proportion_user_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
         return self.get_results_for_user_device("percent_proportion_user_results_ids", user_id, device_id, should_consume, include_consumed)
+    
+    def get_understandability_score_user_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
+        return self.get_results_for_user_device("understandability_score_results_ids", user_id, device_id, should_consume, include_consumed)    
 
     def add_gps_location_for_user(self, user_id, location):
         if not location:

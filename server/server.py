@@ -267,6 +267,9 @@ async def ui_poll_handler(request, minutes=0.5):
     speech_coach_agent_proportion_user_results = db_handler.get_percent_proportion_user_for_user_device(user_id=user_id, device_id=device_id)
     resp["speech_coach_agent_proportion_user_results"] = speech_coach_agent_proportion_user_results
 
+    speech_coach_agent_understandability_score_results = db_handler.get_understandability_score_user_for_user_device(user_id=user_id, device_id=device_id)
+    resp["speech_coach_agent_understandability_score_results"] = speech_coach_agent_understandability_score_results
+
 
     # tell the frontend to update their local settings if needed
     should_update_settings = db_handler.get_should_update_settings(user_id)
