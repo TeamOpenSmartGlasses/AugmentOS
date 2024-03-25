@@ -16,12 +16,9 @@ transcript_back_time = run_period * 1.1
 total_transcript_context_time = 5 * 60
 minimum_topic_time = 20 #the minimum amount of time since last topic change for a new topic chnage
 
-
 def speech_coach_agent_processing_loop():
     sliding_percentage_filler_words = 0
     total_percentage_filler_words = 0
-    num_filler_words = 0
-    num_total_words = 0
     list_num_filler_words = [] 
     list_num_total_words = [] 
     print("START SPEECH COACH AGENT PROCESSING LOOP")
@@ -42,50 +39,41 @@ def speech_coach_agent_processing_loop():
             # Check for new transcripts
             # print("RUNNING ADHD STMB LOOP")
             newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(
-                n=transcript_back_time)
+                n=transcript_back_time, stringify = False)
 
-            words_to_show = None
-            for transcript in newTranscripts:
-                if not dbHandler.get_user_feature_enabled(transcript['user_id'], SPEECH_AGENT): continue                
+            # words_to_show = None
+            for raw_transcript in newTranscripts:
+                # raw_transcript = {'user_id': user_id, 'transcripts': transcripts[]}
+                # transcripts:[] =
+                #
+                # {
+                # "device_id": "alexs phone",
+                # "timestamp": 69420, 
+                # "text": "i love poop", 
+                # "speaker": 0,
+                # "transcribe_language": "english"
+                # }
+                print("RAW TRANSCRIPT")
+                print(raw_transcript)
+                user_transcripts = [transcript['text'] for transcript in raw_transcript['transcripts'] if ('speaker' in transcript and transcript['speaker'] == 0)]
+                print("USER TRANSCRIPTS")
+                print(user_transcripts)
+                # user_transcripts = ""
+                # for t in raw_transcript['transcripts']:
+                #     if 'speaker' in t and t['speaker'] == 0:
+                #         user_transcripts += " " +  t['text']
+
+                if not dbHandler.get_user_feature_enabled(raw_transcript['user_id'], SPEECH_AGENT): continue
                 # ADD FOLLOWING LINE LATER                
                 ctime = time.time()
-                user_id = transcript['user_id']
+                user_id = raw_transcript['user_id']
 
-        
-                transcript, _, _ = dbHandler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=transcript_back_time)
-            
-                try:
-                    # number_of_filler_words = int(number_of_filler_words)
-                    curr_num_total_words = len(transcript.split(' '))
-                    curr_num_filler_words = run_speech_coach_agent(transcript)  
-
-                    print("-"*20)
-                    print(transcript)
-                    print("CURR NUM OF FILLER WORDS: ", curr_num_filler_words)
-                    print("CURR NUM OF TOTAL WORDS: ", curr_num_total_words)
-                    print("CURR PERCENTAGE OF FILLER WORDS: ", curr_num_filler_words/curr_num_total_words)
-
-                    list_num_filler_words.append(curr_num_filler_words)
-                    list_num_total_words.append(curr_num_total_words)
-                    print(list_num_filler_words)
-                    print(list_num_total_words)
-                    if len(list_num_filler_words) > num_periods:
-                        del list_num_filler_words[0]
-                        del list_num_total_words[0]
-                    sliding_percentage_filler_words = sum(list_num_filler_words) / sum(list_num_total_words) * 100
-
-                    num_filler_words += curr_num_filler_words
-                    num_total_words += curr_num_total_words
-                    total_percentage_filler_words = num_filler_words / num_total_words * 100
-
-                    # print("NUMBER OF FILLER WORDS SO FAR: ", num_filler_words)
-                    print("SLIDING PERCENTAGE OF FILLER WORDS: ", sliding_percentage_filler_words)
-                    print("-"*20)
-                    dbHandler.add_percent_filler_words_for_user(user_id, sliding_percentage_filler_words)
-                except Exception as e:
-                    print("Failed to convert number of filler words to int")
-                    print(e)
-                    print(num_filler_words)
+                merged_transcript = ('. ').join(user_transcripts)
+                print("MERGED TRANSCRIPT")
+                print(merged_transcript)
+                # transcript, _, _ = dbHandler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=transcript_back_time)
+                process_filler_words(merged_transcript, dbHandler, user_id, 
+                                     sliding_percentage_filler_words, total_percentage_filler_words, list_num_filler_words, list_num_total_words)
 
                 loop_time = time.time() - ctime
                 print(f"RAN SPEECH COACH AGENT IN : {loop_time}")
@@ -103,3 +91,40 @@ def speech_coach_agent_processing_loop():
 
         #run again after delay for run_period
         time.sleep(max(0, run_period - (pLoopEndTime - pLoopStartTime)))
+
+def process_filler_words(transcript, dbHandler, user_id, sliding_percentage_filler_words, total_percentage_filler_words, list_num_filler_words, list_num_total_words):
+    print("process filler words")
+    num_filler_words = 0
+    num_total_words = 0
+    try:
+        # number_of_filler_words = int(number_of_filler_words)
+        curr_num_total_words = len(transcript.split(' '))
+        curr_num_filler_words = run_speech_coach_agent(transcript)  
+
+        print("-"*20)
+        print(transcript)
+        print("CURR NUM OF FILLER WORDS: ", curr_num_filler_words)
+        print("CURR NUM OF TOTAL WORDS: ", curr_num_total_words)
+        print("CURR PERCENTAGE OF FILLER WORDS: ", curr_num_filler_words/curr_num_total_words)
+
+        list_num_filler_words.append(curr_num_filler_words)
+        list_num_total_words.append(curr_num_total_words)
+        print(list_num_filler_words)
+        print(list_num_total_words)
+        if len(list_num_filler_words) > num_periods:
+            del list_num_filler_words[0]
+            del list_num_total_words[0]
+        sliding_percentage_filler_words = sum(list_num_filler_words) / sum(list_num_total_words) * 100
+
+        num_filler_words += curr_num_filler_words
+        num_total_words += curr_num_total_words
+        total_percentage_filler_words = num_filler_words / num_total_words * 100
+
+        # print("NUMBER OF FILLER WORDS SO FAR: ", num_filler_words)
+        print("SLIDING PERCENTAGE OF FILLER WORDS: ", sliding_percentage_filler_words)
+        print("-"*20)
+        dbHandler.add_percent_filler_words_for_user(user_id, sliding_percentage_filler_words)
+    except Exception as e:
+        print("Failed to convert number of filler words to int")
+        print(e)
+        print(num_filler_words)
