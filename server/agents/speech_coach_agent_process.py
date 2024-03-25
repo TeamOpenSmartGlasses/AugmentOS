@@ -59,29 +59,15 @@ def speech_coach_agent_processing_loop():
                 for t in raw_transcript['transcripts']:
                     if 'speaker' in t:
                         print(str(t['speaker']) +": " + t['text'])
-                # print(raw_transcript)
                 
-                # user_transcripts = [transcript['text'] for transcript in raw_transcript['transcripts']]
-                                
-
-                # user_transcripts = ""
-                # for t in raw_transcript['transcripts']:
-                #     if 'speaker' in t and t['speaker'] == 0:
-                #         user_transcripts += " " +  t['text']
-
                 if not dbHandler.get_user_feature_enabled(raw_transcript['user_id'], SPEECH_AGENT): continue
                 # ADD FOLLOWING LINE LATER                
                 user_id = raw_transcript['user_id']
 
-                merged_transcript = ('. ').join(user_transcripts)
-                print("MERGED TRANSCRIPT")
-                print(merged_transcript)
-
                 # run filler word logic
-                process_filler_words(merged_transcript, dbHandler, user_id, 
+                process_filler_words(raw_transcript, dbHandler, user_id, 
                                      sliding_percentage_filler_words, total_percentage_filler_words, list_num_filler_words, list_num_total_words)
                 process_proportions(raw_transcript, dbHandler, user_id)
-
 
             newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(n=30)
             for transcript in newTranscripts:
@@ -143,7 +129,8 @@ def process_filler_words(raw_transcript, dbHandler, user_id, sliding_percentage_
         print("".split(' '))
         print("CURR NUM OF FILLER WORDS: ", curr_num_filler_words)
         print("CURR NUM OF TOTAL WORDS: ", curr_num_total_words)
-        print("CURR PERCENTAGE OF FILLER WORDS: ", curr_num_filler_words/curr_num_total_words)
+        if curr_num_total_words == 0:
+            print("CURR PERCENTAGE OF FILLER WORDS: ", curr_num_filler_words/curr_num_total_words)
 
         list_num_filler_words.append(curr_num_filler_words)
         list_num_total_words.append(curr_num_total_words)
@@ -156,7 +143,7 @@ def process_filler_words(raw_transcript, dbHandler, user_id, sliding_percentage_
         sliding_percentage_filler_words = round(sliding_percentage_filler_words, 1)
         num_filler_words += curr_num_filler_words
         num_total_words += curr_num_total_words
-        total_percentage_filler_words = num_filler_words / num_total_words * 100
+        total_percentage_filler_words = num_filler_words / num_total_words * 100 if num_total_words != 0 else 0
 
         # print("NUMBER OF FILLER WORDS SO FAR: ", num_filler_words)
         print("SLIDING PERCENTAGE OF FILLER WORDS: ", sliding_percentage_filler_words)
