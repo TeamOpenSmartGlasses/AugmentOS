@@ -15,20 +15,15 @@ from helpers.time_function_decorator import time_function
 
 from Modules.LangchainSetup import *
 
-speech_coach_prompt_blueprint = """You are an ADHD assistant which helps the user stay on track by maintaining an exocortical short term memory buffer which the user can view on their smart glasses during conversation.
+speech_coach_prompt_blueprint = """You are a speech coach which helps the user speak better, specifically, reduce the number of filler words during a conversation.
 
-You will receive 2 transcripts. The 'Context Transcript' is the entire recent conversation. This is to give you context.
-
-The 'Recent Transcript` is the most recent transcript from the last topic change.
+You will receive the transicript of the user's conversation.
 
 Your role is:
-1. Output a boolean to tell us if the 'Recent Transcript` topic has recently changed. Use the 'Context Transcript' to inform you of the nature of the conversation to decide if the topic has truly changed.
-2. If the topic has changed, output the three words that delineate the time roughly where the topic changed. Make sure those three words appear *exactly* as the appear in the input transcript (including punctuation, capitalization, etc.). Only recognize significant topic changes, we don't want to change the topic too frequently.
-3. Output a summary of the 'Recent Transcript'. If the topic changed during the Recent Transcript, summarize only the text *after* the topic change, don't mention the first topic, only summarize the second topic (after the topic change).
+1. Output a boolean to tell us if the transcription has filler words.
+3. Output the number of filler words.
 
-Please output a 1 to 4 word summary of the input conversation text according to the given format.
-
-Recent Transcript:
+Transcript:
 ```{transcription}```
 
 Output Format: {format_instructions}
