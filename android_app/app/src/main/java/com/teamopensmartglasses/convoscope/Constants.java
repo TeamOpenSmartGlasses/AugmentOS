@@ -13,6 +13,7 @@ public class Constants {
     public static String llContextConvoKey = "ll_context_convo_results";
     public static String shouldUpdateSettingsKey = "should_update_settings";
     public static String adhdStmbAgentKey = "adhd_stmb_agent_results";
+    public static String speechCoachAgentKey = "speech_coach_agent_results";
 
     //endpoints
     public static final String LLM_QUERY_ENDPOINT = "/chat";

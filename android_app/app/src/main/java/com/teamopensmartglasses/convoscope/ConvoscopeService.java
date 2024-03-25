@@ -18,13 +18,17 @@ import static com.teamopensmartglasses.convoscope.Constants.languageLearningKey;
 import static com.teamopensmartglasses.convoscope.Constants.llContextConvoKey;
 import static com.teamopensmartglasses.convoscope.Constants.proactiveAgentResultsKey;
 import static com.teamopensmartglasses.convoscope.Constants.shouldUpdateSettingsKey;
+import static com.teamopensmartglasses.convoscope.Constants.speechCoachAgentKey;
 import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.util.Base64;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -41,6 +45,7 @@ import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
 import com.teamopensmartglasses.convoscope.ui.ConvoscopeUi;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DiarizationOutputEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesPovImageEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SpeechRecOutputEvent;
@@ -669,7 +674,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         //proactive agents
         JSONArray proactiveAgentResults = response.has(proactiveAgentResultsKey) ? response.getJSONArray(proactiveAgentResultsKey) : new JSONArray();
         JSONArray entityDefinitions = response.has(entityDefinitionsKey) ? response.getJSONArray(entityDefinitionsKey) : new JSONArray();
-        Log.d(TAG, response.toString());
+
         //adhd STMB results
         JSONArray adhdStmbResults = response.has(adhdStmbAgentKey) ? response.getJSONArray(adhdStmbAgentKey) : new JSONArray();
         if (adhdStmbResults.length() != 0) {
@@ -694,6 +699,30 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             //sendUiUpdateSingle(String.join("\n", list));
             sendUiUpdateSingle(dynamicSummary);
             responsesBuffer.add(dynamicSummary);
+        }
+
+        //adhd speech coach results
+        JSONArray speechCoachResults = response.has(speechCoachAgentKey) ? response.getJSONArray(speechCoachAgentKey) : new JSONArray();
+        if (speechCoachResults.length() != 0) {
+            Log.d(TAG, "speech coach RESULTS: ");
+            Log.d(TAG, speechCoachResults.toString());
+
+            if (!clearedScreenYet) {
+                sendHomeScreen();
+                clearedScreenYet = true;
+            }
+
+            Log.d(TAG, speechCoachResults.toString());
+            sendTextWall("Filler Words: " + Double.toString(speechCoachResults.getJSONObject(0).getDouble("percent")) + "%");
+//            sendTextToSpeech("欢迎使用安卓文本到语音转换功能", "chinese");
+//            Log.d(TAG, "GOT THAT ONEEEEEEEE:");
+//            Log.d(TAG, String.join("\n", llResults));
+//            sendUiUpdateSingle(String.join("\n", Arrays.copyOfRange(llResults, llResults.length, 0)));
+//            List<String> list = Arrays.stream(Arrays.copyOfRange(llResults, 0, languageLearningResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
+//            Collections.reverse(list);
+            //sendUiUpdateSingle(String.join("\n", list));
+//            sendUiUpdateSingle(dynamicSummary);
+//            responsesBuffer.add(dynamicSummary);
         }
 
         //language learning
@@ -1277,6 +1306,18 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             lastGoogleAuthRetryTime = currentTime;
             googleAuthRetryCount++;
         }
+    }
+
+    @Subscribe
+    public void onGlassesPovImage(GlassesPovImageEvent event) {
+        Bitmap image = decodeEncodedImage(event.encodedImgString);
+        long timestamp = event.imageTime;
+    }
+
+    // Method to decode the encoded image back into a Bitmap
+    public Bitmap decodeEncodedImage(String encodedImage) {
+        byte[] decodedBytes = Base64.decode(encodedImage, Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
     }
 
     public void resetGoogleAuthRetryCount() {
