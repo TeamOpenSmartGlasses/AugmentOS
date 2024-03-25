@@ -73,8 +73,6 @@ Transcript:
 
 Output Format: {format_instructions}"""
 
-
-
 #If the current summary of the 'Recent Transcript' is still correct, just re-output the current summary, don't output a new one.
 
 @time_function()
