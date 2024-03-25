@@ -159,8 +159,6 @@ class DatabaseHandler:
                  "final_transcripts": [],
                  "last_wake_word_time": -1,
                  "last_recording_start_time": -1,
-                 "cse_consumed_transcript_id": -1,
-                 "cse_consumed_transcript_idx": 0,
                  "settings": {
                      "enable_agent_proactive_definer_images": True,
                      "should_update_settings": False,
@@ -284,10 +282,12 @@ class DatabaseHandler:
     def get_latest_transcript_from_user_obj(self, user_obj):
         if user_obj['latest_intermediate_transcript']['timestamp'] != -1:
             return user_obj['latest_intermediate_transcript']
-        elif user_obj['final_transcripts']:
-            return user_obj['final_transcripts'][-1]
-        else:
-            return None
+        
+        user_transcripts = self.transcripts_collection.find_one({"user_id": user_obj['user_id']})
+        if user_transcripts and "final_transcripts" in user_transcripts:
+            return user_transcripts["final_transcripts"][-1]
+    
+        return None
 
     def save_deepgram_transcript_for_user(self, user_id, device_id, deepgram_obj, transcribe_language):
         if not deepgram_obj:
@@ -333,13 +333,10 @@ class DatabaseHandler:
         self.purge_old_transcripts_for_user_id(user_id)
 
         if is_final:
-            if user['cse_consumed_transcript_id'] == -1:
-                filter = {"user_id": user_id}
-                update = {
-                    "$set": {"cse_consumed_transcript_id": transcript['uuid']}}
-                self.user_collection.update_one(filter=filter, update=update)
+            filter = {"user_id": user_id}
+            update = {"$set": {"latest_intermediate_transcript": self.empty_transcript}}
+            self.user_collection.update_one(filter=filter, update=update)
         else:
-            # Save to `latest_intermediate_transcript` field in database - text and timestamp
             filter = {"user_id": user_id}
             update = {"$set": {"latest_intermediate_transcript": transcript}}
             self.user_collection.update_one(filter=filter, update=update)
@@ -380,17 +377,23 @@ class DatabaseHandler:
 
         return text
 
-    def get_recent_transcripts_from_last_nseconds_for_all_users(self, n=30, users_list=None):
+    def get_recent_transcripts_from_last_nseconds_for_all_users(self, n=30, users_list=None, stringify = True):
         users = self.user_collection.find() if users_list is None else users_list
         transcripts = []
         for user in users:
             user_id = user['user_id']
-            transcript_string, transcribe_language, device_id = self.get_transcripts_from_last_nseconds_for_user_as_string(
-                user_id, n)
-            if transcript_string:
-                transcripts.append(
-                        {'user_id': user_id, 'device_id': device_id, 'text': transcript_string, 'transcribe_language': transcribe_language})
-
+            if stringify:
+                transcript_string, transcribe_language, device_id = self.get_transcripts_from_last_nseconds_for_user_as_string(
+                    user_id, n)
+                if transcript_string:
+                    transcripts.append(
+                            {'user_id': user_id, 'device_id': device_id, 'text': transcript_string, 'transcribe_language': transcribe_language})
+            else:
+                transcript_list = self.get_transcripts_from_last_nseconds_for_user(
+                    user_id, n)
+                if transcript_list:
+                    transcripts.append(
+                            {'user_id': user_id, 'transcripts': transcript_list})
         return transcripts
 
     def get_transcripts_from_last_nseconds_for_user(self, user_id, n=30, transcript_list=None):
