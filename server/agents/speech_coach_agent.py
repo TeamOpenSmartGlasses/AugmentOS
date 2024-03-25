@@ -28,7 +28,7 @@ Transcript:
 
 Output Format: {format_instructions}
 
-Don't output punctuation or periods (do not include ?.,;) in your summary! Output all lowercase summaries! Your summary should be 1-4 words, don't output more than 4 words! Now provide the output:"""
+Now provide the output:"""
 
 #If the current summary of the 'Recent Transcript' is still correct, just re-output the current summary, don't output a new one.
 
