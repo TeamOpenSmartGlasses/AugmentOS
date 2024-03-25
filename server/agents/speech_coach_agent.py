@@ -26,9 +26,54 @@ Your role is:
 Transcript:
 ```{transcription}```
 
-Output Format: {format_instructions}
+Output Format: {format_instructions}"""
 
-Don't output punctuation or periods (do not include ?.,;) in your summary! Output all lowercase summaries! Your summary should be 1-4 words, don't output more than 4 words! Now provide the output:"""
+egometer_ego_assessment_prompt_blueprint = """You are an Ego Meter, designed to help users understand when their speech may be perceived as self-centered, overly confident, or diminishing to others.
+
+You will analyze the transcript of the user's conversation.
+
+Your role is:
+1. Output the severity of ego-centric speech on a scale from 1 to 10, where 10 indicates extremely ego-centric speech, and 0 is not egocentric.
+
+Examples of ego-centric speech include:
+- Overuse of "I", "me", "my" when not necessary for the conversation.
+- Bragging about achievements or skills without context.
+- Interrupting others to bring the conversation back to oneself.
+- Making comparisons that elevate oneself above the group or another person.
+- Using language that implies the speaker is the sole reason for successes or that their contributions are the most significant.
+
+Transcript:
+```{transcription}```
+
+Output Format: {format_instructions}"""
+
+understandability_meter_prompt_blueprint = """You are an Understandability Meter, designed to help users gauge how easily their speech can be understood by a general audience. Your analysis will focus on the clarity of explanation, appropriate use of vocabulary, and overall accessibility of the speech.
+
+You will analyze the transcript of the user's conversation.
+
+Your role is:
+1. Output the level of understandability of the speech on a scale from 1 to 10, where 10 indicates extremely easy to understand, and 1 indicates very difficult to understand.
+
+Factors affecting understandability include:
+- Use of esoteric vocabulary not common to the listener's experience or unnecessary for the topic.
+- Overly complex sentence structures that obscure the message.
+- Lack of context or explanation for complex topics, assuming prior knowledge.
+- Rapid topic changes without clear transitions.
+- Failing to summarize or reiterate key points for emphasis and clarity.
+
+Conversely, factors improving understandability:
+- Simplifying explanations and using analogies where appropriate.
+- Introducing complex topics with a brief overview before diving into details.
+- Ensuring vocabulary matches the audience's understanding level.
+- Using clear, concise sentences.
+- Logical flow of ideas with clear transitions.
+
+Transcript:
+```{transcription}```
+
+Output Format: {format_instructions}"""
+
+
 
 #If the current summary of the 'Recent Transcript' is still correct, just re-output the current summary, don't output a new one.
 
@@ -85,6 +130,90 @@ def run_speech_coach_agent(transcription):
         #     return number_of_filler_words
         # else:
         #     return "0"
+    except OutputParserException as e:
+        print('parse fail')
+        print(e)
+        return None
+
+
+@time_function()
+def run_egometer_agent(transcription):
+    # Assuming get_langchain_gpt4 and related functions are defined elsewhere
+    # start up GPT4 connection
+    llm = get_langchain_gpt4(temperature=0.2, max_tokens=512)
+
+    class EgometerAgentQuery(BaseModel):
+        """
+        Egometer agent for assessing ego-centric speech
+        """        
+        ego_severity_score: int = Field(
+            description="The ego meter severity score on a scale from 1 (not egocentric at all) to 10 (extremely egocentric).")
+
+    egometer_agent_query_parser = PydanticOutputParser(
+        pydantic_object=EgometerAgentQuery)
+
+    extract_egometer_agent_query_prompt = PromptTemplate(
+        template=egometer_ego_assessment_prompt_blueprint,
+        input_variables=["transcription"],
+        partial_variables={
+            "format_instructions": egometer_agent_query_parser.get_format_instructions()}
+    )
+
+    egometer_agent_query_prompt_string = extract_egometer_agent_query_prompt.format_prompt(
+        transcription=transcription,
+    ).to_string()
+
+    print("EGOMETER AGENT RESPONSE ********************************")
+    response = llm(
+        [HumanMessage(content=egometer_agent_query_prompt_string)])
+    print(response)
+
+    try:
+        ego_severity_score = egometer_agent_query_parser.parse(
+            response.content).ego_severity_score
+        return ego_severity_score
+    except OutputParserException as e:
+        print('parse fail')
+        print(e)
+        return None
+
+
+@time_function()
+def run_understandability_agent(transcription):
+    # Assuming get_langchain_gpt4 and related functions are defined elsewhere
+    # start up GPT4 connection
+    llm = get_langchain_gpt4(temperature=0.2, max_tokens=512)
+
+    class UnderstandabilityAgentQuery(BaseModel):
+        """
+        Understandability Meter agent for assessing speech clarity and accessibility
+        """        
+        understandability_score: int = Field(
+            description="The understandability score on a scale from 1 (very difficult to understand) to 10 (extremely easy to understand).")
+
+    understandability_agent_query_parser = PydanticOutputParser(
+        pydantic_object=UnderstandabilityAgentQuery)
+
+    extract_understandability_agent_query_prompt = PromptTemplate(
+        template=understandability_meter_prompt_blueprint,
+        input_variables=["transcription"],
+        partial_variables={
+            "format_instructions": understandability_agent_query_parser.get_format_instructions()}
+    )
+
+    understandability_agent_query_prompt_string = extract_understandability_agent_query_prompt.format_prompt(
+        transcription=transcription,
+    ).to_string()
+
+    print("UNDERSTANDABILITY METER RESPONSE ********************************")
+    response = llm(
+        [HumanMessage(content=understandability_agent_query_prompt_string)])
+    print(response)
+
+    try:
+        understandability_score = understandability_agent_query_parser.parse(
+            response.content).understandability_score
+        return understandability_score
     except OutputParserException as e:
         print('parse fail')
         print(e)

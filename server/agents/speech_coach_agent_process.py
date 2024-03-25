@@ -4,7 +4,7 @@ import asyncio
 
 # custom
 from DatabaseHandler import DatabaseHandler
-from agents.speech_coach_agent import run_speech_coach_agent
+from agents.speech_coach_agent import run_speech_coach_agent, run_egometer_agent, run_understandability_agent
 from server_config import openai_api_key
 from logger_config import logger
 from constants import SPEECH_AGENT
@@ -34,6 +34,7 @@ def speech_coach_agent_processing_loop():
         # wait for some transcripts to load in
         time.sleep(5)
 
+        ctime = time.time()
         try:
             pLoopStartTime = time.time()
             # Check for new transcripts
@@ -65,18 +66,29 @@ def speech_coach_agent_processing_loop():
 
                 if not dbHandler.get_user_feature_enabled(raw_transcript['user_id'], SPEECH_AGENT): continue
                 # ADD FOLLOWING LINE LATER                
-                ctime = time.time()
                 user_id = raw_transcript['user_id']
 
                 merged_transcript = ('. ').join(user_transcripts)
                 print("MERGED TRANSCRIPT")
                 print(merged_transcript)
-                # transcript, _, _ = dbHandler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=transcript_back_time)
+
+                # run filler word logic
                 process_filler_words(merged_transcript, dbHandler, user_id, 
                                      sliding_percentage_filler_words, total_percentage_filler_words, list_num_filler_words, list_num_total_words)
 
-                loop_time = time.time() - ctime
-                print(f"RAN SPEECH COACH AGENT IN : {loop_time}")
+
+            newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(n=30)
+            for transcript in newTranscripts:
+                #run egometer
+                egometer_score = run_egometer_agent(transcript['text'])  
+                print("EGOMETER SCORE: {}".format(egometer_score))
+
+                #run understandability
+                understandability_score = run_understandability_agent(transcript['text'])  
+                print("UNDERSTANDABILITY SCORE: {}".format(understandability_score))
+
+            loop_time = time.time() - ctime
+            print(f"RAN SPEECH COACH AGENT IN : {loop_time}")
 
         except Exception as e:
             print("Exception in SPEECH COACH loop...:")
@@ -115,6 +127,7 @@ def process_filler_words(transcript, dbHandler, user_id, sliding_percentage_fill
             del list_num_filler_words[0]
             del list_num_total_words[0]
         sliding_percentage_filler_words = sum(list_num_filler_words) / sum(list_num_total_words) * 100
+        sliding_percentage_filler_words = round(sliding_percentage_filler_words, 1)
 
         num_filler_words += curr_num_filler_words
         num_total_words += curr_num_total_words
