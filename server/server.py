@@ -4,6 +4,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 from aiohttp import web
 import asyncio
 import math
+import base64
 import uuid
 from aiohttp.web_response import Response
 from pathlib import Path
@@ -445,6 +446,35 @@ async def update_gps_location_for_user(request):
     return web.Response(text=json.dumps({'success': True, 'message': "Got your location: {}".format(location)}), status=200)
 
 
+async def pov_image(request):
+    body = await request.json()
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    device_id = body.get('deviceId')
+    pov_image = body.get('pov_image')
+
+    if user_id is None:
+        raise web.HTTPUnauthorized()
+
+    # 400 if missing params
+    if not user_id:
+        print("user_id none in update_gps_location_for_user, exiting with error response 400.")
+        return web.Response(text='no userId in request', status=400)
+
+    # Decode the Base64 string to binary data
+    if pov_image:
+        image_data = base64.b64decode(pov_image)
+        # Generate a random filename
+        random_filename = f"image_{uuid.uuid4().hex}.jpg"
+        with open(random_filename, 'wb') as image_file:
+            image_file.write(image_data)
+        print(f"Saved POV image as {random_filename}")
+    else:
+        return web.Response(text='no pov_image in request', status=400)
+
+    return web.Response(text=json.dumps({'success': True, 'message': "Got your POV image"}, status=200))
+
+
 async def rate_result_handler(request):
     body = await request.json()
     id_token = body.get('Authorization')
@@ -552,6 +582,7 @@ if __name__ == '__main__':
             web.post('/set_user_settings', set_user_settings),
             web.post('/get_user_settings', get_user_settings),
             web.post('/gps_location', update_gps_location_for_user),
+            web.post('/pov_image', pov_image),
         ]
     )
     cors = aiohttp_cors.setup(app, defaults={
