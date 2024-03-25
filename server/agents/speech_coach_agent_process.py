@@ -78,7 +78,7 @@ def speech_coach_agent_processing_loop():
                 #run understandability
                 understandability_score = run_understandability_agent(transcript['text'])  
                 print("UNDERSTANDABILITY SCORE: {}".format(understandability_score))
-                #dbHandler.add_understandability_score_for_user(transcript['user_id'], understandability_score)
+                dbHandler.add_understandability_score_for_user(transcript['user_id'], understandability_score)
 
             loop_time = time.time() - ctime
             print(f"RAN SPEECH COACH AGENT IN : {loop_time}")
