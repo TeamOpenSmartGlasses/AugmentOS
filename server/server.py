@@ -86,8 +86,6 @@ async def chat_diarization(request):
     if user_id is None:
         raise web.HTTPUnauthorized()
 
-    print("got diarization data for user: {}".format(user_id))
-    print("Diarization data: {}".format(transcript_meta_data))
     success = db_handler.save_deepgram_transcript_for_user(user_id=user_id, device_id=device_id, deepgram_obj=transcript_meta_data, transcribe_language="Unknown")
 
     return web.Response(text=json.dumps({'success': True, 'message': "good stuff yo"}), status=200)
