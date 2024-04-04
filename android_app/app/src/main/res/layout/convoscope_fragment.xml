@@ -14,7 +14,7 @@
       android:layout_width="match_parent"
       android:layout_height="0dp"
       app:layout_constraintHeight_default="percent"
-      app:layout_constraintHeight_percent="0.7"
+      app:layout_constraintHeight_percent="0.65"
 
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent" />
@@ -28,7 +28,7 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintHeight_default="percent"
 
-      app:layout_constraintHeight_percent="0.3"
+      app:layout_constraintHeight_percent="0.35"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintWidth_default="percent"
       app:layout_constraintWidth_percent="0.5">
@@ -51,7 +51,7 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHeight_default="percent"
 
-      app:layout_constraintHeight_percent="0.30"
+      app:layout_constraintHeight_percent="0.35"
       app:layout_constraintWidth_default="percent"
       app:layout_constraintWidth_percent="0.503">
 
@@ -99,14 +99,20 @@
           android:enabled="true"
           android:buttonTint="@color/colorAccent"
           android:text="ADHD Glasses" />
-
       <RadioButton
           android:id="@+id/radioButtonWalkNGrok"
           android:layout_width="match_parent"
           android:layout_height="38dp"
           android:enabled="false"
           android:buttonTint="@color/bubbleColor"
-          android:text="Walk 'n' Grok" />
+          android:text="Live Captions" />
+      <RadioButton
+          android:id="@+id/radioButtonWalkNGrok"
+          android:layout_width="match_parent"
+          android:layout_height="38dp"
+          android:enabled="false"
+          android:buttonTint="@color/bubbleColor"
+          android:text="Speech Coach" />
 
     </RadioGroup>
 
