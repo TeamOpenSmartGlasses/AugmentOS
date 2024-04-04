@@ -494,6 +494,35 @@ async def update_gps_location_for_user(request):
 
     return web.Response(text=json.dumps({'success': True, 'message': "Got your location: {}".format(location)}), status=200)
 
+async def pov_image(request):
+    print("POV_IMAGE")
+    body = await request.json()
+    print("BODY: " + str(body))
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    # device_id = body.get('deviceId')
+    pov_image = body.get('pov_image')
+
+    if user_id is None:
+        raise web.HTTPUnauthorized()
+
+    # 400 if missing params
+    if not user_id:
+        print("user_id none in update_gps_location_for_user, exiting with error response 400.")
+        return web.Response(text='no userId in request', status=400)
+
+    # Decode the Base64 string to binary data
+    if pov_image:
+        image_data = base64.b64decode(pov_image)
+        # Generate a random filename
+        random_filename = f"image_{uuid.uuid4().hex}.jpg"
+        with open(random_filename, 'wb') as image_file:
+            image_file.write(image_data)
+        print(f"Saved POV image as {random_filename}")
+    else:
+        return web.Response(text='no pov_image in request', status=409)
+
+    return web.Response(text=json.dumps({'success': True, 'message': "Got your POV image"}, status=200))
 
 async def rate_result_handler(request):
     body = await request.json()
