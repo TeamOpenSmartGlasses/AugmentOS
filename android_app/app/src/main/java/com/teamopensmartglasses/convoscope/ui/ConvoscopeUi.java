@@ -125,6 +125,13 @@ public class ConvoscopeUi extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onDestroy() {
+      super.onDestroy();
+      EventBus.getDefault().unregister(this);
     }
 
     @Override

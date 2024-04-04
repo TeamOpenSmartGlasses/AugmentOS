@@ -4,7 +4,6 @@ from agents.agent_utils import format_list_data
 from server_config import openai_api_key
 
 # langchain
-from langchain.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.schema import (
     HumanMessage
@@ -22,37 +21,39 @@ from Modules.LangchainSetup import *
 
 
 language_learning_agent_prompt_blueprint = """
-You are an expert language teacher fluent in Russian, Chinese, French, Spanish, German, English, and more. You are listening to a user's conversation right now. The user is learning {target_language}. The user's first language is {source_language}. You help the language learner user by translating some words from one language to another.
+You are an expert language teacher fluent in many languages. You are listening to a user's conversation right now. The user is learning {target_language}. The user's first language is {source_language}. You help the language learner user by translating some words from one language to another.
 
 You identify vocabulary from the conversation transcript (Input Text) that the user might not understand and then translate those words. You output 0 to 3 words. If the learner's fluency level is less than 50, they will need 1/5 words defined (one third of the words in the Input Text are defined or have already been defines). 50-75 fluency level might need 1 word per sentence. If fluency level is >75, only choose and translate very rare words.
 
-Target Language: {target_language}
-Source Language: {source_language}
+Input Text Language: {transcribe_language}
+Output (translated) language: {output_language}
 Fluency Level: {fluency_level}
 
-*** If the Input Text is in the target language, your translation is in the source language. If Input Text is in the source language, translate to the target language. Never define a word that was already defined in the "Recently Translated" list.
+The Input is {transcribe_language}, your Output Language translation(s) should be in {output_language}.
+
+Never define a word that was already defined in the "Recently Translated" list.
 
 Process:
 0. Consider the fluency level of the user, which is {fluency_level}, where 0<=fluency_level<=100, with 0 being complete beginner, 50 being conversational, 75 intermediate and 100 being native speaker.
 1. Skim through the Input Text and identify 0 to 3 words that may unfamiliar to someone with a fluency level of {fluency_level} AND that have not been previously defined.
-2. Consider consider how command a word is (the word frequency percentile) in the Input Text to determine how likely the user knows that word. For word frequency numbers: 0.1 is very common, >1.0 is rare, >12.0 is very rare.
+2. Consider how comman a word is (the word frequency percentile) to determine how likely the user knows that word. For word frequency numbers: 0.1 is very common, >1.0 is rare, >12.0 is very rare.
 3. For each of the zero to three identified words in the input text language, provide a 1-2 word translation in the language opposite to that of the input text. Make translations short. Use context from the conversation to inform translation of homonyms.
 4. Output response using the format instructions below. The keys are the rare, relevant words in the language of the input text, in the order they appear in the text, and the values are the translation of those words into the opposite of the input text language.  Don't redefine any words that are in the "Recently Translated" list of words.
 
 Examples:
 Conversation 1: "I ran for the train, but the fruit stand was in the way"
-Source Language 1: English
-Target Language 1: Chinese (Pinyin)
+Input Language 1: English
+Output Language 1: Chinese
 Output 1: {{"train" : "huǒchē", "fruit stand" : "shuǐguǒ tán"}}
 
 Conversation 2: "О, так вы студент биологии, это здорово"
-Source Language 2: English
-Target Language 2: Russian
+Input Language 2: Russian
+Output Language 2: English
 Output 2: {{"студент" : "student", "биология" : "biology"}}
 
 Conversation 3: "let's go and say hello to her"
-Source Language 3: English
-Target Language 3: Spanish
+Input Language 3: English
+Output Language 3: Spanish
 Output 3: {{}}
 
 Input Text (transcript from user's live conversation):
@@ -65,6 +66,8 @@ Frequency Ranking: The frequency percentile of each word tells you how common it
 Recently Translated: Don't define any of the following recently translated words: ```{live_translate_word_history}```
 
 Output Format: {format_instructions}
+
+The Input Text is in {transcribe_language}, your output translation(s) should be in {output_language}.
 
 Don't redefine recently defined words! Don't include punctuation or periods (do not include ?.,;) in your output! Output all lowercase! Define 1/5 of the words in the input text (never define all of the words in the input, never define highly common words like "the", "a", "it", etc.). Output words in the order they appear in the input text. Now provide the output:"""
 
@@ -128,6 +131,15 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
     fluency_level = 15  # Example fluency level
     #target_language = "Chinese (Pinyin)"
     #source_language = "English"
+    remove_pinyin = " (Pinyin)"
+    output_language = source_language.replace(remove_pinyin, "")
+    if transcribe_language == source_language:
+        output_language = target_language.replace(remove_pinyin, "")
+
+    print("transcribe_language")
+    print(transcribe_language)
+    print("output language")
+    print(output_language)
 
     class LanguageLearningAgentQuery(BaseModel):
         """
@@ -141,7 +153,7 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
 
     extract_language_learning_agent_query_prompt = PromptTemplate(
         template=language_learning_agent_prompt_blueprint,
-        input_variables=["conversation_context", "target_language", "source_language", "fluency_level", "word_rank", "live_translate_word_history"],
+        input_variables=["conversation_context", "target_language", "transcribe_language", "output_language", "source_language", "fluency_level", "word_rank", "live_translate_word_history"],
         partial_variables={
             "format_instructions": language_learning_agent_query_parser.get_format_instructions()}
     )
@@ -156,6 +168,8 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
         target_language=target_language,
         fluency_level=fluency_level,
         word_rank=word_rank_string,
+        output_language=output_language,
+        transcribe_language=transcribe_language,
         live_translate_word_history=live_translate_word_history
     ).to_string()
 
@@ -164,7 +178,7 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
 
     # print("Proactive meta agent query prompt string", language_learning_agent_query_prompt_string)
 
-    response = llm(
+    response = llm.invoke(
         [HumanMessage(content=language_learning_agent_query_prompt_string)])
     #print(response)
 
@@ -172,29 +186,34 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
         translated_words = language_learning_agent_query_parser.parse(
             response.content).translated_words
 
+        #drop too common words
+        word_rank_threshold = 0.2
+        translated_words_rare = dict()
+        for word, translation in translated_words.items():
+            if word in word_rank and word_rank[word] >= word_rank_threshold: 
+                translated_words_rare[word] = translation
+
         #convert Chinese characters into Pinyin
         # Function to convert Chinese text to Pinyin
         def chinese_to_pinyin(chinese_text):
             return ' '.join([item[0] for item in pinyin(chinese_text, style=Style.TONE)])
 
-        # Apply Pinyin conversion if target_language is "Chinese (Pinyin)"
-        if target_language == "Chinese (Pinyin)":
-            translated_words_pinyin = {chinese_to_pinyin(word): chinese_to_pinyin(translated_words[word]) for word in translated_words}
+        # Apply Pinyin conversion 
+        if "Chinese" in transcribe_language or "Chinese" in output_language:
+            #translated_words_pinyin = {chinese_to_pinyin(word): chinese_to_pinyin(translated_words[word]) for word in translated_words}
+            translated_words_pinyin = {chinese_to_pinyin(word): chinese_to_pinyin(translated_words_rare[word]) if isinstance(translated_words_rare[word], str) and any('\u4e00' <= char <= '\u9fff' for char in translated_words_rare[word]) else translated_words_rare[word] for word in translated_words_rare}
+
         else:
             translated_words_pinyin = translated_words
 
         #drop any repeats and then pack into list(even though we prompt it not to, it often does repeats)
         translated_words_obj = []
-        word_rank_threshold = 0.2
         #print(word_rank)
         live_translate_word_history_set = set(live_translate_word_history)  # Convert to set for efficient lookup
         for word, translation in translated_words_pinyin.items():
             if word not in live_translate_word_history_set:  # Check if word is not in the already translated words
-                if word in word_rank and word_rank[word] >= word_rank_threshold: 
-                    translated_words_obj.append({"in_word": word, "in_word_translation": translation})
+                translated_words_obj.append({"in_word": word, "in_word_translation": translation})
 
-        #print("TRANSLATED OUTPUT: ")
-        #print(translated_words_obj)
         return translated_words_obj
     except OutputParserException as e:
         print('parse fail')

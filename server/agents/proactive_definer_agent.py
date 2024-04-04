@@ -1,7 +1,7 @@
 from langchain.prompts import PromptTemplate
 from langchain.schema import HumanMessage
 from langchain.output_parsers import PydanticOutputParser
-from langchain.callbacks import get_openai_callback
+from langchain_community.callbacks import get_openai_callback
 from langchain.schema import OutputParserException
 from pydantic import BaseModel, Field
 from agents.agent_utils import format_list_data
@@ -160,7 +160,7 @@ def run_proactive_definer_agent(
     )
 
     with get_openai_callback() as cb:
-        score_response = llm35(
+        score_response = llm35.invoke(
             [HumanMessage(content=gatekeeper_score_prompt_string)]
         )
         gpt3cost = cb.total_cost
@@ -233,7 +233,7 @@ def run_proactive_definer_agent(
         print("GPT4 TIME: " + str(time.time() - gpt4start))
         
         image_start = time.time()
-        should_get_images = dbHandler.get_user_options(user_id)["enable_agent_proactive_definer_images"]
+        should_get_images = dbHandler.get_user_settings(user_id)["enable_agent_proactive_definer_images"]
         res = search_entities(res.entities, should_get_images)
         track_image_time(time.time() - image_start)
         print("IMAGE TIME: " + str(time.time() - image_start))

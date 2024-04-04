@@ -1,8 +1,6 @@
 from agents.search_tool_for_agents import get_search_tool_for_agents
-from agents.math_tool_for_agents import get_wolfram_alpha_tool_for_agents
-from agents.expert_agent_configs import expert_agent_config_list, expert_agent_prompt_maker
+from agents.expert_agent_configs import default_expert_agent_list
 from langchain.agents import initialize_agent
-from langchain.agents.tools import Tool
 from server_config import openai_api_key
 from langchain.agents import AgentType
 import asyncio
@@ -49,54 +47,13 @@ NOTE: Make sure your Final Answer is always returned in the specified format (mu
 
 #How to use the Expert Agents: they are like workers in your team that can help you do certain tasks. Imagine you are a human manager and your agents as human workers. You can assign tasks to your agents and they will help you complete the tasks. Speak to them like how you would speak to a human worker, give detailed context and instructions.
 
-# makes the wrapper fnction for expert agents when they're run as tools - a function factory so we don't have weird scope issues
-@time_function()
-def make_expert_agent_run_wrapper_function(agent, agent_explicit_prompt, is_async=True):
-    def run_expert_agent_wrapper(command):
-        return agent.run(agent_explicit_prompt + '\n[Extra Instructions]\n' + command)
-
-    async def run_expert_agent_wrapper_async(command):
-        return await agent.arun(agent_explicit_prompt + '\n[Extra Instructions]\n' + command)
-
-    return run_expert_agent_wrapper_async if is_async else run_expert_agent_wrapper
-
 def get_expert_agents_name_list():
-    expert_agents_list = list(expert_agent_config_list.values())
-    expert_agents_name_list = [ea['name'] for ea in expert_agents_list if 'name' in ea]
-    return expert_agents_name_list
+    return [ea.agent_name for ea in default_expert_agent_list]
 
 # generate expert agents as tools (each one has a search engine, later make the tools each agent has programmatic)
 @time_function()
 def make_expert_agents_as_tools(transcript):
-    tools = []
-    expert_agents_list = list(expert_agent_config_list.values())
-    for expert_agent in expert_agents_list:
-        # make the expert agent with it own special prompt
-        expert_agent_explicit_prompt = expert_agent_prompt_maker(expert_agent, transcript)
-
-        agent_tools = []
-
-        if "Search_Engine" in expert_agent['tools']:
-                agent_tools.append(get_search_tool_for_agents())
-        if "Wolfram_Alpha" in expert_agent['tools']:
-                agent_tools.append(get_wolfram_alpha_tool_for_agents())
-
-        # make the agent with tools
-        new_expert_agent = initialize_agent(agent_tools, llm, agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION, verbose=True, max_iterations=4, handle_parsing_errors=True)
-
-        # use function factory to make expert agent runner wrapper
-        run_expert_agent_wrapper = make_expert_agent_run_wrapper_function(new_expert_agent, expert_agent_explicit_prompt)
-
-        expert_agent_as_tool = Tool(
-            name=expert_agent['agent_name'],
-            func=run_expert_agent_wrapper,
-            coroutine=run_expert_agent_wrapper,
-            description="Use this tool when: " + expert_agent['proactive_tool_description']
-        )
-    
-        tools.append(expert_agent_as_tool)
-    return tools
-
+    return [ea.get_agent_as_tool(transcript) for ea in default_expert_agent_list]
 
 @time_function()
 def get_explicit_agent(transcript):
@@ -120,16 +77,6 @@ def get_explicit_agent(transcript):
             verbose=True)
     return explicit_agent
 
-
-@time_function()
-def run_explicit_agent(query, transcript_history = "", insight_history = ""):
-    expert_agents_name_list = get_expert_agents_name_list()
-    prompt = explicit_agent_prompt_blueprint.format(insight_history=insight_history, query=query, transcript_history=transcript_history, expert_agents_name_list=expert_agents_name_list)
-    print(prompt)
-    transcript = "{}\nQuery: {}".format(insight_history, query)
-    return get_explicit_agent(transcript).run(prompt)
-
-
 @time_function()
 async def run_explicit_agent_async(query, transcript_history = "", insight_history = ""):
     expert_agents_name_list = get_expert_agents_name_list()
@@ -139,4 +86,5 @@ async def run_explicit_agent_async(query, transcript_history = "", insight_histo
 
 
 if __name__ == '__main__':
-    run_explicit_agent("THIS IS THE CONTEXT", "FACT CHECK THAT CARS HAVE 4 WHEELS?")
+    result = asyncio.run(run_explicit_agent_async("THIS IS THE CONTEXT", "FACT CHECK THAT CARS HAVE 4 WHEELS?"))
+    print ("RESULT: " + result)

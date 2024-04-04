@@ -24,11 +24,11 @@ from aiohttp import web, web_exceptions
 
 #Convoscope
 from server_config import server_port
-from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH
+from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH, TESTING_LL_CONTEXT_CONVO_AGENT
 from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_agents_process import proactive_agents_processing_loop
-from agents.expert_agents import run_single_expert_agent, arun_single_expert_agent
+from agents.expert_agent_configs import get_agent_by_name
 from agents.explicit_agent_process import explicit_agent_processing_loop, call_explicit_agent
 from agents.proactive_definer_agent_process import proactive_definer_processing_loop
 from agents.language_learning_agent_process import language_learning_agent_processing_loop
@@ -74,6 +74,21 @@ async def chat_handler(request):
     message = "Sending messages too fast" if not success else ""
 
     return web.Response(text=json.dumps({'success': True, 'message': message}), status=200)
+
+
+#handle new diarization data 
+async def chat_diarization(request):
+    body = await request.json()
+    transcript_meta_data = body.get('transcript_meta_data')
+    device_id = body.get('deviceId')
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
+
+    success = db_handler.save_deepgram_transcript_for_user(user_id=user_id, device_id=device_id, deepgram_obj=transcript_meta_data, transcribe_language="Unknown")
+
+    return web.Response(text=json.dumps({'success': True, 'message': "good stuff yo"}), status=200)
 
 
 async def start_recording_handler(request):
@@ -133,9 +148,21 @@ async def set_user_settings(request):
     if user_id is None:
         raise web.HTTPUnauthorized()
     
-    db_handler.update_user_options(user_id, body)
+    db_handler.update_user_settings(user_id, body)
 
     return web.Response(text=json.dumps({'success': True, 'message': "Saved your settings."}))
+
+
+async def get_user_settings(request):
+    body = await request.json()
+    id_token = body.get('Authorization')
+    user_id = await verify_id_token(id_token)
+    if user_id is None:
+        raise web.HTTPUnauthorized()
+    
+    user_settings = db_handler.get_user_settings(user_id)
+
+    return web.Response(text=json.dumps({'success': True, 'settings': user_settings}))
 
 
 # runs when button is pressed on frontend - right now button ring on wearable or button in TPA
@@ -167,82 +194,11 @@ async def button_handler(request):
     else:
         return web.Response(text=json.dumps({'message': "button up activity detected"}), status=200)
 
-
-# run cse/definer tools for subscribed users in background every n ms if there is fresh data to run on
-#def cse_loop():
-#    print("START CSE PROCESSING LOOP")
-#
-#    # setup things we need for processing
-#    db_handler = DatabaseHandler(parent_handler=False)
-#    relevance_filter = RelevanceFilter(db_handler=db_handler)
-#    cse = ContextualSearchEngine(db_handler=db_handler)
-#
-#    #then run the main loop
-#    while True:
-#        if not db_handler.ready:
-#            print("db_handler not ready")
-#            time.sleep(0.1)
-#            continue
-#
-#        loop_start_time = time.time()
-#        p_loop_start_time = time.time()
-#
-#        try:
-#            p_loop_start_time = time.time()
-#            # Check for new transcripts
-#            new_transcripts = db_handler.get_new_cse_transcripts_for_all_users(
-#                combine_transcripts=True, delete_after=False)
-#
-#            if new_transcripts is None or new_transcripts == []:
-#                print("---------- No transcripts to run on for this cse_loop run...")
-#
-#            for transcript in new_transcripts:   
-#                print("Run CSE with... user_id: '{}' ... text: '{}'".format(
-#                    transcript['user_id'], transcript['text']))
-#                cse_start_time = time.time()
-#
-#                cse_responses = cse.custom_data_proactive_search(
-#                    transcript['user_id'], transcript['text'])
-#
-#                cse_end_time = time.time()
-#                # print("=== CSE completed in {} seconds ===".format(
-#                #     round(cse_end_time - cse_start_time, 2)))
-#
-#                #filter responses with relevance filter, then save CSE results to the database
-#                cse_responses_filtered = list()
-#                if cse_responses:
-#                    cse_responses_filtered = relevance_filter.should_display_result_based_on_context(
-#                        transcript["user_id"], cse_responses, transcript["text"]
-#                    )
-#
-#                    final_cse_responses = [cse_response for cse_response in cse_responses if cse_response["name"] in cse_responses_filtered]
-#                    # print("=== CSE RESPONSES FILTERED: {} ===".format(final_cse_responses))
-#
-#                    db_handler.add_cse_results_for_user(
-#                        transcript["user_id"], final_cse_responses
-#                    )
-#        except Exception as e:
-#            cse_responses = None
-#            print("Exception in CSE...:")
-#            print(e)
-#            traceback.print_exc()
-#        finally:
-#            p_loop_end_time = time.time()
-#            # print("=== processing_loop completed in {} seconds overall ===".format(
-#            #     round(p_loop_end_time - p_loop_start_time, 2)))
-#
-#        loop_run_period = 1.5 #run the loop this often
-#        while (time.time() - loop_start_time) < loop_run_period: #wait until loop_run_period has passed before running this again
-#            time.sleep(0.2)
-#frontends poll this to get the results from our processing of their transcripts
-
-
 async def ui_poll_handler(request, minutes=0.5):
     # parse request
     body = await request.json()
     # print(body)
     device_id = body.get('deviceId')
-    features = body.get('features')
     id_token = body.get('Authorization')
     user_id = await verify_id_token(id_token)
     if user_id is None:
@@ -251,8 +207,8 @@ async def ui_poll_handler(request, minutes=0.5):
     # 400 if missing params
     if device_id is None or device_id == '':
         return web.Response(text='no device_id in request', status=400)
-    if features is None or features == '':
-        return web.Response(text='no features in request', status=400)
+#    if features is None or features == '':
+#        return web.Response(text='no features in request', status=400)
     #if "contextual_search_engine" not in features:
     #    return web.Response(text='contextual_search_engine not in features', status=400)
 
@@ -262,51 +218,49 @@ async def ui_poll_handler(request, minutes=0.5):
     db_handler.update_active_user(user_id, device_id)
 
     # get CSE results
-    if "contextual_search_engine" in features:
-        cse_results = db_handler.get_cse_results_for_user_device(
-            user_id=user_id, device_id=device_id)
-
-        if cse_results:
-            print("server.py ================================= CSERESULT")
-            print(cse_results)
-
-        # add CSE response
-        resp["result"] = cse_results
+#    if "contextual_search_engine" in features:
+#        cse_results = db_handler.get_cse_results_for_user_device(
+#            user_id=user_id, device_id=device_id)
+#
+#        if cse_results:
+#            print("server.py ================================= CSERESULT")
+#            print(cse_results)
+#
+#        # add CSE response
+#        resp["result"] = cse_results
 
     # get agent results
-    if "proactive_agent_insights" in features:
-        print("including proactive agent insights")
-        agent_insight_results = db_handler.get_proactive_agents_insights_results_for_user_device(user_id=user_id, device_id=device_id)
-        #add agents insight to response
-        resp["results_proactive_agent_insights"] = agent_insight_results
+    #proactive agents
+    agent_insight_results = db_handler.get_proactive_agents_insights_results_for_user_device(user_id=user_id, device_id=device_id)
+    resp["results_proactive_agent_insights"] = agent_insight_results
 
-    # get user queries and agent responses
-    if "explicit_agent_insights" in features:
-        explicit_insight_queries = db_handler.get_explicit_query_history_for_user(user_id=user_id, device_id=device_id)
-        explicit_insight_results = db_handler.get_explicit_insights_history_for_user(user_id=user_id, device_id=device_id)
-        wake_word_time = db_handler.get_wake_word_time_for_user(user_id=user_id)
-        resp["explicit_insight_queries"] = explicit_insight_queries
-        resp["explicit_insight_results"] = explicit_insight_results
-        resp["wake_word_time"] = wake_word_time
+    # explicit agent - user queries and agent responses
+    explicit_insight_queries = db_handler.get_explicit_query_history_for_user(user_id=user_id, device_id=device_id)
+    explicit_insight_results = db_handler.get_explicit_insights_history_for_user(user_id=user_id, device_id=device_id)
+    wake_word_time = db_handler.get_wake_word_time_for_user(user_id=user_id)
+    resp["explicit_insight_queries"] = explicit_insight_queries
+    resp["explicit_insight_results"] = explicit_insight_results
+    resp["wake_word_time"] = wake_word_time
 
-    if "intelligent_entity_definitions" in features:
-        entity_definitions = db_handler.get_agent_proactive_definer_results_for_user_device(user_id=user_id, device_id=device_id)
-        resp["entity_definitions"] = entity_definitions
+    # intelligent definer
+    entity_definitions = db_handler.get_agent_proactive_definer_results_for_user_device(user_id=user_id, device_id=device_id)
+    resp["entity_definitions"] = entity_definitions
 
-    if "language_learning" in features:
-        language_learning_results = db_handler.get_language_learning_results_for_user_device(user_id=user_id, device_id=device_id)
-        resp["language_learning_results"] = language_learning_results
+    # language learning rare word translation
+    language_learning_results = db_handler.get_language_learning_results_for_user_device(user_id=user_id, device_id=device_id)
+    resp["language_learning_results"] = language_learning_results
     
-    if "ll_context_convo" in features:
-        ll_context_convo_results = db_handler.get_ll_context_convo_results_for_user_device(user_id=user_id, device_id=device_id)
-        resp["ll_context_convo_results"] = ll_context_convo_results
+    # language learning contextual convos
+    ll_context_convo_results = db_handler.get_ll_context_convo_results_for_user_device(user_id=user_id, device_id=device_id)
+    resp["ll_context_convo_results"] = ll_context_convo_results
 
-    if "adhd_stmb_agent_summaries" in features:
-        adhd_stmb_agent_results = db_handler.get_adhd_stmb_results_for_user_device(user_id=user_id, device_id=device_id)
-        resp["adhd_stmb_agent_results"] = adhd_stmb_agent_results
-        if adhd_stmb_agent_results:
-            print("@@@@@@@@@ ADHD")
-            print(adhd_stmb_agent_results)
+    # ADHD short term memory buffer
+    adhd_stmb_agent_results = db_handler.get_adhd_stmb_results_for_user_device(user_id=user_id, device_id=device_id)
+    resp["adhd_stmb_agent_results"] = adhd_stmb_agent_results
+
+    # tell the frontend to update their local settings if needed
+    should_update_settings = db_handler.get_should_update_settings(user_id)
+    resp["should_update_settings"] = should_update_settings
 
     return web.Response(text=json.dumps(resp), status=200)
 
@@ -371,7 +325,9 @@ async def expert_agent_runner(expert_agent_name, user_id):
     insights_history = [insight["insight"] for insight in insights_history]
 
     #spin up the agent
-    agent_insight = await arun_single_expert_agent(expert_agent_name, convo_context, insights_history)
+    expert_agent = get_agent_by_name(expert_agent_name)
+    if expert_agent:
+        agent_insight = await expert_agent.run_agent_async(expert_agent_name, convo_context, insights_history)
 
     #save this insight to the DB for the user
     if agent_insight != None and agent_insight["agent_insight"] != None:
@@ -442,12 +398,21 @@ async def send_agent_chat_handler(request):
 
 
 async def update_gps_location_for_user(request):
-    body = await request.json()
+    # if TESTING_LL_CONTEXT_CONVO_AGENT:
+    #     warnings.warn("TESTING MODE: Using hardcoded user_id, device_id and location. Please remove this warning when done testing.")
+    #     user_id = "oO4QvMJELYM6jEYtLDbo1LRFLPO2"
+    #     device_id = "android"
+    #     location = {'lat': 53.411812, 'lng': -2.210799, 'timestamp': 1709593069, 'uuid': 'e7674554-2a89-44ac-900b-ae21ba817e74'}
+    #     db_handler.add_gps_location_for_user(user_id, location)
+    #     return web.Response(text=json.dumps({'success': True, 'message': "Got your location: {}".format(location)}), status=200)
 
+    body = await request.json()
     id_token = body.get('Authorization')
     user_id = await verify_id_token(id_token)
     device_id = body.get('deviceId')
 
+    # print("update_gps_location_for_user #################################")
+    # print(user_id, device_id)
     if user_id is None:
         raise web.HTTPUnauthorized()
 
@@ -467,8 +432,10 @@ async def update_gps_location_for_user(request):
     db_handler.add_gps_location_for_user(user_id, location)
     
     locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
-    if len(locations) > 1:
-        print("difference in locations: ", locations[-1]['lat'] - locations[-2]['lat'], locations[-1]['lng'] - locations[-2]['lng'])
+    
+    # print("locations: ", locations)
+    # if len(locations) > 1:
+    #     print("difference in locations: ", locations[-1]['lat'] - locations[-2]['lat'], locations[-1]['lng'] - locations[-2]['lng'])
 
     return web.Response(text=json.dumps({'success': True, 'message': "Got your location: {}".format(location)}), status=200)
 
@@ -518,19 +485,19 @@ if __name__ == '__main__':
         multiprocessing.set_start_method('spawn')
 
     # log_queue = multiprocessing.Queue()
-    ##print("Starting CSE process...")
-    ##cse_process = multiprocessing.Process(target=cse_loop)
-    ##cse_process.start()
+    #print("Starting CSE process...")
+    #cse_process = multiprocessing.Process(target=cse_loop)
+    #cse_process.start()
 
     # start intelligent definer agent process
-#    print("Starting Intelligent Definer Agent process...")
-#    intelligent_definer_agent_process = multiprocessing.Process(target=proactive_definer_processing_loop)
-#    intelligent_definer_agent_process.start()
+    print("Starting Intelligent Definer Agent process...")
+    intelligent_definer_agent_process = multiprocessing.Process(target=proactive_definer_processing_loop)
+    intelligent_definer_agent_process.start()
 
     # start the proactive agents process
-#    print("Starting Proactive Agents process...")
-#    proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
-#    proactive_agents_background_process.start()
+    print("Starting Proactive Agents process...")
+    proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
+    proactive_agents_background_process.start()
 
     # start the explicit agent process
     print("Starting Explicit Agent process...")
@@ -538,14 +505,14 @@ if __name__ == '__main__':
     explicit_background_process.start()
 
     # start the language learning app process
-#    print("Starting Language Learning Agents process...")
-#    language_learning_background_process = multiprocessing.Process(target=language_learning_agent_processing_loop)
-#    language_learning_background_process.start()
+    print("Starting Language Learning Agents process...")
+    language_learning_background_process = multiprocessing.Process(target=language_learning_agent_processing_loop)
+    language_learning_background_process.start()
     
     # start the contextual convo language larning app process
-#    print("Starting Contextual Convo Language learning app process...")
-#    ll_context_convo_background_process = multiprocessing.Process(target=ll_context_convo_agent_processing_loop)
-#    ll_context_convo_background_process.start()
+    #print("Starting Contextual Convo Language learning app process...")
+    #ll_context_convo_background_process = multiprocessing.Process(target=ll_context_convo_agent_processing_loop)
+    #ll_context_convo_background_process.start()
 
     # start the contextual convo language larning app process
     print("Starting ADHD STMB app process...")
@@ -562,6 +529,7 @@ if __name__ == '__main__':
             web.get('/protected', protected_route),
             web.get('/image', return_image_handler),
             web.post('/chat', chat_handler),
+            web.post('/chat_diarization', chat_diarization),
             web.post('/button_event', button_handler),
             web.post('/ui_poll', ui_poll_handler),
             web.post('/upload_userdata', upload_user_data_handler),
@@ -572,6 +540,7 @@ if __name__ == '__main__':
             web.post('/save_recording', save_recording_handler),
             web.post('/load_recording', load_recording_handler),
             web.post('/set_user_settings', set_user_settings),
+            web.post('/get_user_settings', get_user_settings),
             web.post('/gps_location', update_gps_location_for_user),
         ]
     )
@@ -592,6 +561,6 @@ if __name__ == '__main__':
     intelligent_definer_agent_process.join()
     #cse_process.join()
     language_learning_background_process.join()
-    ll_context_convo_background_process.join()
+    #ll_context_convo_background_process.join()
     explicit_background_process.join()
     adhd_stmb_background_process.join()

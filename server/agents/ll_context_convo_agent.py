@@ -1,3 +1,5 @@
+from typing import Optional
+
 # custom
 from agents.agent_utils import format_list_data
 
@@ -14,51 +16,47 @@ from helpers.time_function_decorator import time_function
 from Modules.LangchainSetup import *
 
 #pinyin
-import json
 from pypinyin import pinyin, Style
 
-ll_context_convo_prompt_blueprint = """
-You are an expert language teacher fluent in Russian, Chinese, French, Spanish, German, English, and more. You are listening to a user's conversation right now. The user is learning {target_language}. You help the language learner user by asking talking to them about their environment.
 
-You know about interesting places around the user's current locatoin and converse with them about these places in their target language. You tailor your conversation to the user's fluency level. If the learner's fluency level is less than 50, use basic vocabulary and simple, short sentences If the learner's fluency level is between 50 and 75, introduce intermediate grammatical structures and a broader lexicon. If the learner's fluency level is greater than 75, engage in nuanced discourse and incorporating idiomatic expressions.
+ll_context_convo_prompt_blueprint = """
+You are polyglot expert language teacher. You are listening to a user's conversation in their Target Language right now. You help the language learner user by talking to them about their environment.
+
+You are listening to a user's conversation through Speech-To-Text, so expect some phonetic variations or inaccuracies in the input. When the user's speech is unclear due to TTS inaccuracies, look for phonetic similarities to guess the intended message. If you can't understand, don't hesitate to ask the user for clarification.
 
 Target Language: {target_language}
 Fluency Level: {fluency_level}
 
 Process:
-0. Consider the fluency level of the user, which is {fluency_level}, where 0<=fluency_level<=100, with 0 being complete beginner, 50 being conversational, 75 intermediate and 100 being native speaker.
-1. Review the given locations and select the most interesting ones as the basis for your conversation, ensuring they align with the learner's proficiency level. 
-The input follows the format for each location:
-'name: [Location Name]; types: [type1, type2, ...]'
-2. Generate a question or response in the target language tailored to both the learner's level and the selected locations, varying from simple vocabulary tasks for beginners to nuanced debates for native speakers.
-
-Output:
-- Output should be a question or response.
+1. Assess Fluency: Consider the user's language proficiency, where 0 is a beginner, 50 conversational, 75 intermediate, and 100 a native speaker.
+2. Select Locations: From a list in the format 'name: [Location Name]; types: [type1, type2, ...]'. If no locations are provided, focus on a general topic, not necessarily related to any location.
+3. Maintain Relevance: Ensure the content is relevant to the ongoing conversation. If starting anew, base your question or response on the selected locations.
+4. Tailor Content: Craft your output in the target language, appropriate to the learner's fluency level—from simple vocabulary for beginners to complex discussions for advanced learners.
 
 Examples:
+Input 1: 35, Starbucks Coffee, Russian
+Output 1: Какой ваш любимый напиток в Starbucks Coffee?
+Input 2: 52, [], French
+Output 2: Que faites-vous actuellement pour vivre?
+Input 3: 61, The British Museum, Chinese
+Output 3: 如何询问去大英博物馆内某个展览的路线？
 
-Input 1: Beginner, Greenwich Park, Russian
-Output 1: Когда вы последний раз гуляли в Гринвичском парке?
-Input 2: Conversational, The British Museum, Chinese
-Output 2: 如何询问去大英博物馆内某个展览的路线？
-Input 3: Intermediate, Shakespeare's Globe Theatre, Spanish
-Output 3: Estás justo al lado del Teatro Globe de Shakespeare, ¿sabes por qué Shakespeare es tan famoso?
-
-"Nearby Points of Interest:"
+Nearby Points of Interest:
 {places}
 
-Output Format: {format_instructions}
+Here is the previous context:
+{conversation_history}
 
-Keep the output sentence short and simple.
+Output Format: {format_instructions}
 
 Now provide the output:
 """
 
 
 @time_function()
-def run_ll_context_convo_agent(places: list, target_language: str = "Russian", fluency_level: int = 35):
+def run_ll_context_convo_agent(places: list, target_language: str = "Russian", fluency_level: int = 35, conversation_history: Optional[list[dict[str, str]]] = None):
     # start up GPT3 connection
-    llm = get_langchain_gpt4(temperature=0.2)
+    llm = get_langchain_gpt35(temperature=0.3)
 
     places_string = "\n".join(places)
 
@@ -75,7 +73,7 @@ def run_ll_context_convo_agent(places: list, target_language: str = "Russian", f
     extract_ll_context_convo_agent_query_prompt = PromptTemplate(
         template=ll_context_convo_prompt_blueprint,
         input_variables=["places",
-                         "target_language", "fluency_level"],
+                         "target_language", "fluency_level", "conversation_history"],
         partial_variables={
             "format_instructions": ll_context_convo_agent_query_parser.get_format_instructions()}
     )
@@ -84,14 +82,15 @@ def run_ll_context_convo_agent(places: list, target_language: str = "Russian", f
         places=places_string,
         target_language=target_language,
         fluency_level=fluency_level,
+        conversation_history=conversation_history,
     ).to_string()
-
+    # print(ll_context_convo_agent_query_prompt_string)
     # print("QUESTION ASKER PROMPT********************************")
     # print(ll_context_convo_agent_query_prompt_string)
 
-    response = llm(
+    response = llm.invoke(
         [HumanMessage(content=ll_context_convo_agent_query_prompt_string)])
-    print(response)
+    # print(response)
 
     try:
         response = ll_context_convo_agent_query_parser.parse(
@@ -106,8 +105,9 @@ def run_ll_context_convo_agent(places: list, target_language: str = "Russian", f
 
         response_obj = dict()
         response_obj["ll_context_convo_response"] = response # pack the response into a dictionary
+        response_obj["to_tts"] = {"text": response, "language": target_language}
 
-        print("RESPONSE OBJ")
+        print("LL CONTEXT CONVO RESPONSE: ")
         print(response_obj)
         return response_obj
 
