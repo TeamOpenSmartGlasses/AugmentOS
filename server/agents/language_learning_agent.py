@@ -120,7 +120,7 @@ def format_list_data(data: dict) -> str:
 
 
 @time_function()
-def run_language_learning_agent(conversation_context: str, word_rank: dict, target_language="Russian", transcribe_language="English", live_translate_word_history=""):
+def run_language_learning_agent(conversation_context: str, word_rank: dict, target_language="Russian", transcribe_language="English", source_language = "English", live_translate_word_history=""):
     # start up GPT3 connection
     llm = get_langchain_gpt35(temperature=0.2, max_tokens=512)
 
@@ -130,7 +130,7 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
     conversation_context = conversation_context
     fluency_level = 15  # Example fluency level
     #target_language = "Chinese (Pinyin)"
-    source_language = "English"
+    #source_language = "English"
     remove_pinyin = " (Pinyin)"
     output_language = source_language.replace(remove_pinyin, "")
     if transcribe_language == source_language:

@@ -48,7 +48,7 @@ def language_learning_agent_processing_loop():
                 #get users target language
                 target_language = db_handler.get_user_settings_value(transcript['user_id'], "target_language")
                 #print("GOT TARGET LANGUAGE: " + target_language)
-
+                source_language = dbHandler.get_user_option_value(transcript['user_id'], "source_language")
                 #get the transcription language
                 #print(transcript)
                 transcribe_language = transcript["transcribe_language"]
@@ -63,9 +63,10 @@ def language_learning_agent_processing_loop():
                 #print(live_translate_word_history)
 
                 #run the language learning agent
+                words_to_show = run_language_learning_agent(transcript['text'], word_frequency_percentiles, target_language, transcribe_language, source_language, live_translate_word_history)
                 print("transcript is: ")
                 print(transcript)
-                words_to_show = run_language_learning_agent(transcript['text'], word_frequency_percentiles, target_language, transcribe_language, live_translate_word_history)
+
                 loop_time = time.time() - ctime
                 #print(f"RAN LL IN : {loop_time}")
                 #print(words_to_show)
