@@ -11,7 +11,6 @@ from constants import TESTING_LL_CONTEXT_CONVO_AGENT, LL_CONTEXT_CONVO_AGENT
 
 import warnings
 
-
 response_period = 10
 
 if TESTING_LL_CONTEXT_CONVO_AGENT:
@@ -22,7 +21,6 @@ else:
 transcript_period = 60
 
 ongoing_conversations = set()
-
 
 def lat_lng_to_meters(lat1, lng1, lat2, lng2):
     # Radius of the Earth in km
@@ -52,9 +50,11 @@ def lat_lng_to_meters(lat1, lng1, lat2, lng2):
 
 
 async def cleanup_conversation(user_id, db_handler):
+    print("Ending ll context convo with user: ", user_id)
     ongoing_conversations.remove(user_id)
     db_handler.update_single_user_setting(user_id, "is_having_language_learning_contextual_convo", False)
     db_handler.update_single_user_setting(user_id, "use_dynamic_transcribe_language", False) # conversation ending, so stop using dynamic transcribe language
+    db_handler.update_single_user_setting(user_id, "should_update_settings", True)
     return
 
 
@@ -80,15 +80,19 @@ async def handle_user_conversation(user_id, device_id, db_handler):
         print(speed)
 
         wpm_threshold = 30
+        current_wpm = len(transcripts[0].split(" ")) / (transcript_period / 60)
+        print("Current user WPM is: ", current_wpm)
+        print("Current user SPEED is: ", speed)
         print(transcripts)
 
         if TESTING_LL_CONTEXT_CONVO_AGENT:
             warnings.warn("Currently in testing mode, skipping speed and trascription checks, please remove TESTING flag to run normally.")
-        elif speed < 0.00001:
-            print("User is not moving, skipping")
-            await cleanup_conversation(user_id, db_handler)
-            return
-        elif (len(transcripts[0].split(" ")) / (transcript_period / 60)) > wpm_threshold: # compute words per minute
+        elif speed < 0.001:
+            print("User is not moving, running anyway")
+            #print("User is not moving, skipping")
+            #await cleanup_conversation(user_id, db_handler)
+            #return
+        elif current_wpm > wpm_threshold: # compute words per minute
             print("User is talking, skipping", transcripts)
             await cleanup_conversation(user_id, db_handler)
             return
@@ -115,6 +119,7 @@ async def handle_user_conversation(user_id, device_id, db_handler):
     # this block runs the contextual conversation agent until the conversation ends
     while True:
         places = get_nearby_places(user_location)
+        places = places[:min(len(places), 3)] #get max 3 nearby places
         print("START ll contextual conversation")
         response = run_ll_context_convo_agent(places=places, target_language=target_language, fluency_level=35, conversation_history=conversation_history)
 
