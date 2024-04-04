@@ -48,7 +48,7 @@ def language_learning_agent_processing_loop():
                 #get users target language
                 target_language = db_handler.get_user_settings_value(transcript['user_id'], "target_language")
                 #print("GOT TARGET LANGUAGE: " + target_language)
-                source_language = dbHandler.get_user_option_value(transcript['user_id'], "source_language")
+                source_language = db_handler.get_user_option_value(transcript['user_id'], "source_language")
                 #get the transcription language
                 #print(transcript)
                 transcribe_language = transcript["transcribe_language"]
