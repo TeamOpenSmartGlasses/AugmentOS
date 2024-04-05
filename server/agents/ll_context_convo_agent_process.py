@@ -77,6 +77,11 @@ async def handle_user_conversation(user_id, device_id, db_handler):
         delta_time = user_location['timestamp'] - past_location['timestamp']
 
         speed = displacement / delta_time
+        # Speed data collected:
+        # Walking outside: 1.1656780516496068 m/s
+        # Standing in place: 0.0 m/s
+        # Walking fast: 1.6568374965884278 m/s
+        print("THE SPEED IS: ")
         print(speed)
 
         wpm_threshold = 30
@@ -87,7 +92,7 @@ async def handle_user_conversation(user_id, device_id, db_handler):
 
         if TESTING_LL_CONTEXT_CONVO_AGENT:
             warnings.warn("Currently in testing mode, skipping speed and trascription checks, please remove TESTING flag to run normally.")
-        elif speed < 0.001:
+        elif speed < 0.25:
             print("User is not moving, running anyway")
             #print("User is not moving, skipping")
             #await cleanup_conversation(user_id, db_handler)
@@ -159,7 +164,7 @@ async def handle_user_conversation(user_id, device_id, db_handler):
 
         conversation_history.append({"role": "user", "content": user_reponse})
 
-        if time.time() - start >= 300:
+        if time.time() - start >= 30:
             break
 
         locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
