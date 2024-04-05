@@ -8,6 +8,8 @@ export enum AgentName {
   COGNITIVE_BIAS_DETECTOR = "CognitiveBiasDetector",
   REAL_TIMER = "RealTimer",
   QUESTION_ASKER = "QuestionAsker",
+  QUESTION_ANSWERER = "QuestionAnswerer",
+  DEFAULT = "Default",
 }
 
 export const AGENT_ICON_PATHS: Record<AgentName, string> = {
@@ -20,6 +22,8 @@ export const AGENT_ICON_PATHS: Record<AgentName, string> = {
   [AgentName.COGNITIVE_BIAS_DETECTOR]: "/cogbias_icon_large.svg",
   [AgentName.REAL_TIMER]: "/realtimer_icon_large.svg",
   [AgentName.QUESTION_ASKER]: "/questionasker_icon_large.svg",
+  [AgentName.QUESTION_ANSWERER]: "/questionanswerer_icon_large.svg",
+  [AgentName.DEFAULT]: "/definer_icon_large.svg",
 };
 
 export const AGENT_ICON_NAMES: Record<AgentName, string> = {
@@ -32,6 +36,8 @@ export const AGENT_ICON_NAMES: Record<AgentName, string> = {
   [AgentName.COGNITIVE_BIAS_DETECTOR]: "Cognitive Bias Detector",
   [AgentName.REAL_TIMER]: "Real Timer",
   [AgentName.QUESTION_ASKER]: "Question Asker",
+  [AgentName.QUESTION_ANSWERER]: "Question Answerer",
+  [AgentName.DEFAULT]: "Default",
 };
 
 export type Entity = {

@@ -47,8 +47,8 @@ const ExplicitCard = () => {
     <CardWrapper
       large
       onClick={() => {}}
-      agentName={AGENT_ICON_NAMES[AgentName.COMMAND]}
-      agentIconSrc={AGENT_ICON_PATHS[AgentName.COMMAND]}
+      agentName={AGENT_ICON_NAMES[AgentName.COMMAND] ?? AGENT_ICON_NAMES[AgentName.DEFAULT]}
+      agentIconSrc={AGENT_ICON_PATHS[AgentName.COMMAND] ?? AGENT_ICON_PATHS[AgentName.DEFAULT]}
       imageSrc="/explicit_blobs.gif"
       selected
     >
