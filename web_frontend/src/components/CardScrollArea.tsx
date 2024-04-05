@@ -18,11 +18,8 @@ const CardScrollArea = () => {
 
   return (
     <ScrollArea scrollHideDelay={100} h="100%" type="never">
-      <TransitionGroup>
         {isExplicitListening && (
-          <Collapse timeout={800}>
             <ExplicitCard />
-          </Collapse>
         )}
         {entities
           .filter((e) => {
@@ -35,8 +32,8 @@ const CardScrollArea = () => {
           .slice(0)
           .reverse()
           .map((entity, i) => (
-            <Collapse key={`entity-${entity.uuid}`} timeout={800}>
               <ReferenceCard
+                key={`entity-${entity.uuid}`}
                 entity={entity}
                 selected={
                   selectedCardId === entity.uuid && !isExplicitListening
@@ -49,9 +46,7 @@ const CardScrollArea = () => {
                 large={i === 0 && !isExplicitListening}
                 pointer={Boolean(entity.url)}
               />
-            </Collapse>
           ))}
-      </TransitionGroup>
     </ScrollArea>
   );
 };

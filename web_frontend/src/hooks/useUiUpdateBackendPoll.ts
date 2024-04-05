@@ -49,7 +49,7 @@ export const useUiUpdateBackendPoll = () => {
         .post(UI_POLL_ENDPOINT, uiPollRequstBody)
         .then((res) => {
           if (res.data.success) {
-            const newEntities = res.data.result as Entity[];
+            const newEntities = (res.data.result as Entity[]) || [];
             const newInsights =
               (res.data.results_proactive_agent_insights as Entity[]) || [];
             const newExplicitQueries =
