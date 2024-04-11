@@ -155,8 +155,6 @@ class DatabaseHandler:
             print('Creating new user: ' + user_id)
             self.user_collection.insert_one(
                 {"user_id": user_id,
-                 "latest_intermediate_transcript": self.empty_transcript,
-                 "final_transcripts": [],
                  "last_wake_word_time": -1,
                  "last_recording_start_time": -1,
                  "settings": {
@@ -282,18 +280,15 @@ class DatabaseHandler:
         return True
 
     def get_latest_transcript_from_user_obj(self, user_obj):
-        if user_obj['latest_intermediate_transcript']['timestamp'] != -1:
-            return user_obj['latest_intermediate_transcript']
-        ### TODO: HACKATHON
-        elif user_obj['final_transcripts']:
-            return user_obj['final_transcripts'][-1]
+        user_transcripts = self.transcripts_collection.find_one({"user_id": user_obj['user_id']})
+        if user_transcripts["latest_intermediate_transcript"]["timestamp"] != -1:
+            return user_transcripts["latest_intermediate_transcript"]
+        
+        elif user_transcripts["final_transcripts"]:
+            return user_transcripts["final_transcripts"][-1]
+        
         else:
             return None
-        # user_transcripts = self.transcripts_collection.find_one({"user_id": user_obj['user_id']})
-        # if user_transcripts and "final_transcripts" in user_transcripts:
-        #     return user_transcripts["final_transcripts"][-1]
-    
-        return None
 
     def save_deepgram_transcript_for_user(self, user_id, device_id, deepgram_obj, transcribe_language):
         if not deepgram_obj:
@@ -302,6 +297,7 @@ class DatabaseHandler:
         timestamp = time.time()
 
         # Format deepgram object for db
+        print("SET USER DEEPGRAM TRANSCRIPT")
         transcript_objs = []
         for word_info in deepgram_obj["words"]:
             if (len(transcript_objs) == 0) or (word_info["speaker"] != transcript_objs[-1]["speaker"]):
@@ -339,21 +335,16 @@ class DatabaseHandler:
         self.purge_old_transcripts_for_user_id(user_id)
 
         if is_final:
-            # if user['cse_consumed_transcript_id'] == -1:
-            #     filter = {"user_id": user_id}
-            #     update = {
-            #         "$set": {"cse_consumed_transcript_id": transcript['uuid']}}
-            #     self.user_collection.update_one(filter=filter, update=update)
-            print()
-            
-            # TODO: HACKATHON
-            # filter = {"user_id": user_id}
-            # update = {"$set": {"latest_intermediate_transcript": self.empty_transcript}}
-            # self.user_collection.update_one(filter=filter, update=update)
+            filter = {"user_id": user_id}
+            update = {"$push": {"final_transcripts": transcript}}
+            self.transcripts_collection.update_one(filter=filter, update=update, upsert=True)
+
+            update = {"$set": {"latest_intermediate_transcript": self.empty_transcript}}
+            self.transcripts_collection.update_one(filter=filter, update=update, upsert=True)
         else:
             filter = {"user_id": user_id}
             update = {"$set": {"latest_intermediate_transcript": transcript}}
-            self.user_collection.update_one(filter=filter, update=update)
+            self.transcripts_collection.update_one(filter=filter, update=update, upsert=True)
 
         return True
 
@@ -366,13 +357,15 @@ class DatabaseHandler:
 
     def get_all_transcripts_for_user(self, user_id, delete_after=False):
         transcripts = []
-        user = self.get_user(user_id)
         user_transcripts = self.transcripts_collection.find_one({"user_id": user_id})
-        if user_transcripts and "final_transcripts" in user_transcripts:
+        if not user_transcripts: return []
+        
+        if "final_transcripts" in user_transcripts:
             transcripts = user_transcripts["final_transcripts"]
 
-        if user['latest_intermediate_transcript']['text']:
-            transcripts.append(user['latest_intermediate_transcript'])
+        if "latest_intermediate_transcript" in user_transcripts and user_transcripts["latest_intermediate_transcript"]["text"]:
+            transcripts.append(user_transcripts["latest_intermediate_transcript"])
+
         return transcripts
 
     def combine_text_from_transcripts(self, transcripts, recent_transcripts_only=True):

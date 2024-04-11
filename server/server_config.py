@@ -5,7 +5,7 @@ openai_api_key = "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"
 wolframalpha_api_key = "U7P33Q-WLYJUA7GWA"
 clear_users_on_start = True
 clear_cache_on_start = False
-ignore_auth = True
+ignore_auth = False
 
 use_azure_openai = True
 azure_openai_api_key = "8fb4dd771c3047cbb33821b96464c18c"

@@ -100,7 +100,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private LinkedList<STMBSummary> adhdStmbSummaries = new LinkedList<>();
     private LinkedList<ContextConvoResponse> contextConvoResponses = new LinkedList<>();
     private final long llDefinedWordsShowTime = 40 * 1000; // define in milliseconds
-    private final long llContextConvoResponsesShowTime = 90 * 1000; // define in milliseconds
+    private final long llContextConvoResponsesShowTime = 3 * 60 * 1000; // define in milliseconds
     private final long locationSendTime = 1000 * 10; // define in milliseconds
     private final long adhdSummaryShowTime = 10 * 60 * 1000; // define in milliseconds
     private final int maxDefinedWordsShow = 4;
@@ -165,7 +165,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         setUpLocationSending();
 
         //setup ASR version
-        ConvoscopeService.saveChosenAsrFramework(this, ASR_FRAMEWORKS.DEEPGRAM_ASR_FRAMEWORK);
+//        ConvoscopeService.saveChosenAsrFramework(this, ASR_FRAMEWORKS.DEEPGRAM_ASR_FRAMEWORK);
+        ConvoscopeService.saveChosenAsrFramework(this, ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
 
         //setup mode if not set yet
         getCurrentMode(this);

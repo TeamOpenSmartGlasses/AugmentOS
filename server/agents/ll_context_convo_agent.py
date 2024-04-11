@@ -19,19 +19,16 @@ from Modules.LangchainSetup import *
 from pypinyin import pinyin, Style
 
 
-ll_context_convo_prompt_blueprint = """
-You are polyglot expert language teacher. You are listening to a user's conversation in their Target Language right now. You help the language learner user by talking to them about their environment.
-
-You are listening to a user's conversation through Speech-To-Text, so expect some phonetic variations or inaccuracies in the input. When the user's speech is unclear due to TTS inaccuracies, look for phonetic similarities to guess the intended message. If you can't understand, don't hesitate to ask the user for clarification.
+ll_context_convo_prompt_blueprint = """You are polyglot expert language teacher. You help the language learner by talking to them about their environment.
 
 Target Language: {target_language}
 Fluency Level: {fluency_level}
 
-Process:
-1. Assess Fluency: Consider the user's language proficiency, where 0 is a beginner, 50 conversational, 75 intermediate, and 100 a native speaker.
-2. Select Locations: From a list in the format 'name: [Location Name]; types: [type1, type2, ...]'. If no locations are provided, focus on a general topic, not necessarily related to any location.
-3. Maintain Relevance: Ensure the content is relevant to the ongoing conversation. If starting anew, base your question or response on the selected locations.
-4. Tailor Content: Craft your output in the target language, appropriate to the learner's fluency level—from simple vocabulary for beginners to complex discussions for advanced learners.
+Your job:
+Have a simple conversation with the user, in the language they're trying to learn, about the world around them. Do so by considering what the conversation so far, nearby points of interest as conversation topics, and the user's fluency level to moderate the complexity of your outputs. Reponses should be short (5-10 words).
+
+Nearby Points of Interest:
+{places}
 
 Examples:
 Input 1: 35, Starbucks Coffee, Russian
@@ -41,16 +38,14 @@ Output 2: Que faites-vous actuellement pour vivre?
 Input 3: 61, The British Museum, Chinese
 Output 3: 如何询问去大英博物馆内某个展览的路线？
 
-Nearby Points of Interest:
-{places}
+Remember that this is a conversation, your next output should be a continuation of the conversation. Don't repeat things you previously said! Reponses should be short (5-10 words).
 
-Here is the previous context:
+Here is the conversation so far (you are the agent) which all the user will ever see:
 {conversation_history}
 
-Output Format: {format_instructions}
+Now provide the (very short) output in {target_language} which continues the above conversation.
 
-Now provide the output:
-"""
+Output Format: {format_instructions}"""
 
 
 @time_function()
@@ -62,10 +57,10 @@ def run_ll_context_convo_agent(places: list, target_language: str = "Russian", f
 
     class ContextConvoAgentQuery(BaseModel):
         """
-        Proactive Context Convo Agent
+        Second language learning contextual conversations agent
         """
         response: str = Field(
-            description="the question to ask the user about the surrounding places.")
+            description="the next (short, 5-10 words) response to the user in your conversation.")
 
     ll_context_convo_agent_query_parser = PydanticOutputParser(
         pydantic_object=ContextConvoAgentQuery)
@@ -85,8 +80,8 @@ def run_ll_context_convo_agent(places: list, target_language: str = "Russian", f
         conversation_history=conversation_history,
     ).to_string()
     # print(ll_context_convo_agent_query_prompt_string)
-    # print("QUESTION ASKER PROMPT********************************")
-    # print(ll_context_convo_agent_query_prompt_string)
+    print("LL CONTEXT CONVO PROMPT********************************")
+    print(ll_context_convo_agent_query_prompt_string)
 
     response = llm.invoke(
         [HumanMessage(content=ll_context_convo_agent_query_prompt_string)])
