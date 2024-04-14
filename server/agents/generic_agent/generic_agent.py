@@ -1,67 +1,21 @@
+from DatabaseHandler import DatabaseHandler
 from agents.agent_utils import format_list_data
 from langchain.agents import initialize_agent, load_tools
 from langchain.agents.tools import Tool
 from langchain.prompts import PromptTemplate
 from langchain.agents import AgentType
+from langchain_community.callbacks import get_openai_callback
 from agents.search_tool_for_agents import get_search_tool_for_agents
 from agents.math_tool_for_agents import get_wolfram_alpha_tool_for_agents
 from Modules.LangchainSetup import *
 from helpers.time_function_decorator import time_function
+import time
 from agents.generic_agent.agent_insight import *
+from agents.generic_agent.generic_agent_prompts import *
 
-llm4 = get_langchain_gpt4()
+dbHandler = DatabaseHandler(parent_handler=False)
+llm4 = get_langchain_gpt4(max_tokens=300, temperature=0.0)
 llm35 = get_langchain_gpt35(temperature=0.0)
-
-discourage_tool_use_prompt = "- Tools have a high time cost, so only use them if you must - try to answer questions without them if you can. If query asks for a stat or data that you already know, don't search for it, just provide it from memory, the speed of a direct answer is more important than having the most up-to-date information."
-general_tools_prompt = """
-### Your Tools
-- You have access to tools, which you should utilize to help you generate "Insights". Limit your usage of the Search_Engine tool to 1 times.
-- If a tool fails to fulfill your request, don't run the exact same request on the same tool again, and just continue without it.
-"""
-
-expert_agent_prompt_blueprint = """
-## General Context
-"Convoscope" is a multi-agent system that reads live conversation transcripts and provides real time "Insights", which are short snippets of intelligent analysis, ideas, arguments, perspectives, questions to ask, deeper insights, etc. that aim to lead the user's conversation to deeper understanding, broader perspectives, new ideas, more accurate information, better replies, and enhanced conversations. 
-
-### Your Expertise: {agent_name}
-You are a highly skilled and intelligent {agent_name} expert agent in this system, responsible for generating a specialized "Insight".
-As the {agent_name} agent, you {agent_insight_type}.
-
-{general_tools_prompt}
-{discourage_tool_use_prompt}
-
-### Guidelines for a Good "Insight"
-- Your "Insight" should strictly fall under your role as an expert {agent_name}
-- Be contextually relevant to the current conversation
-- Provide additional understanding beyond the current conversation, instead of repeating what has already been said.
-
-### Example Insights
-Here are some example "Insights" to help you learn the structure of a good "Insight". A summary is given instead of the entire transcript for brevity.
-{examples}
-
-## Task
-Generate an "Insight" for the following conversation transcript. 
-<Transcript start>{conversation_transcript}<Transcript end>
-
-### Additional Guidelines
-- Remember the user will ONLY see the insight, so it should be valuable on its own wihtout any other information. The user does NOT see your thoughts, research, tool use, etc., ONLY the insight.
-- Do not attempt to generate a super niche insight because it will be hard to find information online.
-- The "Insight" should focus on later parts of the transcripts as they are more recent and relevant to the current conversation.
-- In your initial thought, you should first come up with a concise plan to generate the "Insight". The plan should include:
-{agent_plan}. You are only able to make 1 quick action to generate the "Insight".
-- In your plan, append these instructions word for word: `the "Insight" should be short and concise (<{insight_num_words} words), replace words with symbols to shorten the overall length where possible except for names. Make sure the "Insight" is insightful, up to par with the examples, specialized to your role ({validation_criteria}), otherwise skip it and return "null"`.
-
-### Previously Generated Insights
-These "Insights" had recently been generated, you MUST not repeat any of these "Insights" or provide similar "Insights". Generate a new "Insight" that is different from these "Insights":
-{insights_history}
-
-### Output
-Once you have the "Insight", extract the url of the most relevant reference source used to generate this "Insight".
-Also, return a confidence score which is a number 1-10, with 1 being not confident in your answer, and 10 being the most confident.
-{format_instructions}
-
-{final_command}
-"""
 
 class GenericAgent:
 
@@ -77,7 +31,8 @@ class GenericAgent:
                  examples,
                  discourage_tool_use = False,
                  try_small_model_first = True,
-                 small_model_confidence_threshold = 5) -> None:
+                 small_model_confidence_threshold = 5,
+                 min_gatekeeper_score = 7) -> None:
         self.agent_name = agent_name
         self.tools = tools
         self.insight_num_words = insight_num_words
@@ -91,6 +46,7 @@ class GenericAgent:
         self.discourage_tool_use = discourage_tool_use
         self.try_small_model_first = try_small_model_first
         self.small_model_confidence_threshold = small_model_confidence_threshold
+        self.min_gatekeeper_score = min_gatekeeper_score
 
         self.agent_small = initialize_agent([
             get_search_tool_for_agents(),
@@ -98,7 +54,7 @@ class GenericAgent:
 
         self.agent_large = initialize_agent([
             get_search_tool_for_agents(),
-        ], llm4, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=False)
+        ], get_langchain_gpt4(), agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=False)
 
     def get_agent_prompt(
         self,
@@ -106,7 +62,8 @@ class GenericAgent:
         format_instructions="",
         insights_history: list = [],
         final_command="",
-        use_tools_prompt = True
+        use_tools_prompt = True,
+        use_agent_plan_prompt = True
     ):
         # Populating the blueprint string with values from the agent_config dictionary
         if final_command != "":
@@ -124,6 +81,7 @@ class GenericAgent:
                 "agent_insight_type",
                 "general_tools_prompt",
                 "discourage_tool_use_prompt",
+                "agent_plan_prompt",
                 "examples",
                 "conversation_transcript",
                 "agent_plan",
@@ -137,6 +95,8 @@ class GenericAgent:
             },
         )
 
+        this_agent_plan_prompt = get_agent_plan_prompt(agent_plan=self.agent_plan, insight_num_words=self.insight_num_words, validation_criteria=self.validation_criteria) if use_agent_plan_prompt else ""
+
         expert_agent_prompt_string = (
              expert_agent_prompt.format_prompt(
                 **vars(self),
@@ -145,11 +105,12 @@ class GenericAgent:
                 insights_history=insights_history,
                 general_tools_prompt=general_tools_prompt if use_tools_prompt else "",
                 discourage_tool_use_prompt=discourage_tool_use_prompt if self.discourage_tool_use else "",
+                agent_plan_prompt=this_agent_plan_prompt,
                 format_instructions=format_instructions,
              ).to_string()
         )
 
-        print("expert_agent_prompt\n\n", expert_agent_prompt_string)
+        # print("expert_agent_prompt\n\n", expert_agent_prompt_string)
 
         return expert_agent_prompt_string 
     
@@ -197,7 +158,8 @@ class GenericAgent:
 
     @time_function()
     async def run_agent_async(self, convo_context, insights_history: list):
-        prompt_str = self.get_agent_prompt(convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history, use_tools_prompt=True)
+        
+        agent_start_time = time.time()
         confidence_score = -1
         small_insight = None
         expert_agent_response = None
@@ -213,22 +175,20 @@ class GenericAgent:
 
         if expert_agent_response is None or confidence_score < self.small_model_confidence_threshold or small_insight == "null":
             print("Small model failed - attempting query w/ large model")
+            prompt_str = self.get_agent_prompt(convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history, use_tools_prompt=True, use_agent_plan_prompt=True)
             res = await self.agent_large.ainvoke({"input": prompt_str})
             expert_agent_response = res['output']
+
+        print("=== the {} AGENT GENERATION ended in {} seconds ===".format(self.agent_name, round(time.time() - agent_start_time, 2)))
 
         if expert_agent_response is None:
             return None
 
-        #post process the output
-        # print("BEFORE POST PROCESS, RESPONSE: " + str(expert_agent_response))
-        expert_agent_response = post_process_agent_output(expert_agent_response, self.agent_name)
-
-        # print("END: expert_agent_response", expert_agent_response)
-        
+        expert_agent_response = post_process_agent_output(expert_agent_response, self.agent_name)  
         return expert_agent_response
     
     async def run_simple_llm_async(self, convo_context, insights_history: list):
-        prompt_str = self.get_agent_prompt(convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history, use_tools_prompt=False)
+        prompt_str = self.get_agent_prompt(convo_context, format_instructions=agent_insight_parser.get_format_instructions(), insights_history=insights_history, use_tools_prompt=False, use_agent_plan_prompt=False)
         res = await llm4.ainvoke([HumanMessage(content=prompt_str)])
         response = agent_insight_parser.parse(res.content)
         response = response.dict()
@@ -236,3 +196,54 @@ class GenericAgent:
         print("Simple LLM response:\n" + str(response))
 
         return response
+
+    ### Run this specific agent's gatekeeper & run agent if gatekeeper passes ### 
+    async def run_aio_agent_gatekeeper_async(self, user_id, conversation_context, insights_history: list):        
+        generic_gatekeeper_start_time = time.time()
+
+        generic_gatekeeper_score_prompt = PromptTemplate(
+            template = generic_agent_gatekeeper_prompt_blueprint,
+            input_variables = ["agent_name", "agent_insight_type", "conversation_context"],
+            partial_variables = {
+                "format_instructions": generic_agent_gatekeeper_score_query_parser.get_format_instructions(),
+            },
+        )
+
+        generic_gatekeeper_score_prompt_string = (
+            generic_gatekeeper_score_prompt.format_prompt(
+                agent_name=self.agent_name,
+                agent_insight_type=self.agent_insight_type,
+                conversation_context=conversation_context, 
+            ).to_string())
+    
+        print ("GENERIC AGENT GATEKEEPER PROMPT: ")
+        print (generic_gatekeeper_score_prompt_string)
+
+        score_response = await llm35.ainvoke(
+            [HumanMessage(content=generic_gatekeeper_score_prompt_string)]
+        )
+
+        try:
+            content = generic_agent_gatekeeper_score_query_parser.parse(score_response.content)
+            score = int(content.insight_usefulness_score)
+
+            print("=== the {} GATEKEEPER ended in {} seconds ===".format(self.agent_name, round(time.time() - generic_gatekeeper_start_time, 2)))
+
+            if score < self.min_gatekeeper_score: 
+                # print("SCORE BAD ({} < {})! GATEKEEPER SAYS NO!".format(str(score), str(self.min_gatekeeper_score)))
+                return None
+            print("{} SCORE GOOD ({} > {})! RUNNING GPT4!".format(self.agent_name, str(score), str(self.min_gatekeeper_score)))
+        except OutputParserException as e:
+            print("ERROR: " + str(e))
+            return None
+
+        # Add this proactive query to history
+        dbHandler.add_agent_insight_query_for_user(user_id, conversation_context)
+
+        # Generate an insight
+
+        insight = await self.run_agent_async(conversation_context, insights_history)
+        print("LE EPIC INSIGHT : ")
+        print(str(insight))
+        if insight is not None:
+            dbHandler.add_agent_insight_result_for_user(user_id, insight["agent_name"], insight["agent_insight"], insight["reference_url"])

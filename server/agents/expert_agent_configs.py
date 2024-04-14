@@ -103,8 +103,8 @@ Insight: AI will create new jobs and industries, not just replace old ones
             Insight: "1st skyscraper: Chicago
         """,
         "examples": """
-            Conversation: Transcript mentions "Which city was the first skyscraper built in"
-            Insight: "1st skyscraper: Chicago
+        Conversation: Transcript mentions "Which city was the first skyscraper built in"
+        Insight: "1st skyscraper: Chicago
         """,
    },
     "RealTimer": {

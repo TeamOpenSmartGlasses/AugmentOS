@@ -1,3 +1,4 @@
+from collections import defaultdict
 import time
 import traceback
 import math
@@ -8,6 +9,7 @@ import logging
 #custom
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_meta_agent import run_proactive_meta_agent_and_experts
+from agents.expert_agent_configs import default_expert_agent_list
 from server_config import openai_api_key
 from logger_config import logger
 from constants import PROACTIVE_AGENTS
@@ -51,7 +53,7 @@ def proactive_agents_processing_loop():
 
                 # Don't run if the transcript is too short
                 if not is_transcript_long_enough(transcript['text']):
-                    print("Transcript too short, skipping...")
+                    print("[META] Transcript too short, skipping...")
                     continue
 
                 # Don't run if in the middle of an explicit query
@@ -83,16 +85,34 @@ def proactive_agents_processing_loop():
                     logger.log(level=logging.DEBUG, msg="Insights history: {}".format(insights_history))
 
                     # Run proactive meta agent, get insights
-                    insights = run_proactive_meta_agent_and_experts(transcript_to_use, insights_history, transcript['user_id'])
-                    
-                    if insights:
-                        print("insights: {}".format(insights))
+                    # meta_start_time = time.time()
+                    # insights = run_proactive_meta_agent_and_experts(transcript_to_use, insights_history, transcript['user_id'])
+                    # print("=== the PROACTIVE AGENT GENERATION META ended in {} seconds ===".format(round(time.time() - meta_start_time, 2)))
 
-                    for insight in insights:
-                        if insight is None:
-                            continue
-                        #save this insight to the DB for the user
-                        dbHandler.add_agent_insight_result_for_user(transcript['user_id'], insight["agent_name"], insight["agent_insight"], insight["reference_url"])
+                    # if insights:
+                    #     print("insights: {}".format(insights))
+
+                    # for insight in insights:
+                    #     if insight is None:
+                    #         continue
+                    #     #save this insight to the DB for the user
+                    #     dbHandler.add_agent_insight_result_for_user(transcript['user_id'], insight["agent_name"], insight["agent_insight"], insight["reference_url"])
+                    #parse insights history into a dict of agent_name: [agent_insights] so expert agent won't repeat the same insights
+                    
+                    insights_history_dict = defaultdict(list)
+                    for insight in insights_history:
+                        insights_history_dict[insight["agent_name"]].append(
+                            insight["agent_insight"])
+
+                    agents_to_run_list = dbHandler.get_user_settings_value(transcript['user_id'], "enabled_proactive_agents")
+                    
+                    experts_to_run = [ea for ea in default_expert_agent_list if (ea.agent_name in agents_to_run_list)]
+
+                    # Run all the agents in parallel
+                    loop = asyncio.get_event_loop()
+                    agents_to_run_tasks = [expert_agent.run_aio_agent_gatekeeper_async(transcript['user_id'], transcript_to_use, insights_history_dict[expert_agent.agent_name]) for expert_agent in experts_to_run]
+                    insights_tasks = asyncio.gather(*agents_to_run_tasks)
+                    loop.run_until_complete(insights_tasks)
 
                 except Exception as e:
                     print("Exception in agent.run()...:")
