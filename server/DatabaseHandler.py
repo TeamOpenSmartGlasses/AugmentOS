@@ -166,8 +166,8 @@ class DatabaseHandler:
                      "dynamic_transcribe_language": "English", #the current dynamic transcribe language that we set momentarily
                      "use_dynamic_transcribe_language": False,
                      "is_having_language_learning_contextual_convo": False,
-                     #"current_mode": "Language Learning",
-                     "current_mode": "Proactive Agents",
+                     "current_mode": "Language Learning",
+                     #"current_mode": "Proactive Agents",
                  },
                  "transcripts": [],
                  "ui_list": [],
