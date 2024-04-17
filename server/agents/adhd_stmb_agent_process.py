@@ -10,9 +10,10 @@ from logger_config import logger
 from constants import ADHD_STMB_AGENT
 
 run_period = 20
-transcript_back_time = run_period * 1.1
-total_transcript_context_time = 5 * 60
+transcript_back_time = run_period * 1.1 #The amount of time to look back for new transcripts
+total_transcript_context_time = 3.5 * 60 #The total amount of time to consider for the context of the transcript to summarize
 minimum_topic_time = 20 #the minimum amount of time since last topic change for a new topic chnage
+max_same_topic_time = 0.75 * total_transcript_context_time #Max amount of time for recent transcript if topic hasn't changed
 
 def adhd_stmb_agent_processing_loop():
     print("START ADHD STMB AGENT PROCESSING LOOP")
@@ -37,7 +38,8 @@ def adhd_stmb_agent_processing_loop():
 
             words_to_show = None
             for transcript in newTranscripts:
-                if not dbHandler.get_user_feature_enabled(transcript['user_id'], ADHD_STMB_AGENT): continue #skip if the user is not in ADHD mode
+                if not dbHandler.get_user_feature_enabled(transcript['user_id'], ADHD_STMB_AGENT): 
+                    continue #skip if the user is not in ADHD mode
                 ctime = time.time()
                 user_id = transcript['user_id']
 
@@ -53,7 +55,7 @@ def adhd_stmb_agent_processing_loop():
                 if latest_dynamic_topic != []:
                     previous_summary = latest_dynamic_topic[0]["summary"]
 
-                print("vvvvvvvv previous summary is:")
+                print("---------------------------PREVIOUS SUMMARY---------------------------")
                 print(previous_summary)
 
                 #get the whole context transcript for the user
@@ -67,12 +69,19 @@ def adhd_stmb_agent_processing_loop():
                     summarize_transcript_back_time = transcript_back_time
                 else:
                     summarize_transcript_back_time = time.time() - latest_topic_shift_time
+                    summarize_transcript_back_time = min(max_same_topic_time, summarize_transcript_back_time)
                     to_summarize_transcript, _, _ = dbHandler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=summarize_transcript_back_time)
 
-                print("vvvvvvvvv to_summarize_transcript is:")
+                print("---------------------------Transcript to Summarize---------------------------")
                 print(to_summarize_transcript)
+
+                print("-------------------------------------")
+                print(f"To summarize = context" if to_summarize_transcript == context_transcript else f"To summarize != context")
                 #run the ADHD STMB agent
-                summary, new_topic_shift_words = run_adhd_stmb_agent(to_summarize_transcript, context_transcript)
+                summary, new_topic_shift_words = run_adhd_stmb_agent(to_summarize_transcript, context_transcript, previous_summary)
+                print(f"-------------------------------------")
+                print(f"Summary: {summary}")
+                print(f"New Topic Shift Words: {new_topic_shift_words}")
 
                 #add a new dynamic topic, not a true shift
                 dbHandler.add_topic_shift_for_user(user_id, pLoopStartTime, summary, true_shift=False)
@@ -111,4 +120,4 @@ def adhd_stmb_agent_processing_loop():
             #    round(pLoopEndTime - pLoopStartTime, 2)))
 
         #run again after delay for run_period
-        time.sleep(max(0, run_period - (pLoopEndTime - pLoopStartTime)))
+        # time.sleep(max(0, run_period - (pLoopEndTime - pLoopStartTime)))
