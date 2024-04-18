@@ -52,7 +52,7 @@ general_tools_prompt = """# Your Tools
 
 def get_agent_plan_prompt(agent_plan, insight_num_words, validation_criteria):
     return f"""- In your initial thought, you should first come up with a concise plan to generate the "Insight". The plan should include: {agent_plan}.
-    - The "Insight" should be short and concise (<{insight_num_words} words), telegraph style. Your insight should {validation_criteria}, otherwise skip it and return "null".
+    - Your insight should {validation_criteria}, otherwise skip it and return "null".
 """
 
 # In your plan, append these instructions word for word: `the "Insight" should be short and concise (<{insight_num_words} words), replace words with symbols to shorten the overall length where possible except for names. Make sure the "Insight" is insightful, up to par with the examples, specialized to your role ({validation_criteria}), otherwise skip it and return "null"
@@ -83,6 +83,7 @@ Generate an "Insight" for the following conversation transcript.
 # Additional Guidelines
 - Remember the user will ONLY see the insight, so it should be valuable on its own wihtout any other information. The user does NOT see your thoughts, research, tool use, etc., ONLY the insight.
 - The "Insight" should focus on later parts of the transcripts as they are more recent and relevant to the current conversation
+- The "Insight" should be short and concise (<{insight_num_words} words), telegraph style.
 {agent_plan_prompt}
 
 # Previously Generated Insights

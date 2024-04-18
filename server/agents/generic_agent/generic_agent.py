@@ -103,6 +103,7 @@ class GenericAgent:
                 final_command=final_command,
                 conversation_transcript=conversation_transcript,
                 insights_history=insights_history,
+                insight_num_words=self.insight_num_words,
                 general_tools_prompt=general_tools_prompt if use_tools_prompt else "",
                 discourage_tool_use_prompt=discourage_tool_use_prompt if self.discourage_tool_use else "",
                 agent_plan_prompt=this_agent_plan_prompt,
