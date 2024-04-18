@@ -12,7 +12,7 @@ class GenericAgentGatekeeperScore(BaseModel):
     Meta agent that determines if an "Insight" should be generated
     """
     insight_usefulness_score: int = Field(
-        description="Score 1 - 10 of how likely an \"Insight\" would be to the conversation, with 1 being not very helpful, and 10 being the most helpful.", default=0
+        description="Score 1 - 10 of how useful an \"Insight\" would be to the conversation, with 1 being not very helpful, and 10 being the most helpful.", default=0
     )
 
 generic_agent_gatekeeper_score_query_parser = PydanticOutputParser(
@@ -21,21 +21,19 @@ generic_agent_gatekeeper_score_query_parser = PydanticOutputParser(
 
 generic_agent_gatekeeper_prompt_blueprint = """You listen to a user's live conversation and determine if an "Insight" might be helpful to the conversation. 
 
-        "Insights" should lead the user to deeper understanding, broader perspectives, new ideas, more accurate information, better replies, and enhanced conversations.
+"Insights" should lead the user to deeper understanding, broader perspectives, new ideas, more accurate information, better replies, and enhanced conversations.
 
-        # Your Expertise: {agent_name}
-        You can do the following: 
-        {agent_insight_type}
+# Your Expertise: {agent_name}
+You can do the following: 
+{agent_insight_type}
 
-        # Conversation Transcript
-        This is the current live transcript of the conversation you're assisting:
-        <transcript>{conversation_context}</transcript>
+# Conversation Transcript
+This is the current live transcript of the conversation you're assisting:
+<transcript>{conversation_context}</transcript>
 
-        <Task start>
-        Output an "Insight helpfulness" score, which is a number 1 - 10, with 1 being not very helpful, and 10 being very useful/helpful.
-        If the score is 6 or higher, an "Insight" would be helpful to the conversation. If the score is 5 or lower, an "Insight" would not be helpful to the conversation.
-        {format_instructions}
-        <Task end>"""
+<task>Output an "Insight helpfulness" score, which is a number 1 - 10, with 1 being not very helpful, and 10 being very useful/helpful.
+If the score is 6 or higher, an "Insight" would be helpful to the conversation. If the score is 5 or lower, an "Insight" would not be helpful to the conversation.
+{format_instructions}</task>"""
 
 
 
@@ -52,8 +50,7 @@ general_tools_prompt = """# Your Tools
 
 def get_agent_plan_prompt(agent_plan, insight_num_words, validation_criteria):
     return f"""- In your initial thought, you should first come up with a concise plan to generate the "Insight". The plan should include: {agent_plan}.
-    - Your insight should {validation_criteria}, otherwise skip it and return "null".
-"""
+- Your insight should {validation_criteria}, otherwise skip it and return "null"."""
 
 # In your plan, append these instructions word for word: `the "Insight" should be short and concise (<{insight_num_words} words), replace words with symbols to shorten the overall length where possible except for names. Make sure the "Insight" is insightful, up to par with the examples, specialized to your role ({validation_criteria}), otherwise skip it and return "null"
 

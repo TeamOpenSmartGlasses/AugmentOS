@@ -14,7 +14,7 @@ from agents.generic_agent.agent_insight import *
 from agents.generic_agent.generic_agent_prompts import *
 
 dbHandler = DatabaseHandler(parent_handler=False)
-llm4 = get_langchain_gpt4(max_tokens=300, temperature=0.0)
+llm4 = get_langchain_gpt4(max_tokens=180, temperature=0.2)
 llm35 = get_langchain_gpt35(temperature=0.0)
 
 class GenericAgent:
