@@ -199,7 +199,7 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
             return ' '.join([item[0] for item in pinyin(chinese_text, style=Style.TONE)])
 
         # Apply Pinyin conversion 
-        if "Chinese" in transcribe_language or "Chinese" in output_language:
+        if "Pinyin" in target_language or "Pinyin" in source_language:
             #translated_words_pinyin = {chinese_to_pinyin(word): chinese_to_pinyin(translated_words[word]) for word in translated_words}
             translated_words_pinyin = {chinese_to_pinyin(word): chinese_to_pinyin(translated_words_rare[word]) if isinstance(translated_words_rare[word], str) and any('\u4e00' <= char <= '\u9fff' for char in translated_words_rare[word]) else translated_words_rare[word] for word in translated_words_rare}
 
