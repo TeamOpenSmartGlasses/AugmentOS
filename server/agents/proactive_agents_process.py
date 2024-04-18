@@ -83,22 +83,8 @@ def proactive_agents_processing_loop():
                     insights_history = dbHandler.get_recent_nminutes_agent_insights_history_for_user(transcript['user_id'], n_minutes=90)
                     # print("insights_history: {}".format(insights_history))
                     logger.log(level=logging.DEBUG, msg="Insights history: {}".format(insights_history))
-
-                    # Run proactive meta agent, get insights
-                    # meta_start_time = time.time()
-                    # insights = run_proactive_meta_agent_and_experts(transcript_to_use, insights_history, transcript['user_id'])
-                    # print("=== the PROACTIVE AGENT GENERATION META ended in {} seconds ===".format(round(time.time() - meta_start_time, 2)))
-
-                    # if insights:
-                    #     print("insights: {}".format(insights))
-
-                    # for insight in insights:
-                    #     if insight is None:
-                    #         continue
-                    #     #save this insight to the DB for the user
-                    #     dbHandler.add_agent_insight_result_for_user(transcript['user_id'], insight["agent_name"], insight["agent_insight"], insight["reference_url"])
-                    #parse insights history into a dict of agent_name: [agent_insights] so expert agent won't repeat the same insights
                     
+                    ### These agents have their own fast mini-gatekeepers ### 
                     insights_history_dict = defaultdict(list)
                     for insight in insights_history:
                         insights_history_dict[insight["agent_name"]].append(
@@ -113,6 +99,24 @@ def proactive_agents_processing_loop():
                     agents_to_run_tasks = [expert_agent.run_aio_agent_gatekeeper_async(transcript['user_id'], transcript_to_use, insights_history_dict[expert_agent.agent_name]) for expert_agent in experts_to_run]
                     insights_tasks = asyncio.gather(*agents_to_run_tasks)
                     loop.run_until_complete(insights_tasks)
+
+
+
+                    # Run proactive meta agent, get insights
+                    meta_start_time = time.time()
+                    insights = run_proactive_meta_agent_and_experts(transcript_to_use, insights_history, transcript['user_id'])
+                    print("=== the PROACTIVE AGENT GENERATION META ended in {} seconds ===".format(round(time.time() - meta_start_time, 2)))
+
+                    if insights:
+                        print("insights: {}".format(insights))
+
+                    for insight in insights:
+                        if insight is None:
+                            continue
+                        #save this insight to the DB for the user
+                        dbHandler.add_agent_insight_result_for_user(transcript['user_id'], insight["agent_name"], insight["agent_insight"], insight["reference_url"])
+                    # parse insights history into a dict of agent_name: [agent_insights] so expert agent won't repeat the same insights
+
 
                 except Exception as e:
                     print("Exception in agent.run()...:")

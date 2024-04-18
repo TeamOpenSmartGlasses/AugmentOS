@@ -168,7 +168,7 @@ class DatabaseHandler:
                      "is_having_language_learning_contextual_convo": False,
                      "current_mode": "Language Learning",
                      #"current_mode": "Proactive Agents",
-                     "enabled_proactive_agents": ["QuestionAnswerer", "QuestionAsker", "Statistician"]
+                     "enabled_proactive_agents": ["QuestionAnswerer"]
                  },
                  "transcripts": [],
                  "ui_list": [],
