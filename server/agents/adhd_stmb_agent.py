@@ -82,7 +82,7 @@ def run_adhd_stmb_agent(to_summarize_transcript, context_transcript, previous_su
     #print("ADHD STMB PROMPT********************************")
     #print(adhd_stmb_agent_query_prompt_string)
 
-    response = llm(
+    response = llm.invoke(
         [HumanMessage(content=adhd_stmb_agent_query_prompt_string)])
     print("ADHD AGENT RESPONSE ********************************")
     print(response)
