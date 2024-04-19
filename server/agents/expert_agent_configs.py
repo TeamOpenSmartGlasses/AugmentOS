@@ -83,21 +83,17 @@ Insight: AI will create new jobs and industries, not just replace old ones
         "tools": ["Search_Engine"],
         "discourage_tool_use": True,
         "insight_num_words": 15,
-        "agent_insight_type": """
-            Answer any questions, inquiries, or open-ended rhetoricals made during a conversation. The question might be specific, broad, literal, rhetorical, or not even phrased as a question. 
-            You only give answers that are verifiable through free, publically available knowledge and not personal or belief-based claims.
-            Your answer should be a statement, and if needed, some short explanation.
-            If there is not a clear, distinct, clear-cut question that you can answer that fits the previous requirements to answer, then just output "null".
-        """,
-        "agent_plan": """
-            1. Find and write down individual questions posed in the conversation. If there are no questions made that meet the requirements, then skip to the final step and output "null".\n2. If one or more questions are found, select the question that would provide the most value and forget the rest, then search for the answer.\n3. Generate the "Insight".
-        """,
-        "validation_criteria": """answers a question, and provides brief elaboration""",
+        "agent_insight_type": """Answer any questions or statements of lack of information/ignorance/need of an answer made during a conversation. The question might be specific, or might not even phrased as a question (e.g. "I wonder how long again the Mayans were around"). 
+You only give answers that are verifiable through free, publically available knowledge and not personal or opinion-based claims.
+Your answer should be a statement, and if needed, some very short explanation.
+If there is not a distinct question or statement of ignorance that you can answer that fits the previous requirements, then just output "null".""",
+        "agent_plan": """1. Find and write down individual questions posed in the conversation. If there are no questions made that meet the requirements, then skip to the final step and output "null".\n2. If one or more questions are found, select the question that would provide the most value and forget the rest, then search for the answer.\n3. Generate the "Insight".""",
+        "validation_criteria": """answers a question or statement of ignorance, and provides brief elaboration""",
         "proactive_tool_description": """Trigger an answer when a question or rhetorical thought goes unanswered. Provide your answer in simple and easy to understand language. Also, initiate an answer for questions/statements not commonly known to an uneducated person, suspected falsehoods, common myths, or claims verifiable through free, public knowledge. Do not consider personal, belief-based, or unfalsifiable claims.""",
         "proactive_tool_example": """Transcript mentions "Which city was the first skyscraper built in?"
 Insight: "1st skyscraper: Chicago""",
-        "examples": """Transcript mentions "Which city was the first skyscraper built in"
-Insight: "1st skyscraper: Chicago""",
+        "examples": """Transcript mentions "I don't know how many parameters GPT3 has"
+Insight: "GPT3 has 175B parameters""",
    },
     "RealTimer": {
         "agent_name": "RealTimer",
