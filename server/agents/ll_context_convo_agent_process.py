@@ -87,10 +87,10 @@ async def handle_user_conversation(user_id, device_id, db_handler):
         if TESTING_LL_CONTEXT_CONVO_AGENT:
             warnings.warn("Currently in testing mode, skipping speed and trascription checks, please remove TESTING flag to run normally.")
         elif speed < 0.3:
-            print("User is not moving, running anyway")
-            #print("User is not moving, skipping")
-            #await cleanup_conversation(user_id, db_handler)
-            #return
+            #print("User is not moving, running anyway")
+            print("User is not moving, skipping")
+            await cleanup_conversation(user_id, db_handler)
+            return
         elif current_wpm > wpm_threshold: # compute words per minute
             print("User is talking, skipping", transcripts)
             await cleanup_conversation(user_id, db_handler)
