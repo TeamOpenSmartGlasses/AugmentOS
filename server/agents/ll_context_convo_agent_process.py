@@ -11,7 +11,8 @@ from constants import TESTING_LL_CONTEXT_CONVO_AGENT, LL_CONTEXT_CONVO_AGENT
 
 import warnings
 
-response_period = 10
+response_period = 12
+break_convo_time_limit = 25 #how long of silence/no response before breaking out of the conversation
 
 if TESTING_LL_CONTEXT_CONVO_AGENT:
     run_period = 10
@@ -79,7 +80,7 @@ async def handle_user_conversation(user_id, device_id, db_handler):
         speed = displacement / delta_time
         print(speed)
 
-        wpm_threshold = 30
+        wpm_threshold = 5
         current_wpm = len(transcripts[0].split(" ")) / (transcript_period / 60)
         print("Current user WPM is: ", current_wpm)
         print("Current user SPEED is: ", speed)
@@ -87,7 +88,7 @@ async def handle_user_conversation(user_id, device_id, db_handler):
 
         if TESTING_LL_CONTEXT_CONVO_AGENT:
             warnings.warn("Currently in testing mode, skipping speed and trascription checks, please remove TESTING flag to run normally.")
-        elif speed < 0.001:
+        elif speed < 0.3:
             print("User is not moving, running anyway")
             #print("User is not moving, skipping")
             #await cleanup_conversation(user_id, db_handler)
@@ -159,7 +160,7 @@ async def handle_user_conversation(user_id, device_id, db_handler):
 
         conversation_history.append({"role": "user", "content": user_reponse})
 
-        if time.time() - start >= 300:
+        if time.time() - start >= break_convo_time_limit:
             break
 
         locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
@@ -185,7 +186,7 @@ async def ll_context_convo_agent_processing_loop_async():
     loop = asyncio.get_event_loop()
 
     # wait for some transcripts to load in
-    await asyncio.sleep(60)
+    await asyncio.sleep(30)
 
     # This block initiates the contextual conversation agent for each active user
     while True:
