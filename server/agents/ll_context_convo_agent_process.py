@@ -13,6 +13,8 @@ import warnings
 
 response_period = 12
 break_convo_time_limit = 20 #how long of silence/no response before breaking out of the conversation
+wpm_threshold = 5
+speed_threshold = 0.5
 
 if TESTING_LL_CONTEXT_CONVO_AGENT:
     run_period = 10
@@ -75,18 +77,15 @@ async def handle_user_conversation(user_id, device_id, db_handler):
 
         displacement = lat_lng_to_meters(lat1=past_location['lat'], lng1=past_location['lng'], lat2=user_location['lat'], lng2=user_location['lng'])
         delta_time = user_location['timestamp'] - past_location['timestamp']
-
-
         speed = displacement / delta_time if delta_time > 0 else 0
 
-        wpm_threshold = 5
         current_wpm = len(transcripts[0].split(" ")) / (transcript_period / 60)
         print("Current user WPM is: ", current_wpm)
         print("Current user SPEED is: ", speed)
 
         if TESTING_LL_CONTEXT_CONVO_AGENT:
             warnings.warn("Currently in testing mode, skipping speed and trascription checks, please remove TESTING flag to run normally.")
-        elif speed < 0.3:
+        elif speed < speed_threshold:
             #print("User is not moving, running anyway")
             print("User is not moving, skipping")
             await cleanup_conversation(user_id, db_handler)
