@@ -2,6 +2,7 @@ import time
 import traceback
 import asyncio
 from math import radians, cos, sin, sqrt, atan2
+import warnings
 
 # custom
 from DatabaseHandler import DatabaseHandler
@@ -9,12 +10,10 @@ from agents.ll_context_convo_agent import run_ll_context_convo_agent
 from agents.helpers.get_nearby_places import get_user_location, get_nearby_places
 from constants import TESTING_LL_CONTEXT_CONVO_AGENT, LL_CONTEXT_CONVO_AGENT
 
-import warnings
-
-response_period = 12
-break_convo_time_limit = 20 #how long of silence/no response before breaking out of the conversation
-wpm_threshold = 5
-speed_threshold = 0.5
+response_period = 10 # how long of a pause to wait before we send the user's response to the agent
+break_convo_time_limit = 20 # how long of silence/no response before breaking out of the conversation
+wpm_threshold = 5 # wpm, if greater than this, don't run a contextual convo
+speed_threshold = 0.72 # speed of movement, if less than this, don't run a contextual convo
 
 if TESTING_LL_CONTEXT_CONVO_AGENT:
     run_period = 10
@@ -22,8 +21,6 @@ else:
     run_period = 30
 
 transcript_period = 60
-
-ongoing_conversations = set()
 
 def lat_lng_to_meters(lat1, lng1, lat2, lng2):
     # Radius of the Earth in km
@@ -54,7 +51,6 @@ def lat_lng_to_meters(lat1, lng1, lat2, lng2):
 
 async def cleanup_conversation(user_id, db_handler):
     print("Ending ll context convo with user: ", user_id)
-    ongoing_conversations.remove(user_id)
     db_handler.update_single_user_setting(user_id, "is_having_language_learning_contextual_convo", False)
     db_handler.update_single_user_setting(user_id, "use_dynamic_transcribe_language", False) # conversation ending, so stop using dynamic transcribe language
     db_handler.update_single_user_setting(user_id, "should_update_settings", True)
@@ -62,15 +58,12 @@ async def cleanup_conversation(user_id, db_handler):
 
 
 async def handle_user_conversation(user_id, device_id, db_handler):
-    print("MAYBE RUNNING CONTEXTUAL CONVO FOR USER: ", user_id)
+    print("CHECKING IF WE SHOULD RUN A CONTEXTUAL CONVO FOR USER: ", user_id)
     target_language = db_handler.get_user_settings_value(user_id, "target_language")
     locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
     transcripts = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=transcript_period)
-    ongoing_conversations.add(user_id)
 
     # this block checks if the user is moving or talking, if so, it skips the conversation
-    # print("LOCATIONS:")
-    # print(locations)
     if len(locations) > 1:
         user_location = locations[-1]
         past_location = locations[-2]
@@ -85,26 +78,19 @@ async def handle_user_conversation(user_id, device_id, db_handler):
 
         if TESTING_LL_CONTEXT_CONVO_AGENT:
             warnings.warn("Currently in testing mode, skipping speed and trascription checks, please remove TESTING flag to run normally.")
+        elif current_wpm > wpm_threshold: # compute words per minute
+            print("User is talking, skipping", transcripts)
+            await cleanup_conversation(user_id, db_handler)
+            return
         elif speed < speed_threshold:
             #print("User is not moving, running anyway")
             print("User is not moving, skipping")
-            await cleanup_conversation(user_id, db_handler)
-            return
-        elif current_wpm > wpm_threshold: # compute words per minute
-            print("User is talking, skipping", transcripts)
             await cleanup_conversation(user_id, db_handler)
             return
     else:
         print("Not enough locations, please wait")
         await cleanup_conversation(user_id, db_handler)
         return
-
-    print("NOW RUNNING CONTEXTUAL CONVO FOR USER: ", user_id)
-
-    # if not places:
-    #     print("NO PLACES FOUND")
-    #     ongoing_conversations.remove(user_id)
-    #     return
 
     conversation_history = []
 
@@ -115,10 +101,11 @@ async def handle_user_conversation(user_id, device_id, db_handler):
     db_handler.update_single_user_setting(user_id, "should_update_settings", True)
 
     # this block runs the contextual conversation agent until the conversation ends
+    print("NOW RUNNING CONTEXTUAL CONVO FOR USER: ", user_id)
     while True:
         places = get_nearby_places(user_location)
         places = places[:min(len(places), 3)] #get max 3 nearby places
-        print("START ll contextual conversation")
+        print("LOOP ll contextual conversation")
         response = run_ll_context_convo_agent(places=places, target_language=target_language, fluency_level=35, conversation_history=conversation_history)
 
         if response:
@@ -137,6 +124,11 @@ async def handle_user_conversation(user_id, device_id, db_handler):
         start = time.time()
         # This block waits for the user to respond
         while new_response[0] or not user_reponse:
+            if not user_reponse:
+                if time.time() - start > break_convo_time_limit:
+                    print("LL CONTEXT CONVO - No new user response and we passed the conversational break time, so exiting")
+                    await cleanup_conversation(user_id, db_handler )
+                    return
 
             if new_response[0]:
                 print("NEW RESPONSE")
@@ -148,10 +140,6 @@ async def handle_user_conversation(user_id, device_id, db_handler):
 
             await asyncio.sleep(response_period)
             new_response = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=response_period)
-            # print("NEW RESPONSE 2")
-            # print(new_response)
-            # print("USER RESPONSE 2")
-            # print(user_reponse)
 
         user_reponse = " ".join(user_reponse)
 
@@ -159,9 +147,6 @@ async def handle_user_conversation(user_id, device_id, db_handler):
         print(user_reponse)
 
         conversation_history.append({"role": "user", "content": user_reponse})
-
-        if time.time() - start >= break_convo_time_limit:
-            break
 
         locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
 
@@ -209,13 +194,11 @@ async def ll_context_convo_agent_processing_loop_async():
                 user_id = user['user_id']
                 device_id = user['device_id']
 
-                print("STARTING CONTEXTUAL CONVO FOR USER: ", user_id)
-                print("ONGOING CONVERSATIONS: ", ongoing_conversations)
-                if user_id in ongoing_conversations:
+                if db_handler.get_user_settings_value(user['user_id'], "is_having_language_learning_contextual_convo"):
                     print("Found ongoing conversation for user: ", user_id)
                     continue
+                print("STARTING CONTEXTUAL CONVO FOR USER: ", user_id)
 
-                ongoing_conversations.add(user_id)
                 tasks.append(handle_user_conversation(user_id, device_id, db_handler))
 
             if tasks:
