@@ -101,21 +101,23 @@ def proactive_agents_processing_loop():
                     loop.run_until_complete(insights_tasks)
 
 
+                    if len(dbHandler.get_recent_n_seconds_agent_insights_query_history_for_user(user_id=transcript['user_id'], n_seconds=time_between_iterations)) == 0:
+                        # Run proactive meta agent, get insights
+                        meta_start_time = time.time()
+                        insights = run_proactive_meta_agent_and_experts(transcript_to_use, insights_history, transcript['user_id'])
+                        print("=== the PROACTIVE AGENT GENERATION META ended in {} seconds ===".format(round(time.time() - meta_start_time, 2)))
 
-                    # Run proactive meta agent, get insights
-                    meta_start_time = time.time()
-                    insights = run_proactive_meta_agent_and_experts(transcript_to_use, insights_history, transcript['user_id'])
-                    print("=== the PROACTIVE AGENT GENERATION META ended in {} seconds ===".format(round(time.time() - meta_start_time, 2)))
+                        if insights:
+                            print("insights: {}".format(insights))
 
-                    if insights:
-                        print("insights: {}".format(insights))
-
-                    for insight in insights:
-                        if insight is None:
-                            continue
-                        #save this insight to the DB for the user
-                        dbHandler.add_agent_insight_result_for_user(transcript['user_id'], insight["agent_name"], insight["agent_insight"], insight["reference_url"])
-                    # parse insights history into a dict of agent_name: [agent_insights] so expert agent won't repeat the same insights
+                        for insight in insights:
+                            if insight is None:
+                                continue
+                            #save this insight to the DB for the user
+                            dbHandler.add_agent_insight_result_for_user(transcript['user_id'], insight["agent_name"], insight["agent_insight"], insight["reference_url"])
+                        # parse insights history into a dict of agent_name: [agent_insights] so expert agent won't repeat the same insights
+                    else:
+                        print("Proactive query history not empty, skipping meta agent...")
 
 
                 except Exception as e:
