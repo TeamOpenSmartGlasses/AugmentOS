@@ -779,8 +779,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 String combined = name + ": " + body;
                 Log.d(TAG, name);
                 Log.d(TAG, "--- " + body);
-                //queueOutput(combined);
-                queueOutput(body);
+                queueOutput(combined);
+//                queueOutput(body);
 
 //                if(obj.has(mapImgKey)){
 //                    String mapImgPath = obj.getString(mapImgKey);
