@@ -279,7 +279,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public void onDestroy(){
         csePollLoopHandler.removeCallbacks(uiPollRunnableCode);
         displayPollLoopHandler.removeCallbacks(displayRunnableCode);
-        locationSendingLoopHandler.removeCallbacksAndMessages(this);
+        locationSendingLoopHandler.removeCallbacksAndMessages(null);
         EventBus.getDefault().unregister(this);
         super.onDestroy();
     }
@@ -1039,6 +1039,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 .putString(context.getResources().getString(R.string.SHARED_PREF_TARGET_LANGUAGE), targetLanguageString)
                 .apply();
     }
+
     public static void saveChosenSourceLanguage(Context context, String sourceLanguageString) {
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
@@ -1058,8 +1059,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public static String getChosenSourceLanguage(Context context) {
         String sourceLanguageString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_SOURCE_LANGUAGE), "");
         if (sourceLanguageString.equals("")){
-            saveChosenTargetLanguage(context, "Russian");
-            sourceLanguageString = "Russian";
+            saveChosenTargetLanguage(context, "English");
+            sourceLanguageString = "English";
         }
         return sourceLanguageString;
     }
