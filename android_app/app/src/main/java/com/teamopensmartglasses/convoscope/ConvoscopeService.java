@@ -406,6 +406,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     public void sendTranscriptRequest(String query, boolean isFinal){
         if (Objects.equals(authToken, "")){
+            Log.d(TAG, "Empty authToken in sendTranscriptRequest");
             EventBus.getDefault().post(new GoogleAuthFailedEvent());
         }
 
@@ -1017,18 +1018,20 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                                 String idToken = task.getResult().getToken();
                                 Log.d(TAG, "GOT dat Auth Token: " + idToken);
                                 authToken = idToken;
-                                EventBus.getDefault().post(new GoogleAuthSucceedEvent());
                                 PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
                                         .edit()
                                         .putString("auth_token", authToken)
                                         .apply();
+                                EventBus.getDefault().post(new GoogleAuthSucceedEvent());
                             } else {
+                                Log.d(TAG, "Task failure in setAuthToken");
                                 EventBus.getDefault().post(new GoogleAuthFailedEvent());
                             }
                         }
                     });
         } else {
             // not logged in, must log in
+            Log.d(TAG, "User is null in setAuthToken");
             EventBus.getDefault().post(new GoogleAuthFailedEvent());
         }
     }
@@ -1127,6 +1130,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         Log.d(TAG, "Running google auth succeed event response");
         //give the server our latest settings
         updateTargetLanguageOnBackend(this);
+        updateSourceLanguageOnBackend(this);
+        saveCurrentMode(this, getCurrentMode(this));
     }
 
 
@@ -1308,6 +1313,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     @Subscribe
     public void onGoogleAuthFailedEvent(GoogleAuthFailedEvent event) {
+        Log.d(TAG, "onGoogleAuthFailedEvent triggered");
+        this.sendReferenceCard("Error", "Convoscope Authentication Error");
         long currentTime = System.currentTimeMillis();
         if (currentTime - lastGoogleAuthRetryTime >= 2000 && googleAuthRetryCount < 3) {
             setAuthToken();
