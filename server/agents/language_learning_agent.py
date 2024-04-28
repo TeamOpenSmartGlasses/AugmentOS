@@ -136,10 +136,10 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
     if transcribe_language == source_language:
         output_language = target_language.replace(remove_pinyin, "")
 
-    print("transcribe_language")
-    print(transcribe_language)
-    print("output language")
-    print(output_language)
+    # print("transcribe_language")
+    # print(transcribe_language)
+    # print("output language")
+    # print(output_language)
 
     class LanguageLearningAgentQuery(BaseModel):
         """

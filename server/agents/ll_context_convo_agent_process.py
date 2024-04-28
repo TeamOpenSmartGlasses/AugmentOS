@@ -54,6 +54,8 @@ async def cleanup_conversation(user_id, db_handler):
     db_handler.update_single_user_setting(user_id, "is_having_language_learning_contextual_convo", False)
     db_handler.update_single_user_setting(user_id, "use_dynamic_transcribe_language", False) # conversation ending, so stop using dynamic transcribe language
     db_handler.update_single_user_setting(user_id, "should_update_settings", True)
+    time.sleep(run_period) # sleep for a while after the conversation ends, run period is a good time to wait before starting another conversation
+
     return
 
 
@@ -62,7 +64,7 @@ async def handle_user_conversation(user_id, device_id, db_handler):
     target_language = db_handler.get_user_settings_value(user_id, "target_language")
     locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
     transcripts = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=transcript_period)
-
+    print("Locations: ", locations)
     # this block checks if the user is moving or talking, if so, it skips the conversation
     if len(locations) > 1:
         user_location = locations[-1]
@@ -104,7 +106,7 @@ async def handle_user_conversation(user_id, device_id, db_handler):
     print("NOW RUNNING CONTEXTUAL CONVO FOR USER: ", user_id)
     while True:
         places = get_nearby_places(user_location)
-        places = places[:min(len(places), 3)] #get max 3 nearby places
+        places = places[:min(len(places), 3)] # get max 3 nearby places
         print("LOOP ll contextual conversation")
         response = run_ll_context_convo_agent(places=places, target_language=target_language, fluency_level=35, conversation_history=conversation_history)
 
@@ -127,7 +129,7 @@ async def handle_user_conversation(user_id, device_id, db_handler):
             if not user_reponse:
                 if time.time() - start > break_convo_time_limit:
                     print("LL CONTEXT CONVO - No new user response and we passed the conversational break time, so exiting")
-                    await cleanup_conversation(user_id, db_handler )
+                    await cleanup_conversation(user_id, db_handler)
                     return
 
             if new_response[0]:
@@ -149,8 +151,7 @@ async def handle_user_conversation(user_id, device_id, db_handler):
         conversation_history.append({"role": "user", "content": user_reponse})
 
         locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
-
-        if len(locations) > 1:
+        if len(locations) > 1: # update places if we have new locations
             places = get_nearby_places(locations[-1])
 
             if places:
@@ -158,8 +159,8 @@ async def handle_user_conversation(user_id, device_id, db_handler):
 
         places = None
 
-    await cleanup_conversation(user_id, db_handler)
-    return
+    # await cleanup_conversation(user_id, db_handler)
+    # return
 
 
 async def ll_context_convo_agent_processing_loop_async():
