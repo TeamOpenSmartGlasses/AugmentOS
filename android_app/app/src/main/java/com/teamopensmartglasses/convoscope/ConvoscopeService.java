@@ -22,9 +22,17 @@ import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.PixelFormat;
+import android.hardware.display.DisplayManager;
+import android.hardware.display.VirtualDisplay;
+import android.media.Image;
+import android.media.ImageReader;
+import android.media.projection.MediaProjection;
+import android.media.projection.MediaProjectionManager;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.util.DisplayMetrics;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -39,6 +47,7 @@ import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthSucceedEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
+import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
 import com.teamopensmartglasses.convoscope.ui.ConvoscopeUi;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DiarizationOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
@@ -81,6 +90,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private Runnable cseRunnableCode;
     private final Handler displayPollLoopHandler = new Handler(Looper.getMainLooper());
     private final Handler locationSendingLoopHandler = new Handler(Looper.getMainLooper());
+    private MediaProjection mediaProjection;
+    private VirtualDisplay virtualDisplay;
+    private Handler screenCaptureHandler = new Handler();
+    private Runnable screenCaptureRunnable;
     private Runnable uiPollRunnableCode;
     private Runnable displayRunnableCode;
     private Runnable locationSendingRunnableCode;
@@ -280,6 +293,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         csePollLoopHandler.removeCallbacks(uiPollRunnableCode);
         displayPollLoopHandler.removeCallbacks(displayRunnableCode);
         locationSendingLoopHandler.removeCallbacksAndMessages(this);
+        screenCaptureHandler.removeCallbacks(screenCaptureRunnable);
+        if (virtualDisplay != null) virtualDisplay.release();
+        if (mediaProjection != null) mediaProjection.stop();
         EventBus.getDefault().unregister(this);
         super.onDestroy();
     }
@@ -1321,6 +1337,12 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             lastGoogleAuthRetryTime = currentTime;
             googleAuthRetryCount++;
         }
+    }
+
+    @Subscribe
+    public void onNewScreenTextEvent(NewScreenTextEvent event) {
+        String text = event.text;
+        this.sendReferenceCard("Screen Mirror", text);
     }
 
     public void resetGoogleAuthRetryCount() {
