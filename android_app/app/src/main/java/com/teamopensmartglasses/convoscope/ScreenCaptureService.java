@@ -51,7 +51,7 @@ public class ScreenCaptureService extends Service {
 
     public final String TAG = "ScreenCaptureService";
     private MediaProjection mediaProjection;
-    private static final long DEBOUNCE_TIME_MS = 1000; // 1 second
+    private static final long DEBOUNCE_TIME_MS = 3000; // 3 seconds
     private long lastProcessedTime = 0;
     private String lastNewText = "";
     ImageReader imageReader;
@@ -195,9 +195,7 @@ public class ScreenCaptureService extends Service {
     }
 
     private void recognizeTextFromBitmap(Bitmap bitmap) {
-        // Use an OCR library to extract text from Bitmap
-        // Example with Google's ML Kit or similar
-        Log.d(TAG, "Got a Bitmap yo");
+        // Log.d(TAG, "Got a Bitmap yo");
 
         // Crop the bitmap to remove the top 25 pixels
         Bitmap croppedBitmap = cropTopPixels(bitmap, 55);
@@ -224,11 +222,9 @@ public class ScreenCaptureService extends Service {
                             }
                         }
 
-                        // Now fullText contains all the text recognized from the image, with line breaks
-                        // You can log, display, or process the fullText as needed
-                        Log.d("TextRecognition", "Recognized text: " + fullText.toString());
-
                         if (fullText.toString().equals(lastNewText)) return;
+
+                        Log.d("TextRecognition", "Recognized text: " + fullText.toString());
                         lastNewText = fullText.toString();
                         EventBus.getDefault().post(new NewScreenTextEvent(fullText.toString()));
                     }

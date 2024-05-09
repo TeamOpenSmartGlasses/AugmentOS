@@ -293,6 +293,7 @@ public class ConvoscopeUi extends Fragment {
               break;
             case R.id.radioButtonScreenMirror:
               Log.d(TAG, "SCREEN MIRROR SELECTED");
+              ((MainActivity)getActivity()).mService.saveCurrentMode(mContext, "");
               ((MainActivity)getActivity()).requestScreenCapturePermission();
           }
         }
