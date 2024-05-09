@@ -9,6 +9,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ServiceInfo;
 import android.graphics.Bitmap;
 import android.graphics.PixelFormat;
@@ -29,6 +30,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
+import java.net.URISyntaxException;
 import java.nio.ByteBuffer;
 
 import android.graphics.Bitmap;
@@ -51,6 +53,7 @@ public class ScreenCaptureService extends Service {
     private MediaProjection mediaProjection;
     private static final long DEBOUNCE_TIME_MS = 1000; // 1 second
     private long lastProcessedTime = 0;
+    private String lastNewText = "";
     ImageReader imageReader;
     @Override
     public void onCreate() {
@@ -61,8 +64,31 @@ public class ScreenCaptureService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        int resultCode = intent.getIntExtra("resultCode", Activity.RESULT_CANCELED);
-        Intent data = intent.getParcelableExtra("data");
+        int resultCode = -1;
+        Intent data = null;
+        if (intent != null && intent.hasExtra("resultCode") && intent.hasExtra("data")) {
+            resultCode = intent.getIntExtra("resultCode", Activity.RESULT_CANCELED);
+            data = intent.getParcelableExtra("data");
+
+            // Save the data in SharedPreferences
+            SharedPreferences prefs = getSharedPreferences("ServicePrefs", MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("resultCode", resultCode);
+            editor.putString("data", data.toUri(0));
+            editor.apply();
+        } else {
+            // Attempt to retrieve persisted data
+            SharedPreferences prefs = getSharedPreferences("ServicePrefs", MODE_PRIVATE);
+            if (prefs.contains("resultCode") && prefs.contains("data")) {
+                resultCode = prefs.getInt("resultCode", Activity.RESULT_CANCELED);
+                String dataUri = prefs.getString("data", null);
+                try {
+                    data = Intent.parseUri(dataUri, 0);
+                } catch (URISyntaxException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
 
         createNotificationChannel(); // Ensure the channel is created before showing the notification
         Notification notification = createNotification();
@@ -85,7 +111,6 @@ public class ScreenCaptureService extends Service {
 
     private Notification createNotification() {
         Intent notificationIntent = new Intent(this, MainActivity.class);
-        //PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
 
         return new NotificationCompat.Builder(this, CHANNEL_ID)
@@ -175,7 +200,7 @@ public class ScreenCaptureService extends Service {
         Log.d(TAG, "Got a Bitmap yo");
 
         // Crop the bitmap to remove the top 25 pixels
-        Bitmap croppedBitmap = cropTopPixels(bitmap, 25);
+        Bitmap croppedBitmap = cropTopPixels(bitmap, 55);
 
         // Create an InputImage object from a Bitmap
         InputImage image = InputImage.fromBitmap(croppedBitmap, 0);
@@ -202,6 +227,9 @@ public class ScreenCaptureService extends Service {
                         // Now fullText contains all the text recognized from the image, with line breaks
                         // You can log, display, or process the fullText as needed
                         Log.d("TextRecognition", "Recognized text: " + fullText.toString());
+
+                        if (fullText.toString().equals(lastNewText)) return;
+                        lastNewText = fullText.toString();
                         EventBus.getDefault().post(new NewScreenTextEvent(fullText.toString()));
                     }
                 })
