@@ -51,6 +51,7 @@ public class ScreenCaptureService extends Service {
     private MediaProjection mediaProjection;
     private static final long DEBOUNCE_TIME_MS = 1000; // 1 second
     private long lastProcessedTime = 0;
+    ImageReader imageReader;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -117,7 +118,7 @@ public class ScreenCaptureService extends Service {
         int screenHeight = metrics.heightPixels;
 
         // Setup ImageReader to capture screen
-        @SuppressLint("WrongConstant") ImageReader imageReader = ImageReader.newInstance(screenWidth, screenHeight, PixelFormat.RGBA_8888, 2);
+        imageReader = ImageReader.newInstance(screenWidth, screenHeight, PixelFormat.RGBA_8888, 2);
         mediaProjection.createVirtualDisplay("ScreenCapture",
                 screenWidth, screenHeight, screenDensity,
                 DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,
@@ -127,7 +128,7 @@ public class ScreenCaptureService extends Service {
             @Override
             public void onImageAvailable(ImageReader reader) {
                 Image image = null;
-                //try {
+                try {
                     image = reader.acquireLatestImage();
                     if (image != null) {
                         // Process the image here
@@ -140,11 +141,16 @@ public class ScreenCaptureService extends Service {
                             image.close();
                         }
                     }
-                //} finally {
+
+                }
+                catch (Exception e){
+                    Log.d(TAG, e.toString());
+                }
+                finally {
                     if (image != null) {
                         image.close();
                     }
-                //}
+                }
             }
         }, null);
     }
@@ -228,10 +234,13 @@ public class ScreenCaptureService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        //EventBus.getDefault().unregister(this);
         if (mediaProjection != null) {
             mediaProjection.stop();
             mediaProjection = null;
+        }
+        if (imageReader != null) {
+            imageReader.close(); // Properly close the ImageReader
+            imageReader = null;
         }
     }
 
