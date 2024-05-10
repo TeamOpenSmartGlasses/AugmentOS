@@ -47,6 +47,7 @@ import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthSucceedEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
+import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
 import com.teamopensmartglasses.convoscope.ui.ConvoscopeUi;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DiarizationOutputEvent;
@@ -1343,6 +1344,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public void onNewScreenTextEvent(NewScreenTextEvent event) {
         String text = event.text;
         this.sendReferenceCard("Screen Mirror", text);
+    }
+
+    @Subscribe
+    public void onNewScreenImageEvent(NewScreenImageEvent event) {
+        this.sendBitmap(event.bmp);
     }
 
     public void resetGoogleAuthRetryCount() {

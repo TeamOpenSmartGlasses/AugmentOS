@@ -42,6 +42,7 @@ import com.google.mlkit.vision.text.Text;
 import com.google.mlkit.vision.text.TextRecognition;
 import com.google.mlkit.vision.text.TextRecognizer;
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
+import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -51,9 +52,11 @@ public class ScreenCaptureService extends Service {
 
     public final String TAG = "ScreenCaptureService";
     private MediaProjection mediaProjection;
-    private static final long DEBOUNCE_TIME_MS = 3000; // 3 seconds
+    private static final long DEBOUNCE_TIME_MS = 1000; // 1 second
+    public Boolean textOnly = false;
     private long lastProcessedTime = 0;
     private String lastNewText = "";
+    private Bitmap lastNewImage = null;
     ImageReader imageReader;
     @Override
     public void onCreate() {
@@ -190,8 +193,15 @@ public class ScreenCaptureService extends Service {
         Bitmap bitmap = Bitmap.createBitmap(image.getWidth() + rowPadding / pixelStride, image.getHeight(), Bitmap.Config.ARGB_8888);
         bitmap.copyPixelsFromBuffer(buffer);
 
-        // Here you can use an OCR library like Google ML Kit to recognize text from bitmap
-        recognizeTextFromBitmap(bitmap);
+        if (textOnly) {
+            recognizeTextFromBitmap(bitmap);
+        }
+        else {
+            if (!haveBitmapsChangedSignificantly(bitmap, lastNewImage, 222)) return;
+            Log.d(TAG, "Bitmaps are different enough!");
+            lastNewImage = bitmap;
+            EventBus.getDefault().post(new NewScreenImageEvent(bitmap));
+        }
     }
 
     private void recognizeTextFromBitmap(Bitmap bitmap) {
@@ -254,6 +264,53 @@ public class ScreenCaptureService extends Service {
             return originalBitmap;
         }
     }
+
+    public boolean areBitmapsEqual(Bitmap bmp1, Bitmap bmp2) {
+        if ((bmp1 == null && bmp2 != null) || (bmp1 != null && bmp2 == null)) return false;
+
+        // Check for equality of sizes
+        if (bmp1.getWidth() != bmp2.getWidth() || bmp1.getHeight() != bmp2.getHeight()) {
+            return false;
+        }
+
+        // Compare pixel by pixel
+        for (int y = 0; y < bmp1.getHeight(); y++) {
+            for (int x = 0; x < bmp1.getWidth(); x++) {
+                if (bmp1.getPixel(x, y) != bmp2.getPixel(x, y)) {
+                    return false;
+                }
+            }
+        }
+
+        return true; // Bitmaps are equal
+    }
+
+    public boolean haveBitmapsChangedSignificantly(Bitmap bmp1, Bitmap bmp2, int n) {
+        if ((bmp1 == null && bmp2 != null) || (bmp1 != null && bmp2 == null)) return true;
+
+        // Check for equality of sizes
+        if (bmp1.getWidth() != bmp2.getWidth() || bmp1.getHeight() != bmp2.getHeight()) {
+            return false;
+        }
+
+        int count = 0;  // Counter for different pixels
+
+        // Compare pixel by pixel
+        for (int y = 0; y < bmp1.getHeight(); y++) {
+            for (int x = 0; x < bmp1.getWidth(); x++) {
+                if (bmp1.getPixel(x, y) != bmp2.getPixel(x, y)) {
+                    count++;
+                    // If the count of different pixels is more than n, return true early
+                    if (count > n) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false; // Bitmaps have not changed significantly
+    }
+
 
     @Override
     public void onDestroy() {
