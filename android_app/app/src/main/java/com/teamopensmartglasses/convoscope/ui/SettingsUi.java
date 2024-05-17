@@ -208,7 +208,9 @@ public class SettingsUi extends Fragment {
                 // Save the selected targetLanguage as the new default
                 Log.d(TAG, "TARGET LANGUAGE SPINNER CHANGED");
                 ((MainActivity)getActivity()).mService.saveChosenTargetLanguage(mContext, selectedLanguage);
-                ((MainActivity)getActivity()).mService.updateTargetLanguageOnBackend(mContext);
+                if (((MainActivity)getActivity()).mService != null) {
+                    ((MainActivity) getActivity()).mService.updateTargetLanguageOnBackend(mContext);
+                }
             }
 
             @Override
@@ -246,7 +248,9 @@ public class SettingsUi extends Fragment {
                 // Save the selected targetLanguage as the new default
                 Log.d(TAG, "SOURCE LANGUAGE SPINNER CHANGED");
                 ((MainActivity)getActivity()).mService.saveChosenSourceLanguage(mContext, selectedLanguage);
-                ((MainActivity)getActivity()).mService.updateSourceLanguageOnBackend(mContext);
+                if (((MainActivity)getActivity()).mService != null) {
+                    ((MainActivity)getActivity()).mService.updateSourceLanguageOnBackend(mContext);
+                }
             }
 
             @Override

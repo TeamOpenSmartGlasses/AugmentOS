@@ -279,7 +279,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public void onDestroy(){
         csePollLoopHandler.removeCallbacks(uiPollRunnableCode);
         displayPollLoopHandler.removeCallbacks(displayRunnableCode);
-        locationSendingLoopHandler.removeCallbacksAndMessages(this);
+        locationSendingLoopHandler.removeCallbacks(locationSendingRunnableCode);
+        locationSendingLoopHandler.removeCallbacksAndMessages(null);
         EventBus.getDefault().unregister(this);
         super.onDestroy();
     }
@@ -406,6 +407,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     public void sendTranscriptRequest(String query, boolean isFinal){
         if (Objects.equals(authToken, "")){
+            Log.d(TAG, "Empty authToken in sendTranscriptRequest");
             EventBus.getDefault().post(new GoogleAuthFailedEvent());
         }
 
@@ -778,8 +780,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 String combined = name + ": " + body;
                 Log.d(TAG, name);
                 Log.d(TAG, "--- " + body);
-                //queueOutput(combined);
-                queueOutput(body);
+                queueOutput(combined);
+//                queueOutput(body);
 
 //                if(obj.has(mapImgKey)){
 //                    String mapImgPath = obj.getString(mapImgKey);
@@ -1017,28 +1019,32 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                                 String idToken = task.getResult().getToken();
                                 Log.d(TAG, "GOT dat Auth Token: " + idToken);
                                 authToken = idToken;
-                                EventBus.getDefault().post(new GoogleAuthSucceedEvent());
                                 PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
                                         .edit()
                                         .putString("auth_token", authToken)
                                         .apply();
+                                EventBus.getDefault().post(new GoogleAuthSucceedEvent());
                             } else {
+                                Log.d(TAG, "Task failure in setAuthToken");
                                 EventBus.getDefault().post(new GoogleAuthFailedEvent());
                             }
                         }
                     });
         } else {
             // not logged in, must log in
+            Log.d(TAG, "User is null in setAuthToken");
             EventBus.getDefault().post(new GoogleAuthFailedEvent());
         }
     }
 
     public static void saveChosenTargetLanguage(Context context, String targetLanguageString) {
+        Log.d("CONVOSCOPE", "SAVING TARGET LANGUAGE: " + targetLanguageString);
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
                 .putString(context.getResources().getString(R.string.SHARED_PREF_TARGET_LANGUAGE), targetLanguageString)
                 .apply();
     }
+
     public static void saveChosenSourceLanguage(Context context, String sourceLanguageString) {
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
@@ -1058,8 +1064,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public static String getChosenSourceLanguage(Context context) {
         String sourceLanguageString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_SOURCE_LANGUAGE), "");
         if (sourceLanguageString.equals("")){
-            saveChosenTargetLanguage(context, "Russian");
-            sourceLanguageString = "Russian";
+            saveChosenSourceLanguage(context, "English");
+            sourceLanguageString = "English";
         }
         return sourceLanguageString;
     }
@@ -1127,6 +1133,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         Log.d(TAG, "Running google auth succeed event response");
         //give the server our latest settings
         updateTargetLanguageOnBackend(this);
+        updateSourceLanguageOnBackend(this);
+        saveCurrentMode(this, getCurrentMode(this));
     }
 
 
@@ -1308,6 +1316,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     @Subscribe
     public void onGoogleAuthFailedEvent(GoogleAuthFailedEvent event) {
+        Log.d(TAG, "onGoogleAuthFailedEvent triggered");
+        this.sendReferenceCard("Error", "Convoscope Authentication Error");
         long currentTime = System.currentTimeMillis();
         if (currentTime - lastGoogleAuthRetryTime >= 2000 && googleAuthRetryCount < 3) {
             setAuthToken();
