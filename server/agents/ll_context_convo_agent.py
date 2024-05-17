@@ -51,7 +51,7 @@ Output Format: {format_instructions}"""
 @time_function()
 def run_ll_context_convo_agent(places: list, target_language: str = "Russian", fluency_level: int = 35, conversation_history: Optional[list[dict[str, str]]] = None):
     # start up GPT3 connection
-    llm = get_langchain_gpt35(temperature=0.3)
+    llm = get_langchain_gpt4o(temperature=0.3)
 
     places_string = "\n".join(places)
 

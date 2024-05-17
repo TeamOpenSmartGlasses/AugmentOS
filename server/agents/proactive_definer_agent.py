@@ -139,8 +139,8 @@ def run_proactive_definer_agent(
     irrelevant_terms = dbHandler.get_agent_proactive_definer_irrelevant_terms(user_id)
 
     # First: determine if we should even run
-    gpt3start = time.time()
-    llm35 = get_langchain_gpt35()
+    gpt4ostart = time.time()
+    llm4o = get_langchain_gpt4o()
 
     gatekeeper_score_prompt = PromptTemplate(
         template=proactive_gatekeeper_prompt_blueprint,
@@ -160,7 +160,7 @@ def run_proactive_definer_agent(
     )
 
     with get_openai_callback() as cb:
-        score_response = llm35.invoke(
+        score_response = llm4o.invoke(
             [HumanMessage(content=gatekeeper_score_prompt_string)]
         )
         gpt3cost = cb.total_cost
@@ -169,7 +169,7 @@ def run_proactive_definer_agent(
         content = gatekeeper_score_query_parser.parse(score_response.content)
         score = int(content.score)
         gatekeeper_terms = content.terms
-        track_gpt3_time_and_cost(time.time() - gpt3start, gpt3cost)
+        track_gpt3_time_and_cost(time.time() - gpt4ostart, gpt3cost)
         if score < min_gatekeeper_score: return None
         print("SCORE GOOD ({})! RUNNING GPT4!".format(str(score)))
     except OutputParserException as e:
