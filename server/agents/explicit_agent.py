@@ -12,7 +12,7 @@ import langchain
 
 #llm = get_langchain_gpt4()
 llm = get_langchain_gpt4(max_tokens=350)
-#llm = get_langchain_gpt35(max_tokens=1024)
+#llm = get_langchain_gpt4o(max_tokens=1024)
 
 #explictly respond to user queries
 explicit_agent_prompt_blueprint = """[Conversation Transcript]
