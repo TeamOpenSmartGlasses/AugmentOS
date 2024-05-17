@@ -41,6 +41,7 @@ import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.text.Text;
 import com.google.mlkit.vision.text.TextRecognition;
 import com.google.mlkit.vision.text.TextRecognizer;
+import com.google.mlkit.vision.text.chinese.ChineseTextRecognizerOptions;
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
@@ -53,7 +54,7 @@ public class ScreenCaptureService extends Service {
     public final String TAG = "ScreenCaptureService";
     private MediaProjection mediaProjection;
     private static final long DEBOUNCE_TIME_MS = 1000; // 1 second
-    public Boolean textOnly = false;
+    public Boolean textOnly = true;
     private long lastProcessedTime = 0;
     private String lastNewText = "";
     private Bitmap lastNewImage = null;
@@ -214,7 +215,7 @@ public class ScreenCaptureService extends Service {
         InputImage image = InputImage.fromBitmap(croppedBitmap, 0);
 
         // Get an instance of TextRecognizer
-        TextRecognizer recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
+        TextRecognizer recognizer = TextRecognition.getClient(new ChineseTextRecognizerOptions.Builder().build());//(TextRecognizerOptions.DEFAULT_OPTIONS);
 
         // Process the image
         recognizer.process(image)
