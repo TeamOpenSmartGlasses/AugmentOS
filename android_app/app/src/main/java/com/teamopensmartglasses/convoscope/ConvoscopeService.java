@@ -424,7 +424,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public void sendTranscriptRequest(String query, boolean isFinal){
         if (Objects.equals(authToken, "")){
             Log.d(TAG, "Empty authToken in sendTranscriptRequest");
-            EventBus.getDefault().post(new GoogleAuthFailedEvent());
+            EventBus.getDefault().post(new GoogleAuthFailedEvent("Empty authToken in sendTranscriptRequest"));
         }
 
         try{
@@ -472,7 +472,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 public void onFailure(int code){
                     Log.d(TAG, "SOME FAILURE HAPPENED (requestUiPoll)");
                     if (code == 401){
-                        EventBus.getDefault().post(new GoogleAuthFailedEvent());
+                        EventBus.getDefault().post(new GoogleAuthFailedEvent("401 AUTH ERROR (requestUiPoll)"));
                     }
                 }
             });
@@ -489,10 +489,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             double longitude = locationSystem.lng;
 
             // TODO: Filter here... is it meaningfully different?
-            if(latitude == 0 && longitude == 0){
-                Log.d(TAG, "Got bad locatoin, exiting");
-                return;
-            }
+            if(latitude == 0 && longitude == 0) return;
+
+            Log.d(TAG, "Got a GOOD location!");
 
             JSONObject jsonQuery = new JSONObject();
 
@@ -510,7 +509,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 public void onFailure(int code){
                     Log.d(TAG, "SOME FAILURE HAPPENED (requestLocation)");
                     if (code == 401){
-                        EventBus.getDefault().post(new GoogleAuthFailedEvent());
+                        EventBus.getDefault().post(new GoogleAuthFailedEvent("401 AUTH ERROR (requestLocation)"));
                     }
                 }
             });
@@ -1042,14 +1041,14 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                                 EventBus.getDefault().post(new GoogleAuthSucceedEvent());
                             } else {
                                 Log.d(TAG, "Task failure in setAuthToken");
-                                EventBus.getDefault().post(new GoogleAuthFailedEvent());
+                                EventBus.getDefault().post(new GoogleAuthFailedEvent("#1 ERROR IN (SETAUTHTOKEN)"));
                             }
                         }
                     });
         } else {
             // not logged in, must log in
             Log.d(TAG, "User is null in setAuthToken");
-            EventBus.getDefault().post(new GoogleAuthFailedEvent());
+            EventBus.getDefault().post(new GoogleAuthFailedEvent("#2 ERROR IN (SETAUTHTOKEN) (USER IS NULL)"));
         }
     }
 
@@ -1331,7 +1330,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     @Subscribe
     public void onGoogleAuthFailedEvent(GoogleAuthFailedEvent event) {
         Log.d(TAG, "onGoogleAuthFailedEvent triggered");
-        this.sendReferenceCard("Error", "Convoscope Authentication Error");
+        this.sendReferenceCard("Error", "Convoscope Authentication Error: " + event.reason);
         long currentTime = System.currentTimeMillis();
         if (currentTime - lastGoogleAuthRetryTime >= 2000 && googleAuthRetryCount < 3) {
             setAuthToken();
@@ -1343,7 +1342,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     @Subscribe
     public void onNewScreenTextEvent(NewScreenTextEvent event) {
         String text = event.text;
-        this.sendReferenceCard("Screen Mirror", text);
+        this.sendTextWall(text);
     }
 
     @Subscribe
