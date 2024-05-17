@@ -129,33 +129,31 @@ async def handle_user_conversation(user_id, device_id, db_handler):
         conversation_history.append({"role": "agent", "content": response['ll_context_convo_response']})
 
         start_conversation_time = time.time()
-        # user_reponse = []
-        # new_response = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=response_period)
         user_has_responded = False
 
         # This block waits for the user to respond
         while True: # or not user_reponse:
-            if not user_has_responded:
+            if not user_has_responded: # at the start of the conversation, we don't want to break out of the conversation too soon
                 if time.time() - start_conversation_time > break_convo_time_limit:
                     print("LL CONTEXT CONVO - No new user response and we passed the conversational break time, so exiting")
                     await cleanup_conversation(user_id, db_handler)
                     return
             elif new_response[0]:
                 print("NEW RESPONSE")
-                # user_reponse.append(new_response[0])
             else:
                 break
 
             await asyncio.sleep(response_period)
-            new_response = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=response_period)
-            print(new_response)
+            new_response = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=response_period) # check for new user response
+
             if new_response[0] and not user_has_responded:
-                user_has_responded = True
+                user_has_responded = True # user has responded, so we can break out of the conversation if they don't respond again
         
-        user_reponse = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=ceil(time.time() - start_conversation_time))
+        user_reponse = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=ceil(time.time() - start_conversation_time)) # After the user has responded, get the full response
         user_reponse = user_reponse[0]
-        print("USER RESPONSE")
-        print(user_reponse)
+
+        # print("USER RESPONSE")
+        # print(user_reponse)
 
         conversation_history.append({"role": "user", "content": user_reponse})
 
