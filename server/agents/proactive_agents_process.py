@@ -111,8 +111,9 @@ async def process_transcript(transcript: str):
         # Run all the agents in parallel
         loop = asyncio.get_event_loop()
         agents_to_run_tasks = [expert_agent.run_aio_agent_gatekeeper_async(transcript['user_id'], transcript_to_use, insights_history_dict[expert_agent.agent_name]) for expert_agent in experts_to_run]
-        insights_tasks = asyncio.gather(*agents_to_run_tasks)
-        loop.run_until_complete(insights_tasks)
+        await asyncio.gather(*agents_to_run_tasks)
+        # insights_tasks = asyncio.gather(*agents_to_run_tasks)
+        # loop.run_until_complete(insights_tasks)
 
 
         if len(dbHandler.get_recent_n_seconds_agent_insights_query_history_for_user(user_id=transcript['user_id'], n_seconds=time_between_iterations)) == 0:
