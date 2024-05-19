@@ -14,7 +14,7 @@ from agents.generic_agent.agent_insight import *
 from agents.generic_agent.generic_agent_prompts import *
 
 dbHandler = DatabaseHandler(parent_handler=False)
-llm4 = get_langchain_gpt4(max_tokens=180, temperature=0.2)
+llm4 = get_langchain_gpt4o(max_tokens=180, temperature=0.2)
 llm35 = get_langchain_gpt35(temperature=0.0)
 
 class GenericAgent:
@@ -54,7 +54,7 @@ class GenericAgent:
 
         self.agent_large = initialize_agent([
             get_search_tool_for_agents(),
-        ], get_langchain_gpt4(), agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=False)
+        ], get_langchain_gpt4o(), agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=False)
 
     def get_agent_prompt(
         self,
