@@ -179,7 +179,7 @@ def run_proactive_definer_agent(
     # If relevant, run full prompt
     # start up GPT4 connection
     gpt4start = time.time()
-    llm4 = get_langchain_gpt4()
+    llm4 = get_langchain_gpt4o()
 
     extract_proactive_rare_word_agent_query_prompt = PromptTemplate(
         template=proactive_rare_word_agent_prompt_blueprint,
