@@ -233,10 +233,16 @@ public class ScreenCaptureService extends Service {
                             }
                         }
 
-                        if (fullText.toString().equals(lastNewText)) return;
+                        String processedText = fullText.toString().replaceAll("\\n", "");
+
+                        if (levenshteinDistance(processedText, lastNewText) <= 2) return;
+
+                        Log.d(TAG, "OLD TEXT:\n" + lastNewText);
+                        Log.d(TAG, "NEW TEXT:\n" + processedText);
+
+                        lastNewText = processedText;
 
                         Log.d("TextRecognition", "Recognized text: " + fullText.toString());
-                        lastNewText = fullText.toString();
                         EventBus.getDefault().post(new NewScreenTextEvent(fullText.toString()));
                     }
                 })
@@ -247,6 +253,30 @@ public class ScreenCaptureService extends Service {
                         Log.e("TextRecognition", "Text recognition error: " + e.getMessage());
                     }
                 });
+    }
+
+    public int levenshteinDistance(String s1, String s2) {
+        int[] costs = new int[s2.length() + 1];
+        for (int i = 0; i <= s1.length(); i++) {
+            int lastValue = i;
+            for (int j = 0; j <= s2.length(); j++) {
+                if (i == 0)
+                    costs[j] = j;
+                else {
+                    if (j > 0) {
+                        int newValue = costs[j - 1];
+                        if (s1.charAt(i - 1) != s2.charAt(j - 1))
+                            newValue = Math.min(Math.min(newValue, lastValue),
+                                    costs[j]) + 1;
+                        costs[j - 1] = lastValue;
+                        lastValue = newValue;
+                    }
+                }
+            }
+            if (i > 0)
+                costs[s2.length()] = lastValue;
+        }
+        return costs[s2.length()];
     }
 
     public Bitmap cropTopPixels(Bitmap originalBitmap, int pixelsToCrop) {
