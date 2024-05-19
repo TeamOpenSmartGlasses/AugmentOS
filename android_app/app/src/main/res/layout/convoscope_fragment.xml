@@ -107,12 +107,12 @@
           android:buttonTint="@color/bubbleColor"
           android:text="Live Captions" />
       <RadioButton
-          android:id="@+id/radioButtonWalkNGrok"
+          android:id="@+id/radioButtonScreenMirror"
           android:layout_width="match_parent"
           android:layout_height="38dp"
-          android:enabled="false"
+          android:enabled="true"
           android:buttonTint="@color/bubbleColor"
-          android:text="Speech Coach" />
+          android:text="Screen Mirror" />
 
     </RadioGroup>
 
