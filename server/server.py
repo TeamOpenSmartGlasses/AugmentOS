@@ -27,7 +27,7 @@ from server_config import server_port
 from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH, TESTING_LL_CONTEXT_CONVO_AGENT
 from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
-from agents.proactive_agents_process import proactive_agents_processing_loop
+from agents.proactive_agents_process import start_proactive_agents_processing_loop
 from agents.expert_agent_configs import get_agent_by_name
 from agents.explicit_agent_process import explicit_agent_processing_loop, call_explicit_agent
 from agents.proactive_definer_agent_process import proactive_definer_processing_loop
@@ -525,7 +525,7 @@ if __name__ == '__main__':
 
     # start the proactive agents process
     print("Starting Proactive Agents process...")
-    proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
+    proactive_agents_background_process = multiprocessing.Process(target=start_proactive_agents_processing_loop)
     proactive_agents_background_process.start()
 
     # start the explicit agent process
