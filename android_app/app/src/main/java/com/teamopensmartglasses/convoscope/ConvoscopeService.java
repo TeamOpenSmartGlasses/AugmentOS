@@ -51,6 +51,7 @@ import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
 import com.teamopensmartglasses.convoscope.ui.ConvoscopeUi;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DiarizationOutputEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisableBleScoAudioEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SpeechRecOutputEvent;
@@ -1356,4 +1357,5 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public void resetGoogleAuthRetryCount() {
         googleAuthRetryCount = 0;
     }
+
 }

@@ -45,6 +45,7 @@ import com.google.mlkit.vision.text.chinese.ChineseTextRecognizerOptions;
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisableBleScoAudioEvent;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -53,7 +54,7 @@ public class ScreenCaptureService extends Service {
 
     public final String TAG = "ScreenCaptureService";
     private MediaProjection mediaProjection;
-    private static final long DEBOUNCE_TIME_MS = 1000; // 1 second
+    private static final long DEBOUNCE_TIME_MS = 300;
     public Boolean textOnly = true;
     private long lastProcessedTime = 0;
     private String lastNewText = "";
@@ -138,6 +139,10 @@ public class ScreenCaptureService extends Service {
     }
 
     private void startCapturing() {
+        //turn off BLE SCO audio here via SmartGlassesManager (SGM) to allow user to watch videos, use video camera, etc.
+        EventBus.getDefault().post(new DisableBleScoAudioEvent(true));
+
+        //start screen capture
         DisplayMetrics metrics = new DisplayMetrics();
         Display display = getSystemService(DisplayManager.class).getDisplay(Display.DEFAULT_DISPLAY);
         ((Display) display).getMetrics(metrics);
@@ -208,14 +213,15 @@ public class ScreenCaptureService extends Service {
     private void recognizeTextFromBitmap(Bitmap bitmap) {
         // Log.d(TAG, "Got a Bitmap yo");
 
-        // Crop the bitmap to remove the top 25 pixels
-        Bitmap croppedBitmap = cropTopPixels(bitmap, 55);
+        // Crop the bitmap to remove the top phone display bar
+        Bitmap croppedBitmap = cropTopPixels(bitmap, 140);
 
         // Create an InputImage object from a Bitmap
         InputImage image = InputImage.fromBitmap(croppedBitmap, 0);
 
         // Get an instance of TextRecognizer
         TextRecognizer recognizer = TextRecognition.getClient(new ChineseTextRecognizerOptions.Builder().build());//(TextRecognizerOptions.DEFAULT_OPTIONS);
+//        TextRecognizer recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
 
         // Process the image
         recognizer.process(image)
@@ -233,7 +239,7 @@ public class ScreenCaptureService extends Service {
                             }
                         }
 
-                        String processedText = fullText.toString().replaceAll("\\n", "");
+                        String processedText = fullText.toString(); //.replaceAll("\\n", "");
 
                         if (levenshteinDistance(processedText, lastNewText) <= 2) return;
 
