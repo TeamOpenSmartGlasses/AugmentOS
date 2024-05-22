@@ -64,7 +64,7 @@ public class ScreenCaptureService extends Service {
 
     public final String TAG = "ScreenCaptureService";
     private MediaProjection mediaProjection;
-    private static final long DEBOUNCE_TIME_MS = 300;
+    private static final long DEBOUNCE_TIME_MS = 450;
     public Boolean textOnly = true;
     private long lastProcessedTime = 0;
     private String lastNewText = "";
