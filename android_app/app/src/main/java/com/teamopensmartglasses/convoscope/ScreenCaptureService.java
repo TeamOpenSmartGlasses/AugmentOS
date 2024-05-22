@@ -13,6 +13,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ServiceInfo;
 import android.graphics.Bitmap;
 import android.graphics.PixelFormat;
+import android.graphics.Rect;
 import android.hardware.display.DisplayManager;
 import android.hardware.display.VirtualDisplay;
 import android.media.Image;
@@ -32,6 +33,8 @@ import androidx.core.app.NotificationCompat;
 
 import java.net.URISyntaxException;
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.List;
 
 import android.graphics.Bitmap;
 
@@ -228,28 +231,76 @@ public class ScreenCaptureService extends Service {
                 .addOnSuccessListener(new OnSuccessListener<Text>() {
                     @Override
                     public void onSuccess(Text visionText) {
-                        /// Task completed successfully
                         StringBuilder fullText = new StringBuilder();
 
                         // Extract text from blocks of recognized text
                         for (Text.TextBlock block : visionText.getTextBlocks()) {
                             for (Text.Line line : block.getLines()) {
                                 String lineText = line.getText();
+                                Rect boundingBox = line.getBoundingBox();
                                 fullText.append(lineText).append("\n"); // Append the line text and a newline character
+
+                                // Log the bounding box information
+                                if (boundingBox != null) {
+                                    Log.d("TextRecognition", "Line text: " + lineText + " Bounding box: " + boundingBox.toShortString());
+                                }
                             }
                         }
 
+
+
                         String processedText = fullText.toString(); //.replaceAll("\\n", "");
 
-                        if (levenshteinDistance(processedText, lastNewText) <= 2) return;
+                        // Filter some of the lines
+                        List<String> filteredLines = new ArrayList<>();
+                        for (Text.TextBlock block : visionText.getTextBlocks()) {
+                            for (Text.Line line : block.getLines()) {
+                                String lineText = line.getText().trim();
 
+//                                // Skip lines that are likely URLs
+//                                if (lineText.matches("^\\s*(https?|ftp)://.*$")) {
+//                                    continue;
+//                                }
+
+                                // Skip lines that are likely URLs
+                                if (lineText.matches("^\\s*((https?|ftps?)://.*|www\\.[\\S]+\\.(com|org|net|edu|ca|uk|au|gov|co|info|biz|io|dev))")) {
+                                    continue;
+                                }
+
+                                // Skip lines that are only numbers and punctuation
+                                if (lineText.matches("^\\s*[^\\p{L}]*\\s*$")) {
+                                    continue;
+                                }
+
+                                // Skip lines that are single characters (and not part of natural language)
+                                if (lineText.length() <= 3) {
+                                    continue;
+                                }
+
+                                // Add line if it passes all filters
+                                filteredLines.add(lineText);
+                            }
+                        }
+
+                        processedText = String.join("\n", filteredLines);
+                        if (levenshteinDistance(processedText, lastNewText) <= 2) return;
                         Log.d(TAG, "OLD TEXT:\n" + lastNewText);
                         Log.d(TAG, "NEW TEXT:\n" + processedText);
+                        lastNewText = processedText;
+                        Log.d("TextRecognition", "Recognized text: " + processedText);
+                        EventBus.getDefault().post(new NewScreenTextEvent(processedText));
+
+
+//                        if (levenshteinDistance(processedText, lastNewText) <= 2) return;
+//
+//                        Log.d(TAG, "OLD TEXT:\n" + lastNewText);
+//                        Log.d(TAG, "NEW TEXT:\n" + processedText);
 
                         lastNewText = processedText;
 
                         Log.d("TextRecognition", "Recognized text: " + fullText.toString());
-                        EventBus.getDefault().post(new NewScreenTextEvent(fullText.toString()));
+
+                        EventBus.getDefault().post(new NewScreenTextEvent(processedText));
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -259,6 +310,7 @@ public class ScreenCaptureService extends Service {
                         Log.e("TextRecognition", "Text recognition error: " + e.getMessage());
                     }
                 });
+
     }
 
     public int levenshteinDistance(String s1, String s2) {
