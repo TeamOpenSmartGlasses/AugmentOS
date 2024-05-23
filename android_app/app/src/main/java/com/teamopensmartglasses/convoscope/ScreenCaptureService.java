@@ -1,6 +1,5 @@
 package com.teamopensmartglasses.convoscope;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -16,7 +15,6 @@ import android.graphics.Bitmap;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.hardware.display.DisplayManager;
-import android.hardware.display.VirtualDisplay;
 import android.media.Image;
 import android.media.ImageReader;
 import android.media.projection.MediaProjection;
@@ -24,13 +22,14 @@ import android.media.projection.MediaProjectionManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import androidx.preference.PreferenceManager;
 
 import java.net.URISyntaxException;
 import java.nio.ByteBuffer;
@@ -42,7 +41,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import android.graphics.Bitmap;
 import android.view.WindowManager;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -52,7 +50,6 @@ import com.google.mlkit.vision.text.Text;
 import com.google.mlkit.vision.text.TextRecognition;
 import com.google.mlkit.vision.text.TextRecognizer;
 import com.google.mlkit.vision.text.chinese.ChineseTextRecognizerOptions;
-import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisableBleScoAudioEvent;
@@ -64,17 +61,35 @@ public class ScreenCaptureService extends Service {
 
     public final String TAG = "ScreenCaptureService";
     private MediaProjection mediaProjection;
-    private static final long DEBOUNCE_TIME_MS = 450;
+    ImageReader imageReader;
+    private Runnable imageBufferRunnableCode;
+    private final Handler imageBufferLoopHandler = new Handler(Looper.getMainLooper());
+    Bitmap bitmapBuffer = null;
+    private static final long TEXT_DEBOUNCE_TIME_MS = 450;
+    private static final long IMAGE_DEBOUNCE_TIME_MS = 3000;
     public Boolean textOnly = true;
     private long lastProcessedTime = 0;
     private String lastNewText = "";
     private Bitmap lastNewImage = null;
-    ImageReader imageReader;
+
     @Override
     public void onCreate() {
         super.onCreate();
         //EventBus.getDefault().register(this);
         createNotificationChannel();
+    }
+
+    public void startImageBufferLoop() {
+        imageBufferRunnableCode = new Runnable() {
+            @Override
+            public void run() {
+                if (bitmapBuffer != null) {
+                    processBitmap(bitmapBuffer);
+                }
+                imageBufferLoopHandler.postDelayed(this, textOnly ? TEXT_DEBOUNCE_TIME_MS : IMAGE_DEBOUNCE_TIME_MS);
+            }
+        };
+        imageBufferLoopHandler.post(imageBufferRunnableCode);
     }
 
     @Override
@@ -121,6 +136,9 @@ public class ScreenCaptureService extends Service {
         } else {
             stopSelf(); // Stop the service if permission is not granted
         }
+
+        this.textOnly = !PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getBoolean("screen_mirror_image", true);
+        startImageBufferLoop();
         return START_STICKY;
     }
 
@@ -175,31 +193,27 @@ public class ScreenCaptureService extends Service {
                 try {
                     image = reader.acquireLatestImage();
                     if (image != null) {
-                        // Process the image here
-                        long currentTime = System.currentTimeMillis();
-                        if ((currentTime - lastProcessedTime) > DEBOUNCE_TIME_MS) {
-                            processImage(image);
-                            lastProcessedTime = currentTime;
-                        }
-                        else {
-                            image.close();
-                        }
+                        bitmapBuffer = imageToBitmap(image);
+                        image.close();
                     }
 
                 }
                 catch (Exception e){
                     Log.d(TAG, e.toString());
+                    if (image != null) {
+                        image.close();
+                    }
                 }
                 finally {
                     if (image != null) {
-                        image.close();
+                        //image.close();
                     }
                 }
             }
         }, null);
     }
 
-    private void processImage(Image image) {
+    public Bitmap imageToBitmap(Image image){
         Image.Plane[] planes = image.getPlanes();
         ByteBuffer buffer = planes[0].getBuffer();
         int pixelStride = planes[0].getPixelStride();
@@ -208,7 +222,10 @@ public class ScreenCaptureService extends Service {
 
         Bitmap bitmap = Bitmap.createBitmap(image.getWidth() + rowPadding / pixelStride, image.getHeight(), Bitmap.Config.ARGB_8888);
         bitmap.copyPixelsFromBuffer(buffer);
+        return bitmap;
+    }
 
+    private void processBitmap(Bitmap bitmap) {
         if (textOnly) {
             recognizeTextFromBitmap(bitmap);
         }
@@ -412,7 +429,7 @@ public class ScreenCaptureService extends Service {
 
                         // Extract text from blocks of recognized text
                         List<Text.TextBlock> textBlocks = visionText.getTextBlocks();
-                        Log.d(TAG, "Number of text blocks: " + textBlocks.size());
+                        //Log.d(TAG, "Number of text blocks: " + textBlocks.size());
 
                         // Collect all lines with their bounding boxes
                         List<Text.Line> allLines = new ArrayList<>();
@@ -439,7 +456,7 @@ public class ScreenCaptureService extends Service {
                         Map<Integer, List<String>> groupedLines = new HashMap<>();
 
                         // Process each line
-                        Log.d(TAG, "LINE TEXT FROM OCR: ____________________________________________________________ ");
+                        // Log.d(TAG, "LINE TEXT FROM OCR: ____________________________________________________________ ");
                         for (Text.Line line : allLines) {
                             Rect boundingBox = line.getBoundingBox();
                             if (boundingBox != null) {
@@ -460,7 +477,7 @@ public class ScreenCaptureService extends Service {
 
                                 // Calculate the starting position based on the bounding box left coordinate (x)
                                 int startPos = (boundingBox.left * maxWidthChars) / maxWidthPixels;
-                                Log.d(TAG, "LINE TEXT FROM OCR: " + lineText + ", BB x: " + startPos);
+                                // Log.d(TAG, "LINE TEXT FROM OCR: " + lineText + ", BB x: " + startPos);
 
                                 // Group lines by their y-coordinate range
                                 int yPos = boundingBox.top;
@@ -504,7 +521,8 @@ public class ScreenCaptureService extends Service {
                         Log.d("TextRecognition", "Recognized text: " + fullText.toString());
 
                         // Post the processed text to the event bus
-                        EventBus.getDefault().post(new NewScreenTextEvent(processedText));
+                        // TODO: WHAT???
+                        // EventBus.getDefault().post(new NewScreenTextEvent(processedText));
                         EventBus.getDefault().post(new NewScreenTextEvent(fullText.toString()));
                     }
                 })
