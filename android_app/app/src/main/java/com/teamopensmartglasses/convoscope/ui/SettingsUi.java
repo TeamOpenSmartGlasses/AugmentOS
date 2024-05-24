@@ -119,19 +119,6 @@ public class SettingsUi extends Fragment {
 //            }
 //        });
 
-        final Switch screenMirrorImageToggle = view.findViewById(R.id.screen_mirror_image_toggle);
-        screenMirrorImageToggle.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("screen_mirror_image", true));
-        screenMirrorImageToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-           @Override
-           public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-               ((MainActivity)getActivity()).stopScreenCapture();
-               PreferenceManager.getDefaultSharedPreferences(getContext())
-                       .edit()
-                       .putBoolean("screen_mirror_image", isChecked)
-                       .apply();
-           }
-        });
-
         final Switch glassesAudioToggle = view.findViewById(R.id.glasses_audio_toggle);
         glassesAudioToggle.setChecked(ConvoscopeService.getPreferredWearable(getContext()).equals(new AudioWearable().deviceModelName)); // off by default
         glassesAudioToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

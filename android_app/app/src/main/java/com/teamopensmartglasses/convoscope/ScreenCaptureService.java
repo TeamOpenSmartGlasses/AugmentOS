@@ -65,7 +65,7 @@ public class ScreenCaptureService extends Service {
     private Runnable imageBufferRunnableCode;
     private final Handler imageBufferLoopHandler = new Handler(Looper.getMainLooper());
     Bitmap bitmapBuffer = null;
-    private static final long TEXT_DEBOUNCE_TIME_MS = 450;
+    private static final long TEXT_DEBOUNCE_TIME_MS = 3000;
     private static final long IMAGE_DEBOUNCE_TIME_MS = 3000;
     public Boolean textOnly = true;
     private long lastProcessedTime = 0;
@@ -226,6 +226,10 @@ public class ScreenCaptureService extends Service {
     }
 
     private void processBitmap(Bitmap bitmap) {
+        boolean newTextOnly = !PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getBoolean("screen_mirror_image", true);
+        textOnly = newTextOnly;
+//        if (newTextOnly != textOnly){
+
         if (textOnly) {
             recognizeTextFromBitmap(bitmap);
         }
