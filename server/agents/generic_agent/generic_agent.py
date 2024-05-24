@@ -54,7 +54,7 @@ class GenericAgent:
 
         self.agent_large = initialize_agent([
             get_search_tool_for_agents(),
-        ], get_langchain_gpt4(), agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=False)
+        ], get_langchain_gpt4o(), agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=False)
 
     def get_agent_prompt(
         self,

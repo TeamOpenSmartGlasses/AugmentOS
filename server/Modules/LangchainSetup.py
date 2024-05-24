@@ -30,7 +30,7 @@ def get_langchain_gpt4(temperature=GPT_TEMPERATURE, model=GPT_4_MODEL, max_token
                             max_tokens=max_tokens,
                             )
     else:
-        return ChatOpenAI(temperature=GPT_TEMPERATURE, openai_api_key=openai_api_key, model=model, max_tokens=GPT_4_MAX_TOKENS)
+        return ChatOpenAI(temperature=temperature, openai_api_key=openai_api_key, model=model, max_tokens=max_tokens)
     
 def get_langchain_gpt4o(temperature=GPT_TEMPERATURE, model=GPT_4O_MODEL, max_tokens=GPT_4_MAX_TOKENS):
     # TODO: Uncomment once Azure supports GPT-4o
@@ -43,7 +43,7 @@ def get_langchain_gpt4o(temperature=GPT_TEMPERATURE, model=GPT_4O_MODEL, max_tok
     #                         max_tokens=max_tokens,
     #                         )
     # else:
-    return ChatOpenAI(temperature=GPT_TEMPERATURE, openai_api_key=openai_api_key, model=model, max_tokens=GPT_4_MAX_TOKENS)
+    return ChatOpenAI(temperature=temperature, openai_api_key=openai_api_key, model=model, max_tokens=max_tokens)
 
 def get_langchain_gpt35(temperature=GPT_TEMPERATURE, model=GPT_35_MODEL, max_tokens=GPT_35_MAX_TOKENS):
     if use_azure_openai:
@@ -55,7 +55,7 @@ def get_langchain_gpt35(temperature=GPT_TEMPERATURE, model=GPT_35_MODEL, max_tok
                             max_tokens=max_tokens,
                             )
     else:
-        return ChatOpenAI(temperature=GPT_TEMPERATURE, openai_api_key=openai_api_key, model=model, max_tokens=GPT_35_MAX_TOKENS)
+        return ChatOpenAI(temperature=temperature, openai_api_key=openai_api_key, model=model, max_tokens=max_tokens)
 
 def get_langchain_gpt35_16k(temperature=GPT_TEMPERATURE, model=GPT_35_16K_MODEL, max_tokens=GPT_35_16K_MAX_TOKENS):
     if use_azure_openai:
@@ -67,4 +67,4 @@ def get_langchain_gpt35_16k(temperature=GPT_TEMPERATURE, model=GPT_35_16K_MODEL,
                             max_tokens=max_tokens,
                             )
     else:
-        return ChatOpenAI(temperature=GPT_TEMPERATURE, openai_api_key=openai_api_key, model=model, max_tokens=GPT_35_16K_MAX_TOKENS)
+        return ChatOpenAI(temperature=temperature, openai_api_key=openai_api_key, model=model, max_tokens=max_tokens)

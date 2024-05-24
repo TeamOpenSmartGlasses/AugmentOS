@@ -22,9 +22,17 @@ import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.PixelFormat;
+import android.hardware.display.DisplayManager;
+import android.hardware.display.VirtualDisplay;
+import android.media.Image;
+import android.media.ImageReader;
+import android.media.projection.MediaProjection;
+import android.media.projection.MediaProjectionManager;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.util.DisplayMetrics;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -39,6 +47,8 @@ import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthSucceedEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
+import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
+import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
 import com.teamopensmartglasses.convoscope.ui.ConvoscopeUi;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DiarizationOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
@@ -81,6 +91,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private Runnable cseRunnableCode;
     private final Handler displayPollLoopHandler = new Handler(Looper.getMainLooper());
     private final Handler locationSendingLoopHandler = new Handler(Looper.getMainLooper());
+    private MediaProjection mediaProjection;
+    private VirtualDisplay virtualDisplay;
+    private Handler screenCaptureHandler = new Handler();
+    private Runnable screenCaptureRunnable;
     private Runnable uiPollRunnableCode;
     private Runnable displayRunnableCode;
     private Runnable locationSendingRunnableCode;
@@ -281,6 +295,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         displayPollLoopHandler.removeCallbacks(displayRunnableCode);
         locationSendingLoopHandler.removeCallbacks(locationSendingRunnableCode);
         locationSendingLoopHandler.removeCallbacksAndMessages(null);
+        screenCaptureHandler.removeCallbacks(screenCaptureRunnable);
+        if (virtualDisplay != null) virtualDisplay.release();
+        if (mediaProjection != null) mediaProjection.stop();
         EventBus.getDefault().unregister(this);
         super.onDestroy();
     }
@@ -408,7 +425,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public void sendTranscriptRequest(String query, boolean isFinal){
         if (Objects.equals(authToken, "")){
             Log.d(TAG, "Empty authToken in sendTranscriptRequest");
-            EventBus.getDefault().post(new GoogleAuthFailedEvent());
+            EventBus.getDefault().post(new GoogleAuthFailedEvent("Empty authToken in sendTranscriptRequest"));
         }
 
         try{
@@ -456,7 +473,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 public void onFailure(int code){
                     Log.d(TAG, "SOME FAILURE HAPPENED (requestUiPoll)");
                     if (code == 401){
-                        EventBus.getDefault().post(new GoogleAuthFailedEvent());
+                        EventBus.getDefault().post(new GoogleAuthFailedEvent("401 AUTH ERROR (requestUiPoll)"));
                     }
                 }
             });
@@ -473,10 +490,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             double longitude = locationSystem.lng;
 
             // TODO: Filter here... is it meaningfully different?
-            if(latitude == 0 && longitude == 0){
-                Log.d(TAG, "Got bad locatoin, exiting");
-                return;
-            }
+            if(latitude == 0 && longitude == 0) return;
+
+            Log.d(TAG, "Got a GOOD location!");
 
             JSONObject jsonQuery = new JSONObject();
 
@@ -494,7 +510,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 public void onFailure(int code){
                     Log.d(TAG, "SOME FAILURE HAPPENED (requestLocation)");
                     if (code == 401){
-                        EventBus.getDefault().post(new GoogleAuthFailedEvent());
+                        EventBus.getDefault().post(new GoogleAuthFailedEvent("401 AUTH ERROR (requestLocation)"));
                     }
                 }
             });
@@ -1026,14 +1042,14 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                                 EventBus.getDefault().post(new GoogleAuthSucceedEvent());
                             } else {
                                 Log.d(TAG, "Task failure in setAuthToken");
-                                EventBus.getDefault().post(new GoogleAuthFailedEvent());
+                                EventBus.getDefault().post(new GoogleAuthFailedEvent("#1 ERROR IN (SETAUTHTOKEN)"));
                             }
                         }
                     });
         } else {
             // not logged in, must log in
             Log.d(TAG, "User is null in setAuthToken");
-            EventBus.getDefault().post(new GoogleAuthFailedEvent());
+            EventBus.getDefault().post(new GoogleAuthFailedEvent("#2 ERROR IN (SETAUTHTOKEN) (USER IS NULL)"));
         }
     }
 
@@ -1317,13 +1333,24 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     @Subscribe
     public void onGoogleAuthFailedEvent(GoogleAuthFailedEvent event) {
         Log.d(TAG, "onGoogleAuthFailedEvent triggered");
-        this.sendReferenceCard("Error", "Convoscope Authentication Error");
+        this.sendReferenceCard("Error", "Convoscope Authentication Error: " + event.reason);
         long currentTime = System.currentTimeMillis();
         if (currentTime - lastGoogleAuthRetryTime >= 2000 && googleAuthRetryCount < 3) {
             setAuthToken();
             lastGoogleAuthRetryTime = currentTime;
             googleAuthRetryCount++;
         }
+    }
+
+    @Subscribe
+    public void onNewScreenTextEvent(NewScreenTextEvent event) {
+        String text = event.text;
+        this.sendTextWall(text);
+    }
+
+    @Subscribe
+    public void onNewScreenImageEvent(NewScreenImageEvent event) {
+        this.sendBitmap(event.bmp);
     }
 
     public void resetGoogleAuthRetryCount() {

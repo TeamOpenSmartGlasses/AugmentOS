@@ -145,7 +145,7 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list, 
     agent_decider_start_time = time.time()
 
     #start up GPT4 connection
-    llm = get_langchain_gpt4(temperature=0.2, max_tokens=128)
+    llm = get_langchain_gpt4o(temperature=0.2, max_tokens=128)
 
     extract_proactive_meta_agent_query_prompt = PromptTemplate(
         template=proactive_meta_agent_prompt_blueprint,

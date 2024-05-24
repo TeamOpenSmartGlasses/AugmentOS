@@ -249,6 +249,7 @@ public class ConvoscopeUi extends Fragment {
       RadioButton radioButtonLanguageLearning = view.findViewById(R.id.radioButtonLanguageLearning);
       RadioButton radioButtonADHDGlasses = view.findViewById(R.id.radioButtonADHDGlasses);
       RadioButton radioButtonWalkNGrok = view.findViewById(R.id.radioButtonWalkNGrok);
+      RadioButton radioButtonScreenMirror = view.findViewById(R.id.radioButtonScreenMirror);
 
       // Set the radio button as active based on the saved string
       if (currentModeString.equals(radioButtonProactiveAgents.getText().toString())) {
@@ -259,12 +260,16 @@ public class ConvoscopeUi extends Fragment {
         convoscopeModeSelector.check(R.id.radioButtonWalkNGrok);
       } else if (currentModeString.equals(radioButtonADHDGlasses.getText().toString())) {
         convoscopeModeSelector.check(R.id.radioButtonADHDGlasses);
+      } else if (currentModeString.equals(radioButtonScreenMirror.getText().toString())) {
+        convoscopeModeSelector.check(R.id.radioButtonScreenMirror);
       }
 
       Context mContext = this.getContext();
       convoscopeModeSelector.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
+          ((MainActivity)getActivity()).stopScreenCapture();
+
           switch (checkedId) {
             case R.id.radioButtonProactiveAgents:
               // Implement action for Proactive Agents
@@ -286,6 +291,10 @@ public class ConvoscopeUi extends Fragment {
               Log.d(TAG, "ADHD MODE SELECTED");
               ((MainActivity)getActivity()).mService.saveCurrentMode(mContext, "ADHD Glasses");
               break;
+            case R.id.radioButtonScreenMirror:
+              Log.d(TAG, "SCREEN MIRROR SELECTED");
+              ((MainActivity)getActivity()).mService.saveCurrentMode(mContext, "");
+              ((MainActivity)getActivity()).requestScreenCapturePermission();
           }
         }
       });
