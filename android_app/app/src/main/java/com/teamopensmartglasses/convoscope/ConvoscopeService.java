@@ -728,7 +728,12 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
             llResults = calculateLLStringFormatted(getDefinedWords());
             if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
-                sendRowsCard(llResults);
+//                sendRowsCard(llResults);
+                //pack it into a string since we're using text wall now
+                String textWallString = Arrays.stream(llResults)
+                        .reduce((a, b) -> b + "\n\n" + a)
+                        .orElse("");
+                sendTextWall(textWallString);
             }
 
 //            sendTextToSpeech("欢迎使用安卓文本到语音转换功能", "Chinese");
