@@ -19,31 +19,24 @@ from pypinyin import pinyin, Style
 
 from Modules.LangchainSetup import *
 
-
-language_learning_agent_prompt_blueprint = """You are listening to a user's conversation right now. The user is learning {target_language}. The user's first language is {source_language}. You help the language learner user by translating some words from one language to another.
-
-You identify vocabulary/words from the conversation transcript (Input Text) that the user might not understand and then translate just those words. You output 0 to 3 words. If the learner's fluency level is less than 50, they will need about 1/5 words define. 50-75 fluency level might need 1 word per sentence. If fluency level is >75, only choose and translate very rare words.
+language_learning_agent_prompt_blueprint = """You are listening to a user's conversation right now. You help the language learner user by identifying vocabulary/words from the conversation transcript (Input Text) that the user might not understand and then translate just those words into the Ouput language. You output 0 to 3 words. If the learner's fluency level is less than 50, they will need about 1/5 words define. 50-75 fluency level might need 1 word per sentence. If fluency level is >75, only choose and translate very rare words.
 
 Input Text Language: {transcribe_language}
 Output (translated) language: {output_language}
 Fluency Level: {fluency_level}
 
-The Input is {transcribe_language}, your Output Language translation(s) should be in {output_language}.
-
-Never define a word that was already defined in the "Recently Translated" list.
-
 Process:
 0. Consider the fluency level of the user, which is {fluency_level}, where 0<=fluency_level<=100, with 0 being complete beginner, 50 being conversational, 75 intermediate and 100 being native speaker.
 1. Skim through the Input Text and identify 0 to 3 words that may unfamiliar to someone with a fluency level of {fluency_level} AND that have not been previously defined.
-2. Consider how commao a word is (the word frequency percentile) to determine how likely the user knows that word.
+2. Consider how common a word is (the word frequency percentile) to determine how likely the user knows that word.
 3. For each of the zero to three identified words in the Input Text, provide a ranslation in {output_language}. Make translations short. Use context from the conversation to inform translation of homonyms.
-4. Output response using the format instructions below. The keys are the rare, relevant words in the language of the input text, in the order they appear in the text, and the values are the translation of those word.  Don't redefine any words that are in the "Recently Translated" list of words.
+4. Output response using the format instructions below, provide words in the order they appear in the text. Don't redefine any words that are in the "Recently Translated" list of words.
 
 Examples:
-Conversation 1: "I ran for the train, but the fruit stand was in the way"
+Conversation 1: 'I ran for the train, but the fruit stand was in the way'
 Input Language 1: English
 Output Language 1: Chinese
-Output 1: {{"train" : "huǒchē", "fruit stand" : "shuǐguǒ tán"}}
+Output 1: {'train': '火车', 'fruit stand': '水果摊'}
 
 Conversation 2: "О, так вы студент биологии, это здорово"
 Input Language 2: Russian
@@ -55,18 +48,15 @@ Input Language 3: English
 Output Language 3: Spanish
 Output 3: {{}}
 
-Input Text (transcript from user's live conversation):
-```{conversation_context}```
+Input Text: `{conversation_context}`
 
-Frequency Ranking: The frequency percentile of each word tells you how common it is in daily speech (~0.1 is very common, >1.2 is rare, >13.5 is very rare). The frequency ranking of the words in the "Input Text" are: ```{word_rank}```
+Frequency Ranking: The frequency percentile of each word tells you how common it is in daily speech (~0.1 is very common, >1.2 is rare, >13.5 is very rare). The frequency ranking of the words in the "Input Text" are: `{word_rank}`
 
-Recently Translated: Don't define any of the following recently translated words: ```{live_translate_word_history}```
+Recently Translated: `{live_translate_word_history}`
 
 Output Format: {format_instructions}
 
-The Input Text is in {transcribe_language}, your output translation(s) should be in {output_language}.
-
-Don't redefine recently defined words! Don't include punctuation or periods (do not include ?.,;) in your output! Output all lowercase! Define 1/5 of the words in the input text (never define all of the words in the input, never define highly common words like "the", "a", "it", etc.). Output words in the order they appear in the input text. Now provide the output:"""
+Don't output punctuation or periods! Output all lowercase! Define 1/5 of the words in the input text (never define all of the words in the input, never define highly common words like "the", "a", "it", etc.). Now provide the output:"""
 
 #opposite language (either {source_language} or {target_language}, whatever is
 
@@ -118,8 +108,8 @@ def format_list_data(data: dict) -> str:
 
 @time_function()
 def run_language_learning_agent(conversation_context: str, word_rank: dict, target_language="Russian", transcribe_language="English", source_language = "English", live_translate_word_history=""):
-    # start up GPT3 connection
-    llm = get_langchain_gpt4o(temperature=0.2, max_tokens=256)
+    # start up GPT4o connection
+    llm = get_langchain_gpt4o(temperature=0.2, max_tokens=80)
 
     #remove punctuation
 
