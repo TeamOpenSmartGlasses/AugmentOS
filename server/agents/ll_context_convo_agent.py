@@ -19,16 +19,13 @@ from Modules.LangchainSetup import *
 from pypinyin import pinyin, Style
 
 
-ll_context_convo_prompt_blueprint = """
-You are a polyglot expert language teacher. You help the language learner by talking to them about their environment.
+ll_context_convo_prompt_blueprint = """You are a polyglot expert language teacher. You help the language learner by talking to them about their environment.
 
 Target Language: {target_language}
 Fluency Level: {fluency_level}
 
 Your Job:
 Have a simple conversation with the user, in the language they're trying to learn, about the world around them. Consider the conversation so far, nearby points of interest as conversation topics, and the user's fluency level to moderate the complexity of your outputs. Responses should be short (5-10 words).
-
-For beginners (fluency level 1-20), use very basic words and simple sentences to ensure the conversation is easy to follow. 
 
 Nearby Points of Interest:
 {places}
@@ -51,7 +48,9 @@ Remember that this is a conversation, and your next output should be a continuat
 Here is the conversation so far (you are the agent) which all the user will ever see:
 {conversation_history}
 
-Now provide the (very short) output in {target_language} which continues the above conversation.
+For beginners (fluency level 1-20), use very basic words and simple sentences to ensure the conversation is easy to follow. If they change the subject, follow them.
+
+Now provide the (very short) output in {target_language} which continues the above conversation. Don't repeat what you said previously, always say new stuff!
 
 Output Format: {format_instructions}
 """
@@ -60,7 +59,7 @@ Output Format: {format_instructions}
 @time_function()
 def run_ll_context_convo_agent(places: list, target_language: str = "Russian", fluency_level: int = 35, conversation_history: Optional[list[dict[str, str]]] = None):
     # start up GPT3 connection
-    llm = get_langchain_gpt4o(temperature=0.3)
+    llm = get_langchain_gpt4o(temperature=0.3, max_tokens=200)
 
     places_string = "\n".join(places)
 
@@ -103,11 +102,12 @@ def run_ll_context_convo_agent(places: list, target_language: str = "Russian", f
         def chinese_to_pinyin(chinese_text):
             return ' '.join([item[0] for item in pinyin(chinese_text, style=Style.TONE)])
 
+        response_obj = dict()
         # Apply Pinyin conversion if target_language is "Chinese (Pinyin)"
         if target_language == "Chinese (Pinyin)":
+            response_obj["hanzi"] = response
             response = chinese_to_pinyin(response)
 
-        response_obj = dict()
         response_obj["ll_context_convo_response"] = response # pack the response into a dictionary
         response_obj["to_tts"] = {"text": response, "language": target_language}
 

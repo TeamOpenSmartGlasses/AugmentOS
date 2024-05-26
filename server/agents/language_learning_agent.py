@@ -36,7 +36,7 @@ Examples:
 Conversation 1: 'I ran for the train, but the fruit stand was in the way'
 Input Language 1: English
 Output Language 1: Chinese
-Output 1: {'train': '火车', 'fruit stand': '水果摊'}
+Output 1: {{'train': '火车', 'fruit stand': '水果摊'}}
 
 Conversation 2: "О, так вы студент биологии, это здорово"
 Input Language 2: Russian

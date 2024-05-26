@@ -57,7 +57,7 @@ async def proactive_agents_processing_loop():
             traceback.print_exc()
 
 async def process_transcript(transcript: str):
-    print("skibbity bop process transcript")
+    #print("skibbity bop process transcript")
 
     if not dbHandler.get_user_feature_enabled(transcript['user_id'], PROACTIVE_AGENTS): return
 

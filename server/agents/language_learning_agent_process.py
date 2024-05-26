@@ -44,7 +44,8 @@ def language_learning_agent_processing_loop():
                     print("User is having a conversation, skipping language translation")
                     continue
                 else:
-                    print("User is not having a conversation, running language translation")
+                    pass
+                    #print("User is not having a conversation, running language translation")
 
                 #get users target language
                 target_language = db_handler.get_user_settings_value(transcript['user_id'], "target_language")
@@ -65,8 +66,8 @@ def language_learning_agent_processing_loop():
 
                 #run the language learning agent
                 words_to_show = run_language_learning_agent(transcript['text'], word_frequency_percentiles, target_language, transcribe_language, source_language, live_translate_word_history)
-                print("transcript is: ")
-                print(transcript)
+                #print("transcript is: ")
+                #print(transcript)
 
                 loop_time = time.time() - ctime
                 #print(f"RAN LL IN : {loop_time}")
