@@ -12,15 +12,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -298,6 +301,21 @@ public class ConvoscopeUi extends Fragment {
           }
         }
       });
+
+
+        final Switch screenMirrorImageToggle = view.findViewById(R.id.screen_mirror_image_toggle);
+        screenMirrorImageToggle.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("screen_mirror_image", true));
+        screenMirrorImageToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+           @Override
+           public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+               ((MainActivity)getActivity()).stopScreenCapture();
+               PreferenceManager.getDefaultSharedPreferences(getContext())
+                       .edit()
+                       .putBoolean("screen_mirror_image", isChecked)
+                       .apply();
+           }
+        });
+
 
       ((MainActivity)getActivity()).startConvoscopeService();
     }

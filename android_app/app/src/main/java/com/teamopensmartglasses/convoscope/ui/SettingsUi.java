@@ -29,6 +29,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.preference.PreferenceManager;
 
 import com.teamopensmartglasses.convoscope.ConvoscopeService;
 import com.teamopensmartglasses.convoscope.MainActivity;
@@ -188,6 +189,8 @@ public class SettingsUi extends Fragment {
 
         // Retrieve the saved target targetLanguage
         String savedTargetLanguage = ((MainActivity)getActivity()).mService.getChosenTargetLanguage(mContext);
+
+        Log.d(TAG, "TARGET LANGUAGE IS: " + savedTargetLanguage);
 
         // Find the position of the saved targetLanguage in the adapter
         int targetLanguageSpinnerPosition = tlAdapter.getPosition(savedTargetLanguage);
