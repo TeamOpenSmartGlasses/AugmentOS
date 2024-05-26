@@ -10,17 +10,17 @@ from agents.ll_context_convo_agent import run_ll_context_convo_agent
 from agents.helpers.get_nearby_places import get_user_location, get_nearby_places
 from constants import TESTING_LL_CONTEXT_CONVO_AGENT, LL_CONTEXT_CONVO_AGENT
 
-response_period = 3 # how long of a pause to wait before we send the user's response to the agent
+response_period = 2 # how long of a pause to wait before we send the user's response to the agent
 break_convo_time_limit = 20 # how long of silence/no response before breaking out of the conversation
-wpm_threshold = 5 # wpm, if greater than this, don't run a contextual convo
-speed_threshold = 0.72 # speed of movement, if less than this, don't run a contextual convo
+wpm_threshold = 10 # wpm, if greater than this, don't run a contextual convo
+speed_threshold = 0.62 # speed of movement, if less than this, don't run a contextual convo
 
 if TESTING_LL_CONTEXT_CONVO_AGENT:
     run_period = 10
 else:
     run_period = 30
 
-transcript_period = 60
+transcript_period = 40
 
 def lat_lng_to_meters(lat1, lng1, lat2, lng2):
     # Radius of the Earth in km
@@ -92,7 +92,7 @@ async def handle_user_conversation(user_id, device_id, db_handler):
         if TESTING_LL_CONTEXT_CONVO_AGENT:
             warnings.warn("Currently in testing mode, skipping speed and WPM checks, please set the TESTING flag to False to run normally.")
         elif current_wpm > wpm_threshold: # compute words per minute
-            print("User is talking, skipping", transcripts)
+            print("User is talking, skipping.")
             return
         elif speed < speed_threshold:
             #print("User is not moving, running anyway")
@@ -117,7 +117,13 @@ async def handle_user_conversation(user_id, device_id, db_handler):
         places = get_nearby_places(user_location)
         places = places[:min(len(places), 3)] # get max 3 nearby places
         print("LOOP ll contextual conversation")
-        response = run_ll_context_convo_agent(places=places, target_language=target_language, fluency_level=10, conversation_history=conversation_history)
+        response = run_ll_context_convo_agent(places=places, target_language=target_language, fluency_level=8, conversation_history=conversation_history)
+
+        # get the right response
+        if "hanzi" in response:
+            response_content = response['hanzi']
+        else:
+            response_content = response['ll_context_convo_response']
 
         if response:
             db_handler.add_ll_context_convo_results_for_user(
@@ -126,7 +132,7 @@ async def handle_user_conversation(user_id, device_id, db_handler):
             await cleanup_conversation(user_id, db_handler)
             return
 
-        conversation_history.append({"role": "agent", "content": response['ll_context_convo_response']})
+        conversation_history.append({"role": "agent", "content": response_content})
 
         start_conversation_time = time.time()
         user_has_responded = False
@@ -205,7 +211,7 @@ async def ll_context_convo_agent_processing_loop_async():
                 if db_handler.get_user_settings_value(user['user_id'], "is_having_language_learning_contextual_convo"):
                     print("Found ongoing conversation for user: ", user_id)
                     continue
-                print("STARTING CONTEXTUAL CONVO FOR USER: ", user_id)
+                print("MAYBE STARTING CONTEXTUAL CONVO FOR USER: ", user_id)
 
                 tasks.append(handle_user_conversation(user_id, device_id, db_handler))
 
