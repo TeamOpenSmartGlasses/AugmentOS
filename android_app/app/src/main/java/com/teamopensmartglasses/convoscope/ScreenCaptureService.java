@@ -1,6 +1,5 @@
 package com.teamopensmartglasses.convoscope;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -11,10 +10,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ServiceInfo;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.PixelFormat;
+import android.graphics.Rect;
 import android.hardware.display.DisplayManager;
-import android.hardware.display.VirtualDisplay;
 import android.media.Image;
 import android.media.ImageReader;
 import android.media.projection.MediaProjection;
@@ -22,18 +22,26 @@ import android.media.projection.MediaProjectionManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import androidx.preference.PreferenceManager;
 
 import java.net.URISyntaxException;
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
 
-import android.graphics.Bitmap;
+import android.view.WindowManager;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -42,9 +50,9 @@ import com.google.mlkit.vision.text.Text;
 import com.google.mlkit.vision.text.TextRecognition;
 import com.google.mlkit.vision.text.TextRecognizer;
 import com.google.mlkit.vision.text.chinese.ChineseTextRecognizerOptions;
-import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisableBleScoAudioEvent;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -53,17 +61,35 @@ public class ScreenCaptureService extends Service {
 
     public final String TAG = "ScreenCaptureService";
     private MediaProjection mediaProjection;
-    private static final long DEBOUNCE_TIME_MS = 1000; // 1 second
+    ImageReader imageReader;
+    private Runnable imageBufferRunnableCode;
+    private final Handler imageBufferLoopHandler = new Handler(Looper.getMainLooper());
+    Bitmap bitmapBuffer = null;
+    private static final long TEXT_DEBOUNCE_TIME_MS = 3000;
+    private static final long IMAGE_DEBOUNCE_TIME_MS = 3000;
     public Boolean textOnly = true;
     private long lastProcessedTime = 0;
     private String lastNewText = "";
     private Bitmap lastNewImage = null;
-    ImageReader imageReader;
+
     @Override
     public void onCreate() {
         super.onCreate();
         //EventBus.getDefault().register(this);
         createNotificationChannel();
+    }
+
+    public void startImageBufferLoop() {
+        imageBufferRunnableCode = new Runnable() {
+            @Override
+            public void run() {
+                if (bitmapBuffer != null) {
+                    processBitmap(bitmapBuffer);
+                }
+                imageBufferLoopHandler.postDelayed(this, textOnly ? TEXT_DEBOUNCE_TIME_MS : IMAGE_DEBOUNCE_TIME_MS);
+            }
+        };
+        imageBufferLoopHandler.post(imageBufferRunnableCode);
     }
 
     @Override
@@ -110,6 +136,9 @@ public class ScreenCaptureService extends Service {
         } else {
             stopSelf(); // Stop the service if permission is not granted
         }
+
+        this.textOnly = !PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getBoolean("screen_mirror_image", true);
+        startImageBufferLoop();
         return START_STICKY;
     }
 
@@ -138,6 +167,10 @@ public class ScreenCaptureService extends Service {
     }
 
     private void startCapturing() {
+        //turn off BLE SCO audio here via SmartGlassesManager (SGM) to allow user to watch videos, use video camera, etc.
+        EventBus.getDefault().post(new DisableBleScoAudioEvent(true));
+
+        //start screen capture
         DisplayMetrics metrics = new DisplayMetrics();
         Display display = getSystemService(DisplayManager.class).getDisplay(Display.DEFAULT_DISPLAY);
         ((Display) display).getMetrics(metrics);
@@ -160,31 +193,27 @@ public class ScreenCaptureService extends Service {
                 try {
                     image = reader.acquireLatestImage();
                     if (image != null) {
-                        // Process the image here
-                        long currentTime = System.currentTimeMillis();
-                        if ((currentTime - lastProcessedTime) > DEBOUNCE_TIME_MS) {
-                            processImage(image);
-                            lastProcessedTime = currentTime;
-                        }
-                        else {
-                            image.close();
-                        }
+                        bitmapBuffer = imageToBitmap(image);
+                        image.close();
                     }
 
                 }
                 catch (Exception e){
                     Log.d(TAG, e.toString());
+                    if (image != null) {
+                        image.close();
+                    }
                 }
                 finally {
                     if (image != null) {
-                        image.close();
+                        //image.close();
                     }
                 }
             }
         }, null);
     }
 
-    private void processImage(Image image) {
+    public Bitmap imageToBitmap(Image image){
         Image.Plane[] planes = image.getPlanes();
         ByteBuffer buffer = planes[0].getBuffer();
         int pixelStride = planes[0].getPixelStride();
@@ -193,6 +222,13 @@ public class ScreenCaptureService extends Service {
 
         Bitmap bitmap = Bitmap.createBitmap(image.getWidth() + rowPadding / pixelStride, image.getHeight(), Bitmap.Config.ARGB_8888);
         bitmap.copyPixelsFromBuffer(buffer);
+        return bitmap;
+    }
+
+    private void processBitmap(Bitmap bitmap) {
+        boolean newTextOnly = !PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getBoolean("screen_mirror_image", true);
+        textOnly = newTextOnly;
+//        if (newTextOnly != textOnly){
 
         if (textOnly) {
             recognizeTextFromBitmap(bitmap);
@@ -208,32 +244,276 @@ public class ScreenCaptureService extends Service {
     private void recognizeTextFromBitmap(Bitmap bitmap) {
         // Log.d(TAG, "Got a Bitmap yo");
 
-        // Crop the bitmap to remove the top 25 pixels
-        Bitmap croppedBitmap = cropTopPixels(bitmap, 55);
+        // Crop the bitmap to remove the top phone display bar
+        Bitmap croppedBitmap = cropTopPixels(bitmap, 100);
 
         // Create an InputImage object from a Bitmap
         InputImage image = InputImage.fromBitmap(croppedBitmap, 0);
 
         // Get an instance of TextRecognizer
-        TextRecognizer recognizer = TextRecognition.getClient(new ChineseTextRecognizerOptions.Builder().build());//(TextRecognizerOptions.DEFAULT_OPTIONS);
+//        TextRecognizer recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
+//        TextRecognizer recognizer = TextRecognition.getClient(new ChineseTextRecognizerOptions.Builder().build());//(TextRecognizerOptions.DEFAULT_OPTIONS);
+//
+//        // Process the image
+//        recognizer.process(image)
+//                .addOnSuccessListener(new OnSuccessListener<Text>() {
+//                    @Override
+//                    public void onSuccess(Text visionText) {
+//                        StringBuilder fullText = new StringBuilder();
+//
+//                        // Extract text from blocks of recognized text
+//                        for (Text.TextBlock block : visionText.getTextBlocks()) {
+//                            for (Text.Line line : block.getLines()) {
+//                                String lineText = line.getText();
+//                                Rect boundingBox = line.getBoundingBox();
+//                                fullText.append(lineText).append("\n"); // Append the line text and a newline character
+//
+//                                // Log the bounding box information
+//                                if (boundingBox != null) {
+//                                    Log.d("TextRecognition", "Line text: " + lineText + " Bounding box: " + boundingBox.toShortString());
+//                                }
+//                            }
+//                        }
+//
+//
+//
+//                        String processedText = fullText.toString(); //.replaceAll("\\n", "");
+//
+//                        // Filter some of the lines
+//                        List<String> filteredLines = new ArrayList<>();
+//                        for (Text.TextBlock block : visionText.getTextBlocks()) {
+//                            for (Text.Line line : block.getLines()) {
+//                                String lineText = line.getText().trim();
+//
+////                                // Skip lines that are likely URLs
+////                                if (lineText.matches("^\\s*(https?|ftp)://.*$")) {
+////                                    continue;
+////                                }
+//
+//                                // Skip lines that are likely URLs
+//                                if (lineText.matches("^\\s*((https?|ftps?)://.*|www\\.[\\S]+\\.(com|org|net|edu|ca|uk|au|gov|co|info|biz|io|dev))")) {
+//                                    continue;
+//                                }
+//
+//                                // Skip lines that are only numbers and punctuation
+//                                if (lineText.matches("^\\s*[^\\p{L}]*\\s*$")) {
+//                                    continue;
+//                                }
+//
+//                                // Skip lines that are single characters (and not part of natural language)
+//                                if (lineText.length() <= 3) {
+//                                    continue;
+//                                }
+//
+//                                // Add line if it passes all filters
+//                                filteredLines.add(lineText);
+//                            }
+//                        }
+//
+//                        processedText = String.join("\n", filteredLines);
+//                        if (levenshteinDistance(processedText, lastNewText) <= 2) return;
+//                        Log.d(TAG, "OLD TEXT:\n" + lastNewText);
+//                        Log.d(TAG, "NEW TEXT:\n" + processedText);
+//                        lastNewText = processedText;
+//                        Log.d("TextRecognition", "Recognized text: " + processedText);
+//                        EventBus.getDefault().post(new NewScreenTextEvent(processedText));
+//
+//
+////                        if (levenshteinDistance(processedText, lastNewText) <= 2) return;
+////
+////                        Log.d(TAG, "OLD TEXT:\n" + lastNewText);
+////                        Log.d(TAG, "NEW TEXT:\n" + processedText);
+//
+//                        lastNewText = processedText;
+//
+//                        Log.d("TextRecognition", "Recognized text: " + fullText.toString());
+//
+//                        EventBus.getDefault().post(new NewScreenTextEvent(processedText));
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        // Task failed with an exception
+//                        Log.e("TextRecognition", "Text recognition error: " + e.getMessage());
+//                    }
+//                });
+
+
+        // Get an instance of TextRecognizer
+        TextRecognizer recognizer = TextRecognition.getClient(new ChineseTextRecognizerOptions.Builder().build());
+
+        // Process the image
+        Context context = getApplicationContext();
+//        recognizer.process(image)
+//                .addOnSuccessListener(new OnSuccessListener<Text>() {
+//                    @Override
+//                    public void onSuccess(Text visionText) {
+//                        // Task completed successfully
+//                        StringBuilder fullText = new StringBuilder();
+//
+//                        // Retrieve the screen height
+//                        int screenHeight = getScreenHeight(context);
+//                        // Define the ratio (e.g., 0.01 is 1% of the screen height)
+//                        float heightRatio = 0.01f;
+//                        int heightThreshold = (int) (screenHeight * heightRatio);
+//
+//                        // Extract text from blocks of recognized text
+//                        List<Text.TextBlock> textBlocks = visionText.getTextBlocks();
+//                        Log.d(TAG, "Number of text blocks: " + textBlocks.size());
+//
+//                        for (Text.TextBlock block : textBlocks) {
+//                            List<Text.Line> lines = block.getLines();
+//                            Log.d(TAG, "Number of lines in block: " + lines.size());
+//
+//                            for (Text.Line line : lines) {
+//                                // Check if the line contains a link
+//                                Pattern linkPattern = Pattern.compile(".*(www\\.|http|\\.com|\\.net|\\.org).*", Pattern.CASE_INSENSITIVE); // Regular expression pattern to match links
+//
+//                                if (linkPattern.matcher(line.getText()).matches()) {
+//                                    continue; // Skip this line
+//                                }
+//
+//                                // Check the height of the bounding box
+//                                Rect boundingBox = line.getBoundingBox();
+//                                if (boundingBox != null) {
+//                                    int boxHeight = boundingBox.height();
+//                                    Log.d(TAG, "Boxheight of OCR'd text: " + boxHeight);
+//
+//                                    // Remove lines with bounding box height less than the threshold
+//                                    if (boxHeight < heightThreshold) {
+//                                        continue;
+//                                    }
+//                                }
+//
+//                                String lineText = line.getText();
+//                                fullText.append(lineText).append("\n"); // Append the line text and a newline character
+//                            }
+//                        }
+//
+//                        String processedText = fullText.toString();
+//
+//                        if (levenshteinDistance(processedText, lastNewText) <= 2) return;
+//
+//                        Log.d(TAG, "OLD TEXT:\n" + lastNewText);
+//                        Log.d(TAG, "NEW TEXT:\n" + processedText);
+//
+//                        lastNewText = processedText;
+//
+//                        Log.d("TextRecognition", "Recognized text: " + fullText.toString());
+//
+//                        // Post the processed text to the event bus
+//                        EventBus.getDefault().post(new NewScreenTextEvent(processedText));
+//                        EventBus.getDefault().post(new NewScreenTextEvent(fullText.toString()));
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        // Task failed with an exception
+//                        Log.e("TextRecognition", "Text recognition error: " + e.getMessage());
+//                    }
+//                });
 
         // Process the image
         recognizer.process(image)
                 .addOnSuccessListener(new OnSuccessListener<Text>() {
                     @Override
                     public void onSuccess(Text visionText) {
-                        /// Task completed successfully
+                        // Task completed successfully
                         StringBuilder fullText = new StringBuilder();
 
+                        // Retrieve the screen height
+                        int screenHeight = getScreenHeight(context);
+                        // Define the ratio (e.g., 0.02 for 2% of the screen height)
+                        float textSizeDropHeightRatio = 0.009f;
+                        int dropSmallTextHeightThreshold = (int) (screenHeight * textSizeDropHeightRatio);
+                        float textHeightSameLineRatio = 0.02f;
+                        int sameLineHeightRatioThreshold = (int) (screenHeight * textHeightSameLineRatio);
+
                         // Extract text from blocks of recognized text
-                        for (Text.TextBlock block : visionText.getTextBlocks()) {
-                            for (Text.Line line : block.getLines()) {
+                        List<Text.TextBlock> textBlocks = visionText.getTextBlocks();
+                        //Log.d(TAG, "Number of text blocks: " + textBlocks.size());
+
+                        // Collect all lines with their bounding boxes
+                        List<Text.Line> allLines = new ArrayList<>();
+                        for (Text.TextBlock block : textBlocks) {
+                            allLines.addAll(block.getLines());
+                        }
+
+                        // Sort lines by their bounding box top coordinate (y)
+                        Collections.sort(allLines, new Comparator<Text.Line>() {
+                            @Override
+                            public int compare(Text.Line line1, Text.Line line2) {
+                                return Integer.compare(line1.getBoundingBox().top, line2.getBoundingBox().top);
+                            }
+                        });
+
+                        // Set max width for characters in glasses display
+                        int maxWidthChars = 30;
+                        int maxWidthPixels = 640; // Glasses display width in pixels
+
+                        // Regular expression pattern to match links
+                        Pattern linkPattern = Pattern.compile(".*(www\\.|http|\\.com|\\.net|\\.org).*", Pattern.CASE_INSENSITIVE);
+
+                        // Map to hold lines grouped by their y-coordinate range
+                        Map<Integer, List<String>> groupedLines = new HashMap<>();
+
+                        // Process each line
+                        // Log.d(TAG, "LINE TEXT FROM OCR: ____________________________________________________________ ");
+                        for (Text.Line line : allLines) {
+                            Rect boundingBox = line.getBoundingBox();
+                            if (boundingBox != null) {
+                                int boxHeight = boundingBox.height();
+//                                Log.d(TAG, "Boxheight of OCR'd text: " + boxHeight);
+
+                                // Remove lines with bounding box height less than the threshold
+                                if (boxHeight < dropSmallTextHeightThreshold) {
+                                    continue;
+                                }
+
                                 String lineText = line.getText();
-                                fullText.append(lineText).append("\n"); // Append the line text and a newline character
+
+                                // Check if the line contains a link
+                                if (linkPattern.matcher(lineText).matches()) {
+                                    continue; // Skip this line
+                                }
+
+                                // Calculate the starting position based on the bounding box left coordinate (x)
+                                int startPos = (boundingBox.left * maxWidthChars) / maxWidthPixels;
+                                // Log.d(TAG, "LINE TEXT FROM OCR: " + lineText + ", BB x: " + startPos);
+
+                                // Group lines by their y-coordinate range
+                                int yPos = boundingBox.top;
+                                int yKey = yPos / sameLineHeightRatioThreshold; // Group lines in the same range
+
+                                // Initialize the list if not present
+                                if (!groupedLines.containsKey(yKey)) {
+                                    groupedLines.put(yKey, new ArrayList<String>());
+                                }
+
+                                // Add the line to the group
+                                groupedLines.get(yKey).add(lineText);
                             }
                         }
 
-                        String processedText = fullText.toString().replaceAll("\\n", "");
+                        // Build the final text by combining grouped lines
+                        for (Map.Entry<Integer, List<String>> entry : groupedLines.entrySet()) {
+                            List<String> lines = entry.getValue();
+                            if (lines.size() > 1) {
+                                for (int i = 0; i < lines.size(); i++) {
+                                    fullText.append(lines.get(i));
+                                    if (i < lines.size() - 1) {
+                                        fullText.append("    "); // few spaces to separate lines on the same level
+                                    }
+                                }
+                            } else {
+                                fullText.append(lines.get(0));
+                            }
+                            fullText.append("\n");
+                        }
+
+                        String processedText = fullText.toString();
 
                         if (levenshteinDistance(processedText, lastNewText) <= 2) return;
 
@@ -243,6 +523,10 @@ public class ScreenCaptureService extends Service {
                         lastNewText = processedText;
 
                         Log.d("TextRecognition", "Recognized text: " + fullText.toString());
+
+                        // Post the processed text to the event bus
+                        // TODO: WHAT???
+                        // EventBus.getDefault().post(new NewScreenTextEvent(processedText));
                         EventBus.getDefault().post(new NewScreenTextEvent(fullText.toString()));
                     }
                 })
@@ -253,6 +537,21 @@ public class ScreenCaptureService extends Service {
                         Log.e("TextRecognition", "Text recognition error: " + e.getMessage());
                     }
                 });
+
+    }
+
+
+    // Ensure to call this method in the appropriate place in your code
+    private int getScreenHeight(Context context) {
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+        int orientation = context.getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            return displayMetrics.widthPixels;
+        } else {
+            return displayMetrics.heightPixels;
+        }
     }
 
     public int levenshteinDistance(String s1, String s2) {
