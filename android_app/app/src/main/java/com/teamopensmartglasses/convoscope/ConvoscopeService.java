@@ -294,6 +294,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public void onDestroy(){
         csePollLoopHandler.removeCallbacks(uiPollRunnableCode);
         displayPollLoopHandler.removeCallbacks(displayRunnableCode);
+        locationSystem.stopLocationUpdates();
         locationSendingLoopHandler.removeCallbacks(locationSendingRunnableCode);
         locationSendingLoopHandler.removeCallbacksAndMessages(null);
         screenCaptureHandler.removeCallbacks(screenCaptureRunnable);
@@ -755,7 +756,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         if (llContextConvoResults.length() != 0) {
             llContextConvoResponses = calculateLLContextConvoResponseFormatted(getContextConvoResponses());
             if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
-                sendRowsCard(llContextConvoResponses);
+                //sendRowsCard(llContextConvoResponses);
+                String textWallString = Arrays.stream(llContextConvoResponses)
+                        .reduce((a, b) -> b + "\n\n" + a)
+                        .orElse("");
+                sendTextWall(textWallString);
             }
             List<String> list = Arrays.stream(Arrays.copyOfRange(llContextConvoResponses, 0, llContextConvoResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
             Collections.reverse(list);
