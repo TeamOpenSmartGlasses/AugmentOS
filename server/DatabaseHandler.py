@@ -107,7 +107,7 @@ class DatabaseHandler:
     def init_gps_location_collection(self):
         self.gps_location_db = self.client['gps_location']
         self.gps_location_collection = self.get_collection(
-            self.gps_location_db, 'gps_location_results', wipe=clear_cache_on_start)
+            self.gps_location_db, 'gps_location_result_ids', wipe=True) # When the server restarts, we don't want to keep old locations, therefore we reset the locations for all users.
 
     def init_topic_shifts_collection(self):
         self.topic_shifts_db = self.client['topic_shifts']

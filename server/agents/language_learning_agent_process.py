@@ -11,7 +11,7 @@ from logger_config import logger
 from agents.helpers.word_frequency_percentiles import get_word_frequency_percentiles
 from constants import LANGUAGE_LEARNING_AGENT
 
-run_period = 1.5
+run_period = 0.5
 
 def language_learning_agent_processing_loop():
     print("START LANGUAGE LEARNING PROCESSING LOOP")
@@ -32,7 +32,7 @@ def language_learning_agent_processing_loop():
             # Check for new transcripts
             #print("RUNNING LANGUAGE LEARNING LOOP")
             newTranscripts = db_handler.get_recent_transcripts_from_last_nseconds_for_all_users(
-                n=run_period*2)
+                n=run_period*4)
 
             words_to_show = None
             for transcript in newTranscripts:
@@ -44,7 +44,9 @@ def language_learning_agent_processing_loop():
                     print("User is having a conversation, skipping language translation")
                     continue
                 else:
-                    print("User is not having a conversation, running language translation")
+                    pass
+                    #print("User is not having a conversation, running language translation")
+
                 #get users target language
                 target_language = db_handler.get_user_settings_value(transcript['user_id'], "target_language")
                 #print("GOT TARGET LANGUAGE: " + target_language)
@@ -64,8 +66,8 @@ def language_learning_agent_processing_loop():
 
                 #run the language learning agent
                 words_to_show = run_language_learning_agent(transcript['text'], word_frequency_percentiles, target_language, transcribe_language, source_language, live_translate_word_history)
-                print("transcript is: ")
-                print(transcript)
+                #print("transcript is: ")
+                #print(transcript)
 
                 loop_time = time.time() - ctime
                 #print(f"RAN LL IN : {loop_time}")

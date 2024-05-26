@@ -99,7 +99,7 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list, 
     expert_agents_descriptions_prompt = make_expert_agents_prompts()
 
     # Start small model for gatekeeper
-    llm35 = get_langchain_gpt35()
+    llm4o = get_langchain_gpt4o()
 
     gatekeeper_score_prompt = PromptTemplate(
         template = proactive_meta_agent_gatekeeper_prompt_blueprint,
@@ -120,7 +120,7 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list, 
 
     with get_openai_callback() as cb:
         # print("GATEKEEPER PROMPT STRING", gatekeeper_score_prompt_string)
-        score_response = llm35.invoke(
+        score_response = llm4o.invoke(
             [HumanMessage(content=gatekeeper_score_prompt_string)]
         )
         gpt3cost = cb.total_cost

@@ -14,8 +14,8 @@ from agents.generic_agent.agent_insight import *
 from agents.generic_agent.generic_agent_prompts import *
 
 dbHandler = DatabaseHandler(parent_handler=False)
-llm4 = get_langchain_gpt4o(max_tokens=180, temperature=0.2)
-llm35 = get_langchain_gpt35(temperature=0.0)
+llm4 = get_langchain_gpt4(max_tokens=180, temperature=0.2)
+llmMedium = get_langchain_gpt4o(temperature=0.0)
 
 class GenericAgent:
 
@@ -50,7 +50,7 @@ class GenericAgent:
 
         self.agent_small = initialize_agent([
             get_search_tool_for_agents(),
-        ], llm35, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=False)
+        ], llmMedium, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, max_iterations=3, early_stopping_method="generate", verbose=False)
 
         self.agent_large = initialize_agent([
             get_search_tool_for_agents(),
@@ -218,7 +218,7 @@ class GenericAgent:
         print ("GENERIC AGENT GATEKEEPER PROMPT: ")
         print (generic_gatekeeper_score_prompt_string)
 
-        score_response = await llm35.ainvoke(
+        score_response = await llmMedium.ainvoke(
             [HumanMessage(content=generic_gatekeeper_score_prompt_string)]
         )
 
