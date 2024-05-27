@@ -268,10 +268,27 @@ public class ConvoscopeUi extends Fragment {
       }
 
       Context mContext = this.getContext();
+
+
+      final Switch screenMirrorImageToggle = view.findViewById(R.id.screen_mirror_image_toggle);
+      screenMirrorImageToggle.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("screen_mirror_image", true));
+      screenMirrorImageToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+          ((MainActivity)getActivity()).stopScreenCapture();
+          PreferenceManager.getDefaultSharedPreferences(getContext())
+                  .edit()
+                  .putBoolean("screen_mirror_image", isChecked)
+                  .apply();
+        }
+      });
+
+
       convoscopeModeSelector.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
           ((MainActivity)getActivity()).stopScreenCapture();
+          screenMirrorImageToggle.setEnabled(true);
 
           switch (checkedId) {
             case R.id.radioButtonProactiveAgents:
@@ -296,25 +313,12 @@ public class ConvoscopeUi extends Fragment {
               break;
             case R.id.radioButtonScreenMirror:
               Log.d(TAG, "SCREEN MIRROR SELECTED");
+              screenMirrorImageToggle.setEnabled(false);
               ((MainActivity)getActivity()).mService.saveCurrentMode(mContext, "");
               ((MainActivity)getActivity()).requestScreenCapturePermission();
           }
         }
       });
-
-
-        final Switch screenMirrorImageToggle = view.findViewById(R.id.screen_mirror_image_toggle);
-        screenMirrorImageToggle.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("screen_mirror_image", true));
-        screenMirrorImageToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-           @Override
-           public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-               ((MainActivity)getActivity()).stopScreenCapture();
-               PreferenceManager.getDefaultSharedPreferences(getContext())
-                       .edit()
-                       .putBoolean("screen_mirror_image", isChecked)
-                       .apply();
-           }
-        });
 
 
       ((MainActivity)getActivity()).startConvoscopeService();
