@@ -12,7 +12,6 @@ from logger_config import logger
 from constants import TESTING_LL_CONTEXT_CONVO_AGENT, MODES_FEATURES_MAP
 
 
-
 class DatabaseHandler:
     def __init__(self, parent_handler=True):
         print("INITTING DB HANDLER")
@@ -52,14 +51,18 @@ class DatabaseHandler:
             print(e)
 
     ### INIT ###
+    def set_language_learning_contextual_convo_flag_for_all_users(self, flag_value=False):
+        self.user_collection.update_many({}, {"$set": {"settings.is_having_language_learning_contextual_convo": flag_value}})
 
     def init_users_collection(self):
         self.user_db = self.client['users']
         self.user_collection = self.get_collection(
             self.user_db, 'users', wipe=clear_users_on_start)
+
         self.active_user_db = self.client['active_users']
         self.active_user_collection = self.get_collection(
-            self.active_user_db, 'active_users', wipe=clear_users_on_start)
+        self.active_user_db, 'active_users', wipe=clear_users_on_start)
+        self.set_language_learning_contextual_convo_flag_for_all_users()
 
     def init_transcripts_collection(self):
         self.transcripts_db = self.client['transcripts']
@@ -79,7 +82,7 @@ class DatabaseHandler:
             self.results_db, 'agent_explicit_queries', wipe=clear_cache_on_start)
         self.agent_explicit_insights_results_collection = self.get_collection(
             self.results_db, 'agent_explicit_insights_results', wipe=clear_cache_on_start)
-        
+
         self.agent_insights_results_collection = self.get_collection(
             self.results_db, 'agent_insights_results', wipe=clear_cache_on_start)
         self.agent_insights_queries_collection = self.get_collection(
@@ -104,7 +107,7 @@ class DatabaseHandler:
     def init_gps_location_collection(self):
         self.gps_location_db = self.client['gps_location']
         self.gps_location_collection = self.get_collection(
-            self.gps_location_db, 'gps_location_results', wipe=clear_cache_on_start)
+            self.gps_location_db, 'gps_location_result_ids', wipe=True) # When the server restarts, we don't want to keep old locations, therefore we reset the locations for all users.
 
     def init_topic_shifts_collection(self):
         self.topic_shifts_db = self.client['topic_shifts']
@@ -168,6 +171,7 @@ class DatabaseHandler:
                      "is_having_language_learning_contextual_convo": False,
                      "current_mode": "Language Learning",
                      #"current_mode": "Proactive Agents",
+                     "enabled_proactive_agents": ["QuestionAnswerer"]
                  },
                  "transcripts": [],
                  "ui_list": [],

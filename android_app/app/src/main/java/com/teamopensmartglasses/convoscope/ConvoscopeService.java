@@ -22,9 +22,17 @@ import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.PixelFormat;
+import android.hardware.display.DisplayManager;
+import android.hardware.display.VirtualDisplay;
+import android.media.Image;
+import android.media.ImageReader;
+import android.media.projection.MediaProjection;
+import android.media.projection.MediaProjectionManager;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.util.DisplayMetrics;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -39,8 +47,12 @@ import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
 import com.teamopensmartglasses.convoscope.events.GoogleAuthSucceedEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
+import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
+import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
+import com.teamopensmartglasses.convoscope.events.SignOutEvent;
 import com.teamopensmartglasses.convoscope.ui.ConvoscopeUi;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DiarizationOutputEvent;
+import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisableBleScoAudioEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SpeechRecOutputEvent;
@@ -71,6 +83,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     //our instance of the SGM library
     //public SGMLib sgmLib;
 
+    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth.AuthStateListener authStateListener;
+    private FirebaseAuth.IdTokenListener idTokenListener;
+
     //Convoscope stuff
     String authToken = "";
     private BackendServerComms backendServerComms;
@@ -81,6 +97,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private Runnable cseRunnableCode;
     private final Handler displayPollLoopHandler = new Handler(Looper.getMainLooper());
     private final Handler locationSendingLoopHandler = new Handler(Looper.getMainLooper());
+    private MediaProjection mediaProjection;
+    private VirtualDisplay virtualDisplay;
+    private Handler screenCaptureHandler = new Handler();
+    private Runnable screenCaptureRunnable;
     private Runnable uiPollRunnableCode;
     private Runnable displayRunnableCode;
     private Runnable locationSendingRunnableCode;
@@ -159,7 +179,30 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         Log.d(TAG, "ASR KEY: " + asrApiKey);
         saveApiKey(this, asrApiKey);
 
-        startAuthTokenRefresh(); //get auth token and set to keep refreshing
+        setupAuthTokenMonitor();
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user == null) {
+                    // User is signed out
+                    handleSignOut();
+                } else {
+                    // User is signed in
+                    // Initialize polling or other operations
+                    completeInitialization();
+                }
+            }
+        };
+
+        // Add the listeners
+        firebaseAuth.addAuthStateListener(authStateListener);
+        firebaseAuth.addIdTokenListener(idTokenListener);
+    }
+
+    public void completeInitialization(){
         setUpUiPolling();
         setUpDisplayQueuePolling();
         setUpLocationSending();
@@ -172,6 +215,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         getCurrentMode(this);
 
         this.aioConnectSmartGlasses();
+    }
+
+    public void handleSignOut(){
+        EventBus.getDefault().post(new SignOutEvent());
     }
 
     public void sendSettings(JSONObject settingsObj){
@@ -279,8 +326,21 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public void onDestroy(){
         csePollLoopHandler.removeCallbacks(uiPollRunnableCode);
         displayPollLoopHandler.removeCallbacks(displayRunnableCode);
-        locationSendingLoopHandler.removeCallbacksAndMessages(this);
+        locationSystem.stopLocationUpdates();
+        locationSendingLoopHandler.removeCallbacks(locationSendingRunnableCode);
+        locationSendingLoopHandler.removeCallbacksAndMessages(null);
+        screenCaptureHandler.removeCallbacks(screenCaptureRunnable);
+        if (virtualDisplay != null) virtualDisplay.release();
+        if (mediaProjection != null) mediaProjection.stop();
         EventBus.getDefault().unregister(this);
+
+        if (authStateListener != null) {
+            firebaseAuth.removeAuthStateListener(authStateListener);
+        }
+        if (idTokenListener != null) {
+            firebaseAuth.removeIdTokenListener(idTokenListener);
+        }
+
         super.onDestroy();
     }
 
@@ -406,7 +466,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     public void sendTranscriptRequest(String query, boolean isFinal){
         if (Objects.equals(authToken, "")){
-            EventBus.getDefault().post(new GoogleAuthFailedEvent());
+            Log.d(TAG, "Empty authToken in sendTranscriptRequest");
+            EventBus.getDefault().post(new GoogleAuthFailedEvent("Empty authToken in sendTranscriptRequest"));
         }
 
         try{
@@ -454,7 +515,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 public void onFailure(int code){
                     Log.d(TAG, "SOME FAILURE HAPPENED (requestUiPoll)");
                     if (code == 401){
-                        EventBus.getDefault().post(new GoogleAuthFailedEvent());
+                        EventBus.getDefault().post(new GoogleAuthFailedEvent("401 AUTH ERROR (requestUiPoll)"));
                     }
                 }
             });
@@ -471,10 +532,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             double longitude = locationSystem.lng;
 
             // TODO: Filter here... is it meaningfully different?
-            if(latitude == 0 && longitude == 0){
-                Log.d(TAG, "Got bad locatoin, exiting");
-                return;
-            }
+            if(latitude == 0 && longitude == 0) return;
+
+//            Log.d(TAG, "Got a GOOD location!");
 
             JSONObject jsonQuery = new JSONObject();
 
@@ -492,7 +552,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 public void onFailure(int code){
                     Log.d(TAG, "SOME FAILURE HAPPENED (requestLocation)");
                     if (code == 401){
-                        EventBus.getDefault().post(new GoogleAuthFailedEvent());
+                        EventBus.getDefault().post(new GoogleAuthFailedEvent("401 AUTH ERROR (requestLocation)"));
                     }
                 }
             });
@@ -709,7 +769,12 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
             llResults = calculateLLStringFormatted(getDefinedWords());
             if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
-                sendRowsCard(llResults);
+//                sendRowsCard(llResults);
+                //pack it into a string since we're using text wall now
+                String textWallString = Arrays.stream(llResults)
+                        .reduce((a, b) -> b + "\n\n" + a)
+                        .orElse("");
+                sendTextWall(textWallString);
             }
 
 //            sendTextToSpeech("欢迎使用安卓文本到语音转换功能", "Chinese");
@@ -731,7 +796,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         if (llContextConvoResults.length() != 0) {
             llContextConvoResponses = calculateLLContextConvoResponseFormatted(getContextConvoResponses());
             if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
-                sendRowsCard(llContextConvoResponses);
+                //sendRowsCard(llContextConvoResponses);
+                String textWallString = Arrays.stream(llContextConvoResponses)
+                        .reduce((a, b) -> b + "\n\n" + a)
+                        .orElse("");
+                sendTextWall(textWallString);
             }
             List<String> list = Arrays.stream(Arrays.copyOfRange(llContextConvoResponses, 0, llContextConvoResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
             Collections.reverse(list);
@@ -778,8 +847,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 String combined = name + ": " + body;
                 Log.d(TAG, name);
                 Log.d(TAG, "--- " + body);
-                //queueOutput(combined);
-                queueOutput(body);
+                queueOutput(combined);
+//                queueOutput(body);
 
 //                if(obj.has(mapImgKey)){
 //                    String mapImgPath = obj.getString(mapImgKey);
@@ -961,52 +1030,36 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //        phoneNum = newNum.replaceAll("[^0-9]", "");
 //    }
 
-//    public void setAuthToken(){
-//        Log.d(TAG, "GETTING AUTH TOKEN");
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        if (user != null) {
-//            user.getIdToken(true)
-//                .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
-//                    public void onComplete(@NonNull Task<GetTokenResult> task) {
-//                        if (task.isSuccessful()) {
-//                            String idToken = task.getResult().getToken();
-//                            Log.d(TAG, "GOT dat Auth Token: " + idToken);
-//                            authToken = idToken;
-//                            EventBus.getDefault().post(new GoogleAuthSucceedEvent());
-//                            PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
-//                                    .edit()
-//                                    .putString("auth_token", authToken)
-//                                    .apply();
-//                        } else {
-//                            EventBus.getDefault().post(new GoogleAuthFailedEvent());
-//                        }
-//                    }
-//                });
-//        }
-//        else {
-//            // not logged in, must log in
-//            EventBus.getDefault().post(new GoogleAuthFailedEvent());
-//        }
-//    }
-
-    private Handler authHandler = new Handler();
-    private Runnable authRunnable = new Runnable() {
-        @Override
-        public void run() {
-            setAuthToken();
-            authHandler.postDelayed(this, 59 * 60 * 1000); // Schedule the next run after 59 minutes
-        }
-    };
-
-    public void startAuthTokenRefresh() {
-        authRunnable.run(); // Start the initial run
+    public void setupAuthTokenMonitor(){
+        idTokenListener = new FirebaseAuth.IdTokenListener() {
+            @Override
+            public void onIdTokenChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    user.getIdToken(true).addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<GetTokenResult> task) {
+                            if (task.isSuccessful()) {
+                                String idToken = task.getResult().getToken();
+                                Log.d(TAG, "GOT dat Auth Token: " + idToken);
+                                authToken = idToken;
+                                PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
+                                        .edit()
+                                        .putString("auth_token", authToken)
+                                        .apply();
+                                EventBus.getDefault().post(new GoogleAuthSucceedEvent());
+                            } else {
+                                Log.d(TAG, "Task failure in setAuthToken");
+                                EventBus.getDefault().post(new GoogleAuthFailedEvent("#1 ERROR IN (setupAuthTokenMonitor)"));
+                            }
+                        }
+                    });
+                }
+            }
+        };
     }
 
-    public void stopAuthTokenRefresh() {
-        authHandler.removeCallbacks(authRunnable); // Stop the recurring task
-    }
-
-    public void setAuthToken() {
+    public void manualSetAuthToken() {
         Log.d(TAG, "GETTING AUTH TOKEN");
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -1017,28 +1070,32 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                                 String idToken = task.getResult().getToken();
                                 Log.d(TAG, "GOT dat Auth Token: " + idToken);
                                 authToken = idToken;
-                                EventBus.getDefault().post(new GoogleAuthSucceedEvent());
                                 PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
                                         .edit()
                                         .putString("auth_token", authToken)
                                         .apply();
+                                EventBus.getDefault().post(new GoogleAuthSucceedEvent());
                             } else {
-                                EventBus.getDefault().post(new GoogleAuthFailedEvent());
+                                Log.d(TAG, "Task failure in setAuthToken");
+                                EventBus.getDefault().post(new GoogleAuthFailedEvent("#1 ERROR IN (SETAUTHTOKEN)"));
                             }
                         }
                     });
         } else {
             // not logged in, must log in
-            EventBus.getDefault().post(new GoogleAuthFailedEvent());
+            Log.d(TAG, "User is null in setAuthToken");
+            EventBus.getDefault().post(new GoogleAuthFailedEvent("#2 ERROR IN (SETAUTHTOKEN) (USER IS NULL)"));
         }
     }
 
     public static void saveChosenTargetLanguage(Context context, String targetLanguageString) {
+        Log.d("CONVOSCOPE", "SAVING TARGET LANGUAGE: " + targetLanguageString);
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
                 .putString(context.getResources().getString(R.string.SHARED_PREF_TARGET_LANGUAGE), targetLanguageString)
                 .apply();
     }
+
     public static void saveChosenSourceLanguage(Context context, String sourceLanguageString) {
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
@@ -1058,8 +1115,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public static String getChosenSourceLanguage(Context context) {
         String sourceLanguageString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_SOURCE_LANGUAGE), "");
         if (sourceLanguageString.equals("")){
-            saveChosenTargetLanguage(context, "Russian");
-            sourceLanguageString = "Russian";
+            saveChosenSourceLanguage(context, "English");
+            sourceLanguageString = "English";
         }
         return sourceLanguageString;
     }
@@ -1125,8 +1182,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     @Subscribe
     public void onGoogleAuthSucceed(GoogleAuthSucceedEvent event){
         Log.d(TAG, "Running google auth succeed event response");
+        resetGoogleAuthRetryCount();
         //give the server our latest settings
         updateTargetLanguageOnBackend(this);
+        updateSourceLanguageOnBackend(this);
+        saveCurrentMode(this, getCurrentMode(this));
     }
 
 
@@ -1303,20 +1363,38 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     //retry auth right away if it failed, but don't do it too much as we have a max # refreshes/day
+    private int max_google_retries = 3;
     private int googleAuthRetryCount = 0;
     private long lastGoogleAuthRetryTime = 0;
 
     @Subscribe
     public void onGoogleAuthFailedEvent(GoogleAuthFailedEvent event) {
+        Log.d(TAG, "onGoogleAuthFailedEvent triggered");
+        this.sendReferenceCard("Error", "Convoscope Authentication Error: " + event.reason);
         long currentTime = System.currentTimeMillis();
-        if (currentTime - lastGoogleAuthRetryTime >= 2000 && googleAuthRetryCount < 3) {
-            setAuthToken();
+        if (currentTime - lastGoogleAuthRetryTime >= 2000 && googleAuthRetryCount < max_google_retries) {
+            manualSetAuthToken();
             lastGoogleAuthRetryTime = currentTime;
             googleAuthRetryCount++;
         }
+        else if (googleAuthRetryCount >= max_google_retries) {
+            Log.d(TAG, "MAX GOOGLE RETRIES");
+        }
+    }
+
+    @Subscribe
+    public void onNewScreenTextEvent(NewScreenTextEvent event) {
+        String text = event.text;
+        this.sendTextWall(text);
+    }
+
+    @Subscribe
+    public void onNewScreenImageEvent(NewScreenImageEvent event) {
+        this.sendBitmap(event.bmp);
     }
 
     public void resetGoogleAuthRetryCount() {
         googleAuthRetryCount = 0;
     }
+
 }

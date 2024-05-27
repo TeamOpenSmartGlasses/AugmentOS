@@ -12,15 +12,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -125,13 +128,13 @@ public class ConvoscopeUi extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EventBus.getDefault().register(this);
+        // EventBus.getDefault().register(this);
     }
 
     @Override
     public void onDestroy() {
       super.onDestroy();
-      EventBus.getDefault().unregister(this);
+      // EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -249,6 +252,7 @@ public class ConvoscopeUi extends Fragment {
       RadioButton radioButtonLanguageLearning = view.findViewById(R.id.radioButtonLanguageLearning);
       RadioButton radioButtonADHDGlasses = view.findViewById(R.id.radioButtonADHDGlasses);
       RadioButton radioButtonWalkNGrok = view.findViewById(R.id.radioButtonWalkNGrok);
+      RadioButton radioButtonScreenMirror = view.findViewById(R.id.radioButtonScreenMirror);
 
       // Set the radio button as active based on the saved string
       if (currentModeString.equals(radioButtonProactiveAgents.getText().toString())) {
@@ -259,12 +263,33 @@ public class ConvoscopeUi extends Fragment {
         convoscopeModeSelector.check(R.id.radioButtonWalkNGrok);
       } else if (currentModeString.equals(radioButtonADHDGlasses.getText().toString())) {
         convoscopeModeSelector.check(R.id.radioButtonADHDGlasses);
+      } else if (currentModeString.equals(radioButtonScreenMirror.getText().toString())) {
+        convoscopeModeSelector.check(R.id.radioButtonScreenMirror);
       }
 
       Context mContext = this.getContext();
+
+
+      final Switch screenMirrorImageToggle = view.findViewById(R.id.screen_mirror_image_toggle);
+      screenMirrorImageToggle.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("screen_mirror_image", true));
+      screenMirrorImageToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+          ((MainActivity)getActivity()).stopScreenCapture();
+          PreferenceManager.getDefaultSharedPreferences(getContext())
+                  .edit()
+                  .putBoolean("screen_mirror_image", isChecked)
+                  .apply();
+        }
+      });
+
+
       convoscopeModeSelector.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
+          ((MainActivity)getActivity()).stopScreenCapture();
+          screenMirrorImageToggle.setEnabled(true);
+
           switch (checkedId) {
             case R.id.radioButtonProactiveAgents:
               // Implement action for Proactive Agents
@@ -286,9 +311,15 @@ public class ConvoscopeUi extends Fragment {
               Log.d(TAG, "ADHD MODE SELECTED");
               ((MainActivity)getActivity()).mService.saveCurrentMode(mContext, "ADHD Glasses");
               break;
+            case R.id.radioButtonScreenMirror:
+              Log.d(TAG, "SCREEN MIRROR SELECTED");
+              screenMirrorImageToggle.setEnabled(false);
+              ((MainActivity)getActivity()).mService.saveCurrentMode(mContext, "");
+              ((MainActivity)getActivity()).requestScreenCapturePermission();
           }
         }
       });
+
 
       ((MainActivity)getActivity()).startConvoscopeService();
     }
@@ -371,10 +402,10 @@ public class ConvoscopeUi extends Fragment {
 //    transaction.commit();
   }
 
-  @Subscribe
-  public void onGoogleAuthFailedEvent(GoogleAuthFailedEvent event){
-    ((MainActivity)getActivity()).signOut();
-  }
+  //@Subscribe
+  //public void onGoogleAuthFailedEvent(GoogleAuthFailedEvent event){
+    //((MainActivity)getActivity()).signOut();
+  //}
 
 }
 

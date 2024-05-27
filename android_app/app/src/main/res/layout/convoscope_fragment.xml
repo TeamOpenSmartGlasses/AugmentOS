@@ -79,7 +79,7 @@
       <RadioButton
           android:id="@+id/radioButtonLanguageLearning"
           android:layout_width="match_parent"
-          android:layout_height="38dp"
+          android:layout_height="32dp"
           android:enabled="true"
           android:buttonTint="@color/colorAccent"
           android:text="Language Learning" />
@@ -87,32 +87,45 @@
       <RadioButton
           android:id="@+id/radioButtonProactiveAgents"
           android:layout_width="match_parent"
-          android:layout_height="38dp"
+          android:layout_height="32dp"
           android:enabled="true"
           android:buttonTint="@color/colorAccent"
           android:text="Proactive Agents" />
 
+        <RadioButton
+          android:id="@+id/radioButtonScreenMirror"
+          android:layout_width="match_parent"
+          android:layout_height="32dp"
+          android:enabled="true"
+          android:buttonTint="@color/colorAccent"
+          android:text="Screen Mirror" />
+
+
+    <Switch
+        android:id="@+id/screen_mirror_image_toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="                Images"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
       <RadioButton
           android:id="@+id/radioButtonADHDGlasses"
           android:layout_width="match_parent"
-          android:layout_height="38dp"
-          android:enabled="true"
-          android:buttonTint="@color/colorAccent"
+          android:layout_height="32dp"
+          android:enabled="false"
+          android:buttonTint="@color/bubbleColor"
           android:text="ADHD Glasses" />
+
       <RadioButton
           android:id="@+id/radioButtonWalkNGrok"
           android:layout_width="match_parent"
-          android:layout_height="38dp"
+          android:layout_height="32dp"
           android:enabled="false"
           android:buttonTint="@color/bubbleColor"
           android:text="Live Captions" />
-      <RadioButton
-          android:id="@+id/radioButtonWalkNGrok"
-          android:layout_width="match_parent"
-          android:layout_height="38dp"
-          android:enabled="false"
-          android:buttonTint="@color/bubbleColor"
-          android:text="Speech Coach" />
 
     </RadioGroup>
 

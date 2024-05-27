@@ -27,11 +27,11 @@ from server_config import server_port
 from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH, TESTING_LL_CONTEXT_CONVO_AGENT
 from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
-from agents.proactive_agents_process import proactive_agents_processing_loop
+from agents.proactive_agents_process import start_proactive_agents_processing_loop
 from agents.expert_agent_configs import get_agent_by_name
 from agents.explicit_agent_process import explicit_agent_processing_loop, call_explicit_agent
-from agents.proactive_definer_agent_process import proactive_definer_processing_loop
-from agents.language_learning_agent_process import language_learning_agent_processing_loop
+from agents.proactive_definer_agent_process import start_proactive_definer_processing_loop
+from agents.language_learning_agent_process import start_language_learning_agent_processing_loop
 from agents.ll_context_convo_agent_process import ll_context_convo_agent_processing_loop
 from agents.adhd_stmb_agent_process import adhd_stmb_agent_processing_loop
 import agents.wake_words
@@ -202,6 +202,7 @@ async def ui_poll_handler(request, minutes=0.5):
     id_token = body.get('Authorization')
     user_id = await verify_id_token(id_token)
     if user_id is None:
+        print("user_id is None in ui_poll_handler")
         raise web.HTTPUnauthorized()
 
     # 400 if missing params
@@ -230,9 +231,6 @@ async def ui_poll_handler(request, minutes=0.5):
 #        resp["result"] = cse_results
 
     # get agent results
-    #proactive agents
-    agent_insight_results = db_handler.get_proactive_agents_insights_results_for_user_device(user_id=user_id, device_id=device_id)
-    resp["results_proactive_agent_insights"] = agent_insight_results
 
     # explicit agent - user queries and agent responses
     explicit_insight_queries = db_handler.get_explicit_query_history_for_user(user_id=user_id, device_id=device_id)
@@ -241,6 +239,12 @@ async def ui_poll_handler(request, minutes=0.5):
     resp["explicit_insight_queries"] = explicit_insight_queries
     resp["explicit_insight_results"] = explicit_insight_results
     resp["wake_word_time"] = wake_word_time
+
+    #proactive agents
+    # Ignore proactive agents if we've had a query in past 15 seconds
+    if time.time() - explicit_insight_queries[-1]['timestamp'] < (1000 * 15):
+        agent_insight_results = db_handler.get_proactive_agents_insights_results_for_user_device(user_id=user_id, device_id=device_id)
+        resp["results_proactive_agent_insights"] = agent_insight_results
 
     # intelligent definer
     entity_definitions = db_handler.get_agent_proactive_definer_results_for_user_device(user_id=user_id, device_id=device_id)
@@ -520,12 +524,12 @@ if __name__ == '__main__':
 
     # start intelligent definer agent process
     print("Starting Intelligent Definer Agent process...")
-    intelligent_definer_agent_process = multiprocessing.Process(target=proactive_definer_processing_loop)
+    intelligent_definer_agent_process = multiprocessing.Process(target=start_proactive_definer_processing_loop)
     intelligent_definer_agent_process.start()
 
     # start the proactive agents process
     print("Starting Proactive Agents process...")
-    proactive_agents_background_process = multiprocessing.Process(target=proactive_agents_processing_loop)
+    proactive_agents_background_process = multiprocessing.Process(target=start_proactive_agents_processing_loop)
     proactive_agents_background_process.start()
 
     # start the explicit agent process
@@ -535,13 +539,13 @@ if __name__ == '__main__':
 
     # start the language learning app process
     print("Starting Language Learning Agents process...")
-    language_learning_background_process = multiprocessing.Process(target=language_learning_agent_processing_loop)
+    language_learning_background_process = multiprocessing.Process(target=start_language_learning_agent_processing_loop)
     language_learning_background_process.start()
     
     # start the contextual convo language larning app process
-    #print("Starting Contextual Convo Language learning app process...")
-    #ll_context_convo_background_process = multiprocessing.Process(target=ll_context_convo_agent_processing_loop)
-    #ll_context_convo_background_process.start()
+    print("Starting Contextual Convo Language learning app process...")
+    ll_context_convo_background_process = multiprocessing.Process(target=ll_context_convo_agent_processing_loop)
+    ll_context_convo_background_process.start()
 
     # start the contextual convo language larning app process
     print("Starting ADHD STMB app process...")
@@ -590,6 +594,6 @@ if __name__ == '__main__':
     intelligent_definer_agent_process.join()
     #cse_process.join()
     language_learning_background_process.join()
-    #ll_context_convo_background_process.join()
+    ll_context_convo_background_process.join()
     explicit_background_process.join()
     adhd_stmb_background_process.join()

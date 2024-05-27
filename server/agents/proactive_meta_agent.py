@@ -20,6 +20,8 @@ import asyncio
 
 from Modules.LangchainSetup import *
 
+import time
+
 from DatabaseHandler import DatabaseHandler
 dbHandler = DatabaseHandler(parent_handler=False)
 
@@ -61,7 +63,7 @@ def make_expert_agents_prompts():
 
 
 @time_function()
-def run_proactive_meta_agent_and_experts(conversation_context: str, insights_history: list, user_id: str):
+async def run_proactive_meta_agent_and_experts(conversation_context: str, insights_history: list, user_id: str):
     #run proactive agent to find out which expert agents we should run
     proactive_meta_agent_response = run_proactive_meta_agent(conversation_context, insights_history, user_id)
 
@@ -83,19 +85,19 @@ def run_proactive_meta_agent_and_experts(conversation_context: str, insights_his
     experts_to_run = [ea for ea in default_expert_agent_list if (ea.agent_name in proactive_meta_agent_response)]
 
     #run all the agents in parralel
-    loop = asyncio.get_event_loop()
     agents_to_run_tasks = [expert_agent.run_agent_async(conversation_context, insights_history_dict[expert_agent.agent_name]) for expert_agent in experts_to_run]
-    insights_tasks = asyncio.gather(*agents_to_run_tasks)
-    insights = loop.run_until_complete(insights_tasks)
+    insights = await asyncio.gather(*agents_to_run_tasks)
     return insights
 
 @time_function()
 def run_proactive_meta_agent(conversation_context: str, insights_history: list, user_id: str):
+    gatekeeper_start_time = time.time()
+
     #get expert agents descriptions
     expert_agents_descriptions_prompt = make_expert_agents_prompts()
 
     # Start small model for gatekeeper
-    llm35 = get_langchain_gpt35()
+    llm4o = get_langchain_gpt4o()
 
     gatekeeper_score_prompt = PromptTemplate(
         template = proactive_meta_agent_gatekeeper_prompt_blueprint,
@@ -112,9 +114,11 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list, 
         ).to_string()
     )
 
+    print("GATEKEEPER IS RUNNING ON: " + conversation_context)
+
     with get_openai_callback() as cb:
         # print("GATEKEEPER PROMPT STRING", gatekeeper_score_prompt_string)
-        score_response = llm35.invoke(
+        score_response = llm4o.invoke(
             [HumanMessage(content=gatekeeper_score_prompt_string)]
         )
         gpt3cost = cb.total_cost
@@ -122,6 +126,9 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list, 
     try:
         content = proactive_meta_agent_gatekeeper_score_query_parser.parse(score_response.content)
         score = int(content.insight_usefulness_score)
+
+        print("=== the GATEKEEPER ended in {} seconds ===".format(round(time.time() - gatekeeper_start_time, 2)))
+
         if score < min_gatekeeper_score: 
             print("SCORE BAD ({} < {})! GATEKEEPER SAYS NO!".format(str(score), str(min_gatekeeper_score)))
             return None
@@ -133,8 +140,10 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list, 
     # Add this proactive query to history
     dbHandler.add_agent_insight_query_for_user(user_id, conversation_context)
 
+    agent_decider_start_time = time.time()
+
     #start up GPT4 connection
-    llm = get_langchain_gpt4(temperature=0.2)
+    llm = get_langchain_gpt4o(temperature=0.2, max_tokens=128)
 
     extract_proactive_meta_agent_query_prompt = PromptTemplate(
         template=proactive_meta_agent_prompt_blueprint,
@@ -157,10 +166,17 @@ def run_proactive_meta_agent(conversation_context: str, insights_history: list, 
 
     # print("Proactive meta agent query prompt string", proactive_meta_agent_query_prompt_string)
 
+    # print("THE DECIDER ASKS:")
+    # print(proactive_meta_agent_query_prompt_string)
+
     response = llm.invoke([HumanMessage(content=proactive_meta_agent_query_prompt_string)])
+    
+    print("=== the AGENT DECIDER ended in {} seconds ===".format(round(time.time() - agent_decider_start_time, 2)))
+
     try:
         expert_agents_to_run_list = proactive_meta_agent_query_parser.parse(response.content).agents_list
         return expert_agents_to_run_list
-    except OutputParserException:
+    except OutputParserException as e:
+        print("run_proactive_meta_agent ERROR: " + str(e))
         return None
 

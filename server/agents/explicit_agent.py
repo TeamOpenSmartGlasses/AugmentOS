@@ -11,7 +11,7 @@ import langchain
 #langchain.debug = True
 
 #llm = get_langchain_gpt4()
-llm = get_langchain_gpt4(max_tokens=350)
+llm = get_langchain_gpt4o(max_tokens=350)
 #llm = get_langchain_gpt35(max_tokens=1024)
 
 #explictly respond to user queries
@@ -82,7 +82,8 @@ async def run_explicit_agent_async(query, transcript_history = "", insight_histo
     expert_agents_name_list = get_expert_agents_name_list()
     prompt = explicit_agent_prompt_blueprint.format(insight_history=insight_history, query=query, transcript_history=transcript_history, expert_agents_name_list=expert_agents_name_list)
     transcript = "{}\nQuery: {}".format(insight_history, query)
-    return await (get_explicit_agent(transcript).arun(prompt))
+    insight = await (get_explicit_agent(transcript).ainvoke(prompt))
+    return insight['output']
 
 
 if __name__ == '__main__':

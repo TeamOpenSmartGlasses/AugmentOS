@@ -132,15 +132,15 @@ proactive_rare_word_agent_query_parser = PydanticOutputParser(
 )
 
 
-def run_proactive_definer_agent(
+async def run_proactive_definer_agent(
         user_id: str, dbHandler: DatabaseHandler, conversation_context: str, definitions_history: list = []
 ):
 
     irrelevant_terms = dbHandler.get_agent_proactive_definer_irrelevant_terms(user_id)
 
     # First: determine if we should even run
-    gpt3start = time.time()
-    llm35 = get_langchain_gpt35()
+    gpt4ostart = time.time()
+    llm4o = get_langchain_gpt4o()
 
     gatekeeper_score_prompt = PromptTemplate(
         template=proactive_gatekeeper_prompt_blueprint,
@@ -160,7 +160,7 @@ def run_proactive_definer_agent(
     )
 
     with get_openai_callback() as cb:
-        score_response = llm35.invoke(
+        score_response = await llm4o.ainvoke(
             [HumanMessage(content=gatekeeper_score_prompt_string)]
         )
         gpt3cost = cb.total_cost
@@ -169,7 +169,7 @@ def run_proactive_definer_agent(
         content = gatekeeper_score_query_parser.parse(score_response.content)
         score = int(content.score)
         gatekeeper_terms = content.terms
-        track_gpt3_time_and_cost(time.time() - gpt3start, gpt3cost)
+        track_gpt3_time_and_cost(time.time() - gpt4ostart, gpt3cost)
         if score < min_gatekeeper_score: return None
         print("SCORE GOOD ({})! RUNNING GPT4!".format(str(score)))
     except OutputParserException as e:
@@ -179,7 +179,7 @@ def run_proactive_definer_agent(
     # If relevant, run full prompt
     # start up GPT4 connection
     gpt4start = time.time()
-    llm4 = get_langchain_gpt4()
+    llm4 = get_langchain_gpt4o()
 
     extract_proactive_rare_word_agent_query_prompt = PromptTemplate(
         template=proactive_rare_word_agent_prompt_blueprint,
@@ -208,7 +208,7 @@ def run_proactive_definer_agent(
 
     # print("Proactive meta agent query prompt string", proactive_rare_word_agent_query_prompt_string)
     with get_openai_callback() as cb:
-        response = llm4(
+        response = await llm4.ainvoke(
             [HumanMessage(content=proactive_rare_word_agent_query_prompt_string)]
         )
         gpt4cost = cb.total_cost
@@ -234,7 +234,7 @@ def run_proactive_definer_agent(
         
         image_start = time.time()
         should_get_images = dbHandler.get_user_settings(user_id)["enable_agent_proactive_definer_images"]
-        res = search_entities(res.entities, should_get_images)
+        res = await search_entities(res.entities, should_get_images)
         track_image_time(time.time() - image_start)
         print("IMAGE TIME: " + str(time.time() - image_start))
         return res
@@ -242,14 +242,12 @@ def run_proactive_definer_agent(
         return None
 
 
-def search_entities(entities: list[Entity], should_get_images):
+async def search_entities(entities: list[Entity], should_get_images):
     search_tasks = []
     for entity in entities:
         search_tasks.append(search_url_for_entity_async(entity.search_keyword, should_get_images))
-
-    loop = asyncio.get_event_loop()
-    responses = asyncio.gather(*search_tasks)
-    responses = loop.run_until_complete(responses)
+    
+    responses = await asyncio.gather(*search_tasks)
 
     entity_objs = []
     for entity, response in zip(entities, responses):

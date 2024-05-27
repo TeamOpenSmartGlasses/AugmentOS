@@ -26,9 +26,12 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
+
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -48,11 +51,15 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.teamopensmartglasses.convoscope.events.SignOutEvent;
 import com.teamopensmartglasses.convoscope.ui.LandingUi;
 import com.teamopensmartglasses.convoscope.ui.SelectSmartGlassesUi;
 import com.teamopensmartglasses.convoscope.ui.UiUtils;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.utils.PermissionsUtils;
+import android.media.projection.MediaProjectionManager;
+
+import org.greenrobot.eventbus.Subscribe;
 
 public class MainActivity extends AppCompatActivity {
   public final String TAG = "Convoscope_MainActivity";
@@ -261,11 +268,26 @@ public class MainActivity extends AppCompatActivity {
     }
   };
 
-
+  private static final int REQUEST_CODE_CAPTURE = 100;
+  public void requestScreenCapturePermission() {
+    MediaProjectionManager projectionManager = (MediaProjectionManager) getSystemService(Context.MEDIA_PROJECTION_SERVICE);
+    Intent captureIntent = projectionManager.createScreenCaptureIntent();
+    startActivityForResult(captureIntent, REQUEST_CODE_CAPTURE);
+  }
 
   @Override
   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
+    if (requestCode == REQUEST_CODE_CAPTURE) {
+      if (resultCode == RESULT_OK && data != null) {
+        Intent serviceIntent = new Intent(this, ScreenCaptureService.class);
+        serviceIntent.putExtra("resultCode", resultCode);
+        serviceIntent.putExtra("data", data);
+        startService(serviceIntent);
+      } else {
+        Toast.makeText(this, "Permission Denied or Request Cancelled", Toast.LENGTH_SHORT).show();
+      }
+    }
 //    if (requestCode == PICK_CONTACT_REQUEST && resultCode == RESULT_OK) {
 //      Uri contactUri = data.getData();
 //
@@ -298,6 +320,11 @@ public class MainActivity extends AppCompatActivity {
 //    }
   }
 
+  public void stopScreenCapture() {
+    Intent serviceIntent = new Intent(this, ScreenCaptureService.class);
+    stopService(serviceIntent);
+  }
+
   @Override
   public boolean onSupportNavigateUp() {
     onBackPressed();
@@ -309,6 +336,11 @@ public class MainActivity extends AppCompatActivity {
             .edit()
             .putString("auth_token", newAuthToken)
             .apply();
+  }
+
+  @Subscribe
+  public void onSignOutEvent(SignOutEvent event){
+    signOut();
   }
 
   public void signOut(){
