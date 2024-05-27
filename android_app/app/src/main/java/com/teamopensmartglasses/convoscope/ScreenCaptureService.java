@@ -68,8 +68,8 @@ public class ScreenCaptureService extends Service {
     private Runnable imageBufferRunnableCode;
     private final Handler imageBufferLoopHandler = new Handler(Looper.getMainLooper());
     Bitmap bitmapBuffer = null;
-    private static final long TEXT_DEBOUNCE_TIME_MS = 400;
-    private static final long IMAGE_DEBOUNCE_TIME_MS = 500;
+    private static final long TEXT_DEBOUNCE_TIME_MS = 450;
+    private static final long IMAGE_DEBOUNCE_TIME_MS = 1200;
     public Boolean textOnly = true;
     private long lastProcessedTime = 0;
     private String lastNewText = "";
@@ -285,7 +285,12 @@ public class ScreenCaptureService extends Service {
 
             // Maximum allowed dimensions
             int maxWidth = 400;
-            int maxHeight = 640;
+            int maxHeight = 600;
+
+            //crop out the top pixels
+            // Crop the bitmap to remove the top phone display bar
+            bitmap = cropTopPixels(bitmap, 145);
+            bitmap = cropSidePixels(bitmap, 90);
 
             // Scale the bitmap down to fit within the max dimensions
             Bitmap scaledBitmap = scaleBitmap(bitmap, maxWidth, maxHeight);
@@ -574,6 +579,23 @@ public class ScreenCaptureService extends Service {
                     pixelsToCrop, // Start Y, skipping the top pixelsToCrop pixels
                     originalBitmap.getWidth(), // Width of the new bitmap
                     originalBitmap.getHeight() - pixelsToCrop // Height of the new bitmap
+            );
+        } else {
+            // Return the original bitmap if it's too small to be cropped
+            return originalBitmap;
+        }
+    }
+
+    public Bitmap cropSidePixels(Bitmap originalBitmap, int pixelsToCrop) {
+        // Check if the original bitmap width is greater than twice the pixels to crop
+        if (originalBitmap.getWidth() > 2 * pixelsToCrop) {
+            // Create a new bitmap without the side pixelsToCrop pixels
+            return Bitmap.createBitmap(
+                    originalBitmap,
+                    pixelsToCrop, // Start X, skipping the left pixelsToCrop pixels
+                    0, // Start Y
+                    originalBitmap.getWidth() - 2 * pixelsToCrop, // Width of the new bitmap
+                    originalBitmap.getHeight() // Height of the new bitmap
             );
         } else {
             // Return the original bitmap if it's too small to be cropped
