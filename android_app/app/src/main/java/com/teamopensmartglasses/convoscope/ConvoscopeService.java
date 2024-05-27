@@ -494,7 +494,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             // TODO: Filter here... is it meaningfully different?
             if(latitude == 0 && longitude == 0) return;
 
-            Log.d(TAG, "Got a GOOD location!");
+//            Log.d(TAG, "Got a GOOD location!");
 
             JSONObject jsonQuery = new JSONObject();
 
