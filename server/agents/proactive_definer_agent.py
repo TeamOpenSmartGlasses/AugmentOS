@@ -132,7 +132,7 @@ proactive_rare_word_agent_query_parser = PydanticOutputParser(
 )
 
 
-def run_proactive_definer_agent(
+async def run_proactive_definer_agent(
         user_id: str, dbHandler: DatabaseHandler, conversation_context: str, definitions_history: list = []
 ):
 
@@ -160,7 +160,7 @@ def run_proactive_definer_agent(
     )
 
     with get_openai_callback() as cb:
-        score_response = llm4o.invoke(
+        score_response = llm4o.ainvoke(
             [HumanMessage(content=gatekeeper_score_prompt_string)]
         )
         gpt3cost = cb.total_cost
@@ -208,7 +208,7 @@ def run_proactive_definer_agent(
 
     # print("Proactive meta agent query prompt string", proactive_rare_word_agent_query_prompt_string)
     with get_openai_callback() as cb:
-        response = llm4(
+        response = llm4.ainvoke(
             [HumanMessage(content=proactive_rare_word_agent_query_prompt_string)]
         )
         gpt4cost = cb.total_cost

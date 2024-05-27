@@ -44,9 +44,6 @@ async def proactive_agents_processing_loop():
         await asyncio.sleep(time_between_iterations)
 
         try:
-            pLoopStartTime = time.time()
-            # Check for new transcripts
-            # print("RUNNING MULTI-AGENT LOOP")
             newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(n=timelength_of_usable_transcripts)
             tasks = [process_transcript(transcript) for transcript in newTranscripts]
             await asyncio.gather(*tasks)
