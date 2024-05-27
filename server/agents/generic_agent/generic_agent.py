@@ -115,7 +115,7 @@ class GenericAgent:
     
     def run_agent_wrapper_async(self, agent, agent_explicit_prompt):
         async def run_expert_agent_wrapper_async(command):
-            return await agent.arun(agent_explicit_prompt + '\n[Extra Instructions]\n' + command)
+            return await agent.ainvoke(agent_explicit_prompt + '\n[Extra Instructions]\n' + command)
 
         return run_expert_agent_wrapper_async
 

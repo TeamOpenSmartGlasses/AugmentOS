@@ -54,8 +54,6 @@ async def proactive_agents_processing_loop():
             traceback.print_exc()
 
 async def process_transcript(transcript: str):
-    #print("skibbity bop process transcript")
-
     if not dbHandler.get_user_feature_enabled(transcript['user_id'], PROACTIVE_AGENTS): return
 
     # Check if transcripts are recent enough, TODO: this is inefficient
@@ -92,7 +90,6 @@ async def process_transcript(transcript: str):
     try:
         # Get proactive insight history
         insights_history = dbHandler.get_recent_nminutes_agent_insights_history_for_user(transcript['user_id'], n_minutes=90)
-        # print("insights_history: {}".format(insights_history))
         logger.log(level=logging.DEBUG, msg="Insights history: {}".format(insights_history))
         
         ### These agents have their own fast mini-gatekeepers ### 
@@ -106,12 +103,8 @@ async def process_transcript(transcript: str):
         experts_to_run = [ea for ea in default_expert_agent_list if (ea.agent_name in agents_to_run_list)]
 
         # Run all the agents in parallel
-        loop = asyncio.get_event_loop()
         agents_to_run_tasks = [expert_agent.run_aio_agent_gatekeeper_async(transcript['user_id'], transcript_to_use, insights_history_dict[expert_agent.agent_name]) for expert_agent in experts_to_run]
         await asyncio.gather(*agents_to_run_tasks)
-        # insights_tasks = asyncio.gather(*agents_to_run_tasks)
-        # loop.run_until_complete(insights_tasks)
-
 
         if len(dbHandler.get_recent_n_seconds_agent_insights_query_history_for_user(user_id=transcript['user_id'], n_seconds=time_between_iterations)) == 0:
             # Run proactive meta agent, get insights
@@ -125,7 +118,6 @@ async def process_transcript(transcript: str):
             for insight in insights:
                 if insight is None:
                     continue
-                #save this insight to the DB for the user
                 dbHandler.add_agent_insight_result_for_user(transcript['user_id'], insight["agent_name"], insight["agent_insight"], insight["reference_url"])
             # parse insights history into a dict of agent_name: [agent_insights] so expert agent won't repeat the same insights
         else:

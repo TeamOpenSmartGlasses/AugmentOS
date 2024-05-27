@@ -160,7 +160,7 @@ async def run_proactive_definer_agent(
     )
 
     with get_openai_callback() as cb:
-        score_response = llm4o.ainvoke(
+        score_response = await llm4o.ainvoke(
             [HumanMessage(content=gatekeeper_score_prompt_string)]
         )
         gpt3cost = cb.total_cost
@@ -208,7 +208,7 @@ async def run_proactive_definer_agent(
 
     # print("Proactive meta agent query prompt string", proactive_rare_word_agent_query_prompt_string)
     with get_openai_callback() as cb:
-        response = llm4.ainvoke(
+        response = await llm4.ainvoke(
             [HumanMessage(content=proactive_rare_word_agent_query_prompt_string)]
         )
         gpt4cost = cb.total_cost
@@ -234,7 +234,7 @@ async def run_proactive_definer_agent(
         
         image_start = time.time()
         should_get_images = dbHandler.get_user_settings(user_id)["enable_agent_proactive_definer_images"]
-        res = search_entities(res.entities, should_get_images)
+        res = await search_entities(res.entities, should_get_images)
         track_image_time(time.time() - image_start)
         print("IMAGE TIME: " + str(time.time() - image_start))
         return res
@@ -242,14 +242,12 @@ async def run_proactive_definer_agent(
         return None
 
 
-def search_entities(entities: list[Entity], should_get_images):
+async def search_entities(entities: list[Entity], should_get_images):
     search_tasks = []
     for entity in entities:
         search_tasks.append(search_url_for_entity_async(entity.search_keyword, should_get_images))
-
-    loop = asyncio.get_event_loop()
-    responses = asyncio.gather(*search_tasks)
-    responses = loop.run_until_complete(responses)
+    
+    responses = await asyncio.gather(*search_tasks)
 
     entity_objs = []
     for entity, response in zip(entities, responses):
