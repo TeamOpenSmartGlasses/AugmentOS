@@ -107,7 +107,7 @@ def format_list_data(data: dict) -> str:
 
 
 @time_function()
-def run_language_learning_agent(conversation_context: str, word_rank: dict, target_language="Russian", transcribe_language="English", source_language = "English", live_translate_word_history=""):
+async def run_language_learning_agent(conversation_context: str, word_rank: dict, target_language="Russian", transcribe_language="English", source_language = "English", live_translate_word_history=""):
     # start up GPT4o connection
     llm = get_langchain_gpt4o(temperature=0.2, max_tokens=80)
 
@@ -165,7 +165,7 @@ def run_language_learning_agent(conversation_context: str, word_rank: dict, targ
 
     # print("Proactive meta agent query prompt string", language_learning_agent_query_prompt_string)
 
-    response = llm.invoke(
+    response = await llm.ainvoke(
         [HumanMessage(content=language_learning_agent_query_prompt_string)])
     #print(response)
 

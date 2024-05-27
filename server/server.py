@@ -30,8 +30,8 @@ from DatabaseHandler import DatabaseHandler
 from agents.proactive_agents_process import start_proactive_agents_processing_loop
 from agents.expert_agent_configs import get_agent_by_name
 from agents.explicit_agent_process import explicit_agent_processing_loop, call_explicit_agent
-from agents.proactive_definer_agent_process import proactive_definer_processing_loop
-from agents.language_learning_agent_process import language_learning_agent_processing_loop
+from agents.proactive_definer_agent_process import start_proactive_definer_processing_loop
+from agents.language_learning_agent_process import start_language_learning_agent_processing_loop
 from agents.ll_context_convo_agent_process import ll_context_convo_agent_processing_loop
 from agents.adhd_stmb_agent_process import adhd_stmb_agent_processing_loop
 import agents.wake_words
@@ -520,7 +520,7 @@ if __name__ == '__main__':
 
     # start intelligent definer agent process
     print("Starting Intelligent Definer Agent process...")
-    intelligent_definer_agent_process = multiprocessing.Process(target=proactive_definer_processing_loop)
+    intelligent_definer_agent_process = multiprocessing.Process(target=start_proactive_definer_processing_loop)
     intelligent_definer_agent_process.start()
 
     # start the proactive agents process
@@ -535,7 +535,7 @@ if __name__ == '__main__':
 
     # start the language learning app process
     print("Starting Language Learning Agents process...")
-    language_learning_background_process = multiprocessing.Process(target=language_learning_agent_processing_loop)
+    language_learning_background_process = multiprocessing.Process(target=start_language_learning_agent_processing_loop)
     language_learning_background_process.start()
     
     # start the contextual convo language larning app process
