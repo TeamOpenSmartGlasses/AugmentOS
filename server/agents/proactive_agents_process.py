@@ -109,7 +109,7 @@ async def process_transcript(transcript: str):
         if len(dbHandler.get_recent_n_seconds_agent_insights_query_history_for_user(user_id=transcript['user_id'], n_seconds=time_between_iterations)) < 2:
             # Run proactive meta agent, get insights
             meta_start_time = time.time()
-            insights = run_proactive_meta_agent_and_experts(transcript_to_use, insights_history, transcript['user_id'])
+            insights = await run_proactive_meta_agent_and_experts(transcript_to_use, insights_history, transcript['user_id'])
             print("=== the PROACTIVE AGENT GENERATION META ended in {} seconds ===".format(round(time.time() - meta_start_time, 2)))
 
             if insights:

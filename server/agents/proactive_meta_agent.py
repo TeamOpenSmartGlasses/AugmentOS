@@ -63,7 +63,7 @@ def make_expert_agents_prompts():
 
 
 @time_function()
-def run_proactive_meta_agent_and_experts(conversation_context: str, insights_history: list, user_id: str):
+async def run_proactive_meta_agent_and_experts(conversation_context: str, insights_history: list, user_id: str):
     #run proactive agent to find out which expert agents we should run
     proactive_meta_agent_response = run_proactive_meta_agent(conversation_context, insights_history, user_id)
 
@@ -85,10 +85,8 @@ def run_proactive_meta_agent_and_experts(conversation_context: str, insights_his
     experts_to_run = [ea for ea in default_expert_agent_list if (ea.agent_name in proactive_meta_agent_response)]
 
     #run all the agents in parralel
-    loop = asyncio.get_event_loop()
     agents_to_run_tasks = [expert_agent.run_agent_async(conversation_context, insights_history_dict[expert_agent.agent_name]) for expert_agent in experts_to_run]
-    insights_tasks = asyncio.gather(*agents_to_run_tasks)
-    insights = loop.run_until_complete(insights_tasks)
+    insights = await asyncio.gather(*agents_to_run_tasks)
     return insights
 
 @time_function()
