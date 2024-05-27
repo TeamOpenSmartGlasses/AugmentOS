@@ -5,7 +5,7 @@ from server_config import ignore_auth
 cred = credentials.Certificate('auth/serviceAccountKey.json')
 firebase_admin.initialize_app(cred)
 
-async def verify_id_token(token):
+def verify_id_token(token):
     if ignore_auth and (token is None or token == ""): return "testUserId"
 
     try:
@@ -15,5 +15,5 @@ async def verify_id_token(token):
         name = decoded_token['name']
         return uid
     except Exception as e:
-        print(e)
+        print("AuthErr: ", e)
         return None
