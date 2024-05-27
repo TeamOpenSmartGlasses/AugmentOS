@@ -197,7 +197,6 @@ async def button_handler(request):
         return web.Response(text=json.dumps({'message': "button up activity detected"}), status=200)
 
 async def ui_poll_handler(request, minutes=0.5):
-    print("\nENTER UI POLL:")
     # parse request
     body = await request.json()
     # print(body)
