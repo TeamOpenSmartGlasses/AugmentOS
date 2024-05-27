@@ -51,12 +51,15 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.teamopensmartglasses.convoscope.events.SignOutEvent;
 import com.teamopensmartglasses.convoscope.ui.LandingUi;
 import com.teamopensmartglasses.convoscope.ui.SelectSmartGlassesUi;
 import com.teamopensmartglasses.convoscope.ui.UiUtils;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.utils.PermissionsUtils;
 import android.media.projection.MediaProjectionManager;
+
+import org.greenrobot.eventbus.Subscribe;
 
 public class MainActivity extends AppCompatActivity {
   public final String TAG = "Convoscope_MainActivity";
@@ -333,6 +336,11 @@ public class MainActivity extends AppCompatActivity {
             .edit()
             .putString("auth_token", newAuthToken)
             .apply();
+  }
+
+  @Subscribe
+  public void onSignOutEvent(SignOutEvent event){
+    signOut();
   }
 
   public void signOut(){

@@ -128,13 +128,13 @@ public class ConvoscopeUi extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EventBus.getDefault().register(this);
+        // EventBus.getDefault().register(this);
     }
 
     @Override
     public void onDestroy() {
       super.onDestroy();
-      EventBus.getDefault().unregister(this);
+      // EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -398,10 +398,10 @@ public class ConvoscopeUi extends Fragment {
 //    transaction.commit();
   }
 
-  @Subscribe
-  public void onGoogleAuthFailedEvent(GoogleAuthFailedEvent event){
-    ((MainActivity)getActivity()).signOut();
-  }
+  //@Subscribe
+  //public void onGoogleAuthFailedEvent(GoogleAuthFailedEvent event){
+    //((MainActivity)getActivity()).signOut();
+  //}
 
 }
 

@@ -49,6 +49,7 @@ import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
 import com.teamopensmartglasses.convoscope.events.NewScreenImageEvent;
 import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
+import com.teamopensmartglasses.convoscope.events.SignOutEvent;
 import com.teamopensmartglasses.convoscope.ui.ConvoscopeUi;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DiarizationOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisableBleScoAudioEvent;
@@ -81,6 +82,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     //our instance of the SGM library
     //public SGMLib sgmLib;
+
+    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth.AuthStateListener authStateListener;
+    private FirebaseAuth.IdTokenListener idTokenListener;
 
     //Convoscope stuff
     String authToken = "";
@@ -174,7 +179,30 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         Log.d(TAG, "ASR KEY: " + asrApiKey);
         saveApiKey(this, asrApiKey);
 
-        startAuthTokenRefresh(); //get auth token and set to keep refreshing
+        setupAuthTokenMonitor();
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user == null) {
+                    // User is signed out
+                    handleSignOut();
+                } else {
+                    // User is signed in
+                    // Initialize polling or other operations
+                    completeInitialization();
+                }
+            }
+        };
+
+        // Add the listeners
+        firebaseAuth.addAuthStateListener(authStateListener);
+        firebaseAuth.addIdTokenListener(idTokenListener);
+    }
+
+    public void completeInitialization(){
         setUpUiPolling();
         setUpDisplayQueuePolling();
         setUpLocationSending();
@@ -187,6 +215,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         getCurrentMode(this);
 
         this.aioConnectSmartGlasses();
+    }
+
+    public void handleSignOut(){
+        EventBus.getDefault().post(new SignOutEvent());
     }
 
     public void sendSettings(JSONObject settingsObj){
@@ -301,6 +333,14 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         if (virtualDisplay != null) virtualDisplay.release();
         if (mediaProjection != null) mediaProjection.stop();
         EventBus.getDefault().unregister(this);
+
+        if (authStateListener != null) {
+            firebaseAuth.removeAuthStateListener(authStateListener);
+        }
+        if (idTokenListener != null) {
+            firebaseAuth.removeIdTokenListener(idTokenListener);
+        }
+
         super.onDestroy();
     }
 
@@ -990,52 +1030,36 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //        phoneNum = newNum.replaceAll("[^0-9]", "");
 //    }
 
-//    public void setAuthToken(){
-//        Log.d(TAG, "GETTING AUTH TOKEN");
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        if (user != null) {
-//            user.getIdToken(true)
-//                .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
-//                    public void onComplete(@NonNull Task<GetTokenResult> task) {
-//                        if (task.isSuccessful()) {
-//                            String idToken = task.getResult().getToken();
-//                            Log.d(TAG, "GOT dat Auth Token: " + idToken);
-//                            authToken = idToken;
-//                            EventBus.getDefault().post(new GoogleAuthSucceedEvent());
-//                            PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
-//                                    .edit()
-//                                    .putString("auth_token", authToken)
-//                                    .apply();
-//                        } else {
-//                            EventBus.getDefault().post(new GoogleAuthFailedEvent());
-//                        }
-//                    }
-//                });
-//        }
-//        else {
-//            // not logged in, must log in
-//            EventBus.getDefault().post(new GoogleAuthFailedEvent());
-//        }
-//    }
-
-    private Handler authHandler = new Handler();
-    private Runnable authRunnable = new Runnable() {
-        @Override
-        public void run() {
-            setAuthToken();
-            authHandler.postDelayed(this, 59 * 60 * 1000); // Schedule the next run after 59 minutes
-        }
-    };
-
-    public void startAuthTokenRefresh() {
-        authRunnable.run(); // Start the initial run
+    public void setupAuthTokenMonitor(){
+        idTokenListener = new FirebaseAuth.IdTokenListener() {
+            @Override
+            public void onIdTokenChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    user.getIdToken(true).addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<GetTokenResult> task) {
+                            if (task.isSuccessful()) {
+                                String idToken = task.getResult().getToken();
+                                Log.d(TAG, "GOT dat Auth Token: " + idToken);
+                                authToken = idToken;
+                                PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
+                                        .edit()
+                                        .putString("auth_token", authToken)
+                                        .apply();
+                                EventBus.getDefault().post(new GoogleAuthSucceedEvent());
+                            } else {
+                                Log.d(TAG, "Task failure in setAuthToken");
+                                EventBus.getDefault().post(new GoogleAuthFailedEvent("#1 ERROR IN (setupAuthTokenMonitor)"));
+                            }
+                        }
+                    });
+                }
+            }
+        };
     }
 
-    public void stopAuthTokenRefresh() {
-        authHandler.removeCallbacks(authRunnable); // Stop the recurring task
-    }
-
-    public void setAuthToken() {
+    public void manualSetAuthToken() {
         Log.d(TAG, "GETTING AUTH TOKEN");
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -1158,6 +1182,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     @Subscribe
     public void onGoogleAuthSucceed(GoogleAuthSucceedEvent event){
         Log.d(TAG, "Running google auth succeed event response");
+        resetGoogleAuthRetryCount();
         //give the server our latest settings
         updateTargetLanguageOnBackend(this);
         updateSourceLanguageOnBackend(this);
@@ -1338,6 +1363,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     //retry auth right away if it failed, but don't do it too much as we have a max # refreshes/day
+    private int max_google_retries = 3;
     private int googleAuthRetryCount = 0;
     private long lastGoogleAuthRetryTime = 0;
 
@@ -1346,10 +1372,13 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         Log.d(TAG, "onGoogleAuthFailedEvent triggered");
         this.sendReferenceCard("Error", "Convoscope Authentication Error: " + event.reason);
         long currentTime = System.currentTimeMillis();
-        if (currentTime - lastGoogleAuthRetryTime >= 2000 && googleAuthRetryCount < 3) {
-            setAuthToken();
+        if (currentTime - lastGoogleAuthRetryTime >= 2000 && googleAuthRetryCount < max_google_retries) {
+            manualSetAuthToken();
             lastGoogleAuthRetryTime = currentTime;
             googleAuthRetryCount++;
+        }
+        else if (googleAuthRetryCount >= max_google_retries) {
+            Log.d(TAG, "MAX GOOGLE RETRIES");
         }
     }
 
