@@ -12,6 +12,8 @@ import android.content.SharedPreferences;
 import android.content.pm.ServiceInfo;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.hardware.display.DisplayManager;
@@ -66,8 +68,8 @@ public class ScreenCaptureService extends Service {
     private Runnable imageBufferRunnableCode;
     private final Handler imageBufferLoopHandler = new Handler(Looper.getMainLooper());
     Bitmap bitmapBuffer = null;
-    private static final long TEXT_DEBOUNCE_TIME_MS = 4000;
-    private static final long IMAGE_DEBOUNCE_TIME_MS = 4000;
+    private static final long TEXT_DEBOUNCE_TIME_MS = 400;
+    private static final long IMAGE_DEBOUNCE_TIME_MS = 500;
     public Boolean textOnly = true;
     private long lastProcessedTime = 0;
     private String lastNewText = "";
@@ -81,9 +83,6 @@ public class ScreenCaptureService extends Service {
     }
 
     public void startImageBufferLoop() {
-        //run once right away
-        processBitmap(bitmapBuffer);
-
         //start looper
         imageBufferRunnableCode = new Runnable() {
             @Override
@@ -218,6 +217,25 @@ public class ScreenCaptureService extends Service {
         }, null);
     }
 
+    // Function to scale the bitmap down to fit within max dimensions
+    private Bitmap scaleBitmap(Bitmap bitmap, int maxWidth, int maxHeight) {
+        int originalWidth = bitmap.getWidth();
+        int originalHeight = bitmap.getHeight();
+
+        if (originalWidth <= maxWidth && originalHeight <= maxHeight) {
+            return bitmap;
+        }
+
+        float widthRatio = (float) maxWidth / originalWidth;
+        float heightRatio = (float) maxHeight / originalHeight;
+        float scale = Math.min(widthRatio, heightRatio);
+
+        int newWidth = Math.round(originalWidth * scale);
+        int newHeight = Math.round(originalHeight * scale);
+
+        return Bitmap.createScaledBitmap(bitmap, newWidth, newHeight, true);
+    }
+
     public Bitmap imageToBitmap(Image image){
         Image.Plane[] planes = image.getPlanes();
         ByteBuffer buffer = planes[0].getBuffer();
@@ -239,11 +257,75 @@ public class ScreenCaptureService extends Service {
             recognizeTextFromBitmap(bitmap);
         }
         else {
+//            if (!haveBitmapsChangedSignificantly(bitmap, lastNewImage, 222)) return;
+//            Log.d(TAG, "Bitmaps are different enough!");
+//            lastNewImage = bitmap;
+//            //add some padding to width of bitmap
+//
+//            EventBus.getDefault().post(new NewScreenImageEvent(bitmap));
+
+            // Usage
+//            if (!haveBitmapsChangedSignificantly(bitmap, lastNewImage, 222)) return;
+//            Log.d(TAG, "Bitmaps are different enough!");
+//            lastNewImage = bitmap;
+//
+//            // Desired aspect ratio (e.g., 16:9)
+//            float desiredAspectRatio = 16f / 16f;
+//
+//            // Add padding to the bitmap to achieve the desired aspect ratio
+//            Bitmap paddedBitmap = addPaddingToBitmap(bitmap, desiredAspectRatio);
+//
+//            // Post the new bitmap event
+//            EventBus.getDefault().post(new NewScreenImageEvent(paddedBitmap));
+
+
             if (!haveBitmapsChangedSignificantly(bitmap, lastNewImage, 222)) return;
             Log.d(TAG, "Bitmaps are different enough!");
             lastNewImage = bitmap;
-            EventBus.getDefault().post(new NewScreenImageEvent(bitmap));
+
+            // Maximum allowed dimensions
+            int maxWidth = 400;
+            int maxHeight = 640;
+
+            // Scale the bitmap down to fit within the max dimensions
+            Bitmap scaledBitmap = scaleBitmap(bitmap, maxWidth, maxHeight);
+
+            // Desired aspect ratio (e.g., 16:9)
+            float desiredAspectRatio = 16f / 14f;
+
+            // Add padding to the scaled bitmap to achieve the desired aspect ratio
+            Bitmap paddedBitmap = addPaddingToBitmap(scaledBitmap, desiredAspectRatio);
+
+            // Post the new bitmap event
+            EventBus.getDefault().post(new NewScreenImageEvent(paddedBitmap));
         }
+    }
+
+    // Function to add padding to the bitmap to achieve the desired aspect ratio
+    private Bitmap addPaddingToBitmap(Bitmap bitmap, float desiredAspectRatio) {
+        int originalWidth = bitmap.getWidth();
+        int originalHeight = bitmap.getHeight();
+
+        float originalAspectRatio = (float) originalWidth / originalHeight;
+
+        if (originalAspectRatio >= desiredAspectRatio) {
+            // No padding needed if the current aspect ratio is greater than or equal to the desired aspect ratio
+            return bitmap;
+        }
+
+        // Calculate the new width needed to achieve the desired aspect ratio
+        int newWidth = Math.round(desiredAspectRatio * originalHeight);
+
+        // Create a new bitmap with the new width and original height
+        Bitmap paddedBitmap = Bitmap.createBitmap(newWidth, originalHeight, bitmap.getConfig());
+
+        // Draw the original bitmap onto the new bitmap with padding
+        Canvas canvas = new Canvas(paddedBitmap);
+        int padding = (newWidth - originalWidth) / 2;
+        canvas.drawColor(Color.BLACK); // Fill the padding area with black (or any other color)
+        canvas.drawBitmap(bitmap, padding, 0, null);
+
+        return paddedBitmap;
     }
 
     private void recognizeTextFromBitmap(Bitmap bitmap) {
@@ -423,7 +505,7 @@ public class ScreenCaptureService extends Service {
 
                         String processedText = fullText.toString();
 
-                        if (levenshteinDistance(processedText, lastNewText) <= 2) return;
+                        if (levenshteinDistance(processedText, lastNewText) <= 5) return;
 
                         Log.d(TAG, "NEW TEXT:\n" + processedText);
 
