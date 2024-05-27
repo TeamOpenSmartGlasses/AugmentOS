@@ -15,5 +15,5 @@ async def verify_id_token(token):
         name = decoded_token['name']
         return uid
     except Exception as e:
-        # print(e)
+        print(e)
         return None

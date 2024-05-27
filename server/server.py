@@ -202,6 +202,7 @@ async def ui_poll_handler(request, minutes=0.5):
     id_token = body.get('Authorization')
     user_id = await verify_id_token(id_token)
     if user_id is None:
+        print("user_id is None in ui_poll_handler")
         raise web.HTTPUnauthorized()
 
     # 400 if missing params
@@ -230,9 +231,6 @@ async def ui_poll_handler(request, minutes=0.5):
 #        resp["result"] = cse_results
 
     # get agent results
-    #proactive agents
-    agent_insight_results = db_handler.get_proactive_agents_insights_results_for_user_device(user_id=user_id, device_id=device_id)
-    resp["results_proactive_agent_insights"] = agent_insight_results
 
     # explicit agent - user queries and agent responses
     explicit_insight_queries = db_handler.get_explicit_query_history_for_user(user_id=user_id, device_id=device_id)
@@ -241,6 +239,12 @@ async def ui_poll_handler(request, minutes=0.5):
     resp["explicit_insight_queries"] = explicit_insight_queries
     resp["explicit_insight_results"] = explicit_insight_results
     resp["wake_word_time"] = wake_word_time
+
+    #proactive agents
+    # Ignore proactive agents if we've had a query in past 15 seconds
+    if time.time() - explicit_insight_queries[-1]['timestamp'] < (1000 * 15):
+        agent_insight_results = db_handler.get_proactive_agents_insights_results_for_user_device(user_id=user_id, device_id=device_id)
+        resp["results_proactive_agent_insights"] = agent_insight_results
 
     # intelligent definer
     entity_definitions = db_handler.get_agent_proactive_definer_results_for_user_device(user_id=user_id, device_id=device_id)
