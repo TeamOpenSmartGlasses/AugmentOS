@@ -104,6 +104,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private Runnable uiPollRunnableCode;
     private Runnable displayRunnableCode;
     private Runnable locationSendingRunnableCode;
+    private boolean shouldPoll = true;
     private LocationSystem locationSystem;
     static final String deviceId = "android";
     public String proactiveAgents = "proactive_agent_insights";
@@ -285,7 +286,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         uiPollRunnableCode = new Runnable() {
             @Override
             public void run() {
-                if (authToken != "") {
+                if (authToken != "" && shouldPoll) {
                     requestUiPoll();
                 }
                 csePollLoopHandler.postDelayed(this, 200);
@@ -1041,11 +1042,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                         public void onComplete(@NonNull Task<GetTokenResult> task) {
                             if (task.isSuccessful()) {
                                 String idToken = task.getResult().getToken();
-                                Log.d(TAG, "GOT dat Auth Token: " + idToken);
+                                Log.d(TAG, "GOT ONIDTOKENCHANGED Auth Token: " + idToken);
                                 authToken = idToken;
                                 PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
                                         .edit()
-                                        .putString("auth_token", authToken)
+                                        .putString("auth_token", idToken)
                                         .apply();
                                 EventBus.getDefault().post(new GoogleAuthSucceedEvent());
                             } else {
@@ -1068,11 +1069,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                         public void onComplete(@NonNull Task<GetTokenResult> task) {
                             if (task.isSuccessful()) {
                                 String idToken = task.getResult().getToken();
-                                Log.d(TAG, "GOT dat Auth Token: " + idToken);
+                                Log.d(TAG, "GOT dat MANUAL Auth Token: " + idToken);
                                 authToken = idToken;
                                 PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
                                         .edit()
-                                        .putString("auth_token", authToken)
+                                        .putString("auth_token", idToken)
                                         .apply();
                                 EventBus.getDefault().post(new GoogleAuthSucceedEvent());
                             } else {
@@ -1372,14 +1373,18 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         Log.d(TAG, "onGoogleAuthFailedEvent triggered");
         this.sendReferenceCard("Error", "Convoscope Authentication Error: " + event.reason);
         long currentTime = System.currentTimeMillis();
-        if (currentTime - lastGoogleAuthRetryTime >= 2000 && googleAuthRetryCount < max_google_retries) {
-            manualSetAuthToken();
-            lastGoogleAuthRetryTime = currentTime;
-            googleAuthRetryCount++;
-        }
-        else if (googleAuthRetryCount >= max_google_retries) {
-            Log.d(TAG, "MAX GOOGLE RETRIES");
-        }
+        resetAuthToken();
+        Log.d(TAG, "Manually refresh auth token");
+        shouldPoll = false;
+        manualSetAuthToken();
+
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                shouldPoll = true;
+            }
+        }, 4000); // 4 seconds delay to ensure token is refreshed
     }
 
     @Subscribe
@@ -1395,6 +1400,14 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     public void resetGoogleAuthRetryCount() {
         googleAuthRetryCount = 0;
+    }
+
+    public void resetAuthToken(){
+        authToken = "";
+        PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
+                .edit()
+                .putString("auth_token", "")
+                .apply();
     }
 
 }
