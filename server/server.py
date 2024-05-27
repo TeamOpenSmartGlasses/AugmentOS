@@ -55,7 +55,7 @@ async def chat_handler(request):
     transcribe_language = body.get('transcribe_language')
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is None:
         raise web.HTTPUnauthorized()
 
@@ -82,7 +82,7 @@ async def chat_diarization(request):
     transcript_meta_data = body.get('transcript_meta_data')
     device_id = body.get('deviceId')
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is None:
         raise web.HTTPUnauthorized()
 
@@ -141,10 +141,11 @@ async def load_recording_handler(request):
 
 
 async def set_user_settings(request):
+    print("\nENTER SET USER SETTINGS")
     body = await request.json()
     target_language = body.get('target_language')
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is None:
         raise web.HTTPUnauthorized()
     
@@ -154,9 +155,10 @@ async def set_user_settings(request):
 
 
 async def get_user_settings(request):
+    print("Enter get user settings")
     body = await request.json()
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is None:
         raise web.HTTPUnauthorized()
     
@@ -172,7 +174,7 @@ async def button_handler(request):
     button_activity = body.get('buttonActivity')
     timestamp = body.get('timestamp')
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is None:
         raise web.HTTPUnauthorized()
     print('\n=== New Request ===\n', button_num,
@@ -195,12 +197,13 @@ async def button_handler(request):
         return web.Response(text=json.dumps({'message': "button up activity detected"}), status=200)
 
 async def ui_poll_handler(request, minutes=0.5):
+    print("\nENTER UI POLL:")
     # parse request
     body = await request.json()
     # print(body)
     device_id = body.get('deviceId')
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is None:
         print("user_id is None in ui_poll_handler")
         raise web.HTTPUnauthorized()
@@ -242,7 +245,7 @@ async def ui_poll_handler(request, minutes=0.5):
 
     #proactive agents
     # Ignore proactive agents if we've had a query in past 15 seconds
-    if time.time() - explicit_insight_queries[-1]['timestamp'] < (1000 * 15):
+    if not explicit_insight_queries or (time.time() - explicit_insight_queries[-1]['timestamp'] < (1000 * 15)):
         agent_insight_results = db_handler.get_proactive_agents_insights_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["results_proactive_agent_insights"] = agent_insight_results
 
@@ -292,7 +295,7 @@ async def upload_user_data_handler(request):
 
     user_file = post_data.get('custom-file')
     id_token = post_data.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is None:
         raise web.HTTPUnauthorized()
 
@@ -346,7 +349,7 @@ async def run_single_expert_agent_handler(request):
     body = await request.json()
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is None:
         raise web.HTTPUnauthorized()
     agent_name = body.get('agentName')
@@ -377,7 +380,7 @@ async def send_agent_chat_handler(request):
     body = await request.json()
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is None:
         raise web.HTTPUnauthorized()
     chat_message = body.get('chatMessage')
@@ -412,7 +415,7 @@ async def update_gps_location_for_user(request):
 
     body = await request.json()
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     device_id = body.get('deviceId')
 
     # print("update_gps_location_for_user #################################")
@@ -448,7 +451,7 @@ async def pov_image(request):
     body = await request.json()
     print("BODY: " + str(body))
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     # device_id = body.get('deviceId')
     pov_image = body.get('pov_image')
 
@@ -476,7 +479,7 @@ async def pov_image(request):
 async def rate_result_handler(request):
     body = await request.json()
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is None:
         raise web.HTTPUnauthorized()
     result_uuid = body.get('resultUuid')
@@ -500,7 +503,7 @@ async def rate_result_handler(request):
 async def protected_route(request):
     print("PROTECTED ROUTE")
     id_token = request.headers.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is not None:
         # Proceed with the user request
         print()
