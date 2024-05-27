@@ -68,8 +68,8 @@ public class ScreenCaptureService extends Service {
     private Runnable imageBufferRunnableCode;
     private final Handler imageBufferLoopHandler = new Handler(Looper.getMainLooper());
     Bitmap bitmapBuffer = null;
-    private static final long TEXT_DEBOUNCE_TIME_MS = 450;
-    private static final long IMAGE_DEBOUNCE_TIME_MS = 1200;
+    private static final long TEXT_DEBOUNCE_TIME_MS = 600;
+    private static final long IMAGE_DEBOUNCE_TIME_MS = 1500;
     public Boolean textOnly = true;
     private long lastProcessedTime = 0;
     private String lastNewText = "";
@@ -517,8 +517,6 @@ public class ScreenCaptureService extends Service {
                         lastNewText = processedText;
 
                         // Post the processed text to the event bus
-                        // TODO: WHAT???
-                        // EventBus.getDefault().post(new NewScreenTextEvent(processedText));
                         EventBus.getDefault().post(new NewScreenTextEvent(fullText.toString()));
                     }
                 })
