@@ -2,6 +2,8 @@
 
 #### A suite of smart glasses and web tools to augment conversations.
 
+[![Convoscope Proactive Agents Vision video](./images/convoscope_play_video.jpg)](https://www.youtube.com/watch?v=3n6DzuYQ_v8 "Convoscope Vision Video")
+
 Convoscope provides a suite of tools for smart glasses, with a focus on augmenting conversations with live proactive agents.
 
 Convoscope answers your questions before you even ask. It does so by listening to your conversations and proactively providing useful definitions and insights to help you understand what is said, have better ideas, and more effectively solve problems. It runs on smart glasses for IRL conversations or on a laptop for meeting rooms and video calls.
@@ -20,8 +22,6 @@ Say "hey Mira" and then ask a question. Mira is a AI agent with internet access 
 #### Convoscope Proactive AI Agents
 
 Convoscope answers your questions before you even ask. It does so by listening to your conversations and proactively providing useful definitions and insights to help you understand what is said, have better ideas, and more effectively solve problems. It runs on smart glasses for IRL conversations or on a laptop for meeting rooms and video calls.
-
-[![Convoscope Proactive Agents Vision video](./convoscope_play_video.jpg)](https://www.youtube.com/watch?v=3n6DzuYQ_v8 "Convoscope Vision Video")
 
 ##### What Does It Do?
 
@@ -53,6 +53,10 @@ Mirror anything on your screen to your smart glasses. We use a lightweight, nove
 - ADHD Glasses
 - Live Language Translation
 - More TBA
+
+
+[![Convoscope Language Learning Glasses Through The Lens](./images/convoscope_app_ll.jpg)]
+[![Convoscope Language Learning Through The Lens](./images/convoscope_throughlens_ll.jpg)]
 
 ## Hardware - Supported Glasses + Phones
 
