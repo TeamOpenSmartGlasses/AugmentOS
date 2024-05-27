@@ -55,8 +55,11 @@ Mirror anything on your screen to your smart glasses. We use a lightweight, nove
 - More TBA
 
 
-[![Convoscope Language Learning Glasses Through The Lens](./images/convoscope_app_ll.jpg)]
-[![Convoscope Language Learning Through The Lens](./images/convoscope_throughlens_ll.jpg)]
+<p align="center">
+  <img src="./images/convoscope_app_ll.jpg" alt="Convoscope Language Learning Glasses Through The Lens" width="400"/>
+  <img src="./images/convoscope_throughlens_ll.jpg" alt="Convoscope Language Learning Through The Lens" width="400"/>
+</p>
+
 
 ## Hardware - Supported Glasses + Phones
 
