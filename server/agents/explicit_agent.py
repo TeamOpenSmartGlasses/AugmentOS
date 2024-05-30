@@ -1,7 +1,6 @@
 from agents.search_tool_for_agents import get_search_tool_for_agents
 from agents.expert_agent_configs import default_expert_agent_list
 from langchain.agents import initialize_agent
-from server_config import openai_api_key
 from langchain.agents import AgentType
 import asyncio
 from Modules.LangchainSetup import *
