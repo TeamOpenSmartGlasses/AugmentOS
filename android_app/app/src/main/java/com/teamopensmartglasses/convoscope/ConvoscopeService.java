@@ -105,6 +105,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private Runnable displayRunnableCode;
     private Runnable locationSendingRunnableCode;
     private boolean shouldPoll = true;
+    private long lastDataSentTime = 0;
+    private final long POLL_INTERVAL_ACTIVE = 200; // 200ms when actively sending data
+    private final long POLL_INTERVAL_INACTIVE = 5000; // 5000ms (5s) when inactive
+    private final long DATA_SENT_THRESHOLD = 60000; // 60 seconds
     private LocationSystem locationSystem;
     static final String deviceId = "android";
     public String proactiveAgents = "proactive_agent_insights";
@@ -268,7 +272,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 if (shouldPoll) {
                     requestUiPoll();
                 }
-                csePollLoopHandler.postDelayed(this, 200);
+                long currentTime = System.currentTimeMillis();
+                long interval = (currentTime - lastDataSentTime < DATA_SENT_THRESHOLD) ? POLL_INTERVAL_ACTIVE : POLL_INTERVAL_INACTIVE;
+                csePollLoopHandler.postDelayed(this, interval);
             }
         };
         csePollLoopHandler.post(uiPollRunnableCode);
@@ -444,6 +450,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     public void sendTranscriptRequest(String query, boolean isFinal){
+        updateLastDataSentTime();
         try{
             JSONObject jsonQuery = new JSONObject();
             jsonQuery.put("text", query);
@@ -991,14 +998,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
     }
 
-//    @Subscribe
-//    public void onContactChangedEvent(SharingContactChangedEvent receivedEvent){
-//        Log.d(TAG, "GOT NEW PHONE NUMBER: " + receivedEvent.phoneNumber);
-//        String newNum = receivedEvent.phoneNumber;
-//        phoneNumName = receivedEvent.name;
-//        phoneNum = newNum.replaceAll("[^0-9]", "");
-//    }
-
     public void setupAuthTokenMonitor(){
         idTokenListener = new FirebaseAuth.IdTokenListener() {
             @Override
@@ -1151,7 +1150,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     @Subscribe
     public void onGoogleAuthSucceed(GoogleAuthSucceedEvent event){
         Log.d(TAG, "Running google auth succeed event response");
-        resetGoogleAuthRetryCount();
         //give the server our latest settings
         //updateTargetLanguageOnBackend(this);
         //updateSourceLanguageOnBackend(this);
@@ -1331,11 +1329,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
     }
 
-    //retry auth right away if it failed, but don't do it too much as we have a max # refreshes/day
-    private int max_google_retries = 3;
-    private int googleAuthRetryCount = 0;
-    private long lastGoogleAuthRetryTime = 0;
-
     @Subscribe
     public void onGoogleAuthFailedEvent(GoogleAuthFailedEvent event) {
         Log.d(TAG, "onGoogleAuthFailedEvent triggered");
@@ -1354,16 +1347,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         this.sendBitmap(event.bmp);
     }
 
-    public void resetGoogleAuthRetryCount() {
-        googleAuthRetryCount = 0;
-    }
-
-    public void resetAuthToken(){
-        authToken = "";
-        PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
-                .edit()
-                .putString("auth_token", "")
-                .apply();
+    private void updateLastDataSentTime() {
+        lastDataSentTime = System.currentTimeMillis();
     }
 
 }
