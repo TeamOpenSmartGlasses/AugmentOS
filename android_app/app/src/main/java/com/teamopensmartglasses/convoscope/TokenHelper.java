@@ -21,7 +21,10 @@ public class TokenHelper {
     }
 
     public static void getToken(TokenListener listener) throws JSONException {
-        if (cachedToken != null && System.currentTimeMillis() < tokenExpirationTime) {
+        // Set a buffer time of 5 minutes before expiration
+        long bufferTime = 5 * 60 * 1000; // 5 minutes in milliseconds
+
+        if (cachedToken != null && (System.currentTimeMillis() + bufferTime) < tokenExpirationTime) {
             listener.onTokenReceived(cachedToken);
         } else {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
