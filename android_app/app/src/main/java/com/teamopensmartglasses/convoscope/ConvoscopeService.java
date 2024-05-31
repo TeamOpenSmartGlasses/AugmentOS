@@ -180,30 +180,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         Log.d(TAG, "ASR KEY: " + asrApiKey);
         saveApiKey(this, asrApiKey);
 
-        setupAuthTokenMonitor();
-
-        firebaseAuth = FirebaseAuth.getInstance();
-        authStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user == null) {
-                    // User is signed out
-                    handleSignOut();
-                } else {
-                    // User is signed in
-                    // Initialize polling or other operations
-                    completeInitialization();
-                }
-            }
-        };
-
-        // Add the listeners
-        firebaseAuth.addAuthStateListener(authStateListener);
-        firebaseAuth.addIdTokenListener(idTokenListener);
+        completeInitialization();
     }
 
     public void completeInitialization(){
+        Log.d(TAG, "COMPLETE CONVOSCOPE INITIALIZATION");
         setUpUiPolling();
         setUpDisplayQueuePolling();
         setUpLocationSending();
@@ -225,7 +206,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public void sendSettings(JSONObject settingsObj){
         try{
             Log.d(TAG, "AUTH from Settings: " + authToken);
-            settingsObj.put("Authorization", authToken);
             settingsObj.put("timestamp", System.currentTimeMillis() / 1000);
             backendServerComms.restRequest(SET_USER_SETTINGS_ENDPOINT, settingsObj, new VolleyJsonCallback(){
                 @Override
@@ -253,7 +233,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         try{
             Log.d(TAG, "Runnign get settings");
             JSONObject getSettingsObj = new JSONObject();
-            getSettingsObj.put("Authorization", authToken);
             backendServerComms.restRequest(GET_USER_SETTINGS_ENDPOINT, getSettingsObj, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
@@ -276,7 +255,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                     Log.d(TAG, "SOME FAILURE HAPPENED (getSettings)");
                 }
             });
-        } catch (JSONException e){
+        } catch (Exception e){
             e.printStackTrace();
             Log.d(TAG, "SOME FAILURE HAPPENED (getSettings)");
         }
@@ -286,7 +265,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         uiPollRunnableCode = new Runnable() {
             @Override
             public void run() {
-                if (authToken != "" && shouldPoll) {
+                if (shouldPoll) {
                     requestUiPoll();
                 }
                 csePollLoopHandler.postDelayed(this, 200);
@@ -406,7 +385,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         try{
             JSONObject jsonQuery = new JSONObject();
             jsonQuery.put("transcript_meta_data", event.diarizationData);
-            jsonQuery.put("Authorization", authToken);
             jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
             backendServerComms.restRequest(DIARIZE_QUERY_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
@@ -466,16 +444,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     public void sendTranscriptRequest(String query, boolean isFinal){
-        if (Objects.equals(authToken, "")){
-            Log.d(TAG, "Empty authToken in sendTranscriptRequest");
-            EventBus.getDefault().post(new GoogleAuthFailedEvent("Empty authToken in sendTranscriptRequest"));
-        }
-
         try{
             JSONObject jsonQuery = new JSONObject();
             jsonQuery.put("text", query);
             jsonQuery.put("transcribe_language", getChosenTranscribeLanguage(this));
-            jsonQuery.put("Authorization", authToken);
             jsonQuery.put("isFinal", isFinal);
             jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
             backendServerComms.restRequest(LLM_QUERY_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
@@ -501,7 +473,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public void requestUiPoll(){
         try{
             JSONObject jsonQuery = new JSONObject();
-            jsonQuery.put("Authorization", authToken);
             jsonQuery.put("deviceId", deviceId);
             backendServerComms.restRequest(UI_POLL_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
@@ -538,8 +509,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //            Log.d(TAG, "Got a GOOD location!");
 
             JSONObject jsonQuery = new JSONObject();
-
-            jsonQuery.put("Authorization", authToken);
             jsonQuery.put("deviceId", deviceId);
             jsonQuery.put("lat", latitude);
             jsonQuery.put("lng", longitude);
@@ -998,7 +967,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             JSONObject jsonQuery = new JSONObject();
             jsonQuery.put("button_num", buttonNumber);
             jsonQuery.put("button_activity", downUp);
-            jsonQuery.put("Authorization", authToken);
             jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
             backendServerComms.restRequest(BUTTON_EVENT_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
@@ -1185,9 +1153,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         Log.d(TAG, "Running google auth succeed event response");
         resetGoogleAuthRetryCount();
         //give the server our latest settings
-        updateTargetLanguageOnBackend(this);
-        updateSourceLanguageOnBackend(this);
-        saveCurrentMode(this, getCurrentMode(this));
+        //updateTargetLanguageOnBackend(this);
+        //updateSourceLanguageOnBackend(this);
+        //saveCurrentMode(this, getCurrentMode(this));
     }
 
 
@@ -1372,19 +1340,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public void onGoogleAuthFailedEvent(GoogleAuthFailedEvent event) {
         Log.d(TAG, "onGoogleAuthFailedEvent triggered");
         this.sendReferenceCard("Error", "Convoscope Authentication Error: " + event.reason);
-        long currentTime = System.currentTimeMillis();
-        resetAuthToken();
-        Log.d(TAG, "Manually refresh auth token");
-        shouldPoll = false;
-        manualSetAuthToken();
-
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                shouldPoll = true;
-            }
-        }, 4000); // 4 seconds delay to ensure token is refreshed
+        handleSignOut();
     }
 
     @Subscribe
