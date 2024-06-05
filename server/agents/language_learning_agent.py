@@ -1,7 +1,6 @@
 # custom
 from collections import defaultdict
 from agents.agent_utils import format_list_data
-from server_config import openai_api_key
 
 # langchain
 from langchain.prompts import PromptTemplate
@@ -14,7 +13,6 @@ from pydantic import BaseModel, Field
 from helpers.time_function_decorator import time_function
 
 #pinyin
-import json
 from pypinyin import pinyin, Style
 
 from Modules.LangchainSetup import *
