@@ -79,6 +79,8 @@ def get_word_frequency_percentiles(transcript: str, language_code: str) -> dict:
     return words_rank
 
 if __name__ == "__main__":
-    to_test_str = "你好，你今天过得怎么样？ 这是一个协同效应。"
-    word_freqs = get_word_frequency_percentiles(to_test_str, "Chinese")
+    # to_test_str = "你好，你今天过得怎么样？ 这是一个协同效应。"
+    # word_freqs = get_word_frequency_percentiles(to_test_str, "Chinese")
+    to_test_str = "Bonjour, comment ça va aujourd'hui? C'est une synergie."
+    word_freqs = get_word_frequency_percentiles(to_test_str, "French")
     print(word_freqs)
