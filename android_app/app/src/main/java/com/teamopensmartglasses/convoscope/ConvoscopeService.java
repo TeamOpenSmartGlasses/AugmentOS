@@ -108,7 +108,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private long lastDataSentTime = 0;
     private final long POLL_INTERVAL_ACTIVE = 200; // 200ms when actively sending data
     private final long POLL_INTERVAL_INACTIVE = 5000; // 5000ms (5s) when inactive
-    private final long DATA_SENT_THRESHOLD = 60000; // 60 seconds
+    private final long DATA_SENT_THRESHOLD = 90000; // 90 seconds
     private LocationSystem locationSystem;
     static final String deviceId = "android";
     public String proactiveAgents = "proactive_agent_insights";
