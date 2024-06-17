@@ -40,7 +40,7 @@ wolframalpha_api_key = "U7P33Q-WLYJUA7GWA"
 # Prod:
 database_uri = "mongodb://localhost:27017"
 server_port = 8080
-path_modifier = "/dev4"
+path_modifier = ""
 
 # Dev:
 #database_uri = "mongodb://localhost:27019"
