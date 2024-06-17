@@ -140,7 +140,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     long latestDisplayTime = 0; // Initialize this at 0
     long minimumDisplayRate = 0; // Initialize this at 0
     long minimumDisplayRatePerResult = 1500; // Rate-limit displaying new results to n milliseconds per result
-
+    int numConsecutiveAuthFailures = 0;
     private long currTime = 0;
     private long lastPressed = 0;
     private long lastTapped = 0;
@@ -1332,8 +1332,12 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     @Subscribe
     public void onGoogleAuthFailedEvent(GoogleAuthFailedEvent event) {
         Log.d(TAG, "onGoogleAuthFailedEvent triggered");
-        this.sendReferenceCard("Error", "Convoscope Authentication Error: " + event.reason);
-        handleSignOut();
+        numConsecutiveAuthFailures += 1;
+        if(numConsecutiveAuthFailures > 10) {
+            Log.d("TAG", "ATTEMPT SIGN OUT");
+            // this.sendReferenceCard("Error", "Convoscope Authentication Error: " + event.reason);
+            handleSignOut();
+        }
     }
 
     @Subscribe
