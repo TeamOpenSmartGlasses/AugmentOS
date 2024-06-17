@@ -11,6 +11,12 @@ language_code_map = {
     "French": "fr",
     "Chinese": "zh_cn",  # Assuming simplified Chinese; adjust if necessary for traditional
     "Chinese (Pinyin)": "zh_cn",  # Assuming simplified Chinese; adjust if necessary for traditional
+    "German": "de",
+    "Arabic":"ar",
+    "Korean":"ko",
+    "Italian":"it",
+    "Turkish":"tr",
+    "Portuguese":"pt"
 }
 
 def load_frequency_list(language_code: str, type: str) -> pd.DataFrame:
