@@ -1,6 +1,7 @@
 from agents.agent_utils import format_list_data
 from agents.generic_agent.generic_agent import GenericAgent
 
+
 expert_agent_config_list_og = {
     "Statistician": {
         "agent_name": "Statistician",
@@ -183,6 +184,7 @@ Insight: Paris: 60% chance of rain, high of 22°C, air quality index at moderate
 #    },
 }
 
+
 # TODO: temp
 default_expert_agent_list = []
 for key in expert_agent_config_list_og.keys():
@@ -190,11 +192,13 @@ for key in expert_agent_config_list_og.keys():
     default_expert_agent_list.append(gena)
     print("ADDED TOOL TO LIST: " + gena.agent_name)
 
+
 # TODO: Find nicer way to do this
 def get_agent_by_name(name):
     for ea in default_expert_agent_list:
         if ea.agent_name == name:
             return ea
+
     return None
 
 

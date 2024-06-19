@@ -10,6 +10,7 @@ import uuid
 import logging
 from logger_config import logger
 from constants import TESTING_LL_CONTEXT_CONVO_AGENT, MODES_FEATURES_MAP
+from helpers.time_function_decorator import time_function
 
 
 class DatabaseHandler:
@@ -51,8 +52,11 @@ class DatabaseHandler:
             print(e)
 
     ### INIT ###
-    def set_language_learning_contextual_convo_flag_for_all_users(self, flag_value=False):
+    def set_is_having_language_learning_contextual_convo_flag_for_all_users(self, flag_value=False):
         self.user_collection.update_many({}, {"$set": {"settings.is_having_language_learning_contextual_convo": flag_value}})
+
+    def set_command_start_language_learning_contextual_convo_flag_for_all_users(self, flag_value=False):
+        self.user_collection.update_many({}, {"$set": {"settings.command_start_language_learning_contextual_convo_flag_for_all_users": flag_value}})
 
     def init_users_collection(self):
         self.user_db = self.client['users']
@@ -62,7 +66,8 @@ class DatabaseHandler:
         self.active_user_db = self.client['active_users']
         self.active_user_collection = self.get_collection(
         self.active_user_db, 'active_users', wipe=clear_users_on_start)
-        self.set_language_learning_contextual_convo_flag_for_all_users()
+        self.set_is_having_language_learning_contextual_convo_flag_for_all_users()
+        self.set_command_start_language_learning_contextual_convo_flag_for_all_users()
 
     def init_transcripts_collection(self):
         self.transcripts_db = self.client['transcripts']
@@ -169,6 +174,7 @@ class DatabaseHandler:
                      "dynamic_transcribe_language": "English", #the current dynamic transcribe language that we set momentarily
                      "use_dynamic_transcribe_language": False,
                      "is_having_language_learning_contextual_convo": False,
+                     "command_start_language_learning_contextual_convo": False,
                      "current_mode": "Language Learning",
                      #"current_mode": "Proactive Agents",
                      "enabled_proactive_agents": ["QuestionAnswerer"]
@@ -1048,24 +1054,28 @@ class DatabaseHandler:
         user = self.user_collection.find_one({"user_id": user_id})
 
         if result_type not in user:
-            raise Exception(
-                "Invalid result type: `{}`".format(str(result_type)))
+            raise Exception("Invalid result type: `{}`".format(str(result_type)))
 
         result_ids = user[result_type] if user != None else []
-#        if result_ids != [] and result_type == "topic_shift_result_ids":
-#            print("running get results for user with result_type as " + result_type)
-#            print(result_ids)
+
+        # if result_ids != [] and result_type == "topic_shift_result_ids":
+        #     print("running get results for user with result_type as " + result_type)
+        #     print(result_ids)
+
         already_consumed_ids = [
         ] if include_consumed else self.get_consumed_result_ids_for_user_device(user_id, device_id)
         new_results = []
+
         for uuid in result_ids:
             if uuid not in already_consumed_ids:
                 if should_consume:
                     self.add_consumed_result_id_for_user_device(
                         user_id, device_id, uuid)
                 result = self.get_result_from_uuid(uuid)
+
                 if result is not None:
                     new_results.append(result)
+
         return new_results
 
     def get_consumed_result_ids_for_user_device(self, user_id, device_id):
@@ -1182,7 +1192,7 @@ class DatabaseHandler:
         self.user_collection.update_one(filter=filter, update=update)
 
     def get_gps_location_results_for_user_device(self, user_id, device_id, should_consume=False, include_consumed=False):
-        return self.get_results_for_user_device("gps_location_result_ids", user_id, device_id, should_consume, include_consumed)
+        return self.get_results_for_user_device("gps_location_result_ids", user_id, None, should_consume, include_consumed) # TODO: chek if device_id can be None
 
 ### Function list for developers ###
 #

@@ -13,9 +13,10 @@ import time
 from agents.generic_agent.agent_insight import *
 from agents.generic_agent.generic_agent_prompts import *
 
-dbHandler = DatabaseHandler(parent_handler=False)
+db_handler = DatabaseHandler(parent_handler=False)
 llm4 = get_langchain_gpt4(max_tokens=180, temperature=0.2)
 llmMedium = get_langchain_gpt4o(temperature=0.0)
+
 
 class GenericAgent:
 
@@ -109,7 +110,7 @@ class GenericAgent:
              ).to_string()
         )
 
-        print("expert_agent_prompt\n\n", expert_agent_prompt_string)
+        # print("expert_agent_prompt\n\n", expert_agent_prompt_string)
 
         return expert_agent_prompt_string 
     
@@ -153,6 +154,7 @@ class GenericAgent:
         prompt += f"""   - Name: {self.agent_name}\n"""
         prompt += f"""   - When to call: {self.proactive_tool_description}\n"""
         prompt += f"""   - Example insight generated: {self.proactive_tool_example}\n"""
+
         return prompt
 
     @time_function()
@@ -237,7 +239,7 @@ class GenericAgent:
             return None
 
         # Add this proactive query to history
-        dbHandler.add_agent_insight_query_for_user(user_id, conversation_context)
+        db_handler.add_agent_insight_query_for_user(user_id, conversation_context)
 
         # Generate an insight
 
@@ -245,4 +247,4 @@ class GenericAgent:
         print("LE EPIC INSIGHT : ")
         print(str(insight))
         if insight is not None:
-            dbHandler.add_agent_insight_result_for_user(user_id, insight["agent_name"], insight["agent_insight"], insight["reference_url"])
+            db_handler.add_agent_insight_result_for_user(user_id, insight["agent_name"], insight["agent_insight"], insight["reference_url"])
