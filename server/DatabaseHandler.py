@@ -56,7 +56,7 @@ class DatabaseHandler:
         self.user_collection.update_many({}, {"$set": {"settings.is_having_language_learning_contextual_convo": flag_value}})
 
     def set_command_start_language_learning_contextual_convo_flag_for_all_users(self, flag_value=False):
-        self.user_collection.update_many({}, {"$set": {"settings.command_start_language_learning_contextual_convo_flag_for_all_users": flag_value}})
+        self.user_collection.update_many({}, {"$set": {"settings.command_start_language_learning_contextual_convo": flag_value}})
 
     def init_users_collection(self):
         self.user_db = self.client['users']

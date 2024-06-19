@@ -226,12 +226,13 @@ async def ll_context_convo_agent_processing_loop_async():
                     continue
                 if not db_handler.get_user_feature_enabled(user_id, LL_CONTEXT_CONVO_AGENT):
                     continue
+                
                 if db_handler.get_user_settings_value(user_id, "command_start_language_learning_contextual_convo"): # check if we should start a conversation, updates are made by Mira as well using the CallCustomFunctionTool
                     print("FORCE CONTEXTUAL CONVO FOR USER: ", user_id)
                     tasks.append(handle_user_conversation(user_id, device_id, db_handler, force_conversation=True)) # force the conversation to start because this command was given by the user             
-
-                print("MAYBE STARTING CONTEXTUAL CONVO FOR USER: ", user_id)
-                tasks.append(handle_user_conversation(user_id, device_id, db_handler))
+                else:
+                    print("MAYBE STARTING CONTEXTUAL CONVO FOR USER: ", user_id)
+                    tasks.append(handle_user_conversation(user_id, device_id, db_handler))
 
             if tasks:
                 await asyncio.gather(*tasks)

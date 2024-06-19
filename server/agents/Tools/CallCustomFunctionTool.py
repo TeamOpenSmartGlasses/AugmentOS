@@ -27,7 +27,7 @@ class CallCustomFunctionTool:
             case "ll_cc_on": # TODO: change this
                 print("ll_cc_on")
                 self.db_handler.update_single_user_setting(self.user_id, "command_start_language_learning_contextual_convo", True) # change this variable to start the conversation
-                response = self.call_custom_function_tool_config["Start_Contextual_Conversation"]["successful_response"] # TODO: change this
+                response = self.call_custom_function_tool_config["Start_Contextual_Conversation"]["successful_response"] # TODO: change this before merging
             case "ll_cc_off":
                 print("ll_cc_off")
                 print(self.user_id)
