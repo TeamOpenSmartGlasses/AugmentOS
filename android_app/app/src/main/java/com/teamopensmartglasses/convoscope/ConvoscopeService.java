@@ -194,8 +194,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         setUpLocationSending();
 
         //setup ASR version
-//        ConvoscopeService.saveChosenAsrFramework(this, ASR_FRAMEWORKS.DEEPGRAM_ASR_FRAMEWORK);
-        ConvoscopeService.saveChosenAsrFramework(this, ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
+        ConvoscopeService.saveChosenAsrFramework(this, ASR_FRAMEWORKS.DEEPGRAM_ASR_FRAMEWORK);
+//        ConvoscopeService.saveChosenAsrFramework(this, ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
 
         //setup mode if not set yet
         getCurrentMode(this);
