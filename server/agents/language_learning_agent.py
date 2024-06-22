@@ -27,7 +27,7 @@ Process:
 0. Consider the fluency level of the user, which is {fluency_level}, where 0<=fluency_level<=100, with 0 being complete beginner, 50 being conversational, 75 intermediate and 100 being native speaker.
 1. Skim through the Input Text and identify 0 to 3 words that may unfamiliar to someone with a fluency level of {fluency_level} AND that have not been previously defined.
 2. Consider how common a word is (the word frequency percentile) to determine how likely the user knows that word.
-3. For each of the zero to three identified words in the Input Text, provide a ranslation in {output_language}. Make translations short. Use context from the conversation to inform translation of homonyms.
+3. For each of the zero to three identified words in the Input Text, provide a translation in {output_language}. Make translations short. Use context from the conversation to inform translation of homonyms.
 4. Output response using the format instructions below, provide words in the order they appear in the text. Don't redefine any words that are in the "Recently Translated" list of words.
 
 Examples:
