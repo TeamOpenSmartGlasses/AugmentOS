@@ -25,7 +25,7 @@ from aiohttp import web, web_exceptions
 #Convoscope
 from server_config import server_port
 from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH, TESTING_LL_CONTEXT_CONVO_AGENT
-from ContextualSearchEngine import ContextualSearchEngine
+# from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_agents_process import start_proactive_agents_processing_loop
 from agents.expert_agent_configs import get_agent_by_name
@@ -376,10 +376,13 @@ async def run_single_expert_agent_handler(request):
 
 #receive a chat message manually typed in the agent chat box
 async def send_agent_chat_handler(request):
+    print("SEND AGENT CHAT")
+
     body = await request.json()
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
     id_token = body.get('Authorization')
     user_id = verify_id_token(id_token)
+    device_id = body.get('deviceId')
     if user_id is None:
         raise web.HTTPUnauthorized()
     chat_message = body.get('chatMessage')
@@ -398,7 +401,7 @@ async def send_agent_chat_handler(request):
     # skip into proc loop
     print("SEND AGENT CHAT FOR USER_ID: " + user_id)
     user = db_handler.get_user(user_id)
-    await call_explicit_agent(user, chat_message)
+    await call_explicit_agent(chat_message, user, device_id)
 
     return web.Response(text=json.dumps({'success': True, 'message': "Got your message: {}".format(chat_message)}), status=200)
 
@@ -437,7 +440,7 @@ async def update_gps_location_for_user(request):
     # print("SEND UPDATE LOCATION FOR USER_ID: " + user_id)
     db_handler.add_gps_location_for_user(user_id, location)
     
-    locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
+    # locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
     
     # print("locations: ", locations)
     # if len(locations) > 1:

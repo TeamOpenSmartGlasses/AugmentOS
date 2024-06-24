@@ -45,6 +45,8 @@ Output 4: 如何询问去大英博物馆内某个展览的路线？
 
 Remember that this is a conversation, and your next output should be a continuation of the conversation. Do not repeat what you previously said! Try different conversation starters related to the user's environment or interests to keep the conversation engaging. The conversation shouldn't be strictly about the nearby places, and you can talk about anything that comes to mind if it's appropriate. Responses should be short (5-10 words).
 
+If the users asks you a question try to answer it using language appropriate for their fluency level and try to ask a follow-up question to keep the conversation going.
+
 Here is the conversation so far (you are the agent) which all the user will ever see:
 {conversation_history}
 
@@ -88,8 +90,8 @@ def run_ll_context_convo_agent(places: list, target_language: str = "Russian", f
         conversation_history=conversation_history,
     ).to_string()
     # print(ll_context_convo_agent_query_prompt_string)
-    print("LL CONTEXT CONVO PROMPT********************************")
-    print(ll_context_convo_agent_query_prompt_string)
+    # print("LL CONTEXT CONVO PROMPT********************************")
+    # print(ll_context_convo_agent_query_prompt_string)
 
     response = llm.invoke(
         [HumanMessage(content=ll_context_convo_agent_query_prompt_string)])
