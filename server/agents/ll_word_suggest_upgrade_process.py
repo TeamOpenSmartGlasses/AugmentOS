@@ -5,13 +5,13 @@ import asyncio
 
 # custom
 from DatabaseHandler import DatabaseHandler
-from agents.ll_word_suggest_upgrade import run_ll_word_suggest_upgrade_agent
+from agents.ll_word_suggest_upgrade_agent import run_ll_word_suggest_upgrade_agent
 from agents.helpers.word_frequency_percentiles import get_word_frequency_percentiles
 from constants import LANGUAGE_LEARNING_AGENT
 
 db_handler = DatabaseHandler(parent_handler=False)
 
-time_between_iterations = 0.5
+time_between_iterations = 30
 timelength_of_usable_transcripts = time_between_iterations * 4
 
 def start_ll_word_suggest_upgrade_agent_processing_loop():
@@ -21,7 +21,7 @@ def start_ll_word_suggest_upgrade_agent_processing_loop():
     loop.close()
 
 async def ll_word_suggest_upgrade_agent_processing_loop():
-    print("START LANGUAGE LEARNING PROCESSING LOOP")
+    print("START LANGUAGE LEARNING UPGRADE WORD SUGGESTION PROCESSING LOOP")
 
     while True:
         if not db_handler.ready:
@@ -44,7 +44,7 @@ async def ll_word_suggest_upgrade_agent_processing_loop():
 
 async def process_transcript(transcript: str):
     words_to_show = None
-    if not db_handler.get_user_feature_enabled(transcript['user_id'], LANGUAGE_LEARNING_AGENT): return
+    if not db_handler.get_user_feature_enabled(transcript['user_id'], LL_WORD_SUGGEST_UPGRADE_AGENT): return
 
     ctime = time.time()
     
@@ -72,8 +72,8 @@ async def process_transcript(transcript: str):
     #print("GOT live translate word history: ")
     #print(live_translate_word_history)
 
-    #run the language learning agent
-    words_to_show = await run_language_learning_agent(transcript['text'], word_frequency_percentiles, target_language, transcribe_language, source_language, live_translate_word_history)
+    #run the ll word suggest upgrade agent
+    words_to_show = await run_ll_word_suggest_upgrade_agent(transcript['text'], word_frequency_percentiles, target_language, transcribe_language, source_language, live_translate_word_history)
     #print("transcript is: ")
     #print(transcript)
 

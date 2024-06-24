@@ -1,4 +1,3 @@
-# imports copied from language learning agent
 # custom
 from collections import defaultdict
 from agents.agent_utils import format_list_data
@@ -62,9 +61,7 @@ Input Text: `{conversation_context}`
 
 Frequency Ranking: The frequency percentile of each word tells you how common it is in daily speech (~0.1 is very common, >1.2 is rare, >13.5 is very rare). The frequency ranking of the words in the "Input Text" are: `{word_rank}`
 
-Upgrade Word: `{upgrade_words}`
-
-Recently Suggested: `{live_translate_word_history}`
+Recently Suggested: `{live_upgrade_word_history}`
 
 Output Format: {format_instructions}
 
@@ -118,7 +115,7 @@ def format_list_data(data: dict) -> str:
 
 
 @time_function()
-async def run_ll_word_suggest_upgrade_agent(conversation_context: str, word_rank: dict, upgrade_words: dict, target_language="Russian", transcribe_language="English", source_language = "English", live_upgrade_word_history=""):
+async def run_ll_word_suggest_upgrade_agent(conversation_context: str, word_rank: dict, target_language="Russian", transcribe_language="English", source_language = "English", live_upgrade_word_history=""):
     # start up GPT4o connection
     llm = get_langchain_gpt4o(temperature=0.2, max_tokens=80)
 
@@ -141,7 +138,7 @@ async def run_ll_word_suggest_upgrade_agent(conversation_context: str, word_rank
 
     class LLWordSuggestUpgradeAgentQuery(BaseModel):
         """
-        Proactive language learning word suggest upgrade agent
+        Proactive language learning upgrade word suggest agent
         """
         translated_upgrade_words: dict = Field(
             description="the suggested new upgrade word and its translation")
@@ -168,7 +165,6 @@ async def run_ll_word_suggest_upgrade_agent(conversation_context: str, word_rank
         word_rank=word_rank_string,
         output_language=output_language,
         transcribe_language=transcribe_language,
-        upgrade_words=upgrade_words
         live_upgrade_word_history=live_upgrade_word_history
     ).to_string()
 
@@ -200,7 +196,7 @@ async def run_ll_word_suggest_upgrade_agent(conversation_context: str, word_rank
         # Apply Pinyin conversion
         if "Pinyin" in target_language or "Pinyin" in source_language:
             #translated_upgrade_words_pinyin = {chinese_to_pinyin(word): chinese_to_pinyin(translated_upgrade_words[word]) for word in translated_upgrade_words_rare}
-            translated_upgrade_words_pinyin = {chinese_to_pinyin(word): chinese_to_pinyin(translated_upgrade_words_rare[word]) if isinstance(translated_upgrade_words_rare[word], str) and any('\u4e00' <= char <= '\u9fff' for char in translated_words_rare[word]) else translated_words_rare[word] for word in translated_words_rare}
+            translated_upgrade_words_pinyin = {chinese_to_pinyin(word): chinese_to_pinyin(translated_upgrade_words_rare[word]) if isinstance(translated_upgrade_words_rare[word], str) and any('\u4e00' <= char <= '\u9fff' for char in translated_upgrade_words_rare[word]) else translated_upgrade_words_rare[word] for word in translated_upgrade_words_rare}
 
         else:
             translated_upgrade_words_pinyin = translated_upgrade_words
@@ -209,9 +205,9 @@ async def run_ll_word_suggest_upgrade_agent(conversation_context: str, word_rank
         translated_upgrade_words_obj = []
         #print(word_rank)
         live_upgrade_word_history_set = set(live_upgrade_word_history)  # Convert to set for efficient lookup
-        for upgrade, upgrade_meaning in upgrade_words_pinyin.items():
+        for upgrade, upgrade_meaning in translated_upgrade_words_pinyin.items():
             if word not in live_upgrade_word_history_set:  # Check if word is not in the already translated words
-                upgrade_words_obj.append({"in_upgrade": upgrade, "in_upgrade_meaning": upgrade_meaning})
+                translated_upgrade_words_obj.append({"in_upgrade": upgrade, "in_upgrade_meaning": upgrade_meaning})
 
         return translated_upgrade_words_obj
     except OutputParserException as e:
