@@ -47,7 +47,7 @@ Custom Commands include:
 Successful responses:
 {successful_responses_for_custom_commands}
 
-As soon as you receive a successful response, you must end return Final Answer: Executing Command - <user facing custom function string>
+As soon as you receive a successful response, you must return 'Final Answer: Running: <user facing custom function string>'
 
 
 YOU MUST IGNORE THE TRANSCRIPT HISTORY WHEN EXECUTING COMMANDS. ONLY USE THE USER QUERY TO DETERMINE WHICH COMMAND TO EXECUTE.

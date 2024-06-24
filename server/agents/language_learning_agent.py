@@ -170,11 +170,7 @@ async def run_language_learning_agent(conversation_context: str, word_rank: dict
 
         # Apply Pinyin conversion if needed
         if "Pinyin" in target_language or "Pinyin" in source_language:
-            print("Applying Pinyin conversion to:")
-            print(translated_words_rare)
             translated_words_pinyin = {chinese_to_pinyin(word): chinese_to_pinyin(translated_words_rare[word]) if isinstance(translated_words_rare[word], str) and any('\u4e00' <= char <= '\u9fff' for char in translated_words_rare[word]) else translated_words_rare[word] for word in translated_words_rare}
-            print("THEN:")
-            print(translated_words_pinyin)
 
             # Convert input words to Pinyin if the source language contains Pinyin
             if "Pinyin" in source_language:

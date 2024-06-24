@@ -8,7 +8,7 @@ import warnings
 from DatabaseHandler import DatabaseHandler
 from agents.ll_context_convo_agent import run_ll_context_convo_agent
 from agents.helpers.get_nearby_places import get_user_location, get_nearby_places
-from constants import TESTING_LL_CONTEXT_CONVO_AGENT, LL_CONTEXT_CONVO_AGENT
+from constants import TESTING_LL_CONTEXT_CONVO_AGENT, LL_CONTEXT_CONVO_AGENT, SKIP_AUTO_LL_CONTEXT_CONVO_AGENT
 
 
 response_period = 2 # how long of a pause to wait before we send the user's response to the agent
@@ -66,11 +66,11 @@ async def cleanup_conversation(user_id, db_handler):
 
 
 async def handle_user_conversation(user_id, device_id, db_handler, force_conversation=False):
-    print("CHECKING IF WE SHOULD RUN A CONTEXTUAL CONVO FOR USER: ", user_id, device_id)
+    # print("CHECKING IF WE SHOULD RUN A CONTEXTUAL CONVO FOR USER: ", user_id, device_id)
     target_language = db_handler.get_user_settings_value(user_id, "target_language")
     locations = db_handler.get_gps_location_results_for_user_device(user_id, None)
     transcripts = db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, n=transcript_period)
-    print("Locations: ", locations)
+    # print("Locations: ", locations)
 
     if force_conversation and locations: # force the conversation to start
         pass
@@ -93,20 +93,21 @@ async def handle_user_conversation(user_id, device_id, db_handler, force_convers
         speed = min(speed_1, speed_2)
 
         current_wpm = len(transcripts[0].split(" ")) / (transcript_period / 60)
-        print("Current user WPM is: ", current_wpm)
-        print("Current user SPEED is: ", speed)
+        # print("Current user WPM is: ", current_wpm)
+        # print("Current user SPEED is: ", speed)
 
         if TESTING_LL_CONTEXT_CONVO_AGENT:
             warnings.warn("Currently in testing mode, skipping speed and WPM checks, please set the TESTING flag to False to run normally.")
+        elif SKIP_AUTO_LL_CONTEXT_CONVO_AGENT:
+            return
         elif current_wpm > wpm_threshold: # compute words per minute
             print("User is talking, skipping.")
             return
         elif speed < speed_threshold:
-            #print("User is not moving, running anyway")
             print("User is not moving, skipping")
             return
     else:
-        print("Not enough locations, please wait")
+        # print("Not enough locations, please wait")
         return
 
     conversation_history = []
@@ -222,7 +223,7 @@ async def ll_context_convo_agent_processing_loop_async():
                 device_id = user['device_id']
 
                 if db_handler.get_user_settings_value(user_id, "is_having_language_learning_contextual_convo"):
-                    print("Found ongoing conversation for user: ", user_id)
+                    # print("Found ongoing conversation for user: ", user_id)
                     continue
                 if not db_handler.get_user_feature_enabled(user_id, LL_CONTEXT_CONVO_AGENT):
                     continue
@@ -231,7 +232,7 @@ async def ll_context_convo_agent_processing_loop_async():
                     print("FORCE CONTEXTUAL CONVO FOR USER: ", user_id)
                     tasks.append(handle_user_conversation(user_id, device_id, db_handler, force_conversation=True)) # force the conversation to start because this command was given by the user             
                 else:
-                    print("MAYBE STARTING CONTEXTUAL CONVO FOR USER: ", user_id)
+                    # print("MAYBE STARTING CONTEXTUAL CONVO FOR USER: ", user_id)
                     tasks.append(handle_user_conversation(user_id, device_id, db_handler))
 
             if tasks:
