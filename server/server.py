@@ -35,7 +35,6 @@ from agents.language_learning_agent_process import start_language_learning_agent
 from agents.ll_context_convo_agent_process import ll_context_convo_agent_processing_loop
 from agents.adhd_stmb_agent_process import adhd_stmb_agent_processing_loop
 import agents.wake_words
-from Modules.RelevanceFilter import RelevanceFilter
 
 from auth.authentication import *
 
@@ -220,17 +219,12 @@ async def ui_poll_handler(request, minutes=0.5):
     
     db_handler.update_active_user(user_id, device_id)
 
-    # get CSE results
-#    if "contextual_search_engine" in features:
-#        cse_results = db_handler.get_cse_results_for_user_device(
-#            user_id=user_id, device_id=device_id)
-#
-#        if cse_results:
-#            print("server.py ================================= CSERESULT")
-#            print(cse_results)
-#
-#        # add CSE response
-#        resp["result"] = cse_results
+    # add system_messages
+    resp["system_messages"] = db_handler.get_system_messages_for_user_device(
+        user_id=user_id, device_id=device_id)
+    if resp["system_messages"]:
+        print("server.py ================================= system_messages")
+        print(resp["system_messages"])
 
     # get agent results
 
@@ -523,9 +517,6 @@ if __name__ == '__main__':
         multiprocessing.set_start_method('spawn')
 
     # log_queue = multiprocessing.Queue()
-    #print("Starting CSE process...")
-    #cse_process = multiprocessing.Process(target=cse_loop)
-    #cse_process.start()
 
     # start intelligent definer agent process
     print("Starting Intelligent Definer Agent process...")
