@@ -16,6 +16,7 @@ from helpers.time_function_decorator import time_function
 from Modules.LangchainSetup import *
 
 #pinyin
+import jieba
 from pypinyin import pinyin, Style
 
 
@@ -65,6 +66,10 @@ def run_ll_context_convo_agent(places: list, target_language: str = "Russian", f
 
     places_string = "\n".join(places)
 
+    #remove Pinyin so it output Hanzi
+    remove_pinyin = " (Pinyin)"
+    target_language = target_language.replace(remove_pinyin, "")
+
     class ContextConvoAgentQuery(BaseModel):
         """
         Second language learning contextual conversations agent
@@ -101,17 +106,23 @@ def run_ll_context_convo_agent(places: list, target_language: str = "Russian", f
         response = ll_context_convo_agent_query_parser.parse(
             response.content).response
 
-        def chinese_to_pinyin(chinese_text):
-            return ' '.join([item[0] for item in pinyin(chinese_text, style=Style.TONE)])
+        # Function to convert a list of Chinese words to Pinyin
+        def chinese_to_pinyin(text):
+            # Segment the text into words using jieba
+            words = jieba.cut(text)
+            # Convert each segmented word to pinyin and join them
+            pinyin_output = ' '.join([''.join([py[0] for py in pinyin(word, style=Style.TONE)]) for word in words])
+            return pinyin_output
 
         response_obj = dict()
+        raw_tts_string = response
+
         # Apply Pinyin conversion if target_language is "Chinese (Pinyin)"
-        if target_language == "Chinese (Pinyin)":
-            response_obj["hanzi"] = response
+        if target_language == "Chinese":
             response = chinese_to_pinyin(response)
 
         response_obj["ll_context_convo_response"] = response # pack the response into a dictionary
-        response_obj["to_tts"] = {"text": response, "language": target_language}
+        response_obj["to_tts"] = {"text": raw_tts_string, "language": target_language}
 
         print("LL CONTEXT CONVO RESPONSE: ")
         print(response_obj)

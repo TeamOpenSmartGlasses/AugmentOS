@@ -20,11 +20,10 @@ if TESTING_LL_CONTEXT_CONVO_AGENT:
     run_period = 0.25
     cooldown_period = 20
 else:
-    run_period = 0.5
+    run_period = 0.2
     cooldown_period = 60
 
 transcript_period = 40
-
 
 def lat_lng_to_meters(lat1, lng1, lat2, lng2):
     # Radius of the Earth in km
