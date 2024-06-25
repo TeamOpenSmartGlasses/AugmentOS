@@ -237,6 +237,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public void getSettings(){
         try{
             Log.d(TAG, "Runnign get settings");
+            Context mContext = this.getApplicationContext();
             JSONObject getSettingsObj = new JSONObject();
             backendServerComms.restRequest(GET_USER_SETTINGS_ENDPOINT, getSettingsObj, new VolleyJsonCallback(){
                 @Override
@@ -250,6 +251,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                         if (useDynamicTranscribeLanguage){
                             Log.d(TAG, "Switching running transcribe language to: " + dynamicTranscribeLanguage);
                             switchRunningTranscribeLanguage(dynamicTranscribeLanguage);
+                        } else {
+                            switchRunningTranscribeLanguage(getChosenSourceLanguage(mContext));
                         }
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
@@ -787,6 +790,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
             try {
                 JSONObject llContextConvoResult = llContextConvoResults.getJSONObject(0);
+                Log.d(TAG, llContextConvoResult.toString());
                 JSONObject toTTS = llContextConvoResult.getJSONObject("to_tts");
                 String text = toTTS.getString("text");
                 String language = toTTS.getString("language");
@@ -886,7 +890,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         for (int i = 0; i < explicitAgentResults.length(); i++){
             try {
                 JSONObject obj = explicitAgentResults.getJSONObject(i);
-                String body = "Response: " + obj.getString("insight");
+                //String body = "Response: " + obj.getString("insight");
+                String body = obj.getString("insight");
                 queueOutput(body);
             } catch (JSONException e){
                 e.printStackTrace();
