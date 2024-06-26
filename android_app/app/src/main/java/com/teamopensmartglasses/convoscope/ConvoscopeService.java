@@ -9,7 +9,6 @@ import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.SET_USER_SETTINGS_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GET_USER_SETTINGS_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.adhdStmbAgentKey;
-import static com.teamopensmartglasses.convoscope.Constants.cseResultKey;
 import static com.teamopensmartglasses.convoscope.Constants.entityDefinitionsKey;
 import static com.teamopensmartglasses.convoscope.Constants.explicitAgentQueriesKey;
 import static com.teamopensmartglasses.convoscope.Constants.explicitAgentResultsKey;
@@ -18,6 +17,7 @@ import static com.teamopensmartglasses.convoscope.Constants.languageLearningKey;
 import static com.teamopensmartglasses.convoscope.Constants.llContextConvoKey;
 import static com.teamopensmartglasses.convoscope.Constants.proactiveAgentResultsKey;
 import static com.teamopensmartglasses.convoscope.Constants.shouldUpdateSettingsKey;
+import static com.teamopensmartglasses.convoscope.Constants.systemMessagesKey;
 import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
 
 import android.content.Context;
@@ -702,8 +702,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         JSONArray explicitAgentResults = response.has(explicitAgentResultsKey) ? response.getJSONArray(explicitAgentResultsKey) : new JSONArray();
 
-        //custom data
-        JSONArray cseResults = response.has(cseResultKey) ? response.getJSONArray(cseResultKey) : new JSONArray();
+        //systemMessages
+        JSONArray systemMessages = response.has(systemMessagesKey) ? response.getJSONArray(systemMessagesKey) : new JSONArray();
 
         //proactive agents
         JSONArray proactiveAgentResults = response.has(proactiveAgentResultsKey) ? response.getJSONArray(proactiveAgentResultsKey) : new JSONArray();
@@ -798,16 +798,33 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         }
 
-        // Just append the entityDefinitions to the cseResults as they have similar schema
+        // systemMessages
+        for (int i = 0; i < systemMessages.length(); i++) {
+            try {
+                JSONObject obj = systemMessages.getJSONObject(i);
+                queueOutput(obj.getString("message"));
+            }
+            catch (JSONException e){
+                e.printStackTrace();
+            }
+        }
+
+        // entityDefinitions
         for (int i = 0; i < entityDefinitions.length(); i++) {
-            cseResults.put(entityDefinitions.get(i));
+            try {
+                JSONObject obj = entityDefinitions.getJSONObject(i);
+                String name = obj.getString("name");
+                String body = obj.getString("summary");
+                String combined = name + ": " + body;
+                Log.d(TAG, name);
+                Log.d(TAG, "--- " + body);
+                queueOutput(combined);
+            } catch (JSONException e){
+                e.printStackTrace();
+            }
         }
 
         long wakeWordTime = response.has(wakeWordTimeKey) ? response.getLong(wakeWordTimeKey) : -1;
-
-        if (cseResults.length() > 0){
-            Log.d(TAG, "GOT CSE RESULTS: " + response.toString());
-        }
 
         if (wakeWordTime != -1 && wakeWordTime != previousWakeWordTime){
             previousWakeWordTime = wakeWordTime;
@@ -815,46 +832,23 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             queueOutput(body);
         }
 
-        //go through CSE results and add to resultsToDisplayList
-        String sharableResponse = "";
-        for (int i = 0; i < cseResults.length(); i++){
-            try {
-                JSONObject obj = cseResults.getJSONObject(i);
-                String name = obj.getString("name");
-                String body = obj.getString("summary");
-                String combined = name + ": " + body;
-                Log.d(TAG, name);
-                Log.d(TAG, "--- " + body);
-                queueOutput(combined);
-//                queueOutput(body);
-
-//                if(obj.has(mapImgKey)){
-//                    String mapImgPath = obj.getString(mapImgKey);
-//                    String mapImgUrl = backendServerComms.serverUrl + mapImgPath;
-//                    sgmLib.sendReferenceCard(name, body, mapImgUrl);
-//                }
-//                else if(obj.has(imgKey)) {
-//                    sgmLib.sendReferenceCard(name, body, obj.getString(imgKey));
-//                }
-//                else {
-//                    sgmLib.sendReferenceCard(name, body);
-//                }
-
-                // For SMS
-//                sharableResponse += combined;
-//                if(obj.has("url")){
-//                    sharableResponse += "\n" + obj.get("url");
-//                }
-//                sharableResponse += "\n\n";
-//                if(i == cseResults.length() - 1){
-//                    sharableResponse += "Sent from Convoscope";
-//                }
-
-
-            } catch (JSONException e){
-                e.printStackTrace();
-            }
-        }
+//        //go through CSE results and add to resultsToDisplayList
+//        String sharableResponse = "";
+//        for (int i = 0; i < systemMessages.length(); i++){
+//            try {
+//                JSONObject obj = systemMessages.getJSONObject(i);
+//                String name = obj.getString("name");
+//                String body = obj.getString("summary");
+//                String combined = name + ": " + body;
+//                Log.d(TAG, name);
+//                Log.d(TAG, "--- " + body);
+//                queueOutput(combined);
+//
+//
+//            } catch (JSONException e){
+//                e.printStackTrace();
+//            }
+//        }
 
         //go through proactive agent results and add to resultsToDisplayList
         for (int i = 0; i < proactiveAgentResults.length(); i++){
