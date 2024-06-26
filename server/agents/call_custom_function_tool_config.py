@@ -25,6 +25,10 @@ call_custom_function_tool_config = {
         Conversation: "End this convo."
         Action: "ll_cc_off"
         Output: "Final Answer: Running: Stop language learning convo."
+        
+        Conversation: "Finish this language exchange"
+        Action: "ll_cc_off"
+        Output: "Final Answer: Running: Stop language learning convo."
         """,
     },
 }
