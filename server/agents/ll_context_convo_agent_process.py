@@ -110,6 +110,7 @@ async def handle_user_conversation(user_id, device_id, db_handler, force_convers
             return
     else:
         # print("Not enough locations, please wait")
+        await cleanup_conversation(user_id, db_handler)
         return
 
     conversation_history = []
