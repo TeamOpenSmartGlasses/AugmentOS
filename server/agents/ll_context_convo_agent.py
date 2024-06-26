@@ -13,7 +13,7 @@ from langchain.schema import OutputParserException
 from pydantic import BaseModel, Field
 from helpers.time_function_decorator import time_function
 
-from Modules.LangchainSetup import *
+from Modules.LangchainSetup import get_langchain_gpt4o
 
 #pinyin
 import jieba

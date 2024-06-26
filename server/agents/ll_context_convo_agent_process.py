@@ -25,6 +25,7 @@ else:
 
 transcript_period = 40
 
+
 def lat_lng_to_meters(lat1, lng1, lat2, lng2):
     # Radius of the Earth in km
     R = 6371.0
@@ -52,14 +53,16 @@ def lat_lng_to_meters(lat1, lng1, lat2, lng2):
     return distance_meters
 
 
-async def cleanup_conversation(user_id, db_handler):
+async def cleanup_conversation(user_id, db_handler, cooldown=True):
     print("Ending ll context convo with user: ", user_id)
     db_handler.update_single_user_setting(user_id, "use_dynamic_transcribe_language", False) # conversation ending, so stop using dynamic transcribe language
     db_handler.update_single_user_setting(user_id, "should_update_settings", True)
     db_handler.update_single_user_setting(user_id, "is_having_language_learning_contextual_convo", False)
     db_handler.update_single_user_setting(user_id, "command_start_language_learning_contextual_convo", False)
     print("Ended ll context convo with user: ", user_id)
-    time.sleep(cooldown_period) # sleep for a while after the conversation ends, run period is a good time to wait before starting another conversation
+
+    if cooldown:
+        time.sleep(cooldown_period) # sleep for a while after the conversation ends
 
     return
 
@@ -150,7 +153,7 @@ async def handle_user_conversation(user_id, device_id, db_handler, force_convers
 
             if not db_handler.get_user_settings(user_id)['is_having_language_learning_contextual_convo']:
                 print("LL CONTEXT CONVO - User has ended the conversation, so exiting")
-                await cleanup_conversation(user_id, db_handler)
+                await cleanup_conversation(user_id, db_handler, cooldown=False)
                 return
 
             if not user_has_responded: # at the start of the conversation, we don't want to break out of the conversation too soon
