@@ -117,7 +117,7 @@ def run_ll_context_convo_agent(places: list, target_language: str = "Russian", f
         response_obj = dict()
         raw_tts_string = response
 
-        response_obj["ll_context_convo_response"] = response  # save the response for the agent in case it is converted to Pinyin
+        response_obj["ll_context_for_agent"] = response  # save the response for the agent in case it is converted to Pinyin
         # Apply Pinyin conversion if target_language is "Chinese (Pinyin)"
         if target_language == "Chinese":
             response = chinese_to_pinyin(response)

@@ -109,7 +109,7 @@ async def handle_user_conversation(user_id, device_id, db_handler, force_convers
             print("User is not moving, skipping")
             return
     else:
-        # print("Not enough locations, please wait")
+        print("Not enough locations, please wait")
         await cleanup_conversation(user_id, db_handler)
         return
 
@@ -130,11 +130,8 @@ async def handle_user_conversation(user_id, device_id, db_handler, force_convers
         print("LOOP ll contextual conversation")
         response = run_ll_context_convo_agent(places=places, target_language=target_language, fluency_level=8, conversation_history=conversation_history)
 
-        # get the right response
-        if "hanzi" in response:
-            response_content = response['hanzi']
-        else:
-            response_content = response['ll_context_convo_response']
+        # get the response for the agent
+        response_context_for_agent = response['ll_context_for_agent']
 
         if response:
             db_handler.add_ll_context_convo_results_for_user(
@@ -143,7 +140,8 @@ async def handle_user_conversation(user_id, device_id, db_handler, force_convers
             await cleanup_conversation(user_id, db_handler)
             return
 
-        conversation_history.append({"role": "agent", "content": response_content})
+        conversation_history.append(
+            {"role": "agent", "content": response_context_for_agent})
 
         start_conversation_time = time.time()
         user_has_responded = False
