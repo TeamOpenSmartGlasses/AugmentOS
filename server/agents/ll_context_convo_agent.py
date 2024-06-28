@@ -15,7 +15,7 @@ from helpers.time_function_decorator import time_function
 
 from Modules.LangchainSetup import get_langchain_gpt4o
 
-#pinyin
+# pinyin
 import jieba
 from pypinyin import pinyin, Style
 
@@ -66,7 +66,7 @@ def run_ll_context_convo_agent(places: list, target_language: str = "Russian", f
 
     places_string = "\n".join(places)
 
-    #remove Pinyin so it output Hanzi
+    # remove Pinyin so it output Hanzi
     remove_pinyin = " (Pinyin)"
     target_language = target_language.replace(remove_pinyin, "")
 
