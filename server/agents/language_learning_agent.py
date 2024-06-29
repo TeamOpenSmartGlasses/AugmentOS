@@ -13,6 +13,7 @@ from pydantic import BaseModel, Field
 from helpers.time_function_decorator import time_function
 
 #pinyin
+import jieba
 from pypinyin import pinyin, Style
 
 from Modules.LangchainSetup import *
@@ -164,9 +165,13 @@ async def run_language_learning_agent(conversation_context: str, word_rank: dict
             if word in word_rank and word_rank[word] >= word_rank_threshold:
                 translated_words_rare[word] = translation
 
-        # Function to convert Chinese text to Pinyin
-        def chinese_to_pinyin(chinese_text):
-            return ' '.join([item[0] for item in pinyin(chinese_text, style=Style.TONE)])
+        # Function to convert a list of Chinese words to Pinyin
+        def chinese_to_pinyin(text):
+            # Segment the text into words using jieba
+            words = jieba.cut(text)
+            # Convert each segmented word to pinyin and join them
+            pinyin_output = ' '.join([''.join([py[0] for py in pinyin(word, style=Style.TONE)]) for word in words])
+            return pinyin_output
 
         # Apply Pinyin conversion if needed
         if "Pinyin" in target_language or "Pinyin" in source_language:

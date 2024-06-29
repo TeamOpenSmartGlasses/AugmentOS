@@ -20,7 +20,7 @@ if TESTING_LL_CONTEXT_CONVO_AGENT:
     run_period = 0.25
     cooldown_period = 20
 else:
-    run_period = 0.5
+    run_period = 0.2
     cooldown_period = 60
 
 transcript_period = 40
@@ -53,14 +53,16 @@ def lat_lng_to_meters(lat1, lng1, lat2, lng2):
     return distance_meters
 
 
-async def cleanup_conversation(user_id, db_handler):
+async def cleanup_conversation(user_id, db_handler, cooldown=True):
     print("Ending ll context convo with user: ", user_id)
     db_handler.update_single_user_setting(user_id, "use_dynamic_transcribe_language", False) # conversation ending, so stop using dynamic transcribe language
     db_handler.update_single_user_setting(user_id, "should_update_settings", True)
     db_handler.update_single_user_setting(user_id, "is_having_language_learning_contextual_convo", False)
     db_handler.update_single_user_setting(user_id, "command_start_language_learning_contextual_convo", False)
     print("Ended ll context convo with user: ", user_id)
-    time.sleep(cooldown_period) # sleep for a while after the conversation ends, run period is a good time to wait before starting another conversation
+
+    if cooldown:
+        time.sleep(cooldown_period) # sleep for a while after the conversation ends
 
     return
 
@@ -107,7 +109,8 @@ async def handle_user_conversation(user_id, device_id, db_handler, force_convers
             print("User is not moving, skipping")
             return
     else:
-        # print("Not enough locations, please wait")
+        print("Not enough locations, please wait")
+        await cleanup_conversation(user_id, db_handler)
         return
 
     conversation_history = []
@@ -127,11 +130,8 @@ async def handle_user_conversation(user_id, device_id, db_handler, force_convers
         print("LOOP ll contextual conversation")
         response = run_ll_context_convo_agent(places=places, target_language=target_language, fluency_level=8, conversation_history=conversation_history)
 
-        # get the right response
-        if "hanzi" in response:
-            response_content = response['hanzi']
-        else:
-            response_content = response['ll_context_convo_response']
+        # get the response for the agent
+        response_context_for_agent = response['ll_context_for_agent']
 
         if response:
             db_handler.add_ll_context_convo_results_for_user(
@@ -140,7 +140,8 @@ async def handle_user_conversation(user_id, device_id, db_handler, force_convers
             await cleanup_conversation(user_id, db_handler)
             return
 
-        conversation_history.append({"role": "agent", "content": response_content})
+        conversation_history.append(
+            {"role": "agent", "content": response_context_for_agent})
 
         start_conversation_time = time.time()
         user_has_responded = False
@@ -151,7 +152,7 @@ async def handle_user_conversation(user_id, device_id, db_handler, force_convers
 
             if not db_handler.get_user_settings(user_id)['is_having_language_learning_contextual_convo']:
                 print("LL CONTEXT CONVO - User has ended the conversation, so exiting")
-                await cleanup_conversation(user_id, db_handler)
+                await cleanup_conversation(user_id, db_handler, cooldown=False)
                 return
 
             if not user_has_responded: # at the start of the conversation, we don't want to break out of the conversation too soon
