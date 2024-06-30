@@ -1171,5 +1171,3 @@ class DatabaseHandler:
 
     def get_gps_location_results_for_user_device(self, user_id, device_id, should_consume=False, include_consumed=False):
         return self.get_results_for_user_device("gps_location_result_ids", user_id, None, should_consume, include_consumed) # TODO: chek if device_id can be None
-
-
