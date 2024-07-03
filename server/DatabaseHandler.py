@@ -842,10 +842,9 @@ class DatabaseHandler:
         results = list(self.topic_shifts_collection.aggregate(pipeline))
         return results
 
-    def get_recent_nminutes_language_learning_words_defined_history_for_user(self, user_id, n_minutes=10):
+    def get_recent_language_learning_words_defined_history_for_user(self, user_id, n_seconds=10):
         uuid_list = self.get_user(user_id)["language_learning_result_ids"]
         current_time = math.trunc(time.time())
-        n_seconds = n_minutes * 60
         timestamp_threshold = current_time - n_seconds
 
         pipeline = [
