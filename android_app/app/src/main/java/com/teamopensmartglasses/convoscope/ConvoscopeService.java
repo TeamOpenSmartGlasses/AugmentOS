@@ -1,11 +1,10 @@
 package com.teamopensmartglasses.convoscope;
 
-import static com.firebase.ui.auth.AuthUI.getApplicationContext;
 import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.DIARIZE_QUERY_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GEOLOCATION_STREAM_ENDPOINT;
-import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.SET_USER_SETTINGS_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.GET_USER_SETTINGS_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.adhdStmbAgentKey;
@@ -22,17 +21,11 @@ import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.PixelFormat;
-import android.hardware.display.DisplayManager;
 import android.hardware.display.VirtualDisplay;
-import android.media.Image;
-import android.media.ImageReader;
 import android.media.projection.MediaProjection;
-import android.media.projection.MediaProjectionManager;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
-import android.util.DisplayMetrics;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -52,7 +45,6 @@ import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
 import com.teamopensmartglasses.convoscope.events.SignOutEvent;
 import com.teamopensmartglasses.convoscope.ui.ConvoscopeUi;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DiarizationOutputEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisableBleScoAudioEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SpeechRecOutputEvent;
@@ -430,6 +422,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         //debounce and then send to backend
         debounceAndSendTranscript(text, isFinal);
+        showTranscriptsToUser(text, isFinal);
+    }
+
+    private void showTranscriptsToUser(String transcript, boolean isFinal) {
+        sendReferenceCard(glassesCardTitle, transcript);
     }
 
     private long lastSentTime = 0;
@@ -1077,6 +1074,14 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 .apply();
     }
 
+    public static void saveIsLiveCaptionsChecked(Context context, boolean isLiveCaptionsChecked) {
+        PreferenceManager.getDefaultSharedPreferences(context)
+                .edit()
+                .putBoolean(context.getResources().getString(R.string.SHARED_PREF_LIVE_CAPTIONS), isLiveCaptionsChecked)
+                .apply();
+    }
+
+
     public static String getChosenTargetLanguage(Context context) {
         String targetLanguageString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_TARGET_LANGUAGE), "");
         if (targetLanguageString.equals("")){
@@ -1093,6 +1098,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             sourceLanguageString = "English";
         }
         return sourceLanguageString;
+    }
+
+    public static boolean getIsLiveCaptionsChecked(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(context.getResources().getString(R.string.SHARED_PREF_LIVE_CAPTIONS), false);
     }
 
 //    public void changeMode(String currentModeString){
