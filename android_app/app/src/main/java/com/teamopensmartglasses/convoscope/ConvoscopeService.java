@@ -202,6 +202,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         getCurrentMode(this);
 
         this.aioConnectSmartGlasses();
+
+        updateTargetLanguageOnBackend(this);
+        updateSourceLanguageOnBackend(this);
+        saveCurrentMode(this, getCurrentMode(this));
     }
 
     public void handleSignOut(){
