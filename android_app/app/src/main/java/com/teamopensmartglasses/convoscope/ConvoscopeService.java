@@ -63,6 +63,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import net.sourceforge.pinyin4j.PinyinHelper;
+import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
+import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
+import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
+import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
+import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
+import com.huaban.analysis.jieba.JiebaSegmenter;
+import com.huaban.analysis.jieba.SegToken;
+
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
@@ -425,8 +434,47 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         showTranscriptsToUser(text, isFinal);
     }
 
-    private void showTranscriptsToUser(String transcript, boolean isFinal) {
-        sendReferenceCard(glassesCardTitle, transcript);
+    private void showTranscriptsToUser(final String transcript, final boolean isFinal) {
+        String final_transcript;
+
+        if (getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)")) {
+            final_transcript = convertToPinyin(transcript);
+        } else {
+            final_transcript = transcript;
+        }
+
+        sendReferenceCard(glassesCardTitle, final_transcript);
+    }
+
+    private static String convertToPinyin(final String chineseText) {
+        final JiebaSegmenter segmenter = new JiebaSegmenter();
+        final List<SegToken> tokens = segmenter.process(chineseText, JiebaSegmenter.SegMode.INDEX);
+
+        final HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
+        format.setCaseType(HanyuPinyinCaseType.LOWERCASE);
+        format.setToneType(HanyuPinyinToneType.WITH_TONE_MARK);
+        format.setVCharType(HanyuPinyinVCharType.WITH_U_UNICODE);
+
+        StringBuilder pinyinText = new StringBuilder();
+
+        for (SegToken token : tokens) {
+            for (char character : token.word.toCharArray()) {
+                try {
+                    String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(character, format);
+                    if (pinyinArray != null) {
+                        // Use the first Pinyin representation if there are multiple
+                        pinyinText.append(pinyinArray[0]);
+                    } else {
+                        // If character is not a Chinese character, append it as is
+                        pinyinText.append(character);
+                    }
+                } catch (BadHanyuPinyinOutputFormatCombination e) {
+                    e.printStackTrace();
+                }
+            }
+            pinyinText.append(" ");
+        }
+        return pinyinText.toString().trim();
     }
 
     private long lastSentTime = 0;
