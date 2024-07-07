@@ -431,7 +431,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         //debounce and then send to backend
         debounceAndSendTranscript(text, isFinal);
-        showTranscriptsToUser(text, isFinal);
+
+        // Send transcript to user if live captions are enabled
+        if (getIsLiveCaptionsChecked(this)) {
+            showTranscriptsToUser(text, isFinal);
+        }
     }
 
     private void showTranscriptsToUser(final String transcript, final boolean isFinal) {
