@@ -149,6 +149,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     //clear screen to start
     public boolean clearedScreenYet = false;
 
+    String oldLiveCaption = "";
+    String currentLiveCaption = "";
+    String llCurrentString = "";
+
     // Double clicking constants
     private final long doublePressTimeConst = 420;
     private final long doubleTapTimeConst = 600;
@@ -431,7 +435,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         //debounce and then send to backend
         debounceAndSendTranscript(text, isFinal);
-
+//        getSettings();
         // Send transcript to user if live captions are enabled
         if (getIsLiveCaptionsChecked(this)) {
             showTranscriptsToUser(text, isFinal);
@@ -447,7 +451,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             final_transcript = transcript;
         }
 
-        sendReferenceCard(glassesCardTitle, final_transcript);
+        sendTextWallLiveCaptionLL(final_transcript, isFinal, "");
     }
 
     private static String convertToPinyin(final String chineseText) {
@@ -693,7 +697,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //    }
 
     public String[] calculateLLStringFormatted(LinkedList<DefinedWord> definedWords) {
-        int max_rows_allowed = 4;
+        int max_rows_allowed;
+        if (getIsLiveCaptionsChecked(this)) max_rows_allowed = 2; // Only show 2 rows if live captions are enabled
+        else max_rows_allowed = 4;
+
         String[] llResults = new String[Math.min(max_rows_allowed, definedWords.size())];
         String enSpace = "\u2002"; // Using en space for padding
 
@@ -724,12 +731,16 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     public String[] calculateLLContextConvoResponseFormatted(LinkedList<ContextConvoResponse> contextConvoResponses) {
+        int max_rows_allowed;
+        if (getIsLiveCaptionsChecked(this)) max_rows_allowed = 2; // Only show 2 rows if live captions are enabled
+        else max_rows_allowed = 4;
+
         if (!clearedScreenYet) {
             sendHomeScreen();
             clearedScreenYet = true;
         }
 
-        int max_rows_allowed = 4;
+
         String[] llResults = new String[Math.min(max_rows_allowed, contextConvoResponses.size())];
 //        String enSpace = "\u2002"; // Using en space for padding
 
@@ -744,10 +755,27 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         return llResults;
     }
 
+    public void sendTextWallLiveCaptionLL(String newLiveCaption, boolean isLiveCaptionFinal, String llString) {
+        String finalString = "";
+
+        if (!newLiveCaption.isEmpty()) {
+            if (isLiveCaptionFinal) oldLiveCaption = currentLiveCaption;
+            currentLiveCaption = newLiveCaption;
+        }
+        if (!llString.isEmpty()) llCurrentString = llString;
+
+        finalString += oldLiveCaption + "\n\n" + currentLiveCaption + "\n\n" + llCurrentString;
+
+        sendTextWall(finalString);
+    }
+
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
+
 //        Log.d(TAG, "GOT CSE RESULT: " + response.toString());
         String imgKey = "image_url";
         String mapImgKey = "map_image_path";
+
+        boolean isLiveCaptionsChecked = getIsLiveCaptionsChecked(this);
 
         //explicity queries
         JSONArray explicitAgentQueries = response.has(explicitAgentQueriesKey) ? response.getJSONArray(explicitAgentQueriesKey) : new JSONArray();
@@ -791,6 +819,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         JSONArray languageLearningResults = response.has(languageLearningKey) ? response.getJSONArray(languageLearningKey) : new JSONArray();
         updateDefinedWords(languageLearningResults); //sliding buffer, time managed language learning card
         String[] llResults;
+
         if (languageLearningResults.length() != 0) {
             if (!clearedScreenYet) {
                 sendHomeScreen();
@@ -798,24 +827,26 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             }
 
             llResults = calculateLLStringFormatted(getDefinedWords());
-            if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
 //                sendRowsCard(llResults);
                 //pack it into a string since we're using text wall now
-                String textWallString = Arrays.stream(llResults)
-                        .reduce((a, b) -> b + "\n\n" + a)
-                        .orElse("");
-                sendTextWall(textWallString);
+            String textWallString = Arrays.stream(llResults)
+                .reduce((a, b) -> b + "\n\n" + a)
+                .orElse("");
+
+            if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
+                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", false, textWallString);
+                else sendTextWall(textWallString);
             }
 
 //            sendTextToSpeech("欢迎使用安卓文本到语音转换功能", "Chinese");
 //            Log.d(TAG, "GOT THAT ONEEEEEEEE:");
-            Log.d(TAG, String.join("\n", llResults));
+            Log.d(TAG, textWallString);
 //            sendUiUpdateSingle(String.join("\n", Arrays.copyOfRange(llResults, llResults.length, 0)));
 //            List<String> list = Arrays.stream(Arrays.copyOfRange(llResults, 0, languageLearningResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
 //            Collections.reverse(list);
             //sendUiUpdateSingle(String.join("\n", list));
-            sendUiUpdateSingle(String.join("\n", llResults));
-            responsesBuffer.add(String.join("\n", llResults));
+            sendUiUpdateSingle(textWallString);
+            responsesBuffer.add(textWallString);
         }
 
         JSONArray llContextConvoResults = response.has(llContextConvoKey) ? response.getJSONArray(llContextConvoKey) : new JSONArray();
@@ -826,11 +857,13 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         if (llContextConvoResults.length() != 0) {
             llContextConvoResponses = calculateLLContextConvoResponseFormatted(getContextConvoResponses());
             if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
-                //sendRowsCard(llContextConvoResponses);
                 String textWallString = Arrays.stream(llContextConvoResponses)
                         .reduce((a, b) -> b + "\n\n" + a)
                         .orElse("");
-                sendTextWall(textWallString);
+                //sendRowsCard(llContextConvoResponses);
+
+                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", false, textWallString);
+                else sendTextWall(textWallString);
             }
             List<String> list = Arrays.stream(Arrays.copyOfRange(llContextConvoResponses, 0, llContextConvoResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
             Collections.reverse(list);
