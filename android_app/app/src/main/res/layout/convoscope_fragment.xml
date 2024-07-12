@@ -84,6 +84,16 @@
           android:buttonTint="@color/colorAccent"
           android:text="Language Learning" />
 
+      <Switch
+          android:id="@+id/word_upgrade_toggle"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="0dp"
+          android:text="                Word Upgrade"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
       <RadioButton
           android:id="@+id/radioButtonProactiveAgents"
           android:layout_width="match_parent"
@@ -102,7 +112,7 @@
 
 
     <Switch
-        android:id="@+id/screen_mirror_image_toggle"
+        android:id="@+id/word_upgrade_toggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
