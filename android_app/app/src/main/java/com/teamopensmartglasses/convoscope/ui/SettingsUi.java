@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -26,6 +27,7 @@ import androidx.navigation.Navigation;
 import com.teamopensmartglasses.convoscope.ConvoscopeService;
 import com.teamopensmartglasses.convoscope.MainActivity;
 import com.teamopensmartglasses.convoscope.R;
+import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.AudioWearable;
 
@@ -143,7 +145,7 @@ public class SettingsUi extends Fragment {
         transcribeLanguageSpinner.setAdapter(transcribeAdapter);
 
         // Retrieve the saved transcribe language
-        String savedTranscribeLanguage = ((MainActivity)getActivity()).mService.getChosenTranscribeLanguage(mContext);
+        String savedTranscribeLanguage = SmartGlassesAndroidService.getChosenTranscribeLanguage(mContext);
 
         // Find the position of the saved language in the adapter
         int languageSpinnerPosition = transcribeAdapter.getPosition(savedTranscribeLanguage);
@@ -256,14 +258,14 @@ public class SettingsUi extends Fragment {
         });
 
         // setup live captions toggle
-        final Switch liveTranscriptionToggle = view.findViewById(R.id.live_captions_toggle);
-        final boolean isLiveCaptionsChecked = ((MainActivity)getActivity()).mService.getIsLiveCaptionsChecked(mContext);
-        liveTranscriptionToggle.setChecked(isLiveCaptionsChecked);
+        final CheckBox liveTranscriptionCheckBox = view.findViewById(R.id.live_captions_toggle);
+        final boolean isLiveCaptionsChecked = ConvoscopeService.getIsLiveCaptionsChecked(mContext);
+        liveTranscriptionCheckBox.setChecked(isLiveCaptionsChecked);
 
-        liveTranscriptionToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        liveTranscriptionCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ((MainActivity)getActivity()).mService.saveIsLiveCaptionsChecked(mContext, isChecked);
+                ConvoscopeService.saveIsLiveCaptionsChecked(mContext, isChecked);
             }
         });
     }

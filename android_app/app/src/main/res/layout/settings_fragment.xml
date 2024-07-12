@@ -154,7 +154,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/targetLanguageSpinner" />
 
-    <Switch
+    <CheckBox
         android:id="@+id/live_captions_toggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -164,8 +164,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sourceLanguageTitle"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
+        app:layout_constraintTop_toBottomOf="@+id/sourceLanguageTitle" />
 
     <!--    <Button-->
     <!--        android:id="@+id/start_live_captions"-->
