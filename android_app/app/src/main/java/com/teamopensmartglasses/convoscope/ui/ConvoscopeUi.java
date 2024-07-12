@@ -31,11 +31,9 @@ import com.teamopensmartglasses.convoscope.MainActivity;
 import com.teamopensmartglasses.convoscope.R;
 import com.teamopensmartglasses.convoscope.ResponseTextUiAdapter;
 import com.teamopensmartglasses.convoscope.TranscriptTextUiAdapter;
-import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
 import com.teamopensmartglasses.convoscope.events.UserIdChangedEvent;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 
@@ -270,7 +268,7 @@ public class ConvoscopeUi extends Fragment {
       Context mContext = this.getContext();
 
 
-      final Switch screenMirrorImageToggle = view.findViewById(R.id.screen_mirror_image_toggle);
+      final Switch screenMirrorImageToggle = view.findViewById(R.id.word_upgrade_toggle);
       screenMirrorImageToggle.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("screen_mirror_image", false));
       screenMirrorImageToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
         @Override

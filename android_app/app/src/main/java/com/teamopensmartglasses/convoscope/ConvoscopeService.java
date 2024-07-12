@@ -116,6 +116,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public String explicitAgent = "explicit_agent_insights";
     public String definerAgent = "intelligent_entity_definitions";
     public String languageLearningAgent = "language_learning";
+    public String llWordSuggestUpgradeAgent = "ll_word_suggest_upgrade";
     public String llContextConvoAgent = "ll_context_convo";
     public String adhdStmbAgent = "adhd_stmb_agent_summaries";
     public double previousLat = 0;
