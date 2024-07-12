@@ -15,6 +15,7 @@ import static com.teamopensmartglasses.convoscope.Constants.explicitAgentResults
 import static com.teamopensmartglasses.convoscope.Constants.glassesCardTitle;
 import static com.teamopensmartglasses.convoscope.Constants.languageLearningKey;
 import static com.teamopensmartglasses.convoscope.Constants.llContextConvoKey;
+import static com.teamopensmartglasses.convoscope.Constants.llWordSuggestUpgradeKey;
 import static com.teamopensmartglasses.convoscope.Constants.proactiveAgentResultsKey;
 import static com.teamopensmartglasses.convoscope.Constants.shouldUpdateSettingsKey;
 import static com.teamopensmartglasses.convoscope.Constants.systemMessagesKey;
@@ -123,16 +124,20 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     //language learning buffer stuff
     private LinkedList<DefinedWord> definedWords = new LinkedList<>();
     private LinkedList<STMBSummary> adhdStmbSummaries = new LinkedList<>();
+    private LinkedList<LLUpgradeResponse> llUpgradeResponses = new LinkedList<>();
     private LinkedList<ContextConvoResponse> contextConvoResponses = new LinkedList<>();
     private final long llDefinedWordsShowTime = 40 * 1000; // define in milliseconds
     private final long llContextConvoResponsesShowTime = 3 * 60 * 1000; // define in milliseconds
     private final long locationSendTime = 1000 * 10; // define in milliseconds
     private final long adhdSummaryShowTime = 10 * 60 * 1000; // define in milliseconds
+    private final long llUpgradeShowTime = 5 * 60 * 1000; // define in milliseconds
     private final int maxDefinedWordsShow = 4;
     private final int maxAdhdStmbShowNum = 3;
     private final int maxContextConvoResponsesShow = 2;
+    private final int maxLLUpgradeResponsesShow = 2;
 
-//    private SMSComms smsComms;
+
+    //    private SMSComms smsComms;
     static String phoneNumName = "Alex";
     static String phoneNum = "8477367492"; // Alex's phone number. Fun default.
     long previousWakeWordTime = -1; // Initialize this at -1
@@ -674,6 +679,21 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         return stmbResults;
     }
 
+    public String[] calculateLLUpgradeResponseFormatted(LinkedList<LLUpgradeResponse> llUpgradeResponses) {
+        int max_rows_allowed = 4;
+        String[] llUpgradeResults = new String[Math.min(max_rows_allowed, llUpgradeResponses.size())];
+
+        int minSpaces = 2;
+        int index = 0;
+        for (LLUpgradeResponse llUpgradeResponse : llUpgradeResponses) {
+            if (index >= max_rows_allowed) break;
+            llUpgradeResults[index] = llUpgradeResponse.response;
+            index++;
+        }
+
+        return llUpgradeResults;
+    }
+
     public String[] calculateLLContextConvoResponseFormatted(LinkedList<ContextConvoResponse> contextConvoResponses) {
         if (!clearedScreenYet) {
             sendHomeScreen();
@@ -738,6 +758,27 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             responsesBuffer.add(dynamicSummary);
         }
 
+        JSONArray llWordSuggestUpgradeResults = response.has(llWordSuggestUpgradeKey) ? response.getJSONArray(llWordSuggestUpgradeKey) : new JSONArray();
+        updateLLUpgradeResponse(llWordSuggestUpgradeResults);
+        if (llWordSuggestUpgradeResults.length() != 0) {
+            if (!clearedScreenYet) {
+                sendHomeScreen();
+                clearedScreenYet = true;
+            }
+            String [] llUpgradeResults = calculateLLUpgradeResponseFormatted(getLlUpgradeResponse());
+            if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
+//                sendRowsCard(llResults);
+                //pack it into a string since we're using text wall now
+                String textWallString = Arrays.stream(llUpgradeResults)
+                        .reduce((a, b) -> b + "\n\n" + a)
+                        .orElse("");
+                sendTextWall(textWallString);
+            }
+            Log.d(TAG, String.join("\n", llUpgradeResults));
+
+            sendUiUpdateSingle(String.join("\n", llUpgradeResults));
+            responsesBuffer.add(String.join("\n", llUpgradeResults));
+        }
         //language learning
         JSONArray languageLearningResults = response.has(languageLearningKey) ? response.getJSONArray(languageLearningKey) : new JSONArray();
         updateDefinedWords(languageLearningResults); //sliding buffer, time managed language learning card
@@ -1253,6 +1294,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         return adhdStmbSummaries;
     }
 
+    public LinkedList<LLUpgradeResponse> getLlUpgradeResponse() { return llUpgradeResponses; }
+
     // A simple representation of your word data
     private static class DefinedWord {
         String inWord;
@@ -1283,6 +1326,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
     }
 
+
     //context convo
     public void updateContextConvoResponses(JSONArray newData) {
         long currentTime = System.currentTimeMillis();
@@ -1311,6 +1355,32 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
     }
 
+    public void updateLLUpgradeResponse(JSONArray newData) {
+        long currentTime = System.currentTimeMillis();
+        // Add new data to the list
+        for (int i = 0; i < newData.length(); i++) {
+            try {
+                JSONObject resData = newData.getJSONObject(i);
+                llUpgradeResponses.addFirst(new LLUpgradeResponse(
+                        resData.getString("ll_word_suggest_upgrade_response"),
+                        resData.getLong("timestamp"),
+                        resData.getString("uuid")
+                ));
+            } catch (JSONException e){
+                e.printStackTrace();
+            }
+        }
+
+        llUpgradeResponses.removeIf(llupgradeResponse -> (currentTime - (llupgradeResponse.timestamp * 1000)) > llUpgradeShowTime);
+
+        // Ensure list does not exceed max size
+        while (llUpgradeResponses.size() > maxLLUpgradeResponsesShow) {
+            llUpgradeResponses.removeLast();
+        }
+    }
+
+
+
     // Getter for the list, if needed
     public LinkedList<ContextConvoResponse> getContextConvoResponses() {
         return contextConvoResponses;
@@ -1328,6 +1398,23 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             this.uuid = uuid;
         }
     }
+
+    private static class LLUpgradeResponse {
+        String response;
+        long timestamp;
+        String uuid;
+
+        LLUpgradeResponse(String response, long timestamp, String uuid) {
+            this.response = response;
+            this.timestamp = timestamp;
+            this.uuid = uuid;
+        }
+    }
+
+    //retry auth right away if it failed, but don't do it too much as we have a max # refreshes/day
+    private int max_google_retries = 3;
+    private int googleAuthRetryCount = 0;
+    private long lastGoogleAuthRetryTime = 0;
 
     @Subscribe
     public void onGoogleAuthFailedEvent(GoogleAuthFailedEvent event) {
