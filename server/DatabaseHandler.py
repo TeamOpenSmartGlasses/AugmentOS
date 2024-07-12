@@ -184,6 +184,7 @@ class DatabaseHandler:
                  "agent_insights_query_ids": [],
                  "language_learning_result_ids": [],
                  "ll_context_convo_result_ids": [],
+                 "ll_word_suggest_upgrade_result_ids":[],
                  "gps_location_result_ids": [],
                  "topic_shift_result_ids": [],
                  "agent_proactive_definer_irrelevant_terms": []})
@@ -1136,6 +1137,9 @@ class DatabaseHandler:
 
     def get_ll_context_convo_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
         return self.get_results_for_user_device("ll_context_convo_result_ids", user_id, device_id, should_consume, include_consumed)
+
+    def get_ll_word_suggest_upgrade_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
+        return self.get_results_for_user_device("ll_word_suggest_upgrade_result_ids", user_id, device_id, should_consume, include_consumed)
 
     def get_adhd_stmb_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
         return self.get_results_for_user_device("topic_shift_result_ids", user_id, device_id, should_consume, include_consumed)

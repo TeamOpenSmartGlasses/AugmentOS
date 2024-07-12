@@ -154,8 +154,8 @@ async def run_ll_word_suggest_upgrade_agent(conversation_context: str, word_rank
     )
 
     word_rank_string = format_list_data(word_rank)
-    # print("LANGUAGE LEARNING WORD RANK STRING:" + word_rank_string)
-    #print("LANGUAGE LEARNING WORD RANK STRING:" + word_rank_string)
+    print("LANGUAGE LEARNING WORD RANK STRING:" + word_rank_string)
+#     print("LANGUAGE LEARNING WORD RANK STRING:" + word_rank_string)
 
     ll_word_suggest_upgrade_agent_query_prompt_string = extract_ll_word_suggest_upgrade_agent_query_prompt.format_prompt(
         conversation_context=conversation_context,
@@ -168,7 +168,7 @@ async def run_ll_word_suggest_upgrade_agent(conversation_context: str, word_rank
         live_upgrade_word_history=live_upgrade_word_history
     ).to_string()
 
-    # print("ll word suggest upgrade PROMPT********************************")
+    print("ll word suggest upgrade PROMPT********************************")
     # print(ll_word_suggest_upgrade_agent_query_prompt_string)
 
     # print("Proactive meta agent query prompt string", ll_word_suggest_upgrade_agent_query_prompt_string)

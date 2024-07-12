@@ -11,6 +11,7 @@ public class Constants {
     public static String entityDefinitionsKey = "entity_definitions";
     public static String languageLearningKey = "language_learning_results";
     public static String llContextConvoKey = "ll_context_convo_results";
+    public static String llWordSuggestUpgradeKey = "ll_word_suggest_upgrade_results";
     public static String shouldUpdateSettingsKey = "should_update_settings";
     public static String adhdStmbAgentKey = "adhd_stmb_agent_results";
 
