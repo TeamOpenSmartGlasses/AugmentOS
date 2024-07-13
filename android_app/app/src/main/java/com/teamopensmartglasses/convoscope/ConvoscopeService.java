@@ -759,12 +759,12 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         String finalString = "";
 
         if (!newLiveCaption.isEmpty()) {
-            if (isLiveCaptionFinal) oldLiveCaption = currentLiveCaption;
+            if (isLiveCaptionFinal) oldLiveCaption = currentLiveCaption; // Only update old caption if the new one is final
             currentLiveCaption = newLiveCaption;
         }
         if (!llString.isEmpty()) llCurrentString = llString;
 
-        finalString += oldLiveCaption + "\n\n" + currentLiveCaption + "\n\n" + llCurrentString;
+        finalString += llCurrentString  + "\n\n" + oldLiveCaption + "\n\n" + currentLiveCaption;
 
         sendTextWall(finalString);
     }
