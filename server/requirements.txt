@@ -37,3 +37,4 @@ langchain-core==0.1.29
 langchain-openai==0.0.8
 langchain-text-splitters==0.0.1
 jieba
+PyMultiDictionary
