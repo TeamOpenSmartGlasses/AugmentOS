@@ -790,9 +790,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
         if (!llString.isEmpty()) llCurrentString = llString;
 
-        finalString += llCurrentString  + "\n\n" + oldLiveCaption + "\n\n" + currentLiveCaption;
-
-        sendTextWall(finalString);
+//        finalString += llCurrentString  + "\n\n" + oldLiveCaption + "\n\n" + currentLiveCaption;
+//        sendTextWall(finalString);
+        sendDoubleTextWall(llCurrentString, oldLiveCaption + "\n" + currentLiveCaption);
     }
 
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
