@@ -76,6 +76,8 @@ import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
 
+import javax.microedition.khronos.opengles.GL;
+
 public class ConvoscopeService extends SmartGlassesAndroidService {
     public final String TAG = "Convoscope_ConvoscopeService";
 
@@ -438,7 +440,31 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //        getSettings();
         // Send transcript to user if live captions are enabled
         if (getIsLiveCaptionsChecked(this)) {
-            showTranscriptsToUser(text, isFinal);
+//            showTranscriptsToUser(text, isFinal);
+            debounceAndShowTranscriptOnGlasses(text, isFinal);
+        }
+    }
+
+    private Handler glassesTranscriptDebounceHandler = new Handler(Looper.getMainLooper());
+    private Runnable glassesTranscriptDebounceRunnable;
+    private long glassesTranscriptLastSentTime = 0;
+    private final long GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY = 400; // in milliseconds
+    private void debounceAndShowTranscriptOnGlasses(String transcript, boolean isFinal) {
+        glassesTranscriptDebounceHandler.removeCallbacks(glassesTranscriptDebounceRunnable);
+        long currentTime = System.currentTimeMillis();
+        if (isFinal) {
+            showTranscriptsToUser(transcript, isFinal);
+        } else { //if intermediate
+            if (currentTime - glassesTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
+                showTranscriptsToUser(transcript, isFinal);
+                glassesTranscriptLastSentTime = currentTime;
+            } else {
+                glassesTranscriptDebounceRunnable = () -> {
+                    showTranscriptsToUser(transcript, isFinal);
+                    lastSentTime = System.currentTimeMillis();
+                };
+                glassesTranscriptDebounceHandler.postDelayed(glassesTranscriptDebounceRunnable, GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY);
+            }
         }
     }
 
