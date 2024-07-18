@@ -224,9 +224,44 @@ async def ui_poll_handler(request, minutes=0.5):
     resp["system_messages"] = db_handler.get_system_messages_for_user_device(
         user_id=user_id, device_id=device_id)
     if resp["system_messages"]:
-        print("server.py # ADHD short term memory buffer
+        print("server.py ================================= system_messages")
+        print(resp["system_messages"])
+
+    # get agent results
+
+    # explicit agent - user queries and agent responses
+    explicit_insight_queries = db_handler.get_explicit_query_history_for_user(user_id=user_id, device_id=device_id)
+    explicit_insight_results = db_handler.get_explicit_insights_history_for_user(user_id=user_id, device_id=device_id)
+    wake_word_time = db_handler.get_wake_word_time_for_user(user_id=user_id)
+    resp["explicit_insight_queries"] = explicit_insight_queries
+    resp["explicit_insight_results"] = explicit_insight_results
+    resp["wake_word_time"] = wake_word_time
+
+    #proactive agents
+    # Ignore proactive agents if we've had a query in past 15 seconds
+    if not explicit_insight_queries or (time.time() - explicit_insight_queries[-1]['timestamp'] < (1000 * 15)):
+        agent_insight_results = db_handler.get_proactive_agents_insights_results_for_user_device(user_id=user_id, device_id=device_id)
+        resp["results_proactive_agent_insights"] = agent_insight_results
+
+    # intelligent definer
+    entity_definitions = db_handler.get_agent_proactive_definer_results_for_user_device(user_id=user_id, device_id=device_id)
+    resp["entity_definitions"] = entity_definitions
+
+    # language learning rare word translation
+    language_learning_results = db_handler.get_language_learning_results_for_user_device(user_id=user_id, device_id=device_id)
+    resp["language_learning_results"] = language_learning_results
+
+    # language learning contextual convos
+    ll_context_convo_results = db_handler.get_ll_context_convo_results_for_user_device(user_id=user_id, device_id=device_id)
+    resp["ll_context_convo_results"] = ll_context_convo_results
+
+    # ADHD short term memory buffer
     adhd_stmb_agent_results = db_handler.get_adhd_stmb_results_for_user_device(user_id=user_id, device_id=device_id)
     resp["adhd_stmb_agent_results"] = adhd_stmb_agent_results
+
+    #language learning word suggestion upgrade
+    ll_word_suggest_upgrade_results = db_handler.get_ll_word_suggest_upgrade_results_for_user_device(user_id=user_id, device_id=device_id)
+    resp["ll_word_suggest_upgrade_results"] = ll_word_suggest_upgrade_results
 
     # tell the frontend to update their local settings if needed
     should_update_settings = db_handler.get_should_update_settings(user_id)
