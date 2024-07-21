@@ -184,6 +184,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         Log.d(TAG, "ASR KEY: " + asrApiKey);
         saveApiKey(this, asrApiKey);
 
+        startNotificationService();
+
         completeInitialization();
     }
 
@@ -330,6 +332,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         if (idTokenListener != null) {
             firebaseAuth.removeIdTokenListener(idTokenListener);
         }
+
+        stopNotificationService();
 
         super.onDestroy();
     }
@@ -1353,6 +1357,16 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     private void updateLastDataSentTime() {
         lastDataSentTime = System.currentTimeMillis();
+    }
+
+    private void startNotificationService() {
+        Intent notificationServiceIntent = new Intent(this, NotificationListener.class);
+        startForegroundService(notificationServiceIntent);
+    }
+
+    private void stopNotificationService() {
+        Intent notificationServiceIntent = new Intent(this, NotificationListener.class);
+        stopService(notificationServiceIntent);
     }
 
 }
