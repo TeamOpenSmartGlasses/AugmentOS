@@ -105,6 +105,9 @@ class DatabaseHandler:
         self.language_learning_db = self.client['language_learning']
         self.language_learning_collection = self.get_collection(
             self.language_learning_db, 'language_learning_results', wipe=clear_cache_on_start)
+        self.ll_word_suggest_upgrade_db = self.client['ll_word_suggest_upgrade']
+        self.ll_word_suggest_upgrade_collection = self.get_collection(
+            self.ll_word_suggest_upgrade_db, 'll_word_suggest_upgrade_results', wipe=clear_cache_on_start)
         self.ll_context_convo_db = self.client['ll_context_convo']
         self.ll_context_convo_collection = self.get_collection(
             self.ll_context_convo_db, 'll_context_convo_results', wipe=clear_cache_on_start)
@@ -800,6 +803,22 @@ class DatabaseHandler:
         results = list(self.ll_context_convo_collection.aggregate(pipeline))
 
         return results
+    
+    def get_ll_word_suggest_upgrade_histroy_for_user(self, user_id, top=2):
+        uuid_list = self.get_user(user_id)["ll_word_suggest_upgrade_result_ids"]
+        pipeline = [
+            {"$match": {"uuid": {"$in": uuid_list}}},
+            {"$sort": {"timestamp": -1}},
+            {"$limit": top},
+            {
+                "$project": {
+                    "_id": 0,
+                }
+            },
+        ]
+        results = list(self.ll_word_suggest_upgrade_collection.aggregate(pipeline))
+
+        return results
 
     def get_gps_location_for_user(self, user_id, top=1):
         uuid_list = self.get_user(user_id)["gps_location_result_ids"]
@@ -863,6 +882,34 @@ class DatabaseHandler:
         names = [result["in_word"] for result in results]
 
         return names
+
+    def get_recent_nminutes_ll_word_suggest_upgrade_history_for_user(self, user_id, n_minutes=10):
+        uuid_list = self.get_user(user_id)["ll_word_suggest_upgrade_result_ids"]
+        current_time = math.trunc(time.time())
+        n_seconds = n_minutes * 60
+        timestamp_threshold = current_time - n_seconds
+
+        pipeline = [
+            {
+                "$match": {
+                    "uuid": {"$in": uuid_list},
+                    "timestamp": {"$gte": timestamp_threshold},
+                }
+            },
+            {"$sort": {"timestamp": -1}},
+            {
+                "$project": {
+                    "_id": 0,
+                }
+            },
+        ]
+        results = list(
+            self.ll_word_suggest_upgrade_collection.aggregate(pipeline))
+
+        names = [result["in_upgrade"] for result in results]
+
+        return names
+
 
     def get_recent_nminutes_ll_context_convo_history_for_user(self, user_id, n_minutes=10):
         uuid_list = self.get_user(user_id)["ll_context_convo_result_ids"]
@@ -1031,6 +1078,10 @@ class DatabaseHandler:
         res = self.language_learning_collection.find_one(filter, {'_id': 0})
         if res:
             return res
+        res = self.ll_word_suggest_upgrade_collection.find_one(filter, {'_id': 0})
+       
+        if res:
+            return res
         res = self.ll_context_convo_collection.find_one(filter, {'_id': 0})
         if res:
             return res
@@ -1098,6 +1149,24 @@ class DatabaseHandler:
             word['uuid'] = str(uuid.uuid4())
 
         self.language_learning_collection.insert_many(words)
+
+        result_ids = []
+        for e in words:
+            result_ids.append(e['uuid'])
+
+        filter = {"user_id": user_id}
+        update = {"$push": {"language_learning_result_ids": {'$each': result_ids}}}
+        self.user_collection.update_one(filter=filter, update=update)
+
+    def add_ll_word_suggest_upgrade_to_show_for_user(self, user_id, words):
+        for word in words:
+            if word is None:
+                continue
+
+            word['timestamp'] = int(time.time())
+            word['uuid'] = str(uuid.uuid4())
+
+        self.ll_word_suggest_upgrade_collection.insert_many(words)
 
         result_ids = []
         for e in words:
