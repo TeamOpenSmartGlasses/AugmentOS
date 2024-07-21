@@ -23,7 +23,9 @@ public class MyNotificationListeners extends NotificationListenerService {
 
     private final List<String> packageBlacklist = Arrays.asList(
             "com.android.systemui",
-            "com.samsung.android.app.smartcapture"
+            "com.samsung.android.app.smartcapture",
+            "com.sec.android.app.camera",
+            "com.sec.android.gallery3d"
     );
 
     @Override
