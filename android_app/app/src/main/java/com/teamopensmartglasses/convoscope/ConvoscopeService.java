@@ -20,6 +20,7 @@ import static com.teamopensmartglasses.convoscope.Constants.shouldUpdateSettings
 import static com.teamopensmartglasses.convoscope.Constants.systemMessagesKey;
 import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
@@ -32,6 +33,7 @@ import android.media.projection.MediaProjectionManager;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.service.notification.NotificationListenerService;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
@@ -1365,7 +1367,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     private void startNotificationService() {
         Intent notificationServiceIntent = new Intent(this, NotificationListener.class);
-        startForegroundService(notificationServiceIntent);
+        startService(notificationServiceIntent);
+
+        NotificationListenerService.requestRebind(
+                new ComponentName(this, NotificationListener.class));
     }
 
     private void stopNotificationService() {
