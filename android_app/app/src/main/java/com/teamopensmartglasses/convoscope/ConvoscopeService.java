@@ -724,7 +724,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     public String[] calculateLLStringFormatted(LinkedList<DefinedWord> definedWords) {
         int max_rows_allowed;
-        if (getIsLiveCaptionsChecked(this)) max_rows_allowed = 2; // Only show 2 rows if live captions are enabled
+        if (getIsLiveCaptionsChecked(this)) max_rows_allowed = 3; // Only show 2 rows if live captions are enabled
         else max_rows_allowed = 4;
 
         String[] llResults = new String[Math.min(max_rows_allowed, definedWords.size())];
@@ -758,7 +758,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     public String[] calculateLLContextConvoResponseFormatted(LinkedList<ContextConvoResponse> contextConvoResponses) {
         int max_rows_allowed;
-        if (getIsLiveCaptionsChecked(this)) max_rows_allowed = 2; // Only show 2 rows if live captions are enabled
+        if (getIsLiveCaptionsChecked(this)) max_rows_allowed = 3; // Only show 2 rows if live captions are enabled
         else max_rows_allowed = 4;
 
         if (!clearedScreenYet) {
@@ -782,7 +782,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     public void sendTextWallLiveCaptionLL(String newLiveCaption, boolean isLiveCaptionFinal, String llString) {
-        String finalString = "";
+        String separatorLine = "\n---------------------------------------------------------";
 
         if (!newLiveCaption.isEmpty()) {
             if (isLiveCaptionFinal) oldLiveCaption = currentLiveCaption; // Only update old caption if the new one is final
@@ -790,9 +790,17 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
         if (!llString.isEmpty()) llCurrentString = llString;
 
-//        finalString += llCurrentString  + "\n\n" + oldLiveCaption + "\n\n" + currentLiveCaption;
-//        sendTextWall(finalString);
-        sendDoubleTextWall(llCurrentString, oldLiveCaption + "\n" + currentLiveCaption);
+        // Truncate to the last 100 characters
+        if (oldLiveCaption.length() > 50) {
+            oldLiveCaption = oldLiveCaption.substring(oldLiveCaption.length() - 50);
+        }
+        if (currentLiveCaption.length() > 100) {
+            currentLiveCaption = currentLiveCaption.substring(currentLiveCaption.length() - 100);
+        }
+
+        if (oldLiveCaption.isEmpty() && currentLiveCaption.isEmpty()) separatorLine = "";
+
+        sendDoubleTextWall(llCurrentString + separatorLine, oldLiveCaption + separatorLine + "\n" + currentLiveCaption);
     }
 
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
@@ -856,7 +864,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //                sendRowsCard(llResults);
                 //pack it into a string since we're using text wall now
             String textWallString = Arrays.stream(llResults)
-                .reduce((a, b) -> b + "\n\n" + a)
+                .reduce((a, b) -> b + "\n" + a)
                 .orElse("");
 
             if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
