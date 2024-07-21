@@ -1,9 +1,16 @@
 package com.teamopensmartglasses.convoscope.events;
 
 public class NewScreenTextEvent {
-    public String text;
+    public String title;
+    public String body;
 
     public NewScreenTextEvent(String newText){
-        text = newText;
+        title = null;
+        body = newText;
+    }
+
+    public NewScreenTextEvent(String newTitle, String newBody){
+        title = newTitle;
+        body = newBody;
     }
 }

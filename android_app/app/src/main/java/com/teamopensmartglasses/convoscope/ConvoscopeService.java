@@ -1,6 +1,5 @@
 package com.teamopensmartglasses.convoscope;
 
-import static com.firebase.ui.auth.AuthUI.getApplicationContext;
 import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.DIARIZE_QUERY_ENDPOINT;
 import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
@@ -23,18 +22,12 @@ import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.PixelFormat;
-import android.hardware.display.DisplayManager;
 import android.hardware.display.VirtualDisplay;
-import android.media.Image;
-import android.media.ImageReader;
 import android.media.projection.MediaProjection;
-import android.media.projection.MediaProjectionManager;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.service.notification.NotificationListenerService;
-import android.util.DisplayMetrics;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -54,7 +47,6 @@ import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
 import com.teamopensmartglasses.convoscope.events.SignOutEvent;
 import com.teamopensmartglasses.convoscope.ui.ConvoscopeUi;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DiarizationOutputEvent;
-import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.DisableBleScoAudioEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.GlassesTapOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SmartRingButtonOutputEvent;
 import com.teamopensmartglasses.smartglassesmanager.eventbusmessages.SpeechRecOutputEvent;
@@ -1352,8 +1344,12 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     @Subscribe
     public void onNewScreenTextEvent(NewScreenTextEvent event) {
-        String text = event.text;
-        this.sendTextWall(text);
+        if (event.title != null && event.body != null) {
+            this.sendReferenceCard(event.title, event.body);
+        }
+        else if (event.body != null){
+            this.sendTextWall(event.body);
+        }
     }
 
     @Subscribe
@@ -1366,15 +1362,15 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     private void startNotificationService() {
-        Intent notificationServiceIntent = new Intent(this, NotificationListener.class);
+        Intent notificationServiceIntent = new Intent(this, MyNotificationListeners.class);
         startService(notificationServiceIntent);
 
         NotificationListenerService.requestRebind(
-                new ComponentName(this, NotificationListener.class));
+                new ComponentName(this, MyNotificationListeners.class));
     }
 
     private void stopNotificationService() {
-        Intent notificationServiceIntent = new Intent(this, NotificationListener.class);
+        Intent notificationServiceIntent = new Intent(this, MyNotificationListeners.class);
         stopService(notificationServiceIntent);
     }
 
