@@ -37,17 +37,10 @@ wolframalpha_api_key = "U7P33Q-WLYJUA7GWA"
 
 # These are for use with official Convoscope(tm) backend - ignore if self-hosting
 
-# Local:
-# database_uri = "mongodb://localhost:27017"
-# server_port = 8080
-# path_modifier = ""
-
-# These are for use with official Convoscope(tm) backend - ignore if self-hosting
-
 # Prod:
-#database_uri = "mongodb://localhost:27017"
-#server_port = 8080
-#path_modifier = ""
+database_uri = "mongodb://localhost:27017"
+server_port = 8080
+path_modifier = ""
 
 # Dev:
 #database_uri = "mongodb://localhost:27019"
@@ -55,18 +48,11 @@ wolframalpha_api_key = "U7P33Q-WLYJUA7GWA"
 #path_modifier = "dev/"
 
 # Dev2:
-#database_uri = "mongodb://localhost:27020"
-#server_port = 8082
-#path_modifier = "dev2/"
-
-# Dev4:
-database_uri = "mongodb://localhost:27023"
-server_port = 8085
-path_modifier = "dev4/"
-
+# database_uri = "mongodb://localhost:27020"
+# server_port = 8082
+# path_modifier = "dev2/"
 
 # MIT:
 #database_uri = "mongodb://localhost:27021"
 #server_port = 8083
 #path_modifier = "mit/"
-
