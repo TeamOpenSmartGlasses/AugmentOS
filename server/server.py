@@ -544,12 +544,7 @@ if __name__ == '__main__':
     language_learning_background_process.start()
 
     # start the upgrade app process
-    print("Starting Language Learning Agents process...")
-    ll_word_suggest_upgrade_background_process = multiprocessing.Process(target=start_ll_word_suggest_upgrade_agent_processing_loop)
-    ll_word_suggest_upgrade_background_process.start()
-    
-     # start the upgrade app process
-    print("Starting Language Learning Agents process...")
+    print("Starting LL Word Suggest Upgrade Agents process...")
     ll_word_suggest_upgrade_background_process = multiprocessing.Process(target=start_ll_word_suggest_upgrade_agent_processing_loop)
     ll_word_suggest_upgrade_background_process.start()
     

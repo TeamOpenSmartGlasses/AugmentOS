@@ -681,14 +681,14 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     public String[] calculateLLUpgradeResponseFormatted(LinkedList<LLUpgradeResponse> llUpgradeResponses) {
-        int max_rows_allowed = 4;
+        int max_rows_allowed = 1;
         String[] llUpgradeResults = new String[Math.min(max_rows_allowed, llUpgradeResponses.size())];
 
-        int minSpaces = 2;
+        int minSpaces = 0;
         int index = 0;
         for (LLUpgradeResponse llUpgradeResponse : llUpgradeResponses) {
             if (index >= max_rows_allowed) break;
-            llUpgradeResults[index] = llUpgradeResponse.response;
+            llUpgradeResults[index] = "Upgrade: " + llUpgradeResponse.inUpgrade + " ( " + llUpgradeResponse.inUpgradeMeaning + " ) ";
             index++;
         }
 
@@ -1312,6 +1312,21 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
     }
 
+    // A simple representation of upgrade word data
+    // private static class UpgradeWord {
+    //     String inUpgrade;
+    //     String inUpgradeMeaning;
+    //     long timestamp;
+    //     String uuid;
+
+    //     UpgradeWord(String inUpgrade, String inUpgradeMeaning, long timestamp, String uuid) {
+    //         this.inUpgrade = inUpgrade;
+    //         this.inUpgradeMeaning = inUpgradeMeaning;
+    //         this.timestamp = timestamp;
+    //         this.uuid = uuid;
+    //     }
+    // }
+
     // A simple representation of ADHD STMB data
     private static class STMBSummary {
         String summary;
@@ -1363,7 +1378,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             try {
                 JSONObject resData = newData.getJSONObject(i);
                 llUpgradeResponses.addFirst(new LLUpgradeResponse(
-                        resData.getString("ll_word_suggest_upgrade_response"),
+                        resData.getString("in_upgrade"),
+                        resData.getString("in_upgrade_meaning"),
                         resData.getLong("timestamp"),
                         resData.getString("uuid")
                 ));
@@ -1401,12 +1417,14 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     private static class LLUpgradeResponse {
-        String response;
+        String inUpgrade;
+        String inUpgradeMeaning;
         long timestamp;
         String uuid;
 
-        LLUpgradeResponse(String response, long timestamp, String uuid) {
-            this.response = response;
+        LLUpgradeResponse(String inUpgrade, String inUpgradeMeaning, long timestamp, String uuid) {
+            this.inUpgrade = inUpgrade;
+            this.inUpgradeMeaning = inUpgradeMeaning;
             this.timestamp = timestamp;
             this.uuid = uuid;
         }

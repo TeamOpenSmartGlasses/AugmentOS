@@ -83,8 +83,8 @@ async def process_transcript(transcript: str):
 
     if words_to_show:
         final_words_to_show = list(filter(None, words_to_show))
-        #print("WORDS TO SHOW")
-        #print(final_words_to_show)
+        # print("WORDS TO SHOW")
+        # print(final_words_to_show)
         db_handler.add_language_learning_words_to_show_for_user(transcript['user_id'], final_words_to_show)
 
 

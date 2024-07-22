@@ -143,6 +143,20 @@ public class SettingsUi extends Fragment {
             }
         });
 
+        //ll vocabulary upgrade checkbox
+        CheckBox vocabularyUpgradeCheckbox = view.findViewById(R.id.VocabularyUpgrade);
+        boolean isVocabularyUpgradeEnabled = ((MainActivity)getActivity()).isVocabularyUpgradeEnabled(mContext);
+        Log.d(TAG, "Initial Vocabulary Upgrade state: " + isVocabularyUpgradeEnabled);
+        vocabularyUpgradeCheckbox.setChecked(isVocabularyUpgradeEnabled);
+
+        vocabularyUpgradeCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Log.d(TAG, "Vocabulary Upgrade checkbox changed: " + isChecked);
+                ((MainActivity)getActivity()).setVocabularyUpgradeEnabled(mContext, isChecked);
+            }
+        });
+
         //setup transcript language spinner
         Spinner transcribeLanguageSpinner = view.findViewById(R.id.transcribeLanguageSpinner);
         ArrayAdapter<CharSequence> transcribeAdapter = ArrayAdapter.createFromResource(mContext,
@@ -152,6 +166,8 @@ public class SettingsUi extends Fragment {
 
         // Retrieve the saved transcribe language
         String savedTranscribeLanguage = ((MainActivity)getActivity()).mService.getChosenTranscribeLanguage(mContext);
+
+        Boolean savedVocabularyUpgradeEnabled = ((MainActivity)getActivity()).mService.isVocabularyUpgradeEnabled(mContext);
 
         // Find the position of the saved language in the adapter
         int languageSpinnerPosition = transcribeAdapter.getPosition(savedTranscribeLanguage);

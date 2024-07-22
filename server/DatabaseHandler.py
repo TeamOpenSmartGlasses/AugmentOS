@@ -55,6 +55,9 @@ class DatabaseHandler:
     def set_is_having_language_learning_contextual_convo_flag_for_all_users(self, flag_value=False):
         self.user_collection.update_many({}, {"$set": {"settings.is_having_language_learning_contextual_convo": flag_value}})
 
+    def set_vocabulary_upgrade_enabled_flag_for_all_users(self, flag_value=False):
+         self.user_collection.update_many({}, {"$set": {"settings.vocabulary_upgrade_enabled": flag_value}})
+
     def set_command_start_language_learning_contextual_convo_flag_for_all_users(self, flag_value=False):
         self.user_collection.update_many({}, {"$set": {"settings.command_start_language_learning_contextual_convo": flag_value}})
 
@@ -67,6 +70,7 @@ class DatabaseHandler:
         self.active_user_collection = self.get_collection(
         self.active_user_db, 'active_users', wipe=clear_users_on_start)
         self.set_is_having_language_learning_contextual_convo_flag_for_all_users()
+        self.set_vocabulary_upgrade_enabled_flag_for_all_users()
         self.set_command_start_language_learning_contextual_convo_flag_for_all_users()
 
     def init_transcripts_collection(self):
@@ -179,6 +183,7 @@ class DatabaseHandler:
                      "is_having_language_learning_contextual_convo": False,
                      "command_start_language_learning_contextual_convo": False,
                      "current_mode": "Language Learning",
+                     "vocabulary_upgrade_enabled": False, 
                      #"current_mode": "Proactive Agents",
                      "enabled_proactive_agents": ["QuestionAnswerer"]
                  },
@@ -1173,7 +1178,7 @@ class DatabaseHandler:
             result_ids.append(e['uuid'])
 
         filter = {"user_id": user_id}
-        update = {"$push": {"language_learning_result_ids": {'$each': result_ids}}}
+        update = {"$push": {"ll_word_suggest_upgrade_result_ids": {'$each': result_ids}}}
         self.user_collection.update_one(filter=filter, update=update)
 
     def get_language_learning_results_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):

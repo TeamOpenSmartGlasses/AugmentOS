@@ -45,7 +45,9 @@ async def ll_word_suggest_upgrade_agent_processing_loop():
 
 async def process_transcript(transcript: str):
     words_to_show = None
-    if not db_handler.get_user_feature_enabled(transcript['user_id'], LL_WORD_SUGGEST_UPGRADE_AGENT): return
+    if not db_handler.get_user_feature_enabled(transcript['user_id'], LL_WORD_SUGGEST_UPGRADE_AGENT):
+        print("does not have LL_WORD_SUGGEST_UPGRADE_AGENT enabled")
+        return
 
     ctime = time.time()
     
@@ -87,7 +89,6 @@ async def process_transcript(transcript: str):
         print("UPGRADE WORDS TO SHOW")
         print(final_words_to_show)
         db_handler.add_ll_word_suggest_upgrade_to_show_for_user(transcript['user_id'], final_words_to_show)
-
 
 
         #run again after delay for run_period
