@@ -48,6 +48,9 @@ async def process_transcript(transcript: str):
     if not db_handler.get_user_feature_enabled(transcript['user_id'], LL_WORD_SUGGEST_UPGRADE_AGENT):
         print("does not have LL_WORD_SUGGEST_UPGRADE_AGENT enabled")
         return
+    if not db_handler.get_user_settings_value(transcript['user_id'], "vocabulary_upgrade_enabled"): 
+        print("does not have vocabulary_upgrade_enabled")
+        return
 
     ctime = time.time()
     

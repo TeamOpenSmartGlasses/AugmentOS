@@ -1106,6 +1106,18 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 .apply();
     }
 
+    public static void setVocabularyUpgradeEnabled(Context context, boolean isEnabled) {
+        PreferenceManager.getDefaultSharedPreferences(context)
+                .edit()
+                .putBoolean(context.getResources().getString(R.string.SHARED_PREF_VOCABULARY_UPGRADE), isEnabled)
+                .apply();
+    }
+
+    public Boolean isVocabularyUpgradeEnabled(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getBoolean(context.getResources().getString(R.string.SHARED_PREF_VOCABULARY_UPGRADE), false);
+        }
+
     public static void saveChosenSourceLanguage(Context context, String sourceLanguageString) {
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
@@ -1168,6 +1180,16 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
 
+    public void enableVocabularyUpgradeOnBackend(Context context, boolean isEnabled){
+        Boolean upgradeEnabled = getChosenTargetLanguage(context, boolean isEnabled);
+        try{
+            JSONObject settingsObj = new JSONObject();
+            settingsObj.put("vocabulary_upgrade_enabled", upgradeEnabled);
+            sendSettings(settingsObj);
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
     public void updateTargetLanguageOnBackend(Context context){
         String targetLanguage = getChosenTargetLanguage(context);
         try{
@@ -1178,6 +1200,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             e.printStackTrace();
         }
     }
+
+
     public void updateSourceLanguageOnBackend(Context context){
         String sourceLanguage = getChosenSourceLanguage(context);
         try{

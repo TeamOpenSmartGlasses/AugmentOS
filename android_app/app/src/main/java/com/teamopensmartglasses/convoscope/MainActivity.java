@@ -411,4 +411,16 @@ public class MainActivity extends AppCompatActivity {
         return currentModeString;
     }
 
+    public Boolean isVocabularyUpgradeEnabled(Context context) {
+    return PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean(context.getResources().getString(R.string.SHARED_PREF_VOCABULARY_UPGRADE), false);
+    }
+      
+    public void setVocabularyUpgradeEnabled(Context context, boolean isEnabled) {
+        PreferenceManager.getDefaultSharedPreferences(context)
+                .edit()
+                .putBoolean(context.getResources().getString(R.string.SHARED_PREF_VOCABULARY_UPGRADE), isEnabled)
+                .apply();
+    }
+
 }
