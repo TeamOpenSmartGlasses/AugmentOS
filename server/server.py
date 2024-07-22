@@ -266,6 +266,11 @@ async def ui_poll_handler(request, minutes=0.5):
     # tell the frontend to update their local settings if needed
     should_update_settings = db_handler.get_should_update_settings(user_id)
     resp["should_update_settings"] = should_update_settings
+    
+    vocabulary_upgrade_enabled = body.get('vocabulary_upgrade_enabled')
+    if vocabulary_upgrade_enabled is not None:
+        db_handler.update_single_user_setting(user_id, "vocabulary_upgrade_enabled", vocabulary_upgrade_enabled)
+      
 
     return web.Response(text=json.dumps(resp), status=200)
 
