@@ -42,12 +42,12 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="64dp"
         android:text="Account"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sourceLanguageSpinner" />
 
@@ -153,6 +153,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/targetLanguageSpinner" />
+
+    <CheckBox
+        android:id="@+id/VocabularyUpgrade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vocabulary Upgrade"
+        tools:layout_editor_absoluteX="126dp"
+        tools:layout_editor_absoluteY="528dp" />
 
 
     <!--    <Button-->
