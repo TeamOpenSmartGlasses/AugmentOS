@@ -152,6 +152,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public boolean clearedScreenYet = false;
 
     String oldLiveCaption = "";
+    String oldLiveCaptionFinal = "";
     String currentLiveCaption = "";
     String llCurrentString = "";
 
@@ -781,26 +782,27 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         return llResults;
     }
 
-    public void sendTextWallLiveCaptionLL(String newLiveCaption, boolean isLiveCaptionFinal, String llString) {
-        String separatorLine = "\n---------------------------------------------------------";
+    public void sendTextWallLiveCaptionLL(final String newLiveCaption, final boolean isLiveCaptionFinal, final String llString) {
+        final String separatorLine = "\n---------------------------------------------------------";
 
         if (!newLiveCaption.isEmpty()) {
+            if (!oldLiveCaption.isEmpty()) {
+                oldLiveCaptionFinal = oldLiveCaption;
+                oldLiveCaption = "";
+            }
             if (isLiveCaptionFinal) oldLiveCaption = currentLiveCaption; // Only update old caption if the new one is final
             currentLiveCaption = newLiveCaption;
         }
         if (!llString.isEmpty()) llCurrentString = llString;
 
-        // Truncate to the last 100 characters
-        if (oldLiveCaption.length() > 50) {
-            oldLiveCaption = oldLiveCaption.substring(oldLiveCaption.length() - 50);
-        }
-        if (currentLiveCaption.length() > 100) {
-            currentLiveCaption = currentLiveCaption.substring(currentLiveCaption.length() - 100);
-        }
+        // Truncate to the last 70 characters
+        oldLiveCaption = oldLiveCaption.length() > 70 ? oldLiveCaption.substring(oldLiveCaption.length() - 70) : oldLiveCaption;
+        currentLiveCaption = currentLiveCaption.length() > 70 ? currentLiveCaption.substring(currentLiveCaption.length() - 70) : currentLiveCaption;
 
-        if (oldLiveCaption.isEmpty() && currentLiveCaption.isEmpty()) separatorLine = "";
+        final String topSeparatorLine = !llCurrentString.isEmpty() ? separatorLine : "";
+        final String bottomSeparatorLine = !oldLiveCaptionFinal.isEmpty() ? separatorLine + "\n" : "";
 
-        sendDoubleTextWall(llCurrentString + separatorLine, oldLiveCaption + separatorLine + "\n" + currentLiveCaption);
+        sendDoubleTextWall(llCurrentString + topSeparatorLine, oldLiveCaptionFinal + bottomSeparatorLine + currentLiveCaption);
     }
 
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
@@ -811,7 +813,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         boolean isLiveCaptionsChecked = getIsLiveCaptionsChecked(this);
 
-        //explicity queries
+        //explicit queries
         JSONArray explicitAgentQueries = response.has(explicitAgentQueriesKey) ? response.getJSONArray(explicitAgentQueriesKey) : new JSONArray();
 
         JSONArray explicitAgentResults = response.has(explicitAgentResultsKey) ? response.getJSONArray(explicitAgentResultsKey) : new JSONArray();
@@ -861,10 +863,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             }
 
             llResults = calculateLLStringFormatted(getDefinedWords());
-//                sendRowsCard(llResults);
-                //pack it into a string since we're using text wall now
+            String newLineSeparator = isLiveCaptionsChecked ? "\n" : "\n\n";
+
+//            pack it into a string since we're using text wall now
             String textWallString = Arrays.stream(llResults)
-                .reduce((a, b) -> b + "\n" + a)
+                .reduce((a, b) -> b + newLineSeparator + a)
                 .orElse("");
 
             if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
