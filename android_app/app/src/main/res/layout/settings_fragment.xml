@@ -164,26 +164,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sourceLanguageSpinner" />
 
-    <Spinner
-        android:id="@+id/sourceLanguageSpinner"
-        android:layout_width="250dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/rounded_corner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sourceLanguageTitle" />
-
-    <Spinner
-        android:id="@+id/sourceLanguageSpinner"
-        android:layout_width="250dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/rounded_corner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sourceLanguageTitle" />
-
 
     <!--    <Button-->
     <!--        android:id="@+id/start_live_captions"-->

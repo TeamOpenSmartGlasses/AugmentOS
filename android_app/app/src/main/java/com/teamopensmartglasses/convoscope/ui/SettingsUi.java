@@ -155,7 +155,7 @@ public class SettingsUi extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 Log.d(TAG, "Vocabulary Upgrade checkbox changed: " + isChecked);
                 ((MainActivity)getActivity()).mService.setVocabularyUpgradeEnabled(mContext, isChecked);
-                ((MainActivity)getActivity()).mService.updateSourceLanguageOnBackend(mContext);
+                ((MainActivity)getActivity()).mService.enableVocabularyUpgradeOnBackend(mContext, isChecked);
                 ((MainActivity)getActivity()).restartConvoscopeService();
                 
             }

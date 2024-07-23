@@ -1181,7 +1181,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
 
     public void enableVocabularyUpgradeOnBackend(Context context, boolean isEnabled){
-        Boolean upgradeEnabled = getChosenTargetLanguage(context, boolean isEnabled);
+        Boolean upgradeEnabled = isVocabularyUpgradeEnabled(context);
         try{
             JSONObject settingsObj = new JSONObject();
             settingsObj.put("vocabulary_upgrade_enabled", upgradeEnabled);
