@@ -8,11 +8,12 @@ RELEVANCE_FILTER_TIME = 120 # number of seconds the relevance filter looks back
 
 DEBUG_FORCE_EXPERT_AGENT_RUN = False
 
-GPT_4_MODEL = "gpt-4-1106-preview"
+GPT_4_MODEL = "gpt-4-turbo"
 GPT_4_MAX_TOKENS = 2048
 GPT_TEMPERATURE = 0.0
 
 GPT_4O_MODEL = "gpt-4o"
+GPT_4O_MINI_MODEL = "gpt-4o-mini"
 
 GPT_35_MODEL = "gpt-3.5-turbo-1106"
 GPT_35_MAX_TOKENS = 2048

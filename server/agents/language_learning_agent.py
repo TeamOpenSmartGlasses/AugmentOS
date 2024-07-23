@@ -16,7 +16,7 @@ from helpers.time_function_decorator import time_function
 import jieba
 from pypinyin import pinyin, Style
 
-from Modules.LangchainSetup import *
+from Modules.LangchainSetup import get_langchain_gpt4o
 
 language_learning_agent_prompt_blueprint = """You are listening to a user's conversation right now. You help the language learner user by identifying vocabulary/words from the conversation transcript (Input Text) that the user might not understand and then translate just those words into the Ouput language. You output 0 to 3 words. If the learner's fluency level is less than 50, they will need about 1/5 words define. 50-75 fluency level might need 1 word per sentence. If fluency level is >75, only choose and translate very rare words.
 
