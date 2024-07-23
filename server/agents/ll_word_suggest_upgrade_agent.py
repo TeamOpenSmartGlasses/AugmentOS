@@ -51,13 +51,13 @@ Conversation 1: '她连续三年赢得奥林匹克赛的金牌，真是太强了
 Source Language 1: English
 Target Language 1: Chinese
 Fluency Level: >50
-Output 1: {{"tiān xià wú dí":"invincible under the heaven"}}
+Output 1: {{"天下无敌":"invincible under the heaven"}}
 
 Conversation 2: "Катализатор ускоряет химическую реакцию."
 Source Language 2: Russian
 Target Language 2: English
 Fluency Level: >75
-Output 2: {{"Autocatalytic":"цикл или путь, в котором один из продуктов поддерживает реакцию"}}
+Output 2: {{"Autocatalytic":"цикл или путь"}}
 
 Conversation 3: "Bonjour, comment ça va ?"
 Source Language 3: English
