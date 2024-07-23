@@ -861,10 +861,9 @@ class DatabaseHandler:
         results = list(self.topic_shifts_collection.aggregate(pipeline))
         return results
 
-    def get_recent_nminutes_language_learning_words_defined_history_for_user(self, user_id, n_minutes=10):
+    def get_recent_language_learning_words_defined_history_for_user(self, user_id, n_seconds=10):
         uuid_list = self.get_user(user_id)["language_learning_result_ids"]
         current_time = math.trunc(time.time())
-        n_seconds = n_minutes * 60
         timestamp_threshold = current_time - n_seconds
 
         pipeline = [
@@ -1249,5 +1248,3 @@ class DatabaseHandler:
 
     def get_gps_location_results_for_user_device(self, user_id, device_id, should_consume=False, include_consumed=False):
         return self.get_results_for_user_device("gps_location_result_ids", user_id, None, should_consume, include_consumed) # TODO: chek if device_id can be None
-
-

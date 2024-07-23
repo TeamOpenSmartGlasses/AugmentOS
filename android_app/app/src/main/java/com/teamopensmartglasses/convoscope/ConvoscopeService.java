@@ -187,7 +187,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         Log.d(TAG, "Convoscope service started");
 
         String asrApiKey = getResources().getString(R.string.google_api_key);
-        Log.d(TAG, "ASR KEY: " + asrApiKey);
+//        Log.d(TAG, "ASR KEY: " + asrApiKey);
         saveApiKey(this, asrApiKey);
 
         completeInitialization();
@@ -208,6 +208,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         getCurrentMode(this);
 
         this.aioConnectSmartGlasses();
+
+        updateTargetLanguageOnBackend(this);
+        updateSourceLanguageOnBackend(this);
+        saveCurrentMode(this, getCurrentMode(this));
     }
 
     public void handleSignOut(){
@@ -216,7 +220,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     public void sendSettings(JSONObject settingsObj){
         try{
-            Log.d(TAG, "AUTH from Settings: " + authToken);
+//            Log.d(TAG, "AUTH from Settings: " + authToken);
             settingsObj.put("timestamp", System.currentTimeMillis() / 1000);
             backendServerComms.restRequest(SET_USER_SETTINGS_ENDPOINT, settingsObj, new VolleyJsonCallback(){
                 @Override
@@ -427,7 +431,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         String text = event.text;
         long time = event.timestamp;
         boolean isFinal = event.isFinal;
-//        Log.d(TAG, "PROCESS TRANSCRIPTION CALLBACK. IS IT FINAL? " + isFinal + " " + text);
+        Log.d(TAG, "PROCESS TRANSCRIPTION CALLBACK. IS IT FINAL? " + isFinal + " " + text);
 
         if (isFinal) {
             transcriptsBuffer.add(text);
@@ -802,7 +806,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
 //            sendTextToSpeech("欢迎使用安卓文本到语音转换功能", "Chinese");
 //            Log.d(TAG, "GOT THAT ONEEEEEEEE:");
-            Log.d(TAG, String.join("\n", llResults));
+//            Log.d(TAG, String.join("\n", llResults));
 //            sendUiUpdateSingle(String.join("\n", Arrays.copyOfRange(llResults, llResults.length, 0)));
 //            List<String> list = Arrays.stream(Arrays.copyOfRange(llResults, 0, languageLearningResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
 //            Collections.reverse(list);

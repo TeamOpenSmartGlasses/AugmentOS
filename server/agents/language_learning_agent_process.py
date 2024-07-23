@@ -12,7 +12,7 @@ from constants import LANGUAGE_LEARNING_AGENT
 db_handler = DatabaseHandler(parent_handler=False)
 
 time_between_iterations = 0.5
-timelength_of_usable_transcripts = time_between_iterations * 4
+timelength_of_usable_transcripts = time_between_iterations * 6
 
 def start_language_learning_agent_processing_loop():
     loop = asyncio.new_event_loop()
@@ -68,9 +68,7 @@ async def process_transcript(transcript: str):
     word_frequency_percentiles = get_word_frequency_percentiles(transcript['text'], transcribe_language)
 
     #get previous word definitons for last few minutes
-    live_translate_word_history = db_handler.get_recent_nminutes_language_learning_words_defined_history_for_user(transcript['user_id'], n_minutes=4)
-    #print("GOT live translate word history: ")
-    #print(live_translate_word_history)
+    live_translate_word_history = db_handler.get_recent_language_learning_words_defined_history_for_user(transcript['user_id'], n_seconds=30)
 
     #run the language learning agent
     words_to_show = await run_language_learning_agent(transcript['text'], word_frequency_percentiles, target_language, transcribe_language, source_language, live_translate_word_history)
@@ -87,7 +85,5 @@ async def process_transcript(transcript: str):
         # print(final_words_to_show)
         db_handler.add_language_learning_words_to_show_for_user(transcript['user_id'], final_words_to_show)
 
-
-
-        #run again after delay for run_period
-        # time.sleep(max(0, time_between_iterations - (pLoopEndTime - pLoopStartTime)))
+    #run again after delay for run_period
+    # time.sleep(max(0, time_between_iterations - (pLoopEndTime - pLoopStartTime)))
