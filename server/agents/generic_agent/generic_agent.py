@@ -12,6 +12,8 @@ import time
 from agents.generic_agent.agent_insight import *
 from agents.generic_agent.generic_agent_prompts import *
 
+from langchain.schema.messages import HumanMessage
+
 db_handler = DatabaseHandler(parent_handler=False)
 llm4 = get_langchain_gpt4(max_tokens=180, temperature=0.2)
 llmMedium = get_langchain_gpt4o(temperature=0.0)

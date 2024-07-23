@@ -132,7 +132,7 @@ def format_list_data(data: dict) -> str:
 word_dictionary = MultiDictionary()
 
 @time_function()
-async def run_language_learning_agent(conversation_context: str, word_rank: dict, target_language="Russian", transcribe_language="English", source_language="English", live_translate_word_history="", use_llm=False):
+async def run_language_learning_agent(conversation_context: str, word_rank: dict, target_language="Russian", transcribe_language="English", source_language="English", live_translate_word_history="", use_llm=True):
     # start up GPT4o connection if using LLM
     if use_llm:
         llm = get_langchain_gpt4o(temperature=0.2, max_tokens=80)
@@ -189,22 +189,29 @@ async def run_language_learning_agent(conversation_context: str, word_rank: dict
             return None
     else:
         # Simple heuristic based on word frequency, ignoring Chinese periods and commas
-        ignore_chars = {'。', '，', '！', ''}
-        to_translate_words = {word: "" for word in word_rank if word_rank[word] >= 1.2 and word not in ignore_chars}
+        ignore_chars = {'。', '，', '！', '', '\'', ' ', ',', '.', '？'}
+        to_translate_words = {word: "" for word in word_rank if word_rank[word] >= 0.30 and word not in ignore_chars}
 
-        def translate_word(word, source_lang, target_lang):
+        def translate_word(word, source_lang, output_lang):
             source_lang_code = language_code_map[source_lang]
-            target_lang_code = language_code_map[target_lang]
+            output_lang_code = language_code_map[output_lang]
+            print(f"'*** Try to translate {word} in {source_lang_code} to {output_lang_code}")
             translations = word_dictionary.translate(source_lang_code, word)
+            if translations == {}:
+                print(f"Failed to tranlsate this word: {word}")
+                return None
             translation_dict = {key: value for key, value in translations}
+            print(word)
             print(translation_dict)
-            return translation_dict[target_lang_code]
+            return translation_dict[output_lang_code]
 
         translated_words = dict()
         for word in to_translate_words:
-            translated_word = translate_word(word, source_language, target_language)
+            translated_word = translate_word(word, transcribe_language, output_language)
+            if translated_word is None: #if no translation found
+                continue
             translated_words[word] = translated_word
-            print(f"'{word}' in {target_language} is '{translated_word}'")
+            print(f"'{word}' in {output_language} is '{translated_word}'")
 
     # Drop too common words
     word_rank_threshold = 0.2

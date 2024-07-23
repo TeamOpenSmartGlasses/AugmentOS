@@ -62,6 +62,7 @@ def get_word_frequency_percentiles(transcript: str, language_code: str) -> dict:
     # Tokenize the transcript based on the language
     if language_code == "Chinese" or language_code == "Chinese (Pinyin)":
         words = list(jieba.cut(transcript))
+        print(words)
     else:
         words = transcript.split()
 

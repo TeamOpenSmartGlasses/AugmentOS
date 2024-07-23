@@ -11,7 +11,7 @@ from constants import LANGUAGE_LEARNING_AGENT
 
 db_handler = DatabaseHandler(parent_handler=False)
 
-time_between_iterations = 0.5
+time_between_iterations = 0.25
 timelength_of_usable_transcripts = time_between_iterations * 6
 
 def start_language_learning_agent_processing_loop():
