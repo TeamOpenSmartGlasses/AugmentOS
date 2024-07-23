@@ -126,13 +126,16 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private LinkedList<DefinedWord> definedWords = new LinkedList<>();
     private LinkedList<STMBSummary> adhdStmbSummaries = new LinkedList<>();
     private LinkedList<LLUpgradeResponse> llUpgradeResponses = new LinkedList<>();
+    private LinkedList<LLCombineResponse> llCombineResponses = new LinkedList<>();
     private LinkedList<ContextConvoResponse> contextConvoResponses = new LinkedList<>();
     private final long llDefinedWordsShowTime = 40 * 1000; // define in milliseconds
     private final long llContextConvoResponsesShowTime = 3 * 60 * 1000; // define in milliseconds
     private final long locationSendTime = 1000 * 10; // define in milliseconds
     private final long adhdSummaryShowTime = 10 * 60 * 1000; // define in milliseconds
     private final long llUpgradeShowTime = 5 * 60 * 1000; // define in milliseconds
+    private final long llCombineShowTime = 5 * 60 * 1000; // define in milliseconds
     private final int maxDefinedWordsShow = 4;
+    private final int maxLLCombineShow = 5;
     private final int maxAdhdStmbShowNum = 3;
     private final int maxContextConvoResponsesShow = 2;
     private final int maxLLUpgradeResponsesShow = 2;
@@ -655,20 +658,42 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 ////        String llResult = topLine.toString() + "\n" + bottomLine.toString();
 //    }
 
-    public String[] calculateLLStringFormatted(LinkedList<DefinedWord> definedWords) {
-        int max_rows_allowed = 4;
-        String[] llResults = new String[Math.min(max_rows_allowed, definedWords.size())];
-        String enSpace = "\u2002"; // Using en space for padding
+//    public String[] calculateLLStringFormatted(LinkedList<DefinedWord> definedWords) {
+//        int max_rows_allowed = 4;
+//        String[] llResults = new String[Math.min(max_rows_allowed, definedWords.size())];
+//        String enSpace = "\u2002"; // Using en space for padding
+//
+//        int minSpaces = 2;
+//        int index = 0;
+//        for (DefinedWord word : definedWords) {
+//            if (index >= max_rows_allowed) break;
+//            llResults[index] = word.inWord + enSpace.repeat(minSpaces) + "⟶" + enSpace.repeat(minSpaces) + word.inWordTranslation;
+//            index++;
+//        }
+//
+//        return llResults;
+//    }
 
-        int minSpaces = 2;
+    public String[] calculateLLCombineResponseFormatted(LinkedList<LLCombineResponse> llCombineResponses) {
+        int max_rows_allowed = 5;
+        String[] llCombineResults = new String[Math.min(max_rows_allowed, llCombineResponses.size())];
+
+        int minSpaces = 0;
         int index = 0;
-        for (DefinedWord word : definedWords) {
+        String enSpace = "\u2002";
+
+        for (LLCombineResponse llCombineResponse : llCombineResponses) {
             if (index >= max_rows_allowed) break;
-            llResults[index] = word.inWord + enSpace.repeat(minSpaces) + "⟶" + enSpace.repeat(minSpaces) + word.inWordTranslation;
+            Log.d(TAG, llCombineResponse.toString());
+            if (llCombineResponse.inUpgrade != null && llCombineResponse.inUpgradeMeaning!= null) {
+                llCombineResults[index] = "⬆" + llCombineResponse.inUpgrade + " (" + llCombineResponse.inUpgradeMeaning + ")";
+            }else if(llCombineResponse.inWord!=null && llCombineResponse.inWordTranslation!=null){
+                llCombineResults[index] = llCombineResponse.inWord + enSpace.repeat(minSpaces) + "⟶" + enSpace.repeat(minSpaces) + llCombineResponse.inWordTranslation;
+            }
             index++;
         }
 
-        return llResults;
+        return llCombineResults;
     }
 
     public String[] calculateAdhdStmbStringFormatted(LinkedList<STMBSummary> summaries) {
@@ -686,20 +711,20 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         return stmbResults;
     }
 
-    public String[] calculateLLUpgradeResponseFormatted(LinkedList<LLUpgradeResponse> llUpgradeResponses) {
-        int max_rows_allowed = 1;
-        String[] llUpgradeResults = new String[Math.min(max_rows_allowed, llUpgradeResponses.size())];
-
-        int minSpaces = 0;
-        int index = 0;
-        for (LLUpgradeResponse llUpgradeResponse : llUpgradeResponses) {
-            if (index >= max_rows_allowed) break;
-            llUpgradeResults[index] = "Upgrade: " + llUpgradeResponse.inUpgrade + " ( " + llUpgradeResponse.inUpgradeMeaning + " ) ";
-            index++;
-        }
-
-        return llUpgradeResults;
-    }
+//    public String[] calculateLLUpgradeResponseFormatted(LinkedList<LLUpgradeResponse> llUpgradeResponses) {
+//        int max_rows_allowed = 1;
+//        String[] llUpgradeResults = new String[Math.min(max_rows_allowed, llUpgradeResponses.size())];
+//
+//        int minSpaces = 0;
+//        int index = 0;
+//        for (LLUpgradeResponse llUpgradeResponse : llUpgradeResponses) {
+//            if (index >= max_rows_allowed) break;
+//            llUpgradeResults[index] = "Upgrade: " + llUpgradeResponse.inUpgrade + " ( " + llUpgradeResponse.inUpgradeMeaning + " ) ";
+//            index++;
+//        }
+//
+//        return llUpgradeResults;
+//    }
 
     public String[] calculateLLContextConvoResponseFormatted(LinkedList<ContextConvoResponse> contextConvoResponses) {
         if (!clearedScreenYet) {
@@ -765,57 +790,80 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             responsesBuffer.add(dynamicSummary);
         }
 
-        JSONArray llWordSuggestUpgradeResults = response.has(llWordSuggestUpgradeKey) ? response.getJSONArray(llWordSuggestUpgradeKey) : new JSONArray();
-        updateLLUpgradeResponse(llWordSuggestUpgradeResults);
-        if (llWordSuggestUpgradeResults.length() != 0) {
-            if (!clearedScreenYet) {
-                sendHomeScreen();
-                clearedScreenYet = true;
-            }
-            String [] llUpgradeResults = calculateLLUpgradeResponseFormatted(getLlUpgradeResponse());
-            if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
-//                sendRowsCard(llResults);
-                //pack it into a string since we're using text wall now
-                String textWallString = Arrays.stream(llUpgradeResults)
-                        .reduce((a, b) -> b + "\n\n" + a)
-                        .orElse("");
-                sendTextWall(textWallString);
-            }
-            Log.d(TAG, String.join("\n", llUpgradeResults));
-
-            sendUiUpdateSingle(String.join("\n", llUpgradeResults));
-            responsesBuffer.add(String.join("\n", llUpgradeResults));
-        }
-        //language learning
         JSONArray languageLearningResults = response.has(languageLearningKey) ? response.getJSONArray(languageLearningKey) : new JSONArray();
-        updateDefinedWords(languageLearningResults); //sliding buffer, time managed language learning card
-        String[] llResults;
-        if (languageLearningResults.length() != 0) {
+        JSONArray llWordSuggestUpgradeResults = response.has(llWordSuggestUpgradeKey) ? response.getJSONArray(llWordSuggestUpgradeKey) : new JSONArray();
+        updateCombineResponse(languageLearningResults, llWordSuggestUpgradeResults);
+        Log.d(TAG, "ll results"+languageLearningResults.toString()+"\n"+"upgrade result:"+llWordSuggestUpgradeResults);
+
+        if (languageLearningResults.length() != 0 || llWordSuggestUpgradeResults.length() != 0) {
             if (!clearedScreenYet) {
                 sendHomeScreen();
                 clearedScreenYet = true;
             }
-
-            llResults = calculateLLStringFormatted(getDefinedWords());
+            String [] llCombineResults = calculateLLCombineResponseFormatted(getLLCombineResponse());
             if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
-//                sendRowsCard(llResults);
-                //pack it into a string since we're using text wall now
-                String textWallString = Arrays.stream(llResults)
+                String textWallString = Arrays.stream(llCombineResults)
                         .reduce((a, b) -> b + "\n\n" + a)
                         .orElse("");
                 sendTextWall(textWallString);
             }
+            Log.d(TAG, "ll combine results"+ llCombineResults.toString());
 
-//            sendTextToSpeech("欢迎使用安卓文本到语音转换功能", "Chinese");
-//            Log.d(TAG, "GOT THAT ONEEEEEEEE:");
-//            Log.d(TAG, String.join("\n", llResults));
-//            sendUiUpdateSingle(String.join("\n", Arrays.copyOfRange(llResults, llResults.length, 0)));
-//            List<String> list = Arrays.stream(Arrays.copyOfRange(llResults, 0, languageLearningResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
-//            Collections.reverse(list);
-            //sendUiUpdateSingle(String.join("\n", list));
-            sendUiUpdateSingle(String.join("\n", llResults));
-            responsesBuffer.add(String.join("\n", llResults));
+            sendUiUpdateSingle(String.join("\n", llCombineResults));
+            responsesBuffer.add(String.join("\n", llCombineResults));
         }
+
+//        JSONArray llWordSuggestUpgradeResults = response.has(llWordSuggestUpgradeKey) ? response.getJSONArray(llWordSuggestUpgradeKey) : new JSONArray();
+//        updateLLUpgradeResponse(llWordSuggestUpgradeResults);
+//        if (llWordSuggestUpgradeResults.length() != 0) {
+//            if (!clearedScreenYet) {
+//                sendHomeScreen();
+//                clearedScreenYet = true;
+//            }
+//            String [] llUpgradeResults = calculateLLUpgradeResponseFormatted(getLlUpgradeResponse());
+//            if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
+////                sendRowsCard(llResults);
+//                //pack it into a string since we're using text wall now
+//                String textWallString = Arrays.stream(llUpgradeResults)
+//                        .reduce((a, b) -> b + "\n\n" + a)
+//                        .orElse("");
+//                sendTextWall(textWallString);
+//            }
+//            Log.d(TAG, String.join("\n", llUpgradeResults));
+//
+//            sendUiUpdateSingle(String.join("\n", llUpgradeResults));
+//            responsesBuffer.add(String.join("\n", llUpgradeResults));
+//        }
+//        //language learning
+//        JSONArray languageLearningResults = response.has(languageLearningKey) ? response.getJSONArray(languageLearningKey) : new JSONArray();
+//        updateDefinedWords(languageLearningResults); //sliding buffer, time managed language learning card
+//        String[] llResults;
+//        if (languageLearningResults.length() != 0) {
+//            if (!clearedScreenYet) {
+//                sendHomeScreen();
+//                clearedScreenYet = true;
+//            }
+//
+//            llResults = calculateLLStringFormatted(getDefinedWords());
+//            if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
+////                sendRowsCard(llResults);
+//                //pack it into a string since we're using text wall now
+//                String textWallString = Arrays.stream(llResults)
+//                        .reduce((a, b) -> b + "\n\n" + a)
+//                        .orElse("");
+//                sendTextWall(textWallString);
+//            }
+//
+////            sendTextToSpeech("欢迎使用安卓文本到语音转换功能", "Chinese");
+////            Log.d(TAG, "GOT THAT ONEEEEEEEE:");
+////            Log.d(TAG, String.join("\n", llResults));
+////            sendUiUpdateSingle(String.join("\n", Arrays.copyOfRange(llResults, llResults.length, 0)));
+////            List<String> list = Arrays.stream(Arrays.copyOfRange(llResults, 0, languageLearningResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
+////            Collections.reverse(list);
+//            //sendUiUpdateSingle(String.join("\n", list));
+//            sendUiUpdateSingle(String.join("\n", llResults));
+//            responsesBuffer.add(String.join("\n", llResults));
+//        }
 
         JSONArray llContextConvoResults = response.has(llContextConvoKey) ? response.getJSONArray(llContextConvoKey) : new JSONArray();
 
@@ -1108,13 +1156,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 .apply();
     }
 
-    public static void setVocabularyUpgradeEnabled(Context context, boolean isEnabled) {
-        PreferenceManager.getDefaultSharedPreferences(context)
-                .edit()
-                .putBoolean(context.getResources().getString(R.string.SHARED_PREF_VOCABULARY_UPGRADE), isEnabled)
-                .apply();
-    }
-
 //    public Boolean isVocabularyUpgradeEnabled(Context context) {
 //        return PreferenceManager.getDefaultSharedPreferences(context)
 //                .getBoolean(context.getResources().getString(R.string.SHARED_PREF_VOCABULARY_UPGRADE), false);
@@ -1257,6 +1298,50 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
     }
 
+    public void updateCombineResponse(JSONArray llData, JSONArray ugData) {
+        long currentTime = System.currentTimeMillis();
+        // Add new data to the list
+        for (int i = 0; i < llData.length(); i++) {
+            try {
+                JSONObject wordData = llData.getJSONObject(i);
+                llCombineResponses.addFirst(new LLCombineResponse(
+                        null,
+                        null,
+                        wordData.getString("in_word"),
+                        wordData.getString("in_word_translation"),
+                        wordData.getLong("timestamp"),
+                        wordData.getString("uuid")
+                ));
+            } catch (JSONException e){
+                e.printStackTrace();
+            }
+        }
+
+        for (int i = 0; i < ugData.length(); i++) {
+            try {
+                JSONObject resData = ugData.getJSONObject(i);
+                llCombineResponses.addFirst(new LLCombineResponse(
+                        resData.getString("in_upgrade"),
+                        resData.getString("in_upgrade_meaning"),
+                        null,
+                        null,
+                        resData.getLong("timestamp"),
+                        resData.getString("uuid")
+                ));
+            } catch (JSONException e){
+                e.printStackTrace();
+            }
+        }
+
+        // Remove old words based on time constraint
+        llCombineResponses.removeIf(word -> (currentTime - (word.timestamp * 1000)) > llCombineShowTime);
+
+        // Ensure list does not exceed max size
+        while (llCombineResponses.size() > maxLLCombineShow) {
+            llCombineResponses.removeLast();
+        }
+    }
+
     public void updateAdhdSummaries(JSONArray newData) {
         long currentTime = System.currentTimeMillis();
         boolean foundNewFalseShift = false;
@@ -1325,7 +1410,13 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         return adhdStmbSummaries;
     }
 
-    public LinkedList<LLUpgradeResponse> getLlUpgradeResponse() { return llUpgradeResponses; }
+    public LinkedList<LLUpgradeResponse> getLLUpgradeResponse() {
+        return llUpgradeResponses;
+    }
+
+    public LinkedList<LLCombineResponse> getLLCombineResponse() {
+        return llCombineResponses;
+    }
 
     // A simple representation of your word data
     private static class DefinedWord {
@@ -1455,6 +1546,25 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         LLUpgradeResponse(String inUpgrade, String inUpgradeMeaning, long timestamp, String uuid) {
             this.inUpgrade = inUpgrade;
             this.inUpgradeMeaning = inUpgradeMeaning;
+            this.timestamp = timestamp;
+            this.uuid = uuid;
+        }
+    }
+
+    // A simple representation of combination of ll rare and ll upgrade
+    private static class LLCombineResponse {
+        String inUpgrade;
+        String inUpgradeMeaning;
+        String inWord;
+        String inWordTranslation;
+        long timestamp;
+        String uuid;
+
+        LLCombineResponse(String inUpgrade, String inUpgradeMeaning,String inWord, String inWordTranslation, long timestamp, String uuid) {
+            this.inUpgrade = inUpgrade;
+            this.inUpgradeMeaning = inUpgradeMeaning;
+            this.inWord = inWord;
+            this.inWordTranslation = inWordTranslation;
             this.timestamp = timestamp;
             this.uuid = uuid;
         }
