@@ -686,7 +686,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             if (index >= max_rows_allowed) break;
             Log.d(TAG, llCombineResponse.toString());
             if (llCombineResponse.inUpgrade != null && llCombineResponse.inUpgradeMeaning!= null) {
-                llCombineResults[index] = "⬆" + llCombineResponse.inUpgrade + " (" + llCombineResponse.inUpgradeMeaning + ")";
+                llCombineResults[index] = "⬆ " + llCombineResponse.inUpgrade + " ( " + llCombineResponse.inUpgradeMeaning + " )";
             }else if(llCombineResponse.inWord!=null && llCombineResponse.inWordTranslation!=null){
                 llCombineResults[index] = llCombineResponse.inWord + enSpace.repeat(minSpaces) + "⟶" + enSpace.repeat(minSpaces) + llCombineResponse.inWordTranslation;
             }
