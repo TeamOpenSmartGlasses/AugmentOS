@@ -678,7 +678,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         int max_rows_allowed = 5;
         String[] llCombineResults = new String[Math.min(max_rows_allowed, llCombineResponses.size())];
 
-        int minSpaces = 0;
+        int minSpaces = 2;
         int index = 0;
         String enSpace = "\u2002";
 
