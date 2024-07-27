@@ -11,8 +11,8 @@ from constants import LL_WORD_SUGGEST_UPGRADE_AGENT
 
 db_handler = DatabaseHandler(parent_handler=False)
 
-time_between_iterations = 15
-timelength_of_usable_transcripts = time_between_iterations * 4
+time_between_iterations = 10
+timelength_of_usable_transcripts = time_between_iterations * 1.2
 
 def start_ll_word_suggest_upgrade_agent_processing_loop():
     loop = asyncio.new_event_loop()

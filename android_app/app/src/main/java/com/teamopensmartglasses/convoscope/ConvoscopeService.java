@@ -675,7 +675,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //    }
 
     public String[] calculateLLCombineResponseFormatted(LinkedList<LLCombineResponse> llCombineResponses) {
-        int max_rows_allowed = 5;
+        int max_rows_allowed = 4;
         String[] llCombineResults = new String[Math.min(max_rows_allowed, llCombineResponses.size())];
 
         int minSpaces = 2;
@@ -685,10 +685,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         for (LLCombineResponse llCombineResponse : llCombineResponses) {
             if (index >= max_rows_allowed) break;
             Log.d(TAG, llCombineResponse.toString());
-            if (llCombineResponse.inUpgrade != null && llCombineResponse.inUpgradeMeaning!= null) {
-                llCombineResults[index] = "⬆ " + llCombineResponse.inUpgrade + " ( " + llCombineResponse.inUpgradeMeaning + " )";
-            }else if(llCombineResponse.inWord!=null && llCombineResponse.inWordTranslation!=null){
+            if(llCombineResponse.inWord!=null && llCombineResponse.inWordTranslation!=null){
                 llCombineResults[index] = llCombineResponse.inWord + enSpace.repeat(minSpaces) + "⟶" + enSpace.repeat(minSpaces) + llCombineResponse.inWordTranslation;
+            }else if (llCombineResponse.inUpgrade != null && llCombineResponse.inUpgradeMeaning!= null) {
+                llCombineResults[index] = "⬆ " + llCombineResponse.inUpgrade + " ( " + llCombineResponse.inUpgradeMeaning + " )";
             }
             index++;
         }

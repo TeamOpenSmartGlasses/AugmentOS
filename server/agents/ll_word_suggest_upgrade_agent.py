@@ -13,53 +13,59 @@ from pydantic import BaseModel, Field
 from helpers.time_function_decorator import time_function
 
 #pinyin
+import jieba
 from pypinyin import pinyin, Style
 
 from Modules.LangchainSetup import *
 
 #draft word suggestion upgrade prompt by Susanna
-ll_word_suggest_upgrade_agent_prompt_blueprint="""You generate "Upgrades" for language learners. An Upgrade should be contextually relevant - given what is being discussed, what words might be the most useful to the user? You generate those words.
+ll_word_suggest_upgrade_agent_prompt_blueprint="""
 
-You are listening to a user's conversation right now. You help the language learner user by suggesting an "Upgrade", which is a contextually relevant word or phrase the user might want to use during the conversation. 
+You generate "Upgrades" for language learners. An Upgrade should be context based new word or phrase, that might be the most useful to the user.
 
-You output 1 words in the Target Language (the language they want to learn) and also output a 1-3 word definition of the word in the Source Language (the language they speak).
+Your hear the conversation in either the target language or the source language.
 
 The system will take in the context of what is being discussed, where the user is, what’s happening around them, what the user’s goal is, etc. in order to suggest some words to them that they otherwise would not use.
 
-The upgrade word and its meaning should never repeat with what's already in the Conversation Transcript. Suggest *new* words that haven't been said yet.
+For the upgrade word, provide the 1 word in {target_language} and its meaning in {source_language} in 1-3 words .
+
+Come up with a new word
+(upgrade_word not in conversation_context_set and upgrade_word not in live_upgrade_word_history_set) and \
+(upgrade_word_meaning not in conversation_context and upgrade_word_meaning not in live_upgrade_word_history_set)
+
 
 Target Language (learning): {target_language}
 Source Language (already known): {source_language}
 Fluency Level: {fluency_level}
-Input Text: `{conversation_context}`
+Input Text (Conversation Transcript): `{conversation_context}`
 Frequency Ranking: The frequency percentile of each word tells you how common it is in daily speech (~0.1 is very common, >1.2 is rare, >13.5 is very rare). The frequency ranking of the words in the "Input Text" are: `{word_rank}`
 Recently Suggested: `{live_upgrade_word_history}`
 Output Format: {format_instructions}
 
-Conversation Transcript
-{conversation_context}
 
 Examples:
-
-Conversation 1: '她连续三年赢得奥林匹克赛的金牌，真是太强了'
 Source Language 1: English
-Target Language 1: Chinese
-Fluency Level: 50
-Output 1: {{"天下无敌":"unbeatable everywhere"}}
+Target Language 1: French
+Conversation 1 (Transcript): "quel exercice aimes-tu? Aimes-tu l'eau?"
+Conversation 1 in Opposite Language: 'What exercise do you like? Do you like water?'
+Fluency Level: <50
+Output 1: {{"nager":"to swim"}}
 
-Conversation 2: "Катализатор ускоряет химическую реакцию."
-Source Language 2: Russian
-Target Language 2: English
-Fluency Level: 10
-Output 2: {{"teacher":"учитель"}}
+Source Language 2: English
+Target Language 2: Chinese
+Conversation 2 (Transcript): '她连续三年赢得奥林匹克赛的金牌，真是太厉害了。'
+Conversation 2 in Opposite Language: 'She won the Olympic gold medal three years in a row, which is amazing.'
+Fluency Level: >50
+Output 2: {{"天下无敌":"unbeatable everywhere"}}
 
-Conversation 3: "quel exercice aimes-tu?"
-Source Language 3: English
-Target Language 3: French
-Fluency Level: 50
-Output 3: {{"natation":"swimming"}}
+Source Language 3: Russian
+Target Language 3: English
+Conversation 3 (Transcript): "это катализ реакции одним из ее продуктов."
+Conversation 3 in Opposite Language: 'this is the catalysis of a reaction by one of its products.'
+Fluency Level: >75
+Output 2: {{"autocatalysis":"автокатализ"}}
 
-Don't output words as "Upgrades" if they are already in the conversation transcript.
+When target language is Chinese, do NOT output words with Pinyin! Always Chinese characters!
 
 Don't output punctuation or periods! Output all lowercase! Define 1/5 of the words in the input text (never define all of the words in the input, never define highly common words like "the", "a", "it", etc.). Now provide the output:
 """
@@ -72,16 +78,6 @@ Don't output punctuation or periods! Output all lowercase! Define 1/5 of the wor
 #   - 75-100 (Intermediate): only suggest Upgrade that is very rare words, meaning percentile rank >30, which appears in studies/ researches/ academic contexts/ ancient language that neither Input language user nor Output Language user use in ordinary lives.
 #The output "upgrade word" should be more advanced and related synonym, idiom, or rare word.
 
-#
-#If the learner's fluency level is less than 50, they will need Upgrades that are less advanced. For example, very common words, or a synonym of one word from the Input Text(people use in daily life but are not used by learner).
-#If fluency level is 50-75 fluency level might suggest more advanced Upgrades (people do not use in Input Language, exclusively exist in Output Language in a unique way, like idiom/ culturally relevant phrases).
-#If fluency level is >75, only suggest Upgrades that are very rare words that appears in studies/ researches/ academic contexts/ ancient language that neither Input language user nor Output Language user use in ordinary lives.
-#
-#Process:
-#0. Consider the fluency level of the user, which is {fluency_level}, where 0<=fluency_level<=100, with 0 being complete beginner, 50 being conversational, 75 intermediate and 100 being native speaker.
-#1. Skim through the {conversation_context} and come up with a new but conversation-relevant word to someone with a fluency level of {fluency_level} AND that have not been suggested as upgrade in {live_upgrade_word_history}.
-#2. For the upgrade word, provide the word in {target_language} and its meaning in {source_language}. Make them short. 
-#3. Output response using the format instructions below, provide words in the order they appear in the text. Don't suggest any Upgrade word which appear in the Conversation Transcript.
 
 
 
@@ -125,8 +121,8 @@ async def run_ll_word_suggest_upgrade_agent(conversation_context: str, word_rank
         """
         upgrade_word: str = Field(
             description="the word Upgrade in the target language")
-        upgrade_word_translation: str = Field(
-            description="the 2-3 word description in the source language")
+        upgrade_word_meaning: str = Field(
+            description="the 1-3 word description in the source language")
 
     ll_word_suggest_upgrade_agent_query_parser = PydanticOutputParser(
         pydantic_object=LLWordSuggestUpgradeAgentQuery)
@@ -163,15 +159,32 @@ async def run_ll_word_suggest_upgrade_agent(conversation_context: str, word_rank
     try:
         upgrade_word = ll_word_suggest_upgrade_agent_query_parser.parse(
             response.content).upgrade_word
-        upgrade_word_translation = ll_word_suggest_upgrade_agent_query_parser.parse(
-            response.content).upgrade_word_translation
+        upgrade_word_meaning = ll_word_suggest_upgrade_agent_query_parser.parse(
+            response.content).upgrade_word_meaning
+
+         # Function to convert a list of Chinese words to Pinyin
+        def chinese_to_pinyin(text):
+            # Segment the text into words using jieba
+            words = jieba.cut(text)
+            # Convert each segmented word to pinyin and join them
+            pinyin_output = ''.join([''.join([py[0] for py in pinyin(word, style=Style.TONE)]) for word in words])
+            return pinyin_output
+
+        # Apply Pinyin conversion if needed
+        if "Pinyin" in target_language:
+            upgrade_word = chinese_to_pinyin(upgrade_word)
+
+        if "Pinyin" in source_language:
+            upgrade_word_meaning = chinese_to_pinyin(upgrade_word_meaning)
 
         upgrade_word_and_meaning_obj = []
+        print(conversation_context)
+        conversation_context_set = conversation_context.lower()
         live_upgrade_word_history_set = set(live_upgrade_word_history)  # Convert to set for efficient lookup
-        if (upgrade_word not in conversation_context and upgrade_word not in live_upgrade_word_history_set) and \
-        (upgrade_word_translation not in conversation_context and upgrade_word_translation not in live_upgrade_word_history_set):
-            upgrade_word_and_meaning_obj.append({"in_upgrade": upgrade_word, "in_upgrade_meaning": upgrade_word_translation})
-#        print(conversation_context)
+        if (upgrade_word not in conversation_context_set and upgrade_word not in live_upgrade_word_history_set) and \
+        (upgrade_word_meaning not in conversation_context and upgrade_word_meaning not in live_upgrade_word_history_set):
+            upgrade_word_and_meaning_obj.append({"in_upgrade": upgrade_word, "in_upgrade_meaning": upgrade_word_meaning})
+
 #        for upgrade, meaning in upgrade_word_and_meaning.items():
 #            if (upgrade not in conversation_context and upgrade not in live_upgrade_word_history_set) and \
 #            (meaning not in conversation_context and meaning not in live_upgrade_word_history_set):
