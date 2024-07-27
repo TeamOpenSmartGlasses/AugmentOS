@@ -787,7 +787,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     public void sendTextWallLiveCaptionLL(final String newLiveCaption, final boolean isLiveCaptionFinal, final String llString) {
-        final String separatorLine = "\n---------------------------------------------------------";
+        final String separatorLine = "";
 
         if (!newLiveCaption.isEmpty()) {
             if (!oldLiveCaption.isEmpty()) {
@@ -806,7 +806,13 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         final String topSeparatorLine = !llCurrentString.isEmpty() ? separatorLine : "";
         final String bottomSeparatorLine = !oldLiveCaptionFinal.isEmpty() ? separatorLine + "\n" : "";
 
-        sendDoubleTextWall(llCurrentString + topSeparatorLine, oldLiveCaptionFinal + bottomSeparatorLine + currentLiveCaption);
+        String textBubble = "\uD83D\uDDE8";
+        String preOldCaptionTextBubble = textBubble;
+        if (oldLiveCaptionFinal.equals("")){
+            preOldCaptionTextBubble = "";
+        }
+
+        sendDoubleTextWall(llCurrentString + topSeparatorLine, preOldCaptionTextBubble + oldLiveCaptionFinal + bottomSeparatorLine + textBubble + currentLiveCaption);
     }
 
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
