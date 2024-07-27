@@ -811,7 +811,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         if (oldLiveCaptionFinal.equals("")){
             preOldCaptionTextBubble = "";
         }
-
+//        if (!clearedScreenYet) {
+//            sendHomeScreen();
+//            clearedScreenYet = true;
+//        }
         sendDoubleTextWall(llCurrentString + topSeparatorLine, preOldCaptionTextBubble + oldLiveCaptionFinal + bottomSeparatorLine + textBubble + currentLiveCaption);
     }
 
@@ -866,10 +869,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         String[] llResults;
 
         if (languageLearningResults.length() != 0) {
-            if (!clearedScreenYet) {
-                sendHomeScreen();
-                clearedScreenYet = true;
-            }
+//            if (!clearedScreenYet) {
+//                sendHomeScreen();
+//                clearedScreenYet = true;
+//            }
 
             llResults = calculateLLStringFormatted(getDefinedWords());
             String newLineSeparator = isLiveCaptionsChecked ? "\n" : "\n\n";
