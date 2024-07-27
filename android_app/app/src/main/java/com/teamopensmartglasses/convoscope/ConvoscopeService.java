@@ -1166,6 +1166,13 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 .getBoolean(context.getResources().getString(R.string.SHARED_PREF_VOCABULARY_UPGRADE), true);
         }
 
+    public void setVocabularyUpgradeEnabled(Context context, boolean isEnabled) {
+        PreferenceManager.getDefaultSharedPreferences(context)
+                .edit()
+                .putBoolean(context.getResources().getString(R.string.SHARED_PREF_VOCABULARY_UPGRADE), isEnabled)
+                .apply();
+    }
+
     public static void saveChosenSourceLanguage(Context context, String sourceLanguageString) {
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
@@ -1600,5 +1607,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private void updateLastDataSentTime() {
         lastDataSentTime = System.currentTimeMillis();
     }
+
+
+
 
 }

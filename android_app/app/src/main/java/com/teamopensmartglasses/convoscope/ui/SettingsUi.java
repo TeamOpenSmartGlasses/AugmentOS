@@ -146,7 +146,7 @@ public class SettingsUi extends Fragment {
 
         //ll vocabulary upgrade checkbox
         CheckBox vocabularyUpgradeCheckbox = view.findViewById(R.id.VocabularyUpgrade);
-        boolean isVocabularyUpgradeEnabled = ((MainActivity)getActivity()).isVocabularyUpgradeEnabled(mContext);
+        boolean isVocabularyUpgradeEnabled = ((MainActivity)getActivity()).mService.isVocabularyUpgradeEnabled(mContext);
         Log.d(TAG, "Initial Vocabulary Upgrade state: " + isVocabularyUpgradeEnabled);
         vocabularyUpgradeCheckbox.setChecked(isVocabularyUpgradeEnabled);
 
