@@ -860,7 +860,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //            sendHomeScreen();
 //            clearedScreenYet = true;
 //        }
-        sendDoubleTextWall(llCurrentString + topSeparatorLine, preOldCaptionTextBubble + oldLiveCaptionFinal + bottomSeparatorLine + textBubble + currentLiveCaption);
+//        sendDoubleTextWall(llCurrentString + topSeparatorLine, preOldCaptionTextBubble + oldLiveCaptionFinal + bottomSeparatorLine + textBubble + currentLiveCaption);
     }
 
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
@@ -908,24 +908,24 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             responsesBuffer.add(dynamicSummary);
         }
 
-        JSONArray languageLearningResults = response.has(languageLearningKey) ? response.getJSONArray(languageLearningKey) : new JSONArray();
-        updateDefinedWords(languageLearningResults); //sliding buffer, time managed language learning card
-        String[] llResults;
-        if (languageLearningResults.length() != 0) {
-            if (!clearedScreenYet) {
-                sendHomeScreen();
-                clearedScreenYet = true;
-            }
-
-            llResults = calculateLLStringFormatted(getDefinedWords());
-            if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
-//                sendRowsCard(llResults);
-                //pack it into a string since we're using text wall now
-                String textWallString = Arrays.stream(llResults)
-                        .reduce((a, b) -> b + "\n\n" + a)
-                        .orElse("");
-                sendTextWall(textWallString);
-            }
+//        JSONArray languageLearningResults = response.has(languageLearningKey) ? response.getJSONArray(languageLearningKey) : new JSONArray();
+//        updateDefinedWords(languageLearningResults); //sliding buffer, time managed language learning card
+//        String[] llResults;
+//        if (languageLearningResults.length() != 0) {
+//            if (!clearedScreenYet) {
+//                sendHomeScreen();
+//                clearedScreenYet = true;
+//            }
+//
+//            llResults = calculateLLStringFormatted(getDefinedWords());
+//            if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
+////                sendRowsCard(llResults);
+//                //pack it into a string since we're using text wall now
+//                String textWallString = Arrays.stream(llResults)
+//                        .reduce((a, b) -> b + "\n\n" + a)
+//                        .orElse("");
+//                sendTextWall(textWallString);
+//            }
 
 //            sendTextToSpeech("欢迎使用安卓文本到语音转换功能", "Chinese");
 //            Log.d(TAG, "GOT THAT ONEEEEEEEE:");
@@ -933,10 +933,32 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //            sendUiUpdateSingle(String.join("\n", Arrays.copyOfRange(llResults, llResults.length, 0)));
 //            List<String> list = Arrays.stream(Arrays.copyOfRange(llResults, 0, languageLearningResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
 //            Collections.reverse(list);
-            //sendUiUpdateSingle(String.join("\n", list));
-            sendUiUpdateSingle(String.join("\n", llResults));
-            responsesBuffer.add(String.join("\n", llResults));
+//            sendUiUpdateSingle(String.join("\n", llResults));
+//            responsesBuffer.add(String.join("\n", llResults));
+//        }
+
+
+        JSONArray languageLearningResults = response.has(languageLearningKey) ? response.getJSONArray(languageLearningKey) : new JSONArray();
+        JSONArray llWordSuggestUpgradeResults = response.has(llWordSuggestUpgradeKey) ? response.getJSONArray(llWordSuggestUpgradeKey) : new JSONArray();
+        updateCombineResponse(languageLearningResults, llWordSuggestUpgradeResults);
+        Log.d(TAG, "ll results"+languageLearningResults.toString()+"\n"+"upgrade result:"+llWordSuggestUpgradeResults);
+        if (languageLearningResults.length() != 0 || llWordSuggestUpgradeResults.length() != 0) {
+            if (!clearedScreenYet) {
+                sendHomeScreen();
+                clearedScreenYet = true;
+            }
+            String [] llCombineResults = calculateLLCombineResponseFormatted(getLLCombineResponse());
+            if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
+                String textWallString = Arrays.stream(llCombineResults)
+                        .reduce((a, b) -> b + "\n\n" + a)
+                        .orElse("");
+                sendTextWall(textWallString);
+            }
+            Log.d(TAG, "ll combine results"+ llCombineResults.toString());
+            sendUiUpdateSingle(String.join("\n", llCombineResults));
+            responsesBuffer.add(String.join("\n", llCombineResults));
         }
+
 
         JSONArray llContextConvoResults = response.has(llContextConvoKey) ? response.getJSONArray(llContextConvoKey) : new JSONArray();
 

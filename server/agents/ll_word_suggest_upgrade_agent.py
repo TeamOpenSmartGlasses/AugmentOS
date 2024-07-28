@@ -27,11 +27,11 @@ Your hear the conversation in either the target language or the source language.
 
 The system will take in the context of what is being discussed, where the user is, what’s happening around them, what the user’s goal is, etc. in order to suggest some words to them that they otherwise would not use.
 
-For the upgrade word, provide the 1 word in {target_language} and its meaning in {source_language} in 1-3 words .
+For the upgrade word, provide the 1 word (upgrade_word) in {target_language} and its meaning (upgrade_word_meaning) in {source_language} in 1-3 words .
 
-Come up with a new word
+Come up with a new word that satisfies the following conditions:
 (upgrade_word not in conversation_context_set and upgrade_word not in live_upgrade_word_history_set) and \
-(upgrade_word_meaning not in conversation_context and upgrade_word_meaning not in live_upgrade_word_history_set)
+(upgrade_word_meaning not in conversation_context_set and upgrade_word_meaning not in live_upgrade_word_history_set)
 
 
 Target Language (learning): {target_language}
@@ -69,16 +69,6 @@ When target language is Chinese, do NOT output words with Pinyin! Always Chinese
 
 Don't output punctuation or periods! Output all lowercase! Define 1/5 of the words in the input text (never define all of the words in the input, never define highly common words like "the", "a", "it", etc.). Now provide the output:
 """
-
-#opposite language (either {source_language} or {target_language}, whatever is
-
-#This level influences the selection of upgrade word:
-#   - 0-49 (Beginner): suggest Upgrade word that is less advanced, meaning percentile rank >0.15 (people use in daily life but are not used by learner).
-#   - 50-74 (Conversational): suggest more advanced Upgrade, meaning percentile rank >1.5 (people do not use in Input Language, exclusively exists in Output Language in a unique way, like idiom/ culturally relevant phrases).
-#   - 75-100 (Intermediate): only suggest Upgrade that is very rare words, meaning percentile rank >30, which appears in studies/ researches/ academic contexts/ ancient language that neither Input language user nor Output Language user use in ordinary lives.
-#The output "upgrade word" should be more advanced and related synonym, idiom, or rare word.
-
-
 
 
 
@@ -180,9 +170,10 @@ async def run_ll_word_suggest_upgrade_agent(conversation_context: str, word_rank
         upgrade_word_and_meaning_obj = []
         print(conversation_context)
         conversation_context_set = conversation_context.lower()
+
         live_upgrade_word_history_set = set(live_upgrade_word_history)  # Convert to set for efficient lookup
         if (upgrade_word not in conversation_context_set and upgrade_word not in live_upgrade_word_history_set) and \
-        (upgrade_word_meaning not in conversation_context and upgrade_word_meaning not in live_upgrade_word_history_set):
+        (upgrade_word_meaning not in conversation_context_set and upgrade_word_meaning not in live_upgrade_word_history_set):
             upgrade_word_and_meaning_obj.append({"in_upgrade": upgrade_word, "in_upgrade_meaning": upgrade_word_meaning})
 
 #        for upgrade, meaning in upgrade_word_and_meaning.items():
