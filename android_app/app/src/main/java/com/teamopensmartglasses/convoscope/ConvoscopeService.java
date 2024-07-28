@@ -264,7 +264,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                             Log.d(TAG, "Switching running transcribe language to: " + dynamicTranscribeLanguage);
                             switchRunningTranscribeLanguage(dynamicTranscribeLanguage);
                         } else {
-                            switchRunningTranscribeLanguage(getChosenSourceLanguage(mContext));
+                            switchRunningTranscribeLanguage(getChosenTranscribeLanguage(mContext));
                         }
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
@@ -1022,7 +1022,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
 
         //see if we should update user settings
-        boolean shouldUpdateSettingsResult = response.has(shouldUpdateSettingsKey) ? response.getBoolean(shouldUpdateSettingsKey) : false;
+        boolean shouldUpdateSettingsResult = response.has(shouldUpdateSettingsKey) && response.getBoolean(shouldUpdateSettingsKey);
         if (shouldUpdateSettingsResult){
             Log.d(TAG, "Runnign get settings because shouldUpdateSettings true");
             getSettings();
