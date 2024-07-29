@@ -2,6 +2,8 @@ package com.teamopensmartglasses.convoscope;
 
 import android.app.Notification;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
@@ -81,6 +83,7 @@ public class MyNotificationListeners extends NotificationListenerService {
             return;
         }
 
+        String appName = getAppName(packageName);
         String title = "";
         String text = "";
 
@@ -128,6 +131,8 @@ public class MyNotificationListeners extends NotificationListenerService {
             }
         }
 
+        title = appName + " | " + title;
+
         EventBus.getDefault().post(new NewScreenTextEvent(title, text));
     }
 
@@ -147,5 +152,16 @@ public class MyNotificationListeners extends NotificationListenerService {
     public void onListenerDisconnected() {
         super.onListenerDisconnected();
         Log.d(TAG, "Listener Disconnected");
+    }
+
+    private String getAppName(String packageName) {
+        PackageManager packageManager = getPackageManager();
+        try {
+            ApplicationInfo appInfo = packageManager.getApplicationInfo(packageName, 0);
+            return (String) packageManager.getApplicationLabel(appInfo);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return packageName;
+        }
     }
 }
