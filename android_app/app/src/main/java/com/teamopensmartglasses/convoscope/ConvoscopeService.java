@@ -943,14 +943,15 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         updateCombineResponse(languageLearningResults, llWordSuggestUpgradeResults);
         Log.d(TAG, "ll results"+languageLearningResults.toString()+"\n"+"upgrade result:"+llWordSuggestUpgradeResults);
         if (languageLearningResults.length() != 0 || llWordSuggestUpgradeResults.length() != 0) {
-            if (!clearedScreenYet) {
-                sendHomeScreen();
-                clearedScreenYet = true;
-            }
+//            if (!clearedScreenYet) {
+//                sendHomeScreen();
+//                clearedScreenYet = true;
+//            }
             String [] llCombineResults = calculateLLCombineResponseFormatted(getLLCombineResponse());
+            String newLineSeparator = isLiveCaptionsChecked ? "\n" : "\n\n";
             if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
                 String textWallString = Arrays.stream(llCombineResults)
-                        .reduce((a, b) -> b + "\n\n" + a)
+                        .reduce((a, b) -> b + newLineSeparator + a)
                         .orElse("");
                 if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", false, textWallString);
                 else sendTextWall(textWallString);
