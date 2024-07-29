@@ -952,7 +952,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 String textWallString = Arrays.stream(llCombineResults)
                         .reduce((a, b) -> b + "\n\n" + a)
                         .orElse("");
-                sendTextWall(textWallString);
+                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", false, textWallString);
+                else sendTextWall(textWallString);
             }
             Log.d(TAG, "ll combine results"+ llCombineResults.toString());
             sendUiUpdateSingle(String.join("\n", llCombineResults));
@@ -1261,7 +1262,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public Boolean isVocabularyUpgradeEnabled(Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context)
                 .getBoolean(context.getResources().getString(R.string.SHARED_PREF_VOCABULARY_UPGRADE), true);
-        }
+    }
 
     public void setVocabularyUpgradeEnabled(Context context, boolean isEnabled) {
         PreferenceManager.getDefaultSharedPreferences(context)
