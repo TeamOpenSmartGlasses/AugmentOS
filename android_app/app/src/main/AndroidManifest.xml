@@ -41,6 +41,12 @@
       <intent-filter>
         <action android:name="android.service.notification.NotificationListenerService" />
       </intent-filter>
+      <meta-data
+          android:name="android.service.notification.default_filter_types"
+          android:value="conversations|alerting"/>
+      <meta-data
+          android:name="android.service.notification.disabled_filter_types"
+          android:value="ongoing|silent"/>
     </service>
     <service android:name=".ScreenCaptureService"
         android:exported="false"

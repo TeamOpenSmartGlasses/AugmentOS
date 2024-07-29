@@ -28,6 +28,13 @@ public class MyNotificationListeners extends NotificationListenerService {
             "com.sec.android.gallery3d"
     );
 
+    private final List<String> categoryBlacklist = Arrays.asList(
+            Notification.CATEGORY_REMINDER,
+            Notification.CATEGORY_ALARM,
+            Notification.CATEGORY_EVENT,
+            Notification.CATEGORY_SERVICE
+    );
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -59,12 +66,21 @@ public class MyNotificationListeners extends NotificationListenerService {
 
         Log.d(TAG, "Notification Posted: " + sbn.getPackageName());
 
+        // Filter by package blacklist
         if (packageBlacklist.contains(packageName)) {
             Log.d(TAG, "Notification from " + packageName + " ignored");
             return;
         }
 
         Notification notification = sbn.getNotification();
+
+        // Filter by category
+        String category = notification.category;
+        if (category != null && categoryBlacklist.contains(category)) {
+            Log.d(TAG, "Notification with category " + category + " ignored");
+            return;
+        }
+
         String title = "";
         String text = "";
 
