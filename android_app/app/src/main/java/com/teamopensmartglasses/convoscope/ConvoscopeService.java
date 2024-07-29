@@ -860,7 +860,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //            sendHomeScreen();
 //            clearedScreenYet = true;
 //        }
-//        sendDoubleTextWall(llCurrentString + topSeparatorLine, preOldCaptionTextBubble + oldLiveCaptionFinal + bottomSeparatorLine + textBubble + currentLiveCaption);
+        sendDoubleTextWall(llCurrentString + topSeparatorLine, preOldCaptionTextBubble + oldLiveCaptionFinal + bottomSeparatorLine + textBubble + currentLiveCaption);
     }
 
     public void parseConvoscopeResults(JSONObject response) throws JSONException {

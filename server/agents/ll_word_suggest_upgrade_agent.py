@@ -30,16 +30,16 @@ The system will take in the context of what is being discussed, where the user i
 For the upgrade word, provide the 1 word (upgrade_word) in {target_language} and its meaning (upgrade_word_meaning) in {source_language} in 1-3 words .
 
 Come up with a new word that satisfies the following conditions:
-(upgrade_word not in conversation_context_set and upgrade_word not in live_upgrade_word_history_set) and \
-(upgrade_word_meaning not in conversation_context_set and upgrade_word_meaning not in live_upgrade_word_history_set)
+(upgrade_word not in conversation_context and upgrade_word not in live_upgrade_word_history) and \
+(upgrade_word_meaning not in conversation_context and upgrade_word_meaning not in live_upgrade_word_history)
 
 
 Target Language (learning): {target_language}
 Source Language (already known): {source_language}
 Fluency Level: {fluency_level}
-Input Text (Conversation Transcript): `{conversation_context}`
+Input Text / Transcript (conversation_context): `{conversation_context}`
 Frequency Ranking: The frequency percentile of each word tells you how common it is in daily speech (~0.1 is very common, >1.2 is rare, >13.5 is very rare). The frequency ranking of the words in the "Input Text" are: `{word_rank}`
-Recently Suggested: `{live_upgrade_word_history}`
+Recently Suggested (live_upgrade_word_history): `{live_upgrade_word_history}`
 Output Format: {format_instructions}
 
 
@@ -67,7 +67,9 @@ Output 2: {{"autocatalysis":"автокатализ"}}
 
 When target language is Chinese, do NOT output words with Pinyin! Always Chinese characters!
 
-Don't output punctuation or periods! Output all lowercase! Define 1/5 of the words in the input text (never define all of the words in the input, never define highly common words like "the", "a", "it", etc.). Now provide the output:
+if fluency level is < 30 suggest only common words, if fluency level is > 70 suggest only rare words
+
+Don't output punctuation or periods! Output all lowercase! Never suggest highly common words like "the", "a", "it", etc.). Now provide the output:
 """
 
 
