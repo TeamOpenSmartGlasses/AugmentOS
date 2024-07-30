@@ -768,7 +768,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             if(llCombineResponse.inWord!=null && llCombineResponse.inWordTranslation!=null){
                 llCombineResults[index] = llCombineResponse.inWord + enSpace.repeat(minSpaces) + "⟶" + enSpace.repeat(minSpaces) + llCombineResponse.inWordTranslation;
             }else if (llCombineResponse.inUpgrade != null && llCombineResponse.inUpgradeMeaning!= null) {
-                llCombineResults[index] = "⬆ " + llCombineResponse.inUpgrade + enSpace.repeat(minSpaces) + "⟵" + enSpace.repeat(minSpaces) + llCombineResponse.inUpgradeMeaning;
+                llCombineResults[index] = "⬆ " + llCombineResponse.inUpgrade + enSpace.repeat(minSpaces) + "-" + enSpace.repeat(minSpaces) + llCombineResponse.inUpgradeMeaning;
             }
             index++;
         }
