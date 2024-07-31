@@ -444,7 +444,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         debounceAndSendTranscript(text, isFinal);
 //        getSettings();
         // Send transcript to user if live captions are enabled
-        if (getIsLiveCaptionsChecked(this)) {
+        if (Objects.equals(getCurrentMode(this), "Language Learning") && getIsLiveCaptionsChecked(this)) {
 //            showTranscriptsToUser(text, isFinal);
             debounceAndShowTranscriptOnGlasses(text, isFinal);
         }
@@ -1242,6 +1242,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //    }
 
     public void saveCurrentMode(Context context, String currentModeString) {
+//        if (!clearedScreenYet){
+//            sendHomeScreen();
+//            clearedScreenYet = true;
+//        }
+
         //save the new mode
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
