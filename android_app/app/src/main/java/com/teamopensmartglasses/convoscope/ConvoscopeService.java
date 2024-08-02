@@ -72,7 +72,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
+import com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
+import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
 
 public class ConvoscopeService extends SmartGlassesAndroidService {
@@ -202,6 +204,13 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         getCurrentMode(this);
 
         this.aioConnectSmartGlasses();
+    }
+
+    @Override
+    protected void onGlassesConnected(SmartGlassesDevice device) {
+        Log.d(TAG, "Glasses connected successfully: " + device.deviceModelName);
+        setFontSize(SmartGlassesFontSize.LARGE);
+        // Additional logic for when the glasses are connected
     }
 
     public void handleSignOut(){
