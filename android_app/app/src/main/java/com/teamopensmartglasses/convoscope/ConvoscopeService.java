@@ -221,7 +221,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     @Override
     protected void onGlassesConnected(SmartGlassesDevice device) {
         Log.d(TAG, "Glasses connected successfully: " + device.deviceModelName);
-        setFontSize(SmartGlassesFontSize.LARGE);
+        setFontSize(SmartGlassesFontSize.MEDIUM);
         // Additional logic for when the glasses are connected
     }
 
