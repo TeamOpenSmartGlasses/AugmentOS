@@ -5,8 +5,13 @@ Adapted from:
 https://github.com/emexlabs/WearableIntelligenceSystem/blob/master/android_smart_phone/main/app/src/main/java/com/wearableintelligencesystem/androidsmartphone/comms/BackendServerComms.java
  */
 
-import static com.teamopensmartglasses.convoscope.convoscopebackend.Config.*;
-import static com.teamopensmartglasses.convoscope.Constants.*;
+import static com.teamopensmartglasses.convoscope.Constants.BUTTON_EVENT_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.GET_USER_SETTINGS_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.LLM_QUERY_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.Constants.UI_POLL_ENDPOINT;
+import static com.teamopensmartglasses.convoscope.convoscopebackend.Config.devServerUrl;
+import static com.teamopensmartglasses.convoscope.convoscopebackend.Config.serverUrl;
+import static com.teamopensmartglasses.convoscope.convoscopebackend.Config.useDevServer;
 
 import android.content.Context;
 import android.util.Log;
