@@ -149,8 +149,7 @@ public class SettingsUi extends Fragment {
                 Log.d(TAG, "Vocabulary Upgrade checkbox changed: " + isChecked);
                 ((MainActivity)getActivity()).mService.setVocabularyUpgradeEnabled(mContext, isChecked);
                 ((MainActivity)getActivity()).mService.updateVocabularyUpgradeOnBackend(mContext);
-                ((MainActivity)getActivity()).restartConvoscopeService();
-                
+//                ((MainActivity)getActivity()).restartConvoscopeService();
             }
         });
 

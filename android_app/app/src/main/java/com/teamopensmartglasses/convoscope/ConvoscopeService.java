@@ -941,7 +941,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         JSONArray languageLearningResults = response.has(languageLearningKey) ? response.getJSONArray(languageLearningKey) : new JSONArray();
         JSONArray llWordSuggestUpgradeResults = response.has(llWordSuggestUpgradeKey) ? response.getJSONArray(llWordSuggestUpgradeKey) : new JSONArray();
         updateCombineResponse(languageLearningResults, llWordSuggestUpgradeResults);
-        Log.d(TAG, "ll results"+languageLearningResults.toString()+"\n"+"upgrade result:"+llWordSuggestUpgradeResults);
+//        Log.d(TAG, "ll results"+languageLearningResults.toString()+"\n"+"upgrade result:"+llWordSuggestUpgradeResults);
         if (languageLearningResults.length() != 0 || llWordSuggestUpgradeResults.length() != 0) {
 //            if (!clearedScreenYet) {
 //                sendHomeScreen();
