@@ -56,4 +56,3 @@ path_modifier = ""
 #database_uri = "mongodb://localhost:27021"
 #server_port = 8083
 #path_modifier = "mit/"
-
