@@ -32,6 +32,7 @@ from agents.expert_agent_configs import get_agent_by_name
 from agents.explicit_agent_process import explicit_agent_processing_loop, call_explicit_agent
 from agents.proactive_definer_agent_process import start_proactive_definer_processing_loop
 from agents.language_learning_agent_process import start_language_learning_agent_processing_loop
+from agents.ll_word_suggest_upgrade_agent_process import start_ll_word_suggest_upgrade_agent_processing_loop
 from agents.ll_context_convo_agent_process import ll_context_convo_agent_processing_loop
 from agents.adhd_stmb_agent_process import adhd_stmb_agent_processing_loop
 import agents.wake_words
@@ -249,7 +250,7 @@ async def ui_poll_handler(request, minutes=0.5):
     # language learning rare word translation
     language_learning_results = db_handler.get_language_learning_results_for_user_device(user_id=user_id, device_id=device_id)
     resp["language_learning_results"] = language_learning_results
-    
+
     # language learning contextual convos
     ll_context_convo_results = db_handler.get_ll_context_convo_results_for_user_device(user_id=user_id, device_id=device_id)
     resp["ll_context_convo_results"] = ll_context_convo_results
@@ -258,9 +259,18 @@ async def ui_poll_handler(request, minutes=0.5):
     adhd_stmb_agent_results = db_handler.get_adhd_stmb_results_for_user_device(user_id=user_id, device_id=device_id)
     resp["adhd_stmb_agent_results"] = adhd_stmb_agent_results
 
+    #language learning word suggestion upgrade
+    ll_word_suggest_upgrade_results = db_handler.get_ll_word_suggest_upgrade_results_for_user_device(user_id=user_id, device_id=device_id)
+    resp["ll_word_suggest_upgrade_results"] = ll_word_suggest_upgrade_results
+
     # tell the frontend to update their local settings if needed
     should_update_settings = db_handler.get_should_update_settings(user_id)
     resp["should_update_settings"] = should_update_settings
+    
+    vocabulary_upgrade_enabled = body.get('vocabulary_upgrade_enabled')
+    if vocabulary_upgrade_enabled is not None:
+        db_handler.update_single_user_setting(user_id, "vocabulary_upgrade_enabled", vocabulary_upgrade_enabled)
+      
 
     return web.Response(text=json.dumps(resp), status=200)
 
@@ -537,6 +547,11 @@ if __name__ == '__main__':
     print("Starting Language Learning Agents process...")
     language_learning_background_process = multiprocessing.Process(target=start_language_learning_agent_processing_loop)
     language_learning_background_process.start()
+
+    # start the upgrade app process
+    print("Starting LL Word Suggest Upgrade Agents process...")
+    ll_word_suggest_upgrade_background_process = multiprocessing.Process(target=start_ll_word_suggest_upgrade_agent_processing_loop)
+    ll_word_suggest_upgrade_background_process.start()
     
     # start the contextual convo language larning app process
     print("Starting Contextual Convo Language learning app process...")
@@ -590,6 +605,7 @@ if __name__ == '__main__':
     intelligent_definer_agent_process.join()
     #cse_process.join()
     language_learning_background_process.join()
+    ll_word_suggest_upgrade_background_process.join()
     ll_context_convo_background_process.join()
     explicit_background_process.join()
     adhd_stmb_background_process.join()
