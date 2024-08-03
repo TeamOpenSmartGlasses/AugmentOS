@@ -222,7 +222,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     protected void onGlassesConnected(SmartGlassesDevice device) {
         Log.d(TAG, "Glasses connected successfully: " + device.deviceModelName);
         setFontSize(SmartGlassesFontSize.MEDIUM);
-        // Additional logic for when the glasses are connected
     }
 
     public void handleSignOut(){
@@ -896,7 +895,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 else sendTextWall(textWallString);
             }
 
-            Log.d(TAG, textWallString);
+//            Log.d(TAG, textWallString);
 //            sendUiUpdateSingle(String.join("\n", Arrays.copyOfRange(llResults, llResults.length, 0)));
 //            List<String> list = Arrays.stream(Arrays.copyOfRange(llResults, 0, languageLearningResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
 //            Collections.reverse(list);
