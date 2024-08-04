@@ -7,6 +7,7 @@
   <string name="no_camera_access" translatable="false">Please grant camera permissions.</string>
   <string name="medium_text">text</string>
   <string name="memory_hint">Enter memory to save here</string>
+  <string name="SHARED_PREF_VOCABULARY_UPGRADE">vocabulary_upgrade_enabled</string>
   <string name="tag_label">Choose Tag</string>
 
   <string-array name="exposed_dropdown_content">
