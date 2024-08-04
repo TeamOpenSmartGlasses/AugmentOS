@@ -74,7 +74,9 @@ import com.huaban.analysis.jieba.JiebaSegmenter;
 import com.huaban.analysis.jieba.SegToken;
 
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
+import com.teamopensmartglasses.smartglassesmanager.smartglassescommunicators.SmartGlassesFontSize;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
+import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
 
 import javax.microedition.khronos.opengles.GL;
@@ -225,6 +227,12 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         updateSourceLanguageOnBackend(this);
         updateVocabularyUpgradeOnBackend(this);
         saveCurrentMode(this, getCurrentMode(this));
+    }
+
+    @Override
+    protected void onGlassesConnected(SmartGlassesDevice device) {
+        Log.d(TAG, "Glasses connected successfully: " + device.deviceModelName);
+        setFontSize(SmartGlassesFontSize.MEDIUM);
     }
 
     public void handleSignOut(){
@@ -498,7 +506,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     private static String convertToPinyin(final String chineseText) {
         final JiebaSegmenter segmenter = new JiebaSegmenter();
-        final List<SegToken> tokens = segmenter.process(chineseText, JiebaSegmenter.SegMode.INDEX);
+        final List<SegToken> tokens = segmenter.process(chineseText, JiebaSegmenter.SegMode.SEARCH);
 
         final HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
         format.setCaseType(HanyuPinyinCaseType.LOWERCASE);
@@ -508,22 +516,31 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         StringBuilder pinyinText = new StringBuilder();
 
         for (SegToken token : tokens) {
+            StringBuilder tokenPinyin = new StringBuilder();
             for (char character : token.word.toCharArray()) {
                 try {
                     String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(character, format);
                     if (pinyinArray != null) {
                         // Use the first Pinyin representation if there are multiple
-                        pinyinText.append(pinyinArray[0]);
+                        tokenPinyin.append(pinyinArray[0]);
                     } else {
                         // If character is not a Chinese character, append it as is
-                        pinyinText.append(character);
+                        tokenPinyin.append(character);
                     }
                 } catch (BadHanyuPinyinOutputFormatCombination e) {
                     e.printStackTrace();
                 }
             }
-            pinyinText.append(" ");
+            // Ensure the token is concatenated with a space only if it's not empty
+            if (tokenPinyin.length() > 0) {
+                pinyinText.append(tokenPinyin.toString()).append(" ");
+            }
         }
+
+        // Output debug information
+        System.out.println("Input: " + chineseText);
+        System.out.println("Output Pinyin: " + pinyinText.toString().trim());
+
         return pinyinText.toString().trim();
     }
 
@@ -764,7 +781,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         for (LLCombineResponse llCombineResponse : llCombineResponses) {
             if (index >= max_rows_allowed) break;
-            Log.d(TAG, llCombineResponse.toString());
+//            Log.d(TAG, llCombineResponse.toString());
             if(llCombineResponse.inWord!=null && llCombineResponse.inWordTranslation!=null){
                 llCombineResults[index] = llCombineResponse.inWord + enSpace.repeat(minSpaces) + "⟶" + enSpace.repeat(minSpaces) + llCombineResponse.inWordTranslation;
             }else if (llCombineResponse.inUpgrade != null && llCombineResponse.inUpgradeMeaning!= null) {
@@ -930,6 +947,20 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //            sendTextToSpeech("欢迎使用安卓文本到语音转换功能", "Chinese");
 //            Log.d(TAG, "GOT THAT ONEEEEEEEE:");
 //            Log.d(TAG, String.join("\n", llResults));
+//            llResults = calculateLLStringFormatted(getDefinedWords());
+//            String newLineSeparator = isLiveCaptionsChecked ? "\n" : "\n\n";
+//
+////            pack it into a string since we're using text wall now
+//            String textWallString = Arrays.stream(llResults)
+//                .reduce((a, b) -> b + newLineSeparator + a)
+//                .orElse("");
+//
+//            if (getConnectedDeviceModelOs() != SmartGlassesOperatingSystem.AUDIO_WEARABLE_GLASSES) {
+//                if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", false, textWallString);
+//                else sendTextWall(textWallString);
+//            }
+
+//            Log.d(TAG, textWallString);
 //            sendUiUpdateSingle(String.join("\n", Arrays.copyOfRange(llResults, llResults.length, 0)));
 //            List<String> list = Arrays.stream(Arrays.copyOfRange(llResults, 0, languageLearningResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
 //            Collections.reverse(list);
@@ -956,7 +987,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", false, textWallString);
                 else sendTextWall(textWallString);
             }
-            Log.d(TAG, "ll combine results"+ llCombineResults.toString());
+//            Log.d(TAG, "ll combine results"+ llCombineResults.toString());
             sendUiUpdateSingle(String.join("\n", llCombineResults));
             responsesBuffer.add(String.join("\n", llCombineResults));
         }
@@ -985,7 +1016,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
             try {
                 JSONObject llContextConvoResult = llContextConvoResults.getJSONObject(0);
-                Log.d(TAG, llContextConvoResult.toString());
+//                Log.d(TAG, llContextConvoResult.toString());
                 JSONObject toTTS = llContextConvoResult.getJSONObject("to_tts");
                 String text = toTTS.getString("text");
                 String language = toTTS.getString("language");
@@ -1321,10 +1352,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //    }
 
     public void saveCurrentMode(Context context, String currentModeString) {
-//        if (!clearedScreenYet){
-//            sendHomeScreen();
-//            clearedScreenYet = true;
-//        }
+        sendHomeScreen();
+
+//        sendReferenceCard("", currentModeString + " mode activated.");
 
         //save the new mode
         PreferenceManager.getDefaultSharedPreferences(context)
@@ -1345,8 +1375,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         String currentModeString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), "");
         if (currentModeString.equals("")){
             currentModeString = "Language Learning";
+            saveCurrentMode(context, currentModeString);
         }
-        saveCurrentMode(context, currentModeString);
         return currentModeString;
     }
 
