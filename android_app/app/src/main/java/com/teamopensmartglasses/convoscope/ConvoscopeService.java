@@ -142,6 +142,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private final int maxAdhdStmbShowNum = 3;
     private final int maxContextConvoResponsesShow = 2;
     private final int maxLLUpgradeResponsesShow = 2;
+    private final int charsPerLine = 67;
 
 
     //    private SMSComms smsComms;
@@ -898,9 +899,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
         if (!llString.isEmpty()) llCurrentString = llString;
 
-        // Truncate to the last 70 characters
-        oldLiveCaption = oldLiveCaption.length() > 70 ? oldLiveCaption.substring(oldLiveCaption.length() - 70) : oldLiveCaption;
-        currentLiveCaption = currentLiveCaption.length() > 70 ? currentLiveCaption.substring(currentLiveCaption.length() - 70) : currentLiveCaption;
+        // Truncate to the last n characters
+        oldLiveCaption = oldLiveCaption.length() > charsPerLine ? oldLiveCaption.substring(oldLiveCaption.length() - charsPerLine) : oldLiveCaption;
+        currentLiveCaption = currentLiveCaption.length() > charsPerLine ? currentLiveCaption.substring(currentLiveCaption.length() - charsPerLine) : currentLiveCaption;
 
         String textBubble = "\uD83D\uDDE8";
         String preOldCaptionTextBubble = textBubble;
@@ -920,14 +921,34 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             }
         }
 
-        // Truncate to the last 70 characters
+        // Truncate to the last n characters
         truncateTexts(translationTexts);
         truncateTexts(liveCaptionTexts);
 
         String textBubble = "\uD83D\uDDE8";
 
-        String liveTranslationCombinedText = (translationTexts[0].isEmpty() ? "" : textBubble + translationTexts[0] + "\n") + (translationTexts[1].isEmpty() ? "" : textBubble  + translationTexts[1]);
-        String liveCaptionCombinedText = (liveCaptionTexts[0].isEmpty() ? "" : textBubble + liveCaptionTexts[0] + "\n") + (liveCaptionTexts[1].isEmpty() ? "" : textBubble  + liveCaptionTexts[1]);
+        // Process translation texts
+        String liveTranslationCombinedText = "";
+        if (!translationTexts[0].isEmpty()) {
+            String modifiedText0 = translationTexts[0].length() < (charsPerLine / 2) ? translationTexts[0] + "\n" : translationTexts[0];
+            liveTranslationCombinedText += textBubble + modifiedText0 + "\n";
+        }
+        if (!translationTexts[1].isEmpty()) {
+            String modifiedText1 = translationTexts[1].length() < (charsPerLine / 2) ? translationTexts[1] + "\n" : translationTexts[1];
+            liveTranslationCombinedText += textBubble + modifiedText1;
+        }
+
+        // Process caption texts
+        String liveCaptionCombinedText = "";
+        if (!liveCaptionTexts[0].isEmpty()) {
+            String modifiedCaption0 = liveCaptionTexts[0].length() < (charsPerLine / 2) ? liveCaptionTexts[0] + "\n" : liveCaptionTexts[0];
+            liveCaptionCombinedText += textBubble + modifiedCaption0 + "\n";
+        }
+        if (!liveCaptionTexts[1].isEmpty()) {
+            String modifiedCaption1 = liveCaptionTexts[1].length() < (charsPerLine / 2) ? liveCaptionTexts[1] + "\n" : liveCaptionTexts[1];
+            liveCaptionCombinedText += textBubble + modifiedCaption1;
+        }
+
         sendDoubleTextWall(liveTranslationCombinedText, liveCaptionCombinedText);
     }
 
@@ -954,8 +975,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //                    || block == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS
 //                    || block == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT;
 //        }))
-        texts[0] = texts[0].length() > 70 ? texts[0].substring(texts[0].length() - 70) : texts[0];
-        texts[1] = texts[1].length() > 70 ? texts[1].substring(texts[1].length() - 70) : texts[1];
+        //cut off if too long
+        texts[0] = texts[0].length() > charsPerLine ? texts[0].substring(texts[0].length() - charsPerLine) : texts[0];
+        texts[1] = texts[1].length() > charsPerLine ? texts[1].substring(texts[1].length() - charsPerLine) : texts[1];
     }
 
 
