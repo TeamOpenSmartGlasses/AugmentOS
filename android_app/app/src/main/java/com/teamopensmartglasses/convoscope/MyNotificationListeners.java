@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
+import androidx.preference.PreferenceManager;
 
 import com.teamopensmartglasses.convoscope.events.NewScreenTextEvent;
 
@@ -64,6 +65,8 @@ public class MyNotificationListeners extends NotificationListenerService {
 
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
+        if (!shouldListenForNotifications()) return;
+
         String packageName = sbn.getPackageName();
 
         Log.d(TAG, "Notification Posted: " + sbn.getPackageName());
@@ -163,5 +166,9 @@ public class MyNotificationListeners extends NotificationListenerService {
             e.printStackTrace();
             return packageName;
         }
+    }
+
+    public boolean shouldListenForNotifications() {
+        return PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getBoolean("should_display_notifications", false);
     }
 }
