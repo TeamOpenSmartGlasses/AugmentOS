@@ -134,9 +134,14 @@ public class MyNotificationListeners extends NotificationListenerService {
             }
         }
 
-        title = appName + " | " + title;
+        if(TextUtils.isEmpty(title)) {
+            EventBus.getDefault().post(new NewScreenTextEvent(appName, "new notification"));
+        }
+        else{
+            title = appName + " | " + title;
 
-        EventBus.getDefault().post(new NewScreenTextEvent(title, text));
+            EventBus.getDefault().post(new NewScreenTextEvent(title, text));
+        }
     }
 
     @Override
