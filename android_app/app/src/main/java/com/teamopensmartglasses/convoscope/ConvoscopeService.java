@@ -1065,21 +1065,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         if (wakeWordTime != -1 && wakeWordTime != previousWakeWordTime){
             previousWakeWordTime = wakeWordTime;
             String body = "Listening... ";
-            displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(glassesCardTitle, body), true, false));
+            displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(glassesCardTitle, body), true, true));
             queueOutput(body);
-        }
-
-        //go through proactive agent results and add to resultsToDisplayList
-        for (int i = 0; i < proactiveAgentResults.length(); i++){
-            try {
-                JSONObject obj = proactiveAgentResults.getJSONObject(i);
-                String name = obj.getString("agent_name") + " says";
-                String body = obj.getString("agent_insight");
-                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(name, body), false, false));
-                queueOutput(name + ": " + body);
-            } catch (JSONException e){
-                e.printStackTrace();
-            }
         }
 
         //go through explicit agent queries and add to resultsToDisplayList
@@ -1089,7 +1076,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 JSONObject obj = explicitAgentQueries.getJSONObject(i);
                 String title = "Processing Query";
                 String body = "\"" + obj.getString("query") + "\"";
-                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(title, body), true, false));
+                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(title, body), true, true));
                 queueOutput(body);
             } catch (JSONException e){
                 e.printStackTrace();
@@ -1105,6 +1092,19 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 String body = obj.getString("insight");
                 displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(glassesCardTitle, body), true, false));
                 queueOutput(body);
+            } catch (JSONException e){
+                e.printStackTrace();
+            }
+        }
+
+        //go through proactive agent results and add to resultsToDisplayList
+        for (int i = 0; i < proactiveAgentResults.length(); i++){
+            try {
+                JSONObject obj = proactiveAgentResults.getJSONObject(i);
+                String name = obj.getString("agent_name") + " says";
+                String body = obj.getString("agent_insight");
+                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(name, body), false, false));
+                queueOutput(name + ": " + body);
             } catch (JSONException e){
                 e.printStackTrace();
             }
