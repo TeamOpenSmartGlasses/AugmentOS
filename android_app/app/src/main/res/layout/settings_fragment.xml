@@ -49,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/live_captions_toggle" />
+        app:layout_constraintTop_toBottomOf="@+id/should_display_notifications_toggle" />
 
     <Button
         android:id="@+id/log_out_button"
@@ -163,6 +163,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/VocabularyUpgrade" />
+
+    <CheckBox
+        android:id="@+id/should_display_notifications_toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:text="Display Notifications"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/live_captions_toggle" />
 
     <CheckBox
         android:id="@+id/VocabularyUpgrade"
