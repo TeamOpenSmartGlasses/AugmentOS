@@ -6,7 +6,7 @@
 
 # AugmentOS - your smart glasses super app.
 
-**AugmentOS connects you to the best and most useful smart glasses apps, like these:**
+**AugmentOS is the home base for your smart glasses, where you gain instant access to dozens of your favourite apps, like:**
 
 ![AugmentOS Smart Glasses](./images/glasses_banner_TOSG_AugmentOS_Cayden_low_res.jpg)
 
