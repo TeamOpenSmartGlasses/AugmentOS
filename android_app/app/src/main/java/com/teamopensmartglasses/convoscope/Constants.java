@@ -3,7 +3,7 @@ package com.teamopensmartglasses.convoscope;
 public class Constants {
     public static String appName = "Convoscope";
     public static String glassesCardTitle = "";
-    public static String cseResultKey = "result";
+    public static String systemMessagesKey = "system_messages";
     public static String proactiveAgentResultsKey = "results_proactive_agent_insights";
     public static String explicitAgentQueriesKey = "explicit_insight_queries";
     public static String explicitAgentResultsKey = "explicit_insight_results";
@@ -11,6 +11,7 @@ public class Constants {
     public static String entityDefinitionsKey = "entity_definitions";
     public static String languageLearningKey = "language_learning_results";
     public static String llContextConvoKey = "ll_context_convo_results";
+    public static String llWordSuggestUpgradeKey = "ll_word_suggest_upgrade_results";
     public static String shouldUpdateSettingsKey = "should_update_settings";
     public static String adhdStmbAgentKey = "adhd_stmb_agent_results";
 

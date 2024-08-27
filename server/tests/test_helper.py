@@ -44,6 +44,7 @@ def chat(text, isFinal):
     print(CHAT_ENDPOINT)
     print(chat_data)
     r_chat = requests.post(CHAT_ENDPOINT, data=json.dumps(chat_data))
+    print("Raw response:", r_chat.text)  # Add this line to print raw response
     json_chat = r_chat.json()
     print(json_chat)
     return json_chat

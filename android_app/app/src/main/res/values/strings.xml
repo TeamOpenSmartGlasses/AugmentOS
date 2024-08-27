@@ -7,6 +7,7 @@
   <string name="no_camera_access" translatable="false">Please grant camera permissions.</string>
   <string name="medium_text">text</string>
   <string name="memory_hint">Enter memory to save here</string>
+  <string name="SHARED_PREF_VOCABULARY_UPGRADE">vocabulary_upgrade_enabled</string>
   <string name="tag_label">Choose Tag</string>
 
   <string-array name="exposed_dropdown_content">
@@ -25,6 +26,14 @@
             <item>Spanish</item>
             <item>Hebrew</item>
             <item>Dutch</item>
+            <item>French</item>
+            <item>German</item>
+            <item>Arabic</item>
+            <item>Korean</item>
+            <item>Italian</item>
+            <item>Turkish</item>
+            <item>Portuguese</item>
+
             <!-- Add more languages here -->
         </string-array>
 
@@ -46,5 +55,6 @@
     <string name="SHARED_PREF_TARGET_LANGUAGE">shared_pref_target_language</string>
     <string name="SHARED_PREF_SOURCE_LANGUAGE">shared_pref_source_language</string>
     <string name="SHARED_PREF_CURRENT_MODE">shared_pref_current_mode</string>
+    <string name="SHARED_PREF_LIVE_CAPTIONS">shared_pref_live_captions</string>
 
 </resources>

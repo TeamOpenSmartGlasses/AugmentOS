@@ -25,17 +25,17 @@ from aiohttp import web, web_exceptions
 #Convoscope
 from server_config import server_port
 from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH, TESTING_LL_CONTEXT_CONVO_AGENT
-from ContextualSearchEngine import ContextualSearchEngine
+# from ContextualSearchEngine import ContextualSearchEngine
 from DatabaseHandler import DatabaseHandler
 from agents.proactive_agents_process import start_proactive_agents_processing_loop
 from agents.expert_agent_configs import get_agent_by_name
 from agents.explicit_agent_process import explicit_agent_processing_loop, call_explicit_agent
 from agents.proactive_definer_agent_process import start_proactive_definer_processing_loop
 from agents.language_learning_agent_process import start_language_learning_agent_processing_loop
+from agents.ll_word_suggest_upgrade_agent_process import start_ll_word_suggest_upgrade_agent_processing_loop
 from agents.ll_context_convo_agent_process import ll_context_convo_agent_processing_loop
 from agents.adhd_stmb_agent_process import adhd_stmb_agent_processing_loop
 import agents.wake_words
-from Modules.RelevanceFilter import RelevanceFilter
 
 from auth.authentication import *
 
@@ -55,7 +55,7 @@ async def chat_handler(request):
     transcribe_language = body.get('transcribe_language')
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is None:
         raise web.HTTPUnauthorized()
 
@@ -82,7 +82,7 @@ async def chat_diarization(request):
     transcript_meta_data = body.get('transcript_meta_data')
     device_id = body.get('deviceId')
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is None:
         raise web.HTTPUnauthorized()
 
@@ -141,10 +141,11 @@ async def load_recording_handler(request):
 
 
 async def set_user_settings(request):
+    print("\nENTER SET USER SETTINGS")
     body = await request.json()
     target_language = body.get('target_language')
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is None:
         raise web.HTTPUnauthorized()
     
@@ -154,9 +155,10 @@ async def set_user_settings(request):
 
 
 async def get_user_settings(request):
+    print("Enter get user settings")
     body = await request.json()
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is None:
         raise web.HTTPUnauthorized()
     
@@ -172,7 +174,7 @@ async def button_handler(request):
     button_activity = body.get('buttonActivity')
     timestamp = body.get('timestamp')
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is None:
         raise web.HTTPUnauthorized()
     print('\n=== New Request ===\n', button_num,
@@ -200,7 +202,7 @@ async def ui_poll_handler(request, minutes=0.5):
     # print(body)
     device_id = body.get('deviceId')
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is None:
         print("user_id is None in ui_poll_handler")
         raise web.HTTPUnauthorized()
@@ -218,17 +220,12 @@ async def ui_poll_handler(request, minutes=0.5):
     
     db_handler.update_active_user(user_id, device_id)
 
-    # get CSE results
-#    if "contextual_search_engine" in features:
-#        cse_results = db_handler.get_cse_results_for_user_device(
-#            user_id=user_id, device_id=device_id)
-#
-#        if cse_results:
-#            print("server.py ================================= CSERESULT")
-#            print(cse_results)
-#
-#        # add CSE response
-#        resp["result"] = cse_results
+    # add system_messages
+    resp["system_messages"] = db_handler.get_system_messages_for_user_device(
+        user_id=user_id, device_id=device_id)
+    if resp["system_messages"]:
+        print("server.py ================================= system_messages")
+        print(resp["system_messages"])
 
     # get agent results
 
@@ -242,7 +239,7 @@ async def ui_poll_handler(request, minutes=0.5):
 
     #proactive agents
     # Ignore proactive agents if we've had a query in past 15 seconds
-    if time.time() - explicit_insight_queries[-1]['timestamp'] < (1000 * 15):
+    if not explicit_insight_queries or (time.time() - explicit_insight_queries[-1]['timestamp'] < (1000 * 15)):
         agent_insight_results = db_handler.get_proactive_agents_insights_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["results_proactive_agent_insights"] = agent_insight_results
 
@@ -253,7 +250,7 @@ async def ui_poll_handler(request, minutes=0.5):
     # language learning rare word translation
     language_learning_results = db_handler.get_language_learning_results_for_user_device(user_id=user_id, device_id=device_id)
     resp["language_learning_results"] = language_learning_results
-    
+
     # language learning contextual convos
     ll_context_convo_results = db_handler.get_ll_context_convo_results_for_user_device(user_id=user_id, device_id=device_id)
     resp["ll_context_convo_results"] = ll_context_convo_results
@@ -262,9 +259,18 @@ async def ui_poll_handler(request, minutes=0.5):
     adhd_stmb_agent_results = db_handler.get_adhd_stmb_results_for_user_device(user_id=user_id, device_id=device_id)
     resp["adhd_stmb_agent_results"] = adhd_stmb_agent_results
 
+    #language learning word suggestion upgrade
+    ll_word_suggest_upgrade_results = db_handler.get_ll_word_suggest_upgrade_results_for_user_device(user_id=user_id, device_id=device_id)
+    resp["ll_word_suggest_upgrade_results"] = ll_word_suggest_upgrade_results
+
     # tell the frontend to update their local settings if needed
     should_update_settings = db_handler.get_should_update_settings(user_id)
     resp["should_update_settings"] = should_update_settings
+    
+    vocabulary_upgrade_enabled = body.get('vocabulary_upgrade_enabled')
+    if vocabulary_upgrade_enabled is not None:
+        db_handler.update_single_user_setting(user_id, "vocabulary_upgrade_enabled", vocabulary_upgrade_enabled)
+      
 
     return web.Response(text=json.dumps(resp), status=200)
 
@@ -292,7 +298,7 @@ async def upload_user_data_handler(request):
 
     user_file = post_data.get('custom-file')
     id_token = post_data.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is None:
         raise web.HTTPUnauthorized()
 
@@ -346,7 +352,7 @@ async def run_single_expert_agent_handler(request):
     body = await request.json()
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is None:
         raise web.HTTPUnauthorized()
     agent_name = body.get('agentName')
@@ -374,10 +380,13 @@ async def run_single_expert_agent_handler(request):
 
 #receive a chat message manually typed in the agent chat box
 async def send_agent_chat_handler(request):
+    print("SEND AGENT CHAT")
+
     body = await request.json()
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
+    device_id = body.get('deviceId')
     if user_id is None:
         raise web.HTTPUnauthorized()
     chat_message = body.get('chatMessage')
@@ -396,7 +405,7 @@ async def send_agent_chat_handler(request):
     # skip into proc loop
     print("SEND AGENT CHAT FOR USER_ID: " + user_id)
     user = db_handler.get_user(user_id)
-    await call_explicit_agent(user, chat_message)
+    await call_explicit_agent(chat_message, user, device_id)
 
     return web.Response(text=json.dumps({'success': True, 'message': "Got your message: {}".format(chat_message)}), status=200)
 
@@ -412,7 +421,7 @@ async def update_gps_location_for_user(request):
 
     body = await request.json()
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     device_id = body.get('deviceId')
 
     # print("update_gps_location_for_user #################################")
@@ -435,7 +444,7 @@ async def update_gps_location_for_user(request):
     # print("SEND UPDATE LOCATION FOR USER_ID: " + user_id)
     db_handler.add_gps_location_for_user(user_id, location)
     
-    locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
+    # locations = db_handler.get_gps_location_results_for_user_device(user_id, device_id)
     
     # print("locations: ", locations)
     # if len(locations) > 1:
@@ -448,7 +457,7 @@ async def pov_image(request):
     body = await request.json()
     print("BODY: " + str(body))
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     # device_id = body.get('deviceId')
     pov_image = body.get('pov_image')
 
@@ -476,7 +485,7 @@ async def pov_image(request):
 async def rate_result_handler(request):
     body = await request.json()
     id_token = body.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is None:
         raise web.HTTPUnauthorized()
     result_uuid = body.get('resultUuid')
@@ -500,7 +509,7 @@ async def rate_result_handler(request):
 async def protected_route(request):
     print("PROTECTED ROUTE")
     id_token = request.headers.get('Authorization')
-    user_id = await verify_id_token(id_token)
+    user_id = verify_id_token(id_token)
     if user_id is not None:
         # Proceed with the user request
         print()
@@ -518,9 +527,6 @@ if __name__ == '__main__':
         multiprocessing.set_start_method('spawn')
 
     # log_queue = multiprocessing.Queue()
-    #print("Starting CSE process...")
-    #cse_process = multiprocessing.Process(target=cse_loop)
-    #cse_process.start()
 
     # start intelligent definer agent process
     print("Starting Intelligent Definer Agent process...")
@@ -541,6 +547,11 @@ if __name__ == '__main__':
     print("Starting Language Learning Agents process...")
     language_learning_background_process = multiprocessing.Process(target=start_language_learning_agent_processing_loop)
     language_learning_background_process.start()
+
+    # start the upgrade app process
+    print("Starting LL Word Suggest Upgrade Agents process...")
+    ll_word_suggest_upgrade_background_process = multiprocessing.Process(target=start_ll_word_suggest_upgrade_agent_processing_loop)
+    ll_word_suggest_upgrade_background_process.start()
     
     # start the contextual convo language larning app process
     print("Starting Contextual Convo Language learning app process...")
@@ -594,6 +605,7 @@ if __name__ == '__main__':
     intelligent_definer_agent_process.join()
     #cse_process.join()
     language_learning_background_process.join()
+    ll_word_suggest_upgrade_background_process.join()
     ll_context_convo_background_process.join()
     explicit_background_process.join()
     adhd_stmb_background_process.join()

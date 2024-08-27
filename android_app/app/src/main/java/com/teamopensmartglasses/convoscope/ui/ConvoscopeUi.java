@@ -2,11 +2,14 @@ package com.teamopensmartglasses.convoscope.ui;
 
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,11 +34,9 @@ import com.teamopensmartglasses.convoscope.MainActivity;
 import com.teamopensmartglasses.convoscope.R;
 import com.teamopensmartglasses.convoscope.ResponseTextUiAdapter;
 import com.teamopensmartglasses.convoscope.TranscriptTextUiAdapter;
-import com.teamopensmartglasses.convoscope.events.GoogleAuthFailedEvent;
 import com.teamopensmartglasses.convoscope.events.UserIdChangedEvent;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 
@@ -269,9 +270,8 @@ public class ConvoscopeUi extends Fragment {
 
       Context mContext = this.getContext();
 
-
-      final Switch screenMirrorImageToggle = view.findViewById(R.id.screen_mirror_image_toggle);
-      screenMirrorImageToggle.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("screen_mirror_image", true));
+      final Switch screenMirrorImageToggle = view.findViewById(R.id.word_upgrade_toggle);
+      screenMirrorImageToggle.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("screen_mirror_image", false));
       screenMirrorImageToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
@@ -320,6 +320,11 @@ public class ConvoscopeUi extends Fragment {
         }
       });
 
+      if (!isNotificationServiceEnabled(getContext())) {
+        Toast.makeText(getContext(), "Please enable Notification Access for this app", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
+        startActivity(intent);
+      }
 
       ((MainActivity)getActivity()).startConvoscopeService();
     }
@@ -406,6 +411,23 @@ public class ConvoscopeUi extends Fragment {
   //public void onGoogleAuthFailedEvent(GoogleAuthFailedEvent event){
     //((MainActivity)getActivity()).signOut();
   //}
+
+  public static boolean isNotificationServiceEnabled(Context context) {
+    String pkgName = context.getPackageName();
+    final String flat = Settings.Secure.getString(context.getContentResolver(), "enabled_notification_listeners");
+    if (!TextUtils.isEmpty(flat)) {
+      final String[] names = flat.split(":");
+      for (String name : names) {
+        final ComponentName cn = ComponentName.unflattenFromString(name);
+        if (cn != null) {
+          if (TextUtils.equals(pkgName, cn.getPackageName())) {
+            return true;
+          }
+        }
+      }
+    }
+    return false;
+  }
 
 }
 

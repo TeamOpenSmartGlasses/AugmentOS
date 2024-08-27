@@ -5,9 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
-import android.text.InputType;
-import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,16 +12,13 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Switch;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
@@ -34,6 +28,7 @@ import androidx.preference.PreferenceManager;
 import com.teamopensmartglasses.convoscope.ConvoscopeService;
 import com.teamopensmartglasses.convoscope.MainActivity;
 import com.teamopensmartglasses.convoscope.R;
+import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
 import com.teamopensmartglasses.smartglassesmanager.speechrecognition.ASR_FRAMEWORKS;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.AudioWearable;
 
@@ -100,9 +95,10 @@ public class SettingsUi extends Fragment {
         //final Switch switchGoogleAsr = view.findViewById(R.id.google_asr_switch);
 
         //find out the current ASR state, remember it
-        ASR_FRAMEWORKS asrFramework = ConvoscopeService.getChosenAsrFramework(mContext);
 //        ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
-        ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
+//        ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.DEEPGRAM_ASR_FRAMEWORK);
+        ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK);
+        ASR_FRAMEWORKS asrFramework = ConvoscopeService.getChosenAsrFramework(mContext);
 //        switchGoogleAsr.setChecked(asrFramework == ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
 //
 //        switchGoogleAsr.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -142,6 +138,22 @@ public class SettingsUi extends Fragment {
             }
         });
 
+        //ll vocabulary upgrade checkbox
+        CheckBox vocabularyUpgradeCheckbox = view.findViewById(R.id.VocabularyUpgrade);
+        boolean isVocabularyUpgradeEnabled = ((MainActivity)getActivity()).mService.isVocabularyUpgradeEnabled(mContext);
+        Log.d(TAG, "Initial Vocabulary Upgrade state: " + isVocabularyUpgradeEnabled);
+        vocabularyUpgradeCheckbox.setChecked(isVocabularyUpgradeEnabled);
+
+        vocabularyUpgradeCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Log.d(TAG, "Vocabulary Upgrade checkbox changed: " + isChecked);
+                ((MainActivity)getActivity()).mService.setVocabularyUpgradeEnabled(mContext, isChecked);
+                ((MainActivity)getActivity()).mService.updateVocabularyUpgradeOnBackend(mContext);
+//                ((MainActivity)getActivity()).restartConvoscopeService();
+            }
+        });
+
         //setup transcript language spinner
         Spinner transcribeLanguageSpinner = view.findViewById(R.id.transcribeLanguageSpinner);
         ArrayAdapter<CharSequence> transcribeAdapter = ArrayAdapter.createFromResource(mContext,
@@ -150,7 +162,9 @@ public class SettingsUi extends Fragment {
         transcribeLanguageSpinner.setAdapter(transcribeAdapter);
 
         // Retrieve the saved transcribe language
-        String savedTranscribeLanguage = ((MainActivity)getActivity()).mService.getChosenTranscribeLanguage(mContext);
+        String savedTranscribeLanguage = SmartGlassesAndroidService.getChosenTranscribeLanguage(mContext);
+
+        Boolean savedVocabularyUpgradeEnabled = ((MainActivity)getActivity()).mService.isVocabularyUpgradeEnabled(mContext);
 
         // Find the position of the saved language in the adapter
         int languageSpinnerPosition = transcribeAdapter.getPosition(savedTranscribeLanguage);
@@ -261,6 +275,33 @@ public class SettingsUi extends Fragment {
                 // Another interface callback
             }
         });
+
+        // setup live captions toggle
+        final CheckBox liveTranscriptionCheckBox = view.findViewById(R.id.live_captions_toggle);
+        final boolean isLiveCaptionsChecked = ConvoscopeService.getIsLiveCaptionsChecked(mContext);
+        liveTranscriptionCheckBox.setChecked(isLiveCaptionsChecked);
+
+        liveTranscriptionCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                ConvoscopeService.saveIsLiveCaptionsChecked(mContext, isChecked);
+            }
+        });
+
+
+        final CheckBox shouldDisplayNotificationsCheckbox = view.findViewById(R.id.should_display_notifications_toggle);
+        final boolean isShouldDisplayNotificationsChecked = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("should_display_notifications", false);
+        shouldDisplayNotificationsCheckbox.setChecked(isShouldDisplayNotificationsChecked);
+        shouldDisplayNotificationsCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                PreferenceManager.getDefaultSharedPreferences(getContext())
+                        .edit()
+                        .putBoolean("should_display_notifications", isChecked)
+                        .apply();
+            }
+        });
+
     }
 
     public void sendTestCard(){
