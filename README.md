@@ -8,7 +8,7 @@
 
 **AugmentOS is the super app for your smart glasses.**
 
-![AugmentOS Smart Glasses](./images/glasses_banner_TOSG_AugmentOS_Cayden_lr.jpg)
+![AugmentOS Smart Glasses](./images/glasses_banner_TOSG_AugmentOS_Cayden_low_res.jpg)
 
 In one download, instantly get access to dozens of the best utilities and apps for smart glasses:
 
