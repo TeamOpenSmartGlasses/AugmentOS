@@ -1,14 +1,11 @@
 # AugmentOS 
 # Y - your smart glasses super app
 
-![GitHub Stars](https://img.shields.io/github/stars/username/repository-name?style=social)
-![Total Commits](https://img.shields.io/github/commit-activity/total/username/repository-name)
-![Commit Activity](https://img.shields.io/github/commit-activity/m/username/repository-name)
-![GitHub Release Version](https://img.shields.io/github/v/release/username/repository-name)
-![Code Size](https://img.shields.io/github/languages/code-size/username/repository-name)
-![License](https://img.shields.io/github/license/username/repository-name)
-![Contributors](https://img.shields.io/github/contributors/username/repository-name)
-![Top Language](https://img.shields.io/github/languages/top/username/repository-name)
+![Contributors](https://img.shields.io/github/contributors/TeamOpenSmartGlasses/Convoscope)
+![License](https://img.shields.io/github/license/TeamOpenSmartGlasses/Convoscope)
+![GitHub Stars](https://img.shields.io/github/stars/TeamOpenSmartGlasses/Convoscope?style=social)
+![Total Commits](https://img.shields.io/github/commit-activity/total/TeamOpenSmartGlasses/Convoscope)
+![Commit Activity](https://img.shields.io/github/commit-activity/m/TeamOpenSmartGlasses/Convoscope)
 
 *Available on iOS and Android 2024, supporting all common smart glasses.*
 **add Google Play and iOS App Store Logos and links here**
