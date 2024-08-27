@@ -6,7 +6,11 @@
 
 # AugmentOS - your smart glasses super app.
 
-**AugmentOS is the super app for your smart glasses.** In one download, instantly get access to dozens of the best utilities and apps for smart glasses:
+**AugmentOS is the super app for your smart glasses.**
+
+![AugmentOS Smart Glasses](./images/glasses_banner_TOSG_AugmentOS_Cayden_lr.jpg)
+
+In one download, instantly get access to dozens of the best utilities and apps for smart glasses:
 
 - AI Assistant
 - Translation
@@ -24,7 +28,6 @@ AugmentOS enables you to run multiple apps *at the same time* - enabling you to 
 *Available on iOS and Android 2024, supporting all common smart glasses.*  
 **add Google Play and iOS App Store Logos and links here**
 
-![AugmentOS Smart Glasses](./images/glasses_banner_TOSG_AugmentOS_Cayden_lr.jpg)
 
 ## AugmentOS SDK
 
