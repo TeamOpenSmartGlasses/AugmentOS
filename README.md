@@ -24,6 +24,8 @@ AugmentOS enables you to run multiple apps *at the same time* - enabling you to 
 *Available on iOS and Android 2024, supporting all common smart glasses.*  
 **add Google Play and iOS App Store Logos and links here**
 
+![AugmentOS Smart Glasses](./images/glasses_banner_TOSG_AugmentOS_Cayden_lr.jpg)
+
 ## AugmentOS SDK
 
 For developers,
@@ -51,7 +53,9 @@ Smart and fast AI assistant with access to Google search. Say "Hey Mira" and the
 
 Convoscope is a suite of proactive AI agents to augment conversations.
 
-[![Convoscope Proactive Agents Vision video](./images/convoscope_play_video.jpg)]
+<a href="https://www.youtube.com/watch?v=3n6DzuYQ_v8">
+    <img src="./images/convoscope_play_video.jpg" alt="Convoscope Proactive Agents Vision video" width="480"/>
+</a>
 
 ##### TO ADD: Link to videos os stories of real life using it - South Korea AR glasses, chocolate, what is this opensource license?
 
