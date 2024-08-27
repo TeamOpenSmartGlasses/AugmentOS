@@ -4,20 +4,16 @@
 ![GitHub Release Version](https://img.shields.io/github/v/release/TeamOpenSmartGlasses/Convoscope)
 ![Last Updated](https://img.shields.io/github/last-commit/TeamOpenSmartGlasses/Convoscope)
 
-# AugmentOS - Your Smart Glasses Super App.
+# AugmentOS - your smart glasses super app.
 
-**AugmentOS gives you instant access to dozens of top smart glasses apps.**
+**AugmentOS connects you to the best and most useful smart glasses apps, like these:**
 
 ![AugmentOS Smart Glasses](./images/glasses_banner_TOSG_AugmentOS_Cayden_low_res.jpg)
 
-**Apps:**
 - AI Assistant
 - Translation
 - Live Captions
-- Screen Mirror
-    - Teleprompter
-    - Karaoke/Lyrics
-    - Tutorial/Video captions
+- Screen Mirror (Teleprompter, Karaoke/Lyrics, video captions, etc.)
 - Convoscope
 - Language Learning
 - ADHD Tools
