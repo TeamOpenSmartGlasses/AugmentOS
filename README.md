@@ -8,7 +8,6 @@
 
 **AugmentOS is the super app for your smart glasses.** In one download, instantly get access to dozens of the best utilities and apps for smart glasses:
 
-
 - AI Assistant
 - Translation
 - Live Captions
@@ -22,25 +21,23 @@
 
 AugmentOS enables you to run multiple apps *at the same time* - enabling you to truly take advantage of AI-first wearables apps that run proactively based on context.
 
-*Available on iOS and Android 2024, supporting all common smart glasses.*
+*Available on iOS and Android 2024, supporting all common smart glasses.*  
 **add Google Play and iOS App Store Logos and links here**
-
-[![Convoscope Proactive Agents Vision video](./images/convoscope_play_video.jpg)]
 
 ## AugmentOS SDK
 
 For developers,
 
-AugmentOS SDK is the best way to write a smart glasses app because:
-
-That's because AugmentOS enables:
+AugmentOS SDK is the best way to write a smart glasses app because it enables:
 
 1. Your single app runs on any pair of smart glasses.
-2. Access smart glasses I/O continously - **alongside other apps running at the same time**
+2. Access to smart glasses I/O continously - **alongside other apps running at the same time**
 
 AugmentOS is a fully open source OS for wearables. The AugmentOS SDK is a lightweight wrapper (Python, C++, Javascript, more) that allows any existing app to run as an AugmentOS app, in the cloud or on the edge. 
 
 ## Apps
+
+**add images/screenshots/through the lens images of every app**
 
 #### "Mira" AI Assistant
 
@@ -54,6 +51,8 @@ Smart and fast AI assistant with access to Google search. Say "Hey Mira" and the
 
 Convoscope is a suite of proactive AI agents to augment conversations.
 
+[![Convoscope Proactive Agents Vision video](./images/convoscope_play_video.jpg)]
+
 ##### TO ADD: Link to videos os stories of real life using it - South Korea AR glasses, chocolate, what is this opensource license?
 
 - Someone mention a company you've never heard of? A proactice AI agent instantly shows you info on that company
@@ -66,12 +65,12 @@ Convoscope is a suite of proactive AI agents to augment conversations.
 
 An app to learn a new language 10x faster with smart glasses. Partial translation, AI foreign language conversations, word/phrase suggestions, immersive AR language annotations, etc.
 
-Artificial Immersion Language Learning Smart Glasses demos video: [https://www.youtube.com/watch?v=UFBEG1s27uU](https://www.youtube.com/watch?v=UFBEG1s27uU)
+Artificial Immersion Language Learning Smart Glasses demos video: [https://www.youtube.com/watch?v=UFBEG1s27uU](https://www.youtube.com/watch?v=UFBEG1s27uU)  
 TEDxMIT Talk - "Can Smart Glasses Revolutionize How We Learn Languages?" - Cayden Pierce: [https://www.youtube.com/watch?v=7XuBVY3nVbA](https://www.youtube.com/watch?v=7XuBVY3nVbA)
 
 <p align="center">
-  <img src="./images/convoscope_app_ll.jpg" alt="Convoscope Language Learning Glasses Through The Lens" width="280"/>
-  <img src="./images/convoscope_throughlens_ll.jpg" alt="Convoscope Language Learning Through The Lens" width="280"/>
+  <img src="./images/convoscope_app_ll.jpg" alt="Convoscope Language Learning Glasses Through The Lens" width="180"/>
+  <img src="./images/convoscope_throughlens_ll.jpg" alt="Convoscope Language Learning Through The Lens" width="180"/>
 </p>
 
 #### Screen Mirror
@@ -90,7 +89,7 @@ Mirror anything on your screen to your smart glasses. We use a lightweight, nove
 
 #### Live Captions
 
-See live captions of everything that is said. 100s of langugges supported with high accuracy and low latency.
+See live captions of everything that is said. 100s of languges supported with high accuracy and low latency.
 
 #### ADHD Glasses
 
@@ -100,7 +99,7 @@ A 10 minute short term memory buffer to help get back on track during conversati
 
 Live translate languages - when someone speaks a foreign language, instantly see it translated on your vision. Supports 100s of language.
 
-## More TBA
+#### More Coming
 
 The community is working on many more apps - fully open source - join us and help build!
 
