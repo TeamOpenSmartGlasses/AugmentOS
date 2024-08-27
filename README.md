@@ -4,14 +4,13 @@
 ![GitHub Release Version](https://img.shields.io/github/v/release/TeamOpenSmartGlasses/Convoscope)
 ![Last Updated](https://img.shields.io/github/last-commit/TeamOpenSmartGlasses/Convoscope)
 
-# AugmentOS - your smart glasses super app.
+# AugmentOS - Your Smart Glasses Super App.
 
-**AugmentOS is the super app for your smart glasses.**
+**AugmentOS gives you instant access to dozens of top smart glasses apps.
 
 ![AugmentOS Smart Glasses](./images/glasses_banner_TOSG_AugmentOS_Cayden_low_res.jpg)
 
-In one download, instantly get access to dozens of the best utilities and apps for smart glasses:
-
+**Apps:**
 - AI Assistant
 - Translation
 - Live Captions
