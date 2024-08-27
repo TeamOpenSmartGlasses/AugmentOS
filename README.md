@@ -1,16 +1,13 @@
-# AugmentOS 
-# Y - your smart glasses super app
-
 ![Contributors](https://img.shields.io/github/contributors/TeamOpenSmartGlasses/Convoscope)
 ![License](https://img.shields.io/github/license/TeamOpenSmartGlasses/Convoscope)
 ![GitHub Stars](https://img.shields.io/github/stars/TeamOpenSmartGlasses/Convoscope?style=social)
-![Total Commits](https://img.shields.io/github/commit-activity/total/TeamOpenSmartGlasses/Convoscope)
-![Commit Activity](https://img.shields.io/github/commit-activity/m/TeamOpenSmartGlasses/Convoscope)
+![GitHub Release Version](https://img.shields.io/github/v/release/TeamOpenSmartGlasses/Convoscope)
+![Last Updated](https://img.shields.io/github/last-commit/TeamOpenSmartGlasses/Convoscope)
 
-*Available on iOS and Android 2024, supporting all common smart glasses.*
-**add Google Play and iOS App Store Logos and links here**
+# AugmentOS - your smart glasses super app.
 
-AugmentOS is the super app for your smart glasses. Install this 1 app and instaly get access to all the best utilities and apps for smart glasses, like:
+**AugmentOS is the super app for your smart glasses.** In one download, instantly get access to dozens of the best utilities and apps for smart glasses:
+
 
 - AI Assistant
 - Translation
@@ -22,16 +19,32 @@ AugmentOS is the super app for your smart glasses. Install this 1 app and instal
 - Convoscope
 - Language Learning
 - ADHD Tools
-- ...
+
+AugmentOS enables you to run multiple apps *at the same time* - enabling you to truly take advantage of AI-first wearables apps that run proactively based on context.
+
+*Available on iOS and Android 2024, supporting all common smart glasses.*
+**add Google Play and iOS App Store Logos and links here**
 
 [![Convoscope Proactive Agents Vision video](./images/convoscope_play_video.jpg)]
 
+## AugmentOS SDK
+
+For developers,
+
+AugmentOS SDK is the best way to write a smart glasses app because:
+
+That's because AugmentOS enables:
+
+1. Your single app runs on any pair of smart glasses.
+2. Access smart glasses I/O continously - **alongside other apps running at the same time**
+
+AugmentOS is a fully open source OS for wearables. The AugmentOS SDK is a lightweight wrapper (Python, C++, Javascript, more) that allows any existing app to run as an AugmentOS app, in the cloud or on the edge. 
 
 ## Apps
 
 #### "Mira" AI Assistant
 
-A standard AI assistant with internet connection. Say "Hey Mira" and then ask a question. 
+Smart and fast AI assistant with access to Google search. Say "Hey Mira" and then ask a question/say a command. 
 
 - "hey Mira, how long is a direct flight from Toronto to Hong Kong?"
 - "hey Mira, what's the weather like this weekend in Cambridge?"
@@ -53,7 +66,13 @@ Convoscope is a suite of proactive AI agents to augment conversations.
 
 An app to learn a new language 10x faster with smart glasses. Partial translation, AI foreign language conversations, word/phrase suggestions, immersive AR language annotations, etc.
 
-Original smart glasses language learning video: [https://www.youtube.com/watch?v=UFBEG1s27uU](https://www.youtube.com/watch?v=UFBEG1s27uU)
+Artificial Immersion Language Learning Smart Glasses demos video: [https://www.youtube.com/watch?v=UFBEG1s27uU](https://www.youtube.com/watch?v=UFBEG1s27uU)
+TEDxMIT Talk - "Can Smart Glasses Revolutionize How We Learn Languages?" - Cayden Pierce: [https://www.youtube.com/watch?v=7XuBVY3nVbA](https://www.youtube.com/watch?v=7XuBVY3nVbA)
+
+<p align="center">
+  <img src="./images/convoscope_app_ll.jpg" alt="Convoscope Language Learning Glasses Through The Lens" width="280"/>
+  <img src="./images/convoscope_throughlens_ll.jpg" alt="Convoscope Language Learning Through The Lens" width="280"/>
+</p>
 
 #### Screen Mirror
 
@@ -71,7 +90,7 @@ Mirror anything on your screen to your smart glasses. We use a lightweight, nove
 
 #### Live Captions
 
-See live captions of everything that is said. 100s of langauge support. High accuracy, low latency.
+See live captions of everything that is said. 100s of langugges supported with high accuracy and low latency.
 
 #### ADHD Glasses
 
@@ -83,17 +102,11 @@ Live translate languages - when someone speaks a foreign language, instantly see
 
 ## More TBA
 
-We are working on more apps - fully open source - join us!
+The community is working on many more apps - fully open source - join us and help build!
 
-<p align="center">
-  <img src="./images/convoscope_app_ll.jpg" alt="Convoscope Language Learning Glasses Through The Lens" width="400"/>
-  <img src="./images/convoscope_throughlens_ll.jpg" alt="Convoscope Language Learning Through The Lens" width="400"/>
-</p>
+## Supported Hardware (Smart Glasses/Phones)
 
-
-## Hardware - Supported Glasses + Phones
-
-##### Glasses
+**Glasses**
 
 - Vuzix Z100
 - Vuzix Shield
@@ -102,7 +115,7 @@ We are working on more apps - fully open source - join us!
 - Most other Android smart glasses
 - Coming soon: Frames by Brilliant Labs, Meizu Myvu, Even Realities G1
 
-##### Smart Phones
+**Smart Phones**
 
 Any Android 12+ phone will work. We do NOT support Android 11 or below.
 
@@ -132,7 +145,7 @@ Contributions welcome! Our team is growing and we have a lot to do! Join our Dis
 
 ## TeamOpenSmartGlasses (TOSG)
 
-TeamOpenSmartGlasses is a team building open-source smart glasses tech to upgrade human thinking. Our industry partners include companies like Vuzix, Activelook, TCL, and others. To get involved, check out our website https://teamopensmartglasses.com or our [Discord server](https://discord.gg/bAKsjh8CtE).
+TeamOpenSmartGlasses is a team building open-source smart glasses tech towards an open, self-empowered, intercognitive, augmented future. Our industry partners include companies like Vuzix, Activelook, TCL, and others. To get involved, check out our website https://teamopensmartglasses.com and join our [Discord server](https://discord.gg/bAKsjh8CtE).
 
 ## License
 
