@@ -171,8 +171,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private String[] translationTexts = {"", ""}; // [oldTranslation, currentTranslation]
     private String[] liveCaptionTexts = {"", ""}; // [oldLiveCaption, currentLiveCaption]
 
-    private final boolean isRunningLiveTranslation = true;
-
     // Double clicking constants
     private final long doublePressTimeConst = 420;
     private final long doubleTapTimeConst = 600;
@@ -465,12 +463,11 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             transcriptsBuffer.add(text);
             sendFinalTranscriptToActivity(text);
         }
-
         //debounce and then send to backend
-        if (!isTranslated && !isRunningLiveTranslation) debounceAndSendTranscript(text, isFinal);
+        if (!isTranslated && super.getSelectedLiveCaptionsTranslation(this) != 2) debounceAndSendTranscript(text, isFinal);
 //        getSettings();
         // Send transcript to user if live captions are enabled
-        if (Objects.equals(getCurrentMode(this), "Language Learning") && getIsLiveCaptionsChecked(this)) {
+        if (Objects.equals(getCurrentMode(this), "Language Learning") && super.getSelectedLiveCaptionsTranslation(this) != 0) { // 0 is language learning mode
 //            showTranscriptsToUser(text, isFinal);
             debounceAndShowTranscriptOnGlasses(text, isFinal, isTranslated);
         }
@@ -492,7 +489,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
 
         // if intermediate
-        if (isRunningLiveTranslation) {
+        if (super.getSelectedLiveCaptionsTranslation(this) == 2) {
             if (isTranslated) {
                 if (currentTime - glassesTranslatedTranscriptLastSentTime >= GLASSES_TRANSCRIPTS_DEBOUNCE_DELAY) {
                     showTranscriptsToUser(transcript, false, true);
@@ -540,7 +537,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             final_transcript = transcript;
         }
 
-        if (isRunningLiveTranslation) sendTextWallLiveTranslationLiveCaption(final_transcript, isFinal, isTranslated);
+        if (super.getSelectedLiveCaptionsTranslation(this) == 2) sendTextWallLiveTranslationLiveCaption(final_transcript, isFinal, isTranslated);
         else sendTextWallLiveCaptionLL(final_transcript, isFinal, "");
     }
 
@@ -865,7 +862,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     public String[] calculateLLContextConvoResponseFormatted(LinkedList<ContextConvoResponse> contextConvoResponses) {
         int max_rows_allowed;
-        if (getIsLiveCaptionsChecked(this)) max_rows_allowed = 3; // Only show 2 rows if live captions are enabled
+        if (super.getSelectedLiveCaptionsTranslation(this) != 0) max_rows_allowed = 3; // Only show 3 rows if live captions are enabled
         else max_rows_allowed = 4;
 
         if (!clearedScreenYet) {
@@ -875,9 +872,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
 
         String[] llResults = new String[Math.min(max_rows_allowed, contextConvoResponses.size())];
-//        String enSpace = "\u2002"; // Using en space for padding
 
-//        int minSpaces = 2;
         int index = 0;
         for (ContextConvoResponse contextConvoResponse: contextConvoResponses) {
             if (index >= max_rows_allowed) break;
@@ -904,12 +899,14 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         currentLiveCaption = currentLiveCaption.length() > charsPerLine ? currentLiveCaption.substring(currentLiveCaption.length() - charsPerLine) : currentLiveCaption;
 
         String textBubble = "\uD83D\uDDE8";
-        String preOldCaptionTextBubble = textBubble;
-        if (oldLiveCaptionFinal.isEmpty()){
-            preOldCaptionTextBubble = "";
+        String oldLiveCaptionText = "";
+        if (!oldLiveCaptionFinal.isEmpty()) {
+            oldLiveCaptionText = textBubble + (oldLiveCaptionFinal.length() < (charsPerLine / 2) ? oldLiveCaptionFinal + "\n" : oldLiveCaptionFinal) + "\n";
         }
 
-        sendDoubleTextWall(llCurrentString , preOldCaptionTextBubble + oldLiveCaptionFinal + textBubble + currentLiveCaption);
+        String currentLiveCaptionText = textBubble + (currentLiveCaption.length() < (charsPerLine / 2) ? currentLiveCaption + "\n" : currentLiveCaption);
+
+        sendDoubleTextWall(llCurrentString, oldLiveCaptionText + currentLiveCaptionText);
     }
 
     public void sendTextWallLiveTranslationLiveCaption(final String newText, final boolean isFinal, final boolean isTranslated) {
@@ -986,7 +983,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         String imgKey = "image_url";
         String mapImgKey = "map_image_path";
 
-        boolean isLiveCaptionsChecked = getIsLiveCaptionsChecked(this);
+        boolean isLiveCaptionsChecked = super.getSelectedLiveCaptionsTranslation(this) != 0;
 
         //explicit queries
         JSONArray explicitAgentQueries = response.has(explicitAgentQueriesKey) ? response.getJSONArray(explicitAgentQueriesKey) : new JSONArray();
@@ -1411,13 +1408,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 .apply();
     }
 
-    public static void saveIsLiveCaptionsChecked(Context context, boolean isLiveCaptionsChecked) {
-        PreferenceManager.getDefaultSharedPreferences(context)
-                .edit()
-                .putBoolean(context.getResources().getString(R.string.SHARED_PREF_LIVE_CAPTIONS), isLiveCaptionsChecked)
-                .apply();
-    }
-
     public static String getChosenTargetLanguage(Context context) {
         String targetLanguageString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_TARGET_LANGUAGE), "");
         if (targetLanguageString.equals("")){
@@ -1434,10 +1424,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             sourceLanguageString = "English";
         }
         return sourceLanguageString;
-    }
-
-    public static boolean getIsLiveCaptionsChecked(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(context.getResources().getString(R.string.SHARED_PREF_LIVE_CAPTIONS), false);
     }
 
 //    public void changeMode(String currentModeString){

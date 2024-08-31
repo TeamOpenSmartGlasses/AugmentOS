@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Smart Glasses"
+        android:text="Smart Glasses Settings"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,30 +38,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/connect_smart_glasses" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Account"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/live_captions_toggle" />
-
-    <Button
-        android:id="@+id/log_out_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Log out"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
     <Switch
         android:id="@+id/glasses_audio_toggle"
         android:layout_width="wrap_content"
@@ -71,7 +47,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/kill_wearableai_service" />
-
 
     <TextView
         android:id="@+id/languageNameTitle"
@@ -86,15 +61,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/glasses_audio_toggle" />
 
-
     <Spinner
         android:id="@+id/transcribeLanguageSpinner"
         android:layout_width="250dp"
         android:layout_height="29dp"
         android:layout_marginTop="4dp"
+        android:background="@drawable/rounded_corner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/rounded_corner"
         app:layout_constraintTop_toBottomOf="@+id/transcribeLanguageTitle" />
 
     <TextView
@@ -109,15 +83,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/languageNameTitle" />
 
-
     <Spinner
         android:id="@+id/targetLanguageSpinner"
         android:layout_width="250dp"
         android:layout_height="29dp"
         android:layout_marginTop="4dp"
+        android:background="@drawable/rounded_corner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/rounded_corner"
         app:layout_constraintTop_toBottomOf="@+id/targetLanguageTitle" />
 
     <TextView
@@ -137,9 +110,9 @@
         android:layout_width="250dp"
         android:layout_height="29dp"
         android:layout_marginTop="4dp"
+        android:background="@drawable/rounded_corner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/rounded_corner"
         app:layout_constraintTop_toBottomOf="@+id/sourceLanguageTitle" />
 
     <TextView
@@ -155,16 +128,6 @@
         app:layout_constraintTop_toBottomOf="@+id/targetLanguageSpinner" />
 
     <CheckBox
-        android:id="@+id/live_captions_toggle"
-        android:layout_width="wrap_content"
-        android:layout_height="36dp"
-        android:text="Live Captions"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/VocabularyUpgrade" />
-
-    <CheckBox
         android:id="@+id/VocabularyUpgrade"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
@@ -175,26 +138,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sourceLanguageSpinner" />
 
+    <RadioGroup
+        android:id="@+id/liveCaptionsTranslationRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/VocabularyUpgrade">
 
-    <!--    <Button-->
-    <!--        android:id="@+id/start_live_captions"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="25dp"-->
-    <!--        android:text="Start Live Captions"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/send_test_card_old" />-->
+        <RadioButton
+            android:id="@+id/languageLearning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Language Learning" />
 
+        <RadioButton
+            android:id="@+id/languageLearningWithLiveCaptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Language Learning + Live Captions" />
 
-    <!--    <Button-->
-    <!--        android:id="@+id/trigger_tpa_command"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="25dp"-->
-    <!--        android:text="Trigger Hello World Command"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/start_live_captions" />-->
+        <RadioButton
+            android:id="@+id/liveTranslationWithLiveCaptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Live Translation + Live Captions" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/log_out_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/liveCaptionsTranslationRadioGroup"
+        android:text="Log out" />
+
+    <!-- Move Account Section Here -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

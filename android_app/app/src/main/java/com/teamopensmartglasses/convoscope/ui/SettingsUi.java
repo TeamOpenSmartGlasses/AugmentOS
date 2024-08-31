@@ -14,6 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Switch;
 
@@ -276,14 +278,27 @@ public class SettingsUi extends Fragment {
         });
 
         // setup live captions toggle
-        final CheckBox liveTranscriptionCheckBox = view.findViewById(R.id.live_captions_toggle);
-        final boolean isLiveCaptionsChecked = ConvoscopeService.getIsLiveCaptionsChecked(mContext);
-        liveTranscriptionCheckBox.setChecked(isLiveCaptionsChecked);
+        final RadioGroup liveCaptionsTranslationRadioGroup = view.findViewById(R.id.liveCaptionsTranslationRadioGroup);
+        final RadioButton languageLearningRadioButton = view.findViewById(R.id.languageLearning);
+        final RadioButton languageLearningWithLiveCaptionsRadioButton = view.findViewById(R.id.languageLearningWithLiveCaptions);
+        final RadioButton liveTranslationWithLiveCaptionsRadioButton = view.findViewById(R.id.liveTranslationWithLiveCaptions);
 
-        liveTranscriptionCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        final int liveCaptionsTranslationSelected = ConvoscopeService.getSelectedLiveCaptionsTranslation(mContext) % 3;
+        if (liveCaptionsTranslationSelected == 0) {
+            languageLearningRadioButton.setChecked(true);
+        } else if (liveCaptionsTranslationSelected == 1) {
+            languageLearningWithLiveCaptionsRadioButton.setChecked(true);
+        } else if (liveCaptionsTranslationSelected == 2) {
+            liveTranslationWithLiveCaptionsRadioButton.setChecked(true);
+        }
+
+        liveCaptionsTranslationRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ConvoscopeService.saveIsLiveCaptionsChecked(mContext, isChecked);
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // Save the selected RadioButton ID to preserve the user's choice
+                int buttonId = checkedId % 3;
+                ConvoscopeService.saveSelectedLiveCaptionsChecked(mContext, checkedId % 3); // normalize the id
+                ((MainActivity)getActivity()).restartConvoscopeService();
             }
         });
     }
