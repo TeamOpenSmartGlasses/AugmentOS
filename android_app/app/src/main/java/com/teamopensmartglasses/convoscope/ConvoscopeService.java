@@ -174,6 +174,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     // Double clicking constants
     private final long doublePressTimeConst = 420;
     private final long doubleTapTimeConst = 600;
+    private boolean segmenterLoaded = false;
 
     public ConvoscopeService() {
         super(ConvoscopeUi.class,
@@ -541,8 +542,15 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         else sendTextWallLiveCaptionLL(final_transcript, isFinal, "");
     }
 
-    private static String convertToPinyin(final String chineseText) {
+    private String convertToPinyin(final String chineseText) {
+        if (!segmenterLoaded) {
+            sendDoubleTextWall("", "Loading Pinyin Converter, Please Wait...");
+        }
         final JiebaSegmenter segmenter = new JiebaSegmenter();
+        if (!segmenterLoaded) {
+            sendDoubleTextWall("", "Pinyin Converter Loaded!");
+            segmenterLoaded = true;
+        }
         final List<SegToken> tokens = segmenter.process(chineseText, JiebaSegmenter.SegMode.SEARCH);
 
         final HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
@@ -904,7 +912,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             oldLiveCaptionText = textBubble + (oldLiveCaptionFinal.length() < (charsPerLine / 2) ? oldLiveCaptionFinal + "\n" : oldLiveCaptionFinal) + "\n";
         }
 
-        String currentLiveCaptionText = textBubble + (currentLiveCaption.length() < (charsPerLine / 2) ? currentLiveCaption + "\n" : currentLiveCaption);
+        String currentLiveCaptionText = "";
+        if (!currentLiveCaption.isEmpty()) {
+            currentLiveCaptionText = textBubble + (currentLiveCaption.length() < (charsPerLine / 2) ? currentLiveCaption + "\n" : currentLiveCaption);
+        }
 
         sendDoubleTextWall(llCurrentString, oldLiveCaptionText + currentLiveCaptionText);
     }
@@ -977,8 +988,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         texts[1] = texts[1].length() > charsPerLine ? texts[1].substring(texts[1].length() - charsPerLine) : texts[1];
     }
 
-
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
+        if (getChosenTargetLanguage(this).equals("Chinese (Pinyin)") && !segmenterLoaded) return;
 //        Log.d(TAG, "GOT CSE RESULT: " + response.toString());
         String imgKey = "image_url";
         String mapImgKey = "map_image_path";
@@ -1066,7 +1077,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //            responsesBuffer.add(String.join("\n", llResults));
 //        }
 
-
         JSONArray languageLearningResults = response.has(languageLearningKey) ? response.getJSONArray(languageLearningKey) : new JSONArray();
         JSONArray llWordSuggestUpgradeResults = response.has(llWordSuggestUpgradeKey) ? response.getJSONArray(llWordSuggestUpgradeKey) : new JSONArray();
         updateCombineResponse(languageLearningResults, llWordSuggestUpgradeResults);
@@ -1089,7 +1099,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             sendUiUpdateSingle(String.join("\n", llCombineResults));
             responsesBuffer.add(String.join("\n", llCombineResults));
         }
-
 
         JSONArray llContextConvoResults = response.has(llContextConvoKey) ? response.getJSONArray(llContextConvoKey) : new JSONArray();
 
@@ -1123,7 +1132,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
         }
 
         // systemMessages
@@ -1219,7 +1227,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         //see if we should update user settings
         boolean shouldUpdateSettingsResult = response.has(shouldUpdateSettingsKey) && response.getBoolean(shouldUpdateSettingsKey);
         if (shouldUpdateSettingsResult){
-            Log.d(TAG, "Runnign get settings because shouldUpdateSettings true");
+            Log.d(TAG, "Running get settings because shouldUpdateSettings true");
             getSettings();
         }
     }
