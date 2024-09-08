@@ -228,6 +228,7 @@ public class SettingsUi extends Fragment {
                 ((MainActivity)getActivity()).mService.saveChosenTargetLanguage(mContext, selectedLanguage);
                 if (((MainActivity)getActivity()).mService != null) {
                     ((MainActivity) getActivity()).mService.updateTargetLanguageOnBackend(mContext);
+                    ((MainActivity)getActivity()).restartConvoscopeService();
                 }
             }
 
@@ -268,6 +269,7 @@ public class SettingsUi extends Fragment {
                 ((MainActivity)getActivity()).mService.saveChosenSourceLanguage(mContext, selectedLanguage);
                 if (((MainActivity)getActivity()).mService != null) {
                     ((MainActivity)getActivity()).mService.updateSourceLanguageOnBackend(mContext);
+                    ((MainActivity)getActivity()).restartConvoscopeService();
                 }
             }
 

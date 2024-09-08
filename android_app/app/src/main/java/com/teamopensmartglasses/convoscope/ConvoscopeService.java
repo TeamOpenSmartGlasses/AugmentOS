@@ -142,7 +142,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private final int maxAdhdStmbShowNum = 3;
     private final int maxContextConvoResponsesShow = 2;
     private final int maxLLUpgradeResponsesShow = 2;
-    private final int charsPerLine = 67;
+    private final int charsPerTranscript = 62;
 
 
     //    private SMSComms smsComms;
@@ -529,26 +529,29 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     private void showTranscriptsToUser(final String transcript, final boolean isFinal, final boolean isTranslated) {
-        String final_transcript;
+        String processed_transcript;
 
         if (!isTranslated && getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)") ||
-            isTranslated && getChosenTargetLanguage(this).equals("Chinese (Pinyin)")) {
-            final_transcript = convertToPinyin(transcript);
+            isTranslated && (
+                getChosenSourceLanguage(this).equals("Chinese (Pinyin)") ||
+                getChosenTargetLanguage(this).equals("Chinese (Pinyin)") && getChosenTranscribeLanguage(this).equals(getChosenSourceLanguage(this)))
+        ) {
+            processed_transcript = convertToPinyin(transcript);
         } else {
-            final_transcript = transcript;
+            processed_transcript = transcript;
         }
 
-        if (super.getSelectedLiveCaptionsTranslation(this) == 2) sendTextWallLiveTranslationLiveCaption(final_transcript, isFinal, isTranslated);
-        else sendTextWallLiveCaptionLL(final_transcript, isFinal, "");
+        if (super.getSelectedLiveCaptionsTranslation(this) == 2) sendTextWallLiveTranslationLiveCaption(processed_transcript, isFinal, isTranslated);
+        else sendTextWallLiveCaptionLL(processed_transcript, isFinal, "");
     }
 
     private String convertToPinyin(final String chineseText) {
         if (!segmenterLoaded) {
-            sendDoubleTextWall("", "Loading Pinyin Converter, Please Wait...");
+            sendDoubleTextWall("Loading Pinyin Converter, Please Wait...", "");
         }
         final JiebaSegmenter segmenter = new JiebaSegmenter();
         if (!segmenterLoaded) {
-            sendDoubleTextWall("", "Pinyin Converter Loaded!");
+            sendDoubleTextWall("Pinyin Converter Loaded!", "");
             segmenterLoaded = true;
         }
         final List<SegToken> tokens = segmenter.process(chineseText, JiebaSegmenter.SegMode.SEARCH);
@@ -817,7 +820,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //    }
 
     public String[] calculateLLCombineResponseFormatted(LinkedList<LLCombineResponse> llCombineResponses) {
-        int max_rows_allowed = 4;
+        int max_rows_allowed = 3;
+
         String[] llCombineResults = new String[Math.min(max_rows_allowed, llCombineResponses.size())];
 
         int minSpaces = 2;
@@ -829,7 +833,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //            Log.d(TAG, llCombineResponse.toString());
             if(llCombineResponse.inWord!=null && llCombineResponse.inWordTranslation!=null){
                 llCombineResults[index] = llCombineResponse.inWord + enSpace.repeat(minSpaces) + "⟶" + enSpace.repeat(minSpaces) + llCombineResponse.inWordTranslation;
-            }else if (llCombineResponse.inUpgrade != null && llCombineResponse.inUpgradeMeaning!= null) {
+            } else if (llCombineResponse.inUpgrade != null && llCombineResponse.inUpgradeMeaning!= null) {
                 llCombineResults[index] = "⬆ " + llCombineResponse.inUpgrade + enSpace.repeat(minSpaces) + "-" + enSpace.repeat(minSpaces) + llCombineResponse.inUpgradeMeaning;
             }
             index++;
@@ -869,9 +873,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //    }
 
     public String[] calculateLLContextConvoResponseFormatted(LinkedList<ContextConvoResponse> contextConvoResponses) {
-        int max_rows_allowed;
-        if (super.getSelectedLiveCaptionsTranslation(this) != 0) max_rows_allowed = 3; // Only show 3 rows if live captions are enabled
-        else max_rows_allowed = 4;
+        int max_rows_allowed = 4;
 
         if (!clearedScreenYet) {
             sendHomeScreen();
@@ -891,6 +893,19 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         return llResults;
     }
 
+    public static String addNewlineAtSpace(String str, int charsPerLine) {
+        if (str.length() > charsPerLine) {
+            int index = charsPerLine;
+            while (index > 0 && str.charAt(index) != ' ') {
+                index--;
+            }
+            if (index > 0) {
+                str = str.substring(0, index) + "\n" + str.substring(index + 1);
+            }
+        } else str = str + "\n";
+        return str;
+    }
+
     public void sendTextWallLiveCaptionLL(final String newLiveCaption, final boolean isLiveCaptionFinal, final String llString) {
         if (!newLiveCaption.isEmpty()) {
             if (!oldLiveCaption.isEmpty()) {
@@ -903,19 +918,19 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         if (!llString.isEmpty()) llCurrentString = llString;
 
         // Truncate to the last n characters
-        oldLiveCaption = oldLiveCaption.length() > charsPerLine ? oldLiveCaption.substring(oldLiveCaption.length() - charsPerLine) : oldLiveCaption;
-        currentLiveCaption = currentLiveCaption.length() > charsPerLine ? currentLiveCaption.substring(currentLiveCaption.length() - charsPerLine) : currentLiveCaption;
+        oldLiveCaption = oldLiveCaption.length() > charsPerTranscript ? oldLiveCaption.substring(oldLiveCaption.length() - charsPerTranscript) : oldLiveCaption;
+        currentLiveCaption = currentLiveCaption.length() > charsPerTranscript ? currentLiveCaption.substring(currentLiveCaption.length() - charsPerTranscript) : currentLiveCaption;
 
         String textBubble = "\uD83D\uDDE8";
         String oldLiveCaptionText = "";
         if (!oldLiveCaptionFinal.isEmpty()) {
-            oldLiveCaptionText = textBubble + (oldLiveCaptionFinal.length() < (charsPerLine / 2) ? oldLiveCaptionFinal + "\n" : oldLiveCaptionFinal) + "\n";
-        }
+            oldLiveCaptionText = textBubble + addNewlineAtSpace(oldLiveCaptionFinal, charsPerTranscript / 2) + "\n";
+        } else oldLiveCaptionText = "\n\n";
 
         String currentLiveCaptionText = "";
         if (!currentLiveCaption.isEmpty()) {
-            currentLiveCaptionText = textBubble + (currentLiveCaption.length() < (charsPerLine / 2) ? currentLiveCaption + "\n" : currentLiveCaption);
-        }
+            currentLiveCaptionText = textBubble + addNewlineAtSpace(currentLiveCaption, charsPerTranscript / 2);
+        } else currentLiveCaptionText = "\n\n";
 
         sendDoubleTextWall(llCurrentString, oldLiveCaptionText + currentLiveCaptionText);
     }
@@ -937,25 +952,20 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         // Process translation texts
         String liveTranslationCombinedText = "";
-        if (!translationTexts[0].isEmpty()) {
-            String modifiedText0 = translationTexts[0].length() < (charsPerLine / 2) ? translationTexts[0] + "\n" : translationTexts[0];
-            liveTranslationCombinedText += textBubble + modifiedText0 + "\n";
-        }
-        if (!translationTexts[1].isEmpty()) {
-            String modifiedText1 = translationTexts[1].length() < (charsPerLine / 2) ? translationTexts[1] + "\n" : translationTexts[1];
-            liveTranslationCombinedText += textBubble + modifiedText1;
-        }
+        if (!translationTexts[0].isEmpty()) liveTranslationCombinedText += textBubble + addNewlineAtSpace(translationTexts[0], charsPerTranscript / 2) + "\n";
+        else liveTranslationCombinedText += "\n\n";
+
+        if (!translationTexts[1].isEmpty()) liveTranslationCombinedText += textBubble + addNewlineAtSpace(translationTexts[1], charsPerTranscript / 2);
+        else liveTranslationCombinedText += "\n\n";
 
         // Process caption texts
         String liveCaptionCombinedText = "";
-        if (!liveCaptionTexts[0].isEmpty()) {
-            String modifiedCaption0 = liveCaptionTexts[0].length() < (charsPerLine / 2) ? liveCaptionTexts[0] + "\n" : liveCaptionTexts[0];
-            liveCaptionCombinedText += textBubble + modifiedCaption0 + "\n";
-        }
-        if (!liveCaptionTexts[1].isEmpty()) {
-            String modifiedCaption1 = liveCaptionTexts[1].length() < (charsPerLine / 2) ? liveCaptionTexts[1] + "\n" : liveCaptionTexts[1];
-            liveCaptionCombinedText += textBubble + modifiedCaption1;
-        }
+        if (!liveCaptionTexts[0].isEmpty()) liveCaptionCombinedText += textBubble + addNewlineAtSpace(liveCaptionTexts[0], charsPerTranscript / 2) + "\n";
+        else liveCaptionCombinedText += "\n\n";
+
+        if (!liveCaptionTexts[1].isEmpty()) liveCaptionCombinedText += textBubble + addNewlineAtSpace(liveCaptionTexts[1], charsPerTranscript / 2) + "\n";
+        else liveCaptionCombinedText += "\n\n";
+
 
         sendDoubleTextWall(liveTranslationCombinedText, liveCaptionCombinedText);
     }
@@ -984,12 +994,12 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //                    || block == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT;
 //        }))
         //cut off if too long
-        texts[0] = texts[0].length() > charsPerLine ? texts[0].substring(texts[0].length() - charsPerLine) : texts[0];
-        texts[1] = texts[1].length() > charsPerLine ? texts[1].substring(texts[1].length() - charsPerLine) : texts[1];
+        texts[0] = texts[0].length() > charsPerTranscript ? texts[0].substring(texts[0].length() - charsPerTranscript) : texts[0];
+        texts[1] = texts[1].length() > charsPerTranscript ? texts[1].substring(texts[1].length() - charsPerTranscript) : texts[1];
     }
 
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
-        if (getChosenTargetLanguage(this).equals("Chinese (Pinyin)") && !segmenterLoaded) return;
+        if (getChosenTargetLanguage(this).equals("Chinese (Pinyin)") && getSelectedLiveCaptionsTranslation(this) != 0 && !segmenterLoaded) return;
 //        Log.d(TAG, "GOT CSE RESULT: " + response.toString());
         String imgKey = "image_url";
         String mapImgKey = "map_image_path";
