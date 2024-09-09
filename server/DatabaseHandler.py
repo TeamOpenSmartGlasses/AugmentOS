@@ -85,8 +85,8 @@ class DatabaseHandler:
 
     def init_insights_collections(self):
         self.results_db = self.client['results']
-        self.system_messages_collection = self.get_collection(
-            self.results_db, 'system_messages', wipe=clear_cache_on_start)
+        self.display_requests_collection = self.get_collection(
+            self.results_db, 'display_requests', wipe=clear_cache_on_start)
         self.agent_explicit_queries_collection = self.get_collection(
             self.results_db, 'agent_explicit_queries', wipe=clear_cache_on_start)
         self.agent_explicit_insights_results_collection = self.get_collection(
@@ -190,7 +190,7 @@ class DatabaseHandler:
                  "transcripts": [],
                  "ui_list": [],
                  "rating_ids": [],
-                 "system_message_ids": [],
+                 "display_request_ids": [],
                  "agent_explicit_query_ids": [],
                  "agent_explicit_insights_result_ids": [],
                  "agent_proactive_definer_result_ids": [],
@@ -365,7 +365,7 @@ class DatabaseHandler:
             update = {"$set": {"latest_intermediate_transcript": transcript}}
             self.transcripts_collection.update_one(filter=filter, update=update, upsert=True)
 
-        return True
+        return transcript
 
     def get_user(self, user_id):
         user = self.user_collection.find_one({"user_id": user_id})
@@ -594,25 +594,25 @@ class DatabaseHandler:
     def get_explicit_insights_history_for_user(self, user_id, device_id=None, should_consume=True, include_consumed=False):
         return self.get_results_for_user_device("agent_explicit_insights_result_ids", user_id, device_id, should_consume, include_consumed)
 
-    ### system_messages ###
+    ### display_requests ###
 
-    def add_system_message_for_user(self, user_id, message, category=""):
+    def add_display_request_for_user(self, user_id, message, category=""):
         message_uuid = str(uuid.uuid4())
         message_obj = {'timestamp': time.time(),
                        'uuid': message_uuid, 'message': message, 'category': category}
-        self.system_messages_collection.insert_one(message_obj)
+        self.display_requests_collection.insert_one(message_obj)
 
         filter = {"user_id": user_id}
-        update = {"$push": {"system_message_ids": message_uuid}}
+        update = {"$push": {"display_request_ids": message_uuid}}
         self.user_collection.update_one(filter=filter, update=update)
 
-    def delete_system_message_ids_for_user(self, user_id):
+    def delete_display_request_ids_for_user(self, user_id):
         filter = {"user_id": user_id}
-        update = {"$set": {"system_message_ids": []}}
+        update = {"$set": {"display_request_ids": []}}
         self.user_collection.update_one(filter=filter, update=update)
 
-    def get_system_messages_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
-        return self.get_results_for_user_device("system_message_ids", user_id, device_id, should_consume, include_consumed)
+    def get_display_requests_for_user_device(self, user_id, device_id, should_consume=True, include_consumed=False):
+        return self.get_results_for_user_device("display_request_ids", user_id, device_id, should_consume, include_consumed)
 
     ### PROACTIVE INSIGHTS ###
 
@@ -689,7 +689,7 @@ class DatabaseHandler:
         return self.get_results_for_user_device("agent_insights_result_ids", user_id, device_id, should_consume, include_consumed)
 
     def get_defined_terms_from_last_nseconds_for_user_device(self, user_id, n=300):
-        consumed_results = self.get_system_messages_for_user_device(
+        consumed_results = self.get_display_requests_for_user_device(
             user_id=user_id, device_id="", should_consume=False, include_consumed=True)
 
         previously_defined_terms = []
@@ -1055,7 +1055,7 @@ class DatabaseHandler:
     # Search all results collections for a specific UUID
     def get_result_from_uuid(self, uuid):
         filter = {"uuid": uuid}
-        res = self.system_messages_collection.find_one(filter, {'_id': 0})
+        res = self.display_requests_collection.find_one(filter, {'_id': 0})
         if res:
             return res
         res = self.agent_explicit_queries_collection.find_one(filter, {
