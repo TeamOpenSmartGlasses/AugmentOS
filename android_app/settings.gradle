@@ -17,4 +17,4 @@ rootProject.name = "Convoscope"
 include ':app'
 
 include ':SmartGlassesManager'
-project(':SmartGlassesManager').projectDir = new File(rootProject.projectDir, '../SmartGlassesManager/SGM_android/SmartGlassesManager')
+project(':SmartGlassesManager').projectDir = new File(rootProject.projectDir, '../../SmartGlassesManager/SGM_android/SmartGlassesManager')

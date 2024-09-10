@@ -25,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.preference.PreferenceManager;
 
 import com.teamopensmartglasses.convoscope.ConvoscopeService;
 import com.teamopensmartglasses.convoscope.MainActivity;
@@ -303,6 +304,21 @@ public class SettingsUi extends Fragment {
                 ((MainActivity)getActivity()).restartConvoscopeService();
             }
         });
+
+
+        final CheckBox shouldDisplayNotificationsCheckbox = view.findViewById(R.id.should_display_notifications_toggle);
+        final boolean isShouldDisplayNotificationsChecked = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("should_display_notifications", false);
+        shouldDisplayNotificationsCheckbox.setChecked(isShouldDisplayNotificationsChecked);
+        shouldDisplayNotificationsCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                PreferenceManager.getDefaultSharedPreferences(getContext())
+                        .edit()
+                        .putBoolean("should_display_notifications", isChecked)
+                        .apply();
+            }
+        });
+
     }
 
     public void sendTestCard(){

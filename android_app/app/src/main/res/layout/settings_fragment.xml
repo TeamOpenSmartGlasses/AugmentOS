@@ -9,12 +9,11 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="4dp"
         android:text="Smart Glasses Settings"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,6 +36,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/connect_smart_glasses" />
+
 
     <Switch
         android:id="@+id/glasses_audio_toggle"
@@ -138,6 +138,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sourceLanguageSpinner" />
 
+    <CheckBox
+        android:id="@+id/should_display_notifications_toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:text="Display Notifications"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/VocabularyUpgrade" />
+
     <RadioGroup
         android:id="@+id/liveCaptionsTranslationRadioGroup"
         android:layout_width="wrap_content"
@@ -145,7 +155,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/VocabularyUpgrade">
+        app:layout_constraintTop_toBottomOf="@+id/should_display_notifications_toggle">
 
         <RadioButton
             android:id="@+id/languageLearning"

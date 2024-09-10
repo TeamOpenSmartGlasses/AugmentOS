@@ -20,6 +20,7 @@ import static com.teamopensmartglasses.convoscope.Constants.shouldUpdateSettings
 import static com.teamopensmartglasses.convoscope.Constants.systemMessagesKey;
 import static com.teamopensmartglasses.convoscope.Constants.wakeWordTimeKey;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.display.VirtualDisplay;
@@ -27,6 +28,7 @@ import android.media.projection.MediaProjection;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.service.notification.NotificationListenerService;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -149,10 +151,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     static String phoneNumName = "Alex";
     static String phoneNum = "8477367492"; // Alex's phone number. Fun default.
     long previousWakeWordTime = -1; // Initialize this at -1
-    static int maxBullets = 2; // Maximum number of bullet points per display iteration
-    long latestDisplayTime = 0; // Initialize this at 0
-    long minimumDisplayRate = 0; // Initialize this at 0
-    long minimumDisplayRatePerResult = 1500; // Rate-limit displaying new results to n milliseconds per result
     int numConsecutiveAuthFailures = 0;
     private long currTime = 0;
     private long lastPressed = 0;
@@ -176,6 +174,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private final long doubleTapTimeConst = 600;
     private boolean segmenterLoaded = false;
 
+    private DisplayQueue displayQueue;
+
     public ConvoscopeService() {
         super(ConvoscopeUi.class,
                 "convoscope_app",
@@ -190,6 +190,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         //setup event bus subscribers
         this.setupEventBusSubscribers();
+
+        displayQueue = new DisplayQueue();
 
         //make responses holder
         responsesBuffer = new ArrayList<>();
@@ -208,13 +210,14 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //        Log.d(TAG, "ASR KEY: " + asrApiKey);
         saveApiKey(this, asrApiKey);
 
+        startNotificationService();
+
         completeInitialization();
     }
 
     public void completeInitialization(){
         Log.d(TAG, "COMPLETE CONVOSCOPE INITIALIZATION");
         setUpUiPolling();
-        setUpDisplayQueuePolling();
         setUpLocationSending();
 
         //setup ASR version
@@ -237,7 +240,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     @Override
     protected void onGlassesConnected(SmartGlassesDevice device) {
         Log.d(TAG, "Glasses connected successfully: " + device.deviceModelName);
-        setFontSize(SmartGlassesFontSize.MEDIUM);
+        setFontSize(SmartGlassesFontSize.LARGE);
+        displayQueue.startQueue();
     }
 
     public void handleSignOut(){
@@ -337,17 +341,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         locationSendingLoopHandler.post(locationSendingRunnableCode);
     }
 
-    public void setUpDisplayQueuePolling(){
-        displayRunnableCode = new Runnable() {
-            @Override
-            public void run() {
-                maybeDisplayFromResultList();
-                displayPollLoopHandler.postDelayed(this, 500);
-            }
-        };
-        displayPollLoopHandler.post(displayRunnableCode);
-    }
-
     @Override
     public void onDestroy(){
         csePollLoopHandler.removeCallbacks(uiPollRunnableCode);
@@ -366,6 +359,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         if (idTokenListener != null) {
             firebaseAuth.removeIdTokenListener(idTokenListener);
         }
+
+        stopNotificationService();
+
+        if (displayQueue != null) displayQueue.stopQueue();
 
         super.onDestroy();
     }
@@ -880,7 +877,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             clearedScreenYet = true;
         }
 
-
         String[] llResults = new String[Math.min(max_rows_allowed, contextConvoResponses.size())];
 
         int index = 0;
@@ -935,7 +931,14 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             currentLiveCaptionText = textBubble + addNewlineAtSpace(currentLiveCaption, charsPerTranscript / 2);
         } else currentLiveCaptionText = "\n\n";
 
-        sendDoubleTextWall(llCurrentString, oldLiveCaptionText + currentLiveCaptionText);
+        //        if (!clearedScreenYet) {
+        //            sendHomeScreen();
+        //            clearedScreenYet = true;
+        //        }
+
+        final String finalLiveCaption = oldLiveCaptionText + currentLiveCaptionText;
+
+        displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(llCurrentString, finalLiveCaption), false, true));
     }
 
     public void sendTextWallLiveTranslationLiveCaption(final String newText, final boolean isFinal, final boolean isTranslated) {
@@ -1001,6 +1004,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         texts[1] = texts[1].length() > charsPerTranscript ? texts[1].substring(texts[1].length() - charsPerTranscript) : texts[1];
     }
 
+
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
         if (getChosenTargetLanguage(this).equals("Chinese (Pinyin)") && getSelectedLiveCaptionsTranslation(this) != 0 && !segmenterLoaded) return;
 //        Log.d(TAG, "GOT CSE RESULT: " + response.toString());
@@ -1035,7 +1039,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             updateAdhdSummaries(adhdStmbResults);
             String dynamicSummary = adhdStmbResults.getJSONObject(0).getString("summary");
             String [] adhdResults = calculateAdhdStmbStringFormatted(getAdhdStmbSummaries());
-            sendRowsCard(adhdResults);
+            displayQueue.addTask(new DisplayQueue.Task(() -> this.sendRowsCard(adhdResults), false, true));
 //            sendTextToSpeech("欢迎使用安卓文本到语音转换功能", "chinese");
 //            Log.d(TAG, "GOT THAT ONEEEEEEEE:");
 //            Log.d(TAG, String.join("\n", llResults));
@@ -1106,7 +1110,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                         .reduce((a, b) -> b + newLineSeparator + a)
                         .orElse("");
                 if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", false, textWallString);
-                else sendTextWall(textWallString);
+                else {
+                    displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextWall(textWallString), false, true));
+                }
             }
 //            Log.d(TAG, "ll combine results"+ llCombineResults.toString());
             sendUiUpdateSingle(String.join("\n", llCombineResults));
@@ -1127,7 +1133,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 //sendRowsCard(llContextConvoResponses);
 
                 if (isLiveCaptionsChecked) sendTextWallLiveCaptionLL("", false, textWallString);
-                else sendTextWall(textWallString);
+                else {
+                    displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextWall(textWallString), false, true));
+                }
             }
             List<String> list = Arrays.stream(Arrays.copyOfRange(llContextConvoResponses, 0, llContextConvoResults.length())).filter(Objects::nonNull).collect(Collectors.toList());
             Collections.reverse(list);
@@ -1141,7 +1149,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 String text = toTTS.getString("text");
                 String language = toTTS.getString("language");
 //                Log.d(TAG, "Text: " + text + ", Language: " + language);
-                sendTextToSpeech(text, language);
+                //sendTextToSpeech(text, language);
+                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextToSpeech(text, language), false, false));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -1151,7 +1160,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         for (int i = 0; i < systemMessages.length(); i++) {
             try {
                 JSONObject obj = systemMessages.getJSONObject(i);
-                queueOutput(obj.getString("message"));
+                String body = obj.getString("message");
+                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(glassesCardTitle, body), false, false));
+                queueOutput(body);
             }
             catch (JSONException e){
                 e.printStackTrace();
@@ -1164,10 +1175,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 JSONObject obj = entityDefinitions.getJSONObject(i);
                 String name = obj.getString("name");
                 String body = obj.getString("summary");
-                String combined = name + ": " + body;
-                Log.d(TAG, name);
-                Log.d(TAG, "--- " + body);
-                queueOutput(combined);
+                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard("" + name + "", body), false, false));
+                queueOutput(name + ": " + body);
             } catch (JSONException e){
                 e.printStackTrace();
             }
@@ -1175,50 +1184,22 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
         long wakeWordTime = response.has(wakeWordTimeKey) ? response.getLong(wakeWordTimeKey) : -1;
 
+        // Wake word indicator
         if (wakeWordTime != -1 && wakeWordTime != previousWakeWordTime){
             previousWakeWordTime = wakeWordTime;
             String body = "Listening... ";
+            displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(glassesCardTitle, body), true, true));
             queueOutput(body);
         }
 
-//        //go through CSE results and add to resultsToDisplayList
-//        String sharableResponse = "";
-//        for (int i = 0; i < systemMessages.length(); i++){
-//            try {
-//                JSONObject obj = systemMessages.getJSONObject(i);
-//                String name = obj.getString("name");
-//                String body = obj.getString("summary");
-//                String combined = name + ": " + body;
-//                Log.d(TAG, name);
-//                Log.d(TAG, "--- " + body);
-//                queueOutput(combined);
-//
-//
-//            } catch (JSONException e){
-//                e.printStackTrace();
-//            }
-//        }
-
-        //go through proactive agent results and add to resultsToDisplayList
-        for (int i = 0; i < proactiveAgentResults.length(); i++){
-            try {
-                JSONObject obj = proactiveAgentResults.getJSONObject(i);
-                String name = obj.getString("agent_name") + " says";
-                String body = obj.getString("agent_insight");
-                String combined = name + ": " + body;
-                Log.d(TAG, name);
-                Log.d(TAG, "--- " + body);
-                queueOutput(combined);
-            } catch (JSONException e){
-                e.printStackTrace();
-            }
-        }
-
         //go through explicit agent queries and add to resultsToDisplayList
+        // "Processing query: " indicator
         for (int i = 0; i < explicitAgentQueries.length(); i++){
             try {
                 JSONObject obj = explicitAgentQueries.getJSONObject(i);
-                String body = "Processing query: " + obj.getString("query");
+                String title = "Processing Query";
+                String body = "\"" + obj.getString("query") + "\"";
+                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(title, body), true, true));
                 queueOutput(body);
             } catch (JSONException e){
                 e.printStackTrace();
@@ -1226,12 +1207,27 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
 
         //go through explicit agent results and add to resultsToDisplayList
+        // Show Wake Word Query
         for (int i = 0; i < explicitAgentResults.length(); i++){
             try {
                 JSONObject obj = explicitAgentResults.getJSONObject(i);
                 //String body = "Response: " + obj.getString("insight");
                 String body = obj.getString("insight");
+                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(glassesCardTitle, body), true, false));
                 queueOutput(body);
+            } catch (JSONException e){
+                e.printStackTrace();
+            }
+        }
+
+        //go through proactive agent results and add to resultsToDisplayList
+        for (int i = 0; i < proactiveAgentResults.length(); i++){
+            try {
+                JSONObject obj = proactiveAgentResults.getJSONObject(i);
+                String name = obj.getString("agent_name") + " says";
+                String body = obj.getString("agent_insight");
+                displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(name, body), false, false));
+                queueOutput(name + ": " + body);
             } catch (JSONException e){
                 e.printStackTrace();
             }
@@ -1250,34 +1246,10 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         // ll context convo
     }
 
-    //all the stuff from the results that we want to display
-    ArrayList<String> resultsToDisplayList = new ArrayList<>();
+    // Display things to the phone screen
     public void queueOutput(String item){
         responsesBuffer.add(item);
         sendUiUpdateSingle(item);
-        resultsToDisplayList.add(item.substring(0,Math.min(140, item.length())).trim());//.replaceAll("\\s+", " "));
-    }
-
-    public void maybeDisplayFromResultList(){
-        if (resultsToDisplayList.size() == 0) return;
-        if (System.currentTimeMillis() - latestDisplayTime < minimumDisplayRate) return;
-
-        ArrayList<String> displayThese = new ArrayList<String>();
-        for(int i = 0; i < resultsToDisplayList.size(); i++) {
-            if (i >= maxBullets) break;
-            displayThese.add(resultsToDisplayList.remove(0));
-        }
-
-        minimumDisplayRate = minimumDisplayRatePerResult * displayThese.size();
-        latestDisplayTime = System.currentTimeMillis();
-
-        if (displayThese.size() == 1) {
-            sendReferenceCard(glassesCardTitle, displayThese.get(0));
-        }
-        else {
-            String[] resultsToDisplayListArr = displayThese.toArray(new String[displayThese.size()]);
-            sendBulletPointList(glassesCardTitle, resultsToDisplayListArr);
-        }
     }
 
     public void speakTTS(String toSpeak){
@@ -1460,8 +1432,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 
     public void saveCurrentMode(Context context, String currentModeString) {
         sendHomeScreen();
-
-//        sendReferenceCard("", currentModeString + " mode activated.");
 
         //save the new mode
         PreferenceManager.getDefaultSharedPreferences(context)
@@ -1841,23 +1811,42 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         numConsecutiveAuthFailures += 1;
         if(numConsecutiveAuthFailures > 10) {
             Log.d("TAG", "ATTEMPT SIGN OUT");
-            // this.sendReferenceCard("Error", "Convoscope Authentication Error: " + event.reason);
             handleSignOut();
         }
     }
 
+    // Used for notifications and for screen mirror
     @Subscribe
     public void onNewScreenTextEvent(NewScreenTextEvent event) {
-        String text = event.text;
-        this.sendTextWall(text);
+        // Notification
+        if (event.title != null && event.body != null) {
+            displayQueue.addTask(new DisplayQueue.Task(() -> this.sendReferenceCard(event.title, event.body), false, false));
+        }
+        else if (event.body != null){ //Screen mirror text
+            displayQueue.addTask(new DisplayQueue.Task(() -> this.sendTextWall(event.body), false, true));
+        }
     }
 
     @Subscribe
     public void onNewScreenImageEvent(NewScreenImageEvent event) {
-        this.sendBitmap(event.bmp);
+        displayQueue.addTask(new DisplayQueue.Task(() -> this.sendBitmap(event.bmp), false, true));
     }
 
     private void updateLastDataSentTime() {
         lastDataSentTime = System.currentTimeMillis();
     }
+
+    private void startNotificationService() {
+        Intent notificationServiceIntent = new Intent(this, MyNotificationListeners.class);
+        startService(notificationServiceIntent);
+
+        NotificationListenerService.requestRebind(
+                new ComponentName(this, MyNotificationListeners.class));
+    }
+
+    private void stopNotificationService() {
+        Intent notificationServiceIntent = new Intent(this, MyNotificationListeners.class);
+        stopService(notificationServiceIntent);
+    }
+
 }
