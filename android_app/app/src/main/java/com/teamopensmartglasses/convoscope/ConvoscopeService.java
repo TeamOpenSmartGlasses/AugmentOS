@@ -820,7 +820,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
 //    }
 
     public String[] calculateLLCombineResponseFormatted(LinkedList<LLCombineResponse> llCombineResponses) {
-        int max_rows_allowed = 3;
+        int max_rows_allowed = 4;
 
         String[] llCombineResults = new String[Math.min(max_rows_allowed, llCombineResponses.size())];
 
@@ -902,6 +902,9 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             if (index > 0) {
                 str = str.substring(0, index) + "\n" + str.substring(index + 1);
             }
+            if (str.endsWith("\n")) {
+                str = str.substring(0, str.length() - 1);
+            }
         } else str = str + "\n";
         return str;
     }
@@ -963,7 +966,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         if (!liveCaptionTexts[0].isEmpty()) liveCaptionCombinedText += textBubble + addNewlineAtSpace(liveCaptionTexts[0], charsPerTranscript / 2) + "\n";
         else liveCaptionCombinedText += "\n\n";
 
-        if (!liveCaptionTexts[1].isEmpty()) liveCaptionCombinedText += textBubble + addNewlineAtSpace(liveCaptionTexts[1], charsPerTranscript / 2) + "\n";
+        if (!liveCaptionTexts[1].isEmpty()) liveCaptionCombinedText += textBubble + addNewlineAtSpace(liveCaptionTexts[1], charsPerTranscript / 2);
         else liveCaptionCombinedText += "\n\n";
 
 
