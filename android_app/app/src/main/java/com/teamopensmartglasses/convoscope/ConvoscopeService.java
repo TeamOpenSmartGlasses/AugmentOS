@@ -144,7 +144,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     private final int maxAdhdStmbShowNum = 3;
     private final int maxContextConvoResponsesShow = 2;
     private final int maxLLUpgradeResponsesShow = 2;
-    private final int charsPerTranscript = 62;
+    private final int charsPerTranscript = 60;
 
 
     //    private SMSComms smsComms;
@@ -240,7 +240,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     @Override
     protected void onGlassesConnected(SmartGlassesDevice device) {
         Log.d(TAG, "Glasses connected successfully: " + device.deviceModelName);
-        setFontSize(SmartGlassesFontSize.LARGE);
+        setFontSize(SmartGlassesFontSize.MEDIUM);
         displayQueue.startQueue();
     }
 
@@ -889,9 +889,14 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         return llResults;
     }
 
-    public static String addNewlineAtSpace(String str, int charsPerLine) {
-        if (str.length() > charsPerLine) {
-            int index = charsPerLine;
+    private String processString(String str) {
+        if (str.length() > charsPerTranscript) {
+            str = str.substring(str.length() - charsPerTranscript);
+        }
+
+        // Add newline at the last space before charsPerLine
+        if (str.length() > charsPerTranscript / 2) {
+            int index = charsPerTranscript / 2;
             while (index > 0 && str.charAt(index) != ' ') {
                 index--;
             }
@@ -912,23 +917,19 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 oldLiveCaption = "";
             }
             if (isLiveCaptionFinal) oldLiveCaption = currentLiveCaption; // Only update old caption if the new one is final
-            currentLiveCaption = newLiveCaption;
+            currentLiveCaption = processString(newLiveCaption);
         }
         if (!llString.isEmpty()) llCurrentString = llString;
-
-        // Truncate to the last n characters
-        oldLiveCaption = oldLiveCaption.length() > charsPerTranscript ? oldLiveCaption.substring(oldLiveCaption.length() - charsPerTranscript) : oldLiveCaption;
-        currentLiveCaption = currentLiveCaption.length() > charsPerTranscript ? currentLiveCaption.substring(currentLiveCaption.length() - charsPerTranscript) : currentLiveCaption;
 
         String textBubble = "\uD83D\uDDE8";
         String oldLiveCaptionText = "";
         if (!oldLiveCaptionFinal.isEmpty()) {
-            oldLiveCaptionText = textBubble + addNewlineAtSpace(oldLiveCaptionFinal, charsPerTranscript / 2) + "\n";
+            oldLiveCaptionText = textBubble + oldLiveCaptionFinal + "\n";
         } else oldLiveCaptionText = "\n\n";
 
         String currentLiveCaptionText = "";
         if (!currentLiveCaption.isEmpty()) {
-            currentLiveCaptionText = textBubble + addNewlineAtSpace(currentLiveCaption, charsPerTranscript / 2);
+            currentLiveCaptionText = textBubble + currentLiveCaption;
         } else currentLiveCaptionText = "\n\n";
 
         //        if (!clearedScreenYet) {
@@ -950,26 +951,22 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
             }
         }
 
-        // Truncate to the last n characters
-        truncateTexts(translationTexts);
-        truncateTexts(liveCaptionTexts);
-
         String textBubble = "\uD83D\uDDE8";
 
         // Process translation texts
         String liveTranslationCombinedText = "";
-        if (!translationTexts[0].isEmpty()) liveTranslationCombinedText += textBubble + addNewlineAtSpace(translationTexts[0], charsPerTranscript / 2) + "\n";
+        if (!translationTexts[0].isEmpty()) liveTranslationCombinedText += textBubble + processString(translationTexts[0]) + "\n";
         else liveTranslationCombinedText += "\n\n";
 
-        if (!translationTexts[1].isEmpty()) liveTranslationCombinedText += textBubble + addNewlineAtSpace(translationTexts[1], charsPerTranscript / 2);
+        if (!translationTexts[1].isEmpty()) liveTranslationCombinedText += textBubble + processString(translationTexts[1]);
         else liveTranslationCombinedText += "\n\n";
 
         // Process caption texts
         String liveCaptionCombinedText = "";
-        if (!liveCaptionTexts[0].isEmpty()) liveCaptionCombinedText += textBubble + addNewlineAtSpace(liveCaptionTexts[0], charsPerTranscript / 2) + "\n";
+        if (!liveCaptionTexts[0].isEmpty()) liveCaptionCombinedText += textBubble + processString(liveCaptionTexts[0]) + "\n";
         else liveCaptionCombinedText += "\n\n";
 
-        if (!liveCaptionTexts[1].isEmpty()) liveCaptionCombinedText += textBubble + addNewlineAtSpace(liveCaptionTexts[1], charsPerTranscript / 2);
+        if (!liveCaptionTexts[1].isEmpty()) liveCaptionCombinedText += textBubble + processString(liveCaptionTexts[1]);
         else liveCaptionCombinedText += "\n\n";
 
 
@@ -991,15 +988,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     private void truncateTexts(String[] texts) {
-//        if (texts[i].codePoints().anyMatch(codePoint -> { // Check if the text is in Chinese characters and truncate at 40 characters if it is
-//            Character.UnicodeBlock block = Character.UnicodeBlock.of(codePoint);
-//            return block == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS
-//                    || block == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A
-//                    || block == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B
-//                    || block == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS
-//                    || block == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT;
-//        }))
-        //cut off if too long
         texts[0] = texts[0].length() > charsPerTranscript ? texts[0].substring(texts[0].length() - charsPerTranscript) : texts[0];
         texts[1] = texts[1].length() > charsPerTranscript ? texts[1].substring(texts[1].length() - charsPerTranscript) : texts[1];
     }

@@ -298,13 +298,24 @@ public class SettingsUi extends Fragment {
         liveCaptionsTranslationRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                // Save the selected RadioButton ID to preserve the user's choice
-                int buttonId = checkedId % 3;
-                ConvoscopeService.saveSelectedLiveCaptionsChecked(mContext, checkedId % 3); // normalize the id
+                int buttonId;
+                switch (checkedId) {
+                    case R.id.languageLearning:
+                        buttonId = 0;
+                        break;
+                    case R.id.languageLearningWithLiveCaptions:
+                    default:
+                        buttonId = 1;
+                        break;
+                    case R.id.liveTranslationWithLiveCaptions:
+                        buttonId = 2;
+                        break;
+                }
+                ((MainActivity)getActivity()).restartConvoscopeService();
+                ConvoscopeService.saveSelectedLiveCaptionsTranslationChecked(mContext, buttonId); // normalize the id
                 ((MainActivity)getActivity()).restartConvoscopeService();
             }
         });
-
 
         final CheckBox shouldDisplayNotificationsCheckbox = view.findViewById(R.id.should_display_notifications_toggle);
         final boolean isShouldDisplayNotificationsChecked = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("should_display_notifications", false);
