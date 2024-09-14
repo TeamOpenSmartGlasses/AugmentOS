@@ -51,7 +51,7 @@
     <service android:name=".ScreenCaptureService"
         android:exported="false"
         android:foregroundServiceType="mediaProjection" />
-    <service android:name="com.teamopensmartglasses.convoscope.ConvoscopeService"
+    <service android:name="com.teamopensmartglasses.convoscope.AugmentosService"
         android:foregroundServiceType="microphone"
         android:exported="true"
         android:theme="@style/AppTheme">

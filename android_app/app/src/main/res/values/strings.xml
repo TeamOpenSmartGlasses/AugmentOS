@@ -1,14 +1,14 @@
 <resources>
-    <!-- The application name. -->
-    <string name="app_name">Convoscope</string>
-    <!-- Selecting language message. -->
-    <string name="say_something">Say something!</string>
-    <string name="key">TEMPORARYKEY_CHANGETHISKEY</string>
-    <string name="no_camera_access" translatable="false">Please grant camera permissions.</string>
-    <string name="medium_text">text</string>
-    <string name="memory_hint">Enter memory to save here</string>
-    <string name="SHARED_PREF_VOCABULARY_UPGRADE">vocabulary_upgrade_enabled</string>
-    <string name="tag_label">Choose Tag</string>
+  <!-- The application name. -->
+  <string name="app_name">AugmentOS</string>
+  <!-- Selecting language message. -->
+  <string name="say_something">Say something!</string>
+  <string name="key">TEMPORARYKEY_CHANGETHISKEY</string>
+  <string name="no_camera_access" translatable="false">Please grant camera permissions.</string>
+  <string name="medium_text">text</string>
+  <string name="memory_hint">Enter memory to save here</string>
+  <string name="SHARED_PREF_VOCABULARY_UPGRADE">vocabulary_upgrade_enabled</string>
+  <string name="tag_label">Choose Tag</string>
 
     <string-array name="exposed_dropdown_content">
     <item>Wearable</item>
@@ -39,19 +39,19 @@
 
 
 
-    <!-- Entering API key message. -->
-    <string name="google_api_key">API_KEY_ERROR</string>
-    <string name="api_key_message">Enter G-Cloud API key</string>
-    <!-- API key document link. -->
-    <string name="api_key_doc_link">See &lt;a href="https://cloud.google.com/docs/authentication/api-keys">here&lt;/a> for more details.</string>
-    <!-- Selecting language message. -->
-    <string name="select_language_message">Select language. See  &lt;a href="https://cloud.google.com/speech-to-text/docs/languages">here&lt;/a> for more details.</string>
-    <!-- Internal code use. -->
-    <string name="SHARED_PREF_KEY">api_key</string>
-    <string name="DEFAULT_COMMAND_SHARED_PREF_KEY">default_command_key</string>
-    <string name="DEFAULT_COMMAND_SET_SHARED_PREF_KEY">default_command_set_key</string>
+  <!-- Entering API key message. -->
+  <string name="google_api_key">API_KEY_ERROR</string>
+  <string name="api_key_message">Enter G-Cloud API key</string>
+  <!-- API key document link. -->
+  <string name="api_key_doc_link">See &lt;a href="https://cloud.google.com/docs/authentication/api-keys">here&lt;/a> for more details.</string>
+  <!-- Selecting language message. -->
+  <string name="select_language_message">Select language. See  &lt;a href="https://cloud.google.com/speech-to-text/docs/languages">here&lt;/a> for more details.</string>
+  <!-- Internal code use. -->
+  <string name="SHARED_PREF_KEY">api_key</string>
+  <string name="DEFAULT_COMMAND_SHARED_PREF_KEY">default_command_key</string>
+  <string name="DEFAULT_COMMAND_SET_SHARED_PREF_KEY">default_command_set_key</string>
 
-    <string name="SHARED_PREF_ASR_KEY">shared_pref_api_key</string>
+  <string name="SHARED_PREF_ASR_KEY">shared_pref_api_key</string>
     <string name="SHARED_PREF_TARGET_LANGUAGE">shared_pref_target_language</string>
     <string name="SHARED_PREF_SOURCE_LANGUAGE">shared_pref_source_language</string>
     <string name="SHARED_PREF_CURRENT_MODE">shared_pref_current_mode</string>

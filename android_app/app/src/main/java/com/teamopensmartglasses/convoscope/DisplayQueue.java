@@ -1,5 +1,7 @@
 package com.teamopensmartglasses.convoscope;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -15,7 +17,7 @@ public class DisplayQueue {
     private final int MAX_QUEUE_SIZE = 5;
     private final long DELAY_TIME = 5; // 5 seconds
 
-
+    public final String TAG = "AugmentOS_DisplayQueue";
 
     public DisplayQueue() {
         this.taskList = new ArrayList<>();
@@ -59,6 +61,12 @@ public class DisplayQueue {
     }
 
     private void scheduleNextTask(long delay) {
+        // If the executor is shut down or terminated, don't schedule the task
+        if (executorService == null || executorService.isShutdown() || executorService.isTerminated()) {
+            Log.d(TAG, "ExecutorService is shut down or terminated, cannot schedule next task.");
+            return;
+        }
+
         // If there's a task currently scheduled, cancel it
         if (currentScheduledTask != null && !currentScheduledTask.isCancelled()) {
             currentScheduledTask.cancel(false);

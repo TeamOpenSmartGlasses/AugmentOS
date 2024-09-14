@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="Smart Glasses Settings"
+        android:text="Wearables"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Connect Glasses"
+        android:text="Connect Wearable"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Disconnect Glasses"
+        android:text="Disconnect Wearable"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/connect_smart_glasses" />
@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:layout_marginTop="10dp"
-        android:text="Audio only"
+        android:text="Virtual Wearable (just phone)"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/kill_wearableai_service" />
@@ -143,7 +143,6 @@
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:text="Display Notifications"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/VocabularyUpgrade" />

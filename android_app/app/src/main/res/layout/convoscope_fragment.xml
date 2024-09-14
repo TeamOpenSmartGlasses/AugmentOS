@@ -14,7 +14,7 @@
       android:layout_width="match_parent"
       android:layout_height="0dp"
       app:layout_constraintHeight_default="percent"
-      app:layout_constraintHeight_percent="0.65"
+      app:layout_constraintHeight_percent="0.55"
 
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent" />
@@ -28,7 +28,7 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintHeight_default="percent"
 
-      app:layout_constraintHeight_percent="0.35"
+      app:layout_constraintHeight_percent="0.45"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintWidth_default="percent"
       app:layout_constraintWidth_percent="0.5">
@@ -51,7 +51,7 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHeight_default="percent"
 
-      app:layout_constraintHeight_percent="0.35"
+      app:layout_constraintHeight_percent="0.45"
       app:layout_constraintWidth_default="percent"
       app:layout_constraintWidth_percent="0.503">
 
@@ -77,20 +77,20 @@
         app:layout_constraintTop_toBottomOf="@+id/settings_button">
 
       <RadioButton
+          android:id="@+id/radioButtonProactiveAgents"
+          android:layout_width="match_parent"
+          android:layout_height="32dp"
+          android:enabled="true"
+          android:buttonTint="@color/colorAccent"
+          android:text="Convoscope Agents" />
+
+      <RadioButton
           android:id="@+id/radioButtonLanguageLearning"
           android:layout_width="match_parent"
           android:layout_height="32dp"
           android:enabled="true"
           android:buttonTint="@color/colorAccent"
           android:text="Language Learning" />
-
-      <RadioButton
-          android:id="@+id/radioButtonProactiveAgents"
-          android:layout_width="match_parent"
-          android:layout_height="32dp"
-          android:enabled="true"
-          android:buttonTint="@color/colorAccent"
-          android:text="Proactive Agents" />
 
         <RadioButton
           android:id="@+id/radioButtonScreenMirror"
@@ -115,17 +115,25 @@
           android:id="@+id/radioButtonADHDGlasses"
           android:layout_width="match_parent"
           android:layout_height="32dp"
-          android:enabled="false"
-          android:buttonTint="@color/bubbleColor"
-          android:text="ADHD Glasses" />
+          android:enabled="true"
+          android:buttonTint="@color/colorAccent"
+          android:text="ADHD Live Memory Aid" />
 
       <RadioButton
           android:id="@+id/radioButtonWalkNGrok"
           android:layout_width="match_parent"
           android:layout_height="32dp"
-          android:enabled="false"
-          android:buttonTint="@color/bubbleColor"
+          android:enabled="true"
+          android:buttonTint="@color/colorAccent"
           android:text="Live Captions" />
+
+      <RadioButton
+          android:id="@+id/radioButtonWalkNGrok"
+          android:layout_width="match_parent"
+          android:layout_height="32dp"
+          android:enabled="true"
+          android:buttonTint="@color/colorAccent"
+          android:text="Translation" />
 
     </RadioGroup>
 

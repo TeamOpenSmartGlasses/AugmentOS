@@ -27,17 +27,13 @@ import android.content.res.Configuration;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
-import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
@@ -49,10 +45,7 @@ import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.teamopensmartglasses.convoscope.events.SignOutEvent;
-import com.teamopensmartglasses.convoscope.ui.LandingUi;
 import com.teamopensmartglasses.convoscope.ui.SelectSmartGlassesUi;
 import com.teamopensmartglasses.convoscope.ui.UiUtils;
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesDevice;
@@ -63,7 +56,7 @@ import org.greenrobot.eventbus.Subscribe;
 
 public class MainActivity extends AppCompatActivity {
   public final String TAG = "Convoscope_MainActivity";
-  public ConvoscopeService mService;
+  public AugmentosService mService;
   boolean mBound;
   private NavController navController;
   PermissionsUtils permissionsUtils;
@@ -91,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
   @Override
   public void onStart() {
     super.onStart();
-    UiUtils.setupTitle(this, "Convoscope");
+    UiUtils.setupTitle(this, "AugmentOS");
 
     permissionsUtils = new PermissionsUtils(this, TAG);
     if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
@@ -166,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
     //register receiver that gets data from the service
 
 
-    if (isMyServiceRunning(ConvoscopeService.class)) {
+    if (isMyServiceRunning(AugmentosService.class)) {
       //bind to WearableAi service
       bindConvoscopeService();
 
@@ -198,28 +191,28 @@ public class MainActivity extends AppCompatActivity {
 
   public void stopConvoscopeService() {
     unbindConvoscopeService();
-    if (!isMyServiceRunning(ConvoscopeService.class)) return;
-    Intent stopIntent = new Intent(this, ConvoscopeService.class);
-    stopIntent.setAction(ConvoscopeService.ACTION_STOP_FOREGROUND_SERVICE);
+    if (!isMyServiceRunning(AugmentosService.class)) return;
+    Intent stopIntent = new Intent(this, AugmentosService.class);
+    stopIntent.setAction(AugmentosService.ACTION_STOP_FOREGROUND_SERVICE);
     startService(stopIntent);
   }
 
   public void sendConvoscopeServiceMessage(String message) {
-    if (!isMyServiceRunning(ConvoscopeService.class)) return;
-    Intent messageIntent = new Intent(this, ConvoscopeService.class);
+    if (!isMyServiceRunning(AugmentosService.class)) return;
+    Intent messageIntent = new Intent(this, AugmentosService.class);
     messageIntent.setAction(message);
     startService(messageIntent);
   }
 
   public void startConvoscopeService() {
-    if (isMyServiceRunning(ConvoscopeService.class)){
+    if (isMyServiceRunning(AugmentosService.class)){
       Log.d(TAG, "Not starting Convoscope service because it's already started.");
       return;
     }
 
     Log.d(TAG, "Starting Convoscope service.");
-    Intent startIntent = new Intent(this, ConvoscopeService.class);
-    startIntent.setAction(ConvoscopeService.ACTION_START_FOREGROUND_SERVICE);
+    Intent startIntent = new Intent(this, AugmentosService.class);
+    startIntent.setAction(AugmentosService.ACTION_START_FOREGROUND_SERVICE);
     startService(startIntent);
     bindConvoscopeService();
   }
@@ -237,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
 
   public void bindConvoscopeService(){
     if (!mBound){
-      Intent intent = new Intent(this, ConvoscopeService.class);
+      Intent intent = new Intent(this, AugmentosService.class);
       bindService(intent, convoscopeAppServiceConnection, Context.BIND_AUTO_CREATE);
     }
   }
@@ -255,8 +248,8 @@ public class MainActivity extends AppCompatActivity {
     public void onServiceConnected(ComponentName className,
                                    IBinder service) {
       // We've bound to LocalService, cast the IBinder and get LocalService instance
-      ConvoscopeService.LocalBinder sgmLibServiceBinder = (ConvoscopeService.LocalBinder) service;
-      mService = (ConvoscopeService) sgmLibServiceBinder.getService();
+      AugmentosService.LocalBinder sgmLibServiceBinder = (AugmentosService.LocalBinder) service;
+      mService = (AugmentosService) sgmLibServiceBinder.getService();
       mBound = true;
 
       //get update for UI
@@ -350,7 +343,7 @@ public class MainActivity extends AppCompatActivity {
             .addOnCompleteListener(new OnCompleteListener<Void>() {
               public void onComplete(@NonNull Task<Void> task) {
                 Log.d(TAG, "LOGGED OUT (SUCCESSFULLY)");
-                stopService(new Intent(MainActivity.this, ConvoscopeService.class));
+                stopService(new Intent(MainActivity.this, AugmentosService.class));
                 NavOptions navOptions = new NavOptions.Builder()
                         .setPopUpTo(R.id.nav_landing, true) // Replace 'nav_graph_start_destination' with the ID of your start destination in the nav graph
                         .build();
@@ -361,7 +354,7 @@ public class MainActivity extends AppCompatActivity {
               @Override
               public void onFailure(@NonNull Exception e) {
                 Log.d(TAG, "LOGGED OUT (WITH ERROR)");
-                stopService(new Intent(MainActivity.this, ConvoscopeService.class));
+                stopService(new Intent(MainActivity.this, AugmentosService.class));
                 NavOptions navOptions = new NavOptions.Builder()
                         .setPopUpTo(R.id.nav_landing, true) // Replace 'nav_graph_start_destination' with the ID of your start destination in the nav graph
                         .build();
@@ -374,7 +367,7 @@ public class MainActivity extends AppCompatActivity {
     this.selectedDevice = device;
 
     //check if the service is running. If not, we should start it first, so it doesn't die when we unbind
-    if (!isMyServiceRunning(ConvoscopeService.class)){
+    if (!isMyServiceRunning(AugmentosService.class)){
       Log.e(TAG, "Something went wrong, service should be started and bound.");
     } else {
       mService.connectToSmartGlasses(device);

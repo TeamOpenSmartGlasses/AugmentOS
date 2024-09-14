@@ -27,7 +27,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.preference.PreferenceManager;
 
-import com.teamopensmartglasses.convoscope.ConvoscopeService;
+import com.teamopensmartglasses.convoscope.AugmentosService;
 import com.teamopensmartglasses.convoscope.MainActivity;
 import com.teamopensmartglasses.convoscope.R;
 import com.teamopensmartglasses.smartglassesmanager.SmartGlassesAndroidService;
@@ -78,8 +78,8 @@ public class SettingsUi extends Fragment {
                 public void onClick(View v) {
                 // Code here executes on main thread after user presses button
                 //check to first make sure that user isn't trying to enable google without providing API key
-                if (ConvoscopeService.getChosenAsrFramework(mContext) == ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK) {
-                    String apiKey = ConvoscopeService.getApiKey(mContext);
+                if (AugmentosService.getChosenAsrFramework(mContext) == ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK) {
+                    String apiKey = AugmentosService.getApiKey(mContext);
                     if (apiKey == null || apiKey.equals("")) {
                         showNoGoogleAsrDialog();
                         return;
@@ -99,8 +99,8 @@ public class SettingsUi extends Fragment {
         //find out the current ASR state, remember it
 //        ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
 //        ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.DEEPGRAM_ASR_FRAMEWORK);
-        ConvoscopeService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK);
-        ASR_FRAMEWORKS asrFramework = ConvoscopeService.getChosenAsrFramework(mContext);
+        AugmentosService.saveChosenAsrFramework(mContext, ASR_FRAMEWORKS.AZURE_ASR_FRAMEWORK);
+        ASR_FRAMEWORKS asrFramework = AugmentosService.getChosenAsrFramework(mContext);
 //        switchGoogleAsr.setChecked(asrFramework == ASR_FRAMEWORKS.GOOGLE_ASR_FRAMEWORK);
 //
 //        switchGoogleAsr.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -118,16 +118,16 @@ public class SettingsUi extends Fragment {
 //        });
 
         final Switch glassesAudioToggle = view.findViewById(R.id.glasses_audio_toggle);
-        glassesAudioToggle.setChecked(ConvoscopeService.getPreferredWearable(getContext()).equals(new AudioWearable().deviceModelName)); // off by default
+        glassesAudioToggle.setChecked(AugmentosService.getPreferredWearable(getContext()).equals(new AudioWearable().deviceModelName)); // off by default
         glassesAudioToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked){
-                    ConvoscopeService.savePreferredWearable(getContext(), new AudioWearable().deviceModelName);
+                    AugmentosService.savePreferredWearable(getContext(), new AudioWearable().deviceModelName);
                     ((MainActivity)getActivity()).restartConvoscopeService();
                 }
                 else {
-                    ConvoscopeService.savePreferredWearable(getContext(), "");
+                    AugmentosService.savePreferredWearable(getContext(), "");
                     ((MainActivity)getActivity()).restartConvoscopeService();
                 }
             }
@@ -142,7 +142,13 @@ public class SettingsUi extends Fragment {
 
         //ll vocabulary upgrade checkbox
         CheckBox vocabularyUpgradeCheckbox = view.findViewById(R.id.VocabularyUpgrade);
-        boolean isVocabularyUpgradeEnabled = ((MainActivity)getActivity()).mService.isVocabularyUpgradeEnabled(mContext);
+        boolean isVocabularyUpgradeEnabled;
+        if (((MainActivity)getActivity()).mService != null) {
+            isVocabularyUpgradeEnabled = ((MainActivity) getActivity()).mService.isVocabularyUpgradeEnabled(mContext);
+        } else {
+            isVocabularyUpgradeEnabled = false;
+            Log.d(TAG, "FAIL: runnings settings relying on Service... bad code");
+        }
         Log.d(TAG, "Initial Vocabulary Upgrade state: " + isVocabularyUpgradeEnabled);
         vocabularyUpgradeCheckbox.setChecked(isVocabularyUpgradeEnabled);
 
@@ -286,7 +292,7 @@ public class SettingsUi extends Fragment {
         final RadioButton languageLearningWithLiveCaptionsRadioButton = view.findViewById(R.id.languageLearningWithLiveCaptions);
         final RadioButton liveTranslationWithLiveCaptionsRadioButton = view.findViewById(R.id.liveTranslationWithLiveCaptions);
 
-        final int liveCaptionsTranslationSelected = ConvoscopeService.getSelectedLiveCaptionsTranslation(mContext) % 3;
+        final int liveCaptionsTranslationSelected = AugmentosService.getSelectedLiveCaptionsTranslation(mContext) % 3;
         if (liveCaptionsTranslationSelected == 0) {
             languageLearningRadioButton.setChecked(true);
         } else if (liveCaptionsTranslationSelected == 1) {
@@ -312,7 +318,7 @@ public class SettingsUi extends Fragment {
                         break;
                 }
                 ((MainActivity)getActivity()).restartConvoscopeService();
-                ConvoscopeService.saveSelectedLiveCaptionsTranslationChecked(mContext, buttonId); // normalize the id
+                AugmentosService.saveSelectedLiveCaptionsTranslationChecked(mContext, buttonId); // normalize the id
                 ((MainActivity)getActivity()).restartConvoscopeService();
             }
         });

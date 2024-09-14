@@ -16,20 +16,17 @@
 package com.teamopensmartglasses.convoscope.ui;
 import static android.app.Activity.RESULT_OK;
 
-import static androidx.core.app.ActivityCompat.finishAffinity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -50,8 +47,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import com.teamopensmartglasses.convoscope.ConvoscopeService;
-import com.teamopensmartglasses.convoscope.MainActivity;
 import com.teamopensmartglasses.convoscope.R;
 
 

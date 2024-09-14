@@ -38,7 +38,6 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -68,12 +67,13 @@ public class ScreenCaptureService extends Service {
     private Runnable imageBufferRunnableCode;
     private final Handler imageBufferLoopHandler = new Handler(Looper.getMainLooper());
     Bitmap bitmapBuffer = null;
-    private static final long TEXT_DEBOUNCE_TIME_MS = 600;
-    private static final long IMAGE_DEBOUNCE_TIME_MS = 1500;
+    private static final long TEXT_DEBOUNCE_TIME_MS = 350;
+    private static final long IMAGE_DEBOUNCE_TIME_MS = 1200;
     public Boolean textOnly = true;
     private long lastProcessedTime = 0;
     private String lastNewText = "";
     private Bitmap lastNewImage = null;
+    private int imageCounter = 0;
 
     @Override
     public void onCreate() {
@@ -172,7 +172,7 @@ public class ScreenCaptureService extends Service {
 
     private void startCapturing() {
         //turn off BLE SCO audio here via SmartGlassesManager (SGM) to allow user to watch videos, use video camera, etc.
-        EventBus.getDefault().post(new DisableBleScoAudioEvent(true));
+//        EventBus.getDefault().post(new DisableBleScoAudioEvent(true));
 
         //start screen capture
         DisplayMetrics metrics = new DisplayMetrics();
@@ -185,7 +185,7 @@ public class ScreenCaptureService extends Service {
 
         // Setup ImageReader to capture screen
         imageReader = ImageReader.newInstance(screenWidth, screenHeight, PixelFormat.RGBA_8888, 2);
-        mediaProjection.createVirtualDisplay("ScreenCapture",
+        mediaProjection.createVirtualDisplay("AugmentOS ScreenCapture",
                 screenWidth, screenHeight, screenDensity,
                 DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,
                 imageReader.getSurface(), null, null);
@@ -194,8 +194,17 @@ public class ScreenCaptureService extends Service {
             @Override
             public void onImageAvailable(ImageReader reader) {
                 Image image = null;
+                int n = 20;
+
                 try {
                     image = reader.acquireLatestImage();
+
+                    imageCounter++;
+                    if (imageCounter != 0 && imageCounter % n != 0){ //only run every n frames
+                        image.close();
+                        return;
+                    }
+
                     if (image != null) {
                         bitmapBuffer = imageToBitmap(image);
                         image.close();
@@ -280,7 +289,7 @@ public class ScreenCaptureService extends Service {
 
 
             if (!haveBitmapsChangedSignificantly(bitmap, lastNewImage, 222)) return;
-            Log.d(TAG, "Bitmaps are different enough!");
+//            Log.d(TAG, "Bitmaps are different enough!");
             lastNewImage = bitmap;
 
             // Maximum allowed dimensions
@@ -358,7 +367,7 @@ public class ScreenCaptureService extends Service {
 
                         // Retrieve the screen height
                         int screenHeight = getScreenHeight(context);
-                        Log.d(TAG, "screen height is: " + screenHeight);
+//                        Log.d(TAG, "screen height is: " + screenHeight);
 
                         // Define the ratio (e.g., 0.02 for 2% of the screen height)
                         float textSizeDropHeightRatio = 0.008f;
@@ -377,7 +386,7 @@ public class ScreenCaptureService extends Service {
                         }
 
                         // Sort lines by their bounding box top coordinate (y)
-                        Log.d(TAG, allLines.toString());
+//                        Log.d(TAG, allLines.toString());
                         Collections.sort(allLines, new Comparator<Text.Line>() {
                             @Override
                             public int compare(Text.Line line1, Text.Line line2) {
@@ -454,7 +463,7 @@ public class ScreenCaptureService extends Service {
 
                         if (levenshteinDistance(processedText, lastNewText) <= 5) return;
 
-                        Log.d(TAG, "NEW TEXT:\n" + processedText);
+//                        Log.d(TAG, "NEW TEXT:\n" + processedText);
 
                         lastNewText = processedText;
 
