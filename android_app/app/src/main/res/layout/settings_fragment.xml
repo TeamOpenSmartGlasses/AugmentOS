@@ -5,34 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Wearables"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/connect_smart_glasses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Connect Wearable"
+        android:layout_marginTop="30dp"
+        android:text="Connect Glasses"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/kill_wearableai_service"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Disconnect Wearable"
+        android:text="Disconnect Glasses"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/connect_smart_glasses" />
@@ -43,23 +31,23 @@
         android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:layout_marginTop="10dp"
-        android:text="Virtual Wearable (just phone)"
+        android:text="Audio only"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/kill_wearableai_service" />
 
-    <TextView
-        android:id="@+id/languageNameTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Languages"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/glasses_audio_toggle" />
+<!--    <TextView-->
+<!--        android:id="@+id/languageNameTitle"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:text="Languages"-->
+<!--        android:textSize="30dp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/glasses_audio_toggle" />-->
 
     <Spinner
         android:id="@+id/transcribeLanguageSpinner"
@@ -81,7 +69,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/languageNameTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/glasses_audio_toggle" />
 
     <Spinner
         android:id="@+id/targetLanguageSpinner"
@@ -131,7 +119,7 @@
         android:id="@+id/VocabularyUpgrade"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="10dp"
         android:checked="true"
         android:text="Vocabulary Upgrade"
         app:layout_constraintEnd_toEndOf="parent"
@@ -143,9 +131,24 @@
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:text="Display Notifications"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/VocabularyUpgrade" />
+
+    android_app/app/src/main/res/layout/settings_fragment.xml
+    <!--    <TextView-->
+<!--        android:id="@+id/languageNameTitle"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:text="Languages"-->
+<!--        android:textSize="30dp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/glasses_audio_toggle" />-->
 
     <RadioGroup
         android:id="@+id/liveCaptionsTranslationRadioGroup"
@@ -161,14 +164,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Language Learning" />
+            android:text="Rare Word Translate" />
 
         <RadioButton
             android:id="@+id/languageLearningWithLiveCaptions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Language Learning + Live Captions" />
+            android:text="Rare Word Translate + Live Captions" />
 
         <RadioButton
             android:id="@+id/liveTranslationWithLiveCaptions"

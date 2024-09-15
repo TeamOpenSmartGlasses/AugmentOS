@@ -551,6 +551,10 @@ public class AugmentosService extends SmartGlassesAndroidService {
             sendDoubleTextWall("Pinyin Converter Loaded!", "");
             segmenterLoaded = true;
         }
+//        if (!segmenterLoaded){
+//            return chineseText;
+//        }
+
         final List<SegToken> tokens = segmenter.process(chineseText, JiebaSegmenter.SegMode.SEARCH);
 
         final HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
@@ -1197,6 +1201,8 @@ public class AugmentosService extends SmartGlassesAndroidService {
         //go through explicit agent results and add to resultsToDisplayList
         // Show Wake Word Query
         for (int i = 0; i < explicitAgentResults.length(); i++){
+            Log.d(TAG, "explicitAgentResults.toString() *************");
+            Log.d(TAG, explicitAgentResults.toString());
             try {
                 JSONObject obj = explicitAgentResults.getJSONObject(i);
                 //String body = "Response: " + obj.getString("insight");
@@ -1439,7 +1445,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
     public String getCurrentMode(Context context) {
         String currentModeString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), "");
         if (currentModeString.equals("")){
-            currentModeString = "Language Learning";
+            currentModeString = "Convoscope";
             saveCurrentMode(context, currentModeString);
         }
         return currentModeString;

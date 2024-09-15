@@ -54,7 +54,7 @@ public class ConvoscopeUi extends Fragment {
   public static final String CONVOSCOPE_MESSAGE_STRING = "CONVOSCOPE_MESSAGE_STRING";
   public static final String TRANSCRIPTS_MESSAGE_STRING = "TRANSCRIPTS_MESSAGE_STRING";
   public static final String FINAL_TRANSCRIPT = "FINAL_TRANSCRIPT";
-  private static final String fragmentLabel = "Convoscope";
+  private static final String fragmentLabel = "AugmentOS";
 
     private NavController navController;
 
@@ -294,7 +294,7 @@ public class ConvoscopeUi extends Fragment {
             case R.id.radioButtonProactiveAgents:
               // Implement action for Proactive Agents
               Log.d(TAG, "PROACTIVE AGENTS MODE SELECTED");
-              ((MainActivity)getActivity()).mService.saveCurrentMode(mContext, "Proactive Agents");
+              ((MainActivity)getActivity()).mService.saveCurrentMode(mContext, "Convoscope");
               break;
             case R.id.radioButtonLanguageLearning:
               // Implement action for Language Learning
