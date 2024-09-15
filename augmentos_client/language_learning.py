@@ -1,5 +1,6 @@
 # AugmentOS
 import asyncio
+import json
 from augmentos_client import TPAClient
 
 # Custom
@@ -64,13 +65,12 @@ class ExampleTPA:
 
         if words_to_show:
             final_words_to_show = list(filter(None, words_to_show))
-            # print("WORDS TO SHOW")
-            # print(final_words_to_show)
+            print("WORDS TO SHOW")
+            print(json.dumps(final_words_to_show, indent=4))
             
-            # Get rid of this old function bleh gross
-            # db_handler.add_language_learning_words_to_show_for_user(transcript['user_id'], final_words_to_show)
-
-            self.client.send_rows_card(user_id, final_words_to_show)
+            ### TODO: Pull out the recent word logic from edge to here
+            displayList = [f'{item["in_word"]} -> {item["in_word_translation"]}' for item in final_words_to_show]
+            await self.client.send_rows_card(user_id, displayList)
 
     async def on_location(self, data):
         pass

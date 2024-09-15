@@ -10,7 +10,7 @@ import uvicorn
 import aiohttp
 from augmentos_client.DataStorage import DataStorage
 from augmentos_client.DataTypes import AugmentOsDataTypes
-
+from tenacity import retry, stop_after_attempt, wait_fixed
 
 class TPAClient:
     def __init__(self, app_id, app_name, server_url, app_description="", subscriptions=None):
@@ -74,6 +74,7 @@ class TPAClient:
         thread = Thread(target=uvicorn.run, args=(self.app,), kwargs={"host": "0.0.0.0", "port": 8000})
         thread.start()
 
+    @retry(stop=stop_after_attempt(5), wait=wait_fixed(5))
     async def register_with_augmentos(self):
         """
         Register the TPA with AugmentOS, including its subscription preferences.
@@ -95,6 +96,20 @@ class TPAClient:
             except requests.exceptions.RequestException as e:
                 print(f"[{self.app_name}] Failed to register with AugmentOS: {e}")
 
+    async def websocket_task(self):
+        """
+        Background task to maintain the WebSocket connection.
+        """
+        while True:
+            try:
+                await self.initiate_websocket()
+                print(f"[{self.app_name}] WebSocket connection established.")
+                await self.listen_for_data()  # This will run until the connection is closed
+            except Exception as e:
+                print(f"[{self.app_name}] WebSocket connection failed: {e}")
+                await asyncio.sleep(5)  # Wait before retrying
+
+    @retry(stop=stop_after_attempt(5), wait=wait_fixed(5))
     async def initiate_websocket(self):
         """
         Initiate the WebSocket connection with AugmentOS if it isn't already established.
