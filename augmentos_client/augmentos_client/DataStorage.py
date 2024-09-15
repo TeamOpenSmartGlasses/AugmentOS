@@ -2,10 +2,10 @@ from tinydb import TinyDB, Query
 from datetime import datetime, timedelta
 
 class DataStorage:
-    def __init__(self, db_file='db.json'):
+    def __init__(self, db_file='.db.json'):
         self.db = TinyDB(db_file)
 
-    def store_transcript(self, transcript):
+    def store_data(self, transcript):
         """
         Store a new transcript in the database.
         """

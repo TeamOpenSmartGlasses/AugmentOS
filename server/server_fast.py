@@ -7,7 +7,7 @@ from typing import List
 
 import warnings
 
-from augmentos_client.augmentos_client.DataTypes import AugmentOsDataTypes
+from apps.DataTypes import AugmentOsDataTypes
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 import asyncio
@@ -90,7 +90,7 @@ async def chat_handler(request: Request):
     transcript = db_handler.save_transcript_for_user(user_id=user_id, device_id=device_id, text=text, is_final=is_final, transcribe_language=transcribe_language)
     message = "Sending messages too fast" if not transcript else ""
 
-    connection_manager.smart_broadcast_data(user_id, AugmentOsDataTypes.TRANSCRIPT, transcript)
+    await connection_manager.smart_broadcast_data(user_id, AugmentOsDataTypes.TRANSCRIPT, transcript)
 
     return JSONResponse(content={'success': True, 'message': message}, status_code=200)
 
@@ -344,12 +344,13 @@ async def websocket_endpoint(websocket: WebSocket, app_id: str):
     try:
         while True:
             data = await websocket.receive_text()
-            print(f"[server_fast.py] Received data from {app_id}: {data}")
+            print(f"[server_fast.py] Received data from {app_id}...")
             
             try:
                 # TODO: Do some authentication, verify app_id is allowed to send us messages
 
                 data = json.loads(data)
+                print(f"Data:\n{json.dumps(data, indent=4)}")
                 # Now handle the parsed data based on its type
                 await handle_tpa_message(data, app_id, websocket)
                 
@@ -363,32 +364,16 @@ async def handle_tpa_message(data: dict, app_id: str, websocket: WebSocket):
     """
     Handle the incoming JSON message from a TPA.
     """
-    message_type = data.get("type")
-    user_id = data.get('user_id')
-    
+    message_type = data.get("type", None)
+    user_id = data.get('user_id', None)
+    if not user_id:
+        print("No user_id in tpa websocket message")
+        return
+
     if message_type == AugmentOsDataTypes.DISPLAY_REQUEST:
         # Extract data specific to the display request
         display_data = data.get("data", {})
-        preset = display_data.get("preset", "")
-        db_handler.add_display_request_for_user
-        if preset == AugmentOsDataTypes.TEXT_WALL:
-            pass
-        if preset == AugmentOsDataTypes.REFERENCE_CARD:
-            pass
-        if preset == AugmentOsDataTypes.ROWS_CARD:
-            pass
-        if preset == AugmentOsDataTypes.TEXT_LINE:
-            pass
-
-        # # For example, push this data to the OLED screen
-        # db_handler.add_display_request_for_user(user_id, text)
-
-        # print(f"[Display Request] Text: {text}")
-
-        # await asyncio.sleep(2)
-
-        # await connection_manager.send_data(app_id, {'message':"test123123123"})
-
+        db_handler.add_display_request_for_user(user_id, display_data)
     else:
         print(f"Unknown message type: {message_type}")
         await websocket.send_text("Unknown message type")
@@ -447,5 +432,5 @@ def start_background_processes():
 if __name__ == '__main__':
     print("Starting server...")
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=server_port)
+    uvicorn.run(app, host="0.0.0.0", port=server_port, log_level="info")
     start_background_processes()

@@ -8,8 +8,8 @@ from contextlib import asynccontextmanager
 from threading import Thread
 import uvicorn
 import aiohttp
-from DataStorage import *
-from augmentos_client.augmentos_client.DataTypes import AugmentOsDataTypes
+from augmentos_client.DataStorage import DataStorage
+from augmentos_client.DataTypes import AugmentOsDataTypes
 
 
 class TPAClient:
@@ -34,6 +34,8 @@ class TPAClient:
 
         self.on_other_received_callback = None
         self.on_transcript_received_callback = None
+        self.on_location_received_callback = None
+        self.on_camera_received_callback = None
 
         # Start the FastAPI app in a separate thread
         self.app = FastAPI()
@@ -114,8 +116,9 @@ class TPAClient:
         while self.websocket:
             try:
                 data = await self.websocket.recv()
-                print(f"[{self.app_name}] Data received from AugmentOS: {data}")
-                await self.handle_augmentos_message(data)
+                json_data = json.loads(data)
+                print(f"[{self.app_name}] Data received from AugmentOS:\n{json.dumps(json_data, indent=4)}")
+                await self.handle_augmentos_message(json_data)
             except Exception as e:
                 print(f"[{self.app_name}] Error receiving data: {e}")
                 self.websocket = None
@@ -125,15 +128,15 @@ class TPAClient:
         message_type = data.get("type")
         user_id = data.get('user_id')
         
-        if message_type == "transcript":
-            transcript_data = data.get("data", {})
-            self.data_storage.store_transcript(data)
-            if self.on_transcript_received_callback:
-                self.on_transcript_received_callback(data)
-        else:
-            print(f"Unknown message type: {message_type}")
-            if self.on_other_received_callback:
-                self.on_other_received_callback(data)
+        self.data_storage.store_data(data)
+        if message_type == AugmentOsDataTypes.TRANSCRIPT and self.on_transcript_received_callback:
+            await self.on_transcript_received_callback(data)
+        elif message_type == AugmentOsDataTypes.LOCATION and self.on_location_received_callback:
+            await self.on_location_received_callback(data)
+        elif message_type == AugmentOsDataTypes.CAMERA and self.data_storage.store_data(data):
+            await self.on_camera_received_callback(data)
+        elif message_type == AugmentOsDataTypes.OTHER and self.on_other_received_callback:
+            await self.on_other_received_callback(data)
 
     async def send_data(self, data):
         """
@@ -228,16 +231,14 @@ class TPAClient:
             finally:
                 self.websocket = None
 
-    def on_data_received(self, callback):
-        """
-        Register a callback function to be called when data is received from AugmentOS.
-        
-        :param callback: A function that accepts a single `data` parameter.
-        """
-        self.callback = callback
-
     def on_other_received(self, callback):
         self.on_other_received_callback = callback
 
     def on_transcript_received(self, callback):
         self.on_transcript_received_callback = callback
+
+    def on_location_received(self, callback):
+        self.on_location_received_callback = callback
+
+    def on_camera_received(self, callback):
+        self.on_camera_received_callback = callback

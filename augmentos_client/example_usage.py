@@ -1,37 +1,45 @@
 import asyncio
 from augmentos_client import TPAClient
 
-def on_transcript(data):
-    print(f"[ExampleTPA on_transcript] Data received in callback: {data}")
+class ExampleTPA:
+    def __init__(self):
+        self.client = TPAClient(
+            app_id="com.exampletpa.example",
+            app_name="ExampleTPA",
+            app_description="An example app for AugmentOS",
+            server_url="http://localhost:8080",
+            subscriptions=["*"]
+        )
+        # Register callbacks
+        self.client.on_transcript_received(self.on_transcript)
+        self.client.on_location_received(self.on_location)
+        self.client.on_camera_received(self.on_camera)
+        self.client.on_other_received(self.on_other)
 
-def on_other(data):
-    print(f"[ExampleTPA on_other] Data received in callback: {data}")
+    async def on_transcript(self, data):
+        print(f"[ExampleTPA on_transcript] Data received in callback: {data}")
+        transcript_text = data['data']['text']
+        await self.client.send_reference_card(data['user_id'], "ExampleTitle", transcript_text)
+
+    async def on_location(self, data):
+        print(f"[ExampleTPA on_location] Data received in callback: {data}")
+
+    async def on_camera(self, data):
+        print(f"[ExampleTPA on_camera] Data received in callback: {data}")
+
+    async def on_other(self, data):
+        print(f"[ExampleTPA on_other] Data received in callback: {data}")
+
+    def start(self):
+        # Start the FastAPI server in a separate thread
+        self.client.start()
 
 async def main():
-    # Create a TPAClient instance
-    client = TPAClient(
-        app_id="com.exampletpa.example",
-        app_name="ExampleTPA",
-        app_description="An example app for AugmentOS",
-        server_url="http://localhost:8080",  # Base URL where AugmentOS is hosted
-        subscriptions=["*"]
-    )
-
-    # Register the callback function
-    client.on_transcript_received(on_transcript)
-    client.on_other_received(on_other)
-
-    # Start the FastAPI server in a separate thread
-    client.start()
-
-    # Send some data; the WebSocket connection will be initiated automatically if not already open
-    # await asyncio.sleep(4)
-    await client.send_display_request("Hello from ExampleTPA!")
-
+    example_tpa = ExampleTPA()
+    example_tpa.start()
     # Run indefinitely to keep the FastAPI app running
     while True:
         await asyncio.sleep(3600)
 
-# Run the example
 if __name__ == "__main__":
     asyncio.run(main())
