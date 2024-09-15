@@ -115,7 +115,7 @@ async def run_language_learning_agent(conversation_context: str, word_rank: dict
 
     # remove punctuation
     conversation_context = conversation_context
-    fluency_level = 15  # Example fluency level
+    fluency_level = 15  # hardcoded Example fluency level
     remove_pinyin = " (Pinyin)"
     output_language = source_language.replace(remove_pinyin, "")
     if transcribe_language == source_language:

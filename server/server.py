@@ -234,12 +234,16 @@ async def ui_poll_handler(request, minutes=0.5):
     explicit_insight_results = db_handler.get_explicit_insights_history_for_user(user_id=user_id, device_id=device_id)
     wake_word_time = db_handler.get_wake_word_time_for_user(user_id=user_id)
     resp["explicit_insight_queries"] = explicit_insight_queries
+    if explicit_insight_queries != []:
+        print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ EXPLICIT OUTPUT:")
+        print(explicit_insight_queries)
     resp["explicit_insight_results"] = explicit_insight_results
     resp["wake_word_time"] = wake_word_time
 
     #proactive agents
-    # Ignore proactive agents if we've had a query in past 15 seconds
-    if not explicit_insight_queries or (time.time() - explicit_insight_queries[-1]['timestamp'] < (1000 * 15)):
+    # Ignore proactive agents if we've had a query in past n seconds
+    n = 25
+    if not explicit_insight_queries or (time.time() - explicit_insight_queries[-1]['timestamp'] < (1000 * n)):
         agent_insight_results = db_handler.get_proactive_agents_insights_results_for_user_device(user_id=user_id, device_id=device_id)
         resp["results_proactive_agent_insights"] = agent_insight_results
 
