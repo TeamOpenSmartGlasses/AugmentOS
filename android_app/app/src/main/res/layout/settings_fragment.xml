@@ -126,17 +126,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sourceLanguageSpinner" />
 
-    <CheckBox
-        android:id="@+id/should_display_notifications_toggle"
-        android:layout_width="wrap_content"
-        android:layout_height="36dp"
-        android:text="Display Notifications"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/VocabularyUpgrade" />
+<!--    <CheckBox-->
+<!--        android:id="@+id/should_display_notifications_toggle"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="36dp"-->
+<!--        android:text="Display Notifications"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/VocabularyUpgrade" />-->
 
-    android_app/app/src/main/res/layout/settings_fragment.xml
     <!--    <TextView-->
 <!--        android:id="@+id/languageNameTitle"-->
 <!--        android:layout_width="wrap_content"-->
@@ -157,7 +156,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/should_display_notifications_toggle">
+        app:layout_constraintTop_toBottomOf="@+id/VocabularyUpgrade">
 
         <RadioButton
             android:id="@+id/languageLearning"

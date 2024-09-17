@@ -294,7 +294,7 @@ public class ConvoscopeUi extends Fragment {
             case R.id.radioButtonProactiveAgents:
               // Implement action for Proactive Agents
               Log.d(TAG, "PROACTIVE AGENTS MODE SELECTED");
-              ((MainActivity)getActivity()).mService.saveCurrentMode(mContext, "Convoscope");
+              ((MainActivity)getActivity()).mService.saveCurrentMode(mContext, "Proactive Agents");
               break;
             case R.id.radioButtonLanguageLearning:
               // Implement action for Language Learning
@@ -320,11 +320,11 @@ public class ConvoscopeUi extends Fragment {
         }
       });
 
-      if (!isNotificationServiceEnabled(getContext())) {
-        Toast.makeText(getContext(), "Please enable Notification Access for this app", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
-        startActivity(intent);
-      }
+//      if (!isNotificationServiceEnabled(getContext())) {
+//        Toast.makeText(getContext(), "Please enable Notification Access for this app", Toast.LENGTH_LONG).show();
+//        Intent intent = new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
+//        startActivity(intent);
+//      }
 
       ((MainActivity)getActivity()).startConvoscopeService();
     }

@@ -172,7 +172,7 @@ public class SettingsUi extends Fragment {
         // Retrieve the saved transcribe language
         String savedTranscribeLanguage = SmartGlassesAndroidService.getChosenTranscribeLanguage(mContext);
 
-        Boolean savedVocabularyUpgradeEnabled = ((MainActivity)getActivity()).mService.isVocabularyUpgradeEnabled(mContext);
+//        Boolean savedVocabularyUpgradeEnabled = ((MainActivity)getActivity()).mService.isVocabularyUpgradeEnabled(mContext);
 
         // Find the position of the saved language in the adapter
         int languageSpinnerPosition = transcribeAdapter.getPosition(savedTranscribeLanguage);
@@ -323,18 +323,18 @@ public class SettingsUi extends Fragment {
             }
         });
 
-        final CheckBox shouldDisplayNotificationsCheckbox = view.findViewById(R.id.should_display_notifications_toggle);
-        final boolean isShouldDisplayNotificationsChecked = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("should_display_notifications", false);
-        shouldDisplayNotificationsCheckbox.setChecked(isShouldDisplayNotificationsChecked);
-        shouldDisplayNotificationsCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                PreferenceManager.getDefaultSharedPreferences(getContext())
-                        .edit()
-                        .putBoolean("should_display_notifications", isChecked)
-                        .apply();
-            }
-        });
+//        final CheckBox shouldDisplayNotificationsCheckbox = view.findViewById(R.id.should_display_notifications_toggle);
+//        final boolean isShouldDisplayNotificationsChecked = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("should_display_notifications", false);
+//        shouldDisplayNotificationsCheckbox.setChecked(isShouldDisplayNotificationsChecked);
+//        shouldDisplayNotificationsCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+//                PreferenceManager.getDefaultSharedPreferences(getContext())
+//                        .edit()
+//                        .putBoolean("should_display_notifications", isChecked)
+//                        .apply();
+//            }
+//        });
 
     }
 

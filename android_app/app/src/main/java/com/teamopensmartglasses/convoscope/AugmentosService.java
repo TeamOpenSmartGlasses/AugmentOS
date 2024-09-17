@@ -82,7 +82,7 @@ import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlasse
 import com.teamopensmartglasses.smartglassesmanager.supportedglasses.SmartGlassesOperatingSystem;
 
 public class AugmentosService extends SmartGlassesAndroidService {
-    public final String TAG = "Convoscope_ConvoscopeService";
+    public final String TAG = "AugmentOS_AugmentOSService";
 
     private final IBinder binder = new LocalBinder();
 
@@ -178,10 +178,10 @@ public class AugmentosService extends SmartGlassesAndroidService {
 
     public AugmentosService() {
         super(ConvoscopeUi.class,
-                "convoscope_app",
-                3588,
-                "Convoscope",
-                "Wearable intelligence upgrades. By TeamOpenSmartGlasses.", R.drawable.ic_launcher_foreground);
+                "augmentos_app",
+                3589,
+                "AugmentOS",
+                "Smart glasses super app by TOSG.", R.drawable.ic_launcher_foreground);
     }
 
     @Override
@@ -210,7 +210,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
 //        Log.d(TAG, "ASR KEY: " + asrApiKey);
         saveApiKey(this, asrApiKey);
 
-        startNotificationService();
+//        startNotificationService();
 
         completeInitialization();
     }
@@ -360,7 +360,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
             firebaseAuth.removeIdTokenListener(idTokenListener);
         }
 
-        stopNotificationService();
+//        stopNotificationService();
 
         if (displayQueue != null) displayQueue.stopQueue();
 
@@ -368,7 +368,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
     }
 
     public void convoscopeStartCommandCallback(String args, long commandTriggeredTime){
-        Log.d("TAG","Convoscope start callback called");
+        Log.d("TAG","AugmentOS start callback called");
         //runConvoscope();
     }
 
@@ -1445,7 +1445,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
     public String getCurrentMode(Context context) {
         String currentModeString = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_CURRENT_MODE), "");
         if (currentModeString.equals("")){
-            currentModeString = "Convoscope";
+            currentModeString = "Proactive Agents";
             saveCurrentMode(context, currentModeString);
         }
         return currentModeString;
