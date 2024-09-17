@@ -173,6 +173,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
     private final long doublePressTimeConst = 420;
     private final long doubleTapTimeConst = 600;
     private boolean segmenterLoaded = false;
+    private boolean segmenterLoading = false;
 
     private DisplayQueue displayQueue;
 
@@ -528,14 +529,20 @@ public class AugmentosService extends SmartGlassesAndroidService {
     private void showTranscriptsToUser(final String transcript, final boolean isFinal, final boolean isTranslated) {
         String processed_transcript;
 
+        processed_transcript = transcript;
         if (!isTranslated && getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)") ||
             isTranslated && (
                 getChosenSourceLanguage(this).equals("Chinese (Pinyin)") ||
                 getChosenTargetLanguage(this).equals("Chinese (Pinyin)") && getChosenTranscribeLanguage(this).equals(getChosenSourceLanguage(this)))
         ) {
-            processed_transcript = convertToPinyin(transcript);
-        } else {
-            processed_transcript = transcript;
+            if (!segmenterLoaded) {
+                if (!segmenterLoading) {
+                    segmenterLoading = true;
+                    new Thread(() -> {
+                        convertToPinyin("");
+                    }).start();
+                }
+            } else processed_transcript = convertToPinyin(transcript);
         }
 
         if (super.getSelectedLiveCaptionsTranslation(this) == 2) sendTextWallLiveTranslationLiveCaption(processed_transcript, isFinal, isTranslated);
@@ -544,12 +551,13 @@ public class AugmentosService extends SmartGlassesAndroidService {
 
     private String convertToPinyin(final String chineseText) {
         if (!segmenterLoaded) {
-            sendDoubleTextWall("Loading Pinyin Converter, Please Wait...", "");
+            displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall("Loading Pinyin Converter, Please Wait..."), true, false));
         }
         final JiebaSegmenter segmenter = new JiebaSegmenter();
         if (!segmenterLoaded) {
-            sendDoubleTextWall("Pinyin Converter Loaded!", "");
+            displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall("Pinyin Converter Loaded!"), true, false));
             segmenterLoaded = true;
+            segmenterLoading = false;
         }
 //        if (!segmenterLoaded){
 //            return chineseText;
@@ -943,15 +951,15 @@ public class AugmentosService extends SmartGlassesAndroidService {
 
         final String finalLiveCaption = oldLiveCaptionText + currentLiveCaptionText;
 
-        displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(llCurrentString, finalLiveCaption), false, true));
+        displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(llCurrentString, finalLiveCaption), true, false));
     }
 
     public void sendTextWallLiveTranslationLiveCaption(final String newText, final boolean isFinal, final boolean isTranslated) {
         if (!newText.isEmpty()) {
             if (isTranslated) {
-                updateText(translationTexts, newText, isFinal, isTranslated);
+                updateText(translationTexts, newText, isFinal, true);
             } else {
-                updateText(liveCaptionTexts, newText, isFinal, isTranslated);
+                updateText(liveCaptionTexts, newText, isFinal, false);
             }
         }
 
@@ -973,8 +981,10 @@ public class AugmentosService extends SmartGlassesAndroidService {
         if (!liveCaptionTexts[1].isEmpty()) liveCaptionCombinedText += textBubble + processString(liveCaptionTexts[1]);
         else liveCaptionCombinedText += "\n\n";
 
+        final String finalLiveCaptionCombinedText = liveCaptionCombinedText;
+        final String finalLiveTranslationCombinedText = liveTranslationCombinedText;
 
-        sendDoubleTextWall(liveTranslationCombinedText, liveCaptionCombinedText);
+        displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(finalLiveTranslationCombinedText, finalLiveCaptionCombinedText), true, false));
     }
 
     private void updateText(String[] texts, final String newText, final boolean isFinal, boolean isTranslated) {
@@ -990,12 +1000,6 @@ public class AugmentosService extends SmartGlassesAndroidService {
         }
         texts[1] = newText;
     }
-
-    private void truncateTexts(String[] texts) {
-        texts[0] = texts[0].length() > charsPerTranscript ? texts[0].substring(texts[0].length() - charsPerTranscript) : texts[0];
-        texts[1] = texts[1].length() > charsPerTranscript ? texts[1].substring(texts[1].length() - charsPerTranscript) : texts[1];
-    }
-
 
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
         if (getChosenTargetLanguage(this).equals("Chinese (Pinyin)") && getSelectedLiveCaptionsTranslation(this) != 0 && !segmenterLoaded) return;
