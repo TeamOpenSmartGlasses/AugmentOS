@@ -144,7 +144,7 @@ public class AugmentosService extends SmartGlassesAndroidService {
     private final int maxAdhdStmbShowNum = 3;
     private final int maxContextConvoResponsesShow = 2;
     private final int maxLLUpgradeResponsesShow = 2;
-    private final int charsPerTranscript = 60;
+    private final int charsPerTranscript = 90;
 
 
     //    private SMSComms smsComms;
@@ -166,8 +166,8 @@ public class AugmentosService extends SmartGlassesAndroidService {
 
     private String oldLiveCaptionText = "";
     private String oldLiveTranslationText = "";
-    private String[] translationTexts = {"", ""}; // [oldTranslation, currentTranslation]
-    private String[] liveCaptionTexts = {"", ""}; // [oldLiveCaption, currentLiveCaption]
+    private String translationText = ""; // [oldTranslation, currentTranslation]
+    private String liveCaptionText = ""; // [oldLiveCaption, currentLiveCaption]
 
     // Double clicking constants
     private final long doublePressTimeConst = 420;
@@ -212,6 +212,15 @@ public class AugmentosService extends SmartGlassesAndroidService {
         saveApiKey(this, asrApiKey);
 
 //        startNotificationService();
+
+        if (
+            (super.getSelectedLiveCaptionsTranslation(this) == 1 && getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)")) ||
+            (super.getSelectedLiveCaptionsTranslation(this) == 2 && (getChosenSourceLanguage(this).equals("Chinese (Pinyin)") ||
+                getChosenTargetLanguage(this).equals("Chinese (Pinyin)") && getChosenTranscribeLanguage(this).equals(getChosenSourceLanguage(this)))
+            )
+        ) {
+            new Thread(this::loadSegmenter).start();
+        }
 
         completeInitialization();
     }
@@ -527,41 +536,32 @@ public class AugmentosService extends SmartGlassesAndroidService {
     }
 
     private void showTranscriptsToUser(final String transcript, final boolean isFinal, final boolean isTranslated) {
-        String processed_transcript;
+        String processed_transcript = transcript;
 
-        processed_transcript = transcript;
         if (!isTranslated && getChosenTranscribeLanguage(this).equals("Chinese (Pinyin)") ||
             isTranslated && (
                 getChosenSourceLanguage(this).equals("Chinese (Pinyin)") ||
                 getChosenTargetLanguage(this).equals("Chinese (Pinyin)") && getChosenTranscribeLanguage(this).equals(getChosenSourceLanguage(this)))
         ) {
-            if (!segmenterLoaded) {
-                if (!segmenterLoading) {
-                    segmenterLoading = true;
-                    new Thread(() -> {
-                        convertToPinyin("");
-                    }).start();
-                }
-            } else processed_transcript = convertToPinyin(transcript);
+            if(segmenterLoaded) processed_transcript = convertToPinyin(transcript);
+            else if (!segmenterLoading) new Thread(this::loadSegmenter).start();
         }
 
         if (super.getSelectedLiveCaptionsTranslation(this) == 2) sendTextWallLiveTranslationLiveCaption(processed_transcript, isFinal, isTranslated);
         else sendTextWallLiveCaptionLL(processed_transcript, isFinal, "");
     }
 
-    private String convertToPinyin(final String chineseText) {
-        if (!segmenterLoaded) {
-            displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall("Loading Pinyin Converter, Please Wait..."), true, false));
-        }
+    private void loadSegmenter() {
+        displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall("Loading Pinyin Converter, Please Wait..."), true, false));
+        segmenterLoading = true;
         final JiebaSegmenter segmenter = new JiebaSegmenter();
-        if (!segmenterLoaded) {
-            displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall("Pinyin Converter Loaded!"), true, false));
-            segmenterLoaded = true;
-            segmenterLoading = false;
-        }
-//        if (!segmenterLoaded){
-//            return chineseText;
-//        }
+        segmenterLoaded = true;
+        segmenterLoading = false;
+        displayQueue.addTask(new DisplayQueue.Task(() -> sendTextWall("Pinyin Converter Loaded!"), true, false));
+    }
+
+    private String convertToPinyin(final String chineseText) {
+        final JiebaSegmenter segmenter = new JiebaSegmenter();
 
         final List<SegToken> tokens = segmenter.process(chineseText, JiebaSegmenter.SegMode.SEARCH);
 
@@ -906,50 +906,53 @@ public class AugmentosService extends SmartGlassesAndroidService {
             str = str.substring(str.length() - charsPerTranscript);
         }
 
-        // Add newline at the last space before charsPerLine
-        if (str.length() > charsPerTranscript / 2) {
-            int index = charsPerTranscript / 2;
+        int len = str.length();
+        if (len > 2 * charsPerTranscript / 3) {
+            // Insert newlines to split into three lines
+            int index1 = len / 3;
+            int index2 = 2 * len / 3;
+
+            // Find the last space before index1
+            while (index1 > 0 && str.charAt(index1) != ' ') {
+                index1--;
+            }
+            // Insert first newline
+            if (index1 > 0) {
+                str = str.substring(0, index1) + "\n" + str.substring(index1 + 1);
+                index2 += 1; // Adjust index2 after insertion
+            }
+
+            // Find the last space before index2
+            while (index2 > index1 && str.charAt(index2) != ' ') {
+                index2--;
+            }
+            // Insert second newline
+            if (index2 > index1) {
+                str = str.substring(0, index2) + "\n" + str.substring(index2 + 1);
+            }
+        } else if (len > charsPerTranscript / 3) {
+            // Insert newline to split into two lines
+            int index = len / 2;
             while (index > 0 && str.charAt(index) != ' ') {
                 index--;
             }
             if (index > 0) {
-                str = str.substring(0, index) + "\n" + str.substring(index + 1);
+                str = str.substring(0, index) + "\n" + str.substring(index + 1) + "\n";
             }
-            if (str.endsWith("\n")) {
-                str = str.substring(0, str.length() - 1);
-            }
-        } else str = str + "\n";
+        } else {
+            str = str + "\n\n";
+        }
+
         return str;
     }
 
     public void sendTextWallLiveCaptionLL(final String newLiveCaption, final boolean isLiveCaptionFinal, final String llString) {
+        String textBubble = "\uD83D\uDDE8";
         if (!newLiveCaption.isEmpty()) {
-            if (!oldLiveCaption.isEmpty()) {
-                oldLiveCaptionFinal = oldLiveCaption;
-                oldLiveCaption = "";
-            }
-            if (isLiveCaptionFinal) oldLiveCaption = currentLiveCaption; // Only update old caption if the new one is final
-            currentLiveCaption = processString(newLiveCaption);
+            currentLiveCaption = newLiveCaption;
         }
         if (!llString.isEmpty()) llCurrentString = llString;
-
-        String textBubble = "\uD83D\uDDE8";
-        String oldLiveCaptionText = "";
-        if (!oldLiveCaptionFinal.isEmpty()) {
-            oldLiveCaptionText = textBubble + oldLiveCaptionFinal + "\n";
-        } else oldLiveCaptionText = "\n\n";
-
-        String currentLiveCaptionText = "";
-        if (!currentLiveCaption.isEmpty()) {
-            currentLiveCaptionText = textBubble + currentLiveCaption;
-        } else currentLiveCaptionText = "\n\n";
-
-        //        if (!clearedScreenYet) {
-        //            sendHomeScreen();
-        //            clearedScreenYet = true;
-        //        }
-
-        final String finalLiveCaption = oldLiveCaptionText + currentLiveCaptionText;
+        final String finalLiveCaption = textBubble + processString(currentLiveCaption);
 
         displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(llCurrentString, finalLiveCaption), true, false));
     }
@@ -957,52 +960,27 @@ public class AugmentosService extends SmartGlassesAndroidService {
     public void sendTextWallLiveTranslationLiveCaption(final String newText, final boolean isFinal, final boolean isTranslated) {
         if (!newText.isEmpty()) {
             if (isTranslated) {
-                updateText(translationTexts, newText, isFinal, true);
+                translationText = newText;
             } else {
-                updateText(liveCaptionTexts, newText, isFinal, false);
+                liveCaptionText = newText;
             }
         }
 
         String textBubble = "\uD83D\uDDE8";
 
-        // Process translation texts
-        String liveTranslationCombinedText = "";
-        if (!translationTexts[0].isEmpty()) liveTranslationCombinedText += textBubble + processString(translationTexts[0]) + "\n";
-        else liveTranslationCombinedText += "\n\n";
+        final String finalLiveTranslationText;
+        if (!liveCaptionText.isEmpty()) finalLiveTranslationText = textBubble + processString(translationText) + "\n";
+        else finalLiveTranslationText = "\n\n\n";
 
-        if (!translationTexts[1].isEmpty()) liveTranslationCombinedText += textBubble + processString(translationTexts[1]);
-        else liveTranslationCombinedText += "\n\n";
+        final String finalLiveCaptionText;
+        if (!translationText.isEmpty()) finalLiveCaptionText = textBubble + processString(liveCaptionText);
+        else finalLiveCaptionText = "\n\n\n";
 
-        // Process caption texts
-        String liveCaptionCombinedText = "";
-        if (!liveCaptionTexts[0].isEmpty()) liveCaptionCombinedText += textBubble + processString(liveCaptionTexts[0]) + "\n";
-        else liveCaptionCombinedText += "\n\n";
-
-        if (!liveCaptionTexts[1].isEmpty()) liveCaptionCombinedText += textBubble + processString(liveCaptionTexts[1]);
-        else liveCaptionCombinedText += "\n\n";
-
-        final String finalLiveCaptionCombinedText = liveCaptionCombinedText;
-        final String finalLiveTranslationCombinedText = liveTranslationCombinedText;
-
-        displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(finalLiveTranslationCombinedText, finalLiveCaptionCombinedText), true, false));
-    }
-
-    private void updateText(String[] texts, final String newText, final boolean isFinal, boolean isTranslated) {
-        if (!oldLiveTranslationText.isEmpty() && isTranslated || !oldLiveCaptionText.isEmpty() && !isTranslated) {
-            texts[0] = isTranslated ? oldLiveTranslationText : oldLiveCaptionText;
-            if (isTranslated) oldLiveTranslationText = "";
-            else oldLiveCaptionText = "";
-        }
-
-        if (isFinal) {
-            if (isTranslated) oldLiveTranslationText = texts[1];
-            else oldLiveCaptionText = texts[1];
-        }
-        texts[1] = newText;
+        displayQueue.addTask(new DisplayQueue.Task(() -> sendDoubleTextWall(finalLiveTranslationText, finalLiveCaptionText), true, false));
     }
 
     public void parseConvoscopeResults(JSONObject response) throws JSONException {
-        if (getChosenTargetLanguage(this).equals("Chinese (Pinyin)") && getSelectedLiveCaptionsTranslation(this) != 0 && !segmenterLoaded) return;
+        if (getSelectedLiveCaptionsTranslation(this) == 2) return;
 //        Log.d(TAG, "GOT CSE RESULT: " + response.toString());
         String imgKey = "image_url";
         String mapImgKey = "map_image_path";
